@@ -61,6 +61,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：DFS 模拟**
+
+我们从起点 $(0, 0)$ 开始模拟机器人的清扫过程，每次清扫当前位置，然后向前走一步，如果碰到墙壁或者已经清扫过的位置，就顺时针旋转 90 度，然后继续清扫。
+
+过程中，我们用一个三元组 $(i, j, k)$ 表示机器人当前的位置 $(i, j)$ 和朝向 $k$，其中 $k$ 的取值范围为 $0, 1, 2, 3$，分别表示朝右、朝下、朝左、朝上。我们用一个集合 `vis` 记录所有访问过的状态三元组。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为房间的行数和列数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -68,7 +76,26 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def numberOfCleanRooms(self, room: List[List[int]]) -> int:
+        def dfs(i, j, k):
+            if (i, j, k) in vis:
+                return
+            nonlocal ans
+            ans += room[i][j] == 0
+            room[i][j] = -1
+            vis.add((i, j, k))
+            x, y = i + dirs[k], j + dirs[k + 1]
+            if 0 <= x < len(room) and 0 <= y < len(room[0]) and room[x][y] != 1:
+                dfs(x, y, k)
+            else:
+                dfs(i, j, (k + 1) % 4)
 
+        vis = set()
+        dirs = (0, 1, 0, -1, 0)
+        ans = 0
+        dfs(0, 0, 0)
+        return ans
 ```
 
 ### **Java**
@@ -76,7 +103,97 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private boolean[][][] vis;
+    private int[][] room;
+    private int ans;
 
+    public int numberOfCleanRooms(int[][] room) {
+        vis = new boolean[room.length][room[0].length][4];
+        this.room = room;
+        dfs(0, 0, 0);
+        return ans;
+    }
+
+    private void dfs(int i, int j, int k) {
+        if (vis[i][j][k]) {
+            return;
+        }
+        int[] dirs = {0, 1, 0, -1, 0};
+        ans += room[i][j] == 0 ? 1 : 0;
+        room[i][j] = -1;
+        vis[i][j][k] = true;
+        int x = i + dirs[k], y = j + dirs[k + 1];
+        if (x >= 0 && x < room.length && y >= 0 && y < room[0].length && room[x][y] != 1) {
+            dfs(x, y, k);
+        } else {
+            dfs(i, j, (k + 1) % 4);
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numberOfCleanRooms(vector<vector<int>>& room) {
+        int m = room.size(), n = room[0].size();
+        bool vis[m][n][4];
+        memset(vis, false, sizeof(vis));
+        int dirs[5] = {0, 1, 0, -1, 0};
+        int ans = 0;
+        function<void(int, int, int)> dfs = [&](int i, int j, int k) {
+            if (vis[i][j][k]) {
+                return;
+            }
+            ans += room[i][j] == 0;
+            room[i][j] = -1;
+            vis[i][j][k] = true;
+            int x = i + dirs[k], y = j + dirs[k + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && room[x][y] != 1) {
+                dfs(x, y, k);
+            } else {
+                dfs(i, j, (k + 1) % 4);
+            }
+        };
+        dfs(0, 0, 0);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numberOfCleanRooms(room [][]int) (ans int) {
+	m, n := len(room), len(room[0])
+	vis := make([][][4]bool, m)
+	for i := range vis {
+		vis[i] = make([][4]bool, n)
+	}
+	dirs := [5]int{0, 1, 0, -1, 0}
+	var dfs func(i, j, k int)
+	dfs = func(i, j, k int) {
+		if vis[i][j][k] {
+			return
+		}
+		if room[i][j] == 0 {
+			ans++
+			room[i][j] = -1
+		}
+		vis[i][j][k] = true
+		x, y := i+dirs[k], j+dirs[k+1]
+		if x >= 0 && x < m && y >= 0 && y < n && room[x][y] != 1 {
+			dfs(x, y, k)
+		} else {
+			dfs(i, j, (k+1)%4)
+		}
+	}
+	dfs(0, 0, 0)
+	return
+}
 ```
 
 ### **...**

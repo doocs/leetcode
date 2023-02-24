@@ -60,13 +60,122 @@ The robot has cleaned 1 space, so return 1.
 ### **Python3**
 
 ```python
+class Solution:
+    def numberOfCleanRooms(self, room: List[List[int]]) -> int:
+        def dfs(i, j, k):
+            if (i, j, k) in vis:
+                return
+            nonlocal ans
+            ans += room[i][j] == 0
+            room[i][j] = -1
+            vis.add((i, j, k))
+            x, y = i + dirs[k], j + dirs[k + 1]
+            if 0 <= x < len(room) and 0 <= y < len(room[0]) and room[x][y] != 1:
+                dfs(x, y, k)
+            else:
+                dfs(i, j, (k + 1) % 4)
 
+        vis = set()
+        dirs = (0, 1, 0, -1, 0)
+        ans = 0
+        dfs(0, 0, 0)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private boolean[][][] vis;
+    private int[][] room;
+    private int ans;
 
+    public int numberOfCleanRooms(int[][] room) {
+        vis = new boolean[room.length][room[0].length][4];
+        this.room = room;
+        dfs(0, 0, 0);
+        return ans;
+    }
+
+    private void dfs(int i, int j, int k) {
+        if (vis[i][j][k]) {
+            return;
+        }
+        int[] dirs = {0, 1, 0, -1, 0};
+        ans += room[i][j] == 0 ? 1 : 0;
+        room[i][j] = -1;
+        vis[i][j][k] = true;
+        int x = i + dirs[k], y = j + dirs[k + 1];
+        if (x >= 0 && x < room.length && y >= 0 && y < room[0].length && room[x][y] != 1) {
+            dfs(x, y, k);
+        } else {
+            dfs(i, j, (k + 1) % 4);
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numberOfCleanRooms(vector<vector<int>>& room) {
+        int m = room.size(), n = room[0].size();
+        bool vis[m][n][4];
+        memset(vis, false, sizeof(vis));
+        int dirs[5] = {0, 1, 0, -1, 0};
+        int ans = 0;
+        function<void(int, int, int)> dfs = [&](int i, int j, int k) {
+            if (vis[i][j][k]) {
+                return;
+            }
+            ans += room[i][j] == 0;
+            room[i][j] = -1;
+            vis[i][j][k] = true;
+            int x = i + dirs[k], y = j + dirs[k + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && room[x][y] != 1) {
+                dfs(x, y, k);
+            } else {
+                dfs(i, j, (k + 1) % 4);
+            }
+        };
+        dfs(0, 0, 0);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numberOfCleanRooms(room [][]int) (ans int) {
+	m, n := len(room), len(room[0])
+	vis := make([][][4]bool, m)
+	for i := range vis {
+		vis[i] = make([][4]bool, n)
+	}
+	dirs := [5]int{0, 1, 0, -1, 0}
+	var dfs func(i, j, k int)
+	dfs = func(i, j, k int) {
+		if vis[i][j][k] {
+			return
+		}
+		if room[i][j] == 0 {
+			ans++
+			room[i][j] = -1
+		}
+		vis[i][j][k] = true
+		x, y := i+dirs[k], j+dirs[k+1]
+		if x >= 0 && x < m && y >= 0 && y < n && room[x][y] != 1 {
+			dfs(x, y, k)
+		} else {
+			dfs(i, j, (k+1)%4)
+		}
+	}
+	dfs(0, 0, 0)
+	return
+}
 ```
 
 ### **...**
