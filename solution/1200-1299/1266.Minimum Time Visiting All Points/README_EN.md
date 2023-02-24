@@ -57,12 +57,9 @@ Total time = 7 seconds</pre>
 ```python
 class Solution:
     def minTimeToVisitAllPoints(self, points: List[List[int]]) -> int:
-        res = 0
-        x0, y0 = points[0][0], points[0][1]
-        for x1, y1 in points[1:]:
-            res += max(abs(x0 - x1), abs(y0 - y1))
-            x0, y0 = x1, y1
-        return res
+        return sum(
+            max(abs(p1[0] - p2[0]), abs(p1[1] - p2[1])) for p1, p2 in pairwise(points)
+        )
 ```
 
 ### **Java**
@@ -70,13 +67,13 @@ class Solution:
 ```java
 class Solution {
     public int minTimeToVisitAllPoints(int[][] points) {
-        int res = 0;
+        int ans = 0;
         for (int i = 1; i < points.length; ++i) {
-            int x0 = points[i - 1][0], y0 = points[i - 1][1];
-            int x1 = points[i][0], y1 = points[i][1];
-            res += Math.max(Math.abs(x0 - x1), Math.abs(y0 - y1));
+            int dx = Math.abs(points[i][0] - points[i - 1][0]);
+            int dy = Math.abs(points[i][1] - points[i - 1][1]);
+            ans += Math.max(dx, dy);
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -87,13 +84,13 @@ class Solution {
 class Solution {
 public:
     int minTimeToVisitAllPoints(vector<vector<int>>& points) {
-        int res = 0;
+        int ans = 0;
         for (int i = 1; i < points.size(); ++i) {
-            int x0 = points[i - 1][0], y0 = points[i - 1][1];
-            int x1 = points[i][0], y1 = points[i][1];
-            res += max(abs(x0 - x1), abs(y0 - y1));
+            int dx = abs(points[i][0] - points[i - 1][0]);
+            int dy = abs(points[i][1] - points[i - 1][1]);
+            ans += max(dx, dy);
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -101,14 +98,13 @@ public:
 ### **Go**
 
 ```go
-func minTimeToVisitAllPoints(points [][]int) int {
-	res := 0
-	for i := 1; i < len(points); i++ {
-		x0, y0 := points[i-1][0], points[i-1][1]
-		x1, y1 := points[i][0], points[i][1]
-		res += max(abs(x0-x1), abs(y0-y1))
+func minTimeToVisitAllPoints(points [][]int) (ans int) {
+	for i, p := range points[1:] {
+		dx := abs(p[0] - points[i][0])
+		dy := abs(p[1] - points[i][1])
+		ans += max(dx, dy)
 	}
-	return res
+	return
 }
 
 func max(a, b int) int {
@@ -118,11 +114,11 @@ func max(a, b int) int {
 	return b
 }
 
-func abs(a int) int {
-	if a > 0 {
-		return a
+func abs(x int) int {
+	if x < 0 {
+		return -x
 	}
-	return -a
+	return x
 }
 ```
 

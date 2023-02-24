@@ -1,11 +1,10 @@
-func minTimeToVisitAllPoints(points [][]int) int {
-	res := 0
-	for i := 1; i < len(points); i++ {
-		x0, y0 := points[i-1][0], points[i-1][1]
-		x1, y1 := points[i][0], points[i][1]
-		res += max(abs(x0-x1), abs(y0-y1))
+func minTimeToVisitAllPoints(points [][]int) (ans int) {
+	for i, p := range points[1:] {
+		dx := abs(p[0] - points[i][0])
+		dy := abs(p[1] - points[i][1])
+		ans += max(dx, dy)
 	}
-	return res
+	return
 }
 
 func max(a, b int) int {
@@ -15,9 +14,9 @@ func max(a, b int) int {
 	return b
 }
 
-func abs(a int) int {
-	if a > 0 {
-		return a
+func abs(x int) int {
+	if x < 0 {
+		return -x
 	}
-	return -a
+	return x
 }

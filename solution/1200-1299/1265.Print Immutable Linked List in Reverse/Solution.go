@@ -1,7 +1,7 @@
 /*   Below is the interface for ImmutableListNode, which is already defined for you.
  *
  *   type ImmutableListNode struct {
- *       
+ *
  *   }
  *
  *   func (this *ImmutableListNode) getNext() ImmutableListNode {
@@ -13,9 +13,9 @@
  *   }
  */
 
- func printLinkedListInReverse(head ImmutableListNode) {
-    if head != nil {
-        printLinkedListInReverse(head.getNext())
-        head.printValue()
-    }
+func printLinkedListInReverse(head ImmutableListNode) {
+	if head != nil {
+		printLinkedListInReverse(head.getNext())
+		head.printValue()
+	}
 }

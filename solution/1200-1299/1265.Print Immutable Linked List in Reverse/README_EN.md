@@ -151,10 +151,10 @@ public:
  */
 
 func printLinkedListInReverse(head ImmutableListNode) {
-    if head != nil {
-        printLinkedListInReverse(head.getNext())
-        head.printValue()
-    }
+	if head != nil {
+		printLinkedListInReverse(head.getNext())
+		head.printValue()
+	}
 }
 ```
 
