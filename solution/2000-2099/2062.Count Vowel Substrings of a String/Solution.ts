@@ -1,30 +1,20 @@
 function countVowelSubstrings(word: string): number {
-    const n = word.length;
-    let left = 0,
-        right = 0;
     let ans = 0;
-    while (right < n) {
-        if (!isVowel(word.charAt(right))) {
-            // 移动左指针
-            left = right + 1;
-        } else {
-            let cur = word.substring(left, right + 1).split('');
-            while (cur.length > 0) {
-                if (isValiedArr(cur)) {
-                    ans++;
-                }
-                cur.shift();
+    const n = word.length;
+    for (let i = 0; i < n; ++i) {
+        const t = new Set<string>();
+        for (let j = i; j < n; ++j) {
+            const c = word[j];
+            if (
+                !(c === 'a' || c === 'e' || c === 'i' || c === 'o' || c === 'u')
+            ) {
+                break;
+            }
+            t.add(c);
+            if (t.size === 5) {
+                ans++;
             }
         }
-        right++;
     }
     return ans;
-}
-
-function isVowel(char: string): boolean {
-    return ['a', 'e', 'i', 'o', 'u'].includes(char);
-}
-
-function isValiedArr(arr: Array<string>): boolean {
-    return new Set(arr).size == 5;
 }

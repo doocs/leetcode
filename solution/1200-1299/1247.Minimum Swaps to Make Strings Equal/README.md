@@ -59,9 +59,9 @@
 
 **方法一：贪心**
 
-根据题目描述，两个字符串 $s1$ 和 $s2$ 都只包含字符 `'x'` 和 `'y'`，且长度相同，因此可以将 $s1$ 和 $s2$ 中的字符一一对应起来，即 $s1[i]$ 和 $s2[i]$。
+根据题目描述，两个字符串 $s1$ 和 $s2$ 都只包含字符 $x$ 和 $y$，且长度相同，因此可以将 $s1$ 和 $s2$ 中的字符一一对应起来，即 $s1[i]$ 和 $s2[i]$。
 
-如果 $s1[i] = s2[i]$，则不需要交换，直接跳过即可。如果 $s1[i] \neq s2[i]$，则需要交换，我们统计 $s1[i]$ 和 $s2[i]$ 的组合情况，即 $s1[i] = 'x'$ 且 $s2[i] = 'y'$ 的情况，记为 $xy$，而 $s1[i] = 'y'$ 且 $s2[i] = 'x'$ 的情况，记为 $yx$。
+如果 $s1[i] = s2[i]$，则不需要交换，直接跳过即可。如果 $s1[i] \neq s2[i]$，则需要交换，我们统计 $s1[i]$ 和 $s2[i]$ 的组合情况，即 $s1[i] = x$ 且 $s2[i] = y$ 的情况，记为 $xy$，对于 $s1[i] = y$ 且 $s2[i] = x$ 的情况，记为 $yx$。
 
 如果 $xy + yx$ 为奇数，则无法完成交换，返回 $-1$。如果 $xy + yx$ 为偶数，则需要交换的次数为 $\left \lfloor \frac{x}{2} \right \rfloor$ + $\left \lfloor \frac{y}{2} \right \rfloor$ + $xy \mod{2}$ + $yx \mod{2}$。
 
@@ -147,13 +147,16 @@ func minimumSwap(s1 string, s2 string) int {
 	return xy/2 + yx/2 + xy%2 + yx%2
 }
 ```
+
 ### **JavaScript**
 
 ```js
 var minimumSwap = function (s1, s2) {
-    let xy = 0, yx = 0;
+    let xy = 0,
+        yx = 0;
     for (let i = 0; i < s1.length; ++i) {
-        const a = s1[i], b = s2[i];
+        const a = s1[i],
+            b = s2[i];
         if (a < b) {
             ++xy;
         }
@@ -164,7 +167,7 @@ var minimumSwap = function (s1, s2) {
     if ((xy + yx) % 2 === 1) {
         return -1;
     }
-    return Math.floor(xy / 2) + Math.floor(yx / 2) + xy % 2 + yx % 2;
+    return Math.floor(xy / 2) + Math.floor(yx / 2) + (xy % 2) + (yx % 2);
 };
 ```
 
