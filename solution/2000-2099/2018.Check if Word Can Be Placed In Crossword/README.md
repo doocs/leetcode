@@ -67,6 +67,27 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：枚举**
+
+我们可以枚举矩阵的每个位置 $(i, j)$，判断是否能以该位置为起点，从左到右或从右到左放置单词 `word`，或者从上到下或从下到上放置单词 `word`。
+
+该位置能作为起点需要满足以下条件：
+
+1. 如果要从从左到右放置单词 `word`，那么该位置必须是左边界，或者该位置左边的格子 `board[i][j - 1]` 是 `'#'`；
+2. 如果要从从右到左放置单词 `word`，那么该位置必须是右边界，或者该位置右边的格子 `board[i][j + 1]` 是 `'#'`；
+3. 如果要从从上到下放置单词 `word`，那么该位置必须是上边界，或者该位置上边的格子 `board[i - 1][j]` 是 `'#'`；
+4. 如果要从从下到上放置单词 `word`，那么该位置必须是下边界，或者该位置下边的格子 `board[i + 1][j]` 是 `'#'`。
+
+在满足上述条件的情况下，我们可以从该位置开始，判断是否能放置单词 `word`。我们设计一个函数 $check(i, j, a, b)$，表示从位置 $(i, j)$ 开始，沿着方向 $(a, b)$ 放置单词 `word` 是否合法。如果合法，返回 `true`，否则返回 `false`。
+
+函数 $check(i, j, a, b)$ 的实现如下：
+
+我们先获取当前方向的另一个边界位置 $(x, y)$，即 $(x, y) = (i + a \times k, j + b \times k)$，其中 $k$ 为单词 `word` 的长度。如果 $(x, y)$ 在矩阵内，并且 $(x, y)$ 的格子不是 `'#'`，则说明当前方向的另一个边界位置不是 `'#'`，因此不能放置单词 `word`，返回 `false`。
+
+否则，我们从位置 $(i, j)$ 开始，沿着方向 $(a, b)$ 遍历单词 `word`，如果遇到格子 `board[i][j]` 不是空格或者不是单词 `word` 的当前字符，说明不能放置单词 `word`，返回 `false`。如果遍历完单词 `word`，说明能放置单词 `word`，返回 `true`。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -74,7 +95,39 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def placeWordInCrossword(self, board: List[List[str]], word: str) -> bool:
+        def check(i, j, a, b):
+            x, y = i + a * k, j + b * k
+            if 0 <= x < m and 0 <= y < n and board[x][y] != '#':
+                return False
+            for c in word:
+                if (
+                    i < 0
+                    or i >= m
+                    or j < 0
+                    or j >= n
+                    or (board[i][j] != ' ' and board[i][j] != c)
+                ):
+                    return False
+                i, j = i + a, j + b
+            return True
 
+        m, n = len(board), len(board[0])
+        k = len(word)
+        for i in range(m):
+            for j in range(n):
+                left_to_right = (j == 0 or board[i][j - 1] == '#') and check(i, j, 0, 1)
+                right_to_left = (j == n - 1 or board[i][j + 1] == '#') and check(
+                    i, j, 0, -1
+                )
+                up_to_down = (i == 0 or board[i - 1][j] == '#') and check(i, j, 1, 0)
+                down_to_up = (i == m - 1 or board[i + 1][j] == '#') and check(
+                    i, j, -1, 0
+                )
+                if left_to_right or right_to_left or up_to_down or down_to_up:
+                    return True
+        return False
 ```
 
 ### **Java**
@@ -82,7 +135,120 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int m;
+    private int n;
+    private char[][] board;
+    private String word;
+    private int k;
 
+    public boolean placeWordInCrossword(char[][] board, String word) {
+        m = board.length;
+        n = board[0].length;
+        this.board = board;
+        this.word = word;
+        k = word.length();
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                boolean leftToRight = (j == 0 || board[i][j - 1] == '#') && check(i, j, 0, 1);
+                boolean rightToLeft = (j == n - 1 || board[i][j + 1] == '#') && check(i, j, 0, -1);
+                boolean upToDown = (i == 0 || board[i - 1][j] == '#') && check(i, j, 1, 0);
+                boolean downToUp = (i == m - 1 || board[i + 1][j] == '#') && check(i, j, -1, 0);
+                if (leftToRight || rightToLeft || upToDown || downToUp) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private boolean check(int i, int j, int a, int b) {
+        int x = i + a * k, y = j + b * k;
+        if (x >= 0 && x < m && y >= 0 && y < n && board[x][y] != '#') {
+            return false;
+        }
+        for (int p = 0; p < k; ++p) {
+            if (i < 0 || i >= m || j < 0 || j >= n || (board[i][j] != ' ' && board[i][j] != word.charAt(p))) {
+                return false;
+            }
+            i += a;
+            j += b;
+        }
+        return true;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool placeWordInCrossword(vector<vector<char>>& board, string word) {
+        int m = board.size(), n = board[0].size();
+        int k = word.size();
+        auto check = [&](int i, int j, int a, int b) {
+            int x = i + a * k, y = j + b * k;
+            if (x >= 0 && x < m && y >= 0 && y < n && board[x][y] != '#') {
+                return false;
+            }
+            for (char& c : word) {
+                if (i < 0 || i >= m || j < 0 || j >= n || (board[i][j] != ' ' && board[i][j] != c)) {
+                    return false;
+                }
+                i += a;
+                j += b;
+            }
+            return true;
+        };
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                bool leftToRight = (j == 0 || board[i][j - 1] == '#') && check(i, j, 0, 1);
+                bool rightToLeft = (j == n - 1 || board[i][j + 1] == '#') && check(i, j, 0, -1);
+                bool upToDown = (i == 0 || board[i - 1][j] == '#') && check(i, j, 1, 0);
+                bool downToUp = (i == m - 1 || board[i + 1][j] == '#') && check(i, j, -1, 0);
+                if (leftToRight || rightToLeft || upToDown || downToUp) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+};
+```
+
+### **Go**
+
+```go
+func placeWordInCrossword(board [][]byte, word string) bool {
+	m, n := len(board), len(board[0])
+	k := len(word)
+	check := func(i, j, a, b int) bool {
+		x, y := i+a*k, j+b*k
+		if x >= 0 && x < m && y >= 0 && y < n && board[x][y] != '#' {
+			return false
+		}
+		for _, c := range word {
+			if i < 0 || i >= m || j < 0 || j >= n || (board[i][j] != ' ' && board[i][j] != byte(c)) {
+				return false
+			}
+			i, j = i+a, j+b
+		}
+		return true
+	}
+	for i := range board {
+		for j := range board[i] {
+			leftToRight := (j == 0 || board[i][j-1] == '#') && check(i, j, 0, 1)
+			rightToLeft := (j == n-1 || board[i][j+1] == '#') && check(i, j, 0, -1)
+			upToDown := (i == 0 || board[i-1][j] == '#') && check(i, j, 1, 0)
+			downToUp := (i == m-1 || board[i+1][j] == '#') && check(i, j, -1, 0)
+			if leftToRight || rightToLeft || upToDown || downToUp {
+				return true
+			}
+		}
+	}
+	return false
+}
 ```
 
 ### **...**
