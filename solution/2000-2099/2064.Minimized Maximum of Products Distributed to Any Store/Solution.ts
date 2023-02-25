@@ -1,13 +1,13 @@
 function minimizedMaximum(n: number, quantities: number[]): number {
-    let left = 1,
-        right = 1e5;
+    let left = 1;
+    let right = 1e5;
     while (left < right) {
         const mid = (left + right) >> 1;
-        let s = 0;
-        for (let q of quantities) {
-            s += Math.floor((q - 1) / mid) + 1;
+        let cnt = 0;
+        for (const v of quantities) {
+            cnt += Math.ceil(v / mid);
         }
-        if (s <= n) {
+        if (cnt <= n) {
             right = mid;
         } else {
             left = mid + 1;

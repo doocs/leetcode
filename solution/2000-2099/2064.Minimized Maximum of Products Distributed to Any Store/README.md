@@ -66,7 +66,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-二分查找。
+**方法一：二分查找**
+
+我们注意到，如果分配给任意商店商品数目的最大值为 $x$，且满足题目要求，那么 $x+1$ 也一定满足题目要求，这存在着单调性。因此我们可以通过二分查找，找到一个最小的 $x$，使得 $x$ 满足题目要求。
+
+我们定义二分查找的左边界 $left=1$，右边界 $right=10^5$。对于二分查找的每一步，我们取中间值 $mid$，判断是否存在一个分配方案，使得分配给任意商店商品数目的最大值为 $mid$，如果存在，那么我们将右边界 $right$ 移动到 $mid$，否则将左边界 $left$ 移动到 $mid+1$。
+
+二分查找结束后，答案即为 $left$。
+
+时间复杂度 $O(m \times \log M)$，空间复杂度 $O(1)$。其中 $m$ 为商品种类数，而 $M$ 为商品数目的最大值，本题中 $M \leq 10^5$。
 
 <!-- tabs:start -->
 
@@ -77,15 +85,10 @@
 ```python
 class Solution:
     def minimizedMaximum(self, n: int, quantities: List[int]) -> int:
-        left, right = 1, int(1e5)
-        while left < right:
-            mid = (left + right) >> 1
-            s = sum([(q + mid - 1) // mid for q in quantities])
-            if s <= n:
-                right = mid
-            else:
-                left = mid + 1
-        return left
+        def check(x):
+            return sum((v + x - 1) // x for v in quantities) <= n
+
+        return 1 + bisect_left(range(1, 10**6), True, key=check)
 ```
 
 ### **Java**
@@ -98,11 +101,11 @@ class Solution {
         int left = 1, right = (int) 1e5;
         while (left < right) {
             int mid = (left + right) >> 1;
-            int s = 0;
-            for (int q : quantities) {
-                s += ((q + mid - 1) / mid);
+            int cnt = 0;
+            for (int v : quantities) {
+                cnt += (v + mid - 1) / mid;
             }
-            if (s <= n) {
+            if (cnt <= n) {
                 right = mid;
             } else {
                 left = mid + 1;
@@ -110,28 +113,6 @@ class Solution {
         }
         return left;
     }
-}
-```
-
-### **TypeScript**
-
-```ts
-function minimizedMaximum(n: number, quantities: number[]): number {
-    let left = 1,
-        right = 1e5;
-    while (left < right) {
-        const mid = (left + right) >> 1;
-        let s = 0;
-        for (let q of quantities) {
-            s += Math.floor((q - 1) / mid) + 1;
-        }
-        if (s <= n) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
-    }
-    return left;
 }
 ```
 
@@ -144,12 +125,15 @@ public:
         int left = 1, right = 1e5;
         while (left < right) {
             int mid = (left + right) >> 1;
-            int s = 0;
-            for (int& q : quantities) s += (q + mid - 1) / mid;
-            if (s <= n)
+            int cnt = 0;
+            for (int& v : quantities) {
+                cnt += (v + mid - 1) / mid;
+            }
+            if (cnt <= n) {
                 right = mid;
-            else
+            } else {
                 left = mid + 1;
+            }
         }
         return left;
     }
@@ -160,20 +144,36 @@ public:
 
 ```go
 func minimizedMaximum(n int, quantities []int) int {
-	left, right := 1, int(1e5)
-	for left < right {
-		mid := (left + right) >> 1
-		s := 0
-		for _, q := range quantities {
-			s += (q + mid - 1) / mid
+	return 1 + sort.Search(1e5, func(x int) bool {
+		x++
+		cnt := 0
+		for _, v := range quantities {
+			cnt += (v + x - 1) / x
 		}
-		if s <= n {
-			right = mid
-		} else {
-			left = mid + 1
-		}
-	}
-	return left
+		return cnt <= n
+	})
+}
+```
+
+### **TypeScript**
+
+```ts
+function minimizedMaximum(n: number, quantities: number[]): number {
+    let left = 1;
+    let right = 1e5;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        let cnt = 0;
+        for (const v of quantities) {
+            cnt += Math.ceil(v / mid);
+        }
+        if (cnt <= n) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
 }
 ```
 

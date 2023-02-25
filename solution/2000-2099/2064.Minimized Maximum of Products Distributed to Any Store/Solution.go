@@ -1,16 +1,10 @@
 func minimizedMaximum(n int, quantities []int) int {
-	left, right := 1, int(1e5)
-	for left < right {
-		mid := (left + right) >> 1
-		s := 0
-		for _, q := range quantities {
-			s += (q + mid - 1) / mid
+	return 1 + sort.Search(1e5, func(x int) bool {
+		x++
+		cnt := 0
+		for _, v := range quantities {
+			cnt += (v + x - 1) / x
 		}
-		if s <= n {
-			right = mid
-		} else {
-			left = mid + 1
-		}
-	}
-	return left
+		return cnt <= n
+	})
 }

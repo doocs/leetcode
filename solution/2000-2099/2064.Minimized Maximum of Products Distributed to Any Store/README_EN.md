@@ -69,15 +69,10 @@ Binary search.
 ```python
 class Solution:
     def minimizedMaximum(self, n: int, quantities: List[int]) -> int:
-        left, right = 1, int(1e5)
-        while left < right:
-            mid = (left + right) >> 1
-            s = sum([(q + mid - 1) // mid for q in quantities])
-            if s <= n:
-                right = mid
-            else:
-                left = mid + 1
-        return left
+        def check(x):
+            return sum((v + x - 1) // x for v in quantities) <= n
+
+        return 1 + bisect_left(range(1, 10**6), True, key=check)
 ```
 
 ### **Java**
@@ -88,11 +83,11 @@ class Solution {
         int left = 1, right = (int) 1e5;
         while (left < right) {
             int mid = (left + right) >> 1;
-            int s = 0;
-            for (int q : quantities) {
-                s += ((q + mid - 1) / mid);
+            int cnt = 0;
+            for (int v : quantities) {
+                cnt += (v + mid - 1) / mid;
             }
-            if (s <= n) {
+            if (cnt <= n) {
                 right = mid;
             } else {
                 left = mid + 1;
@@ -100,28 +95,6 @@ class Solution {
         }
         return left;
     }
-}
-```
-
-### **TypeScript**
-
-```ts
-function minimizedMaximum(n: number, quantities: number[]): number {
-    let left = 1,
-        right = 1e5;
-    while (left < right) {
-        const mid = (left + right) >> 1;
-        let s = 0;
-        for (let q of quantities) {
-            s += Math.floor((q - 1) / mid) + 1;
-        }
-        if (s <= n) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
-    }
-    return left;
 }
 ```
 
@@ -134,12 +107,15 @@ public:
         int left = 1, right = 1e5;
         while (left < right) {
             int mid = (left + right) >> 1;
-            int s = 0;
-            for (int& q : quantities) s += (q + mid - 1) / mid;
-            if (s <= n)
+            int cnt = 0;
+            for (int& v : quantities) {
+                cnt += (v + mid - 1) / mid;
+            }
+            if (cnt <= n) {
                 right = mid;
-            else
+            } else {
                 left = mid + 1;
+            }
         }
         return left;
     }
@@ -150,20 +126,36 @@ public:
 
 ```go
 func minimizedMaximum(n int, quantities []int) int {
-	left, right := 1, int(1e5)
-	for left < right {
-		mid := (left + right) >> 1
-		s := 0
-		for _, q := range quantities {
-			s += (q + mid - 1) / mid
+	return 1 + sort.Search(1e5, func(x int) bool {
+		x++
+		cnt := 0
+		for _, v := range quantities {
+			cnt += (v + x - 1) / x
 		}
-		if s <= n {
-			right = mid
-		} else {
-			left = mid + 1
-		}
-	}
-	return left
+		return cnt <= n
+	})
+}
+```
+
+### **TypeScript**
+
+```ts
+function minimizedMaximum(n: number, quantities: number[]): number {
+    let left = 1;
+    let right = 1e5;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        let cnt = 0;
+        for (const v of quantities) {
+            cnt += Math.ceil(v / mid);
+        }
+        if (cnt <= n) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
 }
 ```
 
