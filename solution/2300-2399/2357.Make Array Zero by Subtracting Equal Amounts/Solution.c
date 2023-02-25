@@ -1,4 +1,4 @@
-int minimumOperations(int *nums, int numsSize) {
+int minimumOperations(int* nums, int numsSize) {
     int vis[101] = {0};
     vis[0] = 1;
     int ans = 0;

@@ -1,4 +1,4 @@
-int singleNumber(int *nums, int numsSize) {
+int singleNumber(int* nums, int numsSize) {
     int ans = 0;
     for (int i = 0; i < 32; i++) {
         int count = 0;

@@ -14,7 +14,7 @@ public:
             }
         }
     }
-    
+
     int getKthAncestor(int node, int k) {
         for (int i = 17; ~i; --i) {
             if (k >> i & 1) {

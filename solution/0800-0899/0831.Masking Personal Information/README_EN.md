@@ -135,7 +135,9 @@ class Solution {
         s = sb.toString();
         int cnt = s.length() - 10;
         String suf = "***-***-" + s.substring(s.length() - 4);
-        return cnt == 0 ? suf : "+" + "*".repeat(cnt) + "-" + suf;
+        return cnt == 0 ? suf
+                        : "+"
+                + "*".repeat(cnt) + "-" + suf;
     }
 }
 ```

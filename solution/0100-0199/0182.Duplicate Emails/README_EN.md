@@ -19,7 +19,7 @@ Each row of this table contains an email. The emails will not contain uppercase 
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report all the duplicate emails.</p>
+<p>Write an SQL query to report all the duplicate emails. Note that it&#39;s guaranteed that the email&nbsp;field is not NULL.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 

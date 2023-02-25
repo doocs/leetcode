@@ -15,7 +15,7 @@ class Solution {
         }
         return left;
     }
-    
+
     private boolean check(int[] nums, int mx, int k) {
         int s = 1 << 30, cnt = 0;
         for (int x : nums) {

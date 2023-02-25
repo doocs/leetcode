@@ -18,7 +18,7 @@ class TreeAncestor {
             }
         }
     }
-    
+
     public int getKthAncestor(int node, int k) {
         for (int i = 17; i >= 0; --i) {
             if (((k >> i) & 1) == 1) {

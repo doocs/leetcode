@@ -121,7 +121,7 @@ class Solution {
 ```java
 class Solution {
     public int[] getNoZeroIntegers(int n) {
-        for (int a = 1; ; ++a) {
+        for (int a = 1;; ++a) {
             int b = n - a;
             if (f(a) && f(b)) {
                 return new int[] {a, b};

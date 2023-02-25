@@ -147,7 +147,7 @@ class Solution {
                 x ^= child.val;
             }
         }
-        for (int i = 0; ; ++i) {
+        for (int i = 0;; ++i) {
             if (tree.get(i).val == x) {
                 return tree.get(i);
             }
