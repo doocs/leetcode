@@ -55,13 +55,13 @@ The maximum difference occurs with i = 0 and j = 3, nums[j] - nums[i] = 10 - 1 =
 ```python
 class Solution:
     def maximumDifference(self, nums: List[int]) -> int:
-        mi = nums[0]
-        ans, n = -1, len(nums)
-        for i in range(1, n):
-            if nums[i] > mi:
-                ans = max(ans, nums[i] - mi)
+        mi = inf
+        ans = -1
+        for x in nums:
+            if x > mi:
+                ans = max(ans, x - mi)
             else:
-                mi = nums[i]
+                mi = x
         return ans
 ```
 
@@ -70,17 +70,61 @@ class Solution:
 ```java
 class Solution {
     public int maximumDifference(int[] nums) {
-        int mi = nums[0];
+        int mi = 1 << 30;
         int ans = -1;
-        for (int i = 1; i < nums.length; ++i) {
-            if (nums[i] > mi) {
-                ans = Math.max(ans, nums[i] - mi);
+        for (int x : nums) {
+            if (x > mi) {
+                ans = Math.max(ans, x - mi);
             } else {
-                mi = nums[i];
+                mi = x;
             }
         }
         return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maximumDifference(vector<int>& nums) {
+        int mi = 1 << 30;
+        int ans = -1;
+        for (int& x : nums) {
+            if (x > mi) {
+                ans = max(ans, x - mi);
+            } else {
+                mi = x;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximumDifference(nums []int) int {
+	mi := 1 << 30
+	ans := -1
+	for _, x := range nums {
+		if mi < x {
+			ans = max(ans, x-mi)
+		} else {
+			mi = x
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
@@ -118,46 +162,25 @@ impl Solution {
 }
 ```
 
-### **C++**
+### **JavaScript**
 
-```cpp
-class Solution {
-public:
-    int maximumDifference(vector<int>& nums) {
-        int mi = nums[0];
-        int ans = -1;
-        for (int i = 1, n = nums.size(); i < n; ++i) {
-            if (nums[i] > mi)
-                ans = max(ans, nums[i] - mi);
-            else
-                mi = nums[i];
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maximumDifference = function (nums) {
+    let mi = 1 << 30;
+    let ans = -1;
+    for (const x of nums) {
+        if (mi < x) {
+            ans = Math.max(ans, x - mi);
+        } else {
+            mi = x;
         }
-        return ans;
     }
+    return ans;
 };
-```
-
-### **Go**
-
-```go
-func maximumDifference(nums []int) int {
-	mi, ans := nums[0], -1
-	for i, n := 1, len(nums); i < n; i++ {
-		if nums[i] > mi {
-			ans = max(ans, nums[i]-mi)
-		} else {
-			mi = nums[i]
-		}
-	}
-	return ans
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

@@ -51,13 +51,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-此题并不能单纯遍历数组，寻找其中的最大最小值，然后计算差，因为需要保证最大最小值的前后顺序。
+**方法一：维护前缀最小值**
 
-**步骤：**
+我们用变量 $mi$ 表示当前遍历到的元素中的最小值，用变量 $ans$ 表示最大差值，初始时 $mi$ 为 $+\infty$，而 $ans$ 为 $-1$。
 
-1. 只维护最小值与最大差值（返回值）。
-2. 遍历数组，当遍历元素比最小值大时，与最小值比较，更新最大差值。
-3. 否则更新最小值。
+遍历数组，对于当前遍历到的元素 $x$，如果 $x \gt mi$，则更新 $ans$ 为 $max(ans, x - mi)$，否则更新 $mi = x$。
+
+遍历结束后，返回 $ans$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
 
@@ -68,13 +70,13 @@
 ```python
 class Solution:
     def maximumDifference(self, nums: List[int]) -> int:
-        mi = nums[0]
-        ans, n = -1, len(nums)
-        for i in range(1, n):
-            if nums[i] > mi:
-                ans = max(ans, nums[i] - mi)
+        mi = inf
+        ans = -1
+        for x in nums:
+            if x > mi:
+                ans = max(ans, x - mi)
             else:
-                mi = nums[i]
+                mi = x
         return ans
 ```
 
@@ -85,17 +87,61 @@ class Solution:
 ```java
 class Solution {
     public int maximumDifference(int[] nums) {
-        int mi = nums[0];
+        int mi = 1 << 30;
         int ans = -1;
-        for (int i = 1; i < nums.length; ++i) {
-            if (nums[i] > mi) {
-                ans = Math.max(ans, nums[i] - mi);
+        for (int x : nums) {
+            if (x > mi) {
+                ans = Math.max(ans, x - mi);
             } else {
-                mi = nums[i];
+                mi = x;
             }
         }
         return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maximumDifference(vector<int>& nums) {
+        int mi = 1 << 30;
+        int ans = -1;
+        for (int& x : nums) {
+            if (x > mi) {
+                ans = max(ans, x - mi);
+            } else {
+                mi = x;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximumDifference(nums []int) int {
+	mi := 1 << 30
+	ans := -1
+	for _, x := range nums {
+		if mi < x {
+			ans = max(ans, x-mi)
+		} else {
+			mi = x
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
@@ -133,46 +179,25 @@ impl Solution {
 }
 ```
 
-### **C++**
+### **JavaScript**
 
-```cpp
-class Solution {
-public:
-    int maximumDifference(vector<int>& nums) {
-        int mi = nums[0];
-        int ans = -1;
-        for (int i = 1, n = nums.size(); i < n; ++i) {
-            if (nums[i] > mi)
-                ans = max(ans, nums[i] - mi);
-            else
-                mi = nums[i];
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maximumDifference = function (nums) {
+    let mi = 1 << 30;
+    let ans = -1;
+    for (const x of nums) {
+        if (mi < x) {
+            ans = Math.max(ans, x - mi);
+        } else {
+            mi = x;
         }
-        return ans;
     }
+    return ans;
 };
-```
-
-### **Go**
-
-```go
-func maximumDifference(nums []int) int {
-	mi, ans := nums[0], -1
-	for i, n := 1, len(nums); i < n; i++ {
-		if nums[i] > mi {
-			ans = max(ans, nums[i]-mi)
-		} else {
-			mi = nums[i]
-		}
-	}
-	return ans
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**
