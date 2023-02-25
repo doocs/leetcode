@@ -66,7 +66,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-判断 `word[i]` 是否为元音，且在所有子字符串中一共出现了 `(i+1)*(n-i)` 次。
+**方法一：枚举贡献**
+
+我们可以枚举字符串的每个字符 $word[i]$，如果 $word[i]$ 是元音字母，那么 $word[i]$ 一共在 $(i + 1) \times (n - i)$ 个子字符串中出现，将这些子字符串的个数累加即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $word$ 的长度。
 
 <!-- tabs:start -->
 
@@ -92,27 +96,11 @@ class Solution {
         for (int i = 0, n = word.length(); i < n; ++i) {
             char c = word.charAt(i);
             if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-                ans += (long) (i + 1) * (n - i);
+                ans += (i + 1L) * (n - i);
             }
         }
         return ans;
     }
-}
-```
-
-### **TypeScript**
-
-```ts
-function countVowels(word: string): number {
-    const n = word.length;
-    let ans = 0;
-    for (let i = 0; i < n; i++) {
-        let char = word.charAt(i);
-        if (['a', 'e', 'i', 'o', 'u'].includes(char)) {
-            ans += (i + 1) * (n - i);
-        }
-    }
-    return ans;
 }
 ```
 
@@ -125,7 +113,9 @@ public:
         long long ans = 0;
         for (int i = 0, n = word.size(); i < n; ++i) {
             char c = word[i];
-            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') ans += (long long)(i + 1) * (n - i);
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                ans += (i + 1LL) * (n - i);
+            }
         }
         return ans;
     }
@@ -135,15 +125,28 @@ public:
 ### **Go**
 
 ```go
-func countVowels(word string) int64 {
-	var ans int64
-	n := len(word)
+func countVowels(word string) (ans int64) {
 	for i, c := range word {
 		if c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' {
-			ans += int64((i + 1) * (n - i))
+			ans += int64((i + 1) * (len(word) - i))
 		}
 	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function countVowels(word: string): number {
+    const n = word.length;
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        if (['a', 'e', 'i', 'o', 'u'].includes(word[i])) {
+            ans += (i + 1) * (n - i);
+        }
+    }
+    return ans;
 }
 ```
 
