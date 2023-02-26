@@ -11,18 +11,18 @@
  */
 class Solution {
 public:
-    int ans;
-
     int distributeCoins(TreeNode* root) {
-        ans = 0;
+        int ans = 0;
+        function<int(TreeNode*)> dfs = [&](TreeNode* root) -> int {
+            if (!root) {
+                return 0;
+            }
+            int left = dfs(root->left);
+            int right = dfs(root->right);
+            ans += abs(left) + abs(right);
+            return left + right + root->val - 1;
+        };
         dfs(root);
         return ans;
-    }
-
-    int dfs(TreeNode* root) {
-        if (!root) return 0;
-        int left = dfs(root->left), right = dfs(root->right);
-        ans += abs(left) + abs(right);
-        return left + right + root->val - 1;
     }
 };

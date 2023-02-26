@@ -5,12 +5,12 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def distributeCoins(self, root: TreeNode) -> int:
+    def distributeCoins(self, root: Optional[TreeNode]) -> int:
         def dfs(root):
-            nonlocal ans
             if root is None:
                 return 0
             left, right = dfs(root.left), dfs(root.right)
+            nonlocal ans
             ans += abs(left) + abs(right)
             return left + right + root.val - 1
 
