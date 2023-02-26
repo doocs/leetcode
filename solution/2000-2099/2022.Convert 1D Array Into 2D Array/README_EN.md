@@ -87,8 +87,10 @@ class Solution {
 class Solution {
 public:
     vector<vector<int>> construct2DArray(vector<int>& original, int m, int n) {
-        if (m * n != original.size()) return {};
-        vector<vector<int>> ans(m, vector<int>(n, 0));
+        if (m * n != original.size()) {
+            return {};
+        }
+        vector<vector<int>> ans(m, vector<int>(n));
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 ans[i][j] = original[i * n + j];
@@ -102,15 +104,14 @@ public:
 ### **Go**
 
 ```go
-func construct2DArray(original []int, m int, n int) [][]int {
+func construct2DArray(original []int, m int, n int) (ans [][]int) {
 	if m*n != len(original) {
 		return [][]int{}
 	}
-	var ans [][]int
 	for i := 0; i < m*n; i += n {
 		ans = append(ans, original[i:i+n])
 	}
-	return ans
+	return
 }
 ```
 
@@ -124,17 +125,14 @@ func construct2DArray(original []int, m int, n int) [][]int {
  * @return {number[][]}
  */
 var construct2DArray = function (original, m, n) {
-    const result = [];
-
-    if (original.length != m * n) {
-        return result;
+    if (m * n != original.length) {
+        return [];
     }
-
-    for (let i = 0; i < m; i++) {
-        result.push(original.slice(i * n, i * n + n));
+    const ans = [];
+    for (let i = 0; i < m * n; i += n) {
+        ans.push(original.slice(i, i + n));
     }
-
-    return result;
+    return ans;
 };
 ```
 
@@ -146,17 +144,14 @@ function construct2DArray(
     m: number,
     n: number,
 ): number[][] {
-    const result = [];
-
-    if (original.length != m * n) {
-        return result;
+    if (m * n != original.length) {
+        return [];
     }
-
-    for (let i = 0; i < m; i++) {
-        result.push(original.slice(i * n, i * n + n));
+    const ans: number[][] = [];
+    for (let i = 0; i < m * n; i += n) {
+        ans.push(original.slice(i, i + n));
     }
-
-    return result;
+    return ans;
 }
 ```
 

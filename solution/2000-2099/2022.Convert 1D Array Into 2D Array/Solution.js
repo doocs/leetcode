@@ -5,15 +5,12 @@
  * @return {number[][]}
  */
 var construct2DArray = function (original, m, n) {
-    const result = [];
-
-    if (original.length != m * n) {
-        return result;
+    if (m * n != original.length) {
+        return [];
     }
-
-    for (let i = 0; i < m; i++) {
-        result.push(original.slice(i * n, i * n + n));
+    const ans = [];
+    for (let i = 0; i < m * n; i += n) {
+        ans.push(original.slice(i, i + n));
     }
-
-    return result;
+    return ans;
 };
