@@ -58,13 +58,97 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def countTriplets(self, nums: List[int]) -> int:
+        cnt = Counter(x & y for x in nums for y in nums)
+        return sum(v for xy, v in cnt.items() for z in nums if xy & z == 0)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int countTriplets(int[] nums) {
+        int mx = 0;
+        for (int x : nums) {
+            mx = Math.max(mx, x);
+        }
+        int[] cnt = new int[mx + 1];
+        for (int x : nums) {
+            for (int y : nums) {
+                cnt[x & y]++;
+            }
+        }
+        int ans = 0;
+        for (int xy = 0; xy <= mx; ++xy) {
+            for (int z : nums) {
+                if ((xy & z) == 0) {
+                    ans += cnt[xy];
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countTriplets(vector<int>& nums) {
+        int mx = *max_element(nums.begin(), nums.end());
+        int cnt[mx + 1];
+        memset(cnt, 0, sizeof cnt);
+        for (int& x : nums) {
+            for (int& y : nums) {
+                cnt[x & y]++;
+            }
+        }
+        int ans = 0;
+        for (int xy = 0; xy <= mx; ++xy) {
+            for (int& z : nums) {
+                if ((xy & z) == 0) {
+                    ans += cnt[xy];
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countTriplets(nums []int) (ans int) {
+	mx := 0
+	for _, x := range nums {
+		mx = max(mx, x)
+	}
+	cnt := make([]int, mx+1)
+	for _, x := range nums {
+		for _, y := range nums {
+			cnt[x&y]++
+		}
+	}
+	for xy := 0; xy <= mx; xy++ {
+		for _, z := range nums {
+			if xy&z == 0 {
+				ans += cnt[xy]
+			}
+		}
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

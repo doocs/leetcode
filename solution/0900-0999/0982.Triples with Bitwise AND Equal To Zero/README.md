@@ -58,6 +58,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：枚举 + 计数**
+
+我们可以先枚举任意两个数 $x$ 和 $y$，用哈希表或数组 $cnt$ 统计它们的按位与结果 $x \& y$ 出现的次数。
+
+然后我们枚举 $x$ 和 $y$ 的按位与结果 $xy$，再枚举 $z$，如果 $xy \& z = 0$，则将 $cnt[xy]$ 的值加入答案。
+
+最后返回答案即可。
+
+时间复杂度 $O(n^2 + n \times M)$，空间复杂度 $O(M)$，其中 $n$ 是数组 $nums$ 的长度；而 $M$ 是数组 $nums$ 中的最大值，本题中 $M \leq 2^{16}$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -65,7 +75,10 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countTriplets(self, nums: List[int]) -> int:
+        cnt = Counter(x & y for x in nums for y in nums)
+        return sum(v for xy, v in cnt.items() for z in nums if xy & z == 0)
 ```
 
 ### **Java**
@@ -73,7 +86,88 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int countTriplets(int[] nums) {
+        int mx = 0;
+        for (int x : nums) {
+            mx = Math.max(mx, x);
+        }
+        int[] cnt = new int[mx + 1];
+        for (int x : nums) {
+            for (int y : nums) {
+                cnt[x & y]++;
+            }
+        }
+        int ans = 0;
+        for (int xy = 0; xy <= mx; ++xy) {
+            for (int z : nums) {
+                if ((xy & z) == 0) {
+                    ans += cnt[xy];
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countTriplets(vector<int>& nums) {
+        int mx = *max_element(nums.begin(), nums.end());
+        int cnt[mx + 1];
+        memset(cnt, 0, sizeof cnt);
+        for (int& x : nums) {
+            for (int& y : nums) {
+                cnt[x & y]++;
+            }
+        }
+        int ans = 0;
+        for (int xy = 0; xy <= mx; ++xy) {
+            for (int& z : nums) {
+                if ((xy & z) == 0) {
+                    ans += cnt[xy];
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countTriplets(nums []int) (ans int) {
+	mx := 0
+	for _, x := range nums {
+		mx = max(mx, x)
+	}
+	cnt := make([]int, mx+1)
+	for _, x := range nums {
+		for _, y := range nums {
+			cnt[x&y]++
+		}
+	}
+	for xy := 0; xy <= mx; xy++ {
+		for _, z := range nums {
+			if xy&z == 0 {
+				ans += cnt[xy]
+			}
+		}
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
