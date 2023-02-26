@@ -12,25 +12,17 @@
 class Solution {
 public:
     int pathSum(TreeNode* root, int targetSum) {
-        unordered_map<int, int> preSum;
-        preSum[0] = 1;
-
-        function<int(TreeNode*, int)> dfs = [&](TreeNode* node, int cur) {
-            if (node == nullptr) {
-                return 0;
-            }
-
-            cur += node->val;
-            int ret = preSum[cur - targetSum];
-
-            ++preSum[cur];
-            ret += dfs(node->left, cur);
-            ret += dfs(node->right, cur);
-            --preSum[cur];
-
-            return ret;
+        unordered_map<long, int> cnt;
+        cnt[0] = 1;
+        function<int(TreeNode*, long)> dfs = [&](TreeNode* node, long s) -> int {
+            if (!node) return 0;
+            s += node->val;
+            int ans = cnt[s - targetSum];
+            ++cnt[s];
+            ans += dfs(node->left, s) + dfs(node->right, s);
+            --cnt[s];
+            return ans;
         };
-
         return dfs(root, 0);
     }
 };

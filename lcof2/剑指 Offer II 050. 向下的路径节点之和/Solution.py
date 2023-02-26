@@ -5,22 +5,17 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def pathSum(self, root: TreeNode, targetSum: int) -> int:
-        preSum = defaultdict(int)
-        preSum[0] = 1
-
-        def dfs(node: TreeNode, cur: int) -> int:
-            if not node:
+    def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
+        def dfs(node, s):
+            if node is None:
                 return 0
+            s += node.val
+            ans = cnt[s - targetSum]
+            cnt[s] += 1
+            ans += dfs(node.left, s)
+            ans += dfs(node.right, s)
+            cnt[s] -= 1
+            return ans
 
-            cur += node.val
-            ret = preSum[cur - targetSum]
-
-            preSum[cur] += 1
-            ret += dfs(node.left, cur)
-            ret += dfs(node.right, cur)
-            preSum[cur] -= 1
-
-            return ret
-
+        cnt = Counter({0: 1})
         return dfs(root, 0)
