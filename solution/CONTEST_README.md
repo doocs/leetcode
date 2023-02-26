@@ -24,6 +24,14 @@
 
 ## 往期竞赛
 
+#### 第 334 场周赛(2023-02-26 10:30, 90 分钟) 参赛人数 5501
+
+- [2574. 左右元素和的差值](/solution/2500-2599/2574.Left%20and%20Right%20Sum%20Differences/README.md)
+- [2575. 找出字符串的可整除数组](/solution/2500-2599/2575.Find%20the%20Divisibility%20Array%20of%20a%20String/README.md)
+- [2576. 求出最多标记下标](/solution/2500-2599/2576.Find%20the%20Maximum%20Number%20of%20Marked%20Indices/README.md)
+- [2577. 在网格图中访问一个格子的最少时间](/solution/2500-2599/2577.Minimum%20Time%20to%20Visit%20a%20Cell%20In%20a%20Grid/README.md)
+
+
 #### 第 333 场周赛(2023-02-19 10:30, 90 分钟) 参赛人数 4969
 
 - [2570. 合并两个二维数组 - 求和法](/solution/2500-2599/2570.Merge%20Two%202D%20Arrays%20by%20Summing%20Values/README.md)
