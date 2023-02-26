@@ -53,10 +53,8 @@ timeMap.get(&quot;foo&quot;, 5);         // return &quot;bar2&quot;
 
 ```python
 class TimeMap:
+
     def __init__(self):
-        """
-        Initialize your data structure here.
-        """
         self.ktv = defaultdict(list)
 
     def set(self, key: str, value: str, timestamp: int) -> None:
@@ -80,22 +78,21 @@ class TimeMap:
 
 ```java
 class TimeMap {
-    private Map<String, TreeMap<Integer, String>> ktv;
+    private Map<String, TreeMap<Integer, String>> ktv = new HashMap<>();
 
-    /** Initialize your data structure here. */
     public TimeMap() {
-        ktv = new HashMap<>();
-    }
 
+    }
+    
     public void set(String key, String value, int timestamp) {
         ktv.computeIfAbsent(key, k -> new TreeMap<>()).put(timestamp, value);
     }
-
+    
     public String get(String key, int timestamp) {
         if (!ktv.containsKey(key)) {
             return "";
         }
-        TreeMap<Integer, String> tv = ktv.get(key);
+        var tv = ktv.get(key);
         Integer t = tv.floorKey(timestamp);
         return t == null ? "" : tv.get(t);
     }
@@ -109,39 +106,73 @@ class TimeMap {
  */
 ```
 
+### **C++**
+
+```cpp
+class TimeMap {
+public:
+    TimeMap() {
+
+    }
+    
+    void set(string key, string value, int timestamp) {
+        ktv[key].emplace_back(timestamp, value);
+    }
+    
+    string get(string key, int timestamp) {
+        auto& pairs = ktv[key];
+        pair<int, string> p = {timestamp, string({127})};
+        auto i = upper_bound(pairs.begin(), pairs.end(), p);
+        return i == pairs.begin() ? "" : (i - 1)->second;
+    }
+
+private:
+    unordered_map<string, vector<pair<int, string>>> ktv;
+};
+
+/**
+ * Your TimeMap object will be instantiated and called as such:
+ * TimeMap* obj = new TimeMap();
+ * obj->set(key,value,timestamp);
+ * string param_2 = obj->get(key,timestamp);
+ */
+```
+
 ### **Go**
 
-Because timestamp is always increasing, you can use binary search to quickly find the value
-
 ```go
-type pair struct {
-	timestamp int
-	value     string
-}
-
 type TimeMap struct {
-	data map[string][]pair
+	ktv map[string][]pair
 }
 
 func Constructor() TimeMap {
-	return TimeMap{data: make(map[string][]pair)}
+	return TimeMap{map[string][]pair{}}
 }
 
-func (m *TimeMap) Set(key string, value string, timestamp int) {
-	m.data[key] = append(m.data[key], pair{timestamp, value})
+func (this *TimeMap) Set(key string, value string, timestamp int) {
+	this.ktv[key] = append(this.ktv[key], pair{timestamp, value})
 }
 
-func (m *TimeMap) Get(key string, timestamp int) string {
-	pairs := m.data[key]
-	// sort.Search return the smallest index i in [0, n) at which f(i) is true
-	i := sort.Search(len(pairs), func(i int) bool {
-		return pairs[i].timestamp > timestamp
-	})
+func (this *TimeMap) Get(key string, timestamp int) string {
+	pairs := this.ktv[key]
+	i := sort.Search(len(pairs), func(i int) bool { return pairs[i].t > timestamp })
 	if i > 0 {
-		return pairs[i-1].value
+		return pairs[i-1].v
 	}
 	return ""
 }
+
+type pair struct {
+	t int
+	v string
+}
+
+/**
+ * Your TimeMap object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.Set(key,value,timestamp);
+ * param_2 := obj.Get(key,timestamp);
+ */
 ```
 
 ### **...**

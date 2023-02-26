@@ -1,8 +1,6 @@
 class TimeMap:
+
     def __init__(self):
-        """
-        Initialize your data structure here.
-        """
         self.ktv = defaultdict(list)
 
     def set(self, key: str, value: str, timestamp: int) -> None:

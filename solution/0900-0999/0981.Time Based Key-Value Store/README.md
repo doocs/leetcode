@@ -58,7 +58,13 @@ timeMap.get("foo", 5);         // 返回 "bar2"
 
 <!-- 这里可写通用的实现逻辑 -->
 
-嵌套哈希表实现。
+**方法一：哈希表 + 有序集合（或二分查找）**
+
+我们可以用哈希表 $ktv$ 记录键值对，其中键为字符串 $key$，值为一个列表，列表中的每个元素为一个二元组 $(timestamp, value)$，表示键 $key$ 在时间戳 $timestamp$ 时对应的值为 $value$。
+
+当我们需要查询键 $key$ 在时间戳 $timestamp$ 时对应的值时，我们可以通过二分查找的方法在 $ktv[key]$ 中找到最大的时间戳 $timestamp'$，使得 $timestamp' \leq timestamp$，然后返回对应的值即可。
+
+时间复杂度方面，对于 $set$ 操作，由于哈希表的插入操作的时间复杂度为 $O(1)$，因此时间复杂度为 $O(1)$。对于 $get$ 操作，由于哈希表的查找操作的时间复杂度为 $O(1)$，而二分查找的时间复杂度为 $O(\log n)$，因此时间复杂度为 $O(\log n)$。空间复杂度为 $O(n)$，其中 $n$ 为 $set$ 操作的次数。
 
 <!-- tabs:start -->
 
@@ -68,10 +74,8 @@ timeMap.get("foo", 5);         // 返回 "bar2"
 
 ```python
 class TimeMap:
+
     def __init__(self):
-        """
-        Initialize your data structure here.
-        """
         self.ktv = defaultdict(list)
 
     def set(self, key: str, value: str, timestamp: int) -> None:
@@ -81,7 +85,6 @@ class TimeMap:
         if key not in self.ktv:
             return ''
         tv = self.ktv[key]
-        # #查找第一个大于timestamp的
         i = bisect_right(tv, (timestamp, chr(127)))
         return tv[i - 1][1] if i else ''
 
@@ -98,11 +101,10 @@ class TimeMap:
 
 ```java
 class TimeMap {
-    private Map<String, TreeMap<Integer, String>> ktv;
+    private Map<String, TreeMap<Integer, String>> ktv = new HashMap<>();
 
-    /** Initialize your data structure here. */
     public TimeMap() {
-        ktv = new HashMap<>();
+
     }
 
     public void set(String key, String value, int timestamp) {
@@ -113,7 +115,7 @@ class TimeMap {
         if (!ktv.containsKey(key)) {
             return "";
         }
-        TreeMap<Integer, String> tv = ktv.get(key);
+        var tv = ktv.get(key);
         Integer t = tv.floorKey(timestamp);
         return t == null ? "" : tv.get(t);
     }
@@ -127,39 +129,73 @@ class TimeMap {
  */
 ```
 
+### **C++**
+
+```cpp
+class TimeMap {
+public:
+    TimeMap() {
+
+    }
+
+    void set(string key, string value, int timestamp) {
+        ktv[key].emplace_back(timestamp, value);
+    }
+
+    string get(string key, int timestamp) {
+        auto& pairs = ktv[key];
+        pair<int, string> p = {timestamp, string({127})};
+        auto i = upper_bound(pairs.begin(), pairs.end(), p);
+        return i == pairs.begin() ? "" : (i - 1)->second;
+    }
+
+private:
+    unordered_map<string, vector<pair<int, string>>> ktv;
+};
+
+/**
+ * Your TimeMap object will be instantiated and called as such:
+ * TimeMap* obj = new TimeMap();
+ * obj->set(key,value,timestamp);
+ * string param_2 = obj->get(key,timestamp);
+ */
+```
+
 ### **Go**
 
-因为 timestamp 是一直增长的，所以可以用二分查找快速找到值
-
 ```go
-type pair struct {
-	timestamp int
-	value     string
-}
-
 type TimeMap struct {
-	data map[string][]pair
+	ktv map[string][]pair
 }
 
 func Constructor() TimeMap {
-	return TimeMap{data: make(map[string][]pair)}
+	return TimeMap{map[string][]pair{}}
 }
 
-func (m *TimeMap) Set(key string, value string, timestamp int) {
-	m.data[key] = append(m.data[key], pair{timestamp, value})
+func (this *TimeMap) Set(key string, value string, timestamp int) {
+	this.ktv[key] = append(this.ktv[key], pair{timestamp, value})
 }
 
-func (m *TimeMap) Get(key string, timestamp int) string {
-	pairs := m.data[key]
-	// sort.Search return the smallest index i in [0, n) at which f(i) is true
-	i := sort.Search(len(pairs), func(i int) bool {
-		return pairs[i].timestamp > timestamp
-	})
+func (this *TimeMap) Get(key string, timestamp int) string {
+	pairs := this.ktv[key]
+	i := sort.Search(len(pairs), func(i int) bool { return pairs[i].t > timestamp })
 	if i > 0 {
-		return pairs[i-1].value
+		return pairs[i-1].v
 	}
 	return ""
 }
+
+type pair struct {
+	t int
+	v string
+}
+
+/**
+ * Your TimeMap object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.Set(key,value,timestamp);
+ * param_2 := obj.Get(key,timestamp);
+ */
 ```
 
 ### **...**
