@@ -41,7 +41,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-先求数字 n 的长度 k，然后累加 n 上每一位的数字的 k 次幂。最后判断累加的结果是否与 n 相等即可。
+**方法一：模拟**
+
+我们可以先计算出数字的位数 $k$，然后计算每一位上的数字的 $k$ 次幂的总和 $s$，最后判断 $s$ 是否等于 $n$ 即可。
+
+时间复杂度 $O(\log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为给定的数字。
 
 <!-- tabs:start -->
 
@@ -53,11 +57,11 @@
 class Solution:
     def isArmstrong(self, n: int) -> bool:
         k = len(str(n))
-        s, t = 0, n
-        while t:
-            t, v = divmod(t, 10)
-            s += pow(v, k)
-        return n == s
+        s, x = 0, n
+        while x:
+            s += (x % 10)**k
+            x //= 10
+        return s == n
 ```
 
 ### **Java**
@@ -67,14 +71,45 @@ class Solution:
 ```java
 class Solution {
     public boolean isArmstrong(int n) {
-        int k = String.valueOf(n).length();
-        int s = 0, t = n;
-        while (t != 0) {
-            s += Math.pow(t % 10, k);
-            t /= 10;
+        int k = (n + "").length();
+        int s = 0;
+        for (int x = n; x > 0; x /= 10) {
+            s += Math.pow(x % 10, k);
         }
-        return n == s;
+        return s == n;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isArmstrong(int n) {
+        int k = to_string(n).size();
+        int s = 0;
+        for (int x = n; x; x /= 10) {
+            s += pow(x % 10, k);
+        }
+        return s == n;
+    }
+};
+```
+
+### **Go**
+
+```go
+func isArmstrong(n int) bool {
+	k := 0
+	for x := n; x > 0; x /= 10 {
+		k++
+	}
+	s := 0
+	for x := n; x > 0; x /= 10 {
+		s += int(math.Pow(float64(x%10), float64(k)))
+	}
+	return s == n
 }
 ```
 
@@ -88,13 +123,24 @@ class Solution {
 var isArmstrong = function (n) {
     const k = String(n).length;
     let s = 0;
-    let t = n;
-    while (t) {
-        s += Math.pow(t % 10, k);
-        t = Math.floor(t / 10);
+    for (let x = n; x; x = Math.floor(x / 10)) {
+        s += Math.pow(x % 10, k);
     }
-    return n == s;
+    return s == n;
 };
+```
+
+### **TypeScript**
+
+```ts
+function isArmstrong(n: number): boolean {
+    const k = String(n).length;
+    let s = 0;
+    for (let x = n; x; x = Math.floor(x / 10)) {
+        s += Math.pow(x % 10, k);
+    }
+    return s == n;
+}
 ```
 
 ### **...**
