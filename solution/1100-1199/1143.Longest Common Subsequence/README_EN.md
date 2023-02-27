@@ -51,7 +51,13 @@
 
 Dynamic programming.
 
-![](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1143.Longest%20Common%20Subsequence/images/CodeCogsEqn.gif)
+$$
+f[i][j] =
+\begin{cases}
+f[i - 1][j - 1] + 1, & text1[i - 1] = text2[j - 1] \\
+max(f[i - 1][j], f[i][j - 1]), & text1[i - 1] \neq text2[j - 1]
+\end{cases}
+$$
 
 <!-- tabs:start -->
 
@@ -61,14 +67,14 @@ Dynamic programming.
 class Solution:
     def longestCommonSubsequence(self, text1: str, text2: str) -> int:
         m, n = len(text1), len(text2)
-        dp = [[0] * (n + 1) for _ in range(m + 1)]
+        f = [[0] * (n + 1) for _ in range(m + 1)]
         for i in range(1, m + 1):
             for j in range(1, n + 1):
                 if text1[i - 1] == text2[j - 1]:
-                    dp[i][j] = dp[i - 1][j - 1] + 1
+                    f[i][j] = f[i - 1][j - 1] + 1
                 else:
-                    dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
-        return dp[-1][-1]
+                    f[i][j] = max(f[i - 1][j], f[i][j - 1])
+        return f[m][n]
 ```
 
 ### **Java**
@@ -77,17 +83,17 @@ class Solution:
 class Solution {
     public int longestCommonSubsequence(String text1, String text2) {
         int m = text1.length(), n = text2.length();
-        int[][] dp = new int[m + 1][n + 1];
+        int[][] f = new int[m + 1][n + 1];
         for (int i = 1; i <= m; ++i) {
             for (int j = 1; j <= n; ++j) {
                 if (text1.charAt(i - 1) == text2.charAt(j - 1)) {
-                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                    f[i][j] = f[i - 1][j - 1] + 1;
                 } else {
-                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+                    f[i][j] = Math.max(f[i - 1][j], f[i][j - 1]);
                 }
             }
         }
-        return dp[m][n];
+        return f[m][n];
     }
 }
 ```
@@ -99,16 +105,18 @@ class Solution {
 public:
     int longestCommonSubsequence(string text1, string text2) {
         int m = text1.size(), n = text2.size();
-        vector<vector<int>> dp(m + 1, vector<int>(n + 1));
+        int f[m + 1][n + 1];
+        memset(f, 0, sizeof f);
         for (int i = 1; i <= m; ++i) {
             for (int j = 1; j <= n; ++j) {
-                if (text1[i - 1] == text2[j - 1])
-                    dp[i][j] = dp[i - 1][j - 1] + 1;
-                else
-                    dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
+                if (text1[i - 1] == text2[j - 1]) {
+                    f[i][j] = f[i - 1][j - 1] + 1;
+                } else {
+                    f[i][j] = max(f[i - 1][j], f[i][j - 1]);
+                }
             }
         }
-        return dp[m][n];
+        return f[m][n];
     }
 };
 ```
@@ -118,20 +126,20 @@ public:
 ```go
 func longestCommonSubsequence(text1 string, text2 string) int {
 	m, n := len(text1), len(text2)
-	dp := make([][]int, m+1)
-	for i := 0; i <= m; i++ {
-		dp[i] = make([]int, n+1)
+	f := make([][]int, m+1)
+	for i := range f {
+		f[i] = make([]int, n+1)
 	}
 	for i := 1; i <= m; i++ {
 		for j := 1; j <= n; j++ {
 			if text1[i-1] == text2[j-1] {
-				dp[i][j] = dp[i-1][j-1] + 1
+				f[i][j] = f[i-1][j-1] + 1
 			} else {
-				dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+				f[i][j] = max(f[i-1][j], f[i][j-1])
 			}
 		}
 	}
-	return dp[m][n]
+	return f[m][n]
 }
 
 func max(a, b int) int {
@@ -153,17 +161,17 @@ func max(a, b int) int {
 var longestCommonSubsequence = function (text1, text2) {
     const m = text1.length;
     const n = text2.length;
-    const dp = new Array(m + 1).fill(0).map(() => new Array(n + 1).fill(0));
+    const f = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
     for (let i = 1; i <= m; ++i) {
         for (let j = 1; j <= n; ++j) {
             if (text1[i - 1] == text2[j - 1]) {
-                dp[i][j] = dp[i - 1][j - 1] + 1;
+                f[i][j] = f[i - 1][j - 1] + 1;
             } else {
-                dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+                f[i][j] = Math.max(f[i - 1][j], f[i][j - 1]);
             }
         }
     }
-    return dp[m][n];
+    return f[m][n];
 };
 ```
 
@@ -173,17 +181,17 @@ var longestCommonSubsequence = function (text1, text2) {
 function longestCommonSubsequence(text1: string, text2: string): number {
     const m = text1.length;
     const n = text2.length;
-    const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+    const f = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
     for (let i = 1; i <= m; i++) {
         for (let j = 1; j <= n; j++) {
             if (text1[i - 1] === text2[j - 1]) {
-                dp[i][j] = dp[i - 1][j - 1] + 1;
+                f[i][j] = f[i - 1][j - 1] + 1;
             } else {
-                dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+                f[i][j] = Math.max(f[i - 1][j], f[i][j - 1]);
             }
         }
     }
-    return dp[m][n];
+    return f[m][n];
 }
 ```
 
@@ -194,17 +202,38 @@ impl Solution {
     pub fn longest_common_subsequence(text1: String, text2: String) -> i32 {
         let (m, n) = (text1.len(), text2.len());
         let (text1, text2) = (text1.as_bytes(), text2.as_bytes());
-        let mut dp = vec![vec![0; n + 1]; m + 1];
+        let mut f = vec![vec![0; n + 1]; m + 1];
         for i in 1..=m {
             for j in 1..=n {
-                dp[i][j] = if text1[i - 1] == text2[j - 1] {
-                    dp[i - 1][j - 1] + 1
+                f[i][j] = if text1[i - 1] == text2[j - 1] {
+                    f[i - 1][j - 1] + 1
                 } else {
-                    dp[i - 1][j].max(dp[i][j - 1])
+                    f[i - 1][j].max(f[i][j - 1])
                 }
             }
         }
-        dp[m][n]
+        f[m][n]
+    }
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int LongestCommonSubsequence(string text1, string text2) {
+        int m = text1.Length, n = text2.Length;
+        int[,] f = new int[m + 1, n + 1];
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                if (text1[i - 1] == text2[j - 1]) {
+                    f[i, j] = f[i - 1, j - 1] + 1;
+                } else {
+                    f[i, j] = Math.Max(f[i - 1, j], f[i, j - 1]);
+                }
+            }
+        }
+        return f[m, n];
     }
 }
 ```

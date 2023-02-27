@@ -45,9 +45,9 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：枚举**
+**方法一：枚举 + 贪心**
 
-分别枚举偶数位和奇数位作为“比相邻元素小”的元素，然后计算需要的操作次数。取两者的最小值即可。
+我们可以分别枚举偶数位和奇数位作为“比相邻元素小”的元素，然后计算需要的操作次数。取两者的最小值即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `nums` 的长度。
 
@@ -153,6 +153,30 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int MovesToMakeZigzag(int[] nums) {
+        int[] ans = new int[2];
+        int n = nums.Length;
+        for (int i = 0; i < 2; ++i) {
+            for (int j = i; j < n; j += 2) {
+                int d = 0;
+                if (j > 0) {
+                    d = Math.Max(d, nums[j] - nums[j - 1] + 1);
+                }
+                if (j < n - 1) {
+                    d = Math.Max(d, nums[j] - nums[j + 1] + 1);
+                }
+                ans[i] += d;
+            }
+        }
+        return Math.Min(ans[0], ans[1]);
+    }
 }
 ```
 
