@@ -54,7 +54,17 @@ seatManager.unreserve(5); // 将座位 5 变为可以预约，现在可预约的
 
 <!-- 这里可写通用的实现逻辑 -->
 
-“小根堆”实现。
+**方法一：优先队列（小根堆）**
+
+我们可以使用优先队列（小根堆）来维护可预约座位的最小编号。
+
+初始化时，将所有座位的编号放入优先队列中。
+
+当调用 `reserve` 方法时，从优先队列中取出最小编号的座位，即为可预约座位的最小编号。
+
+当调用 `unreserve` 方法时，将座位编号放入优先队列中。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为座位的数量。
 
 <!-- tabs:start -->
 
@@ -64,8 +74,10 @@ seatManager.unreserve(5); // 将座位 5 变为可以预约，现在可预约的
 
 ```python
 class SeatManager:
+
     def __init__(self, n: int):
-        self.q = [i for i in range(1, n + 1)]
+        self.q = list(range(1, n + 1))
+        heapify(self.q)
 
     def reserve(self) -> int:
         return heappop(self.q)
@@ -86,10 +98,9 @@ class SeatManager:
 
 ```java
 class SeatManager {
-    private PriorityQueue<Integer> q;
+    private PriorityQueue<Integer> q = new PriorityQueue<>();
 
     public SeatManager(int n) {
-        q = new PriorityQueue<>(n);
         for (int i = 1; i <= n; ++i) {
             q.offer(i);
         }
@@ -109,6 +120,81 @@ class SeatManager {
  * SeatManager obj = new SeatManager(n);
  * int param_1 = obj.reserve();
  * obj.unreserve(seatNumber);
+ */
+```
+
+### **C++**
+
+```cpp
+class SeatManager {
+public:
+    SeatManager(int n) {
+        for (int i = 1; i <= n; ++i) {
+            q.push(i);
+        }
+    }
+
+    int reserve() {
+        int seat = q.top();
+        q.pop();
+        return seat;
+    }
+
+    void unreserve(int seatNumber) {
+        q.push(seatNumber);
+    }
+
+private:
+    priority_queue<int, vector<int>, greater<int>> q;
+};
+
+/**
+ * Your SeatManager object will be instantiated and called as such:
+ * SeatManager* obj = new SeatManager(n);
+ * int param_1 = obj->reserve();
+ * obj->unreserve(seatNumber);
+ */
+```
+
+### **Go**
+
+```go
+type SeatManager struct {
+	q hp
+}
+
+func Constructor(n int) SeatManager {
+	q := hp{}
+	for i := 1; i <= n; i++ {
+		heap.Push(&q, i)
+	}
+	return SeatManager{q}
+}
+
+func (this *SeatManager) Reserve() int {
+	return heap.Pop(&this.q).(int)
+}
+
+func (this *SeatManager) Unreserve(seatNumber int) {
+	heap.Push(&this.q, seatNumber)
+}
+
+type hp struct{ sort.IntSlice }
+
+func (h hp) Less(i, j int) bool  { return h.IntSlice[i] < h.IntSlice[j] }
+func (h *hp) Push(v interface{}) { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() interface{} {
+	a := h.IntSlice
+	v := a[len(a)-1]
+	h.IntSlice = a[:len(a)-1]
+	return v
+}
+
+/**
+ * Your SeatManager object will be instantiated and called as such:
+ * obj := Constructor(n);
+ * param_1 := obj.Reserve();
+ * obj.Unreserve(seatNumber);
  */
 ```
 
