@@ -1,8 +1,4 @@
-/**
- * @param {number[]} nums
- * @return {number}
- */
-var largestUniqueNumber = function (nums) {
+function largestUniqueNumber(nums: number[]): number {
     const cnt = new Array(1001).fill(0);
     for (const x of nums) {
         ++cnt[x];
@@ -13,4 +9,4 @@ var largestUniqueNumber = function (nums) {
         }
     }
     return -1;
-};
+}

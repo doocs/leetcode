@@ -1,7 +1,4 @@
 class Solution:
-    def largestUniqueNumber(self, A: List[int]) -> int:
-        counter = Counter(A)
-        for i in range(1000, -1, -1):
-            if counter[i] == 1:
-                return i
-        return -1
+    def largestUniqueNumber(self, nums: List[int]) -> int:
+        cnt = Counter(nums)
+        return next((x for x in range(1000, -1, -1) if cnt[x] == 1), -1)
