@@ -2,11 +2,12 @@ class Solution:
     def minimumSemesters(self, n: int, relations: List[List[int]]) -> int:
         g = defaultdict(list)
         indeg = [0] * n
-        for a, b in relations:
-            g[a - 1].append(b - 1)
-            indeg[b - 1] += 1
+        for prev, nxt in relations:
+            prev, nxt = prev - 1, nxt - 1
+            g[prev].append(nxt)
+            indeg[nxt] += 1
+        q = deque(i for i, v in enumerate(indeg) if v == 0)
         ans = 0
-        q = deque([i for i, v in enumerate(indeg) if v == 0])
         while q:
             ans += 1
             for _ in range(len(q)):

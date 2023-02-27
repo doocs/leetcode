@@ -3,10 +3,10 @@ class Solution {
         List<Integer>[] g = new List[n];
         Arrays.setAll(g, k -> new ArrayList<>());
         int[] indeg = new int[n];
-        for (int[] r : relations) {
-            int a = r[0] - 1, b = r[1] - 1;
-            g[a].add(b);
-            ++indeg[b];
+        for (var r : relations) {
+            int prev = r[0] - 1, nxt = r[1] - 1;
+            g[prev].add(nxt);
+            ++indeg[nxt];
         }
         Deque<Integer> q = new ArrayDeque<>();
         for (int i = 0; i < n; ++i) {

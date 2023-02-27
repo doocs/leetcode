@@ -1,10 +1,10 @@
-func minimumSemesters(n int, relations [][]int) int {
+func minimumSemesters(n int, relations [][]int) (ans int) {
 	g := make([][]int, n)
 	indeg := make([]int, n)
 	for _, r := range relations {
-		a, b := r[0]-1, r[1]-1
-		g[a] = append(g[a], b)
-		indeg[b]++
+		prev, nxt := r[0]-1, r[1]-1
+		g[prev] = append(g[prev], nxt)
+		indeg[nxt]++
 	}
 	q := []int{}
 	for i, v := range indeg {
@@ -12,7 +12,6 @@ func minimumSemesters(n int, relations [][]int) int {
 			q = append(q, i)
 		}
 	}
-	ans := 0
 	for len(q) > 0 {
 		ans++
 		for k := len(q); k > 0; k-- {
@@ -28,7 +27,7 @@ func minimumSemesters(n int, relations [][]int) int {
 		}
 	}
 	if n == 0 {
-		return ans
+		return
 	}
 	return -1
 }
