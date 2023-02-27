@@ -46,6 +46,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：计数**
+
+我们可以用一个长度为 $26$ 的数组 $cnt$ 统计字符串 $chars$ 中每个字母出现的次数。
+
+然后遍历字符串数组 $words$，对于每个字符串 $w$，我们用一个长度为 $26$ 的数组 $wc$ 统计字符串 $w$ 中每个字母出现的次数，如果对于每个字母 $c$，$wc[c] \leq cnt[c]$，那么我们就可以用 $chars$ 中的字母拼写出字符串 $w$，否则我们无法拼写出字符串 $w$。如果可以拼写出字符串 $w$，那么我们就将字符串 $w$ 的长度加到答案中。
+
+遍历结束后，即可得到答案。
+
+时间复杂度 $(L)$，空间复杂度 $O(C)$。其中 $L$ 为题目中所有字符串的长度之和；而 $C$ 为字符集的大小，本题中 $C = 26$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -55,12 +65,12 @@
 ```python
 class Solution:
     def countCharacters(self, words: List[str], chars: str) -> int:
-        counter = Counter(chars)
+        cnt = Counter(chars)
         ans = 0
-        for word in words:
-            cnt = Counter(word)
-            if all([counter[c] >= v for c, v in cnt.items()]):
-                ans += len(word)
+        for w in words:
+            wc = Counter(w)
+            if all(cnt[c] >= v for c, v in wc.items()):
+                ans += len(w)
         return ans
 ```
 
@@ -71,32 +81,26 @@ class Solution:
 ```java
 class Solution {
     public int countCharacters(String[] words, String chars) {
-        int[] counter = count(chars);
+        int[] cnt = new int[26];
+        for (int i = 0; i < chars.length(); ++i) {
+            ++cnt[chars.charAt(i) - 'a'];
+        }
         int ans = 0;
-        for (String word : words) {
-            int[] cnt = count(word);
-            if (check(counter, cnt)) {
-                ans += word.length();
+        for (String w : words) {
+            int[] wc = new int[26];
+            boolean ok = true;
+            for (int i = 0; i < w.length(); ++i) {
+                int j = w.charAt(i) - 'a';
+                if (++wc[j] > cnt[j]) {
+                    ok = false;
+                    break;
+                }
+            }
+            if (ok) {
+                ans += w.length();
             }
         }
         return ans;
-    }
-
-    private int[] count(String s) {
-        int[] counter = new int[26];
-        for (char c : s.toCharArray()) {
-            ++counter[c - 'a'];
-        }
-        return counter;
-    }
-
-    private boolean check(int[] cnt1, int[] cnt2) {
-        for (int i = 0; i < 26; ++i) {
-            if (cnt1[i] < cnt2[i]) {
-                return false;
-            }
-        }
-        return true;
     }
 }
 ```
@@ -107,25 +111,26 @@ class Solution {
 class Solution {
 public:
     int countCharacters(vector<string>& words, string chars) {
-        vector<int> counter = count(chars);
+        int cnt[26]{};
+        for (char& c : chars) {
+            ++cnt[c - 'a'];
+        }
         int ans = 0;
-        for (auto& word : words) {
-            vector<int> cnt = count(word);
-            if (check(counter, cnt)) ans += word.size();
+        for (auto& w : words) {
+            int wc[26]{};
+            bool ok = true;
+            for (auto& c : w) {
+                int i = c - 'a';
+                if (++wc[i] > cnt[i]) {
+                    ok = false;
+                    break;
+                }
+            }
+            if (ok) {
+                ans += w.size();
+            }
         }
         return ans;
-    }
-
-    vector<int> count(string s) {
-        vector<int> counter(26);
-        for (char c : s) ++counter[c - 'a'];
-        return counter;
-    }
-
-    bool check(vector<int>& cnt1, vector<int>& cnt2) {
-        for (int i = 0; i < 26; ++i)
-            if (cnt1[i] < cnt2[i]) return false;
-        return true;
     }
 };
 ```
@@ -133,33 +138,54 @@ public:
 ### **Go**
 
 ```go
-func countCharacters(words []string, chars string) int {
-	counter := count(chars)
-	ans := 0
-	for _, word := range words {
-		cnt := count(word)
-		if check(counter, cnt) {
-			ans += len(word)
+func countCharacters(words []string, chars string) (ans int) {
+	cnt := [26]int{}
+	for _, c := range chars {
+		cnt[c-'a']++
+	}
+	for _, w := range words {
+		wc := [26]int{}
+		ok := true
+		for _, c := range w {
+			c -= 'a'
+			wc[c]++
+			if wc[c] > cnt[c] {
+				ok = false
+				break
+			}
+		}
+		if ok {
+			ans += len(w)
 		}
 	}
-	return ans
+	return
 }
+```
 
-func count(s string) []int {
-	counter := make([]int, 26)
-	for _, c := range s {
-		counter[c-'a']++
-	}
-	return counter
-}
+### **TypeScript**
 
-func check(cnt1, cnt2 []int) bool {
-	for i := 0; i < 26; i++ {
-		if cnt1[i] < cnt2[i] {
-			return false
-		}
-	}
-	return true
+```ts
+function countCharacters(words: string[], chars: string): number {
+    const idx = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
+    const cnt = new Array(26).fill(0);
+    for (const c of chars) {
+        cnt[idx(c)]++;
+    }
+    let ans = 0;
+    for (const w of words) {
+        const wc = new Array(26).fill(0);
+        let ok = true;
+        for (const c of w) {
+            if (++wc[idx(c)] > cnt[idx(c)]) {
+                ok = false;
+                break;
+            }
+        }
+        if (ok) {
+            ans += w.length;
+        }
+    }
+    return ans;
 }
 ```
 

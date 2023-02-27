@@ -124,7 +124,7 @@ public:
 
 ```go
 func movesToMakeZigzag(nums []int) int {
-	ans := make([]int, 2)
+	ans := [2]int{}
 	n := len(nums)
 	for i := 0; i < 2; i++ {
 		for j := i; j < n; j += 2 {

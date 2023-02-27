@@ -1,28 +1,22 @@
-func countCharacters(words []string, chars string) int {
-	counter := count(chars)
-	ans := 0
-	for _, word := range words {
-		cnt := count(word)
-		if check(counter, cnt) {
-			ans += len(word)
+func countCharacters(words []string, chars string) (ans int) {
+	cnt := [26]int{}
+	for _, c := range chars {
+		cnt[c-'a']++
+	}
+	for _, w := range words {
+		wc := [26]int{}
+		ok := true
+		for _, c := range w {
+			c -= 'a'
+			wc[c]++
+			if wc[c] > cnt[c] {
+				ok = false
+				break
+			}
+		}
+		if ok {
+			ans += len(w)
 		}
 	}
-	return ans
-}
-
-func count(s string) []int {
-	counter := make([]int, 26)
-	for _, c := range s {
-		counter[c-'a']++
-	}
-	return counter
-}
-
-func check(cnt1, cnt2 []int) bool {
-	for i := 0; i < 26; i++ {
-		if cnt1[i] < cnt2[i] {
-			return false
-		}
-	}
-	return true
+	return
 }
