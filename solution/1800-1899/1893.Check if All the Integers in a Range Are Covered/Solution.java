@@ -2,13 +2,14 @@ class Solution {
     public boolean isCovered(int[][] ranges, int left, int right) {
         int[] diff = new int[52];
         for (int[] range : ranges) {
-            diff[range[0]]++;
-            diff[range[1] + 1]--;
+            int l = range[0], r = range[1];
+            ++diff[l];
+            --diff[r + 1];
         }
         int cur = 0;
-        for (int i = 0; i < 52; i++) {
+        for (int i = 0; i < diff.length; ++i) {
             cur += diff[i];
-            if (left <= i && i <= right && cur == 0) {
+            if (i >= left && i <= right && cur == 0) {
                 return false;
             }
         }

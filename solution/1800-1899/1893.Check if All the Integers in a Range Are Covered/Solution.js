@@ -1,4 +1,10 @@
-function isCovered(ranges: number[][], left: number, right: number): boolean {
+/**
+ * @param {number[][]} ranges
+ * @param {number} left
+ * @param {number} right
+ * @return {boolean}
+ */
+var isCovered = function (ranges, left, right) {
     const diff = new Array(52).fill(0);
     for (const [l, r] of ranges) {
         ++diff[l];
@@ -12,4 +18,4 @@ function isCovered(ranges: number[][], left: number, right: number): boolean {
         }
     }
     return true;
-}
+};

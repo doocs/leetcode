@@ -5,8 +5,8 @@ class Solution:
             diff[l] += 1
             diff[r + 1] -= 1
         cur = 0
-        for i, df in enumerate(diff):
-            cur += df
+        for i, x in enumerate(diff):
+            cur += x
             if left <= i <= right and cur == 0:
                 return False
         return True
