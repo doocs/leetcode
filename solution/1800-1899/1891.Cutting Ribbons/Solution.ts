@@ -1,9 +1,4 @@
-/**
- * @param {number[]} ribbons
- * @param {number} k
- * @return {number}
- */
-var maxLength = function (ribbons, k) {
+function maxLength(ribbons: number[], k: number): number {
     let left = 0;
     let right = 1e5;
     while (left < right) {
@@ -19,4 +14,4 @@ var maxLength = function (ribbons, k) {
         }
     }
     return left;
-};
+}

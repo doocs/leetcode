@@ -43,11 +43,8 @@ T_4 = 1 + 1 + 2 = 4
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>0 &lt;= n &lt;= 37</code></li>
-
     <li>The answer is guaranteed to fit within a 32-bit integer, ie. <code>answer &lt;= 2^31 - 1</code>.</li>
-
 </ul>
 
 ## Solutions
