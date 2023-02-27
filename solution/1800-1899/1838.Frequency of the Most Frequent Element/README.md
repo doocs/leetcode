@@ -72,6 +72,8 @@
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
+<!-- tabs:start -->
+
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
@@ -346,6 +348,56 @@ var maxFrequency = function (nums, k) {
     }
     return left;
 };
+```
+
+### **TypeScript**
+
+```ts
+function maxFrequency(nums: number[], k: number): number {
+    nums.sort((a, b) => a - b);
+    let ans = 1;
+    let window = 0;
+    const n = nums.length;
+    for (let l = 0, r = 1; r < n; ++r) {
+        window += (nums[r] - nums[r - 1]) * (r - l);
+        while (window > k) {
+            window -= nums[r] - nums[l++];
+        }
+        ans = Math.max(ans, r - l + 1);
+    }
+    return ans;
+}
+```
+
+```ts
+function maxFrequency(nums: number[], k: number): number {
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    const s = new Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        s[i + 1] = s[i] + nums[i];
+    }
+    const check = (cnt: number) => {
+        for (let i = 0; i < n + 1 - cnt; ++i) {
+            const j = i + cnt - 1;
+            if (nums[j] * cnt - (s[j + 1] - s[i]) <= k) {
+                return true;
+            }
+        }
+        return false;
+    };
+    let left = 1;
+    let right = n;
+    while (left < right) {
+        const mid = (left + right + 1) >> 1;
+        if (check(mid)) {
+            left = mid;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return left;
+}
 ```
 
 ### **...**
