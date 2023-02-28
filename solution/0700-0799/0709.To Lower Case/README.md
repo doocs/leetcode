@@ -44,7 +44,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-遍历字符串，遇到大写的字符，转小写。
+**方法一：模拟**
+
+我们可以遍历字符串，对于每个大写字母，将其转换为小写字母。最后返回转换后的字符串即可。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串的长度。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -55,9 +59,7 @@
 ```python
 class Solution:
     def toLowerCase(self, s: str) -> str:
-        return ''.join(
-            [chr(ord(c) | 32) if ord('A') <= ord(c) <= ord('Z') else c for c in s]
-        )
+        return "".join([chr(ord(c) | 32) if c.isupper() else c for c in s])
 ```
 
 ### **Java**
@@ -67,13 +69,13 @@ class Solution:
 ```java
 class Solution {
     public String toLowerCase(String s) {
-        char[] chars = s.toCharArray();
-        for (int i = 0; i < chars.length; ++i) {
-            if (chars[i] >= 'A' && chars[i] <= 'Z') {
-                chars[i] |= 32;
+        char[] cs = s.toCharArray();
+        for (int i = 0; i < cs.length; ++i) {
+            if (cs[i] >= 'A' && cs[i] <= 'Z') {
+                cs[i] |= 32;
             }
         }
-        return new String(chars);
+        return String.valueOf(cs);
     }
 }
 ```
@@ -84,9 +86,11 @@ class Solution {
 class Solution {
 public:
     string toLowerCase(string s) {
-        for (char& c : s)
-            if (c >= 'A' && c <= 'Z')
+        for (char& c : s) {
+            if (c >= 'A' && c <= 'Z') {
                 c |= 32;
+            }
+        }
         return s;
     }
 };
@@ -96,15 +100,13 @@ public:
 
 ```go
 func toLowerCase(s string) string {
-	sb := &strings.Builder{}
-	sb.Grow(len(s))
-	for _, c := range s {
+	cs := []byte(s)
+	for i, c := range cs {
 		if c >= 'A' && c <= 'Z' {
-			c |= 32
+			cs[i] |= 32
 		}
-		sb.WriteRune(c)
 	}
-	return sb.String()
+	return string(cs)
 }
 ```
 
