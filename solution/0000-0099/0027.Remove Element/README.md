@@ -172,7 +172,7 @@ impl Solution {
 }
 ```
 
-### **PHP*
+### **PHP**
 
 ```php
 class Solution {
@@ -182,7 +182,7 @@ class Solution {
      * @param Integer $val
      * @return Integer
      */
-    function removeElement( & $nums, $val) {
+    function removeElement(&$nums, $val) {
         for ($i = count($nums) - 1; $i >= 0; $i--) {
             if ($nums[$i] == $val) {
                 array_splice($nums, $i, 1);
