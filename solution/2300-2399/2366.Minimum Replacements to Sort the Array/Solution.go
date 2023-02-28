@@ -1,16 +1,14 @@
-func minimumReplacement(nums []int) int64 {
-	var ans int64
+func minimumReplacement(nums []int) (ans int64) {
 	n := len(nums)
-	mi := nums[n-1]
+	mx := nums[n-1]
 	for i := n - 2; i >= 0; i-- {
-		v := nums[i]
-		if v <= mi {
-			mi = v
+		if nums[i] <= mx {
+			mx = nums[i]
 			continue
 		}
-		k := (v + mi - 1) / mi
+		k := (nums[i] + mx - 1) / mx
 		ans += int64(k - 1)
-		mi = v / k
+		mx = nums[i] / k
 	}
-	return ans
+	return
 }

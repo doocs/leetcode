@@ -3,16 +3,15 @@ public:
     long long minimumReplacement(vector<int>& nums) {
         long long ans = 0;
         int n = nums.size();
-        int mi = nums[n - 1];
-        for (int i = n - 2; ~i; --i) {
-            int v = nums[i];
-            if (v <= mi) {
-                mi = v;
+        int mx = nums[n - 1];
+        for (int i = n - 2; i >= 0; --i) {
+            if (nums[i] <= mx) {
+                mx = nums[i];
                 continue;
             }
-            int k = (v + mi - 1) / mi;
+            int k = (nums[i] + mx - 1) / mx;
             ans += k - 1;
-            mi = v / k;
+            mx = nums[i] / k;
         }
         return ans;
     }

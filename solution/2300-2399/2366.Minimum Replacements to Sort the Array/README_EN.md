@@ -50,16 +50,16 @@ There are 2 steps to sort the array in non-decreasing order. Therefore, we retur
 ```python
 class Solution:
     def minimumReplacement(self, nums: List[int]) -> int:
-        ans, n = 0, len(nums)
-        mi = nums[-1]
+        ans = 0
+        n = len(nums)
+        mx = nums[-1]
         for i in range(n - 2, -1, -1):
-            v = nums[i]
-            if v <= mi:
-                mi = v
+            if nums[i] <= mx:
+                mx = nums[i]
                 continue
-            k = (v + mi - 1) // mi
+            k = (nums[i] + mx - 1) // mx
             ans += k - 1
-            mi = v // k
+            mx = nums[i] // k
         return ans
 ```
 
@@ -70,16 +70,15 @@ class Solution {
     public long minimumReplacement(int[] nums) {
         long ans = 0;
         int n = nums.length;
-        int mi = nums[n - 1];
+        int mx = nums[n - 1];
         for (int i = n - 2; i >= 0; --i) {
-            int v = nums[i];
-            if (v <= mi) {
-                mi = v;
+            if (nums[i] <= mx) {
+                mx = nums[i];
                 continue;
             }
-            int k = (v + mi - 1) / mi;
+            int k = (nums[i] + mx - 1) / mx;
             ans += k - 1;
-            mi = v / k;
+            mx = nums[i] / k;
         }
         return ans;
     }
@@ -94,16 +93,15 @@ public:
     long long minimumReplacement(vector<int>& nums) {
         long long ans = 0;
         int n = nums.size();
-        int mi = nums[n - 1];
-        for (int i = n - 2; ~i; --i) {
-            int v = nums[i];
-            if (v <= mi) {
-                mi = v;
+        int mx = nums[n - 1];
+        for (int i = n - 2; i >= 0; --i) {
+            if (nums[i] <= mx) {
+                mx = nums[i];
                 continue;
             }
-            int k = (v + mi - 1) / mi;
+            int k = (nums[i] + mx - 1) / mx;
             ans += k - 1;
-            mi = v / k;
+            mx = nums[i] / k;
         }
         return ans;
     }
@@ -113,28 +111,40 @@ public:
 ### **Go**
 
 ```go
-func minimumReplacement(nums []int) int64 {
-	var ans int64
+func minimumReplacement(nums []int) (ans int64) {
 	n := len(nums)
-	mi := nums[n-1]
+	mx := nums[n-1]
 	for i := n - 2; i >= 0; i-- {
-		v := nums[i]
-		if v <= mi {
-			mi = v
+		if nums[i] <= mx {
+			mx = nums[i]
 			continue
 		}
-		k := (v + mi - 1) / mi
+		k := (nums[i] + mx - 1) / mx
 		ans += int64(k - 1)
-		mi = v / k
+		mx = nums[i] / k
 	}
-	return ans
+	return
 }
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function minimumReplacement(nums: number[]): number {
+    const n = nums.length;
+    let mx = nums[n - 1];
+    let ans = 0;
+    for (let i = n - 2; i >= 0; --i) {
+        if (nums[i] <= mx) {
+            mx = nums[i];
+            continue;
+        }
+        const k = Math.ceil(nums[i] / mx);
+        ans += k - 1;
+        mx = Math.floor(nums[i] / k);
+    }
+    return ans;
+}
 ```
 
 ### **...**
