@@ -57,7 +57,7 @@
 
 遍历 $blocks$，找出 $k$ 大小的窗口中的白色块个数的最小值。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为 $blocks$ 的长度。
 
 <!-- tabs:start -->
 
@@ -73,7 +73,7 @@ class Solution:
         i, n = k, len(blocks)
         while i < n:
             cnt += blocks[i] == 'W'
-            cnt -= blocks[i-k] == 'W'
+            cnt -= blocks[i - k] == 'W'
             ans = min(ans, cnt)
             i += 1
         return ans

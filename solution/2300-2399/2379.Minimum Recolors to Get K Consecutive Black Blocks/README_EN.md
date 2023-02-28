@@ -59,7 +59,7 @@ class Solution:
         i, n = k, len(blocks)
         while i < n:
             cnt += blocks[i] == 'W'
-            cnt -= blocks[i-k] == 'W'
+            cnt -= blocks[i - k] == 'W'
             ans = min(ans, cnt)
             i += 1
         return ans
