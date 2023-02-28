@@ -64,6 +64,19 @@
 
 **方法一：前缀和**
 
+我们定义变量 $left$ 表示数组 `nums` 中下标 $i$ 左侧元素之和，变量 $right$ 表示数组 `nums` 中下标 $i$ 右侧元素之和。初始时 $left = 0$, $right = \sum_{i = 0}^{n - 1} nums[i]$。
+
+遍历数组 `nums`，对于当前遍历到的数字 $x$，我们更新 $right = right - x$，此时如果 $left=right$，说明当前下标 $i$ 就是中间位置，直接返回即可。否则，我们更新 $left = left + x$，继续遍历下一个数字。
+
+遍历结束，如果没有找到中间位置，返回 $-1$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `nums` 的长度。
+
+相似题目：
+
+-   [1991. 找到数组的中间位置](/solution/1900-1999/1991.Find%20the%20Middle%20Index%20in%20Array/README.md)
+-   [2574. 左右元素和的差值](/solution/2500-2599/2574.Left%20and%20Right%20Sum%20Differences/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -73,23 +86,12 @@
 ```python
 class Solution:
     def pivotIndex(self, nums: List[int]) -> int:
-        s, presum = sum(nums), 0
-        for i, v in enumerate(nums):
-            if (presum << 1) == s - v:
+        left, right = 0, sum(nums)
+        for i, x in enumerate(nums):
+            right -= x
+            if left == right:
                 return i
-            presum += v
-        return -1
-```
-
-```python
-class Solution:
-    def pivotIndex(self, nums: List[int]) -> int:
-        l, r = 0, sum(nums)
-        for i, v in enumerate(nums):
-            r -= v
-            if l == r:
-                return i
-            l += v
+            left += x
         return -1
 ```
 
@@ -100,56 +102,16 @@ class Solution:
 ```java
 class Solution {
     public int pivotIndex(int[] nums) {
-        int n = nums.length, s = 0;
-        for (int e : nums) {
-            s += e;
-        }
-        int presum = 0;
-        for (int i = 0; i < n; ++i) {
-            // presum == sums - nums[i] - presum
-            if (presum << 1 == s - nums[i]) {
-                return i;
-            }
-            presum += nums[i];
-        }
-        return -1;
-    }
-}
-```
-
-```java
-class Solution {
-    public int pivotIndex(int[] nums) {
-        int l = 0, r = 0;
-        for (int v : nums) {
-            r += v;
-        }
+        int left = 0, right = Arrays.stream(nums).sum();
         for (int i = 0; i < nums.length; ++i) {
-            r -= nums[i];
-            if (l == r) {
+            right -= nums[i];
+            if (left == right) {
                 return i;
             }
-            l += nums[i];
+            left += nums[i];
         }
         return -1;
     }
-}
-```
-
-### **TypeScript**
-
-```ts
-function pivotIndex(nums: number[]): number {
-    let l = 0;
-    let r = nums.reduce((a, b) => a + b, 0);
-    for (let i = 0; i < nums.length; ++i) {
-        r -= nums[i];
-        if (l == r) {
-            return i;
-        }
-        l += nums[i];
-    }
-    return -1;
 }
 ```
 
@@ -159,31 +121,13 @@ function pivotIndex(nums: number[]): number {
 class Solution {
 public:
     int pivotIndex(vector<int>& nums) {
-        int s = 0;
-        for (int e : nums)
-            s += e;
-        int presum = 0;
+        int left = 0, right = accumulate(nums.begin(), nums.end(), 0);
         for (int i = 0; i < nums.size(); ++i) {
-            if (presum * 2 == s - nums[i])
+            right -= nums[i];
+            if (left == right) {
                 return i;
-            presum += nums[i];
-        }
-        return -1;
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    int pivotIndex(vector<int>& nums) {
-        int l = 0, r = 0;
-        for (int& v : nums) r += v;
-        for (int i = 0; i < nums.size(); ++i)
-        {
-            r -= nums[i];
-            if (l == r) return i;
-            l += nums[i];
+            }
+            left += nums[i];
         }
         return -1;
     }
@@ -194,35 +138,56 @@ public:
 
 ```go
 func pivotIndex(nums []int) int {
-	s := 0
-	for _, e := range nums {
-		s += e
+	var left, right int
+	for _, x := range nums {
+		right += x
 	}
-	presum := 0
-	for i, e := range nums {
-		if presum<<1 == s-e {
+	for i, x := range nums {
+		right -= x
+		if left == right {
 			return i
 		}
-		presum += e
+		left += x
 	}
 	return -1
 }
 ```
 
-```go
-func pivotIndex(nums []int) int {
-	l, r := 0, 0
-	for _, v := range nums {
-		r += v
-	}
-	for i, v := range nums {
-		r -= v
-		if l == r {
-			return i
-		}
-		l += v
-	}
-	return -1
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var pivotIndex = function (nums) {
+    let left = 0,
+        right = nums.reduce((a, b) => a + b);
+    for (let i = 0; i < nums.length; ++i) {
+        right -= nums[i];
+        if (left == right) {
+            return i;
+        }
+        left += nums[i];
+    }
+    return -1;
+};
+```
+
+### **TypeScript**
+
+```ts
+function pivotIndex(nums: number[]): number {
+    let left = 0,
+        right = nums.reduce((a, b) => a + b);
+    for (let i = 0; i < nums.length; ++i) {
+        right -= nums[i];
+        if (left == right) {
+            return i;
+        }
+        left += nums[i];
+    }
+    return -1;
 }
 ```
 

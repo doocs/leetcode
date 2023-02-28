@@ -1,4 +1,8 @@
-function pivotIndex(nums: number[]): number {
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var pivotIndex = function (nums) {
     let left = 0,
         right = nums.reduce((a, b) => a + b);
     for (let i = 0; i < nums.length; ++i) {
@@ -9,4 +13,4 @@ function pivotIndex(nums: number[]): number {
         left += nums[i];
     }
     return -1;
-}
+};

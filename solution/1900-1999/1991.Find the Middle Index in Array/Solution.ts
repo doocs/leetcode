@@ -1,4 +1,4 @@
-function pivotIndex(nums: number[]): number {
+function findMiddleIndex(nums: number[]): number {
     let left = 0,
         right = nums.reduce((a, b) => a + b);
     for (let i = 0; i < nums.length; ++i) {

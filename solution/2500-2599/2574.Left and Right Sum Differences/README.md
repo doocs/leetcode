@@ -63,6 +63,11 @@
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `nums` 的长度。
 
+相似题目：
+
+-   [0724. 寻找数组的中心下标](/solution/0700-0799/0724.Find%20Pivot%20Index/README.md)
+-   [1991. 找到数组的中间位置](/solution/1900-1999/1991.Find%20the%20Middle%20Index%20in%20Array/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
