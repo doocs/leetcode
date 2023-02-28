@@ -67,6 +67,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+我们定义 $f[i]$ 表示第一次访问第 $i$ 号房间的日期编号，那么答案就是 $f[n - 1]$。
+
+我们考虑第一次到达第 $i-1$ 号房间的日期编号，记为 $f[i-1]$，此时需要花一天的时间回退到第 $nextVisit[i-1]$ 号房间，为什么是回退呢？因为题目限制了 $0 \leq nextVisit[i] \leq i$。
+
+回退之后，此时第 $nextVisit[i-1]$ 号房间的访问为奇数次，而第 $[nextVisit[i-1]+1,..i-1]$ 号房间均被访问偶数次，那么这时候我们从第 $nextVisit[i-1]$ 号房间再次走到第 $i-1$ 号房间，就需要花费 $f[i-1] - f[nextVisit[i-1]]$ 天的时间，然后再花费一天的时间到达第 $i$ 号房间，因此 $f[i] = f[i-1] + 1 + f[i-1] - f[nextVisit[i-1]] + 1$。由于 $f[i]$ 可能很大，因此需要对 $10^9 + 7$ 取余，并且为了防止负数，需要加上 $10^9 + 7$。
+
+最后返回 $f[n-1]$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为房间数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -74,7 +86,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def firstDayBeenInAllRooms(self, nextVisit: List[int]) -> int:
+        n = len(nextVisit)
+        f = [0] * n
+        mod = 10**9 + 7
+        for i in range(1, n):
+            f[i] = (f[i - 1] + 1 + f[i - 1] - f[nextVisit[i - 1]] + 1) % mod
+        return f[-1]
 ```
 
 ### **Java**
@@ -82,7 +101,48 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int firstDayBeenInAllRooms(int[] nextVisit) {
+        int n = nextVisit.length;
+        long[] f = new long[n];
+        final int mod = (int) 1e9 + 7;
+        for (int i = 1; i < n; ++i) {
+            f[i] = (f[i - 1] + 1 + f[i - 1] - f[nextVisit[i - 1]] + 1 + mod) % mod;
+        }
+        return (int) f[n - 1];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int firstDayBeenInAllRooms(vector<int>& nextVisit) {
+        int n = nextVisit.size();
+        vector<long long> f(n);
+        const int mod = 1e9 + 7;
+        for (int i = 1; i < n; ++i) {
+            f[i] = (f[i - 1] + 1 + f[i - 1] - f[nextVisit[i - 1]] + 1 + mod) % mod;
+        }
+        return f[n - 1];
+    }
+};
+```
+
+### **Go**
+
+```go
+func firstDayBeenInAllRooms(nextVisit []int) int {
+	n := len(nextVisit)
+	f := make([]int, n)
+	const mod = 1e9 + 7
+	for i := 1; i < n; i++ {
+		f[i] = (f[i-1] + 1 + f[i-1] - f[nextVisit[i-1]] + 1 + mod) % mod
+	}
+	return f[n-1]
+}
 ```
 
 ### **...**

@@ -66,13 +66,61 @@ Day 6 is the first day where you have been in all the rooms.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def firstDayBeenInAllRooms(self, nextVisit: List[int]) -> int:
+        n = len(nextVisit)
+        f = [0] * n
+        mod = 10**9 + 7
+        for i in range(1, n):
+            f[i] = (f[i - 1] + 1 + f[i - 1] - f[nextVisit[i - 1]] + 1) % mod
+        return f[-1]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int firstDayBeenInAllRooms(int[] nextVisit) {
+        int n = nextVisit.length;
+        long[] f = new long[n];
+        final int mod = (int) 1e9 + 7;
+        for (int i = 1; i < n; ++i) {
+            f[i] = (f[i - 1] + 1 + f[i - 1] - f[nextVisit[i - 1]] + 1 + mod) % mod;
+        }
+        return (int) f[n - 1];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int firstDayBeenInAllRooms(vector<int>& nextVisit) {
+        int n = nextVisit.size();
+        vector<long long> f(n);
+        const int mod = 1e9 + 7;
+        for (int i = 1; i < n; ++i) {
+            f[i] = (f[i - 1] + 1 + f[i - 1] - f[nextVisit[i - 1]] + 1 + mod) % mod;
+        }
+        return f[n - 1];
+    }
+};
+```
+
+### **Go**
+
+```go
+func firstDayBeenInAllRooms(nextVisit []int) int {
+	n := len(nextVisit)
+	f := make([]int, n)
+	const mod = 1e9 + 7
+	for i := 1; i < n; i++ {
+		f[i] = (f[i-1] + 1 + f[i-1] - f[nextVisit[i-1]] + 1 + mod) % mod
+	}
+	return f[n-1]
+}
 ```
 
 ### **...**
