@@ -52,11 +52,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-按攻击力从大到小排序，攻击力相同则按防御力从小到大排序。
+**方法一：排序 + 遍历**
 
-遍历，维护遍历过的角色的防御的最大值 mx。
+我们可以将所有角色按照攻击力降序排序，防御力升序排序。
 
-对于当前角色 p，如果 p 的防御小于 mx，说明前面有防御比 p 高的角色，记作 q。根据上面的排序规则，q 的攻击是大于或等于 p 的攻击的，如果 q 和 p 攻击相同，仍然根据上面的排序规则，q 的防御不会超过 p，矛盾，因此 q 的攻击必然大于 p，于是 q 的攻防均高于 p，p 是一个弱角色。
+然后遍历所有角色，对于当前角色，如果其防御力小于之前的最大防御力，则说明其为弱角色，答案加一，否则更新最大防御力。
+
+遍历结束后，即可得到答案。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为角色数量。
 
 <!-- tabs:start -->
 
@@ -69,10 +73,9 @@ class Solution:
     def numberOfWeakCharacters(self, properties: List[List[int]]) -> int:
         properties.sort(key=lambda x: (-x[0], x[1]))
         ans = mx = 0
-        for _, d in properties:
-            if mx > d:
-                ans += 1
-            mx = max(mx, d)
+        for _, x in properties:
+            ans += x < mx
+            mx = max(mx, x)
         return ans
 ```
 
@@ -83,35 +86,16 @@ class Solution:
 ```java
 class Solution {
     public int numberOfWeakCharacters(int[][] properties) {
-        Arrays.sort(properties, (a, b) -> { return a[0] == b[0] ? a[1] - b[1] : b[0] - a[0]; });
+        Arrays.sort(properties, (a, b) -> b[0] - a[0] == 0 ? a[1] - b[1] : b[0] - a[0]);
         int ans = 0, mx = 0;
-        for (int[] p : properties) {
-            if (mx > p[1]) {
+        for (var x : properties) {
+            if (x[1] < mx) {
                 ++ans;
             }
-            mx = Math.max(mx, p[1]);
+            mx = Math.max(mx, x[1]);
         }
         return ans;
     }
-}
-```
-
-### **TypeScript**
-
-```ts
-function numberOfWeakCharacters(properties: number[][]): number {
-    properties.sort((a, b) => (a[0] != b[0] ? b[0] - a[0] : a[1] - b[1]));
-
-    let ans = 0;
-    let max = 0;
-    for (let [, b] of properties) {
-        if (b < max) {
-            ans++;
-        } else {
-            max = b;
-        }
-    }
-    return ans;
 }
 ```
 
@@ -121,13 +105,11 @@ function numberOfWeakCharacters(properties: number[][]): number {
 class Solution {
 public:
     int numberOfWeakCharacters(vector<vector<int>>& properties) {
-        sort(properties.begin(), properties.end(), [&](vector<int>& a, vector<int>& b) { return a[0] == b[0] ? a[1] < b[1] : a[0] > b[0]; });
+        sort(properties.begin(), properties.end(), [&](auto& a, auto& b) { return a[0] == b[0] ? a[1] < b[1] : a[0] > b[0]; });
         int ans = 0, mx = 0;
-        for (auto& p : properties) {
-            if (mx > p[1])
-                ++ans;
-            else
-                mx = p[1];
+        for (auto& x : properties) {
+            ans += x[1] < mx;
+            mx = max(mx, x[1]);
         }
         return ans;
     }
@@ -137,23 +119,64 @@ public:
 ### **Go**
 
 ```go
-func numberOfWeakCharacters(properties [][]int) int {
+func numberOfWeakCharacters(properties [][]int) (ans int) {
 	sort.Slice(properties, func(i, j int) bool {
-		if properties[i][0] == properties[j][0] {
-			return properties[i][1] < properties[j][1]
+		a, b := properties[i], properties[j]
+		if a[0] == b[0] {
+			return a[1] < b[1]
 		}
-		return properties[i][0] > properties[j][0]
+		return a[0] > b[0]
 	})
-	ans, mx := 0, 0
-	for _, p := range properties {
-		if mx > p[1] {
+	mx := 0
+	for _, x := range properties {
+		if x[1] < mx {
 			ans++
 		} else {
-			mx = p[1]
+			mx = x[1]
 		}
 	}
-	return ans
+	return
 }
+```
+
+### **TypeScript**
+
+```ts
+function numberOfWeakCharacters(properties: number[][]): number {
+    properties.sort((a, b) => (a[0] == b[0] ? a[1] - b[1] : b[0] - a[0]));
+    let ans = 0;
+    let mx = 0;
+    for (const [, x] of properties) {
+        if (x < mx) {
+            ans++;
+        } else {
+            mx = x;
+        }
+    }
+    return ans;
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[][]} properties
+ * @return {number}
+ */
+var numberOfWeakCharacters = function (properties) {
+    properties.sort((a, b) => (a[0] == b[0] ? a[1] - b[1] : b[0] - a[0]));
+    let ans = 0;
+    let mx = 0;
+    for (const [, x] of properties) {
+        if (x < mx) {
+            ans++;
+        } else {
+            mx = x;
+        }
+    }
+    return ans;
+};
 ```
 
 ### **...**

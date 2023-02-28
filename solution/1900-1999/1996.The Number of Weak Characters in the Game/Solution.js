@@ -1,4 +1,8 @@
-function numberOfWeakCharacters(properties: number[][]): number {
+/**
+ * @param {number[][]} properties
+ * @return {number}
+ */
+var numberOfWeakCharacters = function (properties) {
     properties.sort((a, b) => (a[0] == b[0] ? a[1] - b[1] : b[0] - a[0]));
     let ans = 0;
     let mx = 0;
@@ -10,4 +14,4 @@ function numberOfWeakCharacters(properties: number[][]): number {
         }
     }
     return ans;
-}
+};
