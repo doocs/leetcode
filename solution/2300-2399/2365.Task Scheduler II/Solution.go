@@ -1,19 +1,11 @@
-func taskSchedulerII(tasks []int, space int) int64 {
-	mp := map[int]int64{}
-	var ans int64
-	for _, x := range tasks {
+func taskSchedulerII(tasks []int, space int) (ans int64) {
+	day := map[int]int64{}
+	for _, task := range tasks {
 		ans++
-		if v, ok := mp[x]; ok {
-			ans = max(ans, v)
+		if ans < day[task] {
+			ans = day[task]
 		}
-		mp[x] = ans + int64(space) + 1
+		day[task] = ans + int64(space) + 1
 	}
-	return ans
-}
-
-func max(a, b int64) int64 {
-	if a > b {
-		return a
-	}
-	return b
+	return
 }
