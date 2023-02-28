@@ -1,33 +1,31 @@
 func maxDistance(grid [][]int) int {
 	n := len(grid)
-	var q [][]int
-	for i := 0; i < n; i++ {
-		for j := 0; j < n; j++ {
-			if grid[i][j] == 1 {
-				q = append(q, []int{i, j})
+	q := [][2]int{}
+	for i, row := range grid {
+		for j, v := range row {
+			if v == 1 {
+				q = append(q, [2]int{i, j})
 			}
 		}
 	}
 	ans := -1
-	valid := false
-	dirs := []int{-1, 0, 1, 0, -1}
+	if len(q) == 0 || len(q) == n*n {
+		return ans
+	}
+	dirs := [5]int{-1, 0, 1, 0, -1}
 	for len(q) > 0 {
-		ans++
-		for k := len(q); k > 0; k-- {
+		for i := len(q); i > 0; i-- {
 			p := q[0]
 			q = q[1:]
-			for i := 0; i < 4; i++ {
-				x, y := p[0]+dirs[i], p[1]+dirs[i+1]
+			for k := 0; k < 4; k++ {
+				x, y := p[0]+dirs[k], p[1]+dirs[k+1]
 				if x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 0 {
-					valid = true
 					grid[x][y] = 1
-					q = append(q, []int{x, y})
+					q = append(q, [2]int{x, y})
 				}
 			}
 		}
+		ans++
 	}
-	if valid {
-		return ans
-	}
-	return -1
+	return ans
 }

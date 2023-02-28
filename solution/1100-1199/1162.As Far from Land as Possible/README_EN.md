@@ -69,7 +69,7 @@ class Solution:
 class Solution {
     public int maxDistance(int[][] grid) {
         int n = grid.length;
-        Deque<int[]> q = new LinkedList<>();
+        Deque<int[]> q = new ArrayDeque<>();
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (grid[i][j] == 1) {
@@ -78,65 +78,25 @@ class Solution {
             }
         }
         int ans = -1;
-        boolean valid = false;
+        if (q.isEmpty() || q.size() == n * n) {
+            return ans;
+        }
         int[] dirs = {-1, 0, 1, 0, -1};
         while (!q.isEmpty()) {
-            ++ans;
-            for (int k = q.size(); k > 0; --k) {
+            for (int i = q.size(); i > 0; --i) {
                 int[] p = q.poll();
-                for (int i = 0; i < 4; ++i) {
-                    int x = p[0] + dirs[i];
-                    int y = p[1] + dirs[i + 1];
+                for (int k = 0; k < 4; ++k) {
+                    int x = p[0] + dirs[k], y = p[1] + dirs[k + 1];
                     if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 0) {
-                        valid = true;
                         grid[x][y] = 1;
                         q.offer(new int[] {x, y});
                     }
                 }
             }
+            ++ans;
         }
-        return valid ? ans : -1;
+        return ans;
     }
-}
-```
-
-### **TypeScript**
-
-```ts
-function maxDistance(grid: number[][]): number {
-    const m = grid.length,
-        n = grid[0].length;
-    let queue: Array<Array<number>> = [];
-    for (let i = 0; i < m; i++) {
-        for (let j = 0; j < n; j++) {
-            if (grid[i][j]) {
-                queue.push([i, j]);
-            }
-        }
-    }
-    if ([0, m * n].includes(queue.length)) return -1;
-    const directions = [
-        [0, 1],
-        [0, -1],
-        [1, 0],
-        [-1, 0],
-    ];
-    let depth = 1;
-    while (queue.length) {
-        depth += 1;
-        let nextLevel: Array<Array<number>> = [];
-        for (let [x, y] of queue) {
-            for (let [dx, dy] of directions) {
-                const [i, j] = [x + dx, y + dy];
-                if (i >= 0 && i < m && j >= 0 && j < n && !grid[i][j]) {
-                    grid[i][j] = depth;
-                    nextLevel.push([i, j]);
-                }
-            }
-        }
-        queue = nextLevel;
-    }
-    return depth - 2;
 }
 ```
 
@@ -147,32 +107,34 @@ class Solution {
 public:
     int maxDistance(vector<vector<int>>& grid) {
         int n = grid.size();
-        typedef pair<int, int> pii;
-        queue<pii> q;
-        for (int i = 0; i < n; ++i)
-            for (int j = 0; j < n; ++j)
-                if (grid[i][j] == 1)
-                    q.push({i, j});
-        int ans = -1;
-        bool valid = false;
-        vector<int> dirs = {-1, 0, 1, 0, -1};
-        while (!q.empty()) {
-            ++ans;
-            for (int k = q.size(); k > 0; --k) {
-                pii p = q.front();
-                q.pop();
-                for (int i = 0; i < 4; ++i) {
-                    int x = p.first + dirs[i];
-                    int y = p.second + dirs[i + 1];
-                    if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 0) {
-                        valid = true;
-                        grid[x][y] = 1;
-                        q.push({x, y});
-                    }
+        queue<pair<int, int>> q;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j]) {
+                    q.emplace(i, j);
                 }
             }
         }
-        return valid ? ans : -1;
+        int ans = -1;
+        if (q.empty() || q.size() == n * n) {
+            return ans;
+        }
+        int dirs[5] = {-1, 0, 1, 0, -1};
+        while (!q.empty()) {
+            for (int m = q.size(); m; --m) {
+                auto [i, j] = q.front();
+                q.pop();
+                for (int k = 0; k < 4; ++k) {
+                    int x = i + dirs[k], y = j + dirs[k + 1];
+                    if (x >= 0 && x < n && y >= 0 && y < n && !grid[x][y]) {
+                        grid[x][y] = 1;
+                        q.emplace(x, y);
+                    }
+                }
+            }
+            ++ans;
+        }
+        return ans;
     }
 };
 ```
@@ -182,36 +144,70 @@ public:
 ```go
 func maxDistance(grid [][]int) int {
 	n := len(grid)
-	var q [][]int
-	for i := 0; i < n; i++ {
-		for j := 0; j < n; j++ {
-			if grid[i][j] == 1 {
-				q = append(q, []int{i, j})
+	q := [][2]int{}
+	for i, row := range grid {
+		for j, v := range row {
+			if v == 1 {
+				q = append(q, [2]int{i, j})
 			}
 		}
 	}
 	ans := -1
-	valid := false
-	dirs := []int{-1, 0, 1, 0, -1}
+	if len(q) == 0 || len(q) == n*n {
+		return ans
+	}
+	dirs := [5]int{-1, 0, 1, 0, -1}
 	for len(q) > 0 {
-		ans++
-		for k := len(q); k > 0; k-- {
+		for i := len(q); i > 0; i-- {
 			p := q[0]
 			q = q[1:]
-			for i := 0; i < 4; i++ {
-				x, y := p[0]+dirs[i], p[1]+dirs[i+1]
+			for k := 0; k < 4; k++ {
+				x, y := p[0]+dirs[k], p[1]+dirs[k+1]
 				if x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 0 {
-					valid = true
 					grid[x][y] = 1
-					q = append(q, []int{x, y})
+					q = append(q, [2]int{x, y})
 				}
 			}
 		}
+		ans++
 	}
-	if valid {
-		return ans
-	}
-	return -1
+	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxDistance(grid: number[][]): number {
+    const n = grid.length;
+    const q: [number, number][] = [];
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (grid[i][j] === 1) {
+                q.push([i, j]);
+            }
+        }
+    }
+    let ans = -1;
+    if (q.length === 0 || q.length === n * n) {
+        return ans;
+    }
+    const dirs: number[] = [-1, 0, 1, 0, -1];
+    while (q.length > 0) {
+        for (let m = q.length; m; --m) {
+            const [i, j] = q.shift()!;
+            for (let k = 0; k < 4; ++k) {
+                const x = i + dirs[k];
+                const y = j + dirs[k + 1];
+                if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y] === 0) {
+                    grid[x][y] = 1;
+                    q.push([x, y]);
+                }
+            }
+        }
+        ++ans;
+    }
+    return ans;
 }
 ```
 
