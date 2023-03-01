@@ -29,13 +29,79 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def reverseBits(self, num: int) -> int:
+        ans = cnt = j = 0
+        for i in range(32):
+            cnt += num >> i & 1 ^ 1
+            while cnt > 1:
+                cnt -= num >> j & 1 ^ 1
+                j += 1
+            ans = max(ans, i - j + 1)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int reverseBits(int num) {
+        int ans = 0, cnt = 0;
+        for (int i = 0, j = 0; i < 32; ++i) {
+            cnt += num >> i & 1 ^ 1;
+            while (cnt > 1) {
+                cnt -= num >> j & 1 ^ 1;
+                ++j;
+            }
+            ans = Math.max(ans, i - j + 1);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int reverseBits(int num) {
+        int ans = 0, cnt = 0;
+        for (int i = 0, j = 0; i < 32; ++i) {
+            cnt += num >> i & 1 ^ 1;
+            while (cnt > 1) {
+                cnt -= num >> j & 1 ^ 1;
+                ++j;
+            }
+            ans = max(ans, i - j + 1);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func reverseBits(num int) (ans int) {
+	var cnt, j int
+	for i := 0; i < 32; i++ {
+		cnt += num>>i&1 ^ 1
+		for cnt > 1 {
+			cnt -= num>>j&1 ^ 1
+			j++
+		}
+		ans = max(ans, i-j+1)
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
