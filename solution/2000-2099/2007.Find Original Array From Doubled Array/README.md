@@ -50,6 +50,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：排序 + 计数 + 遍历**
+
+我们先判断数组 `changed` 的长度 $n$ 是否为奇数，若是，则直接返回空数组。
+
+然后对数组 `changed` 进行排序，并且用哈希表或数组 `cnt` 统计数组 `changed` 中每个元素出现的次数。
+
+接下来遍历数组 `changed`，对于数组 `changed` 中的每个元素 $x$，我们首先判断哈希表 `cnt` 中是否存在 $x$，若不存在，则直接跳过该元素。否则，我们判断 `cnt` 中是否存在 $x \times 2$，若不存在，则直接返回空数组。否则，我们将 $x$ 加入答案数组 `ans` 中，并且将 `cnt` 中 $x$ 和 $x \times 2$ 的出现次数分别减 $1$。
+
+遍历结束后，我们判断答案数组 `ans` 的长度是否为 $\frac{n}{2}$，若是，则返回 `ans`，否则返回空数组。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `changed` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -59,23 +71,21 @@
 ```python
 class Solution:
     def findOriginalArray(self, changed: List[int]) -> List[int]:
-        if len(changed) % 2 != 0:
+        n = len(changed)
+        if n & 1:
             return []
-        n = 100010
-        counter = [0] * n
+        cnt = Counter(changed)
+        changed.sort()
+        ans = []
         for x in changed:
-            counter[x] += 1
-        if counter[0] % 2 != 0:
-            return []
-        res = [0] * (counter[0] // 2)
-        for i in range(1, n):
-            if counter[i] == 0:
+            if cnt[x] == 0:
                 continue
-            if i * 2 > n or counter[i] > counter[i * 2]:
+            if cnt[x * 2] <= 0:
                 return []
-            res.extend([i] * counter[i])
-            counter[i * 2] -= counter[i]
-        return res
+            ans.append(x)
+            cnt[x] -= 1
+            cnt[x * 2] -= 1
+        return ans if len(ans) == n // 2 else []
 ```
 
 ### **Java**
@@ -85,32 +95,29 @@ class Solution:
 ```java
 class Solution {
     public int[] findOriginalArray(int[] changed) {
-        if (changed.length % 2 != 0) {
-            return new int[] {};
+        int n = changed.length;
+        if (n % 2 == 1) {
+            return new int[]{};
         }
-        int n = 100010;
-        int[] counter = new int[n];
+        Arrays.sort(changed);
+        int[] cnt = new int[changed[n - 1] + 1];
         for (int x : changed) {
-            ++counter[x];
+            ++cnt[x];
         }
-        if (counter[0] % 2 != 0) {
-            return new int[] {};
-        }
-        int[] res = new int[changed.length / 2];
-        int j = counter[0] / 2;
-        for (int i = 1; i < n; ++i) {
-            if (counter[i] == 0) {
+        int[] ans = new int[n / 2];
+        int i = 0;
+        for (int x : changed) {
+            if (cnt[x] == 0) {
                 continue;
             }
-            if (i * 2 >= n || counter[i] > counter[i * 2]) {
-                return new int[] {};
+            if (x * 2 >= cnt.length || cnt[x * 2] <= 0) {
+                return new int[]{};
             }
-            counter[i * 2] -= counter[i];
-            while (counter[i]-- > 0) {
-                res[j++] = i;
-            }
+            ans[i++] = x;
+            cnt[x]--;
+            cnt[x * 2]--;
         }
-        return res;
+        return i == n / 2 ? ans : new int[]{};
     }
 }
 ```
@@ -121,20 +128,28 @@ class Solution {
 class Solution {
 public:
     vector<int> findOriginalArray(vector<int>& changed) {
-        if (changed.size() % 2 != 0) return {};
-        int n = 100010;
-        vector<int> counter(n);
-        for (int x : changed) ++counter[x];
-        if (counter[0] % 2 != 0) return {};
-        vector<int> res(changed.size() / 2);
-        int j = counter[0] / 2;
-        for (int i = 1; i < n; ++i) {
-            if (counter[i] == 0) continue;
-            if (i * 2 >= n || counter[i] > counter[i * 2]) return {};
-            counter[i * 2] -= counter[i];
-            while (counter[i]--) res[j++] = i;
+        int n = changed.size();
+        if (n & 1) {
+            return {};
         }
-        return res;
+        sort(changed.begin(), changed.end());
+        vector<int> cnt(changed.back() + 1);
+        for (int& x : changed) {
+            ++cnt[x];
+        }
+        vector<int> ans;
+        for (int& x : changed) {
+            if (cnt[x] == 0) {
+                continue;
+            }
+            if (x * 2 >= cnt.size() || cnt[x * 2] <= 0) {
+                return {};
+            }
+            ans.push_back(x);
+            --cnt[x];
+            --cnt[x * 2];
+        }
+        return ans.size() == n / 2 ? ans : vector<int>();
     }
 };
 ```
@@ -143,34 +158,60 @@ public:
 
 ```go
 func findOriginalArray(changed []int) []int {
-	if len(changed)%2 != 0 {
-		return []int{}
+	n := len(changed)
+	ans := []int{}
+	if n&1 == 1 {
+		return ans
 	}
-	n := 100010
-	counter := make([]int, n)
+	sort.Ints(changed)
+	cnt := make([]int, changed[n-1]+1)
 	for _, x := range changed {
-		counter[x]++
+		cnt[x]++
 	}
-	if counter[0]%2 != 0 {
-		return []int{}
-	}
-	var res []int
-	for j := 0; j < counter[0]/2; j++ {
-		res = append(res, 0)
-	}
-	for i := 1; i < n; i++ {
-		if counter[i] == 0 {
+	for _, x := range changed {
+		if cnt[x] == 0 {
 			continue
 		}
-		if i*2 >= n || counter[i] > counter[i*2] {
+		if x*2 >= len(cnt) || cnt[x*2] <= 0 {
 			return []int{}
 		}
-		for j := 0; j < counter[i]; j++ {
-			res = append(res, i)
-		}
-		counter[i*2] -= counter[i]
+		ans = append(ans, x)
+		cnt[x]--
+		cnt[x*2]--
 	}
-	return res
+	if len(ans) != n/2 {
+		return []int{}
+	}
+	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function findOriginalArray(changed: number[]): number[] {
+    const n = changed.length;
+    if (n & 1) {
+        return [];
+    }
+    const cnt = new Map<number, number>();
+    for (const x of changed) {
+        cnt.set(x, (cnt.get(x) || 0) + 1);
+    }
+    changed.sort((a, b) => a - b);
+    const ans: number[] = [];
+    for (const x of changed) {
+        if (cnt.get(x) == 0) {
+            continue;
+        }
+        if ((cnt.get(x * 2) || 0) <= 0) {
+            return [];
+        }
+        ans.push(x);
+        cnt.set(x, (cnt.get(x) || 0) - 1);
+        cnt.set(x * 2, (cnt.get(x * 2) || 0) - 1);
+    }
+    return ans.length == n / 2 ? ans : [];
 }
 ```
 

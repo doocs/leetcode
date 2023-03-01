@@ -1,30 +1,27 @@
 func findOriginalArray(changed []int) []int {
-	if len(changed)%2 != 0 {
-		return []int{}
+	n := len(changed)
+	ans := []int{}
+	if n&1 == 1 {
+		return ans
 	}
-	n := 100010
-	counter := make([]int, n)
+	sort.Ints(changed)
+	cnt := make([]int, changed[n-1]+1)
 	for _, x := range changed {
-		counter[x]++
+		cnt[x]++
 	}
-	if counter[0]%2 != 0 {
-		return []int{}
-	}
-	var res []int
-	for j := 0; j < counter[0]/2; j++ {
-		res = append(res, 0)
-	}
-	for i := 1; i < n; i++ {
-		if counter[i] == 0 {
+	for _, x := range changed {
+		if cnt[x] == 0 {
 			continue
 		}
-		if i*2 >= n || counter[i] > counter[i*2] {
+		if x*2 >= len(cnt) || cnt[x*2] <= 0 {
 			return []int{}
 		}
-		for j := 0; j < counter[i]; j++ {
-			res = append(res, i)
-		}
-		counter[i*2] -= counter[i]
+		ans = append(ans, x)
+		cnt[x]--
+		cnt[x*2]--
 	}
-	return res
+	if len(ans) != n/2 {
+		return []int{}
+	}
+	return ans
 }
