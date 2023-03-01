@@ -65,6 +65,18 @@ stk.top();     // 返回 5，[<strong>5</strong>] - 栈没有改变
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：双向链表 + 有序集合**
+
+使用双向链表存储栈中的元素，使用有序集合存储栈中的元素，有序集合中的元素按照从小到大的顺序存储，每个元素都对应着双向链表中的一个节点。
+
+-   调用 `push(x)` 方法时，将元素 `x` 插入到双向链表的末尾，同时将元素 `x` 对应的节点插入到有序集合中。时间复杂度 $O(\log n)$。
+-   调用 `pop()` 方法时，将双向链表的末尾节点删除，同时将有序集合中的对应节点删除。时间复杂度 $O(\log n)$。
+-   调用 `top()` 方法时，返回双向链表的末尾节点的值。时间复杂度 $O(1)$。
+-   调用 `peekMax()` 方法时，返回有序集合中的最后一个元素对应的节点的值。时间复杂度 $O(\log n)$。
+-   调用 `popMax()` 方法时，将有序集合中的最后一个元素删除，同时将对应的节点从双向链表中删除。时间复杂度 $O(\log n)$。
+
+空间复杂度 $O(n)$。其中 $n$ 为栈中的元素个数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -72,7 +84,77 @@ stk.top();     // 返回 5，[<strong>5</strong>] - 栈没有改变
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+from sortedcontainers import SortedList
 
+
+class Node:
+    def __init__(self, val=0):
+        self.val = val
+        self.prev: Union[Node, None] = None
+        self.next: Union[Node, None] = None
+
+
+class DoubleLinkedList:
+    def __init__(self):
+        self.head = Node()
+        self.tail = Node()
+        self.head.next = self.tail
+        self.tail.prev = self.head
+
+    def append(self, val) -> Node:
+        node = Node(val)
+        node.next = self.tail
+        node.prev = self.tail.prev
+        self.tail.prev = node
+        node.prev.next = node
+        return node
+
+    @staticmethod
+    def remove(node) -> Node:
+        node.prev.next = node.next
+        node.next.prev = node.prev
+        return node
+
+    def pop(self) -> Node:
+        return self.remove(self.tail.prev)
+
+    def peek(self):
+        return self.tail.prev.val
+
+
+class MaxStack:
+
+    def __init__(self):
+        self.stk = DoubleLinkedList()
+        self.sl = SortedList(key=lambda x: x.val)
+
+    def push(self, x: int) -> None:
+        node = self.stk.append(x)
+        self.sl.add(node)
+
+    def pop(self) -> int:
+        node = self.stk.pop()
+        self.sl.remove(node)
+        return node.val
+
+    def top(self) -> int:
+        return self.stk.peek()
+
+    def peekMax(self) -> int:
+        return self.sl[-1].val
+
+    def popMax(self) -> int:
+        node = self.sl.pop()
+        DoubleLinkedList.remove(node)
+        return node.val
+
+# Your MaxStack object will be instantiated and called as such:
+# obj = MaxStack()
+# obj.push(x)
+# param_2 = obj.pop()
+# param_3 = obj.top()
+# param_4 = obj.peekMax()
+# param_5 = obj.popMax()
 ```
 
 ### **Java**
@@ -80,7 +162,159 @@ stk.top();     // 返回 5，[<strong>5</strong>] - 栈没有改变
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Node {
+    public int val;
+    public Node prev, next;
 
+    public Node() {
+
+    }
+
+    public Node(int val) {
+        this.val = val;
+    }
+}
+
+class DoubleLinkedList {
+    private final Node head = new Node();
+    private final Node tail = new Node();
+
+    public DoubleLinkedList() {
+        head.next = tail;
+        tail.prev = head;
+    }
+
+    public Node append(int val) {
+        Node node = new Node(val);
+        node.next = tail;
+        node.prev = tail.prev;
+        tail.prev = node;
+        node.prev.next = node;
+        return node;
+    }
+
+    public static Node remove(Node node) {
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
+        return node;
+    }
+
+    public Node pop() {
+        return remove(tail.prev);
+    }
+
+    public int peek() {
+        return tail.prev.val;
+    }
+}
+
+class MaxStack {
+    private DoubleLinkedList stk = new DoubleLinkedList();
+    private TreeMap<Integer, List<Node>> tm = new TreeMap<>();
+
+    public MaxStack() {
+
+    }
+
+    public void push(int x) {
+        Node node = stk.append(x);
+        tm.computeIfAbsent(x, k -> new ArrayList<>()).add(node);
+    }
+
+    public int pop() {
+        Node node = stk.pop();
+        List<Node> nodes = tm.get(node.val);
+        int x = nodes.remove(nodes.size() - 1).val;
+        if (nodes.isEmpty()) {
+            tm.remove(node.val);
+        }
+        return x;
+    }
+
+    public int top() {
+        return stk.peek();
+    }
+
+    public int peekMax() {
+        return tm.lastKey();
+    }
+
+    public int popMax() {
+        int x = peekMax();
+        List<Node> nodes = tm.get(x);
+        Node node = nodes.remove(nodes.size() - 1);
+        if (nodes.isEmpty()) {
+            tm.remove(x);
+        }
+        DoubleLinkedList.remove(node);
+        return x;
+    }
+}
+
+/**
+ * Your MaxStack object will be instantiated and called as such:
+ * MaxStack obj = new MaxStack();
+ * obj.push(x);
+ * int param_2 = obj.pop();
+ * int param_3 = obj.top();
+ * int param_4 = obj.peekMax();
+ * int param_5 = obj.popMax();
+ */
+```
+
+### **C++**
+
+```cpp
+class MaxStack {
+public:
+    MaxStack() {
+    }
+
+    void push(int x) {
+        stk.push_back(x);
+        tm.insert({x, --stk.end()});
+    }
+
+    int pop() {
+        auto it = --stk.end();
+        int ans = *it;
+        auto mit = --tm.upper_bound(ans);
+        tm.erase(mit);
+        stk.erase(it);
+        return ans;
+    }
+
+    int top() {
+        return stk.back();
+    }
+
+    int peekMax() {
+        return tm.rbegin()->first;
+    }
+
+    int popMax() {
+        auto mit = --tm.end();
+        auto it = mit->second;
+        int ans = *it;
+        tm.erase(mit);
+        stk.erase(it);
+        return ans;
+    }
+
+private:
+    multimap<int, list<int>::iterator> tm;
+    list<int> stk;
+};
+
+/**
+ * Your MaxStack object will be instantiated and called as such:
+ * MaxStack* obj = new MaxStack();
+ * obj->push(x);
+ * int param_2 = obj->pop();
+ * int param_3 = obj->top();
+ * int param_4 = obj->peekMax();
+ * int param_5 = obj->popMax();
+ */
 ```
 
 ### **...**
