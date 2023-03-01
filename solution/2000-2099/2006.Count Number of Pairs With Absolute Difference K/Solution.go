@@ -1,14 +1,13 @@
-func countKDifference(nums []int, k int) int {
-	ans := 0
-	counter := make([]int, 110)
+func countKDifference(nums []int, k int) (ans int) {
+	cnt := [110]int{}
 	for _, num := range nums {
 		if num >= k {
-			ans += counter[num-k]
+			ans += cnt[num-k]
 		}
 		if num+k <= 100 {
-			ans += counter[num+k]
+			ans += cnt[num+k]
 		}
-		counter[num]++
+		cnt[num]++
 	}
-	return ans
+	return
 }

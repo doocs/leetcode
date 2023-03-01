@@ -1,8 +1,8 @@
 class Solution:
     def countKDifference(self, nums: List[int], k: int) -> int:
         ans = 0
-        counter = Counter()
+        cnt = Counter()
         for num in nums:
-            ans += counter[num - k] + counter[num + k]
-            counter[num] += 1
+            ans += cnt[num - k] + cnt[num + k]
+            cnt[num] += 1
         return ans

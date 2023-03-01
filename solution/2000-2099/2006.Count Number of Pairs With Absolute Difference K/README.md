@@ -59,11 +59,21 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：暴力法**
+**方法一：暴力枚举**
 
-由于 nums 长度范围是 `[1,200]`，故可以直接双重循环遍历计数。
+我们注意到，数组 `nums` 的长度不超过 $200$，因此我们可以枚举所有的数对 $(i, j)$，其中 $i < j$，并判断 $|nums[i] - nums[j]|$ 是否等于 $k$，是则答案加一。
 
-**方法二：哈希表计数，一次遍历**
+最后返回答案即可。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `nums` 的长度。
+
+**方法二：哈希表或数组**
+
+我们可以使用哈希表或数组记录数组 `nums` 中每个数出现的次数，然后枚举数组 `nums` 中的每个数 $x$，判断 $x + k$ 和 $x - k$ 是否在数组 `nums` 中，是则答案加上 $x+k$ 和 $x-k$ 出现的次数之和。
+
+最后返回答案即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `nums` 的长度。
 
 <!-- tabs:start -->
 
@@ -74,22 +84,18 @@
 ```python
 class Solution:
     def countKDifference(self, nums: List[int], k: int) -> int:
-        ans, n = 0, len(nums)
-        for i in range(n):
-            for j in range(i + 1, n):
-                if abs(nums[i] - nums[j]) == k:
-                    ans += 1
-        return ans
+        n = len(nums)
+        return sum(abs(nums[i] - nums[j]) == k for i in range(n) for j in range(i + 1, n))
 ```
 
 ```python
 class Solution:
     def countKDifference(self, nums: List[int], k: int) -> int:
         ans = 0
-        counter = Counter()
+        cnt = Counter()
         for num in nums:
-            ans += counter[num - k] + counter[num + k]
-            counter[num] += 1
+            ans += cnt[num - k] + cnt[num + k]
+            cnt[num] += 1
         return ans
 ```
 
@@ -117,32 +123,18 @@ class Solution {
 class Solution {
     public int countKDifference(int[] nums, int k) {
         int ans = 0;
-        int[] counter = new int[110];
+        int[] cnt = new int[110];
         for (int num : nums) {
             if (num >= k) {
-                ans += counter[num - k];
+                ans += cnt[num - k];
             }
             if (num + k <= 100) {
-                ans += counter[num + k];
+                ans += cnt[num + k];
             }
-            ++counter[num];
+            ++cnt[num];
         }
         return ans;
     }
-}
-```
-
-### **TypeScript**
-
-```ts
-function countKDifference(nums: number[], k: number): number {
-    let ans = 0;
-    let cnt = new Map();
-    for (let num of nums) {
-        ans += (cnt.get(num - k) || 0) + (cnt.get(num + k) || 0);
-        cnt.set(num, (cnt.get(num) || 0) + 1);
-    }
-    return ans;
 }
 ```
 
@@ -154,9 +146,11 @@ public:
     int countKDifference(vector<int>& nums, int k) {
         int n = nums.size();
         int ans = 0;
-        for (int i = 0; i < n; ++i)
-            for (int j = i + 1; j < n; ++j)
-                if (abs(nums[i] - nums[j]) == k) ++ans;
+        for (int i = 0; i < n; ++i) {
+            for (int j = i + 1; j < n; ++j) {
+                ans += abs(nums[i] - nums[j]) == k;
+            }
+        }
         return ans;
     }
 };
@@ -167,12 +161,15 @@ class Solution {
 public:
     int countKDifference(vector<int>& nums, int k) {
         int ans = 0;
-        vector<int> counter(110);
-        for (int num : nums)
-        {
-            if (num >= k) ans += counter[num - k];
-            if (num + k <= 100) ans += counter[num + k];
-            ++counter[num];
+        int cnt[110]{};
+        for (int num : nums) {
+            if (num >= k) {
+                ans += cnt[num - k];
+            }
+            if (num + k <= 100) {
+                ans += cnt[num + k];
+            }
+            ++cnt[num];
         }
         return ans;
     }
@@ -204,19 +201,32 @@ func abs(x int) int {
 ```
 
 ```go
-func countKDifference(nums []int, k int) int {
-	ans := 0
-	counter := make([]int, 110)
+func countKDifference(nums []int, k int) (ans int) {
+	cnt := [110]int{}
 	for _, num := range nums {
 		if num >= k {
-			ans += counter[num-k]
+			ans += cnt[num-k]
 		}
 		if num+k <= 100 {
-			ans += counter[num+k]
+			ans += cnt[num+k]
 		}
-		counter[num]++
+		cnt[num]++
 	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function countKDifference(nums: number[], k: number): number {
+    let ans = 0;
+    let cnt = new Map();
+    for (let num of nums) {
+        ans += (cnt.get(num - k) || 0) + (cnt.get(num + k) || 0);
+        cnt.set(num, (cnt.get(num) || 0) + 1);
+    }
+    return ans;
 }
 ```
 
