@@ -66,7 +66,7 @@
 
 我们可以发现，如果 $n$ 有一个因子 $x$，那么 $n$ 一定也有一个因子 $n/x$。
 
-因此，我们先需要枚举 $[1,2,...\left \lfloor \sqrt{n}  \right \rfloor ]$，找到所有能整除 $n$ 的数，如果找到第 $k$ 个因子，那么直接返回即可。如果没有找到第 $k$ 个因子，那么我们再倒序枚举 $[\left \lfloor \sqrt{n}  \right \rfloor ,..1]$，找到第 $k$ 个因子即可。
+因此，我们先需要枚举 $[1,2,...\left \lfloor \sqrt{n}  \right \rfloor]$，找到所有能整除 $n$ 的数，如果找到第 $k$ 个因子，那么直接返回即可。如果没有找到第 $k$ 个因子，那么我们再倒序枚举 $[\left \lfloor \sqrt{n}  \right \rfloor ,..1]$，找到第 $k$ 个因子即可。
 
 时间复杂度 $O(\sqrt{n})$。
 
