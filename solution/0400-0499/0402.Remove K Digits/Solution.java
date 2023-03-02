@@ -1,25 +1,21 @@
 class Solution {
     public String removeKdigits(String num, int k) {
-        if (k <= 0) {
-            return num;
-        }
-        if (num.length() <= k) {
-            return "0";
-        }
-        int len = num.length() - k;
-        char[] cs = new char[num.length()];
-        int top = -1;
+        StringBuilder stk = new StringBuilder();
         for (char c : num.toCharArray()) {
-            while (top >= 0 && cs[top] > c && k > 0) {
-                --top;
+            while (k > 0 && stk.length() > 0 && stk.charAt(stk.length() - 1) > c) {
+                stk.deleteCharAt(stk.length() - 1);
                 --k;
             }
-            cs[++top] = c;
+            stk.append(c);
         }
-        int offset = 0;
-        while (offset <= top && cs[offset] == '0') {
-            ++offset;
+        for (; k > 0; --k) {
+            stk.deleteCharAt(stk.length() - 1);
         }
-        return offset > top ? "0" : new String(cs, offset, len - offset);
+        int i = 0;
+        for (; i < stk.length() && stk.charAt(i) == '0'; ++i) {
+
+        }
+        String ans = stk.substring(i);
+        return "".equals(ans) ? "0" : ans;
     }
 }
