@@ -59,13 +59,86 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def getFolderNames(self, names: List[str]) -> List[str]:
+        d = defaultdict(int)
+        for i, name in enumerate(names):
+            if name in d:
+                k = d[name]
+                while f'{name}({k})' in d:
+                    k += 1
+                d[name] = k + 1
+                names[i] = f'{name}({k})'
+            d[names[i]] = 1
+        return names
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String[] getFolderNames(String[] names) {
+        Map<String, Integer> d = new HashMap<>();
+        for (int i = 0; i < names.length; ++i) {
+            if (d.containsKey(names[i])) {
+                int k = d.get(names[i]);
+                while (d.containsKey(names[i] + "(" + k + ")")) {
+                    ++k;
+                }
+                d.put(names[i], k);
+                names[i] += "(" + k + ")";
+            }
+            d.put(names[i], 1);
+        }
+        return names;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> getFolderNames(vector<string>& names) {
+        unordered_map<string, int> d;
+        for (auto& name : names) {
+            int k = d[name];
+            if (k) {
+                while (d[name + "(" + to_string(k) + ")"]) {
+                    k++;
+                }
+                d[name] = k;
+                name += "(" + to_string(k) + ")";
+            }
+            d[name] = 1;
+        }
+        return names;
+    }
+};
+```
+
+### **Go**
+
+```go
+func getFolderNames(names []string) []string {
+	d := map[string]int{}
+	for i, name := range names {
+		if k, ok := d[name]; ok {
+			for {
+				newName := fmt.Sprintf("%s(%d)", name, k)
+				if d[newName] == 0 {
+					d[name] = k + 1
+					names[i] = newName
+					break
+				}
+				k++
+			}
+		}
+		d[names[i]] = 1
+	}
+	return names
+}
 ```
 
 ### **...**
