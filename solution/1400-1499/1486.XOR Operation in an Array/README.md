@@ -75,6 +75,12 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def xorOperation(self, n: int, start: int) -> int:
+        return reduce(xor, ((start + 2 * i) for i in range(n)))
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->

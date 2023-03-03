@@ -21,15 +21,13 @@ public:
 class Solution {
 public:
     Node* cloneTree(Node* root) {
-        if (root == nullptr) {
-            return nullptr;
+        if (!root) {
+            return root;
         }
-        Node* node = new Node(root->val);
         vector<Node*> children;
-        for (Node* node : root->children) {
-            children.push_back(cloneTree(node));
+        for (Node* child : root->children) {
+            children.emplace_back(cloneTree(child));
         }
-        node->children = children;
-        return node;
+        return new Node(root->val, children);
     }
 };

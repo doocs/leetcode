@@ -84,11 +84,11 @@ class SeatManager {
             q.offer(i);
         }
     }
-    
+
     public int reserve() {
         return q.poll();
     }
-    
+
     public void unreserve(int seatNumber) {
         q.offer(seatNumber);
     }
@@ -112,13 +112,13 @@ public:
             q.push(i);
         }
     }
-    
+
     int reserve() {
         int seat = q.top();
         q.pop();
         return seat;
     }
-    
+
     void unreserve(int seatNumber) {
         q.push(seatNumber);
     }

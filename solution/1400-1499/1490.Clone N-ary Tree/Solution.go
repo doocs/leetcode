@@ -10,9 +10,9 @@ func cloneTree(root *Node) *Node {
 	if root == nil {
 		return nil
 	}
-	node := &Node{Val: root.Val}
+	children := []*Node{}
 	for _, child := range root.Children {
-		node.Children = append(node.Children, cloneTree(child))
+		children = append(children, cloneTree(child))
 	}
-	return node
+	return &Node{root.Val, children}
 }
