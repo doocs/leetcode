@@ -59,6 +59,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：滑动窗口 + 哈希表**
+
+我们可以维护一个大小为 $k$ 的滑动窗口，窗口外的糖果为自己的，窗口内的 $k$ 个糖果分给妹妹和妈妈。我们可以用哈希表 $cnt$ 记录窗口外的糖果口味以及对应的数量。
+
+初始时，哈希表 $cnt$ 中存储的是 $candies[k]$ 到 $candies[n-1]$ 的糖果口味以及对应的数量。此时糖果口味的种类数为哈希表 $cnt$ 的大小，即 $ans = cnt.size()$。
+
+接下来，我们遍历 $[k,..n-1]$ 范围内的糖果，将当前糖果 $candies[i]$ 加入窗口内，同时将窗口左侧的糖果 $candies[i-k]$ 移出窗口外。然后我们更新哈希表 $cnt$，并且更新糖果口味的种类数 $ans$ 为 $max(ans, cnt.size())$。
+
+遍历完所有糖果后，我们即可得到最多可保留的独特口味的糖果。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为糖果的数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -66,7 +78,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def shareCandies(self, candies: List[int], k: int) -> int:
+        cnt = Counter(candies[k:])
+        ans = len(cnt)
+        for i in range(k, len(candies)):
+            cnt[candies[i]] -= 1
+            cnt[candies[i - k]] += 1
+            if cnt[candies[i]] == 0:
+                cnt.pop(candies[i])
+            ans = max(ans, len(cnt))
+        return ans
 ```
 
 ### **Java**
@@ -74,12 +96,79 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int shareCandies(int[] candies, int k) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        int n = candies.length;
+        for (int i = k; i < n; ++i) {
+            cnt.merge(candies[i], 1, Integer::sum);
+        }
+        int ans = cnt.size();
+        for (int i = k; i < candies.length; ++i) {
+            if (cnt.merge(candies[i], -1, Integer::sum) == 0) {
+                cnt.remove(candies[i]);
+            }
+            cnt.merge(candies[i - k], 1, Integer::sum);
+            ans = Math.max(ans, cnt.size());
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int shareCandies(vector<int>& candies, int k) {
+        unordered_map<int, int> cnt;
+        int n = candies.size();
+        for (int i = k; i < n; ++i) {
+            ++cnt[candies[i]];
+        }
+        int ans = cnt.size();
+        for (int i = k; i < candies.size(); ++i) {
+            if (--cnt[candies[i]] == 0) {
+                cnt.erase(candies[i]);
+            }
+            ++cnt[candies[i - k]];
+            ans = max(ans, (int) cnt.size());
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func shareCandies(candies []int, k int) (ans int) {
+	cnt := map[int]int{}
+	for _, c := range candies[k:] {
+		cnt[c]++
+	}
+	ans = len(cnt)
+	for i := k; i < len(candies); i++ {
+		cnt[candies[i]]--
+		if cnt[candies[i]] == 0 {
+			delete(cnt, candies[i])
+		}
+		cnt[candies[i-k]]++
+		ans = max(ans, len(cnt))
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
 
