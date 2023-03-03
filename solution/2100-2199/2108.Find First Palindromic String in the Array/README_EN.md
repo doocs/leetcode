@@ -52,19 +52,7 @@ Note that &quot;racecar&quot; is also palindromic, but it is not the first.
 ```python
 class Solution:
     def firstPalindrome(self, words: List[str]) -> str:
-        def check(s):
-            i, j = 0, len(s) - 1
-            while i < j:
-                if s[i] != s[j]:
-                    return False
-                i += 1
-                j -= 1
-            return True
-
-        for word in words:
-            if check(word):
-                return word
-        return ''
+        return next((w for w in words if w == w[::-1]), "")
 ```
 
 ### **Java**
@@ -72,21 +60,18 @@ class Solution:
 ```java
 class Solution {
     public String firstPalindrome(String[] words) {
-        for (String word : words) {
-            if (check(word)) {
-                return word;
+        for (var w : words) {
+            boolean ok = true;
+            for (int i = 0, j = w.length() - 1; i < j && ok; ++i, --j) {
+                if (w.charAt(i) != w.charAt(j)) {
+                    ok = false;
+                }
+            }
+            if (ok) {
+                return w;
             }
         }
         return "";
-    }
-
-    private boolean check(String s) {
-        for (int i = 0, j = s.length() - 1; i < j; ++i, --j) {
-            if (s.charAt(i) != s.charAt(j)) {
-                return false;
-            }
-        }
-        return true;
     }
 }
 ```
@@ -97,15 +82,18 @@ class Solution {
 class Solution {
 public:
     string firstPalindrome(vector<string>& words) {
-        for (auto& word : words)
-            if (check(word)) return word;
+        for (auto& w : words) {
+            bool ok = true;
+            for (int i = 0, j = w.size() - 1; i < j; ++i, --j) {
+                if (w[i] != w[j]) {
+                    ok = false;
+                }
+            }
+            if (ok) {
+                return w;
+            }
+        }
         return "";
-    }
-
-    bool check(string s) {
-        for (int i = 0, j = s.size() - 1; i < j; ++i, --j)
-            if (s[i] != s[j]) return false;
-        return true;
     }
 };
 ```
@@ -114,18 +102,15 @@ public:
 
 ```go
 func firstPalindrome(words []string) string {
-	check := func(s string) bool {
-		for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
-			if s[i] != s[j] {
-				return false
+	for _, w := range words {
+		ok := true
+		for i, j := 0, len(w)-1; i < j && ok; i, j = i+1, j-1 {
+			if w[i] != w[j] {
+				ok = false
 			}
 		}
-		return true
-	}
-
-	for _, word := range words {
-		if check(word) {
-			return word
+		if ok {
+			return w
 		}
 	}
 	return ""

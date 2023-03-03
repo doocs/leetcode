@@ -1,16 +1,13 @@
 func firstPalindrome(words []string) string {
-	check := func(s string) bool {
-		for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
-			if s[i] != s[j] {
-				return false
+	for _, w := range words {
+		ok := true
+		for i, j := 0, len(w)-1; i < j && ok; i, j = i+1, j-1 {
+			if w[i] != w[j] {
+				ok = false
 			}
 		}
-		return true
-	}
-
-	for _, word := range words {
-		if check(word) {
-			return word
+		if ok {
+			return w
 		}
 	}
 	return ""
