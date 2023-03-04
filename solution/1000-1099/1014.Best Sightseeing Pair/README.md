@@ -42,6 +42,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：枚举 + 维护前缀最大值**
+
+我们可以在 $[1,..n - 1]$ 的范围内枚举 $j$，那么我们要在 $[0,..j - 1]$ 的范围内找到一个 $i$，使得 $values[i] + values[j] + i - j$ 的值最大。我们可以维护一个前缀最大值，即 $values[i] + i$ 的最大值，那么我们只需要在枚举 $j$ 的过程中，不断地更新答案即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -51,11 +57,11 @@
 ```python
 class Solution:
     def maxScoreSightseeingPair(self, values: List[int]) -> int:
-        res, mx = 0, values[0]
-        for i in range(1, len(values)):
-            res = max(res, values[i] - i + mx)
-            mx = max(mx, values[i] + i)
-        return res
+        ans, mx = 0, values[0]
+        for j in range(1, len(values)):
+            ans = max(ans, values[j] - j + mx)
+            mx = max(mx, values[j] + j)
+        return ans
 ```
 
 ### **Java**
@@ -65,12 +71,12 @@ class Solution:
 ```java
 class Solution {
     public int maxScoreSightseeingPair(int[] values) {
-        int res = 0, mx = values[0];
-        for (int i = 1; i < values.length; ++i) {
-            res = Math.max(res, values[i] - i + mx);
-            mx = Math.max(mx, values[i] + i);
+        int ans = 0, mx = values[0];
+        for (int j = 1; j < values.length; ++j) {
+            ans = Math.max(ans, values[j] - j + mx);
+            mx = Math.max(mx, values[j] + j);
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -81,12 +87,12 @@ class Solution {
 class Solution {
 public:
     int maxScoreSightseeingPair(vector<int>& values) {
-        int res = 0, mx = values[0];
-        for (int i = 1; i < values.size(); ++i) {
-            res = max(res, values[i] - i + mx);
-            mx = max(mx, values[i] + i);
+        int ans = 0, mx = values[0];
+        for (int j = 1; j < values.size(); ++j) {
+            ans = max(ans, values[j] - j + mx);
+            mx = max(mx, values[j] + j);
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -94,13 +100,12 @@ public:
 ### **Go**
 
 ```go
-func maxScoreSightseeingPair(values []int) int {
-	res, mx := 0, values[0]
-	for i := 1; i < len(values); i++ {
-		res = max(res, values[i]-i+mx)
-		mx = max(mx, values[i]+i)
+func maxScoreSightseeingPair(values []int) (ans int) {
+	for j, mx := 1, values[0]; j < len(values); j++ {
+		ans = max(ans, values[j]-j+mx)
+		mx = max(mx, values[j]+j)
 	}
-	return res
+	return
 }
 
 func max(a, b int) int {
@@ -108,6 +113,20 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxScoreSightseeingPair(values: number[]): number {
+    let ans = 0;
+    let mx = values[0];
+    for (let j = 1; j < values.length; ++j) {
+        ans = Math.max(ans, values[j] - j + mx);
+        mx = Math.max(mx, values[j] + j);
+    }
+    return ans;
 }
 ```
 

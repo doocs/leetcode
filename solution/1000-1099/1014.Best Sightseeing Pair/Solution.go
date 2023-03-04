@@ -1,10 +1,9 @@
-func maxScoreSightseeingPair(values []int) int {
-	res, mx := 0, values[0]
-	for i := 1; i < len(values); i++ {
-		res = max(res, values[i]-i+mx)
-		mx = max(mx, values[i]+i)
+func maxScoreSightseeingPair(values []int) (ans int) {
+	for j, mx := 1, values[0]; j < len(values); j++ {
+		ans = max(ans, values[j]-j+mx)
+		mx = max(mx, values[j]+j)
 	}
-	return res
+	return
 }
 
 func max(a, b int) int {
