@@ -81,11 +81,8 @@ Note that the cargo must be shipped in the order given, so using a ship of capac
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= days &lt;= weights.length &lt;= 5 * 10<sup>4</sup></code></li>
-
     <li><code>1 &lt;= weights[i] &lt;= 500</code></li>
-
 </ul>
 
 ## Solutions
@@ -98,27 +95,18 @@ Binary search.
 
 ```python
 class Solution:
-    def shipWithinDays(self, weights: List[int], D: int) -> int:
-        def check(capacity):
-            cnt, t = 1, 0
+    def shipWithinDays(self, weights: List[int], days: int) -> int:
+        def check(mx):
+            ws, cnt = 0, 1
             for w in weights:
-                if w > capacity:
-                    return False
-                if t + w <= capacity:
-                    t += w
-                else:
+                ws += w
+                if ws > mx:
                     cnt += 1
-                    t = w
-            return cnt <= D
+                    ws = w
+            return cnt <= days
 
-        left, right = 1, 25000000
-        while left < right:
-            mid = (left + right) >> 1
-            if check(mid):
-                right = mid
-            else:
-                left = mid + 1
-        return left
+        left, right = max(weights), sum(weights) + 1
+        return left + bisect_left(range(left, right), True, key=check)
 ```
 
 ### **Java**
@@ -126,10 +114,14 @@ class Solution:
 ```java
 class Solution {
     public int shipWithinDays(int[] weights, int days) {
-        int left = 1, right = Integer.MAX_VALUE;
+        int left = 0, right = 0;
+        for (int w : weights) {
+            left = Math.max(left, w);
+            right += w;
+        }
         while (left < right) {
             int mid = (left + right) >> 1;
-            if (canCarry(weights, days, mid)) {
+            if (check(mid, weights, days)) {
                 right = mid;
             } else {
                 left = mid + 1;
@@ -138,21 +130,16 @@ class Solution {
         return left;
     }
 
-    public boolean canCarry(int[] weights, int days, int carry) {
-        int useDay = 1;
-        int curCarry = 0;
-        for (int weight : weights) {
-            if (weight > carry) {
-                return false;
-            }
-            if ((carry - curCarry) >= weight) {
-                curCarry += weight;
-            } else {
-                curCarry = weight;
-                useDay++;
+    private boolean check(int mx, int[] weights, int days) {
+        int ws = 0, cnt = 1;
+        for (int w : weights) {
+            ws += w;
+            if (ws > mx) {
+                ws = w;
+                ++cnt;
             }
         }
-        return useDay <= days;
+        return cnt <= days;
     }
 }
 ```
@@ -163,32 +150,31 @@ class Solution {
 class Solution {
 public:
     int shipWithinDays(vector<int>& weights, int days) {
-        int left = 1, right = 25000000;
+        int left = 0, right = 0;
+        for (auto& w : weights) {
+            left = max(left, w);
+            right += w;
+        }
+        auto check = [&](int mx) {
+            int ws = 0, cnt = 1;
+            for (auto& w : weights) {
+                ws += w;
+                if (ws > mx) {
+                    ws = w;
+                    ++cnt;
+                }
+            }
+            return cnt <= days;
+        };
         while (left < right) {
-            int mid = left + right >> 1;
-            if (check(weights, days, mid)) {
+            int mid = (left + right) >> 1;
+            if (check(mid)) {
                 right = mid;
             } else {
                 left = mid + 1;
             }
         }
         return left;
-    }
-
-    bool check(vector<int>& weights, int days, int capacity) {
-        int cnt = 1, t = 0;
-        for (auto w : weights) {
-            if (w > capacity) {
-                return false;
-            }
-            if (t + w <= capacity) {
-                t += w;
-            } else {
-                ++cnt;
-                t = w;
-            }
-        }
-        return cnt <= days;
     }
 };
 ```
@@ -197,32 +183,59 @@ public:
 
 ```go
 func shipWithinDays(weights []int, days int) int {
-	left, right := 1, 25000000
-	for left < right {
-		mid := (left + right) >> 1
-		if check(weights, days, mid) {
-			right = mid
-		} else {
-			left = mid + 1
-		}
-	}
-	return left
-}
-
-func check(weights []int, days, capacity int) bool {
-	cnt, t := 1, 0
+	var left, right int
 	for _, w := range weights {
-		if w > capacity {
-			return false
+		if left < w {
+			left = w
 		}
-		if t+w <= capacity {
-			t += w
-		} else {
-			cnt++
-			t = w
-		}
+		right += w
 	}
-	return cnt <= days
+	return left + sort.Search(right, func(mx int) bool {
+		mx += left
+		ws, cnt := 0, 1
+		for _, w := range weights {
+			ws += w
+			if ws > mx {
+				ws = w
+				cnt++
+			}
+		}
+		return cnt <= days
+	})
+}
+```
+
+### **TypeScript**
+
+```ts
+function shipWithinDays(weights: number[], days: number): number {
+    let left = 0;
+    let right = 0;
+    for (const w of weights) {
+        left = Math.max(left, w);
+        right += w;
+    }
+    const check = (mx: number) => {
+        let ws = 0;
+        let cnt = 1;
+        for (const w of weights) {
+            ws += w;
+            if (ws > mx) {
+                ws = w;
+                ++cnt;
+            }
+        }
+        return cnt <= days;
+    };
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        if (check(mid)) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
 }
 ```
 
