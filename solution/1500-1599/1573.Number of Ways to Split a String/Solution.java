@@ -1,24 +1,36 @@
 class Solution {
+    private String s;
+
     public int numWays(String s) {
-        char[] chars = s.toCharArray();
-        List<Long> p = new ArrayList<>();
-        for (int i = 0; i < chars.length; i++) {
-            if (chars[i] == '1') {
-                p.add((long) i);
+        this.s = s;
+        int cnt = 0;
+        int n = s.length();
+        for (int i = 0; i < n; ++i) {
+            if (s.charAt(i) == '1') {
+                ++cnt;
             }
         }
-        int l = p.size();
-        if (l % 3 != 0) {
+        int m = cnt % 3;
+        if (m != 0) {
             return 0;
         }
-
-        int MOD = (int) (1e9 + 7);
-        if (l == 0) {
-            return (int) (((long) (s.length() - 1) * (s.length() - 2) / 2) % MOD);
+        final int mod = (int) 1e9 + 7;
+        if (cnt == 0) {
+            return (int) (((n - 1L) * (n - 2) / 2) % mod);
         }
+        cnt /= 3;
+        long i1 = find(cnt), i2 = find(cnt + 1);
+        long j1 = find(cnt * 2), j2 = find(cnt * 2 + 1);
+        return (int) ((i2 - i1) * (j2 - j1) % mod);
+    }
 
-        // 每 n/3 的地方为分界线
-        return (int) ((p.get(l / 3) - p.get(l / 3 - 1)) * (p.get(2 * l / 3) - p.get(2 * l / 3 - 1))
-            % MOD);
+    private int find(int x) {
+        int t = 0;
+        for (int i = 0;; ++i) {
+            t += s.charAt(i) == '1' ? 1 : 0;
+            if (t == x) {
+                return i;
+            }
+        }
     }
 }
