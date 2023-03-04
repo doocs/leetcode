@@ -56,6 +56,10 @@
 
 时间复杂度 $O(\log n)$，其中 $n$ 为给定的整数。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
+相似题目：
+
+-   [1073. 负二进制数相加](/solution/1000-1099/1073.Adding%20Two%20Negabinary%20Numbers/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
