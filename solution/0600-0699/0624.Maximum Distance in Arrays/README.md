@@ -35,6 +35,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：维护最大值和最小值**
+
+我们注意到，最大距离一定是两个数组中的一个最大值和另一个最小值之间的距离。因此，我们可以维护两个变量，分别表示当前数组中的最大值和最小值，然后遍历数组，更新最大距离，同时更新最大值和最小值。
+
+遍历结束后，即可得到最大距离。
+
+时间复杂度 $O(m)$，空间复杂度 $O(1)$。其中 $m$ 为数组的个数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -42,7 +50,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxDistance(self, arrays: List[List[int]]) -> int:
+        ans = 0
+        mi, mx = arrays[0][0], arrays[0][-1]
+        for arr in arrays[1:]:
+            a, b = abs(arr[0] - mx), abs(arr[-1] - mi)
+            ans = max(ans, a, b)
+            mi = min(mi, arr[0])
+            mx = max(mx, arr[-1])
+        return ans
 ```
 
 ### **Java**
@@ -50,7 +67,78 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxDistance(List<List<Integer>> arrays) {
+        int ans = 0;
+        int mi = arrays.get(0).get(0);
+        int mx = arrays.get(0).get(arrays.get(0).size() - 1);
+        for (int i = 1; i < arrays.size(); ++i) {
+            var arr = arrays.get(i);
+            int a = Math.abs(arr.get(0) - mx);
+            int b = Math.abs(arr.get(arr.size() - 1) - mi);
+            ans = Math.max(ans, Math.max(a, b));
+            mi = Math.min(mi, arr.get(0));
+            mx = Math.max(mx, arr.get(arr.size() - 1));
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxDistance(vector<vector<int>>& arrays) {
+        int ans = 0;
+        int mi = arrays[0][0], mx = arrays[0][arrays[0].size() - 1];
+        for (int i = 1; i < arrays.size(); ++i) {
+            auto& arr = arrays[i];
+            int a = abs(arr[0] - mx), b = abs(arr[arr.size() - 1] - mi);
+            ans = max({ans, a, b});
+            mi = min(mi, arr[0]);
+            mx = max(mx, arr[arr.size() - 1]);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxDistance(arrays [][]int) (ans int) {
+	mi, mx := arrays[0][0], arrays[0][len(arrays[0])-1]
+	for _, arr := range arrays[1:] {
+		a, b := abs(arr[0]-mx), abs(arr[len(arr)-1]-mi)
+		ans = max(ans, max(a, b))
+		mi = min(mi, arr[0])
+		mx = max(mx, arr[len(arr)-1])
+	}
+	return ans
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
