@@ -1,6 +1,7 @@
 class Solution {
-    public int findLengthOfShortestSubarray(int[] arr) {
-        int n = arr.length;
+public:
+    int findLengthOfShortestSubarray(vector<int>& arr) {
+        int n = arr.size();
         int i = 0, j = n - 1;
         while (i + 1 < n && arr[i] <= arr[i + 1]) {
             ++i;
@@ -11,13 +12,13 @@ class Solution {
         if (i >= j) {
             return 0;
         }
-        int ans = Math.min(n - i - 1, j);
+        int ans = min(n - 1 - i, j);
         for (int l = 0, r = j; l <= i; ++l) {
             while (r < n && arr[r] < arr[l]) {
                 ++r;
             }
-            ans = Math.min(ans, r - l - 1);
+            ans = min(ans, r - l - 1);
         }
         return ans;
     }
-}
+};

@@ -1,10 +1,10 @@
-func diagonalSum(mat [][]int) int {
-	n, res := len(mat), 0
-	for i := 0; i < n; i++ {
-		res += mat[i][i]
-		if n-i-1 != i {
-			res += mat[i][n-i-1]
+func diagonalSum(mat [][]int) (ans int) {
+	n := len(mat)
+	for i, row := range mat {
+		ans += row[i]
+		if j := n - i - 1; j != i {
+			ans += row[j]
 		}
 	}
-	return res
+	return
 }
