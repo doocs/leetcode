@@ -266,6 +266,61 @@ func minimumDeletions(s string) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function minimumDeletions(s: string): number {
+    const n = s.length;
+    const f = new Array(n + 1).fill(0);
+    let b = 0;
+    for (let i = 1; i <= n; ++i) {
+        if (s.charAt(i - 1) === 'b') {
+            f[i] = f[i - 1];
+            ++b;
+        } else {
+            f[i] = Math.min(f[i - 1] + 1, b);
+        }
+    }
+    return f[n];
+}
+```
+
+```ts
+function minimumDeletions(s: string): number {
+    const n = s.length;
+    let ans = 0,
+        b = 0;
+    for (let i = 0; i < n; ++i) {
+        if (s.charAt(i) === 'b') {
+            ++b;
+        } else {
+            ans = Math.min(ans + 1, b);
+        }
+    }
+    return ans;
+}
+```
+
+```ts
+function minimumDeletions(s: string): number {
+    let lb = 0,
+        ra = 0;
+    const n = s.length;
+    for (let i = 0; i < n; ++i) {
+        if (s.charAt(i) === 'a') {
+            ++ra;
+        }
+    }
+    let ans = n;
+    for (let i = 0; i < n; ++i) {
+        ra -= s.charAt(i) === 'a' ? 1 : 0;
+        ans = Math.min(ans, lb + ra);
+        lb += s.charAt(i) === 'b' ? 1 : 0;
+    }
+    return ans;
+}
+```
+
 ### **...**
 
 ```
