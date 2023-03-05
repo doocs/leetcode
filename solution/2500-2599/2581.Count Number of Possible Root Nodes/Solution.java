@@ -1,6 +1,6 @@
 class Solution {
     private List<Integer>[] g;
-    private Set<Long> gs = new HashSet<>();
+    private Map<Long, Integer> gs = new HashMap<>();
     private int ans;
     private int k;
     private int cnt;
@@ -18,7 +18,7 @@ class Solution {
         }
         for (var e : guesses) {
             int a = e[0], b = e[1];
-            gs.add(f(a, b));
+            gs.merge(f(a, b), 1, Integer::sum);
         }
         dfs1(0, -1);
         dfs2(0, -1);
@@ -28,7 +28,7 @@ class Solution {
     private void dfs1(int i, int fa) {
         for (int j : g[i]) {
             if (j != fa) {
-                cnt += gs.contains(f(i, j)) ? 1 : 0;
+                cnt += gs.getOrDefault(f(i, j), 0);
                 dfs1(j, i);
             }
         }
@@ -38,13 +38,13 @@ class Solution {
         ans += cnt >= k ? 1 : 0;
         for (int j : g[i]) {
             if (j != fa) {
-                boolean a = gs.contains(f(i, j));
-                boolean b = gs.contains(f(j, i));
-                cnt -= a ? 1 : 0;
-                cnt += b ? 1 : 0;
+                int a = gs.getOrDefault(f(i, j), 0);
+                int b = gs.getOrDefault(f(j, i), 0);
+                cnt -= a;
+                cnt += b;
                 dfs2(j, i);
-                cnt -= b ? 1 : 0;
-                cnt += a ? 1 : 0;
+                cnt -= b;
+                cnt += a;
             }
         }
     }

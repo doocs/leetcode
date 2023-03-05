@@ -6,6 +6,7 @@ class Solution:
                 t += int(c == '1')
                 if t == x:
                     return i
+
         cnt, m = divmod(sum(c == '1' for c in s), 3)
         if m:
             return 0

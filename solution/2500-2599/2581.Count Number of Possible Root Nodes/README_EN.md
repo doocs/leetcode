@@ -78,12 +78,14 @@ Considering any node as root will give at least 1 correct guess.
 
 ```python
 class Solution:
-    def rootCount(self, edges: List[List[int]], guesses: List[List[int]], k: int) -> int:
+    def rootCount(
+        self, edges: List[List[int]], guesses: List[List[int]], k: int
+    ) -> int:
         def dfs1(i, fa):
             nonlocal cnt
             for j in g[i]:
                 if j != fa:
-                    cnt += (i, j) in gs
+                    cnt += gs[(i, j)]
                     dfs1(j, i)
 
         def dfs2(i, fa):
@@ -91,17 +93,17 @@ class Solution:
             ans += cnt >= k
             for j in g[i]:
                 if j != fa:
-                    cnt -= (i, j) in gs
-                    cnt += (j, i) in gs
+                    cnt -= gs[(i, j)]
+                    cnt += gs[(j, i)]
                     dfs2(j, i)
-                    cnt += (i, j) in gs
-                    cnt -= (j, i) in gs
+                    cnt -= gs[(j, i)]
+                    cnt += gs[(i, j)]
 
         g = defaultdict(list)
         for a, b in edges:
             g[a].append(b)
             g[b].append(a)
-        gs = {(u, v) for u, v in guesses}
+        gs = Counter((u, v) for u, v in guesses)
         cnt = 0
         dfs1(0, -1)
         ans = 0
@@ -114,7 +116,7 @@ class Solution:
 ```java
 class Solution {
     private List<Integer>[] g;
-    private Set<Long> gs = new HashSet<>();
+    private Map<Long, Integer> gs = new HashMap<>();
     private int ans;
     private int k;
     private int cnt;
@@ -132,7 +134,7 @@ class Solution {
         }
         for (var e : guesses) {
             int a = e[0], b = e[1];
-            gs.add(f(a, b));
+            gs.merge(f(a, b), 1, Integer::sum);
         }
         dfs1(0, -1);
         dfs2(0, -1);
@@ -142,7 +144,7 @@ class Solution {
     private void dfs1(int i, int fa) {
         for (int j : g[i]) {
             if (j != fa) {
-                cnt += gs.contains(f(i, j)) ? 1 : 0;
+                cnt += gs.getOrDefault(f(i, j), 0);
                 dfs1(j, i);
             }
         }
@@ -152,13 +154,13 @@ class Solution {
         ans += cnt >= k ? 1 : 0;
         for (int j : g[i]) {
             if (j != fa) {
-                boolean a = gs.contains(f(i, j));
-                boolean b = gs.contains(f(j, i));
-                cnt -= a ? 1 : 0;
-                cnt += b ? 1 : 0;
+                int a = gs.getOrDefault(f(i, j), 0);
+                int b = gs.getOrDefault(f(j, i), 0);
+                cnt -= a;
+                cnt += b;
                 dfs2(j, i);
-                cnt -= b ? 1 : 0;
-                cnt += a ? 1 : 0;
+                cnt -= b;
+                cnt += a;
             }
         }
     }
@@ -177,7 +179,7 @@ public:
     int rootCount(vector<vector<int>>& edges, vector<vector<int>>& guesses, int k) {
         int n = edges.size() + 1;
         vector<vector<int>> g(n);
-        unordered_set<long long> gs;
+        unordered_map<long long, int> gs;
         auto f = [&](int i, int j) {
             return 1LL * i * n + j;
         };
@@ -188,7 +190,7 @@ public:
         }
         for (auto& e : guesses) {
             int a = e[0], b = e[1];
-            gs.insert(f(a, b));
+            gs[f(a, b)]++;
         }
         int ans = 0;
         int cnt = 0;
@@ -196,7 +198,7 @@ public:
         function<void(int, int)> dfs1 = [&](int i, int fa) {
             for (int& j : g[i]) {
                 if (j != fa) {
-                    cnt += gs.count(f(i, j));
+                    cnt += gs[f(i, j)];
                     dfs1(j, i);
                 }
             }
@@ -206,8 +208,8 @@ public:
             ans += cnt >= k;
             for (int& j : g[i]) {
                 if (j != fa) {
-                    auto a = gs.count(f(i, j));
-                    auto b = gs.count(f(j, i));
+                    int a = gs[f(i, j)];
+                    int b = gs[f(j, i)];
                     cnt -= a;
                     cnt += b;
                     dfs2(j, i);
@@ -240,7 +242,7 @@ func rootCount(edges [][]int, guesses [][]int, k int) (ans int) {
 	}
 	for _, e := range guesses {
 		a, b := e[0], e[1]
-		gs[f(a, b)] += 1
+		gs[f(a, b)]++
 	}
 
 	cnt := 0

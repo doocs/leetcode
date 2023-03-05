@@ -13,8 +13,7 @@ class Solution:
             return ans
 
         m, n = len(grid), len(grid[0])
-        start = next((i, j) for i in range(m)
-                     for j in range(n) if grid[i][j] == 1)
+        start = next((i, j) for i in range(m) for j in range(n) if grid[i][j] == 1)
         dirs = (-1, 0, 1, 0, -1)
         cnt = sum(grid[i][j] == 0 for i in range(m) for j in range(n))
         vis = {start}

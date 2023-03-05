@@ -72,6 +72,8 @@
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为区间个数。
 
+我们也可以不使用快速幂，一旦发现有新的不相交的区间，就将方案数乘 $2$ 后对 $10^9 + 7$ 取模。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -89,6 +91,20 @@ class Solution:
             mx = max(mx, end)
         mod = 10**9 + 7
         return pow(2, cnt, mod)
+```
+
+```python
+class Solution:
+    def countWays(self, ranges: List[List[int]]) -> int:
+        ranges.sort()
+        mx = -1
+        mod = 10**9 + 7
+        ans = 1
+        for start, end in ranges:
+            if start > mx:
+                ans = ans * 2 % mod
+            mx = max(mx, end)
+        return ans
 ```
 
 ### **Java**
@@ -123,6 +139,24 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int countWays(int[][] ranges) {
+        Arrays.sort(ranges, (a, b) -> a[0] - b[0]);
+        int mx = -1;
+        int ans = 1;
+        final int mod = (int) 1e9 + 7;
+        for (int[] e : ranges) {
+            if (e[0] > mx) {
+                ans = ans * 2 % mod;
+            }
+            mx = Math.max(mx, e[1]);
+        }
+        return ans;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -148,6 +182,24 @@ public:
             a = a * a % p;
         }
         return res;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int countWays(vector<vector<int>>& ranges) {
+        sort(ranges.begin(), ranges.end());
+        int ans = 1, mx = -1;
+        const int mod = 1e9 + 7;
+        for (auto& e : ranges) {
+            if (e[0] > mx) {
+                ans = ans * 2 % mod;
+            }
+            mx = max(mx, e[1]);
+        }
+        return ans;
     }
 };
 ```
@@ -179,6 +231,23 @@ func qmi(a, k, p int) int {
 		a = a * a % p
 	}
 	return res
+}
+```
+
+```go
+func countWays(ranges [][]int) int {
+	sort.Slice(ranges, func(i, j int) bool { return ranges[i][0] < ranges[j][0] })
+	ans, mx := 1, -1
+	const mod = 1e9 + 7
+	for _, e := range ranges {
+		if e[0] > mx {
+			ans = ans * 2 % mod
+		}
+		if mx < e[1] {
+			mx = e[1]
+		}
+	}
+	return ans
 }
 ```
 

@@ -3,7 +3,7 @@ public:
     int rootCount(vector<vector<int>>& edges, vector<vector<int>>& guesses, int k) {
         int n = edges.size() + 1;
         vector<vector<int>> g(n);
-        unordered_set<long long> gs;
+        unordered_map<long long, int> gs;
         auto f = [&](int i, int j) {
             return 1LL * i * n + j;
         };
@@ -14,7 +14,7 @@ public:
         }
         for (auto& e : guesses) {
             int a = e[0], b = e[1];
-            gs.insert(f(a, b));
+            gs[f(a, b)]++;
         }
         int ans = 0;
         int cnt = 0;
@@ -22,7 +22,7 @@ public:
         function<void(int, int)> dfs1 = [&](int i, int fa) {
             for (int& j : g[i]) {
                 if (j != fa) {
-                    cnt += gs.count(f(i, j));
+                    cnt += gs[f(i, j)];
                     dfs1(j, i);
                 }
             }
@@ -32,8 +32,8 @@ public:
             ans += cnt >= k;
             for (int& j : g[i]) {
                 if (j != fa) {
-                    auto a = gs.count(f(i, j));
-                    auto b = gs.count(f(j, i));
+                    int a = gs[f(i, j)];
+                    int b = gs[f(j, i)];
                     cnt -= a;
                     cnt += b;
                     dfs2(j, i);

@@ -12,7 +12,7 @@ func rootCount(edges [][]int, guesses [][]int, k int) (ans int) {
 	}
 	for _, e := range guesses {
 		a, b := e[0], e[1]
-		gs[f(a, b)] += 1
+		gs[f(a, b)]++
 	}
 
 	cnt := 0

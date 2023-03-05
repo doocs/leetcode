@@ -10,13 +10,11 @@
 
 <ul>
 	<li><code>num1</code> 和&nbsp;<code>num2</code>&nbsp;直接连起来，得到&nbsp;<code>num</code>&nbsp;各数位的一个排列。
-
     <ul>
     	<li>换句话说，<code>num1</code> 和&nbsp;<code>num2</code>&nbsp;中所有数字出现的次数之和等于&nbsp;<code>num</code>&nbsp;中所有数字出现的次数。</li>
     </ul>
     </li>
     <li><code>num1</code> 和&nbsp;<code>num2</code>&nbsp;可以包含前导 0 。</li>
-
 </ul>
 
 <p>请你返回&nbsp;<code>num1</code> 和 <code>num2</code>&nbsp;可以得到的和的 <strong>最小</strong> 值。</p>
@@ -66,6 +64,12 @@
 
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为 $num$ 的位数；而 $C$ 为 $num$ 中不同数字的个数，本题中 $C \leq 10$。
 
+**方法二：排序 + 贪心**
+
+我们可以将 $num$ 转换成字符串或者字符数组，然后对其进行排序，接下来将排序后的数组中的数字按照从小到大的顺序交替地分配给 $num1$ 和 $num2$，最后返回 $num1$ 和 $num2$ 的和即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为 $num$ 的位数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -91,6 +95,13 @@ class Solution:
         return sum(ans)
 ```
 
+```python
+class Solution:
+    def splitNum(self, num: int) -> int:
+        s = sorted(str(num))
+        return int(''.join(s[::2])) + int(''.join(s[1::2]))
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
@@ -111,6 +122,20 @@ class Solution {
             }
             --cnt[j];
             ans[i & 1] = ans[i & 1] * 10 + j;
+        }
+        return ans[0] + ans[1];
+    }
+}
+```
+
+```java
+class Solution {
+    public int splitNum(int num) {
+        char[] s = (num + "").toCharArray();
+        Arrays.sort(s);
+        int[] ans = new int[2];
+        for (int i = 0; i < s.length; ++i) {
+            ans[i & 1] = ans[i & 1] * 10 + s[i] - '0';
         }
         return ans[0] + ans[1];
     }
@@ -142,6 +167,21 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int splitNum(int num) {
+        string s = to_string(num);
+        sort(s.begin(), s.end());
+        int ans[2]{};
+        for (int i = 0; i < s.size(); ++i) {
+            ans[i & 1] = ans[i & 1] * 10 + s[i] - '0';
+        }
+        return ans[0] + ans[1];
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -159,6 +199,18 @@ func splitNum(num int) int {
 		}
 		cnt[j]--
 		ans[i&1] = ans[i&1]*10 + j
+	}
+	return ans[0] + ans[1]
+}
+```
+
+```go
+func splitNum(num int) int {
+	s := []byte(strconv.Itoa(num))
+	sort.Slice(s, func(i, j int) bool { return s[i] < s[j] })
+	ans := [2]int{}
+	for i, c := range s {
+		ans[i&1] = ans[i&1]*10 + int(c-'0')
 	}
 	return ans[0] + ans[1]
 }

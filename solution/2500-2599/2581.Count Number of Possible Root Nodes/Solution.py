@@ -1,10 +1,12 @@
 class Solution:
-    def rootCount(self, edges: List[List[int]], guesses: List[List[int]], k: int) -> int:
+    def rootCount(
+        self, edges: List[List[int]], guesses: List[List[int]], k: int
+    ) -> int:
         def dfs1(i, fa):
             nonlocal cnt
             for j in g[i]:
                 if j != fa:
-                    cnt += (i, j) in gs
+                    cnt += gs[(i, j)]
                     dfs1(j, i)
 
         def dfs2(i, fa):
@@ -12,17 +14,17 @@ class Solution:
             ans += cnt >= k
             for j in g[i]:
                 if j != fa:
-                    cnt -= (i, j) in gs
-                    cnt += (j, i) in gs
+                    cnt -= gs[(i, j)]
+                    cnt += gs[(j, i)]
                     dfs2(j, i)
-                    cnt += (i, j) in gs
-                    cnt -= (j, i) in gs
+                    cnt -= gs[(j, i)]
+                    cnt += gs[(i, j)]
 
         g = defaultdict(list)
         for a, b in edges:
             g[a].append(b)
             g[b].append(a)
-        gs = {(u, v) for u, v in guesses}
+        gs = Counter((u, v) for u, v in guesses)
         cnt = 0
         dfs1(0, -1)
         ans = 0

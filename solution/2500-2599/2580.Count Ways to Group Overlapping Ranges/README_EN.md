@@ -77,6 +77,20 @@ class Solution:
         return pow(2, cnt, mod)
 ```
 
+```python
+class Solution:
+    def countWays(self, ranges: List[List[int]]) -> int:
+        ranges.sort()
+        mx = -1
+        mod = 10**9 + 7
+        ans = 1
+        for start, end in ranges:
+            if start > mx:
+                ans = ans * 2 % mod
+            mx = max(mx, end)
+        return ans
+```
+
 ### **Java**
 
 ```java
@@ -103,6 +117,24 @@ class Solution {
             a = a * a % p;
         }
         return (int) res;
+    }
+}
+```
+
+```java
+class Solution {
+    public int countWays(int[][] ranges) {
+        Arrays.sort(ranges, (a, b) -> a[0] - b[0]);
+        int mx = -1;
+        int ans = 1;
+        final int mod = (int) 1e9 + 7;
+        for (int[] e : ranges) {
+            if (e[0] > mx) {
+                ans = ans * 2 % mod;
+            }
+            mx = Math.max(mx, e[1]);
+        }
+        return ans;
     }
 }
 ```
@@ -136,6 +168,24 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int countWays(vector<vector<int>>& ranges) {
+        sort(ranges.begin(), ranges.end());
+        int ans = 1, mx = -1;
+        const int mod = 1e9 + 7;
+        for (auto& e : ranges) {
+            if (e[0] > mx) {
+                ans = ans * 2 % mod;
+            }
+            mx = max(mx, e[1]);
+        }
+        return ans;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -163,6 +213,23 @@ func qmi(a, k, p int) int {
 		a = a * a % p
 	}
 	return res
+}
+```
+
+```go
+func countWays(ranges [][]int) int {
+	sort.Slice(ranges, func(i, j int) bool { return ranges[i][0] < ranges[j][0] })
+	ans, mx := 1, -1
+	const mod = 1e9 + 7
+	for _, e := range ranges {
+		if e[0] > mx {
+			ans = ans * 2 % mod
+		}
+		if mx < e[1] {
+			mx = e[1]
+		}
+	}
+	return ans
 }
 ```
 

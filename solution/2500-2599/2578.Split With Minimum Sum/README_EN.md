@@ -8,13 +8,11 @@
 
 <ul>
 	<li>The concatenation of <code>num1</code> and <code>num2</code> is a permutation of <code>num</code>.
-
     <ul>
     	<li>In other words, the sum of the number of occurrences of each digit in <code>num1</code> and <code>num2</code> is equal to the number of occurrences of that digit in <code>num</code>.</li>
     </ul>
     </li>
     <li><code>num1</code> and <code>num2</code> can contain leading zeros.</li>
-
 </ul>
 
 <p>Return <em>the <strong>minimum</strong> possible sum of</em> <code>num1</code> <em>and</em> <code>num2</code>.</p>
@@ -75,6 +73,13 @@ class Solution:
         return sum(ans)
 ```
 
+```python
+class Solution:
+    def splitNum(self, num: int) -> int:
+        s = sorted(str(num))
+        return int(''.join(s[::2])) + int(''.join(s[1::2]))
+```
+
 ### **Java**
 
 ```java
@@ -93,6 +98,20 @@ class Solution {
             }
             --cnt[j];
             ans[i & 1] = ans[i & 1] * 10 + j;
+        }
+        return ans[0] + ans[1];
+    }
+}
+```
+
+```java
+class Solution {
+    public int splitNum(int num) {
+        char[] s = (num + "").toCharArray();
+        Arrays.sort(s);
+        int[] ans = new int[2];
+        for (int i = 0; i < s.length; ++i) {
+            ans[i & 1] = ans[i & 1] * 10 + s[i] - '0';
         }
         return ans[0] + ans[1];
     }
@@ -124,6 +143,21 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int splitNum(int num) {
+        string s = to_string(num);
+        sort(s.begin(), s.end());
+        int ans[2]{};
+        for (int i = 0; i < s.size(); ++i) {
+            ans[i & 1] = ans[i & 1] * 10 + s[i] - '0';
+        }
+        return ans[0] + ans[1];
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -141,6 +175,18 @@ func splitNum(num int) int {
 		}
 		cnt[j]--
 		ans[i&1] = ans[i&1]*10 + j
+	}
+	return ans[0] + ans[1]
+}
+```
+
+```go
+func splitNum(num int) int {
+	s := []byte(strconv.Itoa(num))
+	sort.Slice(s, func(i, j int) bool { return s[i] < s[j] })
+	ans := [2]int{}
+	for i, c := range s {
+		ans[i&1] = ans[i&1]*10 + int(c-'0')
 	}
 	return ans[0] + ans[1]
 }

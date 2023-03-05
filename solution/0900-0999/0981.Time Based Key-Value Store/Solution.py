@@ -1,5 +1,4 @@
 class TimeMap:
-
     def __init__(self):
         self.ktv = defaultdict(list)
 
