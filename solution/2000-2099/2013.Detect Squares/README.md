@@ -116,7 +116,6 @@ class DetectSquares {
     private Map<Integer, Map<Integer, Integer>> cnt = new HashMap<>();
 
     public DetectSquares() {
-
     }
 
     public void add(int[] point) {
@@ -136,8 +135,10 @@ class DetectSquares {
                 int d = x2 - x1;
                 var cnt1 = cnt.get(x1);
                 var cnt2 = e.getValue();
-                ans += cnt2.getOrDefault(y1, 0) * cnt1.getOrDefault(y1 + d, 0) * cnt2.getOrDefault(y1 + d, 0);
-                ans += cnt2.getOrDefault(y1, 0) * cnt1.getOrDefault(y1 - d, 0) * cnt2.getOrDefault(y1 - d, 0);
+                ans += cnt2.getOrDefault(y1, 0) * cnt1.getOrDefault(y1 + d, 0)
+                    * cnt2.getOrDefault(y1 + d, 0);
+                ans += cnt2.getOrDefault(y1, 0) * cnt1.getOrDefault(y1 - d, 0)
+                    * cnt2.getOrDefault(y1 - d, 0);
             }
         }
         return ans;

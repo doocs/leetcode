@@ -1,11 +1,12 @@
 class Solution {
     public int minimumDeletions(String s) {
+        int n = s.length();
         int ans = 0, b = 0;
-        for (char c : s.toCharArray()) {
-            if (c == 'b') {
+        for (int i = 0; i < n; ++i) {
+            if (s.charAt(i) == 'b') {
                 ++b;
             } else {
-                ans = Math.min(b, ans + 1);
+                ans = Math.min(ans + 1, b);
             }
         }
         return ans;

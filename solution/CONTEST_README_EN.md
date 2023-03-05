@@ -25,6 +25,22 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 335
+
+- [2582. Pass the Pillow](/solution/2500-2599/2582.Pass%20the%20Pillow/README_EN.md)
+- [2583. Kth Largest Sum in a Binary Tree](/solution/2500-2599/2583.Kth%20Largest%20Sum%20in%20a%20Binary%20Tree/README_EN.md)
+- [2584. Split the Array to Make Coprime Products](/solution/2500-2599/2584.Split%20the%20Array%20to%20Make%20Coprime%20Products/README_EN.md)
+- [2585. Number of Ways to Earn Points](/solution/2500-2599/2585.Number%20of%20Ways%20to%20Earn%20Points/README_EN.md)
+
+
+#### Biweekly Contest 99
+
+- [2578. Split With Minimum Sum](/solution/2500-2599/2578.Split%20With%20Minimum%20Sum/README_EN.md)
+- [2579. Count Total Number of Colored Cells](/solution/2500-2599/2579.Count%20Total%20Number%20of%20Colored%20Cells/README_EN.md)
+- [2580. Count Ways to Group Overlapping Ranges](/solution/2500-2599/2580.Count%20Ways%20to%20Group%20Overlapping%20Ranges/README_EN.md)
+- [2581. Count Number of Possible Root Nodes](/solution/2500-2599/2581.Count%20Number%20of%20Possible%20Root%20Nodes/README_EN.md)
+
+
 #### Weekly Contest 334
 
 - [2574. Left and Right Sum Differences](/solution/2500-2599/2574.Left%20and%20Right%20Sum%20Differences/README_EN.md)

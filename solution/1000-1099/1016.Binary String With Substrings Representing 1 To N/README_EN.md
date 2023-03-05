@@ -34,16 +34,9 @@
 ```python
 class Solution:
     def queryString(self, s: str, n: int) -> bool:
-        for i in range(n, n // 2, -1):
-            if bin(i)[2:] not in s:
-                return False
-        return True
-```
-
-```python
-class Solution:
-    def queryString(self, s: str, n: int) -> bool:
-        return all(bin(i)[2:] in s for i in range(1, n + 1))
+        if n > 1023:
+            return False
+        return all(bin(i)[2:] in s for i in range(n, n // 2, -1))
 ```
 
 ### **Java**
@@ -61,17 +54,22 @@ class Solution {
 }
 ```
 
-```java
+### **C++**
+
+```cpp
 class Solution {
-    public boolean queryString(String s, int n) {
-        for (int i = 1; i <= n; ++i) {
-            if (!s.contains(Integer.toBinaryString(i))) {
+public:
+    bool queryString(string s, int n) {
+        for (int i = n; i > n / 2; --i) {
+            string b = bitset<32>(i).to_string();
+            b = b.substr(b.find_first_not_of('0'));
+            if (s.find(b) == string::npos) {
                 return false;
             }
         }
         return true;
     }
-}
+};
 ```
 
 ### **Go**
@@ -87,52 +85,11 @@ func queryString(s string, n int) bool {
 }
 ```
 
-```go
-func queryString(s string, n int) bool {
-	for i := 1; i <= n; i++ {
-		if !strings.Contains(s, strconv.FormatInt(int64(i), 2)) {
-			return false
-		}
-	}
-	return true
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool queryString(string s, int n) {
-        for (int i = n; i > n / 2; --i) {
-            string b = bitset<32>(i).to_string();
-            b = b.substr(b.find_first_not_of('0'));
-            if (s.find(b) == string::npos) return false;
-        }
-        return true;
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    bool queryString(string s, int n) {
-        for (int i = 1; i <= n; ++i) {
-            string b = bitset<32>(i).to_string();
-            b = b.substr(b.find_first_not_of('0'));
-            if (s.find(b) == string::npos) return false;
-        }
-        return true;
-    }
-};
-```
-
 ### **TypeScript**
 
 ```ts
 function queryString(s: string, n: number): boolean {
-    for (let i = 1; i <= n; ++i) {
+    for (let i = n; i > n / 2; --i) {
         if (s.indexOf(i.toString(2)) === -1) {
             return false;
         }

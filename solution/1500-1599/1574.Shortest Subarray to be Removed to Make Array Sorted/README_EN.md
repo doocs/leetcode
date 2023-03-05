@@ -51,13 +51,223 @@ Another correct solution is to remove the subarray [3,10,4].
 ### **Python3**
 
 ```python
+class Solution:
+    def findLengthOfShortestSubarray(self, arr: List[int]) -> int:
+        n = len(arr)
+        i, j = 0, n - 1
+        while i + 1 < n and arr[i] <= arr[i + 1]:
+            i += 1
+        while j - 1 >= 0 and arr[j - 1] <= arr[j]:
+            j -= 1
+        if i >= j:
+            return 0
+        ans = min(n - i - 1, j)
+        for l in range(i + 1):
+            r = bisect_left(arr, arr[l], lo=j)
+            ans = min(ans, r - l - 1)
+        return ans
+```
 
+```python
+class Solution:
+    def findLengthOfShortestSubarray(self, arr: List[int]) -> int:
+        n = len(arr)
+        i, j = 0, n - 1
+        while i + 1 < n and arr[i] <= arr[i + 1]:
+            i += 1
+        while j - 1 >= 0 and arr[j - 1] <= arr[j]:
+            j -= 1
+        if i >= j:
+            return 0
+        ans = min(n - i - 1, j)
+        r = j
+        for l in range(i + 1):
+            while r < n and arr[r] < arr[l]:
+                r += 1
+            ans = min(ans, r - l - 1)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int findLengthOfShortestSubarray(int[] arr) {
+        int n = arr.length;
+        int i = 0, j = n - 1;
+        while (i + 1 < n && arr[i] <= arr[i + 1]) {
+            ++i;
+        }
+        while (j - 1 >= 0 && arr[j - 1] <= arr[j]) {
+            --j;
+        }
+        if (i >= j) {
+            return 0;
+        }
+        int ans = Math.min(n - i - 1, j);
+        for (int l = 0; l <= i; ++l) {
+            int r = search(arr, arr[l], j);
+            ans = Math.min(ans, r - l - 1);
+        }
+        return ans;
+    }
 
+    private int search(int[] arr, int x, int left) {
+        int right = arr.length;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (arr[mid] >= x) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+}
+```
+
+```java
+class Solution {
+    public int findLengthOfShortestSubarray(int[] arr) {
+        int n = arr.length;
+        int i = 0, j = n - 1;
+        while (i + 1 < n && arr[i] <= arr[i + 1]) {
+            ++i;
+        }
+        while (j - 1 >= 0 && arr[j - 1] <= arr[j]) {
+            --j;
+        }
+        if (i >= j) {
+            return 0;
+        }
+        int ans = Math.min(n - i - 1, j);
+        for (int l = 0, r = j; l <= i; ++l) {
+            while (r < n && arr[r] < arr[l]) {
+                ++r;
+            }
+            ans = Math.min(ans, r - l - 1);
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findLengthOfShortestSubarray(vector<int>& arr) {
+        int n = arr.size();
+        int i = 0, j = n - 1;
+        while (i + 1 < n && arr[i] <= arr[i + 1]) {
+            ++i;
+        }
+        while (j - 1 >= 0 && arr[j - 1] <= arr[j]) {
+            --j;
+        }
+        if (i >= j) {
+            return 0;
+        }
+        int ans = min(n - 1 - i, j);
+        for (int l = 0; l <= i; ++l) {
+            int r = lower_bound(arr.begin() + j, arr.end(), arr[l]) - arr.begin();
+            ans = min(ans, r - l - 1);
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int findLengthOfShortestSubarray(vector<int>& arr) {
+        int n = arr.size();
+        int i = 0, j = n - 1;
+        while (i + 1 < n && arr[i] <= arr[i + 1]) {
+            ++i;
+        }
+        while (j - 1 >= 0 && arr[j - 1] <= arr[j]) {
+            --j;
+        }
+        if (i >= j) {
+            return 0;
+        }
+        int ans = min(n - 1 - i, j);
+        for (int l = 0, r = j; l <= i; ++l) {
+            while (r < n && arr[r] < arr[l]) {
+                ++r;
+            }
+            ans = min(ans, r - l - 1);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findLengthOfShortestSubarray(arr []int) int {
+	n := len(arr)
+	i, j := 0, n-1
+	for i+1 < n && arr[i] <= arr[i+1] {
+		i++
+	}
+	for j-1 >= 0 && arr[j-1] <= arr[j] {
+		j--
+	}
+	if i >= j {
+		return 0
+	}
+	ans := min(n-i-1, j)
+	for l := 0; l <= i; l++ {
+		r := j + sort.SearchInts(arr[j:], arr[l])
+		ans = min(ans, r-l-1)
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func findLengthOfShortestSubarray(arr []int) int {
+	n := len(arr)
+	i, j := 0, n-1
+	for i+1 < n && arr[i] <= arr[i+1] {
+		i++
+	}
+	for j-1 >= 0 && arr[j-1] <= arr[j] {
+		j--
+	}
+	if i >= j {
+		return 0
+	}
+	ans := min(n-i-1, j)
+	r := j
+	for l := 0; l <= i; l++ {
+		for r < n && arr[r] < arr[l] {
+			r += 1
+		}
+		ans = min(ans, r-l-1)
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

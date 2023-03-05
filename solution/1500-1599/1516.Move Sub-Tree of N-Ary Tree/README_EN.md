@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>Given the <code>root</code> of an <a href="https://leetcode.com/articles/introduction-to-n-ary-trees/">N-ary tree</a> of unique values, and two nodes of the tree <code>p</code> and <code>q</code>.</p>
+<p>Given the <code>root</code> of an <a href="https://leetcode.com/explore/learn/card/n-ary-tree/">N-ary tree</a> of unique values, and two nodes of the tree <code>p</code> and <code>q</code>.</p>
 
 <p>You should move the subtree of the node <code>p</code> to become a direct child of node <code>q</code>. If <code>p</code> is already a direct child of <code>q</code>, do not change anything. Node <code>p</code> <strong>must be</strong> the last child in the children list of node <code>q</code>.</p>
 

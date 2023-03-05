@@ -52,13 +52,141 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def camelMatch(self, queries: List[str], pattern: str) -> List[bool]:
+        def check(s, t):
+            m, n = len(s), len(t)
+            i = j = 0
+            while j < n:
+                while i < m and s[i] != t[j] and s[i].islower():
+                    i += 1
+                if i == m or s[i] != t[j]:
+                    return False
+                i, j = i + 1, j + 1
+            while i < m and s[i].islower():
+                i += 1
+            return i == m
 
+        return [check(q, pattern) for q in queries]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<Boolean> camelMatch(String[] queries, String pattern) {
+        List<Boolean> ans = new ArrayList<>();
+        for (var q : queries) {
+            ans.add(check(q, pattern));
+        }
+        return ans;
+    }
 
+    private boolean check(String s, String t) {
+        int m = s.length(), n = t.length();
+        int i = 0, j = 0;
+        for (; j < n; ++i, ++j) {
+            while (i < m && s.charAt(i) != t.charAt(j) && Character.isLowerCase(s.charAt(i))) {
+                ++i;
+            }
+            if (i == m || s.charAt(i) != t.charAt(j)) {
+                return false;
+            }
+        }
+        while (i < m && Character.isLowerCase(s.charAt(i))) {
+            ++i;
+        }
+        return i == m;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<bool> camelMatch(vector<string>& queries, string pattern) {
+        vector<bool> ans;
+        auto check = [](string& s, string& t) {
+            int m = s.size(), n = t.size();
+            int i = 0, j = 0;
+            for (; j < n; ++i, ++j) {
+                while (i < m && s[i] != t[j] && islower(s[i])) {
+                    ++i;
+                }
+                if (i == m || s[i] != t[j]) {
+                    return false;
+                }
+            }
+            while (i < m && islower(s[i])) {
+                ++i;
+            }
+            return i == m;
+        };
+        for (auto& q : queries) {
+            ans.push_back(check(q, pattern));
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func camelMatch(queries []string, pattern string) (ans []bool) {
+	check := func(s, t string) bool {
+		m, n := len(s), len(t)
+		i, j := 0, 0
+		for ; j < n; i, j = i+1, j+1 {
+			for i < m && s[i] != t[j] && (s[i] >= 'a' && s[i] <= 'z') {
+				i++
+			}
+			if i == m || s[i] != t[j] {
+				return false
+			}
+		}
+		for i < m && s[i] >= 'a' && s[i] <= 'z' {
+			i++
+		}
+		return i == m
+	}
+	for _, q := range queries {
+		ans = append(ans, check(q, pattern))
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function camelMatch(queries: string[], pattern: string): boolean[] {
+    const check = (s: string, t: string) => {
+        const m = s.length;
+        const n = t.length;
+        let i = 0;
+        let j = 0;
+        for (; j < n; ++i, ++j) {
+            while (i < m && s[i] !== t[j] && s[i].codePointAt(0) >= 97) {
+                ++i;
+            }
+            if (i === m || s[i] !== t[j]) {
+                return false;
+            }
+        }
+        while (i < m && s[i].codePointAt(0) >= 97) {
+            ++i;
+        }
+        return i == m;
+    };
+    const ans: boolean[] = [];
+    for (const q of queries) {
+        ans.push(check(q, pattern));
+    }
+    return ans;
+}
 ```
 
 ### **...**

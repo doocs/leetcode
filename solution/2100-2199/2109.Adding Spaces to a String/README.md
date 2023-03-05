@@ -162,7 +162,17 @@ func addSpaces(s string, spaces []int) string {
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
-
+function addSpaces(s: string, spaces: number[]): string {
+    let ans = '';
+    for (let i = 0, j = 0; i < s.length; i++) {
+        if (j < spaces.length && i === spaces[j]) {
+            ans += ' ';
+            ++j;
+        }
+        ans += s[i];
+    }
+    return ans;
+}
 ```
 
 ### **...**

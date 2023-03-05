@@ -1,11 +1,11 @@
 class Solution {
     private Boolean[] f;
-    
+
     public boolean winnerSquareGame(int n) {
         f = new Boolean[n + 1];
         return dfs(n);
     }
-    
+
     private boolean dfs(int i) {
         if (i <= 0) {
             return false;

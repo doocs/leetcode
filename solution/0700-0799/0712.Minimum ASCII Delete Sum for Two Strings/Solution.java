@@ -13,7 +13,8 @@ class Solution {
                 if (s1.charAt(i - 1) == s2.charAt(j - 1)) {
                     f[i][j] = f[i - 1][j - 1];
                 } else {
-                    f[i][j] = Math.min(f[i - 1][j] + s1.charAt(i - 1), f[i][j - 1] + s2.charAt(j - 1));
+                    f[i][j]
+                        = Math.min(f[i - 1][j] + s1.charAt(i - 1), f[i][j - 1] + s2.charAt(j - 1));
                 }
             }
         }

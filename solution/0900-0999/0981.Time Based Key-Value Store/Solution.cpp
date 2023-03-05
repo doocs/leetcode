@@ -1,13 +1,12 @@
 class TimeMap {
 public:
     TimeMap() {
-
     }
-    
+
     void set(string key, string value, int timestamp) {
         ktv[key].emplace_back(timestamp, value);
     }
-    
+
     string get(string key, int timestamp) {
         auto& pairs = ktv[key];
         pair<int, string> p = {timestamp, string({127})};

@@ -83,6 +83,10 @@
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 表示 `arr` 的长度。
 
+相似题目：
+
+-   [1573. 分割字符串的方案数](/solution/1500-1599/1573.Number%20of%20Ways%20to%20Split%20a%20String/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**

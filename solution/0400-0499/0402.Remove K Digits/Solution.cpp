@@ -14,7 +14,6 @@ public:
         }
         int i = 0;
         for (; i < stk.size() && stk[i] == '0'; ++i) {
-
         }
         string ans = stk.substr(i);
         return ans == "" ? "0" : ans;
