@@ -173,6 +173,30 @@ func passThePillow(n int, time int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function passThePillow(n: number, time: number): number {
+    let ans = 1,
+        k = 1;
+    while (time-- > 0) {
+        ans += k;
+        if (ans === 1 || ans === n) {
+            k *= -1;
+        }
+    }
+    return ans;
+}
+```
+
+```ts
+function passThePillow(n: number, time: number): number {
+    const k = time / (n - 1);
+    const mod = time % (n - 1);
+    return (k & 1) == 1 ? n - mod : mod + 1;
+}
+```
+
 ### **...**
 
 ```

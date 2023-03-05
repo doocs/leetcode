@@ -94,6 +94,14 @@ func coloredCells(n int) int64 {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function coloredCells(n: number): number {
+    return 2 * n * (n - 1) + 1;
+}
+```
+
 ### **...**
 
 ```
