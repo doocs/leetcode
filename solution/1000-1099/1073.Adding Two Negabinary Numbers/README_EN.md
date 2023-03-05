@@ -95,7 +95,7 @@ class Solution {
             ans.add(x);
         }
         while (ans.size() > 1 && ans.get(ans.size() - 1) == 0) {
-            ans.remove(ans.size() -1);
+            ans.remove(ans.size() - 1);
         }
         Collections.reverse(ans);
         return ans.stream().mapToInt(x -> x).toArray();

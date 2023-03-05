@@ -27,7 +27,7 @@ public:
                 }
             }
         };
-        
+
         function<void(int, int)> dfs2 = [&](int i, int fa) {
             ans += cnt >= k;
             for (int& j : g[i]) {

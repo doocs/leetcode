@@ -97,7 +97,7 @@ class Solution {
     public int[] findOriginalArray(int[] changed) {
         int n = changed.length;
         if (n % 2 == 1) {
-            return new int[]{};
+            return new int[] {};
         }
         Arrays.sort(changed);
         int[] cnt = new int[changed[n - 1] + 1];
@@ -111,13 +111,13 @@ class Solution {
                 continue;
             }
             if (x * 2 >= cnt.length || cnt[x * 2] <= 0) {
-                return new int[]{};
+                return new int[] {};
             }
             ans[i++] = x;
             cnt[x]--;
             cnt[x * 2]--;
         }
-        return i == n / 2 ? ans : new int[]{};
+        return i == n / 2 ? ans : new int[] {};
     }
 }
 ```

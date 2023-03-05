@@ -55,6 +55,13 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def passThePillow(self, n: int, time: int) -> int:
+        k, mod = divmod(time, n - 1)
+        return n - mod if k & 1 else mod + 1
+```
+
 ### **Java**
 
 ```java
@@ -68,6 +75,16 @@ class Solution {
             }
         }
         return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int passThePillow(int n, int time) {
+        int k = time / (n - 1);
+        int mod = time % (n - 1);
+        return (k & 1) == 1 ? n - mod : mod + 1;
     }
 }
 ```
@@ -90,6 +107,17 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int passThePillow(int n, int time) {
+        int k = time / (n - 1);
+        int mod = time % (n - 1);
+        return k & 1 ? n - mod : mod + 1;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -102,6 +130,16 @@ func passThePillow(n int, time int) int {
 		}
 	}
 	return ans
+}
+```
+
+```go
+func passThePillow(n int, time int) int {
+	k, mod := time/(n-1), time%(n-1)
+	if k&1 == 1 {
+		return n - mod
+	}
+	return mod + 1
 }
 ```
 

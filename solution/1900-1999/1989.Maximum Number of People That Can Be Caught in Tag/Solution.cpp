@@ -8,7 +8,7 @@ public:
                 while (j < n && (team[j] || i - j > dist)) {
                     ++j;
                 }
-                if (j < n && abs(i -  j) <= dist) {
+                if (j < n && abs(i - j) <= dist) {
                     ++ans;
                     ++j;
                 }

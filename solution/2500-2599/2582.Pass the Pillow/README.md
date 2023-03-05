@@ -55,6 +55,17 @@
 
 时间复杂度 $O(time)$，空间复杂度 $O(1)$。其中 $time$ 为给定的时间。
 
+**方法二：数学**
+
+我们注意到，每一轮有 $n - 1$ 次传递，因此我们可以将 $time$ 除以 $n - 1$ 得到枕头传递的轮数 $k$，然后再将 $time$ 对 $n - 1$ 取余得到枕头在当前轮的剩余传递次数 $mod$。
+
+接下来我们判断当前的轮数 $k$：
+
+-   如果 $k$ 为奇数，那么枕头当前的传递方向是从队尾到队首，因此枕头会传递到编号为 $n - mod$ 的人手中；
+-   如果 $k$ 为偶数，那么枕头当前的传递方向是从队首到队尾，因此枕头会传递到编号为 $mod + 1$ 的人手中。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -72,6 +83,13 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def passThePillow(self, n: int, time: int) -> int:
+        k, mod = divmod(time, n - 1)
+        return n - mod if k & 1 else mod + 1
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
@@ -87,6 +105,16 @@ class Solution {
             }
         }
         return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int passThePillow(int n, int time) {
+        int k = time / (n - 1);
+        int mod = time % (n - 1);
+        return (k & 1) == 1 ? n - mod : mod + 1;
     }
 }
 ```
@@ -109,6 +137,17 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int passThePillow(int n, int time) {
+        int k = time / (n - 1);
+        int mod = time % (n - 1);
+        return k & 1 ? n - mod : mod + 1;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -121,6 +160,16 @@ func passThePillow(n int, time int) int {
 		}
 	}
 	return ans
+}
+```
+
+```go
+func passThePillow(n int, time int) int {
+	k, mod := time/(n-1), time%(n-1)
+	if k&1 == 1 {
+		return n - mod
+	}
+	return mod + 1
 }
 ```
 

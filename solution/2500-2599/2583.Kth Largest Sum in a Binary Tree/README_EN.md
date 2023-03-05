@@ -74,6 +74,29 @@ class Solution:
         return -1 if len(arr) < k else nlargest(k, arr)[-1]
 ```
 
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def kthLargestLevelSum(self, root: Optional[TreeNode], k: int) -> int:
+        def dfs(root, d):
+            if root is None:
+                return
+            if len(arr) <= d:
+                arr.append(0)
+            arr[d] += root.val
+            dfs(root.left, d + 1)
+            dfs(root.right, d + 1)
+
+        arr = []
+        dfs(root, 0)
+        return -1 if len(arr) < k else nlargest(k, arr)[-1]
+```
+
 ### **Java**
 
 ```java
@@ -116,6 +139,48 @@ class Solution {
         }
         Collections.sort(arr, Collections.reverseOrder());
         return arr.get(k - 1);
+    }
+}
+```
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private List<Long> arr = new ArrayList<>();
+
+    public long kthLargestLevelSum(TreeNode root, int k) {
+        dfs(root, 0);
+        if (arr.size() < k) {
+            return -1;
+        }
+        Collections.sort(arr, Collections.reverseOrder());
+        return arr.get(k - 1);
+    }
+
+    private void dfs(TreeNode root, int d) {
+        if (root == null) {
+            return;
+        }
+        if (arr.size() <= d) {
+            arr.add(0L);
+        }
+        arr.set(d, arr.get(d) + root.val);
+        dfs(root.left, d + 1);
+        dfs(root.right, d + 1);
     }
 }
 ```
@@ -163,6 +228,43 @@ public:
 };
 ```
 
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    long long kthLargestLevelSum(TreeNode* root, int k) {
+        vector<long long> arr;
+        function<void(TreeNode*, int)> dfs = [&](TreeNode* root, int d) {
+            if (!root) {
+                return;
+            }
+            if (arr.size() <= d) {
+                arr.push_back(0);
+            }
+            arr[d] += root->val;
+            dfs(root->left, d + 1);
+            dfs(root->right, d + 1);
+        };
+        dfs(root, 0);
+        if (arr.size() < k) {
+            return -1;
+        }
+        sort(arr.rbegin(), arr.rend());
+        return arr[k - 1];
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -192,6 +294,39 @@ func kthLargestLevelSum(root *TreeNode, k int) int64 {
 		}
 		arr = append(arr, t)
 	}
+	if n := len(arr); n >= k {
+		sort.Ints(arr)
+		return int64(arr[n-k])
+	}
+	return -1
+}
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func kthLargestLevelSum(root *TreeNode, k int) int64 {
+	arr := []int{}
+	var dfs func(*TreeNode, int)
+	dfs = func(root *TreeNode, d int) {
+		if root == nil {
+			return
+		}
+		if len(arr) <= d {
+			arr = append(arr, 0)
+		}
+		arr[d] += root.Val
+		dfs(root.Left, d+1)
+		dfs(root.Right, d+1)
+	}
+
+	dfs(root, 0)
 	if n := len(arr); n >= k {
 		sort.Ints(arr)
 		return int64(arr[n-k])

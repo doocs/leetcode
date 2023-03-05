@@ -17,7 +17,7 @@ public:
         cnt /= 3;
         auto find = [&](int x) {
             int t = 0;
-            for (int i = 0; ; ++i) {
+            for (int i = 0;; ++i) {
                 t += s[i] == '1';
                 if (t == x) {
                     return i;

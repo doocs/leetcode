@@ -1,14 +1,13 @@
 class DetectSquares {
 public:
     DetectSquares() {
-
     }
-    
+
     void add(vector<int> point) {
         int x = point[0], y = point[1];
         ++cnt[x][y];
     }
-    
+
     int count(vector<int> point) {
         int x1 = point[0], y1 = point[1];
         if (!cnt.count(x1)) {

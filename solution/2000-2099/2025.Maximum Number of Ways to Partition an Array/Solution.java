@@ -16,7 +16,8 @@ class Solution {
         for (int i = 0; i < n; ++i) {
             int d = k - nums[i];
             if ((s[n - 1] + d) % 2 == 0) {
-                int t = left.getOrDefault((s[n - 1] + d) / 2, 0) + right.getOrDefault((s[n - 1] - d) / 2, 0);
+                int t = left.getOrDefault((s[n - 1] + d) / 2, 0)
+                    + right.getOrDefault((s[n - 1] - d) / 2, 0);
                 ans = Math.max(ans, t);
             }
             left.merge(s[i], 1, Integer::sum);

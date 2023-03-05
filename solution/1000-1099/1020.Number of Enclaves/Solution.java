@@ -22,7 +22,7 @@ class Solution {
         }
         return ans;
     }
-    
+
     private void dfs(int i, int j) {
         grid[i][j] = 0;
         int[] dirs = {-1, 0, 1, 0, -1};

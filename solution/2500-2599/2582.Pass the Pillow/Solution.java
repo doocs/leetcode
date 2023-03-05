@@ -1,12 +1,7 @@
 class Solution {
     public int passThePillow(int n, int time) {
-        int ans = 1, k = 1;
-        while (time-- > 0) {
-            ans += k;
-            if (ans == 1 || ans == n) {
-                k *= -1;
-            }
-        }
-        return ans;
+        int k = time / (n - 1);
+        int mod = time % (n - 1);
+        return (k & 1) == 1 ? n - mod : mod + 1;
     }
 }

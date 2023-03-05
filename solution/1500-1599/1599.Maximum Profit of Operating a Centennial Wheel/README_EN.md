@@ -132,7 +132,7 @@ public:
             ++i;
             t += up * boardingCost - runningCost;
             if (t > mx) {
-                t = mx;
+                mx = t;
                 ans = i;
             }
         }
