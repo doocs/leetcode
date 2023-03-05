@@ -15,7 +15,7 @@ C -&gt; 3
 ...
 Z -&gt; 26
 AA -&gt; 27
-AB -&gt; 28 
+AB -&gt; 28
 ...
 </pre>
 
@@ -109,6 +109,20 @@ public class Solution {
         }
         return new string(res.ToString().Reverse().ToArray());
     }
+}
+```
+
+### **Go**
+
+```go
+func convertToTitle(columnNumber int) string {
+	res := []rune{}
+	for columnNumber != 0 {
+		columnNumber -= 1
+		res = append([]rune{rune(columnNumber%26 + int('A'))}, res...)
+		columnNumber /= 26
+	}
+	return string(res)
 }
 ```
 
