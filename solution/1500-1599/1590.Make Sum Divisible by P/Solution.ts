@@ -1,27 +1,27 @@
 function minSubarray(nums: number[], p: number): number {
+    let k = 0;
+    for (const x of nums) {
+        k = (k + x) % p;
+    }
+    if (k === 0) {
+        return 0;
+    }
+    const last = new Map<number, number>();
+    last.set(0, -1);
     const n = nums.length;
-    let mod = 0;
-    for (let i = 0; i < n; i++) {
-        mod = (nums[i] + mod) % p;
-    }
-    if (!mod) return 0;
-
-    let hashMap = new Map<number, number>();
-    hashMap.set(0, -1);
     let ans = n;
-    let subMod = 0;
-    for (let i = 0; i < n; i++) {
-        let cur = nums[i];
-        subMod = (subMod + cur) % p;
-        let target = (subMod - mod + p) % p;
-        if (hashMap.has(target)) {
-            let j = hashMap.get(target);
-            ans = Math.min(i - j, ans);
-            if (ans == 1 && ans != n) {
-                return ans;
-            }
+    let cur = 0;
+    for (let i = 0; i < n; ++i) {
+        cur = (cur + nums[i]) % p;
+        const target = (cur - k + p) % p;
+        if (last.has(target)) {
+            const j = last.get(target)!;
+            ans = Math.min(ans, i - j);
         }
-        hashMap.set(subMod, i);
+        last.set(cur, i);
     }
-    return ans == n ? -1 : ans;
+    if (ans == n) {
+        return -1;
+    }
+    return ans;
 }

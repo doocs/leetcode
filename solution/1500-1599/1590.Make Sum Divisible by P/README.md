@@ -62,6 +62,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：前缀和 + 哈希表**
+
+我们可以先求出数组 $nums$ 所有元素之和模 $p$ 的值，记为 $k$。如果 $k$ 为 $0$，说明数组 $nums$ 所有元素之和就是 $p$ 的倍数，直接返回 $0$ 即可。
+
+如果 $k$ 不为 $0$，我们需要找到一个最短的子数组，使得删除该子数组后，剩余元素之和模 $p$ 的值为 $0$。
+
+我们可以遍历数组 $nums$，维护当前的前缀和模 $p$ 的值，记为 $cur$。用哈希表 $last$ 记录每个前缀和模 $p$ 的值最后一次出现的位置。
+
+如果当前存在一个以 $nums[i]$ 结尾的子数组，使得删除该子数组后，剩余元素之和模 $p$ 的值为 $0$。也就是说，我们需要找到此前的一个前缀和模 $p$ 的值为 $target$ 的位置 $j$，使得 $(target + k - cur) \bmod p = 0$。那么，我们可以将 $j + 1$ 到 $i$ 这一段子数组删除，剩余元素之和模 $p$ 的值为 $0$。因此，如果存在一个 $target = (cur - k + p) \bmod p$，那么我们可以更新答案为 $\min(ans, i - j)$。接下来，我们更新 $last[cur]$ 的值为 $i$。继续遍历数组 $nums$，直到遍历结束，即可得到答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -69,7 +81,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minSubarray(self, nums: List[int], p: int) -> int:
+        k = sum(nums) % p
+        if k == 0:
+            return 0
+        last = {0: -1}
+        cur = 0
+        ans = len(nums)
+        for i, x in enumerate(nums):
+            cur = (cur + x) % p
+            target = (cur - k + p) % p
+            if target in last:
+                ans = min(ans, i - last[target])
+            last[cur] = i
+        return -1 if ans == len(nums) else ans
 ```
 
 ### **Java**
@@ -77,38 +103,130 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minSubarray(int[] nums, int p) {
+        int k = 0;
+        for (int x : nums) {
+            k = (k + x) % p;
+        }
+        if (k == 0) {
+            return 0;
+        }
+        Map<Integer, Integer> last = new HashMap<>();
+        last.put(0, -1);
+        int n = nums.length;
+        int ans = n;
+        int cur = 0;
+        for (int i = 0; i < n; ++i) {
+            cur = (cur + nums[i]) % p;
+            int target = (cur - k + p) % p;
+            if (last.containsKey(target)) {
+                ans = Math.min(ans, i - last.get(target));
+            }
+            last.put(cur, i);
+        }
+        return ans == n ? -1 : ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minSubarray(vector<int>& nums, int p) {
+        int k = 0;
+        for (int& x : nums) {
+            k = (k + x) % p;
+        }
+        if (k == 0) {
+            return 0;
+        }
+        unordered_map<int, int> last;
+        last[0] = -1;
+        int n = nums.size();
+        int ans = n;
+        int cur = 0;
+        for (int i = 0; i < n; ++i) {
+            cur = (cur + nums[i]) % p;
+            int target = (cur - k + p) % p;
+            if (last.count(target)) {
+                ans = min(ans, i - last[target]);
+            }
+            last[cur] = i;
+        }
+        return ans == n ? -1 : ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minSubarray(nums []int, p int) int {
+	k := 0
+	for _, x := range nums {
+		k = (k + x) % p
+	}
+	if k == 0 {
+		return 0
+	}
+	last := map[int]int{0: -1}
+	n := len(nums)
+	ans := n
+	cur := 0
+	for i, x := range nums {
+		cur = (cur + x) % p
+		target := (cur - k + p) % p
+		if j, ok := last[target]; ok {
+			ans = min(ans, i-j)
+		}
+		last[cur] = i
+	}
+	if ans == n {
+		return -1
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
 
 ```ts
 function minSubarray(nums: number[], p: number): number {
+    let k = 0;
+    for (const x of nums) {
+        k = (k + x) % p;
+    }
+    if (k === 0) {
+        return 0;
+    }
+    const last = new Map<number, number>();
+    last.set(0, -1);
     const n = nums.length;
-    let mod = 0;
-    for (let i = 0; i < n; i++) {
-        mod = (nums[i] + mod) % p;
-    }
-    if (!mod) return 0;
-
-    let hashMap = new Map<number, number>();
-    hashMap.set(0, -1);
     let ans = n;
-    let subMod = 0;
-    for (let i = 0; i < n; i++) {
-        let cur = nums[i];
-        subMod = (subMod + cur) % p;
-        let target = (subMod - mod + p) % p;
-        if (hashMap.has(target)) {
-            let j = hashMap.get(target);
-            ans = Math.min(i - j, ans);
-            if (ans == 1 && ans != n) {
-                return ans;
-            }
+    let cur = 0;
+    for (let i = 0; i < n; ++i) {
+        cur = (cur + nums[i]) % p;
+        const target = (cur - k + p) % p;
+        if (last.has(target)) {
+            const j = last.get(target)!;
+            ans = Math.min(ans, i - j);
         }
-        hashMap.set(subMod, i);
+        last.set(cur, i);
     }
-    return ans == n ? -1 : ans;
+    if (ans == n) {
+        return -1;
+    }
+    return ans;
 }
 ```
 
