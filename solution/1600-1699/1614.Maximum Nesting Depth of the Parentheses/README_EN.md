@@ -59,13 +59,13 @@
 ```python
 class Solution:
     def maxDepth(self, s: str) -> int:
-        n = ans = 0
+        ans = d = 0
         for c in s:
             if c == '(':
-                n += 1
-                ans = max(ans, n)
+                d += 1
+                ans = max(ans, d)
             elif c == ')':
-                n -= 1
+                d -= 1
         return ans
 ```
 
@@ -74,12 +74,13 @@ class Solution:
 ```java
 class Solution {
     public int maxDepth(String s) {
-        int n = 0, ans = 0;
-        for (char c : s.toCharArray()) {
+        int ans = 0, d = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
             if (c == '(') {
-                ans = Math.max(ans, ++n);
+                ans = Math.max(ans, ++d);
             } else if (c == ')') {
-                --n;
+                --d;
             }
         }
         return ans;
@@ -93,12 +94,13 @@ class Solution {
 class Solution {
 public:
     int maxDepth(string s) {
-        int n = 0, ans = 0;
-        for (char c : s) {
-            if (c == '(')
-                ans = max(ans, ++n);
-            else if (c == ')')
-                --n;
+        int ans = 0, d = 0;
+        for (char& c : s) {
+            if (c == '(') {
+                ans = max(ans, ++d);
+            } else if (c == ')') {
+                --d;
+            }
         }
         return ans;
     }
@@ -108,19 +110,24 @@ public:
 ### **Go**
 
 ```go
-func maxDepth(s string) int {
-	n, ans := 0, 0
+func maxDepth(s string) (ans int) {
+	d := 0
 	for _, c := range s {
 		if c == '(' {
-			n++
-			if ans < n {
-				ans = n
-			}
+			d++
+			ans = max(ans, d)
 		} else if c == ')' {
-			n--
+			d--
 		}
 	}
-	return ans
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
@@ -132,11 +139,14 @@ func maxDepth(s string) int {
  * @return {number}
  */
 var maxDepth = function (s) {
-    let n = 0,
-        ans = 0;
-    for (let c of s) {
-        if (c == '(') ans = Math.max(ans, ++n);
-        else if (c == ')') --n;
+    let ans = 0;
+    let d = 0;
+    for (const c of s) {
+        if (c === '(') {
+            ans = Math.max(ans, ++d);
+        } else if (c === ')') {
+            --d;
+        }
     }
     return ans;
 };
@@ -147,20 +157,33 @@ var maxDepth = function (s) {
 ```cs
 public class Solution {
     public int MaxDepth(string s) {
-        int n = 0, ans = 0;
-        foreach (char c in s)
-        {
-            if (c == '(')
-            {
-                ans = Math.Max(ans, ++n);
-            }
-            else if (c == ')')
-            {
-                --n;
+        int ans = 0, d = 0;
+        foreach(char c in s) {
+            if (c == '(') {
+                ans = Math.Max(ans, ++d);
+            } else if (c == ')') {
+                --d;
             }
         }
         return ans;
     }
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxDepth(s: string): number {
+    let ans = 0;
+    let d = 0;
+    for (const c of s) {
+        if (c === '(') {
+            ans = Math.max(ans, ++d);
+        } else if (c === ')') {
+            --d;
+        }
+    }
+    return ans;
 }
 ```
 

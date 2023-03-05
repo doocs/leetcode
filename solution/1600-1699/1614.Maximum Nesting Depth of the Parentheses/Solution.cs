@@ -1,15 +1,11 @@
 public class Solution {
     public int MaxDepth(string s) {
-        int n = 0, ans = 0;
-        foreach (char c in s)
-        {
-            if (c == '(')
-            {
-                ans = Math.Max(ans, ++n);
-            }
-            else if (c == ')')
-            {
-                --n;
+        int ans = 0, d = 0;
+        foreach(char c in s) {
+            if (c == '(') {
+                ans = Math.Max(ans, ++d);
+            } else if (c == ')') {
+                --d;
             }
         }
         return ans;
