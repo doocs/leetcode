@@ -324,20 +324,21 @@ class NumArray {
      * @param Integer[] $nums
      */
     function __construct($nums) {
-            $this - > nums = $nums;
+        $this - > nums = $nums;
+        $this - > sum = [0];
+        for ($i = 0; $i < count($nums); $i++) {
+            $rs = $this - > sum[$i] + $this - > nums[$i];
+            array_push($this - > sum, $rs);
         }
-        /**
-         * @param Integer $left
-         * @param Integer $right
-         * @return Integer
-         */
+    }
+
+    /**
+     * @param Integer $left
+     * @param Integer $right
+     * @return Integer
+     */
     function sumRange($left, $right) {
-        $rs = $this - > nums[$left];
-        while ($left - $right != 0) {
-            $rs += $this - > nums[$left + 1];
-            $left++;
-        }
-        return $rs;
+        return $this - > sum[$right + 1] - $this - > sum[$left];
     }
 }
 ```
