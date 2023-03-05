@@ -5,4 +5,4 @@ class Solution:
         while x:
             s += x % 10
             x //= 10
-        return 0 if s % 2 else 1
+        return s & 1 ^ 1

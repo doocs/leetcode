@@ -45,6 +45,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+我们先找到数组中的最小值，记为 $x$。然后计算 $x$ 的各个数位上的数字之和，记为 $s$。最后判断 $s$ 是否为奇数，若是则返回 $0$，否则返回 $1$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -59,7 +65,7 @@ class Solution:
         while x:
             s += x % 10
             x //= 10
-        return 0 if s % 2 else 1
+        return s & 1 ^ 1
 ```
 
 ### **Java**
@@ -69,16 +75,15 @@ class Solution:
 ```java
 class Solution {
     public int sumOfDigits(int[] nums) {
-        int x = nums[0];
+        int x = 100;
         for (int v : nums) {
             x = Math.min(x, v);
         }
         int s = 0;
-        while (x != 0) {
+        for (; x > 0; x /= 10) {
             s += x % 10;
-            x /= 10;
         }
-        return 1 - s % 2;
+        return s & 1 ^ 1;
     }
 }
 ```
@@ -89,11 +94,12 @@ class Solution {
 class Solution {
 public:
     int sumOfDigits(vector<int>& nums) {
-        int x = nums[0];
-        for (int& v : nums) x = min(x, v);
+        int x = *min_element(nums.begin(), nums.end());
         int s = 0;
-        for (; x != 0; x /= 10) s += x % 10;
-        return 1 - s % 2;
+        for (; x > 0; x /= 10) {
+            s += x % 10;
+        }
+        return s & 1 ^ 1;
     }
 };
 ```
@@ -102,17 +108,17 @@ public:
 
 ```go
 func sumOfDigits(nums []int) int {
-	x := nums[0]
+	x := 100
 	for _, v := range nums {
 		if v < x {
 			x = v
 		}
 	}
 	s := 0
-	for ; x != 0; x /= 10 {
+	for ; x > 0; x /= 10 {
 		s += x % 10
 	}
-	return 1 - s%2
+	return s&1 ^ 1
 }
 ```
 
