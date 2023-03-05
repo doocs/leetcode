@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>You are given all the nodes of an <strong><a href="https://leetcode.com/articles/introduction-to-n-ary-trees/">N-ary tree</a></strong> as an array of <code>Node</code> objects, where each node has a <strong>unique value</strong>.</p>
+<p>You are given all the nodes of an <strong><a href="https://leetcode.com/explore/learn/card/n-ary-tree/">N-ary tree</a></strong> as an array of <code>Node</code> objects, where each node has a <strong>unique value</strong>.</p>
 
 <p>Return <em>the <strong>root</strong> of the N-ary tree</em>.</p>
 

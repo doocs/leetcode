@@ -5,13 +5,13 @@ public:
             q.push(i);
         }
     }
-    
+
     int reserve() {
         int seat = q.top();
         q.pop();
         return seat;
     }
-    
+
     void unreserve(int seatNumber) {
         q.push(seatNumber);
     }

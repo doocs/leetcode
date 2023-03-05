@@ -67,9 +67,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-二分查找。
+**方法一：二分查找**
 
-二分枚举运载能力 capacity，找到能在 D 天内送达的最小运载。
+我们注意到，如果运载能力 $x$ 能够在 $days$ 天内运送完所有包裹，那么运载能力 $x + 1$ 也能在 $days$ 天内运送完所有包裹。也即是说，随着运载能力的增加，运送天数只会减少，不会增加。这存在一个单调性，因此我们可以使用二分查找的方法来寻找最小的运载能力。
+
+我们定义二分查找的左边界 $left= \max\limits_{i=0}^{n-1} weights[i]$，右边界 $right = \sum\limits_{i=0}^{n-1} weights[i]$。然后二分枚举运载能力 $x$，判断是否能在 $days$ 天内运送完所有包裹。如果能，那么我们将右边界调整为 $x$，否则将左边界调整为 $x + 1$。
+
+判断是否能在 $days$ 天内运送完所有包裹的方法是，我们从左到右遍历包裹，将当前包裹加入当前运载能力的船上，如果当前船的运载能力超过了 $x$，那么我们将当前包裹放到下一天的船上，同时天数加一。如果天数超过了 $days$，那么我们返回 $false$，否则返回 $true$。
+
+时间复杂度 $O(n \times \log \sum\limits_{i=0}^{n-1} weights[i])$，空间复杂度 $O(1)$。其中 $n$ 为包裹数量。
 
 <!-- tabs:start -->
 
@@ -79,27 +85,18 @@
 
 ```python
 class Solution:
-    def shipWithinDays(self, weights: List[int], D: int) -> int:
-        def check(capacity):
-            cnt, t = 1, 0
+    def shipWithinDays(self, weights: List[int], days: int) -> int:
+        def check(mx):
+            ws, cnt = 0, 1
             for w in weights:
-                if w > capacity:
-                    return False
-                if t + w <= capacity:
-                    t += w
-                else:
+                ws += w
+                if ws > mx:
                     cnt += 1
-                    t = w
-            return cnt <= D
+                    ws = w
+            return cnt <= days
 
-        left, right = 1, 25000000
-        while left < right:
-            mid = (left + right) >> 1
-            if check(mid):
-                right = mid
-            else:
-                left = mid + 1
-        return left
+        left, right = max(weights), sum(weights) + 1
+        return left + bisect_left(range(left, right), True, key=check)
 ```
 
 ### **Java**
@@ -109,10 +106,14 @@ class Solution:
 ```java
 class Solution {
     public int shipWithinDays(int[] weights, int days) {
-        int left = 1, right = Integer.MAX_VALUE;
+        int left = 0, right = 0;
+        for (int w : weights) {
+            left = Math.max(left, w);
+            right += w;
+        }
         while (left < right) {
             int mid = (left + right) >> 1;
-            if (canCarry(weights, days, mid)) {
+            if (check(mid, weights, days)) {
                 right = mid;
             } else {
                 left = mid + 1;
@@ -121,21 +122,16 @@ class Solution {
         return left;
     }
 
-    public boolean canCarry(int[] weights, int days, int carry) {
-        int useDay = 1;
-        int curCarry = 0;
-        for (int weight : weights) {
-            if (weight > carry) {
-                return false;
-            }
-            if ((carry - curCarry) >= weight) {
-                curCarry += weight;
-            } else {
-                curCarry = weight;
-                useDay++;
+    private boolean check(int mx, int[] weights, int days) {
+        int ws = 0, cnt = 1;
+        for (int w : weights) {
+            ws += w;
+            if (ws > mx) {
+                ws = w;
+                ++cnt;
             }
         }
-        return useDay <= days;
+        return cnt <= days;
     }
 }
 ```
@@ -146,32 +142,31 @@ class Solution {
 class Solution {
 public:
     int shipWithinDays(vector<int>& weights, int days) {
-        int left = 1, right = 25000000;
+        int left = 0, right = 0;
+        for (auto& w : weights) {
+            left = max(left, w);
+            right += w;
+        }
+        auto check = [&](int mx) {
+            int ws = 0, cnt = 1;
+            for (auto& w : weights) {
+                ws += w;
+                if (ws > mx) {
+                    ws = w;
+                    ++cnt;
+                }
+            }
+            return cnt <= days;
+        };
         while (left < right) {
-            int mid = left + right >> 1;
-            if (check(weights, days, mid)) {
+            int mid = (left + right) >> 1;
+            if (check(mid)) {
                 right = mid;
             } else {
                 left = mid + 1;
             }
         }
         return left;
-    }
-
-    bool check(vector<int>& weights, int days, int capacity) {
-        int cnt = 1, t = 0;
-        for (auto w : weights) {
-            if (w > capacity) {
-                return false;
-            }
-            if (t + w <= capacity) {
-                t += w;
-            } else {
-                ++cnt;
-                t = w;
-            }
-        }
-        return cnt <= days;
     }
 };
 ```
@@ -180,32 +175,59 @@ public:
 
 ```go
 func shipWithinDays(weights []int, days int) int {
-	left, right := 1, 25000000
-	for left < right {
-		mid := (left + right) >> 1
-		if check(weights, days, mid) {
-			right = mid
-		} else {
-			left = mid + 1
-		}
-	}
-	return left
-}
-
-func check(weights []int, days, capacity int) bool {
-	cnt, t := 1, 0
+	var left, right int
 	for _, w := range weights {
-		if w > capacity {
-			return false
+		if left < w {
+			left = w
 		}
-		if t+w <= capacity {
-			t += w
-		} else {
-			cnt++
-			t = w
-		}
+		right += w
 	}
-	return cnt <= days
+	return left + sort.Search(right, func(mx int) bool {
+		mx += left
+		ws, cnt := 0, 1
+		for _, w := range weights {
+			ws += w
+			if ws > mx {
+				ws = w
+				cnt++
+			}
+		}
+		return cnt <= days
+	})
+}
+```
+
+### **TypeScript**
+
+```ts
+function shipWithinDays(weights: number[], days: number): number {
+    let left = 0;
+    let right = 0;
+    for (const w of weights) {
+        left = Math.max(left, w);
+        right += w;
+    }
+    const check = (mx: number) => {
+        let ws = 0;
+        let cnt = 1;
+        for (const w of weights) {
+            ws += w;
+            if (ws > mx) {
+                ws = w;
+                ++cnt;
+            }
+        }
+        return cnt <= days;
+    };
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        if (check(mid)) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
 }
 ```
 

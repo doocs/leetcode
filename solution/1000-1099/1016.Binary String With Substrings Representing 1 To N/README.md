@@ -40,9 +40,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：数学**
+**方法一：脑筋急转弯**
 
-4（100）存在的话，2（10）一定存在。`n` 存在的话，`n >> 1` 也一定存在，所以只需要判断 `[n/2+1, n]` 范围的数字。
+我们注意到，字符串 $s$ 的长度不超过 $1000$，因此，字符串 $s$ 能表示不超过 $100$ 个 $10$ 位的二进制整数，因此，我们可以粗略地估算，如果 $n \gt 1023$，那么 $s$ 肯定不能表示 $[1, n]$ 范围内的所有整数的二进制表示。
+
+另外，对于一个整数 $x$，如果 $x$ 的二进制表示是 $s$ 的子串，那么 $\lfloor x / 2 \rfloor$ 的二进制表示也是 $s$ 的子串。因此，我们只需要判断 $[\lfloor n / 2 \rfloor + 1,.. n]$ 范围内的整数的二进制表示是否是 $s$ 的子串即可。
+
+时间复杂度 $O(m^2)，空间复杂度 $O(m)$，其中 $m$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 
@@ -53,16 +57,9 @@
 ```python
 class Solution:
     def queryString(self, s: str, n: int) -> bool:
-        for i in range(n, n // 2, -1):
-            if bin(i)[2:] not in s:
-                return False
-        return True
-```
-
-```python
-class Solution:
-    def queryString(self, s: str, n: int) -> bool:
-        return all(bin(i)[2:] in s for i in range(1, n + 1))
+        if n > 1023:
+            return False
+        return all(bin(i)[2:] in s for i in range(n, n // 2, -1))
 ```
 
 ### **Java**
@@ -95,6 +92,24 @@ class Solution {
 }
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool queryString(string s, int n) {
+        for (int i = n; i > n / 2; --i) {
+            string b = bitset<32>(i).to_string();
+            b = b.substr(b.find_first_not_of('0'));
+            if (s.find(b) == string::npos) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -108,52 +123,11 @@ func queryString(s string, n int) bool {
 }
 ```
 
-```go
-func queryString(s string, n int) bool {
-	for i := 1; i <= n; i++ {
-		if !strings.Contains(s, strconv.FormatInt(int64(i), 2)) {
-			return false
-		}
-	}
-	return true
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool queryString(string s, int n) {
-        for (int i = n; i > n / 2; --i) {
-            string b = bitset<32>(i).to_string();
-            b = b.substr(b.find_first_not_of('0'));
-            if (s.find(b) == string::npos) return false;
-        }
-        return true;
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    bool queryString(string s, int n) {
-        for (int i = 1; i <= n; ++i) {
-            string b = bitset<32>(i).to_string();
-            b = b.substr(b.find_first_not_of('0'));
-            if (s.find(b) == string::npos) return false;
-        }
-        return true;
-    }
-};
-```
-
 ### **TypeScript**
 
 ```ts
 function queryString(s: string, n: number): boolean {
-    for (let i = 1; i <= n; ++i) {
+    for (let i = n; i > n / 2; --i) {
         if (s.indexOf(i.toString(2)) === -1) {
             return false;
         }

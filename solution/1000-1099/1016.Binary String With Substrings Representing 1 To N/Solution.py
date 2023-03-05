@@ -1,6 +1,5 @@
 class Solution:
     def queryString(self, s: str, n: int) -> bool:
-        for i in range(n, n // 2, -1):
-            if bin(i)[2:] not in s:
-                return False
-        return True
+        if n > 1023:
+            return False
+        return all(bin(i)[2:] in s for i in range(n, n // 2, -1))

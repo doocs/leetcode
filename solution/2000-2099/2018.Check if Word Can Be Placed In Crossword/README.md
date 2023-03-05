@@ -168,7 +168,8 @@ class Solution {
             return false;
         }
         for (int p = 0; p < k; ++p) {
-            if (i < 0 || i >= m || j < 0 || j >= n || (board[i][j] != ' ' && board[i][j] != word.charAt(p))) {
+            if (i < 0 || i >= m || j < 0 || j >= n
+                || (board[i][j] != ' ' && board[i][j] != word.charAt(p))) {
                 return false;
             }
             i += a;

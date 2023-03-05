@@ -39,6 +39,7 @@ Note that you cannot swap s1[0] and s1[1] to make s1 equal to &quot;yx&quot;, ca
 
 <ul>
 	<li><code>1 &lt;= s1.length, s2.length &lt;= 1000</code></li>
+	<li><code>s1.length == s2.length</code></li>
 	<li><code>s1, s2</code> only contain <code>&#39;x&#39;</code> or <code>&#39;y&#39;</code>.</li>
 </ul>
 

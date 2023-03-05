@@ -15,6 +15,7 @@
 | grade         | int     |
 +---------------+---------+
 (student_id, course_id) is the primary key of this table.
+grade is never NULL.
 </pre>
 
 <p>&nbsp;</p>

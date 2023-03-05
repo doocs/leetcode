@@ -139,7 +139,6 @@ class Node {
     public Node prev, next;
 
     public Node() {
-
     }
 
     public Node(int val) {
@@ -185,7 +184,6 @@ class MaxStack {
     private TreeMap<Integer, List<Node>> tm = new TreeMap<>();
 
     public MaxStack() {
-
     }
 
     public void push(int x) {

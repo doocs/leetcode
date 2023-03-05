@@ -33,6 +33,8 @@ Each row of this table indicates the name and the price of each product.
 +-------------+---------+
 This table has no primary key, it can have repeated rows.
 product_id is a foreign key to the Product table.
+buyer_id is never NULL. 
+sale_date is never NULL. 
 Each row of this table contains some information about one sale.
 </pre>
 

@@ -13,7 +13,6 @@ class Solution {
         }
         int i = 0;
         for (; i < stk.length() && stk.charAt(i) == '0'; ++i) {
-
         }
         String ans = stk.substring(i);
         return "".equals(ans) ? "0" : ans;

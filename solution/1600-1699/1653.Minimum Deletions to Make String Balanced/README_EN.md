@@ -49,15 +49,15 @@ Dynamic programming.
 class Solution:
     def minimumDeletions(self, s: str) -> int:
         n = len(s)
-        dp = [0] * (n + 1)
+        f = [0] * (n + 1)
         b = 0
         for i, c in enumerate(s, 1):
             if c == 'b':
-                dp[i] = dp[i - 1]
+                f[i] = f[i - 1]
                 b += 1
             else:
-                dp[i] = min(dp[i - 1] + 1, b)
-        return dp[n]
+                f[i] = min(f[i - 1] + 1, b)
+        return f[n]
 ```
 
 ```python
@@ -68,7 +68,19 @@ class Solution:
             if c == 'b':
                 b += 1
             else:
-                ans = min(b, ans + 1)
+                ans = min(ans + 1, b)
+        return ans
+```
+
+```python
+class Solution:
+    def minimumDeletions(self, s: str) -> int:
+        lb, ra = 0, s.count('a')
+        ans = len(s)
+        for c in s:
+            ra -= c == 'a'
+            ans = min(ans, lb + ra)
+            lb += c == 'b'
         return ans
 ```
 
@@ -78,17 +90,17 @@ class Solution:
 class Solution {
     public int minimumDeletions(String s) {
         int n = s.length();
-        int[] dp = new int[n + 1];
+        int[] f = new int[n + 1];
         int b = 0;
-        for (int i = 0; i < n; ++i) {
-            if (s.charAt(i) == 'b') {
-                dp[i + 1] = dp[i];
+        for (int i = 1; i <= n; ++i) {
+            if (s.charAt(i - 1) == 'b') {
+                f[i] = f[i - 1];
                 ++b;
             } else {
-                dp[i + 1] = Math.min(dp[i] + 1, b);
+                f[i] = Math.min(f[i - 1] + 1, b);
             }
         }
-        return dp[n];
+        return f[n];
     }
 }
 ```
@@ -96,13 +108,35 @@ class Solution {
 ```java
 class Solution {
     public int minimumDeletions(String s) {
+        int n = s.length();
         int ans = 0, b = 0;
-        for (char c : s.toCharArray()) {
-            if (c == 'b') {
+        for (int i = 0; i < n; ++i) {
+            if (s.charAt(i) == 'b') {
                 ++b;
             } else {
-                ans = Math.min(b, ans + 1);
+                ans = Math.min(ans + 1, b);
             }
+        }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int minimumDeletions(String s) {
+        int lb = 0, ra = 0;
+        int n = s.length();
+        for (int i = 0; i < n; ++i) {
+            if (s.charAt(i) == 'a') {
+                ++ra;
+            }
+        }
+        int ans = n;
+        for (int i = 0; i < n; ++i) {
+            ra -= (s.charAt(i) == 'a' ? 1 : 0);
+            ans = Math.min(ans, lb + ra);
+            lb += (s.charAt(i) == 'b' ? 1 : 0);
         }
         return ans;
     }
@@ -116,17 +150,18 @@ class Solution {
 public:
     int minimumDeletions(string s) {
         int n = s.size();
-        vector<int> dp(n + 1);
+        int f[n + 1];
+        memset(f, 0, sizeof(f));
         int b = 0;
-        for (int i = 0; i < n; ++i) {
-            if (s[i] == 'b') {
-                dp[i + 1] = dp[i];
+        for (int i = 1; i <= n; ++i) {
+            if (s[i - 1] == 'b') {
+                f[i] = f[i - 1];
                 ++b;
             } else {
-                dp[i + 1] = min(dp[i] + 1, b);
+                f[i] = min(f[i - 1] + 1, b);
             }
         }
-        return dp[n];
+        return f[n];
     }
 };
 ```
@@ -136,12 +171,28 @@ class Solution {
 public:
     int minimumDeletions(string s) {
         int ans = 0, b = 0;
-        for (char c : s) {
+        for (char& c : s) {
             if (c == 'b') {
                 ++b;
             } else {
-                ans = min(b, ans + 1);
+                ans = min(ans + 1, b);
             }
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int minimumDeletions(string s) {
+        int lb = 0, ra = count(s.begin(), s.end(), 'a');
+        int ans = ra;
+        for (char& c : s) {
+            ra -= c == 'a';
+            ans = min(ans, lb + ra);
+            lb += c == 'b';
         }
         return ans;
     }
@@ -153,17 +204,18 @@ public:
 ```go
 func minimumDeletions(s string) int {
 	n := len(s)
-	dp := make([]int, n+1)
+	f := make([]int, n+1)
 	b := 0
 	for i, c := range s {
+		i++
 		if c == 'b' {
+			f[i] = f[i-1]
 			b++
-			dp[i+1] = dp[i]
 		} else {
-			dp[i+1] = min(dp[i]+1, b)
+			f[i] = min(f[i-1]+1, b)
 		}
 	}
-	return dp[n]
+	return f[n]
 }
 
 func min(a, b int) int {
@@ -181,7 +233,7 @@ func minimumDeletions(s string) int {
 		if c == 'b' {
 			b++
 		} else {
-			ans = min(b, ans+1)
+			ans = min(ans+1, b)
 		}
 	}
 	return ans
@@ -192,6 +244,80 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+```go
+func minimumDeletions(s string) int {
+	lb, ra := 0, strings.Count(s, "a")
+	ans := ra
+	for _, c := range s {
+		if c == 'a' {
+			ra--
+		}
+		if t := lb + ra; ans > t {
+			ans = t
+		}
+		if c == 'b' {
+			lb++
+		}
+	}
+	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function minimumDeletions(s: string): number {
+    const n = s.length;
+    const f = new Array(n + 1).fill(0);
+    let b = 0;
+    for (let i = 1; i <= n; ++i) {
+        if (s.charAt(i - 1) === 'b') {
+            f[i] = f[i - 1];
+            ++b;
+        } else {
+            f[i] = Math.min(f[i - 1] + 1, b);
+        }
+    }
+    return f[n];
+}
+```
+
+```ts
+function minimumDeletions(s: string): number {
+    const n = s.length;
+    let ans = 0,
+        b = 0;
+    for (let i = 0; i < n; ++i) {
+        if (s.charAt(i) === 'b') {
+            ++b;
+        } else {
+            ans = Math.min(ans + 1, b);
+        }
+    }
+    return ans;
+}
+```
+
+```ts
+function minimumDeletions(s: string): number {
+    let lb = 0,
+        ra = 0;
+    const n = s.length;
+    for (let i = 0; i < n; ++i) {
+        if (s.charAt(i) === 'a') {
+            ++ra;
+        }
+    }
+    let ans = n;
+    for (let i = 0; i < n; ++i) {
+        ra -= s.charAt(i) === 'a' ? 1 : 0;
+        ans = Math.min(ans, lb + ra);
+        lb += s.charAt(i) === 'b' ? 1 : 0;
+    }
+    return ans;
 }
 ```
 
