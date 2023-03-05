@@ -15,10 +15,10 @@
  */
 class Solution {
     public boolean checkEquivalence(Node root1, Node root2) {
-        int[] ans1 = dfs(root1);
-        int[] ans2 = dfs(root2);
+        int[] cnt1 = dfs(root1);
+        int[] cnt2 = dfs(root2);
         for (int i = 0; i < 26; ++i) {
-            if (ans1[i] != ans2[i]) {
+            if (cnt1[i] != cnt2[i]) {
                 return false;
             }
         }
@@ -26,23 +26,20 @@ class Solution {
     }
 
     private int[] dfs(Node root) {
-        int[] ans = new int[26];
+        int[] cnt = new int[26];
         if (root == null) {
-            return ans;
+            return cnt;
         }
         if (root.val == '+' || root.val == '-') {
-            int[] left = dfs(root.left);
-            int[] right = dfs(root.right);
-            calc(ans, left, right, root.val);
+            int[] l = dfs(root.left);
+            int[] r = dfs(root.right);
+            int k = root.val == '+' ? 1 : -1;
+            for (int i = 0; i < 26; ++i) {
+                cnt[i] += l[i] + r[i] * k;
+            }
         } else {
-            ++ans[root.val - 'a'];
+            cnt[root.val - 'a']++;
         }
-        return ans;
-    }
-
-    private void calc(int[] ans, int[] left, int[] right, char op) {
-        for (int i = 0; i < 26; ++i) {
-            ans[i] = op == '+' ? left[i] + right[i] : left[i] - right[i];
-        }
+        return cnt;
     }
 }
