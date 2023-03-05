@@ -76,9 +76,9 @@
 
 **方法一：模拟**
 
-直接模拟摩天轮的轮转过程，每次轮转时，累加等待的游客以及新到达的游客，然后最多 4 个人上船，更新等待的游客数和利润，记录最大利润与其对应的轮转次数。
+我们直接模拟摩天轮的轮转过程，每次轮转时，累加等待的游客以及新到达的游客，然后最多 $4$ 个人上船，更新等待的游客数和利润，记录最大利润与其对应的轮转次数。
 
-时间复杂度 $O(n)$。其中 $n$ 为数组 `customers` 的长度。
+时间复杂度 $O(\frac{S}{4})$，其中 $S$ 为数组 `customers` 的元素和，即游客总数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -97,7 +97,7 @@ class Solution:
         i = 0
         while wait or i < len(customers):
             wait += customers[i] if i < len(customers) else 0
-            up = min(wait, 4)
+            up = wait if wait < 4 else 4
             wait -= up
             t += up * boardingCost - runningCost
             i += 1

@@ -57,7 +57,7 @@
 	<li><code>0 &lt;= graph[i][j] &lt; graph.length</code></li>
 	<li><code>graph[i][j] != i</code></li>
 	<li><code>graph[i]</code> 互不相同</li>
-	<li>猫和老鼠在游戏中总是移动</li>
+	<li>猫和老鼠在游戏中总是可以移动</li>
 </ul>
 
 ## 解法
