@@ -62,13 +62,205 @@ Note that any permutation of [1,2,-3] and also any permutation of [-1,-2,3] will
 ### **Python3**
 
 ```python
+from sortedcontainers import SortedList
 
+
+class Solution:
+    def recoverArray(self, n: int, sums: List[int]) -> List[int]:
+        m = -min(sums)
+        sl = SortedList(x + m for x in sums)
+        sl.remove(0)
+        ans = [sl[0]]
+        for i in range(1, n):
+            for j in range(1 << i):
+                if j >> (i - 1) & 1:
+                    s = sum(ans[k] for k in range(i) if j >> k & 1)
+                    sl.remove(s)
+            ans.append(sl[0])
+        for i in range(1 << n):
+            s = sum(ans[j] for j in range(n) if i >> j & 1)
+            if s == m:
+                for j in range(n):
+                    if i >> j & 1:
+                        ans[j] *= -1
+                break
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] recoverArray(int n, int[] sums) {
+        int m = 1 << 30;
+        for (int x : sums) {
+            m = Math.min(m, x);
+        }
+        m = -m;
+        TreeMap<Integer, Integer> tm = new TreeMap<>();
+        for (int x : sums) {
+            tm.merge(x + m, 1, Integer::sum);
+        }
+        int[] ans = new int[n];
+        if (tm.merge(0, -1, Integer::sum) == 0) {
+            tm.remove(0);
+        }
+        ans[0] = tm.firstKey();
+        for (int i = 1; i < n; ++i) {
+            for (int j = 0; j < 1 << i; ++j) {
+                if ((j >> (i - 1) & 1) == 1) {
+                    int s = 0;
+                    for (int k = 0; k < i; ++k) {
+                        if (((j >> k) & 1) == 1) {
+                            s += ans[k];
+                        }
+                    }
+                    if (tm.merge(s, -1, Integer::sum) == 0) {
+                        tm.remove(s);
+                    }
+                }
+            }
+            ans[i] = tm.firstKey();
+        }
+        for (int i = 0; i < 1 << n; ++i) {
+            int s = 0;
+            for (int j = 0; j < n; ++j) {
+                if (((i >> j) & 1) == 1) {
+                    s += ans[j];
+                }
+            }
+            if (s == m) {
+                for (int j = 0; j < n; ++j) {
+                    if (((i >> j) & 1) == 1) {
+                        ans[j] *= -1;
+                    }
+                }
+                break;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> recoverArray(int n, vector<int>& sums) {
+        int m = *min_element(sums.begin(), sums.end());
+        m = -m;
+        multiset<int> st;
+        for (int x : sums) {
+            st.insert(x + m);
+        }
+        st.erase(st.begin());
+        vector<int> ans;
+        ans.push_back(*st.begin());
+        for (int i = 1; i < n; ++i) {
+            for (int j = 0; j < 1 << i; ++j) {
+                if (j >> (i - 1) & 1) {
+                    int s = 0;
+                    for (int k = 0; k < i; ++k) {
+                        if (j >> k & 1) {
+                            s += ans[k];
+                        }
+                    }
+                    st.erase(st.find(s));
+                }
+            }
+            ans.push_back(*st.begin());
+        }
+        for (int i = 0; i < 1 << n; ++i) {
+            int s = 0;
+            for (int j = 0; j < n; ++j) {
+                if (i >> j & 1) {
+                    s += ans[j];
+                }
+            }
+            if (s == m) {
+                for (int j = 0; j < n; ++j) {
+                    if (i >> j & 1) {
+                        ans[j] = -ans[j];
+                    }
+                }
+                break;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func recoverArray(n int, sums []int) []int {
+	m := 0
+	for _, x := range sums {
+		m = min(m, x)
+	}
+	m = -m
+	rbt := redblacktree.NewWithIntComparator()
+	merge := func(key int, value int) {
+		if v, ok := rbt.Get(key); ok {
+			nxt := v.(int) + value
+			if nxt == 0 {
+				rbt.Remove(key)
+			} else {
+				rbt.Put(key, nxt)
+			}
+		} else {
+			rbt.Put(key, value)
+		}
+	}
+	for _, x := range sums {
+		merge(x+m, 1)
+	}
+	ans := make([]int, n)
+	merge(ans[0], -1)
+	ans[0] = rbt.Left().Key.(int)
+	for i := 1; i < n; i++ {
+		for j := 0; j < 1<<i; j++ {
+			if j>>(i-1)&1 == 1 {
+				s := 0
+				for k := 0; k < i; k++ {
+					if j>>k&1 == 1 {
+						s += ans[k]
+					}
+				}
+				merge(s, -1)
+			}
+		}
+		ans[i] = rbt.Left().Key.(int)
+	}
+	for i := 0; i < 1<<n; i++ {
+		s := 0
+		for j := 0; j < n; j++ {
+			if i>>j&1 == 1 {
+				s += ans[j]
+			}
+		}
+		if s == m {
+			for j := 0; j < n; j++ {
+				if i>>j&1 == 1 {
+					ans[j] = -ans[j]
+				}
+			}
+			break
+		}
+	}
+	return ans
+
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
