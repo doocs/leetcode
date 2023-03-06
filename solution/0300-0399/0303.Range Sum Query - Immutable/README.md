@@ -318,7 +318,7 @@ void numArrayFree(NumArray *obj) {
 
 ### **PHP**
 
-```
+```php
 class NumArray {
     /**
      * @param Integer[] $nums
