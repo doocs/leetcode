@@ -64,11 +64,44 @@ class Solution:
             return p[x]
 
         p = list(range(n))
-        logs.sort()
-        for t, a, b in logs:
-            if find(a) == find(b):
+        for t, x, y in sorted(logs):
+            if find(x) == find(y):
                 continue
-            p[find(a)] = find(b)
+            p[find(x)] = find(y)
+            n -= 1
+            if n == 1:
+                return t
+        return -1
+```
+
+```python
+class UnionFind:
+    def __init__(self, n):
+        self.p = list(range(n))
+        self.size = [1] * n
+
+    def find(self, x):
+        if self.p[x] != x:
+            self.p[x] = self.find(self.p[x])
+        return self.p[x]
+
+    def union(self, a, b):
+        pa, pb = self.find(a), self.find(b)
+        if pa != pb:
+            if self.size[pa] > self.size[pb]:
+                self.p[pb] = pa
+                self.size[pa] += self.size[pb]
+            else:
+                self.p[pa] = pb
+                self.size[pb] += self.size[pa]
+
+class Solution:
+    def earliestAcq(self, logs: List[List[int]], n: int) -> int:
+        uf = UnionFind(n)
+        for t, x, y in sorted(logs):
+            if uf.find(x) == uf.find(y):
+                continue
+            uf.union(x, y)
             n -= 1
             if n == 1:
                 return t
@@ -80,27 +113,26 @@ class Solution:
 ```java
 class Solution {
     private int[] p;
-
+    
     public int earliestAcq(int[][] logs, int n) {
+        Arrays.sort(logs, (a, b) -> a[0] - b[0]);
         p = new int[n];
         for (int i = 0; i < n; ++i) {
             p[i] = i;
         }
-        Arrays.sort(logs, Comparator.comparingInt(a -> a[0]));
         for (int[] log : logs) {
-            int t = log[0], a = log[1], b = log[2];
-            if (find(a) == find(b)) {
+            int t = log[0], x = log[1], y = log[2];
+            if (find(x) == find(y)) {
                 continue;
             }
-            p[find(a)] = find(b);
-            --n;
-            if (n == 1) {
+            p[find(x)] = find(y);
+            if (--n == 1) {
                 return t;
             }
         }
         return -1;
     }
-
+    
     private int find(int x) {
         if (p[x] != x) {
             p[x] = find(p[x]);
@@ -110,29 +142,137 @@ class Solution {
 }
 ```
 
+```java
+class UnionFind {
+    private int[] p;
+    private int[] size;
+
+    public UnionFind(int n) {
+        p = new int[n];
+        size = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+            size[i] = 1;
+        }
+    }
+
+    public int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+
+    public void union(int a, int b) {
+        int pa = find(a), pb = find(b);
+        if (pa != pb) {
+            if (size[pa] > size[pb]) {
+                p[pb] = pa;
+                size[pa] += size[pb];
+            } else {
+                p[pa] = pb;
+                size[pb] += size[pa];
+            }
+        }
+    }
+}
+
+class Solution {
+    public int earliestAcq(int[][] logs, int n) {
+        Arrays.sort(logs, (a, b) -> a[0] - b[0]);
+        UnionFind uf = new UnionFind(n);
+        for (int[] log : logs) {
+            int t = log[0], x = log[1], y = log[2];
+            if (uf.find(x) == uf.find(y)) {
+                continue;
+            }
+            uf.union(x, y);
+            if (--n == 1) {
+                return t;
+            }
+        }
+        return -1;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
 class Solution {
 public:
-    vector<int> p;
-
     int earliestAcq(vector<vector<int>>& logs, int n) {
-        p.resize(n);
-        for (int i = 0; i < n; ++i) p[i] = i;
         sort(logs.begin(), logs.end());
+        vector<int> p(n);
+        iota(p.begin(), p.end(), 0);
+        function<int(int)> find = [&](int x) {
+            return p[x] == x ? x : p[x] = find(p[x]);
+        };
         for (auto& log : logs) {
-            int t = log[0], a = log[1], b = log[2];
-            if (find(a) == find(b)) continue;
-            p[find(a)] = find(b);
-            if (--n == 1) return t;
+            int x = find(log[1]);
+            int y = find(log[2]);
+            if (x != y) {
+                p[x] = y;
+                --n;
+            }
+            if (n == 1) {
+                return log[0];
+            }
         }
         return -1;
     }
+};
+```
+
+```cpp
+class UnionFind {
+public:
+    UnionFind(int n) {
+        p = vector<int>(n);
+        size = vector<int>(n, 1);
+        iota(p.begin(), p.end(), 0);
+    }
+
+    void unite(int a, int b) {
+        int pa = find(a), pb = find(b);
+        if (pa != pb) {
+            if (size[pa] > size[pb]) {
+                p[pb] = pa;
+                size[pa] += size[pb];
+            } else {
+                p[pa] = pb;
+                size[pb] += size[pa];
+            }
+        }
+    }
 
     int find(int x) {
-        if (p[x] != x) p[x] = find(p[x]);
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
         return p[x];
+    }
+
+private:
+    vector<int> p, size;
+};
+
+class Solution {
+public:
+    int earliestAcq(vector<vector<int>>& logs, int n) {
+        sort(logs.begin(), logs.end());
+        UnionFind uf(n);
+        for (auto& log : logs) {
+            int t = log[0], x = log[1], y = log[2];
+            if (uf.find(x) == uf.find(y)) {
+                continue;
+            }
+            uf.unite(x, y);
+            if (--n == 1) {
+                return t;
+            }
+        }
+        return -1;
     }
 };
 ```
@@ -141,26 +281,77 @@ public:
 
 ```go
 func earliestAcq(logs [][]int, n int) int {
+	sort.Slice(logs, func(i, j int) bool { return logs[i][0] < logs[j][0] })
 	p := make([]int, n)
 	for i := range p {
 		p[i] = i
 	}
-	var find func(x int) int
+	var find func(int) int
 	find = func(x int) int {
 		if p[x] != x {
 			p[x] = find(p[x])
 		}
 		return p[x]
 	}
-	sort.Slice(logs, func(i, j int) bool {
-		return logs[i][0] < logs[j][0]
-	})
 	for _, log := range logs {
-		t, a, b := log[0], log[1], log[2]
-		if find(a) == find(b) {
+		t, x, y := log[0], log[1], log[2]
+		if find(x) == find(y) {
 			continue
 		}
-		p[find(a)] = find(b)
+		p[find(x)] = find(y)
+		n--
+		if n == 1 {
+			return t
+		}
+	}
+	return -1
+}
+```
+
+```go
+type unionFind struct {
+	p, size []int
+}
+
+func newUnionFind(n int) *unionFind {
+	p := make([]int, n)
+	size := make([]int, n)
+	for i := range p {
+		p[i] = i
+		size[i] = 1
+	}
+	return &unionFind{p, size}
+}
+
+func (uf *unionFind) find(x int) int {
+	if uf.p[x] != x {
+		uf.p[x] = uf.find(uf.p[x])
+	}
+	return uf.p[x]
+}
+
+func (uf *unionFind) union(a, b int) {
+	pa, pb := uf.find(a), uf.find(b)
+	if pa != pb {
+		if uf.size[pa] > uf.size[pb] {
+			uf.p[pb] = pa
+			uf.size[pa] += uf.size[pb]
+		} else {
+			uf.p[pa] = pb
+			uf.size[pb] += uf.size[pa]
+		}
+	}
+}
+
+func earliestAcq(logs [][]int, n int) int {
+	sort.Slice(logs, func(i, j int) bool { return logs[i][0] < logs[j][0] })
+	uf := newUnionFind(n)
+	for _, log := range logs {
+		t, x, y := log[0], log[1], log[2]
+		if uf.find(x) == uf.find(y) {
+			continue
+		}
+		uf.union(x, y)
 		n--
 		if n == 1 {
 			return t

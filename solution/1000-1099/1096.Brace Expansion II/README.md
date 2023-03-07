@@ -126,10 +126,7 @@ class Solution {
             s.add(exp);
             return;
         }
-        int i = j;
-        while (exp.charAt(i) != '{') {
-            --i;
-        }
+        int i = exp.lastIndexOf('{', j);
         String a = exp.substring(0, i);
         String c = exp.substring(j + 1);
         for (String b : exp.substring(i + 1, j).split(",")) {
@@ -203,17 +200,14 @@ func braceExpansionII(expression string) []string {
 ```ts
 function braceExpansionII(expression: string): string[] {
     const dfs = (exp: string) => {
-        let j = exp.indexOf('}');
+        const j = exp.indexOf('}');
         if (j === -1) {
             s.add(exp);
             return;
         }
-        let i = j;
-        while (exp.charAt(i) !== '{') {
-            --i;
-        }
-        let a = exp.substring(0, i);
-        let c = exp.substring(j + 1);
+        const i = exp.lastIndexOf('{', j);
+        const a = exp.substring(0, i);
+        const c = exp.substring(j + 1);
         for (const b of exp.substring(i + 1, j).split(',')) {
             dfs(a + b + c);
         }

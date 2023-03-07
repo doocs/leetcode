@@ -1,22 +1,23 @@
 class Solution {
 public:
-    vector<int> p;
-
     int earliestAcq(vector<vector<int>>& logs, int n) {
-        p.resize(n);
-        for (int i = 0; i < n; ++i) p[i] = i;
         sort(logs.begin(), logs.end());
+        vector<int> p(n);
+        iota(p.begin(), p.end(), 0);
+        function<int(int)> find = [&](int x) {
+            return p[x] == x ? x : p[x] = find(p[x]);
+        };
         for (auto& log : logs) {
-            int t = log[0], a = log[1], b = log[2];
-            if (find(a) == find(b)) continue;
-            p[find(a)] = find(b);
-            if (--n == 1) return t;
+            int x = find(log[1]);
+            int y = find(log[2]);
+            if (x != y) {
+                p[x] = y;
+                --n;
+            }
+            if (n == 1) {
+                return log[0];
+            }
         }
         return -1;
-    }
-
-    int find(int x) {
-        if (p[x] != x) p[x] = find(p[x]);
-        return p[x];
     }
 };
