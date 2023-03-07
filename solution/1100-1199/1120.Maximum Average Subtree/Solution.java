@@ -17,19 +17,18 @@ class Solution {
     private double ans;
 
     public double maximumAverageSubtree(TreeNode root) {
-        ans = 0;
         dfs(root);
         return ans;
     }
 
     private int[] dfs(TreeNode root) {
         if (root == null) {
-            return new int[] {0, 0};
+            return new int[2];
         }
-        int[] l = dfs(root.left);
-        int[] r = dfs(root.right);
-        int s = l[0] + root.val + r[0];
-        int n = l[1] + 1 + r[1];
+        var l = dfs(root.left);
+        var r = dfs(root.right);
+        int s = root.val + l[0] + r[0];
+        int n = 1 + l[1] + r[1];
         ans = Math.max(ans, s * 1.0 / n);
         return new int[] {s, n};
     }

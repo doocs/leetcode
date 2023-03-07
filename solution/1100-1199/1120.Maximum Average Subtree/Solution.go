@@ -6,19 +6,18 @@
  *     Right *TreeNode
  * }
  */
-func maximumAverageSubtree(root *TreeNode) float64 {
-	var ans float64
-	var dfs func(root *TreeNode) []int
-	dfs = func(root *TreeNode) []int {
+func maximumAverageSubtree(root *TreeNode) (ans float64) {
+	var dfs func(*TreeNode) [2]int
+	dfs = func(root *TreeNode) [2]int {
 		if root == nil {
-			return []int{0, 0}
+			return [2]int{}
 		}
 		l, r := dfs(root.Left), dfs(root.Right)
-		s := l[0] + root.Val + r[0]
-		n := l[1] + 1 + r[1]
+		s := root.Val + l[0] + r[0]
+		n := 1 + l[1] + r[1]
 		ans = math.Max(ans, float64(s)/float64(n))
-		return []int{s, n}
+		return [2]int{s, n}
 	}
 	dfs(root)
-	return ans
+	return
 }

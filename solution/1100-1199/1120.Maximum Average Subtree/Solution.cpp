@@ -11,21 +11,20 @@
  */
 class Solution {
 public:
-    double ans;
-
     double maximumAverageSubtree(TreeNode* root) {
-        ans = 0;
+        double ans = 0;
+        function<pair<int, int>(TreeNode*)> dfs = [&](TreeNode* root) -> pair<int, int> {
+            if (!root) {
+                return {0, 0};
+            }
+            auto [ls, ln] = dfs(root->left);
+            auto [rs, rn] = dfs(root->right);
+            int s = root->val + ls + rs;
+            int n = 1 + ln + rn;
+            ans = max(ans, s * 1.0 / n);
+            return {s, n};
+        };
         dfs(root);
         return ans;
-    }
-
-    pair<int, int> dfs(TreeNode* root) {
-        if (!root) return {0, 0};
-        auto l = dfs(root->left);
-        auto r = dfs(root->right);
-        int s = l.first + root->val + r.first;
-        int n = l.second + 1 + r.second;
-        ans = max(ans, s * 1.0 / n);
-        return {s, n};
     }
 };
