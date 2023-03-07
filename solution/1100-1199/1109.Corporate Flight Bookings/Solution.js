@@ -4,15 +4,15 @@
  * @return {number[]}
  */
 var corpFlightBookings = function (bookings, n) {
-    let delta = new Array(n).fill(0);
-    for (let [start, end, num] of bookings) {
-        delta[start - 1] += num;
-        if (end != n) {
-            delta[end] -= num;
+    const ans = new Array(n).fill(0);
+    for (const [first, last, seats] of bookings) {
+        ans[first - 1] += seats;
+        if (last < n) {
+            ans[last] -= seats;
         }
     }
     for (let i = 1; i < n; ++i) {
-        delta[i] += delta[i - 1];
+        ans[i] += ans[i - 1];
     }
-    return delta;
+    return ans;
 };

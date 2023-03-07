@@ -59,12 +59,12 @@ Hence, answer = [10,25]
 ```python
 class Solution:
     def corpFlightBookings(self, bookings: List[List[int]], n: int) -> List[int]:
-        delta = [0] * n
+        ans = [0] * n
         for first, last, seats in bookings:
-            delta[first - 1] += seats
+            ans[first - 1] += seats
             if last < n:
-                delta[last] -= seats
-        return list(accumulate(delta))
+                ans[last] -= seats
+        return list(accumulate(ans))
 ```
 
 ```python
@@ -73,20 +73,16 @@ class BinaryIndexedTree:
         self.n = n
         self.c = [0] * (n + 1)
 
-    @staticmethod
-    def lowbit(x):
-        return x & -x
-
     def update(self, x, delta):
         while x <= self.n:
             self.c[x] += delta
-            x += BinaryIndexedTree.lowbit(x)
+            x += x & -x
 
     def query(self, x):
         s = 0
         while x:
             s += self.c[x]
-            x -= BinaryIndexedTree.lowbit(x)
+            x -= x & -x
         return s
 
 
@@ -104,18 +100,18 @@ class Solution:
 ```java
 class Solution {
     public int[] corpFlightBookings(int[][] bookings, int n) {
-        int[] delta = new int[n];
-        for (int[] booking : bookings) {
-            int first = booking[0], last = booking[1], seats = booking[2];
-            delta[first - 1] += seats;
+        int[] ans = new int[n];
+        for (var e : bookings) {
+            int first = e[0], last = e[1], seats = e[2];
+            ans[first - 1] += seats;
             if (last < n) {
-                delta[last] -= seats;
+                ans[last] -= seats;
             }
         }
-        for (int i = 0; i < n - 1; ++i) {
-            delta[i + 1] += delta[i];
+        for (int i = 1; i < n; ++i) {
+            ans[i] += ans[i - 1];
         }
-        return delta;
+        return ans;
     }
 }
 ```
@@ -124,8 +120,8 @@ class Solution {
 class Solution {
     public int[] corpFlightBookings(int[][] bookings, int n) {
         BinaryIndexedTree tree = new BinaryIndexedTree(n);
-        for (int[] booking : bookings) {
-            int first = booking[0], last = booking[1], seats = booking[2];
+        for (var e : bookings) {
+            int first =e[0], last = e[1], seats = e[2];
             tree.update(first, seats);
             tree.update(last + 1, -seats);
         }
@@ -149,7 +145,7 @@ class BinaryIndexedTree {
     public void update(int x, int delta) {
         while (x <= n) {
             c[x] += delta;
-            x += lowbit(x);
+            x += x & -x;
         }
     }
 
@@ -157,38 +153,11 @@ class BinaryIndexedTree {
         int s = 0;
         while (x > 0) {
             s += c[x];
-            x -= lowbit(x);
+            x -= x & -x;
         }
         return s;
     }
-
-    public static int lowbit(int x) {
-        return x & -x;
-    }
 }
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[][]} bookings
- * @param {number} n
- * @return {number[]}
- */
-var corpFlightBookings = function (bookings, n) {
-    let delta = new Array(n).fill(0);
-    for (let [start, end, num] of bookings) {
-        delta[start - 1] += num;
-        if (end != n) {
-            delta[end] -= num;
-        }
-    }
-    for (let i = 1; i < n; ++i) {
-        delta[i] += delta[i - 1];
-    }
-    return delta;
-};
 ```
 
 ### **C++**
@@ -197,18 +166,18 @@ var corpFlightBookings = function (bookings, n) {
 class Solution {
 public:
     vector<int> corpFlightBookings(vector<vector<int>>& bookings, int n) {
-        vector<int> delta(n);
-        for (auto& booking : bookings) {
-            int first = booking[0], last = booking[1], seats = booking[2];
-            delta[first - 1] += seats;
+        vector<int> ans(n);
+        for (auto& e : bookings) {
+            int first = e[0], last = e[1], seats = e[2];
+            ans[first - 1] += seats;
             if (last < n) {
-                delta[last] -= seats;
+                ans[last] -= seats;
             }
         }
-        for (int i = 0; i < n - 1; ++i) {
-            delta[i + 1] += delta[i];
+        for (int i = 1; i < n; ++i) {
+            ans[i] += ans[i - 1];
         }
-        return delta;
+        return ans;
     }
 };
 ```
@@ -216,46 +185,42 @@ public:
 ```cpp
 class BinaryIndexedTree {
 public:
-    int n;
-    vector<int> c;
-
     BinaryIndexedTree(int _n): n(_n), c(_n + 1){}
 
     void update(int x, int delta) {
-        while (x <= n)
-        {
+        while (x <= n) {
             c[x] += delta;
-            x += lowbit(x);
+            x += x & -x;
         }
     }
 
     int query(int x) {
         int s = 0;
-        while (x > 0)
-        {
+        while (x) {
             s += c[x];
-            x -= lowbit(x);
+            x -= x & -x;
         }
         return s;
     }
 
-    int lowbit(int x) {
-        return x & -x;
-    }
+private:
+    int n;
+    vector<int> c;
 };
 
 class Solution {
 public:
     vector<int> corpFlightBookings(vector<vector<int>>& bookings, int n) {
         BinaryIndexedTree* tree = new BinaryIndexedTree(n);
-        for (auto& booking : bookings)
-        {
-            int first = booking[0], last = booking[1], seats = booking[2];
+        for (auto& e : bookings) {
+            int first = e[0], last = e[1], seats = e[2];
             tree->update(first, seats);
             tree->update(last + 1, -seats);
         }
-        vector<int> ans;
-        for (int i = 0; i < n; ++i) ans.push_back(tree->query(i + 1));
+        vector<int> ans(n);
+        for (int i = 0; i < n; ++i) {
+            ans[i] = tree->query(i + 1);
+        }
         return ans;
     }
 };
@@ -265,18 +230,18 @@ public:
 
 ```go
 func corpFlightBookings(bookings [][]int, n int) []int {
-	delta := make([]int, n)
-	for _, booking := range bookings {
-		first, last, seats := booking[0], booking[1], booking[2]
-		delta[first-1] += seats
+	ans := make([]int, n)
+	for _, e := range bookings {
+		first, last, seats := e[0], e[1], e[2]
+		ans[first-1] += seats
 		if last < n {
-			delta[last] -= seats
+			ans[last] -= seats
 		}
 	}
-	for i := 0; i < n-1; i++ {
-		delta[i+1] += delta[i]
+	for i := 1; i < n; i++ {
+		ans[i] += ans[i-1]
 	}
-	return delta
+	return ans
 }
 ```
 
@@ -291,14 +256,10 @@ func newBinaryIndexedTree(n int) *BinaryIndexedTree {
 	return &BinaryIndexedTree{n, c}
 }
 
-func (this *BinaryIndexedTree) lowbit(x int) int {
-	return x & -x
-}
-
 func (this *BinaryIndexedTree) update(x, delta int) {
 	for x <= this.n {
 		this.c[x] += delta
-		x += this.lowbit(x)
+		x += x & -x
 	}
 }
 
@@ -306,15 +267,15 @@ func (this *BinaryIndexedTree) query(x int) int {
 	s := 0
 	for x > 0 {
 		s += this.c[x]
-		x -= this.lowbit(x)
+		x -= x & -x
 	}
 	return s
 }
 
 func corpFlightBookings(bookings [][]int, n int) []int {
 	tree := newBinaryIndexedTree(n)
-	for _, booking := range bookings {
-		first, last, seats := booking[0], booking[1], booking[2]
+	for _, e := range bookings {
+		first, last, seats := e[0], e[1], e[2]
 		tree.update(first, seats)
 		tree.update(last+1, -seats)
 	}
@@ -324,6 +285,29 @@ func corpFlightBookings(bookings [][]int, n int) []int {
 	}
 	return ans
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[][]} bookings
+ * @param {number} n
+ * @return {number[]}
+ */
+var corpFlightBookings = function (bookings, n) {
+    const ans = new Array(n).fill(0);
+    for (const [first, last, seats] of bookings) {
+        ans[first - 1] += seats;
+        if (last < n) {
+            ans[last] -= seats;
+        }
+    }
+    for (let i = 1; i < n; ++i) {
+        ans[i] += ans[i - 1];
+    }
+    return ans;
+};
 ```
 
 ### **...**
