@@ -1,21 +1,17 @@
-func numKLenSubstrNoRepeats(s string, k int) int {
-	mp := make(map[rune]int)
-	ans, j := 0, 0
-	for i, c := range s {
-		if v, ok := mp[c]; ok {
-			j = max(j, v+1)
+func numKLenSubstrNoRepeats(s string, k int) (ans int) {
+	if k > len(s) || k > 26 {
+		return 0
+	}
+	cnt := [128]int{}
+	for i, j := 0, 0; i < len(s); i++ {
+		cnt[s[i]]++
+		for cnt[s[i]] > 1 || i-j+1 > k {
+			cnt[s[j]]--
+			j++
 		}
-		mp[c] = i
-		if i-j+1 >= k {
+		if i-j+1 == k {
 			ans++
 		}
 	}
-	return ans
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
+	return
 }
