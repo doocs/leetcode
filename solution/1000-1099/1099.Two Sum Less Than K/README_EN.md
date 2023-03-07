@@ -42,16 +42,27 @@
 class Solution:
     def twoSumLessThanK(self, nums: List[int], k: int) -> int:
         nums.sort()
-        low, high = 0, len(nums) - 1
-        res = -1
-        while low < high:
-            val = nums[low] + nums[high]
-            if val < k:
-                res = max(res, val)
-                low += 1
+        ans = -1
+        for i, x in enumerate(nums):
+            j = bisect_left(nums, k - x, lo=i + 1) - 1
+            if i < j:
+                ans = max(ans, x + nums[j])
+        return ans
+```
+
+```python
+class Solution:
+    def twoSumLessThanK(self, nums: List[int], k: int) -> int:
+        nums.sort()
+        ans = -1
+        i, j = 0, len(nums) - 1
+        while i < j:
+            if (t := nums[i] + nums[j]) < k:
+                ans = max(ans, t)
+                i += 1
             else:
-                high -= 1
-        return res
+                j -= 1
+        return ans
 ```
 
 ### **Java**
@@ -60,18 +71,47 @@ class Solution:
 class Solution {
     public int twoSumLessThanK(int[] nums, int k) {
         Arrays.sort(nums);
-        int low = 0, high = nums.length - 1;
-        int res = -1;
-        while (low < high) {
-            int val = nums[low] + nums[high];
-            if (val < k) {
-                res = Math.max(res, val);
-                ++low;
-            } else {
-                --high;
+        int ans = -1;
+        int n = nums.length;
+        for (int i = 0; i < n; ++i) {
+            int j = search(nums, k - nums[i], i + 1, n) - 1;
+            if (i < j) {
+                ans = Math.max(ans, nums[i] + nums[j]);
             }
         }
-        return res;
+        return ans;
+    }
+
+    private int search(int[] nums, int x, int l, int r) {
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (nums[mid] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    }
+}
+```
+
+```java
+class Solution {
+    public int twoSumLessThanK(int[] nums, int k) {
+        Arrays.sort(nums);
+        int ans = -1;
+        int i = 0, j = nums.length - 1;
+        while (i < j) {
+            int t = nums[i] + nums[j];
+            if (t < k) {
+                ans = Math.max(ans, t);
+                ++i;
+            } else {
+                --j;
+            }
+        }
+        return ans;
     }
 }
 ```
@@ -83,20 +123,77 @@ class Solution {
 public:
     int twoSumLessThanK(vector<int>& nums, int k) {
         sort(nums.begin(), nums.end());
-        int low = 0, high = nums.size() - 1;
-        int res = -1;
-        while (low < high) {
-            int val = nums[low] + nums[high];
-            if (val < k) {
-                res = max(res, val);
-                ++low;
-            } else {
-                --high;
+        int ans = -1, n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            int j = lower_bound(nums.begin() + i + 1, nums.end(), k - nums[i]) - nums.begin() - 1;
+            if (i < j) {
+                ans = max(ans, nums[i] + nums[j]);
             }
         }
-        return res;
+        return ans;
     }
 };
+```
+
+```cpp
+class Solution {
+public:
+    int twoSumLessThanK(vector<int>& nums, int k) {
+        sort(nums.begin(), nums.end());
+        int ans = -1;
+        int i = 0, j = nums.size() - 1;
+        while (i < j) {
+            int t = nums[i] + nums[j];
+            if (t < k) {
+                ans = max(ans, t);
+                ++i;
+            } else {
+                --j;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func twoSumLessThanK(nums []int, k int) int {
+	sort.Ints(nums)
+	ans := -1
+	for i, x := range nums {
+		j := sort.SearchInts(nums[i+1:], k-x) + i
+		if v := nums[i] + nums[j]; i < j && ans < v {
+			ans = v
+		}
+	}
+	return ans
+}
+```
+
+```go
+func twoSumLessThanK(nums []int, k int) int {
+	sort.Ints(nums)
+	ans := -1
+	i, j := 0, len(nums)-1
+	for i < j {
+		if t := nums[i] + nums[j]; t < k {
+			ans = max(ans, t)
+			i++
+		} else {
+			j--
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
