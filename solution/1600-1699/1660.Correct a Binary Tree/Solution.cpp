@@ -12,32 +12,16 @@
 class Solution {
 public:
     TreeNode* correctBinaryTree(TreeNode* root) {
-        queue<TreeNode*> q;
-        q.push(root);
-        unordered_set<TreeNode*> s;
-        while (!q.empty()) {
-            int n = q.size();
-            while (n--) {
-                TreeNode* node = q.front();
-                q.pop();
-                if (node->right) {
-                    if (s.count(node->right->right)) {
-                        node->right = nullptr;
-                        return root;
-                    }
-                    q.push(node->right);
-                    s.insert(node->right);
-                }
-                if (node->left) {
-                    if (s.count(node->left->right)) {
-                        node->left = nullptr;
-                        return root;
-                    }
-                    q.push(node->left);
-                    s.insert(node->left);
-                }
+        unordered_set<TreeNode*> vis;
+        function<TreeNode*(TreeNode*)> dfs = [&](TreeNode* root) -> TreeNode* {
+            if (!root || vis.count(root->right)) {
+                return nullptr;
             }
-        }
-        return root;
+            vis.insert(root);
+            root->right = dfs(root->right);
+            root->left = dfs(root->left);
+            return root;
+        };
+        return dfs(root);
     }
 };

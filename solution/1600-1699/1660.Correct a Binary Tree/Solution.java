@@ -14,29 +14,19 @@
  * }
  */
 class Solution {
+    private Set<TreeNode> vis = new HashSet<>();
+
     public TreeNode correctBinaryTree(TreeNode root) {
-        Deque<TreeNode> q = new ArrayDeque<>();
-        q.offer(root);
-        while (!q.isEmpty()) {
-            int n = q.size();
-            while (n-- > 0) {
-                TreeNode node = q.pollFirst();
-                if (node.right != null) {
-                    if (node.right.right != null && q.contains(node.right.right)) {
-                        node.right = null;
-                        return root;
-                    }
-                    q.offer(node.right);
-                }
-                if (node.left != null) {
-                    if (node.left.right != null && q.contains(node.left.right)) {
-                        node.left = null;
-                        return root;
-                    }
-                    q.offer(node.left);
-                }
-            }
+        return dfs(root);
+    }
+
+    private TreeNode dfs(TreeNode root) {
+        if (root == null || vis.contains(root.right)) {
+            return null;
         }
+        vis.add(root);
+        root.right = dfs(root.right);
+        root.left = dfs(root.left);
         return root;
     }
 }
