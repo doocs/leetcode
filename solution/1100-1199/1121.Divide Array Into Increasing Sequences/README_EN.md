@@ -39,13 +39,81 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def canDivideIntoSubsequences(self, nums: List[int], k: int) -> bool:
+        mx = max(len(list(x)) for _, x in groupby(nums))
+        return mx * k <= len(nums)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean canDivideIntoSubsequences(int[] nums, int k) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        int mx = 0;
+        for (int x : nums) {
+            mx = Math.max(mx, cnt.merge(x, 1, Integer::sum));
+        }
+        return mx * k <= nums.length;
+    }
+}
+```
 
+```java
+class Solution {
+    public boolean canDivideIntoSubsequences(int[] nums, int k) {
+        int cnt = 0;
+        int a = 0;
+        for (int b : nums) {
+            cnt = a == b ? cnt + 1 : 1;
+            if (cnt * k > nums.length) {
+                return false;
+            }
+            a = b;
+        }
+        return true;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool canDivideIntoSubsequences(vector<int>& nums, int k) {
+        int cnt = 0;
+        int a = 0;
+        for (int& b : nums) {
+            cnt = a == b ? cnt + 1 : 1;
+            if (cnt * k > nums.size()) {
+                return false;
+            }
+            a = b;
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func canDivideIntoSubsequences(nums []int, k int) bool {
+	cnt, a := 0, 0
+	for _, b := range nums {
+		cnt++
+		if a != b {
+			cnt = 1
+		}
+		if cnt*k > len(nums) {
+			return false
+		}
+		a = b
+	}
+	return true
+}
 ```
 
 ### **...**
