@@ -55,9 +55,13 @@
 
 **方法一：滑动窗口**
 
-遍历 $blocks$，找出 $k$ 大小的窗口中的白色块个数的最小值。
+我们观察发现，题目实际上求的是一个 $k$ 大小的滑动窗口中白色块的最小数量。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为 $blocks$ 的长度。
+因此，我们只需要遍历字符串 $blocks$，用一个变量 $cnt$ 统计当前窗口中白色块的数量，然后用一个变量 $ans$ 维护最小值即可。
+
+遍历结束后即可得到答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $blocks$ 的长度。
 
 <!-- tabs:start -->
 
@@ -68,14 +72,11 @@
 ```python
 class Solution:
     def minimumRecolors(self, blocks: str, k: int) -> int:
-        cnt = blocks[:k].count('W')
-        ans = cnt
-        i, n = k, len(blocks)
-        while i < n:
+        ans = cnt = blocks[:k].count('W')
+        for i in range(k, len(blocks)):
             cnt += blocks[i] == 'W'
             cnt -= blocks[i - k] == 'W'
             ans = min(ans, cnt)
-            i += 1
         return ans
 ```
 
@@ -86,15 +87,12 @@ class Solution:
 ```java
 class Solution {
     public int minimumRecolors(String blocks, int k) {
-        int cnt = 0, n = blocks.length();
-        int i = 0;
-        for (; i < k; ++i) {
-            if (blocks.charAt(i) == 'W') {
-                ++cnt;
-            }
+        int cnt = 0;
+        for (int i = 0; i < k; ++i) {
+            cnt += blocks.charAt(i) == 'W' ? 1 : 0;
         }
         int ans = cnt;
-        for (; i < n; ++i) {
+        for (int i = k; i < blocks.length(); ++i) {
             cnt += blocks.charAt(i) == 'W' ? 1 : 0;
             cnt -= blocks.charAt(i - k) == 'W' ? 1 : 0;
             ans = Math.min(ans, cnt);
@@ -110,11 +108,9 @@ class Solution {
 class Solution {
 public:
     int minimumRecolors(string blocks, int k) {
-        int cnt = 0, n = blocks.size();
-        int i = 0;
-        for (; i < k; ++i) cnt += blocks[i] == 'W';
+        int cnt = count(blocks.begin(), blocks.begin() + k, 'W');
         int ans = cnt;
-        for (; i < n; ++i) {
+        for (int i = k; i < blocks.size(); ++i) {
             cnt += blocks[i] == 'W';
             cnt -= blocks[i - k] == 'W';
             ans = min(ans, cnt);
@@ -128,31 +124,20 @@ public:
 
 ```go
 func minimumRecolors(blocks string, k int) int {
-	cnt, n := 0, len(blocks)
-	i := 0
-	for ; i < k; i++ {
-		if blocks[i] == 'W' {
-			cnt++
-		}
-	}
+	cnt := strings.Count(blocks[:k], "W")
 	ans := cnt
-	for ; i < n; i++ {
+	for i := k; i < len(blocks); i++ {
 		if blocks[i] == 'W' {
 			cnt++
 		}
 		if blocks[i-k] == 'W' {
 			cnt--
 		}
-		ans = min(ans, cnt)
+		if ans > cnt {
+			ans = cnt
+		}
 	}
 	return ans
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
 ```
 
