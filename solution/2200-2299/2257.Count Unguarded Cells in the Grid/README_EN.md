@@ -54,23 +54,19 @@ class Solution:
     def countUnguarded(
         self, m: int, n: int, guards: List[List[int]], walls: List[List[int]]
     ) -> int:
-        g = [[None] * n for _ in range(m)]
-        for r, c in guards:
-            g[r][c] = 'g'
-        for r, c in walls:
-            g[r][c] = 'w'
+        g = [[0] * n for _ in range(m)]
         for i, j in guards:
-            for a, b in [[0, -1], [0, 1], [1, 0], [-1, 0]]:
+            g[i][j] = 2
+        for i, j in walls:
+            g[i][j] = 2
+        dirs = (-1, 0, 1, 0, -1)
+        for i, j in guards:
+            for a, b in pairwise(dirs):
                 x, y = i, j
-                while (
-                    0 <= x + a < m
-                    and 0 <= y + b < n
-                    and g[x + a][y + b] != 'w'
-                    and g[x + a][y + b] != 'g'
-                ):
+                while 0 <= x + a < m and 0 <= y + b < n and g[x + a][y + b] < 2:
                     x, y = x + a, y + b
-                    g[x][y] = 'v'
-        return sum(not v for row in g for v in row)
+                    g[x][y] = 1
+        return sum(v == 0 for row in g for v in row)
 ```
 
 ### **Java**
@@ -78,31 +74,28 @@ class Solution:
 ```java
 class Solution {
     public int countUnguarded(int m, int n, int[][] guards, int[][] walls) {
-        char[][] g = new char[m][n];
-        for (int[] e : guards) {
-            int r = e[0], c = e[1];
-            g[r][c] = 'g';
+        int[][] g = new int[m][n];
+        for (var e : guards) {
+            g[e[0]][e[1]] = 2;
         }
-        for (int[] e : walls) {
-            int r = e[0], c = e[1];
-            g[r][c] = 'w';
+        for (var e : walls) {
+            g[e[0]][e[1]] = 2;
         }
-        int[][] dirs = new int[][] {{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
-        for (int[] p : guards) {
-            for (int[] dir : dirs) {
-                int a = dir[0], b = dir[1];
-                int x = p[0], y = p[1];
-                while (x + a >= 0 && x + a < m && y + b >= 0 && y + b < n && g[x + a][y + b] != 'w'
-                    && g[x + a][y + b] != 'g') {
+        int[] dirs = {-1, 0, 1, 0, -1};
+        for (var e : guards) {
+            for (int k = 0; k < 4; ++k) {
+                int x = e[0], y = e[1];
+                int a = dirs[k], b = dirs[k + 1];
+                while (x + a >= 0 && x + a < m && y + b >= 0 && y + b < n && g[x + a][y + b] < 2) {
                     x += a;
                     y += b;
-                    g[x][y] = 'v';
+                    g[x][y] = 1;
                 }
             }
         }
         int ans = 0;
-        for (char[] row : g) {
-            for (char v : row) {
+        for (var row : g) {
+            for (int v : row) {
                 if (v == 0) {
                     ++ans;
                 }
@@ -119,25 +112,30 @@ class Solution {
 class Solution {
 public:
     int countUnguarded(int m, int n, vector<vector<int>>& guards, vector<vector<int>>& walls) {
-        vector<vector<char>> g(m, vector<char>(n));
-        for (auto& e : guards) g[e[0]][e[1]] = 'g';
-        for (auto& e : walls) g[e[0]][e[1]] = 'w';
-        vector<vector<int>> dirs = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
-        for (auto& p : guards) {
-            for (auto& dir : dirs) {
-                int a = dir[0], b = dir[1];
-                int x = p[0], y = p[1];
-                while (x + a >= 0 && x + a < m && y + b >= 0 && y + b < n && g[x + a][y + b] != 'w' && g[x + a][y + b] != 'g') {
+        int g[m][n];
+        memset(g, 0, sizeof(g));
+        for (auto& e : guards) {
+            g[e[0]][e[1]] = 2;
+        }
+        for (auto& e : walls) {
+            g[e[0]][e[1]] = 2;
+        }
+        int dirs[5] = {-1, 0, 1, 0, -1};
+        for (auto& e : guards) {
+            for (int k = 0; k < 4; ++k) {
+                int x = e[0], y = e[1];
+                int a = dirs[k], b = dirs[k + 1];
+                while (x + a >= 0 && x + a < m && y + b >= 0 && y + b < n && g[x + a][y + b] < 2) {
                     x += a;
                     y += b;
-                    g[x][y] = 'v';
+                    g[x][y] = 1;
                 }
             }
         }
         int ans = 0;
-        for (auto& row : g)
-            for (auto& v : row)
-                ans += v == 0;
+        for (auto& row : g) {
+            ans += count(row, row + n, 0);
+        }
         return ans;
     }
 };
@@ -146,29 +144,28 @@ public:
 ### **Go**
 
 ```go
-func countUnguarded(m int, n int, guards [][]int, walls [][]int) int {
+func countUnguarded(m int, n int, guards [][]int, walls [][]int) (ans int) {
 	g := make([][]int, m)
 	for i := range g {
 		g[i] = make([]int, n)
 	}
 	for _, e := range guards {
-		g[e[0]][e[1]] = 1
+		g[e[0]][e[1]] = 2
 	}
 	for _, e := range walls {
 		g[e[0]][e[1]] = 2
 	}
-	dirs := [][]int{{0, -1}, {0, 1}, {1, 0}, {-1, 0}}
-	for _, p := range guards {
-		for _, dir := range dirs {
-			a, b := dir[0], dir[1]
-			x, y := p[0], p[1]
-			for x+a >= 0 && x+a < m && y+b >= 0 && y+b < n && g[x+a][y+b] != 1 && g[x+a][y+b] != 2 {
+	dirs := [5]int{-1, 0, 1, 0, -1}
+	for _, e := range guards {
+		for k := 0; k < 4; k++ {
+			x, y := e[0], e[1]
+			a, b := dirs[k], dirs[k+1]
+			for x+a >= 0 && x+a < m && y+b >= 0 && y+b < n && g[x+a][y+b] < 2 {
 				x, y = x+a, y+b
-				g[x][y] = 3
+				g[x][y] = 1
 			}
 		}
 	}
-	ans := 0
 	for _, row := range g {
 		for _, v := range row {
 			if v == 0 {
@@ -176,7 +173,7 @@ func countUnguarded(m int, n int, guards [][]int, walls [][]int) int {
 			}
 		}
 	}
-	return ans
+	return
 }
 ```
 
