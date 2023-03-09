@@ -64,6 +64,20 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+我们定义 $f[i][j]$ 表示将数组 $nums$ 的前 $i$ 个元素变为非递减序列，且第 $i$ 个元素的值为 $j$ 所需的最小操作次数。由于数组 $nums$ 元素的取值范围为 $[0, 1000]$，因此我们可以将 $f$ 数组的第二维定义为 $1001$。
+
+状态转移方程如下：
+
+$$
+f[i][j] = \min_{0 \leq k \leq j} f[i - 1][k] + \left| j - nums[i - 1] \right|
+$$
+
+时间复杂度 $O(n \times M)$，空间复杂度 $O(n \times M)$。其中 $n$ 和 $M$ 分别为数组 $nums$ 的长度和数组 $nums$ 元素的取值范围。本题中 $M = 1001$。
+
+由于我们定义的是非递减序列的最小操作次数，因此我们可以将数组 $nums$ 翻转，然后求出非递减序列的最小操作次数，也即是非递增序列的最小操作次数。最后取两者的最小值即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -71,7 +85,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def convertArray(self, nums: List[int]) -> int:
+        def solve(nums):
+            n = len(nums)
+            f = [[0] * 1001 for _ in range(n + 1)]
+            for i, x in enumerate(nums, 1):
+                mi = inf
+                for j in range(1001):
+                    if mi > f[i - 1][j]:
+                        mi = f[i - 1][j]
+                    f[i][j] = mi + abs(x - j)
+            return min(f[n])
 
+        return min(solve(nums), solve(nums[::-1]))
 ```
 
 ### **Java**
@@ -79,7 +106,111 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int convertArray(int[] nums) {
+        return Math.min(solve(nums), solve(reverse(nums)));
+    }
 
+    private int solve(int[] nums) {
+        int n = nums.length;
+        int[][] f = new int[n + 1][1001];
+        for (int i = 1; i <= n; ++i) {
+            int mi = 1 << 30;
+            for (int j = 0; j <= 1000; ++j) {
+                mi = Math.min(mi, f[i - 1][j]);
+                f[i][j] = mi + Math.abs(j - nums[i - 1]);
+            }
+        }
+        int ans = 1 << 30;
+        for (int x : f[n]) {
+            ans = Math.min(ans, x);
+        }
+        return ans;
+    }
+
+    private int[] reverse(int[] nums) {
+        for (int i = 0, j = nums.length - 1; i < j; ++i, --j) {
+            int t = nums[i];
+            nums[i] = nums[j];
+            nums[j] = t;
+        }
+        return nums;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int convertArray(vector<int>& nums) {
+        int a = solve(nums);
+        reverse(nums.begin(), nums.end());
+        int b = solve(nums);
+        return min(a, b);
+    }
+
+    int solve(vector<int>& nums) {
+        int n = nums.size();
+        int f[n + 1][1001];
+        memset(f, 0, sizeof(f));
+        for (int i = 1; i <= n; ++i) {
+            int mi = 1 << 30;
+            for (int j = 0; j <= 1000; ++j) {
+                mi = min(mi, f[i - 1][j]);
+                f[i][j] = mi + abs(nums[i - 1] - j);
+            }
+        }
+        return *min_element(f[n], f[n] + 1001);
+    }
+};
+```
+
+### **Go**
+
+```go
+func convertArray(nums []int) int {
+	return min(solve(nums), solve(reverse(nums)))
+}
+
+func solve(nums []int) int {
+	n := len(nums)
+	f := make([][1001]int, n+1)
+	for i := 1; i <= n; i++ {
+		mi := 1 << 30
+		for j := 0; j <= 1000; j++ {
+			mi = min(mi, f[i-1][j])
+			f[i][j] = mi + abs(nums[i-1]-j)
+		}
+	}
+	ans := 1 << 30
+	for _, x := range f[n] {
+		ans = min(ans, x)
+	}
+	return ans
+}
+
+func reverse(nums []int) []int {
+	for i, j := 0, len(nums)-1; i < j; i, j = i+1, j-1 {
+		nums[i], nums[j] = nums[j], nums[i]
+	}
+	return nums
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
