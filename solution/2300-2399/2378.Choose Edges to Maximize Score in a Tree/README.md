@@ -69,6 +69,17 @@
 
 **方法一：树形 DP**
 
+我们设计一个函数 $dfs(i)$，表示以节点 $i$ 为根的子树中，选择一些边，使得所选的两条边都不相邻，所选边的权值之和最大。该函数返回了两个值 $(a, b)$，第一个值 $a$ 表示当前节点 $i$ 与其父节点之间的边被选中时，所选边的权值之和；第二个值 $b$ 表示当前节点 $i$ 与其父节点之间的边不被选中时，所选边的权值之和。
+
+我们可以发现，对于当前节点 $i$：
+
+-   如果 $i$ 与父节点的边被选择，则它与子节点的所有边都不能被选择，那么当前节点的 $a$ 值就是其所有子节点的 $b$ 值之和；
+-   如果 $i$ 与父节点的边没被选择，那么可以选择它与子节点的最多一条边，那么当前节点的 $b$ 值就是其选中的子节点的 $a$ 值与未选中的子节点的 $b$ 值之和，再加上 $i$ 与选中的子节点之间的边的权值。
+
+我们调用 $dfs(0)$ 函数，返回的第二个值即为答案，即当前根节点不与父节点之间的边被选中时，所选边的权值之和。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -79,20 +90,19 @@
 class Solution:
     def maxScore(self, edges: List[List[int]]) -> int:
         def dfs(i):
-            a = b = 0
-            t = 0
-            for j in g[i]:
+            a = b = t = 0
+            for j, w in g[i]:
                 x, y = dfs(j)
                 a += y
                 b += y
-                t = max(t, x - y + g[i][j])
+                t = max(t, x - y + w)
             b += t
             return a, b
 
-        g = defaultdict(lambda: defaultdict(lambda: -inf))
+        g = defaultdict(list)
         for i, (p, w) in enumerate(edges[1:], 1):
-            g[p][i] = w
-        return max(dfs(0))
+            g[p].append((i, w))
+        return dfs(0)[1]
 ```
 
 ### **Java**
@@ -101,32 +111,30 @@ class Solution:
 
 ```java
 class Solution {
-    private Map<Integer, Integer>[] g;
+    private List<int[]>[] g;
 
     public long maxScore(int[][] edges) {
         int n = edges.length;
-        g = new Map[n + 1];
-        for (int i = 0; i < n + 1; ++i) {
-            g[i] = new HashMap<>();
-        }
+        g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
         for (int i = 1; i < n; ++i) {
             int p = edges[i][0], w = edges[i][1];
-            g[p].put(i, w);
+            g[p].add(new int[]{i, w});
         }
         return dfs(0)[1];
     }
 
     private long[] dfs(int i) {
-        long a = 0, b = 0;
-        long t = 0;
-        for (int j : g[i].keySet()) {
+        long a = 0, b = 0, t = 0;
+        for (int[] nxt : g[i]) {
+            int j = nxt[0], w = nxt[1];
             long[] s = dfs(j);
             a += s[1];
             b += s[1];
-            t = Math.max(t, s[0] - s[1] + g[i].get(j));
+            t = Math.max(t, s[0] - s[1] + w);
         }
         b += t;
-        return new long[] {a, b};
+        return new long[]{a, b};
     }
 }
 ```
@@ -134,33 +142,29 @@ class Solution {
 ### **C++**
 
 ```cpp
-using ll = long long;
-
 class Solution {
 public:
-    vector<unordered_map<int, int>> g;
-
     long long maxScore(vector<vector<int>>& edges) {
         int n = edges.size();
-        g.resize(n + 1);
+        vector<vector<pair<int, int>>> g(n);
         for (int i = 1; i < n; ++i) {
             int p = edges[i][0], w = edges[i][1];
-            g[p][i] = w;
+            g[p].emplace_back(i, w);
         }
+        using ll = long long;
+        using pll = pair<ll, ll>;
+        function<pll(int)> dfs = [&](int i) -> pll {
+            ll a = 0, b = 0, t = 0;
+            for (auto& [j, w] : g[i]) {
+                auto [x, y] = dfs(j);
+                a += y;
+                b += y;
+                t = max(t, x - y + w);
+            }
+            b += t;
+            return make_pair(a, b);
+        };
         return dfs(0).second;
-    }
-
-    pair<ll, ll> dfs(int i) {
-        ll a = 0, b = 0;
-        ll s = 0;
-        for (auto& [j, v] : g[i]) {
-            auto t = dfs(j);
-            a += t.second;
-            b += t.second;
-            s = max(s, t.first - t.second + v);
-        }
-        b += s;
-        return {a, b};
     }
 };
 ```
@@ -170,26 +174,23 @@ public:
 ```go
 func maxScore(edges [][]int) int64 {
 	n := len(edges)
-	g := make([]map[int]int, n+1)
-	for i := range g {
-		g[i] = make(map[int]int)
-	}
+	g := make([][][2]int, n)
 	for i := 1; i < n; i++ {
 		p, w := edges[i][0], edges[i][1]
-		g[p][i] = w
+		g[p] = append(g[p], [2]int{i, w})
 	}
-	var dfs func(i int) []int
-	dfs = func(i int) []int {
-		a, b := 0, 0
-		s := 0
-		for j, v := range g[i] {
-			t := dfs(j)
-			a += t[1]
-			b += t[1]
-			s = max(s, t[0]-t[1]+v)
+	var dfs func(int) [2]int
+	dfs = func(i int) [2]int {
+		var a, b, t int
+		for _, e := range g[i] {
+			j, w := e[0], e[1]
+			s := dfs(j)
+			a += s[1]
+			b += s[1]
+			t = max(t, s[0]-s[1]+w)
 		}
-		b += s
-		return []int{a, b}
+		b += t
+		return [2]int{a, b}
 	}
 	return int64(dfs(0)[1])
 }
