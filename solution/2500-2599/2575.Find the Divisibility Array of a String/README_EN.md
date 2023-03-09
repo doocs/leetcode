@@ -126,6 +126,47 @@ function divisibilityArray(word: string, m: number): number[] {
 }
 ```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn divisibility_array(word: String, m: i32) -> Vec<i32> {
+        let m = m as i64;
+        let mut x = 0i64;
+        word.as_bytes()
+            .iter()
+            .map(|&c| {
+                x = (x * 10 + i64::from(c - b'0')) % m;
+                if x == 0 {
+                    1
+                } else {
+                    0
+                }
+            })
+            .collect()
+    }
+}
+```
+
+### **C**
+
+```c
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int *divisibilityArray(char *word, int m, int *returnSize) {
+    int n = strlen(word);
+    int *ans = malloc(sizeof(int) * n);
+    long long x = 0;
+    for (int i = 0; i < n; i++) {
+        x = (x * 10 + word[i] - '0') % m;
+        ans[i] = x == 0 ? 1 : 0;
+    }
+    *returnSize = n;
+    return ans;
+}
+```
+
 ### **...**
 
 ```
