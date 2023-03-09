@@ -1,13 +1,15 @@
 class Solution {
 public:
     int minimumCardPickup(vector<int>& cards) {
-        unordered_map<int, int> m;
-        int ans = 1e6;
-        for (int i = 0; i < cards.size(); ++i) {
-            int c = cards[i];
-            if (m.count(c)) ans = min(ans, i - m[c] + 1);
-            m[c] = i;
+        unordered_map<int, int> last;
+        int n = cards.size();
+        int ans = n + 1;
+        for (int i = 0; i < n; ++i) {
+            if (last.count(cards[i])) {
+                ans = min(ans, i - last[cards[i]] + 1);
+            }
+            last[cards[i]] = i;
         }
-        return ans == 1e6 ? -1 : ans;
+        return ans > n ? -1 : ans;
     }
 };
