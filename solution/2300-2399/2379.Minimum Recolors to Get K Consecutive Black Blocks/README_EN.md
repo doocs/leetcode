@@ -139,6 +139,56 @@ function minimumRecolors(blocks: string, k: number): number {
 }
 ```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn minimum_recolors(blocks: String, k: i32) -> i32 {
+        let k = k as usize;
+        let s = blocks.as_bytes();
+        let n = s.len();
+        let mut count = 0;
+        for i in 0..k {
+            if s[i] == b'B' {
+                count += 1;
+            }
+        }
+        let mut ans = k - count;
+        for i in k..n {
+            if s[i - k] == b'B' {
+                count -= 1;
+            }
+            if s[i] == b'B' {
+                count += 1;
+            }
+            ans = ans.min(k - count);
+        }
+        ans as i32
+    }
+}
+```
+
+### **C**
+
+```c
+#define min(a, b) (((a) < (b)) ? (a) : (b))
+
+int minimumRecolors(char *blocks, int k) {
+    int n = strlen(blocks);
+    int count = 0;
+    for (int i = 0; i < k; i++) {
+        count += blocks[i] == 'B';
+    }
+    int ans = k - count;
+    for (int i = k; i < n; i++) {
+        count -= blocks[i - k] == 'B';
+        count += blocks[i] == 'B';
+        ans = min(ans, k - count);
+    }
+    return ans;
+}
+```
+
 ### **...**
 
 ```
