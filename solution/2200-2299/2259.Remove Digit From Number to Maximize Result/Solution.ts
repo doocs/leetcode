@@ -1,12 +1,13 @@
 function removeDigit(number: string, digit: string): string {
-    let nums = number.split('');
-    const n = nums.length;
-    let ans = 0;
-    for (let i = 0; i < n; i++) {
-        if (nums[i] != digit) continue;
-        ans = i;
-        if (i + 1 < n && nums[i + 1] > nums[i]) break;
+    const n = number.length;
+    let last = -1;
+    for (let i = 0; i < n; ++i) {
+        if (number[i] === digit) {
+            last = i;
+            if (i + 1 < n && number[i] < number[i + 1]) {
+                break;
+            }
+        }
     }
-    nums.splice(ans, 1);
-    return nums.join('');
+    return number.substring(0, last) + number.substring(last + 1);
 }

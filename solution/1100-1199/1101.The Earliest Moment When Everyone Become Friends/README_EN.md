@@ -113,7 +113,7 @@ class Solution:
 ```java
 class Solution {
     private int[] p;
-    
+
     public int earliestAcq(int[][] logs, int n) {
         Arrays.sort(logs, (a, b) -> a[0] - b[0]);
         p = new int[n];
@@ -132,7 +132,7 @@ class Solution {
         }
         return -1;
     }
-    
+
     private int find(int x) {
         if (p[x] != x) {
             p[x] = find(p[x]);

@@ -1,14 +1,17 @@
 class Solution {
 public:
     string removeDigit(string number, char digit) {
-        string ans = "0";
-        for (int i = 0, n = number.size(); i < n; ++i) {
+        int n = number.size();
+        int last = -1;
+        for (int i = 0; i < n; ++i) {
             char d = number[i];
             if (d == digit) {
-                string t = number.substr(0, i) + number.substr(i + 1, n - i);
-                if (ans < t) ans = t;
+                last = i;
+                if (i + 1 < n && number[i] < number[i + 1]) {
+                    break;
+                }
             }
         }
-        return ans;
+        return number.substr(0, last) + number.substr(last + 1);
     }
 };

@@ -226,7 +226,6 @@ function checkPalindromeFormation(a: string, b: string): boolean {
     };
     return check1(a, b) || check1(b, a);
 }
-
 ```
 
 ### **...**
