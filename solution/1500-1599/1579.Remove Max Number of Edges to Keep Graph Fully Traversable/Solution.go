@@ -1,14 +1,16 @@
 type unionFind struct {
-	p []int
-	n int
+	p, size []int
+	cnt     int
 }
 
 func newUnionFind(n int) *unionFind {
 	p := make([]int, n)
+	size := make([]int, n)
 	for i := range p {
 		p[i] = i
+		size[i] = 1
 	}
-	return &unionFind{p, n}
+	return &unionFind{p, size, n}
 }
 
 func (uf *unionFind) find(x int) int {
@@ -23,30 +25,41 @@ func (uf *unionFind) union(a, b int) bool {
 	if pa == pb {
 		return false
 	}
-	uf.p[pa] = pb
-	uf.n--
+	if uf.size[pa] > uf.size[pb] {
+		uf.p[pb] = pa
+		uf.size[pa] += uf.size[pb]
+	} else {
+		uf.p[pa] = pb
+		uf.size[pb] += uf.size[pa]
+	}
+	uf.cnt--
 	return true
 }
 
-func maxNumEdgesToRemove(n int, edges [][]int) int {
-	ufa, ufb := newUnionFind(n), newUnionFind(n)
-	ans := 0
+func maxNumEdgesToRemove(n int, edges [][]int) (ans int) {
+	ufa := newUnionFind(n)
+	ufb := newUnionFind(n)
 	for _, e := range edges {
-		if e[0] == 3 {
-			if ufa.union(e[1], e[2]) {
-				ufb.union(e[1], e[2])
+		t, u, v := e[0], e[1], e[2]
+		if t == 3 {
+			if ufa.union(u, v) {
+				ufb.union(u, v)
 			} else {
 				ans++
 			}
 		}
 	}
 	for _, e := range edges {
-		if (e[0] == 1 && !ufa.union(e[1], e[2])) || (e[0] == 2 && !ufb.union(e[1], e[2])) {
+		t, u, v := e[0], e[1], e[2]
+		if t == 1 && !ufa.union(u, v) {
+			ans++
+		}
+		if t == 2 && !ufb.union(u, v) {
 			ans++
 		}
 	}
-	if ufa.n == 1 && ufb.n == 1 {
-		return ans
+	if ufa.cnt == 1 && ufb.cnt == 1 {
+		return
 	}
 	return -1
 }
