@@ -36,7 +36,24 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-递推求解。
+**方法一：动态规划**
+
+我们定义状态 $f[i]$ 表示考虑前 $i$ 个预约，且第 $i$ 个预约被接受的情况下，最长的预约时长；定义状态 $g[i]$ 表示考虑前 $i$ 个预约，且第 $i$ 个预约被拒绝的情况下，最长的预约时长。
+
+考虑第 $i$ 个预约，如果第 $i$ 个预约被接受，那么第 $i-1$ 个预约一定不能被接受，即 $f[i]=g[i-1]+nums[i]$；如果第 $i$ 个预约被拒绝，那么第 $i-1$ 个预约可以被接受，也可以被拒绝，即 $g[i]=max(f[i-1],g[i-1])$。
+
+所以，我们可以写出状态转移方程：
+
+$$
+\begin{aligned}
+f[i] &= g[i-1]+nums[i] \\
+g[i] &= max(f[i-1],g[i-1])
+\end{aligned}
+$$
+
+最终的答案即为 $max(f[n-1],g[n-1])$，其中 $n$ 为预约的数量。
+
+我们可以将空间复杂度优化至 $O(1)$，即使用两个变量 $f$ 和 $g$ 来代替数组 $f$ 和 $g$。
 
 <!-- tabs:start -->
 
@@ -47,17 +64,10 @@
 ```python
 class Solution:
     def massage(self, nums: List[int]) -> int:
-        if not nums:
-            return 0
-        n = len(nums)
-        if n < 2:
-            return nums[0]
-        a, b = nums[0], max(nums[0], nums[1])
-        res = b
-        for i in range(2, n):
-            res = max(a + nums[i], b)
-            a, b = b, res
-        return res
+        f = g = 0
+        for x in nums:
+            f, g = g + x, max(f, g)
+        return max(f, g)
 ```
 
 ### **Java**
@@ -67,22 +77,52 @@ class Solution:
 ```java
 class Solution {
     public int massage(int[] nums) {
-        if (nums == null) {
-            return 0;
+        int f = 0, g = 0;
+        for (int x : nums) {
+            int ff = g + x;
+            int gg = Math.max(f, g);
+            f = ff;
+            g = gg;
         }
-        int n = nums.length;
-        if (n < 2) {
-            return n == 0 ? 0 : nums[0];
-        }
-        int a = nums[0], b = Math.max(nums[0], nums[1]);
-        int res = b;
-        for (int i = 2; i < n; ++i) {
-            res = Math.max(a + nums[i], b);
-            a = b;
-            b = res;
-        }
-        return res;
+        return Math.max(f, g);
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int massage(vector<int>& nums) {
+        int f = 0, g = 0;
+        for (int& x : nums) {
+            int ff = g + x;
+            int gg = max(f, g);
+            f = ff;
+            g = gg;
+        }
+        return max(f, g);
+    }
+};
+```
+
+### **Go**
+
+```go
+func massage(nums []int) int {
+	f, g := 0, 0
+	for _, x := range nums {
+		f, g = g+x, max(f, g)
+	}
+	return max(f, g)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
