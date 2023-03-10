@@ -1,20 +1,22 @@
-func maxSumRangeQuery(nums []int, requests [][]int) int {
-	n := 100010
-	delta := make([]int, n)
-	for _, request := range requests {
-		delta[request[0]]++
-		delta[request[1]+1]--
+func maxSumRangeQuery(nums []int, requests [][]int) (ans int) {
+	n := len(nums)
+	d := make([]int, n)
+	for _, req := range requests {
+		l, r := req[0], req[1]
+		d[l]++
+		if r+1 < n {
+			d[r+1]--
+		}
 	}
 	for i := 1; i < n; i++ {
-		delta[i] += delta[i-1]
+		d[i] += d[i-1]
 	}
 	sort.Ints(nums)
-	sort.Ints(delta)
-	i, j, res := n-1, len(nums)-1, 0
-	for i >= 0 && delta[i] > 0 {
-		res += delta[i] * nums[j]
-		i--
-		j--
+	sort.Ints(d)
+	const mod = 1e9 + 7
+	for i, a := range nums {
+		b := d[i]
+		ans = (ans + a*b) % mod
 	}
-	return res % 1000000007
+	return
 }

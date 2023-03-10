@@ -20,8 +20,5 @@ function minSubarray(nums: number[], p: number): number {
         }
         last.set(cur, i);
     }
-    if (ans == n) {
-        return -1;
-    }
-    return ans;
+    return ans === n ? -1 : ans;
 }
