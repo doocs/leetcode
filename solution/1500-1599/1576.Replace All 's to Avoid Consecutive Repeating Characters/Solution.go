@@ -1,18 +1,16 @@
 func modifyString(s string) string {
-	ans := []byte(s)
-	for i, c := range ans {
-		if c == '?' {
-			for cc := byte('a'); cc <= 'c'; cc++ {
-				if i > 0 && ans[i-1] == cc {
+	n := len(s)
+	cs := []byte(s)
+	for i := range s {
+		if cs[i] == '?' {
+			for c := byte('a'); c <= byte('c'); c++ {
+				if (i > 0 && cs[i-1] == c) || (i+1 < n && cs[i+1] == c) {
 					continue
 				}
-				if i < len(s)-1 && ans[i+1] == cc {
-					continue
-				}
-				ans[i] = cc
+				cs[i] = c
 				break
 			}
 		}
 	}
-	return string(ans)
+	return string(cs)
 }

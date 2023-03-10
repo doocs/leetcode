@@ -48,6 +48,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+我们遍历字符串，对于每个位置，如果该位置是 `?`，则枚举字符 `'a'`、`'b'`、`'c'`，如果该字符 $c$ 与前后字符都不相同，则将该位置替换为该字符，否则继续枚举下一个字符。
+
+遍历结束后，返回字符串即可。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串的长度。忽略答案的空间消耗，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -57,17 +65,16 @@
 ```python
 class Solution:
     def modifyString(self, s: str) -> str:
-        ans = list(s)
-        for i, c in enumerate(ans):
-            if c == '?':
-                for cc in 'abc':
-                    if i > 0 and ans[i - 1] == cc:
+        s = list(s)
+        n = len(s)
+        for i in range(n):
+            if s[i] == "?":
+                for c in "abc":
+                    if (i and s[i - 1] == c) or (i + 1 < n and s[i + 1] == c):
                         continue
-                    if i < len(s) - 1 and ans[i + 1] == cc:
-                        continue
-                    ans[i] = cc
+                    s[i] = c
                     break
-        return ''.join(ans)
+        return "".join(s)
 ```
 
 ### **Java**
@@ -77,23 +84,20 @@ class Solution:
 ```java
 class Solution {
     public String modifyString(String s) {
-        char[] chars = s.toCharArray();
-        for (int i = 0; i < chars.length; ++i) {
-            char c = chars[i];
-            if (c == '?') {
-                for (char cc = 'a'; cc <= 'c'; ++cc) {
-                    if (i > 0 && chars[i - 1] == cc) {
+        char[] cs = s.toCharArray();
+        int n = cs.length;
+        for (int i = 0; i < n; ++i) {
+            if (cs[i] == '?') {
+                for (char c = 'a'; c <= 'c'; ++c) {
+                    if ((i > 0 && cs[i - 1] == c) || (i + 1 < n && cs[i + 1] == c)) {
                         continue;
                     }
-                    if (i < chars.length - 1 && chars[i + 1] == cc) {
-                        continue;
-                    }
-                    chars[i] = cc;
+                    cs[i] = c;
                     break;
                 }
             }
         }
-        return String.valueOf(chars);
+        return String.valueOf(cs);
     }
 }
 ```
@@ -104,12 +108,14 @@ class Solution {
 class Solution {
 public:
     string modifyString(string s) {
-        for (int i = 0; i < s.size(); ++i) {
+        int n = s.size();
+        for (int i = 0; i < n; ++i) {
             if (s[i] == '?') {
-                for (char cc : "abc") {
-                    if (i > 0 && s[i - 1] == cc) continue;
-                    if (i < s.size() - 1 && s[i + 1] == cc) continue;
-                    s[i] = cc;
+                for (char c : "abc") {
+                    if ((i && s[i - 1] == c) || (i + 1 < n && s[i + 1] == c)) {
+                        continue;
+                    }
+                    s[i] = c;
                     break;
                 }
             }
@@ -123,22 +129,20 @@ public:
 
 ```go
 func modifyString(s string) string {
-	ans := []byte(s)
-	for i, c := range ans {
-		if c == '?' {
-			for cc := byte('a'); cc <= 'c'; cc++ {
-				if i > 0 && ans[i-1] == cc {
+	n := len(s)
+	cs := []byte(s)
+	for i := range s {
+		if cs[i] == '?' {
+			for c := byte('a'); c <= byte('c'); c++ {
+				if (i > 0 && cs[i-1] == c) || (i+1 < n && cs[i+1] == c) {
 					continue
 				}
-				if i < len(s)-1 && ans[i+1] == cc {
-					continue
-				}
-				ans[i] = cc
+				cs[i] = c
 				break
 			}
 		}
 	}
-	return string(ans)
+	return string(cs)
 }
 ```
 
@@ -146,24 +150,30 @@ func modifyString(s string) string {
 
 ```ts
 function modifyString(s: string): string {
-    const strArr = s.split('');
+    const cs = s.split('');
     const n = s.length;
-    for (let i = 0; i < n; i++) {
-        if (strArr[i] === '?') {
-            const before = strArr[i - 1];
-            const after = strArr[i + 1];
-
-            if (after !== 'a' && before !== 'a') {
-                strArr[i] = 'a';
-            } else if (after !== 'b' && before !== 'b') {
-                strArr[i] = 'b';
-            } else {
-                strArr[i] = 'c';
+    for (let i = 0; i < n; ++i) {
+        if (cs[i] === '?') {
+            for (const c of 'abc') {
+                if (
+                    (i > 0 && cs[i - 1] === c) ||
+                    (i + 1 < n && cs[i + 1] === c)
+                ) {
+                    continue;
+                }
+                cs[i] = c;
+                break;
             }
         }
     }
-    return strArr.join('');
+    return cs.join('');
 }
+```
+
+### **...**
+
+```
+
 ```
 
 <!-- tabs:end -->

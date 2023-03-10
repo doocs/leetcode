@@ -1,21 +1,18 @@
 class Solution {
     public String modifyString(String s) {
-        char[] chars = s.toCharArray();
-        for (int i = 0; i < chars.length; ++i) {
-            char c = chars[i];
-            if (c == '?') {
-                for (char cc = 'a'; cc <= 'c'; ++cc) {
-                    if (i > 0 && chars[i - 1] == cc) {
+        char[] cs = s.toCharArray();
+        int n = cs.length;
+        for (int i = 0; i < n; ++i) {
+            if (cs[i] == '?') {
+                for (char c = 'a'; c <= 'c'; ++c) {
+                    if ((i > 0 && cs[i - 1] == c) || (i + 1 < n && cs[i + 1] == c)) {
                         continue;
                     }
-                    if (i < chars.length - 1 && chars[i + 1] == cc) {
-                        continue;
-                    }
-                    chars[i] = cc;
+                    cs[i] = c;
                     break;
                 }
             }
         }
-        return String.valueOf(chars);
+        return String.valueOf(cs);
     }
 }
