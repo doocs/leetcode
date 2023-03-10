@@ -33,9 +33,20 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-前缀和 + 哈希表。
+**方法一：前缀和 + 哈希表**
 
-遍历字符串数组 array，将数字视为 1，字母视为 -1（或者反过来），题目转换为元素和为 0 的最长子数组。
+题目要求找到最长的子数组，且包含的字符和数字的个数相同。我们可以将字符看作 $1$，数字看作 $-1$，那么问题就转化为：求最长的子数组，使得该子数组的和为 $0$。
+
+我们可以运用前缀和的思想，用哈希表 $vis$ 记录每个前缀和第一次出现的位置，用变量 $mx$ 和 $k$ 分别记录最长的满足条件的子数组的长度和左端点位置。
+
+遍历数组，计算当前位置 $i$ 的前缀和 $s$：
+
+-   如果当前位置的前缀和 $s$ 在哈希表 $vis$ 中存在，我们记第一次出现 $s$ 的位置为 $j$，那么区间 $[j + 1,..,i]$ 的子数组和就为 $0$。如果此前的最长子数组的长度小于当前子数组的长度，即 $mx \lt i - j$，我们就更新 $mx = i - j$ 和 $k = j + 1$。
+-   否则，我们将当前位置的前缀和 $s$ 作为键，当前位置 $i$ 作为值，存入哈希表 $vis$ 中。
+
+遍历结束后，如果 $mx = 0$，说明不存在这样的子数组，返回空数组；否则，返回区间 $[k,..,k + mx - 1]$ 的子数组即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
 
@@ -46,18 +57,17 @@
 ```python
 class Solution:
     def findLongestSubarray(self, array: List[str]) -> List[str]:
-        seen = {0: -1}
-        t = mx = 0
-        ans = []
-        for i, s in enumerate(array):
-            t += 1 if s.isalpha() else -1
-            if t in seen:
-                if mx < i - seen[t]:
-                    mx = i - seen[t]
-                    ans = array[seen[t] + 1 : i + 1]
+        vis = {0: -1}
+        s = mx = k = 0
+        for i, x in enumerate(array):
+            s += 1 if x.isalpha() else -1
+            if s in vis:
+                if mx < i - (j := vis[s]):
+                    mx = i - j
+                    k = j + 1
             else:
-                seen[t] = i
-        return ans
+                vis[s] = i
+        return [] if mx == 0 else array[k: k + mx]
 ```
 
 ### **Java**
@@ -67,25 +77,23 @@ class Solution:
 ```java
 class Solution {
     public String[] findLongestSubarray(String[] array) {
-        Map<Integer, Integer> seen = new HashMap<>();
-        seen.put(0, -1);
-        int t = 0, mx = 0;
-        int j = 0;
+        Map<Integer, Integer> vis = new HashMap<>();
+        vis.put(0, -1);
+        int s = 0, mx = 0, k = 0;
         for (int i = 0; i < array.length; ++i) {
-            t += Character.isDigit(array[i].charAt(0)) ? 1 : -1;
-            if (seen.containsKey(t)) {
-                if (mx < i - seen.get(t)) {
-                    mx = i - seen.get(t);
-                    j = seen.get(t) + 1;
+            s += array[i].charAt(0) >= 'A' ? 1 : -1;
+            if (vis.containsKey(s)) {
+                int j = vis.get(s);
+                if (mx < i - j) {
+                    mx = i - j;
+                    k = j + 1;
                 }
             } else {
-                seen.put(t, i);
+                vis.put(s, i);
             }
         }
         String[] ans = new String[mx];
-        for (int i = 0; i < mx; ++i) {
-            ans[i] = array[i + j];
-        }
+        System.arraycopy(array, k, ans, 0, mx);
         return ans;
     }
 }
@@ -97,21 +105,21 @@ class Solution {
 class Solution {
 public:
     vector<string> findLongestSubarray(vector<string>& array) {
-        unordered_map<int, int> seen;
-        seen[0] = -1;
-        int t = 0, mx = 0, j = 0;
+        unordered_map<int, int> vis{{0, -1}};
+        int s = 0, mx = 0, k = 0;
         for (int i = 0; i < array.size(); ++i) {
-            t += isdigit(array[i][0]) ? 1 : -1;
-            if (seen.count(t)) {
-                if (mx < i - seen[t]) {
-                    mx = i - seen[t];
-                    j = seen[t] + 1;
+            s += array[i][0] >= 'A' ? 1 : -1;
+            if (vis.count(s)) {
+                int j = vis[s];
+                if (mx < i - j) {
+                    mx = i - j;
+                    k = j + 1;
                 }
             } else {
-                seen[t] = i;
+                vis[s] = i;
             }
         }
-        return {array.begin() + j, array.begin() + j + mx};
+        return vector<string>(array.begin() + k, array.begin() + k + mx);
     }
 };
 ```
@@ -120,24 +128,24 @@ public:
 
 ```go
 func findLongestSubarray(array []string) []string {
-	seen := map[int]int{0: -1}
-	t, mx, j := 0, 0, 0
-	for i, s := range array {
-		if unicode.IsDigit(rune(s[0])) {
-			t++
+	vis := map[int]int{0: -1}
+	var s, mx, k int
+	for i, x := range array {
+		if x[0] >= 'A' {
+			s++
 		} else {
-			t--
+			s--
 		}
-		if k, ok := seen[t]; ok {
-			if mx < i-k {
-				mx = i - k
-				j = k + 1
+		if j, ok := vis[s]; ok {
+			if mx < i-j {
+				mx = i - j
+				k = j + 1
 			}
 		} else {
-			seen[t] = i
+			vis[s] = i
 		}
 	}
-	return array[j : j+mx]
+	return array[k : k+mx]
 }
 ```
 

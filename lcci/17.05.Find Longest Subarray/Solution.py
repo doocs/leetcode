@@ -1,14 +1,13 @@
 class Solution:
     def findLongestSubarray(self, array: List[str]) -> List[str]:
-        seen = {0: -1}
-        t = mx = 0
-        ans = []
-        for i, s in enumerate(array):
-            t += 1 if s.isalpha() else -1
-            if t in seen:
-                if mx < i - seen[t]:
-                    mx = i - seen[t]
-                    ans = array[seen[t] + 1 : i + 1]
+        vis = {0: -1}
+        s = mx = k = 0
+        for i, x in enumerate(array):
+            s += 1 if x.isalpha() else -1
+            if s in vis:
+                if mx < i - (j := vis[s]):
+                    mx = i - j
+                    k = j + 1
             else:
-                seen[t] = i
-        return ans
+                vis[s] = i
+        return [] if mx == 0 else array[k: k + mx]

@@ -1,20 +1,20 @@
 func findLongestSubarray(array []string) []string {
-	seen := map[int]int{0: -1}
-	t, mx, j := 0, 0, 0
-	for i, s := range array {
-		if unicode.IsDigit(rune(s[0])) {
-			t++
+	vis := map[int]int{0: -1}
+	var s, mx, k int
+	for i, x := range array {
+		if x[0] >= 'A' {
+			s++
 		} else {
-			t--
+			s--
 		}
-		if k, ok := seen[t]; ok {
-			if mx < i-k {
-				mx = i - k
-				j = k + 1
+		if j, ok := vis[s]; ok {
+			if mx < i-j {
+				mx = i - j
+				k = j + 1
 			}
 		} else {
-			seen[t] = i
+			vis[s] = i
 		}
 	}
-	return array[j : j+mx]
+	return array[k : k+mx]
 }
