@@ -368,7 +368,7 @@ struct TreeNode *sortedListToBST(struct ListNode *head) {
 
 ### **Go**
 
-```
+```go
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
