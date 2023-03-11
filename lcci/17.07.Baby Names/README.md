@@ -24,7 +24,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-并查集。
+**方法一：哈希表 + DFS**
+
+对于每个同义词对，我们将其两个名字建立双向边，存放在邻接表 $g$ 中，然后，我们遍历所有名字，将其存放在集合 $s$ 中，同时将其频率存放在哈希表 $cnt$ 中。
+
+接下来，我们遍历集合 $s$ 中的每个名字，如果该名字未被访问过，则进行深度优先搜索，找到该名字所在的连通分量中的所有名字，以字典序最小的名字为真实名字，将其频率求和，即为真实名字的频率。然后，我们将该名字以及其频率存放在答案数组中。
+
+遍历完所有名字后，答案数组即为所求。
+
+时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别为名字数组和同义词数组的长度。
 
 <!-- tabs:start -->
 
@@ -35,43 +43,35 @@
 ```python
 class Solution:
     def trulyMostPopular(self, names: List[str], synonyms: List[str]) -> List[str]:
-        mp = defaultdict(int)
-        p = defaultdict(str)
+        def dfs(a):
+            vis.add(a)
+            mi, x = a, cnt[a]
+            for b in g[a]:
+                if b not in vis:
+                    t, y = dfs(b)
+                    if mi > t:
+                        mi = t
+                    x += y
+            return mi, x
 
-        def find(x):
-            if p[x] != x:
-                p[x] = find(p[x])
-            return p[x]
-
-        def union(a, b):
-            pa, pb = find(a), find(b)
-            if pa == pb:
-                return
-            if pa > pb:
-                mp[pb] += mp[pa]
-                p[pa] = pb
-            else:
-                mp[pa] += mp[pb]
-                p[pb] = pa
-
-        for e in names:
-            idx = e.find("(")
-            name, w = e[:idx], int(e[idx + 1 : -1])
-            mp[name] = w
-            p[name] = name
+        g = defaultdict(list)
         for e in synonyms:
-            idx = e.find(",")
-            name1, name2 = e[1:idx], e[idx + 1 : -1]
-            mp[name1] += 0
-            mp[name2] += 0
-            p[name1] = name1
-            p[name2] = name2
-
-        for e in synonyms:
-            idx = e.find(",")
-            name1, name2 = e[1:idx], e[idx + 1 : -1]
-            union(name1, name2)
-        return [f'{name}({mp[name]})' for name, w in mp.items() if name == find(name)]
+            a, b = e[1:-1].split(',')
+            g[a].append(b)
+            g[b].append(a)
+        s = set()
+        cnt = defaultdict(int)
+        for x in names:
+            name, freq = x[:-1].split("(")
+            s.add(name)
+            cnt[name] = int(freq)
+        vis = set()
+        ans = []
+        for name in s:
+            if name not in vis:
+                name, freq = dfs(name)
+                ans.append(f"{name}({freq})")
+        return ans
 ```
 
 ### **Java**
@@ -80,70 +80,151 @@ class Solution:
 
 ```java
 class Solution {
-    private Map<String, Integer> mp = new HashMap<>();
-    private Map<String, String> p = new HashMap<>();
+    private Map<String, List<String>> g = new HashMap<>();
+    private Map<String, Integer> cnt = new HashMap<>();
+    private Set<String> vis = new HashSet<>();
+    private int freq;
 
     public String[] trulyMostPopular(String[] names, String[] synonyms) {
-        for (String e : names) {
-            int idx = e.indexOf("(");
-            String name = e.substring(0, idx);
-            int w = Integer.parseInt(e.substring(idx + 1, e.length() - 1));
-            mp.put(name, w);
-            p.put(name, name);
+        for (String pairs : synonyms) {
+            String[] pair = pairs.substring(1, pairs.length() - 1).split(",");
+            String a = pair[0], b = pair[1];
+            g.computeIfAbsent(a, k -> new ArrayList<>()).add(b);
+            g.computeIfAbsent(b, k -> new ArrayList<>()).add(a);
         }
-        for (String e : synonyms) {
-            int idx = e.indexOf(",");
-            String name1 = e.substring(1, idx);
-            String name2 = e.substring(idx + 1, e.length() - 1);
-            if (!mp.containsKey(name1)) {
-                mp.put(name1, 0);
-            }
-            if (!mp.containsKey(name2)) {
-                mp.put(name2, 0);
-            }
-            p.put(name1, name1);
-            p.put(name2, name2);
+        Set<String> s = new HashSet<>();
+        for (String x : names) {
+            int i = x.indexOf('(');
+            String name = x.substring(0, i);
+            s.add(name);
+            cnt.put(name, Integer.parseInt(x.substring(i + 1, x.length() - 1)));
         }
-        for (String e : synonyms) {
-            int idx = e.indexOf(",");
-            String name1 = e.substring(1, idx);
-            String name2 = e.substring(idx + 1, e.length() - 1);
-            union(name1, name2);
-        }
-        List<String> t = new ArrayList<>();
-        for (Map.Entry<String, Integer> e : mp.entrySet()) {
-            String name = e.getKey();
-            if (Objects.equals(name, find(name))) {
-                t.add(name + "(" + e.getValue() + ")");
+        List<String> res = new ArrayList<>();
+        for (String name : s) {
+            if (!vis.contains(name)) {
+                freq = 0;
+                name = dfs(name);
+                res.add(name + "(" + freq + ")");
             }
         }
-        String[] res = new String[t.size()];
-        for (int i = 0; i < res.length; ++i) {
-            res[i] = t.get(i);
-        }
-        return res;
+        return res.toArray(new String[0]);
     }
 
-    private String find(String x) {
-        if (!Objects.equals(p.get(x), x)) {
-            p.put(x, find(p.get(x)));
+    private String dfs(String a) {
+        String mi = a;
+        vis.add(a);
+        freq += cnt.getOrDefault(a, 0);
+        for (String b : g.getOrDefault(a, new ArrayList<>())) {
+            if (!vis.contains(b)) {
+                String t = dfs(b);
+                if (t.compareTo(mi) < 0) {
+                    mi = t;
+                }
+            }
         }
-        return p.get(x);
+        return mi;
     }
+}
+```
 
-    private void union(String a, String b) {
-        String pa = find(a), pb = find(b);
-        if (Objects.equals(pa, pb)) {
-            return;
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> trulyMostPopular(vector<string>& names, vector<string>& synonyms) {
+        unordered_map<string, vector<string>> g;
+        unordered_map<string, int> cnt;
+        for (auto& e : synonyms) {
+            int i = e.find(',');
+            string a = e.substr(1, i - 1);
+            string b = e.substr(i + 1, e.size() - i - 2);
+            g[a].emplace_back(b);
+            g[b].emplace_back(a);
         }
-        if (pa.compareTo(pb) > 0) {
-            mp.put(pb, mp.getOrDefault(pb, 0) + mp.getOrDefault(pa, 0));
-            p.put(pa, pb);
-        } else {
-            mp.put(pa, mp.getOrDefault(pa, 0) + mp.getOrDefault(pb, 0));
-            p.put(pb, pa);
+        unordered_set<string> s;
+        for (auto& e : names) {
+            int i = e.find('(');
+            string name = e.substr(0, i);
+            s.insert(name);
+            cnt[name] += stoi(e.substr(i + 1, e.size() - i - 2));
         }
+        unordered_set<string> vis;
+        int freq = 0;
+
+        function<string(string)> dfs = [&](string a) -> string {
+            string res = a;
+            vis.insert(a);
+            freq += cnt[a];
+            for (auto& b : g[a]) {
+                if (!vis.count(b)) {
+                    string t = dfs(b);
+                    if (t < res) {
+                        res = move(t);
+                    }
+                }
+            }
+            return move(res);
+        };
+
+        vector<string> ans;
+        for (auto& name : s) {
+            if (!vis.count(name)) {
+                freq = 0;
+                string x = dfs(name);
+                ans.emplace_back(x + "(" + to_string(freq) + ")");
+            }
+        }
+        return ans;
     }
+};
+```
+
+### **Go**
+
+```go
+func trulyMostPopular(names []string, synonyms []string) (ans []string) {
+	g := map[string][]string{}
+	for _, s := range synonyms {
+		i := strings.Index(s, ",")
+		a, b := s[1:i], s[i+1:len(s)-1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	s := map[string]struct{}{}
+	cnt := map[string]int{}
+	for _, e := range names {
+		i := strings.Index(e, "(")
+		name, num := e[:i], e[i+1:len(e)-1]
+		x, _ := strconv.Atoi(num)
+		cnt[name] += x
+		s[name] = struct{}{}
+	}
+	freq := 0
+	vis := map[string]struct{}{}
+	var dfs func(string) string
+	dfs = func(a string) string {
+		vis[a] = struct{}{}
+		freq += cnt[a]
+		res := a
+		for _, b := range g[a] {
+			if _, ok := vis[b]; !ok {
+				t := dfs(b)
+				if t < res {
+					res = t
+				}
+			}
+		}
+		return res
+	}
+	for name := range s {
+		if _, ok := vis[name]; !ok {
+			freq = 0
+			root := dfs(name)
+			ans = append(ans, root+"("+strconv.Itoa(freq)+")")
+		}
+	}
+	return
 }
 ```
 
