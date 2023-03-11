@@ -67,7 +67,7 @@ class Solution:
                     k = j + 1
             else:
                 vis[s] = i
-        return [] if mx == 0 else array[k: k + mx]
+        return array[k: k + mx]
 ```
 
 ### **Java**
