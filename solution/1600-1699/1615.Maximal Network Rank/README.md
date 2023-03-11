@@ -61,6 +61,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：计数**
+
+我们可以用一维数组 $cnt$ 记录每个城市的度，用二维数组 $g$ 记录每对城市之间是否有道路相连，如果城市 $a$ 和城市 $b$ 之间有道路相连，则 $g[a][b] = g[b][a] = 1$，否则 $g[a][b] = g[b][a] = 0$。
+
+接下来，我们枚举每对城市 $(a, b)$，其中 $a < b$，计算它们的网络秩，即 $cnt[a] + cnt[b] - g[a][b]$，取其中的最大值即为答案。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是城市的数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -68,7 +76,30 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def maximalNetworkRank(self, n: int, roads: List[List[int]]) -> int:
+        g = defaultdict(set)
+        for a, b in roads:
+            g[a].add(b)
+            g[b].add(a)
+        ans = 0
+        for a in range(n):
+            for b in range(a + 1, n):
+                if (t := len(g[a]) + len(g[b]) - (a in g[b])) > ans:
+                    ans = t
+        return ans
+```
 
+```python
+class Solution:
+    def maximalNetworkRank(self, n: int, roads: List[List[int]]) -> int:
+        g = [[0] * n for _ in range(n)]
+        cnt = [0] * n
+        for a, b in roads:
+            g[a][b] = g[b][a] = 1
+            cnt[a] += 1
+            cnt[b] += 1
+        return max(cnt[a] + cnt[b] - g[a][b] for a in range(n) for b in range(a + 1, n))
 ```
 
 ### **Java**
@@ -76,7 +107,84 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maximalNetworkRank(int n, int[][] roads) {
+        int[][] g = new int[n][n];
+        int[] cnt = new int[n];
+        for (var r : roads) {
+            int a = r[0], b = r[1];
+            g[a][b] = 1;
+            g[b][a] = 1;
+            ++cnt[a];
+            ++cnt[b];
+        }
+        int ans = 0;
+        for (int a = 0; a < n; ++a) {
+            for (int b = a + 1; b < n; ++b) {
+                ans = Math.max(ans, cnt[a] + cnt[b] - g[a][b]);
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maximalNetworkRank(int n, vector<vector<int>>& roads) {
+        int cnt[n];
+        int g[n][n];
+        memset(cnt, 0, sizeof(cnt));
+        memset(g, 0, sizeof(g));
+        for (auto& r : roads) {
+            int a = r[0], b = r[1];
+            g[a][b] = g[b][a] = 1;
+            ++cnt[a];
+            ++cnt[b];
+        }
+        int ans = 0;
+        for (int a = 0; a < n; ++a) {
+            for (int b = a + 1; b < n; ++b) {
+                ans = max(ans, cnt[a] + cnt[b] - g[a][b]);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximalNetworkRank(n int, roads [][]int) (ans int) {
+	g := make([][]int, n)
+	cnt := make([]int, n)
+	for i := range g {
+		g[i] = make([]int, n)
+	}
+	for _, r := range roads {
+		a, b := r[0], r[1]
+		g[a][b], g[b][a] = 1, 1
+		cnt[a]++
+		cnt[b]++
+	}
+	for a := 0; a < n; a++ {
+		for b := a + 1; b < n; b++ {
+			ans = max(ans, cnt[a]+cnt[b]-g[a][b])
+		}
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
