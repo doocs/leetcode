@@ -52,6 +52,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：一次遍历**
+
+我们先考虑最后一次攻击，此次攻击一定可以使得艾希处于中毒状态，所以总中毒时间至少为 `duration`。
+
+接下来，我们考虑前 $n-1$ 次攻击，每一次攻击的中毒持续时间为 $min(duration, timeSeries[i] - timeSeries[i-1])$，其中 $i$ 从 1 开始。我们将这些中毒持续时间累加起来，即为总中毒时间。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `timeSeries` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -61,10 +69,10 @@
 ```python
 class Solution:
     def findPoisonedDuration(self, timeSeries: List[int], duration: int) -> int:
-        n, res = len(timeSeries), duration
-        for i in range(n - 1):
-            res += min(duration, timeSeries[i + 1] - timeSeries[i])
-        return res
+        ans = duration
+        for a, b in pairwise(timeSeries):
+            ans += min(duration, b - a)
+        return ans
 ```
 
 ### **Java**
@@ -74,11 +82,12 @@ class Solution:
 ```java
 class Solution {
     public int findPoisonedDuration(int[] timeSeries, int duration) {
-        int n = timeSeries.length, res = duration;
-        for (int i = 0; i < n - 1; ++i) {
-            res += Math.min(duration, timeSeries[i + 1] - timeSeries[i]);
+        int n = timeSeries.length;
+        int ans = duration;
+        for (int i = 1; i < n; ++i) {
+            ans += Math.min(duration, timeSeries[i] - timeSeries[i - 1]);
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -89,11 +98,12 @@ class Solution {
 class Solution {
 public:
     int findPoisonedDuration(vector<int>& timeSeries, int duration) {
-        int n = timeSeries.size(), res = duration;
-        for (int i = 0; i < n - 1; ++i) {
-            res += min(duration, timeSeries[i + 1] - timeSeries[i]);
+        int ans = duration;
+        int n = timeSeries.size();
+        for (int i = 1; i < n; ++i) {
+            ans += min(duration, timeSeries[i] - timeSeries[i - 1]);
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -101,12 +111,12 @@ public:
 ### **Go**
 
 ```go
-func findPoisonedDuration(timeSeries []int, duration int) int {
-	n, res := len(timeSeries), duration
-	for i := 0; i < n-1; i++ {
-		res += min(duration, timeSeries[i+1]-timeSeries[i])
+func findPoisonedDuration(timeSeries []int, duration int) (ans int) {
+	ans = duration
+	for i, x := range timeSeries[1:] {
+		ans += min(duration, x-timeSeries[i])
 	}
-	return res
+	return
 }
 
 func min(a, b int) int {
@@ -114,6 +124,21 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int FindPoisonedDuration(int[] timeSeries, int duration) {
+        int ans = duration;
+        int n = timeSeries.Length;
+        for (int i = 1; i < n; ++i) {
+            ans += Math.Min(duration, timeSeries[i] - timeSeries[i - 1]);
+        }
+        return ans;
+    }
 }
 ```
 
