@@ -26,7 +26,7 @@
 - at t = 4, we move to the cell (1,1). It is possible because grid[1][1] &lt;= 4.
 - at t = 5, we move to the cell (1,2). It is possible because grid[1][2] &lt;= 5.
 - at t = 6, we move to the cell (1,3). It is possible because grid[1][3] &lt;= 6.
-- at t = 7, we move to the cell (2,3). It is possible because grid[1][3] &lt;= 7.
+- at t = 7, we move to the cell (2,3). It is possible because grid[2][3] &lt;= 7.
 The final time is 7. It can be shown that it is the minimum time possible.
 </pre>
 

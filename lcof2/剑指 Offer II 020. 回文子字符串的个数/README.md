@@ -71,7 +71,7 @@ class Solution:
                 cnt += 1
                 i, j = i - 1, j + 1
             return cnt
-        
+
         n = len(s)
         return sum(f(i, i) + f(i, i + 1) for i in range(n))
 ```

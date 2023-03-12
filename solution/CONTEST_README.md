@@ -24,6 +24,14 @@
 
 ## 往期竞赛
 
+#### 第 336 场周赛(2023-03-12 10:30, 90 分钟) 参赛人数 5897
+
+- [2586. 统计范围内的元音字符串数](/solution/2500-2599/2586.Count%20the%20Number%20of%20Vowel%20Strings%20in%20Range/README.md)
+- [2587. 重排数组以得到最大前缀分数](/solution/2500-2599/2587.Rearrange%20Array%20to%20Maximize%20Prefix%20Score/README.md)
+- [2588. 统计美丽子数组数目](/solution/2500-2599/2588.Count%20the%20Number%20of%20Beautiful%20Subarrays/README.md)
+- [2589. 完成所有任务的最少时间](/solution/2500-2599/2589.Minimum%20Time%20to%20Complete%20All%20Tasks/README.md)
+
+
 #### 第 335 场周赛(2023-03-05 10:30, 90 分钟) 参赛人数 6019
 
 - [2582. 递枕头](/solution/2500-2599/2582.Pass%20the%20Pillow/README.md)

@@ -68,6 +68,7 @@
 	<li><code>u<sub>j</sub> != v<sub>j</sub></code></li>
 	<li><code>edges</code>&nbsp;表示一棵有效的树。</li>
 	<li><code>guesses[j]</code>&nbsp;是树中的一条边。</li>
+	<li><code>guesses</code>&nbsp;是唯一的。</li>
 	<li><code>0 &lt;= k &lt;= guesses.length</code></li>
 </ul>
 

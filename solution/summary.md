@@ -2635,3 +2635,7 @@
   - [2583.二叉树中的第 K 大层和](/solution/2500-2599/2583.Kth%20Largest%20Sum%20in%20a%20Binary%20Tree/README.md)
   - [2584.分割数组使乘积互质](/solution/2500-2599/2584.Split%20the%20Array%20to%20Make%20Coprime%20Products/README.md)
   - [2585.获得分数的方法数](/solution/2500-2599/2585.Number%20of%20Ways%20to%20Earn%20Points/README.md)
+  - [2586.统计范围内的元音字符串数](/solution/2500-2599/2586.Count%20the%20Number%20of%20Vowel%20Strings%20in%20Range/README.md)
+  - [2587.重排数组以得到最大前缀分数](/solution/2500-2599/2587.Rearrange%20Array%20to%20Maximize%20Prefix%20Score/README.md)
+  - [2588.统计美丽子数组数目](/solution/2500-2599/2588.Count%20the%20Number%20of%20Beautiful%20Subarrays/README.md)
+  - [2589.完成所有任务的最少时间](/solution/2500-2599/2589.Minimum%20Time%20to%20Complete%20All%20Tasks/README.md)

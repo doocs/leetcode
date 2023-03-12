@@ -19,13 +19,11 @@
 	<li><code>height.length == weight.length &lt;= 10000</code></li>
 </ul>
 
-
 ## Solutions
 
-
 <!-- tabs:start -->
-### **Python3**
 
+### **Python3**
 
 ```python
 class BinaryIndexedTree:

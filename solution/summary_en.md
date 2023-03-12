@@ -2635,3 +2635,7 @@
   - [2583.Kth Largest Sum in a Binary Tree](/solution/2500-2599/2583.Kth%20Largest%20Sum%20in%20a%20Binary%20Tree/README_EN.md)
   - [2584.Split the Array to Make Coprime Products](/solution/2500-2599/2584.Split%20the%20Array%20to%20Make%20Coprime%20Products/README_EN.md)
   - [2585.Number of Ways to Earn Points](/solution/2500-2599/2585.Number%20of%20Ways%20to%20Earn%20Points/README_EN.md)
+  - [2586.Count the Number of Vowel Strings in Range](/solution/2500-2599/2586.Count%20the%20Number%20of%20Vowel%20Strings%20in%20Range/README_EN.md)
+  - [2587.Rearrange Array to Maximize Prefix Score](/solution/2500-2599/2587.Rearrange%20Array%20to%20Maximize%20Prefix%20Score/README_EN.md)
+  - [2588.Count the Number of Beautiful Subarrays](/solution/2500-2599/2588.Count%20the%20Number%20of%20Beautiful%20Subarrays/README_EN.md)
+  - [2589.Minimum Time to Complete All Tasks](/solution/2500-2599/2589.Minimum%20Time%20to%20Complete%20All%20Tasks/README_EN.md)

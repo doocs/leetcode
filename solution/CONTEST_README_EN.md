@@ -25,6 +25,14 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 336
+
+- [2586. Count the Number of Vowel Strings in Range](/solution/2500-2599/2586.Count%20the%20Number%20of%20Vowel%20Strings%20in%20Range/README_EN.md)
+- [2587. Rearrange Array to Maximize Prefix Score](/solution/2500-2599/2587.Rearrange%20Array%20to%20Maximize%20Prefix%20Score/README_EN.md)
+- [2588. Count the Number of Beautiful Subarrays](/solution/2500-2599/2588.Count%20the%20Number%20of%20Beautiful%20Subarrays/README_EN.md)
+- [2589. Minimum Time to Complete All Tasks](/solution/2500-2599/2589.Minimum%20Time%20to%20Complete%20All%20Tasks/README_EN.md)
+
+
 #### Weekly Contest 335
 
 - [2582. Pass the Pillow](/solution/2500-2599/2582.Pass%20the%20Pillow/README_EN.md)

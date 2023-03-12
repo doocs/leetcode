@@ -2588,14 +2588,18 @@
 |  2575  |  [找出字符串的可整除数组](/solution/2500-2599/2575.Find%20the%20Divisibility%20Array%20of%20a%20String/README.md)  |  `数组`,`数学`,`字符串`  |  中等  |  第 334 场周赛  |
 |  2576  |  [求出最多标记下标](/solution/2500-2599/2576.Find%20the%20Maximum%20Number%20of%20Marked%20Indices/README.md)  |  `贪心`,`数组`,`双指针`,`二分查找`,`排序`  |  中等  |  第 334 场周赛  |
 |  2577  |  [在网格图中访问一个格子的最少时间](/solution/2500-2599/2577.Minimum%20Time%20to%20Visit%20a%20Cell%20In%20a%20Grid/README.md)  |  `广度优先搜索`,`图`,`数组`,`矩阵`,`最短路`,`堆（优先队列）`  |  困难  |  第 334 场周赛  |
-|  2578  |  [最小和分割](/solution/2500-2599/2578.Split%20With%20Minimum%20Sum/README.md)  |    |  简单  |  第 99 场双周赛  |
-|  2579  |  [统计染色格子数](/solution/2500-2599/2579.Count%20Total%20Number%20of%20Colored%20Cells/README.md)  |    |  中等  |  第 99 场双周赛  |
-|  2580  |  [统计将重叠区间合并成组的方案数](/solution/2500-2599/2580.Count%20Ways%20to%20Group%20Overlapping%20Ranges/README.md)  |    |  中等  |  第 99 场双周赛  |
-|  2581  |  [统计可能的树根数目](/solution/2500-2599/2581.Count%20Number%20of%20Possible%20Root%20Nodes/README.md)  |    |  困难  |  第 99 场双周赛  |
-|  2582  |  [递枕头](/solution/2500-2599/2582.Pass%20the%20Pillow/README.md)  |    |  简单  |  第 335 场周赛  |
-|  2583  |  [二叉树中的第 K 大层和](/solution/2500-2599/2583.Kth%20Largest%20Sum%20in%20a%20Binary%20Tree/README.md)  |    |  中等  |  第 335 场周赛  |
-|  2584  |  [分割数组使乘积互质](/solution/2500-2599/2584.Split%20the%20Array%20to%20Make%20Coprime%20Products/README.md)  |    |  中等  |  第 335 场周赛  |
-|  2585  |  [获得分数的方法数](/solution/2500-2599/2585.Number%20of%20Ways%20to%20Earn%20Points/README.md)  |    |  困难  |  第 335 场周赛  |
+|  2578  |  [最小和分割](/solution/2500-2599/2578.Split%20With%20Minimum%20Sum/README.md)  |  `贪心`,`数学`,`排序`  |  简单  |  第 99 场双周赛  |
+|  2579  |  [统计染色格子数](/solution/2500-2599/2579.Count%20Total%20Number%20of%20Colored%20Cells/README.md)  |  `数学`  |  中等  |  第 99 场双周赛  |
+|  2580  |  [统计将重叠区间合并成组的方案数](/solution/2500-2599/2580.Count%20Ways%20to%20Group%20Overlapping%20Ranges/README.md)  |  `数组`,`排序`  |  中等  |  第 99 场双周赛  |
+|  2581  |  [统计可能的树根数目](/solution/2500-2599/2581.Count%20Number%20of%20Possible%20Root%20Nodes/README.md)  |  `树`,`深度优先搜索`,`哈希表`,`动态规划`  |  困难  |  第 99 场双周赛  |
+|  2582  |  [递枕头](/solution/2500-2599/2582.Pass%20the%20Pillow/README.md)  |  `数学`,`模拟`  |  简单  |  第 335 场周赛  |
+|  2583  |  [二叉树中的第 K 大层和](/solution/2500-2599/2583.Kth%20Largest%20Sum%20in%20a%20Binary%20Tree/README.md)  |  `树`,`广度优先搜索`,`二分查找`  |  中等  |  第 335 场周赛  |
+|  2584  |  [分割数组使乘积互质](/solution/2500-2599/2584.Split%20the%20Array%20to%20Make%20Coprime%20Products/README.md)  |  `数组`,`哈希表`,`数学`,`数论`  |  困难  |  第 335 场周赛  |
+|  2585  |  [获得分数的方法数](/solution/2500-2599/2585.Number%20of%20Ways%20to%20Earn%20Points/README.md)  |  `数组`,`动态规划`  |  困难  |  第 335 场周赛  |
+|  2586  |  [统计范围内的元音字符串数](/solution/2500-2599/2586.Count%20the%20Number%20of%20Vowel%20Strings%20in%20Range/README.md)  |    |  简单  |  第 336 场周赛  |
+|  2587  |  [重排数组以得到最大前缀分数](/solution/2500-2599/2587.Rearrange%20Array%20to%20Maximize%20Prefix%20Score/README.md)  |    |  中等  |  第 336 场周赛  |
+|  2588  |  [统计美丽子数组数目](/solution/2500-2599/2588.Count%20the%20Number%20of%20Beautiful%20Subarrays/README.md)  |    |  中等  |  第 336 场周赛  |
+|  2589  |  [完成所有任务的最少时间](/solution/2500-2599/2589.Minimum%20Time%20to%20Complete%20All%20Tasks/README.md)  |    |  困难  |  第 336 场周赛  |
 
 ## 版权
 
