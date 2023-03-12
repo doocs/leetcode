@@ -205,7 +205,7 @@ var missingNumber = function (nums) {
 
 ### **PHP**
 
-```
+```php
 class Solution {
     /**
      * @param Integer[] $nums
