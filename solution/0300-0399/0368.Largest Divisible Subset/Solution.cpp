@@ -1,14 +1,15 @@
 class Solution {
-    public List<Integer> largestDivisibleSubset(int[] nums) {
-        Arrays.sort(nums);
-        int n = nums.length;
-        int[] f = new int[n];
-        Arrays.fill(f, 1);
+public:
+    vector<int> largestDivisibleSubset(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int n = nums.size();
+        int f[n];
         int k = 0;
         for (int i = 0; i < n; ++i) {
+            f[i] = 1;
             for (int j = 0; j < i; ++j) {
                 if (nums[i] % nums[j] == 0) {
-                    f[i] = Math.max(f[i], f[j] + 1);
+                    f[i] = max(f[i], f[j] + 1);
                 }
             }
             if (f[k] < f[i]) {
@@ -16,14 +17,14 @@ class Solution {
             }
         }
         int m = f[k];
-        List<Integer> ans = new ArrayList<>();
+        vector<int> ans;
         for (int i = k; m > 0; --i) {
             if (nums[k] % nums[i] == 0 && f[i] == m) {
-                ans.add(nums[i]);
+                ans.push_back(nums[i]);
                 k = i;
                 --m;
             }
         }
         return ans;
     }
-}
+};
