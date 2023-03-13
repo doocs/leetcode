@@ -50,6 +50,30 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+我们定义 $f[i][j]$ 表示前 $i$ 根钢筋，两边高度差为 $j$ 时的最大共同高度。初始时 $f[0][0]=0$，其余 $f[i][j]=-\infty$。我们求出所有 $rods[i]$ 的和，记为 $s$，那么 $j$ 的取值范围为 $[0,..s]$。
+
+对于第 $i$ 根钢筋，我们可以不选择它，此时 $f[i][j]=f[i-1][j]$；也可以选择它，此时有三种情况：
+
+1. 放置在原本高度较高的一边，即满足 $j \geq rods[i-1]$，此时 $f[i][j] = max(f[i][j], f[i-1][j-rods[i-1]])$；
+1. 放置在原本高度较低的一遍，如果满足 $j + rods[i-1] \leq s$，此时 $f[i][j] = max(f[i][j], f[i-1][j+rods[i-1]] + rods[i-1])$；如果满足 $j \lt rods[i-1]$，此时 $f[i][j] = max(f[i][j], f[i-1][rods[i-1]-j] + rods[i-1]-j)$。
+
+综上，我们可以得到状态转移方程：
+
+$$
+\begin{aligned}
+f[i][j] &= f[i-1][j] \\
+f[i][j] &= max(f[i][j], f[i-1][j-rods[i-1]]) & \text{if } j \geq rods[i-1] \\
+f[i][j] &= max(f[i][j], f[i-1][j+rods[i-1]] + rods[i-1]) & \text{if } j + rods[i-1] \leq s \\
+f[i][j] &= max(f[i][j], f[i-1][rods[i-1]-j] + rods[i-1]-j) & \text{if } j \lt rods[i-1]
+\end{aligned}
+$$
+
+最终答案即为 $f[n][0]$。
+
+时间复杂度 $O(n \times S)$，空间复杂度 $O(n \times S)$。其中 $n$ 和 $S$ 分别为 $rods$ 的长度和 $rods$ 中所有元素的和。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -57,7 +81,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def tallestBillboard(self, rods: List[int]) -> int:
+        n = len(rods)
+        s = sum(rods)
+        f = [[-inf] * (s + 1) for _ in range(n + 1)]
+        f[0][0] = 0
+        t = 0
+        for i, x in enumerate(rods, 1):
+            t += x
+            for j in range(t + 1):
+                f[i][j] = f[i - 1][j]
+                if j >= x:
+                    f[i][j] = max(f[i][j], f[i - 1][j - x])
+                if j + x <= t:
+                    f[i][j] = max(f[i][j], f[i - 1][j + x] + x)
+                if j < x:
+                    f[i][j] = max(f[i][j], f[i - 1][x - j] + x - j)
+        return f[n][0]
 ```
 
 ### **Java**
@@ -65,7 +106,113 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int tallestBillboard(int[] rods) {
+        int n = rods.length;
+        int s = 0;
+        for (int x : rods) {
+            s += x;
+        }
+        int[][] f = new int[n + 1][s + 1];
+        for (var e : f) {
+            Arrays.fill(e, -(1 << 30));
+        }
+        f[0][0] = 0;
+        for (int i = 1, t = 0; i <= n; ++i) {
+            int x = rods[i - 1];
+            t += x;
+            for (int j = 0; j <= t; ++j) {
+                f[i][j] = f[i - 1][j];
+                if (j >= x) {
+                    f[i][j] = Math.max(f[i][j], f[i - 1][j - x]);
+                }
+                if (j + x <= t) {
+                    f[i][j] = Math.max(f[i][j], f[i - 1][j + x] + x);
+                }
+                if (j < x) {
+                    f[i][j] = Math.max(f[i][j], f[i - 1][x - j] + x - j);
+                }
+            }
+        }
+        return f[n][0];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int tallestBillboard(vector<int>& rods) {
+        int n = rods.size();
+        int s = accumulate(rods.begin(), rods.end(), 0);
+        int f[n + 1][s + 1];
+        memset(f, -0x3f, sizeof(f));
+        f[0][0] = 0;
+        for (int i = 1, t = 0; i <= n; ++i) {
+            int x = rods[i - 1];
+            t += x;
+            for (int j = 0; j <= t; ++j) {
+                f[i][j] = f[i - 1][j];
+                if (j >= x) {
+                    f[i][j] = max(f[i][j], f[i - 1][j - x]);
+                }
+                if (j + x <= t) {
+                    f[i][j] = max(f[i][j], f[i - 1][j + x] + x);
+                }
+                if (j < x) {
+                    f[i][j] = max(f[i][j], f[i - 1][x - j] + x - j);
+                }
+            }
+        }
+        return f[n][0];
+    }
+};
+```
+
+### **Go**
+
+```go
+func tallestBillboard(rods []int) int {
+	n := len(rods)
+	s := 0
+	for _, x := range rods {
+		s += x
+	}
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, s+1)
+		for j := range f[i] {
+			f[i][j] = -(1 << 30)
+		}
+	}
+	f[0][0] = 0
+	for i, t := 1, 0; i <= n; i++ {
+		x := rods[i-1]
+		t += x
+		for j := 0; j <= t; j++ {
+			f[i][j] = f[i-1][j]
+			if j >= x {
+				f[i][j] = max(f[i][j], f[i-1][j-x])
+			}
+			if j+x <= t {
+				f[i][j] = max(f[i][j], f[i-1][j+x]+x)
+			}
+			if j < x {
+				f[i][j] = max(f[i][j], f[i-1][x-j]+x-j)
+			}
+		}
+	}
+	return f[n][0]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
