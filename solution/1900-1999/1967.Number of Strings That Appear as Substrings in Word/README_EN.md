@@ -61,7 +61,7 @@
 ```python
 class Solution:
     def numOfStrings(self, patterns: List[str], word: str) -> int:
-        return sum(1 for p in patterns if p in word)
+        return sum(p in word for p in patterns)
 ```
 
 ### **Java**
@@ -69,28 +69,14 @@ class Solution:
 ```java
 class Solution {
     public int numOfStrings(String[] patterns, String word) {
-        int res = 0;
+        int ans = 0;
         for (String p : patterns) {
             if (word.contains(p)) {
-                ++res;
+                ++ans;
             }
         }
-        return res;
+        return ans;
     }
-}
-```
-
-### **TypeScript**
-
-```ts
-function numOfStrings(patterns: string[], word: string): number {
-    let ans = 0;
-    for (let pattern of patterns) {
-        if (word.includes(pattern)) {
-            ans++;
-        }
-    }
-    return ans;
 }
 ```
 
@@ -100,11 +86,11 @@ function numOfStrings(patterns: string[], word: string): number {
 class Solution {
 public:
     int numOfStrings(vector<string>& patterns, string word) {
-        int res = 0;
-        for (auto p : patterns)
-            if (word.find(p) != string::npos)
-                ++res;
-        return res;
+        int ans = 0;
+        for (auto& p : patterns) {
+            ans += word.find(p) != string::npos;
+        }
+        return ans;
     }
 };
 ```
@@ -112,14 +98,27 @@ public:
 ### **Go**
 
 ```go
-func numOfStrings(patterns []string, word string) int {
-    res := 0
-    for _, p := range patterns {
+func numOfStrings(patterns []string, word string) (ans int) {
+	for _, p := range patterns {
 		if strings.Contains(word, p) {
-			res++
+			ans++
 		}
 	}
-    return res
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function numOfStrings(patterns: string[], word: string): number {
+    let ans = 0;
+    for (const p of patterns) {
+        if (word.includes(p)) {
+            ++ans;
+        }
+    }
+    return ans;
 }
 ```
 
