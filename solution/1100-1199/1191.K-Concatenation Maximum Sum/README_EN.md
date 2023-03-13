@@ -50,13 +50,117 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def kConcatenationMaxSum(self, arr: List[int], k: int) -> int:
+        s = mx_pre = mi_pre = mx_sub = 0
+        for x in arr:
+            s += x
+            mx_pre = max(mx_pre, s)
+            mi_pre = min(mi_pre, s)
+            mx_sub = max(mx_sub, s - mi_pre)
+        ans = mx_sub
+        mod = 10**9 + 7
+        if k == 1:
+            return ans % mod
+        mx_suf = s - mi_pre
+        ans = max(ans, mx_pre + mx_suf)
+        if s > 0:
+            ans = max(ans, (k - 2) * s + mx_pre + mx_suf)
+        return ans % mod
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int kConcatenationMaxSum(int[] arr, int k) {
+        long s = 0, mxPre = 0, miPre = 0, mxSub = 0;
+        for (int x : arr) {
+            s += x;
+            mxPre = Math.max(mxPre, s);
+            miPre = Math.min(miPre, s);
+            mxSub = Math.max(mxSub, s - miPre);
+        }
+        long ans = mxSub;
+        final int mod = (int) 1e9 + 7;
+        if (k == 1) {
+            return (int) (ans % mod);
+        }
+        long mxSuf = s - miPre;
+        ans = Math.max(ans, mxPre + mxSuf);
+        if (s > 0) {
+            ans = Math.max(ans, (k - 2) * s + mxPre + mxSuf);
+        }
+        return (int) (ans % mod);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int kConcatenationMaxSum(vector<int>& arr, int k) {
+        long s = 0, mxPre = 0, miPre = 0, mxSub = 0;
+        for (int x : arr) {
+            s += x;
+            mxPre = max(mxPre, s);
+            miPre = min(miPre, s);
+            mxSub = max(mxSub, s - miPre);
+        }
+        long ans = mxSub;
+        const int mod = 1e9 + 7;
+        if (k == 1) {
+            return ans % mod;
+        }
+        long mxSuf = s - miPre;
+        ans = max(ans, mxPre + mxSuf);
+        if (s > 0) {
+            ans = max(ans, mxPre + (k - 2) * s + mxSuf);
+        }
+        return ans % mod;
+    }
+};
+```
+
+### **Go**
+
+```go
+func kConcatenationMaxSum(arr []int, k int) int {
+	var s, mxPre, miPre, mxSub int
+	for _, x := range arr {
+		s += x
+		mxPre = max(mxPre, s)
+		miPre = min(miPre, s)
+		mxSub = max(mxSub, s-miPre)
+	}
+	const mod = 1e9 + 7
+	ans := mxSub
+	if k == 1 {
+		return ans % mod
+	}
+	mxSuf := s - miPre
+	ans = max(ans, mxSuf+mxPre)
+	if s > 0 {
+		ans = max(ans, mxSuf+(k-2)*s+mxPre)
+	}
+	return ans % mod
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
