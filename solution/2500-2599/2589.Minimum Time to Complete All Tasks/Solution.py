@@ -4,7 +4,7 @@ class Solution:
         vis = [0] * 2010
         ans = 0
         for start, end, duration in tasks:
-            duration -= sum(vis[start: end + 1])
+            duration -= sum(vis[start : end + 1])
             i = end
             while i >= start and duration > 0:
                 if not vis[i]:
