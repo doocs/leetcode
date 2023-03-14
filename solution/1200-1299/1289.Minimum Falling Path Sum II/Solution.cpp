@@ -1,13 +1,14 @@
 class Solution {
-    public int minFallingPathSum(int[][] grid) {
-        int f = 0, g = 0;
-        int fp = -1;
-        final int inf = 1 << 30;
-        for (int[] row : grid) {
+public:
+    int minFallingPathSum(vector<vector<int>>& grid) {
+        int n = grid.size();
+        int f = 0, g = 0, fp = -1;
+        const int inf = 1 << 30;
+        for (auto& row : grid) {
             int ff = inf, gg = inf;
             int ffp = -1;
-            for (int j = 0; j < row.length; ++j) {
-                int s = (j != fp ? f : g) + row[j];
+            for (int j = 0; j < n; ++j) {
+                int s = (fp != j ? f : g) + row[j];
                 if (s < ff) {
                     gg = ff;
                     ff = s;
@@ -22,4 +23,4 @@ class Solution {
         }
         return f;
     }
-}
+};
