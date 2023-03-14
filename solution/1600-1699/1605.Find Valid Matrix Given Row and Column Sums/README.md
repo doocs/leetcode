@@ -88,6 +88,8 @@
 
 因此，我们把原问题缩小为一个 $m-1$ 行和 $n$ 列的子问题，继续进行上述的操作，直到 $rowSum$ 和 $colSum$ 中的所有元素都为 $0$，就可以得到一个满足题目要求的矩阵 $ans$。
 
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为 $rowSum$ 和 $colSum$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -189,10 +191,9 @@ func min(a, b int) int {
  * @return {number[][]}
  */
 var restoreMatrix = function (rowSum, colSum) {
-    const [m, n] = [rowSum.length, colSum.length];
-    const ans = Array(m)
-        .fill(0)
-        .map(() => Array(n).fill(0));
+    const m = rowSum.length;
+    const n = colSum.length;
+    const ans = Array.from(new Array(m), () => new Array(n).fill(0));
     for (let i = 0; i < m; i++) {
         for (let j = 0; j < n; j++) {
             const x = Math.min(rowSum[i], colSum[j]);
@@ -203,6 +204,25 @@ var restoreMatrix = function (rowSum, colSum) {
     }
     return ans;
 };
+```
+
+### **TypeScript**
+
+```ts
+function restoreMatrix(rowSum: number[], colSum: number[]): number[][] {
+    const m = rowSum.length;
+    const n = colSum.length;
+    const ans = Array.from(new Array(m), () => new Array(n).fill(0));
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            const x = Math.min(rowSum[i], colSum[j]);
+            ans[i][j] = x;
+            rowSum[i] -= x;
+            colSum[j] -= x;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**

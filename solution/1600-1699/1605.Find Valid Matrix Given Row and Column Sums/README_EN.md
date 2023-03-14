@@ -144,10 +144,9 @@ func min(a, b int) int {
  * @return {number[][]}
  */
 var restoreMatrix = function (rowSum, colSum) {
-    const [m, n] = [rowSum.length, colSum.length];
-    const ans = Array(m)
-        .fill(0)
-        .map(() => Array(n).fill(0));
+    const m = rowSum.length;
+    const n = colSum.length;
+    const ans = Array.from(new Array(m), () => new Array(n).fill(0));
     for (let i = 0; i < m; i++) {
         for (let j = 0; j < n; j++) {
             const x = Math.min(rowSum[i], colSum[j]);
@@ -158,6 +157,25 @@ var restoreMatrix = function (rowSum, colSum) {
     }
     return ans;
 };
+```
+
+### **TypeScript**
+
+```ts
+function restoreMatrix(rowSum: number[], colSum: number[]): number[][] {
+    const m = rowSum.length;
+    const n = colSum.length;
+    const ans = Array.from(new Array(m), () => new Array(n).fill(0));
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            const x = Math.min(rowSum[i], colSum[j]);
+            ans[i][j] = x;
+            rowSum[i] -= x;
+            colSum[j] -= x;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**

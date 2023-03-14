@@ -1,9 +1,4 @@
-/**
- * @param {number[]} rowSum
- * @param {number[]} colSum
- * @return {number[][]}
- */
-var restoreMatrix = function (rowSum, colSum) {
+function restoreMatrix(rowSum: number[], colSum: number[]): number[][] {
     const m = rowSum.length;
     const n = colSum.length;
     const ans = Array.from(new Array(m), () => new Array(n).fill(0));
@@ -16,4 +11,4 @@ var restoreMatrix = function (rowSum, colSum) {
         }
     }
     return ans;
-};
+}
