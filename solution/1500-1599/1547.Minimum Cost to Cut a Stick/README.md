@@ -55,6 +55,20 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划（区间 DP）**
+
+我们可以往切割点数组 $cuts$ 中添加两个元素，分别是 $0$ 和 $n$，表示棍子的两端。然后我们对 $cuts$ 数组进行排序，这样我们就可以将整个棍子切割为若干个区间，每个区间都有两个切割点。不妨设此时 $cuts$ 数组的长度为 $m$。
+
+接下来，我们定义 $f[i][j]$ 表示切割区间 $[cuts[i],..cuts[j]]$ 的最小成本。
+
+如果一个区间只有两个切割点，也就是说，我们无需切割这个区间，那么 $f[i][j] = 0$。
+
+否则，我们枚举区间的长度 $l$，其中 $l$ 等于切割点的数量减去 $1$。然后我们枚举区间的左端点 $i$，右端点 $j$ 可以由 $i + l$ 得到。对于每个区间，我们枚举它的切割点 $k$，其中 $i \lt k \lt j$，那么我们可以将区间 $[i, j]$ 切割为 $[i, k]$ 和 $[k, j]$，此时的成本为 $f[i][k] + f[k][j] + cuts[j] - cuts[i]$，我们取所有可能的 $k$ 中的最小值，即为 $f[i][j]$ 的值。
+
+最后，我们返回 $f[0][m - 1]$。
+
+时间复杂度 $O(m^3)$，空间复杂度 $O(m^2)$。其中 $m$ 为修改后的 $cuts$ 数组的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -62,7 +76,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minCost(self, n: int, cuts: List[int]) -> int:
+        cuts.extend([0, n])
+        cuts.sort()
+        m = len(cuts)
+        f = [[0] * m for _ in range(m)]
+        for l in range(2, m):
+            for i in range(m - l):
+                j = i + l
+                f[i][j] = inf
+                for k in range(i + 1, j):
+                    f[i][j] = min(f[i][j], f[i][k] + f[k][j] + cuts[j] - cuts[i])
+        return f[0][-1]
 ```
 
 ### **Java**
@@ -70,7 +96,85 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minCost(int n, int[] cuts) {
+        List<Integer> nums = new ArrayList<>();
+        for (int x : cuts) {
+            nums.add(x);
+        }
+        nums.add(0);
+        nums.add(n);
+        Collections.sort(nums);
+        int m = nums.size();
+        int[][] f = new int[m][m];
+        for (int l = 2; l < m; ++l) {
+            for (int i = 0; i + l < m; ++i) {
+                int j = i + l;
+                f[i][j] = 1 << 30;
+                for (int k = i + 1; k < j; ++k) {
+                    f[i][j] = Math.min(f[i][j], f[i][k] + f[k][j] + nums.get(j) - nums.get(i));
+                }
+            }
+        }
+        return f[0][m - 1];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minCost(int n, vector<int>& cuts) {
+        cuts.push_back(0);
+        cuts.push_back(n);
+        sort(cuts.begin(), cuts.end());
+        int m = cuts.size();
+        int f[110][110]{};
+        for (int l = 2; l < m; ++l) {
+            for (int i = 0; i + l < m; ++i) {
+                int j = i + l;
+                f[i][j] = 1 << 30;
+                for (int k = i + 1; k < j; ++k) {
+                    f[i][j] = min(f[i][j], f[i][k] + f[k][j] + cuts[j] - cuts[i]);
+                }
+            }
+        }
+        return f[0][m - 1];
+    }
+};
+```
+
+### **Go**
+
+```go
+func minCost(n int, cuts []int) int {
+	cuts = append(cuts, []int{0, n}...)
+	sort.Ints(cuts)
+	m := len(cuts)
+	f := make([][]int, m)
+	for i := range f {
+		f[i] = make([]int, m)
+	}
+	for l := 2; l < m; l++ {
+		for i := 0; i+l < m; i++ {
+			j := i + l
+			f[i][j] = 1 << 30
+			for k := i + 1; k < j; k++ {
+				f[i][j] = min(f[i][j], f[i][k]+f[k][j]+cuts[j]-cuts[i])
+			}
+		}
+	}
+	return f[0][m-1]
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
