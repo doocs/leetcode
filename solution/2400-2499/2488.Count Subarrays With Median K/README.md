@@ -14,13 +14,11 @@
 
 <ul>
 	<li>数组的中位数是按 <strong>递增</strong> 顺序排列后位于 <strong>中间</strong> 的那个元素，如果数组长度为偶数，则中位数是位于中间靠 <strong>左</strong> 的那个元素。
-
     <ul>
     	<li>例如，<code>[2,3,1,4]</code> 的中位数是 <code>2</code> ，<code>[8,4,3,5,1]</code> 的中位数是 <code>4</code> 。</li>
     </ul>
     </li>
     <li>子数组是数组中的一个连续部分。</li>
-
 </ul>
 
 <p>&nbsp;</p>
@@ -56,17 +54,21 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：中心扩展**
+**方法一：遍历 + 计数**
 
-我们先找到数字 $k$ 所在的位置 $i$，然后从 $i$ 向两边扩展，统计以 $i$ 为中心的子数组个数。
+我们先找到中位数 $k$ 在数组中的位置 $i$，然后从 $i$ 开始向两边遍历，统计中位数为 $k$ 的子数组的数目。
 
-扩展的过程中维护两个变量 $mi$ 和 $mx$，分别表示比 $k$ 小的数字个数和比 $k$ 大的数字个数。
+定义一个答案变量 $ans$，表示中位数为 $k$ 的子数组的数目。初始时 $ans = 1$，表示当前有一个长度为 $1$ 的子数组，其中位数为 $k$。另外，定义一个计数器 $cnt$，用于统计当前数组中，「比 $k$ 大的元素的个数」与「比 $k$ 小的元素的个数」的差值。
 
-先从 $i+1$ 向右扩展，若出现 $0 \leq mx-mi \leq 1$，此时右侧数组的中位数为 $k$，答案加 $1$。然后我们将 $mx-mi$ 的出现次数存放在数组或哈希表中，以便后续查询。
+接下来，从 $i + 1$ 开始向右遍历，我们维护一个变量 $x$，表示当前右侧子数组中「比 $k$ 大的元素的个数」与「比 $k$ 小的元素的个数」的差值。如果 $x \in [0, 1]$，则当前右侧子数组的中位数为 $k$，答案变量 $ans$ 自增 $1$。然后，我们将 $x$ 的值加入计数器 $cnt$ 中。
 
-接着从 $i-1$ 向左扩展，若出现 $0 \leq mx-mi \leq 1$，此时左侧数组的中位数为 $k$，答案加 $1$。然后我们查询数组或哈希表中 $mi-mx$ 以及 $mi-mx+1$ 的出现次数，将其加到答案中。
+同理，从 $i - 1$ 开始向左遍历，同样维护一个变量 $x$，表示当前左侧子数组中「比 $k$ 大的元素的个数」与「比 $k$ 小的元素的个数」的差值。如果 $x \in [0, 1]$，则当前左侧子数组的中位数为 $k$，答案变量 $ans$ 自增 $1$。如果 $-x$ 或 $-x + 1$ 也在计数器中，说明当前存在跨越 $i$ 左右两侧的子数组，其中位数为 $k$，答案变量 $ans$ 增加计数器中对应的值，即 $ans += cnt[-x] + cnt[-x + 1]$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
+最后，返回答案变量 $ans$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。
+
+> 在编码上，我们可以直接开一个长度为 $2 \times n + 1$ 的数组，用于统计当前数组中，比 $k$ 大的元素的个数与比 $k$ 小的元素的个数的差值，每一次我们将差值加上 $n$，即可将差值的范围从 $[-n, n]$ 转换为 $[0, 2n]$。
 
 <!-- tabs:start -->
 
@@ -77,28 +79,19 @@
 ```python
 class Solution:
     def countSubarrays(self, nums: List[int], k: int) -> int:
-        i = next(i for i, v in enumerate(nums) if v == k)
-        n = len(nums)
+        i = nums.index(k)
+        cnt = Counter()
         ans = 1
-        d = defaultdict(int)
-        mi = mx = 0
-        for j in range(i + 1, n):
-            if nums[j] < k:
-                mi += 1
-            else:
-                mx += 1
-            if 0 <= mx - mi <= 1:
-                ans += 1
-            d[mx - mi] += 1
-        mi = mx = 0
+        x = 0
+        for v in nums[i + 1:]:
+            x += 1 if v > k else -1
+            ans += 0 <= x <= 1
+            cnt[x] += 1
+        x = 0
         for j in range(i - 1, -1, -1):
-            if nums[j] < k:
-                mi += 1
-            else:
-                mx += 1
-            if 0 <= mx - mi <= 1:
-                ans += 1
-            ans += d[mi - mx] + d[mi - mx + 1]
+            x += 1 if nums[j] > k else -1
+            ans += 0 <= x <= 1
+            ans += cnt[-x] + cnt[-x + 1]
         return ans
 ```
 
@@ -111,38 +104,24 @@ class Solution {
     public int countSubarrays(int[] nums, int k) {
         int n = nums.length;
         int i = 0;
-        for (int j = 0; j < n; ++j) {
-            if (nums[j] == k) {
-                i = j;
-                break;
-            }
-        }
+        for (; nums[i] != k; ++i) {}
+        int[] cnt = new int[n << 1 | 1];
         int ans = 1;
-        int[] d = new int[n << 1 | 1];
-        int mi = 0, mx = 0;
+        int x = 0;
         for (int j = i + 1; j < n; ++j) {
-            if (nums[j] < k) {
-                ++mi;
-            } else {
-                ++mx;
-            }
-            if (mx - mi >= 0 && mx - mi <= 1) {
+            x += nums[j] > k ? 1 : -1;
+            if (x >= 0 && x <= 1) {
                 ++ans;
             }
-            ++d[mx - mi + n];
+            ++cnt[x + n];
         }
-        mi = 0;
-        mx = 0;
+        x = 0;
         for (int j = i - 1; j >= 0; --j) {
-            if (nums[j] < k) {
-                ++mi;
-            } else {
-                ++mx;
-            }
-            if (mx - mi >= 0 && mx - mi <= 1) {
+            x += nums[j] > k ? 1 : -1;
+            if (x >= 0 && x <= 1) {
                 ++ans;
             }
-            ans += d[mi - mx + n] + d[mi - mx + 1 + n];
+            ans += cnt[-x + n] + cnt[-x + 1 + n];
         }
         return ans;
     }
@@ -156,29 +135,25 @@ class Solution {
 public:
     int countSubarrays(vector<int>& nums, int k) {
         int n = nums.size();
-        int i = 0;
-        for (int j = 0; j < n; ++j) {
-            if (nums[j] == k) {
-                i = j;
-                break;
-            }
-        }
+        int i = find(nums.begin(), nums.end(), k) - nums.begin();
+        int cnt[n << 1 | 1];
+        memset(cnt, 0, sizeof(cnt));
         int ans = 1;
-        int d[n << 1 | 1];
-        memset(d, 0, sizeof d);
-        int mi = 0, mx = 0;
+        int x = 0;
         for (int j = i + 1; j < n; ++j) {
-            if (nums[j] < k) ++mi;
-            else ++mx;
-            if (mx - mi >= 0 && mx - mi <= 1) ++ans;
-            ++d[mx - mi + n];
+            x += nums[j] > k ? 1 : -1;
+            if (x >= 0 && x <= 1) {
+                ++ans;
+            }
+            ++cnt[x + n];
         }
-        mi = 0, mx = 0;
+        x = 0;
         for (int j = i - 1; ~j; --j) {
-            if (nums[j] < k) ++mi;
-            else ++mx;
-            if (mx - mi >= 0 && mx - mi <= 1) ++ans;
-            ans += d[mi - mx + n] + d[mi - mx + n + 1];
+            x += nums[j] > k ? 1 : -1;
+            if (x >= 0 && x <= 1) {
+                ++ans;
+            }
+            ans += cnt[-x + n] + cnt[-x + 1 + n];
         }
         return ans;
     }
@@ -189,41 +164,61 @@ public:
 
 ```go
 func countSubarrays(nums []int, k int) int {
-	n := len(nums)
-	var i int
-	for j, v := range nums {
-		if v == k {
-			i = j
-			break
-		}
-	}
-	ans := 1
-	d := make([]int, n<<1|1)
-	mi, mx := 0, 0
-	for j := i + 1; j < n; j++ {
-		if nums[j] < k {
-			mi++
-		} else {
-			mx++
-		}
-		if mx-mi >= 0 && mx-mi <= 1 {
-			ans++
-		}
-		d[mx-mi+n]++
-	}
-	mi, mx = 0, 0
-	for j := i - 1; j >= 0; j-- {
-		if nums[j] < k {
-			mi++
-		} else {
-			mx++
-		}
-		if mx-mi >= 0 && mx-mi <= 1 {
-			ans++
-		}
-		ans += d[mi-mx+n] + d[mi-mx+n+1]
-	}
-	return ans
+    i, n := 0, len(nums)
+    for nums[i] != k {
+        i++
+    }
+    ans := 1
+    cnt := make([]int, n << 1 | 1)
+    x := 0
+    for j := i + 1; j < n; j++ {
+        if nums[j] > k {
+            x++
+        } else {
+            x--
+        }
+        if x >= 0 && x <= 1 {
+            ans++
+        }
+        cnt[x + n]++
+    }
+    x = 0
+    for j := i - 1; j >= 0; j-- {
+        if nums[j] > k {
+            x++
+        } else {
+            x--
+        }
+        if x >= 0 && x <= 1 {
+            ans++
+        }
+        ans += cnt[-x + n] + cnt[-x + 1 + n]
+    }
+    return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function countSubarrays(nums: number[], k: number): number {
+    const i = nums.indexOf(k);
+    const n = nums.length;
+    const cnt = new Array((n << 1) | 1).fill(0);
+    let ans = 1;
+    let x = 0;
+    for (let j = i + 1; j < n; ++j) {
+        x += nums[j] > k ? 1 : -1;
+        ans += x >= 0 && x <= 1 ? 1 : 0;
+        ++cnt[x + n];
+    }
+    x = 0;
+    for (let j = i - 1; ~j; --j) {
+        x += nums[j] > k ? 1 : -1;
+        ans += x >= 0 && x <= 1 ? 1 : 0;
+        ans += cnt[-x + n] + cnt[-x + 1 + n];
+    }
+    return ans;
 }
 ```
 

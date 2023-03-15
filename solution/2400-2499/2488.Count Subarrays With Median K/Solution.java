@@ -2,38 +2,24 @@ class Solution {
     public int countSubarrays(int[] nums, int k) {
         int n = nums.length;
         int i = 0;
-        for (int j = 0; j < n; ++j) {
-            if (nums[j] == k) {
-                i = j;
-                break;
-            }
-        }
+        for (; nums[i] != k; ++i) {}
+        int[] cnt = new int[n << 1 | 1];
         int ans = 1;
-        int[] d = new int[n << 1 | 1];
-        int mi = 0, mx = 0;
+        int x = 0;
         for (int j = i + 1; j < n; ++j) {
-            if (nums[j] < k) {
-                ++mi;
-            } else {
-                ++mx;
-            }
-            if (mx - mi >= 0 && mx - mi <= 1) {
+            x += nums[j] > k ? 1 : -1;
+            if (x >= 0 && x <= 1) {
                 ++ans;
             }
-            ++d[mx - mi + n];
+            ++cnt[x + n];
         }
-        mi = 0;
-        mx = 0;
+        x = 0;
         for (int j = i - 1; j >= 0; --j) {
-            if (nums[j] < k) {
-                ++mi;
-            } else {
-                ++mx;
-            }
-            if (mx - mi >= 0 && mx - mi <= 1) {
+            x += nums[j] > k ? 1 : -1;
+            if (x >= 0 && x <= 1) {
                 ++ans;
             }
-            ans += d[mi - mx + n] + d[mi - mx + 1 + n];
+            ans += cnt[-x + n] + cnt[-x + 1 + n];
         }
         return ans;
     }

@@ -12,13 +12,11 @@
 
 <ul>
 	<li>The median of an array is the <strong>middle </strong>element after sorting the array in <strong>ascending </strong>order. If the array is of even length, the median is the <strong>left </strong>middle element.
-
     <ul>
     	<li>For example, the median of <code>[2,3,1,4]</code> is <code>2</code>, and the median of <code>[8,4,3,5,1]</code> is <code>4</code>.</li>
     </ul>
     </li>
     <li>A subarray is a contiguous part of an array.</li>
-
 </ul>
 
 <p>&nbsp;</p>
@@ -57,28 +55,19 @@
 ```python
 class Solution:
     def countSubarrays(self, nums: List[int], k: int) -> int:
-        i = next(i for i, v in enumerate(nums) if v == k)
-        n = len(nums)
+        i = nums.index(k)
+        cnt = Counter()
         ans = 1
-        d = defaultdict(int)
-        mi = mx = 0
-        for j in range(i + 1, n):
-            if nums[j] < k:
-                mi += 1
-            else:
-                mx += 1
-            if 0 <= mx - mi <= 1:
-                ans += 1
-            d[mx - mi] += 1
-        mi = mx = 0
+        x = 0
+        for v in nums[i + 1:]:
+            x += 1 if v > k else -1
+            ans += 0 <= x <= 1
+            cnt[x] += 1
+        x = 0
         for j in range(i - 1, -1, -1):
-            if nums[j] < k:
-                mi += 1
-            else:
-                mx += 1
-            if 0 <= mx - mi <= 1:
-                ans += 1
-            ans += d[mi - mx] + d[mi - mx + 1]
+            x += 1 if nums[j] > k else -1
+            ans += 0 <= x <= 1
+            ans += cnt[-x] + cnt[-x + 1]
         return ans
 ```
 
@@ -89,38 +78,24 @@ class Solution {
     public int countSubarrays(int[] nums, int k) {
         int n = nums.length;
         int i = 0;
-        for (int j = 0; j < n; ++j) {
-            if (nums[j] == k) {
-                i = j;
-                break;
-            }
-        }
+        for (; nums[i] != k; ++i) {}
+        int[] cnt = new int[n << 1 | 1];
         int ans = 1;
-        int[] d = new int[n << 1 | 1];
-        int mi = 0, mx = 0;
+        int x = 0;
         for (int j = i + 1; j < n; ++j) {
-            if (nums[j] < k) {
-                ++mi;
-            } else {
-                ++mx;
-            }
-            if (mx - mi >= 0 && mx - mi <= 1) {
+            x += nums[j] > k ? 1 : -1;
+            if (x >= 0 && x <= 1) {
                 ++ans;
             }
-            ++d[mx - mi + n];
+            ++cnt[x + n];
         }
-        mi = 0;
-        mx = 0;
+        x = 0;
         for (int j = i - 1; j >= 0; --j) {
-            if (nums[j] < k) {
-                ++mi;
-            } else {
-                ++mx;
-            }
-            if (mx - mi >= 0 && mx - mi <= 1) {
+            x += nums[j] > k ? 1 : -1;
+            if (x >= 0 && x <= 1) {
                 ++ans;
             }
-            ans += d[mi - mx + n] + d[mi - mx + 1 + n];
+            ans += cnt[-x + n] + cnt[-x + 1 + n];
         }
         return ans;
     }
@@ -134,29 +109,25 @@ class Solution {
 public:
     int countSubarrays(vector<int>& nums, int k) {
         int n = nums.size();
-        int i = 0;
-        for (int j = 0; j < n; ++j) {
-            if (nums[j] == k) {
-                i = j;
-                break;
-            }
-        }
+        int i = find(nums.begin(), nums.end(), k) - nums.begin();
+        int cnt[n << 1 | 1];
+        memset(cnt, 0, sizeof(cnt));
         int ans = 1;
-        int d[n << 1 | 1];
-        memset(d, 0, sizeof d);
-        int mi = 0, mx = 0;
+        int x = 0;
         for (int j = i + 1; j < n; ++j) {
-            if (nums[j] < k) ++mi;
-            else ++mx;
-            if (mx - mi >= 0 && mx - mi <= 1) ++ans;
-            ++d[mx - mi + n];
+            x += nums[j] > k ? 1 : -1;
+            if (x >= 0 && x <= 1) {
+                ++ans;
+            }
+            ++cnt[x + n];
         }
-        mi = 0, mx = 0;
+        x = 0;
         for (int j = i - 1; ~j; --j) {
-            if (nums[j] < k) ++mi;
-            else ++mx;
-            if (mx - mi >= 0 && mx - mi <= 1) ++ans;
-            ans += d[mi - mx + n] + d[mi - mx + n + 1];
+            x += nums[j] > k ? 1 : -1;
+            if (x >= 0 && x <= 1) {
+                ++ans;
+            }
+            ans += cnt[-x + n] + cnt[-x + 1 + n];
         }
         return ans;
     }
@@ -167,41 +138,61 @@ public:
 
 ```go
 func countSubarrays(nums []int, k int) int {
-	n := len(nums)
-	var i int
-	for j, v := range nums {
-		if v == k {
-			i = j
-			break
-		}
-	}
-	ans := 1
-	d := make([]int, n<<1|1)
-	mi, mx := 0, 0
-	for j := i + 1; j < n; j++ {
-		if nums[j] < k {
-			mi++
-		} else {
-			mx++
-		}
-		if mx-mi >= 0 && mx-mi <= 1 {
-			ans++
-		}
-		d[mx-mi+n]++
-	}
-	mi, mx = 0, 0
-	for j := i - 1; j >= 0; j-- {
-		if nums[j] < k {
-			mi++
-		} else {
-			mx++
-		}
-		if mx-mi >= 0 && mx-mi <= 1 {
-			ans++
-		}
-		ans += d[mi-mx+n] + d[mi-mx+n+1]
-	}
-	return ans
+    i, n := 0, len(nums)
+    for nums[i] != k {
+        i++
+    }
+    ans := 1
+    cnt := make([]int, n << 1 | 1)
+    x := 0
+    for j := i + 1; j < n; j++ {
+        if nums[j] > k {
+            x++
+        } else {
+            x--
+        }
+        if x >= 0 && x <= 1 {
+            ans++
+        }
+        cnt[x + n]++
+    }
+    x = 0
+    for j := i - 1; j >= 0; j-- {
+        if nums[j] > k {
+            x++
+        } else {
+            x--
+        }
+        if x >= 0 && x <= 1 {
+            ans++
+        }
+        ans += cnt[-x + n] + cnt[-x + 1 + n]
+    }
+    return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function countSubarrays(nums: number[], k: number): number {
+    const i = nums.indexOf(k);
+    const n = nums.length;
+    const cnt = new Array((n << 1) | 1).fill(0);
+    let ans = 1;
+    let x = 0;
+    for (let j = i + 1; j < n; ++j) {
+        x += nums[j] > k ? 1 : -1;
+        ans += x >= 0 && x <= 1 ? 1 : 0;
+        ++cnt[x + n];
+    }
+    x = 0;
+    for (let j = i - 1; ~j; --j) {
+        x += nums[j] > k ? 1 : -1;
+        ans += x >= 0 && x <= 1 ? 1 : 0;
+        ans += cnt[-x + n] + cnt[-x + 1 + n];
+    }
+    return ans;
 }
 ```
 

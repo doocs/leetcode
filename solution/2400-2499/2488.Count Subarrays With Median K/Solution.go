@@ -1,37 +1,33 @@
 func countSubarrays(nums []int, k int) int {
-	n := len(nums)
-	var i int
-	for j, v := range nums {
-		if v == k {
-			i = j
-			break
-		}
+	i, n := 0, len(nums)
+	for nums[i] != k {
+		i++
 	}
 	ans := 1
-	d := make([]int, n<<1|1)
-	mi, mx := 0, 0
+	cnt := make([]int, n<<1|1)
+	x := 0
 	for j := i + 1; j < n; j++ {
-		if nums[j] < k {
-			mi++
+		if nums[j] > k {
+			x++
 		} else {
-			mx++
+			x--
 		}
-		if mx-mi >= 0 && mx-mi <= 1 {
+		if x >= 0 && x <= 1 {
 			ans++
 		}
-		d[mx-mi+n]++
+		cnt[x+n]++
 	}
-	mi, mx = 0, 0
+	x = 0
 	for j := i - 1; j >= 0; j-- {
-		if nums[j] < k {
-			mi++
+		if nums[j] > k {
+			x++
 		} else {
-			mx++
+			x--
 		}
-		if mx-mi >= 0 && mx-mi <= 1 {
+		if x >= 0 && x <= 1 {
 			ans++
 		}
-		ans += d[mi-mx+n] + d[mi-mx+n+1]
+		ans += cnt[-x+n] + cnt[-x+1+n]
 	}
 	return ans
 }
