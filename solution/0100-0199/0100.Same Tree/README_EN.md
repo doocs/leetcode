@@ -567,10 +567,10 @@ class Solution {
         if ($p == Null || $q == Null) {
             return false;
         }
-        if ($p -> val != $q -> val) {
+        if ($p->val != $q->val) {
             return false;
         }
-        return $this -> isSameTree($p -> left, $q -> left) && $this -> isSameTree($p -> right, $q -> right);
+        return $this->isSameTree($p->left, $q->left) && $this->isSameTree($p->right, $q->right);
     }
 }
 ```
