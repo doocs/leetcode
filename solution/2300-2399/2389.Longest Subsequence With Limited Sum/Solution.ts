@@ -1,14 +1,24 @@
 function answerQueries(nums: number[], queries: number[]): number[] {
-    const n = nums.length;
     nums.sort((a, b) => a - b);
-    return queries.map(query => {
-        let sum = 0;
-        for (let i = 0; i < n; i++) {
-            sum += nums[i];
-            if (sum > query) {
-                return i;
+    for (let i = 1; i < nums.length; i++) {
+        nums[i] += nums[i - 1];
+    }
+    const ans: number[] = [];
+    const search = (nums: number[], x: number) => {
+        let l = 0;
+        let r = nums.length;
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (nums[mid] > x) {
+                r = mid;
+            } else {
+                l = mid + 1;
             }
         }
-        return n;
-    });
+        return l;
+    };
+    for (const q of queries) {
+        ans.push(search(nums, q));
+    }
+    return ans;
 }

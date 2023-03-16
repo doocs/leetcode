@@ -49,9 +49,11 @@
 
 **方法一：排序 + 前缀和 + 二分查找**
 
-将 `nums` 排序，对于每个 `queries[i]`，求出 `nums` 中所有元素之和小于等于 `queries[i]` 的子序列的最大长度。
+根据题目描述，对于每个 $queries[i]$，我们需要找到一个子序列，使得该子序列的元素和不超过 $queries[i]$，且该子序列的长度最大化。显然，我们应该选择尽可能小的元素，这样才能使得子序列的长度最大化。
 
-时间复杂度 $O((n+m)\times logn)$。其中 $n$ 和 $m$ 分别为 `nums` 和 `queries` 的长度。
+因此，我们可以先将数组 $nums$ 进行升序排序，然后对于每个 $queries[i]$，我们可以使用二分查找，找到最小的下标 $j$，使得 $nums[0] + nums[1] + \cdots + nums[j] \gt queries[i]$。此时 $nums[0] + nums[1] + \cdots + nums[j - 1]$ 就是满足条件的子序列的元素和，且该子序列的长度为 $j$。因此，我们可以将 $j$ 加入答案数组中。
+
+时间复杂度 $O((n + m) \times \log n)$，空间复杂度 $O(n)$ 或 $O(\log n)$。其中 $n$ 和 $m$ 分别是数组 $nums$ 和 $queries$ 的长度。
 
 <!-- tabs:start -->
 
@@ -64,7 +66,7 @@ class Solution:
     def answerQueries(self, nums: List[int], queries: List[int]) -> List[int]:
         nums.sort()
         s = list(accumulate(nums))
-        return [bisect_right(s, v) for v in queries]
+        return [bisect_right(s, q) for q in queries]
 ```
 
 ### **Java**
@@ -75,30 +77,28 @@ class Solution:
 class Solution {
     public int[] answerQueries(int[] nums, int[] queries) {
         Arrays.sort(nums);
-        int n = nums.length;
-        int[] s = new int[n + 1];
-        for (int i = 0; i < n; ++i) {
-            s[i + 1] = s[i] + nums[i];
+        for (int i = 1; i < nums.length; ++i) {
+            nums[i] += nums[i - 1];
         }
         int m = queries.length;
         int[] ans = new int[m];
         for (int i = 0; i < m; ++i) {
-            ans[i] = search(s, queries[i]);
+            ans[i] = search(nums, queries[i]);
         }
         return ans;
     }
-
-    private int search(int[] s, int v) {
-        int left = 1, right = s.length;
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            if (s[mid] > v) {
-                right = mid;
+    
+    private int search(int[] nums, int x) {
+        int l = 0, r = nums.length;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (nums[mid] > x) {
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return left - 1;
+        return l;
     }
 }
 ```
@@ -110,14 +110,12 @@ class Solution {
 public:
     vector<int> answerQueries(vector<int>& nums, vector<int>& queries) {
         sort(nums.begin(), nums.end());
-        int n = nums.size(), m = queries.size();
-        vector<int> s(n + 1);
-        for (int i = 0; i < n; ++i) {
-            s[i + 1] = s[i] + nums[i];
+        for (int i = 1; i < nums.size(); i++) {
+            nums[i] += nums[i - 1];
         }
-        vector<int> ans(m);
-        for (int i = 0; i < m; ++i) {
-            ans[i] = upper_bound(s.begin() + 1, s.end(), queries[i]) - s.begin() - 1;
+        vector<int> ans;
+        for (auto& q : queries) {
+            ans.push_back(upper_bound(nums.begin(), nums.end(), q) - nums.begin());
         }
         return ans;
     }
@@ -127,27 +125,15 @@ public:
 ### **Go**
 
 ```go
-func answerQueries(nums []int, queries []int) []int {
+func answerQueries(nums []int, queries []int) (ans []int) {
 	sort.Ints(nums)
-	n, m := len(nums), len(queries)
-	s := make([]int, n+1)
-	for i, v := range nums {
-		s[i+1] = s[i] + v
+	for i := 1; i < len(nums); i++ {
+		nums[i] += nums[i-1]
 	}
-	ans := make([]int, m)
-	for i, v := range queries {
-		left, right := 1, len(s)
-		for left < right {
-			mid := (left + right) >> 1
-			if s[mid] > v {
-				right = mid
-			} else {
-				left = mid + 1
-			}
-		}
-		ans[i] = left - 1
+	for _, q := range queries {
+		ans = append(ans, sort.SearchInts(nums, q+1))
 	}
-	return ans
+	return
 }
 ```
 
@@ -155,18 +141,28 @@ func answerQueries(nums []int, queries []int) []int {
 
 ```ts
 function answerQueries(nums: number[], queries: number[]): number[] {
-    const n = nums.length;
     nums.sort((a, b) => a - b);
-    return queries.map(query => {
-        let sum = 0;
-        for (let i = 0; i < n; i++) {
-            sum += nums[i];
-            if (sum > query) {
-                return i;
+    for (let i = 1; i < nums.length; i++) {
+        nums[i] += nums[i - 1];
+    }
+    const ans: number[] = [];
+    const search = (nums: number[], x: number) => {
+        let l = 0;
+        let r = nums.length;
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (nums[mid] > x) {
+                r = mid;
+            } else {
+                l = mid + 1;
             }
         }
-        return n;
-    });
+        return l;
+    };
+    for (const q of queries) {
+        ans.push(search(nums, q));
+    }
+    return ans;
 }
 ```
 
