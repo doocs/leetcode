@@ -60,13 +60,13 @@ There are no more stars, so we return &quot;lecoe&quot;.</pre>
 ```python
 class Solution:
     def removeStars(self, s: str) -> str:
-        stk = []
+        ans = []
         for c in s:
             if c == '*':
-                stk.pop()
+                ans.pop()
             else:
-                stk.append(c)
-        return ''.join(stk)
+                ans.append(c)
+        return ''.join(ans)
 ```
 
 ### **Java**
@@ -74,15 +74,15 @@ class Solution:
 ```java
 class Solution {
     public String removeStars(String s) {
-        StringBuilder sb = new StringBuilder();
-        for (char c : s.toCharArray()) {
-            if (c == '*') {
-                sb.deleteCharAt(sb.length() - 1);
+        StringBuilder ans = new StringBuilder();
+        for (int i = 0; i < s.length(); ++i) {
+            if (s.charAt(i) == '*') {
+                ans.deleteCharAt(ans.length() - 1);
             } else {
-                sb.append(c);
+                ans.append(s.charAt(i));
             }
         }
-        return sb.toString();
+        return ans.toString();
     }
 }
 ```
@@ -95,8 +95,11 @@ public:
     string removeStars(string s) {
         string ans;
         for (char c : s) {
-            if (c == '*') ans.pop_back();
-            else ans.push_back(c);
+            if (c == '*') {
+                ans.pop_back();
+            } else {
+                ans.push_back(c);
+            }
         }
         return ans;
     }
@@ -123,15 +126,15 @@ func removeStars(s string) string {
 
 ```ts
 function removeStars(s: string): string {
-    const stack = [];
+    const ans: string[] = [];
     for (const c of s) {
         if (c === '*') {
-            stack.pop();
+            ans.pop();
         } else {
-            stack.push(c);
+            ans.push(c);
         }
     }
-    return stack.join('');
+    return ans.join('');
 }
 ```
 
@@ -140,15 +143,15 @@ function removeStars(s: string): string {
 ```rust
 impl Solution {
     pub fn remove_stars(s: String) -> String {
-        let mut res = String::new();
+        let mut ans = String::new();
         for &c in s.as_bytes().iter() {
             if c == b'*' {
-                res.pop();
+                ans.pop();
             } else {
-                res.push(char::from(c));
+                ans.push(char::from(c));
             }
         }
-        res
+        ans
     }
 }
 ```
