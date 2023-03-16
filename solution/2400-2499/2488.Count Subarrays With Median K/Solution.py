@@ -4,7 +4,7 @@ class Solution:
         cnt = Counter()
         ans = 1
         x = 0
-        for v in nums[i + 1:]:
+        for v in nums[i + 1 :]:
             x += 1 if v > k else -1
             ans += 0 <= x <= 1
             cnt[x] += 1
