@@ -53,15 +53,18 @@ For nums[4]=3 there exist three smaller numbers than it (1, 2 and 2).
 ```python
 class Solution:
     def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
-        cnt = [0] * 101
-        for num in nums:
-            cnt[num] += 1
-        for i in range(1, 101):
-            cnt[i] += cnt[i - 1]
-        res = []
-        for num in nums:
-            res.append(0 if num == 0 else cnt[num - 1])
-        return res
+        arr = sorted(nums)
+        return [bisect_left(arr, x) for x in nums]
+```
+
+```python
+class Solution:
+    def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
+        cnt = [0] * 102
+        for x in nums:
+            cnt[x + 1] += 1
+        s = list(accumulate(cnt))
+        return [s[x] for x in nums]
 ```
 
 ### **Java**
@@ -69,19 +72,112 @@ class Solution:
 ```java
 class Solution {
     public int[] smallerNumbersThanCurrent(int[] nums) {
-        int[] cnt = new int[101];
-        for (int e : nums) {
-            ++cnt[e];
+        int[] arr = nums.clone();
+        Arrays.sort(arr);
+        for (int i = 0; i < nums.length; ++i) {
+            nums[i] = search(arr, nums[i]);
         }
-        for (int i = 1; i < 101; ++i) {
+        return nums;
+    }
+
+    private int search(int[] nums, int x) {
+        int l = 0, r = nums.length;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (nums[mid] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    }
+}
+```
+
+```java
+class Solution {
+    public int[] smallerNumbersThanCurrent(int[] nums) {
+        int[] cnt = new int[102];
+        for (int x : nums) {
+            ++cnt[x + 1];
+        }
+        for (int i = 1; i < cnt.length; ++i) {
             cnt[i] += cnt[i - 1];
         }
-        int[] res = new int[nums.length];
-        for (int i = 0; i < nums.length; ++i) {
-            res[i] = nums[i] == 0 ? 0 : cnt[nums[i] - 1];
+        int n = nums.length;
+        int[] ans = new int[n];
+        for (int i = 0; i < n; ++i) {
+            ans[i] = cnt[nums[i]];
         }
-        return res;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> smallerNumbersThanCurrent(vector<int>& nums) {
+        vector<int> arr = nums;
+        sort(arr.begin(), arr.end());
+        for (int i = 0; i < nums.size(); ++i) {
+            nums[i] = lower_bound(arr.begin(), arr.end(), nums[i]) - arr.begin();
+        }
+        return nums;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> smallerNumbersThanCurrent(vector<int>& nums) {
+        int cnt[102]{};
+        for (int& x : nums) {
+            ++cnt[x + 1];
+        }
+        for (int i = 1; i < 102; ++i) {
+            cnt[i] += cnt[i - 1];
+        }
+        vector<int> ans;
+        for (int& x : nums) {
+            ans.push_back(cnt[x]);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func smallerNumbersThanCurrent(nums []int) (ans []int) {
+	arr := make([]int, len(nums))
+	copy(arr, nums)
+	sort.Ints(arr)
+	for i, x := range nums {
+		nums[i] = sort.SearchInts(arr, x)
+	}
+	return nums
+}
+```
+
+```go
+func smallerNumbersThanCurrent(nums []int) (ans []int) {
+	cnt := [102]int{}
+	for _, x := range nums {
+		cnt[x+1]++
+	}
+	for i := 1; i < len(cnt); i++ {
+		cnt[i] += cnt[i-1]
+	}
+	for _, x := range nums {
+		ans = append(ans, cnt[x])
+	}
+	return
 }
 ```
 
