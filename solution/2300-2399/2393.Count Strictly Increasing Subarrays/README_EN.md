@@ -59,6 +59,20 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def countSubarrays(self, nums: List[int]) -> int:
+        ans = pre = cnt = 0
+        for x in nums:
+            if pre < x:
+                cnt += 1
+            else:
+                cnt = 1
+            pre = x
+            ans += cnt
+        return ans
+```
+
 ### **Java**
 
 ```java
@@ -80,6 +94,25 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public long countSubarrays(int[] nums) {
+        long ans = 0;
+        int pre = 0, cnt = 0;
+        for (int x : nums) {
+            if (pre < x) {
+                ++cnt;
+            } else {
+                cnt = 1;
+            }
+            pre = x;
+            ans += cnt;
+        }
+        return ans;
+    }
+}
+``
+
 ### **C++**
 
 ```cpp
@@ -96,6 +129,26 @@ public:
             int cnt = j - i;
             ans += 1ll * (1 + cnt) * cnt / 2;
             i = j;
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    long long countSubarrays(vector<int>& nums) {
+        long long ans = 0;
+        int pre = 0, cnt = 0;
+        for (int x : nums) {
+            if (pre < x) {
+                ++cnt;
+            } else {
+                cnt = 1;
+            }
+            ans += cnt;
+            pre = x;
         }
         return ans;
     }
@@ -121,6 +174,22 @@ func countSubarrays(nums []int) int64 {
 }
 ```
 
+```go
+func countSubarrays(nums []int) (ans int64) {
+	pre, cnt := 0, 0
+	for _, x := range nums {
+		if pre < x {
+			cnt++
+		} else {
+			cnt = 1
+		}
+		ans += int64(cnt)
+		pre = x
+	}
+	return
+}
+```
+
 ### **TypeScript**
 
 ```ts
@@ -136,6 +205,24 @@ function countSubarrays(nums: number[]): number {
         const cnt = j - i;
         ans += ((1 + cnt) * cnt) / 2;
         i = j;
+    }
+    return ans;
+}
+```
+
+```ts
+function countSubarrays(nums: number[]): number {
+    let ans = 0;
+    let pre = 0;
+    let cnt = 0;
+    for (const x of nums) {
+        if (pre < x) {
+            ++cnt;
+        } else {
+            cnt = 1;
+        }
+        ans += cnt;
+        pre = x;
     }
     return ans;
 }
