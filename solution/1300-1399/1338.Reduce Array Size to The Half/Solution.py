@@ -1,10 +1,10 @@
 class Solution:
     def minSetSize(self, arr: List[int]) -> int:
-        couter = Counter(arr)
-        ans = n = 0
-        for _, cnt in couter.most_common():
-            n += cnt
+        cnt = Counter(arr)
+        ans = m = 0
+        for _, v in cnt.most_common():
+            m += v
             ans += 1
-            if n * 2 >= len(arr):
+            if m * 2 >= len(arr):
                 break
         return ans

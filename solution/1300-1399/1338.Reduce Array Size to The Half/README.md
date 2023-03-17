@@ -44,7 +44,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-哈希表计数，按出现的频率倒序。
+**方法一：计数 + 排序**
+
+我们可以用哈希表或数组 $cnt$ 统计数组 $arr$ 中每个数字出现的次数，然后将 $cnt$ 中的数字从大到小排序，从大到小遍历 $cnt$，每次遍历将当前数字 $x$ 加入答案，并将 $m$ 加上 $x$，如果 $m \geq \frac{n}{2}$，则返回答案。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $arr$ 的长度。
 
 <!-- tabs:start -->
 
@@ -55,12 +59,12 @@
 ```python
 class Solution:
     def minSetSize(self, arr: List[int]) -> int:
-        couter = Counter(arr)
-        ans = n = 0
-        for _, cnt in couter.most_common():
-            n += cnt
+        cnt = Counter(arr)
+        ans = m = 0
+        for _, v in cnt.most_common():
+            m += v
             ans += 1
-            if n * 2 >= len(arr):
+            if m * 2 >= len(arr):
                 break
         return ans
 ```
@@ -72,25 +76,26 @@ class Solution:
 ```java
 class Solution {
     public int minSetSize(int[] arr) {
-        Map<Integer, Integer> counter = new HashMap<>();
-        for (int v : arr) {
-            counter.put(v, counter.getOrDefault(v, 0) + 1);
+        int mx = 0;
+        for (int x : arr) {
+            mx = Math.max(mx, x);
         }
-        List<Integer> t = new ArrayList<>();
-        for (int cnt : counter.values()) {
-            t.add(cnt);
+        int[] cnt = new int[mx + 1];
+        for (int x : arr) {
+            ++cnt[x];
         }
-        Collections.sort(t, Collections.reverseOrder());
+        Arrays.sort(cnt);
         int ans = 0;
-        int n = 0;
-        for (int cnt : t) {
-            n += cnt;
-            ++ans;
-            if (n * 2 >= arr.length) {
-                break;
+        int m = 0;
+        for (int i = mx; ; --i) {
+            if (cnt[i] > 0) {
+                m += cnt[i];
+                ++ans;
+                if (m * 2 >= arr.length) {
+                    return ans;
+                }
             }
         }
-        return ans;
     }
 }
 ```
@@ -101,17 +106,23 @@ class Solution {
 class Solution {
 public:
     int minSetSize(vector<int>& arr) {
-        unordered_map<int, int> counter;
-        for (int v : arr) ++counter[v];
-        vector<int> t;
-        for (auto& [k, v] : counter) t.push_back(v);
-        sort(t.begin(), t.end(), greater<int>());
+        int mx = *max_element(arr.begin(), arr.end());
+        int cnt[mx + 1];
+        memset(cnt, 0, sizeof(cnt));
+        for (int& x : arr) {
+            ++cnt[x];
+        }
+        sort(cnt, cnt + mx + 1, greater<int>());
         int ans = 0;
-        int n = 0;
-        for (int cnt : t) {
-            n += cnt;
-            ++ans;
-            if (n * 2 >= arr.size()) break;
+        int m = 0;
+        for (int& x : cnt) {
+            if (x) {
+                m += x;
+                ++ans;
+                if (m * 2 >= arr.size()) {
+                    break;
+                }
+            }
         }
         return ans;
     }
@@ -121,27 +132,32 @@ public:
 ### **Go**
 
 ```go
-func minSetSize(arr []int) int {
-	counter := make(map[int]int)
-	for _, v := range arr {
-		counter[v]++
+func minSetSize(arr []int) (ans int) {
+	mx := 0
+	for _, x := range arr {
+		mx = max(mx, x)
 	}
-	var t []int
-	for _, v := range counter {
-		t = append(t, v)
+	cnt := make([]int, mx+1)
+	for _, x := range arr {
+		cnt[x]++
 	}
-	sort.Slice(t, func(i, j int) bool {
-		return t[i] > t[j]
-	})
-	ans, n := 0, 0
-	for _, cnt := range t {
-		n += cnt
-		ans++
-		if n*2 >= len(arr) {
-			break
+	sort.Ints(cnt)
+	for i, m := mx, 0; ; i-- {
+		if cnt[i] > 0 {
+			m += cnt[i]
+			ans++
+			if m >= len(arr)/2 {
+				return
+			}
 		}
 	}
-	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
