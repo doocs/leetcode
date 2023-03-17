@@ -88,35 +88,32 @@
 ```python
 class Solution:
     def garbageCollection(self, garbage: List[str], travel: List[int]) -> int:
-        def f(c):
-            tot = sum(v.count(c) for v in garbage)
-            res = 0
-            for i, v in enumerate(garbage):
-                t = v.count(c)
-                res += t
-                tot -= t
-                if tot == 0:
-                    break
-                if i < n - 1:
-                    res += travel[i]
-            return res
-
-        n = len(garbage)
-        return f('M') + f('P') + f('G')
+        ans = 0
+        last = {}
+        for i, s in enumerate(garbage):
+            ans += len(s)
+            for c in s:
+                last[c] = i
+        s = list(accumulate(travel, initial=0))
+        ans += sum(s[i] for i in last.values())
+        return ans
 ```
 
 ```python
 class Solution:
     def garbageCollection(self, garbage: List[str], travel: List[int]) -> int:
-        ans = 0
-        pos = {}
-        for i, v in enumerate(garbage):
-            ans += len(v)
-            for c in v:
-                pos[c] = i
-        s = list(accumulate(travel, initial=0))
-        ans += sum(s[i] for i in pos.values())
-        return ans
+        def f(x: str) -> int:
+            ans = 0
+            st = 0
+            for i, s in enumerate(garbage):
+                if t := s.count(x):
+                    ans += t + st
+                    st = 0
+                if i < len(travel):
+                    st += travel[i]
+            return ans
+
+        return f('M') + f('P') + f('G')
 ```
 
 ### **Java**
@@ -125,63 +122,58 @@ class Solution:
 
 ```java
 class Solution {
-    private String[] g;
-    private int[] travel;
-
     public int garbageCollection(String[] garbage, int[] travel) {
-        g = garbage;
-        this.travel = travel;
-        return f('M') + f('P') + f('G');
-    }
-
-    private int f(char c) {
-        int tot = 0;
-        for (var v : g) {
-            for (char ch : v.toCharArray()) {
-                if (ch == c) {
-                    ++tot;
-                }
+        int[] last = new int[26];
+        int n = garbage.length;
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            int k = garbage[i].length();
+            ans += k;
+            for (int j = 0; j < k; ++j) {
+                last[garbage[i].charAt(j) - 'A'] = i;
             }
         }
-        int res = 0;
-        for (int i = 0; i < g.length; ++i) {
-            int t = 0;
-            for (char ch : g[i].toCharArray()) {
-                if (ch == c) {
-                    ++t;
-                }
-            }
-            res += t;
-            tot -= t;
-            if (tot == 0) {
-                break;
-            }
-            if (i < g.length - 1) {
-                res += travel[i];
-            }
+        int m = travel.length;
+        int[] s = new int[m + 1];
+        for (int i = 0; i < m; ++i) {
+            s[i + 1] = s[i] + travel[i];
         }
-        return res;
+        for (int i : last) {
+            ans += s[i];
+        }
+        return ans;
     }
 }
 ```
 
 ```java
 class Solution {
+    private String[] garbage;
+    private int[] travel;
+
     public int garbageCollection(String[] garbage, int[] travel) {
+        this.garbage = garbage;
+        this.travel = travel;
+        return f('M') + f('P') + f('G');
+    }
+
+    private int f(char c) {
         int ans = 0;
-        int[] pos = new int[26];
+        int st = 0;
         for (int i = 0; i < garbage.length; ++i) {
-            ans += garbage[i].length();
-            for (char c : garbage[i].toCharArray()) {
-                pos[c - 'A'] = i;
+            int cnt = 0;
+            for (int j = 0; j < garbage[i].length(); ++j) {
+                if (garbage[i].charAt(j) == c) {
+                    ++cnt;
+                }
             }
-        }
-        int[] s = new int[travel.length + 1];
-        for (int i = 0; i < travel.length; ++i) {
-            s[i + 1] = s[i] + travel[i];
-        }
-        for (int i : pos) {
-            ans += s[i];
+            if (cnt > 0) {
+                ans += cnt + st;
+                st = 0;
+            }
+            if (i < travel.length) {
+                st += travel[i];
+            }
         }
         return ans;
     }
@@ -193,34 +185,25 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<string> g;
-    vector<int> travel;
-
     int garbageCollection(vector<string>& garbage, vector<int>& travel) {
-        g = garbage;
-        this->travel = travel;
-        return f('M') + f('P') + f('G');
-    }
-
-    int f(char c) {
-        int tot = 0;
-        for (string& v : g) {
-            for (char ch : v) {
-                tot += ch == c;
+        int n = garbage.size(), m = travel.size();
+        int last[26]{};
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans += garbage[i].size();
+            for (char& c : garbage[i]) {
+                last[c - 'A'] = i;
             }
         }
-        int res = 0;
-        for (int i = 0; i < g.size(); ++i) {
-            int t = 0;
-            for (char ch : g[i]) {
-                t += ch == c;
-            }
-            res += t;
-            tot -= t;
-            if (tot == 0) break;
-            if (i < g.size() - 1) res += travel[i];
+        int s[m + 1];
+        s[0] = 0;
+        for (int i = 1; i <= m; ++i) {
+            s[i] = s[i - 1] + travel[i - 1];
         }
-        return res;
+        for (int i : last) {
+            ans += s[i];
+        }
+        return ans;
     }
 };
 ```
@@ -229,22 +212,26 @@ public:
 class Solution {
 public:
     int garbageCollection(vector<string>& garbage, vector<int>& travel) {
-        int ans = 0;
-        vector<int> pos(26);
-        for (int i = 0; i < garbage.size(); ++i) {
-            ans += garbage[i].size();
-            for (char c : garbage[i]) {
-                pos[c - 'A'] = i;
+        auto f = [&](char x) {
+            int ans = 0, st = 0;
+            for (int i = 0; i < garbage.size(); ++i) {
+                int cnt = 0;
+                for (char& c : garbage[i]) {
+                    if (c == x) {
+                        ++cnt;
+                    }
+                }
+                if (cnt > 0) {
+                    ans += cnt + st;
+                    st = 0;
+                }
+                if (i < travel.size()) {
+                    st += travel[i];
+                }
             }
-        }
-        vector<int> s(travel.size() + 1);
-        for (int i = 0; i < travel.size(); ++i) {
-            s[i + 1] = s[i] + travel[i];
-        }
-        for (int i : pos) {
-            ans += s[i];
-        }
-        return ans;
+            return ans;
+        };
+        return f('M') + f('P') + f('G');
     }
 };
 ```
@@ -252,58 +239,42 @@ public:
 ### **Go**
 
 ```go
-func garbageCollection(garbage []string, travel []int) int {
-	n := len(garbage)
-	f := func(c rune) int {
-		tot := 0
-		for _, v := range garbage {
-			for _, ch := range v {
-				if ch == c {
-					tot++
-				}
-			}
+func garbageCollection(garbage []string, travel []int) (ans int) {
+	last := [26]int{}
+	for i, s := range garbage {
+		ans += len(s)
+		for _, c := range s {
+			last[c-'A'] = i
 		}
-		res := 0
-		for i, v := range garbage {
-			t := 0
-			for _, ch := range v {
-				if ch == c {
-					t++
-				}
-			}
-			res += t
-			tot -= t
-			if tot == 0 {
-				break
-			}
-			if i < n-1 {
-				res += travel[i]
-			}
-		}
-		return res
 	}
-	return f('M') + f('P') + f('G')
+	s := make([]int, len(travel)+1)
+	for i, x := range travel {
+		s[i+1] = s[i] + x
+	}
+	for _, i := range last {
+		ans += s[i]
+	}
+	return
 }
 ```
 
 ```go
-func garbageCollection(garbage []string, travel []int) int {
-	ans := 0
-	pos := map[rune]int{}
-	for i, v := range garbage {
-		ans += len(v)
-		for _, c := range v {
-			pos[c] = i
+func garbageCollection(garbage []string, travel []int) (ans int) {
+	f := func(x rune) int {
+		ans, st := 0, 0
+		for i, s := range garbage {
+			cnt := strings.Count(s, string(x))
+			if cnt > 0 {
+				ans += cnt + st
+				st = 0
+			}
+			if i < len(travel) {
+				st += travel[i]
+			}
 		}
+		return ans
 	}
-	s := make([]int, len(travel)+1)
-	for i, v := range travel {
-		s[i+1] = s[i] + v
-	}
-	for _, i := range pos {
-		ans += s[i]
-	}
-	return ans
+	return f('M') + f('P') + f('G')
 }
 ```
 
@@ -312,58 +283,49 @@ func garbageCollection(garbage []string, travel []int) int {
 ```ts
 function garbageCollection(garbage: string[], travel: number[]): number {
     const n = garbage.length;
-    const count = [0, 0, 0];
-    const cs = ['G', 'P', 'M'];
-    for (const s of garbage) {
-        for (const c of s) {
-            if (c === 'G') {
-                count[0]++;
-            } else if (c === 'P') {
-                count[1]++;
-            } else if (c === 'M') {
-                count[2]++;
-            }
+    const m = travel.length;
+    let ans = 0;
+    const last = new Array(26).fill(0);
+    for (let i = 0; i < n; ++i) {
+        ans += garbage[i].length;
+        for (const c of garbage[i]) {
+            last[c.charCodeAt(0) - 'A'.charCodeAt(0)] = i;
         }
     }
-
-    let res = 0;
-    for (let i = 0; i < 3; i++) {
-        for (let j = 0; j < n; j++) {
-            const s = garbage[j];
-            for (const c of s) {
-                if (c === cs[i]) {
-                    res++;
-                    count[i]--;
-                }
-            }
-            if (count[i] === 0) {
-                break;
-            }
-            res += travel[j];
-        }
+    const s = new Array(m + 1).fill(0);
+    for (let i = 1; i <= m; ++i) {
+        s[i] = s[i - 1] + travel[i - 1];
     }
-    return res;
+    for (const i of last) {
+        ans += s[i];
+    }
+    return ans;
 }
 ```
 
 ```ts
 function garbageCollection(garbage: string[], travel: number[]): number {
-    let ans = 0;
-    let pos = new Map();
-    for (let i = 0; i < garbage.length; ++i) {
-        ans += garbage[i].length;
-        for (const c of garbage[i]) {
-            pos.set(c, i);
+    const f = (x: string) => {
+        let ans = 0;
+        let st = 0;
+        for (let i = 0; i < garbage.length; ++i) {
+            let cnt = 0;
+            for (const c of garbage[i]) {
+                if (c === x) {
+                    ++cnt;
+                }
+            }
+            if (cnt > 0) {
+                ans += cnt + st;
+                st = 0;
+            }
+            if (i < travel.length) {
+                st += travel[i];
+            }
         }
-    }
-    let s = new Array(travel.length + 1).fill(0);
-    for (let i = 0; i < travel.length; ++i) {
-        s[i + 1] = s[i] + travel[i];
-    }
-    for (const [_, i] of pos) {
-        ans += s[i];
-    }
-    return ans;
+        return ans;
+    };
+    return f('M') + f('P') + f('G');
 }
 ```
 
