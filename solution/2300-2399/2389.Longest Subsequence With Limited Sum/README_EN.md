@@ -53,6 +53,22 @@ class Solution:
         return [bisect_right(s, q) for q in queries]
 ```
 
+```python
+class Solution:
+    def answerQueries(self, nums: List[int], queries: List[int]) -> List[int]:
+        nums.sort()
+        m = len(queries)
+        ans = [0] * m
+        idx = sorted(range(m), key=lambda i: queries[i])
+        s = j = 0
+        for i in idx:
+            while j < len(nums) and s + nums[j] <= queries[i]:
+                s += nums[j]
+                j += 1
+            ans[i] = j
+        return ans
+```
+
 ### **Java**
 
 ```java
@@ -85,6 +101,29 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int[] answerQueries(int[] nums, int[] queries) {
+        Arrays.sort(nums);
+        int m = queries.length;
+        Integer[] idx = new Integer[m];
+        for (int i = 0; i < m; ++i) {
+            idx[i] = i;
+        }
+        Arrays.sort(idx, (i, j) -> queries[i] - queries[j]);
+        int[] ans = new int[m];
+        int s = 0, j = 0;
+        for (int i : idx) {
+            while (j < nums.length && s + nums[j] <= queries[i]) {
+                s += nums[j++];
+            }
+            ans[i] = j;
+        }
+        return ans;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -104,6 +143,30 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    vector<int> answerQueries(vector<int>& nums, vector<int>& queries) {
+        sort(nums.begin(), nums.end());
+        int m = queries.size();
+        vector<int> idx(m);
+        iota(idx.begin(), idx.end(), 0);
+        sort(idx.begin(), idx.end(), [&](int i, int j) {
+            return queries[i] < queries[j];
+        });
+        vector<int> ans(m);
+        int s = 0, j = 0;
+        for (int i : idx) {
+            while (j < nums.size() && s + nums[j] <= queries[i]) {
+                s += nums[j++];
+            }
+            ans[i] = j;
+        }
+        return ans;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -114,6 +177,28 @@ func answerQueries(nums []int, queries []int) (ans []int) {
 	}
 	for _, q := range queries {
 		ans = append(ans, sort.SearchInts(nums, q+1))
+	}
+	return
+}
+```
+
+```go
+func answerQueries(nums []int, queries []int) (ans []int) {
+	sort.Ints(nums)
+	m := len(queries)
+	idx := make([]int, m)
+	for i := range idx {
+		idx[i] = i
+	}
+	sort.Slice(idx, func(i, j int) bool { return queries[idx[i]] < queries[idx[j]] })
+	ans = make([]int, m)
+	s, j := 0, 0
+	for _, i := range idx {
+		for j < len(nums) && s+nums[j] <= queries[i] {
+			s += nums[j]
+			j++
+		}
+		ans[i] = j
 	}
 	return
 }
@@ -143,6 +228,28 @@ function answerQueries(nums: number[], queries: number[]): number[] {
     };
     for (const q of queries) {
         ans.push(search(nums, q));
+    }
+    return ans;
+}
+```
+
+```ts
+function answerQueries(nums: number[], queries: number[]): number[] {
+    nums.sort((a, b) => a - b);
+    const m = queries.length;
+    const idx: number[] = new Array(m);
+    for (let i = 0; i < m; i++) {
+        idx[i] = i;
+    }
+    idx.sort((i, j) => queries[i] - queries[j]);
+    const ans: number[] = new Array(m);
+    let s = 0;
+    let j = 0;
+    for (const i of idx) {
+        while (j < nums.length && s + nums[j] <= queries[i]) {
+            s += nums[j++];
+        }
+        ans[i] = j;
     }
     return ans;
 }
