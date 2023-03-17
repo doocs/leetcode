@@ -1,21 +1,22 @@
 class Solution {
 public:
-    unordered_map<int, int> f;
-    int mod = 1e9 + 7;
-    int j;
-
     int numberOfWays(int startPos, int endPos, int k) {
-        j = endPos;
-        return dfs(startPos, k);
-    }
-
-    int dfs(int i, int k) {
-        if (f.count(i * 10000 + k)) return f[i * 10000 + k];
-        if (abs(i - j) > k) return 0;
-        if (k == 0) return i == j;
-        int res = dfs(i - 1, k - 1) + dfs(i + 1, k - 1);
-        res %= mod;
-        f[i * 10000 + k] = res;
-        return res;
+        const int mod = 1e9 + 7;
+        int f[k + 1][k + 1];
+        memset(f, -1, sizeof(f));
+        function<int(int, int)> dfs = [&](int i, int j) -> int {
+            if (i > j || j < 0) {
+                return 0;
+            }
+            if (j == 0) {
+                return i == 0 ? 1 : 0;
+            }
+            if (f[i][j] != -1) {
+                return f[i][j];
+            }
+            f[i][j] = (dfs(i + 1, j - 1) + dfs(abs(i - 1), j - 1)) % mod;
+            return f[i][j];
+        };
+        return dfs(abs(startPos - endPos), k);
     }
 };

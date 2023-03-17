@@ -49,14 +49,14 @@ It can be proven that no other way is possible, so we return 3.</pre>
 class Solution:
     def numberOfWays(self, startPos: int, endPos: int, k: int) -> int:
         @cache
-        def dfs(d, k):
-            if k < 0 or abs(d) > k:
+        def dfs(i: int, j: int) -> int:
+            if i > j or j < 0:
                 return 0
-            if k == 0:
-                return d == 0
-            res = dfs(d - 1, k - 1) + dfs(d + 1, k - 1)
-            return res % (10**9 + 7)
+            if j == 0:
+                return 1 if i == 0 else 0
+            return (dfs(i + 1, j - 1) + dfs(abs(i - 1), j - 1)) % mod
 
+        mod = 10**9 + 7
         return dfs(abs(startPos - endPos), k)
 ```
 
@@ -64,34 +64,27 @@ class Solution:
 
 ```java
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-    private int[][] f = new int[3010][3010];
-    private int j;
+    private Integer[][] f;
+    private final int mod = (int) 1e9 + 7;
 
     public int numberOfWays(int startPos, int endPos, int k) {
-        startPos += 1000;
-        endPos += 1000;
-        for (var e : f) {
-            Arrays.fill(e, -1);
-        }
-        j = endPos;
-        return dfs(startPos, k);
+        f = new Integer[k + 1][k + 1];
+        return dfs(Math.abs(startPos - endPos), k);
     }
 
-    private int dfs(int i, int k) {
-        if (Math.abs(i - j) > k) {
+    private int dfs(int i, int j) {
+        if (i > j || j < 0) {
             return 0;
         }
-        if (f[i][k] != -1) {
-            return f[i][k];
+        if (j == 0) {
+            return i == 0 ? 1 : 0;
         }
-        if (k == 0) {
-            return i == j ? 1 : 0;
+        if (f[i][j] != null) {
+            return f[i][j];
         }
-        int res = dfs(i + 1, k - 1) + dfs(i - 1, k - 1);
-        res %= MOD;
-        f[i][k] = res;
-        return res;
+        int ans = dfs(i + 1, j - 1) + dfs(Math.abs(i - 1), j - 1);
+        ans %= mod;
+        return f[i][j] = ans;
     }
 }
 ```
@@ -101,23 +94,24 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    unordered_map<int, int> f;
-    int mod = 1e9 + 7;
-    int j;
-
     int numberOfWays(int startPos, int endPos, int k) {
-        j = endPos;
-        return dfs(startPos, k);
-    }
-
-    int dfs(int i, int k) {
-        if (f.count(i * 10000 + k)) return f[i * 10000 + k];
-        if (abs(i - j) > k) return 0;
-        if (k == 0) return i == j;
-        int res = dfs(i - 1, k - 1) + dfs(i + 1, k - 1);
-        res %= mod;
-        f[i * 10000 + k] = res;
-        return res;
+        const int mod = 1e9 + 7;
+        int f[k + 1][k + 1];
+        memset(f, -1, sizeof(f));
+        function<int(int, int)> dfs = [&](int i, int j) -> int {
+            if (i > j || j < 0) {
+                return 0;
+            }
+            if (j == 0) {
+                return i == 0 ? 1 : 0;
+            }
+            if (f[i][j] != -1) {
+                return f[i][j];
+            }
+            f[i][j] = (dfs(i + 1, j - 1) + dfs(abs(i - 1), j - 1)) % mod;
+            return f[i][j];
+        };
+        return dfs(abs(startPos - endPos), k);
     }
 };
 ```
@@ -126,27 +120,32 @@ public:
 
 ```go
 func numberOfWays(startPos int, endPos int, k int) int {
-	f := map[int]int{}
-	var dfs func(i, k int) int
-	dfs = func(i, k int) int {
-		if abs(i-endPos) > k {
+	const mod = 1e9 + 7
+	f := make([][]int, k+1)
+	for i := range f {
+		f[i] = make([]int, k+1)
+		for j := range f[i] {
+			f[i][j] = -1
+		}
+	}
+	var dfs func(i, j int) int
+	dfs = func(i, j int) int {
+		if i > j || j < 0 {
 			return 0
 		}
-		if k == 0 {
-			if i == endPos {
+		if j == 0 {
+			if i == 0 {
 				return 1
 			}
 			return 0
 		}
-		if v, ok := f[i*10000+k]; ok {
-			return v
+		if f[i][j] != -1 {
+			return f[i][j]
 		}
-		res := dfs(i+1, k-1) + dfs(i-1, k-1)
-		res %= 1e9 + 7
-		f[i*10000+k] = res
-		return res
+		f[i][j] = (dfs(i+1, j-1) + dfs(abs(i-1), j-1)) % mod
+		return f[i][j]
 	}
-	return dfs(startPos, k)
+	return dfs(abs(startPos-endPos), k)
 }
 
 func abs(x int) int {
@@ -160,7 +159,25 @@ func abs(x int) int {
 ### **TypeScript**
 
 ```ts
-
+function numberOfWays(startPos: number, endPos: number, k: number): number {
+    const mod = 10 ** 9 + 7;
+    const f = new Array(k + 1).fill(0).map(() => new Array(k + 1).fill(-1));
+    const dfs = (i: number, j: number): number => {
+        if (i > j || j < 0) {
+            return 0;
+        }
+        if (j === 0) {
+            return i === 0 ? 1 : 0;
+        }
+        if (f[i][j] !== -1) {
+            return f[i][j];
+        }
+        f[i][j] = dfs(i + 1, j - 1) + dfs(Math.abs(i - 1), j - 1);
+        f[i][j] %= mod;
+        return f[i][j];
+    };
+    return dfs(Math.abs(startPos - endPos), k);
+}
 ```
 
 ### **...**

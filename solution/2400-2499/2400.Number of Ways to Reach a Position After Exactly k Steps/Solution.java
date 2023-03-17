@@ -1,31 +1,24 @@
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-    private int[][] f = new int[3010][3010];
-    private int j;
+    private Integer[][] f;
+    private final int mod = (int) 1e9 + 7;
 
     public int numberOfWays(int startPos, int endPos, int k) {
-        startPos += 1000;
-        endPos += 1000;
-        for (var e : f) {
-            Arrays.fill(e, -1);
-        }
-        j = endPos;
-        return dfs(startPos, k);
+        f = new Integer[k + 1][k + 1];
+        return dfs(Math.abs(startPos - endPos), k);
     }
 
-    private int dfs(int i, int k) {
-        if (Math.abs(i - j) > k) {
+    private int dfs(int i, int j) {
+        if (i > j || j < 0) {
             return 0;
         }
-        if (f[i][k] != -1) {
-            return f[i][k];
+        if (j == 0) {
+            return i == 0 ? 1 : 0;
         }
-        if (k == 0) {
-            return i == j ? 1 : 0;
+        if (f[i][j] != null) {
+            return f[i][j];
         }
-        int res = dfs(i + 1, k - 1) + dfs(i - 1, k - 1);
-        res %= MOD;
-        f[i][k] = res;
-        return res;
+        int ans = dfs(i + 1, j - 1) + dfs(Math.abs(i - 1), j - 1);
+        ans %= mod;
+        return f[i][j] = ans;
     }
 }

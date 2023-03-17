@@ -1,12 +1,12 @@
 class Solution:
     def numberOfWays(self, startPos: int, endPos: int, k: int) -> int:
         @cache
-        def dfs(d, k):
-            if k < 0 or abs(d) > k:
+        def dfs(i: int, j: int) -> int:
+            if i > j or j < 0:
                 return 0
-            if k == 0:
-                return d == 0
-            res = dfs(d - 1, k - 1) + dfs(d + 1, k - 1)
-            return res % (10**9 + 7)
+            if j == 0:
+                return 1 if i == 0 else 0
+            return (dfs(i + 1, j - 1) + dfs(abs(i - 1), j - 1)) % mod
 
+        mod = 10**9 + 7
         return dfs(abs(startPos - endPos), k)

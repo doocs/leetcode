@@ -1,25 +1,30 @@
 func numberOfWays(startPos int, endPos int, k int) int {
-	f := map[int]int{}
-	var dfs func(i, k int) int
-	dfs = func(i, k int) int {
-		if abs(i-endPos) > k {
+	const mod = 1e9 + 7
+	f := make([][]int, k+1)
+	for i := range f {
+		f[i] = make([]int, k+1)
+		for j := range f[i] {
+			f[i][j] = -1
+		}
+	}
+	var dfs func(i, j int) int
+	dfs = func(i, j int) int {
+		if i > j || j < 0 {
 			return 0
 		}
-		if k == 0 {
-			if i == endPos {
+		if j == 0 {
+			if i == 0 {
 				return 1
 			}
 			return 0
 		}
-		if v, ok := f[i*10000+k]; ok {
-			return v
+		if f[i][j] != -1 {
+			return f[i][j]
 		}
-		res := dfs(i+1, k-1) + dfs(i-1, k-1)
-		res %= 1e9 + 7
-		f[i*10000+k] = res
-		return res
+		f[i][j] = (dfs(i+1, j-1) + dfs(abs(i-1), j-1)) % mod
+		return f[i][j]
 	}
-	return dfs(startPos, k)
+	return dfs(abs(startPos-endPos), k)
 }
 
 func abs(x int) int {
