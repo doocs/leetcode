@@ -1,20 +1,13 @@
-func longestNiceSubarray(nums []int) int {
-	t, j := 0, 0
-	ans := 0
-	for i, v := range nums {
-		for (t & v) != 0 {
-			t ^= nums[j]
-			j++
+func longestNiceSubarray(nums []int) (ans int) {
+	mask, j := 0, 0
+	for i, x := range nums {
+		for ; mask&x != 0; j++ {
+			mask ^= nums[j]
 		}
-		t |= v
-		ans = max(ans, i-j+1)
+		if k := i - j + 1; ans < k {
+			ans = k
+		}
+		mask |= x
 	}
-	return ans
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
+	return
 }
