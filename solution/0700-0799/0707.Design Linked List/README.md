@@ -6,30 +6,42 @@
 
 <!-- 这里写题目描述 -->
 
-<p>设计链表的实现。您可以选择使用单链表或双链表。单链表中的节点应该具有两个属性：<code>val</code>&nbsp;和&nbsp;<code>next</code>。<code>val</code>&nbsp;是当前节点的值，<code>next</code>&nbsp;是指向下一个节点的指针/引用。如果要使用双向链表，则还需要一个属性&nbsp;<code>prev</code>&nbsp;以指示链表中的上一个节点。假设链表中的所有节点都是 0-index 的。</p>
+<p>你可以选择使用单链表或者双链表，设计并实现自己的链表。</p>
 
-<p>在链表类中实现这些功能：</p>
+<p>单链表中的节点应该具备两个属性：<code>val</code> 和 <code>next</code> 。<code>val</code> 是当前节点的值，<code>next</code> 是指向下一个节点的指针/引用。</p>
+
+<p>如果是双向链表，则还需要属性&nbsp;<code>prev</code>&nbsp;以指示链表中的上一个节点。假设链表中的所有节点下标从 <strong>0</strong> 开始。</p>
+
+<p>实现 <code>MyLinkedList</code> 类：</p>
 
 <ul>
-	<li>get(index)：获取链表中第&nbsp;<code>index</code>&nbsp;个节点的值。如果索引无效，则返回<code>-1</code>。</li>
-	<li>addAtHead(val)：在链表的第一个元素之前添加一个值为&nbsp;<code>val</code>&nbsp;的节点。插入后，新节点将成为链表的第一个节点。</li>
-	<li>addAtTail(val)：将值为&nbsp;<code>val</code> 的节点追加到链表的最后一个元素。</li>
-	<li>addAtIndex(index,val)：在链表中的第&nbsp;<code>index</code>&nbsp;个节点之前添加值为&nbsp;<code>val</code>&nbsp; 的节点。如果&nbsp;<code>index</code>&nbsp;等于链表的长度，则该节点将附加到链表的末尾。如果 <code>index</code> 大于链表长度，则不会插入节点。如果<code>index</code>小于0，则在头部插入节点。</li>
-	<li>deleteAtIndex(index)：如果索引&nbsp;<code>index</code> 有效，则删除链表中的第&nbsp;<code>index</code> 个节点。</li>
+	<li><code>MyLinkedList()</code> 初始化 <code>MyLinkedList</code> 对象。</li>
+	<li><code>int get(int index)</code> 获取链表中下标为 <code>index</code> 的节点的值。如果下标无效，则返回 <code>-1</code> 。</li>
+	<li><code>void addAtHead(int val)</code> 将一个值为 <code>val</code> 的节点插入到链表中第一个元素之前。在插入完成后，新节点会成为链表的第一个节点。</li>
+	<li><code>void addAtTail(int val)</code> 将一个值为 <code>val</code> 的节点追加到链表中作为链表的最后一个元素。</li>
+	<li><code>void addAtIndex(int index, int val)</code> 将一个值为 <code>val</code> 的节点插入到链表中下标为 <code>index</code> 的节点之前。如果 <code>index</code> 等于链表的长度，那么该节点会被追加到链表的末尾。如果 <code>index</code> 比长度更大，该节点将 <strong>不会插入</strong> 到链表中。</li>
+	<li><code>void deleteAtIndex(int index)</code> 如果下标有效，则删除链表中下标为 <code>index</code> 的节点。</li>
 </ul>
 
 <p>&nbsp;</p>
 
-<p><strong>示例：</strong></p>
+<p><strong class="example">示例：</strong></p>
 
 <pre>
-MyLinkedList linkedList = new MyLinkedList();
-linkedList.addAtHead(1);
-linkedList.addAtTail(3);
-linkedList.addAtIndex(1,2);   //链表变为1-&gt; 2-&gt; 3
-linkedList.get(1);            //返回2
-linkedList.deleteAtIndex(1);  //现在链表是1-&gt; 3
-linkedList.get(1);            //返回3
+<strong>输入</strong>
+["MyLinkedList", "addAtHead", "addAtTail", "addAtIndex", "get", "deleteAtIndex", "get"]
+[[], [1], [3], [1, 2], [1], [1], [1]]
+<strong>输出</strong>
+[null, null, null, null, 2, null, 3]
+
+<strong>解释</strong>
+MyLinkedList myLinkedList = new MyLinkedList();
+myLinkedList.addAtHead(1);
+myLinkedList.addAtTail(3);
+myLinkedList.addAtIndex(1, 2);    // 链表变为 1-&gt;2-&gt;3
+myLinkedList.get(1);              // 返回 2
+myLinkedList.deleteAtIndex(1);    // 现在，链表变为 1-&gt;3
+myLinkedList.get(1);              // 返回 3
 </pre>
 
 <p>&nbsp;</p>
@@ -39,7 +51,7 @@ linkedList.get(1);            //返回3
 <ul>
 	<li><code>0 &lt;= index, val &lt;= 1000</code></li>
 	<li>请不要使用内置的 LinkedList 库。</li>
-	<li><code>get</code>,&nbsp;<code>addAtHead</code>,&nbsp;<code>addAtTail</code>,&nbsp;<code>addAtIndex</code>&nbsp;和&nbsp;<code>deleteAtIndex</code>&nbsp;的操作次数不超过&nbsp;<code>2000</code>。</li>
+	<li>调用 <code>get</code>、<code>addAtHead</code>、<code>addAtTail</code>、<code>addAtIndex</code> 和 <code>deleteAtIndex</code> 的次数不超过 <code>2000</code> 。</li>
 </ul>
 
 ## 解法

@@ -600,7 +600,7 @@ class Solution {
         }
         return $this->isSameTree($p->left, $q->left) && $this->isSameTree($p->right, $q->right);
     }
-}  
+}
 ```
 
 ### **...**

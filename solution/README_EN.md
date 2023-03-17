@@ -2574,14 +2574,14 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2563  |  [Count the Number of Fair Pairs](/solution/2500-2599/2563.Count%20the%20Number%20of%20Fair%20Pairs/README_EN.md)  |  `Array`,`Two Pointers`,`Binary Search`,`Sorting`  |  Medium  |  Weekly Contest 332  |
 |  2564  |  [Substring XOR Queries](/solution/2500-2599/2564.Substring%20XOR%20Queries/README_EN.md)  |  `Bit Manipulation`,`Array`,`Hash Table`,`String`  |  Medium  |  Weekly Contest 332  |
 |  2565  |  [Subsequence With the Minimum Score](/solution/2500-2599/2565.Subsequence%20With%20the%20Minimum%20Score/README_EN.md)  |  `Two Pointers`,`String`,`Binary Search`  |  Hard  |  Weekly Contest 332  |
-|  2566  |  [Maximum Difference by Remapping a Digit](/solution/2500-2599/2566.Maximum%20Difference%20by%20Remapping%20a%20Digit/README_EN.md)  |    |  Easy  |  Biweekly Contest 98  |
-|  2567  |  [Minimum Score by Changing Two Elements](/solution/2500-2599/2567.Minimum%20Score%20by%20Changing%20Two%20Elements/README_EN.md)  |    |  Medium  |  Biweekly Contest 98  |
-|  2568  |  [Minimum Impossible OR](/solution/2500-2599/2568.Minimum%20Impossible%20OR/README_EN.md)  |    |  Medium  |  Biweekly Contest 98  |
-|  2569  |  [Handling Sum Queries After Update](/solution/2500-2599/2569.Handling%20Sum%20Queries%20After%20Update/README_EN.md)  |    |  Hard  |  Biweekly Contest 98  |
-|  2570  |  [Merge Two 2D Arrays by Summing Values](/solution/2500-2599/2570.Merge%20Two%202D%20Arrays%20by%20Summing%20Values/README_EN.md)  |    |  Easy  |  Weekly Contest 333  |
-|  2571  |  [Minimum Operations to Reduce an Integer to 0](/solution/2500-2599/2571.Minimum%20Operations%20to%20Reduce%20an%20Integer%20to%200/README_EN.md)  |    |  Medium  |  Weekly Contest 333  |
-|  2572  |  [Count the Number of Square-Free Subsets](/solution/2500-2599/2572.Count%20the%20Number%20of%20Square-Free%20Subsets/README_EN.md)  |    |  Medium  |  Weekly Contest 333  |
-|  2573  |  [Find the String with LCP](/solution/2500-2599/2573.Find%20the%20String%20with%20LCP/README_EN.md)  |    |  Hard  |  Weekly Contest 333  |
+|  2566  |  [Maximum Difference by Remapping a Digit](/solution/2500-2599/2566.Maximum%20Difference%20by%20Remapping%20a%20Digit/README_EN.md)  |  `Greedy`,`Math`  |  Easy  |  Biweekly Contest 98  |
+|  2567  |  [Minimum Score by Changing Two Elements](/solution/2500-2599/2567.Minimum%20Score%20by%20Changing%20Two%20Elements/README_EN.md)  |  `Greedy`,`Array`,`Sorting`  |  Medium  |  Biweekly Contest 98  |
+|  2568  |  [Minimum Impossible OR](/solution/2500-2599/2568.Minimum%20Impossible%20OR/README_EN.md)  |  `Bit Manipulation`,`Brainteaser`,`Array`  |  Medium  |  Biweekly Contest 98  |
+|  2569  |  [Handling Sum Queries After Update](/solution/2500-2599/2569.Handling%20Sum%20Queries%20After%20Update/README_EN.md)  |  `Segment Tree`,`Array`  |  Hard  |  Biweekly Contest 98  |
+|  2570  |  [Merge Two 2D Arrays by Summing Values](/solution/2500-2599/2570.Merge%20Two%202D%20Arrays%20by%20Summing%20Values/README_EN.md)  |  `Array`,`Hash Table`,`Two Pointers`  |  Easy  |  Weekly Contest 333  |
+|  2571  |  [Minimum Operations to Reduce an Integer to 0](/solution/2500-2599/2571.Minimum%20Operations%20to%20Reduce%20an%20Integer%20to%200/README_EN.md)  |  `Greedy`,`Bit Manipulation`,`Dynamic Programming`  |  Medium  |  Weekly Contest 333  |
+|  2572  |  [Count the Number of Square-Free Subsets](/solution/2500-2599/2572.Count%20the%20Number%20of%20Square-Free%20Subsets/README_EN.md)  |  `Array`,`Math`,`Dynamic Programming`,`Bitmask`  |  Medium  |  Weekly Contest 333  |
+|  2573  |  [Find the String with LCP](/solution/2500-2599/2573.Find%20the%20String%20with%20LCP/README_EN.md)  |  `Greedy`,`Union Find`,`String`,`Dynamic Programming`  |  Hard  |  Weekly Contest 333  |
 |  2574  |  [Left and Right Sum Differences](/solution/2500-2599/2574.Left%20and%20Right%20Sum%20Differences/README_EN.md)  |  `Array`,`Prefix Sum`  |  Easy  |  Weekly Contest 334  |
 |  2575  |  [Find the Divisibility Array of a String](/solution/2500-2599/2575.Find%20the%20Divisibility%20Array%20of%20a%20String/README_EN.md)  |  `Array`,`Math`,`String`  |  Medium  |  Weekly Contest 334  |
 |  2576  |  [Find the Maximum Number of Marked Indices](/solution/2500-2599/2576.Find%20the%20Maximum%20Number%20of%20Marked%20Indices/README_EN.md)  |  `Greedy`,`Array`,`Two Pointers`,`Binary Search`,`Sorting`  |  Medium  |  Weekly Contest 334  |
@@ -2594,10 +2594,11 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2583  |  [Kth Largest Sum in a Binary Tree](/solution/2500-2599/2583.Kth%20Largest%20Sum%20in%20a%20Binary%20Tree/README_EN.md)  |  `Tree`,`Breadth-First Search`,`Binary Search`  |  Medium  |  Weekly Contest 335  |
 |  2584  |  [Split the Array to Make Coprime Products](/solution/2500-2599/2584.Split%20the%20Array%20to%20Make%20Coprime%20Products/README_EN.md)  |  `Array`,`Hash Table`,`Math`,`Number Theory`  |  Hard  |  Weekly Contest 335  |
 |  2585  |  [Number of Ways to Earn Points](/solution/2500-2599/2585.Number%20of%20Ways%20to%20Earn%20Points/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Hard  |  Weekly Contest 335  |
-|  2586  |  [Count the Number of Vowel Strings in Range](/solution/2500-2599/2586.Count%20the%20Number%20of%20Vowel%20Strings%20in%20Range/README_EN.md)  |    |  Easy  |  Weekly Contest 336  |
-|  2587  |  [Rearrange Array to Maximize Prefix Score](/solution/2500-2599/2587.Rearrange%20Array%20to%20Maximize%20Prefix%20Score/README_EN.md)  |    |  Medium  |  Weekly Contest 336  |
-|  2588  |  [Count the Number of Beautiful Subarrays](/solution/2500-2599/2588.Count%20the%20Number%20of%20Beautiful%20Subarrays/README_EN.md)  |    |  Medium  |  Weekly Contest 336  |
-|  2589  |  [Minimum Time to Complete All Tasks](/solution/2500-2599/2589.Minimum%20Time%20to%20Complete%20All%20Tasks/README_EN.md)  |    |  Hard  |  Weekly Contest 336  |
+|  2586  |  [Count the Number of Vowel Strings in Range](/solution/2500-2599/2586.Count%20the%20Number%20of%20Vowel%20Strings%20in%20Range/README_EN.md)  |  `Array`,`String`  |  Easy  |  Weekly Contest 336  |
+|  2587  |  [Rearrange Array to Maximize Prefix Score](/solution/2500-2599/2587.Rearrange%20Array%20to%20Maximize%20Prefix%20Score/README_EN.md)  |  `Greedy`,`Array`,`Prefix Sum`,`Sorting`  |  Medium  |  Weekly Contest 336  |
+|  2588  |  [Count the Number of Beautiful Subarrays](/solution/2500-2599/2588.Count%20the%20Number%20of%20Beautiful%20Subarrays/README_EN.md)  |  `Bit Manipulation`,`Array`,`Hash Table`,`Prefix Sum`  |  Medium  |  Weekly Contest 336  |
+|  2589  |  [Minimum Time to Complete All Tasks](/solution/2500-2599/2589.Minimum%20Time%20to%20Complete%20All%20Tasks/README_EN.md)  |  `Stack`,`Greedy`,`Array`,`Binary Search`,`Sorting`  |  Hard  |  Weekly Contest 336  |
+|  2890  |  [Design a Todo List](/solution/2800-2899/2890.Design%20a%20Todo%20List/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
