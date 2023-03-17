@@ -35,10 +35,7 @@ class Solution {
         if (head == null) {
             return true;
         }
-        if (root == null) {
-            return false;
-        }
-        if (root.val != head.val) {
+        if (root == null || head.val != root.val) {
             return false;
         }
         return dfs(head.next, root.left) || dfs(head.next, root.right);
