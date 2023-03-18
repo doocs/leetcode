@@ -85,6 +85,18 @@
 
 **方法一：BFS**
 
+本题数据规模较小，我们可以使用 BFS 暴力搜索所有可能的状态，然后取字典序最小的状态即可。
+
+**方法二：枚举**
+
+我们观察发现，对于累加操作，数字最多累加 $10$ 次，就会回到原来的状态；对于轮转操作，字符串最多轮转 $n$ 次，也会回到原来的状态。
+
+因此，轮转操作最多产生 $n$ 种状态，如果轮转位数 $b$ 为偶数，累加操作只会对奇数位数字产生影响，因此总共产生 $n \times 10$ 种状态；如果轮转位数 $b$ 为奇数，累加操作既会对奇数位数字产生影响，也会对偶数位数字产生影响，因此总共产生 $n \times 10 \times 10$ 种状态。
+
+所以，我们直接枚举所有的字符串状态，取字典序最小的状态即可。
+
+时间复杂度 $O(n^2 \times 10^2)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -99,16 +111,39 @@ class Solution:
         ans = s
         while q:
             s = q.popleft()
-            if s < ans:
+            if ans > s:
                 ans = s
-            nxt1 = ''.join(
-                [str((int(c) + a) % 10) if i & 1 else c for i, c in enumerate(s)]
-            )
-            nxt2 = s[-b:] + s[:-b]
-            for nxt in (nxt1, nxt2):
-                if nxt not in vis:
-                    vis.add(nxt)
-                    q.append(nxt)
+            t1 = ''.join([str((int(c) + a) % 10) if i & 1 else c for i, c in enumerate(s)])
+            t2 = s[-b:] + s[:-b]
+            for t in (t1, t2):
+                if t not in vis:
+                    vis.add(t)
+                    q.append(t)
+        return ans
+```
+
+```python
+class Solution:
+    def findLexSmallestString(self, s: str, a: int, b: int) -> str:
+        ans = s
+        n = len(s)
+        s = list(s)
+        for _ in range(n):
+            s = s[-b:] + s[:-b]
+            for j in range(10):
+                for k in range(1, n, 2):
+                    s[k] = str((int(s[k]) + a) % 10)
+                if b & 1:
+                    for p in range(10):
+                        for k in range(0, n, 2):
+                            s[k] = str((int(s[k]) + a) % 10)
+                        t = ''.join(s)
+                        if ans > t:
+                            ans = t
+                else:
+                    t = ''.join(s)
+                    if ans > t:
+                        ans = t
         return ans
 ```
 
@@ -119,26 +154,61 @@ class Solution:
 ```java
 class Solution {
     public String findLexSmallestString(String s, int a, int b) {
-        Queue<String> q = new ArrayDeque<>();
+        Deque<String> q = new ArrayDeque<>();
         q.offer(s);
         Set<String> vis = new HashSet<>();
         vis.add(s);
         String ans = s;
+        int n = s.length();
         while (!q.isEmpty()) {
             s = q.poll();
-            if (s.compareTo(ans) < 0) {
+            if (ans.compareTo(s) > 0) {
                 ans = s;
             }
             char[] cs = s.toCharArray();
-            for (int i = 1; i < cs.length; i += 2) {
+            for (int i = 1; i < n; i += 2) {
                 cs[i] = (char) (((cs[i] - '0' + a) % 10) + '0');
             }
-            String nxt1 = String.valueOf(cs);
-            String nxt2 = s.substring(b) + s.substring(0, b);
-            for (String nxt : new String[] {nxt1, nxt2}) {
-                if (!vis.contains(nxt)) {
-                    vis.add(nxt);
-                    q.offer(nxt);
+            String t1 = String.valueOf(cs);
+            String t2 = s.substring(b) + s.substring(0, b);
+            for (String t : List.of(t1, t2)) {
+                if (vis.add(t)) {
+                    q.offer(t);
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public String findLexSmallestString(String s, int a, int b) {
+        int n = s.length();
+        String ans = s;
+        for (int i = 0; i < n; ++i) {
+            s = s.substring(b) + s.substring(0, b);
+            char[] cs = s.toCharArray();
+            for (int j = 0; j < 10; ++j) {
+                for (int k = 1; k < n; k += 2) {
+                   cs[k] = (char) (((cs[k] - '0' + a) % 10) + '0');
+                }
+                if ((b & 1) == 1) {
+                    for (int p = 0; p < 10; ++p) {
+                        for (int k = 0; k < n; k += 2) {
+                            cs[k] = (char) (((cs[k] - '0' + a) % 10) + '0');
+                        }
+                        s = String.valueOf(cs);
+                        if (ans.compareTo(s) > 0) {
+                            ans = s;
+                        }
+                    }
+                } else {
+                    s = String.valueOf(cs);
+                    if (ans.compareTo(s) > 0) {
+                        ans = s;
+                    }
                 }
             }
         }
@@ -153,21 +223,52 @@ class Solution {
 class Solution {
 public:
     string findLexSmallestString(string s, int a, int b) {
-        unordered_set<string> vis {{s}};
-        queue<string> q {{s}};
+        queue<string> q{{s}};
+        unordered_set<string> vis{{s}};
         string ans = s;
         int n = s.size();
         while (!q.empty()) {
             s = q.front();
             q.pop();
-            if (s < ans) ans = s;
-            string nxt1 = s;
-            for (int i = 1; i < n; i += 2) nxt1[i] = ((nxt1[i] - '0' + a) % 10) + '0';
-            string nxt2 = s.substr(n - b) + s.substr(0, n - b);
-            for (string nxt : {nxt1, nxt2}) {
-                if (!vis.count(nxt)) {
-                    vis.insert(nxt);
-                    q.push(nxt);
+            ans = min(ans, s);
+            string t1 = s;
+            for (int i = 1; i < n; i += 2) {
+                t1[i] = (t1[i] - '0' + a) % 10 + '0';
+            }
+            string t2 = s.substr(n - b) + s.substr(0, n - b);
+            for (auto& t : {t1, t2}) {
+                if (!vis.count(t)) {
+                    vis.insert(t);
+                    q.emplace(t);
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    string findLexSmallestString(string s, int a, int b) {
+        int n = s.size();
+        string ans = s;
+        for (int i = 0; i < n; ++i) {
+            s = s.substr(n - b) + s.substr(0, n - b);
+            for (int j = 0; j < 10; ++j) {
+                for (int k = 1; k < n; k += 2) {
+                    s[k] = (s[k] - '0' + a) % 10 + '0';
+                }
+                if (b & 1) {
+                    for (int p = 0; p < 10; ++p) {
+                        for (int k = 0; k < n; k += 2) {
+                            s[k] = (s[k] - '0' + a) % 10 + '0';
+                        }
+                        ans = min(ans, s);
+                    }
+                } else {
+                    ans = min(ans, s);
                 }
             }
         }
@@ -183,32 +284,59 @@ func findLexSmallestString(s string, a int, b int) string {
 	q := []string{s}
 	vis := map[string]bool{s: true}
 	ans := s
+	n := len(s)
 	for len(q) > 0 {
 		s = q[0]
 		q = q[1:]
-		if s < ans {
+		if ans > s {
 			ans = s
 		}
-		for _, nxt := range []string{op1(s, a), op2(s, b)} {
-			if !vis[nxt] {
-				vis[nxt] = true
-				q = append(q, nxt)
+		t1 := []byte(s)
+		for i := 1; i < n; i += 2 {
+			t1[i] = byte((int(t1[i]-'0')+a)%10 + '0')
+		}
+		t2 := s[n-b:] + s[:n-b]
+		for _, t := range []string{string(t1), t2} {
+			if !vis[t] {
+				vis[t] = true
+				q = append(q, t)
 			}
 		}
 	}
 	return ans
 }
+```
 
-func op1(s string, a int) string {
-	res := []byte(s)
-	for i := 1; i < len(s); i += 2 {
-		res[i] = byte((int(res[i]-'0')+a)%10 + '0')
+```go
+func findLexSmallestString(s string, a int, b int) string {
+	n := len(s)
+	ans := s
+	for _ = range s {
+		s = s[n-b:] + s[:n-b]
+		cs := []byte(s)
+		for j := 0; j < 10; j++ {
+			for k := 1; k < n; k += 2 {
+				cs[k] = byte((int(cs[k]-'0')+a)%10 + '0')
+			}
+			if b&1 == 1 {
+				for p := 0; p < 10; p++ {
+					for k := 0; k < n; k += 2 {
+						cs[k] = byte((int(cs[k]-'0')+a)%10 + '0')
+					}
+					s = string(cs)
+					if ans > s {
+						ans = s
+					}
+				}
+			} else {
+				s = string(cs)
+				if ans > s {
+					ans = s
+				}
+			}
+		}
 	}
-	return string(res)
-}
-
-func op2(s string, b int) string {
-	return s[len(s)-b:] + s[:len(s)-b]
+	return ans
 }
 ```
 

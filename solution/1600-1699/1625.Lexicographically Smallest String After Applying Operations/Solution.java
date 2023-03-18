@@ -1,25 +1,29 @@
 class Solution {
     public String findLexSmallestString(String s, int a, int b) {
-        Queue<String> q = new ArrayDeque<>();
-        q.offer(s);
-        Set<String> vis = new HashSet<>();
-        vis.add(s);
+        int n = s.length();
         String ans = s;
-        while (!q.isEmpty()) {
-            s = q.poll();
-            if (s.compareTo(ans) < 0) {
-                ans = s;
-            }
+        for (int i = 0; i < n; ++i) {
+            s = s.substring(b) + s.substring(0, b);
             char[] cs = s.toCharArray();
-            for (int i = 1; i < cs.length; i += 2) {
-                cs[i] = (char) (((cs[i] - '0' + a) % 10) + '0');
-            }
-            String nxt1 = String.valueOf(cs);
-            String nxt2 = s.substring(b) + s.substring(0, b);
-            for (String nxt : new String[] {nxt1, nxt2}) {
-                if (!vis.contains(nxt)) {
-                    vis.add(nxt);
-                    q.offer(nxt);
+            for (int j = 0; j < 10; ++j) {
+                for (int k = 1; k < n; k += 2) {
+                   cs[k] = (char) (((cs[k] - '0' + a) % 10) + '0');
+                }
+                if ((b & 1) == 1) {
+                    for (int p = 0; p < 10; ++p) {
+                        for (int k = 0; k < n; k += 2) {
+                            cs[k] = (char) (((cs[k] - '0' + a) % 10) + '0');
+                        }
+                        s = String.valueOf(cs);
+                        if (ans.compareTo(s) > 0) {
+                            ans = s;
+                        }
+                    }
+                } else {
+                    s = String.valueOf(cs);
+                    if (ans.compareTo(s) > 0) {
+                        ans = s;
+                    }
                 }
             }
         }
