@@ -55,13 +55,194 @@ Hence, answer[0] = 8, and so on.
 ### **Python3**
 
 ```python
+class Solution:
+    def sumOfDistancesInTree(self, n: int, edges: List[List[int]]) -> List[int]:
+        def dfs1(i: int, fa: int, d: int):
+            ans[0] += d
+            size[i] = 1
+            for j in g[i]:
+                if j != fa:
+                    dfs1(j, i, d + 1)
+                    size[i] += size[j]
 
+        def dfs2(i: int, fa: int, t: int):
+            ans[i] = t
+            for j in g[i]:
+                if j != fa:
+                    dfs2(j, i, t - size[j] + n - size[j])
+
+        g = defaultdict(list)
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+
+        ans = [0] * n
+        size = [0] * n
+        dfs1(0, -1, 0)
+        dfs2(0, -1, ans[0])
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int n;
+    private int[] ans;
+    private int[] size;
+    private List<Integer>[] g;
 
+    public int[] sumOfDistancesInTree(int n, int[][] edges) {
+        this.n = n;
+        g = new List[n];
+        ans = new int[n];
+        size = new int[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        dfs1(0, -1, 0);
+        dfs2(0, -1, ans[0]);
+        return ans;
+    }
+
+    private void dfs1(int i, int fa, int d) {
+        ans[0] += d;
+        size[i] = 1;
+        for (int j : g[i]) {
+            if (j != fa) {
+                dfs1(j, i, d + 1);
+                size[i] += size[j];
+            }
+        }
+    }
+
+    private void dfs2(int i, int fa, int t) {
+        ans[i] = t;
+        for (int j : g[i]) {
+            if (j != fa) {
+                dfs2(j, i, t - size[j] + n - size[j]);
+            }
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> sumOfDistancesInTree(int n, vector<vector<int>>& edges) {
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        vector<int> ans(n);
+        vector<int> size(n);
+
+        function<void(int, int, int)> dfs1 = [&](int i, int fa, int d) {
+            ans[0] += d;
+            size[i] = 1;
+            for (int& j : g[i]) {
+                if (j != fa) {
+                    dfs1(j, i, d + 1);
+                    size[i] += size[j];
+                }
+            }
+        };
+
+        function<void(int, int, int)> dfs2 = [&](int i, int fa, int t) {
+            ans[i] = t;
+            for (int& j : g[i]) {
+                if (j != fa) {
+                    dfs2(j, i, t - size[j] + n - size[j]);
+                }
+            }
+        };
+
+        dfs1(0, -1, 0);
+        dfs2(0, -1, ans[0]);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func sumOfDistancesInTree(n int, edges [][]int) []int {
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	ans := make([]int, n)
+	size := make([]int, n)
+	var dfs1 func(i, fa, d int)
+	dfs1 = func(i, fa, d int) {
+		ans[0] += d
+		size[i] = 1
+		for _, j := range g[i] {
+			if j != fa {
+				dfs1(j, i, d+1)
+				size[i] += size[j]
+			}
+		}
+	}
+	var dfs2 func(i, fa, t int)
+	dfs2 = func(i, fa, t int) {
+		ans[i] = t
+		for _, j := range g[i] {
+			if j != fa {
+				dfs2(j, i, t-size[j]+n-size[j])
+			}
+		}
+	}
+	dfs1(0, -1, 0)
+	dfs2(0, -1, ans[0])
+	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function sumOfDistancesInTree(n: number, edges: number[][]): number[] {
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    const ans: number[] = new Array(n).fill(0);
+    const size: number[] = new Array(n).fill(0);
+    const dfs1 = (i: number, fa: number, d: number) => {
+        ans[0] += d;
+        size[i] = 1;
+        for (const j of g[i]) {
+            if (j !== fa) {
+                dfs1(j, i, d + 1);
+                size[i] += size[j];
+            }
+        }
+    };
+    const dfs2 = (i: number, fa: number, t: number) => {
+        ans[i] = t;
+        for (const j of g[i]) {
+            if (j != fa) {
+                dfs2(j, i, t - size[j] + n - size[j]);
+            }
+        }
+    };
+    dfs1(0, -1, 0);
+    dfs2(0, -1, ans[0]);
+    return ans;
+}
 ```
 
 ### **...**

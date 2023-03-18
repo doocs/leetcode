@@ -73,7 +73,7 @@ class Solution:
                 ans += dfs(i + 1, j, k + 1)
             ans += dfs(i + 1, j, 0)
             return ans % mod
-        
+
         mod = 10**9 + 7
         ans = dfs(0, 0, 0)
         dfs.cache_clear()
@@ -266,7 +266,7 @@ class Solution {
 public:
     int checkRecord(int n) {
         this->n = n;
-        memset(f, -1, sizeof(f));        
+        memset(f, -1, sizeof(f));
         return dfs(0, 0, 0);
     }
 
