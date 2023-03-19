@@ -24,6 +24,22 @@
 
 ## 往期竞赛
 
+#### 第 337 场周赛(2023-03-19 10:30, 90 分钟) 参赛人数 5628
+
+- [2595. 奇偶位数](/solution/2500-2599/2595.Number%20of%20Even%20and%20Odd%20Bits/README.md)
+- [2596. 检查骑士巡视方案](/solution/2500-2599/2596.Check%20Knight%20Tour%20Configuration/README.md)
+- [2597. 美丽子集的数目](/solution/2500-2599/2597.The%20Number%20of%20Beautiful%20Subsets/README.md)
+- [2598. 执行操作后的最大 MEX](/solution/2500-2599/2598.Smallest%20Missing%20Non-negative%20Integer%20After%20Operations/README.md)
+
+
+#### 第 100 场双周赛(2023-03-18 22:30, 90 分钟) 参赛人数 3639
+
+- [2591. 将钱分给最多的儿童](/solution/2500-2599/2591.Distribute%20Money%20to%20Maximum%20Children/README.md)
+- [2592. 最大化数组的伟大值](/solution/2500-2599/2592.Maximize%20Greatness%20of%20an%20Array/README.md)
+- [2593. 标记所有元素后数组的分数](/solution/2500-2599/2593.Find%20Score%20of%20an%20Array%20After%20Marking%20All%20Elements/README.md)
+- [2594. 修车的最少时间](/solution/2500-2599/2594.Minimum%20Time%20to%20Repair%20Cars/README.md)
+
+
 #### 第 336 场周赛(2023-03-12 10:30, 90 分钟) 参赛人数 5897
 
 - [2586. 统计范围内的元音字符串数](/solution/2500-2599/2586.Count%20the%20Number%20of%20Vowel%20Strings%20in%20Range/README.md)

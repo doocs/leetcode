@@ -2598,7 +2598,15 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2587  |  [Rearrange Array to Maximize Prefix Score](/solution/2500-2599/2587.Rearrange%20Array%20to%20Maximize%20Prefix%20Score/README_EN.md)  |  `Greedy`,`Array`,`Prefix Sum`,`Sorting`  |  Medium  |  Weekly Contest 336  |
 |  2588  |  [Count the Number of Beautiful Subarrays](/solution/2500-2599/2588.Count%20the%20Number%20of%20Beautiful%20Subarrays/README_EN.md)  |  `Bit Manipulation`,`Array`,`Hash Table`,`Prefix Sum`  |  Medium  |  Weekly Contest 336  |
 |  2589  |  [Minimum Time to Complete All Tasks](/solution/2500-2599/2589.Minimum%20Time%20to%20Complete%20All%20Tasks/README_EN.md)  |  `Stack`,`Greedy`,`Array`,`Binary Search`,`Sorting`  |  Hard  |  Weekly Contest 336  |
-|  2890  |  [Design a Todo List](/solution/2800-2899/2890.Design%20a%20Todo%20List/README_EN.md)  |    |  Medium  |  🔒  |
+|  2590  |  [Design a Todo List](/solution/2500-2599/2590.Design%20a%20Todo%20List/README_EN.md)  |    |  Medium  |  🔒  |
+|  2591  |  [Distribute Money to Maximum Children](/solution/2500-2599/2591.Distribute%20Money%20to%20Maximum%20Children/README_EN.md)  |    |  Easy  |  Biweekly Contest 100  |
+|  2592  |  [Maximize Greatness of an Array](/solution/2500-2599/2592.Maximize%20Greatness%20of%20an%20Array/README_EN.md)  |    |  Medium  |  Biweekly Contest 100  |
+|  2593  |  [Find Score of an Array After Marking All Elements](/solution/2500-2599/2593.Find%20Score%20of%20an%20Array%20After%20Marking%20All%20Elements/README_EN.md)  |    |  Medium  |  Biweekly Contest 100  |
+|  2594  |  [Minimum Time to Repair Cars](/solution/2500-2599/2594.Minimum%20Time%20to%20Repair%20Cars/README_EN.md)  |    |  Medium  |  Biweekly Contest 100  |
+|  2595  |  [Number of Even and Odd Bits](/solution/2500-2599/2595.Number%20of%20Even%20and%20Odd%20Bits/README_EN.md)  |    |  Easy  |  Weekly Contest 337  |
+|  2596  |  [Check Knight Tour Configuration](/solution/2500-2599/2596.Check%20Knight%20Tour%20Configuration/README_EN.md)  |    |  Medium  |  Weekly Contest 337  |
+|  2597  |  [The Number of Beautiful Subsets](/solution/2500-2599/2597.The%20Number%20of%20Beautiful%20Subsets/README_EN.md)  |    |  Medium  |  Weekly Contest 337  |
+|  2598  |  [Smallest Missing Non-negative Integer After Operations](/solution/2500-2599/2598.Smallest%20Missing%20Non-negative%20Integer%20After%20Operations/README_EN.md)  |    |  Medium  |  Weekly Contest 337  |
 
 ## Copyright
 

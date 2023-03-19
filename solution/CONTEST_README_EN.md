@@ -25,6 +25,22 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 337
+
+- [2595. Number of Even and Odd Bits](/solution/2500-2599/2595.Number%20of%20Even%20and%20Odd%20Bits/README_EN.md)
+- [2596. Check Knight Tour Configuration](/solution/2500-2599/2596.Check%20Knight%20Tour%20Configuration/README_EN.md)
+- [2597. The Number of Beautiful Subsets](/solution/2500-2599/2597.The%20Number%20of%20Beautiful%20Subsets/README_EN.md)
+- [2598. Smallest Missing Non-negative Integer After Operations](/solution/2500-2599/2598.Smallest%20Missing%20Non-negative%20Integer%20After%20Operations/README_EN.md)
+
+
+#### Biweekly Contest 100
+
+- [2591. Distribute Money to Maximum Children](/solution/2500-2599/2591.Distribute%20Money%20to%20Maximum%20Children/README_EN.md)
+- [2592. Maximize Greatness of an Array](/solution/2500-2599/2592.Maximize%20Greatness%20of%20an%20Array/README_EN.md)
+- [2593. Find Score of an Array After Marking All Elements](/solution/2500-2599/2593.Find%20Score%20of%20an%20Array%20After%20Marking%20All%20Elements/README_EN.md)
+- [2594. Minimum Time to Repair Cars](/solution/2500-2599/2594.Minimum%20Time%20to%20Repair%20Cars/README_EN.md)
+
+
 #### Weekly Contest 336
 
 - [2586. Count the Number of Vowel Strings in Range](/solution/2500-2599/2586.Count%20the%20Number%20of%20Vowel%20Strings%20in%20Range/README_EN.md)

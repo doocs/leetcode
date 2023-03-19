@@ -2600,7 +2600,15 @@
 |  2587  |  [重排数组以得到最大前缀分数](/solution/2500-2599/2587.Rearrange%20Array%20to%20Maximize%20Prefix%20Score/README.md)  |  `贪心`,`数组`,`前缀和`,`排序`  |  中等  |  第 336 场周赛  |
 |  2588  |  [统计美丽子数组数目](/solution/2500-2599/2588.Count%20the%20Number%20of%20Beautiful%20Subarrays/README.md)  |  `位运算`,`数组`,`哈希表`,`前缀和`  |  中等  |  第 336 场周赛  |
 |  2589  |  [完成所有任务的最少时间](/solution/2500-2599/2589.Minimum%20Time%20to%20Complete%20All%20Tasks/README.md)  |  `栈`,`贪心`,`数组`,`二分查找`,`排序`  |  困难  |  第 336 场周赛  |
-|  2890  |  [Design a Todo List](/solution/2800-2899/2890.Design%20a%20Todo%20List/README.md)  |    |  中等  |  🔒  |
+|  2590  |  [Design a Todo List](/solution/2500-2599/2590.Design%20a%20Todo%20List/README.md)  |    |  中等  |  🔒  |
+|  2591  |  [将钱分给最多的儿童](/solution/2500-2599/2591.Distribute%20Money%20to%20Maximum%20Children/README.md)  |    |  简单  |  第 100 场双周赛  |
+|  2592  |  [最大化数组的伟大值](/solution/2500-2599/2592.Maximize%20Greatness%20of%20an%20Array/README.md)  |    |  中等  |  第 100 场双周赛  |
+|  2593  |  [标记所有元素后数组的分数](/solution/2500-2599/2593.Find%20Score%20of%20an%20Array%20After%20Marking%20All%20Elements/README.md)  |    |  中等  |  第 100 场双周赛  |
+|  2594  |  [修车的最少时间](/solution/2500-2599/2594.Minimum%20Time%20to%20Repair%20Cars/README.md)  |    |  中等  |  第 100 场双周赛  |
+|  2595  |  [奇偶位数](/solution/2500-2599/2595.Number%20of%20Even%20and%20Odd%20Bits/README.md)  |    |  简单  |  第 337 场周赛  |
+|  2596  |  [检查骑士巡视方案](/solution/2500-2599/2596.Check%20Knight%20Tour%20Configuration/README.md)  |    |  中等  |  第 337 场周赛  |
+|  2597  |  [美丽子集的数目](/solution/2500-2599/2597.The%20Number%20of%20Beautiful%20Subsets/README.md)  |    |  中等  |  第 337 场周赛  |
+|  2598  |  [执行操作后的最大 MEX](/solution/2500-2599/2598.Smallest%20Missing%20Non-negative%20Integer%20After%20Operations/README.md)  |    |  中等  |  第 337 场周赛  |
 
 ## 版权
 

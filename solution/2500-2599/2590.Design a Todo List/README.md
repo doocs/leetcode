@@ -1,8 +1,10 @@
-# [2890. Design a Todo List](https://leetcode.com/problems/design-a-todo-list)
+# [2590. Design a Todo List](https://leetcode.cn/problems/design-a-todo-list)
 
-[中文文档](/solution/2800-2899/2890.Design%20a%20Todo%20List/README.md)
+[English Version](/solution/2500-2599/2590.Design%20a%20Todo%20List/README_EN.md)
 
-## Description
+## 题目描述
+
+<!-- 这里写题目描述 -->
 
 <p>Design a Todo List Where users can add <strong>tasks</strong>, mark them as <strong>complete</strong>, or get a list of pending tasks. Users can also add <strong>tags</strong> to tasks and can filter the tasks by certain tags.</p>
 
@@ -55,11 +57,29 @@ todoList.getAllTasks(1); // return [&quot;Task3&quot;, &quot;Task1&quot;]. User 
 	<li>At most <code>100</code> calls will be made for each method.</li>
 </ul>
 
-## Solutions
+## 解法
+
+<!-- 这里可写通用的实现逻辑 -->
+
+**方法一：哈希表 + 有序集合**
+
+我们使用哈希表 $tasks$ 记录每个用户的任务集合，其中键为用户 ID，值为一个有序集合，按照任务的截止日期排序。另外用一个变量 $i$ 记录当前任务的 ID。
+
+调用 `addTask` 方法时，我们将任务添加到对应用户的任务集合中，返回任务 ID。此操作的时间复杂度为 $O(\log n)$。
+
+调用 `getAllTasks` 方法时，我们遍历对应用户的任务集合，将未完成的任务的描述添加到结果列表中，返回结果列表。此操作的时间复杂度为 $O(n)$。
+
+调用 `getTasksForTag` 方法时，我们遍历对应用户的任务集合，将未完成的任务的描述添加到结果列表中，返回结果列表。此操作的时间复杂度为 $O(n)$。
+
+调用 `completeTask` 方法时，我们遍历对应用户的任务集合，将任务 ID 为 $taskId$ 的任务标记为已完成。此操作的时间复杂度为 $(n)$。
+
+空间复杂度 $O(n)$。其中 $n$ 为所有任务的数量。
 
 <!-- tabs:start -->
 
 ### **Python3**
+
+<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 from sortedcontainers import SortedList
@@ -100,6 +120,8 @@ class TodoList:
 ```
 
 ### **Java**
+
+<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 class Task {
