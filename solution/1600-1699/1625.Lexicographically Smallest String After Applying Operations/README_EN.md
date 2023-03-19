@@ -141,7 +141,7 @@ class Solution {
                 cs[i] = (char) (((cs[i] - '0' + a) % 10) + '0');
             }
             String t1 = String.valueOf(cs);
-            String t2 = s.substring(b) + s.substring(0, b);
+            String t2 = s.substring(n - b) + s.substring(0, n - b);
             for (String t : List.of(t1, t2)) {
                 if (vis.add(t)) {
                     q.offer(t);
