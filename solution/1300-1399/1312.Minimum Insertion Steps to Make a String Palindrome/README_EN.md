@@ -50,13 +50,175 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def minInsertions(self, s: str) -> int:
+        n = len(s)
+        f = [[0] * n for _ in range(n)]
+        for i in range(n - 2, -1, -1):
+            for j in range(i + 1, n):
+                if s[i] == s[j]:
+                    f[i][j] = f[i + 1][j - 1]
+                else:
+                    f[i][j] = min(f[i + 1][j], f[i][j - 1]) + 1
+        return f[0][-1]
+```
 
+```python
+class Solution:
+    def minInsertions(self, s: str) -> int:
+        n = len(s)
+        f = [[0] * n for _ in range(n)]
+        for k in range(2, n + 1):
+            for i in range(n - k + 1):
+                j = i + k - 1
+                if s[i] == s[j]:
+                    f[i][j] = f[i + 1][j - 1]
+                else:
+                    f[i][j] = min(f[i + 1][j], f[i][j - 1]) + 1
+        return f[0][n - 1]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minInsertions(String s) {
+        int n = s.length();
+        int[][] f = new int[n][n];
+        for (int i = n - 2; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                if (s.charAt(i) == s.charAt(j)) {
+                    f[i][j] = f[i + 1][j - 1];
+                } else {
+                    f[i][j] = Math.min(f[i + 1][j], f[i][j - 1]) + 1;
+                }
+            }
+        }
+        return f[0][n - 1];
+    }
+}
+```
 
+```java
+class Solution {
+    public int minInsertions(String s) {
+        int n = s.length();
+        int[][] f = new int[n][n];
+        for (int k = 2; k <= n; ++k) {
+            for (int i = 0; i + k - 1 < n; ++i) {
+                int j = i + k - 1;
+                if (s.charAt(i) == s.charAt(j)) {
+                    f[i][j] = f[i + 1][j - 1];
+                } else {
+                    f[i][j] = Math.min(f[i + 1][j], f[i][j - 1]) + 1;
+                }
+            }
+        }
+        return f[0][n - 1];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minInsertions(string s) {
+        int n = s.size();
+        int f[n][n];
+        memset(f, 0, sizeof(f));
+        for (int i = n - 2; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                if (s[i] == s[j]) {
+                    f[i][j] = f[i + 1][j - 1];
+                } else {
+                    f[i][j] = min(f[i + 1][j], f[i][j - 1]) + 1;
+                }
+            }
+        }
+        return f[0][n - 1];
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int minInsertions(string s) {
+        int n = s.size();
+        int f[n][n];
+        memset(f, 0, sizeof(f));
+        for (int k = 2; k <= n; ++k) {
+            for (int i = 0; i + k - 1 < n; ++i) {
+                int j = i + k - 1;
+                if (s[i] == s[j]) {
+                    f[i][j] = f[i + 1][j - 1];
+                } else {
+                    f[i][j] = min(f[i + 1][j], f[i][j - 1]) + 1;
+                }
+            }
+        }
+        return f[0][n - 1];
+    }
+};
+```
+
+### **Go**
+
+```go
+func minInsertions(s string) int {
+	n := len(s)
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, n)
+	}
+	for i := n - 2; i >= 0; i-- {
+		for j := i + 1; j < n; j++ {
+			if s[i] == s[j] {
+				f[i][j] = f[i+1][j-1]
+			} else {
+				f[i][j] = min(f[i+1][j], f[i][j-1]) + 1
+			}
+		}
+	}
+	return f[0][n-1]
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func minInsertions(s string) int {
+	n := len(s)
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, n)
+	}
+	for k := 2; k <= n; k++ {
+		for i := 0; i+k-1 < n; i++ {
+			j := i + k - 1
+			if s[i] == s[j] {
+				f[i][j] = f[i+1][j-1]
+			} else {
+				f[i][j] = min(f[i+1][j], f[i][j-1]) + 1
+			}
+		}
+	}
+	return f[0][n-1]
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
