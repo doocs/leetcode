@@ -53,11 +53,11 @@ Note that even though the subarrays have the same content, the two subarrays are
 ```python
 class Solution:
     def findSubarrays(self, nums: List[int]) -> bool:
-        s = set()
+        vis = set()
         for a, b in pairwise(nums):
-            if (v := a + b) in s:
+            if (x := a + b) in vis:
                 return True
-            s.add(v)
+            vis.add(x)
         return False
 ```
 
@@ -66,10 +66,9 @@ class Solution:
 ```java
 class Solution {
     public boolean findSubarrays(int[] nums) {
-        Set<Integer> s = new HashSet<>();
-        for (int i = 0; i < nums.length - 1; ++i) {
-            int v = nums[i] + nums[i + 1];
-            if (!s.add(v)) {
+        Set<Integer> vis = new HashSet<>();
+        for (int i = 1; i < nums.length; ++i) {
+            if (!vis.add(nums[i - 1] + nums[i])) {
                 return true;
             }
         }
@@ -84,11 +83,13 @@ class Solution {
 class Solution {
 public:
     bool findSubarrays(vector<int>& nums) {
-        unordered_set<int> s;
-        for (int i = 0; i < nums.size() - 1; ++i) {
-            int v = nums[i] + nums[i + 1];
-            if (s.count(v)) return true;
-            s.insert(v);
+        unordered_set<int> vis;
+        for (int i = 1; i < nums.size(); ++i) {
+            int x = nums[i - 1] + nums[i];
+            if (vis.count(x)) {
+                return true;
+            }
+            vis.insert(x);
         }
         return false;
     }
@@ -99,13 +100,13 @@ public:
 
 ```go
 func findSubarrays(nums []int) bool {
-	s := map[int]bool{}
-	for i := 0; i < len(nums)-1; i++ {
-		v := nums[i] + nums[i+1]
-		if s[v] {
+	vis := map[int]bool{}
+	for i, b := range nums[1:] {
+		x := nums[i] + b
+		if vis[x] {
 			return true
 		}
-		s[v] = true
+		vis[x] = true
 	}
 	return false
 }
