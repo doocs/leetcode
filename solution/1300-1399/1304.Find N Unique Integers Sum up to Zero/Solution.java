@@ -1,12 +1,10 @@
 class Solution {
     public int[] sumZero(int n) {
-        int preSum = 0;
-        int[] ret = new int[n];
+        int[] ans = new int[n];
         for (int i = 1; i < n; ++i) {
-            ret[i - 1] = i;
-            preSum += i;
+            ans[i] = i;
         }
-        ret[n - 1] = -preSum;
-        return ret;
+        ans[0] = -(n * (n - 1) / 2);
+        return ans;
     }
 }
