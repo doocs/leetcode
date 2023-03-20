@@ -1,13 +1,13 @@
 class Solution:
     def canReach(self, arr: List[int], start: int) -> bool:
-        n = len(arr)
         q = deque([start])
         while q:
             i = q.popleft()
             if arr[i] == 0:
                 return True
-            for j in [i + arr[i], i - arr[i]]:
-                if 0 <= j < n and arr[j] >= 0:
-                    q.append(j)
+            x = arr[i]
             arr[i] = -1
+            for j in (i + x, i - x):
+                if 0 <= j < len(arr) and arr[j] >= 0:
+                    q.append(j)
         return False

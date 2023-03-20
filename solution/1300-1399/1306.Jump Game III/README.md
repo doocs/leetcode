@@ -54,7 +54,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-BFS。
+**方法一：BFS**
+
+我们可以使用 BFS 来判断是否能够到达值为 $0$ 的下标。
+
+定义一个队列 $q$，用于存储当前能够到达的下标。初始时，将 $start$ 下标入队。
+
+当队列不为空时，取出队首下标 $i$，如果 $arr[i] = 0$，则返回 `true`。否则，我们将下标 $i$ 标记为已访问，如果 $i + arr[i]$ 和 $i - arr[i]$ 在数组范围内且未被访问过，则将其入队，继续搜索。
+
+最后，如果队列为空，说明无法到达值为 $0$ 的下标，返回 `false`。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
 
@@ -65,16 +75,16 @@ BFS。
 ```python
 class Solution:
     def canReach(self, arr: List[int], start: int) -> bool:
-        n = len(arr)
         q = deque([start])
         while q:
             i = q.popleft()
             if arr[i] == 0:
                 return True
-            for j in [i + arr[i], i - arr[i]]:
-                if 0 <= j < n and arr[j] >= 0:
-                    q.append(j)
+            x = arr[i]
             arr[i] = -1
+            for j in (i + x, i - x):
+                if 0 <= j < len(arr) and arr[j] >= 0:
+                    q.append(j)
         return False
 ```
 
@@ -85,7 +95,6 @@ class Solution:
 ```java
 class Solution {
     public boolean canReach(int[] arr, int start) {
-        int n = arr.length;
         Deque<Integer> q = new ArrayDeque<>();
         q.offer(start);
         while (!q.isEmpty()) {
@@ -93,12 +102,13 @@ class Solution {
             if (arr[i] == 0) {
                 return true;
             }
-            for (int j : Arrays.asList(i + arr[i], i - arr[i])) {
-                if (j >= 0 && j < n && arr[j] >= 0) {
+            int x = arr[i];
+            arr[i] = -1;
+            for (int j : List.of(i + x, i - x)) {
+                if (j >= 0 && j < arr.length && arr[j] >= 0) {
                     q.offer(j);
                 }
             }
-            arr[i] = -1;
         }
         return false;
     }
@@ -111,20 +121,22 @@ class Solution {
 class Solution {
 public:
     bool canReach(vector<int>& arr, int start) {
-        int n = arr.size();
-        queue<int> q {{start}};
+        queue<int> q{{start}};
         while (!q.empty()) {
             int i = q.front();
-            if (arr[i] == 0)
-                return 1;
             q.pop();
-            for (int j : {i + arr[i], i - arr[i]}) {
-                if (j >= 0 && j < n && arr[j] >= 0)
-                    q.push(j);
+            if (arr[i] == 0) {
+                return true;
             }
+            int x = arr[i];
             arr[i] = -1;
+            for (int j : {i + x, i - x}) {
+                if (j >= 0 && j < arr.size() && ~arr[j]) {
+                    q.push(j);
+                }
+            }
         }
-        return 0;
+        return false;
     }
 };
 ```
@@ -136,16 +148,17 @@ func canReach(arr []int, start int) bool {
 	q := []int{start}
 	for len(q) > 0 {
 		i := q[0]
+		q = q[1:]
 		if arr[i] == 0 {
 			return true
 		}
-		q = q[1:]
-		for _, j := range []int{i + arr[i], i - arr[i]} {
+		x := arr[i]
+		arr[i] = -1
+		for _, j := range []int{i + x, i - x} {
 			if j >= 0 && j < len(arr) && arr[j] >= 0 {
 				q = append(q, j)
 			}
 		}
-		arr[i] = -1
 	}
 	return false
 }
