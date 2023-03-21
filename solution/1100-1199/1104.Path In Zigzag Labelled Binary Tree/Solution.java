@@ -1,14 +1,16 @@
 class Solution {
     public List<Integer> pathInZigZagTree(int label) {
-        List<Integer> res = new ArrayList<>();
-        int n = Integer.highestOneBit(label);
-        while (label > 0) {
-            res.add(label);
-            int pos = ((n << 1) - 1 - label) >> 1;
-            label = (n >> 1) + pos;
-            n >>= 1;
+        int x = 1, i = 1;
+        while ((x << 1) <= label) {
+            x <<= 1;
+            ++i;
         }
-        Collections.reverse(res);
-        return res;
+        List<Integer> ans = new ArrayList<>();
+        for (; i > 0; --i) {
+            ans.add(label);
+            label = ((1 << (i - 1)) + (1 << i) - 1 - label) >> 1;
+        }
+        Collections.reverse(ans);
+        return ans;
     }
 }

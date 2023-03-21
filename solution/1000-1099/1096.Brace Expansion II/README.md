@@ -12,7 +12,6 @@
 
 <ul>
 	<li>如果只给出单一的元素&nbsp;<code>x</code>，那么表达式表示的字符串就只有&nbsp;<code>"x"</code>。<code>R(x) = {x}</code>
-
     <ul>
     	<li>例如，表达式 <code>"a"</code> 表示字符串 <code>"a"</code>。</li>
     	<li>而表达式 <code>"w"</code> 就表示字符串 <code>"w"</code>。</li>
@@ -74,12 +73,15 @@
 
 **方法一：递归**
 
-设计递归函数 `dfs(exp)`：
+我们设计一个递归函数 $dfs(exp)$，用于处理表达式 $exp$，并将结果存入集合 $s$ 中。
 
--   如果 `exp` 不包含 `{}`，将 `exp` 中的字符加入结果集 `s` 中，返回；
--   否则，找到第一个 `}` 的位置 $j$，从 $j$ 往前找到第一个 `{` 的位置 $i$，将 $exp[i+1..j-1]$ 之间的字符串按照 `,` 分割，得到一个字符串数组 `bs`。将 `exp[0..i-1]` 和 `exp[j+1..]` 作为前缀 $a$ 和后缀 $c$，分别与 `bs` 中的每个字符串 $b$ 拼接，然后递归调用 `dfs(a+b+c)`。
+对于表达式 $exp$，我们首先找到第一个右花括号的位置 $j$，如果找不到，说明 $exp$ 中没有右花括号，即 $exp$ 为单一元素，直接将 $exp$ 加入集合 $s$ 中即可。
 
-最后对结果集排序，返回。
+否则，我们从位置 $j$ 开始往左找到第一个左花括号的位置 $i$，此时 $exp[:i]$ 和 $exp[j + 1:]$ 分别为 $exp$ 的前缀和后缀，记为 $a$ 和 $c$。而 $exp[i + 1: j]$ 为 $exp$ 中花括号内的部分，即 $exp$ 中的子表达式，我们将其按照逗号分割成多个字符串 $b_1, b_2, \cdots, b_k$，然后对每个 $b_i$，我们将 $a + b_i + c$ 拼接成新的表达式，递归调用 $dfs$ 函数处理新的表达式，即 $dfs(a + b_i + c)$。
+
+最后，我们将集合 $s$ 中的元素按照字典序排序，即可得到答案。
+
+时间复杂度约为 $O(n \times 2^{n / 4})$，其中 $n$ 为表达式 $expression$ 的长度。
 
 <!-- tabs:start -->
 
@@ -95,10 +97,8 @@ class Solution:
             if j == -1:
                 s.add(exp)
                 return
-            i = j
-            while exp[i] != '{':
-                i -= 1
-            a, c, = exp[:i], exp[j + 1:]
+            i = exp.rfind('{', 0, j - 1)
+            a, c = exp[:i], exp[j + 1:]
             for b in exp[i + 1: j].split(','):
                 dfs(a + b + c)
 
@@ -126,10 +126,7 @@ class Solution {
             s.add(exp);
             return;
         }
-        int i = j;
-        while (exp.charAt(i) != '{') {
-            --i;
-        }
+        int i = exp.lastIndexOf('{', j);
         String a = exp.substring(0, i);
         String c = exp.substring(j + 1);
         for (String b : exp.substring(i + 1, j).split(",")) {
@@ -144,22 +141,21 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    set<string> s;
     vector<string> braceExpansionII(string expression) {
         dfs(expression);
         return vector<string>(s.begin(), s.end());
     }
 
+private:
+    set<string> s;
+
     void dfs(string exp) {
-        int j = exp.find('}');
-        if (j == -1) {
+        int j = exp.find_first_of('}');
+        if (j == string::npos) {
             s.insert(exp);
             return;
         }
-        int i = j;
-        while (exp[i] != '{') {
-            --i;
-        }
+        int i = exp.rfind('{', j);
         string a = exp.substr(0, i);
         string c = exp.substr(j + 1);
         stringstream ss(exp.substr(i + 1, j - i - 1));
@@ -176,29 +172,49 @@ public:
 ```go
 func braceExpansionII(expression string) []string {
 	s := map[string]struct{}{}
-	var dfs func(exp string)
+	var dfs func(string)
 	dfs = func(exp string) {
-		j := strings.IndexByte(exp, '}')
+		j := strings.Index(exp, "}")
 		if j == -1 {
 			s[exp] = struct{}{}
 			return
 		}
-		i := j
-		for exp[i] != '{' {
-			i--
-		}
+		i := strings.LastIndex(exp[:j], "{")
 		a, c := exp[:i], exp[j+1:]
 		for _, b := range strings.Split(exp[i+1:j], ",") {
 			dfs(a + b + c)
 		}
 	}
 	dfs(expression)
-	ans := []string{}
-	for v := range s {
-		ans = append(ans, v)
+	ans := make([]string, 0, len(s))
+	for k := range s {
+		ans = append(ans, k)
 	}
 	sort.Strings(ans)
 	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function braceExpansionII(expression: string): string[] {
+    const dfs = (exp: string) => {
+        const j = exp.indexOf('}');
+        if (j === -1) {
+            s.add(exp);
+            return;
+        }
+        const i = exp.lastIndexOf('{', j);
+        const a = exp.substring(0, i);
+        const c = exp.substring(j + 1);
+        for (const b of exp.substring(i + 1, j).split(',')) {
+            dfs(a + b + c);
+        }
+    };
+    const s: Set<string> = new Set();
+    dfs(expression);
+    return Array.from(s).sort();
 }
 ```
 

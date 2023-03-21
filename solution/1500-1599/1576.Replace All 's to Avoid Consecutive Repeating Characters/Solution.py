@@ -1,13 +1,12 @@
 class Solution:
     def modifyString(self, s: str) -> str:
-        ans = list(s)
-        for i, c in enumerate(ans):
-            if c == '?':
-                for cc in 'abc':
-                    if i > 0 and ans[i - 1] == cc:
+        s = list(s)
+        n = len(s)
+        for i in range(n):
+            if s[i] == "?":
+                for c in "abc":
+                    if (i and s[i - 1] == c) or (i + 1 < n and s[i + 1] == c):
                         continue
-                    if i < len(s) - 1 and ans[i + 1] == cc:
-                        continue
-                    ans[i] = cc
+                    s[i] = c
                     break
-        return ''.join(ans)
+        return "".join(s)

@@ -45,13 +45,21 @@
 ```python
 class Solution:
     def sumZero(self, n: int) -> List[int]:
-        presum = 0
-        res = []
-        for i in range(1, n):
-            res.append(i)
-            presum += i
-        res.append(-presum)
-        return res
+        ans = []
+        for i in range(n >> 1):
+            ans.append(i + 1)
+            ans.append(-(i + 1))
+        if n & 1:
+            ans.append(0)
+        return ans
+```
+
+```python
+class Solution:
+    def sumZero(self, n: int) -> List[int]:
+        ans = list(range(1, n))
+        ans.append(-sum(ans))
+        return ans
 ```
 
 ### **Java**
@@ -59,14 +67,25 @@ class Solution:
 ```java
 class Solution {
     public int[] sumZero(int n) {
-        int preSum = 0;
-        int[] ret = new int[n];
-        for (int i = 1; i < n; ++i) {
-            ret[i - 1] = i;
-            preSum += i;
+        int[] ans = new int[n];
+        for (int i = 1, j = 0; i <= n / 2; ++i) {
+            ans[j++] = i;
+            ans[j++] = -i;
         }
-        ret[n - 1] = -preSum;
-        return ret;
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int[] sumZero(int n) {
+        int[] ans = new int[n];
+        for (int i = 1; i < n; ++i) {
+            ans[i] = i;
+        }
+        ans[0] = -(n * (n - 1) / 2);
+        return ans;
     }
 }
 ```
@@ -77,14 +96,24 @@ class Solution {
 class Solution {
 public:
     vector<int> sumZero(int n) {
-        int presum = 0;
-        vector<int> res;
-        for (int i = 1; i < n; ++i) {
-            res.push_back(i);
-            presum += i;
+        vector<int> ans(n);
+        for (int i = 1, j = 0; i <= n / 2; ++i) {
+            ans[j++] = i;
+            ans[j++] = -i;
         }
-        res.push_back(-presum);
-        return res;
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> sumZero(int n) {
+        vector<int> ans(n);
+        iota(ans.begin(), ans.end(), 1);
+        ans[n - 1] = -(n - 1) * n / 2;
+        return ans;
     }
 };
 ```
@@ -93,14 +122,48 @@ public:
 
 ```go
 func sumZero(n int) []int {
-	presum := 0
-	var res []int
-	for i := 1; i < n; i++ {
-		res = append(res, i)
-		presum += i
+	ans := make([]int, n)
+	for i, j := 1, 0; i <= n/2; i, j = i+1, j+1 {
+		ans[j] = i
+		j++
+		ans[j] = -i
 	}
-	res = append(res, -presum)
-	return res
+	return ans
+}
+```
+
+```go
+func sumZero(n int) []int {
+	ans := make([]int, n)
+	for i := 1; i < n; i++ {
+		ans[i] = i
+	}
+	ans[0] = -n * (n - 1) / 2
+	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function sumZero(n: number): number[] {
+    const ans = new Array(n).fill(0);
+    for (let i = 1, j = 0; i <= n / 2; ++i) {
+        ans[j++] = i;
+        ans[j++] = -i;
+    }
+    return ans;
+}
+```
+
+```ts
+function sumZero(n: number): number[] {
+    const ans = new Array(n).fill(0);
+    for (let i = 1; i < n; ++i) {
+        ans[i] = i;
+    }
+    ans[0] = -((n * (n - 1)) / 2);
+    return ans;
 }
 ```
 

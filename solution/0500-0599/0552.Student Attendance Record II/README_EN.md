@@ -62,6 +62,27 @@ Only &quot;AA&quot; is not eligible because there are 2 absences (there need to 
 ```python
 class Solution:
     def checkRecord(self, n: int) -> int:
+        @cache
+        def dfs(i, j, k):
+            if i >= n:
+                return 1
+            ans = 0
+            if j == 0:
+                ans += dfs(i + 1, j + 1, 0)
+            if k < 2:
+                ans += dfs(i + 1, j, k + 1)
+            ans += dfs(i + 1, j, 0)
+            return ans % mod
+
+        mod = 10**9 + 7
+        ans = dfs(0, 0, 0)
+        dfs.cache_clear()
+        return ans
+```
+
+```python
+class Solution:
+    def checkRecord(self, n: int) -> int:
         mod = int(1e9 + 7)
         dp = [[[0, 0, 0], [0, 0, 0]] for _ in range(n)]
 
@@ -90,6 +111,37 @@ class Solution:
 ```
 
 ### **Java**
+
+```java
+class Solution {
+    private final int mod = (int) 1e9 + 7;
+    private int n;
+    private Integer[][][] f;
+
+    public int checkRecord(int n) {
+        this.n = n;
+        f = new Integer[n][2][3];
+        return dfs(0, 0, 0);
+    }
+
+    private int dfs(int i, int j, int k) {
+        if (i >= n) {
+            return 1;
+        }
+        if (f[i][j][k] != null) {
+            return f[i][j][k];
+        }
+        int ans = dfs(i + 1, j, 0);
+        if (j == 0) {
+            ans = (ans + dfs(i + 1, j + 1, 0)) % mod;
+        }
+        if (k < 2) {
+            ans = (ans + dfs(i + 1, j, k + 1)) % mod;
+        }
+        return f[i][j][k] = ans;
+    }
+}
+```
 
 ```java
 class Solution {
@@ -128,6 +180,41 @@ class Solution {
 ```
 
 ### **Go**
+
+```go
+func checkRecord(n int) int {
+	f := make([][][]int, n)
+	for i := range f {
+		f[i] = make([][]int, 2)
+		for j := range f[i] {
+			f[i][j] = make([]int, 3)
+			for k := range f[i][j] {
+				f[i][j][k] = -1
+			}
+		}
+	}
+	const mod = 1e9 + 7
+	var dfs func(i, j, k int) int
+	dfs = func(i, j, k int) int {
+		if i >= n {
+			return 1
+		}
+		if f[i][j][k] != -1 {
+			return f[i][j][k]
+		}
+		ans := dfs(i+1, j, 0)
+		if j == 0 {
+			ans = (ans + dfs(i+1, j+1, 0)) % mod
+		}
+		if k < 2 {
+			ans = (ans + dfs(i+1, j, k+1)) % mod
+		}
+		f[i][j][k] = ans
+		return ans
+	}
+	return dfs(0, 0, 0)
+}
+```
 
 ```go
 const _mod int = 1e9 + 7
@@ -170,6 +257,40 @@ func checkRecord(n int) int {
 ```
 
 ### **C++**
+
+```cpp
+int f[100010][2][3];
+const int mod = 1e9 + 7;
+
+class Solution {
+public:
+    int checkRecord(int n) {
+        this->n = n;
+        memset(f, -1, sizeof(f));
+        return dfs(0, 0, 0);
+    }
+
+    int dfs(int i, int j, int k) {
+        if (i >= n) {
+            return 1;
+        }
+        if (f[i][j][k] != -1) {
+            return f[i][j][k];
+        }
+        int ans = dfs(i + 1, j, 0);
+        if (j == 0) {
+            ans = (ans + dfs(i + 1, j + 1, 0)) % mod;
+        }
+        if (k < 2) {
+            ans = (ans + dfs(i + 1, j, k + 1)) % mod;
+        }
+        return f[i][j][k] = ans;
+    }
+
+private:
+    int n;
+};
+```
 
 ```cpp
 constexpr int MOD = 1e9 + 7;

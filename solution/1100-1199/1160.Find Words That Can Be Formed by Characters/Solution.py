@@ -1,9 +1,9 @@
 class Solution:
     def countCharacters(self, words: List[str], chars: str) -> int:
-        counter = Counter(chars)
+        cnt = Counter(chars)
         ans = 0
-        for word in words:
-            cnt = Counter(word)
-            if all([counter[c] >= v for c, v in cnt.items()]):
-                ans += len(word)
+        for w in words:
+            wc = Counter(w)
+            if all(cnt[c] >= v for c, v in wc.items()):
+                ans += len(w)
         return ans

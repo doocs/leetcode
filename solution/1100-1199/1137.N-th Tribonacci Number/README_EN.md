@@ -43,11 +43,8 @@ T_4 = 1 + 1 + 2 = 4
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>0 &lt;= n &lt;= 37</code></li>
-
     <li>The answer is guaranteed to fit within a 32-bit integer, ie. <code>answer &lt;= 2^31 - 1</code>.</li>
-
 </ul>
 
 ## Solutions
@@ -131,6 +128,29 @@ var tribonacci = function (n) {
     }
     return a;
 };
+```
+
+### **PHP**
+
+```php
+class Solution {
+    /**
+     * @param Integer $n
+     * @return Integer
+     */
+    function tribonacci($n) {
+        if ($n == 0) {
+            return 0;
+        } else if ($n == 1 || $n == 2) {
+            return 1;
+        }
+        $dp = [0, 1, 1];
+        for ($i = 3; $i <= $n; $i++) {
+            $dp[$i] = $dp[$i - 1] + $dp[$i - 2] + $dp[$i - 3];
+        }
+        return $dp[$n];
+    }
+}
 ```
 
 ### **...**

@@ -1,17 +1,18 @@
-func numberOfWeakCharacters(properties [][]int) int {
+func numberOfWeakCharacters(properties [][]int) (ans int) {
 	sort.Slice(properties, func(i, j int) bool {
-		if properties[i][0] == properties[j][0] {
-			return properties[i][1] < properties[j][1]
+		a, b := properties[i], properties[j]
+		if a[0] == b[0] {
+			return a[1] < b[1]
 		}
-		return properties[i][0] > properties[j][0]
+		return a[0] > b[0]
 	})
-	ans, mx := 0, 0
-	for _, p := range properties {
-		if mx > p[1] {
+	mx := 0
+	for _, x := range properties {
+		if x[1] < mx {
 			ans++
 		} else {
-			mx = p[1]
+			mx = x[1]
 		}
 	}
-	return ans
+	return
 }

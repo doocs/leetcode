@@ -1,34 +1,29 @@
-func printVertically(s string) []string {
+func printVertically(s string) (ans []string) {
 	words := strings.Split(s, " ")
-	m := len(words)
-	var n int
-	for _, word := range words {
-		if n < len(word) {
-			n = len(word)
-		}
+	n := 0
+	for _, w := range words {
+		n = max(n, len(w))
 	}
-	var ans []string
 	for j := 0; j < n; j++ {
-		var t []byte
-		for i := 0; i < m; i++ {
-			word := words[i]
-			if j < len(word) {
-				t = append(t, word[j])
+		t := []byte{}
+		for _, w := range words {
+			if j < len(w) {
+				t = append(t, w[j])
 			} else {
 				t = append(t, ' ')
 			}
 		}
-		s = string(t)
-		ans = append(ans, rstrip(s))
+		for len(t) > 0 && t[len(t)-1] == ' ' {
+			t = t[:len(t)-1]
+		}
+		ans = append(ans, string(t))
 	}
-	return ans
+	return
 }
 
-func rstrip(s string) string {
-	for i := len(s) - 1; i >= 0; i-- {
-		if s[i] != ' ' {
-			return s[:i+1]
-		}
+func max(a, b int) int {
+	if a > b {
+		return a
 	}
-	return s
+	return b
 }

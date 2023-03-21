@@ -54,8 +54,8 @@ Opening Only the second tap will water the whole garden [0,5]
 class Solution:
     def minTaps(self, n: int, ranges: List[int]) -> int:
         last = [0] * (n + 1)
-        for i, v in enumerate(ranges):
-            l, r = max(0, i - v), min(n, i + v)
+        for i, x in enumerate(ranges):
+            l, r = max(0, i - x), i + x
             last[l] = max(last[l], r)
 
         ans = mx = pre = 0
@@ -76,8 +76,7 @@ class Solution {
     public int minTaps(int n, int[] ranges) {
         int[] last = new int[n + 1];
         for (int i = 0; i < n + 1; ++i) {
-            int v = ranges[i];
-            int l = Math.max(0, i - v), r = Math.min(n, i + v);
+            int l = Math.max(0, i - ranges[i]), r = i + ranges[i];
             last[l] = Math.max(last[l], r);
         }
         int ans = 0, mx = 0, pre = 0;
@@ -104,8 +103,7 @@ public:
     int minTaps(int n, vector<int>& ranges) {
         vector<int> last(n + 1);
         for (int i = 0; i < n + 1; ++i) {
-            int v = ranges[i];
-            int l = max(0, i - v), r = min(n, i + v);
+            int l = max(0, i - ranges[i]), r = i + ranges[i];
             last[l] = max(last[l], r);
         }
         int ans = 0, mx = 0, pre = 0;
@@ -127,15 +125,15 @@ public:
 ### **Go**
 
 ```go
-func minTaps(n int, ranges []int) int {
+func minTaps(n int, ranges []int) (ans int) {
 	last := make([]int, n+1)
-	for i, v := range ranges {
-		l, r := max(0, i-v), min(n, i+v)
+	for i, x := range ranges {
+		l, r := max(0, i-x), i+x
 		last[l] = max(last[l], r)
 	}
-	ans, mx, pre := 0, 0, 0
-	for i := 0; i < n; i++ {
-		mx = max(mx, last[i])
+	var pre, mx int
+	for i, j := range last[:n] {
+		mx = max(mx, j)
 		if mx <= i {
 			return -1
 		}
@@ -144,7 +142,7 @@ func minTaps(n int, ranges []int) int {
 			pre = mx
 		}
 	}
-	return ans
+	return
 }
 
 func max(a, b int) int {
@@ -153,12 +151,32 @@ func max(a, b int) int {
 	}
 	return b
 }
+```
 
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
+### **TypeScript**
+
+```ts
+function minTaps(n: number, ranges: number[]): number {
+    const last = new Array(n + 1).fill(0);
+    for (let i = 0; i < n + 1; ++i) {
+        const l = Math.max(0, i - ranges[i]);
+        const r = i + ranges[i];
+        last[l] = Math.max(last[l], r);
+    }
+    let ans = 0;
+    let mx = 0;
+    let pre = 0;
+    for (let i = 0; i < n; ++i) {
+        mx = Math.max(mx, last[i]);
+        if (mx <= i) {
+            return -1;
+        }
+        if (pre == i) {
+            ++ans;
+            pre = mx;
+        }
+    }
+    return ans;
 }
 ```
 

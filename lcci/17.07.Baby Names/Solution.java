@@ -1,66 +1,46 @@
 class Solution {
-    private Map<String, Integer> mp = new HashMap<>();
-    private Map<String, String> p = new HashMap<>();
+    private Map<String, List<String>> g = new HashMap<>();
+    private Map<String, Integer> cnt = new HashMap<>();
+    private Set<String> vis = new HashSet<>();
+    private int freq;
 
     public String[] trulyMostPopular(String[] names, String[] synonyms) {
-        for (String e : names) {
-            int idx = e.indexOf("(");
-            String name = e.substring(0, idx);
-            int w = Integer.parseInt(e.substring(idx + 1, e.length() - 1));
-            mp.put(name, w);
-            p.put(name, name);
+        for (String pairs : synonyms) {
+            String[] pair = pairs.substring(1, pairs.length() - 1).split(",");
+            String a = pair[0], b = pair[1];
+            g.computeIfAbsent(a, k -> new ArrayList<>()).add(b);
+            g.computeIfAbsent(b, k -> new ArrayList<>()).add(a);
         }
-        for (String e : synonyms) {
-            int idx = e.indexOf(",");
-            String name1 = e.substring(1, idx);
-            String name2 = e.substring(idx + 1, e.length() - 1);
-            if (!mp.containsKey(name1)) {
-                mp.put(name1, 0);
-            }
-            if (!mp.containsKey(name2)) {
-                mp.put(name2, 0);
-            }
-            p.put(name1, name1);
-            p.put(name2, name2);
+        Set<String> s = new HashSet<>();
+        for (String x : names) {
+            int i = x.indexOf('(');
+            String name = x.substring(0, i);
+            s.add(name);
+            cnt.put(name, Integer.parseInt(x.substring(i + 1, x.length() - 1)));
         }
-        for (String e : synonyms) {
-            int idx = e.indexOf(",");
-            String name1 = e.substring(1, idx);
-            String name2 = e.substring(idx + 1, e.length() - 1);
-            union(name1, name2);
-        }
-        List<String> t = new ArrayList<>();
-        for (Map.Entry<String, Integer> e : mp.entrySet()) {
-            String name = e.getKey();
-            if (Objects.equals(name, find(name))) {
-                t.add(name + "(" + e.getValue() + ")");
+        List<String> res = new ArrayList<>();
+        for (String name : s) {
+            if (!vis.contains(name)) {
+                freq = 0;
+                name = dfs(name);
+                res.add(name + "(" + freq + ")");
             }
         }
-        String[] res = new String[t.size()];
-        for (int i = 0; i < res.length; ++i) {
-            res[i] = t.get(i);
-        }
-        return res;
+        return res.toArray(new String[0]);
     }
 
-    private String find(String x) {
-        if (!Objects.equals(p.get(x), x)) {
-            p.put(x, find(p.get(x)));
+    private String dfs(String a) {
+        String mi = a;
+        vis.add(a);
+        freq += cnt.getOrDefault(a, 0);
+        for (String b : g.getOrDefault(a, new ArrayList<>())) {
+            if (!vis.contains(b)) {
+                String t = dfs(b);
+                if (t.compareTo(mi) < 0) {
+                    mi = t;
+                }
+            }
         }
-        return p.get(x);
-    }
-
-    private void union(String a, String b) {
-        String pa = find(a), pb = find(b);
-        if (Objects.equals(pa, pb)) {
-            return;
-        }
-        if (pa.compareTo(pb) > 0) {
-            mp.put(pb, mp.getOrDefault(pb, 0) + mp.getOrDefault(pa, 0));
-            p.put(pa, pb);
-        } else {
-            mp.put(pa, mp.getOrDefault(pa, 0) + mp.getOrDefault(pb, 0));
-            p.put(pb, pa);
-        }
+        return mi;
     }
 }

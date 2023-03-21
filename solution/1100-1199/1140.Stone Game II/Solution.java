@@ -20,11 +20,10 @@ class Solution {
         if (f[i][m] != null) {
             return f[i][m];
         }
-        f[i][m] = 0;
+        int res = 0;
         for (int x = 1; x <= m * 2; ++x) {
-            int t = s[n] - s[i] - dfs(i + x, Math.max(m, x));
-            f[i][m] = Math.max(f[i][m], t);
+            res = Math.max(res, s[n] - s[i] - dfs(i + x, Math.max(m, x)));
         }
-        return f[i][m];
+        return f[i][m] = res;
     }
 }

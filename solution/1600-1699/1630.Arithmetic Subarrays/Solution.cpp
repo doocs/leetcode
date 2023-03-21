@@ -1,28 +1,30 @@
 class Solution {
 public:
     vector<bool> checkArithmeticSubarrays(vector<int>& nums, vector<int>& l, vector<int>& r) {
-        vector<bool> res;
+        vector<bool> ans;
+        auto check = [](vector<int>& nums, int l, int r) {
+            unordered_set<int> s;
+            int n = r - l + 1;
+            int a1 = 1 << 30, an = -a1;
+            for (int i = l; i <= r; ++i) {
+                s.insert(nums[i]);
+                a1 = min(a1, nums[i]);
+                an = max(an, nums[i]);
+            }
+            if ((an - a1) % (n - 1)) {
+                return false;
+            }
+            int d = (an - a1) / (n - 1);
+            for (int i = 1; i < n; ++i) {
+                if (!s.count(a1 + (i - 1) * d)) {
+                    return false;
+                }
+            }
+            return true;
+        };
         for (int i = 0; i < l.size(); ++i) {
-            res.push_back(check(nums, l[i], r[i]));
+            ans.push_back(check(nums, l[i], r[i]));
         }
-        return res;
-    }
-
-    bool check(vector<int>& nums, int l, int r) {
-        if (r - l < 2) return true;
-        unordered_set<int> s;
-        int mx = -100010;
-        int mi = 100010;
-        for (int i = l; i <= r; ++i) {
-            s.insert(nums[i]);
-            mx = max(mx, nums[i]);
-            mi = min(mi, nums[i]);
-        }
-        if ((mx - mi) % (r - l) != 0) return false;
-        int delta = (mx - mi) / (r - l);
-        for (int i = 1; i <= r - l; ++i) {
-            if (!s.count(mi + delta * i)) return false;
-        }
-        return true;
+        return ans;
     }
 };

@@ -55,11 +55,10 @@
 ```python
 class Solution:
     def findOcurrences(self, text: str, first: str, second: str) -> List[str]:
-        words = text.split(' ')
+        ws = text.split()
+        n = len(ws)
         return [
-            words[i + 2]
-            for i in range(len(words) - 2)
-            if words[i] == first and words[i + 1] == second
+            ws[i + 2] for i in range(n - 2) if ws[i] == first and ws[i + 1] == second
         ]
 ```
 

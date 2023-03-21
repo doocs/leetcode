@@ -1,13 +1,18 @@
 class Solution {
 public:
     int numKLenSubstrNoRepeats(string s, int k) {
+        int n = s.size();
+        if (k > n || k > 26) {
+            return 0;
+        }
+        int cnt[128]{};
         int ans = 0;
-        unordered_map<int, int> mp;
-        for (int i = 0, j = 0; i < s.size(); ++i) {
-            char c = s[i];
-            if (mp.count(c)) j = max(j, mp[c] + 1);
-            mp[c] = i;
-            if (i - j + 1 >= k) ++ans;
+        for (int i = 0, j = 0; i < n; ++i) {
+            ++cnt[s[i]];
+            while (cnt[s[i]] > 1 || i - j + 1 > k) {
+                --cnt[s[j++]];
+            }
+            ans += i - j + 1 == k;
         }
         return ans;
     }

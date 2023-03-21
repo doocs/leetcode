@@ -53,13 +53,160 @@ The product of their lengths is: 5 * 5 = 25.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxProduct(self, s: str) -> int:
+        n = len(s)
+        p = [True] * (1 << n)
+        for k in range(1, 1 << n):
+            i, j = 0, n - 1
+            while i < j:
+                while i < j and (k >> i & 1) == 0:
+                    i += 1
+                while i < j and (k >> j & 1) == 0:
+                    j -= 1
+                if i < j and s[i] != s[j]:
+                    p[k] = False
+                    break
+                i, j = i + 1, j - 1
+        ans = 0
+        for i in range(1, 1 << n):
+            if p[i]:
+                mx = ((1 << n) - 1) ^ i
+                j = mx
+                a = i.bit_count()
+                while j:
+                    if p[j]:
+                        b = j.bit_count()
+                        ans = max(ans, a * b)
+                    j = (j - 1) & mx
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxProduct(String s) {
+        int n = s.length();
+        boolean[] p = new boolean[1 << n];
+        Arrays.fill(p, true);
+        for (int k = 1; k < 1 << n; ++k) {
+            for (int i = 0, j = n - 1; i < n; ++i, --j) {
+                while (i < j && (k >> i & 1) == 0) {
+                    ++i;
+                }
+                while (i < j && (k >> j & 1) == 0) {
+                    --j;
+                }
+                if (i < j && s.charAt(i) != s.charAt(j)) {
+                    p[k] = false;
+                    break;
+                }
+            }
+        }
+        int ans = 0;
+        for (int i = 1; i < 1 << n; ++i) {
+            if (p[i]) {
+                int a = Integer.bitCount(i);
+                int mx = ((1 << n) - 1) ^ i;
+                for (int j = mx; j > 0; j = (j - 1) & mx) {
+                    if (p[j]) {
+                        int b = Integer.bitCount(j);
+                        ans = Math.max(ans, a * b);
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxProduct(string s) {
+        int n = s.size();
+        vector<bool> p(1 << n, true);
+        for (int k = 1; k < 1 << n; ++k) {
+            for (int i = 0, j = n - 1; i < j; ++i, --j) {
+                while (i < j && !(k >> i & 1)) {
+                    ++i;
+                }
+                while (i < j && !(k >> j & 1)) {
+                    --j;
+                }
+                if (i < j && s[i] != s[j]) {
+                    p[k] = false;
+                    break;
+                }
+            }
+        }
+        int ans = 0;
+        for (int i = 1; i < 1 << n; ++i) {
+            if (p[i]) {
+                int a = __builtin_popcount(i);
+                int mx = ((1 << n) - 1) ^ i;
+                for (int j = mx; j; j = (j - 1) & mx) {
+                    if (p[j]) {
+                        int b = __builtin_popcount(j);
+                        ans = max(ans, a * b);
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxProduct(s string) (ans int) {
+	n := len(s)
+	p := make([]bool, 1<<n)
+	for i := range p {
+		p[i] = true
+	}
+	for k := 1; k < 1<<n; k++ {
+		for i, j := 0, n-1; i < j; i, j = i+1, j-1 {
+			for i < j && (k>>i&1) == 0 {
+				i++
+			}
+			for i < j && (k>>j&1) == 0 {
+				j--
+			}
+			if i < j && s[i] != s[j] {
+				p[k] = false
+				break
+			}
+		}
+	}
+	for i := 1; i < 1<<n; i++ {
+		if p[i] {
+			a := bits.OnesCount(uint(i))
+			mx := (1<<n - 1) ^ i
+			for j := mx; j > 0; j = (j - 1) & mx {
+				if p[j] {
+					b := bits.OnesCount(uint(j))
+					ans = max(ans, a*b)
+				}
+			}
+		}
+	}
+	return
+
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

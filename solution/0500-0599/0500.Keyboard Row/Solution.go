@@ -1,14 +1,17 @@
-func findWords(words []string) []string {
+func findWords(words []string) (ans []string) {
 	s := "12210111011122000010020202"
-	var ans []string
-	for _, word := range words {
-		t := make(map[byte]bool)
-		for _, c := range word {
-			t[s[unicode.ToLower(c)-'a']] = true
+	for _, w := range words {
+		x := s[unicode.ToLower(rune(w[0]))-'a']
+		ok := true
+		for _, c := range w[1:] {
+			if s[unicode.ToLower(c)-'a'] != x {
+				ok = false
+				break
+			}
 		}
-		if len(t) == 1 {
-			ans = append(ans, word)
+		if ok {
+			ans = append(ans, w)
 		}
 	}
-	return ans
+	return
 }

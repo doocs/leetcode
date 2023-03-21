@@ -44,6 +44,7 @@ summaryRanges.getIntervals(); // return [[1, 3], [6, 7]]
 <ul>
 	<li><code>0 &lt;= value &lt;= 10<sup>4</sup></code></li>
 	<li>At most <code>3 * 10<sup>4</sup></code> calls will be made to <code>addNum</code> and <code>getIntervals</code>.</li>
+	<li>At most <code>10<sup>2</sup></code>&nbsp;calls will be made to&nbsp;<code>getIntervals</code>.</li>
 </ul>
 
 <p>&nbsp;</p>

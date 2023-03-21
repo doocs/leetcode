@@ -143,6 +143,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+我们可以模拟每一单位的水滴下落的过程，每次下落时，我们首先尝试向左移动，如果可以移动到更低的高度，则移动到最低的高度处；如果不能移动到更低的高度，则尝试向右移动，如果可以移动到更低的高度，则移动到最低的高度处；如果不能移动到更低的高度，则在当前位置上升。
+
+时间复杂度 $O(v \times n)，空间复杂度 O(1)$。其中 $v$ 和 $n$ 分别是水滴的数量和高度数组的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -150,7 +156,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def pourWater(self, heights: List[int], volume: int, k: int) -> List[int]:
+        for _ in range(volume):
+            for d in (-1, 1):
+                i = j = k
+                while 0 <= i + d < len(heights) and heights[i + d] <= heights[i]:
+                    if heights[i + d] < heights[i]:
+                        j = i + d
+                    i += d
+                if j != k:
+                    heights[j] += 1
+                    break
+            else:
+                heights[k] += 1
+        return heights
 ```
 
 ### **Java**
@@ -158,7 +178,60 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] pourWater(int[] heights, int volume, int k) {
+        while (volume-- > 0) {
+            boolean find = false;
+            for (int d = -1; d < 2 && !find; d += 2) {
+                int i = k, j = k;
+                while (i + d >= 0 && i + d < heights.length && heights[i + d] <= heights[i]) {
+                    if (heights[i + d] < heights[i]) {
+                        j = i + d;
+                    }
+                    i += d;
+                }
+                if (j != k) {
+                    find = true;
+                    ++heights[j];
+                }
+            }
+            if (!find) {
+                ++heights[k];
+            }
+        }
+        return heights;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> pourWater(vector<int>& heights, int volume, int k) {
+        while (volume--) {
+            bool find = false;
+            for (int d = -1; d < 2 && !find; d += 2) {
+                int i = k, j = k;
+                while (i + d >= 0 && i + d < heights.size() && heights[i + d] <= heights[i]) {
+                    if (heights[i + d] < heights[i]) {
+                        j = i + d;
+                    }
+                    i += d;
+                }
+                if (j != k) {
+                    find = true;
+                    ++heights[j];
+                }
+            }
+            if (!find) {
+                ++heights[k];
+            }
+        }
+        return heights;
+    }
+};
 ```
 
 ### **...**

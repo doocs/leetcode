@@ -52,9 +52,9 @@
 
 **方法一：排序**
 
-按照题意生成 `arr` 数组，排序后，对 `[left-1, right-1]` 范围的所有元素求和，得到结果。
+按照题意生成 `arr` 数组，排序后，对 $[left-1,.. right-1]$ 范围的所有元素求和，得到结果。
 
-时间复杂度 $O(n^2\log n)$。
+时间复杂度 $O(n^2\log n)$，空间复杂度 $O(n^2)$。其中 $n$ 为题目给定的数组长度。
 
 <!-- tabs:start -->
 
@@ -72,8 +72,8 @@ class Solution:
                 s += nums[j]
                 arr.append(s)
         arr.sort()
-        MOD = 10**9 + 7
-        return sum(arr[left - 1 : right]) % MOD
+        mod = 10**9 + 7
+        return sum(arr[left - 1: right]) % mod
 ```
 
 ### **Java**
@@ -82,32 +82,55 @@ class Solution:
 
 ```java
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
     public int rangeSum(int[] nums, int n, int left, int right) {
         int[] arr = new int[n * (n + 1) / 2];
-        int idx = 0;
-        for (int i = 0; i < n; ++i) {
+        for (int i = 0, k = 0; i < n; ++i) {
             int s = 0;
             for (int j = i; j < n; ++j) {
                 s += nums[j];
-                arr[idx++] = s;
+                arr[k++] = s;
             }
         }
         Arrays.sort(arr);
         int ans = 0;
+        final int mod = (int) 1e9 + 7;
         for (int i = left - 1; i < right; ++i) {
-            ans = (ans + arr[i]) % MOD;
+            ans = (ans + arr[i]) % mod;
         }
         return ans;
     }
 }
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int rangeSum(vector<int>& nums, int n, int left, int right) {
+        int arr[n * (n + 1) / 2];
+        for (int i = 0, k = 0; i < n; ++i) {
+            int s = 0;
+            for (int j = i; j < n; ++j) {
+                s += nums[j];
+                arr[k++] = s;
+            }
+        }
+        sort(arr, arr + n * (n + 1) / 2);
+        int ans = 0;
+        const int mod = 1e9 + 7;
+        for (int i = left - 1; i < right; ++i) {
+            ans = (ans + arr[i]) % mod;
+        }
+        return ans;
+    }
+};
+```
+
 ### **Go**
 
 ```go
-func rangeSum(nums []int, n int, left int, right int) int {
+func rangeSum(nums []int, n int, left int, right int) (ans int) {
 	var arr []int
 	for i := 0; i < n; i++ {
 		s := 0
@@ -117,12 +140,11 @@ func rangeSum(nums []int, n int, left int, right int) int {
 		}
 	}
 	sort.Ints(arr)
-	mod := int(1e9) + 7
-	ans := 0
-	for i := left - 1; i < right; i++ {
-		ans = (ans + arr[i]) % mod
+	const mod int = 1e9 + 7
+	for _, x := range arr[left-1 : right] {
+		ans = (ans + x) % mod
 	}
-	return ans
+	return
 }
 ```
 

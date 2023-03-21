@@ -41,7 +41,25 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-先进行排序，再用双指针 `low` 、`high` 分别指向排序数组的首尾，遍历获取满足条件的和 `nums[low] + nums[high]` 并求最大和。
+**方法一：排序 + 二分查找**
+
+我们可以先对数组 `nums` 进行排序，初始化答案为 `-1`。
+
+接下来，我们枚举数组中的每个元素 `nums[i]`，并在数组中寻找满足 `nums[j] + nums[i] < k` 的最大的 `nums[j]`。这里我们可以使用二分查找来加速寻找过程。如果找到了这样的 `nums[j]`，那么我们就可以更新答案，即 `ans = max(ans, nums[i] + nums[j])`。
+
+枚举结束后，返回答案即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 `nums` 的长度。
+
+**方法二：排序 + 双指针**
+
+与方法一类似，我们可以先对数组 `nums` 进行排序，初始化答案为 `-1`。
+
+接下来，我们使用双指针 $i$ 和 $j$ 分别指向数组的左右两端，每次判断 `nums[i] + nums[j]` 是否小于 `k`，如果小于 `k`，那么我们就可以更新答案，即 `ans = max(ans, nums[i] + nums[j])`，并将 $i$ 右移一位，否则将 $j$ 左移一位。
+
+枚举结束后，返回答案即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 `nums` 的长度。
 
 <!-- tabs:start -->
 
@@ -53,16 +71,27 @@
 class Solution:
     def twoSumLessThanK(self, nums: List[int], k: int) -> int:
         nums.sort()
-        low, high = 0, len(nums) - 1
-        res = -1
-        while low < high:
-            val = nums[low] + nums[high]
-            if val < k:
-                res = max(res, val)
-                low += 1
+        ans = -1
+        for i, x in enumerate(nums):
+            j = bisect_left(nums, k - x, lo=i + 1) - 1
+            if i < j:
+                ans = max(ans, x + nums[j])
+        return ans
+```
+
+```python
+class Solution:
+    def twoSumLessThanK(self, nums: List[int], k: int) -> int:
+        nums.sort()
+        ans = -1
+        i, j = 0, len(nums) - 1
+        while i < j:
+            if (t := nums[i] + nums[j]) < k:
+                ans = max(ans, t)
+                i += 1
             else:
-                high -= 1
-        return res
+                j -= 1
+        return ans
 ```
 
 ### **Java**
@@ -73,18 +102,47 @@ class Solution:
 class Solution {
     public int twoSumLessThanK(int[] nums, int k) {
         Arrays.sort(nums);
-        int low = 0, high = nums.length - 1;
-        int res = -1;
-        while (low < high) {
-            int val = nums[low] + nums[high];
-            if (val < k) {
-                res = Math.max(res, val);
-                ++low;
-            } else {
-                --high;
+        int ans = -1;
+        int n = nums.length;
+        for (int i = 0; i < n; ++i) {
+            int j = search(nums, k - nums[i], i + 1, n) - 1;
+            if (i < j) {
+                ans = Math.max(ans, nums[i] + nums[j]);
             }
         }
-        return res;
+        return ans;
+    }
+
+    private int search(int[] nums, int x, int l, int r) {
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (nums[mid] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    }
+}
+```
+
+```java
+class Solution {
+    public int twoSumLessThanK(int[] nums, int k) {
+        Arrays.sort(nums);
+        int ans = -1;
+        int i = 0, j = nums.length - 1;
+        while (i < j) {
+            int t = nums[i] + nums[j];
+            if (t < k) {
+                ans = Math.max(ans, t);
+                ++i;
+            } else {
+                --j;
+            }
+        }
+        return ans;
     }
 }
 ```
@@ -96,20 +154,77 @@ class Solution {
 public:
     int twoSumLessThanK(vector<int>& nums, int k) {
         sort(nums.begin(), nums.end());
-        int low = 0, high = nums.size() - 1;
-        int res = -1;
-        while (low < high) {
-            int val = nums[low] + nums[high];
-            if (val < k) {
-                res = max(res, val);
-                ++low;
-            } else {
-                --high;
+        int ans = -1, n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            int j = lower_bound(nums.begin() + i + 1, nums.end(), k - nums[i]) - nums.begin() - 1;
+            if (i < j) {
+                ans = max(ans, nums[i] + nums[j]);
             }
         }
-        return res;
+        return ans;
     }
 };
+```
+
+```cpp
+class Solution {
+public:
+    int twoSumLessThanK(vector<int>& nums, int k) {
+        sort(nums.begin(), nums.end());
+        int ans = -1;
+        int i = 0, j = nums.size() - 1;
+        while (i < j) {
+            int t = nums[i] + nums[j];
+            if (t < k) {
+                ans = max(ans, t);
+                ++i;
+            } else {
+                --j;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func twoSumLessThanK(nums []int, k int) int {
+	sort.Ints(nums)
+	ans := -1
+	for i, x := range nums {
+		j := sort.SearchInts(nums[i+1:], k-x) + i
+		if v := nums[i] + nums[j]; i < j && ans < v {
+			ans = v
+		}
+	}
+	return ans
+}
+```
+
+```go
+func twoSumLessThanK(nums []int, k int) int {
+	sort.Ints(nums)
+	ans := -1
+	i, j := 0, len(nums)-1
+	for i < j {
+		if t := nums[i] + nums[j]; t < k {
+			ans = max(ans, t)
+			i++
+		} else {
+			j--
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

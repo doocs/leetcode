@@ -8,7 +8,6 @@
 
 <ul>
 	<li>For example, if you have a ribbon of length <code>4</code>, you can:
-
     <ul>
     	<li>Keep the ribbon of length <code>4</code>,</li>
     	<li>Cut it into one ribbon of length <code>3</code> and one ribbon of length <code>1</code>,</li>
@@ -17,7 +16,6 @@
     	<li>Cut it into four ribbons of length <code>1</code>.</li>
     </ul>
     </li>
-
 </ul>
 
 <p>Your goal is to obtain <code>k</code> ribbons of all the <strong>same positive integer length</strong>. You are allowed to throw away any excess ribbon as a result of cutting.</p>
@@ -74,17 +72,15 @@ Now you have 4 ribbons of length 4.
 ```python
 class Solution:
     def maxLength(self, ribbons: List[int], k: int) -> int:
-        low, high = 0, 100000
-        while low < high:
-            mid = (low + high + 1) >> 1
-            cnt = 0
-            for ribbon in ribbons:
-                cnt += ribbon // mid
-            if cnt < k:
-                high = mid - 1
+        left, right = 0, 100000
+        while left < right:
+            mid = (left + right + 1) >> 1
+            cnt = sum(x // mid for x in ribbons)
+            if cnt >= k:
+                left = mid
             else:
-                low = mid
-        return low
+                right = mid - 1
+        return left
 ```
 
 ### **Java**
@@ -92,20 +88,20 @@ class Solution:
 ```java
 class Solution {
     public int maxLength(int[] ribbons, int k) {
-        int low = 0, high = 100000;
-        while (low < high) {
-            int mid = (low + high + 1) >> 1;
+        int left = 0, right = 100000;
+        while (left < right) {
+            int mid = (left + right + 1) >>> 1;
             int cnt = 0;
-            for (int ribbon : ribbons) {
-                cnt += ribbon / mid;
+            for (int x : ribbons) {
+                cnt += x / mid;
             }
-            if (cnt < k) {
-                high = mid - 1;
+            if (cnt >= k) {
+                left = mid;
             } else {
-                low = mid;
+                right = mid - 1;
             }
         }
-        return low;
+        return left;
     }
 }
 ```
@@ -116,22 +112,43 @@ class Solution {
 class Solution {
 public:
     int maxLength(vector<int>& ribbons, int k) {
-        int low = 0, high = 100000;
-        while (low < high) {
-            int mid = (low + high + 1) / 2;
+        int left = 0, right = 1e5;
+        while (left < right) {
+            int mid = (left + right + 1) >> 1;
             int cnt = 0;
-            for (auto ribbon : ribbons) {
+            for (int ribbon : ribbons) {
                 cnt += ribbon / mid;
             }
-            if (cnt < k) {
-                high = mid - 1;
+            if (cnt >= k) {
+                left = mid;
             } else {
-                low = mid;
+                right = mid - 1;
             }
         }
-        return low;
+        return left;
     }
 };
+```
+
+### **Go**
+
+```go
+func maxLength(ribbons []int, k int) int {
+	left, right := 0, 100000
+	for left < right {
+		mid := (left + right + 1) >> 1
+		cnt := 0
+		for _, x := range ribbons {
+			cnt += x / mid
+		}
+		if cnt >= k {
+			left = mid
+		} else {
+			right = mid - 1
+		}
+	}
+	return left
+}
 ```
 
 ### **JavaScript**
@@ -143,42 +160,43 @@ public:
  * @return {number}
  */
 var maxLength = function (ribbons, k) {
-    let low = 0;
-    let high = 100000;
-    while (low < high) {
-        const mid = (low + high + 1) >> 1;
+    let left = 0;
+    let right = 1e5;
+    while (left < right) {
+        const mid = (left + right + 1) >> 1;
         let cnt = 0;
-        for (let ribbon of ribbons) {
-            cnt += Math.floor(ribbon / mid);
+        for (const x of ribbons) {
+            cnt += Math.floor(x / mid);
         }
-        if (cnt < k) {
-            high = mid - 1;
+        if (cnt >= k) {
+            left = mid;
         } else {
-            low = mid;
+            right = mid - 1;
         }
     }
-    return low;
+    return left;
 };
 ```
 
-### **Go**
+### **TypeScript**
 
-```go
-func maxLength(ribbons []int, k int) int {
-	low, high := 0, 100000
-	for low < high {
-		mid := (low + high + 1) >> 1
-		cnt := 0
-		for _, ribbon := range ribbons {
-			cnt += ribbon / mid
-		}
-		if cnt < k {
-			high = mid - 1
-		} else {
-			low = mid
-		}
-	}
-	return low
+```ts
+function maxLength(ribbons: number[], k: number): number {
+    let left = 0;
+    let right = 1e5;
+    while (left < right) {
+        const mid = (left + right + 1) >> 1;
+        let cnt = 0;
+        for (const x of ribbons) {
+            cnt += Math.floor(x / mid);
+        }
+        if (cnt >= k) {
+            left = mid;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return left;
 }
 ```
 

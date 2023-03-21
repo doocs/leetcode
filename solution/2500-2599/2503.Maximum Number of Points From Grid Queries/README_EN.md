@@ -6,7 +6,7 @@
 
 <p>You are given an <code>m x n</code> integer matrix <code>grid</code> and an array <code>queries</code> of size <code>k</code>.</p>
 
-<p>Find an array <code>answer</code> of size <code>k</code> such that for each integer <code>queres[i]</code> you start in the <strong>top left</strong> cell of the matrix and repeat the following process:</p>
+<p>Find an array <code>answer</code> of size <code>k</code> such that for each integer <code>queries[i]</code> you start in the <strong>top left</strong> cell of the matrix and repeat the following process:</p>
 
 <ul>
 	<li>If <code>queries[i]</code> is <strong>strictly</strong> greater than the value of the current cell that you are in, then you get one point if it is your first time visiting this cell, and you can move to any <strong>adjacent</strong> cell in all <code>4</code> directions: up, down, left, and right.</li>

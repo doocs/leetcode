@@ -59,12 +59,12 @@ The sum of the numbers after index 2 is: 0
 ```python
 class Solution:
     def findMiddleIndex(self, nums: List[int]) -> int:
-        s = sum(nums)
-        total = 0
-        for i, num in enumerate(nums):
-            total += num
-            if total - num == s - total:
+        left, right = 0, sum(nums)
+        for i, x in enumerate(nums):
+            right -= x
+            if left == right:
                 return i
+            left += x
         return -1
 ```
 
@@ -73,16 +73,13 @@ class Solution:
 ```java
 class Solution {
     public int findMiddleIndex(int[] nums) {
-        int s = 0;
-        for (int num : nums) {
-            s += num;
-        }
-        int total = 0;
+        int left = 0, right = Arrays.stream(nums).sum();
         for (int i = 0; i < nums.length; ++i) {
-            total += nums[i];
-            if (total - nums[i] == s - total) {
+            right -= nums[i];
+            if (left == right) {
                 return i;
             }
+            left += nums[i];
         }
         return -1;
     }
@@ -95,17 +92,14 @@ class Solution {
 class Solution {
 public:
     int findMiddleIndex(vector<int>& nums) {
-        int sum = 0;
-        int total = 0;
-        for (int num : nums)
-            sum += num;
-
-        for (int i = 0; i < nums.size(); i++) {
-            total += nums[i];
-            if (total - nums[i] == sum - total)
+        int left = 0, right = accumulate(nums.begin(), nums.end(), 0);
+        for (int i = 0; i < nums.size(); ++i) {
+            right -= nums[i];
+            if (left == right) {
                 return i;
+            }
+            left += nums[i];
         }
-
         return -1;
     }
 };
@@ -115,18 +109,56 @@ public:
 
 ```go
 func findMiddleIndex(nums []int) int {
-	s := 0
-	for _, num := range nums {
-		s += num
+	var left, right int
+	for _, x := range nums {
+		right += x
 	}
-	total := 0
-	for i, num := range nums {
-		total += num
-		if total-num == s-total {
+	for i, x := range nums {
+		right -= x
+		if left == right {
 			return i
 		}
+		left += x
 	}
 	return -1
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findMiddleIndex = function (nums) {
+    let left = 0,
+        right = nums.reduce((a, b) => a + b);
+    for (let i = 0; i < nums.length; ++i) {
+        right -= nums[i];
+        if (left == right) {
+            return i;
+        }
+        left += nums[i];
+    }
+    return -1;
+};
+```
+
+### **TypeScript**
+
+```ts
+function findMiddleIndex(nums: number[]): number {
+    let left = 0,
+        right = nums.reduce((a, b) => a + b);
+    for (let i = 0; i < nums.length; ++i) {
+        right -= nums[i];
+        if (left == right) {
+            return i;
+        }
+        left += nums[i];
+    }
+    return -1;
 }
 ```
 

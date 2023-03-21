@@ -1,25 +1,16 @@
 class Solution:
     def countSubarrays(self, nums: List[int], k: int) -> int:
-        i = next(i for i, v in enumerate(nums) if v == k)
-        n = len(nums)
+        i = nums.index(k)
+        cnt = Counter()
         ans = 1
-        d = defaultdict(int)
-        mi = mx = 0
-        for j in range(i + 1, n):
-            if nums[j] < k:
-                mi += 1
-            else:
-                mx += 1
-            if 0 <= mx - mi <= 1:
-                ans += 1
-            d[mx - mi] += 1
-        mi = mx = 0
+        x = 0
+        for v in nums[i + 1 :]:
+            x += 1 if v > k else -1
+            ans += 0 <= x <= 1
+            cnt[x] += 1
+        x = 0
         for j in range(i - 1, -1, -1):
-            if nums[j] < k:
-                mi += 1
-            else:
-                mx += 1
-            if 0 <= mx - mi <= 1:
-                ans += 1
-            ans += d[mi - mx] + d[mi - mx + 1]
+            x += 1 if nums[j] > k else -1
+            ans += 0 <= x <= 1
+            ans += cnt[-x] + cnt[-x + 1]
         return ans

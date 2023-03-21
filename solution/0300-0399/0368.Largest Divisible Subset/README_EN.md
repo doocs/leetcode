@@ -49,25 +49,23 @@ class Solution:
     def largestDivisibleSubset(self, nums: List[int]) -> List[int]:
         nums.sort()
         n = len(nums)
-        f, p = [0] * n, [0] * n
+        f = [1] * n
+        k = 0
         for i in range(n):
-            l, pre = 1, i
-            for j in range(n):
-                if nums[i] % nums[j] == 0 and f[j] + 1 > l:
-                    l = f[j] + 1
-                    pre = j
-            f[i] = l
-            p[i] = pre
-        max_len, max_index = 0, 0
-        for i, v in enumerate(f):
-            if max_len < v:
-                max_len = v
-                max_index = i
+            for j in range(i):
+                if nums[i] % nums[j] == 0:
+                    f[i] = max(f[i], f[j] + 1)
+            if f[k] < f[i]:
+                k = i
+        m = f[k]
+        i = k
         ans = []
-        while len(ans) < max_len:
-            ans.append(nums[max_index])
-            max_index = p[max_index]
-        return ans[::-1]
+        while m:
+            if nums[k] % nums[i] == 0 and f[i] == m:
+                ans.append(nums[i])
+                k, m = i, m - 1
+            i -= 1
+        return ans
 ```
 
 ### **Java**
@@ -77,33 +75,103 @@ class Solution {
     public List<Integer> largestDivisibleSubset(int[] nums) {
         Arrays.sort(nums);
         int n = nums.length;
-        int[] f = new int[n], p = new int[n];
-        for (int i = 0; i < n; i++) {
-            int l = 1, pre = i;
-            for (int j = 0; j < i; j++) {
-                if (nums[i] % nums[j] == 0 && f[j] + 1 > l) {
-                    l = f[j] + 1;
-                    pre = j;
+        int[] f = new int[n];
+        Arrays.fill(f, 1);
+        int k = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                if (nums[i] % nums[j] == 0) {
+                    f[i] = Math.max(f[i], f[j] + 1);
                 }
             }
-            f[i] = l;
-            p[i] = pre;
-        }
-        int maxLen = 0, maxIndex = 0;
-        for (int i = 0; i < n; i++) {
-            if (f[i] > maxLen) {
-                maxLen = f[i];
-                maxIndex = i;
+            if (f[k] < f[i]) {
+                k = i;
             }
         }
+        int m = f[k];
         List<Integer> ans = new ArrayList<>();
-        while (ans.size() < maxLen) {
-            ans.add(nums[maxIndex]);
-            maxIndex = p[maxIndex];
+        for (int i = k; m > 0; --i) {
+            if (nums[k] % nums[i] == 0 && f[i] == m) {
+                ans.add(nums[i]);
+                k = i;
+                --m;
+            }
         }
-        Collections.reverse(ans);
         return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> largestDivisibleSubset(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int n = nums.size();
+        int f[n];
+        int k = 0;
+        for (int i = 0; i < n; ++i) {
+            f[i] = 1;
+            for (int j = 0; j < i; ++j) {
+                if (nums[i] % nums[j] == 0) {
+                    f[i] = max(f[i], f[j] + 1);
+                }
+            }
+            if (f[k] < f[i]) {
+                k = i;
+            }
+        }
+        int m = f[k];
+        vector<int> ans;
+        for (int i = k; m > 0; --i) {
+            if (nums[k] % nums[i] == 0 && f[i] == m) {
+                ans.push_back(nums[i]);
+                k = i;
+                --m;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func largestDivisibleSubset(nums []int) (ans []int) {
+	sort.Ints(nums)
+	n := len(nums)
+	f := make([]int, n)
+	k := 0
+	for i := 0; i < n; i++ {
+		f[i] = 1
+		for j := 0; j < i; j++ {
+			if nums[i]%nums[j] == 0 {
+				f[i] = max(f[i], f[j]+1)
+			}
+		}
+		if f[k] < f[i] {
+			k = i
+		}
+	}
+	m := f[k]
+	for i := k; m > 0; i-- {
+		if nums[k]%nums[i] == 0 && f[i] == m {
+			ans = append(ans, nums[i])
+			k = i
+			m--
+		}
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 

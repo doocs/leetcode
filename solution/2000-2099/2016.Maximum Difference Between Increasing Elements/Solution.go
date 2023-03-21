@@ -1,10 +1,11 @@
 func maximumDifference(nums []int) int {
-	mi, ans := nums[0], -1
-	for i, n := 1, len(nums); i < n; i++ {
-		if nums[i] > mi {
-			ans = max(ans, nums[i]-mi)
+	mi := 1 << 30
+	ans := -1
+	for _, x := range nums {
+		if mi < x {
+			ans = max(ans, x-mi)
 		} else {
-			mi = nums[i]
+			mi = x
 		}
 	}
 	return ans

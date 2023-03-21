@@ -6,9 +6,8 @@
  *     Right *TreeNode
  * }
  */
-func distributeCoins(root *TreeNode) int {
-	ans := 0
-	var dfs func(root *TreeNode) int
+func distributeCoins(root *TreeNode) (ans int) {
+	var dfs func(*TreeNode) int
 	dfs = func(root *TreeNode) int {
 		if root == nil {
 			return 0
@@ -18,7 +17,7 @@ func distributeCoins(root *TreeNode) int {
 		return left + right + root.Val - 1
 	}
 	dfs(root)
-	return ans
+	return
 }
 
 func abs(x int) int {

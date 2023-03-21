@@ -1,22 +1,16 @@
-func arraysIntersection(arr1 []int, arr2 []int, arr3 []int) []int {
-	var res []int
-	for _, num := range arr1 {
-		if find(arr2, num) && find(arr3, num) {
-			res = append(res, num)
+func arraysIntersection(arr1 []int, arr2 []int, arr3 []int) (ans []int) {
+	cnt := [2001]int{}
+	for _, x := range arr1 {
+		cnt[x]++
+	}
+	for _, x := range arr2 {
+		cnt[x]++
+	}
+	for _, x := range arr3 {
+		cnt[x]++
+		if cnt[x] == 3 {
+			ans = append(ans, x)
 		}
 	}
-	return res
-}
-
-func find(arr []int, val int) bool {
-	left, right := 0, len(arr)-1
-	for left < right {
-		mid := (left + right) >> 1
-		if arr[mid] >= val {
-			right = mid
-		} else {
-			left = mid + 1
-		}
-	}
-	return arr[left] == val
+	return
 }

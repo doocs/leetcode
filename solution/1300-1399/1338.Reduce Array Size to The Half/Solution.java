@@ -1,23 +1,24 @@
 class Solution {
     public int minSetSize(int[] arr) {
-        Map<Integer, Integer> counter = new HashMap<>();
-        for (int v : arr) {
-            counter.put(v, counter.getOrDefault(v, 0) + 1);
+        int mx = 0;
+        for (int x : arr) {
+            mx = Math.max(mx, x);
         }
-        List<Integer> t = new ArrayList<>();
-        for (int cnt : counter.values()) {
-            t.add(cnt);
+        int[] cnt = new int[mx + 1];
+        for (int x : arr) {
+            ++cnt[x];
         }
-        Collections.sort(t, Collections.reverseOrder());
+        Arrays.sort(cnt);
         int ans = 0;
-        int n = 0;
-        for (int cnt : t) {
-            n += cnt;
-            ++ans;
-            if (n * 2 >= arr.length) {
-                break;
+        int m = 0;
+        for (int i = mx; ; --i) {
+            if (cnt[i] > 0) {
+                m += cnt[i];
+                ++ans;
+                if (m * 2 >= arr.length) {
+                    return ans;
+                }
             }
         }
-        return ans;
     }
 }

@@ -3,7 +3,7 @@ class Solution:
         strs = [s[::-1] if s[::-1] > s else s for s in strs]
         ans = ''.join(strs)
         for i, s in enumerate(strs):
-            t = ''.join(strs[i + 1:]) + ''.join(strs[: i])
+            t = ''.join(strs[i + 1 :]) + ''.join(strs[:i])
             for j in range(len(s)):
                 a = s[j:]
                 b = s[:j]

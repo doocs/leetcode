@@ -55,11 +55,12 @@ Notice that element mat[1][1] = 5 is counted only once.
 ```python
 class Solution:
     def diagonalSum(self, mat: List[List[int]]) -> int:
+        ans = 0
         n = len(mat)
-        res = 0
-        for i in range(n):
-            res += mat[i][i] + (0 if n - i - 1 == i else mat[i][n - i - 1])
-        return res
+        for i, row in enumerate(mat):
+            j = n - i - 1
+            ans += row[i] + (0 if j == i else row[j])
+        return ans
 ```
 
 ### **Java**
@@ -67,12 +68,13 @@ class Solution:
 ```java
 class Solution {
     public int diagonalSum(int[][] mat) {
+        int ans = 0;
         int n = mat.length;
-        int res = 0;
         for (int i = 0; i < n; ++i) {
-            res += mat[i][i] + (n - i - 1 == i ? 0 : mat[i][n - i - 1]);
+            int j = n - i - 1;
+            ans += mat[i][i] + (i == j ? 0 : mat[i][j]);
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -83,12 +85,13 @@ class Solution {
 class Solution {
 public:
     int diagonalSum(vector<vector<int>>& mat) {
+        int ans = 0;
         int n = mat.size();
-        int res = 0;
         for (int i = 0; i < n; ++i) {
-            res += mat[i][i] + (n - i - 1 == i ? 0 : mat[i][n - i - 1]);
+            int j = n - i - 1;
+            ans += mat[i][i] + (i == j ? 0 : mat[i][j]);
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -96,15 +99,15 @@ public:
 ### **Go**
 
 ```go
-func diagonalSum(mat [][]int) int {
-	n, res := len(mat), 0
-	for i := 0; i < n; i++ {
-		res += mat[i][i]
-		if n-i-1 != i {
-			res += mat[i][n-i-1]
+func diagonalSum(mat [][]int) (ans int) {
+	n := len(mat)
+	for i, row := range mat {
+		ans += row[i]
+		if j := n - i - 1; j != i {
+			ans += row[j]
 		}
 	}
-	return res
+	return
 }
 ```
 

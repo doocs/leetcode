@@ -1,24 +1,22 @@
 class Solution {
     public String[] findLongestSubarray(String[] array) {
-        Map<Integer, Integer> seen = new HashMap<>();
-        seen.put(0, -1);
-        int t = 0, mx = 0;
-        int j = 0;
+        Map<Integer, Integer> vis = new HashMap<>();
+        vis.put(0, -1);
+        int s = 0, mx = 0, k = 0;
         for (int i = 0; i < array.length; ++i) {
-            t += Character.isDigit(array[i].charAt(0)) ? 1 : -1;
-            if (seen.containsKey(t)) {
-                if (mx < i - seen.get(t)) {
-                    mx = i - seen.get(t);
-                    j = seen.get(t) + 1;
+            s += array[i].charAt(0) >= 'A' ? 1 : -1;
+            if (vis.containsKey(s)) {
+                int j = vis.get(s);
+                if (mx < i - j) {
+                    mx = i - j;
+                    k = j + 1;
                 }
             } else {
-                seen.put(t, i);
+                vis.put(s, i);
             }
         }
         String[] ans = new String[mx];
-        for (int i = 0; i < mx; ++i) {
-            ans[i] = array[i + j];
-        }
+        System.arraycopy(array, k, ans, 0, mx);
         return ans;
     }
 }

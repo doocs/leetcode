@@ -50,13 +50,168 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def winnerSquareGame(self, n: int) -> bool:
+        @cache
+        def dfs(i):
+            if i <= 0:
+                return False
+            j = 1
+            while (k := (i - j * j)) >= 0:
+                if not dfs(k):
+                    return True
+                j += 1
+            return False
 
+        return dfs(n)
+```
+
+```python
+class Solution:
+    def winnerSquareGame(self, n: int) -> bool:
+        f = [False] * (n + 1)
+        for i in range(1, n + 1):
+            j = 1
+            while j <= i // j:
+                if not f[i - j * j]:
+                    f[i] = True
+                    break
+                j += 1
+        return f[n]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private Boolean[] f;
 
+    public boolean winnerSquareGame(int n) {
+        f = new Boolean[n + 1];
+        return dfs(n);
+    }
+
+    private boolean dfs(int i) {
+        if (i <= 0) {
+            return false;
+        }
+        if (f[i] != null) {
+            return f[i];
+        }
+        for (int j = 1; j <= i / j; ++j) {
+            if (!dfs(i - j * j)) {
+                return f[i] = true;
+            }
+        }
+        return f[i] = false;
+    }
+}
+```
+
+```java
+class Solution {
+    public boolean winnerSquareGame(int n) {
+        boolean[] f = new boolean[n + 1];
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j <= i / j; ++j) {
+                if (!f[i - j * j]) {
+                    f[i] = true;
+                    break;
+                }
+            }
+        }
+        return f[n];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool winnerSquareGame(int n) {
+        int f[n + 1];
+        memset(f, 0, sizeof(f));
+        function<bool(int)> dfs = [&](int i) -> bool {
+            if (i <= 0) {
+                return false;
+            }
+            if (f[i] != 0) {
+                return f[i] == 1;
+            }
+            for (int j = 1; j <= i / j; ++j) {
+                if (!dfs(i - j * j)) {
+                    f[i] = 1;
+                    return true;
+                }
+            }
+            f[i] = -1;
+            return false;
+        };
+        return dfs(n);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool winnerSquareGame(int n) {
+        bool f[n + 1];
+        memset(f, false, sizeof(f));
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j <= i / j; ++j) {
+                if (!f[i - j * j]) {
+                    f[i] = true;
+                    break;
+                }
+            }
+        }
+        return f[n];
+    }
+};
+```
+
+### **Go**
+
+```go
+func winnerSquareGame(n int) bool {
+	f := make([]int, n+1)
+	var dfs func(int) bool
+	dfs = func(i int) bool {
+		if i <= 0 {
+			return false
+		}
+		if f[i] != 0 {
+			return f[i] == 1
+		}
+		for j := 1; j <= i/j; j++ {
+			if !dfs(i - j*j) {
+				f[i] = 1
+				return true
+			}
+		}
+		f[i] = -1
+		return false
+	}
+	return dfs(n)
+}
+```
+
+```go
+func winnerSquareGame(n int) bool {
+	f := make([]bool, n+1)
+	for i := 1; i <= n; i++ {
+		for j := 1; j <= i/j; j++ {
+			if !f[i-j*j] {
+				f[i] = true
+				break
+			}
+		}
+	}
+	return f[n]
+}
 ```
 
 ### **...**

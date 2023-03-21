@@ -1,24 +1,20 @@
 class Solution {
     public String bestHand(int[] ranks, char[] suits) {
-        Set<Character> s = new HashSet<>();
-        for (char c : suits) {
-            s.add(c);
+        boolean flush = true;
+        for (int i = 1; i < 5 && flush; ++i) {
+            flush = suits[i] == suits[i - 1];
         }
-        if (s.size() == 1) {
+        if (flush) {
             return "Flush";
         }
-        int[] cnt = new int[20];
-        for (int v : ranks) {
-            ++cnt[v];
-            if (cnt[v] >= 3) {
+        int[] cnt = new int[14];
+        boolean pair = false;
+        for (int x : ranks) {
+            if (++cnt[x] == 3) {
                 return "Three of a Kind";
             }
+            pair = pair || cnt[x] == 2;
         }
-        for (int v : cnt) {
-            if (v == 2) {
-                return "Pair";
-            }
-        }
-        return "High Card";
+        return pair ? "Pair" : "High Card";
     }
 }

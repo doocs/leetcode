@@ -50,8 +50,7 @@ In the third operation, choose x = 2. Now, nums = [0,0,0,0,0].
 ```python
 class Solution:
     def minimumOperations(self, nums: List[int]) -> int:
-        s = {v for v in nums if v}
-        return len(s)
+        return len({x for x in nums if x})
 ```
 
 ### **Java**
@@ -59,13 +58,16 @@ class Solution:
 ```java
 class Solution {
     public int minimumOperations(int[] nums) {
-        Set<Integer> s = new HashSet<>();
-        for (int v : nums) {
-            if (v > 0) {
-                s.add(v);
+        boolean[] s = new boolean[101];
+        s[0] = true;
+        int ans = 0;
+        for (int x : nums) {
+            if (!s[x]) {
+                ++ans;
+                s[x] = true;
             }
         }
-        return s.size();
+        return ans;
     }
 }
 ```
@@ -76,10 +78,16 @@ class Solution {
 class Solution {
 public:
     int minimumOperations(vector<int>& nums) {
-        unordered_set<int> s;
-        for (int v : nums)
-            if (v) s.insert(v);
-        return s.size();
+        bool s[101]{};
+        s[0] = true;
+        int ans = 0;
+        for (int& x : nums) {
+            if (!s[x]) {
+                ++ans;
+                s[x] = true;
+            }
+        }
+        return ans;
     }
 };
 ```
@@ -87,21 +95,57 @@ public:
 ### **Go**
 
 ```go
-func minimumOperations(nums []int) int {
-	s := map[int]bool{}
-	for _, v := range nums {
-		if v > 0 {
-			s[v] = true
+func minimumOperations(nums []int) (ans int) {
+	s := [101]bool{true}
+	for _, x := range nums {
+		if !s[x] {
+			s[x] = true
+			ans++
 		}
 	}
-	return len(s)
+	return
 }
 ```
 
 ### **TypeScript**
 
 ```ts
+function minimumOperations(nums: number[]): number {
+    const set = new Set(nums);
+    set.delete(0);
+    return set.size;
+}
+```
 
+### **Rust**
+
+```rust
+use std::collections::HashSet;
+impl Solution {
+    pub fn minimum_operations(nums: Vec<i32>) -> i32 {
+        let mut set = nums.iter().collect::<HashSet<&i32>>();
+        set.remove(&0);
+        set.len() as i32
+    }
+}
+```
+
+### **C**
+
+```c
+int minimumOperations(int *nums, int numsSize) {
+    int vis[101] = {0};
+    vis[0] = 1;
+    int ans = 0;
+    for (int i = 0; i < numsSize; i++) {
+        if (vis[nums[i]]) {
+            continue;
+        }
+        vis[nums[i]] = 1;
+        ans++;
+    }
+    return ans;
+}
 ```
 
 ### **...**

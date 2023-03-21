@@ -55,17 +55,10 @@
 ```python
 class Solution:
     def massage(self, nums: List[int]) -> int:
-        if not nums:
-            return 0
-        n = len(nums)
-        if n < 2:
-            return nums[0]
-        a, b = nums[0], max(nums[0], nums[1])
-        res = b
-        for i in range(2, n):
-            res = max(a + nums[i], b)
-            a, b = b, res
-        return res
+        f = g = 0
+        for x in nums:
+            f, g = g + x, max(f, g)
+        return max(f, g)
 ```
 
 ### **Java**
@@ -73,22 +66,68 @@ class Solution:
 ```java
 class Solution {
     public int massage(int[] nums) {
-        if (nums == null) {
-            return 0;
+        int f = 0, g = 0;
+        for (int x : nums) {
+            int ff = g + x;
+            int gg = Math.max(f, g);
+            f = ff;
+            g = gg;
         }
-        int n = nums.length;
-        if (n < 2) {
-            return n == 0 ? 0 : nums[0];
-        }
-        int a = nums[0], b = Math.max(nums[0], nums[1]);
-        int res = b;
-        for (int i = 2; i < n; ++i) {
-            res = Math.max(a + nums[i], b);
-            a = b;
-            b = res;
-        }
-        return res;
+        return Math.max(f, g);
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int massage(vector<int>& nums) {
+        int f = 0, g = 0;
+        for (int& x : nums) {
+            int ff = g + x;
+            int gg = max(f, g);
+            f = ff;
+            g = gg;
+        }
+        return max(f, g);
+    }
+};
+```
+
+### **Go**
+
+```go
+func massage(nums []int) int {
+	f, g := 0, 0
+	for _, x := range nums {
+		f, g = g+x, max(f, g)
+	}
+	return max(f, g)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function massage(nums: number[]): number {
+    let f = 0,
+        g = 0;
+    for (const x of nums) {
+        const ff = g + x;
+        const gg = Math.max(f, g);
+        f = ff;
+        g = gg;
+    }
+    return Math.max(f, g);
 }
 ```
 

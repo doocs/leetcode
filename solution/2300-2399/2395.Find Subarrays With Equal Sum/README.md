@@ -51,11 +51,11 @@
 
 **方法一：哈希表**
 
-用哈希表 `s` 记录数组相邻两元素的和。
+我们可以遍历数组 $nums$，用哈希表 $vis$ 记录数组中每两个相邻元素的和，如果当前两个元素的和已经在哈希表中出现过，则返回 `true`，否则将当前两个元素的和加入哈希表中。
 
-遍历数组 `nums`，若 `s` 中存在 `nums[i] + nums[i + 1]`，则返回 `true`；否则将 `nums[i] + nums[i + 1]` 加入 `s` 中。
+遍历结束后，说明没有找到满足条件的两个子数组，返回 `false`。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$，其中 $n$ 为数组 `nums` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
 
@@ -66,11 +66,11 @@
 ```python
 class Solution:
     def findSubarrays(self, nums: List[int]) -> bool:
-        s = set()
+        vis = set()
         for a, b in pairwise(nums):
-            if (v := a + b) in s:
+            if (x := a + b) in vis:
                 return True
-            s.add(v)
+            vis.add(x)
         return False
 ```
 
@@ -81,10 +81,9 @@ class Solution:
 ```java
 class Solution {
     public boolean findSubarrays(int[] nums) {
-        Set<Integer> s = new HashSet<>();
-        for (int i = 0; i < nums.length - 1; ++i) {
-            int v = nums[i] + nums[i + 1];
-            if (!s.add(v)) {
+        Set<Integer> vis = new HashSet<>();
+        for (int i = 1; i < nums.length; ++i) {
+            if (!vis.add(nums[i - 1] + nums[i])) {
                 return true;
             }
         }
@@ -99,11 +98,13 @@ class Solution {
 class Solution {
 public:
     bool findSubarrays(vector<int>& nums) {
-        unordered_set<int> s;
-        for (int i = 0; i < nums.size() - 1; ++i) {
-            int v = nums[i] + nums[i + 1];
-            if (s.count(v)) return true;
-            s.insert(v);
+        unordered_set<int> vis;
+        for (int i = 1; i < nums.size(); ++i) {
+            int x = nums[i - 1] + nums[i];
+            if (vis.count(x)) {
+                return true;
+            }
+            vis.insert(x);
         }
         return false;
     }
@@ -114,13 +115,13 @@ public:
 
 ```go
 func findSubarrays(nums []int) bool {
-	s := map[int]bool{}
-	for i := 0; i < len(nums)-1; i++ {
-		v := nums[i] + nums[i+1]
-		if s[v] {
+	vis := map[int]bool{}
+	for i, b := range nums[1:] {
+		x := nums[i] + b
+		if vis[x] {
 			return true
 		}
-		s[v] = true
+		vis[x] = true
 	}
 	return false
 }
@@ -129,7 +130,17 @@ func findSubarrays(nums []int) bool {
 ### **TypeScript**
 
 ```ts
-
+function findSubarrays(nums: number[]): boolean {
+    const vis: Set<number> = new Set<number>();
+    for (let i = 1; i < nums.length; ++i) {
+        const x = nums[i - 1] + nums[i];
+        if (vis.has(x)) {
+            return true;
+        }
+        vis.add(x);
+    }
+    return false;
+}
 ```
 
 ### **...**

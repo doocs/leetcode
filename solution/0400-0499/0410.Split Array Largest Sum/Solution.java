@@ -1,13 +1,13 @@
 class Solution {
-    public int splitArray(int[] nums, int m) {
-        int mx = -1;
-        for (int num : nums) {
-            mx = Math.max(mx, num);
+    public int splitArray(int[] nums, int k) {
+        int left = 0, right = 0;
+        for (int x : nums) {
+            left = Math.max(left, x);
+            right += x;
         }
-        int left = mx, right = (int) 1e9;
         while (left < right) {
             int mid = (left + right) >> 1;
-            if (check(nums, m, mid)) {
+            if (check(nums, mid, k)) {
                 right = mid;
             } else {
                 left = mid + 1;
@@ -16,16 +16,15 @@ class Solution {
         return left;
     }
 
-    private boolean check(int[] nums, int m, int x) {
-        int s = 0, cnt = 1;
-        for (int num : nums) {
-            if (s + num > x) {
+    private boolean check(int[] nums, int mx, int k) {
+        int s = 1 << 30, cnt = 0;
+        for (int x : nums) {
+            s += x;
+            if (s > mx) {
                 ++cnt;
-                s = num;
-            } else {
-                s += num;
+                s = x;
             }
         }
-        return cnt <= m;
+        return cnt <= k;
     }
 }

@@ -53,11 +53,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-最小生成树问题。设 n 表示点数，m 表示边数。
-
 **方法一：Kruskal 算法**
 
-时间复杂度 O(mlogm)。
+Kruskal 算法是一种贪心算法，用于计算最小生成树。
+
+Kruskal 算法的基本思想是，每次从边集中选择一条最小的边，如果这条边连接的两个顶点不在同一个连通分量中，则将这条边加入到最小生成树中，否则舍弃这条边。
+
+对于本题，我们可以将边按照连通成本从小到大排序，用并查集维护连通分量，每次选择一条最小的边，如果这条边连接的两个顶点不在同一个连通分量中，则合并这两个顶点，然后累加连通成本。如果出现连通份量为 $1$ 的情况，则说明所有顶点都连通了，返回累加的连通成本，否则返回 $-1$。
+
+时间复杂度 $O(m \times \log m)$，空间复杂度 $O(n)$。其中 $m$ 和 $n$ 分别为边数和顶点数。
 
 <!-- tabs:start -->
 
@@ -131,26 +135,29 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> p;
-
     int minimumCost(int n, vector<vector<int>>& connections) {
-        p.resize(n);
-        for (int i = 0; i < n; ++i) p[i] = i;
+        vector<int> p(n);
+        iota(p.begin(), p.end(), 0);
         sort(connections.begin(), connections.end(), [](auto& a, auto& b) { return a[2] < b[2]; });
         int ans = 0;
+        function<int(int)> find = [&](int x) -> int {
+            if (p[x] != x) {
+                p[x] = find(p[x]);
+            }
+            return p[x];
+        };
         for (auto& e : connections) {
             int x = e[0] - 1, y = e[1] - 1, cost = e[2];
-            if (find(x) == find(y)) continue;
+            if (find(x) == find(y)) {
+                continue;
+            }
             p[find(x)] = find(y);
             ans += cost;
-            if (--n == 1) return ans;
+            if (--n == 1) {
+                return ans;
+            }
         }
         return -1;
-    }
-
-    int find(int x) {
-        if (p[x] != x) p[x] = find(p[x]);
-        return p[x];
     }
 };
 ```
@@ -158,22 +165,19 @@ public:
 ### **Go**
 
 ```go
-func minimumCost(n int, connections [][]int) int {
+func minimumCost(n int, connections [][]int) (ans int) {
 	p := make([]int, n)
 	for i := range p {
 		p[i] = i
 	}
-	sort.Slice(connections, func(i, j int) bool {
-		return connections[i][2] < connections[j][2]
-	})
-	var find func(x int) int
+	sort.Slice(connections, func(i, j int) bool { return connections[i][2] < connections[j][2] })
+	var find func(int) int
 	find = func(x int) int {
 		if p[x] != x {
 			p[x] = find(p[x])
 		}
 		return p[x]
 	}
-	ans := 0
 	for _, e := range connections {
 		x, y, cost := e[0]-1, e[1]-1, e[2]
 		if find(x) == find(y) {
@@ -183,10 +187,40 @@ func minimumCost(n int, connections [][]int) int {
 		ans += cost
 		n--
 		if n == 1 {
-			return ans
+			return
 		}
 	}
 	return -1
+}
+```
+
+### **TypeScript**
+
+```ts
+function minimumCost(n: number, connections: number[][]): number {
+    const p = new Array(n);
+    for (let i = 0; i < n; ++i) {
+        p[i] = i;
+    }
+    const find = (x: number): number => {
+        if (p[x] !== x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    };
+    connections.sort((a, b) => a[2] - b[2]);
+    let ans = 0;
+    for (const [x, y, cost] of connections) {
+        if (find(x - 1) == find(y - 1)) {
+            continue;
+        }
+        p[find(x - 1)] = find(y - 1);
+        ans += cost;
+        if (--n == 1) {
+            return ans;
+        }
+    }
+    return -1;
 }
 ```
 

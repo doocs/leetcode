@@ -40,13 +40,86 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def numOfSubarrays(self, arr: List[int], k: int, threshold: int) -> int:
+        s = sum(arr[:k])
+        ans = int(s / k >= threshold)
+        for i in range(k, len(arr)):
+            s += arr[i]
+            s -= arr[i - k]
+            ans += int(s / k >= threshold)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int numOfSubarrays(int[] arr, int k, int threshold) {
+        int s = 0;
+        for (int i = 0; i < k; ++i) {
+            s += arr[i];
+        }
+        int ans = s / k >= threshold ? 1 : 0;
+        for (int i = k; i < arr.length; ++i) {
+            s += arr[i] - arr[i - k];
+            ans += s / k >= threshold ? 1 : 0;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numOfSubarrays(vector<int>& arr, int k, int threshold) {
+        int s = accumulate(arr.begin(), arr.begin() + k, 0);
+        int ans = s >= k * threshold;
+        for (int i = k; i < arr.size(); ++i) {
+            s += arr[i] - arr[i - k];
+            ans += s >= k * threshold;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numOfSubarrays(arr []int, k int, threshold int) (ans int) {
+	s := 0
+	for _, x := range arr[:k] {
+		s += x
+	}
+	if s/k >= threshold {
+		ans++
+	}
+	for i := k; i < len(arr); i++ {
+		s += arr[i] - arr[i-k]
+		if s/k >= threshold {
+			ans++
+		}
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function numOfSubarrays(arr: number[], k: number, threshold: number): number {
+    let s = arr.slice(0, k).reduce((acc, cur) => acc + cur, 0);
+    let ans = s >= k * threshold ? 1 : 0;
+    for (let i = k; i < arr.length; ++i) {
+        s += arr[i] - arr[i - k];
+        ans += s >= k * threshold ? 1 : 0;
+    }
+    return ans;
+}
 ```
 
 ### **...**

@@ -57,6 +57,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：树形 DP（换根）**
+
+我们先跑一遍 DFS，计算出每个节点的子树大小，记录在数组 $size$ 中，并且统计出节点 $0$ 到其他节点的距离之和，记录在 $ans[0]$ 中。
+
+接下来，我们再跑一遍 DFS，枚举每个点作为根节点时，其他节点到根节点的距离之和。假设当前节点 $i$ 的答案为 $t$，当我们从节点 $i$ 转移到节点 $j$ 时，距离之和变为 $t - size[j] + n - size[j]$，即距离节点 $j$ 及其子树节点的距离之和减少 $size[j]$，而距离其它节点的距离之和增加 $n - size[j]$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为树的节点数。
+
+相似题目：
+
+-   [2581. 统计可能的树根数目](/solution/2500-2599/2581.Count%20Number%20of%20Possible%20Root%20Nodes/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -64,7 +76,32 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def sumOfDistancesInTree(self, n: int, edges: List[List[int]]) -> List[int]:
+        def dfs1(i: int, fa: int, d: int):
+            ans[0] += d
+            size[i] = 1
+            for j in g[i]:
+                if j != fa:
+                    dfs1(j, i, d + 1)
+                    size[i] += size[j]
 
+        def dfs2(i: int, fa: int, t: int):
+            ans[i] = t
+            for j in g[i]:
+                if j != fa:
+                    dfs2(j, i, t - size[j] + n - size[j])
+
+        g = defaultdict(list)
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+
+        ans = [0] * n
+        size = [0] * n
+        dfs1(0, -1, 0)
+        dfs2(0, -1, ans[0])
+        return ans
 ```
 
 ### **Java**
@@ -72,7 +109,163 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int n;
+    private int[] ans;
+    private int[] size;
+    private List<Integer>[] g;
 
+    public int[] sumOfDistancesInTree(int n, int[][] edges) {
+        this.n = n;
+        g = new List[n];
+        ans = new int[n];
+        size = new int[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        dfs1(0, -1, 0);
+        dfs2(0, -1, ans[0]);
+        return ans;
+    }
+
+    private void dfs1(int i, int fa, int d) {
+        ans[0] += d;
+        size[i] = 1;
+        for (int j : g[i]) {
+            if (j != fa) {
+                dfs1(j, i, d + 1);
+                size[i] += size[j];
+            }
+        }
+    }
+
+    private void dfs2(int i, int fa, int t) {
+        ans[i] = t;
+        for (int j : g[i]) {
+            if (j != fa) {
+                dfs2(j, i, t - size[j] + n - size[j]);
+            }
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> sumOfDistancesInTree(int n, vector<vector<int>>& edges) {
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        vector<int> ans(n);
+        vector<int> size(n);
+
+        function<void(int, int, int)> dfs1 = [&](int i, int fa, int d) {
+            ans[0] += d;
+            size[i] = 1;
+            for (int& j : g[i]) {
+                if (j != fa) {
+                    dfs1(j, i, d + 1);
+                    size[i] += size[j];
+                }
+            }
+        };
+
+        function<void(int, int, int)> dfs2 = [&](int i, int fa, int t) {
+            ans[i] = t;
+            for (int& j : g[i]) {
+                if (j != fa) {
+                    dfs2(j, i, t - size[j] + n - size[j]);
+                }
+            }
+        };
+
+        dfs1(0, -1, 0);
+        dfs2(0, -1, ans[0]);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func sumOfDistancesInTree(n int, edges [][]int) []int {
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	ans := make([]int, n)
+	size := make([]int, n)
+	var dfs1 func(i, fa, d int)
+	dfs1 = func(i, fa, d int) {
+		ans[0] += d
+		size[i] = 1
+		for _, j := range g[i] {
+			if j != fa {
+				dfs1(j, i, d+1)
+				size[i] += size[j]
+			}
+		}
+	}
+	var dfs2 func(i, fa, t int)
+	dfs2 = func(i, fa, t int) {
+		ans[i] = t
+		for _, j := range g[i] {
+			if j != fa {
+				dfs2(j, i, t-size[j]+n-size[j])
+			}
+		}
+	}
+	dfs1(0, -1, 0)
+	dfs2(0, -1, ans[0])
+	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function sumOfDistancesInTree(n: number, edges: number[][]): number[] {
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    const ans: number[] = new Array(n).fill(0);
+    const size: number[] = new Array(n).fill(0);
+    const dfs1 = (i: number, fa: number, d: number) => {
+        ans[0] += d;
+        size[i] = 1;
+        for (const j of g[i]) {
+            if (j !== fa) {
+                dfs1(j, i, d + 1);
+                size[i] += size[j];
+            }
+        }
+    };
+    const dfs2 = (i: number, fa: number, t: number) => {
+        ans[i] = t;
+        for (const j of g[i]) {
+            if (j != fa) {
+                dfs2(j, i, t - size[j] + n - size[j]);
+            }
+        }
+    };
+    dfs1(0, -1, 0);
+    dfs2(0, -1, ans[0]);
+    return ans;
+}
 ```
 
 ### **...**

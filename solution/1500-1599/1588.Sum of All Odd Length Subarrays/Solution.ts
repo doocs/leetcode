@@ -1,13 +1,14 @@
 function sumOddLengthSubarrays(arr: number[]): number {
     const n = arr.length;
-    let res = 0;
-    for (let i = 1; i <= n; i += 2) {
-        let sum = arr.slice(0, i).reduce((r, v) => r + v);
-        res += sum;
-        for (let j = i; j < n; j++) {
-            sum += arr[j] - arr[j - i];
-            res += sum;
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        let s = 0;
+        for (let j = i; j < n; ++j) {
+            s += arr[j];
+            if ((j - i + 1) % 2 === 1) {
+                ans += s;
+            }
         }
     }
-    return res;
+    return ans;
 }

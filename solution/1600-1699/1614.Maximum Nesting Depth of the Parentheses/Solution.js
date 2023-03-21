@@ -3,11 +3,14 @@
  * @return {number}
  */
 var maxDepth = function (s) {
-    let n = 0,
-        ans = 0;
-    for (let c of s) {
-        if (c == '(') ans = Math.max(ans, ++n);
-        else if (c == ')') --n;
+    let ans = 0;
+    let d = 0;
+    for (const c of s) {
+        if (c === '(') {
+            ans = Math.max(ans, ++d);
+        } else if (c === ')') {
+            --d;
+        }
     }
     return ans;
 };

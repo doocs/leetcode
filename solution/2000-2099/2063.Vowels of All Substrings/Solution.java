@@ -4,7 +4,7 @@ class Solution {
         for (int i = 0, n = word.length(); i < n; ++i) {
             char c = word.charAt(i);
             if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-                ans += (long) (i + 1) * (n - i);
+                ans += (i + 1L) * (n - i);
             }
         }
         return ans;

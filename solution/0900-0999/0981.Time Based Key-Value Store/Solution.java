@@ -1,9 +1,7 @@
 class TimeMap {
-    private Map<String, TreeMap<Integer, String>> ktv;
+    private Map<String, TreeMap<Integer, String>> ktv = new HashMap<>();
 
-    /** Initialize your data structure here. */
     public TimeMap() {
-        ktv = new HashMap<>();
     }
 
     public void set(String key, String value, int timestamp) {
@@ -14,7 +12,7 @@ class TimeMap {
         if (!ktv.containsKey(key)) {
             return "";
         }
-        TreeMap<Integer, String> tv = ktv.get(key);
+        var tv = ktv.get(key);
         Integer t = tv.floorKey(timestamp);
         return t == null ? "" : tv.get(t);
     }

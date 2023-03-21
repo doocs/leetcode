@@ -1,10 +1,10 @@
 class Solution {
 public:
     int numOfStrings(vector<string>& patterns, string word) {
-        int res = 0;
-        for (auto p : patterns)
-            if (word.find(p) != string::npos)
-                ++res;
-        return res;
+        int ans = 0;
+        for (auto& p : patterns) {
+            ans += word.find(p) != string::npos;
+        }
+        return ans;
     }
 };

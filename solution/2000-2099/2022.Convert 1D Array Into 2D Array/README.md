@@ -65,9 +65,13 @@ original 中只有 1 个元素。
 
 <!-- 这里可写通用的实现逻辑 -->
 
-在该题当中，想要成功转换为二维数组，**元素不能少也不能多**，所以需要先做一次长度判断，不对等的情况下直接退出。
+**方法一：模拟**
 
-在数量正确时，则按照给出的规格，将 `original` 分割成小数组，放入返回数组当中。
+根据题目描述，我们知道，要想构造出一个 $m$ 行 $n$ 列的二维数组，需要满足 $m \times n$ 等于原数组的长度。如果不满足，直接返回空数组即可。
+
+如果满足，我们可以按照题目描述的过程，将原数组中的元素依次放入二维数组中即可。
+
+时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别为二维数组的行数和列数。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -110,8 +114,10 @@ class Solution {
 class Solution {
 public:
     vector<vector<int>> construct2DArray(vector<int>& original, int m, int n) {
-        if (m * n != original.size()) return {};
-        vector<vector<int>> ans(m, vector<int>(n, 0));
+        if (m * n != original.size()) {
+            return {};
+        }
+        vector<vector<int>> ans(m, vector<int>(n));
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 ans[i][j] = original[i * n + j];
@@ -125,15 +131,14 @@ public:
 ### **Go**
 
 ```go
-func construct2DArray(original []int, m int, n int) [][]int {
+func construct2DArray(original []int, m int, n int) (ans [][]int) {
 	if m*n != len(original) {
 		return [][]int{}
 	}
-	var ans [][]int
 	for i := 0; i < m*n; i += n {
 		ans = append(ans, original[i:i+n])
 	}
-	return ans
+	return
 }
 ```
 
@@ -147,17 +152,14 @@ func construct2DArray(original []int, m int, n int) [][]int {
  * @return {number[][]}
  */
 var construct2DArray = function (original, m, n) {
-    const result = [];
-
-    if (original.length != m * n) {
-        return result;
+    if (m * n != original.length) {
+        return [];
     }
-
-    for (let i = 0; i < m; i++) {
-        result.push(original.slice(i * n, i * n + n));
+    const ans = [];
+    for (let i = 0; i < m * n; i += n) {
+        ans.push(original.slice(i, i + n));
     }
-
-    return result;
+    return ans;
 };
 ```
 
@@ -169,17 +171,14 @@ function construct2DArray(
     m: number,
     n: number,
 ): number[][] {
-    const result = [];
-
-    if (original.length != m * n) {
-        return result;
+    if (m * n != original.length) {
+        return [];
     }
-
-    for (let i = 0; i < m; i++) {
-        result.push(original.slice(i * n, i * n + n));
+    const ans: number[][] = [];
+    for (let i = 0; i < m * n; i += n) {
+        ans.push(original.slice(i, i + n));
     }
-
-    return result;
+    return ans;
 }
 ```
 

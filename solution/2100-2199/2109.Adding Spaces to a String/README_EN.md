@@ -72,6 +72,20 @@ class Solution:
         return ''.join(ans)
 ```
 
+```python
+class Solution:
+    def addSpaces(self, s: str, spaces: List[int]) -> str:
+        ans = []
+        i, j = len(s) - 1, len(spaces) - 1
+        while i >= 0:
+            ans.append(s[i])
+            if j >= 0 and i == spaces[j]:
+                ans.append(' ')
+                j -= 1
+            i -= 1
+        return ''.join(ans[::-1])
+```
+
 ### **Java**
 
 ```java
@@ -128,7 +142,17 @@ func addSpaces(s string, spaces []int) string {
 ### **TypeScript**
 
 ```ts
-
+function addSpaces(s: string, spaces: number[]): string {
+    let ans = '';
+    for (let i = 0, j = 0; i < s.length; i++) {
+        if (j < spaces.length && i === spaces[j]) {
+            ans += ' ';
+            ++j;
+        }
+        ans += s[i];
+    }
+    return ans;
+}
 ```
 
 ### **...**

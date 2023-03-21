@@ -1,33 +1,30 @@
 class DetectSquares {
-    private Map<Integer, Map<Integer, Integer>> mp = new HashMap<>();
+    private Map<Integer, Map<Integer, Integer>> cnt = new HashMap<>();
 
     public DetectSquares() {
     }
 
     public void add(int[] point) {
         int x = point[0], y = point[1];
-        if (!mp.containsKey(x)) {
-            mp.put(x, new HashMap<>());
-        }
-        mp.get(x).put(y, mp.get(x).getOrDefault(y, 0) + 1);
+        cnt.computeIfAbsent(x, k -> new HashMap<>()).merge(y, 1, Integer::sum);
     }
 
     public int count(int[] point) {
-        int x = point[0], y = point[1];
-        int ans = 0;
-        if (!mp.containsKey(x)) {
-            return ans;
+        int x1 = point[0], y1 = point[1];
+        if (!cnt.containsKey(x1)) {
+            return 0;
         }
-        Map<Integer, Integer> xcnt = mp.get(x);
-        for (Map.Entry<Integer, Map<Integer, Integer>> e : mp.entrySet()) {
-            int x1 = e.getKey();
-            Map<Integer, Integer> counter = e.getValue();
-            if (x1 != x) {
-                int d = x1 - x;
-                ans += xcnt.getOrDefault(y + d, 0) * counter.getOrDefault(y, 0)
-                    * counter.getOrDefault(y + d, 0);
-                ans += xcnt.getOrDefault(y - d, 0) * counter.getOrDefault(y, 0)
-                    * counter.getOrDefault(y - d, 0);
+        int ans = 0;
+        for (var e : cnt.entrySet()) {
+            int x2 = e.getKey();
+            if (x2 != x1) {
+                int d = x2 - x1;
+                var cnt1 = cnt.get(x1);
+                var cnt2 = e.getValue();
+                ans += cnt2.getOrDefault(y1, 0) * cnt1.getOrDefault(y1 + d, 0)
+                    * cnt2.getOrDefault(y1 + d, 0);
+                ans += cnt2.getOrDefault(y1, 0) * cnt1.getOrDefault(y1 - d, 0)
+                    * cnt2.getOrDefault(y1 - d, 0);
             }
         }
         return ans;

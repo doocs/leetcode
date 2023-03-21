@@ -60,13 +60,149 @@ The sub-tree of node 0 contains nodes 0, 1, 2 and 3, all with label &#39;b&#39;,
 ### **Python3**
 
 ```python
+class Solution:
+    def countSubTrees(self, n: int, edges: List[List[int]], labels: str) -> List[int]:
+        def dfs(i, fa):
+            ans[i] -= cnt[labels[i]]
+            cnt[labels[i]] += 1
+            for j in g[i]:
+                if j != fa:
+                    dfs(j, i)
+            ans[i] += cnt[labels[i]]
 
+        g = defaultdict(list)
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        cnt = Counter()
+        ans = [0] * n
+        dfs(0, -1)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private List<Integer>[] g;
+    private String labels;
+    private int[] ans;
+    private int[] cnt;
 
+    public int[] countSubTrees(int n, int[][] edges, String labels) {
+        g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int[] e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        this.labels = labels;
+        ans = new int[n];
+        cnt = new int[26];
+        dfs(0, -1);
+        return ans;
+    }
+
+    private void dfs(int i, int fa) {
+        int k = labels.charAt(i) - 'a';
+        ans[i] -= cnt[k];
+        cnt[k]++;
+        for (int j : g[i]) {
+            if (j != fa) {
+                dfs(j, i);
+            }
+        }
+        ans[i] += cnt[k];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> countSubTrees(int n, vector<vector<int>>& edges, string labels) {
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        vector<int> ans(n);
+        int cnt[26]{};
+        function<void(int, int)> dfs = [&](int i, int fa) {
+            int k = labels[i] - 'a';
+            ans[i] -= cnt[k];
+            cnt[k]++;
+            for (int& j : g[i]) {
+                if (j != fa) {
+                    dfs(j, i);
+                }
+            }
+            ans[i] += cnt[k];
+        };
+        dfs(0, -1);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countSubTrees(n int, edges [][]int, labels string) []int {
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	ans := make([]int, n)
+	cnt := [26]int{}
+	var dfs func(int, int)
+	dfs = func(i, fa int) {
+		k := labels[i] - 'a'
+		ans[i] -= cnt[k]
+		cnt[k]++
+		for _, j := range g[i] {
+			if j != fa {
+				dfs(j, i)
+			}
+		}
+		ans[i] += cnt[k]
+	}
+	dfs(0, -1)
+	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function countSubTrees(n: number, edges: number[][], labels: string): number[] {
+    const dfs = (i: number, fa: number) => {
+        const k = labels.charCodeAt(i) - 97;
+        ans[i] -= cnt[k];
+        cnt[k]++;
+        for (const j of g[i]) {
+            if (j !== fa) {
+                dfs(j, i);
+            }
+        }
+        ans[i] += cnt[k];
+    };
+    const ans = new Array(n).fill(0),
+        cnt = new Array(26).fill(0);
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    dfs(0, -1);
+    return ans;
+}
 ```
 
 ### **...**

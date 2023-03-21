@@ -7,19 +7,18 @@ class Solution {
             if (vis[i]) {
                 continue;
             }
-            int curr = i;
+            int j = i;
             List<Integer> cycle = new ArrayList<>();
-            while (curr != -1 && !vis[curr]) {
-                cycle.add(curr);
-                vis[curr] = true;
-                curr = edges[curr];
+            for (; j != -1 && !vis[j]; j = edges[j]) {
+                vis[j] = true;
+                cycle.add(j);
             }
-            if (curr == -1) {
+            if (j == -1) {
                 continue;
             }
-            for (int j = 0; j < cycle.size(); ++j) {
-                if (cycle.get(j) == curr) {
-                    ans = Math.max(ans, cycle.size() - j);
+            for (int k = 0; k < cycle.size(); ++k) {
+                if (cycle.get(k) == j) {
+                    ans = Math.max(ans, cycle.size() - k);
                     break;
                 }
             }

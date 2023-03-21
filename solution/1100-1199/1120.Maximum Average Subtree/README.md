@@ -41,7 +41,21 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-后序遍历获取每个子树的结点个数以及结点和，求每个结点平均值的最大值。
+**方法一：递归**
+
+我们可以使用递归的方法，对于每个节点，计算以该节点为根的子树的节点和以及节点个数，然后计算平均值，与当前最大值比较，更新最大值。
+
+因此，我们设计一个函数 $dfs(root)$，表示以 $root$ 为根的子树的节点和以及节点个数，返回值为一个长度为 $2$ 的数组，其中第一个元素表示节点和，第二个元素表示节点个数。
+
+函数 $dfs(root)$ 的递归过程如下：
+
+-   如果 $root$ 为空，返回 $[0, 0]$；
+-   否则，计算 $root$ 的左子树的节点和以及节点个数，记为 $[ls, ln]$；计算 $root$ 的右子树的节点和以及节点个数，记为 $[rs, rn]$。那么以 $root$ 为根的子树的节点和为 $root.val + ls + rs$，节点个数为 $1 + ln + rn$，计算平均值，与当前最大值比较，更新最大值；
+-   返回 $[root.val + ls + rs, 1 + ln + rn]$。
+
+最后，返回最大值即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树的节点个数。
 
 <!-- tabs:start -->
 
@@ -57,14 +71,14 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def maximumAverageSubtree(self, root: TreeNode) -> float:
+    def maximumAverageSubtree(self, root: Optional[TreeNode]) -> float:
         def dfs(root):
             if root is None:
                 return 0, 0
             ls, ln = dfs(root.left)
             rs, rn = dfs(root.right)
-            s = ls + root.val + rs
-            n = ln + 1 + rn
+            s = root.val + ls + rs
+            n = 1 + ln + rn
             nonlocal ans
             ans = max(ans, s / n)
             return s, n
@@ -98,19 +112,18 @@ class Solution {
     private double ans;
 
     public double maximumAverageSubtree(TreeNode root) {
-        ans = 0;
         dfs(root);
         return ans;
     }
 
     private int[] dfs(TreeNode root) {
         if (root == null) {
-            return new int[] {0, 0};
+            return new int[2];
         }
-        int[] l = dfs(root.left);
-        int[] r = dfs(root.right);
-        int s = l[0] + root.val + r[0];
-        int n = l[1] + 1 + r[1];
+        var l = dfs(root.left);
+        var r = dfs(root.right);
+        int s = root.val + l[0] + r[0];
+        int n = 1 + l[1] + r[1];
         ans = Math.max(ans, s * 1.0 / n);
         return new int[] {s, n};
     }
@@ -133,22 +146,21 @@ class Solution {
  */
 class Solution {
 public:
-    double ans;
-
     double maximumAverageSubtree(TreeNode* root) {
-        ans = 0;
+        double ans = 0;
+        function<pair<int, int>(TreeNode*)> dfs = [&](TreeNode* root) -> pair<int, int> {
+            if (!root) {
+                return {0, 0};
+            }
+            auto [ls, ln] = dfs(root->left);
+            auto [rs, rn] = dfs(root->right);
+            int s = root->val + ls + rs;
+            int n = 1 + ln + rn;
+            ans = max(ans, s * 1.0 / n);
+            return {s, n};
+        };
         dfs(root);
         return ans;
-    }
-
-    pair<int, int> dfs(TreeNode* root) {
-        if (!root) return {0, 0};
-        auto l = dfs(root->left);
-        auto r = dfs(root->right);
-        int s = l.first + root->val + r.first;
-        int n = l.second + 1 + r.second;
-        ans = max(ans, s * 1.0 / n);
-        return {s, n};
     }
 };
 ```
@@ -164,21 +176,20 @@ public:
  *     Right *TreeNode
  * }
  */
-func maximumAverageSubtree(root *TreeNode) float64 {
-	var ans float64
-	var dfs func(root *TreeNode) []int
-	dfs = func(root *TreeNode) []int {
+func maximumAverageSubtree(root *TreeNode) (ans float64) {
+	var dfs func(*TreeNode) [2]int
+	dfs = func(root *TreeNode) [2]int {
 		if root == nil {
-			return []int{0, 0}
+			return [2]int{}
 		}
 		l, r := dfs(root.Left), dfs(root.Right)
-		s := l[0] + root.Val + r[0]
-		n := l[1] + 1 + r[1]
+		s := root.Val + l[0] + r[0]
+		n := 1 + l[1] + r[1]
 		ans = math.Max(ans, float64(s)/float64(n))
-		return []int{s, n}
+		return [2]int{s, n}
 	}
 	dfs(root)
-	return ans
+	return
 }
 ```
 

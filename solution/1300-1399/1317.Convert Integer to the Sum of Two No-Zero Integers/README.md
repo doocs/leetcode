@@ -68,7 +68,7 @@
 
 从 $1$ 开始枚举 $a$，判断 $a$ 和 $n - a$ 是否满足条件，如果满足则返回。
 
-时间复杂度 $O(n\times \log n)$。
+时间复杂度 $O(n\times \log n)$，空间复杂度 $O(1)$。其中 $n$ 为题目给定的整数。
 
 <!-- tabs:start -->
 
@@ -85,6 +85,22 @@ class Solution:
                 return [a, b]
 ```
 
+```python
+class Solution:
+    def getNoZeroIntegers(self, n: int) -> List[int]:
+        def f(x):
+            while x:
+                if x % 10 == 0:
+                    return False
+                x //= 10
+            return True
+
+        for a in range(1, n):
+            b = n - a
+            if f(a) and f(b):
+                return [a, b]
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
@@ -92,13 +108,34 @@ class Solution:
 ```java
 class Solution {
     public int[] getNoZeroIntegers(int n) {
-        for (int a = 1; a < n; ++a) {
+        for (int a = 1; ; ++a) {
             int b = n - a;
             if (!(a + "" + b).contains("0")) {
                 return new int[] {a, b};
             }
         }
-        return null;
+    }
+}
+```
+
+```java
+class Solution {
+    public int[] getNoZeroIntegers(int n) {
+        for (int a = 1;; ++a) {
+            int b = n - a;
+            if (f(a) && f(b)) {
+                return new int[] {a, b};
+            }
+        }
+    }
+
+    private boolean f(int x) {
+        for (; x > 0; x /= 10) {
+            if (x % 10 == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
 ```
@@ -109,11 +146,34 @@ class Solution {
 class Solution {
 public:
     vector<int> getNoZeroIntegers(int n) {
-        for (int a = 1; a < n; ++a) {
+        for (int a = 1; ; ++a) {
             int b = n - a;
-            if ((to_string(a) + to_string(b)).find('0') == string::npos) return {a, b};
+            if ((to_string(a) + to_string(b)).find('0') == -1) {
+                return {a, b};
+            }
         }
-        return {};
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> getNoZeroIntegers(int n) {
+        auto f = [](int x) {
+            for (; x; x /= 10) {
+                if (x % 10 == 0) {
+                    return false;
+                }
+            }
+            return true;
+        };
+        for (int a = 1; ; ++a) {
+            int b = n - a;
+            if (f(a) && f(b)) {
+                return {a, b};
+            }
+        }
     }
 };
 ```
@@ -122,13 +182,31 @@ public:
 
 ```go
 func getNoZeroIntegers(n int) []int {
-	for a := 1; a < n; a++ {
+	for a := 1; ; a++ {
 		b := n - a
 		if !strings.Contains(strconv.Itoa(a)+strconv.Itoa(b), "0") {
 			return []int{a, b}
 		}
 	}
-	return nil
+}
+```
+
+```go
+func getNoZeroIntegers(n int) []int {
+	f := func(x int) bool {
+		for ; x > 0; x /= 10 {
+			if x%10 == 0 {
+				return false
+			}
+		}
+		return true
+	}
+	for a := 1; ; a++ {
+		b := n - a
+		if f(a) && f(b) {
+			return []int{a, b}
+		}
+	}
 }
 ```
 

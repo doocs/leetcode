@@ -1,9 +1,9 @@
 class Solution:
     def taskSchedulerII(self, tasks: List[int], space: int) -> int:
-        mp = {}
+        day = defaultdict(int)
         ans = 0
-        for v in tasks:
+        for task in tasks:
             ans += 1
-            ans = max(ans, mp.get(v, 0))
-            mp[v] = ans + space + 1
+            ans = max(ans, day[task])
+            day[task] = ans + space + 1
         return ans

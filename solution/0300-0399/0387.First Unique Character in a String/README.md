@@ -167,6 +167,14 @@ class Solution {
         }
         for ($i = 0; $i < strlen($s); $i++) {
             if ($hashtable[$s[$i]] == 1) {
+        $hashmap = [];
+        for ($i = 0; $i < strlen($s); $i++) {
+            $word = $s[$i];
+            $hasmap[$word] += 1;
+        }
+        for ($i = 0; $i < strlen($s); $i++) {
+            $word = $s[$i];
+            if ($hasmap[$word] == 1) {
                 return $i;
             }
         }

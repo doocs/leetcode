@@ -37,13 +37,104 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def pathWithObstacles(self, obstacleGrid: List[List[int]]) -> List[List[int]]:
+        def dfs(i, j):
+            if i >= m or j >= n or obstacleGrid[i][j] == 1:
+                return False
+            ans.append([i, j])
+            obstacleGrid[i][j] = 1
+            if (i == m - 1 and j == n - 1) or dfs(i + 1, j) or dfs(i, j + 1):
+                return True
+            ans.pop()
+            return False
 
+        m, n = len(obstacleGrid), len(obstacleGrid[0])
+        ans = []
+        return ans if dfs(0, 0) else []
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private List<List<Integer>> ans = new ArrayList<>();
+    private int[][] g;
+    private int m;
+    private int n;
 
+    public List<List<Integer>> pathWithObstacles(int[][] obstacleGrid) {
+        g = obstacleGrid;
+        m = g.length;
+        n = g[0].length;
+        return dfs(0, 0) ? ans : Collections.emptyList();
+    }
+
+    private boolean dfs(int i, int j) {
+        if (i >= m || j >= n || g[i][j] == 1) {
+            return false;
+        }
+        ans.add(List.of(i, j));
+        g[i][j] = 1;
+        if ((i == m - 1 && j == n - 1) || dfs(i + 1, j) || dfs(i, j + 1)) {
+            return true;
+        }
+        ans.remove(ans.size() - 1);
+        return false;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> pathWithObstacles(vector<vector<int>>& obstacleGrid) {
+        int m = obstacleGrid.size();
+        int n = obstacleGrid[0].size();
+        vector<vector<int>> ans;
+        function<bool(int, int)> dfs = [&](int i, int j) -> bool {
+            if (i >= m || j >= n || obstacleGrid[i][j] == 1) {
+                return false;
+            }
+            ans.push_back({i, j});
+            obstacleGrid[i][j] = 1;
+            if ((i == m - 1 && j == n - 1) || dfs(i + 1, j) || dfs(i, j + 1)) {
+                return true;
+            }
+            ans.pop_back();
+            return false;
+        };
+        return dfs(0, 0) ? ans : vector<vector<int>>();
+    }
+};
+```
+
+### **Go**
+
+```go
+func pathWithObstacles(obstacleGrid [][]int) [][]int {
+	m, n := len(obstacleGrid), len(obstacleGrid[0])
+	ans := [][]int{}
+	var dfs func(i, j int) bool
+	dfs = func(i, j int) bool {
+		if i >= m || j >= n || obstacleGrid[i][j] == 1 {
+			return false
+		}
+		ans = append(ans, []int{i, j})
+		obstacleGrid[i][j] = 1
+		if (i == m-1 && j == n-1) || dfs(i+1, j) || dfs(i, j+1) {
+			return true
+		}
+		ans = ans[:len(ans)-1]
+		return false
+	}
+	if dfs(0, 0) {
+		return ans
+	}
+	return [][]int{}
+}
 ```
 
 ### **TypeScript**

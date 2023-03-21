@@ -62,6 +62,18 @@ i和j之间的距离是j - i + 1 = 1 - 1 + 1 = 1。
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：前缀和 + 哈希表**
+
+我们观察到，对于任意的索引对 $(i, j)$，如果 $nums1[i] + nums1[i+1] + ... + nums1[j] = nums2[i] + nums2[i+1] + ... + nums2[j]$，那么 $nums1[i] - nums2[i] + nums1[i+1] - nums2[i+1] + ... + nums1[j] - nums2[j] = 0$。如果我们将数组 $nums1$ 与数组 $nums2$ 对应位置的元素相减，得到一个新的数组 $nums$，那么问题转换为在数组 $nums$ 中找到一个最长的子数组，使得子数组的和为 $0$。这可以通过前缀和 + 哈希表的方法求解。
+
+我们定义一个变量 $s$ 表示当前 $nums$ 的前缀和，用一个哈希表 $d$ 保存每个前缀和第一次出现的位置。初始时 $s = 0$, $d[0] = -1$。
+
+接下来，我们遍历数组 $nums$ 中的每个元素 $x$，计算 $s$ 的值，然后检查哈希表中是否存在 $s$，如果哈希表存在 $s$，那么说明存在一个子数组 $nums[d[s]+1,..i]$，使得子数组的和为 $0$，我们更新答案为 $max(ans, i - d[s])$。否则，我们将 $s$ 的值加入哈希表中，表示 $s$ 第一次出现的位置为 $i$。
+
+遍历结束，即可得到最终的答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -69,7 +81,17 @@ i和j之间的距离是j - i + 1 = 1 - 1 + 1 = 1。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def widestPairOfIndices(self, nums1: List[int], nums2: List[int]) -> int:
+        d = {0: -1}
+        ans = s = 0
+        for i, (a, b) in enumerate(zip(nums1, nums2)):
+            s += a - b
+            if s in d:
+                ans = max(ans, i - d[s])
+            else:
+                d[s] = i
+        return ans
 ```
 
 ### **Java**
@@ -77,7 +99,72 @@ i和j之间的距离是j - i + 1 = 1 - 1 + 1 = 1。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int widestPairOfIndices(int[] nums1, int[] nums2) {
+        Map<Integer, Integer> d = new HashMap<>();
+        d.put(0, -1);
+        int n = nums1.length;
+        int s = 0;
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            s += nums1[i] - nums2[i];
+            if (d.containsKey(s)) {
+                ans = Math.max(ans, i - d.get(s));
+            } else {
+                d.put(s, i);
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int widestPairOfIndices(vector<int>& nums1, vector<int>& nums2) {
+        unordered_map<int, int> d;
+        d[0] = -1;
+        int ans = 0, s = 0;
+        int n = nums1.size();
+        for (int i = 0; i < n; ++i) {
+            s += nums1[i] - nums2[i];
+            if (d.count(s)) {
+                ans = max(ans, i - d[s]);
+            } else {
+                d[s] = i;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func widestPairOfIndices(nums1 []int, nums2 []int) (ans int) {
+	d := map[int]int{0: -1}
+	s := 0
+	for i := range nums1 {
+		s += nums1[i] - nums2[i]
+		if j, ok := d[s]; ok {
+			ans = max(ans, i-j)
+		} else {
+			d[s] = i
+		}
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

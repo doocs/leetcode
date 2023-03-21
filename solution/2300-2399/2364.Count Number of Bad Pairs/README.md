@@ -44,6 +44,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：式子转换 + 哈希表**
+
+根据题目描述，我们可以得知，对于任意的 $i \lt j$，如果 $j - i \neq nums[j] - nums[i]$，则 $(i, j)$ 是一个坏数对。
+
+我们可以将式子转换为 $i - nums[i] \neq j - nums[j]$。这启发我们用哈希表 $cnt$ 来统计 $i - nums[i]$ 的出现次数。
+
+我们遍历数组，对于当前元素 $nums[i]$，我们将 $i - cnt[i - nums[i]]$ 加到答案中，然后将 $i - nums[i]$ 的出现次数加 $1$。
+
+最终，我们返回答案即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -53,10 +65,12 @@
 ```python
 class Solution:
     def countBadPairs(self, nums: List[int]) -> int:
-        arr = [i - v for i, v in enumerate(nums)]
-        cnt = Counter(arr)
-        n = len(arr)
-        return sum(v * (n - v) for v in cnt.values()) >> 1
+        cnt = Counter()
+        ans = 0
+        for i, x in enumerate(nums):
+            ans += i - cnt[i - x]
+            cnt[i - x] += 1
+        return ans
 ```
 
 ### **Java**
@@ -66,19 +80,14 @@ class Solution:
 ```java
 class Solution {
     public long countBadPairs(int[] nums) {
-        int n = nums.length;
-        for (int i = 0; i < n; ++i) {
-            nums[i] = i - nums[i];
-        }
         Map<Integer, Integer> cnt = new HashMap<>();
-        for (int v : nums) {
-            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
-        }
         long ans = 0;
-        for (int v : cnt.values()) {
-            ans += v * (n - v);
+        for (int i = 0; i < nums.length; ++i) {
+            int x = i - nums[i];
+            ans += i - cnt.getOrDefault(x, 0);
+            cnt.merge(x, 1, Integer::sum);
         }
-        return ans >> 1;
+        return ans;
     }
 }
 ```
@@ -89,13 +98,14 @@ class Solution {
 class Solution {
 public:
     long long countBadPairs(vector<int>& nums) {
-        int n = nums.size();
-        for (int i = 0; i < n; ++i) nums[i] = i - nums[i];
         unordered_map<int, int> cnt;
-        for (int v : nums) cnt[v]++;
         long long ans = 0;
-        for (auto [_, v] : cnt) ans += 1ll * v * (n - v);
-        return ans >> 1;
+        for (int i = 0; i < nums.size(); ++i) {
+            int x = i - nums[i];
+            ans += i - cnt[x];
+            ++cnt[x];
+        }
+        return ans;
     }
 };
 ```
@@ -103,28 +113,30 @@ public:
 ### **Go**
 
 ```go
-func countBadPairs(nums []int) int64 {
-	n := len(nums)
-	for i := range nums {
-		nums[i] = i - nums[i]
-	}
+func countBadPairs(nums []int) (ans int64) {
 	cnt := map[int]int{}
-	for _, v := range nums {
-		cnt[v]++
+	for i, x := range nums {
+		x = i - x
+		ans += int64(i - cnt[x])
+		cnt[x]++
 	}
-	ans := 0
-	for _, v := range cnt {
-		ans += v * (n - v)
-	}
-	ans >>= 1
-	return int64(ans)
+	return
 }
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function countBadPairs(nums: number[]): number {
+    const cnt = new Map<number, number>();
+    let ans = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        const x = i - nums[i];
+        ans += i - (cnt.get(x) ?? 0);
+        cnt.set(x, (cnt.get(x) ?? 0) + 1);
+    }
+    return ans;
+}
 ```
 
 ### **...**

@@ -56,13 +56,124 @@ All the adjacent element differ by one bit. Another valid permutation is [3,1,0,
 ### **Python3**
 
 ```python
+class Solution:
+    def circularPermutation(self, n: int, start: int) -> List[int]:
+        g = [i ^ (i >> 1) for i in range(1 << n)]
+        j = g.index(start)
+        return g[j:] + g[:j]
+```
 
+```python
+class Solution:
+    def circularPermutation(self, n: int, start: int) -> List[int]:
+        return [i ^ (i >> 1) ^ start for i in range(1 << n)]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<Integer> circularPermutation(int n, int start) {
+        int[] g = new int[1 << n];
+        int j = 0;
+        for (int i = 0; i < 1 << n; ++i) {
+            g[i] = i ^ (i >> 1);
+            if (g[i] == start) {
+                j = i;
+            }
+        }
+        List<Integer> ans = new ArrayList<>();
+        for (int i = j; i < j + (1 << n); ++i) {
+            ans.add(g[i % (1 << n)]);
+        }
+        return ans;
+    }
+}
+```
 
+```java
+class Solution {
+    public List<Integer> circularPermutation(int n, int start) {
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0; i < 1 << n; ++i) {
+            ans.add(i ^ (i >> 1) ^ start);
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> circularPermutation(int n, int start) {
+        int g[1 << n];
+        int j = 0;
+        for (int i = 0; i < 1 << n; ++i) {
+            g[i] = i ^ (i >> 1);
+            if (g[i] == start) {
+                j = i;
+            }
+        }
+        vector<int> ans;
+        for (int i = j; i < j + (1 << n); ++i) {
+            ans.push_back(g[i % (1 << n)]);
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> circularPermutation(int n, int start) {
+        vector<int> ans(1 << n);
+        for (int i = 0; i < 1 << n; ++i) {
+            ans[i] = i ^ (i >> 1) ^ start;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func circularPermutation(n int, start int) []int {
+	g := make([]int, 1<<n)
+	j := 0
+	for i := range g {
+		g[i] = i ^ (i >> 1)
+		if g[i] == start {
+			j = i
+		}
+	}
+	return append(g[j:], g[:j]...)
+}
+```
+
+```go
+func circularPermutation(n int, start int) (ans []int) {
+	for i := 0; i < 1<<n; i++ {
+		ans = append(ans, i^(i>>1)^start)
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function circularPermutation(n: number, start: number): number[] {
+    const ans: number[] = [];
+    for (let i = 0; i < 1 << n; ++i) {
+        ans.push(i ^ (i >> 1) ^ start);
+    }
+    return ans;
+}
 ```
 
 ### **...**

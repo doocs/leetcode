@@ -46,7 +46,7 @@
 
 <ul>
 	<li><code>1 &lt;= s.length&nbsp;&lt;= 20</code></li>
-	<li><code>1 &lt;= p.length&nbsp;&lt;= 30</code></li>
+	<li><code>1 &lt;= p.length&nbsp;&lt;= 20</code></li>
 	<li><code>s</code>&nbsp;只包含从&nbsp;<code>a-z</code>&nbsp;的小写字母。</li>
 	<li><code>p</code>&nbsp;只包含从&nbsp;<code>a-z</code>&nbsp;的小写字母，以及字符&nbsp;<code>.</code>&nbsp;和&nbsp;<code>*</code>。</li>
 	<li>保证每次出现字符&nbsp;<code>*</code> 时，前面都匹配到有效的字符</li>

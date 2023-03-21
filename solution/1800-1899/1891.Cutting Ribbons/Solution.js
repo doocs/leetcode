@@ -4,19 +4,19 @@
  * @return {number}
  */
 var maxLength = function (ribbons, k) {
-    let low = 0;
-    let high = 100000;
-    while (low < high) {
-        const mid = (low + high + 1) >> 1;
+    let left = 0;
+    let right = 1e5;
+    while (left < right) {
+        const mid = (left + right + 1) >> 1;
         let cnt = 0;
-        for (let ribbon of ribbons) {
-            cnt += Math.floor(ribbon / mid);
+        for (const x of ribbons) {
+            cnt += Math.floor(x / mid);
         }
-        if (cnt < k) {
-            high = mid - 1;
+        if (cnt >= k) {
+            left = mid;
         } else {
-            low = mid;
+            right = mid - 1;
         }
     }
-    return low;
+    return left;
 };

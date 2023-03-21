@@ -73,10 +73,10 @@ class Solution:
     def mergeSimilarItems(
         self, items1: List[List[int]], items2: List[List[int]]
     ) -> List[List[int]]:
-        cnt = [0] * 1010
+        cnt = Counter()
         for v, w in chain(items1, items2):
             cnt[v] += w
-        return [[i, v] for i, v in enumerate(cnt) if v]
+        return sorted(cnt.items())
 ```
 
 ### **Java**
@@ -85,16 +85,16 @@ class Solution:
 class Solution {
     public List<List<Integer>> mergeSimilarItems(int[][] items1, int[][] items2) {
         int[] cnt = new int[1010];
-        for (int[] e : items1) {
-            cnt[e[0]] += e[1];
+        for (var x : items1) {
+            cnt[x[0]] += x[1];
         }
-        for (int[] e : items2) {
-            cnt[e[0]] += e[1];
+        for (var x : items2) {
+            cnt[x[0]] += x[1];
         }
         List<List<Integer>> ans = new ArrayList<>();
         for (int i = 0; i < cnt.length; ++i) {
             if (cnt[i] > 0) {
-                ans.add(Arrays.asList(i, cnt[i]));
+                ans.add(List.of(i, cnt[i]));
             }
         }
         return ans;
@@ -108,12 +108,19 @@ class Solution {
 class Solution {
 public:
     vector<vector<int>> mergeSimilarItems(vector<vector<int>>& items1, vector<vector<int>>& items2) {
-        vector<int> cnt(1010);
-        for (auto& e : items1) cnt[e[0]] += e[1];
-        for (auto& e : items2) cnt[e[0]] += e[1];
+        int cnt[1010]{};
+        for (auto& x : items1) {
+            cnt[x[0]] += x[1];
+        }
+        for (auto& x : items2) {
+            cnt[x[0]] += x[1];
+        }
         vector<vector<int>> ans;
-        for (int i = 0; i < cnt.size(); ++i)
-            if (cnt[i]) ans.push_back({i, cnt[i]});
+        for (int i = 0; i < 1010; ++i) {
+            if (cnt[i]) {
+                ans.push_back({i, cnt[i]});
+            }
+        }
         return ans;
     }
 };
@@ -122,21 +129,20 @@ public:
 ### **Go**
 
 ```go
-func mergeSimilarItems(items1 [][]int, items2 [][]int) [][]int {
-	cnt := make([]int, 1010)
-	for _, e := range items1 {
-		cnt[e[0]] += e[1]
+func mergeSimilarItems(items1 [][]int, items2 [][]int) (ans [][]int) {
+	cnt := [1010]int{}
+	for _, x := range items1 {
+		cnt[x[0]] += x[1]
 	}
-	for _, e := range items2 {
-		cnt[e[0]] += e[1]
+	for _, x := range items2 {
+		cnt[x[0]] += x[1]
 	}
-	ans := [][]int{}
-	for i, v := range cnt {
-		if v > 0 {
-			ans = append(ans, []int{i, v})
+	for i, x := range cnt {
+		if x > 0 {
+			ans = append(ans, []int{i, x})
 		}
 	}
-	return ans
+	return
 }
 ```
 

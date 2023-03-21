@@ -1,11 +1,9 @@
 func toLowerCase(s string) string {
-	sb := &strings.Builder{}
-	sb.Grow(len(s))
-	for _, c := range s {
+	cs := []byte(s)
+	for i, c := range cs {
 		if c >= 'A' && c <= 'Z' {
-			c |= 32
+			cs[i] |= 32
 		}
-		sb.WriteRune(c)
 	}
-	return sb.String()
+	return string(cs)
 }

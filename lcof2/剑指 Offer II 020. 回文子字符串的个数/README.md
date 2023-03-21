@@ -42,13 +42,39 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-在 Manacher 算法的计算过程中，`p[i] - 1` 表示以第 `i` 位为中心的最大回文长度，`(p[i] - 1) / 2` **向上取整**即可得到以第 `i` 位为中心的回文串数量
+**方法一：从中心向两侧扩展回文串**
+
+我们可以枚举回文串的中间点，然后向左右两边扩展，统计回文串的数量。注意，回文串可能包含奇数个字符，也可能不包含。因此这两种情况都要考虑。
+
+时间复杂度 $O(n^2)$，其中 $n$ 是字符串 `s` 的长度。
+
+**方法二：Manacher 算法**
+
+在 Manacher 算法的计算过程中，用 $p[i]-1$ 表示以第 $i$ 位为中心的最大回文长度，以第 $i$ 位为中心的回文串数量为 $\left \lceil \frac{p[i]-1}{2}  \right \rceil$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 `s` 的长度。
 
 <!-- tabs:start -->
 
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```python
+class Solution:
+    def countSubstrings(self, s: str) -> int:
+        def f(i, j):
+            cnt = 0
+            while i >= 0 and j < n:
+                if s[i] != s[j]:
+                    break
+                cnt += 1
+                i, j = i - 1, j + 1
+            return cnt
+
+        n = len(s)
+        return sum(f(i, i) + f(i, i + 1) for i in range(n))
+```
 
 ```python
 class Solution:
@@ -75,6 +101,30 @@ class Solution:
 
 ```java
 class Solution {
+    private String s;
+
+    public int countSubstrings(String s) {
+        int ans = 0;
+        this.s = s;
+        for (int i = 0; i < s.length(); ++i) {
+            ans += f(i, i);
+            ans += f(i, i + 1);
+        }
+        return ans;
+    }
+
+    private int f(int i, int j) {
+        int cnt = 0;
+        for (; i >= 0 && j < s.length() && s.charAt(i) == s.charAt(j); --i, ++j) {
+            ++cnt;
+        }
+        return cnt;
+    }
+}
+```
+
+```java
+class Solution {
     public int countSubstrings(String s) {
         StringBuilder sb = new StringBuilder("^#");
         for (char ch : s.toCharArray()) {
@@ -98,6 +148,48 @@ class Solution {
         }
         return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countSubstrings(string s) {
+        int ans = 0;
+        int n = s.size();
+        auto f = [&](int i, int j) -> int {
+            int cnt = 0;
+            for (; i >= 0 && j < n && s[i] == s[j]; --i, ++j) {
+                ++cnt;
+            }
+            return cnt;
+        };
+        for (int i = 0; i < n; ++i) {
+            ans += f(i, i) + f(i, i + 1);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countSubstrings(s string) (ans int) {
+	n := len(s)
+	f := func(i, j int) (cnt int) {
+		for ; i >= 0 && j < n && s[i] == s[j]; i, j = i-1, j+1 {
+			cnt++
+		}
+		return
+	}
+	for i := range s {
+		ans += f(i, i)
+		ans += f(i, i+1)
+	}
+	return
 }
 ```
 

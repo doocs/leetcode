@@ -1,18 +1,17 @@
-func garbageCollection(garbage []string, travel []int) int {
-	ans := 0
-	pos := map[rune]int{}
-	for i, v := range garbage {
-		ans += len(v)
-		for _, c := range v {
-			pos[c] = i
+func garbageCollection(garbage []string, travel []int) (ans int) {
+	last := [26]int{}
+	for i, s := range garbage {
+		ans += len(s)
+		for _, c := range s {
+			last[c-'A'] = i
 		}
 	}
 	s := make([]int, len(travel)+1)
-	for i, v := range travel {
-		s[i+1] = s[i] + v
+	for i, x := range travel {
+		s[i+1] = s[i] + x
 	}
-	for _, i := range pos {
+	for _, i := range last {
 		ans += s[i]
 	}
-	return ans
+	return
 }

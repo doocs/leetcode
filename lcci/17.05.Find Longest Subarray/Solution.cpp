@@ -1,20 +1,20 @@
 class Solution {
 public:
     vector<string> findLongestSubarray(vector<string>& array) {
-        unordered_map<int, int> seen;
-        seen[0] = -1;
-        int t = 0, mx = 0, j = 0;
+        unordered_map<int, int> vis{{0, -1}};
+        int s = 0, mx = 0, k = 0;
         for (int i = 0; i < array.size(); ++i) {
-            t += isdigit(array[i][0]) ? 1 : -1;
-            if (seen.count(t)) {
-                if (mx < i - seen[t]) {
-                    mx = i - seen[t];
-                    j = seen[t] + 1;
+            s += array[i][0] >= 'A' ? 1 : -1;
+            if (vis.count(s)) {
+                int j = vis[s];
+                if (mx < i - j) {
+                    mx = i - j;
+                    k = j + 1;
                 }
             } else {
-                seen[t] = i;
+                vis[s] = i;
             }
         }
-        return {array.begin() + j, array.begin() + j + mx};
+        return vector<string>(array.begin() + k, array.begin() + k + mx);
     }
 };

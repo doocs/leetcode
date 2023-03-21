@@ -41,6 +41,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：构造**
+
+我们可以从 $1$ 开始，依次将正数和负数交替放入结果数组中，一共循环 $\frac{n}{2}$ 次，如果 $n$ 为奇数，则最后再将 $0$ 放入结果数组中。
+
+时间复杂度 $O(n)$，其中 $n$ 为给定的整数。忽略答案的空间消耗，空间复杂度 $O(1)$。
+
+**方法二：构造 + 数学**
+
+我们也可以将 $1$ 到 $n-1$ 的所有整数放入结果数组中，最后再把前 $n-1$ 个整数的和 $\frac{n(n-1)}{2}$ 的相反数放入结果数组中。
+
+时间复杂度 $O(n)$，其中 $n$ 为给定的整数。忽略答案的空间消耗，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -50,13 +62,21 @@
 ```python
 class Solution:
     def sumZero(self, n: int) -> List[int]:
-        presum = 0
-        res = []
-        for i in range(1, n):
-            res.append(i)
-            presum += i
-        res.append(-presum)
-        return res
+        ans = []
+        for i in range(n >> 1):
+            ans.append(i + 1)
+            ans.append(-(i + 1))
+        if n & 1:
+            ans.append(0)
+        return ans
+```
+
+```python
+class Solution:
+    def sumZero(self, n: int) -> List[int]:
+        ans = list(range(1, n))
+        ans.append(-sum(ans))
+        return ans
 ```
 
 ### **Java**
@@ -66,14 +86,25 @@ class Solution:
 ```java
 class Solution {
     public int[] sumZero(int n) {
-        int preSum = 0;
-        int[] ret = new int[n];
-        for (int i = 1; i < n; ++i) {
-            ret[i - 1] = i;
-            preSum += i;
+        int[] ans = new int[n];
+        for (int i = 1, j = 0; i <= n / 2; ++i) {
+            ans[j++] = i;
+            ans[j++] = -i;
         }
-        ret[n - 1] = -preSum;
-        return ret;
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int[] sumZero(int n) {
+        int[] ans = new int[n];
+        for (int i = 1; i < n; ++i) {
+            ans[i] = i;
+        }
+        ans[0] = -(n * (n - 1) / 2);
+        return ans;
     }
 }
 ```
@@ -84,14 +115,24 @@ class Solution {
 class Solution {
 public:
     vector<int> sumZero(int n) {
-        int presum = 0;
-        vector<int> res;
-        for (int i = 1; i < n; ++i) {
-            res.push_back(i);
-            presum += i;
+        vector<int> ans(n);
+        for (int i = 1, j = 0; i <= n / 2; ++i) {
+            ans[j++] = i;
+            ans[j++] = -i;
         }
-        res.push_back(-presum);
-        return res;
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> sumZero(int n) {
+        vector<int> ans(n);
+        iota(ans.begin(), ans.end(), 1);
+        ans[n - 1] = -(n - 1) * n / 2;
+        return ans;
     }
 };
 ```
@@ -100,14 +141,48 @@ public:
 
 ```go
 func sumZero(n int) []int {
-	presum := 0
-	var res []int
-	for i := 1; i < n; i++ {
-		res = append(res, i)
-		presum += i
+	ans := make([]int, n)
+	for i, j := 1, 0; i <= n/2; i, j = i+1, j+1 {
+		ans[j] = i
+		j++
+		ans[j] = -i
 	}
-	res = append(res, -presum)
-	return res
+	return ans
+}
+```
+
+```go
+func sumZero(n int) []int {
+	ans := make([]int, n)
+	for i := 1; i < n; i++ {
+		ans[i] = i
+	}
+	ans[0] = -n * (n - 1) / 2
+	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function sumZero(n: number): number[] {
+    const ans = new Array(n).fill(0);
+    for (let i = 1, j = 0; i <= n / 2; ++i) {
+        ans[j++] = i;
+        ans[j++] = -i;
+    }
+    return ans;
+}
+```
+
+```ts
+function sumZero(n: number): number[] {
+    const ans = new Array(n).fill(0);
+    for (let i = 1; i < n; ++i) {
+        ans[i] = i;
+    }
+    ans[0] = -((n * (n - 1)) / 2);
+    return ans;
 }
 ```
 

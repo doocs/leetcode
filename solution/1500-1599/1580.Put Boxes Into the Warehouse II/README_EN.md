@@ -60,13 +60,154 @@ Other valid solutions are to put the green box in room 2 or to put the orange bo
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxBoxesInWarehouse(self, boxes: List[int], warehouse: List[int]) -> int:
+        n = len(warehouse)
+        left = [0] * n
+        right = [0] * n
+        left[0] = right[-1] = inf
+        for i in range(1, n):
+            left[i] = min(left[i - 1], warehouse[i - 1])
+        for i in range(n - 2, -1, -1):
+            right[i] = min(right[i + 1], warehouse[i + 1])
+        for i in range(n):
+            warehouse[i] = min(warehouse[i], max(left[i], right[i]))
+        boxes.sort()
+        warehouse.sort()
+        ans = i = 0
+        for x in boxes:
+            while i < n and warehouse[i] < x:
+                i += 1
+            if i == n:
+                break
+            ans, i = ans + 1, i + 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxBoxesInWarehouse(int[] boxes, int[] warehouse) {
+        int n = warehouse.length;
+        int[] left = new int[n];
+        int[] right = new int[n];
+        final int inf = 1 << 30;
+        left[0] = inf;
+        right[n - 1] = inf;
+        for (int i = 1; i < n; ++i) {
+            left[i] = Math.min(left[i - 1], warehouse[i - 1]);
+        }
+        for (int i = n - 2; i >= 0; --i) {
+            right[i] = Math.min(right[i + 1], warehouse[i + 1]);
+        }
+        for (int i = 0; i < n; ++i) {
+            warehouse[i] = Math.min(warehouse[i], Math.max(left[i], right[i]));
+        }
+        Arrays.sort(boxes);
+        Arrays.sort(warehouse);
+        int ans = 0, i = 0;
+        for (int x : boxes) {
+            while (i < n && warehouse[i] < x) {
+                ++i;
+            }
+            if (i == n) {
+                break;
+            }
+            ++ans;
+            ++i;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxBoxesInWarehouse(vector<int>& boxes, vector<int>& warehouse) {
+        int n = warehouse.size();
+        const int inf = 1 << 30;
+        vector<int> left(n, inf);
+        vector<int> right(n, inf);
+        for (int i = 1; i < n; ++i) {
+            left[i] = min(left[i - 1], warehouse[i - 1]);
+        }
+        for (int i = n - 2; ~i; --i) {
+            right[i] = min(right[i + 1], warehouse[i + 1]);
+        }
+        for (int i = 0; i < n; ++i) {
+            warehouse[i] = min(warehouse[i], max(left[i], right[i]));
+        }
+        sort(boxes.begin(), boxes.end());
+        sort(warehouse.begin(), warehouse.end());
+        int ans = 0;
+        int i = 0;
+        for (int x : boxes) {
+            while (i < n && warehouse[i] < x) {
+                ++i;
+            }
+            if (i == n) {
+                break;
+            }
+            ++ans;
+            ++i;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxBoxesInWarehouse(boxes []int, warehouse []int) (ans int) {
+	n := len(warehouse)
+	left := make([]int, n)
+	right := make([]int, n)
+	const inf = 1 << 30
+	left[0] = inf
+	right[n-1] = inf
+	for i := 1; i < n; i++ {
+		left[i] = min(left[i-1], warehouse[i-1])
+	}
+	for i := n - 2; i >= 0; i-- {
+		right[i] = min(right[i+1], warehouse[i+1])
+	}
+	for i := 0; i < n; i++ {
+		warehouse[i] = min(warehouse[i], max(left[i], right[i]))
+	}
+	sort.Ints(boxes)
+	sort.Ints(warehouse)
+	i := 0
+	for _, x := range boxes {
+		for i < n && warehouse[i] < x {
+			i++
+		}
+		if i == n {
+			break
+		}
+		ans++
+		i++
+	}
+	return
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

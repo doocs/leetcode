@@ -62,6 +62,25 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：记忆化搜索**
+
+我们设计一个函数 $dfs(i, j, k)$，表示从第 $i$ 个出勤记录开始，当前缺勤次数为 $j$，目前最后连续迟到次数为 $k$ 时，可获得出勤奖励的情况数量。那么答案就是 $dfs(0, 0, 0)$。
+
+函数 $dfs(i, j, k)$ 的执行过程如下：
+
+-   如果 $i \ge n$，说明已经遍历完所有出勤记录，返回 $1$；
+-   如果 $j = 0$，说明当前缺勤次数为 $0$，那么可以选择缺勤，即 $dfs(i + 1, j + 1, 0)$；
+-   如果 $k \lt 2$，说明当前连续迟到次数小于 $2$，那么可以选择迟到，即 $dfs(i + 1, j, k + 1)$；
+-   无论如何，都可以选择到场，即 $dfs(i + 1, j, 0)$。
+
+我们将上述三种情况的结果相加，即为 $dfs(i, j, k)$ 的结果。
+
+为了避免重复计算，我们可以使用记忆化搜索。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为出勤记录的长度。
+
+**方法二：动态规划**
+
 动态规划，定义 `dp[i][j][k]` 表示前 `i` 天，缺勤 `j` 次，连续迟到 `k` 次时，可获得出勤奖励的情况数量
 
 状态转移需要对第 `i` 天的出勤情况分别讨论：
@@ -75,6 +94,27 @@
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```python
+class Solution:
+    def checkRecord(self, n: int) -> int:
+        @cache
+        def dfs(i, j, k):
+            if i >= n:
+                return 1
+            ans = 0
+            if j == 0:
+                ans += dfs(i + 1, j + 1, 0)
+            if k < 2:
+                ans += dfs(i + 1, j, k + 1)
+            ans += dfs(i + 1, j, 0)
+            return ans % mod
+
+        mod = 10**9 + 7
+        ans = dfs(0, 0, 0)
+        dfs.cache_clear()
+        return ans
+```
 
 ```python
 class Solution:
@@ -109,6 +149,37 @@ class Solution:
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```java
+class Solution {
+    private final int mod = (int) 1e9 + 7;
+    private int n;
+    private Integer[][][] f;
+
+    public int checkRecord(int n) {
+        this.n = n;
+        f = new Integer[n][2][3];
+        return dfs(0, 0, 0);
+    }
+
+    private int dfs(int i, int j, int k) {
+        if (i >= n) {
+            return 1;
+        }
+        if (f[i][j][k] != null) {
+            return f[i][j][k];
+        }
+        int ans = dfs(i + 1, j, 0);
+        if (j == 0) {
+            ans = (ans + dfs(i + 1, j + 1, 0)) % mod;
+        }
+        if (k < 2) {
+            ans = (ans + dfs(i + 1, j, k + 1)) % mod;
+        }
+        return f[i][j][k] = ans;
+    }
+}
+```
 
 ```java
 class Solution {
@@ -147,6 +218,41 @@ class Solution {
 ```
 
 ### **Go**
+
+```go
+func checkRecord(n int) int {
+	f := make([][][]int, n)
+	for i := range f {
+		f[i] = make([][]int, 2)
+		for j := range f[i] {
+			f[i][j] = make([]int, 3)
+			for k := range f[i][j] {
+				f[i][j][k] = -1
+			}
+		}
+	}
+	const mod = 1e9 + 7
+	var dfs func(i, j, k int) int
+	dfs = func(i, j, k int) int {
+		if i >= n {
+			return 1
+		}
+		if f[i][j][k] != -1 {
+			return f[i][j][k]
+		}
+		ans := dfs(i+1, j, 0)
+		if j == 0 {
+			ans = (ans + dfs(i+1, j+1, 0)) % mod
+		}
+		if k < 2 {
+			ans = (ans + dfs(i+1, j, k+1)) % mod
+		}
+		f[i][j][k] = ans
+		return ans
+	}
+	return dfs(0, 0, 0)
+}
+```
 
 ```go
 const _mod int = 1e9 + 7
@@ -189,6 +295,40 @@ func checkRecord(n int) int {
 ```
 
 ### **C++**
+
+```cpp
+int f[100010][2][3];
+const int mod = 1e9 + 7;
+
+class Solution {
+public:
+    int checkRecord(int n) {
+        this->n = n;
+        memset(f, -1, sizeof(f));
+        return dfs(0, 0, 0);
+    }
+
+    int dfs(int i, int j, int k) {
+        if (i >= n) {
+            return 1;
+        }
+        if (f[i][j][k] != -1) {
+            return f[i][j][k];
+        }
+        int ans = dfs(i + 1, j, 0);
+        if (j == 0) {
+            ans = (ans + dfs(i + 1, j + 1, 0)) % mod;
+        }
+        if (k < 2) {
+            ans = (ans + dfs(i + 1, j, k + 1)) % mod;
+        }
+        return f[i][j][k] = ans;
+    }
+
+private:
+    int n;
+};
+```
 
 ```cpp
 constexpr int MOD = 1e9 + 7;

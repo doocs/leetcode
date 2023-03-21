@@ -41,7 +41,15 @@
 
 **方法一：双指针**
 
-双指针算法模板：
+我们可以用双指针维护一个滑动窗口，窗口内所有元素的乘积小于 $k$。
+
+初始时，左右指针都指向下标 0，然后不断地右移右指针，将元素加入窗口，此时判断窗口内所有元素的乘积是否大于等于 $k$，如果大于等于 $k$，则不断地左移左指针，将元素移出窗口，直到窗口内所有元素的乘积小于 $k$。然后我们记录此时的窗口大小，即为以右指针为右端点的满足条件的子数组个数，将其加入答案。
+
+当右指针移动到数组末尾时，即可得到答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
+
+以下是双指针的常用算法模板：
 
 ```java
 for (int i = 0, j = 0; i < n; ++i) {
@@ -51,8 +59,6 @@ for (int i = 0, j = 0; i < n; ++i) {
     // 具体问题的逻辑
 }
 ```
-
-时间复杂度：$O(n)$。
 
 <!-- tabs:start -->
 
@@ -165,6 +171,29 @@ impl Solution {
         res as i32
     }
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var numSubarrayProductLessThanK = function (nums, k) {
+    const n = nums.length;
+    let ans = 0;
+    let s = 1;
+    for (let i = 0, j = 0; i < n; ++i) {
+        s *= nums[i];
+        while (j <= i && s >= k) {
+            s = Math.floor(s / nums[j++]);
+        }
+        ans += i - j + 1;
+    }
+    return ans;
+};
 ```
 
 ### **...**

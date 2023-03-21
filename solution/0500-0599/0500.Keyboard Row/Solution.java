@@ -1,16 +1,21 @@
 class Solution {
     public String[] findWords(String[] words) {
         String s = "12210111011122000010020202";
-        List<String> res = new ArrayList<>();
-        for (String word : words) {
-            Set<Character> t = new HashSet<>();
-            for (char c : word.toLowerCase().toCharArray()) {
-                t.add(s.charAt(c - 'a'));
+        List<String> ans = new ArrayList<>();
+        for (var w : words) {
+            String t = w.toLowerCase();
+            char x = s.charAt(t.charAt(0) - 'a');
+            boolean ok = true;
+            for (char c : t.toCharArray()) {
+                if (s.charAt(c - 'a') != x) {
+                    ok = false;
+                    break;
+                }
             }
-            if (t.size() == 1) {
-                res.add(word);
+            if (ok) {
+                ans.add(w);
             }
         }
-        return res.toArray(new String[0]);
+        return ans.toArray(new String[0]);
     }
 }

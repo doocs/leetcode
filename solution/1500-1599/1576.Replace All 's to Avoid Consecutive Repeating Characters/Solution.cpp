@@ -1,12 +1,14 @@
 class Solution {
 public:
     string modifyString(string s) {
-        for (int i = 0; i < s.size(); ++i) {
+        int n = s.size();
+        for (int i = 0; i < n; ++i) {
             if (s[i] == '?') {
-                for (char cc : "abc") {
-                    if (i > 0 && s[i - 1] == cc) continue;
-                    if (i < s.size() - 1 && s[i + 1] == cc) continue;
-                    s[i] = cc;
+                for (char c : "abc") {
+                    if ((i && s[i - 1] == c) || (i + 1 < n && s[i + 1] == c)) {
+                        continue;
+                    }
+                    s[i] = c;
                     break;
                 }
             }

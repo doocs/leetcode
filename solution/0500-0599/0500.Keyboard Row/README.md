@@ -55,15 +55,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：字符映射**
+
+我们将每个键盘行的字符映射到对应的行数，然后遍历字符串数组，判断每个字符串是否都在同一行即可。
+
+时间复杂度 $O(L)$，空间复杂度 $O(C)$。其中 $L$ 为所有字符串的长度之和；而 $C$ 为字符集的大小，本题中 $C = 26$。
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
-
-用三个集合存储键盘每一行字母。
-
-遍历单词列表 `words`，判断每个单词 `word` 转 set 后是否被以上三个集合其中之一包含，若是，将单词添加到结果数组。
 
 ```python
 class Solution:
@@ -71,70 +73,50 @@ class Solution:
         s1 = set('qwertyuiop')
         s2 = set('asdfghjkl')
         s3 = set('zxcvbnm')
-        res = []
-        for word in words:
-            t = set(word.lower())
-            if t <= s1 or t <= s2 or t <= s3:
-                # 利用 python set 比较
-                res.append(word)
-        return res
+        ans = []
+        for w in words:
+            s = set(w.lower())
+            if s <= s1 or s <= s2 or s <= s3:
+                ans.append(w)
+        return ans
+```
+
+```python
+class Solution:
+    def findWords(self, words: List[str]) -> List[str]:
+        ans = []
+        s = "12210111011122000010020202"
+        for w in words:
+            x = s[ord(w[0].lower()) - ord('a')]
+            if all(s[ord(c.lower()) - ord('a')] == x for c in w):
+                ans.append(w)
+        return ans
 ```
 
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-用三个字符串存储键盘每一行字母。
-
-遍历单词列表 `words`，对于每个单词 `word`：
-
-1. 分别设置三个计数器，存储当前单词在对应键盘字符串的字母个数；
-2. 遍历 `word` 中的每个字母，如果在对应的键盘字符串中，则对应的计数器加 1；
-3. 单词遍历结束后，判断是否存在一个计数器值与 `word` 长度相同。如果有，说明该单词所有字母都在同一个键盘字符串中，将单词添加到结果数组。
-
-```java
-class Solution {
-    public String[] findWords(String[] words) {
-        String s1 = "qwertyuiopQWERTYUIOP";
-        String s2 = "asdfghjklASDFGHJKL";
-        String s3 = "zxcvbnmZXCVBNM";
-        List<String> res = new ArrayList<>();
-        for (String word : words) {
-            int n1 = 0, n2 = 0, n3 = 0;
-            int n = word.length();
-            for (int i = 0; i < n; ++i) {
-                if (s1.contains(String.valueOf(word.charAt(i)))) {
-                    ++n1;
-                } else if (s2.contains(String.valueOf(word.charAt(i)))) {
-                    ++n2;
-                } else {
-                    ++n3;
-                }
-            }
-            if (n1 == n || n2 == n || n3 == n) {
-                res.add(word);
-            }
-        }
-        return res.toArray(new String[0]);
-    }
-}
-```
-
 ```java
 class Solution {
     public String[] findWords(String[] words) {
         String s = "12210111011122000010020202";
-        List<String> res = new ArrayList<>();
-        for (String word : words) {
-            Set<Character> t = new HashSet<>();
-            for (char c : word.toLowerCase().toCharArray()) {
-                t.add(s.charAt(c - 'a'));
+        List<String> ans = new ArrayList<>();
+        for (var w : words) {
+            String t = w.toLowerCase();
+            char x = s.charAt(t.charAt(0) - 'a');
+            boolean ok = true;
+            for (char c : t.toCharArray()) {
+                if (s.charAt(c - 'a') != x) {
+                    ok = false;
+                    break;
+                }
             }
-            if (t.size() == 1) {
-                res.add(word);
+            if (ok) {
+                ans.add(w);
             }
         }
-        return res.toArray(new String[0]);
+        return ans.toArray(new String[0]);
     }
 }
 ```
@@ -147,10 +129,18 @@ public:
     vector<string> findWords(vector<string>& words) {
         string s = "12210111011122000010020202";
         vector<string> ans;
-        for (auto& word : words) {
-            unordered_set<char> t;
-            for (char c : word) t.insert(s[tolower(c) - 'a']);
-            if (t.size() == 1) ans.push_back(word);
+        for (auto& w : words) {
+            char x = s[tolower(w[0]) - 'a'];
+            bool ok = true;
+            for (char& c : w) {
+                if (s[tolower(c) - 'a'] != x) {
+                    ok = false;
+                    break;
+                }
+            }
+            if (ok) {
+                ans.emplace_back(w);
+            }
         }
         return ans;
     }
@@ -160,19 +150,71 @@ public:
 ### **Go**
 
 ```go
-func findWords(words []string) []string {
+func findWords(words []string) (ans []string) {
 	s := "12210111011122000010020202"
-	var ans []string
-	for _, word := range words {
-		t := make(map[byte]bool)
-		for _, c := range word {
-			t[s[unicode.ToLower(c)-'a']] = true
+	for _, w := range words {
+		x := s[unicode.ToLower(rune(w[0]))-'a']
+		ok := true
+		for _, c := range w[1:] {
+			if s[unicode.ToLower(c)-'a'] != x {
+				ok = false
+				break
+			}
 		}
-		if len(t) == 1 {
-			ans = append(ans, word)
+		if ok {
+			ans = append(ans, w)
 		}
 	}
-	return ans
+	return
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public string[] FindWords(string[] words) {
+        string s = "12210111011122000010020202";
+        IList<string> ans = new List<string>();
+        foreach (string w in words) {
+            char x = s[char.ToLower(w[0]) - 'a'];
+            bool ok = true;
+            for (int i = 1; i < w.Length; ++i) {
+                if (s[char.ToLower(w[i]) - 'a'] != x) {
+                    ok = false;
+                    break;
+                }
+            }
+            if (ok) {
+                ans.Add(w);
+            }
+        }
+        return ans.ToArray();
+    }
+}
+```
+
+### **TypeScript**
+
+```ts
+function findWords(words: string[]): string[] {
+    const s = '12210111011122000010020202';
+    const ans: string[] = [];
+    for (const w of words) {
+        const t = w.toLowerCase();
+        const x = s[t.charCodeAt(0) - 'a'.charCodeAt(0)];
+        let ok = true;
+        for (const c of t) {
+            if (s[c.charCodeAt(0) - 'a'.charCodeAt(0)] !== x) {
+                ok = false;
+                break;
+            }
+        }
+        if (ok) {
+            ans.push(w);
+        }
+    }
+    return ans;
 }
 ```
 

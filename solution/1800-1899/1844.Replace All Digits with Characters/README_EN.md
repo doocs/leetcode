@@ -67,12 +67,39 @@ class Solution:
 ```java
 class Solution {
     public String replaceDigits(String s) {
-        char[] chars = s.toCharArray();
-        for (int i = 1; i < chars.length; i += 2) {
-            chars[i] = (char) (chars[i - 1] + (chars[i] - '0'));
+        char[] cs = s.toCharArray();
+        for (int i = 1; i < cs.length; i += 2) {
+            cs[i] = (char) (cs[i - 1] + (cs[i] - '0'));
         }
-        return new String(chars);
+        return String.valueOf(cs);
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string replaceDigits(string s) {
+        int n = s.size();
+        for (int i = 1; i < n; i += 2) {
+            s[i] = s[i - 1] + s[i] - '0';
+        }
+        return s;
+    }
+};
+```
+
+### **Go**
+
+```go
+func replaceDigits(s string) string {
+	cs := []byte(s)
+	for i := 1; i < len(s); i += 2 {
+		cs[i] = cs[i-1] + cs[i] - '0'
+	}
+	return string(cs)
 }
 ```
 

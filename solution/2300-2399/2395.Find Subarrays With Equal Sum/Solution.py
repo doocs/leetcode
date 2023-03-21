@@ -1,8 +1,8 @@
 class Solution:
     def findSubarrays(self, nums: List[int]) -> bool:
-        s = set()
+        vis = set()
         for a, b in pairwise(nums):
-            if (v := a + b) in s:
+            if (x := a + b) in vis:
                 return True
-            s.add(v)
+            vis.add(x)
         return False

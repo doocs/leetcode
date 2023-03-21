@@ -26,10 +26,10 @@ class Solution {
         if (root == null) {
             return null;
         }
-        Node node = new Node(root.val);
+        ArrayList<Node> children = new ArrayList<>();
         for (Node child : root.children) {
-            node.children.add(cloneTree(child));
+            children.add(cloneTree(child));
         }
-        return node;
+        return new Node(root.val, children);
     }
 }

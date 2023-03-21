@@ -62,17 +62,14 @@ If we add all these together we get 1 + 4 + 2 + 5 + 3 + 7 + 11 + 10 + 15 = 58</p
 ```python
 class Solution:
     def sumOddLengthSubarrays(self, arr: List[int]) -> int:
-        n = len(arr)
-        presum = [0] * (n + 1)
+        ans, n = 0, len(arr)
         for i in range(n):
-            presum[i + 1] = presum[i] + arr[i]
-
-        res = 0
-        for i in range(n):
-            for j in range(0, n, 2):
-                if i + j < n:
-                    res += presum[i + j + 1] - presum[i]
-        return res
+            s = 0
+            for j in range(i, n):
+                s += arr[j]
+                if (j - i + 1) & 1:
+                    ans += s
+        return ans
 ```
 
 ### **Java**
@@ -81,17 +78,17 @@ class Solution:
 class Solution {
     public int sumOddLengthSubarrays(int[] arr) {
         int n = arr.length;
-        int[] presum = new int[n + 1];
+        int ans = 0;
         for (int i = 0; i < n; ++i) {
-            presum[i + 1] = presum[i] + arr[i];
-        }
-        int res = 0;
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; i + j < n; j += 2) {
-                res += presum[i + j + 1] - presum[i];
+            int s = 0;
+            for (int j = i; j < n; ++j) {
+                s += arr[j];
+                if ((j - i + 1) % 2 == 1) {
+                    ans += s;
+                }
             }
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -103,15 +100,17 @@ class Solution {
 public:
     int sumOddLengthSubarrays(vector<int>& arr) {
         int n = arr.size();
-        int presum[n + 1];
-        for (int i = 0; i < n; ++i) presum[i + 1] = presum[i] + arr[i];
-        int res = 0;
+        int ans = 0;
         for (int i = 0; i < n; ++i) {
-            for (int j = 0; i + j < n; j += 2) {
-                res += presum[i + j + 1] - presum[i];
+            int s = 0;
+            for (int j = i; j < n; ++j) {
+                s += arr[j];
+                if ((j - i + 1) & 1) {
+                    ans += s;
+                }
             }
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -119,19 +118,18 @@ public:
 ### **Go**
 
 ```go
-func sumOddLengthSubarrays(arr []int) int {
+func sumOddLengthSubarrays(arr []int) (ans int) {
 	n := len(arr)
-	presum := make([]int, n+1)
 	for i := range arr {
-		presum[i+1] = presum[i] + arr[i]
-	}
-	res := 0
-	for i := 0; i < n; i++ {
-		for j := 0; i+j < n; j += 2 {
-			res += presum[i+j+1] - presum[i]
+		s := 0
+		for j := i; j < n; j++ {
+			s += arr[j]
+			if (j-i+1)%2 == 1 {
+				ans += s
+			}
 		}
 	}
-	return res
+	return
 }
 ```
 
@@ -140,16 +138,17 @@ func sumOddLengthSubarrays(arr []int) int {
 ```ts
 function sumOddLengthSubarrays(arr: number[]): number {
     const n = arr.length;
-    let res = 0;
-    for (let i = 1; i <= n; i += 2) {
-        let sum = arr.slice(0, i).reduce((r, v) => r + v);
-        res += sum;
-        for (let j = i; j < n; j++) {
-            sum += arr[j] - arr[j - i];
-            res += sum;
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        let s = 0;
+        for (let j = i; j < n; ++j) {
+            s += arr[j];
+            if ((j - i + 1) % 2 === 1) {
+                ans += s;
+            }
         }
     }
-    return res;
+    return ans;
 }
 ```
 
@@ -159,18 +158,17 @@ function sumOddLengthSubarrays(arr: number[]): number {
 impl Solution {
     pub fn sum_odd_length_subarrays(arr: Vec<i32>) -> i32 {
         let n = arr.len();
-        let mut res = 0;
-        let mut i = 1;
-        while i <= n {
-            let mut sum: i32 = arr[0..i].iter().sum();
-            res += sum;
+        let mut ans = 0;
+        for i in 0..n {
+            let mut s = 0;
             for j in i..n {
-                sum += arr[j] - arr[j - i];
-                res += sum;
+                s += arr[j];
+                if (j - i + 1) % 2 == 1 {
+                    ans += s;
+                }
             }
-            i += 2;
         }
-        res
+        ans
     }
 }
 ```
@@ -178,17 +176,15 @@ impl Solution {
 ### **C**
 
 ```c
-int sumOddLengthSubarrays(int *arr, int arrSize) {
+int sumOddLengthSubarrays(int* arr, int arrSize){
     int ans = 0;
-    for (int i = 1; i <= arrSize; i += 2) {
-        int sum = 0;
-        for (int j = 0; j < i; j++) {
-            sum += arr[j];
-        }
-        ans += sum;
-        for (int j = i; j < arrSize; j++) {
-            sum += arr[j] - arr[j - i];
-            ans += sum;
+    for (int i = 0; i < arrSize; ++i) {
+        int s = 0;
+        for (int j = i; j < arrSize; ++j) {
+            s += arr[j];
+            if ((j - i + 1) % 2 == 1) {
+                ans += s;
+            }
         }
     }
     return ans;

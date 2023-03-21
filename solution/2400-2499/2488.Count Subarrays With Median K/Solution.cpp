@@ -2,33 +2,25 @@ class Solution {
 public:
     int countSubarrays(vector<int>& nums, int k) {
         int n = nums.size();
-        int i = 0;
-        for (int j = 0; j < n; ++j) {
-            if (nums[j] == k) {
-                i = j;
-                break;
-            }
-        }
+        int i = find(nums.begin(), nums.end(), k) - nums.begin();
+        int cnt[n << 1 | 1];
+        memset(cnt, 0, sizeof(cnt));
         int ans = 1;
-        int d[n << 1 | 1];
-        memset(d, 0, sizeof d);
-        int mi = 0, mx = 0;
+        int x = 0;
         for (int j = i + 1; j < n; ++j) {
-            if (nums[j] < k)
-                ++mi;
-            else
-                ++mx;
-            if (mx - mi >= 0 && mx - mi <= 1) ++ans;
-            ++d[mx - mi + n];
+            x += nums[j] > k ? 1 : -1;
+            if (x >= 0 && x <= 1) {
+                ++ans;
+            }
+            ++cnt[x + n];
         }
-        mi = 0, mx = 0;
+        x = 0;
         for (int j = i - 1; ~j; --j) {
-            if (nums[j] < k)
-                ++mi;
-            else
-                ++mx;
-            if (mx - mi >= 0 && mx - mi <= 1) ++ans;
-            ans += d[mi - mx + n] + d[mi - mx + n + 1];
+            x += nums[j] > k ? 1 : -1;
+            if (x >= 0 && x <= 1) {
+                ++ans;
+            }
+            ans += cnt[-x + n] + cnt[-x + 1 + n];
         }
         return ans;
     }

@@ -1,12 +1,12 @@
 class Solution {
     public int maximumDifference(int[] nums) {
-        int mi = nums[0];
+        int mi = 1 << 30;
         int ans = -1;
-        for (int i = 1; i < nums.length; ++i) {
-            if (nums[i] > mi) {
-                ans = Math.max(ans, nums[i] - mi);
+        for (int x : nums) {
+            if (x > mi) {
+                ans = Math.max(ans, x - mi);
             } else {
-                mi = nums[i];
+                mi = x;
             }
         }
         return ans;

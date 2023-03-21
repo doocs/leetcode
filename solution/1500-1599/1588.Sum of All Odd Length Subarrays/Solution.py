@@ -1,13 +1,10 @@
 class Solution:
     def sumOddLengthSubarrays(self, arr: List[int]) -> int:
-        n = len(arr)
-        presum = [0] * (n + 1)
+        ans, n = 0, len(arr)
         for i in range(n):
-            presum[i + 1] = presum[i] + arr[i]
-
-        res = 0
-        for i in range(n):
-            for j in range(0, n, 2):
-                if i + j < n:
-                    res += presum[i + j + 1] - presum[i]
-        return res
+            s = 0
+            for j in range(i, n):
+                s += arr[j]
+                if (j - i + 1) & 1:
+                    ans += s
+        return ans

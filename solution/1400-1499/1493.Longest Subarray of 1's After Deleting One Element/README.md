@@ -74,7 +74,7 @@ class Solution:
         for i in range(n - 2, -1, -1):
             if nums[i + 1] == 1:
                 right[i] = right[i + 1] + 1
-        return max(left[i] + right[i] for i in range(n))
+        return max(a + b for a, b in zip(left, right))
 ```
 
 ### **Java**

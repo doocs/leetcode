@@ -1,16 +1,16 @@
 class Solution {
     public int[] corpFlightBookings(int[][] bookings, int n) {
-        int[] delta = new int[n];
-        for (int[] booking : bookings) {
-            int first = booking[0], last = booking[1], seats = booking[2];
-            delta[first - 1] += seats;
+        int[] ans = new int[n];
+        for (var e : bookings) {
+            int first = e[0], last = e[1], seats = e[2];
+            ans[first - 1] += seats;
             if (last < n) {
-                delta[last] -= seats;
+                ans[last] -= seats;
             }
         }
-        for (int i = 0; i < n - 1; ++i) {
-            delta[i + 1] += delta[i];
+        for (int i = 1; i < n; ++i) {
+            ans[i] += ans[i - 1];
         }
-        return delta;
+        return ans;
     }
 }

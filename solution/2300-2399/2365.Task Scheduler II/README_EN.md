@@ -71,12 +71,12 @@ It can be shown that the tasks cannot be completed in less than 6 days.
 ```python
 class Solution:
     def taskSchedulerII(self, tasks: List[int], space: int) -> int:
-        mp = {}
+        day = defaultdict(int)
         ans = 0
-        for v in tasks:
+        for task in tasks:
             ans += 1
-            ans = max(ans, mp.get(v, 0))
-            mp[v] = ans + space + 1
+            ans = max(ans, day[task])
+            day[task] = ans + space + 1
         return ans
 ```
 
@@ -85,12 +85,12 @@ class Solution:
 ```java
 class Solution {
     public long taskSchedulerII(int[] tasks, int space) {
-        Map<Integer, Long> mp = new HashMap<>();
+        Map<Integer, Long> day = new HashMap<>();
         long ans = 0;
-        for (int v : tasks) {
+        for (int task : tasks) {
             ++ans;
-            ans = Math.max(ans, mp.getOrDefault(v, 0L));
-            mp.put(v, ans + space + 1);
+            ans = Math.max(ans, day.getOrDefault(task, 0L));
+            day.put(task, ans + space + 1);
         }
         return ans;
     }
@@ -103,12 +103,12 @@ class Solution {
 class Solution {
 public:
     long long taskSchedulerII(vector<int>& tasks, int space) {
-        unordered_map<int, long long> mp;
+        unordered_map<int, long long> day;
         long long ans = 0;
-        for (int v : tasks) {
+        for (int& task : tasks) {
             ++ans;
-            if (mp.count(v)) ans = max(ans, mp[v]);
-            mp[v] = ans + space + 1;
+            ans = max(ans, day[task]);
+            day[task] = ans + space + 1;
         }
         return ans;
     }
@@ -118,31 +118,32 @@ public:
 ### **Go**
 
 ```go
-func taskSchedulerII(tasks []int, space int) int64 {
-	mp := map[int]int64{}
-	var ans int64
-	for _, x := range tasks {
+func taskSchedulerII(tasks []int, space int) (ans int64) {
+	day := map[int]int64{}
+	for _, task := range tasks {
 		ans++
-		if v, ok := mp[x]; ok {
-			ans = max(ans, v)
+		if ans < day[task] {
+			ans = day[task]
 		}
-		mp[x] = ans + int64(space) + 1
+		day[task] = ans + int64(space) + 1
 	}
-	return ans
-}
-
-func max(a, b int64) int64 {
-	if a > b {
-		return a
-	}
-	return b
+	return
 }
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function taskSchedulerII(tasks: number[], space: number): number {
+    const day = new Map<number, number>();
+    let ans = 0;
+    for (const task of tasks) {
+        ++ans;
+        ans = Math.max(ans, day.get(task) ?? 0);
+        day.set(task, ans + space + 1);
+    }
+    return ans;
+}
 ```
 
 ### **...**

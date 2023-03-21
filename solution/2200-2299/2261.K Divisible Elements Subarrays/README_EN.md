@@ -67,15 +67,28 @@ class Solution:
         s = set()
         for i in range(n):
             cnt = 0
-            t = ""
             for j in range(i, n):
-                if nums[j] % p == 0:
-                    cnt += 1
-                if cnt <= k:
-                    t += str(nums[j]) + ","
-                    s.add(t)
-                else:
+                cnt += nums[j] % p == 0
+                if cnt > k:
                     break
+                s.add(tuple(nums[i: j + 1]))
+        return len(s)
+```
+
+```python
+class Solution:
+    def countDistinct(self, nums: List[int], k: int, p: int) -> int:
+        n = len(nums)
+        s = set()
+        for i in range(n):
+            cnt = 0
+            t = ""
+            for x in nums[i:]:
+                cnt += x % p == 0
+                if cnt > k:
+                    break
+                t += str(x) + ","
+                s.add(t)
         return len(s)
 ```
 
@@ -84,15 +97,13 @@ class Solution:
 ```java
 class Solution {
     public int countDistinct(int[] nums, int k, int p) {
+        int n = nums.length;
         Set<String> s = new HashSet<>();
-        for (int i = 0, n = nums.length; i < n; ++i) {
+        for (int i = 0; i < n; ++i) {
             int cnt = 0;
             String t = "";
             for (int j = i; j < n; ++j) {
-                if (nums[j] % p == 0) {
-                    ++cnt;
-                }
-                if (cnt > k) {
+                if (nums[j] % p == 0 && ++cnt > k) {
                     break;
                 }
                 t += nums[j] + ",";
@@ -111,12 +122,14 @@ class Solution {
 public:
     int countDistinct(vector<int>& nums, int k, int p) {
         unordered_set<string> s;
-        for (int i = 0, n = nums.size(); i < n; ++i) {
+        int n = nums.size();
+        for (int i = 0; i < n; ++i) {
             int cnt = 0;
-            string t = "";
+            string t;
             for (int j = i; j < n; ++j) {
-                if (nums[j] % p == 0) ++cnt;
-                if (cnt > k) break;
+                if (nums[j] % p == 0 && ++cnt > k) {
+                    break;
+                }
                 t += to_string(nums[j]) + ",";
                 s.insert(t);
             }
@@ -130,19 +143,18 @@ public:
 
 ```go
 func countDistinct(nums []int, k int, p int) int {
-	s := map[string]bool{}
-	for i, n := 0, len(nums); i < n; i++ {
-		cnt := 0
-		t := ""
-		for j := i; j < n; j++ {
-			if nums[j]%p == 0 {
+	s := map[string]struct{}{}
+	for i := range nums {
+		cnt, t := 0, ""
+		for _, x := range nums[i:] {
+			if x%p == 0 {
 				cnt++
+				if cnt > k {
+					break
+				}
 			}
-			if cnt > k {
-				break
-			}
-			t += string(nums[j]) + ","
-			s[t] = true
+			t += string(x) + ","
+			s[t] = struct{}{}
 		}
 	}
 	return len(s)
@@ -154,25 +166,19 @@ func countDistinct(nums []int, k int, p int) int {
 ```ts
 function countDistinct(nums: number[], k: number, p: number): number {
     const n = nums.length;
-    const numSet = new Set(nums);
-    const verfiedSet = new Set<number>();
-    for (let i of numSet) {
-        if (i % p != 0) continue;
-        verfiedSet.add(i);
-    }
-    let ans = new Set<string>();
-    for (let i = 0; i < n; i++) {
-        let sub = [];
-        for (let j = i, cnt = 0; j < n; j++) {
-            const num = nums[j];
-            if (verfiedSet.has(num)) cnt++;
-            if (cnt > k) break;
-            sub.push(num);
-            const str = sub.join(',');
-            ans.add(str);
+    const s = new Set();
+    for (let i = 0; i < n; ++i) {
+        let cnt = 0;
+        let t = '';
+        for (let j = i; j < n; ++j) {
+            if (nums[j] % p === 0 && ++cnt > k) {
+                break;
+            }
+            t += nums[j].toString() + ',';
+            s.add(t);
         }
     }
-    return ans.size;
+    return s.size;
 }
 ```
 

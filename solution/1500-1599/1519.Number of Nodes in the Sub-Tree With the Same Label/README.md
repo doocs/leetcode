@@ -67,6 +67,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：DFS**
+
+我们先将边数组转换为邻接表 $g$。
+
+接下来我们从根节点 $0$ 开始遍历其子树，过程中维护一个计数器 $cnt$，用于统计当前各个字母出现的次数。
+
+在访问某个节点 $i$ 时，我们先将 $ans[i]$ 减去 $cnt[labels[i]]$，然后将 $cnt[labels[i]]$ 加 $1$，表示当前节点 $i$ 的标签出现了一次。接下来递归访问其子节点，最后将 $ans[i]$ 加上 $cnt[labels[i]]$。也即是说，我们将每个点离开时的计数器值减去每个点进来时的计数器值，就得到了以该点为根的子树中各个字母出现的次数。
+
+时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为节点数；而 $C$ 为字符集大小，本题中 $C = 26$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -74,7 +84,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def countSubTrees(self, n: int, edges: List[List[int]], labels: str) -> List[int]:
+        def dfs(i, fa):
+            ans[i] -= cnt[labels[i]]
+            cnt[labels[i]] += 1
+            for j in g[i]:
+                if j != fa:
+                    dfs(j, i)
+            ans[i] += cnt[labels[i]]
 
+        g = defaultdict(list)
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        cnt = Counter()
+        ans = [0] * n
+        dfs(0, -1)
+        return ans
 ```
 
 ### **Java**
@@ -82,7 +109,126 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private List<Integer>[] g;
+    private String labels;
+    private int[] ans;
+    private int[] cnt;
 
+    public int[] countSubTrees(int n, int[][] edges, String labels) {
+        g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int[] e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        this.labels = labels;
+        ans = new int[n];
+        cnt = new int[26];
+        dfs(0, -1);
+        return ans;
+    }
+
+    private void dfs(int i, int fa) {
+        int k = labels.charAt(i) - 'a';
+        ans[i] -= cnt[k];
+        cnt[k]++;
+        for (int j : g[i]) {
+            if (j != fa) {
+                dfs(j, i);
+            }
+        }
+        ans[i] += cnt[k];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> countSubTrees(int n, vector<vector<int>>& edges, string labels) {
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        vector<int> ans(n);
+        int cnt[26]{};
+        function<void(int, int)> dfs = [&](int i, int fa) {
+            int k = labels[i] - 'a';
+            ans[i] -= cnt[k];
+            cnt[k]++;
+            for (int& j : g[i]) {
+                if (j != fa) {
+                    dfs(j, i);
+                }
+            }
+            ans[i] += cnt[k];
+        };
+        dfs(0, -1);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countSubTrees(n int, edges [][]int, labels string) []int {
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	ans := make([]int, n)
+	cnt := [26]int{}
+	var dfs func(int, int)
+	dfs = func(i, fa int) {
+		k := labels[i] - 'a'
+		ans[i] -= cnt[k]
+		cnt[k]++
+		for _, j := range g[i] {
+			if j != fa {
+				dfs(j, i)
+			}
+		}
+		ans[i] += cnt[k]
+	}
+	dfs(0, -1)
+	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function countSubTrees(n: number, edges: number[][], labels: string): number[] {
+    const dfs = (i: number, fa: number) => {
+        const k = labels.charCodeAt(i) - 97;
+        ans[i] -= cnt[k];
+        cnt[k]++;
+        for (const j of g[i]) {
+            if (j !== fa) {
+                dfs(j, i);
+            }
+        }
+        ans[i] += cnt[k];
+    };
+    const ans = new Array(n).fill(0),
+        cnt = new Array(26).fill(0);
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    dfs(0, -1);
+    return ans;
+}
 ```
 
 ### **...**

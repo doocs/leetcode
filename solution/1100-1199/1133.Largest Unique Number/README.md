@@ -41,7 +41,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-计数器实现。
+**方法一：计数 + 倒序遍历**
+
+注意到题目的数据范围，我们可以使用一个长度为 $1001$ 的数组来统计每个数字出现的次数，然后倒序遍历数组，找到第一个出现次数为 $1$ 的数字即可。如果没有找到，则返回 $-1$。
+
+时间复杂度 $O(n + M)$，空间复杂度 $O(M)$。其中 $n$ 为数组长度；而 $M$ 为数组中出现的最大数字，本题中 $M \leq 1000$。
 
 <!-- tabs:start -->
 
@@ -51,12 +55,16 @@
 
 ```python
 class Solution:
-    def largestUniqueNumber(self, A: List[int]) -> int:
-        counter = Counter(A)
-        for i in range(1000, -1, -1):
-            if counter[i] == 1:
-                return i
-        return -1
+    def largestUniqueNumber(self, nums: List[int]) -> int:
+        cnt = Counter(nums)
+        return next((x for x in range(1000, -1, -1) if cnt[x] == 1), -1)
+```
+
+```python
+class Solution:
+    def largestUniqueNumber(self, nums: List[int]) -> int:
+        cnt = Counter(nums)
+        return max((x for x, v in cnt.items() if v == 1), default=-1)
 ```
 
 ### **Java**
@@ -65,14 +73,14 @@ class Solution:
 
 ```java
 class Solution {
-    public int largestUniqueNumber(int[] A) {
-        int[] counter = new int[1001];
-        for (int a : A) {
-            ++counter[a];
+    public int largestUniqueNumber(int[] nums) {
+        int[] cnt = new int[1001];
+        for (int x : nums) {
+            ++cnt[x];
         }
-        for (int i = 1000; i >= 0; --i) {
-            if (counter[i] == 1) {
-                return i;
+        for (int x = 1000; x >= 0; --x) {
+            if (cnt[x] == 1) {
+                return x;
             }
         }
         return -1;
@@ -80,25 +88,79 @@ class Solution {
 }
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int largestUniqueNumber(vector<int>& nums) {
+        int cnt[1001]{};
+        for (int& x : nums) {
+            ++cnt[x];
+        }
+        for (int x = 1000; ~x; --x) {
+            if (cnt[x] == 1) {
+                return x;
+            }
+        }
+        return -1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func largestUniqueNumber(nums []int) int {
+	cnt := [1001]int{}
+	for _, x := range nums {
+		cnt[x]++
+	}
+	for x := 1000; x >= 0; x-- {
+		if cnt[x] == 1 {
+			return x
+		}
+	}
+	return -1
+}
+```
+
 ### **JavaScript**
 
 ```js
 /**
- * @param {number[]} A
+ * @param {number[]} nums
  * @return {number}
  */
-var largestUniqueNumber = function (A) {
-    let counter = {};
-    for (const a of A) {
-        counter[a] = (counter[a] || 0) + 1;
+var largestUniqueNumber = function (nums) {
+    const cnt = new Array(1001).fill(0);
+    for (const x of nums) {
+        ++cnt[x];
     }
-    for (let i = 1000; i >= 0; --i) {
-        if (counter[i] == 1) {
-            return i;
+    for (let x = 1000; x >= 0; --x) {
+        if (cnt[x] == 1) {
+            return x;
         }
     }
     return -1;
 };
+```
+
+### **TypeScript**
+
+```ts
+function largestUniqueNumber(nums: number[]): number {
+    const cnt = new Array(1001).fill(0);
+    for (const x of nums) {
+        ++cnt[x];
+    }
+    for (let x = 1000; x >= 0; --x) {
+        if (cnt[x] == 1) {
+            return x;
+        }
+    }
+    return -1;
+}
 ```
 
 ### **...**

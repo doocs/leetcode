@@ -60,6 +60,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：前缀和 + 哈希表**
+
+我们可以先预处理得到数组 $nums$ 对应的前缀和数组 $s$，其中 $s[i]$ 表示数组 $nums[0,...i-1]$ 的和。那么数组所有元素之和为 $s[n - 1]$。
+
+如果不修改数组 $nums$，那么两个子数组的和相等的条件是 $s[n - 1]$ 必须为偶数，如果 $s[n - 1]$ 为偶数，那么我们求出 $ans = \frac{right[s[n - 1] / 2]}{2}$。
+
+如果修改数组 $nums$，那么我们可以枚举每一个修改的位置 $i$，将 $nums[i]$ 修改为 $k$，那么数组总和的变化量 $d = k - nums[i]$，此时 $i$ 左侧部分的和保持不变，那么合法的分割要满足 $s[i] = s[n - 1] + d - s[i]$，即 $s[i] = \frac{s[n - 1] + d}{2}$；而右侧部分的每个前缀和都增加了 $d$，那么合法的分割要满足 $s[i] + d = s[n - 1] + d - (s[i] + d)$，即 $s[i] = \frac{s[n - 1] - d}{2}$。我们用哈希表 $left$ 和 $right$ 分别记录左侧部分和右侧部分每个前缀和出现的次数，那么我们可以求出 $ans = max(ans, left[\frac{s[n - 1] + d}{2}]) + right[\frac{s[n - 1] - d}{2}]$。
+
+最后，我们返回 $ans$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -67,7 +79,29 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def waysToPartition(self, nums: List[int], k: int) -> int:
+        n = len(nums)
+        s = [nums[0]] * n
+        right = defaultdict(int)
+        for i in range(1, n):
+            s[i] = s[i - 1] + nums[i]
+            right[s[i - 1]] += 1
 
+        ans = 0
+        if s[-1] % 2 == 0:
+            ans = right[s[-1] // 2]
+
+        left = defaultdict(int)
+        for v, x in zip(s, nums):
+            d = k - x
+            if (s[-1] + d) % 2 == 0:
+                t = left[(s[-1] + d) // 2] + right[(s[-1] - d) // 2]
+                if ans < t:
+                    ans = t
+            left[v] += 1
+            right[v] -= 1
+        return ans
 ```
 
 ### **Java**
@@ -75,7 +109,98 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int waysToPartition(int[] nums, int k) {
+        int n = nums.length;
+        int[] s = new int[n];
+        s[0] = nums[0];
+        Map<Integer, Integer> right = new HashMap<>();
+        for (int i = 0; i < n - 1; ++i) {
+            right.merge(s[i], 1, Integer::sum);
+            s[i + 1] = s[i] + nums[i + 1];
+        }
+        int ans = 0;
+        if (s[n - 1] % 2 == 0) {
+            ans = right.getOrDefault(s[n - 1] / 2, 0);
+        }
+        Map<Integer, Integer> left = new HashMap<>();
+        for (int i = 0; i < n; ++i) {
+            int d = k - nums[i];
+            if ((s[n - 1] + d) % 2 == 0) {
+                int t = left.getOrDefault((s[n - 1] + d) / 2, 0)
+                    + right.getOrDefault((s[n - 1] - d) / 2, 0);
+                ans = Math.max(ans, t);
+            }
+            left.merge(s[i], 1, Integer::sum);
+            right.merge(s[i], -1, Integer::sum);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int waysToPartition(vector<int>& nums, int k) {
+        int n = nums.size();
+        long long s[n];
+        s[0] = nums[0];
+        unordered_map<long long, int> right;
+        for (int i = 0; i < n - 1; ++i) {
+            right[s[i]]++;
+            s[i + 1] = s[i] + nums[i + 1];
+        }
+        int ans = 0;
+        if (s[n - 1] % 2 == 0) {
+            ans = right[s[n - 1] / 2];
+        }
+        unordered_map<long long, int> left;
+        for (int i = 0; i < n; ++i) {
+            int d = k - nums[i];
+            if ((s[n - 1] + d) % 2 == 0) {
+                int t = left[(s[n - 1] + d) / 2] + right[(s[n - 1] - d) / 2];
+                ans = max(ans, t);
+            }
+            left[s[i]]++;
+            right[s[i]]--;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func waysToPartition(nums []int, k int) (ans int) {
+	n := len(nums)
+	s := make([]int, n)
+	s[0] = nums[0]
+	right := map[int]int{}
+	for i := range nums[:n-1] {
+		right[s[i]]++
+		s[i+1] = s[i] + nums[i+1]
+	}
+	if s[n-1]%2 == 0 {
+		ans = right[s[n-1]/2]
+	}
+	left := map[int]int{}
+	for i, x := range nums {
+		d := k - x
+		if (s[n-1]+d)%2 == 0 {
+			t := left[(s[n-1]+d)/2] + right[(s[n-1]-d)/2]
+			if ans < t {
+				ans = t
+			}
+		}
+		left[s[i]]++
+		right[s[i]]--
+	}
+	return
+}
 ```
 
 ### **...**

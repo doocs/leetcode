@@ -1,16 +1,16 @@
 func maxLength(ribbons []int, k int) int {
-	low, high := 0, 100000
-	for low < high {
-		mid := (low + high + 1) >> 1
+	left, right := 0, 100000
+	for left < right {
+		mid := (left + right + 1) >> 1
 		cnt := 0
-		for _, ribbon := range ribbons {
-			cnt += ribbon / mid
+		for _, x := range ribbons {
+			cnt += x / mid
 		}
-		if cnt < k {
-			high = mid - 1
+		if cnt >= k {
+			left = mid
 		} else {
-			low = mid
+			right = mid - 1
 		}
 	}
-	return low
+	return left
 }

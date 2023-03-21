@@ -7,9 +7,7 @@
 <p>The <strong>alternating sum</strong> of a <strong>0-indexed</strong> array is defined as the <strong>sum</strong> of the elements at <strong>even</strong> indices <strong>minus</strong> the <strong>sum</strong> of the elements at <strong>odd</strong> indices.</p>
 
 <ul>
-
     <li>For example, the alternating sum of <code>[4,2,5,3]</code> is <code>(4 + 5) - (2 + 3) = 4</code>.</li>
-
 </ul>
 
 <p>Given an array <code>nums</code>, return <em>the <strong>maximum alternating sum</strong> of any subsequence of </em><code>nums</code><em> (after <strong>reindexing</strong> the elements of the subsequence)</em>.</p>
@@ -63,11 +61,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
-
     <li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
-
 </ul>
 
 ## Solutions
@@ -77,13 +72,127 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def maxAlternatingSum(self, nums: List[int]) -> int:
+        n = len(nums)
+        f = [0] * (n + 1)
+        g = [0] * (n + 1)
+        for i, x in enumerate(nums, 1):
+            f[i] = max(g[i - 1] - x, f[i - 1])
+            g[i] = max(f[i - 1] + x, g[i - 1])
+        return max(f[n], g[n])
+```
 
+```python
+class Solution:
+    def maxAlternatingSum(self, nums: List[int]) -> int:
+        f = g = 0
+        for x in nums:
+            f, g = max(g - x, f), max(f + x, g)
+        return max(f, g)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public long maxAlternatingSum(int[] nums) {
+        int n = nums.length;
+        long[] f = new long[n + 1];
+        long[] g = new long[n + 1];
+        for (int i = 1; i <= n; ++i) {
+            f[i] = Math.max(g[i - 1] - nums[i - 1], f[i - 1]);
+            g[i] = Math.max(f[i - 1] + nums[i - 1], g[i - 1]);
+        }
+        return Math.max(f[n], g[n]);
+    }
+}
+```
 
+```java
+class Solution {
+    public long maxAlternatingSum(int[] nums) {
+        long f = 0, g = 0;
+        for (int x : nums) {
+            long ff = Math.max(g - x, f);
+            long gg = Math.max(f + x, g);
+            f = ff;
+            g = gg;
+        }
+        return Math.max(f, g);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    long long maxAlternatingSum(vector<int>& nums) {
+        int n = nums.size();
+        vector<long long> f(n + 1), g(n + 1);
+        for (int i = 1; i <= n; ++i) {
+            f[i] = max(g[i - 1] - nums[i - 1], f[i - 1]);
+            g[i] = max(f[i - 1] + nums[i - 1], g[i - 1]);
+        }
+        return max(f[n], g[n]);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    long long maxAlternatingSum(vector<int>& nums) {
+        long long f = 0, g = 0;
+        for (int& x : nums) {
+            long ff = max(g - x, f), gg = max(f + x, g);
+            f = ff, g = gg;
+        }
+        return max(f, g);
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxAlternatingSum(nums []int) int64 {
+	n := len(nums)
+	f := make([]int, n+1)
+	g := make([]int, n+1)
+	for i, x := range nums {
+		i++
+		f[i] = max(g[i-1]-x, f[i-1])
+		g[i] = max(f[i-1]+x, g[i-1])
+	}
+	return int64(max(f[n], g[n]))
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func maxAlternatingSum(nums []int) int64 {
+	var f, g int
+	for _, x := range nums {
+		f, g = max(g-x, f), max(f+x, g)
+	}
+	return int64(max(f, g))
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

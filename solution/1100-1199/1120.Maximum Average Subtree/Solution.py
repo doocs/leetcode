@@ -5,14 +5,14 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def maximumAverageSubtree(self, root: TreeNode) -> float:
+    def maximumAverageSubtree(self, root: Optional[TreeNode]) -> float:
         def dfs(root):
             if root is None:
                 return 0, 0
             ls, ln = dfs(root.left)
             rs, rn = dfs(root.right)
-            s = ls + root.val + rs
-            n = ln + 1 + rn
+            s = root.val + ls + rs
+            n = 1 + ln + rn
             nonlocal ans
             ans = max(ans, s / n)
             return s, n

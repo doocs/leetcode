@@ -50,7 +50,23 @@ class Solution:
     def answerQueries(self, nums: List[int], queries: List[int]) -> List[int]:
         nums.sort()
         s = list(accumulate(nums))
-        return [bisect_right(s, v) for v in queries]
+        return [bisect_right(s, q) for q in queries]
+```
+
+```python
+class Solution:
+    def answerQueries(self, nums: List[int], queries: List[int]) -> List[int]:
+        nums.sort()
+        m = len(queries)
+        ans = [0] * m
+        idx = sorted(range(m), key=lambda i: queries[i])
+        s = j = 0
+        for i in idx:
+            while j < len(nums) and s + nums[j] <= queries[i]:
+                s += nums[j]
+                j += 1
+            ans[i] = j
+        return ans
 ```
 
 ### **Java**
@@ -59,30 +75,51 @@ class Solution:
 class Solution {
     public int[] answerQueries(int[] nums, int[] queries) {
         Arrays.sort(nums);
-        int n = nums.length;
-        int[] s = new int[n + 1];
-        for (int i = 0; i < n; ++i) {
-            s[i + 1] = s[i] + nums[i];
+        for (int i = 1; i < nums.length; ++i) {
+            nums[i] += nums[i - 1];
         }
         int m = queries.length;
         int[] ans = new int[m];
         for (int i = 0; i < m; ++i) {
-            ans[i] = search(s, queries[i]);
+            ans[i] = search(nums, queries[i]);
         }
         return ans;
     }
 
-    private int search(int[] s, int v) {
-        int left = 1, right = s.length;
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            if (s[mid] > v) {
-                right = mid;
+    private int search(int[] nums, int x) {
+        int l = 0, r = nums.length;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (nums[mid] > x) {
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return left - 1;
+        return l;
+    }
+}
+```
+
+```java
+class Solution {
+    public int[] answerQueries(int[] nums, int[] queries) {
+        Arrays.sort(nums);
+        int m = queries.length;
+        Integer[] idx = new Integer[m];
+        for (int i = 0; i < m; ++i) {
+            idx[i] = i;
+        }
+        Arrays.sort(idx, (i, j) -> queries[i] - queries[j]);
+        int[] ans = new int[m];
+        int s = 0, j = 0;
+        for (int i : idx) {
+            while (j < nums.length && s + nums[j] <= queries[i]) {
+                s += nums[j++];
+            }
+            ans[i] = j;
+        }
+        return ans;
     }
 }
 ```
@@ -94,14 +131,36 @@ class Solution {
 public:
     vector<int> answerQueries(vector<int>& nums, vector<int>& queries) {
         sort(nums.begin(), nums.end());
-        int n = nums.size(), m = queries.size();
-        vector<int> s(n + 1);
-        for (int i = 0; i < n; ++i) {
-            s[i + 1] = s[i] + nums[i];
+        for (int i = 1; i < nums.size(); i++) {
+            nums[i] += nums[i - 1];
         }
+        vector<int> ans;
+        for (auto& q : queries) {
+            ans.push_back(upper_bound(nums.begin(), nums.end(), q) - nums.begin());
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> answerQueries(vector<int>& nums, vector<int>& queries) {
+        sort(nums.begin(), nums.end());
+        int m = queries.size();
+        vector<int> idx(m);
+        iota(idx.begin(), idx.end(), 0);
+        sort(idx.begin(), idx.end(), [&](int i, int j) {
+            return queries[i] < queries[j];
+        });
         vector<int> ans(m);
-        for (int i = 0; i < m; ++i) {
-            ans[i] = upper_bound(s.begin() + 1, s.end(), queries[i]) - s.begin() - 1;
+        int s = 0, j = 0;
+        for (int i : idx) {
+            while (j < nums.size() && s + nums[j] <= queries[i]) {
+                s += nums[j++];
+            }
+            ans[i] = j;
         }
         return ans;
     }
@@ -111,27 +170,37 @@ public:
 ### **Go**
 
 ```go
-func answerQueries(nums []int, queries []int) []int {
+func answerQueries(nums []int, queries []int) (ans []int) {
 	sort.Ints(nums)
-	n, m := len(nums), len(queries)
-	s := make([]int, n+1)
-	for i, v := range nums {
-		s[i+1] = s[i] + v
+	for i := 1; i < len(nums); i++ {
+		nums[i] += nums[i-1]
 	}
-	ans := make([]int, m)
-	for i, v := range queries {
-		left, right := 1, len(s)
-		for left < right {
-			mid := (left + right) >> 1
-			if s[mid] > v {
-				right = mid
-			} else {
-				left = mid + 1
-			}
+	for _, q := range queries {
+		ans = append(ans, sort.SearchInts(nums, q+1))
+	}
+	return
+}
+```
+
+```go
+func answerQueries(nums []int, queries []int) (ans []int) {
+	sort.Ints(nums)
+	m := len(queries)
+	idx := make([]int, m)
+	for i := range idx {
+		idx[i] = i
+	}
+	sort.Slice(idx, func(i, j int) bool { return queries[idx[i]] < queries[idx[j]] })
+	ans = make([]int, m)
+	s, j := 0, 0
+	for _, i := range idx {
+		for j < len(nums) && s+nums[j] <= queries[i] {
+			s += nums[j]
+			j++
 		}
-		ans[i] = left - 1
+		ans[i] = j
 	}
-	return ans
+	return
 }
 ```
 
@@ -139,18 +208,50 @@ func answerQueries(nums []int, queries []int) []int {
 
 ```ts
 function answerQueries(nums: number[], queries: number[]): number[] {
-    const n = nums.length;
     nums.sort((a, b) => a - b);
-    return queries.map(query => {
-        let sum = 0;
-        for (let i = 0; i < n; i++) {
-            sum += nums[i];
-            if (sum > query) {
-                return i;
+    for (let i = 1; i < nums.length; i++) {
+        nums[i] += nums[i - 1];
+    }
+    const ans: number[] = [];
+    const search = (nums: number[], x: number) => {
+        let l = 0;
+        let r = nums.length;
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (nums[mid] > x) {
+                r = mid;
+            } else {
+                l = mid + 1;
             }
         }
-        return n;
-    });
+        return l;
+    };
+    for (const q of queries) {
+        ans.push(search(nums, q));
+    }
+    return ans;
+}
+```
+
+```ts
+function answerQueries(nums: number[], queries: number[]): number[] {
+    nums.sort((a, b) => a - b);
+    const m = queries.length;
+    const idx: number[] = new Array(m);
+    for (let i = 0; i < m; i++) {
+        idx[i] = i;
+    }
+    idx.sort((i, j) => queries[i] - queries[j]);
+    const ans: number[] = new Array(m);
+    let s = 0;
+    let j = 0;
+    for (const i of idx) {
+        while (j < nums.length && s + nums[j] <= queries[i]) {
+            s += nums[j++];
+        }
+        ans[i] = j;
+    }
+    return ans;
 }
 ```
 

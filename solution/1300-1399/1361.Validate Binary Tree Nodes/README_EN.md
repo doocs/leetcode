@@ -54,28 +54,21 @@ class Solution:
     def validateBinaryTreeNodes(
         self, n: int, leftChild: List[int], rightChild: List[int]
     ) -> bool:
-        p = list(range(n))
-        vis = [False] * n
-
-        def find(x):
+        def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
-        for i in range(n):
-            l, r = leftChild[i], rightChild[i]
-            if l != -1:
-                if vis[l] or find(i) == find(l):
-                    return False
-                p[find(i)] = find(l)
-                vis[l] = True
-                n -= 1
-            if r != -1:
-                if vis[r] or find(i) == find(r):
-                    return False
-                p[find(i)] = find(r)
-                vis[r] = True
-                n -= 1
+        p = list(range(n))
+        vis = [False] * n
+        for i, (a, b) in enumerate(zip(leftChild, rightChild)):
+            for j in (a, b):
+                if j != -1:
+                    if vis[j] or find(i) == find(j):
+                        return False
+                    p[find(i)] = find(j)
+                    vis[j] = True
+                    n -= 1
         return n == 1
 ```
 
@@ -87,27 +80,20 @@ class Solution {
 
     public boolean validateBinaryTreeNodes(int n, int[] leftChild, int[] rightChild) {
         p = new int[n];
-        boolean[] vis = new boolean[n];
         for (int i = 0; i < n; ++i) {
             p[i] = i;
         }
-        for (int i = 0, t = n; i < t; ++i) {
-            int l = leftChild[i], r = rightChild[i];
-            if (l != -1) {
-                if (vis[l] || find(i) == find(l)) {
-                    return false;
+        boolean[] vis = new boolean[n];
+        for (int i = 0, m =  n; i < m; ++i) {
+            for (int j : new int[] {leftChild[i], rightChild[i]}) {
+                if (j != -1) {
+                    if (vis[j] || find(i) == find(j)) {
+                        return false;
+                    }
+                    p[find(i)] = find(j);
+                    vis[j] = true;
+                    --n;
                 }
-                vis[l] = true;
-                p[find(i)] = find(l);
-                --n;
-            }
-            if (r != -1) {
-                if (vis[r] || find(i) == find(r)) {
-                    return false;
-                }
-                vis[r] = true;
-                p[find(i)] = find(r);
-                --n;
             }
         }
         return n == 1;
@@ -127,33 +113,27 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> p;
-
     bool validateBinaryTreeNodes(int n, vector<int>& leftChild, vector<int>& rightChild) {
-        p.resize(n);
-        for (int i = 0; i < n; ++i) p[i] = i;
-        vector<bool> vis(n, false);
-        for (int i = 0, t = n; i < t; ++i) {
-            int l = leftChild[i], r = rightChild[i];
-            if (l != -1) {
-                if (vis[l] || find(i) == find(l)) return false;
-                vis[l] = true;
-                p[find(i)] = find(l);
-                --n;
-            }
-            if (r != -1) {
-                if (vis[r] || find(i) == find(r)) return false;
-                vis[r] = true;
-                p[find(i)] = find(r);
-                --n;
+        int p[n];
+        iota(p, p + n, 0);
+        bool vis[n];
+        memset(vis, 0, sizeof(vis));
+        function<int(int)> find = [&](int x) {
+            return p[x] == x ? x : p[x] = find(p[x]);
+        };
+        for (int i = 0, m = n; i < m; ++i) {
+            for (int j : {leftChild[i], rightChild[i]}) {
+                if (j != -1) {
+                    if (vis[j] || find(i) == find(j)) {
+                        return false;
+                    }
+                    p[find(i)] = find(j);
+                    vis[j] = true;
+                    --n;
+                }
             }
         }
         return n == 1;
-    }
-
-    int find(int x) {
-        if (p[x] != x) p[x] = find(p[x]);
-        return p[x];
     }
 };
 ```
@@ -161,41 +141,32 @@ public:
 ### **Go**
 
 ```go
-var p []int
-
 func validateBinaryTreeNodes(n int, leftChild []int, rightChild []int) bool {
-	p = make([]int, n)
-	for i := 0; i < n; i++ {
+	p := make([]int, n)
+	for i := range p {
 		p[i] = i
 	}
-	vis := make([]bool, n)
-	for i, t := 0, n; i < t; i++ {
-		l, r := leftChild[i], rightChild[i]
-		if l != -1 {
-			if vis[l] || find(i) == find(l) {
-				return false
-			}
-			vis[l] = true
-			p[find(i)] = find(l)
-			n--
+	var find func(int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
 		}
-		if r != -1 {
-			if vis[r] || find(i) == find(r) {
-				return false
+		return p[x]
+	}
+	vis := make([]bool, n)
+	for i, a := range leftChild {
+		for _, j := range []int{a, rightChild[i]} {
+			if j != -1 {
+				if vis[j] || find(i) == find(j) {
+					return false
+				}
+				p[find(i)] = find(j)
+				vis[j] = true
+				n--
 			}
-			vis[r] = true
-			p[find(i)] = find(r)
-			n--
 		}
 	}
 	return n == 1
-}
-
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
 }
 ```
 

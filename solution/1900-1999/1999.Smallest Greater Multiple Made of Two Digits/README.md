@@ -57,6 +57,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：BFS**
+
+我们观察 $k$ 的范围，发现 $1 \leq k \leq 1000$，因此，如果 $digit1$ 和 $digit2$ 都为 $0$，那么一定不存在满足条件的整数，直接返回 $-1$ 即可。
+
+否则，我们不妨设 $digit1 \leq digit2$，接下来我们可以使用 BFS 的方法，初始时将整数 $0$ 入队，然后不断地从队首取出一个整数 $x$，如果 $x \gt 2^{31} - 1$，那么说明不存在满足条件的整数，直接返回 $-1$ 即可。如果 $x \gt k$ 且 $x \bmod k = 0$，那么说明找到了满足条件的整数，直接返回 $x$ 即可。否则，我们将其乘以 $10$ 后加上 $digit1$ 和 $digit2$，并将这两个整数入队，继续进行搜索。
+
+时间复杂度 $(\log_{10} M)$，空间复杂度 $O(\log_{10} M)$，其中 $M$ 为 $2^{31} - 1$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -64,7 +72,22 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findInteger(self, k: int, digit1: int, digit2: int) -> int:
+        if digit1 == 0 and digit2 == 0:
+            return -1
+        if digit1 > digit2:
+            return self.findInteger(k, digit2, digit1)
+        q = deque([0])
+        while 1:
+            x = q.popleft()
+            if x > 2**31 - 1:
+                return -1
+            if x > k and x % k == 0:
+                return x
+            q.append(x * 10 + digit1)
+            if digit1 != digit2:
+                q.append(x * 10 + digit2)
 ```
 
 ### **Java**
@@ -72,7 +95,90 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int findInteger(int k, int digit1, int digit2) {
+        if (digit1 == 0 && digit2 == 0) {
+            return -1;
+        }
+        if (digit1 > digit2) {
+            return findInteger(k, digit2, digit1);
+        }
+        Deque<Long> q = new ArrayDeque<>();
+        q.offer(0L);
+        while (true) {
+            long x = q.poll();
+            if (x > Integer.MAX_VALUE) {
+                return -1;
+            }
+            if (x > k && x % k == 0) {
+                return (int) x;
+            }
+            q.offer(x * 10 + digit1);
+            if (digit1 != digit2) {
+                q.offer(x * 10 + digit2);
+            }
+        }
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findInteger(int k, int digit1, int digit2) {
+        if (digit1 == 0 && digit2 == 0) {
+            return -1;
+        }
+        if (digit1 > digit2) {
+            swap(digit1, digit2);
+        }
+        queue<long long> q{{0}};
+        while (1) {
+            long long x = q.front();
+            q.pop();
+            if (x > INT_MAX) {
+                return -1;
+            }
+            if (x > k && x % k == 0) {
+                return x;
+            }
+            q.emplace(x * 10 + digit1);
+            if (digit1 != digit2) {
+                q.emplace(x * 10 + digit2);
+            }
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+func findInteger(k int, digit1 int, digit2 int) int {
+	if digit1 == 0 && digit2 == 0 {
+		return -1
+	}
+	if digit1 > digit2 {
+		digit1, digit2 = digit2, digit1
+	}
+	q := []int{0}
+	for {
+		x := q[0]
+		q = q[1:]
+		if x > math.MaxInt32 {
+			return -1
+		}
+		if x > k && x%k == 0 {
+			return x
+		}
+		q = append(q, x*10+digit1)
+		if digit1 != digit2 {
+			q = append(q, x*10+digit2)
+		}
+	}
+}
 ```
 
 ### **...**

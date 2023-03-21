@@ -6,11 +6,10 @@ class Solution:
             return p[x]
 
         p = list(range(n))
-        logs.sort()
-        for t, a, b in logs:
-            if find(a) == find(b):
+        for t, x, y in sorted(logs):
+            if find(x) == find(y):
                 continue
-            p[find(a)] = find(b)
+            p[find(x)] = find(y)
             n -= 1
             if n == 1:
                 return t

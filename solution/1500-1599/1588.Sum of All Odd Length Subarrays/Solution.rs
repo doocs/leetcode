@@ -1,17 +1,16 @@
 impl Solution {
     pub fn sum_odd_length_subarrays(arr: Vec<i32>) -> i32 {
         let n = arr.len();
-        let mut res = 0;
-        let mut i = 1;
-        while i <= n {
-            let mut sum: i32 = arr[0..i].iter().sum();
-            res += sum;
+        let mut ans = 0;
+        for i in 0..n {
+            let mut s = 0;
             for j in i..n {
-                sum += arr[j] - arr[j - i];
-                res += sum;
+                s += arr[j];
+                if (j - i + 1) % 2 == 1 {
+                    ans += s;
+                }
             }
-            i += 2;
         }
-        res
+        ans
     }
 }

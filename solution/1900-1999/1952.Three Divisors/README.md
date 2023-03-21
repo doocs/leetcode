@@ -37,6 +37,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：枚举**
+
+一个数 $n$ 一定有 $1$ 和 $n$ 两个正除数，因此只需要枚举 $2$ 到 $n-1$ 之间的数，看它们是否是 $n$ 的正除数即可，是则累加计数器，最后判断计数器是否为 $1$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为给定的整数。
+
+**方法二：枚举优化**
+
+我们可以枚举 $1$ 到 $\sqrt{n}$ 之间的数 $i$，如果 $n$ 能被 $i$ 整除，并且 $\frac{n}{i}$ 不等于 $i$，那么计数器累加 $2$，否则计数器累加 $1$。最后判断计数器是否为 $3$ 即可。
+
+时间复杂度 $O(\sqrt{n})$，空间复杂度 $O(1)$。其中 $n$ 为给定的整数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -47,6 +59,18 @@
 class Solution:
     def isThree(self, n: int) -> bool:
         return sum(n % i == 0 for i in range(2, n)) == 1
+```
+
+```python
+class Solution:
+    def isThree(self, n: int) -> bool:
+        cnt = 0
+        i = 1
+        while i <= n // i:
+            if n % i == 0:
+                cnt += 1 if i == n // i else 2
+            i += 1
+        return cnt == 3
 ```
 
 ### **Java**
@@ -67,6 +91,20 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public boolean isThree(int n) {
+        int cnt = 0;
+        for (int i = 1; i <= n / i; ++i) {
+            if (n % i == 0) {
+                cnt += n / i == i ? 1 : 2;
+            }
+        }
+        return cnt == 3;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -74,9 +112,25 @@ class Solution {
 public:
     bool isThree(int n) {
         int cnt = 0;
-        for (int i = 2; i < n; ++i)
+        for (int i = 2; i < n; ++i) {
             cnt += n % i == 0;
+        }
         return cnt == 1;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool isThree(int n) {
+        int cnt = 0;
+        for (int i = 1; i <= n / i; ++i) {
+            if (n % i == 0) {
+                cnt += n / i == i ? 1 : 2;
+            }
+        }
+        return cnt == 3;
     }
 };
 ```
@@ -95,6 +149,22 @@ func isThree(n int) bool {
 }
 ```
 
+```go
+func isThree(n int) bool {
+	cnt := 0
+	for i := 1; i <= n/i; i++ {
+		if n%i == 0 {
+			if n/i == i {
+				cnt++
+			} else {
+				cnt += 2
+			}
+		}
+	}
+	return cnt == 3
+}
+```
+
 ### **JavaScript**
 
 ```js
@@ -110,6 +180,22 @@ var isThree = function (n) {
         }
     }
     return cnt == 1;
+};
+```
+
+```js
+/**
+ * @param {number} n
+ * @return {boolean}
+ */
+var isThree = function (n) {
+    let cnt = 0;
+    for (let i = 1; i <= n / i; ++i) {
+        if (n % i == 0) {
+            cnt += ~~(n / i) == i ? 1 : 2;
+        }
+    }
+    return cnt == 3;
 };
 ```
 

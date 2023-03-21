@@ -67,10 +67,10 @@ class Node:
 
 class Solution:
     def cloneTree(self, root: 'Node') -> 'Node':
-        if root:
-            node = Node(val=root.val)
-            node.children = [self.cloneTree(child) for child in root.children]
-            return node
+        if root is None:
+            return None
+        children = [self.cloneTree(child) for child in root.children]
+        return Node(root.val, children)
 ```
 
 ### **Java**
@@ -104,11 +104,11 @@ class Solution {
         if (root == null) {
             return null;
         }
-        Node node = new Node(root.val);
+        ArrayList<Node> children = new ArrayList<>();
         for (Node child : root.children) {
-            node.children.add(cloneTree(child));
+            children.add(cloneTree(child));
         }
-        return node;
+        return new Node(root.val, children);
     }
 }
 ```
@@ -139,16 +139,14 @@ public:
 class Solution {
 public:
     Node* cloneTree(Node* root) {
-        if (root == nullptr) {
-            return nullptr;
+        if (!root) {
+            return root;
         }
-        Node* node = new Node(root->val);
         vector<Node*> children;
-        for (Node* node : root->children) {
-            children.push_back(cloneTree(node));
+        for (Node* child : root->children) {
+            children.emplace_back(cloneTree(child));
         }
-        node->children = children;
-        return node;
+        return new Node(root->val, children);
     }
 };
 ```
@@ -168,11 +166,11 @@ func cloneTree(root *Node) *Node {
 	if root == nil {
 		return nil
 	}
-	node := &Node{Val: root.Val}
+	children := []*Node{}
 	for _, child := range root.Children {
-		node.Children = append(node.Children, cloneTree(child))
+		children = append(children, cloneTree(child))
 	}
-	return node
+	return &Node{root.Val, children}
 }
 ```
 

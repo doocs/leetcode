@@ -70,6 +70,22 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表**
+
+我们可以用哈希表 $d$ 记录每个文件夹的最小可用编号，其中 $d[name] = k$ 表示文件夹 $name$ 的最小可用编号为 $k$。初始时，$d$ 中没有任何文件夹，因此 $d$ 为空。
+
+接下来遍历文件夹数组，对于每个文件名 $name$：
+
+-   如果 $name$ 在 $d$ 中，说明文件夹 $name$ 已经存在，我们需要找到一个新的文件夹名字。我们可以不断地尝试 $name(k)$，其中 $k$ 从 $d[name]$ 开始，直到找到一个文件夹名字 $name(k)$ 不存在于 $d$ 中为止。我们将 $name(k)$ 加入 $d$ 中，并将 $d[name]$ 更新为 $k + 1$。然后我们将 $name$ 更新为 $name(k)$。
+-   如果 $name$ 不在 $d$ 中，我们可以直接将 $name$ 加入 $d$ 中，并将 $d[name]$ 更新为 $1$。
+-   接着我们将 $name$ 加入答案数组。然后继续遍历下一个文件名。
+
+遍历完所有文件名后，我们即可得到答案数组。
+
+> 在以下代码实现中，我们直接修改文件名数组 $names$，而不使用额外的答案数组。
+
+时间复杂度 $O(L)$，空间复杂度 $O(L)$，其中 $L$ 为数组 $names$ 中所有文件名的长度之和。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -77,7 +93,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def getFolderNames(self, names: List[str]) -> List[str]:
+        d = defaultdict(int)
+        for i, name in enumerate(names):
+            if name in d:
+                k = d[name]
+                while f'{name}({k})' in d:
+                    k += 1
+                d[name] = k + 1
+                names[i] = f'{name}({k})'
+            d[names[i]] = 1
+        return names
 ```
 
 ### **Java**
@@ -85,7 +112,89 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String[] getFolderNames(String[] names) {
+        Map<String, Integer> d = new HashMap<>();
+        for (int i = 0; i < names.length; ++i) {
+            if (d.containsKey(names[i])) {
+                int k = d.get(names[i]);
+                while (d.containsKey(names[i] + "(" + k + ")")) {
+                    ++k;
+                }
+                d.put(names[i], k);
+                names[i] += "(" + k + ")";
+            }
+            d.put(names[i], 1);
+        }
+        return names;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> getFolderNames(vector<string>& names) {
+        unordered_map<string, int> d;
+        for (auto& name : names) {
+            int k = d[name];
+            if (k) {
+                while (d[name + "(" + to_string(k) + ")"]) {
+                    k++;
+                }
+                d[name] = k;
+                name += "(" + to_string(k) + ")";
+            }
+            d[name] = 1;
+        }
+        return names;
+    }
+};
+```
+
+### **Go**
+
+```go
+func getFolderNames(names []string) []string {
+	d := map[string]int{}
+	for i, name := range names {
+		if k, ok := d[name]; ok {
+			for {
+				newName := fmt.Sprintf("%s(%d)", name, k)
+				if d[newName] == 0 {
+					d[name] = k + 1
+					names[i] = newName
+					break
+				}
+				k++
+			}
+		}
+		d[names[i]] = 1
+	}
+	return names
+}
+```
+
+### **TypeScript**
+
+```ts
+function getFolderNames(names: string[]): string[] {
+    let d: Map<string, number> = new Map();
+    for (let i = 0; i < names.length; ++i) {
+        if (d.has(names[i])) {
+            let k: number = d.get(names[i]) || 0;
+            while (d.has(names[i] + '(' + k + ')')) {
+                ++k;
+            }
+            d.set(names[i], k);
+            names[i] += '(' + k + ')';
+        }
+        d.set(names[i], 1);
+    }
+    return names;
+}
 ```
 
 ### **...**

@@ -6,36 +6,35 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个头结点为 <code>head</code> 的非空单链表，返回链表的中间结点。</p>
+<p>给你单链表的头结点 <code>head</code> ，请你找出并返回链表的中间结点。</p>
 
 <p>如果有两个中间结点，则返回第二个中间结点。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
-
+<p><strong class="example">示例 1：</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0876.Middle%20of%20the%20Linked%20List/images/lc-midlist1.jpg" style="width: 544px; height: 65px;" />
 <pre>
-<strong>输入：</strong>[1,2,3,4,5]
-<strong>输出：</strong>此列表中的结点 3 (序列化形式：[3,4,5])
-返回的结点值为 3 。 (测评系统对该结点序列化表述是 [3,4,5])。
-注意，我们返回了一个 ListNode 类型的对象 ans，这样：
-ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及 ans.next.next.next = NULL.
+<strong>输入：</strong>head = [1,2,3,4,5]
+<strong>输出：</strong>[3,4,5]
+<strong>解释：</strong>链表只有一个中间结点，值为 3 。
 </pre>
 
-<p><strong>示例 2：</strong></p>
-
+<p><strong class="example">示例 2：</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0876.Middle%20of%20the%20Linked%20List/images/lc-midlist2.jpg" style="width: 664px; height: 65px;" />
 <pre>
-<strong>输入：</strong>[1,2,3,4,5,6]
-<strong>输出：</strong>此列表中的结点 4 (序列化形式：[4,5,6])
-由于该列表有两个中间结点，值分别为 3 和 4，我们返回第二个结点。
+<strong>输入：</strong>head = [1,2,3,4,5,6]
+<strong>输出：</strong>[4,5,6]
+<strong>解释：</strong>该链表有两个中间结点，值分别为 3 和 4 ，返回第二个结点。
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li>给定链表的结点数介于 <code>1</code> 和 <code>100</code> 之间。</li>
+	<li>链表的结点数范围是 <code>[1, 100]</code></li>
+	<li><code>1 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
 ## 解法
@@ -220,6 +219,43 @@ struct ListNode *middleNode(struct ListNode *head) {
         slow = slow->next;
     }
     return slow;
+}
+```
+
+### **PHP**
+
+```php
+/**
+ * Definition for a singly-linked list.
+ * class ListNode {
+ *     public $val = 0;
+ *     public $next = null;
+ *     function __construct($val = 0, $next = null) {
+ *         $this->val = $val;
+ *         $this->next = $next;
+ *     }
+ * }
+ */
+class Solution {
+
+    /**
+     * @param ListNode $head
+     * @return ListNode
+     */
+    function middleNode($head) {
+        $count = 0;
+        $tmpHead = $head;
+        while ($tmpHead != null) {
+            $tmpHead = $tmpHead->next;
+            $count++;
+        }
+        $len = $count - floor($count / 2);
+        while ($count != $len) {
+            $head = $head->next;
+            $count--;
+        }
+        return $head;
+    }
 }
 ```
 

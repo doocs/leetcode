@@ -59,23 +59,18 @@ class Solution:
 
 ```java
 class Solution {
-
     public int mostWordsFound(String[] sentences) {
         int ans = 0;
-        for (String s : sentences) {
-            ans = Math.max(ans, 1 + count(s, ' '));
+        for (var s : sentences) {
+            int cnt = 1;
+            for (int i = 0; i < s.length(); ++i) {
+                if (s.charAt(i) == ' ') {
+                    ++cnt;
+                }
+            }
+            ans = Math.max(ans, cnt);
         }
         return ans;
-    }
-
-    private int count(String s, char c) {
-        int cnt = 0;
-        for (char ch : s.toCharArray()) {
-            if (ch == c) {
-                ++cnt;
-            }
-        }
-        return cnt;
     }
 }
 ```
@@ -87,17 +82,11 @@ class Solution {
 public:
     int mostWordsFound(vector<string>& sentences) {
         int ans = 0;
-        for (string& s : sentences)
-            ans = max(ans, 1 + count(s, ' '));
+        for (auto& s : sentences) {
+            int cnt = 1 + count(s.begin(), s.end(), ' ');
+            ans = max(ans, cnt);
+        }
         return ans;
-    }
-
-    int count(string s, char c) {
-        int cnt = 0;
-        for (char& ch : s)
-            if (ch == c)
-                ++cnt;
-        return cnt;
     }
 };
 ```
@@ -105,28 +94,14 @@ public:
 ### **Go**
 
 ```go
-func mostWordsFound(sentences []string) int {
-	count := func(s string, c rune) int {
-		cnt := 0
-		for _, ch := range s {
-			if ch == c {
-				cnt++
-			}
-		}
-		return cnt
-	}
-	ans := 0
+func mostWordsFound(sentences []string) (ans int) {
 	for _, s := range sentences {
-		ans = max(ans, 1+count(s, ' '))
+		cnt := 1 + strings.Count(s, " ")
+		if ans < cnt {
+			ans = cnt
+		}
 	}
-	return ans
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
+	return
 }
 ```
 

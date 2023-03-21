@@ -37,6 +37,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+我们直接按照题目要求，遍历字符串，将不是元音字母的字符拼接到结果字符串中即可。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串的长度。忽略答案字符串的空间消耗，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -46,11 +52,7 @@
 ```python
 class Solution:
     def removeVowels(self, s: str) -> str:
-        res = []
-        for c in s:
-            if c not in {'a', 'e', 'i', 'o', 'u'}:
-                res.append(c)
-        return ''.join(res)
+        return "".join(c for c in s if c not in "aeiou")
 ```
 
 ### **Java**
@@ -60,14 +62,46 @@ class Solution:
 ```java
 class Solution {
     public String removeVowels(String s) {
-        StringBuilder res = new StringBuilder();
-        for (char c : s.toCharArray()) {
+        StringBuilder ans = new StringBuilder();
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
             if (!(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')) {
-                res.append(c);
+                ans.append(c);
             }
         }
-        return res.toString();
+        return ans.toString();
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string removeVowels(string s) {
+        string ans;
+        for (char& c : s) {
+            if (!(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')) {
+                ans += c;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func removeVowels(s string) string {
+	ans := []rune{}
+	for _, c := range s {
+		if !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+			ans = append(ans, c)
+		}
+	}
+	return string(ans)
 }
 ```
 

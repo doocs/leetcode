@@ -59,20 +59,18 @@ Return the number of servers&nbsp;that communicate with any other server.</p>
 class Solution:
     def countServers(self, grid: List[List[int]]) -> int:
         m, n = len(grid), len(grid[0])
-        rows = [0] * m
-        cols = [0] * n
+        row = [0] * m
+        col = [0] * n
         for i in range(m):
             for j in range(n):
-                if grid[i][j] == 1:
-                    rows[i] += 1
-                    cols[j] += 1
-        res = 0
-        for i in range(m):
-            for j in range(n):
-                if grid[i][j] == 1:
-                    if rows[i] > 1 or cols[j] > 1:
-                        res += 1
-        return res
+                if grid[i][j]:
+                    row[i] += 1
+                    col[j] += 1
+        return sum(
+            grid[i][j] and (row[i] > 1 or col[j] > 1)
+            for i in range(m)
+            for j in range(n)
+        )
 ```
 
 ### **Java**
@@ -81,27 +79,25 @@ class Solution:
 class Solution {
     public int countServers(int[][] grid) {
         int m = grid.length, n = grid[0].length;
-        int[] rows = new int[m];
-        int[] cols = new int[n];
+        int[] row = new int[m];
+        int[] col = new int[n];
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (grid[i][j] == 1) {
-                    ++rows[i];
-                    ++cols[j];
+                    row[i]++;
+                    col[j]++;
                 }
             }
         }
-        int res = 0;
+        int ans = 0;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (grid[i][j] == 1) {
-                    if (rows[i] > 1 || cols[j] > 1) {
-                        ++res;
-                    }
+                if (grid[i][j] == 1 && (row[i] > 1 || col[j] > 1)) {
+                    ++ans;
                 }
             }
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -113,27 +109,22 @@ class Solution {
 public:
     int countServers(vector<vector<int>>& grid) {
         int m = grid.size(), n = grid[0].size();
-        vector<int> rows(m);
-        vector<int> cols(n);
+        vector<int> row(m), col(n);
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (grid[i][j] == 1) {
-                    ++rows[i];
-                    ++cols[j];
+                if (grid[i][j]) {
+                    ++row[i];
+                    ++col[j];
                 }
             }
         }
-        int res = 0;
+        int ans = 0;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (grid[i][j] == 1) {
-                    if (rows[i] > 1 || cols[j] > 1) {
-                        ++res;
-                    }
-                }
+                ans += grid[i][j] && (row[i] > 1 || col[j] > 1);
             }
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -141,29 +132,53 @@ public:
 ### **Go**
 
 ```go
-func countServers(grid [][]int) int {
+func countServers(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
-	rows := make([]int, m)
-	cols := make([]int, n)
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			if grid[i][j] == 1 {
-				rows[i]++
-				cols[j]++
+	row, col := make([]int, m), make([]int, n)
+	for i := range grid {
+		for j, x := range grid[i] {
+			if x == 1 {
+				row[i]++
+				col[j]++
 			}
 		}
 	}
-	res := 0
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			if grid[i][j] == 1 {
-				if rows[i] > 1 || cols[j] > 1 {
-					res++
-				}
+	for i := range grid {
+		for j, x := range grid[i] {
+			if x == 1 && (row[i] > 1 || col[j] > 1) {
+				ans++
 			}
 		}
 	}
-	return res
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function countServers(grid: number[][]): number {
+    const m = grid.length;
+    const n = grid[0].length;
+    const row = new Array(m).fill(0);
+    const col = new Array(n).fill(0);
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (grid[i][j] === 1) {
+                row[i]++;
+                col[j]++;
+            }
+        }
+    }
+    let ans = 0;
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (grid[i][j] === 1 && (row[i] > 1 || col[j] > 1)) {
+                ans++;
+            }
+        }
+    }
+    return ans;
 }
 ```
 

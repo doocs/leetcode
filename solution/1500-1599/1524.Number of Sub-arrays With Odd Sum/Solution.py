@@ -1,13 +1,10 @@
 class Solution:
     def numOfSubarrays(self, arr: List[int]) -> int:
-        MOD = int(1e9) + 7
-        counter = [0] * 2
-        s = ans = 0
-        for v in arr:
-            s += v
-            counter[s % 2] += 1
-            if s % 2 == 1:
-                ans += 1 + counter[0]
-            else:
-                ans += counter[1]
-        return ans % MOD
+        mod = 10**9 + 7
+        cnt = [1, 0]
+        ans = s = 0
+        for x in arr:
+            s += x
+            ans = (ans + cnt[s & 1 ^ 1]) % mod
+            cnt[s & 1] += 1
+        return ans

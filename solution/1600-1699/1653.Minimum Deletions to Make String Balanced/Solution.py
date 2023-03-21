@@ -5,5 +5,5 @@ class Solution:
             if c == 'b':
                 b += 1
             else:
-                ans = min(b, ans + 1)
+                ans = min(ans + 1, b)
         return ans

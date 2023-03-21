@@ -70,6 +70,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+我们先遍历 `indices`，对于每个 $i$，如果 `s[indices[i]: indices[i] + len(sources[i])] == sources[i]`，则说明 $s$ 中从 `indices[i]` 开始的 `len(sources[i])` 个字符与 `sources[i]` 相等，我们记录下标 `indices[i]` 处需要替换的是 `targets[i]`，否则不需要替换。
+
+然后我们从左到右遍历 $s$，如果当前下标 $i$ 处需要替换，则将 `targets[d[i]]` 加入答案，并且 $i$ 跳过 `len(sources[d[i]])` 个字符，否则将 `s[i]` 加入答案，然后 $i$ 自增 $1$。
+
+时间复杂度 $O(k + n)$，空间复杂度 $O(n)$。其中 $k$ 和 $n$ 分别是 `indices` 和 $s$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -77,7 +85,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findReplaceString(self, s: str, indices: List[int], sources: List[str], targets: List[str]) -> str:
+        n = len(s)
+        d = [-1] * n
+        for i, (j, source) in enumerate(zip(indices, sources)):
+            if s[j: j + len(source)] == source:
+                d[j] = i
+        ans = []
+        i = 0
+        while i < n:
+            if d[i] >= 0:
+                ans.append(targets[d[i]])
+                i += len(sources[d[i]])
+            else:
+                ans.append(s[i])
+                i += 1
+        return ''.join(ans)
 ```
 
 ### **Java**
@@ -85,7 +109,92 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String findReplaceString(String s, int[] indices, String[] sources, String[] targets) {
+        int n = s.length();
+        int[] d = new int[n];
+        Arrays.fill(d, -1);
+        for (int i = 0; i < indices.length; ++i) {
+            int j = indices[i];
+            String source = sources[i];
+            if (s.substring(j, Math.min(n, j + source.length())).equals(source)) {
+                d[j] = i;
+            }
+        }
+        StringBuilder ans = new StringBuilder();
+        for (int i = 0; i < n;) {
+            if (d[i] >= 0) {
+                ans.append(targets[d[i]]);
+                i += sources[d[i]].length();
+            } else {
+                ans.append(s.charAt(i++));
+            }
+        }
+        return ans.toString();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string findReplaceString(string s, vector<int>& indices, vector<string>& sources, vector<string>& targets) {
+        int n = s.size();
+        vector<int> d(n, -1);
+        for (int i = 0; i < indices.size(); ++i) {
+            int j = indices[i];
+            string source = sources[i];
+            if (s.substr(j, source.size()) == source) {
+                d[j] = i;
+            }
+        }
+        string ans;
+        for (int i = 0; i < n;) {
+            if (d[i] >= 0) {
+                ans += targets[d[i]];
+                i += sources[d[i]].size();
+            } else {
+                ans += s[i++];
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findReplaceString(s string, indices []int, sources []string, targets []string) string {
+	n := len(s)
+	d := make([]int, n)
+	for i, j := range indices {
+		source := sources[i]
+		if s[j:min(j+len(source), n)] == source {
+			d[j] = i + 1
+		}
+	}
+	ans := &strings.Builder{}
+	for i := 0; i < n; {
+		if d[i] > 0 {
+			ans.WriteString(targets[d[i]-1])
+			i += len(sources[d[i]-1])
+		} else {
+			ans.WriteByte(s[i])
+			i++
+		}
+	}
+	return ans.String()
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

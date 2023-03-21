@@ -46,11 +46,27 @@
 
 **方法一：动态规划**
 
-类似[1143. 最长公共子序列](/solution/1100-1199/1143.Longest%20Common%20Subsequence/README.md)。
+我们定义 $f[i][j]$ 表示使得 $s_1$ 的前 $i$ 个字符和 $s_2$ 的前 $j$ 个字符相等所需删除字符的 ASCII 值的最小和。那么答案就是 $f[m][n]$。
 
-定义 `dp[i][j]` 表示使得 `s1[0:i-1]` 和 `s2[0:j-1]` 两个字符串相等所需删除的字符的 ASCII 值的最小值。
+如果 $s_1[i-1] = s_2[j-1]$，那么 $f[i][j] = f[i-1][j-1]$。否则，我们可以删除 $s_1[i-1]$ 或者 $s_2[j-1]$ 中的一个，使得 $f[i][j]$ 达到最小。因此，状态转移方程如下：
 
-时间复杂度 O(mn)。
+$$
+f[i][j]=
+\begin{cases}
+f[i-1][j-1], & s_1[i-1] = s_2[j-1] \\
+min(f[i-1][j] + s_1[i-1], f[i][j-1] + s_2[j-1]), & s_1[i-1] \neq s_2[j-1]
+\end{cases}
+$$
+
+初始状态为 $f[0][j] = f[0][j-1] + s_2[j-1]$, $f[i][0] = f[i-1][0] + s_1[i-1]$。
+
+最后返回 $f[m][n]$ 即可。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是 $s_1$ 和 $s_2$ 的长度。
+
+相似题目：
+
+-   [1143. 最长公共子序列](/solution/1100-1199/1143.Longest%20Common%20Subsequence/README.md)
 
 <!-- tabs:start -->
 
@@ -62,20 +78,20 @@
 class Solution:
     def minimumDeleteSum(self, s1: str, s2: str) -> int:
         m, n = len(s1), len(s2)
-        dp = [[0] * (n + 1) for _ in range(m + 1)]
+        f = [[0] * (n + 1) for _ in range(m + 1)]
         for i in range(1, m + 1):
-            dp[i][0] = dp[i - 1][0] + ord(s1[i - 1])
+            f[i][0] = f[i - 1][0] + ord(s1[i - 1])
         for j in range(1, n + 1):
-            dp[0][j] = dp[0][j - 1] + ord(s2[j - 1])
+            f[0][j] = f[0][j - 1] + ord(s2[j - 1])
         for i in range(1, m + 1):
             for j in range(1, n + 1):
                 if s1[i - 1] == s2[j - 1]:
-                    dp[i][j] = dp[i - 1][j - 1]
+                    f[i][j] = f[i - 1][j - 1]
                 else:
-                    dp[i][j] = min(
-                        dp[i - 1][j] + ord(s1[i - 1]), dp[i][j - 1] + ord(s2[j - 1])
+                    f[i][j] = min(
+                        f[i - 1][j] + ord(s1[i - 1]), f[i][j - 1] + ord(s2[j - 1])
                     )
-        return dp[-1][-1]
+        return f[m][n]
 ```
 
 ### **Java**
@@ -86,24 +102,24 @@ class Solution:
 class Solution {
     public int minimumDeleteSum(String s1, String s2) {
         int m = s1.length(), n = s2.length();
-        int[][] dp = new int[m + 1][n + 1];
+        int[][] f = new int[m + 1][n + 1];
         for (int i = 1; i <= m; ++i) {
-            dp[i][0] = dp[i - 1][0] + s1.codePointAt(i - 1);
+            f[i][0] = f[i - 1][0] + s1.charAt(i - 1);
         }
         for (int j = 1; j <= n; ++j) {
-            dp[0][j] = dp[0][j - 1] + s2.codePointAt(j - 1);
+            f[0][j] = f[0][j - 1] + s2.charAt(j - 1);
         }
         for (int i = 1; i <= m; ++i) {
             for (int j = 1; j <= n; ++j) {
                 if (s1.charAt(i - 1) == s2.charAt(j - 1)) {
-                    dp[i][j] = dp[i - 1][j - 1];
+                    f[i][j] = f[i - 1][j - 1];
                 } else {
-                    dp[i][j] = Math.min(
-                        dp[i - 1][j] + s1.codePointAt(i - 1), dp[i][j - 1] + s2.codePointAt(j - 1));
+                    f[i][j]
+                        = Math.min(f[i - 1][j] + s1.charAt(i - 1), f[i][j - 1] + s2.charAt(j - 1));
                 }
             }
         }
-        return dp[m][n];
+        return f[m][n];
     }
 }
 ```
@@ -115,18 +131,24 @@ class Solution {
 public:
     int minimumDeleteSum(string s1, string s2) {
         int m = s1.size(), n = s2.size();
-        vector<vector<int>> dp(m + 1, vector<int>(n + 1));
-        for (int i = 1; i <= m; ++i) dp[i][0] = dp[i - 1][0] + s1[i - 1];
-        for (int j = 1; j <= n; ++j) dp[0][j] = dp[0][j - 1] + s2[j - 1];
+        int f[m + 1][n + 1];
+        memset(f, 0, sizeof f);
+        for (int i = 1; i <= m; ++i) {
+            f[i][0] = f[i - 1][0] + s1[i - 1];
+        }
+        for (int j = 1; j <= n; ++j) {
+            f[0][j] = f[0][j - 1] + s2[j - 1];
+        }
         for (int i = 1; i <= m; ++i) {
             for (int j = 1; j <= n; ++j) {
-                if (s1[i - 1] == s2[j - 1])
-                    dp[i][j] = dp[i - 1][j - 1];
-                else
-                    dp[i][j] = min(dp[i - 1][j] + s1[i - 1], dp[i][j - 1] + s2[j - 1]);
+                if (s1[i - 1] == s2[j - 1]) {
+                    f[i][j] = f[i - 1][j - 1];
+                } else {
+                    f[i][j] = min(f[i - 1][j] + s1[i - 1], f[i][j - 1] + s2[j - 1]);
+                }
             }
         }
-        return dp[m][n];
+        return f[m][n];
     }
 };
 ```
@@ -136,26 +158,26 @@ public:
 ```go
 func minimumDeleteSum(s1 string, s2 string) int {
 	m, n := len(s1), len(s2)
-	dp := make([][]int, m+1)
-	for i := range dp {
-		dp[i] = make([]int, n+1)
+	f := make([][]int, m+1)
+	for i := range f {
+		f[i] = make([]int, n+1)
 	}
-	for i := 1; i <= m; i++ {
-		dp[i][0] = dp[i-1][0] + int(s1[i-1])
+	for i, c := range s1 {
+		f[i+1][0] = f[i][0] + int(c)
 	}
-	for j := 1; j <= n; j++ {
-		dp[0][j] = dp[0][j-1] + int(s2[j-1])
+	for j, c := range s2 {
+		f[0][j+1] = f[0][j] + int(c)
 	}
 	for i := 1; i <= m; i++ {
 		for j := 1; j <= n; j++ {
 			if s1[i-1] == s2[j-1] {
-				dp[i][j] = dp[i-1][j-1]
+				f[i][j] = f[i-1][j-1]
 			} else {
-				dp[i][j] = min(dp[i-1][j]+int(s1[i-1]), dp[i][j-1]+int(s2[j-1]))
+				f[i][j] = min(f[i-1][j]+int(s1[i-1]), f[i][j-1]+int(s2[j-1]))
 			}
 		}
 	}
-	return dp[m][n]
+	return f[m][n]
 }
 
 func min(a, b int) int {
@@ -164,6 +186,69 @@ func min(a, b int) int {
 	}
 	return b
 }
+```
+
+### **TypeScript**
+
+```ts
+function minimumDeleteSum(s1: string, s2: string): number {
+    const m = s1.length;
+    const n = s2.length;
+    const f = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+    for (let i = 1; i <= m; ++i) {
+        f[i][0] = f[i - 1][0] + s1[i - 1].charCodeAt(0);
+    }
+    for (let j = 1; j <= n; ++j) {
+        f[0][j] = f[0][j - 1] + s2[j - 1].charCodeAt(0);
+    }
+    for (let i = 1; i <= m; ++i) {
+        for (let j = 1; j <= n; ++j) {
+            if (s1[i - 1] === s2[j - 1]) {
+                f[i][j] = f[i - 1][j - 1];
+            } else {
+                f[i][j] = Math.min(
+                    f[i - 1][j] + s1[i - 1].charCodeAt(0),
+                    f[i][j - 1] + s2[j - 1].charCodeAt(0),
+                );
+            }
+        }
+    }
+    return f[m][n];
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} s1
+ * @param {string} s2
+ * @return {number}
+ */
+var minimumDeleteSum = function (s1, s2) {
+    const m = s1.length;
+    const n = s2.length;
+    const f = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+    for (let i = 1; i <= m; ++i) {
+        f[i][0] = f[i - 1][0] + s1[i - 1].charCodeAt(0);
+    }
+    for (let j = 1; j <= n; ++j) {
+        f[0][j] = f[0][j - 1] + s2[j - 1].charCodeAt(0);
+    }
+    for (let i = 1; i <= m; ++i) {
+        for (let j = 1; j <= n; ++j) {
+            if (s1[i - 1] === s2[j - 1]) {
+                f[i][j] = f[i - 1][j - 1];
+            } else {
+                f[i][j] = Math.min(
+                    f[i - 1][j] + s1[i - 1].charCodeAt(0),
+                    f[i][j - 1] + s2[j - 1].charCodeAt(0),
+                );
+            }
+        }
+    }
+    return f[m][n];
+};
 ```
 
 ### **...**

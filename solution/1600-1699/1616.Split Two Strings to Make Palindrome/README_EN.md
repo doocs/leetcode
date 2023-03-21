@@ -63,15 +63,11 @@ class Solution:
         def check1(a: str, b: str) -> bool:
             i, j = 0, len(b) - 1
             while i < j and a[i] == b[j]:
-                i += 1
-                j -= 1
+                i, j = i + 1, j - 1
             return i >= j or check2(a, i, j) or check2(b, i, j)
 
         def check2(a: str, i: int, j: int) -> bool:
-            while i < j and a[i] == a[j]:
-                i += 1
-                j -= 1
-            return i >= j
+            return a[i: j + 1] == a[i: j + 1][::-1]
 
         return check1(a, b) or check1(b, a)
 ```
@@ -187,6 +183,31 @@ impl Solution {
         let b = b.as_bytes();
         check1(a, b) || check1(b, a)
     }
+}
+```
+
+### **TypeScript**
+
+```ts
+function checkPalindromeFormation(a: string, b: string): boolean {
+    const check1 = (a: string, b: string) => {
+        let i = 0;
+        let j = b.length - 1;
+        while (i < j && a.charAt(i) === b.charAt(j)) {
+            i++;
+            j--;
+        }
+        return i >= j || check2(a, i, j) || check2(b, i, j);
+    };
+
+    const check2 = (a: string, i: number, j: number) => {
+        while (i < j && a.charAt(i) === a.charAt(j)) {
+            i++;
+            j--;
+        }
+        return i >= j;
+    };
+    return check1(a, b) || check1(b, a);
 }
 ```
 

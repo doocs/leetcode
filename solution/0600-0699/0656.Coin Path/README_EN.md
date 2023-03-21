@@ -37,13 +37,166 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def cheapestJump(self, coins: List[int], maxJump: int) -> List[int]:
+        if coins[-1] == -1:
+            return []
+        n = len(coins)
+        f = [inf] * n
+        f[-1] = coins[-1]
+        for i in range(n - 2, -1, -1):
+            if coins[i] != -1:
+                for j in range(i + 1, min(n, i + maxJump + 1)):
+                    if f[i] > f[j] + coins[i]:
+                        f[i] = f[j] + coins[i]
+        if f[0] == inf:
+            return []
+        ans = []
+        s = f[0]
+        for i in range(n):
+            if f[i] == s:
+                s -= coins[i]
+                ans.append(i + 1)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<Integer> cheapestJump(int[] coins, int maxJump) {
+        int n = coins.length;
+        List<Integer> ans = new ArrayList<>();
+        if (coins[n - 1] == -1) {
+            return ans;
+        }
+        int[] f = new int[n];
+        final int inf = 1 << 30;
+        Arrays.fill(f, inf);
+        f[n - 1] = coins[n - 1];
+        for (int i = n - 2; i >= 0; --i) {
+            if (coins[i] != -1) {
+                for (int j = i + 1; j < Math.min(n, i + maxJump + 1); ++j) {
+                    if (f[i] > f[j] + coins[i]) {
+                        f[i] = f[j] + coins[i];
+                    }
+                }
+            }
+        }
+        if (f[0] == inf) {
+            return ans;
+        }
+        for (int i = 0, s = f[0]; i < n; ++i) {
+            if (f[i] == s) {
+                s -= coins[i];
+                ans.add(i + 1);
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> cheapestJump(vector<int>& coins, int maxJump) {
+        int n = coins.size();
+        vector<int> ans;
+        if (coins[n - 1] == -1) {
+            return ans;
+        }
+        int f[n];
+        const int inf = 1 << 30;
+        f[n - 1] = coins[n - 1];
+        for (int i = n - 2; ~i; --i) {
+            f[i] = inf;
+            if (coins[i] != -1) {
+                for (int j = i + 1; j < min(n, i + maxJump + 1); ++j) {
+                    f[i] = min(f[i], f[j] + coins[i]);
+                }
+            }
+        }
+        if (f[0] == inf) {
+            return ans;
+        }
+        for (int i = 0, s = f[0]; i < n; ++i) {
+            if (f[i] == s) {
+                s -= coins[i];
+                ans.push_back(i + 1);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func cheapestJump(coins []int, maxJump int) (ans []int) {
+	n := len(coins)
+	if coins[n-1] == -1 {
+		return
+	}
+	f := make([]int, n)
+	f[n-1] = coins[n-1]
+	const inf = 1 << 30
+	for i := n - 2; i >= 0; i-- {
+		f[i] = inf
+		if coins[i] != -1 {
+			for j := i + 1; j < n && j < i+maxJump+1; j++ {
+				if f[i] > f[j]+coins[i] {
+					f[i] = f[j] + coins[i]
+				}
+			}
+		}
+	}
+	if f[0] == inf {
+		return
+	}
+	for i, s := 0, f[0]; i < n; i++ {
+		if f[i] == s {
+			s -= coins[i]
+			ans = append(ans, i+1)
+		}
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function cheapestJump(coins: number[], maxJump: number): number[] {
+    const n = coins.length;
+    const ans: number[] = [];
+    if (coins[n - 1] == -1) {
+        return ans;
+    }
+    const inf = 1 << 30;
+    const f: number[] = new Array(n).fill(inf);
+    f[n - 1] = coins[n - 1];
+    for (let i = n - 2; i >= 0; --i) {
+        if (coins[i] !== -1) {
+            for (let j = i + 1; j < Math.min(n, i + maxJump + 1); ++j) {
+                f[i] = Math.min(f[i], f[j] + coins[i]);
+            }
+        }
+    }
+    if (f[0] === inf) {
+        return ans;
+    }
+    for (let i = 0, s = f[0]; i < n; ++i) {
+        if (f[i] == s) {
+            s -= coins[i];
+            ans.push(i + 1);
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**

@@ -1,13 +1,13 @@
 impl Solution {
     pub fn remove_stars(s: String) -> String {
-        let mut res = String::new();
+        let mut ans = String::new();
         for &c in s.as_bytes().iter() {
             if c == b'*' {
-                res.pop();
+                ans.pop();
             } else {
-                res.push(char::from(c));
+                ans.push(char::from(c));
             }
         }
-        res
+        ans
     }
 }

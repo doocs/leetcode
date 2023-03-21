@@ -1,9 +1,8 @@
-func numOfStrings(patterns []string, word string) int {
-    res := 0
-    for _, p := range patterns {
+func numOfStrings(patterns []string, word string) (ans int) {
+	for _, p := range patterns {
 		if strings.Contains(word, p) {
-			res++
+			ans++
 		}
 	}
-    return res
+	return
 }

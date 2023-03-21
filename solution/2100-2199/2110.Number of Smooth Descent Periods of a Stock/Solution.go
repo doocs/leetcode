@@ -1,12 +1,12 @@
-func getDescentPeriods(prices []int) int64 {
-	var ans int64
-	for i, n := 0, len(prices); i < n; {
-		j := i
-		for ; j+1 < n && prices[j]-prices[j+1] == 1; j++ {
+func getDescentPeriods(prices []int) (ans int64) {
+	n := len(prices)
+	for i, j := 0, 0; i < n; i = j {
+		j = i + 1
+		for j < n && prices[j-1]-prices[j] == 1 {
+			j++
 		}
-		t := j - i + 1
-		ans += int64(t * (t + 1) / 2)
-		i = j + 1
+		cnt := j - i
+		ans += int64((1 + cnt) * cnt / 2)
 	}
-	return ans
+	return
 }

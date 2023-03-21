@@ -83,11 +83,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-判断 A、B 谁能获胜，只需判断最后一个落棋的人能否获胜即可。我们用数组 `counter` 记录 `0~2` 行、`0~2` 列、`正对角线`、`副对角线`是否已满 3 个棋子。如果等于 3，此人获胜，游戏结束。
+**方法一：判断最后一个落棋的人能否获胜**
 
-若最后落棋者为未能获胜，棋盘被下满返回 `Draw`，未下满则返回 `Pending`。
+由于 `moves` 都有效，也即是说，不存在某个人获胜后，其他人仍然落棋的情况。因此，只需判断最后一个落棋的人能否获胜即可。
 
-> 数组 `counter` 长度为 8，其中，`counter[0..2]` 对应 `0~2` 行，`counter[3..5]` 对应 `0~2` 列，`counter[6]` 对应正对角线，`counter[7]` 对应副对角线的落棋次数。
+我们用一个长度为 $8$ 的数组 `cnt` 记录行、列以及对角线的落棋次数。其中 $cnt[0, 1, 2]$ 分别表示第 $0, 1, 2$ 行的落棋次数，而 $cnt[3, 4, 5]$ 分别表示第 $0, 1, 2$ 列的落棋次数，另外 $cnt[6]$ 和 $cnt[7]$ 分别表示两条对角线的落棋次数。落棋过程中，如果某个人在某一行、列或对角线上落棋次数达到 $3$ 次，则该人获胜。
+
+如果最后一个落棋的人没有获胜，那么我们判断棋盘是否已满，如果已满，则平局；否则，游戏尚未结束。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 `moves` 的长度。
 
 <!-- tabs:start -->
 
@@ -99,22 +103,17 @@
 class Solution:
     def tictactoe(self, moves: List[List[int]]) -> str:
         n = len(moves)
-        counter = [0] * 8
-        for i in range(n - 1, -1, -2):
-            row, col = moves[i][0], moves[i][1]
-            counter[row] += 1
-            counter[col + 3] += 1
-            if row == col:
-                counter[6] += 1
-            if row + col == 2:
-                counter[7] += 1
-            if (
-                counter[row] == 3
-                or counter[col + 3] == 3
-                or counter[6] == 3
-                or counter[7] == 3
-            ):
-                return "A" if (i % 2) == 0 else "B"
+        cnt = [0] * 8
+        for k in range(n - 1, -1, -2):
+            i, j = moves[k]
+            cnt[i] += 1
+            cnt[j + 3] += 1
+            if i == j:
+                cnt[6] += 1
+            if i + j == 2:
+                cnt[7] += 1
+            if any(v == 3 for v in cnt):
+                return "B" if k & 1 else "A"
         return "Draw" if n == 9 else "Pending"
 ```
 
@@ -126,15 +125,19 @@ class Solution:
 class Solution {
     public String tictactoe(int[][] moves) {
         int n = moves.length;
-        int[] counter = new int[8];
-        for (int i = n - 1; i >= 0; i -= 2) {
-            int row = moves[i][0], col = moves[i][1];
-            ++counter[row];
-            ++counter[col + 3];
-            if (row == col) ++counter[6];
-            if (row + col == 2) ++counter[7];
-            if (counter[row] == 3 || counter[col + 3] == 3 || counter[6] == 3 || counter[7] == 3) {
-                return (i % 2) == 0 ? "A" : "B";
+        int[] cnt = new int[8];
+        for (int k = n - 1; k >= 0; k -= 2) {
+            int i = moves[k][0], j = moves[k][1];
+            cnt[i]++;
+            cnt[j + 3]++;
+            if (i == j) {
+                cnt[6]++;
+            }
+            if (i + j == 2) {
+                cnt[7]++;
+            }
+            if (cnt[i] == 3 || cnt[j + 3] == 3 || cnt[6] == 3 || cnt[7] == 3) {
+                return k % 2 == 0 ? "A" : "B";
             }
         }
         return n == 9 ? "Draw" : "Pending";
@@ -149,20 +152,78 @@ class Solution {
 public:
     string tictactoe(vector<vector<int>>& moves) {
         int n = moves.size();
-        vector<int> counter(8, 0);
-        for (int i = n - 1; i >= 0; i -= 2) {
-            int row = moves[i][0], col = moves[i][1];
-            ++counter[row];
-            ++counter[col + 3];
-            if (row == col) ++counter[6];
-            if (row + col == 2) ++counter[7];
-            if (counter[row] == 3 || counter[col + 3] == 3 || counter[6] == 3 || counter[7] == 3) {
-                return (i % 2 == 0) ? "A" : "B";
+        int cnt[8]{};
+        for (int k = n - 1; k >= 0; k -= 2) {
+            int i = moves[k][0], j = moves[k][1];
+            cnt[i]++;
+            cnt[j + 3]++;
+            if (i == j) {
+                cnt[6]++;
+            }
+            if (i + j == 2) {
+                cnt[7]++;
+            }
+            if (cnt[i] == 3 || cnt[j + 3] == 3 || cnt[6] == 3 || cnt[7] == 3) {
+                return k % 2 == 0 ? "A" : "B";
             }
         }
         return n == 9 ? "Draw" : "Pending";
     }
 };
+```
+
+### **Go**
+
+```go
+func tictactoe(moves [][]int) string {
+	n := len(moves)
+	cnt := [8]int{}
+	for k := n - 1; k >= 0; k -= 2 {
+		i, j := moves[k][0], moves[k][1]
+		cnt[i]++
+		cnt[j+3]++
+		if i == j {
+			cnt[6]++
+		}
+		if i+j == 2 {
+			cnt[7]++
+		}
+		if cnt[i] == 3 || cnt[j+3] == 3 || cnt[6] == 3 || cnt[7] == 3 {
+			if k%2 == 0 {
+				return "A"
+			}
+			return "B"
+		}
+	}
+	if n == 9 {
+		return "Draw"
+	}
+	return "Pending"
+}
+```
+
+### **TypeScript**
+
+```ts
+function tictactoe(moves: number[][]): string {
+    const n = moves.length;
+    const cnt = new Array(8).fill(0);
+    for (let k = n - 1; k >= 0; k -= 2) {
+        const [i, j] = moves[k];
+        cnt[i]++;
+        cnt[j + 3]++;
+        if (i == j) {
+            cnt[6]++;
+        }
+        if (i + j == 2) {
+            cnt[7]++;
+        }
+        if (cnt[i] == 3 || cnt[j + 3] == 3 || cnt[6] == 3 || cnt[7] == 3) {
+            return k % 2 == 0 ? 'A' : 'B';
+        }
+    }
+    return n == 9 ? 'Draw' : 'Pending';
+}
 ```
 
 ### **...**

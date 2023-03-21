@@ -1,24 +1,22 @@
-func brightestPosition(lights [][]int) int {
-	d := make(map[int]int)
-	for _, e := range lights {
-		l, r := e[0]-e[1], e[0]+e[1]
-		d[l] += 1
-		d[r+1] -= 1
+func brightestPosition(lights [][]int) (ans int) {
+	d := map[int]int{}
+	for _, x := range lights {
+		l, r := x[0]-x[1], x[0]+x[1]
+		d[l]++
+		d[r+1]--
 	}
-
-	var keys []int
-	for k := range d {
-		keys = append(keys, k)
+	keys := make([]int, 0, len(d))
+	for i := range d {
+		keys = append(keys, i)
 	}
 	sort.Ints(keys)
-
-	s, mx, ans := 0, 0, 0
-	for _, k := range keys {
-		s += d[k]
-		if s > mx {
+	mx, s := 0, 0
+	for _, i := range keys {
+		s += d[i]
+		if mx < s {
 			mx = s
-			ans = k
+			ans = i
 		}
 	}
-	return ans
+	return
 }

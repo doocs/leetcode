@@ -48,6 +48,19 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心**
+
+我们观察发现，要使得数组 $nums$ 变成非递减有序，也即单调递增，那么数组后面的元素应该尽可能大，所以，将数组 $nums$ 的最后一个元素 $nums[n-1]$ 替换成多个更小的数是没有必要的。
+
+也即是说，我们可以从后往前遍历数组 $nums$，并且维护当前的最大值 $mx$，初始时 $mx = nums[n-1]$。
+
+-   若当前遍历到的元素 $nums[i] \leq mx$，此时不需要将 $nums[i]$ 进行替换，我们直接更新 $mx = nums[i]$ 即可。
+-   否则，我们需要将 $nums[i]$ 替换成多个和为 $nums[i]$ 的数，这些数的最大值为 $mx$，总共替换成 $k=\left \lceil \frac{nums[i]}{mx} \right \rceil$ 个数，所以需要进行 $k-1$ 次操作，累加到答案中。这 $k$ 个数中，最小的数为 $\left \lfloor \frac{nums[i]}{k} \right \rfloor$，因此，我们更新 $mx = \left \lfloor \frac{nums[i]}{k} \right \rfloor$。
+
+遍历结束，返回总的操作次数即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $nums$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -57,16 +70,16 @@
 ```python
 class Solution:
     def minimumReplacement(self, nums: List[int]) -> int:
-        ans, n = 0, len(nums)
-        mi = nums[-1]
+        ans = 0
+        n = len(nums)
+        mx = nums[-1]
         for i in range(n - 2, -1, -1):
-            v = nums[i]
-            if v <= mi:
-                mi = v
+            if nums[i] <= mx:
+                mx = nums[i]
                 continue
-            k = (v + mi - 1) // mi
+            k = (nums[i] + mx - 1) // mx
             ans += k - 1
-            mi = v // k
+            mx = nums[i] // k
         return ans
 ```
 
@@ -79,16 +92,15 @@ class Solution {
     public long minimumReplacement(int[] nums) {
         long ans = 0;
         int n = nums.length;
-        int mi = nums[n - 1];
+        int mx = nums[n - 1];
         for (int i = n - 2; i >= 0; --i) {
-            int v = nums[i];
-            if (v <= mi) {
-                mi = v;
+            if (nums[i] <= mx) {
+                mx = nums[i];
                 continue;
             }
-            int k = (v + mi - 1) / mi;
+            int k = (nums[i] + mx - 1) / mx;
             ans += k - 1;
-            mi = v / k;
+            mx = nums[i] / k;
         }
         return ans;
     }
@@ -103,16 +115,15 @@ public:
     long long minimumReplacement(vector<int>& nums) {
         long long ans = 0;
         int n = nums.size();
-        int mi = nums[n - 1];
-        for (int i = n - 2; ~i; --i) {
-            int v = nums[i];
-            if (v <= mi) {
-                mi = v;
+        int mx = nums[n - 1];
+        for (int i = n - 2; i >= 0; --i) {
+            if (nums[i] <= mx) {
+                mx = nums[i];
                 continue;
             }
-            int k = (v + mi - 1) / mi;
+            int k = (nums[i] + mx - 1) / mx;
             ans += k - 1;
-            mi = v / k;
+            mx = nums[i] / k;
         }
         return ans;
     }
@@ -122,28 +133,40 @@ public:
 ### **Go**
 
 ```go
-func minimumReplacement(nums []int) int64 {
-	var ans int64
+func minimumReplacement(nums []int) (ans int64) {
 	n := len(nums)
-	mi := nums[n-1]
+	mx := nums[n-1]
 	for i := n - 2; i >= 0; i-- {
-		v := nums[i]
-		if v <= mi {
-			mi = v
+		if nums[i] <= mx {
+			mx = nums[i]
 			continue
 		}
-		k := (v + mi - 1) / mi
+		k := (nums[i] + mx - 1) / mx
 		ans += int64(k - 1)
-		mi = v / k
+		mx = nums[i] / k
 	}
-	return ans
+	return
 }
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function minimumReplacement(nums: number[]): number {
+    const n = nums.length;
+    let mx = nums[n - 1];
+    let ans = 0;
+    for (let i = n - 2; i >= 0; --i) {
+        if (nums[i] <= mx) {
+            mx = nums[i];
+            continue;
+        }
+        const k = Math.ceil(nums[i] / mx);
+        ans += k - 1;
+        mx = Math.floor(nums[i] / k);
+    }
+    return ans;
+}
 ```
 
 ### **...**

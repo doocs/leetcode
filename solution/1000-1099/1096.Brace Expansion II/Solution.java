@@ -12,10 +12,7 @@ class Solution {
             s.add(exp);
             return;
         }
-        int i = j;
-        while (exp.charAt(i) != '{') {
-            --i;
-        }
+        int i = exp.lastIndexOf('{', j);
         String a = exp.substring(0, i);
         String c = exp.substring(j + 1);
         for (String b : exp.substring(i + 1, j).split(",")) {

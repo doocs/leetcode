@@ -60,10 +60,13 @@ b<sub>prefix</sub> = "jiz", b<sub>suffix</sub> = "alu"
 
 **方法一：双指针**
 
--   首先，一个指针从 `a` 的头开始，另一个指针从 `b` 的尾开始，如果字符相等，两个指针就往中间移动，遇到不同的字符或双指针交叉后停止
-    -   双指针交叉说明 `prefix` 和 `suffix` 已经可以得到回文串
-    -   否则还需要判断 `a[i:j+1]` 或 `b[i:j+1]` 是否是回文（通过 `prefix + palindrome + suffix` 得到回文串）
--   如果还得不到回文串，尝试交换 `a`, `b` 重复同样的判断
+我们可以使用双指针，其中一个指针 $i$ 从字符串 $a$ 的头部开始，另一个指针 $j$ 从字符串 $b$ 的尾部开始，如果两个指针指向的字符相等，那么两个指针同时往中间移动，直到遇到不同的字符或两指针交叉。
+
+如果两指针交叉，即 $i \geq j$，说明 $prefix$ 和 $suffix$ 已经可以得到回文串，返回 `true`；否则，我们还需要判断 $a[i,...j]$ 或者 $b[i,...j]$ 是否是回文串，若是，返回 `true`。
+
+否则，我们尝试交换两个字符串 $a$ 和 $b$，重复上述同样的过程。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是字符串 $a$ 或 $b$ 的长度。
 
 <!-- tabs:start -->
 
@@ -77,15 +80,11 @@ class Solution:
         def check1(a: str, b: str) -> bool:
             i, j = 0, len(b) - 1
             while i < j and a[i] == b[j]:
-                i += 1
-                j -= 1
+                i, j = i + 1, j - 1
             return i >= j or check2(a, i, j) or check2(b, i, j)
 
         def check2(a: str, i: int, j: int) -> bool:
-            while i < j and a[i] == a[j]:
-                i += 1
-                j -= 1
-            return i >= j
+            return a[i: j + 1] == a[i: j + 1][::-1]
 
         return check1(a, b) or check1(b, a)
 ```
@@ -203,6 +202,31 @@ impl Solution {
         let b = b.as_bytes();
         check1(a, b) || check1(b, a)
     }
+}
+```
+
+### **TypeScript**
+
+```ts
+function checkPalindromeFormation(a: string, b: string): boolean {
+    const check1 = (a: string, b: string) => {
+        let i = 0;
+        let j = b.length - 1;
+        while (i < j && a.charAt(i) === b.charAt(j)) {
+            i++;
+            j--;
+        }
+        return i >= j || check2(a, i, j) || check2(b, i, j);
+    };
+
+    const check2 = (a: string, i: number, j: number) => {
+        while (i < j && a.charAt(i) === a.charAt(j)) {
+            i++;
+            j--;
+        }
+        return i >= j;
+    };
+    return check1(a, b) || check1(b, a);
 }
 ```
 

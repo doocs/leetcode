@@ -50,9 +50,15 @@
 
 ## 解法
 
-先将字符串 s 按空格切分，然后直接模拟即可。
-
 <!-- 这里可写通用的实现逻辑 -->
+
+**方法一：模拟**
+
+我们先将字符串 $s$ 按空格分割成单词数组 $words$，然后遍历单词数组，找出最长的单词长度 $n$。
+
+接下来我们从第 $1$ 到第 $n$ 个字符，分别从单词数组中取出对应的字符，如果当前单词长度不足，则用空格补齐，放到一个字符串 $t$ 中。最后将 $t$ 去掉末尾的空格，加入答案数组中即可。
+
+时间复杂度 $O(m)$，空间复杂度 $O(m)$。其中 $m$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 
@@ -64,14 +70,13 @@
 class Solution:
     def printVertically(self, s: str) -> List[str]:
         words = s.split()
-        m, n = len(words), max(len(word) for word in words)
+        n = max(len(w) for w in words)
         ans = []
         for j in range(n):
-            t = []
-            for i in range(m):
-                word = words[i]
-                t.append(word[j] if j < len(word) else ' ')
-            ans.append(''.join(t).rstrip())
+            t = [w[j] if j < len(w) else ' ' for w in words]
+            while t[-1] == ' ':
+                t.pop()
+            ans.append(''.join(t))
         return ans
 ```
 
@@ -83,34 +88,22 @@ class Solution:
 class Solution {
     public List<String> printVertically(String s) {
         String[] words = s.split(" ");
-        int m = words.length, n = maxLen(words);
+        int n = 0;
+        for (var w : words) {
+            n = Math.max(n, w.length());
+        }
         List<String> ans = new ArrayList<>();
         for (int j = 0; j < n; ++j) {
             StringBuilder t = new StringBuilder();
-            for (int i = 0; i < m; ++i) {
-                String word = words[i];
-                t.append(j < word.length() ? word.charAt(j) : ' ');
+            for (var w : words) {
+                t.append(j < w.length() ? w.charAt(j) : ' ');
             }
-            ans.add(rstrip(t));
+            while (t.length() > 0 && t.charAt(t.length() - 1) == ' ') {
+                t.deleteCharAt(t.length() - 1);
+            }
+            ans.add(t.toString());
         }
         return ans;
-    }
-
-    private int maxLen(String[] words) {
-        int ans = 0;
-        for (String word : words) {
-            ans = Math.max(ans, word.length());
-        }
-        return ans;
-    }
-
-    private String rstrip(StringBuilder s) {
-        for (int i = s.length() - 1; i >= 0; --i) {
-            if (s.charAt(i) != ' ') {
-                return s.substring(0, i + 1);
-            }
-        }
-        return "";
     }
 }
 ```
@@ -121,26 +114,24 @@ class Solution {
 class Solution {
 public:
     vector<string> printVertically(string s) {
-        stringstream in(s);
+        stringstream ss(s);
         vector<string> words;
         string word;
         int n = 0;
-        while (in >> word) {
-            words.push_back(word);
-            n = max(n, (int)word.size());
+        while (ss >> word) {
+            words.emplace_back(word);
+            n = max(n, (int) word.size());
         }
-        int m = words.size();
         vector<string> ans;
         for (int j = 0; j < n; ++j) {
-            string t = "";
-            for (int i = 0; i < m; ++i) {
-                word = words[i];
-                t += j < word.size() ? word[j] : ' ';
+            string t;
+            for (auto& w : words) {
+                t += j < w.size() ? w[j] : ' ';
             }
-            while (t.back() == ' ') {
+            while (t.size() && t.back() == ' ') {
                 t.pop_back();
             }
-            ans.push_back(t);
+            ans.emplace_back(t);
         }
         return ans;
     }
@@ -150,39 +141,34 @@ public:
 ### **Go**
 
 ```go
-func printVertically(s string) []string {
+func printVertically(s string) (ans []string) {
 	words := strings.Split(s, " ")
-	m := len(words)
-	var n int
-	for _, word := range words {
-		if n < len(word) {
-			n = len(word)
-		}
+	n := 0
+	for _, w := range words {
+		n = max(n, len(w))
 	}
-	var ans []string
 	for j := 0; j < n; j++ {
-		var t []byte
-		for i := 0; i < m; i++ {
-			word := words[i]
-			if j < len(word) {
-				t = append(t, word[j])
+		t := []byte{}
+		for _, w := range words {
+			if j < len(w) {
+				t = append(t, w[j])
 			} else {
 				t = append(t, ' ')
 			}
 		}
-		s = string(t)
-		ans = append(ans, rstrip(s))
+		for len(t) > 0 && t[len(t)-1] == ' ' {
+			t = t[:len(t)-1]
+		}
+		ans = append(ans, string(t))
 	}
-	return ans
+	return
 }
 
-func rstrip(s string) string {
-	for i := len(s) - 1; i >= 0; i-- {
-		if s[i] != ' ' {
-			return s[:i+1]
-		}
+func max(a, b int) int {
+	if a > b {
+		return a
 	}
-	return s
+	return b
 }
 ```
 

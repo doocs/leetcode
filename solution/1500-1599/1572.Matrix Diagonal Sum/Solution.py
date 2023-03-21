@@ -1,7 +1,8 @@
 class Solution:
     def diagonalSum(self, mat: List[List[int]]) -> int:
+        ans = 0
         n = len(mat)
-        res = 0
-        for i in range(n):
-            res += mat[i][i] + (0 if n - i - 1 == i else mat[i][n - i - 1])
-        return res
+        for i, row in enumerate(mat):
+            j = n - i - 1
+            ans += row[i] + (0 if j == i else row[j])
+        return ans

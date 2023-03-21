@@ -48,6 +48,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+遍历数组 `words`，对于每个字符串 `w`，判断其是否为回文字符串，如果是，则返回 `w`，否则继续遍历。
+
+判断一个字符串是否为回文字符串，可以使用双指针，分别指向字符串的首尾，向中间移动，判断对应的字符是否相等。如果遍历完整个字符串，都没有发现不相等的字符，则该字符串为回文字符串。
+
+时间复杂度 $O(L)$，空间复杂度 $O(1)$，其中 $L$ 为数组 `words` 中所有字符串的长度之和。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -57,19 +65,7 @@
 ```python
 class Solution:
     def firstPalindrome(self, words: List[str]) -> str:
-        def check(s):
-            i, j = 0, len(s) - 1
-            while i < j:
-                if s[i] != s[j]:
-                    return False
-                i += 1
-                j -= 1
-            return True
-
-        for word in words:
-            if check(word):
-                return word
-        return ''
+        return next((w for w in words if w == w[::-1]), "")
 ```
 
 ### **Java**
@@ -79,21 +75,18 @@ class Solution:
 ```java
 class Solution {
     public String firstPalindrome(String[] words) {
-        for (String word : words) {
-            if (check(word)) {
-                return word;
+        for (var w : words) {
+            boolean ok = true;
+            for (int i = 0, j = w.length() - 1; i < j && ok; ++i, --j) {
+                if (w.charAt(i) != w.charAt(j)) {
+                    ok = false;
+                }
+            }
+            if (ok) {
+                return w;
             }
         }
         return "";
-    }
-
-    private boolean check(String s) {
-        for (int i = 0, j = s.length() - 1; i < j; ++i, --j) {
-            if (s.charAt(i) != s.charAt(j)) {
-                return false;
-            }
-        }
-        return true;
     }
 }
 ```
@@ -104,15 +97,18 @@ class Solution {
 class Solution {
 public:
     string firstPalindrome(vector<string>& words) {
-        for (auto& word : words)
-            if (check(word)) return word;
+        for (auto& w : words) {
+            bool ok = true;
+            for (int i = 0, j = w.size() - 1; i < j; ++i, --j) {
+                if (w[i] != w[j]) {
+                    ok = false;
+                }
+            }
+            if (ok) {
+                return w;
+            }
+        }
         return "";
-    }
-
-    bool check(string s) {
-        for (int i = 0, j = s.size() - 1; i < j; ++i, --j)
-            if (s[i] != s[j]) return false;
-        return true;
     }
 };
 ```
@@ -121,18 +117,15 @@ public:
 
 ```go
 func firstPalindrome(words []string) string {
-	check := func(s string) bool {
-		for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
-			if s[i] != s[j] {
-				return false
+	for _, w := range words {
+		ok := true
+		for i, j := 0, len(w)-1; i < j && ok; i, j = i+1, j-1 {
+			if w[i] != w[j] {
+				ok = false
 			}
 		}
-		return true
-	}
-
-	for _, word := range words {
-		if check(word) {
-			return word
+		if ok {
+			return w
 		}
 	}
 	return ""

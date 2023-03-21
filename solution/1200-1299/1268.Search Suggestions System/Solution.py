@@ -1,27 +1,28 @@
 class Trie:
     def __init__(self):
-        self.children = [None] * 26
-        self.v = []
+        self.children: List[Union[Trie, None]] = [None] * 26
+        self.v: List[int] = []
 
-    def insert(self, word, i):
+    def insert(self, w, i):
         node = self
-        for c in word:
+        for c in w:
             idx = ord(c) - ord('a')
             if node.children[idx] is None:
                 node.children[idx] = Trie()
             node = node.children[idx]
-            node.v.append(i)
+            if len(node.v) < 3:
+                node.v.append(i)
 
-    def search(self, word):
-        res = [[] for _ in range(len(word))]
+    def search(self, w):
         node = self
-        for i, c in enumerate(word):
+        ans = [[] for _ in range(len(w))]
+        for i, c in enumerate(w):
             idx = ord(c) - ord('a')
             if node.children[idx] is None:
                 break
             node = node.children[idx]
-            res[i] = node.v[:3]
-        return res
+            ans[i] = node.v
+        return ans
 
 
 class Solution:
@@ -32,5 +33,4 @@ class Solution:
         trie = Trie()
         for i, w in enumerate(products):
             trie.insert(w, i)
-        res = trie.search(searchWord)
-        return [[products[j] for j in v] for v in res]
+        return [[products[i] for i in v] for v in trie.search(searchWord)]

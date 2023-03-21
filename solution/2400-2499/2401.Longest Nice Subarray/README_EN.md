@@ -51,13 +51,13 @@ It can be proven that no longer nice subarray can be obtained, so we return 3.</
 ```python
 class Solution:
     def longestNiceSubarray(self, nums: List[int]) -> int:
-        ans = j = t = 0
-        for i, v in enumerate(nums):
-            while t & v:
-                t ^= nums[j]
+        ans = j = mask = 0
+        for i, x in enumerate(nums):
+            while mask & x:
+                mask ^= nums[j]
                 j += 1
-            t |= v
             ans = max(ans, i - j + 1)
+            mask |= x
         return ans
 ```
 
@@ -66,14 +66,13 @@ class Solution:
 ```java
 class Solution {
     public int longestNiceSubarray(int[] nums) {
-        int j = 0, t = 0;
-        int ans = 0;
-        for (int i = 0; i < nums.length; ++i) {
-            while ((t & nums[i]) != 0) {
-                t ^= nums[j++];
+        int ans = 0, mask = 0;
+        for (int i = 0, j = 0; i < nums.length; ++i) {
+            while ((mask & nums[i]) != 0) {
+                mask ^= nums[j++];
             }
-            t |= nums[i];
             ans = Math.max(ans, i - j + 1);
+            mask |= nums[i];
         }
         return ans;
     }
@@ -86,14 +85,13 @@ class Solution {
 class Solution {
 public:
     int longestNiceSubarray(vector<int>& nums) {
-        int t = 0, j = 0;
-        int ans = 0;
-        for (int i = 0; i < nums.size(); ++i) {
-            while (t & nums[i]) {
-                t ^= nums[j++];
+        int ans = 0, mask = 0;
+        for (int i = 0, j = 0; i < nums.size(); ++i) {
+            while (mask & nums[i]) {
+                mask ^= nums[j++];
             }
-            t |= nums[i];
             ans = max(ans, i - j + 1);
+            mask |= nums[i];
         }
         return ans;
     }
@@ -103,32 +101,36 @@ public:
 ### **Go**
 
 ```go
-func longestNiceSubarray(nums []int) int {
-	t, j := 0, 0
-	ans := 0
-	for i, v := range nums {
-		for (t & v) != 0 {
-			t ^= nums[j]
-			j++
+func longestNiceSubarray(nums []int) (ans int) {
+	mask, j := 0, 0
+	for i, x := range nums {
+		for ; mask&x != 0; j++ {
+			mask ^= nums[j]
 		}
-		t |= v
-		ans = max(ans, i-j+1)
+		if k := i - j + 1; ans < k {
+			ans = k
+		}
+		mask |= x
 	}
-	return ans
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
+	return
 }
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function longestNiceSubarray(nums: number[]): number {
+    let mask = 0;
+    let ans = 0;
+    for (let i = 0, j = 0; i < nums.length; ++i) {
+        while ((mask & nums[i]) !== 0) {
+            mask ^= nums[j++];
+        }
+        ans = Math.max(ans, i - j + 1);
+        mask |= nums[i];
+    }
+    return ans;
+}
 ```
 
 ### **...**

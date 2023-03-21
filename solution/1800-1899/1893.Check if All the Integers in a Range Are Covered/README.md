@@ -47,7 +47,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-利用差分数组进行区间更新。
+**方法一：差分数组**
+
+我们可以使用差分数组的思想，对于每个区间 $[l, r]$，我们将 $diff[l]$ 加 $1$，将 $diff[r + 1]$ 减 $1$。
+
+最后遍历差分数组，累加每个位置的值，记为 $cur$，如果 $left \le i \le right$ 且 $cur = 0$，则说明 $i$ 没有被任何区间覆盖，返回 `false`。
+
+否则遍历结束后，返回 `true`。
+
+时间复杂度 $O(n + M)$，空间复杂度 $O(M)$。其中 $n$ 和 $M$ 分别为区间的数量和区间的范围。
 
 <!-- tabs:start -->
 
@@ -63,8 +71,8 @@ class Solution:
             diff[l] += 1
             diff[r + 1] -= 1
         cur = 0
-        for i, df in enumerate(diff):
-            cur += df
+        for i, x in enumerate(diff):
+            cur += x
             if left <= i <= right and cur == 0:
                 return False
         return True
@@ -79,58 +87,19 @@ class Solution {
     public boolean isCovered(int[][] ranges, int left, int right) {
         int[] diff = new int[52];
         for (int[] range : ranges) {
-            diff[range[0]]++;
-            diff[range[1] + 1]--;
+            int l = range[0], r = range[1];
+            ++diff[l];
+            --diff[r + 1];
         }
         int cur = 0;
-        for (int i = 0; i < 52; i++) {
+        for (int i = 0; i < diff.length; ++i) {
             cur += diff[i];
-            if (left <= i && i <= right && cur == 0) {
+            if (i >= left && i <= right && cur == 0) {
                 return false;
             }
         }
         return true;
     }
-}
-```
-
-### **TypeScript**
-
-```ts
-function isCovered(ranges: number[][], left: number, right: number): boolean {
-    let diff = new Array(52).fill(0);
-    for (let [start, end] of ranges) {
-        ++diff[start];
-        --diff[end + 1];
-    }
-    let cur = 0;
-    for (let i = 1; i <= 50; i++) {
-        cur += diff[i];
-        if (i >= left && i <= right && cur <= 0) {
-            return false;
-        }
-    }
-    return true;
-}
-```
-
-### **Go**
-
-```go
-func isCovered(ranges [][]int, left int, right int) bool {
-	diff := make([]int, 52)
-	for _, rg := range ranges {
-		diff[rg[0]]++
-		diff[rg[1]+1]--
-	}
-	cur := 0
-	for i, df := range diff {
-		cur += df
-		if i >= left && i <= right && cur == 0 {
-			return false
-		}
-	}
-	return true
 }
 ```
 
@@ -140,18 +109,88 @@ func isCovered(ranges [][]int, left int, right int) bool {
 class Solution {
 public:
     bool isCovered(vector<vector<int>>& ranges, int left, int right) {
-        vector<int> d(52);
-        for (auto& e : ranges) {
-            ++d[e[0]];
-            --d[e[1] + 1];
+        int diff[52]{};
+        for (auto& range : ranges) {
+            int l = range[0], r = range[1];
+            ++diff[l];
+            --diff[r + 1];
         }
-        int s = 0;
-        for (int i = 0; i < d.size(); ++i) {
-            s += d[i];
-            if (left <= i && i <= right && s == 0) return false;
+        int cur = 0;
+        for (int i = 0; i < 52; ++i) {
+            cur += diff[i];
+            if (i >= left && i <= right && cur <= 0) {
+                return false;
+            }
         }
         return true;
     }
+};
+```
+
+### **Go**
+
+```go
+func isCovered(ranges [][]int, left int, right int) bool {
+	diff := [52]int{}
+	for _, rg := range ranges {
+		l, r := rg[0], rg[1]
+		diff[l]++
+		diff[r+1]--
+	}
+	cur := 0
+	for i, x := range diff {
+		cur += x
+		if i >= left && i <= right && cur <= 0 {
+			return false
+		}
+	}
+	return true
+}
+```
+
+### **TypeScript**
+
+```ts
+function isCovered(ranges: number[][], left: number, right: number): boolean {
+    const diff = new Array(52).fill(0);
+    for (const [l, r] of ranges) {
+        ++diff[l];
+        --diff[r + 1];
+    }
+    let cur = 0;
+    for (let i = 0; i < 52; ++i) {
+        cur += diff[i];
+        if (i >= left && i <= right && cur <= 0) {
+            return false;
+        }
+    }
+    return true;
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[][]} ranges
+ * @param {number} left
+ * @param {number} right
+ * @return {boolean}
+ */
+var isCovered = function (ranges, left, right) {
+    const diff = new Array(52).fill(0);
+    for (const [l, r] of ranges) {
+        ++diff[l];
+        --diff[r + 1];
+    }
+    let cur = 0;
+    for (let i = 0; i < 52; ++i) {
+        cur += diff[i];
+        if (i >= left && i <= right && cur <= 0) {
+            return false;
+        }
+    }
+    return true;
 };
 ```
 

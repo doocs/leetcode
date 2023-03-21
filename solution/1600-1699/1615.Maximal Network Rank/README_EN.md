@@ -60,13 +60,135 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def maximalNetworkRank(self, n: int, roads: List[List[int]]) -> int:
+        g = defaultdict(set)
+        for a, b in roads:
+            g[a].add(b)
+            g[b].add(a)
+        ans = 0
+        for a in range(n):
+            for b in range(a + 1, n):
+                if (t := len(g[a]) + len(g[b]) - (a in g[b])) > ans:
+                    ans = t
+        return ans
+```
 
+```python
+class Solution:
+    def maximalNetworkRank(self, n: int, roads: List[List[int]]) -> int:
+        g = [[0] * n for _ in range(n)]
+        cnt = [0] * n
+        for a, b in roads:
+            g[a][b] = g[b][a] = 1
+            cnt[a] += 1
+            cnt[b] += 1
+        return max(cnt[a] + cnt[b] - g[a][b] for a in range(n) for b in range(a + 1, n))
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maximalNetworkRank(int n, int[][] roads) {
+        int[][] g = new int[n][n];
+        int[] cnt = new int[n];
+        for (var r : roads) {
+            int a = r[0], b = r[1];
+            g[a][b] = 1;
+            g[b][a] = 1;
+            ++cnt[a];
+            ++cnt[b];
+        }
+        int ans = 0;
+        for (int a = 0; a < n; ++a) {
+            for (int b = a + 1; b < n; ++b) {
+                ans = Math.max(ans, cnt[a] + cnt[b] - g[a][b]);
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maximalNetworkRank(int n, vector<vector<int>>& roads) {
+        int cnt[n];
+        int g[n][n];
+        memset(cnt, 0, sizeof(cnt));
+        memset(g, 0, sizeof(g));
+        for (auto& r : roads) {
+            int a = r[0], b = r[1];
+            g[a][b] = g[b][a] = 1;
+            ++cnt[a];
+            ++cnt[b];
+        }
+        int ans = 0;
+        for (int a = 0; a < n; ++a) {
+            for (int b = a + 1; b < n; ++b) {
+                ans = max(ans, cnt[a] + cnt[b] - g[a][b]);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximalNetworkRank(n int, roads [][]int) (ans int) {
+	g := make([][]int, n)
+	cnt := make([]int, n)
+	for i := range g {
+		g[i] = make([]int, n)
+	}
+	for _, r := range roads {
+		a, b := r[0], r[1]
+		g[a][b], g[b][a] = 1, 1
+		cnt[a]++
+		cnt[b]++
+	}
+	for a := 0; a < n; a++ {
+		for b := a + 1; b < n; b++ {
+			ans = max(ans, cnt[a]+cnt[b]-g[a][b])
+		}
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maximalNetworkRank(n: number, roads: number[][]): number {
+    const g: number[][] = Array.from(new Array(n), () => new Array(n).fill(0));
+    const cnt: number[] = new Array(n).fill(0);
+    for (const [a, b] of roads) {
+        g[a][b] = 1;
+        g[b][a] = 1;
+        ++cnt[a];
+        ++cnt[b];
+    }
+    let ans = 0;
+    for (let a = 0; a < n; ++a) {
+        for (let b = a + 1; b < n; ++b) {
+            ans = Math.max(ans, cnt[a] + cnt[b] - g[a][b]);
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**

@@ -63,13 +63,97 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxTurbulenceSize(self, arr: List[int]) -> int:
+        ans = f = g = 1
+        for a, b in pairwise(arr):
+            ff = g + 1 if a < b else 1
+            gg = f + 1 if a > b else 1
+            f, g = ff, gg
+            ans = max(ans, f, g)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxTurbulenceSize(int[] arr) {
+        int ans = 1, f = 1, g = 1;
+        for (int i = 1; i < arr.length; ++i) {
+            int ff = arr[i - 1] < arr[i] ? g + 1 : 1;
+            int gg = arr[i - 1] > arr[i] ? f + 1 : 1;
+            f = ff;
+            g = gg;
+            ans = Math.max(ans, Math.max(f, g));
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxTurbulenceSize(vector<int>& arr) {
+        int ans = 1, f = 1, g = 1;
+        for (int i = 1; i < arr.size(); ++i) {
+            int ff = arr[i - 1] < arr[i] ? g + 1 : 1;
+            int gg = arr[i - 1] > arr[i] ? f + 1 : 1;
+            f = ff;
+            g = gg;
+            ans = max({ans, f, g});
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxTurbulenceSize(arr []int) int {
+	ans, f, g := 1, 1, 1
+	for i, x := range arr[1:] {
+		ff, gg := 1, 1
+		if arr[i] < x {
+			ff = g + 1
+		}
+		if arr[i] > x {
+			gg = f + 1
+		}
+		f, g = ff, gg
+		ans = max(ans, max(f, g))
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxTurbulenceSize(arr: number[]): number {
+    let f = 1;
+    let g = 1;
+    let ans = 1;
+    for (let i = 1; i < arr.length; ++i) {
+        const ff = arr[i - 1] < arr[i] ? g + 1 : 1;
+        const gg = arr[i - 1] > arr[i] ? f + 1 : 1;
+        f = ff;
+        g = gg;
+        ans = Math.max(ans, f, g);
+    }
+    return ans;
+}
 ```
 
 ### **...**

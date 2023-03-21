@@ -1,37 +1,34 @@
-func numberOfGoodSubsets(nums []int) int {
-	counter := make([]int, 31)
+func numberOfGoodSubsets(nums []int) (ans int) {
+	primes := []int{2, 3, 5, 7, 11, 13, 17, 19, 23, 29}
+	cnt := [31]int{}
 	for _, x := range nums {
-		counter[x]++
+		cnt[x]++
 	}
 	const mod int = 1e9 + 7
-	prime := []int{2, 3, 5, 7, 11, 13, 17, 19, 23, 29}
-	n := len(prime)
-	dp := make([]int, 1<<n)
-	dp[0] = 1
-	for x := 2; x <= 30; x++ {
-		if counter[x] == 0 || x%4 == 0 || x%9 == 0 || x%25 == 0 {
+	n := 10
+	f := make([]int, 1<<n)
+	f[0] = 1
+	for i := 0; i < cnt[1]; i++ {
+		f[0] = f[0] * 2 % mod
+	}
+	for x := 2; x < 31; x++ {
+		if cnt[x] == 0 || x%4 == 0 || x%9 == 0 || x%25 == 0 {
 			continue
 		}
 		mask := 0
-		for i, p := range prime {
+		for i, p := range primes {
 			if x%p == 0 {
-				mask |= (1 << i)
+				mask |= 1 << i
 			}
 		}
-		for state := 0; state < 1<<n; state++ {
-			if (mask & state) > 0 {
-				continue
+		for state := 1<<n - 1; state > 0; state-- {
+			if state&mask == mask {
+				f[state] = (f[state] + f[state^mask]*cnt[x]) % mod
 			}
-			dp[mask|state] = (dp[mask|state] + counter[x]*dp[state]) % mod
 		}
 	}
-	ans := 0
 	for i := 1; i < 1<<n; i++ {
-		ans = (ans + dp[i]) % mod
+		ans = (ans + f[i]) % mod
 	}
-	for counter[1] > 0 {
-		ans = (ans << 1) % mod
-		counter[1]--
-	}
-	return ans
+	return
 }

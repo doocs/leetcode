@@ -1,11 +1,11 @@
 class Solution {
     public long taskSchedulerII(int[] tasks, int space) {
-        Map<Integer, Long> mp = new HashMap<>();
+        Map<Integer, Long> day = new HashMap<>();
         long ans = 0;
-        for (int v : tasks) {
+        for (int task : tasks) {
             ++ans;
-            ans = Math.max(ans, mp.getOrDefault(v, 0L));
-            mp.put(v, ans + space + 1);
+            ans = Math.max(ans, day.getOrDefault(task, 0L));
+            day.put(task, ans + space + 1);
         }
         return ans;
     }

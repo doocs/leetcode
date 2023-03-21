@@ -51,32 +51,85 @@
 ```python
 class Solution:
     def removeKdigits(self, num: str, k: int) -> str:
-        stack, remain = [], len(num)-k
-        for value in num:
-            while k and stack and stack[-1] > value:
-                k = k-1
-                stack.pop()
-            stack.append(value)
-        return "".join(stack[:remain]).lstrip('0') or '0'
+        stk = []
+        remain = len(num) - k
+        for c in num:
+            while k and stk and stk[-1] > c:
+                stk.pop()
+                k -= 1
+            stk.append(c)
+        return ''.join(stk[:remain]).lstrip('0') or '0'
+```
+
+### **Java**
+
+```java
+class Solution {
+    public String removeKdigits(String num, int k) {
+        StringBuilder stk = new StringBuilder();
+        for (char c : num.toCharArray()) {
+            while (k > 0 && stk.length() > 0 && stk.charAt(stk.length() - 1) > c) {
+                stk.deleteCharAt(stk.length() - 1);
+                --k;
+            }
+            stk.append(c);
+        }
+        for (; k > 0; --k) {
+            stk.deleteCharAt(stk.length() - 1);
+        }
+        int i = 0;
+        for (; i < stk.length() && stk.charAt(i) == '0'; ++i) {
+        }
+        String ans = stk.substring(i);
+        return "".equals(ans) ? "0" : ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string removeKdigits(string num, int k) {
+        string stk;
+        for (char& c : num) {
+            while (k && stk.size() && stk.back() > c) {
+                stk.pop_back();
+                --k;
+            }
+            stk += c;
+        }
+        while (k--) {
+            stk.pop_back();
+        }
+        int i = 0;
+        for (; i < stk.size() && stk[i] == '0'; ++i) {
+
+        }
+        string ans = stk.substr(i);
+        return ans == "" ? "0" : ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
 func removeKdigits(num string, k int) string {
-	stack, remain := make([]byte, 0), len(num)-k
+	stk, remain := make([]byte, 0), len(num)-k
 	for i := 0; i < len(num); i++ {
-		n := len(stack)
-		for k > 0 && n > 0 && stack[n-1] > num[i] {
-			stack = stack[:n-1]
+		n := len(stk)
+		for k > 0 && n > 0 && stk[n-1] > num[i] {
+			stk = stk[:n-1]
 			n, k = n-1, k-1
 		}
-		stack = append(stack, num[i])
+		stk = append(stk, num[i])
 	}
 
-	for i := 0; i < len(stack) && i < remain; i++ {
-		if stack[i] != '0' {
-			return string(stack[i:remain])
+	for i := 0; i < len(stk) && i < remain; i++ {
+		if stk[i] != '0' {
+			return string(stk[i:remain])
 		}
 	}
 	return "0"

@@ -72,13 +72,14 @@ Out of all these positions, -1 is the smallest, so return it.
 class Solution:
     def brightestPosition(self, lights: List[List[int]]) -> int:
         d = defaultdict(int)
-        for p, r in lights:
-            d[p - r] += 1
-            d[p + r + 1] -= 1
-        s = mx = ans = 0
+        for i, j in lights:
+            l, r = i - j, i + j
+            d[l] += 1
+            d[r + 1] -= 1
+        ans = s = mx = 0
         for k in sorted(d):
             s += d[k]
-            if s > mx:
+            if mx < s:
                 mx = s
                 ans = k
         return ans
@@ -90,17 +91,18 @@ class Solution:
 class Solution {
     public int brightestPosition(int[][] lights) {
         TreeMap<Integer, Integer> d = new TreeMap<>();
-        for (int[] e : lights) {
-            int l = e[0] - e[1], r = e[0] + e[1];
-            d.put(l, d.getOrDefault(l, 0) + 1);
-            d.put(r + 1, d.getOrDefault(r + 1, 0) - 1);
+        for (var x : lights) {
+            int l = x[0] - x[1], r = x[0] + x[1];
+            d.merge(l, 1, Integer::sum);
+            d.merge(r + 1, -1, Integer::sum);
         }
-        int s = 0, mx = 0, ans = 0;
-        for (Map.Entry<Integer, Integer> e : d.entrySet()) {
-            s += e.getValue();
-            if (s > mx) {
+        int ans = 0, s = 0, mx = 0;
+        for (var x : d.entrySet()) {
+            int v = x.getValue();
+            s += v;
+            if (mx < s) {
                 mx = s;
-                ans = e.getKey();
+                ans = x.getKey();
             }
         }
         return ans;
@@ -115,17 +117,17 @@ class Solution {
 public:
     int brightestPosition(vector<vector<int>>& lights) {
         map<int, int> d;
-        for (auto& e : lights) {
-            int l = e[0] - e[1], r = e[0] + e[1];
+        for (auto& x : lights) {
+            int l = x[0] - x[1], r = x[0] + x[1];
             ++d[l];
             --d[r + 1];
         }
-        int s = 0, mx = 0, ans = 0;
-        for (auto& e : d) {
-            s += e.second;
-            if (s > mx) {
+        int ans = 0, s = 0, mx = 0;
+        for (auto& [i, v] : d) {
+            s += v;
+            if (mx < s) {
                 mx = s;
-                ans = e.first;
+                ans = i;
             }
         }
         return ans;
@@ -136,30 +138,62 @@ public:
 ### **Go**
 
 ```go
-func brightestPosition(lights [][]int) int {
-	d := make(map[int]int)
-	for _, e := range lights {
-		l, r := e[0]-e[1], e[0]+e[1]
-		d[l] += 1
-		d[r+1] -= 1
+func brightestPosition(lights [][]int) (ans int) {
+	d := map[int]int{}
+	for _, x := range lights {
+		l, r := x[0]-x[1], x[0]+x[1]
+		d[l]++
+		d[r+1]--
 	}
-
-	var keys []int
-	for k := range d {
-		keys = append(keys, k)
+	keys := make([]int, 0, len(d))
+	for i := range d {
+		keys = append(keys, i)
 	}
 	sort.Ints(keys)
-
-	s, mx, ans := 0, 0, 0
-	for _, k := range keys {
-		s += d[k]
-		if s > mx {
+	mx, s := 0, 0
+	for _, i := range keys {
+		s += d[i]
+		if mx < s {
 			mx = s
-			ans = k
+			ans = i
 		}
 	}
-	return ans
+	return
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[][]} lights
+ * @return {number}
+ */
+var brightestPosition = function (lights) {
+    const d = new Map();
+    for (const [i, j] of lights) {
+        const l = i - j;
+        const r = i + j;
+        d.set(l, (d.get(l) ?? 0) + 1);
+        d.set(r + 1, (d.get(r + 1) ?? 0) - 1);
+    }
+    const keys = [];
+    for (const k of d.keys()) {
+        keys.push(k);
+    }
+    keys.sort((a, b) => a - b);
+    let ans = 0;
+    let s = 0;
+    let mx = 0;
+    for (const i of keys) {
+        s += d.get(i);
+        if (mx < s) {
+            mx = s;
+            ans = i;
+        }
+    }
+    return ans;
+};
 ```
 
 ### **...**

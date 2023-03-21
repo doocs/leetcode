@@ -1,16 +1,9 @@
-func countBadPairs(nums []int) int64 {
-	n := len(nums)
-	for i := range nums {
-		nums[i] = i - nums[i]
-	}
+func countBadPairs(nums []int) (ans int64) {
 	cnt := map[int]int{}
-	for _, v := range nums {
-		cnt[v]++
+	for i, x := range nums {
+		x = i - x
+		ans += int64(i - cnt[x])
+		cnt[x]++
 	}
-	ans := 0
-	for _, v := range cnt {
-		ans += v * (n - v)
-	}
-	ans >>= 1
-	return int64(ans)
+	return
 }

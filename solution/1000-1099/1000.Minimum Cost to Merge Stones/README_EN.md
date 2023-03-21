@@ -59,13 +59,145 @@ The total cost was 25, and this is the minimum possible.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def mergeStones(self, stones: List[int], K: int) -> int:
+        n = len(stones)
+        if (n - 1) % (K - 1):
+            return -1
+        s = list(accumulate(stones, initial=0))
+        f = [[[inf] * (K + 1) for _ in range(n + 1)] for _ in range(n + 1)]
+        for i in range(1, n + 1):
+            f[i][i][1] = 0
+        for l in range(2, n + 1):
+            for i in range(1, n - l + 2):
+                j = i + l - 1
+                for k in range(1, K + 1):
+                    for h in range(i, j):
+                        f[i][j][k] = min(f[i][j][k], f[i][h][1] + f[h + 1][j][k - 1])
+                f[i][j][1] = f[i][j][K] + s[j] - s[i - 1]
+        return f[1][n][1]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int mergeStones(int[] stones, int K) {
+        int n = stones.length;
+        if ((n - 1) % (K - 1) != 0) {
+            return -1;
+        }
+        int[] s = new int[n + 1];
+        for (int i = 1; i <= n; ++i) {
+            s[i] = s[i - 1] + stones[i - 1];
+        }
+        int[][][] f = new int[n + 1][n + 1][K + 1];
+        final int inf = 1 << 20;
+        for (int[][] g : f) {
+            for(int[] e : g) {
+                Arrays.fill(e, inf);
+            }
+        }
+        for (int i = 1; i <= n; ++i) {
+            f[i][i][1] = 0;
+        }
+        for (int l = 2; l <= n; ++l) {
+            for (int i = 1; i + l - 1 <= n; ++i) {
+                int j = i + l - 1;
+                for (int k = 1; k <= K; ++k) {
+                    for (int h = i; h < j; ++h) {
+                        f[i][j][k] = Math.min(f[i][j][k], f[i][h][1] + f[h + 1][j][k - 1]);
+                    }
+                }
+                f[i][j][1] = f[i][j][K] + s[j] - s[i - 1];
+            }
+        }
+        return f[1][n][1];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int mergeStones(vector<int>& stones, int K) {
+        int n = stones.size();
+        if ((n - 1) % (K - 1)) {
+            return -1;
+        }
+        int s[n + 1];
+        s[0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            s[i] = s[i - 1] + stones[i - 1];
+        }
+        int f[n + 1][n + 1][K + 1];
+        memset(f, 0x3f, sizeof(f));
+        for (int i = 1; i <= n; ++i) {
+            f[i][i][1] = 0;
+        }
+        for (int l = 2; l <= n; ++l) {
+            for (int i = 1; i + l - 1 <= n; ++i) {
+                int j = i + l - 1;
+                for (int k = 1; k <= K; ++k) {
+                    for (int h = i; h < j; ++h) {
+                        f[i][j][k] = min(f[i][j][k], f[i][h][1] + f[h + 1][j][k - 1]);
+                    }
+                }
+                f[i][j][1] = f[i][j][K] + s[j] - s[i - 1];
+            }
+        }
+        return f[1][n][1];
+    }
+};
+```
+
+### **Go**
+
+```go
+func mergeStones(stones []int, K int) int {
+	n := len(stones)
+	if (n-1)%(K-1) != 0 {
+		return -1
+	}
+	s := make([]int, n+1)
+	for i, x := range stones {
+		s[i+1] = s[i] + x
+	}
+	f := make([][][]int, n+1)
+	for i := range f {
+		f[i] = make([][]int, n+1)
+		for j := range f[i] {
+			f[i][j] = make([]int, K+1)
+			for k := range f[i][j] {
+				f[i][j][k] = 1 << 20
+			}
+		}
+	}
+	for i := 1; i <= n; i++ {
+		f[i][i][1] = 0
+	}
+	for l := 2; l <= n; l++ {
+		for i := 1; i <= n-l+1; i++ {
+			j := i + l - 1
+			for k := 2; k <= K; k++ {
+				for h := i; h < j; h++ {
+					f[i][j][k] = min(f[i][j][k], f[i][h][k-1]+f[h+1][j][1])
+				}
+			}
+			f[i][j][1] = f[i][j][K] + s[j] - s[i-1]
+		}
+	}
+	return f[1][n][1]
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

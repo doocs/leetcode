@@ -1,12 +1,12 @@
 function pivotIndex(nums: number[]): number {
-    let l = 0;
-    let r = nums.reduce((a, b) => a + b, 0);
+    let left = 0,
+        right = nums.reduce((a, b) => a + b);
     for (let i = 0; i < nums.length; ++i) {
-        r -= nums[i];
-        if (l == r) {
+        right -= nums[i];
+        if (left == right) {
             return i;
         }
-        l += nums[i];
+        left += nums[i];
     }
     return -1;
 }

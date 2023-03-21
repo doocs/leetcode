@@ -52,6 +52,19 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：递归**
+
+我们设计一个递归函数 $dfs(head, root)$，表示链表 $head$ 是否是以 $root$ 为起点的路径上的节点值一一对应的子路径。函数 $dfs(head, root)$ 的逻辑如下：
+
+-   如果链表 $head$ 为空，说明链表已经遍历完了，返回 `true`；
+-   如果二叉树 $root$ 为空，说明二叉树已经遍历完了，但链表还没遍历完，返回 `false`；
+-   如果二叉树 $root$ 的值与链表 $head$ 的值不相等，返回 `false`；
+-   否则，返回 $dfs(head.next, root.left)$ 或 $dfs(head.next, root.right)$。
+
+我们在主函数中，对二叉树的每个节点调用 $dfs(head, root)$，只要有一个返回 `true`，就说明链表是二叉树的子路径，返回 `true`；如果所有节点都返回 `false`，说明链表不是二叉树的子路径，返回 `false`。
+
+时间复杂度 $O(n^2)，空间复杂度 O(n)$。其中 $n$ 是二叉树的节点数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -71,13 +84,11 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def isSubPath(self, head: ListNode, root: TreeNode) -> bool:
+    def isSubPath(self, head: Optional[ListNode], root: Optional[TreeNode]) -> bool:
         def dfs(head, root):
             if head is None:
                 return True
-            if root is None:
-                return False
-            if root.val != head.val:
+            if root is None or root.val != head.val:
                 return False
             return dfs(head.next, root.left) or dfs(head.next, root.right)
 
@@ -132,14 +143,92 @@ class Solution {
         if (head == null) {
             return true;
         }
-        if (root == null) {
-            return false;
-        }
-        if (root.val != head.val) {
+        if (root == null || head.val != root.val) {
             return false;
         }
         return dfs(head.next, root.left) || dfs(head.next, root.right);
     }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool isSubPath(ListNode* head, TreeNode* root) {
+        if (!root) {
+            return false;
+        }
+        return dfs(head, root) || isSubPath(head, root->left) || isSubPath(head, root->right);
+    }
+
+    bool dfs(ListNode* head, TreeNode* root) {
+        if (!head) {
+            return true;
+        }
+        if (!root || head->val != root->val) {
+            return false;
+        }
+        return dfs(head->next, root->left) || dfs(head->next, root->right);
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func isSubPath(head *ListNode, root *TreeNode) bool {
+	if root == nil {
+		return false
+	}
+	return dfs(head, root) || isSubPath(head, root.Left) || isSubPath(head, root.Right)
+}
+
+func dfs(head *ListNode, root *TreeNode) bool {
+	if head == nil {
+		return true
+	}
+	if root == nil || head.Val != root.Val {
+		return false
+	}
+	return dfs(head.Next, root.Left) || dfs(head.Next, root.Right)
 }
 ```
 

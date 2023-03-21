@@ -51,12 +51,12 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def distributeCoins(self, root: TreeNode) -> int:
+    def distributeCoins(self, root: Optional[TreeNode]) -> int:
         def dfs(root):
-            nonlocal ans
             if root is None:
                 return 0
             left, right = dfs(root.left), dfs(root.right)
+            nonlocal ans
             ans += abs(left) + abs(right)
             return left + right + root.val - 1
 
@@ -84,11 +84,9 @@ class Solution:
  * }
  */
 class Solution {
-
     private int ans;
 
     public int distributeCoins(TreeNode root) {
-        ans = 0;
         dfs(root);
         return ans;
     }
@@ -121,26 +119,26 @@ class Solution {
  */
 class Solution {
 public:
-    int ans;
-
     int distributeCoins(TreeNode* root) {
-        ans = 0;
+        int ans = 0;
+        function<int(TreeNode*)> dfs = [&](TreeNode* root) -> int {
+            if (!root) {
+                return 0;
+            }
+            int left = dfs(root->left);
+            int right = dfs(root->right);
+            ans += abs(left) + abs(right);
+            return left + right + root->val - 1;
+        };
         dfs(root);
         return ans;
-    }
-
-    int dfs(TreeNode* root) {
-        if (!root) return 0;
-        int left = dfs(root->left), right = dfs(root->right);
-        ans += abs(left) + abs(right);
-        return left + right + root->val - 1;
     }
 };
 ```
 
-### **C++**
+### **Go**
 
-```cpp
+```go
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -149,9 +147,8 @@ public:
  *     Right *TreeNode
  * }
  */
-func distributeCoins(root *TreeNode) int {
-	ans := 0
-	var dfs func(root *TreeNode) int
+func distributeCoins(root *TreeNode) (ans int) {
+	var dfs func(*TreeNode) int
 	dfs = func(root *TreeNode) int {
 		if root == nil {
 			return 0
@@ -161,7 +158,7 @@ func distributeCoins(root *TreeNode) int {
 		return left + right + root.Val - 1
 	}
 	dfs(root)
-	return ans
+	return
 }
 
 func abs(x int) int {
@@ -169,6 +166,39 @@ func abs(x int) int {
 		return -x
 	}
 	return x
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function distributeCoins(root: TreeNode | null): number {
+    let ans = 0;
+    const dfs = (root: TreeNode | null) => {
+        if (!root) {
+            return 0;
+        }
+        const left = dfs(root.left);
+        const right = dfs(root.right);
+        ans += Math.abs(left) + Math.abs(right);
+        return left + right + root.val - 1;
+    };
+    dfs(root);
+    return ans;
 }
 ```
 

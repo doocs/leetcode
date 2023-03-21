@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>You are given four integers <code>minLenght</code>, <code>maxLength</code>, <code>oneGroup</code> and <code>zeroGroup</code>.</p>
+<p>You are given four integers <code>minLength</code>, <code>maxLength</code>, <code>oneGroup</code> and <code>zeroGroup</code>.</p>
 
 <p>A binary string is <strong>good</strong> if it satisfies the following conditions:</p>
 

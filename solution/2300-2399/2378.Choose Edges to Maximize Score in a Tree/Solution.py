@@ -1,17 +1,16 @@
 class Solution:
     def maxScore(self, edges: List[List[int]]) -> int:
         def dfs(i):
-            a = b = 0
-            t = 0
-            for j in g[i]:
+            a = b = t = 0
+            for j, w in g[i]:
                 x, y = dfs(j)
                 a += y
                 b += y
-                t = max(t, x - y + g[i][j])
+                t = max(t, x - y + w)
             b += t
             return a, b
 
-        g = defaultdict(lambda: defaultdict(lambda: -inf))
+        g = defaultdict(list)
         for i, (p, w) in enumerate(edges[1:], 1):
-            g[p][i] = w
-        return max(dfs(0))
+            g[p].append((i, w))
+        return dfs(0)[1]

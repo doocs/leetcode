@@ -22,7 +22,7 @@
 <p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1105.Filling%20Bookcase%20Shelves/images/shelves.png" style="height: 500px; width: 337px;" />
 <pre>
-<strong>Input:</strong> books = [[1,1],[2,3],[2,3],[1,1],[1,1],[1,1],[1,2]], shelf_width = 4
+<strong>Input:</strong> books = [[1,1],[2,3],[2,3],[1,1],[1,1],[1,1],[1,2]], shelfWidth = 4
 <strong>Output:</strong> 6
 <strong>Explanation:</strong>
 The sum of the heights of the 3 shelves is 1 + 3 + 2 = 6.

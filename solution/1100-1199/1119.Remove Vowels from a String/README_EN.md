@@ -38,11 +38,7 @@
 ```python
 class Solution:
     def removeVowels(self, s: str) -> str:
-        res = []
-        for c in s:
-            if c not in {'a', 'e', 'i', 'o', 'u'}:
-                res.append(c)
-        return ''.join(res)
+        return "".join(c for c in s if c not in "aeiou")
 ```
 
 ### **Java**
@@ -50,14 +46,46 @@ class Solution:
 ```java
 class Solution {
     public String removeVowels(String s) {
-        StringBuilder res = new StringBuilder();
-        for (char c : s.toCharArray()) {
+        StringBuilder ans = new StringBuilder();
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
             if (!(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')) {
-                res.append(c);
+                ans.append(c);
             }
         }
-        return res.toString();
+        return ans.toString();
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string removeVowels(string s) {
+        string ans;
+        for (char& c : s) {
+            if (!(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')) {
+                ans += c;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func removeVowels(s string) string {
+	ans := []rune{}
+	for _, c := range s {
+		if !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+			ans = append(ans, c)
+		}
+	}
+	return string(ans)
 }
 ```
 

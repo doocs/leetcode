@@ -4,12 +4,15 @@ public:
         int left = 1, right = 1e5;
         while (left < right) {
             int mid = (left + right) >> 1;
-            int s = 0;
-            for (int& q : quantities) s += (q + mid - 1) / mid;
-            if (s <= n)
+            int cnt = 0;
+            for (int& v : quantities) {
+                cnt += (v + mid - 1) / mid;
+            }
+            if (cnt <= n) {
                 right = mid;
-            else
+            } else {
                 left = mid + 1;
+            }
         }
         return left;
     }

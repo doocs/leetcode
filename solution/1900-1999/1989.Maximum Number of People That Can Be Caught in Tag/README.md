@@ -58,6 +58,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：双指针**
+
+我们可以用两个指针 $i$ 和 $j$ 指向鬼和非鬼的人，初始时 $i=0$, $j=0$。
+
+然后我们从左到右遍历数组，当遇到鬼时，即 $team[i]=1$ 时，如果此时 $j \lt n$ 并且 $team[j]=1$ 或者 $i - j \gt dist$，则指针 $j$ 循环右移，也即是说，我们要找到第一个不是鬼的人，且 $i$ 和 $j$ 之间的距离不超过 $dist$。如果找到了这样的人，则将指针 $j$ 右移一位，表示我们已经抓住了这个人，同时答案加一。继续遍历数组，直到遍历完整个数组。
+
+最后返回答案即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -65,7 +75,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def catchMaximumAmountofPeople(self, team: List[int], dist: int) -> int:
+        ans = j = 0
+        n = len(team)
+        for i, x in enumerate(team):
+            if x:
+                while j < n and (team[j] or i - j > dist):
+                    j += 1
+                if j < n and abs(i - j) <= dist:
+                    ans += 1
+                    j += 1
+        return ans
 ```
 
 ### **Java**
@@ -73,7 +94,75 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int catchMaximumAmountofPeople(int[] team, int dist) {
+        int ans = 0;
+        int n = team.length;
+        for (int i = 0, j = 0; i < n; ++i) {
+            if (team[i] == 1) {
+                while (j < n && (team[j] == 1 || i - j > dist)) {
+                    ++j;
+                }
+                if (j < n && Math.abs(i - j) <= dist) {
+                    ++ans;
+                    ++j;
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int catchMaximumAmountofPeople(vector<int>& team, int dist) {
+        int ans = 0;
+        int n = team.size();
+        for (int i = 0, j = 0; i < n; ++i) {
+            if (team[i]) {
+                while (j < n && (team[j] || i - j > dist)) {
+                    ++j;
+                }
+                if (j < n && abs(i -  j) <= dist) {
+                    ++ans;
+                    ++j;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func catchMaximumAmountofPeople(team []int, dist int) (ans int) {
+	n := len(team)
+	for i, j := 0, 0; i < n; i++ {
+		if team[i] == 1 {
+			for j < n && (team[j] == 1 || i-j > dist) {
+				j++
+			}
+			if j < n && abs(i-j) <= dist {
+				ans++
+				j++
+			}
+		}
+	}
+	return
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
 ```
 
 ### **...**

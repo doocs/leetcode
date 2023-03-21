@@ -1,30 +1,27 @@
 class Solution {
     public int countUnguarded(int m, int n, int[][] guards, int[][] walls) {
-        char[][] g = new char[m][n];
-        for (int[] e : guards) {
-            int r = e[0], c = e[1];
-            g[r][c] = 'g';
+        int[][] g = new int[m][n];
+        for (var e : guards) {
+            g[e[0]][e[1]] = 2;
         }
-        for (int[] e : walls) {
-            int r = e[0], c = e[1];
-            g[r][c] = 'w';
+        for (var e : walls) {
+            g[e[0]][e[1]] = 2;
         }
-        int[][] dirs = new int[][] {{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
-        for (int[] p : guards) {
-            for (int[] dir : dirs) {
-                int a = dir[0], b = dir[1];
-                int x = p[0], y = p[1];
-                while (x + a >= 0 && x + a < m && y + b >= 0 && y + b < n && g[x + a][y + b] != 'w'
-                    && g[x + a][y + b] != 'g') {
+        int[] dirs = {-1, 0, 1, 0, -1};
+        for (var e : guards) {
+            for (int k = 0; k < 4; ++k) {
+                int x = e[0], y = e[1];
+                int a = dirs[k], b = dirs[k + 1];
+                while (x + a >= 0 && x + a < m && y + b >= 0 && y + b < n && g[x + a][y + b] < 2) {
                     x += a;
                     y += b;
-                    g[x][y] = 'v';
+                    g[x][y] = 1;
                 }
             }
         }
         int ans = 0;
-        for (char[] row : g) {
-            for (char v : row) {
+        for (var row : g) {
+            for (int v : row) {
                 if (v == 0) {
                     ++ans;
                 }

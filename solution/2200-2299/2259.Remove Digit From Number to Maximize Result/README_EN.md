@@ -59,6 +59,19 @@ class Solution:
         )
 ```
 
+```python
+class Solution:
+    def removeDigit(self, number: str, digit: str) -> str:
+        last = -1
+        n = len(number)
+        for i, d in enumerate(number):
+            if d == digit:
+                last = i
+                if i + 1 < n and d < number[i + 1]:
+                    break
+        return number[:last] + number[last + 1:]
+```
+
 ### **Java**
 
 ```java
@@ -79,6 +92,25 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public String removeDigit(String number, char digit) {
+        int last = -1;
+        int n = number.length();
+        for (int i = 0; i < n; ++i) {
+            char d = number.charAt(i);
+            if (d == digit) {
+                last = i;
+                if (i + 1 < n && d < number.charAt(i + 1)) {
+                    break;
+                }
+            }
+        }
+        return number.substring(0, last) + number.substring(last + 1);
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -90,10 +122,32 @@ public:
             char d = number[i];
             if (d == digit) {
                 string t = number.substr(0, i) + number.substr(i + 1, n - i);
-                if (ans < t) ans = t;
+                if (ans < t) {
+                    ans = t;
+                }
             }
         }
         return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    string removeDigit(string number, char digit) {
+        int n = number.size();
+        int last = -1;
+        for (int i = 0; i < n; ++i) {
+            char d = number[i];
+            if (d == digit) {
+                last = i;
+                if (i + 1 < n && number[i] < number[i + 1]) {
+                    break;
+                }
+            }
+        }
+        return number.substr(0, last) + number.substr(last + 1);
     }
 };
 ```
@@ -115,20 +169,37 @@ func removeDigit(number string, digit byte) string {
 }
 ```
 
+```go
+func removeDigit(number string, digit byte) string {
+	last := -1
+	n := len(number)
+	for i := range number {
+		if number[i] == digit {
+			last = i
+			if i+1 < n && number[i] < number[i+1] {
+				break
+			}
+		}
+	}
+	return number[:last] + number[last+1:]
+}
+```
+
 ### **TypeScript**
 
 ```ts
 function removeDigit(number: string, digit: string): string {
-    let nums = number.split('');
-    const n = nums.length;
-    let ans = 0;
-    for (let i = 0; i < n; i++) {
-        if (nums[i] != digit) continue;
-        ans = i;
-        if (i + 1 < n && nums[i + 1] > nums[i]) break;
+    const n = number.length;
+    let last = -1;
+    for (let i = 0; i < n; ++i) {
+        if (number[i] === digit) {
+            last = i;
+            if (i + 1 < n && number[i] < number[i + 1]) {
+                break;
+            }
+        }
     }
-    nums.splice(ans, 1);
-    return nums.join('');
+    return number.substring(0, last) + number.substring(last + 1);
 }
 ```
 

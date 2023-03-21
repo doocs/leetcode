@@ -48,9 +48,21 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：滑动窗口**
+**方法一：双指针**
 
-时间复杂度 $O(n)$，其中 $n$ 为数组 `nums` 的长度。
+我们定义一个变量 $mask$，用于记录当前子数组中的元素按位或的结果，初始时 $mask = 0$。另外，使用双指针 $j$ 和 $i$ 分别指向当前子数组的左右端点，初始时 $i = j = 0$。
+
+接下来，我们从左到右遍历数组 $nums$，对于遍历到的每个元素 $x$：
+
+我们将其与 $mask$ 按位与，如果结果不为 $0$，则说明 $x$ 和 $mask$ 中至少有一个元素的二进制表示中的某一位为 $1$，而另一个元素的二进制表示中的对应位为 $0$，这样的元素对不可能满足题目要求，因此我们需要将 $j$ 右移，直到 $x$ 和 $mask$ 按位与的结果为 $0$ 为止。
+
+此时，我们就找到了一个满足题目要求的子数组，其长度为 $i - j + 1$，我们将其与当前的最长优雅子数组的长度进行比较，如果大于当前的最长优雅子数组的长度，则更新最长优雅子数组的长度。
+
+然后我们将 $mask$ 和 $x$ 按位或，继续遍历下一个元素。
+
+最终，我们得到的最长优雅子数组的长度即为答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
 
@@ -61,13 +73,13 @@
 ```python
 class Solution:
     def longestNiceSubarray(self, nums: List[int]) -> int:
-        ans = j = t = 0
-        for i, v in enumerate(nums):
-            while t & v:
-                t ^= nums[j]
+        ans = j = mask = 0
+        for i, x in enumerate(nums):
+            while mask & x:
+                mask ^= nums[j]
                 j += 1
-            t |= v
             ans = max(ans, i - j + 1)
+            mask |= x
         return ans
 ```
 
@@ -78,14 +90,13 @@ class Solution:
 ```java
 class Solution {
     public int longestNiceSubarray(int[] nums) {
-        int j = 0, t = 0;
-        int ans = 0;
-        for (int i = 0; i < nums.length; ++i) {
-            while ((t & nums[i]) != 0) {
-                t ^= nums[j++];
+        int ans = 0, mask = 0;
+        for (int i = 0, j = 0; i < nums.length; ++i) {
+            while ((mask & nums[i]) != 0) {
+                mask ^= nums[j++];
             }
-            t |= nums[i];
             ans = Math.max(ans, i - j + 1);
+            mask |= nums[i];
         }
         return ans;
     }
@@ -98,14 +109,13 @@ class Solution {
 class Solution {
 public:
     int longestNiceSubarray(vector<int>& nums) {
-        int t = 0, j = 0;
-        int ans = 0;
-        for (int i = 0; i < nums.size(); ++i) {
-            while (t & nums[i]) {
-                t ^= nums[j++];
+        int ans = 0, mask = 0;
+        for (int i = 0, j = 0; i < nums.size(); ++i) {
+            while (mask & nums[i]) {
+                mask ^= nums[j++];
             }
-            t |= nums[i];
             ans = max(ans, i - j + 1);
+            mask |= nums[i];
         }
         return ans;
     }
@@ -115,32 +125,36 @@ public:
 ### **Go**
 
 ```go
-func longestNiceSubarray(nums []int) int {
-	t, j := 0, 0
-	ans := 0
-	for i, v := range nums {
-		for (t & v) != 0 {
-			t ^= nums[j]
-			j++
+func longestNiceSubarray(nums []int) (ans int) {
+	mask, j := 0, 0
+	for i, x := range nums {
+		for ; mask&x != 0; j++ {
+			mask ^= nums[j]
 		}
-		t |= v
-		ans = max(ans, i-j+1)
+		if k := i - j + 1; ans < k {
+			ans = k
+		}
+		mask |= x
 	}
-	return ans
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
+	return
 }
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function longestNiceSubarray(nums: number[]): number {
+    let mask = 0;
+    let ans = 0;
+    for (let i = 0, j = 0; i < nums.length; ++i) {
+        while ((mask & nums[i]) !== 0) {
+            mask ^= nums[j++];
+        }
+        ans = Math.max(ans, i - j + 1);
+        mask |= nums[i];
+    }
+    return ans;
+}
 ```
 
 ### **...**

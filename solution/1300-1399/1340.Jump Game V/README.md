@@ -72,6 +72,26 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：记忆化搜索**
+
+我们设计一个函数 $dfs(i)$，表示从下标 $i$ 开始跳跃能够访问的最大下标数。我们可以枚举 $i$ 的所有合法的跳跃目标 $j$，即 $i - d \leq j \leq i + d$，并且 $arr[i] \gt arr[j]$。对于每个合法的 $j$，我们可以递归地计算 $dfs(j)$，并取其中的最大值。最终的答案即为所有 $i$ 的 $dfs(i)$ 的最大值。
+
+我们可以使用记忆化搜索来优化这个过程，即使用一个数组 $f$ 记录每个下标的 $dfs$ 值，避免重复计算。
+
+时间复杂度 $O(n \times d)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $arr$ 的长度。
+
+**方法二：排序 + 动态规划**
+
+我们可以将数组 $arr$ 中的每个元素 $x$ 与其下标 $i$ 组成一个元组 $(x, i)$，并将这些元组按照 $x$ 从小到大排序。
+
+接下来定义 $f[i]$ 表示从下标 $i$ 开始跳跃能够访问的最大下标数。初始时 $f[i] = 1$，即每个下标都可以单独作为一次跳跃。
+
+我们可以按照元组 $(x, i)$ 的顺序枚举 $i$，并枚举 $i$ 的所有合法的跳跃目标 $j$，即 $i - d \leq j \leq i + d$，并且 $arr[i] \gt arr[j]$。对于每个合法的 $j$，我们可以更新 $f[i]$ 的值，即 $f[i] = \max(f[i], 1 + f[j])$。
+
+最终的答案即为 $\max_{0 \leq i \lt n} f[i]$。
+
+时间复杂度 $O(n \log n + n \times d)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $arr$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -79,7 +99,40 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def maxJumps(self, arr: List[int], d: int) -> int:
+        @cache
+        def dfs(i):
+            ans = 1
+            for j in range(i - 1, -1, -1):
+                if i - j > d or arr[j] >= arr[i]:
+                    break
+                ans = max(ans, 1 + dfs(j))
+            for j in range(i + 1, n):
+                if j - i > d or arr[j] >= arr[i]:
+                    break
+                ans = max(ans, 1 + dfs(j))
+            return ans
 
+        n = len(arr)
+        return max(dfs(i) for i in range(n))
+```
+
+```python
+class Solution:
+    def maxJumps(self, arr: List[int], d: int) -> int:
+        n = len(arr)
+        f = [1] * n
+        for x, i in sorted(zip(arr, range(n))):
+            for j in range(i - 1, -1, -1):
+                if i - j > d or arr[j] >= x:
+                    break
+                f[i] = max(f[i], 1 + f[j])
+            for j in range(i + 1, n):
+                if j - i > d or arr[j] >= x:
+                    break
+                f[i] = max(f[i], 1 + f[j])
+        return max(f)
 ```
 
 ### **Java**
@@ -87,7 +140,218 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int n;
+    private int d;
+    private int[] arr;
+    private Integer[] f;
 
+    public int maxJumps(int[] arr, int d) {
+        n = arr.length;
+        this.d = d;
+        this.arr = arr;
+        f = new Integer[n];
+        int ans = 1;
+        for (int i = 0; i < n; ++i) {
+            ans = Math.max(ans, dfs(i));
+        }
+        return ans;
+    }
+
+    private int dfs(int i) {
+        if (f[i] != null) {
+            return f[i];
+        }
+        int ans = 1;
+        for (int j = i - 1; j >= 0; --j) {
+            if (i - j > d || arr[j] >= arr[i]) {
+                break;
+            }
+            ans = Math.max(ans, 1 + dfs(j));
+        }
+        for (int j = i + 1; j < n; ++j) {
+            if (j - i > d || arr[j] >= arr[i]) {
+                break;
+            }
+            ans = Math.max(ans, 1 + dfs(j));
+        }
+        return f[i] = ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int maxJumps(int[] arr, int d) {
+        int n = arr.length;
+        Integer[] idx = new Integer[n];
+        for (int i = 0; i < n; ++i) {
+            idx[i] = i;
+        }
+        Arrays.sort(idx, (i, j) -> arr[i] - arr[j]);
+        int[] f = new int[n];
+        Arrays.fill(f, 1);
+        int ans = 0;
+        for (int i : idx) {
+            for (int j = i - 1; j >= 0; --j) {
+                if (i - j > d || arr[j] >= arr[i]) {
+                    break;
+                }
+                f[i] = Math.max(f[i], 1 + f[j]);
+            }
+            for (int j = i + 1; j < n; ++j) {
+                if (j - i > d || arr[j] >= arr[i]) {
+                    break;
+                }
+                f[i] = Math.max(f[i], 1 + f[j]);
+            }
+            ans = Math.max(ans, f[i]);
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxJumps(vector<int>& arr, int d) {
+        int n = arr.size();
+        int f[n];
+        memset(f, 0, sizeof(f));
+        function<int(int)> dfs = [&](int i) -> int {
+            if (f[i]) {
+                return f[i];
+            }
+            int ans = 1;
+            for (int j = i - 1; j >= 0; --j) {
+                if (i - j > d || arr[j] >= arr[i]) {
+                    break;
+                }
+                ans = max(ans, 1 + dfs(j));
+            }
+            for (int j = i + 1; j < n; ++j) {
+                if (j - i > d || arr[j] >= arr[i]) {
+                    break;
+                }
+                ans = max(ans, 1 + dfs(j));
+            }
+            return f[i] = ans;
+        };
+        int ans = 1;
+        for (int i = 0; i < n; ++i) {
+            ans = max(ans, dfs(i));
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int maxJumps(vector<int>& arr, int d) {
+        int n = arr.size();
+        vector<int> idx(n);
+        iota(idx.begin(), idx.end(), 0);
+        sort(idx.begin(), idx.end(), [&](int i, int j) { return arr[i] < arr[j]; });
+        vector<int> f(n, 1);
+        for (int i : idx) {
+            for (int j = i - 1; j >= 0; --j) {
+                if (i - j > d || arr[j] >= arr[i]) {
+                    break;
+                }
+                f[i] = max(f[i], 1 + f[j]);
+            }
+            for (int j = i + 1; j < n; ++j) {
+                if (j - i > d || arr[j] >= arr[i]) {
+                    break;
+                }
+                f[i] = max(f[i], 1 + f[j]);
+            }
+        }
+        return *max_element(f.begin(), f.end());
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxJumps(arr []int, d int) (ans int) {
+	n := len(arr)
+	f := make([]int, n)
+	var dfs func(int) int
+	dfs = func(i int) int {
+		if f[i] != 0 {
+			return f[i]
+		}
+		ans := 1
+		for j := i - 1; j >= 0; j-- {
+			if i-j > d || arr[j] >= arr[i] {
+				break
+			}
+			ans = max(ans, 1+dfs(j))
+		}
+		for j := i + 1; j < n; j++ {
+			if j-i > d || arr[j] >= arr[i] {
+				break
+			}
+			ans = max(ans, 1+dfs(j))
+		}
+		f[i] = ans
+		return ans
+	}
+	for i := 0; i < n; i++ {
+		ans = max(ans, dfs(i))
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func maxJumps(arr []int, d int) (ans int) {
+	n := len(arr)
+	idx := make([]int, n)
+	f := make([]int, n)
+	for i := range f {
+		idx[i] = i
+		f[i] = 1
+	}
+	sort.Slice(idx, func(i, j int) bool { return arr[idx[i]] < arr[idx[j]] })
+	for _, i := range idx {
+		for j := i - 1; j >= 0; j-- {
+			if i-j > d || arr[j] >= arr[i] {
+				break
+			}
+			f[i] = max(f[i], 1+f[j])
+		}
+		for j := i + 1; j < n; j++ {
+			if j-i > d || arr[j] >= arr[i] {
+				break
+			}
+			f[i] = max(f[i], 1+f[j])
+		}
+		ans = max(ans, f[i])
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

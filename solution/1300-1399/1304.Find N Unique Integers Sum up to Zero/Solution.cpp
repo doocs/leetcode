@@ -1,13 +1,9 @@
 class Solution {
 public:
     vector<int> sumZero(int n) {
-        int presum = 0;
-        vector<int> res;
-        for (int i = 1; i < n; ++i) {
-            res.push_back(i);
-            presum += i;
-        }
-        res.push_back(-presum);
-        return res;
+        vector<int> ans(n);
+        iota(ans.begin(), ans.end(), 1);
+        ans[n - 1] = -(n - 1) * n / 2;
+        return ans;
     }
 };

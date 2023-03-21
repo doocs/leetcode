@@ -1,9 +1,9 @@
 class Solution {
     public String replaceDigits(String s) {
-        char[] chars = s.toCharArray();
-        for (int i = 1; i < chars.length; i += 2) {
-            chars[i] = (char) (chars[i - 1] + (chars[i] - '0'));
+        char[] cs = s.toCharArray();
+        for (int i = 1; i < cs.length; i += 2) {
+            cs[i] = (char) (cs[i - 1] + (cs[i] - '0'));
         }
-        return new String(chars);
+        return String.valueOf(cs);
     }
 }

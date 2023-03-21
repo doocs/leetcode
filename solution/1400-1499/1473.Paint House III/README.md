@@ -74,6 +74,28 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+我们定义 $f[i][j][k]$ 表示将下标 $[0,..i]$ 的房子涂上颜色，最后一个房子的颜色为 $j$，且恰好形成 $k$ 个街区的最小花费。那么答案就是 $f[m-1][j][target]$，其中 $j$ 的取值范围为 $[1,..n]$。初始时，我们判断下标为 $0$ 的房子是否已经涂色，如果未涂色，那么 $f[0][j][1] = cost[0][j - 1]$，其中 $j \in [1,..n]$。如果已经涂色，那么 $f[0][houses[0]][1] = 0$。其他的 $f[i][j][k]$ 的值都初始化为 $\infty$。
+
+接下来，我们从下标 $i=1$ 开始遍历，对于每个 $i$，我们判断下标为 $i$ 的房子是否已经涂色：
+
+如果未涂色，那么我们可以将下标为 $i$ 的房子涂成颜色 $j$，我们枚举街区的数量 $k$，其中 $k \in [1,..min(target, i + 1)]$，并且枚举下标为 $i$ 的房子的前一个房子的颜色 $j_0$，其中 $j_0 \in [1,..n]$，那么我们可以得到状态转移方程：
+
+$$
+f[i][j][k] = \min_{j_0 \in [1,..n]} \{ f[i - 1][j_0][k - (j \neq j_0)] + cost[i][j - 1] \}
+$$
+
+如果已经涂色，那么我们可以将下标为 $i$ 的房子涂成颜色 $j$，我们枚举街区的数量 $k$，其中 $k \in [1,..min(target, i + 1)]$，并且枚举下标为 $i$ 的房子的前一个房子的颜色 $j_0$，其中 $j_0 \in [1,..n]$，那么我们可以得到状态转移方程：
+
+$$
+f[i][j][k] = \min_{j_0 \in [1,..n]} \{ f[i - 1][j_0][k - (j \neq j_0)] \}
+$$
+
+最后，我们返回 $f[m - 1][j][target]$，其中 $j \in [1,..n]$，如果所有的 $f[m - 1][j][target]$ 的值都为 $\infty$，那么返回 $-1$。
+
+时间复杂度 $O(m \times n^2 \times target)$，空间复杂度 $O(m \times n \times target)$。其中 $m$, $n$, $target$ 分别为房子的数量，颜色的数量，街区的数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -81,7 +103,36 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def minCost(self, houses: List[int], cost: List[List[int]], m: int, n: int, target: int) -> int:
+        f = [[[inf] * (target + 1) for _ in range(n + 1)] for _ in range(m)]
+        if houses[0] == 0:
+            for j, c in enumerate(cost[0], 1):
+                f[0][j][1] = c
+        else:
+            f[0][houses[0]][1] = 0
+        for i in range(1, m):
+            if houses[i] == 0:
+                for j in range(1, n + 1):
+                    for k in range(1, min(target + 1, i + 2)):
+                        for j0 in range(1, n + 1):
+                            if j == j0:
+                                f[i][j][k] = min(
+                                    f[i][j][k], f[i - 1][j][k] + cost[i][j - 1])
+                            else:
+                                f[i][j][k] = min(
+                                    f[i][j][k], f[i - 1][j0][k - 1] + cost[i][j - 1])
+            else:
+                j = houses[i]
+                for k in range(1, min(target + 1, i + 2)):
+                    for j0 in range(1, n + 1):
+                        if j == j0:
+                            f[i][j][k] = min(f[i][j][k], f[i - 1][j][k])
+                        else:
+                            f[i][j][k] = min(f[i][j][k], f[i - 1][j0][k - 1])
 
+        ans = min(f[-1][j][target] for j in range(1, n + 1))
+        return -1 if ans >= inf else ans
 ```
 
 ### **Java**
@@ -89,7 +140,171 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minCost(int[] houses, int[][] cost, int m, int n, int target) {
+        int[][][] f = new int[m][n + 1][target + 1];
+        final int inf = 1 << 30;
+        for (int[][] g : f) {
+            for (int[] e : g) {
+                Arrays.fill(e, inf);
+            }
+        }
+        if (houses[0] == 0) {
+            for (int j = 1; j <= n; ++j) {
+                f[0][j][1] = cost[0][j - 1];
+            }
+        } else {
+            f[0][houses[0]][1] = 0;
+        }
+        for (int i = 1; i < m; ++i) {
+            if (houses[i] == 0) {
+                for (int j = 1; j <= n; ++j) {
+                    for (int k = 1; k <= Math.min(target, i + 1); ++k) {
+                        for (int j0 = 1; j0 <= n; ++j0) {
+                            if (j == j0) {
+                                f[i][j][k] = Math.min(f[i][j][k], f[i - 1][j][k] + cost[i][j - 1]);
+                            } else {
+                                f[i][j][k] = Math.min(f[i][j][k], f[i - 1][j0][k - 1] + cost[i][j - 1]);
+                            }
+                        }
+                    }
+                }
+            } else {
+                int j = houses[i];
+                for (int k = 1; k <= Math.min(target, i + 1); ++k) {
+                    for (int j0 = 1; j0 <= n; ++j0) {
+                        if (j == j0) {
+                            f[i][j][k] = Math.min(f[i][j][k], f[i - 1][j][k]);
+                        } else {
+                            f[i][j][k] = Math.min(f[i][j][k], f[i - 1][j0][k - 1]);
+                        }
+                    }
+                }
+            }
+        }
+        int ans = inf;
+        for (int j = 1; j <= n; ++j) {
+            ans = Math.min(ans, f[m - 1][j][target]);
+        }
+        return ans >= inf ? -1 : ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minCost(vector<int>& houses, vector<vector<int>>& cost, int m, int n, int target) {
+        int f[m][n + 1][target + 1];
+        memset(f, 0x3f, sizeof(f));
+        if (houses[0] == 0) {
+            for (int j = 1; j <= n; ++j) {
+                f[0][j][1] = cost[0][j - 1];
+            }
+        } else {
+            f[0][houses[0]][1] = 0;
+        }
+        for (int i = 1; i < m; ++i) {
+            if (houses[i] == 0) {
+                for (int j = 1; j <= n; ++j) {
+                    for (int k = 1; k <= min(target, i + 1); ++k) {
+                        for (int j0 = 1; j0 <= n; ++j0) {
+                            if (j == j0) {
+                                f[i][j][k] = min(f[i][j][k], f[i - 1][j][k] + cost[i][j - 1]);
+                            } else {
+                                f[i][j][k] = min(f[i][j][k], f[i - 1][j0][k - 1] + cost[i][j - 1]);
+                            }
+                        }
+                    }
+                }
+            } else {
+                int j = houses[i];
+                for (int k = 1; k <= min(target, i + 1); ++k) {
+                    for (int j0 = 1; j0 <= n; ++j0) {
+                        if (j == j0) {
+                            f[i][j][k] = min(f[i][j][k], f[i - 1][j][k]);
+                        } else {
+                            f[i][j][k] = min(f[i][j][k], f[i - 1][j0][k - 1]);
+                        }
+                    }
+                }
+            }
+        }
+        int ans = 0x3f3f3f3f;
+        for (int j = 1; j <= n; ++j) {
+            ans = min(ans, f[m - 1][j][target]);
+        }
+        return ans == 0x3f3f3f3f ? -1 : ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minCost(houses []int, cost [][]int, m int, n int, target int) int {
+	f := make([][][]int, m)
+	const inf = 1 << 30
+	for i := range f {
+		f[i] = make([][]int, n+1)
+		for j := range f[i] {
+			f[i][j] = make([]int, target+1)
+			for k := range f[i][j] {
+				f[i][j][k] = inf
+			}
+		}
+	}
+	if houses[0] == 0 {
+		for j := 1; j <= n; j++ {
+			f[0][j][1] = cost[0][j-1]
+		}
+	} else {
+		f[0][houses[0]][1] = 0
+	}
+	for i := 1; i < m; i++ {
+		if houses[i] == 0 {
+			for j := 1; j <= n; j++ {
+				for k := 1; k <= target && k <= i+1; k++ {
+					for j0 := 1; j0 <= n; j0++ {
+						if j == j0 {
+							f[i][j][k] = min(f[i][j][k], f[i-1][j][k]+cost[i][j-1])
+						} else {
+							f[i][j][k] = min(f[i][j][k], f[i-1][j0][k-1]+cost[i][j-1])
+						}
+					}
+				}
+			}
+		} else {
+			j := houses[i]
+			for k := 1; k <= target && k <= i+1; k++ {
+				for j0 := 1; j0 <= n; j0++ {
+					if j == j0 {
+						f[i][j][k] = min(f[i][j][k], f[i-1][j][k])
+					} else {
+						f[i][j][k] = min(f[i][j][k], f[i-1][j0][k-1])
+					}
+				}
+			}
+		}
+	}
+	ans := inf
+	for j := 1; j <= n; j++ {
+		ans = min(ans, f[m-1][j][target])
+	}
+	if ans == inf {
+		return -1
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

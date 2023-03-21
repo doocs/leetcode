@@ -82,7 +82,7 @@ class Solution:
         i = 0
         while wait or i < len(customers):
             wait += customers[i] if i < len(customers) else 0
-            up = min(wait, 4)
+            up = wait if wait < 4 else 4
             wait -= up
             t += up * boardingCost - runningCost
             i += 1
@@ -132,7 +132,7 @@ public:
             ++i;
             t += up * boardingCost - runningCost;
             if (t > mx) {
-                t = mx;
+                mx = t;
                 ans = i;
             }
         }

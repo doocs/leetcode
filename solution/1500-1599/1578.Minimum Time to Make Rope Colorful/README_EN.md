@@ -54,13 +54,94 @@ There are no longer two consecutive balloons of the same color. Total time = 1 +
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minCost(self, colors: str, neededTime: List[int]) -> int:
+        ans = i = 0
+        n = len(colors)
+        while i < n:
+            j = i
+            s = mx = 0
+            while j < n and colors[j] == colors[i]:
+                s += neededTime[j]
+                if mx < neededTime[j]:
+                    mx = neededTime[j]
+                j += 1
+            if j - i > 1:
+                ans += s - mx
+            i = j
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minCost(String colors, int[] neededTime) {
+        int ans = 0;
+        int n = neededTime.length;
+        for (int i = 0, j = 0; i < n; i = j) {
+            j = i;
+            int s = 0, mx = 0;
+            while (j < n && colors.charAt(j) == colors.charAt(i)) {
+                s += neededTime[j];
+                mx = Math.max(mx, neededTime[j]);
+                ++j;
+            }
+            if (j - i > 1) {
+                ans += s - mx;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minCost(string colors, vector<int>& neededTime) {
+        int ans = 0;
+        int n = colors.size();
+        for (int i = 0, j = 0; i < n; i = j) {
+            j = i;
+            int s = 0, mx = 0;
+            while (j < n && colors[j] == colors[i]) {
+                s += neededTime[j];
+                mx = max(mx, neededTime[j]);
+                ++j;
+            }
+            if (j - i > 1) {
+                ans += s - mx;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minCost(colors string, neededTime []int) (ans int) {
+	n := len(colors)
+	for i, j := 0, 0; i < n; i = j {
+		j = i
+		s, mx := 0, 0
+		for j < n && colors[j] == colors[i] {
+			s += neededTime[j]
+			if mx < neededTime[j] {
+				mx = neededTime[j]
+			}
+			j++
+		}
+		if j-i > 1 {
+			ans += s - mx
+		}
+	}
+	return
+}
 ```
 
 ### **TypeScript**

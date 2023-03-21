@@ -45,7 +45,7 @@ class Solution:
         while x:
             s += x % 10
             x //= 10
-        return 0 if s % 2 else 1
+        return s & 1 ^ 1
 ```
 
 ### **Java**
@@ -53,16 +53,15 @@ class Solution:
 ```java
 class Solution {
     public int sumOfDigits(int[] nums) {
-        int x = nums[0];
+        int x = 100;
         for (int v : nums) {
             x = Math.min(x, v);
         }
         int s = 0;
-        while (x != 0) {
+        for (; x > 0; x /= 10) {
             s += x % 10;
-            x /= 10;
         }
-        return 1 - s % 2;
+        return s & 1 ^ 1;
     }
 }
 ```
@@ -73,11 +72,12 @@ class Solution {
 class Solution {
 public:
     int sumOfDigits(vector<int>& nums) {
-        int x = nums[0];
-        for (int& v : nums) x = min(x, v);
+        int x = *min_element(nums.begin(), nums.end());
         int s = 0;
-        for (; x != 0; x /= 10) s += x % 10;
-        return 1 - s % 2;
+        for (; x > 0; x /= 10) {
+            s += x % 10;
+        }
+        return s & 1 ^ 1;
     }
 };
 ```
@@ -86,17 +86,17 @@ public:
 
 ```go
 func sumOfDigits(nums []int) int {
-	x := nums[0]
+	x := 100
 	for _, v := range nums {
 		if v < x {
 			x = v
 		}
 	}
 	s := 0
-	for ; x != 0; x /= 10 {
+	for ; x > 0; x /= 10 {
 		s += x % 10
 	}
-	return 1 - s%2
+	return s&1 ^ 1
 }
 ```
 

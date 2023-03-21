@@ -1,17 +1,18 @@
 class Solution {
     public int brightestPosition(int[][] lights) {
         TreeMap<Integer, Integer> d = new TreeMap<>();
-        for (int[] e : lights) {
-            int l = e[0] - e[1], r = e[0] + e[1];
-            d.put(l, d.getOrDefault(l, 0) + 1);
-            d.put(r + 1, d.getOrDefault(r + 1, 0) - 1);
+        for (var x : lights) {
+            int l = x[0] - x[1], r = x[0] + x[1];
+            d.merge(l, 1, Integer::sum);
+            d.merge(r + 1, -1, Integer::sum);
         }
-        int s = 0, mx = 0, ans = 0;
-        for (Map.Entry<Integer, Integer> e : d.entrySet()) {
-            s += e.getValue();
-            if (s > mx) {
+        int ans = 0, s = 0, mx = 0;
+        for (var x : d.entrySet()) {
+            int v = x.getValue();
+            s += v;
+            if (mx < s) {
                 mx = s;
-                ans = e.getKey();
+                ans = x.getKey();
             }
         }
         return ans;

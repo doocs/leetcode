@@ -54,13 +54,147 @@ No subsequence of nums with length 1 has an even sum.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def largestEvenSum(self, nums: List[int], k: int) -> int:
+        nums.sort()
+        ans = sum(nums[-k:])
+        if ans % 2 == 0:
+            return ans
+        n = len(nums)
+        mx1 = mx2 = -inf
+        for x in nums[: n - k]:
+            if x & 1:
+                mx1 = x
+            else:
+                mx2 = x
+        mi1 = mi2 = inf
+        for x in nums[-k:][::-1]:
+            if x & 1:
+                mi2 = x
+            else:
+                mi1 = x
+        ans = max(ans - mi1 + mx1, ans - mi2 + mx2, -1)
+        return -1 if ans % 2 else ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public long largestEvenSum(int[] nums, int k) {
+        Arrays.sort(nums);
+        long ans = 0;
+        int n = nums.length;
+        for (int i = 0; i < k; ++i) {
+            ans += nums[n - i - 1];
+        }
+        if (ans % 2 == 0) {
+            return ans;
+        }
+        final int inf = 1 << 29;
+        int mx1 = -inf, mx2 = -inf;
+        for (int i = 0; i < n - k; ++i) {
+            if (nums[i] % 2 == 1) {
+                mx1 = nums[i];
+            } else {
+                mx2 = nums[i];
+            }
+        }
+        int mi1 = inf, mi2 = inf;
+        for (int i = n - 1; i >= n - k; --i) {
+            if (nums[i] % 2 == 1) {
+                mi2 = nums[i];
+            } else {
+                mi1 = nums[i];
+            }
+        }
+        ans = Math.max(-1, Math.max(ans - mi1 + mx1, ans - mi2 + mx2));
+        return ans % 2 != 0 ? -1 : ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    long long largestEvenSum(vector<int>& nums, int k) {
+        sort(nums.begin(), nums.end());
+        long long ans = 0;
+        int n = nums.size();
+        for (int i = 0; i < k; ++i) {
+            ans += nums[n - i - 1];
+        }
+        if (ans % 2 == 0) {
+            return ans;
+        }
+        const int inf = 1 << 29;
+        int mx1 = -inf, mx2 = -inf;
+        for (int i = 0; i < n - k; ++i) {
+            if (nums[i] % 2) {
+                mx1 = nums[i];
+            } else {
+                mx2 = nums[i];
+            }
+        }
+        int mi1 = inf, mi2 = inf;
+        for (int i = n - 1; i >= n - k; --i) {
+            if (nums[i] % 2) {
+                mi2 = nums[i];
+            } else {
+                mi1 = nums[i];
+            }
+        }
+        ans = max(ans - mi1 + mx1, ans - mi2 + mx2);
+        return ans % 2 || ans < 0 ? -1 : ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func largestEvenSum(nums []int, k int) int64 {
+	sort.Ints(nums)
+	ans := 0
+	n := len(nums)
+	for i := 0; i < k; i++ {
+		ans += nums[n-1-i]
+	}
+	if ans%2 == 0 {
+		return int64(ans)
+	}
+	const inf = 1 << 29
+	mx1, mx2 := -inf, -inf
+	for _, x := range nums[:n-k] {
+		if x%2 == 1 {
+			mx1 = x
+		} else {
+			mx2 = x
+		}
+	}
+	mi1, mi2 := inf, inf
+	for i := n - 1; i >= n-k; i-- {
+		if nums[i]%2 == 1 {
+			mi2 = nums[i]
+		} else {
+			mi1 = nums[i]
+		}
+	}
+	ans = max(-1, max(ans-mi1+mx1, ans-mi2+mx2))
+	if ans%2 != 0 {
+		return -1
+	}
+	return int64(ans)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**

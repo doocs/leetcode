@@ -74,6 +74,19 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：直接计算**
+
+我们先初始化一个数组 $ans$，长度为 $m$，用于存储答案，初始化所有元素为 $-1$。
+
+接下来遍历数组 $queries$，对于每个查询，我们先获取当前查询的时间 $t$ 和索引 $i$，先将 $t$ 对 $2n$ 取模，然后判断 $t$ 和 $n$ 的关系：
+
+-   如果 $t \lt n$，那么 $t$ 时刻的数组元素个数为 $n - t$，并且数组元素是原数组元素整体向左移动 $t$ 个位置后的结果，因此如果 $i \lt n - t$，答案为 $nums[i + t]$；
+-   如果 $t \gt n$，那么 $t$ 时刻的数组元素个数为 $t - n$，并且数组元素是原数组元素的前 $t - n$ 个元素，因此如果 $i \lt t - n$，答案为 $nums[i]$。
+
+最后返回数组 $ans$ 即可。
+
+时间复杂度 $O(m)$，其中 $m$ 为数组 $queries$ 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -81,7 +94,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def elementInNums(self, nums: List[int], queries: List[List[int]]) -> List[int]:
+        n, m = len(nums), len(queries)
+        ans = [-1] * m
+        for j, (t, i) in enumerate(queries):
+            t %= (2 * n)
+            if t < n and i < n - t:
+                ans[j] = nums[i + t]
+            elif t > n and i < t - n:
+                ans[j] = nums[i]
+        return ans
 ```
 
 ### **Java**
@@ -89,12 +112,68 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] elementInNums(int[] nums, int[][] queries) {
+        int n = nums.length, m = queries.length;
+        int[] ans = new int[m];
+        for (int j = 0; j < m; ++j) {
+            ans[j] = -1;
+            int t = queries[j][0], i = queries[j][1];
+            t %= (2 * n);
+            if (t < n && i < n - t) {
+                ans[j] = nums[i + t];
+            } else if (t > n && i < t - n) {
+                ans[j] = nums[i];
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> elementInNums(vector<int>& nums, vector<vector<int>>& queries) {
+        int n = nums.size(), m = queries.size();
+        vector<int> ans(m, -1);
+        for (int j = 0; j < m; ++j) {
+            int t = queries[j][0], i = queries[j][1];
+            t %= (n * 2);
+            if (t < n && i < n - t) {
+                ans[j] = nums[i + t];
+            } else if (t > n && i < t - n) {
+                ans[j] = nums[i];
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func elementInNums(nums []int, queries [][]int) []int {
+	n, m := len(nums), len(queries)
+	ans := make([]int, m)
+	for j, q := range queries {
+		t, i := q[0], q[1]
+		t %= (n * 2)
+		ans[j] = -1
+		if t < n && i < n-t {
+			ans[j] = nums[i+t]
+		} else if t > n && i < t-n {
+			ans[j] = nums[i]
+		}
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
 

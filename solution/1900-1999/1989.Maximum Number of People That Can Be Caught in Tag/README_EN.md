@@ -57,13 +57,92 @@ There are no people who are not &quot;it&quot; to catch.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def catchMaximumAmountofPeople(self, team: List[int], dist: int) -> int:
+        ans = j = 0
+        n = len(team)
+        for i, x in enumerate(team):
+            if x:
+                while j < n and (team[j] or i - j > dist):
+                    j += 1
+                if j < n and abs(i - j) <= dist:
+                    ans += 1
+                    j += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int catchMaximumAmountofPeople(int[] team, int dist) {
+        int ans = 0;
+        int n = team.length;
+        for (int i = 0, j = 0; i < n; ++i) {
+            if (team[i] == 1) {
+                while (j < n && (team[j] == 1 || i - j > dist)) {
+                    ++j;
+                }
+                if (j < n && Math.abs(i - j) <= dist) {
+                    ++ans;
+                    ++j;
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int catchMaximumAmountofPeople(vector<int>& team, int dist) {
+        int ans = 0;
+        int n = team.size();
+        for (int i = 0, j = 0; i < n; ++i) {
+            if (team[i]) {
+                while (j < n && (team[j] || i - j > dist)) {
+                    ++j;
+                }
+                if (j < n && abs(i -  j) <= dist) {
+                    ++ans;
+                    ++j;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func catchMaximumAmountofPeople(team []int, dist int) (ans int) {
+	n := len(team)
+	for i, j := 0, 0; i < n; i++ {
+		if team[i] == 1 {
+			for j < n && (team[j] == 1 || i-j > dist) {
+				j++
+			}
+			if j < n && abs(i-j) <= dist {
+				ans++
+				j++
+			}
+		}
+	}
+	return
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
 ```
 
 ### **...**

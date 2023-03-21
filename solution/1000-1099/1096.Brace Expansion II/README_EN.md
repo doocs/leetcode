@@ -78,10 +78,8 @@ class Solution:
             if j == -1:
                 s.add(exp)
                 return
-            i = j
-            while exp[i] != '{':
-                i -= 1
-            a, c, = exp[:i], exp[j + 1:]
+            i = exp.rfind('{', 0, j - 1)
+            a, c = exp[:i], exp[j + 1:]
             for b in exp[i + 1: j].split(','):
                 dfs(a + b + c)
 
@@ -107,10 +105,7 @@ class Solution {
             s.add(exp);
             return;
         }
-        int i = j;
-        while (exp.charAt(i) != '{') {
-            --i;
-        }
+        int i = exp.lastIndexOf('{', j);
         String a = exp.substring(0, i);
         String c = exp.substring(j + 1);
         for (String b : exp.substring(i + 1, j).split(",")) {
@@ -125,22 +120,21 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    set<string> s;
     vector<string> braceExpansionII(string expression) {
         dfs(expression);
         return vector<string>(s.begin(), s.end());
     }
 
+private:
+    set<string> s;
+
     void dfs(string exp) {
-        int j = exp.find('}');
-        if (j == -1) {
+        int j = exp.find_first_of('}');
+        if (j == string::npos) {
             s.insert(exp);
             return;
         }
-        int i = j;
-        while (exp[i] != '{') {
-            --i;
-        }
+        int i = exp.rfind('{', j);
         string a = exp.substr(0, i);
         string c = exp.substr(j + 1);
         stringstream ss(exp.substr(i + 1, j - i - 1));
@@ -157,29 +151,49 @@ public:
 ```go
 func braceExpansionII(expression string) []string {
 	s := map[string]struct{}{}
-	var dfs func(exp string)
+	var dfs func(string)
 	dfs = func(exp string) {
-		j := strings.IndexByte(exp, '}')
+		j := strings.Index(exp, "}")
 		if j == -1 {
 			s[exp] = struct{}{}
 			return
 		}
-		i := j
-		for exp[i] != '{' {
-			i--
-		}
+		i := strings.LastIndex(exp[:j], "{")
 		a, c := exp[:i], exp[j+1:]
 		for _, b := range strings.Split(exp[i+1:j], ",") {
 			dfs(a + b + c)
 		}
 	}
 	dfs(expression)
-	ans := []string{}
-	for v := range s {
-		ans = append(ans, v)
+	ans := make([]string, 0, len(s))
+	for k := range s {
+		ans = append(ans, k)
 	}
 	sort.Strings(ans)
 	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function braceExpansionII(expression: string): string[] {
+    const dfs = (exp: string) => {
+        const j = exp.indexOf('}');
+        if (j === -1) {
+            s.add(exp);
+            return;
+        }
+        const i = exp.lastIndexOf('{', j);
+        const a = exp.substring(0, i);
+        const c = exp.substring(j + 1);
+        for (const b of exp.substring(i + 1, j).split(',')) {
+            dfs(a + b + c);
+        }
+    };
+    const s: Set<string> = new Set();
+    dfs(expression);
+    return Array.from(s).sort();
 }
 ```
 

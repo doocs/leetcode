@@ -3,13 +3,11 @@ class Solution:
         @cache
         def dfs(i, m):
             if m * 2 >= n - i:
-                return s[-1] - s[i]
-            res = 0
-            for x in range(1, m << 1 | 1):
-                t = s[-1] - s[i] - dfs(i + x, max(m, x))
-                res = max(res, t)
-            return res
+                return s[n] - s[i]
+            return max(
+                s[n] - s[i] - dfs(i + x, max(m, x)) for x in range(1, m << 1 | 1)
+            )
 
-        s = list(accumulate(piles, initial=0))
         n = len(piles)
+        s = list(accumulate(piles, initial=0))
         return dfs(0, 1)

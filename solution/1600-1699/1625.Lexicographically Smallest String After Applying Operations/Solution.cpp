@@ -1,21 +1,23 @@
 class Solution {
 public:
     string findLexSmallestString(string s, int a, int b) {
-        unordered_set<string> vis{{s}};
-        queue<string> q{{s}};
-        string ans = s;
         int n = s.size();
-        while (!q.empty()) {
-            s = q.front();
-            q.pop();
-            if (s < ans) ans = s;
-            string nxt1 = s;
-            for (int i = 1; i < n; i += 2) nxt1[i] = ((nxt1[i] - '0' + a) % 10) + '0';
-            string nxt2 = s.substr(n - b) + s.substr(0, n - b);
-            for (string nxt : {nxt1, nxt2}) {
-                if (!vis.count(nxt)) {
-                    vis.insert(nxt);
-                    q.push(nxt);
+        string ans = s;
+        for (int i = 0; i < n; ++i) {
+            s = s.substr(n - b) + s.substr(0, n - b);
+            for (int j = 0; j < 10; ++j) {
+                for (int k = 1; k < n; k += 2) {
+                    s[k] = (s[k] - '0' + a) % 10 + '0';
+                }
+                if (b & 1) {
+                    for (int p = 0; p < 10; ++p) {
+                        for (int k = 0; k < n; k += 2) {
+                            s[k] = (s[k] - '0' + a) % 10 + '0';
+                        }
+                        ans = min(ans, s);
+                    }
+                } else {
+                    ans = min(ans, s);
                 }
             }
         }

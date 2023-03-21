@@ -53,6 +53,12 @@
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$，其中 $n$ 是数组的长度。
 
+**方法二：枚举**
+
+我们可以枚举数组中的每一个元素，找到以该元素为结尾的严格递增子数组的个数，然后将这些个数累加到答案中。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$，其中 $n$ 是数组的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -73,6 +79,20 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def countSubarrays(self, nums: List[int]) -> int:
+        ans = pre = cnt = 0
+        for x in nums:
+            if pre < x:
+                cnt += 1
+            else:
+                cnt = 1
+            pre = x
+            ans += cnt
+        return ans
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
@@ -90,6 +110,25 @@ class Solution {
             long cnt = j - i;
             ans += (1 + cnt) * cnt / 2;
             i = j;
+        }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public long countSubarrays(int[] nums) {
+        long ans = 0;
+        int pre = 0, cnt = 0;
+        for (int x : nums) {
+            if (pre < x) {
+                ++cnt;
+            } else {
+                cnt = 1;
+            }
+            pre = x;
+            ans += cnt;
         }
         return ans;
     }
@@ -118,6 +157,26 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    long long countSubarrays(vector<int>& nums) {
+        long long ans = 0;
+        int pre = 0, cnt = 0;
+        for (int x : nums) {
+            if (pre < x) {
+                ++cnt;
+            } else {
+                cnt = 1;
+            }
+            ans += cnt;
+            pre = x;
+        }
+        return ans;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -137,6 +196,22 @@ func countSubarrays(nums []int) int64 {
 }
 ```
 
+```go
+func countSubarrays(nums []int) (ans int64) {
+	pre, cnt := 0, 0
+	for _, x := range nums {
+		if pre < x {
+			cnt++
+		} else {
+			cnt = 1
+		}
+		ans += int64(cnt)
+		pre = x
+	}
+	return
+}
+```
+
 ### **TypeScript**
 
 ```ts
@@ -152,6 +227,24 @@ function countSubarrays(nums: number[]): number {
         const cnt = j - i;
         ans += ((1 + cnt) * cnt) / 2;
         i = j;
+    }
+    return ans;
+}
+```
+
+```ts
+function countSubarrays(nums: number[]): number {
+    let ans = 0;
+    let pre = 0;
+    let cnt = 0;
+    for (const x of nums) {
+        if (pre < x) {
+            ++cnt;
+        } else {
+            cnt = 1;
+        }
+        ans += cnt;
+        pre = x;
     }
     return ans;
 }

@@ -6,9 +6,14 @@
 
 <!-- 这里写题目描述 -->
 
-<p>在一个有向图中，节点分别标记为&nbsp;<code>0, 1, ..., n-1</code>。图中每条边为红色或者蓝色，且存在自环或平行边。</p>
+<p>给定一个整数 <code>n</code>，即有向图中的节点数，其中节点标记为 <code>0</code> 到 <code>n - 1</code>。图中的每条边为红色或者蓝色，并且可能存在自环或平行边。</p>
 
-<p><code>red_edges</code>&nbsp;中的每一个&nbsp;<code>[i, j]</code>&nbsp;对表示从节点 <code>i</code> 到节点 <code>j</code> 的红色有向边。类似地，<code>blue_edges</code>&nbsp;中的每一个&nbsp;<code>[i, j]</code>&nbsp;对表示从节点 <code>i</code> 到节点 <code>j</code> 的蓝色有向边。</p>
+<p>给定两个数组&nbsp;<code>redEdges</code>&nbsp;和&nbsp;<code>blueEdges</code>，其中：</p>
+
+<ul>
+	<li><code>redEdges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code>&nbsp;表示图中存在一条从节点&nbsp;<code>a<sub>i</sub></code>&nbsp;到节点&nbsp;<code>b<sub>i</sub></code>&nbsp;的红色有向边，</li>
+	<li><code>blueEdges[j] = [u<sub>j</sub>, v<sub>j</sub>]</code>&nbsp;表示图中存在一条从节点&nbsp;<code>u<sub>j</sub></code>&nbsp;到节点&nbsp;<code>v<sub>j</sub></code>&nbsp;的蓝色有向边。</li>
+</ul>
 
 <p>返回长度为 <code>n</code> 的数组&nbsp;<code>answer</code>，其中&nbsp;<code>answer[X]</code>&nbsp;是从节点&nbsp;<code>0</code>&nbsp;到节点&nbsp;<code>X</code>&nbsp;的红色边和蓝色边交替出现的最短路径的长度。如果不存在这样的路径，那么 <code>answer[x] = -1</code>。</p>
 
@@ -28,37 +33,15 @@
 <strong>输出：</strong>[0,1,-1]
 </pre>
 
-<p><strong>示例 3：</strong></p>
-
-<pre>
-<strong>输入：</strong>n = 3, red_edges = [[1,0]], blue_edges = [[2,1]]
-<strong>输出：</strong>[0,-1,-1]
-</pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre>
-<strong>输入：</strong>n = 3, red_edges = [[0,1]], blue_edges = [[1,2]]
-<strong>输出：</strong>[0,1,2]
-</pre>
-
-<p><strong>示例 5：</strong></p>
-
-<pre>
-<strong>输入：</strong>n = 3, red_edges = [[0,1],[0,2]], blue_edges = [[1,0]]
-<strong>输出：</strong>[0,1,1]
-</pre>
-
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= n &lt;= 100</code></li>
-	<li><code>red_edges.length &lt;= 400</code></li>
-	<li><code>blue_edges.length &lt;= 400</code></li>
-	<li><code>red_edges[i].length == blue_edges[i].length == 2</code></li>
-	<li><code>0 &lt;= red_edges[i][j], blue_edges[i][j] &lt; n</code></li>
+	<li><code>0 &lt;= redEdges.length,&nbsp;blueEdges.length &lt;= 400</code></li>
+	<li><code>redEdges[i].length == blueEdges[j].length == 2</code></li>
+	<li><code>0 &lt;= a<sub>i</sub>, b<sub>i</sub>, u<sub>j</sub>, v<sub>j</sub>&nbsp;&lt; n</code></li>
 </ul>
 
 ## 解法

@@ -53,6 +53,21 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 排序**
+
+我们注意到，题目选取的是子序列，因此我们可以考虑先对数组进行排序。
+
+接下来，我们先贪心地选取最大的 $k$ 个数，如果这些数的和为偶数，则直接返回这个和 $ans$。
+
+否则，我们有两种贪心策略：
+
+1. 在最大的 $k$ 个数中，找到一个最小的偶数 $mi1$，然后在剩下的 $n - k$ 个数中，找到一个最大的奇数 $mx1$，将 $mi1$ 替换为 $mx1$，如果存在这样的替换，那么替换后的和 $ans - mi1 + mx1$ 一定是偶数；
+1. 在最大的 $k$ 个数中，找到一个最小的奇数 $mi2$，然后在剩下的 $n - k$ 个数中，找到一个最大的偶数 $mx2$，将 $mi2$ 替换为 $mx2$，如果存在这样的替换，那么替换后的和 $ans - mi2 + mx2$ 一定是偶数。
+
+我们取最大的偶数和作为答案。如果不存在偶数和，则返回 $-1$。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,7 +75,27 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def largestEvenSum(self, nums: List[int], k: int) -> int:
+        nums.sort()
+        ans = sum(nums[-k:])
+        if ans % 2 == 0:
+            return ans
+        n = len(nums)
+        mx1 = mx2 = -inf
+        for x in nums[: n - k]:
+            if x & 1:
+                mx1 = x
+            else:
+                mx2 = x
+        mi1 = mi2 = inf
+        for x in nums[-k:][::-1]:
+            if x & 1:
+                mi2 = x
+            else:
+                mi1 = x
+        ans = max(ans - mi1 + mx1, ans - mi2 + mx2, -1)
+        return -1 if ans % 2 else ans
 ```
 
 ### **Java**
@@ -68,12 +103,124 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public long largestEvenSum(int[] nums, int k) {
+        Arrays.sort(nums);
+        long ans = 0;
+        int n = nums.length;
+        for (int i = 0; i < k; ++i) {
+            ans += nums[n - i - 1];
+        }
+        if (ans % 2 == 0) {
+            return ans;
+        }
+        final int inf = 1 << 29;
+        int mx1 = -inf, mx2 = -inf;
+        for (int i = 0; i < n - k; ++i) {
+            if (nums[i] % 2 == 1) {
+                mx1 = nums[i];
+            } else {
+                mx2 = nums[i];
+            }
+        }
+        int mi1 = inf, mi2 = inf;
+        for (int i = n - 1; i >= n - k; --i) {
+            if (nums[i] % 2 == 1) {
+                mi2 = nums[i];
+            } else {
+                mi1 = nums[i];
+            }
+        }
+        ans = Math.max(-1, Math.max(ans - mi1 + mx1, ans - mi2 + mx2));
+        return ans % 2 != 0 ? -1 : ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    long long largestEvenSum(vector<int>& nums, int k) {
+        sort(nums.begin(), nums.end());
+        long long ans = 0;
+        int n = nums.size();
+        for (int i = 0; i < k; ++i) {
+            ans += nums[n - i - 1];
+        }
+        if (ans % 2 == 0) {
+            return ans;
+        }
+        const int inf = 1 << 29;
+        int mx1 = -inf, mx2 = -inf;
+        for (int i = 0; i < n - k; ++i) {
+            if (nums[i] % 2) {
+                mx1 = nums[i];
+            } else {
+                mx2 = nums[i];
+            }
+        }
+        int mi1 = inf, mi2 = inf;
+        for (int i = n - 1; i >= n - k; --i) {
+            if (nums[i] % 2) {
+                mi2 = nums[i];
+            } else {
+                mi1 = nums[i];
+            }
+        }
+        ans = max(ans - mi1 + mx1, ans - mi2 + mx2);
+        return ans % 2 || ans < 0 ? -1 : ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func largestEvenSum(nums []int, k int) int64 {
+	sort.Ints(nums)
+	ans := 0
+	n := len(nums)
+	for i := 0; i < k; i++ {
+		ans += nums[n-1-i]
+	}
+	if ans%2 == 0 {
+		return int64(ans)
+	}
+	const inf = 1 << 29
+	mx1, mx2 := -inf, -inf
+	for _, x := range nums[:n-k] {
+		if x%2 == 1 {
+			mx1 = x
+		} else {
+			mx2 = x
+		}
+	}
+	mi1, mi2 := inf, inf
+	for i := n - 1; i >= n-k; i-- {
+		if nums[i]%2 == 1 {
+			mi2 = nums[i]
+		} else {
+			mi1 = nums[i]
+		}
+	}
+	ans = max(-1, max(ans-mi1+mx1, ans-mi2+mx2))
+	if ans%2 != 0 {
+		return -1
+	}
+	return int64(ans)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
 

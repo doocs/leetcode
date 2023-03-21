@@ -1,11 +1,9 @@
 class Solution {
 public:
     int minimumRecolors(string blocks, int k) {
-        int cnt = 0, n = blocks.size();
-        int i = 0;
-        for (; i < k; ++i) cnt += blocks[i] == 'W';
+        int cnt = count(blocks.begin(), blocks.begin() + k, 'W');
         int ans = cnt;
-        for (; i < n; ++i) {
+        for (int i = k; i < blocks.size(); ++i) {
             cnt += blocks[i] == 'W';
             cnt -= blocks[i - k] == 'W';
             ans = min(ans, cnt);

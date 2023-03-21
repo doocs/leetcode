@@ -58,13 +58,111 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findInteger(self, k: int, digit1: int, digit2: int) -> int:
+        if digit1 == 0 and digit2 == 0:
+            return -1
+        if digit1 > digit2:
+            return self.findInteger(k, digit2, digit1)
+        q = deque([0])
+        while 1:
+            x = q.popleft()
+            if x > 2**31 - 1:
+                return -1
+            if x > k and x % k == 0:
+                return x
+            q.append(x * 10 + digit1)
+            if digit1 != digit2:
+                q.append(x * 10 + digit2)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int findInteger(int k, int digit1, int digit2) {
+        if (digit1 == 0 && digit2 == 0) {
+            return -1;
+        }
+        if (digit1 > digit2) {
+            return findInteger(k, digit2, digit1);
+        }
+        Deque<Long> q = new ArrayDeque<>();
+        q.offer(0L);
+        while (true) {
+            long x = q.poll();
+            if (x > Integer.MAX_VALUE) {
+                return -1;
+            }
+            if (x > k && x % k == 0) {
+                return (int) x;
+            }
+            q.offer(x * 10 + digit1);
+            if (digit1 != digit2) {
+                q.offer(x * 10 + digit2);
+            }
+        }
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findInteger(int k, int digit1, int digit2) {
+        if (digit1 == 0 && digit2 == 0) {
+            return -1;
+        }
+        if (digit1 > digit2) {
+            swap(digit1, digit2);
+        }
+        queue<long long> q{{0}};
+        while (1) {
+            long long x = q.front();
+            q.pop();
+            if (x > INT_MAX) {
+                return -1;
+            }
+            if (x > k && x % k == 0) {
+                return x;
+            }
+            q.emplace(x * 10 + digit1);
+            if (digit1 != digit2) {
+                q.emplace(x * 10 + digit2);
+            }
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+func findInteger(k int, digit1 int, digit2 int) int {
+	if digit1 == 0 && digit2 == 0 {
+		return -1
+	}
+	if digit1 > digit2 {
+		digit1, digit2 = digit2, digit1
+	}
+	q := []int{0}
+	for {
+		x := q[0]
+		q = q[1:]
+		if x > math.MaxInt32 {
+			return -1
+		}
+		if x > k && x%k == 0 {
+			return x
+		}
+		q = append(q, x*10+digit1)
+		if digit1 != digit2 {
+			q = append(q, x*10+digit2)
+		}
+	}
+}
 ```
 
 ### **...**

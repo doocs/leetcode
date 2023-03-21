@@ -51,13 +51,136 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def tallestBillboard(self, rods: List[int]) -> int:
+        n = len(rods)
+        s = sum(rods)
+        f = [[-inf] * (s + 1) for _ in range(n + 1)]
+        f[0][0] = 0
+        t = 0
+        for i, x in enumerate(rods, 1):
+            t += x
+            for j in range(t + 1):
+                f[i][j] = f[i - 1][j]
+                if j >= x:
+                    f[i][j] = max(f[i][j], f[i - 1][j - x])
+                if j + x <= t:
+                    f[i][j] = max(f[i][j], f[i - 1][j + x] + x)
+                if j < x:
+                    f[i][j] = max(f[i][j], f[i - 1][x - j] + x - j)
+        return f[n][0]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int tallestBillboard(int[] rods) {
+        int n = rods.length;
+        int s = 0;
+        for (int x : rods) {
+            s += x;
+        }
+        int[][] f = new int[n + 1][s + 1];
+        for (var e : f) {
+            Arrays.fill(e, -(1 << 30));
+        }
+        f[0][0] = 0;
+        for (int i = 1, t = 0; i <= n; ++i) {
+            int x = rods[i - 1];
+            t += x;
+            for (int j = 0; j <= t; ++j) {
+                f[i][j] = f[i - 1][j];
+                if (j >= x) {
+                    f[i][j] = Math.max(f[i][j], f[i - 1][j - x]);
+                }
+                if (j + x <= t) {
+                    f[i][j] = Math.max(f[i][j], f[i - 1][j + x] + x);
+                }
+                if (j < x) {
+                    f[i][j] = Math.max(f[i][j], f[i - 1][x - j] + x - j);
+                }
+            }
+        }
+        return f[n][0];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int tallestBillboard(vector<int>& rods) {
+        int n = rods.size();
+        int s = accumulate(rods.begin(), rods.end(), 0);
+        int f[n + 1][s + 1];
+        memset(f, -0x3f, sizeof(f));
+        f[0][0] = 0;
+        for (int i = 1, t = 0; i <= n; ++i) {
+            int x = rods[i - 1];
+            t += x;
+            for (int j = 0; j <= t; ++j) {
+                f[i][j] = f[i - 1][j];
+                if (j >= x) {
+                    f[i][j] = max(f[i][j], f[i - 1][j - x]);
+                }
+                if (j + x <= t) {
+                    f[i][j] = max(f[i][j], f[i - 1][j + x] + x);
+                }
+                if (j < x) {
+                    f[i][j] = max(f[i][j], f[i - 1][x - j] + x - j);
+                }
+            }
+        }
+        return f[n][0];
+    }
+};
+```
+
+### **Go**
+
+```go
+func tallestBillboard(rods []int) int {
+	n := len(rods)
+	s := 0
+	for _, x := range rods {
+		s += x
+	}
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, s+1)
+		for j := range f[i] {
+			f[i][j] = -(1 << 30)
+		}
+	}
+	f[0][0] = 0
+	for i, t := 1, 0; i <= n; i++ {
+		x := rods[i-1]
+		t += x
+		for j := 0; j <= t; j++ {
+			f[i][j] = f[i-1][j]
+			if j >= x {
+				f[i][j] = max(f[i][j], f[i-1][j-x])
+			}
+			if j+x <= t {
+				f[i][j] = max(f[i][j], f[i-1][j+x]+x)
+			}
+			if j < x {
+				f[i][j] = max(f[i][j], f[i-1][x-j]+x-j)
+			}
+		}
+	}
+	return f[n][0]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

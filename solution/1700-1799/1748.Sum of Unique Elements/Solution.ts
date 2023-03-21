@@ -1,16 +1,13 @@
 function sumOfUnique(nums: number[]): number {
-    let res = 0;
-    const map = new Map();
-    for (const num of nums) {
-        if (map.has(num)) {
-            if (map.get(num)) {
-                map.set(num, false);
-                res -= num;
-            }
-        } else {
-            map.set(num, true);
-            res += num;
+    const cnt = new Array(101).fill(0);
+    for (const x of nums) {
+        ++cnt[x];
+    }
+    let ans = 0;
+    for (let x = 0; x < 101; ++x) {
+        if (cnt[x] == 1) {
+            ans += x;
         }
     }
-    return res;
+    return ans;
 }

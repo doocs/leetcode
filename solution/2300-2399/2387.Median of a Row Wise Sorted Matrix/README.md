@@ -47,11 +47,11 @@
 
 **方法一：两次二分查找**
 
-中位数实际上是排序后第 $target = \left \lceil \frac{m\times n}{2} \right \rceil $ 个数。
+中位数实际上是排序后第 $target = \left \lceil \frac{m\times n}{2} \right \rceil$ 个数。
 
 我们二分枚举矩阵的元素 $x$，统计网格中大于该元素的个数 $cnt$，如果 $cnt \ge target$，说明中位数在 $x$ 的左侧（包含 $x$），否则在右侧。
 
-时间复杂度 $O(m\times \log n \times log M)$，其中 $M$ 为矩阵中的最大值。
+时间复杂度 $O(m\times \log n \times log M)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别为网格的行数和列数；而 $M$ 为网格中的最大元素。
 
 <!-- tabs:start -->
 

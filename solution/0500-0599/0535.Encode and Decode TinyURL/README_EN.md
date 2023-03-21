@@ -28,7 +28,7 @@
 <strong>Explanation:</strong>
 Solution obj = new Solution();
 string tiny = obj.encode(url); // returns the encoded tiny url.
-string ans = obj.decode(tiny); // returns the original url after deconding it.
+string ans = obj.decode(tiny); // returns the original url after decoding it.
 </pre>
 
 <p>&nbsp;</p>

@@ -59,13 +59,140 @@ Remember that both play optimally so here Alice will choose the scenario that ma
 ### **Python3**
 
 ```python
+class Solution:
+    def stoneGameIII(self, stoneValue: List[int]) -> str:
+        @cache
+        def dfs(i: int) -> int:
+            if i >= len(stoneValue):
+                return 0
+            t = min(dfs(i + j) for j in range(1, 4))
+            return s[-1] - s[i] - t
 
+        s = list(accumulate(stoneValue, initial=0))
+        a = dfs(0)
+        b = s[-1] - a
+        if a == b:
+            return 'Tie'
+        return 'Alice' if a > b else 'Bob'
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int n;
+    private int[] s;
+    private Integer[] f;
+    
+    public String stoneGameIII(int[] stoneValue) {
+        n = stoneValue.length;
+        s = new int[n + 1];
+        f = new Integer[n];
+        for (int i = 1; i <= n; ++i) {
+            s[i] = s[i - 1] + stoneValue[i - 1];
+        }
+        int a = dfs(0);
+        int b = s[n] - a;
+        return a == b ? "Tie" : a > b ? "Alice" : "Bob";
+    }
+    
+    private int dfs(int i) {
+        if (i >= n) {
+            return 0;
+        }
+        if (f[i] != null) {
+            return f[i];
+        }
+        int t = 1 << 30;
+        for (int j = 1; j < 4; ++j) {
+            t = Math.min(t, dfs(i + j));
+        }
+        f[i] = s[n] - s[i] - t;
+        return f[i];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string stoneGameIII(vector<int>& stoneValue) {
+        int n = stoneValue.size();
+        int s[n + 1];
+        s[0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            s[i] = s[i - 1] + stoneValue[i - 1];
+        }
+        int f[n];
+        memset(f, 0x3f, sizeof(f));
+        function<int(int)> dfs = [&](int i) -> int {
+            if (i >= n) {
+                return 0;
+            }
+            if (f[i] != 0x3f3f3f3f) {
+                return f[i];
+            }
+            int t = 1 << 30;
+            for (int j = 1; j < 4; ++j) {
+                t = min(t, dfs(i + j));
+            }
+            return f[i] = s[n] - s[i] - t;
+        };
+        int a = dfs(0);
+        int b = s[n] - a;
+        return a == b ? "Tie" : (a > b ? "Alice" : "Bob");
+    }
+};
+```
+
+### **Go**
+
+```go
+func stoneGameIII(stoneValue []int) string {
+	n := len(stoneValue)
+	s := make([]int, n+1)
+	for i, x := range stoneValue {
+		s[i+1] = s[i] + x
+	}
+	const inf = 1 << 30
+	f := make([]int, n)
+	for i := range f {
+		f[i] = inf
+	}
+	var dfs func(int) int
+	dfs = func(i int) int {
+		if i >= n {
+			return 0
+		}
+		if f[i] != inf {
+			return f[i]
+		}
+		t := inf
+		for j := 1; j <= 3; j++ {
+			t = min(t, dfs(i+j))
+		}
+		f[i] = s[n] - s[i] - t
+		return f[i]
+	}
+	a := dfs(0)
+	b := s[n] - a
+	if a == b {
+		return "Tie"
+	}
+	if a > b {
+		return "Alice"
+	}
+	return "Bob"
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

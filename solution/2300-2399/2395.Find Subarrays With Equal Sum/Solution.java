@@ -1,9 +1,8 @@
 class Solution {
     public boolean findSubarrays(int[] nums) {
-        Set<Integer> s = new HashSet<>();
-        for (int i = 0; i < nums.length - 1; ++i) {
-            int v = nums[i] + nums[i + 1];
-            if (!s.add(v)) {
+        Set<Integer> vis = new HashSet<>();
+        for (int i = 1; i < nums.length; ++i) {
+            if (!vis.add(nums[i - 1] + nums[i])) {
                 return true;
             }
         }

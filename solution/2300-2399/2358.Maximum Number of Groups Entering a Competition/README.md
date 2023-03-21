@@ -48,9 +48,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：排序**
+**方法一：贪心 + 二分查找**
 
-时间复杂度 $O(nlogn)$。
+我们观察题目中的条件，第 $i$ 组的学生人数要小于第 $i+1$ 组的学生人数，且第 $i$ 组的学生总成绩要小于第 $i+1$ 组的学生总成绩，我们只需要将学生按照成绩从小到大排序，然后每一组依次分配 $1$, $2$, ..., $k$ 个学生即可。如果最后一组的学生人数不足 $k$ 个，那么我们可以将这些学生分配到前面的最后一组中。
+
+因此，我们要找到最大的 $k$，使得 $\frac{(1 + k) \times k}{2} \leq n$，其中 $n$ 为学生的总人数。我们可以使用二分查找来求解。
+
+我们定义二分查找的左边界为 $l = 1$，右边界为 $r = n$，每一次二分查找的中点为 $mid = \lfloor \frac{l + r + 1}{2} \rfloor$，如果 $(1 + mid) \times mid \gt 2 \times n$，则说明 $mid$ 太大，我们需要将右边界缩小至 $mid - 1$，否则我们需要将左边界增大至 $mid$。
+
+最后，我们将 $l$ 作为答案返回即可。
+
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 为学生的总人数。
 
 <!-- tabs:start -->
 
@@ -61,18 +69,8 @@
 ```python
 class Solution:
     def maximumGroups(self, grades: List[int]) -> int:
-        grades.sort()
-        ans = 1
-        prev = [1, grades[0]]
-        curr = [0, 0]
-        for v in grades[1:]:
-            curr[0] += 1
-            curr[1] += v
-            if prev[0] < curr[0] and prev[1] < curr[1]:
-                prev = curr
-                curr = [0, 0]
-                ans += 1
-        return ans
+        n = len(grades)
+        return bisect_right(range(n + 1), n * 2, key=lambda x: x * x + x) - 1
 ```
 
 ### **Java**
@@ -82,20 +80,17 @@ class Solution:
 ```java
 class Solution {
     public int maximumGroups(int[] grades) {
-        Arrays.sort(grades);
-        int ans = 1;
-        int[] prev = new int[] {1, grades[0]};
-        int[] curr = new int[] {0, 0};
-        for (int i = 1; i < grades.length; ++i) {
-            curr[0]++;
-            curr[1] += grades[i];
-            if (prev[0] < curr[0] && prev[1] < curr[1]) {
-                prev = curr;
-                curr = new int[] {0, 0};
-                ++ans;
+        int n = grades.length;
+        int l = 0, r = n;
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            if (1L * mid * mid + mid > n * 2L) {
+                r = mid - 1;
+            } else {
+                l = mid;
             }
         }
-        return ans;
+        return l;
     }
 }
 ```
@@ -106,20 +101,17 @@ class Solution {
 class Solution {
 public:
     int maximumGroups(vector<int>& grades) {
-        sort(grades.begin(), grades.end());
-        int ans = 1;
-        vector<int> prev = {1, grades[0]};
-        vector<int> curr = {0, 0};
-        for (int i = 1; i < grades.size(); ++i) {
-            curr[0]++;
-            curr[1] += grades[i];
-            if (prev[0] < curr[0] && prev[1] < curr[1]) {
-                prev = curr;
-                curr = {0, 0};
-                ++ans;
+        int n = grades.size();
+        int l = 0, r = n;
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            if (1LL * mid * mid + mid > n * 2LL) {
+                r = mid - 1;
+            } else {
+                l = mid;
             }
         }
-        return ans;
+        return l;
     }
 };
 ```
@@ -128,27 +120,31 @@ public:
 
 ```go
 func maximumGroups(grades []int) int {
-	sort.Ints(grades)
-	ans := 1
-	prev := []int{1, grades[0]}
-	curr := []int{0, 0}
-	for _, v := range grades[1:] {
-		curr[0]++
-		curr[1] += v
-		if prev[0] < curr[0] && prev[1] < curr[1] {
-			prev = curr
-			curr = []int{0, 0}
-			ans++
-		}
-	}
-	return ans
+	n := len(grades)
+	return sort.Search(n, func(k int) bool {
+		k++
+		return k*k+k > n*2
+	})
 }
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function maximumGroups(grades: number[]): number {
+    const n = grades.length;
+    let l = 1;
+    let r = n;
+    while (l < r) {
+        const mid = (l + r + 1) >> 1;
+        if (mid * mid + mid > n * 2) {
+            r = mid - 1;
+        } else {
+            l = mid;
+        }
+    }
+    return l;
+}
 ```
 
 ### **...**

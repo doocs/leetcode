@@ -66,21 +66,21 @@ BFS.
 class Solution:
     def minimumJumps(self, forbidden: List[int], a: int, b: int, x: int) -> int:
         s = set(forbidden)
-        q = deque([(0, 0)])
-        vis = {(0, 1), (0, -1)}
+        q = deque([(0, 1)])
+        vis = {(0, 1)}
         ans = 0
         while q:
             for _ in range(len(q)):
-                i, dir = q.popleft()
+                i, k = q.popleft()
                 if i == x:
                     return ans
                 nxt = [(i + a, 1)]
-                if dir != -1:
-                    nxt.append((i - b, -1))
-                for j, dir in nxt:
-                    if 0 <= j <= 6000 and j not in s and (j, dir) not in vis:
-                        vis.add((j, dir))
-                        q.append((j, dir))
+                if k & 1:
+                    nxt.append((i - b, 0))
+                for j, k in nxt:
+                    if 0 <= j < 6000 and j not in s and (j, k) not in vis:
+                        q.append((j, k))
+                        vis.add((j, k))
             ans += 1
         return -1
 ```
@@ -89,37 +89,35 @@ class Solution:
 
 ```java
 class Solution {
-    private static final int N = 6010;
-
     public int minimumJumps(int[] forbidden, int a, int b, int x) {
         Set<Integer> s = new HashSet<>();
         for (int v : forbidden) {
             s.add(v);
         }
         Deque<int[]> q = new ArrayDeque<>();
-        q.offer(new int[] {0, 2});
-        boolean[][] vis = new boolean[N][2];
-        vis[0][0] = true;
+        q.offer(new int[] {0, 1});
+        final int n = 6000;
+        boolean[][] vis = new boolean[n][2];
         vis[0][1] = true;
         int ans = 0;
         while (!q.isEmpty()) {
             for (int t = q.size(); t > 0; --t) {
-                int[] p = q.poll();
-                int i = p[0], dir = p[1];
+                var p = q.poll();
+                int i = p[0], k = p[1];
                 if (i == x) {
                     return ans;
                 }
                 List<int[]> nxt = new ArrayList<>();
                 nxt.add(new int[] {i + a, 1});
-                if (dir != 0) {
+                if ((k & 1) == 1) {
                     nxt.add(new int[] {i - b, 0});
                 }
-                for (int[] e : nxt) {
+                for (var e : nxt) {
                     int j = e[0];
-                    dir = e[1];
-                    if (j >= 0 && j < N && !s.contains(j) && !vis[j][dir]) {
-                        vis[j][dir] = true;
-                        q.offer(new int[] {j, dir});
+                    k = e[1];
+                    if (j >= 0 && j < n && !s.contains(j) && !vis[j][k]) {
+                        q.offer(new int[] {j, k});
+                        vis[j][k] = true;
                     }
                 }
             }
@@ -135,31 +133,30 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    const int N = 6010;
-
     int minimumJumps(vector<int>& forbidden, int a, int b, int x) {
         unordered_set<int> s(forbidden.begin(), forbidden.end());
-        queue<vector<int>> q;
-        q.push({0, 0});
-        vector<vector<bool>> vis(N, vector<bool>(2));
-        vis[0][0] = true;
+        queue<pair<int, int>> q;
+        q.emplace(0, 1);
+        const int n = 6000;
+        bool vis[n][2];
+        memset(vis, false, sizeof(vis));
         vis[0][1] = true;
         int ans = 0;
         while (!q.empty()) {
             for (int t = q.size(); t; --t) {
-                auto p = q.front();
+                auto [i, k] = q.front();
                 q.pop();
-                int i = p[0], dir = p[1];
-                if (i == x) return ans;
-                vector<vector<int>> nxt;
-                nxt.push_back({i + a, 1});
-                if (dir) nxt.push_back({i - b, 0});
-                for (auto& e : nxt) {
-                    int j = e[0];
-                    dir = e[1];
-                    if (j >= 0 && j < N && !s.count(j) && !vis[j][dir]) {
-                        vis[j][dir] = true;
-                        q.push({j, dir});
+                if (i == x) {
+                    return ans;
+                }
+                vector<pair<int, int>> nxts = {{i + a, 1}};
+                if (k & 1) {
+                    nxts.emplace_back(i - b, 0);
+                }
+                for (auto [j, l] : nxts) {
+                    if (j >= 0 && j < n && !s.count(j) && !vis[j][l]) {
+                        vis[j][l] = true;
+                        q.emplace(j, l);
                     }
                 }
             }
@@ -173,38 +170,32 @@ public:
 ### **Go**
 
 ```go
-func minimumJumps(forbidden []int, a int, b int, x int) int {
-	n := 6010
-	s := make(map[int]bool)
+func minimumJumps(forbidden []int, a int, b int, x int) (ans int) {
+	s := map[int]bool{}
 	for _, v := range forbidden {
 		s[v] = true
 	}
-	q := [][]int{[]int{0, 0}}
-	vis := make([][]bool, n)
-	for i := range vis {
-		vis[i] = make([]bool, 2)
-	}
-	vis[0][0] = true
+	q := [][2]int{[2]int{0, 1}}
+	const n = 6000
+	vis := make([][2]bool, n)
 	vis[0][1] = true
-	ans := 0
 	for len(q) > 0 {
 		for t := len(q); t > 0; t-- {
 			p := q[0]
 			q = q[1:]
-			i, dir := p[0], p[1]
+			i, k := p[0], p[1]
 			if i == x {
-				return ans
+				return
 			}
-			nxt := [][]int{[]int{i + a, 1}}
-			if dir != 0 {
-				nxt = append(nxt, []int{i - b, 0})
+			nxt := [][2]int{[2]int{i + a, 1}}
+			if k&1 == 1 {
+				nxt = append(nxt, [2]int{i - b, 0})
 			}
 			for _, e := range nxt {
-				j := e[0]
-				dir = e[1]
-				if j >= 0 && j < n && !s[j] && !vis[j][dir] {
-					vis[j][dir] = true
-					q = append(q, []int{j, dir})
+				j, l := e[0], e[1]
+				if j >= 0 && j < n && !s[j] && !vis[j][l] {
+					q = append(q, [2]int{j, l})
+					vis[j][l] = true
 				}
 			}
 		}

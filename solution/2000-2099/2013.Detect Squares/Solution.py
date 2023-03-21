@@ -1,21 +1,25 @@
 class DetectSquares:
     def __init__(self):
-        self.mp = defaultdict(Counter)
+        self.cnt = defaultdict(Counter)
 
     def add(self, point: List[int]) -> None:
         x, y = point
-        self.mp[x][y] += 1
+        self.cnt[x][y] += 1
 
     def count(self, point: List[int]) -> int:
-        x, y = point
+        x1, y1 = point
+        if x1 not in self.cnt:
+            return 0
         ans = 0
-        if x not in self.mp:
-            return ans
-        xcnt = self.mp[x]
-
-        for x1, counter in self.mp.items():
-            if x1 != x:
-                d = x1 - x
-                ans += xcnt[y + d] * counter[y] * counter[y + d]
-                ans += xcnt[y - d] * counter[y] * counter[y - d]
+        for x2 in self.cnt.keys():
+            if x2 != x1:
+                d = x2 - x1
+                ans += self.cnt[x2][y1] * self.cnt[x1][y1 + d] * self.cnt[x2][y1 + d]
+                ans += self.cnt[x2][y1] * self.cnt[x1][y1 - d] * self.cnt[x2][y1 - d]
         return ans
+
+
+# Your DetectSquares object will be instantiated and called as such:
+# obj = DetectSquares()
+# obj.add(point)
+# param_2 = obj.count(point)

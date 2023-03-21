@@ -5,10 +5,8 @@
 var isArmstrong = function (n) {
     const k = String(n).length;
     let s = 0;
-    let t = n;
-    while (t) {
-        s += Math.pow(t % 10, k);
-        t = Math.floor(t / 10);
+    for (let x = n; x; x = Math.floor(x / 10)) {
+        s += Math.pow(x % 10, k);
     }
-    return n == s;
+    return s == n;
 };

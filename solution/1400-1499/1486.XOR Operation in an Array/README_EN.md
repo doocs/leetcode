@@ -46,10 +46,16 @@ Where &quot;^&quot; corresponds to bitwise XOR operator.
 ```python
 class Solution:
     def xorOperation(self, n: int, start: int) -> int:
-        res = 0
+        ans = 0
         for i in range(n):
-            res ^= start + (i << 1)
-        return res
+            ans ^= start + 2 * i
+        return ans
+```
+
+```python
+class Solution:
+    def xorOperation(self, n: int, start: int) -> int:
+        return reduce(xor, ((start + 2 * i) for i in range(n)))
 ```
 
 ### **Java**
@@ -57,12 +63,38 @@ class Solution:
 ```java
 class Solution {
     public int xorOperation(int n, int start) {
-        int ret = start;
-        for (int i = 1; i < n; i++) {
-            ret = ret ^ (start + (i << 1));
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans ^= start + 2 * i;
         }
-        return ret;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int xorOperation(int n, int start) {
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans ^= start + 2 * i;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func xorOperation(n int, start int) (ans int) {
+	for i := 0; i < n; i++ {
+		ans ^= start + 2*i
+	}
+	return
 }
 ```
 

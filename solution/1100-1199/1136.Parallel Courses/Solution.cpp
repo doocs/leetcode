@@ -4,13 +4,16 @@ public:
         vector<vector<int>> g(n);
         vector<int> indeg(n);
         for (auto& r : relations) {
-            int a = r[0] - 1, b = r[1] - 1;
-            g[a].push_back(b);
-            ++indeg[b];
+            int prev = r[0] - 1, nxt = r[1] - 1;
+            g[prev].push_back(nxt);
+            ++indeg[nxt];
         }
         queue<int> q;
-        for (int i = 0; i < n; ++i)
-            if (indeg[i] == 0) q.push(i);
+        for (int i = 0; i < n; ++i) {
+            if (indeg[i] == 0) {
+                q.push(i);
+            }
+        }
         int ans = 0;
         while (!q.empty()) {
             ++ans;
@@ -18,8 +21,11 @@ public:
                 int i = q.front();
                 q.pop();
                 --n;
-                for (int j : g[i])
-                    if (--indeg[j] == 0) q.push(j);
+                for (int& j : g[i]) {
+                    if (--indeg[j] == 0) {
+                        q.push(j);
+                    }
+                }
             }
         }
         return n == 0 ? ans : -1;
