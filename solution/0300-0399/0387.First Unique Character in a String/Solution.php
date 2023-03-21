@@ -4,14 +4,11 @@ class Solution {
      * @return Integer
      */
     function firstUniqChar($s) {
-        $hashmap = [];
         for ($i = 0; $i < strlen($s); $i++) {
-            $word = $s[$i];
-            $hasmap[$word] += 1;
+            $hashtable[$s[$i]]++;
         }
         for ($i = 0; $i < strlen($s); $i++) {
-            $word = $s[$i];
-            if ($hasmap[$word] == 1) {
+            if ($hashtable[$s[$i]] == 1) {
                 return $i;
             }
         }

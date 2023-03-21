@@ -1,10 +1,10 @@
 func firstUniqChar(s string) int {
-	counter := make([]int, 26)
+	cnt := [26]int{}
 	for _, c := range s {
-		counter[c-'a']++
+		cnt[c-'a']++
 	}
 	for i, c := range s {
-		if counter[c-'a'] == 1 {
+		if cnt[c-'a'] == 1 {
 			return i
 		}
 	}

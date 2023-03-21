@@ -3,12 +3,12 @@
  * @return {number}
  */
 var firstUniqChar = function (s) {
-    const counter = new Map();
-    for (let c of s) {
-        counter[c] = (counter[c] || 0) + 1;
+    const cnt = new Array(26).fill(0);
+    for (const c of s) {
+        ++cnt[c.charCodeAt() - 'a'.charCodeAt()];
     }
     for (let i = 0; i < s.length; ++i) {
-        if (counter[s[i]] == 1) {
+        if (cnt[s[i].charCodeAt() - 'a'.charCodeAt()] === 1) {
             return i;
         }
     }
