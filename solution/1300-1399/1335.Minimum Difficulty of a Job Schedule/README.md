@@ -67,6 +67,20 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+我们定义 $f[i][j]$ 表示完成前 $i$ 项工作，且一共用了 $j$ 天的最小难度。初始时 $f[0][0] = 0$，其余 $f[i][j]$ 均为 $\infty$。
+
+考虑第 $j$ 天的工作安排，我们可以枚举第 $j$ 天完成的工作 $[k,..i]$，那么有状态转移方程：
+
+$$
+f[i][j] = \min_{k \in [1,i]} \{f[k-1][j-1] + \max_{k \leq t \leq i} \{jobDifficulty[t]\}\}
+$$
+
+最终答案即为 $f[n][d]$。
+
+时间复杂度 $O(n^2 \times d)$，空间复杂度 $O(n \times d)$。其中 $n$ 和 $d$ 分别为工作数量和需要计划的天数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -74,7 +88,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minDifficulty(self, jobDifficulty: List[int], d: int) -> int:
+        n = len(jobDifficulty)
+        f = [[inf] * (d + 1) for _ in range(n + 1)]
+        f[0][0] = 0
+        for i, x in enumerate(jobDifficulty, 1):
+            for j in range(1, d + 1):
+                mx = 0
+                for k in range(i, 0, -1):
+                    mx = max(mx, jobDifficulty[k - 1])
+                    f[i][j] = min(f[i][j], f[k - 1][j - 1] + mx)
+        return f[n][d] if f[n][d] != inf else -1
 ```
 
 ### **Java**
@@ -82,7 +107,95 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minDifficulty(int[] jobDifficulty, int d) {
+        int n = jobDifficulty.length;
+        final int inf = 1 << 30;
+        int[][] f = new int[n + 1][d + 1];
+        for (int[] g : f) {
+            Arrays.fill(g, inf);
+        }
+        f[0][0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j <= d; ++j) {
+                int mx = 0;
+                for (int k = i; k > 0; --k) {
+                    mx = Math.max(mx, jobDifficulty[k - 1]);
+                    f[i][j] = Math.min(f[i][j], f[k - 1][j - 1] + mx);
+                }
+            }
+        }
+        return f[n][d] < inf ? f[n][d] : -1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minDifficulty(vector<int>& jobDifficulty, int d) {
+        int n = jobDifficulty.size();
+        int f[n + 1][d + 1];
+        memset(f, 0x3f, sizeof(f));
+        f[0][0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j <= d; ++j) {
+                int mx = 0;
+                for (int k = i; k; --k) {
+                    mx = max(mx, jobDifficulty[k - 1]);
+                    f[i][j] = min(f[i][j], f[k - 1][j - 1] + mx);
+                }
+            }
+        }
+        return f[n][d] == 0x3f3f3f3f ? -1 : f[n][d];
+    }
+};
+```
+
+### **Go**
+
+```go
+func minDifficulty(jobDifficulty []int, d int) int {
+	n := len(jobDifficulty)
+	f := make([][]int, n+1)
+	const inf = 1 << 30
+	for i := range f {
+		f[i] = make([]int, d+1)
+		for j := range f[i] {
+			f[i][j] = inf
+		}
+	}
+	f[0][0] = 0
+	for i := 1; i <= n; i++ {
+		for j := 1; j <= d; j++ {
+			mx := 0
+			for k := i; k > 0; k-- {
+				mx = max(mx, jobDifficulty[k-1])
+				f[i][j] = min(f[i][j], f[k-1][j-1]+mx)
+			}
+		}
+	}
+	if f[n][d] == inf {
+		return -1
+	}
+	return f[n][d]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
