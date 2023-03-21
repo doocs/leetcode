@@ -163,10 +163,10 @@ class Solution {
      */
     function firstUniqChar($s) {
         for ($i = 0; $i < strlen($s); $i++) {
-            $hashmap[$s[$i]] += 1;
+            $hashtable[$s[$i]] += 1;
         }
         for ($i = 0; $i < strlen($s); $i++) {
-            if ($hashmap[$s[$i]] == 1) {
+            if ($hashtable[$s[$i]] == 1) {
                 return $i;
             }
         }
