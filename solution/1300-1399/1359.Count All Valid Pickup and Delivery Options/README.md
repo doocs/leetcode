@@ -48,6 +48,22 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+我们定义 $f[i]$ 表示 $i$ 个订单的所有有效的收件/配送序列的数目。初始时 $f[1] = 1$。
+
+我们可以选择这 $i$ 个订单中的任意一个作为最后一个配送的订单 $D_i$，那么它的收件订单 $P_i$ 可以在之前 $2 \times i - 1$ 的任意一个位置，剩下的 $i - 1$ 个订单的配送/收件序列数目为 $f[i - 1]$，所以 $f[i]$ 可以表示为：
+
+$$
+f[i] = i \times (2 \times i - 1) \times f[i - 1]
+$$
+
+最终的答案即为 $f[n]$。
+
+我们注意到 $f[i]$ 的值只与 $f[i - 1]$ 有关，所以可以用一个变量代替数组，降低空间复杂度。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为订单数目。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -55,7 +71,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countOrders(self, n: int) -> int:
+        mod = 10**9 + 7
+        f = 1
+        for i in range(2, n + 1):
+            f = (f * i * (2 * i - 1)) % mod
+        return f
 ```
 
 ### **Java**
@@ -63,7 +85,45 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int countOrders(int n) {
+        final int mod = (int) 1e9 + 7;
+        long f = 1;
+        for (int i = 2; i <= n; ++i) {
+            f = f * i * (2 * i - 1) % mod;
+        }
+        return (int) f;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countOrders(int n) {
+        const int mod = 1e9 + 7;
+        long long f = 1;
+        for (int i = 2; i <= n; ++i) {
+            f = f * i * (2 * i - 1) % mod;
+        }
+        return f;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countOrders(n int) int {
+	const mod = 1e9 + 7
+	f := 1
+	for i := 2; i <= n; i++ {
+		f = f * i * (2*i - 1) % mod
+	}
+	return f
+}
 ```
 
 ### **...**

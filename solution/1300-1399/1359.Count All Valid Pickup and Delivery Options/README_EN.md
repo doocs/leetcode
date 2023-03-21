@@ -50,13 +50,57 @@ This is an invalid order (P1,D2,P2,D1) because Pickup 2 is after of Delivery 2.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def countOrders(self, n: int) -> int:
+        mod = 10**9 + 7
+        f = 1
+        for i in range(2, n + 1):
+            f = (f * i * (2 * i - 1)) % mod
+        return f
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int countOrders(int n) {
+        final int mod = (int) 1e9 + 7;
+        long f = 1;
+        for (int i = 2; i <= n; ++i) {
+            f = f * i * (2 * i - 1) % mod;
+        }
+        return (int) f;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countOrders(int n) {
+        const int mod = 1e9 + 7;
+        long long f = 1;
+        for (int i = 2; i <= n; ++i) {
+            f = f * i * (2 * i - 1) % mod;
+        }
+        return f;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countOrders(n int) int {
+	const mod = 1e9 + 7
+	f := 1
+	for i := 2; i <= n; i++ {
+		f = f * i * (2*i - 1) % mod
+	}
+	return f
+}
 ```
 
 ### **...**
