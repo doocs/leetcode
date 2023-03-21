@@ -64,6 +64,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：前缀和 + 记忆化搜索**
+
+我们先预处理出数组 $stoneValue$ 的前缀和数组 $s$，其中 $s[i]$ 表示 $stoneValue$ 数组前 $i$ 个元素之和。
+
+接下来，我们设计一个函数 $dfs(i)$，表示当前玩家从 $stoneValue$ 数组下标 $i$ 开始拿石子时，能够获得的最大分数。如果当前玩家拿走了 $stoneValue$ 数组下标 $i$ 开始的 $j$ 堆石子，那么下一个玩家能够获得的最大分数为 $dfs(i + j)$，为了使当前玩家获得的分数最大化，我们需要让 $dfs(i + j)$ 最小化，即 $dfs(i) = s[n] - s[i] - min(dfs(i + j))$，其中 $s[n]$ 表示 $stoneValue$ 数组所有元素之和。
+
+最后，玩家 $Alice$ 的分数为 $dfs(0)$，玩家 $Bob$ 的分数为 $s[n] - dfs(0)$，如果 $Alice$ 的分数大于 $Bob$ 的分数，那么 $Alice$ 获胜；如果 $Alice$ 的分数小于 $Bob$ 的分数，那么 $Bob$ 获胜；如果 $Alice$ 的分数等于 $Bob$ 的分数，那么平局。
+
+过程中，我们可以使用记忆化搜索，避免重复计算。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $stoneValue$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -71,7 +83,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def stoneGameIII(self, stoneValue: List[int]) -> str:
+        @cache
+        def dfs(i: int) -> int:
+            if i >= len(stoneValue):
+                return 0
+            t = min(dfs(i + j) for j in range(1, 4))
+            return s[-1] - s[i] - t
 
+        s = list(accumulate(stoneValue, initial=0))
+        a = dfs(0)
+        b = s[-1] - a
+        if a == b:
+            return 'Tie'
+        return 'Alice' if a > b else 'Bob'
 ```
 
 ### **Java**
@@ -79,7 +105,120 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int n;
+    private int[] s;
+    private Integer[] f;
 
+    public String stoneGameIII(int[] stoneValue) {
+        n = stoneValue.length;
+        s = new int[n + 1];
+        f = new Integer[n];
+        for (int i = 1; i <= n; ++i) {
+            s[i] = s[i - 1] + stoneValue[i - 1];
+        }
+        int a = dfs(0);
+        int b = s[n] - a;
+        return a == b ? "Tie" : a > b ? "Alice" : "Bob";
+    }
+
+    private int dfs(int i) {
+        if (i >= n) {
+            return 0;
+        }
+        if (f[i] != null) {
+            return f[i];
+        }
+        int t = 1 << 30;
+        for (int j = 1; j < 4; ++j) {
+            t = Math.min(t, dfs(i + j));
+        }
+        f[i] = s[n] - s[i] - t;
+        return f[i];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string stoneGameIII(vector<int>& stoneValue) {
+        int n = stoneValue.size();
+        int s[n + 1];
+        s[0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            s[i] = s[i - 1] + stoneValue[i - 1];
+        }
+        int f[n];
+        memset(f, 0x3f, sizeof(f));
+        function<int(int)> dfs = [&](int i) -> int {
+            if (i >= n) {
+                return 0;
+            }
+            if (f[i] != 0x3f3f3f3f) {
+                return f[i];
+            }
+            int t = 1 << 30;
+            for (int j = 1; j < 4; ++j) {
+                t = min(t, dfs(i + j));
+            }
+            return f[i] = s[n] - s[i] - t;
+        };
+        int a = dfs(0);
+        int b = s[n] - a;
+        return a == b ? "Tie" : (a > b ? "Alice" : "Bob");
+    }
+};
+```
+
+### **Go**
+
+```go
+func stoneGameIII(stoneValue []int) string {
+	n := len(stoneValue)
+	s := make([]int, n+1)
+	for i, x := range stoneValue {
+		s[i+1] = s[i] + x
+	}
+	const inf = 1 << 30
+	f := make([]int, n)
+	for i := range f {
+		f[i] = inf
+	}
+	var dfs func(int) int
+	dfs = func(i int) int {
+		if i >= n {
+			return 0
+		}
+		if f[i] != inf {
+			return f[i]
+		}
+		t := inf
+		for j := 1; j <= 3; j++ {
+			t = min(t, dfs(i+j))
+		}
+		f[i] = s[n] - s[i] - t
+		return f[i]
+	}
+	a := dfs(0)
+	b := s[n] - a
+	if a == b {
+		return "Tie"
+	}
+	if a > b {
+		return "Alice"
+	}
+	return "Bob"
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
