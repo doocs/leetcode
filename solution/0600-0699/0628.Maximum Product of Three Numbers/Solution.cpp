@@ -1,6 +1,7 @@
 class Solution {
-    public int maximumProduct(int[] nums) {
-        final int inf = 1 << 30;
+public:
+    int maximumProduct(vector<int>& nums) {
+        const int inf = 1 << 30;
         int mi1 = inf, mi2 = inf;
         int mx1 = -inf, mx2 = -inf, mx3 = -inf;
         for (int x : nums) {
@@ -21,6 +22,6 @@ class Solution {
                 mx3 = x;
             }
         }
-        return Math.max(mi1 * mi2 * mx1, mx1 * mx2 * mx3);
+        return max(mi1 * mi2 * mx1, mx1 * mx2 * mx3);
     }
-}
+};
