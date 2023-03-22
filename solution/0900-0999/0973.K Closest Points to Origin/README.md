@@ -49,6 +49,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：自定义排序**
+
+我们将所有点按照与原点的距离从小到大排序，然后取前 $k$ 个点即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 `points` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -56,7 +62,10 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
+        points.sort(key=lambda p: p[0] * p[0] + p[1] * p[1])
+        return points[:k]
 ```
 
 ### **Java**
@@ -64,43 +73,41 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-import java.util.*;
-
-/**
- * @author Furaha Damien
- */
-
 class Solution {
-
-    // Helper inner class
-    public class Point {
-        int x;
-        int y;
-        int distance;
-
-        public Point(int x, int y, int distance) {
-            this.x = x;
-            this.y = y;
-            this.distance = distance;
-        }
+    public int[][] kClosest(int[][] points, int k) {
+        Arrays.sort(points, (a, b) -> {
+            int d1 = a[0] * a[0] + a[1] * a[1];
+            int d2 = b[0] * b[0] + b[1] * b[1];
+            return d1 - d2;
+        });
+        return Arrays.copyOfRange(points, 0, k);
     }
+}
+```
 
-    public int[][] kClosest(int[][] points, int K) {
+### **C++**
 
-        PriorityQueue<Point> que = new PriorityQueue<Point>((a, b) -> (a.distance - b.distance));
-        int[][] res = new int[K][2];
-
-        for (int[] temp : points) {
-            int dist = (temp[0] * temp[0] + temp[1] * temp[1]);
-            que.offer(new Point(temp[0], temp[1], dist));
-        }
-        for (int i = 0; i < K; i++) {
-            Point curr = que.poll();
-            res[i][0] = curr.x;
-            res[i][1] = curr.y;
-        }
-        return res;
+```cpp
+class Solution {
+public:
+    vector<vector<int>> kClosest(vector<vector<int>>& points, int k) {
+        sort(points.begin(), points.end(), [](const vector<int>& a, const vector<int>& b) {
+            return a[0] * a[0] + a[1] * a[1] < b[0] * b[0] + b[1] * b[1];
+        });
+        return vector<vector<int>>(points.begin(), points.begin() + k);
     }
+};
+```
+
+### **Go**
+
+```go
+func kClosest(points [][]int, k int) [][]int {
+	sort.Slice(points, func(i, j int) bool {
+		a, b := points[i], points[j]
+		return a[0]*a[0]+a[1]*a[1] < b[0]*b[0]+b[1]*b[1]
+	})
+	return points[:k]
 }
 ```
 
