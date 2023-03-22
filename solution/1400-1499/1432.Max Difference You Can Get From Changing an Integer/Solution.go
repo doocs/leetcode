@@ -11,7 +11,7 @@ func maxDiff(num int) int {
 		b, _ = strconv.Atoi(strings.ReplaceAll(s, string(s[0]), "1"))
 	} else {
 		for i := 1; i < len(s); i++ {
-			if s[i] != '0' && s[i] != s[0] {
+			if s[i] != '0' && s[i] != '1' {
 				b, _ = strconv.Atoi(strings.ReplaceAll(s, string(s[i]), "0"))
 				break
 			}
