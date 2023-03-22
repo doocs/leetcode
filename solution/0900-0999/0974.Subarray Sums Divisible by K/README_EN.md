@@ -43,12 +43,12 @@
 ```python
 class Solution:
     def subarraysDivByK(self, nums: List[int], k: int) -> int:
+        cnt = Counter({0: 1})
         ans = s = 0
-        counter = Counter({0: 1})
-        for num in nums:
-            s += num
-            ans += counter[s % k]
-            counter[s % k] += 1
+        for x in nums:
+            s = (s + x) % k
+            ans += cnt[s]
+            cnt[s] += 1
         return ans
 ```
 
@@ -57,14 +57,13 @@ class Solution:
 ```java
 class Solution {
     public int subarraysDivByK(int[] nums, int k) {
-        Map<Integer, Integer> counter = new HashMap<>();
-        counter.put(0, 1);
-        int s = 0, ans = 0;
-        for (int num : nums) {
-            s += num;
-            int t = (s % k + k) % k;
-            ans += counter.getOrDefault(t, 0);
-            counter.put(t, counter.getOrDefault(t, 0) + 1);
+        Map<Integer, Integer> cnt = new HashMap<>();
+        cnt.put(0, 1);
+        int ans = 0, s = 0;
+        for (int x : nums) {
+            s = ((s + x) % k + k) % k;
+            ans += cnt.getOrDefault(s, 0);
+            cnt.merge(s, 1, Integer::sum);
         }
         return ans;
     }
@@ -77,14 +76,11 @@ class Solution {
 class Solution {
 public:
     int subarraysDivByK(vector<int>& nums, int k) {
-        unordered_map<int, int> counter;
-        counter[0] = 1;
-        int s = 0, ans = 0;
-        for (int& num : nums) {
-            s += num;
-            int t = (s % k + k) % k;
-            ans += counter[t];
-            ++counter[t];
+        unordered_map<int, int> cnt{{0, 1}};
+        int ans = 0, s = 0;
+        for (int& x : nums) {
+            s = ((s + x) % k + k) % k;
+            ans += cnt[s]++;
         }
         return ans;
     }
@@ -94,16 +90,15 @@ public:
 ### **Go**
 
 ```go
-func subarraysDivByK(nums []int, k int) int {
-	counter := map[int]int{0: 1}
-	ans, s := 0, 0
-	for _, num := range nums {
-		s += num
-		t := (s%k + k) % k
-		ans += counter[t]
-		counter[t]++
+func subarraysDivByK(nums []int, k int) (ans int) {
+	cnt := map[int]int{0: 1}
+	s := 0
+	for _, x := range nums {
+		s = ((s+x)%k + k) % k
+		ans += cnt[s]
+		cnt[s]++
 	}
-	return ans
+	return
 }
 ```
 

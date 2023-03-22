@@ -43,9 +43,19 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-前缀和 + 哈希表。
+**方法一：哈希表 + 前缀和**
 
-注意：不同的语言负数取模的值不一定相同，有的语言为负数，对于这种情况需要特殊处理。
+假设存在 $i \leq j$，使得 $nums[i,..j]$ 的和能被 $k$ 整除，如果我们令 $s_i$ 表示 $nums[0,..i]$ 的和，令 $s_j$ 表示 $nums[0,..j]$ 的和，那么 $s_j - s_i$ 能被 $k$ 整除，即 $(s_j - s_i) \bmod k = 0$，也即 $s_j \bmod k = s_i \bmod k$。因此，我们可以用哈希表统计前缀和模 $k$ 的值的个数，从而快速判断是否存在满足条件的子数组。
+
+我们用一个哈希表 $cnt$ 统计前缀和模 $k$ 的值的个数，即 $cnt[i]$ 表示前缀和模 $k$ 的值为 $i$ 的个数。初始时 $cnt[0]=1$。用变量 $s$ 表示前缀和，初始时 $s = 0$。
+
+接下来，从左到右遍历数组 $nums$，对于遍历到的每个元素 $x$，我们计算 $s = (s + x) \bmod k$，然后更新答案 $ans = ans + cnt[s]$，其中 $cnt[s]$ 表示前缀和模 $k$ 的值为 $s$ 的个数。最后我们将 $cnt[s]$ 的值加 $1$，继续遍历下一个元素。
+
+最终，我们返回答案 $ans$。
+
+> 注意，由于 $s$ 的值可能为负数，因此我们可以将 $s$ 模 $k$ 的结果加上 $k$，再对 $k$ 取模，以确保 $s$ 的值为非负数。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
 
@@ -56,12 +66,12 @@
 ```python
 class Solution:
     def subarraysDivByK(self, nums: List[int], k: int) -> int:
+        cnt = Counter({0: 1})
         ans = s = 0
-        counter = Counter({0: 1})
-        for num in nums:
-            s += num
-            ans += counter[s % k]
-            counter[s % k] += 1
+        for x in nums:
+            s = (s + x) % k
+            ans += cnt[s]
+            cnt[s] += 1
         return ans
 ```
 
@@ -72,14 +82,13 @@ class Solution:
 ```java
 class Solution {
     public int subarraysDivByK(int[] nums, int k) {
-        Map<Integer, Integer> counter = new HashMap<>();
-        counter.put(0, 1);
-        int s = 0, ans = 0;
-        for (int num : nums) {
-            s += num;
-            int t = (s % k + k) % k;
-            ans += counter.getOrDefault(t, 0);
-            counter.put(t, counter.getOrDefault(t, 0) + 1);
+        Map<Integer, Integer> cnt = new HashMap<>();
+        cnt.put(0, 1);
+        int ans = 0, s = 0;
+        for (int x : nums) {
+            s = ((s + x) % k + k) % k;
+            ans += cnt.getOrDefault(s, 0);
+            cnt.merge(s, 1, Integer::sum);
         }
         return ans;
     }
@@ -92,14 +101,11 @@ class Solution {
 class Solution {
 public:
     int subarraysDivByK(vector<int>& nums, int k) {
-        unordered_map<int, int> counter;
-        counter[0] = 1;
-        int s = 0, ans = 0;
-        for (int& num : nums) {
-            s += num;
-            int t = (s % k + k) % k;
-            ans += counter[t];
-            ++counter[t];
+        unordered_map<int, int> cnt{{0, 1}};
+        int ans = 0, s = 0;
+        for (int& x : nums) {
+            s = ((s + x) % k + k) % k;
+            ans += cnt[s]++;
         }
         return ans;
     }
@@ -109,16 +115,15 @@ public:
 ### **Go**
 
 ```go
-func subarraysDivByK(nums []int, k int) int {
-	counter := map[int]int{0: 1}
-	ans, s := 0, 0
-	for _, num := range nums {
-		s += num
-		t := (s%k + k) % k
-		ans += counter[t]
-		counter[t]++
+func subarraysDivByK(nums []int, k int) (ans int) {
+	cnt := map[int]int{0: 1}
+	s := 0
+	for _, x := range nums {
+		s = ((s+x)%k + k) % k
+		ans += cnt[s]
+		cnt[s]++
 	}
-	return ans
+	return
 }
 ```
 
