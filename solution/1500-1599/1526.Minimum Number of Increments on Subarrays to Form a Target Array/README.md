@@ -63,6 +63,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+我们定义 $f[i]$ 表示得到 $target[0,..i]$ 的最少操作次数，初始时 $f[0] = target[0]$。
+
+对于 $target[i]$，如果 $target[i] \leq target[i-1]$，则 $f[i] = f[i-1]$；否则 $f[i] = f[i-1] + target[i] - target[i-1]$。
+
+最终答案即为 $f[n-1]$。
+
+我们注意到 $f[i]$ 只与 $f[i-1]$ 有关，因此可以只用一个变量来维护操作次数。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $target$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -70,7 +82,9 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minNumberOperations(self, target: List[int]) -> int:
+        return target[0] + sum(max(0, b - a) for a, b in pairwise(target))
 ```
 
 ### **Java**
@@ -78,7 +92,48 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minNumberOperations(int[] target) {
+        int f = target[0];
+        for (int i = 1; i < target.length; ++i) {
+            if (target[i] > target[i - 1]) {
+                f += target[i] - target[i - 1];
+            }
+        }
+        return f;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minNumberOperations(vector<int>& target) {
+        int f = target[0];
+        for (int i = 1; i < target.size(); ++i) {
+            if (target[i] > target[i - 1]) {
+                f += target[i] - target[i - 1];
+            }
+        }
+        return f;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minNumberOperations(target []int) int {
+	f := target[0]
+	for i, x := range target[1:] {
+		if x > target[i] {
+			f += x - target[i]
+		}
+	}
+	return f
+}
 ```
 
 ### **...**

@@ -56,13 +56,56 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minNumberOperations(self, target: List[int]) -> int:
+        return target[0] + sum(max(0, b - a) for a, b in pairwise(target))
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minNumberOperations(int[] target) {
+        int f = target[0];
+        for (int i = 1; i < target.length; ++i) {
+            if (target[i] > target[i - 1]) {
+                f += target[i] - target[i - 1];
+            }
+        }
+        return f;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minNumberOperations(vector<int>& target) {
+        int f = target[0];
+        for (int i = 1; i < target.size(); ++i) {
+            if (target[i] > target[i - 1]) {
+                f += target[i] - target[i - 1];
+            }
+        }
+        return f;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minNumberOperations(target []int) int {
+	f := target[0]
+	for i, x := range target[1:] {
+		if x > target[i] {
+			f += x - target[i]
+		}
+	}
+	return f
+}
 ```
 
 ### **...**
