@@ -63,13 +63,72 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def waysToDistribute(self, n: int, k: int) -> int:
+        mod = 10**9 + 7
+        f = [[0] * (k + 1) for _ in range(n + 1)]
+        f[0][0] = 1
+        for i in range(1, n + 1):
+            for j in range(1, k + 1):
+                f[i][j] = (f[i - 1][j] * j + f[i - 1][j - 1]) % mod
+        return f[n][k]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int waysToDistribute(int n, int k) {
+        final int mod = (int) 1e9 + 7;
+        int[][] f = new int[n + 1][k + 1];
+        f[0][0] = 1;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= k; j++) {
+                f[i][j] = (int) ((long) f[i - 1][j] * j % mod + f[i - 1][j - 1]) % mod;
+            }
+        }
+        return f[n][k];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int waysToDistribute(int n, int k) {
+        const int mod = 1e9 + 7;
+        int f[n + 1][k + 1];
+        memset(f, 0, sizeof(f));
+        f[0][0] = 1;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j <= k; ++j) {
+                f[i][j] = (1LL * f[i - 1][j] * j + f[i - 1][j - 1]) % mod;
+            }
+        }
+        return f[n][k];
+    }
+};
+```
+
+### **Go**
+
+```go
+func waysToDistribute(n int, k int) int {
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, k+1)
+	}
+	f[0][0] = 1
+	const mod = 1e9 + 7
+	for i := 1; i <= n; i++ {
+		for j := 1; j <= k; j++ {
+			f[i][j] = (f[i-1][j]*j + f[i-1][j-1]) % mod
+		}
+	}
+	return f[n][k]
+}
 ```
 
 ### **...**

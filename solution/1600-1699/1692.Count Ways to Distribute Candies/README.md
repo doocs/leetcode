@@ -64,6 +64,20 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+我们定义 $f[i][j]$ 表示将 $i$ 个糖果分配给 $j$ 个手袋的不同分配方式的数量。初始时 $f[0][0]=1$，答案为 $f[n][k]$。
+
+我们考虑第 $i$ 个糖果如何分配，如果第 $i$ 个糖果分配给一个新的手袋，那么 $f[i][j]=f[i-1][j-1]$；如果第 $i$ 个糖果分配给一个已有的手袋，那么 $f[i][j]=f[i-1][j]\times j$。因此，状态转移方程为：
+
+$$
+f[i][j]=f[i-1][j-1]+f[i-1][j]\times j
+$$
+
+最终的答案为 $f[n][k]$。
+
+时间复杂度 $O(n \times k)$，空间复杂度 $O(n \times k)$。其中 $n$ 和 $k$ 分别为糖果的数量和手袋的数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -71,7 +85,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def waysToDistribute(self, n: int, k: int) -> int:
+        mod = 10**9 + 7
+        f = [[0] * (k + 1) for _ in range(n + 1)]
+        f[0][0] = 1
+        for i in range(1, n + 1):
+            for j in range(1, k + 1):
+                f[i][j] = (f[i - 1][j] * j + f[i - 1][j - 1]) % mod
+        return f[n][k]
 ```
 
 ### **Java**
@@ -79,7 +101,58 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int waysToDistribute(int n, int k) {
+        final int mod = (int) 1e9 + 7;
+        int[][] f = new int[n + 1][k + 1];
+        f[0][0] = 1;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= k; j++) {
+                f[i][j] = (int) ((long) f[i - 1][j] * j % mod + f[i - 1][j - 1]) % mod;
+            }
+        }
+        return f[n][k];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int waysToDistribute(int n, int k) {
+        const int mod = 1e9 + 7;
+        int f[n + 1][k + 1];
+        memset(f, 0, sizeof(f));
+        f[0][0] = 1;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j <= k; ++j) {
+                f[i][j] = (1LL * f[i - 1][j] * j + f[i - 1][j - 1]) % mod;
+            }
+        }
+        return f[n][k];
+    }
+};
+```
+
+### **Go**
+
+```go
+func waysToDistribute(n int, k int) int {
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, k+1)
+	}
+	f[0][0] = 1
+	const mod = 1e9 + 7
+	for i := 1; i <= n; i++ {
+		for j := 1; j <= k; j++ {
+			f[i][j] = (f[i-1][j]*j + f[i-1][j-1]) % mod
+		}
+	}
+	return f[n][k]
+}
 ```
 
 ### **...**
