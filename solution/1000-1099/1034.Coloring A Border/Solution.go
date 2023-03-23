@@ -1,21 +1,19 @@
 func colorBorder(grid [][]int, row int, col int, color int) [][]int {
 	m, n := len(grid), len(grid[0])
 	vis := make([][]bool, m)
-	for i := 0; i < m; i++ {
+	for i := range vis {
 		vis[i] = make([]bool, n)
 	}
-	dirs := [4][2]int{{0, -1}, {0, 1}, {1, 0}, {-1, 0}}
-
-	var dfs func(i, j, color int)
-	dfs = func(i, j, color int) {
+	dirs := [5]int{-1, 0, 1, 0, -1}
+	var dfs func(int, int, int)
+	dfs = func(i, j, c int) {
 		vis[i][j] = true
-		oldColor := grid[i][j]
-		for _, dir := range dirs {
-			x, y := i+dir[0], j+dir[1]
+		for k := 0; k < 4; k++ {
+			x, y := i+dirs[k], j+dirs[k+1]
 			if x >= 0 && x < m && y >= 0 && y < n {
 				if !vis[x][y] {
-					if grid[x][y] == oldColor {
-						dfs(x, y, color)
+					if grid[x][y] == c {
+						dfs(x, y, c)
 					} else {
 						grid[i][j] = color
 					}
@@ -25,6 +23,6 @@ func colorBorder(grid [][]int, row int, col int, color int) [][]int {
 			}
 		}
 	}
-	dfs(row, col, color)
+	dfs(row, col, grid[row][col])
 	return grid
 }
