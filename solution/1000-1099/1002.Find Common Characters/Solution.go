@@ -1,24 +1,24 @@
-func commonChars(words []string) []string {
-	freq := make([]int, 26)
-	for i := 0; i < 26; i++ {
-		freq[i] = 10000
+func commonChars(words []string) (ans []string) {
+	cnt := [26]int{}
+	for i := range cnt {
+		cnt[i] = 1 << 30
 	}
-	for _, word := range words {
-		t := make([]int, 26)
-		for _, c := range word {
-			t[c-'a']++
+	for _, w := range words {
+		ccnt := [26]int{}
+		for _, c := range w {
+			ccnt[c-'a']++
 		}
-		for i := 0; i < 26; i++ {
-			freq[i] = min(freq[i], t[i])
-		}
-	}
-	var res []string
-	for i := 0; i < 26; i++ {
-		for j := 0; j < freq[i]; j++ {
-			res = append(res, string('a'+i))
+		for i, v := range cnt {
+			cnt[i] = min(v, ccnt[i])
 		}
 	}
-	return res
+	for i, v := range cnt {
+		for v > 0 {
+			ans = append(ans, string(i+'a'))
+			v--
+		}
+	}
+	return
 }
 
 func min(a, b int) int {

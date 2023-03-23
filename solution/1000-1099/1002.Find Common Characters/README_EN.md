@@ -32,18 +32,15 @@
 ```python
 class Solution:
     def commonChars(self, words: List[str]) -> List[str]:
-        freq = [10000] * 26
-        for word in words:
-            t = [0] * 26
-            for c in word:
-                t[ord(c) - ord('a')] += 1
-            for i in range(26):
-                freq[i] = min(freq[i], t[i])
-        res = []
-        for i in range(26):
-            if freq[i] > 0:
-                res.extend([chr(i + ord("a"))] * freq[i])
-        return res
+        cnt = Counter(words[0])
+        for w in words:
+            ccnt = Counter(w)
+            for c in cnt.keys():
+                cnt[c] = min(cnt[c], ccnt[c])
+        ans = []
+        for c, v in cnt.items():
+            ans.extend([c] * v)
+        return ans
 ```
 
 ### **Java**
@@ -51,24 +48,24 @@ class Solution:
 ```java
 class Solution {
     public List<String> commonChars(String[] words) {
-        int[] freq = new int[26];
-        Arrays.fill(freq, 10000);
-        for (String word : words) {
-            int[] t = new int[26];
-            for (char c : word.toCharArray()) {
-                ++t[c - 'a'];
+        int[] cnt = new int[26];
+        Arrays.fill(cnt, 10000);
+        for (String w : words) {
+            int[] ccnt = new int[26];
+            for (int i = 0; i < w.length(); ++i) {
+                ++ccnt[w.charAt(i) - 'a'];
             }
             for (int i = 0; i < 26; ++i) {
-                freq[i] = Math.min(freq[i], t[i]);
+                cnt[i] = Math.min(cnt[i], ccnt[i]);
             }
         }
-        List<String> res = new ArrayList<>();
+        List<String> ans = new ArrayList<>();
         for (int i = 0; i < 26; ++i) {
-            while (freq[i]-- > 0) {
-                res.add(String.valueOf((char) (i + 'a')));
+            while (cnt[i]-- > 0) {
+                ans.add(String.valueOf((char) (i + 'a')));
             }
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -79,20 +76,24 @@ class Solution {
 class Solution {
 public:
     vector<string> commonChars(vector<string>& words) {
-        vector<int> freq(26, 10000);
-        for (auto word : words) {
-            vector<int> t(26);
-            for (char c : word)
-                ++t[c - 'a'];
-            for (int i = 0; i < 26; ++i)
-                freq[i] = min(freq[i], t[i]);
+        int cnt[26];
+        memset(cnt, 0x3f, sizeof(cnt));
+        for (auto& w : words) {
+            int ccnt[26]{};
+            for (char& c : w) {
+                ++ccnt[c - 'a'];
+            }
+            for (int i = 0; i < 26; ++i) {
+                cnt[i] = min(cnt[i], ccnt[i]);
+            }
         }
-        vector<string> res;
-        for (int i = 0; i < 26; i++) {
-            while (freq[i]--)
-                res.emplace_back(1, i + 'a');
+        vector<string> ans;
+        for (int i = 0; i < 26; ++i) {
+            while (cnt[i]--) {
+                ans.emplace_back(1, i + 'a');
+            }
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -100,27 +101,27 @@ public:
 ### **Go**
 
 ```go
-func commonChars(words []string) []string {
-	freq := make([]int, 26)
-	for i := 0; i < 26; i++ {
-		freq[i] = 10000
+func commonChars(words []string) (ans []string) {
+	cnt := [26]int{}
+	for i := range cnt {
+		cnt[i] = 1 << 30
 	}
-	for _, word := range words {
-		t := make([]int, 26)
-		for _, c := range word {
-			t[c-'a']++
+	for _, w := range words {
+		ccnt := [26]int{}
+		for _, c := range w {
+			ccnt[c-'a']++
 		}
-		for i := 0; i < 26; i++ {
-			freq[i] = min(freq[i], t[i])
-		}
-	}
-	var res []string
-	for i := 0; i < 26; i++ {
-		for j := 0; j < freq[i]; j++ {
-			res = append(res, string('a'+i))
+		for i, v := range cnt {
+			cnt[i] = min(v, ccnt[i])
 		}
 	}
-	return res
+	for i, v := range cnt {
+		for v > 0 {
+			ans = append(ans, string(i+'a'))
+			v--
+		}
+	}
+	return
 }
 
 func min(a, b int) int {
