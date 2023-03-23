@@ -31,7 +31,7 @@
 <pre>
 <strong>输入：</strong>n = 14
 <strong>输出：</strong>false
-<strong>解释：</strong>14 不是丑数，因为它包含了另外一个质因数&nbsp;<code>7 </code>。
+<strong>解释：</strong>14 不是丑数，因为它包含了另外一个质因数 7。
 </pre>
 
 <p>&nbsp;</p>
@@ -121,16 +121,16 @@ public:
  */
 var isUgly = function (n) {
     if (n < 1) return false;
-    while (n % 2 == 0) {
+    while (n % 2 === 0) {
         n /= 2;
     }
-    while (n % 3 == 0) {
+    while (n % 3 === 0) {
         n /= 3;
     }
-    while (n % 5 == 0) {
+    while (n % 5 === 0) {
         n /= 5;
     }
-    return n == 1;
+    return n === 1;
 };
 ```
 
