@@ -56,13 +56,13 @@
 class Solution:
     def longestArithSeqLength(self, nums: List[int]) -> int:
         n = len(nums)
-        dp = [[1] * 1001 for _ in range(n)]
+        f = [[1] * 1001 for _ in range(n)]
         ans = 0
         for i in range(1, n):
-            for j in range(i):
-                d = nums[i] - nums[j] + 500
-                dp[i][d] = max(dp[i][d], dp[j][d] + 1)
-                ans = max(ans, dp[i][d])
+            for k in range(i):
+                j = nums[i] - nums[k] + 500
+                f[i][j] = max(f[i][j], f[k][j] + 1)
+                ans = max(ans, f[i][j])
         return ans
 ```
 
@@ -73,12 +73,12 @@ class Solution {
     public int longestArithSeqLength(int[] nums) {
         int n = nums.length;
         int ans = 0;
-        int[][] dp = new int[n][1001];
+        int[][] f = new int[n][1001];
         for (int i = 1; i < n; ++i) {
-            for (int j = 0; j < i; ++j) {
-                int d = nums[i] - nums[j] + 500;
-                dp[i][d] = Math.max(dp[i][d], dp[j][d] + 1);
-                ans = Math.max(ans, dp[i][d]);
+            for (int k = 0; k < i; ++k) {
+                int j = nums[i] - nums[k] + 500;
+                f[i][j] = Math.max(f[i][j], f[k][j] + 1);
+                ans = Math.max(ans, f[i][j]);
             }
         }
         return ans + 1;
@@ -93,16 +93,17 @@ class Solution {
 public:
     int longestArithSeqLength(vector<int>& nums) {
         int n = nums.size();
+        int f[n][1001];
+        memset(f, 0, sizeof(f));
         int ans = 0;
-        vector<vector<int>> dp(n, vector<int>(1001, 1));
         for (int i = 1; i < n; ++i) {
-            for (int j = 0; j < i; ++j) {
-                int d = nums[i] - nums[j] + 500;
-                dp[i][d] = max(dp[i][d], dp[j][d] + 1);
-                ans = max(ans, dp[i][d]);
+            for (int k = 0; k < i; ++k) {
+                int j = nums[i] - nums[k] + 500;
+                f[i][j] = max(f[i][j], f[k][j] + 1);
+                ans = max(ans, f[i][j]);
             }
         }
-        return ans;
+        return ans + 1;
     }
 };
 ```
@@ -112,16 +113,16 @@ public:
 ```go
 func longestArithSeqLength(nums []int) int {
 	n := len(nums)
-	dp := make([][]int, n)
-	for i := range dp {
-		dp[i] = make([]int, 1001)
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, 1001)
 	}
 	ans := 0
 	for i := 1; i < n; i++ {
-		for j := 0; j < i; j++ {
-			d := nums[i] - nums[j] + 500
-			dp[i][d] = max(dp[i][d], dp[j][d]+1)
-			ans = max(ans, dp[i][d])
+		for k := 0; k < i; k++ {
+			j := nums[i] - nums[k] + 500
+			f[i][j] = max(f[i][j], f[k][j]+1)
+			ans = max(ans, f[i][j])
 		}
 	}
 	return ans + 1

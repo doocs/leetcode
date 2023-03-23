@@ -2,12 +2,12 @@ class Solution {
     public int longestArithSeqLength(int[] nums) {
         int n = nums.length;
         int ans = 0;
-        int[][] dp = new int[n][1001];
+        int[][] f = new int[n][1001];
         for (int i = 1; i < n; ++i) {
-            for (int j = 0; j < i; ++j) {
-                int d = nums[i] - nums[j] + 500;
-                dp[i][d] = Math.max(dp[i][d], dp[j][d] + 1);
-                ans = Math.max(ans, dp[i][d]);
+            for (int k = 0; k < i; ++k) {
+                int j = nums[i] - nums[k] + 500;
+                f[i][j] = Math.max(f[i][j], f[k][j] + 1);
+                ans = Math.max(ans, f[i][j]);
             }
         }
         return ans + 1;

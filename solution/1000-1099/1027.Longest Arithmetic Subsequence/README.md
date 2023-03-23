@@ -54,6 +54,14 @@
 
 **方法一：动态规划**
 
+我们定义 $f[i][j]$ 表示以 $nums[i]$ 结尾且公差为 $j$ 的等差数列的最大长度。初始时 $f[i][j]=1$，即每个元素自身都是一个长度为 $1$ 的等差数列。
+
+考虑 $f[i][j]$，我们可以枚举 $nums[i]$ 的前一个元素 $nums[k]$，那么 $d=nums[i]-nums[k]+500$，此时有 $f[i][j]=\max(f[i][j], f[k][j]+1)$，然后我们更新答案 $ans=\max(ans, f[i][j])$。
+
+最后返回答案即可。
+
+时间复杂度 $O(n \times d)$，空间复杂度 $O(n \times d)$。其中 $n$ 和 $d$ 分别是数组 $nums$ 的长度以及数组 $nums$ 中元素的最大值与最小值的差值。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -64,13 +72,13 @@
 class Solution:
     def longestArithSeqLength(self, nums: List[int]) -> int:
         n = len(nums)
-        dp = [[1] * 1001 for _ in range(n)]
+        f = [[1] * 1001 for _ in range(n)]
         ans = 0
         for i in range(1, n):
-            for j in range(i):
-                d = nums[i] - nums[j] + 500
-                dp[i][d] = max(dp[i][d], dp[j][d] + 1)
-                ans = max(ans, dp[i][d])
+            for k in range(i):
+                j = nums[i] - nums[k] + 500
+                f[i][j] = max(f[i][j], f[k][j] + 1)
+                ans = max(ans, f[i][j])
         return ans
 ```
 
@@ -83,12 +91,12 @@ class Solution {
     public int longestArithSeqLength(int[] nums) {
         int n = nums.length;
         int ans = 0;
-        int[][] dp = new int[n][1001];
+        int[][] f = new int[n][1001];
         for (int i = 1; i < n; ++i) {
-            for (int j = 0; j < i; ++j) {
-                int d = nums[i] - nums[j] + 500;
-                dp[i][d] = Math.max(dp[i][d], dp[j][d] + 1);
-                ans = Math.max(ans, dp[i][d]);
+            for (int k = 0; k < i; ++k) {
+                int j = nums[i] - nums[k] + 500;
+                f[i][j] = Math.max(f[i][j], f[k][j] + 1);
+                ans = Math.max(ans, f[i][j]);
             }
         }
         return ans + 1;
@@ -103,16 +111,17 @@ class Solution {
 public:
     int longestArithSeqLength(vector<int>& nums) {
         int n = nums.size();
+        int f[n][1001];
+        memset(f, 0, sizeof(f));
         int ans = 0;
-        vector<vector<int>> dp(n, vector<int>(1001, 1));
         for (int i = 1; i < n; ++i) {
-            for (int j = 0; j < i; ++j) {
-                int d = nums[i] - nums[j] + 500;
-                dp[i][d] = max(dp[i][d], dp[j][d] + 1);
-                ans = max(ans, dp[i][d]);
+            for (int k = 0; k < i; ++k) {
+                int j = nums[i] - nums[k] + 500;
+                f[i][j] = max(f[i][j], f[k][j] + 1);
+                ans = max(ans, f[i][j]);
             }
         }
-        return ans;
+        return ans + 1;
     }
 };
 ```
@@ -122,16 +131,16 @@ public:
 ```go
 func longestArithSeqLength(nums []int) int {
 	n := len(nums)
-	dp := make([][]int, n)
-	for i := range dp {
-		dp[i] = make([]int, 1001)
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, 1001)
 	}
 	ans := 0
 	for i := 1; i < n; i++ {
-		for j := 0; j < i; j++ {
-			d := nums[i] - nums[j] + 500
-			dp[i][d] = max(dp[i][d], dp[j][d]+1)
-			ans = max(ans, dp[i][d])
+		for k := 0; k < i; k++ {
+			j := nums[i] - nums[k] + 500
+			f[i][j] = max(f[i][j], f[k][j]+1)
+			ans = max(ans, f[i][j])
 		}
 	}
 	return ans + 1
