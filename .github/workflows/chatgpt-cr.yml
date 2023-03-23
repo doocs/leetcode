@@ -1,7 +1,8 @@
-name: 🤖 ChatGPT Code Review
+name: chatgpt-cr
 
 permissions:
   contents: read
+  issues: write
   pull-requests: write
 
 on:
@@ -14,7 +15,6 @@ jobs:
     steps:
       - uses: anc95/ChatGPT-CodeReview@main
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          # Optional
           LANGUAGE: Chinese
