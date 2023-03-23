@@ -1,22 +1,21 @@
 class Solution {
-private:
-    static constexpr int MOD = 1e9 + 7;
-
 public:
     int kInversePairs(int n, int k) {
-        vector<int> dp(k + 1), pre(k + 2, 0);
+        int f[k + 1];
+        int s[k + 2];
+        memset(f, 0, sizeof(f));
+        f[0] = 1;
+        fill(s, s + k + 2, 1);
+        s[0] = 0;
+        const int mod = 1e9 + 7;
         for (int i = 1; i <= n; ++i) {
-            dp[0] = 1;
-
-            // dp[i][j] = dp[i - 1][j - (i - 1)] + ... + dp[i - 1][j]
             for (int j = 1; j <= k; ++j) {
-                dp[j] = (pre[j + 1] - pre[max(0, j - i + 1)] + MOD) % MOD;
+                f[j] = (s[j + 1] - s[max(0, j - (i - 1))] + mod) % mod;
             }
-
             for (int j = 1; j <= k + 1; ++j) {
-                pre[j] = (pre[j - 1] + dp[j - 1]) % MOD;
+                s[j] = (s[j - 1] + f[j - 1]) % mod;
             }
         }
-        return dp[k];
+        return f[k];
     }
 };
