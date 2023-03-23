@@ -3,8 +3,11 @@ class Solution {
         int x = Math.min(a, Math.min(b, c));
         int z = Math.max(a, Math.max(b, c));
         int y = a + b + c - x - z;
-        int max = z - x - 2;
-        int min = y - x == 1 && z - y == 1 ? 0 : y - x <= 2 || z - y <= 2 ? 1 : 2;
-        return new int[] {min, max};
+        int mi = 0, mx = 0;
+        if (z - x > 2) {
+            mi = y - x < 3 || z - y < 3 ? 1 : 2;
+            mx = z - x - 2;
+        }
+        return new int[]{mi, mx};
     }
 }

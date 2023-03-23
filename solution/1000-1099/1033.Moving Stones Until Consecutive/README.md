@@ -47,12 +47,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：脑筋急转弯**
+**方法一：分类讨论**
 
--   若 $3$ 个数已经相邻，则不用移动，直接返回结果 $[0,0]$；
--   若 $3$ 个数中存在两数之差小于 $3$，最小只需移动 $1$ 次；
--   其他情况最小只需移动 $2$ 次；
--   两边逐个往中间靠，就是最大移动次数 $c - a - 2$。
+我们先将 $a, b, c$ 排序，记为 $x, y, z$，即 $x \lt y \lt z$。
+
+接下来分情况讨论：
+
+1. 如果 $z - x \leq 2$，说明 $3$ 个数已经相邻，不用移动，结果为 $[0, 0]$；
+1. 否则，如果 $y - x \lt 3$，或者 $z - y \lt 3$，说明有两个数只间隔一个位置，我们只需要把另一个数移动到这两个数的中间，最小移动次数为 $1$；其他情况，最小移动次数为 $2$；
+1. 最大移动次数就是两边的数字逐个往中间靠，最多移动 $z - x - 2$ 次。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -63,16 +68,13 @@
 ```python
 class Solution:
     def numMovesStones(self, a: int, b: int, c: int) -> List[int]:
-        a, b, c = sorted([a, b, c])
-        ans = [0] * 2
-        if c - a == 2:
-            return ans
-        if b - a < 3 or c - b < 3:
-            ans[0] = 1
-        else:
-            ans[0] = 2
-        ans[1] = c - a - 2
-        return ans
+        x, z = min(a, b, c), max(a, b, c)
+        y = a + b + c - x - z
+        mi = mx = 0
+        if z - x > 2:
+            mi = 1 if y - x < 3 or z - y < 3 else 2
+            mx = z - x - 2
+        return [mi, mx]
 ```
 
 ### **Java**
@@ -85,9 +87,12 @@ class Solution {
         int x = Math.min(a, Math.min(b, c));
         int z = Math.max(a, Math.max(b, c));
         int y = a + b + c - x - z;
-        int max = z - x - 2;
-        int min = y - x == 1 && z - y == 1 ? 0 : y - x <= 2 || z - y <= 2 ? 1 : 2;
-        return new int[] {min, max};
+        int mi = 0, mx = 0;
+        if (z - x > 2) {
+            mi = y - x < 3 || z - y < 3 ? 1 : 2;
+            mx = z - x - 2;
+        }
+        return new int[]{mi, mx};
     }
 }
 ```
@@ -98,12 +103,14 @@ class Solution {
 class Solution {
 public:
     vector<int> numMovesStones(int a, int b, int c) {
-        int x = min(min(a, b), c);
-        int z = max(max(a, b), c);
+        int x = min({a, b, c});
+        int z = max({a, b, c});
         int y = a + b + c - x - z;
-        if (z - x == 2) return {0, 0};
-        int mx = z - x - 2;
-        int mi = y - x < 3 || z - y < 3 ? 1 : 2;
+        int mi = 0, mx = 0;
+        if (z - x > 2) {
+            mi = y - x < 3 || z - y < 3 ? 1 : 2;
+            mx = z - x - 2;
+        }
         return {mi, mx};
     }
 };
@@ -113,16 +120,16 @@ public:
 
 ```go
 func numMovesStones(a int, b int, c int) []int {
-	x := min(min(a, b), c)
-	z := max(max(a, b), c)
+	x := min(a, min(b, c))
+	z := max(a, max(b, c))
 	y := a + b + c - x - z
-	if z-x == 2 {
-		return []int{0, 0}
-	}
-	mx := z - x - 2
-	mi := 2
-	if y-x < 3 || z-y < 3 {
-		mi = 1
+	mi, mx := 0, 0
+	if z-x > 2 {
+		mi = 2
+		if y-x < 3 || z-y < 3 {
+			mi = 1
+		}
+		mx = z - x - 2
 	}
 	return []int{mi, mx}
 }
