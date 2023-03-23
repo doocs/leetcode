@@ -15,8 +15,7 @@ class Solution:
                 if i == 0 and lead:
                     ans += dfs(pos - 1, mask, lead, limit and i == up)
                 else:
-                    ans += dfs(pos - 1, mask | 1 << i,
-                               False, limit and i == up)
+                    ans += dfs(pos - 1, mask | 1 << i, False, limit and i == up)
             return ans
 
         nums = []

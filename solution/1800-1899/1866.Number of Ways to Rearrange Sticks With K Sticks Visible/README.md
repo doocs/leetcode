@@ -52,6 +52,24 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+我们定义 $f[i][j]$ 表示长度为 $i$ 的排列中，恰有 $j$ 根木棍可以看到的排列数目。初始时 $f[0][0]=1$，其余 $f[i][j]=0$。答案为 $f[n][k]$。
+
+考虑最后一根木棍是否可以看到，如果可以看到，那么它一定是最长的，那么它的前面有 $i - 1$ 根木棍，恰有 $j - 1$ 根木棍可以看到，即 $f[i - 1][j - 1]$；如果最后一根木棍不可以看到，那么它可以是除了最长的木棍之外的任意一根，那么它的前面有 $i - 1$ 根木棍，恰有 $j$ 根木棍可以看到，即 $f[i - 1][j] \times (i - 1)$。
+
+因此，状态转移方程为：
+
+$$
+f[i][j] = f[i - 1][j - 1] + f[i - 1][j] \times (i - 1)
+$$
+
+最终答案为 $f[n][k]$。
+
+我们注意到 $f[i][j]$ 只跟 $f[i - 1][j - 1]$ 和 $f[i - 1][j]$ 有关，因此可以使用一维数组优化空间复杂度。
+
+时间复杂度 $O(n \times k)$，空间复杂度 $O(k)$。其中 $n$ 和 $k$ 分别是题目中给定的两个整数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -59,7 +77,27 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def rearrangeSticks(self, n: int, k: int) -> int:
+        mod = 10**9 + 7
+        f = [[0] * (k + 1) for _ in range(n + 1)]
+        f[0][0] = 1
+        for i in range(1, n + 1):
+            for j in range(1, k + 1):
+                f[i][j] = (f[i - 1][j - 1] + f[i - 1][j] * (i - 1)) % mod
+        return f[n][k]
+```
 
+```python
+class Solution:
+    def rearrangeSticks(self, n: int, k: int) -> int:
+        mod = 10**9 + 7
+        f = [1] + [0] * k
+        for i in range(1, n + 1):
+            for j in range(k, 0, -1):
+                f[j] = (f[j] * (i - 1) + f[j - 1]) % mod
+            f[0] = 0
+        return f[k]
 ```
 
 ### **Java**
@@ -67,7 +105,109 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int rearrangeSticks(int n, int k) {
+        final int mod = (int) 1e9 + 7;
+        int[][] f = new int[n + 1][k + 1];
+        f[0][0] = 1;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j <= k; ++j) {
+                f[i][j] = (int) ((f[i - 1][j - 1] + f[i - 1][j] * (long) (i - 1)) % mod);
+            }
+        }
+        return f[n][k];
+    }
+}
+```
 
+```java
+class Solution {
+    public int rearrangeSticks(int n, int k) {
+        final int mod = (int) 1e9 + 7;
+        int[] f = new int[k + 1];
+        f[0] = 1;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = k; j > 0; --j) {
+                f[j] = (int) ((f[j] * (i - 1L) + f[j - 1]) % mod);
+            }
+            f[0] = 0;
+        }
+        return f[k];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int rearrangeSticks(int n, int k) {
+        const int mod = 1e9 + 7;
+        int f[n + 1][k + 1];
+        memset(f, 0, sizeof(f));
+        f[0][0] = 1;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j <= k; ++j) {
+                f[i][j] = (f[i - 1][j - 1] + (i - 1LL) * f[i - 1][j]) % mod;
+            }
+        }
+        return f[n][k];
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int rearrangeSticks(int n, int k) {
+        const int mod = 1e9 + 7;
+        int f[k + 1];
+        memset(f, 0, sizeof(f));
+        f[0] = 1;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = k; j; --j) {
+                f[j] = (f[j - 1] + f[j] * (i - 1LL)) % mod;
+            }
+            f[0] = 0;
+        }
+        return f[k];
+    }
+};
+```
+
+### **Go**
+
+```go
+func rearrangeSticks(n int, k int) int {
+	const mod = 1e9 + 7
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, k+1)
+	}
+	f[0][0] = 1
+	for i := 1; i <= n; i++ {
+		for j := 1; j <= k; j++ {
+			f[i][j] = (f[i-1][j-1] + (i-1)*f[i-1][j]) % mod
+		}
+	}
+	return f[n][k]
+}
+```
+
+```go
+func rearrangeSticks(n int, k int) int {
+	const mod = 1e9 + 7
+	f := make([]int, k+1)
+	f[0] = 1
+	for i := 1; i <= n; i++ {
+		for j := k; j > 0; j-- {
+			f[j] = (f[j-1] + f[j]*(i-1)) % mod
+		}
+		f[0] = 0
+	}
+	return f[k]
+}
 ```
 
 ### **...**
