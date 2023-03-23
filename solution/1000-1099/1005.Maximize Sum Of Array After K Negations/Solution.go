@@ -1,31 +1,29 @@
-func largestSumAfterKNegations(nums []int, k int) int {
-	ans := 0
-	counter := make(map[int]int)
-	for _, num := range nums {
-		ans += num
-		counter[num]++
+func largestSumAfterKNegations(nums []int, k int) (ans int) {
+	cnt := map[int]int{}
+	for _, x := range nums {
+		cnt[x]++
 	}
-	for i := -100; i < 0; i++ {
-		if counter[i] > 0 {
-			ops := min(counter[i], k)
-			ans -= (i * ops * 2)
-			counter[i] -= ops
-			counter[-i] += ops
-			k -= ops
-			if k == 0 {
+	for x := -100; x < 0 && k > 0; x++ {
+		if cnt[x] > 0 {
+			m := min(k, cnt[x])
+			cnt[x] -= m
+			cnt[-x] += m
+			k -= m
+		}
+	}
+	if k&1 == 1 && cnt[0] == 0 {
+		for x := 1; x <= 100; x++ {
+			if cnt[x] > 0 {
+				cnt[x]--
+				cnt[-x]++
 				break
 			}
 		}
 	}
-	if k > 0 && k%2 == 1 && counter[0] == 0 {
-		for i := 1; i < 101; i++ {
-			if counter[i] > 0 {
-				ans -= 2 * i
-				break
-			}
-		}
+	for x, v := range cnt {
+		ans += x * v
 	}
-	return ans
+	return
 }
 
 func min(a, b int) int {

@@ -1,19 +1,18 @@
 class Solution:
     def largestSumAfterKNegations(self, nums: List[int], k: int) -> int:
-        counter = Counter(nums)
-        ans = sum(nums)
-        for i in range(-100, 0):
-            if counter[i]:
-                ops = min(counter[i], k)
-                ans -= i * ops * 2
-                counter[i] -= ops
-                counter[-i] += ops
-                k -= ops
+        cnt = Counter(nums)
+        for x in range(-100, 0):
+            if cnt[x]:
+                m = min(cnt[x], k)
+                cnt[x] -= m
+                cnt[-x] += m
+                k -= m
                 if k == 0:
                     break
-        if k > 0 and k % 2 == 1 and not counter[0]:
-            for i in range(1, 101):
-                if counter[i]:
-                    ans -= 2 * i
+        if k & 1 and cnt[0] == 0:
+            for x in range(1, 101):
+                if cnt[x]:
+                    cnt[x] -= 1
+                    cnt[-x] += 1
                     break
-        return ans
+        return sum(x * v for x, v in cnt.items())
