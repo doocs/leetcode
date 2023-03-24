@@ -6,15 +6,15 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你两个字符串 <code>s</code> 和 <code>t</code> ，请你找出 <code>s</code> 中的非空子串的数目，这些子串满足替换 <strong>一个不同字符</strong> 以后，是 <code>t</code> 串的子串。换言之，请你找到 <code>s</code> 和 <code>t</code> 串中 <strong>恰好</strong> 只有一个字符不同的子字符串对的数目。</p>
+<p>给你两个字符串&nbsp;<code>s</code> 和&nbsp;<code>t</code>&nbsp;，请你找出 <code>s</code>&nbsp;中的非空子串的数目，这些子串满足替换 <strong>一个不同字符</strong>&nbsp;以后，是 <code>t</code>&nbsp;串的子串。换言之，请你找到 <code>s</code>&nbsp;和 <code>t</code>&nbsp;串中 <strong>恰好</strong>&nbsp;只有一个字符不同的子字符串对的数目。</p>
 
-<p>比方说， <code>"<strong>compute</strong>r"</code> 和 <code>"<strong>computa</strong>tion"</code> 加粗部分只有一个字符不同： <code>'e'</code>/<code>'a'</code> ，所以这一对子字符串会给答案加 1 。</p>
+<p>比方说，&nbsp;<code>"<u>compute</u>r"</code>&nbsp;and&nbsp;<code>"<u>computa</u>tion"&nbsp;</code>只有一个字符不同：&nbsp;<code>'e'</code>/<code>'a'</code>&nbsp;，所以这一对子字符串会给答案加 1 。</p>
 
 <p>请你返回满足上述条件的不同子字符串对数目。</p>
 
-<p>一个 <strong>子字符串</strong> 是一个字符串中连续的字符。</p>
+<p>一个 <strong>子字符串</strong>&nbsp;是一个字符串中连续的字符。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -57,13 +57,13 @@
 <b>输出：</b>10
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= s.length, t.length <= 100</code></li>
-	<li><code>s</code> 和 <code>t</code> 都只包含小写英文字母。</li>
+	<li><code>1 &lt;= s.length, t.length &lt;= 100</code></li>
+	<li><code>s</code> 和&nbsp;<code>t</code>&nbsp;都只包含小写英文字母。</li>
 </ul>
 
 ## 解法

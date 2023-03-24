@@ -36,17 +36,19 @@
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1943.Describe%20the%20Painting/images/1.png" style="width: 529px; height: 241px;">
-<pre><b>输入：</b>segments = [[1,4,5],[4,7,7],[1,7,9]]
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1943.Describe%20the%20Painting/images/1.png" style="width: 529px; height: 241px;" />
+<pre>
+<b>输入：</b>segments = [[1,4,5],[4,7,7],[1,7,9]]
 <b>输出：</b>[[1,4,14],[4,7,16]]
-<strong>解释：</strong>绘画借故偶可以表示为：
+<strong>解释：</strong>绘画结果可以表示为：
 - [1,4) 颜色为 {5,9} （和为 14），分别来自第一和第二个线段。
 - [4,7) 颜色为 {7,9} （和为 16），分别来自第二和第三个线段。
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1943.Describe%20the%20Painting/images/2.png" style="width: 532px; height: 219px;">
-<pre><b>输入：</b>segments = [[1,7,9],[6,8,15],[8,10,7]]
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1943.Describe%20the%20Painting/images/2.png" style="width: 532px; height: 219px;" />
+<pre>
+<b>输入：</b>segments = [[1,7,9],[6,8,15],[8,10,7]]
 <b>输出：</b>[[1,6,9],[6,7,24],[7,8,15],[8,10,7]]
 <b>解释：</b>绘画结果可以以表示为：
 - [1,6) 颜色为 9 ，来自第一个线段。
@@ -56,8 +58,9 @@
 </pre>
 
 <p><strong>示例 3：</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1943.Describe%20the%20Painting/images/c1.png" style="width: 529px; height: 289px;">
-<pre><b>输入：</b>segments = [[1,4,5],[1,4,7],[4,7,1],[4,7,11]]
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1943.Describe%20the%20Painting/images/c1.png" style="width: 529px; height: 289px;" />
+<pre>
+<b>输入：</b>segments = [[1,4,5],[1,4,7],[4,7,1],[4,7,11]]
 <b>输出：</b>[[1,4,12],[4,7,12]]
 <strong>解释：</strong>绘画结果可以表示为：
 - [1,4) 颜色为 {5,7} （和为 12），分别来自第一和第二个线段。
