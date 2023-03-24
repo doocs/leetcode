@@ -40,6 +40,21 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：递归**
+
+我们设计一个函数 $dfs(root)$，表示将灯饰插入以 $root$ 为根节点的树中，返回插入灯饰后的树的根节点。那么答案就是 $dfs(root)$。
+
+函数 $dfs(root)$ 的逻辑如下：
+
+-   若 $root$ 为空，则返回空；
+-   否则，递归地对 $root$ 的左右子树分别调用 $dfs$ 函数，得到插入灯饰后的左右子树的根节点 $l$ 和 $r$；
+-   若 $l$ 不为空，则我们创建一个新节点 $TreeNode(-1, l, null)$，并将其作为 $root$ 的左子节点；
+-   若 $r$ 不为空，则我们创建一个新节点 $TreeNode(-1, null, r)$，并将其作为 $root$ 的右子节点；
+
+最后，返回 $root$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是树的节点数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -47,7 +62,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def expandBinaryTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        def dfs(root):
+            if root is None:
+                return None
+            l, r = dfs(root.left), dfs(root.right)
+            if l:
+                root.left = TreeNode(-1, l)
+            if r:
+                root.right = TreeNode(-1, None, r)
+            return root
 
+        return dfs(root)
 ```
 
 ### **Java**
@@ -55,7 +88,107 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public TreeNode expandBinaryTree(TreeNode root) {
+        return dfs(root);
+    }
 
+    private TreeNode dfs(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        TreeNode l = dfs(root.left);
+        TreeNode r = dfs(root.right);
+        if (l != null) {
+            root.left = new TreeNode(-1, l, null);
+        }
+        if (r != null) {
+            root.right = new TreeNode(-1, null, r);
+        }
+        return root;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* expandBinaryTree(TreeNode* root) {
+        function<TreeNode*(TreeNode*)> dfs = [&](TreeNode* root) -> TreeNode* {
+            if (!root) {
+                return nullptr;
+            }
+            TreeNode* l = dfs(root->left);
+            TreeNode* r = dfs(root->right);
+            if (l) {
+                root->left = new TreeNode(-1, l, nullptr);
+            }
+            if (r) {
+                root->right = new TreeNode(-1, nullptr, r);
+            }
+            return root;
+        };
+        return dfs(root);
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func expandBinaryTree(root *TreeNode) *TreeNode {
+	var dfs func(*TreeNode) *TreeNode
+	dfs = func(root *TreeNode) *TreeNode {
+		if root == nil {
+			return root
+		}
+		l, r := dfs(root.Left), dfs(root.Right)
+		if l != nil {
+			root.Left = &TreeNode{-1, l, nil}
+		}
+		if r != nil {
+			root.Right = &TreeNode{-1, nil, r}
+		}
+		return root
+	}
+	return dfs(root)
+}
 ```
 
 ### **...**
