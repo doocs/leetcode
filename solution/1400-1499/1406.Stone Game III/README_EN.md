@@ -83,7 +83,7 @@ class Solution {
     private int n;
     private int[] s;
     private Integer[] f;
-    
+
     public String stoneGameIII(int[] stoneValue) {
         n = stoneValue.length;
         s = new int[n + 1];
@@ -95,7 +95,7 @@ class Solution {
         int b = s[n] - a;
         return a == b ? "Tie" : a > b ? "Alice" : "Bob";
     }
-    
+
     private int dfs(int i) {
         if (i >= n) {
             return 0;

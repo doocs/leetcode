@@ -22,7 +22,7 @@
   - [0020.有效的括号](/solution/0000-0099/0020.Valid%20Parentheses/README.md)
   - [0021.合并两个有序链表](/solution/0000-0099/0021.Merge%20Two%20Sorted%20Lists/README.md)
   - [0022.括号生成](/solution/0000-0099/0022.Generate%20Parentheses/README.md)
-  - [0023.合并K个升序链表](/solution/0000-0099/0023.Merge%20k%20Sorted%20Lists/README.md)
+  - [0023.合并 K 个升序链表](/solution/0000-0099/0023.Merge%20k%20Sorted%20Lists/README.md)
   - [0024.两两交换链表中的节点](/solution/0000-0099/0024.Swap%20Nodes%20in%20Pairs/README.md)
   - [0025.K 个一组翻转链表](/solution/0000-0099/0025.Reverse%20Nodes%20in%20k-Group/README.md)
   - [0026.删除有序数组中的重复项](/solution/0000-0099/0026.Remove%20Duplicates%20from%20Sorted%20Array/README.md)
@@ -2648,3 +2648,4 @@
   - [2596.检查骑士巡视方案](/solution/2500-2599/2596.Check%20Knight%20Tour%20Configuration/README.md)
   - [2597.美丽子集的数目](/solution/2500-2599/2597.The%20Number%20of%20Beautiful%20Subsets/README.md)
   - [2598.执行操作后的最大 MEX](/solution/2500-2599/2598.Smallest%20Missing%20Non-negative%20Integer%20After%20Operations/README.md)
+  - [2599.Make the Prefix Sum Non-negative](/solution/2500-2599/2599.Make%20the%20Prefix%20Sum%20Non-negative/README.md)

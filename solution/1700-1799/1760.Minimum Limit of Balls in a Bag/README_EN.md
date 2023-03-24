@@ -10,10 +10,12 @@
 
 <ul>
 	<li>Take any bag of balls and divide it into two new bags with a <strong>positive </strong>number of balls.
+
     <ul>
     	<li>For example, a bag of <code>5</code> balls can become two new bags of <code>1</code> and <code>4</code> balls, or two new bags of <code>2</code> and <code>3</code> balls.</li>
     </ul>
     </li>
+
 </ul>
 
 <p>Your penalty is the <strong>maximum</strong> number of balls in a bag. You want to <strong>minimize</strong> your penalty after the operations.</p>
