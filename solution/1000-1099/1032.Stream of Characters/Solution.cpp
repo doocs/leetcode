@@ -10,9 +10,11 @@ public:
     void insert(string& w) {
         Trie* node = this;
         reverse(w.begin(), w.end());
-        for (char c : w) {
+        for (char& c : w) {
             int idx = c - 'a';
-            if (!node->children[idx]) node->children[idx] = new Trie();
+            if (!node->children[idx]) {
+                node->children[idx] = new Trie();
+            }
             node = node->children[idx];
         }
         node->isEnd = true;
@@ -22,9 +24,13 @@ public:
         Trie* node = this;
         for (int i = w.size() - 1, j = 0; ~i && j < 201; --i, ++j) {
             int idx = w[i] - 'a';
-            if (!node->children[idx]) return false;
+            if (!node->children[idx]) {
+                return false;
+            }
             node = node->children[idx];
-            if (node->isEnd) return true;
+            if (node->isEnd) {
+                return true;
+            }
         }
         return false;
     }
@@ -34,8 +40,9 @@ class StreamChecker {
 public:
     Trie* trie = new Trie();
     string s;
+
     StreamChecker(vector<string>& words) {
-        for (string& w : words) {
+        for (auto& w : words) {
             trie->insert(w);
         }
     }
