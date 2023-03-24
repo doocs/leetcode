@@ -44,6 +44,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：双指针**
+
+我们用双指针 $j$ 和 $i$ 分别指向当前窗口的左右端点，用数组或哈希表 $d$ 记录当前窗口内的元素以及出现的次数。
+
+遍历数组 $flowers$，每一次我们将 $flowers[i]$ 加入到窗口中，即 $d[flowers[i]]++$，然后判断 $d[flowers[i]]$ 是否大于 $cnt$，如果大于 $cnt$，则我们需要将 $flowers[j]$ 从窗口中移除，即 $d[flowers[j]]--$，并将 $j$ 右移，直到 $d[flowers[i]] \leq cnt$。此时窗口内的元素都不超过 $cnt$ 个，因此我们可以将 $i - j + 1$ 加到答案中。
+
+最后返回答案即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别为数组 $flowers$ 的长度以及数组 $flowers$ 中的最大值。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -51,7 +61,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def beautifulBouquet(self, flowers: List[int], cnt: int) -> int:
+        mod = 10**9 + 7
+        d = Counter()
+        ans = j = 0
+        for i, x in enumerate(flowers):
+            d[x] += 1
+            while d[x] > cnt:
+                d[flowers[j]] -= 1
+                j += 1
+            ans = (ans + i - j + 1) % mod
+        return ans
 ```
 
 ### **Java**
@@ -59,7 +80,78 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int beautifulBouquet(int[] flowers, int cnt) {
+        int mx = 0;
+        for (int x : flowers) {
+            mx = Math.max(mx, x);
+        }
+        int[] d = new int[mx + 1];
+        long ans = 0;
+        final int mod = (int) 1e9 + 7;
+        for (int i = 0, j = 0; i < flowers.length; ++i) {
+            ++d[flowers[i]];
+            while (d[flowers[i]] > cnt) {
+                --d[flowers[j++]];
+            }
+            ans = (ans + i - j + 1) % mod;
+        }
+        return (int) ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int beautifulBouquet(vector<int>& flowers, int cnt) {
+        int mx = *max_element(flowers.begin(), flowers.end());
+        int d[mx + 1];
+        memset(d, 0, sizeof(d));
+        long long ans = 0;
+        const int mod = 1e9 + 7;
+        for (int i = 0, j = 0; i < flowers.size(); ++i) {
+            ++d[flowers[i]];
+            while (d[flowers[i]] > cnt) {
+                --d[flowers[j++]];
+            }
+            ans = (ans + i - j + 1) % mod;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func beautifulBouquet(flowers []int, cnt int) (ans int) {
+	mx := 0
+	for _, x := range flowers {
+		mx = max(mx, x)
+	}
+	d := make([]int, mx+1)
+	j := 0
+	const mod = 1e9 + 7
+	for i, x := range flowers {
+		d[x]++
+		for d[x] > cnt {
+			d[flowers[j]]--
+			j++
+		}
+		ans = (ans + i - j + 1) % mod
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
