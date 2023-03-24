@@ -62,13 +62,16 @@ streamChecker.query("l"); // 返回 True ，因为 'kl' 在 words 中
 
 **方法一：前缀树**
 
-构建前缀树，每个节点保存一个字符，从根节点开始，每次遍历到一个字符，就将其加入到当前节点的子节点中，同时将当前节点的 `isEnd` 标记为 `true`。当遍历到字符串的末尾时，将当前节点的 `isEnd` 标记为 `true`。
+我们可以根据初始化时的字符串数组 $words$ 构建前缀树，前缀树的每个节点包含两个属性：
 
-查询时，从根节点开始，每次遍历到一个字符，就将其加入到当前节点的子节点中，同时将当前节点的 `isEnd` 标记为 `true`。当遍历到字符串的末尾时，将当前节点的 `isEnd` 标记为 `true`。
+-   `children`：指向 $26$ 个字母的指针数组，用于存储当前节点的子节点。
+-   `is_end`：标记当前节点是否为某个字符串的结尾。
 
-对于本题，我们采用**字符串的反序**来构建前缀树，这样在查询时，只需要从根节点开始，遍历到当前字符即可，不需要遍历到字符串的末尾。
+在构造函数中，我们遍历字符串数组 $words$，对于每个字符串 $w$，我们将其反转后，逐个字符插入到前缀树中，插入结束后，将当前节点的 `is_end` 标记为 `true`。
 
-初始化前缀树的时间复杂度为 $O(n)$，其中 $n$ 为 `words` 所有字符总数。单次查询的时间复杂度为 $O(m)$，其中 $m$ 为 `words` 中单词的最大长度。
+在 `query` 函数中，我们将当前字符 $c$ 加入到字符流中，然后从后往前遍历字符流，对于每个字符 $c$，我们在前缀树中查找是否存在以 $c$ 为结尾的字符串，如果存在，返回 `true`，否则返回 `false`。注意到 $words$ 中的字符串长度不超过 $200$，因此查询时最多只需要遍历 $200$ 个字符。
+
+时间复杂度方面，构造函数的时间复杂度为 $O(L)$，而 `query` 函数的时间复杂度为 $O(M)$。其中 $L$ 为字符串数组 $words$ 中所有字符串的长度之和，而 $M$ 为字符串数组 $words$ 中字符串的最大长度。空间复杂度 $O(L)$。
 
 <!-- tabs:start -->
 
@@ -82,7 +85,7 @@ class Trie:
         self.children = [None] * 26
         self.is_end = False
 
-    def insert(self, w):
+    def insert(self, w: str):
         node = self
         for c in w[::-1]:
             idx = ord(c) - ord('a')
@@ -91,7 +94,7 @@ class Trie:
             node = node.children[idx]
         node.is_end = True
 
-    def search(self, w):
+    def search(self, w: List[str]) -> bool:
         node = self
         for c in w[::-1]:
             idx = ord(c) - ord('a')
@@ -107,13 +110,14 @@ class StreamChecker:
 
     def __init__(self, words: List[str]):
         self.trie = Trie()
-        self.s = []
+        self.cs = []
+        self.limit = 201
         for w in words:
             self.trie.insert(w)
 
     def query(self, letter: str) -> bool:
-        self.s.append(letter)
-        return self.trie.search(self.s[-201:])
+        self.cs.append(letter)
+        return self.trie.search(self.cs[-self.limit:])
 
 # Your StreamChecker object will be instantiated and called as such:
 # obj = StreamChecker(words)
@@ -190,14 +194,16 @@ public:
 
     Trie()
         : children(26)
-        , isEnd(false) { }
+        , isEnd(false) {}
 
     void insert(string& w) {
         Trie* node = this;
         reverse(w.begin(), w.end());
-        for (char c : w) {
+        for (char& c : w) {
             int idx = c - 'a';
-            if (!node->children[idx]) node->children[idx] = new Trie();
+            if (!node->children[idx]) {
+                node->children[idx] = new Trie();
+            }
             node = node->children[idx];
         }
         node->isEnd = true;
@@ -207,9 +213,13 @@ public:
         Trie* node = this;
         for (int i = w.size() - 1, j = 0; ~i && j < 201; --i, ++j) {
             int idx = w[i] - 'a';
-            if (!node->children[idx]) return false;
+            if (!node->children[idx]) {
+                return false;
+            }
             node = node->children[idx];
-            if (node->isEnd) return true;
+            if (node->isEnd) {
+                return true;
+            }
         }
         return false;
     }
@@ -219,8 +229,9 @@ class StreamChecker {
 public:
     Trie* trie = new Trie();
     string s;
+
     StreamChecker(vector<string>& words) {
-        for (string& w : words) {
+        for (auto& w : words) {
             trie->insert(w);
         }
     }

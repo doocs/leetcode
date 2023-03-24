@@ -64,7 +64,7 @@ class Trie:
         self.children = [None] * 26
         self.is_end = False
 
-    def insert(self, w):
+    def insert(self, w: str):
         node = self
         for c in w[::-1]:
             idx = ord(c) - ord('a')
@@ -73,7 +73,7 @@ class Trie:
             node = node.children[idx]
         node.is_end = True
 
-    def search(self, w):
+    def search(self, w: List[str]) -> bool:
         node = self
         for c in w[::-1]:
             idx = ord(c) - ord('a')
@@ -89,13 +89,14 @@ class StreamChecker:
 
     def __init__(self, words: List[str]):
         self.trie = Trie()
-        self.s = []
+        self.cs = []
+        self.limit = 201
         for w in words:
             self.trie.insert(w)
 
     def query(self, letter: str) -> bool:
-        self.s.append(letter)
-        return self.trie.search(self.s[-201:])
+        self.cs.append(letter)
+        return self.trie.search(self.cs[-self.limit:])
 
 # Your StreamChecker object will be instantiated and called as such:
 # obj = StreamChecker(words)
@@ -170,14 +171,16 @@ public:
 
     Trie()
         : children(26)
-        , isEnd(false) { }
+        , isEnd(false) {}
 
     void insert(string& w) {
         Trie* node = this;
         reverse(w.begin(), w.end());
-        for (char c : w) {
+        for (char& c : w) {
             int idx = c - 'a';
-            if (!node->children[idx]) node->children[idx] = new Trie();
+            if (!node->children[idx]) {
+                node->children[idx] = new Trie();
+            }
             node = node->children[idx];
         }
         node->isEnd = true;
@@ -187,9 +190,13 @@ public:
         Trie* node = this;
         for (int i = w.size() - 1, j = 0; ~i && j < 201; --i, ++j) {
             int idx = w[i] - 'a';
-            if (!node->children[idx]) return false;
+            if (!node->children[idx]) {
+                return false;
+            }
             node = node->children[idx];
-            if (node->isEnd) return true;
+            if (node->isEnd) {
+                return true;
+            }
         }
         return false;
     }
@@ -199,8 +206,9 @@ class StreamChecker {
 public:
     Trie* trie = new Trie();
     string s;
+
     StreamChecker(vector<string>& words) {
-        for (string& w : words) {
+        for (auto& w : words) {
             trie->insert(w);
         }
     }
