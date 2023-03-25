@@ -124,7 +124,7 @@ class Trie {
 
     public boolean query(StringBuilder s) {
         Trie node = this;
-        for (int i = s.length() - 1, j = 0; i >= 0 && j < 201; --i, ++j) {
+        for (int i = s.length() - 1; i >= 0; --i) {
             int idx = s.charAt(i) - 'a';
             if (node.children[idx] == null) {
                 return false;
@@ -188,7 +188,7 @@ public:
 
     bool search(string& w) {
         Trie* node = this;
-        for (int i = w.size() - 1, j = 0; ~i && j < 201; --i, ++j) {
+        for (int i = w.size() - 1; ~i; --i) {
             int idx = w[i] - 'a';
             if (!node->children[idx]) {
                 return false;
@@ -208,7 +208,7 @@ public:
     string s;
 
     StreamChecker(vector<string>& words) {
-        for (auto& w : words) {
+        for (auto&& w : words) {
             trie->insert(w);
         }
     }
@@ -252,7 +252,7 @@ func (this *Trie) Insert(word string) {
 
 func (this *Trie) Search(word []byte) bool {
 	node := this
-	for i, j := len(word)-1, 0; i >= 0 && j < 201; i, j = i-1, j+1 {
+	for i := len(word) - 1; i >= 0; i-- {
 		idx := word[i] - 'a'
 		if node.children[idx] == nil {
 			return false

@@ -16,7 +16,7 @@ class Trie {
 
     public boolean query(StringBuilder s) {
         Trie node = this;
-        for (int i = s.length() - 1, j = 0; i >= 0 && j < 201; --i, ++j) {
+        for (int i = s.length() - 1; i >= 0; --i) {
             int idx = s.charAt(i) - 'a';
             if (node.children[idx] == null) {
                 return false;

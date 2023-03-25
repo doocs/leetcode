@@ -22,7 +22,7 @@ public:
 
     bool search(string& w) {
         Trie* node = this;
-        for (int i = w.size() - 1, j = 0; ~i && j < 201; --i, ++j) {
+        for (int i = w.size() - 1; ~i; --i) {
             int idx = w[i] - 'a';
             if (!node->children[idx]) {
                 return false;
@@ -42,7 +42,7 @@ public:
     string s;
 
     StreamChecker(vector<string>& words) {
-        for (auto& w : words) {
+        for (auto&& w : words) {
             trie->insert(w);
         }
     }

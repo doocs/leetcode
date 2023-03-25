@@ -21,7 +21,7 @@ func (this *Trie) Insert(word string) {
 
 func (this *Trie) Search(word []byte) bool {
 	node := this
-	for i, j := len(word)-1, 0; i >= 0 && j < 201; i, j = i-1, j+1 {
+	for i := len(word) - 1; i >= 0; i-- {
 		idx := word[i] - 'a'
 		if node.children[idx] == nil {
 			return false
