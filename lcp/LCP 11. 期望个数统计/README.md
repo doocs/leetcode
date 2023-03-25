@@ -49,6 +49,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表**
+
+根据题目描述，我们可以得到如下结论：
+
+如果有 $n$ 个人的能力值相同，每个人有 $n$ 种不同的位置，那么每个人在原位的概率是 $\frac{1}{n}$，那么合起来的期望就是 $1$。
+
+因此，我们只需要统计不同的能力值的个数，即为答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `scores` 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -56,7 +66,9 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def expectNumber(self, scores: List[int]) -> int:
+        return len(set(scores))
 ```
 
 ### **Java**
@@ -64,7 +76,39 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int expectNumber(int[] scores) {
+        Set<Integer> s = new HashSet<>();
+        for (int x : scores) {
+            s.add(x);
+        }
+        return s.size();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int expectNumber(vector<int>& scores) {
+        unordered_set<int> s(scores.begin(), scores.end());
+        return s.size();
+    }
+};
+```
+
+### **Go**
+
+```go
+func expectNumber(scores []int) int {
+	s := map[int]struct{}{}
+	for _, x := range scores {
+		s[x] = struct{}{}
+	}
+	return len(s)
+}
 ```
 
 ### **...**
