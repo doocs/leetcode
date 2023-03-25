@@ -44,6 +44,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 二分查找**
+
+我们可以将题意转换为，将题目最多分成 $m$ 组，每一组去掉最大值后不超过 $T$ ，求最小的满足条件的 $T$。
+
+我们定义二分查找的左边界 $left=0$，右边界 $right=\sum_{i=0}^{n-1}time[i]$，二分查找的目标值为 $T$。
+
+我们定义函数 $check(T)$，表示是否存在一种分组方案，使得每一组去掉最大值后不超过 $T$，并且分组数不超过 $m$。
+
+我们可以用贪心的方法来判断是否存在这样的分组方案。我们从左到右遍历题目，将题目耗时加入当前总耗时 $s$，并更新当前分组的最大值 $mx$。如果当前总耗时 $s$ 减去当前分组的最大值 $mx$ 大于 $T$，则将当前题目作为新的分组的第一题，更新 $s$ 和 $mx$。继续遍历题目，直到遍历完所有题目。如果分组数不超过 $m$，则说明存在这样的分组方案，返回 $true$，否则返回 $false$。
+
+时间复杂度 $O(n \times \log S)$，空间复杂度 $O(1)$。其中 $n$ 和 $S$ 分别为题目数量和题目总耗时。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -51,7 +63,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def minTime(self, time: List[int], m: int) -> int:
+        def check(t):
+            s = mx = 0
+            d = 1
+            for x in time:
+                s += x
+                mx = max(mx, x)
+                if s - mx > t:
+                    d += 1
+                    s = mx = x
+            return d <= m
 
+        return bisect_left(range(sum(time)), True, key=check)
 ```
 
 ### **Java**
@@ -59,7 +84,106 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minTime(int[] time, int m) {
+        int left = 0, right = 0;
+        for (int x : time) {
+            right += x;
+        }
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (check(mid, time, m)) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
 
+    private boolean check(int t, int[] time, int m) {
+        int s = 0, mx = 0;
+        int d = 1;
+        for (int x : time) {
+            s += x;
+            mx = Math.max(mx, x);
+            if (s - mx > t) {
+                s = x;
+                mx = x;
+                ++d;
+            }
+        }
+        return d <= m;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minTime(vector<int>& time, int m) {
+        int left = 0, right = 0;
+        for (int x : time) {
+            right += x;
+        }
+        auto check = [&](int t) -> bool {
+            int s = 0, mx = 0;
+            int d = 1;
+            for (int x : time) {
+                s += x;
+                mx = max(mx, x);
+                if (s - mx > t) {
+                    s = x;
+                    mx = x;
+                    ++d;
+                }
+            }
+            return d <= m;
+        };
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (check(mid)) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minTime(time []int, m int) int {
+	right := 0
+	for _, x := range time {
+		right += x
+	}
+	return sort.Search(right, func(t int) bool {
+		s, mx := 0, 0
+		d := 1
+		for _, x := range time {
+			s += x
+			mx = max(mx, x)
+			if s-mx > t {
+				s, mx = x, x
+				d++
+			}
+		}
+		return d <= m
+	})
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
