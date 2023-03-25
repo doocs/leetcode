@@ -1,38 +1,31 @@
 class Solution {
-    private int[][] f;
     private int[] locations;
-    private int target;
-    private static final int MOD = (int) 1e9 + 7;
+    private int finish;
+    private int n;
+    private Integer[][] f;
+    private final int mod = (int) 1e9 + 7;
 
     public int countRoutes(int[] locations, int start, int finish, int fuel) {
-        int n = locations.length;
-        f = new int[n + 1][fuel + 1];
+        n = locations.length;
         this.locations = locations;
-        target = finish;
-        for (int i = 0; i < f.length; ++i) {
-            Arrays.fill(f[i], -1);
-        }
+        this.finish = finish;
+        f = new Integer[n][fuel + 1];
         return dfs(start, fuel);
     }
 
-    private int dfs(int i, int t) {
-        if (f[i][t] != -1) {
-            return f[i][t];
-        }
-        if (Math.abs(locations[i] - locations[target]) > t) {
+    private int dfs(int i, int k) {
+        if (k < 0 || Math.abs(locations[i] - locations[finish]) > k) {
             return 0;
         }
-        int res = i == target ? 1 : 0;
-        for (int j = 0; j < locations.length; ++j) {
+        if (f[i][k] != null) {
+            return f[i][k];
+        }
+        int ans = i == finish ? 1 : 0;
+        for (int j = 0; j < n; ++j) {
             if (j != i) {
-                int cost = Math.abs(locations[i] - locations[j]);
-                if (cost <= t) {
-                    res += dfs(j, t - cost);
-                    res %= MOD;
-                }
+                ans = (ans + dfs(j, k - Math.abs(locations[i] - locations[j]))) % mod;
             }
         }
-        f[i][t] = res;
-        return res;
+        return f[i][k] = ans;
     }
 }
