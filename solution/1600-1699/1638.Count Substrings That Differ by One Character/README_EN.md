@@ -58,15 +58,36 @@ The underlined portions are the substrings that are chosen from s and t.
 class Solution:
     def countSubstrings(self, s: str, t: str) -> int:
         ans = 0
+        m, n = len(s), len(t)
         for i, a in enumerate(s):
             for j, b in enumerate(t):
                 if a != b:
-                    l = r = 1
-                    while i >= l and j >= l and s[i - l] == t[j - l]:
+                    l = r = 0
+                    while i > l and j > l and s[i - l - 1] == t[j - l - 1]:
                         l += 1
-                    while i + r < len(s) and j + r < len(t) and s[i + r] == t[j + r]:
+                    while i + r + 1 < m and j + r + 1 < n and s[i + r + 1] == t[j + r + 1]:
                         r += 1
-                    ans += l * r
+                    ans += (l + 1) * (r + 1)
+        return ans
+```
+
+```python
+class Solution:
+    def countSubstrings(self, s: str, t: str) -> int:
+        ans = 0
+        m, n = len(s), len(t)
+        f = [[0] * (n + 1) for _ in range(m + 1)]
+        g = [[0] * (n + 1) for _ in range(m + 1)]
+        for i, a in enumerate(s, 1):
+            for j, b in enumerate(t, 1):
+                if a == b:
+                    f[i][j] = f[i - 1][j - 1] + 1
+        for i in range(m - 1, -1, -1):
+            for j in range(n - 1, -1, -1):
+                if s[i] == t[j]:
+                    g[i][j] = g[i + 1][j + 1] + 1
+                else:
+                    ans += (f[i][j] + 1) * (g[i + 1][j + 1] + 1)
         return ans
 ```
 
@@ -75,19 +96,47 @@ class Solution:
 ```java
 class Solution {
     public int countSubstrings(String s, String t) {
-        int m = s.length(), n = t.length();
         int ans = 0;
+        int m = s.length(), n = t.length();
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (s.charAt(i) != t.charAt(j)) {
-                    int l = 1, r = 1;
-                    while (i - l >= 0 && j - l >= 0 && s.charAt(i - l) == t.charAt(j - l)) {
+                    int l = 0, r = 0;
+                    while (i - l > 0 && j - l > 0 && s.charAt(i - l - 1) == t.charAt(j - l - 1)) {
                         ++l;
                     }
-                    while (i + r < m && j + r < n && s.charAt(i + r) == t.charAt(j + r)) {
+                    while (i + r + 1 < m && j + r + 1 < n && s.charAt(i + r + 1) == t.charAt(j + r + 1)) {
                         ++r;
                     }
-                    ans += l * r;
+                    ans += (l + 1) * (r + 1);
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int countSubstrings(String s, String t) {
+        int ans = 0;
+        int m = s.length(), n = t.length();
+        int[][] f = new int[m + 1][n + 1];
+        int[][] g = new int[m + 1][n + 1];
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (s.charAt(i) == t.charAt(j)) {
+                    f[i + 1][j + 1] = f[i][j] + 1;
+                }
+            }
+        }
+        for (int i = m - 1; i >= 0; --i) {
+            for (int j = n - 1; j >= 0; --j) {
+                if (s.charAt(i) == t.charAt(j)) {
+                    g[i][j] = g[i + 1][j + 1] + 1;
+                } else {
+                    ans += (f[i][j] + 1) * (g[i + 1][j + 1] + 1);
                 }
             }
         }
@@ -102,21 +151,51 @@ class Solution {
 class Solution {
 public:
     int countSubstrings(string s, string t) {
-        int m = s.size(), n = t.size();
         int ans = 0;
+        int m = s.size(), n = t.size();
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (s[i] != t[j]) {
+                    int l = 0, r = 0;
+                    while (i - l > 0 && j - l > 0 && s[i - l - 1] == t[j - l - 1]) {
+                        ++l;
+                    }
+                    while (i + r + 1 < m && j + r + 1 < n && s[i + r + 1] == t[j + r + 1]) {
+                        ++r;
+                    }
+                    ans += (l + 1) * (r + 1);
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int countSubstrings(string s, string t) {
+        int ans = 0;
+        int m = s.length(), n = t.length();
+        int f[m + 1][n + 1];
+        int g[m + 1][n + 1];
+        memset(f, 0, sizeof(f));
+        memset(g, 0, sizeof(g));
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (s[i] == t[j]) {
-                    continue;
+                    f[i + 1][j + 1] = f[i][j] + 1;
                 }
-                int l = 1, r = 1;
-                while (i - l >= 0 && j - l >= 0 && s[i - l] == t[j - l]) {
-                    ++l;
+            }
+        }
+        for (int i = m - 1; i >= 0; --i) {
+            for (int j = n - 1; j >= 0; --j) {
+                if (s[i] == t[j]) {
+                    g[i][j] = g[i + 1][j + 1] + 1;
+                } else {
+                    ans += (f[i][j] + 1) * (g[i + 1][j + 1] + 1);
                 }
-                while (i + r < m && j + r < n && s[i + r] == t[j + r]) {
-                    ++r;
-                }
-                ans += l * r;
             }
         }
         return ans;
@@ -128,17 +207,47 @@ public:
 
 ```go
 func countSubstrings(s string, t string) (ans int) {
+	m, n := len(s), len(t)
 	for i, a := range s {
 		for j, b := range t {
 			if a != b {
-				l, r := 1, 1
-				for i >= l && j >= l && s[i-l] == t[j-l] {
+				l, r := 0, 0
+				for i > l && j > l && s[i-l-1] == t[j-l-1] {
 					l++
 				}
-				for i+r < len(s) && j+r < len(t) && s[i+r] == t[j+r] {
+				for i+r+1 < m && j+r+1 < n && s[i+r+1] == t[j+r+1] {
 					r++
 				}
-				ans += l * r
+				ans += (l + 1) * (r + 1)
+			}
+		}
+	}
+	return
+}
+```
+
+```go
+func countSubstrings(s string, t string) (ans int) {
+	m, n := len(s), len(t)
+	f := make([][]int, m+1)
+	g := make([][]int, m+1)
+	for i := range f {
+		f[i] = make([]int, n+1)
+		g[i] = make([]int, n+1)
+	}
+	for i, a := range s {
+		for j, b := range t {
+			if a == b {
+				f[i+1][j+1] = f[i][j] + 1
+			}
+		}
+	}
+	for i := m - 1; i >= 0; i-- {
+		for j := n - 1; j >= 0; j-- {
+			if s[i] == t[j] {
+				g[i][j] = g[i+1][j+1] + 1
+			} else {
+				ans += (f[i][j] + 1) * (g[i+1][j+1] + 1)
 			}
 		}
 	}
