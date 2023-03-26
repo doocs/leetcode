@@ -1,15 +1,14 @@
 class Solution:
-    def maximumRows(self, mat: List[List[int]], cols: int) -> int:
-        arr = []
-        for i, row in enumerate(mat):
-            x = 0
-            for j, v in enumerate(row):
-                x |= v << j
-            arr.append(x)
-        ans, n = 0, len(mat[0])
-        for mask in range(1, 1 << n | 1):
-            if mask.bit_count() > cols:
+    def maximumRows(self, matrix: List[List[int]], numSelect: int) -> int:
+        rows = []
+        for row in matrix:
+            mask = reduce(or_, (1 << j for j, x in enumerate(row) if x), 0)
+            rows.append(mask)
+
+        ans = 0
+        for mask in range(1 << len(matrix[0])):
+            if mask.bit_count() != numSelect:
                 continue
-            t = sum((v & mask) == v for v in arr)
+            t = sum((x & mask) == x for x in rows)
             ans = max(ans, t)
         return ans

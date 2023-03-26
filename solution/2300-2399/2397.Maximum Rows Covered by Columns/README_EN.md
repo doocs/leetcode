@@ -61,43 +61,17 @@ Therefore, we return 2.
 
 ```python
 class Solution:
-    def maximumRows(self, mat: List[List[int]], cols: int) -> int:
-        def dfs(mask, i):
-            if i > n or mask.bit_count() > cols:
-                return
-            nonlocal ans
-            if i == n:
-                t = sum((v & mask) == v for v in arr)
-                ans = max(ans, t)
-                return
-            dfs(mask, i + 1)
-            dfs(mask | 1 << i, i + 1)
+    def maximumRows(self, matrix: List[List[int]], numSelect: int) -> int:
+        rows = []
+        for row in matrix:
+            mask = reduce(or_, (1 << j for j, x in enumerate(row) if x), 0)
+            rows.append(mask)
 
-        arr = []
-        ans, n = 0, len(mat[0])
-        for i, row in enumerate(mat):
-            x = 0
-            for j, v in enumerate(row):
-                x |= v << j
-            arr.append(x)
-        dfs(0, 0)
-        return ans
-```
-
-```python
-class Solution:
-    def maximumRows(self, mat: List[List[int]], cols: int) -> int:
-        arr = []
-        for i, row in enumerate(mat):
-            x = 0
-            for j, v in enumerate(row):
-                x |= v << j
-            arr.append(x)
-        ans, n = 0, len(mat[0])
-        for mask in range(1, 1 << n | 1):
-            if mask.bit_count() > cols:
+        ans = 0
+        for mask in range(1 << len(matrix[0])):
+            if mask.bit_count() != numSelect:
                 continue
-            t = sum((v & mask) == v for v in arr)
+            t = sum((x & mask) == x for x in rows)
             ans = max(ans, t)
         return ans
 ```
@@ -106,25 +80,24 @@ class Solution:
 
 ```java
 class Solution {
-    private int ans;
-    public int maximumRows(int[][] mat, int cols) {
-        int m = mat.length, n = mat[0].length;
-        int[] arr = new int[m];
+    public int maximumRows(int[][] matrix, int numSelect) {
+        int m = matrix.length, n = matrix[0].length;
+        int[] rows = new int[m];
         for (int i = 0; i < m; ++i) {
-            int x = 0;
             for (int j = 0; j < n; ++j) {
-                x |= mat[i][j] << j;
+                if (matrix[i][j] == 1) {
+                    rows[i] |= 1 << j;
+                }
             }
-            arr[i] = x;
         }
         int ans = 0;
-        for (int mask = 1; mask <= 1 << n; ++mask) {
-            if (Integer.bitCount(mask) > cols) {
+        for (int mask = 1; mask < 1 << n; ++mask) {
+            if (Integer.bitCount(mask) != numSelect) {
                 continue;
             }
             int t = 0;
-            for (int v : arr) {
-                if ((v & mask) == v) {
+            for (int x : rows) {
+                if ((x & mask) == x) {
                     ++t;
                 }
             }
@@ -140,19 +113,26 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    int maximumRows(vector<vector<int>>& mat, int cols) {
-        int m = mat.size(), n = mat[0].size();
-        vector<int> arr(m);
+    int maximumRows(vector<vector<int>>& matrix, int numSelect) {
+        int m = matrix.size(), n = matrix[0].size();
+        int rows[m];
+        memset(rows, 0, sizeof(rows));
         for (int i = 0; i < m; ++i) {
-            int x = 0;
-            for (int j = 0; j < n; ++j) x |= mat[i][j] << j;
-            arr[i] = x;
+            for (int j = 0; j < n; ++j) {
+                if (matrix[i][j]) {
+                    rows[i] |= 1 << j;
+                }
+            }
         }
         int ans = 0;
-        for (int mask = 1; mask <= 1 << n; ++mask) {
-            if (__builtin_popcount(mask) > cols) continue;
+        for (int mask = 1; mask < 1 << n; ++mask) {
+            if (__builtin_popcount(mask) != numSelect) {
+                continue;
+            }
             int t = 0;
-            for (int v : arr) t += (v & mask) == v;
+            for (int x : rows) {
+                t += (x & mask) == x;
+            }
             ans = max(ans, t);
         }
         return ans;
@@ -163,37 +143,31 @@ public:
 ### **Go**
 
 ```go
-func maximumRows(mat [][]int, cols int) int {
-	m, n := len(mat), len(mat[0])
-	arr := make([]int, m)
-	for i, row := range mat {
-		x := 0
-		for j, v := range row {
-			x |= v << j
+func maximumRows(matrix [][]int, numSelect int) (ans int) {
+	m, n := len(matrix), len(matrix[0])
+	rows := make([]int, m)
+	for i, row := range matrix {
+		for j, x := range row {
+			if x == 1 {
+				rows[i] |= 1 << j
+			}
 		}
-		arr[i] = x
 	}
-	ans := 0
-	for mask := 1; mask <= 1<<n; mask++ {
-		if bits.OnesCount(uint(mask)) != cols {
+	for mask := 1; mask < 1<<n; mask++ {
+		if bits.OnesCount(uint(mask)) != numSelect {
 			continue
 		}
 		t := 0
-		for _, v := range arr {
-			if (v & mask) == v {
+		for _, x := range rows {
+			if (x & mask) == x {
 				t++
 			}
 		}
-		ans = max(ans, t)
+		if ans < t {
+			ans = t
+		}
 	}
-	return ans
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
+	return
 }
 ```
 

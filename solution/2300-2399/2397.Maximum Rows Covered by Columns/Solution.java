@@ -1,23 +1,22 @@
 class Solution {
-    private int ans;
-    public int maximumRows(int[][] mat, int cols) {
-        int m = mat.length, n = mat[0].length;
-        int[] arr = new int[m];
+    public int maximumRows(int[][] matrix, int numSelect) {
+        int m = matrix.length, n = matrix[0].length;
+        int[] rows = new int[m];
         for (int i = 0; i < m; ++i) {
-            int x = 0;
             for (int j = 0; j < n; ++j) {
-                x |= mat[i][j] << j;
+                if (matrix[i][j] == 1) {
+                    rows[i] |= 1 << j;
+                }
             }
-            arr[i] = x;
         }
         int ans = 0;
-        for (int mask = 1; mask <= 1 << n; ++mask) {
-            if (Integer.bitCount(mask) > cols) {
+        for (int mask = 1; mask < 1 << n; ++mask) {
+            if (Integer.bitCount(mask) != numSelect) {
                 continue;
             }
             int t = 0;
-            for (int v : arr) {
-                if ((v & mask) == v) {
+            for (int x : rows) {
+                if ((x & mask) == x) {
                     ++t;
                 }
             }
