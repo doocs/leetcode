@@ -143,6 +143,39 @@ function findSubarrays(nums: number[]): boolean {
 }
 ```
 
+### **Rust**
+
+```rust
+use std::collections::HashSet;
+impl Solution {
+    pub fn find_subarrays(nums: Vec<i32>) -> bool {
+        let n = nums.len();
+        let mut set = HashSet::new();
+        for i in 1..n {
+            if !set.insert(nums[i - 1] + nums[i]) {
+                return true;
+            }
+        }
+        false
+    }
+}
+```
+
+### **C**
+
+```c
+bool findSubarrays(int *nums, int numsSize) {
+    for (int i = 1; i < numsSize - 1; i++) {
+        for (int j = i + 1; j < numsSize; j++) {
+            if (nums[i - 1] + nums[i] == nums[j - 1] + nums[j]) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+```
+
 ### **...**
 
 ```
