@@ -4,9 +4,10 @@ class Solution:
         a = b = 0
         for i in range(0, n - 1, 2):
             a ^= encoded[i]
-        for i in range(n + 1):
+        for i in range(1, n + 1):
             b ^= i
-        ans = [a ^ b]
-        for e in encoded[::-1]:
-            ans.append(ans[-1] ^ e)
-        return ans[::-1]
+        perm = [0] * n
+        perm[-1] = a ^ b
+        for i in range(n - 2, -1, -1):
+            perm[i] = encoded[i] ^ perm[i + 1]
+        return perm
