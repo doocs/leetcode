@@ -298,7 +298,7 @@ func verify(ch byte) bool {
 
 ### **PHP**
 
-```php 
+```php
 class Solution {
     /**
      * @param String $s

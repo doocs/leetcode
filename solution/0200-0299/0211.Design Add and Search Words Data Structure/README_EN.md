@@ -42,7 +42,7 @@ wordDictionary.search(&quot;b..&quot;); // return True
 	<li><code>1 &lt;= word.length &lt;= 25</code></li>
 	<li><code>word</code> in <code>addWord</code> consists of lowercase English letters.</li>
 	<li><code>word</code> in <code>search</code> consist of <code>&#39;.&#39;</code> or lowercase English letters.</li>
-	<li>There will be at most <code>3</code> dots in <code>word</code> for <code>search</code> queries.</li>
+	<li>There will be at most <code>2</code> dots in <code>word</code> for <code>search</code> queries.</li>
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>addWord</code> and <code>search</code>.</li>
 </ul>
 

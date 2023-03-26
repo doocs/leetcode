@@ -2610,6 +2610,10 @@
 |  2597  |  [美丽子集的数目](/solution/2500-2599/2597.The%20Number%20of%20Beautiful%20Subsets/README.md)  |  `数组`,`动态规划`,`回溯`  |  中等  |  第 337 场周赛  |
 |  2598  |  [执行操作后的最大 MEX](/solution/2500-2599/2598.Smallest%20Missing%20Non-negative%20Integer%20After%20Operations/README.md)  |  `贪心`,`数组`,`哈希表`,`数学`  |  中等  |  第 337 场周赛  |
 |  2599  |  [Make the Prefix Sum Non-negative](/solution/2500-2599/2599.Make%20the%20Prefix%20Sum%20Non-negative/README.md)  |    |  中等  |  🔒  |
+|  2600  |  [K 件物品的最大和](/solution/2600-2699/2600.K%20Items%20With%20the%20Maximum%20Sum/README.md)  |    |  简单  |  第 338 场周赛  |
+|  2601  |  [质数减法运算](/solution/2600-2699/2601.Prime%20Subtraction%20Operation/README.md)  |    |  中等  |  第 338 场周赛  |
+|  2602  |  [使数组元素全部相等的最少操作次数](/solution/2600-2699/2602.Minimum%20Operations%20to%20Make%20All%20Array%20Elements%20Equal/README.md)  |    |  中等  |  第 338 场周赛  |
+|  2603  |  [收集树中金币](/solution/2600-2699/2603.Collect%20Coins%20in%20a%20Tree/README.md)  |    |  困难  |  第 338 场周赛  |
 
 ## 版权
 

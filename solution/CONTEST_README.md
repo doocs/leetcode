@@ -24,6 +24,14 @@
 
 ## 往期竞赛
 
+#### 第 338 场周赛(2023-03-26 10:30, 90 分钟) 参赛人数 5594
+
+- [2600. K 件物品的最大和](/solution/2600-2699/2600.K%20Items%20With%20the%20Maximum%20Sum/README.md)
+- [2601. 质数减法运算](/solution/2600-2699/2601.Prime%20Subtraction%20Operation/README.md)
+- [2602. 使数组元素全部相等的最少操作次数](/solution/2600-2699/2602.Minimum%20Operations%20to%20Make%20All%20Array%20Elements%20Equal/README.md)
+- [2603. 收集树中金币](/solution/2600-2699/2603.Collect%20Coins%20in%20a%20Tree/README.md)
+
+
 #### 第 337 场周赛(2023-03-19 10:30, 90 分钟) 参赛人数 5628
 
 - [2595. 奇偶位数](/solution/2500-2599/2595.Number%20of%20Even%20and%20Odd%20Bits/README.md)

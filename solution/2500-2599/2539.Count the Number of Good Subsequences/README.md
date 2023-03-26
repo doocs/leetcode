@@ -170,25 +170,22 @@ long qmi(long a, long k, long p) {
     return res;
 }
 
-void init() {
+int init = []() {
     f[0] = 1;
     g[0] = 1;
     for (int i = 1; i < N; ++i) {
         f[i] = f[i - 1] * i % MOD;
         g[i] = qmi(f[i], MOD - 2, MOD);
     }
-}
+    return 0;
+}();
 
 int comb(int n, int k) {
     return (f[n] * g[k] % MOD) * g[n - k] % MOD;
 }
 
-
 class Solution {
 public:
-    Solution() {
-        init();
-    }
     int countGoodSubsequences(string s) {
         int cnt[26]{};
         int mx = 1;
