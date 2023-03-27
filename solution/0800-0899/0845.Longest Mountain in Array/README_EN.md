@@ -60,32 +60,38 @@
 ```python
 class Solution:
     def longestMountain(self, arr: List[int]) -> int:
-        left, right = 0, 1
-        status = -1
+        n = len(arr)
+        f = [1] * n
+        g = [1] * n
+        for i in range(1, n):
+            if arr[i] > arr[i - 1]:
+                f[i] = f[i - 1] + 1
         ans = 0
-        while right < len(arr):
-            if status == -1 or status == 1:
-                if arr[right] == arr[right - 1]:
-                    status = -1
-                if status == -1:
-                    if arr[right] > arr[right - 1]:
-                        status = 1
-                    else:
-                        left = right
-                if status == 1 and arr[right] < arr[right - 1]:
-                    status = 2
-            else:
-                if arr[right] == arr[right - 1]:
-                    status = -1
-                    ans = max(ans, right - left)
-                    left = right
-                elif arr[right] > arr[right - 1]:
-                    status = 1
-                    ans = max(ans, right - left)
-                    left = right - 1
-            right += 1
-        if status == 2:
-            ans = max(right - left, ans)
+        for i in range(n - 2, -1, -1):
+            if arr[i] > arr[i + 1]:
+                g[i] = g[i + 1] + 1
+                if f[i] > 1:
+                    ans = max(ans, f[i] + g[i] - 1)
+        return ans
+```
+
+```python
+class Solution:
+    def longestMountain(self, arr: List[int]) -> int:
+        n = len(arr)
+        ans = l = 0
+        while l + 2 < n:
+            r = l + 1
+            if arr[l] < arr[r]:
+                while r + 1 < n and arr[r] < arr[r + 1]:
+                    r += 1
+                if r < n - 1 and arr[r] > arr[r + 1]:
+                    while r < n - 1 and arr[r] > arr[r + 1]:
+                        r += 1
+                    ans = max(ans, r - l + 1)
+                else:
+                    r += 1
+            l = r
         return ans
 ```
 
@@ -94,41 +100,175 @@ class Solution:
 ```java
 class Solution {
     public int longestMountain(int[] arr) {
-        int left = 0, right = 0;
+        int n = arr.length;
+        int[] f = new int[n];
+        int[] g = new int[n];
+        Arrays.fill(f, 1);
+        Arrays.fill(g, 1);
+        for (int i = 1; i < n; ++i) {
+            if (arr[i] > arr[i - 1]) {
+                f[i] = f[i - 1] + 1;
+            }
+        }
         int ans = 0;
-        int status = -1;
-        while (++right < arr.length) {
-            if (status == -1 || status == 1) {
-                if (arr[right] == arr[right - 1]) {
-                    status = -1;
-                }
-                if (status == -1) {
-                    if (arr[right] > arr[right - 1]) {
-                        status = 1;
-                    } else {
-                        left = right;
-                    }
-                }
-                if (status == 1 && arr[right] < arr[right - 1]) {
-                    status = 2;
-                }
-            } else {
-                if (arr[right] > arr[right - 1]) {
-                    status = 1;
-                    ans = Math.max(right - left, ans);
-                    left = right - 1;
-                } else if (arr[right] == arr[right - 1]) {
-                    status = -1;
-                    ans = Math.max(right - left, ans);
-                    left = right;
+        for (int i = n - 2; i >= 0; --i) {
+            if (arr[i] > arr[i + 1]) {
+                g[i] = g[i + 1] + 1;
+                if (f[i] > 1) {
+                    ans = Math.max(ans, f[i] + g[i] - 1);
                 }
             }
         }
-        if (status == 2) {
-            ans = Math.max(ans, right - left);
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int longestMountain(int[] arr) {
+        int n = arr.length;
+        int ans = 0;
+        for (int l = 0, r = 0; l + 2 < n; l = r) {
+            r = l + 1;
+            if (arr[l] < arr[r]) {
+                while (r + 1 < n && arr[r] < arr[r + 1]) {
+                    ++r;
+                }
+                if (r + 1 < n && arr[r] > arr[r + 1]) {
+                    while (r + 1 < n && arr[r] > arr[r + 1]) {
+                        ++r;
+                    }
+                    ans = Math.max(ans, r - l + 1);
+                } else {
+                    ++r;
+                }
+            }
         }
         return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int longestMountain(vector<int>& arr) {
+        int n = arr.size();
+        int f[n];
+        int g[n];
+        fill(f, f + n, 1);
+        fill(g, g + n, 1);
+        for (int i = 1; i < n; ++i) {
+            if (arr[i] > arr[i - 1]) {
+                f[i] = f[i - 1] + 1;
+            }
+        }
+        int ans = 0;
+        for (int i = n - 2; ~i; --i) {
+            if (arr[i] > arr[i + 1]) {
+                g[i] = g[i + 1] + 1;
+                if (f[i] > 1) {
+                    ans = max(ans, f[i] + g[i] - 1);
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int longestMountain(vector<int>& arr) {
+        int n = arr.size();
+        int ans = 0;
+        for (int l = 0, r = 0; l + 2 < n; l = r) {
+            r = l + 1;
+            if (arr[l] < arr[r]) {
+                while (r + 1 < n && arr[r] < arr[r + 1]) {
+                    ++r;
+                }
+                if (r + 1 < n && arr[r] > arr[r + 1]) {
+                    while (r + 1 < n && arr[r] > arr[r + 1]) {
+                        ++r;
+                    }
+                    ans = max(ans, r - l + 1);
+                } else {
+                    ++r;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func longestMountain(arr []int) (ans int) {
+	n := len(arr)
+	f := make([]int, n)
+	g := make([]int, n)
+	for i := range f {
+		f[i] = 1
+		g[i] = 1
+	}
+	for i := 1; i < n; i++ {
+		if arr[i] > arr[i-1] {
+			f[i] = f[i-1] + 1
+		}
+	}
+	for i := n - 2; i >= 0; i-- {
+		if arr[i] > arr[i+1] {
+			g[i] = g[i+1] + 1
+			if f[i] > 1 {
+				ans = max(ans, f[i]+g[i]-1)
+			}
+		}
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func longestMountain(arr []int) (ans int) {
+	n := len(arr)
+	for l, r := 0, 0; l+2 < n; l = r {
+		r = l + 1
+		if arr[l] < arr[r] {
+			for r+1 < n && arr[r] < arr[r+1] {
+				r++
+			}
+			if r+1 < n && arr[r] > arr[r+1] {
+				for r+1 < n && arr[r] > arr[r+1] {
+					r++
+				}
+				ans = max(ans, r-l+1)
+			} else {
+				r++
+			}
+		}
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 

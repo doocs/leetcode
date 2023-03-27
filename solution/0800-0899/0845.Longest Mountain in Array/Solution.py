@@ -1,29 +1,17 @@
 class Solution:
     def longestMountain(self, arr: List[int]) -> int:
-        left, right = 0, 1
-        status = -1
-        ans = 0
-        while right < len(arr):
-            if status == -1 or status == 1:
-                if arr[right] == arr[right - 1]:
-                    status = -1
-                if status == -1:
-                    if arr[right] > arr[right - 1]:
-                        status = 1
-                    else:
-                        left = right
-                if status == 1 and arr[right] < arr[right - 1]:
-                    status = 2
-            else:
-                if arr[right] == arr[right - 1]:
-                    status = -1
-                    ans = max(ans, right - left)
-                    left = right
-                elif arr[right] > arr[right - 1]:
-                    status = 1
-                    ans = max(ans, right - left)
-                    left = right - 1
-            right += 1
-        if status == 2:
-            ans = max(right - left, ans)
+        n = len(arr)
+        ans = l = 0
+        while l + 2 < n:
+            r = l + 1
+            if arr[l] < arr[r]:
+                while r + 1 < n and arr[r] < arr[r + 1]:
+                    r += 1
+                if r < n - 1 and arr[r] > arr[r + 1]:
+                    while r < n - 1 and arr[r] > arr[r + 1]:
+                        r += 1
+                    ans = max(ans, r - l + 1)
+                else:
+                    r += 1
+            l = r
         return ans
