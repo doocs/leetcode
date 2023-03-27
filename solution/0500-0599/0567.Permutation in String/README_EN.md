@@ -41,37 +41,275 @@
 ```python
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
-        need, window = {}, {}
-        validate, left, right = 0, 0, 0
-        for c in s1:
-            window[c] = 0
-            if c in need:
-                need[c] += 1
-            else:
-                need[c] = 1
-        # sliding window
-        for right in range(len(s2)):
-            c = s2[right]
-            if c in need:
-                window[c] += 1
-                if window[c] == need[c]:
-                    validate += 1
-            while right - left + 1 >= len(s1):
-                if validate == len(need):
-                    return True
-                d = s2[left]
-                left += 1
-                if d in need:
-                    if window[d] == need[d]:
-                        validate -= 1
-                    window[d] -= 1
+        n = len(s1)
+        cnt1 = Counter(s1)
+        cnt2 = Counter(s2[:n])
+        if cnt1 == cnt2:
+            return True
+        for i in range(n, len(s2)):
+            cnt2[s2[i]] += 1
+            cnt2[s2[i - n]] -= 1
+            if cnt1 == cnt2:
+                return True
+        return False
+```
+
+```python
+class Solution:
+    def checkInclusion(self, s1: str, s2: str) -> bool:
+        n, m = len(s1), len(s2)
+        if n > m:
+            return False
+        cnt = Counter()
+        for a, b in zip(s1, s2):
+            cnt[a] -= 1
+            cnt[b] += 1
+        diff = sum(x != 0 for x in cnt.values())
+        if diff == 0:
+            return True
+        for i in range(n, m):
+            a, b = s2[i - n], s2[i]
+
+            if cnt[b] == 0:
+                diff += 1
+            cnt[b] += 1
+            if cnt[b] == 0:
+                diff -= 1
+
+            if cnt[a] == 0:
+                diff += 1
+            cnt[a] -= 1
+            if cnt[a] == 0:
+                diff -= 1
+
+            if diff == 0:
+                return True
         return False
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean checkInclusion(String s1, String s2) {
+        int n = s1.length();
+        int m = s2.length();
+        if (n > m) {
+            return false;
+        }
+        int[] cnt1 = new int[26];
+        int[] cnt2 = new int[26];
+        for (int i = 0; i < n; ++i) {
+            ++cnt1[s1.charAt(i) - 'a'];
+            ++cnt2[s2.charAt(i) - 'a'];
+        }
+        if (Arrays.equals(cnt1, cnt2)) {
+            return true;
+        }
+        for (int i = n; i < m; ++i) {
+            ++cnt2[s2.charAt(i) - 'a'];
+            --cnt2[s2.charAt(i - n) - 'a'];
+            if (Arrays.equals(cnt1, cnt2)) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+```
 
+```java
+class Solution {
+    public boolean checkInclusion(String s1, String s2) {
+        int n = s1.length();
+        int m = s2.length();
+        if (n > m) {
+            return false;
+        }
+        int[] cnt = new int[26];
+        for (int i = 0; i < n; ++i) {
+            --cnt[s1.charAt(i) - 'a'];
+            ++cnt[s2.charAt(i) - 'a'];
+        }
+        int diff = 0;
+        for (int x : cnt) {
+            if (x != 0) {
+                ++diff;
+            }
+        }
+        if (diff == 0) {
+            return true;
+        }
+        for (int i = n; i < m; ++i) {
+            int a = s2.charAt(i - n) - 'a';
+            int b = s2.charAt(i) - 'a';
+            if (cnt[b] == 0) {
+                ++diff;
+            }
+            if (++cnt[b] == 0) {
+                --diff;
+            }
+            if (cnt[a] == 0) {
+                ++diff;
+            }
+            if (--cnt[a] == 0) {
+                --diff;
+            }
+            if (diff == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool checkInclusion(string s1, string s2) {
+        int n = s1.size(), m = s2.size();
+        if (n > m) {
+            return false;
+        }
+        vector<int> cnt1(26), cnt2(26);
+        for (int i = 0; i < n; ++i) {
+            ++cnt1[s1[i] - 'a'];
+            ++cnt2[s2[i] - 'a'];
+        }
+        if (cnt1 == cnt2) {
+            return true;
+        }
+        for (int i = n; i < m; ++i) {
+            ++cnt2[s2[i] - 'a'];
+            --cnt2[s2[i - n] - 'a'];
+            if (cnt1 == cnt2) {
+                return true;
+            }
+        }
+        return false;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool checkInclusion(string s1, string s2) {
+        int n = s1.size(), m = s2.size();
+        if (n > m) {
+            return false;
+        }
+        vector<int> cnt(26);
+        for (int i = 0; i < n; ++i) {
+            --cnt[s1[i] - 'a'];
+            ++cnt[s2[i] - 'a'];
+        }
+        int diff = 0;
+        for (int x : cnt) {
+            if (x) {
+                ++diff;
+            }
+        }
+        if (diff == 0) {
+            return true;
+        }
+        for (int i = n; i < m; ++i) {
+            int a = s2[i - n] - 'a';
+            int b = s2[i] - 'a';
+            if (cnt[b] == 0) {
+                ++diff;
+            }
+            if (++cnt[b] == 0) {
+                --diff;
+            }
+            if (cnt[a] == 0) {
+                ++diff;
+            }
+            if (--cnt[a] == 0) {
+                --diff;
+            }
+            if (diff == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+};
+```
+
+### **Go**
+
+```go
+func checkInclusion(s1 string, s2 string) bool {
+	n, m := len(s1), len(s2)
+	if n > m {
+		return false
+	}
+	cnt1 := [26]int{}
+	cnt2 := [26]int{}
+	for i := range s1 {
+		cnt1[s1[i]-'a']++
+		cnt2[s2[i]-'a']++
+	}
+	if cnt1 == cnt2 {
+		return true
+	}
+	for i := n; i < m; i++ {
+		cnt2[s2[i]-'a']++
+		cnt2[s2[i-n]-'a']--
+		if cnt1 == cnt2 {
+			return true
+		}
+	}
+	return false
+}
+```
+
+```go
+func checkInclusion(s1 string, s2 string) bool {
+	n, m := len(s1), len(s2)
+	if n > m {
+		return false
+	}
+	cnt := [26]int{}
+	for i := range s1 {
+		cnt[s1[i]-'a']--
+		cnt[s2[i]-'a']++
+	}
+	diff := 0
+	for _, x := range cnt {
+		if x != 0 {
+			diff++
+		}
+	}
+	if diff == 0 {
+		return true
+	}
+	for i := n; i < m; i++ {
+		a, b := s2[i-n]-'a', s2[i]-'a'
+		if cnt[b] == 0 {
+			diff++
+		}
+		cnt[b]++
+		if cnt[b] == 0 {
+			diff--
+		}
+		if cnt[a] == 0 {
+			diff++
+		}
+		cnt[a]--
+		if cnt[a] == 0 {
+			diff--
+		}
+		if diff == 0 {
+			return true
+		}
+	}
+	return false
+}
 ```
 
 ### **TypeScript**

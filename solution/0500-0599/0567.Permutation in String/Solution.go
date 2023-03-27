@@ -1,26 +1,40 @@
 func checkInclusion(s1 string, s2 string) bool {
-	need, window := make(map[byte]int), make(map[byte]int)
-	validate, left, right := 0, 0, 0
-	for i := range s1 {
-		need[s1[i]] += 1
+	n, m := len(s1), len(s2)
+	if n > m {
+		return false
 	}
-	for ; right < len(s2); right++ {
-		c := s2[right]
-		window[c] += 1
-		if need[c] == window[c] {
-			validate++
+	cnt := [26]int{}
+	for i := range s1 {
+		cnt[s1[i]-'a']--
+		cnt[s2[i]-'a']++
+	}
+	diff := 0
+	for _, x := range cnt {
+		if x != 0 {
+			diff++
 		}
-		// shrink window
-		for right-left+1 >= len(s1) {
-			if validate == len(need) {
-				return true
-			}
-			d := s2[left]
-			if need[d] == window[d] {
-				validate--
-			}
-			window[d] -= 1
-			left++
+	}
+	if diff == 0 {
+		return true
+	}
+	for i := n; i < m; i++ {
+		a, b := s2[i-n]-'a', s2[i]-'a'
+		if cnt[b] == 0 {
+			diff++
+		}
+		cnt[b]++
+		if cnt[b] == 0 {
+			diff--
+		}
+		if cnt[a] == 0 {
+			diff++
+		}
+		cnt[a]--
+		if cnt[a] == 0 {
+			diff--
+		}
+		if diff == 0 {
+			return true
 		}
 	}
 	return false
