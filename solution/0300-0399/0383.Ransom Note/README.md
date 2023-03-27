@@ -48,7 +48,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-用一个数组或字典 chars 存放 magazine 中每个字母出现的次数。遍历 ransomNote 中每个字母，判断 chars 是否包含即可。
+**方法一：哈希表或数组**
+
+我们可以用一个哈希表或长度为 $26$ 的数组 $cnt$ 记录字符串 `magazine` 中所有字符出现的次数。然后遍历字符串 `ransomNote`，对于其中的每个字符 $c$，我们将其从 $cnt$ 的次数减 $1$，如果减 $1$ 之后的次数小于 $0$，说明 $c$ 在 `magazine` 中出现的次数不够，因此无法构成 `ransomNote`，返回 $false$ 即可。
+
+否则，遍历结束后，说明 `ransomNote` 中的每个字符都可以在 `magazine` 中找到对应的字符，因此返回 $true$。
+
+时间复杂度 $O(m + n)$，空间复杂度 $O(C)$。其中 $m$ 和 $n$ 分别为字符串 `ransomNote` 和 `magazine` 的长度；而 $C$ 为字符集的大小，本题中 $C = 26$。
 
 <!-- tabs:start -->
 
@@ -59,11 +65,11 @@
 ```python
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
-        counter = Counter(magazine)
+        cnt = Counter(magazine)
         for c in ransomNote:
-            if counter[c] <= 0:
+            cnt[c] -= 1
+            if cnt[c] < 0:
                 return False
-            counter[c] -= 1
         return True
 ```
 
@@ -74,36 +80,17 @@ class Solution:
 ```java
 class Solution {
     public boolean canConstruct(String ransomNote, String magazine) {
-        int[] counter = new int[26];
-        for (char c : magazine.toCharArray()) {
-            ++counter[c - 'a'];
+        int[] cnt = new int[26];
+        for (int i = 0; i < magazine.length(); ++i) {
+            ++cnt[magazine.charAt(i) - 'a'];
         }
-        for (char c : ransomNote.toCharArray()) {
-            if (counter[c - 'a'] <= 0) {
+        for (int i = 0; i < ransomNote.length(); ++i) {
+            if (--cnt[ransomNote.charAt(i) - 'a'] < 0) {
                 return false;
             }
-            --counter[c - 'a'];
         }
         return true;
     }
-}
-```
-
-### **TypeScript**
-
-```ts
-function canConstruct(ransomNote: string, magazine: string): boolean {
-    let counter = new Array(26).fill(0);
-    let base = 'a'.charCodeAt(0);
-    for (let s of magazine) {
-        ++counter[s.charCodeAt(0) - base];
-    }
-    for (let s of ransomNote) {
-        let idx = s.charCodeAt(0) - base;
-        if (counter[idx] == 0) return false;
-        --counter[idx];
-    }
-    return true;
 }
 ```
 
@@ -113,11 +100,14 @@ function canConstruct(ransomNote: string, magazine: string): boolean {
 class Solution {
 public:
     bool canConstruct(string ransomNote, string magazine) {
-        vector<int> counter(26);
-        for (char c : magazine) ++counter[c - 'a'];
-        for (char c : ransomNote) {
-            if (counter[c - 'a'] <= 0) return false;
-            --counter[c - 'a'];
+        int cnt[26]{};
+        for (char& c : magazine) {
+            ++cnt[c - 'a'];
+        }
+        for (char& c : ransomNote) {
+            if (--cnt[c - 'a'] < 0) {
+                return false;
+            }
         }
         return true;
     }
@@ -128,22 +118,34 @@ public:
 
 ```go
 func canConstruct(ransomNote string, magazine string) bool {
-	rc := make([]int, 26)
-	for _, b := range ransomNote {
-		rc[b-'a']++
+	cnt := [26]int{}
+	for _, c := range magazine {
+		cnt[c-'a']++
 	}
-
-	mc := make([]int, 26)
-	for _, b := range magazine {
-		mc[b-'a']++
-	}
-
-	for i := 0; i < 26; i++ {
-		if rc[i] > mc[i] {
+	for _, c := range ransomNote {
+		cnt[c-'a']--
+		if cnt[c-'a'] < 0 {
 			return false
 		}
 	}
 	return true
+}
+```
+
+### **TypeScript**
+
+```ts
+function canConstruct(ransomNote: string, magazine: string): boolean {
+    const cnt = new Array(26).fill(0);
+    for (const c of magazine) {
+        ++cnt[c.charCodeAt(0) - 97];
+    }
+    for (const c of ransomNote) {
+        if (--cnt[c.charCodeAt(0) - 97] < 0) {
+            return false;
+        }
+    }
+    return true;
 }
 ```
 

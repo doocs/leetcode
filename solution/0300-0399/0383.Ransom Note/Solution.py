@@ -1,8 +1,8 @@
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
-        counter = Counter(magazine)
+        cnt = Counter(magazine)
         for c in ransomNote:
-            if counter[c] <= 0:
+            cnt[c] -= 1
+            if cnt[c] < 0:
                 return False
-            counter[c] -= 1
         return True

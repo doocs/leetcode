@@ -1,11 +1,14 @@
 class Solution {
 public:
     bool canConstruct(string ransomNote, string magazine) {
-        vector<int> counter(26);
-        for (char c : magazine) ++counter[c - 'a'];
-        for (char c : ransomNote) {
-            if (counter[c - 'a'] <= 0) return false;
-            --counter[c - 'a'];
+        int cnt[26]{};
+        for (char& c : magazine) {
+            ++cnt[c - 'a'];
+        }
+        for (char& c : ransomNote) {
+            if (--cnt[c - 'a'] < 0) {
+                return false;
+            }
         }
         return true;
     }

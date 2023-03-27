@@ -1,13 +1,12 @@
 function canConstruct(ransomNote: string, magazine: string): boolean {
-    let counter = new Array(26).fill(0);
-    let base = 'a'.charCodeAt(0);
-    for (let s of magazine) {
-        ++counter[s.charCodeAt(0) - base];
+    const cnt = new Array(26).fill(0);
+    for (const c of magazine) {
+        ++cnt[c.charCodeAt(0) - 97];
     }
-    for (let s of ransomNote) {
-        let idx = s.charCodeAt(0) - base;
-        if (counter[idx] == 0) return false;
-        --counter[idx];
+    for (const c of ransomNote) {
+        if (--cnt[c.charCodeAt(0) - 97] < 0) {
+            return false;
+        }
     }
     return true;
 }
