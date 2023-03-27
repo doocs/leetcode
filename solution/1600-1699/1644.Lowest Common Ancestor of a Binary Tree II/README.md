@@ -57,6 +57,24 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：递归（后序遍历）**
+
+我们设计一个函数 $dfs(root, p, q)$，该函数返回以 $root$ 为根节点的二叉树中是否包含节点 $p$ 或节点 $q$，如果包含，则返回 `true`，否则返回 `false`。
+
+函数 $dfs(root, p, q)$ 的递归过程如下：
+
+如果当前节点 $root$ 为空，则返回 `false`。
+
+否则，我们递归地遍历左子树和右子树，得到 $l$ 和 $r$，分别表示左子树和右子树中是否包含节点 $p$ 或节点 $q$。
+
+如果 $l$ 和 $r$ 都为 `true`，说明当前节点 $root$ 就是我们要找的最近公共祖先节点，将其赋值给变量 $ans$。
+
+如果 $l$ 或 $r$ 为 `true`，并且当前节点 $root$ 的值等于节点 $p$ 或节点 $q$ 的值，说明当前节点 $root$ 就是我们要找的最近公共祖先节点，将其赋值给变量 $ans$。
+
+最后，我们判断 $l$ 或 $r$ 是否为 `true`，或者当前节点 $root$ 的值是否等于节点 $p$ 或节点 $q$ 的值，如果是，则返回 `true`，否则返回 `false`。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -64,7 +82,30 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
 
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        def dfs(root, p, q):
+            if root is None:
+                return False
+            l = dfs(root.left, p, q)
+            r = dfs(root.right, p, q)
+            nonlocal ans
+            if l and r:
+                ans = root
+            if (l or r) and (root.val == p.val or root.val == q.val):
+                ans = root
+            return l or r or root.val == p.val or root.val == q.val
+
+        ans = None
+        dfs(root, p, q)
+        return ans
 ```
 
 ### **Java**
@@ -72,7 +113,77 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    private TreeNode ans;
 
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        dfs(root, p, q);
+        return ans;    
+    }
+
+    private boolean dfs(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null) {
+            return false;
+        }
+        boolean l = dfs(root.left, p, q);
+        boolean r = dfs(root.right, p, q);
+        if (l && r) {
+            ans = root;
+        }
+        if ((l || r) && (root.val == p.val || root.val == q.val)) {
+            ans = root;
+        }
+        return l || r || root.val == p.val || root.val == q.val;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        dfs(root, p, q);
+        return ans;
+    }
+
+private:
+    TreeNode* ans = nullptr;
+
+    bool dfs(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if (!root) {
+            return false;
+        }
+        bool l = dfs(root->left, p, q);
+        bool r = dfs(root->right, p, q);
+        if (l && r) {
+            ans = root;
+        }
+        if ((l || r) && (root->val == p->val || root->val == q->val)) {
+            ans = root;
+        }
+        return l || r || root->val == p->val || root->val == q->val;
+    }
+};
 ```
 
 ### **...**
