@@ -42,6 +42,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 因式分解**
+
+我们先判断 $num$ 是否小于 $2$，如果是，直接返回 $num$。然后从 $9$ 开始，尽可能多地将数字分解为 $9$，然后分解为 $8$，以此类推，直到分解为 $2$。如果最后剩下的数字不是 $1$，或者结果超过了 $2^{31} - 1$，则返回 $0$。否则，我们返回结果。
+
+> 注意，分解后的数字，应该依次填充到结果的个位、十位、百位、千位……上，因此我们需要维护一个变量 $mul$，表示当前的位数。
+
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 为 $num$ 的值。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -49,7 +57,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def smallestFactorization(self, num: int) -> int:
+        if num < 2:
+            return num
+        ans, mul = 0, 1
+        for i in range(9, 1, -1):
+            while num % i == 0:
+                num //= i
+                ans = mul * i + ans
+                mul *= 10
+        return ans if num < 2 and ans <= 2**31 - 1 else 0
 ```
 
 ### **Java**
@@ -57,7 +75,72 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int smallestFactorization(int num) {
+        if (num < 2) {
+            return num;
+        }
+        long ans = 0, mul = 1;
+        for (int i = 9; i >= 2; --i) {
+            if (num % i == 0) {
+                while (num % i == 0) {
+                    num /= i;
+                    ans = mul * i + ans;
+                    mul *= 10;
+                }
+            }
+        }
+        return num < 2 && ans <= Integer.MAX_VALUE ? (int) ans : 0;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int smallestFactorization(int num) {
+        if (num < 2) {
+            return num;
+        }
+        long long ans = 0, mul = 1;
+        for (int i = 9; i >= 2; --i) {
+            if (num % i == 0) {
+                while (num % i == 0) {
+                    num /= i;
+                    ans = mul * i + ans;
+                    mul *= 10;
+                }
+            }
+        }
+        return num < 2 && ans <= INT_MAX ? ans : 0;
+    }
+};
+```
+
+### **Go**
+
+```go
+func smallestFactorization(num int) int {
+	if num < 2 {
+		return num
+	}
+	ans, mul := 0, 1
+	for i := 9; i >= 2; i-- {
+		if num%i == 0 {
+			for num%i == 0 {
+				num /= i
+				ans = mul*i + ans
+				mul *= 10
+			}
+		}
+	}
+	if num < 2 && ans <= math.MaxInt32 {
+		return ans
+	}
+	return 0
+}
 ```
 
 ### **...**

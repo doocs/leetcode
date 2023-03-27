@@ -28,13 +28,88 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def smallestFactorization(self, num: int) -> int:
+        if num < 2:
+            return num
+        ans, mul = 0, 1
+        for i in range(9, 1, -1):
+            while num % i == 0:
+                num //= i
+                ans = mul * i + ans
+                mul *= 10
+        return ans if num < 2 and ans <= 2**31 - 1 else 0
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int smallestFactorization(int num) {
+        if (num < 2) {
+            return num;
+        }
+        long ans = 0, mul = 1;
+        for (int i = 9; i >= 2; --i) {
+            if (num % i == 0) {
+                while (num % i == 0) {
+                    num /= i;
+                    ans = mul * i + ans;
+                    mul *= 10;
+                }
+            }
+        }
+        return num < 2 && ans <= Integer.MAX_VALUE ? (int) ans : 0;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int smallestFactorization(int num) {
+        if (num < 2) {
+            return num;
+        }
+        long long ans = 0, mul = 1;
+        for (int i = 9; i >= 2; --i) {
+            if (num % i == 0) {
+                while (num % i == 0) {
+                    num /= i;
+                    ans = mul * i + ans;
+                    mul *= 10;
+                }
+            }
+        }
+        return num < 2 && ans <= INT_MAX ? ans : 0;
+    }
+};
+```
+
+### **Go**
+
+```go
+func smallestFactorization(num int) int {
+	if num < 2 {
+		return num
+	}
+	ans, mul := 0, 1
+	for i := 9; i >= 2; i-- {
+		if num%i == 0 {
+			for num%i == 0 {
+				num /= i
+				ans = mul*i + ans
+				mul *= 10
+			}
+		}
+	}
+	if num < 2 && ans <= math.MaxInt32 {
+		return ans
+	}
+	return 0
+}
 ```
 
 ### **...**
