@@ -1,9 +1,4 @@
-/**
- * @param {number[][]} trips
- * @param {number} capacity
- * @return {boolean}
- */
-var carPooling = function (trips, capacity) {
+function carPooling(trips: number[][], capacity: number): boolean {
     const d = new Array(1001).fill(0);
     for (const [x, f, t] of trips) {
         d[f] += x;
@@ -17,4 +12,4 @@ var carPooling = function (trips, capacity) {
         }
     }
     return true;
-};
+}

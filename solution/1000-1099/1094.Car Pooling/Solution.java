@@ -1,15 +1,15 @@
 class Solution {
     public boolean carPooling(int[][] trips, int capacity) {
-        int[] delta = new int[1001];
-        for (int[] trip : trips) {
-            int num = trip[0], start = trip[1], end = trip[2];
-            delta[start] += num;
-            delta[end] -= num;
+        int[] d = new int[1001];
+        for (var trip : trips) {
+            int x = trip[0], f = trip[1], t = trip[2];
+            d[f] += x;
+            d[t] -= x;
         }
-        int cur = 0;
-        for (int num : delta) {
-            cur += num;
-            if (cur > capacity) {
+        int s = 0;
+        for (int x : d) {
+            s += x;
+            if (s > capacity) {
                 return false;
             }
         }

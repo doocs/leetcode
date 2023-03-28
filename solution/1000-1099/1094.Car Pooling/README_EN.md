@@ -45,11 +45,11 @@
 ```python
 class Solution:
     def carPooling(self, trips: List[List[int]], capacity: int) -> bool:
-        delta = [0] * 1001
-        for num, start, end in trips:
-            delta[start] += num
-            delta[end] -= num
-        return all(s <= capacity for s in accumulate(delta))
+        d = [0] * 1001
+        for x, f, t in trips:
+            d[f] += x
+            d[t] -= x
+        return all(s <= capacity for s in accumulate(d))
 ```
 
 ### **Java**
@@ -57,16 +57,16 @@ class Solution:
 ```java
 class Solution {
     public boolean carPooling(int[][] trips, int capacity) {
-        int[] delta = new int[1001];
-        for (int[] trip : trips) {
-            int num = trip[0], start = trip[1], end = trip[2];
-            delta[start] += num;
-            delta[end] -= num;
+        int[] d = new int[1001];
+        for (var trip : trips) {
+            int x = trip[0], f = trip[1], t = trip[2];
+            d[f] += x;
+            d[t] -= x;
         }
-        int cur = 0;
-        for (int num : delta) {
-            cur += num;
-            if (cur > capacity) {
+        int s = 0;
+        for (int x : d) {
+            s += x;
+            if (s > capacity) {
                 return false;
             }
         }
@@ -75,47 +75,22 @@ class Solution {
 }
 ```
 
-### **JavaScript**
-
-```js
-/**
- * @param {number[][]} trips
- * @param {number} capacity
- * @return {boolean}
- */
-var carPooling = function (trips, capacity) {
-    let delta = new Array(1001).fill(0);
-    for (let [num, start, end] of trips) {
-        delta[start] += num;
-        delta[end] -= num;
-    }
-    let s = 0;
-    for (let num of delta) {
-        s += num;
-        if (s > capacity) {
-            return false;
-        }
-    }
-    return true;
-};
-```
-
 ### **C++**
 
 ```cpp
 class Solution {
 public:
     bool carPooling(vector<vector<int>>& trips, int capacity) {
-        vector<int> delta(1001);
+        int d[1001]{};
         for (auto& trip : trips) {
-            int num = trip[0], start = trip[1], end = trip[2];
-            delta[start] += num;
-            delta[end] -= num;
+            int x = trip[0], f = trip[1], t = trip[2];
+            d[f] += x;
+            d[t] -= x;
         }
-        int cur = 0;
-        for (auto& num : delta) {
-            cur += num;
-            if (cur > capacity) {
+        int s = 0;
+        for (int x : d) {
+            s += x;
+            if (s > capacity) {
                 return false;
             }
         }
@@ -128,20 +103,65 @@ public:
 
 ```go
 func carPooling(trips [][]int, capacity int) bool {
-	delta := make([]int, 1010)
+	d := [1001]int{}
 	for _, trip := range trips {
-		num, start, end := trip[0], trip[1], trip[2]
-		delta[start] += num
-		delta[end] -= num
+		x, f, t := trip[0], trip[1], trip[2]
+		d[f] += x
+		d[t] -= x
 	}
-	cur := 0
-	for _, num := range delta {
-		cur += num
-		if cur > capacity {
+	s := 0
+	for _, x := range d {
+		s += x
+		if s > capacity {
 			return false
 		}
 	}
 	return true
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[][]} trips
+ * @param {number} capacity
+ * @return {boolean}
+ */
+var carPooling = function (trips, capacity) {
+    const d = new Array(1001).fill(0);
+    for (const [x, f, t] of trips) {
+        d[f] += x;
+        d[t] -= x;
+    }
+    let s = 0;
+    for (const x of d) {
+        s += x;
+        if (s > capacity) {
+            return false;
+        }
+    }
+    return true;
+};
+```
+
+### **TypeScript**
+
+```ts
+function carPooling(trips: number[][], capacity: number): boolean {
+    const d = new Array(1001).fill(0);
+    for (const [x, f, t] of trips) {
+        d[f] += x;
+        d[t] -= x;
+    }
+    let s = 0;
+    for (const x of d) {
+        s += x;
+        if (s > capacity) {
+            return false;
+        }
+    }
+    return true;
 }
 ```
 
