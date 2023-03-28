@@ -52,7 +52,26 @@ $$
 
 接下来我们基于 $f[i][j]$ 构造出最短公共超序列。
 
-用双指针 $i$ 和 $j$ 分别指向字符串 $str1$ 和 $str2$ 的末尾，然后从后往前遍历，每次比较 $str1[i]$ 和 $str2[j]$ 的值，如果 $str1[i] = str2[j]$，则将 $str1[i]$ 或 $str2[j]$ 中的任意一个字符加入到最短公共超序列的末尾，然后 $i$ 和 $j$ 同时减 1；如果 $str1[i] \neq str2[j]$，则将 $f[i][j]$ 与 $f[i - 1][j]$ 和 $f[i][j - 1]$ 中的最大值进行比较，如果 $f[i][j] = f[i - 1][j]$，则将 $str1[i]$ 加入到最短公共超序列的末尾，然后 $i$ 减 1；如果 $f[i][j] = f[i][j - 1]$，则将 $str2[j]$ 加入到最短公共超序列的末尾，然后 $j$ 减 1。重复上述操作，直到 $i = 0$ 或 $j = 0$，然后将剩余的字符串加入到最短公共超序列的末尾即可。
+```bash
+str1:       a   b   a   c
+
+str2:   c   a   b
+
+ans:    c   a   b   a   c
+```
+
+不妨对照着上面的示例字符串，来看看如何构造出最短公共超序列。
+
+我们用双指针 $i$ 和 $j$ 分别指向字符串 $str1$ 和 $str2$ 的末尾，然后从后往前遍历，每次比较 $str1[i]$ 和 $str2[j]$ 的值：
+
+-   如果 $str1[i] = str2[j]$，则将 $str1[i]$ 或 $str2[j]$ 中的任意一个字符加入到最答案序列的末尾，然后 $i$ 和 $j$ 同时减 $1$；
+-   如果 $str1[i] \neq str2[j]$，则将 $f[i][j]$ 与 $f[i - 1][j]$ 和 $f[i][j - 1]$ 中的最大值进行比较：
+    -   如果 $f[i][j] = f[i - 1][j]$，则将 $str1[i]$ 加入到答案序列的末尾，然后 $i$ 减 $1$；
+    -   如果 $f[i][j] = f[i][j - 1]$，则将 $str2[j]$ 加入到答案序列的末尾，然后 $j$ 减 $1$。
+
+重复上述操作，直到 $i = 0$ 或 $j = 0$，然后将剩余的字符串加入到答案序列的末尾即可。
+
+最后我们将答案序列反转，即可得到最终的答案。
 
 时间复杂度 $O(m\times n)$，空间复杂度 $O(m\times n)$。其中 $m$ 和 $n$ 分别是字符串 $str1$ 和 $str2$ 的长度。
 
@@ -225,6 +244,45 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function shortestCommonSupersequence(str1: string, str2: string): string {
+    const m = str1.length;
+    const n = str2.length;
+    const f = new Array(m + 1).fill(0).map(() => new Array(n + 1).fill(0));
+    for (let i = 1; i <= m; ++i) {
+        for (let j = 1; j <= n; ++j) {
+            if (str1[i - 1] == str2[j - 1]) {
+                f[i][j] = f[i - 1][j - 1] + 1;
+            } else {
+                f[i][j] = Math.max(f[i - 1][j], f[i][j - 1]);
+            }
+        }
+    }
+    let ans: string[] = [];
+    let i = m;
+    let j = n;
+    while (i > 0 || j > 0) {
+        if (i === 0) {
+            ans.push(str2[--j]);
+        } else if (j === 0) {
+            ans.push(str1[--i]);
+        } else {
+            if (f[i][j] === f[i - 1][j]) {
+                ans.push(str1[--i]);
+            } else if (f[i][j] === f[i][j - 1]) {
+                ans.push(str2[--j]);
+            } else {
+                ans.push(str1[--i]);
+                --j;
+            }
+        }
+    }
+    return ans.reverse().join('');
 }
 ```
 
