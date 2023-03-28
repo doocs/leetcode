@@ -81,6 +81,22 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：预处理 + 记忆化搜索**
+
+我们注意到，字符串数组 $words$ 中的每一个字符串长度都相同，不妨记为 $n$，那么我们可以预处理出一个二维数组 $cnt$，其中 $cnt[j][c]$ 表示字符串数组 $words$ 中第 $j$ 个位置的字符 $c$ 的数量。
+
+接下来，我们设计一个函数 $dfs(i, j)$，表示构造 $target[i,..]$ 且当前从 $words$ 中选取的字符位置为 $j$ 的方案数。那么答案就是 $dfs(0, 0)$。
+
+函数 $dfs(i, j)$ 的计算逻辑如下：
+
+-   如果 $i \geq m$，说明 $target$ 中的所有字符都已经被选取，那么方案数为 $1$。
+-   如果 $j \geq n$，说明 $words$ 中的所有字符都已经被选取，那么方案数为 $0$。
+-   否则，我们可以不选择 $words$ 中的第 $j$ 个位置的字符，那么方案数为 $dfs(i, j + 1)$；或者我们选择 $words$ 中的第 $j$ 个位置的字符，那么方案数为 $dfs(i + 1, j + 1) \times cnt[j][target[i] - 'a']$。
+
+最后，我们返回 $dfs(0, 0)$ 即可。注意答案的取模操作。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 为字符串 $target$ 的长度，而 $n$ 为字符串数组 $words$ 中每个字符串的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -88,7 +104,26 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def numWays(self, words: List[str], target: str) -> int:
+        @cache
+        def dfs(i, j):
+            if i >= m:
+                return 1
+            if j >= n:
+                return 0
+            ans = dfs(i, j + 1) + dfs(i + 1, j + 1) * cnt[j][ord(target[i]) - ord("a")]
+            ans %= mod
+            return ans
 
+        m = len(target)
+        n = len(words[0])
+        cnt = [[0] * 26 for _ in range(n)]
+        for w in words:
+            for j, c in enumerate(w):
+                cnt[j][ord(c) - ord("a")] += 1
+        mod = 10**9 + 7
+        return dfs(0, 0)
 ```
 
 ### **Java**
@@ -96,7 +131,118 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int m;
+    private int n;
+    private String target;
+    private Integer[][] f;
+    private int[][] cnt;
+    private final int mod = (int) 1e9 + 7;
 
+    public int numWays(String[] words, String target) {
+        m = target.length();
+        n = words[0].length();
+        f = new Integer[m][n];
+        this.target = target;
+        cnt = new int[n][26];
+        for (var w : words) {
+            for (int j = 0; j < n; ++j) {
+                cnt[j][w.charAt(j) - 'a']++;
+            }
+        }
+        return dfs(0, 0);
+    }
+
+    private int dfs(int i, int j) {
+        if (i >= m) {
+            return 1;
+        }
+        if (j >= n) {
+            return 0;
+        }
+        if (f[i][j] != null) {
+            return f[i][j];
+        }
+        long ans = dfs(i, j + 1);
+        ans += 1L * dfs(i + 1, j + 1) * cnt[j][target.charAt(i) - 'a'];
+        ans %= mod;
+        return f[i][j] = (int) ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numWays(vector<string>& words, string target) {
+        const int mod = 1e9 + 7;
+        int m = target.size(), n = words[0].size();
+        vector<vector<int>> cnt(n, vector<int>(26));
+        for (auto& w : words) {
+            for (int j = 0; j < n; ++j) {
+                ++cnt[j][w[j] - 'a'];
+            }
+        }
+        int f[m][n];
+        memset(f, -1, sizeof(f));
+        function<int(int, int)> dfs = [&](int i, int j) -> int {
+            if (i >= m) {
+                return 1;
+            }
+            if (j >= n) {
+                return 0;
+            }
+            if (f[i][j] != -1) {
+                return f[i][j];
+            }
+            int ans = dfs(i, j + 1);
+            ans = (ans + 1LL * dfs(i + 1, j + 1) * cnt[j][target[i] - 'a']) % mod;
+            return f[i][j] = ans;
+        };
+        return dfs(0, 0);
+    }
+};
+```
+
+### **Go**
+
+```go
+func numWays(words []string, target string) int {
+	m, n := len(target), len(words[0])
+	f := make([][]int, m)
+	cnt := make([][26]int, n)
+	for _, w := range words {
+		for j, c := range w {
+			cnt[j][c-'a']++
+		}
+	}
+	for i := range f {
+		f[i] = make([]int, n)
+		for j := range f[i] {
+			f[i][j] = -1
+		}
+	}
+	const mod = 1e9 + 7
+	var dfs func(i, j int) int
+	dfs = func(i, j int) int {
+		if i >= m {
+			return 1
+		}
+		if j >= n {
+			return 0
+		}
+		if f[i][j] != -1 {
+			return f[i][j]
+		}
+		ans := dfs(i, j+1)
+		ans = (ans + dfs(i+1, j+1)*cnt[j][target[i]-'a']) % mod
+		f[i][j] = ans
+		return ans
+	}
+	return dfs(0, 0)
+}
 ```
 
 ### **...**
