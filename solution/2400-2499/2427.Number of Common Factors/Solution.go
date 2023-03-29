@@ -1,9 +1,19 @@
-func commonFactors(a int, b int) int {
-	ans := 0
-	for i := 1; i <= a && i <= b; i++ {
-		if a%i == 0 && b%i == 0 {
+func commonFactors(a int, b int) (ans int) {
+	g := gcd(a, b)
+	for x := 1; x*x <= g; x++ {
+		if g%x == 0 {
 			ans++
+			if x*x < g {
+				ans++
+			}
 		}
 	}
-	return ans
+	return
+}
+
+func gcd(a int, b int) int {
+	if b == 0 {
+		return a
+	}
+	return gcd(b, a%b)
 }

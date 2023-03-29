@@ -39,9 +39,15 @@
 
 **方法一：枚举**
 
-直接枚举 $[1, 1000]$ 中的每个数，判断其是否是 $a$ 和 $b$ 的公因子，如果是，则答案加一。
+我们可以先算出 $a$ 和 $b$ 的最大公约数 $g$，然后枚举 $[1,..g]$ 中的每个数，判断其是否是 $g$ 的因子，如果是，则答案加一。
 
-时间复杂度 $O(n)$。本题中 $n = 1000$。
+时间复杂度 $O(\min(a, b))$，空间复杂度 $O(1)$。
+
+**方法二：枚举优化**
+
+与方法一类似，我们可以先算出 $a$ 和 $b$ 的最大公约数 $g$，然后枚举最大公约数 $g$ 的所有因子，累加答案。
+
+时间复杂度 $O(\sqrt{\min(a, b)})$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -52,7 +58,21 @@
 ```python
 class Solution:
     def commonFactors(self, a: int, b: int) -> int:
-        return sum(a % i == 0 and b % i == 0 for i in range(1, 1001))
+        g = gcd(a, b)
+        return sum(g % x == 0 for x in range(1, g + 1))
+```
+
+```python
+class Solution:
+    def commonFactors(self, a: int, b: int) -> int:
+        g = gcd(a, b)
+        ans, x = 0, 1
+        while x * x <= g:
+            if g % x == 0:
+                ans += 1
+                ans += x * x < g
+            x += 1
+        return ans
 ```
 
 ### **Java**
@@ -62,13 +82,40 @@ class Solution:
 ```java
 class Solution {
     public int commonFactors(int a, int b) {
-        int ans = 0, n = Math.min(a, b);
-        for (int i = 1; i <= n; ++i) {
-            if (a % i == 0 && b % i == 0) {
+        int g = gcd(a, b);
+        int ans = 0;
+        for (int x = 1; x <= g; ++x) {
+            if (g % x == 0) {
                 ++ans;
             }
         }
         return ans;
+    }
+
+    private int gcd(int a, int b) {
+        return b == 0 ? a : gcd(b, a % b);
+    }
+}
+```
+
+```java
+class Solution {
+    public int commonFactors(int a, int b) {
+        int g = gcd(a, b);
+        int ans = 0;
+        for (int x = 1; x * x <= g; ++x) {
+            if (g % x == 0) {
+                ++ans;
+                if (x * x < g) {
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+
+    private int gcd(int a, int b) {
+        return b == 0 ? a : gcd(b, a % b);
     }
 }
 ```
@@ -79,11 +126,26 @@ class Solution {
 class Solution {
 public:
     int commonFactors(int a, int b) {
+        int g = gcd(a, b);
         int ans = 0;
-        int n = min(a, b);
-        for (int i = 1; i <= n; ++i) {
-            if (a % i == 0 && b % i == 0) {
-                ++ans;
+        for (int x = 1; x <= g; ++x) {
+            ans += g % x == 0;
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int commonFactors(int a, int b) {
+        int g = gcd(a, b);
+        int ans = 0;
+        for (int x = 1; x * x <= g; ++x) {
+            if (g % x == 0) {
+                ans++;
+                ans += x * x < g;
             }
         }
         return ans;
@@ -94,14 +156,43 @@ public:
 ### **Go**
 
 ```go
-func commonFactors(a int, b int) int {
-	ans := 0
-	for i := 1; i <= a && i <= b; i++ {
-		if a%i == 0 && b%i == 0 {
+func commonFactors(a int, b int) (ans int) {
+	g := gcd(a, b)
+	for x := 1; x <= g; x++ {
+		if g%x == 0 {
 			ans++
 		}
 	}
-	return ans
+	return
+}
+
+func gcd(a int, b int) int {
+	if b == 0 {
+		return a
+	}
+	return gcd(b, a%b)
+}
+```
+
+```go
+func commonFactors(a int, b int) (ans int) {
+	g := gcd(a, b)
+	for x := 1; x*x <= g; x++ {
+		if g%x == 0 {
+			ans++
+			if x*x < g {
+				ans++
+			}
+		}
+	}
+	return
+}
+
+func gcd(a int, b int) int {
+	if b == 0 {
+		return a
+	}
+	return gcd(b, a%b)
 }
 ```
 
@@ -109,12 +200,38 @@ func commonFactors(a int, b int) int {
 
 ```ts
 function commonFactors(a: number, b: number): number {
-    const n = Math.min(a, b);
+    const g = gcd(a, b);
     let ans = 0;
-    for (let i = 1; i <= n; i++) {
-        if (a % i == 0 && b % i == 0) ans += 1;
+    for (let x = 1; x <= g; ++x) {
+        if (g % x === 0) {
+            ++ans;
+        }
     }
     return ans;
+}
+
+function gcd(a: number, b: number): number {
+    return b === 0 ? a : gcd(b, a % b);
+}
+```
+
+```ts
+function commonFactors(a: number, b: number): number {
+    const g = gcd(a, b);
+    let ans = 0;
+    for (let x = 1; x * x <= g; ++x) {
+        if (g % x === 0) {
+            ++ans;
+            if (x * x < g) {
+                ++ans;
+            }
+        }
+    }
+    return ans;
+}
+
+function gcd(a: number, b: number): number {
+    return b === 0 ? a : gcd(b, a % b);
 }
 ```
 

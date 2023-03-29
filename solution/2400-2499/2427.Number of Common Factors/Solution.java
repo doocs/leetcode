@@ -1,11 +1,19 @@
 class Solution {
     public int commonFactors(int a, int b) {
-        int ans = 0, n = Math.min(a, b);
-        for (int i = 1; i <= n; ++i) {
-            if (a % i == 0 && b % i == 0) {
+        int g = gcd(a, b);
+        int ans = 0;
+        for (int x = 1; x * x <= g; ++x) {
+            if (g % x == 0) {
                 ++ans;
+                if (x * x < g) {
+                    ++ans;
+                }
             }
         }
         return ans;
+    }
+
+    private int gcd(int a, int b) {
+        return b == 0 ? a : gcd(b, a % b);
     }
 }
