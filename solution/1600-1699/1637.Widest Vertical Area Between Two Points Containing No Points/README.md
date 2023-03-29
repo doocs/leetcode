@@ -46,7 +46,7 @@
 
 **方法一：排序**
 
-对 `points` 按照 $x$ 升序排列，获取相邻点之间 $x$ 的差值的最大值。
+我们可以对 `points` 按照 $x$ 升序排列，获取相邻点之间 $x$ 的差值的最大值。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为 `points` 的长度。
 
@@ -112,6 +112,19 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxWidthOfVerticalArea(points: number[][]): number {
+    points.sort((a, b) => a[0] - b[0]);
+    let ans = 0;
+    for (let i = 1; i < points.length; ++i) {
+        ans = Math.max(ans, points[i][0] - points[i - 1][0]);
+    }
+    return ans;
 }
 ```
 
