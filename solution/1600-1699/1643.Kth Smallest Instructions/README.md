@@ -69,6 +69,20 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：组合计数**
+
+根据题目描述我们可以知道，最终的路径是由 $destination[0]$ 个 `'V'` 和 $destination[1]$ 个 `'H'` 组成的，且按字典序排列后的第 $k$ 条最小指令。
+
+我们首先考虑字典序的最高位，即最左边的字符。如果高位字符是 `'V'`，那么所有以 `'H'` 开头的路径的字典序都比它小，而以 `'H'` 开头的路径总数为 $x = C_{v+h-1}^{h-1}$。
+
+如果 $k \lt x$，那么高位字符一定是 `'V'`，我们将 $k$ 减去 $x$，并将 $v$ 减 $1$，然后继续考虑下一位字符；否则，高位字符一定是 `'H'`，我们将 $h$ 减 $1$，然后继续考虑下一位字符。
+
+注意，如果 $h = 0$，那么高位字符一定是 `'V'`，因为剩下的字符都是 `'V'`。
+
+问题可以转换为求解 $C_{n}^{k}$，我们可以通过公式 $C_{n}^{k} = C_{n-1}^{k-1} + C_{n-1}^{k}$ 递推求解。
+
+时间复杂度 $O((h + v) \times h)$，空间复杂度 $O((h + v) \times h)$。其中 $h$ 和 $v$ 分别为 $destination[1]$ 和 $destination[0]$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -76,7 +90,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def kthSmallestPath(self, destination: List[int], k: int) -> str:
+        v, h = destination
+        ans = []
+        for _ in range(h + v):
+            if h == 0:
+                ans.append("V")
+            else:
+                x = comb(h + v - 1, h - 1)
+                if k > x:
+                    ans.append("V")
+                    v -= 1
+                    k -= x
+                else:
+                    ans.append("H")
+                    h -= 1
+        return "".join(ans)
 ```
 
 ### **Java**
@@ -84,7 +114,111 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String kthSmallestPath(int[] destination, int k) {
+        int v = destination[0], h = destination[1];
+        int n = v + h;
+        int[][] c = new int[n + 1][h + 1];
+        c[0][0] = 1;
+        for (int i = 1; i <= n; ++i) {
+            c[i][0] = 1;
+            for (int j = 1; j <= h; ++j) {
+                c[i][j] = c[i - 1][j] + c[i - 1][j - 1];
+            }
+        }
+        StringBuilder ans = new StringBuilder();
+        for (int i = n; i > 0; --i) {
+            if (h == 0) {
+                ans.append('V');
+            } else {
+                int x = c[v + h - 1][h - 1];
+                if (k > x) {
+                    ans.append('V');
+                    k -= x;
+                    --v;
+                } else {
+                    ans.append('H');
+                    --h;
+                }
+            }
+        }
+        return ans.toString();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string kthSmallestPath(vector<int>& destination, int k) {
+        int v = destination[0], h = destination[1];
+        int n = v + h;
+        int c[n + 1][h + 1];
+        memset(c, 0, sizeof(c));
+        c[0][0] = 1;
+        for (int i = 1; i <= n; ++i) {
+            c[i][0] = 1;
+            for (int j = 1; j <= h; ++j) {
+                c[i][j] = c[i - 1][j] + c[i - 1][j - 1];
+            }
+        }
+        string ans;
+        for (int i = 0; i < n; ++i) {
+            if (h == 0) {
+                ans.push_back('V');
+            } else {
+                int x = c[v + h - 1][h - 1];
+                if (k > x) {
+                    ans.push_back('V');
+                    --v;
+                    k -= x;
+                } else {
+                    ans.push_back('H');
+                    --h;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func kthSmallestPath(destination []int, k int) string {
+	v, h := destination[0], destination[1]
+	n := v + h
+	c := make([][]int, n+1)
+	for i := range c {
+		c[i] = make([]int, h+1)
+		c[i][0] = 1
+	}
+	for i := 1; i <= n; i++ {
+		for j := 1; j <= h; j++ {
+			c[i][j] = c[i-1][j] + c[i-1][j-1]
+		}
+	}
+	ans := []byte{}
+	for i := 0; i < n; i++ {
+		if h == 0 {
+			ans = append(ans, 'V')
+		} else {
+			x := c[v+h-1][h-1]
+			if k > x {
+				ans = append(ans, 'V')
+				k -= x
+				v--
+			} else {
+				ans = append(ans, 'H')
+				h--
+			}
+		}
+	}
+	return string(ans)
+}
 ```
 
 ### **...**
