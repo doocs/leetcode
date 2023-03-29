@@ -47,9 +47,9 @@
 
 **方法一：枚举**
 
-从左上角开始，枚举每个可能的沙漏的中间坐标 $(i, j)$，计算沙漏的元素和，取最大值即可。
+我们观察题目发现，每个沙漏就是一个 $3 \times 3$ 的矩阵挖去中间行的首尾两个元素。因此，我们可以从左上角开始，枚举每个沙漏的中间坐标 $(i, j)$，然后计算沙漏的元素和，取其中的最大值即可。
 
-时间复杂度 $O(m\times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
+时间复杂度 $O(m \times n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
 
@@ -64,14 +64,10 @@ class Solution:
         ans = 0
         for i in range(1, m - 1):
             for j in range(1, n - 1):
-                t = 0
-                for x in [i - 1, i, i + 1]:
-                    for y in [j - 1, j, j + 1]:
-                        t += grid[x][y]
-
-                t -= grid[i][j - 1]
-                t -= grid[i][j + 1]
-                ans = max(ans, t)
+                s = -grid[i][j - 1] - grid[i][j + 1]
+                s += sum(grid[x][y] for x in range(i - 1, i + 2)
+                         for y in range(j - 1, j + 2))
+                ans = max(ans, s)
         return ans
 ```
 
@@ -86,15 +82,13 @@ class Solution {
         int ans = 0;
         for (int i = 1; i < m - 1; ++i) {
             for (int j = 1; j < n - 1; ++j) {
-                int t = 0;
+                int s = -grid[i][j - 1] - grid[i][j + 1];
                 for (int x = i - 1; x <= i + 1; ++x) {
                     for (int y = j - 1; y <= j + 1; ++y) {
-                        t += grid[x][y];
+                        s += grid[x][y];
                     }
                 }
-                t -= grid[i][j - 1];
-                t -= grid[i][j + 1];
-                ans = Math.max(ans, t);
+                ans = Math.max(ans, s);
             }
         }
         return ans;
@@ -112,15 +106,13 @@ public:
         int ans = 0;
         for (int i = 1; i < m - 1; ++i) {
             for (int j = 1; j < n - 1; ++j) {
-                int t = 0;
+                int s = -grid[i][j - 1] - grid[i][j + 1];
                 for (int x = i - 1; x <= i + 1; ++x) {
                     for (int y = j - 1; y <= j + 1; ++y) {
-                        t += grid[x][y];
+                        s += grid[x][y];
                     }
                 }
-                t -= grid[i][j - 1];
-                t -= grid[i][j + 1];
-                ans = max(ans, t);
+                ans = max(ans, s);
             }
         }
         return ans;
@@ -131,23 +123,20 @@ public:
 ### **Go**
 
 ```go
-func maxSum(grid [][]int) int {
+func maxSum(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
-	ans := 0
 	for i := 1; i < m-1; i++ {
 		for j := 1; j < n-1; j++ {
-			t := 0
+			s := -grid[i][j-1] - grid[i][j+1]
 			for x := i - 1; x <= i+1; x++ {
 				for y := j - 1; y <= j+1; y++ {
-					t += grid[x][y]
+					s += grid[x][y]
 				}
 			}
-			t -= grid[i][j-1]
-			t -= grid[i][j+1]
-			ans = max(ans, t)
+			ans = max(ans, s)
 		}
 	}
-	return ans
+	return
 }
 
 func max(a, b int) int {
@@ -162,21 +151,18 @@ func max(a, b int) int {
 
 ```ts
 function maxSum(grid: number[][]): number {
-    const m = grid.length,
-        n = grid[0].length;
-    let threeSum = Array.from({ length: m }, () => new Array(n - 2).fill(0));
-    for (let i = 0; i < m; i++) {
-        for (let j = 1; j < n - 1; j++) {
-            threeSum[i][j - 1] = grid[i][j - 1] + grid[i][j] + grid[i][j + 1];
-        }
-    }
+    const m = grid.length;
+    const n = grid[0].length;
     let ans = 0;
-    for (let i = 1; i < m - 1; i++) {
-        for (let j = 1; j < n - 1; j++) {
-            ans = Math.max(
-                ans,
-                threeSum[i - 1][j - 1] + grid[i][j] + threeSum[i + 1][j - 1],
-            );
+    for (let i = 1; i < m - 1; ++i) {
+        for (let j = 1; j < n - 1; ++j) {
+            let s = -grid[i][j - 1] - grid[i][j + 1];
+            for (let x = i - 1; x <= i + 1; ++x) {
+                for (let y = j - 1; y <= j + 1; ++y) {
+                    s += grid[x][y];
+                }
+            }
+            ans = Math.max(ans, s);
         }
     }
     return ans;

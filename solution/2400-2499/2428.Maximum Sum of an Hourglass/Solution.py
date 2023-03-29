@@ -4,12 +4,8 @@ class Solution:
         ans = 0
         for i in range(1, m - 1):
             for j in range(1, n - 1):
-                t = 0
-                for x in [i - 1, i, i + 1]:
-                    for y in [j - 1, j, j + 1]:
-                        t += grid[x][y]
-
-                t -= grid[i][j - 1]
-                t -= grid[i][j + 1]
-                ans = max(ans, t)
+                s = -grid[i][j - 1] - grid[i][j + 1]
+                s += sum(grid[x][y] for x in range(i - 1, i + 2)
+                         for y in range(j - 1, j + 2))
+                ans = max(ans, s)
         return ans
