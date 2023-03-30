@@ -1,9 +1,42 @@
 func maxWidthOfVerticalArea(points [][]int) (ans int) {
-	sort.Slice(points, func(i, j int) bool { return points[i][0] < points[j][0] })
-	for i, p := range points[1:] {
-		ans = max(ans, p[0]-points[i][0])
+	n := len(points)
+	nums := make([]int, 0, n)
+	for _, p := range points {
+		nums = append(nums, p[0])
 	}
-	return
+	const inf = 1 << 30
+	mi, mx := inf, -inf
+	for _, v := range nums {
+		mi = min(mi, v)
+		mx = max(mx, v)
+	}
+	bucketSize := max(1, (mx-mi)/(n-1))
+	bucketCount := (mx-mi)/bucketSize + 1
+	buckets := make([][]int, bucketCount)
+	for i := range buckets {
+		buckets[i] = []int{inf, -inf}
+	}
+	for _, v := range nums {
+		i := (v - mi) / bucketSize
+		buckets[i][0] = min(buckets[i][0], v)
+		buckets[i][1] = max(buckets[i][1], v)
+	}
+	prev := inf
+	for _, bucket := range buckets {
+		if bucket[0] > bucket[1] {
+			continue
+		}
+		ans = max(ans, bucket[0]-prev)
+		prev = bucket[1]
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
 
 func max(a, b int) int {
