@@ -1,14 +1,14 @@
 class Solution:
     def maximumPopulation(self, logs: List[List[int]]) -> int:
-        delta = [0] * 2055
-        for birth, death in logs:
-            delta[birth] += 1
-            delta[death] -= 1
-
-        mx = res = cur = 0
-        for i, v in enumerate(delta):
-            cur += v
-            if mx < cur:
-                mx = cur
-                res = i
-        return res
+        d = [0] * 101
+        offset = 1950
+        for a, b in logs:
+            a, b = a - offset, b - offset
+            d[a] += 1
+            d[b] -= 1
+        s = mx = j = 0
+        for i, x in enumerate(d):
+            s += x
+            if mx < s:
+                mx, j = s, i
+        return j + offset

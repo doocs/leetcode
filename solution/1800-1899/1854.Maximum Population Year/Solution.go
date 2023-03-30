@@ -1,17 +1,18 @@
 func maximumPopulation(logs [][]int) int {
-	delta := make([]int, 101)
+	d := [101]int{}
 	offset := 1950
 	for _, log := range logs {
-		delta[log[0]-offset]++
-		delta[log[1]-offset]--
+		a, b := log[0]-offset, log[1]-offset
+		d[a]++
+		d[b]--
 	}
-	res, mx, cur := 0, 0, 0
-	for i := 0; i < len(delta); i++ {
-		cur += delta[i]
-		if cur > mx {
-			mx = cur
-			res = i
+	var s, mx, j int
+	for i, x := range d {
+		s += x
+		if mx < s {
+			mx = s
+			j = i
 		}
 	}
-	return res + offset
+	return j + offset
 }

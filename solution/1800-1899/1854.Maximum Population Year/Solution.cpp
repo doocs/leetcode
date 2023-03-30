@@ -1,20 +1,23 @@
 class Solution {
 public:
     int maximumPopulation(vector<vector<int>>& logs) {
-        vector<int> delta(101, 0);
-        int offset = 1950;
-        for (auto log : logs) {
-            ++delta[log[0] - offset];
-            --delta[log[1] - offset];
+        int d[101]{};
+        const int offset = 1950;
+        for (auto& log : logs) {
+            int a = log[0] - offset;
+            int b = log[1] - offset;
+            ++d[a];
+            --d[b];
         }
-        int res = 0, mx = 0, cur = 0;
-        for (int i = 0; i < delta.size(); ++i) {
-            cur += delta[i];
-            if (cur > mx) {
-                mx = cur;
-                res = i;
+        int s = 0, mx = 0;
+        int j = 0;
+        for (int i = 0; i < 101; ++i) {
+            s += d[i];
+            if (mx < s) {
+                mx = s;
+                j = i;
             }
         }
-        return res + offset;
+        return j + offset;
     }
 };

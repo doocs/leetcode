@@ -1,18 +1,22 @@
 class Solution {
     public int maximumPopulation(int[][] logs) {
-        int[] delta = new int[2055];
-        for (int[] log : logs) {
-            ++delta[log[0]];
-            --delta[log[1]];
+        int[] d = new int[101];
+        final int offset = 1950;
+        for (var log : logs) {
+            int a = log[0] - offset;
+            int b = log[1] - offset;
+            ++d[a];
+            --d[b];
         }
-        int res = 0, mx = 0, cur = 0;
-        for (int i = 0; i < delta.length; ++i) {
-            cur += delta[i];
-            if (cur > mx) {
-                mx = cur;
-                res = i;
+        int s = 0, mx = 0;
+        int j = 0;
+        for (int i = 0; i < d.length; ++i) {
+            s += d[i];
+            if (mx < s) {
+                mx = s;
+                j = i;
             }
         }
-        return res;
+        return j + offset;
     }
 }
