@@ -7,8 +7,8 @@ func maxSumMinProduct(nums []int) int {
 		right[i] = n
 	}
 	stk := []int{}
-	for i, v := range nums {
-		for len(stk) > 0 && nums[stk[len(stk)-1]] >= v {
+	for i, x := range nums {
+		for len(stk) > 0 && nums[stk[len(stk)-1]] >= x {
 			stk = stk[:len(stk)-1]
 		}
 		if len(stk) > 0 {
@@ -27,16 +27,15 @@ func maxSumMinProduct(nums []int) int {
 		stk = append(stk, i)
 	}
 	s := make([]int, n+1)
-	for i, v := range nums {
-		s[i+1] = s[i] + v
+	for i, x := range nums {
+		s[i+1] = s[i] + x
 	}
 	ans := 0
-	for i, v := range nums {
-		t := v * (s[right[i]] - s[left[i]+1])
-		if ans < t {
+	for i, x := range nums {
+		if t := x * (s[right[i]] - s[left[i]+1]); ans < t {
 			ans = t
 		}
 	}
-	mod := int(1e9) + 7
+	const mod = 1e9 + 7
 	return ans % mod
 }

@@ -31,9 +31,9 @@ class Solution {
         }
         long ans = 0;
         for (int i = 0; i < n; ++i) {
-            long t = nums[i] * (s[right[i]] - s[left[i] + 1]);
-            ans = Math.max(ans, t);
+            ans = Math.max(ans, nums[i] * (s[right[i]] - s[left[i] + 1]));
         }
-        return (int) (ans % 1000000007);
+        final int mod = (int) 1e9 + 7;
+        return (int) (ans % mod);
     }
 }
