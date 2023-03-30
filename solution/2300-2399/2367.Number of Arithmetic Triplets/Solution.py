@@ -1,4 +1,4 @@
 class Solution:
     def arithmeticTriplets(self, nums: List[int], diff: int) -> int:
-        s = set(nums)
-        return sum(v + diff in s and v + diff + diff in s for v in nums)
+        vis = set(nums)
+        return sum(x + diff in vis and x + diff * 2 in vis for x in nums)

@@ -1,10 +1,14 @@
 class Solution {
 public:
     int arithmeticTriplets(vector<int>& nums, int diff) {
-        vector<bool> vis(310);
-        for (int v : nums) vis[v] = true;
+        bitset<301> vis;
+        for (int x : nums) {
+            vis[x] = 1;
+        }
         int ans = 0;
-        for (int v : nums) ans += vis[v + diff] && vis[v + diff + diff];
+        for (int x : nums) {
+            ans += vis[x + diff] && vis[x + diff + diff];
+        }
         return ans;
     }
 };

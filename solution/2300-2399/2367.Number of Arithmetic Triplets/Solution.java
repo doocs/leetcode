@@ -1,12 +1,12 @@
 class Solution {
     public int arithmeticTriplets(int[] nums, int diff) {
-        boolean[] vis = new boolean[310];
-        for (int v : nums) {
-            vis[v] = true;
+        boolean[] vis = new boolean[301];
+        for (int x : nums) {
+            vis[x] = true;
         }
         int ans = 0;
-        for (int v : nums) {
-            if (vis[v + diff] && vis[v + diff + diff]) {
+        for (int x : nums) {
+            if (vis[x + diff] && vis[x + diff + diff]) {
                 ++ans;
             }
         }

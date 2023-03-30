@@ -1,13 +1,12 @@
-func arithmeticTriplets(nums []int, diff int) int {
-	vis := make([]bool, 310)
-	for _, v := range nums {
-		vis[v] = true
+func arithmeticTriplets(nums []int, diff int) (ans int) {
+	vis := [301]bool{}
+	for _, x := range nums {
+		vis[x] = true
 	}
-	ans := 0
-	for _, v := range nums {
-		if vis[v+diff] && vis[v+diff+diff] {
+	for _, x := range nums {
+		if vis[x+diff] && vis[x+diff+diff] {
 			ans++
 		}
 	}
-	return ans
+	return
 }
