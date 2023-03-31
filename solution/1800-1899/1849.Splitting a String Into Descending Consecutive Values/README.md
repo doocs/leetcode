@@ -67,6 +67,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：DFS**
+
+从字符串的第一个字符开始，枚举所有可能的拆分位置，判断拆分出来的子串是否满足题目要求，如果满足则继续递归判断剩余的子串是否满足题目要求，直到遍历完整个字符串。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为字符串的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -74,7 +80,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def splitString(self, s: str) -> bool:
+        def dfs(i, x, k):
+            if i == len(s):
+                return k > 1
+            y = 0
+            for j in range(i, len(s)):
+                y = y * 10 + int(s[j])
+                if (x == -1 or x - y == 1) and dfs(j + 1, y, k + 1):
+                    return True
+            return False
 
+        return dfs(0, -1, 0)
 ```
 
 ### **Java**
@@ -82,7 +100,80 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private String s;
 
+    public boolean splitString(String s) {
+        this.s = s;
+        return dfs(0, -1, 0);
+    }
+
+    private boolean dfs(int i, long x, int k) {
+        if (i == s.length()) {
+            return k > 1;
+        }
+        long y = 0;
+        for (int j = i; j < s.length(); ++j) {
+            y = y * 10 + (s.charAt(j) - '0');
+            if ((x == -1 || x - y == 1) && dfs(j + 1, y, k + 1)) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool splitString(string s) {
+        function<bool(int, long long, int)> dfs = [&](int i, long long x, int k) -> bool {
+            if (i == s.size()) {
+                return k > 1;
+            }
+            long long y = 0;
+            for (int j = i; j < s.size(); ++j) {
+                y = y * 10 + (s[j] - '0');
+                if (y > 1e10) {
+                    break;
+                }
+                if ((x == -1 || x - y == 1) && dfs(j + 1, y, k + 1)) {
+                    return true;
+                }
+            }
+            return false;
+        };
+        return dfs(0, -1, 0);
+    }
+};
+```
+
+### **Go**
+
+```go
+func splitString(s string) bool {
+	var dfs func(i, x, k int) bool
+	dfs = func(i, x, k int) bool {
+		if i == len(s) {
+			return k > 1
+		}
+		y := 0
+		for j := i; j < len(s); j++ {
+			y = y*10 + int(s[j]-'0')
+			if y > int(1e10) {
+				break
+			}
+			if (x == -1 || x-y == 1) && dfs(j+1, y, k+1) {
+				return true
+			}
+		}
+		return false
+	}
+	return dfs(0, -1, 0)
+}
 ```
 
 ### **...**
