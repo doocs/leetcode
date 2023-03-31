@@ -51,13 +51,100 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def missingElement(self, nums: List[int], k: int) -> int:
+        def missing(i: int) -> int:
+            return nums[i] - nums[0] - i
 
+        n = len(nums)
+        if k > missing(n - 1):
+            return nums[n - 1] + k - missing(n - 1)
+        l, r = 0, n - 1
+        while l < r:
+            mid = (l + r) >> 1
+            if missing(mid) >= k:
+                r = mid
+            else:
+                l = mid + 1
+        return nums[l - 1] + k - missing(l - 1)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int missingElement(int[] nums, int k) {
+        int n = nums.length;
+        if (k > missing(nums, n - 1)) {
+            return nums[n - 1] + k - missing(nums, n - 1);
+        }
+        int l = 0, r = n - 1;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (missing(nums, mid) >= k) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return nums[l - 1] + k - missing(nums, l - 1);
+    }
 
+    private int missing(int[] nums, int i) {
+        return nums[i] - nums[0] - i;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int missingElement(vector<int>& nums, int k) {
+        auto missing = [&](int i) {
+            return nums[i] - nums[0] - i;
+        };
+        int n = nums.size();
+        if (k > missing(n - 1)) {
+            return nums[n - 1] + k - missing(n - 1);
+        }
+        int l = 0, r = n - 1;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (missing(mid) >= k) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return nums[l - 1] + k - missing(l - 1);
+    }
+};
+```
+
+### **Go**
+
+```go
+func missingElement(nums []int, k int) int {
+	missing := func(i int) int {
+		return nums[i] - nums[0] - i
+	}
+	n := len(nums)
+	if k > missing(n-1) {
+		return nums[n-1] + k - missing(n-1)
+	}
+	l, r := 0, n-1
+	for l < r {
+		mid := (l + r) >> 1
+		if missing(mid) >= k {
+			r = mid
+		} else {
+			l = mid + 1
+		}
+	}
+	return nums[l-1] + k - missing(l-1)
+}
 ```
 
 ### **...**
