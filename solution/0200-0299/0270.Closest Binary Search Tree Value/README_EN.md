@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>Given the <code>root</code> of a binary search tree and a <code>target</code> value, return <em>the value in the BST that is closest to the</em> <code>target</code>.</p>
+<p>Given the <code>root</code> of a binary search tree and a <code>target</code> value, return <em>the value in the BST that is closest to the</em> <code>target</code>. If there are multiple answers, print the smallest.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

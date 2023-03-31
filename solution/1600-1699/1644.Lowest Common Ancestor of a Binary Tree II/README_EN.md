@@ -98,7 +98,7 @@ class Solution {
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         dfs(root, p, q);
-        return ans;    
+        return ans;
     }
 
     private boolean dfs(TreeNode root, TreeNode p, TreeNode q) {

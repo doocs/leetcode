@@ -108,7 +108,7 @@ class Solution {
         }
         return true;
     }
-    
+
     private int search(List<Integer> nums, int x) {
         int l = 0, r = nums.size();
         while (l < r) {

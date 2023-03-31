@@ -114,7 +114,7 @@ var findSpecialInteger = function (arr) {
 
 ### **PHP**
 
-```php 
+```php
 class Solution {
     /**
      * @param Integer[] $arr

@@ -4,17 +4,15 @@
 
 ## Description
 
-<p>Given a <code>n * n</code> matrix <code>grid</code> of <code>0&#39;s</code> and <code>1&#39;s</code> only. We want to represent the <code>grid</code> with a Quad-Tree.</p>
+<p>Given a <code>n * n</code> matrix <code>grid</code> of <code>0&#39;s</code> and <code>1&#39;s</code> only. We want to represent <code>grid</code> with a Quad-Tree.</p>
 
-<p>Return <em>the root of the Quad-Tree</em> representing the <code>grid</code>.</p>
-
-<p>Notice that you can assign the value of a node to <strong>True</strong> or <strong>False</strong> when <code>isLeaf</code> is <strong>False</strong>, and both are <strong>accepted</strong> in the answer.</p>
+<p>Return <em>the root of the Quad-Tree representing </em><code>grid</code>.</p>
 
 <p>A Quad-Tree is a tree data structure in which each internal node has exactly four children. Besides, each node has two attributes:</p>
 
 <ul>
-	<li><code>val</code>: True if the node represents a grid of 1&#39;s or False if the node represents a grid of 0&#39;s.</li>
-	<li><code>isLeaf</code>: True if the node is leaf node on the tree or False if the node has the four children.</li>
+	<li><code>val</code>: True if the node represents a grid of 1&#39;s or False if the node represents a grid of 0&#39;s. Notice that you can assign the <code>val</code> to True or False when <code>isLeaf</code> is False, and both are accepted in the answer.</li>
+	<li><code>isLeaf</code>: True if the node is a leaf node on the tree or False if the node has four children.</li>
 </ul>
 
 <pre>
@@ -39,7 +37,7 @@ class Node {
 
 <p><strong>Quad-Tree format:</strong></p>
 
-<p>The output represents the serialized format of a Quad-Tree using level order traversal, where <code>null</code> signifies a path terminator where no node exists below.</p>
+<p>You don&#39;t need to read this section for solving the problem. This is only if you want to understand the output format here. The output represents the serialized format of a Quad-Tree using level order traversal, where <code>null</code> signifies a path terminator where no node exists below.</p>
 
 <p>It is very similar to the serialization of the binary tree. The only difference is that the node is represented as a list <code>[isLeaf, val]</code>.</p>
 
