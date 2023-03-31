@@ -10,12 +10,10 @@
 
 <ul>
 	<li>Choose two indices (<strong>0-indexed</strong>) <code>i</code> and <code>j</code> (<code>i != j</code>) and <strong>update</strong> <code>triplets[j]</code> to become <code>[max(a<sub>i</sub>, a<sub>j</sub>), max(b<sub>i</sub>, b<sub>j</sub>), max(c<sub>i</sub>, c<sub>j</sub>)]</code>.
-
     <ul>
     	<li>For example, if <code>triplets[i] = [2, 5, 3]</code> and <code>triplets[j] = [1, 7, 5]</code>, <code>triplets[j]</code> will be updated to <code>[max(2, 1), max(5, 7), max(3, 5)] = [2, 7, 5]</code>.</li>
     </ul>
     </li>
-
 </ul>
 
 <p>Return <code>true</code> <em>if it is possible to obtain the </em><code>target</code><em> <strong>triplet</strong> </em><code>[x, y, z]</code><em> as an<strong> element</strong> of </em><code>triplets</code><em>, or </em><code>false</code><em> otherwise</em>.</p>
@@ -68,14 +66,14 @@ The target triplet [5,5,5] is now an element of triplets.
 ```python
 class Solution:
     def mergeTriplets(self, triplets: List[List[int]], target: List[int]) -> bool:
-        maxA = maxB = maxC = 0
-        tA, tB, tC = target
+        x, y, z = target
+        d = e = f = 0
         for a, b, c in triplets:
-            if a <= tA and b <= tB and c <= tC:
-                maxA = max(maxA, a)
-                maxB = max(maxB, b)
-                maxC = max(maxC, c)
-        return (maxA, maxB, maxC) == (tA, tB, tC)
+            if a <= x and b <= y and c <= z:
+                d = max(d, a)
+                e = max(e, b)
+                f = max(f, c)
+        return [d, e, f] == target
 ```
 
 ### **Java**
@@ -83,17 +81,64 @@ class Solution:
 ```java
 class Solution {
     public boolean mergeTriplets(int[][] triplets, int[] target) {
-        int maxA = 0, maxB = 0, maxC = 0;
-        for (int[] triplet : triplets) {
-            int a = triplet[0], b = triplet[1], c = triplet[2];
-            if (a <= target[0] && b <= target[1] && c <= target[2]) {
-                maxA = Math.max(maxA, a);
-                maxB = Math.max(maxB, b);
-                maxC = Math.max(maxC, c);
+        int x = target[0], y = target[1], z = target[2];
+        int d = 0, e = 0, f = 0;
+        for (var t : triplets) {
+            int a = t[0], b = t[1], c = t[2];
+            if (a <= x && b <= y && c <= z) {
+                d = Math.max(d, a);
+                e = Math.max(e, b);
+                f = Math.max(f, c);
             }
         }
-        return maxA == target[0] && maxB == target[1] && maxC == target[2];
+        return d == x && e == y && f == z;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool mergeTriplets(vector<vector<int>>& triplets, vector<int>& target) {
+        int x = target[0], y = target[1], z = target[2];
+        int d = 0, e = 0, f = 0;
+        for (auto& t : triplets) {
+            int a = t[0], b = t[1], c = t[2];
+            if (a <= x && b <= y && c <= z) {
+                d = max(d, a);
+                e = max(e, b);
+                f = max(f, c);
+            }
+        }
+        return d == x && e == y && f == z;
+    }
+};
+```
+
+### **Go**
+
+```go
+func mergeTriplets(triplets [][]int, target []int) bool {
+	x, y, z := target[0], target[1], target[2]
+	d, e, f := 0, 0, 0
+	for _, t := range triplets {
+		a, b, c := t[0], t[1], t[2]
+		if a <= x && b <= y && c <= z {
+			d = max(d, a)
+			e = max(e, b)
+			f = max(f, c)
+		}
+	}
+	return d == x && e == y && f == z
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
@@ -101,17 +146,16 @@ class Solution {
 
 ```ts
 function mergeTriplets(triplets: number[][], target: number[]): boolean {
-    let [x, y, z] = target; // 目标值
-    let [i, j, k] = [0, 0, 0]; // 最大值
-    for (let triplet of triplets) {
-        let [a, b, c] = triplet; // 当前值
+    const [x, y, z] = target;
+    let [d, e, f] = [0, 0, 0];
+    for (const [a, b, c] of triplets) {
         if (a <= x && b <= y && c <= z) {
-            i = Math.max(i, a);
-            j = Math.max(j, b);
-            k = Math.max(k, c);
+            d = Math.max(d, a);
+            e = Math.max(e, b);
+            f = Math.max(f, c);
         }
     }
-    return i == x && j == y && k == z;
+    return d === x && e === y && f === z;
 }
 ```
 

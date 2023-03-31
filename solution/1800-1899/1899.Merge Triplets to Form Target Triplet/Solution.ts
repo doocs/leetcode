@@ -1,13 +1,12 @@
 function mergeTriplets(triplets: number[][], target: number[]): boolean {
-    let [x, y, z] = target; // 目标值
-    let [i, j, k] = [0, 0, 0]; // 最大值
-    for (let triplet of triplets) {
-        let [a, b, c] = triplet; // 当前值
+    const [x, y, z] = target;
+    let [d, e, f] = [0, 0, 0];
+    for (const [a, b, c] of triplets) {
         if (a <= x && b <= y && c <= z) {
-            i = Math.max(i, a);
-            j = Math.max(j, b);
-            k = Math.max(k, c);
+            d = Math.max(d, a);
+            e = Math.max(e, b);
+            f = Math.max(f, c);
         }
     }
-    return i == x && j == y && k == z;
+    return d === x && e === y && f === z;
 }

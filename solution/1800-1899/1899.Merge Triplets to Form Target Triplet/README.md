@@ -12,12 +12,10 @@
 
 <ul>
 	<li>选出两个下标（下标 <strong>从 0 开始</strong> 计数）<code>i</code> 和 <code>j</code>（<code>i != j</code>），并 <strong>更新</strong> <code>triplets[j]</code> 为 <code>[max(a<sub>i</sub>, a<sub>j</sub>), max(b<sub>i</sub>, b<sub>j</sub>), max(c<sub>i</sub>, c<sub>j</sub>)]</code> 。
-
     <ul>
     	<li>例如，<code>triplets[i] = [2, 5, 3]</code> 且 <code>triplets[j] = [1, 7, 5]</code>，<code>triplets[j]</code> 将会更新为 <code>[max(2, 1), max(5, 7), max(3, 5)] = [2, 7, 5]</code> 。</li>
     </ul>
     </li>
-
 </ul>
 
 <p>如果通过以上操作我们可以使得目标 <strong>三元组</strong> <code>target</code> 成为 <code>triplets</code> 的一个 <strong>元素</strong> ，则返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
@@ -75,6 +73,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心**
+
+我们记 $target = [x, y, z]$，初始时 $d = e = f = 0$，表示当前的 $a, b, c$ 的最大值。
+
+我们遍历数组 $triplets$，对于每个三元组 $[a, b, c]$，如果 $a \le x, b \le y, c \le z$，则将 $d, e, f$ 分别更新为 $max(d, a), max(e, b), max(f, c)$。
+
+最后判断 $[d, e, f]$ 是否等于 $target$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $triplets$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -84,14 +92,14 @@
 ```python
 class Solution:
     def mergeTriplets(self, triplets: List[List[int]], target: List[int]) -> bool:
-        maxA = maxB = maxC = 0
-        tA, tB, tC = target
+        x, y, z = target
+        d = e = f = 0
         for a, b, c in triplets:
-            if a <= tA and b <= tB and c <= tC:
-                maxA = max(maxA, a)
-                maxB = max(maxB, b)
-                maxC = max(maxC, c)
-        return (maxA, maxB, maxC) == (tA, tB, tC)
+            if a <= x and b <= y and c <= z:
+                d = max(d, a)
+                e = max(e, b)
+                f = max(f, c)
+        return [d, e, f] == target
 ```
 
 ### **Java**
@@ -101,17 +109,64 @@ class Solution:
 ```java
 class Solution {
     public boolean mergeTriplets(int[][] triplets, int[] target) {
-        int maxA = 0, maxB = 0, maxC = 0;
-        for (int[] triplet : triplets) {
-            int a = triplet[0], b = triplet[1], c = triplet[2];
-            if (a <= target[0] && b <= target[1] && c <= target[2]) {
-                maxA = Math.max(maxA, a);
-                maxB = Math.max(maxB, b);
-                maxC = Math.max(maxC, c);
+        int x = target[0], y = target[1], z = target[2];
+        int d = 0, e = 0, f = 0;
+        for (var t : triplets) {
+            int a = t[0], b = t[1], c = t[2];
+            if (a <= x && b <= y && c <= z) {
+                d = Math.max(d, a);
+                e = Math.max(e, b);
+                f = Math.max(f, c);
             }
         }
-        return maxA == target[0] && maxB == target[1] && maxC == target[2];
+        return d == x && e == y && f == z;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool mergeTriplets(vector<vector<int>>& triplets, vector<int>& target) {
+        int x = target[0], y = target[1], z = target[2];
+        int d = 0, e = 0, f = 0;
+        for (auto& t : triplets) {
+            int a = t[0], b = t[1], c = t[2];
+            if (a <= x && b <= y && c <= z) {
+                d = max(d, a);
+                e = max(e, b);
+                f = max(f, c);
+            }
+        }
+        return d == x && e == y && f == z;
+    }
+};
+```
+
+### **Go**
+
+```go
+func mergeTriplets(triplets [][]int, target []int) bool {
+	x, y, z := target[0], target[1], target[2]
+	d, e, f := 0, 0, 0
+	for _, t := range triplets {
+		a, b, c := t[0], t[1], t[2]
+		if a <= x && b <= y && c <= z {
+			d = max(d, a)
+			e = max(e, b)
+			f = max(f, c)
+		}
+	}
+	return d == x && e == y && f == z
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
@@ -119,17 +174,16 @@ class Solution {
 
 ```ts
 function mergeTriplets(triplets: number[][], target: number[]): boolean {
-    let [x, y, z] = target; // 目标值
-    let [i, j, k] = [0, 0, 0]; // 最大值
-    for (let triplet of triplets) {
-        let [a, b, c] = triplet; // 当前值
+    const [x, y, z] = target;
+    let [d, e, f] = [0, 0, 0];
+    for (const [a, b, c] of triplets) {
         if (a <= x && b <= y && c <= z) {
-            i = Math.max(i, a);
-            j = Math.max(j, b);
-            k = Math.max(k, c);
+            d = Math.max(d, a);
+            e = Math.max(e, b);
+            f = Math.max(f, c);
         }
     }
-    return i == x && j == y && k == z;
+    return d === x && e === y && f === z;
 }
 ```
 

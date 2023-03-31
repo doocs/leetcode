@@ -1,10 +1,10 @@
 class Solution:
     def mergeTriplets(self, triplets: List[List[int]], target: List[int]) -> bool:
-        maxA = maxB = maxC = 0
-        tA, tB, tC = target
+        x, y, z = target
+        d = e = f = 0
         for a, b, c in triplets:
-            if a <= tA and b <= tB and c <= tC:
-                maxA = max(maxA, a)
-                maxB = max(maxB, b)
-                maxC = max(maxC, c)
-        return (maxA, maxB, maxC) == (tA, tB, tC)
+            if a <= x and b <= y and c <= z:
+                d = max(d, a)
+                e = max(e, b)
+                f = max(f, c)
+        return [d, e, f] == target
