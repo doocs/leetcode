@@ -54,11 +54,11 @@
 ```python
 class Solution:
     def getMinDistance(self, nums: List[int], target: int, start: int) -> int:
-        res = inf
-        for i, num in enumerate(nums):
-            if num == target:
-                res = min(res, abs(i - start))
-        return res
+        ans = inf
+        for i, x in enumerate(nums):
+            if x == target:
+                ans = min(ans, abs(i - start))
+        return ans
 ```
 
 ### **Java**
@@ -66,13 +66,14 @@ class Solution:
 ```java
 class Solution {
     public int getMinDistance(int[] nums, int target, int start) {
-        int res = Integer.MAX_VALUE;
-        for (int i = 0; i < nums.length; ++i) {
+        int n = nums.length;
+        int ans = n;
+        for (int i = 0; i < n; ++i) {
             if (nums[i] == target) {
-                res = Math.min(res, Math.abs(i - start));
+                ans = Math.min(ans, Math.abs(i - start));
             }
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -83,15 +84,37 @@ class Solution {
 class Solution {
 public:
     int getMinDistance(vector<int>& nums, int target, int start) {
-        int res = nums.size();
-        for (int i = 0; i < nums.size(); ++i) {
+        int n = nums.size();
+        int ans = n;
+        for (int i = 0; i < n; ++i) {
             if (nums[i] == target) {
-                res = min(res, abs(i - start));
+                ans = min(ans, abs(i - start));
             }
         }
-        return res;
+        return ans;
     }
 };
+```
+
+### **Go**
+
+```go
+func getMinDistance(nums []int, target int, start int) int {
+	ans := 1 << 30
+	for i, x := range nums {
+		if t := abs(i - start); x == target && t < ans {
+			ans = t
+		}
+	}
+	return ans
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
 ```
 
 ### **...**
