@@ -50,6 +50,21 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：判断不重叠的情况**
+
+我们记矩形 $rec1$ 的坐标点为 $(x_1, y_1, x_2, y_2)$，矩形 $rec2$ 的坐标点为 $(x_3, y_3, x_4, y_4)$。
+
+那么当满足以下任一条件时，矩形 $rec1$ 和 $rec2$ 不重叠：
+
+-   满足 $y_3 \geq y_2$，即 $rec2$ 在 $rec1$ 的上方；
+-   满足 $y_4 \leq y_1$，即 $rec2$ 在 $rec1$ 的下方；
+-   满足 $x_3 \geq x_2$，即 $rec2$ 在 $rec1$ 的右方；
+-   满足 $x_4 \leq x_1$，即 $rec2$ 在 $rec1$ 的左方。
+
+当以上条件都不满足时，矩形 $rec1$ 和 $rec2$ 重叠。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -57,7 +72,11 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def isRectangleOverlap(self, rec1: List[int], rec2: List[int]) -> bool:
+        x1, y1, x2, y2 = rec1
+        x3, y3, x4, y4 = rec2
+        return not (y3 >= y2 or y4 <= y1 or x3 >= x2 or x4 <= x1)
 ```
 
 ### **Java**
@@ -65,7 +84,36 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean isRectangleOverlap(int[] rec1, int[] rec2) {
+        int x1 = rec1[0], y1 = rec1[1], x2 = rec1[2], y2 = rec1[3];
+        int x3 = rec2[0], y3 = rec2[1], x4 = rec2[2], y4 = rec2[3];
+        return !(y3 >= y2 || y4 <= y1 || x3 >= x2 || x4 <= x1);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isRectangleOverlap(vector<int>& rec1, vector<int>& rec2) {
+        int x1 = rec1[0], y1 = rec1[1], x2 = rec1[2], y2 = rec1[3];
+        int x3 = rec2[0], y3 = rec2[1], x4 = rec2[2], y4 = rec2[3];
+        return !(y3 >= y2 || y4 <= y1 || x3 >= x2 || x4 <= x1);
+    }
+};
+```
+
+### **Go**
+
+```go
+func isRectangleOverlap(rec1 []int, rec2 []int) bool {
+	x1, y1, x2, y2 := rec1[0], rec1[1], rec1[2], rec1[3]
+	x3, y3, x4, y4 := rec2[0], rec2[1], rec2[2], rec2[3]
+	return !(y3 >= y2 || y4 <= y1 || x3 >= x2 || x4 <= x1)
+}
 ```
 
 ### **...**
