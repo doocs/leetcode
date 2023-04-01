@@ -105,6 +105,10 @@ $$
 
 时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 为多边形的顶点数。
 
+相似题目：
+
+-   [1312. 让字符串成为回文串的最少插入次数](/solution/1300-1399/1312.Minimum%20Insertion%20Steps%20to%20Make%20a%20String%20Palindrome/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**

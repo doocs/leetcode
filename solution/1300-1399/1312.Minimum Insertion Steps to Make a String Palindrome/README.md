@@ -51,7 +51,23 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：动态规划（区间 DP）**
+**方法一：记忆化搜索**
+
+我们设计一个函数 $dfs(i, j)$，表示将字符串 $s[i..j]$ 变成回文串所需要的最少操作次数。那么答案就是 $dfs(0, n - 1)$。
+
+函数 $dfs(i, j)$ 的计算过程如下：
+
+如果 $i \geq j$，此时无需插入任何字符，我们直接返回 $0$。
+
+否则，我们判断 $s[i]$ 与 $s[j]$ 是否相等，如果 $s[i]=s[j]$，那么我们只需要将 $s[i+1..j-1]$ 变成回文串，那么我们返回 $dfs(i + 1, j - 1)$。否则，我们可以在 $s[i]$ 的左侧或者 $s[j]$ 的右侧插入一个与另一侧相同的字符，那么 $dfs(i, j) = \min(dfs(i + 1, j), dfs(i, j - 1)) + 1$。
+
+为了避免重复计算，我们可以使用记忆化搜索，即使用哈希表或者数组来存储已经计算过的函数值。
+
+最后，我们返回 $dfs(0, n - 1)$ 即可。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为字符串 $s$ 的长度。
+
+**方法二：动态规划（区间 DP）**
 
 我们定义 $f[i][j]$ 表示将字符串 $s[i..j]$ 变成回文串所需要的最少操作次数。初始时 $f[i][j]=0$，答案即为 $f[0][n-1]$。
 
@@ -70,11 +86,29 @@ $$
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为字符串 $s$ 的长度。
 
+相似题目：
+
+-   [1039. 多边形三角剖分的最低得分](/solution/1000-1099/1039.Minimum%20Score%20Triangulation%20of%20Polygon/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```python
+class Solution:
+    def minInsertions(self, s: str) -> int:
+        @cache
+        def dfs(i: int, j: int) -> int:
+            if i >= j:
+                return 0
+            if s[i] == s[j]:
+                return dfs(i + 1, j - 1)
+            return 1 + min(dfs(i + 1, j), dfs(i, j - 1))
+
+        return dfs(0, len(s) - 1)
+```
 
 ```python
 class Solution:
@@ -108,6 +142,36 @@ class Solution:
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```java
+class Solution {
+    private Integer[][] f;
+    private String s;
+
+    public int minInsertions(String s) {
+        this.s = s;
+        int n = s.length();
+        f = new Integer[n][n];
+        return dfs(0, n - 1);
+    }
+
+    private int dfs(int i, int j) {
+        if (i >= j) {
+            return 0;
+        }
+        if (f[i][j] != null) {
+            return f[i][j];
+        }
+        int ans = 1 << 30;
+        if (s.charAt(i) == s.charAt(j)) {
+            ans = dfs(i + 1, j - 1);
+        } else {
+            ans = Math.min(dfs(i + 1, j), dfs(i, j - 1)) + 1;
+        }
+        return f[i][j] = ans;
+    }
+}
+```
 
 ```java
 class Solution {
@@ -156,6 +220,33 @@ public:
     int minInsertions(string s) {
         int n = s.size();
         int f[n][n];
+        memset(f, -1, sizeof(f));
+        function<int(int, int)> dfs = [&](int i, int j) -> int {
+            if (i >= j) {
+                return 0;
+            }
+            if (f[i][j] != -1) {
+                return f[i][j];
+            }
+            int ans = 1 << 30;
+            if (s[i] == s[j]) {
+                ans = dfs(i + 1, j - 1);
+            } else {
+                ans = min(dfs(i + 1, j), dfs(i, j - 1)) + 1;
+            }
+            return f[i][j] = ans;
+        };
+        return dfs(0, n - 1);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int minInsertions(string s) {
+        int n = s.size();
+        int f[n][n];
         memset(f, 0, sizeof(f));
         for (int i = n - 2; i >= 0; --i) {
             for (int j = i + 1; j < n; ++j) {
@@ -194,6 +285,44 @@ public:
 ```
 
 ### **Go**
+
+```go
+func minInsertions(s string) int {
+	n := len(s)
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, n)
+		for j := range f[i] {
+			f[i][j] = -1
+		}
+	}
+	var dfs func(i, j int) int
+	dfs = func(i, j int) int {
+		if i >= j {
+			return 0
+		}
+		if f[i][j] != -1 {
+			return f[i][j]
+		}
+		ans := 1 << 30
+		if s[i] == s[j] {
+			ans = dfs(i+1, j-1)
+		} else {
+			ans = min(dfs(i+1, j), dfs(i, j-1)) + 1
+		}
+		f[i][j] = ans
+		return ans
+	}
+	return dfs(0, n-1)
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
 
 ```go
 func minInsertions(s string) int {

@@ -52,6 +52,20 @@
 ```python
 class Solution:
     def minInsertions(self, s: str) -> int:
+        @cache
+        def dfs(i: int, j: int) -> int:
+            if i >= j:
+                return 0
+            if s[i] == s[j]:
+                return dfs(i + 1, j - 1)
+            return 1 + min(dfs(i + 1, j), dfs(i, j - 1))
+        
+        return dfs(0, len(s) - 1)
+```
+
+```python
+class Solution:
+    def minInsertions(self, s: str) -> int:
         n = len(s)
         f = [[0] * n for _ in range(n)]
         for i in range(n - 2, -1, -1):
@@ -79,6 +93,36 @@ class Solution:
 ```
 
 ### **Java**
+
+```java
+class Solution {
+    private Integer[][] f;
+    private String s;
+
+    public int minInsertions(String s) {
+        this.s = s;
+        int n = s.length();
+        f = new Integer[n][n];
+        return dfs(0, n - 1);
+    }
+
+    private int dfs(int i, int j) {
+        if (i >= j) {
+            return 0;
+        }
+        if (f[i][j] != null) {
+            return f[i][j];
+        }
+        int ans = 1 << 30;
+        if (s.charAt(i) == s.charAt(j)) {
+            ans = dfs(i + 1, j - 1);
+        } else {
+            ans = Math.min(dfs(i + 1, j), dfs(i, j - 1)) + 1;
+        }
+        return f[i][j] = ans;
+    }
+}
+```
 
 ```java
 class Solution {
@@ -127,6 +171,33 @@ public:
     int minInsertions(string s) {
         int n = s.size();
         int f[n][n];
+        memset(f, -1, sizeof(f));
+        function<int(int, int)> dfs = [&](int i, int j) -> int {
+            if (i >= j) {
+                return 0;
+            }
+            if (f[i][j] != -1) {
+                return f[i][j];
+            }
+            int ans = 1 << 30;
+            if (s[i] == s[j]) {
+                ans = dfs(i + 1, j - 1);
+            } else {
+                ans = min(dfs(i + 1, j), dfs(i, j - 1)) + 1;
+            }
+            return f[i][j] = ans;
+        };
+        return dfs(0, n - 1);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int minInsertions(string s) {
+        int n = s.size();
+        int f[n][n];
         memset(f, 0, sizeof(f));
         for (int i = n - 2; i >= 0; --i) {
             for (int j = i + 1; j < n; ++j) {
@@ -165,6 +236,44 @@ public:
 ```
 
 ### **Go**
+
+```go
+func minInsertions(s string) int {
+	n := len(s)
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, n)
+		for j := range f[i] {
+			f[i][j] = -1
+		}
+	}
+	var dfs func(i, j int) int
+	dfs = func(i, j int) int {
+		if i >= j {
+			return 0
+		}
+		if f[i][j] != -1 {
+			return f[i][j]
+		}
+		ans := 1 << 30
+		if s[i] == s[j] {
+			ans = dfs(i+1, j-1)
+		} else {
+			ans = min(dfs(i+1, j), dfs(i, j-1)) + 1
+		}
+		f[i][j] = ans
+		return ans
+	}
+	return dfs(0, n-1)
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
 
 ```go
 func minInsertions(s string) int {
