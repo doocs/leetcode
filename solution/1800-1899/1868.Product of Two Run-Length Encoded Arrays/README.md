@@ -61,6 +61,16 @@ prodNums = [2,2,2,6,9,9]，压缩成行程编码数组 [[2,3],[6,1],[9,2]]。
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：双指针**
+
+我们用两个指针 $i$ 和 $j$ 分别指向两个数组的当前位置，然后开始模拟乘法的过程。
+
+对于当前位置 $i$ 和 $j$，我们取 $f=min(encoded1[i][1],encoded2[j][1])$，表示当前位置的乘积的频次，然后将 $v=encoded1[i][0] \times encoded2[j][0]$，表示当前位置的乘积的值。如果当前位置的乘积的值 $v$ 和上一个位置的乘积的值相同，则将当前位置的乘积的频次加到上一个位置的乘积的频次上，否则将当前位置的乘积的值和频次加到答案数组中。然后我们将 $encoded1[i][1]$ 和 $encoded2[j][1]$ 分别减去 $f$，如果 $encoded1[i][1]$ 或 $encoded2[j][1]$ 减为 $0$，则将对应的指针向后移动一位。
+
+最后返回答案数组即可。
+
+时间复杂度 $O(m + n)$，其中 $m$ 和 $n$ 分别是两个数组的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -68,7 +78,23 @@ prodNums = [2,2,2,6,9,9]，压缩成行程编码数组 [[2,3],[6,1],[9,2]]。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findRLEArray(self, encoded1: List[List[int]], encoded2: List[List[int]]) -> List[List[int]]:
+        ans = []
+        j = 0
+        for vi, fi in encoded1:
+            while fi:
+                f = min(fi, encoded2[j][1])
+                v = vi * encoded2[j][0]
+                if ans and ans[-1][0] == v:
+                    ans[-1][1] += f
+                else:
+                    ans.append([v, f])
+                fi -= f
+                encoded2[j][1] -= f
+                if encoded2[j][1] == 0:
+                    j += 1
+        return ans
 ```
 
 ### **Java**
@@ -76,7 +102,94 @@ prodNums = [2,2,2,6,9,9]，压缩成行程编码数组 [[2,3],[6,1],[9,2]]。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public List<List<Integer>> findRLEArray(int[][] encoded1, int[][] encoded2) {
+        List<List<Integer>> ans = new ArrayList<>();
+        int j = 0;
+        for (var e : encoded1) {
+            int vi = e[0], fi = e[1];
+            while (fi > 0) {
+                int f = Math.min(fi, encoded2[j][1]);
+                int v = vi * encoded2[j][0];
+                int m = ans.size();
+                if (m > 0 && ans.get(m - 1).get(0) == v) {
+                    ans.get(m - 1).set(1, ans.get(m - 1).get(1) + f);
+                } else {
+                    ans.add(new ArrayList<>(List.of(v, f)));
+                }
+                fi -= f;
+                encoded2[j][1] -= f;
+                if (encoded2[j][1] == 0) {
+                    ++j;
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> findRLEArray(vector<vector<int>>& encoded1, vector<vector<int>>& encoded2) {
+        vector<vector<int>> ans;
+        int j = 0;
+        for (auto& e : encoded1) {
+            int vi = e[0], fi = e[1];
+            while (fi) {
+                int f = min(fi, encoded2[j][1]);
+                int v = vi * encoded2[j][0];
+                if (!ans.empty() && ans.back()[0] == v) {
+                    ans.back()[1] += f;
+                } else {
+                    ans.push_back({v, f});
+                }
+                fi -= f;
+                encoded2[j][1] -= f;
+                if (encoded2[j][1] == 0) {
+                    ++j;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findRLEArray(encoded1 [][]int, encoded2 [][]int) (ans [][]int) {
+	j := 0
+	for _, e := range encoded1 {
+		vi, fi := e[0], e[1]
+		for fi > 0 {
+			f := min(fi, encoded2[j][1])
+			v := vi * encoded2[j][0]
+			if len(ans) > 0 && ans[len(ans)-1][0] == v {
+				ans[len(ans)-1][1] += f
+			} else {
+				ans = append(ans, []int{v, f})
+			}
+			fi -= f
+			encoded2[j][1] -= f
+			if encoded2[j][1] == 0 {
+				j++
+			}
+		}
+	}
+	return
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
