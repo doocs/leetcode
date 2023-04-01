@@ -57,9 +57,13 @@ answer[7] = 7，
 
 <!-- 这里可写通用的实现逻辑 -->
 
-根据 richer 关系构建有向图，如果 a 比 b 有钱，那么连一条从 b 到 a 的有向边，最终构建出一个有向无环图。
+**方法一：DFS**
 
-我们知道，从图的任一点 i 出发，沿着有向边所能访问到的点，都比 i 更有钱。DFS 深搜即可。
+我们先用邻接表 $g$ 存储 $richer$ 数组中的信息，其中 $g[i]$ 表示所有比 $i$ 更有钱的人的集合。
+
+然后对于每个人 $i$，我们用 DFS 遍历所有比 $i$ 更有钱的人，找到其中安静值最小的人，即为答案。
+
+时间复杂度 $O(m + n)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别为 $richer$ 数组和 $quiet$ 数组的长度。
 
 <!-- tabs:start -->
 
@@ -70,13 +74,7 @@ answer[7] = 7，
 ```python
 class Solution:
     def loudAndRich(self, richer: List[List[int]], quiet: List[int]) -> List[int]:
-        n = len(quiet)
-        g = defaultdict(list)
-        for a, b in richer:
-            g[b].append(a)
-        ans = [-1] * n
-
-        def dfs(i):
+        def dfs(i: int):
             if ans[i] != -1:
                 return
             ans[i] = i
@@ -85,6 +83,11 @@ class Solution:
                 if quiet[ans[j]] < quiet[ans[i]]:
                     ans[i] = ans[j]
 
+        g = defaultdict(list)
+        for a, b in richer:
+            g[b].append(a)
+        n = len(quiet)
+        ans = [-1] * n
         for i in range(n):
             dfs(i)
         return ans
@@ -96,19 +99,22 @@ class Solution:
 
 ```java
 class Solution {
-    private Map<Integer, List<Integer>> g;
+    private List<Integer>[] g;
+    private int n;
     private int[] quiet;
     private int[] ans;
 
     public int[] loudAndRich(int[][] richer, int[] quiet) {
-        g = new HashMap<>();
+        n = quiet.length;
         this.quiet = quiet;
-        ans = new int[quiet.length];
+        g = new List[n];
+        ans = new int[n];
         Arrays.fill(ans, -1);
-        for (int[] r : richer) {
-            g.computeIfAbsent(r[1], k -> new ArrayList<>()).add(r[0]);
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var r : richer) {
+            g[r[1]].add(r[0]);
         }
-        for (int i = 0; i < quiet.length; ++i) {
+        for (int i = 0; i < n; ++i) {
             dfs(i);
         }
         return ans;
@@ -119,10 +125,7 @@ class Solution {
             return;
         }
         ans[i] = i;
-        if (!g.containsKey(i)) {
-            return;
-        }
-        for (int j : g.get(i)) {
+        for (int j : g[i]) {
             dfs(j);
             if (quiet[ans[j]] < quiet[ans[i]]) {
                 ans[i] = ans[j];
@@ -140,18 +143,25 @@ public:
     vector<int> loudAndRich(vector<vector<int>>& richer, vector<int>& quiet) {
         int n = quiet.size();
         vector<vector<int>> g(n);
-        for (auto& r : richer) g[r[1]].push_back(r[0]);
+        for (auto& r : richer) {
+            g[r[1]].push_back(r[0]);
+        }
         vector<int> ans(n, -1);
         function<void(int)> dfs = [&](int i) {
-            if (ans[i] != -1) return;
+            if (ans[i] != -1) {
+                return;
+            }
             ans[i] = i;
             for (int j : g[i]) {
                 dfs(j);
-                if (quiet[ans[j]] < quiet[ans[i]]) ans[i] = ans[j];
+                if (quiet[ans[j]] < quiet[ans[i]]) {
+                    ans[i] = ans[j];
+                }
             }
         };
-        for (int i = 0; i < n; ++i)
+        for (int i = 0; i < n; ++i) {
             dfs(i);
+        }
         return ans;
     }
 };
@@ -161,35 +171,62 @@ public:
 
 ```go
 func loudAndRich(richer [][]int, quiet []int) []int {
-    n := len(quiet)
-    ans := make([]int, n)
-    g := make([][]int, n)
-    for i := 0; i < n; i++ {
-        ans[i] = -1
-        g[i] = make([]int, 0)
-    }
-    for _, r := range richer {
-        g[r[1]] = append(g[r[1]], r[0])
-    }
+	n := len(quiet)
+	g := make([][]int, n)
+	ans := make([]int, n)
+	for i := range g {
+		ans[i] = -1
+	}
+	for _, r := range richer {
+		a, b := r[0], r[1]
+		g[b] = append(g[b], a)
+	}
+	var dfs func(int)
+	dfs = func(i int) {
+		if ans[i] != -1 {
+			return
+		}
+		ans[i] = i
+		for _, j := range g[i] {
+			dfs(j)
+			if quiet[ans[j]] < quiet[ans[i]] {
+				ans[i] = ans[j]
+			}
+		}
+	}
+	for i := range ans {
+		dfs(i)
+	}
+	return ans
+}
+```
 
-    var dfs func(i int)
-    dfs = func(i int) {
-        if ans[i] != - 1 {
-            return
+### **TypeScript**
+
+```ts
+function loudAndRich(richer: number[][], quiet: number[]): number[] {
+    const n = quiet.length;
+    const g: number[][] = new Array(n).fill(0).map(() => []);
+    for (const [a, b] of richer) {
+        g[b].push(a);
+    }
+    const ans: number[] = new Array(n).fill(-1);
+    const dfs = (i: number) => {
+        if (ans[i] != -1) {
+            return ans;
         }
-        ans[i] = i
-        for _, j := range g[i] {
-            dfs(j)
-            if quiet[ans[j]] < quiet[ans[i]] {
-                ans[i] = ans[j]
+        ans[i] = i;
+        for (const j of g[i]) {
+            dfs(j);
+            if (quiet[ans[j]] < quiet[ans[i]]) {
+                ans[i] = ans[j];
             }
         }
+    };
+    for (let i = 0; i < n; ++i) {
+        dfs(i);
     }
-
-    for i := 0; i < n; i++ {
-        dfs(i)
-    }
-    return ans
+    return ans;
 }
 ```
 

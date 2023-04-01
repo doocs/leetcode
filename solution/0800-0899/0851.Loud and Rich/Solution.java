@@ -1,17 +1,20 @@
 class Solution {
-    private Map<Integer, List<Integer>> g;
+    private List<Integer>[] g;
+    private int n;
     private int[] quiet;
     private int[] ans;
 
     public int[] loudAndRich(int[][] richer, int[] quiet) {
-        g = new HashMap<>();
+        n = quiet.length;
         this.quiet = quiet;
-        ans = new int[quiet.length];
+        g = new List[n];
+        ans = new int[n];
         Arrays.fill(ans, -1);
-        for (int[] r : richer) {
-            g.computeIfAbsent(r[1], k -> new ArrayList<>()).add(r[0]);
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var r : richer) {
+            g[r[1]].add(r[0]);
         }
-        for (int i = 0; i < quiet.length; ++i) {
+        for (int i = 0; i < n; ++i) {
             dfs(i);
         }
         return ans;
@@ -22,10 +25,7 @@ class Solution {
             return;
         }
         ans[i] = i;
-        if (!g.containsKey(i)) {
-            return;
-        }
-        for (int j : g.get(i)) {
+        for (int j : g[i]) {
             dfs(j);
             if (quiet[ans[j]] < quiet[ans[i]]) {
                 ans[i] = ans[j];
