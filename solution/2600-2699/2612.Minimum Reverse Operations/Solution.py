@@ -13,14 +13,18 @@ class Solution:
         ts[p % 2].remove(p)
         for i in banned:
             ts[i % 2].remove(i)
+        ts[0].add(n)
+        ts[1].add(n)
         q = deque([p])
         while q:
-            x = q.popleft()
-            i = abs(x - k + 1)
-            j = ts[i % 2].bisect_left(i)
-            while j < len(ts[i % 2]) and ts[i % 2][j] < n - abs(n - x - k):
-                q.append(ts[i % 2][j])
-                ans[ts[i % 2][j]] = ans[x] + 1
-                ts[i % 2].remove(ts[i % 2][j])
-                j = ts[i % 2].bisect_left(i)
+            i = q.popleft()
+            mi = max(i - k + 1, k - i - 1)
+            mx = min(i + k - 1, n * 2 - k - i - 1)
+            s = ts[mi % 2]
+            j = s.bisect_left(mi)
+            while s[j] <= mx:
+                q.append(s[j])
+                ans[s[j]] = ans[i] + 1
+                s.remove(s[j])
+                j = s.bisect_left(mi)
         return ans

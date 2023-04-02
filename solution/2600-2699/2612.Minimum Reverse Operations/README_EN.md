@@ -67,7 +67,9 @@ from sortedcontainers import SortedSet
 
 
 class Solution:
-    def minReverseOperations(self, n: int, p: int, banned: List[int], k: int) -> List[int]:
+    def minReverseOperations(
+        self, n: int, p: int, banned: List[int], k: int
+    ) -> List[int]:
         ans = [-1] * n
         ans[p] = 0
         ts = [SortedSet() for _ in range(2)]
@@ -76,16 +78,20 @@ class Solution:
         ts[p % 2].remove(p)
         for i in banned:
             ts[i % 2].remove(i)
+        ts[0].add(n)
+        ts[1].add(n)
         q = deque([p])
         while q:
-            x = q.popleft()
-            i = abs(x - k + 1)
-            j = ts[i % 2].bisect_left(i)
-            while j < len(ts[i % 2]) and ts[i % 2][j] < n - abs(n - x - k):
-                q.append(ts[i % 2][j])
-                ans[ts[i % 2][j]] = ans[x] + 1
-                ts[i % 2].remove(ts[i % 2][j])
-                j = ts[i % 2].bisect_left(i)
+            i = q.popleft()
+            mi = max(i - k + 1, k - i - 1)
+            mx = min(i + k - 1, n * 2 - k - i - 1)
+            s = ts[mi % 2]
+            j = s.bisect_left(mi)
+            while s[j] <= mx:
+                q.append(s[j])
+                ans[s[j]] = ans[i] + 1
+                s.remove(s[j])
+                j = s.bisect_left(mi)
         return ans
 ```
 
@@ -104,17 +110,19 @@ class Solution {
         for (int i : banned) {
             ts[i % 2].remove(i);
         }
+        ts[0].add(n);
+        ts[1].add(n);
         Deque<Integer> q = new ArrayDeque<>();
         q.offer(p);
         while (!q.isEmpty()) {
-            int x = q.poll();
-            int i = Math.abs(x - k + 1);
-            Integer j = ts[i % 2].ceiling(i);
-            while (j != null && j < n - Math.abs(n - x - k)) {
+            int i = q.poll();
+            int mi = Math.max(i - k + 1, k - i - 1);
+            int mx = Math.min(i + k - 1, n * 2 - k - i - 1);
+            var s = ts[mi % 2];
+            for (int j = s.ceiling(mi); j <= mx; j = s.ceiling(mi)) {
                 q.offer(j);
-                ans[j] = ans[x] + 1;
-                ts[i % 2].remove(j);
-                j = ts[i % 2].higher(j);
+                ans[j] = ans[i] + 1;
+                s.remove(j);
             }
         }
         return ans;
@@ -125,13 +133,88 @@ class Solution {
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> minReverseOperations(int n, int p, vector<int>& banned, int k) {
+        vector<int> ans(n, -1);
+        ans[p] = 0;
+        set<int> ts[2];
+        for (int i = 0; i < n; ++i) {
+            ts[i % 2].insert(i);
+        }
+        ts[p % 2].erase(p);
+        for (int i : banned) {
+            ts[i % 2].erase(i);
+        }
+        ts[0].insert(n);
+        ts[1].insert(n);
+        queue<int> q{{p}};
+        while (!q.empty()) {
+            int i = q.front();
+            q.pop();
+            int mi = max(i - k + 1, k - i - 1);
+            int mx = min(i + k - 1, n * 2 - k - i - 1);
+            auto& s = ts[mi % 2];
+            auto it = s.lower_bound(mi);
+            while (*it <= mx) {
+                int j = *it;
+                ans[j] = ans[i] + 1;
+                q.push(j);
+                it = s.erase(it);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minReverseOperations(n int, p int, banned []int, k int) []int {
+	ans := make([]int, n)
+	ts := [2]*redblacktree.Tree{redblacktree.NewWithIntComparator(), redblacktree.NewWithIntComparator()}
+	for i := 0; i < n; i++ {
+		ts[i%2].Put(i, struct{}{})
+		ans[i] = -1
+	}
+	ans[p] = 0
+	ts[p%2].Remove(p)
+	for _, i := range banned {
+		ts[i%2].Remove(i)
+	}
+	ts[0].Put(n, struct{}{})
+	ts[1].Put(n, struct{}{})
+	q := []int{p}
+	for len(q) > 0 {
+		i := q[0]
+		q = q[1:]
+		mi := max(i-k+1, k-i-1)
+		mx := min(i+k-1, n*2-k-i-1)
+		s := ts[mi%2]
+		for x, _ := s.Ceiling(mi); x.Key.(int) <= mx; x, _ = s.Ceiling(mi) {
+			j := x.Key.(int)
+			s.Remove(j)
+			ans[j] = ans[i] + 1
+			q = append(q, j)
+		}
+	}
+	return ans
+}
 
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

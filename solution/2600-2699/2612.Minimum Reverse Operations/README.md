@@ -68,6 +68,30 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：有序集合 + BFS**
+
+我们注意到，对于一个子数组区间 $[l,..r]$ 中的任意一个下标 $i$，翻转后的下标 $j = l + r - i$。
+
+如果子数组向右移动一个位置，那么 $j = l + 1 + r + 1 - i = l + r - i + 2$，即 $j$ 会增加 $2$。
+
+同理，如果子数组向左移动一个位置，那么 $j = l - 1 + r - 1 - i = l + r - i - 2$，即 $j$ 会减少 $2$。
+
+因此，对于一个特定的下标 $i$，其翻转后的所有位置构成了一个公差为 $2$ 的等差数列，也即是说，翻转后的所有下标，奇偶性都是相同的。
+
+接下来，我们考虑下标 $i$ 翻转后的位置 $j$ 的取值范围。
+
+-   如果不考虑边界的情况，那么 $j$ 的取值范围为 $[i - k + 1, i + k - 1]$。
+-   如果子数组在最左边，那么 $[l, r] = [0, k - 1]$，因此 $i$ 翻转后的下标 $j = 0 + k - 1 - i$，即 $j = k - i - 1$，因此 $j$ 的左边界 $mi = max(i - k + 1, k - i - 1)$。
+-   如果子数组在最右边，那么 $[l, r] = [n - k, n - 1]$，因此 $i$ 翻转后的下标 $j= n - k + n - 1 - i$，即 $j = n \times 2 - k - i - 1$，因此 $j$ 的右边界 $mx = min(i + k - 1, n \times 2 - k - i - 1)$。
+
+我们用两个有序集合分别存储所有待搜索的奇数下标和偶数下标，这里需要排除数组 $banned$ 中的下标，以及下标 $p$。
+
+接下来，我们使用 BFS 搜索，每次搜索当前下标 $i$ 所有翻转后的下标 $j$，即 $j = mi, mi + 2, mi + 4, \dots, mx$，更新下标 $j$ 的答案，并将下标 $j$ 加入到待搜索的队列中，同时将下标 $j$ 从对应的有序集合中移除。
+
+当搜索结束时，即可得到所有下标的答案。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 题目中给定的数组长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -79,7 +103,9 @@ from sortedcontainers import SortedSet
 
 
 class Solution:
-    def minReverseOperations(self, n: int, p: int, banned: List[int], k: int) -> List[int]:
+    def minReverseOperations(
+        self, n: int, p: int, banned: List[int], k: int
+    ) -> List[int]:
         ans = [-1] * n
         ans[p] = 0
         ts = [SortedSet() for _ in range(2)]
@@ -88,16 +114,20 @@ class Solution:
         ts[p % 2].remove(p)
         for i in banned:
             ts[i % 2].remove(i)
+        ts[0].add(n)
+        ts[1].add(n)
         q = deque([p])
         while q:
-            x = q.popleft()
-            i = abs(x - k + 1)
-            j = ts[i % 2].bisect_left(i)
-            while j < len(ts[i % 2]) and ts[i % 2][j] < n - abs(n - x - k):
-                q.append(ts[i % 2][j])
-                ans[ts[i % 2][j]] = ans[x] + 1
-                ts[i % 2].remove(ts[i % 2][j])
-                j = ts[i % 2].bisect_left(i)
+            i = q.popleft()
+            mi = max(i - k + 1, k - i - 1)
+            mx = min(i + k - 1, n * 2 - k - i - 1)
+            s = ts[mi % 2]
+            j = s.bisect_left(mi)
+            while s[j] <= mx:
+                q.append(s[j])
+                ans[s[j]] = ans[i] + 1
+                s.remove(s[j])
+                j = s.bisect_left(mi)
         return ans
 ```
 
@@ -118,17 +148,19 @@ class Solution {
         for (int i : banned) {
             ts[i % 2].remove(i);
         }
+        ts[0].add(n);
+        ts[1].add(n);
         Deque<Integer> q = new ArrayDeque<>();
         q.offer(p);
         while (!q.isEmpty()) {
-            int x = q.poll();
-            int i = Math.abs(x - k + 1);
-            Integer j = ts[i % 2].ceiling(i);
-            while (j != null && j < n - Math.abs(n - x - k)) {
+            int i = q.poll();
+            int mi = Math.max(i - k + 1, k - i - 1);
+            int mx = Math.min(i + k - 1, n * 2 - k - i - 1);
+            var s = ts[mi % 2];
+            for (int j = s.ceiling(mi); j <= mx; j = s.ceiling(mi)) {
                 q.offer(j);
-                ans[j] = ans[x] + 1;
-                ts[i % 2].remove(j);
-                j = ts[i % 2].higher(j);
+                ans[j] = ans[i] + 1;
+                s.remove(j);
             }
         }
         return ans;
@@ -139,13 +171,88 @@ class Solution {
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> minReverseOperations(int n, int p, vector<int>& banned, int k) {
+        vector<int> ans(n, -1);
+        ans[p] = 0;
+        set<int> ts[2];
+        for (int i = 0; i < n; ++i) {
+            ts[i % 2].insert(i);
+        }
+        ts[p % 2].erase(p);
+        for (int i : banned) {
+            ts[i % 2].erase(i);
+        }
+        ts[0].insert(n);
+        ts[1].insert(n);
+        queue<int> q{{p}};
+        while (!q.empty()) {
+            int i = q.front();
+            q.pop();
+            int mi = max(i - k + 1, k - i - 1);
+            int mx = min(i + k - 1, n * 2 - k - i - 1);
+            auto& s = ts[mi % 2];
+            auto it = s.lower_bound(mi);
+            while (*it <= mx) {
+                int j = *it;
+                ans[j] = ans[i] + 1;
+                q.push(j);
+                it = s.erase(it);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minReverseOperations(n int, p int, banned []int, k int) []int {
+	ans := make([]int, n)
+	ts := [2]*redblacktree.Tree{redblacktree.NewWithIntComparator(), redblacktree.NewWithIntComparator()}
+	for i := 0; i < n; i++ {
+		ts[i%2].Put(i, struct{}{})
+		ans[i] = -1
+	}
+	ans[p] = 0
+	ts[p%2].Remove(p)
+	for _, i := range banned {
+		ts[i%2].Remove(i)
+	}
+	ts[0].Put(n, struct{}{})
+	ts[1].Put(n, struct{}{})
+	q := []int{p}
+	for len(q) > 0 {
+		i := q[0]
+		q = q[1:]
+		mi := max(i-k+1, k-i-1)
+		mx := min(i+k-1, n*2-k-i-1)
+		s := ts[mi%2]
+		for x, _ := s.Ceiling(mi); x.Key.(int) <= mx; x, _ = s.Ceiling(mi) {
+			j := x.Key.(int)
+			s.Remove(j)
+			ans[j] = ans[i] + 1
+			q = append(q, j)
+		}
+	}
+	return ans
+}
 
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

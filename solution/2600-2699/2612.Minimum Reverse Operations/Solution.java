@@ -10,17 +10,19 @@ class Solution {
         for (int i : banned) {
             ts[i % 2].remove(i);
         }
+        ts[0].add(n);
+        ts[1].add(n);
         Deque<Integer> q = new ArrayDeque<>();
         q.offer(p);
         while (!q.isEmpty()) {
-            int x = q.poll();
-            int i = Math.abs(x - k + 1);
-            Integer j = ts[i % 2].ceiling(i);
-            while (j != null && j < n - Math.abs(n - x - k)) {
+            int i = q.poll();
+            int mi = Math.max(i - k + 1, k - i - 1);
+            int mx = Math.min(i + k - 1, n * 2 - k - i - 1);
+            var s = ts[mi % 2];
+            for (int j = s.ceiling(mi); j <= mx; j = s.ceiling(mi)) {
                 q.offer(j);
-                ans[j] = ans[x] + 1;
-                ts[i % 2].remove(j);
-                j = ts[i % 2].higher(j);
+                ans[j] = ans[i] + 1;
+                s.remove(j);
             }
         }
         return ans;
