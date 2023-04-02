@@ -98,7 +98,7 @@ class Solution {
         }
         return ans;
     }
-    
+
     private boolean check(String s, int i, int j) {
         int cnt = 0;
         for (int k = i; k <= j; ++k) {
