@@ -72,6 +72,21 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def findTheLongestBalancedSubstring(self, s: str) -> int:
+        ans = zero = one = 0
+        for c in s:
+            if c == '0':
+                if one:
+                    zero = one = 0
+                zero += 1
+            else:
+                one += 1
+                ans = max(ans, 2 * min(one, zero))
+        return ans
+```
+
 ### **Java**
 
 ```java
@@ -99,6 +114,27 @@ class Solution {
             }
         }
         return cnt * 2 == j - i + 1;
+    }
+}
+```
+
+```java
+class Solution {
+    public int findTheLongestBalancedSubstring(String s) {
+        int zero = 0, one = 0;
+        int ans = 0, n = s.length();
+        for (int i = 0; i < n; ++i) {
+            if (s.charAt(i) == '0') {
+                if (one > 0) {
+                    zero = 0;
+                    one = 0;
+                }
+                ++zero;
+            } else {
+                ans = Math.max(ans, 2 * Math.min(zero, ++one));
+            }
+        }
+        return ans;
     }
 }
 ```
@@ -134,6 +170,28 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int findTheLongestBalancedSubstring(string s) {
+        int zero = 0, one = 0;
+        int ans = 0, n = s.size();
+        for (char& c : s) {
+            if (c == '0') {
+                if (one > 0) {
+                    zero = 0;
+                    one = 0;
+                }
+                ++zero;
+            } else {
+                ans = max(ans, 2 * min(zero, ++one));
+            }
+        }
+        return ans;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -162,6 +220,38 @@ func findTheLongestBalancedSubstring(s string) (ans int) {
 
 func max(a, b int) int {
 	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func findTheLongestBalancedSubstring(s string) (ans int) {
+	zero, one := 0, 0
+	for _, c := range s {
+		if c == '0' {
+			if one > 0 {
+				zero, one = 0, 0
+			}
+			zero++
+		} else {
+			one++
+			ans = max(ans, 2*min(zero, one))
+		}
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
 		return a
 	}
 	return b

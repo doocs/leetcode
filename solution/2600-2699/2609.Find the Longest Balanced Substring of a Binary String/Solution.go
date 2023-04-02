@@ -1,21 +1,14 @@
 func findTheLongestBalancedSubstring(s string) (ans int) {
-	n := len(s)
-	check := func(i, j int) bool {
-		cnt := 0
-		for k := i; k <= j; k++ {
-			if s[k] == '1' {
-				cnt++
-			} else if cnt > 0 {
-				return false
+	zero, one := 0, 0
+	for _, c := range s {
+		if c == '0' {
+			if one > 0 {
+				zero, one = 0, 0
 			}
-		}
-		return cnt*2 == j-i+1
-	}
-	for i := 0; i < n; i++ {
-		for j := i + 1; j < n; j++ {
-			if check(i, j) {
-				ans = max(ans, j-i+1)
-			}
+			zero++
+		} else {
+			one++
+			ans = max(ans, 2*min(zero, one))
 		}
 	}
 	return
@@ -23,6 +16,13 @@ func findTheLongestBalancedSubstring(s string) (ans int) {
 
 func max(a, b int) int {
 	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
 		return a
 	}
 	return b
