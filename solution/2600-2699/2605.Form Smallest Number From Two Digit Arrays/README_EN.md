@@ -51,6 +51,32 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def minNumber(self, nums1: List[int], nums2: List[int]) -> int:
+        s = set(nums1) & set(nums2)
+        if s:
+            return min(s)
+        a, b = min(nums1), min(nums2)
+        return min(a * 10 + b, b * 10 + a)
+```
+
+```python
+class Solution:
+    def minNumber(self, nums1: List[int], nums2: List[int]) -> int:
+        mask1 = mask2 = 0
+        for x in nums1:
+            mask1 |= 1 << x
+        for x in nums2:
+            mask2 |= 1 << x
+        mask = mask1 & mask2
+        if mask:
+            return (mask & -mask).bit_length() - 1
+        a = (mask1 & -mask1).bit_length() - 1
+        b = (mask2 & -mask2).bit_length() - 1
+        return min(a * 10 + b, b * 10 + a)
+```
+
 ### **Java**
 
 ```java
@@ -67,6 +93,55 @@ class Solution {
             }
         }
         return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int minNumber(int[] nums1, int[] nums2) {
+        boolean[] s1 = new boolean[10];
+        boolean[] s2 = new boolean[10];
+        for (int x : nums1) {
+            s1[x] = true;
+        }
+        for (int x : nums2) {
+            s2[x] = true;
+        }
+        int a = 0, b = 0;
+        for (int i = 1; i < 10; ++i) {
+            if (s1[i] && s2[i]) {
+                return i;
+            }
+            if (a == 0 && s1[i]) {
+                a = i;
+            }
+            if (b == 0 && s2[i]) {
+                b = i;
+            }
+        }
+        return Math.min(a * 10 + b, b * 10 + a);
+    }
+}
+```
+
+```java
+class Solution {
+    public int minNumber(int[] nums1, int[] nums2) {
+        int mask1 = 0, mask2 = 0;
+        for (int x : nums1) {
+            mask1 |= 1 << x;
+        }
+        for (int x : nums2) {
+            mask2 |= 1 << x;
+        }
+        int mask = mask1 & mask2;
+        if (mask != 0) {
+            return Integer.numberOfTrailingZeros(mask);
+        }
+        int a = Integer.numberOfTrailingZeros(mask1);
+        int b = Integer.numberOfTrailingZeros(mask2);
+        return Math.min(a * 10 + b, b * 10 + a);
     }
 }
 ```
@@ -92,6 +167,57 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int minNumber(vector<int>& nums1, vector<int>& nums2) {
+        bitset<10> s1;
+        bitset<10> s2;
+        for (int x : nums1) {
+            s1[x] = 1;
+        }
+        for (int x : nums2) {
+            s2[x] = 1;
+        }
+        int a = 0, b = 0;
+        for (int i = 1; i < 10; ++i) {
+            if (s1[i] && s2[i]) {
+                return i;
+            }
+            if (!a && s1[i]) {
+                a = i;
+            }
+            if (!b && s2[i]) {
+                b = i;
+            }
+        }
+        return min(a * 10 + b, b * 10 + a);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int minNumber(vector<int>& nums1, vector<int>& nums2) {
+        int mask1 = 0, mask2 = 0;
+        for (int x : nums1) {
+            mask1 |= 1 << x;
+        }
+        for (int x : nums2) {
+            mask2 |= 1 << x;
+        }
+        int mask = mask1 & mask2;
+        if (mask) {
+            return __builtin_ctz(mask);
+        }
+        int a = __builtin_ctz(mask1);
+        int b = __builtin_ctz(mask2);
+        return min(a * 10 + b, b * 10 + a);
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -107,6 +233,63 @@ func minNumber(nums1 []int, nums2 []int) int {
 		}
 	}
 	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func minNumber(nums1 []int, nums2 []int) int {
+	s1 := [10]bool{}
+	s2 := [10]bool{}
+	for _, x := range nums1 {
+		s1[x] = true
+	}
+	for _, x := range nums2 {
+		s2[x] = true
+	}
+	a, b := 0, 0
+	for i := 1; i < 10; i++ {
+		if s1[i] && s2[i] {
+			return i
+		}
+		if a == 0 && s1[i] {
+			a = i
+		}
+		if b == 0 && s2[i] {
+			b = i
+		}
+	}
+	return min(a*10+b, b*10+a)
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func minNumber(nums1 []int, nums2 []int) int {
+	var mask1, mask2 uint
+	for _, x := range nums1 {
+		mask1 |= 1 << x
+	}
+	for _, x := range nums2 {
+		mask2 |= 1 << x
+	}
+	if mask := mask1 & mask2; mask != 0 {
+		return bits.TrailingZeros(mask)
+	}
+	a, b := bits.TrailingZeros(mask1), bits.TrailingZeros(mask2)
+	return min(a*10+b, b*10+a)
 }
 
 func min(a, b int) int {
