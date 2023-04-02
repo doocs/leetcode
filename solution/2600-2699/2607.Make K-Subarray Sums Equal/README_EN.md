@@ -61,15 +61,12 @@ The array after the operations is [5,5,5,5]
 class Solution:
     def makeSubKSumEqual(self, arr: List[int], k: int) -> int:
         n = len(arr)
-        if n == k:
-            return 0
         g = gcd(n, k)
         ans = 0
         for i in range(g):
-            t = sorted(arr[j] for j in range(i, n, g))
+            t = sorted(arr[i:n:g])
             mid = t[len(t) >> 1]
-            s = sum(abs(x - mid) for x in t)
-            ans += s
+            ans += sum(abs(x - mid) for x in t)
         return ans
 ```
 
@@ -79,9 +76,6 @@ class Solution:
 class Solution {
     public long makeSubKSumEqual(int[] arr, int k) {
         int n = arr.length;
-        if (n == k) {
-            return 0;
-        }
         int g = gcd(n, k);
         long ans = 0;
         for (int i = 0; i < g; ++i) {
@@ -91,11 +85,9 @@ class Solution {
             }
             t.sort((a, b) -> a - b);
             int mid = t.get(t.size() >> 1);
-            long s = 0;
             for (int x : t) {
-                s += Math.abs(x - mid);
+                ans += Math.abs(x - mid);
             }
-            ans += s;
         }
         return ans;
     }
@@ -113,9 +105,6 @@ class Solution {
 public:
     long long makeSubKSumEqual(vector<int>& arr, int k) {
         int n = arr.size();
-        if (n == k) {
-            return 0;
-        }
         int g = gcd(n, k);
         long long ans = 0;
         for (int i = 0; i < g; ++i) {
@@ -125,11 +114,9 @@ public:
             }
             sort(t.begin(), t.end());
             int mid = t[t.size() / 2];
-            long long s = 0;
             for (int x : t) {
-                s += abs(x - mid);
+                ans += abs(x - mid);
             }
-            ans += s;
         }
         return ans;
     }
@@ -141,9 +128,6 @@ public:
 ```go
 func makeSubKSumEqual(arr []int, k int) (ans int64) {
 	n := len(arr)
-	if n == k {
-		return 0
-	}
 	g := gcd(n, k)
 	for i := 0; i < g; i++ {
 		t := []int{}

@@ -2,7 +2,9 @@ from sortedcontainers import SortedSet
 
 
 class Solution:
-    def minReverseOperations(self, n: int, p: int, banned: List[int], k: int) -> List[int]:
+    def minReverseOperations(
+        self, n: int, p: int, banned: List[int], k: int
+    ) -> List[int]:
         ans = [-1] * n
         ans[p] = 0
         ts = [SortedSet() for _ in range(2)]

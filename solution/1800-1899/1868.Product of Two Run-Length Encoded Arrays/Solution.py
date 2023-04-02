@@ -1,5 +1,7 @@
 class Solution:
-    def findRLEArray(self, encoded1: List[List[int]], encoded2: List[List[int]]) -> List[List[int]]:
+    def findRLEArray(
+        self, encoded1: List[List[int]], encoded2: List[List[int]]
+    ) -> List[List[int]]:
         ans = []
         j = 0
         for vi, fi in encoded1:

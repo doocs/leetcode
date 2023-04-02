@@ -1,8 +1,5 @@
 func makeSubKSumEqual(arr []int, k int) (ans int64) {
 	n := len(arr)
-	if n == k {
-		return 0
-	}
 	g := gcd(n, k)
 	for i := 0; i < g; i++ {
 		t := []int{}
