@@ -2660,3 +2660,7 @@
   - [2606.找到最大开销的子字符串](/solution/2600-2699/2606.Find%20the%20Substring%20With%20Maximum%20Cost/README.md)
   - [2607.使子数组元素和相等](/solution/2600-2699/2607.Make%20K-Subarray%20Sums%20Equal/README.md)
   - [2608.图中的最短环](/solution/2600-2699/2608.Shortest%20Cycle%20in%20a%20Graph/README.md)
+  - [2609.最长平衡子字符串](/solution/2600-2699/2609.Find%20the%20Longest%20Balanced%20Substring%20of%20a%20Binary%20String/README.md)
+  - [2610.转换二维数组](/solution/2600-2699/2610.Convert%20an%20Array%20Into%20a%202D%20Array%20With%20Conditions/README.md)
+  - [2611.老鼠和奶酪](/solution/2600-2699/2611.Mice%20and%20Cheese/README.md)
+  - [2612.最少翻转操作数](/solution/2600-2699/2612.Minimum%20Reverse%20Operations/README.md)

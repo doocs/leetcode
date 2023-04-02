@@ -2617,6 +2617,10 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2606  |  [Find the Substring With Maximum Cost](/solution/2600-2699/2606.Find%20the%20Substring%20With%20Maximum%20Cost/README_EN.md)  |    |  Medium  |  Biweekly Contest 101  |
 |  2607  |  [Make K-Subarray Sums Equal](/solution/2600-2699/2607.Make%20K-Subarray%20Sums%20Equal/README_EN.md)  |    |  Medium  |  Biweekly Contest 101  |
 |  2608  |  [Shortest Cycle in a Graph](/solution/2600-2699/2608.Shortest%20Cycle%20in%20a%20Graph/README_EN.md)  |    |  Hard  |  Biweekly Contest 101  |
+|  2609  |  [Find the Longest Balanced Substring of a Binary String](/solution/2600-2699/2609.Find%20the%20Longest%20Balanced%20Substring%20of%20a%20Binary%20String/README_EN.md)  |    |  Easy  |  Weekly Contest 339  |
+|  2610  |  [Convert an Array Into a 2D Array With Conditions](/solution/2600-2699/2610.Convert%20an%20Array%20Into%20a%202D%20Array%20With%20Conditions/README_EN.md)  |    |  Medium  |  Weekly Contest 339  |
+|  2611  |  [Mice and Cheese](/solution/2600-2699/2611.Mice%20and%20Cheese/README_EN.md)  |    |  Medium  |  Weekly Contest 339  |
+|  2612  |  [Minimum Reverse Operations](/solution/2600-2699/2612.Minimum%20Reverse%20Operations/README_EN.md)  |    |  Hard  |  Weekly Contest 339  |
 
 ## Copyright
 

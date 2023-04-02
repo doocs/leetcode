@@ -25,6 +25,14 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 339
+
+- [2609. Find the Longest Balanced Substring of a Binary String](/solution/2600-2699/2609.Find%20the%20Longest%20Balanced%20Substring%20of%20a%20Binary%20String/README_EN.md)
+- [2610. Convert an Array Into a 2D Array With Conditions](/solution/2600-2699/2610.Convert%20an%20Array%20Into%20a%202D%20Array%20With%20Conditions/README_EN.md)
+- [2611. Mice and Cheese](/solution/2600-2699/2611.Mice%20and%20Cheese/README_EN.md)
+- [2612. Minimum Reverse Operations](/solution/2600-2699/2612.Minimum%20Reverse%20Operations/README_EN.md)
+
+
 #### Biweekly Contest 101
 
 - [2605. Form Smallest Number From Two Digit Arrays](/solution/2600-2699/2605.Form%20Smallest%20Number%20From%20Two%20Digit%20Arrays/README_EN.md)

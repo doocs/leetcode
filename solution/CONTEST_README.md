@@ -24,6 +24,14 @@
 
 ## 往期竞赛
 
+#### 第 339 场周赛(2023-04-02 10:30, 90 分钟) 参赛人数 5180
+
+- [2609. 最长平衡子字符串](/solution/2600-2699/2609.Find%20the%20Longest%20Balanced%20Substring%20of%20a%20Binary%20String/README.md)
+- [2610. 转换二维数组](/solution/2600-2699/2610.Convert%20an%20Array%20Into%20a%202D%20Array%20With%20Conditions/README.md)
+- [2611. 老鼠和奶酪](/solution/2600-2699/2611.Mice%20and%20Cheese/README.md)
+- [2612. 最少翻转操作数](/solution/2600-2699/2612.Minimum%20Reverse%20Operations/README.md)
+
+
 #### 第 101 场双周赛(2023-04-01 22:30, 90 分钟) 参赛人数 3353
 
 - [2605. 从两个数字数组里生成最小数字](/solution/2600-2699/2605.Form%20Smallest%20Number%20From%20Two%20Digit%20Arrays/README.md)
