@@ -62,6 +62,15 @@ class Solution:
         return sum(reward1[i] for i in idx[:k]) + sum(reward2[i] for i in idx[k:])
 ```
 
+```python
+class Solution:
+    def miceAndCheese(self, reward1: List[int], reward2: List[int], k: int) -> int:
+        for i, x in enumerate(reward2):
+            reward1[i] -= x
+        reward1.sort(reverse=True)
+        return sum(reward2) + sum(reward1[:k])
+```
+
 ### **Java**
 
 ```java
@@ -79,6 +88,24 @@ class Solution {
         }
         for (int i = k; i < n; ++i) {
             ans += reward2[idx[i]];
+        }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int miceAndCheese(int[] reward1, int[] reward2, int k) {
+        int ans = 0;
+        int n = reward1.length;
+        for (int i = 0; i < n; ++i) {
+            ans += reward2[i];
+            reward1[i] -= reward2[i];
+        }
+        Arrays.sort(reward1);
+        for (int i = 0; i < k; ++i) {
+            ans += reward1[n - i - 1];
         }
         return ans;
     }
@@ -107,6 +134,23 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int miceAndCheese(vector<int>& reward1, vector<int>& reward2, int k) {
+        int n = reward1.size();
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans += reward2[i];
+            reward1[i] -= reward2[i];
+        }
+        sort(reward1.rbegin(), reward1.rend());
+        ans += accumulate(reward1.begin(), reward1.begin() + k, 0);
+        return ans;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -125,6 +169,21 @@ func miceAndCheese(reward1 []int, reward2 []int, k int) (ans int) {
 	}
 	for i := k; i < n; i++ {
 		ans += reward2[idx[i]]
+	}
+	return
+}
+```
+
+```go
+func miceAndCheese(reward1 []int, reward2 []int, k int) (ans int) {
+	for i, x := range reward2 {
+		ans += x
+		reward1[i] -= x
+	}
+	sort.Ints(reward1)
+	n := len(reward1)
+	for i := 0; i < k; i++ {
+		ans += reward1[n-i-1]
 	}
 	return
 }
