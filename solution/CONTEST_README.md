@@ -24,6 +24,14 @@
 
 ## 往期竞赛
 
+#### 第 101 场双周赛(2023-04-01 22:30, 90 分钟) 参赛人数 3353
+
+- [2605. 从两个数字数组里生成最小数字](/solution/2600-2699/2605.Form%20Smallest%20Number%20From%20Two%20Digit%20Arrays/README.md)
+- [2606. 找到最大开销的子字符串](/solution/2600-2699/2606.Find%20the%20Substring%20With%20Maximum%20Cost/README.md)
+- [2607. 使子数组元素和相等](/solution/2600-2699/2607.Make%20K-Subarray%20Sums%20Equal/README.md)
+- [2608. 图中的最短环](/solution/2600-2699/2608.Shortest%20Cycle%20in%20a%20Graph/README.md)
+
+
 #### 第 338 场周赛(2023-03-26 10:30, 90 分钟) 参赛人数 5594
 
 - [2600. K 件物品的最大和](/solution/2600-2699/2600.K%20Items%20With%20the%20Maximum%20Sum/README.md)
@@ -1531,7 +1539,7 @@
 #### 第 38 场双周赛(2020-10-31 22:30, 90 分钟) 参赛人数 2004
 
 - [1636. 按照频率将数组升序排序](/solution/1600-1699/1636.Sort%20Array%20by%20Increasing%20Frequency/README.md)
-- [1637. 两点之间不包含任何点的最宽垂直面积](/solution/1600-1699/1637.Widest%20Vertical%20Area%20Between%20Two%20Points%20Containing%20No%20Points/README.md)
+- [1637. 两点之间不包含任何点的最宽垂直区域](/solution/1600-1699/1637.Widest%20Vertical%20Area%20Between%20Two%20Points%20Containing%20No%20Points/README.md)
 - [1638. 统计只差一个字符的子串数目](/solution/1600-1699/1638.Count%20Substrings%20That%20Differ%20by%20One%20Character/README.md)
 - [1639. 通过给定词典构造目标字符串的方案数](/solution/1600-1699/1639.Number%20of%20Ways%20to%20Form%20a%20Target%20String%20Given%20a%20Dictionary/README.md)
 

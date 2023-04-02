@@ -25,6 +25,14 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Biweekly Contest 101
+
+- [2605. Form Smallest Number From Two Digit Arrays](/solution/2600-2699/2605.Form%20Smallest%20Number%20From%20Two%20Digit%20Arrays/README_EN.md)
+- [2606. Find the Substring With Maximum Cost](/solution/2600-2699/2606.Find%20the%20Substring%20With%20Maximum%20Cost/README_EN.md)
+- [2607. Make K-Subarray Sums Equal](/solution/2600-2699/2607.Make%20K-Subarray%20Sums%20Equal/README_EN.md)
+- [2608. Shortest Cycle in a Graph](/solution/2600-2699/2608.Shortest%20Cycle%20in%20a%20Graph/README_EN.md)
+
+
 #### Weekly Contest 338
 
 - [2600. K Items With the Maximum Sum](/solution/2600-2699/2600.K%20Items%20With%20the%20Maximum%20Sum/README_EN.md)

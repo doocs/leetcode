@@ -59,7 +59,7 @@ class Solution:
             if s[i] == s[j]:
                 return dfs(i + 1, j - 1)
             return 1 + min(dfs(i + 1, j), dfs(i, j - 1))
-        
+
         return dfs(0, len(s) - 1)
 ```
 

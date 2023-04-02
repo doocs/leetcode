@@ -2613,6 +2613,10 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2602  |  [Minimum Operations to Make All Array Elements Equal](/solution/2600-2699/2602.Minimum%20Operations%20to%20Make%20All%20Array%20Elements%20Equal/README_EN.md)  |  `Array`,`Binary Search`,`Prefix Sum`,`Sorting`  |  Medium  |  Weekly Contest 338  |
 |  2603  |  [Collect Coins in a Tree](/solution/2600-2699/2603.Collect%20Coins%20in%20a%20Tree/README_EN.md)  |  `Tree`,`Graph`,`Topological Sort`,`Array`  |  Hard  |  Weekly Contest 338  |
 |  2604  |  [Minimum Time to Eat All Grains](/solution/2600-2699/2604.Minimum%20Time%20to%20Eat%20All%20Grains/README_EN.md)  |    |  Hard  |  🔒  |
+|  2605  |  [Form Smallest Number From Two Digit Arrays](/solution/2600-2699/2605.Form%20Smallest%20Number%20From%20Two%20Digit%20Arrays/README_EN.md)  |    |  Easy  |  Biweekly Contest 101  |
+|  2606  |  [Find the Substring With Maximum Cost](/solution/2600-2699/2606.Find%20the%20Substring%20With%20Maximum%20Cost/README_EN.md)  |    |  Medium  |  Biweekly Contest 101  |
+|  2607  |  [Make K-Subarray Sums Equal](/solution/2600-2699/2607.Make%20K-Subarray%20Sums%20Equal/README_EN.md)  |    |  Medium  |  Biweekly Contest 101  |
+|  2608  |  [Shortest Cycle in a Graph](/solution/2600-2699/2608.Shortest%20Cycle%20in%20a%20Graph/README_EN.md)  |    |  Hard  |  Biweekly Contest 101  |
 
 ## Copyright
 

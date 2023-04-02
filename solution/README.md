@@ -2615,6 +2615,10 @@
 |  2602  |  [使数组元素全部相等的最少操作次数](/solution/2600-2699/2602.Minimum%20Operations%20to%20Make%20All%20Array%20Elements%20Equal/README.md)  |  `数组`,`二分查找`,`前缀和`,`排序`  |  中等  |  第 338 场周赛  |
 |  2603  |  [收集树中金币](/solution/2600-2699/2603.Collect%20Coins%20in%20a%20Tree/README.md)  |  `树`,`图`,`拓扑排序`,`数组`  |  困难  |  第 338 场周赛  |
 |  2604  |  [Minimum Time to Eat All Grains](/solution/2600-2699/2604.Minimum%20Time%20to%20Eat%20All%20Grains/README.md)  |    |  困难  |  🔒  |
+|  2605  |  [从两个数字数组里生成最小数字](/solution/2600-2699/2605.Form%20Smallest%20Number%20From%20Two%20Digit%20Arrays/README.md)  |    |  简单  |  第 101 场双周赛  |
+|  2606  |  [找到最大开销的子字符串](/solution/2600-2699/2606.Find%20the%20Substring%20With%20Maximum%20Cost/README.md)  |    |  中等  |  第 101 场双周赛  |
+|  2607  |  [使子数组元素和相等](/solution/2600-2699/2607.Make%20K-Subarray%20Sums%20Equal/README.md)  |    |  中等  |  第 101 场双周赛  |
+|  2608  |  [图中的最短环](/solution/2600-2699/2608.Shortest%20Cycle%20in%20a%20Graph/README.md)  |    |  困难  |  第 101 场双周赛  |
 
 ## 版权
 
