@@ -207,6 +207,48 @@ func miceAndCheese(reward1 []int, reward2 []int, k int) (ans int) {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function miceAndCheese(
+    reward1: number[],
+    reward2: number[],
+    k: number,
+): number {
+    const n = reward1.length;
+    const idx = Array.from({ length: n }, (_, i) => i);
+    idx.sort((i, j) => reward1[j] - reward2[j] - (reward1[i] - reward2[i]));
+    let ans = 0;
+    for (let i = 0; i < k; ++i) {
+        ans += reward1[idx[i]];
+    }
+    for (let i = k; i < n; ++i) {
+        ans += reward2[idx[i]];
+    }
+    return ans;
+}
+```
+
+```ts
+function miceAndCheese(
+    reward1: number[],
+    reward2: number[],
+    k: number,
+): number {
+    const n = reward1.length;
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        ans += reward2[i];
+        reward1[i] -= reward2[i];
+    }
+    reward1.sort((a, b) => b - a);
+    for (let i = 0; i < k; ++i) {
+        ans += reward1[i];
+    }
+    return ans;
+}
+```
+
 ### **...**
 
 ```

@@ -204,7 +204,7 @@ class Solution {
 public:
     int findTheLongestBalancedSubstring(string s) {
         int zero = 0, one = 0;
-        int ans = 0, n = s.size();
+        int ans = 0;
         for (char& c : s) {
             if (c == '0') {
                 if (one > 0) {
@@ -284,6 +284,54 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function findTheLongestBalancedSubstring(s: string): number {
+    const n = s.length;
+    let ans = 0;
+    const check = (i: number, j: number): boolean => {
+        let cnt = 0;
+        for (let k = i; k <= j; ++k) {
+            if (s[k] === '1') {
+                ++cnt;
+            } else if (cnt > 0) {
+                return false;
+            }
+        }
+        return cnt * 2 === j - i + 1;
+    };
+    for (let i = 0; i < n; ++i) {
+        for (let j = i + 1; j < n; j += 2) {
+            if (check(i, j)) {
+                ans = Math.max(ans, j - i + 1);
+            }
+        }
+    }
+    return ans;
+}
+```
+
+```ts
+function findTheLongestBalancedSubstring(s: string): number {
+    let zero = 0;
+    let one = 0;
+    let ans = 0;
+    for (const c of s) {
+        if (c === '0') {
+            if (one > 0) {
+                zero = 0;
+                one = 0;
+            }
+            ++zero;
+        } else {
+            ans = Math.max(ans, 2 * Math.min(zero, ++one));
+        }
+    }
+    return ans;
 }
 ```
 
