@@ -129,7 +129,6 @@ class Solution {
         return (F[n] * G[k] % MOD) * G[n - k] % MOD;
     }
 
-
     public int[] waysToFillArray(int[][] queries) {
         int m = queries.length;
         int[] ans = new int[m];

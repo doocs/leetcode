@@ -172,7 +172,7 @@ func max(a, b int) int {
 
 ### **TypeScript**
 
-```ts
+````ts
 function longestSubarray(nums: number[], limit: number): number {
     const ts = new TreapMultiSet<number>();
     let ans = 0;
@@ -878,7 +878,7 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
         yield* this.reverseInOrder(root.left);
     }
 }
-```
+````
 
 ### **...**
 

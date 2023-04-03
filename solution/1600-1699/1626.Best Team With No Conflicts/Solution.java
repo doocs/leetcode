@@ -24,7 +24,6 @@ class BinaryIndexedTree {
     }
 }
 
-
 class Solution {
     public int bestTeamScore(int[] scores, int[] ages) {
         int n = ages.length;

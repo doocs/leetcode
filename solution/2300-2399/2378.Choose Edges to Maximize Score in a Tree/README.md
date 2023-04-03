@@ -119,7 +119,7 @@ class Solution {
         Arrays.setAll(g, k -> new ArrayList<>());
         for (int i = 1; i < n; ++i) {
             int p = edges[i][0], w = edges[i][1];
-            g[p].add(new int[]{i, w});
+            g[p].add(new int[] {i, w});
         }
         return dfs(0)[1];
     }
@@ -134,7 +134,7 @@ class Solution {
             t = Math.max(t, s[0] - s[1] + w);
         }
         b += t;
-        return new long[]{a, b};
+        return new long[] {a, b};
     }
 }
 ```

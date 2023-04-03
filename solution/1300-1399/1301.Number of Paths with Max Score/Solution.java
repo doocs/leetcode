@@ -37,7 +37,8 @@ class Solution {
     }
 
     private void update(int i, int j, int x, int y) {
-        if (x >= n || y >= n || f[x][y] == -1 || board.get(i).charAt(j) == 'X' || board.get(i).charAt(j) == 'S') {
+        if (x >= n || y >= n || f[x][y] == -1 || board.get(i).charAt(j) == 'X'
+            || board.get(i).charAt(j) == 'S') {
             return;
         }
         if (f[x][y] > f[i][j]) {

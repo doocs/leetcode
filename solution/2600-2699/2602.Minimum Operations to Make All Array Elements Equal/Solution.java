@@ -16,7 +16,7 @@ class Solution {
         }
         return ans;
     }
-    
+
     private int search(int[] nums, int x) {
         int l = 0, r = nums.length;
         while (l < r) {

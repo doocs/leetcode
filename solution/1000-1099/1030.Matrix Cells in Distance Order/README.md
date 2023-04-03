@@ -99,7 +99,7 @@ import java.util.Deque;
 class Solution {
     public int[][] allCellsDistOrder(int rows, int cols, int rCenter, int cCenter) {
         Deque<int[]> q = new ArrayDeque<>();
-        q.offer(new int[]{rCenter, cCenter});
+        q.offer(new int[] {rCenter, cCenter});
         boolean[][] vis = new boolean[rows][cols];
         vis[rCenter][cCenter] = true;
         int[][] ans = new int[rows * cols][2];
@@ -113,7 +113,7 @@ class Solution {
                     int x = p[0] + dirs[k], y = p[1] + dirs[k + 1];
                     if (x >= 0 && x < rows && y >= 0 && y < cols && !vis[x][y]) {
                         vis[x][y] = true;
-                        q.offer(new int[]{x, y});
+                        q.offer(new int[] {x, y});
                     }
                 }
             }

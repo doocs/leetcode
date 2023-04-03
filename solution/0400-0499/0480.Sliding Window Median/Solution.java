@@ -65,7 +65,6 @@ class MedianFinder {
     }
 }
 
-
 class Solution {
     public double[] medianSlidingWindow(int[] nums, int k) {
         MedianFinder finder = new MedianFinder(k);

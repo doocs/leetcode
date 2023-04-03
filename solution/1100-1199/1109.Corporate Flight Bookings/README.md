@@ -151,7 +151,7 @@ class Solution {
     public int[] corpFlightBookings(int[][] bookings, int n) {
         BinaryIndexedTree tree = new BinaryIndexedTree(n);
         for (var e : bookings) {
-            int first =e[0], last = e[1], seats = e[2];
+            int first = e[0], last = e[1], seats = e[2];
             tree.update(first, seats);
             tree.update(last + 1, -seats);
         }

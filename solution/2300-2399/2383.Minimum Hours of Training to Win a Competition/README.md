@@ -146,7 +146,8 @@ class Solution {
 
 ```java
 class Solution {
-    public int minNumberOfHours(int initialEnergy, int initialExperience, int[] energy, int[] experience) {
+    public int minNumberOfHours(
+        int initialEnergy, int initialExperience, int[] energy, int[] experience) {
         int s = 0;
         for (int x : energy) {
             s += x;

@@ -121,7 +121,8 @@ class Solution {
         for (int i = 1; i < m; ++i) {
             for (int j : pos[key.charAt(i) - 'a']) {
                 for (int k : pos[key.charAt(i - 1) - 'a']) {
-                    f[i][j] = Math.min(f[i][j], f[i - 1][k] + Math.min(Math.abs(j - k), n - Math.abs(j - k)) + 1);
+                    f[i][j] = Math.min(
+                        f[i][j], f[i - 1][k] + Math.min(Math.abs(j - k), n - Math.abs(j - k)) + 1);
                 }
             }
         }

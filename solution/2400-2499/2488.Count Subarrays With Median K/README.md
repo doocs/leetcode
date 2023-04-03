@@ -104,7 +104,8 @@ class Solution {
     public int countSubarrays(int[] nums, int k) {
         int n = nums.length;
         int i = 0;
-        for (; nums[i] != k; ++i) {}
+        for (; nums[i] != k; ++i) {
+        }
         int[] cnt = new int[n << 1 | 1];
         int ans = 1;
         int x = 0;

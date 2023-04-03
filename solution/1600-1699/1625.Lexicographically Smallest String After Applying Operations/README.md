@@ -192,7 +192,7 @@ class Solution {
             char[] cs = s.toCharArray();
             for (int j = 0; j < 10; ++j) {
                 for (int k = 1; k < n; k += 2) {
-                   cs[k] = (char) (((cs[k] - '0' + a) % 10) + '0');
+                    cs[k] = (char) (((cs[k] - '0' + a) % 10) + '0');
                 }
                 if ((b & 1) == 1) {
                     for (int p = 0; p < 10; ++p) {

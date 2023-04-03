@@ -11,7 +11,10 @@ class Solution {
                 for (int k = 0; k <= minProfit; ++k) {
                     f[i][j][k] = f[i - 1][j][k];
                     if (j >= group[i - 1]) {
-                        f[i][j][k] = (f[i][j][k] + f[i - 1][j - group[i - 1]][Math.max(0, k - profit[i - 1])]) % mod;
+                        f[i][j][k]
+                            = (f[i][j][k]
+                                  + f[i - 1][j - group[i - 1]][Math.max(0, k - profit[i - 1])])
+                            % mod;
                     }
                 }
             }

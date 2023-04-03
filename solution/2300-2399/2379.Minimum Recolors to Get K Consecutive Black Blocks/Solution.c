@@ -1,6 +1,6 @@
 #define min(a, b) (((a) < (b)) ? (a) : (b))
 
-int minimumRecolors(char *blocks, int k) {
+int minimumRecolors(char* blocks, int k) {
     int n = strlen(blocks);
     int count = 0;
     for (int i = 0; i < k; i++) {

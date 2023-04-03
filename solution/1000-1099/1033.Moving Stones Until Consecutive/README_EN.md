@@ -81,7 +81,7 @@ class Solution {
             mi = y - x < 3 || z - y < 3 ? 1 : 2;
             mx = z - x - 2;
         }
-        return new int[]{mi, mx};
+        return new int[] {mi, mx};
     }
 }
 ```

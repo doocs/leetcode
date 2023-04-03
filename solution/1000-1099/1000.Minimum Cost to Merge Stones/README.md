@@ -122,7 +122,7 @@ class Solution {
         int[][][] f = new int[n + 1][n + 1][K + 1];
         final int inf = 1 << 20;
         for (int[][] g : f) {
-            for(int[] e : g) {
+            for (int[] e : g) {
                 Arrays.fill(e, inf);
             }
         }

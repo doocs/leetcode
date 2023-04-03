@@ -129,7 +129,8 @@ class Solution {
                             if (j == j0) {
                                 f[i][j][k] = Math.min(f[i][j][k], f[i - 1][j][k] + cost[i][j - 1]);
                             } else {
-                                f[i][j][k] = Math.min(f[i][j][k], f[i - 1][j0][k - 1] + cost[i][j - 1]);
+                                f[i][j][k]
+                                    = Math.min(f[i][j][k], f[i - 1][j0][k - 1] + cost[i][j - 1]);
                             }
                         }
                     }

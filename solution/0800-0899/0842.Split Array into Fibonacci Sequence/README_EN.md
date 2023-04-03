@@ -106,7 +106,8 @@ class Solution {
                 break;
             }
             x = x * 10 + num.charAt(j) - '0';
-            if (x > Integer.MAX_VALUE || (ans.size() >= 2 && x > ans.get(ans.size() - 1) + ans.get(ans.size() - 2))) {
+            if (x > Integer.MAX_VALUE
+                || (ans.size() >= 2 && x > ans.get(ans.size() - 1) + ans.get(ans.size() - 2))) {
                 break;
             }
             if (ans.size() < 2 || x == ans.get(ans.size() - 1) + ans.get(ans.size() - 2)) {

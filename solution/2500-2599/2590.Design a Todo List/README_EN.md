@@ -122,12 +122,12 @@ class TodoList {
     private Map<Integer, TreeSet<Task>> tasks = new HashMap<>();
 
     public TodoList() {
-
     }
 
     public int addTask(int userId, String taskDescription, int dueDate, List<String> tags) {
         Task task = new Task(i++, taskDescription, dueDate, new HashSet<>(tags));
-        tasks.computeIfAbsent(userId, k -> new TreeSet<>(Comparator.comparingInt(a -> a.dueDate))).add(task);
+        tasks.computeIfAbsent(userId, k -> new TreeSet<>(Comparator.comparingInt(a -> a.dueDate)))
+            .add(task);
         return task.taskId;
     }
 

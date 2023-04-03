@@ -97,7 +97,7 @@ class Solution {
     public int maxSumRangeQuery(int[] nums, int[][] requests) {
         int n = nums.length;
         int[] d = new int[n];
-        for (var req: requests) {
+        for (var req : requests) {
             int l = req[0], r = req[1];
             d[l]++;
             if (r + 1 < n) {

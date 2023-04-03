@@ -84,7 +84,7 @@ class Solution {
             p[i] = i;
         }
         boolean[] vis = new boolean[n];
-        for (int i = 0, m =  n; i < m; ++i) {
+        for (int i = 0, m = n; i < m; ++i) {
             for (int j : new int[] {leftChild[i], rightChild[i]}) {
                 if (j != -1) {
                     if (vis[j] || find(i) == find(j)) {

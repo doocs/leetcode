@@ -211,7 +211,8 @@ class Solution {
                 int j = i + l - 1;
                 f[i][j] = 1 << 30;
                 for (int k = i + 1; k < j; ++k) {
-                    f[i][j] = Math.min(f[i][j], f[i][k] + f[k][j] + values[i] * values[k] * values[j]);
+                    f[i][j]
+                        = Math.min(f[i][j], f[i][k] + f[k][j] + values[i] * values[k] * values[j]);
                 }
             }
         }

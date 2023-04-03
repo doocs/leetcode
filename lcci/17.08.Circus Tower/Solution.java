@@ -29,7 +29,7 @@ class Solution {
         int n = height.length;
         int[][] arr = new int[n][2];
         for (int i = 0; i < n; ++i) {
-            arr[i] = new int[]{height[i], weight[i]};
+            arr[i] = new int[] {height[i], weight[i]};
         }
         Arrays.sort(arr, (a, b) -> a[0] == b[0] ? b[1] - a[1] : a[0] - b[0]);
         Set<Integer> s = new HashSet<>();

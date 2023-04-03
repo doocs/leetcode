@@ -87,7 +87,7 @@ class Solution {
         Arrays.sort(cnt);
         int ans = 0;
         int m = 0;
-        for (int i = mx; ; --i) {
+        for (int i = mx;; --i) {
             if (cnt[i] > 0) {
                 m += cnt[i];
                 ++ans;
