@@ -330,6 +330,100 @@ func min(a, b int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function minNumber(nums1: number[], nums2: number[]): number {
+    let ans = 100;
+    for (const a of nums1) {
+        for (const b of nums2) {
+            if (a == b) {
+                ans = Math.min(ans, a);
+            } else {
+                ans = Math.min(ans, a * 10 + b, b * 10 + a);
+            }
+        }
+    }
+    return ans;
+}
+```
+
+```ts
+function minNumber(nums1: number[], nums2: number[]): number {
+    const s1: boolean[] = new Array(10).fill(false);
+    const s2: boolean[] = new Array(10).fill(false);
+    for (const x of nums1) {
+        s1[x] = true;
+    }
+    for (const x of nums2) {
+        s2[x] = true;
+    }
+    let a = 0;
+    let b = 0;
+    for (let i = 1; i < 10; ++i) {
+        if (s1[i] && s2[i]) {
+            return i;
+        }
+        if (a == 0 && s1[i]) {
+            a = i;
+        }
+        if (b == 0 && s2[i]) {
+            b = i;
+        }
+    }
+    return Math.min(a * 10 + b, b * 10 + a);
+}
+```
+
+```ts
+function minNumber(nums1: number[], nums2: number[]): number {
+    let mask1: number = 0;
+    let mask2: number = 0;
+    for (const x of nums1) {
+        mask1 |= 1 << x;
+    }
+    for (const x of nums2) {
+        mask2 |= 1 << x;
+    }
+    const mask = mask1 & mask2;
+    if (mask !== 0) {
+        return numberOfTrailingZeros(mask);
+    }
+    const a = numberOfTrailingZeros(mask1);
+    const b = numberOfTrailingZeros(mask2);
+    return Math.min(a * 10 + b, b * 10 + a);
+}
+
+function numberOfTrailingZeros(i: number): number {
+    let y = 0;
+    if (i === 0) {
+        return 32;
+    }
+    let n = 31;
+    y = i << 16;
+    if (y != 0) {
+        n = n - 16;
+        i = y;
+    }
+    y = i << 8;
+    if (y != 0) {
+        n = n - 8;
+        i = y;
+    }
+    y = i << 4;
+    if (y != 0) {
+        n = n - 4;
+        i = y;
+    }
+    y = i << 2;
+    if (y != 0) {
+        n = n - 2;
+        i = y;
+    }
+    return n - ((i << 1) >>> 31);
+}
+```
+
 ### **...**
 
 ```

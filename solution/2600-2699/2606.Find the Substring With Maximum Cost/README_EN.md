@@ -63,10 +63,10 @@ It can be proven that 0 is the maximum cost.
 ```python
 class Solution:
     def maximumCostSubstring(self, s: str, chars: str, vals: List[int]) -> int:
-        d = {c: i for i, c in enumerate(chars)}
+        d = {c: v for c, v in zip(chars, vals)}
         ans = tot = mi = 0
         for c in s:
-            v = vals[d[c]] if c in d else ord(c) - ord('a') + 1
+            v = d.get(c, ord(c) - ord('a') + 1)
             tot += v
             ans = max(ans, tot - mi)
             mi = min(mi, tot)
@@ -76,10 +76,10 @@ class Solution:
 ```python
 class Solution:
     def maximumCostSubstring(self, s: str, chars: str, vals: List[int]) -> int:
-        d = {c: i for i, c in enumerate(chars)}
+        d = {c: v for c, v in zip(chars, vals)}
         ans = f = 0
         for c in s:
-            v = vals[d[c]] if c in d else ord(c) - ord('a') + 1
+            v = d.get(c, ord(c) - ord('a') + 1)
             f = max(f, 0) + v
             ans = max(ans, f)
         return ans
@@ -91,16 +91,17 @@ class Solution:
 class Solution {
     public int maximumCostSubstring(String s, String chars, int[] vals) {
         int[] d = new int[26];
-        Arrays.fill(d, -1);
+        for (int i = 0; i < d.length; ++i) {
+            d[i] = i + 1;
+        }
         int m = chars.length();
         for (int i = 0; i < m; ++i) {
-            d[chars.charAt(i) - 'a'] = i;
+            d[chars.charAt(i) - 'a'] = vals[i];
         }
         int ans = 0, tot = 0, mi = 0;
         int n = s.length();
         for (int i = 0; i < n; ++i) {
-            int j = s.charAt(i) - 'a';
-            int v = d[j] == -1 ? j + 1 : vals[d[j]];
+            int v = d[s.charAt(i) - 'a'];
             tot += v;
             ans = Math.max(ans, tot - mi);
             mi = Math.min(mi, tot);
@@ -114,16 +115,17 @@ class Solution {
 class Solution {
     public int maximumCostSubstring(String s, String chars, int[] vals) {
         int[] d = new int[26];
-        Arrays.fill(d, -1);
+        for (int i = 0; i < d.length; ++i) {
+            d[i] = i + 1;
+        }
         int m = chars.length();
         for (int i = 0; i < m; ++i) {
-            d[chars.charAt(i) - 'a'] = i;
+            d[chars.charAt(i) - 'a'] = vals[i];
         }
         int ans = 0, f = 0;
         int n = s.length();
         for (int i = 0; i < n; ++i) {
-            int j = s.charAt(i) - 'a';
-            int v = d[j] == -1 ? j + 1 : vals[d[j]];
+            int v = d[s.charAt(i) - 'a'];
             f = Math.max(f, 0) + v;
             ans = Math.max(ans, f);
         }
@@ -160,17 +162,18 @@ public:
 class Solution {
 public:
     int maximumCostSubstring(string s, string chars, vector<int>& vals) {
-        vector<int> d(26, -1);
+        vector<int> d(26);
+        iota(d.begin(), d.end(), 1);
         int m = chars.size();
         for (int i = 0; i < m; ++i) {
-            d[chars[i] - 'a'] = i;
+            d[chars[i] - 'a'] = vals[i];
         }
-        int ans = 0, f = 0;
+        int ans = 0, tot = 0, mi = 0;
         for (char& c : s) {
-            int j = c - 'a';
-            int v = d[j] == -1 ? j + 1 : vals[d[j]];
-            f = max(f, 0) + v;
-            ans = max(ans, f);
+            int v = d[c - 'a'];
+            tot += v;
+            ans = max(ans, tot - mi);
+            mi = min(mi, tot);
         }
         return ans;
     }
@@ -183,18 +186,14 @@ public:
 func maximumCostSubstring(s string, chars string, vals []int) (ans int) {
 	d := [26]int{}
 	for i := range d {
-		d[i] = -1
+		d[i] = i + 1
 	}
 	for i, c := range chars {
-		d[c-'a'] = i
+		d[c-'a'] = vals[i]
 	}
 	tot, mi := 0, 0
 	for _, c := range s {
-		j := int(c - 'a')
-		v := j + 1
-		if d[j] != -1 {
-			v = vals[d[j]]
-		}
+		v := d[c-'a']
 		tot += v
 		ans = max(ans, tot-mi)
 		mi = min(mi, tot)
@@ -221,18 +220,14 @@ func min(a, b int) int {
 func maximumCostSubstring(s string, chars string, vals []int) (ans int) {
 	d := [26]int{}
 	for i := range d {
-		d[i] = -1
+		d[i] = i + 1
 	}
 	for i, c := range chars {
-		d[c-'a'] = i
+		d[c-'a'] = vals[i]
 	}
 	f := 0
 	for _, c := range s {
-		j := int(c - 'a')
-		v := j + 1
-		if d[j] != -1 {
-			v = vals[d[j]]
-		}
+		v := d[c-'a']
 		f = max(f, 0) + v
 		ans = max(ans, f)
 	}
@@ -251,6 +246,50 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maximumCostSubstring(
+    s: string,
+    chars: string,
+    vals: number[],
+): number {
+    const d: number[] = Array.from({ length: 26 }, (_, i) => i + 1);
+    for (let i = 0; i < chars.length; ++i) {
+        d[chars.charCodeAt(i) - 97] = vals[i];
+    }
+    let ans = 0;
+    let tot = 0;
+    let mi = 0;
+    for (const c of s) {
+        tot += d[c.charCodeAt(0) - 97];
+        ans = Math.max(ans, tot - mi);
+        mi = Math.min(mi, tot);
+    }
+    return ans;
+}
+```
+
+```ts
+function maximumCostSubstring(
+    s: string,
+    chars: string,
+    vals: number[],
+): number {
+    const d: number[] = Array.from({ length: 26 }, (_, i) => i + 1);
+    for (let i = 0; i < chars.length; ++i) {
+        d[chars.charCodeAt(i) - 97] = vals[i];
+    }
+    let ans = 0;
+    let f = 0;
+    for (const c of s) {
+        f = Math.max(f, 0) + d[c.charCodeAt(0) - 97];
+        ans = Math.max(ans, f);
+    }
+    return ans;
 }
 ```
 
