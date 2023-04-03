@@ -5,7 +5,7 @@ function minReverseOperations(
     k: number,
 ): number[] {
     const ans = new Array(n).fill(-1);
-    const ts = new Array(2).fill(0).map(() => new TreapMultiSet<number>());
+    const ts = new Array(2).fill(0).map(() => new TreeSet<number>());
     for (let i = 0; i < n; ++i) {
         ts[i % 2].add(i);
     }
@@ -34,577 +34,464 @@ function minReverseOperations(
     return ans;
 }
 
-type CompareFunction<T, R extends 'number' | 'boolean'> = (
-    a: T,
-    b: T,
-) => R extends 'number' ? number : boolean;
+type Compare<T> = (lhs: T, rhs: T) => number;
 
-interface ITreapMultiSet<T> extends Iterable<T> {
-    add: (...value: T[]) => this;
-    has: (value: T) => boolean;
-    delete: (value: T) => void;
-
-    bisectLeft: (value: T) => number;
-    bisectRight: (value: T) => number;
-
-    indexOf: (value: T) => number;
-    lastIndexOf: (value: T) => number;
-
-    at: (index: number) => T | undefined;
-    first: () => T | undefined;
-    last: () => T | undefined;
-
-    lower: (value: T) => T | undefined;
-    higher: (value: T) => T | undefined;
-    floor: (value: T) => T | undefined;
-    ceil: (value: T) => T | undefined;
-
-    shift: () => T | undefined;
-    pop: (index?: number) => T | undefined;
-
-    count: (value: T) => number;
-
-    keys: () => IterableIterator<T>;
-    values: () => IterableIterator<T>;
-    rvalues: () => IterableIterator<T>;
-    entries: () => IterableIterator<[number, T]>;
-
-    readonly size: number;
-}
-
-class TreapNode<T = number> {
-    value: T;
+class RBTreeNode<T = number> {
+    data: T;
     count: number;
-    size: number;
-    priority: number;
-    left: TreapNode<T> | null;
-    right: TreapNode<T> | null;
-
-    constructor(value: T) {
-        this.value = value;
+    left: RBTreeNode<T> | null;
+    right: RBTreeNode<T> | null;
+    parent: RBTreeNode<T> | null;
+    color: number;
+    constructor(data: T) {
+        this.data = data;
+        this.left = this.right = this.parent = null;
+        this.color = 0;
         this.count = 1;
-        this.size = 1;
-        this.priority = Math.random();
-        this.left = null;
-        this.right = null;
     }
 
-    static getSize(node: TreapNode<any> | null): number {
-        return node?.size ?? 0;
+    sibling(): RBTreeNode<T> | null {
+        if (!this.parent) return null; // sibling null if no parent
+        return this.isOnLeft() ? this.parent.right : this.parent.left;
     }
 
-    static getFac(node: TreapNode<any> | null): number {
-        return node?.priority ?? 0;
+    isOnLeft(): boolean {
+        return this === this.parent!.left;
     }
 
-    pushUp(): void {
-        let tmp = this.count;
-        tmp += TreapNode.getSize(this.left);
-        tmp += TreapNode.getSize(this.right);
-        this.size = tmp;
-    }
-
-    rotateRight(): TreapNode<T> {
-        // eslint-disable-next-line @typescript-eslint/no-this-alias
-        let node: TreapNode<T> = this;
-        const left = node.left;
-        node.left = left?.right ?? null;
-        left && (left.right = node);
-        left && (node = left);
-        node.right?.pushUp();
-        node.pushUp();
-        return node;
-    }
-
-    rotateLeft(): TreapNode<T> {
-        // eslint-disable-next-line @typescript-eslint/no-this-alias
-        let node: TreapNode<T> = this;
-        const right = node.right;
-        node.right = right?.left ?? null;
-        right && (right.left = node);
-        right && (node = right);
-        node.left?.pushUp();
-        node.pushUp();
-        return node;
+    hasRedChild(): boolean {
+        return (
+            Boolean(this.left && this.left.color === 0) ||
+            Boolean(this.right && this.right.color === 0)
+        );
     }
 }
 
-class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
-    private readonly root: TreapNode<T>;
-    private readonly compareFn: CompareFunction<T, 'number'>;
-    private readonly leftBound: T;
-    private readonly rightBound: T;
-
-    /**
-   *
-   * @param compareFn A compare function which returns boolean or number
-   * @param leftBound defalut value is `-Infinity`
-   * @param rightBound defalut value is `Infinity`
-   * @description
-   * create a `MultiSet`, compare elements using `compareFn`, which is increasing order by default.
-   * @example
-   * ```ts
-   * interface Person {
-        name: string
-        age: number
-    }
-
-    const leftBound = {
-        name: 'Alice',
-        age: -Infinity,
-    }
-
-    const rightBound = {
-        name: 'Bob',
-        age: Infinity,
-    }
-
-    const sortedList = new TreapMultiSet<Person>(
-        (a: Person, b: Person) => a.age - b.age,
-        leftBound,
-        rightBound
-    )
-   * ```
-   */
-    constructor(compareFn?: CompareFunction<T, 'number'>);
+class RBTree<T> {
+    root: RBTreeNode<T> | null;
+    lt: (l: T, r: T) => boolean;
     constructor(
-        compareFn: CompareFunction<T, 'number'>,
-        leftBound: T,
-        rightBound: T,
-    );
-    constructor(
-        compareFn: CompareFunction<T, any> = (a: any, b: any) => a - b,
-        leftBound: any = -Infinity,
-        rightBound: any = Infinity,
+        compare: Compare<T> = (l: T, r: T) => (l < r ? -1 : l > r ? 1 : 0),
     ) {
-        this.root = new TreapNode<T>(rightBound);
-        this.root.priority = Infinity;
-        this.root.left = new TreapNode<T>(leftBound);
-        this.root.left.priority = -Infinity;
-        this.root.pushUp();
-
-        this.leftBound = leftBound;
-        this.rightBound = rightBound;
-        this.compareFn = compareFn;
+        this.root = null;
+        this.lt = (l: T, r: T) => compare(l, r) < 0;
     }
 
-    get size(): number {
-        return this.root.size - 2;
+    rotateLeft(pt: RBTreeNode<T>): void {
+        const right = pt.right!;
+        pt.right = right.left;
+
+        if (pt.right) pt.right.parent = pt;
+        right.parent = pt.parent;
+
+        if (!pt.parent) this.root = right;
+        else if (pt === pt.parent.left) pt.parent.left = right;
+        else pt.parent.right = right;
+
+        right.left = pt;
+        pt.parent = right;
     }
 
-    get height(): number {
-        const getHeight = (node: TreapNode<T> | null): number => {
-            if (node == null) return 0;
-            return 1 + Math.max(getHeight(node.left), getHeight(node.right));
-        };
+    rotateRight(pt: RBTreeNode<T>): void {
+        const left = pt.left!;
+        pt.left = left.right;
 
-        return getHeight(this.root);
+        if (pt.left) pt.left.parent = pt;
+        left.parent = pt.parent;
+
+        if (!pt.parent) this.root = left;
+        else if (pt === pt.parent.left) pt.parent.left = left;
+        else pt.parent.right = left;
+
+        left.right = pt;
+        pt.parent = left;
     }
 
-    /**
-     *
-     * @complexity `O(logn)`
-     * @description Returns true if value is a member.
-     */
-    has(value: T): boolean {
-        const compare = this.compareFn;
-        const dfs = (node: TreapNode<T> | null, value: T): boolean => {
-            if (node == null) return false;
-            if (compare(node.value, value) === 0) return true;
-            if (compare(node.value, value) < 0) return dfs(node.right, value);
-            return dfs(node.left, value);
-        };
-
-        return dfs(this.root, value);
+    swapColor(p1: RBTreeNode<T>, p2: RBTreeNode<T>): void {
+        const tmp = p1.color;
+        p1.color = p2.color;
+        p2.color = tmp;
     }
 
-    /**
-     *
-     * @complexity `O(logn)`
-     * @description Add value to sorted set.
-     */
-    add(...values: T[]): this {
-        const compare = this.compareFn;
-        const dfs = (
-            node: TreapNode<T> | null,
-            value: T,
-            parent: TreapNode<T>,
-            direction: 'left' | 'right',
-        ): void => {
-            if (node == null) return;
-            if (compare(node.value, value) === 0) {
-                node.count++;
-                node.pushUp();
-            } else if (compare(node.value, value) > 0) {
-                if (node.left) {
-                    dfs(node.left, value, node, 'left');
+    swapData(p1: RBTreeNode<T>, p2: RBTreeNode<T>): void {
+        const tmp = p1.data;
+        p1.data = p2.data;
+        p2.data = tmp;
+    }
+
+    fixAfterInsert(pt: RBTreeNode<T>): void {
+        let parent = null;
+        let grandParent = null;
+
+        while (pt !== this.root && pt.color !== 1 && pt.parent?.color === 0) {
+            parent = pt.parent;
+            grandParent = pt.parent.parent;
+
+            /*  Case : A
+                Parent of pt is left child of Grand-parent of pt */
+            if (parent === grandParent?.left) {
+                const uncle = grandParent.right;
+
+                /* Case : 1
+                   The uncle of pt is also red
+                   Only Recoloring required */
+                if (uncle && uncle.color === 0) {
+                    grandParent.color = 0;
+                    parent.color = 1;
+                    uncle.color = 1;
+                    pt = grandParent;
                 } else {
-                    node.left = new TreapNode(value);
-                    node.pushUp();
-                }
+                    /* Case : 2
+                       pt is right child of its parent
+                       Left-rotation required */
+                    if (pt === parent.right) {
+                        this.rotateLeft(parent);
+                        pt = parent;
+                        parent = pt.parent;
+                    }
 
-                if (TreapNode.getFac(node.left) > node.priority) {
-                    parent[direction] = node.rotateRight();
+                    /* Case : 3
+                       pt is left child of its parent
+                       Right-rotation required */
+                    this.rotateRight(grandParent);
+                    this.swapColor(parent!, grandParent);
+                    pt = parent!;
                 }
-            } else if (compare(node.value, value) < 0) {
-                if (node.right) {
-                    dfs(node.right, value, node, 'right');
+            } else {
+                /* Case : B
+               Parent of pt is right child of Grand-parent of pt */
+                const uncle = grandParent!.left;
+
+                /*  Case : 1
+                    The uncle of pt is also red
+                    Only Recoloring required */
+                if (uncle != null && uncle.color === 0) {
+                    grandParent!.color = 0;
+                    parent.color = 1;
+                    uncle.color = 1;
+                    pt = grandParent!;
                 } else {
-                    node.right = new TreapNode(value);
-                    node.pushUp();
-                }
+                    /* Case : 2
+                       pt is left child of its parent
+                       Right-rotation required */
+                    if (pt === parent.left) {
+                        this.rotateRight(parent);
+                        pt = parent;
+                        parent = pt.parent;
+                    }
 
-                if (TreapNode.getFac(node.right) > node.priority) {
-                    parent[direction] = node.rotateLeft();
+                    /* Case : 3
+                       pt is right child of its parent
+                       Left-rotation required */
+                    this.rotateLeft(grandParent!);
+                    this.swapColor(parent!, grandParent!);
+                    pt = parent!;
                 }
             }
-            parent.pushUp();
-        };
-
-        values.forEach(value => dfs(this.root.left, value, this.root, 'left'));
-        return this;
+        }
+        this.root!.color = 1;
     }
 
-    /**
-     *
-     * @complexity `O(logn)`
-     * @description Remove value from sorted set if it is a member.
-     * If value is not a member, do nothing.
-     */
-    delete(value: T): void {
-        const compare = this.compareFn;
-        const dfs = (
-            node: TreapNode<T> | null,
-            value: T,
-            parent: TreapNode<T>,
-            direction: 'left' | 'right',
-        ): void => {
-            if (node == null) return;
+    delete(val: T): boolean {
+        const node = this.find(val);
+        if (!node) return false;
+        node.count--;
+        if (!node.count) this.deleteNode(node);
+        return true;
+    }
 
-            if (compare(node.value, value) === 0) {
-                if (node.count > 1) {
-                    node.count--;
-                    node?.pushUp();
-                } else if (node.left == null && node.right == null) {
-                    parent[direction] = null;
+    deleteAll(val: T): boolean {
+        const node = this.find(val);
+        if (!node) return false;
+        this.deleteNode(node);
+        return true;
+    }
+
+    deleteNode(v: RBTreeNode<T>): void {
+        const u = BSTreplace(v);
+
+        // True when u and v are both black
+        const uvBlack = (u === null || u.color === 1) && v.color === 1;
+        const parent = v.parent!;
+
+        if (!u) {
+            // u is null therefore v is leaf
+            if (v === this.root) this.root = null;
+            // v is root, making root null
+            else {
+                if (uvBlack) {
+                    // u and v both black
+                    // v is leaf, fix double black at v
+                    this.fixDoubleBlack(v);
                 } else {
-                    // 旋到根节点
-                    if (
-                        node.right == null ||
-                        TreapNode.getFac(node.left) >
-                            TreapNode.getFac(node.right)
-                    ) {
-                        parent[direction] = node.rotateRight();
-                        dfs(
-                            parent[direction]?.right ?? null,
-                            value,
-                            parent[direction]!,
-                            'right',
-                        );
-                    } else {
-                        parent[direction] = node.rotateLeft();
-                        dfs(
-                            parent[direction]?.left ?? null,
-                            value,
-                            parent[direction]!,
-                            'left',
-                        );
+                    // u or v is red
+                    if (v.sibling()) {
+                        // sibling is not null, make it red"
+                        v.sibling()!.color = 0;
                     }
                 }
-            } else if (compare(node.value, value) > 0) {
-                dfs(node.left, value, node, 'left');
-            } else if (compare(node.value, value) < 0) {
-                dfs(node.right, value, node, 'right');
+                // delete v from the tree
+                if (v.isOnLeft()) parent.left = null;
+                else parent.right = null;
             }
+            return;
+        }
 
-            parent?.pushUp();
-        };
-
-        dfs(this.root.left, value, this.root, 'left');
-    }
-
-    /**
-     *
-     * @complexity `O(logn)`
-     * @description Returns an index to insert value in the sorted set.
-     * If the value is already present, the insertion point will be before (to the left of) any existing values.
-     */
-    bisectLeft(value: T): number {
-        const compare = this.compareFn;
-        const dfs = (node: TreapNode<T> | null, value: T): number => {
-            if (node == null) return 0;
-
-            if (compare(node.value, value) === 0) {
-                return TreapNode.getSize(node.left);
-            } else if (compare(node.value, value) > 0) {
-                return dfs(node.left, value);
-            } else if (compare(node.value, value) < 0) {
-                return (
-                    dfs(node.right, value) +
-                    TreapNode.getSize(node.left) +
-                    node.count
-                );
-            }
-
-            return 0;
-        };
-
-        return dfs(this.root, value) - 1;
-    }
-
-    /**
-     *
-     * @complexity `O(logn)`
-     * @description Returns an index to insert value in the sorted set.
-     * If the value is already present, the insertion point will be before (to the right of) any existing values.
-     */
-    bisectRight(value: T): number {
-        const compare = this.compareFn;
-        const dfs = (node: TreapNode<T> | null, value: T): number => {
-            if (node == null) return 0;
-
-            if (compare(node.value, value) === 0) {
-                return TreapNode.getSize(node.left) + node.count;
-            } else if (compare(node.value, value) > 0) {
-                return dfs(node.left, value);
-            } else if (compare(node.value, value) < 0) {
-                return (
-                    dfs(node.right, value) +
-                    TreapNode.getSize(node.left) +
-                    node.count
-                );
-            }
-
-            return 0;
-        };
-        return dfs(this.root, value) - 1;
-    }
-
-    /**
-     *
-     * @complexity `O(logn)`
-     * @description Returns the index of the first occurrence of a value in the set, or -1 if it is not present.
-     */
-    indexOf(value: T): number {
-        const compare = this.compareFn;
-        let isExist = false;
-
-        const dfs = (node: TreapNode<T> | null, value: T): number => {
-            if (node == null) return 0;
-
-            if (compare(node.value, value) === 0) {
-                isExist = true;
-                return TreapNode.getSize(node.left);
-            } else if (compare(node.value, value) > 0) {
-                return dfs(node.left, value);
-            } else if (compare(node.value, value) < 0) {
-                return (
-                    dfs(node.right, value) +
-                    TreapNode.getSize(node.left) +
-                    node.count
-                );
-            }
-
-            return 0;
-        };
-        const res = dfs(this.root, value) - 1;
-        return isExist ? res : -1;
-    }
-
-    /**
-     *
-     * @complexity `O(logn)`
-     * @description Returns the index of the last occurrence of a value in the set, or -1 if it is not present.
-     */
-    lastIndexOf(value: T): number {
-        const compare = this.compareFn;
-        let isExist = false;
-
-        const dfs = (node: TreapNode<T> | null, value: T): number => {
-            if (node == null) return 0;
-
-            if (compare(node.value, value) === 0) {
-                isExist = true;
-                return TreapNode.getSize(node.left) + node.count - 1;
-            } else if (compare(node.value, value) > 0) {
-                return dfs(node.left, value);
-            } else if (compare(node.value, value) < 0) {
-                return (
-                    dfs(node.right, value) +
-                    TreapNode.getSize(node.left) +
-                    node.count
-                );
-            }
-
-            return 0;
-        };
-
-        const res = dfs(this.root, value) - 1;
-        return isExist ? res : -1;
-    }
-
-    /**
-     *
-     * @complexity `O(logn)`
-     * @description Returns the item located at the specified index.
-     * @param index The zero-based index of the desired code unit. A negative index will count back from the last item.
-     */
-    at(index: number): T | undefined {
-        if (index < 0) index += this.size;
-        if (index < 0 || index >= this.size) return undefined;
-
-        const dfs = (
-            node: TreapNode<T> | null,
-            rank: number,
-        ): T | undefined => {
-            if (node == null) return undefined;
-
-            if (TreapNode.getSize(node.left) >= rank) {
-                return dfs(node.left, rank);
-            } else if (TreapNode.getSize(node.left) + node.count >= rank) {
-                return node.value;
+        if (!v.left || !v.right) {
+            // v has 1 child
+            if (v === this.root) {
+                // v is root, assign the value of u to v, and delete u
+                v.data = u.data;
+                v.left = v.right = null;
             } else {
-                return dfs(
-                    node.right,
-                    rank - TreapNode.getSize(node.left) - node.count,
-                );
+                // Detach v from tree and move u up
+                if (v.isOnLeft()) parent.left = u;
+                else parent.right = u;
+                u.parent = parent;
+                if (uvBlack) this.fixDoubleBlack(u);
+                // u and v both black, fix double black at u
+                else u.color = 1; // u or v red, color u black
             }
-        };
+            return;
+        }
 
-        const res = dfs(this.root, index + 2);
-        return ([this.leftBound, this.rightBound] as any[]).includes(res)
-            ? undefined
-            : res;
+        // v has 2 children, swap data with successor and recurse
+        this.swapData(u, v);
+        this.deleteNode(u);
+
+        // find node that replaces a deleted node in BST
+        function BSTreplace(x: RBTreeNode<T>): RBTreeNode<T> | null {
+            // when node have 2 children
+            if (x.left && x.right) return successor(x.right);
+            // when leaf
+            if (!x.left && !x.right) return null;
+            // when single child
+            return x.left ?? x.right;
+        }
+        // find node that do not have a left child
+        // in the subtree of the given node
+        function successor(x: RBTreeNode<T>): RBTreeNode<T> {
+            let temp = x;
+            while (temp.left) temp = temp.left;
+            return temp;
+        }
     }
 
-    /**
-     *
-     * @complexity `O(logn)`
-     * @description Find and return the element less than `val`, return `undefined` if no such element found.
-     */
-    lower(value: T): T | undefined {
-        const compare = this.compareFn;
-        const dfs = (node: TreapNode<T> | null, value: T): T | undefined => {
-            if (node == null) return undefined;
-            if (compare(node.value, value) >= 0) return dfs(node.left, value);
+    fixDoubleBlack(x: RBTreeNode<T>): void {
+        if (x === this.root) return; // Reached root
 
-            const tmp = dfs(node.right, value);
-            if (tmp == null || compare(node.value, tmp) > 0) {
-                return node.value;
+        const sibling = x.sibling();
+        const parent = x.parent!;
+        if (!sibling) {
+            // No sibiling, double black pushed up
+            this.fixDoubleBlack(parent);
+        } else {
+            if (sibling.color === 0) {
+                // Sibling red
+                parent.color = 0;
+                sibling.color = 1;
+                if (sibling.isOnLeft()) this.rotateRight(parent);
+                // left case
+                else this.rotateLeft(parent); // right case
+                this.fixDoubleBlack(x);
             } else {
-                return tmp;
+                // Sibling black
+                if (sibling.hasRedChild()) {
+                    // at least 1 red children
+                    if (sibling.left && sibling.left.color === 0) {
+                        if (sibling.isOnLeft()) {
+                            // left left
+                            sibling.left.color = sibling.color;
+                            sibling.color = parent.color;
+                            this.rotateRight(parent);
+                        } else {
+                            // right left
+                            sibling.left.color = parent.color;
+                            this.rotateRight(sibling);
+                            this.rotateLeft(parent);
+                        }
+                    } else {
+                        if (sibling.isOnLeft()) {
+                            // left right
+                            sibling.right!.color = parent.color;
+                            this.rotateLeft(sibling);
+                            this.rotateRight(parent);
+                        } else {
+                            // right right
+                            sibling.right!.color = sibling.color;
+                            sibling.color = parent.color;
+                            this.rotateLeft(parent);
+                        }
+                    }
+                    parent.color = 1;
+                } else {
+                    // 2 black children
+                    sibling.color = 0;
+                    if (parent.color === 1) this.fixDoubleBlack(parent);
+                    else parent.color = 1;
+                }
             }
-        };
-
-        const res = dfs(this.root, value) as any;
-        return res === this.leftBound ? undefined : res;
+        }
     }
 
-    /**
-     *
-     * @complexity `O(logn)`
-     * @description Find and return the element greater than `val`, return `undefined` if no such element found.
-     */
-    higher(value: T): T | undefined {
-        const compare = this.compareFn;
-        const dfs = (node: TreapNode<T> | null, value: T): T | undefined => {
-            if (node == null) return undefined;
-            if (compare(node.value, value) <= 0) return dfs(node.right, value);
+    insert(data: T): boolean {
+        // search for a position to insert
+        let parent = this.root;
+        while (parent) {
+            if (this.lt(data, parent.data)) {
+                if (!parent.left) break;
+                else parent = parent.left;
+            } else if (this.lt(parent.data, data)) {
+                if (!parent.right) break;
+                else parent = parent.right;
+            } else break;
+        }
 
-            const tmp = dfs(node.left, value);
+        // insert node into parent
+        const node = new RBTreeNode(data);
+        if (!parent) this.root = node;
+        else if (this.lt(node.data, parent.data)) parent.left = node;
+        else if (this.lt(parent.data, node.data)) parent.right = node;
+        else {
+            parent.count++;
+            return false;
+        }
+        node.parent = parent;
+        this.fixAfterInsert(node);
+        return true;
+    }
 
-            if (tmp == null || compare(node.value, tmp) < 0) {
-                return node.value;
+    find(data: T): RBTreeNode<T> | null {
+        let p = this.root;
+        while (p) {
+            if (this.lt(data, p.data)) {
+                p = p.left;
+            } else if (this.lt(p.data, data)) {
+                p = p.right;
+            } else break;
+        }
+        return p ?? null;
+    }
+
+    *inOrder(root: RBTreeNode<T> = this.root!): Generator<T, undefined, void> {
+        if (!root) return;
+        for (const v of this.inOrder(root.left!)) yield v;
+        yield root.data;
+        for (const v of this.inOrder(root.right!)) yield v;
+    }
+
+    *reverseInOrder(
+        root: RBTreeNode<T> = this.root!,
+    ): Generator<T, undefined, void> {
+        if (!root) return;
+        for (const v of this.reverseInOrder(root.right!)) yield v;
+        yield root.data;
+        for (const v of this.reverseInOrder(root.left!)) yield v;
+    }
+}
+
+class TreeSet<T = number> {
+    _size: number;
+    tree: RBTree<T>;
+    compare: Compare<T>;
+    constructor(
+        collection: T[] | Compare<T> = [],
+        compare: Compare<T> = (l: T, r: T) => (l < r ? -1 : l > r ? 1 : 0),
+    ) {
+        if (typeof collection === 'function') {
+            compare = collection;
+            collection = [];
+        }
+        this._size = 0;
+        this.compare = compare;
+        this.tree = new RBTree(compare);
+        for (const val of collection) this.add(val);
+    }
+
+    size(): number {
+        return this._size;
+    }
+
+    has(val: T): boolean {
+        return !!this.tree.find(val);
+    }
+
+    add(val: T): boolean {
+        const successful = this.tree.insert(val);
+        this._size += successful ? 1 : 0;
+        return successful;
+    }
+
+    delete(val: T): boolean {
+        const deleted = this.tree.deleteAll(val);
+        this._size -= deleted ? 1 : 0;
+        return deleted;
+    }
+
+    ceil(val: T): T | undefined {
+        let p = this.tree.root;
+        let higher = null;
+        while (p) {
+            if (this.compare(p.data, val) >= 0) {
+                higher = p;
+                p = p.left;
             } else {
-                return tmp;
+                p = p.right;
             }
-        };
-
-        const res = dfs(this.root, value) as any;
-        return res === this.rightBound ? undefined : res;
+        }
+        return higher?.data;
     }
 
-    /**
-     *
-     * @complexity `O(logn)`
-     * @description Find and return the element less than or equal to `val`, return `undefined` if no such element found.
-     */
-    floor(value: T): T | undefined {
-        const compare = this.compareFn;
-        const dfs = (node: TreapNode<T> | null, value: T): T | undefined => {
-            if (node == null) return undefined;
-            if (compare(node.value, value) === 0) return node.value;
-            if (compare(node.value, value) >= 0) return dfs(node.left, value);
-
-            const tmp = dfs(node.right, value);
-            if (tmp == null || compare(node.value, tmp) > 0) {
-                return node.value;
+    floor(val: T): T | undefined {
+        let p = this.tree.root;
+        let lower = null;
+        while (p) {
+            if (this.compare(val, p.data) >= 0) {
+                lower = p;
+                p = p.right;
             } else {
-                return tmp;
+                p = p.left;
             }
-        };
-
-        const res = dfs(this.root, value) as any;
-        return res === this.leftBound ? undefined : res;
+        }
+        return lower?.data;
     }
 
-    /**
-     *
-     * @complexity `O(logn)`
-     * @description Find and return the element greater than or equal to `val`, return `undefined` if no such element found.
-     */
-    ceil(value: T): T | undefined {
-        const compare = this.compareFn;
-        const dfs = (node: TreapNode<T> | null, value: T): T | undefined => {
-            if (node == null) return undefined;
-            if (compare(node.value, value) === 0) return node.value;
-            if (compare(node.value, value) <= 0) return dfs(node.right, value);
-
-            const tmp = dfs(node.left, value);
-
-            if (tmp == null || compare(node.value, tmp) < 0) {
-                return node.value;
+    higher(val: T): T | undefined {
+        let p = this.tree.root;
+        let higher = null;
+        while (p) {
+            if (this.compare(val, p.data) < 0) {
+                higher = p;
+                p = p.left;
             } else {
-                return tmp;
+                p = p.right;
             }
-        };
-
-        const res = dfs(this.root, value) as any;
-        return res === this.rightBound ? undefined : res;
+        }
+        return higher?.data;
     }
 
-    /**
-     * @complexity `O(logn)`
-     * @description
-     * Returns the last element from set.
-     * If the set is empty, undefined is returned.
-     */
+    lower(val: T): T | undefined {
+        let p = this.tree.root;
+        let lower = null;
+        while (p) {
+            if (this.compare(p.data, val) < 0) {
+                lower = p;
+                p = p.right;
+            } else {
+                p = p.left;
+            }
+        }
+        return lower?.data;
+    }
+
     first(): T | undefined {
-        const iter = this.inOrder();
-        iter.next();
-        const res = iter.next().value;
-        return res === this.rightBound ? undefined : res;
+        return this.tree.inOrder().next().value;
     }
 
-    /**
-     * @complexity `O(logn)`
-     * @description
-     * Returns the last element from set.
-     * If the set is empty, undefined is returned .
-     */
     last(): T | undefined {
-        const iter = this.reverseInOrder();
-        iter.next();
-        const res = iter.next().value;
-        return res === this.leftBound ? undefined : res;
+        return this.tree.reverseInOrder().next().value;
     }
 
-    /**
-     * @complexity `O(logn)`
-     * @description
-     * Removes the first element from an set and returns it.
-     * If the set is empty, undefined is returned and the set is not modified.
-     */
     shift(): T | undefined {
         const first = this.first();
         if (first === undefined) return undefined;
@@ -612,116 +499,181 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
         return first;
     }
 
+    pop(): T | undefined {
+        const last = this.last();
+        if (last === undefined) return undefined;
+        this.delete(last);
+        return last;
+    }
+
+    *[Symbol.iterator](): Generator<T, void, void> {
+        for (const val of this.values()) yield val;
+    }
+
+    *keys(): Generator<T, void, void> {
+        for (const val of this.values()) yield val;
+    }
+
+    *values(): Generator<T, undefined, void> {
+        for (const val of this.tree.inOrder()) yield val;
+        return undefined;
+    }
+
     /**
-     * @complexity `O(logn)`
-     * @description
-     * Removes the last element from an set and returns it.
-     * If the set is empty, undefined is returned and the set is not modified.
+     * Return a generator for reverse order traversing the set
      */
-    pop(index?: number): T | undefined {
-        if (index == null) {
-            const last = this.last();
-            if (last === undefined) return undefined;
-            this.delete(last);
-            return last;
+    *rvalues(): Generator<T, undefined, void> {
+        for (const val of this.tree.reverseInOrder()) yield val;
+        return undefined;
+    }
+}
+
+class TreeMultiSet<T = number> {
+    _size: number;
+    tree: RBTree<T>;
+    compare: Compare<T>;
+    constructor(
+        collection: T[] | Compare<T> = [],
+        compare: Compare<T> = (l: T, r: T) => (l < r ? -1 : l > r ? 1 : 0),
+    ) {
+        if (typeof collection === 'function') {
+            compare = collection;
+            collection = [];
         }
-
-        const toDelete = this.at(index);
-        if (toDelete == null) return;
-        this.delete(toDelete);
-        return toDelete;
+        this._size = 0;
+        this.compare = compare;
+        this.tree = new RBTree(compare);
+        for (const val of collection) this.add(val);
     }
 
-    /**
-     *
-     * @complexity `O(logn)`
-     * @description
-     * Returns number of occurrences of value in the sorted set.
-     */
-    count(value: T): number {
-        const compare = this.compareFn;
-        const dfs = (node: TreapNode<T> | null, value: T): number => {
-            if (node == null) return 0;
-            if (compare(node.value, value) === 0) return node.count;
-            if (compare(node.value, value) < 0) return dfs(node.right, value);
-            return dfs(node.left, value);
-        };
-
-        return dfs(this.root, value);
+    size(): number {
+        return this._size;
     }
 
-    *[Symbol.iterator](): Generator<T, any, any> {
+    has(val: T): boolean {
+        return !!this.tree.find(val);
+    }
+
+    add(val: T): boolean {
+        const successful = this.tree.insert(val);
+        this._size++;
+        return successful;
+    }
+
+    delete(val: T): boolean {
+        const successful = this.tree.delete(val);
+        if (!successful) return false;
+        this._size--;
+        return true;
+    }
+
+    count(val: T): number {
+        const node = this.tree.find(val);
+        return node ? node.count : 0;
+    }
+
+    ceil(val: T): T | undefined {
+        let p = this.tree.root;
+        let higher = null;
+        while (p) {
+            if (this.compare(p.data, val) >= 0) {
+                higher = p;
+                p = p.left;
+            } else {
+                p = p.right;
+            }
+        }
+        return higher?.data;
+    }
+
+    floor(val: T): T | undefined {
+        let p = this.tree.root;
+        let lower = null;
+        while (p) {
+            if (this.compare(val, p.data) >= 0) {
+                lower = p;
+                p = p.right;
+            } else {
+                p = p.left;
+            }
+        }
+        return lower?.data;
+    }
+
+    higher(val: T): T | undefined {
+        let p = this.tree.root;
+        let higher = null;
+        while (p) {
+            if (this.compare(val, p.data) < 0) {
+                higher = p;
+                p = p.left;
+            } else {
+                p = p.right;
+            }
+        }
+        return higher?.data;
+    }
+
+    lower(val: T): T | undefined {
+        let p = this.tree.root;
+        let lower = null;
+        while (p) {
+            if (this.compare(p.data, val) < 0) {
+                lower = p;
+                p = p.right;
+            } else {
+                p = p.left;
+            }
+        }
+        return lower?.data;
+    }
+
+    first(): T | undefined {
+        return this.tree.inOrder().next().value;
+    }
+
+    last(): T | undefined {
+        return this.tree.reverseInOrder().next().value;
+    }
+
+    shift(): T | undefined {
+        const first = this.first();
+        if (first === undefined) return undefined;
+        this.delete(first);
+        return first;
+    }
+
+    pop(): T | undefined {
+        const last = this.last();
+        if (last === undefined) return undefined;
+        this.delete(last);
+        return last;
+    }
+
+    *[Symbol.iterator](): Generator<T, void, void> {
         yield* this.values();
     }
 
-    /**
-     * @description
-     * Returns an iterable of keys in the set.
-     */
-    *keys(): Generator<T, any, any> {
-        yield* this.values();
+    *keys(): Generator<T, void, void> {
+        for (const val of this.values()) yield val;
+    }
+
+    *values(): Generator<T, undefined, void> {
+        for (const val of this.tree.inOrder()) {
+            let count = this.count(val);
+            while (count--) yield val;
+        }
+        return undefined;
     }
 
     /**
-     * @description
-     * Returns an iterable of values in the set.
+     * Return a generator for reverse order traversing the multi-set
      */
-    *values(): Generator<T, any, any> {
-        const iter = this.inOrder();
-        iter.next();
-        const steps = this.size;
-        for (let _ = 0; _ < steps; _++) {
-            yield iter.next().value;
+    *rvalues(): Generator<T, undefined, void> {
+        for (const val of this.tree.reverseInOrder()) {
+            let count = this.count(val);
+            while (count--) yield val;
         }
-    }
-
-    /**
-     * @description
-     * Returns a generator for reversed order traversing the set.
-     */
-    *rvalues(): Generator<T, any, any> {
-        const iter = this.reverseInOrder();
-        iter.next();
-        const steps = this.size;
-        for (let _ = 0; _ < steps; _++) {
-            yield iter.next().value;
-        }
-    }
-
-    /**
-     * @description
-     * Returns an iterable of key, value pairs for every entry in the set.
-     */
-    *entries(): IterableIterator<[number, T]> {
-        const iter = this.inOrder();
-        iter.next();
-        const steps = this.size;
-        for (let i = 0; i < steps; i++) {
-            yield [i, iter.next().value];
-        }
-    }
-
-    private *inOrder(
-        root: TreapNode<T> | null = this.root,
-    ): Generator<T, any, any> {
-        if (root == null) return;
-        yield* this.inOrder(root.left);
-        const count = root.count;
-        for (let _ = 0; _ < count; _++) {
-            yield root.value;
-        }
-        yield* this.inOrder(root.right);
-    }
-
-    private *reverseInOrder(
-        root: TreapNode<T> | null = this.root,
-    ): Generator<T, any, any> {
-        if (root == null) return;
-        yield* this.reverseInOrder(root.right);
-        const count = root.count;
-        for (let _ = 0; _ < count; _++) {
-            yield root.value;
-        }
-        yield* this.reverseInOrder(root.left);
+        return undefined;
     }
 }
