@@ -1,34 +1,33 @@
+import java.util.Deque;
+
 class MyStack {
+    private Deque<Integer> q1 = new ArrayDeque<>();
+    private Deque<Integer> q2 = new ArrayDeque<>();
 
-    private Deque<Integer> q;
-
-    /** Initialize your data structure here. */
     public MyStack() {
-        q = new ArrayDeque<>();
-    }
 
-    /** Push element x onto stack. */
+    }
+    
     public void push(int x) {
-        q.offerLast(x);
-        int n = q.size();
-        while (n-- > 1) {
-            q.offerLast(q.pollFirst());
+        q2.offer(x);
+        while (!q1.isEmpty()) {
+            q2.offer(q1.poll());
         }
+        Deque<Integer> q = q1;
+        q1 = q2;
+        q2 = q;
     }
-
-    /** Removes the element on top of the stack and returns that element. */
+    
     public int pop() {
-        return q.pollFirst();
+        return q1.poll();
     }
-
-    /** Get the top element. */
+    
     public int top() {
-        return q.peekFirst();
+        return q1.peek();
     }
-
-    /** Returns whether the stack is empty. */
+    
     public boolean empty() {
-        return q.isEmpty();
+        return q1.isEmpty();
     }
 }
 
