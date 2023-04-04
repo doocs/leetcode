@@ -14,7 +14,9 @@
 
 ## Introduction
 
-Complete solutions to LeetCode, LCOF and LCCI problems, updated daily. Please give me a [star](https://github.com/doocs/leetcode) 🌟 if you like it.
+The Doocs LeetCode repository is a comprehensive collection of solutions to LeetCode questions in multiple programming languages. The repository contains solutions to LeetCode, LCOF, LCCI questions, and more in multiple programming languages.
+
+The repository is maintained by the Doocs community, and please give us a [star](https://github.com/doocs/leetcode) 🌟 if you like it.
 
 [中文文档](/README.md)
 
