@@ -104,7 +104,7 @@ class Ranking:
         return None
 
     def get_1600_count(self):
-        left, right = 1, 1000 if self.region == 'CN' else 3000
+        left, right = 1, 4000
         while left < right:
             mid = (left + right + 1) >> 1
             page = self.load_page(mid)
@@ -116,17 +116,17 @@ class Ranking:
                 left = mid
             else:
                 right = mid - 1
-        page = self.load_page(left)
+        page = [uid for _, uid in self.load_page(left) if uid]
         print('校准中...')
         left, right = 0, len(page) - 1
         while left < right:
             mid = (left + right + 1) >> 1
-            ranking, score = self.get_user_ranking(page[mid][1])
+            ranking, score = self.get_user_ranking(page[mid])
             if score >= 1600:
                 left = mid
             else:
                 right = mid - 1
-        return self.get_user_ranking(page[left][1])[0]
+        return self.get_user_ranking(page[left])[0]
 
     def get_user(self, rank):
         p = (rank - 1) // 25 + 1
