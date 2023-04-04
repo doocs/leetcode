@@ -6,7 +6,7 @@ class Solution:
             g[b].append(a)
             indeg[a] += 1
         cnt = 0
-        q = deque([i for i, v in enumerate(indeg) if v == 0])
+        q = deque(i for i, x in enumerate(indeg) if x == 0)
         while q:
             i = q.popleft()
             cnt += 1

@@ -7,8 +7,8 @@ func canFinish(numCourses int, prerequisites [][]int) bool {
 		indeg[a]++
 	}
 	q := []int{}
-	for i, v := range indeg {
-		if v == 0 {
+	for i, x := range indeg {
+		if x == 0 {
 			q = append(q, i)
 		}
 	}

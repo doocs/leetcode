@@ -9,15 +9,21 @@ public:
             ++indeg[a];
         }
         queue<int> q;
-        for (int i = 0; i < numCourses; ++i)
-            if (indeg[i] == 0) q.push(i);
+        for (int i = 0; i < numCourses; ++i) {
+            if (indeg[i] == 0) {
+                q.push(i);
+            }
+        }
         int cnt = 0;
         while (!q.empty()) {
             int i = q.front();
             q.pop();
             ++cnt;
-            for (int j : g[i])
-                if (--indeg[j] == 0) q.push(j);
+            for (int j : g[i]) {
+                if (--indeg[j] == 0) {
+                    q.push(j);
+                }
+            }
         }
         return cnt == numCourses;
     }
