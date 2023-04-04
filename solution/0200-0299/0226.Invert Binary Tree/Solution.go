@@ -7,7 +7,7 @@
  * }
  */
 func invertTree(root *TreeNode) *TreeNode {
-	var dfs func(root *TreeNode)
+	var dfs func(*TreeNode)
 	dfs = func(root *TreeNode) {
 		if root == nil {
 			return
