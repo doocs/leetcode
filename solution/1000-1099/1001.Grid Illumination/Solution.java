@@ -1,55 +1,55 @@
 class Solution {
+    private int n;
     public int[] gridIllumination(int n, int[][] lamps, int[][] queries) {
-        Set<Long> points = new HashSet<>();
-        Map<Integer, Integer> rcnt = new HashMap<>();
-        Map<Integer, Integer> ccnt = new HashMap<>();
-        Map<Integer, Integer> dgcnt = new HashMap<>();
-        Map<Integer, Integer> udgcnt = new HashMap<>();
-        for (int[] l : lamps) {
-            int r = l[0], c = l[1];
-            long v = r * n + c;
-            if (!points.contains(v)) {
-                points.add(v);
-                rcnt.put(r, rcnt.getOrDefault(r, 0) + 1);
-                ccnt.put(c, ccnt.getOrDefault(c, 0) + 1);
-                dgcnt.put(r - c, dgcnt.getOrDefault(r - c, 0) + 1);
-                udgcnt.put(r + c, udgcnt.getOrDefault(r + c, 0) + 1);
+        this.n = n;
+        Set<Long> s = new HashSet<>();
+        Map<Integer, Integer> row = new HashMap<>();
+        Map<Integer, Integer> col = new HashMap<>();
+        Map<Integer, Integer> diag1 = new HashMap<>();
+        Map<Integer, Integer> diag2 = new HashMap<>();
+        for (var lamp : lamps) {
+            int i = lamp[0], j = lamp[1];
+            if (s.add(f(i, j))) {
+                merge(row, i, 1);
+                merge(col, j, 1);
+                merge(diag1, i - j, 1);
+                merge(diag2, i + j, 1);
             }
         }
-        int[][] dirs
-            = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}, {0, 0}, {1, 1}, {-1, 1}, {1, -1}, {-1, -1}};
-        int[] ans = new int[queries.length];
-        for (int i = 0; i < queries.length; ++i) {
-            int r = queries[i][0], c = queries[i][1];
-            if (rcnt.getOrDefault(r, 0) > 0 || ccnt.getOrDefault(c, 0) > 0
-                || dgcnt.getOrDefault(r - c, 0) > 0 || udgcnt.getOrDefault(r + c, 0) > 0) {
-                ans[i] = 1;
-                for (int[] d : dirs) {
-                    int x = r + d[0], y = c + d[1];
-                    long v = x * n + y;
-                    if (x < 0 || x >= n || y < 0 || y >= n || !points.contains(v)) {
+        int m = queries.length;
+        int[] ans = new int[m];
+        for (int k = 0; k < m; ++k) {
+            int i = queries[k][0], j = queries[k][1];
+            if (exist(row, i) || exist(col, j) || exist(diag1, i - j) || exist(diag2, i + j)) {
+                ans[k] = 1;
+            }
+            for (int x = i - 1; x <= i + 1; ++x) {
+                for (int y = j - 1; y <= j + 1; ++y) {
+                    if (x < 0 || x >= n || y < 0 || y >= n || !s.contains(f(x, y))) {
                         continue;
                     }
-                    points.remove(v);
-                    rcnt.put(x, rcnt.get(x) - 1);
-                    if (rcnt.get(x) == 0) {
-                        rcnt.remove(x);
-                    }
-                    ccnt.put(y, ccnt.get(y) - 1);
-                    if (ccnt.get(y) == 0) {
-                        ccnt.remove(y);
-                    }
-                    dgcnt.put(x - y, dgcnt.get(x - y) - 1);
-                    if (dgcnt.get(x - y) == 0) {
-                        dgcnt.remove(x - y);
-                    }
-                    udgcnt.put(x + y, udgcnt.get(x + y) - 1);
-                    if (udgcnt.get(x + y) == 0) {
-                        udgcnt.remove(x + y);
-                    }
+                    s.remove(f(x, y));
+                    merge(row, x, -1);
+                    merge(col, y, -1);
+                    merge(diag1, x - y, -1);
+                    merge(diag2, x + y, -1);
                 }
             }
         }
         return ans;
+    }
+
+    private void merge(Map<Integer, Integer> cnt, int x, int d) {
+        if (cnt.merge(x, d, Integer::sum) == 0) {
+            cnt.remove(x);
+        }
+    }
+
+    private boolean exist(Map<Integer, Integer> cnt, int x) {
+        return cnt.getOrDefault(x, 0) > 0;
+    }
+
+    private long f(long i, long j) {
+        return i * n + j;
     }
 }

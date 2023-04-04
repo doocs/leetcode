@@ -3,54 +3,44 @@ function gridIllumination(
     lamps: number[][],
     queries: number[][],
 ): number[] {
-    let lights: Set<string> = new Set();
-    let rows: Map<number, number> = new Map(); // i
-    let cols: Map<number, number> = new Map(); // j
-    let mainDiagonal: Map<number, number> = new Map(); // i - j
-    let subDiagonal: Map<number, number> = new Map(); // i + j
-    for (let [i, j] of lamps) {
-        let key = `${i},${j}`;
-        if (lights.has(key)) continue;
-        lights.add(key);
-        rows.set(i, (rows.get(i) || 0) + 1);
-        cols.set(j, (cols.get(j) || 0) + 1);
-        mainDiagonal.set(i - j, (mainDiagonal.get(i - j) || 0) + 1);
-        subDiagonal.set(i + j, (subDiagonal.get(i + j) || 0) + 1);
+    const row = new Map<number, number>();
+    const col = new Map<number, number>();
+    const diag1 = new Map<number, number>();
+    const diag2 = new Map<number, number>();
+    const s = new Set<number>();
+    for (const [i, j] of lamps) {
+        if (s.has(i * n + j)) {
+            continue;
+        }
+        s.add(i * n + j);
+        row.set(i, (row.get(i) || 0) + 1);
+        col.set(j, (col.get(j) || 0) + 1);
+        diag1.set(i - j, (diag1.get(i - j) || 0) + 1);
+        diag2.set(i + j, (diag2.get(i + j) || 0) + 1);
     }
-
-    let ans: Array<number> = [];
-    let directions = [
-        [-1, -1],
-        [-1, 0],
-        [-1, 1],
-        [0, -1],
-        [0, 0],
-        [0, 1],
-        [1, -1],
-        [1, 0],
-        [1, 1],
-    ];
-    for (let [i, j] of queries) {
-        // check
-        const check =
-            lights.has(`${i},${j}`) ||
-            rows.get(i) ||
-            cols.get(j) ||
-            mainDiagonal.get(i - j) ||
-            subDiagonal.get(i + j);
-        ans.push(check ? 1 : 0);
-        // close lamp
-        for (let [dx, dy] of directions) {
-            const [x, y] = [i + dx, j + dy];
-            let key = `${x},${y}`;
-            if (x < 0 || x > n - 1 || y < 0 || y > n - 1 || !lights.has(key)) {
-                continue;
+    const ans: number[] = [];
+    for (const [i, j] of queries) {
+        if (
+            row.get(i)! > 0 ||
+            col.get(j)! > 0 ||
+            diag1.get(i - j)! > 0 ||
+            diag2.get(i + j)! > 0
+        ) {
+            ans.push(1);
+        } else {
+            ans.push(0);
+        }
+        for (let x = i - 1; x <= i + 1; ++x) {
+            for (let y = j - 1; y <= j + 1; ++y) {
+                if (x < 0 || x >= n || y < 0 || y >= n || !s.has(x * n + y)) {
+                    continue;
+                }
+                s.delete(x * n + y);
+                row.set(x, row.get(x)! - 1);
+                col.set(y, col.get(y)! - 1);
+                diag1.set(x - y, diag1.get(x - y)! - 1);
+                diag2.set(x + y, diag2.get(x + y)! - 1);
             }
-            lights.delete(key);
-            rows.set(x, rows.get(x) - 1);
-            cols.set(y, cols.get(y) - 1);
-            mainDiagonal.set(x - y, mainDiagonal.get(x - y) - 1);
-            subDiagonal.set(x + y, subDiagonal.get(x + y) - 1);
         }
     }
     return ans;

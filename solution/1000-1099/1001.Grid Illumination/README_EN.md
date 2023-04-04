@@ -62,41 +62,26 @@ The 1<sup>st</sup>&nbsp;query asks if the lamp at grid[1][0] is illuminated or n
 
 ```python
 class Solution:
-    def gridIllumination(
-        self, n: int, lamps: List[List[int]], queries: List[List[int]]
-    ) -> List[int]:
-        points = set()
-        rcnt, ccnt, dgcnt, udgcnt = Counter(), Counter(), Counter(), Counter()
-        for r, c in lamps:
-            if (r, c) not in points:
-                points.add((r, c))
-                rcnt[r] += 1
-                ccnt[c] += 1
-                dgcnt[r - c] += 1
-                udgcnt[r + c] += 1
+    def gridIllumination(self, n: int, lamps: List[List[int]], queries: List[List[int]]) -> List[int]:
+        s = {(i, j) for i, j in lamps}
+        row, col, diag1, diag2 = Counter(), Counter(), Counter(), Counter()
+        for i, j in s:
+            row[i] += 1
+            col[j] += 1
+            diag1[i - j] += 1
+            diag2[i + j] += 1
         ans = [0] * len(queries)
-        for i, q in enumerate(queries):
-            r, c = q
-            if rcnt[r] or ccnt[c] or dgcnt[r - c] or udgcnt[r + c]:
-                ans[i] = 1
-                for a, b in [
-                    (0, 1),
-                    (1, 0),
-                    (0, -1),
-                    (-1, 0),
-                    (0, 0),
-                    (1, 1),
-                    (-1, 1),
-                    (1, -1),
-                    (-1, -1),
-                ]:
-                    x, y = r + a, c + b
-                    if (x, y) in points:
-                        points.remove((x, y))
-                        rcnt[x] -= 1
-                        ccnt[y] -= 1
-                        dgcnt[x - y] -= 1
-                        udgcnt[x + y] -= 1
+        for k, (i, j) in enumerate(queries):
+            if row[i] or col[j] or diag1[i - j] or diag2[i + j]:
+                ans[k] = 1
+            for x in range(i - 1, i + 2):
+                for y in range(j - 1, j + 2):
+                    if (x, y) in s:
+                        s.remove((x, y))
+                        row[x] -= 1
+                        col[y] -= 1
+                        diag1[x - y] -= 1
+                        diag2[x + y] -= 1
         return ans
 ```
 
@@ -104,59 +89,147 @@ class Solution:
 
 ```java
 class Solution {
+    private int n;
     public int[] gridIllumination(int n, int[][] lamps, int[][] queries) {
-        Set<Long> points = new HashSet<>();
-        Map<Integer, Integer> rcnt = new HashMap<>();
-        Map<Integer, Integer> ccnt = new HashMap<>();
-        Map<Integer, Integer> dgcnt = new HashMap<>();
-        Map<Integer, Integer> udgcnt = new HashMap<>();
-        for (int[] l : lamps) {
-            int r = l[0], c = l[1];
-            long v = r * n + c;
-            if (!points.contains(v)) {
-                points.add(v);
-                rcnt.put(r, rcnt.getOrDefault(r, 0) + 1);
-                ccnt.put(c, ccnt.getOrDefault(c, 0) + 1);
-                dgcnt.put(r - c, dgcnt.getOrDefault(r - c, 0) + 1);
-                udgcnt.put(r + c, udgcnt.getOrDefault(r + c, 0) + 1);
+        this.n = n;
+        Set<Long> s = new HashSet<>();
+        Map<Integer, Integer> row = new HashMap<>();
+        Map<Integer, Integer> col = new HashMap<>();
+        Map<Integer, Integer> diag1 = new HashMap<>();
+        Map<Integer, Integer> diag2 = new HashMap<>();
+        for (var lamp : lamps) {
+            int i = lamp[0], j = lamp[1];
+            if (s.add(f(i, j))) {
+                merge(row, i, 1);
+                merge(col, j, 1);
+                merge(diag1, i - j, 1);
+                merge(diag2, i + j, 1);
             }
         }
-        int[][] dirs
-            = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}, {0, 0}, {1, 1}, {-1, 1}, {1, -1}, {-1, -1}};
-        int[] ans = new int[queries.length];
-        for (int i = 0; i < queries.length; ++i) {
-            int r = queries[i][0], c = queries[i][1];
-            if (rcnt.getOrDefault(r, 0) > 0 || ccnt.getOrDefault(c, 0) > 0
-                || dgcnt.getOrDefault(r - c, 0) > 0 || udgcnt.getOrDefault(r + c, 0) > 0) {
-                ans[i] = 1;
-                for (int[] d : dirs) {
-                    int x = r + d[0], y = c + d[1];
-                    long v = x * n + y;
-                    if (x < 0 || x >= n || y < 0 || y >= n || !points.contains(v)) {
+        int m = queries.length;
+        int[] ans = new int[m];
+        for (int k = 0; k < m; ++k) {
+            int i = queries[k][0], j = queries[k][1];
+            if (exist(row, i) || exist(col, j) || exist(diag1, i - j) || exist(diag2, i + j)) {
+                ans[k] = 1;
+            }
+            for (int x = i - 1; x <= i + 1; ++x) {
+                for (int y = j - 1; y <= j + 1; ++y) {
+                    if (x < 0 || x >= n || y < 0 || y >= n || !s.contains(f(x, y))) {
                         continue;
                     }
-                    points.remove(v);
-                    rcnt.put(x, rcnt.get(x) - 1);
-                    if (rcnt.get(x) == 0) {
-                        rcnt.remove(x);
-                    }
-                    ccnt.put(y, ccnt.get(y) - 1);
-                    if (ccnt.get(y) == 0) {
-                        ccnt.remove(y);
-                    }
-                    dgcnt.put(x - y, dgcnt.get(x - y) - 1);
-                    if (dgcnt.get(x - y) == 0) {
-                        dgcnt.remove(x - y);
-                    }
-                    udgcnt.put(x + y, udgcnt.get(x + y) - 1);
-                    if (udgcnt.get(x + y) == 0) {
-                        udgcnt.remove(x + y);
-                    }
+                    s.remove(f(x, y));
+                    merge(row, x, -1);
+                    merge(col, y, -1);
+                    merge(diag1, x - y, -1);
+                    merge(diag2, x + y, -1);
                 }
             }
         }
         return ans;
     }
+
+    private void merge(Map<Integer, Integer> cnt, int x, int d) {
+        if (cnt.merge(x, d, Integer::sum) == 0) {
+            cnt.remove(x);
+        }
+    }
+
+    private boolean exist(Map<Integer, Integer> cnt, int x) {
+        return cnt.getOrDefault(x, 0) > 0;
+    }
+
+    private long f(long i, long j) {
+        return i * n + j;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> gridIllumination(int n, vector<vector<int>>& lamps, vector<vector<int>>& queries) {
+        auto f = [&](int i, int j) -> long long {
+            return (long long) i * n + j;
+        };
+        unordered_set<long long> s;
+        unordered_map<int, int> row, col, diag1, diag2;
+        for (auto& lamp : lamps) {
+            int i = lamp[0], j = lamp[1];
+            if (!s.count(f(i, j))) {
+                s.insert(f(i, j));
+                row[i]++;
+                col[j]++;
+                diag1[i - j]++;
+                diag2[i + j]++;
+            }
+        }
+        int m = queries.size();
+        vector<int> ans(m);
+        for (int k = 0; k < m; ++k) {
+            int i = queries[k][0], j = queries[k][1];
+            if (row[i] > 0 || col[j] > 0 || diag1[i - j] > 0 || diag2[i + j] > 0) {
+                ans[k] = 1;
+            }
+            for (int x = i - 1; x <= i + 1; ++x) {
+                for (int y = j - 1; y <= j + 1; ++y) {
+                    if (x < 0 || x >= n || y < 0 || y >= n || !s.count(f(x, y))) {
+                        continue;
+                    }
+                    s.erase(f(x, y));
+                    row[x]--;
+                    col[y]--;
+                    diag1[x - y]--;
+                    diag2[x + y]--;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func gridIllumination(n int, lamps [][]int, queries [][]int) []int {
+	row, col, diag1, diag2 := map[int]int{}, map[int]int{}, map[int]int{}, map[int]int{}
+	type pair struct{ x, y int }
+	s := map[pair]bool{}
+	for _, lamp := range lamps {
+		i, j := lamp[0], lamp[1]
+		p := pair{i, j}
+		if !s[p] {
+			s[p] = true
+			row[i]++
+			col[j]++
+			diag1[i-j]++
+			diag2[i+j]++
+		}
+	}
+	m := len(queries)
+	ans := make([]int, m)
+	for k, q := range queries {
+		i, j := q[0], q[1]
+		if row[i] > 0 || col[j] > 0 || diag1[i-j] > 0 || diag2[i+j] > 0 {
+			ans[k] = 1
+		}
+		for x := i - 1; x <= i+1; x++ {
+			for y := j - 1; y <= j+1; y++ {
+				p := pair{x, y}
+				if s[p] {
+					s[p] = false
+					row[x]--
+					col[y]--
+					diag1[x-y]--
+					diag2[x+y]--
+				}
+			}
+		}
+	}
+	return ans
 }
 ```
 
@@ -168,54 +241,44 @@ function gridIllumination(
     lamps: number[][],
     queries: number[][],
 ): number[] {
-    let lights: Set<string> = new Set();
-    let rows: Map<number, number> = new Map(); // i
-    let cols: Map<number, number> = new Map(); // j
-    let mainDiagonal: Map<number, number> = new Map(); // i - j
-    let subDiagonal: Map<number, number> = new Map(); // i + j
-    for (let [i, j] of lamps) {
-        let key = `${i},${j}`;
-        if (lights.has(key)) continue;
-        lights.add(key);
-        rows.set(i, (rows.get(i) || 0) + 1);
-        cols.set(j, (cols.get(j) || 0) + 1);
-        mainDiagonal.set(i - j, (mainDiagonal.get(i - j) || 0) + 1);
-        subDiagonal.set(i + j, (subDiagonal.get(i + j) || 0) + 1);
+    const row = new Map<number, number>();
+    const col = new Map<number, number>();
+    const diag1 = new Map<number, number>();
+    const diag2 = new Map<number, number>();
+    const s = new Set<number>();
+    for (const [i, j] of lamps) {
+        if (s.has(i * n + j)) {
+            continue;
+        }
+        s.add(i * n + j);
+        row.set(i, (row.get(i) || 0) + 1);
+        col.set(j, (col.get(j) || 0) + 1);
+        diag1.set(i - j, (diag1.get(i - j) || 0) + 1);
+        diag2.set(i + j, (diag2.get(i + j) || 0) + 1);
     }
-
-    let ans: Array<number> = [];
-    let directions = [
-        [-1, -1],
-        [-1, 0],
-        [-1, 1],
-        [0, -1],
-        [0, 0],
-        [0, 1],
-        [1, -1],
-        [1, 0],
-        [1, 1],
-    ];
-    for (let [i, j] of queries) {
-        // check
-        const check =
-            lights.has(`${i},${j}`) ||
-            rows.get(i) ||
-            cols.get(j) ||
-            mainDiagonal.get(i - j) ||
-            subDiagonal.get(i + j);
-        ans.push(check ? 1 : 0);
-        // close lamp
-        for (let [dx, dy] of directions) {
-            const [x, y] = [i + dx, j + dy];
-            let key = `${x},${y}`;
-            if (x < 0 || x > n - 1 || y < 0 || y > n - 1 || !lights.has(key)) {
-                continue;
+    const ans: number[] = [];
+    for (const [i, j] of queries) {
+        if (
+            row.get(i)! > 0 ||
+            col.get(j)! > 0 ||
+            diag1.get(i - j)! > 0 ||
+            diag2.get(i + j)! > 0
+        ) {
+            ans.push(1);
+        } else {
+            ans.push(0);
+        }
+        for (let x = i - 1; x <= i + 1; ++x) {
+            for (let y = j - 1; y <= j + 1; ++y) {
+                if (x < 0 || x >= n || y < 0 || y >= n || !s.has(x * n + y)) {
+                    continue;
+                }
+                s.delete(x * n + y);
+                row.set(x, row.get(x)! - 1);
+                col.set(y, col.get(y)! - 1);
+                diag1.set(x - y, diag1.get(x - y)! - 1);
+                diag2.set(x + y, diag2.get(x + y)! - 1);
             }
-            lights.delete(key);
-            rows.set(x, rows.get(x) - 1);
-            cols.set(y, cols.get(y) - 1);
-            mainDiagonal.set(x - y, mainDiagonal.get(x - y) - 1);
-            subDiagonal.set(x + y, subDiagonal.get(x + y) - 1);
         }
     }
     return ans;
