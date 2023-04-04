@@ -1,17 +1,23 @@
 class Vector2D:
     def __init__(self, vec: List[List[int]]):
-        self.flatten = []
-        for item in vec:
-            for e in item:
-                self.flatten.append(e)
-        self.cur = -1
+        self.i = 0
+        self.j = 0
+        self.vec = vec
 
     def next(self) -> int:
-        self.cur += 1
-        return self.flatten[self.cur]
+        self.forward()
+        ans = self.vec[self.i][self.j]
+        self.j += 1
+        return ans
 
     def hasNext(self) -> bool:
-        return self.cur < len(self.flatten) - 1
+        self.forward()
+        return self.i < len(self.vec)
+
+    def forward(self):
+        while self.i < len(self.vec) and self.j >= len(self.vec[self.i]):
+            self.i += 1
+            self.j = 0
 
 
 # Your Vector2D object will be instantiated and called as such:

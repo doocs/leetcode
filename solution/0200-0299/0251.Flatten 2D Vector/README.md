@@ -41,6 +41,18 @@ iterator.hasNext(); // 返回 false
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：双指针**
+
+我们定义两个指针 $i$ 和 $j$，分别指向当前二维向量的行和列，初始时 $i = 0$，$j = 0$。
+
+接下来，我们设计一个函数 $forward()$，用于将 $i$ 和 $j$ 向后移动，直到指向一个非空的元素。
+
+每次调用 `next` 方法时，我们先调用 $forward()$，然后返回当前指向的元素，最后将 $j$ 向后移动一位。
+
+每次调用 `hasNext` 方法时，我们先调用 $forward()$，然后判断 $i$ 是否小于二维向量的行数，如果是，则返回 `true`，否则返回 `false`。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -50,18 +62,24 @@ iterator.hasNext(); // 返回 false
 ```python
 class Vector2D:
     def __init__(self, vec: List[List[int]]):
-        self.flatten = []
-        for item in vec:
-            for e in item:
-                self.flatten.append(e)
-        self.cur = -1
+        self.i = 0
+        self.j = 0
+        self.vec = vec
 
     def next(self) -> int:
-        self.cur += 1
-        return self.flatten[self.cur]
+        self.forward()
+        ans = self.vec[self.i][self.j]
+        self.j += 1
+        return ans
 
     def hasNext(self) -> bool:
-        return self.cur < len(self.flatten) - 1
+        self.forward()
+        return self.i < len(self.vec)
+
+    def forward(self):
+        while self.i < len(self.vec) and self.j >= len(self.vec[self.i]):
+            self.i += 1
+            self.j = 0
 
 
 # Your Vector2D object will be instantiated and called as such:
@@ -75,7 +93,158 @@ class Vector2D:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Vector2D {
+    private int i;
+    private int j;
+    private int[][] vec;
 
+    public Vector2D(int[][] vec) {
+        this.vec = vec;
+    }
+
+    public int next() {
+        forward();
+        return vec[i][j++];
+    }
+
+    public boolean hasNext() {
+        forward();
+        return i < vec.length;
+    }
+
+    private void forward() {
+        while (i < vec.length && j >= vec[i].length) {
+            ++i;
+            j = 0;
+        }
+    }
+}
+
+/**
+ * Your Vector2D object will be instantiated and called as such:
+ * Vector2D obj = new Vector2D(vec);
+ * int param_1 = obj.next();
+ * boolean param_2 = obj.hasNext();
+ */
+```
+
+### **C++**
+
+```cpp
+class Vector2D {
+public:
+    Vector2D(vector<vector<int>>& vec) {
+        this->vec = move(vec);
+    }
+
+    int next() {
+        forward();
+        return vec[i][j++];
+    }
+
+    bool hasNext() {
+        forward();
+        return i < vec.size();
+    }
+
+private:
+    int i = 0;
+    int j = 0;
+    vector<vector<int>> vec;
+
+    void forward() {
+        while (i < vec.size() && j >= vec[i].size()) {
+            ++i;
+            j = 0;
+        }
+    }
+};
+
+/**
+ * Your Vector2D object will be instantiated and called as such:
+ * Vector2D* obj = new Vector2D(vec);
+ * int param_1 = obj->next();
+ * bool param_2 = obj->hasNext();
+ */
+```
+
+### **Go**
+
+```go
+type Vector2D struct {
+	i, j int
+	vec  [][]int
+}
+
+func Constructor(vec [][]int) Vector2D {
+	return Vector2D{vec: vec}
+}
+
+func (this *Vector2D) Next() int {
+	this.forward()
+	ans := this.vec[this.i][this.j]
+	this.j++
+	return ans
+}
+
+func (this *Vector2D) HasNext() bool {
+	this.forward()
+	return this.i < len(this.vec)
+}
+
+func (this *Vector2D) forward() {
+	for this.i < len(this.vec) && this.j >= len(this.vec[this.i]) {
+		this.i++
+		this.j = 0
+	}
+}
+
+/**
+ * Your Vector2D object will be instantiated and called as such:
+ * obj := Constructor(vec);
+ * param_1 := obj.Next();
+ * param_2 := obj.HasNext();
+ */
+```
+
+### **TypeScript**
+
+```ts
+class Vector2D {
+    i: number;
+    j: number;
+    vec: number[][];
+
+    constructor(vec: number[][]) {
+        this.i = 0;
+        this.j = 0;
+        this.vec = vec;
+    }
+
+    next(): number {
+        this.forward();
+        return this.vec[this.i][this.j++];
+    }
+
+    hasNext(): boolean {
+        this.forward();
+        return this.i < this.vec.length;
+    }
+
+    forward(): void {
+        while (this.i < this.vec.length && this.j >= this.vec[this.i].length) {
+            ++this.i;
+            this.j = 0;
+        }
+    }
+}
+
+/**
+ * Your Vector2D object will be instantiated and called as such:
+ * var obj = new Vector2D(vec)
+ * var param_1 = obj.next()
+ * var param_2 = obj.hasNext()
+ */
 ```
 
 ### **...**
