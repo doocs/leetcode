@@ -51,112 +51,122 @@
 
 ### **Python3**
 
-PreSum & Binary search:
-
 ```python
 class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
-        s = [0] + list(accumulate(nums))
         n = len(nums)
+        s = list(accumulate(nums, initial=0))
         ans = n + 1
-        for i, v in enumerate(s):
-            t = v + target
-            j = bisect_left(s, t)
-            if j != n + 1:
+        for i, x in enumerate(s):
+            j = bisect_left(s, x + target)
+            if j <= n:
                 ans = min(ans, j - i)
-        return 0 if ans == n + 1 else ans
+        return ans if ans <= n else 0
 ```
 
-Slide window:
-
 ```python
 class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
         n = len(nums)
-        left = right = 0
-        sum, res = 0, n + 1
-        while right < n:
-            sum += nums[right]
-            while sum >= target:
-                res = min(res, right - left + 1)
-                sum -= nums[left]
-                left += 1
-            right += 1
-        return 0 if res == n + 1 else res
+        ans = n + 1
+        s = j = 0
+        for i, x in enumerate(nums):
+            s += x
+            while j < n and s >= target:
+                ans = min(ans, i - j + 1)
+                s -= nums[j]
+                j += 1
+        return ans if ans <= n else 0
 ```
 
 ### **Java**
 
-Presum & binary search:
-
 ```java
 class Solution {
     public int minSubArrayLen(int target, int[] nums) {
         int n = nums.length;
-        int[] s = new int[n + 1];
+        long[] s = new long[n + 1];
         for (int i = 0; i < n; ++i) {
             s[i + 1] = s[i] + nums[i];
         }
         int ans = n + 1;
-        for (int i = 0; i < n; ++i) {
-            int t = s[i] + target;
-            int left = 0, right = n + 1;
-            while (left < right) {
-                int mid = (left + right) >> 1;
-                if (s[mid] >= t) {
-                    right = mid;
-                } else {
-                    left = mid + 1;
-                }
-            }
-            if (left != n + 1) {
-                ans = Math.min(ans, left - i);
+        for (int i = 0; i <= n; ++i) {
+            int j = search(s, s[i] + target);
+            if (j <= n) {
+                ans = Math.min(ans, j - i);
             }
         }
-        return ans == n + 1 ? 0 : ans;
+        return ans <= n ? ans : 0;
+    }
+
+    private int search(long[] nums, long x) {
+        int l = 0, r = nums.length;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (nums[mid] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
     }
 }
 ```
-
-Slide window:
 
 ```java
 class Solution {
     public int minSubArrayLen(int target, int[] nums) {
         int n = nums.length;
-        int left = 0, right = 0;
-        int sum = 0, res = n + 1;
-        while (right < n) {
-            sum += nums[right];
-            while (sum >= target) {
-                res = Math.min(res, right - left + 1);
-                sum -= nums[left++];
+        long s = 0;
+        int ans = n + 1;
+        for (int i = 0, j = 0; i < n; ++i) {
+            s += nums[i];
+            while (j < n && s >= target) {
+                ans = Math.min(ans, i - j + 1);
+                s -= nums[j++];
             }
-            ++right;
         }
-        return res == n + 1 ? 0 : res;
+        return ans <= n ? ans : 0;
     }
 }
 ```
 
 ### **C++**
 
-Presum & binary search:
+```cpp
+class Solution {
+public:
+    int minSubArrayLen(int target, vector<int>& nums) {
+        int n = nums.size();
+        vector<long long> s(n + 1);
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + nums[i];
+        }
+        int ans = n + 1;
+        for (int i = 0; i <= n; ++i) {
+            int j = lower_bound(s.begin(), s.end(), s[i] + target) - s.begin();
+            if (j <= n) {
+                ans = min(ans, j - i);
+            }
+        }
+        return ans <= n ? ans : 0;
+    }
+};
+```
 
 ```cpp
 class Solution {
 public:
     int minSubArrayLen(int target, vector<int>& nums) {
         int n = nums.size();
-        vector<int> s(n + 1);
-        for (int i = 0; i < n; ++i) s[i + 1] = s[i] + nums[i];
+        long long s = 0;
         int ans = n + 1;
-        for (int i = 0; i < n; ++i) {
-            int t = s[i] + target;
-            auto p = lower_bound(s.begin(), s.end(), t);
-            if (p != s.end()) {
-                int j = p - s.begin();
-                ans = min(ans, j - i);
+        for (int i = 0, j = 0; i < n; ++i) {
+            s += nums[i];
+            while (j < n && s >= target) {
+                ans = min(ans, i - j + 1);
+                s -= nums[j++];
             }
         }
         return ans == n + 1 ? 0 : ans;
@@ -164,54 +174,20 @@ public:
 };
 ```
 
-Slide window:
-
-```cpp
-class Solution {
-public:
-    int minSubArrayLen(int target, vector<int>& nums) {
-        int left = 0, right;
-        int sum = 0;
-        int minlen = INT_MAX;
-
-        for (right = 0; right < nums.size(); right++) {
-            sum += nums[right];
-            while (left <= right && sum >= target) {
-                minlen = min(minlen, right - left + 1);
-                sum -= nums[left++];
-            }
-        }
-
-        return minlen == INT_MAX ? 0 : minlen;
-    }
-};
-```
-
 ### **Go**
-
-Presum & binary search:
 
 ```go
 func minSubArrayLen(target int, nums []int) int {
 	n := len(nums)
 	s := make([]int, n+1)
-	for i, v := range nums {
-		s[i+1] = s[i] + v
+	for i, x := range nums {
+		s[i+1] = s[i] + x
 	}
 	ans := n + 1
-	for i, v := range s {
-		t := v + target
-		left, right := 0, n+1
-		for left < right {
-			mid := (left + right) >> 1
-			if s[mid] >= t {
-				right = mid
-			} else {
-				left = mid + 1
-			}
-		}
-		if left != n+1 && ans > left-i {
-			ans = left - i
+	for i, x := range s {
+		j := sort.SearchInts(s, x+target)
+		if j <= n {
+			ans = min(ans, j-i)
 		}
 	}
 	if ans == n+1 {
@@ -219,29 +195,58 @@ func minSubArrayLen(target int, nums []int) int {
 	}
 	return ans
 }
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func minSubArrayLen(target int, nums []int) int {
+	n := len(nums)
+	s := 0
+	ans := n + 1
+	for i, j := 0, 0; i < n; i++ {
+		s += nums[i]
+		for s >= target {
+			ans = min(ans, i-j+1)
+			s -= nums[j]
+			j++
+		}
+	}
+	if ans == n+1 {
+		return 0
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **C#**
-
-Slide window:
 
 ```cs
 public class Solution {
     public int MinSubArrayLen(int target, int[] nums) {
         int n = nums.Length;
-        int left = 0, right = 0;
-        int sum = 0, res = n + 1;
-        while (right < n)
-        {
-            sum += nums[right];
-            while (sum >= target)
-            {
-                res = Math.Min(res, right - left + 1);
-                sum -= nums[left++];
+        long s = 0;
+        int ans = n + 1;
+        for (int i = 0, j = 0; i < n; ++i) {
+            s += nums[i];
+            while (s >= target) {
+                ans = Math.Min(ans, i - j + 1);
+                s -= nums[j++];
             }
-            ++right;
         }
-        return res == n + 1 ? 0 : res;
+        return ans == n + 1 ? 0 : ans;
     }
 }
 ```
@@ -251,22 +256,47 @@ public class Solution {
 ```ts
 function minSubArrayLen(target: number, nums: number[]): number {
     const n = nums.length;
-    let res = n + 1;
-    let sum = 0;
-    let i = 0;
-    for (let j = 0; j < n; j++) {
-        sum += nums[j];
-        while (sum >= target) {
-            res = Math.min(res, j - i + 1);
-            sum -= nums[i];
-            i++;
+    const s: number[] = new Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        s[i + 1] = s[i] + nums[i];
+    }
+    let ans = n + 1;
+    const search = (x: number) => {
+        let l = 0;
+        let r = n + 1;
+        while (l < r) {
+            const mid = (l + r) >>> 1;
+            if (s[mid] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    };
+    for (let i = 0; i <= n; ++i) {
+        const j = search(s[i] + target);
+        if (j <= n) {
+            ans = Math.min(ans, j - i);
         }
     }
+    return ans === n + 1 ? 0 : ans;
+}
+```
 
-    if (res === n + 1) {
-        return 0;
+```ts
+function minSubArrayLen(target: number, nums: number[]): number {
+    const n = nums.length;
+    let s = 0;
+    let ans = n + 1;
+    for (let i = 0, j = 0; i < n; ++i) {
+        s += nums[i];
+        while (s >= target) {
+            ans = Math.min(ans, i - j + 1);
+            s -= nums[j++];
+        }
     }
-    return res;
+    return ans === n + 1 ? 0 : ans;
 }
 ```
 

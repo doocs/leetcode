@@ -1,19 +1,13 @@
 function minSubArrayLen(target: number, nums: number[]): number {
     const n = nums.length;
-    let res = n + 1;
-    let sum = 0;
-    let i = 0;
-    for (let j = 0; j < n; j++) {
-        sum += nums[j];
-        while (sum >= target) {
-            res = Math.min(res, j - i + 1);
-            sum -= nums[i];
-            i++;
+    let s = 0;
+    let ans = n + 1;
+    for (let i = 0, j = 0; i < n; ++i) {
+        s += nums[i];
+        while (s >= target) {
+            ans = Math.min(ans, i - j + 1);
+            s -= nums[j++];
         }
     }
-
-    if (res === n + 1) {
-        return 0;
-    }
-    return res;
+    return ans === n + 1 ? 0 : ans;
 }

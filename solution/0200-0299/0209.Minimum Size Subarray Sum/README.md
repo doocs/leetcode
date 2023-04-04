@@ -58,15 +58,23 @@
 
 **方法一：前缀和 + 二分查找**
 
-先求出数组的前缀和 `s`，然后根据 `s[j] - s[i] >= target` => `s[j] >= s[i] + target`，找出最小的一个 j，使得 `s[j]` 满足大于等于 `s[i] + target`，然后更新最小长度即可。
+我们先预处理出数组 $nums$ 的前缀和数组 $s$，其中 $s[i]$ 表示数组 $nums$ 前 $i$ 项元素之和。由于数组 $nums$ 中的元素都是正整数，因此数组 $s$ 也是单调递增的。另外，我们初始化答案 $ans = n + 1$，其中 $n$ 为数组 $nums$ 的长度。
 
-时间复杂度 $O(NlogN)$。
+接下来，我们遍历前缀和数组 $s$，对于其中的每个元素 $s[i]$，我们可以通过二分查找的方法找到满足 $s[j] \geq s[i] + target$ 的最小下标 $j$，如果 $j \leq n$，则说明存在满足条件的子数组，我们可以更新答案，即 $ans = min(ans, j - i)$。
 
-**方法二：滑动窗口**
+最后，如果 $ans \leq n$，则说明存在满足条件的子数组，返回 $ans$，否则返回 $0$。
 
-使用指针 `left`, `right` 分别表示子数组的开始位置和结束位置，维护变量 `sum` 表示子数组 `nums[left...right]` 元素之和。初始时 `left`, `right` 均指向 0。每一次迭代，将 `nums[right]` 加到 `sum`，如果此时 `sum >= target`，更新最小长度即可。然后将 `sum` 减去 `nums[left]`，接着 `left` 指针右移直至 `sum < target`。每一次迭代最后，将 `right` 指针右移。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
-时间复杂度 $O(N)$。
+**方法二：双指针**
+
+我们可以使用双指针 $j$ 和 $i$ 维护一个窗口，其中窗口中的所有元素之和小于 $target$。初始时 $j = 0$，答案 $ans = n + 1$，其中 $n$ 为数组 $nums$ 的长度。
+
+接下来，指针 $i$ 从 $0$ 开始向右移动，每次移动一步，我们将指针 $i$ 对应的元素加入窗口，同时更新窗口中元素之和。如果窗口中元素之和大于等于 $target$，说明当前子数组满足条件，我们可以更新答案，即 $ans = min(ans, i - j + 1)$。然后我们不断地从窗口中移除元素 $nums[j]$，直到窗口中元素之和小于 $target$，然后重复上述过程。
+
+最后，如果 $ans \leq n$，则说明存在满足条件的子数组，返回 $ans$，否则返回 $0$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
 
@@ -74,114 +82,124 @@
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-前缀和 + 二分查找：
-
 ```python
 class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
-        s = [0] + list(accumulate(nums))
         n = len(nums)
+        s = list(accumulate(nums, initial=0))
         ans = n + 1
-        for i, v in enumerate(s):
-            t = v + target
-            j = bisect_left(s, t)
-            if j != n + 1:
+        for i, x in enumerate(s):
+            j = bisect_left(s, x + target)
+            if j <= n:
                 ans = min(ans, j - i)
-        return 0 if ans == n + 1 else ans
+        return ans if ans <= n else 0
 ```
 
-滑动窗口：
-
 ```python
 class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
         n = len(nums)
-        left = right = 0
-        sum, res = 0, n + 1
-        while right < n:
-            sum += nums[right]
-            while sum >= target:
-                res = min(res, right - left + 1)
-                sum -= nums[left]
-                left += 1
-            right += 1
-        return 0 if res == n + 1 else res
+        ans = n + 1
+        s = j = 0
+        for i, x in enumerate(nums):
+            s += x
+            while j < n and s >= target:
+                ans = min(ans, i - j + 1)
+                s -= nums[j]
+                j += 1
+        return ans if ans <= n else 0
 ```
 
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-前缀和 + 二分查找：
-
 ```java
 class Solution {
     public int minSubArrayLen(int target, int[] nums) {
         int n = nums.length;
-        int[] s = new int[n + 1];
+        long[] s = new long[n + 1];
         for (int i = 0; i < n; ++i) {
             s[i + 1] = s[i] + nums[i];
         }
         int ans = n + 1;
-        for (int i = 0; i < n; ++i) {
-            int t = s[i] + target;
-            int left = 0, right = n + 1;
-            while (left < right) {
-                int mid = (left + right) >> 1;
-                if (s[mid] >= t) {
-                    right = mid;
-                } else {
-                    left = mid + 1;
-                }
-            }
-            if (left != n + 1) {
-                ans = Math.min(ans, left - i);
+        for (int i = 0; i <= n; ++i) {
+            int j = search(s, s[i] + target);
+            if (j <= n) {
+                ans = Math.min(ans, j - i);
             }
         }
-        return ans == n + 1 ? 0 : ans;
+        return ans <= n ? ans : 0;
+    }
+
+    private int search(long[] nums, long x) {
+        int l = 0, r = nums.length;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (nums[mid] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
     }
 }
 ```
-
-滑动窗口：
 
 ```java
 class Solution {
     public int minSubArrayLen(int target, int[] nums) {
         int n = nums.length;
-        int left = 0, right = 0;
-        int sum = 0, res = n + 1;
-        while (right < n) {
-            sum += nums[right];
-            while (sum >= target) {
-                res = Math.min(res, right - left + 1);
-                sum -= nums[left++];
+        long s = 0;
+        int ans = n + 1;
+        for (int i = 0, j = 0; i < n; ++i) {
+            s += nums[i];
+            while (j < n && s >= target) {
+                ans = Math.min(ans, i - j + 1);
+                s -= nums[j++];
             }
-            ++right;
         }
-        return res == n + 1 ? 0 : res;
+        return ans <= n ? ans : 0;
     }
 }
 ```
 
 ### **C++**
 
-前缀和 + 二分查找：
+```cpp
+class Solution {
+public:
+    int minSubArrayLen(int target, vector<int>& nums) {
+        int n = nums.size();
+        vector<long long> s(n + 1);
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + nums[i];
+        }
+        int ans = n + 1;
+        for (int i = 0; i <= n; ++i) {
+            int j = lower_bound(s.begin(), s.end(), s[i] + target) - s.begin();
+            if (j <= n) {
+                ans = min(ans, j - i);
+            }
+        }
+        return ans <= n ? ans : 0;
+    }
+};
+```
 
 ```cpp
 class Solution {
 public:
     int minSubArrayLen(int target, vector<int>& nums) {
         int n = nums.size();
-        vector<int> s(n + 1);
-        for (int i = 0; i < n; ++i) s[i + 1] = s[i] + nums[i];
+        long long s = 0;
         int ans = n + 1;
-        for (int i = 0; i < n; ++i) {
-            int t = s[i] + target;
-            auto p = lower_bound(s.begin(), s.end(), t);
-            if (p != s.end()) {
-                int j = p - s.begin();
-                ans = min(ans, j - i);
+        for (int i = 0, j = 0; i < n; ++i) {
+            s += nums[i];
+            while (j < n && s >= target) {
+                ans = min(ans, i - j + 1);
+                s -= nums[j++];
             }
         }
         return ans == n + 1 ? 0 : ans;
@@ -189,54 +207,20 @@ public:
 };
 ```
 
-滑动窗口：
-
-```cpp
-class Solution {
-public:
-    int minSubArrayLen(int target, vector<int>& nums) {
-        int left = 0, right;
-        int sum = 0;
-        int minlen = INT_MAX;
-
-        for (right = 0; right < nums.size(); right++) {
-            sum += nums[right];
-            while (left <= right && sum >= target) {
-                minlen = min(minlen, right - left + 1);
-                sum -= nums[left++];
-            }
-        }
-
-        return minlen == INT_MAX ? 0 : minlen;
-    }
-};
-```
-
 ### **Go**
-
-前缀和 + 二分查找：
 
 ```go
 func minSubArrayLen(target int, nums []int) int {
 	n := len(nums)
 	s := make([]int, n+1)
-	for i, v := range nums {
-		s[i+1] = s[i] + v
+	for i, x := range nums {
+		s[i+1] = s[i] + x
 	}
 	ans := n + 1
-	for i, v := range s {
-		t := v + target
-		left, right := 0, n+1
-		for left < right {
-			mid := (left + right) >> 1
-			if s[mid] >= t {
-				right = mid
-			} else {
-				left = mid + 1
-			}
-		}
-		if left != n+1 && ans > left-i {
-			ans = left - i
+	for i, x := range s {
+		j := sort.SearchInts(s, x+target)
+		if j <= n {
+			ans = min(ans, j-i)
 		}
 	}
 	if ans == n+1 {
@@ -244,29 +228,58 @@ func minSubArrayLen(target int, nums []int) int {
 	}
 	return ans
 }
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func minSubArrayLen(target int, nums []int) int {
+	n := len(nums)
+	s := 0
+	ans := n + 1
+	for i, j := 0, 0; i < n; i++ {
+		s += nums[i]
+		for s >= target {
+			ans = min(ans, i-j+1)
+			s -= nums[j]
+			j++
+		}
+	}
+	if ans == n+1 {
+		return 0
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **C#**
-
-滑动窗口：
 
 ```cs
 public class Solution {
     public int MinSubArrayLen(int target, int[] nums) {
         int n = nums.Length;
-        int left = 0, right = 0;
-        int sum = 0, res = n + 1;
-        while (right < n)
-        {
-            sum += nums[right];
-            while (sum >= target)
-            {
-                res = Math.Min(res, right - left + 1);
-                sum -= nums[left++];
+        long s = 0;
+        int ans = n + 1;
+        for (int i = 0, j = 0; i < n; ++i) {
+            s += nums[i];
+            while (s >= target) {
+                ans = Math.Min(ans, i - j + 1);
+                s -= nums[j++];
             }
-            ++right;
         }
-        return res == n + 1 ? 0 : res;
+        return ans == n + 1 ? 0 : ans;
     }
 }
 ```
@@ -276,22 +289,47 @@ public class Solution {
 ```ts
 function minSubArrayLen(target: number, nums: number[]): number {
     const n = nums.length;
-    let res = n + 1;
-    let sum = 0;
-    let i = 0;
-    for (let j = 0; j < n; j++) {
-        sum += nums[j];
-        while (sum >= target) {
-            res = Math.min(res, j - i + 1);
-            sum -= nums[i];
-            i++;
+    const s: number[] = new Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        s[i + 1] = s[i] + nums[i];
+    }
+    let ans = n + 1;
+    const search = (x: number) => {
+        let l = 0;
+        let r = n + 1;
+        while (l < r) {
+            const mid = (l + r) >>> 1;
+            if (s[mid] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    };
+    for (let i = 0; i <= n; ++i) {
+        const j = search(s[i] + target);
+        if (j <= n) {
+            ans = Math.min(ans, j - i);
         }
     }
+    return ans === n + 1 ? 0 : ans;
+}
+```
 
-    if (res === n + 1) {
-        return 0;
+```ts
+function minSubArrayLen(target: number, nums: number[]): number {
+    const n = nums.length;
+    let s = 0;
+    let ans = n + 1;
+    for (let i = 0, j = 0; i < n; ++i) {
+        s += nums[i];
+        while (s >= target) {
+            ans = Math.min(ans, i - j + 1);
+            s -= nums[j++];
+        }
     }
-    return res;
+    return ans === n + 1 ? 0 : ans;
 }
 ```
 
