@@ -47,6 +47,14 @@
 
 **方法一：前缀树 + DFS**
 
+我们首先将 `words` 中的单词构建成前缀树，前缀树的每个节点包含一个长度为 $26$ 的数组 `children`，表示该节点的子节点，数组的下标表示子节点对应的字符，数组的值表示子节点的引用。同时，每个节点还包含一个整数 `ref`，表示该节点对应的单词在 `words` 中的引用，如果该节点不是单词的结尾，则 `ref` 的值为 $-1$。
+
+接下来，我们对于 `board` 中的每个单元格，从该单元格出发，进行深度优先搜索，搜索过程中，如果当前单词不是前缀树中的单词，则剪枝，如果当前单词是前缀树中的单词，则将该单词加入答案，并将该单词在前缀树中的引用置为 $-1$，表示该单词已经被找到，不需要再次搜索。
+
+最后，我们将答案返回即可。
+
+时间复杂度 $(m \times n \times 3^{l-1})$，空间复杂度 $(k \times l)$。其中 $m$ 和 $n$ 分别是 `board` 的行数和列数。而 $l$ 和 $k$ 分别是 `words` 中的单词的平均长度和单词的个数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -56,45 +64,46 @@
 ```python
 class Trie:
     def __init__(self):
-        self.children = [None] * 26
-        self.w = ''
+        self.children: List[Trie | None] = [None] * 26
+        self.ref: int = -1
 
-    def insert(self, w):
+    def insert(self, w: str, ref: int):
         node = self
         for c in w:
             idx = ord(c) - ord('a')
             if node.children[idx] is None:
                 node.children[idx] = Trie()
             node = node.children[idx]
-        node.w = w
+        node.ref = ref
 
 
 class Solution:
     def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
-        def dfs(node, i, j):
+        def dfs(node: Trie, i: int, j: int):
             idx = ord(board[i][j]) - ord('a')
             if node.children[idx] is None:
                 return
             node = node.children[idx]
-            if node.w:
-                ans.add(node.w)
+            if node.ref >= 0:
+                ans.append(words[node.ref])
+                node.ref = -1
             c = board[i][j]
-            board[i][j] = '0'
-            for a, b in [[0, -1], [0, 1], [1, 0], [-1, 0]]:
+            board[i][j] = '#'
+            for a, b in pairwise((-1, 0, 1, 0, -1)):
                 x, y = i + a, j + b
-                if 0 <= x < m and 0 <= y < n and board[x][y] != '0':
+                if 0 <= x < m and 0 <= y < n and board[x][y] != '#':
                     dfs(node, x, y)
-            board[i][y] = c
+            board[i][j] = c
 
-        trie = Trie()
-        for w in words:
-            trie.insert(w)
-        ans = set()
+        tree = Trie()
+        for i, w in enumerate(words):
+            tree.insert(w, i)
         m, n = len(board), len(board[0])
+        ans = []
         for i in range(m):
             for j in range(n):
-                dfs(trie, i, j)
-        return list(ans)
+                dfs(tree, i, j)
+        return ans
 ```
 
 ### **Java**
@@ -104,41 +113,40 @@ class Solution:
 ```java
 class Trie {
     Trie[] children = new Trie[26];
-    String w;
+    int ref = -1;
 
-    void insert(String w) {
+    public void insert(String w, int ref) {
         Trie node = this;
-        for (char c : w.toCharArray()) {
-            c -= 'a';
-            if (node.children[c] == null) {
-                node.children[c] = new Trie();
+        for (int i = 0; i < w.length(); ++i) {
+            int j = w.charAt(i) - 'a';
+            if (node.children[j] == null) {
+                node.children[j] = new Trie();
             }
-            node = node.children[c];
+            node = node.children[j];
         }
-        node.w = w;
+        node.ref = ref;
     }
 }
 
 class Solution {
-    private Set<String> ans = new HashSet<>();
-    private int m;
-    private int n;
     private char[][] board;
+    private String[] words;
+    private List<String> ans = new ArrayList<>();
 
     public List<String> findWords(char[][] board, String[] words) {
-        Trie trie = new Trie();
-        for (String w : words) {
-            trie.insert(w);
-        }
-        m = board.length;
-        n = board[0].length;
         this.board = board;
+        this.words = words;
+        Trie tree = new Trie();
+        for (int i = 0; i < words.length; ++i) {
+            tree.insert(words[i], i);
+        }
+        int m = board.length, n = board[0].length;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                dfs(trie, i, j);
+                dfs(tree, i, j);
             }
         }
-        return new ArrayList<>(ans);
+        return ans;
     }
 
     private void dfs(Trie node, int i, int j) {
@@ -147,15 +155,16 @@ class Solution {
             return;
         }
         node = node.children[idx];
-        if (node.w != null) {
-            ans.add(node.w);
+        if (node.ref != -1) {
+            ans.add(words[node.ref]);
+            node.ref = -1;
         }
         char c = board[i][j];
-        board[i][j] = '0';
+        board[i][j] = '#';
         int[] dirs = {-1, 0, 1, 0, -1};
         for (int k = 0; k < 4; ++k) {
             int x = i + dirs[k], y = j + dirs[k + 1];
-            if (x >= 0 && x < m && y >= 0 && y < n && board[x][y] != '0') {
+            if (x >= 0 && x < board.length && y >= 0 && y < board[0].length && board[x][y] != '#') {
                 dfs(node, x, y);
             }
         }
@@ -170,51 +179,63 @@ class Solution {
 class Trie {
 public:
     vector<Trie*> children;
-    string w;
-    Trie()
-        : children(26)
-        , w("") { }
+    int ref;
 
-    void insert(string& w) {
+    Trie()
+        : children(26, nullptr)
+        , ref(-1) {}
+
+    void insert(const string& w, int ref) {
         Trie* node = this;
         for (char c : w) {
             c -= 'a';
-            if (!node->children[c]) node->children[c] = new Trie();
+            if (!node->children[c]) {
+                node->children[c] = new Trie();
+            }
             node = node->children[c];
         }
-        node->w = w;
+        node->ref = ref;
     }
 };
 
 class Solution {
 public:
-    vector<int> dirs = {-1, 0, 1, 0, -1};
-
     vector<string> findWords(vector<vector<char>>& board, vector<string>& words) {
-        Trie* trie = new Trie();
-        unordered_set<string> res;
-        for (auto& w : words) trie->insert(w);
-        for (int i = 0; i < board.size(); ++i)
-            for (int j = 0; j < board[0].size(); ++j)
-                dfs(trie, i, j, board, res);
-        vector<string> ans;
-        for (auto& w : res) ans.emplace_back(w);
-        return ans;
-    }
-
-    void dfs(Trie* node, int i, int j, vector<vector<char>>& board, unordered_set<string>& res) {
-        int idx = board[i][j] - 'a';
-        if (!node->children[idx]) return;
-        node = node->children[idx];
-        if (node->w != "") res.insert(node->w);
-        char c = board[i][j];
-        board[i][j] = '0';
-
-        for (int k = 0; k < 4; ++k) {
-            int x = i + dirs[k], y = j + dirs[k + 1];
-            if (x >= 0 && x < board.size() && y >= 0 && y < board[0].size() && board[x][y] != '0') dfs(node, x, y, board, res);
+        Trie* tree = new Trie();
+        for (int i = 0; i < words.size(); ++i) {
+            tree->insert(words[i], i);
         }
-        board[i][j] = c;
+        vector<string> ans;
+        int m = board.size(), n = board[0].size();
+
+        function<void(Trie*, int, int)> dfs = [&](Trie* node, int i, int j) {
+            int idx = board[i][j] - 'a';
+            if (!node->children[idx]) {
+                return;
+            }
+            node = node->children[idx];
+            if (node->ref != -1) {
+                ans.emplace_back(words[node->ref]);
+                node->ref = -1;
+            }
+            int dirs[5] = {-1, 0, 1, 0, -1};
+            char c = board[i][j];
+            board[i][j] = '#';
+            for (int k = 0; k < 4; ++k) {
+                int x = i + dirs[k], y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && board[x][y] != '#') {
+                    dfs(node, x, y);
+                }
+            }
+            board[i][j] = c;
+        };
+
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                dfs(tree, i, j);
+            }
+        }
+        return ans;
     }
 };
 ```
@@ -224,62 +245,122 @@ public:
 ```go
 type Trie struct {
 	children [26]*Trie
-	w        string
+	ref      int
 }
 
 func newTrie() *Trie {
-	return &Trie{}
+	return &Trie{ref: -1}
 }
-func (this *Trie) insert(word string) {
+func (this *Trie) insert(w string, ref int) {
 	node := this
-	for _, c := range word {
+	for _, c := range w {
 		c -= 'a'
 		if node.children[c] == nil {
 			node.children[c] = newTrie()
 		}
 		node = node.children[c]
 	}
-	node.w = word
+	node.ref = ref
 }
 
-func findWords(board [][]byte, words []string) []string {
+func findWords(board [][]byte, words []string) (ans []string) {
 	trie := newTrie()
-	for _, w := range words {
-		trie.insert(w)
+	for i, w := range words {
+		trie.insert(w, i)
 	}
 	m, n := len(board), len(board[0])
-	res := map[string]bool{}
-	var dfs func(node *Trie, i, j int)
+	var dfs func(*Trie, int, int)
 	dfs = func(node *Trie, i, j int) {
 		idx := board[i][j] - 'a'
 		if node.children[idx] == nil {
 			return
 		}
 		node = node.children[idx]
-		if node.w != "" {
-			res[node.w] = true
+		if node.ref != -1 {
+			ans = append(ans, words[node.ref])
+			node.ref = -1
 		}
-		dirs := []int{-1, 0, 1, 0, -1}
 		c := board[i][j]
-		board[i][j] = '0'
+		board[i][j] = '#'
+		dirs := [5]int{-1, 0, 1, 0, -1}
 		for k := 0; k < 4; k++ {
 			x, y := i+dirs[k], j+dirs[k+1]
-			if x >= 0 && x < m && y >= 0 && y < n && board[x][y] != '0' {
+			if x >= 0 && x < m && y >= 0 && y < n && board[x][y] != '#' {
 				dfs(node, x, y)
 			}
 		}
 		board[i][j] = c
 	}
-	for i, row := range board {
-		for j := range row {
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
 			dfs(trie, i, j)
 		}
 	}
-	var ans []string
-	for v := range res {
-		ans = append(ans, v)
-	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+class Trie {
+    children: Trie[];
+    ref: number;
+
+    constructor() {
+        this.children = new Array(26);
+        this.ref = -1;
+    }
+
+    insert(w: string, ref: number): void {
+        let node: Trie = this;
+        for (let i = 0; i < w.length; i++) {
+            const c = w.charCodeAt(i) - 97;
+            if (node.children[c] == null) {
+                node.children[c] = new Trie();
+            }
+            node = node.children[c];
+        }
+        node.ref = ref;
+    }
+}
+
+function findWords(board: string[][], words: string[]): string[] {
+    const tree = new Trie();
+    for (let i = 0; i < words.length; ++i) {
+        tree.insert(words[i], i);
+    }
+    const m = board.length;
+    const n = board[0].length;
+    const ans: string[] = [];
+    const dirs: number[] = [-1, 0, 1, 0, -1];
+    const dfs = (node: Trie, i: number, j: number) => {
+        const idx = board[i][j].charCodeAt(0) - 97;
+        if (node.children[idx] == null) {
+            return;
+        }
+        node = node.children[idx];
+        if (node.ref != -1) {
+            ans.push(words[node.ref]);
+            node.ref = -1;
+        }
+        const c = board[i][j];
+        board[i][j] = '#';
+        for (let k = 0; k < 4; ++k) {
+            const x = i + dirs[k];
+            const y = j + dirs[k + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && board[x][y] != '#') {
+                dfs(node, x, y);
+            }
+        }
+        board[i][j] = c;
+    };
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            dfs(tree, i, j);
+        }
+    }
+    return ans;
 }
 ```
 
