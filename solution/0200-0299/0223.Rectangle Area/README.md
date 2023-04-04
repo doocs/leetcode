@@ -45,7 +45,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-计算重叠部分的面积，注意考虑没有重叠的情况
+**方法一：计算重叠面积**
+
+我们先计算出两个矩形各自的面积，记为 $a$ 和 $b$，然后计算重叠的宽度 $width$ 和高度 $height$，那么重叠的面积为 $max(width, 0) \times max(height, 0)$，最后将 $a$、$b$ 和重叠面积相减即可。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -127,6 +131,41 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function computeArea(
+    ax1: number,
+    ay1: number,
+    ax2: number,
+    ay2: number,
+    bx1: number,
+    by1: number,
+    bx2: number,
+    by2: number,
+): number {
+    const a = (ax2 - ax1) * (ay2 - ay1);
+    const b = (bx2 - bx1) * (by2 - by1);
+    const width = Math.min(ax2, bx2) - Math.max(ax1, bx1);
+    const height = Math.min(ay2, by2) - Math.max(ay1, by1);
+    return a + b - Math.max(width, 0) * Math.max(height, 0);
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int ComputeArea(int ax1, int ay1, int ax2, int ay2, int bx1, int by1, int bx2, int by2) {
+        int a = (ax2 - ax1) * (ay2 - ay1);
+        int b = (bx2 - bx1) * (by2 - by1);
+        int width = Math.Min(ax2, bx2) - Math.Max(ax1, bx1);
+        int height = Math.Min(ay2, by2) - Math.Max(ay1, by1);
+        return a + b - Math.Max(height, 0) * Math.Max(width, 0);
+    }
 }
 ```
 
