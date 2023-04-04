@@ -55,7 +55,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-拓扑排序，BFS 实现。
+**方法一：拓扑排序**
+
+对于本题，我们可以将课程看作图中的节点，先修课程看作图中的边，那么我们可以将本题转化为判断有向图中是否存在环。
+
+具体地，我们可以使用拓扑排序的思想，对于每个入度为 $0$ 的节点，我们将其出度的节点的入度减 $1$，直到所有节点都被遍历到。
+
+如果所有节点都被遍历到，说明图中不存在环，那么我们就可以完成所有课程的学习；否则，我们就无法完成所有课程的学习。
+
+时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别为课程数和先修课程数。
 
 <!-- tabs:start -->
 
@@ -71,8 +79,8 @@ class Solution:
         for a, b in prerequisites:
             g[b].append(a)
             indeg[a] += 1
-        q = deque([i for i, v in enumerate(indeg) if v == 0])
         ans = []
+        q = deque(i for i, x in enumerate(indeg) if x == 0)
         while q:
             i = q.popleft()
             ans.append(i)
@@ -120,36 +128,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function findOrder(numCourses: number, prerequisites: number[][]): number[] {
-    let g = Array.from({ length: numCourses }, () => []);
-    let indeg = new Array(numCourses).fill(0);
-    for (let [a, b] of prerequisites) {
-        g[b].push(a);
-        ++indeg[a];
-    }
-    let q = [];
-    for (let i = 0; i < numCourses; ++i) {
-        if (!indeg[i]) {
-            q.push(i);
-        }
-    }
-    let ans = [];
-    while (q.length) {
-        const i = q.shift();
-        ans.push(i);
-        for (let j of g[i]) {
-            if (--indeg[j] == 0) {
-                q.push(j);
-            }
-        }
-    }
-    return ans.length == numCourses ? ans : [];
-}
-```
-
 ### **C++**
 
 ```cpp
@@ -164,15 +142,21 @@ public:
             ++indeg[a];
         }
         queue<int> q;
-        for (int i = 0; i < numCourses; ++i)
-            if (indeg[i] == 0) q.push(i);
+        for (int i = 0; i < numCourses; ++i) {
+            if (indeg[i] == 0) {
+                q.push(i);
+            }
+        }
         vector<int> ans;
         while (!q.empty()) {
             int i = q.front();
             q.pop();
             ans.push_back(i);
-            for (int j : g[i])
-                if (--indeg[j] == 0) q.push(j);
+            for (int j : g[i]) {
+                if (--indeg[j] == 0) {
+                    q.push(j);
+                }
+            }
         }
         return ans.size() == numCourses ? ans : vector<int>();
     }
@@ -191,8 +175,8 @@ func findOrder(numCourses int, prerequisites [][]int) []int {
 		indeg[a]++
 	}
 	q := []int{}
-	for i, v := range indeg {
-		if v == 0 {
+	for i, x := range indeg {
+		if x == 0 {
 			q = append(q, i)
 		}
 	}
@@ -215,37 +199,66 @@ func findOrder(numCourses int, prerequisites [][]int) []int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function findOrder(numCourses: number, prerequisites: number[][]): number[] {
+    const g: number[][] = new Array(numCourses).fill(0).map(() => []);
+    const indeg: number[] = new Array(numCourses).fill(0);
+    for (const [a, b] of prerequisites) {
+        g[b].push(a);
+        indeg[a]++;
+    }
+    const q: number[] = [];
+    for (let i = 0; i < numCourses; ++i) {
+        if (indeg[i] == 0) {
+            q.push(i);
+        }
+    }
+    const ans: number[] = [];
+    while (q.length) {
+        const i = q.shift()!;
+        ans.push(i);
+        for (const j of g[i]) {
+            if (--indeg[j] == 0) {
+                q.push(j);
+            }
+        }
+    }
+    return ans.length === numCourses ? ans : [];
+}
+```
+
 ### **C#**
 
 ```cs
 public class Solution {
     public int[] FindOrder(int numCourses, int[][] prerequisites) {
         var g = new List<int>[numCourses];
-        for (int i = 0; i < numCourses; ++i)
-        {
+        for (int i = 0; i < numCourses; ++i) {
             g[i] = new List<int>();
         }
         var indeg = new int[numCourses];
-        foreach (var p in prerequisites)
-        {
+        foreach (var p in prerequisites) {
             int a = p[0], b = p[1];
             g[b].Add(a);
             ++indeg[a];
         }
         var q = new Queue<int>();
-        for (int i = 0; i < numCourses; ++i)
-        {
-            if (indeg[i] == 0) q.Enqueue(i);
+        for (int i = 0; i < numCourses; ++i) {
+            if (indeg[i] == 0) {
+                q.Enqueue(i);
+            }
         }
         var ans = new int[numCourses];
         var cnt = 0;
-        while (q.Count > 0)
-        {
+        while (q.Count > 0) {
             int i = q.Dequeue();
             ans[cnt++] = i;
-            foreach (int j in g[i])
-            {
-                if (--indeg[j] == 0) q.Enqueue(j);
+            foreach (int j in g[i]) {
+                if (--indeg[j] == 0) {
+                    q.Enqueue(j);
+                }
             }
         }
         return cnt == numCourses ? ans : new int[0];

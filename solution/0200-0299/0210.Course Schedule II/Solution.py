@@ -5,8 +5,8 @@ class Solution:
         for a, b in prerequisites:
             g[b].append(a)
             indeg[a] += 1
-        q = deque([i for i, v in enumerate(indeg) if v == 0])
         ans = []
+        q = deque(i for i, x in enumerate(indeg) if x == 0)
         while q:
             i = q.popleft()
             ans.append(i)
