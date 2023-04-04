@@ -6,26 +6,25 @@
  *     Right *TreeNode
  * }
  */
-func countUnivalSubtrees(root *TreeNode) int {
-	ans := 0
-	var dfs func(root *TreeNode) bool
+func countUnivalSubtrees(root *TreeNode) (ans int) {
+	var dfs func(*TreeNode) bool
 	dfs = func(root *TreeNode) bool {
 		if root == nil {
 			return true
 		}
-		left, right := dfs(root.Left), dfs(root.Right)
-		t := true
+		l, r := dfs(root.Left), dfs(root.Right)
+		if !l || !r {
+			return false
+		}
 		if root.Left != nil && root.Left.Val != root.Val {
-			t = false
+			return false
 		}
 		if root.Right != nil && root.Right.Val != root.Val {
-			t = false
+			return false
 		}
-		if left && t && right {
-			ans++
-		}
-		return left && t && right
+		ans++
+		return true
 	}
 	dfs(root)
-	return ans
+	return
 }

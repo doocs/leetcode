@@ -12,23 +12,23 @@
  */
 var countUnivalSubtrees = function (root) {
     let ans = 0;
-    let dfs = function (root) {
+    const dfs = root => {
         if (!root) {
             return true;
         }
-        const left = dfs(root.left),
-            right = dfs(root.right);
-        let t = true;
-        if (root.left && root.left.val != root.val) {
-            t = false;
+        const l = dfs(root.left);
+        const r = dfs(root.right);
+        if (!l || !r) {
+            return false;
         }
-        if (root.right && root.right.val != root.val) {
-            t = false;
+        if (root.left && root.left.val !== root.val) {
+            return false;
         }
-        if (left && t && right) {
-            ++ans;
+        if (root.right && root.right.val !== root.val) {
+            return false;
         }
-        return left && t && right;
+        ++ans;
+        return true;
     };
     dfs(root);
     return ans;

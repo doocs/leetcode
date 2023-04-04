@@ -27,6 +27,19 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：递归**
+
+我们设计一个递归函数 $dfs(root)$，该函数返回以 $root$ 为根的子树中所有节点的值是否相同。
+
+函数 $dfs(root)$ 的递归过程如下：
+
+-   如果 $root$ 为空，则返回 `true`；
+-   否则，我们递归地计算 $root$ 的左右子树，记为 $l$ 和 $r$；如果 $l$ 为 `false` 或者 $r$ 为 `false`，则返回 `false`；如果 $root$ 的左子树不为空且 $root$ 的左子树的值不等于 $root$ 的值，或者 $root$ 的右子树不为空且 $root$ 的右子树的值不等于 $root$ 的值，则返回 `false`；否则，我们将答案加一，并返回 `true`。
+
+递归结束后，返回答案即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -45,16 +58,16 @@ class Solution:
         def dfs(root):
             if root is None:
                 return True
-            left, right = dfs(root.left), dfs(root.right)
-            t = True
-            if root.left and root.left.val != root.val:
-                t = False
-            if root.right and root.right.val != root.val:
-                t = False
-            nonlocal ans
-            if left and t and right:
+            l, r = dfs(root.left), dfs(root.right)
+            if not l or not r:
+                return False
+            a = root.val if root.left is None else root.left.val
+            b = root.val if root.right is None else root.right.val
+            if a == b == root.val:
+                nonlocal ans
                 ans += 1
-            return left and t and right
+                return True
+            return False
 
         ans = 0
         dfs(root)
@@ -85,7 +98,6 @@ class Solution {
     private int ans;
 
     public int countUnivalSubtrees(TreeNode root) {
-        ans = 0;
         dfs(root);
         return ans;
     }
@@ -94,19 +106,18 @@ class Solution {
         if (root == null) {
             return true;
         }
-        boolean left = dfs(root.left);
-        boolean right = dfs(root.right);
-        boolean t = true;
-        if (root.left != null && root.left.val != root.val) {
-            t = false;
+        boolean l = dfs(root.left);
+        boolean r = dfs(root.right);
+        if (!l || !r) {
+            return false;
         }
-        if (root.right != null && root.right.val != root.val) {
-            t = false;
-        }
-        if (left && t && right) {
+        int a = root.left == null ? root.val : root.left.val;
+        int b = root.right == null ? root.val : root.right.val;
+        if (a == b && b == root.val) {
             ++ans;
+            return true;
         }
-        return left && t && right;
+        return false;
     }
 }
 ```
@@ -127,23 +138,27 @@ class Solution {
  */
 class Solution {
 public:
-    int ans;
-
     int countUnivalSubtrees(TreeNode* root) {
-        ans = 0;
+        int ans = 0;
+        function<bool(TreeNode*)> dfs = [&](TreeNode* root) -> bool {
+            if (!root) {
+                return true;
+            }
+            bool l = dfs(root->left);
+            bool r = dfs(root->right);
+            if (!l || !r) {
+                return false;
+            }
+            int a = root->left ? root->left->val : root->val;
+            int b = root->right ? root->right->val : root->val;
+            if (a == b && b == root->val) {
+                ++ans;
+                return true;
+            }
+            return false;
+        };
         dfs(root);
         return ans;
-    }
-
-    bool dfs(TreeNode* root) {
-        if (!root) return 1;
-        bool left = dfs(root->left);
-        bool right = dfs(root->right);
-        bool t = 1;
-        if (root->left && root->left->val != root->val) t = 0;
-        if (root->right && root->right->val != root->val) t = 0;
-        if (left && t && right) ++ans;
-        return left && t && right;
     }
 };
 ```
@@ -159,28 +174,27 @@ public:
  *     Right *TreeNode
  * }
  */
-func countUnivalSubtrees(root *TreeNode) int {
-	ans := 0
-	var dfs func(root *TreeNode) bool
+func countUnivalSubtrees(root *TreeNode) (ans int) {
+	var dfs func(*TreeNode) bool
 	dfs = func(root *TreeNode) bool {
 		if root == nil {
 			return true
 		}
-		left, right := dfs(root.Left), dfs(root.Right)
-		t := true
+		l, r := dfs(root.Left), dfs(root.Right)
+		if !l || !r {
+			return false
+		}
 		if root.Left != nil && root.Left.Val != root.Val {
-			t = false
+			return false
 		}
 		if root.Right != nil && root.Right.Val != root.Val {
-			t = false
+			return false
 		}
-		if left && t && right {
-			ans++
-		}
-		return left && t && right
+		ans++
+		return true
 	}
 	dfs(root)
-	return ans
+	return
 }
 ```
 
@@ -201,27 +215,69 @@ func countUnivalSubtrees(root *TreeNode) int {
  */
 var countUnivalSubtrees = function (root) {
     let ans = 0;
-    let dfs = function (root) {
+    const dfs = root => {
         if (!root) {
             return true;
         }
-        const left = dfs(root.left),
-            right = dfs(root.right);
-        let t = true;
-        if (root.left && root.left.val != root.val) {
-            t = false;
+        const l = dfs(root.left);
+        const r = dfs(root.right);
+        if (!l || !r) {
+            return false;
         }
-        if (root.right && root.right.val != root.val) {
-            t = false;
+        if (root.left && root.left.val !== root.val) {
+            return false;
         }
-        if (left && t && right) {
-            ++ans;
+        if (root.right && root.right.val !== root.val) {
+            return false;
         }
-        return left && t && right;
+        ++ans;
+        return true;
     };
     dfs(root);
     return ans;
 };
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function countUnivalSubtrees(root: TreeNode | null): number {
+    let ans: number = 0;
+    const dfs = (root: TreeNode | null): boolean => {
+        if (root == null) {
+            return true;
+        }
+        const l: boolean = dfs(root.left);
+        const r: boolean = dfs(root.right);
+        if (!l || !r) {
+            return false;
+        }
+        if (root.left != null && root.left.val != root.val) {
+            return false;
+        }
+        if (root.right != null && root.right.val != root.val) {
+            return false;
+        }
+        ++ans;
+        return true;
+    };
+    dfs(root);
+    return ans;
+}
 ```
 
 ### **...**

@@ -9,16 +9,16 @@ class Solution:
         def dfs(root):
             if root is None:
                 return True
-            left, right = dfs(root.left), dfs(root.right)
-            t = True
-            if root.left and root.left.val != root.val:
-                t = False
-            if root.right and root.right.val != root.val:
-                t = False
-            nonlocal ans
-            if left and t and right:
+            l, r = dfs(root.left), dfs(root.right)
+            if not l or not r:
+                return False
+            a = root.val if root.left is None else root.left.val
+            b = root.val if root.right is None else root.right.val
+            if a == b == root.val:
+                nonlocal ans
                 ans += 1
-            return left and t and right
+                return True
+            return False
 
         ans = 0
         dfs(root)

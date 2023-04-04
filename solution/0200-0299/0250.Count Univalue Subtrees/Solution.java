@@ -17,7 +17,6 @@ class Solution {
     private int ans;
 
     public int countUnivalSubtrees(TreeNode root) {
-        ans = 0;
         dfs(root);
         return ans;
     }
@@ -26,18 +25,17 @@ class Solution {
         if (root == null) {
             return true;
         }
-        boolean left = dfs(root.left);
-        boolean right = dfs(root.right);
-        boolean t = true;
-        if (root.left != null && root.left.val != root.val) {
-            t = false;
+        boolean l = dfs(root.left);
+        boolean r = dfs(root.right);
+        if (!l || !r) {
+            return false;
         }
-        if (root.right != null && root.right.val != root.val) {
-            t = false;
-        }
-        if (left && t && right) {
+        int a = root.left == null ? root.val : root.left.val;
+        int b = root.right == null ? root.val : root.right.val;
+        if (a == b && b == root.val) {
             ++ans;
+            return true;
         }
-        return left && t && right;
+        return false;
     }
 }
