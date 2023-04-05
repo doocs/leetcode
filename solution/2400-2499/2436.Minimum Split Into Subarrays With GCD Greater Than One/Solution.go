@@ -1,10 +1,10 @@
 func minimumSplits(nums []int) int {
-	ans, x := 1, nums[0]
-	for _, v := range nums {
-		x = gcd(x, v)
-		if x == 1 {
-			x = v
+	ans, g := 1, 0
+	for _, x := range nums {
+		g = gcd(g, x)
+		if g == 1 {
 			ans++
+			g = x
 		}
 	}
 	return ans

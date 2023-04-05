@@ -60,6 +60,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 数学**
+
+对于数组中的每个元素，如果它与前面的元素的最大公约数为 $1$，那么它需要作为一个新的子数组的第一个元素。否则，它可以与前面的元素放在同一个子数组中。
+
+因此，我们先初始化一个变量 $g$，表示当前子数组的最大公约数。初始时 $g=0$，答案变量 $ans=1$。
+
+接下来，我们从前往后遍历数组，维护当前子数组的最大公约数 $g$。如果当前元素 $x$ 与 $g$ 的最大公约数为 $1$，那么我们需要将当前元素作为一个新的子数组的第一个元素，因此，答案加 $1$，并将 $g$ 更新为 $x$。否则，当前元素可以与前面的元素放在同一个子数组中。继续遍历数组，直到遍历结束。
+
+时间复杂度 $O(n \times \log m)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别是数组的长度和数组中元素的最大值。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -69,12 +79,12 @@
 ```python
 class Solution:
     def minimumSplits(self, nums: List[int]) -> int:
-        ans, x = 1, nums[0]
-        for v in nums:
-            x = gcd(x, v)
-            if x == 1:
-                x = v
+        ans, g = 1, 0
+        for x in nums:
+            g = gcd(g, x)
+            if g == 1:
                 ans += 1
+                g = x
         return ans
 ```
 
@@ -85,12 +95,12 @@ class Solution:
 ```java
 class Solution {
     public int minimumSplits(int[] nums) {
-        int ans = 1, x = nums[0];
-        for (int v : nums) {
-            x = gcd(x, v);
-            if (x == 1) {
-                x = v;
+        int ans = 1, g = 0;
+        for (int x : nums) {
+            g = gcd(g, x);
+            if (g == 1) {
                 ++ans;
+                g = x;
             }
         }
         return ans;
@@ -108,12 +118,12 @@ class Solution {
 class Solution {
 public:
     int minimumSplits(vector<int>& nums) {
-        int ans = 1, x = nums[0];
-        for (int v : nums) {
-            x = gcd(x, v);
-            if (x == 1) {
-                x = v;
+        int ans = 1, g = 0;
+        for (int x : nums) {
+            g = gcd(g, x);
+            if (g == 1) {
                 ++ans;
+                g = x;
             }
         }
         return ans;
@@ -125,12 +135,12 @@ public:
 
 ```go
 func minimumSplits(nums []int) int {
-	ans, x := 1, nums[0]
-	for _, v := range nums {
-		x = gcd(x, v)
-		if x == 1 {
-			x = v
+	ans, g := 1, 0
+	for _, x := range nums {
+		g = gcd(g, x)
+		if g == 1 {
 			ans++
+			g = x
 		}
 	}
 	return ans
@@ -147,7 +157,22 @@ func gcd(a, b int) int {
 ### **TypeScript**
 
 ```ts
+function minimumSplits(nums: number[]): number {
+    let ans = 1;
+    let g = 0;
+    for (const x of nums) {
+        g = gcd(g, x);
+        if (g == 1) {
+            ++ans;
+            g = x;
+        }
+    }
+    return ans;
+}
 
+function gcd(a: number, b: number): number {
+    return b ? gcd(b, a % b) : a;
+}
 ```
 
 ### **...**

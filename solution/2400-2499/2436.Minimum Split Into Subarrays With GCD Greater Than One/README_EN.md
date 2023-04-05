@@ -59,12 +59,12 @@ It can be shown that splitting the array into one subarray will make the GCD = 1
 ```python
 class Solution:
     def minimumSplits(self, nums: List[int]) -> int:
-        ans, x = 1, nums[0]
-        for v in nums:
-            x = gcd(x, v)
-            if x == 1:
-                x = v
+        ans, g = 1, 0
+        for x in nums:
+            g = gcd(g, x)
+            if g == 1:
                 ans += 1
+                g = x
         return ans
 ```
 
@@ -73,12 +73,12 @@ class Solution:
 ```java
 class Solution {
     public int minimumSplits(int[] nums) {
-        int ans = 1, x = nums[0];
-        for (int v : nums) {
-            x = gcd(x, v);
-            if (x == 1) {
-                x = v;
+        int ans = 1, g = 0;
+        for (int x : nums) {
+            g = gcd(g, x);
+            if (g == 1) {
                 ++ans;
+                g = x;
             }
         }
         return ans;
@@ -96,12 +96,12 @@ class Solution {
 class Solution {
 public:
     int minimumSplits(vector<int>& nums) {
-        int ans = 1, x = nums[0];
-        for (int v : nums) {
-            x = gcd(x, v);
-            if (x == 1) {
-                x = v;
+        int ans = 1, g = 0;
+        for (int x : nums) {
+            g = gcd(g, x);
+            if (g == 1) {
                 ++ans;
+                g = x;
             }
         }
         return ans;
@@ -113,12 +113,12 @@ public:
 
 ```go
 func minimumSplits(nums []int) int {
-	ans, x := 1, nums[0]
-	for _, v := range nums {
-		x = gcd(x, v)
-		if x == 1 {
-			x = v
+	ans, g := 1, 0
+	for _, x := range nums {
+		g = gcd(g, x)
+		if g == 1 {
 			ans++
+			g = x
 		}
 	}
 	return ans
@@ -135,7 +135,22 @@ func gcd(a, b int) int {
 ### **TypeScript**
 
 ```ts
+function minimumSplits(nums: number[]): number {
+    let ans = 1;
+    let g = 0;
+    for (const x of nums) {
+        g = gcd(g, x);
+        if (g == 1) {
+            ++ans;
+            g = x;
+        }
+    }
+    return ans;
+}
 
+function gcd(a: number, b: number): number {
+    return b ? gcd(b, a % b) : a;
+}
 ```
 
 ### **...**

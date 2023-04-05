@@ -1,9 +1,9 @@
 class Solution:
     def minimumSplits(self, nums: List[int]) -> int:
-        ans, x = 1, nums[0]
-        for v in nums:
-            x = gcd(x, v)
-            if x == 1:
-                x = v
+        ans, g = 1, 0
+        for x in nums:
+            g = gcd(g, x)
+            if g == 1:
                 ans += 1
+                g = x
         return ans

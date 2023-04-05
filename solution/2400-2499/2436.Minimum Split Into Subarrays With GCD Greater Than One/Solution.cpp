@@ -1,12 +1,12 @@
 class Solution {
 public:
     int minimumSplits(vector<int>& nums) {
-        int ans = 1, x = nums[0];
-        for (int v : nums) {
-            x = gcd(x, v);
-            if (x == 1) {
-                x = v;
+        int ans = 1, g = 0;
+        for (int x : nums) {
+            g = gcd(g, x);
+            if (g == 1) {
                 ++ans;
+                g = x;
             }
         }
         return ans;
