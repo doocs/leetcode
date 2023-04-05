@@ -67,12 +67,11 @@ We used 4 operations so return 4. It can be proven that 4 is the maximum number 
 class Solution:
     def deleteString(self, s: str) -> int:
         @cache
-        def dfs(i):
+        def dfs(i: int) -> int:
             if i == n:
                 return 0
             ans = 1
-            m = (n - i) >> 1
-            for j in range(1, m + 1):
+            for j in range(1, (n - i) // 2 + 1):
                 if s[i: i + j] == s[i + j: i + j + j]:
                     ans = max(ans, 1 + dfs(i + j))
             return ans
@@ -85,43 +84,82 @@ class Solution:
 class Solution:
     def deleteString(self, s: str) -> int:
         n = len(s)
-        lcp = [[0] * (n + 1) for _ in range(n + 1)]
+        g = [[0] * (n + 1) for _ in range(n + 1)]
         for i in range(n - 1, -1, -1):
-            for j in range(n - 1, -1, -1):
+            for j in range(i + 1, n):
                 if s[i] == s[j]:
-                    lcp[i][j] = 1 + lcp[i + 1][j + 1]
-        dp = [1] * n
+                    g[i][j] = g[i + 1][j + 1] + 1
+
+        f = [1] * n
         for i in range(n - 1, -1, -1):
             for j in range(1, (n - i) // 2 + 1):
-                if lcp[i][i + j] >= j:
-                    dp[i] = max(dp[i], dp[i + j] + 1)
-        return dp[0]
+                if g[i][i + j] >= j:
+                    f[i] = max(f[i], f[i + j] + 1)
+        return f[0]
 ```
 
 ### **Java**
 
 ```java
 class Solution {
+    private int n;
+    private Integer[] f;
+    private int[][] g;
+    
+    public int deleteString(String s) {
+        n = s.length();
+        f = new Integer[n];
+        g = new int[n + 1][n + 1];
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                if (s.charAt(i) == s.charAt(j)) {
+                    g[i][j] = g[i + 1][j + 1] + 1;
+                }
+            }
+        }
+        return dfs(0);
+    }
+    
+    private int dfs(int i) {
+        if (i == n) {
+            return 0;
+        }
+        if (f[i] != null) {
+            return f[i];
+        }
+        f[i] = 1;
+        for (int j = 1; j <= (n - i) / 2; ++j) {
+            if (g[i][i + j] >= j) {
+                f[i] = Math.max(f[i], 1 + dfs(i + j));
+            }
+        }
+        return f[i];
+    }
+}
+```
+
+```java
+class Solution {
     public int deleteString(String s) {
         int n = s.length();
-        int[][] lcp = new int[n + 1][n + 1];
+        int[][] g = new int[n + 1][n + 1];
         for (int i = n - 1; i >= 0; --i) {
-            for (int j = n - 1; j >= 0; --j) {
+            for (int j = i + 1; j < n; ++j) {
                 if (s.charAt(i) == s.charAt(j)) {
-                    lcp[i][j] = 1 + lcp[i + 1][j + 1];
+                    g[i][j] = g[i + 1][j + 1] + 1;
                 }
             }
         }
-        int[] dp = new int[n];
-        Arrays.fill(dp, 1);
+        int[] f = new int[n];
         for (int i = n - 1; i >= 0; --i) {
+            f[i] = 1;
             for (int j = 1; j <= (n - i) / 2; ++j) {
-                if (lcp[i][i + j] >= j) {
-                    dp[i] = Math.max(dp[i], dp[i + j] + 1);
+                if (g[i][i + j] >= j) {
+                    f[i] = Math.max(f[i], f[i + j] + 1);
                 }
             }
         }
-        return dp[0];
+        return f[0];
     }
 }
 ```
@@ -133,25 +171,61 @@ class Solution {
 public:
     int deleteString(string s) {
         int n = s.size();
-        int lcp[n + 1][n + 1];
-        memset(lcp, 0, sizeof lcp);
-        for (int i = n - 1; i >= 0; --i) {
-            for (int j = n - 1; j >= 0; --j) {
+        int g[n + 1][n + 1];
+        memset(g, 0, sizeof(g));
+        for (int i = n - 1; ~i; --i) {
+            for (int j = i + 1; j < n; ++j) {
                 if (s[i] == s[j]) {
-                    lcp[i][j] = 1 + lcp[i + 1][j + 1];
+                    g[i][j] = g[i + 1][j + 1] + 1;
                 }
             }
         }
-        int dp[n];
-        for (int i = n - 1; i >= 0; --i) {
-            dp[i] = 1;
+        int f[n];
+        memset(f, 0, sizeof(f));
+        function<int(int)> dfs = [&](int i) -> int {
+            if (i == n) {
+                return 0;
+            }
+            if (f[i]) {
+                return f[i];
+            }
+            f[i] = 1;
             for (int j = 1; j <= (n - i) / 2; ++j) {
-                if (lcp[i][i + j] >= j) {
-                    dp[i] = max(dp[i], dp[i + j] + 1);
+                if (g[i][i + j] >= j) {
+                    f[i] = max(f[i], 1 + dfs(i + j));
+                }
+            }
+            return f[i];
+        };
+        return dfs(0);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int deleteString(string s) {
+        int n = s.size();
+        int g[n + 1][n + 1];
+        memset(g, 0, sizeof(g));
+        for (int i = n - 1; ~i; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                if (s[i] == s[j]) {
+                    g[i][j] = g[i + 1][j + 1] + 1;
                 }
             }
         }
-        return dp[0];
+        int f[n];
+        for (int i = n - 1; ~i; --i) {
+            f[i] = 1;
+            for (int j = 1; j <= (n - i) / 2; ++j) {
+                if (g[i][i + j] >= j) {
+                    f[i] = max(f[i], f[i + j] + 1);
+                }
+            }
+        }
+        return f[0];
     }
 };
 ```
@@ -161,27 +235,69 @@ public:
 ```go
 func deleteString(s string) int {
 	n := len(s)
-	lcp := make([][]int, n+1)
-	for i := range lcp {
-		lcp[i] = make([]int, n+1)
+	g := make([][]int, n+1)
+	for i := range g {
+		g[i] = make([]int, n+1)
 	}
 	for i := n - 1; i >= 0; i-- {
-		for j := n - 1; j >= 0; j-- {
+		for j := i + 1; j < n; j++ {
 			if s[i] == s[j] {
-				lcp[i][j] = 1 + lcp[i+1][j+1]
+				g[i][j] = g[i+1][j+1] + 1
 			}
 		}
 	}
-	dp := make([]int, n)
-	for i := n - 1; i >= 0; i-- {
-		dp[i] = 1
+	f := make([]int, n)
+	var dfs func(int) int
+	dfs = func(i int) int {
+		if i == n {
+			return 0
+		}
+		if f[i] > 0 {
+			return f[i]
+		}
+		f[i] = 1
 		for j := 1; j <= (n-i)/2; j++ {
-			if lcp[i][i+j] >= j {
-				dp[i] = max(dp[i], dp[i+j]+1)
+			if g[i][i+j] >= j {
+				f[i] = max(f[i], dfs(i+j)+1)
+			}
+		}
+		return f[i]
+	}
+	return dfs(0)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func deleteString(s string) int {
+	n := len(s)
+	g := make([][]int, n+1)
+	for i := range g {
+		g[i] = make([]int, n+1)
+	}
+	for i := n - 1; i >= 0; i-- {
+		for j := i + 1; j < n; j++ {
+			if s[i] == s[j] {
+				g[i][j] = g[i+1][j+1] + 1
 			}
 		}
 	}
-	return dp[0]
+	f := make([]int, n)
+	for i := n - 1; i >= 0; i-- {
+		f[i] = 1
+		for j := 1; j <= (n-i)/2; j++ {
+			if g[i][i+j] >= j {
+				f[i] = max(f[i], f[i+j]+1)
+			}
+		}
+	}
+	return f[0]
 }
 
 func max(a, b int) int {
@@ -195,7 +311,41 @@ func max(a, b int) int {
 ### **TypeScript**
 
 ```ts
+function deleteString(s: string): number {
+    const n = s.length;
+    const f: number[] = new Array(n).fill(0);
+    const dfs = (i: number): number => {
+        if (i == n) {
+            return 0;
+        }
+        if (f[i] > 0) {
+            return f[i];
+        }
+        f[i] = 1;
+        for (let j = 1; j <= (n - i) >> 1; ++j) {
+            if (s.slice(i, i + j) == s.slice(i + j, i + j + j)) {
+                f[i] = Math.max(f[i], dfs(i + j) + 1);
+            }
+        }
+        return f[i];
+    };
+    return dfs(0);
+}
+```
 
+```ts
+function deleteString(s: string): number {
+    const n = s.length;
+    const f: number[] = new Array(n).fill(1);
+    for (let i = n - 1; i >= 0; --i) {
+        for (let j = 1; j <= (n - i) >> 1; ++j) {
+            if (s.slice(i, i + j) === s.slice(i + j, i + j + j)) {
+                f[i] = Math.max(f[i], f[i + j] + 1);
+            }
+        }
+    }
+    return f[0];
+}
 ```
 
 ### **...**
