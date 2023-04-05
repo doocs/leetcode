@@ -170,7 +170,7 @@ function baseNeg2(n: number): string {
         return '0';
     }
     let k = 1;
-    let ans: string[] = [];
+    const ans: string[] = [];
     while (n) {
         if (n % 2) {
             ans.push('1');
