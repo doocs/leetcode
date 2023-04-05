@@ -1,24 +1,14 @@
 class Solution {
 public:
     int minimizeXor(int num1, int num2) {
-        int cnt = __builtin_popcount(num2);
-        int ans = 0;
-        for (int i = 30; i >= 0; --i) {
-            if ((num1 >> i) & 1) {
-                ans |= 1 << i;
-                if (--cnt == 0) {
-                    return ans;
-                }
-            }
+        int cnt1 = __builtin_popcount(num1);
+        int cnt2 = __builtin_popcount(num2);
+        for (; cnt1 > cnt2; --cnt1) {
+            num1 &= (num1 - 1);
         }
-        for (int i = 0; i < 31; ++i) {
-            if (((num1 >> i) & 1) == 0) {
-                ans |= 1 << i;
-                if (--cnt == 0) {
-                    return ans;
-                }
-            }
+        for (; cnt1 < cnt2; ++cnt1) {
+            num1 |= (num1 + 1);
         }
-        return 0;
+        return num1;
     }
 };
