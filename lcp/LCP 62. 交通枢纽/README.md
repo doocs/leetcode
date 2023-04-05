@@ -46,6 +46,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：统计入度和出度**
+
+我们创建两个数组 $ind$ 和 $outd$，分别用于记录每个点的入度和出度，用哈希表 $s$ 保存每个节点。
+
+接下来，遍历每个节点 $c$，如果存在 $ind[c]$ 等于节点总数减去 $1$，并且 $outd[c]=0$，说明存在满足条件的交通枢纽，返回 $c$。
+
+否则遍历结束，返回 $-1$。
+
+时间复杂度 $O(n + m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是节点数量以及路径的数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -53,7 +63,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def transportationHub(self, path: List[List[int]]) -> int:
+        ind = Counter()
+        outd = Counter()
+        s = set()
+        for a, b in path:
+            s.add(a)
+            s.add(b)
+            outd[a] += 1
+            ind[b] += 1
+        for c in s:
+            if ind[c] == len(s) - 1 and outd[c] == 0:
+                return c
+        return -1
 ```
 
 ### **Java**
@@ -61,7 +84,75 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int transportationHub(int[][] path) {
+        int[] ind = new int[1001];
+        int[] outd = new int[1001];
+        Set<Integer> s = new HashSet<>();
+        for (int[] p : path) {
+            int a = p[0], b = p[1];
+            s.add(a);
+            s.add(b);
+            ind[b]++;
+            outd[a]++;
+        }
+        for (int c : s) {
+            if (ind[c] == s.size() - 1 && outd[c] == 0) {
+                return c;
+            }
+        }
+        return -1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int transportationHub(vector<vector<int>>& path) {
+        int ind[1001]{};
+        int outd[1001]{};
+        unordered_set<int> s;
+        for (auto& p : path) {
+            int a = p[0], b = p[1];
+            s.insert(a);
+            s.insert(b);
+            ind[b]++;
+            outd[a]++;
+        }
+        for (int c : s) {
+            if (ind[c] == s.size() - 1 && outd[c] == 0) {
+                return c;
+            }
+        }
+        return -1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func transportationHub(path [][]int) int {
+	ind := [1001]int{}
+	outd := [1001]int{}
+	s := map[int]struct{}{}
+	for _, p := range path {
+		a, b := p[0], p[1]
+		s[a] = struct{}{}
+		s[b] = struct{}{}
+		outd[a]++
+		ind[b]++
+	}
+	for c := range s {
+		if ind[c] == len(s)-1 && outd[c] == 0 {
+			return c
+		}
+	}
+	return -1
+}
 ```
 
 ### **...**
