@@ -45,6 +45,17 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        a = b = 0
+        for c in nums:
+            aa = (~a & b & c) | (a & ~b & ~c)
+            bb = ~a & (b ^ c)
+            a, b = aa, bb
+        return b
+```
+
 ### **Java**
 
 ```java
@@ -64,6 +75,21 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int singleNumber(int[] nums) {
+        int a = 0, b = 0;
+        for (int c : nums) {
+            int aa = (~a & b & c) | (a & ~b & ~c);
+            int bb = ~a & (b ^ c);
+            a = aa;
+            b = bb;
+        }
+        return b;
+    }
+}
+```
+
 ### **Go**
 
 ```go
@@ -78,6 +104,18 @@ func singleNumber(nums []int) int {
 		ans |= cnt << i
 	}
 	return int(ans)
+}
+```
+
+```go
+func singleNumber(nums []int) int {
+	a, b := 0, 0
+	for _, c := range nums {
+		aa := (^a & b & c) | (a & ^b & ^c)
+		bb := ^a & (b ^ c)
+		a, b = aa, bb
+	}
+	return b
 }
 ```
 
@@ -101,6 +139,22 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int a = 0, b = 0;
+        for (int c : nums) {
+            int aa = (~a & b & c) | (a & ~b & ~c);
+            int bb = ~a & (b ^ c);
+            a = aa;
+            b = bb;
+        }
+        return b;
+    }
+};
+```
+
 ### **TypeScript**
 
 ```ts
@@ -111,6 +165,20 @@ function singleNumber(nums: number[]): number {
         ans |= count % 3 << i;
     }
     return ans;
+}
+```
+
+```ts
+function singleNumber(nums: number[]): number {
+    let a = 0;
+    let b = 0;
+    for (const c of nums) {
+        const aa = (~a & b & c) | (a & ~b & ~c);
+        const bb = ~a & (b ^ c);
+        a = aa;
+        b = bb;
+    }
+    return b;
 }
 ```
 

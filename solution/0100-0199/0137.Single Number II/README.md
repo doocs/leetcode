@@ -40,7 +40,48 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-统计所有数字每个位中 1 出现的次数，对于某个位，1 出现的次数一定是 3 的倍数 +1 或 0。对这个数 %3 得到的结果就是那个出现一次的数字在该位上的值。
+**方法一：位运算**
+
+我们可以枚举每个二进制位 $i$，对于每个二进制位，我们统计所有数字在该二进制位上的和，如果该二进制位上的和能被 $3$ 整除，那么只出现一次的数字在该二进制位上为 $0$，否则为 $1$。
+
+时间复杂度 $O(n \times \log M)$，空间复杂度 $O(1)$。其中 $n$ 和 $M$ 分别是数组的长度和数组中元素的范围。
+
+**方法二：数字电路**
+
+我们考虑一种更高效的方法，该方法使用数字电路来模拟上述的位运算。
+
+一个整数的每个二进制位是 $0$ 或 $1$，只能表示 $2$ 种状态。但我们需要表示当前遍历过的所有整数的第 $i$ 位之和模 $3$ 的结果，因此，我们可以使用 $a$ 和 $b$ 两个整数来表示。那么会有以下三种情况：
+
+1. 整数 $a$ 的第 $i$ 位为 $0$ 且整数 $b$ 的第 $i$ 位为 $0$，表示模 $3$ 结果是 $0$；
+1. 整数 $a$ 的第 $i$ 位为 $0$ 且整数 $b$ 的第 $i$ 位为 $1$，表示模 $3$ 结果是 $1$；
+1. 整数 $a$ 的第 $i$ 位为 $1$ 且整数 $b$ 的第 $i$ 位为 $0$，表示模 $3$ 结果是 $2$。
+
+我们用整数 $c$ 表示当前要读入的数，那么有以下真值表：
+
+| $a_i$ | $b_i$ | $c_i$ | 新的 $a_i$ | 新的 $b_i$ |
+| ----- | ----- | ----- | ---------- | ---------- |
+| 0     | 0     | 0     | 0          | 0          |
+| 0     | 0     | 1     | 0          | 1          |
+| 0     | 1     | 0     | 0          | 1          |
+| 0     | 1     | 1     | 1          | 0          |
+| 1     | 0     | 0     | 1          | 0          |
+| 1     | 0     | 1     | 0          | 0          |
+
+基于以上真值表，我们可以写出逻辑表达式：
+
+$$
+a_i = a_i' b_i c_i + a_i b_i' c_i'
+$$
+
+以及：
+
+$$
+b_i = a_i' b_i' c_i + a_i' b_i c_i' = a_i' (b_i \oplus c_i)
+$$
+
+最后结果是 $b$，因为 $b$ 的二进制位上为 $1$ 时表示这个数字出现了 $1$ 次。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
 
@@ -60,6 +101,17 @@ class Solution:
                 else:
                     ans |= 1 << i
         return ans
+```
+
+```python
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        a = b = 0
+        for c in nums:
+            aa = (~a & b & c) | (a & ~b & ~c)
+            bb = ~a & (b ^ c)
+            a, b = aa, bb
+        return b
 ```
 
 ### **Java**
@@ -83,6 +135,21 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int singleNumber(int[] nums) {
+        int a = 0, b = 0;
+        for (int c : nums) {
+            int aa = (~a & b & c) | (a & ~b & ~c);
+            int bb = ~a & (b ^ c);
+            a = aa;
+            b = bb;
+        }
+        return b;
+    }
+}
+```
+
 ### **Go**
 
 需要注意 Golang 中的 `int` 在 64 位平台上相当于 `int64`
@@ -99,6 +166,18 @@ func singleNumber(nums []int) int {
 		ans |= cnt << i
 	}
 	return int(ans)
+}
+```
+
+```go
+func singleNumber(nums []int) int {
+	a, b := 0, 0
+	for _, c := range nums {
+		aa := (^a & b & c) | (a & ^b & ^c)
+		bb := ^a & (b ^ c)
+		a, b = aa, bb
+	}
+	return b
 }
 ```
 
@@ -122,6 +201,22 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int a = 0, b = 0;
+        for (int c : nums) {
+            int aa = (~a & b & c) | (a & ~b & ~c);
+            int bb = ~a & (b ^ c);
+            a = aa;
+            b = bb;
+        }
+        return b;
+    }
+};
+```
+
 ### **TypeScript**
 
 ```ts
@@ -132,6 +227,20 @@ function singleNumber(nums: number[]): number {
         ans |= count % 3 << i;
     }
     return ans;
+}
+```
+
+```ts
+function singleNumber(nums: number[]): number {
+    let a = 0;
+    let b = 0;
+    for (const c of nums) {
+        const aa = (~a & b & c) | (a & ~b & ~c);
+        const bb = ~a & (b ^ c);
+        a = aa;
+        b = bb;
+    }
+    return b;
 }
 ```
 
