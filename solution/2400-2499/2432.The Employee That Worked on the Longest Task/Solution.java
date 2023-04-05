@@ -1,16 +1,15 @@
 class Solution {
     public int hardestWorker(int n, int[][] logs) {
-        int ans = 0, mx = 0, last = 0;
-        for (var e : logs) {
-            int uid = e[0], t = e[1];
-            int x = t - last;
-            if (mx < x) {
-                mx = x;
+        int ans = 0;
+        int last = 0, mx = 0;
+        for (int[] log : logs) {
+            int uid = log[0], t = log[1];
+            t -= last;
+            if (mx < t || (mx == t && ans > uid)) {
                 ans = uid;
-            } else if (mx == x && ans > uid) {
-                ans = uid;
+                mx = t;
             }
-            last = t;
+            last += t;
         }
         return ans;
     }

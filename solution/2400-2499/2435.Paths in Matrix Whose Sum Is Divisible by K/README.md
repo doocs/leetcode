@@ -61,7 +61,7 @@
 对于每个位置 $(i, j)$，我们可以选择向右或向下移动，因此有：
 
 $$
-dfs(i, j, s) = dfs(i + 1, j, (s + grid[i][j])\mod{k}) + dfs(i, j + 1, (s + grid[i][j])\mod{k})
+dfs(i, j, s) = dfs(i + 1, j, (s + grid[i][j]) \bmod k) + dfs(i, j + 1, (s + grid[i][j]) \bmod k)
 $$
 
 答案为 `dfs(0, 0, 0)`。记忆化搜索即可。
@@ -74,12 +74,12 @@ $$
 
 定义状态 $dp[i][j][s]$ 表示从起点 $(0, 0)$ 出发，到达位置 $(i, j)$，路径和模 $k$ 等于 $s$ 的路径数目。
 
-初始值 $dp[0][0][grid[0][0]\mod{k}] = 1$，答案为 $dp[m - 1][n - 1][0]$。
+初始值 $dp[0][0][grid[0][0] \bmod k] = 1$，答案为 $dp[m - 1][n - 1][0]$。
 
 我们可以得到状态转移方程：
 
 $$
-dp[i][j][s] = dp[i - 1][j][(s - grid[i][j])\mod{k}] + dp[i][j - 1][(s - grid[i][j])\mod{k}]
+dp[i][j][s] = dp[i - 1][j][(s - grid[i][j])\bmod k] + dp[i][j - 1][(s - grid[i][j])\bmod k]
 $$
 
 时间复杂度 $O(m\times n\times k)$，空间复杂度 $O(m\times n\times k)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数，而 $k$ 为给定的整数。

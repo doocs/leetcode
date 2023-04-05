@@ -78,9 +78,9 @@
 
 **方法一：模拟**
 
-遍历 `logs`，记录每个员工的工作时间，最后返回工作时间最长且 id 最小的员工。
+我们遍历数组 `logs`，记录每个员工的工作时间，最后返回工作时间最长且 id 最小的员工。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为 `logs` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `logs` 的长度。
 
 <!-- tabs:start -->
 
@@ -91,15 +91,14 @@
 ```python
 class Solution:
     def hardestWorker(self, n: int, logs: List[List[int]]) -> int:
-        ans = mx = last = 0
+        last = 0
+        ans = mx = 0
         for uid, t in logs:
-            x = t - last
-            if mx < x:
-                mx = x
+            t -= last
+            if mx < t or (mx == t and ans > uid):
                 ans = uid
-            elif mx == x and ans > uid:
-                ans = uid
-            last = t
+                mx = t
+            last += t
         return ans
 ```
 
@@ -110,17 +109,16 @@ class Solution:
 ```java
 class Solution {
     public int hardestWorker(int n, int[][] logs) {
-        int ans = 0, mx = 0, last = 0;
-        for (var e : logs) {
-            int uid = e[0], t = e[1];
-            int x = t - last;
-            if (mx < x) {
-                mx = x;
+        int ans = 0;
+        int last = 0, mx = 0;
+        for (int[] log : logs) {
+            int uid = log[0], t = log[1];
+            t -= last;
+            if (mx < t || (mx == t && ans > uid)) {
                 ans = uid;
-            } else if (mx == x && ans > uid) {
-                ans = uid;
+                mx = t;
             }
-            last = t;
+            last += t;
         }
         return ans;
     }
@@ -134,16 +132,14 @@ class Solution {
 public:
     int hardestWorker(int n, vector<vector<int>>& logs) {
         int ans = 0, mx = 0, last = 0;
-        for (auto& e : logs) {
-            int uid = e[0], t = e[1];
-            int x = t - last;
-            if (mx < x) {
-                mx = x;
-                ans = uid;
-            } else if (mx == x && ans > uid) {
+        for (auto& log : logs) {
+            int uid = log[0], t = log[1];
+            t -= last;
+            if (mx < t || (mx == t && ans > uid)) {
+                mx = t;
                 ans = uid;
             }
-            last = t;
+            last += t;
         }
         return ans;
     }
@@ -153,19 +149,18 @@ public:
 ### **Go**
 
 ```go
-func hardestWorker(n int, logs [][]int) int {
-	ans, mx, last := 0, 0, 0
-	for _, e := range logs {
-		uid, t := e[0], e[1]
-		x := t - last
-		if mx < x {
-			mx, ans = x, uid
-		} else if mx == x && ans > uid {
+func hardestWorker(n int, logs [][]int) (ans int) {
+	var mx, last int
+	for _, log := range logs {
+		uid, t := log[0], log[1]
+		t -= last
+		if mx < t || (mx == t && uid < ans) {
+			mx = t
 			ans = uid
 		}
-		last = t
+		last += t
 	}
-	return ans
+	return
 }
 ```
 
@@ -194,14 +189,14 @@ int hardestWorker(int n, int **logs, int logsSize, int *logsColSize) {
 
 ```ts
 function hardestWorker(n: number, logs: number[][]): number {
-    let [ans, max_num] = logs[0];
-    for (let i = 1; i < logs.length; i++) {
-        let duration = logs[i][1] - logs[i - 1][1];
-        let id = logs[i][0];
-        if (duration > max_num || (duration == max_num && id < ans)) {
-            ans = id;
-            max_num = duration;
+    let [ans, mx, last] = [0, 0, 0];
+    for (let [uid, t] of logs) {
+        t -= last;
+        if (mx < t || (mx == t && ans > uid)) {
+            ans = uid;
+            mx = t;
         }
+        last += t;
     }
     return ans;
 }
