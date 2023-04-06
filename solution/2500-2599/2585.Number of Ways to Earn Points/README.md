@@ -187,7 +187,9 @@ func waysToReachTarget(target int, types [][]int) int {
 function waysToReachTarget(target: number, types: number[][]): number {
     const n = types.length;
     const mod = 10 ** 9 + 7;
-    const f: number[][] = Array.from({ length: n + 1 }, () => Array(target + 1).fill(0));
+    const f: number[][] = Array.from({ length: n + 1 }, () =>
+        Array(target + 1).fill(0),
+    );
     f[0][0] = 1;
     for (let i = 1; i <= n; ++i) {
         const [count, marks] = types[i - 1];
@@ -200,7 +202,7 @@ function waysToReachTarget(target: number, types: number[][]): number {
         }
     }
     return f[n][target];
-};
+}
 ```
 
 ### **...**

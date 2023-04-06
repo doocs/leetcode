@@ -2664,3 +2664,4 @@
   - [2610.转换二维数组](/solution/2600-2699/2610.Convert%20an%20Array%20Into%20a%202D%20Array%20With%20Conditions/README.md)
   - [2611.老鼠和奶酪](/solution/2600-2699/2611.Mice%20and%20Cheese/README.md)
   - [2612.最少翻转操作数](/solution/2600-2699/2612.Minimum%20Reverse%20Operations/README.md)
+  - [2613.Beautiful Pairs](/solution/2600-2699/2613.Beautiful%20Pairs/README.md)

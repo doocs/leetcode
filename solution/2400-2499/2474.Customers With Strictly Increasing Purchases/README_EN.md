@@ -75,7 +75,7 @@ Customer 2: The first year is 2015 and the last year is 2017
 Customer 3: The first year is 2017, and the last year is 2018
   - 2017: 900
   - 2018: 900
-  We can see that the total purchases are strictly increasing yearly, so we include customer 1 in the answer.
+ We do not include customer 3 in the answer because the total purchases are not strictly increasing.
 </pre>
 
 ## Solutions

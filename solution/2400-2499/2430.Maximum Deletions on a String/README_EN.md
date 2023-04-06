@@ -105,7 +105,7 @@ class Solution {
     private int n;
     private Integer[] f;
     private int[][] g;
-    
+
     public int deleteString(String s) {
         n = s.length();
         f = new Integer[n];
@@ -119,7 +119,7 @@ class Solution {
         }
         return dfs(0);
     }
-    
+
     private int dfs(int i) {
         if (i == n) {
             return 0;

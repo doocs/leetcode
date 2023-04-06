@@ -11,57 +11,39 @@
 <p><em>Return the number of ways of cutting the pizza such that each piece contains <strong>at least</strong> one apple.&nbsp;</em>Since the answer can be a huge number, return this modulo 10^9 + 7.</p>
 
 <p>&nbsp;</p>
-
 <p><strong class="example">Example 1:</strong></p>
 
 <p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1444.Number%20of%20Ways%20of%20Cutting%20a%20Pizza/images/ways_to_cut_apple_1.png" style="width: 500px; height: 378px;" /></strong></p>
 
 <pre>
-
 <strong>Input:</strong> pizza = [&quot;A..&quot;,&quot;AAA&quot;,&quot;...&quot;], k = 3
-
 <strong>Output:</strong> 3 
-
 <strong>Explanation:</strong> The figure above shows the three ways to cut the pizza. Note that pieces must contain at least one apple.
-
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> pizza = [&quot;A..&quot;,&quot;AA.&quot;,&quot;...&quot;], k = 3
-
 <strong>Output:</strong> 1
-
 </pre>
 
 <p><strong class="example">Example 3:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> pizza = [&quot;A..&quot;,&quot;A..&quot;,&quot;...&quot;], k = 1
-
 <strong>Output:</strong> 1
-
 </pre>
 
 <p>&nbsp;</p>
-
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
-    <li><code>1 &lt;= rows, cols &lt;= 50</code></li>
-
-    <li><code>rows ==&nbsp;pizza.length</code></li>
-
-    <li><code>cols ==&nbsp;pizza[i].length</code></li>
-
-    <li><code>1 &lt;= k &lt;= 10</code></li>
-
-    <li><code>pizza</code> consists of characters <code>&#39;A&#39;</code>&nbsp;and <code>&#39;.&#39;</code> only.</li>
-
+	<li><code>1 &lt;= rows, cols &lt;= 50</code></li>
+	<li><code>rows ==&nbsp;pizza.length</code></li>
+	<li><code>cols ==&nbsp;pizza[i].length</code></li>
+	<li><code>1 &lt;= k &lt;= 10</code></li>
+	<li><code>pizza</code> consists of characters <code>&#39;A&#39;</code>&nbsp;and <code>&#39;.&#39;</code> only.</li>
 </ul>
 
 ## Solutions

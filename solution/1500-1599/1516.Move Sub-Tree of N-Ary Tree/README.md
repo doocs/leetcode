@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一棵没有重复值的 <a href="http://leetcode.com/articles/introduction-to-n-ary-trees/">N 叉树</a>的根节点&nbsp;<code>root</code>&nbsp;，以及其中的两个节点&nbsp;<code>p</code> 和&nbsp;<code>q</code>。</p>
+<p>给定一棵没有重复值的 <span data-keyword="n-ary-tree">N 叉树</span> 的根节点&nbsp;<code>root</code>&nbsp;，以及其中的两个节点&nbsp;<code>p</code> 和&nbsp;<code>q</code>。</p>
 
 <p>移动节点&nbsp;<code>p</code>&nbsp;及其子树，使节点 <code>p</code>&nbsp;成为节点&nbsp;<code>q</code>&nbsp;的直接子节点。如果&nbsp;<code>p</code>&nbsp;已经是&nbsp;<code>q</code>&nbsp;的直接子节点，则请勿改动任何节点。节点&nbsp;<code>p</code> <strong>必须</strong>是节点&nbsp;<code>q</code>&nbsp;的子节点列表的最后一项。</p>
 

@@ -14,6 +14,8 @@
 
 <p>给你价格数组 <code>costs</code> 和现金量 <code>coins</code> ，请你计算并返回 Tony 用 <code>coins</code> 现金能够买到的雪糕的 <strong>最大数量</strong> 。</p>
 
+<p>你必须使用计数排序解决此问题。</p>
+
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>

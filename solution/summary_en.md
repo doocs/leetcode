@@ -2664,3 +2664,4 @@
   - [2610.Convert an Array Into a 2D Array With Conditions](/solution/2600-2699/2610.Convert%20an%20Array%20Into%20a%202D%20Array%20With%20Conditions/README_EN.md)
   - [2611.Mice and Cheese](/solution/2600-2699/2611.Mice%20and%20Cheese/README_EN.md)
   - [2612.Minimum Reverse Operations](/solution/2600-2699/2612.Minimum%20Reverse%20Operations/README_EN.md)
+  - [2613.Beautiful Pairs](/solution/2600-2699/2613.Beautiful%20Pairs/README_EN.md)

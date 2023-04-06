@@ -12,12 +12,13 @@
 
 <ul>
 	<li>给定的目标值 target 是一个浮点数</li>
-	<li>题目保证在该二叉搜索树中只会存在一个最接近目标值的数</li>
+	<li>如果有多个答案，返回最小的那个。</li>
 </ul>
 
 <p><strong>示例：</strong></p>
 
-<pre><strong>输入:</strong> root = [4,2,5,1,3]，目标值 target = 3.714286
+<pre>
+<strong>输入:</strong> root = [4,2,5,1,3]，目标值 target = 3.714286
 
     4
    / \

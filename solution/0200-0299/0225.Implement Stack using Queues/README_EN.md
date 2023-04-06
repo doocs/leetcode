@@ -102,7 +102,7 @@ class MyStack {
     public MyStack() {
 
     }
-    
+
     public void push(int x) {
         q2.offer(x);
         while (!q1.isEmpty()) {
@@ -112,15 +112,15 @@ class MyStack {
         q1 = q2;
         q2 = q;
     }
-    
+
     public int pop() {
         return q1.poll();
     }
-    
+
     public int top() {
         return q1.peek();
     }
-    
+
     public boolean empty() {
         return q1.isEmpty();
     }
@@ -144,7 +144,7 @@ public:
     MyStack() {
 
     }
-    
+
     void push(int x) {
         q2.push(x);
         while (!q1.empty()) {
@@ -153,17 +153,17 @@ public:
         }
         swap(q1, q2);
     }
-    
+
     int pop() {
         int x = q1.front();
         q1.pop();
         return x;
     }
-    
+
     int top() {
         return q1.front();
     }
-    
+
     bool empty() {
         return q1.empty();
     }

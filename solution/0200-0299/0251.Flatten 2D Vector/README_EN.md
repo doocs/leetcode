@@ -94,12 +94,12 @@ class Vector2D {
     public Vector2D(int[][] vec) {
         this.vec = vec;
     }
-    
+
     public int next() {
         forward();
         return vec[i][j++];
     }
-    
+
     public boolean hasNext() {
         forward();
         return i < vec.length;
@@ -129,12 +129,12 @@ public:
     Vector2D(vector<vector<int>>& vec) {
         this->vec = move(vec);
     }
-    
+
     int next() {
         forward();
         return vec[i][j++];
     }
-    
+
     bool hasNext() {
         forward();
         return i < vec.size();

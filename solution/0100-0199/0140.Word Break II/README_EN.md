@@ -40,6 +40,7 @@
 	<li><code>1 &lt;= wordDict[i].length &lt;= 10</code></li>
 	<li><code>s</code> and <code>wordDict[i]</code> consist of only lowercase English letters.</li>
 	<li>All the strings of <code>wordDict</code> are <strong>unique</strong>.</li>
+	<li>Input is generated in a way that the length of the answer doesn&#39;t exceed&nbsp;10<sup>5</sup>.</li>
 </ul>
 
 ## Solutions
