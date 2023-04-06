@@ -68,7 +68,11 @@ class Solution:
         ind = Counter()
         outd = Counter()
         s = set()
+        vis = set()
         for a, b in path:
+            if (a, b) in vis:
+                continue
+            vis.add((a, b))
             s.add(a)
             s.add(b)
             outd[a] += 1
@@ -89,12 +93,15 @@ class Solution {
         int[] ind = new int[1001];
         int[] outd = new int[1001];
         Set<Integer> s = new HashSet<>();
+        Set<Integer> vis = new HashSet<>();
         for (int[] p : path) {
             int a = p[0], b = p[1];
-            s.add(a);
-            s.add(b);
-            ind[b]++;
-            outd[a]++;
+            if (vis.add(a * 1000 + b)) {
+                s.add(a);
+                s.add(b);
+                ind[b]++;
+                outd[a]++;
+            }
         }
         for (int c : s) {
             if (ind[c] == s.size() - 1 && outd[c] == 0) {
@@ -115,8 +122,13 @@ public:
         int ind[1001]{};
         int outd[1001]{};
         unordered_set<int> s;
+        unordered_set<int> vis;
         for (auto& p : path) {
             int a = p[0], b = p[1];
+            if (vis.count(a * 1000 + b)) {
+                continue;
+            }
+            vis.insert(a * 1000 + b);
             s.insert(a);
             s.insert(b);
             ind[b]++;
@@ -139,8 +151,13 @@ func transportationHub(path [][]int) int {
 	ind := [1001]int{}
 	outd := [1001]int{}
 	s := map[int]struct{}{}
+	vis := map[int]bool{}
 	for _, p := range path {
 		a, b := p[0], p[1]
+		if vis[a*1000+b] {
+			continue
+		}
+		vis[a*1000+b] = true
 		s[a] = struct{}{}
 		s[b] = struct{}{}
 		outd[a]++
@@ -162,7 +179,12 @@ function transportationHub(path: number[][]): number {
     const ind: number[] = new Array(1001).fill(0);
     const outd: number[] = new Array(1001).fill(0);
     const s: Set<number> = new Set();
+    const vis: Set<number> = new Set();
     for (const [a, b] of path) {
+        if (vis.has(a * 1000 + b)) {
+            continue;
+        }
+        vis.add(a * 1000 + b);
         s.add(a);
         s.add(b);
         ind[b]++;

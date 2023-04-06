@@ -4,8 +4,13 @@ public:
         int ind[1001]{};
         int outd[1001]{};
         unordered_set<int> s;
+        unordered_set<int> vis;
         for (auto& p : path) {
             int a = p[0], b = p[1];
+            if (vis.count(a * 1000 + b)) {
+                continue;
+            }
+            vis.insert(a * 1000 + b);
             s.insert(a);
             s.insert(b);
             ind[b]++;

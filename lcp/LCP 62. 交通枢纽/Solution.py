@@ -3,7 +3,11 @@ class Solution:
         ind = Counter()
         outd = Counter()
         s = set()
+        vis = set()
         for a, b in path:
+            if (a, b) in vis:
+                continue
+            vis.add((a, b))
             s.add(a)
             s.add(b)
             outd[a] += 1
