@@ -9,7 +9,7 @@
 -   `'l'`表示向左倾斜的隔板（即从左上到右下）；
 -   `'r'`表示向右倾斜的隔板（即从左下到右上）；
 -   `'.'` 表示此位置没有隔板
-    ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2071.%20%E9%9B%86%E6%B0%B4%E5%99%A8/images/1664424667-wMnPja-image.png)
+    <br><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2071.%20%E9%9B%86%E6%B0%B4%E5%99%A8/images/1664424667-wMnPja-image.png" style="width: 200px;" />
 
 已知当隔板构成存储容器可以存水，每个方格代表的蓄水量为 `2`。集水器初始浸泡在水中，除内部密闭空间外，所有位置均被水填满。
 现将其从水中竖直向上取出，请返回集水器最终的蓄水量。
@@ -26,7 +26,7 @@
 > 输出：`18`
 >
 > 解释：如下图所示，由于空气会穿过隔板，因此红框区域没有水
-> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2071.%20%E9%9B%86%E6%B0%B4%E5%99%A8/images/1664436239-eyYxeP-image.png)
+> <br><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2071.%20%E9%9B%86%E6%B0%B4%E5%99%A8/images/1664436239-eyYxeP-image.png" style="width: 280px;" />
 
 **示例 2：**
 
@@ -35,7 +35,7 @@
 > 输出：`18`
 >
 > 解释：如图所示。由于红框右侧未闭合，因此多余的水会从该处流走。
-> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2071.%20%E9%9B%86%E6%B0%B4%E5%99%A8/images/1664436082-SibVMv-image.png)
+> <br><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2071.%20%E9%9B%86%E6%B0%B4%E5%99%A8/images/1664436082-SibVMv-image.png" style="width: 400px;" />
 
 **示例 3：**
 
@@ -44,7 +44,7 @@
 > 输出：`6`
 >
 > 解释：如图所示。
-> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2071.%20%E9%9B%86%E6%B0%B4%E5%99%A8/images/1664424855-dwpUHO-image.png)
+> <br><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2071.%20%E9%9B%86%E6%B0%B4%E5%99%A8/images/1664424855-dwpUHO-image.png" style="width: 230px;" />
 
 **示例 4：**
 
@@ -54,7 +54,7 @@
 > 输出：`30`
 >
 > 解释：如下图所示。由于中间为内部密闭空间，无法蓄水。
-> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2071.%20%E9%9B%86%E6%B0%B4%E5%99%A8/images/1664424894-mClEXh-image.png)
+> <br><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2071.%20%E9%9B%86%E6%B0%B4%E5%99%A8/images/1664424894-mClEXh-image.png" style="width: 350px;" />
 
 **提示**：
 
