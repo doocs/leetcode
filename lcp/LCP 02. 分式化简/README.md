@@ -128,7 +128,7 @@ func fraction(cont []int) []int {
  */
 var fraction = function (cont) {
     function dfs(i) {
-        if (i == cont.length - 1) {
+        if (i === cont.length - 1) {
             return [cont[i], 1];
         }
         const [a, b] = dfs(i + 1);

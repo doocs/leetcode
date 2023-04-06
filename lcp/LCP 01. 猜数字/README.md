@@ -105,7 +105,7 @@ func game(guess []int, answer []int) int {
 var game = function (guess, answer) {
     let ans = 0;
     for (let i = 0; i < 3; ++i) {
-        ans += guess[i] == answer[i];
+        ans += guess[i] === answer[i];
     }
     return ans;
 };
