@@ -57,13 +57,106 @@ Notice we cannot move 10 -&gt; 2 to finish the game, because that would be an il
 ### **Python3**
 
 ```python
-
+class Solution:
+    def numMovesStonesII(self, stones: List[int]) -> List[int]:
+        stones.sort()
+        mi = n = len(stones)
+        mx = max(stones[-1] - stones[1] + 1, stones[-2] - stones[0] + 1) - (n - 1)
+        i = 0
+        for j, x in enumerate(stones):
+            while x - stones[i] + 1 > n:
+                i += 1
+            if j - i + 1 == n - 1 and x - stones[i] == n - 2:
+                mi = min(mi, 2)
+            else:
+                mi = min(mi, n - (j - i + 1))
+        return [mi, mx]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] numMovesStonesII(int[] stones) {
+        Arrays.sort(stones);
+        int n = stones.length;
+        int mi = n;
+        int mx = Math.max(stones[n - 1] - stones[1] + 1, stones[n - 2] - stones[0] + 1) - (n - 1);
+        for (int i = 0, j = 0; j < n; ++j) {
+            while (stones[j] - stones[i] + 1 > n) {
+                ++i;
+            }
+            if (j - i + 1 == n - 1 && stones[j] - stones[i] == n - 2) {
+                mi = Math.min(mi, 2);
+            } else {
+                mi = Math.min(mi, n - (j - i + 1));
+            }
+        }
+        return new int[] {mi, mx};
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> numMovesStonesII(vector<int>& stones) {
+        sort(stones.begin(), stones.end());
+        int n = stones.size();
+        int mi = n;
+        int mx = max(stones[n - 1] - stones[1] + 1, stones[n - 2] - stones[0] + 1) - (n - 1);
+        for (int i = 0, j = 0; j < n; ++j) {
+            while (stones[j] - stones[i] + 1 > n) {
+                ++i;
+            }
+            if (j - i + 1 == n - 1 && stones[j] - stones[i] == n - 2) {
+                mi = min(mi, 2);
+            } else {
+                mi = min(mi, n - (j - i + 1));
+            }
+        }
+        return {mi, mx};
+    }
+};
+```
+
+### **Go**
+
+```go
+func numMovesStonesII(stones []int) []int {
+	sort.Ints(stones)
+	n := len(stones)
+	mi := n
+	mx := max(stones[n-1]-stones[1]+1, stones[n-2]-stones[0]+1) - (n - 1)
+	i := 0
+	for j, x := range stones {
+		for x-stones[i]+1 > n {
+			i++
+		}
+		if j-i+1 == n-1 && stones[j]-stones[i] == n-2 {
+			mi = min(mi, 2)
+		} else {
+			mi = min(mi, n-(j-i+1))
+		}
+	}
+	return []int{mi, mx}
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
