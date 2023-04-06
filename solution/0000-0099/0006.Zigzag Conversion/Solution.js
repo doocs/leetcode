@@ -5,7 +5,7 @@
  */
 var convert = function (s, numRows) {
     if (numRows == 1) return s;
-    let arr = new Array(numRows);
+    const arr = new Array(numRows);
     for (let i = 0; i < numRows; i++) arr[i] = [];
     let mi = 0,
         isDown = true;
@@ -19,7 +19,7 @@ var convert = function (s, numRows) {
         else mi--;
     }
     let ans = [];
-    for (let item of arr) {
+    for (const item of arr) {
         ans = ans.concat(item);
     }
     return ans.join('');
