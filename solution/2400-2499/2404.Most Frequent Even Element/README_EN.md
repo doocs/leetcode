@@ -140,7 +140,7 @@ function mostFrequentEven(nums: number[]): number {
     let ans = -1;
     let mx = 0;
     for (const [x, v] of cnt) {
-        if (mx < v || (mx == v && ans > x)) {
+        if (mx < v || (mx === v && ans > x)) {
             ans = x;
             mx = v;
         }
