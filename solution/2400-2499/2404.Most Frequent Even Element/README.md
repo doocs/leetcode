@@ -49,7 +49,7 @@
 
 **方法一：哈希表**
 
-用哈希表统计所有偶数元素出现的次数，然后找出出现次数最多且值最小的偶数元素。
+我们用哈希表 $cnt$ 统计所有偶数元素出现的次数，然后找出出现次数最多且值最小的偶数元素。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
@@ -62,12 +62,11 @@
 ```python
 class Solution:
     def mostFrequentEven(self, nums: List[int]) -> int:
-        cnt = Counter(v for v in nums if v % 2 == 0)
+        cnt = Counter(x for x in nums if x % 2 == 0)
         ans, mx = -1, 0
-        for v, t in cnt.items():
-            if mx < t or (mx == t and ans > v):
-                mx = t
-                ans = v
+        for x, v in cnt.items():
+            if v > mx or (v == mx and ans > x):
+                ans, mx = x, v
         return ans
 ```
 
@@ -79,17 +78,17 @@ class Solution:
 class Solution {
     public int mostFrequentEven(int[] nums) {
         Map<Integer, Integer> cnt = new HashMap<>();
-        for (int v : nums) {
-            if (v % 2 == 0) {
-                cnt.put(v, cnt.getOrDefault(v, 0) + 1);
+        for (int x : nums) {
+            if (x % 2 == 0) {
+                cnt.merge(x, 1, Integer::sum);
             }
         }
         int ans = -1, mx = 0;
         for (var e : cnt.entrySet()) {
-            int v = e.getKey(), t = e.getValue();
-            if (mx < t || (mx == t && ans > v)) {
-                mx = t;
-                ans = v;
+            int x = e.getKey(), v = e.getValue();
+            if (mx < v || (mx == v && ans > x)) {
+                ans = x;
+                mx = v;
             }
         }
         return ans;
@@ -104,16 +103,16 @@ class Solution {
 public:
     int mostFrequentEven(vector<int>& nums) {
         unordered_map<int, int> cnt;
-        for (int v : nums) {
-            if (v % 2 == 0) {
-                ++cnt[v];
+        for (int x : nums) {
+            if (x % 2 == 0) {
+                ++cnt[x];
             }
         }
         int ans = -1, mx = 0;
-        for (auto [v, t] : cnt) {
-            if (mx < t || (mx == t && ans > v)) {
-                mx = t;
-                ans = v;
+        for (auto& [x, v] : cnt) {
+            if (mx < v || (mx == v && ans > x)) {
+                ans = x;
+                mx = v;
             }
         }
         return ans;
@@ -126,16 +125,15 @@ public:
 ```go
 func mostFrequentEven(nums []int) int {
 	cnt := map[int]int{}
-	for _, v := range nums {
-		if v%2 == 0 {
-			cnt[v]++
+	for _, x := range nums {
+		if x%2 == 0 {
+			cnt[x]++
 		}
 	}
 	ans, mx := -1, 0
-	for v, t := range cnt {
-		if mx < t || (mx == t && ans > v) {
-			mx = t
-			ans = v
+	for x, v := range cnt {
+		if mx < v || (mx == v && x < ans) {
+			ans, mx = x, v
 		}
 	}
 	return ans
@@ -146,25 +144,21 @@ func mostFrequentEven(nums []int) int {
 
 ```ts
 function mostFrequentEven(nums: number[]): number {
-    const map = new Map();
-    for (const num of nums) {
-        if (num % 2 === 0) {
-            map.set(num, (map.get(num) ?? 0) + 1);
+    const cnt: Map<number, number> = new Map();
+    for (const x of nums) {
+        if (x % 2 === 0) {
+            cnt.set(x, (cnt.get(x) ?? 0) + 1);
         }
     }
-    if (map.size === 0) {
-        return -1;
-    }
-
-    let res = 0;
-    let max = 0;
-    for (const [k, v] of map.entries()) {
-        if (v > max || (v == max && k < res)) {
-            max = v;
-            res = k;
+    let ans = -1;
+    let mx = 0;
+    for (const [x, v] of cnt) {
+        if (mx < v || (mx == v && ans > x)) {
+            ans = x;
+            mx = v;
         }
     }
-    return res;
+    return ans;
 }
 ```
 
@@ -174,25 +168,21 @@ function mostFrequentEven(nums: number[]): number {
 use std::collections::HashMap;
 impl Solution {
     pub fn most_frequent_even(nums: Vec<i32>) -> i32 {
-        let mut map = HashMap::new();
-        for &num in nums.iter() {
-            if num % 2 == 0 {
-                *map.entry(num).or_insert(0) += 1;
+        let mut cnt = HashMap::new();
+        for &x in nums.iter() {
+            if x % 2 == 0 {
+                *cnt.entry(x).or_insert(0) += 1;
             }
         }
-        if map.len() == 0 {
-            return -1;
-        }
-
-        let mut res = 0;
-        let mut max = 0;
-        for (&k, &v) in map.iter() {
-            if v > max || (v == max && k < res) {
-                max = v;
-                res = k;
+        let mut ans = -1;
+        let mut mx = 0;
+        for (&x, &v) in cnt.iter() {
+            if mx < v || (mx == v && ans > x) {
+                ans = x;
+                mx = v;
             }
         }
-        res
+        ans
     }
 }
 ```

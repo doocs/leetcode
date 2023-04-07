@@ -1,9 +1,8 @@
 class Solution:
     def mostFrequentEven(self, nums: List[int]) -> int:
-        cnt = Counter(v for v in nums if v % 2 == 0)
+        cnt = Counter(x for x in nums if x % 2 == 0)
         ans, mx = -1, 0
-        for v, t in cnt.items():
-            if mx < t or (mx == t and ans > v):
-                mx = t
-                ans = v
+        for x, v in cnt.items():
+            if v > mx or (v == mx and ans > x):
+                ans, mx = x, v
         return ans
