@@ -49,87 +49,206 @@
 
 ```python
 class Solution:
-    def smallestSufficientTeam(self, req_skills: List[str], people: List[List[str]]) -> List[int]:
-        @cache
-        def dfs(i, state):
-            if i == n:
-                return [] if state == (1 << m) - 1 else None
-            ans1 = dfs(i + 1, state)
-            ans2 = dfs(i + 1, state | ps[i])
-            if ans1 is None and ans2 is None:
-                return None
-            if ans1 is None:
-                return [i] + ans2
-            if ans2 is None:
-                return ans1
-            return min(ans1, [i] + ans2, key=len)
-
+    def smallestSufficientTeam(
+        self, req_skills: List[str], people: List[List[str]]
+    ) -> List[int]:
         d = {s: i for i, s in enumerate(req_skills)}
-        m = len(req_skills)
-        n = len(people)
-        ps = [0] * n
-        for i, skills in enumerate(people):
-            for skill in skills:
-                ps[i] |= 1 << d[skill]
-        return dfs(0, 0)
+        m, n = len(req_skills), len(people)
+        p = [0] * n
+        for i, ss in enumerate(people):
+            for s in ss:
+                p[i] |= 1 << d[s]
+        f = [inf] * (1 << m)
+        g = [0] * (1 << m)
+        h = [0] * (1 << m)
+        f[0] = 0
+        for i in range(1 << m):
+            if f[i] == inf:
+                continue
+            for j in range(n):
+                if f[i] + 1 < f[i | p[j]]:
+                    f[i | p[j]] = f[i] + 1
+                    g[i | p[j]] = j
+                    h[i | p[j]] = i
+        i = (1 << m) - 1
+        ans = []
+        while i:
+            ans.append(g[i])
+            i = h[i]
+        return ans
 ```
 
 ### **Java**
 
 ```java
 class Solution {
-    private int m;
-    private int n;
-    private int[] ps;
-    private int[][][] f;
-    private static final int MX = 100;
-
     public int[] smallestSufficientTeam(String[] req_skills, List<List<String>> people) {
-        m = req_skills.length;
-        n = people.size();
-        ps = new int[n];
-        f = new int[n][1 << m][];
         Map<String, Integer> d = new HashMap<>();
+        int m = req_skills.length;
+        int n = people.size();
         for (int i = 0; i < m; ++i) {
             d.put(req_skills[i], i);
         }
+        int[] p = new int[n];
         for (int i = 0; i < n; ++i) {
-            for (String skill : people.get(i)) {
-                ps[i] |= 1 << d.get(skill);
+            for (var s : people.get(i)) {
+                p[i] |= 1 << d.get(s);
             }
         }
-        return dfs(0, 0);
+        int[] f = new int[1 << m];
+        int[] g = new int[1 << m];
+        int[] h = new int[1 << m];
+        final int inf = 1 << 30;
+        Arrays.fill(f, inf);
+        f[0] = 0;
+        for (int i = 0; i < 1 << m; ++i) {
+            if (f[i] == inf) {
+                continue;
+            }
+            for (int j = 0; j < n; ++j) {
+                if (f[i] + 1 < f[i | p[j]]) {
+                    f[i | p[j]] = f[i] + 1;
+                    g[i | p[j]] = j;
+                    h[i | p[j]] = i;
+                }
+            }
+        }
+        List<Integer> ans = new ArrayList<>();
+        for (int i = (1 << m) - 1; i != 0; i = h[i]) {
+            ans.add(g[i]);
+        }
+        return ans.stream().mapToInt(Integer::intValue).toArray();
     }
+}
+```
 
-    private int[] dfs(int i, int state) {
-        if (i == n) {
-            return state == (1 << m) - 1 ? new int[0] : add(new int[0], MX);
-        }
-        if (f[i][state] != null) {
-            return f[i][state];
-        }
-        int[] ans1 = dfs(i + 1, state);
-        int[] ans2 = dfs(i + 1, state | ps[i]);
-        if (ans1.length > 0 && ans1[0] == MX && ans2.length > 0 && ans2[0] == MX) {
-            return f[i][state] = ans1;
-        }
-        if (ans1.length > 0 && ans1[0] == MX) {
-            return f[i][state] = add(ans2, i);
-        }
-        if (ans2.length > 0 && ans2[0] == MX) {
-            return f[i][state] = ans1;
-        }
-        if (ans1.length < ans2.length + 1) {
-            return f[i][state] = ans1;
-        }
-        return f[i][state] = add(ans2, i);
-    }
+### **C++**
 
-    private int[] add(int[] nums, int x) {
-        int[] copy = Arrays.copyOf(nums, nums.length + 1);
-        copy[copy.length - 1] = x;
-        return copy;
+```cpp
+class Solution {
+public:
+    vector<int> smallestSufficientTeam(vector<string>& req_skills, vector<vector<string>>& people) {
+        unordered_map<string, int> d;
+        int m = req_skills.size(), n = people.size();
+        for (int i = 0; i < m; ++i) {
+            d[req_skills[i]] = i;
+        }
+        int p[n];
+        memset(p, 0, sizeof(p));
+        for (int i = 0; i < n; ++i) {
+            for (auto& s : people[i]) {
+                p[i] |= 1 << d[s];
+            }
+        }
+        int f[1 << m];
+        int g[1 << m];
+        int h[1 << m];
+        memset(f, 63, sizeof(f));
+        f[0] = 0;
+        for (int i = 0; i < 1 << m; ++i) {
+            if (f[i] == 0x3f3f3f3f) {
+                continue;
+            }
+            for (int j = 0; j < n; ++j) {
+                if (f[i] + 1 < f[i | p[j]]) {
+                    f[i | p[j]] = f[i] + 1;
+                    g[i | p[j]] = j;
+                    h[i | p[j]] = i;
+                }
+            }
+        }
+        vector<int> ans;
+        for (int i = (1 << m) - 1; i; i = h[i]) {
+            ans.push_back(g[i]);
+        }
+        return ans;
     }
+};
+```
+
+### **Go**
+
+```go
+func smallestSufficientTeam(req_skills []string, people [][]string) (ans []int) {
+	d := map[string]int{}
+	for i, s := range req_skills {
+		d[s] = i
+	}
+	m, n := len(req_skills), len(people)
+	p := make([]int, n)
+	for i, ss := range people {
+		for _, s := range ss {
+			p[i] |= 1 << d[s]
+		}
+	}
+	const inf = 1 << 30
+	f := make([]int, 1<<m)
+	g := make([]int, 1<<m)
+	h := make([]int, 1<<m)
+	for i := range f {
+		f[i] = inf
+	}
+	f[0] = 0
+	for i := range f {
+		if f[i] == inf {
+			continue
+		}
+		for j := 0; j < n; j++ {
+			if f[i]+1 < f[i|p[j]] {
+				f[i|p[j]] = f[i] + 1
+				g[i|p[j]] = j
+				h[i|p[j]] = i
+			}
+		}
+	}
+	for i := 1<<m - 1; i != 0; i = h[i] {
+		ans = append(ans, g[i])
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function smallestSufficientTeam(
+    req_skills: string[],
+    people: string[][],
+): number[] {
+    const d: Map<string, number> = new Map();
+    const m = req_skills.length;
+    const n = people.length;
+    for (let i = 0; i < m; ++i) {
+        d.set(req_skills[i], i);
+    }
+    const p: number[] = new Array(n).fill(0);
+    for (let i = 0; i < n; ++i) {
+        for (const s of people[i]) {
+            p[i] |= 1 << d.get(s)!;
+        }
+    }
+    const inf = 1 << 30;
+    const f: number[] = new Array(1 << m).fill(inf);
+    const g: number[] = new Array(1 << m).fill(0);
+    const h: number[] = new Array(1 << m).fill(0);
+    f[0] = 0;
+    for (let i = 0; i < 1 << m; ++i) {
+        if (f[i] === inf) {
+            continue;
+        }
+        for (let j = 0; j < n; ++j) {
+            if (f[i] + 1 < f[i | p[j]]) {
+                f[i | p[j]] = f[i] + 1;
+                g[i | p[j]] = j;
+                h[i | p[j]] = i;
+            }
+        }
+    }
+    const ans: number[] = [];
+    for (let i = (1 << m) - 1; i; i = h[i]) {
+        ans.push(g[i]);
+    }
+    return ans;
 }
 ```
 
