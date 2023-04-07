@@ -64,6 +64,22 @@ class Solution:
         return root
 ```
 
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        if root is None:
+            return None
+        l, r = self.invertTree(root.left), self.invertTree(root.right)
+        root.left, root.right = r, l
+        return root
+```
+
 ### **Java**
 
 ```java
@@ -101,6 +117,36 @@ class Solution {
 }
 ```
 
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public TreeNode invertTree(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        TreeNode l = invertTree(root.left);
+        TreeNode r = invertTree(root.right);
+        root.left = r;
+        root.right = l;
+        return root;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -132,6 +178,33 @@ public:
 };
 ```
 
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* invertTree(TreeNode* root) {
+        if (!root) {
+            return root;
+        }
+        TreeNode* l = invertTree(root->left);
+        TreeNode* r = invertTree(root->right);
+        root->left = r;
+        root->right = l;
+        return root;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -154,6 +227,25 @@ func invertTree(root *TreeNode) *TreeNode {
 		dfs(root.Right)
 	}
 	dfs(root)
+	return root
+}
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func invertTree(root *TreeNode) *TreeNode {
+	if root == nil {
+		return root
+	}
+	l, r := invertTree(root.Left), invertTree(root.Right)
+	root.Left, root.Right = r, l
 	return root
 }
 ```
@@ -187,6 +279,31 @@ var invertTree = function (root) {
 };
 ```
 
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {TreeNode}
+ */
+var invertTree = function (root) {
+    if (!root) {
+        return root;
+    }
+    const l = invertTree(root.left);
+    const r = invertTree(root.right);
+    root.left = r;
+    root.right = l;
+    return root;
+};
+```
+
 ### **TypeScript**
 
 ```ts
@@ -214,6 +331,33 @@ function invertTree(root: TreeNode | null): TreeNode | null {
         dfs(root.right);
     };
     dfs(root);
+    return root;
+}
+```
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function invertTree(root: TreeNode | null): TreeNode | null {
+    if (!root) {
+        return root;
+    }
+    const l = invertTree(root.left);
+    const r = invertTree(root.right);
+    root.left = r;
+    root.right = l;
     return root;
 }
 ```
