@@ -1,14 +1,14 @@
 class Solution {
     public int maxNumberOfBalloons(String text) {
-        int[] counter = new int[26];
-        for (char c : text.toCharArray()) {
-            ++counter[c - 'a'];
+        int[] cnt = new int[26];
+        for (int i = 0; i < text.length(); ++i) {
+            ++cnt[text.charAt(i) - 'a'];
         }
-        counter['l' - 'a'] >>= 1;
-        counter['o' - 'a'] >>= 1;
-        int ans = 10000;
+        cnt['l' - 'a'] >>= 1;
+        cnt['o' - 'a'] >>= 1;
+        int ans = 1 << 30;
         for (char c : "balon".toCharArray()) {
-            ans = Math.min(ans, counter[c - 'a']);
+            ans = Math.min(ans, cnt[c - 'a']);
         }
         return ans;
     }

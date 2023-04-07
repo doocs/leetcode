@@ -1,16 +1,7 @@
 function maxNumberOfBalloons(text: string): number {
-    let targets: Set<string> = new Set('balloon'.split(''));
-    let cnt = new Array(126).fill(0);
-    for (let char of text) {
-        if (targets.has(char)) {
-            cnt[char.charCodeAt(0)]++;
-        }
+    const cnt = new Array(26).fill(0);
+    for (const c of text) {
+        cnt[c.charCodeAt(0) - 97]++;
     }
-    cnt['l'.charCodeAt(0)] >>= 1;
-    cnt['o'.charCodeAt(0)] >>= 1;
-    let ans = Number.MAX_SAFE_INTEGER;
-    for (let char of targets) {
-        ans = Math.min(cnt[char.charCodeAt(0)], ans);
-    }
-    return ans;
+    return Math.min(cnt[0], cnt[1], cnt[11] >> 1, cnt[14] >> 1, cnt[13]);
 }

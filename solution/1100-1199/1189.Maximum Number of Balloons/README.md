@@ -47,7 +47,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-简单计数。
+**方法一：计数**
+
+我们统计字符串 `text` 中每个字母出现的次数，然后将其中字母 `'o'` 和 `'l'` 的出现次数分别除以 2，这是因为单词 `balloon` 中字母 `'o'` 和 `'l'` 都出现了 2 次。
+
+接着，我们遍历单词 `balon` 中的每个字母，统计每个字母在字符串 `text` 中出现的次数的最小值，这个最小值就是单词 `balloon` 在字符串 `text` 中出现的最大次数。
+
+时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串 `text` 的长度；而 $C$ 为字符集大小，本题中 $C = 26$。
 
 <!-- tabs:start -->
 
@@ -58,10 +64,10 @@
 ```python
 class Solution:
     def maxNumberOfBalloons(self, text: str) -> int:
-        counter = Counter(text)
-        counter['l'] >>= 1
-        counter['o'] >>= 1
-        return min(counter[c] for c in 'balon')
+        cnt = Counter(text)
+        cnt['o'] >>= 1
+        cnt['l'] >>= 1
+        return min(cnt[c] for c in 'balon')
 ```
 
 ### **Java**
@@ -71,63 +77,18 @@ class Solution:
 ```java
 class Solution {
     public int maxNumberOfBalloons(String text) {
-        int[] counter = new int[26];
-        for (char c : text.toCharArray()) {
-            ++counter[c - 'a'];
+        int[] cnt = new int[26];
+        for (int i = 0; i < text.length(); ++i) {
+            ++cnt[text.charAt(i) - 'a'];
         }
-        counter['l' - 'a'] >>= 1;
-        counter['o' - 'a'] >>= 1;
-        int ans = 10000;
+        cnt['l' - 'a'] >>= 1;
+        cnt['o' - 'a'] >>= 1;
+        int ans = 1 << 30;
         for (char c : "balon".toCharArray()) {
-            ans = Math.min(ans, counter[c - 'a']);
+            ans = Math.min(ans, cnt[c - 'a']);
         }
         return ans;
     }
-}
-```
-
-### **TypeScript**
-
-```ts
-function maxNumberOfBalloons(text: string): number {
-    let targets: Set<string> = new Set('balloon'.split(''));
-    let cnt = new Array(126).fill(0);
-    for (let char of text) {
-        if (targets.has(char)) {
-            cnt[char.charCodeAt(0)]++;
-        }
-    }
-    cnt['l'.charCodeAt(0)] >>= 1;
-    cnt['o'.charCodeAt(0)] >>= 1;
-    let ans = Number.MAX_SAFE_INTEGER;
-    for (let char of targets) {
-        ans = Math.min(cnt[char.charCodeAt(0)], ans);
-    }
-    return ans;
-}
-```
-
-```ts
-function maxNumberOfBalloons(text: string): number {
-    const map = new Map([
-        ['b', 0],
-        ['a', 0],
-        ['l', 0],
-        ['o', 0],
-        ['n', 0],
-    ]);
-    for (const c of text) {
-        if (map.has(c)) {
-            map.set(c, map.get(c) + 1);
-        }
-    }
-    map.set('l', Math.floor(map.get('l') / 2));
-    map.set('o', Math.floor(map.get('o') / 2));
-    let res = Infinity;
-    for (const value of map.values()) {
-        res = Math.min(res, value);
-    }
-    return res;
 }
 ```
 
@@ -137,13 +98,17 @@ function maxNumberOfBalloons(text: string): number {
 class Solution {
 public:
     int maxNumberOfBalloons(string text) {
-        vector<int> counter(26);
-        for (char& c : text) ++counter[c - 'a'];
-        counter['l' - 'a'] >>= 1;
-        counter['o' - 'a'] >>= 1;
-        int ans = 10000;
+        int cnt[26]{};
+        for (char c : text) {
+            ++cnt[c - 'a'];
+        }
+        cnt['o' - 'a'] >>= 1;
+        cnt['l' - 'a'] >>= 1;
+        int ans = 1 << 30;
         string t = "balon";
-        for (char& c : t) ans = min(ans, counter[c - 'a']);
+        for (char c : t) {
+            ans = min(ans, cnt[c - 'a']);
+        }
         return ans;
     }
 };
@@ -153,25 +118,31 @@ public:
 
 ```go
 func maxNumberOfBalloons(text string) int {
-	counter := make([]int, 26)
-	for i := range text {
-		counter[text[i]-'a']++
+	cnt := [26]int{}
+	for _, c := range text {
+		cnt[c-'a']++
 	}
-	counter['l'-'a'] >>= 1
-	counter['o'-'a'] >>= 1
-	ans := 10000
-	t := "balon"
-	for i := range t {
-		ans = min(ans, counter[t[i]-'a'])
+	cnt['l'-'a'] >>= 1
+	cnt['o'-'a'] >>= 1
+	ans := 1 << 30
+	for _, c := range "balon" {
+		if x := cnt[c-'a']; ans > x {
+			ans = x
+		}
 	}
 	return ans
 }
+```
 
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
+### **TypeScript**
+
+```ts
+function maxNumberOfBalloons(text: string): number {
+    const cnt = new Array(26).fill(0);
+    for (const c of text) {
+        cnt[c.charCodeAt(0) - 97]++;
+    }
+    return Math.min(cnt[0], cnt[1], cnt[11] >> 1, cnt[14] >> 1, cnt[13]);
 }
 ```
 

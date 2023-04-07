@@ -1,21 +1,15 @@
 func maxNumberOfBalloons(text string) int {
-	counter := make([]int, 26)
-	for i := range text {
-		counter[text[i]-'a']++
+	cnt := [26]int{}
+	for _, c := range text {
+		cnt[c-'a']++
 	}
-	counter['l'-'a'] >>= 1
-	counter['o'-'a'] >>= 1
-	ans := 10000
-	t := "balon"
-	for i := range t {
-		ans = min(ans, counter[t[i]-'a'])
+	cnt['l'-'a'] >>= 1
+	cnt['o'-'a'] >>= 1
+	ans := 1 << 30
+	for _, c := range "balon" {
+		if x := cnt[c-'a']; ans > x {
+			ans = x
+		}
 	}
 	return ans
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
