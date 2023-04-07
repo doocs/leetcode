@@ -1,24 +1,56 @@
+class Trie {
+public:
+    Trie()
+        : children(26, nullptr) {
+    }
+
+    void insert(string& w, int x) {
+        Trie* node = this;
+        for (char c : w) {
+            c -= 'a';
+            if (!node->children[c]) {
+                node->children[c] = new Trie();
+            }
+            node = node->children[c];
+            node->val += x;
+        }
+    }
+
+    int search(string& w) {
+        Trie* node = this;
+        for (char c : w) {
+            c -= 'a';
+            if (!node->children[c]) {
+                return 0;
+            }
+            node = node->children[c];
+        }
+        return node->val;
+    }
+
+private:
+    vector<Trie*> children;
+    int val = 0;
+};
+
 class MapSum {
 public:
-    unordered_map<string, int> data;
-    unordered_map<string, int> t;
-
-    /** Initialize your data structure here. */
     MapSum() {
     }
 
     void insert(string key, int val) {
-        int old = t[key];
-        t[key] = val;
-        for (int i = 1; i < key.size() + 1; ++i) {
-            string k = key.substr(0, i);
-            data[k] += (val - old);
-        }
+        int x = val - d[key];
+        d[key] = val;
+        trie->insert(key, x);
     }
 
     int sum(string prefix) {
-        return data[prefix];
+        return trie->search(prefix);
     }
+
+private:
+    unordered_map<string, int> d;
+    Trie* trie = new Trie();
 };
 
 /**

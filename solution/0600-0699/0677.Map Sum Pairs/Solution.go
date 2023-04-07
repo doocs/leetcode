@@ -1,27 +1,47 @@
-type MapSum struct {
-	data map[string]int
-	t    map[string]int
+type trie struct {
+	children [26]*trie
+	val      int
 }
 
-/** Initialize your data structure here. */
-func Constructor() MapSum {
-	return MapSum{
-		data: make(map[string]int),
-		t:    make(map[string]int),
+func (t *trie) insert(w string, x int) {
+	for _, c := range w {
+		c -= 'a'
+		if t.children[c] == nil {
+			t.children[c] = &trie{}
+		}
+		t = t.children[c]
+		t.val += x
 	}
+}
+
+func (t *trie) search(w string) int {
+	for _, c := range w {
+		c -= 'a'
+		if t.children[c] == nil {
+			return 0
+		}
+		t = t.children[c]
+	}
+	return t.val
+}
+
+type MapSum struct {
+	d map[string]int
+	t *trie
+}
+
+func Constructor() MapSum {
+	return MapSum{make(map[string]int), &trie{}}
 }
 
 func (this *MapSum) Insert(key string, val int) {
-	old := this.t[key]
-	this.t[key] = val
-	for i := 1; i < len(key)+1; i++ {
-		k := key[:i]
-		this.data[k] += (val - old)
-	}
+	x := val - this.d[key]
+	this.d[key] = val
+	this.t.insert(key, x)
 }
 
 func (this *MapSum) Sum(prefix string) int {
-	return this.data[prefix]
+	return this.t.search(prefix)
 }
 
 /**

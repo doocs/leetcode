@@ -1,24 +1,49 @@
-class MapSum {
-    private Map<String, Integer> data;
-    private Map<String, Integer> t;
+class Trie {
+    private Trie[] children = new Trie[26];
+    private int val;
 
-    /** Initialize your data structure here. */
-    public MapSum() {
-        data = new HashMap<>();
-        t = new HashMap<>();
-    }
-
-    public void insert(String key, int val) {
-        int old = t.getOrDefault(key, 0);
-        t.put(key, val);
-        for (int i = 1; i < key.length() + 1; ++i) {
-            String k = key.substring(0, i);
-            data.put(k, data.getOrDefault(k, 0) + (val - old));
+    public void insert(String w, int x) {
+        Trie node = this;
+        for (int i = 0; i < w.length(); ++i) {
+            int idx = w.charAt(i) - 'a';
+            if (node.children[idx] == null) {
+                node.children[idx] = new Trie();
+            }
+            node = node.children[idx];
+            node.val += x;
         }
     }
 
+    public int search(String w) {
+        Trie node = this;
+        for (int i = 0; i < w.length(); ++i) {
+            int idx = w.charAt(i) - 'a';
+            if (node.children[idx] == null) {
+                return 0;
+            }
+            node = node.children[idx];
+        }
+        return node.val;
+    }
+}
+
+class MapSum {
+    private Map<String, Integer> d = new HashMap<>();
+    private Trie trie = new Trie();
+
+
+    public MapSum() {
+
+    }
+    
+    public void insert(String key, int val) {
+        int x = val - d.getOrDefault(key, 0);
+        d.put(key, val);
+        trie.insert(key, x);
+    }
+    
     public int sum(String prefix) {
-        return data.getOrDefault(prefix, 0);
+        return trie.search(prefix);
     }
 }
 

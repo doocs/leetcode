@@ -54,23 +54,43 @@ mapSum.sum(&quot;ap&quot;);           // return 5 (<u>ap</u>ple + <u>ap</u>p = 3
 ### **Python3**
 
 ```python
-class MapSum:
+class Trie:
     def __init__(self):
-        """
-        Initialize your data structure here.
-        """
-        self.data = defaultdict(int)
-        self.t = defaultdict(int)
+        self.children: List[Trie | None] = [None] * 26
+        self.val: int = 0
+
+    def insert(self, w: str, x: int):
+        node = self
+        for c in w:
+            idx = ord(c) - ord('a')
+            if node.children[idx] is None:
+                node.children[idx] = Trie()
+            node = node.children[idx]
+            node.val += x
+
+    def search(self, w: str) -> int:
+        node = self
+        for c in w:
+            idx = ord(c) - ord('a')
+            if node.children[idx] is None:
+                return 0
+            node = node.children[idx]
+        return node.val
+
+
+class MapSum:
+
+    def __init__(self):
+        self.d = defaultdict(int)
+        self.tree = Trie()
 
     def insert(self, key: str, val: int) -> None:
-        old = self.t[key]
-        self.t[key] = val
-        for i in range(1, len(key) + 1):
-            self.data[key[:i]] += val - old
+        x = val - self.d[key]
+        self.d[key] = val
+        self.tree.insert(key, x)
 
     def sum(self, prefix: str) -> int:
-        return self.data[prefix]
-
+        return self.tree.search(prefix)
 
 # Your MapSum object will be instantiated and called as such:
 # obj = MapSum()
@@ -81,27 +101,52 @@ class MapSum:
 ### **Java**
 
 ```java
-class MapSum {
-    private Map<String, Integer> data;
-    private Map<String, Integer> t;
+class Trie {
+    private Trie[] children = new Trie[26];
+    private int val;
 
-    /** Initialize your data structure here. */
-    public MapSum() {
-        data = new HashMap<>();
-        t = new HashMap<>();
-    }
-
-    public void insert(String key, int val) {
-        int old = t.getOrDefault(key, 0);
-        t.put(key, val);
-        for (int i = 1; i < key.length() + 1; ++i) {
-            String k = key.substring(0, i);
-            data.put(k, data.getOrDefault(k, 0) + (val - old));
+    public void insert(String w, int x) {
+        Trie node = this;
+        for (int i = 0; i < w.length(); ++i) {
+            int idx = w.charAt(i) - 'a';
+            if (node.children[idx] == null) {
+                node.children[idx] = new Trie();
+            }
+            node = node.children[idx];
+            node.val += x;
         }
     }
 
+    public int search(String w) {
+        Trie node = this;
+        for (int i = 0; i < w.length(); ++i) {
+            int idx = w.charAt(i) - 'a';
+            if (node.children[idx] == null) {
+                return 0;
+            }
+            node = node.children[idx];
+        }
+        return node.val;
+    }
+}
+
+class MapSum {
+    private Map<String, Integer> d = new HashMap<>();
+    private Trie trie = new Trie();
+
+
+    public MapSum() {
+
+    }
+    
+    public void insert(String key, int val) {
+        int x = val - d.getOrDefault(key, 0);
+        d.put(key, val);
+        trie.insert(key, x);
+    }
+    
     public int sum(String prefix) {
-        return data.getOrDefault(prefix, 0);
+        return trie.search(prefix);
     }
 }
 
@@ -116,27 +161,59 @@ class MapSum {
 ### **C++**
 
 ```cpp
+class Trie {
+public:
+    Trie()
+        : children(26, nullptr) {
+    }
+
+    void insert(string& w, int x) {
+        Trie* node = this;
+        for (char c : w) {
+            c -= 'a';
+            if (!node->children[c]) {
+                node->children[c] = new Trie();
+            }
+            node = node->children[c];
+            node->val += x;
+        }
+    }
+
+    int search(string& w) {
+        Trie* node = this;
+        for (char c : w) {
+            c -= 'a';
+            if (!node->children[c]) {
+                return 0;
+            }
+            node = node->children[c];
+        }
+        return node->val;
+    }
+
+private:
+    vector<Trie*> children;
+    int val = 0;
+};
+
 class MapSum {
 public:
-    unordered_map<string, int> data;
-    unordered_map<string, int> t;
-
-    /** Initialize your data structure here. */
     MapSum() {
     }
 
     void insert(string key, int val) {
-        int old = t[key];
-        t[key] = val;
-        for (int i = 1; i < key.size() + 1; ++i) {
-            string k = key.substr(0, i);
-            data[k] += (val - old);
-        }
+        int x = val - d[key];
+        d[key] = val;
+        trie->insert(key, x);
     }
 
     int sum(string prefix) {
-        return data[prefix];
+        return trie->search(prefix);
     }
+
+private:
+    unordered_map<string, int> d;
+    Trie* trie = new Trie();
 };
 
 /**
@@ -150,30 +227,50 @@ public:
 ### **Go**
 
 ```go
-type MapSum struct {
-	data map[string]int
-	t    map[string]int
+type trie struct {
+	children [26]*trie
+	val      int
 }
 
-/** Initialize your data structure here. */
-func Constructor() MapSum {
-	return MapSum{
-		data: make(map[string]int),
-		t:    make(map[string]int),
+func (t *trie) insert(w string, x int) {
+	for _, c := range w {
+		c -= 'a'
+		if t.children[c] == nil {
+			t.children[c] = &trie{}
+		}
+		t = t.children[c]
+		t.val += x
 	}
+}
+
+func (t *trie) search(w string) int {
+	for _, c := range w {
+		c -= 'a'
+		if t.children[c] == nil {
+			return 0
+		}
+		t = t.children[c]
+	}
+	return t.val
+}
+
+type MapSum struct {
+	d map[string]int
+	t *trie
+}
+
+func Constructor() MapSum {
+	return MapSum{make(map[string]int), &trie{}}
 }
 
 func (this *MapSum) Insert(key string, val int) {
-	old := this.t[key]
-	this.t[key] = val
-	for i := 1; i < len(key)+1; i++ {
-		k := key[:i]
-		this.data[k] += (val - old)
-	}
+	x := val - this.d[key]
+	this.d[key] = val
+	this.t.insert(key, x)
 }
 
 func (this *MapSum) Sum(prefix string) int {
-	return this.data[prefix]
+	return this.t.search(prefix)
 }
 
 /**
@@ -181,6 +278,70 @@ func (this *MapSum) Sum(prefix string) int {
  * obj := Constructor();
  * obj.Insert(key,val);
  * param_2 := obj.Sum(prefix);
+ */
+```
+
+### **TypeScript**
+
+```ts
+class Trie {
+    children: Trie[];
+    val: number;
+
+    constructor() {
+        this.children = new Array(26);
+        this.val = 0;
+    }
+
+    insert(w: string, x: number) {
+        let node: Trie = this;
+        for (const c of w) {
+            const i = c.charCodeAt(0) - 97;
+            if (!node.children[i]) {
+                node.children[i] = new Trie();
+            }
+            node = node.children[i];
+            node.val += x;
+        }
+    }
+
+    search(w: string): number {
+        let node: Trie = this;
+        for (const c of w) {
+            const i = c.charCodeAt(0) - 97;
+            if (!node.children[i]) {
+                return 0;
+            }
+            node = node.children[i];
+        }
+        return node.val;
+    }
+}
+
+class MapSum {
+    d: Map<string, number>;
+    t: Trie;
+    constructor() {
+        this.d = new Map();
+        this.t = new Trie();
+    }
+
+    insert(key: string, val: number): void {
+        const x = val - (this.d.get(key) ?? 0);
+        this.d.set(key, val);
+        this.t.insert(key, x);
+    }
+
+    sum(prefix: string): number {
+        return this.t.search(prefix);
+    }
+}
+
+/**
+ * Your MapSum object will be instantiated and called as such:
+ * var obj = new MapSum()
+ * obj.insert(key,val)
+ * var param_2 = obj.sum(prefix)
  */
 ```
 
