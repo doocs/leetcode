@@ -1,12 +1,12 @@
 class Solution {
     public boolean checkDistances(String s, int[] distance) {
         int[] d = new int[26];
-        for (int i = 0; i < s.length(); ++i) {
-            int j = s.charAt(i) - 'a';
-            if (d[j] > 0 && i - d[j] != distance[j]) {
+        for (int i = 1, n = s.length(); i <= n; ++i) {
+            int j = s.charAt(i - 1) - 'a';
+            if (d[j] > 0 && i - d[j] - 1 != distance[j]) {
                 return false;
             }
-            d[j] = i + 1;
+            d[j] = i;
         }
         return true;
     }

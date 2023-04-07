@@ -1,9 +1,8 @@
 class Solution:
     def checkDistances(self, s: str, distance: List[int]) -> bool:
-        d = [0] * 26
-        for i, c in enumerate(s):
-            j = ord(c) - ord("a")
-            if d[j] and i - d[j] != distance[j]:
+        d = defaultdict(int)
+        for i, c in enumerate(s, 1):
+            if d[c] and i - d[c] - 1 != distance[ord(c) - ord('a')]:
                 return False
-            d[j] = i + 1
+            d[c] = i
         return True

@@ -56,12 +56,11 @@ Because distance[0] = 1, s is not a well-spaced string.
 ```python
 class Solution:
     def checkDistances(self, s: str, distance: List[int]) -> bool:
-        d = [0] * 26
-        for i, c in enumerate(s):
-            j = ord(c) - ord("a")
-            if d[j] and i - d[j] != distance[j]:
+        d = defaultdict(int)
+        for i, c in enumerate(s, 1):
+            if d[c] and i - d[c] - 1 != distance[ord(c) - ord('a')]:
                 return False
-            d[j] = i + 1
+            d[c] = i
         return True
 ```
 
@@ -71,12 +70,12 @@ class Solution:
 class Solution {
     public boolean checkDistances(String s, int[] distance) {
         int[] d = new int[26];
-        for (int i = 0; i < s.length(); ++i) {
-            int j = s.charAt(i) - 'a';
-            if (d[j] > 0 && i - d[j] != distance[j]) {
+        for (int i = 1, n = s.length(); i <= n; ++i) {
+            int j = s.charAt(i - 1) - 'a';
+            if (d[j] > 0 && i - d[j] - 1 != distance[j]) {
                 return false;
             }
-            d[j] = i + 1;
+            d[j] = i;
         }
         return true;
     }
@@ -89,13 +88,13 @@ class Solution {
 class Solution {
 public:
     bool checkDistances(string s, vector<int>& distance) {
-        vector<int> d(26);
-        for (int i = 0; i < s.size(); ++i) {
-            int j = s[i] - 'a';
-            if (d[j] && i - d[j] != distance[j]) {
+        int d[26]{};
+        for (int i = 1; i <= s.size(); ++i) {
+            int j = s[i - 1] - 'a';
+            if (d[j] && i - d[j] - 1 != distance[j]) {
                 return false;
             }
-            d[j] = i + 1;
+            d[j] = i;
         }
         return true;
     }
@@ -106,13 +105,13 @@ public:
 
 ```go
 func checkDistances(s string, distance []int) bool {
-	d := make([]int, 26)
+	d := [26]int{}
 	for i, c := range s {
-		j := c - 'a'
-		if d[j] > 0 && i-d[j] != distance[j] {
+		c -= 'a'
+		if d[c] > 0 && i-d[c] != distance[c] {
 			return false
 		}
-		d[j] = i + 1
+		d[c] = i + 1
 	}
 	return true
 }
@@ -140,13 +139,13 @@ bool checkDistances(char *s, int *distance, int distanceSize) {
 ```ts
 function checkDistances(s: string, distance: number[]): boolean {
     const n = s.length;
-    const d = new Array(26).fill(0);
-    for (let i = 0; i < n; i++) {
-        const j = s[i].charCodeAt(0) - 'a'.charCodeAt(0);
-        if (d[j] > 0 && i - d[j] !== distance[j]) {
+    const d: number[] = new Array(26).fill(0);
+    for (let i = 1; i <= n; ++i) {
+        const j = s.charCodeAt(i - 1) - 97;
+        if (d[j] && i - d[j] - 1 != distance[j]) {
             return false;
         }
-        d[j] = i + 1;
+        d[j] = i;
     }
     return true;
 }

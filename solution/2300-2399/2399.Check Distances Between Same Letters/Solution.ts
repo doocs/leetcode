@@ -1,12 +1,12 @@
 function checkDistances(s: string, distance: number[]): boolean {
     const n = s.length;
-    const d = new Array(26).fill(0);
-    for (let i = 0; i < n; i++) {
-        const j = s[i].charCodeAt(0) - 'a'.charCodeAt(0);
-        if (d[j] > 0 && i - d[j] !== distance[j]) {
+    const d: number[] = new Array(26).fill(0);
+    for (let i = 1; i <= n; ++i) {
+        const j = s.charCodeAt(i - 1) - 97;
+        if (d[j] && i - d[j] - 1 != distance[j]) {
             return false;
         }
-        d[j] = i + 1;
+        d[j] = i;
     }
     return true;
 }
