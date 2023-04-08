@@ -193,7 +193,7 @@ class Solution {
      * @param Integer[] $nums
      * @return Integer
      */
-    function removeDuplicates( & $nums) {
+    function removeDuplicates(&$nums) {
         $fast = $slow = 0;
         while ($fast < count($nums)) {
             if ($nums[$fast] != $nums[$slow]) {
