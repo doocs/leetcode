@@ -23,7 +23,6 @@ class Trie:
 
 
 class MapSum:
-
     def __init__(self):
         self.d = defaultdict(int)
         self.tree = Trie()
@@ -35,6 +34,7 @@ class MapSum:
 
     def sum(self, prefix: str) -> int:
         return self.tree.search(prefix)
+
 
 # Your MapSum object will be instantiated and called as such:
 # obj = MapSum()

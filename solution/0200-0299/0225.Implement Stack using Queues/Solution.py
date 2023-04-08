@@ -1,5 +1,4 @@
 class MyStack:
-
     def __init__(self):
         self.q1 = deque()
         self.q2 = deque()
