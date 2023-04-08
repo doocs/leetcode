@@ -1,11 +1,10 @@
 class Solution {
     public int numEquivDominoPairs(int[][] dominoes) {
+        int[] cnt = new int[100];
         int ans = 0;
-        int[] counter = new int[100];
-        for (int[] d : dominoes) {
-            int v = d[0] > d[1] ? d[0] * 10 + d[1] : d[1] * 10 + d[0];
-            ans += counter[v];
-            ++counter[v];
+        for (var e : dominoes) {
+            int x = e[0] < e[1] ? e[0] * 10 + e[1] : e[1] * 10 + e[0];
+            ans += cnt[x]++;
         }
         return ans;
     }

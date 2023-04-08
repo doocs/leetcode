@@ -41,12 +41,25 @@
 ```python
 class Solution:
     def numEquivDominoPairs(self, dominoes: List[List[int]]) -> int:
-        counter = Counter()
+        cnt = Counter()
         ans = 0
         for a, b in dominoes:
-            v = a * 10 + b if a > b else b * 10 + a
-            ans += counter[v]
-            counter[v] += 1
+            ans += cnt[(a, b)]
+            cnt[(a, b)] += 1
+            if a != b:
+                cnt[(b, a)] += 1
+        return ans
+```
+
+```python
+class Solution:
+    def numEquivDominoPairs(self, dominoes: List[List[int]]) -> int:
+        cnt = Counter()
+        ans = 0
+        for a, b in dominoes:
+            x = a * 10 + b if a < b else b * 10 + a
+            ans += cnt[x]
+            cnt[x] += 1
         return ans
 ```
 
@@ -55,29 +68,11 @@ class Solution:
 ```java
 class Solution {
     public int numEquivDominoPairs(int[][] dominoes) {
+        int[] cnt = new int[100];
         int ans = 0;
-        int[] counter = new int[100];
-        for (int[] d : dominoes) {
-            int v = d[0] > d[1] ? d[0] * 10 + d[1] : d[1] * 10 + d[0];
-            ans += counter[v];
-            ++counter[v];
-        }
-        return ans;
-    }
-}
-```
-
-```java
-class Solution {
-    public int numEquivDominoPairs(int[][] dominoes) {
-        int[] counter = new int[100];
-        for (int[] d : dominoes) {
-            int v = d[0] > d[1] ? d[0] * 10 + d[1] : d[1] * 10 + d[0];
-            ++counter[v];
-        }
-        int ans = 0;
-        for (int c : counter) {
-            ans += c * (c - 1) / 2;
+        for (var e : dominoes) {
+            int x = e[0] < e[1] ? e[0] * 10 + e[1] : e[1] * 10 + e[0];
+            ans += cnt[x]++;
         }
         return ans;
     }
@@ -90,12 +85,11 @@ class Solution {
 class Solution {
 public:
     int numEquivDominoPairs(vector<vector<int>>& dominoes) {
-        vector<int> counter(100);
+        int cnt[100]{};
         int ans = 0;
-        for (auto& d : dominoes) {
-            int v = d[0] > d[1] ? d[0] * 10 + d[1] : d[1] * 10 + d[0];
-            ans += counter[v];
-            ++counter[v];
+        for (auto& e : dominoes) {
+            int x = e[0] < e[1] ? e[0] * 10 + e[1] : e[1] * 10 + e[0];
+            ans += cnt[x]++;
         }
         return ans;
     }
@@ -105,20 +99,17 @@ public:
 ### **Go**
 
 ```go
-func numEquivDominoPairs(dominoes [][]int) int {
-	counter := make([]int, 100)
-	for _, d := range dominoes {
-		if d[1] < d[0] {
-			d[0], d[1] = d[1], d[0]
+func numEquivDominoPairs(dominoes [][]int) (ans int) {
+	cnt := [100]int{}
+	for _, e := range dominoes {
+		x := e[0]*10 + e[1]
+		if e[0] > e[1] {
+			x = e[1]*10 + e[0]
 		}
-		v := d[0]*10 + d[1]
-		counter[v]++
+		ans += cnt[x]
+		cnt[x]++
 	}
-	ans := 0
-	for _, c := range counter {
-		ans += c * (c - 1) / 2
-	}
-	return ans
+	return
 }
 ```
 

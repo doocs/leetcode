@@ -1,15 +1,12 @@
-func numEquivDominoPairs(dominoes [][]int) int {
-	counter := make([]int, 100)
-	for _, d := range dominoes {
-		if d[1] < d[0] {
-			d[0], d[1] = d[1], d[0]
+func numEquivDominoPairs(dominoes [][]int) (ans int) {
+	cnt := [100]int{}
+	for _, e := range dominoes {
+		x := e[0]*10 + e[1]
+		if e[0] > e[1] {
+			x = e[1]*10 + e[0]
 		}
-		v := d[0]*10 + d[1]
-		counter[v]++
+		ans += cnt[x]
+		cnt[x]++
 	}
-	ans := 0
-	for _, c := range counter {
-		ans += c * (c - 1) / 2
-	}
-	return ans
+	return
 }
