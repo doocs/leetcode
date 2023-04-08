@@ -1,13 +1,12 @@
-func findMinArrowShots(points [][]int) int {
+func findMinArrowShots(points [][]int) (ans int) {
 	sort.Slice(points, func(i, j int) bool { return points[i][1] < points[j][1] })
-	ans := 1
-	x := points[0][1]
-	for _, v := range points {
-		a, b := v[0], v[1]
-		if a > x {
+	last := -(1 << 60)
+	for _, p := range points {
+		a, b := p[0], p[1]
+		if a > last {
 			ans++
-			x = b
+			last = b
 		}
 	}
-	return ans
+	return
 }

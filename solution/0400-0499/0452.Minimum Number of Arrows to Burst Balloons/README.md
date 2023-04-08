@@ -56,6 +56,12 @@
 
 **方法一：排序 + 贪心**
 
+我们可以将所有气球按照右端点升序排序，然后从左到右遍历气球，维护当前的箭所能覆盖的最右端点 $last$，如果当前气球的左端点 $a$ 大于 $last$，说明当前箭无法覆盖当前气球，需要额外射出一支箭，那么答案加一，同时更新 $last$ 为当前气球的右端点 $b$。
+
+遍历结束后，即可得到答案。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为气球的数量。
+
 相似题目：[757. 设置交集大小至少为 2](/solution/0700-0799/0757.Set%20Intersection%20Size%20At%20Least%20Two/README.md)
 
 <!-- tabs:start -->
@@ -67,13 +73,11 @@
 ```python
 class Solution:
     def findMinArrowShots(self, points: List[List[int]]) -> int:
-        points.sort(key=lambda x: x[1])
-        ans = 1
-        x = points[0][1]
-        for a, b in points:
-            if a > x:
+        ans, last = 0, -inf
+        for a, b in sorted(points, key=lambda x: x[1]):
+            if a > last:
                 ans += 1
-                x = b
+                last = b
         return ans
 ```
 
@@ -84,14 +88,15 @@ class Solution:
 ```java
 class Solution {
     public int findMinArrowShots(int[][] points) {
-        Arrays.sort(points, (a, b) -> a[1] < b[1] ? -1 : 1);
-        int ans = 1;
-        int x = points[0][1];
-        for (int[] v : points) {
-            int a = v[0], b = v[1];
-            if (a > x) {
+        // 直接 a[1] - b[1] 可能会溢出
+        Arrays.sort(points, Comparator.comparingInt(a -> a[1]));
+        int ans = 0;
+        long last = -(1L << 60);
+        for (var p : points) {
+            int a = p[0], b = p[1];
+            if (a > last) {
                 ++ans;
-                x = b;
+                last = b;
             }
         }
         return ans;
@@ -105,16 +110,16 @@ class Solution {
 class Solution {
 public:
     int findMinArrowShots(vector<vector<int>>& points) {
-        sort(points.begin(), points.end(), [](const vector<int>& a, const vector<int>& b) {
+        sort(points.begin(), points.end(), [](vector<int>& a, vector<int>& b) {
             return a[1] < b[1];
         });
-        int ans = 1;
-        int x = points[0][1];
-        for (auto& v : points) {
-            int a = v[0], b = v[1];
-            if (a > x) {
+        int ans = 0;
+        long long last = -(1LL << 60);
+        for (auto& p : points) {
+            int a = p[0], b = p[1];
+            if (a > last) {
                 ++ans;
-                x = b;
+                last = b;
             }
         }
         return ans;
@@ -125,18 +130,34 @@ public:
 ### **Go**
 
 ```go
-func findMinArrowShots(points [][]int) int {
+func findMinArrowShots(points [][]int) (ans int) {
 	sort.Slice(points, func(i, j int) bool { return points[i][1] < points[j][1] })
-	ans := 1
-	x := points[0][1]
-	for _, v := range points {
-		a, b := v[0], v[1]
-		if a > x {
+	last := -(1 << 60)
+	for _, p := range points {
+		a, b := p[0], p[1]
+		if a > last {
 			ans++
-			x = b
+			last = b
 		}
 	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function findMinArrowShots(points: number[][]): number {
+    points.sort((a, b) => a[1] - b[1]);
+    let ans = 0;
+    let last = -Infinity;
+    for (const [a, b] of points) {
+        if (last < a) {
+            ans++;
+            last = b;
+        }
+    }
+    return ans;
 }
 ```
 
