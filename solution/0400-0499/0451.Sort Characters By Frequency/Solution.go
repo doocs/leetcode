@@ -1,21 +1,16 @@
-type pair struct {
-	b   byte
-	cnt int
-}
-
 func frequencySort(s string) string {
-	freq := make(map[byte]int)
-	for _, r := range s {
-		freq[byte(r)]++
+	cnt := map[byte]int{}
+	for i := range s {
+		cnt[s[i]]++
 	}
-	a := make([]pair, 0)
-	for k, v := range freq {
-		a = append(a, pair{b: k, cnt: v})
+	cs := make([]byte, 0, len(s))
+	for c := range cnt {
+		cs = append(cs, c)
 	}
-	sort.Slice(a, func(i, j int) bool { return a[i].cnt > a[j].cnt })
-	var sb strings.Builder
-	for _, p := range a {
-		sb.Write(bytes.Repeat([]byte{p.b}, p.cnt))
+	sort.Slice(cs, func(i, j int) bool { return cnt[cs[i]] > cnt[cs[j]] })
+	ans := make([]byte, 0, len(s))
+	for _, c := range cs {
+		ans = append(ans, bytes.Repeat([]byte{c}, cnt[c])...)
 	}
-	return sb.String()
+	return string(ans)
 }

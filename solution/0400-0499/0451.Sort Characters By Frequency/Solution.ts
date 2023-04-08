@@ -1,10 +1,12 @@
 function frequencySort(s: string): string {
-    const map = new Map<string, number>();
+    const cnt: Map<string, number> = new Map();
     for (const c of s) {
-        map.set(c, (map.get(c) ?? 0) + 1);
+        cnt.set(c, (cnt.get(c) || 0) + 1);
     }
-    return [...map.entries()]
-        .sort((a, b) => b[1] - a[1])
-        .map(([k, v]) => k.padStart(v, k))
-        .join('');
+    const cs = Array.from(cnt.keys()).sort((a, b) => cnt.get(b)! - cnt.get(a)!);
+    const ans: string[] = [];
+    for (const c of cs) {
+        ans.push(c.repeat(cnt.get(c)!));
+    }
+    return ans.join('');
 }
