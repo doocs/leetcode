@@ -10,6 +10,7 @@ function findShortestCycle(n: number, edges: number[][]): number {
         const dist: number[] = new Array(n).fill(-1);
         dist[u] = 0;
         const q: number[][] = [[u, -1]];
+        let ans = inf;
         while (q.length) {
             const p = q.shift()!;
             u = p[0];
@@ -18,12 +19,12 @@ function findShortestCycle(n: number, edges: number[][]): number {
                 if (dist[v] < 0) {
                     dist[v] = dist[u] + 1;
                     q.push([v, u]);
-                } else if (v != fa) {
-                    return dist[u] + dist[v] + 1;
+                } else if (v !== fa) {
+                    ans = Math.min(ans, dist[u] + dist[v] + 1);
                 }
             }
         }
-        return inf;
+        return ans;
     };
     for (let i = 0; i < n; ++i) {
         ans = Math.min(ans, bfs(i));

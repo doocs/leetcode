@@ -23,6 +23,7 @@ class Solution {
         dist[u] = 0;
         Deque<int[]> q = new ArrayDeque<>();
         q.offer(new int[] {u, -1});
+        int ans = inf;
         while (!q.isEmpty()) {
             var p = q.poll();
             u = p[0];
@@ -32,10 +33,10 @@ class Solution {
                     dist[v] = dist[u] + 1;
                     q.offer(new int[] {v, u});
                 } else if (v != fa) {
-                    return dist[u] + dist[v] + 1;
+                    ans = Math.min(ans, dist[u] + dist[v] + 1);
                 }
             }
         }
-        return inf;
+        return ans;
     }
 }

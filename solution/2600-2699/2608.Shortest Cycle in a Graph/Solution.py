@@ -4,6 +4,7 @@ class Solution:
             dist = [-1] * n
             dist[u] = 0
             q = deque([(u, -1)])
+            ans = inf
             while q:
                 u, fa = q.popleft()
                 for v in g[u]:
@@ -11,8 +12,8 @@ class Solution:
                         dist[v] = dist[u] + 1
                         q.append((v, u))
                     elif v != fa:
-                        return dist[u] + dist[v] + 1
-            return inf
+                        ans = min(ans, dist[u] + dist[v] + 1)
+            return ans
 
         g = defaultdict(list)
         for u, v in edges:

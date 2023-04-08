@@ -13,6 +13,7 @@ func findShortestCycle(n int, edges [][]int) int {
 		}
 		dist[u] = 0
 		q := [][2]int{{u, -1}}
+		ans := inf
 		for len(q) > 0 {
 			p := q[0]
 			u = p[0]
@@ -23,11 +24,11 @@ func findShortestCycle(n int, edges [][]int) int {
 					dist[v] = dist[u] + 1
 					q = append(q, [2]int{v, u})
 				} else if v != fa {
-					return dist[u] + dist[v] + 1
+					ans = min(ans, dist[u]+dist[v]+1)
 				}
 			}
 		}
-		return inf
+		return ans
 	}
 	ans := inf
 	for i := 0; i < n; i++ {

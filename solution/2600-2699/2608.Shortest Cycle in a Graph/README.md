@@ -97,6 +97,7 @@ class Solution:
             dist = [-1] * n
             dist[u] = 0
             q = deque([(u, -1)])
+            ans = inf
             while q:
                 u, fa = q.popleft()
                 for v in g[u]:
@@ -104,8 +105,8 @@ class Solution:
                         dist[v] = dist[u] + 1
                         q.append((v, u))
                     elif v != fa:
-                        return dist[u] + dist[v] + 1
-            return inf
+                        ans = min(ans, dist[u] + dist[v] + 1)
+            return ans
 
         g = defaultdict(list)
         for u, v in edges:
@@ -187,6 +188,7 @@ class Solution {
         dist[u] = 0;
         Deque<int[]> q = new ArrayDeque<>();
         q.offer(new int[] {u, -1});
+        int ans = inf;
         while (!q.isEmpty()) {
             var p = q.poll();
             u = p[0];
@@ -196,11 +198,11 @@ class Solution {
                     dist[v] = dist[u] + 1;
                     q.offer(new int[] {v, u});
                 } else if (v != fa) {
-                    return dist[u] + dist[v] + 1;
+                    ans = Math.min(ans, dist[u] + dist[v] + 1);
                 }
             }
         }
-        return inf;
+        return ans;
     }
 }
 ```
@@ -263,6 +265,7 @@ public:
             dist[u] = 0;
             queue<pair<int, int>> q;
             q.emplace(u, -1);
+            int ans = inf;
             while (!q.empty()) {
                 auto p = q.front();
                 u = p.first;
@@ -273,11 +276,11 @@ public:
                         dist[v] = dist[u] + 1;
                         q.emplace(v, u);
                     } else if (v != fa) {
-                        return dist[u] + dist[v] + 1;
+                        ans = min(ans, dist[u] + dist[v] + 1);
                     }
                 }
             }
-            return inf;
+            return ans;
         };
         int ans = inf;
         for (int i = 0; i < n; ++i) {
@@ -354,6 +357,7 @@ func findShortestCycle(n int, edges [][]int) int {
 		}
 		dist[u] = 0
 		q := [][2]int{{u, -1}}
+		ans := inf
 		for len(q) > 0 {
 			p := q[0]
 			u = p[0]
@@ -364,11 +368,11 @@ func findShortestCycle(n int, edges [][]int) int {
 					dist[v] = dist[u] + 1
 					q = append(q, [2]int{v, u})
 				} else if v != fa {
-					return dist[u] + dist[v] + 1
+					ans = min(ans, dist[u]+dist[v]+1)
 				}
 			}
 		}
-		return inf
+		return ans
 	}
 	ans := inf
 	for i := 0; i < n; i++ {
@@ -439,6 +443,7 @@ function findShortestCycle(n: number, edges: number[][]): number {
         const dist: number[] = new Array(n).fill(-1);
         dist[u] = 0;
         const q: number[][] = [[u, -1]];
+        let ans = inf;
         while (q.length) {
             const p = q.shift()!;
             u = p[0];
@@ -447,12 +452,12 @@ function findShortestCycle(n: number, edges: number[][]): number {
                 if (dist[v] < 0) {
                     dist[v] = dist[u] + 1;
                     q.push([v, u]);
-                } else if (v != fa) {
-                    return dist[u] + dist[v] + 1;
+                } else if (v !== fa) {
+                    ans = Math.min(ans, dist[u] + dist[v] + 1);
                 }
             }
         }
-        return inf;
+        return ans;
     };
     for (let i = 0; i < n; ++i) {
         ans = Math.min(ans, bfs(i));

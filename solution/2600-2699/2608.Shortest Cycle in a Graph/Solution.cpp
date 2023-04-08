@@ -14,6 +14,7 @@ public:
             dist[u] = 0;
             queue<pair<int, int>> q;
             q.emplace(u, -1);
+            int ans = inf;
             while (!q.empty()) {
                 auto p = q.front();
                 u = p.first;
@@ -24,11 +25,11 @@ public:
                         dist[v] = dist[u] + 1;
                         q.emplace(v, u);
                     } else if (v != fa) {
-                        return dist[u] + dist[v] + 1;
+                        ans = min(ans, dist[u] + dist[v] + 1);
                     }
                 }
             }
-            return inf;
+            return ans;
         };
         int ans = inf;
         for (int i = 0; i < n; ++i) {
