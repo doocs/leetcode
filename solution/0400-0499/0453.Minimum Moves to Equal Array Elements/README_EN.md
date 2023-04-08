@@ -61,10 +61,10 @@ class Solution {
 class Solution {
     public int minMoves(int[] nums) {
         int s = 0;
-        int mi = Integer.MAX_VALUE;
-        for (int num : nums) {
-            s += num;
-            mi = Math.min(mi, num);
+        int mi = 1 << 30;
+        for (int x : nums) {
+            s += x;
+            mi = Math.min(mi, x);
         }
         return s - mi * nums.length;
     }
@@ -78,10 +78,10 @@ class Solution {
 public:
     int minMoves(vector<int>& nums) {
         int s = 0;
-        int mi = INT_MAX;
-        for (int num : nums) {
-            s += num;
-            mi = min(mi, num);
+        int mi = 1 << 30;
+        for (int x : nums) {
+            s += x;
+            mi = min(mi, x);
         }
         return s - mi * nums.size();
     }
@@ -92,16 +92,29 @@ public:
 
 ```go
 func minMoves(nums []int) int {
-	mi := math.MaxInt32
+	mi := 1 << 30
 	s := 0
-	for _, num := range nums {
-		s += num
-		if num < mi {
-			mi = num
+	for _, x := range nums {
+		s += x
+		if x < mi {
+			mi = x
 		}
 	}
 	return s - mi*len(nums)
+}
+```
 
+### **TypeScript**
+
+```ts
+function minMoves(nums: number[]): number {
+    let mi = 1 << 30;
+    let s = 0;
+    for (const x of nums) {
+        s += x;
+        mi = Math.min(mi, x);
+    }
+    return s - mi * nums.length;
 }
 ```
 

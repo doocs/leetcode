@@ -42,27 +42,32 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-定义 s 表示数组元素之和，mi 表示数组中最小的元素，n 表示数组的长度，经过最小的 k 次操作过后，每个元素都变成 v。
+**方法一：数学**
 
-那么：
+我们不妨记数组 $nums$ 的最小值为 $mi$，数组的和为 $s$，数组的长度为 $n$。
 
-```
-k * (n - 1) + s = v * n     ①
-```
+假设最小操作次数为 $k$，最终数组的所有元素都为 $x$，则有：
 
-实际上，v 与 mi 存在着这样的关系：
+$$
+\begin{aligned}
+s + (n - 1) \times k &= n \times x \\
+x &= mi + k \\
+\end{aligned}
+$$
 
-```
-v = mi + k                  ②
-```
+将第二个式子代入第一个式子，得到：
 
-这是因为，最小的数每次都会被增加，直至变成 v。因此，如果最终数字是 v，那么操作的次数 `k = v - mi`。
+$$
+\begin{aligned}
+s + (n - 1) \times k &= n \times (mi + k) \\
+s + (n - 1) \times k &= n \times mi + n \times k \\
+k &= s - n \times mi \\
+\end{aligned}
+$$
 
-整合 ①②，可得
+因此，最小操作次数为 $s - n \times mi$。
 
-```
-k = s - mi * n
-```
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
 
@@ -92,10 +97,10 @@ class Solution {
 class Solution {
     public int minMoves(int[] nums) {
         int s = 0;
-        int mi = Integer.MAX_VALUE;
-        for (int num : nums) {
-            s += num;
-            mi = Math.min(mi, num);
+        int mi = 1 << 30;
+        for (int x : nums) {
+            s += x;
+            mi = Math.min(mi, x);
         }
         return s - mi * nums.length;
     }
@@ -109,10 +114,10 @@ class Solution {
 public:
     int minMoves(vector<int>& nums) {
         int s = 0;
-        int mi = INT_MAX;
-        for (int num : nums) {
-            s += num;
-            mi = min(mi, num);
+        int mi = 1 << 30;
+        for (int x : nums) {
+            s += x;
+            mi = min(mi, x);
         }
         return s - mi * nums.size();
     }
@@ -123,16 +128,29 @@ public:
 
 ```go
 func minMoves(nums []int) int {
-	mi := math.MaxInt32
+	mi := 1 << 30
 	s := 0
-	for _, num := range nums {
-		s += num
-		if num < mi {
-			mi = num
+	for _, x := range nums {
+		s += x
+		if x < mi {
+			mi = x
 		}
 	}
 	return s - mi*len(nums)
+}
+```
 
+### **TypeScript**
+
+```ts
+function minMoves(nums: number[]): number {
+    let mi = 1 << 30;
+    let s = 0;
+    for (const x of nums) {
+        s += x;
+        mi = Math.min(mi, x);
+    }
+    return s - mi * nums.length;
 }
 ```
 

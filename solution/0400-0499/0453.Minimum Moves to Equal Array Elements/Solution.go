@@ -1,12 +1,11 @@
 func minMoves(nums []int) int {
-	mi := math.MaxInt32
+	mi := 1 << 30
 	s := 0
-	for _, num := range nums {
-		s += num
-		if num < mi {
-			mi = num
+	for _, x := range nums {
+		s += x
+		if x < mi {
+			mi = x
 		}
 	}
 	return s - mi*len(nums)
-
 }
