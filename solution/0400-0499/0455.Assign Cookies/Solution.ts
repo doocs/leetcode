@@ -1,9 +1,4 @@
-/**
- * @param {number[]} g
- * @param {number[]} s
- * @return {number}
- */
-var findContentChildren = function (g, s) {
+function findContentChildren(g: number[], s: number[]): number {
     g.sort((a, b) => a - b);
     s.sort((a, b) => a - b);
     const m = g.length;
@@ -17,4 +12,4 @@ var findContentChildren = function (g, s) {
         }
     }
     return m;
-};
+}

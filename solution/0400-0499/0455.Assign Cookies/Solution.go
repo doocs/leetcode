@@ -1,14 +1,15 @@
 func findContentChildren(g []int, s []int) int {
 	sort.Ints(g)
 	sort.Ints(s)
-	i, j := 0, 0
-	for ; i < len(g); i++ {
-		for ; j < len(s) && s[j] < g[i]; j++ {
+	j := 0
+	for i, x := range g {
+		for j < len(s) && s[j] < x {
+			j++
 		}
 		if j >= len(s) {
-			break
+			return i
 		}
 		j++
 	}
-	return i
+	return len(g)
 }

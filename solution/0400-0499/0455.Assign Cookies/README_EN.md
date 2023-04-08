@@ -50,8 +50,8 @@ class Solution:
         g.sort()
         s.sort()
         j = 0
-        for i, v in enumerate(g):
-            while j < len(s) and s[j] < v:
+        for i, x in enumerate(g):
+            while j < len(s) and s[j] < g[i]:
                 j += 1
             if j >= len(s):
                 return i
@@ -66,17 +66,17 @@ class Solution {
     public int findContentChildren(int[] g, int[] s) {
         Arrays.sort(g);
         Arrays.sort(s);
-        int i = 0, j = 0;
-        for (; i < g.length; ++i) {
-            while (j < s.length && s[j] < g[i]) {
+        int m = g.length;
+        int n = s.length;
+        for (int i = 0, j = 0; i < m; ++i) {
+            while (j < n && s[j] < g[i]) {
                 ++j;
             }
-            if (j >= s.length) {
-                break;
+            if (j++ >= n) {
+                return i;
             }
-            ++j;
         }
-        return i;
+        return m;
     }
 }
 ```
@@ -89,17 +89,16 @@ public:
     int findContentChildren(vector<int>& g, vector<int>& s) {
         sort(g.begin(), g.end());
         sort(s.begin(), s.end());
-        int i = 0, j = 0;
-        for (; i < g.size(); ++i) {
-            while (j < s.size() && s[j] < g[i]) {
+        int m = g.size(), n = s.size();
+        for (int i = 0, j = 0; i < m; ++i) {
+            while (j < n && s[j] < g[i]) {
                 ++j;
             }
-            if (j >= s.size()) {
-                break;
+            if (j++ >= n) {
+                return i;
             }
-            ++j;
         }
-        return i;
+        return m;
     }
 };
 ```
@@ -110,16 +109,17 @@ public:
 func findContentChildren(g []int, s []int) int {
 	sort.Ints(g)
 	sort.Ints(s)
-	i, j := 0, 0
-	for ; i < len(g); i++ {
-		for ; j < len(s) && s[j] < g[i]; j++ {
+	j := 0
+	for i, x := range g {
+		for j < len(s) && s[j] < x {
+			j++
 		}
 		if j >= len(s) {
-			break
+			return i
 		}
 		j++
 	}
-	return i
+	return len(g)
 }
 ```
 
@@ -134,19 +134,38 @@ func findContentChildren(g []int, s []int) int {
 var findContentChildren = function (g, s) {
     g.sort((a, b) => a - b);
     s.sort((a, b) => a - b);
-    let i = 0;
-    let j = 0;
-    for (; i < g.length; ++i) {
-        while (j < s.length && s[j] < g[i]) {
+    const m = g.length;
+    const n = s.length;
+    for (let i = 0, j = 0; i < m; ++i) {
+        while (j < n && s[j] < g[i]) {
             ++j;
         }
-        if (j >= s.length) {
-            break;
+        if (j++ >= n) {
+            return i;
         }
-        ++j;
     }
-    return i;
+    return m;
 };
+```
+
+### **TypeScript**
+
+```ts
+function findContentChildren(g: number[], s: number[]): number {
+    g.sort((a, b) => a - b);
+    s.sort((a, b) => a - b);
+    const m = g.length;
+    const n = s.length;
+    for (let i = 0, j = 0; i < m; ++i) {
+        while (j < n && s[j] < g[i]) {
+            ++j;
+        }
+        if (j++ >= n) {
+            return i;
+        }
+    }
+    return m;
+}
 ```
 
 ### **...**

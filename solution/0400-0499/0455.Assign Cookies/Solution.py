@@ -3,8 +3,8 @@ class Solution:
         g.sort()
         s.sort()
         j = 0
-        for i, v in enumerate(g):
-            while j < len(s) and s[j] < v:
+        for i, x in enumerate(g):
+            while j < len(s) and s[j] < g[i]:
                 j += 1
             if j >= len(s):
                 return i
