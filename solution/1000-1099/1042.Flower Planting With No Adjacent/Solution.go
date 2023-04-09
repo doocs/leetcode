@@ -6,14 +6,14 @@ func gardenNoAdj(n int, paths [][]int) []int {
 		g[y] = append(g[y], x)
 	}
 	ans := make([]int, n)
-	for u := 0; u < n; u++ {
-		colors := make(map[int]bool)
-		for _, v := range g[u] {
-			colors[ans[v]] = true
+	for x := 0; x < n; x++ {
+		used := [5]bool{}
+		for _, y := range g[x] {
+			used[ans[y]] = true
 		}
 		for c := 1; c < 5; c++ {
-			if !colors[c] {
-				ans[u] = c
+			if !used[c] {
+				ans[x] = c
 				break
 			}
 		}

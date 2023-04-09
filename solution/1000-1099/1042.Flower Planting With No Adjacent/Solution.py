@@ -6,10 +6,10 @@ class Solution:
             g[x].append(y)
             g[y].append(x)
         ans = [0] * n
-        for u in range(n):
-            colors = set(ans[v] for v in g[u])
+        for x in range(n):
+            used = {ans[y] for y in g[x]}
             for c in range(1, 5):
-                if c not in colors:
-                    ans[u] = c
+                if c not in used:
+                    ans[x] = c
                     break
         return ans

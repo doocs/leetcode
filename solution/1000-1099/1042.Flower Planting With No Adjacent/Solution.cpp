@@ -8,12 +8,15 @@ public:
             g[y].push_back(x);
         }
         vector<int> ans(n);
-        for (int u = 0; u < n; ++u) {
-            unordered_set<int> colors;
-            for (int v : g[u]) colors.insert(ans[v]);
+        bool used[5];
+        for (int x = 0; x < n; ++x) {
+            memset(used, false, sizeof(used));
+            for (int y : g[x]) {
+                used[ans[y]] = true;
+            }
             for (int c = 1; c < 5; ++c) {
-                if (!colors.count(c)) {
-                    ans[u] = c;
+                if (!used[c]) {
+                    ans[x] = c;
                     break;
                 }
             }

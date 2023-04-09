@@ -66,11 +66,11 @@ class Solution:
             g[x].append(y)
             g[y].append(x)
         ans = [0] * n
-        for u in range(n):
-            colors = set(ans[v] for v in g[u])
+        for x in range(n):
+            used = {ans[y] for y in g[x]}
             for c in range(1, 5):
-                if c not in colors:
-                    ans[u] = c
+                if c not in used:
+                    ans[x] = c
                     break
         return ans
 ```
@@ -82,20 +82,21 @@ class Solution {
     public int[] gardenNoAdj(int n, int[][] paths) {
         List<Integer>[] g = new List[n];
         Arrays.setAll(g, k -> new ArrayList<>());
-        for (int[] p : paths) {
+        for (var p : paths) {
             int x = p[0] - 1, y = p[1] - 1;
             g[x].add(y);
             g[y].add(x);
         }
         int[] ans = new int[n];
-        for (int u = 0; u < n; ++u) {
-            Set<Integer> colors = new HashSet<>();
-            for (int v : g[u]) {
-                colors.add(ans[v]);
+        boolean[] used = new boolean[5];
+        for (int x = 0; x < n; ++x) {
+            Arrays.fill(used, false);
+            for (int y : g[x]) {
+                used[ans[y]] = true;
             }
             for (int c = 1; c < 5; ++c) {
-                if (!colors.contains(c)) {
-                    ans[u] = c;
+                if (!used[c]) {
+                    ans[x] = c;
                     break;
                 }
             }
@@ -118,12 +119,15 @@ public:
             g[y].push_back(x);
         }
         vector<int> ans(n);
-        for (int u = 0; u < n; ++u) {
-            unordered_set<int> colors;
-            for (int v : g[u]) colors.insert(ans[v]);
+        bool used[5];
+        for (int x = 0; x < n; ++x) {
+            memset(used, false, sizeof(used));
+            for (int y : g[x]) {
+                used[ans[y]] = true;
+            }
             for (int c = 1; c < 5; ++c) {
-                if (!colors.count(c)) {
-                    ans[u] = c;
+                if (!used[c]) {
+                    ans[x] = c;
                     break;
                 }
             }
@@ -144,19 +148,45 @@ func gardenNoAdj(n int, paths [][]int) []int {
 		g[y] = append(g[y], x)
 	}
 	ans := make([]int, n)
-	for u := 0; u < n; u++ {
-		colors := make(map[int]bool)
-		for _, v := range g[u] {
-			colors[ans[v]] = true
+	for x := 0; x < n; x++ {
+		used := [5]bool{}
+		for _, y := range g[x] {
+			used[ans[y]] = true
 		}
 		for c := 1; c < 5; c++ {
-			if !colors[c] {
-				ans[u] = c
+			if !used[c] {
+				ans[x] = c
 				break
 			}
 		}
 	}
 	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function gardenNoAdj(n: number, paths: number[][]): number[] {
+    const g: number[][] = new Array(n).fill(0).map(() => []);
+    for (const [x, y] of paths) {
+        g[x - 1].push(y - 1);
+        g[y - 1].push(x - 1);
+    }
+    const ans: number[] = new Array(n).fill(0);
+    for (let x = 0; x < n; ++x) {
+        const used: boolean[] = new Array(5).fill(false);
+        for (const y of g[x]) {
+            used[ans[y]] = true;
+        }
+        for (let c = 1; c < 5; ++c) {
+            if (!used[c]) {
+                ans[x] = c;
+                break;
+            }
+        }
+    }
+    return ans;
 }
 ```
 
