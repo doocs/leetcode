@@ -54,14 +54,13 @@ we combine 1 and 1 to get 0 so the array converts to [1] then that&#39;s the val
 ```python
 class Solution:
     def lastStoneWeight(self, stones: List[int]) -> int:
-        h = [-v for v in stones]
+        h = [-x for x in stones]
         heapify(h)
         while len(h) > 1:
-            x = heappop(h)
-            y = heappop(h)
+            y, x = -heappop(h), -heappop(h)
             if x != y:
                 heappush(h, x - y)
-        return 0 if len(h) == 0 else -h[0]
+        return 0 if not h else -h[0]
 ```
 
 ### **Java**
@@ -70,8 +69,8 @@ class Solution:
 class Solution {
     public int lastStoneWeight(int[] stones) {
         PriorityQueue<Integer> q = new PriorityQueue<>((a, b) -> b - a);
-        for (int v : stones) {
-            q.offer(v);
+        for (int x : stones) {
+            q.offer(x);
         }
         while (q.size() > 1) {
             int y = q.poll();
@@ -91,11 +90,18 @@ class Solution {
 class Solution {
 public:
     int lastStoneWeight(vector<int>& stones) {
-        priority_queue<int> pq(stones.begin(), stones.end());
+        priority_queue<int> pq;
+        for (int x : stones) {
+            pq.push(x);
+        }
         while (pq.size() > 1) {
-            int x = pq.top(); pq.pop();
-            int y = pq.top(); pq.pop();
-            if (x != y) pq.push(x - y);
+            int y = pq.top();
+            pq.pop();
+            int x = pq.top();
+            pq.pop();
+            if (x != y) {
+                pq.push(y - x);
+            }
         }
         return pq.empty() ? 0 : pq.top();
     }
@@ -109,9 +115,9 @@ func lastStoneWeight(stones []int) int {
 	q := &hp{stones}
 	heap.Init(q)
 	for q.Len() > 1 {
-		x, y := q.pop(), q.pop()
+		y, x := q.pop(), q.pop()
 		if x != y {
-			q.push(x - y)
+			q.push(y - x)
 		}
 	}
 	if q.Len() > 0 {
@@ -143,18 +149,37 @@ func (h *hp) pop() int   { return heap.Pop(h).(int) }
  */
 var lastStoneWeight = function (stones) {
     const pq = new MaxPriorityQueue();
-    for (const v of stones) {
-        pq.enqueue(v);
+    for (const x of stones) {
+        pq.enqueue(x);
     }
     while (pq.size() > 1) {
-        const x = pq.dequeue()['priority'];
         const y = pq.dequeue()['priority'];
+        const x = pq.dequeue()['priority'];
         if (x != y) {
-            pq.enqueue(x - y);
+            pq.enqueue(y - x);
         }
     }
     return pq.isEmpty() ? 0 : pq.dequeue()['priority'];
 };
+```
+
+### **TypeScript**
+
+```ts
+function lastStoneWeight(stones: number[]): number {
+    const pq = new MaxPriorityQueue();
+    for (const x of stones) {
+        pq.enqueue(x);
+    }
+    while (pq.size() > 1) {
+        const y = pq.dequeue().element;
+        const x = pq.dequeue().element;
+        if (x !== y) {
+            pq.enqueue(y - x);
+        }
+    }
+    return pq.isEmpty() ? 0 : pq.dequeue().element;
+}
 ```
 
 ### **...**

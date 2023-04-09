@@ -2,9 +2,9 @@ func lastStoneWeight(stones []int) int {
 	q := &hp{stones}
 	heap.Init(q)
 	for q.Len() > 1 {
-		x, y := q.pop(), q.pop()
+		y, x := q.pop(), q.pop()
 		if x != y {
-			q.push(x - y)
+			q.push(y - x)
 		}
 	}
 	if q.Len() > 0 {
