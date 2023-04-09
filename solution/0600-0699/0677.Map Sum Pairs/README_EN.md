@@ -138,13 +138,13 @@ class MapSum {
     public MapSum() {
 
     }
-    
+
     public void insert(String key, int val) {
         int x = val - d.getOrDefault(key, 0);
         d.put(key, val);
         trie.insert(key, x);
     }
-    
+
     public int sum(String prefix) {
         return trie.search(prefix);
     }

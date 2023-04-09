@@ -76,14 +76,14 @@
 ```python
 class Solution:
     def find132pattern(self, nums: List[int]) -> bool:
-        ak = -inf
-        stack = []
-        for num in nums[::-1]:
-            if num < ak:
+        vk = -inf
+        stk = []
+        for x in nums[::-1]:
+            if x < vk:
                 return True
-            while stack and num > stack[-1]:
-                ak = stack.pop()
-            stack.append(num)
+            while stk and stk[-1] < x:
+                vk = stk.pop()
+            stk.append(x)
         return False
 ```
 
@@ -93,38 +93,33 @@ class BinaryIndexedTree:
         self.n = n
         self.c = [0] * (n + 1)
 
-    @staticmethod
-    def lowbit(x):
-        return x & -x
-
     def update(self, x, delta):
         while x <= self.n:
             self.c[x] += delta
-            x += BinaryIndexedTree.lowbit(x)
+            x += x & -x
 
     def query(self, x):
         s = 0
         while x:
             s += self.c[x]
-            x -= BinaryIndexedTree.lowbit(x)
+            x -= x & -x
         return s
 
 
 class Solution:
     def find132pattern(self, nums: List[int]) -> bool:
         s = sorted(set(nums))
-        m = {v: i for i, v in enumerate(s, 1)}
-        n = len(m)
-        tree = BinaryIndexedTree(n)
-        for v in nums:
-            tree.update(m[v], 1)
-        mi = nums[0]
-        for v in nums:
-            tree.update(m[v], -1)
-            # v 右侧存在 (mi, v - 1] 范围内的数字，说明符合 132
-            if tree.query(m[v] - 1) - tree.query(m[mi]) > 0:
+        n = len(nums)
+        left = [inf] * (n + 1)
+        for i, x in enumerate(nums):
+            left[i + 1] = min(left[i], x)
+        tree = BinaryIndexedTree(len(s))
+        for i in range(n - 1, -1, -1):
+            x = bisect_left(s, nums[i]) + 1
+            y = bisect_left(s, left[i]) + 1
+            if x > y and (tree.query(x - 1) - tree.query(y) > 0):
                 return True
-            mi = min(mi, v)
+            tree.update(x, 1)
         return False
 ```
 
@@ -135,16 +130,16 @@ class Solution:
 ```java
 class Solution {
     public boolean find132pattern(int[] nums) {
-        int ak = Integer.MIN_VALUE;
-        Deque<Integer> stack = new ArrayDeque<>();
+        int vk = -(1 << 30);
+        Deque<Integer> stk = new ArrayDeque<>();
         for (int i = nums.length - 1; i >= 0; --i) {
-            if (nums[i] < ak) {
+            if (nums[i] < vk) {
                 return true;
             }
-            while (!stack.isEmpty() && nums[i] > stack.peek()) {
-                ak = stack.pop();
+            while (!stk.isEmpty() && stk.peek() < nums[i]) {
+                vk = stk.pop();
             }
-            stack.push(nums[i]);
+            stk.push(nums[i]);
         }
         return false;
     }
@@ -161,10 +156,10 @@ class BinaryIndexedTree {
         c = new int[n + 1];
     }
 
-    public void update(int x, int delta) {
+    public void update(int x, int v) {
         while (x <= n) {
-            c[x] += delta;
-            x += lowbit(x);
+            c[x] += v;
+            x += x & -x;
         }
     }
 
@@ -172,43 +167,93 @@ class BinaryIndexedTree {
         int s = 0;
         while (x > 0) {
             s += c[x];
-            x -= lowbit(x);
+            x -= x & -x;
         }
         return s;
-    }
-
-    public static int lowbit(int x) {
-        return x & -x;
     }
 }
 
 class Solution {
     public boolean find132pattern(int[] nums) {
-        TreeSet<Integer> ts = new TreeSet();
-        for (int v : nums) {
-            ts.add(v);
+        int[] s = nums.clone();
+        Arrays.sort(s);
+        int n = nums.length;
+        int m = 0;
+        int[] left = new int[n + 1];
+        left[0] = 1 << 30;
+        for (int i = 0; i < n; ++i) {
+            left[i + 1] = Math.min(left[i], nums[i]);
+            if (i == 0 || s[i] != s[i - 1]) {
+                s[m++] = s[i];
+            }
         }
-        int idx = 1;
-        Map<Integer, Integer> m = new HashMap<>();
-        for (int v : ts) {
-            m.put(v, idx++);
-        }
-        int n = m.size();
-        BinaryIndexedTree tree = new BinaryIndexedTree(n);
-        for (int v : nums) {
-            tree.update(m.get(v), 1);
-        }
-        int mi = nums[0];
-        for (int v : nums) {
-            int x = m.get(v);
-            tree.update(x, -1);
-            if (tree.query(x - 1) - tree.query(m.get(mi)) > 0) {
+        BinaryIndexedTree tree = new BinaryIndexedTree(m);
+        for (int i = n - 1; i >= 0; --i) {
+            int x = search(s, m, nums[i]);
+            int y = search(s, m, left[i]);
+            if (x > y && tree.query(x - 1) - tree.query(y) > 0) {
                 return true;
             }
-            mi = Math.min(mi, v);
+            tree.update(x, 1);
         }
         return false;
     }
+
+    private int search(int[] nums, int r, int x) {
+        int l = 0;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (nums[mid] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l + 1;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool find132pattern(vector<int>& nums) {
+        int vk = INT_MIN;
+        stack<int> stk;
+        for (int i = nums.size() - 1; ~i; --i) {
+            if (nums[i] < vk) {
+                return true;
+            }
+            while (!stk.empty() && stk.top() < nums[i]) {
+                vk = stk.top();
+                stk.pop();
+            }
+            stk.push(nums[i]);
+        }
+        return false;
+    }
+};
+```
+
+### **Go**
+
+```go
+func find132pattern(nums []int) bool {
+	vk := -(1 << 30)
+	stk := []int{}
+	for i := len(nums) - 1; i >= 0; i-- {
+		if nums[i] < vk {
+			return true
+		}
+		for len(stk) > 0 && stk[len(stk)-1] < nums[i] {
+			vk = stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+		}
+		stk = append(stk, nums[i])
+	}
+	return false
 }
 ```
 
@@ -216,21 +261,16 @@ class Solution {
 
 ```ts
 function find132pattern(nums: number[]): boolean {
-    const n = nums.length;
-    if (n < 3) {
-        return false;
-    }
-    let last = -Infinity;
-    const stack = [];
-    for (let i = n - 1; i >= 0; i--) {
-        const num = nums[i];
-        if (num < last) {
+    let vk = -Infinity;
+    const stk: number[] = [];
+    for (let i = nums.length - 1; i >= 0; --i) {
+        if (nums[i] < vk) {
             return true;
         }
-        while (stack[stack.length - 1] < num) {
-            last = Math.max(last, stack.pop());
+        while (stk.length && stk[stk.length - 1] < nums[i]) {
+            vk = stk.pop()!;
         }
-        stack.push(num);
+        stk.push(nums[i]);
     }
     return false;
 }
@@ -242,142 +282,19 @@ function find132pattern(nums: number[]): boolean {
 impl Solution {
     pub fn find132pattern(nums: Vec<i32>) -> bool {
         let n = nums.len();
-        if n < 3 {
-            return false;
-        }
-        let mut last = i32::MIN;
-        let mut stack = vec![];
+        let mut vk = i32::MIN;
+        let mut stk = vec![];
         for i in (0..n).rev() {
-            if nums[i] < last {
+            if nums[i] < vk {
                 return true;
             }
-            while !stack.is_empty() && stack.last().unwrap() < &nums[i] {
-                last = stack.pop().unwrap();
+            while !stk.is_empty() && stk.last().unwrap() < &nums[i] {
+                vk = stk.pop().unwrap();
             }
-            stack.push(nums[i])
+            stk.push(nums[i])
         }
         false
     }
-}
-```
-
-### **C++**
-
-```cpp
-class BinaryIndexedTree {
-public:
-    int n;
-    vector<int> c;
-
-    BinaryIndexedTree(int _n)
-        : n(_n)
-        , c(_n + 1) { }
-
-    void update(int x, int delta) {
-        while (x <= n) {
-            c[x] += delta;
-            x += lowbit(x);
-        }
-    }
-
-    int query(int x) {
-        int s = 0;
-        while (x > 0) {
-            s += c[x];
-            x -= lowbit(x);
-        }
-        return s;
-    }
-
-    int lowbit(int x) {
-        return x & -x;
-    }
-};
-
-class Solution {
-public:
-    bool find132pattern(vector<int>& nums) {
-        unordered_set<int> s(nums.begin(), nums.end());
-        vector<int> alls(s.begin(), s.end());
-        sort(alls.begin(), alls.end());
-        unordered_map<int, int> m;
-        int n = alls.size();
-        for (int i = 0; i < n; ++i) m[alls[i]] = i + 1;
-        BinaryIndexedTree* tree = new BinaryIndexedTree(n);
-        for (int v : nums) tree->update(m[v], 1);
-        int mi = nums[0];
-        for (int v : nums) {
-            tree->update(m[v], -1);
-            if (tree->query(m[v] - 1) - tree->query(m[mi]) > 0) return true;
-            mi = min(mi, v);
-        }
-        return false;
-    }
-};
-```
-
-### **Go**
-
-```go
-type BinaryIndexedTree struct {
-	n int
-	c []int
-}
-
-func newBinaryIndexedTree(n int) *BinaryIndexedTree {
-	c := make([]int, n+1)
-	return &BinaryIndexedTree{n, c}
-}
-
-func (this *BinaryIndexedTree) lowbit(x int) int {
-	return x & -x
-}
-
-func (this *BinaryIndexedTree) update(x, delta int) {
-	for x <= this.n {
-		this.c[x] += delta
-		x += this.lowbit(x)
-	}
-}
-
-func (this *BinaryIndexedTree) query(x int) int {
-	s := 0
-	for x > 0 {
-		s += this.c[x]
-		x -= this.lowbit(x)
-	}
-	return s
-}
-
-func find132pattern(nums []int) bool {
-	s := make(map[int]bool)
-	for _, v := range nums {
-		s[v] = true
-	}
-	var alls []int
-	for v := range s {
-		alls = append(alls, v)
-	}
-	sort.Ints(alls)
-	m := make(map[int]int)
-	for i, v := range alls {
-		m[v] = i + 1
-	}
-	tree := newBinaryIndexedTree(len(m))
-	for _, v := range nums {
-		tree.update(m[v], 1)
-	}
-	mi := nums[0]
-	for _, v := range nums {
-		tree.update(m[v], -1)
-		if tree.query(m[v]-1)-tree.query(m[mi]) > 0 {
-			return true
-		}
-		if v < mi {
-			mi = v
-		}
-	}
-	return false
 }
 ```
 

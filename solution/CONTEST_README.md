@@ -24,6 +24,14 @@
 
 ## 往期竞赛
 
+#### 第 340 场周赛(2023-04-09 10:30, 90 分钟) 参赛人数 4937
+
+- [2614. 对角线上的质数](/solution/2600-2699/2614.Prime%20In%20Diagonal/README.md)
+- [2615. 等值距离和](/solution/2600-2699/2615.Sum%20of%20Distances/README.md)
+- [2616. 最小化数对的最大差值](/solution/2600-2699/2616.Minimize%20the%20Maximum%20Difference%20of%20Pairs/README.md)
+- [2617. 网格图中最少访问的格子数](/solution/2600-2699/2617.Minimum%20Number%20of%20Visited%20Cells%20in%20a%20Grid/README.md)
+
+
 #### 第 339 场周赛(2023-04-02 10:30, 90 分钟) 参赛人数 5180
 
 - [2609. 最长平衡子字符串](/solution/2600-2699/2609.Find%20the%20Longest%20Balanced%20Substring%20of%20a%20Binary%20String/README.md)
@@ -1224,7 +1232,7 @@
 - [1857. 有向图中最大颜色值](/solution/1800-1899/1857.Largest%20Color%20Value%20in%20a%20Directed%20Graph/README.md)
 
 
-#### 第 239 场周赛(2021-05-02 10:30, 90 分钟) 参赛人数 3906
+#### 第 239 场周赛(2021-05-02 10:30, 90 分钟) 参赛人数 3907
 
 - [1848. 到目标元素的最小距离](/solution/1800-1899/1848.Minimum%20Distance%20to%20the%20Target%20Element/README.md)
 - [1849. 将字符串拆分为递减的连续值](/solution/1800-1899/1849.Splitting%20a%20String%20Into%20Descending%20Consecutive%20Values/README.md)
@@ -1256,7 +1264,7 @@
 - [1835. 所有数对按位与结果的异或和](/solution/1800-1899/1835.Find%20XOR%20Sum%20of%20All%20Pairs%20Bitwise%20AND/README.md)
 
 
-#### 第 50 场双周赛(2021-04-17 22:30, 90 分钟) 参赛人数 3607
+#### 第 50 场双周赛(2021-04-17 22:30, 90 分钟) 参赛人数 3608
 
 - [1827. 最少操作使数组递增](/solution/1800-1899/1827.Minimum%20Operations%20to%20Make%20the%20Array%20Increasing/README.md)
 - [1828. 统计一个圆中点的数目](/solution/1800-1899/1828.Queries%20on%20Number%20of%20Points%20Inside%20a%20Circle/README.md)

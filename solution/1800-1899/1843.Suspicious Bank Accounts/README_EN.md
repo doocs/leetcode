@@ -43,7 +43,7 @@ amount is the amount of money deposited/withdrawn during the transaction.
 
 <p>Write an SQL query to report the IDs of all <strong>suspicious</strong> bank accounts.</p>
 
-<p>Return the result table <strong>ordered</strong> by <code>transaction_id</code> <strong>in ascending order</strong>.</p>
+<p>Return the result table <strong>in any order</strong>.</p>
 
 <p>The query result format is in the following example.</p>
 

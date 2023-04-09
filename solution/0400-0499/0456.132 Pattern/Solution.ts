@@ -1,19 +1,14 @@
 function find132pattern(nums: number[]): boolean {
-    const n = nums.length;
-    if (n < 3) {
-        return false;
-    }
-    let last = -Infinity;
-    const stack = [];
-    for (let i = n - 1; i >= 0; i--) {
-        const num = nums[i];
-        if (num < last) {
+    let vk = -Infinity;
+    const stk: number[] = [];
+    for (let i = nums.length - 1; i >= 0; --i) {
+        if (nums[i] < vk) {
             return true;
         }
-        while (stack[stack.length - 1] < num) {
-            last = Math.max(last, stack.pop());
+        while (stk.length && stk[stk.length - 1] < nums[i]) {
+            vk = stk.pop()!;
         }
-        stack.push(num);
+        stk.push(nums[i]);
     }
     return false;
 }

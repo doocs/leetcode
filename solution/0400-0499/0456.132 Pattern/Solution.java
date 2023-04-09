@@ -1,15 +1,15 @@
 class Solution {
     public boolean find132pattern(int[] nums) {
-        int ak = Integer.MIN_VALUE;
-        Deque<Integer> stack = new ArrayDeque<>();
+        int vk = -(1 << 30);
+        Deque<Integer> stk = new ArrayDeque<>();
         for (int i = nums.length - 1; i >= 0; --i) {
-            if (nums[i] < ak) {
+            if (nums[i] < vk) {
                 return true;
             }
-            while (!stack.isEmpty() && nums[i] > stack.peek()) {
-                ak = stack.pop();
+            while (!stk.isEmpty() && stk.peek() < nums[i]) {
+                vk = stk.pop();
             }
-            stack.push(nums[i]);
+            stk.push(nums[i]);
         }
         return false;
     }

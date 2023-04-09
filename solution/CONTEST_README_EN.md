@@ -25,6 +25,14 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 340
+
+- [2614. Prime In Diagonal](/solution/2600-2699/2614.Prime%20In%20Diagonal/README_EN.md)
+- [2615. Sum of Distances](/solution/2600-2699/2615.Sum%20of%20Distances/README_EN.md)
+- [2616. Minimize the Maximum Difference of Pairs](/solution/2600-2699/2616.Minimize%20the%20Maximum%20Difference%20of%20Pairs/README_EN.md)
+- [2617. Minimum Number of Visited Cells in a Grid](/solution/2600-2699/2617.Minimum%20Number%20of%20Visited%20Cells%20in%20a%20Grid/README_EN.md)
+
+
 #### Weekly Contest 339
 
 - [2609. Find the Longest Balanced Substring of a Binary String](/solution/2600-2699/2609.Find%20the%20Longest%20Balanced%20Substring%20of%20a%20Binary%20String/README_EN.md)

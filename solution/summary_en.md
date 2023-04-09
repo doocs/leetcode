@@ -2665,3 +2665,7 @@
   - [2611.Mice and Cheese](/solution/2600-2699/2611.Mice%20and%20Cheese/README_EN.md)
   - [2612.Minimum Reverse Operations](/solution/2600-2699/2612.Minimum%20Reverse%20Operations/README_EN.md)
   - [2613.Beautiful Pairs](/solution/2600-2699/2613.Beautiful%20Pairs/README_EN.md)
+  - [2614.Prime In Diagonal](/solution/2600-2699/2614.Prime%20In%20Diagonal/README_EN.md)
+  - [2615.Sum of Distances](/solution/2600-2699/2615.Sum%20of%20Distances/README_EN.md)
+  - [2616.Minimize the Maximum Difference of Pairs](/solution/2600-2699/2616.Minimize%20the%20Maximum%20Difference%20of%20Pairs/README_EN.md)
+  - [2617.Minimum Number of Visited Cells in a Grid](/solution/2600-2699/2617.Minimum%20Number%20of%20Visited%20Cells%20in%20a%20Grid/README_EN.md)

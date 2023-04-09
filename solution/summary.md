@@ -2665,3 +2665,7 @@
   - [2611.老鼠和奶酪](/solution/2600-2699/2611.Mice%20and%20Cheese/README.md)
   - [2612.最少翻转操作数](/solution/2600-2699/2612.Minimum%20Reverse%20Operations/README.md)
   - [2613.Beautiful Pairs](/solution/2600-2699/2613.Beautiful%20Pairs/README.md)
+  - [2614.对角线上的质数](/solution/2600-2699/2614.Prime%20In%20Diagonal/README.md)
+  - [2615.等值距离和](/solution/2600-2699/2615.Sum%20of%20Distances/README.md)
+  - [2616.最小化数对的最大差值](/solution/2600-2699/2616.Minimize%20the%20Maximum%20Difference%20of%20Pairs/README.md)
+  - [2617.网格图中最少访问的格子数](/solution/2600-2699/2617.Minimum%20Number%20of%20Visited%20Cells%20in%20a%20Grid/README.md)
