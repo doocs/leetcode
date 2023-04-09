@@ -62,7 +62,6 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
 class Solution:
     def minimizeMax(self, nums: List[int], p: int) -> int:
         def check(diff: int) -> bool:

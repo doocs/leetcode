@@ -44,7 +44,6 @@ The maximum difference is max(|nums[1] - nums[4]|, |nums[2] - nums[5]|) = max(0,
 ### **Python3**
 
 ```python
-
 class Solution:
     def minimizeMax(self, nums: List[int], p: int) -> int:
         def check(diff: int) -> bool:
