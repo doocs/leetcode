@@ -1,16 +1,17 @@
 class Solution {
 public:
     bool isRobotBounded(string instructions) {
-        vector<int> direction(4);
-        int cur = 0;
-        for (char c : instructions) {
-            if (c == 'L')
-                cur = (cur + 1) % 4;
-            else if (c == 'R')
-                cur = (cur + 3) % 4;
-            else
-                ++direction[cur];
+        int dist[4]{};
+        int k = 0;
+        for (char& c : instructions) {
+            if (c == 'L') {
+                k = (k + 1) % 4;
+            } else if (c == 'R') {
+                k = (k + 3) % 4;
+            } else {
+                ++dist[k];
+            }
         }
-        return cur != 0 || (direction[0] == direction[2] && direction[1] == direction[3]);
+        return (dist[0] == dist[2] && dist[1] == dist[3]) || k;
     }
 };

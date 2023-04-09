@@ -1,14 +1,14 @@
 func isRobotBounded(instructions string) bool {
-	direction := make([]int, 4)
-	cur := 0
-	for _, ins := range instructions {
-		if ins == 'L' {
-			cur = (cur + 1) % 4
-		} else if ins == 'R' {
-			cur = (cur + 3) % 4
+	dist := [4]int{}
+	k := 0
+	for _, c := range instructions {
+		if c == 'L' {
+			k = (k + 1) % 4
+		} else if c == 'R' {
+			k = (k + 3) % 4
 		} else {
-			direction[cur]++
+			dist[k]++
 		}
 	}
-	return cur != 0 || (direction[0] == direction[2] && direction[1] == direction[3])
+	return (dist[0] == dist[2] && dist[1] == dist[3]) || k != 0
 }

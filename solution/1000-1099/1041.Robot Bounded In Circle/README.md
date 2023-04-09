@@ -87,11 +87,23 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-定义 `cur` 表示初始方向（上），值为 0，`cur + 1`，`cur + 2`，`cur + 3` 分别表示 左、下、右。
+**方法一：模拟**
 
-`direction[4]` 分别表示机器人在四个方向上行走的距离。
+我们可以模拟机器人的行走过程，用一个变量 $k$ 表示机器人的方向，初始值为 $0$，表示机器人面向北方。变量 $k$ 的取值范围为 $[0, 3]$，分别表示机器人面向北、西、南、东。另外，我们用一个长度为 $4$ 的数组 $dist$ 记录机器人在四个方向上行走的距离，初始值为 $[0, 0, 0, 0]$。
 
-只要机器人最后的方向与初始方向 0 不一样，或者最后回到原点，返回 true。
+遍历指令字符串 `instructions`，如果当前指令为 `'L'`，那么机器人转向西方，即 $k = (k + 1) \bmod 4$；如果当前指令为 `'R'`，那么机器人转向东方，即 $k = (k + 3) \bmod 4$；否则，机器人在当前方向上行走一步，即 $dist[k]++$。
+
+如果给定的指令字符串 `instructions` 执行一遍后，使得机器人最终回到原点，即 $dist[0] = dist[2]$ 且 $dist[1] = dist[3]$，那么机器人一定会进入循环。因为无论重复多少次指令，机器人都回到了原点，所以机器人一定会进入循环。
+
+如果给定的指令字符串 `instructions` 执行一遍后，机器人没回到原点，但是机器人的方向与初始方向不同，即 $k \neq 0$，那么机器人也一定会进入循环。为什么？我们不妨假设在执行一遍指令过后，机器人位于 $(x, y)$，且方向为 $k$。
+
+-   若 $k=1$，即机器人面向西方，那么机器人执行第二遍指令后，坐标变化量是 $(-y, x)$；继续执行第三遍执行后，坐标变化量是 $(-x, -y)$；继续执行第四遍指令后，坐标变化量是 $(y, -x)$。累加这些坐标变化量，我们可以发现，机器人最终会回到原点 $(0, 0)$；
+-   若 $k=2$，即机器人面向南方，那么执行第二遍指令后，坐标变化量是 $(-x, -y)$，累加这两次坐标变化量，我们可以发现，机器人最终会回到原点 $(0, 0)$；
+-   若 $k=3$，即机器人面向东方，那么执行第二遍指令后，坐标变化量是 $(y, -x)$；继续执行第三遍指令后，坐标变化量是 $(-x, -y)$；继续执行第四遍指令后，坐标变化量是 $(-y, x)$。累加这些坐标变化量，我们可以发现，机器人最终会回到原点 $(0, 0)$。
+
+综上所述，如果给定的指令字符串 `instructions` 执行一遍后，机器人回到了原点，或者机器人的方向与初始方向不同，那么机器人一定会进入循环。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为指令字符串 `instructions` 的长度。
 
 <!-- tabs:start -->
 
@@ -102,17 +114,16 @@
 ```python
 class Solution:
     def isRobotBounded(self, instructions: str) -> bool:
-        cur, direction = 0, [0] * 4
-        for ins in instructions:
-            if ins == 'L':
-                cur = (cur + 1) % 4
-            elif ins == 'R':
-                cur = (cur + 3) % 4
+        k = 0
+        dist = [0] * 4
+        for c in instructions:
+            if c == 'L':
+                k = (k + 1) % 4
+            elif c == 'R':
+                k = (k + 3) % 4
             else:
-                direction[cur] += 1
-        return cur != 0 or (
-            direction[0] == direction[2] and direction[1] == direction[3]
-        )
+                dist[k] += 1
+        return (dist[0] == dist[2] and dist[1] == dist[3]) or k != 0
 ```
 
 ### **Java**
@@ -122,18 +133,19 @@ class Solution:
 ```java
 class Solution {
     public boolean isRobotBounded(String instructions) {
-        int[] direction = new int[4];
-        int cur = 0;
-        for (char c : instructions.toCharArray()) {
+        int k = 0;
+        int[] dist = new int[4];
+        for (int i = 0; i < instructions.length(); ++i) {
+            char c = instructions.charAt(i);
             if (c == 'L') {
-                cur = (cur + 1) % 4;
+                k = (k + 1) % 4;
             } else if (c == 'R') {
-                cur = (cur + 3) % 4;
+                k = (k + 3) % 4;
             } else {
-                ++direction[cur];
+                ++dist[k];
             }
         }
-        return cur != 0 || (direction[0] == direction[2] && direction[1] == direction[3]);
+        return (dist[0] == dist[2] && dist[1] == dist[3]) || (k != 0);
     }
 }
 ```
@@ -144,17 +156,18 @@ class Solution {
 class Solution {
 public:
     bool isRobotBounded(string instructions) {
-        vector<int> direction(4);
-        int cur = 0;
-        for (char c : instructions) {
-            if (c == 'L')
-                cur = (cur + 1) % 4;
-            else if (c == 'R')
-                cur = (cur + 3) % 4;
-            else
-                ++direction[cur];
+        int dist[4]{};
+        int k = 0;
+        for (char& c : instructions) {
+            if (c == 'L') {
+                k = (k + 1) % 4;
+            } else if (c == 'R') {
+                k = (k + 3) % 4;
+            } else {
+                ++dist[k];
+            }
         }
-        return cur != 0 || (direction[0] == direction[2] && direction[1] == direction[3]);
+        return (dist[0] == dist[2] && dist[1] == dist[3]) || k;
     }
 };
 ```
@@ -163,18 +176,18 @@ public:
 
 ```go
 func isRobotBounded(instructions string) bool {
-	direction := make([]int, 4)
-	cur := 0
-	for _, ins := range instructions {
-		if ins == 'L' {
-			cur = (cur + 1) % 4
-		} else if ins == 'R' {
-			cur = (cur + 3) % 4
+	dist := [4]int{}
+	k := 0
+	for _, c := range instructions {
+		if c == 'L' {
+			k = (k + 1) % 4
+		} else if c == 'R' {
+			k = (k + 3) % 4
 		} else {
-			direction[cur]++
+			dist[k]++
 		}
 	}
-	return cur != 0 || (direction[0] == direction[2] && direction[1] == direction[3])
+	return (dist[0] == dist[2] && dist[1] == dist[3]) || k != 0
 }
 ```
 
@@ -182,21 +195,18 @@ func isRobotBounded(instructions string) bool {
 
 ```ts
 function isRobotBounded(instructions: string): boolean {
-    const direction = new Array(4).fill(0);
-    let cur = 0;
-    for (const c of instructions.split('')) {
+    const dist: number[] = new Array(4).fill(0);
+    let k = 0;
+    for (const c of instructions) {
         if (c === 'L') {
-            cur = (cur + 1) % 4;
+            k = (k + 1) % 4;
         } else if (c === 'R') {
-            cur = (cur + 3) % 4;
+            k = (k + 3) % 4;
         } else {
-            ++direction[cur];
+            ++dist[k];
         }
     }
-    return (
-        cur !== 0 ||
-        (direction[0] === direction[2] && direction[1] === direction[3])
-    );
+    return (dist[0] === dist[2] && dist[1] === dist[3]) || k !== 0;
 }
 ```
 

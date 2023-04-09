@@ -1,16 +1,17 @@
 class Solution {
     public boolean isRobotBounded(String instructions) {
-        int[] direction = new int[4];
-        int cur = 0;
-        for (char c : instructions.toCharArray()) {
+        int k = 0;
+        int[] dist = new int[4];
+        for (int i = 0; i < instructions.length(); ++i) {
+            char c = instructions.charAt(i);
             if (c == 'L') {
-                cur = (cur + 1) % 4;
+                k = (k + 1) % 4;
             } else if (c == 'R') {
-                cur = (cur + 3) % 4;
+                k = (k + 3) % 4;
             } else {
-                ++direction[cur];
+                ++dist[k];
             }
         }
-        return cur != 0 || (direction[0] == direction[2] && direction[1] == direction[3]);
+        return (dist[0] == dist[2] && dist[1] == dist[3]) || (k != 0);
     }
 }

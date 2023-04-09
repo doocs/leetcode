@@ -89,17 +89,16 @@ Based on that, we return true.
 ```python
 class Solution:
     def isRobotBounded(self, instructions: str) -> bool:
-        cur, direction = 0, [0] * 4
-        for ins in instructions:
-            if ins == 'L':
-                cur = (cur + 1) % 4
-            elif ins == 'R':
-                cur = (cur + 3) % 4
+        k = 0
+        dist = [0] * 4
+        for c in instructions:
+            if c == 'L':
+                k = (k + 1) % 4
+            elif c == 'R':
+                k = (k + 3) % 4
             else:
-                direction[cur] += 1
-        return cur != 0 or (
-            direction[0] == direction[2] and direction[1] == direction[3]
-        )
+                dist[k] += 1
+        return (dist[0] == dist[2] and dist[1] == dist[3]) or k != 0
 ```
 
 ### **Java**
@@ -107,18 +106,19 @@ class Solution:
 ```java
 class Solution {
     public boolean isRobotBounded(String instructions) {
-        int[] direction = new int[4];
-        int cur = 0;
-        for (char c : instructions.toCharArray()) {
+        int k = 0;
+        int[] dist = new int[4];
+        for (int i = 0; i < instructions.length(); ++i) {
+            char c = instructions.charAt(i);
             if (c == 'L') {
-                cur = (cur + 1) % 4;
+                k = (k + 1) % 4;
             } else if (c == 'R') {
-                cur = (cur + 3) % 4;
+                k = (k + 3) % 4;
             } else {
-                ++direction[cur];
+                ++dist[k];
             }
         }
-        return cur != 0 || (direction[0] == direction[2] && direction[1] == direction[3]);
+        return (dist[0] == dist[2] && dist[1] == dist[3]) || (k != 0);
     }
 }
 ```
@@ -129,17 +129,18 @@ class Solution {
 class Solution {
 public:
     bool isRobotBounded(string instructions) {
-        vector<int> direction(4);
-        int cur = 0;
-        for (char c : instructions) {
-            if (c == 'L')
-                cur = (cur + 1) % 4;
-            else if (c == 'R')
-                cur = (cur + 3) % 4;
-            else
-                ++direction[cur];
+        int dist[4]{};
+        int k = 0;
+        for (char& c : instructions) {
+            if (c == 'L') {
+                k = (k + 1) % 4;
+            } else if (c == 'R') {
+                k = (k + 3) % 4;
+            } else {
+                ++dist[k];
+            }
         }
-        return cur != 0 || (direction[0] == direction[2] && direction[1] == direction[3]);
+        return (dist[0] == dist[2] && dist[1] == dist[3]) || k;
     }
 };
 ```
@@ -148,18 +149,18 @@ public:
 
 ```go
 func isRobotBounded(instructions string) bool {
-	direction := make([]int, 4)
-	cur := 0
-	for _, ins := range instructions {
-		if ins == 'L' {
-			cur = (cur + 1) % 4
-		} else if ins == 'R' {
-			cur = (cur + 3) % 4
+	dist := [4]int{}
+	k := 0
+	for _, c := range instructions {
+		if c == 'L' {
+			k = (k + 1) % 4
+		} else if c == 'R' {
+			k = (k + 3) % 4
 		} else {
-			direction[cur]++
+			dist[k]++
 		}
 	}
-	return cur != 0 || (direction[0] == direction[2] && direction[1] == direction[3])
+	return (dist[0] == dist[2] && dist[1] == dist[3]) || k != 0
 }
 ```
 
@@ -167,21 +168,18 @@ func isRobotBounded(instructions string) bool {
 
 ```ts
 function isRobotBounded(instructions: string): boolean {
-    const direction = new Array(4).fill(0);
-    let cur = 0;
-    for (const c of instructions.split('')) {
+    const dist: number[] = new Array(4).fill(0);
+    let k = 0;
+    for (const c of instructions) {
         if (c === 'L') {
-            cur = (cur + 1) % 4;
+            k = (k + 1) % 4;
         } else if (c === 'R') {
-            cur = (cur + 3) % 4;
+            k = (k + 3) % 4;
         } else {
-            ++direction[cur];
+            ++dist[k];
         }
     }
-    return (
-        cur !== 0 ||
-        (direction[0] === direction[2] && direction[1] === direction[3])
-    );
+    return (dist[0] === dist[2] && dist[1] === dist[3]) || k !== 0;
 }
 ```
 

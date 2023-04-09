@@ -1,17 +1,14 @@
 function isRobotBounded(instructions: string): boolean {
-    const direction = new Array(4).fill(0);
-    let cur = 0;
-    for (const c of instructions.split('')) {
+    const dist: number[] = new Array(4).fill(0);
+    let k = 0;
+    for (const c of instructions) {
         if (c === 'L') {
-            cur = (cur + 1) % 4;
+            k = (k + 1) % 4;
         } else if (c === 'R') {
-            cur = (cur + 3) % 4;
+            k = (k + 3) % 4;
         } else {
-            ++direction[cur];
+            ++dist[k];
         }
     }
-    return (
-        cur !== 0 ||
-        (direction[0] === direction[2] && direction[1] === direction[3])
-    );
+    return (dist[0] === dist[2] && dist[1] === dist[3]) || k !== 0;
 }
