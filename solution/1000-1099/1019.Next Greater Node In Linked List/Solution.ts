@@ -10,26 +10,21 @@
  * }
  */
 
-interface Item {
-    index: number;
-    val: number;
-}
-
 function nextLargerNodes(head: ListNode | null): number[] {
-    const res: number[] = [];
-    const stack: Item[] = [];
-    let cur = head;
-    for (let i = 0; cur != null; i++) {
-        res.push(0);
-        const { val, next } = cur;
-        while (stack.length !== 0 && stack[stack.length - 1].val < val) {
-            res[stack.pop().index] = val;
-        }
-        stack.push({
-            val,
-            index: i,
-        });
-        cur = next;
+    const nums: number[] = [];
+    while (head) {
+        nums.push(head.val);
+        head = head.next;
     }
-    return res;
+    const stk: number[] = [];
+    const n = nums.length;
+    const ans: number[] = new Array(n).fill(0);
+    for (let i = n - 1; ~i; --i) {
+        while (stk.length && stk[stk.length - 1] <= nums[i]) {
+            stk.pop();
+        }
+        ans[i] = stk.length ? stk[stk.length - 1] : 0;
+        stk.push(nums[i]);
+    }
+    return ans;
 }

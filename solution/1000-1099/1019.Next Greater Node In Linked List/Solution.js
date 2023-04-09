@@ -1,8 +1,8 @@
 /**
  * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
  * }
  */
 /**
@@ -10,20 +10,20 @@
  * @return {number[]}
  */
 var nextLargerNodes = function (head) {
-    let nums = [];
-    while (head != null) {
+    const nums = [];
+    while (head) {
         nums.push(head.val);
         head = head.next;
     }
+    const stk = [];
     const n = nums.length;
-    let larger = new Array(n).fill(0);
-    let stack = [];
-    for (let i = 0; i < n; i++) {
-        let num = nums[i];
-        while (stack.length > 0 && nums[stack[stack.length - 1]] < num) {
-            larger[stack.pop()] = num;
+    const ans = new Array(n).fill(0);
+    for (let i = n - 1; i >= 0; --i) {
+        while (stk.length && stk[stk.length - 1] <= nums[i]) {
+            stk.pop();
         }
-        stack.push(i);
+        ans[i] = stk.length ? stk[stk.length - 1] : 0;
+        stk.push(nums[i]);
     }
-    return larger;
+    return ans;
 };

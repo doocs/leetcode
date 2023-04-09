@@ -174,9 +174,9 @@ func nextLargerNodes(head *ListNode) []int {
 ```js
 /**
  * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
  * }
  */
 /**
@@ -184,26 +184,59 @@ func nextLargerNodes(head *ListNode) []int {
  * @return {number[]}
  */
 var nextLargerNodes = function (head) {
-    let nums = [];
-    while (head != null) {
+    const nums = [];
+    while (head) {
         nums.push(head.val);
         head = head.next;
     }
+    const stk = [];
     const n = nums.length;
-    let larger = new Array(n).fill(0);
-    let stack = [];
-    for (let i = 0; i < n; i++) {
-        let num = nums[i];
-        while (stack.length > 0 && nums[stack[stack.length - 1]] < num) {
-            larger[stack.pop()] = num;
+    const ans = new Array(n).fill(0);
+    for (let i = n - 1; i >= 0; --i) {
+        while (stk.length && stk[stk.length - 1] <= nums[i]) {
+            stk.pop();
         }
-        stack.push(i);
+        ans[i] = stk.length ? stk[stk.length - 1] : 0;
+        stk.push(nums[i]);
     }
-    return larger;
+    return ans;
 };
 ```
 
 ### **TypeScript**
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function nextLargerNodes(head: ListNode | null): number[] {
+    const nums: number[] = [];
+    while (head) {
+        nums.push(head.val);
+        head = head.next;
+    }
+    const stk: number[] = [];
+    const n = nums.length;
+    const ans: number[] = new Array(n).fill(0);
+    for (let i = n - 1; ~i; --i) {
+        while (stk.length && stk[stk.length - 1] <= nums[i]) {
+            stk.pop();
+        }
+        ans[i] = stk.length ? stk[stk.length - 1] : 0;
+        stk.push(nums[i]);
+    }
+    return ans;
+}
+```
 
 ```ts
 /**
