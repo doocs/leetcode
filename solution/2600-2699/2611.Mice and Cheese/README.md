@@ -63,6 +63,10 @@
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为奶酪的数量。
 
+相似题目：
+
+-   [1029. 两地调度](/solution/1000-1099/1029.Two%20City%20Scheduling/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
