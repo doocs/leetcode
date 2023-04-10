@@ -138,7 +138,7 @@ class Solution {
         $max = $sum;
         for ($j = $k; $j < count($nums); $j++) {
             $sum = $sum - $nums[$j - $k] + $nums[$j];
-            $max = max($max, $sum / $k);
+            $max = max($max, $sum);
         }
         return $max / $k;
     }
