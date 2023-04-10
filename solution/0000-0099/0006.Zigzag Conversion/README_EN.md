@@ -69,6 +69,21 @@ class Solution:
     def convert(self, s: str, numRows: int) -> str:
         if numRows == 1:
             return s
+        g = [[] for _ in range(numRows)]
+        i, k = 0, -1
+        for c in s:
+            g[i].append(c)
+            if i == 0 or i == numRows - 1:
+                k = -k
+            i += k
+        return ''.join(chain(*g))
+```
+
+```python
+class Solution:
+    def convert(self, s: str, numRows: int) -> str:
+        if numRows == 1:
+            return s
         group = 2 * numRows - 2
         ans = []
         for i in range(1, numRows + 1):
@@ -86,6 +101,27 @@ class Solution:
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```java
+class Solution {
+    public String convert(String s, int numRows) {
+        if (numRows == 1) {
+            return s;
+        }
+        StringBuilder[] g = new StringBuilder[numRows];
+        Arrays.setAll(g, k -> new StringBuilder());
+        int i = 0, k = -1;
+        for (char c : s.toCharArray()) {
+            g[i].append(c);
+            if (i == 0 || i == numRows - 1) {
+                k = -k;
+            }
+            i += k;
+        }
+        return String.join("", g);
+    }
+}
+```
 
 ```java
 class Solution {
@@ -118,6 +154,31 @@ class Solution {
 class Solution {
 public:
     string convert(string s, int numRows) {
+        if (numRows == 1) {
+            return s;
+        }
+        vector<string> g(numRows);
+        int i = 0, k = -1;
+        for (char c : s) {
+            g[i] += c;
+            if (i == 0 || i == numRows - 1) {
+                k = -k;
+            }
+            i += k;
+        }
+        string ans;
+        for (auto& t : g) {
+            ans += t;
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    string convert(string s, int numRows) {
         if (numRows == 1) return s;
         string ans;
         int group = 2 * numRows - 2;
@@ -136,41 +197,25 @@ public:
 };
 ```
 
-### **C#**
+### **Go**
 
-```cs
-using System.Collections.Generic;
-using System.Linq;
-
-public class Solution {
-    public string Convert(string s, int numRows) {
-        if (numRows == 1) return s;
-        if (numRows > s.Length) numRows = s.Length;
-        var rows = new List<char>[numRows];
-        var i = 0;
-        var j = 0;
-        var down = true;
-        while (i < s.Length)
-        {
-            if (rows[j] == null)
-            {
-                rows[j] = new List<char>();
-            }
-            rows[j].Add(s[i]);
-            j = j + (down ? 1 : -1);
-            if (j == numRows || j < 0)
-            {
-                down = !down;
-                j = j + (down ? 2 : -2);
-            }
-            ++i;
-        }
-        return new string(rows.SelectMany(row => row).ToArray());
-    }
+```go
+func convert(s string, numRows int) string {
+	if numRows == 1 {
+		return s
+	}
+	g := make([][]byte, numRows)
+	i, k := 0, -1
+	for _, c := range s {
+		g[i] = append(g[i], byte(c))
+		if i == 0 || i == numRows-1 {
+			k = -k
+		}
+		i += k
+	}
+	return string(bytes.Join(g, nil))
 }
 ```
-
-### **Go**
 
 ```go
 func convert(s string, numRows int) string {
@@ -196,6 +241,30 @@ func convert(s string, numRows int) string {
 ```
 
 ### **JavaScript**
+
+```js
+/**
+ * @param {string} s
+ * @param {number} numRows
+ * @return {string}
+ */
+var convert = function (s, numRows) {
+    if (numRows == 1) {
+        return s;
+    }
+    const g = new Array(numRows).fill(_).map(() => []);
+    let i = 0;
+    let k = -1;
+    for (const c of s) {
+        g[i].push(c);
+        if (i == 0 || i == numRows - 1) {
+            k = -k;
+        }
+        i += k;
+    }
+    return g.flat().join('');
+};
+```
 
 ```js
 /**
@@ -233,6 +302,25 @@ function convert(s: string, numRows: number): string {
     if (numRows === 1) {
         return s;
     }
+    const g: string[][] = new Array(numRows).fill(0).map(() => []);
+    let i = 0;
+    let k = -1;
+    for (const c of s) {
+        g[i].push(c);
+        if (i === numRows - 1 || i === 0) {
+            k = -k;
+        }
+        i += k;
+    }
+    return g.flat().join('');
+}
+```
+
+```ts
+function convert(s: string, numRows: number): string {
+    if (numRows === 1) {
+        return s;
+    }
     const ss = new Array(numRows).fill('');
     let i = 0;
     let toDown = true;
@@ -248,6 +336,40 @@ function convert(s: string, numRows: number): string {
         }
     }
     return ss.reduce((r, s) => r + s);
+}
+```
+
+### **C#**
+
+```cs
+using System.Collections.Generic;
+using System.Linq;
+
+public class Solution {
+    public string Convert(string s, int numRows) {
+        if (numRows == 1) return s;
+        if (numRows > s.Length) numRows = s.Length;
+        var rows = new List<char>[numRows];
+        var i = 0;
+        var j = 0;
+        var down = true;
+        while (i < s.Length)
+        {
+            if (rows[j] == null)
+            {
+                rows[j] = new List<char>();
+            }
+            rows[j].Add(s[i]);
+            j = j + (down ? 1 : -1);
+            if (j == numRows || j < 0)
+            {
+                down = !down;
+                j = j + (down ? 2 : -2);
+            }
+            ++i;
+        }
+        return new string(rows.SelectMany(row => row).ToArray());
+    }
 }
 ```
 
