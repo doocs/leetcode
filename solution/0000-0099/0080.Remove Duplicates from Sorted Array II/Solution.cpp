@@ -1,10 +1,12 @@
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        int i = 0;
-        for (int& num : nums)
-            if (i < 2 || num != nums[i - 2])
-                nums[i++] = num;
-        return i;
+        int k = 0;
+        for (int x : nums) {
+            if (k < 2 || x != nums[k - 2]) {
+                nums[k++] = x;
+            }
+        }
+        return k;
     }
 };
