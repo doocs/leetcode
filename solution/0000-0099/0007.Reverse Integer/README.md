@@ -55,13 +55,25 @@
 
 **方法一：数学**
 
-设返回结果初始值 $ans = 0$，每次循环对于给定的数 $x$，若 $x \ne 0$，求出个位数字 $digit = x \ \% \ 10$，根据题意当 $ans \times 10 + digit > INT32\\_MAX$ 或者 $ans \times 10 + digit < INT32\\_MIN$ 时返回 $0$，否则我们令 $ans = ans \times 10 + digit$，然后结束本次循环，同时更新 $x = x/10$。
+我们不妨记 $mi$ 和 $mx$ 分别为 $-2^{31}$ 和 $2^{31} - 1$，则 $x$ 的反转结果 $ans$ 需要满足 $mi \le ans \le mx$。
 
-但题目要求不允许存储 64 位整数，故其中的判断条件需要修改为当 $ans > (INT32\\_MAX-digit)/10$ 或者 $ans < (INT32\\_MIN-digit)/10$ 时返回 $0$。
+我们可以通过不断地对 $x$ 取余来获取 $x$ 的最后一位数字 $y$，并将 $y$ 添加到 $ans$ 的末尾。在添加 $y$ 之前，我们需要判断 $ans$ 是否溢出。即判断 $ans \times 10 + y$ 是否在 $[mi, mx]$ 的范围内。
 
-更进一步来看，在 $x > 0$ 时，若 $x$ 的位数小于 $INT32\\_MAX$ 的位数则一定可以反转数字；若 $x$ 的位数等于 $INT32\\_MAX$ 的位数，能否反转则取决于 $x$ 的最高位数字 $digit$，而 $x \leq INT32\\_MAX$，故最高位数字 $digit \leq 2 < INT32\\_MAX \\% 10$，所以判断条件可以简化为 $ans > INT32\\_MAX/10$。同理，当 $x < 0$ 时，判断条件可以简化为 $ans < INT32\\_MIN/10$。
+若 $x \gt 0$，那么需要满足 $ans \times 10 + y \leq mx$，即 $ans \times 10 + y \leq \left \lfloor \frac{mx}{10} \right \rfloor \times 10 + 7$。整理得 $(ans - \left \lfloor \frac{mx}{10} \right \rfloor) \times 10 \leq 7 - y$。
 
-时间复杂度 $O(log|x|)$，空间复杂度 $O(1)$，其中 $log|x|$ 表示有符号整数 $x$ 的位数。
+下面我们讨论上述不等式成立的条件：
+
+-   当 $ans \lt \left \lfloor \frac{mx}{10} \right \rfloor$ 时，不等式显然成立；
+-   当 $ans = \left \lfloor \frac{mx}{10} \right \rfloor$ 时，不等式成立的充要条件是 $y \leq 7$。如果 $ans = \left \lfloor \frac{mx}{10} \right \rfloor$ 并且还能继续添加数字，说明此时数字是最高位，即此时 $y$ 一定不超过 $2$，因此，不等式一定成立；
+-   当 $ans \gt \left \lfloor \frac{mx}{10} \right \rfloor$ 时，不等式显然不成立。
+
+综上，当 $x \gt 0$ 时，不等式成立的充要条件是 $ans \leq \left \lfloor \frac{mx}{10} \right \rfloor$。
+
+同理，当 $x \lt 0$ 时，不等式成立的充要条件是 $ans \geq \left \lfloor \frac{mi}{10} \right \rfloor$。
+
+因此，我们可以通过判断 $ans$ 是否在 $[\left \lfloor \frac{mi}{10} \right \rfloor, \left \lfloor \frac{mx}{10} \right \rfloor]$ 的范围内来判断 $ans$ 是否溢出。若溢出，则返回 $0$。否则，将 $y$ 添加到 $ans$ 的末尾，然后将 $x$ 的最后一位数字去除，即 $x \gets \left \lfloor \frac{x}{10} \right \rfloor$。
+
+时间复杂度 $O(\log |x|)$，其中 $|x|$ 为 $x$ 的绝对值。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -69,14 +81,20 @@
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-转字符串，进行翻转。
-
 ```python
 class Solution:
     def reverse(self, x: int) -> int:
-        y = int(str(abs(x))[::-1])
-        res = -y if x < 0 else y
-        return 0 if res < -(2**31) or res > 2**31 - 1 else res
+        ans = 0
+        mi, mx = -2**31, 2**31 - 1
+        while x:
+            if ans < mi // 10 + 1 or ans > mx // 10:
+                return 0
+            y = x % 10
+            if x < 0 and y > 0:
+                y -= 10
+            ans = ans * 10 + y
+            x = (x - y) // 10
+        return ans
 ```
 
 ### **Java**
@@ -86,13 +104,14 @@ class Solution:
 ```java
 class Solution {
     public int reverse(int x) {
-        long res = 0;
-        // 考虑负数情况，所以这里条件为: x != 0
-        while (x != 0) {
-            res = res * 10 + (x % 10);
-            x /= 10;
+        int ans = 0;
+        for (; x != 0; x /= 10) {
+            if (ans < Integer.MIN_VALUE / 10 || ans > Integer.MAX_VALUE / 10) {
+                return 0;
+            }
+            ans = ans * 10 + x % 10;
         }
-        return res < Integer.MIN_VALUE || res > Integer.MAX_VALUE ? 0 : (int) res;
+        return ans;
     }
 }
 ```
@@ -104,14 +123,29 @@ class Solution {
 public:
     int reverse(int x) {
         int ans = 0;
-        for (; x != 0; x /= 10) {
-            if (ans > INT32_MAX / 10 || ans < INT32_MIN / 10)
+        for (; x; x /= 10) {
+            if (ans < INT_MIN / 10 || ans > INT_MAX / 10) {
                 return 0;
+            }
             ans = ans * 10 + x % 10;
         }
         return ans;
     }
 };
+```
+
+### **Go**
+
+```go
+func reverse(x int) (ans int) {
+	for ; x != 0; x /= 10 {
+		if ans < math.MinInt32/10 || ans > math.MaxInt32/10 {
+			return 0
+		}
+		ans = ans*10 + x%10
+	}
+	return
+}
 ```
 
 ### **JavaScript**
@@ -122,12 +156,16 @@ public:
  * @return {number}
  */
 var reverse = function (x) {
-    let res = 0;
-    while (x) {
-        res = res * 10 + (x % 10);
-        x = ~~(x / 10);
+    const mi = -(2 ** 31);
+    const mx = 2 ** 31 - 1;
+    let ans = 0;
+    for (; x != 0; x = ~~(x / 10)) {
+        if (ans < ~~(mi / 10) || ans > ~~(mx / 10)) {
+            return 0;
+        }
+        ans = ans * 10 + (x % 10);
     }
-    return res < Math.pow(-2, 31) || res > Math.pow(2, 31) - 1 ? 0 : res;
+    return ans;
 };
 ```
 
@@ -135,15 +173,14 @@ var reverse = function (x) {
 
 ```c
 int reverse(int x) {
-    int res = 0;
-    while (x != 0) {
-        if (res > INT_MAX / 10 || res < INT_MIN / 10) {
+    int ans = 0;
+    for (; x != 0; x /= 10) {
+        if (ans > INT_MAX / 10 || ans < INT_MIN / 10) {
             return 0;
         }
-        res = res * 10 + x % 10;
-        x /= 10;
+        ans = ans * 10 + x % 10;
     }
-    return res;
+    return ans;
 }
 ```
 
@@ -168,65 +205,21 @@ impl Solution {
 }
 ```
 
-### **Go**
-
-```go
-func reverse(x int) int {
-	ans, INT32_MAX, INT32_MIN := 0, math.MaxInt32, math.MinInt32
-	for ; x != 0; x /= 10 {
-		if ans > INT32_MAX/10 || ans < INT32_MIN/10 {
-			return 0
-		}
-		ans = ans*10 + x % 10
-	}
-	return ans
-}
-```
-
 ### **C#**
 
 ```cs
 public class Solution {
     public int Reverse(int x) {
-        var negative = x < 0;
-        if (negative) x = -x;
-        long result = 0;
-        while (x > 0)
-        {
-            result = (result * 10) + x % 10;
-            x /= 10;
+        int ans = 0;
+        for (; x != 0; x /= 10) {
+            if (ans < int.MinValue / 10 || ans > int.MaxValue / 10) {
+                return 0;
+            }
+            ans = ans * 10 + x % 10;
         }
-        if (negative) result = -result;
-        if (result > int.MaxValue || result < int.MinValue) result = 0;
-        return (int) result;
+        return ans;
     }
 }
-```
-
-### **Ruby**
-
-```rb
-# @param {Integer} x
-# @return {Integer}
-def reverse(x)
-  neg = x < 0
-
-  x = x.abs
-  s = ''
-
-  x /= 10 while x > 0 && (x % 10).zero?
-
-  while x > 0
-    s += (x % 10).to_s
-    x /= 10
-  end
-
-  s = neg ? '-' + s : s
-
-  # have to explicitly constraint the int boundary as per the dummy test case
-  res = s.to_i
-  res <= 214_748_364_7 && res >= -214_748_364_8 ? res : 0
-end
 ```
 
 ### **...**

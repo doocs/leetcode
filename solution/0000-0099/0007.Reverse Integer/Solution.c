@@ -1,11 +1,10 @@
 int reverse(int x) {
-    int res = 0;
-    while (x != 0) {
-        if (res > INT_MAX / 10 || res < INT_MIN / 10) {
+    int ans = 0;
+    for (; x != 0; x /= 10) {
+        if (ans > INT_MAX / 10 || ans < INT_MIN / 10) {
             return 0;
         }
-        res = res * 10 + x % 10;
-        x /= 10;
+        ans = ans * 10 + x % 10;
     }
-    return res;
+    return ans;
 }
