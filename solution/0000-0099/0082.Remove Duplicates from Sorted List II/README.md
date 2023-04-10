@@ -38,6 +38,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：一次遍历**
+
+我们先创建一个虚拟头节点 $dummy$，令 $dummy.next = head$，然后创建指针 $pre$ 指向 $dummy$，指针 $cur$ 指向 $head$，开始遍历链表。
+
+当 $cur$ 指向的节点值与 $cur.next$ 指向的节点值相同时，我们就让 $cur$ 不断向后移动，直到 $cur$ 指向的节点值与 $cur.next$ 指向的节点值不相同时，停止移动。此时，我们判断 $pre.next$ 是否等于 $cur$，如果相等，说明 $pre$ 与 $cur$ 之间没有重复节点，我们就让 $pre$ 移动到 $cur$ 的位置；否则，说明 $pre$ 与 $cur$ 之间有重复节点，我们就让 $pre.next$ 指向 $cur.next$。然后让 $cur$ 继续向后移动。继续上述操作，直到 $cur$ 为空，遍历结束。
+
+最后，返回 $dummy.next$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为链表的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -51,16 +61,17 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def deleteDuplicates(self, head: ListNode) -> ListNode:
-        dummy = ListNode(-1, head)
-        cur = dummy
-        while cur.next and cur.next.next:
-            if cur.next.val == cur.next.next.val:
-                val = cur.next.val
-                while cur.next and cur.next.val == val:
-                    cur.next = cur.next.next
-            else:
+    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        dummy = pre = ListNode(next=head)
+        cur = head
+        while cur:
+            while cur.next and cur.next.val == cur.val:
                 cur = cur.next
+            if pre.next == cur:
+                pre = cur
+            else:
+                pre.next = cur.next
+            cur = cur.next
         return dummy.next
 ```
 
@@ -81,17 +92,19 @@ class Solution:
  */
 class Solution {
     public ListNode deleteDuplicates(ListNode head) {
-        ListNode dummy = new ListNode(-1, head);
-        ListNode cur = dummy;
-        while (cur.next != null && cur.next.next != null) {
-            if (cur.next.val == cur.next.next.val) {
-                int val = cur.next.val;
-                while (cur.next != null && cur.next.val == val) {
-                    cur.next = cur.next.next;
-                }
-            } else {
+        ListNode dummy = new ListNode(0, head);
+        ListNode pre = dummy;
+        ListNode cur = head;
+        while (cur != null) {
+            while (cur.next != null && cur.next.val == cur.val) {
                 cur = cur.next;
             }
+            if (pre.next == cur) {
+                pre = cur;
+            } else {
+                pre.next = cur.next;
+            }
+            cur = cur.next;
         }
         return dummy.next;
     }
@@ -114,67 +127,84 @@ class Solution {
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
-        ListNode* dummy = new ListNode(-1, head);
-        ListNode* cur = dummy;
-        while (cur->next != nullptr && cur->next->next != nullptr) {
-            if (cur->next->val == cur->next->next->val) {
-                int val = cur->next->val;
-                while (cur->next != nullptr && cur->next->val == val) {
-                    cur->next = cur->next->next;
-                }
-            } else {
+        ListNode* dummy = new ListNode(0, head);
+        ListNode* pre = dummy;
+        ListNode* cur = head;
+        while (cur) {
+            while (cur->next && cur->next->val == cur->val) {
                 cur = cur->next;
             }
+            if (pre->next == cur) {
+                pre = cur;
+            } else {
+                pre->next = cur->next;
+            }
+            cur = cur->next;
         }
         return dummy->next;
     }
 };
 ```
 
+### **Go**
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func deleteDuplicates(head *ListNode) *ListNode {
+	dummy := &ListNode{Next: head}
+	pre, cur := dummy, head
+	for cur != nil {
+		for cur.Next != nil && cur.Next.Val == cur.Val {
+			cur = cur.Next
+		}
+		if pre.Next == cur {
+			pre = cur
+		} else {
+			pre.Next = cur.Next
+		}
+		cur = cur.Next
+	}
+	return dummy.Next
+}
+```
+
 ### **C#**
 
 ```cs
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
 public class Solution {
-    private ListNode newHead;
-    private ListNode last;
-    private ListNode candidate;
-    private int count;
-
     public ListNode DeleteDuplicates(ListNode head) {
-        while (head != null)
-        {
-            if (candidate == null || candidate.val != head.val)
-            {
-                TryAppend();
-                candidate = head;
-                count = 1;
+        ListNode dummy = new ListNode(0, head);
+        ListNode pre = dummy;
+        ListNode cur = head;
+        while (cur != null) {
+            while (cur.next != null && cur.next.val == cur.val) {
+                cur = cur.next;
             }
-            else
-            {
-                ++count;
+            if (pre.next == cur) {
+                pre = cur;
+            } else {
+                pre.next = cur.next;
             }
-
-            head = head.next;
+            cur = cur.next;
         }
-        TryAppend();
-        if (last != null) last.next = null;
-        return newHead;
-    }
-
-    private void TryAppend()
-    {
-        if (count == 1)
-        {
-            if (newHead == null)
-            {
-                newHead = last = candidate;
-            }
-            else
-            {
-                last.next = candidate;
-                last = last.next;
-            }
-        }
+        return dummy.next;
     }
 }
 ```
@@ -194,27 +224,19 @@ public class Solution {
  * @return {ListNode}
  */
 var deleteDuplicates = function (head) {
+    const dummy = new ListNode(0, head);
+    let pre = dummy;
     let cur = head;
-    let pre = new ListNode(0);
-    pre.next = head;
-    let dummy = pre;
-    let rep = false;
-    if (!head || !head.next) {
-        return head;
-    }
     while (cur) {
-        while (cur.next && cur.val == cur.next.val) {
+        while (cur.next && cur.val === cur.next.val) {
             cur = cur.next;
-            rep = true;
         }
-        if (rep) {
-            pre.next = cur.next;
-            cur = cur.next;
-        } else {
+        if (pre.next === cur) {
             pre = cur;
-            cur = cur.next;
+        } else {
+            pre.next = cur.next;
         }
-        rep = false;
+        cur = cur.next;
     }
     return dummy.next;
 };
@@ -236,21 +258,19 @@ var deleteDuplicates = function (head) {
  */
 
 function deleteDuplicates(head: ListNode | null): ListNode | null {
-    const dummy = new ListNode(101, head);
-    let p = dummy;
-    let c = dummy;
-    let count = 1;
-    while (c != null) {
-        if (c.val !== (c.next ?? {}).val) {
-            if (count === 1) {
-                p = c;
-            } else {
-                p.next = c.next;
-            }
-            count = 0;
+    const dummy = new ListNode(0, head);
+    let pre = dummy;
+    let cur = head;
+    while (cur) {
+        while (cur.next && cur.val === cur.next.val) {
+            cur = cur.next;
         }
-        c = c.next;
-        count++;
+        if (pre.next === cur) {
+            pre = cur;
+        } else {
+            pre.next = cur.next;
+        }
+        cur = cur.next;
     }
     return dummy.next;
 }
