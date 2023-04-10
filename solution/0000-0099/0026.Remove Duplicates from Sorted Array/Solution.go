@@ -1,10 +1,10 @@
 func removeDuplicates(nums []int) int {
-    i := 0
-	for _, num := range nums {
-		if i < 1 || num != nums[i-1] {
-			nums[i] = num
-			i++
+	k := 0
+	for _, x := range nums {
+		if k == 0 || x != nums[k-1] {
+			nums[k] = x
+			k++
 		}
 	}
-	return i
+	return k
 }

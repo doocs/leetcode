@@ -68,12 +68,12 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 ```python
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
-        i = 0
-        for num in nums:
-            if i < 1 or num != nums[i - 1]:
-                nums[i] = num
-                i += 1
-        return i
+        k = 0
+        for x in nums:
+            if k == 0 or x != nums[k - 1]:
+                nums[k] = x
+                k += 1
+        return k
 ```
 
 ### **Java**
@@ -81,13 +81,13 @@ class Solution:
 ```java
 class Solution {
     public int removeDuplicates(int[] nums) {
-        int i = 0;
-        for (int num : nums) {
-            if (i < 1 || num != nums[i - 1]) {
-                nums[i++] = num;
+        int k = 0;
+        for (int x : nums) {
+            if (k == 0 || x != nums[k - 1]) {
+                nums[k++] = x;
             }
         }
-        return i;
+        return k;
     }
 }
 ```
@@ -98,11 +98,13 @@ class Solution {
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        int i = 0;
-        for (int& num : nums)
-            if (i < 1 || num != nums[i - 1])
-                nums[i++] = num;
-        return i;
+        int k = 0;
+        for (int x : nums) {
+            if (k == 0 || x != nums[k - 1]) {
+                nums[k++] = x;
+            }
+        }
+        return k;
     }
 };
 ```
@@ -121,14 +123,14 @@ public:
 
 ```go
 func removeDuplicates(nums []int) int {
-    i := 0
-	for _, num := range nums {
-		if i < 1 || num != nums[i-1] {
-			nums[i] = num
-			i++
+	k := 0
+	for _, x := range nums {
+		if k == 0 || x != nums[k-1] {
+			nums[k] = x
+			k++
 		}
 	}
-	return i
+	return k
 }
 ```
 
@@ -140,13 +142,13 @@ func removeDuplicates(nums []int) int {
  * @return {number}
  */
 var removeDuplicates = function (nums) {
-    let i = 0;
-    for (const num of nums) {
-        if (i < 1 || num != nums[i - 1]) {
-            nums[i++] = num;
+    let k = 0;
+    for (const x of nums) {
+        if (k === 0 || x !== nums[k - 1]) {
+            nums[k++] = x;
         }
     }
-    return i;
+    return k;
 };
 ```
 
@@ -155,15 +157,13 @@ var removeDuplicates = function (nums) {
 ```cs
 public class Solution {
     public int RemoveDuplicates(int[] nums) {
-        int i = 0;
-        foreach(int num in nums)
-        {
-            if (i < 1 || num != nums[i - 1])
-            {
-                nums[i++] = num;
+        int k = 0;
+        foreach (int x in nums) {
+            if (k == 0 || x != nums[k - 1]) {
+                nums[k++] = x;
             }
         }
-        return i;
+        return k;
     }
 }
 ```
@@ -173,14 +173,14 @@ public class Solution {
 ```rust
 impl Solution {
     pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
-        let mut len = 0;
+        let mut k = 0;
         for i in 0..nums.len() {
-            if i == 0 || nums[i] != nums[len - 1] {
-                nums[len] = nums[i];
-                len += 1;
+            if k == 0 || nums[i] != nums[k - 1] {
+                nums[k] = nums[i];
+                k += 1;
             }
         }
-        len as i32
+        k as i32
     }
 }
 ```
@@ -189,19 +189,19 @@ impl Solution {
 
 ```php
 class Solution {
+
     /**
      * @param Integer[] $nums
      * @return Integer
      */
     function removeDuplicates(&$nums) {
-        $fast = $slow = 0;
-        while ($fast < count($nums)) {
-            if ($nums[$fast] != $nums[$slow]) {
-                $nums[++$slow] = $nums[$fast];
+        $k = 0;
+        foreach($nums as $x) {
+            if ($k == 0 || $x != $nums[$k - 1]) {
+                $nums[$k++] = $x;
             }
-            $fast++;
         }
-        return $slow + 1;
+        return $k;
     }
 }
 ```

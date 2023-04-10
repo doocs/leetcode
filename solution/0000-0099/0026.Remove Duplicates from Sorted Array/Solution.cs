@@ -1,13 +1,11 @@
 public class Solution {
     public int RemoveDuplicates(int[] nums) {
-        int i = 0;
-        foreach(int num in nums)
-        {
-            if (i < 1 || num != nums[i - 1])
-            {
-                nums[i++] = num;
+        int k = 0;
+        foreach (int x in nums) {
+            if (k == 0 || x != nums[k - 1]) {
+                nums[k++] = x;
             }
         }
-        return i;
+        return k;
     }
 }
