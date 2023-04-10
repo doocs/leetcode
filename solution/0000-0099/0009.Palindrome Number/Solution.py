@@ -1,9 +1,9 @@
 class Solution:
     def isPalindrome(self, x: int) -> bool:
-        if x < 0:
+        if x < 0 or (x and x % 10 == 0):
             return False
-        y, t = 0, x
-        while t:
-            y = y * 10 + t % 10
-            t //= 10
-        return x == y
+        y = 0
+        while y < x:
+            y = y * 10 + x % 10
+            x //= 10
+        return x in (y, y // 10)

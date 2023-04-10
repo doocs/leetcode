@@ -1,8 +1,4 @@
-/**
- * @param {number} x
- * @return {boolean}
- */
-var isPalindrome = function (x) {
+function isPalindrome(x: number): boolean {
     if (x < 0 || (x > 0 && x % 10 === 0)) {
         return false;
     }
@@ -11,4 +7,4 @@ var isPalindrome = function (x) {
         y = y * 10 + (x % 10);
     }
     return x === y || x === ~~(y / 10);
-};
+}

@@ -55,6 +55,30 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：反转一半数字**
+
+我们先判断特殊情况：
+
+-   如果 $x \lt 0$，那么 $x$ 不是回文数，直接返回 `false`；
+-   如果 $x \gt 0$ 且 $x$ 的个位数是 $0$，那么 $x$ 不是回文数，直接返回 `false`；
+-   如果 $x$ 的个位数不是 $0$，那么 $x$ 可能是回文数，继续执行下面的步骤。
+
+我们将 $x$ 的后半部分反转，与前半部分进行比较，如果相等，那么 $x$ 是回文数，否则 $x$ 不是回文数。
+
+举个例子，例如 $x = 1221$，我们可以将数字后半部分从 “21” 反转为 “12”，并将其与前半部分 “12” 进行比较，因为二者相等，我们得知数字 $x$ 是回文。
+
+让我们看看如何将后半部分反转。
+
+对于数字 $1221$，如果执行 $1221 \bmod 10$，我们将得到最后一位数字 $1$，要得到倒数第二位数字，我们可以先通过除以 $10$ 将最后一位数字从 $1221$ 中移除，$1221 / 10 = 122$，再求出上一步结果除以 $10$ 的余数，$122 \bmod 10 = 2$，就可以得到倒数第二位数字。
+
+如果继续这个过程，我们将得到更多位数的反转数字。
+
+通过将最后一位数字不断地累乘到取出数字的变量 $y$ 上，我们可以得到以相反顺序的数字。
+
+在代码实现上，我们可以反复“取出” $x$ 的最后一位数字，并将其“添加”到 $y$ 的后面，循环直到 $y \ge x$，如果此时 $x = y$，或者 $x = y / 10$，那么 $x$ 就是回文数。
+
+时间复杂度 $O(\log_{10}(n))$，其中 $n$ 是 $x$。对于每次迭代，我们会将输入除以 $10$，因此时间复杂度为 $O(\log_{10}(n))$。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -64,13 +88,13 @@
 ```python
 class Solution:
     def isPalindrome(self, x: int) -> bool:
-        if x < 0:
+        if x < 0 or (x and x % 10 == 0):
             return False
-        y, t = 0, x
-        while t:
-            y = y * 10 + t % 10
-            t //= 10
-        return x == y
+        y = 0
+        while y < x:
+            y = y * 10 + x % 10
+            x //= 10
+        return x in (y, y // 10)
 ```
 
 ### **Java**
@@ -80,14 +104,48 @@ class Solution:
 ```java
 class Solution {
     public boolean isPalindrome(int x) {
-        if (x < 0) return false;
-        int y = 0, t = x;
-        while (t != 0) {
-            y = y * 10 + t % 10;
-            t /= 10;
+        if (x < 0 || (x > 0 && x % 10 == 0)) {
+            return false;
         }
-        return x == y;
+        int y = 0;
+        for (; y < x; x /= 10) {
+            y = y * 10 + x % 10;
+        }
+        return x == y || x == y / 10;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        if (x < 0 || (x && x % 10 == 0)) {
+            return false;
+        }
+        int y = 0;
+        for (; y < x; x /= 10) {
+            y = y * 10 + x % 10;
+        }
+        return x == y || x == y / 10;
+    }
+};
+```
+
+### **Go**
+
+```go
+func isPalindrome(x int) bool {
+	if x < 0 || (x > 0 && x%10 == 0) {
+		return false
+	}
+	y := 0
+	for ; y < x; x /= 10 {
+		y = y*10 + x%10
+	}
+	return x == y || x == y/10
 }
 ```
 
@@ -99,32 +157,29 @@ class Solution {
  * @return {boolean}
  */
 var isPalindrome = function (x) {
-    let str = x + '';
-    let left = 0,
-        right = str.length - 1;
-    while (left < right) {
-        if (str[left] != str[right]) return false;
-        left++;
-        right--;
+    if (x < 0 || (x > 0 && x % 10 === 0)) {
+        return false;
     }
-    return true;
+    let y = 0;
+    for (; y < x; x = ~~(x / 10)) {
+        y = y * 10 + (x % 10);
+    }
+    return x === y || x === ~~(y / 10);
 };
 ```
 
-### **Go**
+### **TypeScript**
 
-```go
-func isPalindrome(x int) bool {
-	if x < 0 {
-		return false
-	}
-	result := 0
-	y := x
-	for y != 0 {
-		result = result * 10 + y%10
-		y /= 10
-	}
-	return result == x
+```ts
+function isPalindrome(x: number): boolean {
+    if (x < 0 || (x > 0 && x % 10 === 0)) {
+        return false;
+    }
+    let y = 0;
+    for (; y < x; x = ~~(x / 10)) {
+        y = y * 10 + (x % 10);
+    }
+    return x === y || x === ~~(y / 10);
 }
 ```
 

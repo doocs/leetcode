@@ -50,13 +50,13 @@
 ```python
 class Solution:
     def isPalindrome(self, x: int) -> bool:
-        if x < 0:
+        if x < 0 or (x and x % 10 == 0):
             return False
-        y, t = 0, x
-        while t:
-            y = y * 10 + t % 10
-            t //= 10
-        return x == y
+        y = 0
+        while y < x:
+            y = y * 10 + x % 10
+            x //= 10
+        return x in (y, y // 10)
 ```
 
 ### **Java**
@@ -64,14 +64,48 @@ class Solution:
 ```java
 class Solution {
     public boolean isPalindrome(int x) {
-        if (x < 0) return false;
-        int y = 0, t = x;
-        while (t != 0) {
-            y = y * 10 + t % 10;
-            t /= 10;
+        if (x < 0 || (x > 0 && x % 10 == 0)) {
+            return false;
         }
-        return x == y;
+        int y = 0;
+        for (; y < x; x /= 10) {
+            y = y * 10 + x % 10;
+        }
+        return x == y || x == y / 10;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        if (x < 0 || (x && x % 10 == 0)) {
+            return false;
+        }
+        int y = 0;
+        for (; y < x; x /= 10) {
+            y = y * 10 + x % 10;
+        }
+        return x == y || x == y / 10;
+    }
+};
+```
+
+### **Go**
+
+```go
+func isPalindrome(x int) bool {
+	if x < 0 || (x > 0 && x%10 == 0) {
+		return false
+	}
+	y := 0
+	for ; y < x; x /= 10 {
+		y = y*10 + x%10
+	}
+	return x == y || x == y/10
 }
 ```
 
@@ -83,32 +117,29 @@ class Solution {
  * @return {boolean}
  */
 var isPalindrome = function (x) {
-    let str = x + '';
-    let left = 0,
-        right = str.length - 1;
-    while (left < right) {
-        if (str[left] != str[right]) return false;
-        left++;
-        right--;
+    if (x < 0 || (x > 0 && x % 10 === 0)) {
+        return false;
     }
-    return true;
+    let y = 0;
+    for (; y < x; x = ~~(x / 10)) {
+        y = y * 10 + (x % 10);
+    }
+    return x === y || x === ~~(y / 10);
 };
 ```
 
-### **Go**
+### **TypeScript**
 
-```go
-func isPalindrome(x int) bool {
-	if x < 0 {
-		return false
-	}
-	result := 0
-	y := x
-	for y != 0 {
-		result = result * 10 + y%10
-		y /= 10
-	}
-	return result == x
+```ts
+function isPalindrome(x: number): boolean {
+    if (x < 0 || (x > 0 && x % 10 === 0)) {
+        return false;
+    }
+    let y = 0;
+    for (; y < x; x = ~~(x / 10)) {
+        y = y * 10 + (x % 10);
+    }
+    return x === y || x === ~~(y / 10);
 }
 ```
 
