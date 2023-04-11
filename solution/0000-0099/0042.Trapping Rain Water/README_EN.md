@@ -41,18 +41,12 @@
 class Solution:
     def trap(self, height: List[int]) -> int:
         n = len(height)
-        if n < 3:
-            return 0
-
-        lmx, rmx = [height[0]] * n, [height[n - 1]] * n
+        left = [height[0]] * n
+        right = [height[-1]] * n
         for i in range(1, n):
-            lmx[i] = max(lmx[i - 1], height[i])
-            rmx[n - 1 - i] = max(rmx[n - i], height[n - 1 - i])
-
-        res = 0
-        for i in range(n):
-            res += min(lmx[i], rmx[i]) - height[i]
-        return res
+            left[i] = max(left[i - 1], height[i])
+            right[n - i - 1] = max(right[n - i], height[n - i - 1])
+        return sum(min(l, r) - h for l, r, h in zip(left, right, height))
 ```
 
 ### **Java**
@@ -61,57 +55,20 @@ class Solution:
 class Solution {
     public int trap(int[] height) {
         int n = height.length;
-        if (n < 3) {
-            return 0;
-        }
-
-        int[] lmx = new int[n];
-        int[] rmx = new int[n];
-        lmx[0] = height[0];
-        rmx[n - 1] = height[n - 1];
+        int[] left = new int[n];
+        int[] right = new int[n];
+        left[0] = height[0];
+        right[n - 1] = height[n - 1];
         for (int i = 1; i < n; ++i) {
-            lmx[i] = Math.max(lmx[i - 1], height[i]);
-            rmx[n - 1 - i] = Math.max(rmx[n - i], height[n - i - 1]);
+            left[i] = Math.max(left[i - 1], height[i]);
+            right[n - i - 1] = Math.max(right[n - i], height[n - i - 1]);
         }
-
-        int res = 0;
+        int ans = 0;
         for (int i = 0; i < n; ++i) {
-            res += Math.min(lmx[i], rmx[i]) - height[i];
+            ans += Math.min(left[i], right[i]) - height[i];
         }
-        return res;
+        return ans;
     }
-}
-```
-
-### **TypeScript**
-
-```ts
-function trap(height: number[]): number {
-    let ans = 0;
-    let left = 0,
-        right = height.length - 1;
-    let maxLeft = 0,
-        maxRight = 0;
-    while (left < right) {
-        if (height[left] < height[right]) {
-            // move left
-            if (height[left] >= maxLeft) {
-                maxLeft = height[left];
-            } else {
-                ans += maxLeft - height[left];
-            }
-            ++left;
-        } else {
-            // move right
-            if (height[right] >= maxRight) {
-                maxRight = height[right];
-            } else {
-                ans += maxRight - height[right];
-            }
-            --right;
-        }
-    }
-    return ans;
 }
 ```
 
@@ -122,22 +79,18 @@ class Solution {
 public:
     int trap(vector<int>& height) {
         int n = height.size();
-        if (n < 3) {
-            return 0;
-        }
-
-        vector<int> lmx(n, height[0]);
-        vector<int> rmx(n, height[n - 1]);
+        int left[n], right[n];
+        left[0] = height[0];
+        right[n - 1] = height[n - 1];
         for (int i = 1; i < n; ++i) {
-            lmx[i] = max(lmx[i - 1], height[i]);
-            rmx[n - 1 - i] = max(rmx[n - i], height[n - 1 - i]);
+            left[i] = max(left[i - 1], height[i]);
+            right[n - i - 1] = max(right[n - i], height[n - i - 1]);
         }
-
-        int res = 0;
+        int ans = 0;
         for (int i = 0; i < n; ++i) {
-            res += min(lmx[i], rmx[i]) - height[i];
+            ans += min(left[i], right[i]) - height[i];
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -145,24 +98,19 @@ public:
 ### **Go**
 
 ```go
-func trap(height []int) int {
+func trap(height []int) (ans int) {
 	n := len(height)
-	if n < 3 {
-		return 0
-	}
-
-	lmx, rmx := make([]int, n), make([]int, n)
-	lmx[0], rmx[n-1] = height[0], height[n-1]
+	left := make([]int, n)
+	right := make([]int, n)
+	left[0], right[n-1] = height[0], height[n-1]
 	for i := 1; i < n; i++ {
-		lmx[i] = max(lmx[i-1], height[i])
-		rmx[n-1-i] = max(rmx[n-i], height[n-1-i])
+		left[i] = max(left[i-1], height[i])
+		right[n-i-1] = max(right[n-i], height[n-i-1])
 	}
-
-	res := 0
-	for i := 0; i < n; i++ {
-		res += min(lmx[i], rmx[i]) - height[i]
+	for i, h := range height {
+		ans += min(left[i], right[i]) - h
 	}
-	return res
+	return
 }
 
 func max(a, b int) int {
@@ -177,6 +125,25 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function trap(height: number[]): number {
+    const n = height.length;
+    const left: number[] = new Array(n).fill(height[0]);
+    const right: number[] = new Array(n).fill(height[n - 1]);
+    for (let i = 1; i < n; ++i) {
+        left[i] = Math.max(left[i - 1], height[i]);
+        right[n - i - 1] = Math.max(right[n - i], height[n - i - 1]);
+    }
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        ans += Math.min(left[i], right[i]) - height[i];
+    }
+    return ans;
 }
 ```
 

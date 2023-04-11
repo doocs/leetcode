@@ -1,21 +1,16 @@
-func trap(height []int) int {
+func trap(height []int) (ans int) {
 	n := len(height)
-	if n < 3 {
-		return 0
-	}
-
-	lmx, rmx := make([]int, n), make([]int, n)
-	lmx[0], rmx[n-1] = height[0], height[n-1]
+	left := make([]int, n)
+	right := make([]int, n)
+	left[0], right[n-1] = height[0], height[n-1]
 	for i := 1; i < n; i++ {
-		lmx[i] = max(lmx[i-1], height[i])
-		rmx[n-1-i] = max(rmx[n-i], height[n-1-i])
+		left[i] = max(left[i-1], height[i])
+		right[n-i-1] = max(right[n-i], height[n-i-1])
 	}
-
-	res := 0
-	for i := 0; i < n; i++ {
-		res += min(lmx[i], rmx[i]) - height[i]
+	for i, h := range height {
+		ans += min(left[i], right[i]) - h
 	}
-	return res
+	return
 }
 
 func max(a, b int) int {
