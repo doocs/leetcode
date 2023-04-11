@@ -2,22 +2,23 @@ class Solution {
 public:
     int longestValidParentheses(string s) {
         int n = s.size();
-        if (n < 2) return 0;
-        vector<int> dp(n);
-        int ans = 0;
-        for (int i = 1; i < n; ++i) {
-            if (s[i] == ')') {
-                if (s[i - 1] == '(') {
-                    dp[i] = 2 + (i > 1 ? dp[i - 2] : 0);
+        if (n < 2) {
+            return 0;
+        }
+        int f[n + 1];
+        memset(f, 0, sizeof(f));
+        for (int i = 2; i <= n; ++i) {
+            if (s[i - 1] == ')') {
+                if (s[i - 2] == '(') {
+                    f[i] = f[i - 2] + 2;
                 } else {
-                    int j = i - dp[i - 1] - 1;
-                    if (~j && s[j] == '(') {
-                        dp[i] = 2 + dp[i - 1] + (j ? dp[j - 1] : 0);
+                    int j = i - f[i - 1] - 1;
+                    if (j && s[j - 1] == '(') {
+                        f[i] = f[i - 1] + 2 + f[j - 1];
                     }
                 }
-                ans = max(ans, dp[i]);
             }
         }
-        return ans;
+        return *max_element(f, f + n + 1);
     }
 };

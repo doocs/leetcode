@@ -4,20 +4,19 @@ class Solution {
         if (n < 2) {
             return 0;
         }
-        char[] cs = s.toCharArray();
-        int[] dp = new int[n];
+        int[] f = new int[n + 1];
         int ans = 0;
-        for (int i = 1; i < n; ++i) {
-            if (cs[i] == ')') {
-                if (cs[i - 1] == '(') {
-                    dp[i] = 2 + (i > 1 ? dp[i - 2] : 0);
+        for (int i = 2; i <= n; ++i) {
+            if (s.charAt(i - 1) == ')') {
+                if (s.charAt(i - 2) == '(') {
+                    f[i] = f[i - 2] + 2;
                 } else {
-                    int j = i - dp[i - 1] - 1;
-                    if (j >= 0 && cs[j] == '(') {
-                        dp[i] = 2 + dp[i - 1] + (j > 0 ? dp[j - 1] : 0);
+                    int j = i - f[i - 1] - 1;
+                    if (j > 0 && s.charAt(j - 1) == '(') {
+                        f[i] = f[i - 1] + 2 + f[j - 1];
                     }
                 }
-                ans = Math.max(ans, dp[i]);
+                ans = Math.max(ans, f[i]);
             }
         }
         return ans;

@@ -50,16 +50,16 @@ class Solution:
         n = len(s)
         if n < 2:
             return 0
-        dp = [0] * n
-        for i in range(1, n):
-            if s[i] == ')':
-                if s[i - 1] == '(':
-                    dp[i] = 2 + (dp[i - 2] if i > 1 else 0)
+        f = [0] * (n + 1)
+        for i in range(2, n + 1):
+            if s[i - 1] == ')':
+                if s[i - 2] == '(':
+                    f[i] = f[i - 2] + 2
                 else:
-                    j = i - dp[i - 1] - 1
-                    if j >= 0 and s[j] == '(':
-                        dp[i] = 2 + dp[i - 1] + (dp[j - 1] if j else 0)
-        return max(dp)
+                    j = i - f[i - 1] - 1
+                    if j > 0 and s[j - 1] == '(':
+                        f[i] = f[i - 1] + 2 + f[j - 1]
+        return max(f)
 ```
 
 ### **Java**
@@ -71,20 +71,19 @@ class Solution {
         if (n < 2) {
             return 0;
         }
-        char[] cs = s.toCharArray();
-        int[] dp = new int[n];
+        int[] f = new int[n + 1];
         int ans = 0;
-        for (int i = 1; i < n; ++i) {
-            if (cs[i] == ')') {
-                if (cs[i - 1] == '(') {
-                    dp[i] = 2 + (i > 1 ? dp[i - 2] : 0);
+        for (int i = 2; i <= n; ++i) {
+            if (s.charAt(i - 1) == ')') {
+                if (s.charAt(i - 2) == '(') {
+                    f[i] = f[i - 2] + 2;
                 } else {
-                    int j = i - dp[i - 1] - 1;
-                    if (j >= 0 && cs[j] == '(') {
-                        dp[i] = 2 + dp[i - 1] + (j > 0 ? dp[j - 1] : 0);
+                    int j = i - f[i - 1] - 1;
+                    if (j > 0 && s.charAt(j - 1) == '(') {
+                        f[i] = f[i - 1] + 2 + f[j - 1];
                     }
                 }
-                ans = Math.max(ans, dp[i]);
+                ans = Math.max(ans, f[i]);
             }
         }
         return ans;
@@ -99,23 +98,24 @@ class Solution {
 public:
     int longestValidParentheses(string s) {
         int n = s.size();
-        if (n < 2) return 0;
-        vector<int> dp(n);
-        int ans = 0;
-        for (int i = 1; i < n; ++i) {
-            if (s[i] == ')') {
-                if (s[i - 1] == '(') {
-                    dp[i] = 2 + (i > 1 ? dp[i - 2] : 0);
+        if (n < 2) {
+            return 0;
+        }
+        int f[n + 1];
+        memset(f, 0, sizeof(f));
+        for (int i = 2; i <= n; ++i) {
+            if (s[i - 1] == ')') {
+                if (s[i - 2] == '(') {
+                    f[i] = f[i - 2] + 2;
                 } else {
-                    int j = i - dp[i - 1] - 1;
-                    if (~j && s[j] == '(') {
-                        dp[i] = 2 + dp[i - 1] + (j ? dp[j - 1] : 0);
+                    int j = i - f[i - 1] - 1;
+                    if (j && s[j - 1] == '(') {
+                        f[i] = f[i - 1] + 2 + f[j - 1];
                     }
                 }
-                ans = max(ans, dp[i]);
             }
         }
-        return ans;
+        return *max_element(f, f + n + 1);
     }
 };
 ```
@@ -123,33 +123,26 @@ public:
 ### **Go**
 
 ```go
-func longestValidParentheses(s string) int {
+func longestValidParentheses(s string) (ans int) {
 	n := len(s)
 	if n < 2 {
 		return 0
 	}
-	dp := make([]int, n)
-	ans := 0
-	for i := 1; i < n; i++ {
-		if s[i] == ')' {
-			if s[i-1] == '(' {
-				dp[i] = 2
-				if i > 1 {
-					dp[i] += dp[i-2]
-				}
+	f := make([]int, n+1)
+	for i := 2; i <= n; i++ {
+		if s[i-1] == ')' {
+			if s[i-2] == '(' {
+				f[i] = f[i-2] + 2
 			} else {
-				j := i - dp[i-1] - 1
-				if j >= 0 && s[j] == '(' {
-					dp[i] = 2 + dp[i-1]
-					if j > 0 {
-						dp[i] += dp[j-1]
-					}
+				j := i - f[i-1] - 1
+				if j > 0 && s[j-1] == '(' {
+					f[i] = f[i-1] + 2 + f[j-1]
 				}
 			}
-			ans = max(ans, dp[i])
+			ans = max(ans, f[i])
 		}
 	}
-	return ans
+	return
 }
 
 func max(a, b int) int {
@@ -157,6 +150,57 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int LongestValidParentheses(string s) {
+        int n = s.Length;
+        if (n < 2) {
+            return 0;
+        }
+        int[] f = new int[n + 1];
+        int ans = 0;
+        for (int i = 2; i <= n; ++i) {
+            if (s[i - 1] == ')') {
+                if (s[i - 2] == '(') {
+                    f[i] = f[i - 2] + 2;
+                } else {
+                    int j = i - f[i - 1] - 1;
+                    if (j > 0 && s[j - 1] == '(') {
+                        f[i] = f[i - 1] + 2 + f[j - 1];
+                    }
+                }
+                ans = Math.Max(ans, f[i]);
+            }
+        }
+        return ans;
+    }
+}
+```
+
+### **TypeScript**
+
+```ts
+function longestValidParentheses(s: string): number {
+    const n = s.length;
+    const f: number[] = new Array(n + 1).fill(0);
+    for (let i = 2; i <= n; ++i) {
+        if (s[i - 1] == ')') {
+            if (s[i - 2] == '(') {
+                f[i] = f[i - 2] + 2;
+            } else {
+                const j = i - f[i - 1] - 1;
+                if (j && s[j - 1] == '(') {
+                    f[i] = f[i - 1] + 2 + f[j - 1];
+                }
+            }
+        }
+    }
+    return Math.max(...f);
 }
 ```
 

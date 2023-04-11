@@ -1,40 +1,24 @@
-using System.Collections.Generic;
-
 public class Solution {
     public int LongestValidParentheses(string s) {
-        var result = 0;
-        var baseCount = 0;
-        var stack = new Stack<int>();
-        foreach (var ch in s)
-        {
-            switch (ch)
-            {
-                case '(':
-                    stack.Push(1);
-                    break;
-                case ')':
-                    if (stack.Count > 0)
-                    {
-                        var count = stack.Pop() + 1;
-                        if (stack.Count > 0)
-                        {
-                            count += stack.Pop();
-                            stack.Push(count);
-                            if (count - 1 > result) result = count - 1;
-                        }
-                        else
-                        {
-                            baseCount += count;
-                            if (baseCount > result) result = baseCount;
-                        }
+        int n = s.Length;
+        if (n < 2) {
+            return 0;
+        }
+        int[] f = new int[n + 1];
+        int ans = 0;
+        for (int i = 2; i <= n; ++i) {
+            if (s[i - 1] == ')') {
+                if (s[i - 2] == '(') {
+                    f[i] = f[i - 2] + 2;
+                } else {
+                    int j = i - f[i - 1] - 1;
+                    if (j > 0 && s[j - 1] == '(') {
+                        f[i] = f[i - 1] + 2 + f[j - 1];
                     }
-                    else
-                    {
-                        baseCount = 0;
-                    }
-                    break;
+                }
+                ans = Math.Max(ans, f[i]);
             }
         }
-        return result;
+        return ans;
     }
 }
