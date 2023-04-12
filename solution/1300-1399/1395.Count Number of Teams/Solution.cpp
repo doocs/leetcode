@@ -1,22 +1,53 @@
+class BinaryIndexedTree {
+public:
+    BinaryIndexedTree(int _n)
+        : n(_n)
+        , c(_n + 1) {}
+
+    void update(int x, int delta) {
+        while (x <= n) {
+            c[x] += delta;
+            x += x & -x;
+        }
+    }
+
+    int query(int x) {
+        int s = 0;
+        while (x) {
+            s += c[x];
+            x -= x & -x;
+        }
+        return s;
+    }
+
+private:
+    int n;
+    vector<int> c;
+};
+
 class Solution {
 public:
     int numTeams(vector<int>& rating) {
-        int n = rating.size(), ans = 0;
-        for (int j = 1; j < n - 1; ++j) {
-            int ia = 0, ib = 0, ka = 0, kb = 0;
-            for (int i = 0; i < j; ++i) {
-                if (rating[i] < rating[j])
-                    ++ia;
-                else if (rating[i] > rating[j])
-                    ++ib;
-            }
-            for (int k = j + 1; k < n; ++k) {
-                if (rating[j] < rating[k])
-                    ++ka;
-                else if (rating[j] > rating[k])
-                    ++kb;
-            }
-            ans += ia * ka + ib * kb;
+        vector<int> nums = rating;
+        sort(nums.begin(), nums.end());
+        nums.erase(unique(nums.begin(), nums.end()), nums.end());
+        int m = nums.size();
+        BinaryIndexedTree tree1(m);
+        BinaryIndexedTree tree2(m);
+        for (int& v : rating) {
+            int x = lower_bound(nums.begin(), nums.end(), v) - nums.begin() + 1;
+            tree2.update(x, 1);
+        }
+        int ans = 0;
+        int n = rating.size();
+        for (int i = 0; i < n; ++i) {
+            int x = lower_bound(nums.begin(), nums.end(), rating[i]) - nums.begin() + 1;
+            tree1.update(x, 1);
+            tree2.update(x, -1);
+            int l = tree1.query(x - 1);
+            int r = n - i - 1 - tree2.query(x);
+            ans += l * r;
+            ans += (i - l) * (n - i - 1 - r);
         }
         return ans;
     }

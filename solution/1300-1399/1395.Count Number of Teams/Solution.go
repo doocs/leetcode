@@ -1,22 +1,55 @@
-func numTeams(rating []int) int {
-	n, ans := len(rating), 0
-	for j := 1; j < n-1; j++ {
-		ia, ib, ka, kb := 0, 0, 0, 0
-		for i := 0; i < j; i++ {
-			if rating[i] < rating[j] {
-				ia++
-			} else if rating[i] > rating[j] {
-				ib++
-			}
-		}
-		for k := j + 1; k < n; k++ {
-			if rating[j] < rating[k] {
-				ka++
-			} else if rating[j] > rating[k] {
-				kb++
-			}
-		}
-		ans += ia*ka + ib*kb
+type BinaryIndexedTree struct {
+	n int
+	c []int
+}
+
+func newBinaryIndexedTree(n int) *BinaryIndexedTree {
+	c := make([]int, n+1)
+	return &BinaryIndexedTree{n, c}
+}
+
+func (this *BinaryIndexedTree) update(x, delta int) {
+	for x <= this.n {
+		this.c[x] += delta
+		x += x & -x
 	}
-	return ans
+}
+
+func (this *BinaryIndexedTree) query(x int) int {
+	s := 0
+	for x > 0 {
+		s += this.c[x]
+		x -= x & -x
+	}
+	return s
+}
+
+func numTeams(rating []int) (ans int) {
+	nums := make([]int, len(rating))
+	copy(nums, rating)
+	sort.Ints(nums)
+	m := 0
+	for i, x := range nums {
+		if i == 0 || x != nums[i-1] {
+			nums[m] = x
+			m++
+		}
+	}
+	nums = nums[:m]
+	tree1 := newBinaryIndexedTree(m)
+	tree2 := newBinaryIndexedTree(m)
+	for _, x := range rating {
+		tree2.update(sort.SearchInts(nums, x)+1, 1)
+	}
+	n := len(rating)
+	for i, v := range rating {
+		x := sort.SearchInts(nums, v) + 1
+		tree1.update(x, 1)
+		tree2.update(x, -1)
+		l := tree1.query(x - 1)
+		r := n - i - 1 - tree2.query(x)
+		ans += l * r
+		ans += (i - l) * (n - i - 1 - r)
+	}
+	return
 }
