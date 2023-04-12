@@ -63,6 +63,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：计数**
+
+我们可以用哈希表或数组 $cnt$ 统计 $arr$ 中每个数字出现的次数，然后遍历 $cnt$，找到满足 $cnt[x] = x$ 的最大的 $x$ 即可。如果没有这样的 $x$，则返回 $-1$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 $arr$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -72,11 +78,11 @@
 ```python
 class Solution:
     def findLucky(self, arr: List[int]) -> int:
-        counter = Counter(arr)
+        cnt = Counter(arr)
         ans = -1
-        for num, n in counter.items():
-            if num == n and ans < num:
-                ans = num
+        for x, v in cnt.items():
+            if x == v and ans < x:
+                ans = x
         return ans
 ```
 
@@ -87,14 +93,14 @@ class Solution:
 ```java
 class Solution {
     public int findLucky(int[] arr) {
-        Map<Integer, Integer> mp = new HashMap<>();
-        for (int num : arr) {
-            mp.put(num, mp.getOrDefault(num, 0) + 1);
+        int[] cnt = new int[510];
+        for (int x : cnt) {
+            ++cnt[x];
         }
         int ans = -1;
-        for (int num : arr) {
-            if (num == mp.get(num) && ans < num) {
-                ans = num;
+        for (int x = 1; x < cnt.length; ++x) {
+            if (cnt[x] == x) {
+                ans = x;
             }
         }
         return ans;
@@ -108,12 +114,16 @@ class Solution {
 class Solution {
 public:
     int findLucky(vector<int>& arr) {
-        int n = 510;
-        vector<int> counter(n);
-        for (int e : arr) ++counter[e];
+        int cnt[510];
+        memset(cnt, 0, sizeof(cnt));
+        for (int x : arr) {
+            ++cnt[x];
+        }
         int ans = -1;
-        for (int i = 1; i < n; ++i) {
-            if (i == counter[i] && ans < i) ans = i;
+        for (int x = 1; x < 510; ++x) {
+            if (cnt[x] == x) {
+                ans = x;
+            }
         }
         return ans;
     }
@@ -124,18 +134,17 @@ public:
 
 ```go
 func findLucky(arr []int) int {
-    n := 510
-    counter := make([]int, n)
-    for _, e := range arr {
-        counter[e]++
-    }
-    ans := -1
-    for i := 1; i < n; i++ {
-        if i == counter[i] && ans < i {
-            ans = i
-        }
-    }
-    return ans
+	cnt := [510]int{}
+	for _, x := range arr {
+		cnt[x]++
+	}
+	ans := -1
+	for x := 1; x < len(cnt); x++ {
+		if cnt[x] == x {
+			ans = x
+		}
+	}
+	return ans
 }
 ```
 

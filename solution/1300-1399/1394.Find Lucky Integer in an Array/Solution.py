@@ -1,8 +1,8 @@
 class Solution:
     def findLucky(self, arr: List[int]) -> int:
-        counter = Counter(arr)
+        cnt = Counter(arr)
         ans = -1
-        for num, n in counter.items():
-            if num == n and ans < num:
-                ans = num
+        for x, v in cnt.items():
+            if x == v and ans < x:
+                ans = x
         return ans

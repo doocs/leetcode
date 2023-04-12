@@ -50,11 +50,11 @@
 ```python
 class Solution:
     def findLucky(self, arr: List[int]) -> int:
-        counter = Counter(arr)
+        cnt = Counter(arr)
         ans = -1
-        for num, n in counter.items():
-            if num == n and ans < num:
-                ans = num
+        for x, v in cnt.items():
+            if x == v and ans < x:
+                ans = x
         return ans
 ```
 
@@ -63,14 +63,14 @@ class Solution:
 ```java
 class Solution {
     public int findLucky(int[] arr) {
-        Map<Integer, Integer> mp = new HashMap<>();
-        for (int num : arr) {
-            mp.put(num, mp.getOrDefault(num, 0) + 1);
+        int[] cnt = new int[510];
+        for (int x : cnt) {
+            ++cnt[x];
         }
         int ans = -1;
-        for (int num : arr) {
-            if (num == mp.get(num) && ans < num) {
-                ans = num;
+        for (int x = 1; x < cnt.length; ++x) {
+            if (cnt[x] == x) {
+                ans = x;
             }
         }
         return ans;
@@ -84,12 +84,16 @@ class Solution {
 class Solution {
 public:
     int findLucky(vector<int>& arr) {
-        int n = 510;
-        vector<int> counter(n);
-        for (int e : arr) ++counter[e];
+        int cnt[510];
+        memset(cnt, 0, sizeof(cnt));
+        for (int x : arr) {
+            ++cnt[x];
+        }
         int ans = -1;
-        for (int i = 1; i < n; ++i) {
-            if (i == counter[i] && ans < i) ans = i;
+        for (int x = 1; x < 510; ++x) {
+            if (cnt[x] == x) {
+                ans = x;
+            }
         }
         return ans;
     }
@@ -100,18 +104,17 @@ public:
 
 ```go
 func findLucky(arr []int) int {
-    n := 510
-    counter := make([]int, n)
-    for _, e := range arr {
-        counter[e]++
-    }
-    ans := -1
-    for i := 1; i < n; i++ {
-        if i == counter[i] && ans < i {
-            ans = i
-        }
-    }
-    return ans
+	cnt := [510]int{}
+	for _, x := range arr {
+		cnt[x]++
+	}
+	ans := -1
+	for x := 1; x < len(cnt); x++ {
+		if cnt[x] == x {
+			ans = x
+		}
+	}
+	return ans
 }
 ```
 

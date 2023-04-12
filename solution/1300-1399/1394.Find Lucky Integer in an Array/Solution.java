@@ -1,13 +1,13 @@
 class Solution {
     public int findLucky(int[] arr) {
-        Map<Integer, Integer> mp = new HashMap<>();
-        for (int num : arr) {
-            mp.put(num, mp.getOrDefault(num, 0) + 1);
+        int[] cnt = new int[510];
+        for (int x : cnt) {
+            ++cnt[x];
         }
         int ans = -1;
-        for (int num : arr) {
-            if (num == mp.get(num) && ans < num) {
-                ans = num;
+        for (int x = 1; x < cnt.length; ++x) {
+            if (cnt[x] == x) {
+                ans = x;
             }
         }
         return ans;
