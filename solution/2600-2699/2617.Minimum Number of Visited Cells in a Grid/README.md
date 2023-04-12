@@ -63,17 +63,19 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：BFS**
+**方法一：优先队列**
 
-我们用 $row[i]$ 表示第 $i$ 行已经访问到的最右边的列，用 $col[j]$ 表示第 $j$ 列已经访问到的最下边的行。初始时，$row[0] = col[0] = 0$。
+我们记网格的行数为 $m$，列数为 $n$，定义 $dist[i][j]$ 表示从坐标 $(0, 0)$ 移动到坐标 $(i, j)$ 的最短距离，初始时 $dist[0][0] = 1$，其它 $dist[i][j]=-1$。
 
-接下来，我们定义一个队列，用于存储当前可以访问的格子。队列中的元素为一个三元组 $(dist, i, j)$，表示从起点 $(0, 0)$ 到达 $(i, j)$ 的最短距离为 $dist$。初始时，我们将 $(1, 0, 0)$ 加入队列中。
+对于每个格子 $(i, j)$，它可以从上边或者左边的格子移动过来。如果是从上边的格子 $(i', j)$ 移动过来，其中 $0 \leq i' \lt i$，那么 $(i', j)$ 需要满足 $grid[i'][j] + i' \geq i$，我们要从这些格子中选择一个距离最近的格子。
 
-在每一步中，我们从队首取出一个元素 $(dist, i, j)$，如果 $(i, j)$ 为终点，则直接返回 $dist$。否则，我们将 $(i, j)$ 右边的格子加入队列中，其中右边的格子的下标范围为 $[max(row[i], j) + 1, min(n, j + grid[i][j] + 1))$。同理，我们将 $(i, j)$ 下边的格子加入队列中，其中下边的格子的下标范围为 $[max(col[j], i) + 1, min(m, i + grid[i][j] + 1))$。加入格子后，我们需要更新 $row[i]$ 和 $col[j]$。
+因此，我们可以对每一列 $j$ 维护一个优先队列（小根堆），优先队列中每个元素是一个二元组 $(dist[i][j], i)$，表示从坐标 $(0, 0)$ 移动到坐标 $(i, j)$ 的最短距离为 $dist[i][j]$。当我们考虑坐标 $(i, j)$ 时，我们只需要从优先队列中取出队头元素 $(dist[i'][j], i')$，如果 $grid[i'][j] + i' \geq i$，那么就可以从坐标 $(i', j)$ 移动到坐标 $(i, j)$，此时我们就可以更新 $dist[i][j]$ 的值，即 $dist[i][j] = dist[i'][j] + 1$，并将 $(dist[i][j], i)$ 加入到优先队列中。
 
-最后，如果我们遍历完整个队列都没有找到终点，则说明无法到达终点，返回 $-1$。
+同理，我们可以对每一行 $i$ 维护一个优先队列，然后进行与上述类似的操作。
 
-时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为网格的行数和列数。
+最终，我们可以得到从坐标 $(0, 0)$ 移动到坐标 $(m - 1, n - 1)$ 的最短距离 $dist[m - 1][n - 1]$，即为答案。
+
+时间复杂度 $O(m \times n \times \log (m \times n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为网格的行数和列数。
 
 <!-- tabs:start -->
 
@@ -85,20 +87,24 @@
 class Solution:
     def minimumVisitedCells(self, grid: List[List[int]]) -> int:
         m, n = len(grid), len(grid[0])
-        row = [0] * m
-        col = [0] * n
-        q = deque([(1, 0, 0)])
-        while q:
-            dist, i, j = q.popleft()
-            if i == m - 1 and j == n - 1:
-                return dist
-            for k in range(max(row[i], j) + 1, min(n, j + grid[i][j] + 1)):
-                q.append((dist + 1, i, k))
-                row[i] = k
-            for k in range(max(col[j], i) + 1, min(m, i + grid[i][j] + 1)):
-                q.append((dist + 1, k, j))
-                col[j] = k
-        return -1
+        dist = [[-1] * n for _ in range(m)]
+        dist[0][0] = 1
+        row = [[] for _ in range(m)]
+        col = [[] for _ in range(n)]
+        for i in range(m):
+            for j in range(n):
+                while row[i] and grid[i][row[i][0][1]] + row[i][0][1] < j:
+                    heappop(row[i])
+                if row[i] and (dist[i][j] == -1 or dist[i][j] > row[i][0][0] + 1):
+                    dist[i][j] = row[i][0][0] + 1
+                while col[j] and grid[col[j][0][1]][j] + col[j][0][1] < i:
+                    heappop(col[j])
+                if col[j] and (dist[i][j] == -1 or dist[i][j] > col[j][0][0] + 1):
+                    dist[i][j] = col[j][0][0] + 1
+                if dist[i][j] != -1:
+                    heappush(row[i], (dist[i][j], j))
+                    heappush(col[j], (dist[i][j], i))
+        return dist[-1][-1]
 ```
 
 ### **Java**
@@ -109,28 +115,38 @@ class Solution:
 class Solution {
     public int minimumVisitedCells(int[][] grid) {
         int m = grid.length, n = grid[0].length;
-        int[] row = new int[m];
-        int[] col = new int[n];
-        Deque<int[]> q = new ArrayDeque<>();
-        q.offer(new int[] {1, 0, 0});
-        while (!q.isEmpty()) {
-            int[] p = q.poll();
-            int i = p[1], j = p[2], dist = p[0];
-            if (i == m - 1 && j == n - 1) {
-                return dist;
-            }
-            int k = Math.max(row[i], j) + 1;
-            for (; k < Math.min(n, j + grid[i][j] + 1); ++k) {
-                q.offer(new int[] {dist + 1, i, k});
-                row[i] = k;
-            }
-            k = Math.max(col[j], i) + 1;
-            for (; k < Math.min(m, i + grid[i][j] + 1); ++k) {
-                q.offer(new int[] {dist + 1, k, j});
-                col[j] = k;
+        int[][] dist = new int[m][n];
+        PriorityQueue<int[]>[] row = new PriorityQueue[m];
+        PriorityQueue<int[]>[] col = new PriorityQueue[n];
+        for (int i = 0; i < m; ++i) {
+            Arrays.fill(dist[i], -1);
+            row[i] = new PriorityQueue<>((a, b) -> a[0] == b[0] ? a[1] - b[1] : a[0] - b[0]);
+        }
+        for (int i = 0; i < n; ++i) {
+            col[i] = new PriorityQueue<>((a, b) -> a[0] == b[0] ? a[1] - b[1] : a[0] - b[0]);
+        }
+        dist[0][0] = 1;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                while (!row[i].isEmpty() && grid[i][row[i].peek()[1]] + row[i].peek()[1] < j) {
+                    row[i].poll();
+                }
+                if (!row[i].isEmpty() && (dist[i][j] == -1 || row[i].peek()[0] + 1 < dist[i][j])) {
+                    dist[i][j] = row[i].peek()[0] + 1;
+                }
+                while (!col[j].isEmpty() && grid[col[j].peek()[1]][j] + col[j].peek()[1] < i) {
+                    col[j].poll();
+                }
+                if (!col[j].isEmpty() && (dist[i][j] == -1 || col[j].peek()[0] + 1 < dist[i][j])) {
+                    dist[i][j] = col[j].peek()[0] + 1;
+                }
+                if (dist[i][j] != -1) {
+                    row[i].offer(new int[]{dist[i][j], j});
+                    col[j].offer(new int[]{dist[i][j], i});
+                }
             }
         }
-        return -1;
+        return dist[m - 1][n - 1];
     }
 }
 ```
@@ -142,27 +158,32 @@ class Solution {
 public:
     int minimumVisitedCells(vector<vector<int>>& grid) {
         int m = grid.size(), n = grid[0].size();
-        int row[m], col[n];
-        memset(row, 0, sizeof(row));
-        memset(col, 0, sizeof(col));
-        queue<tuple<int, int, int>> q;
-        q.emplace(1, 0, 0);
-        while (!q.empty()) {
-            auto [dist, i, j] = q.front();
-            q.pop();
-            if (i == m - 1 && j == n - 1) {
-                return dist;
-            }
-            for (int k = max(row[i], j) + 1; k < min(n, j + grid[i][j] + 1); ++k) {
-                q.emplace(dist + 1, i, k);
-                row[i] = k;
-            }
-            for (int k = max(col[j], i) + 1; k < min(m, i + grid[i][j] + 1); ++k) {
-                q.emplace(dist + 1, k, j);
-                col[j] = k;
+        vector<vector<int>> dist(m, vector<int>(n, -1));
+        using pii = pair<int, int>;
+        priority_queue<pii, vector<pii>, greater<pii>> row[m];
+        priority_queue<pii, vector<pii>, greater<pii>> col[n];
+        dist[0][0] = 1;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                while (!row[i].empty() && grid[i][row[i].top().second] + row[i].top().second < j) {
+                    row[i].pop();
+                }
+                if (!row[i].empty() && (dist[i][j] == -1 || row[i].top().first + 1 < dist[i][j])) {
+                    dist[i][j] = row[i].top().first + 1;
+                }
+                while (!col[j].empty() && grid[col[j].top().second][j] + col[j].top().second < i) {
+                    col[j].pop();
+                }
+                if (!col[j].empty() && (dist[i][j] == -1 || col[j].top().first + 1 < dist[i][j])) {
+                    dist[i][j] = col[j].top().first + 1;
+                }
+                if (dist[i][j] != -1) {
+                    row[i].emplace(dist[i][j], j);
+                    col[j].emplace(dist[i][j], i);
+                }
             }
         }
-        return -1;
+        return dist[m - 1][n - 1];
     }
 };
 ```
@@ -172,41 +193,53 @@ public:
 ```go
 func minimumVisitedCells(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
-	row := make([]int, m)
-	col := make([]int, n)
-	q := [][3]int{{1, 0, 0}}
-	for len(q) > 0 {
-		p := q[0]
-		dist, i, j := p[0], p[1], p[2]
-		if i == m-1 && j == n-1 {
-			return dist
-		}
-		q = q[1:]
-		for k := max(row[i], j) + 1; k < min(n, j+grid[i][j]+1); k++ {
-			q = append(q, [3]int{dist + 1, i, k})
-			row[i] = k
-		}
-		for k := max(col[j], i) + 1; k < min(m, i+grid[i][j]+1); k++ {
-			q = append(q, [3]int{dist + 1, k, j})
-			col[j] = k
+	dist := make([][]int, m)
+	row := make([]hp, m)
+	col := make([]hp, n)
+	for i := range dist {
+		dist[i] = make([]int, n)
+		for j := range dist[i] {
+			dist[i][j] = -1
 		}
 	}
-	return -1
+	dist[0][0] = 1
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			for len(row[i]) > 0 && grid[i][row[i][0].second]+row[i][0].second < j {
+				heap.Pop(&row[i])
+			}
+			if len(row[i]) > 0 && (dist[i][j] == -1 || row[i][0].first+1 < dist[i][j]) {
+				dist[i][j] = row[i][0].first + 1
+			}
+			for len(col[j]) > 0 && grid[col[j][0].second][j]+col[j][0].second < i {
+				heap.Pop(&col[j])
+			}
+			if len(col[j]) > 0 && (dist[i][j] == -1 || col[j][0].first+1 < dist[i][j]) {
+				dist[i][j] = col[j][0].first + 1
+			}
+			if dist[i][j] != -1 {
+				heap.Push(&row[i], pair{dist[i][j], j})
+				heap.Push(&col[j], pair{dist[i][j], i})
+			}
+		}
+	}
+	return dist[m-1][n-1]
 }
 
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
+type pair struct {
+	first  int
+	second int
 }
 
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
+type hp []pair
+
+func (a hp) Len() int      { return len(a) }
+func (a hp) Swap(i, j int) { a[i], a[j] = a[j], a[i] }
+func (a hp) Less(i, j int) bool {
+	return a[i].first < a[j].first || (a[i].first == a[j].first && a[i].second < a[j].second)
 }
+func (a *hp) Push(x interface{}) { *a = append(*a, x.(pair)) }
+func (a *hp) Pop() interface{}   { l := len(*a); t := (*a)[l-1]; *a = (*a)[:l-1]; return t }
 ```
 
 ### **...**
