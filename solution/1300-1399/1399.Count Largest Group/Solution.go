@@ -1,20 +1,18 @@
-func countLargestGroup(n int) int {
-	cnt := make([]int, 40)
-	mx, ans := 0, 0
+func countLargestGroup(n int) (ans int) {
+	cnt := [40]int{}
+	mx := 0
 	for i := 1; i <= n; i++ {
-		t := 0
-		j := i
-		for j != 0 {
-			t += j % 10
-			j /= 10
+		s := 0
+		for x := i; x > 0; x /= 10 {
+			s += x % 10
 		}
-		cnt[t]++
-		if mx < cnt[t] {
-			mx = cnt[t]
+		cnt[s]++
+		if mx < cnt[s] {
+			mx = cnt[s]
 			ans = 1
-		} else if mx == cnt[t] {
+		} else if mx == cnt[s] {
 			ans++
 		}
 	}
-	return ans
+	return
 }

@@ -51,7 +51,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：哈希表模拟**
+**方法一：哈希表或数组**
+
+我们注意到数字范围不超过 $10^4$，因此数位和的范围也不超过 $9 \times 4 = 36$，因此我们可以用哈希表或者一个长度为 $40$ 的数组 $cnt$ 来统计每个数位和的个数，用一个变量 $mx$ 表示最大的数位和个数。
+
+我们在 $[1,..n]$ 中枚举每个数，计算其数位和 $s$，然后将 $cnt[s]$ 加 $1$，如果 $mx \lt cnt[s]$，则更新 $mx = cnt[s]$，并将 $ans$ 置为 $1$，如果 $mx = cnt[s]$，则将 $ans$ 加 $1$。
+
+最后返回 $ans$ 即可。
+
+时间复杂度 $O(n \times \log M)$，空间复杂度 $(\log M)$。其中 $n$ 为给定的数字，而 $M$ 是 $n$ 的数字范围。
 
 <!-- tabs:start -->
 
@@ -63,14 +71,17 @@
 class Solution:
     def countLargestGroup(self, n: int) -> int:
         cnt = Counter()
-        ans, mx = 0, 0
+        ans = mx = 0
         for i in range(1, n + 1):
-            t = sum(int(v) for v in str(i))
-            cnt[t] += 1
-            if mx < cnt[t]:
-                mx = cnt[t]
+            s = 0
+            while i:
+                s += i % 10
+                i //= 10
+            cnt[s] += 1
+            if mx < cnt[s]:
+                mx = cnt[s]
                 ans = 1
-            elif mx == cnt[t]:
+            elif mx == cnt[s]:
                 ans += 1
         return ans
 ```
@@ -83,19 +94,17 @@ class Solution:
 class Solution {
     public int countLargestGroup(int n) {
         int[] cnt = new int[40];
-        int mx = 0, ans = 0;
+        int ans = 0, mx = 0;
         for (int i = 1; i <= n; ++i) {
-            int t = 0;
-            int j = i;
-            while (j != 0) {
-                t += j % 10;
-                j /= 10;
+            int s = 0;
+            for (int x = i; x > 0; x /= 10) {
+                s += x % 10;
             }
-            ++cnt[t];
-            if (mx < cnt[t]) {
-                mx = cnt[t];
+            ++cnt[s];
+            if (mx < cnt[s]) {
+                mx = cnt[s];
                 ans = 1;
-            } else if (mx == cnt[t]) {
+            } else if (mx == cnt[s]) {
                 ++ans;
             }
         }
@@ -110,21 +119,20 @@ class Solution {
 class Solution {
 public:
     int countLargestGroup(int n) {
-        vector<int> cnt(40);
-        int mx = 0, ans = 0;
+        int cnt[40]{};
+        int ans = 0, mx = 0;
         for (int i = 1; i <= n; ++i) {
-            int t = 0;
-            int j = i;
-            while (j) {
-                t += j % 10;
-                j /= 10;
+            int s = 0;
+            for (int x = i; x; x /= 10) {
+                s += x % 10;
             }
-            ++cnt[t];
-            if (mx < cnt[t]) {
-                mx = cnt[t];
+            ++cnt[s];
+            if (mx < cnt[s]) {
+                mx = cnt[s];
                 ans = 1;
-            } else if (mx == cnt[t])
+            } else if (mx == cnt[s]) {
                 ++ans;
+            }
         }
         return ans;
     }
@@ -134,25 +142,47 @@ public:
 ### **Go**
 
 ```go
-func countLargestGroup(n int) int {
-	cnt := make([]int, 40)
-	mx, ans := 0, 0
+func countLargestGroup(n int) (ans int) {
+	cnt := [40]int{}
+	mx := 0
 	for i := 1; i <= n; i++ {
-		t := 0
-		j := i
-		for j != 0 {
-			t += j % 10
-			j /= 10
+		s := 0
+		for x := i; x > 0; x /= 10 {
+			s += x % 10
 		}
-		cnt[t]++
-		if mx < cnt[t] {
-			mx = cnt[t]
+		cnt[s]++
+		if mx < cnt[s] {
+			mx = cnt[s]
 			ans = 1
-		} else if mx == cnt[t] {
+		} else if mx == cnt[s] {
 			ans++
 		}
 	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function countLargestGroup(n: number): number {
+    const cnt: number[] = new Array(40).fill(0);
+    let mx = 0;
+    let ans = 0;
+    for (let i = 1; i <= n; ++i) {
+        let s = 0;
+        for (let x = i; x; x = Math.floor(x / 10)) {
+            s += x % 10;
+        }
+        ++cnt[s];
+        if (mx < cnt[s]) {
+            mx = cnt[s];
+            ans = 1;
+        } else if (mx === cnt[s]) {
+            ++ans;
+        }
+    }
+    return ans;
 }
 ```
 
