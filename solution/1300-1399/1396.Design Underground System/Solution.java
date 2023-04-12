@@ -1,33 +1,29 @@
 class UndergroundSystem {
-    private Map<Integer, String> checkInStation;
-    private Map<Integer, Integer> checkInTime;
-    private Map<String, int[]> totalTime;
+    private Map<Integer, Integer> ts = new HashMap<>();
+    private Map<Integer, String> names = new HashMap<>();
+    private Map<String, int[]> d = new HashMap<>();
 
     public UndergroundSystem() {
-        checkInStation = new HashMap<>();
-        checkInTime = new HashMap<>();
-        totalTime = new HashMap<>();
-    }
 
+    }
+    
     public void checkIn(int id, String stationName, int t) {
-        checkInStation.put(id, stationName);
-        checkInTime.put(id, t);
+        ts.put(id, t);
+        names.put(id, stationName);
     }
-
+    
     public void checkOut(int id, String stationName, int t) {
-        int cost = t - checkInTime.remove(id);
-        String startStation = checkInStation.remove(id);
-        String stations = startStation + "." + stationName;
-        int[] times = totalTime.getOrDefault(stations, new int[2]);
-        times[0] += cost;
-        ++times[1];
-        totalTime.put(stations, times);
+        String key = names.get(id) + "-" + stationName;
+        int[] v = d.getOrDefault(key, new int[2]);
+        v[0] += t - ts.get(id);
+        v[1]++;
+        d.put(key, v);
     }
-
+    
     public double getAverageTime(String startStation, String endStation) {
-        String stations = startStation + "." + endStation;
-        int[] times = totalTime.get(stations);
-        return times[0] * 1.0 / times[1];
+        String key = startStation + "-" + endStation;
+        int[] v = d.get(key);
+        return (double) v[0] / v[1];
     }
 }
 
