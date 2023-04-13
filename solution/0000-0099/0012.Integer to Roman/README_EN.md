@@ -62,10 +62,6 @@ M             1000</pre>
 
 ## Solutions
 
-**Approach 1: Simulation**
-
-Time complexity $O(1)$, Space complexity $O(1)$.
-
 <!-- tabs:start -->
 
 ### **Python3**

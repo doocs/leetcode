@@ -12,10 +12,11 @@ public:
         };
         int ans = 0;
         for (int i = 0; i < s.size() - 1; ++i) {
-            if (nums[s[i]] < nums[s[i + 1]])
+            if (nums[s[i]] < nums[s[i + 1]]) {
                 ans -= nums[s[i]];
-            else
+            } else {
                 ans += nums[s[i]];
+            }
         }
         return ans + nums[s.back()];
     }

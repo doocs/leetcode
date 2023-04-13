@@ -1,5 +1,5 @@
 const romanToInt = function (s) {
-    const map = {
+    const d = {
         I: 1,
         V: 5,
         X: 10,
@@ -8,13 +8,13 @@ const romanToInt = function (s) {
         D: 500,
         M: 1000,
     };
-    let sum = 0;
-    for (let i = 0; i < s.length; i++) {
-        if (map[s[i]] < map[s[i + 1]]) {
-            sum -= map[s[i]];
+    let ans = 0;
+    for (let i = 0; i < s.length; ++i) {
+        if (d[s[i]] < d[s[i + 1]]) {
+            ans -= d[s[i]];
         } else {
-            sum += map[s[i]];
+            ans += d[s[i]];
         }
     }
-    return sum;
+    return ans;
 };
