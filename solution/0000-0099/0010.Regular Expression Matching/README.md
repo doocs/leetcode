@@ -311,28 +311,28 @@ var isMatch = function (s, p) {
     const f = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
     const dfs = (i, j) => {
         if (j >= n) {
-            return i == m;
+            return i === m;
         }
         if (f[i][j]) {
-            return f[i][j] == 1;
+            return f[i][j] === 1;
         }
         let res = -1;
         if (j + 1 < n && p[j + 1] === '*') {
             if (
                 dfs(i, j + 2) ||
-                (i < m && (s[i] == p[j] || p[j] == '.') && dfs(i + 1, j))
+                (i < m && (s[i] === p[j] || p[j] === '.') && dfs(i + 1, j))
             ) {
                 res = 1;
             }
         } else if (
             i < m &&
-            (s[i] == p[j] || p[j] == '.') &&
+            (s[i] === p[j] || p[j] === '.') &&
             dfs(i + 1, j + 1)
         ) {
             res = 1;
         }
         f[i][j] = res;
-        return res == 1;
+        return res === 1;
     };
     return dfs(0, 0);
 };
@@ -353,10 +353,10 @@ var isMatch = function (s, p) {
         for (let j = 1; j <= n; ++j) {
             if (p[j - 1] === '*') {
                 f[i][j] = f[i][j - 2];
-                if (i && (p[j - 2] === '.' || p[j - 2] == s[i - 1])) {
+                if (i && (p[j - 2] === '.' || p[j - 2] === s[i - 1])) {
                     f[i][j] |= f[i - 1][j];
                 }
-            } else if (i && (p[j - 1] === '.' || p[j - 1] == s[i - 1])) {
+            } else if (i && (p[j - 1] === '.' || p[j - 1] === s[i - 1])) {
                 f[i][j] = f[i - 1][j - 1];
             }
         }

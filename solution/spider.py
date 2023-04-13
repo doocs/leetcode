@@ -188,7 +188,7 @@ class Spider:
                     return question_detail
             except Exception as e:
                 print(f'error:{str(e)}')
-            time.sleep(random.choice(range(2, 5)))
+                time.sleep(random.choice(range(2, 5)))
         return None
 
     def handle(self, question: dict) -> dict:

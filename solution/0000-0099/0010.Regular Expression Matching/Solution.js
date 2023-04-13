@@ -12,10 +12,10 @@ var isMatch = function (s, p) {
         for (let j = 1; j <= n; ++j) {
             if (p[j - 1] === '*') {
                 f[i][j] = f[i][j - 2];
-                if (i && (p[j - 2] === '.' || p[j - 2] == s[i - 1])) {
+                if (i && (p[j - 2] === '.' || p[j - 2] === s[i - 1])) {
                     f[i][j] |= f[i - 1][j];
                 }
-            } else if (i && (p[j - 1] === '.' || p[j - 1] == s[i - 1])) {
+            } else if (i && (p[j - 1] === '.' || p[j - 1] === s[i - 1])) {
                 f[i][j] = f[i - 1][j - 1];
             }
         }
