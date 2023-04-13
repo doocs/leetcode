@@ -1,8 +1,5 @@
 class BinaryIndexedTree {
 public:
-    int n;
-    vector<int> c;
-
     BinaryIndexedTree(int _n)
         : n(_n)
         , c(_n + 1) {}
@@ -10,37 +7,36 @@ public:
     void update(int x, int delta) {
         while (x <= n) {
             c[x] += delta;
-            x += lowbit(x);
+            x += x & -x;
         }
     }
 
     int query(int x) {
         int s = 0;
-        while (x > 0) {
+        while (x) {
             s += c[x];
-            x -= lowbit(x);
+            x -= x & -x;
         }
         return s;
     }
 
-    int lowbit(int x) {
-        return x & -x;
-    }
+private:
+    int n;
+    vector<int> c;
 };
 
 class Solution {
 public:
     int createSortedArray(vector<int>& instructions) {
-        int n = 100010;
-        int mod = 1e9 + 7;
-        BinaryIndexedTree* tree = new BinaryIndexedTree(n);
+        int m = *max_element(instructions.begin(), instructions.end());
+        BinaryIndexedTree tree(m);
+        const int mod = 1e9 + 7;
         int ans = 0;
-        for (int num : instructions) {
-            int a = tree->query(num - 1);
-            int b = tree->query(n) - tree->query(num);
-            ans += min(a, b);
-            ans %= mod;
-            tree->update(num, 1);
+        for (int i = 0; i < instructions.size(); ++i) {
+            int x = instructions[i];
+            int cost = min(tree.query(x - 1), i - tree.query(x));
+            ans = (ans + cost) % mod;
+            tree.update(x, 1);
         }
         return ans;
     }

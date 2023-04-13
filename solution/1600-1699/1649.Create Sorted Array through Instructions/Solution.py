@@ -3,31 +3,27 @@ class BinaryIndexedTree:
         self.n = n
         self.c = [0] * (n + 1)
 
-    @staticmethod
-    def lowbit(x):
-        return x & -x
-
-    def update(self, x, delta):
+    def update(self, x: int, v: int):
         while x <= self.n:
-            self.c[x] += delta
-            x += BinaryIndexedTree.lowbit(x)
+            self.c[x] += v
+            x += x & -x
 
-    def query(self, x):
+    def query(self, x: int) -> int:
         s = 0
-        while x > 0:
+        while x:
             s += self.c[x]
-            x -= BinaryIndexedTree.lowbit(x)
+            x -= x & -x
         return s
 
 
 class Solution:
     def createSortedArray(self, instructions: List[int]) -> int:
-        n = max(instructions)
-        tree = BinaryIndexedTree(n)
+        m = max(instructions)
+        tree = BinaryIndexedTree(m)
         ans = 0
-        for num in instructions:
-            a = tree.query(num - 1)
-            b = tree.query(n) - tree.query(num)
-            ans += min(a, b)
-            tree.update(num, 1)
-        return ans % int((1e9 + 7))
+        mod = 10 ** 9 + 7
+        for i, x in enumerate(instructions):
+            cost = min(tree.query(x - 1), i - tree.query(x))
+            ans += cost
+            tree.update(x, 1)
+        return ans % mod

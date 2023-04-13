@@ -8,14 +8,10 @@ func newBinaryIndexedTree(n int) *BinaryIndexedTree {
 	return &BinaryIndexedTree{n, c}
 }
 
-func (this *BinaryIndexedTree) lowbit(x int) int {
-	return x & -x
-}
-
 func (this *BinaryIndexedTree) update(x, delta int) {
 	for x <= this.n {
 		this.c[x] += delta
-		x += this.lowbit(x)
+		x += x & -x
 	}
 }
 
@@ -23,23 +19,31 @@ func (this *BinaryIndexedTree) query(x int) int {
 	s := 0
 	for x > 0 {
 		s += this.c[x]
-		x -= this.lowbit(x)
+		x -= x & -x
 	}
 	return s
 }
 
-func createSortedArray(instructions []int) int {
-	n := 100010
-	mod := int(1e9 + 7)
-	tree := newBinaryIndexedTree(n)
-	ans := 0
-	for _, num := range instructions {
-		a, b := tree.query(num-1), tree.query(n)-tree.query(num)
-		ans += min(a, b)
-		ans %= mod
-		tree.update(num, 1)
+func createSortedArray(instructions []int) (ans int) {
+	m := 0
+	for _, x := range instructions {
+		m = max(m, x)
 	}
-	return ans
+	tree := newBinaryIndexedTree(m)
+	const mod = 1e9 + 7
+	for i, x := range instructions {
+		cost := min(tree.query(x-1), i-tree.query(x))
+		ans = (ans + cost) % mod
+		tree.update(x, 1)
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 
 func min(a, b int) int {
