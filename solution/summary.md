@@ -2669,3 +2669,4 @@
   - [2615.等值距离和](/solution/2600-2699/2615.Sum%20of%20Distances/README.md)
   - [2616.最小化数对的最大差值](/solution/2600-2699/2616.Minimize%20the%20Maximum%20Difference%20of%20Pairs/README.md)
   - [2617.网格图中最少访问的格子数](/solution/2600-2699/2617.Minimum%20Number%20of%20Visited%20Cells%20in%20a%20Grid/README.md)
+  - [2638.Count the Number of K-Free Subsets](/solution/2600-2699/2638.Count%20the%20Number%20of%20K-Free%20Subsets/README.md)

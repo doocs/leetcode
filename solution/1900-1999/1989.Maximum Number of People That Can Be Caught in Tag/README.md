@@ -41,7 +41,7 @@
 <strong>输入:</strong> team = [0], dist = 1
 <strong>输出:</strong> 0
 <strong>解释:
-</strong>没有 “鬼” 来zh
+</strong>没有 “鬼” 来抓人。
 </pre>
 
 <p>&nbsp;</p>
