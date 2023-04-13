@@ -73,27 +73,15 @@ Time complexity $O(1)$, Space complexity $O(1)$.
 ```python
 class Solution:
     def intToRoman(self, num: int) -> str:
-        nums = [
-            (1000, 'M'),
-            (900, 'CM'),
-            (500, 'D'),
-            (400, 'CD'),
-            (100, 'C'),
-            (90, 'XC'),
-            (50, 'L'),
-            (40, 'XL'),
-            (10, 'X'),
-            (9, 'IX'),
-            (5, 'V'),
-            (4, 'IV'),
-            (1, 'I'),
-        ]
-        res = []
-        for k, v in nums:
-            while num >= k:
-                num -= k
-                res.append(v)
-        return ''.join(res)
+        cs = ('M', 'CM', 'D', 'CD', 'C', 'XC',
+              'L', 'XL', 'X', 'IX', 'V', 'IV', 'I')
+        vs = (1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1)
+        ans = []
+        for c, v in zip(cs, vs):
+            while num >= v:
+                num -= v
+                ans.append(c)
+        return ''.join(ans)
 ```
 
 ### **Java**
@@ -101,17 +89,16 @@ class Solution:
 ```java
 class Solution {
     public String intToRoman(int num) {
-        int[] nums = new int[] {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-        String[] romans
-            = new String[] {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < nums.length; ++i) {
-            while (num >= nums[i]) {
-                num -= nums[i];
-                sb.append(romans[i]);
+        List<String> cs = List.of("M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I");
+        List<Integer> vs = List.of(1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1);
+        StringBuilder ans = new StringBuilder();
+        for (int i = 0, n = cs.size(); i < n; ++i) {
+            while (num >= vs.get(i)) {
+                num -= vs.get(i);
+                ans.append(cs.get(i));
             }
         }
-        return sb.toString();
+        return ans.toString();
     }
 }
 ```
@@ -122,13 +109,13 @@ class Solution {
 class Solution {
 public:
     string intToRoman(int num) {
-        vector<int> nums {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-        vector<string> romans {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+        vector<string> cs = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+        vector<int> vs = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
         string ans;
-        for (int i = 0; i < nums.size(); ++i) {
-            while (num >= nums[i]) {
-                num -= nums[i];
-                ans.append(romans[i]);
+        for (int i = 0; i < cs.size(); ++i) {
+            while (num >= vs[i]) {
+                num -= vs[i];
+                ans += cs[i];
             }
         }
         return ans;
@@ -140,15 +127,16 @@ public:
 
 ```go
 func intToRoman(num int) string {
-	ans := ""
-	values := []int{1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1}
-	romans := []string{"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"}
-	for i, value := range values {
-		for value <= num {
-			ans, num = ans+romans[i], num-value
+	cs := []string{"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"}
+	vs := []int{1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1}
+	ans := &strings.Builder{}
+	for i, v := range vs {
+		for num >= v {
+			num -= v
+			ans.WriteString(cs[i])
 		}
 	}
-	return ans
+	return ans.String()
 }
 ```
 
@@ -156,10 +144,7 @@ func intToRoman(num int) string {
 
 ```ts
 function intToRoman(num: number): string {
-    const nums: number[] = [
-        1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1,
-    ];
-    const romans: string[] = [
+    const cs: string[] = [
         'M',
         'CM',
         'D',
@@ -174,14 +159,15 @@ function intToRoman(num: number): string {
         'IV',
         'I',
     ];
-    let ans: string = '';
-    for (let i = 0; i < nums.length; ++i) {
-        while (num >= nums[i]) {
-            num -= nums[i];
-            ans += romans[i];
+    const vs: number[] = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+    const ans: string[] = [];
+    for (let i = 0; i < vs.length; ++i) {
+        while (num >= vs[i]) {
+            num -= vs[i];
+            ans.push(cs[i]);
         }
     }
-    return ans;
+    return ans.join('');
 }
 ```
 

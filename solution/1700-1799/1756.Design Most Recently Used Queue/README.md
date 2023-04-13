@@ -51,20 +51,32 @@ mRUQueue.fetch(8); // 第 8 个元素 (2) 已经在队列尾部了，所以直�
 
 <!-- 这里可写通用的实现逻辑 -->
 
-树状数组维护前缀和，二分法查找第 k 个数。
+**方法一：树状数组 + 二分查找**
 
-树状数组，也称作“二叉索引树”（Binary Indexed Tree）或 Fenwick 树。 它可以高效地实现如下两个操作：
 
-1. **单点更新** `update(x, delta)`： 把序列 x 位置的数加上一个值 delta；
-1. **前缀和查询** `query(x)`：查询序列 `[1,...x]` 区间的区间和，即位置 x 的前缀和。
-
-这两个操作的时间复杂度均为 $O(\log n)$。
 
 <!-- tabs:start -->
 
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```python
+class MRUQueue:
+
+    def __init__(self, n: int):
+        self.q = list(range(1, n + 1))
+
+    def fetch(self, k: int) -> int:
+        ans = self.q[k - 1]
+        self.q[k - 1: k] = []
+        self.q.append(ans)
+        return ans
+
+# Your MRUQueue object will be instantiated and called as such:
+# obj = MRUQueue(n)
+# param_1 = obj.fetch(k)
+```
 
 ```python
 class BinaryIndexedTree:
