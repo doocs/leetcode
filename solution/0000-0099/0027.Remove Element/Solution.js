@@ -4,11 +4,11 @@
  * @return {number}
  */
 var removeElement = function (nums, val) {
-    let cnt = 0;
-    const n = nums.length;
-    for (let i = 0; i < n; ++i) {
-        if (nums[i] == val) ++cnt;
-        else nums[i - cnt] = nums[i];
+    let k = 0;
+    for (const x of nums) {
+        if (x !== val) {
+            nums[k++] = x;
+        }
     }
-    return n - cnt;
+    return k;
 };
