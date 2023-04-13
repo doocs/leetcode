@@ -61,13 +61,13 @@
 ```python
 class Solution:
     def findJudge(self, n: int, trust: List[List[int]]) -> int:
-        N = 1001
-        c1, c2 = [0] * N, [0] * N
+        cnt1 = [0] * (n + 1)
+        cnt2 = [0] * (n + 1)
         for a, b in trust:
-            c1[a] += 1
-            c2[b] += 1
-        for i in range(1, N):
-            if c1[i] == 0 and c2[i] == n - 1:
+            cnt1[a] += 1
+            cnt2[b] += 1
+        for i in range(1, n + 1):
+            if cnt1[i] == 0 and cnt2[i] == n - 1:
                 return i
         return -1
 ```
@@ -77,41 +77,20 @@ class Solution:
 ```java
 class Solution {
     public int findJudge(int n, int[][] trust) {
-        int N = 1001;
-        int[] c1 = new int[N];
-        int[] c2 = new int[N];
-        for (int[] e : trust) {
-            ++c1[e[0]];
-            ++c2[e[1]];
+        int[] cnt1 = new int[n + 1];
+        int[] cnt2 = new int[n + 1];
+        for (var t : trust) {
+            int a = t[0], b = t[1];
+            ++cnt1[a];
+            ++cnt2[b];
         }
-        for (int i = 1; i < N; ++i) {
-            if (c1[i] == 0 && c2[i] == n - 1) {
+        for (int i = 1; i <= n; ++i) {
+            if (cnt1[i] == 0 && cnt2[i] == n - 1) {
                 return i;
             }
         }
         return -1;
     }
-}
-```
-
-### **TypeScript**
-
-```ts
-function findJudge(n: number, trust: number[][]): number {
-    let candidates = new Array(n).fill(0);
-    for (let [a, b] of trust) {
-        candidates[a - 1] = -1;
-        if (candidates[b - 1] >= 0) {
-            candidates[b - 1]++;
-        }
-    }
-
-    for (let i = 0; i < n; i++) {
-        if (candidates[i] == n - 1) {
-            return i + 1;
-        }
-    }
-    return -1;
 }
 ```
 
@@ -121,15 +100,17 @@ function findJudge(n: number, trust: number[][]): number {
 class Solution {
 public:
     int findJudge(int n, vector<vector<int>>& trust) {
-        int N = 1001;
-        vector<int> c1(N);
-        vector<int> c2(N);
-        for (auto& e : trust) {
-            ++c1[e[0]];
-            ++c2[e[1]];
+        vector<int> cnt1(n + 1);
+        vector<int> cnt2(n + 1);
+        for (auto& t : trust) {
+            int a = t[0], b = t[1];
+            ++cnt1[a];
+            ++cnt2[b];
         }
-        for (int i = 1; i < N; ++i) {
-            if (c1[i] == 0 && c2[i] == n - 1) return i;
+        for (int i = 1; i <= n; ++i) {
+            if (cnt1[i] == 0 && cnt2[i] == n - 1) {
+                return i;
+            }
         }
         return -1;
     }
@@ -140,19 +121,38 @@ public:
 
 ```go
 func findJudge(n int, trust [][]int) int {
-	N := 1001
-	c1 := make([]int, N)
-	c2 := make([]int, N)
-	for _, e := range trust {
-		c1[e[0]]++
-		c2[e[1]]++
+	cnt1 := make([]int, n+1)
+	cnt2 := make([]int, n+1)
+	for _, t := range trust {
+		a, b := t[0], t[1]
+		cnt1[a]++
+		cnt2[b]++
 	}
-	for i := 1; i < N; i++ {
-		if c1[i] == 0 && c2[i] == n-1 {
+	for i := 1; i <= n; i++ {
+		if cnt1[i] == 0 && cnt2[i] == n-1 {
 			return i
 		}
 	}
 	return -1
+}
+```
+
+### **TypeScript**
+
+```ts
+function findJudge(n: number, trust: number[][]): number {
+    const cnt1: number[] = new Array(n + 1).fill(0);
+    const cnt2: number[] = new Array(n + 1).fill(0);
+    for (const [a, b] of trust) {
+        ++cnt1[a];
+        ++cnt2[b];
+    }
+    for (let i = 1; i <= n; ++i) {
+        if (cnt1[i] === 0 && cnt2[i] === n - 1) {
+            return i;
+        }
+    }
+    return -1;
 }
 ```
 
