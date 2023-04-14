@@ -8,14 +8,10 @@ func newBinaryIndexedTree(n int) *BinaryIndexedTree {
 	return &BinaryIndexedTree{n, c}
 }
 
-func (this *BinaryIndexedTree) lowbit(x int) int {
-	return x & -x
-}
-
 func (this *BinaryIndexedTree) update(x, delta int) {
 	for x <= this.n {
 		this.c[x] += delta
-		x += this.lowbit(x)
+		x += x & -x
 	}
 }
 
@@ -23,37 +19,38 @@ func (this *BinaryIndexedTree) query(x int) int {
 	s := 0
 	for x > 0 {
 		s += this.c[x]
-		x -= this.lowbit(x)
+		x -= x & -x
 	}
 	return s
 }
 
 type MRUQueue struct {
-	data []int
+	q    []int
 	tree *BinaryIndexedTree
 }
 
 func Constructor(n int) MRUQueue {
-	data := make([]int, n+1)
-	for i := range data {
-		data[i] = i
+	q := make([]int, n+1)
+	for i := 1; i <= n; i++ {
+		q[i] = i
 	}
-	return MRUQueue{data, newBinaryIndexedTree(n + 2010)}
+	return MRUQueue{q, newBinaryIndexedTree(n + 2010)}
 }
 
 func (this *MRUQueue) Fetch(k int) int {
-	left, right := 1, len(this.data)
-	for left < right {
-		mid := (left + right) >> 1
+	l, r := 1, len(this.q)
+	for l < r {
+		mid := (l + r) >> 1
 		if mid-this.tree.query(mid) >= k {
-			right = mid
+			r = mid
 		} else {
-			left = mid + 1
+			l = mid + 1
 		}
 	}
-	this.data = append(this.data, this.data[left])
-	this.tree.update(left, 1)
-	return this.data[left]
+	x := this.q[l]
+	this.q = append(this.q, x)
+	this.tree.update(l, 1)
+	return x
 }
 
 /**

@@ -1,42 +1,39 @@
 class BinaryIndexedTree:
-    def __init__(self, n):
+    def __init__(self, n: int):
         self.n = n
         self.c = [0] * (n + 1)
 
-    @staticmethod
-    def lowbit(x):
-        return x & -x
-
-    def update(self, x, delta):
+    def update(self, x: int, v: int):
         while x <= self.n:
-            self.c[x] += delta
-            x += BinaryIndexedTree.lowbit(x)
+            self.c[x] += v
+            x += x & -x
 
-    def query(self, x):
+    def query(self, x: int) -> int:
         s = 0
-        while x > 0:
+        while x:
             s += self.c[x]
-            x -= BinaryIndexedTree.lowbit(x)
+            x -= x & -x
         return s
 
 
 class MRUQueue:
+
     def __init__(self, n: int):
-        self.data = list(range(n + 1))
+        self.q = list(range(n + 1))
         self.tree = BinaryIndexedTree(n + 2010)
 
     def fetch(self, k: int) -> int:
-        left, right = 1, len(self.data)
-        while left < right:
-            mid = (left + right) >> 1
+        l, r = 1, len(self.q)
+        while l < r:
+            mid = (l + r) >> 1
             if mid - self.tree.query(mid) >= k:
-                right = mid
+                r = mid
             else:
-                left = mid + 1
-        self.data.append(self.data[left])
-        self.tree.update(left, 1)
-        return self.data[left]
-
+                l = mid + 1
+        x = self.q[l]
+        self.q.append(x)
+        self.tree.update(l, 1)
+        return x
 
 # Your MRUQueue object will be instantiated and called as such:
 # obj = MRUQueue(n)

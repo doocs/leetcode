@@ -4,13 +4,13 @@ class BinaryIndexedTree {
 
     public BinaryIndexedTree(int n) {
         this.n = n;
-        c = new int[n + 1];
+        this.c = new int[n + 1];
     }
 
-    public void update(int x, int delta) {
+    public void update(int x, int v) {
         while (x <= n) {
-            c[x] += delta;
-            x += lowbit(x);
+            c[x] += v;
+            x += x & -x;
         }
     }
 
@@ -18,44 +18,40 @@ class BinaryIndexedTree {
         int s = 0;
         while (x > 0) {
             s += c[x];
-            x -= lowbit(x);
+            x -= x & -x;
         }
         return s;
-    }
-
-    public static int lowbit(int x) {
-        return x & -x;
     }
 }
 
 class MRUQueue {
     private int n;
-    private int[] data;
+    private int[] q;
     private BinaryIndexedTree tree;
 
     public MRUQueue(int n) {
         this.n = n;
-        data = new int[n + 2010];
+        q = new int[n + 2010];
         for (int i = 1; i <= n; ++i) {
-            data[i] = i;
+            q[i] = i;
         }
         tree = new BinaryIndexedTree(n + 2010);
     }
 
     public int fetch(int k) {
-        int left = 1;
-        int right = n++;
-        while (left < right) {
-            int mid = (left + right) >> 1;
+        int l = 1, r = n;
+        while (l < r) {
+            int mid = (l + r) >> 1;
             if (mid - tree.query(mid) >= k) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        data[n] = data[left];
-        tree.update(left, 1);
-        return data[left];
+        int x = q[l];
+        q[++n] = x;
+        tree.update(l, 1);
+        return x;
     }
 }
 
