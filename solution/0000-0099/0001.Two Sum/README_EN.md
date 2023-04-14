@@ -48,6 +48,14 @@
 
 ## Solutions
 
+**Approach 1: Hash Table**
+
+We can use the hash table $m$ to store the array value and the corresponding subscript.
+
+Traverse the array `nums`, when you find `target - nums[i]` in the hash table, it means that the target value is found, and the index of `target - nums[i]` and $i$ are returned.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$. Where $n$ is the length of the array `nums`.
+
 <!-- tabs:start -->
 
 ### **Python3**
