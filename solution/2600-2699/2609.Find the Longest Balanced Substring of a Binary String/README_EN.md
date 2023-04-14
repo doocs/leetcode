@@ -47,6 +47,25 @@
 
 ## Solutions
 
+**Approach 1: Brute force**
+
+Since the range of $n$ is small, we can enumerate all substrings $s[i..j]$ to check if it is a balanced string. If so, update the answer.
+
+The time complexity is $O(n^3)$, and the space complexity is $O(1)$. Where $n$ is the length of string $s$.
+
+**Approach 2: Enumeration optimization**
+
+We use variables $zero$ and $one$ to record the number of continuous $0$ and $1$.
+
+Traverse the string $s$, for the current character $c$:
+
+-   If the current character is `'0'`, we check if $one$ is greater than $0$, if so, we reset $zero$ and $one$ to $0$, and then add $1$ to $zero$.
+-   If the current character is `'1'`, we add $1$ to $one$, and update the answer to $ans = max(ans, 2 \times min(one, zero))$.
+
+After the traversal is complete, we can get the length of the longest balanced substring.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Where $n$ is the length of string $s$.
+
 <!-- tabs:start -->
 
 ### **Python3**
