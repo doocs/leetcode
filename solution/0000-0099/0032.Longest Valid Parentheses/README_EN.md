@@ -40,6 +40,33 @@
 
 ## Solutions
 
+**Approach 1: Dynamic Programming**
+
+We define $f[i]$ to be the length of the longest valid parentheses that ends with $s[i-1]$, and the answer is $max(f[i])$.
+
+When $i \lt 2$, the length of the string is less than $2$, and there is no valid parentheses, so $f[i] = 0$.
+
+When $i \ge 2$, we consider the length of the longest valid parentheses that ends with $s[i-1]$, that is, $f[i]$:
+
+-   If $s[i-1]$ is a left parenthesis, then the length of the longest valid parentheses that ends with $s[i-1]$ must be $0$, so $f[i] = 0$.
+-   If $s[i-1]$ is a right parenthesis, there are the following two cases:
+    -   If $s[i-2]$ is a left parenthesis, then the length of the longest valid parentheses that ends with $s[i-1]$ is $f[i-2] + 2$.
+    -   If $s[i-2]$ is a right parenthesis, then the length of the longest valid parentheses that ends with $s[i-1]$ is $f[i-1] + 2$, but we also need to consider whether $s[i-f[i-1]-2]$ is a left parenthesis. If it is a left parenthesis, then the length of the longest valid parentheses that ends with $s[i-1]$ is $f[i-1] + 2 + f[i-f[i-1]-2]$.
+
+Therefore, we can get the state transition equation:
+
+$$
+\begin{cases}
+f[i] = 0, & \text{if } s[i-1] = '(',\\
+f[i] = f[i-2] + 2, & \text{if } s[i-1] = ')' \text{ and } s[i-2] = '(',\\
+f[i] = f[i-1] + 2 + f[i-f[i-1]-2], & \text{if } s[i-1] = ')' \text{ and } s[i-2] = ')' \text{ and } s[i-f[i-1]-2] = '(',\\
+\end{cases}
+$$
+
+Finally, we only need to return $max(f)$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
+
 <!-- tabs:start -->
 
 ### **Python3**

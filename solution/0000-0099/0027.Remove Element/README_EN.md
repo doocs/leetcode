@@ -65,6 +65,16 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 ## Solutions
 
+**Approach 1: One Pass**
+
+We use the variable $k$ to record the number of elements that are not equal to $val$.
+
+Traverse the array $nums$, if the current element $x$ is not equal to $val$, then assign $x$ to $nums[k]$, and increment $k$ by $1$.
+
+Finally, return $k$.
+
+The time complexity is $O(n)$ and the space complexity is $O(1)$, where $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**

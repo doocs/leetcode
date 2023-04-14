@@ -47,9 +47,22 @@
 
 **方法一：递归**
 
+我们先判断链表 $l_1$ 和 $l_2$ 是否为空，若其中一个为空，则返回另一个链表。否则，我们比较 $l_1$ 和 $l_2$ 的头节点：
+
+-   若 $l_1$ 的头节点的值小于等于 $l_2$ 的头节点的值，则递归调用函数 $mergeTwoLists(l_1.next, l_2)$，并将 $l_1$ 的头节点与返回的链表头节点相连，返回 $l_1$ 的头节点。
+-   否则，递归调用函数 $mergeTwoLists(l_1, l_2.next)$，并将 $l_2$ 的头节点与返回的链表头节点相连，返回 $l_2$ 的头节点。
+
+时间复杂度 $O(m + n)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别为两个链表的长度。
+
 **方法二：迭代**
 
-迭代遍历两链表，比较节点值 val 的大小，进行节点串联，得到最终链表。
+我们也可以用迭代的方式来实现两个排序链表的合并。
+
+我们先定义一个虚拟头节点 $dummy$，然后循环遍历两个链表，比较两个链表的头节点，将较小的节点添加到 $dummy$ 的末尾，直到其中一个链表为空，然后将另一个链表的剩余部分添加到 $dummy$ 的末尾。
+
+最后返回 $dummy.next$ 即可。
+
+时间复杂度 $O(m + n)$，其中 $m$ 和 $n$ 分别为两个链表的长度。忽略答案链表的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -414,8 +427,6 @@ public class Solution {
 
 ### **TypeScript**
 
-递归：
-
 ```ts
 /**
  * Definition for singly-linked list.
@@ -445,8 +456,6 @@ function mergeTwoLists(
     }
 }
 ```
-
-循环：
 
 ```ts
 /**
@@ -483,8 +492,6 @@ function mergeTwoLists(
 ```
 
 ### **Rust**
-
-递归：
 
 ```rust
 // Definition for singly-linked list.
@@ -525,8 +532,6 @@ impl Solution {
     }
 }
 ```
-
-循环：
 
 ```rust
 // Definition for singly-linked list.

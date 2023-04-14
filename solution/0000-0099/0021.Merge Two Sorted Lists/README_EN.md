@@ -403,8 +403,6 @@ public class Solution {
 
 ### **TypeScript**
 
-Recursion：
-
 ```ts
 /**
  * Definition for singly-linked list.
@@ -434,8 +432,6 @@ function mergeTwoLists(
     }
 }
 ```
-
-Loop：
 
 ```ts
 /**
@@ -472,8 +468,6 @@ function mergeTwoLists(
 ```
 
 ### **Rust**
-
-Recursion：
 
 ```rust
 // Definition for singly-linked list.
@@ -514,8 +508,6 @@ impl Solution {
     }
 }
 ```
-
-Loop：
 
 ```rust
 // Definition for singly-linked list.
