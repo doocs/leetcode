@@ -58,6 +58,30 @@
 
 ## Solutions
 
+**Approach 1: Ordered Set + BFS**
+
+We notice that for any index $i$ in the subarray interval $[l,..r]$, the flipped index $j = l + r - i$.
+
+If the subarray moves one position to the right, then $j = l + 1 + r + 1 - i = l + r - i + 2$, that is, $j$ will increase by $2$.
+
+Similarly, if the subarray moves one position to the left, then $j = l - 1 + r - 1 - i = l + r - i - 2$, that is, $j$ will decrease by $2$.
+
+Therefore, for a specific index $i$, all its flipped indices form an arithmetic progression with common difference $2$, that is, all the flipped indices have the same parity.
+
+Next, we consider the range of values ​​of the index $i$ after flipping $j$.
+
+- If the boundary is not considered, the range of values ​​of $j$ is $[i - k + 1, i + k - 1]$.
+- If the subarray is on the left, then $[l, r] = [0, k - 1]$, so the flipped index $j$ of $i$ is $0 + k - 1 - i$, that is, $j = k - i - 1$, so the left boundary $mi = max(i - k + 1, k - i - 1)$.
+- If the subarray is on the right, then $[l, r] = [n - k, n - 1]$, so the flipped index $j= n - k + n - 1 - i$ is $j = n \times 2 - k - i - 1$, so the right boundary of $j$ is $mx = min(i + k - 1, n \times 2 - k - i - 1)$.
+
+We use two ordered sets to store all the odd indices and even indices to be searched, here we need to exclude the indices in the array $banned$ and the index $p$.
+
+Then we use BFS to search, each time searching all the flipped indices $j$ of the current index $i$, that is, $j = mi, mi + 2, mi + 4, \dots, mx$, updating the answer of index $j$ and adding index $j$ to the search queue, and removing index $j$ from the corresponding ordered set.
+
+When the search is over, the answer to all indices can be obtained.
+
+The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$. Where $n$ is the given array length in the problem.
+
 <!-- tabs:start -->
 
 ### **Python3**

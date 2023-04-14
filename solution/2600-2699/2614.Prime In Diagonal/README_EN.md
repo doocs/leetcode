@@ -47,6 +47,14 @@
 
 ## Solutions
 
+**Approach 1: Math + Simulation**
+
+We implement a function `is_prime` to check whether a number is prime.
+
+Then we iterate the array and check whether the numbers on the diagonals are prime. If so, we update the answer.
+
+The time complexity is $O(n \times \sqrt{M})$, where $n$ and $M$ are the number of rows of the array and the maximum value in the array, respectively. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

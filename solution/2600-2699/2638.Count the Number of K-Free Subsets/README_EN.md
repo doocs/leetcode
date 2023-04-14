@@ -48,6 +48,16 @@
 
 ## Solutions
 
+**Approach 1: Grouping + Dynamic Programming**
+
+First, sort the array $nums$ in ascending order, and then group the elements in the array according to the remainder modulo $k$, that is, the elements $nums[i] \bmod k$ with the same remainder are in the same group. Then for any two elements in different groups, their absolute difference is not equal to $k$. Therefore, we can obtain the number of subsets in each group, and then multiply the number of subsets in each group to obtain the answer.
+
+For each group $arr$, we can use dynamic programming to obtain the number of subsets. Let $f[i]$ denote the number of subsets of the first $i$ elements, and initially $f[0] = 1$, and $f[1]=2$. When $i \geq 2$, if $arr[i-1]-arr[i-2]=k$, if we choose $arr[i-1]$, then $f[i]=f[i-2]$; If we do not choose $arr[i-1]$, then $f[i]=f[i-1]$. Therefore, when $arr[i-1]-arr[i-2]=k$, we have $f[i]=f[i-1]+f[i-2]$; otherwise $f[i] = f[i - 1] \times 2$. The number of subsets of this group is $f[m]$, where $m$ is the length of the array $arr$.
+
+Finally, we multiply the number of subsets of each group to obtain the answer.
+
+The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**

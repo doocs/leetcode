@@ -54,6 +54,20 @@
 
 ## Solutions
 
+**Approach 1: Priority Queue**
+
+Let's denote the number of rows of the grid as $m$ and the number of columns as $n$. Define $dist[i][j]$ to be the shortest distance from the coordinate $(0, 0)$ to the coordinate $(i, j)$. Initially, $dist[0][0]=1$ and $dist[i][j]=-1$ for all other $i$ and $j$.
+
+For each grid $(i, j)$, it can come from the grid above or the grid on the left. If it comes from the grid above $(i', j)$, where $0 \leq i' \lt i$, then $(i', j)$ must satisfy $grid[i'][j] + i' \geq i$. We need to select from these grids the one that is closest.
+
+Therefore, we maintain a priority queue (min-heap) for each column $j$. Each element of the priority queue is a pair $(dist[i][j], i)$, which represents that the shortest distance from the coordinate $(0, 0)$ to the coordinate $(i, j)$ is $dist[i][j]$. When we consider the coordinate $(i, j)$, we only need to take out the head element $(dist[i'][j], i')$ of the priority queue. If $grid[i'][j] + i' \geq i$, we can move from the coordinate $(i', j)$ to the coordinate $(i, j)$. At this time, we can update the value of $dist[i][j]$, that is, $dist[i][j] = dist[i'][j] + 1$, and add $(dist[i][j], i)$ to the priority queue.
+
+Similarly, we can maintain a priority queue for each row $i$ and perform a similar operation.
+
+Finally, we can obtain the shortest distance from the coordinate $(0, 0)$ to the coordinate $(m - 1, n - 1)$, that is, $dist[m - 1][n - 1]$, which is the answer.
+
+The time complexity is $O(m \times n \times \log (m \times n))$ and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -44,6 +44,24 @@
 
 ## Solutions
 
+**Approach 1: Sorting + Divide and Conquer**
+
+This problem is equivalent to finding two points in the plane, such that the Manhattan distance between them is the smallest. If there are multiple points satisfying the condition, return the one with the smallest index.
+
+First, we handle the case where there are duplicate points. For each point, we record the corresponding indices in a list. If the length of the index list is greater than $1$, then the first two indices in the index list can be used as candidates, and we find the smallest index pair.
+
+If there are no duplicate points, we sort all the points by $x$ coordinates, and then use the divide and conquer to solve the problem.
+
+For each interval $[l, r]$, we first calculate the median of the $x$ coordinates $m$, and then recursively solve the left and right intervals, and get $d_1, (pi_1, pj_1)$ and $d_2, (pi_2, pj_2)$ respectively, where $d_1$ and $d_2$ are the minimum Manhattan distances of the left and right intervals respectively, and $(pi_1, pj_1)$ and $(pi_2, pj_2)$ are the index pairs of the two points of the minimum Manhattan distance of the left and right intervals respectively. We take the smaller one of $d_1$ and $d_2$ as the minimum Manhattan distance of the current interval, and if $d_1 = d_2$, we take the one with the smaller index as the answer. The corresponding two points of the index are taken as the answer.
+
+The above considers the case where the two points are on the same side. If the two points are on different sides, we take the middle point, i.e. the point with the index of $m = \lfloor (l + r) / 2 \rfloor$ as the standard, and divide a new region. The range of this region is to expand the range of $d_1$ from the middle point to the left and right sides respectively. Then we sort these points in the range by $y$ coordinates, and then traverse each point pair in the sorted order. If the difference of the $y$ coordinates of the two points is greater than the current minimum Manhattan distance, then the following point pairs do not need to be considered, because their $y$ coordinate differences are larger, so the Manhattan distance is larger, and it will not be smaller than the current minimum Manhattan distance. Otherwise, we update the minimum Manhattan distance, and update the answer.
+
+Finally, we return the answer.
+
+Time complexity: $O(n \times \log n)$, where $n$ is the length of the array.
+
+Space complexity: $O(n)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -39,6 +39,16 @@ The maximum difference is max(|nums[1] - nums[4]|, |nums[2] - nums[5]|) = max(0,
 
 ## Solutions
 
+**Approach 1: Binary search + Greedy**
+
+We find that the maximum difference has the monotonicity, that is, if the maximum difference $x$ satisfies the condition, then $x-1$ must also satisfy the condition. Therefore, we can use the binary search method to find the smallest maximum difference that satisfies the condition.
+
+We can sort the array `nums`, then enumerate the maximum difference $x$, and determine whether there are $p$ index pairs, where each index pair corresponds to the maximum value of the difference of the corresponding value. If it exists, we can reduce $x$, otherwise we can increase $x$.
+
+Determine whether there are $p$ index pairs, where each index pair corresponds to the maximum value of the difference of the corresponding value, which can be achieved by using the greedy method. We traverse the array `nums` from left to right, and for the current traversed index $i$, if the difference between the number at the $i+1$ position and the number at the $i$ position is no more than $x$, then we can take the number at the $i$ and $i+1$ positions as an index pair, update the number of index pairs $cnt$, and then increase the value of $i$ by $2$. Otherwise, we will increase the value of $i$ by $1$. When the traversal is over, if the value of $cnt$ is greater than or equal to $p$, then it means that there are $p$ index pairs, where each index pair corresponds to the maximum value of the difference of the corresponding value, otherwise it means that it does not exist.
+
+The time complexity is $O(n \times (\log n + \log m))$, where $n$ is the length of the array `nums`, and $m$ is the difference between the maximum value and the minimum value in the array `nums`. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
