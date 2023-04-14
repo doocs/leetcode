@@ -42,6 +42,23 @@
 
 ## Solutions
 
+**Approach 1: Dynamic Programming**
+
+We define $f[i]$ to represent the maximum value of the subarray ending with $nums[i]$, and define $g[i]$ to represent the minimum value of the subarray ending with $nums[i]$. Then the state transition equation of $f[i]$ and $g[i]$ is as follows:
+
+$$
+\begin{aligned}
+f[i] &= \max(f[i - 1], 0) + nums[i] \\
+g[i] &= \min(g[i - 1], 0) + nums[i]
+\end{aligned}
+$$
+
+The final answer is the maximum value of $max(f[i], |g[i]|)$.
+
+Since $f[i]$ and $g[i]$ are only related to $f[i - 1]$ and $g[i - 1]$, we can use two variables to replace the array, reducing the space complexity to $O(1)$.
+
+Time complexity $O(n)$, space complexity $O(1)$, where $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -125,6 +142,22 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxAbsoluteSum(nums: number[]): number {
+    let f = 0;
+    let g = 0;
+    let ans = 0;
+    for (const x of nums) {
+        f = Math.max(f, 0) + x;
+        g = Math.min(g, 0) + x;
+        ans = Math.max(ans, f, -g);
+    }
+    return ans;
 }
 ```
 

@@ -56,6 +56,12 @@
 
 ## Solutions
 
+**Approach 1: Two pointers**
+
+We define two pointers $i$ and $j$ to point to the head and tail of the string $s$ respectively, then move them to the middle until the characters pointed to by $i$ and $j$ are not equal, then $\max(0, j - i + 1)$ is the answer.
+
+The time complexity is $O(n)$ and the space complexity is $O(1)$. Where $n$ is the length of the string $s$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -145,20 +151,19 @@ func max(a, b int) int {
 
 ```ts
 function minimumLength(s: string): number {
-    const n = s.length;
-    let start = 0;
-    let end = n - 1;
-    while (start < end && s[start] === s[end]) {
-        while (start + 1 < end && s[start] === s[start + 1]) {
-            start++;
+    let i = 0;
+    let j = s.length - 1;
+    while (i < j && s[i] === s[j]) {
+        while (i + 1 < j && s[i + 1] === s[i]) {
+            ++i;
         }
-        while (start < end - 1 && s[end] === s[end - 1]) {
-            end--;
+        while (i < j - 1 && s[j - 1] === s[j]) {
+            --j;
         }
-        start++;
-        end--;
+        ++i;
+        --j;
     }
-    return Math.max(0, end - start + 1);
+    return Math.max(0, j - i + 1);
 }
 ```
 

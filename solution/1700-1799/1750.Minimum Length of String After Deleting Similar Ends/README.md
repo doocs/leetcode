@@ -161,20 +161,19 @@ func max(a, b int) int {
 
 ```ts
 function minimumLength(s: string): number {
-    const n = s.length;
-    let start = 0;
-    let end = n - 1;
-    while (start < end && s[start] === s[end]) {
-        while (start + 1 < end && s[start] === s[start + 1]) {
-            start++;
+    let i = 0;
+    let j = s.length - 1;
+    while (i < j && s[i] === s[j]) {
+        while (i + 1 < j && s[i + 1] === s[i]) {
+            ++i;
         }
-        while (start < end - 1 && s[end] === s[end - 1]) {
-            end--;
+        while (i < j - 1 && s[j - 1] === s[j]) {
+            --j;
         }
-        start++;
-        end--;
+        ++i;
+        --j;
     }
-    return Math.max(0, end - start + 1);
+    return Math.max(0, j - i + 1);
 }
 ```
 
