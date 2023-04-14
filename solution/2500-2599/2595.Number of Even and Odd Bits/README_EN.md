@@ -42,6 +42,12 @@ There are 0 even and 1 odd indices.
 
 ## Solutions
 
+**Approach 1: Enumerate**
+
+According to the problem description, enumerate the binary representation of $n$ from the low bit to the high bit. If the bit is $1$, add $1$ to the corresponding counter according to whether the index of the bit is odd or even.
+
+The time complexity is $O(\log n)$ and the space complexity is $O(1)$. Where $n$ is the given integer.
+
 <!-- tabs:start -->
 
 ### **Python3**

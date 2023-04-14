@@ -55,6 +55,20 @@ So the total number of operations for the second query is 2 + 4 + 1 + 3 = 10.
 
 ## Solutions
 
+**Approach 1: sort + prefix sum + binary search**
+
+First, we sort the array $nums$ and calculate the prefix sum array $s$ with a length of $n+1$, where $s[i]$ represents the sum of the first $i$ elements in the array $nums$.
+
+Then, we traverse each query $queries[i]$, we need to reduce all elements greater than $queries[i]$ to $queries[i]$, and increase all elements less than $queries[i]$ to $queries[i]$.
+
+We can use binary search to find the index $i$ of the first element in the array $nums$ that is greater than $queries[i]$. There are $n-i$ elements that need to be reduced to $queries[i]$, and the sum of these elements is $s[n]-s[i]$. These elements need to be reduced by $n-i$ $queries[i]$, so the total number of operations to reduce these elements to $queries[i]$ is $s[n]-s[i]-(n-i)\times queries[i]$.
+
+Similarly, we can find the index $i$ of the first element in the array $nums$ that is greater than or equal to $queries[i]$. There are $i$ elements that need to be increased to $queries[i]$, and the sum of these elements is $s[i]$. Therefore, the total number of operations to increase these elements to $queries[i]$ is $queries[i]\times i-s[i]$.
+
+Finally, add these two total operation counts together to get the minimum number of operations to change all elements in the array $nums$ to $queries[i]$, that is, $ans[i]=s[n]-s[i]-(n-i)\times queries[i]+queries[i]\times i-s[i]$.
+
+Time complexity $O(n \times \log n)$, space complexity $O(n)$, where $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**

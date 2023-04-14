@@ -47,6 +47,16 @@ The computer will be on for a total of 4 seconds.
 
 ## Solutions
 
+**Approach 1: Greedy + Sort**
+
+We find that the problem is equivalent to choosing $duration$ integer time points in each interval $[start,..,end]$ so that the total number of integer time points selected is the smallest.
+
+Therefore, we can sort the $tasks$ by the end time $end$ from small to large. Then greedily select. For each task, we start from the end time $end$ and choose as many points as possible from back to front, so that these points are more likely to be reused by later tasks.
+
+In implementation, we can use a length of $2010$ array $vis$ to record whether each time point has been selected. Then for each task, we first count the number of points that have been selected in the $[start,..,end]$ interval $cnt$, then choose $duration - cnt$ points from back to front, and record the number of points selected $ans$ and update the $vis$ array.
+
+Finally, we return $ans$.
+
 <!-- tabs:start -->
 
 ### **Python3**

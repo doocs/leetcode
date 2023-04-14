@@ -48,6 +48,14 @@ The number of vowel strings in the mentioned range is 3.
 
 ## Solutions
 
+**Approach 1: Simulation**
+
+We just need to traverse the string in the interval $[left,.. right]$, and check if it starts and ends with a vowel. If so, the answer plus one.
+
+After the traversal, return the answer.
+
+The time complexity is $O(m)$, and the space complexity is $O(1)$. Where $m = right - left + 1$.
+
 <!-- tabs:start -->
 
 ### **Python3**

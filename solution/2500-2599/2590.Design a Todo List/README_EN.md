@@ -57,6 +57,20 @@ todoList.getAllTasks(1); // return [&quot;Task3&quot;, &quot;Task1&quot;]. User 
 
 ## Solutions
 
+**Approach 1: Hash Table + Sorted Set**
+
+We use a hash table $tasks$ to record the set of tasks for each user, where the key is the user ID and the value is a sorted set sorted by the deadline of the task. In addition, we use a variable $i$ to record the current task ID.
+
+When calling the `addTask` method, we add the task to the task set of the corresponding user and return the task ID. The time complexity of this operation is $O(\log n)$.
+
+When calling the `getAllTasks` method, we traverse the task set of the corresponding user and add the description of the unfinished task to the result list, and then return the result list. The time complexity of this operation is $O(n)$.
+
+When calling the `getTasksForTag` method, we traverse the task set of the corresponding user and add the description of the unfinished task to the result list, and then return the result list. The time complexity of this operation is $O(n)$.
+
+When calling the `completeTask` method, we traverse the task set of the corresponding user and mark the task whose task ID is $taskId$ as completed. The time complexity of this operation is $(n)$.
+
+The space complexity is $O(n)$. Where $n$ is the number of all tasks.
+
 <!-- tabs:start -->
 
 ### **Python3**
