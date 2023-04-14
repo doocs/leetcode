@@ -1,13 +1,16 @@
 class Solution {
     public int minimumSize(int[] nums, int maxOperations) {
-        int left = 1, right = (int) 1e9;
+        int left = 1, right = 0;
+        for (int x : nums) {
+            right = Math.max(right, x);
+        }
         while (left < right) {
-            int mid = (left + right) >>> 1;
-            long s = 0;
-            for (int v : nums) {
-                s += (v - 1) / mid;
+            int mid = (left + right) >> 1;
+            long cnt = 0;
+            for (int x : nums) {
+                cnt += (x - 1) / mid;
             }
-            if (s <= maxOperations) {
+            if (cnt <= maxOperations) {
                 right = mid;
             } else {
                 left = mid + 1;

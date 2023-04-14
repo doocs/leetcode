@@ -1,9 +1,4 @@
-/**
- * @param {number[]} nums
- * @param {number} maxOperations
- * @return {number}
- */
-var minimumSize = function (nums, maxOperations) {
+function minimumSize(nums: number[], maxOperations: number): number {
     let left = 1;
     let right = Math.max(...nums);
     while (left < right) {
@@ -19,4 +14,4 @@ var minimumSize = function (nums, maxOperations) {
         }
     }
     return left;
-};
+}
