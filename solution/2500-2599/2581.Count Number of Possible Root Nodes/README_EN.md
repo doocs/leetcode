@@ -72,6 +72,21 @@ Considering any node as root will give at least 1 correct guess.
 
 ## Solutions
 
+
+**Approach 1: Tree DP (change root)**
+
+First, we traverse the given edge set $edges$ and convert it to an adjacency list $g$ where $g[i]$ represents the adjacent nodes of node $i$. Use a hash map $gs$ to record the given guess set $guesses$.
+
+Then, we start from node $0$ and perform a DFS to count the number of edges in $guesses$ among all the nodes that can be reached from node $0$. We use the variable $cnt$ to record this number.
+
+Next, we start from node $0$ and perform a DFS to count the number of edges in $guesses$ in each tree with $0$ as the root. If the number is greater than or equal to $k$, it means that this node is a possible root node, and we add $1$ to the answer.
+
+Therefore, the problem becomes to count the number of edges in $guesses$ in each tree with each node as the root. We already know that there are $cnt$ edges in $guesses$ among all the nodes that can be reached from node $0$. We can maintain this value by adding or subtracting the current edge in $guesses$ in DFS.
+
+Assume that we are currently traversing node $i$ and $cnt$ represents the number of edges in $guesses$ with $i$ as the root node. Then, for each adjacent node $j$ of $i$, we need to calculate the number of edges in $guesses$ with $j$ as the root node. If $(i, j)$ is in $guesses$, then there is no edge $(i, j)$ in the tree with $j$ as the root node, so $cnt$ should decrease by $1$. If $(j, i)$ is in $guesses$, then there is an extra edge $(i, j)$ in the tree with $j$ as the root node, so $cnt$ should increase by $1$. That is, $f[j] = f[i] + (j, i) \in guesses - (i, j) \in guesses$. Where $f[i]$ represents the number of edges in $guesses$ with $i$ as the root node.
+
+The time complexity is $O(n + m)$ and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of $edges$ and $guesses$ respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**

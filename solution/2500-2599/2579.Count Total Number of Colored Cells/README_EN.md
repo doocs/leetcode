@@ -41,6 +41,12 @@
 
 ## Solutions
 
+**Approach 1: Mathematics**
+
+We find that after the $n$th minute, there are a total of $2 \times n - 1$ columns in the grid, and the numbers on each column are respectively $1, 3, 5, \cdots, 2 \times n - 1, 2 \times n - 3, \cdots, 3, 1$. The left and right parts are both arithmetic progressions, and the sum can be obtained by $2 \times n \times (n - 1) + 1$.
+
+Time complexity $O(1)$, space complexity $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

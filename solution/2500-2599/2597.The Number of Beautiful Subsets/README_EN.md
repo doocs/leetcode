@@ -41,7 +41,7 @@ It can be proved that there is only 1 beautiful subset in the array [1].
 
 ## Solutions
 
-# Approach 1: Counting + Backtracking
+**Approach 1: Counting + Backtracking**
 
 We use a hash table or an array $cnt$ to record the currently selected numbers and their counts, and use $ans$ to record the number of beautiful subsets, initially $ans = -1$, indicating that the empty set is excluded.
 
