@@ -74,6 +74,23 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int sumOfUnique(int[] nums) {
+        int ans = 0;
+        int[] cnt = new int[101];
+        for (int x : nums) {
+            if (++cnt[x] == 1) {
+                ans += x;
+            } else if (cnt[x] == 2) {
+                ans -= x;
+            }
+        }
+        return ans;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -88,6 +105,24 @@ public:
         for (int x = 0; x < 101; ++x) {
             if (cnt[x] == 1) {
                 ans += x;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int sumOfUnique(vector<int>& nums) {
+        int ans = 0;
+        int cnt[101]{};
+        for (int& x : nums) {
+            if (++cnt[x] == 1) {
+                ans += x;
+            } else if (cnt[x] == 2) {
+                ans -= x;
             }
         }
         return ans;
@@ -112,6 +147,21 @@ func sumOfUnique(nums []int) (ans int) {
 }
 ```
 
+```go
+func sumOfUnique(nums []int) (ans int) {
+	cnt := [101]int{}
+	for _, x := range nums {
+		cnt[x]++
+		if cnt[x] == 1 {
+			ans += x
+		} else if cnt[x] == 2 {
+			ans -= x
+		}
+	}
+	return
+}
+```
+
 ### **TypeScript**
 
 ```ts
@@ -124,6 +174,21 @@ function sumOfUnique(nums: number[]): number {
     for (let x = 0; x < 101; ++x) {
         if (cnt[x] == 1) {
             ans += x;
+        }
+    }
+    return ans;
+}
+```
+
+```ts
+function sumOfUnique(nums: number[]): number {
+    let ans = 0;
+    const cnt = new Array(101).fill(0);
+    for (const x of nums) {
+        if (++cnt[x] === 1) {
+            ans += x;
+        } else if (cnt[x] === 2) {
+            ans -= x;
         }
     }
     return ans;
