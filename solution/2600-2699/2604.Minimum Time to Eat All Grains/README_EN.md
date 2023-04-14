@@ -50,6 +50,19 @@ So, the maximum time needed is 1.
 
 ## Solutions
 
+**Approach 1: Sorting + Binary Search**
+
+First, sort the chickens and grains by their position from left to right. Then enumerate the time $t$ using binary search to find the smallest $t$ such that all the grains can be eaten up in $t$ seconds.
+
+For each chicken, we use the pointer $j$ to point to the leftmost grain that has not been eaten, and the current position of the chicken is $x$ and the position of the grain is $y$. There are the following cases:
+
+-   If $y \leq x$, we note that $d = x - y$. If $d \gt t$, the current grain cannot be eaten, so directly return `false`. Otherwise, move the pointer $j$ to the right until $j=m$ or $grains[j] \gt x$. At this point, we need to check whether the chicken can eat the grain pointed to by $j$. If it can, continue to move the pointer $j$ to the right until $j=m$ or $min(d, grains[j] - x) + grains[j] - y \gt t$.
+-   If $y \lt x$, move the pointer $j$ to the right until $j=m$ or $grains[j] - x \gt t$.
+
+If $j=m$, it means that all the grains have been eaten, return `true`, otherwise return `false`.
+
+Time complexity $O(n \times \log n + m \times \log m + (m + n) \times \log U)$, space complexity $O(\log m + \log n)$. $n$ and $m$ are the number of chickens and grains respectively, and $U$ is the maximum value of all the chicken and grain positions.
+
 <!-- tabs:start -->
 
 ### **Python3**

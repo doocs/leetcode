@@ -50,6 +50,20 @@
 
 ## Solutions
 
+**Approach 1: Topological sorting**
+
+We first convert the edges in $edges$ to the adjacency list $g$, where $g[i]$ represents all the adjacent nodes of node $i$, represented by a set.
+
+Then we traverse all nodes and find the nodes where $coins[i]=0$ and $g[i]$ only has one node (that is, the leaf node where the coin is $0$), and add them to the queue $q$.
+
+Then we continuously remove nodes from the queue and delete them from the adjacent list. Then we check whether the adjacent nodes meet the condition where $coins[j]=0$ and $g[j]$ only has one node. If it meets, we add it to the queue $q$. Loop until the queue is empty.
+
+After the above operation, we get a new tree, and the leaf nodes of the tree are all nodes where the coin is $1$.
+
+Then, we delete the remaining two layers of leaf nodes, and finally get a tree where all nodes need to be visited. We only need to count the number of edges and multiply it by $2$ to get the answer.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of nodes
+
 <!-- tabs:start -->
 
 ### **Python3**

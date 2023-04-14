@@ -53,6 +53,14 @@ The MEX of nums is 2. It can be shown that 2 is the maximum MEX we can achieve.
 
 ## Solutions
 
+**Approach 1: Count**
+
+We use a hash table or array $cnt$ to count the number of times each remainder of $value$ is taken modulo in the array.
+
+Then start from $0$ and traverse, for the current number $i$ traversed, if $cnt[i \bmod value]$ is $0$, it means that there is no number in the array that takes $i$ modulo $value$ as the remainder, then $i$ is the MEX of the array, and return directly. Otherwise, reduce $cnt[i \bmod value]$ by $1$ and continue to traverse.
+
+The time complexity is $O(n)$ and the space complexity is $O(value)$. Where $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**
