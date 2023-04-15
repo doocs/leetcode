@@ -1,18 +1,19 @@
 function combine(n: number, k: number): number[][] {
-    const res: number[][] = [];
-    const dfs = (i: number, t: number[]) => {
-        if (t.length == k) {
-            res.push(t);
+    const ans: number[][] = [];
+    const t: number[] = [];
+    const dfs = (i: number) => {
+        if (t.length === k) {
+            ans.push(t.slice());
             return;
         }
-        // 剪枝
-        if (t.length + n - i + 1 < k) {
+        if (i > n) {
             return;
         }
-        for (let j = i; j <= n; j++) {
-            dfs(j + 1, [...t, j]);
-        }
+        t.push(i);
+        dfs(i + 1);
+        t.pop();
+        dfs(i + 1);
     };
-    dfs(1, []);
-    return res;
+    dfs(1);
+    return ans;
 }

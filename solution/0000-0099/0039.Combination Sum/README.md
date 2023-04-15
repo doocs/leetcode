@@ -66,6 +66,12 @@
 
 时间复杂度 $O(2^n \times n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $candidates$ 的长度。由于剪枝，实际的时间复杂度要远小于 $O(2^n \times n)$。
 
+相似题目：
+
+-   [40. 组合总和 II](/solution/0000-0099/0040.Combination%20Sum%20II/README.md)
+-   [77. 组合](/solution/0000-0099/0077.Combinations/README.md)
+-   [216. 组合总和 III](/solution/0200-0299/0216.Combination%20Sum%20III/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**

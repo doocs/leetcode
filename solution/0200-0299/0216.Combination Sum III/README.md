@@ -89,6 +89,12 @@
 
 时间复杂度 $O(2^9 \times 9)$，空间复杂度 $O(k)$。
 
+相似题目：
+
+-   [39. 组合总和](/solution/0000-0099/0039.Combination%20Sum/README.md)
+-   [40. 组合总和 II](/solution/0000-0099/0040.Combination%20Sum%20II/README.md)
+-   [77. 组合](/solution/0000-0099/0077.Combinations/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**

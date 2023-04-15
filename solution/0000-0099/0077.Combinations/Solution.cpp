@@ -1,21 +1,22 @@
 class Solution {
 public:
     vector<vector<int>> combine(int n, int k) {
-        vector<vector<int>> res;
+        vector<vector<int>> ans;
         vector<int> t;
-        dfs(1, n, k, t, res);
-        return res;
-    }
-
-    void dfs(int i, int n, int k, vector<int> t, vector<vector<int>>& res) {
-        if (t.size() == k) {
-            res.push_back(t);
-            return;
-        }
-        for (int j = i; j <= n; ++j) {
-            t.push_back(j);
-            dfs(j + 1, n, k, t, res);
+        function<void(int)> dfs = [&](int i) {
+            if (t.size() == k) {
+                ans.emplace_back(t);
+                return;
+            }
+            if (i > n) {
+                return;
+            }
+            t.emplace_back(i);
+            dfs(i + 1);
             t.pop_back();
-        }
+            dfs(i + 1);
+        };
+        dfs(1);
+        return ans;
     }
 };

@@ -1,23 +1,21 @@
 impl Solution {
-    fn dfs(i: i32, n: i32, k: i32, t: &mut Vec<i32>, res: &mut Vec<Vec<i32>>) {
-        if k == 0 {
-            res.push(t.clone());
+    fn dfs(i: i32, n: i32, k: i32, t: &mut Vec<i32>, ans: &mut Vec<Vec<i32>>) {
+        if t.len() == k as usize {
+            ans.push(t.clone());
             return;
         }
-        // 剪枝
-        if n - i + 1 < k {
+        if i > n {
             return;
         }
-        for j in i..=n {
-            t.push(j);
-            Self::dfs(j + 1, n, k - 1, t, res);
-            t.pop();
-        }
+        t.push(i);
+        Self::dfs(i + 1, n, k, t, ans);
+        t.pop();
+        Self::dfs(i + 1, n, k, t, ans);
     }
 
     pub fn combine(n: i32, k: i32) -> Vec<Vec<i32>> {
-        let mut res = vec![];
-        Self::dfs(1, n, k, &mut vec![], &mut res);
-        res
+        let mut ans = vec![];
+        Self::dfs(1, n, k, &mut vec![], &mut ans);
+        ans
     }
 }

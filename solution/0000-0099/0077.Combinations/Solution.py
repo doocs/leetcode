@@ -1,15 +1,17 @@
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
-        res = []
-
-        def dfs(i, n, k, t):
+        def dfs(i: int):
             if len(t) == k:
-                res.append(t.copy())
+                ans.append(t[:])
                 return
-            for j in range(i, n + 1):
-                t.append(j)
-                dfs(j + 1, n, k, t)
-                t.pop()
+            if i > n:
+                return
+            t.append(i)
+            dfs(i + 1)
+            t.pop()
+            dfs(i + 1)
 
-        dfs(1, n, k, [])
-        return res
+        ans = []
+        t = []
+        dfs(1)
+        return ans
