@@ -1,21 +1,24 @@
 function permuteUnique(nums: number[]): number[][] {
+    nums.sort((a, b) => a - b);
     const n = nums.length;
-    const res: number[][] = [];
+    const ans: number[][] = [];
+    const t: number[] = new Array(n);
+    const vis: boolean[] = new Array(n);
     const dfs = (i: number) => {
         if (i === n) {
-            res.push([...nums]);
+            ans.push(t.slice());
+            return;
         }
-        const set = new Set<number>();
-        for (let j = i; j < n; j++) {
-            if (set.has(nums[j])) {
+        for (let j = 0; j < n; ++j) {
+            if (vis[j] || (j > 0 && nums[j] === nums[j - 1] && !vis[j - 1])) {
                 continue;
             }
-            set.add(nums[j]);
-            [nums[i], nums[j]] = [nums[j], nums[i]];
+            t[i] = nums[j];
+            vis[j] = true;
             dfs(i + 1);
-            [nums[i], nums[j]] = [nums[j], nums[i]];
+            vis[j] = false;
         }
     };
     dfs(0);
-    return res;
+    return ans;
 }

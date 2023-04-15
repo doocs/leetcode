@@ -51,6 +51,10 @@
 
 时间复杂度 $O(n\times n!)$，其中 $n$ 是数组的长度。一共有 $n!$ 个排列，每个排列需要 $O(n)$ 的时间来构造。
 
+相似题目：
+
+-   [47. 全排列 II](/solution/0000-0099/0047.Permutations%20II/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -1,38 +1,32 @@
-using System.Collections.Generic;
-using System.Linq;
-
 public class Solution {
+    private List<IList<int>> ans = new List<IList<int>>();
+    private List<int> t = new List<int>();
+    private int[] nums;
+    private bool[] vis;
+
     public IList<IList<int>> PermuteUnique(int[] nums) {
-        var results = new List<IList<int>>();
-        var temp = new List<int>();
-        var count = nums.GroupBy(n => n).ToDictionary(g => g.Key, g => g.Count());
-        Search(count, temp, results);
-        return results;
+        Array.Sort(nums);
+        int n = nums.Length;
+        vis = new bool[n];
+        this.nums = nums;
+        dfs(0);
+        return ans;
     }
 
-    private void Search(Dictionary<int, int> count, IList<int> temp, IList<IList<int>> results)
-    {
-        if (!count.Any() && temp.Any())
-        {
-            results.Add(new List<int>(temp));
+    private void dfs(int i) {
+        if (i == nums.Length) {
+            ans.Add(new List<int>(t));
             return;
         }
-        var keys = count.Keys.ToList();
-        foreach (var key in keys)
-        {
-            temp.Add(key);
-            --count[key];
-            if (count[key] == 0) count.Remove(key);
-            Search(count, temp, results);
-            temp.RemoveAt(temp.Count - 1);
-            if (count.ContainsKey(key))
-            {
-                ++count[key];
+        for (int j = 0; j < nums.Length; ++j) {
+            if (vis[j] || (j > 0 && nums[j] == nums[j - 1] && !vis[j - 1])) {
+                continue;
             }
-            else
-            {
-                count[key] = 1;
-            }
+            vis[j] = true;
+            t.Add(nums[j]);
+            dfs(i + 1);
+            t.RemoveAt(t.Count - 1);
+            vis[j] = false;
         }
     }
 }

@@ -43,57 +43,58 @@ Sort & DFS.
 ```python
 class Solution:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
-        n = len(nums)
-        res = []
-        path = [0] * n
-        used = [False] * n
-        nums.sort()
-
-        def dfs(u):
-            if u == n:
-                res.append(path.copy())
+        def dfs(i: int):
+            if i == n:
+                ans.append(t[:])
                 return
-            for i in range(n):
-                if used[i] or (i > 0 and nums[i] == nums[i - 1] and not used[i - 1]):
+            for j in range(n):
+                if vis[j] or (j and nums[j] == nums[j - 1] and not vis[j - 1]):
                     continue
-                path[u] = nums[i]
-                used[i] = True
-                dfs(u + 1)
-                used[i] = False
+                t[i] = nums[j]
+                vis[j] = True
+                dfs(i + 1)
+                vis[j] = False
 
+        n = len(nums)
+        nums.sort()
+        ans = []
+        t = [0] * n
+        vis = [False] * n
         dfs(0)
-        return res
+        return ans
 ```
 
 ### **Java**
 
 ```java
 class Solution {
+    private List<List<Integer>> ans = new ArrayList<>();
+    private List<Integer> t = new ArrayList<>();
+    private int[] nums;
+    private boolean[] vis;
+
     public List<List<Integer>> permuteUnique(int[] nums) {
-        List<List<Integer>> res = new ArrayList<>();
-        List<Integer> path = new ArrayList<>();
-        int n = nums.length;
-        boolean[] used = new boolean[n];
         Arrays.sort(nums);
-        dfs(0, n, nums, used, path, res);
-        return res;
+        this.nums = nums;
+        vis = new boolean[nums.length];
+        dfs(0);
+        return ans;
     }
 
-    private void dfs(
-        int u, int n, int[] nums, boolean[] used, List<Integer> path, List<List<Integer>> res) {
-        if (u == n) {
-            res.add(new ArrayList<>(path));
+    private void dfs(int i) {
+        if (i == nums.length) {
+            ans.add(new ArrayList<>(t));
             return;
         }
-        for (int i = 0; i < n; ++i) {
-            if (used[i] || (i > 0 && nums[i] == nums[i - 1] && !used[i - 1])) {
+        for (int j = 0; j < nums.length; ++j) {
+            if (vis[j] || (j > 0 && nums[j] == nums[j - 1] && !vis[j - 1])) {
                 continue;
             }
-            path.add(nums[i]);
-            used[i] = true;
-            dfs(u + 1, n, nums, used, path, res);
-            used[i] = false;
-            path.remove(path.size() - 1);
+            t.add(nums[j]);
+            vis[j] = true;
+            dfs(i + 1);
+            vis[j] = false;
+            t.remove(t.size() - 1);
         }
     }
 }
@@ -105,103 +106,60 @@ class Solution {
 class Solution {
 public:
     vector<vector<int>> permuteUnique(vector<int>& nums) {
-        int n = nums.size();
-        vector<vector<int>> res;
-        vector<int> path(n, 0);
-        vector<bool> used(n, false);
         sort(nums.begin(), nums.end());
-        dfs(0, n, nums, used, path, res);
-        return res;
-    }
-
-    void dfs(int u, int n, vector<int>& nums, vector<bool>& used, vector<int>& path, vector<vector<int>>& res) {
-        if (u == n) {
-            res.emplace_back(path);
-            return;
-        }
-        for (int i = 0; i < n; ++i) {
-            if (used[i] || (i > 0 && nums[i] == nums[i - 1] && !used[i - 1])) continue;
-            path[u] = nums[i];
-            used[i] = true;
-            dfs(u + 1, n, nums, used, path, res);
-            used[i] = false;
-        }
+        int n = nums.size();
+        vector<vector<int>> ans;
+        vector<int> t(n);
+        vector<bool> vis(n);
+        function<void(int)> dfs = [&](int i) {
+            if (i == n) {
+                ans.emplace_back(t);
+                return;
+            }
+            for (int j = 0; j < n; ++j) {
+                if (vis[j] || (j && nums[j] == nums[j - 1] && !vis[j - 1])) {
+                    continue;
+                }
+                t[i] = nums[j];
+                vis[j] = true;
+                dfs(i + 1);
+                vis[j] = false;
+            }
+        };
+        dfs(0);
+        return ans;
     }
 };
-```
-
-### **C#**
-
-```cs
-using System.Collections.Generic;
-using System.Linq;
-
-public class Solution {
-    public IList<IList<int>> PermuteUnique(int[] nums) {
-        var results = new List<IList<int>>();
-        var temp = new List<int>();
-        var count = nums.GroupBy(n => n).ToDictionary(g => g.Key, g => g.Count());
-        Search(count, temp, results);
-        return results;
-    }
-
-    private void Search(Dictionary<int, int> count, IList<int> temp, IList<IList<int>> results)
-    {
-        if (!count.Any() && temp.Any())
-        {
-            results.Add(new List<int>(temp));
-            return;
-        }
-        var keys = count.Keys.ToList();
-        foreach (var key in keys)
-        {
-            temp.Add(key);
-            --count[key];
-            if (count[key] == 0) count.Remove(key);
-            Search(count, temp, results);
-            temp.RemoveAt(temp.Count - 1);
-            if (count.ContainsKey(key))
-            {
-                ++count[key];
-            }
-            else
-            {
-                count[key] = 1;
-            }
-        }
-    }
-}
 ```
 
 ### **Go**
 
 ```go
-func permuteUnique(nums []int) [][]int {
-	n := len(nums)
-	res := make([][]int, 0)
-	path := make([]int, n)
-	used := make([]bool, n)
+func permuteUnique(nums []int) (ans [][]int) {
 	sort.Ints(nums)
-	dfs(0, n, nums, used, path, &res)
-	return res
-}
-
-func dfs(u, n int, nums []int, used []bool, path []int, res *[][]int) {
-	if u == n {
-		t := make([]int, n)
-		copy(t, path)
-		*res = append(*res, t)
-		return
-	}
-	for i := 0; i < n; i++ {
-		if used[i] || (i > 0 && nums[i] == nums[i-1] && !used[i-1]) {
-			continue
+	n := len(nums)
+	t := make([]int, n)
+	vis := make([]bool, n)
+	var dfs func(int)
+	dfs = func(i int) {
+		if i == n {
+			cp := make([]int, n)
+			copy(cp, t)
+			ans = append(ans, cp)
+			return
 		}
-		path[u] = nums[i]
-		used[i] = true
-		dfs(u+1, n, nums, used, path, res)
-		used[i] = false
+		for j := 0; j < n; j++ {
+			if vis[j] || (j > 0 && nums[j] == nums[j-1] && !vis[j-1]) {
+				continue
+			}
+			vis[j] = true
+			t[i] = nums[j]
+			dfs(i + 1)
+			vis[j] = false
+		}
 	}
+	dfs(0)
+	return
 }
 ```
 
@@ -209,25 +167,65 @@ func dfs(u, n int, nums []int, used []bool, path []int, res *[][]int) {
 
 ```ts
 function permuteUnique(nums: number[]): number[][] {
+    nums.sort((a, b) => a - b);
     const n = nums.length;
-    const res: number[][] = [];
+    const ans: number[][] = [];
+    const t: number[] = new Array(n);
+    const vis: boolean[] = new Array(n);
     const dfs = (i: number) => {
         if (i === n) {
-            res.push([...nums]);
+            ans.push(t.slice());
+            return;
         }
-        const set = new Set<number>();
-        for (let j = i; j < n; j++) {
-            if (set.has(nums[j])) {
+        for (let j = 0; j < n; ++j) {
+            if (vis[j] || (j > 0 && nums[j] === nums[j - 1] && !vis[j - 1])) {
                 continue;
             }
-            set.add(nums[j]);
-            [nums[i], nums[j]] = [nums[j], nums[i]];
+            t[i] = nums[j];
+            vis[j] = true;
             dfs(i + 1);
-            [nums[i], nums[j]] = [nums[j], nums[i]];
+            vis[j] = false;
         }
     };
     dfs(0);
-    return res;
+    return ans;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    private List<IList<int>> ans = new List<IList<int>>();
+    private List<int> t = new List<int>();
+    private int[] nums;
+    private bool[] vis;
+
+    public IList<IList<int>> PermuteUnique(int[] nums) {
+        Array.Sort(nums);
+        int n = nums.Length;
+        vis = new bool[n];
+        this.nums = nums;
+        dfs(0);
+        return ans;
+    }
+
+    private void dfs(int i) {
+        if (i == nums.Length) {
+            ans.Add(new List<int>(t));
+            return;
+        }
+        for (int j = 0; j < nums.Length; ++j) {
+            if (vis[j] || (j > 0 && nums[j] == nums[j - 1] && !vis[j - 1])) {
+                continue;
+            }
+            vis[j] = true;
+            t.Add(nums[j]);
+            dfs(i + 1);
+            t.RemoveAt(t.Count - 1);
+            vis[j] = false;
+        }
+    }
 }
 ```
 

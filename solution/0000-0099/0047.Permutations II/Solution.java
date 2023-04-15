@@ -1,29 +1,31 @@
 class Solution {
+    private List<List<Integer>> ans = new ArrayList<>();
+    private List<Integer> t = new ArrayList<>();
+    private int[] nums;
+    private boolean[] vis;
+
     public List<List<Integer>> permuteUnique(int[] nums) {
-        List<List<Integer>> res = new ArrayList<>();
-        List<Integer> path = new ArrayList<>();
-        int n = nums.length;
-        boolean[] used = new boolean[n];
         Arrays.sort(nums);
-        dfs(0, n, nums, used, path, res);
-        return res;
+        this.nums = nums;
+        vis = new boolean[nums.length];
+        dfs(0);
+        return ans;
     }
 
-    private void dfs(
-        int u, int n, int[] nums, boolean[] used, List<Integer> path, List<List<Integer>> res) {
-        if (u == n) {
-            res.add(new ArrayList<>(path));
+    private void dfs(int i) {
+        if (i == nums.length) {
+            ans.add(new ArrayList<>(t));
             return;
         }
-        for (int i = 0; i < n; ++i) {
-            if (used[i] || (i > 0 && nums[i] == nums[i - 1] && !used[i - 1])) {
+        for (int j = 0; j < nums.length; ++j) {
+            if (vis[j] || (j > 0 && nums[j] == nums[j - 1] && !vis[j - 1])) {
                 continue;
             }
-            path.add(nums[i]);
-            used[i] = true;
-            dfs(u + 1, n, nums, used, path, res);
-            used[i] = false;
-            path.remove(path.size() - 1);
+            t.add(nums[j]);
+            vis[j] = true;
+            dfs(i + 1);
+            vis[j] = false;
+            t.remove(t.size() - 1);
         }
     }
 }
