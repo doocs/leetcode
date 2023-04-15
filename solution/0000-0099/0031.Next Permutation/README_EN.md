@@ -119,7 +119,9 @@ public:
     void nextPermutation(vector<int>& nums) {
         int n = nums.size();
         int i = n - 2;
-        for (; ~i; --i) if (nums[i] < nums[i + 1]) break;
+        while (~i && nums[i] >= nums[i + 1]) {
+            --i;
+        }
         if (~i) {
             for (int j = n - 1; j > i; --j) {
                 if (nums[j] > nums[i]) {
@@ -139,10 +141,7 @@ public:
 func nextPermutation(nums []int) {
 	n := len(nums)
 	i := n - 2
-	for ; i >= 0; i-- {
-		if nums[i] < nums[i+1] {
-			break
-		}
+	for ; i >= 0 && nums[i] >= nums[i+1]; i-- {
 	}
 	if i >= 0 {
 		for j := n - 1; j > i; j-- {
@@ -155,6 +154,60 @@ func nextPermutation(nums []int) {
 	for j, k := i+1, n-1; j < k; j, k = j+1, k-1 {
 		nums[j], nums[k] = nums[k], nums[j]
 	}
+}
+```
+
+### **TypeScript**
+
+```ts
+function nextPermutation(nums: number[]): void {
+    const n = nums.length;
+    let i = n - 2;
+    while (i >= 0 && nums[i] >= nums[i + 1]) {
+        --i;
+    }
+    if (i >= 0) {
+        for (let j = n - 1; j > i; --j) {
+            if (nums[j] > nums[i]) {
+                [nums[i], nums[j]] = [nums[j], nums[i]];
+                break;
+            }
+        }
+    }
+    for (let j = n - 1; j > i; --j, ++i) {
+        [nums[i + 1], nums[j]] = [nums[j], nums[i + 1]];
+    }
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public void NextPermutation(int[] nums) {
+        int n = nums.Length;
+        int i = n - 2;
+        while (i >= 0 && nums[i] >= nums[i + 1]) {
+            --i;
+        }
+        if (i >= 0) {
+            for (int j = n - 1; j > i; --j) {
+                if (nums[j] > nums[i]) {
+                    swap(nums, i, j);
+                    break;
+                }
+            }
+        }
+        for (int j = i + 1, k = n - 1; j < k; ++j, --k) {
+            swap(nums, j, k);
+        }
+    }
+
+    private void swap(int[] nums, int i, int j) {
+        int t = nums[j];
+        nums[j] = nums[i];
+        nums[i] = t;
+    }
 }
 ```
 

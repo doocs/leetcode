@@ -3,8 +3,9 @@ public:
     void nextPermutation(vector<int>& nums) {
         int n = nums.size();
         int i = n - 2;
-        for (; ~i; --i)
-            if (nums[i] < nums[i + 1]) break;
+        while (~i && nums[i] >= nums[i + 1]) {
+            --i;
+        }
         if (~i) {
             for (int j = n - 1; j > i; --j) {
                 if (nums[j] > nums[i]) {
