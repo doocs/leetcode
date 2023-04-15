@@ -1,17 +1,18 @@
 class Solution:
     def combinationSum3(self, k: int, n: int) -> List[List[int]]:
-        def dfs(i, s, t):
-            if i > 9 or s > n or len(t) > k:
+        def dfs(i: int, s: int):
+            if s == 0:
+                if len(t) == k:
+                    ans.append(t[:])
                 return
-            if s == n and len(t) == k:
-                ans.append(t[:])
+            if i > 9 or i > s or len(t) >= k:
                 return
-            i += 1
             t.append(i)
-            dfs(i, s + i, t)
+            dfs(i + 1, s - i)
             t.pop()
-            dfs(i, s, t)
+            dfs(i + 1, s)
 
         ans = []
-        dfs(0, 0, [])
+        t = []
+        dfs(1, n)
         return ans

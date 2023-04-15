@@ -1,24 +1,27 @@
 class Solution {
-    private List<List<Integer>> ans;
+    private List<List<Integer>> ans = new ArrayList<>();
+    private List<Integer> t = new ArrayList<>();
+    private int k;
 
     public List<List<Integer>> combinationSum3(int k, int n) {
-        ans = new ArrayList<>();
-        dfs(0, n, k, new ArrayList<>());
+        this.k = k;
+        dfs(1, n);
         return ans;
     }
 
-    private void dfs(int i, int n, int k, List<Integer> t) {
-        if (i > 9 || n < 0 || t.size() > k) {
+    private void dfs(int i, int s) {
+        if (s == 0) {
+            if (t.size() == k) {
+                ans.add(new ArrayList<>(t));
+            }
             return;
         }
-        if (n == 0 && t.size() == k) {
-            ans.add(new ArrayList<>(t));
+        if (i > 9 || i > s || t.size() >= k) {
             return;
         }
-        ++i;
         t.add(i);
-        dfs(i, n - i, k, t);
+        dfs(i + 1, s - i);
         t.remove(t.size() - 1);
-        dfs(i, n, k, t);
+        dfs(i + 1, s);
     }
 }

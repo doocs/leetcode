@@ -1,23 +1,24 @@
 class Solution {
 public:
-    vector<vector<int>> ans;
-
     vector<vector<int>> combinationSum3(int k, int n) {
+        vector<vector<int>> ans;
         vector<int> t;
-        dfs(0, n, k, t);
+        function<void(int, int)> dfs = [&](int i, int s) {
+            if (s == 0) {
+                if (t.size() == k) {
+                    ans.emplace_back(t);
+                }
+                return;
+            }
+            if (i > 9 || i > s || t.size() >= k) {
+                return;
+            }
+            t.emplace_back(i);
+            dfs(i + 1, s - i);
+            t.pop_back();
+            dfs(i + 1, s);
+        };
+        dfs(1, n);
         return ans;
-    }
-
-    void dfs(int i, int n, int k, vector<int>& t) {
-        if (i > 9 || n < 0 || t.size() > k) return;
-        if (n == 0 && t.size() == k) {
-            ans.push_back(t);
-            return;
-        }
-        ++i;
-        t.push_back(i);
-        dfs(i, n - i, k, t);
-        t.pop_back();
-        dfs(i, n, k, t);
     }
 };
