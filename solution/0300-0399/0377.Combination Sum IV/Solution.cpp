@@ -1,15 +1,16 @@
 class Solution {
 public:
     int combinationSum4(vector<int>& nums, int target) {
-        vector<int> dp(target + 1);
-        dp[0] = 1;
+        int f[target + 1];
+        memset(f, 0, sizeof(f));
+        f[0] = 1;
         for (int i = 1; i <= target; ++i) {
-            for (int num : nums) {
-                if (i >= num && dp[i - num] < INT_MAX - dp[i]) {
-                    dp[i] += dp[i - num];
+            for (int x : nums) {
+                if (i >= x && f[i - x] < INT_MAX - f[i]) {
+                    f[i] += f[i - x];
                 }
             }
         }
-        return dp[target];
+        return f[target];
     }
 };
