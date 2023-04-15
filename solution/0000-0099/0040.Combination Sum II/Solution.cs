@@ -1,18 +1,21 @@
 public class Solution {
+    private List<IList<int>> ans = new List<IList<int>>();
+    private List<int> t = new List<int>();
+    private int[] candidates;
+
     public IList<IList<int>> CombinationSum2(int[] candidates, int target) {
         Array.Sort(candidates);
-        var ans = new List<IList<int>>();
-        var t = new List<int>();
-        dfs(candidates, 0, 0, target, t, ans);
+        this.candidates = candidates;
+        dfs(0, target);
         return ans;
     }
 
-    private void dfs(int[] candidates, int i, int s, int target, IList<int> t, IList<IList<int>> ans) {
-        if (s > target) {
+    private void dfs(int i, int s) {
+        if (s == 0) {
+            ans.Add(new List<int>(t));
             return;
         }
-        if (s == target) {
-            ans.Add(new List<int>(t));
+        if (i >= candidates.Length || s < candidates[i]) {
             return;
         }
         for (int j = i; j < candidates.Length; ++j) {
@@ -20,7 +23,7 @@ public class Solution {
                 continue;
             }
             t.Add(candidates[j]);
-            dfs(candidates, j + 1, s + candidates[j], target, t, ans);
+            dfs(j + 1, s - candidates[j]);
             t.RemoveAt(t.Count - 1);
         }
     }

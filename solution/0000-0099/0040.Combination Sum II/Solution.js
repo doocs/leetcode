@@ -5,27 +5,25 @@
  */
 var combinationSum2 = function (candidates, target) {
     candidates.sort((a, b) => a - b);
-    const n = candidates.length;
-    const t = [];
     const ans = [];
+    const t = [];
     const dfs = (i, s) => {
-        if (s > target) {
+        if (s === 0) {
+            ans.push(t.slice());
             return;
         }
-        if (s === target) {
-            ans.push([...t]);
+        if (i >= candidates.length || s < candidates[i]) {
             return;
         }
-        for (let j = i; j < n; j++) {
-            const num = candidates[j];
-            if (j > i && num === candidates[j - 1]) {
+        for (let j = i; j < candidates.length; ++j) {
+            if (j > i && candidates[j] === candidates[j - 1]) {
                 continue;
             }
-            t.push(num);
-            dfs(j + 1, s + num);
+            t.push(candidates[j]);
+            dfs(j + 1, s - candidates[j]);
             t.pop();
         }
     };
-    dfs(0, 0);
+    dfs(0, target);
     return ans;
 };
