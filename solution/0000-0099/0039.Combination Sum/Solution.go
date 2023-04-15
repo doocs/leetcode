@@ -1,24 +1,22 @@
-func combinationSum(candidates []int, target int) [][]int {
-	var ans [][]int
-
-	var dfs func(s, u int, t []int)
-	dfs = func(s, u int, t []int) {
-		if s == target {
-			ans = append(ans, append([]int(nil), t...))
+func combinationSum(candidates []int, target int) (ans [][]int) {
+	sort.Ints(candidates)
+	t := []int{}
+	var dfs func(i, s int)
+	dfs = func(i, s int) {
+		if s == 0 {
+			cp := make([]int, len(t))
+			copy(cp, t)
+			ans = append(ans, cp)
 			return
 		}
-		if s > target {
+		if i >= len(candidates) || s < candidates[i] {
 			return
 		}
-		for i := u; i < len(candidates); i++ {
-			c := candidates[i]
-			t = append(t, c)
-			dfs(s+c, i, t)
-			t = t[:len(t)-1]
-		}
+		dfs(i+1, s)
+		t = append(t, candidates[i])
+		dfs(i, s-candidates[i])
+		t = t[:len(t)-1]
 	}
-
-	var t []int
-	dfs(0, 0, t)
-	return ans
+	dfs(0, target)
+	return
 }
