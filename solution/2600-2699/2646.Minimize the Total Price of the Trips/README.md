@@ -61,6 +61,22 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：树形 DP**
+
+我们可以统计每一次旅行经过的节点，记录在数组 $cnt$ 中，其中 $cnt[i]$ 表示所有旅行中经过节点 $i$ 的次数。我们设计一个函数 $dfs(i, fa, k)$，表示从节点 $i$ 开始搜索，最终到达节点 $k$，过程中记录所有经过的节点。其中 $fa$ 表示节点 $i$ 的父节点。
+
+接下来，我们再设计一个函数 $dfs2(i, fa)$，表示从节点 $i$ 开始搜索，返回将节点 $i$ 的价格不减半或者减半后的最小价格总和。其中 $fa$ 表示节点 $i$ 的父节点。
+
+我们从节点 $0$ 开始，对于每一个节点 $i$，我们可以选择不将其价格减半，也可以选择将其价格减半，分别记为 $a = cnt[i] \times price[i]$, $b = \frac{a}{2}$。
+
+对于节点 $i$ 的所有邻接节点 $j$，我们依然可以选择不将其价格减半，也可以选择将其价格减半，那么 $(x, y) = dfs2(j, i)$。如果节点 $i$ 价格不减半，那么节点 $j$ 价格可以不减半，也可以减半，因此 $a = a + min(x, y)$；如果节点 $i$ 价格减半，那么节点 $j$ 价格必须不减半，因此 $b = b + x$。
+
+最后，函数 $dfs2(i, fa)$ 的返回值为 $(a, b)$。
+
+在主函数中，我们调用函数 $dfs2(0, -1)$，返回值为 $(a, b)$，那么最终的答案即为 $min(a, b)$。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(n)$。其中 $m$ 和 $n$ 分别为旅行次数以及节点数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -79,25 +95,24 @@ class Solution:
                 cnt[i] -= 1
             return ok
 
-        @cache
-        def dfs2(i: int, fa: int = -1, div: int = 2) -> int:
-            s = cnt[i] * price[i] // div
+        def dfs2(i: int, fa: int) -> (int, int):
+            a = cnt[i] * price[i]
+            b = a // 2
             for j in g[i]:
                 if j != fa:
-                    x = dfs2(j, i, 1)
-                    if div == 1:
-                        x = min(x, dfs2(j, i, 2))
-                    s += x
-            return s
+                    x, y = dfs2(j, i)
+                    a += min(x, y)
+                    b += x
+            return a, b
 
-        g = defaultdict(list)
+        g = [[] for _ in range(n)]
         for a, b in edges:
             g[a].append(b)
             g[b].append(a)
         cnt = Counter()
         for start, end in trips:
             dfs(start, -1, end)
-        return min(dfs2(i) for i in range(n))
+        return min(dfs2(0, -1))
 ```
 
 ### **Java**
@@ -105,19 +120,230 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private List<Integer>[] g;
+    private int[] price;
+    private int[] cnt;
 
+    public int minimumTotalPrice(int n, int[][] edges, int[] price, int[][] trips) {
+        this.price = price;
+        cnt = new int[n];
+        g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        for (var t : trips) {
+            int start = t[0], end = t[1];
+            dfs(start, -1, end);
+        }
+        int[] ans = dfs2(0, -1);
+        return Math.min(ans[0], ans[1]);
+    }
+
+    private boolean dfs(int i, int fa, int k) {
+        ++cnt[i];
+        if (i == k) {
+            return true;
+        }
+        boolean ok = false;
+        for (int j : g[i]) {
+            if (j != fa) {
+                ok = dfs(j, i, k);
+                if (ok) {
+                    break;
+                }
+            }
+        }
+        if (!ok) {
+            --cnt[i];
+        }
+        return ok;
+    }
+
+    private int[] dfs2(int i, int fa) {
+        int a = cnt[i] * price[i];
+        int b = a >> 1;
+        for (int j : g[i]) {
+            if (j != fa) {
+                var t = dfs2(j, i);
+                a += Math.min(t[0], t[1]);
+                b += t[0];
+            }
+        }
+        return new int[] {a, b};
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int minimumTotalPrice(int n, vector<vector<int>>& edges, vector<int>& price, vector<vector<int>>& trips) {
+        vector<vector<int>> g(n);
+        vector<int> cnt(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        function<bool(int, int, int)> dfs = [&](int i, int fa, int k) -> bool {
+            ++cnt[i];
+            if (i == k) {
+                return true;
+            }
+            bool ok = false;
+            for (int j : g[i]) {
+                if (j != fa) {
+                    ok = dfs(j, i, k);
+                    if (ok) {
+                        break;
+                    }
+                }
+            }
+            if (!ok) {
+                --cnt[i];
+            }
+            return ok;
+        };
+        function<pair<int, int>(int, int)> dfs2 = [&](int i, int fa) -> pair<int, int> {
+            int a = cnt[i] * price[i];
+            int b = a >> 1;
+            for (int j : g[i]) {
+                if (j != fa) {
+                    auto [x, y] = dfs2(j, i);
+                    a += min(x, y);
+                    b += x;
+                }
+            }
+            return {a, b};
+        };
+        for (auto& t : trips) {
+            int start = t[0], end = t[1];
+            dfs(start, -1, end);
+        }
+        auto [a, b] = dfs2(0, -1);
+        return min(a, b);
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minimumTotalPrice(n int, edges [][]int, price []int, trips [][]int) int {
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	cnt := make([]int, n)
+	var dfs func(int, int, int) bool
+	dfs = func(i, fa, k int) bool {
+		cnt[i]++
+		if i == k {
+			return true
+		}
+		ok := false
+		for _, j := range g[i] {
+			if j != fa {
+				ok = dfs(j, i, k)
+				if ok {
+					break
+				}
+			}
+		}
+		if !ok {
+			cnt[i]--
+		}
+		return ok
+	}
+	for _, t := range trips {
+		start, end := t[0], t[1]
+		dfs(start, -1, end)
+	}
+	var dfs2 func(int, int) (int, int)
+	dfs2 = func(i, fa int) (int, int) {
+		a := price[i] * cnt[i]
+		b := a >> 1
+		for _, j := range g[i] {
+			if j != fa {
+				x, y := dfs2(j, i)
+				a += min(x, y)
+				b += x
+			}
+		}
+		return a, b
+	}
+	a, b := dfs2(0, -1)
+	return min(a, b)
+}
 
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function minimumTotalPrice(
+    n: number,
+    edges: number[][],
+    price: number[],
+    trips: number[][],
+): number {
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    const cnt: number[] = new Array(n).fill(0);
+    const dfs = (i: number, fa: number, k: number): boolean => {
+        ++cnt[i];
+        if (i === k) {
+            return true;
+        }
+        let ok = false;
+        for (const j of g[i]) {
+            if (j !== fa) {
+                ok = dfs(j, i, k);
+                if (ok) {
+                    break;
+                }
+            }
+        }
+        if (!ok) {
+            --cnt[i];
+        }
+        return ok;
+    };
+    for (const [start, end] of trips) {
+        dfs(start, -1, end);
+    }
+    const dfs2 = (i: number, fa: number): number[] => {
+        let a: number = price[i] * cnt[i];
+        let b: number = a >> 1;
+        for (const j of g[i]) {
+            if (j !== fa) {
+                const [x, y] = dfs2(j, i);
+                a += Math.min(x, y);
+                b += x;
+            }
+        }
+        return [a, b];
+    };
+    const [a, b] = dfs2(0, -1);
+    return Math.min(a, b);
+}
 ```
 
 ### **...**

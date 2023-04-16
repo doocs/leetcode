@@ -21,7 +21,7 @@ class Solution:
         m = max(instructions)
         tree = BinaryIndexedTree(m)
         ans = 0
-        mod = 10 ** 9 + 7
+        mod = 10**9 + 7
         for i, x in enumerate(instructions):
             cost = min(tree.query(x - 1), i - tree.query(x))
             ans += cost

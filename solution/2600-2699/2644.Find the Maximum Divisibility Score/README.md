@@ -62,6 +62,17 @@ divisors[1] 的可整除性得分为 0 ，因为 nums 中没有任何数字能�
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：枚举**
+
+我们可以枚举 $divisors$ 中的每个元素 $div$，计算 $nums$ 中有多少个元素能被 $div$ 整除，记为 $cnt$。
+
+-   如果 $cnt$ 大于当前最大的可整除性得分 $mx$，则更新 $mx = cnt$，并且更新 $ans = div$。
+-   如果 $cnt$ 等于 $mx$ 并且 $div$ 小于 $ans$，则更新 $ans = div$。
+
+最后返回 $ans$ 即可。
+
+时间复杂度 $(m \times n)$，其中 $m$ 和 $n$ 分别是 $nums$ 和 $divisors$ 的长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -76,8 +87,8 @@ class Solution:
             cnt = sum(x % div == 0 for x in nums)
             if mx < cnt:
                 mx, ans = cnt, div
-            elif mx == cnt:
-                ans = min(ans, div)
+            elif mx == cnt and ans > div:
+                ans = div
         return ans
 ```
 
@@ -153,6 +164,25 @@ func maxDivScore(nums []int, divisors []int) int {
 		}
 	}
 	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxDivScore(nums: number[], divisors: number[]): number {
+    let ans: number = divisors[0];
+    let mx: number = 0;
+    for (const div of divisors) {
+        const cnt = nums.reduce((a, b) => a + (b % div == 0 ? 1 : 0), 0);
+        if (mx < cnt) {
+            mx = cnt;
+            ans = div;
+        } else if (mx === cnt && ans > div) {
+            ans = div;
+        }
+    }
+    return ans;
 }
 ```
 

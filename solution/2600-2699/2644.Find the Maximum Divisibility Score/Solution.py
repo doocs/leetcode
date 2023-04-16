@@ -5,6 +5,6 @@ class Solution:
             cnt = sum(x % div == 0 for x in nums)
             if mx < cnt:
                 mx, ans = cnt, div
-            elif mx == cnt:
-                ans = min(ans, div)
+            elif mx == cnt and ans > div:
+                ans = div
         return ans

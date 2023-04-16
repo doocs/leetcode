@@ -46,6 +46,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 双指针**
+
+我们定义字符串 $s$ 为 `"abc"`，用指针 $i$ 和 $j$ 分别指向 $s$ 和 $word$。
+
+如果 $word[j] \neq s[i]$，则需要插入 $s[i]$，我们将答案加 $1$；否则，说明 $word[j]$ 可以与 $s[i]$ 匹配，我们将 $j$ 右移一位。
+
+然后，我们将 $i$ 右移一位，即 $i = (i + 1) \bmod 3$。继续上述操作，直到 $j$ 到达字符串 $word$ 的末尾。
+
+最后，我们判断 $word$ 的最后一个字符是否为 `'b'` 或者 `'a'`，如果是，则需要插入 `'c'` 或者 `'bc'`，我们将答案加 $1$ 或者 $2$ 后返回即可。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串 $word$ 的长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -135,6 +147,29 @@ func addMinimum(word string) (ans int) {
 		ans += 2
 	}
 	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function addMinimum(word: string): number {
+    const s: string = 'abc';
+    let ans: number = 0;
+    const n: number = word.length;
+    for (let i = 0, j = 0; j < n; i = (i + 1) % 3) {
+        if (word[j] !== s[i]) {
+            ++ans;
+        } else {
+            ++j;
+        }
+    }
+    if (word[n - 1] === 'b') {
+        ++ans;
+    } else if (word[n - 1] === 'a') {
+        ans += 2;
+    }
+    return ans;
 }
 ```
 

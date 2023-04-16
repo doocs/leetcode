@@ -1,5 +1,4 @@
 class Graph:
-
     def __init__(self, n: int, edges: List[List[int]]):
         self.n = n
         self.g = [[inf] * n for _ in range(n)]

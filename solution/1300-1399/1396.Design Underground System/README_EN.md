@@ -137,12 +137,12 @@ class UndergroundSystem {
     public UndergroundSystem() {
 
     }
-    
+
     public void checkIn(int id, String stationName, int t) {
         ts.put(id, t);
         names.put(id, stationName);
     }
-    
+
     public void checkOut(int id, String stationName, int t) {
         String key = names.get(id) + "-" + stationName;
         int[] v = d.getOrDefault(key, new int[2]);
@@ -150,7 +150,7 @@ class UndergroundSystem {
         v[1]++;
         d.put(key, v);
     }
-    
+
     public double getAverageTime(String startStation, String endStation) {
         String key = startStation + "-" + endStation;
         int[] v = d.get(key);

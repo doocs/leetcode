@@ -1,5 +1,4 @@
 class UndergroundSystem:
-
     def __init__(self):
         self.ts = {}
         self.d = {}
