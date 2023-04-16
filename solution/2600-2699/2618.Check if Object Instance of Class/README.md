@@ -59,10 +59,10 @@ Dog 是 Animal 的子类。因此，Dog 对象同时是 Dog 和 Animal 的实例
 
 ```ts
 function checkIfInstanceOf(obj: any, classFunction: any): boolean {
-    if (classFunction == null) {
+    if (classFunction === null || classFunction === undefined) {
         return false;
     }
-    while (obj != null) {
+    while (obj !== null && obj !== undefined) {
         const proto = Object.getPrototypeOf(obj);
         if (proto === classFunction.prototype) {
             return true;
