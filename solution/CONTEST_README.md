@@ -24,6 +24,14 @@
 
 ## 往期竞赛
 
+#### 第 341 场周赛(2023-04-16 10:30, 90 分钟) 参赛人数 4687
+
+- [2643. 一最多的行](/solution/2600-2699/2643.Row%20With%20Maximum%20Ones/README.md)
+- [2644. 找出可整除性得分最大的整数](/solution/2600-2699/2644.Find%20the%20Maximum%20Divisibility%20Score/README.md)
+- [2645. 构造有效字符串的最少插入数](/solution/2600-2699/2645.Minimum%20Additions%20to%20Make%20Valid%20String/README.md)
+- [2646. 最小化旅行的价格总和](/solution/2600-2699/2646.Minimize%20the%20Total%20Price%20of%20the%20Trips/README.md)
+
+
 #### 第 102 场双周赛(2023-04-15 22:30, 90 分钟) 参赛人数 3058
 
 - [2639. 查询网格图中每一列的宽度](/solution/2600-2699/2639.Find%20the%20Width%20of%20Columns%20of%20a%20Grid/README.md)

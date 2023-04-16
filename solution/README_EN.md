@@ -2651,6 +2651,10 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2640  |  [Find the Score of All Prefixes of an Array](/solution/2600-2699/2640.Find%20the%20Score%20of%20All%20Prefixes%20of%20an%20Array/README_EN.md)  |    |  Medium  |  Biweekly Contest 102  |
 |  2641  |  [Cousins in Binary Tree II](/solution/2600-2699/2641.Cousins%20in%20Binary%20Tree%20II/README_EN.md)  |    |  Medium  |  Biweekly Contest 102  |
 |  2642  |  [Design Graph With Shortest Path Calculator](/solution/2600-2699/2642.Design%20Graph%20With%20Shortest%20Path%20Calculator/README_EN.md)  |    |  Hard  |  Biweekly Contest 102  |
+|  2643  |  [Row With Maximum Ones](/solution/2600-2699/2643.Row%20With%20Maximum%20Ones/README_EN.md)  |    |  Easy  |  Weekly Contest 341  |
+|  2644  |  [Find the Maximum Divisibility Score](/solution/2600-2699/2644.Find%20the%20Maximum%20Divisibility%20Score/README_EN.md)  |    |  Easy  |  Weekly Contest 341  |
+|  2645  |  [Minimum Additions to Make Valid String](/solution/2600-2699/2645.Minimum%20Additions%20to%20Make%20Valid%20String/README_EN.md)  |    |  Medium  |  Weekly Contest 341  |
+|  2646  |  [Minimize the Total Price of the Trips](/solution/2600-2699/2646.Minimize%20the%20Total%20Price%20of%20the%20Trips/README_EN.md)  |    |  Hard  |  Weekly Contest 341  |
 
 ## Copyright
 

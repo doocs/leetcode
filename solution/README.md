@@ -2653,6 +2653,10 @@
 |  2640  |  [一个数组所有前缀的分数](/solution/2600-2699/2640.Find%20the%20Score%20of%20All%20Prefixes%20of%20an%20Array/README.md)  |    |  中等  |  第 102 场双周赛  |
 |  2641  |  [二叉树的堂兄弟节点 II](/solution/2600-2699/2641.Cousins%20in%20Binary%20Tree%20II/README.md)  |    |  中等  |  第 102 场双周赛  |
 |  2642  |  [设计可以求最短路径的图类](/solution/2600-2699/2642.Design%20Graph%20With%20Shortest%20Path%20Calculator/README.md)  |    |  困难  |  第 102 场双周赛  |
+|  2643  |  [一最多的行](/solution/2600-2699/2643.Row%20With%20Maximum%20Ones/README.md)  |    |  简单  |  第 341 场周赛  |
+|  2644  |  [找出可整除性得分最大的整数](/solution/2600-2699/2644.Find%20the%20Maximum%20Divisibility%20Score/README.md)  |    |  简单  |  第 341 场周赛  |
+|  2645  |  [构造有效字符串的最少插入数](/solution/2600-2699/2645.Minimum%20Additions%20to%20Make%20Valid%20String/README.md)  |    |  中等  |  第 341 场周赛  |
+|  2646  |  [最小化旅行的价格总和](/solution/2600-2699/2646.Minimize%20the%20Total%20Price%20of%20the%20Trips/README.md)  |    |  困难  |  第 341 场周赛  |
 
 ## 版权
 
