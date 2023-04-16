@@ -50,7 +50,14 @@ sleep(100).then(() =&gt; {
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
+async function sleep(millis: number): Promise<void> {
+    return new Promise(r => setTimeout(r, millis));
+}
 
+/**
+ * let t = Date.now()
+ * sleep(100).then(() => console.log(Date.now() - t)) // 100
+ */
 ```
 
 ### **...**
