@@ -69,6 +69,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表**
+
+我们用哈希表 $cache$ 记录键值对，其中键为整型键 $key$，值为一个数组，数组的第一个元素为整型值 $value$，第二个元素为元素的过期时间 $expire$。
+
+我们实现一个 `removeExpire` 方法，用于删除过期的键值对。在 `set`、`get` 和 `count` 方法中，我们先调用 `removeExpire` 方法，然后再进行相应的操作。
+
+时间复杂度为 $O(1)$，空间复杂度为 $O(n)$。其中 $n$ 为哈希表 $cache$ 的大小。
+
 <!-- tabs:start -->
 
 ### **TypeScript**
@@ -76,7 +84,49 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
+class TimeLimitedCache {
+    private cache: Map<number, [value: number, expire: number]> = new Map();
 
+    constructor() {}
+
+    set(key: number, value: number, duration: number): boolean {
+        this.removeExpire();
+        const ans = this.cache.has(key);
+        this.cache.set(key, [value, this.now() + duration]);
+        return ans;
+    }
+
+    get(key: number): number {
+        this.removeExpire();
+        return this.cache.get(key)?.[0] ?? -1;
+    }
+
+    count(): number {
+        this.removeExpire();
+        return this.cache.size;
+    }
+
+    private now(): number {
+        return new Date().getTime();
+    }
+
+    private removeExpire(): void {
+        const now = this.now();
+        for (const [key, [, expire]] of this.cache) {
+            if (expire <= now) {
+                this.cache.delete(key);
+            }
+        }
+    }
+}
+
+/**
+ * Your TimeLimitedCache object will be instantiated and called as such:
+ * var obj = new TimeLimitedCache()
+ * obj.set(1, 42, 1000); // false
+ * obj.get(1) // 42
+ * obj.count() // 1
+ */
 ```
 
 ### **...**
