@@ -69,13 +69,18 @@
 ```python
 class Solution:
     def findColumnWidth(self, grid: List[List[int]]) -> List[int]:
-        n = len(grid[0])
-        ans = [0] * n
+        ans = [0] * len(grid[0])
         for row in grid:
             for j, x in enumerate(row):
                 w = len(str(x))
                 ans[j] = max(ans[j], w)
         return ans
+```
+
+```python
+class Solution:
+    def findColumnWidth(self, grid: List[List[int]]) -> List[int]:
+        return [max(len(str(x)) for x in col) for col in zip(*grid)]
 ```
 
 ### **Java**
@@ -121,8 +126,7 @@ public:
 
 ```go
 func findColumnWidth(grid [][]int) []int {
-	n := len(grid[0])
-	ans := make([]int, n)
+	ans := make([]int, len(grid[0]))
 	for _, row := range grid {
 		for j, x := range row {
 			w := len(strconv.Itoa(x))
@@ -137,6 +141,22 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function findColumnWidth(grid: number[][]): number[] {
+    const n = grid[0].length;
+    const ans: number[] = new Array(n).fill(0);
+    for (const row of grid) {
+        for (let j = 0; j < n; ++j) {
+            const w: number = String(row[j]).length;
+            ans[j] = Math.max(ans[j], w);
+        }
+    }
+    return ans;
 }
 ```
 

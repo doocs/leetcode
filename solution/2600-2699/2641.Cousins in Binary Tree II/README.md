@@ -66,6 +66,16 @@
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 
+**方法二：BFS**
+
+我们先将根节点的值更新为 $0$，用一个队列 $q$ 来存储每一层的所有节点，初始时将根节点入队。
+
+然后遍历队列，计算每一层的所有子节点的值之和 $s$，然后计算每个子节点及其兄弟节点的值之和 $t$，然后更新每个子节点的值为 $s - t$。
+
+遍历结束后，返回根节点即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -93,11 +103,8 @@ class Solution:
         def dfs2(root, d):
             if root is None:
                 return
-            t = 0
-            if root.left:
-                t += root.left.val
-            if root.right:
-                t += root.right.val
+            t = (root.left.val if root.left else 0) + \
+                (root.right.val if root.right else 0)
             if root.left:
                 root.left.val = s[d] - t
             if root.right:
@@ -109,6 +116,37 @@ class Solution:
         dfs1(root, 0)
         root.val = 0
         dfs2(root, 1)
+        return root
+```
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def replaceValueInTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        root.val = 0
+        q = [root]
+        while q:
+            s = 0
+            p = q
+            q = []
+            for node in p:
+                if node.left:
+                    q.append(node.left)
+                    s += node.left.val
+                if node.right:
+                    q.append(node.right)
+                    s += node.right.val
+            for node in p:
+                t = (node.left.val if node.left else 0) + (node.right.val if node.right else 0)
+                if node.left:
+                    node.left.val = s - t
+                if node.right:
+                    node.right.val = s - t
         return root
 ```
 
@@ -172,6 +210,55 @@ class Solution {
 }
 ```
 
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public TreeNode replaceValueInTree(TreeNode root) {
+        root.val = 0;
+        List<TreeNode> q = List.of(root);
+        while (!q.isEmpty()) {
+            List<TreeNode> p = q;
+            q = new ArrayList<>();
+            int s = 0;
+            for (TreeNode node : p) {
+                if (node.left != null) {
+                    q.add(node.left);
+                    s += node.left.val;
+                }
+                if (node.right != null) {
+                    q.add(node.right);
+                    s += node.right.val;
+                }
+            }
+            for (TreeNode node : p) {
+                int t = (node.left == null ? 0 : node.left.val) + (node.right == null ? 0 : node.right.val);
+                if (node.left != null) {
+                    node.left.val = s - t;
+                }
+                if (node.right != null) {
+                    node.right.val = s - t;
+                }
+            }
+        }
+        return root;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -219,6 +306,53 @@ public:
         dfs1(root, 0);
         root->val = 0;
         dfs2(root, 1);
+        return root;
+    }
+};
+```
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* replaceValueInTree(TreeNode* root) {
+        root->val = 0;
+        vector<TreeNode*> q;
+        q.emplace_back(root);
+        while (!q.empty()) {
+            vector<TreeNode*> p = q;
+            q.clear();
+            int s = 0;
+            for (TreeNode* node : p) {
+                if (node->left) {
+                    q.emplace_back(node->left);
+                    s += node->left->val;
+                }
+                if (node->right) {
+                    q.emplace_back(node->right);
+                    s += node->right->val;
+                }
+            }
+            for (TreeNode* node : p) {
+                int t = (node->left ? node->left->val : 0) + (node->right ? node->right->val : 0);
+                if (node->left) {
+                    node->left->val = s - t;
+                }
+                if (node->right) {
+                    node->right->val = s - t;
+                }
+            }
+        }
         return root;
     }
 };
@@ -274,6 +408,149 @@ func replaceValueInTree(root *TreeNode) *TreeNode {
 	root.Val = 0
 	dfs2(root, 1)
 	return root
+}
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func replaceValueInTree(root *TreeNode) *TreeNode {
+	root.Val = 0
+	q := []*TreeNode{root}
+	for len(q) > 0 {
+		p := q
+		q = []*TreeNode{}
+		s := 0
+		for _, node := range p {
+			if node.Left != nil {
+				q = append(q, node.Left)
+				s += node.Left.Val
+			}
+			if node.Right != nil {
+				q = append(q, node.Right)
+				s += node.Right.Val
+			}
+		}
+		for _, node := range p {
+			t := 0
+			if node.Left != nil {
+				t += node.Left.Val
+			}
+			if node.Right != nil {
+				t += node.Right.Val
+			}
+			if node.Left != nil {
+				node.Left.Val = s - t
+			}
+			if node.Right != nil {
+				node.Right.Val = s - t
+			}
+		}
+	}
+	return root
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function replaceValueInTree(root: TreeNode | null): TreeNode | null {
+    const s: number[] = [];
+    const dfs1 = (root: TreeNode | null, d: number): void => {
+        if (!root) {
+            return;
+        }
+        if (s.length <= d) {
+            s.push(0);
+        }
+        s[d] += root.val;
+        dfs1(root.left, d + 1);
+        dfs1(root.right, d + 1);
+    };
+    const dfs2 = (root: TreeNode | null, d: number): void => {
+        if (!root) {
+            return;
+        }
+        const t = (root.left?.val ?? 0) + (root.right?.val ?? 0);
+        if (root.left) {
+            root.left.val = s[d] - t;
+        }
+        if (root.right) {
+            root.right.val = s[d] - t;
+        }
+        dfs2(root.left, d + 1);
+        dfs2(root.right, d + 1);
+    };
+    dfs1(root, 0);
+    root.val = 0;
+    dfs2(root, 1);
+    return root;
+}
+```
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function replaceValueInTree(root: TreeNode | null): TreeNode | null {
+    root.val = 0;
+    let q: TreeNode[] = [root];
+    while (q.length) {
+        const p: TreeNode[] = q;
+        q = [];
+        let s: number = 0;
+        for (const { left, right } of p) {
+            if (left) {
+                q.push(left);
+                s += left.val;
+            }
+            if (right) {
+                q.push(right);
+                s += right.val;
+            }
+        }
+        for (const { left, right } of p) {
+            const t: number = (left?.val ?? 0) + (right?.val ?? 0);
+            if (left) {
+                left.val = s - t;
+            }
+            if (right) {
+                right.val = s - t;
+            }
+        }
+    }
+    return root;
 }
 ```
 

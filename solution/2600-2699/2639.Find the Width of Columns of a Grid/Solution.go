@@ -1,6 +1,5 @@
 func findColumnWidth(grid [][]int) []int {
-	n := len(grid[0])
-	ans := make([]int, n)
+	ans := make([]int, len(grid[0]))
 	for _, row := range grid {
 		for j, x := range row {
 			w := len(strconv.Itoa(x))
