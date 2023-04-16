@@ -69,6 +69,12 @@ fn = function (a, b) { return ({...a, ...b}); }
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表**
+
+我们用哈希表 $cache$ 记录函数调用的结果，其中键为函数参数，值为函数返回值。当函数被调用时，先将参数转换为字符串作为键，然后在 $cache$ 中查找，如果找到则直接返回，否则调用函数并将结果存入 $cache$ 中。
+
+时间复杂度 $O(1)$，空间复杂度 $O(n)$，其中 $n$ 为函数调用的次数。
+
 <!-- tabs:start -->
 
 ### **TypeScript**
@@ -76,7 +82,32 @@ fn = function (a, b) { return ({...a, ...b}); }
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
+type Fn = (...params: any) => any;
 
+function memoize(fn: Fn): Fn {
+    const cache: Map<string, any> = new Map();
+
+    return function (...args) {
+        const key = args.join('-');
+        if (cache.has(key)) {
+            return cache.get(key);
+        }
+        const ans = fn.apply(this, args);
+        cache.set(key, ans);
+        return ans;
+    };
+}
+
+/**
+ * let callCount = 0;
+ * const memoizedFn = memoize(function (a, b) {
+ *	 callCount += 1;
+ *   return a + b;
+ * })
+ * memoizedFn(2, 3) // 5
+ * memoizedFn(2, 3) // 5
+ * console.log(callCount) // 1
+ */
 ```
 
 ### **...**
