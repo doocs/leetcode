@@ -25,6 +25,14 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Biweekly Contest 102
+
+- [2639. Find the Width of Columns of a Grid](/solution/2600-2699/2639.Find%20the%20Width%20of%20Columns%20of%20a%20Grid/README_EN.md)
+- [2640. Find the Score of All Prefixes of an Array](/solution/2600-2699/2640.Find%20the%20Score%20of%20All%20Prefixes%20of%20an%20Array/README_EN.md)
+- [2641. Cousins in Binary Tree II](/solution/2600-2699/2641.Cousins%20in%20Binary%20Tree%20II/README_EN.md)
+- [2642. Design Graph With Shortest Path Calculator](/solution/2600-2699/2642.Design%20Graph%20With%20Shortest%20Path%20Calculator/README_EN.md)
+
+
 #### Weekly Contest 340
 
 - [2614. Prime In Diagonal](/solution/2600-2699/2614.Prime%20In%20Diagonal/README_EN.md)

@@ -24,6 +24,14 @@
 
 ## 往期竞赛
 
+#### 第 102 场双周赛(2023-04-15 22:30, 90 分钟) 参赛人数 3058
+
+- [2639. 查询网格图中每一列的宽度](/solution/2600-2699/2639.Find%20the%20Width%20of%20Columns%20of%20a%20Grid/README.md)
+- [2640. 一个数组所有前缀的分数](/solution/2600-2699/2640.Find%20the%20Score%20of%20All%20Prefixes%20of%20an%20Array/README.md)
+- [2641. 二叉树的堂兄弟节点 II](/solution/2600-2699/2641.Cousins%20in%20Binary%20Tree%20II/README.md)
+- [2642. 设计可以求最短路径的图类](/solution/2600-2699/2642.Design%20Graph%20With%20Shortest%20Path%20Calculator/README.md)
+
+
 #### 第 340 场周赛(2023-04-09 10:30, 90 分钟) 参赛人数 4937
 
 - [2614. 对角线上的质数](/solution/2600-2699/2614.Prime%20In%20Diagonal/README.md)
