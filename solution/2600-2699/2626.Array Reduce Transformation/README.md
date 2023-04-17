@@ -82,7 +82,15 @@ init = 25
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
+type Fn = (accum: number, curr: number) => number;
 
+function reduce(nums: number[], fn: Fn, init: number): number {
+    let acc: number = init;
+    for (const x of nums) {
+        acc = fn(acc, x);
+    }
+    return acc;
+}
 ```
 
 ### **...**
