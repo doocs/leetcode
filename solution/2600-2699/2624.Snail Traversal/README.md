@@ -69,6 +69,14 @@ colsCount = 2
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+我们首先判断数组的长度是否等于行数与列数的乘积，如果不等，说明输入是无效的，返回空数组。
+
+接下来，我们可以模拟蜗牛排序的过程，从左上角开始，遍历数组，按照蜗牛排序的顺序，将遍历到的元素依次放入结果数组中。
+
+时间复杂度 $(n)$，其中 $n$ 为数组的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **TypeScript**
@@ -76,7 +84,38 @@ colsCount = 2
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
+declare global {
+    interface Array<T> {
+        snail(rowsCount: number, colsCount: number): number[][];
+    }
+}
 
+Array.prototype.snail = function (
+    rowsCount: number,
+    colsCount: number,
+): number[][] {
+    if (rowsCount * colsCount !== this.length) {
+        return [];
+    }
+    const ans: number[][] = Array.from({ length: rowsCount }, () =>
+        Array(colsCount),
+    );
+    for (let h = 0, i = 0, j = 0, k = 1; h < this.length; ++h) {
+        ans[i][j] = this[h];
+        i += k;
+        if (i === rowsCount || i === -1) {
+            i -= k;
+            k = -k;
+            ++j;
+        }
+    }
+    return ans;
+};
+
+/**
+ * const arr = [1,2,3,4];
+ * arr.snail(1,4); // [[1,2,3,4]]
+ */
 ```
 
 ### **...**
