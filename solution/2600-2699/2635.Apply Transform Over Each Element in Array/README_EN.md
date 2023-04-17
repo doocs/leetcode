@@ -48,12 +48,23 @@ The function increases each value in the array by one.
 
 ## Solutions
 
+**Approach 1: traversal**
+
+We traverse the array $arr$, for each element $arr[i]$, replace it with $fn(arr[i], i)$. Finally, return the array $arr$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $arr$. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **TypeScript**
 
 ```ts
-
+function map(arr: number[], fn: (n: number, i: number) => number): number[] {
+    for (let i = 0; i < arr.length; ++i) {
+        arr[i] = fn(arr[i], i);
+    }
+    return arr;
+}
 ```
 
 ### **...**
