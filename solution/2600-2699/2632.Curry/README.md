@@ -85,7 +85,24 @@ curriedLife() === 42
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
+function curry(fn: Function): Function {
+    const n = fn.length;
+    const allArgs: any[] = [];
 
+    return function curried(...args: any[]) {
+        allArgs.push(...args);
+        if (allArgs.length < n) {
+            return curried;
+        }
+        return fn(...allArgs);
+    };
+}
+
+/**
+ * function sum(a, b) { return a + b; }
+ * const csum = curry(sum);
+ * csum(1)(2) // 3
+ */
 ```
 
 ### **...**
