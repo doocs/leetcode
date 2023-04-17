@@ -69,11 +69,16 @@ fn = function (a, b) { return ({...a, ...b}); }
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：哈希表**
+**方法一：双哈希表**
 
-我们用哈希表 $cache$ 记录函数调用的结果，其中键为函数参数，值为函数返回值。当函数被调用时，先将参数转换为字符串作为键，然后在 $cache$ 中查找，如果找到则直接返回，否则调用函数并将结果存入 $cache$ 中。
+我们用两个哈希表，其中：
 
-时间复杂度 $O(1)$，空间复杂度 $O(n)$，其中 $n$ 为函数调用的次数。
+-   `idxMap` 用于记录每个参数对应的索引，索引从 $0$ 开始逐渐递增；
+-   `cache` 用于记录每个函数参数调用的结果。
+
+对于每个函数参数，我们将其转换为索引序列，然后将其转换为字符串作为 `cache` 的键，将函数调用的结果作为 `cache` 的值。每一次函数调用，我们都先判断 `cache` 中是否存在该键，如果存在，则直接返回对应的值，否则调用函数并将结果存入 `cache` 中。
+
+时间复杂度 $O(1)$，空间复杂度 $O(n)$。其中 $n$ 为函数参数的个数。
 
 <!-- tabs:start -->
 
@@ -85,16 +90,22 @@ fn = function (a, b) { return ({...a, ...b}); }
 type Fn = (...params: any) => any;
 
 function memoize(fn: Fn): Fn {
+    const idxMap: Map<string, number> = new Map();
     const cache: Map<string, any> = new Map();
 
-    return function (...args) {
-        const key = args.join('-');
-        if (cache.has(key)) {
-            return cache.get(key);
+    const getIdx = (obj: any): number => {
+        if (!idxMap.has(obj)) {
+            idxMap.set(obj, idxMap.size);
         }
-        const ans = fn.apply(this, args);
-        cache.set(key, ans);
-        return ans;
+        return idxMap.get(obj)!;
+    };
+
+    return function (...params: any) {
+        const key = params.map(getIdx).join(',');
+        if (!cache.has(key)) {
+            cache.set(key, fn(...params));
+        }
+        return cache.get(key)!;
     };
 }
 

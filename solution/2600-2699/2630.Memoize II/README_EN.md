@@ -71,16 +71,22 @@ Merging two empty objects will always result in an empty object. The 2nd and 3rd
 type Fn = (...params: any) => any;
 
 function memoize(fn: Fn): Fn {
+    const idxMap: Map<string, number> = new Map();
     const cache: Map<string, any> = new Map();
 
-    return function (...args) {
-        const key = args.join('-');
-        if (cache.has(key)) {
-            return cache.get(key);
+    const getIdx = (obj: any): number => {
+        if (!idxMap.has(obj)) {
+            idxMap.set(obj, idxMap.size);
         }
-        const ans = fn.apply(this, args);
-        cache.set(key, ans);
-        return ans;
+        return idxMap.get(obj)!;
+    };
+
+    return function (...params: any) {
+        const key = params.map(getIdx).join(',');
+        if (!cache.has(key)) {
+            cache.set(key, fn(...params));
+        }
+        return cache.get(key)!;
     };
 }
 
