@@ -61,6 +61,20 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：递归**
+
+我们先判断 `o1` 是否为空，或者 `o1` 是否非对象类型。如果是，则直接返回 `o1` 和 `o2` 是否相等。
+
+否则，我们判断 `o1` 和 `o2` 的类型是否相同。如果不同，则返回 `false`。
+
+接下来，我们判断 `o1` 和 `o2` 是否都是数组。如果不是，则返回 `false`。
+
+如果是数组，则判断两个数组的长度是否相同。如果不同，则返回 `false`。否则，我们遍历两个数组对应位置的元素，递归调用 `areDeeplyEqual` 函数，判断两个元素是否相等。如果有一个元素不相等，则返回 `false`。否则，返回 `true`。
+
+如果 `o1` 和 `o2` 都不是数组，则判断两个对象的键的个数是否相同。如果不同，则返回 `false`。否则，我们遍历 `o1` 的所有键，递归调用 `areDeeplyEqual` 函数，判断两个键对应的值是否相等。如果有一个键对应的值不相等，则返回 `false`。否则，返回 `true`。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 `o1` 和 `o2` 的长度。
+
 <!-- tabs:start -->
 
 ### **TypeScript**
@@ -68,7 +82,40 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
-
+function areDeeplyEqual(o1: any, o2: any): boolean {
+    if (o1 === null || typeof o1 !== 'object') {
+        return o1 === o2;
+    }
+    if (typeof o1 !== typeof o2) {
+        return false;
+    }
+    if (Array.isArray(o1) !== Array.isArray(o2)) {
+        return false;
+    }
+    if (Array.isArray(o1)) {
+        if (o1.length !== o2.length) {
+            return false;
+        }
+        for (let i = 0; i < o1.length; i++) {
+            if (!areDeeplyEqual(o1[i], o2[i])) {
+                return false;
+            }
+        }
+        return true;
+    } else {
+        const keys1 = Object.keys(o1);
+        const keys2 = Object.keys(o2);
+        if (keys1.length !== keys2.length) {
+            return false;
+        }
+        for (const key of keys1) {
+            if (!areDeeplyEqual(o1[key], o2[key])) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
 ```
 
 ### **...**
