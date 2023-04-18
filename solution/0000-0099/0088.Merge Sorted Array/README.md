@@ -62,7 +62,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-双指针解决。
+**方法一：双指针**
+
+我们用两个指针 $i$ 和 $j$ 分别指向两个数组的末尾，用一个指针 $k$ 指向合并后的数组的末尾。
+
+每次比较两个数组的末尾元素，将较大的元素放在合并后的数组的末尾，然后将指针向前移动一位，重复这个过程，直到两个数组的指针都指向了数组的开头。
+
+时间复杂度 $O(m + n)$，其中 $m$ 和 $n$ 分别是两个数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -73,10 +79,8 @@
 ```python
 class Solution:
     def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
-        """
-        Do not return anything, modify nums1 in-place instead.
-        """
-        i, j, k = m - 1, n - 1, m + n - 1
+        k = m + n - 1
+        i, j = m - 1, n - 1
         while j >= 0:
             if i >= 0 and nums1[i] > nums2[j]:
                 nums1[k] = nums1[i]
@@ -87,23 +91,6 @@ class Solution:
             k -= 1
 ```
 
-```python
-class Solution:
-    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
-        """
-        Do not return anything, modify nums1 in-place instead.
-        """
-        i, j, k = m - 1, n - 1, m + n - 1
-        while j >= 0:
-            if i < 0 or nums1[i] < nums2[j]:
-                nums1[k] = nums2[j]
-                j -= 1
-            else:
-                nums1[k] = nums1[i]
-                i -= 1
-            k -= 1
-```
-
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
@@ -111,32 +98,51 @@ class Solution:
 ```java
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-        int i = m - 1, j = n - 1, k = m + n - 1;
-        while (j >= 0) {
-            if (i >= 0 && nums1[i] > nums2[j]) {
-                nums1[k--] = nums1[i--];
-            } else {
-                nums1[k--] = nums2[j--];
-            }
+        for (int i = m - 1, j = n - 1, k = m + n - 1; j >= 0; --k) {
+            nums1[k] = i >= 0 && nums1[i] > nums2[j] ? nums1[i--] : nums2[j--];
         }
     }
 }
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        for (int i = m - 1, j = n - 1, k = m + n - 1; ~j; --k) {
+            nums1[k] = i >= 0 && nums1[i] > nums2[j] ? nums1[i--] : nums2[j--];
+        }
+    }
+};
+```
+
 ### **Go**
 
 ```go
-func merge(nums1 []int, m int, nums2 []int, n int)  {
-    i, j, k := m - 1, n - 1, m + n - 1
-    for j >= 0 {
-        if i >= 0 && nums1[i] > nums2[j] {
-            nums1[k] = nums1[i]
-            i--
-        } else {
-            nums1[k] = nums2[j]
-            j--
-        }
-        k--
+func merge(nums1 []int, m int, nums2 []int, n int) {
+	for i, j, k := m-1, n-1, m+n-1; j >= 0; k-- {
+		if i >= 0 && nums1[i] > nums2[j] {
+			nums1[k] = nums1[i]
+			i--
+		} else {
+			nums1[k] = nums2[j]
+			j--
+		}
+	}
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ Do not return anything, modify nums1 in-place instead.
+ */
+function merge(nums1: number[], m: number, nums2: number[], n: number): void {
+    for (let i = m - 1, j = n - 1, k = m + n - 1; j >= 0; --k) {
+        nums1[k] = i >= 0 && nums1[i] > nums2[j] ? nums1[i--] : nums2[j--];
     }
 }
 ```
@@ -152,15 +158,8 @@ func merge(nums1 []int, m int, nums2 []int, n int)  {
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
 var merge = function (nums1, m, nums2, n) {
-    let i = m - 1,
-        j = n - 1,
-        k = m + n - 1;
-    while (j >= 0) {
-        if (i >= 0 && nums1[i] > nums2[j]) {
-            nums1[k--] = nums1[i--];
-        } else {
-            nums1[k--] = nums2[j--];
-        }
+    for (let i = m - 1, j = n - 1, k = m + n - 1; j >= 0; --k) {
+        nums1[k] = i >= 0 && nums1[i] > nums2[j] ? nums1[i--] : nums2[j--];
     }
 };
 ```
