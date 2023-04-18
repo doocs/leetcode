@@ -30,6 +30,19 @@
 
 ## Solutions
 
+ **Approach 1: Moore Voting Algorithm**
+
+The basic steps of the Moore voting algorithm are as follows:
+
+Initialize the element $m$ and initialize the counter $cnt = 0$. Then, for each element $x$ in the input list:
+
+1. If $cnt = 0$, then $m = x$ and $cnt = 1$;
+1. Otherwise, if $m = x$, then $cnt = cnt + 1$, otherwise $cnt = cnt - 1$.
+
+In general, the Moore voting algorithm requires **two passes** over the input list. In the first pass, we generate the candidate value $m$, and if there is a majority, the candidate value is the majority value. In the second pass, we simply compute the frequency of the candidate value to confirm whether it is the majority value. Since this problem has clearly stated that there is a majority value, we can directly return $m$ after the first pass, without the need for a second pass to confirm whether it is the majority value.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -38,11 +51,11 @@
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
         cnt = m = 0
-        for v in nums:
+        for x in nums:
             if cnt == 0:
-                m, cnt = v, 1
+                m, cnt = x, 1
             else:
-                cnt += 1 if m == v else -1
+                cnt += 1 if m == x else -1
         return m
 ```
 
@@ -52,16 +65,74 @@ class Solution:
 class Solution {
     public int majorityElement(int[] nums) {
         int cnt = 0, m = 0;
-        for (int v : nums) {
+        for (int x : nums) {
             if (cnt == 0) {
-                m = v;
+                m = x;
                 cnt = 1;
             } else {
-                cnt += (m == v ? 1 : -1);
+                cnt += m == x ? 1 : -1;
             }
         }
         return m;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int cnt = 0, m = 0;
+        for (int& x : nums) {
+            if (cnt == 0) {
+                m = x;
+                cnt = 1;
+            } else {
+                cnt += m == x ? 1 : -1;
+            }
+        }
+        return m;
+    }
+};
+```
+
+### **Go**
+
+```go
+func majorityElement(nums []int) int {
+	var cnt, m int
+	for _, x := range nums {
+		if cnt == 0 {
+			m, cnt = x, 1
+		} else {
+			if m == x {
+				cnt++
+			} else {
+				cnt--
+			}
+		}
+	}
+	return m
+}
+```
+
+### **TypeScript**
+
+```ts
+function majorityElement(nums: number[]): number {
+    let cnt: number = 0;
+    let m: number = 0;
+    for (const x of nums) {
+        if (cnt === 0) {
+            m = x;
+            cnt = 1;
+        } else {
+            cnt += m === x ? 1 : -1;
+        }
+    }
+    return m;
 }
 ```
 
@@ -73,36 +144,17 @@ class Solution {
  * @return {number}
  */
 var majorityElement = function (nums) {
-    let cnt = 0,
-        m = 0;
-    for (const v of nums) {
-        if (cnt == 0) {
-            m = v;
+    let cnt = 0;
+    let m = 0;
+    for (const x of nums) {
+        if (cnt === 0) {
+            m = x;
             cnt = 1;
         } else {
-            cnt += m == v ? 1 : -1;
+            cnt += m === x ? 1 : -1;
         }
     }
     return m;
-};
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int majorityElement(vector<int>& nums) {
-        int cnt = 0, m = 0;
-        for (int& v : nums) {
-            if (cnt == 0) {
-                m = v;
-                cnt = 1;
-            } else
-                cnt += (m == v ? 1 : -1);
-        }
-        return m;
-    }
 };
 ```
 
@@ -112,40 +164,16 @@ public:
 public class Solution {
     public int MajorityElement(int[] nums) {
         int cnt = 0, m = 0;
-        foreach (int v in nums)
-        {
-            if (cnt == 0)
-            {
-                m = v;
+        foreach (int x in nums) {
+            if (cnt == 0) {
+                m = x;
                 cnt = 1;
-            }
-            else
-            {
-                cnt += m == v ? 1 : -1;
+            } else {
+                cnt += m == x ? 1 : -1;
             }
         }
         return m;
     }
-}
-```
-
-### **Go**
-
-```go
-func majorityElement(nums []int) int {
-	cnt, m := 0, 0
-	for _, v := range nums {
-		if cnt == 0 {
-			m, cnt = v, 1
-		} else {
-			if m == v {
-				cnt++
-			} else {
-				cnt--
-			}
-		}
-	}
-	return m
 }
 ```
 
@@ -156,12 +184,12 @@ impl Solution {
     pub fn majority_element(nums: Vec<i32>) -> i32 {
         let mut m = 0;
         let mut cnt = 0;
-        for &v in nums.iter() {
+        for &x in nums.iter() {
             if cnt == 0 {
-                m = v;
+                m = x;
                 cnt = 1;
             } else {
-                cnt += if m == v { 1 } else { -1 };
+                cnt += if m == x { 1 } else { -1 };
             }
         }
         m
@@ -173,19 +201,25 @@ impl Solution {
 
 ```php
 class Solution {
+
     /**
      * @param Integer[] $nums
      * @return Integer
      */
     function majorityElement($nums) {
-        $major = 0;
-        $count = 0;
-        for ($i = 0; $i < count($nums); $i++) {
-            if ($count == 0) $major = $nums[$i];
-            if ($major == $nums[$i]) $count++;
-            else $count--;
+        $m = 0;
+        $cnt = 0;
+        foreach ($nums as $x) {
+            if ($cnt == 0) {
+                $m = $x;
+            }
+            if ($m == $x) {
+                $cnt++;
+            } else {
+                $cnt--;
+            }
         }
-        return $major;
+        return $m;
     }
 }
 ```

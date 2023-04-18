@@ -1,10 +1,6 @@
-/**
- * @param {number[]} nums
- * @return {number}
- */
-var majorityElement = function (nums) {
-    let cnt = 0;
-    let m = 0;
+function majorityElement(nums: number[]): number {
+    let cnt: number = 0;
+    let m: number = 0;
     for (const x of nums) {
         if (cnt === 0) {
             m = x;
@@ -14,4 +10,4 @@ var majorityElement = function (nums) {
         }
     }
     return m;
-};
+}
