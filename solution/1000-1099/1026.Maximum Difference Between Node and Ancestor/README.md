@@ -50,18 +50,17 @@
 
 **方法一：DFS**
 
-对于每个节点，要求其与其祖先节点的最大差值，只需要求出该节点与祖先节点最大值和最小值的差值即可，取较大的差值即可。
+对于每个节点，求其与祖先节点的最大差值，我们只需要求出该节点与祖先节点最大值和最小值的差值，取所有差值的最大值即可。
 
 因此，我们设计一个函数 $dfs(root, mi, mx)$，表示当前搜索到的节点为 $root$，其祖先节点的最大值为 $mx$，最小值为 $mi$，函数内更新最大差值 $ans$。
 
 函数 $dfs(root, mi, mx)$ 的逻辑如下：
 
--   若 $root$ 为空，则返回。
--   更新 $ans = max(ans, abs(mi - root.val), abs(mx - root.val))$。
--   更新 $mi = min(mi, root.val)$, $mx = max(mx, root.val)$。
--   递归左右子树。
+-   若 $root$ 为空，直接返回。
+-   否则，我们更新 $ans = max(ans, |mi - root.val|, |mx - root.val|)$。
+-   然后更新 $mi = min(mi, root.val)$, $mx = max(mx, root.val)$，并且递归搜索左右子树。
 
-最后返回 $ans$ 即可。
+在主函数中，我们调用 $dfs(root, root.val, root.val)$，最后返回 $ans$ 即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树节点个数。
 
@@ -217,6 +216,40 @@ func abs(x int) int {
 		return -x
 	}
 	return x
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function maxAncestorDiff(root: TreeNode | null): number {
+    const dfs = (root: TreeNode | null, mi: number, mx: number): void => {
+        if (!root) {
+            return;
+        }
+        ans = Math.max(ans, Math.abs(root.val - mi), Math.abs(root.val - mx));
+        mi = Math.min(mi, root.val);
+        mx = Math.max(mx, root.val);
+        dfs(root.left, mi, mx);
+        dfs(root.right, mi, mx);
+    };
+    let ans: number = 0;
+    dfs(root, root.val, root.val);
+    return ans;
 }
 ```
 
