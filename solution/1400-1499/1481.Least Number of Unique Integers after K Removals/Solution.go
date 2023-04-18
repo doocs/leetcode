@@ -1,23 +1,18 @@
 func findLeastNumOfUniqueInts(arr []int, k int) int {
-	counter := make(map[int]int)
-	for _, v := range arr {
-		counter[v]++
+	cnt := map[int]int{}
+	for _, x := range arr {
+		cnt[x]++
 	}
-	var t [][]int
-	for v, cnt := range counter {
-		t = append(t, []int{v, cnt})
+	nums := make([]int, 0, len(cnt))
+	for _, v := range cnt {
+		nums = append(nums, v)
 	}
-	sort.Slice(t, func(i, j int) bool {
-		return t[i][1] < t[j][1]
-	})
-	for _, e := range t {
-		v, cnt := e[0], e[1]
-		if k >= cnt {
-			k -= cnt
-			delete(counter, v)
-		} else {
-			break
+	sort.Ints(nums)
+	for i, v := range nums {
+		k -= v
+		if k < 0 {
+			return len(nums) - i
 		}
 	}
-	return len(counter)
+	return 0
 }

@@ -45,14 +45,17 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= nums.length &lt;= 1000</code></li>
-
     <li><code>-10^6&nbsp;&lt;= nums[i] &lt;=&nbsp;10^6</code></li>
-
 </ul>
 
 ## Solutions
+
+**Approach 1: Prefix Sum**
+
+We directly traverse the array. For the current element $nums[i]$, we add it with the prefix sum $nums[i-1]$ to get the prefix sum $nums[i]$ of the current element.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -97,6 +100,30 @@ func runningSum(nums []int) []int {
 		nums[i] += nums[i-1]
 	}
 	return nums
+}
+```
+
+### **TypeScript**
+
+```ts
+function runningSum(nums: number[]): number[] {
+    for (let i = 1; i < nums.length; ++i) {
+        nums[i] += nums[i - 1];
+    }
+    return nums;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int[] RunningSum(int[] nums) {
+        for (int i = 1; i < nums.Length; ++i) {
+            nums[i] += nums[i - 1];
+        }
+        return nums;
+    }
 }
 ```
 
