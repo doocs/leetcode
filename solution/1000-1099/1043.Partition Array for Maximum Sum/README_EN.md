@@ -42,6 +42,22 @@
 
 ## Solutions
 
+**Approach 1: Dynamic Programming**
+
+We define $f[i]$ to represent the maximum element sum of the first $i$ elements of the array after separating them into several subarrays. At the beginning, $f[i]=0$, and the answer is $f[n]$.
+
+We consider how to calculate $f[i]$, where $i \geq 1$.
+
+For $f[i]$, its last element is $arr[i-1]$. Since the maximum length of each subarray is $k$, and we need to find the maximum value in the subarray, we can enumerate the first element $arr[j - 1]$ of the last subarray from right to left, where $\max(0, i - k) \lt j \leq i$, and maintain a variable $mx$ during the process to represent the maximum value in the subarray. The state transition equation is:
+
+$$
+f[i] = \max\{f[i], f[j - 1] + mx \times (i - j + 1)\}
+$$
+
+The final answer is $f[n]$.
+
+The time complexity is $O(n \times k)$, and the space complexity is $O(n)$, where $n$ is the length of the array $arr$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -51,12 +67,11 @@ class Solution:
     def maxSumAfterPartitioning(self, arr: List[int], k: int) -> int:
         n = len(arr)
         f = [0] * (n + 1)
-        for i in range(n):
+        for i in range(1, n + 1):
             mx = 0
-            for j in range(i, max(-1, i - k), -1):
-                mx = max(mx, arr[j])
-                t = mx * (i - j + 1) + f[j]
-                f[i + 1] = max(f[i + 1], t)
+            for j in range(i, max(0, i - k), -1):
+                mx = max(mx, arr[j - 1])
+                f[i] = max(f[i], f[j - 1] + mx * (i - j + 1))
         return f[n]
 ```
 
@@ -67,12 +82,11 @@ class Solution {
     public int maxSumAfterPartitioning(int[] arr, int k) {
         int n = arr.length;
         int[] f = new int[n + 1];
-        for (int i = 0; i < n; ++i) {
+        for (int i = 1; i <= n; ++i) {
             int mx = 0;
-            for (int j = i; j >= Math.max(0, i - k + 1); --j) {
-                mx = Math.max(mx, arr[j]);
-                int t = mx * (i - j + 1) + f[j];
-                f[i + 1] = Math.max(f[i + 1], t);
+            for (int j = i; j > Math.max(0, i - k); --j) {
+                mx = Math.max(mx, arr[j - 1]);
+                f[i] = Math.max(f[i], f[j - 1] + mx * (i - j + 1));
             }
         }
         return f[n];
@@ -88,13 +102,12 @@ public:
     int maxSumAfterPartitioning(vector<int>& arr, int k) {
         int n = arr.size();
         int f[n + 1];
-        memset(f, 0, sizeof f);
-        for (int i = 0; i < n; ++i) {
+        memset(f, 0, sizeof(f));
+        for (int i = 1; i <= n; ++i) {
             int mx = 0;
-            for (int j = i; j >= max(0, i - k + 1); --j) {
-                mx = max(mx, arr[j]);
-                int t = mx * (i - j + 1) + f[j];
-                f[i + 1] = max(f[i + 1], t);
+            for (int j = i; j > max(0, i - k); --j) {
+                mx = max(mx, arr[j - 1]);
+                f[i] = max(f[i], f[j - 1] + mx * (i - j + 1));
             }
         }
         return f[n];
@@ -108,12 +121,11 @@ public:
 func maxSumAfterPartitioning(arr []int, k int) int {
 	n := len(arr)
 	f := make([]int, n+1)
-	for i := 0; i < n; i++ {
+	for i := 1; i <= n; i++ {
 		mx := 0
-		for j := i; j >= max(0, i-k+1); j-- {
-			mx = max(mx, arr[j])
-			t := mx*(i-j+1) + f[j]
-			f[i+1] = max(f[i+1], t)
+		for j := i; j > max(0, i-k); j-- {
+			mx = max(mx, arr[j-1])
+			f[i] = max(f[i], f[j-1]+mx*(i-j+1))
 		}
 	}
 	return f[n]
@@ -124,6 +136,23 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxSumAfterPartitioning(arr: number[], k: number): number {
+    const n: number = arr.length;
+    const f: number[] = new Array(n + 1).fill(0);
+    for (let i = 1; i <= n; ++i) {
+        let mx: number = 0;
+        for (let j = i; j > Math.max(0, i - k); --j) {
+            mx = Math.max(mx, arr[j - 1]);
+            f[i] = Math.max(f[i], f[j - 1] + mx * (i - j + 1));
+        }
+    }
+    return f[n];
 }
 ```
 
