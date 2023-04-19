@@ -35,6 +35,16 @@
 
 ## Solutions
 
+**Approach 1: Greedy**
+
+We use a variable $mx$ to maintain the farthest index that can be reached, initially $mx = 0$.
+
+We traverse the array from left to right, for each position $i$ we are currently traversing, if $mx \lt i$, it means that the current position cannot be reached, directly return `false`. Otherwise, the farthest position that can be reached from position $i$ by jumping is $i+nums[i]$, we use $i+nums[i]$ to update the value of $mx$, that is $mx = \max(mx, i + nums[i])$.
+
+When the traversal ends, return `true` directly.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -43,10 +53,10 @@
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
         mx = 0
-        for i, num in enumerate(nums):
-            if i > mx:
+        for i, x in enumerate(nums):
+            if mx < i:
                 return False
-            mx = max(mx, i + num)
+            mx = max(mx, i + x)
         return True
 ```
 
@@ -57,7 +67,7 @@ class Solution {
     public boolean canJump(int[] nums) {
         int mx = 0;
         for (int i = 0; i < nums.length; ++i) {
-            if (i > mx) {
+            if (mx < i) {
                 return false;
             }
             mx = Math.max(mx, i + nums[i]);
@@ -75,7 +85,7 @@ public:
     bool canJump(vector<int>& nums) {
         int mx = 0;
         for (int i = 0; i < nums.size(); ++i) {
-            if (i > mx) {
+            if (mx < i) {
                 return false;
             }
             mx = max(mx, i + nums[i]);
@@ -90,11 +100,11 @@ public:
 ```go
 func canJump(nums []int) bool {
 	mx := 0
-	for i, num := range nums {
-		if i > mx {
+	for i, x := range nums {
+		if mx < i {
 			return false
 		}
-		mx = max(mx, i+num)
+		mx = max(mx, i+x)
 	}
 	return true
 }
@@ -104,6 +114,21 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function canJump(nums: number[]): boolean {
+    let mx: number = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        if (mx < i) {
+            return false;
+        }
+        mx = Math.max(mx, i + nums[i]);
+    }
+    return true;
 }
 ```
 
@@ -117,7 +142,7 @@ func max(a, b int) int {
 var canJump = function (nums) {
     let mx = 0;
     for (let i = 0; i < nums.length; ++i) {
-        if (i > mx) {
+        if (mx < i) {
             return false;
         }
         mx = Math.max(mx, i + nums[i]);
@@ -133,7 +158,7 @@ public class Solution {
     public bool CanJump(int[] nums) {
         int mx = 0;
         for (int i = 0; i < nums.Length; ++i) {
-            if (i > mx) {
+            if (mx < i) {
                 return false;
             }
             mx = Math.Max(mx, i + nums[i]);

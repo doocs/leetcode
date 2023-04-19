@@ -45,13 +45,13 @@
 
 **方法一：贪心**
 
-我们用变量 `mx` 维护当前能够到达的最远下标，初始时 `mx = 0`。
+我们用变量 $mx$ 维护当前能够到达的最远下标，初始时 $mx = 0$。
 
-我们从左到右遍历数组，对于遍历到的每个位置 $i$，如果 $i\gt mx$，说明当前位置无法到达，直接返回 `false`。否则，我们可以通过跳跃从位置 $i$ 到达的最远位置为 $i+nums[i]$，我们用 $i+nums[i]$ 更新 `mx` 的值，即 $mx=\max(mx,i+nums[i])$。
+我们从左到右遍历数组，对于遍历到的每个位置 $i$，如果 $mx \lt i$，说明当前位置无法到达，直接返回 `false`。否则，我们可以通过跳跃从位置 $i$ 到达的最远位置为 $i+nums[i]$，我们用 $i+nums[i]$ 更新 $mx$ 的值，即 $mx = \max(mx, i + nums[i])$。
 
 遍历结束，直接返回 `true`。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，其中 $n$ 为数组的长度。空间复杂度 $O(1)$。
 
 相似题目：
 
@@ -69,10 +69,10 @@
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
         mx = 0
-        for i, num in enumerate(nums):
-            if i > mx:
+        for i, x in enumerate(nums):
+            if mx < i:
                 return False
-            mx = max(mx, i + num)
+            mx = max(mx, i + x)
         return True
 ```
 
@@ -85,7 +85,7 @@ class Solution {
     public boolean canJump(int[] nums) {
         int mx = 0;
         for (int i = 0; i < nums.length; ++i) {
-            if (i > mx) {
+            if (mx < i) {
                 return false;
             }
             mx = Math.max(mx, i + nums[i]);
@@ -103,7 +103,7 @@ public:
     bool canJump(vector<int>& nums) {
         int mx = 0;
         for (int i = 0; i < nums.size(); ++i) {
-            if (i > mx) {
+            if (mx < i) {
                 return false;
             }
             mx = max(mx, i + nums[i]);
@@ -118,11 +118,11 @@ public:
 ```go
 func canJump(nums []int) bool {
 	mx := 0
-	for i, num := range nums {
-		if i > mx {
+	for i, x := range nums {
+		if mx < i {
 			return false
 		}
-		mx = max(mx, i+num)
+		mx = max(mx, i+x)
 	}
 	return true
 }
@@ -132,6 +132,21 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function canJump(nums: number[]): boolean {
+    let mx: number = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        if (mx < i) {
+            return false;
+        }
+        mx = Math.max(mx, i + nums[i]);
+    }
+    return true;
 }
 ```
 
@@ -145,7 +160,7 @@ func max(a, b int) int {
 var canJump = function (nums) {
     let mx = 0;
     for (let i = 0; i < nums.length; ++i) {
-        if (i > mx) {
+        if (mx < i) {
             return false;
         }
         mx = Math.max(mx, i + nums[i]);
@@ -161,7 +176,7 @@ public class Solution {
     public bool CanJump(int[] nums) {
         int mx = 0;
         for (int i = 0; i < nums.Length; ++i) {
-            if (i > mx) {
+            if (mx < i) {
                 return false;
             }
             mx = Math.Max(mx, i + nums[i]);
