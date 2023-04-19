@@ -63,7 +63,9 @@
 
 **方法一：节点赋值**
 
-将 `node.next` 节点的值赋给 `node`，然后将 `node.next` 指向 `node.next` 的下一个节点。
+我们可以将当前节点的值替换为下一个节点的值，然后删除下一个节点。这样就可以达到删除当前节点的目的。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -110,6 +112,85 @@ class Solution {
 }
 ```
 
+### **C++**
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    void deleteNode(ListNode* node) {
+        node->val = node->next->val;
+        node->next = node->next->next;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func deleteNode(node *ListNode) {
+    node.Val = node.Next.Val
+    node.Next = node.Next.Next
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+/**
+ Do not return anything, modify it in-place instead.
+ */
+function deleteNode(node: ListNode | null): void {
+    node.val = node.next.val;
+    node.next = node.next.next;
+}
+```
+
+### **C#**
+
+```cs
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public void DeleteNode(ListNode node) {
+        node.val = node.next.val;
+        node.next = node.next.next;
+    }
+}
+```
+
 ### **JavaScript**
 
 ```js
@@ -130,40 +211,10 @@ var deleteNode = function (node) {
 };
 ```
 
-### **Go**
+### **...**
 
-```go
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
-func deleteNode(node *ListNode) {
-    node.Val = node.Next.Val
-    node.Next = node.Next.Next
-}
 ```
 
-### **C++**
-
-```cpp
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-class Solution {
-public:
-    void deleteNode(ListNode* node) {
-        node->val = node->next->val;
-        node->next = node->next->next;
-    }
-};
 ```
 
 <!-- tabs:end -->

@@ -56,6 +56,12 @@
 
 ## Solutions
 
+**Approach 1: Node assignment**
+
+We can replace the value of the current node with the value of the next node, and then delete the next node. This can achieve the purpose of deleting the current node.
+
+Time complexity $O(1)$, space complexity $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -97,6 +103,85 @@ class Solution {
 }
 ```
 
+### **C++**
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    void deleteNode(ListNode* node) {
+        node->val = node->next->val;
+        node->next = node->next->next;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func deleteNode(node *ListNode) {
+    node.Val = node.Next.Val
+    node.Next = node.Next.Next
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+/**
+ Do not return anything, modify it in-place instead.
+ */
+function deleteNode(node: ListNode | null): void {
+    node.val = node.next.val;
+    node.next = node.next.next;
+}
+```
+
+### **C#**
+
+```cs
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public void DeleteNode(ListNode node) {
+        node.val = node.next.val;
+        node.next = node.next.next;
+    }
+}
+```
+
 ### **JavaScript**
 
 ```js
@@ -117,40 +202,10 @@ var deleteNode = function (node) {
 };
 ```
 
-### **Go**
+### **...**
 
-```go
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
-func deleteNode(node *ListNode) {
-    node.Val = node.Next.Val
-    node.Next = node.Next.Next
-}
 ```
 
-### **C++**
-
-```cpp
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-class Solution {
-public:
-    void deleteNode(ListNode* node) {
-        node->val = node->next->val;
-        node->next = node->next->next;
-    }
-};
 ```
 
 <!-- tabs:end -->
