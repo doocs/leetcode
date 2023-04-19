@@ -1,6 +1,6 @@
 type RandomizedSet struct {
-	m map[int]int
-	l []int
+	d map[int]int
+	q []int
 }
 
 func Constructor() RandomizedSet {
@@ -8,28 +8,28 @@ func Constructor() RandomizedSet {
 }
 
 func (this *RandomizedSet) Insert(val int) bool {
-	if _, ok := this.m[val]; ok {
+	if _, ok := this.d[val]; ok {
 		return false
 	}
-	this.m[val] = len(this.l)
-	this.l = append(this.l, val)
+	this.d[val] = len(this.q)
+	this.q = append(this.q, val)
 	return true
 }
 
 func (this *RandomizedSet) Remove(val int) bool {
-	if _, ok := this.m[val]; !ok {
+	if _, ok := this.d[val]; !ok {
 		return false
 	}
-	idx := this.m[val]
-	this.l[idx] = this.l[len(this.l)-1]
-	this.m[this.l[len(this.l)-1]] = idx
-	this.l = this.l[:len(this.l)-1]
-	delete(this.m, val)
+	i := this.d[val]
+	this.d[this.q[len(this.q)-1]] = i
+	this.q[i] = this.q[len(this.q)-1]
+	this.q = this.q[:len(this.q)-1]
+	delete(this.d, val)
 	return true
 }
 
 func (this *RandomizedSet) GetRandom() int {
-	return this.l[rand.Intn(len(this.l))]
+	return this.q[rand.Intn(len(this.q))]
 }
 
 /**

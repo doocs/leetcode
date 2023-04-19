@@ -47,35 +47,48 @@ randomizedSet.getRandom(); // Since 2 is the only number in the set, getRandom()
 
 ## Solutions
 
+**Approach 1: Hash Table + Dynamic List**
+
+We define a dynamic list $q$ to store the elements in the set, and a hash table $d$ to store the index of each element in $q$.
+
+When inserting an element, if the element already exists in the hash table $d$, return `false` directly; otherwise, we insert the element into the end of the dynamic list $q$, and insert the element and its index in $q$ into the hash table $d$ at the same time, and finally return `true`.
+
+When deleting an element, if the element does not exist in the hash table $d$, return `false` directly; otherwise, we obtain the index of the element in the list $q$ from the hash table, then swap the last element $q[-1]$ in the list $q$ with $q[i]$, and then update the index of $q[-1]$ in the hash table to $i$. Then delete the last element in $q$, and remove the element from the hash table at the same time, and finally return `true`.
+
+When getting a random element, we can randomly select an element from the dynamic list $q$ and return it.
+
+Time complexity $O(1)$, space complexity $O(n)$, where $n$ is the number of elements in the set.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
 class RandomizedSet:
+
     def __init__(self):
-        self.m = {}
-        self.l = []
+        self.d = {}
+        self.q = []
 
     def insert(self, val: int) -> bool:
-        if val in self.m:
+        if val in self.d:
             return False
-        self.m[val] = len(self.l)
-        self.l.append(val)
+        self.d[val] = len(self.q)
+        self.q.append(val)
         return True
 
     def remove(self, val: int) -> bool:
-        if val not in self.m:
+        if val not in self.d:
             return False
-        idx = self.m[val]
-        self.l[idx] = self.l[-1]
-        self.m[self.l[-1]] = idx
-        self.l.pop()
-        self.m.pop(val)
+        i = self.d[val]
+        self.d[self.q[-1]] = i
+        self.q[i] = self.q[-1]
+        self.q.pop()
+        self.d.pop(val)
         return True
 
     def getRandom(self) -> int:
-        return choice(self.l)
+        return choice(self.q)
 
 
 # Your RandomizedSet object will be instantiated and called as such:
@@ -89,37 +102,37 @@ class RandomizedSet:
 
 ```java
 class RandomizedSet {
-    private Map<Integer, Integer> m = new HashMap<>();
-    private List<Integer> l = new ArrayList<>();
+    private Map<Integer, Integer> d = new HashMap<>();
+    private List<Integer> q = new ArrayList<>();
     private Random rnd = new Random();
 
     public RandomizedSet() {
+
     }
 
     public boolean insert(int val) {
-        if (m.containsKey(val)) {
+        if (d.containsKey(val)) {
             return false;
         }
-        m.put(val, l.size());
-        l.add(val);
+        d.put(val, q.size());
+        q.add(val);
         return true;
     }
 
     public boolean remove(int val) {
-        if (!m.containsKey(val)) {
+        if (!d.containsKey(val)) {
             return false;
         }
-        int idx = m.get(val);
-        l.set(idx, l.get(l.size() - 1));
-        m.put(l.get(l.size() - 1), idx);
-        l.remove(l.size() - 1);
-        m.remove(val);
+        int i = d.get(val);
+        d.put(q.get(q.size() - 1), i);
+        q.set(i, q.get(q.size() - 1));
+        q.remove(q.size() - 1);
+        d.remove(val);
         return true;
     }
 
     public int getRandom() {
-        int idx = rnd.nextInt(l.size());
-        return l.get(idx);
+        return q.get(rnd.nextInt(q.size()));
     }
 }
 
@@ -136,34 +149,39 @@ class RandomizedSet {
 
 ```cpp
 class RandomizedSet {
-private:
-    unordered_map<int, int> mp;
-    vector<int> nums;
-
 public:
     RandomizedSet() {
+
     }
 
     bool insert(int val) {
-        if (mp.count(val)) return false;
-        mp[val] = nums.size();
-        nums.push_back(val);
+        if (d.count(val)) {
+            return false;
+        }
+        d[val] = q.size();
+        q.push_back(val);
         return true;
     }
 
     bool remove(int val) {
-        if (!mp.count(val)) return false;
-        int idx = mp[val];
-        nums[idx] = nums.back();
-        mp[nums.back()] = idx;
-        mp.erase(val);
-        nums.pop_back();
+        if (!d.count(val)) {
+            return false;
+        }
+        int i = d[val];
+        d[q.back()] = i;
+        q[i] = q.back();
+        q.pop_back();
+        d.erase(val);
         return true;
     }
 
     int getRandom() {
-        return nums[rand() % nums.size()];
+        return q[rand() % q.size()];
     }
+
+private:
+    unordered_map<int, int> d;
+    vector<int> q;
 };
 
 /**
@@ -179,8 +197,8 @@ public:
 
 ```go
 type RandomizedSet struct {
-	m map[int]int
-	l []int
+	d map[int]int
+	q []int
 }
 
 func Constructor() RandomizedSet {
@@ -188,28 +206,28 @@ func Constructor() RandomizedSet {
 }
 
 func (this *RandomizedSet) Insert(val int) bool {
-	if _, ok := this.m[val]; ok {
+	if _, ok := this.d[val]; ok {
 		return false
 	}
-	this.m[val] = len(this.l)
-	this.l = append(this.l, val)
+	this.d[val] = len(this.q)
+	this.q = append(this.q, val)
 	return true
 }
 
 func (this *RandomizedSet) Remove(val int) bool {
-	if _, ok := this.m[val]; !ok {
+	if _, ok := this.d[val]; !ok {
 		return false
 	}
-	idx := this.m[val]
-	this.l[idx] = this.l[len(this.l)-1]
-	this.m[this.l[len(this.l)-1]] = idx
-	this.l = this.l[:len(this.l)-1]
-	delete(this.m, val)
+	i := this.d[val]
+	this.d[this.q[len(this.q)-1]] = i
+	this.q[i] = this.q[len(this.q)-1]
+	this.q = this.q[:len(this.q)-1]
+	delete(this.d, val)
 	return true
 }
 
 func (this *RandomizedSet) GetRandom() int {
-	return this.l[rand.Intn(len(this.l))]
+	return this.q[rand.Intn(len(this.q))]
 }
 
 /**
@@ -225,43 +243,34 @@ func (this *RandomizedSet) GetRandom() int {
 
 ```ts
 class RandomizedSet {
-    public map: Map<number, number>;
-    public arr: number[];
-    public index: number;
+    private d: Map<number, number> = new Map();
+    private q: number[] = [];
 
-    constructor() {
-        this.map = new Map();
-        this.arr = new Array(2 * 10 ** 5).fill(0);
-        this.index = -1;
-    }
+    constructor() {}
 
     insert(val: number): boolean {
-        const { map, arr } = this;
-        if (map.has(val)) {
+        if (this.d.has(val)) {
             return false;
         }
-        this.index++;
-        arr[this.index] = val;
-        map.set(val, this.index);
+        this.d.set(val, this.q.length);
+        this.q.push(val);
         return true;
     }
 
     remove(val: number): boolean {
-        const { arr, map, index } = this;
-        if (!map.has(val)) {
+        if (!this.d.has(val)) {
             return false;
         }
-        const i = map.get(val);
-        [arr[i], arr[index]] = [arr[index], arr[i]];
-        map.set(arr[i], i);
-        map.delete(arr[index]);
-        this.index--;
+        const i = this.d.get(val)!;
+        this.d.set(this.q[this.q.length - 1], i);
+        this.q[i] = this.q[this.q.length - 1];
+        this.q.pop();
+        this.d.delete(val);
         return true;
     }
 
     getRandom(): number {
-        const i = Math.floor(Math.random() * (this.index + 1));
-        return this.arr[i];
+        return this.q[Math.floor(Math.random() * this.q.length)];
     }
 }
 
@@ -317,6 +326,52 @@ impl RandomizedSet {
  * let ret_1: bool = obj.insert(val);
  * let ret_2: bool = obj.remove(val);
  * let ret_3: i32 = obj.get_random();
+ */
+```
+
+### **C#**
+
+```cs
+public class RandomizedSet {
+    private Dictionary<int, int> d = new Dictionary<int, int>();
+    private List<int> q = new List<int>();
+
+    public RandomizedSet() {
+
+    }
+
+    public bool Insert(int val) {
+        if (d.ContainsKey(val)) {
+            return false;
+        }
+        d.Add(val, q.Count);
+        q.Add(val);
+        return true;
+    }
+
+    public bool Remove(int val) {
+        if (!d.ContainsKey(val)) {
+            return false;
+        }
+        int i = d[val];
+        d[q[q.Count - 1]] = i;
+        q[i] = q[q.Count - 1];
+        q.RemoveAt(q.Count - 1);
+        d.Remove(val);
+        return true;
+    }
+
+    public int GetRandom() {
+        return q[new Random().Next(0, q.Count)];
+    }
+}
+
+/**
+ * Your RandomizedSet object will be instantiated and called as such:
+ * RandomizedSet obj = new RandomizedSet();
+ * bool param_1 = obj.Insert(val);
+ * bool param_2 = obj.Remove(val);
+ * int param_3 = obj.GetRandom();
  */
 ```
 
