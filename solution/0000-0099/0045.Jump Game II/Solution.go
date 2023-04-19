@@ -1,13 +1,13 @@
-func jump(nums []int) int {
-	mx, steps, end := 0, 0, 0
-	for i := 0; i < len(nums)-1; i++ {
-		mx = max(mx, i+nums[i])
-		if i == end {
-			end = mx
-			steps++
+func jump(nums []int) (ans int) {
+	mx, last := 0, 0
+	for i, x := range nums[:len(nums)-1] {
+		mx = max(mx, i+x)
+		if last == i {
+			ans++
+			last = mx
 		}
 	}
-	return steps
+	return
 }
 
 func max(a, b int) int {

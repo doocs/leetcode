@@ -1,14 +1,14 @@
 class Solution {
 public:
     int jump(vector<int>& nums) {
-        int mx = 0, steps = 0, end = 0;
+        int ans = 0, mx = 0, last = 0;
         for (int i = 0; i < nums.size() - 1; ++i) {
             mx = max(mx, i + nums[i]);
-            if (i == end) {
-                end = mx;
-                ++steps;
+            if (last == i) {
+                ++ans;
+                last = mx;
             }
         }
-        return steps;
+        return ans;
     }
 };

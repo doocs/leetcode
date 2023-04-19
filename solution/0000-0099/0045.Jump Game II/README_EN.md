@@ -42,6 +42,16 @@
 
 ## Solutions
 
+**Approach 1: Greedy**
+
+We can use a variable $mx$ to record the furthest position that can be reached at the current position, and use a variable $last$ to record the last jump position, and use a variable $ans$ to record the number of jumps.
+
+Next, we traverse the position $i$ of the array $[0,..n - 2]$, and for each position $i$, we can calculate the furthest position that can be reached at the current position through $i + nums[i]$, and we use $mx$ to record this furthest position, that is, $mx = max(mx, i + nums[i])$. Next, we need to determine whether the current position has reached the boundary of the last jump, that is, $i = last$. If so, we need to jump once, update $last$ to $mx$, and increase the number of jumps $ans$ by $1$.
+
+Finally, we return the number of jumps $ans$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -49,13 +59,13 @@
 ```python
 class Solution:
     def jump(self, nums: List[int]) -> int:
-        end = mx = steps = 0
-        for i, num in enumerate(nums[:-1]):
-            mx = max(mx, i + num)
-            if i == end:
-                end = mx
-                steps += 1
-        return steps
+        ans = mx = last = 0
+        for i, x in enumerate(nums[:-1]):
+            mx = max(mx, i + x)
+            if last == i:
+                ans += 1
+                last = mx
+        return ans
 ```
 
 ### **Java**
@@ -63,17 +73,15 @@ class Solution:
 ```java
 class Solution {
     public int jump(int[] nums) {
-        int end = 0;
-        int mx = 0;
-        int steps = 0;
+        int ans = 0, mx = 0, last = 0;
         for (int i = 0; i < nums.length - 1; ++i) {
             mx = Math.max(mx, i + nums[i]);
-            if (i == end) {
-                end = mx;
-                ++steps;
+            if (last == i) {
+                ++ans;
+                last = mx;
             }
         }
-        return steps;
+        return ans;
     }
 }
 ```
@@ -84,15 +92,15 @@ class Solution {
 class Solution {
 public:
     int jump(vector<int>& nums) {
-        int mx = 0, steps = 0, end = 0;
+        int ans = 0, mx = 0, last = 0;
         for (int i = 0; i < nums.size() - 1; ++i) {
             mx = max(mx, i + nums[i]);
-            if (i == end) {
-                end = mx;
-                ++steps;
+            if (last == i) {
+                ++ans;
+                last = mx;
             }
         }
-        return steps;
+        return ans;
     }
 };
 ```
@@ -100,16 +108,16 @@ public:
 ### **Go**
 
 ```go
-func jump(nums []int) int {
-	mx, steps, end := 0, 0, 0
-	for i := 0; i < len(nums)-1; i++ {
-		mx = max(mx, i+nums[i])
-		if i == end {
-			end = mx
-			steps++
+func jump(nums []int) (ans int) {
+	mx, last := 0, 0
+	for i, x := range nums[:len(nums)-1] {
+		mx = max(mx, i+x)
+		if last == i {
+			ans++
+			last = mx
 		}
 	}
-	return steps
+	return
 }
 
 func max(a, b int) int {
@@ -120,24 +128,38 @@ func max(a, b int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function jump(nums: number[]): number {
+    let ans = 0;
+    let mx = 0;
+    let last = 0;
+    for (let i = 0; i < nums.length - 1; ++i) {
+        mx = Math.max(mx, i + nums[i]);
+        if (last === i) {
+            ++ans;
+            last = mx;
+        }
+    }
+    return ans;
+}
+```
+
 ### **C#**
 
 ```cs
 public class Solution {
     public int Jump(int[] nums) {
-        int end = 0;
-        int mx = 0;
-        int steps = 0;
-        for (int i = 0; i < nums.Length - 1; ++i)
-        {
+        int ans = 0, mx = 0, last = 0;
+        for (int i = 0; i < nums.Length - 1; ++i) {
             mx = Math.Max(mx, i + nums[i]);
-            if (i == end)
-            {
-                end = mx;
-                ++steps;
+            if (last == i) {
+                ++ans;
+                last = mx;
             }
         }
-        return steps;
+        return ans;
     }
 }
 ```
