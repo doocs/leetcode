@@ -1,19 +1,13 @@
 function hIndex(citations: number[]): number {
-    let n = citations.length;
-    let cnt = new Array(n + 1).fill(0);
-    for (let c of citations) {
-        if (c <= n) {
-            ++cnt[c];
-        } else {
-            ++cnt[n];
+    const n: number = citations.length;
+    const cnt: number[] = new Array(n + 1).fill(0);
+    for (const x of citations) {
+        ++cnt[Math.min(x, n)];
+    }
+    for (let h = n, s = 0; ; --h) {
+        s += cnt[h];
+        if (s >= h) {
+            return h;
         }
     }
-    let sum = 0;
-    for (let i = n; i > -1; --i) {
-        sum += cnt[i];
-        if (sum >= i) {
-            return i;
-        }
-    }
-    return 0;
 }

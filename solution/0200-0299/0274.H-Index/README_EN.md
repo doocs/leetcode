@@ -36,7 +36,27 @@ Since the researcher has 3 papers with at least 3 citations each and the remaini
 
 ## Solutions
 
-The simplest solution is to judge after sort, but because `H` cannot be greater than the total number of papers, it can be optimized by counting sort.
+**Approach 1: Sorting**
+
+We can sort the array `citations` in descending order. Then we enumerate the value $h$ from large to small, if there is an $h$ value satisfying $citations[h-1] \geq h$, it means that there are at least $h$ papers that have been cited at least $h$ times, just return $h$ directly. If we cannot find such an $h$ value, it means that all the papers have not been cited, return $0$.
+
+Time complexity $O(n \times \log n)$, space complexity $O(\log n)$. Here $n$ is the length of the array `citations`.
+
+**Approach 2: Counting + Sum**
+
+We can use an array $cnt$ of length $n+1$, where $cnt[i]$ represents the number of papers with the reference count of $i$. We traverse the array `citations` and treat the papers with the reference count greater than $n$ as papers with a reference count of $n$. Then we use the reference count as the index and add $1$ to the corresponding element of $cnt$ for each paper. In this way, we have counted the number of papers for each reference count.
+
+Then we enumerate the value $h$ from large to small, and add the element value of $cnt$ with the index of $h$ to the variable $s$, where $s$ represents the number of papers with a reference count greater than or equal to $h$. If $s \geq h$, it means that at least $h$ papers have been cited at least $h$ times, just return $h$ directly.
+
+Time complexity $O(n)$, space complexity $O(n)$. Here $n$ is the length of the array `citations`.
+
+**Approach 3: Binary Search**
+
+We notice that if there is a $h$ value that satisfies at least $h$ papers are cited at least $h$ times, then for any $h'<h$, at least $h'$ papers are cited at least $h'$ times. Therefore, we can use the binary search method to find the largest $h$ such that at least $h$ papers are cited at least $h$ times.
+
+We define the left boundary of binary search $l=0$ and the right boundary $r=n$. Each time we take $mid = \lfloor \frac{l + r + 1}{2} \rfloor$, where $\lfloor x \rfloor$ represents floor $x$. Then we count the number of elements in array `citations` that are greater than or equal to $mid$, and denote it as $s$. If $s \geq mid$, it means that at least $mid$ papers are cited at least $mid$ times. In this case, we change the left boundary $l$ to $mid$. Otherwise, we change the right boundary $r$ to $mid-1$. When the left boundary $l$ is equal to the right boundary $r$, we find the largest $h$ value, which is $l$ or $r$.
+
+Time complexity $O(n \times \log n)$, where $n$ is the length of array `citations`. Space complexity $O(1)$.
 
 <!-- tabs:start -->
 
@@ -45,19 +65,38 @@ The simplest solution is to judge after sort, but because `H` cannot be greater 
 ```python
 class Solution:
     def hIndex(self, citations: List[int]) -> int:
+        citations.sort(reverse=True)
+        for h in range(len(citations), 0, -1):
+            if citations[h - 1] >= h:
+                return h
+        return 0
+```
+
+```python
+class Solution:
+    def hIndex(self, citations: List[int]) -> int:
         n = len(citations)
         cnt = [0] * (n + 1)
-        for c in citations:
-            if c <= n:
-                cnt[c] += 1
+        for x in citations:
+            cnt[min(x, n)] += 1
+        s = 0
+        for h in range(n, -1, -1):
+            s += cnt[h]
+            if s >= h:
+                return h
+```
+
+```python
+class Solution:
+    def hIndex(self, citations: List[int]) -> int:
+        l, r = 0, len(citations)
+        while l < r:
+            mid = (l + r + 1) >> 1
+            if sum(x >= mid for x in citations) >= mid:
+                l = mid
             else:
-                cnt[n] += 1
-        sum = 0
-        for i in range(n, -1, -1):
-            sum += cnt[i]
-            if sum >= i:
-                return i
-        return 0
+                r = mid - 1
+        return l
 ```
 
 ### **Java**
@@ -65,20 +104,11 @@ class Solution:
 ```java
 class Solution {
     public int hIndex(int[] citations) {
+        Arrays.sort(citations);
         int n = citations.length;
-        int[] cnt = new int[n + 1];
-        for (int c : citations) {
-            if (c <= n) {
-                ++cnt[c];
-            } else {
-                ++cnt[n];
-            }
-        }
-        int sum = 0;
-        for (int i = n; i >= 0; --i) {
-            sum += cnt[i];
-            if (sum >= i) {
-                return i;
+        for (int h = n; h > 0; --h) {
+            if (citations[n - h] >= h) {
+                return h;
             }
         }
         return 0;
@@ -86,60 +116,216 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int hIndex(int[] citations) {
+        int n = citations.length;
+        int[] cnt = new int[n + 1];
+        for (int x : citations) {
+            ++cnt[Math.min(x, n)];
+        }
+        for (int h = n, s = 0; ; --h) {
+            s += cnt[h];
+            if (s >= h) {
+                return h;
+            }
+        }
+    }
+}
+```
+
+```java
+class Solution {
+    public int hIndex(int[] citations) {
+        int l = 0, r = citations.length;
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            int s = 0;
+            for (int x : citations) {
+                if (x >= mid) {
+                    ++s;
+                }
+            }
+            if (s >= mid) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return l;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int hIndex(vector<int>& citations) {
+        sort(citations.rbegin(), citations.rend());
+        for (int h = citations.size(); h; --h) {
+            if (citations[h - 1] >= h) {
+                return h;
+            }
+        }
+        return 0;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int hIndex(vector<int>& citations) {
+        int n = citations.size();
+        int cnt[n + 1];
+        memset(cnt, 0, sizeof(cnt));
+        for (int x : citations) {
+            ++cnt[min(x, n)];
+        }
+        for (int h = n, s = 0;; --h) {
+            s += cnt[h];
+            if (s >= h) {
+                return h;
+            }
+        }
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int hIndex(vector<int>& citations) {
+        int l = 0, r = citations.size();
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            int s = 0;
+            for (int x : citations) {
+                if (x >= mid) {
+                    ++s;
+                }
+            }
+            if (s >= mid) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return l;
+    }
+};
+```
+
+### **Go**
+
+```go
+func hIndex(citations []int) int {
+	sort.Ints(citations)
+	n := len(citations)
+	for h := n; h > 0; h-- {
+		if citations[n-h] >= h {
+			return h
+		}
+	}
+	return 0
+}
+```
+
+```go
+func hIndex(citations []int) int {
+	n := len(citations)
+	cnt := make([]int, n+1)
+	for _, x := range citations {
+		cnt[min(x, n)]++
+	}
+	for h, s := n, 0; ; h-- {
+		s += cnt[h]
+		if s >= h {
+			return h
+		}
+	}
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func hIndex(citations []int) int {
+	l, r := 0, len(citations)
+	for l < r {
+		mid := (l + r + 1) >> 1
+		s := 0
+		for _, x := range citations {
+			if x >= mid {
+				s++
+			}
+		}
+		if s >= mid {
+			l = mid
+		} else {
+			r = mid - 1
+		}
+	}
+	return l
+}
+```
+
 ### **TypeScript**
 
 ```ts
 function hIndex(citations: number[]): number {
-    let n = citations.length;
-    let cnt = new Array(n + 1).fill(0);
-    for (let c of citations) {
-        if (c <= n) {
-            ++cnt[c];
-        } else {
-            ++cnt[n];
-        }
-    }
-    let sum = 0;
-    for (let i = n; i > -1; --i) {
-        sum += cnt[i];
-        if (sum >= i) {
-            return i;
+    citations.sort((a, b) => b - a);
+    for (let h = citations.length; h; --h) {
+        if (citations[h - 1] >= h) {
+            return h;
         }
     }
     return 0;
 }
 ```
 
-### **Go**
-
-Use binary search to locate the maximum value that meets the conditions
-
-```go
-func hIndex(citations []int) int {
-	n := len(citations)
-	left, right := 0, n
-	for left+1 < right {
-		mid := int(uint(left+right) >> 1)
-		if check(citations, mid) {
-			left = mid
-		} else {
-			right = mid
-		}
-	}
-	if check(citations, right) {
-		return right
-	}
-	return left
+```ts
+function hIndex(citations: number[]): number {
+    const n: number = citations.length;
+    const cnt: number[] = new Array(n + 1).fill(0);
+    for (const x of citations) {
+        ++cnt[Math.min(x, n)];
+    }
+    for (let h = n, s = 0; ; --h) {
+        s += cnt[h];
+        if (s >= h) {
+            return h;
+        }
+    }
 }
+```
 
-func check(citations []int, mid int) bool {
-	cnt := 0
-	for _, citation := range citations {
-		if citation >= mid {
-			cnt++
-		}
-	}
-	return cnt >= mid
+```ts
+function hIndex(citations: number[]): number {
+    let l = 0;
+    let r = citations.length;
+    while (l < r) {
+        const mid = (l + r + 1) >> 1;
+        let s = 0;
+        for (const x of citations) {
+            if (x >= mid) {
+                ++s;
+            }
+        }
+        if (s >= mid) {
+            l = mid;
+        } else {
+            r = mid - 1;
+        }
+    }
+    return l;
 }
 ```
 

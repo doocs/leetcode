@@ -1,26 +1,20 @@
 func hIndex(citations []int) int {
 	n := len(citations)
-	left, right := 0, n
-	for left+1 < right {
-		mid := int(uint(left+right) >> 1)
-		if check(citations, mid) {
-			left = mid
-		} else {
-			right = mid
+	cnt := make([]int, n+1)
+	for _, x := range citations {
+		cnt[min(x, n)]++
+	}
+	for h, s := n, 0; ; h-- {
+		s += cnt[h]
+		if s >= h {
+			return h
 		}
 	}
-	if check(citations, right) {
-		return right
-	}
-	return left
 }
 
-func check(citations []int, mid int) bool {
-	cnt := 0
-	for _, citation := range citations {
-		if citation >= mid {
-			cnt++
-		}
+func min(a, b int) int {
+	if a < b {
+		return a
 	}
-	return cnt >= mid
+	return b
 }
