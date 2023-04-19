@@ -3,9 +3,9 @@ class Solution:
         n = len(nums)
         ans = [0] * n
         left = right = 1
-        for i, v in enumerate(nums):
+        for i, x in enumerate(nums):
             ans[i] = left
-            left *= v
+            left *= x
         for i in range(n - 1, -1, -1):
             ans[i] *= right
             right *= nums[i]

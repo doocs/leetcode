@@ -32,6 +32,18 @@
 
 ## Solutions
 
+**Approach 1: Two Passes**
+
+We define two variables $left$ and $right$, which represent the product of all elements to the left and right of the current element respectively. Initially, $left=1$, $right=1$. Define an answer array $ans$ of length $n$.
+
+We first traverse the array from left to right, for the $i$th element we update $ans[i]$ with $left$, then $left$ multiplied by $nums[i]$.
+
+Then, we traverse the array from right to left, for the $i$th element, we update $ans[i]$ to $ans[i] \times right$, then $right$ multiplied by $nums[i]$.
+
+After the traversal, the array `ans` is the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the array `nums`. Ignore the space consumption of the answer array, the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -42,9 +54,9 @@ class Solution:
         n = len(nums)
         ans = [0] * n
         left = right = 1
-        for i, v in enumerate(nums):
+        for i, x in enumerate(nums):
             ans[i] = left
-            left *= v
+            left *= x
         for i in range(n - 1, -1, -1):
             ans[i] *= right
             right *= nums[i]
@@ -83,7 +95,7 @@ public:
             ans[i] = left;
             left *= nums[i];
         }
-        for (int i = n - 1, right = 1; i >= 0; --i) {
+        for (int i = n - 1, right = 1; ~i; --i) {
             ans[i] *= right;
             right *= nums[i];
         }
@@ -99,9 +111,9 @@ func productExceptSelf(nums []int) []int {
 	n := len(nums)
 	ans := make([]int, n)
 	left, right := 1, 1
-	for i, v := range nums {
+	for i, x := range nums {
 		ans[i] = left
-		left *= v
+		left *= x
 	}
 	for i := n - 1; i >= 0; i-- {
 		ans[i] *= right
@@ -120,7 +132,7 @@ func productExceptSelf(nums []int) []int {
  */
 var productExceptSelf = function (nums) {
     const n = nums.length;
-    let ans = new Array(n);
+    const ans = new Array(n);
     for (let i = 0, left = 1; i < n; ++i) {
         ans[i] = left;
         left *= nums[i];
@@ -138,7 +150,7 @@ var productExceptSelf = function (nums) {
 ```ts
 function productExceptSelf(nums: number[]): number[] {
     const n = nums.length;
-    let ans = new Array(n);
+    const ans: number[] = new Array(n);
     for (let i = 0, left = 1; i < n; ++i) {
         ans[i] = left;
         left *= nums[i];
@@ -164,39 +176,37 @@ function productExceptSelf(nums: number[]): number[] {
 ```rust
 impl Solution {
     pub fn product_except_self(nums: Vec<i32>) -> Vec<i32> {
-        let mut dp_left = vec![1_i32; nums.len()];
-        let mut dp_right = vec![1_i32; nums.len()];
-        for i in 1..nums.len() {
-            dp_left[i] = dp_left[i - 1] * nums[i - 1];
+        let n = nums.len();
+        let mut ans = vec![1; n];
+        for i in 1..n {
+            ans[i] = ans[i - 1] * nums[i - 1];
         }
-        for i in (0..(nums.len() - 1)).rev() {
-            dp_right[i] = dp_right[i + 1] * nums[i + 1];
+        let mut r = 1;
+        for i in (0..n).rev() {
+            ans[i] *= r;
+            r *= nums[i];
         }
-        dp_left
-            .into_iter()
-            .enumerate()
-            .map(|(i, x)| x * dp_right[i])
-            .collect()
+        ans
     }
 }
 ```
 
-```rust
-impl Solution {
-    pub fn product_except_self(nums: Vec<i32>) -> Vec<i32> {
-        let n = nums.len();
-        let mut l = 1;
-        let mut r = 1;
-        let mut res = vec![0; n];
-        for i in 0..n {
-            res[i] = l;
-            l *= nums[i];
+### **C#**
+
+```cs
+public class Solution {
+    public int[] ProductExceptSelf(int[] nums) {
+        int n = nums.Length;
+        int[] ans = new int[n];
+        for (int i = 0, left = 1; i < n; ++i) {
+            ans[i] = left;
+            left *= nums[i];
         }
-        for i in (0..n).rev() {
-            res[i] *= r;
-            r *= nums[i];
+        for (int i = n - 1, right = 1; i >= 0; --i) {
+            ans[i] *= right;
+            right *= nums[i];
         }
-        res
+        return ans;
     }
 }
 ```

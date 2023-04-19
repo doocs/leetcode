@@ -7,7 +7,7 @@ public:
             ans[i] = left;
             left *= nums[i];
         }
-        for (int i = n - 1, right = 1; i >= 0; --i) {
+        for (int i = n - 1, right = 1; ~i; --i) {
             ans[i] *= right;
             right *= nums[i];
         }

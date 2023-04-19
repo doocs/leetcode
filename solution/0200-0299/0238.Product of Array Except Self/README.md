@@ -48,13 +48,15 @@
 
 **方法一：两次遍历**
 
-我们定义两个变量 `left` 和 `right`，分别表示当前元素左边所有元素的乘积和右边所有元素的乘积。对于数组中的第一个元素，左边没有元素，所以 `left = 1`；对于数组中的最后一个元素，右边没有元素，所以 `right = 1`。用一个长度为 $n$ 的数组 `ans` 来存储最终的答案。
+我们定义两个变量 $left$ 和 $right$，分别表示当前元素左边所有元素的乘积和右边所有元素的乘积。初始时 $left=1$, $right=1$。定义一个长度为 $n$ 的答案数组 $ans$。
 
-我们先从左到右遍历数组，对于遍历到的第 $i$ 个元素，我们用 `left` 更新 `ans[i]` 的值，然后 `left` 乘以 `nums[i]`。
+我们先从左到右遍历数组，对于遍历到的第 $i$ 个元素，我们用 $left$ 更新 $ans[i]$，然后 $left$ 乘以 $nums[i]$。
 
-接下来，我们从右到左遍历数组，对于遍历到的第 $i$ 个元素，我们将 `ans[i]` 乘以 `right`，然后 `right` 乘以 `nums[i]`。
+然后，我们从右到左遍历数组，对于遍历到的第 $i$ 个元素，我们更新 $ans[i]$ 为 $ans[i] \times right$，然后 $right$ 乘以 $nums[i]$。
 
-时间复杂度 $O(n)$，忽略答案的空间消耗，空间复杂度 $O(1)$。其中 $n$ 是数组的长度。
+遍历结束后，数组 `ans` 即为所求的答案。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 `nums` 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -68,9 +70,9 @@ class Solution:
         n = len(nums)
         ans = [0] * n
         left = right = 1
-        for i, v in enumerate(nums):
+        for i, x in enumerate(nums):
             ans[i] = left
-            left *= v
+            left *= x
         for i in range(n - 1, -1, -1):
             ans[i] *= right
             right *= nums[i]
@@ -111,7 +113,7 @@ public:
             ans[i] = left;
             left *= nums[i];
         }
-        for (int i = n - 1, right = 1; i >= 0; --i) {
+        for (int i = n - 1, right = 1; ~i; --i) {
             ans[i] *= right;
             right *= nums[i];
         }
@@ -127,9 +129,9 @@ func productExceptSelf(nums []int) []int {
 	n := len(nums)
 	ans := make([]int, n)
 	left, right := 1, 1
-	for i, v := range nums {
+	for i, x := range nums {
 		ans[i] = left
-		left *= v
+		left *= x
 	}
 	for i := n - 1; i >= 0; i-- {
 		ans[i] *= right
@@ -148,7 +150,7 @@ func productExceptSelf(nums []int) []int {
  */
 var productExceptSelf = function (nums) {
     const n = nums.length;
-    let ans = new Array(n);
+    const ans = new Array(n);
     for (let i = 0, left = 1; i < n; ++i) {
         ans[i] = left;
         left *= nums[i];
@@ -166,7 +168,7 @@ var productExceptSelf = function (nums) {
 ```ts
 function productExceptSelf(nums: number[]): number[] {
     const n = nums.length;
-    let ans = new Array(n);
+    const ans: number[] = new Array(n);
     for (let i = 0, left = 1; i < n; ++i) {
         ans[i] = left;
         left *= nums[i];
@@ -192,39 +194,37 @@ function productExceptSelf(nums: number[]): number[] {
 ```rust
 impl Solution {
     pub fn product_except_self(nums: Vec<i32>) -> Vec<i32> {
-        let mut dp_left = vec![1_i32; nums.len()];
-        let mut dp_right = vec![1_i32; nums.len()];
-        for i in 1..nums.len() {
-            dp_left[i] = dp_left[i - 1] * nums[i - 1];
+        let n = nums.len();
+        let mut ans = vec![1; n];
+        for i in 1..n {
+            ans[i] = ans[i - 1] * nums[i - 1];
         }
-        for i in (0..(nums.len() - 1)).rev() {
-            dp_right[i] = dp_right[i + 1] * nums[i + 1];
+        let mut r = 1;
+        for i in (0..n).rev() {
+            ans[i] *= r;
+            r *= nums[i];
         }
-        dp_left
-            .into_iter()
-            .enumerate()
-            .map(|(i, x)| x * dp_right[i])
-            .collect()
+        ans
     }
 }
 ```
 
-```rust
-impl Solution {
-    pub fn product_except_self(nums: Vec<i32>) -> Vec<i32> {
-        let n = nums.len();
-        let mut l = 1;
-        let mut r = 1;
-        let mut res = vec![0; n];
-        for i in 0..n {
-            res[i] = l;
-            l *= nums[i];
+### **C#**
+
+```cs
+public class Solution {
+    public int[] ProductExceptSelf(int[] nums) {
+        int n = nums.Length;
+        int[] ans = new int[n];
+        for (int i = 0, left = 1; i < n; ++i) {
+            ans[i] = left;
+            left *= nums[i];
         }
-        for i in (0..n).rev() {
-            res[i] *= r;
-            r *= nums[i];
+        for (int i = n - 1, right = 1; i >= 0; --i) {
+            ans[i] *= right;
+            right *= nums[i];
         }
-        res
+        return ans;
     }
 }
 ```
