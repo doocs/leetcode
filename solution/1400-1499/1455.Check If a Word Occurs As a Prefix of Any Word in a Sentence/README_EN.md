@@ -140,7 +140,7 @@ impl Solution {
 
 ### **PHP**
 
-```php []
+```php
 class Solution {
     /**
      * @param String $sentence
