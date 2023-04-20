@@ -1,13 +1,13 @@
 func checkAlmostEquivalent(word1 string, word2 string) bool {
-	counter := make([]int, 26)
-	for i := range word1 {
-		counter[word1[i]-'a']++
+	cnt := [26]int{}
+	for _, c := range word1 {
+		cnt[c-'a']++
 	}
-	for i := range word2 {
-		counter[word2[i]-'a']--
+	for _, c := range word2 {
+		cnt[c-'a']--
 	}
-	for _, v := range counter {
-		if v > 3 || -v > 3 {
+	for _, x := range cnt {
+		if x > 3 || x < -3 {
 			return false
 		}
 	}
