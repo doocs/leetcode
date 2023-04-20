@@ -50,6 +50,18 @@
 
 ## Solutions
 
+**Approach 1: Use Language Built-in Functions**
+
+We split the string into a list of strings by spaces, then reverse the list, and finally join the list into a string separated by spaces.
+
+Time complexity $O(n)$, space complexity $O(n)$, where $n$ is the length of the string.
+
+**Approach 2: Two Pointers**
+
+We can use two pointers $i$ and $j$, each time we find a word, add it to the result list, then reverse the result list, and finally join the list into a string.
+
+Time complexity $O(n)$, space complexity $O(n)$, where $n$ is the length of the string.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -57,8 +69,24 @@
 ```python
 class Solution:
     def reverseWords(self, s: str) -> str:
-        words = s.strip().split()
-        return ' '.join(words[::-1])
+        return ' '.join(reversed(s.split()))
+```
+
+```python
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        ans = []
+        i, n = 0, len(s)
+        while i < n:
+            while i < n and s[i] == ' ':
+                i += 1
+            if i < n:
+                j = i
+                while j < n and s[j] != ' ':
+                    j += 1
+                ans.append(s[i: j])
+                i = j
+        return ' '.join(ans[::-1])
 ```
 
 ### **Java**
@@ -70,6 +98,78 @@ class Solution {
         Collections.reverse(words);
         return String.join(" ", words);
     }
+}
+```
+
+```java
+class Solution {
+    public String reverseWords(String s) {
+        List<String> words = new ArrayList<>();
+        int n = s.length();
+        for (int i = 0; i < n;) {
+            while (i < n && s.charAt(i) == ' ') {
+                ++i;
+            }
+            if (i < n) {
+                StringBuilder t = new StringBuilder();
+                int j = i;
+                while (j < n && s.charAt(j) != ' ') {
+                    t.append(s.charAt(j++));
+                }
+                words.add(t.toString());
+                i = j;
+            }
+        }
+        Collections.reverse(words);
+        return String.join(" ", words);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string reverseWords(string s) {
+        int i = 0;
+        int j = 0;
+        int n = s.size();
+        while (i < n) {
+            while (i < n && s[i] == ' ') {
+                ++i;
+            }
+            if (i < n) {
+                if (j != 0) {
+                    s[j++] = ' ';
+                }
+                int k = i;
+                while (k < n && s[k] != ' ') {
+                    s[j++] = s[k++];
+                }
+                reverse(s.begin() + j - (k - i), s.begin() + j);
+                i = k;
+            }
+        }
+        s.erase(s.begin() + j, s.end());
+        reverse(s.begin(), s.end());
+        return s;
+    }
+};
+```
+
+### **Go**
+
+```go
+func reverseWords(s string) string {
+	words := strings.Split(s, " ")
+	var ans []string
+	for i := len(words) - 1; i >= 0; i-- {
+		if words[i] != "" {
+			ans = append(ans, words[i])
+		}
+	}
+	return strings.Join(ans, " ")
 }
 ```
 
