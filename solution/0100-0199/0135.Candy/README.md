@@ -51,15 +51,13 @@
 
 **方法一：两次遍历**
 
-两次遍历数组。
+我们初始化两个数组 $left$ 和 $right$，其中 $left[i]$ 表示当前孩子比左边孩子评分高时，当前孩子至少应该获得的糖果数，而 $right[i]$ 表示当前孩子比右边孩子评分高时，当前孩子至少应该获得的糖果数。初始时 $left[i]=1$, $right[i]=1$。
 
-第一次从左到右遍历，如果当前孩子的评分比左边孩子高，则当前孩子的糖果数比左边孩子的糖果数多 1，即 $left[i]=left[i-1]+1$，否则 $left[i]=1$；
+我们从左到右遍历一遍，如果当前孩子比左边孩子评分高，则 $left[i]=left[i-1]+1$；同理，我们从右到左遍历一遍，如果当前孩子比右边孩子评分高，则 $right[i]=right[i+1]+1$。
 
-第二次从右到左遍历，如果当前孩子的评分比右边孩子高，则当前孩子的糖果数比右边孩子的糖果数多 1，即 $right[i]=right[i+1]+1$，否则 $right[i]=1$。
+最后，我们遍历一遍评分数组，每个孩子至少应该获得的糖果数为 $left[i]$ 和 $right[i]$ 中的最大值，将它们累加起来即为答案。
 
-最后，每个孩子的糖果数为 $left[i]$ 和 $right[i]$ 的最大值，即 $max(left[i],right[i])$。累加每个孩子的糖果数，即为最少糖果数。
-
-时间复杂度为 $O(n)$，空间复杂度为 $O(n)$。其中 $n$ 为数组 `ratings` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是评分数组的长度。
 
 <!-- tabs:start -->
 
@@ -209,19 +207,25 @@ function candy(ratings: number[]): number {
 public class Solution {
     public int Candy(int[] ratings) {
         int n = ratings.Length;
-        int[] candies = new int[n];
-        Array.Fill(candies, 1);
+        int[] left = new int[n];
+        int[] right = new int[n];
+        Array.Fill(left, 1);
+        Array.Fill(right, 1);
         for (int i = 1; i < n; ++i) {
             if (ratings[i] > ratings[i - 1]) {
-                candies[i] = candies[i - 1] + 1;
+                left[i] = left[i - 1] + 1;
             }
         }
         for (int i = n - 2; i >= 0; --i) {
             if (ratings[i] > ratings[i + 1]) {
-                candies[i] = Math.Max(candies[i], candies[i + 1] + 1);
+                right[i] = right[i + 1] + 1;
             }
         }
-        return candies.Sum();
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans += Math.Max(left[i], right[i]);
+        }
+        return ans;
     }
 }
 ```

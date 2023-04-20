@@ -44,6 +44,16 @@ The third child gets 1 candy because it satisfies the above two conditions.
 
 ## Solutions
 
+**Approach 1: Two traversals**
+
+We initialize two arrays $left$ and $right$, where $left[i]$ represents the minimum number of candies the current child should get when the current child's score is higher than the left child's score, and $right[i]$ represents the minimum number of candies the current child should get when the current child's score is higher than the right child's score. Initially, $left[i]=1$, $right[i]=1$.
+
+We traverse the array from left to right once, and if the current child's score is higher than the left child's score, then $left[i]=left[i-1]+1$; similarly, we traverse the array from right to left once, and if the current child's score is higher than the right child's score, then $right[i]=right[i+1]+1$.
+
+Finally, we traverse the array of scores once, and the minimum number of candies each child should get is the maximum of $left[i]$ and $right[i]$, and we add them up to get the answer.
+
+Time complexity $O(n)$, space complexity $O(n)$. Where $n$ is the length of the array of scores.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -188,19 +198,25 @@ function candy(ratings: number[]): number {
 public class Solution {
     public int Candy(int[] ratings) {
         int n = ratings.Length;
-        int[] candies = new int[n];
-        Array.Fill(candies, 1);
+        int[] left = new int[n];
+        int[] right = new int[n];
+        Array.Fill(left, 1);
+        Array.Fill(right, 1);
         for (int i = 1; i < n; ++i) {
             if (ratings[i] > ratings[i - 1]) {
-                candies[i] = candies[i - 1] + 1;
+                left[i] = left[i - 1] + 1;
             }
         }
         for (int i = n - 2; i >= 0; --i) {
             if (ratings[i] > ratings[i + 1]) {
-                candies[i] = Math.Max(candies[i], candies[i + 1] + 1);
+                right[i] = right[i + 1] + 1;
             }
         }
-        return candies.Sum();
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans += Math.Max(left[i], right[i]);
+        }
+        return ans;
     }
 }
 ```
