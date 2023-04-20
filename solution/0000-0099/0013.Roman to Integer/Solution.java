@@ -6,16 +6,12 @@ class Solution {
         for (int i = 0; i < vs.length; ++i) {
             d.put(cs.charAt(i), vs[i]);
         }
-        int ans = 0;
         int n = s.length();
+        int ans = d.get(s.charAt(n - 1));
         for (int i = 0; i < n - 1; ++i) {
-            if (d.get(s.charAt(i)) < d.get(s.charAt(i + 1))) {
-                ans -= d.get(s.charAt(i));
-            } else {
-                ans += d.get(s.charAt(i));
-            }
+            int sign = d.get(s.charAt(i)) < d.get(s.charAt(i + 1)) ? -1 : 1;
+            ans += sign * d.get(s.charAt(i));
         }
-        ans += d.get(s.charAt(n - 1));
         return ans;
     }
 }

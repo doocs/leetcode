@@ -8,13 +8,10 @@ const romanToInt = function (s) {
         D: 500,
         M: 1000,
     };
-    let ans = 0;
-    for (let i = 0; i < s.length; ++i) {
-        if (d[s[i]] < d[s[i + 1]]) {
-            ans -= d[s[i]];
-        } else {
-            ans += d[s[i]];
-        }
+    let ans = d[s[s.length - 1]];
+    for (let i = 0; i < s.length - 1; ++i) {
+        const sign = d[s[i]] < d[s[i + 1]] ? -1 : 1;
+        ans += sign * d[s[i]];
     }
     return ans;
 };

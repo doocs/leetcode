@@ -97,15 +97,8 @@ M             1000</pre>
 ```python
 class Solution:
     def romanToInt(self, s: str) -> int:
-        ans = 0
         d = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
-        for a, b in pairwise(s):
-            if d[a] < d[b]:
-                ans -= d[a]
-            else:
-                ans += d[a]
-        ans += d[s[-1]]
-        return ans
+        return sum((-1 if d[a] < d[b] else 1) * d[a] for a, b in pairwise(s)) + d[s[-1]]
 ```
 
 ### **Java**
@@ -121,16 +114,12 @@ class Solution {
         for (int i = 0; i < vs.length; ++i) {
             d.put(cs.charAt(i), vs[i]);
         }
-        int ans = 0;
         int n = s.length();
+        int ans = d.get(s.charAt(n - 1));
         for (int i = 0; i < n - 1; ++i) {
-            if (d.get(s.charAt(i)) < d.get(s.charAt(i + 1))) {
-                ans -= d.get(s.charAt(i));
-            } else {
-                ans += d.get(s.charAt(i));
-            }
+            int sign = d.get(s.charAt(i)) < d.get(s.charAt(i + 1)) ? -1 : 1;
+            ans += sign * d.get(s.charAt(i));
         }
-        ans += d.get(s.charAt(n - 1));
         return ans;
     }
 }
@@ -151,15 +140,12 @@ public:
             {'D', 500},
             {'M', 1000},
         };
-        int ans = 0;
+        int ans = nums[s.back()];
         for (int i = 0; i < s.size() - 1; ++i) {
-            if (nums[s[i]] < nums[s[i + 1]]) {
-                ans -= nums[s[i]];
-            } else {
-                ans += nums[s[i]];
-            }
+            int sign = nums[s[i]] < nums[s[i + 1]] ? -1 : 1;
+            ans += sign * nums[s[i]];
         }
-        return ans + nums[s.back()];
+        return ans;
     }
 };
 ```
@@ -181,6 +167,28 @@ func romanToInt(s string) (ans int) {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function romanToInt(s: string): number {
+    const d: Map<string, number> = new Map([
+        ['I', 1],
+        ['V', 5],
+        ['X', 10],
+        ['L', 50],
+        ['C', 100],
+        ['D', 500],
+        ['M', 1000],
+    ]);
+    let ans: number = d.get(s[s.length - 1])!;
+    for (let i = 0; i < s.length - 1; ++i) {
+        const sign = d.get(s[i])! < d.get(s[i + 1])! ? -1 : 1;
+        ans += sign * d.get(s[i])!;
+    }
+    return ans;
+}
+```
+
 ### **JavaScript**
 
 ```js
@@ -194,16 +202,36 @@ const romanToInt = function (s) {
         D: 500,
         M: 1000,
     };
-    let ans = 0;
-    for (let i = 0; i < s.length; ++i) {
-        if (d[s[i]] < d[s[i + 1]]) {
-            ans -= d[s[i]];
-        } else {
-            ans += d[s[i]];
-        }
+    let ans = d[s[s.length - 1]];
+    for (let i = 0; i < s.length - 1; ++i) {
+        const sign = d[s[i]] < d[s[i + 1]] ? -1 : 1;
+        ans += sign * d[s[i]];
     }
     return ans;
 };
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int RomanToInt(string s) {
+        Dictionary<char, int> d = new Dictionary<char, int>();
+        d.Add('I', 1);
+        d.Add('V', 5);
+        d.Add('X', 10);
+        d.Add('L', 50);
+        d.Add('C', 100);
+        d.Add('D', 500);
+        d.Add('M', 1000);
+        int ans = d[s[s.Length - 1]];
+        for (int i = 0; i < s.Length - 1; ++i) {
+            int sign = d[s[i]] < d[s[i + 1]] ? -1 : 1;
+            ans += sign * d[s[i]];
+        }
+        return ans;
+    }
+}
 ```
 
 ### **PHP**
