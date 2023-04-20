@@ -82,6 +82,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+根据题意模拟即可，注意，如果是最后一行，或者这一行只有一个单词，那么要左对齐，否则要均匀分配空格。
+
+时间复杂度 $O(L)$，空间复杂度 $O(L)$。其中 $L$ 为所有单词的长度之和。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -91,18 +97,6 @@
 ```python
 class Solution:
     def fullJustify(self, words: List[str], maxWidth: int) -> List[str]:
-        def partition(n, cnt):
-            res = []
-            base, mod = divmod(n, cnt)
-            i = j = 0
-            while i < cnt:
-                t = [' ' * base]
-                if j < mod:
-                    t.append(' ')
-                res.append(''.join(t))
-                i, j = i + 1, j + 1
-            return res
-
         ans = []
         i, n = 0, len(words)
         while i < n:
@@ -115,21 +109,18 @@ class Solution:
                 t.append(words[i])
                 i += 1
             if i == n or len(t) == 1:
-                # this is the last line or only one word in a line
                 left = ' '.join(t)
                 right = ' ' * (maxWidth - len(left))
                 ans.append(left + right)
-                if i == n:
-                    break
                 continue
-            words_width = cnt - len(t) + 1
-            space_width = maxWidth - words_width
-            spaces = partition(space_width, len(t) - 1)
-            sb = [t[0]]
-            for j in range(len(t) - 1):
-                sb.append(spaces[j])
-                sb.append(t[j + 1])
-            ans.append(''.join(sb))
+            space_width = maxWidth - (cnt - len(t) + 1)
+            w, m = divmod(space_width, len(t) - 1)
+            row = []
+            for j, s in enumerate(t[:-1]):
+                row.append(s)
+                row.append(' ' * (w + (1 if j < m else 0)))
+            row.append(t[-1])
+            ans.append(''.join(row))
         return ans
 ```
 
@@ -141,49 +132,31 @@ class Solution:
 class Solution {
     public List<String> fullJustify(String[] words, int maxWidth) {
         List<String> ans = new ArrayList<>();
-        int n = words.length;
-        for (int i = 0; i < n;) {
+        for (int i = 0, n = words.length; i < n;) {
             List<String> t = new ArrayList<>();
+            t.add(words[i]);
             int cnt = words[i].length();
-            t.add(words[i++]);
+            ++i;
             while (i < n && cnt + 1 + words[i].length() <= maxWidth) {
                 cnt += 1 + words[i].length();
                 t.add(words[i++]);
             }
             if (i == n || t.size() == 1) {
-                // this is the last line or only one word in a line
                 String left = String.join(" ", t);
                 String right = " ".repeat(maxWidth - left.length());
                 ans.add(left + right);
-                if (i == n) {
-                    break;
-                }
                 continue;
             }
-
-            int wordsWidth = cnt - t.size() + 1;
-            int spaceWidth = maxWidth - wordsWidth;
-            List<String> spaces = partition(spaceWidth, t.size() - 1);
-            StringBuilder sb = new StringBuilder(t.get(0));
+            int spaceWidth = maxWidth - (cnt - t.size() + 1);
+            int w = spaceWidth / (t.size() - 1);
+            int m = spaceWidth % (t.size() - 1);
+            StringBuilder row = new StringBuilder();
             for (int j = 0; j < t.size() - 1; ++j) {
-                sb.append(spaces.get(j));
-                sb.append(t.get(j + 1));
+                row.append(t.get(j));
+                row.append(" ".repeat(w + (j < m ? 1 : 0)));
             }
-            ans.add(sb.toString());
-        }
-        return ans;
-    }
-
-    private List<String> partition(int n, int cnt) {
-        List<String> ans = new ArrayList<>();
-        int base = n / cnt;
-        int mod = n % cnt;
-        for (int i = 0, j = 0; i < cnt; ++i, ++j) {
-            StringBuilder sb = new StringBuilder(" ".repeat(base));
-            if (j < mod) {
-                sb.append(' ');
-            }
-            ans.add(sb.toString());
+            row.append(t.get(t.size() - 1));
+            ans.add(row.toString());
         }
         return ans;
     }
@@ -196,36 +169,35 @@ class Solution {
 class Solution {
 public:
     vector<string> fullJustify(vector<string>& words, int maxWidth) {
-        int n = words.size();
-        vector<string> result;
-        for (int i = 0; i < n; i++) {
-            int begin = i;
-            int wordLen = words[i].size();
-            while (i + 1 < n && words[i + 1].size() + wordLen + 1 <= maxWidth) {
-                wordLen += words[++i].size() + 1;
+        vector<string> ans;
+        for (int i = 0, n = words.size(); i < n;) {
+            vector<string> t = {words[i]};
+            int cnt = words[i].size();
+            ++i;
+            while (i < n && cnt + 1 + words[i].size() <= maxWidth) {
+                cnt += 1 + words[i].size();
+                t.emplace_back(words[i++]);
             }
-            int numberofWords = i - begin + 1;
-            int space = 1;
-            int extraSpace = 0;
-            if (numberofWords > 1 && i < n - 1) {
-                int remaining = maxWidth - wordLen;
-                space = remaining / (numberofWords - 1) + 1;
-                extraSpace = remaining % (numberofWords - 1);
-            }
-            string line = words[begin];
-            for (int j = 1; j < numberofWords; j++) {
-                line.append(space, ' ');
-                if (j <= extraSpace) {
-                    line.push_back(' ');
+            if (i == n || t.size() == 1) {
+                string left = t[0];
+                for (int j = 1; j < t.size(); ++j) {
+                    left += " " + t[j];
                 }
-                line += words[begin + j];
+                string right = string(maxWidth - left.size(), ' ');
+                ans.emplace_back(left + right);
+                continue;
             }
-            if (line.size() < maxWidth) {
-                line.append(maxWidth - line.size(), ' ');
+            int spaceWidth = maxWidth - (cnt - t.size() + 1);
+            int w = spaceWidth / (t.size() - 1);
+            int m = spaceWidth % (t.size() - 1);
+            string row;
+            for (int j = 0; j < t.size() - 1; ++j) {
+                row += t[j] + string(w + (j < m ? 1 : 0), ' ');
             }
-            result.emplace_back(line);
+            row += t.back();
+            ans.emplace_back(row);
         }
-        return result;
+        return ans;
     }
 };
 ```
@@ -233,21 +205,7 @@ public:
 ### **Go**
 
 ```go
-func fullJustify(words []string, maxWidth int) []string {
-	partition := func(n, cnt int) []string {
-		var res []string
-		base, mod := n/cnt, n%cnt
-		for i, j := 0, 0; i < cnt; i, j = i+1, j+1 {
-			t := strings.Repeat(" ", base)
-			if j < mod {
-				t += " "
-			}
-			res = append(res, t)
-		}
-		return res
-	}
-
-	var ans []string
+func fullJustify(words []string, maxWidth int) (ans []string) {
 	for i, n := 0, len(words); i < n; {
 		t := []string{words[i]}
 		cnt := len(words[i])
@@ -261,91 +219,93 @@ func fullJustify(words []string, maxWidth int) []string {
 			left := strings.Join(t, " ")
 			right := strings.Repeat(" ", maxWidth-len(left))
 			ans = append(ans, left+right)
-			if i == n {
-				break
-			}
 			continue
 		}
-		wordsWidth := cnt - len(t) + 1
-		spaceWidth := maxWidth - wordsWidth
-		spaces := partition(spaceWidth, len(t)-1)
-		sb := t[0]
-		for j := 0; j < len(t)-1; j++ {
-			sb += spaces[j] + t[j+1]
+		spaceWidth := maxWidth - (cnt - len(t) + 1)
+		w := spaceWidth / (len(t) - 1)
+		m := spaceWidth % (len(t) - 1)
+		row := strings.Builder{}
+		for j, s := range t[:len(t)-1] {
+			row.WriteString(s)
+			row.WriteString(strings.Repeat(" ", w))
+			if j < m {
+				row.WriteString(" ")
+			}
 		}
-		ans = append(ans, sb)
+		row.WriteString(t[len(t)-1])
+		ans = append(ans, row.String())
 	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function fullJustify(words: string[], maxWidth: number): string[] {
+    const ans: string[] = [];
+    for (let i = 0, n = words.length; i < n; ) {
+        const t: string[] = [words[i]];
+        let cnt = words[i++].length;
+        while (i < n && cnt + 1 + words[i].length <= maxWidth) {
+            t.push(words[i]);
+            cnt += 1 + words[i++].length;
+        }
+        if (i === n || t.length === 1) {
+            const left: string = t.join(' ');
+            const right: string = ' '.repeat(maxWidth - left.length);
+            ans.push(left + right);
+            continue;
+        }
+        const spaceWidth: number = maxWidth - (cnt - t.length + 1);
+        const w: number = Math.floor(spaceWidth / (t.length - 1));
+        const m: number = spaceWidth % (t.length - 1);
+        const row: string[] = [];
+        for (let j = 0; j < t.length - 1; ++j) {
+            row.push(t[j]);
+            row.push(' '.repeat(w + (j < m ? 1 : 0)));
+        }
+        row.push(t[t.length - 1]);
+        ans.push(row.join(''));
+    }
+    return ans;
 }
 ```
 
 ### **C#**
 
 ```cs
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 public class Solution {
     public IList<string> FullJustify(string[] words, int maxWidth) {
-        var result = new List<string>();
-        var buffer = new List<string>();
-        var sb = new StringBuilder();
-        var len = 0;
-
-        for (var i = 0; i < words.Length; ++i)
-        {
-            var newLen = words[i].Length + (len == 0 ? 0 : len + 1);
-            if (newLen <= maxWidth)
-            {
-                buffer.Add(words[i]);
-                len = newLen;
+        var ans = new List<string>();
+        for (int i = 0, n = words.Length; i < n;) {
+            var t = new List<string>();
+            t.Add(words[i]);
+            int cnt = words[i].Length;
+            ++i;
+            while (i < n && cnt + 1 + words[i].Length <= maxWidth) {
+                t.Add(words[i]);
+                cnt += 1 + words[i].Length;
+                ++i;
             }
-            else
-            {
-                if (buffer.Count == 1)
-                {
-                    sb.Append(buffer[0]);
-                    sb.Append(' ', maxWidth - buffer[0].Length);
-                }
-                else
-                {
-                    var spaceCount = maxWidth - len + buffer.Count - 1;
-                    for (var j = 0; j < buffer.Count - 1; ++j)
-                    {
-                        sb.Append(buffer[j]);
-                        var spaceToAdd = (spaceCount - 1) / (buffer.Count - j - 1) + 1;
-                        sb.Append(' ', spaceToAdd);
-                        spaceCount -= spaceToAdd;
-                    }
-                    sb.Append(buffer.Last());
-                }
-                result.Add(sb.ToString());
-                buffer.Clear();
-                buffer.Add(words[i]);
-                sb.Clear();
-                len = words[i].Length;
+            if (i == n || t.Count == 1) {
+                string left = string.Join(" ", t);
+                string right = new string(' ', maxWidth - left.Length);
+                ans.Add(left + right);
+                continue;
             }
+            int spaceWidth = maxWidth - (cnt - t.Count + 1);
+            int w = spaceWidth / (t.Count - 1);
+            int m = spaceWidth % (t.Count - 1);
+            var row = new StringBuilder();
+            for (int j = 0; j < t.Count - 1; ++j) {
+                row.Append(t[j]);
+                row.Append(new string(' ', w + (j < m ? 1 : 0)));
+            }
+            row.Append(t[t.Count - 1]);
+            ans.Add(row.ToString());
         }
-
-        if (buffer.Count > 0)
-        {
-            for (var j = 0; j < buffer.Count; ++j)
-            {
-                if (sb.Length > 0)
-                {
-                    sb.Append(' ');
-                }
-                sb.Append(buffer[j]);
-            }
-            if (sb.Length < maxWidth)
-            {
-                sb.Append(' ', maxWidth - sb.Length);
-            }
-            result.Add(sb.ToString());
-        }
-
-        return result;
+        return ans;
     }
 }
 ```

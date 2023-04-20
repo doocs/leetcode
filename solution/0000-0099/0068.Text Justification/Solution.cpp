@@ -1,35 +1,34 @@
 class Solution {
 public:
     vector<string> fullJustify(vector<string>& words, int maxWidth) {
-        int n = words.size();
-        vector<string> result;
-        for (int i = 0; i < n; i++) {
-            int begin = i;
-            int wordLen = words[i].size();
-            while (i + 1 < n && words[i + 1].size() + wordLen + 1 <= maxWidth) {
-                wordLen += words[++i].size() + 1;
+        vector<string> ans;
+        for (int i = 0, n = words.size(); i < n;) {
+            vector<string> t = {words[i]};
+            int cnt = words[i].size();
+            ++i;
+            while (i < n && cnt + 1 + words[i].size() <= maxWidth) {
+                cnt += 1 + words[i].size();
+                t.emplace_back(words[i++]);
             }
-            int numberofWords = i - begin + 1;
-            int space = 1;
-            int extraSpace = 0;
-            if (numberofWords > 1 && i < n - 1) {
-                int remaining = maxWidth - wordLen;
-                space = remaining / (numberofWords - 1) + 1;
-                extraSpace = remaining % (numberofWords - 1);
-            }
-            string line = words[begin];
-            for (int j = 1; j < numberofWords; j++) {
-                line.append(space, ' ');
-                if (j <= extraSpace) {
-                    line.push_back(' ');
+            if (i == n || t.size() == 1) {
+                string left = t[0];
+                for (int j = 1; j < t.size(); ++j) {
+                    left += " " + t[j];
                 }
-                line += words[begin + j];
+                string right = string(maxWidth - left.size(), ' ');
+                ans.emplace_back(left + right);
+                continue;
             }
-            if (line.size() < maxWidth) {
-                line.append(maxWidth - line.size(), ' ');
+            int spaceWidth = maxWidth - (cnt - t.size() + 1);
+            int w = spaceWidth / (t.size() - 1);
+            int m = spaceWidth % (t.size() - 1);
+            string row;
+            for (int j = 0; j < t.size() - 1; ++j) {
+                row += t[j] + string(w + (j < m ? 1 : 0), ' ');
             }
-            result.emplace_back(line);
+            row += t.back();
+            ans.emplace_back(row);
         }
-        return result;
+        return ans;
     }
 };

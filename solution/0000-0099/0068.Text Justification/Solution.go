@@ -1,18 +1,4 @@
-func fullJustify(words []string, maxWidth int) []string {
-	partition := func(n, cnt int) []string {
-		var res []string
-		base, mod := n/cnt, n%cnt
-		for i, j := 0, 0; i < cnt; i, j = i+1, j+1 {
-			t := strings.Repeat(" ", base)
-			if j < mod {
-				t += " "
-			}
-			res = append(res, t)
-		}
-		return res
-	}
-
-	var ans []string
+func fullJustify(words []string, maxWidth int) (ans []string) {
 	for i, n := 0, len(words); i < n; {
 		t := []string{words[i]}
 		cnt := len(words[i])
@@ -26,19 +12,21 @@ func fullJustify(words []string, maxWidth int) []string {
 			left := strings.Join(t, " ")
 			right := strings.Repeat(" ", maxWidth-len(left))
 			ans = append(ans, left+right)
-			if i == n {
-				break
-			}
 			continue
 		}
-		wordsWidth := cnt - len(t) + 1
-		spaceWidth := maxWidth - wordsWidth
-		spaces := partition(spaceWidth, len(t)-1)
-		sb := t[0]
-		for j := 0; j < len(t)-1; j++ {
-			sb += spaces[j] + t[j+1]
+		spaceWidth := maxWidth - (cnt - len(t) + 1)
+		w := spaceWidth / (len(t) - 1)
+		m := spaceWidth % (len(t) - 1)
+		row := strings.Builder{}
+		for j, s := range t[:len(t)-1] {
+			row.WriteString(s)
+			row.WriteString(strings.Repeat(" ", w))
+			if j < m {
+				row.WriteString(" ")
+			}
 		}
-		ans = append(ans, sb)
+		row.WriteString(t[len(t)-1])
+		ans = append(ans, row.String())
 	}
-	return ans
+	return
 }
