@@ -33,6 +33,12 @@
 
 ## Solutions
 
+**Approach 1: Dynamic Programming**
+
+We define $left[i]$ as the height of the highest pillar to the left of and including the position with index $i$, and define $right[i]$ as the height of the highest pillar to the right of and including the position with index $i$. Then the amount of rain water that can be trapped at the position with index $i$ is $min(left[i], right[i]) - height[i]$. We traverse the array, calculate $left[i]$ and $right[i]$, and the answer is $\sum_{i=0}^{n-1} min(left[i], right[i]) - height[i]$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -144,6 +150,29 @@ function trap(height: number[]): number {
         ans += Math.min(left[i], right[i]) - height[i];
     }
     return ans;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int Trap(int[] height) {
+        int n = height.Length;
+        int[] left = new int[n];
+        int[] right = new int[n];
+        left[0] = height[0];
+        right[n - 1] = height[n - 1];
+        for (int i = 1; i < n; ++i) {
+            left[i] = Math.Max(left[i - 1], height[i]);
+            right[n - i - 1] = Math.Max(right[n - i], height[n - i - 1]);
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans += Math.Min(left[i], right[i]) - height[i];
+        }
+        return ans;
+    }
 }
 ```
 
