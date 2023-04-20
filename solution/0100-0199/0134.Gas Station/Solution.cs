@@ -1,30 +1,18 @@
 public class Solution {
     public int CanCompleteCircuit(int[] gas, int[] cost) {
-        if (gas.Length == 0) return -1;
-        var startIndex = 0;
-        var i = 0;
-        var gasLeft = 0;
-        while (true)
-        {
-            gasLeft += gas[i] - cost[i];
-            ++i;
-            if (i >= gas.Length) i = 0;
-            if (gasLeft < 0)
-            {
-                if (startIndex >= i)
-                {
-                    return -1;
-                }
-                startIndex = i;
-                gasLeft = 0;
-            }
-            else
-            {
-                if (startIndex == i)
-                {
-                    return startIndex;
-                }
+        int n = gas.Length;
+        int i = n - 1, j = n - 1;
+        int s = 0, cnt = 0;
+        while (cnt < n) {
+            s += gas[j] - cost[j];
+            ++cnt;
+            j = (j + 1) % n;
+            while (s < 0 && cnt < n) {
+                --i;
+                s += gas[i] - cost[i];
+                ++cnt;
             }
         }
+        return s < 0 ? -1 : i;
     }
 }
