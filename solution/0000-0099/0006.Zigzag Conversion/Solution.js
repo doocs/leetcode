@@ -4,23 +4,18 @@
  * @return {string}
  */
 var convert = function (s, numRows) {
-    if (numRows == 1) return s;
-    const arr = new Array(numRows);
-    for (let i = 0; i < numRows; i++) arr[i] = [];
-    let mi = 0,
-        isDown = true;
+    if (numRows === 1) {
+        return s;
+    }
+    const g = new Array(numRows).fill(_).map(() => []);
+    let i = 0;
+    let k = -1;
     for (const c of s) {
-        arr[mi].push(c);
-
-        if (mi >= numRows - 1) isDown = false;
-        else if (mi <= 0) isDown = true;
-
-        if (isDown) mi++;
-        else mi--;
+        g[i].push(c);
+        if (i === 0 || i === numRows - 1) {
+            k = -k;
+        }
+        i += k;
     }
-    let ans = [];
-    for (const item of arr) {
-        ans = ans.concat(item);
-    }
-    return ans.join('');
+    return g.flat().join('');
 };
