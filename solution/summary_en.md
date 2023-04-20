@@ -2698,3 +2698,4 @@
   - [2644.Find the Maximum Divisibility Score](/solution/2600-2699/2644.Find%20the%20Maximum%20Divisibility%20Score/README_EN.md)
   - [2645.Minimum Additions to Make Valid String](/solution/2600-2699/2645.Minimum%20Additions%20to%20Make%20Valid%20String/README_EN.md)
   - [2646.Minimize the Total Price of the Trips](/solution/2600-2699/2646.Minimize%20the%20Total%20Price%20of%20the%20Trips/README_EN.md)
+  - [2647.Color the Triangle Red](/solution/2600-2699/2647.Color%20the%20Triangle%20Red/README_EN.md)

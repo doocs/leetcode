@@ -44,6 +44,23 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：找规律**
+
+我们画图观察，可以发现，第一行只有一个三角形，一定要涂色，而从最后一行开始，到第二行结束，每四行的涂色方案是一样的：
+
+1. 最后一行涂色坐标为 $(n, 1)$, $(n, 3)$, ..., $(n, 2n - 1)$。
+1. 第 $n - 1$ 行涂色坐标为 $(n - 1, 2)$。
+1. 第 $n - 2$ 行涂色坐标为 $(n - 2, 3)$, $(n - 2, 5)$, ..., $(n - 2, 2n - 5)$。
+1. 第 $n - 3$ 行涂色坐标为 $(n - 3, 1)$。
+
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2070.%20%E6%B2%99%E5%9C%B0%E6%B2%BB%E7%90%86/images/demo.png" style="width: 50%">
+
+因此，我们可以按照上述规律，先给第一行涂色，然后从最后一行开始，每四行涂色一次，直到第二行结束。
+
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2070.%20%E6%B2%99%E5%9C%B0%E6%B2%BB%E7%90%86/images/demo2.png" style="width: 80%">
+
+时间复杂度 $(n^2)$，其中 $n$ 为题目给定的参数。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -51,7 +68,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def sandyLandManagement(self, size: int) -> List[List[int]]:
+        ans = [[1, 1]]
+        k = 0
+        for i in range(size, 1, -1):
+            if k == 0:
+                for j in range(1, i << 1, 2):
+                    ans.append([i, j])
+            elif k == 1:
+                ans.append([i, 2])
+            elif k == 2:
+                for j in range(3, i << 1, 2):
+                    ans.append([i, j])
+            else:
+                ans.append([i, 1])
+            k = (k + 1) % 4
+        return ans
 ```
 
 ### **Java**
@@ -59,7 +92,80 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[][] sandyLandManagement(int size) {
+        List<int[]> ans = new ArrayList<>();
+        ans.add(new int[] {1, 1});
+        for (int i = size, k = 0; i > 1; --i, k = (k + 1) % 4) {
+            if (k == 0) {
+                for (int j = 1; j < i << 1; j += 2) {
+                    ans.add(new int[] {i, j});
+                }
+            } else if (k == 1) {
+                ans.add(new int[] {i, 2});
+            } else if (k == 2) {
+                for (int j = 3; j < i << 1; j += 2) {
+                    ans.add(new int[] {i, j});
+                }
+            } else {
+                ans.add(new int[] {i, 1});
+            }
+        }
+        return ans.toArray(new int[0][]);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> sandyLandManagement(int size) {
+        vector<vector<int>> ans;
+        ans.push_back({1, 1});
+        for (int i = size, k = 0; i > 1; --i, k = (k + 1) % 4) {
+            if (k == 0) {
+                for (int j = 1; j < i << 1; j += 2) {
+                    ans.push_back({i, j});
+                }
+            } else if (k == 1) {
+                ans.push_back({i, 2});
+            } else if (k == 2) {
+                for (int j = 3; j < i << 1; j += 2) {
+                    ans.push_back({i, j});
+                }
+            } else {
+                ans.push_back({i, 1});
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func sandyLandManagement(size int) (ans [][]int) {
+	ans = append(ans, []int{1, 1})
+	for i, k := size, 0; i > 1; i, k = i-1, (k+1)%4 {
+		if k == 0 {
+			for j := 1; j < i<<1; j += 2 {
+				ans = append(ans, []int{i, j})
+			}
+		} else if k == 1 {
+			ans = append(ans, []int{i, 2})
+		} else if k == 2 {
+			for j := 3; j < i<<1; j += 2 {
+				ans = append(ans, []int{i, j})
+			}
+		} else {
+			ans = append(ans, []int{i, 1})
+		}
+	}
+	return
+}
 ```
 
 ### **...**

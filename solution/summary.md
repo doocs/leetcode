@@ -2698,3 +2698,4 @@
   - [2644.找出可整除性得分最大的整数](/solution/2600-2699/2644.Find%20the%20Maximum%20Divisibility%20Score/README.md)
   - [2645.构造有效字符串的最少插入数](/solution/2600-2699/2645.Minimum%20Additions%20to%20Make%20Valid%20String/README.md)
   - [2646.最小化旅行的价格总和](/solution/2600-2699/2646.Minimize%20the%20Total%20Price%20of%20the%20Trips/README.md)
+  - [2647.Color the Triangle Red](/solution/2600-2699/2647.Color%20the%20Triangle%20Red/README.md)

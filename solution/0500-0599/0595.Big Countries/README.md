@@ -19,7 +19,7 @@
 | continent   | varchar |
 | area        | int     |
 | population  | int     |
-| gdp         | int     |
+| gdp         | bigint  |
 +-------------+---------+
 name 是这张表的主键。
 这张表的每一行提供：国家名称、所属大陆、面积、人口和 GDP 值。
@@ -42,7 +42,7 @@ name 是这张表的主键。
 
 <p>&nbsp;</p>
 
-<p><strong>示例：</strong></p>
+<p><strong class="example">示例：</strong></p>
 
 <pre>
 <strong>输入：</strong>

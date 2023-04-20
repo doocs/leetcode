@@ -12,14 +12,14 @@
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
 <strong>输入:</strong>s = "<code>catsanddog</code>", wordDict = <code>["cat","cats","and","sand","dog"]</code>
 <strong>输出:</strong><code>["cats and dog","cat sand dog"]</code>
 </pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
 <strong>输入:</strong>s = "pineapplepenapple", wordDict = ["apple","pen","applepen","pine","pineapple"]
@@ -27,7 +27,7 @@
 <strong>解释:</strong> 注意你可以重复使用字典中的单词。
 </pre>
 
-<p><strong>示例&nbsp;3：</strong></p>
+<p><strong class="example">示例&nbsp;3：</strong></p>
 
 <pre>
 <strong>输入:</strong>s = "catsandog", wordDict = ["cats","dog","sand","and","cat"]

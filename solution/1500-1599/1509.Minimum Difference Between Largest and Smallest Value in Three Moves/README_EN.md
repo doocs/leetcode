@@ -32,7 +32,7 @@ After performing 3 moves, the difference between the minimum and maximum is 3 - 
 In the first move, change 5 to 0. nums becomes [1,0,0,10,14].
 In the second move, change 10 to 0. nums becomes [1,0,0,0,14].
 In the third move, change 14 to 1. nums becomes [1,0,0,0,1].
-After performing 3 moves, the difference between the minimum and maximum is 1 - 0 = 0.
+After performing 3 moves, the difference between the minimum and maximum is 1 - 0 = 1.
 It can be shown that there is no way to make the difference 0 in 3 moves.</pre>
 
 <p><strong class="example">Example 3:</strong></p>
