@@ -6,7 +6,7 @@ class Solution {
                 ++i;
             } else if (!Character.isLetterOrDigit(s.charAt(j))) {
                 --j;
-            } else if (Character.toUpperCase(s.charAt(i)) != Character.toUpperCase(s.charAt(j))) {
+            } else if (Character.toLowerCase(s.charAt(i)) != Character.toLowerCase(s.charAt(j))) {
                 return false;
             } else {
                 ++i;

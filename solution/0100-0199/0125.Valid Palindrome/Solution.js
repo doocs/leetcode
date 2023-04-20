@@ -3,17 +3,19 @@
  * @return {boolean}
  */
 var isPalindrome = function (s) {
-    let arr1 = [],
-        arr2 = [];
-    for (let i = 0; i < s.length; i++) {
-        if (s[i] >= 'A' && s[i] <= 'Z') {
-            arr1.push(s[i].toLowerCase());
-        }
-        if ((s[i] >= '0' && s[i] <= '9') || (s[i] >= 'a' && s[i] <= 'z')) {
-            arr1.push(s[i]);
+    let i = 0;
+    let j = s.length - 1;
+    while (i < j) {
+        if (!/[a-zA-Z0-9]/.test(s[i])) {
+            ++i;
+        } else if (!/[a-zA-Z0-9]/.test(s[j])) {
+            --j;
+        } else if (s[i].toLowerCase() !== s[j].toLowerCase()) {
+            return false;
+        } else {
+            ++i;
+            --j;
         }
     }
-    arr2 = [...arr1];
-    arr2.reverse();
-    return arr1.join('') === arr2.join('');
+    return true;
 };
