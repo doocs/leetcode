@@ -40,20 +40,19 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：字符比较**
+
+我们以第一个字符串 $strs[0]$ 为基准，依次比较后面的字符串的第 $i$ 个字符是否与 $strs[0]$ 的第 $i$ 个字符相同，如果相同则继续比较下一个字符，否则返回 $strs[0]$ 的前 $i$ 个字符。
+
+遍历结束，说明所有字符串的前 $i$ 个字符都相同，返回 $strs[0]$ 即可。
+
+时间复杂度 $(n \times m)$，其中 $n$ 和 $m$ 分别为字符串数组的长度以及字符串的最小长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
-class Solution:
-    def longestCommonPrefix(self, strs: List[str]) -> str:
-        for l in range(len(strs[0]), -1, -1):
-            if all(len(s) >= l and s[:l] == strs[0][:l] for s in strs):
-                return strs[0][:l]
-        return ''
-```
 
 ```python
 class Solution:
@@ -123,26 +122,17 @@ func longestCommonPrefix(strs []string) string {
 ### **C#**
 
 ```cs
-using System.Text;
-using System.Linq;
-
 public class Solution {
     public string LongestCommonPrefix(string[] strs) {
-        if (strs.Length == 0) return string.Empty;
-        var sb = new StringBuilder();
-        for (var i = 0; i < strs[0].Length; ++i)
-        {
-            var ch = strs[0][i];
-            if (strs.All(str => str.Length > i && str[i] == ch))
-            {
-                sb.Append(ch);
-            }
-            else
-            {
-                break;
+        int n = strs.Length;
+        for (int i = 0; i < strs[0].Length; ++i) {
+            for (int j = 1; j < n; ++j) {
+                if (i >= strs[j].Length || strs[j][i] != strs[0][i]) {
+                    return strs[0].Substring(0, i);
+                }
             }
         }
-        return sb.ToString();
+        return strs[0];
     }
 }
 ```

@@ -35,18 +35,17 @@
 
 ## Solutions
 
+**Approach 1: Character Comparison**
+
+We take the first string $strs[0]$ as the benchmark, and compare the $i$th character of the string after it with the $i$th character of $strs[0]$. If it is the same, continue to compare the next character, otherwise return the first $i$ characters of $strs[0]$.
+
+After the traversal is over, it means that the first $i$ characters of all strings are the same, and $strs[0]$ is returned.
+
+Time complexity $(n \times m)$, where $n$ and $m$ are the length of the string array and the minimum length of the string respectively. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
-
-```python
-class Solution:
-    def longestCommonPrefix(self, strs: List[str]) -> str:
-        for l in range(len(strs[0]), -1, -1):
-            if all(len(s) >= l and s[:l] == strs[0][:l] for s in strs):
-                return strs[0][:l]
-        return ''
-```
 
 ```python
 class Solution:
@@ -114,26 +113,17 @@ func longestCommonPrefix(strs []string) string {
 ### **C#**
 
 ```cs
-using System.Text;
-using System.Linq;
-
 public class Solution {
     public string LongestCommonPrefix(string[] strs) {
-        if (strs.Length == 0) return string.Empty;
-        var sb = new StringBuilder();
-        for (var i = 0; i < strs[0].Length; ++i)
-        {
-            var ch = strs[0][i];
-            if (strs.All(str => str.Length > i && str[i] == ch))
-            {
-                sb.Append(ch);
-            }
-            else
-            {
-                break;
+        int n = strs.Length;
+        for (int i = 0; i < strs[0].Length; ++i) {
+            for (int j = 1; j < n; ++j) {
+                if (i >= strs[j].Length || strs[j][i] != strs[0][i]) {
+                    return strs[0].Substring(0, i);
+                }
             }
         }
-        return sb.ToString();
+        return strs[0];
     }
 }
 ```
