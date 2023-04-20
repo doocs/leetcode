@@ -1,9 +1,11 @@
 function lengthOfLastWord(s: string): number {
-    s = s.trimEnd();
-    const n = s.length;
-    const index = s.lastIndexOf(' ');
-    if (index !== -1) {
-        return n - index - 1;
+    let i = s.length - 1;
+    while (i >= 0 && s[i] === ' ') {
+        --i;
     }
-    return n;
+    let j = i;
+    while (j >= 0 && s[j] !== ' ') {
+        --j;
+    }
+    return i - j;
 }

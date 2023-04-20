@@ -52,9 +52,9 @@
 
 **方法一：逆向遍历 + 双指针**
 
-从字符串 $s$ 末尾开始遍历，找到第一个不为空格的字符，即为最后一个单词的最后一个字符，下标记为 $i$。然后继续向前遍历，找到第一个为空格的字符，即为最后一个单词的第一个字符的前一个字符，记为 $j$。那么最后一个单词的长度即为 $i - j$。
+我们从字符串 $s$ 末尾开始遍历，找到第一个不为空格的字符，即为最后一个单词的最后一个字符，下标记为 $i$。然后继续向前遍历，找到第一个为空格的字符，即为最后一个单词的第一个字符的前一个字符，记为 $j$。那么最后一个单词的长度即为 $i - j$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 长度。
+时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -100,10 +100,14 @@ class Solution {
 class Solution {
 public:
     int lengthOfLastWord(string s) {
-        int i = s.length() - 1;
-        while (i >= 0 && s[i] == ' ') --i;
+        int i = s.size() - 1;
+        while (~i && s[i] == ' ') {
+            --i;
+        }
         int j = i;
-        while (j >= 0 && s[j] != ' ') --j;
+        while (~j && s[j] != ' ') {
+            --j;
+        }
         return i - j;
     }
 };
@@ -149,13 +153,33 @@ var lengthOfLastWord = function (s) {
 
 ```ts
 function lengthOfLastWord(s: string): number {
-    s = s.trimEnd();
-    const n = s.length;
-    const index = s.lastIndexOf(' ');
-    if (index !== -1) {
-        return n - index - 1;
+    let i = s.length - 1;
+    while (i >= 0 && s[i] === ' ') {
+        --i;
     }
-    return n;
+    let j = i;
+    while (j >= 0 && s[j] !== ' ') {
+        --j;
+    }
+    return i - j;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int LengthOfLastWord(string s) {
+        int i = s.Length - 1;
+        while (i >= 0 && s[i] == ' ') {
+            --i;
+        }
+        int j = i;
+        while (j >= 0 && s[j] != ' ') {
+            --j;
+        }
+        return i - j;
+    }
 }
 ```
 

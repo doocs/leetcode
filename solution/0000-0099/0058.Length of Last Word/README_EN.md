@@ -44,6 +44,12 @@
 
 ## Solutions
 
+**Approach 1: Reverse traversal + two pointers**
+
+We start traversing from the end of the string $s$, finding the last character of the last word, which is not a space, and the subscript is $i$. Then continue to traverse forward to find the first space character, which is the character before the first character of the last word, and mark it as $j$. Then the length of the last word is $i - j$.
+
+Time complexity $O(n)$, where $n$ is the length of the string $s$. Space complexity $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -84,10 +90,14 @@ class Solution {
 class Solution {
 public:
     int lengthOfLastWord(string s) {
-        int i = s.length() - 1;
-        while (i >= 0 && s[i] == ' ') --i;
+        int i = s.size() - 1;
+        while (~i && s[i] == ' ') {
+            --i;
+        }
         int j = i;
-        while (j >= 0 && s[j] != ' ') --j;
+        while (~j && s[j] != ' ') {
+            --j;
+        }
         return i - j;
     }
 };
@@ -133,13 +143,33 @@ var lengthOfLastWord = function (s) {
 
 ```ts
 function lengthOfLastWord(s: string): number {
-    s = s.trimEnd();
-    const n = s.length;
-    const index = s.lastIndexOf(' ');
-    if (index !== -1) {
-        return n - index - 1;
+    let i = s.length - 1;
+    while (i >= 0 && s[i] === ' ') {
+        --i;
     }
-    return n;
+    let j = i;
+    while (j >= 0 && s[j] !== ' ') {
+        --j;
+    }
+    return i - j;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int LengthOfLastWord(string s) {
+        int i = s.Length - 1;
+        while (i >= 0 && s[i] == ' ') {
+            --i;
+        }
+        int j = i;
+        while (j >= 0 && s[j] != ' ') {
+            --j;
+        }
+        return i - j;
+    }
 }
 ```
 
