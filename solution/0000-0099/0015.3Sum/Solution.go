@@ -7,7 +7,12 @@ func threeSum(nums []int) (ans [][]int) {
 		}
 		j, k := i+1, n-1
 		for j < k {
-			if nums[i]+nums[j]+nums[k] == 0 {
+			x := nums[i] + nums[j] + nums[k]
+			if x < 0 {
+				j++
+			} else if x > 0 {
+				k--
+			} else {
 				ans = append(ans, []int{nums[i], nums[j], nums[k]})
 				j, k = j+1, k-1
 				for j < k && nums[j] == nums[j-1] {
@@ -16,10 +21,6 @@ func threeSum(nums []int) (ans [][]int) {
 				for j < k && nums[k] == nums[k+1] {
 					k--
 				}
-			} else if nums[i]+nums[j]+nums[k] < 0 {
-				j++
-			} else {
-				k--
 			}
 		}
 	}
