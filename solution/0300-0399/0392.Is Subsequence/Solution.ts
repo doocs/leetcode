@@ -1,11 +1,11 @@
 function isSubsequence(s: string, t: string): boolean {
-    let m = s.length,
-        n = t.length;
+    const m = s.length;
+    const n = t.length;
     let i = 0;
-    for (let j = 0; j < n && i < m; ++j) {
-        if (s.charAt(i) == t.charAt(j)) {
+    for (let j = 0; i < m && j < n; ++j) {
+        if (s[i] === t[j]) {
             ++i;
         }
     }
-    return i == m;
+    return i === m;
 }
