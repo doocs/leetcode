@@ -1,10 +1,9 @@
 class Solution {
     public int[] twoSum(int[] numbers, int target) {
-        int i = 1, j = numbers.length;
-        while (i < j) {
-            int x = numbers[i - 1] + numbers[j - 1];
+        for (int i = 0, j = numbers.length - 1;;) {
+            int x = numbers[i] + numbers[j];
             if (x == target) {
-                return new int[] {i, j};
+                return new int[] {i + 1, j + 1};
             }
             if (x < target) {
                 ++i;
@@ -12,6 +11,5 @@ class Solution {
                 --j;
             }
         }
-        return new int[] {-1, -1};
     }
 }

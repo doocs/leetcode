@@ -50,11 +50,21 @@
 
 ## Solutions
 
+**Approach 1: Binary Search**
+
+Note that the array is sorted in non-decreasing order, so for each `numbers[i]`, we can find the position of `target - numbers[i]` by binary search, and return $[i + 1, j + 1]$ if it exists.
+
+The time complexity is $O(n \times \log n)$, where $n$ is the length of the array `numbers`. The space complexity is $O(1)$.
+
+**Approach 2: Two Pointers**
+
+We define two pointers $i$ and $j$, which point to the first element and the last element of the array respectively. Each time we calculate $numbers[i] + numbers[j]$. If the sum is equal to the target value, return $[i + 1, j + 1]$ directly. If the sum is less than the target value, move $i$ to the right by one position, and if the sum is greater than the target value, move $j$ to the left by one position.
+
+The time complexity is $O(n)$, where $n$ is the length of the array `numbers`. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
-
-Binary search:
 
 ```python
 class Solution:
@@ -62,66 +72,56 @@ class Solution:
         n = len(numbers)
         for i in range(n - 1):
             x = target - numbers[i]
-            j = bisect.bisect_left(numbers, x, lo=i + 1)
-            if j != n and numbers[j] == x:
+            j = bisect_left(numbers, x, lo=i + 1)
+            if j < n and numbers[j] == x:
                 return [i + 1, j + 1]
-        return [-1, -1]
 ```
-
-Two pointers:
 
 ```python
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        i, j = 1, len(numbers)
+        i, j = 0, len(numbers) - 1
         while i < j:
-            x = numbers[i - 1] + numbers[j - 1]
+            x = numbers[i] + numbers[j]
             if x == target:
-                return [i, j]
+                return [i + 1, j + 1]
             if x < target:
                 i += 1
             else:
                 j -= 1
-        return [-1, -1]
 ```
 
 ### **Java**
 
-Binary search:
-
 ```java
 class Solution {
     public int[] twoSum(int[] numbers, int target) {
-        for (int i = 0, n = numbers.length; i < n - 1; ++i) {
+        for (int i = 0, n = numbers.length;; ++i) {
             int x = target - numbers[i];
-            int left = i + 1, right = n - 1;
-            while (left < right) {
-                int mid = (left + right) >> 1;
+            int l = i + 1, r = n - 1;
+            while (l < r) {
+                int mid = (l + r) >> 1;
                 if (numbers[mid] >= x) {
-                    right = mid;
+                    r = mid;
                 } else {
-                    left = mid + 1;
+                    l = mid + 1;
                 }
             }
-            if (numbers[left] == x) {
-                return new int[]{i + 1, left + 1};
+            if (numbers[l] == x) {
+                return new int[] {i + 1, l + 1};
             }
         }
-        return new int[]{-1, -1};
     }
 }
 ```
 
-Two pointers:
-
 ```java
 class Solution {
     public int[] twoSum(int[] numbers, int target) {
-        int i = 1, j = numbers.length;
-        while (i < j) {
-            int x = numbers[i - 1] + numbers[j - 1];
+        for (int i = 0, j = numbers.length - 1;;) {
+            int x = numbers[i] + numbers[j];
             if (x == target) {
-                return new int[] {i, j};
+                return new int[] {i + 1, j + 1};
             }
             if (x < target) {
                 ++i;
@@ -129,129 +129,66 @@ class Solution {
                 --j;
             }
         }
-        return new int[] {-1, -1};
     }
-}
-```
-
-### **TypeScript**
-
-Binary search:
-
-```ts
-function twoSum(numbers: number[], target: number): number[] {
-    for (let i = 0, n = numbers.length; i < n - 1; ++i) {
-        const x = target - numbers[i];
-        let left = i + 1,
-            right = n - 1;
-        while (left < right) {
-            const mid = (left + right) >> 1;
-            if (numbers[mid] >= x) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        if (numbers[left] == x) {
-            return [i + 1, left + 1];
-        }
-    }
-    return [-1, -1];
-}
-```
-
-Two pointers:
-
-```ts
-function twoSum(numbers: number[], target: number): number[] {
-    let i = 1,
-        j = numbers.length;
-    while (i < j) {
-        const x = numbers[i - 1] + numbers[j - 1];
-        if (x == target) {
-            return [i, j];
-        }
-        if (x < target) {
-            ++i;
-        } else {
-            --j;
-        }
-    }
-    return [-1, -1];
 }
 ```
 
 ### **C++**
 
-Binary search:
-
 ```cpp
 class Solution {
 public:
     vector<int> twoSum(vector<int>& numbers, int target) {
-        for (int i = 0, n = numbers.size(); i < n - 1; ++i) {
+        for (int i = 0, n = numbers.size();; ++i) {
             int x = target - numbers[i];
             int j = lower_bound(numbers.begin() + i + 1, numbers.end(), x) - numbers.begin();
-            if (j != n && numbers[j] == x) return {i + 1, j + 1};
+            if (j < n && numbers[j] == x) {
+                return {i + 1, j + 1};
+            }
         }
-        return {-1, -1};
     }
 };
 ```
 
-Two pointers:
-
 ```cpp
 class Solution {
 public:
     vector<int> twoSum(vector<int>& numbers, int target) {
-        int i = 1, j = numbers.size();
-        while (i < j)
-        {
-            int x = numbers[i - 1] + numbers[j - 1];
-            if (x == target) return {i, j};
-            if (x < target) ++i;
-            else --j;
+        for (int i = 0, j = numbers.size() - 1;;) {
+            int x = numbers[i] + numbers[j];
+            if (x == target) {
+                return {i + 1, j + 1};
+            }
+            if (x < target) {
+                ++i;
+            } else {
+                --j;
+            }
         }
-        return {-1, -1};
     }
 };
 ```
 
 ### **Go**
 
-Binary search:
-
 ```go
 func twoSum(numbers []int, target int) []int {
-	for i, n := 0, len(numbers); i < n-1; i++ {
+	for i, n := 0, len(numbers); ; i++ {
 		x := target - numbers[i]
-		left, right := i+1, n-1
-		for left < right {
-			mid := (left + right) >> 1
-			if numbers[mid] >= x {
-				right = mid
-			} else {
-				left = mid + 1
-			}
-		}
-		if numbers[left] == x {
-			return []int{i + 1, left + 1}
+		j := sort.SearchInts(numbers[i+1:], x) + i + 1
+		if j < n && numbers[j] == x {
+			return []int{i + 1, j + 1}
 		}
 	}
-	return []int{-1, -1}
 }
 ```
 
-Two pointers:
-
 ```go
 func twoSum(numbers []int, target int) []int {
-	i, j := 1, len(numbers)
-	for i < j {
-		x := numbers[i-1] + numbers[j-1]
+	for i, j := 0, len(numbers)-1; ; {
+		x := numbers[i] + numbers[j]
 		if x == target {
-			return []int{i, j}
+			return []int{i + 1, j + 1}
 		}
 		if x < target {
 			i++
@@ -259,56 +196,39 @@ func twoSum(numbers []int, target int) []int {
 			j--
 		}
 	}
-	return []int{-1, -1}
 }
 ```
 
-### **JavaScript**
+### **TypeScript**
 
-Binary search:
-
-```js
-/**
- * @param {number[]} numbers
- * @param {number} target
- * @return {number[]}
- */
-var twoSum = function (numbers, target) {
-    for (let i = 0, n = numbers.length; i < n - 1; ++i) {
+```ts
+function twoSum(numbers: number[], target: number): number[] {
+    const n = numbers.length;
+    for (let i = 0; ; ++i) {
         const x = target - numbers[i];
-        let left = i + 1,
-            right = n - 1;
-        while (left < right) {
-            const mid = (left + right) >> 1;
+        let l = i + 1;
+        let r = n - 1;
+        while (l < r) {
+            const mid = (l + r) >> 1;
             if (numbers[mid] >= x) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        if (numbers[left] == x) {
-            return [i + 1, left + 1];
+        if (numbers[l] === x) {
+            return [i + 1, l + 1];
         }
     }
-    return [-1, -1];
-};
+}
 ```
 
-Two pointers:
-
-```js
-/**
- * @param {number[]} numbers
- * @param {number} target
- * @return {number[]}
- */
-var twoSum = function (numbers, target) {
-    let i = 1,
-        j = numbers.length;
-    while (i < j) {
-        const x = numbers[i - 1] + numbers[j - 1];
-        if (x == target) {
-            return [i, j];
+```ts
+function twoSum(numbers: number[], target: number): number[] {
+    for (let i = 0, j = numbers.length - 1; ; ) {
+        const x = numbers[i] + numbers[j];
+        if (x === target) {
+            return [i + 1, j + 1];
         }
         if (x < target) {
             ++i;
@@ -316,7 +236,56 @@ var twoSum = function (numbers, target) {
             --j;
         }
     }
-    return [-1, -1];
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} numbers
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function (numbers, target) {
+    const n = numbers.length;
+    for (let i = 0; ; ++i) {
+        const x = target - numbers[i];
+        let l = i + 1;
+        let r = n - 1;
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (numbers[mid] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        if (numbers[l] === x) {
+            return [i + 1, l + 1];
+        }
+    }
+};
+```
+
+```js
+/**
+ * @param {number[]} numbers
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function (numbers, target) {
+    for (let i = 0, j = numbers.length - 1; ; ) {
+        const x = numbers[i] + numbers[j];
+        if (x === target) {
+            return [i + 1, j + 1];
+        }
+        if (x < target) {
+            ++i;
+        } else {
+            --j;
+        }
+    }
 };
 ```
 

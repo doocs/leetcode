@@ -1,9 +1,8 @@
 func twoSum(numbers []int, target int) []int {
-	i, j := 1, len(numbers)
-	for i < j {
-		x := numbers[i-1] + numbers[j-1]
+	for i, j := 0, len(numbers)-1; ; {
+		x := numbers[i] + numbers[j]
 		if x == target {
-			return []int{i, j}
+			return []int{i + 1, j + 1}
 		}
 		if x < target {
 			i++
@@ -11,5 +10,4 @@ func twoSum(numbers []int, target int) []int {
 			j--
 		}
 	}
-	return []int{-1, -1}
 }
