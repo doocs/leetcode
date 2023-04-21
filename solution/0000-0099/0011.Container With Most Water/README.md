@@ -54,7 +54,7 @@
 
 循环此过程，直到两个柱子相遇。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 `height` 的长度。
+时间复杂度 $O(n)$，其中 $n$ 是数组 `height` 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -66,15 +66,15 @@
 class Solution:
     def maxArea(self, height: List[int]) -> int:
         i, j = 0, len(height) - 1
-        res = 0
+        ans = 0
         while i < j:
             t = (j - i) * min(height[i], height[j])
-            res = max(res, t)
+            ans = max(ans, t)
             if height[i] < height[j]:
                 i += 1
             else:
                 j -= 1
-        return res
+        return ans
 ```
 
 ### **Java**
@@ -85,16 +85,17 @@ class Solution:
 class Solution {
     public int maxArea(int[] height) {
         int i = 0, j = height.length - 1;
-        int res = 0;
+        int ans = 0;
         while (i < j) {
-            int t = (j - i) * Math.min(height[i], height[j]);
-            res = Math.max(res, t);
-            if (height[i] < height[j])
+            int t = Math.min(height[i], height[j]) * (j - i);
+            ans = Math.max(ans, t);
+            if (height[i] < height[j]) {
                 ++i;
-            else
+            } else {
                 --j;
+            }
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -106,16 +107,17 @@ class Solution {
 public:
     int maxArea(vector<int>& height) {
         int i = 0, j = height.size() - 1;
-        int res = 0;
+        int ans = 0;
         while (i < j) {
-            int t = (j - i) * min(height[i], height[j]);
-            res = max(res, t);
-            if (height[i] < height[j])
+            int t = min(height[i], height[j]) * (j - i);
+            ans = max(ans, t);
+            if (height[i] < height[j]) {
                 ++i;
-            else
+            } else {
                 --j;
+            }
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -123,33 +125,32 @@ public:
 ### **Go**
 
 ```go
-func maxArea(height []int) int {
-    i, j := 0, len(height) - 1
-    res := 0
-    for i != j {
-        t := (j - i) * min(height[i], height[j])
-        res = max(res, t)
-        if height[i] < height[j] {
-            i++
-        } else {
-            j--
-        }
-    }
-    return res
-}
-
-func min(a, b int) int {
-    if a > b {
-        return b
-    }
-    return a
+func maxArea(height []int) (ans int) {
+	i, j := 0, len(height)-1
+	for i < j {
+		t := min(height[i], height[j]) * (j - i)
+		ans = max(ans, t)
+		if height[i] < height[j] {
+			i++
+		} else {
+			j--
+		}
+	}
+	return
 }
 
 func max(a, b int) int {
-    if a > b {
-        return a
-    }
-    return b
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
 ```
 
@@ -161,16 +162,19 @@ func max(a, b int) int {
  * @return {number}
  */
 var maxArea = function (height) {
-    let i = 0,
-        j = height.length - 1;
-    let res = 0;
+    let i = 0;
+    let j = height.length - 1;
+    let ans = 0;
     while (i < j) {
-        const t = (j - i) * Math.min(height[i], height[j]);
-        res = Math.max(res, t);
-        if (height[i] < height[j]) ++i;
-        else --j;
+        const t = Math.min(height[i], height[j]) * (j - i);
+        ans = Math.max(ans, t);
+        if (height[i] < height[j]) {
+            ++i;
+        } else {
+            --j;
+        }
     }
-    return res;
+    return ans;
 };
 ```
 
@@ -178,17 +182,40 @@ var maxArea = function (height) {
 
 ```ts
 function maxArea(height: number[]): number {
-    const n = height.length;
-    let res = 0;
-    for (let i = 0; i < n - 1; i++) {
-        for (let j = n - 1; j >= 0; j--) {
-            if (height[i] * (j - i) < res) {
-                break;
-            }
-            res = Math.max(res, Math.min(height[i], height[j]) * (j - i));
+    let i = 0;
+    let j = height.length - 1;
+    let ans = 0;
+    while (i < j) {
+        const t = Math.min(height[i], height[j]) * (j - i);
+        ans = Math.max(ans, t);
+        if (height[i] < height[j]) {
+            ++i;
+        } else {
+            --j;
         }
     }
-    return res;
+    return ans;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int MaxArea(int[] height) {
+        int i = 0, j = height.Length - 1;
+        int ans = 0;
+        while (i < j) {
+            int t = Math.Min(height[i], height[j]) * (j - i);
+            ans = Math.Max(ans, t);
+            if (height[i] < height[j]) {
+                ++i;
+            } else {
+                --j;
+            }
+        }
+        return ans;
+    }
 }
 ```
 
