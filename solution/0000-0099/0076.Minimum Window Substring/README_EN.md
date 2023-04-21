@@ -49,7 +49,7 @@ Since the largest window of s only has one &#39;a&#39;, return empty string.
 
 ## Solutions
 
-**Approach 1: Counting + Double Pointers**
+**Approach 1: Counting + Two Pointers**
 
 We use a hash table or array $need$ to count the number of characters in string $t$, and use another hash table or array $window$ to count the number of characters in the sliding window. In addition, define two pointers $j$ and $i$ pointing to the left and right boundaries of the window, and the variable $cnt$ represents the number of characters in $t$ that are already included in the window. The variables $k$ and $mi$ represent the starting position and length of the minimum cover substring respectively.
 

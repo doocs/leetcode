@@ -29,6 +29,14 @@
 
 ## Solutions
 
+**Approach 1: Hash Table or Array**
+
+We can use a hash table or an array $cnt$ of length $26$ to record the number of times each character appears in the string `magazine`. Then traverse the string `ransomNote`, for each character $c$ in it, we decrease the number of $c$ by $1$ in $cnt$. If the number of $c$ is less than $0$ after the decrease, it means that the number of $c$ in `magazine` is not enough, so it cannot be composed of `ransomNote`, just return $false$.
+
+Otherwise, after the traversal, it means that each character in `ransomNote` can be found in `magazine`. Therefore, return $true$.
+
+The time complexity is $O(m + n)$, and the space complexity is $O(C)$. Where $m$ and $n$ are the lengths of the strings `ransomNote` and `magazine` respectively; and $C$ is the size of the character set, which is $26$ in this question.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -115,6 +123,25 @@ function canConstruct(ransomNote: string, magazine: string): boolean {
         }
     }
     return true;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public bool CanConstruct(string ransomNote, string magazine) {
+        int[] cnt = new int[26];
+        foreach (var c in magazine) {
+            ++cnt[c - 'a'];
+        }
+        foreach (var c in ransomNote) {
+            if (--cnt[c - 'a'] < 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
 ```
 
