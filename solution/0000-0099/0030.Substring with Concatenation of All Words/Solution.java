@@ -2,33 +2,33 @@ class Solution {
     public List<Integer> findSubstring(String s, String[] words) {
         Map<String, Integer> cnt = new HashMap<>();
         for (String w : words) {
-            cnt.put(w, cnt.getOrDefault(w, 0) + 1);
+            cnt.merge(w, 1, Integer::sum);
         }
-        int subLen = words[0].length();
-        int n = s.length(), m = words.length;
+        int m = s.length(), n = words.length;
+        int k = words[0].length();
         List<Integer> ans = new ArrayList<>();
-        for (int i = 0; i < subLen; ++i) {
+        for (int i = 0; i < k; ++i) {
             Map<String, Integer> cnt1 = new HashMap<>();
             int l = i, r = i;
             int t = 0;
-            while (r + subLen <= n) {
-                String w = s.substring(r, r + subLen);
-                r += subLen;
+            while (r + k <= m) {
+                String w = s.substring(r, r + k);
+                r += k;
                 if (!cnt.containsKey(w)) {
-                    l = r;
                     cnt1.clear();
+                    l = r;
                     t = 0;
                     continue;
                 }
-                cnt1.put(w, cnt1.getOrDefault(w, 0) + 1);
+                cnt1.merge(w, 1, Integer::sum);
                 ++t;
                 while (cnt1.get(w) > cnt.get(w)) {
-                    String remove = s.substring(l, l + subLen);
-                    l += subLen;
-                    cnt1.put(remove, cnt1.get(remove) - 1);
+                    String remove = s.substring(l, l + k);
+                    l += k;
+                    cnt1.merge(remove, -1, Integer::sum);
                     --t;
                 }
-                if (m == t) {
+                if (t == n) {
                     ans.add(l);
                 }
             }

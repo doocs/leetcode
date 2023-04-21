@@ -2,32 +2,35 @@ class Solution {
 public:
     vector<int> findSubstring(string s, vector<string>& words) {
         unordered_map<string, int> cnt;
-        for (auto& w : words) cnt[w]++;
-        int subLen = words[0].size();
-        int n = s.size(), m = words.size();
+        for (auto& w : words) {
+            ++cnt[w];
+        }
+        int m = s.size(), n = words.size(), k = words[0].size();
         vector<int> ans;
-        for (int i = 0; i < subLen; ++i) {
+        for (int i = 0; i < k; ++i) {
             unordered_map<string, int> cnt1;
             int l = i, r = i;
             int t = 0;
-            while (r + subLen <= n) {
-                string w = s.substr(r, subLen);
-                r += subLen;
+            while (r + k <= m) {
+                string w = s.substr(r, k);
+                r += k;
                 if (!cnt.count(w)) {
+                    cnt1.clear();
                     l = r;
                     t = 0;
-                    cnt1.clear();
                     continue;
                 }
-                cnt1[w]++;
-                t++;
+                ++cnt1[w];
+                ++t;
                 while (cnt1[w] > cnt[w]) {
-                    string remove = s.substr(l, subLen);
-                    l += subLen;
-                    cnt1[remove]--;
+                    string remove = s.substr(l, k);
+                    l += k;
+                    --cnt1[remove];
                     --t;
                 }
-                if (t == m) ans.push_back(l);
+                if (t == n) {
+                    ans.push_back(l);
+                }
             }
         }
         return ans;

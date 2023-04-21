@@ -1,36 +1,31 @@
-func findSubstring(s string, words []string) []int {
+func findSubstring(s string, words []string) (ans []int) {
 	cnt := map[string]int{}
 	for _, w := range words {
 		cnt[w]++
 	}
-	subLen := len(words[0])
-	n, m := len(s), len(words)
-	var ans []int
-	for i := 0; i < subLen; i++ {
+	m, n, k := len(s), len(words), len(words[0])
+	for i := 0; i < k; i++ {
 		cnt1 := map[string]int{}
-		l, r := i, i
-		t := 0
-		for r+subLen <= n {
-			w := s[r : r+subLen]
-			r += subLen
+		l, r, t := i, i, 0
+		for r+k <= m {
+			w := s[r : r+k]
+			r += k
 			if _, ok := cnt[w]; !ok {
-				l = r
-				t = 0
+				l, t = r, 0
 				cnt1 = map[string]int{}
 				continue
 			}
 			cnt1[w]++
 			t++
 			for cnt1[w] > cnt[w] {
-				remove := s[l : l+subLen]
-				l += subLen
-				cnt1[remove]--
+				cnt1[s[l:l+k]]--
+				l += k
 				t--
 			}
-			if t == m {
+			if t == n {
 				ans = append(ans, l)
 			}
 		}
 	}
-	return ans
+	return
 }

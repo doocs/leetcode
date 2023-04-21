@@ -1,53 +1,41 @@
 public class Solution {
     public IList<int> FindSubstring(string s, string[] words) {
-        var wordsDict = new Dictionary<string, int>();
-        foreach (var word in words)
-        {
-            if (!wordsDict.ContainsKey(word))
-            {
-                wordsDict.Add(word, 1);
+        var cnt = new Dictionary<string, int>();
+        foreach (var w in words) {
+            if (!cnt.ContainsKey(w)) {
+                cnt[w] = 0;
             }
-            else
-            {
-                ++wordsDict[word];
-            }
+            ++cnt[w];
         }
-        
-        var wordOfS = new string[s.Length];
-        var wordLength = words[0].Length;
-        var wordCount = words.Length;
-        for (var i = 0; i <= s.Length - wordLength; ++i)
-        {
-            var substring = s.Substring(i, wordLength);
-            if (wordsDict.ContainsKey(substring))
-            {
-                wordOfS[i] = substring;
-            }
-        }
-        
-        var result = new List<int>();
-        for (var i = 0; i <= s.Length - wordLength * wordCount; ++i)
-        {
-            var tempDict = new Dictionary<string, int>(wordsDict);
-            var tempCount = 0;
-            for (var j = i; j <= i + wordLength * (wordCount - 1); j += wordLength)
-            {
-                if (wordOfS[j] != null && tempDict[wordOfS[j]] > 0)
-                {
-                    --tempDict[wordOfS[j]];
-                    ++tempCount;
+        int m = s.Length, n = words.Length, k = words[0].Length;
+        var ans = new List<int>();
+        for (int i = 0; i < k; ++i) {
+            var cnt1 = new Dictionary<string, int>();
+            int l = i, r = i, t = 0;
+            while (r + k <= m) {
+                var w = s.Substring(r, k);
+                r += k;
+                if (!cnt.ContainsKey(w)) {
+                    cnt1.Clear();
+                    t = 0;
+                    l = r;
+                    continue;
                 }
-                else
-                {
-                    break;
+                if (!cnt1.ContainsKey(w)) {
+                    cnt1[w] = 0;
+                }
+                ++cnt1[w];
+                ++t;
+                while (cnt1[w] > cnt[w]) {
+                    --cnt1[s.Substring(l, k)];
+                    l += k;
+                    --t;
+                }
+                if (t == n) {
+                    ans.Add(l);
                 }
             }
-            if (tempCount == wordCount)
-            {
-                result.Add(i);
-            }
         }
-        
-        return result;
+        return ans;
     }
 }
