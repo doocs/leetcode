@@ -1,32 +1,29 @@
 func minWindow(s string, t string) string {
-	ans := ""
-	m, n := len(s), len(t)
-	if m < n {
-		return ans
-	}
-	need := make([]int, 128)
+	need := [128]int{}
+	window := [128]int{}
 	for _, c := range t {
-		need[c] += 1
+		need[c]++
 	}
-	window := make([]int, 128)
-	i, cnt, mi := 0, 0, m+1
-	for j, c := range s {
+	cnt, j, k, mi := 0, 0, -1, 1<<30
+	for i, c := range s {
 		window[c]++
 		if need[c] >= window[c] {
 			cnt++
 		}
-		for cnt == n {
-			if j-i+1 < mi {
-				mi = j - i + 1
-				ans = s[i : j+1]
+		for cnt == len(t) {
+			if i-j+1 < mi {
+				mi = i - j + 1
+				k = j
 			}
-			c = rune(s[i])
-			if need[c] >= window[c] {
+			if need[s[j]] >= window[s[j]] {
 				cnt--
 			}
-			window[c]--
-			i++
+			window[s[j]]--
+			j++
 		}
 	}
-	return ans
+	if k < 0 {
+		return ""
+	}
+	return s[k : k+mi]
 }

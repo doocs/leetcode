@@ -59,9 +59,19 @@
 
 ## 解法
 
-滑动窗口
-
 <!-- 这里可写通用的实现逻辑 -->
+
+**方法一：计数 + 双指针**
+
+我们用一个哈希表或数组 $need$ 统计字符串 $t$ 中每个字符出现的次数，用另一个哈希表或数组 $window$ 统计滑动窗口中每个字符出现的次数。另外，定义两个指针 $j$ 和 $i$ 分别指向窗口的左右边界，变量 $cnt$ 表示窗口中已经包含了 $t$ 中的多少个字符，变量 $k$ 和 $mi$ 分别表示最小覆盖子串的起始位置和长度。
+
+我们从左到右遍历字符串 $s$，对于当前遍历到的字符 $s[i]$：
+
+我们将其加入窗口中，即 $window[s[i]] = window[s[i]] + 1$，如果此时 $need[s[i]] \geq window[s[i]]$，则说明 $s[i]$ 是一个「必要的字符」，我们将 $cnt$ 加一。如果 $cnt$ 等于 $t$ 的长度，说明此时窗口中已经包含了 $t$ 中的所有字符，我们就可以尝试更新最小覆盖子串的起始位置和长度了。如果 $i - j + 1 \lt mi$，说明当前窗口表示的子串更短，我们就更新 $mi = i - j + 1$ 和 $k = j$。然后，我们尝试移动左边界 $j$，如果此时 $need[s[j]] \geq window[s[j]]$，则说明 $s[j]$ 是一个「必要的字符」，移动左边界时会把 $s[j]$ 这个字符从窗口中移除，因此我们需要将 $cnt$ 减一，然后更新 $window[s[j]] = window[s[j]] - 1$，并将 $j$ 右移一位。如果 $cnt$ 与 $t$ 的长度不相等，说明此时窗口中还没有包含 $t$ 中的所有字符，我们就不需要移动左边界了，直接将 $i$ 右移一位，继续遍历即可。
+
+遍历结束，如果没有找到最小覆盖子串，返回空字符串，否则返回 $s[k:k+mi]$ 即可。
+
+时间复杂度 $O(m + n)$，空间复杂度 $O(C)$。其中 $m$ 和 $n$ 分别是字符串 $s$ 和 $t$ 的长度；而 $C$ 是字符集的大小，本题中 $C = 128$。
 
 <!-- tabs:start -->
 
@@ -72,27 +82,22 @@
 ```python
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
-        ans = ''
-        m, n = len(s), len(t)
-        if m < n:
-            return ans
         need = Counter(t)
         window = Counter()
-        i, cnt, mi = 0, 0, inf
-        for j, c in enumerate(s):
+        cnt, j, k, mi = 0, 0, -1, inf
+        for i, c in enumerate(s):
             window[c] += 1
             if need[c] >= window[c]:
                 cnt += 1
-            while cnt == n:
-                if j - i + 1 < mi:
-                    mi = j - i + 1
-                    ans = s[i : j + 1]
-                c = s[i]
-                if need[c] >= window[c]:
+            while cnt == len(t):
+                if i - j + 1 < mi:
+                    mi = i - j + 1
+                    k = j
+                if need[s[j]] >= window[s[j]]:
                     cnt -= 1
-                window[c] -= 1
-                i += 1
-        return ans
+                window[s[j]] -= 1
+                j += 1
+        return '' if k < 0 else s[k: k + mi]
 ```
 
 ### **Java**
@@ -102,87 +107,31 @@ class Solution:
 ```java
 class Solution {
     public String minWindow(String s, String t) {
-        Map<Character, Integer> mp = new HashMap<>();
-        int begin = 0, end = 0, counter = t.length(), minLen = Integer.MAX_VALUE, minStart = 0,
-            size = s.length();
-
-        for (char c : s.toCharArray()) mp.put(c, 0);
-        for (char c : t.toCharArray()) {
-            if (mp.containsKey(c))
-                mp.put(c, mp.get(c) + 1);
-            else
-                return "";
+        int[] need = new int[128];
+        int[] window = new int[128];
+        int m = s.length(), n = t.length();
+        for (int i = 0; i < n; ++i) {
+            ++need[t.charAt(i)];
         }
-
-        while (end < size) {
-            if (mp.get(s.charAt(end)) > 0) counter--;
-
-            mp.put(s.charAt(end), mp.get(s.charAt(end)) - 1);
-
-            end++;
-
-            while (counter == 0) {
-                if (end - begin < minLen) {
-                    minStart = begin;
-                    minLen = end - begin;
+        int cnt = 0, j = 0, k = -1, mi = 1 << 30;
+        for (int i = 0; i < m; ++i) {
+            ++window[s.charAt(i)];
+            if (need[s.charAt(i)] >= window[s.charAt(i)]) {
+                ++cnt;
+            }
+            while (cnt == n) {
+                if (i - j + 1 < mi) {
+                    mi = i - j + 1;
+                    k = j;
                 }
-                mp.put(s.charAt(begin), mp.get(s.charAt(begin)) + 1);
-
-                if (mp.get(s.charAt(begin)) > 0) {
-                    counter++;
+                if (need[s.charAt(j)] >= window[s.charAt(j)]) {
+                    --cnt;
                 }
-
-                begin++;
+                --window[s.charAt(j++)];
             }
         }
-
-        if (minLen != Integer.MAX_VALUE) {
-            return s.substring(minStart, minStart + minLen);
-        }
-        return "";
+        return k < 0 ? "" : s.substring(k, k + mi);
     }
-}
-```
-
-### **TypeScript**
-
-```ts
-function minWindow(s: string, t: string): string {
-    let n1 = s.length,
-        n2 = t.length;
-    if (n1 < n2) return '';
-    let need = new Array(128).fill(0);
-    let window = new Array(128).fill(0);
-    for (let i = 0; i < n2; ++i) {
-        ++need[t.charCodeAt(i)];
-    }
-
-    let left = 0,
-        right = 0;
-    let res = '';
-    let count = 0;
-    let min = n1 + 1;
-    while (right < n1) {
-        let cur = s.charCodeAt(right);
-        ++window[cur];
-        if (need[cur] > 0 && need[cur] >= window[cur]) {
-            ++count;
-        }
-        while (count == n2) {
-            cur = s.charCodeAt(left);
-            if (need[cur] > 0 && need[cur] >= window[cur]) {
-                --count;
-            }
-            if (right - left + 1 < min) {
-                min = right - left + 1;
-                res = s.slice(left, right + 1);
-            }
-            --window[cur];
-            ++left;
-        }
-        ++right;
-    }
-    return res;
 }
 ```
 
@@ -192,37 +141,30 @@ function minWindow(s: string, t: string): string {
 class Solution {
 public:
     string minWindow(string s, string t) {
-        unordered_map<char, int> m;
-        int begin = 0, end = 0, minlen = INT_MAX, minStart = 0, size = s.size(), counter = t.size();
-        for (auto c : t)
-            m[c]++;
-
-        while (end < size) {
-            if (m[s[end]] > 0)
-                counter--;
-
-            m[s[end]]--;
-
-            end++;
-
-            while (counter == 0) {
-                if (end - begin < minlen) {
-                    minStart = begin;
-                    minlen = end - begin;
+        int need[128]{};
+        int window[128]{};
+        int m = s.size(), n = t.size();
+        for (char& c : t) {
+            ++need[c];
+        }
+        int cnt = 0, j = 0, k = -1, mi = 1 << 30;
+        for (int i = 0; i < m; ++i) {
+            ++window[s[i]];
+            if (need[s[i]] >= window[s[i]]) {
+                ++cnt;
+            }
+            while (cnt == n) {
+                if (i - j + 1 < mi) {
+                    mi = i - j + 1;
+                    k = j;
                 }
-
-                m[s[begin]]++;
-                if (m[s[begin]] > 0)
-                    counter++;
-
-                begin++;
+                if (need[s[j]] >= window[s[j]]) {
+                    --cnt;
+                }
+                --window[s[j++]];
             }
         }
-
-        if (minlen != INT_MAX) {
-            return s.substr(minStart, minlen);
-        }
-        return "";
+        return k < 0 ? "" : s.substr(k, mi);
     }
 };
 ```
@@ -231,36 +173,98 @@ public:
 
 ```go
 func minWindow(s string, t string) string {
-	ans := ""
-	m, n := len(s), len(t)
-	if m < n {
-		return ans
-	}
-	need := make([]int, 128)
+	need := [128]int{}
+	window := [128]int{}
 	for _, c := range t {
-		need[c] += 1
+		need[c]++
 	}
-	window := make([]int, 128)
-	i, cnt, mi := 0, 0, m+1
-	for j, c := range s {
+	cnt, j, k, mi := 0, 0, -1, 1<<30
+	for i, c := range s {
 		window[c]++
 		if need[c] >= window[c] {
 			cnt++
 		}
-		for cnt == n {
-			if j-i+1 < mi {
-				mi = j - i + 1
-				ans = s[i : j+1]
+		for cnt == len(t) {
+			if i-j+1 < mi {
+				mi = i - j + 1
+				k = j
 			}
-			c = rune(s[i])
-			if need[c] >= window[c] {
+			if need[s[j]] >= window[s[j]] {
 				cnt--
 			}
-			window[c]--
-			i++
+			window[s[j]]--
+			j++
 		}
 	}
-	return ans
+	if k < 0 {
+		return ""
+	}
+	return s[k : k+mi]
+}
+```
+
+### **TypeScript**
+
+```ts
+function minWindow(s: string, t: string): string {
+    const need: number[] = new Array(128).fill(0);
+    const window: number[] = new Array(128).fill(0);
+    for (const c of t) {
+        ++need[c.charCodeAt(0)];
+    }
+    let cnt = 0;
+    let j = 0;
+    let k = -1;
+    let mi = 1 << 30;
+    for (let i = 0; i < s.length; ++i) {
+        ++window[s.charCodeAt(i)];
+        if (need[s.charCodeAt(i)] >= window[s.charCodeAt(i)]) {
+            ++cnt;
+        }
+        while (cnt === t.length) {
+            if (i - j + 1 < mi) {
+                mi = i - j + 1;
+                k = j;
+            }
+            if (need[s.charCodeAt(j)] >= window[s.charCodeAt(j)]) {
+                --cnt;
+            }
+            --window[s.charCodeAt(j++)];
+        }
+    }
+    return k < 0 ? '' : s.slice(k, k + mi);
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public string MinWindow(string s, string t) {
+        int[] need = new int[128];
+        int[] window = new int[128];
+        foreach (var c in t) {
+            ++need[c];
+        }
+        int cnt = 0, j = 0, k = -1, mi = 1 << 30;
+        for (int i = 0; i < s.Length; ++i) {
+            ++window[s[i]];
+            if (need[s[i]] >= window[s[i]]) {
+                ++cnt;
+            }
+            while (cnt == t.Length) {
+                if (i - j + 1 < mi) {
+                    mi = i - j + 1;
+                    k = j;
+                }
+                if (need[s[j]] >= window[s[j]]) {
+                    --cnt;
+                }
+                --window[s[j++]];
+            }
+        }
+        return k < 0 ? "" : s.Substring(k, mi);
+    }
 }
 ```
 

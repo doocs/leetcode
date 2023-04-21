@@ -1,71 +1,28 @@
 class Solution {
     public String minWindow(String s, String t) {
-        Map<Character, Integer> mp = new HashMap<>();
-        int begin = 0, end = 0, counter = t.length(), minLen = Integer.MAX_VALUE, minStart = 0,
-            size = s.length();
-
-        for (char c : s.toCharArray()) mp.put(c, 0);
-        for (char c : t.toCharArray()) {
-            if (mp.containsKey(c))
-                mp.put(c, mp.get(c) + 1);
-            else
-                return "";
+        int[] need = new int[128];
+        int[] window = new int[128];
+        int m = s.length(), n = t.length();
+        for (int i = 0; i < n; ++i) {
+            ++need[t.charAt(i)];
         }
-
-        while (end < size) {
-            if (mp.get(s.charAt(end)) > 0) counter--;
-
-            mp.put(s.charAt(end), mp.get(s.charAt(end)) - 1);
-
-            end++;
-
-            while (counter == 0) {
-                if (end - begin < minLen) {
-                    minStart = begin;
-                    minLen = end - begin;
+        int cnt = 0, j = 0, k = -1, mi = 1 << 30;
+        for (int i = 0; i < m; ++i) {
+            ++window[s.charAt(i)];
+            if (need[s.charAt(i)] >= window[s.charAt(i)]) {
+                ++cnt;
+            }
+            while (cnt == n) {
+                if (i - j + 1 < mi) {
+                    mi = i - j + 1;
+                    k = j;
                 }
-                mp.put(s.charAt(begin), mp.get(s.charAt(begin)) + 1);
-
-                if (mp.get(s.charAt(begin)) > 0) {
-                    counter++;
+                if (need[s.charAt(j)] >= window[s.charAt(j)]) {
+                    --cnt;
                 }
-
-                begin++;
+                --window[s.charAt(j++)];
             }
         }
-
-        if (minLen != Integer.MAX_VALUE) {
-            return s.substring(minStart, minStart + minLen);
-        }
-        return "";
+        return k < 0 ? "" : s.substring(k, k + mi);
     }
 }
-
-// class Solution {
-//     public String minWindow(String s, String t) {
-//         int[] count = new int['z' - 'A' + 1];
-//         int uniq = 0;
-//         for (int i = 0; i < t.length(); ++i) {
-//             if (++count[t.charAt(i) - 'A'] == 1) uniq++;
-//         }
-//         int found = 0,i = 0,j = 0;
-//         int minLen = Integer.MAX_VALUE;
-//         int minJ = Integer.MAX_VALUE;
-//         while (found < uniq) {
-//             while (i < s.length()) {
-//                 if (found >= uniq) break;
-//                 if (--count[s.charAt(i) - 'A'] == 0) found++;
-//                 i++;
-//             }
-//             if (found < uniq) break;
-//             while (j < i && count[s.charAt(j) - 'A'] < 0) count[s.charAt(j++) - 'A']++;
-//             if (i - j < minLen) {
-//                 minLen = i - j;
-//                 minJ = j;
-//             }
-//             count[s.charAt(j++) - 'A']++;
-//             found--;
-//         }
-//         return minLen < Integer.MAX_VALUE ? s.substring(minJ, minJ + minLen) : "";
-//     }
-// }
