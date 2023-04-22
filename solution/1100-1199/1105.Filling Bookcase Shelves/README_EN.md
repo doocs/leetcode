@@ -55,16 +55,16 @@ Notice that book number 2 does not have to be on the first shelf.
 class Solution:
     def minHeightShelves(self, books: List[List[int]], shelfWidth: int) -> int:
         n = len(books)
-        dp = [0] * (n + 1)
+        f = [0] * (n + 1)
         for i, (w, h) in enumerate(books, 1):
-            dp[i] = dp[i - 1] + h
+            f[i] = f[i - 1] + h
             for j in range(i - 1, 0, -1):
                 w += books[j - 1][0]
                 if w > shelfWidth:
                     break
                 h = max(h, books[j - 1][1])
-                dp[i] = min(dp[i], dp[j - 1] + h)
-        return dp[n]
+                f[i] = min(f[i], f[j - 1] + h)
+        return f[n]
 ```
 
 ### **Java**
@@ -73,20 +73,20 @@ class Solution:
 class Solution {
     public int minHeightShelves(int[][] books, int shelfWidth) {
         int n = books.length;
-        int[] dp = new int[n + 1];
+        int[] f = new int[n + 1];
         for (int i = 1; i <= n; ++i) {
             int w = books[i - 1][0], h = books[i - 1][1];
-            dp[i] = dp[i - 1] + h;
+            f[i] = f[i - 1] + h;
             for (int j = i - 1; j > 0; --j) {
                 w += books[j - 1][0];
                 if (w > shelfWidth) {
                     break;
                 }
                 h = Math.max(h, books[j - 1][1]);
-                dp[i] = Math.min(dp[i], dp[j - 1] + h);
+                f[i] = Math.min(f[i], f[j - 1] + h);
             }
         }
-        return dp[n];
+        return f[n];
     }
 }
 ```
@@ -98,18 +98,21 @@ class Solution {
 public:
     int minHeightShelves(vector<vector<int>>& books, int shelfWidth) {
         int n = books.size();
-        vector<int> dp(n + 1);
+        int f[n + 1];
+        f[0] = 0;
         for (int i = 1; i <= n; ++i) {
             int w = books[i - 1][0], h = books[i - 1][1];
-            dp[i] = dp[i - 1] + h;
+            f[i] = f[i - 1] + h;
             for (int j = i - 1; j > 0; --j) {
                 w += books[j - 1][0];
-                if (w > shelfWidth) break;
+                if (w > shelfWidth) {
+                    break;
+                }
                 h = max(h, books[j - 1][1]);
-                dp[i] = min(dp[i], dp[j - 1] + h);
+                f[i] = min(f[i], f[j - 1] + h);
             }
         }
-        return dp[n];
+        return f[n];
     }
 };
 ```
@@ -119,20 +122,20 @@ public:
 ```go
 func minHeightShelves(books [][]int, shelfWidth int) int {
 	n := len(books)
-	dp := make([]int, n+1)
+	f := make([]int, n+1)
 	for i := 1; i <= n; i++ {
 		w, h := books[i-1][0], books[i-1][1]
-		dp[i] = dp[i-1] + h
+		f[i] = f[i-1] + h
 		for j := i - 1; j > 0; j-- {
 			w += books[j-1][0]
 			if w > shelfWidth {
 				break
 			}
 			h = max(h, books[j-1][1])
-			dp[i] = min(dp[i], dp[j-1]+h)
+			f[i] = min(f[i], f[j-1]+h)
 		}
 	}
-	return dp[n]
+	return f[n]
 }
 
 func max(a, b int) int {
@@ -147,6 +150,52 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function minHeightShelves(books: number[][], shelfWidth: number): number {
+    const n = books.length;
+    const f = new Array(n + 1).fill(0);
+    for (let i = 1; i <= n; ++i) {
+        let [w, h] = books[i - 1];
+        f[i] = f[i - 1] + h;
+        for (let j = i - 1; j > 0; --j) {
+            w += books[j - 1][0];
+            if (w > shelfWidth) {
+                break;
+            }
+            h = Math.max(h, books[j - 1][1]);
+            f[i] = Math.min(f[i], f[j - 1] + h);
+        }
+    }
+    return f[n];
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int MinHeightShelves(int[][] books, int shelfWidth) {
+        int n = books.Length;
+        int[] f = new int[n + 1];
+        for (int i = 1; i <= n; ++i) {
+            int w = books[i - 1][0], h = books[i - 1][1];
+            f[i] = f[i - 1] + h;
+            for (int j = i - 1; j > 0; --j) {
+                w += books[j - 1][0];
+                if (w > shelfWidth) {
+                    break;
+                }
+                h = Math.Max(h, books[j - 1][1]);
+                f[i] = Math.Min(f[i], f[j - 1] + h);
+            }
+        }
+        return f[n];
+    }
 }
 ```
 
