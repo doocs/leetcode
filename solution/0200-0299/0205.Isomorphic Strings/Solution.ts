@@ -1,17 +1,14 @@
 function isIsomorphic(s: string, t: string): boolean {
-    const n = s.length;
-    const help = (s: string, t: string) => {
-        const map = new Map();
-        for (let i = 0; i < n; i++) {
-            if (map.has(s[i])) {
-                if (map.get(s[i]) !== t[i]) {
-                    return false;
-                }
-            } else {
-                map.set(s[i], t[i]);
-            }
+    const d1: number[] = new Array(256).fill(0);
+    const d2: number[] = new Array(256).fill(0);
+    for (let i = 0; i < s.length; ++i) {
+        const a = s.charCodeAt(i);
+        const b = t.charCodeAt(i);
+        if (d1[a] !== d2[b]) {
+            return false;
         }
-        return true;
-    };
-    return help(s, t) && help(t, s);
+        d1[a] = i + 1;
+        d2[b] = i + 1;
+    }
+    return true;
 }

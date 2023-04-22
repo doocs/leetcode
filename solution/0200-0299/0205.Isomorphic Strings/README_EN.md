@@ -32,6 +32,14 @@
 
 ## Solutions
 
+**Approach 1: Hash Table or Array**
+
+We can use two hash tables or arrays $d_1$ and $d_2$ to record the character mapping relationship between $s$ and $t$.
+
+Traverse $s$ and $t$, if the corresponding character mapping relationships in $d_1$ and $d_2$ are different, return `false`, otherwise update the corresponding character mapping relationships in $d_1$ and $d_2$. After the traversal is complete, it means that $s$ and $t$ are isomorphic, and return `true`.
+
+The time complexity is $O(n)$ and the space complexity is $O(C)$. Where $n$ is the length of the string $s$; and $C$ is the size of the character set, which is $C = 256$ in this problem.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -39,11 +47,10 @@
 ```python
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
-        d1, d2 = {}, {}
+        d1 = {}
+        d2 = {}
         for a, b in zip(s, t):
-            if a in d1 and d1[a] != b:
-                return False
-            if b in d2 and d2[b] != a:
+            if (a in d1 and d1[a] != b) or (b in d2 and d2[b] != a):
                 return False
             d1[a] = b
             d2[b] = a
@@ -54,11 +61,11 @@ class Solution:
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
         d1, d2 = [0] * 256, [0] * 256
-        for i, (a, b) in enumerate(zip(s, t)):
+        for i, (a, b) in enumerate(zip(s, t), 1):
             a, b = ord(a), ord(b)
             if d1[a] != d2[b]:
                 return False
-            d1[a] = d2[b] = i + 1
+            d1[a] = d2[b] = i
         return True
 ```
 
@@ -111,12 +118,14 @@ class Solution {
 class Solution {
 public:
     bool isIsomorphic(string s, string t) {
-        vector<int> d1(256);
-        vector<int> d2(256);
+        int d1[256]{};
+        int d2[256]{};
         int n = s.size();
         for (int i = 0; i < n; ++i) {
             char a = s[i], b = t[i];
-            if (d1[a] != d2[b]) return false;
+            if (d1[a] != d2[b]) {
+                return false;
+            }
             d1[a] = d2[b] = i + 1;
         }
         return true;
@@ -128,13 +137,14 @@ public:
 
 ```go
 func isIsomorphic(s string, t string) bool {
-	d1, d2 := make([]int, 256), make([]int, 256)
-	for i, a := range s {
-		b := t[i]
-		if d1[a] != d2[b] {
+	d1 := [256]int{}
+	d2 := [256]int{}
+	for i := range s {
+		if d1[s[i]] != d2[t[i]] {
 			return false
 		}
-		d1[a], d2[b] = i+1, i+1
+		d1[s[i]] = i + 1
+		d2[t[i]] = i + 1
 	}
 	return true
 }
@@ -145,24 +155,16 @@ func isIsomorphic(s string, t string) bool {
 ```cs
 public class Solution {
     public bool IsIsomorphic(string s, string t) {
-        var d1 = new Dictionary<char, char>();
-        var d2 = new Dictionary<char, char>();
-        for (var i = 0; i < s.Length; ++i)
-        {
-            char mapping1;
-            char mapping2;
-            var found1 = d1.TryGetValue(s[i], out mapping1);
-            var found2 = d2.TryGetValue(t[i], out mapping2);
-            if (found1 ^ found2) return false;
-            if (!found1)
-            {
-                d1.Add(s[i], t[i]);
-                d2.Add(t[i], s[i]);
-            }
-            else if (mapping1 != t[i] || mapping2 != s[i])
-            {
+        int[] d1 = new int[256];
+        int[] d2 = new int[256];
+        for (int i = 0; i < s.Length; ++i) {
+            var a = s[i];
+            var b = t[i];
+            if (d1[a] != d2[b]) {
                 return false;
             }
+            d1[a] = i + 1;
+            d2[b] = i + 1;
         }
         return true;
     }
@@ -173,21 +175,18 @@ public class Solution {
 
 ```ts
 function isIsomorphic(s: string, t: string): boolean {
-    const n = s.length;
-    const help = (s: string, t: string) => {
-        const map = new Map();
-        for (let i = 0; i < n; i++) {
-            if (map.has(s[i])) {
-                if (map.get(s[i]) !== t[i]) {
-                    return false;
-                }
-            } else {
-                map.set(s[i], t[i]);
-            }
+    const d1: number[] = new Array(256).fill(0);
+    const d2: number[] = new Array(256).fill(0);
+    for (let i = 0; i < s.length; ++i) {
+        const a = s.charCodeAt(i);
+        const b = t.charCodeAt(i);
+        if (d1[a] !== d2[b]) {
+            return false;
         }
-        return true;
-    };
-    return help(s, t) && help(t, s);
+        d1[a] = i + 1;
+        d2[b] = i + 1;
+    }
+    return true;
 }
 ```
 
