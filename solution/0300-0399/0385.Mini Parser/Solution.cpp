@@ -30,20 +30,35 @@
 class Solution {
 public:
     NestedInteger deserialize(string s) {
-        if (s.empty()) return NestedInteger();
-        if (s[0] != '[') return NestedInteger(stoi(s));
-        if (s.size() <= 2) return NestedInteger();
-        NestedInteger ans;
-        int depth = 0;
-        for (int i = 1, j = 1; i < s.size(); ++i) {
-            if (depth == 0 && (s[i] == ',' || i == s.size() - 1)) {
-                ans.add(deserialize(s.substr(j, i - j)));
-                j = i + 1;
-            } else if (s[i] == '[')
-                ++depth;
-            else if (s[i] == ']')
-                --depth;
+        if (s[0] != '[') {
+            return NestedInteger(stoi(s));
         }
-        return ans;
+        stack<NestedInteger> stk;
+        int x = 0;
+        bool neg = false;
+        for (int i = 0; i < s.size(); ++i) {
+            if (s[i] == '-') {
+                neg = true;
+            } else if (isdigit(s[i])) {
+                x = x * 10 + s[i] - '0';
+            } else if (s[i] == '[') {
+                stk.push(NestedInteger());
+            } else if (s[i] == ',' || s[i] == ']') {
+                if (isdigit(s[i - 1])) {
+                    if (neg) {
+                        x = -x;
+                    }
+                    stk.top().add(NestedInteger(x));
+                }
+                x = 0;
+                neg = false;
+                if (s[i] == ']' && stk.size() > 1) {
+                    auto t = stk.top();
+                    stk.pop();
+                    stk.top().add(t);
+                }
+            }
+        }
+        return stk.top();
     }
 };
