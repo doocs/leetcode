@@ -1,15 +1,9 @@
 class Solution:
     def rotate(self, matrix: List[List[int]]) -> None:
-        """
-        Do not return anything, modify matrix in-place instead.
-        """
-        s, n = 0, len(matrix)
-        while s < (n >> 1):
-            e = n - s - 1
-            for i in range(s, e):
-                t = matrix[i][e]
-                matrix[i][e] = matrix[s][i]
-                matrix[s][i] = matrix[n - i - 1][s]
-                matrix[n - i - 1][s] = matrix[e][n - i - 1]
-                matrix[e][n - i - 1] = t
-            s += 1
+        n = len(matrix)
+        for i in range(n >> 1):
+            for j in range(n):
+                matrix[i][j], matrix[n - i - 1][j] = matrix[n - i - 1][j], matrix[i][j]
+        for i in range(n):
+            for j in range(i):
+                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]

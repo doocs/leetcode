@@ -1,15 +1,13 @@
 func rotate(matrix [][]int) {
 	n := len(matrix)
-	// matrix transpose
-	for i := 0; i < n; i++ {
-		for j := i; j < n; j++ {
-			matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+	for i := 0; i < n>>1; i++ {
+		for j := 0; j < n; j++ {
+			matrix[i][j], matrix[n-i-1][j] = matrix[n-i-1][j], matrix[i][j]
 		}
 	}
-	// reverse each matrix[i]
 	for i := 0; i < n; i++ {
-		for j, k := 0, n-1; j < k; j, k = j+1, k-1 {
-			matrix[i][j], matrix[i][k] = matrix[i][k], matrix[i][j]
+		for j := 0; j < i; j++ {
+			matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
 		}
 	}
 }
