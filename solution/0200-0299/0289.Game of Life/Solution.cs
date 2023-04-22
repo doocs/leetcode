@@ -1,7 +1,7 @@
-class Solution {
-public:
-    void gameOfLife(vector<vector<int>>& board) {
-        int m = board.size(), n = board[0].size();
+public class Solution {
+    public void GameOfLife(int[][] board) {
+        int m = board.Length;
+        int n = board[0].Length;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 int live = -board[i][j];
@@ -24,10 +24,11 @@ public:
             for (int j = 0; j < n; ++j) {
                 if (board[i][j] == 2) {
                     board[i][j] = 0;
-                } else if (board[i][j] == -1) {
+                }
+                if (board[i][j] == -1) {
                     board[i][j] = 1;
                 }
             }
         }
     }
-};
+}
