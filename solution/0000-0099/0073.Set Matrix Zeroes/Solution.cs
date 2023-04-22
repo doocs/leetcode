@@ -1,14 +1,7 @@
-class Solution {
-public:
-    void setZeroes(vector<vector<int>>& matrix) {
-        int m = matrix.size(), n = matrix[0].size();
-        bool i0 = false, j0 = false;
-        for (int j = 0; j < n; ++j) {
-            if (matrix[0][j] == 0) {
-                i0 = true;
-                break;
-            }
-        }
+public class Solution {
+    public void SetZeroes(int[][] matrix) {
+        int m = matrix.Length, n = matrix[0].Length;
+        bool i0 = matrix[0].Contains(0), j0 = false;
         for (int i = 0; i < m; ++i) {
             if (matrix[i][0] == 0) {
                 j0 = true;
@@ -41,4 +34,4 @@ public:
             }
         }
     }
-};
+}
