@@ -1,13 +1,16 @@
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
         m, n = len(matrix), len(matrix[0])
+        dirs = (0, 1, 0, -1, 0)
+        i = j = k = 0
         ans = []
-        top, bottom, left, right = 0, m - 1, 0, n - 1
-        while left <= right and top <= bottom:
-            ans.extend([matrix[top][j] for j in range(left, right + 1)])
-            ans.extend([matrix[i][right] for i in range(top + 1, bottom + 1)])
-            if left < right and top < bottom:
-                ans.extend([matrix[bottom][j] for j in range(right - 1, left - 1, -1)])
-                ans.extend([matrix[i][left] for i in range(bottom - 1, top, -1)])
-            top, bottom, left, right = top + 1, bottom - 1, left + 1, right - 1
+        vis = set()
+        for _ in range(m * n):
+            ans.append(matrix[i][j])
+            vis.add((i, j))
+            x, y = i + dirs[k], j + dirs[k + 1]
+            if not 0 <= x < m or not 0 <= y < n or (x, y) in vis:
+                k = (k + 1) % 4
+            i = i + dirs[k]
+            j = j + dirs[k + 1]
         return ans

@@ -1,23 +1,19 @@
 function spiralOrder(matrix: number[][]): number[] {
     const m = matrix.length;
     const n = matrix[0].length;
-    const res = [];
-    for (let i = 0; i <= m >> 1; i++) {
-        for (let j = i; j < n - i - 1; j++) {
-            res.push(matrix[i][j]);
+    const ans: number[] = [];
+    const vis = new Array(m).fill(0).map(() => new Array(n).fill(false));
+    const dirs = [0, 1, 0, -1, 0];
+    for (let h = m * n, i = 0, j = 0, k = 0; h > 0; --h) {
+        ans.push(matrix[i][j]);
+        vis[i][j] = true;
+        const x = i + dirs[k];
+        const y = j + dirs[k + 1];
+        if (x < 0 || x >= m || y < 0 || y >= n || vis[x][y]) {
+            k = (k + 1) % 4;
         }
-        for (let j = i; j < m - i - 1; j++) {
-            res.push(matrix[j][n - i - 1]);
-        }
-        for (let j = i; j < n - i - 1; j++) {
-            res.push(matrix[m - i - 1][n - j - 1]);
-        }
-        for (let j = i; j < m - i - 1; j++) {
-            res.push(matrix[m - j - 1][i]);
-        }
+        i += dirs[k];
+        j += dirs[k + 1];
     }
-    if (m & 1) {
-        res.push(matrix[m >> 1][n >> 1]);
-    }
-    return res.slice(0, m * n);
+    return ans;
 }

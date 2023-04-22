@@ -33,6 +33,20 @@
 
 ## Solutions
 
+**Approach 1: Simulation**
+
+We use $i$ and $j$ to respectively represent the row and column of the current element being visited, and use $k$ to represent the current direction. We use an array or hash table $vis$ to record whether each element has been visited. After each element is visited, it is marked as visited, and then the current direction is moved forward one step. If the forward step goes out of bounds or has been visited, the direction is changed and continued. Move forward until the entire matrix is traversed.
+
+The time complexity is $O(m \times n)$ and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the matrix.
+
+For the visited elements, we can also add a constant $300$ to their values, so we do not need an extra $vis$ array or hash table to record whether it has been visited, thus reducing the space complexity to $O(1)$.
+
+**Approach 2: Layer-by-layer Simulation**
+
+We can also traverse and store the matrix elements from the outside to the inside layer by layer.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the number of rows and columns of the matrix.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -41,15 +55,18 @@
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
         m, n = len(matrix), len(matrix[0])
+        dirs = (0, 1, 0, -1, 0)
+        i = j = k = 0
         ans = []
-        top, bottom, left, right = 0, m - 1, 0, n - 1
-        while left <= right and top <= bottom:
-            ans.extend([matrix[top][j] for j in range(left, right + 1)])
-            ans.extend([matrix[i][right] for i in range(top + 1, bottom + 1)])
-            if left < right and top < bottom:
-                ans.extend([matrix[bottom][j] for j in range(right - 1, left - 1, -1)])
-                ans.extend([matrix[i][left] for i in range(bottom - 1, top, -1)])
-            top, bottom, left, right = top + 1, bottom - 1, left + 1, right - 1
+        vis = set()
+        for _ in range(m * n):
+            ans.append(matrix[i][j])
+            vis.add((i, j))
+            x, y = i + dirs[k], j + dirs[k + 1]
+            if not 0 <= x < m or not 0 <= y < n or (x, y) in vis:
+                k = (k + 1) % 4
+            i = i + dirs[k]
+            j = j + dirs[k + 1]
         return ans
 ```
 
@@ -57,18 +74,41 @@ class Solution:
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
         m, n = len(matrix), len(matrix[0])
-        dirs = ((0, 1), (1, 0), (0, -1), (-1, 0))
+        dirs = (0, 1, 0, -1, 0)
         i = j = k = 0
         ans = []
-        vis = [[False] * n for _ in range(m)]
         for _ in range(m * n):
             ans.append(matrix[i][j])
-            vis[i][j] = True
-            x, y = i + dirs[k][0], j + dirs[k][1]
-            if x < 0 or y < 0 or x >= m or y >= n or vis[x][y]:
+            matrix[i][j] += 300
+            x, y = i + dirs[k], j + dirs[k + 1]
+            if not 0 <= x < m or not 0 <= y < n or matrix[x][y] > 100:
                 k = (k + 1) % 4
-                x, y = i + dirs[k][0], j + dirs[k][1]
-            i, j = x, y
+            i = i + dirs[k]
+            j = j + dirs[k + 1]
+        # for i in range(m):
+        #     for j in range(n):
+        #         matrix[i][j] -= 300
+        return ans
+```
+
+```python
+class Solution:
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        m, n = len(matrix), len(matrix[0])
+        x1, y1, x2, y2 = 0, 0, m - 1, n - 1
+        ans = []
+        while x1 <= x2 and y1 <= y2:
+            for j in range(y1, y2 + 1):
+                ans.append(matrix[x1][j])
+            for i in range(x1 + 1, x2 + 1):
+                ans.append(matrix[i][y2])
+            if x1 < x2 and y1 < y2:
+                for j in range(y2 - 1, y1 - 1, -1):
+                    ans.append(matrix[x2][j])
+                for i in range(x2 - 1, x1, -1):
+                    ans.append(matrix[i][y1])
+            x1, y1 = x1 + 1, y1 + 1
+            x2, y2 = x2 - 1, y2 - 1
         return ans
 ```
 
@@ -78,27 +118,19 @@ class Solution:
 class Solution {
     public List<Integer> spiralOrder(int[][] matrix) {
         int m = matrix.length, n = matrix[0].length;
-        int top = 0, bottom = m - 1, left = 0, right = n - 1;
+        int[] dirs = {0, 1, 0, -1, 0};
+        int i = 0, j = 0, k = 0;
         List<Integer> ans = new ArrayList<>();
-        while (left <= right && top <= bottom) {
-            for (int j = left; j <= right; ++j) {
-                ans.add(matrix[top][j]);
+        boolean[][] vis = new boolean[m][n];
+        for (int h = m * n; h > 0; --h) {
+            ans.add(matrix[i][j]);
+            vis[i][j] = true;
+            int x = i + dirs[k], y = j + dirs[k + 1];
+            if (x < 0 || x >= m || y < 0 || y >= n || vis[x][y]) {
+                k = (k + 1) % 4;
             }
-            for (int i = top + 1; i <= bottom; ++i) {
-                ans.add(matrix[i][right]);
-            }
-            if (left < right && top < bottom) {
-                for (int j = right - 1; j >= left; --j) {
-                    ans.add(matrix[bottom][j]);
-                }
-                for (int i = bottom - 1; i > top; --i) {
-                    ans.add(matrix[i][left]);
-                }
-            }
-            ++top;
-            --bottom;
-            ++left;
-            --right;
+            i += dirs[k];
+            j += dirs[k + 1];
         }
         return ans;
     }
@@ -109,21 +141,53 @@ class Solution {
 class Solution {
     public List<Integer> spiralOrder(int[][] matrix) {
         int m = matrix.length, n = matrix[0].length;
-        int i = 0, j = 0, k = 0;
-        int[][] dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+        int[] dirs = {0, 1, 0, -1, 0};
         List<Integer> ans = new ArrayList<>();
-        boolean[][] vis = new boolean[m][n];
-        for (int h = 0; h < m * n; ++h) {
+        for (int h = m * n, i = 0, j = 0, k = 0; h > 0; --h) {
             ans.add(matrix[i][j]);
-            vis[i][j] = true;
-            int x = i + dirs[k][0], y = j + dirs[k][1];
-            if (x < 0 || y < 0 || x >= m || y >= n || vis[x][y]) {
+            matrix[i][j] += 300;
+            int x = i + dirs[k], y = j + dirs[k + 1];
+            if (x < 0 || x >= m || y < 0 || y >= n || matrix[x][y] > 100) {
                 k = (k + 1) % 4;
-                x = i + dirs[k][0];
-                y = j + dirs[k][1];
             }
-            i = x;
-            j = y;
+            i += dirs[k];
+            j += dirs[k + 1];
+        }
+        // for (int i = 0; i < m; ++i) {
+        //     for (int j = 0; j < n; ++j) {
+        //         matrix[i][j] -= 300;
+        //     }
+        // }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        int m = matrix.length, n = matrix[0].length;
+        int x1 = 0, y1 = 0, x2 = m - 1, y2 = n - 1;
+        List<Integer> ans = new ArrayList<>();
+        while (x1 <= x2 && y1 <= y2) {
+            for (int j = y1; j <= y2; ++j) {
+                ans.add(matrix[x1][j]);
+            }
+            for (int i = x1 + 1; i <= x2; ++i) {
+                ans.add(matrix[i][y2]);
+            }
+            if (x1 < x2 && y1 < y2) {
+                for (int j = y2 - 1; j >= y1; --j) {
+                    ans.add(matrix[x2][j]);
+                }
+                for (int i = x2 - 1; i > x1; --i) {
+                    ans.add(matrix[i][y1]);
+                }
+            }
+            ++x1;
+            ++y1;
+            --x2;
+            --y2;
         }
         return ans;
     }
@@ -137,19 +201,20 @@ class Solution {
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
         int m = matrix.size(), n = matrix[0].size();
-        int top = 0, bottom = m - 1, left = 0, right = n - 1;
+        int dirs[5] = {0, 1, 0, -1, 0};
+        int i = 0, j = 0, k = 0;
         vector<int> ans;
-        while (top <= bottom && left <= right) {
-            for (int j = left; j <= right; ++j) ans.push_back(matrix[top][j]);
-            for (int i = top + 1; i <= bottom; ++i) ans.push_back(matrix[i][right]);
-            if (left < right && top < bottom) {
-                for (int j = right - 1; j >= left; --j) ans.push_back(matrix[bottom][j]);
-                for (int i = bottom - 1; i > top; --i) ans.push_back(matrix[i][left]);
+        bool vis[m][n];
+        memset(vis, false, sizeof(vis));
+        for (int h = m * n; h; --h) {
+            ans.push_back(matrix[i][j]);
+            vis[i][j] = true;
+            int x = i + dirs[k], y = j + dirs[k + 1];
+            if (x < 0 || x >= m || y < 0 || y >= n || vis[x][y]) {
+                k = (k + 1) % 4;
             }
-            ++top;
-            --bottom;
-            ++left;
-            --right;
+            i += dirs[k];
+            j += dirs[k + 1];
         }
         return ans;
     }
@@ -159,22 +224,54 @@ public:
 ```cpp
 class Solution {
 public:
-    const int dirs[4][2] = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
-
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
         int m = matrix.size(), n = matrix[0].size();
-        int i = 0, j = 0, k = 0;
+        int dirs[5] = {0, 1, 0, -1, 0};
         vector<int> ans;
-        bool vis[11][11] = {0};
-        for (int h = 0; h < m * n; ++h) {
+        for (int h = m * n, i = 0, j = 0, k = 0; h; --h) {
             ans.push_back(matrix[i][j]);
-            vis[i][j] = 1;
-            int x = i + dirs[k][0], y = j + dirs[k][1];
-            if (x < 0 || x >= m || y < 0 || y >= n || vis[x][y]) {
+            matrix[i][j] += 300;
+            int x = i + dirs[k], y = j + dirs[k + 1];
+            if (x < 0 || x >= m || y < 0 || y >= n || matrix[x][y] > 100) {
                 k = (k + 1) % 4;
-                x = i + dirs[k][0], y = j + dirs[k][1];
             }
-            i = x, j = y;
+            i += dirs[k];
+            j += dirs[k + 1];
+        }
+        // for (int i = 0; i < m; ++i) {
+        //     for (int j = 0; j < n; ++j) {
+        //         matrix[i][j] -= 300;
+        //     }
+        // }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        int m = matrix.size(), n = matrix[0].size();
+        int x1 = 0, y1 = 0, x2 = m - 1, y2 = n - 1;
+        vector<int> ans;
+        while (x1 <= x2 && y1 <= y2) {
+            for (int j = y1; j <= y2; ++j) {
+                ans.push_back(matrix[x1][j]);
+            }
+            for (int i = x1 + 1; i <= x2; ++i) {
+                ans.push_back(matrix[i][y2]);
+            }
+            if (x1 < x2 && y1 < y2) {
+                for (int j = y2 - 1; j >= y1; --j) {
+                    ans.push_back(matrix[x2][j]);
+                }
+                for (int i = x2 - 1; i > x1; --i) {
+                    ans.push_back(matrix[i][y1]);
+                }
+            }
+            ++x1, ++y1;
+            --x2, --y2;
         }
         return ans;
     }
@@ -184,51 +281,70 @@ public:
 ### **Go**
 
 ```go
-func spiralOrder(matrix [][]int) []int {
+func spiralOrder(matrix [][]int) (ans []int) {
 	m, n := len(matrix), len(matrix[0])
-	ans := make([]int, 0, m*n)
-
-	top, bottom, left, right := 0, m-1, 0, n-1
-	for left <= right && top <= bottom {
-		for i := left; i <= right; i++ {
-			ans = append(ans, matrix[top][i])
-		}
-		for i := top + 1; i <= bottom; i++ {
-			ans = append(ans, matrix[i][right])
-		}
-		if left < right && top < bottom {
-			for i := right - 1; i >= left; i-- {
-				ans = append(ans, matrix[bottom][i])
-			}
-			for i := bottom - 1; i > top; i-- {
-				ans = append(ans, matrix[i][left])
-			}
-		}
-		top++
-		bottom--
-		left++
-		right--
+	vis := make([][]bool, m)
+	for i := range vis {
+		vis[i] = make([]bool, n)
 	}
-
-	return ans
+	dirs := [5]int{0, 1, 0, -1, 0}
+	i, j, k := 0, 0, 0
+	for h := m * n; h > 0; h-- {
+		ans = append(ans, matrix[i][j])
+		vis[i][j] = true
+		x, y := i+dirs[k], j+dirs[k+1]
+		if x < 0 || x >= m || y < 0 || y >= n || vis[x][y] {
+			k = (k + 1) % 4
+		}
+		i, j = i+dirs[k], j+dirs[k+1]
+	}
+	return
 }
 ```
 
 ```go
 func spiralOrder(matrix [][]int) (ans []int) {
 	m, n := len(matrix), len(matrix[0])
-	var i, j, k int
-	dirs := [4][2]int{{0, 1}, {1, 0}, {0, -1}, {-1, 0}}
-	vis := [11][11]bool{}
-	for h := 0; h < m*n; h++ {
+	dirs := [5]int{0, 1, 0, -1, 0}
+	for h, i, j, k := m*n, 0, 0, 0; h > 0; h-- {
 		ans = append(ans, matrix[i][j])
-		vis[i][j] = true
-		x, y := i+dirs[k][0], j+dirs[k][1]
-		if x < 0 || x >= m || y < 0 || y >= n || vis[x][y] {
+		matrix[i][j] += 300
+		x, y := i+dirs[k], j+dirs[k+1]
+		if x < 0 || x >= m || y < 0 || y >= n || matrix[x][y] > 100 {
 			k = (k + 1) % 4
-			x, y = i+dirs[k][0], j+dirs[k][1]
 		}
-		i, j = x, y
+		i, j = i+dirs[k], j+dirs[k+1]
+	}
+	// for i, row := range matrix {
+	// 	for j := range row {
+	// 		matrix[i][j] -= 300
+	// 	}
+	// }
+	return
+}
+```
+
+```go
+func spiralOrder(matrix [][]int) (ans []int) {
+	m, n := len(matrix), len(matrix[0])
+	x1, y1, x2, y2 := 0, 0, m-1, n-1
+	for x1 <= x2 && y1 <= y2 {
+		for j := y1; j <= y2; j++ {
+			ans = append(ans, matrix[x1][j])
+		}
+		for i := x1 + 1; i <= x2; i++ {
+			ans = append(ans, matrix[i][y2])
+		}
+		if x1 < x2 && y1 < y2 {
+			for j := y2 - 1; j >= y1; j-- {
+				ans = append(ans, matrix[x2][j])
+			}
+			for i := x2 - 1; i > x1; i-- {
+				ans = append(ans, matrix[i][y1])
+			}
+		}
+		x1, y1 = x1+1, y1+1
+		x2, y2 = x2-1, y2-1
 	}
 	return
 }
@@ -244,24 +360,86 @@ func spiralOrder(matrix [][]int) (ans []int) {
 var spiralOrder = function (matrix) {
     const m = matrix.length;
     const n = matrix[0].length;
-    let [top, bottom, left, right] = [0, m - 1, 0, n - 1];
-    let ans = [];
-    while (top <= bottom && left <= right) {
-        for (let j = left; j <= right; ++j) {
-            ans.push(matrix[top][j]);
+    const ans = [];
+    const vis = new Array(m).fill(0).map(() => new Array(n).fill(false));
+    const dirs = [0, 1, 0, -1, 0];
+    for (let h = m * n, i = 0, j = 0, k = 0; h > 0; --h) {
+        ans.push(matrix[i][j]);
+        vis[i][j] = true;
+        const x = i + dirs[k];
+        const y = j + dirs[k + 1];
+        if (x < 0 || x >= m || y < 0 || y >= n || vis[x][y]) {
+            k = (k + 1) % 4;
         }
-        for (let i = top + 1; i <= bottom; ++i) {
-            ans.push(matrix[i][right]);
+        i += dirs[k];
+        j += dirs[k + 1];
+    }
+    return ans;
+};
+```
+
+```js
+/**
+ * @param {number[][]} matrix
+ * @return {number[]}
+ */
+var spiralOrder = function (matrix) {
+    const m = matrix.length;
+    const n = matrix[0].length;
+    const ans = [];
+    const dirs = [0, 1, 0, -1, 0];
+    for (let h = m * n, i = 0, j = 0, k = 0; h > 0; --h) {
+        ans.push(matrix[i][j]);
+        matrix[i][j] += 300;
+        const x = i + dirs[k];
+        const y = j + dirs[k + 1];
+        if (x < 0 || x >= m || y < 0 || y >= n || matrix[x][y] > 100) {
+            k = (k + 1) % 4;
         }
-        if (left < right && top < bottom) {
-            for (let j = right - 1; j >= left; --j) {
-                ans.push(matrix[bottom][j]);
+        i += dirs[k];
+        j += dirs[k + 1];
+    }
+    // for (let i = 0; i < m; ++i) {
+    //     for (let j = 0; j < n; ++j) {
+    //         matrix[i][j] -= 300;
+    //     }
+    // }
+    return ans;
+};
+```
+
+```js
+/**
+ * @param {number[][]} matrix
+ * @return {number[]}
+ */
+var spiralOrder = function (matrix) {
+    const m = matrix.length;
+    const n = matrix[0].length;
+    let x1 = 0;
+    let y1 = 0;
+    let x2 = m - 1;
+    let y2 = n - 1;
+    const ans = [];
+    while (x1 <= x2 && y1 <= y2) {
+        for (let j = y1; j <= y2; ++j) {
+            ans.push(matrix[x1][j]);
+        }
+        for (let i = x1 + 1; i <= x2; ++i) {
+            ans.push(matrix[i][y2]);
+        }
+        if (x1 < x2 && y1 < y2) {
+            for (let j = y2 - 1; j >= y1; --j) {
+                ans.push(matrix[x2][j]);
             }
-            for (let i = bottom - 1; i > top; --i) {
-                ans.push(matrix[i][left]);
+            for (let i = x2 - 1; i > x1; --i) {
+                ans.push(matrix[i][y1]);
             }
         }
-        [top, bottom, left, right] = [top + 1, bottom - 1, left + 1, right - 1];
+        ++x1;
+        ++y1;
+        --x2;
+        --y2;
     }
     return ans;
 };
@@ -272,35 +450,76 @@ var spiralOrder = function (matrix) {
 ```cs
 public class Solution {
     public IList<int> SpiralOrder(int[][] matrix) {
-        int m = matrix.Length;
-        int n = matrix[0].Length;
-        int top = 0, bottom = m - 1, left = 0, right = n - 1;
-        var ans = new List<int>(m * n);
-        while (top <= bottom && left <= right)
-        {
-            for (int j = left; j <= right; ++j)
-            {
-                ans.Add(matrix[top][j]);
+        int m = matrix.Length, n = matrix[0].Length;
+        int[] dirs = new int[] {0, 1, 0, -1, 0};
+        IList<int> ans = new List<int>();
+        bool[,] visited = new bool[m, n];
+        for (int h = m * n, i = 0, j = 0, k = 0; h > 0; --h) {
+            ans.Add(matrix[i][j]);
+            visited[i, j] = true;
+            int x = i + dirs[k], y = j + dirs[k + 1];
+            if (x < 0 || x >= m || y < 0 || y >= n || visited[x, y]) {
+                k = (k + 1) % 4;
             }
-            for (int i = top + 1; i <= bottom; ++i)
-            {
-                ans.Add(matrix[i][right]);
+            i += dirs[k];
+            j += dirs[k + 1];
+        }
+        return ans;
+    }
+}
+```
+
+```cs
+public class Solution {
+    public IList<int> SpiralOrder(int[][] matrix) {
+        int m = matrix.Length, n = matrix[0].Length;
+        int[] dirs = new int[] {0, 1, 0, -1, 0};
+        IList<int> ans = new List<int>();
+        for (int h = m * n, i = 0, j = 0, k = 0; h > 0; --h) {
+            ans.Add(matrix[i][j]);
+            matrix[i][j] += 300;
+            int x = i + dirs[k], y = j + dirs[k + 1];
+            if (x < 0 || x >= m || y < 0 || y >= n || matrix[x][y] > 100) {
+                k = (k + 1) % 4;
             }
-            if (left < right && top < bottom)
-            {
-                for (int j = right - 1; j >= left; --j)
-                {
-                    ans.Add(matrix[bottom][j]);
+            i += dirs[k];
+            j += dirs[k + 1];
+        }
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                matrix[i][j] -= 300;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```cs
+public class Solution {
+    public IList<int> SpiralOrder(int[][] matrix) {
+        int m = matrix.Length, n = matrix[0].Length;
+        int x1 = 0, y1 = 0, x2 = m - 1, y2 = n - 1;
+        IList<int> ans = new List<int>();
+        while (x1 <= x2 && y1 <= y2) {
+            for (int j = y1; j <= y2; ++j) {
+                ans.Add(matrix[x1][j]);
+            }
+            for (int i = x1 + 1; i <= x2; ++i) {
+                ans.Add(matrix[i][y2]);
+            }
+            if (x1 < x2 && y1 < y2) {
+                for (int j = y2 - 1; j >= y1; --j) {
+                    ans.Add(matrix[x2][j]);
                 }
-                for (int i = bottom - 1; i > top; --i)
-                {
-                    ans.Add(matrix[i][left]);
+                for (int i = x2 - 1; i > x1; --i) {
+                    ans.Add(matrix[i][y1]);
                 }
             }
-            ++top;
-            --bottom;
-            ++left;
-            --right;
+            ++x1;
+            ++y1;
+            --x2;
+            --y2;
         }
         return ans;
     }
@@ -313,25 +532,80 @@ public class Solution {
 function spiralOrder(matrix: number[][]): number[] {
     const m = matrix.length;
     const n = matrix[0].length;
-    const res = [];
-    for (let i = 0; i <= m >> 1; i++) {
-        for (let j = i; j < n - i - 1; j++) {
-            res.push(matrix[i][j]);
+    const ans: number[] = [];
+    const vis = new Array(m).fill(0).map(() => new Array(n).fill(false));
+    const dirs = [0, 1, 0, -1, 0];
+    for (let h = m * n, i = 0, j = 0, k = 0; h > 0; --h) {
+        ans.push(matrix[i][j]);
+        vis[i][j] = true;
+        const x = i + dirs[k];
+        const y = j + dirs[k + 1];
+        if (x < 0 || x >= m || y < 0 || y >= n || vis[x][y]) {
+            k = (k + 1) % 4;
         }
-        for (let j = i; j < m - i - 1; j++) {
-            res.push(matrix[j][n - i - 1]);
-        }
-        for (let j = i; j < n - i - 1; j++) {
-            res.push(matrix[m - i - 1][n - j - 1]);
-        }
-        for (let j = i; j < m - i - 1; j++) {
-            res.push(matrix[m - j - 1][i]);
-        }
+        i += dirs[k];
+        j += dirs[k + 1];
     }
-    if (m & 1) {
-        res.push(matrix[m >> 1][n >> 1]);
+    return ans;
+}
+```
+
+```ts
+function spiralOrder(matrix: number[][]): number[] {
+    const m = matrix.length;
+    const n = matrix[0].length;
+    const ans: number[] = [];
+    const dirs = [0, 1, 0, -1, 0];
+    for (let h = m * n, i = 0, j = 0, k = 0; h > 0; --h) {
+        ans.push(matrix[i][j]);
+        matrix[i][j] += 300;
+        const x = i + dirs[k];
+        const y = j + dirs[k + 1];
+        if (x < 0 || x >= m || y < 0 || y >= n || matrix[x][y] > 100) {
+            k = (k + 1) % 4;
+        }
+        i += dirs[k];
+        j += dirs[k + 1];
     }
-    return res.slice(0, m * n);
+    // for (let i = 0; i < m; ++i) {
+    //     for (let j = 0; j < n; ++j) {
+    //         matrix[i][j] -= 300;
+    //     }
+    // }
+    return ans;
+}
+```
+
+```ts
+function spiralOrder(matrix: number[][]): number[] {
+    const m = matrix.length;
+    const n = matrix[0].length;
+    let x1 = 0;
+    let y1 = 0;
+    let x2 = m - 1;
+    let y2 = n - 1;
+    const ans: number[] = [];
+    while (x1 <= x2 && y1 <= y2) {
+        for (let j = y1; j <= y2; ++j) {
+            ans.push(matrix[x1][j]);
+        }
+        for (let i = x1 + 1; i <= x2; ++i) {
+            ans.push(matrix[i][y2]);
+        }
+        if (x1 < x2 && y1 < y2) {
+            for (let j = y2 - 1; j >= y1; --j) {
+                ans.push(matrix[x2][j]);
+            }
+            for (let i = x2 - 1; i > x1; --i) {
+                ans.push(matrix[i][y1]);
+            }
+        }
+        ++x1;
+        ++y1;
+        --x2;
+        --y2;
+    }
+    return ans;
 }
 ```
 

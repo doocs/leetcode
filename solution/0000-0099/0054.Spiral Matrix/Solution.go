@@ -1,28 +1,19 @@
-func spiralOrder(matrix [][]int) []int {
+func spiralOrder(matrix [][]int) (ans []int) {
 	m, n := len(matrix), len(matrix[0])
-	ans := make([]int, 0, m*n)
-
-	top, bottom, left, right := 0, m-1, 0, n-1
-	for left <= right && top <= bottom {
-		for i := left; i <= right; i++ {
-			ans = append(ans, matrix[top][i])
-		}
-		for i := top + 1; i <= bottom; i++ {
-			ans = append(ans, matrix[i][right])
-		}
-		if left < right && top < bottom {
-			for i := right - 1; i >= left; i-- {
-				ans = append(ans, matrix[bottom][i])
-			}
-			for i := bottom - 1; i > top; i-- {
-				ans = append(ans, matrix[i][left])
-			}
-		}
-		top++
-		bottom--
-		left++
-		right--
+	vis := make([][]bool, m)
+	for i := range vis {
+		vis[i] = make([]bool, n)
 	}
-
-	return ans
+	dirs := [5]int{0, 1, 0, -1, 0}
+	i, j, k := 0, 0, 0
+	for h := m * n; h > 0; h-- {
+		ans = append(ans, matrix[i][j])
+		vis[i][j] = true
+		x, y := i+dirs[k], j+dirs[k+1]
+		if x < 0 || x >= m || y < 0 || y >= n || vis[x][y] {
+			k = (k + 1) % 4
+		}
+		i, j = i+dirs[k], j+dirs[k+1]
+	}
+	return
 }

@@ -5,24 +5,19 @@
 var spiralOrder = function (matrix) {
     const m = matrix.length;
     const n = matrix[0].length;
-    let [top, bottom, left, right] = [0, m - 1, 0, n - 1];
-    let ans = [];
-    while (top <= bottom && left <= right) {
-        for (let j = left; j <= right; ++j) {
-            ans.push(matrix[top][j]);
+    const ans = [];
+    const vis = new Array(m).fill(0).map(() => new Array(n).fill(false));
+    const dirs = [0, 1, 0, -1, 0];
+    for (let h = m * n, i = 0, j = 0, k = 0; h > 0; --h) {
+        ans.push(matrix[i][j]);
+        vis[i][j] = true;
+        const x = i + dirs[k];
+        const y = j + dirs[k + 1];
+        if (x < 0 || x >= m || y < 0 || y >= n || vis[x][y]) {
+            k = (k + 1) % 4;
         }
-        for (let i = top + 1; i <= bottom; ++i) {
-            ans.push(matrix[i][right]);
-        }
-        if (left < right && top < bottom) {
-            for (let j = right - 1; j >= left; --j) {
-                ans.push(matrix[bottom][j]);
-            }
-            for (let i = bottom - 1; i > top; --i) {
-                ans.push(matrix[i][left]);
-            }
-        }
-        [top, bottom, left, right] = [top + 1, bottom - 1, left + 1, right - 1];
+        i += dirs[k];
+        j += dirs[k + 1];
     }
     return ans;
 };
