@@ -44,6 +44,16 @@
 
 ## Solutions
 
+**Approach 1: Hash Table**
+
+First, we split the string $s$ into a word array $ws$ with spaces. If the length of $pattern$ and $ws$ is not equal, return `false` directly. Otherwise, we use two hash tables $d_1$ and $d_2$ to record the correspondence between each character and word in $pattern$ and $ws$.
+
+Then, we traverse $pattern$ and $ws$. For each character $a$ and word $b$, if there is a mapping for $a$ in $d_1$, and the mapped word is not $b$, or there is a mapping for $b$ in $d_2$, and the mapped character is not $a$, return `false`. Otherwise, we add the mapping of $a$ and $b$ to $d_1$ and $d_2$ respectively.
+
+After the traversal, return `true`.
+
+The time complexity is $O(m + n)$ and the space complexity is $O(m + n)$. Here $m$ and $n$ are the length of $pattern$ and string $s$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -51,18 +61,16 @@
 ```python
 class Solution:
     def wordPattern(self, pattern: str, s: str) -> bool:
-        s = s.split(' ')
-        n = len(pattern)
-        if n != len(s):
+        ws = s.split()
+        if len(pattern) != len(ws):
             return False
-        c2str, str2c = defaultdict(), defaultdict()
-        for i in range(n):
-            k, v = pattern[i], s[i]
-            if k in c2str and c2str[k] != v:
+        d1 = {}
+        d2 = {}
+        for a, b in zip(pattern, ws):
+            if (a in d1 and d1[a] != b) or (b in d2 and d2[b] != a):
                 return False
-            if v in str2c and str2c[v] != k:
-                return False
-            c2str[k], str2c[v] = v, k
+            d1[a] = b
+            d2[b] = a
         return True
 ```
 
@@ -71,75 +79,23 @@ class Solution:
 ```java
 class Solution {
     public boolean wordPattern(String pattern, String s) {
-        String[] ss = s.split(" ");
-        int n = pattern.length();
-        if (n != ss.length) {
+        String[] ws = s.split(" ");
+        if (pattern.length() != ws.length) {
             return false;
         }
-        Map<Character, String> c2str = new HashMap<>();
-        Map<String, Character> str2c = new HashMap<>();
-        for (int i = 0; i < n; ++i) {
-            char k = pattern.charAt(i);
-            String v = ss[i];
-            if (c2str.containsKey(k) && !Objects.equals(c2str.get(k), v)) {
+        Map<Character, String> d1 = new HashMap<>();
+        Map<String, Character> d2 = new HashMap<>();
+        for (int i = 0; i < ws.length; ++i) {
+            char a = pattern.charAt(i);
+            String b = ws[i];
+            if (!d1.getOrDefault(a, b).equals(b) || d2.getOrDefault(b, a) != a) {
                 return false;
             }
-            if (str2c.containsKey(v) && !Objects.equals(str2c.get(v), k)) {
-                return false;
-            }
-            c2str.put(k, v);
-            str2c.put(v, k);
+            d1.put(a, b);
+            d2.put(b, a);
         }
         return true;
     }
-}
-```
-
-### **TypeScript**
-
-```ts
-function wordPattern(pattern: string, s: string): boolean {
-    let n = pattern.length;
-    let values = s.split(' ');
-    if (n != values.length) return false;
-    let table = new Array(128);
-    for (let i = 0; i < n; i++) {
-        let k = pattern.charCodeAt(i),
-            v = values[i];
-        if (!table[k]) {
-            if (table.includes(v)) return false;
-            table[k] = v;
-        } else {
-            if (table[k] != v) return false;
-        }
-    }
-    return true;
-}
-```
-
-```ts
-function wordPattern(pattern: string, s: string): boolean {
-    const n = pattern.length;
-    const cs = s.split(' ');
-    if (n !== cs.length) {
-        return false;
-    }
-    const map1 = new Map<string, number>();
-    const map2 = new Map<string, number>();
-    for (let i = 0; i < n; i++) {
-        const c1 = pattern[i];
-        const c2 = cs[i];
-        if (!map1.has(c1)) {
-            map1.set(c1, i);
-        }
-        if (!map2.has(c2)) {
-            map2.set(c2, i);
-        }
-        if (map1.get(c1) !== map2.get(c2)) {
-            return false;
-        }
-    }
-    return true;
 }
 ```
 
@@ -150,20 +106,23 @@ class Solution {
 public:
     bool wordPattern(string pattern, string s) {
         istringstream is(s);
-        vector<string> ss;
-        while (is >> s) ss.push_back(s);
-        int n = pattern.size();
-        if (n != ss.size()) return false;
-
-        unordered_map<char, string> c2str;
-        unordered_map<string, char> str2c;
-        for (int i = 0; i < n; ++i) {
-            char k = pattern[i];
-            string v = ss[i];
-            if (c2str.count(k) && c2str[k] != v) return false;
-            if (str2c.count(v) && str2c[v] != k) return false;
-            c2str[k] = v;
-            str2c[v] = k;
+        vector<string> ws;
+        while (is >> s) {
+            ws.push_back(s);
+        }
+        if (pattern.size() != ws.size()) {
+            return false;
+        }
+        unordered_map<char, string> d1;
+        unordered_map<string, char> d2;
+        for (int i = 0; i < ws.size(); ++i) {
+            char a = pattern[i];
+            string b = ws[i];
+            if ((d1.count(a) && d1[a] != b) || (d2.count(b) && d2[b] != a)) {
+                return false;
+            }
+            d1[a] = b;
+            d2[b] = a;
         }
         return true;
     }
@@ -174,24 +133,78 @@ public:
 
 ```go
 func wordPattern(pattern string, s string) bool {
-	ss := strings.Split(s, " ")
-	n := len(pattern)
-	if n != len(ss) {
+	ws := strings.Split(s, " ")
+	if len(ws) != len(pattern) {
 		return false
 	}
-	c2str := make(map[byte]string)
-	str2c := make(map[string]byte)
-	for i := 0; i < n; i++ {
-		k, v := pattern[i], ss[i]
-		if c2str[k] != "" && c2str[k] != v {
+	d1 := map[rune]string{}
+	d2 := map[string]rune{}
+	for i, a := range pattern {
+		b := ws[i]
+		if v, ok := d1[a]; ok && v != b {
 			return false
 		}
-		if str2c[v] > 0 && str2c[v] != k {
+		if v, ok := d2[b]; ok && v != a {
 			return false
 		}
-		c2str[k], str2c[v] = v, k
+		d1[a] = b
+		d2[b] = a
 	}
 	return true
+}
+```
+
+### **TypeScript**
+
+```ts
+function wordPattern(pattern: string, s: string): boolean {
+    const ws = s.split(' ');
+    if (pattern.length !== ws.length) {
+        return false;
+    }
+    const d1 = new Map<string, string>();
+    const d2 = new Map<string, string>();
+    for (let i = 0; i < pattern.length; ++i) {
+        const a = pattern[i];
+        const b = ws[i];
+        if (d1.has(a) && d1.get(a) !== b) {
+            return false;
+        }
+        if (d2.has(b) && d2.get(b) !== a) {
+            return false;
+        }
+        d1.set(a, b);
+        d2.set(b, a);
+    }
+    return true;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public bool WordPattern(string pattern, string s) {
+        var ws = s.Split(' ');
+        if (pattern.Length != ws.Length) {
+            return false;
+        }
+        var d1 = new Dictionary<char, string>();
+        var d2 = new Dictionary<string, char>();
+        for (int i = 0; i < ws.Length; ++i) {
+            var a = pattern[i];
+            var b = ws[i];
+            if (d1.ContainsKey(a) && d1[a] != b) {
+                return false;
+            }
+            if (d2.ContainsKey(b) && d2[b] != a) {
+                return false;
+            }
+            d1[a] = b;
+            d2[b] = a;
+        }
+        return true;
+    }
 }
 ```
 

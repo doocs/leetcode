@@ -1,17 +1,21 @@
 function wordPattern(pattern: string, s: string): boolean {
-    let n = pattern.length;
-    let values = s.split(' ');
-    if (n != values.length) return false;
-    let table = new Array(128);
-    for (let i = 0; i < n; i++) {
-        let k = pattern.charCodeAt(i),
-            v = values[i];
-        if (!table[k]) {
-            if (table.includes(v)) return false;
-            table[k] = v;
-        } else {
-            if (table[k] != v) return false;
+    const ws = s.split(' ');
+    if (pattern.length !== ws.length) {
+        return false;
+    }
+    const d1 = new Map<string, string>();
+    const d2 = new Map<string, string>();
+    for (let i = 0; i < pattern.length; ++i) {
+        const a = pattern[i];
+        const b = ws[i];
+        if (d1.has(a) && d1.get(a) !== b) {
+            return false;
         }
+        if (d2.has(b) && d2.get(b) !== a) {
+            return false;
+        }
+        d1.set(a, b);
+        d2.set(b, a);
     }
     return true;
 }

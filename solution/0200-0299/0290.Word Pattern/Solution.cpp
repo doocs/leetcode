@@ -2,20 +2,23 @@ class Solution {
 public:
     bool wordPattern(string pattern, string s) {
         istringstream is(s);
-        vector<string> ss;
-        while (is >> s) ss.push_back(s);
-        int n = pattern.size();
-        if (n != ss.size()) return false;
-
-        unordered_map<char, string> c2str;
-        unordered_map<string, char> str2c;
-        for (int i = 0; i < n; ++i) {
-            char k = pattern[i];
-            string v = ss[i];
-            if (c2str.count(k) && c2str[k] != v) return false;
-            if (str2c.count(v) && str2c[v] != k) return false;
-            c2str[k] = v;
-            str2c[v] = k;
+        vector<string> ws;
+        while (is >> s) {
+            ws.push_back(s);
+        }
+        if (pattern.size() != ws.size()) {
+            return false;
+        }
+        unordered_map<char, string> d1;
+        unordered_map<string, char> d2;
+        for (int i = 0; i < ws.size(); ++i) {
+            char a = pattern[i];
+            string b = ws[i];
+            if ((d1.count(a) && d1[a] != b) || (d2.count(b) && d2[b] != a)) {
+                return false;
+            }
+            d1[a] = b;
+            d2[b] = a;
         }
         return true;
     }
