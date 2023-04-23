@@ -1,13 +1,11 @@
 function isAnagram(s: string, t: string): boolean {
-    const n = s.length;
-    const m = t.length;
-    if (n !== m) {
+    if (s.length !== t.length) {
         return false;
     }
-    const count = new Array(26).fill(0);
-    for (let i = 0; i < n; i++) {
-        count[s.charCodeAt(i) - 'a'.charCodeAt(0)]++;
-        count[t.charCodeAt(i) - 'a'.charCodeAt(0)]--;
+    const cnt = new Array(26).fill(0);
+    for (let i = 0; i < s.length; ++i) {
+        ++cnt[s.charCodeAt(i) - 'a'.charCodeAt(0)];
+        --cnt[t.charCodeAt(i) - 'a'.charCodeAt(0)];
     }
-    return count.every(v => v === 0);
+    return cnt.every(x => x === 0);
 }

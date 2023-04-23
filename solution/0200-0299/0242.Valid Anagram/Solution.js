@@ -4,12 +4,13 @@
  * @return {boolean}
  */
 var isAnagram = function (s, t) {
-    if (s.length != t.length) return false;
-    let record = new Array(26).fill(0);
-    let base = 'a'.charCodeAt(0);
-    for (let i = 0; i < s.length; ++i) {
-        ++record[s.charCodeAt(i) - base];
-        --record[t.charCodeAt(i) - base];
+    if (s.length !== t.length) {
+        return false;
     }
-    return record.every(v => v == 0);
+    const cnt = new Array(26).fill(0);
+    for (let i = 0; i < s.length; ++i) {
+        ++cnt[s.charCodeAt(i) - 'a'.charCodeAt(0)];
+        --cnt[t.charCodeAt(i) - 'a'.charCodeAt(0)];
+    }
+    return cnt.every(x => x === 0);
 };
