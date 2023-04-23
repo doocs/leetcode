@@ -80,6 +80,11 @@
 | [LCP 69](https://leetcode.cn/problems/rMeRt2)                        | [ Hello LeetCode!](/lcp/LCP%2069.%20Hello%20LeetCode%21/README.md)                                                       | `位运算`,`数组`,`字符串`,`动态规划`,`状态压缩`                                      | 困难 |
 | [LCP 70](https://leetcode.cn/problems/XxZZjK)                        | [ 沙地治理](/lcp/LCP%2070.%20%E6%B2%99%E5%9C%B0%E6%B2%BB%E7%90%86/README.md)                                             | `数组`,`数学`                                                                       | 困难 |
 | [LCP 71](https://leetcode.cn/problems/kskhHQ)                        | [ 集水器](/lcp/LCP%2071.%20%E9%9B%86%E6%B0%B4%E5%99%A8/README.md)                                                        | `并查集`,`数组`,`矩阵`                                                              | 困难 |
+| [LCP 72](https://leetcode.cn/problems/hqCnmP)                        | [ 补给马车](/lcp/LCP%2072.%20%E8%A1%A5%E7%BB%99%E9%A9%AC%E8%BD%A6/README.md)                                             |                                                                                     | 简单 |
+| [LCP 73](https://leetcode.cn/problems/0Zeoeg)                        | [ 探险营地](/lcp/LCP%2073.%20%E6%8E%A2%E9%99%A9%E8%90%A5%E5%9C%B0/README.md)                                             |                                                                                     | 中等 |
+| [LCP 74](https://leetcode.cn/problems/xepqZ5)                        | [ 最强祝福力场](/lcp/LCP%2074.%20%E6%9C%80%E5%BC%BA%E7%A5%9D%E7%A6%8F%E5%8A%9B%E5%9C%BA/README.md)                       |                                                                                     | 中等 |
+| [LCP 75](https://leetcode.cn/problems/rdmXM7)                        | [ 传送卷轴](/lcp/LCP%2075.%20%E4%BC%A0%E9%80%81%E5%8D%B7%E8%BD%B4/README.md)                                             |                                                                                     | 困难 |
+| [LCP 76](https://leetcode.cn/problems/1ybDKD)                        | [ 魔法棋盘](/lcp/LCP%2076.%20%E9%AD%94%E6%B3%95%E6%A3%8B%E7%9B%98/README.md)                                             |                                                                                     | 困难 |
 
 ## 版权
 
