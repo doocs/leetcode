@@ -24,7 +24,15 @@
 
 ## 往期竞赛
 
-#### 第 341 场周赛(2023-04-16 10:30, 90 分钟) 参赛人数 4687
+#### 第 342 场周赛(2023-04-23 10:30, 90 分钟) 参赛人数 3702
+
+- [2651. 计算列车到站时间](/solution/2600-2699/2651.Calculate%20Delayed%20Arrival%20Time/README.md)
+- [2652. 倍数求和](/solution/2600-2699/2652.Sum%20Multiples/README.md)
+- [2653. 滑动子数组的美丽值](/solution/2600-2699/2653.Sliding%20Subarray%20Beauty/README.md)
+- [2654. 使数组所有元素变成 1 的最少操作次数](/solution/2600-2699/2654.Minimum%20Number%20of%20Operations%20to%20Make%20All%20Array%20Elements%20Equal%20to%201/README.md)
+
+
+#### 第 341 场周赛(2023-04-16 10:30, 90 分钟) 参赛人数 4792
 
 - [2643. 一最多的行](/solution/2600-2699/2643.Row%20With%20Maximum%20Ones/README.md)
 - [2644. 找出可整除性得分最大的整数](/solution/2600-2699/2644.Find%20the%20Maximum%20Divisibility%20Score/README.md)

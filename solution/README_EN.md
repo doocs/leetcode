@@ -2656,6 +2656,13 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2645  |  [Minimum Additions to Make Valid String](/solution/2600-2699/2645.Minimum%20Additions%20to%20Make%20Valid%20String/README_EN.md)  |  `Stack`,`Greedy`,`String`,`Dynamic Programming`  |  Medium  |  Weekly Contest 341  |
 |  2646  |  [Minimize the Total Price of the Trips](/solution/2600-2699/2646.Minimize%20the%20Total%20Price%20of%20the%20Trips/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`,`Dynamic Programming`  |  Hard  |  Weekly Contest 341  |
 |  2647  |  [Color the Triangle Red](/solution/2600-2699/2647.Color%20the%20Triangle%20Red/README_EN.md)  |    |  Hard  |  🔒  |
+|  2648  |  [Generate Fibonacci Sequence](/solution/2600-2699/2648.Generate%20Fibonacci%20Sequence/README_EN.md)  |    |  Easy  |    |
+|  2649  |  [Nested Array Generator](/solution/2600-2699/2649.Nested%20Array%20Generator/README_EN.md)  |    |  Medium  |    |
+|  2650  |  [Design Cancellable Function](/solution/2600-2699/2650.Design%20Cancellable%20Function/README_EN.md)  |    |  Hard  |    |
+|  2651  |  [Calculate Delayed Arrival Time](/solution/2600-2699/2651.Calculate%20Delayed%20Arrival%20Time/README_EN.md)  |    |  Easy  |  Weekly Contest 342  |
+|  2652  |  [Sum Multiples](/solution/2600-2699/2652.Sum%20Multiples/README_EN.md)  |    |  Easy  |  Weekly Contest 342  |
+|  2653  |  [Sliding Subarray Beauty](/solution/2600-2699/2653.Sliding%20Subarray%20Beauty/README_EN.md)  |    |  Medium  |  Weekly Contest 342  |
+|  2654  |  [Minimum Number of Operations to Make All Array Elements Equal to 1](/solution/2600-2699/2654.Minimum%20Number%20of%20Operations%20to%20Make%20All%20Array%20Elements%20Equal%20to%201/README_EN.md)  |    |  Medium  |  Weekly Contest 342  |
 
 ## Copyright
 

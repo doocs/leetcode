@@ -2658,6 +2658,13 @@
 |  2645  |  [构造有效字符串的最少插入数](/solution/2600-2699/2645.Minimum%20Additions%20to%20Make%20Valid%20String/README.md)  |  `栈`,`贪心`,`字符串`,`动态规划`  |  中等  |  第 341 场周赛  |
 |  2646  |  [最小化旅行的价格总和](/solution/2600-2699/2646.Minimize%20the%20Total%20Price%20of%20the%20Trips/README.md)  |  `树`,`深度优先搜索`,`数组`,`动态规划`  |  困难  |  第 341 场周赛  |
 |  2647  |  [Color the Triangle Red](/solution/2600-2699/2647.Color%20the%20Triangle%20Red/README.md)  |    |  困难  |  🔒  |
+|  2648  |  [生成斐波那契数列](/solution/2600-2699/2648.Generate%20Fibonacci%20Sequence/README.md)  |    |  简单  |    |
+|  2649  |  [嵌套数组生成器](/solution/2600-2699/2649.Nested%20Array%20Generator/README.md)  |    |  中等  |    |
+|  2650  |  [设计可取消函数](/solution/2600-2699/2650.Design%20Cancellable%20Function/README.md)  |    |  困难  |    |
+|  2651  |  [计算列车到站时间](/solution/2600-2699/2651.Calculate%20Delayed%20Arrival%20Time/README.md)  |    |  简单  |  第 342 场周赛  |
+|  2652  |  [倍数求和](/solution/2600-2699/2652.Sum%20Multiples/README.md)  |    |  简单  |  第 342 场周赛  |
+|  2653  |  [滑动子数组的美丽值](/solution/2600-2699/2653.Sliding%20Subarray%20Beauty/README.md)  |    |  中等  |  第 342 场周赛  |
+|  2654  |  [使数组所有元素变成 1 的最少操作次数](/solution/2600-2699/2654.Minimum%20Number%20of%20Operations%20to%20Make%20All%20Array%20Elements%20Equal%20to%201/README.md)  |    |  中等  |  第 342 场周赛  |
 
 ## 版权
 

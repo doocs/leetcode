@@ -51,6 +51,7 @@ Primitive types are valid inputs.</pre>
 	<li><code>object includes strings, integers, booleans, arrays, objects, and null</code></li>
 	<li><code>1 &lt;= JSON.stringify(object).length &lt;= 10<sup>5</sup></code></li>
 	<li><code>maxNestingLevel &lt;= 1000</code></li>
+	<li><code>all strings will only contain alphanumeric characters</code></li>
 </ul>
 
 ## Solutions
