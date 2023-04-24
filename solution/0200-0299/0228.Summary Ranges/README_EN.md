@@ -53,6 +53,14 @@
 
 ## Solutions
 
+**Approach 1: Two Pointers**
+
+We can use two pointers $i$ and $j$ to find the left and right endpoints of each interval.
+
+Traverse the array, when $j + 1 < n$ and $nums[j + 1] = nums[j] + 1$, move $j$ to the right, otherwise the interval $[i, j]$ has been found, add it to the answer, then move $i$ to the position of $j + 1$, and continue to find the next interval.
+
+Time complexity $O(n)$, where $n$ is the length of the array. Space complexity $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,7 +68,7 @@
 ```python
 class Solution:
     def summaryRanges(self, nums: List[int]) -> List[str]:
-        def f(i, j):
+        def f(i: int, j: int) -> str:
             return str(nums[i]) if i == j else f'{nums[i]}->{nums[j]}'
 
         i = 0
@@ -137,6 +145,26 @@ func summaryRanges(nums []int) (ans []string) {
 		ans = append(ans, f(i, j))
 	}
 	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function summaryRanges(nums: number[]): string[] {
+    const f = (i: number, j: number): string => {
+        return i === j ? `${nums[i]}` : `${nums[i]}->${nums[j]}`;
+    };
+    const n = nums.length;
+    const ans: string[] = [];
+    for (let i = 0, j = 0; i < n; i = j + 1) {
+        j = i;
+        while (j + 1 < n && nums[j + 1] === nums[j] + 1) {
+            ++j;
+        }
+        ans.push(f(i, j));
+    }
+    return ans;
 }
 ```
 

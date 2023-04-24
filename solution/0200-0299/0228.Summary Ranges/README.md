@@ -63,7 +63,7 @@
 
 遍历数组，当 $j + 1 < n$ 且 $nums[j + 1] = nums[j] + 1$ 时，$j$ 向右移动，否则区间 $[i, j]$ 已经找到，将其加入答案，然后将 $i$ 移动到 $j + 1$ 的位置，继续寻找下一个区间。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -74,7 +74,7 @@
 ```python
 class Solution:
     def summaryRanges(self, nums: List[int]) -> List[str]:
-        def f(i, j):
+        def f(i: int, j: int) -> str:
             return str(nums[i]) if i == j else f'{nums[i]}->{nums[j]}'
 
         i = 0
@@ -153,6 +153,26 @@ func summaryRanges(nums []int) (ans []string) {
 		ans = append(ans, f(i, j))
 	}
 	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function summaryRanges(nums: number[]): string[] {
+    const f = (i: number, j: number): string => {
+        return i === j ? `${nums[i]}` : `${nums[i]}->${nums[j]}`;
+    };
+    const n = nums.length;
+    const ans: string[] = [];
+    for (let i = 0, j = 0; i < n; i = j + 1) {
+        j = i;
+        while (j + 1 < n && nums[j + 1] === nums[j] + 1) {
+            ++j;
+        }
+        ans.push(f(i, j));
+    }
+    return ans;
 }
 ```
 
