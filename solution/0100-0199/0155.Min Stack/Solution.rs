@@ -1,7 +1,7 @@
 use std::collections::VecDeque;
 struct MinStack {
-    stack: VecDeque<i32>,
-    min_stack: VecDeque<i32>,
+    stk1: VecDeque<i32>,
+    stk2: VecDeque<i32>,
 }
 
 
@@ -11,31 +11,30 @@ struct MinStack {
  */
 impl MinStack {
 
-    /** initialize your data structure here. */
     fn new() -> Self {
-        Self { stack: VecDeque::new(), min_stack: VecDeque::new() }
+        Self { stk1: VecDeque::new(), stk2: VecDeque::new() }
     }
 
     fn push(&mut self, x: i32) {
-        self.stack.push_back(x);
-        if self.min_stack.is_empty() || *self.min_stack.back().unwrap() >= x {
-            self.min_stack.push_back(x);
+        self.stk1.push_back(x);
+        if self.stk2.is_empty() || *self.stk2.back().unwrap() >= x {
+            self.stk2.push_back(x);
         }
     }
 
     fn pop(&mut self) {
-        let val = self.stack.pop_back().unwrap();
-        if *self.min_stack.back().unwrap() == val {
-            self.min_stack.pop_back();
+        let val = self.stk1.pop_back().unwrap();
+        if *self.stk2.back().unwrap() == val {
+            self.stk2.pop_back();
         }
     }
 
     fn top(&self) -> i32 {
-        *self.stack.back().unwrap()
+        *self.stk1.back().unwrap()
     }
 
     fn get_min(&self) -> i32 {
-        *self.min_stack.back().unwrap()
+        *self.stk2.back().unwrap()
     }
 }
 

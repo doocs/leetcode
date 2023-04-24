@@ -1,8 +1,7 @@
 public class MinStack {
     private Stack<int> stk1 = new Stack<int>();
     private Stack<int> stk2 = new Stack<int>();
-
-    /** initialize your data structure here. */
+    
     public MinStack() {
         stk2.Push(int.MaxValue);
     }

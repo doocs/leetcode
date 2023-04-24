@@ -7,9 +7,9 @@ class MinStack {
         this.stk2 = [Infinity];
     }
 
-    push(x: number): void {
-        this.stk1.push(x);
-        this.stk2.push(Math.min(x, this.stk2[this.stk2.length - 1]));
+    push(val: number): void {
+        this.stk1.push(val);
+        this.stk2.push(Math.min(val, this.stk2[this.stk2.length - 1]));
     }
 
     pop(): void {

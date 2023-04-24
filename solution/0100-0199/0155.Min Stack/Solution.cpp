@@ -1,31 +1,30 @@
 class MinStack {
-private:
-    stack<int> s;
-    stack<int> mins;
-
 public:
-    /** initialize your data structure here. */
     MinStack() {
-        mins.push(INT_MAX);
+        stk2.push(INT_MAX);
     }
-
+    
     void push(int val) {
-        s.push(val);
-        mins.push(min(mins.top(), val));
+        stk1.push(val);
+        stk2.push(min(val, stk2.top()));
     }
-
+    
     void pop() {
-        s.pop();
-        mins.pop();
+        stk1.pop();
+        stk2.pop();
     }
-
+    
     int top() {
-        return s.top();
+        return stk1.top();
+    }
+    
+    int getMin() {
+        return stk2.top();
     }
 
-    int getMin() {
-        return mins.top();
-    }
+private:
+    stack<int> stk1;
+    stack<int> stk2;
 };
 
 /**
