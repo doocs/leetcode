@@ -55,7 +55,17 @@
 
 ## Solutions
 
-Using stack.
+**Approach 1: Stack**
+
+We first split the path into a number of substrings split by `'/'`. Then, we traverse each substring and perform the following operations based on the content of the substring:
+
+-   If the substring is empty or `'.'`, no operation is performed because `'.'` represents the current directory.
+-   If the substring is `'..'`, the top element of the stack is popped, because `'..'` represents the parent directory.
+-   If the substring is other strings, the substring is pushed into the stack, because the substring represents the subdirectory of the current directory.
+
+Finally, we concatenate all the elements in the stack from the bottom to the top of the stack to form a string, which is the simplified canonical path.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the path.
 
 <!-- tabs:start -->
 
@@ -97,6 +107,39 @@ class Solution {
 }
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string simplifyPath(string path) {
+        deque<string> stk;
+        stringstream ss(path);
+        string t;
+        while (getline(ss, t, '/')) {
+            if (t == "" || t == ".") {
+                continue;
+            }
+            if (t == "..") {
+                if (!stk.empty()) {
+                    stk.pop_back();
+                }
+            } else {
+                stk.push_back(t);
+            }
+        }
+        if (stk.empty()) {
+            return "/";
+        }
+        string ans;
+        for (auto& s : stk) {
+            ans += "/" + s;
+        }
+        return ans;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -124,114 +167,58 @@ func simplifyPath(path string) string {
 }
 ```
 
-### **C#**
-
-```cs
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-public class Solution {
-    public string SimplifyPath(string path) {
-        var stack = new Stack<string>();
-        var sb = new StringBuilder();
-        foreach (var ch in ((IEnumerable<char>)path).Concat(Enumerable.Repeat('/', 1)))
-        {
-            if (ch == '/')
-            {
-                if (sb.Length > 0)
-                {
-                    var folder = sb.ToString();
-                    sb.Clear();
-                    switch (folder)
-                    {
-                        case ".":
-                            break;
-                        case "..":
-                            if (stack.Any())
-                            {
-                                stack.Pop();
-                            }
-                            break;
-                        default:
-                            stack.Push(folder);
-                            break;
-                    }
-                }
-            }
-            else
-            {
-                sb.Append(ch);
-            }
-        }
-
-        if (stack.Count == 0)
-        {
-            sb.Append('/');
-        }
-        foreach (var folder in ((IEnumerable<string>)stack.ToList()).Reverse())
-        {
-            sb.Append('/');
-            sb.Append(folder);
-        }
-        return sb.ToString();
-    }
-}
-```
-
 ### **TypeScript**
 
 ```ts
 function simplifyPath(path: string): string {
-    // 添加辅助斜线
-    path += '/';
-
-    const stack = [];
-    let str = '';
-    for (let i = 1; i < path.length; i++) {
-        const c = path[i];
-        if (c === '/') {
-            if (str !== '' && str !== '.') {
-                if (str === '..') {
-                    if (stack.length !== 0) {
-                        stack.pop();
-                    }
-                } else {
-                    stack.push(str);
-                }
+    const stk: string[] = [];
+    for (const s of path.split('/')) {
+        if (s === '' || s === '.') {
+            continue;
+        }
+        if (s === '..') {
+            if (stk.length) {
+                stk.pop();
             }
-            str = '';
         } else {
-            str += c;
+            stk.push(s);
         }
     }
-
-    return '/' + stack.join('/');
+    return '/' + stk.join('/');
 }
 ```
 
-### **C++**
+### **C#**
 
-```cpp
-class Solution {
-public:
-    string simplifyPath(string path) {
-        deque<string> stk;
-        string res, tmp;
-        stringstream ss(path);
-        while (getline(ss, tmp, '/')) {
-            if (tmp == "" || tmp == ".") continue;
-            if (tmp == "..") {
-                if (!stk.empty())
-                    stk.pop_back();
-            } else
-                stk.push_back(tmp);
+```cs
+public class Solution {
+    public string SimplifyPath(string path) {
+        var stk = new Stack<string>();
+        foreach (var s in path.Split('/')) {
+            if (s == "" || s == ".") {
+                continue;
+            }
+            if (s == "..") {
+                if (stk.Count > 0) {
+                    stk.Pop();
+                }
+            } else {
+                stk.Push(s);
+            }
         }
-        for (auto str : stk)
-            res += "/" + str;
-        return res.empty() ? "/" : res;
+        var sb = new StringBuilder();
+        while (stk.Count > 0) {
+            sb.Insert(0, "/" + stk.Pop());
+        }
+        return sb.Length == 0 ? "/" : sb.ToString();
     }
-};
+}
+```
+
+### **...**
+
+```
+
 ```
 
 <!-- tabs:end -->

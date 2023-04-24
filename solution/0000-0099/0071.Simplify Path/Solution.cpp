@@ -2,18 +2,27 @@ class Solution {
 public:
     string simplifyPath(string path) {
         deque<string> stk;
-        string res, tmp;
         stringstream ss(path);
-        while (getline(ss, tmp, '/')) {
-            if (tmp == "" || tmp == ".") continue;
-            if (tmp == "..") {
-                if (!stk.empty())
+        string t;
+        while (getline(ss, t, '/')) {
+            if (t == "" || t == ".") {
+                continue;
+            }
+            if (t == "..") {
+                if (!stk.empty()) {
                     stk.pop_back();
-            } else
-                stk.push_back(tmp);
+                }
+            } else {
+                stk.push_back(t);
+            }
         }
-        for (auto str : stk)
-            res += "/" + str;
-        return res.empty() ? "/" : res;
+        if (stk.empty()) {
+            return "/";
+        }
+        string ans;
+        for (auto& s : stk) {
+            ans += "/" + s;
+        }
+        return ans;
     }
 };

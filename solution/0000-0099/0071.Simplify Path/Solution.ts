@@ -1,26 +1,16 @@
 function simplifyPath(path: string): string {
-    // 添加辅助斜线
-    path += '/';
-
-    const stack = [];
-    let str = '';
-    for (let i = 1; i < path.length; i++) {
-        const c = path[i];
-        if (c === '/') {
-            if (str !== '' && str !== '.') {
-                if (str === '..') {
-                    if (stack.length !== 0) {
-                        stack.pop();
-                    }
-                } else {
-                    stack.push(str);
-                }
+    const stk: string[] = [];
+    for (const s of path.split('/')) {
+        if (s === '' || s === '.') {
+            continue;
+        }
+        if (s === '..') {
+            if (stk.length) {
+                stk.pop();
             }
-            str = '';
         } else {
-            str += c;
+            stk.push(s);
         }
     }
-
-    return '/' + stack.join('/');
+    return '/' + stk.join('/');
 }
