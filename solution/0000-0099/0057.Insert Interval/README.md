@@ -64,9 +64,23 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：区间合并**
+**方法一：排序 + 区间合并**
 
-区间合并，将所有存在交集的区间进行合并。方法是：先对区间**按照左端点升序排列**，然后遍历区间进行合并。
+我们可以先将新区间 `newInterval` 加入到区间列表 `intervals` 中，然后按照区间合并的常规方法进行合并。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是区间的数量。
+
+**方法二：一次遍历**
+
+我们可以遍历区间列表 `intervals`，记当前区间为 `interval`，对于每个区间有三种情况：
+
+-   当前区间在新区间的右侧，即 $newInterval[1] \lt interval[0]$，此时如果新区间还没有被加入，那么将新区间加入到答案中，然后将当前区间加入到答案中。
+-   当前区间在新区间的左侧，即 $interval[1] \lt newInterval[0]$，此时将当前区间加入到答案中。
+-   否则，说明当前区间与新区间有交集，我们取当前区间的左端点和新区间的左端点的最小值，以及当前区间的右端点和新区间的右端点的最大值，作为新区间的左右端点，然后继续遍历区间列表。
+
+遍历结束，如果新区间还没有被加入，那么将新区间加入到答案中。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是区间的数量。
 
 <!-- tabs:start -->
 
@@ -96,6 +110,28 @@ class Solution:
         return merge(intervals)
 ```
 
+```python
+class Solution:
+    def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
+        st, ed = newInterval
+        ans = []
+        insert = False
+        for s, e in intervals:
+            if ed < s:
+                if not insert:
+                    ans.append([st, ed])
+                    insert = True
+                ans.append([s, e])
+            elif e < st:
+                ans.append([s, e])
+            else:
+                st = min(st, s)
+                ed = max(ed, e)
+        if not insert:
+            ans.append([st, ed])
+        return ans
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
@@ -103,18 +139,28 @@ class Solution:
 ```java
 class Solution {
     public int[][] insert(int[][] intervals, int[] newInterval) {
-        List<int[]> list = new LinkedList<>();
-        int i = 0;
-        while ((i < intervals.length) && (intervals[i][1] < newInterval[0]))
-            list.add(intervals[i++]);
-        while ((i < intervals.length) && (intervals[i][0] <= newInterval[1])) {
-            newInterval[0] = Math.min(intervals[i][0], newInterval[0]);
-            newInterval[1] = Math.max(intervals[i][1], newInterval[1]);
-            i++;
+        List<int[]> ans = new ArrayList<>();
+        int st = newInterval[0], ed = newInterval[1];
+        boolean insert = false;
+        for (int[] interval : intervals) {
+            int s = interval[0], e = interval[1];
+            if (ed < s) {
+                if (!insert) {
+                    ans.add(new int[]{st, ed});
+                    insert = true;
+                }
+                ans.add(interval);
+            } else if (e < st) {
+                ans.add(interval);
+            } else {
+                st = Math.min(st, s);
+                ed = Math.max(ed, e);
+            }
         }
-        list.add(newInterval);
-        while (i < intervals.length) list.add(intervals[i++]);
-        return list.toArray(new int[list.size()][]);
+        if (!insert) {
+            ans.add(new int[]{st, ed});
+        }
+        return ans.toArray(new int[ans.size()][]);
     }
 }
 ```
@@ -148,6 +194,36 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
+        vector<vector<int>> ans;
+        int st = newInterval[0], ed = newInterval[1];
+        bool insert = false;
+        for (auto& interval : intervals) {
+            int s = interval[0], e = interval[1];
+            if (ed < s) {
+                if (!insert) {
+                    ans.push_back({st, ed});
+                    insert = true;
+                }
+                ans.push_back(interval);
+            } else if (e < st) {
+                ans.push_back(interval);
+            } else {
+                st = min(st, s);
+                ed = max(ed, e);
+            }
+        }
+        if (!insert) {
+            ans.push_back({st, ed});
+        }
+        return ans;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -172,6 +248,77 @@ func merge(intervals [][]int) [][]int {
 	}
 	ans = append(ans, []int{st, ed})
 	return ans
+}
+```
+
+```go
+func insert(intervals [][]int, newInterval []int) (ans [][]int) {
+	st, ed := newInterval[0], newInterval[1]
+	insert := false
+	for _, interval := range intervals {
+		s, e := interval[0], interval[1]
+		if ed < s {
+			if !insert {
+				ans = append(ans, []int{st, ed})
+				insert = true
+			}
+			ans = append(ans, interval)
+		} else if e < st {
+			ans = append(ans, interval)
+		} else {
+			st = min(st, s)
+			ed = max(ed, e)
+		}
+	}
+	if !insert {
+		ans = append(ans, []int{st, ed})
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int[][] Insert(int[][] intervals, int[] newInterval) {
+        var ans = new List<int[]>();
+        int st = newInterval[0], ed = newInterval[1];
+        bool insert = false;
+        foreach (var interval in intervals) {
+            int s = interval[0], e = interval[1];
+            if (ed < s) {
+                if (!insert) {
+                    ans.Add(new int[]{st, ed});
+                    insert = true;
+                }
+                ans.Add(interval);
+            } else if (st > e) {
+                ans.Add(interval);
+            } else {
+                st = Math.Min(st, s);
+                ed = Math.Max(ed, e);
+            }
+        }
+        if (!insert) {
+            ans.Add(new int[]{st, ed});
+        }
+        return ans.ToArray();
+    }
 }
 ```
 

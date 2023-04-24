@@ -1,29 +1,26 @@
-using System;
-using System.Collections.Generic;
-
 public class Solution {
     public int[][] Insert(int[][] intervals, int[] newInterval) {
-        var result = new List<int[]>();
-        var i = 0;
-
-        while (i < intervals.Length && intervals[i][1] < newInterval[0])
-        {
-            result.Add(intervals[i++]);
+        var ans = new List<int[]>();
+        int st = newInterval[0], ed = newInterval[1];
+        bool insert = false;
+        foreach (var interval in intervals) {
+            int s = interval[0], e = interval[1];
+            if (ed < s) {
+                if (!insert) {
+                    ans.Add(new int[]{st, ed});
+                    insert = true;
+                }
+                ans.Add(interval);
+            } else if (st > e) {
+                ans.Add(interval);
+            } else {
+                st = Math.Min(st, s);
+                ed = Math.Max(ed, e);
+            }
         }
-
-        while (i < intervals.Length && intervals[i][0] <= newInterval[1] && intervals[i][1] >= newInterval[0])
-        {
-            newInterval[0] = Math.Min(intervals[i][0], newInterval[0]);
-            newInterval[1] = Math.Max(intervals[i][1], newInterval[1]);
-            ++i;
+        if (!insert) {
+            ans.Add(new int[]{st, ed});
         }
-        result.Add(newInterval);
-
-        while (i < intervals.Length)
-        {
-            result.Add(intervals[i++]);
-        }
-
-        return result.ToArray();
+        return ans.ToArray();
     }
 }

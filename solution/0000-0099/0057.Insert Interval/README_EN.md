@@ -66,23 +66,55 @@ class Solution:
         return merge(intervals)
 ```
 
+```python
+class Solution:
+    def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
+        st, ed = newInterval
+        ans = []
+        insert = False
+        for s, e in intervals:
+            if ed < s:
+                if not insert:
+                    ans.append([st, ed])
+                    insert = True
+                ans.append([s, e])
+            elif e < st:
+                ans.append([s, e])
+            else:
+                st = min(st, s)
+                ed = max(ed, e)
+        if not insert:
+            ans.append([st, ed])
+        return ans
+```
+
 ### **Java**
 
 ```java
 class Solution {
     public int[][] insert(int[][] intervals, int[] newInterval) {
-        List<int[]> list = new LinkedList<>();
-        int i = 0;
-        while ((i < intervals.length) && (intervals[i][1] < newInterval[0]))
-            list.add(intervals[i++]);
-        while ((i < intervals.length) && (intervals[i][0] <= newInterval[1])) {
-            newInterval[0] = Math.min(intervals[i][0], newInterval[0]);
-            newInterval[1] = Math.max(intervals[i][1], newInterval[1]);
-            i++;
+        List<int[]> ans = new ArrayList<>();
+        int st = newInterval[0], ed = newInterval[1];
+        boolean insert = false;
+        for (int[] interval : intervals) {
+            int s = interval[0], e = interval[1];
+            if (ed < s) {
+                if (!insert) {
+                    ans.add(new int[]{st, ed});
+                    insert = true;
+                }
+                ans.add(interval);
+            } else if (e < st) {
+                ans.add(interval);
+            } else {
+                st = Math.min(st, s);
+                ed = Math.max(ed, e);
+            }
         }
-        list.add(newInterval);
-        while (i < intervals.length) list.add(intervals[i++]);
-        return list.toArray(new int[list.size()][]);
+        if (!insert) {
+            ans.add(new int[]{st, ed});
+        }
+        return ans.toArray(new int[ans.size()][]);
     }
 }
 ```
@@ -116,6 +148,36 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
+        vector<vector<int>> ans;
+        int st = newInterval[0], ed = newInterval[1];
+        bool insert = false;
+        for (auto& interval : intervals) {
+            int s = interval[0], e = interval[1];
+            if (ed < s) {
+                if (!insert) {
+                    ans.push_back({st, ed});
+                    insert = true;
+                }
+                ans.push_back(interval);
+            } else if (e < st) {
+                ans.push_back(interval);
+            } else {
+                st = min(st, s);
+                ed = max(ed, e);
+            }
+        }
+        if (!insert) {
+            ans.push_back({st, ed});
+        }
+        return ans;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -140,6 +202,77 @@ func merge(intervals [][]int) [][]int {
 	}
 	ans = append(ans, []int{st, ed})
 	return ans
+}
+```
+
+```go
+func insert(intervals [][]int, newInterval []int) (ans [][]int) {
+	st, ed := newInterval[0], newInterval[1]
+	insert := false
+	for _, interval := range intervals {
+		s, e := interval[0], interval[1]
+		if ed < s {
+			if !insert {
+				ans = append(ans, []int{st, ed})
+				insert = true
+			}
+			ans = append(ans, interval)
+		} else if e < st {
+			ans = append(ans, interval)
+		} else {
+			st = min(st, s)
+			ed = max(ed, e)
+		}
+	}
+	if !insert {
+		ans = append(ans, []int{st, ed})
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int[][] Insert(int[][] intervals, int[] newInterval) {
+        var ans = new List<int[]>();
+        int st = newInterval[0], ed = newInterval[1];
+        bool insert = false;
+        foreach (var interval in intervals) {
+            int s = interval[0], e = interval[1];
+            if (ed < s) {
+                if (!insert) {
+                    ans.Add(new int[]{st, ed});
+                    insert = true;
+                }
+                ans.Add(interval);
+            } else if (st > e) {
+                ans.Add(interval);
+            } else {
+                st = Math.Min(st, s);
+                ed = Math.Max(ed, e);
+            }
+        }
+        if (!insert) {
+            ans.Add(new int[]{st, ed});
+        }
+        return ans.ToArray();
+    }
 }
 ```
 
