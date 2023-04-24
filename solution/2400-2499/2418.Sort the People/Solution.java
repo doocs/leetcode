@@ -1,14 +1,14 @@
 class Solution {
     public String[] sortPeople(String[] names, int[] heights) {
-        int n = heights.length;
-        int[][] arr = new int[n][2];
+        int n = names.length;
+        Integer[] idx = new Integer[n];
         for (int i = 0; i < n; ++i) {
-            arr[i] = new int[] {heights[i], i};
+            idx[i] = i;
         }
-        Arrays.sort(arr, (a, b) -> b[0] - a[0]);
+        Arrays.sort(idx, (i, j) -> heights[j] - heights[i]);
         String[] ans = new String[n];
         for (int i = 0; i < n; ++i) {
-            ans[i] = names[arr[i][1]];
+            ans[i] = names[idx[i]];
         }
         return ans;
     }

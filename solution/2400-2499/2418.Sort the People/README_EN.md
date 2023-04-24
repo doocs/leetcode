@@ -53,12 +53,36 @@ class Solution:
         return [names[i] for i in idx]
 ```
 
+```python
+class Solution:
+    def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
+        return [name for _, name in sorted(zip(heights, names), reverse=True)]
+```
+
 ### **Java**
 
 ```java
 class Solution {
     public String[] sortPeople(String[] names, int[] heights) {
-        int n = heights.length;
+        int n = names.length;
+        Integer[] idx = new Integer[n];
+        for (int i = 0; i < n; ++i) {
+            idx[i] = i;
+        }
+        Arrays.sort(idx, (i, j) -> heights[j] - heights[i]);
+        String[] ans = new String[n];
+        for (int i = 0; i < n; ++i) {
+            ans[i] = names[idx[i]];
+        }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public String[] sortPeople(String[] names, int[] heights) {
+        int n = names.length;
         int[][] arr = new int[n][2];
         for (int i = 0; i < n; ++i) {
             arr[i] = new int[] {heights[i], i};
@@ -79,15 +103,32 @@ class Solution {
 class Solution {
 public:
     vector<string> sortPeople(vector<string>& names, vector<int>& heights) {
-        int n = heights.size();
-        vector<pair<int, int>> arr(n);
+        int n = names.size();
+        vector<int> idx(n);
+        iota(idx.begin(), idx.end(), 0);
+        sort(idx.begin(), idx.end(), [&](int i, int j) { return heights[j] < heights[i]; });
+        vector<string> ans;
+        for (int i : idx) {
+            ans.push_back(names[i]);
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<string> sortPeople(vector<string>& names, vector<int>& heights) {
+        int n = names.size();
+        vector<pair<int, int>> arr;
         for (int i = 0; i < n; ++i) {
-            arr[i] = {-heights[i], i};
+            arr.emplace_back(-heights[i], i);
         }
         sort(arr.begin(), arr.end());
-        vector<string> ans(n);
+        vector<string> ans;
         for (int i = 0; i < n; ++i) {
-            ans[i] = names[arr[i].second];
+            ans.emplace_back(names[arr[i].second]);
         }
         return ans;
     }
@@ -97,23 +138,53 @@ public:
 ### **Go**
 
 ```go
-func sortPeople(names []string, heights []int) []string {
-	n := len(heights)
-	type pair struct{ v, i int }
-	arr := make([]pair, n)
-	for i, v := range heights {
-		arr[i] = pair{v, i}
+func sortPeople(names []string, heights []int) (ans []string) {
+	n := len(names)
+	idx := make([]int, n)
+	for i := range idx {
+		idx[i] = i
 	}
-	sort.Slice(arr, func(i, j int) bool { return arr[i].v > arr[j].v })
+	sort.Slice(idx, func(i, j int) bool { return heights[idx[j]] < heights[idx[i]] })
+	for _, i := range idx {
+		ans = append(ans, names[i])
+	}
+	return
+}
+```
+
+```go
+func sortPeople(names []string, heights []int) []string {
+	n := len(names)
+	arr := make([][2]int, n)
+	for i, h := range heights {
+		arr[i] = [2]int{h, i}
+	}
+	sort.Slice(arr, func(i, j int) bool { return arr[i][0] > arr[j][0] })
 	ans := make([]string, n)
-	for i, v := range arr {
-		ans[i] = names[v.i]
+	for i, x := range arr {
+		ans[i] = names[x[1]]
 	}
 	return ans
 }
 ```
 
 ### **TypeScript**
+
+```ts
+function sortPeople(names: string[], heights: number[]): string[] {
+    const n = names.length;
+    const idx = new Array(n);
+    for (let i = 0; i < n; ++i) {
+        idx[i] = i;
+    }
+    idx.sort((i, j) => heights[j] - heights[i]);
+    const ans: string[] = [];
+    for (const i of idx) {
+        ans.push(names[i]);
+    }
+    return ans;
+}
+```
 
 ```ts
 function sortPeople(names: string[], heights: number[]): string[] {
