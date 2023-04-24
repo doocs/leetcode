@@ -1,16 +1,15 @@
 function merge(intervals: number[][]): number[][] {
     intervals.sort((a, b) => a[0] - b[0]);
-    let ans: number[][] = [];
-    let index: number = -1;
-    for (let interval of intervals) {
-        if (index == -1 || ans[index][1] < interval[0]) {
-            // 保留
-            ans.push(interval);
-            index++;
+    const ans: number[][] = [];
+    let [st, ed] = intervals[0];
+    for (const [s, e] of intervals.slice(1)) {
+        if (ed < s) {
+            ans.push([st, ed]);
+            [st, ed] = [s, e];
         } else {
-            // 求交集
-            ans[index][1] = Math.max(ans[index][1], interval[1]);
+            ed = Math.max(ed, e);
         }
     }
+    ans.push([st, ed]);
     return ans;
 }

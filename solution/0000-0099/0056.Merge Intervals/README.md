@@ -41,9 +41,11 @@
 
 **方法一：区间合并**
 
-区间合并，将所有存在交集的区间进行合并。方法是：先对区间**按照左端点升序排列**，然后遍历区间进行合并。
+这道题是一道典型的区间合并问题，即给定一些区间，要求将所有有交集的区间合并成一个区间。
 
-模板：
+我们可以将区间按照左端点升序排列，然后遍历区间进行合并操作。
+
+模板如下：
 
 ```python
 def merge(intervals):
@@ -59,6 +61,8 @@ def merge(intervals):
     ans.append([st, ed])
     return ans
 ```
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为区间个数。
 
 <!-- tabs:start -->
 
@@ -118,12 +122,13 @@ public:
         int st = intervals[0][0], ed = intervals[0][1];
         vector<vector<int>> ans;
         for (int i = 1; i < intervals.size(); ++i) {
-            int s = intervals[i][0], e = intervals[i][1];
-            if (ed < s) {
+            if (ed < intervals[i][0]) {
                 ans.push_back({st, ed});
-                st = s, ed = e;
-            } else
-                ed = max(ed, e);
+                st = intervals[i][0];
+                ed = intervals[i][1];
+            } else {
+                ed = max(ed, intervals[i][1]);
+            }
         }
         ans.push_back({st, ed});
         return ans;
@@ -134,12 +139,11 @@ public:
 ### **Go**
 
 ```go
-func merge(intervals [][]int) [][]int {
+func merge(intervals [][]int) (ans [][]int) {
 	sort.Slice(intervals, func(i, j int) bool {
 		return intervals[i][0] < intervals[j][0]
 	})
 	st, ed := intervals[0][0], intervals[0][1]
-	var ans [][]int
 	for _, e := range intervals[1:] {
 		if ed < e[0] {
 			ans = append(ans, []int{st, ed})
@@ -161,21 +165,16 @@ public class Solution {
         intervals = intervals.OrderBy(a => a[0]).ToArray();
         int st = intervals[0][0], ed = intervals[0][1];
         var ans = new List<int[]>();
-        for (int i = 1; i < intervals.Length; ++i)
-        {
-            int s = intervals[i][0], e = intervals[i][1];
-            if (ed < s)
-            {
-                ans.Add(new int[]{st, ed});
-                st = s;
-                ed = e;
-            }
-            else
-            {
-                ed = Math.Max(ed, e);
+        for (int i = 1; i < intervals.Length; ++i) {
+            if (ed < intervals[i][0]) {
+                ans.Add(new int[] { st, ed });
+                st = intervals[i][0];
+                ed = intervals[i][1];
+            } else {
+                ed = Math.Max(ed, intervals[i][1]);
             }
         }
-        ans.Add(new int[]{st, ed});
+        ans.Add(new int[] { st, ed });
         return ans.ToArray();
     }
 }
@@ -186,18 +185,17 @@ public class Solution {
 ```ts
 function merge(intervals: number[][]): number[][] {
     intervals.sort((a, b) => a[0] - b[0]);
-    let ans: number[][] = [];
-    let index: number = -1;
-    for (let interval of intervals) {
-        if (index == -1 || ans[index][1] < interval[0]) {
-            // 保留
-            ans.push(interval);
-            index++;
+    const ans: number[][] = [];
+    let [st, ed] = intervals[0];
+    for (const [s, e] of intervals.slice(1)) {
+        if (ed < s) {
+            ans.push([st, ed]);
+            [st, ed] = [s, e];
         } else {
-            // 求交集
-            ans[index][1] = Math.max(ans[index][1], interval[1]);
+            ed = Math.max(ed, e);
         }
     }
+    ans.push([st, ed]);
     return ans;
 }
 ```
