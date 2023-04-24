@@ -1,11 +1,7 @@
-/**
- * @param {number[]} nums
- * @return {number}
- */
-var longestConsecutive = function (nums) {
-    const s = new Set(nums);
+function longestConsecutive(nums: number[]): number {
+    const s: Set<number> = new Set(nums);
     let ans = 0;
-    for (const x of nums) {
+    for (const x of s) {
         if (!s.has(x - 1)) {
             let y = x + 1;
             while (s.has(y)) {
@@ -15,4 +11,4 @@ var longestConsecutive = function (nums) {
         }
     }
     return ans;
-};
+}

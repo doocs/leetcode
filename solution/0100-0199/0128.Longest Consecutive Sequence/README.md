@@ -41,25 +41,23 @@
 
 **方法一：排序**
 
-设 res 表示连续序列的最大长度，t 表示当前合法连续序列的长度，初始时 `res = t = 1`。
+我们先将数组排序，然后用一个变量 $t$ 记录当前连续序列的长度，用一个变量 $ans$ 记录最长连续序列的长度。
 
-先排序数组，然后从下标 1 开始遍历数组，判断 `nums[i]` 与前一个数 `nums[i - 1]` 的大小关系：
+接下来，我们从下标 $i=1$ 开始遍历数组，对于当前遍历到的元素 $nums[i]$：
 
--   若 `nums[i] == nums[i - 1]`，直接跳过；
--   若 `nums[i] - nums[i - 1] == 1`，说明是连续序列，t 自增，利用 `res = max(res, t)` 更新最大长度；
--   否则 t 重置为 1，继续往下遍历。
+-   如果 $nums[i]=nums[i-1]$，则说明当前元素重复，无需考虑；
+-   如果 $nums[i]=nums[i-1]+1$，则说明当前元素可以接在上一个连续序列后面以形成更长的连续序列，我们更新 $t = t + 1$，然后更新答案 $ans = \max(ans, t)$；
+-   否则，说明当前元素无法接在上一个连续序列后面，我们将 $t$ 重新置为 $1$。
 
-时间复杂度 $O(n\log n)$，空间复杂度 $O(1)$。
+最终，我们返回答案 $ans$ 即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组的长度。
 
 **方法二：哈希表**
 
-设 res 表示连续序列的最大长度，初始为 0。哈希表 s 存放数组出现的每个元素。
+我们用哈希表存储数组中的所有元素，然后遍历数组中的每个元素 $x$，如果当前元素的前驱 $x-1$ 不在哈希表中，那么我们以当前元素为起点，不断尝试匹配 $x+1, x+2, x+3, \dots$，直到匹配不到为止，此时的匹配长度即为以 $x$ 为起点的最长连续序列长度，我们更新答案即可。
 
-遍历数组，以当前遍历到的元素 `nums[i]` 做为起点，循环判断 `nums[i] + 1`，`nums[i] + 2` ... 是否存在 s 中，并不断更新连续序列的最大长度。
-
-在这个过程中，如果 `nums[i]`, `nums[i] + 1`, `nums[i + 2]`, ... 是一个连续序列，遍历下个元素 `nums[i] + 1` 时，其实无需再重复循环。因此，只需要判断 `nums[i] - 1` 是否在 s 中，是则直接跳过。
-
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
 
@@ -74,29 +72,30 @@ class Solution:
         if n < 2:
             return n
         nums.sort()
-        res = t = 1
-        for i in range(1, n):
-            if nums[i] == nums[i - 1]:
+        ans = t = 1
+        for a, b in pairwise(nums):
+            if a == b:
                 continue
-            if nums[i] - nums[i - 1] == 1:
+            if a + 1 == b:
                 t += 1
-                res = max(res, t)
+                ans = max(ans, t)
             else:
                 t = 1
-        return res
+        return ans
 ```
 
 ```python
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
-        s, res = set(nums), 0
-        for num in nums:
-            if num - 1 not in s:
-                t, next = 1, num + 1
-                while next in s:
-                    t, next = t + 1, next + 1
-                res = max(res, t)
-        return res
+        s = set(nums)
+        ans = 0
+        for x in nums:
+            if x - 1 not in s:
+                y = x + 1
+                while y in s:
+                    y += 1
+                ans = max(ans, y - x)
+        return ans
 ```
 
 ### **Java**
@@ -107,23 +106,22 @@ class Solution:
 class Solution {
     public int longestConsecutive(int[] nums) {
         int n = nums.length;
-        if (n < 1) {
+        if (n < 2) {
             return n;
         }
         Arrays.sort(nums);
-        int res = 1, t = 1;
+        int ans = 1, t = 1;
         for (int i = 1; i < n; ++i) {
             if (nums[i] == nums[i - 1]) {
                 continue;
             }
-            if (nums[i] - nums[i - 1] == 1) {
-                t += 1;
-                res = Math.max(res, t);
+            if (nums[i] == nums[i - 1] + 1) {
+                ans = Math.max(ans, ++t);
             } else {
                 t = 1;
             }
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -132,20 +130,20 @@ class Solution {
 class Solution {
     public int longestConsecutive(int[] nums) {
         Set<Integer> s = new HashSet<>();
-        for (int num : nums) {
-            s.add(num);
+        for (int x : nums) {
+            s.add(x);
         }
-        int res = 0;
-        for (int num : nums) {
-            if (!s.contains(num - 1)) {
-                int t = 1, next = num + 1;
-                while (s.contains(next++)) {
-                    ++t;
+        int ans = 0;
+        for (int x : nums) {
+            if (!s.contains(x - 1)) {
+                int y = x + 1;
+                while (s.contains(y)) {
+                    ++y;
                 }
-                res = Math.max(res, t);
+                ans = Math.max(ans, y - x);
             }
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -157,21 +155,22 @@ class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
         int n = nums.size();
-        if (n < 2)
+        if (n < 2) {
             return n;
+        }
         sort(nums.begin(), nums.end());
-        int res = 1, t = 1;
+        int ans = 1, t = 1;
         for (int i = 1; i < n; ++i) {
-            if (nums[i] == nums[i - 1])
+            if (nums[i] == nums[i - 1]) {
                 continue;
-            if (nums[i] - nums[i - 1] == 1) {
-                ++t;
-                res = max(res, t);
+            }
+            if (nums[i] == nums[i - 1] + 1) {
+                ans = max(ans, ++t);
             } else {
                 t = 1;
             }
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -181,17 +180,17 @@ class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
         unordered_set<int> s(nums.begin(), nums.end());
-        int res = 0;
-        for (int& num : nums) {
-            if (!s.count(num - 1)) {
-                int t = 1, next = num + 1;
-                while (s.count(next++)) {
-                    ++t;
+        int ans = 0;
+        for (int x : nums) {
+            if (!s.count(x - 1)) {
+                int y = x + 1;
+                while (s.count(y)) {
+                    y++;
                 }
-                res = max(res, t);
+                ans = max(ans, y - x);
             }
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -205,17 +204,19 @@ func longestConsecutive(nums []int) int {
 		return n
 	}
 	sort.Ints(nums)
-	res, t := 1, 1
-	for i := 1; i < n; i++ {
-		if nums[i] == nums[i-1] {
+	ans, t := 1, 1
+	for i, x := range nums[1:] {
+		if x == nums[i] {
 			continue
 		}
-		if nums[i]-nums[i-1] == 1 {
+		if x == nums[i]+1 {
 			t++
-			res = max(res, t)
+			ans = max(ans, t)
+		} else {
+			t = 1
 		}
 	}
-	return res
+	return ans
 }
 
 func max(a, b int) int {
@@ -227,23 +228,21 @@ func max(a, b int) int {
 ```
 
 ```go
-func longestConsecutive(nums []int) int {
-	s := make(map[int]bool)
-	for _, num := range nums {
-		s[num] = true
+func longestConsecutive(nums []int) (ans int) {
+	s := map[int]bool{}
+	for _, x := range nums {
+		s[x] = true
 	}
-	res := 0
-	for _, num := range nums {
-		if !s[num-1] {
-			t, next := 1, num+1
-			for s[next] {
-				next++
-				t++
+	for _, x := range nums {
+		if !s[x-1] {
+			y := x + 1
+			for s[y] {
+				y++
 			}
-			res = max(res, t)
+			ans = max(ans, y-x)
 		}
 	}
-	return res
+	return
 }
 
 func max(a, b int) int {
@@ -262,20 +261,88 @@ func max(a, b int) int {
  * @return {number}
  */
 var longestConsecutive = function (nums) {
-    const s = new Set(nums);
-    let res = 0;
-    for (const num of nums) {
-        if (!s.has(num - 1)) {
-            let t = 1;
-            let next = num + 1;
-            while (s.has(next++)) {
-                t++;
-            }
-            res = Math.max(res, t);
+    const n = nums.length;
+    if (n < 2) {
+        return n;
+    }
+    nums.sort((a, b) => a - b);
+    let ans = 1;
+    let t = 1;
+    for (let i = 1; i < n; ++i) {
+        if (nums[i] === nums[i - 1]) {
+            continue;
+        }
+        if (nums[i] === nums[i - 1] + 1) {
+            ans = Math.max(ans, ++t);
+        } else {
+            t = 1;
         }
     }
-    return res;
+    return ans;
 };
+```
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var longestConsecutive = function (nums) {
+    const s = new Set(nums);
+    let ans = 0;
+    for (const x of nums) {
+        if (!s.has(x - 1)) {
+            let y = x + 1;
+            while (s.has(y)) {
+                y++;
+            }
+            ans = Math.max(ans, y - x);
+        }
+    }
+    return ans;
+};
+```
+
+### **TypeScript**
+
+```ts
+function longestConsecutive(nums: number[]): number {
+    const n = nums.length;
+    if (n < 2) {
+        return n;
+    }
+    let ans = 1;
+    let t = 1;
+    nums.sort((a, b) => a - b);
+    for (let i = 1; i < n; ++i) {
+        if (nums[i] === nums[i - 1]) {
+            continue;
+        }
+        if (nums[i] === nums[i - 1] + 1) {
+            ans = Math.max(ans, ++t);
+        } else {
+            t = 1;
+        }
+    }
+    return ans;
+}
+```
+
+```ts
+function longestConsecutive(nums: number[]): number {
+    const s: Set<number> = new Set(nums);
+    let ans = 0;
+    for (const x of s) {
+        if (!s.has(x - 1)) {
+            let y = x + 1;
+            while (s.has(y)) {
+                y++;
+            }
+            ans = Math.max(ans, y - x);
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
