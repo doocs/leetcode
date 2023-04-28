@@ -1,5 +1,4 @@
 class MinStack:
-
     def __init__(self):
         self.stk1 = []
         self.stk2 = [inf]
