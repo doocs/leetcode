@@ -46,11 +46,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：直接模拟**
+**方法一：计数 + 枚举**
 
-遍历字符串中的每个字符，删除该字符后，判断剩余字符串中每个字符出现的频率是否相同。如果相同，返回 `true`，否则遍历结束，返回 `false`。
+我们先用哈希表或者一个长度为 $26$ 的数组 $cnt$ 统计字符串中每个字母出现的次数。
 
-时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为字符串的长度。
+接下来，枚举 $26$ 个字母，如果字母 $c$ 在字符串中出现过，我们将其出现次数减一，然后判断剩余的字母出现次数是否相同。如果相同，返回 `true`，否则将 $c$ 的出现次数加一，继续枚举下一个字母。
+
+枚举结束，说明无法通过删除一个字母使得剩余字母出现次数相同，返回 `false`。
+
+时间复杂度 $O(n + C^2)$，空间复杂度 $O(C)$，其中 $n$ 为字符串 $word$ 的长度，而 $C$ 为字符集的大小，本题中 $C = 26$。
 
 <!-- tabs:start -->
 
@@ -61,10 +65,12 @@
 ```python
 class Solution:
     def equalFrequency(self, word: str) -> bool:
-        for i in range(len(word)):
-            cnt = Counter(word[:i] + word[i + 1:])
-            if len(set(cnt.values())) == 1:
+        cnt = Counter(word)
+        for c in cnt.keys():
+            cnt[c] -= 1
+            if len(set(v for v in cnt.values() if v)) == 1:
                 return True
+            cnt[c] += 1
         return False
 ```
 
@@ -75,21 +81,29 @@ class Solution:
 ```java
 class Solution {
     public boolean equalFrequency(String word) {
+        int[] cnt = new int[26];
         for (int i = 0; i < word.length(); ++i) {
-            int[] cnt = new int[26];
-            for (int j = 0; j < word.length(); ++j) {
-                if (j != i) {
-                    ++cnt[word.charAt(j) - 'a'];
+            ++cnt[word.charAt(i) - 'a'];
+        }
+        for (int i = 0; i < 26; ++i) {
+            if (cnt[i] > 0) {
+                --cnt[i];
+                int x = 0;
+                boolean ok = true;
+                for (int v : cnt) {
+                    if (v == 0) {
+                        continue;
+                    }
+                    if (x > 0 && v != x) {
+                        ok = false;
+                        break;
+                    }
+                    x = v;
                 }
-            }
-            Set<Integer> vis = new HashSet<>();
-            for (int v : cnt) {
-                if (v > 0) {
-                    vis.add(v);
+                if (ok) {
+                    return true;
                 }
-            }
-            if (vis.size() == 1) {
-                return true;
+                ++cnt[i];
             }
         }
         return false;
@@ -103,21 +117,29 @@ class Solution {
 class Solution {
 public:
     bool equalFrequency(string word) {
-        for (int i = 0; i < word.size(); ++i) {
-            int cnt[26] = {0};
-            for (int j = 0; j < word.size(); ++j) {
-                if (j != i) {
-                    ++cnt[word[j] - 'a'];
+        int cnt[26]{};
+        for (char& c : word) {
+            ++cnt[c - 'a'];
+        }
+        for (int i = 0; i < 26; ++i) {
+            if (cnt[i]) {
+                --cnt[i];
+                int x = 0;
+                bool ok = true;
+                for (int v : cnt) {
+                    if (v == 0) {
+                        continue;
+                    }
+                    if (x && v != x) {
+                        ok = false;
+                        break;
+                    }
+                    x = v;
                 }
-            }
-            unordered_set<int> vis;
-            for (int v : cnt) {
-                if (v) {
-                    vis.insert(v);
+                if (ok) {
+                    return true;
                 }
-            }
-            if (vis.size() == 1) {
-                return true;
+                ++cnt[i];
             }
         }
         return false;
@@ -129,21 +151,29 @@ public:
 
 ```go
 func equalFrequency(word string) bool {
-	for i := range word {
-		cnt := make([]int, 26)
-		for j, c := range word {
-			if j != i {
-				cnt[c-'a']++
+	cnt := [26]int{}
+	for _, c := range word {
+		cnt[c-'a']++
+	}
+	for i := range cnt {
+		if cnt[i] > 0 {
+			cnt[i]--
+			x := 0
+			ok := true
+			for _, v := range cnt {
+				if v == 0 {
+					continue
+				}
+				if x > 0 && v != x {
+					ok = false
+					break
+				}
+				x = v
 			}
-		}
-		vis := map[int]bool{}
-		for _, v := range cnt {
-			if v > 0 {
-				vis[v] = true
+			if ok {
+				return true
 			}
-		}
-		if len(vis) == 1 {
-			return true
+			cnt[i]++
 		}
 	}
 	return false
@@ -154,22 +184,30 @@ func equalFrequency(word string) bool {
 
 ```ts
 function equalFrequency(word: string): boolean {
-    const map = new Map();
+    const cnt: number[] = new Array(26).fill(0);
     for (const c of word) {
-        map.set(c, (map.get(c) ?? 0) + 1);
+        cnt[c.charCodeAt(0) - 97]++;
     }
-    const count = new Map();
-    for (const v of map.values()) {
-        count.set(v, (count.get(v) ?? 0) + 1);
-    }
-    if (count.size === 1) {
-        return map.size == 1 || [...count.keys()][0] === 1;
-    }
-    if (count.size === 2) {
-        return [...count.entries()].some(
-            (v, i, arr) =>
-                (v[0] === 1 || v[0] - arr[i ^ 1][0] === 1) && v[1] === 1,
-        );
+    for (let i = 0; i < 26; ++i) {
+        if (cnt[i]) {
+            cnt[i]--;
+            let x = 0;
+            let ok = true;
+            for (const v of cnt) {
+                if (v === 0) {
+                    continue;
+                }
+                if (x && v !== x) {
+                    ok = false;
+                    break;
+                }
+                x = v;
+            }
+            if (ok) {
+                return true;
+            }
+            cnt[i]++;
+        }
     }
     return false;
 }

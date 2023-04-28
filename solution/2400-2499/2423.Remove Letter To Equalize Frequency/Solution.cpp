@@ -1,21 +1,29 @@
 class Solution {
 public:
     bool equalFrequency(string word) {
-        for (int i = 0; i < word.size(); ++i) {
-            int cnt[26] = {0};
-            for (int j = 0; j < word.size(); ++j) {
-                if (j != i) {
-                    ++cnt[word[j] - 'a'];
+        int cnt[26]{};
+        for (char& c : word) {
+            ++cnt[c - 'a'];
+        }
+        for (int i = 0; i < 26; ++i) {
+            if (cnt[i]) {
+                --cnt[i];
+                int x = 0;
+                bool ok = true;
+                for (int v : cnt) {
+                    if (v == 0) {
+                        continue;
+                    }
+                    if (x && v != x) {
+                        ok = false;
+                        break;
+                    }
+                    x = v;
                 }
-            }
-            unordered_set<int> vis;
-            for (int v : cnt) {
-                if (v) {
-                    vis.insert(v);
+                if (ok) {
+                    return true;
                 }
-            }
-            if (vis.size() == 1) {
-                return true;
+                ++cnt[i];
             }
         }
         return false;

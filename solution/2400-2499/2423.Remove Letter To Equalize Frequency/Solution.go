@@ -1,19 +1,27 @@
 func equalFrequency(word string) bool {
-	for i := range word {
-		cnt := make([]int, 26)
-		for j, c := range word {
-			if j != i {
-				cnt[c-'a']++
+	cnt := [26]int{}
+	for _, c := range word {
+		cnt[c-'a']++
+	}
+	for i := range cnt {
+		if cnt[i] > 0 {
+			cnt[i]--
+			x := 0
+			ok := true
+			for _, v := range cnt {
+				if v == 0 {
+					continue
+				}
+				if x > 0 && v != x {
+					ok = false
+					break
+				}
+				x = v
 			}
-		}
-		vis := map[int]bool{}
-		for _, v := range cnt {
-			if v > 0 {
-				vis[v] = true
+			if ok {
+				return true
 			}
-		}
-		if len(vis) == 1 {
-			return true
+			cnt[i]++
 		}
 	}
 	return false

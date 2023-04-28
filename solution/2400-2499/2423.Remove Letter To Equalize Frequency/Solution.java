@@ -1,20 +1,28 @@
 class Solution {
     public boolean equalFrequency(String word) {
+        int[] cnt = new int[26];
         for (int i = 0; i < word.length(); ++i) {
-            int[] cnt = new int[26];
-            for (int j = 0; j < word.length(); ++j) {
-                if (j != i) {
-                    ++cnt[word.charAt(j) - 'a'];
+            ++cnt[word.charAt(i) - 'a'];
+        }
+        for (int i = 0; i < 26; ++i) {
+            if (cnt[i] > 0) {
+                --cnt[i];
+                int x = 0;
+                boolean ok = true;
+                for (int v : cnt) {
+                    if (v == 0) {
+                        continue;
+                    }
+                    if (x > 0 && v != x) {
+                        ok = false;
+                        break;
+                    }
+                    x = v;
                 }
-            }
-            Set<Integer> vis = new HashSet<>();
-            for (int v : cnt) {
-                if (v > 0) {
-                    vis.add(v);
+                if (ok) {
+                    return true;
                 }
-            }
-            if (vis.size() == 1) {
-                return true;
+                ++cnt[i];
             }
         }
         return false;

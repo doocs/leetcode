@@ -1,7 +1,9 @@
 class Solution:
     def equalFrequency(self, word: str) -> bool:
-        for i in range(len(word)):
-            cnt = Counter(word[:i] + word[i + 1 :])
-            if len(set(cnt.values())) == 1:
+        cnt = Counter(word)
+        for c in cnt.keys():
+            cnt[c] -= 1
+            if len(set(v for v in cnt.values() if v)) == 1:
                 return True
+            cnt[c] += 1
         return False
