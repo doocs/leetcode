@@ -6,7 +6,7 @@ public:
         memset(f, 0x3f, sizeof(f));
         f[0][0] = 0;
         for (int i = 1; i <= n; ++i) {
-            for (int j = 1; j <= d; ++j) {
+            for (int j = 1; j <= min(d, i); ++j) {
                 int mx = 0;
                 for (int k = i; k; --k) {
                     mx = max(mx, jobDifficulty[k - 1]);
