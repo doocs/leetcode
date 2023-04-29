@@ -40,6 +40,25 @@
 
 ## Solutions
 
+**Solution 1: Dynamic Programming**
+
+We define $f[i][j]$ as the minimum operations to print $s[i..j]$, with the initial value $f[i][j]=\infty$, and the answer is $f[0][n-1]$, where $n$ is the length of string $s$.
+
+Consider $f[i][j]$, if $s[i] = s[j]$, we can print $s[j]$ when print $s[i]$, so we can ignore $s[j]$ and continue to print $s[i+1..j-1]$. If $s[i] \neq s[j]$, we need to print the substring separately, i.e. $s[i..k]$ and $s[k+1..j]$, where $k \in [i,j)$. So we can have the following transition equation:
+
+$$
+f[i][j]=
+\begin{cases}
+1, & \text{if } i=j \\
+f[i][j-1], & \text{if } s[i]=s[j] \\
+\min_{i \leq k < j} \{f[i][k]+f[k+1][j]\}, & \text{otherwise}
+\end{cases}
+$$
+
+We can enumerate $i$ from large to small and $j$ from small to large, so that we can ensure that $f[i][j-1]$, $f[i][k]$ and $f[k+1][j]$ have been calculated when we calculate $f[i][j]$.
+
+The time complexity is $O(n^3)$ and the space complexity is $O(n^2)$. Where $n$ is the length of string $s$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -48,16 +67,16 @@
 class Solution:
     def strangePrinter(self, s: str) -> int:
         n = len(s)
-        dp = [[inf] * n for _ in range(n)]
+        f = [[inf] * n for _ in range(n)]
         for i in range(n - 1, -1, -1):
-            dp[i][i] = 1
+            f[i][i] = 1
             for j in range(i + 1, n):
                 if s[i] == s[j]:
-                    dp[i][j] = dp[i][j - 1]
+                    f[i][j] = f[i][j - 1]
                 else:
                     for k in range(i, j):
-                        dp[i][j] = min(dp[i][j], dp[i][k] + dp[k + 1][j])
-        return dp[0][-1]
+                        f[i][j] = min(f[i][j], f[i][k] + f[k + 1][j])
+        return f[0][-1]
 ```
 
 ### **Java**
@@ -65,45 +84,25 @@ class Solution:
 ```java
 class Solution {
     public int strangePrinter(String s) {
+        final int inf = 1 << 30;
         int n = s.length();
-        int[][] f = new int[n + 1][n + 1];
-        for (int i = 0; i < n; ++i) {
-            f[i][i] = 1;
+        int[][] f = new int[n][n];
+        for (var g : f) {
+            Arrays.fill(g, inf);
         }
-        for (int i = n - 2; i >= 0; --i) {
+        for (int i = n - 1; i >= 0; --i) {
+            f[i][i] = 1;
             for (int j = i + 1; j < n; ++j) {
-                f[i][j] = 1 + f[i + 1][j];
-                for (int k = i + 1; k <= j; ++k) {
-                    if (s.charAt(i) == s.charAt(k)) {
-                        f[i][j] = Math.min(f[i][j], f[i + 1][k] + f[k + 1][j]);
+                if (s.charAt(i) == s.charAt(j)) {
+                    f[i][j] = f[i][j - 1];
+                } else {
+                    for (int k = i; k < j; ++k) {
+                        f[i][j] = Math.min(f[i][j], f[i][k] + f[k + 1][j]);
                     }
                 }
             }
         }
         return f[0][n - 1];
-    }
-}
-```
-
-```java
-class Solution {
-    public int strangePrinter(String s) {
-        int n = s.length();
-        int[][] dp = new int[n][n];
-        for (int i = n - 1; i >= 0; --i) {
-            dp[i][i] = 1;
-            for (int j = i + 1; j < n; ++j) {
-                if (s.charAt(i) == s.charAt(j)) {
-                    dp[i][j] = dp[i][j - 1];
-                } else {
-                    dp[i][j] = 10000;
-                    for (int k = i; k < j; ++k) {
-                        dp[i][j] = Math.min(dp[i][j], dp[i][k] + dp[k + 1][j]);
-                    }
-                }
-            }
-        }
-        return dp[0][n - 1];
     }
 }
 ```
@@ -115,20 +114,21 @@ class Solution {
 public:
     int strangePrinter(string s) {
         int n = s.size();
-        vector<vector<int>> dp(n, vector<int>(n, INT_MAX));
-        for (int i = n - 1; i >= 0; --i) {
-            dp[i][i] = 1;
+        int f[n][n];
+        memset(f, 0x3f, sizeof(f));
+        for (int i = n - 1; ~i; --i) {
+            f[i][i] = 1;
             for (int j = i + 1; j < n; ++j) {
                 if (s[i] == s[j]) {
-                    dp[i][j] = dp[i][j - 1];
+                    f[i][j] = f[i][j - 1];
                 } else {
                     for (int k = i; k < j; ++k) {
-                        dp[i][j] = min(dp[i][j], dp[i][k] + dp[k + 1][j]);
+                        f[i][j] = min(f[i][j], f[i][k] + f[k + 1][j]);
                     }
                 }
             }
         }
-        return dp[0][n - 1];
+        return f[0][n - 1];
     }
 };
 ```
@@ -138,24 +138,26 @@ public:
 ```go
 func strangePrinter(s string) int {
 	n := len(s)
-	dp := make([][]int, n)
-	for i := range dp {
-		dp[i] = make([]int, n)
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, n)
+		for j := range f[i] {
+			f[i][j] = 1 << 30
+		}
 	}
 	for i := n - 1; i >= 0; i-- {
-		dp[i][i] = 1
+		f[i][i] = 1
 		for j := i + 1; j < n; j++ {
 			if s[i] == s[j] {
-				dp[i][j] = dp[i][j-1]
+				f[i][j] = f[i][j-1]
 			} else {
-				dp[i][j] = 10000
 				for k := i; k < j; k++ {
-					dp[i][j] = min(dp[i][j], dp[i][k]+dp[k+1][j])
+					f[i][j] = min(f[i][j], f[i][k]+f[k+1][j])
 				}
 			}
 		}
 	}
-	return dp[0][n-1]
+	return f[0][n-1]
 }
 
 func min(a, b int) int {
@@ -163,6 +165,30 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function strangePrinter(s: string): number {
+    const n = s.length;
+    const f: number[][] = new Array(n)
+        .fill(0)
+        .map(() => new Array(n).fill(1 << 30));
+    for (let i = n - 1; i >= 0; --i) {
+        f[i][i] = 1;
+        for (let j = i + 1; j < n; ++j) {
+            if (s[i] === s[j]) {
+                f[i][j] = f[i][j - 1];
+            } else {
+                for (let k = i; k < j; ++k) {
+                    f[i][j] = Math.min(f[i][j], f[i][k] + f[k + 1][j]);
+                }
+            }
+        }
+    }
+    return f[0][n - 1];
 }
 ```
 
