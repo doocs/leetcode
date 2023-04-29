@@ -2706,3 +2706,4 @@
   - [2652.Sum Multiples](/solution/2600-2699/2652.Sum%20Multiples/README_EN.md)
   - [2653.Sliding Subarray Beauty](/solution/2600-2699/2653.Sliding%20Subarray%20Beauty/README_EN.md)
   - [2654.Minimum Number of Operations to Make All Array Elements Equal to 1](/solution/2600-2699/2654.Minimum%20Number%20of%20Operations%20to%20Make%20All%20Array%20Elements%20Equal%20to%201/README_EN.md)
+  - [2655.Find Maximal Uncovered Ranges](/solution/2600-2699/2655.Find%20Maximal%20Uncovered%20Ranges/README_EN.md)

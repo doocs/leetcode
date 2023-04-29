@@ -911,7 +911,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0900  |  [RLE Iterator](/solution/0900-0999/0900.RLE%20Iterator/README_EN.md)  |  `Design`,`Array`,`Counting`,`Iterator`  |  Medium  |  Weekly Contest 101  |
 |  0901  |  [Online Stock Span](/solution/0900-0999/0901.Online%20Stock%20Span/README_EN.md)  |  `Stack`,`Design`,`Data Stream`,`Monotonic Stack`  |  Medium  |  Weekly Contest 101  |
 |  0902  |  [Numbers At Most N Given Digit Set](/solution/0900-0999/0902.Numbers%20At%20Most%20N%20Given%20Digit%20Set/README_EN.md)  |  `Array`,`Math`,`String`,`Binary Search`,`Dynamic Programming`  |  Hard  |  Weekly Contest 101  |
-|  0903  |  [Valid Permutations for DI Sequence](/solution/0900-0999/0903.Valid%20Permutations%20for%20DI%20Sequence/README_EN.md)  |  `Dynamic Programming`  |  Hard  |  Weekly Contest 101  |
+|  0903  |  [Valid Permutations for DI Sequence](/solution/0900-0999/0903.Valid%20Permutations%20for%20DI%20Sequence/README_EN.md)  |  `String`,`Dynamic Programming`,`Prefix Sum`  |  Hard  |  Weekly Contest 101  |
 |  0904  |  [Fruit Into Baskets](/solution/0900-0999/0904.Fruit%20Into%20Baskets/README_EN.md)  |  `Array`,`Hash Table`,`Sliding Window`  |  Medium  |  Weekly Contest 102  |
 |  0905  |  [Sort Array By Parity](/solution/0900-0999/0905.Sort%20Array%20By%20Parity/README_EN.md)  |  `Array`,`Two Pointers`,`Sorting`  |  Easy  |  Weekly Contest 102  |
 |  0906  |  [Super Palindromes](/solution/0900-0999/0906.Super%20Palindromes/README_EN.md)  |  `Math`,`Enumeration`  |  Hard  |  Weekly Contest 102  |
@@ -1138,7 +1138,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  1127  |  [User Purchase Platform](/solution/1100-1199/1127.User%20Purchase%20Platform/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
 |  1128  |  [Number of Equivalent Domino Pairs](/solution/1100-1199/1128.Number%20of%20Equivalent%20Domino%20Pairs/README_EN.md)  |  `Array`,`Hash Table`,`Counting`  |  Easy  |  Weekly Contest 146  |
 |  1129  |  [Shortest Path with Alternating Colors](/solution/1100-1199/1129.Shortest%20Path%20with%20Alternating%20Colors/README_EN.md)  |  `Breadth-First Search`,`Graph`  |  Medium  |  Weekly Contest 146  |
-|  1130  |  [Minimum Cost Tree From Leaf Values](/solution/1100-1199/1130.Minimum%20Cost%20Tree%20From%20Leaf%20Values/README_EN.md)  |  `Stack`,`Greedy`,`Dynamic Programming`,`Monotonic Stack`  |  Medium  |  Weekly Contest 146  |
+|  1130  |  [Minimum Cost Tree From Leaf Values](/solution/1100-1199/1130.Minimum%20Cost%20Tree%20From%20Leaf%20Values/README_EN.md)  |  `Stack`,`Greedy`,`Array`,`Dynamic Programming`,`Monotonic Stack`  |  Medium  |  Weekly Contest 146  |
 |  1131  |  [Maximum of Absolute Value Expression](/solution/1100-1199/1131.Maximum%20of%20Absolute%20Value%20Expression/README_EN.md)  |  `Array`,`Math`  |  Medium  |  Weekly Contest 146  |
 |  1132  |  [Reported Posts II](/solution/1100-1199/1132.Reported%20Posts%20II/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 |  1133  |  [Largest Unique Number](/solution/1100-1199/1133.Largest%20Unique%20Number/README_EN.md)  |  `Array`,`Hash Table`,`Sorting`  |  Easy  |  🔒  |
@@ -1428,7 +1428,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  1417  |  [Reformat The String](/solution/1400-1499/1417.Reformat%20The%20String/README_EN.md)  |  `String`  |  Easy  |  Weekly Contest 185  |
 |  1418  |  [Display Table of Food Orders in a Restaurant](/solution/1400-1499/1418.Display%20Table%20of%20Food%20Orders%20in%20a%20Restaurant/README_EN.md)  |  `Array`,`Hash Table`,`String`,`Ordered Set`,`Sorting`  |  Medium  |  Weekly Contest 185  |
 |  1419  |  [Minimum Number of Frogs Croaking](/solution/1400-1499/1419.Minimum%20Number%20of%20Frogs%20Croaking/README_EN.md)  |  `String`,`Counting`  |  Medium  |  Weekly Contest 185  |
-|  1420  |  [Build Array Where You Can Find The Maximum Exactly K Comparisons](/solution/1400-1499/1420.Build%20Array%20Where%20You%20Can%20Find%20The%20Maximum%20Exactly%20K%20Comparisons/README_EN.md)  |  `Dynamic Programming`  |  Hard  |  Weekly Contest 185  |
+|  1420  |  [Build Array Where You Can Find The Maximum Exactly K Comparisons](/solution/1400-1499/1420.Build%20Array%20Where%20You%20Can%20Find%20The%20Maximum%20Exactly%20K%20Comparisons/README_EN.md)  |  `Dynamic Programming`,`Prefix Sum`  |  Hard  |  Weekly Contest 185  |
 |  1421  |  [NPV Queries](/solution/1400-1499/1421.NPV%20Queries/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
 |  1422  |  [Maximum Score After Splitting a String](/solution/1400-1499/1422.Maximum%20Score%20After%20Splitting%20a%20String/README_EN.md)  |  `String`  |  Easy  |  Weekly Contest 186  |
 |  1423  |  [Maximum Points You Can Obtain from Cards](/solution/1400-1499/1423.Maximum%20Points%20You%20Can%20Obtain%20from%20Cards/README_EN.md)  |  `Array`,`Prefix Sum`,`Sliding Window`  |  Medium  |  Weekly Contest 186  |
@@ -1555,7 +1555,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  1544  |  [Make The String Great](/solution/1500-1599/1544.Make%20The%20String%20Great/README_EN.md)  |  `Stack`,`String`  |  Easy  |  Weekly Contest 201  |
 |  1545  |  [Find Kth Bit in Nth Binary String](/solution/1500-1599/1545.Find%20Kth%20Bit%20in%20Nth%20Binary%20String/README_EN.md)  |  `Recursion`,`String`  |  Medium  |  Weekly Contest 201  |
 |  1546  |  [Maximum Number of Non-Overlapping Subarrays With Sum Equals Target](/solution/1500-1599/1546.Maximum%20Number%20of%20Non-Overlapping%20Subarrays%20With%20Sum%20Equals%20Target/README_EN.md)  |  `Greedy`,`Array`,`Hash Table`,`Prefix Sum`  |  Medium  |  Weekly Contest 201  |
-|  1547  |  [Minimum Cost to Cut a Stick](/solution/1500-1599/1547.Minimum%20Cost%20to%20Cut%20a%20Stick/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Hard  |  Weekly Contest 201  |
+|  1547  |  [Minimum Cost to Cut a Stick](/solution/1500-1599/1547.Minimum%20Cost%20to%20Cut%20a%20Stick/README_EN.md)  |  `Array`,`Dynamic Programming`,`Sorting`  |  Hard  |  Weekly Contest 201  |
 |  1548  |  [The Most Similar Path in a Graph](/solution/1500-1599/1548.The%20Most%20Similar%20Path%20in%20a%20Graph/README_EN.md)  |  `Graph`,`Dynamic Programming`  |  Hard  |  🔒  |
 |  1549  |  [The Most Recent Orders for Each Product](/solution/1500-1599/1549.The%20Most%20Recent%20Orders%20for%20Each%20Product/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 |  1550  |  [Three Consecutive Odds](/solution/1500-1599/1550.Three%20Consecutive%20Odds/README_EN.md)  |  `Array`  |  Easy  |  Weekly Contest 202  |
@@ -2655,14 +2655,15 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2644  |  [Find the Maximum Divisibility Score](/solution/2600-2699/2644.Find%20the%20Maximum%20Divisibility%20Score/README_EN.md)  |  `Array`  |  Easy  |  Weekly Contest 341  |
 |  2645  |  [Minimum Additions to Make Valid String](/solution/2600-2699/2645.Minimum%20Additions%20to%20Make%20Valid%20String/README_EN.md)  |  `Stack`,`Greedy`,`String`,`Dynamic Programming`  |  Medium  |  Weekly Contest 341  |
 |  2646  |  [Minimize the Total Price of the Trips](/solution/2600-2699/2646.Minimize%20the%20Total%20Price%20of%20the%20Trips/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`,`Dynamic Programming`  |  Hard  |  Weekly Contest 341  |
-|  2647  |  [Color the Triangle Red](/solution/2600-2699/2647.Color%20the%20Triangle%20Red/README_EN.md)  |    |  Hard  |  🔒  |
+|  2647  |  [Color the Triangle Red](/solution/2600-2699/2647.Color%20the%20Triangle%20Red/README_EN.md)  |  `Array`,`Math`  |  Hard  |  🔒  |
 |  2648  |  [Generate Fibonacci Sequence](/solution/2600-2699/2648.Generate%20Fibonacci%20Sequence/README_EN.md)  |    |  Easy  |    |
 |  2649  |  [Nested Array Generator](/solution/2600-2699/2649.Nested%20Array%20Generator/README_EN.md)  |    |  Medium  |    |
 |  2650  |  [Design Cancellable Function](/solution/2600-2699/2650.Design%20Cancellable%20Function/README_EN.md)  |    |  Hard  |    |
-|  2651  |  [Calculate Delayed Arrival Time](/solution/2600-2699/2651.Calculate%20Delayed%20Arrival%20Time/README_EN.md)  |    |  Easy  |  Weekly Contest 342  |
-|  2652  |  [Sum Multiples](/solution/2600-2699/2652.Sum%20Multiples/README_EN.md)  |    |  Easy  |  Weekly Contest 342  |
-|  2653  |  [Sliding Subarray Beauty](/solution/2600-2699/2653.Sliding%20Subarray%20Beauty/README_EN.md)  |    |  Medium  |  Weekly Contest 342  |
-|  2654  |  [Minimum Number of Operations to Make All Array Elements Equal to 1](/solution/2600-2699/2654.Minimum%20Number%20of%20Operations%20to%20Make%20All%20Array%20Elements%20Equal%20to%201/README_EN.md)  |    |  Medium  |  Weekly Contest 342  |
+|  2651  |  [Calculate Delayed Arrival Time](/solution/2600-2699/2651.Calculate%20Delayed%20Arrival%20Time/README_EN.md)  |  `Math`  |  Easy  |  Weekly Contest 342  |
+|  2652  |  [Sum Multiples](/solution/2600-2699/2652.Sum%20Multiples/README_EN.md)  |  `Array`,`Math`,`Number Theory`  |  Easy  |  Weekly Contest 342  |
+|  2653  |  [Sliding Subarray Beauty](/solution/2600-2699/2653.Sliding%20Subarray%20Beauty/README_EN.md)  |  `Array`,`Hash Table`,`Sliding Window`  |  Medium  |  Weekly Contest 342  |
+|  2654  |  [Minimum Number of Operations to Make All Array Elements Equal to 1](/solution/2600-2699/2654.Minimum%20Number%20of%20Operations%20to%20Make%20All%20Array%20Elements%20Equal%20to%201/README_EN.md)  |  `Array`,`Math`,`Number Theory`  |  Medium  |  Weekly Contest 342  |
+|  2655  |  [Find Maximal Uncovered Ranges](/solution/2600-2699/2655.Find%20Maximal%20Uncovered%20Ranges/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 

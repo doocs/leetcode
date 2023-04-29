@@ -8,7 +8,7 @@
 
 <p>A <strong>multi-dimensional</strong>&nbsp;array is a recursive data structure that contains integers or other&nbsp;<strong>multi-dimensional</strong>&nbsp;arrays.</p>
 
-<p>A&nbsp;<strong>flattened</strong>&nbsp;array is a version of that array with some or all of the sub-arrays removed and replaced with the actual elements in that sub-array. This flattening operation should only be done if the current depth of nesting&nbsp;is greater than&nbsp;<code>n</code>. The depth of the elements in the first array are considered to be&nbsp;<code>0</code>.</p>
+<p>A&nbsp;<strong>flattened</strong>&nbsp;array is a version of that array with some or all of the sub-arrays removed and replaced with the actual elements in that sub-array. This flattening operation should only be done if the current depth of nesting&nbsp;is less&nbsp;than&nbsp;<code>n</code>. The depth of the elements in the first array are considered to be&nbsp;<code>0</code>.</p>
 
 <p>Please solve it without the built-in&nbsp;<code>Array.flat</code> method.</p>
 

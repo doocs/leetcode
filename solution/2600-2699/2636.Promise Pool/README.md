@@ -1,4 +1,4 @@
-# [2636. Promice 对象池](https://leetcode.cn/problems/promise-pool)
+# [2636. Promise 对象池](https://leetcode.cn/problems/promise-pool)
 
 [English Version](/solution/2600-2699/2636.Promise%20Pool/README_EN.md)
 

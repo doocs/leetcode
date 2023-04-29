@@ -41,6 +41,9 @@ generator.next().done; // true
 	<li><code>maxNestingDepth &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<p>&nbsp;</p>
+<strong>Can you solve this without creating a new flattened version of the array?</strong>
+
 ## Solutions
 
 <!-- tabs:start -->

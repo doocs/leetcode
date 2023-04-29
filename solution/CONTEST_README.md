@@ -1395,7 +1395,7 @@
 #### 第 228 场周赛(2021-02-14 10:30, 90 分钟) 参赛人数 2484
 
 - [1758. 生成交替二进制字符串的最少操作数](/solution/1700-1799/1758.Minimum%20Changes%20To%20Make%20Alternating%20Binary%20String/README.md)
-- [1759. 统计同构子字符串的数目](/solution/1700-1799/1759.Count%20Number%20of%20Homogenous%20Substrings/README.md)
+- [1759. 统计同质子字符串的数目](/solution/1700-1799/1759.Count%20Number%20of%20Homogenous%20Substrings/README.md)
 - [1760. 袋子里最少数目的球](/solution/1700-1799/1760.Minimum%20Limit%20of%20Balls%20in%20a%20Bag/README.md)
 - [1761. 一个图中连通三元组的最小度数](/solution/1700-1799/1761.Minimum%20Degree%20of%20a%20Connected%20Trio%20in%20a%20Graph/README.md)
 

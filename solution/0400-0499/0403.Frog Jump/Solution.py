@@ -1,14 +1,14 @@
 class Solution:
     def canCross(self, stones: List[int]) -> bool:
-        n = len(stones)
-        dp = [[False] * n for i in range(n)]
-        dp[0][0] = True
-        for i in range(1, n):
-            for j in range(i):
-                k = stones[i] - stones[j]
-                if k > j + 1:
-                    continue
-                dp[i][k] = dp[j][k - 1] or dp[j][k] or dp[j][k + 1]
-                if i == n - 1 and dp[i][k]:
+        @cache
+        def dfs(i, k):
+            if i == n - 1:
+                return True
+            for j in range(k - 1, k + 2):
+                if j > 0 and stones[i] + j in pos and dfs(pos[stones[i] + j], j):
                     return True
-        return False
+            return False
+
+        n = len(stones)
+        pos = {s: i for i, s in enumerate(stones)}
+        return dfs(0, 0)

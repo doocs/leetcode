@@ -43,25 +43,31 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：动态规划**
+**方法一：哈希表 + 记忆化搜索**
 
-动态规划转移方程如下：
+我们用哈希表 $pos$ 记录每个石子的下标，接下来设计一个函数 $dfs(i, k)$，表示青蛙从第 $i$ 个石子跳跃且上一次跳跃距离为 $k$，如果青蛙能够到达终点，那么函数返回 `true`，否则返回 `false`。
 
-$$
-dp[i][k] = dp[j][k-1] \ || \ dp[j][k] \ || \ dp[j][k+1]
-$$
+函数 $dfs(i, k)$ 的计算过程如下：
 
-其中 `dp[i][k]` 表示最后一次跳跃为 `k` 个单位时，能否到达 `i`，定义 base case 为 `dp[0][0] = True`（起点在下标 0）。
+如果 $i$ 是最后一个石子的下标，那么青蛙已经到达终点，返回 `true`；
 
-对于从 `j` 跳到 `i` 的青蛙，因为跳跃的距离确定为 `k` 个单位，所以根据题意最后一次跳跃到达 `j` 的跳跃距离只能选择为 `k - 1`、`k` 或 `k + 1` 个单位，故只要 `dp[j][k - 1], dp[j][k], dp[j][k + 1]` 中有任一为 `True`，即可从 `j` 跳跃到 `i`。
+否则，我们需要枚举青蛙接下来的跳跃距离 $j$，其中 $j \in [k-1, k, k+1]$。如果 $j$ 是正数，并且哈希表 $pos$ 中存在位置 $stones[i] + j$，那么青蛙在第 $i$ 个石子上可以选择跳跃 $j$ 个单位，如果 $dfs(pos[stones[i] + j], j)$ 返回 `true`，那么青蛙可以从第 $i$ 个石子成功跳跃到终点，我们就可以返回 `true`。
 
-时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。
+枚举结束，说明青蛙在第 $i$ 个石子上无法选择合适的跳跃距离跳到终点，我们就返回 `false`。
 
-**方法二：回溯+剪枝**
+为了防止函数 $dfs(i, k)$ 中出现重复计算，我们可以使用记忆化搜索，将 $dfs(i, k)$ 的结果记录在一个数组 $f$ 中，每当函数 $dfs(i, k)$ 返回结果，我们就将 $f[i][k]$ 进行赋值，并在下次遇到 $dfs(i, k)$ 时直接返回 $f[i][k]$。
 
-这是最直观的解题思路。显然青蛙在第 `1` 个石子的起始跳跃距离为 `1`，对于第 `2` 个石子，根据题意很容易得到青蛙的跳跃距离只能是 `0、1 或 2`。依次类推，可以得到青蛙在第 `i` 个石子可能的跳跃距离集合，借助这个思路验证当青蛙在 `i` 处跳跃距离为集合之一时是否可以刚好过河，如不能过河继续验证其他取值即可。
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是石子的数量。
 
-注意为避免提交超时，需要添加一个辅助变量减少重复搜索。
+**方法二：动态规划**
+
+我们定义 $f[i][k]$ 表示青蛙能否达到「现在所处的石子编号」为 $i$，「上一次跳跃距离」为 $k$ 的状态。初始时 $f[0][0] = true$，其余均为 `false`。
+
+考虑 $f[i]$，我们可以枚举上一块石子的编号 $j$，那么上一次跳跃的距离 $k=stones[i]-stones[j]$。如果 $k-1 \gt j$，那么青蛙无法从第 $j$ 块石子跳跃到第 $i$ 块石子，我们可以直接跳过这种情况。否则，青蛙可以从第 $j$ 块石子跳跃到第 $i$ 块石子，那么 $f[i][k] = f[j][k-1] \lor f[j][k] \lor f[j][k+1]$。如果 $i=n-1$，且 $f[i][k]=true$，那么青蛙可以成功过河，我们就可以返回 `true`。
+
+否则，我们最后返回 `false`。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是石子的数量。
 
 <!-- tabs:start -->
 
@@ -72,16 +78,33 @@ $$
 ```python
 class Solution:
     def canCross(self, stones: List[int]) -> bool:
+        @cache
+        def dfs(i, k):
+            if i == n - 1:
+                return True
+            for j in range(k - 1, k + 2):
+                if j > 0 and stones[i] + j in pos and dfs(pos[stones[i] + j], j):
+                    return True
+            return False
+
         n = len(stones)
-        dp = [[False] * n for i in range(n)]
-        dp[0][0] = True
+        pos = {s: i for i, s in enumerate(stones)}
+        return dfs(0, 0)
+```
+
+```python
+class Solution:
+    def canCross(self, stones: List[int]) -> bool:
+        n = len(stones)
+        f = [[False] * n for _ in range(n)]
+        f[0][0] = True
         for i in range(1, n):
-            for j in range(i):
+            for j in range(i - 1, -1, -1):
                 k = stones[i] - stones[j]
-                if k > j + 1:
-                    continue
-                dp[i][k] = dp[j][k - 1] or dp[j][k] or dp[j][k + 1]
-                if i == n - 1 and dp[i][k]:
+                if k - 1 > j:
+                    break
+                f[i][k] = f[j][k - 1] or f[j][k] or f[j][k + 1]
+                if i == n - 1 and f[i][k]:
                     return True
         return False
 ```
@@ -92,18 +115,55 @@ class Solution:
 
 ```java
 class Solution {
+    private Boolean[][] f;
+    private Map<Integer, Integer> pos = new HashMap<>();
+    private int[] stones;
+    private int n;
+
+    public boolean canCross(int[] stones) {
+        n = stones.length;
+        f = new Boolean[n][n];
+        this.stones = stones;
+        for (int i = 0; i < n; ++i) {
+            pos.put(stones[i], i);
+        }
+        return dfs(0, 0);
+    }
+
+    private boolean dfs(int i, int k) {
+        if (i == n - 1) {
+            return true;
+        }
+        if (f[i][k] != null) {
+            return f[i][k];
+        }
+        for (int j = k - 1; j <= k + 1; ++j) {
+            if (j > 0) {
+                int h = stones[i] + j;
+                if (pos.containsKey(h) && dfs(pos.get(h), j)) {
+                    return f[i][k] = true;
+                }
+            }
+        }
+        return f[i][k] = false;
+    }
+}
+```
+
+```java
+class Solution {
     public boolean canCross(int[] stones) {
         int n = stones.length;
-        boolean[][] dp = new boolean[n][n];
-        dp[0][0] = true;
-        for (int i = 1; i < n; i++) {
-            for (int j = 0; j < i; j++) {
+        boolean[][] f = new boolean[n][n];
+        f[0][0] = true;
+        for (int i = 1; i < n; ++i) {
+            for (int j = i - 1; j >= 0; --j) {
                 int k = stones[i] - stones[j];
-                if (k > j + 1) {
-                    continue;
+                if (k - 1 > j) {
+                    break;
                 }
-                dp[i][k] = dp[j][k - 1] || dp[j][k] || dp[j][k + 1];
-                if (i == n - 1 && dp[i][k]) {
+                f[i][k] = f[j][k - 1] || f[j][k] || f[j][k + 1];
+                if (i == n - 1 && f[i][k]) {
                     return true;
                 }
             }
@@ -113,28 +173,118 @@ class Solution {
 }
 ```
 
-### **Go**
+### **C++**
 
-动态规划：
+```cpp
+class Solution {
+public:
+    bool canCross(vector<int>& stones) {
+        int n = stones.size();
+        int f[n][n];
+        memset(f, -1, sizeof(f));
+        unordered_map<int, int> pos;
+        for (int i = 0; i < n; ++i) {
+            pos[stones[i]] = i;
+        }
+        function<bool(int, int)> dfs = [&](int i, int k) -> bool {
+            if (i == n - 1) {
+                return true;
+            }
+            if (f[i][k] != -1) {
+                return f[i][k];
+            }
+            for (int j = k - 1; j <= k + 1; ++j) {
+                if (j > 0 && pos.count(stones[i] + j) && dfs(pos[stones[i] + j], j)) {
+                    return f[i][k] = true;
+                }
+            }
+            return f[i][k] = false;
+        };
+        return dfs(0, 0);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool canCross(vector<int>& stones) {
+        int n = stones.size();
+        bool f[n][n];
+        memset(f, false, sizeof(f));
+        f[0][0] = true;
+        for (int i = 1; i < n; ++i) {
+            for (int j = i - 1; j >= 0; --j) {
+                int k = stones[i] - stones[j];
+                if (k - 1 > j) {
+                    break;
+                }
+                f[i][k] = f[j][k - 1] || f[j][k] || f[j][k + 1];
+                if (i == n - 1 && f[i][k]) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+};
+```
+
+### **Go**
 
 ```go
 func canCross(stones []int) bool {
 	n := len(stones)
-	dp := make([][]bool, n)
-	for i := 0; i < n; i++ {
-		dp[i] = make([]bool, n)
+	f := make([][]int, n)
+	pos := map[int]int{}
+	for i := range f {
+		pos[stones[i]] = i
+		f[i] = make([]int, n)
+		for j := range f[i] {
+			f[i][j] = -1
+		}
 	}
-	dp[0][0] = true
-
-	for i := 1; i < n; i++ {
-		for j := 0; j < i; j++ {
-			k := stones[i] - stones[j]
-			// 第 j 个石子上至多只能跳出 j+1 的距离
-			if k > j+1 {
-				continue
+	var dfs func(int, int) bool
+	dfs = func(i, k int) bool {
+		if i == n-1 {
+			return true
+		}
+		if f[i][k] != -1 {
+			return f[i][k] == 1
+		}
+		for j := k - 1; j <= k+1; j++ {
+			if j > 0 {
+				if p, ok := pos[stones[i]+j]; ok {
+					if dfs(p, j) {
+						f[i][k] = 1
+						return true
+					}
+				}
 			}
-			dp[i][k] = dp[j][k-1] || dp[j][k] || dp[j][k+1]
-			if i == n-1 && dp[i][k] {
+		}
+		f[i][k] = 0
+		return false
+	}
+	return dfs(0, 0)
+}
+```
+
+```go
+func canCross(stones []int) bool {
+	n := len(stones)
+	f := make([][]bool, n)
+	for i := range f {
+		f[i] = make([]bool, n)
+	}
+	f[0][0] = true
+	for i := 1; i < n; i++ {
+		for j := i - 1; j >= 0; j-- {
+			k := stones[i] - stones[j]
+			if k-1 > j {
+				break
+			}
+			f[i][k] = f[j][k-1] || f[j][k] || f[j][k+1]
+			if i == n-1 && f[i][k] {
 				return true
 			}
 		}
@@ -143,35 +293,58 @@ func canCross(stones []int) bool {
 }
 ```
 
-回溯+剪枝：
+### **TypeScript**
 
-```go
-func canCross(stones []int) bool {
-	n := len(stones)
-	help := make(map[int]map[int]bool)
-	var dfs func(start, step int) bool
+```ts
+function canCross(stones: number[]): boolean {
+    const n = stones.length;
+    const pos: Map<number, number> = new Map();
+    for (let i = 0; i < n; ++i) {
+        pos.set(stones[i], i);
+    }
+    const f: number[][] = new Array(n).fill(0).map(() => new Array(n).fill(-1));
+    const dfs = (i: number, k: number): boolean => {
+        if (i === n - 1) {
+            return true;
+        }
+        if (f[i][k] !== -1) {
+            return f[i][k] === 1;
+        }
+        for (let j = k - 1; j <= k + 1; ++j) {
+            if (j > 0 && pos.has(stones[i] + j)) {
+                if (dfs(pos.get(stones[i] + j)!, j)) {
+                    f[i][k] = 1;
+                    return true;
+                }
+            }
+        }
+        f[i][k] = 0;
+        return false;
+    };
+    return dfs(0, 0);
+}
+```
 
-	dfs = func(start, step int) bool {
-		if start >= n-1 {
-			return true
-		}
-
-		if _, ok := help[start]; !ok {
-			help[start] = make(map[int]bool)
-		}
-		if v, ok := help[start][step]; ok {
-			return v
-		}
-		for i := start + 1; i < n; i++ {
-			if stones[start]+step == stones[i] {
-				help[start][step] = dfs(i, step-1) || dfs(i, step) || dfs(i, step+1)
-				return help[start][step]
-			}
-		}
-		help[start][step] = false
-		return false
-	}
-	return dfs(0, 1)
+```ts
+function canCross(stones: number[]): boolean {
+    const n = stones.length;
+    const f: boolean[][] = new Array(n)
+        .fill(0)
+        .map(() => new Array(n).fill(false));
+    f[0][0] = true;
+    for (let i = 1; i < n; ++i) {
+        for (let j = i - 1; j >= 0; --j) {
+            const k = stones[i] - stones[j];
+            if (k - 1 > j) {
+                break;
+            }
+            f[i][k] = f[j][k - 1] || f[j][k] || f[j][k + 1];
+            if (i == n - 1 && f[i][k]) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 ```
 

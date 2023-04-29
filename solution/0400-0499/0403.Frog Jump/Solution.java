@@ -1,20 +1,34 @@
 class Solution {
+    private Boolean[][] f;
+    private Map<Integer, Integer> pos = new HashMap<>();
+    private int[] stones;
+    private int n;
+
     public boolean canCross(int[] stones) {
-        int n = stones.length;
-        boolean[][] dp = new boolean[n][n];
-        dp[0][0] = true;
-        for (int i = 1; i < n; i++) {
-            for (int j = 0; j < i; j++) {
-                int k = stones[i] - stones[j];
-                if (k > j + 1) {
-                    continue;
-                }
-                dp[i][k] = dp[j][k - 1] || dp[j][k] || dp[j][k + 1];
-                if (i == n - 1 && dp[i][k]) {
-                    return true;
+        n = stones.length;
+        f = new Boolean[n][n];
+        this.stones = stones;
+        for (int i = 0; i < n; ++i) {
+            pos.put(stones[i], i);
+        }
+        return dfs(0, 0);
+    }
+
+    private boolean dfs(int i, int k) {
+        if (i == n - 1) {
+            return true;
+        }
+        if (f[i][k] != null) {
+            return f[i][k];
+        }
+        for (int j = k - 1; j <= k + 1; ++j) {
+            if (j > 0) {
+                int h = stones[i] + j;
+                if (pos.containsKey(h) && dfs(pos.get(h), j)) {
+                    return f[i][k] = true;
                 }
             }
         }
-        return false;
+        return f[i][k] = false;
     }
 }

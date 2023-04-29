@@ -54,7 +54,6 @@ We use a hash table to store all the elements in the array, and then we traverse
 
 Time complexity $O(n)$, space complexity $O(n)$, where $n$ is the length of the array.
 
-
 <!-- tabs:start -->
 
 ### **Python3**

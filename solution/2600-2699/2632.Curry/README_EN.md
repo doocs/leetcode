@@ -30,7 +30,7 @@ curriedSum(1)(2)(3) should return the same value as sum(1, 2, 3).
 <pre>
 <strong>Input:</strong>
 fn = function sum(a, b, c) { return a + b + c; }
-inputs = [[1,2],[3]]]
+inputs = [[1,2],[3]]
 <strong>Output:</strong> 6
 <strong>Explanation:</strong>
 curriedSum(1, 2)(3) should return the same value as sum(1, 2, 3).</pre>

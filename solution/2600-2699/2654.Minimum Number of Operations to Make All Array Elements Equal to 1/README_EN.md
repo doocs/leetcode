@@ -43,6 +43,11 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<p>&nbsp;</p>
+<p><b>Follow-up:</b></p>
+
+<p>The <code>O(n)</code> time complexity&nbsp;solution works, but could you find an <code>O(1)</code> constant time complexity solution?</p>
+
 ## Solutions
 
 <!-- tabs:start -->

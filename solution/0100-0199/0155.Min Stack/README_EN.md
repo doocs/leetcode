@@ -95,21 +95,21 @@ class MinStack {
     public MinStack() {
         stk2.push(Integer.MAX_VALUE);
     }
-    
+
     public void push(int val) {
         stk1.push(val);
         stk2.push(Math.min(val, stk2.peek()));
     }
-    
+
     public void pop() {
         stk1.pop();
         stk2.pop();
     }
-    
+
     public int top() {
         return stk1.peek();
     }
-    
+
     public int getMin() {
         return stk2.peek();
     }
@@ -122,7 +122,8 @@ class MinStack {
  * obj.pop();
  * int param_3 = obj.top();
  * int param_4 = obj.getMin();
- */```
+ */
+```
 
 ### **C++**
 
@@ -132,21 +133,21 @@ public:
     MinStack() {
         stk2.push(INT_MAX);
     }
-    
+
     void push(int val) {
         stk1.push(val);
         stk2.push(min(val, stk2.top()));
     }
-    
+
     void pop() {
         stk1.pop();
         stk2.pop();
     }
-    
+
     int top() {
         return stk1.top();
     }
-    
+
     int getMin() {
         return stk2.top();
     }
@@ -362,25 +363,25 @@ impl MinStack {
 public class MinStack {
     private Stack<int> stk1 = new Stack<int>();
     private Stack<int> stk2 = new Stack<int>();
-    
+
     public MinStack() {
         stk2.Push(int.MaxValue);
     }
-    
+
     public void Push(int x) {
         stk1.Push(x);
         stk2.Push(Math.Min(x, GetMin()));
     }
-    
+
     public void Pop() {
         stk1.Pop();
         stk2.Pop();
     }
-    
+
     public int Top() {
         return stk1.Peek();
     }
-    
+
     public int GetMin() {
         return stk2.Peek();
     }
