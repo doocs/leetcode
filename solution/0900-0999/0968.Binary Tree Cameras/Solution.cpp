@@ -9,24 +9,26 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+struct Status {
+    int a, b, c;
+};
+
 class Solution {
 public:
-    int ans;
-
     int minCameraCover(TreeNode* root) {
-        ans = 0;
-        if (dfs(root) == 0) return ans + 1;
-        return ans;
+        auto [a, b, _] = dfs(root);
+        return min(a, b);
     }
 
-    int dfs(TreeNode* root) {
-        if (!root) return 2;
-        int left = dfs(root->left), right = dfs(root->right);
-        if (left == 0 || right == 0) {
-            ++ans;
-            return 1;
+    Status dfs(TreeNode* root) {
+        if (!root) {
+            return {1 << 29, 0, 0};
         }
-        if (left == 1 || right == 1) return 2;
-        return 0;
-    }
+        auto [la, lb, lc] = dfs(root->left);
+        auto [ra, rb, rc] = dfs(root->right);
+        int a = 1 + min({la, lb, lc}) + min({ra, rb, rc});
+        int b = min({la + ra, la + rb, lb + ra});
+        int c = lb + rb;
+        return {a, b, c};
+    };
 };

@@ -44,30 +44,29 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-贪心 + DFS。
+**方法一：动态规划（树形 DP）**
 
-我们知道，
+对于每个节点，我们定义三种状态：
 
-1. 如果在叶子节点放置摄像头，摄像头会覆盖当前叶子节点以及它的父节点；
-1. 如果在非叶子节点放置摄像头，摄像头会覆盖当前节点、它的子节点以及它的父节点。
+-   `a`：当前节点有摄像头
+-   `b`：当前节点无摄像头，但被子节点监控
+-   `c`：当前节点无摄像头，也没被子节点监控
 
-第二种方案始终优于第一种方案。
+接下来，我们设计一个函数 $dfs(root)$，它将返回一个长度为 3 的数组，表示以 `root` 为根的子树中，三种状态下的最小摄像头数量。那么答案就是 $\min(dfs(root)[0], dfs(root)[1])$。
 
-因此，一种贪心的解法是，将摄像头放置在叶子节点的父节点上，然后移除所有被覆盖的节点，重复这一步骤，直至所有节点被移除。
+函数 $dfs(root)$ 的计算过程如下：
 
-我们用数字 0, 1, 2 表示每个节点可能的三种状态，
+如果 `root` 为空，则返回 $[inf, 0, 0]$，其中 `inf` 表示一个很大的数，它用于表示不可能的情况。
 
--   0: 叶子节点
--   1: 叶子节点的父节点，并且放置了摄像头
--   2: 没放置摄像头，但是被摄像头覆盖
+否则，我们递归计算 `root` 的左右子树，分别得到 $[la, lb, lc]$ 和 $[ra, rb, rc]$。
 
-定义 dfs(node) 返回每个节点的状态，对于每个节点，
+-   如果当前节点有摄像头，那么它的左右节点必须都是被监控的状态，即 $a = \min(la, lb, lc) + \min(ra, rb, rc) + 1$。
+-   如果当前节点无摄像头，但被子节点监控，那么子节点可以是其中之一或者两个都有摄像头，即 $b = \min(la + rb, lb + ra, la + ra)$。
+-   如果当前节点无摄像头，也没被子节点监控，那么子节点必须被其子节点监控，即 $c = lb + rb$。
 
-1. 如果存在子节点，并且是叶子节点(`left == 0 || right == 0`)，那么该节点需要放置摄像头，累加摄像头 ans，返回 1；
-1. 如果存在子节点，并且子节点放置了摄像头(`left == 1 || right == 1`)，那么该节点可以直接被覆盖，返回 2；
-1. 否则把当前节点视为叶子节点，继续向上递归。
+最后，我们返回 $[a, b, c]$。
 
-判断 `dfs(root)` 结果，若等于 0，说明还存在当前这一个叶子节点未被覆盖，摄像头数量 ans + 1 并返回，否则返回 ans。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 
 <!-- tabs:start -->
 
@@ -83,19 +82,19 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def minCameraCover(self, root: TreeNode) -> int:
+    def minCameraCover(self, root: Optional[TreeNode]) -> int:
         def dfs(root):
-            nonlocal ans
             if root is None:
-                return 2
-            left, right = dfs(root.left), dfs(root.right)
-            if left == 0 or right == 0:
-                ans += 1
-                return 1
-            return 2 if left == 1 or right == 1 else 0
+                return inf, 0, 0
+            la, lb, lc = dfs(root.left)
+            ra, rb, rc = dfs(root.right)
+            a = min(la, lb, lc) + min(ra, rb, rc) + 1
+            b = min(la + rb, lb + ra, la + ra)
+            c = lb + rb
+            return a, b, c
 
-        ans = 0
-        return (dfs(root) == 0) + ans
+        a, b, _ = dfs(root)
+        return min(a, b)
 ```
 
 ### **Java**
@@ -119,28 +118,21 @@ class Solution:
  * }
  */
 class Solution {
-
-    private int ans;
-
     public int minCameraCover(TreeNode root) {
-        ans = 0;
-        return (dfs(root) == 0) ? ans + 1 : ans;
+        int[] ans = dfs(root);
+        return Math.min(ans[0], ans[1]);
     }
 
-    private int dfs(TreeNode root) {
+    private int[] dfs(TreeNode root) {
         if (root == null) {
-            return 2;
+            return new int[] {1 << 29, 0, 0};
         }
-        int left = dfs(root.left);
-        int right = dfs(root.right);
-        if (left == 0 || right == 0) {
-            ++ans;
-            return 1;
-        }
-        if (left == 1 || right == 1) {
-            return 2;
-        }
-        return 0;
+        var l = dfs(root.left);
+        var r = dfs(root.right);
+        int a = 1 + Math.min(Math.min(l[0], l[1]), l[2]) + Math.min(Math.min(r[0], r[1]), r[2]);
+        int b = Math.min(Math.min(l[0] + r[1], l[1] + r[0]), l[0] + r[0]);
+        int c = l[1] + r[1];
+        return new int[] {a, b, c};
     }
 }
 ```
@@ -159,26 +151,28 @@ class Solution {
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+struct Status {
+    int a, b, c;
+};
+
 class Solution {
 public:
-    int ans;
-
     int minCameraCover(TreeNode* root) {
-        ans = 0;
-        if (dfs(root) == 0) return ans + 1;
-        return ans;
+        auto [a, b, _] = dfs(root);
+        return min(a, b);
     }
 
-    int dfs(TreeNode* root) {
-        if (!root) return 2;
-        int left = dfs(root->left), right = dfs(root->right);
-        if (left == 0 || right == 0) {
-            ++ans;
-            return 1;
+    Status dfs(TreeNode* root) {
+        if (!root) {
+            return {1 << 29, 0, 0};
         }
-        if (left == 1 || right == 1) return 2;
-        return 0;
-    }
+        auto [la, lb, lc] = dfs(root->left);
+        auto [ra, rb, rc] = dfs(root->right);
+        int a = 1 + min({la, lb, lc}) + min({ra, rb, rc});
+        int b = min({la + ra, la + rb, lb + ra});
+        int c = lb + rb;
+        return {a, b, c};
+    };
 };
 ```
 
@@ -194,27 +188,68 @@ public:
  * }
  */
 func minCameraCover(root *TreeNode) int {
-	ans := 0
-	var dfs func(root *TreeNode) int
-	dfs = func(root *TreeNode) int {
+	var dfs func(*TreeNode) (int, int, int)
+	dfs = func(root *TreeNode) (int, int, int) {
 		if root == nil {
-			return 2
+			return 1 << 29, 0, 0
 		}
-		left, right := dfs(root.Left), dfs(root.Right)
-		if left == 0 || right == 0 {
-			ans++
-			return 1
-		}
-		if left == 1 || right == 1 {
-			return 2
-		}
-		return 0
+		la, lb, lc := dfs(root.Left)
+		ra, rb, rc := dfs(root.Right)
+		a := 1 + min(la, min(lb, lc)) + min(ra, min(rb, rc))
+		b := min(la+ra, min(la+rb, lb+ra))
+		c := lb + rb
+		return a, b, c
 	}
-	if dfs(root) == 0 {
-		return ans + 1
-	}
-	return ans
+	a, b, _ := dfs(root)
+	return min(a, b)
 }
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function minCameraCover(root: TreeNode | null): number {
+    const dfs = (root: TreeNode | null): number[] => {
+        if (!root) {
+            return [1 << 29, 0, 0];
+        }
+        const [la, lb, lc] = dfs(root.left);
+        const [ra, rb, rc] = dfs(root.right);
+        const a = 1 + Math.min(la, lb, lc) + Math.min(ra, rb, rc);
+        const b = Math.min(la + ra, la + rb, lb + ra);
+        const c = lb + rb;
+        return [a, b, c];
+    };
+    const [a, b, _] = dfs(root);
+    return Math.min(a, b);
+}
+```
+
+### **...**
+
+```
+
 ```
 
 <!-- tabs:end -->

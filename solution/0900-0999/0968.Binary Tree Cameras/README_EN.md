@@ -47,19 +47,19 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def minCameraCover(self, root: TreeNode) -> int:
+    def minCameraCover(self, root: Optional[TreeNode]) -> int:
         def dfs(root):
-            nonlocal ans
             if root is None:
-                return 2
-            left, right = dfs(root.left), dfs(root.right)
-            if left == 0 or right == 0:
-                ans += 1
-                return 1
-            return 2 if left == 1 or right == 1 else 0
+                return inf, 0, 0
+            la, lb, lc = dfs(root.left)
+            ra, rb, rc = dfs(root.right)
+            a = min(la, lb, lc) + min(ra, rb, rc) + 1
+            b = min(la + rb, lb + ra, la + ra)
+            c = lb + rb
+            return a, b, c
 
-        ans = 0
-        return (dfs(root) == 0) + ans
+        a, b, _ = dfs(root)
+        return min(a, b)
 ```
 
 ### **Java**
@@ -81,27 +81,21 @@ class Solution:
  * }
  */
 class Solution {
-    private int ans;
-
     public int minCameraCover(TreeNode root) {
-        ans = 0;
-        return (dfs(root) == 0) ? ans + 1 : ans;
+        int[] ans = dfs(root);
+        return Math.min(ans[0], ans[1]);
     }
 
-    private int dfs(TreeNode root) {
+    private int[] dfs(TreeNode root) {
         if (root == null) {
-            return 2;
+            return new int[] {1 << 29, 0, 0};
         }
-        int left = dfs(root.left);
-        int right = dfs(root.right);
-        if (left == 0 || right == 0) {
-            ++ans;
-            return 1;
-        }
-        if (left == 1 || right == 1) {
-            return 2;
-        }
-        return 0;
+        var l = dfs(root.left);
+        var r = dfs(root.right);
+        int a = 1 + Math.min(Math.min(l[0], l[1]), l[2]) + Math.min(Math.min(r[0], r[1]), r[2]);
+        int b = Math.min(Math.min(l[0] + r[1], l[1] + r[0]), l[0] + r[0]);
+        int c = l[1] + r[1];
+        return new int[] {a, b, c};
     }
 }
 ```
@@ -120,26 +114,28 @@ class Solution {
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+struct Status {
+    int a, b, c;
+};
+
 class Solution {
 public:
-    int ans;
-
     int minCameraCover(TreeNode* root) {
-        ans = 0;
-        if (dfs(root) == 0) return ans + 1;
-        return ans;
+        auto [a, b, _] = dfs(root);
+        return min(a, b);
     }
 
-    int dfs(TreeNode* root) {
-        if (!root) return 2;
-        int left = dfs(root->left), right = dfs(root->right);
-        if (left == 0 || right == 0) {
-            ++ans;
-            return 1;
+    Status dfs(TreeNode* root) {
+        if (!root) {
+            return {1 << 29, 0, 0};
         }
-        if (left == 1 || right == 1) return 2;
-        return 0;
-    }
+        auto [la, lb, lc] = dfs(root->left);
+        auto [ra, rb, rc] = dfs(root->right);
+        int a = 1 + min({la, lb, lc}) + min({ra, rb, rc});
+        int b = min({la + ra, la + rb, lb + ra});
+        int c = lb + rb;
+        return {a, b, c};
+    };
 };
 ```
 
@@ -155,26 +151,61 @@ public:
  * }
  */
 func minCameraCover(root *TreeNode) int {
-	ans := 0
-	var dfs func(root *TreeNode) int
-	dfs = func(root *TreeNode) int {
+	var dfs func(*TreeNode) (int, int, int)
+	dfs = func(root *TreeNode) (int, int, int) {
 		if root == nil {
-			return 2
+			return 1 << 29, 0, 0
 		}
-		left, right := dfs(root.Left), dfs(root.Right)
-		if left == 0 || right == 0 {
-			ans++
-			return 1
-		}
-		if left == 1 || right == 1 {
-			return 2
-		}
-		return 0
+		la, lb, lc := dfs(root.Left)
+		ra, rb, rc := dfs(root.Right)
+		a := 1 + min(la, min(lb, lc)) + min(ra, min(rb, rc))
+		b := min(la+ra, min(la+rb, lb+ra))
+		c := lb + rb
+		return a, b, c
 	}
-	if dfs(root) == 0 {
-		return ans + 1
+	a, b, _ := dfs(root)
+	return min(a, b)
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
 	}
-	return ans
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function minCameraCover(root: TreeNode | null): number {
+    const dfs = (root: TreeNode | null): number[] => {
+        if (!root) {
+            return [1 << 29, 0, 0];
+        }
+        const [la, lb, lc] = dfs(root.left);
+        const [ra, rb, rc] = dfs(root.right);
+        const a = 1 + Math.min(la, lb, lc) + Math.min(ra, rb, rc);
+        const b = Math.min(la + ra, la + rb, lb + ra);
+        const c = lb + rb;
+        return [a, b, c];
+    };
+    const [a, b, _] = dfs(root);
+    return Math.min(a, b);
 }
 ```
 

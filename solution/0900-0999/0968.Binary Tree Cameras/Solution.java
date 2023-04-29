@@ -14,26 +14,20 @@
  * }
  */
 class Solution {
-    private int ans;
-
     public int minCameraCover(TreeNode root) {
-        ans = 0;
-        return (dfs(root) == 0) ? ans + 1 : ans;
+        int[] ans = dfs(root);
+        return Math.min(ans[0], ans[1]);
     }
 
-    private int dfs(TreeNode root) {
+    private int[] dfs(TreeNode root) {
         if (root == null) {
-            return 2;
+            return new int[] {1 << 29, 0, 0};
         }
-        int left = dfs(root.left);
-        int right = dfs(root.right);
-        if (left == 0 || right == 0) {
-            ++ans;
-            return 1;
-        }
-        if (left == 1 || right == 1) {
-            return 2;
-        }
-        return 0;
+        var l = dfs(root.left);
+        var r = dfs(root.right);
+        int a = 1 + Math.min(Math.min(l[0], l[1]), l[2]) + Math.min(Math.min(r[0], r[1]), r[2]);
+        int b = Math.min(Math.min(l[0] + r[1], l[1] + r[0]), l[0] + r[0]);
+        int c = l[1] + r[1];
+        return new int[] {a, b, c};
     }
 }

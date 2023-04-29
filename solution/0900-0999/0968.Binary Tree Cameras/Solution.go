@@ -7,24 +7,25 @@
  * }
  */
 func minCameraCover(root *TreeNode) int {
-	ans := 0
-	var dfs func(root *TreeNode) int
-	dfs = func(root *TreeNode) int {
+	var dfs func(*TreeNode) (int, int, int)
+	dfs = func(root *TreeNode) (int, int, int) {
 		if root == nil {
-			return 2
+			return 1 << 29, 0, 0
 		}
-		left, right := dfs(root.Left), dfs(root.Right)
-		if left == 0 || right == 0 {
-			ans++
-			return 1
-		}
-		if left == 1 || right == 1 {
-			return 2
-		}
-		return 0
+		la, lb, lc := dfs(root.Left)
+		ra, rb, rc := dfs(root.Right)
+		a := 1 + min(la, min(lb, lc)) + min(ra, min(rb, rc))
+		b := min(la+ra, min(la+rb, lb+ra))
+		c := lb + rb
+		return a, b, c
 	}
-	if dfs(root) == 0 {
-		return ans + 1
+	a, b, _ := dfs(root)
+	return min(a, b)
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
 	}
-	return ans
+	return b
 }
