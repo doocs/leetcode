@@ -91,6 +91,21 @@ class Solution:
         return f[0][-1]
 ```
 
+```python
+class Solution:
+    def minCost(self, n: int, cuts: List[int]) -> int:
+        cuts.extend([0, n])
+        cuts.sort()
+        m = len(cuts)
+        f = [[0] * m for _ in range(m)]
+        for i in range(m - 1, -1, -1):
+            for j in range(i + 2, m):
+                f[i][j] = inf
+                for k in range(i + 1, j):
+                    f[i][j] = min(f[i][j], f[i][k] + f[k][j] + cuts[j] - cuts[i])
+        return f[0][-1]
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
@@ -121,6 +136,31 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int minCost(int n, int[] cuts) {
+        List<Integer> nums = new ArrayList<>();
+        for (int x : cuts) {
+            nums.add(x);
+        }
+        nums.add(0);
+        nums.add(n);
+        Collections.sort(nums);
+        int m = nums.size();
+        int[][] f = new int[m][m];
+        for (int i = m - 1; i >= 0; --i) {
+            for (int j = i + 2; j < m; ++j) {
+                f[i][j] = 1 << 30;
+                for (int k = i + 1; k < j; ++k) {
+                    f[i][j] = Math.min(f[i][j], f[i][k] + f[k][j] + nums.get(j) - nums.get(i));
+                }
+            }
+        }
+        return f[0][m - 1];
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -135,6 +175,28 @@ public:
         for (int l = 2; l < m; ++l) {
             for (int i = 0; i + l < m; ++i) {
                 int j = i + l;
+                f[i][j] = 1 << 30;
+                for (int k = i + 1; k < j; ++k) {
+                    f[i][j] = min(f[i][j], f[i][k] + f[k][j] + cuts[j] - cuts[i]);
+                }
+            }
+        }
+        return f[0][m - 1];
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int minCost(int n, vector<int>& cuts) {
+        cuts.push_back(0);
+        cuts.push_back(n);
+        sort(cuts.begin(), cuts.end());
+        int m = cuts.size();
+        int f[110][110]{};
+        for (int i = m - 1; ~i; --i) {
+            for (int j = i + 2; j < m; ++j) {
                 f[i][j] = 1 << 30;
                 for (int k = i + 1; k < j; ++k) {
                     f[i][j] = min(f[i][j], f[i][k] + f[k][j] + cuts[j] - cuts[i]);
@@ -174,6 +236,58 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+```go
+func minCost(n int, cuts []int) int {
+	cuts = append(cuts, []int{0, n}...)
+	sort.Ints(cuts)
+	m := len(cuts)
+	f := make([][]int, m)
+	for i := range f {
+		f[i] = make([]int, m)
+	}
+	for i := m - 1; i >= 0; i-- {
+		for j := i + 2; j < m; j++ {
+			f[i][j] = 1 << 30
+			for k := i + 1; k < j; k++ {
+				f[i][j] = min(f[i][j], f[i][k]+f[k][j]+cuts[j]-cuts[i])
+			}
+		}
+	}
+	return f[0][m-1]
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function minCost(n: number, cuts: number[]): number {
+    cuts.push(0);
+    cuts.push(n);
+    cuts.sort((a, b) => a - b);
+    const m = cuts.length;
+    const f: number[][] = new Array(m).fill(0).map(() => new Array(m).fill(0));
+    for (let i = m - 2; i >= 0; --i) {
+        for (let j = i + 2; j < m; ++j) {
+            f[i][j] = 1 << 30;
+            for (let k = i + 1; k < j; ++k) {
+                f[i][j] = Math.min(
+                    f[i][j],
+                    f[i][k] + f[k][j] + cuts[j] - cuts[i],
+                );
+            }
+        }
+    }
+    return f[0][m - 1];
 }
 ```
 
