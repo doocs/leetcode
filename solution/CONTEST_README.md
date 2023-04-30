@@ -24,6 +24,22 @@
 
 ## 往期竞赛
 
+#### 第 343 场周赛(2023-04-30 10:30, 90 分钟) 参赛人数 3313
+
+- [2660. 保龄球游戏的获胜者](/solution/2600-2699/2660.Determine%20the%20Winner%20of%20a%20Bowling%20Game/README.md)
+- [2661. 找出叠涂元素](/solution/2600-2699/2661.First%20Completely%20Painted%20Row%20or%20Column/README.md)
+- [2662. 前往目标的最小代价](/solution/2600-2699/2662.Minimum%20Cost%20of%20a%20Path%20With%20Special%20Roads/README.md)
+- [2663. 字典序最小的美丽字符串](/solution/2600-2699/2663.Lexicographically%20Smallest%20Beautiful%20String/README.md)
+
+
+#### 第 103 场双周赛(2023-04-29 22:30, 90 分钟) 参赛人数 2299
+
+- [2656. K 个元素的最大和](/solution/2600-2699/2656.Maximum%20Sum%20With%20Exactly%20K%20Elements/README.md)
+- [2657. 找到两个数组的前缀公共数组](/solution/2600-2699/2657.Find%20the%20Prefix%20Common%20Array%20of%20Two%20Arrays/README.md)
+- [2658. 网格图中鱼的最大数目](/solution/2600-2699/2658.Maximum%20Number%20of%20Fish%20in%20a%20Grid/README.md)
+- [2659. 将数组清空](/solution/2600-2699/2659.Make%20Array%20Empty/README.md)
+
+
 #### 第 342 场周赛(2023-04-23 10:30, 90 分钟) 参赛人数 3702
 
 - [2651. 计算列车到站时间](/solution/2600-2699/2651.Calculate%20Delayed%20Arrival%20Time/README.md)

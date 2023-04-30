@@ -939,7 +939,7 @@ class TreeMultiSet<T = number> {
 }
 ```
 
-```ts
+````ts
 function minReverseOperations(
     n: number,
     p: number,
@@ -1667,7 +1667,7 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
         yield* this.reverseInOrder(root.left);
     }
 }
-```
+````
 
 ### **...**
 

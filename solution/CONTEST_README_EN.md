@@ -25,6 +25,22 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 343
+
+- [2660. Determine the Winner of a Bowling Game](/solution/2600-2699/2660.Determine%20the%20Winner%20of%20a%20Bowling%20Game/README_EN.md)
+- [2661. First Completely Painted Row or Column](/solution/2600-2699/2661.First%20Completely%20Painted%20Row%20or%20Column/README_EN.md)
+- [2662. Minimum Cost of a Path With Special Roads](/solution/2600-2699/2662.Minimum%20Cost%20of%20a%20Path%20With%20Special%20Roads/README_EN.md)
+- [2663. Lexicographically Smallest Beautiful String](/solution/2600-2699/2663.Lexicographically%20Smallest%20Beautiful%20String/README_EN.md)
+
+
+#### Biweekly Contest 103
+
+- [2656. Maximum Sum With Exactly K Elements](/solution/2600-2699/2656.Maximum%20Sum%20With%20Exactly%20K%20Elements/README_EN.md)
+- [2657. Find the Prefix Common Array of Two Arrays](/solution/2600-2699/2657.Find%20the%20Prefix%20Common%20Array%20of%20Two%20Arrays/README_EN.md)
+- [2658. Maximum Number of Fish in a Grid](/solution/2600-2699/2658.Maximum%20Number%20of%20Fish%20in%20a%20Grid/README_EN.md)
+- [2659. Make Array Empty](/solution/2600-2699/2659.Make%20Array%20Empty/README_EN.md)
+
+
 #### Weekly Contest 342
 
 - [2651. Calculate Delayed Arrival Time](/solution/2600-2699/2651.Calculate%20Delayed%20Arrival%20Time/README_EN.md)

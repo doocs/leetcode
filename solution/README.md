@@ -2666,6 +2666,14 @@
 |  2653  |  [滑动子数组的美丽值](/solution/2600-2699/2653.Sliding%20Subarray%20Beauty/README.md)  |  `数组`,`哈希表`,`滑动窗口`  |  中等  |  第 342 场周赛  |
 |  2654  |  [使数组所有元素变成 1 的最少操作次数](/solution/2600-2699/2654.Minimum%20Number%20of%20Operations%20to%20Make%20All%20Array%20Elements%20Equal%20to%201/README.md)  |  `数组`,`数学`,`数论`  |  中等  |  第 342 场周赛  |
 |  2655  |  [Find Maximal Uncovered Ranges](/solution/2600-2699/2655.Find%20Maximal%20Uncovered%20Ranges/README.md)  |    |  中等  |  🔒  |
+|  2656  |  [K 个元素的最大和](/solution/2600-2699/2656.Maximum%20Sum%20With%20Exactly%20K%20Elements/README.md)  |    |  简单  |  第 103 场双周赛  |
+|  2657  |  [找到两个数组的前缀公共数组](/solution/2600-2699/2657.Find%20the%20Prefix%20Common%20Array%20of%20Two%20Arrays/README.md)  |    |  中等  |  第 103 场双周赛  |
+|  2658  |  [网格图中鱼的最大数目](/solution/2600-2699/2658.Maximum%20Number%20of%20Fish%20in%20a%20Grid/README.md)  |    |  困难  |  第 103 场双周赛  |
+|  2659  |  [将数组清空](/solution/2600-2699/2659.Make%20Array%20Empty/README.md)  |    |  困难  |  第 103 场双周赛  |
+|  2660  |  [保龄球游戏的获胜者](/solution/2600-2699/2660.Determine%20the%20Winner%20of%20a%20Bowling%20Game/README.md)  |    |  简单  |  第 343 场周赛  |
+|  2661  |  [找出叠涂元素](/solution/2600-2699/2661.First%20Completely%20Painted%20Row%20or%20Column/README.md)  |    |  中等  |  第 343 场周赛  |
+|  2662  |  [前往目标的最小代价](/solution/2600-2699/2662.Minimum%20Cost%20of%20a%20Path%20With%20Special%20Roads/README.md)  |    |  中等  |  第 343 场周赛  |
+|  2663  |  [字典序最小的美丽字符串](/solution/2600-2699/2663.Lexicographically%20Smallest%20Beautiful%20String/README.md)  |    |  困难  |  第 343 场周赛  |
 
 ## 版权
 
