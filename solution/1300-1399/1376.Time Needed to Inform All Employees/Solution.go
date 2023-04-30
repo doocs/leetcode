@@ -1,17 +1,16 @@
 func numOfMinutes(n int, headID int, manager []int, informTime []int) int {
-	g := make(map[int][]int)
-	for i, m := range manager {
-		g[m] = append(g[m], i)
-	}
-	var dfs func(i int) int
-	dfs = func(i int) int {
-		ans := 0
-		if v, ok := g[i]; ok {
-			for _, j := range v {
-				ans = max(ans, informTime[i]+dfs(j))
-			}
+	g := make([][]int, n)
+	for i, x := range manager {
+		if x != -1 {
+			g[x] = append(g[x], i)
 		}
-		return ans
+	}
+	var dfs func(int) int
+	dfs = func(i int) (ans int) {
+		for _, j := range g[i] {
+			ans = max(ans, dfs(j)+informTime[i])
+		}
+		return
 	}
 	return dfs(headID)
 }

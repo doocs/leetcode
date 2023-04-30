@@ -57,7 +57,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-找从根节点到叶子节点最长的路径即可。
+**方法一：DFS**
+
+我们先根据 $manager$ 数组构建邻接表 $g$，其中 $g[i]$ 表示员工 $i$ 的所有直接下属。
+
+接下来，我们设计一个函数 $dfs(i)$，表示从员工 $i$ 开始，将消息通知给他的所有下属（包括直接下属、间接下属）所需要的时间，那么答案就是 $dfs(headID)$。
+
+在函数 $dfs(i)$ 中，我们需要遍历 $i$ 的所有直接下属 $j$，对于每个下属，员工 $i$ 需要将消息通知给他，这需要花费 $informTime[i]$ 的时间，而他的所有下属需要将消息通知给他们的下属，这需要花费 $dfs(j)$ 的时间，取 $informTime[i] + dfs(j)$ 的最大值作为函数 $dfs(i)$ 的返回值即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为员工数量。
 
 <!-- tabs:start -->
 
@@ -67,18 +75,16 @@
 
 ```python
 class Solution:
-    def numOfMinutes(
-        self, n: int, headID: int, manager: List[int], informTime: List[int]
-    ) -> int:
-        def dfs(i):
+    def numOfMinutes(self, n: int, headID: int, manager: List[int], informTime: List[int]) -> int:
+        def dfs(i: int) -> int:
             ans = 0
             for j in g[i]:
-                ans = max(ans, informTime[i] + dfs(j))
+                ans = max(ans, dfs(j) + informTime[i])
             return ans
 
         g = defaultdict(list)
-        for i, m in enumerate(manager):
-            g[m].append(i)
+        for i, x in enumerate(manager):
+            g[x].append(i)
         return dfs(headID)
 ```
 
@@ -88,24 +94,25 @@ class Solution:
 
 ```java
 class Solution {
-    private Map<Integer, List<Integer>> g;
-    private int[] manager;
+    private List<Integer>[] g;
     private int[] informTime;
 
     public int numOfMinutes(int n, int headID, int[] manager, int[] informTime) {
-        g = new HashMap<>();
-        this.manager = manager;
+        g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
         this.informTime = informTime;
         for (int i = 0; i < n; ++i) {
-            g.computeIfAbsent(manager[i], k -> new ArrayList<>()).add(i);
+            if (manager[i] >= 0) {
+                g[manager[i]].add(i);
+            }
         }
         return dfs(headID);
     }
 
     private int dfs(int i) {
         int ans = 0;
-        for (int j : g.getOrDefault(i, new ArrayList<>())) {
-            ans = Math.max(ans, informTime[i] + dfs(j));
+        for (int j : g[i]) {
+            ans = Math.max(ans, dfs(j) + informTime[i]);
         }
         return ans;
     }
@@ -117,21 +124,21 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    unordered_map<int, vector<int>> g;
-    vector<int> manager;
-    vector<int> informTime;
-
     int numOfMinutes(int n, int headID, vector<int>& manager, vector<int>& informTime) {
-        this->manager = manager;
-        this->informTime = informTime;
-        for (int i = 0; i < n; ++i) g[manager[i]].push_back(i);
+        vector<vector<int>> g(n);
+        for (int i = 0; i < n; ++i) {
+            if (manager[i] >= 0) {
+                g[manager[i]].push_back(i);
+            }
+        }
+        function<int(int)> dfs = [&](int i) -> int {
+            int ans = 0;
+            for (int j : g[i]) {
+                ans = max(ans, dfs(j) + informTime[i]);
+            }
+            return ans;
+        };
         return dfs(headID);
-    }
-
-    int dfs(int i) {
-        int ans = 0;
-        for (int j : g[i]) ans = max(ans, informTime[i] + dfs(j));
-        return ans;
     }
 };
 ```
@@ -140,19 +147,18 @@ public:
 
 ```go
 func numOfMinutes(n int, headID int, manager []int, informTime []int) int {
-	g := make(map[int][]int)
-	for i, m := range manager {
-		g[m] = append(g[m], i)
-	}
-	var dfs func(i int) int
-	dfs = func(i int) int {
-		ans := 0
-		if v, ok := g[i]; ok {
-			for _, j := range v {
-				ans = max(ans, informTime[i]+dfs(j))
-			}
+	g := make([][]int, n)
+	for i, x := range manager {
+		if x != -1 {
+			g[x] = append(g[x], i)
 		}
-		return ans
+	}
+	var dfs func(int) int
+	dfs = func(i int) (ans int) {
+		for _, j := range g[i] {
+			ans = max(ans, dfs(j)+informTime[i])
+		}
+		return
 	}
 	return dfs(headID)
 }
@@ -174,29 +180,51 @@ function numOfMinutes(
     manager: number[],
     informTime: number[],
 ): number {
-    if (n === 1) {
-        return 0;
+    const g: number[][] = new Array(n).fill(0).map(() => []);
+    for (let i = 0; i < n; ++i) {
+        if (manager[i] !== -1) {
+            g[manager[i]].push(i);
+        }
     }
-    let res = 0;
-    const time = new Array(n).fill(0);
-    time[headID] = -1;
-    const dfs = (i: number) => {
-        const aim = manager[i];
-        if (time[aim] === -1) {
-            return informTime[aim];
+    const dfs = (i: number): number => {
+        let ans = 0;
+        for (const j of g[i]) {
+            ans = Math.max(ans, dfs(j) + informTime[i]);
         }
-        if (time[aim] === 0) {
-            time[aim] = dfs(aim);
-        }
-        return time[aim] + informTime[aim];
+        return ans;
     };
-    for (let i = 0; i < n; i++) {
-        if (time[i] === 0) {
-            time[i] = dfs(i);
+    return dfs(headID);
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    private List<int>[] g;
+    private int[] informTime;
+
+    public int NumOfMinutes(int n, int headID, int[] manager, int[] informTime) {
+        g = new List<int>[n];
+        for (int i = 0; i < n; ++i) {
+            g[i] = new List<int>();
         }
-        res = Math.max(res, time[i]);
+        this.informTime = informTime;
+        for (int i = 0; i < n; ++i) {
+            if (manager[i] != -1) {
+                g[manager[i]].Add(i);
+            }
+        }
+        return dfs(headID);
     }
-    return res;
+
+    private int dfs(int i) {
+        int ans = 0;
+        foreach (int j in g[i]) {
+            ans = Math.Max(ans, dfs(j) + informTime[i]);
+        }
+        return ans;
+    }
 }
 ```
 
