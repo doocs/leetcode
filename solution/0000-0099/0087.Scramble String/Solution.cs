@@ -1,35 +1,34 @@
 public class Solution {
-    public bool IsScramble(string s1, string s2) {
-        if (s1.Length != s2.Length) return false;
-        var length = s1.Length;
-        if (length == 0) return true;
-        var f = new bool[length + 1, length, length];
-        for (var i = 0; i < length; ++i)
-        {
-            for (var j = 0; j < length; ++j)
-            {
-                f[1, i, j] = s1[i] == s2[j];
-            }
-        }
-        for (var i = 2; i <= length; ++i)
-        {
-            for (var j = 0; j <= length - i; ++j)
-            {
-                for (var k = 0; k <= length - i; ++k)
-                {
-                    for (var l = 1; l < i; ++l)
-                    {
-                        if (f[l, j, k] && f[i - l, j + l, k + l]
-                            || f[l, j, k + i - l] && f[i - l, j + l, k])
-                        {
-                            f[i, j, k] = true;
-                            break;
-                        }
-                    }
-                }
-            }
-        }
+    private string s1;
+    private string s2;
+    private int[,,] f;
 
-        return f[length, 0, 0];
+    public bool IsScramble(string s1, string s2) {
+        int n = s1.Length;
+        this.s1 = s1;
+        this.s2 = s2;
+        f = new int[n, n, n + 1];
+        return dfs(0, 0, n);
+    }
+
+    private bool dfs(int i, int j, int k) {
+        if (f[i, j, k] != 0) {
+            return f[i, j, k] == 1;
+        }
+        if (k == 1) {
+            return s1[i] == s2[j];
+        }
+        for (int h = 1; h < k; ++h) {
+            if (dfs(i, j, h) && dfs(i + h, j + h, k - h)) {
+                f[i, j, k] = 1;
+                return true;
+            }
+            if (dfs(i, j + k - h, h) && dfs(i + h, j, k - h)) {
+                f[i, j, k] = 1;
+                return true;
+            }
+        }
+        f[i, j, k] = -1;
+        return false;
     }
 }

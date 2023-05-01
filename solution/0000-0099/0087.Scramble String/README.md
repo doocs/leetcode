@@ -67,15 +67,32 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-动态规划法。
+**方法一：记忆化搜索**
 
-假设 `dp[i][j][len]` 表示从字符串 S 中 i 开始长度为 len 的字符串是否能变换为从字符串 T 中 j 开始长度为 len 的字符串。题目可转变为求 `dp[0][0][n]`。
+我们设计一个函数 $dfs(i, j, k)$，表示字符串 $s_1$ 从 $i$ 开始长度为 $k$ 的子串是否能变换为字符串 $s_2$ 从 $j$ 开始长度为 $k$ 的子串。如果能变换，返回 `true`，否则返回 `false`。那么答案就是 $dfs(0, 0, n)$，其中 $n$ 是字符串的长度。
 
-在 `len` 为 1 的情况下，只需要判断 `S[i]` 是否等于 `T[j]`。所以可以对 dp 进行初始化：`dp[i][j][1] = S[i] == T[j]`，其中，`i,j ∈ [0, n)`。
+函数 $dfs(i, j, k)$ 的计算方式如下：
 
-在 `len` 大于 1 的情况下，枚举 S 的长度 `i ∈ [1, len-1]`，`dp[i1][i2][i]` 表示 S1 能变成 T1，`dp[i1 + i][i2 + i][len - i]` 表示 S2 能变成 T2；或者 S1 能变成 T2，S2 能变成 T1。
+-   如果 $k=1$，那么只需要判断 $s_1[i]$ 和 $s_2[j]$ 是否相等，如果相等返回 `true`，否则返回 `false`；
+-   如果 $k \gt 1$，我们枚举分割部分的长度 $h$，那么有两种情况：如果不交换分割的两个子字符串，那么就是 $dfs(i, j, h) \land dfs(i+h, j+h, k-h)$；如果交换了分割的两个子字符串，那么就是 $dfs(i, j+k-h, h) \land dfs(i+h, j, k-h)$。如果两种情况中有一种情况成立，那么就说明 $dfs(i, j, k)$ 成立，返回 `true`，否则返回 `false`。
 
-![](./images/demo.png)
+最后，我们返回 $dfs(0, 0, n)$。
+
+为了避免重复计算，我们可以使用记忆化搜索的方式。
+
+时间复杂度 $O(n^4)$，空间复杂度 $O(n^3)$。其中 $n$ 是字符串的长度。
+
+**方法二：动态规划（区间 DP）**
+
+我们定义 $f[i][j][k]$ 表示字符串 $s_1$ 从 $i$ 开始长度为 $k$ 的子串是否能变换为字符串 $s_2$ 从 $j$ 开始长度为 $k$ 的子串。那么答案就是 $f[0][0][n]$，其中 $n$ 是字符串的长度。
+
+对于长度为 $1$ 的子串，如果 $s_1[i] = s_2[j]$，那么 $f[i][j][1] = true$，否则 $f[i][j][1] = false$。
+
+接下来，我们从小到大枚举子串的长度 $k$，从 $0$ 开始枚举 $i$，从 $0$ 开始枚举 $j$，如果 $f[i][j][h] \land f[i + h][j + h][k - h]$ 或者 $f[i][j + k - h][h] \land f[i + h][j][k - h]$ 成立，那么 $f[i][j][k]$ 也成立。
+
+最后，我们返回 $f[0][0][n]$。
+
+时间复杂度 $O(n^4)$，空间复杂度 $O(n^3)$。其中 $n$ 是字符串的长度。
 
 <!-- tabs:start -->
 
@@ -86,26 +103,39 @@
 ```python
 class Solution:
     def isScramble(self, s1: str, s2: str) -> bool:
+        @cache
+        def dfs(i: int, j: int, k: int) -> bool:
+            if k == 1:
+                return s1[i] == s2[j]
+            for h in range(1, k):
+                if dfs(i, j, h) and dfs(i + h, j + h, k - h):
+                    return True
+                if dfs(i + h, j, k - h) and dfs(i, j + k - h, h):
+                    return True
+            return False
+
+        return dfs(0, 0, len(s1))
+```
+
+```python
+class Solution:
+    def isScramble(self, s1: str, s2: str) -> bool:
         n = len(s1)
-        dp = [[[False] * (n + 1) for _ in range(n)] for _ in range(n)]
+        f = [[[False] * (n + 1) for _ in range(n)] for _ in range(n)]
         for i in range(n):
             for j in range(n):
-                dp[i][j][1] = s1[i] == s2[j]
-        # 枚举长度区间[2, n]
-        for l in range(2, n + 1):
-            # 枚举s1的起始位置
-            for i1 in range(n - l + 1):
-                # 枚举s2的起始位置
-                for i2 in range(n - l + 1):
-                    # 枚举分割的位置
-                    for i in range(1, l):
-                        if dp[i1][i2][i] and dp[i1 + i][i2 + i][l - i]:
-                            dp[i1][i2][l] = True
+                f[i][j][1] = s1[i] == s2[j]
+        for k in range(2, n + 1):
+            for i in range(n - k + 1):
+                for j in range(n - k + 1):
+                    for h in range(1, k):
+                        if f[i][j][h] and f[i + h][j + h][k - h]:
+                            f[i][j][k] = True
                             break
-                        if dp[i1][i2 + l - i][i] and dp[i1 + i][i2][l - i]:
-                            dp[i1][i2][l] = True
+                        if f[i + h][j][k - h] and f[i][j + k - h][h]:
+                            f[i][j][k] = True
                             break
-        return dp[0][0][n]
+        return f[0][0][n]
 ```
 
 ### **Java**
@@ -114,39 +144,131 @@ class Solution:
 
 ```java
 class Solution {
+    private Boolean[][][] f;
+    private String s1;
+    private String s2;
+
     public boolean isScramble(String s1, String s2) {
-        // 题目已说明 s1.length == s2.length，无须再判断长度是否相等
         int n = s1.length();
-        boolean[][][] dp = new boolean[n][n][n + 1];
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < n; ++j) {
-                // 长度为1时，两字符必须相等
-                dp[i][j][1] = s1.charAt(i) == s2.charAt(j);
+        this.s1 = s1;
+        this.s2 = s2;
+        f = new Boolean[n][n][n + 1];
+        return dfs(0, 0, n);
+    }
+
+    private boolean dfs(int i, int j, int k) {
+        if (f[i][j][k] != null) {
+            return f[i][j][k];
+        }
+        if (k == 1) {
+            return s1.charAt(i) == s2.charAt(j);
+        }
+        for (int h = 1; h < k; ++h) {
+            if (dfs(i, j, h) && dfs(i + h, j + h, k - h)) {
+                return f[i][j][k] = true;
+            }
+            if (dfs(i + h, j, k - h) && dfs(i, j + k - h, h)) {
+                return f[i][j][k] = true;
             }
         }
-        // 枚举长度区间[2, n]
-        for (int len = 2; len <= n; ++len) {
-            // 枚举s1的起始位置
-            for (int i1 = 0; i1 <= n - len; ++i1) {
-                // 枚举s2的起始位置
-                for (int i2 = 0; i2 <= n - len; ++i2) {
-                    // 枚举分割的位置
-                    for (int i = 1; i < len; ++i) {
-                        if (dp[i1][i2][i] && dp[i1 + i][i2 + i][len - i]) {
-                            dp[i1][i2][len] = true;
+        return f[i][j][k] = false;
+    }
+}
+```
+
+```java
+class Solution {
+    public boolean isScramble(String s1, String s2) {
+        int n = s1.length();
+        boolean[][][] f = new boolean[n][n][n + 1];
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                f[i][j][1] = s1.charAt(i) == s2.charAt(j);
+            }
+        }
+        for (int k = 2; k <= n; ++k) {
+            for (int i = 0; i <= n - k; ++i) {
+                for (int j = 0; j <= n - k; ++j) {
+                    for (int h = 1; h < k; ++h) {
+                        if (f[i][j][h] && f[i + h][j + h][k - h]) {
+                            f[i][j][k] = true;
                             break;
                         }
-                        if (dp[i1][i2 + len - i][i] && dp[i1 + i][i2][len - i]) {
-                            dp[i1][i2][len] = true;
+                        if (f[i + h][j][k - h] && f[i][j + k - h][h]) {
+                            f[i][j][k] = true;
                             break;
                         }
                     }
                 }
             }
         }
-        return dp[0][0][n];
+        return f[0][0][n];
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isScramble(string s1, string s2) {
+        int n = s1.size();
+        int f[n][n][n + 1];
+        memset(f, -1, sizeof(f));
+        function<bool(int, int, int)> dfs = [&](int i, int j, int k) -> int {
+            if (f[i][j][k] != -1) {
+                return f[i][j][k] == 1;
+            }
+            if (k == 1) {
+                return s1[i] == s2[j];
+            }
+            for (int h = 1; h < k; ++h) {
+                if (dfs(i, j, h) && dfs(i + h, j + h, k - h)) {
+                    return f[i][j][k] = true;
+                }
+                if (dfs(i + h, j, k - h) && dfs(i, j + k - h, h)) {
+                    return f[i][j][k] = true;
+                }
+            }
+            return f[i][j][k] = false;
+        };
+        return dfs(0, 0, n);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool isScramble(string s1, string s2) {
+        int n = s1.length();
+        bool f[n][n][n + 1];
+        memset(f, false, sizeof(f));
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                f[i][j][1] = s1[i] == s2[j];
+            }
+        }
+        for (int k = 2; k <= n; ++k) {
+            for (int i = 0; i <= n - k; ++i) {
+                for (int j = 0; j <= n - k; ++j) {
+                    for (int h = 1; h < k; ++h) {
+                        if () {
+                            f[i][j][k] = true;
+                            break;
+                        }
+                        if (f[i + h][j][k - h] && f[i][j + k - h][h]) {
+                            f[i][j][k] = true;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        return f[0][0][n];
+    }
+};
 ```
 
 ### **Go**
@@ -154,35 +276,190 @@ class Solution {
 ```go
 func isScramble(s1 string, s2 string) bool {
 	n := len(s1)
-	dp := make([][][]bool, n+1)
-	for i := range dp {
-		dp[i] = make([][]bool, n)
-		for j := range dp[i] {
-			dp[i][j] = make([]bool, n+1)
+	f := make([][][]int, n)
+	for i := range f {
+		f[i] = make([][]int, n)
+		for j := range f[i] {
+			f[i][j] = make([]int, n+1)
 		}
 	}
-	for i := 0; i < n; i++ {
+	var dfs func(i, j, k int) bool
+	dfs = func(i, j, k int) bool {
+		if k == 1 {
+			return s1[i] == s2[j]
+		}
+		if f[i][j][k] != 0 {
+			return f[i][j][k] == 1
+		}
+		f[i][j][k] = 2
+		for h := 1; h < k; h++ {
+			if (dfs(i, j, h) && dfs(i+h, j+h, k-h)) || (dfs(i+h, j, k-h) && dfs(i, j+k-h, h)) {
+				f[i][j][k] = 1
+				return true
+			}
+		}
+		return false
+	}
+	return dfs(0, 0, n)
+}
+```
+
+```go
+func isScramble(s1 string, s2 string) bool {
+	n := len(s1)
+	f := make([][][]bool, n)
+	for i := range f {
+		f[i] = make([][]bool, n)
 		for j := 0; j < n; j++ {
-			dp[i][j][1] = s1[i] == s2[j]
+			f[i][j] = make([]bool, n+1)
+			f[i][j][1] = s1[i] == s2[j]
 		}
 	}
-	for l := 2; l < n+1; l++ {
-		for i1 := 0; i1 < n-l+1; i1++ {
-			for i2 := 0; i2 < n-l+1; i2++ {
-				for i := 1; i < l; i++ {
-					if dp[i1][i2][i] && dp[i1+i][i2+i][l-i] {
-						dp[i1][i2][l] = true
-						break
-					}
-					if dp[i1][i2+l-i][i] && dp[i1+i][i2][l-i] {
-						dp[i1][i2][l] = true
+	for k := 2; k <= n; k++ {
+		for i := 0; i <= n-k; i++ {
+			for j := 0; j <= n-k; j++ {
+				for h := 1; h < k; h++ {
+					if (f[i][j][h] && f[i+h][j+h][k-h]) || (f[i+h][j][k-h] && f[i][j+k-h][h]) {
+						f[i][j][k] = true
 						break
 					}
 				}
 			}
 		}
 	}
-	return dp[0][0][n]
+	return f[0][0][n]
+}
+```
+
+### **TypeScript**
+
+```ts
+function isScramble(s1: string, s2: string): boolean {
+    const n = s1.length;
+    const f = new Array(n)
+        .fill(0)
+        .map(() => new Array(n).fill(0).map(() => new Array(n + 1).fill(-1)));
+    const dfs = (i: number, j: number, k: number): boolean => {
+        if (f[i][j][k] !== -1) {
+            return f[i][j][k] === 1;
+        }
+        if (k === 1) {
+            return s1[i] === s2[j];
+        }
+        for (let h = 1; h < k; ++h) {
+            if (dfs(i, j, h) && dfs(i + h, j + h, k - h)) {
+                return Boolean((f[i][j][k] = 1));
+            }
+            if (dfs(i + h, j, k - h) && dfs(i, j + k - h, h)) {
+                return Boolean((f[i][j][k] = 1));
+            }
+        }
+        return Boolean((f[i][j][k] = 0));
+    };
+    return dfs(0, 0, n);
+}
+```
+
+```ts
+function isScramble(s1: string, s2: string): boolean {
+    const n = s1.length;
+    const f = new Array(n)
+        .fill(0)
+        .map(() =>
+            new Array(n).fill(0).map(() => new Array(n + 1).fill(false)),
+        );
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < n; ++j) {
+            f[i][j][1] = s1[i] === s2[j];
+        }
+    }
+    for (let k = 2; k <= n; ++k) {
+        for (let i = 0; i <= n - k; ++i) {
+            for (let j = 0; j <= n - k; ++j) {
+                for (let h = 1; h < k; ++h) {
+                    if (f[i][j][h] && f[i + h][j + h][k - h]) {
+                        f[i][j][k] = true;
+                        break;
+                    }
+                    if (f[i + h][j][k - h] && f[i][j + k - h][h]) {
+                        f[i][j][k] = true;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    return f[0][0][n];
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    private string s1;
+    private string s2;
+    private int[,,] f;
+
+    public bool IsScramble(string s1, string s2) {
+        int n = s1.Length;
+        this.s1 = s1;
+        this.s2 = s2;
+        f = new int[n, n, n + 1];
+        return dfs(0, 0, n);
+    }
+
+    private bool dfs(int i, int j, int k) {
+        if (f[i, j, k] != 0) {
+            return f[i, j, k] == 1;
+        }
+        if (k == 1) {
+            return s1[i] == s2[j];
+        }
+        for (int h = 1; h < k; ++h) {
+            if (dfs(i, j, h) && dfs(i + h, j + h, k - h)) {
+                f[i, j, k] = 1;
+                return true;
+            }
+            if (dfs(i, j + k - h, h) && dfs(i + h, j, k - h)) {
+                f[i, j, k] = 1;
+                return true;
+            }
+        }
+        f[i, j, k] = -1;
+        return false;
+    }
+}
+```
+
+```cs
+public class Solution {
+    public bool IsScramble(string s1, string s2) {
+        int n = s1.Length;
+        bool[,,] f = new bool[n, n, n + 1];
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++ j) {
+                f[i, j, 1] = s1[i] == s2[j];
+            }
+        }
+        for (int k = 2; k <= n; ++k) {
+            for (int i = 0; i <= n - k; ++i) {
+                for (int j = 0; j <= n - k; ++j) {
+                    for (int h = 1; h < k; ++h) {
+                        if (f[i, j, h] && f[i + h, j + h, k - h]) {
+                            f[i, j, k] = true;
+                            break;
+                        }
+                        if (f[i, j + k - h, h] && f[i + h, j, k - h]) {
+                            f[i, j, k] = true;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        return f[0, 0, n];
+    }
 }
 ```
 
