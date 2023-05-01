@@ -53,7 +53,24 @@
 
 **方法一：二维前缀和 + 记忆化搜索**
 
-时间复杂度 $O(mnk*(m+n))$。
+我们可以使用二维前缀和来快速计算出每个子矩形中苹果的数量，定义 $s[i][j]$ 表示矩形前 $i$ 行，前 $j$ 列的子矩形中苹果的数量，那么 $s[i][j]$ 可以由 $s[i-1][j]$, $s[i][j-1]$, $s[i-1][j-1]$ 三个子矩形的苹果数量求得，具体的计算方法如下：
+
+$$
+s[i][j] = s[i-1][j] + s[i][j-1] - s[i-1][j-1] + (pizza[i-1][j-1] == 'A')
+$$
+
+其中 $pizza[i-1][j-1]$ 表示矩形中第 $i$ 行，第 $j$ 列的字符，如果是苹果，则为 $1$，否则为 $0$。
+
+接下来，我们设计一个函数 $dfs(i, j, k)$，表示将矩形 $(i, j, m-1, n-1)$ 切 $k-1$ 刀，得到 $k$ 块披萨的方案数，其中 $(i, j)$ 和 $(m-1, n-1)$ 分别是矩形的左上角和右下角的坐标。函数 $dfs(i, j, k)$ 的计算方法如下：
+
+-   如果 $k = 0$，表示没有刀可以切了，那么我们需要判断矩形中是否有苹果，如果有苹果，则返回 $1$，否则返回 $0$；
+-   如果 $k \gt 0$，我们需要枚举最后一刀的切法，如果最后一刀是水平切，那么我们需要枚举切的位置 $x$，其中 $i \lt x \lt m$，如果 $s[x][n] - s[i][n] - s[x][j] + s[i][j] \gt 0$，说明切出来的上面一块披萨中有苹果，我们累加 $dfs(x, j, k-1)$ 的值到答案中；如果最后一刀是垂直切，那么我们需要枚举切的位置 $y$，其中 $j \lt y \lt n$，如果 $s[m][y] - s[i][y] - s[m][j] + s[i][j] \gt 0$，说明切出来的左边一块披萨中有苹果，我们累加 $dfs(i, y, k-1)$ 的值到答案中。
+
+最终的答案即为 $dfs(0, 0, k)$ 的值。
+
+为了避免重复计算，我们可以使用记忆化搜索的方法，用一个三维数组 $f$ 来记录 $dfs(i, j, k)$ 的值。当我们需要计算 $dfs(i, j, k)$ 的值时，如果 $f[i][j][k]$ 不为 $-1$，说明我们之前已经计算过了，直接返回 $f[i][j][k]$ 即可，否则我们按照上面的方法计算 $dfs(i, j, k)$ 的值，并将结果保存到 $f[i][j][k]$ 中。
+
+时间复杂度 $O(m \times n \times k \times (m + n))$，空间复杂度 $O(m \times n \times k)$。其中 $m$, $n$ 分别是矩形的行数和列数。
 
 相似题目：[2312. 卖木头块](/solution/2300-2399/2312.Selling%20Pieces%20of%20Wood/README.md)
 
@@ -67,24 +84,24 @@
 class Solution:
     def ways(self, pizza: List[str], k: int) -> int:
         @cache
-        def dfs(i, j, k):
+        def dfs(i: int, j: int, k: int) -> int:
             if k == 0:
-                return int(s[-1][-1] - s[-1][j] - s[i][-1] + s[i][j] > 0)
-            res = 0
+                return int(s[m][n] - s[i][n] - s[m][j] + s[i][j] > 0)
+            ans = 0
             for x in range(i + 1, m):
-                if s[x][-1] - s[x][j] - s[i][-1] + s[i][j]:
-                    res += dfs(x, j, k - 1)
+                if s[x][n] - s[i][n] - s[x][j] + s[i][j] > 0:
+                    ans += dfs(x, j, k - 1)
             for y in range(j + 1, n):
-                if s[-1][y] - s[-1][j] - s[i][y] + s[i][j]:
-                    res += dfs(i, y, k - 1)
-            return res % mod
+                if s[m][y] - s[i][y] - s[m][j] + s[i][j] > 0:
+                    ans += dfs(i, y, k - 1)
+            return ans % mod
 
         mod = 10**9 + 7
         m, n = len(pizza), len(pizza[0])
         s = [[0] * (n + 1) for _ in range(m + 1)]
-        for i, row in enumerate(pizza):
-            for j, v in enumerate(row):
-                s[i + 1][j + 1] = s[i + 1][j] + s[i][j + 1] - s[i][j] + int(v == 'A')
+        for i, row in enumerate(pizza, 1):
+            for j, c in enumerate(row, 1):
+                s[i][j] = s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1] + int(c == 'A')
         return dfs(0, 0, k - 1)
 ```
 
@@ -94,47 +111,45 @@ class Solution:
 
 ```java
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-    private int[][][] f;
-    private int[][] s;
     private int m;
     private int n;
+    private int[][] s;
+    private Integer[][][] f;
+    private final int mod = (int) 1e9 + 7;
 
     public int ways(String[] pizza, int k) {
         m = pizza.length;
         n = pizza[0].length();
         s = new int[m + 1][n + 1];
-        f = new int[m][n][k];
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                s[i + 1][j + 1]
-                    = s[i + 1][j] + s[i][j + 1] - s[i][j] + (pizza[i].charAt(j) == 'A' ? 1 : 0);
-                Arrays.fill(f[i][j], -1);
+        f = new Integer[m][n][k];
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                int x = pizza[i - 1].charAt(j - 1) == 'A' ? 1 : 0;
+                s[i][j] = s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1] + x;
             }
         }
         return dfs(0, 0, k - 1);
     }
 
     private int dfs(int i, int j, int k) {
-        if (f[i][j][k] != -1) {
+        if (k == 0) {
+            return s[m][n] - s[i][n] - s[m][j] + s[i][j] > 0 ? 1 : 0;
+        }
+        if (f[i][j][k] != null) {
             return f[i][j][k];
         }
-        if (k == 0) {
-            return s[m][n] - s[m][j] - s[i][n] + s[i][j] > 0 ? 1 : 0;
-        }
-        int res = 0;
+        int ans = 0;
         for (int x = i + 1; x < m; ++x) {
-            if (s[x][n] - s[x][j] - s[i][n] + s[i][j] > 0) {
-                res = (res + dfs(x, j, k - 1)) % MOD;
+            if (s[x][n] - s[i][n] - s[x][j] + s[i][j] > 0) {
+                ans = (ans + dfs(x, j, k - 1)) % mod;
             }
         }
         for (int y = j + 1; y < n; ++y) {
-            if (s[m][y] - s[m][j] - s[i][y] + s[i][j] > 0) {
-                res = (res + dfs(i, y, k - 1)) % MOD;
+            if (s[m][y] - s[i][y] - s[m][j] + s[i][j] > 0) {
+                ans = (ans + dfs(i, y, k - 1)) % mod;
             }
         }
-        f[i][j][k] = res;
-        return res;
+        return f[i][j][k] = ans;
     }
 }
 ```
@@ -144,35 +159,38 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    const int mod = 1e9 + 7;
-    vector<vector<vector<int>>> f;
-    vector<vector<int>> s;
-    int m;
-    int n;
-
     int ways(vector<string>& pizza, int k) {
-        m = pizza.size();
-        n = pizza[0].size();
-        s.assign(m + 1, vector<int>(n + 1, 0));
-        f.assign(m, vector<vector<int>>(n, vector<int>(k, -1)));
-        for (int i = 0; i < m; ++i)
-            for (int j = 0; j < n; ++j)
-                s[i + 1][j + 1] = s[i + 1][j] + s[i][j + 1] - s[i][j] + (pizza[i][j] == 'A');
+        const int mod = 1e9 + 7;
+        int m = pizza.size(), n = pizza[0].size();
+        vector<vector<vector<int>>> f(m, vector<vector<int>>(n, vector<int>(k, -1)));
+        vector<vector<int>> s(m + 1, vector<int>(n + 1));
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                int x = pizza[i - 1][j - 1] == 'A' ? 1 : 0;
+                s[i][j] = s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1] + x;
+            }
+        }
+        function<int(int, int, int)> dfs = [&](int i, int j, int k) -> int {
+            if (k == 0) {
+                return s[m][n] - s[i][n] - s[m][j] + s[i][j] > 0 ? 1 : 0;
+            }
+            if (f[i][j][k] != -1) {
+                return f[i][j][k];
+            }
+            int ans = 0;
+            for (int x = i + 1; x < m; ++x) {
+                if (s[x][n] - s[i][n] - s[x][j] + s[i][j] > 0) {
+                    ans = (ans + dfs(x, j, k - 1)) % mod;
+                }
+            }
+            for (int y = j + 1; y < n; ++y) {
+                if (s[m][y] - s[i][y] - s[m][j] + s[i][j] > 0) {
+                    ans = (ans + dfs(i, y, k - 1)) % mod;
+                }
+            }
+            return f[i][j][k] = ans;
+        };
         return dfs(0, 0, k - 1);
-    }
-
-    int dfs(int i, int j, int k) {
-        if (f[i][j][k] != -1) return f[i][j][k];
-        if (k == 0) return s[m][n] - s[m][j] - s[i][n] + s[i][j] > 0;
-        int res = 0;
-        for (int x = i + 1; x < m; ++x)
-            if (s[x][n] - s[x][j] - s[i][n] + s[i][j])
-                res = (res + dfs(x, j, k - 1)) % mod;
-        for (int y = j + 1; y < n; ++y)
-            if (s[m][y] - s[m][j] - s[i][y] + s[i][j])
-                res = (res + dfs(i, y, k - 1)) % mod;
-        f[i][j][k] = res;
-        return res;
     }
 };
 ```
@@ -181,7 +199,7 @@ public:
 
 ```go
 func ways(pizza []string, k int) int {
-	mod := int(1e9) + 7
+	const mod = 1e9 + 7
 	m, n := len(pizza), len(pizza[0])
 	f := make([][][]int, m)
 	s := make([][]int, m+1)
@@ -197,15 +215,15 @@ func ways(pizza []string, k int) int {
 	for i := range s {
 		s[i] = make([]int, n+1)
 	}
-	for i, p := range pizza {
-		for j, v := range p {
-			s[i+1][j+1] = s[i+1][j] + s[i][j+1] - s[i][j]
-			if v == 'A' {
-				s[i+1][j+1]++
+	for i := 1; i <= m; i++ {
+		for j := 1; j <= n; j++ {
+			s[i][j] = s[i-1][j] + s[i][j-1] - s[i-1][j-1]
+			if pizza[i-1][j-1] == 'A' {
+				s[i][j]++
 			}
 		}
 	}
-	var dfs func(int, int, int) int
+	var dfs func(i, j, k int) int
 	dfs = func(i, j, k int) int {
 		if f[i][j][k] != -1 {
 			return f[i][j][k]
@@ -216,21 +234,62 @@ func ways(pizza []string, k int) int {
 			}
 			return 0
 		}
-		res := 0
+		ans := 0
 		for x := i + 1; x < m; x++ {
 			if s[x][n]-s[x][j]-s[i][n]+s[i][j] > 0 {
-				res = (res + dfs(x, j, k-1)) % mod
+				ans = (ans + dfs(x, j, k-1)) % mod
 			}
 		}
 		for y := j + 1; y < n; y++ {
 			if s[m][y]-s[m][j]-s[i][y]+s[i][j] > 0 {
-				res = (res + dfs(i, y, k-1)) % mod
+				ans = (ans + dfs(i, y, k-1)) % mod
 			}
 		}
-		f[i][j][k] = res
-		return res
+		f[i][j][k] = ans
+		return ans
 	}
 	return dfs(0, 0, k-1)
+}
+```
+
+### **TypeScript**
+
+```ts
+function ways(pizza: string[], k: number): number {
+    const mod = 1e9 + 7;
+    const m = pizza.length;
+    const n = pizza[0].length;
+    const f = new Array(m)
+        .fill(0)
+        .map(() => new Array(n).fill(0).map(() => new Array(k).fill(-1)));
+    const s = new Array(m + 1).fill(0).map(() => new Array(n + 1).fill(0));
+    for (let i = 1; i <= m; ++i) {
+        for (let j = 1; j <= n; ++j) {
+            const x = pizza[i - 1][j - 1] === 'A' ? 1 : 0;
+            s[i][j] = s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1] + x;
+        }
+    }
+    const dfs = (i: number, j: number, k: number): number => {
+        if (f[i][j][k] !== -1) {
+            return f[i][j][k];
+        }
+        if (k === 0) {
+            return s[m][n] - s[i][n] - s[m][j] + s[i][j] > 0 ? 1 : 0;
+        }
+        let ans = 0;
+        for (let x = i + 1; x < m; ++x) {
+            if (s[x][n] - s[i][n] - s[x][j] + s[i][j] > 0) {
+                ans = (ans + dfs(x, j, k - 1)) % mod;
+            }
+        }
+        for (let y = j + 1; y < n; ++y) {
+            if (s[m][y] - s[i][y] - s[m][j] + s[i][j] > 0) {
+                ans = (ans + dfs(i, y, k - 1)) % mod;
+            }
+        }
+        return (f[i][j][k] = ans);
+    };
+    return dfs(0, 0, k - 1);
 }
 ```
 

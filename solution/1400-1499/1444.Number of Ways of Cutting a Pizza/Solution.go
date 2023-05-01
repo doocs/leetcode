@@ -1,5 +1,5 @@
 func ways(pizza []string, k int) int {
-	mod := int(1e9) + 7
+	const mod = 1e9 + 7
 	m, n := len(pizza), len(pizza[0])
 	f := make([][][]int, m)
 	s := make([][]int, m+1)
@@ -15,15 +15,15 @@ func ways(pizza []string, k int) int {
 	for i := range s {
 		s[i] = make([]int, n+1)
 	}
-	for i, p := range pizza {
-		for j, v := range p {
-			s[i+1][j+1] = s[i+1][j] + s[i][j+1] - s[i][j]
-			if v == 'A' {
-				s[i+1][j+1]++
+	for i := 1; i <= m; i++ {
+		for j := 1; j <= n; j++ {
+			s[i][j] = s[i-1][j] + s[i][j-1] - s[i-1][j-1]
+			if pizza[i-1][j-1] == 'A' {
+				s[i][j]++
 			}
 		}
 	}
-	var dfs func(int, int, int) int
+	var dfs func(i, j, k int) int
 	dfs = func(i, j, k int) int {
 		if f[i][j][k] != -1 {
 			return f[i][j][k]
@@ -34,19 +34,19 @@ func ways(pizza []string, k int) int {
 			}
 			return 0
 		}
-		res := 0
+		ans := 0
 		for x := i + 1; x < m; x++ {
 			if s[x][n]-s[x][j]-s[i][n]+s[i][j] > 0 {
-				res = (res + dfs(x, j, k-1)) % mod
+				ans = (ans + dfs(x, j, k-1)) % mod
 			}
 		}
 		for y := j + 1; y < n; y++ {
 			if s[m][y]-s[m][j]-s[i][y]+s[i][j] > 0 {
-				res = (res + dfs(i, y, k-1)) % mod
+				ans = (ans + dfs(i, y, k-1)) % mod
 			}
 		}
-		f[i][j][k] = res
-		return res
+		f[i][j][k] = ans
+		return ans
 	}
 	return dfs(0, 0, k-1)
 }
