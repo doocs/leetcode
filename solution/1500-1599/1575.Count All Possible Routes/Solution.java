@@ -14,7 +14,7 @@ class Solution {
     }
 
     private int dfs(int i, int k) {
-        if (k < 0 || Math.abs(locations[i] - locations[finish]) > k) {
+        if (k < Math.abs(locations[i] - locations[finish])) {
             return 0;
         }
         if (f[i][k] != null) {

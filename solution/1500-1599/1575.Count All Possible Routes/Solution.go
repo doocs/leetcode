@@ -10,7 +10,7 @@ func countRoutes(locations []int, start int, finish int, fuel int) int {
 	const mod = 1e9 + 7
 	var dfs func(int, int) int
 	dfs = func(i, k int) (ans int) {
-		if k < 0 || abs(locations[i]-locations[finish]) > k {
+		if k < abs(locations[i]-locations[finish]) {
 			return 0
 		}
 		if f[i][k] != -1 {

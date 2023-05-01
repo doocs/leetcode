@@ -6,7 +6,7 @@ public:
         memset(f, -1, sizeof(f));
         const int mod = 1e9 + 7;
         function<int(int, int)> dfs = [&](int i, int k) -> int {
-            if (k < 0 || abs(locations[i] - locations[finish]) > k) {
+            if (k < abs(locations[i] - locations[finish])) {
                 return 0;
             }
             if (f[i][k] != -1) {
