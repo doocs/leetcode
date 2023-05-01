@@ -1,9 +1,10 @@
 class Solution {
-    public List<Integer> powerfulIntegers(int x, int y, int bound) {
-        Set<Integer> ans = new HashSet<>();
+public:
+    vector<int> powerfulIntegers(int x, int y, int bound) {
+        unordered_set<int> ans;
         for (int a = 1; a <= bound; a *= x) {
             for (int b = 1; a + b <= bound; b *= y) {
-                ans.add(a + b);
+                ans.insert(a + b);
                 if (y == 1) {
                     break;
                 }
@@ -12,6 +13,6 @@ class Solution {
                 break;
             }
         }
-        return new ArrayList<>(ans);
+        return vector<int>(ans.begin(), ans.end());
     }
-}
+};

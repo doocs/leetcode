@@ -43,6 +43,18 @@
 
 ## Solutions
 
+**Solution 1: Hash Table + Enumeration**
+
+According to the description of the problem, a powerful integer can be represented as $x^i + y^j$, where $i \geq 0$, $j \geq 0$.
+
+The problem requires us to find all powerful integers that do not exceed $bound$. We notice that the value range of $bound$ does not exceed $10^6$, and $2^{20} = 1048576 \gt 10^6$. Therefore, if $x \geq 2$, then $i$ is at most $20$ to make $x^i + y^j \leq bound$ hold. Similarly, if $y \geq 2$, then $j$ is at most $20$.
+
+Therefore, we can use double loop to enumerate all possible $x^i$ and $y^j$, denoted as $a$ and $b$ respectively, and ensure that $a + b \leq bound$, then $a + b$ is a powerful integer. We use a hash table to store all powerful integers that meet the conditions, and finally convert all elements in the hash table into the answer list and return it.
+
+> Note that if $x=1$ or $y=1$, then the value of $a$ or $b$ is always equal to $1$, and the corresponding loop only needs to be executed once to exit.
+
+The time complexity is $O(\log^2 bound)$, and the space complexity is $O(\log^2 bound)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -50,20 +62,19 @@
 ```python
 class Solution:
     def powerfulIntegers(self, x: int, y: int, bound: int) -> List[int]:
-        s = set()
-        i = 1
-        while i < bound:
-            j = 1
-            while j < bound:
-                if i + j <= bound:
-                    s.add(i + j)
+        ans = set()
+        a = 1
+        while a <= bound:
+            b = 1
+            while a + b <= bound:
+                ans.add(a + b)
+                b *= y
                 if y == 1:
                     break
-                j *= y
             if x == 1:
                 break
-            i *= x
-        return list(s)
+            a *= x
+        return list(ans)
 ```
 
 ### **Java**
@@ -71,12 +82,10 @@ class Solution:
 ```java
 class Solution {
     public List<Integer> powerfulIntegers(int x, int y, int bound) {
-        Set<Integer> s = new HashSet<>();
-        for (int i = 1; i < bound; i *= x) {
-            for (int j = 1; j < bound; j *= y) {
-                if (i + j <= bound) {
-                    s.add(i + j);
-                }
+        Set<Integer> ans = new HashSet<>();
+        for (int a = 1; a <= bound; a *= x) {
+            for (int b = 1; a + b <= bound; b *= y) {
+                ans.add(a + b);
                 if (y == 1) {
                     break;
                 }
@@ -85,8 +94,74 @@ class Solution {
                 break;
             }
         }
-        return new ArrayList<>(s);
+        return new ArrayList<>(ans);
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> powerfulIntegers(int x, int y, int bound) {
+        unordered_set<int> ans;
+        for (int a = 1; a <= bound; a *= x) {
+            for (int b = 1; a + b <= bound; b *= y) {
+                ans.insert(a + b);
+                if (y == 1) {
+                    break;
+                }
+            }
+            if (x == 1) {
+                break;
+            }
+        }
+        return vector<int>(ans.begin(), ans.end());
+    }
+};
+```
+
+### **Go**
+
+```go
+func powerfulIntegers(x int, y int, bound int) (ans []int) {
+	s := map[int]struct{}{}
+	for a := 1; a <= bound; a *= x {
+		for b := 1; a+b <= bound; b *= y {
+			s[a+b] = struct{}{}
+			if y == 1 {
+				break
+			}
+		}
+		if x == 1 {
+			break
+		}
+	}
+	for x := range s {
+		ans = append(ans, x)
+	}
+	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function powerfulIntegers(x: number, y: number, bound: number): number[] {
+    const ans = new Set<number>();
+    for (let a = 1; a <= bound; a *= x) {
+        for (let b = 1; a + b <= bound; b *= y) {
+            ans.add(a + b);
+            if (y === 1) {
+                break;
+            }
+        }
+        if (x === 1) {
+            break;
+        }
+    }
+    return Array.from(ans);
 }
 ```
 
@@ -100,17 +175,19 @@ class Solution {
  * @return {number[]}
  */
 var powerfulIntegers = function (x, y, bound) {
-    let res = new Set();
-    for (let i = 1; i < bound; i *= x) {
-        for (let j = 1; j < bound; j *= y) {
-            if (i + j <= bound) {
-                res.add(i + j);
+    const ans = new Set();
+    for (let a = 1; a <= bound; a *= x) {
+        for (let b = 1; a + b <= bound; b *= y) {
+            ans.add(a + b);
+            if (y === 1) {
+                break;
             }
-            if (y == 1) break;
         }
-        if (x == 1) break;
+        if (x === 1) {
+            break;
+        }
     }
-    return [...res];
+    return [...ans];
 };
 ```
 

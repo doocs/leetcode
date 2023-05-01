@@ -1,16 +1,15 @@
 class Solution:
     def powerfulIntegers(self, x: int, y: int, bound: int) -> List[int]:
-        s = set()
-        i = 1
-        while i < bound:
-            j = 1
-            while j < bound:
-                if i + j <= bound:
-                    s.add(i + j)
+        ans = set()
+        a = 1
+        while a <= bound:
+            b = 1
+            while a + b <= bound:
+                ans.add(a + b)
+                b *= y
                 if y == 1:
                     break
-                j *= y
             if x == 1:
                 break
-            i *= x
-        return list(s)
+            a *= x
+        return list(ans)
