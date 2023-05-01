@@ -47,6 +47,21 @@ The total number of paths is 2 + 1 = 3.
 
 ## Solutions
 
+**Solution 1: DFS + Memorization**
+
+We design a function $dfs(i, j)$, which represents the number of strictly increasing paths that can be reached from the grid graph starting at the $i$-th row and $j$-th column. Then the answer is $\sum_{i=0}^{m-1} \sum_{j=0}^{n-1} dfs(i, j)$. In the search process, we can use a two-dimensional array $f$ to record the calculated results to avoid repeated calculation.
+
+The calculation process of the function $dfs(i, j)$ is as follows:
+
+-   If $f[i][j]$ is not $0$, it means that it has been calculated, and $f[i][j]$ is returned directly;
+-   Otherwise, we initialize $f[i][j] = 1$, and then enumerate the four directions of $(i, j)$. If the grid $(x, y)$ in a certain direction satisfies $0 \leq x \lt m$, $0 \leq y \lt n$, and $grid[i][j] \lt grid[x][y]$, we can start from the grid $(i, j)$ to the grid $(x, y)$, and the number on the path is strictly increasing, so $f[i][j] += dfs(x, y)$.
+
+Finally, we return $f[i][j]$.
+
+The answer is $\sum_{i=0}^{m-1} \sum_{j=0}^{n-1} dfs(i, j)$.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns in the grid graph, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -55,16 +70,16 @@ The total number of paths is 2 + 1 = 3.
 class Solution:
     def countPaths(self, grid: List[List[int]]) -> int:
         @cache
-        def dfs(i, j):
-            res = 1
-            for a, b in [[0, -1], [0, 1], [-1, 0], [1, 0]]:
+        def dfs(i: int, j: int) -> int:
+            ans = 1
+            for a, b in pairwise((-1, 0, 1, 0, -1)):
                 x, y = i + a, j + b
-                if 0 <= x < m and 0 <= y < n and grid[x][y] > grid[i][j]:
-                    res += dfs(x, y)
-            return res
+                if 0 <= x < m and 0 <= y < n and grid[i][j] < grid[x][y]:
+                    ans = (ans + dfs(x, y)) % mod
+            return ans
 
-        m, n = len(grid), len(grid[0])
         mod = 10**9 + 7
+        m, n = len(grid), len(grid[0])
         return sum(dfs(i, j) for i in range(m) for j in range(n)) % mod
 ```
 
@@ -72,21 +87,21 @@ class Solution:
 
 ```java
 class Solution {
+    private int[][] f;
+    private int[][] grid;
     private int m;
     private int n;
-    private int[][] g;
-    private int[][] f;
-    private static final int MOD = (int) 1e9 + 7;
+    private final int mod = (int) 1e9 + 7;
 
     public int countPaths(int[][] grid) {
-        g = grid;
-        m = g.length;
-        n = g[0].length;
+        m = grid.length;
+        n = grid[0].length;
+        this.grid = grid;
         f = new int[m][n];
         int ans = 0;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                ans = (ans + dfs(i, j)) % MOD;
+                ans = (ans + dfs(i, j)) % mod;
             }
         }
         return ans;
@@ -96,16 +111,15 @@ class Solution {
         if (f[i][j] != 0) {
             return f[i][j];
         }
-        int res = 1;
+        int ans = 1;
         int[] dirs = {-1, 0, 1, 0, -1};
         for (int k = 0; k < 4; ++k) {
             int x = i + dirs[k], y = j + dirs[k + 1];
-            if (x >= 0 && x < m && y >= 0 && y < n && g[x][y] > g[i][j]) {
-                res = (res + dfs(x, y)) % MOD;
+            if (x >= 0 && x < m && y >= 0 && y < n && grid[i][j] < grid[x][y]) {
+                ans = (ans + dfs(x, y)) % mod;
             }
         }
-        f[i][j] = res;
-        return res;
+        return f[i][j] = ans;
     }
 }
 ```
@@ -115,27 +129,32 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    const int mod = 1e9 + 7;
     int countPaths(vector<vector<int>>& grid) {
+        const int mod = 1e9 + 7;
+        int m = grid.size(), n = grid[0].size();
+        int f[m][n];
+        memset(f, 0, sizeof(f));
+        function<int(int, int)> dfs = [&](int i, int j) -> int {
+            if (f[i][j]) {
+                return f[i][j];
+            }
+            int ans = 1;
+            int dirs[5] = {-1, 0, 1, 0, -1};
+            for (int k = 0; k < 4; ++k) {
+                int x = i + dirs[k], y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && grid[i][j] < grid[x][y]) {
+                    ans = (ans + dfs(x, y)) % mod;
+                }
+            }
+            return f[i][j] = ans;
+        };
         int ans = 0;
-        vector<vector<int>> f(grid.size(), vector<int>(grid[0].size()));
-        for (int i = 0; i < grid.size(); ++i)
-            for (int j = 0; j < grid[0].size(); ++j)
-                ans = (ans + dfs(i, j, f, grid)) % mod;
-        return ans;
-    }
-
-    int dfs(int i, int j, vector<vector<int>>& f, vector<vector<int>>& g) {
-        if (f[i][j]) return f[i][j];
-        int res = 1;
-        vector<int> dirs = {-1, 0, 1, 0, -1};
-        for (int k = 0; k < 4; ++k) {
-            int x = i + dirs[k], y = j + dirs[k + 1];
-            if (x >= 0 && x < g.size() && y >= 0 && y < g[0].size() && g[x][y] > g[i][j])
-                res = (res + dfs(x, y, f, g)) % mod;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                ans = (ans + dfs(i, j)) % mod;
+            }
         }
-        f[i][j] = res;
-        return res;
+        return ans;
     }
 };
 ```
@@ -143,36 +162,34 @@ public:
 ### **Go**
 
 ```go
-func countPaths(grid [][]int) int {
+func countPaths(grid [][]int) (ans int) {
+	const mod = 1e9 + 7
 	m, n := len(grid), len(grid[0])
 	f := make([][]int, m)
 	for i := range f {
 		f[i] = make([]int, n)
 	}
-	mod := int(1e9) + 7
-	ans := 0
-	dirs := []int{-1, 0, 1, 0, -1}
 	var dfs func(int, int) int
 	dfs = func(i, j int) int {
-		if f[i][j] > 0 {
+		if f[i][j] != 0 {
 			return f[i][j]
 		}
-		res := 1
+		f[i][j] = 1
+		dirs := [5]int{-1, 0, 1, 0, -1}
 		for k := 0; k < 4; k++ {
 			x, y := i+dirs[k], j+dirs[k+1]
-			if x >= 0 && x < m && y >= 0 && y < n && grid[x][y] > grid[i][j] {
-				res = (res + dfs(x, y)) % mod
+			if x >= 0 && x < m && y >= 0 && y < n && grid[i][j] < grid[x][y] {
+				f[i][j] = (f[i][j] + dfs(x, y)) % mod
 			}
 		}
-		f[i][j] = res
-		return res
+		return f[i][j]
 	}
 	for i, row := range grid {
 		for j := range row {
 			ans = (ans + dfs(i, j)) % mod
 		}
 	}
-	return ans
+	return
 }
 ```
 
@@ -180,38 +197,32 @@ func countPaths(grid [][]int) int {
 
 ```ts
 function countPaths(grid: number[][]): number {
-    const mod = BigInt(10 ** 9 + 7);
-    const dirs = [
-        [0, 1],
-        [1, 0],
-        [0, -1],
-        [-1, 0],
-    ];
-    const m = grid.length,
-        n = grid[0].length;
-    const dp = Array.from({ length: m }, v => new Array(n).fill(-1n));
-
-    function dfs(x, y) {
-        if (dp[x][y] != -1) return dp[x][y];
-        let count = 1n;
-        for (let [dx, dy] of dirs) {
-            let i = x + dx,
-                j = y + dy;
-            if (i < 0 || i >= m || j < 0 || j >= n || grid[i][j] <= grid[x][y])
-                continue;
-            count = (count + dfs(i, j)) % mod;
+    const mod = 1e9 + 7;
+    const m = grid.length;
+    const n = grid[0].length;
+    const f = new Array(m).fill(0).map(() => new Array(n).fill(0));
+    const dfs = (i: number, j: number): number => {
+        if (f[i][j]) {
+            return f[i][j];
         }
-        dp[x][y] = count;
-        return count;
-    }
-
-    let sum = 0n;
-    for (let i = 0; i < m; i++) {
-        for (let j = 0; j < n; j++) {
-            sum = (sum + dfs(i, j)) % mod;
+        let ans = 1;
+        const dirs: number[] = [-1, 0, 1, 0, -1];
+        for (let k = 0; k < 4; ++k) {
+            const x = i + dirs[k];
+            const y = j + dirs[k + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && grid[i][j] < grid[x][y]) {
+                ans = (ans + dfs(x, y)) % mod;
+            }
+        }
+        return (f[i][j] = ans);
+    };
+    let ans = 0;
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            ans = (ans + dfs(i, j)) % mod;
         }
     }
-    return Number(sum);
+    return ans;
 }
 ```
 
