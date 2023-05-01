@@ -5,8 +5,8 @@ class Solution:
         f[0][0] = 1
         for i in range(1, goal + 1):
             for j in range(1, n + 1):
-                f[i][j] += f[i - 1][j - 1] * (n - j + 1)
-                if j >= k:
+                f[i][j] = f[i - 1][j - 1] * (n - j + 1)
+                if j > k:
                     f[i][j] += f[i - 1][j] * (j - k)
                 f[i][j] %= mod
         return f[goal][n]

@@ -71,6 +71,8 @@ $$
 
 时间复杂度 $O(goal \times n)$，空间复杂度 $O(goal \times n)$。其中 $goal$ 和 $n$ 为题目中给定的参数。
 
+注意到 $f[i][j]$ 只与 $f[i - 1][j - 1]$ 和 $f[i - 1][j]$ 有关，因此我们可以使用滚动数组优化空间复杂度，时间复杂度不变。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -85,11 +87,28 @@ class Solution:
         f[0][0] = 1
         for i in range(1, goal + 1):
             for j in range(1, n + 1):
-                f[i][j] += f[i - 1][j - 1] * (n - j + 1)
-                if j >= k:
+                f[i][j] = f[i - 1][j - 1] * (n - j + 1)
+                if j > k:
                     f[i][j] += f[i - 1][j] * (j - k)
                 f[i][j] %= mod
         return f[goal][n]
+```
+
+```python
+class Solution:
+    def numMusicPlaylists(self, n: int, goal: int, k: int) -> int:
+        mod = 10**9 + 7
+        f = [0] * (goal + 1)
+        f[0] = 1
+        for i in range(1, goal + 1):
+            g = [0] * (goal + 1)
+            for j in range(1, n + 1):
+                g[j] = f[j - 1] * (n - j + 1)
+                if j > k:
+                    g[j] += f[j] * (j - k)
+                g[j] %= mod
+            f = g
+        return f[n]
 ```
 
 ### **Java**
@@ -104,14 +123,36 @@ class Solution {
         f[0][0] = 1;
         for (int i = 1; i <= goal; ++i) {
             for (int j = 1; j <= n; ++j) {
-                f[i][j] += f[i - 1][j - 1] * (n - j + 1);
-                if (j >= k) {
+                f[i][j] = f[i - 1][j - 1] * (n - j + 1);
+                if (j > k) {
                     f[i][j] += f[i - 1][j] * (j - k);
                 }
                 f[i][j] %= mod;
             }
         }
         return (int) f[goal][n];
+    }
+}
+```
+
+```java
+class Solution {
+    public int numMusicPlaylists(int n, int goal, int k) {
+        final int mod = (int) 1e9 + 7;
+        long[] f = new long[n + 1];
+        f[0] = 1;
+        for (int i = 1; i <= goal; ++i) {
+            long[] g = new long[n + 1];
+            for (int j = 1; j <= n; ++j) {
+                g[j] = f[j - 1] * (n - j + 1);
+                if (j > k) {
+                    g[j] += f[j] * (j - k);
+                }
+                g[j] %= mod;
+            }
+            f = g;
+        }
+        return (int) f[n];
     }
 }
 ```
@@ -128,14 +169,37 @@ public:
         f[0][0] = 1;
         for (int i = 1; i <= goal; ++i) {
             for (int j = 1; j <= n; ++j) {
-                f[i][j] += f[i - 1][j - 1] * (n - j + 1);
-                if (j >= k) {
+                f[i][j] = f[i - 1][j - 1] * (n - j + 1);
+                if (j > k) {
                     f[i][j] += f[i - 1][j] * (j - k);
                 }
                 f[i][j] %= mod;
             }
         }
         return f[goal][n];
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int numMusicPlaylists(int n, int goal, int k) {
+        const int mod = 1e9 + 7;
+        vector<long long> f(n + 1);
+        f[0] = 1;
+        for (int i = 1; i <= goal; ++i) {
+            vector<long long> g(n + 1);
+            for (int j = 1; j <= n; ++j) {
+                g[j] = f[j - 1] * (n - j + 1);
+                if (j > k) {
+                    g[j] += f[j] * (j - k);
+                }
+                g[j] %= mod;
+            }
+            f = move(g);
+        }
+        return f[n];
     }
 };
 ```
@@ -152,14 +216,74 @@ func numMusicPlaylists(n int, goal int, k int) int {
 	f[0][0] = 1
 	for i := 1; i <= goal; i++ {
 		for j := 1; j <= n; j++ {
-			f[i][j] += f[i-1][j-1] * (n - j + 1)
-			if j >= k {
+			f[i][j] = f[i-1][j-1] * (n - j + 1)
+			if j > k {
 				f[i][j] += f[i-1][j] * (j - k)
 			}
 			f[i][j] %= mod
 		}
 	}
 	return f[goal][n]
+}
+```
+
+```go
+func numMusicPlaylists(n int, goal int, k int) int {
+	const mod = 1e9 + 7
+	f := make([]int, goal+1)
+	f[0] = 1
+	for i := 1; i <= goal; i++ {
+		g := make([]int, goal+1)
+		for j := 1; j <= n; j++ {
+			g[j] = f[j-1] * (n - j + 1)
+			if j > k {
+				g[j] += f[j] * (j - k)
+			}
+			g[j] %= mod
+		}
+		f = g
+	}
+	return f[n]
+}
+```
+
+### **TypeScript**
+
+```ts
+function numMusicPlaylists(n: number, goal: number, k: number): number {
+    const mod = 1e9 + 7;
+    const f = new Array(goal + 1).fill(0).map(() => new Array(n + 1).fill(0));
+    f[0][0] = 1;
+    for (let i = 1; i <= goal; ++i) {
+        for (let j = 1; j <= n; ++j) {
+            f[i][j] = f[i - 1][j - 1] * (n - j + 1);
+            if (j > k) {
+                f[i][j] += f[i - 1][j] * (j - k);
+            }
+            f[i][j] %= mod;
+        }
+    }
+    return f[goal][n];
+}
+```
+
+```ts
+function numMusicPlaylists(n: number, goal: number, k: number): number {
+    const mod = 1e9 + 7;
+    let f = new Array(goal + 1).fill(0);
+    f[0] = 1;
+    for (let i = 1; i <= goal; ++i) {
+        const g = new Array(goal + 1).fill(0);
+        for (let j = 1; j <= n; ++j) {
+            g[j] = f[j - 1] * (n - j + 1);
+            if (j > k) {
+                g[j] += f[j] * (j - k);
+            }
+            g[j] %= mod;
+        }
+        f = g;
+    }
+    return f[n];
 }
 ```
 

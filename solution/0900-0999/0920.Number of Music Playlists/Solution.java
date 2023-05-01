@@ -5,8 +5,8 @@ class Solution {
         f[0][0] = 1;
         for (int i = 1; i <= goal; ++i) {
             for (int j = 1; j <= n; ++j) {
-                f[i][j] += f[i - 1][j - 1] * (n - j + 1);
-                if (j >= k) {
+                f[i][j] = f[i - 1][j - 1] * (n - j + 1);
+                if (j > k) {
                     f[i][j] += f[i - 1][j] * (j - k);
                 }
                 f[i][j] %= mod;

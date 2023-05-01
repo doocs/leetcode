@@ -7,8 +7,8 @@ func numMusicPlaylists(n int, goal int, k int) int {
 	f[0][0] = 1
 	for i := 1; i <= goal; i++ {
 		for j := 1; j <= n; j++ {
-			f[i][j] += f[i-1][j-1] * (n - j + 1)
-			if j >= k {
+			f[i][j] = f[i-1][j-1] * (n - j + 1)
+			if j > k {
 				f[i][j] += f[i-1][j] * (j - k)
 			}
 			f[i][j] %= mod
