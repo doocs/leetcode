@@ -6,22 +6,22 @@
 #         self.right = right
 class Solution:
     def maxProduct(self, root: Optional[TreeNode]) -> int:
-        def sum(root):
+        def sum(root: Optional[TreeNode]) -> int:
             if root is None:
                 return 0
             return root.val + sum(root.left) + sum(root.right)
 
-        def dfs(root):
-            nonlocal s, ans
+        def dfs(root: Optional[TreeNode]) -> int:
             if root is None:
                 return 0
             t = root.val + dfs(root.left) + dfs(root.right)
+            nonlocal ans, s
             if t < s:
                 ans = max(ans, t * (s - t))
             return t
 
+        mod = 10**9 + 7
         s = sum(root)
         ans = 0
         dfs(root)
-        ans %= 10**9 + 7
-        return ans
+        return ans % mod

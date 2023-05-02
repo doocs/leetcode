@@ -9,32 +9,34 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-using ll = long long;
-const int MOD = 1e9 + 7;
-
 class Solution {
 public:
-    ll ans;
-    ll s;
-
     int maxProduct(TreeNode* root) {
-        s = sum(root);
+        using ll = long long;
+        ll ans = 0;
+        const int mod = 1e9 + 7;
+
+        function<ll(TreeNode*)> sum = [&](TreeNode* root) -> ll {
+            if (!root) {
+                return 0;
+            }
+            return root->val + sum(root->left) + sum(root->right);
+        };
+
+        ll s = sum(root);
+
+        function<ll(TreeNode*)> dfs = [&](TreeNode* root) -> ll {
+            if (!root) {
+                return 0;
+            }
+            ll t = root->val + dfs(root->left) + dfs(root->right);
+            if (t < s) {
+                ans = max(ans, t * (s - t));
+            }
+            return t;
+        };
+        
         dfs(root);
-        ans %= MOD;
-        return (int) ans;
-    }
-
-    ll sum(TreeNode* root) {
-        if (!root) return 0;
-        return root->val + sum(root->left) + sum(root->right);
-    }
-
-    ll dfs(TreeNode* root) {
-        if (!root) return 0;
-        ll t = root->val + dfs(root->left) + dfs(root->right);
-        if (t < s) {
-            ans = max(ans, t * (s - t));
-        }
-        return t;
+        return ans % mod;
     }
 };

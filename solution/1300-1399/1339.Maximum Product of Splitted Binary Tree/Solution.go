@@ -6,8 +6,8 @@
  *     Right *TreeNode
  * }
  */
-func maxProduct(root *TreeNode) int {
-	mod := int(1e9) + 7
+func maxProduct(root *TreeNode) (ans int) {
+	const mod = 1e9 + 7
 	var sum func(*TreeNode) int
 	sum = func(root *TreeNode) int {
 		if root == nil {
@@ -16,7 +16,6 @@ func maxProduct(root *TreeNode) int {
 		return root.Val + sum(root.Left) + sum(root.Right)
 	}
 	s := sum(root)
-	ans := 0
 	var dfs func(*TreeNode) int
 	dfs = func(root *TreeNode) int {
 		if root == nil {
@@ -29,7 +28,8 @@ func maxProduct(root *TreeNode) int {
 		return t
 	}
 	dfs(root)
-	return ans % mod
+	ans %= mod
+	return
 }
 
 func max(a, b int) int {

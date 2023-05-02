@@ -16,20 +16,12 @@
 class Solution {
     private long ans;
     private long s;
-    private static final int MOD = (int) 1e9 + 7;
 
     public int maxProduct(TreeNode root) {
+        final int mod = (int) 1e9 + 7;
         s = sum(root);
         dfs(root);
-        ans %= MOD;
-        return (int) ans;
-    }
-
-    private long sum(TreeNode root) {
-        if (root == null) {
-            return 0;
-        }
-        return root.val + sum(root.left) + sum(root.right);
+        return (int) (ans % mod);
     }
 
     private long dfs(TreeNode root) {
@@ -41,5 +33,12 @@ class Solution {
             ans = Math.max(ans, t * (s - t));
         }
         return t;
+    }
+
+    private long sum(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        return root.val + sum(root.left) + sum(root.right);
     }
 }
