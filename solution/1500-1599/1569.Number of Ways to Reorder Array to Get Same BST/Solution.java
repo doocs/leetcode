@@ -1,36 +1,39 @@
 class Solution {
-    int mod = (int) 1e9 + 7;
+    private int[][] c;
+    private final int mod = (int) 1e9 + 7;
 
     public int numOfWays(int[] nums) {
-        if (nums.length < 2) {
-            return 0;
-        }
-        return dfs(Arrays.stream(nums).boxed().collect(Collectors.toList()), calc(nums.length)) - 1;
-    }
-
-    private int dfs(List<Integer> list, int[][] c) {
-        if (list.isEmpty()) {
-            return 1;
-        }
-        List<Integer> left
-            = list.stream().filter(n -> n < list.get(0)).collect(Collectors.toList());
-        List<Integer> right
-            = list.stream().filter(n -> n > list.get(0)).collect(Collectors.toList());
-        return (int) ((long) c[list.size() - 1][left.size()] * dfs(left, c) % mod * dfs(right, c)
-            % mod);
-    }
-
-    private int[][] calc(int n) {
-        int[][] c = new int[n][n];
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j <= i; j++) {
-                if (j == 0) {
-                    c[i][j] = 1;
-                } else {
-                    c[i][j] = (c[i - 1][j] + c[i - 1][j - 1]) % mod;
-                }
+        int n = nums.length;
+        c = new int[n][n];
+        c[0][0] = 1;
+        for (int i = 1; i < n; ++i) {
+            c[i][0] = 1;
+            for (int j = 1; j <= i; ++j) {
+                c[i][j] = (c[i - 1][j] + c[i - 1][j - 1]) % mod;
             }
         }
-        return c;
+        List<Integer> list = new ArrayList<>();
+        for (int x : nums) {
+            list.add(x);
+        }
+        return (dfs(list) - 1 + mod) % mod;
+    }
+
+    private int dfs(List<Integer> nums) {
+        if (nums.size() < 2) {
+            return 1;
+        }
+        List<Integer> left = new ArrayList<>();
+        List<Integer> right = new ArrayList<>();
+        for (int x : nums) {
+            if (x < nums.get(0)) {
+                left.add(x);
+            } else if (x > nums.get(0)) {
+                right.add(x);
+            }
+        }
+        int m = left.size(), n = right.size();
+        int a = dfs(left), b = dfs(right);
+        return (int) ((long) a * b % mod * c[m + n][n] % mod);
     }
 }
