@@ -127,7 +127,7 @@ dfs(i + 1) + (dfs(i + 1) - dfs(i + maxPts + 1)) / maxPts, & i < k - 1
 \end{aligned}
 $$
 
-时间复杂度 $O(k)$，空间复杂度 $O(k)$。其中 $k$ 为最大分数。
+时间复杂度 $O(k + maxPts)$，空间复杂度 $O(k + maxPts)$。其中 $k$ 为最大分数。
 
 **方法二：动态规划**
 
@@ -141,7 +141,7 @@ $$
 
 当 $i \lt k - 1$ 时，有 $f[i] = f[i + 1] + (f[i + 1] - f[i + maxPts + 1]) / maxPts$。
 
-时间复杂度 $O(k)$，空间复杂度 $O(k)$。其中 $k$ 为最大分数。
+时间复杂度 $O(k + maxPts)$，空间复杂度 $O(k + maxPts)$。其中 $k$ 为最大分数。
 
 <!-- tabs:start -->
 

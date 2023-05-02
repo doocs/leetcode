@@ -1,9 +1,4 @@
-/**
- * @param {number[]} scores
- * @param {number[]} ages
- * @return {number}
- */
-var bestTeamScore = function (scores, ages) {
+function bestTeamScore(scores: number[], ages: number[]): number {
     const arr = ages.map((age, i) => [age, scores[i]]);
     arr.sort((a, b) => (a[0] == b[0] ? a[1] - b[1] : a[0] - b[0]));
     const n = arr.length;
@@ -17,4 +12,4 @@ var bestTeamScore = function (scores, ages) {
         f[i] += arr[i][1];
     }
     return Math.max(...f);
-};
+}
