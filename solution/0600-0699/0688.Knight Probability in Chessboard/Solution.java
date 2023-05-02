@@ -1,23 +1,24 @@
 class Solution {
     public double knightProbability(int n, int k, int row, int column) {
-        double[][][] dp = new double[k + 1][n][n];
+        double[][][] f = new double[k + 1][n][n];
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                f[0][i][j] = 1;
+            }
+        }
         int[] dirs = {-2, -1, 2, 1, -2, 1, 2, -1, -2};
-        for (int l = 0; l <= k; ++l) {
+        for (int h = 1; h <= k; ++h) {
             for (int i = 0; i < n; ++i) {
                 for (int j = 0; j < n; ++j) {
-                    if (l == 0) {
-                        dp[l][i][j] = 1;
-                    } else {
-                        for (int d = 0; d < 8; ++d) {
-                            int x = i + dirs[d], y = j + dirs[d + 1];
-                            if (x >= 0 && x < n && y >= 0 && y < n) {
-                                dp[l][i][j] += dp[l - 1][x][y] / 8;
-                            }
+                    for (int p = 0; p < 8; ++p) {
+                        int x = i + dirs[p], y = j + dirs[p + 1];
+                        if (x >= 0 && x < n && y >= 0 && y < n) {
+                            f[h][i][j] += f[h - 1][x][y] / 8;
                         }
                     }
                 }
             }
         }
-        return dp[k][row][column];
+        return f[k][row][column];
     }
 }

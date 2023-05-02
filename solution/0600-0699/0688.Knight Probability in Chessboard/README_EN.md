@@ -43,6 +43,24 @@ The total probability the knight stays on the board is 0.0625.
 
 ## Solutions
 
+**Solution 1: Dynamic Programming**
+
+Let $f[h][i][j]$ denotes the probability that the knight is still on the chessboard after $h$ steps starting from the position $(i, j)$. Then the final answer is $f[k][row][column]$.
+
+When $h = 0$, the knight is always on the chessboard, so $f[0][i][j] = 1$.
+
+When $h \gt 0$, the probability that the knight is on the position $(i, j)$ can be transferred from the probability on its $8$ adjacent positions, which are:
+
+$$
+f[h][i][j] = \sum_{a, b} f[h - 1][a][b] \times \frac{1}{8}
+$$
+
+where $(a, b)$ is one of the $8$ adjacent positions.
+
+The final answer is $f[k][row][column]$.
+
+The time complexity is $O(k \times n^2)$, and the space complexity is $O(k \times n^2)$. Here $k$ and $n$ are the given steps and the chessboard size, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -50,27 +68,18 @@ The total probability the knight stays on the board is 0.0625.
 ```python
 class Solution:
     def knightProbability(self, n: int, k: int, row: int, column: int) -> float:
-        dp = [[[0] * n for _ in range(n)] for _ in range(k + 1)]
-        for l in range(k + 1):
+        f = [[[0] * n for _ in range(n)] for _ in range(k + 1)]
+        for i in range(n):
+            for j in range(n):
+                f[0][i][j] = 1
+        for h in range(1, k + 1):
             for i in range(n):
                 for j in range(n):
-                    if l == 0:
-                        dp[l][i][j] = 1
-                    else:
-                        for a, b in (
-                            (-2, -1),
-                            (-2, 1),
-                            (2, -1),
-                            (2, 1),
-                            (-1, -2),
-                            (-1, 2),
-                            (1, -2),
-                            (1, 2),
-                        ):
-                            x, y = i + a, j + b
-                            if 0 <= x < n and 0 <= y < n:
-                                dp[l][i][j] += dp[l - 1][x][y] / 8
-        return dp[k][row][column]
+                    for a, b in pairwise((-2, -1, 2, 1, -2, 1, 2, -1, -2)):
+                        x, y = i + a, j + b
+                        if 0 <= x < n and 0 <= y < n:
+                            f[h][i][j] += f[h - 1][x][y] / 8
+        return f[k][row][column]
 ```
 
 ### **Java**
@@ -78,26 +87,89 @@ class Solution:
 ```java
 class Solution {
     public double knightProbability(int n, int k, int row, int column) {
-        double[][][] dp = new double[k + 1][n][n];
+        double[][][] f = new double[k + 1][n][n];
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                f[0][i][j] = 1;
+            }
+        }
         int[] dirs = {-2, -1, 2, 1, -2, 1, 2, -1, -2};
-        for (int l = 0; l <= k; ++l) {
+        for (int h = 1; h <= k; ++h) {
             for (int i = 0; i < n; ++i) {
                 for (int j = 0; j < n; ++j) {
-                    if (l == 0) {
-                        dp[l][i][j] = 1;
-                    } else {
-                        for (int d = 0; d < 8; ++d) {
-                            int x = i + dirs[d], y = j + dirs[d + 1];
-                            if (x >= 0 && x < n && y >= 0 && y < n) {
-                                dp[l][i][j] += dp[l - 1][x][y] / 8;
-                            }
+                    for (int p = 0; p < 8; ++p) {
+                        int x = i + dirs[p], y = j + dirs[p + 1];
+                        if (x >= 0 && x < n && y >= 0 && y < n) {
+                            f[h][i][j] += f[h - 1][x][y] / 8;
                         }
                     }
                 }
             }
         }
-        return dp[k][row][column];
+        return f[k][row][column];
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    double knightProbability(int n, int k, int row, int column) {
+        double f[k + 1][n][n];
+        memset(f, 0, sizeof(f));
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                f[0][i][j] = 1;
+            }
+        }
+        int dirs[9] = {-2, -1, 2, 1, -2, 1, 2, -1, -2};
+        for (int h = 1; h <= k; ++h) {
+            for (int i = 0; i < n; ++i) {
+                for (int j = 0; j < n; ++j) {
+                    for (int p = 0; p < 8; ++p) {
+                        int x = i + dirs[p], y = j + dirs[p + 1];
+                        if (x >= 0 && x < n && y >= 0 && y < n) {
+                            f[h][i][j] += f[h - 1][x][y] / 8;
+                        }
+                    }
+                }
+            }
+        }
+        return f[k][row][column];
+    }
+};
+```
+
+### **Go**
+
+```go
+func knightProbability(n int, k int, row int, column int) float64 {
+	f := make([][][]float64, k+1)
+	for h := range f {
+		f[h] = make([][]float64, n)
+		for i := range f[h] {
+			f[h][i] = make([]float64, n)
+			for j := range f[h][i] {
+				f[0][i][j] = 1
+			}
+		}
+	}
+	dirs := [9]int{-2, -1, 2, 1, -2, 1, 2, -1, -2}
+	for h := 1; h <= k; h++ {
+		for i := 0; i < n; i++ {
+			for j := 0; j < n; j++ {
+				for p := 0; p < 8; p++ {
+					x, y := i+dirs[p], j+dirs[p+1]
+					if x >= 0 && x < n && y >= 0 && y < n {
+						f[h][i][j] += f[h-1][x][y] / 8
+					}
+				}
+			}
+		}
+	}
+	return f[k][row][column]
 }
 ```
 
@@ -110,92 +182,29 @@ function knightProbability(
     row: number,
     column: number,
 ): number {
-    let dp = Array.from({ length: k + 1 }, v =>
-        Array.from({ length: n }, w => new Array(n).fill(0)),
-    );
-    const directions = [
-        [-2, -1],
-        [-2, 1],
-        [-1, -2],
-        [-1, 2],
-        [1, -2],
-        [1, 2],
-        [2, -1],
-        [2, 1],
-    ];
-    for (let depth = 0; depth <= k; depth++) {
-        for (let i = 0; i < n; i++) {
-            for (let j = 0; j < n; j++) {
-                if (!depth) {
-                    dp[depth][i][j] = 1;
-                } else {
-                    for (let [dx, dy] of directions) {
-                        let [x, y] = [i + dx, j + dy];
-                        if (x >= 0 && x < n && y >= 0 && y < n) {
-                            dp[depth][i][j] += dp[depth - 1][x][y] / 8;
-                        }
+    const f = new Array(k + 1)
+        .fill(0)
+        .map(() => new Array(n).fill(0).map(() => new Array(n).fill(0)));
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < n; ++j) {
+            f[0][i][j] = 1;
+        }
+    }
+    const dirs = [-2, -1, 2, 1, -2, 1, 2, -1, -2];
+    for (let h = 1; h <= k; ++h) {
+        for (let i = 0; i < n; ++i) {
+            for (let j = 0; j < n; ++j) {
+                for (let p = 0; p < 8; ++p) {
+                    const x = i + dirs[p];
+                    const y = j + dirs[p + 1];
+                    if (x >= 0 && x < n && y >= 0 && y < n) {
+                        f[h][i][j] += f[h - 1][x][y] / 8;
                     }
                 }
             }
         }
     }
-    return dp[k][row][column];
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    double knightProbability(int n, int k, int row, int column) {
-        vector<vector<vector<double>>> dp(k + 1, vector<vector<double>>(n, vector<double>(n)));
-        vector<int> dirs = {-2, -1, 2, 1, -2, 1, 2, -1, -2};
-        for (int l = 0; l <= k; ++l) {
-            for (int i = 0; i < n; ++i) {
-                for (int j = 0; j < n; ++j) {
-                    if (l == 0)
-                        dp[l][i][j] = 1;
-                    else {
-                        for (int d = 0; d < 8; ++d) {
-                            int x = i + dirs[d], y = j + dirs[d + 1];
-                            if (x >= 0 && x < n && y >= 0 && y < n)
-                                dp[l][i][j] += dp[l - 1][x][y] / 8;
-                        }
-                    }
-                }
-            }
-        }
-        return dp[k][row][column];
-    }
-};
-```
-
-### **Go**
-
-```go
-func knightProbability(n int, k int, row int, column int) float64 {
-	dp := make([][][]float64, k+1)
-	dirs := []int{-2, -1, 2, 1, -2, 1, 2, -1, -2}
-	for l := range dp {
-		dp[l] = make([][]float64, n)
-		for i := 0; i < n; i++ {
-			dp[l][i] = make([]float64, n)
-			for j := 0; j < n; j++ {
-				if l == 0 {
-					dp[l][i][j] = 1
-				} else {
-					for d := 0; d < 8; d++ {
-						x, y := i+dirs[d], j+dirs[d+1]
-						if 0 <= x && x < n && 0 <= y && y < n {
-							dp[l][i][j] += dp[l-1][x][y] / 8
-						}
-					}
-				}
-			}
-		}
-	}
-	return dp[k][row][column]
+    return f[k][row][column];
 }
 ```
 
