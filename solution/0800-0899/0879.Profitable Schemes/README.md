@@ -53,7 +53,22 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：动态规划**
+**方法一：记忆化搜索**
+
+我们设计一个函数 $dfs(i, j, k)$，表示从第 $i$ 个工作开始，且当前已经选择了 $j$ 个员工，且当前产生的利润为 $k$，这种情况下的方案数。那么答案就是 $dfs(0, 0, 0)$。
+
+函数 $dfs(i, j, k)$ 的执行过程如下：
+
+-   如果 $i = n$，表示所有工作都已经考虑过了，如果 $k \geq minProfit$，则方案数为 $1$，否则方案数为 $0$；
+-   如果 $i \lt n$，我们可以选择不选择第 $i$ 个工作，此时方案数为 $dfs(i + 1, j, k)$；如果 $j + group[i] \leq n$，我们也可以选择第 $i$ 个工作，此时方案数为 $dfs(i + 1, j + group[i], \min(k + profit[i], minProfit))$。这里我们将利润上限限制在 $minProfit$，是因为利润超过 $minProfit$ 对我们的答案没有任何影响。
+
+最后返回 $dfs(0, 0, 0)$ 即可。
+
+为了避免重复计算，我们可以使用记忆化搜索的方法，用一个三维数组 $f$ 记录所有的 $dfs(i, j, k)$ 的结果。当我们计算出 $dfs(i, j, k)$ 的值后，我们将其存入 $f[i][j][k]$ 中。调用 $dfs(i, j, k)$ 时，如果 $f[i][j][k]$ 已经被计算过，我们直接返回 $f[i][j][k]$ 即可。
+
+时间复杂度 $O(m \times n \times minProfit)$，空间复杂度 $O(m \times n \times minProfit)$。其中 $m$ 和 $n$ 分别为工作的数量和员工的数量，而 $minProfit$ 为至少产生的利润。
+
+**方法二：动态规划**
 
 我们定义 $f[i][j][k]$ 表示前 $i$ 个工作中，选择了不超过 $j$ 个员工，且至少产生 $k$ 的利润的方案数。初始时 $f[0][j][0] = 1$，表示不选择任何工作，且至少产生 $0$ 的利润的方案数为 $1$。答案即为 $f[m][n][minProfit]$。
 
@@ -68,6 +83,21 @@
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```python
+class Solution:
+    def profitableSchemes(self, n: int, minProfit: int, group: List[int], profit: List[int]) -> int:
+        @cache
+        def dfs(i: int, j: int, k: int) -> int:
+            if i >= len(group):
+                return 1 if k == minProfit else 0
+            ans = dfs(i + 1, j, k)
+            if j + group[i] <= n:
+                ans += dfs(i + 1, j + group[i], min(k + profit[i], minProfit))
+            return ans % (10**9 + 7)
+
+        return dfs(0, 0, 0)
+```
 
 ```python
 class Solution:
@@ -91,6 +121,43 @@ class Solution:
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```java
+class Solution {
+    private Integer[][][] f;
+    private int m;
+    private int n;
+    private int minProfit;
+    private int[] group;
+    private int[] profit;
+    private final int mod = (int) 1e9 + 7;
+
+    public int profitableSchemes(int n, int minProfit, int[] group, int[] profit) {
+        m = group.length;
+        this.n = n;
+        f = new Integer[m][n + 1][minProfit + 1];
+        this.minProfit = minProfit;
+        this.group = group;
+        this.profit = profit;
+        return dfs(0, 0, 0);
+    }
+
+    private int dfs(int i, int j, int k) {
+        if (i >= m) {
+            return k == minProfit ? 1 : 0;
+        }
+        if (f[i][j][k] != null) {
+            return f[i][j][k];
+        }
+        int ans = dfs(i + 1, j, k);
+        if (j + group[i] <= n) {
+            ans += dfs(i + 1, j + group[i], Math.min(k + profit[i], minProfit));
+        }
+        ans %= mod;
+        return f[i][j][k] = ans;
+    }
+}
+```
 
 ```java
 class Solution {
@@ -126,6 +193,33 @@ class Solution {
 public:
     int profitableSchemes(int n, int minProfit, vector<int>& group, vector<int>& profit) {
         int m = group.size();
+        int f[m][n + 1][minProfit + 1];
+        memset(f, -1, sizeof(f));
+        const int mod = 1e9 + 7;
+        function<int(int, int, int)> dfs = [&](int i, int j, int k) -> int {
+            if (i >= m) {
+                return k == minProfit ? 1 : 0;
+            }
+            if (f[i][j][k] != -1) {
+                return f[i][j][k];
+            }
+            int ans = dfs(i + 1, j, k);
+            if (j + group[i] <= n) {
+                ans += dfs(i + 1, j + group[i], min(k + profit[i], minProfit));
+            }
+            ans %= mod;
+            return f[i][j][k] = ans;
+        };
+        return dfs(0, 0, 0);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int profitableSchemes(int n, int minProfit, vector<int>& group, vector<int>& profit) {
+        int m = group.size();
         int f[m + 1][n + 1][minProfit + 1];
         memset(f, 0, sizeof(f));
         for (int j = 0; j <= n; ++j) {
@@ -145,6 +239,52 @@ public:
         return f[m][n][minProfit];
     }
 };
+```
+
+### **Go**
+
+```go
+func profitableSchemes(n int, minProfit int, group []int, profit []int) int {
+	m := len(group)
+	f := make([][][]int, m)
+	for i := range f {
+		f[i] = make([][]int, n+1)
+		for j := range f[i] {
+			f[i][j] = make([]int, minProfit+1)
+			for k := range f[i][j] {
+				f[i][j][k] = -1
+			}
+		}
+	}
+	const mod = 1e9 + 7
+	var dfs func(i, j, k int) int
+	dfs = func(i, j, k int) int {
+		if i >= m {
+			if k >= minProfit {
+				return 1
+			}
+			return 0
+		}
+		if f[i][j][k] != -1 {
+			return f[i][j][k]
+		}
+		ans := dfs(i+1, j, k)
+		if j+group[i] <= n {
+			ans += dfs(i+1, j+group[i], min(k+profit[i], minProfit))
+		}
+		ans %= mod
+		f[i][j][k] = ans
+		return ans
+	}
+	return dfs(0, 0, 0)
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **Go**
