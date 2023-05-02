@@ -1,13 +1,13 @@
 func probabilityOfHeads(prob []float64, target int) float64 {
-	dp := make([]float64, target+1)
-	dp[0] = 1
-	for _, v := range prob {
+	f := make([]float64, target+1)
+	f[0] = 1
+	for _, p := range prob {
 		for j := target; j >= 0; j-- {
-			dp[j] *= (1 - v)
-			if j >= 1 {
-				dp[j] += dp[j-1] * v
+			f[j] *= (1 - p)
+			if j > 0 {
+				f[j] += p * f[j-1]
 			}
 		}
 	}
-	return dp[target]
+	return f[target]
 }

@@ -1,14 +1,17 @@
 class Solution {
 public:
     double probabilityOfHeads(vector<double>& prob, int target) {
-        vector<double> dp(target + 1);
-        dp[0] = 1;
-        for (auto v : prob) {
+        double f[target + 1];
+        memset(f, 0, sizeof(f));
+        f[0] = 1;
+        for (double p : prob) {
             for (int j = target; j >= 0; --j) {
-                dp[j] *= (1 - v);
-                if (j >= 1) dp[j] += dp[j - 1] * v;
+                f[j] *= (1 - p);
+                if (j > 0) {
+                    f[j] += p * f[j - 1];
+                }
             }
         }
-        return dp[target];
+        return f[target];
     }
 };
