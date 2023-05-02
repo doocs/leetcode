@@ -14,9 +14,10 @@
  * }
  */
 class Solution {
-    private List<TreeNode>[] f = new List[21];
+    private List<TreeNode>[] f;
 
     public List<TreeNode> allPossibleFBT(int n) {
+        f = new List[n + 1];
         return dfs(n);
     }
 
@@ -25,18 +26,17 @@ class Solution {
             return f[n];
         }
         if (n == 1) {
-            return Collections.singletonList(new TreeNode());
+            return List.of(new TreeNode());
         }
-        List<TreeNode> res = new ArrayList<>();
+        List<TreeNode> ans = new ArrayList<>();
         for (int i = 0; i < n - 1; ++i) {
-            int j = n - i - 1;
-            for (TreeNode left : dfs(i)) {
-                for (TreeNode right : dfs(j)) {
-                    res.add(new TreeNode(0, left, right));
+            int j = n - 1 - i;
+            for (var left : dfs(i)) {
+                for (var right : dfs(j)) {
+                    ans.add(new TreeNode(0, left, right));
                 }
             }
         }
-        f[n] = res;
-        return res;
+        return f[n] = ans;
     }
 }

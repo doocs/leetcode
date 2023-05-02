@@ -42,13 +42,13 @@
 
 **方法一：记忆化搜索**
 
-对于 $n=1$，直接返回单个节点的列表。
+如果 $n=1$，直接返回单个节点的列表。
 
-对于 $n\gt1$，若 $n$ 为奇数，按照左右子树遍历不同的排列组合，得到结果列表；若 $n$ 为偶数，返回空列表。
+如果 $n \gt 1$，我们可以枚举左子树的节点数量 $i$，那么右子树的节点数量为 $n-1-i$。对于每种情况，我们递归地构造左子树和右子树的所有可能的真二叉树。然后将左子树和右子树两两组合，得到所有可能的真二叉树。
 
 此过程可以用记忆化搜索，避免重复计算。
 
-时间复杂度 $O(2^n)$，空间复杂度 $O(2^n)$。
+时间复杂度 $O(2^n)$，空间复杂度 $O(2^n)$。其中 $n$ 是节点数量。
 
 <!-- tabs:start -->
 
@@ -66,17 +66,16 @@
 class Solution:
     def allPossibleFBT(self, n: int) -> List[Optional[TreeNode]]:
         @cache
-        def dfs(n):
+        def dfs(n: int) -> List[Optional[TreeNode]]:
             if n == 1:
                 return [TreeNode()]
-            res = []
-            if n % 2:
-                for i in range(n - 1):
-                    j = n - i - 1
-                    for left in dfs(i):
-                        for right in dfs(j):
-                            res.append(TreeNode(0, left, right))
-            return res
+            ans = []
+            for i in range(n - 1):
+                j = n - 1 - i
+                for left in dfs(i):
+                    for right in dfs(j):
+                        ans.append(TreeNode(0, left, right))
+            return ans
 
         return dfs(n)
 ```
@@ -102,9 +101,10 @@ class Solution:
  * }
  */
 class Solution {
-    private List<TreeNode>[] f = new List[21];
+    private List<TreeNode>[] f;
 
     public List<TreeNode> allPossibleFBT(int n) {
+        f = new List[n + 1];
         return dfs(n);
     }
 
@@ -113,19 +113,18 @@ class Solution {
             return f[n];
         }
         if (n == 1) {
-            return Collections.singletonList(new TreeNode());
+            return List.of(new TreeNode());
         }
-        List<TreeNode> res = new ArrayList<>();
+        List<TreeNode> ans = new ArrayList<>();
         for (int i = 0; i < n - 1; ++i) {
-            int j = n - i - 1;
-            for (TreeNode left : dfs(i)) {
-                for (TreeNode right : dfs(j)) {
-                    res.add(new TreeNode(0, left, right));
+            int j = n - 1 - i;
+            for (var left : dfs(i)) {
+                for (var right : dfs(j)) {
+                    ans.add(new TreeNode(0, left, right));
                 }
             }
         }
-        f[n] = res;
-        return res;
+        return f[n] = ans;
     }
 }
 ```
@@ -147,20 +146,24 @@ class Solution {
 class Solution {
 public:
     vector<TreeNode*> allPossibleFBT(int n) {
-        vector<TreeNode*> f[21];
+        vector<vector<TreeNode*>> f(n + 1);
         function<vector<TreeNode*>(int)> dfs = [&](int n) -> vector<TreeNode*> {
-            if (f[n].size()) return f[n];
-            if (n == 1) return vector<TreeNode*>{new TreeNode()};
-            vector<TreeNode*> res;
+            if (f[n].size()) {
+                return f[n];
+            }
+            if (n == 1) {
+                return vector<TreeNode*>{new TreeNode()};
+            }
+            vector<TreeNode*> ans;
             for (int i = 0; i < n - 1; ++i) {
-                int j = n - i - 1;
+                int j = n - 1 - i;
                 for (auto left : dfs(i)) {
                     for (auto right : dfs(j)) {
-                        res.push_back(new TreeNode(0, left, right));
+                        ans.push_back(new TreeNode(0, left, right));
                     }
                 }
             }
-            return f[n] = res;
+            return f[n] = ans;
         };
         return dfs(n);
     }
@@ -179,28 +182,72 @@ public:
  * }
  */
 func allPossibleFBT(n int) []*TreeNode {
-	f := map[int][]*TreeNode{}
-	var dfs func(n int) []*TreeNode
+	f := make([][]*TreeNode, n+1)
+	var dfs func(int) []*TreeNode
 	dfs = func(n int) []*TreeNode {
-		if v, ok := f[n]; ok {
-			return v
+		if len(f[n]) > 0 {
+			return f[n]
 		}
 		if n == 1 {
 			return []*TreeNode{&TreeNode{Val: 0}}
 		}
-		res := []*TreeNode{}
+		ans := []*TreeNode{}
 		for i := 0; i < n-1; i++ {
-			j := n - i - 1
+			j := n - 1 - i
 			for _, left := range dfs(i) {
 				for _, right := range dfs(j) {
-					res = append(res, &TreeNode{0, left, right})
+					ans = append(ans, &TreeNode{0, left, right})
 				}
 			}
 		}
-		f[n] = res
-		return res
+		f[n] = ans
+		return ans
 	}
 	return dfs(n)
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function allPossibleFBT(n: number): Array<TreeNode | null> {
+    const f: Array<Array<TreeNode | null>> = new Array(n + 1)
+        .fill(0)
+        .map(() => []);
+    const dfs = (n: number): Array<TreeNode | null> => {
+        if (f[n].length) {
+            return f[n];
+        }
+        if (n === 1) {
+            f[n].push(new TreeNode(0));
+            return f[n];
+        }
+        const ans: Array<TreeNode | null> = [];
+        for (let i = 0; i < n - 1; ++i) {
+            const j = n - 1 - i;
+            for (const left of dfs(i)) {
+                for (const right of dfs(j)) {
+                    ans.push(new TreeNode(0, left, right));
+                }
+            }
+        }
+        return (f[n] = ans);
+    };
+    return dfs(n);
 }
 ```
 

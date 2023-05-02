@@ -7,26 +7,26 @@
  * }
  */
 func allPossibleFBT(n int) []*TreeNode {
-	f := map[int][]*TreeNode{}
-	var dfs func(n int) []*TreeNode
+	f := make([][]*TreeNode, n+1)
+	var dfs func(int) []*TreeNode
 	dfs = func(n int) []*TreeNode {
-		if v, ok := f[n]; ok {
-			return v
+		if len(f[n]) > 0 {
+			return f[n]
 		}
 		if n == 1 {
 			return []*TreeNode{&TreeNode{Val: 0}}
 		}
-		res := []*TreeNode{}
+		ans := []*TreeNode{}
 		for i := 0; i < n-1; i++ {
-			j := n - i - 1
+			j := n - 1 - i
 			for _, left := range dfs(i) {
 				for _, right := range dfs(j) {
-					res = append(res, &TreeNode{0, left, right})
+					ans = append(ans, &TreeNode{0, left, right})
 				}
 			}
 		}
-		f[n] = res
-		return res
+		f[n] = ans
+		return ans
 	}
 	return dfs(n)
 }

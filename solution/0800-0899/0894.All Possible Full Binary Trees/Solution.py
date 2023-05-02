@@ -7,16 +7,15 @@
 class Solution:
     def allPossibleFBT(self, n: int) -> List[Optional[TreeNode]]:
         @cache
-        def dfs(n):
+        def dfs(n: int) -> List[Optional[TreeNode]]:
             if n == 1:
                 return [TreeNode()]
-            res = []
-            if n % 2:
-                for i in range(n - 1):
-                    j = n - i - 1
-                    for left in dfs(i):
-                        for right in dfs(j):
-                            res.append(TreeNode(0, left, right))
-            return res
+            ans = []
+            for i in range(n - 1):
+                j = n - 1 - i
+                for left in dfs(i):
+                    for right in dfs(j):
+                        ans.append(TreeNode(0, left, right))
+            return ans
 
         return dfs(n)

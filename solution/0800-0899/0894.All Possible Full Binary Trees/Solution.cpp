@@ -12,20 +12,24 @@
 class Solution {
 public:
     vector<TreeNode*> allPossibleFBT(int n) {
-        vector<TreeNode*> f[21];
+        vector<vector<TreeNode*>> f(n + 1);
         function<vector<TreeNode*>(int)> dfs = [&](int n) -> vector<TreeNode*> {
-            if (f[n].size()) return f[n];
-            if (n == 1) return vector<TreeNode*>{new TreeNode()};
-            vector<TreeNode*> res;
+            if (f[n].size()) {
+                return f[n];
+            }
+            if (n == 1) {
+                return vector<TreeNode*>{new TreeNode()};
+            }
+            vector<TreeNode*> ans;
             for (int i = 0; i < n - 1; ++i) {
-                int j = n - i - 1;
+                int j = n - 1 - i;
                 for (auto left : dfs(i)) {
                     for (auto right : dfs(j)) {
-                        res.push_back(new TreeNode(0, left, right));
+                        ans.push_back(new TreeNode(0, left, right));
                     }
                 }
             }
-            return f[n] = res;
+            return f[n] = ans;
         };
         return dfs(n);
     }
