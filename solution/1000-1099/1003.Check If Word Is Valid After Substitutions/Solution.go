@@ -2,14 +2,12 @@ func isValid(s string) bool {
 	if len(s)%3 > 0 {
 		return false
 	}
-	stk := []rune{}
-	for _, c := range s {
-		n := len(stk)
-		if c == 'c' && n > 1 && stk[n-2] == 'a' && stk[n-1] == 'b' {
-			stk = stk[:n-2]
-		} else {
-			stk = append(stk, c)
+	t := []byte{}
+	for i := range s {
+		t = append(t, s[i])
+		if len(t) >= 3 && string(t[len(t)-3:]) == "abc" {
+			t = t[:len(t)-3]
 		}
 	}
-	return len(stk) == 0
+	return len(t) == 0
 }

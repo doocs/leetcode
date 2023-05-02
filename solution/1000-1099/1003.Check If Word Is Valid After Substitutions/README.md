@@ -56,17 +56,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：栈模拟**
+**方法一：栈**
 
-先判断字符串长度是否为 $3$ 的倍数，若不是直接返回 `false`。
+我们观察题目中的操作，可以发现，每一次都会在字符串的任意位置插入字符串 `"abc"`，所以每次插入操作之后，字符串的长度都会增加 $3$。如果字符串 $s$ 有效，那么它的长度一定是 $3$ 的倍数。因此，我们先对字符串 $s$ 的长度进行判断，如果不是 $3$ 的倍数，那么 $s$ 一定无效，可以直接返回 `false`。
 
-接下来我们使用栈模拟操作，遍历字符串 $s$ 的每个字符 $c$：
+接下来我们遍历字符串 $s$ 的每个字符 $c$，我们先将字符 $c$ 压入栈 $t$ 中。如果此时栈 $t$ 的长度大于等于 $3$，并且栈顶的三个元素组成了字符串 `"abc"`，那么我们就将栈顶的三个元素弹出。然后继续遍历字符串 $s$ 的下一个字符。
 
-若 $c$ 等于 `'c'`，且栈顶的两个元素分别为 `'a'` 和 `'b'`，则将栈顶的两个元素出栈；否则将 $c$ 入栈。
+遍历结束之后，如果栈 $t$ 为空，那么说明字符串 $s$ 有效，返回 `true`，否则返回 `false`。
 
-最后判断栈是否为空，若为空则返回 `true`，否则返回 `false`。
-
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 
@@ -79,13 +77,12 @@ class Solution:
     def isValid(self, s: str) -> bool:
         if len(s) % 3:
             return False
-        stk = []
+        t = []
         for c in s:
-            if c == 'c' and len(stk) > 1 and stk[-2] == 'a' and stk[-1] == 'b':
-                stk = stk[:-2]
-            else:
-                stk.append(c)
-        return not stk
+            t.append(c)
+            if ''.join(t[-3:]) == 'abc':
+                t[-3:] = []
+        return not t
 ```
 
 ### **Java**
@@ -98,17 +95,14 @@ class Solution {
         if (s.length() % 3 > 0) {
             return false;
         }
-        StringBuilder stk = new StringBuilder();
+        StringBuilder t = new StringBuilder();
         for (char c : s.toCharArray()) {
-            int n = stk.length();
-            if (c == 'c' && n > 1 && stk.charAt(n - 2) == 'a' && stk.charAt(n - 1) == 'b') {
-                stk.deleteCharAt(n - 1);
-                stk.deleteCharAt(n - 2);
-            } else {
-                stk.append(c);
+            t.append(c);
+            if (t.length() >= 3 && "abc".equals(t.substring(t.length() - 3))) {
+                t.delete(t.length() - 3, t.length());
             }
         }
-        return stk.length() == 0;
+        return t.isEmpty();
     }
 }
 ```
@@ -122,17 +116,14 @@ public:
         if (s.size() % 3) {
             return false;
         }
-        string stk;
+        string t;
         for (char c : s) {
-            int n = stk.size();
-            if (c == 'c' && n > 1 && stk[n - 2] == 'a' && stk[n - 1] == 'b') {
-                stk.pop_back();
-                stk.pop_back();
-            } else {
-                stk.push_back(c);
+            t.push_back(c);
+            if (t.size() >= 3 && t.substr(t.size() - 3, 3) == "abc") {
+                t.erase(t.end() - 3, t.end());
             }
         }
-        return stk.empty();
+        return t.empty();
     }
 };
 ```
@@ -144,16 +135,32 @@ func isValid(s string) bool {
 	if len(s)%3 > 0 {
 		return false
 	}
-	stk := []rune{}
-	for _, c := range s {
-		n := len(stk)
-		if c == 'c' && n > 1 && stk[n-2] == 'a' && stk[n-1] == 'b' {
-			stk = stk[:n-2]
-		} else {
-			stk = append(stk, c)
+	t := []byte{}
+	for i := range s {
+		t = append(t, s[i])
+		if len(t) >= 3 && string(t[len(t)-3:]) == "abc" {
+			t = t[:len(t)-3]
 		}
 	}
-	return len(stk) == 0
+	return len(t) == 0
+}
+```
+
+### **TypeScript**
+
+```ts
+function isValid(s: string): boolean {
+    if (s.length % 3 !== 0) {
+        return false;
+    }
+    const t: string[] = [];
+    for (const c of s) {
+        t.push(c);
+        if (t.slice(-3).join('') === 'abc') {
+            t.splice(-3);
+        }
+    }
+    return t.length === 0;
 }
 ```
 

@@ -3,16 +3,13 @@ class Solution {
         if (s.length() % 3 > 0) {
             return false;
         }
-        StringBuilder stk = new StringBuilder();
+        StringBuilder t = new StringBuilder();
         for (char c : s.toCharArray()) {
-            int n = stk.length();
-            if (c == 'c' && n > 1 && stk.charAt(n - 2) == 'a' && stk.charAt(n - 1) == 'b') {
-                stk.deleteCharAt(n - 1);
-                stk.deleteCharAt(n - 2);
-            } else {
-                stk.append(c);
+            t.append(c);
+            if (t.length() >= 3 && "abc".equals(t.substring(t.length() - 3))) {
+                t.delete(t.length() - 3, t.length());
             }
         }
-        return stk.length() == 0;
+        return t.isEmpty();
     }
 }

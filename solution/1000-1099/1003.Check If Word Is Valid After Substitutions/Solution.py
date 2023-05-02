@@ -2,10 +2,9 @@ class Solution:
     def isValid(self, s: str) -> bool:
         if len(s) % 3:
             return False
-        stk = []
+        t = []
         for c in s:
-            if c == 'c' and len(stk) > 1 and stk[-2] == 'a' and stk[-1] == 'b':
-                stk = stk[:-2]
-            else:
-                stk.append(c)
-        return not stk
+            t.append(c)
+            if ''.join(t[-3:]) == 'abc':
+                t[-3:] = []
+        return not t

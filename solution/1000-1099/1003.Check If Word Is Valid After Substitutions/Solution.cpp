@@ -4,16 +4,13 @@ public:
         if (s.size() % 3) {
             return false;
         }
-        string stk;
+        string t;
         for (char c : s) {
-            int n = stk.size();
-            if (c == 'c' && n > 1 && stk[n - 2] == 'a' && stk[n - 1] == 'b') {
-                stk.pop_back();
-                stk.pop_back();
-            } else {
-                stk.push_back(c);
+            t.push_back(c);
+            if (t.size() >= 3 && t.substr(t.size() - 3, 3) == "abc") {
+                t.erase(t.end() - 3, t.end());
             }
         }
-        return stk.empty();
+        return t.empty();
     }
 };
