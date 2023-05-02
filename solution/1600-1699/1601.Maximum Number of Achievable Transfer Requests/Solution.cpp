@@ -1,24 +1,31 @@
 class Solution {
 public:
     int maximumRequests(int n, vector<vector<int>>& requests) {
-        int ans = 0, m = requests.size();
+        int m = requests.size();
+        int ans = 0;
+        auto check = [&](int mask) -> bool {
+            int cnt[n];
+            memset(cnt, 0, sizeof(cnt));
+            for (int i = 0; i < m; ++i) {
+                if (mask >> i & 1) {
+                    int f = requests[i][0], t = requests[i][1];
+                    --cnt[f];
+                    ++cnt[t];
+                }
+            }
+            for (int v : cnt) {
+                if (v) {
+                    return false;
+                }
+            }
+            return true;
+        };
         for (int mask = 0; mask < 1 << m; ++mask) {
             int cnt = __builtin_popcount(mask);
-            if (ans < cnt && check(mask, requests)) ans = cnt;
-        }
-        return ans;
-    }
-
-    bool check(int x, vector<vector<int>>& requests) {
-        vector<int> d(21);
-        for (int i = 0; i < requests.size(); ++i) {
-            if ((x >> i) & 1) {
-                --d[requests[i][0]];
-                ++d[requests[i][1]];
+            if (ans < cnt && check(mask)) {
+                ans = cnt;
             }
         }
-        for (int& v : d)
-            if (v) return 0;
-        return 1;
+        return ans;
     }
 };

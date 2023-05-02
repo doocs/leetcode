@@ -1,12 +1,7 @@
-/**
- * @param {number} n
- * @param {number[][]} requests
- * @return {number}
- */
-var maximumRequests = function (n, requests) {
+function maximumRequests(n: number, requests: number[][]): number {
     const m = requests.length;
     let ans = 0;
-    const check = mask => {
+    const check = (mask: number): boolean => {
         const cnt = new Array(n).fill(0);
         for (let i = 0; i < m; ++i) {
             if ((mask >> i) & 1) {
@@ -24,9 +19,9 @@ var maximumRequests = function (n, requests) {
         }
     }
     return ans;
-};
+}
 
-function bitCount(i) {
+function bitCount(i: number): number {
     i = i - ((i >>> 1) & 0x55555555);
     i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
     i = (i + (i >>> 4)) & 0x0f0f0f0f;

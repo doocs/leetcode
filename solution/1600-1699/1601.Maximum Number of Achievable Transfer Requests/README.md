@@ -67,9 +67,11 @@
 
 **方法一：二进制枚举**
 
-二进制枚举所有方案，找出满足条件的最大请求数方案即可。
+我们注意到，换楼请求列表长度不超过 $16$，因此我们可以使用二进制枚举的方法枚举所有的换楼请求列表。具体地，我们可以使用一个长度为 $16$ 的二进制数来表示一种换楼请求列表，其中第 $i$ 位为 $1$ 表示第 $i$ 个换楼请求被选中，为 $0$ 表示第 $i$ 个换楼请求不被选中。
 
-时间复杂度 O(m\*2^m)，其中 m 表示 requests 的长度。
+我们在 $[1, 2^{16})$ 的范围内枚举所有的二进制数，对于每个二进制数 $mask$，我们先算出它的二进制表示中有多少个 $1$，记为 $cnt$，如果 $cnt$ 比当前答案 $ans$ 大，那么我们再判断 $mask$ 是否是一个可行的换楼请求列表。如果是，那么我们就用 $cnt$ 更新答案 $ans$。判断 $mask$ 是否是一个可行的换楼请求列表，只需要判断对于每个楼，它的净流入量是否为 $0$ 即可。
+
+时间复杂度 $O(2^m \times m)$，空间复杂度 $O(n)$。其中 $m$ 和 $n$ 分别是换楼请求列表的长度和楼的数量。
 
 <!-- tabs:start -->
 
@@ -80,18 +82,18 @@
 ```python
 class Solution:
     def maximumRequests(self, n: int, requests: List[List[int]]) -> int:
-        def check(x):
-            d = [0] * n
+        def check(mask: int) -> bool:
+            cnt = [0] * n
             for i, (f, t) in enumerate(requests):
-                if (x >> i) & 1:
-                    d[f] -= 1
-                    d[t] += 1
-            return all(v == 0 for v in d)
+                if mask >> i & 1:
+                    cnt[f] -= 1
+                    cnt[t] += 1
+            return all(v == 0 for v in cnt)
 
-        ans, m = 0, len(requests)
-        for mask in range(1 << m):
+        ans = 0
+        for mask in range(1 << len(requests)):
             cnt = mask.bit_count()
-            if cnt > ans and check(mask):
+            if ans < cnt and check(mask):
                 ans = cnt
         return ans
 ```
@@ -102,28 +104,34 @@ class Solution:
 
 ```java
 class Solution {
+    private int m;
+    private int n;
+    private int[][] requests;
+
     public int maximumRequests(int n, int[][] requests) {
+        m = requests.length;
+        this.n = n;
+        this.requests = requests;
         int ans = 0;
-        for (int mask = 1; mask < 1 << requests.length; ++mask) {
+        for (int mask = 0; mask < 1 << m; ++mask) {
             int cnt = Integer.bitCount(mask);
-            if (ans < cnt && check(mask, requests)) {
+            if (ans < cnt && check(mask)) {
                 ans = cnt;
             }
         }
         return ans;
     }
 
-    private boolean check(int x, int[][] requests) {
-        int[] d = new int[21];
-        for (int i = 0; i < requests.length; ++i) {
-            if (((x >> i) & 1) == 1) {
-                int f = requests[i][0];
-                int t = requests[i][1];
-                --d[f];
-                ++d[t];
+    private boolean check(int mask) {
+        int[] cnt = new int[n];
+        for (int i = 0; i < m; ++i) {
+            if ((mask >> i & 1) == 1) {
+                int f = requests[i][0], t = requests[i][1];
+                --cnt[f];
+                ++cnt[t];
             }
         }
-        for (int v : d) {
+        for (int v : cnt) {
             if (v != 0) {
                 return false;
             }
@@ -139,25 +147,32 @@ class Solution {
 class Solution {
 public:
     int maximumRequests(int n, vector<vector<int>>& requests) {
-        int ans = 0, m = requests.size();
+        int m = requests.size();
+        int ans = 0;
+        auto check = [&](int mask) -> bool {
+            int cnt[n];
+            memset(cnt, 0, sizeof(cnt));
+            for (int i = 0; i < m; ++i) {
+                if (mask >> i & 1) {
+                    int f = requests[i][0], t = requests[i][1];
+                    --cnt[f];
+                    ++cnt[t];
+                }
+            }
+            for (int v : cnt) {
+                if (v) {
+                    return false;
+                }
+            }
+            return true;
+        };
         for (int mask = 0; mask < 1 << m; ++mask) {
             int cnt = __builtin_popcount(mask);
-            if (ans < cnt && check(mask, requests)) ans = cnt;
-        }
-        return ans;
-    }
-
-    bool check(int x, vector<vector<int>>& requests) {
-        vector<int> d(21);
-        for (int i = 0; i < requests.size(); ++i) {
-            if ((x >> i) & 1) {
-                --d[requests[i][0]];
-                ++d[requests[i][1]];
+            if (ans < cnt && check(mask)) {
+                ans = cnt;
             }
         }
-        for (int& v : d)
-            if (v) return 0;
-        return 1;
+        return ans;
     }
 };
 ```
@@ -165,31 +180,67 @@ public:
 ### **Go**
 
 ```go
-func maximumRequests(n int, requests [][]int) int {
-	check := func(x int) bool {
-		d := make([]int, n)
+func maximumRequests(n int, requests [][]int) (ans int) {
+	m := len(requests)
+	check := func(mask int) bool {
+		cnt := make([]int, n)
 		for i, r := range requests {
-			if (x>>i)&1 == 1 {
-				d[r[0]]--
-				d[r[1]]++
+			if mask>>i&1 == 1 {
+				f, t := r[0], r[1]
+				cnt[f]--
+				cnt[t]++
 			}
 		}
-		for _, v := range d {
+		for _, v := range cnt {
 			if v != 0 {
 				return false
 			}
 		}
 		return true
 	}
-
-	ans, m := 0, len(requests)
 	for mask := 0; mask < 1<<m; mask++ {
 		cnt := bits.OnesCount(uint(mask))
 		if ans < cnt && check(mask) {
 			ans = cnt
 		}
 	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function maximumRequests(n: number, requests: number[][]): number {
+    const m = requests.length;
+    let ans = 0;
+    const check = (mask: number): boolean => {
+        const cnt = new Array(n).fill(0);
+        for (let i = 0; i < m; ++i) {
+            if ((mask >> i) & 1) {
+                const [f, t] = requests[i];
+                --cnt[f];
+                ++cnt[t];
+            }
+        }
+        return cnt.every(v => v === 0);
+    };
+    for (let mask = 0; mask < 1 << m; ++mask) {
+        const cnt = bitCount(mask);
+        if (ans < cnt && check(mask)) {
+            ans = cnt;
+        }
+    }
+    return ans;
+}
+
+function bitCount(i: number): number {
+    i = i - ((i >>> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
+    i = (i + (i >>> 4)) & 0x0f0f0f0f;
+    i = i + (i >>> 8);
+    i = i + (i >>> 16);
+    return i & 0x3f;
 }
 ```
 
@@ -202,32 +253,36 @@ func maximumRequests(n int, requests [][]int) int {
  * @return {number}
  */
 var maximumRequests = function (n, requests) {
-    function check(x) {
-        let d = new Array(n).fill(0);
-        for (let i = 0; i < m; ++i) {
-            if ((x >> i) & 1) {
-                const [f, t] = requests[i];
-                d[f]--;
-                d[t]++;
-            }
-        }
-        for (const v of d) {
-            if (v) {
-                return false;
-            }
-        }
-        return true;
-    }
+    const m = requests.length;
     let ans = 0;
-    let m = requests.length;
-    for (let mask = 1; mask < 1 << m; ++mask) {
-        let cnt = mask.toString(2).split('0').join('').length;
+    const check = mask => {
+        const cnt = new Array(n).fill(0);
+        for (let i = 0; i < m; ++i) {
+            if ((mask >> i) & 1) {
+                const [f, t] = requests[i];
+                --cnt[f];
+                ++cnt[t];
+            }
+        }
+        return cnt.every(v => v === 0);
+    };
+    for (let mask = 0; mask < 1 << m; ++mask) {
+        const cnt = bitCount(mask);
         if (ans < cnt && check(mask)) {
             ans = cnt;
         }
     }
     return ans;
 };
+
+function bitCount(i) {
+    i = i - ((i >>> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
+    i = (i + (i >>> 4)) & 0x0f0f0f0f;
+    i = i + (i >>> 8);
+    i = i + (i >>> 16);
+    return i & 0x3f;
+}
 ```
 
 ### **...**

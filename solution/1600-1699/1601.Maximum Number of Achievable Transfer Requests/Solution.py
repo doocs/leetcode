@@ -1,16 +1,16 @@
 class Solution:
     def maximumRequests(self, n: int, requests: List[List[int]]) -> int:
-        def check(x):
-            d = [0] * n
+        def check(mask: int) -> bool:
+            cnt = [0] * n
             for i, (f, t) in enumerate(requests):
-                if (x >> i) & 1:
-                    d[f] -= 1
-                    d[t] += 1
-            return all(v == 0 for v in d)
+                if mask >> i & 1:
+                    cnt[f] -= 1
+                    cnt[t] += 1
+            return all(v == 0 for v in cnt)
 
-        ans, m = 0, len(requests)
-        for mask in range(1 << m):
+        ans = 0
+        for mask in range(1 << len(requests)):
             cnt = mask.bit_count()
-            if cnt > ans and check(mask):
+            if ans < cnt and check(mask):
                 ans = cnt
         return ans
