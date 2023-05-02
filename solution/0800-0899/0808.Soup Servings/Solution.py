@@ -1,7 +1,7 @@
 class Solution:
     def soupServings(self, n: int) -> float:
         @cache
-        def dfs(i, j):
+        def dfs(i: int, j: int) -> float:
             if i <= 0 and j <= 0:
                 return 0.5
             if i <= 0:
