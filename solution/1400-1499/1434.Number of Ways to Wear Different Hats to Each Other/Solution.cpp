@@ -1,30 +1,31 @@
-using ll = long long;
-
 class Solution {
 public:
     int numberWays(vector<vector<int>>& hats) {
-        vector<vector<int>> d(41);
         int n = hats.size();
-        int mx = 0;
+        int m = 0;
+        for (auto& h : hats) {
+            m = max(m, *max_element(h.begin(), h.end()));
+        }
+        vector<vector<int>> g(m + 1);
         for (int i = 0; i < n; ++i) {
-            for (int& h : hats[i]) {
-                d[h].push_back(i);
-                mx = max(mx, h);
+            for (int& v : hats[i]) {
+                g[v].push_back(i);
             }
         }
-        vector<vector<ll>> dp(mx + 1, vector<ll>(1 << n));
-        dp[0][0] = 1;
-        int mod = 1e9 + 7;
-        for (int i = 1; i <= mx; ++i) {
-            for (int mask = 0; mask < 1 << n; ++mask) {
-                dp[i][mask] = dp[i - 1][mask];
-                for (int& j : d[i]) {
-                    if ((mask >> j) & 1) {
-                        dp[i][mask] = (dp[i][mask] + dp[i - 1][mask ^ (1 << j)]) % mod;
+        const int mod = 1e9 + 7;
+        int f[m + 1][1 << n];
+        memset(f, 0, sizeof(f));
+        f[0][0] = 1;
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 0; j < 1 << n; ++j) {
+                f[i][j] = f[i -1][j];
+                for (int k : g[i]) {
+                    if (j >> k & 1) {
+                        f[i][j] = (f[i][j] + f[i - 1][j ^ (1 << k)]) % mod;
                     }
                 }
             }
         }
-        return dp[mx][(1 << n) - 1];
+        return f[m][(1 << n) - 1];
     }
 };

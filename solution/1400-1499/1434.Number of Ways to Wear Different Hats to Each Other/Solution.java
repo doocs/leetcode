@@ -1,29 +1,32 @@
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
     public int numberWays(List<List<Integer>> hats) {
-        List<Integer>[] d = new List[41];
-        Arrays.setAll(d, k -> new ArrayList<>());
         int n = hats.size();
-        int mx = 0;
-        for (int i = 0; i < n; ++i) {
-            for (int h : hats.get(i)) {
-                d[h].add(i);
-                mx = Math.max(mx, h);
+        int m = 0;
+        for (var h : hats) {
+            for (int v : h) {
+                m = Math.max(m, v);
             }
         }
-        long[][] dp = new long[mx + 1][1 << n];
-        dp[0][0] = 1;
-        for (int i = 1; i < mx + 1; ++i) {
-            for (int mask = 0; mask < 1 << n; ++mask) {
-                dp[i][mask] = dp[i - 1][mask];
-                for (int j : d[i]) {
-                    if (((mask >> j) & 1) == 1) {
-                        dp[i][mask] = (dp[i][mask] + dp[i - 1][mask ^ (1 << j)]) % MOD;
+        List<Integer>[] g = new List[m + 1];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int i = 0; i < n; ++i) {
+            for (int v : hats.get(i)) {
+                g[v].add(i);
+            }
+        }
+        final int mod = (int) 1e9 + 7;
+        int[][] f = new int[m + 1][1 << n];
+        f[0][0] = 1;
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 0; j < 1 << n; ++j) {
+                f[i][j] = f[i - 1][j];
+                for (int k : g[i]) {
+                    if ((j >> k & 1) == 1) {
+                        f[i][j] = (f[i][j] + f[i - 1][j ^ (1 << k)]) % mod;
                     }
                 }
             }
         }
-        return (int) dp[mx][(1 << n) - 1];
+        return f[m][(1 << n) - 1];
     }
 }

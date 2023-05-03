@@ -53,6 +53,24 @@ Number of Permutations of (1,2,3,4) = 24.
 
 ## Solutions
 
+**Solution 1: Dynamic Programming**
+
+We notice that $n$ is not greater than $10$, so we consider using DP with state compression to solve this problem.
+
+We define $f[i][j]$ as the number of ways to assign the first $i$ hats to the people whose state is $j$. Here $j$ is a binary number, which represents a set of people. We have $f[0][0]=1$ at the beginning, and the answer is $f[m][2^n - 1]$, where $m$ is the maximum number of hats and $n$ is the number of people.
+
+Consider $f[i][j]$. If we don't assign the $i$-th hat to anyone, then $f[i][j]=f[i-1][j]$; if we assign the $i$-th hat to the person $k$ who likes it, then $f[i][j]=f[i-1][j \oplus 2^k]$. Here $\oplus$ denotes the XOR operation. Therefore, we can get the state transition equation:
+
+$$
+f[i][j]=f[i-1][j]+ \sum_{k \in like[i]} f[i-1][j \oplus 2^k]
+$$
+
+where $like[i]$ denotes the set of people who like the $i$-th hat.
+
+The final answer is $f[m][2^n - 1]$, and the answer may be very large, so we need to take it modulo $10^9 + 7$.
+
+Time complexity $O(m \times 2^n \times n)$, space complexity $O(m \times 2^n)$. Here $m$ is the maximum number of hats, which is no more than $40$ in this problem; and $n$ is the number of people, which is no more than $10$ in this problem.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,55 +78,57 @@ Number of Permutations of (1,2,3,4) = 24.
 ```python
 class Solution:
     def numberWays(self, hats: List[List[int]]) -> int:
-        d = defaultdict(list)
+        g = defaultdict(list)
         for i, h in enumerate(hats):
             for v in h:
-                d[v].append(i)
+                g[v].append(i)
+        mod = 10**9 + 7
         n = len(hats)
-        mx = max(max(h) for h in hats)
-        dp = [[0] * (1 << n) for _ in range(mx + 1)]
-        dp[0][0] = 1
-        mod = int(1e9) + 7
-        for i in range(1, mx + 1):
-            for mask in range(1 << n):
-                dp[i][mask] = dp[i - 1][mask]
-                for j in d[i]:
-                    if (mask >> j) & 1:
-                        dp[i][mask] += dp[i - 1][mask ^ (1 << j)]
-                dp[i][mask] %= mod
-        return dp[mx][(1 << n) - 1]
+        m = max(max(h) for h in hats)
+        f = [[0] * (1 << n) for _ in range(m + 1)]
+        f[0][0] = 1
+        for i in range(1, m + 1):
+            for j in range(1 << n):
+                f[i][j] = f[i - 1][j]
+                for k in g[i]:
+                    if j >> k & 1:
+                        f[i][j] = (f[i][j] + f[i - 1][j ^ (1 << k)]) % mod
+        return f[m][-1]
 ```
 
 ### **Java**
 
 ```java
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
     public int numberWays(List<List<Integer>> hats) {
-        List<Integer>[] d = new List[41];
-        Arrays.setAll(d, k -> new ArrayList<>());
         int n = hats.size();
-        int mx = 0;
-        for (int i = 0; i < n; ++i) {
-            for (int h : hats.get(i)) {
-                d[h].add(i);
-                mx = Math.max(mx, h);
+        int m = 0;
+        for (var h : hats) {
+            for (int v : h) {
+                m = Math.max(m, v);
             }
         }
-        long[][] dp = new long[mx + 1][1 << n];
-        dp[0][0] = 1;
-        for (int i = 1; i < mx + 1; ++i) {
-            for (int mask = 0; mask < 1 << n; ++mask) {
-                dp[i][mask] = dp[i - 1][mask];
-                for (int j : d[i]) {
-                    if (((mask >> j) & 1) == 1) {
-                        dp[i][mask] = (dp[i][mask] + dp[i - 1][mask ^ (1 << j)]) % MOD;
+        List<Integer>[] g = new List[m + 1];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int i = 0; i < n; ++i) {
+            for (int v : hats.get(i)) {
+                g[v].add(i);
+            }
+        }
+        final int mod = (int) 1e9 + 7;
+        int[][] f = new int[m + 1][1 << n];
+        f[0][0] = 1;
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 0; j < 1 << n; ++j) {
+                f[i][j] = f[i - 1][j];
+                for (int k : g[i]) {
+                    if ((j >> k & 1) == 1) {
+                        f[i][j] = (f[i][j] + f[i - 1][j ^ (1 << k)]) % mod;
                     }
                 }
             }
         }
-        return (int) dp[mx][(1 << n) - 1];
+        return f[m][(1 << n) - 1];
     }
 }
 ```
@@ -116,34 +136,35 @@ class Solution {
 ### **C++**
 
 ```cpp
-using ll = long long;
-
 class Solution {
 public:
     int numberWays(vector<vector<int>>& hats) {
-        vector<vector<int>> d(41);
         int n = hats.size();
-        int mx = 0;
+        int m = 0;
+        for (auto& h : hats) {
+            m = max(m, *max_element(h.begin(), h.end()));
+        }
+        vector<vector<int>> g(m + 1);
         for (int i = 0; i < n; ++i) {
-            for (int& h : hats[i]) {
-                d[h].push_back(i);
-                mx = max(mx, h);
+            for (int& v : hats[i]) {
+                g[v].push_back(i);
             }
         }
-        vector<vector<ll>> dp(mx + 1, vector<ll>(1 << n));
-        dp[0][0] = 1;
-        int mod = 1e9 + 7;
-        for (int i = 1; i <= mx; ++i) {
-            for (int mask = 0; mask < 1 << n; ++mask) {
-                dp[i][mask] = dp[i - 1][mask];
-                for (int& j : d[i]) {
-                    if ((mask >> j) & 1) {
-                        dp[i][mask] = (dp[i][mask] + dp[i - 1][mask ^ (1 << j)]) % mod;
+        const int mod = 1e9 + 7;
+        int f[m + 1][1 << n];
+        memset(f, 0, sizeof(f));
+        f[0][0] = 1;
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 0; j < 1 << n; ++j) {
+                f[i][j] = f[i -1][j];
+                for (int k : g[i]) {
+                    if (j >> k & 1) {
+                        f[i][j] = (f[i][j] + f[i - 1][j ^ (1 << k)]) % mod;
                     }
                 }
             }
         }
-        return dp[mx][(1 << n) - 1];
+        return f[m][(1 << n) - 1];
     }
 };
 ```
@@ -152,32 +173,36 @@ public:
 
 ```go
 func numberWays(hats [][]int) int {
-	d := make([][]int, 41)
-	mx := 0
-	for i, h := range hats {
+	n := len(hats)
+	m := 0
+	for _, h := range hats {
 		for _, v := range h {
-			d[v] = append(d[v], i)
-			mx = max(mx, v)
+			m = max(m, v)
 		}
 	}
-	dp := make([][]int, mx+1)
-	n := len(hats)
-	for i := range dp {
-		dp[i] = make([]int, 1<<n)
+	g := make([][]int, m+1)
+	for i, h := range hats {
+		for _, v := range h {
+			g[v] = append(g[v], i)
+		}
 	}
-	dp[0][0] = 1
-	mod := int(1e9) + 7
-	for i := 1; i <= mx; i++ {
-		for mask := 0; mask < 1<<n; mask++ {
-			dp[i][mask] = dp[i-1][mask]
-			for _, j := range d[i] {
-				if ((mask >> j) & 1) == 1 {
-					dp[i][mask] = (dp[i][mask] + dp[i-1][mask^(1<<j)]) % mod
+	const mod = 1e9 + 7
+	f := make([][]int, m+1)
+	for i := range f {
+		f[i] = make([]int, 1<<n)
+	}
+	f[0][0] = 1
+	for i := 1; i <= m; i++ {
+		for j := 0; j < 1<<n; j++ {
+			f[i][j] = f[i-1][j]
+			for _, k := range g[i] {
+				if j>>k&1 == 1 {
+					f[i][j] = (f[i][j] + f[i-1][j^(1<<k)]) % mod
 				}
 			}
 		}
 	}
-	return dp[mx][(1<<n)-1]
+	return f[m][(1<<n)-1]
 }
 
 func max(a, b int) int {
@@ -185,6 +210,37 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function numberWays(hats: number[][]): number {
+    const n = hats.length;
+    const m = Math.max(...hats.flat());
+    const g: number[][] = Array.from({ length: m + 1 }, () => []);
+    for (let i = 0; i < n; ++i) {
+        for (const v of hats[i]) {
+            g[v].push(i);
+        }
+    }
+    const f: number[][] = Array.from({ length: m + 1 }, () =>
+        Array.from({ length: 1 << n }, () => 0),
+    );
+    f[0][0] = 1;
+    const mod = 1e9 + 7;
+    for (let i = 1; i <= m; ++i) {
+        for (let j = 0; j < 1 << n; ++j) {
+            f[i][j] = f[i - 1][j];
+            for (const k of g[i]) {
+                if (((j >> k) & 1) === 1) {
+                    f[i][j] = (f[i][j] + f[i - 1][j ^ (1 << k)]) % mod;
+                }
+            }
+        }
+    }
+    return f[m][(1 << n) - 1];
 }
 ```
 
