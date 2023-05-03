@@ -49,24 +49,23 @@ Because each edge has the same weight, the shortest path can be solution by usin
 class Solution:
     def shortestPathLength(self, graph: List[List[int]]) -> int:
         n = len(graph)
-        dst = -1 ^ (-1 << n)
-
         q = deque()
-        vis = [[False] * (1 << n) for _ in range(n)]
+        vis = set()
         for i in range(n):
-            q.append((i, 1 << i, 0))
-            vis[i][1 << i] = True
-
-        while q:
-            u, state, dis = q.popleft()
-            for v in graph[u]:
-                nxt = state | (1 << v)
-                if nxt == dst:
-                    return dis + 1
-                if not vis[v][nxt]:
-                    q.append((v, nxt, dis + 1))
-                    vis[v][nxt] = True
-        return 0
+            q.append((i, 1 << i))
+            vis.add((i, 1 << i))
+        ans = 0
+        while 1:
+            for _ in range(len(q)):
+                i, st = q.popleft()
+                if st == (1 << n) - 1:
+                    return ans
+                for j in graph[i]:
+                    nst = st | 1 << j
+                    if (j, nst) not in vis:
+                        vis.add((j, nst))
+                        q.append((j, nst))
+            ans += 1
 ```
 
 A\* search:
@@ -102,41 +101,27 @@ class Solution:
 class Solution {
     public int shortestPathLength(int[][] graph) {
         int n = graph.length;
-        int dst = -1 ^ (-1 << n);
-
-        Queue<Tuple> queue = new ArrayDeque<>();
+        Deque<int[]> q = new ArrayDeque<>();
         boolean[][] vis = new boolean[n][1 << n];
-        for (int i = 0; i < n; i++) {
-            queue.offer(new Tuple(i, 1 << i, 0));
+        for (int i = 0; i < n; ++i) {
+            q.offer(new int[] {i, 1 << i});
             vis[i][1 << i] = true;
         }
-
-        while (!queue.isEmpty()) {
-            Tuple t = queue.poll();
-            int u = t.u, state = t.state, dis = t.dis;
-            for (int v : graph[u]) {
-                int next = state | (1 << v);
-                if (next == dst) {
-                    return dis + 1;
+        for (int ans = 0;; ++ans) {
+            for (int k = q.size(); k > 0; --k) {
+                var p = q.poll();
+                int i = p[0], st = p[1];
+                if (st == (1 << n) - 1) {
+                    return ans;
                 }
-                if (!vis[v][next]) {
-                    queue.offer(new Tuple(v, next, dis + 1));
-                    vis[v][next] = true;
+                for (int j : graph[i]) {
+                    int nst = st | 1 << j;
+                    if (!vis[j][nst]) {
+                        vis[j][nst] = true;
+                        q.offer(new int[] {j, nst});
+                    }
                 }
             }
-        }
-        return 0;
-    }
-
-    private static class Tuple {
-        int u;
-        int state;
-        int dis;
-
-        public Tuple(int u, int state, int dis) {
-            this.u = u;
-            this.state = state;
-            this.dis = dis;
         }
     }
 }
@@ -188,46 +173,6 @@ class Solution {
 }
 ```
 
-### **Go**
-
-```go
-type tuple struct {
-	u     int
-	state int
-	dis   int
-}
-
-func shortestPathLength(graph [][]int) int {
-	n := len(graph)
-	dst := -1 ^ (-1 << n)
-
-	q := make([]tuple, 0)
-	vis := make([][]bool, n)
-	for i := 0; i < n; i++ {
-		vis[i] = make([]bool, 1<<n)
-		q = append(q, tuple{i, 1 << i, 0})
-		vis[i][1<<i] = true
-	}
-
-	for len(q) > 0 {
-		t := q[0]
-		q = q[1:]
-		cur, state, dis := t.u, t.state, t.dis
-		for _, v := range graph[cur] {
-			next := state | (1 << v)
-			if next == dst {
-				return dis + 1
-			}
-			if !vis[v][next] {
-				q = append(q, tuple{v, next, dis + 1})
-				vis[v][next] = true
-			}
-		}
-	}
-	return 0
-}
-```
-
 ### **C++**
 
 ```cpp
@@ -235,25 +180,29 @@ class Solution {
 public:
     int shortestPathLength(vector<vector<int>>& graph) {
         int n = graph.size();
-        queue<tuple<int, int, int>> q;
-        vector<vector<bool>> vis(n, vector<bool>(1 << n));
+        queue<pair<int, int>> q;
+        bool vis[n][1 << n];
+        memset(vis, false, sizeof(vis));
         for (int i = 0; i < n; ++i) {
-            q.emplace(i, 1 << i, 0);
+            q.emplace(i, 1 << i);
             vis[i][1 << i] = true;
         }
-        while (!q.empty()) {
-            auto [u, state, dist] = q.front();
-            q.pop();
-            if (state == (1 << n) - 1) return dist;
-            for (int& v : graph[u]) {
-                int nxt = state | (1 << v);
-                if (!vis[v][nxt]) {
-                    q.emplace(v, nxt, dist + 1);
-                    vis[v][nxt] = true;
+        for (int ans = 0;; ++ans) {
+            for (int k = q.size(); k; --k) {
+                auto [i, st] = q.front();
+                q.pop();
+                if (st == (1 << n) - 1) {
+                    return ans;
+                }
+                for (int j : graph[i]) {
+                    int nst = st | 1 << j;
+                    if (!vis[j][nst]) {
+                        vis[j][nst] = true;
+                        q.emplace(j, nst);
+                    }
                 }
             }
         }
-        return 0;
     }
 };
 ```
@@ -269,21 +218,17 @@ public:
         n = graph.size();
         priority_queue<tuple<int, int, int>, vector<tuple<int, int, int>>, greater<tuple<int, int, int>>> q;
         vector<vector<int>> dist(n, vector<int>(1 << n, INT_MAX));
-        for (int i = 0; i < n; ++i)
-        {
+        for (int i = 0; i < n; ++i) {
             q.push({f(1 << i), i, 1 << i});
             dist[i][1 << i] = 0;
         }
-        while (!q.empty())
-        {
+        while (!q.empty()) {
             auto [_, u, state] = q.top();
             q.pop();
             if (state == (1 << n) - 1) return dist[u][state];
-            for (int v : graph[u])
-            {
+            for (int v : graph[u]) {
                 int nxt = state | (1 << v);
-                if (dist[v][nxt] > dist[u][state] + 1)
-                {
+                if (dist[v][nxt] > dist[u][state] + 1) {
                     dist[v][nxt] = dist[u][state] + 1;
                     q.push({dist[v][nxt] + f(nxt), v, nxt});
                 }
@@ -300,6 +245,69 @@ public:
         return ans;
     }
 };
+```
+
+### **Go**
+
+```go
+func shortestPathLength(graph [][]int) int {
+	n := len(graph)
+	q := [][2]int{}
+	vis := make([][]bool, n)
+	for i := range vis {
+		vis[i] = make([]bool, 1<<n)
+		vis[i][1<<i] = true
+		q = append(q, [2]int{i, 1 << i})
+	}
+	for ans := 0; ; ans++ {
+		for k := len(q); k > 0; k-- {
+			p := q[0]
+			q = q[1:]
+			i, st := p[0], p[1]
+			if st == (1<<n)-1 {
+				return ans
+			}
+			for _, j := range graph[i] {
+				nst := st | 1<<j
+				if !vis[j][nst] {
+					vis[j][nst] = true
+					q = append(q, [2]int{j, nst})
+				}
+			}
+		}
+	}
+}
+```
+
+### **TypeScript**
+
+```ts
+function shortestPathLength(graph: number[][]): number {
+    const n = graph.length;
+    const q: number[][] = [];
+    const vis: boolean[][] = new Array(n)
+        .fill(false)
+        .map(() => new Array(1 << n).fill(false));
+    for (let i = 0; i < n; ++i) {
+        q.push([i, 1 << i]);
+        vis[i][1 << i] = true;
+    }
+    for (let ans = 0; ; ++ans) {
+        for (let k = q.length; k; --k) {
+            const [i, st] = q.shift()!;
+            if (st === (1 << n) - 1) {
+                return ans;
+            }
+            for (const j of graph[i]) {
+                const nst = st | (1 << j);
+                if (!vis[j][nst]) {
+                    vis[j][nst] = true;
+                    q.push([j, nst]);
+                }
+            }
+        }
+    }
+}
 ```
 
 ### **...**

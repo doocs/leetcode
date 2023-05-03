@@ -2,24 +2,28 @@ class Solution {
 public:
     int shortestPathLength(vector<vector<int>>& graph) {
         int n = graph.size();
-        queue<tuple<int, int, int>> q;
-        vector<vector<bool>> vis(n, vector<bool>(1 << n));
+        queue<pair<int, int>> q;
+        bool vis[n][1 << n];
+        memset(vis, false, sizeof(vis));
         for (int i = 0; i < n; ++i) {
-            q.emplace(i, 1 << i, 0);
+            q.emplace(i, 1 << i);
             vis[i][1 << i] = true;
         }
-        while (!q.empty()) {
-            auto [u, state, dist] = q.front();
-            q.pop();
-            if (state == (1 << n) - 1) return dist;
-            for (int& v : graph[u]) {
-                int nxt = state | (1 << v);
-                if (!vis[v][nxt]) {
-                    q.emplace(v, nxt, dist + 1);
-                    vis[v][nxt] = true;
+        for (int ans = 0;; ++ans) {
+            for (int k = q.size(); k; --k) {
+                auto [i, st] = q.front();
+                q.pop();
+                if (st == (1 << n) - 1) {
+                    return ans;
+                }
+                for (int j : graph[i]) {
+                    int nst = st | 1 << j;
+                    if (!vis[j][nst]) {
+                        vis[j][nst] = true;
+                        q.emplace(j, nst);
+                    }
                 }
             }
         }
-        return 0;
     }
 };

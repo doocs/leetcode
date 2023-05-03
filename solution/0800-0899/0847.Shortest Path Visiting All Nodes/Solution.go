@@ -1,35 +1,27 @@
-type tuple struct {
-	u     int
-	state int
-	dis   int
-}
-
 func shortestPathLength(graph [][]int) int {
 	n := len(graph)
-	dst := -1 ^ (-1 << n)
-
-	q := make([]tuple, 0)
+	q := [][2]int{}
 	vis := make([][]bool, n)
-	for i := 0; i < n; i++ {
+	for i := range vis {
 		vis[i] = make([]bool, 1<<n)
-		q = append(q, tuple{i, 1 << i, 0})
 		vis[i][1<<i] = true
+		q = append(q, [2]int{i, 1 << i})
 	}
-
-	for len(q) > 0 {
-		t := q[0]
-		q = q[1:]
-		cur, state, dis := t.u, t.state, t.dis
-		for _, v := range graph[cur] {
-			next := state | (1 << v)
-			if next == dst {
-				return dis + 1
+	for ans := 0; ; ans++ {
+		for k := len(q); k > 0; k-- {
+			p := q[0]
+			q = q[1:]
+			i, st := p[0], p[1]
+			if st == (1<<n)-1 {
+				return ans
 			}
-			if !vis[v][next] {
-				q = append(q, tuple{v, next, dis + 1})
-				vis[v][next] = true
+			for _, j := range graph[i] {
+				nst := st | 1<<j
+				if !vis[j][nst] {
+					vis[j][nst] = true
+					q = append(q, [2]int{j, nst})
+				}
 			}
 		}
 	}
-	return 0
 }

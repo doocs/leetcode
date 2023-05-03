@@ -1,41 +1,27 @@
 class Solution {
     public int shortestPathLength(int[][] graph) {
         int n = graph.length;
-        int dst = -1 ^ (-1 << n);
-
-        Queue<Tuple> queue = new ArrayDeque<>();
+        Deque<int[]> q = new ArrayDeque<>();
         boolean[][] vis = new boolean[n][1 << n];
-        for (int i = 0; i < n; i++) {
-            queue.offer(new Tuple(i, 1 << i, 0));
+        for (int i = 0; i < n; ++i) {
+            q.offer(new int[] {i, 1 << i});
             vis[i][1 << i] = true;
         }
-
-        while (!queue.isEmpty()) {
-            Tuple t = queue.poll();
-            int u = t.u, state = t.state, dis = t.dis;
-            for (int v : graph[u]) {
-                int next = state | (1 << v);
-                if (next == dst) {
-                    return dis + 1;
+        for (int ans = 0;; ++ans) {
+            for (int k = q.size(); k > 0; --k) {
+                var p = q.poll();
+                int i = p[0], st = p[1];
+                if (st == (1 << n) - 1) {
+                    return ans;
                 }
-                if (!vis[v][next]) {
-                    queue.offer(new Tuple(v, next, dis + 1));
-                    vis[v][next] = true;
+                for (int j : graph[i]) {
+                    int nst = st | 1 << j;
+                    if (!vis[j][nst]) {
+                        vis[j][nst] = true;
+                        q.offer(new int[] {j, nst});
+                    }
                 }
             }
-        }
-        return 0;
-    }
-
-    private static class Tuple {
-        int u;
-        int state;
-        int dis;
-
-        public Tuple(int u, int state, int dis) {
-            this.u = u;
-            this.state = state;
-            this.dis = dis;
         }
     }
 }
