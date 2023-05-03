@@ -1,25 +1,14 @@
-func maxTotalFruits(fruits [][]int, startPos int, k int) int {
-	var q [][]int
-	i, n := 0, len(fruits)
-	ans := 0
-	for i < n && fruits[i][0] <= startPos {
-		if startPos-fruits[i][0] <= k {
-			ans += fruits[i][1]
-			q = append(q, fruits[i])
+func maxTotalFruits(fruits [][]int, startPos int, k int) (ans int) {
+	var s, i int
+	for j, f := range fruits {
+		s += f[1]
+		for i <= j && f[0]-fruits[i][0]+min(abs(startPos-fruits[i][0]), abs(startPos-f[0])) > k {
+			s -= fruits[i][1]
+			i += 1
 		}
-		i++
+		ans = max(ans, s)
 	}
-	t := ans
-	for i < n && fruits[i][0]-startPos <= k {
-		for len(q) > 0 && q[0][0] < startPos && fruits[i][0]-q[0][0]+min(startPos-q[0][0], fruits[i][0]-startPos) > k {
-			t -= q[0][1]
-			q = q[1:]
-		}
-		t += fruits[i][1]
-		ans = max(ans, t)
-		i++
-	}
-	return ans
+	return
 }
 
 func max(a, b int) int {
@@ -34,4 +23,11 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
 }

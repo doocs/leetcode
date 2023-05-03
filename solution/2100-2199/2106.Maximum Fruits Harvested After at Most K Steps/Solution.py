@@ -1,27 +1,10 @@
 class Solution:
     def maxTotalFruits(self, fruits: List[List[int]], startPos: int, k: int) -> int:
-        q = deque()
-        i, n = 0, len(fruits)
-        ans = 0
-        while i < n and fruits[i][0] <= startPos:
-            if startPos - fruits[i][0] <= k:
-                ans += fruits[i][1]
-                q.append(fruits[i])
-            i += 1
-
-        t = ans
-        while i < n and fruits[i][0] - startPos <= k:
-            while (
-                q
-                and q[0][0] < startPos
-                and fruits[i][0]
-                - q[0][0]
-                + min(startPos - q[0][0], fruits[i][0] - startPos)
-                > k
-            ):
-                t -= q[0][1]
-                q.popleft()
-            t += fruits[i][1]
-            ans = max(ans, t)
-            i += 1
+        ans = i = s = 0
+        for j, (pj, fj) in enumerate(fruits):
+            s += fj
+            while i <= j and pj - fruits[i][0] + min(abs(startPos - fruits[i][0]), abs(startPos - fruits[j][0])) > k:
+                s -= fruits[i][1]
+                i += 1
+            ans = max(ans, s)
         return ans

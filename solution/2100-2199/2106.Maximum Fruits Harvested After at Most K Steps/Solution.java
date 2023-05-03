@@ -1,26 +1,13 @@
 class Solution {
     public int maxTotalFruits(int[][] fruits, int startPos, int k) {
-        Deque<int[]> q = new ArrayDeque<>();
-        int i = 0, n = fruits.length;
-        int ans = 0;
-        while (i < n && fruits[i][0] <= startPos) {
-            if (startPos - fruits[i][0] <= k) {
-                ans += fruits[i][1];
-                q.offerLast(fruits[i]);
+        int ans = 0, s = 0;
+        for (int i = 0, j = 0; j < fruits.length; ++j) {
+            int pj = fruits[j][0], fj = fruits[j][1];
+            s += fj;
+            while (i <= j && pj - fruits[i][0] + Math.min(Math.abs(startPos - fruits[i][0]), Math.abs(startPos - pj)) > k) {
+                s -= fruits[i++][1];
             }
-            ++i;
-        }
-        int t = ans;
-        while (i < n && fruits[i][0] - startPos <= k) {
-            while (!q.isEmpty() && q.peekFirst()[0] < startPos
-                && fruits[i][0] - q.peekFirst()[0]
-                        + Math.min(startPos - q.peekFirst()[0], fruits[i][0] - startPos)
-                    > k) {
-                t -= q.pollFirst()[1];
-            }
-            t += fruits[i][1];
-            ans = Math.max(ans, t);
-            ++i;
+            ans = Math.max(ans, s);
         }
         return ans;
     }
