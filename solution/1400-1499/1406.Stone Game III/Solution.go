@@ -1,11 +1,7 @@
 func stoneGameIII(stoneValue []int) string {
 	n := len(stoneValue)
-	s := make([]int, n+1)
-	for i, x := range stoneValue {
-		s[i+1] = s[i] + x
-	}
-	const inf = 1 << 30
 	f := make([]int, n)
+	const inf = 1 << 30
 	for i := range f {
 		f[i] = inf
 	}
@@ -17,26 +13,26 @@ func stoneGameIII(stoneValue []int) string {
 		if f[i] != inf {
 			return f[i]
 		}
-		t := inf
-		for j := 1; j <= 3; j++ {
-			t = min(t, dfs(i+j))
+		ans, s := -(1 << 30), 0
+		for j := 0; j < 3 && i+j < n; j++ {
+			s += stoneValue[i+j]
+			ans = max(ans, s-dfs(i+j+1))
 		}
-		f[i] = s[n] - s[i] - t
-		return f[i]
+		f[i] = ans
+		return ans
 	}
-	a := dfs(0)
-	b := s[n] - a
-	if a == b {
+	ans := dfs(0)
+	if ans == 0 {
 		return "Tie"
 	}
-	if a > b {
+	if ans > 0 {
 		return "Alice"
 	}
 	return "Bob"
 }
 
-func min(a, b int) int {
-	if a < b {
+func max(a, b int) int {
+	if a > b {
 		return a
 	}
 	return b

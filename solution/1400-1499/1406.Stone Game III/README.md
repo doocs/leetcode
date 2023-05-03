@@ -64,17 +64,22 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：前缀和 + 记忆化搜索**
+**方法一：记忆化搜索**
 
-我们先预处理出数组 $stoneValue$ 的前缀和数组 $s$，其中 $s[i]$ 表示 $stoneValue$ 数组前 $i$ 个元素之和。
+我们设计一个函数 $dfs(i)$，表示当前玩家在 $[i, n)$ 范围内进行游戏时，可以获得的最大得分差值。如果 $dfs(0) \gt 0$，则表示先手玩家 Alice 可以获胜；如果 $dfs(0) \lt 0$，则表示后手玩家 Bob 可以获胜；否则，表示两人打成平局。
 
-接下来，我们设计一个函数 $dfs(i)$，表示当前玩家从 $stoneValue$ 数组下标 $i$ 开始拿石子时，能够获得的最大分数。如果当前玩家拿走了 $stoneValue$ 数组下标 $i$ 开始的 $j$ 堆石子，那么下一个玩家能够获得的最大分数为 $dfs(i + j)$，为了使当前玩家获得的分数最大化，我们需要让 $dfs(i + j)$ 最小化，即 $dfs(i) = s[n] - s[i] - min(dfs(i + j))$，其中 $s[n]$ 表示 $stoneValue$ 数组所有元素之和。
+函数 $dfs(i)$ 的执行逻辑如下：
 
-最后，玩家 $Alice$ 的分数为 $dfs(0)$，玩家 $Bob$ 的分数为 $s[n] - dfs(0)$，如果 $Alice$ 的分数大于 $Bob$ 的分数，那么 $Alice$ 获胜；如果 $Alice$ 的分数小于 $Bob$ 的分数，那么 $Bob$ 获胜；如果 $Alice$ 的分数等于 $Bob$ 的分数，那么平局。
+-   如果 $i \geq n$，说明当前没有石子可以拿了，直接返回 $0$ 即可；
+-   否则，我们枚举当前玩家拿走前 $j+1$ 堆石子，其中 $j \in \{0, 1, 2\}$，那么另一个玩家在下一轮可以获得的得分差值为 $dfs(i + j + 1)$，从而当前玩家可以获得的得分差值为 $\sum_{k=i}^{i+j} stoneValue[k] - dfs(i + j + 1)$。我们要使得当前玩家的得分差值最大，因此可以用 $\max$ 函数得到最大得分差值，即：
 
-过程中，我们可以使用记忆化搜索，避免重复计算。
+$$
+dfs(i) = \max_{j \in \{0, 1, 2\}} \left\{\sum_{k=i}^{i+j} stoneValue[k] - dfs(i + j + 1)\right\}
+$$
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $stoneValue$ 的长度。
+为了防止重复计算，我们可以使用记忆化搜索。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是石子的堆数。
 
 <!-- tabs:start -->
 
@@ -87,17 +92,21 @@ class Solution:
     def stoneGameIII(self, stoneValue: List[int]) -> str:
         @cache
         def dfs(i: int) -> int:
-            if i >= len(stoneValue):
+            if i >= n:
                 return 0
-            t = min(dfs(i + j) for j in range(1, 4))
-            return s[-1] - s[i] - t
+            ans, s = -inf, 0
+            for j in range(3):
+                if i + j >= n:
+                    break
+                s += stoneValue[i + j]
+                ans = max(ans, s - dfs(i + j + 1))
+            return ans
 
-        s = list(accumulate(stoneValue, initial=0))
-        a = dfs(0)
-        b = s[-1] - a
-        if a == b:
+        n = len(stoneValue)
+        ans = dfs(0)
+        if ans == 0:
             return 'Tie'
-        return 'Alice' if a > b else 'Bob'
+        return 'Alice' if ans > 0 else 'Bob'
 ```
 
 ### **Java**
@@ -106,20 +115,19 @@ class Solution:
 
 ```java
 class Solution {
-    private int n;
-    private int[] s;
+    private int[] stoneValue;
     private Integer[] f;
+    private int n;
 
     public String stoneGameIII(int[] stoneValue) {
         n = stoneValue.length;
-        s = new int[n + 1];
         f = new Integer[n];
-        for (int i = 1; i <= n; ++i) {
-            s[i] = s[i - 1] + stoneValue[i - 1];
+        this.stoneValue = stoneValue;
+        int ans = dfs(0);
+        if (ans == 0) {
+            return "Tie";
         }
-        int a = dfs(0);
-        int b = s[n] - a;
-        return a == b ? "Tie" : a > b ? "Alice" : "Bob";
+        return ans > 0 ? "Alice" : "Bob";
     }
 
     private int dfs(int i) {
@@ -129,12 +137,13 @@ class Solution {
         if (f[i] != null) {
             return f[i];
         }
-        int t = 1 << 30;
-        for (int j = 1; j < 4; ++j) {
-            t = Math.min(t, dfs(i + j));
+        int ans = -(1 << 30);
+        int s = 0;
+        for (int j = 0; j < 3 && i + j < n; ++j) {
+            s += stoneValue[i + j];
+            ans = Math.max(ans, s - dfs(i + j + 1));
         }
-        f[i] = s[n] - s[i] - t;
-        return f[i];
+        return f[i] = ans;
     }
 }
 ```
@@ -146,11 +155,6 @@ class Solution {
 public:
     string stoneGameIII(vector<int>& stoneValue) {
         int n = stoneValue.size();
-        int s[n + 1];
-        s[0] = 0;
-        for (int i = 1; i <= n; ++i) {
-            s[i] = s[i - 1] + stoneValue[i - 1];
-        }
         int f[n];
         memset(f, 0x3f, sizeof(f));
         function<int(int)> dfs = [&](int i) -> int {
@@ -160,15 +164,18 @@ public:
             if (f[i] != 0x3f3f3f3f) {
                 return f[i];
             }
-            int t = 1 << 30;
-            for (int j = 1; j < 4; ++j) {
-                t = min(t, dfs(i + j));
+            int ans = -(1 << 30), s = 0;
+            for (int j = 0; j < 3 && i + j < n; ++j) {
+                s += stoneValue[i + j];
+                ans = max(ans, s - dfs(i + j + 1));
             }
-            return f[i] = s[n] - s[i] - t;
+            return f[i] = ans;
         };
-        int a = dfs(0);
-        int b = s[n] - a;
-        return a == b ? "Tie" : (a > b ? "Alice" : "Bob");
+        int ans = dfs(0);
+        if (ans == 0) {
+            return "Tie";
+        }
+        return ans > 0 ? "Alice" : "Bob";
     }
 };
 ```
@@ -178,12 +185,8 @@ public:
 ```go
 func stoneGameIII(stoneValue []int) string {
 	n := len(stoneValue)
-	s := make([]int, n+1)
-	for i, x := range stoneValue {
-		s[i+1] = s[i] + x
-	}
-	const inf = 1 << 30
 	f := make([]int, n)
+	const inf = 1 << 30
 	for i := range f {
 		f[i] = inf
 	}
@@ -195,29 +198,59 @@ func stoneGameIII(stoneValue []int) string {
 		if f[i] != inf {
 			return f[i]
 		}
-		t := inf
-		for j := 1; j <= 3; j++ {
-			t = min(t, dfs(i+j))
+		ans, s := -(1 << 30), 0
+		for j := 0; j < 3 && i+j < n; j++ {
+			s += stoneValue[i+j]
+			ans = max(ans, s-dfs(i+j+1))
 		}
-		f[i] = s[n] - s[i] - t
-		return f[i]
+		f[i] = ans
+		return ans
 	}
-	a := dfs(0)
-	b := s[n] - a
-	if a == b {
+	ans := dfs(0)
+	if ans == 0 {
 		return "Tie"
 	}
-	if a > b {
+	if ans > 0 {
 		return "Alice"
 	}
 	return "Bob"
 }
 
-func min(a, b int) int {
-	if a < b {
+func max(a, b int) int {
+	if a > b {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function stoneGameIII(stoneValue: number[]): string {
+    const n = stoneValue.length;
+    const inf = 1 << 30;
+    const f: number[] = new Array(n).fill(inf);
+    const dfs = (i: number): number => {
+        if (i >= n) {
+            return 0;
+        }
+        if (f[i] !== inf) {
+            return f[i];
+        }
+        let ans = -inf;
+        let s = 0;
+        for (let j = 0; j < 3 && i + j < n; ++j) {
+            s += stoneValue[i + j];
+            ans = Math.max(ans, s - dfs(i + j + 1));
+        }
+        return (f[i] = ans);
+    };
+    const ans = dfs(0);
+    if (ans === 0) {
+        return 'Tie';
+    }
+    return ans > 0 ? 'Alice' : 'Bob';
 }
 ```
 

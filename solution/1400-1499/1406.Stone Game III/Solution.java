@@ -1,18 +1,17 @@
 class Solution {
-    private int n;
-    private int[] s;
+    private int[] stoneValue;
     private Integer[] f;
+    private int n;
 
     public String stoneGameIII(int[] stoneValue) {
         n = stoneValue.length;
-        s = new int[n + 1];
         f = new Integer[n];
-        for (int i = 1; i <= n; ++i) {
-            s[i] = s[i - 1] + stoneValue[i - 1];
+        this.stoneValue = stoneValue;
+        int ans = dfs(0);
+        if (ans == 0) {
+            return "Tie";
         }
-        int a = dfs(0);
-        int b = s[n] - a;
-        return a == b ? "Tie" : a > b ? "Alice" : "Bob";
+        return ans > 0 ? "Alice" : "Bob";
     }
 
     private int dfs(int i) {
@@ -22,11 +21,12 @@ class Solution {
         if (f[i] != null) {
             return f[i];
         }
-        int t = 1 << 30;
-        for (int j = 1; j < 4; ++j) {
-            t = Math.min(t, dfs(i + j));
+        int ans = -(1 << 30);
+        int s = 0;
+        for (int j = 0; j < 3 && i + j < n; ++j) {
+            s += stoneValue[i + j];
+            ans = Math.max(ans, s - dfs(i + j + 1));
         }
-        f[i] = s[n] - s[i] - t;
-        return f[i];
+        return f[i] = ans;
     }
 }
