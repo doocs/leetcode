@@ -53,12 +53,12 @@
 class Solution:
     def winnerSquareGame(self, n: int) -> bool:
         @cache
-        def dfs(i):
-            if i <= 0:
+        def dfs(i: int) -> bool:
+            if i == 0:
                 return False
             j = 1
-            while (k := (i - j * j)) >= 0:
-                if not dfs(k):
+            while j * j <= i:
+                if not dfs(i - j * j):
                     return True
                 j += 1
             return False
@@ -211,6 +211,46 @@ func winnerSquareGame(n int) bool {
 		}
 	}
 	return f[n]
+}
+```
+
+### **TypeScript**
+
+```ts
+function winnerSquareGame(n: number): boolean {
+    const f: number[] = new Array(n + 1).fill(0);
+    const dfs = (i: number): boolean => {
+        if (i <= 0) {
+            return false;
+        }
+        if (f[i] !== 0) {
+            return f[i] === 1;
+        }
+        for (let j = 1; j * j <= i; ++j) {
+            if (!dfs(i - j * j)) {
+                f[i] = 1;
+                return true;
+            }
+        }
+        f[i] = -1;
+        return false;
+    };
+    return dfs(n);
+}
+```
+
+```ts
+function winnerSquareGame(n: number): boolean {
+    const f: boolean[] = new Array(n + 1).fill(false);
+    for (let i = 1; i <= n; ++i) {
+        for (let j = 1; j * j <= i; ++j) {
+            if (!f[i - j * j]) {
+                f[i] = true;
+                break;
+            }
+        }
+    }
+    return f[n];
 }
 ```
 
