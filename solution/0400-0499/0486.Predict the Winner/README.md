@@ -47,15 +47,39 @@
 
 **方法一：记忆化搜索**
 
-定义函数 `dfs(i, j)` 表示先手面对数组 `nums[i..j]` 时，能够获得的最大分数。
+我们设计一个函数 $dfs(i, j)$，表示从第 $i$ 个数到第 $j$ 个数，当前玩家与另一个玩家的得分之差的最大值。那么答案就是 $dfs(0, n - 1) \gt 0$。
 
-我们先看后手，后手可能面对的情况有两种，分别是 `nums[i+1..j]` 和 `nums[i..j-1]`，获得的最大分数分别为 `dfs(i+1, j)` 和 `dfs(i, j-1)`。
+函数 $dfs(i, j)$ 的计算方法如下：
 
-先手要最大化自己的分数，就要让后手可获得的分数最小，即 `min(dfs(i+1, j), dfs(i, j-1))`。所以先手能获得的分数为 `sum(nums[i..j]) - min(dfs(i+1, j), dfs(i, j-1))`。
+-   如果 $i \gt j$，说明当前没有数字了，所以当前玩家没有分数可以拿，差值为 $0$，即 $dfs(i, j) = 0$。
+-   否则，当前玩家有两种选择，如果选择第 $i$ 个数，那么当前玩家与另一个玩家的得分之差为 $nums[i] - dfs(i + 1, j)$；如果选择第 $j$ 个数，那么当前玩家与另一个玩家的得分之差为 $nums[j] - dfs(i, j - 1)$。当前玩家会选择两种情况中差值较大的情况，也就是说 $dfs(i, j) = \max(nums[i] - dfs(i + 1, j), nums[j] - dfs(i, j - 1))$。
 
-记忆化搜索即可。
+最后，我们只需要判断 $dfs(0, n - 1) \gt 0$ 即可。
 
-时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为数组 `nums` 的长度。
+为了避免重复计算，我们可以使用记忆化搜索的方法，用一个数组 $f$ 记录所有的 $dfs(i, j)$ 的值，当函数再次被调用到时，我们可以直接从 $f$ 中取出答案而不需要重新计算。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是数组的长度。
+
+**方法二：动态规划**
+
+我们也可以使用动态规划的方法，定义 $f[i][j]$ 表示当前玩家在 $nums[i..j]$ 这些数字中能够获得的最大得分的差值。那么最后答案就是 $f[0][n - 1] \gt 0$。
+
+初始时 $f[i][i]=nums[i]$，因为只有一个数，所以当前玩家只能拿取这个数，得分差值为 $nums[i]$。
+
+考虑 $f[i][j]$，其中 $i \lt j$，有两种情况：
+
+-   如果当前玩家拿走了 $nums[i]$，那么剩下的数字为 $nums[i + 1..j]$，此时轮到另一个玩家进行游戏，所以 $f[i][j] = nums[i] - f[i + 1][j]$。
+-   如果当前玩家拿走了 $nums[j]$，那么剩下的数字为 $nums[i..j - 1]$，此时轮到另一个玩家进行游戏，所以 $f[i][j] = nums[j] - f[i][j - 1]$。
+
+因此，最终的状态转移方程为 $f[i][j] = \max(nums[i] - f[i + 1][j], nums[j] - f[i][j - 1])$。
+
+最后，我们只需要判断 $f[0][n - 1] \gt 0$ 即可。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是数组的长度。
+
+相似题目：
+
+-   [877. 石子游戏](/solution/0800-0899/0877.Stone%20Game/README.md)
 
 <!-- tabs:start -->
 
@@ -67,14 +91,25 @@
 class Solution:
     def PredictTheWinner(self, nums: List[int]) -> bool:
         @cache
-        def dfs(i, j):
+        def dfs(i: int, j: int) -> int:
             if i > j:
                 return 0
-            a = min(dfs(i + 1, j), dfs(i, j - 1))
-            return s[j + 1] - s[i] - a
+            return max(nums[i] - dfs(i + 1, j), nums[j] - dfs(i, j - 1))
 
-        s = list(accumulate(nums, initial=0))
-        return dfs(0, len(nums) - 1) * 2 >= s[-1]
+        return dfs(0, len(nums) - 1) >= 0
+```
+
+```python
+class Solution:
+    def PredictTheWinner(self, nums: List[int]) -> bool:
+        n = len(nums)
+        f = [[0] * n for _ in range(n)]
+        for i, x in enumerate(nums):
+            f[i][i] = x
+        for i in range(n - 2, -1, -1):
+            for j in range(i + 1, n):
+                f[i][j] = max(nums[i] - f[i + 1][j], nums[j] - f[i][j - 1])
+        return f[0][n - 1] >= 0
 ```
 
 ### **Java**
@@ -83,52 +118,42 @@ class Solution:
 
 ```java
 class Solution {
-    public boolean PredictTheWinner(int[] nums) {
-        int n = nums.length;
-        if ((n & 1) == 0) {
-            return true;
-        }
-        int[] f = new int[n];
-        for (int i = n - 1; i >= 0; --i) {
-            f[i] = nums[i];
-            for (int j = i + 1; j < n; ++j) {
-                f[j] = Math.max(nums[i] - f[j], nums[j] - f[j - 1]);
-            }
-        }
-        return f[n - 1] >= 0;
-    }
-}
-```
-
-```java
-class Solution {
-    private int[] s;
+    private int[] nums;
     private int[][] f;
 
     public boolean PredictTheWinner(int[] nums) {
+        this.nums = nums;
         int n = nums.length;
-        s = new int[n + 1];
-        for (int i = 0; i < n; ++i) {
-            s[i + 1] = s[i] + nums[i];
-        }
-        f = new int[n + 1][n + 1];
-        for (var e : f) {
-            Arrays.fill(e, -1);
-        }
-        return dfs(0, n - 1) * 2 >= s[n];
+        f = new int[n][n];
+        return dfs(0, n - 1) >= 0;
     }
 
     private int dfs(int i, int j) {
         if (i > j) {
             return 0;
         }
-        if (f[i][j] != -1) {
+        if (f[i][j] != 0) {
             return f[i][j];
         }
-        int a = Math.min(dfs(i + 1, j), dfs(i, j - 1));
-        int res = s[j + 1] - s[i] - a;
-        f[i][j] = res;
-        return res;
+        return f[i][j] = Math.max(nums[i] - dfs(i + 1, j), nums[j] - dfs(i, j - 1));
+    }
+}
+```
+
+```java
+class Solution {
+    public boolean PredictTheWinner(int[] nums) {
+        int n = nums.length;
+        int[][] f = new int[n][n];
+        for (int i = 0; i < n; ++i) {
+            f[i][i] = nums[i];
+        }
+        for (int i = n - 2; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                f[i][j] = Math.max(nums[i] - f[i + 1][j], nums[j] - f[i][j - 1]);
+            }
+        }
+        return f[0][n - 1] >= 0;
     }
 }
 ```
@@ -138,26 +163,40 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<vector<int>> f;
-    vector<int> s;
-
     bool PredictTheWinner(vector<int>& nums) {
         int n = nums.size();
-        s.resize(n + 1);
-        for (int i = 0; i < n; ++i) {
-            s[i + 1] = s[i] + nums[i];
-        }
-        f.assign(n + 1, vector<int>(n + 1, -1));
-        return dfs(0, n - 1) * 2 >= s[n];
+        int f[n][n];
+        memset(f, 0, sizeof(f));
+        function<int(int, int)> dfs = [&](int i, int j) -> int {
+            if (i > j) {
+                return 0;
+            }
+            if (f[i][j]) {
+                return f[i][j];
+            }
+            return f[i][j] = max(nums[i] - dfs(i + 1, j), nums[j] - dfs(i, j - 1));
+        };
+        return dfs(0, n - 1) >= 0;
     }
+};
+```
 
-    int dfs(int i, int j) {
-        if (i > j) return 0;
-        if (f[i][j] != -1) return f[i][j];
-        int a = min(dfs(i + 1, j), dfs(i, j - 1));
-        int res = s[j + 1] - s[i] - a;
-        f[i][j] = res;
-        return res;
+```cpp
+class Solution {
+public:
+    bool PredictTheWinner(vector<int>& nums) {
+        int n = nums.size();
+        int f[n][n];
+        memset(f, 0, sizeof(f));
+        for (int i = 0; i < n; ++i) {
+            f[i][i] = nums[i];
+        }
+        for (int i = n - 2; ~i; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                f[i][j] = max(nums[i] - f[i + 1][j], nums[j] - f[i][j - 1]);
+            }
+        }
+        return f[0][n - 1] >= 0;
     }
 };
 ```
@@ -166,38 +205,91 @@ public:
 
 ```go
 func PredictTheWinner(nums []int) bool {
-	n := len(nums)
-	s := make([]int, n+1)
-	f := make([][]int, n+1)
-	for i, v := range nums {
-		s[i+1] = s[i] + v
-	}
+    n := len(nums)
+	f := make([][]int, n)
 	for i := range f {
-		f[i] = make([]int, n+1)
-		for j := range f[i] {
-			f[i][j] = -1
-		}
+		f[i] = make([]int, n)
 	}
 	var dfs func(i, j int) int
 	dfs = func(i, j int) int {
 		if i > j {
 			return 0
 		}
-		if f[i][j] != -1 {
-			return f[i][j]
+		if f[i][j] == 0 {
+			f[i][j] = max(nums[i]-dfs(i+1, j), nums[j]-dfs(i, j-1))
 		}
-		a := min(dfs(i+1, j), dfs(i, j-1))
-		f[i][j] = s[j+1] - s[i] - a
 		return f[i][j]
 	}
-	return dfs(0, n-1)*2 >= s[n]
+	return dfs(0, n-1) >= 0
 }
 
-func min(a, b int) int {
-	if a < b {
+func max(a, b int) int {
+	if a > b {
 		return a
 	}
 	return b
+}
+```
+
+```go
+func PredictTheWinner(nums []int) bool {
+	n := len(nums)
+	f := make([][]int, n)
+	for i, x := range nums {
+		f[i] = make([]int, n)
+		f[i][i] = x
+	}
+	for i := n - 2; i >= 0; i-- {
+		for j := i + 1; j < n; j++ {
+			f[i][j] = max(nums[i]-f[i+1][j], nums[j]-f[i][j-1])
+		}
+	}
+	return f[0][n-1] >= 0
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function PredictTheWinner(nums: number[]): boolean {
+    const n = nums.length;
+    const f: number[][] = new Array(n).fill(0).map(() => new Array(n).fill(0));
+    const dfs = (i: number, j: number): number => {
+        if (i > j) {
+            return 0;
+        }
+        if (f[i][j] === 0) {
+            f[i][j] = Math.max(
+                nums[i] - dfs(i + 1, j),
+                nums[j] - dfs(i, j - 1),
+            );
+        }
+        return f[i][j];
+    };
+    return dfs(0, n - 1) >= 0;
+}
+```
+
+```ts
+function PredictTheWinner(nums: number[]): boolean {
+    const n = nums.length;
+    const f: number[][] = new Array(n).fill(0).map(() => new Array(n).fill(0));
+    for (let i = 0; i < n; ++i) {
+        f[i][i] = nums[i];
+    }
+    for (let i = n - 2; i >= 0; --i) {
+        for (let j = i + 1; j < n; ++j) {
+            f[i][j] = Math.max(nums[i] - f[i + 1][j], nums[j] - f[i][j - 1]);
+        }
+    }
+    return f[0][n - 1] >= 0;
 }
 ```
 

@@ -83,6 +83,10 @@ Alice 先开始，只能拿前 5 颗或后 5 颗石子 。
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是石子的堆数。
 
+相似题目：
+
+-   [486. 预测赢家](/solution/0400-0499/0486.Predict%20the%20Winner/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**

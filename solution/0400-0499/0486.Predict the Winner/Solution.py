@@ -1,11 +1,10 @@
 class Solution:
     def PredictTheWinner(self, nums: List[int]) -> bool:
-        @cache
-        def dfs(i, j):
-            if i > j:
-                return 0
-            a = min(dfs(i + 1, j), dfs(i, j - 1))
-            return s[j + 1] - s[i] - a
-
-        s = list(accumulate(nums, initial=0))
-        return dfs(0, len(nums) - 1) * 2 >= s[-1]
+        n = len(nums)
+        f = [[0] * n for _ in range(n)]
+        for i, x in enumerate(nums):
+            f[i][i] = x
+        for i in range(n - 2, -1, -1):
+            for j in range(i + 1, n):
+                f[i][j] = max(nums[i] - f[i + 1][j], nums[j] - f[i][j - 1])
+        return f[0][n - 1] >= 0
