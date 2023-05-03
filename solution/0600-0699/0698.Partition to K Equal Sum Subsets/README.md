@@ -64,7 +64,19 @@
 -   `-1`：表示当前状态下无法划分为 $k$ 个子集；
 -   `1`：表示当前状态下可以划分为 $k$ 个子集。
 
-时间复杂度 $O(n\times 2^n)$，其中 $n$ 表示数组 $nums$ 的长度。对于每个状态，我们需要遍历数组 `nums`，时间复杂度为 $O(n)$；状态总数为 $2^n$，因此总的时间复杂度为 $O(n\times 2^n)$。
+时间复杂度 $O(n\times 2^n)$，空间复杂度 $O(2^n)$。其中 $n$ 表示数组 $nums$ 的长度。对于每个状态，我们需要遍历数组 `nums`，时间复杂度为 $O(n)$；状态总数为 $2^n$，因此总的时间复杂度为 $O(n\times 2^n)$。
+
+**方法三：动态规划**
+
+我们可以使用动态规划的方法求解本题。
+
+我们定义 $f[i]$ 表示当前选取的数字的状态为 $i$ 时，是否存在 $k$ 个子集满足题目要求。初始时 $f[0]=true$，答案为 $f[2^n-1]$。其中 $n$ 表示数组 $nums$ 的长度。另外，我们定义 $cur[i]$ 表示当前选取的数字的状态为 $i$ 时，最后一个子集的和。
+
+我们在 $[0,2^n)$ 的范围内枚举状态 $i$，对于每个状态 $i$，如果 $f[i]$ 为 `false`，我们直接跳过即可。否则，我们枚举 $nums$ 数组中的任意一个数 $nums[j]$，如果 $cur[i] + nums[j] \gt s$，我们直接跳出枚举循环，因为后面的数更大，无法放入当前子集；否则，如果 $i$ 的二进制表示的第 $j$ 位为 $0$，说明当前 $nums[j]$ 还没有被选取，我们可以将其放入当前子集中，此时状态变为 $i | 2^j$，并更新 $cur[i | 2^j] = (cur[i] + nums[j]) \bmod s$，并且 $f[i | 2^j] = true$。
+
+最后，我们返回 $f[2^n-1]$ 即可。
+
+时间复杂度 $O(n \times 2^n)$，空间复杂度 $O(2^n)$。其中 $n$ 表示数组 $nums$ 的长度。
 
 <!-- tabs:start -->
 
@@ -117,6 +129,31 @@ class Solution:
         nums.sort()
         mask = (1 << len(nums)) - 1
         return dfs(0, 0)
+```
+
+```python
+class Solution:
+    def canPartitionKSubsets(self, nums: List[int], k: int) -> bool:
+        s = sum(nums)
+        if s % k:
+            return False
+        s //= k
+        nums.sort()
+        n = len(nums)
+        f = [False] * (1 << n)
+        cur = [0] * (1 << n)
+        f[0] = True
+        for i in range(1 << n):
+            if not f[i]:
+                continue
+            for j in range(n):
+                if cur[i] + nums[j] > s:
+                    break
+                if (i >> j & 1) == 0:
+                    if not f[i | 1 << j]:
+                        cur[i | 1 << j] = (cur[i] + nums[j]) % s
+                        f[i | 1 << j] = True
+        return f[-1]
 ```
 
 ### **Java**
@@ -209,6 +246,41 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public boolean canPartitionKSubsets(int[] nums, int k) {
+        int s = 0;
+        for (int x : nums) {
+            s += x;
+        }
+        if (s % k != 0) {
+            return false;
+        }
+        s /= k;
+        Arrays.sort(nums);
+        int n = nums.length;
+        boolean[] f = new boolean[1 << n];
+        f[0] = true;
+        int[] cur = new int[1 << n];
+        for (int i = 0; i < 1 << n; ++i) {
+            if (!f[i]) {
+                continue;
+            }
+            for (int j = 0; j < n; ++j) {
+                if (cur[i] + nums[j] > s) {
+                    break;
+                }
+                if ((i >> j & 1) == 0) {
+                    cur[i | 1 << j] = (cur[i] + nums[j]) % s;
+                    f[i | 1 << j] = true;
+                }
+            }
+        }
+        return f[(1 << n) - 1];
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -282,6 +354,41 @@ public:
             return false;
         };
         return dfs(0, 0);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool canPartitionKSubsets(vector<int>& nums, int k) {
+        int s = accumulate(nums.begin(), nums.end(), 0);
+        if (s % k) {
+            return false;
+        }
+        s /= k;
+        sort(nums.begin(), nums.end());
+        int n = nums.size();
+        bool f[1 << n];
+        int cur[1 << n];
+        memset(f, false, sizeof(f));
+        memset(cur, 0, sizeof(cur));
+        f[0] = 1;
+        for (int i = 0; i < 1 << n; ++i) {
+            if (!f[i]) {
+                continue;
+            }
+            for (int j = 0; j < n; ++j) {
+                if (cur[i] + nums[j] > s) {
+                    break;
+                }
+                if ((i >> j & 1) == 0) {
+                    f[i | 1 << j] = true;
+                    cur[i | 1 << j] = (cur[i] + nums[j]) % s;
+                }
+            }
+        }
+        return f[(1 << n) - 1];
     }
 };
 ```
@@ -364,6 +471,71 @@ func canPartitionKSubsets(nums []int, k int) bool {
 
 	sort.Ints(nums)
 	return dfs(0, 0)
+}
+```
+
+```go
+func canPartitionKSubsets(nums []int, k int) bool {
+	s := 0
+	for _, x := range nums {
+		s += x
+	}
+	if s%k != 0 {
+		return false
+	}
+	s /= k
+	sort.Ints(nums)
+	n := len(nums)
+	f := make([]bool, 1<<n)
+	cur := make([]int, 1<<n)
+	f[0] = true
+	for i := 0; i < 1<<n; i++ {
+		if !f[i] {
+			continue
+		}
+		for j := 0; j < n; j++ {
+			if cur[i]+nums[j] > s {
+				break
+			}
+			if i>>j&1 == 0 {
+				f[i|1<<j] = true
+				cur[i|1<<j] = (cur[i] + nums[j]) % s
+			}
+		}
+	}
+	return f[(1<<n)-1]
+}
+```
+
+### **TypeScript**
+
+```ts
+function canPartitionKSubsets(nums: number[], k: number): boolean {
+    let s = nums.reduce((a, b) => a + b);
+    if (s % k !== 0) {
+        return false;
+    }
+    s /= k;
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    const f: boolean[] = new Array(1 << n).fill(false);
+    f[0] = true;
+    const cur: number[] = new Array(n).fill(0);
+    for (let i = 0; i < 1 << n; ++i) {
+        if (!f[i]) {
+            continue;
+        }
+        for (let j = 0; j < n; ++j) {
+            if (cur[i] + nums[j] > s) {
+                break;
+            }
+            if (((i >> j) & 1) === 0) {
+                f[i | (1 << j)] = true;
+                cur[i | (1 << j)] = (cur[i] + nums[j]) % s;
+            }
+        }
+    }
+    return f[(1 << n) - 1];
 }
 ```
 
