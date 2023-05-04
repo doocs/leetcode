@@ -54,13 +54,319 @@ Hence, we need at minimum 2 moves to determine with certainty what the value of 
 ### **Python3**
 
 ```python
+class Solution:
+    def superEggDrop(self, k: int, n: int) -> int:
+        @cache
+        def dfs(i: int, j: int) -> int:
+            if i < 1:
+                return 0
+            if j == 1:
+                return i
+            l, r = 1, i
+            while l < r:
+                mid = (l + r + 1) >> 1
+                a = dfs(mid - 1, j - 1)
+                b = dfs(i - mid, j)
+                if a <= b:
+                    l = mid
+                else:
+                    r = mid - 1
+            return max(dfs(l - 1, j - 1), dfs(i - l, j)) + 1
 
+        return dfs(n, k)
+```
+
+```python
+class Solution:
+    def superEggDrop(self, k: int, n: int) -> int:
+        f = [[0] * (k + 1) for _ in range(n + 1)]
+        for i in range(1, n + 1):
+            f[i][1] = i
+        for i in range(1, n + 1):
+            for j in range(2, k + 1):
+                l, r = 1, i
+                while l < r:
+                    mid = (l + r + 1) >> 1
+                    a, b = f[mid - 1][j - 1], f[i - mid][j]
+                    if a <= b:
+                        l = mid
+                    else:
+                        r = mid - 1
+                f[i][j] = max(f[l - 1][j - 1], f[i - l][j]) + 1
+        return f[n][k]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[][] f;
 
+    public int superEggDrop(int k, int n) {
+        f = new int[n + 1][k + 1];
+        return dfs(n, k);
+    }
+
+    private int dfs(int i, int j) {
+        if (i < 1) {
+            return 0;
+        }
+        if (j == 1) {
+            return i;
+        }
+        if (f[i][j] != 0) {
+            return f[i][j];
+        }
+        int l = 1, r = i;
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            int a = dfs(mid - 1, j - 1);
+            int b = dfs(i - mid, j);
+            if (a <= b) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return f[i][j] = Math.max(dfs(l - 1, j - 1), dfs(i - l, j)) + 1;
+    }
+}
+```
+
+```java
+class Solution {
+    public int superEggDrop(int k, int n) {
+        int[][] f = new int[n + 1][k + 1];
+        for (int i = 1; i <= n; ++i) {
+            f[i][1] = i;
+        }
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 2; j <= k; ++j) {
+                int l = 1, r = i;
+                while (l < r) {
+                    int mid = (l + r + 1) >> 1;
+                    int a = f[mid - 1][j - 1];
+                    int b = f[i - mid][j];
+                    if (a <= b) {
+                        l = mid;
+                    } else {
+                        r = mid - 1;
+                    }
+                }
+                f[i][j] = Math.max(f[l - 1][j - 1], f[i - l][j]) + 1;
+            }
+        }
+        return f[n][k];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int superEggDrop(int k, int n) {
+        int f[n + 1][k + 1];
+        memset(f, 0, sizeof(f));
+        function<int(int, int)> dfs = [&](int i, int j) -> int {
+            if (i < 1) {
+                return 0;
+            }
+            if (j == 1) {
+                return i;
+            }
+            if (f[i][j]) {
+                return f[i][j];
+            }
+            int l = 1, r = i;
+            while (l < r) {
+                int mid = (l + r + 1) >> 1;
+                int a = dfs(mid - 1, j - 1);
+                int b = dfs(i - mid, j);
+                if (a <= b) {
+                    l = mid;
+                } else {
+                    r = mid - 1;
+                }
+            }
+            return f[i][j] = max(dfs(l - 1, j - 1), dfs(i - l, j)) + 1;
+        };
+        return dfs(n, k);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int superEggDrop(int k, int n) {
+        int f[n + 1][k + 1];
+        memset(f, 0, sizeof(f));
+        for (int i = 1; i <= n; ++i) {
+            f[i][1] = i;
+        }
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 2; j <= k; ++j) {
+                int l = 1, r = i;
+                while (l < r) {
+                    int mid = (l + r + 1) >> 1;
+                    int a = f[mid - 1][j - 1];
+                    int b = f[i - mid][j];
+                    if (a <= b) {
+                        l = mid;
+                    } else {
+                        r = mid - 1;
+                    }
+                }
+                f[i][j] = max(f[l - 1][j - 1], f[i - l][j]) + 1;
+            }
+        }
+        return f[n][k];
+    }
+};
+```
+
+### **Go**
+
+```go
+func superEggDrop(k int, n int) int {
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, k+1)
+	}
+	var dfs func(i, j int) int
+	dfs = func(i, j int) int {
+		if i < 1 {
+			return 0
+		}
+		if j == 1 {
+			return i
+		}
+		if f[i][j] != 0 {
+			return f[i][j]
+		}
+		l, r := 1, i
+		for l < r {
+			mid := (l + r + 1) >> 1
+			a, b := dfs(mid-1, j-1), dfs(i-mid, j)
+			if a <= b {
+				l = mid
+			} else {
+				r = mid - 1
+			}
+		}
+		f[i][j] = max(dfs(l-1, j-1), dfs(i-l, j)) + 1
+		return f[i][j]
+	}
+	return dfs(n, k)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func superEggDrop(k int, n int) int {
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, k+1)
+	}
+	for i := 1; i <= n; i++ {
+		f[i][1] = i
+	}
+	for i := 1; i <= n; i++ {
+		for j := 2; j <= k; j++ {
+			l, r := 1, i
+			for l < r {
+				mid := (l + r + 1) >> 1
+				a, b := f[mid-1][j-1], f[i-mid][j]
+				if a <= b {
+					l = mid
+				} else {
+					r = mid - 1
+				}
+			}
+			f[i][j] = max(f[l-1][j-1], f[i-l][j]) + 1
+		}
+	}
+	return f[n][k]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function superEggDrop(k: number, n: number): number {
+    const f: number[][] = new Array(n + 1)
+        .fill(0)
+        .map(() => new Array(k + 1).fill(0));
+    const dfs = (i: number, j: number): number => {
+        if (i < 1) {
+            return 0;
+        }
+        if (j === 1) {
+            return i;
+        }
+        if (f[i][j]) {
+            return f[i][j];
+        }
+        let l = 1;
+        let r = i;
+        while (l < r) {
+            const mid = (l + r + 1) >> 1;
+            const a = dfs(mid - 1, j - 1);
+            const b = dfs(i - mid, j);
+            if (a <= b) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return (f[i][j] = Math.max(dfs(l - 1, j - 1), dfs(i - l, j)) + 1);
+    };
+    return dfs(n, k);
+}
+```
+
+```ts
+function superEggDrop(k: number, n: number): number {
+    const f: number[][] = new Array(n + 1)
+        .fill(0)
+        .map(() => new Array(k + 1).fill(0));
+    for (let i = 1; i <= n; ++i) {
+        f[i][1] = i;
+    }
+    for (let i = 1; i <= n; ++i) {
+        for (let j = 2; j <= k; ++j) {
+            let l = 1;
+            let r = i;
+            while (l < r) {
+                const mid = (l + r + 1) >> 1;
+                const a = f[mid - 1][j - 1];
+                const b = f[i - mid][j];
+                if (a <= b) {
+                    l = mid;
+                } else {
+                    r = mid - 1;
+                }
+            }
+            f[i][j] = Math.max(f[l - 1][j - 1], f[i - l][j]) + 1;
+        }
+    }
+    return f[n][k];
+}
 ```
 
 ### **...**
