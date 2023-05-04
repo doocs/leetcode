@@ -1,17 +1,18 @@
 func maxValue(events [][]int, k int) int {
 	sort.Slice(events, func(i, j int) bool { return events[i][1] < events[j][1] })
 	n := len(events)
-	dp := make([][]int, n+1)
-	for i := range dp {
-		dp[i] = make([]int, k+1)
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, k+1)
 	}
-	for i, event := range events {
-		h := sort.Search(i, func(k int) bool { return events[k][1] >= event[0] })
+	for i := 1; i <= n; i++ {
+		st, val := events[i-1][0], events[i-1][2]
+		p := sort.Search(i, func(j int) bool { return events[j][1] >= st })
 		for j := 1; j <= k; j++ {
-			dp[i+1][j] = max(dp[i][j], dp[h][j-1]+event[2])
+			f[i][j] = max(f[i-1][j], f[p][j-1]+val)
 		}
 	}
-	return dp[n][k]
+	return f[n][k]
 }
 
 func max(a, b int) int {

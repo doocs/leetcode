@@ -2,27 +2,27 @@ class Solution {
     public int maxValue(int[][] events, int k) {
         Arrays.sort(events, (a, b) -> a[1] - b[1]);
         int n = events.length;
-        int[][] dp = new int[n + 1][k + 1];
-        for (int i = 0; i < n; ++i) {
-            int s = events[i][0], v = events[i][2];
-            int h = search(events, s, i);
+        int[][] f = new int[n + 1][k + 1];
+        for (int i = 1; i <= n; ++i) {
+            int st = events[i - 1][0], val = events[i - 1][2];
+            int p = search(events, st, i - 1);
             for (int j = 1; j <= k; ++j) {
-                dp[i + 1][j] = Math.max(dp[i][j], dp[h][j - 1] + v);
+                f[i][j] = Math.max(f[i - 1][j], f[p][j - 1] + val);
             }
         }
-        return dp[n][k];
+        return f[n][k];
     }
 
-    private int search(int[][] events, int x, int n) {
-        int left = 0, right = n;
-        while (left < right) {
-            int mid = (left + right) >> 1;
+    private int search(int[][] events, int x, int hi) {
+        int l = 0, r = hi;
+        while (l < r) {
+            int mid = (l + r) >> 1;
             if (events[mid][1] >= x) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return left;
+        return l;
     }
 }

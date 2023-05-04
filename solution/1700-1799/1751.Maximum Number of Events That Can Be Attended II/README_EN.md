@@ -59,16 +59,16 @@ Notice that you cannot attend any other event as they overlap, and that you do <
 class Solution:
     def maxValue(self, events: List[List[int]], k: int) -> int:
         @cache
-        def dfs(i, k):
+        def dfs(i: int, k: int) -> int:
             if i >= len(events):
                 return 0
-            _, e, v = events[i]
+            _, ed, val = events[i]
             ans = dfs(i + 1, k)
             if k:
-                j = bisect_right(events, e, lo=i+1, key=lambda x: x[0])
-                ans = max(ans, dfs(j, k - 1) + v)
+                j = bisect_right(events, ed, lo=i + 1, key=lambda x: x[0])
+                ans = max(ans, dfs(j, k - 1) + val)
             return ans
-
+        
         events.sort()
         return dfs(0, k)
 ```
@@ -78,12 +78,12 @@ class Solution:
     def maxValue(self, events: List[List[int]], k: int) -> int:
         events.sort(key=lambda x: x[1])
         n = len(events)
-        dp = [[0] * (k + 1) for _ in range(n + 1)]
-        for i, (s, _, v) in enumerate(events):
-            h = bisect_left(events, s, hi=i, key=lambda x: x[1])
+        f = [[0] * (k + 1) for _ in range(n + 1)]
+        for i, (st, _, val) in enumerate(events, 1):
+            p = bisect_left(events, st, hi=i - 1, key=lambda x: x[1])
             for j in range(1, k + 1):
-                dp[i + 1][j] = max(dp[i][j], dp[h][j - 1] + v)
-        return dp[n][k]
+                f[i][j] = max(f[i - 1][j], f[p][j - 1] + val)
+        return f[n][k]
 ```
 
 ### **Java**
@@ -111,21 +111,20 @@ class Solution {
         }
         int j = search(events, events[i][1], i + 1);
         int ans = Math.max(dfs(i + 1, k), dfs(j, k - 1) + events[i][2]);
-        f[i][k] = ans;
-        return ans;
+        return f[i][k] = ans;
     }
 
-    private int search(int[][] events, int x, int i) {
-        int left = i, right = n;
-        while (left < right) {
-            int mid = (left + right) >> 1;
+    private int search(int[][] events, int x, int lo) {
+        int l = lo, r = n;
+        while (l < r) {
+            int mid = (l + r) >> 1;
             if (events[mid][0] > x) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return left;
+        return l;
     }
 }
 ```
@@ -135,28 +134,28 @@ class Solution {
     public int maxValue(int[][] events, int k) {
         Arrays.sort(events, (a, b) -> a[1] - b[1]);
         int n = events.length;
-        int[][] dp = new int[n + 1][k + 1];
-        for (int i = 0; i < n; ++i) {
-            int s = events[i][0], v = events[i][2];
-            int h = search(events, s, i);
+        int[][] f = new int[n + 1][k + 1];
+        for (int i = 1; i <= n; ++i) {
+            int st = events[i - 1][0], val = events[i - 1][2];
+            int p = search(events, st, i - 1);
             for (int j = 1; j <= k; ++j) {
-                dp[i + 1][j] = Math.max(dp[i][j], dp[h][j - 1] + v);
+                f[i][j] = Math.max(f[i - 1][j], f[p][j - 1] + val);
             }
         }
-        return dp[n][k];
+        return f[n][k];
     }
 
-    private int search(int[][] events, int x, int n) {
-        int left = 0, right = n;
-        while (left < right) {
-            int mid = (left + right) >> 1;
+    private int search(int[][] events, int x, int hi) {
+        int l = 0, r = hi;
+        while (l < r) {
+            int mid = (l + r) >> 1;
             if (events[mid][1] >= x) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return left;
+        return l;
     }
 }
 ```
@@ -169,15 +168,20 @@ public:
     int maxValue(vector<vector<int>>& events, int k) {
         sort(events.begin(), events.end());
         int n = events.size();
-        vector<vector<int>> f(n, vector<int>(k + 1));
+        int f[n][k + 1];
+        memset(f, 0, sizeof(f));
         function<int(int, int)> dfs = [&](int i, int k) -> int {
-            if (i >= n || k <= 0) return 0;
-            if (f[i][k]) return f[i][k];
-            vector<int> t = {events[i][1]};
-            int j = upper_bound(events.begin() + i + 1, events.end(), t, [&](auto& l, auto& r) -> bool { return l[0] < r[0]; }) - events.begin();
-            int ans = max(dfs(i + 1, k), dfs(j, k - 1) + events[i][2]);
-            f[i][k] = ans;
-            return ans;
+            if (i >= n || k <= 0) {
+                return 0;
+            }
+            if (f[i][k] > 0) {
+                return f[i][k];
+            }
+            int ed = events[i][1], val = events[i][2];
+            vector<int> t = {ed};
+            int p = upper_bound(events.begin() + i + 1, events.end(), t, [](const auto& a, const auto& b) { return a[0] < b[0]; }) - events.begin();
+            f[i][k] = max(dfs(i + 1, k), dfs(p, k - 1) + val);
+            return f[i][k];
         };
         return dfs(0, k);
     }
@@ -188,17 +192,19 @@ public:
 class Solution {
 public:
     int maxValue(vector<vector<int>>& events, int k) {
-        sort(events.begin(), events.end(), [&](auto& l, auto& r) -> bool { return l[1] < r[1]; });
+        sort(events.begin(), events.end(), [](const auto& a, const auto& b) { return a[1] < b[1]; });
         int n = events.size();
-        vector<vector<int>> dp(n + 1, vector<int>(k + 1));
-        for (int i = 0; i < n; ++i) {
-            int s = events[i][0], v = events[i][2];
-            int h = lower_bound(events.begin(), events.begin() + i, s, [](auto& e, int x) { return e[1] < x; }) - events.begin();
+        int f[n + 1][k + 1];
+        memset(f, 0, sizeof(f));
+        for (int i = 1; i <= n; ++i) {
+            int st = events[i - 1][0], val = events[i - 1][2];
+            vector<int> t = {st};
+            int p = lower_bound(events.begin(), events.begin() + i - 1, t, [](const auto& a, const auto& b) { return a[1] < b[0]; }) - events.begin();
             for (int j = 1; j <= k; ++j) {
-                dp[i + 1][j] = max(dp[i][j], dp[h][j - 1] + v);
+                f[i][j] = max(f[i - 1][j], f[p][j - 1] + val);
             }
         }
-        return dp[n][k];
+        return f[n][k];
     }
 };
 ```
@@ -241,17 +247,18 @@ func max(a, b int) int {
 func maxValue(events [][]int, k int) int {
 	sort.Slice(events, func(i, j int) bool { return events[i][1] < events[j][1] })
 	n := len(events)
-	dp := make([][]int, n+1)
-	for i := range dp {
-		dp[i] = make([]int, k+1)
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, k+1)
 	}
-	for i, event := range events {
-		h := sort.Search(i, func(k int) bool { return events[k][1] >= event[0] })
+	for i := 1; i <= n; i++ {
+		st, val := events[i-1][0], events[i-1][2]
+		p := sort.Search(i, func(j int) bool { return events[j][1] >= st })
 		for j := 1; j <= k; j++ {
-			dp[i+1][j] = max(dp[i][j], dp[h][j-1]+event[2])
+			f[i][j] = max(f[i-1][j], f[p][j-1]+val)
 		}
 	}
-	return dp[n][k]
+	return f[n][k]
 }
 
 func max(a, b int) int {
@@ -259,6 +266,39 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxValue(events: number[][], k: number): number {
+    events.sort((a, b) => a[1] - b[1]);
+    const n = events.length;
+    const f: number[][] = new Array(n + 1)
+        .fill(0)
+        .map(() => new Array(k + 1).fill(0));
+    const search = (x: number, hi: number): number => {
+        let l = 0;
+        let r = hi;
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (events[mid][1] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    };
+    for (let i = 1; i <= n; ++i) {
+        const [st, _, val] = events[i - 1];
+        const p = search(st, i - 1);
+        for (let j = 1; j <= k; ++j) {
+            f[i][j] = Math.max(f[i - 1][j], f[p][j - 1] + val);
+        }
+    }
+    return f[n][k];
 }
 ```
 
