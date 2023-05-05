@@ -1,32 +1,30 @@
 class Solution {
     public int minNumberOfFrogs(String croakOfFrogs) {
-        int c = 0, r = 0, o = 0, a = 0, k = 0;
-        int ans = 0;
-        for (char ch : croakOfFrogs.toCharArray()) {
-            if (ch == 'c') {
-                ++c;
-                if (k > 0) {
-                    --k;
-                } else {
-                    ++ans;
-                }
-            } else if (ch == 'r') {
-                ++r;
-                --c;
-            } else if (ch == 'o') {
-                ++o;
-                --r;
-            } else if (ch == 'a') {
-                ++a;
-                --o;
+        int n = croakOfFrogs.length();
+        if (n % 5 != 0) {
+            return -1;
+        }
+        int[] idx = new int[26];
+        String s = "croak";
+        for (int i = 0; i < 5; ++i) {
+            idx[s.charAt(i) - 'a'] = i;
+        }
+        int[] cnt = new int[5];
+        int ans = 0, x = 0;
+        for (int k = 0; k < n; ++k) {
+            int i = idx[croakOfFrogs.charAt(k) - 'a'];
+            ++cnt[i];
+            if (i == 0) {
+                ans = Math.max(ans, ++x);
             } else {
-                ++k;
-                --a;
-            }
-            if (c < 0 || r < 0 || o < 0 || a < 0) {
-                return -1;
+                if (--cnt[i - 1] < 0) {
+                    return -1;
+                }
+                if (i == 4) {
+                    --x;
+                }
             }
         }
-        return c == 0 && r == 0 && o == 0 && a == 0 ? ans : -1;
+        return x > 0 ? -1 : ans;
     }
 }

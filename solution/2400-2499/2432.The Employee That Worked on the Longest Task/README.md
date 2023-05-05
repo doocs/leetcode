@@ -76,11 +76,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：模拟**
+**方法一：直接遍历**
 
-我们遍历数组 `logs`，记录每个员工的工作时间，最后返回工作时间最长且 id 最小的员工。
+我们用变量 $last$ 记录上一个任务的结束时间，用变量 $mx$ 记录最长的工作时间，用变量 $ans$ 记录工作时间最长且 $id$ 最小的员工。初始时，三个变量均为 $0$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `logs` 的长度。
+接下来，遍历数组 $logs$，对于每个员工，我们将员工完成任务的时间减去上一个任务的结束时间，即可得到该员工的工作时间 $t$。如果 $mx$ 小于 $t$，或者 $mx$ 等于 $t$ 且该员工的 $id$ 小于 $ans$，则更新 $mx$ 和 $ans$。然后我们将 $last$ 更新为上一个任务的结束时间加上 $t$。继续遍历，直到遍历完整个数组。
+
+最后返回答案 $ans$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $logs$ 的长度。
 
 <!-- tabs:start -->
 
@@ -91,13 +95,11 @@
 ```python
 class Solution:
     def hardestWorker(self, n: int, logs: List[List[int]]) -> int:
-        last = 0
-        ans = mx = 0
+        last = mx = ans = 0
         for uid, t in logs:
             t -= last
             if mx < t or (mx == t and ans > uid):
-                ans = uid
-                mx = t
+                ans, mx = uid, t
             last += t
         return ans
 ```

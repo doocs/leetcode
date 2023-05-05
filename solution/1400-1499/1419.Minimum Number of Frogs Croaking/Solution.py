@@ -1,25 +1,19 @@
 class Solution:
     def minNumberOfFrogs(self, croakOfFrogs: str) -> int:
-        c = r = o = a = k = ans = 0
-        for ch in croakOfFrogs:
-            if ch == 'c':
-                c += 1
-                if k > 0:
-                    k -= 1
-                else:
-                    ans += 1
-            elif ch == 'r':
-                r += 1
-                c -= 1
-            elif ch == 'o':
-                o += 1
-                r -= 1
-            elif ch == 'a':
-                a += 1
-                o -= 1
+        if len(croakOfFrogs) % 5 != 0:
+            return -1
+        idx = {c: i for i, c in enumerate('croak')}
+        cnt = [0] * 5
+        ans = x = 0
+        for i in map(idx.get, croakOfFrogs):
+            cnt[i] += 1
+            if i == 0:
+                x += 1
+                ans = max(ans, x)
             else:
-                k += 1
-                a -= 1
-            if c < 0 or r < 0 or o < 0 or a < 0:
-                return -1
-        return -1 if c != 0 or r != 0 or o != 0 or a != 0 else ans
+                if cnt[i - 1] == 0:
+                    return -1
+                cnt[i - 1] -= 1
+                if i == 4:
+                    x -= 1
+        return -1 if x else ans
