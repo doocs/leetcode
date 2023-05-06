@@ -51,69 +51,25 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：深度优先搜索**
+**方法一：DFS**
 
-判断城市之间是否属于同一个连通分量，最后连通分量的总数即为结果。
+我们创建一个数组 $vis$，用于记录每个城市是否被访问过。
+
+接下来，遍历每个城市 $i$，如果该城市未被访问过，则从该城市开始深度优先搜索，通过矩阵 $isConnected$ 得到与该城市直接相连的城市有哪些，这些城市和该城市属于同一个省，然后对这些城市继续深度优先搜索，直到同一个省的所有城市都被访问到，即可得到一个省，将答案 $ans$ 加 $1$，然后遍历下一个未被访问过的城市，直到遍历完所有的城市。
+
+最后返回答案即可。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是城市的数量。
 
 **方法二：并查集**
 
-模板 1——朴素并查集：
+我们也可以用并查集维护每个连通分量，初始时，每个城市都属于不同的连通分量，所以省份数量为 $n$。
 
-```python
-# 初始化，p存储每个点的父节点
-p = list(range(n))
+接下来，遍历矩阵 $isConnected$，如果两个城市 $(i, j)$ 之间有相连关系，并且处于两个不同的连通分量，则它们将被合并成为一个连通分量，然后将省份数量减去 $1$。
 
-# 返回x的祖宗节点
-def find(x):
-    if p[x] != x:
-        # 路径压缩
-        p[x] = find(p[x])
-    return p[x]
+最后返回省份数量即可。
 
-
-# 合并a和b所在的两个集合
-p[find(a)] = find(b)
-```
-
-模板 2——维护 size 的并查集：
-
-```python
-# 初始化，p存储每个点的父节点，size只有当节点是祖宗节点时才有意义，表示祖宗节点所在集合中，点的数量
-p = list(range(n))
-size = [1] * n
-
-# 返回x的祖宗节点
-def find(x):
-    if p[x] != x:
-        # 路径压缩
-        p[x] = find(p[x])
-    return p[x]
-
-# 合并a和b所在的两个集合
-if find(a) != find(b):
-    size[find(b)] += size[find(a)]
-    p[find(a)] = find(b)
-```
-
-模板 3——维护到祖宗节点距离的并查集：
-
-```python
-# 初始化，p存储每个点的父节点，d[x]存储x到p[x]的距离
-p = list(range(n))
-d = [0] * n
-
-# 返回x的祖宗节点
-def find(x):
-    if p[x] != x:
-        t = find(p[x])
-        d[x] += d[p[x]]
-        p[x] = t
-    return p[x]
-
-# 合并a和b所在的两个集合
-p[find(a)] = find(b)
-d[find(a)] = distance
-```
+时间复杂度 $O(n^2 \times \alpha(n))$，空间复杂度 $O(n)$。其中 $n$ 是城市的数量，而 $\alpha$ 是阿克曼函数的反函数，在渐进意义下 $\alpha(n)$ 可以认为是一个很小的常数。
 
 <!-- tabs:start -->
 
@@ -121,15 +77,13 @@ d[find(a)] = distance
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-深度优先搜索：
-
 ```python
 class Solution:
     def findCircleNum(self, isConnected: List[List[int]]) -> int:
-        def dfs(i):
+        def dfs(i: int):
             vis[i] = True
-            for j in range(n):
-                if not vis[j] and isConnected[i][j]:
+            for j, x in enumerate(isConnected[i]):
+                if not vis[j]  and x:
                     dfs(j)
 
         n = len(isConnected)
@@ -142,41 +96,40 @@ class Solution:
         return ans
 ```
 
-并查集：
-
 ```python
 class Solution:
     def findCircleNum(self, isConnected: List[List[int]]) -> int:
-        def find(x):
+        def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
         n = len(isConnected)
         p = list(range(n))
+        ans = n
         for i in range(n):
             for j in range(i + 1, n):
                 if isConnected[i][j]:
-                    p[find(i)] = find(j)
-        return sum(i == v for i, v in enumerate(p))
+                    pa, pb = find(i), find(j)
+                    if pa != pb:
+                        p[pa] = pb
+                        ans -= 1
+        return ans
 ```
 
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-深度优先搜索：
-
 ```java
 class Solution {
-    private int[][] isConnected;
+    private int[][] g;
     private boolean[] vis;
-    private int n;
 
     public int findCircleNum(int[][] isConnected) {
-        n = isConnected.length;
+        g = isConnected;
+        int n = g.length;
         vis = new boolean[n];
-        this.isConnected = isConnected;
         int ans = 0;
         for (int i = 0; i < n; ++i) {
             if (!vis[i]) {
@@ -189,16 +142,14 @@ class Solution {
 
     private void dfs(int i) {
         vis[i] = true;
-        for (int j = 0; j < n; ++j) {
-            if (!vis[j] && isConnected[i][j] == 1) {
+        for (int j = 0; j < g.length; ++j) {
+            if (!vis[j] && g[i][j] == 1) {
                 dfs(j);
             }
         }
     }
 }
 ```
-
-并查集：
 
 ```java
 class Solution {
@@ -210,17 +161,16 @@ class Solution {
         for (int i = 0; i < n; ++i) {
             p[i] = i;
         }
+        int ans = n;
         for (int i = 0; i < n; ++i) {
             for (int j = i + 1; j < n; ++j) {
                 if (isConnected[i][j] == 1) {
-                    p[find(i)] = find(j);
+                    int pa = find(i), pb = find(j);
+                    if (pa != pb) {
+                        p[pa] = pb;
+                        --ans;
+                    }
                 }
-            }
-        }
-        int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            if (i == p[i]) {
-                ++ans;
             }
         }
         return ans;
@@ -237,20 +187,22 @@ class Solution {
 
 ### **C++**
 
-深度优先搜索：
-
 ```cpp
 class Solution {
 public:
-    vector<vector<int>> isConnected;
-    vector<bool> vis;
-    int n;
-
     int findCircleNum(vector<vector<int>>& isConnected) {
-        n = isConnected.size();
-        vis.resize(n);
-        this->isConnected = isConnected;
+        int n = isConnected.size();
         int ans = 0;
+        bool vis[n];
+        memset(vis, false, sizeof(vis));
+        function<void(int)> dfs = [&](int i) {
+            vis[i] = true;
+            for (int j = 0; j < n; ++j) {
+                if (!vis[j] && isConnected[i][j]) {
+                    dfs(j);
+                }
+            }
+        };
         for (int i = 0; i < n; ++i) {
             if (!vis[i]) {
                 dfs(i);
@@ -259,78 +211,66 @@ public:
         }
         return ans;
     }
-
-    void dfs(int i) {
-        vis[i] = true;
-        for (int j = 0; j < n; ++j)
-            if (!vis[j] && isConnected[i][j])
-                dfs(j);
-    }
 };
 ```
-
-并查集：
 
 ```cpp
 class Solution {
 public:
-    vector<int> p;
-
     int findCircleNum(vector<vector<int>>& isConnected) {
         int n = isConnected.size();
-        p.resize(n);
-        for (int i = 0; i < n; ++i) p[i] = i;
-        for (int i = 0; i < n; ++i)
-            for (int j = i + 1; j < n; ++j)
-                if (isConnected[i][j])
-                    p[find(i)] = find(j);
-        int ans = 0;
-        for (int i = 0; i < n; ++i)
-            if (i == p[i])
-                ++ans;
+        int p[n];
+        iota(p, p + n, 0);
+        function<int(int)> find = [&](int x) -> int {
+            if (p[x] != x) {
+                p[x] = find(p[x]);
+            }
+            return p[x];
+        };
+        int ans = n;
+        for (int i = 0; i < n; ++i) {
+            for (int j = i + 1; j < n; ++j) {
+                if (isConnected[i][j]) {
+                    int pa = find(i), pb = find(j);
+                    if (pa != pb) {
+                        p[pa] = pb;
+                        --ans;
+                    }
+                }
+            }
+        }
         return ans;
-
-    }
-
-    int find(int x) {
-        if (p[x] != x) p[x] = find(p[x]);
-        return p[x];
     }
 };
 ```
 
 ### **Go**
 
-深度优先搜索：
-
 ```go
-func findCircleNum(isConnected [][]int) int {
-    n := len(isConnected)
-    vis := make([]bool, n)
-    var dfs func(i int)
-    dfs = func(i int) {
-        vis[i] = true
-        for j := 0; j < n; j++ {
-            if !vis[j] && isConnected[i][j] == 1 {
-                dfs(j)
-            }
-        }
-    }
-    ans := 0
-    for i := 0; i < n; i++ {
-        if !vis[i] {
-            dfs(i)
-            ans++
-        }
-    }
-    return ans
+func findCircleNum(isConnected [][]int) (ans int) {
+	n := len(isConnected)
+	vis := make([]bool, n)
+	var dfs func(int)
+	dfs = func(i int) {
+		vis[i] = true
+		for j, x := range isConnected[i] {
+			if !vis[j] && x == 1 {
+				dfs(j)
+			}
+		}
+	}
+	for i, v := range vis {
+		if !v {
+			ans++
+			dfs(i)
+		}
+	}
+	return
 }
 ```
 
-并查集：
-
 ```go
-func findCircleNum(isConnected [][]int) int {
+func findCircleNum(isConnected [][]int) (ans int) {
 	n := len(isConnected)
 	p := make([]int, n)
 	for i := range p {
@@ -343,20 +283,74 @@ func findCircleNum(isConnected [][]int) int {
 		}
 		return p[x]
 	}
+	ans = n
 	for i := 0; i < n; i++ {
-		for j := i + 1; j < n; j++ {
+		for j := 0; j < n; j++ {
 			if isConnected[i][j] == 1 {
-				p[find(i)] = find(j)
+				pa, pb := find(i), find(j)
+				if pa != pb {
+					p[pa] = pb
+					ans--
+				}
 			}
 		}
 	}
-	ans := 0
-	for i := range p {
-		if p[i] == i {
-			ans++
-		}
-	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function findCircleNum(isConnected: number[][]): number {
+    const n = isConnected.length;
+    const vis: boolean[] = new Array(n).fill(false);
+    const dfs = (i: number) => {
+        vis[i] = true;
+        for (let j = 0; j < n; ++j) {
+            if (!vis[j] && isConnected[i][j]) {
+                dfs(j);
+            }
+        }
+    };
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        if (!vis[i]) {
+            dfs(i);
+            ++ans;
+        }
+    }
+    return ans;
+}
+```
+
+```ts
+function findCircleNum(isConnected: number[][]): number {
+    const n = isConnected.length;
+    const p: number[] = new Array(n);
+    for (let i = 0; i < n; ++i) {
+        p[i] = i;
+    }
+    const find = (x: number): number => {
+        if (p[x] !== x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    };
+    let ans = n;
+    for (let i = 0; i < n; ++i) {
+        for (let j = i + 1; j < n; ++j) {
+            if (isConnected[i][j]) {
+                const pa = find(i);
+                const pb = find(j);
+                if (pa !== pb) {
+                    p[pa] = pb;
+                    --ans;
+                }
+            }
+        }
+    }
+    return ans;
 }
 ```
 

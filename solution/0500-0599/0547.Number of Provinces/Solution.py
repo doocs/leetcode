@@ -1,11 +1,11 @@
 class Solution:
     def findCircleNum(self, isConnected: List[List[int]]) -> int:
-        def dfs(i):
+        def dfs(i: int):
             vis[i] = True
-            for j in range(n):
-                if not vis[j] and isConnected[i][j]:
+            for j, x in enumerate(isConnected[i]):
+                if not vis[j]  and x:
                     dfs(j)
-
+        
         n = len(isConnected)
         vis = [False] * n
         ans = 0

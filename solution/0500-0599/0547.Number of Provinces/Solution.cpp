@@ -1,14 +1,18 @@
 class Solution {
 public:
-    vector<vector<int>> isConnected;
-    vector<bool> vis;
-    int n;
-
     int findCircleNum(vector<vector<int>>& isConnected) {
-        n = isConnected.size();
-        vis.resize(n);
-        this->isConnected = isConnected;
+        int n = isConnected.size();
         int ans = 0;
+        bool vis[n];
+        memset(vis, false, sizeof(vis));
+        function<void(int)> dfs = [&](int i) {
+            vis[i] = true;
+            for (int j = 0; j < n; ++j) {
+                if (!vis[j] && isConnected[i][j]) {
+                    dfs(j);
+                }
+            }
+        };
         for (int i = 0; i < n; ++i) {
             if (!vis[i]) {
                 dfs(i);
@@ -16,12 +20,5 @@ public:
             }
         }
         return ans;
-    }
-
-    void dfs(int i) {
-        vis[i] = true;
-        for (int j = 0; j < n; ++j)
-            if (!vis[j] && isConnected[i][j])
-                dfs(j);
     }
 };
