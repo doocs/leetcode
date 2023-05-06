@@ -2715,3 +2715,7 @@
   - [2661.First Completely Painted Row or Column](/solution/2600-2699/2661.First%20Completely%20Painted%20Row%20or%20Column/README_EN.md)
   - [2662.Minimum Cost of a Path With Special Roads](/solution/2600-2699/2662.Minimum%20Cost%20of%20a%20Path%20With%20Special%20Roads/README_EN.md)
   - [2663.Lexicographically Smallest Beautiful String](/solution/2600-2699/2663.Lexicographically%20Smallest%20Beautiful%20String/README_EN.md)
+  - [2664.The Knight’s Tour](/solution/2600-2699/2664.The%20Knight%E2%80%99s%20Tour/README_EN.md)
+  - [2665.Counter II](/solution/2600-2699/2665.Counter%20II/README_EN.md)
+  - [2668.Find Latest Salaries](/solution/2600-2699/2668.Find%20Latest%20Salaries/README_EN.md)
+  - [2669.Count Artist Occurrences On Spotify Ranking List](/solution/2600-2699/2669.Count%20Artist%20Occurrences%20On%20Spotify%20Ranking%20List/README_EN.md)

@@ -1,4 +1,4 @@
-# [2590. Design a Todo List](https://leetcode.cn/problems/design-a-todo-list)
+# [2590. 设计一个待办事项清单](https://leetcode.cn/problems/design-a-todo-list)
 
 [English Version](/solution/2500-2599/2590.Design%20a%20Todo%20List/README_EN.md)
 
@@ -6,55 +6,57 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Design a Todo List Where users can add <strong>tasks</strong>, mark them as <strong>complete</strong>, or get a list of pending tasks. Users can also add <strong>tags</strong> to tasks and can filter the tasks by certain tags.</p>
+<p>设计一个待办事项清单，用户可以添加 <strong>任务</strong> ，标记任务为 <strong>完成状态</strong> ，或获取待办任务列表。用户还可以为任务添加 <strong>标签</strong> ，并可以按照特定标签筛选任务。</p>
 
-<p>Implement the <code>TodoList</code> class:</p>
+<p>实现 <code>TodoList</code> 类：</p>
 
 <ul>
-	<li><code>TodoList()</code> Initializes the object.</li>
-	<li><code>int addTask(int userId, String taskDescription, int dueDate, List&lt;String&gt; tags)</code> Adds a task for the user with the ID <code>userId</code> with a due date equal to <code>dueDate</code> and a list of tags attached to the task. The return value is the ID of the task. This ID starts at <code>1</code> and is <strong>sequentially</strong> increasing. That is, the first task&#39;s id should be <code>1</code>, the second task&#39;s id should be <code>2</code>, and so on.</li>
-	<li><code>List&lt;String&gt; getAllTasks(int userId)</code> Returns a list of all the tasks not marked as complete for the user with ID <code>userId</code>, ordered by the due date. You should return an empty list if the user has no uncompleted tasks.</li>
-	<li><code>List&lt;String&gt; getTasksForTag(int userId, String tag)</code> Returns a list of all the tasks that are not marked as complete for the user with the ID <code>userId</code> and have <code>tag</code> as one of their tags, ordered by their due date. Return an empty list if no such task exists.</li>
-	<li><code>void completeTask(int userId, int taskId)</code> Marks the task with the ID <code>taskId</code> as completed only if the task exists and the user with the ID <code>userId</code> has this task, and it is uncompleted.</li>
+	<li><code>TodoList()</code> 初始化对象。</li>
+	<li><code>int addTask(int userId, String taskDescription, int dueDate, List&lt;String&gt; tags)</code> 为用户 ID 为 <code>userId</code> 的用户添加一个任务，该任务的到期日期为 <code>dueDate</code>&nbsp;，附带了一个标签列表 <code>tags</code>&nbsp;。返回值为任务的 ID 。该 ID 从 <code>1</code> 开始，<strong>依次</strong> 递增。即，第一个任务的ID应为 <code>1</code> ，第二个任务的 ID 应为 <code>2</code> ，以此类推。</li>
+	<li><code>List&lt;String&gt; getAllTasks(int userId)</code> 返回未标记为完成状态的 ID 为 <code>userId</code> 的用户的所有任务列表，按照到期日期排序。如果用户没有未完成的任务，则应返回一个空列表。</li>
+	<li><code>List&lt;String&gt; getTasksForTag(int userId, String tag)</code> 返回 ID 为 <code>userI</code>d 的用户未标记为完成状态且具有 <code>tag</code> 标签之一的所有任务列表，按照到期日期排序。如果不存在此类任务，则返回一个空列表。</li>
+	<li><code>void completeTask(int userId, int taskId)</code> 仅在任务存在且 ID 为 <code>userId</code> 的用户拥有此任务且它是未完成状态时，将 ID 为 <code>taskId</code> 的任务标记为已完成状态。</li>
 </ul>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1 ：</strong></p>
 
 <pre>
-<strong>Input</strong>
-[&quot;TodoList&quot;, &quot;addTask&quot;, &quot;addTask&quot;, &quot;getAllTasks&quot;, &quot;getAllTasks&quot;, &quot;addTask&quot;, &quot;getTasksForTag&quot;, &quot;completeTask&quot;, &quot;completeTask&quot;, &quot;getTasksForTag&quot;, &quot;getAllTasks&quot;]
-[[], [1, &quot;Task1&quot;, 50, []], [1, &quot;Task2&quot;, 100, [&quot;P1&quot;]], [1], [5], [1, &quot;Task3&quot;, 30, [&quot;P1&quot;]], [1, &quot;P1&quot;], [5, 1], [1, 2], [1, &quot;P1&quot;], [1]]
-<strong>Output</strong>
-[null, 1, 2, [&quot;Task1&quot;, &quot;Task2&quot;], [], 3, [&quot;Task3&quot;, &quot;Task2&quot;], null, null, [&quot;Task3&quot;], [&quot;Task3&quot;, &quot;Task1&quot;]]
+<strong>输入</strong>
+["TodoList", "addTask", "addTask", "getAllTasks", "getAllTasks", "addTask", "getTasksForTag", "completeTask", "completeTask", "getTasksForTag", "getAllTasks"]
+[[], [1, "Task1", 50, []], [1, "Task2", 100, ["P1"]], [1], [5], [1, "Task3", 30, ["P1"]], [1, "P1"], [5, 1], [1, 2], [1, "P1"], [1]]
+<strong>输出</strong>
+[null, 1, 2, ["Task1", "Task2"], [], 3, ["Task3", "Task2"], null, null, ["Task3"], ["Task3", "Task1"]]
 
-<strong>Explanation</strong>
-TodoList todoList = new TodoList();
-todoList.addTask(1, &quot;Task1&quot;, 50, []); // return 1. This adds a new task for the user with id 1.
-todoList.addTask(1, &quot;Task2&quot;, 100, [&quot;P1&quot;]); // return 2. This adds another task for the user with id 1.
-todoList.getAllTasks(1); // return [&quot;Task1&quot;, &quot;Task2&quot;]. User 1 has two uncompleted tasks so far.
-todoList.getAllTasks(5); // return []. User 5 does not have any tasks so far.
-todoList.addTask(1, &quot;Task3&quot;, 30, [&quot;P1&quot;]); // return 3. This adds another task for the user with id 1.
-todoList.getTasksForTag(1, &quot;P1&quot;); // return [&quot;Task3&quot;, &quot;Task2&quot;]. This returns the uncompleted tasks that have the tag &quot;P1&quot; for the user with id 1.
-todoList.completeTask(5, 1); // This does nothing, since task 1 does not belong to user 5.
-todoList.completeTask(1, 2); // This marks task 2 as completed.
-todoList.getTasksForTag(1, &quot;P1&quot;); // return [&quot;Task3&quot;]. This returns the uncompleted tasks that have the tag &quot;P1&quot; for the user with id 1.
-                                  // Notice that we did not include &quot;Task2&quot; because it is completed now.
-todoList.getAllTasks(1); // return [&quot;Task3&quot;, &quot;Task1&quot;]. User 1 now has 2 uncompleted tasks.
+<strong>解释</strong>
+TodoList todoList = new TodoList(); 
+todoList.addTask(1, "Task1", 50, []); // 返回1。为ID为1的用户添加一个新任务。 
+todoList.addTask(1, "Task2", 100, ["P1"]); // 返回2。为ID为1的用户添加另一个任务，并给它添加标签“P1”。 
+todoList.getAllTasks(1); // 返回["Task1", "Task2"]。用户1目前有两个未完成的任务。 
+todoList.getAllTasks(5); // 返回[]。用户5目前没有任务。 
+todoList.addTask(1, "Task3", 30, ["P1"]); // 返回3。为ID为1的用户添加另一个任务，并给它添加标签“P1”。 
+todoList.getTasksForTag(1, "P1"); // 返回["Task3", "Task2"]。返回ID为1的用户未完成的带有“P1”标签的任务。 
+todoList.completeTask(5, 1); // 不做任何操作，因为任务1不属于用户5。 
+todoList.completeTask(1, 2); // 将任务2标记为已完成。 
+todoList.getTasksForTag(1, "P1"); // 返回["Task3"]。返回ID为1的用户未完成的带有“P1”标签的任务。 
+                                  // 注意，现在不包括 “Task2” ，因为它已经被标记为已完成。 
+todoList.getAllTasks(1); // 返回["Task3", "Task1"]。用户1现在有两个未完成的任务。
 
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= userId, taskId, dueDate &lt;= 100</code></li>
 	<li><code>0 &lt;= tags.length &lt;= 100</code></li>
 	<li><code>1 &lt;= taskDescription.length &lt;= 50</code></li>
 	<li><code>1 &lt;= tags[i].length, tag.length &lt;= 20</code></li>
-	<li>All <code>dueDate</code> values are unique.</li>
-	<li>All the strings consist of lowercase and uppercase English letters and digits.</li>
-	<li>At most <code>100</code> calls will be made for each method.</li>
+	<li>所有的&nbsp;<code>dueDate</code> 值都是唯一的。</li>
+	<li>所有字符串都由小写和大写英文字母和数字组成。</li>
+	<li>每个方法最多被调用 <code>100</code> 次。</li>
 </ul>
 
 ## 解法

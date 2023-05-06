@@ -38,7 +38,7 @@ The dates of the sales years are between 2018 to 2020.
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the total sales amount of each item for each year, with corresponding <code>product_name</code>, <code>product_id</code>, <code>product_name</code>, and <code>report_year</code>.</p>
+<p>Write an SQL query to report the total sales amount of each item for each year, with corresponding <code>product_name</code>, <code>product_id</code>, <code>report_year</code>, and <code>total_amount</code>.</p>
 
 <p>Return the result table <strong>ordered</strong> by <code>product_id</code> and <code>report_year</code>.</p>
 

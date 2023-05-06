@@ -13,7 +13,7 @@
 <p>假设玩家在第 <code>i</code> 轮中击中&nbsp;<code>x<sub>i</sub></code> 个瓶子。玩家第 <code>i</code> 轮的价值为：</p>
 
 <ul>
-	<li>如果玩家在前两轮中击中了 <code>10</code> 个瓶子，则为 <code>2x<sub>i</sub></code> 。</li>
+	<li>如果玩家在该轮的前两轮的任何一轮中击中了 <code>10</code> 个瓶子，则为 <code>2x<sub>i</sub></code> 。</li>
 	<li>否则，为&nbsp;<code>x<sub>i</sub></code> 。</li>
 </ul>
 

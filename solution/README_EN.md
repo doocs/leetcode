@@ -1008,7 +1008,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0997  |  [Find the Town Judge](/solution/0900-0999/0997.Find%20the%20Town%20Judge/README_EN.md)  |  `Graph`,`Array`,`Hash Table`  |  Easy  |  Weekly Contest 125  |
 |  0998  |  [Maximum Binary Tree II](/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/README_EN.md)  |  `Tree`,`Binary Tree`  |  Medium  |  Weekly Contest 125  |
 |  0999  |  [Available Captures for Rook](/solution/0900-0999/0999.Available%20Captures%20for%20Rook/README_EN.md)  |  `Array`,`Matrix`,`Simulation`  |  Easy  |  Weekly Contest 125  |
-|  1000  |  [Minimum Cost to Merge Stones](/solution/1000-1099/1000.Minimum%20Cost%20to%20Merge%20Stones/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Hard  |  Weekly Contest 126  |
+|  1000  |  [Minimum Cost to Merge Stones](/solution/1000-1099/1000.Minimum%20Cost%20to%20Merge%20Stones/README_EN.md)  |  `Array`,`Dynamic Programming`,`Prefix Sum`  |  Hard  |  Weekly Contest 126  |
 |  1001  |  [Grid Illumination](/solution/1000-1099/1001.Grid%20Illumination/README_EN.md)  |  `Array`,`Hash Table`  |  Hard  |  Weekly Contest 125  |
 |  1002  |  [Find Common Characters](/solution/1000-1099/1002.Find%20Common%20Characters/README_EN.md)  |  `Array`,`Hash Table`,`String`  |  Easy  |  Weekly Contest 126  |
 |  1003  |  [Check If Word Is Valid After Substitutions](/solution/1000-1099/1003.Check%20If%20Word%20Is%20Valid%20After%20Substitutions/README_EN.md)  |  `Stack`,`String`  |  Medium  |  Weekly Contest 126  |
@@ -2663,15 +2663,19 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2652  |  [Sum Multiples](/solution/2600-2699/2652.Sum%20Multiples/README_EN.md)  |  `Array`,`Math`,`Number Theory`  |  Easy  |  Weekly Contest 342  |
 |  2653  |  [Sliding Subarray Beauty](/solution/2600-2699/2653.Sliding%20Subarray%20Beauty/README_EN.md)  |  `Array`,`Hash Table`,`Sliding Window`  |  Medium  |  Weekly Contest 342  |
 |  2654  |  [Minimum Number of Operations to Make All Array Elements Equal to 1](/solution/2600-2699/2654.Minimum%20Number%20of%20Operations%20to%20Make%20All%20Array%20Elements%20Equal%20to%201/README_EN.md)  |  `Array`,`Math`,`Number Theory`  |  Medium  |  Weekly Contest 342  |
-|  2655  |  [Find Maximal Uncovered Ranges](/solution/2600-2699/2655.Find%20Maximal%20Uncovered%20Ranges/README_EN.md)  |    |  Medium  |  🔒  |
-|  2656  |  [Maximum Sum With Exactly K Elements](/solution/2600-2699/2656.Maximum%20Sum%20With%20Exactly%20K%20Elements/README_EN.md)  |    |  Easy  |  Biweekly Contest 103  |
-|  2657  |  [Find the Prefix Common Array of Two Arrays](/solution/2600-2699/2657.Find%20the%20Prefix%20Common%20Array%20of%20Two%20Arrays/README_EN.md)  |    |  Medium  |  Biweekly Contest 103  |
-|  2658  |  [Maximum Number of Fish in a Grid](/solution/2600-2699/2658.Maximum%20Number%20of%20Fish%20in%20a%20Grid/README_EN.md)  |    |  Hard  |  Biweekly Contest 103  |
-|  2659  |  [Make Array Empty](/solution/2600-2699/2659.Make%20Array%20Empty/README_EN.md)  |    |  Hard  |  Biweekly Contest 103  |
-|  2660  |  [Determine the Winner of a Bowling Game](/solution/2600-2699/2660.Determine%20the%20Winner%20of%20a%20Bowling%20Game/README_EN.md)  |    |  Easy  |  Weekly Contest 343  |
-|  2661  |  [First Completely Painted Row or Column](/solution/2600-2699/2661.First%20Completely%20Painted%20Row%20or%20Column/README_EN.md)  |    |  Medium  |  Weekly Contest 343  |
-|  2662  |  [Minimum Cost of a Path With Special Roads](/solution/2600-2699/2662.Minimum%20Cost%20of%20a%20Path%20With%20Special%20Roads/README_EN.md)  |    |  Medium  |  Weekly Contest 343  |
-|  2663  |  [Lexicographically Smallest Beautiful String](/solution/2600-2699/2663.Lexicographically%20Smallest%20Beautiful%20String/README_EN.md)  |    |  Hard  |  Weekly Contest 343  |
+|  2655  |  [Find Maximal Uncovered Ranges](/solution/2600-2699/2655.Find%20Maximal%20Uncovered%20Ranges/README_EN.md)  |  `Array`,`Sorting`  |  Medium  |  🔒  |
+|  2656  |  [Maximum Sum With Exactly K Elements](/solution/2600-2699/2656.Maximum%20Sum%20With%20Exactly%20K%20Elements/README_EN.md)  |  `Greedy`,`Array`  |  Easy  |  Biweekly Contest 103  |
+|  2657  |  [Find the Prefix Common Array of Two Arrays](/solution/2600-2699/2657.Find%20the%20Prefix%20Common%20Array%20of%20Two%20Arrays/README_EN.md)  |  `Array`,`Hash Table`  |  Medium  |  Biweekly Contest 103  |
+|  2658  |  [Maximum Number of Fish in a Grid](/solution/2600-2699/2658.Maximum%20Number%20of%20Fish%20in%20a%20Grid/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Union Find`,`Array`,`Matrix`  |  Medium  |  Biweekly Contest 103  |
+|  2659  |  [Make Array Empty](/solution/2600-2699/2659.Make%20Array%20Empty/README_EN.md)  |  `Greedy`,`Binary Indexed Tree`,`Segment Tree`,`Array`,`Binary Search`,`Ordered Set`,`Sorting`  |  Hard  |  Biweekly Contest 103  |
+|  2660  |  [Determine the Winner of a Bowling Game](/solution/2600-2699/2660.Determine%20the%20Winner%20of%20a%20Bowling%20Game/README_EN.md)  |  `Array`,`Simulation`  |  Easy  |  Weekly Contest 343  |
+|  2661  |  [First Completely Painted Row or Column](/solution/2600-2699/2661.First%20Completely%20Painted%20Row%20or%20Column/README_EN.md)  |  `Array`,`Hash Table`,`Matrix`  |  Medium  |  Weekly Contest 343  |
+|  2662  |  [Minimum Cost of a Path With Special Roads](/solution/2600-2699/2662.Minimum%20Cost%20of%20a%20Path%20With%20Special%20Roads/README_EN.md)  |  `Graph`,`Array`,`Shortest Path`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 343  |
+|  2663  |  [Lexicographically Smallest Beautiful String](/solution/2600-2699/2663.Lexicographically%20Smallest%20Beautiful%20String/README_EN.md)  |  `Greedy`,`String`  |  Hard  |  Weekly Contest 343  |
+|  2664  |  [The Knight’s Tour](/solution/2600-2699/2664.The%20Knight%E2%80%99s%20Tour/README_EN.md)  |    |  Medium  |  🔒  |
+|  2665  |  [Counter II](/solution/2600-2699/2665.Counter%20II/README_EN.md)  |    |  Easy  |    |
+|  2668  |  [Find Latest Salaries](/solution/2600-2699/2668.Find%20Latest%20Salaries/README_EN.md)  |    |  Easy  |  🔒  |
+|  2669  |  [Count Artist Occurrences On Spotify Ranking List](/solution/2600-2699/2669.Count%20Artist%20Occurrences%20On%20Spotify%20Ranking%20List/README_EN.md)  |    |  Easy  |  🔒  |
 
 ## Copyright
 

@@ -1,4 +1,4 @@
-# [2510. Check if There is a Path With Equal Number of 0's And 1's](https://leetcode.cn/problems/check-if-there-is-a-path-with-equal-number-of-0s-and-1s)
+# [2510. 检查是否有路径经过相同数量的 0 和 1](https://leetcode.cn/problems/check-if-there-is-a-path-with-equal-number-of-0s-and-1s)
 
 [English Version](/solution/2500-2599/2510.Check%20if%20There%20is%20a%20Path%20With%20Equal%20Number%20of%200%27s%20And%201%27s/README_EN.md)
 
@@ -6,35 +6,37 @@
 
 <!-- 这里写题目描述 -->
 
-<p>You are given a <strong>0-indexed</strong> <code>m x n</code> <strong>binary</strong> matrix <code>grid</code>. You can move from a cell <code>(row, col)</code> to any of the cells <code>(row + 1, col)</code> or <code>(row, col + 1)</code>.</p>
+<p>给定一个 <strong>下标从 0 开始</strong> 的 <code>m x n</code> 的 <strong>二进制</strong> 矩阵 <code>grid</code> ，从坐标为 <code>(row, col)</code> 的元素可以向右走 <code>(row, col+1)</code> 或向下走 <code>(row+1, col)</code> 。</p>
 
-<p>Return <code>true</code><em> if there is a path from </em><code>(0, 0)</code><em> to </em><code>(m - 1, n - 1)</code><em> that visits an <strong>equal</strong> number of </em><code>0</code><em>&#39;s and </em><code>1</code><em>&#39;s</em>. Otherwise return <code>false</code>.</p>
+<p>返回一个布尔值，表示从 <code>(0, 0)</code> 出发是否存在一条路径，经过 <strong>相同</strong> 数量的 <code>0</code> 和 <code>1</code>，到达终点 <code>(m-1, n-1)</code> 。如果存在这样的路径返回 <code>true</code> ，否则返回 <code>false</code> 。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1 ：</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2500-2599/2510.Check%20if%20There%20is%20a%20Path%20With%20Equal%20Number%20of%200%27s%20And%201%27s/images/yetgriddrawio-4.png" />
 <pre>
-<strong>Input:</strong> grid = [[0,1,0,0],[0,1,0,0],[1,0,1,0]]
-<strong>Output:</strong> true
-<strong>Explanation:</strong> The path colored in blue in the above diagram is a valid path because we have 3 cells with a value of 1 and 3 with a value of 0. Since there is a valid path, we return true.
+<b>输入：</b>grid = [[0,1,0,0],[0,1,0,0],[1,0,1,0]]
+<b>输出：</b>true
+<b>解释：</b>以上图中用蓝色标记的路径是一个有效的路径，因为路径上有 3 个值为 1 的单元格和 3 个值为 0 的单元格。由于存在一个有效的路径，因此返回 true 。
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2 ：</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2500-2599/2510.Check%20if%20There%20is%20a%20Path%20With%20Equal%20Number%20of%200%27s%20And%201%27s/images/yetgrid2drawio-1.png" style="width: 151px; height: 151px;" />
 <pre>
-<strong>Input:</strong> grid = [[1,1,0],[0,0,1],[1,0,0]]
-<strong>Output:</strong> false
-<strong>Explanation:</strong> There is no path in this grid with an equal number of 0&#39;s and 1&#39;s.
+<b>输入：</b>grid = [[1,1,0],[0,0,1],[1,0,0]]
+<b>输出：</b>false
+<b>解释：</b>这个网格中没有一条路径经过相等数量的0和1。
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>m == grid.length</code></li>
 	<li><code>n == grid[i].length</code></li>
 	<li><code>2 &lt;= m, n &lt;= 100</code></li>
-	<li><code>grid[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
+	<li><code>grid[i][j]</code> 不是&nbsp;<code>0</code> 就是&nbsp;<code>1</code> 。</li>
 </ul>
 
 ## 解法

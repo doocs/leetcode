@@ -35,19 +35,20 @@ product_name 是产品的名称。
 product_id 是这张表的主键。
 period_start&nbsp;和 period_end&nbsp;是该产品销售期的起始日期和结束日期，且这两个日期包含在销售期内。
 average_daily_sales 列存储销售期内该产品的日平均销售额。
+销售日期范围为2018年到2020年。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>编写一段 SQL 查询每个产品每年的总销售额，并包含 product_id, product_name 以及 report_year 等信息。</p>
+<p>编写一段 SQL 查询，查找出每个产品每年的总销售额，并包含 <code>product_id</code> , <code>product_name</code> ,&nbsp;<code>report_year</code> 以及 <code>total_amount</code>&nbsp;。</p>
 
-<p>销售年份的日期介于 2018 年到 2020 年之间。你返回的结果需要按&nbsp;product_id 和 report_year<strong> 排序</strong>。</p>
+<p>返回结果并按&nbsp;<code>product_id</code> 和 <code>report_year</code><strong> 排序</strong>。</p>
 
 <p>查询结果格式如下例所示。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
 <code><strong>输入：</strong>
