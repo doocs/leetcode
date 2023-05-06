@@ -50,13 +50,225 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def calculate(self, s: str) -> int:
+        stk = []
+        ans, sign = 0, 1
+        i, n = 0, len(s)
+        while i < n:
+            if s[i].isdigit():
+                x = 0
+                j = i
+                while j < n and s[j].isdigit():
+                    x = x * 10 + int(s[j])
+                    j += 1
+                ans += sign * x
+                i = j - 1
+            elif s[i] == "+":
+                sign = 1
+            elif s[i] == "-":
+                sign = -1
+            elif s[i] == "(":
+                stk.append(ans)
+                stk.append(sign)
+                ans, sign = 0, 1
+            elif s[i] == ")":
+                ans = stk.pop() * ans + stk.pop()
+            i += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int calculate(String s) {
+        Deque<Integer> stk = new ArrayDeque<>();
+        int sign = 1;
+        int ans = 0;
+        int n = s.length();
+        for (int i = 0; i < n; ++i) {
+            char c = s.charAt(i);
+            if (Character.isDigit(c)) {
+                int j = i;
+                int x = 0;
+                while (j < n && Character.isDigit(s.charAt(j))) {
+                    x = x * 10 + s.charAt(j) - '0';
+                    j++;
+                }
+                ans += sign * x;
+                i = j - 1;
+            } else if (c == '+') {
+                sign = 1;
+            } else if (c == '-') {
+                sign = -1;
+            } else if (c == '(') {
+                stk.push(ans);
+                stk.push(sign);
+                ans = 0;
+                sign = 1;
+            } else if (c == ')') {
+                ans = stk.pop() * ans + stk.pop();
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int calculate(string s) {
+        stack<int> stk;
+        int ans = 0, sign = 1;
+        int n = s.size();
+        for (int i = 0; i < n; ++i) {
+            if (isdigit(s[i])) {
+                int x = 0;
+                int j = i;
+                while (j < n && isdigit(s[j])) {
+                    x = x * 10 + (s[j] - '0');
+                    ++j;
+                }
+                ans += sign * x;
+                i = j - 1;
+            } else if (s[i] == '+') {
+                sign = 1;
+            } else if (s[i] == '-') {
+                sign = -1;
+            } else if (s[i] == '(') {
+                stk.push(ans);
+                stk.push(sign);
+                ans = 0;
+                sign = 1;
+            } else if (s[i] == ')') {
+                ans *= stk.top();
+                stk.pop();
+                ans += stk.top();
+                stk.pop();
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func calculate(s string) (ans int) {
+	stk := []int{}
+	sign := 1
+	n := len(s)
+	for i := 0; i < n; i++ {
+		switch s[i] {
+		case ' ':
+		case '+':
+			sign = 1
+		case '-':
+			sign = -1
+		case '(':
+			stk = append(stk, ans)
+			stk = append(stk, sign)
+			ans, sign = 0, 1
+		case ')':
+			ans *= stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+			ans += stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+		default:
+			x := 0
+			j := i
+			for ; j < n && '0' <= s[j] && s[j] <= '9'; j++ {
+				x = x*10 + int(s[j]-'0')
+			}
+			ans += sign * x
+			i = j - 1
+		}
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function calculate(s: string): number {
+    const stk: number[] = [];
+    let sign = 1;
+    let ans = 0;
+    const n = s.length;
+    for (let i = 0; i < n; ++i) {
+        if (s[i] === ' ') {
+            continue;
+        }
+        if (s[i] === '+') {
+            sign = 1;
+        } else if (s[i] === '-') {
+            sign = -1;
+        } else if (s[i] === '(') {
+            stk.push(ans);
+            stk.push(sign);
+            ans = 0;
+            sign = 1;
+        } else if (s[i] === ')') {
+            ans *= stk.pop() as number;
+            ans += stk.pop() as number;
+        } else {
+            let x = 0;
+            let j = i;
+            for (; j < n && !isNaN(Number(s[j])) && s[j] !== ' '; ++j) {
+                x = x * 10 + (s[j].charCodeAt(0) - '0'.charCodeAt(0));
+            }
+            ans += sign * x;
+            i = j - 1;
+        }
+    }
+    return ans;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int Calculate(string s) {
+        var stk = new Stack<int>();
+        int sign = 1;
+        int n = s.Length;
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            if (s[i] == ' ') {
+                continue;
+            }
+            if (s[i] == '+') {
+                sign = 1;
+            } else if (s[i] == '-') {
+                sign = -1;
+            } else if (s[i] == '(') {
+                stk.Push(ans);
+                stk.Push(sign);
+                ans = 0;
+                sign = 1;
+            } else if (s[i] == ')') {
+                ans *= stk.Pop();
+                ans += stk.Pop();
+            } else {
+                int num = 0;
+                while (i < n && char.IsDigit(s[i])) {
+                    num = num * 10 + s[i] - '0';
+                    ++i;
+                }
+                --i;
+                ans += sign * num;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **...**

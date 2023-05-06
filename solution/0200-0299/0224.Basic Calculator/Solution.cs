@@ -1,62 +1,35 @@
-using System.Collections.Generic;
-
 public class Solution {
     public int Calculate(string s) {
-        var numbers = new Stack<int>();
-        var symbols = new Stack<char>();
-        int number = -1;
-        for (var i = 0; i <= s.Length; ++i)
-        {
-            var ch = i < s.Length ? s[i] : ' ';
-            if (char.IsDigit(ch))
-            {
-                if (number == -1) number = 0;
-                number = number * 10 + ch - '0';
+        var stk = new Stack<int>();
+        int sign = 1;
+        int n = s.Length;
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            if (s[i] == ' ') {
+                continue;
             }
-            else
-            {
-                if (number != -1)
-                {
-                    numbers.Push(number);
-                    while (symbols.Count > 0 && symbols.Peek() != '(')
-                    {
-                        var symbol = symbols.Pop();
-                        if (symbol == '+')
-                        {
-                            numbers.Push(numbers.Pop() + numbers.Pop());
-                        }
-                        else
-                        {
-                            numbers.Push(-(numbers.Pop() - numbers.Pop()));
-                        }
-                    }
-                    number = -1;
+            if (s[i] == '+') {
+                sign = 1;
+            } else if (s[i] == '-') {
+                sign = -1;
+            } else if (s[i] == '(') {
+                stk.Push(ans);
+                stk.Push(sign);
+                ans = 0;
+                sign = 1;
+            } else if (s[i] == ')') {
+                ans *= stk.Pop();
+                ans += stk.Pop();
+            } else {
+                int num = 0;
+                while (i < n && char.IsDigit(s[i])) {
+                    num = num * 10 + s[i] - '0';
+                    ++i;
                 }
-                if (char.IsWhiteSpace(ch)) continue;
-
-                if (ch == ')')
-                {
-                    symbols.Pop();
-                    while (symbols.Count > 0 && symbols.Peek() != '(')
-                    {
-                        var symbol = symbols.Pop();
-                        if (symbol == '+')
-                        {
-                            numbers.Push(numbers.Pop() + numbers.Pop());
-                        }
-                        else
-                        {
-                            numbers.Push(-(numbers.Pop() - numbers.Pop()));
-                        }
-                    }
-                }
-                else
-                {
-                    symbols.Push(ch);
-                }
+                --i;
+                ans += sign * num;
             }
         }
-
-        return numbers.Pop();
+        return ans;
     }
 }
