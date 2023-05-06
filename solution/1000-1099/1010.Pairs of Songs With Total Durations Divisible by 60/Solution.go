@@ -1,14 +1,12 @@
 func numPairsDivisibleBy60(time []int) (ans int) {
-	cnt := [501]int{}
+	cnt := [60]int{}
 	for _, t := range time {
-		s := 60
-		for i := 0; i < 17; i++ {
-			if s-t >= 0 && s-t < 501 {
-				ans += cnt[s-t]
-			}
-			s += 60
-		}
-		cnt[t]++
+		cnt[t%60]++
 	}
+	for x := 1; x < 30; x++ {
+		ans += cnt[x] * cnt[60-x]
+	}
+	ans += cnt[0] * (cnt[0] - 1) / 2
+	ans += cnt[30] * (cnt[30] - 1) / 2
 	return
 }

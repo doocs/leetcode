@@ -1,11 +1,7 @@
 class Solution:
     def numPairsDivisibleBy60(self, time: List[int]) -> int:
-        cnt = defaultdict(int)
-        ans = 0
-        for t in time:
-            s = 60
-            for _ in range(17):
-                ans += cnt[s - t]
-                s += 60
-            cnt[t] += 1
+        cnt = Counter(t % 60 for t in time)
+        ans = sum(cnt[x] * cnt[60 - x] for x in range(1, 30))
+        ans += cnt[0] * (cnt[0] - 1) // 2
+        ans += cnt[30] * (cnt[30] - 1) // 2
         return ans
