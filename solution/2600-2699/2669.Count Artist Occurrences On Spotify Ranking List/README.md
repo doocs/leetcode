@@ -64,7 +64,17 @@ Each row contains an id, track_name, and artist.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT
+	artist,
+	count( 1 ) AS occurrences 
+FROM
+	Spotify 
+GROUP BY
+	artist 
+ORDER BY
+	occurrences DESC,
+	artist;
 ```
 
 <!-- tabs:end -->

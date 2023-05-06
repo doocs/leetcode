@@ -80,7 +80,19 @@ Each row contains employees details and their yearly salaries, however, some of 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT
+	emp_id,
+	firstname,
+	lastname,
+	max( salary ) AS salary,
+	department_id 
+FROM
+	Salary 
+GROUP BY
+	emp_id 
+ORDER BY
+	emp_id;
 ```
 
 <!-- tabs:end -->
