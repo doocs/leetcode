@@ -63,6 +63,20 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：状态压缩动态规划**
+
+我们定义 $f[i][j]$ 表示前 $i$ 个工人分配到自行车的状态为 $j$ 时的最小曼哈顿距离总和，其中 $j$ 是一个二进制数，表示自行车的分配情况。初始时 $f[0][0]=0$，其余 $f[0][j]=+\infty$。
+
+考虑 $f[i][j]$，我们枚举第 $i$ 个工人分配到的自行车的编号 $k$，那么 $f[i][j]$ 可以从 $f[i-1][j\oplus 2^k]$ 转移而来，其中 $\oplus$ 表示异或运算。这是因为 $f[i-1][j\oplus 2^k]$ 表示前 $i-1$ 个工人分配到自行车的状态为 $j\oplus 2^k$ 时的最小曼哈顿距离总和，而第 $i$ 个工人分配到自行车 $k$ 时，其曼哈顿距离为 $|worker[i]-bike[k]|$，其中 $|x|$ 表示 $x$ 的绝对值。因此我们可以列出状态转移方程：
+
+$$
+f[i][j]=\min_{k=0}^{m-1}\{f[i-1][j\oplus 2^k]+|worker[i]-bike[k]|\}
+$$
+
+最终的答案为 $\min_{j=0}^{2^m-1}\{f[n][j]\}$。
+
+时间复杂度 $O(n \times 2^m \times m)$，空间复杂度 $O(n \times 2^m)$。其中 $n$ 和 $m$ 分别是工人和自行车的数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -70,7 +84,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def assignBikes(self, workers: List[List[int]], bikes: List[List[int]]) -> int:
+        n, m = len(workers), len(bikes)
+        f = [[inf] * (1 << m) for _ in range(n + 1)]
+        f[0][0] = 0
+        for i, (x1, y1) in enumerate(workers, 1):
+            for j in range(1 << m):
+                for k, (x2, y2) in enumerate(bikes):
+                    if j >> k & 1:
+                        f[i][j] = min(f[i][j], f[i - 1][j ^ (1 << k)] + abs(x1 - x2) + abs(y1 - y2))
+        return min(f[n])
 ```
 
 ### **Java**
@@ -78,7 +102,126 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int assignBikes(int[][] workers, int[][] bikes) {
+        int n = workers.length;
+        int m = bikes.length;
+        int[][] f = new int[n + 1][1 << m];
+        for (var g : f) {
+            Arrays.fill(g, 1 << 30);
+        }
+        f[0][0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 0; j < 1 << m; ++j) {
+                for (int k = 0; k < m; ++k) {
+                    if ((j >> k & 1) == 1) {
+                        int d = Math.abs(workers[i - 1][0] - bikes[k][0]) + Math.abs(workers[i - 1][1] - bikes[k][1]);
+                        f[i][j] = Math.min(f[i][j], f[i - 1][j ^ (1 << k)] + d);
+                    }
+                }
+            }
+        }
+        return Arrays.stream(f[n]).min().getAsInt();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int assignBikes(vector<vector<int>>& workers, vector<vector<int>>& bikes) {
+        int n = workers.size(), m = bikes.size();
+        int f[n + 1][1 << m];
+        memset(f, 0x3f, sizeof(f));
+        f[0][0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 0; j < 1 << m; ++j) {
+                for (int k = 0; k < m; ++k) {
+                    if (j >> k & 1) {
+                        int d = abs(workers[i - 1][0] - bikes[k][0]) + abs(workers[i - 1][1] - bikes[k][1]);
+                        f[i][j] = min(f[i][j], f[i - 1][j ^ (1 << k)] + d);
+                    }
+                }
+            }
+        }
+        return *min_element(f[n], f[n] + (1 << m));
+    }
+};
+```
+
+### **Go**
+
+```go
+func assignBikes(workers [][]int, bikes [][]int) int {
+	n, m := len(workers), len(bikes)
+	f := make([][]int, n+1)
+	const inf = 1 << 30
+	for i := range f {
+		f[i] = make([]int, 1<<m)
+		for j := range f[i] {
+			f[i][j] = inf
+		}
+	}
+	f[0][0] = 0
+	for i := 1; i <= n; i++ {
+		for j := 0; j < 1<<m; j++ {
+			for k := 0; k < m; k++ {
+				if j>>k&1 == 1 {
+					d := abs(workers[i-1][0]-bikes[k][0]) + abs(workers[i-1][1]-bikes[k][1])
+					f[i][j] = min(f[i][j], f[i-1][j^(1<<k)]+d)
+				}
+			}
+		}
+	}
+	ans := inf
+	for _, x := range f[n] {
+		ans = min(ans, x)
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+### **TypeScript**
+
+```ts
+function assignBikes(workers: number[][], bikes: number[][]): number {
+    const n = workers.length;
+    const m = bikes.length;
+    const inf = 1 << 30;
+    const f: number[][] = new Array(n + 1)
+        .fill(0)
+        .map(() => new Array(1 << m).fill(inf));
+    f[0][0] = 0;
+    for (let i = 1; i <= n; ++i) {
+        for (let j = 0; j < 1 << m; ++j) {
+            for (let k = 0; k < m; ++k) {
+                if (((j >> k) & 1) === 1) {
+                    const d =
+                        Math.abs(workers[i - 1][0] - bikes[k][0]) +
+                        Math.abs(workers[i - 1][1] - bikes[k][1]);
+                    f[i][j] = Math.min(f[i][j], f[i - 1][j ^ (1 << k)] + d);
+                }
+            }
+        }
+    }
+    return Math.min(...f[n]);
+}
 ```
 
 ### **...**
