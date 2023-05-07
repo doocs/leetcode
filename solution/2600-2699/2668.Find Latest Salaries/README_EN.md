@@ -80,11 +80,11 @@ SELECT
 	firstname,
 	lastname,
 	max( salary ) AS salary,
-	department_id 
+	department_id
 FROM
-	Salary 
+	Salary
 GROUP BY
-	emp_id 
+	emp_id
 ORDER BY
 	emp_id;
 ```

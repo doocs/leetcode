@@ -67,11 +67,11 @@ Each row contains an id, track_name, and artist.
 # Write your MySQL query statement below
 SELECT
 	artist,
-	count( 1 ) AS occurrences 
+	count( 1 ) AS occurrences
 FROM
-	Spotify 
+	Spotify
 GROUP BY
-	artist 
+	artist
 ORDER BY
 	occurrences DESC,
 	artist;

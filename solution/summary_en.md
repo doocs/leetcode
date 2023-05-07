@@ -2719,3 +2719,7 @@
   - [2665.Counter II](/solution/2600-2699/2665.Counter%20II/README_EN.md)
   - [2668.Find Latest Salaries](/solution/2600-2699/2668.Find%20Latest%20Salaries/README_EN.md)
   - [2669.Count Artist Occurrences On Spotify Ranking List](/solution/2600-2699/2669.Count%20Artist%20Occurrences%20On%20Spotify%20Ranking%20List/README_EN.md)
+  - [2670.Find the Distinct Difference Array](/solution/2600-2699/2670.Find%20the%20Distinct%20Difference%20Array/README_EN.md)
+  - [2671.Frequency Tracker](/solution/2600-2699/2671.Frequency%20Tracker/README_EN.md)
+  - [2672.Number of Adjacent Elements With the Same Color](/solution/2600-2699/2672.Number%20of%20Adjacent%20Elements%20With%20the%20Same%20Color/README_EN.md)
+  - [2673.Make Costs of Paths Equal in a Binary Tree](/solution/2600-2699/2673.Make%20Costs%20of%20Paths%20Equal%20in%20a%20Binary%20Tree/README_EN.md)

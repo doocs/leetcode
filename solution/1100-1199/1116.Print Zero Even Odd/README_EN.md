@@ -69,7 +69,7 @@ class ZeroEvenOdd:
         self.z = Semaphore(1)
         self.e = Semaphore(0)
         self.o = Semaphore(0)
-        
+
 	# printNumber(x) outputs "x", where x is an integer.
     def zero(self, printNumber: 'Callable[[int], None]') -> None:
         for i in range(self.n):
@@ -79,13 +79,13 @@ class ZeroEvenOdd:
                 self.o.release()
             else:
                 self.e.release()
-        
+
     def even(self, printNumber: 'Callable[[int], None]') -> None:
         for i in range(2, self.n + 1, 2):
             self.e.acquire()
             printNumber(i)
             self.z.release()
-        
+
     def odd(self, printNumber: 'Callable[[int], None]') -> None:
         for i in range(1, self.n + 1, 2):
             self.o.acquire()
@@ -101,7 +101,7 @@ class ZeroEvenOdd {
     private Semaphore z = new Semaphore(1);
     private Semaphore e = new Semaphore(0);
     private Semaphore o = new Semaphore(0);
-    
+
     public ZeroEvenOdd(int n) {
         this.n = n;
     }

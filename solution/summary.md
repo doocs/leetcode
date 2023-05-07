@@ -2719,3 +2719,7 @@
   - [2665.Counter II](/solution/2600-2699/2665.Counter%20II/README.md)
   - [2668.Find Latest Salaries](/solution/2600-2699/2668.Find%20Latest%20Salaries/README.md)
   - [2669.Count Artist Occurrences On Spotify Ranking List](/solution/2600-2699/2669.Count%20Artist%20Occurrences%20On%20Spotify%20Ranking%20List/README.md)
+  - [2670.找出不同元素数目差数组](/solution/2600-2699/2670.Find%20the%20Distinct%20Difference%20Array/README.md)
+  - [2671.频率跟踪器](/solution/2600-2699/2671.Frequency%20Tracker/README.md)
+  - [2672.有相同颜色的相邻元素数目](/solution/2600-2699/2672.Number%20of%20Adjacent%20Elements%20With%20the%20Same%20Color/README.md)
+  - [2673.使二叉树所有路径值相等的最小代价](/solution/2600-2699/2673.Make%20Costs%20of%20Paths%20Equal%20in%20a%20Binary%20Tree/README.md)

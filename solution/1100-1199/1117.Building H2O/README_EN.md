@@ -84,7 +84,7 @@ class H2O {
     private Semaphore o = new Semaphore(0);
 
     public H2O() {
-        
+
     }
 
     public void hydrogen(Runnable releaseHydrogen) throws InterruptedException {

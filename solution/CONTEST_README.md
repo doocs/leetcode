@@ -24,6 +24,14 @@
 
 ## 往期竞赛
 
+#### 第 344 场周赛(2023-05-07 10:30, 90 分钟) 参赛人数 3986
+
+- [2670. 找出不同元素数目差数组](/solution/2600-2699/2670.Find%20the%20Distinct%20Difference%20Array/README.md)
+- [2671. 频率跟踪器](/solution/2600-2699/2671.Frequency%20Tracker/README.md)
+- [2672. 有相同颜色的相邻元素数目](/solution/2600-2699/2672.Number%20of%20Adjacent%20Elements%20With%20the%20Same%20Color/README.md)
+- [2673. 使二叉树所有路径值相等的最小代价](/solution/2600-2699/2673.Make%20Costs%20of%20Paths%20Equal%20in%20a%20Binary%20Tree/README.md)
+
+
 #### 第 343 场周赛(2023-04-30 10:30, 90 分钟) 参赛人数 3313
 
 - [2660. 保龄球游戏的获胜者](/solution/2600-2699/2660.Determine%20the%20Winner%20of%20a%20Bowling%20Game/README.md)
@@ -1920,7 +1928,7 @@
 - [1425. 带限制的子序列和](/solution/1400-1499/1425.Constrained%20Subsequence%20Sum/README.md)
 
 
-#### 第 185 场周赛(2020-04-19 10:30, 90 分钟) 参赛人数 5003
+#### 第 185 场周赛(2020-04-19 10:30, 90 分钟) 参赛人数 5004
 
 - [1417. 重新格式化字符串](/solution/1400-1499/1417.Reformat%20The%20String/README.md)
 - [1418. 点菜展示表](/solution/1400-1499/1418.Display%20Table%20of%20Food%20Orders%20in%20a%20Restaurant/README.md)
