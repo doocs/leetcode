@@ -63,7 +63,17 @@ class FooBar {
 
 <!-- 这里可写通用的实现逻辑 -->
 
-两把锁分别对应 `foo` 和 `bar`，先把 `bar` 锁住，确保第一个输出的是 `foo`
+**方法一：多线程 + 信号量**
+
+我们用两个信号量 $f$ 和 $b$ 来控制两个线程的执行顺序，其中 $f$ 初始值为 $1$，而 $b$ 初始值为 $0$，表示线程 $A$ 先执行。
+
+当线程 $A$ 执行时，首先会执行 $f$ 的 $acquire$ 操作，此时 $f$ 的值变为 $0$，线程 $A$ 获得了 $f$ 的使用权，可以执行 $foo$ 函数，然后执行 $b$ 的 $release$ 操作，此时 $b$ 的值变为 $1$，线程 $B$ 获得了 $b$ 的使用权，可以执行 $bar$ 函数。
+
+当线程 $B$ 执行时，首先会执行 $b$ 的 $acquire$ 操作，此时 $b$ 的值变为 $0$，线程 $B$ 获得了 $b$ 的使用权，可以执行 $bar$ 函数，然后执行 $f$ 的 $release$ 操作，此时 $f$ 的值变为 $1$，线程 $A$ 获得了 $f$ 的使用权，可以执行 $foo$ 函数。
+
+因此，我们只需要循环 $n$ 次，每次执行 $foo$ 和 $bar$ 函数时，先执行 $acquire$ 操作，再执行 $release$ 操作即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -72,24 +82,28 @@ class FooBar {
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+from threading import Semaphore
+
+
 class FooBar:
     def __init__(self, n):
         self.n = n
-        self.fooLock = threading.Lock()
-        self.barLock = threading.Lock()
-        self.barLock.acquire()
+        self.f = Semaphore(1)
+        self.b = Semaphore(0)
 
-    def foo(self, printFoo: 'Callable[[], None]') -> None:
-        for i in range(self.n):
-            self.fooLock.acquire()
+    def foo(self, printFoo: "Callable[[], None]") -> None:
+        for _ in range(self.n):
+            self.f.acquire()
+            # printFoo() outputs "foo". Do not change or remove this line.
             printFoo()
-            self.barLock.release()
+            self.b.release()
 
-    def bar(self, printBar: 'Callable[[], None]') -> None:
-        for i in range(self.n):
-            self.barLock.acquire()
+    def bar(self, printBar: "Callable[[], None]") -> None:
+        for _ in range(self.n):
+            self.b.acquire()
+            # printBar() outputs "bar". Do not change or remove this line.
             printBar()
-            self.fooLock.release()
+            self.f.release()
 ```
 
 ### **Java**
@@ -99,8 +113,8 @@ class FooBar:
 ```java
 class FooBar {
     private int n;
-    private final Semaphore fooSem = new Semaphore(1);
-    private final Semaphore barSem = new Semaphore(0);
+    private Semaphore f = new Semaphore(1);
+    private Semaphore b = new Semaphore(0);
 
     public FooBar(int n) {
         this.n = n;
@@ -108,17 +122,19 @@ class FooBar {
 
     public void foo(Runnable printFoo) throws InterruptedException {
         for (int i = 0; i < n; i++) {
-            fooSem.acquire();
-            printFoo.run();
-            barSem.release();
+            f.acquire(1);
+        	// printFoo.run() outputs "foo". Do not change or remove this line.
+        	printFoo.run();
+            b.release(1);
         }
     }
 
     public void bar(Runnable printBar) throws InterruptedException {
         for (int i = 0; i < n; i++) {
-            barSem.acquire();
-            printBar.run();
-            fooSem.release();
+            b.acquire(1);
+            // printBar.run() outputs "bar". Do not change or remove this line.
+        	printBar.run();
+            f.release(1);
         }
     }
 }
@@ -127,30 +143,35 @@ class FooBar {
 ### **C++**
 
 ```cpp
+#include <semaphore.h>
+
 class FooBar {
 private:
     int n;
-    mutex fooMu, barMu;
+    sem_t f, b;
 
 public:
     FooBar(int n) {
         this->n = n;
-        barMu.lock();
+        sem_init(&f, 0, 1);
+        sem_init(&b, 0, 0);
     }
 
     void foo(function<void()> printFoo) {
         for (int i = 0; i < n; i++) {
-            fooMu.lock();
-            printFoo();
-            barMu.unlock();
+            sem_wait(&f);
+        	// printFoo() outputs "foo". Do not change or remove this line.
+        	printFoo();
+            sem_post(&b);
         }
     }
 
     void bar(function<void()> printBar) {
         for (int i = 0; i < n; i++) {
-            barMu.lock();
-            printBar();
-            fooMu.unlock();
+            sem_wait(&b);
+        	// printBar() outputs "bar". Do not change or remove this line.
+        	printBar();
+            sem_post(&f);
         }
     }
 };
