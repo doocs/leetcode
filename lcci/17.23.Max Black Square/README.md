@@ -35,17 +35,35 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：前缀和 + 枚举**
+**方法一：预处理 + 枚举**
 
-我们可以使用前缀和的方法预处理出每个位置向下和向右的连续 $1$ 的个数，记为 $down[i][j]$ 和 $right[i][j]$。
+我们可以预处理出每个位置 $(i, j)$ 向下和向右的连续 $0$ （黑色像素）的个数，记为 $down[i][j]$ 和 $right[i][j]$。递推公式如下：
 
-然后我们枚举正方形的边长 $k$，从最大的边长开始枚举，然后枚举正方形的左上角位置 $(i, j)$，如果满足条件，那么返回 $[i, j, k]$。
+$$
+down[i][j] = \begin{cases}
+down[i + 1][j] + 1, & matrix[i][j] = 0 \text{ 且 } i + 1 < n \\
+1, & matrix[i][j] = 0 \text{ 且 } i + 1 = n \\
+0, & matrix[i][j] = 1
+\end{cases}
+$$
+
+$$
+right[i][j] = \begin{cases}
+right[i][j + 1] + 1, & matrix[i][j] = 0 \text{ 且 } j + 1 < n \\
+1, & matrix[i][j] = 0 \text{ 且 } j + 1 = n \\
+0, & matrix[i][j] = 1
+\end{cases}
+$$
+
+需要注意的是，由于 $down[i][j]$ 依赖于 $down[i + 1][j]$，而 $right[i][j]$ 依赖于 $right[i][j + 1]$，所以，我们在预处理 $down[i][j]$ 和 $right[i][j]$ 时，是从大到小枚举 $i$ 和 $j$ 的。
+
+接下来，我们从大到小枚举正方形的边长 $k$，从小到大枚举正方形的左上角位置 $(i, j)$，如果满足 $down[i][j] \ge k$ 且 $right[i][j] \ge k$ 且 $right[i + k - 1][j] \ge k$ 且 $down[i][j + k - 1] \ge k$，说明我们找到了一个边长最大为 $k$ 且左上角位置为 $(i, j)$ 的黑方阵，直接返回 $[i, j, k]$ 即可。
 
 如果枚举完所有的正方形都没有满足条件的，那么返回空数组。
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcci/17.23.Max%20Black%20Square/images/max_black_square.png" /></p>
 
-时间复杂度 $O(m \times n \times \min(m, n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是网格的行数和列数。
+时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 是方阵的边长。
 
 相似题目：
 
