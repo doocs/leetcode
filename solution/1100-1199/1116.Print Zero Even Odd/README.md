@@ -60,6 +60,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：多线程 + 信号量**
+
+我们用三个信号量 $z$, $e$, $o$ 来控制三个线程的执行顺序，其中 $z$ 的初始值为 $1$，$e$ 和 $o$ 的初始值为 $0$。
+
+-   信号量 $x$ 控制 `zero` 函数的执行，当 $z$ 信号量的值为 $1$ 时，`zero` 函数可以执行，执行完毕后将 $z$ 信号量的值设为 $0$，并将 $e$ 信号量的值设为 $1$ 或 $o$ 信号量的值设为 $1$，具体取决于下一次需要执行的是 `even` 函数还是 `odd` 函数。
+-   信号量 $e$ 控制 `even` 函数的执行，当 $e$ 信号量的值为 $1$ 时，`even` 函数可以执行，执行完毕后将 $z$ 信号量的值设为 $1$，并将 $e$ 信号量的值设为 $0$。
+-   信号量 $o$ 控制 `odd` 函数的执行，当 $o$ 信号量的值为 $1$ 时，`odd` 函数可以执行，执行完毕后将 $z$ 信号量的值设为 $1$，并将 $o$ 信号量的值设为 $0$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -67,7 +77,36 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+from threading import Semaphore
 
+class ZeroEvenOdd:
+    def __init__(self, n):
+        self.n = n
+        self.z = Semaphore(1)
+        self.e = Semaphore(0)
+        self.o = Semaphore(0)
+
+	# printNumber(x) outputs "x", where x is an integer.
+    def zero(self, printNumber: 'Callable[[int], None]') -> None:
+        for i in range(self.n):
+            self.z.acquire()
+            printNumber(0)
+            if i % 2 == 0:
+                self.o.release()
+            else:
+                self.e.release()
+
+    def even(self, printNumber: 'Callable[[int], None]') -> None:
+        for i in range(2, self.n + 1, 2):
+            self.e.acquire()
+            printNumber(i)
+            self.z.release()
+
+    def odd(self, printNumber: 'Callable[[int], None]') -> None:
+        for i in range(1, self.n + 1, 2):
+            self.o.acquire()
+            printNumber(i)
+            self.z.release()
 ```
 
 ### **Java**
@@ -75,7 +114,94 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class ZeroEvenOdd {
+    private int n;
+    private Semaphore z = new Semaphore(1);
+    private Semaphore e = new Semaphore(0);
+    private Semaphore o = new Semaphore(0);
 
+    public ZeroEvenOdd(int n) {
+        this.n = n;
+    }
+
+    // printNumber.accept(x) outputs "x", where x is an integer.
+    public void zero(IntConsumer printNumber) throws InterruptedException {
+        for (int i = 0; i < n; ++i) {
+            z.acquire(1);
+            printNumber.accept(0);
+            if (i % 2 == 0) {
+                o.release(1);
+            } else {
+                e.release(1);
+            }
+        }
+    }
+
+    public void even(IntConsumer printNumber) throws InterruptedException {
+        for (int i = 2; i <= n; i += 2) {
+            e.acquire(1);
+            printNumber.accept(i);
+            z.release(1);
+        }
+    }
+
+    public void odd(IntConsumer printNumber) throws InterruptedException {
+        for (int i = 1; i <= n; i += 2) {
+            o.acquire(1);
+            printNumber.accept(i);
+            z.release(1);
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+#include <semaphore.h>
+
+class ZeroEvenOdd {
+private:
+    int n;
+    sem_t z, e, o;
+
+public:
+    ZeroEvenOdd(int n) {
+        this->n = n;
+        sem_init(&z, 0, 1);
+        sem_init(&e, 0, 0);
+        sem_init(&o, 0, 0);
+    }
+
+    // printNumber(x) outputs "x", where x is an integer.
+    void zero(function<void(int)> printNumber) {
+        for (int i = 0; i < n; ++i) {
+            sem_wait(&z);
+            printNumber(0);
+            if (i % 2 == 0) {
+                sem_post(&o);
+            } else {
+                sem_post(&e);
+            }
+        }
+    }
+
+    void even(function<void(int)> printNumber) {
+        for (int i = 2; i <= n; i += 2) {
+            sem_wait(&e);
+            printNumber(i);
+            sem_post(&z);
+        }
+    }
+
+    void odd(function<void(int)> printNumber) {
+        for (int i = 1; i <= n; i += 2) {
+            sem_wait(&o);
+            printNumber(i);
+            sem_post(&z);
+        }
+    }
+};
 ```
 
 ### **...**

@@ -1,44 +1,44 @@
+#include <semaphore.h>
+
 class ZeroEvenOdd {
 private:
     int n;
-    int flag;
-    mutex m1, m2, m3;
+    sem_t z, e, o;
 
 public:
     ZeroEvenOdd(int n) {
         this->n = n;
-        flag = 1; //奇偶判断
-        m1.lock();
-        m2.lock();
-        m3.lock();
+        sem_init(&z, 0, 1);
+        sem_init(&e, 0, 0);
+        sem_init(&o, 0, 0);
     }
 
     // printNumber(x) outputs "x", where x is an integer.
     void zero(function<void(int)> printNumber) {
-        m3.unlock();
-        for (int i = 0; i < n; i++) {
-            m3.lock();
+        for (int i = 0; i < n; ++i) {
+            sem_wait(&z);
             printNumber(0);
-            if (flag == 1)
-                flag = 0, m2.unlock();
-            else
-                flag = 1, m1.unlock();
+            if (i % 2 == 0) {
+                sem_post(&o);
+            } else {
+                sem_post(&e);
+            }
         }
     }
 
-    void odd(function<void(int)> printNumber) { //输出奇数
-        for (int i = 1; i <= n; i += 2) {
-            m2.lock();
-            printNumber(i);
-            m3.unlock();
-        }
-    }
-
-    void even(function<void(int)> printNumber) { //输出偶数
+    void even(function<void(int)> printNumber) {
         for (int i = 2; i <= n; i += 2) {
-            m1.lock();
+            sem_wait(&e);
             printNumber(i);
-            m3.unlock();
+            sem_post(&z);
+        }
+    }
+
+    void odd(function<void(int)> printNumber) {
+        for (int i = 1; i <= n; i += 2) {
+            sem_wait(&o);
+            printNumber(i);
+            sem_post(&z);
         }
     }
 };
