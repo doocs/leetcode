@@ -1,28 +1,33 @@
+#include <semaphore.h>
+
 class H2O {
 private:
-    int n_h;
-    mutex m_h, m_o;
+    sem_t h, o;
+    int st;
 
 public:
     H2O() {
-        m_o.lock();
-        n_h = 2;
+        sem_init(&h, 0, 2);
+        sem_init(&o, 0, 0);
+        st = 0;
     }
 
     void hydrogen(function<void()> releaseHydrogen) {
-        m_h.lock();
+        sem_wait(&h);
+        // releaseHydrogen() outputs "H". Do not change or remove this line.
         releaseHydrogen();
-        n_h--;
-        if (n_h > 0)
-            m_h.unlock();
-        else
-            m_o.unlock();
+        ++st;
+        if (st == 2) {
+            sem_post(&o);
+        }
     }
 
     void oxygen(function<void()> releaseOxygen) {
-        m_o.lock();
+        sem_wait(&o);
+        // releaseOxygen() outputs "O". Do not change or remove this line.
         releaseOxygen();
-        n_h = 2;
-        m_h.unlock();
+        st = 0;
+        sem_post(&h);
+        sem_post(&h);
     }
 };
