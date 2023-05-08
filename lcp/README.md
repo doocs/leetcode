@@ -85,6 +85,12 @@
 | [LCP 74](https://leetcode.cn/problems/xepqZ5)                        | [ 最强祝福力场](/lcp/LCP%2074.%20%E6%9C%80%E5%BC%BA%E7%A5%9D%E7%A6%8F%E5%8A%9B%E5%9C%BA/README.md)                       |                                                                                     | 中等 |
 | [LCP 75](https://leetcode.cn/problems/rdmXM7)                        | [ 传送卷轴](/lcp/LCP%2075.%20%E4%BC%A0%E9%80%81%E5%8D%B7%E8%BD%B4/README.md)                                             |                                                                                     | 困难 |
 | [LCP 76](https://leetcode.cn/problems/1ybDKD)                        | [ 魔法棋盘](/lcp/LCP%2076.%20%E9%AD%94%E6%B3%95%E6%A3%8B%E7%9B%98/README.md)                                             |                                                                                     | 困难 |
+| [LCP 77](https://leetcode.cn/problems/W2ZX4X)                        | [ 符文储备](/lcp/LCP%2077.%20%E7%AC%A6%E6%96%87%E5%82%A8%E5%A4%87/README.md)                                             |                                                                                     | 简单 |
+| [LCP 78](https://leetcode.cn/problems/Nsibyl)                        | [ 城墙防线](/lcp/LCP%2078.%20%E5%9F%8E%E5%A2%99%E9%98%B2%E7%BA%BF/README.md)                                             |                                                                                     | 中等 |
+| [LCP 79](https://leetcode.cn/problems/kjpLFZ)                        | [ 提取咒文](/lcp/LCP%2079.%20%E6%8F%90%E5%8F%96%E5%92%92%E6%96%87/README.md)                                             |                                                                                     | 中等 |
+| [LCP 80](https://leetcode.cn/problems/qoQAMX)                        | [ 生物进化录](/lcp/LCP%2080.%20%E7%94%9F%E7%89%A9%E8%BF%9B%E5%8C%96%E5%BD%95/README.md)                                  |                                                                                     | 困难 |
+| [LCP 81](https://leetcode.cn/problems/ryfUiz)                        | [ 与非的谜题](/lcp/LCP%2081.%20%E4%B8%8E%E9%9D%9E%E7%9A%84%E8%B0%9C%E9%A2%98/README.md)                                  |                                                                                     | 困难 |
+| [LCP 82](https://leetcode.cn/problems/cnHoX6)                        | [ 万灵之树](/lcp/LCP%2082.%20%E4%B8%87%E7%81%B5%E4%B9%8B%E6%A0%91/README.md)                                             |                                                                                     | 困难 |
 
 ## 版权
 
