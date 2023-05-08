@@ -82,7 +82,27 @@ Employee table:
 ### **SQL**
 
 ```sql
+# Write your MySQL query statement below
+SELECT  project_id
+FROM Project p
+GROUP BY  project_id
+HAVING COUNT(employee_id) >= all(
+SELECT  COUNT(employee_id)
+FROM Project
+GROUP BY  project_id )
+```
 
+```sql
+# Write your MySQL query statement below
+SELECT  project_id
+FROM
+(
+	SELECT  project_id
+	       ,dense_rank() over(order by COUNT(employee_id) desc) AS rk
+	FROM Project
+	GROUP BY  project_id
+) t
+WHERE rk = 1
 ```
 
 <!-- tabs:end -->
