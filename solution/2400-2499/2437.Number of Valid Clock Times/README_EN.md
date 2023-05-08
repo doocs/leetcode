@@ -54,15 +54,24 @@
 ```python
 class Solution:
     def countTime(self, time: str) -> int:
-        def check(s, t):
-            for a, b in zip(s, t):
-                if a != b and b != '?':
-                    return 0
-            return 1
+        def check(s: str, t: str) -> bool:
+            return all(a == b or b == '?' for a, b in zip(s, t))
 
-        return sum(
-            check(f'{h:02d}:{m:02d}', time) for h in range(24) for m in range(60)
-        )
+        return sum(check(f'{h:02d}:{m:02d}', time) for h in range(24) for m in range(60))
+```
+
+```python
+class Solution:
+    def countTime(self, time: str) -> int:
+        def f(s: str, m: int) -> int:
+            cnt = 0
+            for i in range(m):
+                a = s[0] == '?' or (int(s[0]) == i // 10)
+                b = s[1] == '?' or (int(s[1]) == i % 10)
+                cnt += a and b
+            return cnt
+
+        return f(time[:2], 24) * f(time[3:], 60)
 ```
 
 ### **Java**
@@ -85,6 +94,24 @@ class Solution {
             }
         }
         return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int countTime(String time) {
+        return f(time.substring(0, 2), 24) * f(time.substring(3), 60);
+    }
+
+    private int f(String s, int m) {
+        int cnt = 0;
+        for (int i = 0; i < m; ++i) {
+            boolean a = s.charAt(0) == '?' || s.charAt(0) - '0' == i / 10;
+            boolean b = s.charAt(1) == '?' || s.charAt(1) - '0' == i % 10;
+            cnt += a && b ? 1 : 0;
+        }
+        return cnt;
     }
 }
 ```
@@ -115,6 +142,24 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int countTime(string time) {
+        auto f = [](string s, int m) {
+            int cnt = 0;
+            for (int i = 0; i < m; ++i) {
+                bool a = s[0] == '?' || s[0] - '0' == i / 10;
+                bool b = s[1] == '?' || s[1] - '0' == i % 10;
+                cnt += a && b;
+            }
+            return cnt;
+        };
+        return f(time.substr(0, 2), 24) * f(time.substr(3, 2), 60);
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -137,31 +182,58 @@ func countTime(time string) int {
 }
 ```
 
+```go
+func countTime(time string) int {
+	f := func(s string, m int) (cnt int) {
+		for i := 0; i < m; i++ {
+			a := s[0] == '?' || int(s[0]-'0') == i/10
+			b := s[1] == '?' || int(s[1]-'0') == i%10
+			if a && b {
+				cnt++
+			}
+		}
+		return
+	}
+	return f(time[:2], 24) * f(time[3:], 60)
+}
+```
+
 ### **TypeScript**
 
 ```ts
 function countTime(time: string): number {
-    let [hh, mm] = time.split(':');
-    return count(hh, 24) * count(mm, 60);
-}
-
-function count(str: string, limit: number): number {
-    let [a, b] = str.split('').map(d => Number(d));
     let ans = 0;
-    if (isNaN(a) && isNaN(b)) return limit;
-    if (isNaN(a)) {
-        for (let i = 0; i <= 9; i++) {
-            if (i * 10 + b < limit) ans++;
+    for (let h = 0; h < 24; ++h) {
+        for (let m = 0; m < 60; ++m) {
+            const s = `${h}`.padStart(2, '0') + ':' + `${m}`.padStart(2, '0');
+            let ok = 1;
+            for (let i = 0; i < 5; ++i) {
+                if (s[i] !== time[i] && time[i] !== '?') {
+                    ok = 0;
+                    break;
+                }
+            }
+            ans += ok;
         }
-        return ans;
     }
-    if (isNaN(b)) {
-        for (let i = 0; i <= 9; i++) {
-            if (a * 10 + i < limit) ans++;
+    return ans;
+}
+```
+
+```ts
+function countTime(time: string): number {
+    const f = (s: string, m: number): number => {
+        let cnt = 0;
+        for (let i = 0; i < m; ++i) {
+            const a = s[0] === '?' || s[0] === Math.floor(i / 10).toString();
+            const b = s[1] === '?' || s[1] === (i % 10).toString();
+            if (a && b) {
+                ++cnt;
+            }
         }
-        return ans;
-    }
-    return 1;
+        return cnt;
+    };
+    return f(time.slice(0, 2), 24) * f(time.slice(3), 60);
 }
 ```
 

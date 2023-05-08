@@ -1,23 +1,14 @@
 function countTime(time: string): number {
-    let [hh, mm] = time.split(':');
-    return count(hh, 24) * count(mm, 60);
-}
-
-function count(str: string, limit: number): number {
-    let [a, b] = str.split('').map(d => Number(d));
-    let ans = 0;
-    if (isNaN(a) && isNaN(b)) return limit;
-    if (isNaN(a)) {
-        for (let i = 0; i <= 9; i++) {
-            if (i * 10 + b < limit) ans++;
+    const f = (s: string, m: number): number => {
+        let cnt = 0;
+        for (let i = 0; i < m; ++i) {
+            const a = s[0] === '?' || s[0] === Math.floor(i / 10).toString();
+            const b = s[1] === '?' || s[1] === (i % 10).toString();
+            if (a && b) {
+                ++cnt;
+            }
         }
-        return ans;
-    }
-    if (isNaN(b)) {
-        for (let i = 0; i <= 9; i++) {
-            if (a * 10 + i < limit) ans++;
-        }
-        return ans;
-    }
-    return 1;
+        return cnt;
+    };
+    return f(time.slice(0, 2), 24) * f(time.slice(3), 60);
 }
