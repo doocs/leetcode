@@ -6,7 +6,7 @@ path = os.getcwd()
 
 def format():
     for suffix in ['md', 'js', 'ts']:
-        command = f'prettier --write "**/*.{suffix}"'
+        command = f'npx prettier --write "**/*.{suffix}"'
         os.system(command)
 
 
@@ -81,7 +81,7 @@ def git_add():
 
 
 if __name__ == '__main__':
-    clang_format()
-    # format()
+    # clang_format()
+    format()
     # format_py()
     # git_add()

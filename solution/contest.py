@@ -19,8 +19,7 @@ def format_time(timestamp) -> str:
 
 
 def format_duration(seconds) -> str:
-    m = seconds // 60
-    return f'{m} 分钟'
+    return f'{seconds // 60} 分钟'
 
 
 def weekly(contest):
@@ -53,9 +52,7 @@ def handle(result: dict):
     if result is None or 'error' in result:
         return None
     qs = result['questions']
-    if qs is None:
-        return None
-    for q in qs:
+    for q in qs or []:
         questions[q['title_slug']] = {
             'contest_title': result['title'],
             'contest_title_en': result['title_en'],
