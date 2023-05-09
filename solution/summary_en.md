@@ -2717,6 +2717,8 @@
   - [2663.Lexicographically Smallest Beautiful String](/solution/2600-2699/2663.Lexicographically%20Smallest%20Beautiful%20String/README_EN.md)
   - [2664.The Knight’s Tour](/solution/2600-2699/2664.The%20Knight%E2%80%99s%20Tour/README_EN.md)
   - [2665.Counter II](/solution/2600-2699/2665.Counter%20II/README_EN.md)
+  - [2666.Allow One Function Call](/solution/2600-2699/2666.Allow%20One%20Function%20Call/README_EN.md)
+  - [2667.Create Hello World Function](/solution/2600-2699/2667.Create%20Hello%20World%20Function/README_EN.md)
   - [2668.Find Latest Salaries](/solution/2600-2699/2668.Find%20Latest%20Salaries/README_EN.md)
   - [2669.Count Artist Occurrences On Spotify Ranking List](/solution/2600-2699/2669.Count%20Artist%20Occurrences%20On%20Spotify%20Ranking%20List/README_EN.md)
   - [2670.Find the Distinct Difference Array](/solution/2600-2699/2670.Find%20the%20Distinct%20Difference%20Array/README_EN.md)

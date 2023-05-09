@@ -6,17 +6,18 @@
 
 <!-- 这里写题目描述 -->
 
-<p>有 <code>N</code> 堆石头排成一排，第 <code>i</code> 堆中有&nbsp;<code>stones[i]</code>&nbsp;块石头。</p>
+<p>有 <code>n</code> 堆石头排成一排，第 <code>i</code> 堆中有&nbsp;<code>stones[i]</code>&nbsp;块石头。</p>
 
-<p>每次<em>移动（move）</em>需要将<strong>连续的</strong>&nbsp;<code>K</code>&nbsp;堆石头合并为一堆，而这个移动的成本为这&nbsp;<code>K</code>&nbsp;堆石头的总数。</p>
+<p>每次 <strong>移动</strong> 需要将 <strong>连续的</strong> <code>k</code> 堆石头合并为一堆，而这次移动的成本为这 <code>k</code> 堆中石头的总数。</p>
 
-<p>找出把所有石头合并成一堆的最低成本。如果不可能，返回 <code>-1</code> 。</p>
+<p>返回把所有石头合并成一堆的最低成本。如果无法合并成一堆，返回 <code>-1</code> 。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>stones = [3,2,4,1], K = 2
+<pre>
+<strong>输入：</strong>stones = [3,2,4,1], K = 2
 <strong>输出：</strong>20
 <strong>解释：</strong>
 从 [3, 2, 4, 1] 开始。
@@ -28,14 +29,16 @@
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>stones = [3,2,4,1], K = 3
+<pre>
+<strong>输入：</strong>stones = [3,2,4,1], K = 3
 <strong>输出：</strong>-1
 <strong>解释：</strong>任何合并操作后，都会剩下 2 堆，我们无法再进行合并。所以这项任务是不可能完成的。.
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>stones = [3,5,1,2,6], K = 3
+<pre>
+<strong>输入：</strong>stones = [3,5,1,2,6], K = 3
 <strong>输出：</strong>25
 <strong>解释：</strong>
 从 [3, 5, 1, 2, 6] 开始。
@@ -49,9 +52,10 @@
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= stones.length &lt;= 30</code></li>
-	<li><code>2 &lt;= K &lt;= 30</code></li>
+	<li><code>n == stones.length</code></li>
+	<li><code>1 &lt;= n &lt;= 30</code></li>
 	<li><code>1 &lt;= stones[i] &lt;= 100</code></li>
+	<li><code>2 &lt;= k &lt;= 30</code></li>
 </ul>
 
 ## 解法

@@ -1,4 +1,4 @@
-# [2669. Count Artist Occurrences On Spotify Ranking List](https://leetcode.cn/problems/count-artist-occurrences-on-spotify-ranking-list)
+# [2669. 统计 Spotify 排行榜上艺术家出现次数](https://leetcode.cn/problems/count-artist-occurrences-on-spotify-ranking-list)
 
 [English Version](/solution/2600-2699/2669.Count%20Artist%20Occurrences%20On%20Spotify%20Ranking%20List/README_EN.md)
 

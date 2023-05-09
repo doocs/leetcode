@@ -2,7 +2,6 @@
 
 [English Version](/solution/CONTEST_README_EN.md)
 
-
 ## 段位与荣誉勋章
 
 竞赛排名根据竞赛积分（周赛和双周赛）进行计算，注册新用户的基础分值为 1500 分，在竞赛积分 &ge;1600 的用户中，根据比例 5%, 20%, 75% 设定三档段位，段位每周比赛结束后计算一次。
@@ -2071,7 +2070,7 @@
 #### 第 149 场周赛(2019-08-11 10:30, 90 分钟) 参赛人数 1351
 
 - [1154. 一年中的第几天](/solution/1100-1199/1154.Day%20of%20the%20Year/README.md)
-- [1155. 掷骰子的N种方法](/solution/1100-1199/1155.Number%20of%20Dice%20Rolls%20With%20Target%20Sum/README.md)
+- [1155. 掷骰子等于目标和的方法数](/solution/1100-1199/1155.Number%20of%20Dice%20Rolls%20With%20Target%20Sum/README.md)
 - [1156. 单字符重复子串的最大长度](/solution/1100-1199/1156.Swap%20For%20Longest%20Repeated%20Character%20Substring/README.md)
 - [1157. 子数组中占绝大多数的元素](/solution/1100-1199/1157.Online%20Majority%20Element%20In%20Subarray/README.md)
 

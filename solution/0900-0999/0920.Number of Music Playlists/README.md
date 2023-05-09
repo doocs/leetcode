@@ -13,7 +13,7 @@
 	<li>一首歌只有在其他 <code>k</code> 首歌播放完之后才能再次播放。</li>
 </ul>
 
-<p>返回可以满足要求的播放列表的数量。由于答案可能非常大，请返回对 <code>10^9 + 7</code> <strong>取余</strong> 的结果。</p>
+<p>给你 <code>n</code>、<code>goal</code> 和 <code>k</code> ，返回可以满足要求的播放列表的数量。由于答案可能非常大，请返回对 <code>10<sup>9</sup> + 7</code> <strong>取余</strong> 的结果。</p>
 &nbsp;
 
 <p><strong>示例 1：</strong></p>

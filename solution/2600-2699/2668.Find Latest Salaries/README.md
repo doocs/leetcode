@@ -1,4 +1,4 @@
-# [2668. Find Latest Salaries](https://leetcode.cn/problems/find-latest-salaries)
+# [2668. 查询员工当前薪水](https://leetcode.cn/problems/find-latest-salaries)
 
 [English Version](/solution/2600-2699/2668.Find%20Latest%20Salaries/README_EN.md)
 
