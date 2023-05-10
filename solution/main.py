@@ -1,4 +1,3 @@
-import json
 import time
 from datetime import timezone, timedelta, datetime
 
@@ -60,18 +59,18 @@ class Spider:
         form1 = {
             'operationName': 'globalData',
             'query': 'query globalData {\n  feature {\n    questionTranslation\n    subscription\n    signUp\n    '
-            'discuss\n    mockInterview\n    contest\n    store\n    book\n    chinaProblemDiscuss\n    '
-            'socialProviders\n    studentFooter\n    cnJobs\n    enableLsp\n    enableWs\n    '
-            'enableDebugger\n    enableDebuggerAdmin\n    enableDarkMode\n    tasks\n    '
-            'leetbook\n    __typename\n  }\n  userStatus {\n    isSignedIn\n    isAdmin\n    '
-            'isStaff\n    isSuperuser\n    isTranslator\n    isPremium\n    isVerified\n    '
-            'isPhoneVerified\n    isWechatVerified\n    checkedInToday\n    username\n    '
-            'realName\n    userSlug\n    groups\n    avatar\n    optedIn\n    '
-            'requestRegion\n    region\n    activeSessionId\n    permissions\n    notificationStatus {\n      '
-            'lastModified\n      numUnread\n      __typename\n    }\n    completedFeatureGuides\n    '
-            'useTranslation\n    accountStatus {\n      isFrozen\n      inactiveAfter\n      __typename\n    '
-            '}\n    __typename\n  }\n  siteRegion\n  chinaHost\n  websocketUrl\n  userBannedInfo {\n    '
-            'bannedData {\n      endAt\n      bannedType\n      __typename\n    }\n    __typename\n  }\n}\n',
+                     'discuss\n    mockInterview\n    contest\n    store\n    book\n    chinaProblemDiscuss\n    '
+                     'socialProviders\n    studentFooter\n    cnJobs\n    enableLsp\n    enableWs\n    '
+                     'enableDebugger\n    enableDebuggerAdmin\n    enableDarkMode\n    tasks\n    '
+                     'leetbook\n    __typename\n  }\n  userStatus {\n    isSignedIn\n    isAdmin\n    '
+                     'isStaff\n    isSuperuser\n    isTranslator\n    isPremium\n    isVerified\n    '
+                     'isPhoneVerified\n    isWechatVerified\n    checkedInToday\n    username\n    '
+                     'realName\n    userSlug\n    groups\n    avatar\n    optedIn\n    '
+                     'requestRegion\n    region\n    activeSessionId\n    permissions\n    notificationStatus {\n      '
+                     'lastModified\n      numUnread\n      __typename\n    }\n    completedFeatureGuides\n    '
+                     'useTranslation\n    accountStatus {\n      isFrozen\n      inactiveAfter\n      __typename\n    '
+                     '}\n    __typename\n  }\n  siteRegion\n  chinaHost\n  websocketUrl\n  userBannedInfo {\n    '
+                     'bannedData {\n      endAt\n      bannedType\n      __typename\n    }\n    __typename\n  }\n}\n',
             'variables': {},
         }
         headers = {
@@ -86,20 +85,20 @@ class Spider:
             'operationName': 'questionData',
             'variables': {'titleSlug': question_title_slug},
             'query': 'query questionData($titleSlug: String!) {\n  question(titleSlug: $titleSlug) {\n    '
-            'questionId\n    questionFrontendId\n    categoryTitle\n    boundTopicId\n    title\n    '
-            'titleSlug\n    content\n    translatedTitle\n    translatedContent\n    isPaidOnly\n    '
-            'difficulty\n    likes\n    dislikes\n    isLiked\n    similarQuestions\n    '
-            'contributors {\n      username\n      profileUrl\n      avatarUrl\n      __typename\n    '
-            '}\n    langToValidPlayground\n    topicTags {\n      name\n      slug\n      '
-            'translatedName\n      __typename\n    }\n    companyTagStats\n    codeSnippets {\n      '
-            'lang\n      langSlug\n      code\n      __typename\n    }\n    stats\n    hints\n    '
-            'solution {\n      id\n      canSeeDetail\n      __typename\n    }\n    status\n    '
-            'sampleTestCase\n    metaData\n    judgerAvailable\n    judgeType\n    mysqlSchemas\n    '
-            'enableRunCode\n    envInfo\n    book {\n      id\n      bookName\n      pressName\n      '
-            'source\n      shortDescription\n      fullDescription\n      bookImgUrl\n      '
-            'pressImgUrl\n      productUrl\n      __typename\n    }\n    isSubscribed\n    '
-            'isDailyQuestion\n    dailyRecordStatus\n    editorType\n    ugcQuestionId\n    style\n    '
-            'exampleTestcases\n    __typename\n  }\n}\n',
+                     'questionId\n    questionFrontendId\n    categoryTitle\n    boundTopicId\n    title\n    '
+                     'titleSlug\n    content\n    translatedTitle\n    translatedContent\n    isPaidOnly\n    '
+                     'difficulty\n    likes\n    dislikes\n    isLiked\n    similarQuestions\n    '
+                     'contributors {\n      username\n      profileUrl\n      avatarUrl\n      __typename\n    '
+                     '}\n    langToValidPlayground\n    topicTags {\n      name\n      slug\n      '
+                     'translatedName\n      __typename\n    }\n    companyTagStats\n    codeSnippets {\n      '
+                     'lang\n      langSlug\n      code\n      __typename\n    }\n    stats\n    hints\n    '
+                     'solution {\n      id\n      canSeeDetail\n      __typename\n    }\n    status\n    '
+                     'sampleTestCase\n    metaData\n    judgerAvailable\n    judgeType\n    mysqlSchemas\n    '
+                     'enableRunCode\n    envInfo\n    book {\n      id\n      bookName\n      pressName\n      '
+                     'source\n      shortDescription\n      fullDescription\n      bookImgUrl\n      '
+                     'pressImgUrl\n      productUrl\n      __typename\n    }\n    isSubscribed\n    '
+                     'isDailyQuestion\n    dailyRecordStatus\n    editorType\n    ugcQuestionId\n    style\n    '
+                     'exampleTestcases\n    __typename\n  }\n}\n',
         }
 
         try:
@@ -157,17 +156,17 @@ class Spider:
             'relative_path_cn': path_cn,
             'relative_path_en': path_en,
             'title_cn': question_detail.get('translatedTitle')
-            or question_title_en
-            or '',
+                        or question_title_en
+                        or '',
             'title_en': question_title_en or '',
             'question_title_slug': question_title_slug,
             'content_en': question_detail.get('content'),
             'content_cn': question_detail.get('translatedContent')
-            or question_detail.get('content')
-            or '',
+                          or question_detail.get('content')
+                          or '',
             'tags_en': [e['name'] for e in topic_tags if e['name']] or [],
             'tags_cn': [e['translatedName'] for e in topic_tags if e['translatedName']]
-            or [],
+                       or [],
             'difficulty_en': question_detail.get('difficulty'),
             'difficulty_cn': difficulty.get(question_detail.get('difficulty')),
             'code_snippets': question_detail.get('codeSnippets') or [],
@@ -315,7 +314,6 @@ for q in spider.get_all_questions(retry=4):
     detail = spider.get_question_detail(slug, retry=4)
     time.sleep(0.3)
     question_details[slug] = Spider.format_question_detail(detail)
-
 
 # 周赛场次列表
 contest_list = get_contests(refresh_all)

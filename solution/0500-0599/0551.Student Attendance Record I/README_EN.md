@@ -55,7 +55,7 @@
 ```python
 class Solution:
     def checkRecord(self, s: str) -> bool:
-        return s.count('A') <= 1 and 'LLL' not in s
+        return s.count('A') < 2 and 'LLL' not in s
 ```
 
 ### **Java**
@@ -63,17 +63,8 @@ class Solution:
 ```java
 class Solution {
     public boolean checkRecord(String s) {
-        int i = s.indexOf("A");
-        return (i == -1 || s.lastIndexOf("A") == i) && !s.contains("LLL");
+        return s.indexOf("A") == s.lastIndexOf("A") && !s.contains("LLL");
     }
-}
-```
-
-### **Go**
-
-```go
-func checkRecord(s string) bool {
-	return strings.Count(s, "A") < 2 && !strings.Contains(s, "LLL")
 }
 ```
 
@@ -86,6 +77,22 @@ public:
         return count(s.begin(), s.end(), 'A') < 2 && s.find("LLL") == string::npos;
     }
 };
+```
+
+### **Go**
+
+```go
+func checkRecord(s string) bool {
+	return strings.Count(s, "A") < 2 && !strings.Contains(s, "LLL")
+}
+```
+
+### **TypeScript**
+
+```ts
+function checkRecord(s: string): boolean {
+    return s.indexOf('A') === s.lastIndexOf('A') && s.indexOf('LLL') === -1;
+}
 ```
 
 ### **...**
