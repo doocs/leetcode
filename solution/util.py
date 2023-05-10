@@ -29,10 +29,12 @@ contest_readme_en = load_template('contest_readme_template_en')
 
 
 def load_cookies() -> Tuple[str, str]:
-    cookie_cn, cookie_en = None, None
-    with open("./.env", "r") as f:
+    cookie_cn, cookie_en = '', ''
+    env_file = './.env'
+    if not os.path.exists(env_file):
+        return cookie_cn, cookie_en
+    with open(env_file, "r") as f:
         lines = f.readlines()
-
         for line in lines:
             if line.startswith("COOKIE_CN"):
                 parts = line.split("=")[1:]
@@ -46,14 +48,46 @@ def load_cookies() -> Tuple[str, str]:
     return cookie_cn, cookie_en
 
 
+def load_refresh_config() -> bool:
+    env_file = './.env'
+    if not os.path.exists(env_file):
+        return False
+    with open(env_file, "r") as f:
+        lines = f.readlines()
+        for line in lines:
+            if line.startswith("REFRESH"):
+                parts = line.split("=")[1:]
+                return "=".join(parts).strip().strip('"') == 'True'
+    return False
+
+
 def load_result() -> List[dict]:
-    with open('./result.json', 'r', encoding='utf-8') as f:
+    result_file = './result.json'
+    if not os.path.exists(result_file):
+        return []
+    with open(result_file, 'r', encoding='utf-8') as f:
         res = f.read()
         return json.loads(res)
 
 
+def load_contest_result() -> List[dict]:
+    contest_result_file = './contest.json'
+    if not os.path.exists(contest_result_file):
+        return []
+    with open(contest_result_file, 'r', encoding='utf-8') as f:
+        res = f.read()
+        if res:
+            return json.loads(res)
+        return []
+
+
 def save_result(data: List[dict]):
     with open('./result.json', 'w', encoding='utf-8') as f:
+        f.write(json.dumps(data))
+
+
+def save_contest_result(data: List[dict]):
+    with open('./contest.json', 'w', encoding='utf-8') as f:
         f.write(json.dumps(data))
 
 

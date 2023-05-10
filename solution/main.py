@@ -1,3 +1,4 @@
+import json
 import time
 from datetime import timezone, timedelta, datetime
 
@@ -21,6 +22,8 @@ weekly_range = range(83, 500)
 biweekly_range = range(1, 300)
 WEEKLY_URL = 'https://leetcode.cn/contest/api/info/weekly-contest-{}/'
 BIWEEKLY_URL = 'https://leetcode.cn/contest/api/info/biweekly-contest-{}/'
+WEEKLY_SLUG = 'weekly-contest-{}'
+BIWEEKLY_SLUG = 'biweekly-contest-{}'
 
 
 class Spider:
@@ -57,18 +60,18 @@ class Spider:
         form1 = {
             'operationName': 'globalData',
             'query': 'query globalData {\n  feature {\n    questionTranslation\n    subscription\n    signUp\n    '
-                     'discuss\n    mockInterview\n    contest\n    store\n    book\n    chinaProblemDiscuss\n    '
-                     'socialProviders\n    studentFooter\n    cnJobs\n    enableLsp\n    enableWs\n    '
-                     'enableDebugger\n    enableDebuggerAdmin\n    enableDarkMode\n    tasks\n    '
-                     'leetbook\n    __typename\n  }\n  userStatus {\n    isSignedIn\n    isAdmin\n    '
-                     'isStaff\n    isSuperuser\n    isTranslator\n    isPremium\n    isVerified\n    '
-                     'isPhoneVerified\n    isWechatVerified\n    checkedInToday\n    username\n    '
-                     'realName\n    userSlug\n    groups\n    avatar\n    optedIn\n    '
-                     'requestRegion\n    region\n    activeSessionId\n    permissions\n    notificationStatus {\n      '
-                     'lastModified\n      numUnread\n      __typename\n    }\n    completedFeatureGuides\n    '
-                     'useTranslation\n    accountStatus {\n      isFrozen\n      inactiveAfter\n      __typename\n    '
-                     '}\n    __typename\n  }\n  siteRegion\n  chinaHost\n  websocketUrl\n  userBannedInfo {\n    '
-                     'bannedData {\n      endAt\n      bannedType\n      __typename\n    }\n    __typename\n  }\n}\n',
+            'discuss\n    mockInterview\n    contest\n    store\n    book\n    chinaProblemDiscuss\n    '
+            'socialProviders\n    studentFooter\n    cnJobs\n    enableLsp\n    enableWs\n    '
+            'enableDebugger\n    enableDebuggerAdmin\n    enableDarkMode\n    tasks\n    '
+            'leetbook\n    __typename\n  }\n  userStatus {\n    isSignedIn\n    isAdmin\n    '
+            'isStaff\n    isSuperuser\n    isTranslator\n    isPremium\n    isVerified\n    '
+            'isPhoneVerified\n    isWechatVerified\n    checkedInToday\n    username\n    '
+            'realName\n    userSlug\n    groups\n    avatar\n    optedIn\n    '
+            'requestRegion\n    region\n    activeSessionId\n    permissions\n    notificationStatus {\n      '
+            'lastModified\n      numUnread\n      __typename\n    }\n    completedFeatureGuides\n    '
+            'useTranslation\n    accountStatus {\n      isFrozen\n      inactiveAfter\n      __typename\n    '
+            '}\n    __typename\n  }\n  siteRegion\n  chinaHost\n  websocketUrl\n  userBannedInfo {\n    '
+            'bannedData {\n      endAt\n      bannedType\n      __typename\n    }\n    __typename\n  }\n}\n',
             'variables': {},
         }
         headers = {
@@ -83,20 +86,20 @@ class Spider:
             'operationName': 'questionData',
             'variables': {'titleSlug': question_title_slug},
             'query': 'query questionData($titleSlug: String!) {\n  question(titleSlug: $titleSlug) {\n    '
-                     'questionId\n    questionFrontendId\n    categoryTitle\n    boundTopicId\n    title\n    '
-                     'titleSlug\n    content\n    translatedTitle\n    translatedContent\n    isPaidOnly\n    '
-                     'difficulty\n    likes\n    dislikes\n    isLiked\n    similarQuestions\n    '
-                     'contributors {\n      username\n      profileUrl\n      avatarUrl\n      __typename\n    '
-                     '}\n    langToValidPlayground\n    topicTags {\n      name\n      slug\n      '
-                     'translatedName\n      __typename\n    }\n    companyTagStats\n    codeSnippets {\n      '
-                     'lang\n      langSlug\n      code\n      __typename\n    }\n    stats\n    hints\n    '
-                     'solution {\n      id\n      canSeeDetail\n      __typename\n    }\n    status\n    '
-                     'sampleTestCase\n    metaData\n    judgerAvailable\n    judgeType\n    mysqlSchemas\n    '
-                     'enableRunCode\n    envInfo\n    book {\n      id\n      bookName\n      pressName\n      '
-                     'source\n      shortDescription\n      fullDescription\n      bookImgUrl\n      '
-                     'pressImgUrl\n      productUrl\n      __typename\n    }\n    isSubscribed\n    '
-                     'isDailyQuestion\n    dailyRecordStatus\n    editorType\n    ugcQuestionId\n    style\n    '
-                     'exampleTestcases\n    __typename\n  }\n}\n',
+            'questionId\n    questionFrontendId\n    categoryTitle\n    boundTopicId\n    title\n    '
+            'titleSlug\n    content\n    translatedTitle\n    translatedContent\n    isPaidOnly\n    '
+            'difficulty\n    likes\n    dislikes\n    isLiked\n    similarQuestions\n    '
+            'contributors {\n      username\n      profileUrl\n      avatarUrl\n      __typename\n    '
+            '}\n    langToValidPlayground\n    topicTags {\n      name\n      slug\n      '
+            'translatedName\n      __typename\n    }\n    companyTagStats\n    codeSnippets {\n      '
+            'lang\n      langSlug\n      code\n      __typename\n    }\n    stats\n    hints\n    '
+            'solution {\n      id\n      canSeeDetail\n      __typename\n    }\n    status\n    '
+            'sampleTestCase\n    metaData\n    judgerAvailable\n    judgeType\n    mysqlSchemas\n    '
+            'enableRunCode\n    envInfo\n    book {\n      id\n      bookName\n      pressName\n      '
+            'source\n      shortDescription\n      fullDescription\n      bookImgUrl\n      '
+            'pressImgUrl\n      productUrl\n      __typename\n    }\n    isSubscribed\n    '
+            'isDailyQuestion\n    dailyRecordStatus\n    editorType\n    ugcQuestionId\n    style\n    '
+            'exampleTestcases\n    __typename\n  }\n}\n',
         }
 
         try:
@@ -120,7 +123,11 @@ class Spider:
         except Exception as e:
             print(e)
             time.sleep(2)
-            return self.get_question_detail(question_title_slug, retry - 1) if retry > 0 else {}
+            return (
+                self.get_question_detail(question_title_slug, retry - 1)
+                if retry > 0
+                else {}
+            )
 
     @staticmethod
     def format_question_detail(question_detail: dict) -> dict:
@@ -149,13 +156,18 @@ class Spider:
             'url_en': url_en,
             'relative_path_cn': path_cn,
             'relative_path_en': path_en,
-            'title_cn': question_detail.get('translatedTitle') or question_title_en or '',
+            'title_cn': question_detail.get('translatedTitle')
+            or question_title_en
+            or '',
             'title_en': question_title_en or '',
             'question_title_slug': question_title_slug,
             'content_en': question_detail.get('content'),
-            'content_cn': question_detail.get('translatedContent') or question_detail.get('content') or '',
+            'content_cn': question_detail.get('translatedContent')
+            or question_detail.get('content')
+            or '',
             'tags_en': [e['name'] for e in topic_tags if e['name']] or [],
-            'tags_cn': [e['translatedName'] for e in topic_tags if e['translatedName']] or [],
+            'tags_cn': [e['translatedName'] for e in topic_tags if e['translatedName']]
+            or [],
             'difficulty_en': question_detail.get('difficulty'),
             'difficulty_cn': difficulty.get(question_detail.get('difficulty')),
             'code_snippets': question_detail.get('codeSnippets') or [],
@@ -187,10 +199,18 @@ class Contest:
     def __init__(self, contest_seq: int, contest_type: int = 1):
         double = contest_type % 2 == 0
         url_pattern = BIWEEKLY_URL if double else WEEKLY_URL
+        slug_pattern = BIWEEKLY_SLUG if double else WEEKLY_SLUG
         self.contest_type = contest_type
         self.contest_url = url_pattern.format(contest_seq)
-        self.contest_title = f'第 {contest_seq} 场双周赛' if double else f'第 {contest_seq} 场周赛'
-        self.contest_title_en = f'Biweekly Contest {contest_seq}' if double else f'Weekly Contest {contest_seq}'
+        self.contest_title_slug = slug_pattern.format(contest_seq)
+        self.contest_title = (
+            f'第 {contest_seq} 场双周赛' if double else f'第 {contest_seq} 场周赛'
+        )
+        self.contest_title_en = (
+            f'Biweekly Contest {contest_seq}'
+            if double
+            else f'Weekly Contest {contest_seq}'
+        )
 
     @staticmethod
     def format_time(timestamp: int) -> str:
@@ -212,7 +232,7 @@ class Contest:
                 'contest_start_time': res['contest']['origin_start_time'],
                 'contest_duration': res['contest']['duration'],
                 'user_num': res['user_num'],
-                'question_slugs': question_slugs
+                'question_slugs': question_slugs,
             }
         except Exception as e:
             print(e)
@@ -229,27 +249,37 @@ class Contest:
         duration = data['contest_duration']
         cost_minutes = duration // 60
         user_num = data['user_num']
-        rows = [f'#### {title}({Contest.format_time(start_time)}, {cost_minutes} 分钟) 参赛人数 {user_num}\n']
+        rows = [
+            f'#### {title}({Contest.format_time(start_time)}, {cost_minutes} 分钟) 参赛人数 {user_num}\n'
+        ]
         rows_en = [f'#### {title_en}\n']
         for question in data['question_list']:
-            frontend_question_id, title_cn, title_en, relative_path_cn, relative_path_en = question
+            (
+                frontend_question_id,
+                title_cn,
+                title_en,
+                relative_path_cn,
+                relative_path_en,
+            ) = question
             rows.append(f'- [{frontend_question_id}. {title_cn}]({relative_path_cn})')
-            rows_en.append(f'- [{frontend_question_id}. {title_en}]({relative_path_en})')
-        return [
-            start_time,
-            '\n'.join(rows),
-            '\n'.join(rows_en)
-        ]
+            rows_en.append(
+                f'- [{frontend_question_id}. {title_en}]({relative_path_en})'
+            )
+        return [start_time, '\n'.join(rows), '\n'.join(rows_en)]
 
 
-def get_contests() -> List:
-    res = []
+def get_contests(fetch_new=True) -> List:
+    res = [] if fetch_new else load_contest_result()
     t = 0
+    d = {x.get('contest_title_slug'): x for x in res}
     for r in (weekly_range, biweekly_range):
         t += 1
         cnt = 0
         for i in r:
-            contest_data = Contest(i, contest_type=t).get_data(retry=3)
+            c = Contest(i, contest_type=t)
+            if c.contest_title_slug in d:
+                continue
+            contest_data = c.get_data(retry=3)
             if not contest_data:
                 cnt += 1
                 if cnt > 2:
@@ -257,6 +287,8 @@ def get_contests() -> List:
                 continue
             print(contest_data)
             res.append(contest_data)
+            d[c.contest_title_slug] = contest_data
+    save_contest_result(res)
     return res
 
 
@@ -265,17 +297,28 @@ def get_contests() -> List:
 cookie_cn, cookie_en = load_cookies()
 spider = Spider(cookie_cn, cookie_en)
 
-# 题目详情列表
+# 是否刷新所有题目
+refresh_all = load_refresh_config()
+
 question_details = {}
+if not refresh_all:
+    for item in load_result():
+        slug = item.get('question_title_slug')
+        if slug:
+            question_details[slug] = item
+
 for q in spider.get_all_questions(retry=4):
     slug = q['stat']['question__title_slug']
+    if slug in question_details:
+        print(f'{slug} 已存在, 跳过')
+        continue
     detail = spider.get_question_detail(slug, retry=4)
     time.sleep(0.3)
     question_details[slug] = Spider.format_question_detail(detail)
 
 
 # 周赛场次列表
-contest_list = get_contests()
+contest_list = get_contests(refresh_all)
 cls = []
 for contest in contest_list:
     contest_title = contest['contest_title']
@@ -289,8 +332,13 @@ for contest in contest_list:
             detail['md_table_row_en'][4] = contest_title_en
 
             # 给周赛信息添加题目详情
-            add = [detail['frontend_question_id'], detail['title_cn'],
-                   detail['title_en'], detail['relative_path_cn'], detail['relative_path_en']]
+            add = [
+                detail['frontend_question_id'],
+                detail['title_cn'],
+                detail['title_en'],
+                detail['relative_path_cn'],
+                detail['relative_path_en'],
+            ]
             contest_question_list.append(add)
 
     contest['question_list'] = contest_question_list
@@ -307,4 +355,5 @@ generate_summary(ls)
 generate_contest_readme(cls)
 
 # 刷新题目文件
-refresh(ls)
+if refresh_all:
+    refresh(ls)
