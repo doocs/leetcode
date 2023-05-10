@@ -1,5 +1,8 @@
 func maxLength(ribbons []int, k int) int {
-	left, right := 0, 100000
+	left, right := 0, 0
+	for _, x := range ribbons {
+		right = max(right, x)
+	}
 	for left < right {
 		mid := (left + right + 1) >> 1
 		cnt := 0
@@ -13,4 +16,11 @@ func maxLength(ribbons []int, k int) int {
 		}
 	}
 	return left
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }

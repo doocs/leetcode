@@ -70,7 +70,7 @@
 
 我们发现，如果我们能够得到长度为 $x$ 的 $k$ 根绳子，那么我们一定能够得到长度为 $x - 1$ 的 $k$ 根绳子，这存在着单调性。因此，我们可以使用二分查找的方法，找到最大的长度 $x$，使得我们能够得到长度为 $x$ 的 $k$ 根绳子。
 
-我们定义二分查找的左边界 $left=0$, $right=10^5$，中间值 $mid=(left+right+1)/2$，然后计算当前长度为 $mid$ 的绳子能够得到的数量 $cnt$，如果 $cnt \geq k$，说明我们能够得到长度为 $mid$ 的 $k$ 根绳子，那么我们将 $left$ 更新为 $mid$，否则我们将 $right$ 更新为 $mid-1$。
+我们定义二分查找的左边界 $left=0$, $right=\max(ribbons)$，中间值 $mid=(left+right+1)/2$，然后计算当前长度为 $mid$ 的绳子能够得到的数量 $cnt$，如果 $cnt \geq k$，说明我们能够得到长度为 $mid$ 的 $k$ 根绳子，那么我们将 $left$ 更新为 $mid$，否则我们将 $right$ 更新为 $mid-1$。
 
 最后，我们返回 $left$ 即可。
 
@@ -85,7 +85,7 @@
 ```python
 class Solution:
     def maxLength(self, ribbons: List[int], k: int) -> int:
-        left, right = 0, 100000
+        left, right = 0, max(ribbons)
         while left < right:
             mid = (left + right + 1) >> 1
             cnt = sum(x // mid for x in ribbons)
@@ -103,7 +103,10 @@ class Solution:
 ```java
 class Solution {
     public int maxLength(int[] ribbons, int k) {
-        int left = 0, right = 100000;
+        int left = 0, right = 0;
+        for (int x : ribbons) {
+            right = Math.max(right, x);
+        }
         while (left < right) {
             int mid = (left + right + 1) >>> 1;
             int cnt = 0;
@@ -127,7 +130,7 @@ class Solution {
 class Solution {
 public:
     int maxLength(vector<int>& ribbons, int k) {
-        int left = 0, right = 1e5;
+        int left = 0, right = *max_element(ribbons.begin(), ribbons.end());
         while (left < right) {
             int mid = (left + right + 1) >> 1;
             int cnt = 0;
@@ -149,7 +152,10 @@ public:
 
 ```go
 func maxLength(ribbons []int, k int) int {
-	left, right := 0, 100000
+	left, right := 0, 0
+	for _, x := range ribbons {
+		right = max(right, x)
+	}
 	for left < right {
 		mid := (left + right + 1) >> 1
 		cnt := 0
@@ -164,6 +170,13 @@ func maxLength(ribbons []int, k int) int {
 	}
 	return left
 }
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **JavaScript**
@@ -176,7 +189,7 @@ func maxLength(ribbons []int, k int) int {
  */
 var maxLength = function (ribbons, k) {
     let left = 0;
-    let right = 1e5;
+    let right = Math.max(...ribbons);
     while (left < right) {
         const mid = (left + right + 1) >> 1;
         let cnt = 0;
@@ -198,7 +211,7 @@ var maxLength = function (ribbons, k) {
 ```ts
 function maxLength(ribbons: number[], k: number): number {
     let left = 0;
-    let right = 1e5;
+    let right = Math.max(...ribbons);
     while (left < right) {
         const mid = (left + right + 1) >> 1;
         let cnt = 0;

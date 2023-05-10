@@ -1,6 +1,6 @@
 function maxLength(ribbons: number[], k: number): number {
     let left = 0;
-    let right = 1e5;
+    let right = Math.max(...ribbons);
     while (left < right) {
         const mid = (left + right + 1) >> 1;
         let cnt = 0;

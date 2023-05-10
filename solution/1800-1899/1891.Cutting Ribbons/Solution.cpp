@@ -1,7 +1,7 @@
 class Solution {
 public:
     int maxLength(vector<int>& ribbons, int k) {
-        int left = 0, right = 1e5;
+        int left = 0, right = *max_element(ribbons.begin(), ribbons.end());
         while (left < right) {
             int mid = (left + right + 1) >> 1;
             int cnt = 0;

@@ -72,7 +72,7 @@ Now you have 4 ribbons of length 4.
 ```python
 class Solution:
     def maxLength(self, ribbons: List[int], k: int) -> int:
-        left, right = 0, 100000
+        left, right = 0, max(ribbons)
         while left < right:
             mid = (left + right + 1) >> 1
             cnt = sum(x // mid for x in ribbons)
@@ -88,7 +88,10 @@ class Solution:
 ```java
 class Solution {
     public int maxLength(int[] ribbons, int k) {
-        int left = 0, right = 100000;
+        int left = 0, right = 0;
+        for (int x : ribbons) {
+            right = Math.max(right, x);
+        }
         while (left < right) {
             int mid = (left + right + 1) >>> 1;
             int cnt = 0;
@@ -112,7 +115,7 @@ class Solution {
 class Solution {
 public:
     int maxLength(vector<int>& ribbons, int k) {
-        int left = 0, right = 1e5;
+        int left = 0, right = *max_element(ribbons.begin(), ribbons.end());
         while (left < right) {
             int mid = (left + right + 1) >> 1;
             int cnt = 0;
@@ -134,7 +137,10 @@ public:
 
 ```go
 func maxLength(ribbons []int, k int) int {
-	left, right := 0, 100000
+	left, right := 0, 0
+	for _, x := range ribbons {
+		right = max(right, x)
+	}
 	for left < right {
 		mid := (left + right + 1) >> 1
 		cnt := 0
@@ -149,6 +155,13 @@ func maxLength(ribbons []int, k int) int {
 	}
 	return left
 }
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **JavaScript**
@@ -161,7 +174,7 @@ func maxLength(ribbons []int, k int) int {
  */
 var maxLength = function (ribbons, k) {
     let left = 0;
-    let right = 1e5;
+    let right = Math.max(...ribbons);
     while (left < right) {
         const mid = (left + right + 1) >> 1;
         let cnt = 0;
@@ -183,7 +196,7 @@ var maxLength = function (ribbons, k) {
 ```ts
 function maxLength(ribbons: number[], k: number): number {
     let left = 0;
-    let right = 1e5;
+    let right = Math.max(...ribbons);
     while (left < right) {
         const mid = (left + right + 1) >> 1;
         let cnt = 0;
