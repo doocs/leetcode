@@ -6,42 +6,43 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code><font face="monospace">Spotify</font></code></p>
+<p>表：&nbsp;<code><font face="monospace">Spotify</font></code></p>
 
 <pre>
 +-------------+---------+ 
-| Column Name | Type    | 
+| 列名        | 类型    | 
 +-------------+---------+ 
 | id          | int     | 
 | track_name  | varchar |
 | artist      | varchar |
 +-------------+---------+
-<code>id</code> is the primary Key for this table.
-Each row contains an id, track_name, and artist.
+id是该表的主键。
+每行包含 id、track_name 和 artist。
 </pre>
 
-<p>Write an SQL query to find how many times each artist appeared on the spotify ranking list.</p>
+<p>编写一个SQL查询来查找每个艺术家在Spotify排行榜上出现的次数。</p>
 
-<p>Return <em>the result table having the artist&#39;s name along with the corresponding number of occurrences&nbsp;ordered by occurrence count in&nbsp;<strong>descending </strong>order. If the occurrences are equal, then it&rsquo;s ordered by the artist&rsquo;s name in <strong>ascending</strong> order.</em></p>
+<p>返回结果表，其中包含艺术家的名称以及相应的出现次数，按出现次数<strong>降序</strong>排列。如果出现次数相等，则按艺术家名称<strong>升序</strong>排列。</p>
 
-<p>The query result format is in the following example​​​​​​.</p>
+<p>查询结果格式如下所示：</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>Input:
-</strong>Spotify table: 
+<strong>输入：
+</strong>Spotify 表: 
 +---------+--------------------+------------+ 
 | id      | track_name         | artist     |  
 +---------+--------------------+------------+
-| 303651  | Heart Won&#39;t Forget | Sia        |
+| 303651  | Heart Won't Forget | Sia        |
 | 1046089 | Shape of you       | Ed Sheeran |
-| 33445   | I&#39;m the one        | DJ Khalid  |
+| 33445   | I'm the one        | DJ Khalid  |
 | 811266  | Young Dumb &amp; Broke | DJ Khalid  | 
 | 505727  | Happier            | Ed Sheeran |
 +---------+--------------------+------------+ 
-<strong>Output:
+<strong>输出：
 </strong>+------------+-------------+
 | artist     | occurrences | 
 +------------+-------------+
@@ -50,7 +51,7 @@ Each row contains an id, track_name, and artist.
 | Sia        | 1           | 
 +------------+-------------+ 
 
-<strong>Explanation: </strong>The count of occurrences is listed in descending order under the column name &quot;occurrences&quot;. If the number of occurrences is the same, the artist&#39;s names are sorted in ascending order.
+<strong>解释：</strong>"occurrences" 列下按降序列出了出现次数的计数。如果出现次数相同，则艺术家名称按升序排序。
 </pre>
 
 ## 解法

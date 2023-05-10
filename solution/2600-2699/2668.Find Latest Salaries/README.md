@@ -6,11 +6,11 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code><font face="monospace">Salary</font></code></p>
+<p>表：<code><font face="monospace">Salary</font></code></p>
 
 <pre>
 +---------------+---------+ 
-| Column Name   | Type    | 
+| 列名          | 类型    | 
 +---------------+---------+ 
 | emp_id        | int     | 
 | firstname     | varchar |
@@ -18,22 +18,23 @@
 | salary        | varchar |
 | department_id | varchar |
 +---------------+---------+
-(emp_id, salary) is the primary key for this table.
-Each row contains employees details and their yearly salaries, however, some of the records are old and contain outdated salary information. 
+(emp_id, salary) 是此表的主键。 
+每行包含员工的详细信息和他们每年的薪水，但有些记录是旧的，包含过时的薪资信息。
 </pre>
 
-<p>Write an SQL query to find the current salary of each employee assuming that salaries increase each year. Output their <code>emp_id</code>, <code>firstname</code>, <code>lastname</code>, <code>salary</code>, and <code>department_id</code>.</p>
+<p>编写一个 SQL 查询，找到每个员工的当前薪水，假设薪水每年增加。输出他们的 <code>emp_id</code>&nbsp;、<code>firstname</code>&nbsp;、<code>lastname</code>&nbsp;、<code>salary</code> 和 <code>department_id</code> 。</p>
 
-<p>Return<em> the result table ordered</em>&nbsp;<em>by</em> <code>emp_id</code> <em>in <strong>ascending</strong> order.</em></p>
+<p>按升序顺序按 <code>emp_id</code> 排序返回结果表。</p>
 
-<p>The query result format is in the following example.</p>
+<p>查询结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>Input:
-</strong><code>Salary</code> table:
+<strong>输入：
+</strong><code>Salary</code> 表:
 +--------+-----------+----------+--------+---------------+
 | emp_id | firstname | lastname | salary | department_id |
 +--------+-----------+----------+--------+---------------+ 
@@ -48,7 +49,7 @@ Each row contains employees details and their yearly salaries, however, some of 
 | 6      | Natasha   | Swanson  | 79632  | D1005         | 
 | 6      | Natasha   | Swanson  | 90000  | D1005         |
 +--------+-----------+----------+--------+---------------+
-<strong>Output:
+<strong>输出：
 </strong>+--------+-----------+----------+--------+---------------+
 | emp_id | firstname | lastname | salary | department_id |
 +--------+-----------+----------+--------+---------------+ 
@@ -60,14 +61,13 @@ Each row contains employees details and their yearly salaries, however, some of 
 | 6      | Natasha   | Swanson  | 90000  | D1005         |
 +--------+-----------+----------+--------+---------------+<strong>
 </strong>
-<strong>Explanation:</strong>
-- emp_id 1 has two records with a salary of&nbsp;110000, 106119 out of these 110000 is an updated salary (Assuming salary is increasing each year)
-- emp_id 2 has two records with a salary of&nbsp;128922, 128922&nbsp;out of these 130000 is an updated salary.
-- emp_id 3 has only one salary record so that is already an updated salary.
-- emp_id 4&nbsp;has two records with a salary of&nbsp;162825, 170000&nbsp;out of these 170000 is an updated salary.
-- emp_id 5&nbsp;has only one salary record so that is already an updated salary.
-- emp_id 6&nbsp;has two records with a salary of 79632, 90000 out&nbsp;of these 90000 is an updated salary.
-</pre>
+<strong>解释：</strong>
+- emp_id 1 有两条记录，工资分别为 110000 和 106119，其中 110000 是更新后的工资（假设工资每年都会增加）
+- emp_id 2 有两条记录，工资分别为 128922 和 128922，其中 130000 是更新后的工资。
+- emp_id 3 只有一条工资记录，因此这已经是更新后的工资。
+- emp_id 4 有两条记录，工资分别为 162825 和 170000，其中 170000 是更新后的工资。
+- emp_id 5 只有一条工资记录，因此这已经是更新后的工资。
+- emp_id 6 有两条记录，工资分别为 79632 和 90000，其中 90000 是更新后的工资。</pre>
 
 ## 解法
 

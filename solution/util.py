@@ -4,27 +4,28 @@ import re
 from typing import Tuple, List
 from urllib.parse import quote, unquote
 
-with open('./readme_template.md', 'r', encoding='utf-8') as f:
-    readme_cn = f.read()
-with open('./readme_template_en.md', 'r', encoding='utf-8') as f:
-    readme_en = f.read()
 
-with open('./problem_readme_template.md', 'r', encoding='utf-8') as f:
-    problem_readme_cn = f.read()
-with open('./problem_readme_template_en.md', 'r', encoding='utf-8') as f:
-    problem_readme_en = f.read()
-with open('./sql_problem_readme_template.md', 'r', encoding='utf-8') as f:
-    sql_readme_cn = f.read()
-with open('./sql_problem_readme_template_en.md', 'r', encoding='utf-8') as f:
-    sql_readme_en = f.read()
-with open('./bash_problem_readme_template.md', 'r', encoding='utf-8') as f:
-    bash_readme_cn = f.read()
-with open('./bash_problem_readme_template_en.md', 'r', encoding='utf-8') as f:
-    bash_readme_en = f.read()
-with open('./ts_problem_readme_template.md', 'r', encoding='utf-8') as f:
-    ts_readme_cn = f.read()
-with open('./ts_problem_readme_template_en.md', 'r', encoding='utf-8') as f:
-    ts_readme_en = f.read()
+def load_template(template_name: str) -> str:
+    with open("./template.md", 'r', encoding='utf-8') as f:
+        content = f.read()
+        start_text = f"<!-- 这里是{template_name}开始位置 -->"
+        end_text = f'<!-- 这里是{template_name}结束位置 -->'
+        content = re.search(f"{start_text}(.*?){end_text}", content, re.S).group(1)
+        return content.strip()
+
+
+readme_cn = load_template('readme_template')
+readme_en = load_template('readme_template_en')
+problem_readme_cn = load_template('problem_readme_template')
+problem_readme_en = load_template('problem_readme_template_en')
+sql_readme_cn = load_template('sql_problem_readme_template')
+sql_readme_en = load_template('sql_problem_readme_template_en')
+bash_readme_cn = load_template('bash_problem_readme_template')
+bash_readme_en = load_template('bash_problem_readme_template_en')
+ts_readme_cn = load_template('ts_problem_readme_template')
+ts_readme_en = load_template('ts_problem_readme_template_en')
+contest_readme_cn = load_template('contest_readme_template')
+contest_readme_en = load_template('contest_readme_template_en')
 
 
 def load_cookies() -> Tuple[str, str]:
@@ -242,11 +243,9 @@ def generate_contest_readme(result: List):
     result.sort(key=lambda x: -x[0])
     content_cn = '\n\n'.join(c[1] for c in result)
     content_en = '\n\n'.join(c[2] for c in result)
-    with open('./contest_readme_template.md', 'r', encoding='utf-8') as f:
-        content_cn = f.read().format(content_cn)
+    content_cn = contest_readme_cn.format(content_cn)
     with open('./CONTEST_README.md', 'w', encoding='utf-8') as f:
         f.write(content_cn)
-    with open('./contest_readme_template_en.md', 'r', encoding='utf-8') as f:
-        content_en = f.read().format(content_en)
+    content_en = contest_readme_en.format(content_en)
     with open('./CONTEST_README_EN.md', 'w', encoding='utf-8') as f:
         f.write(content_en)

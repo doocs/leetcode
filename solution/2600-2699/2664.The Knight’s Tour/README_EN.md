@@ -13,8 +13,6 @@
 <p>Note that a <strong>knight</strong> can <strong>move</strong> from cell <code>(r1, c1)</code> to cell <code>(r2, c2)</code> if <code>0 &lt;= r2 &lt;= m - 1</code> and <code>0 &lt;= c2 &lt;= n - 1</code> and <code>min(abs(r1 - r2), abs(c1 - c2)) = 1</code> and <code>max(abs(r1 - r2), abs(c1 - c2)) = 2</code>.</p>
 
 <p>&nbsp;</p>
-
-<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
