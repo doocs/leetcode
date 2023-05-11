@@ -1,12 +1,12 @@
-func xorQueries(arr []int, queries [][]int) []int {
-	xors := make([]int, len(arr)+1)
-	for i, v := range arr {
-		xors[i+1] = xors[i] ^ v
+func xorQueries(arr []int, queries [][]int) (ans []int) {
+	n := len(arr)
+	s := make([]int, n+1)
+	for i, x := range arr {
+		s[i+1] = s[i] ^ x
 	}
-	var ans []int
 	for _, q := range queries {
 		l, r := q[0], q[1]
-		ans = append(ans, xors[l]^xors[r+1])
+		ans = append(ans, s[r+1]^s[l])
 	}
-	return ans
+	return
 }

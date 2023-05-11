@@ -55,10 +55,8 @@ The XOR values for queries are:
 ```python
 class Solution:
     def xorQueries(self, arr: List[int], queries: List[List[int]]) -> List[int]:
-        xors = [0]
-        for v in arr:
-            xors.append(xors[-1] ^ v)
-        return [xors[l] ^ xors[r + 1] for l, r in queries]
+        s = list(accumulate(arr, xor, initial=0))
+        return [s[r + 1] ^ s[l] for l, r in queries]
 ```
 
 ### **Java**
@@ -67,16 +65,15 @@ class Solution:
 class Solution {
     public int[] xorQueries(int[] arr, int[][] queries) {
         int n = arr.length;
-        int[] xors = new int[n + 1];
-        for (int i = 0; i < n; ++i) {
-            xors[i + 1] = xors[i] ^ arr[i];
+        int[] s = new int[n + 1];
+        for (int i = 1; i <= n; ++i) {
+            s[i] = s[i - 1] ^ arr[i - 1];
         }
         int m = queries.length;
         int[] ans = new int[m];
         for (int i = 0; i < m; ++i) {
-            int l = queries[i][0];
-            int r = queries[i][1];
-            ans[i] = xors[l] ^ xors[r + 1];
+            int l = queries[i][0], r = queries[i][1];
+            ans[i] = s[r + 1] ^ s[l];
         }
         return ans;
     }
@@ -112,12 +109,15 @@ class Solution {
 public:
     vector<int> xorQueries(vector<int>& arr, vector<vector<int>>& queries) {
         int n = arr.size();
-        vector<int> xors(n + 1);
-        for (int i = 0; i < n; ++i) xors[i + 1] = xors[i] ^ arr[i];
+        int s[n + 1];
+        memset(s, 0, sizeof(s));
+        for (int i = 1; i <= n; ++i) {
+            s[i] = s[i - 1] ^ arr[i - 1];
+        }
         vector<int> ans;
         for (auto& q : queries) {
             int l = q[0], r = q[1];
-            ans.push_back(xors[l] ^ xors[r + 1]);
+            ans.push_back(s[r + 1] ^ s[l]);
         }
         return ans;
     }
@@ -127,18 +127,57 @@ public:
 ### **Go**
 
 ```go
-func xorQueries(arr []int, queries [][]int) []int {
-	xors := make([]int, len(arr)+1)
-	for i, v := range arr {
-		xors[i+1] = xors[i] ^ v
+func xorQueries(arr []int, queries [][]int) (ans []int) {
+	n := len(arr)
+	s := make([]int, n+1)
+	for i, x := range arr {
+		s[i+1] = s[i] ^ x
 	}
-	var ans []int
 	for _, q := range queries {
 		l, r := q[0], q[1]
-		ans = append(ans, xors[l]^xors[r+1])
+		ans = append(ans, s[r+1]^s[l])
 	}
-	return ans
+	return
 }
+```
+
+### **TypeScript**
+
+```ts
+function xorQueries(arr: number[], queries: number[][]): number[] {
+    const n = arr.length;
+    const s: number[] = new Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        s[i + 1] = s[i] ^ arr[i];
+    }
+    const ans: number[] = [];
+    for (const [l, r] of queries) {
+        ans.push(s[r + 1] ^ s[l]);
+    }
+    return ans;
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} arr
+ * @param {number[][]} queries
+ * @return {number[]}
+ */
+var xorQueries = function (arr, queries) {
+    const n = arr.length;
+    const s = new Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        s[i + 1] = s[i] ^ arr[i];
+    }
+    const ans = [];
+    for (const [l, r] of queries) {
+        ans.push(s[r + 1] ^ s[l]);
+    }
+    return ans;
+};
 ```
 
 ### **...**
