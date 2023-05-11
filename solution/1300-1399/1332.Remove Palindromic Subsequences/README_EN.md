@@ -56,11 +56,7 @@ Remove palindromic subsequence &quot;baab&quot; then &quot;b&quot;.
 ```python
 class Solution:
     def removePalindromeSub(self, s: str) -> int:
-        if not s:
-            return 0
-        if s[::-1] == s:
-            return 1
-        return 2
+        return 1 if s[::-1] == s else 2
 ```
 
 ### **Java**
@@ -68,24 +64,13 @@ class Solution:
 ```java
 class Solution {
     public int removePalindromeSub(String s) {
-        if (s.length() == 0) {
-            return 0;
+        for (int i = 0, j = s.length() - 1; i < j; ++i, --j) {
+            if (s.charAt(i) != s.charAt(j)) {
+                return 2;
+            }
         }
-        if (new StringBuilder(s).reverse().toString().equals(s)) {
-            return 1;
-        }
-        return 2;
+        return 1;
     }
-}
-```
-
-### **TypeScript**
-
-```ts
-function removePalindromeSub(s: string): number {
-    if (s.length == 0) return 0;
-    if (s == s.split('').reverse().join('')) return 1;
-    return 2;
 }
 ```
 
@@ -95,13 +80,12 @@ function removePalindromeSub(s: string): number {
 class Solution {
 public:
     int removePalindromeSub(string s) {
-        if (s.empty())
-            return 0;
-        string t = s;
-        reverse(s.begin(), s.end());
-        if (s == t)
-            return 1;
-        return 2;
+        for (int i = 0, j = s.size() - 1; i < j; ++i, --j) {
+            if (s[i] != s[j]) {
+                return 2;
+            }
+        }
+        return 1;
     }
 };
 ```
@@ -110,21 +94,25 @@ public:
 
 ```go
 func removePalindromeSub(s string) int {
-	if len(s) == 0 {
-		return 0
+	for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
+		if s[i] != s[j] {
+			return 2
+		}
 	}
-	if s == reverse(s) {
-		return 1
-	}
-	return 2
+	return 1
 }
+```
 
-func reverse(s string) string {
-	r := []byte(s)
-	for i, j := 0, len(r)-1; i < j; i, j = i+1, j-1 {
-		r[i], r[j] = r[j], r[i]
-	}
-	return string(r)
+### **TypeScript**
+
+```ts
+function removePalindromeSub(s: string): number {
+    for (let i = 0, j = s.length - 1; i < j; ++i, --j) {
+        if (s[i] !== s[j]) {
+            return 2;
+        }
+    }
+    return 1;
 }
 ```
 

@@ -55,8 +55,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
--   如果字符串 s 本身是个回文串，那么只需要删除 1 次。
--   如果字符串 s 不是个回文串，我们注意到 s 最多只有两种字母 "a", "b"，并且删除的是一个子序列，因此可以先删除所有字母 "a" (`"aaa...aaa"` 是个回文串)，再删除所有字母 "b"，即可使得字符串变为空。因此需要的删除次数是 2 次。
+**方法一：脑筋急转弯**
+
+如果字符串 $s$ 本身是个回文串，那么只需要删除 $1$ 次。
+
+如果字符串 $s$ 不是个回文串，那么先删除所有的 `'a'`，再删除所有的 `'b'`，总共需要删除 $2$ 次。
+
+时间复杂度 $O(n)$，其中 $n$ 是字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -67,11 +72,7 @@
 ```python
 class Solution:
     def removePalindromeSub(self, s: str) -> int:
-        if not s:
-            return 0
-        if s[::-1] == s:
-            return 1
-        return 2
+        return 1 if s[::-1] == s else 2
 ```
 
 ### **Java**
@@ -81,24 +82,13 @@ class Solution:
 ```java
 class Solution {
     public int removePalindromeSub(String s) {
-        if (s.length() == 0) {
-            return 0;
+        for (int i = 0, j = s.length() - 1; i < j; ++i, --j) {
+            if (s.charAt(i) != s.charAt(j)) {
+                return 2;
+            }
         }
-        if (new StringBuilder(s).reverse().toString().equals(s)) {
-            return 1;
-        }
-        return 2;
+        return 1;
     }
-}
-```
-
-### **TypeScript**
-
-```ts
-function removePalindromeSub(s: string): number {
-    if (s.length == 0) return 0;
-    if (s == s.split('').reverse().join('')) return 1;
-    return 2;
 }
 ```
 
@@ -108,13 +98,12 @@ function removePalindromeSub(s: string): number {
 class Solution {
 public:
     int removePalindromeSub(string s) {
-        if (s.empty())
-            return 0;
-        string t = s;
-        reverse(s.begin(), s.end());
-        if (s == t)
-            return 1;
-        return 2;
+        for (int i = 0, j = s.size() - 1; i < j; ++i, --j) {
+            if (s[i] != s[j]) {
+                return 2;
+            }
+        }
+        return 1;
     }
 };
 ```
@@ -123,21 +112,25 @@ public:
 
 ```go
 func removePalindromeSub(s string) int {
-	if len(s) == 0 {
-		return 0
+	for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
+		if s[i] != s[j] {
+			return 2
+		}
 	}
-	if s == reverse(s) {
-		return 1
-	}
-	return 2
+	return 1
 }
+```
 
-func reverse(s string) string {
-	r := []byte(s)
-	for i, j := 0, len(r)-1; i < j; i, j = i+1, j-1 {
-		r[i], r[j] = r[j], r[i]
-	}
-	return string(r)
+### **TypeScript**
+
+```ts
+function removePalindromeSub(s: string): number {
+    for (let i = 0, j = s.length - 1; i < j; ++i, --j) {
+        if (s[i] !== s[j]) {
+            return 2;
+        }
+    }
+    return 1;
 }
 ```
 
