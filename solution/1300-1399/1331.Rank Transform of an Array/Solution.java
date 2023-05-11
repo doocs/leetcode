@@ -1,18 +1,17 @@
 class Solution {
     public int[] arrayRankTransform(int[] arr) {
-        Set<Integer> s = new HashSet<>();
-        for (int v : arr) {
-            s.add(v);
+        int n = arr.length;
+        int[] t = arr.clone();
+        Arrays.sort(t);
+        int m = 0;
+        for (int i = 0; i < n; ++i) {
+            if (i == 0 || t[i] != t[i - 1]) {
+                t[m++] = t[i];
+            }
         }
-        List<Integer> alls = new ArrayList<>(s);
-        alls.sort((a, b) -> a - b);
-        Map<Integer, Integer> m = new HashMap<>();
-        for (int i = 0; i < alls.size(); ++i) {
-            m.put(alls.get(i), i + 1);
-        }
-        int[] ans = new int[arr.length];
-        for (int i = 0; i < arr.length; ++i) {
-            ans[i] = m.get(arr[i]);
+        int[] ans = new int[n];
+        for (int i = 0; i < n; ++i) {
+            ans[i] = Arrays.binarySearch(t, 0, m, arr[i]) + 1;
         }
         return ans;
     }

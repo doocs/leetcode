@@ -55,14 +55,7 @@
 class Solution:
     def arrayRankTransform(self, arr: List[int]) -> List[int]:
         t = sorted(set(arr))
-        return [bisect_left(t, x) + 1 for x in arr]
-```
-
-```python
-class Solution:
-    def arrayRankTransform(self, arr: List[int]) -> List[int]:
-        m = {v: i for i, v in enumerate(sorted(set(arr)), 1)}
-        return [m[v] for v in arr]
+        return [bisect_right(t, x) for x in arr]
 ```
 
 ### **Java**
@@ -70,38 +63,18 @@ class Solution:
 ```java
 class Solution {
     public int[] arrayRankTransform(int[] arr) {
-        Set<Integer> s = new HashSet<>();
-        for (int v : arr) {
-            s.add(v);
-        }
-        List<Integer> alls = new ArrayList<>(s);
-        alls.sort((a, b) -> a - b);
-        Map<Integer, Integer> m = new HashMap<>();
-        for (int i = 0; i < alls.size(); ++i) {
-            m.put(alls.get(i), i + 1);
-        }
-        int[] ans = new int[arr.length];
-        for (int i = 0; i < arr.length; ++i) {
-            ans[i] = m.get(arr[i]);
-        }
-        return ans;
-    }
-}
-```
-
-```java
-class Solution {
-    public int[] arrayRankTransform(int[] arr) {
-        Set<Integer> s = new HashSet<>();
-        for (int v : arr) {
-            s.add(v);
-        }
-        List<Integer> alls = new ArrayList<>(s);
-        alls.sort((a, b) -> a - b);
         int n = arr.length;
+        int[] t = arr.clone();
+        Arrays.sort(t);
+        int m = 0;
+        for (int i = 0; i < n; ++i) {
+            if (i == 0 || t[i] != t[i - 1]) {
+                t[m++] = t[i];
+            }
+        }
         int[] ans = new int[n];
         for (int i = 0; i < n; ++i) {
-            ans[i] = Collections.binarySearch(alls, arr[i]) + 1;
+            ans[i] = Arrays.binarySearch(t, 0, m, arr[i]) + 1;
         }
         return ans;
     }
@@ -114,27 +87,13 @@ class Solution {
 class Solution {
 public:
     vector<int> arrayRankTransform(vector<int>& arr) {
-        unordered_set<int> s(arr.begin(), arr.end());
-        vector<int> alls(s.begin(), s.end());
-        sort(alls.begin(), alls.end());
-        unordered_map<int, int> m;
-        for (int i = 0; i < alls.size(); ++i) m[alls[i]] = i + 1;
+        vector<int> t = arr;
+        sort(t.begin(), t.end());
+        t.erase(unique(t.begin(), t.end()), t.end());
         vector<int> ans;
-        for (int v : arr) ans.push_back(m[v]);
-        return ans;
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    vector<int> arrayRankTransform(vector<int>& arr) {
-        unordered_set<int> s(arr.begin(), arr.end());
-        vector<int> alls(s.begin(), s.end());
-        sort(alls.begin(), alls.end());
-        vector<int> ans;
-        for (int v: arr) ans.push_back(lower_bound(alls.begin(), alls.end(), v) - alls.begin() + 1);
+        for (int x : arr) {
+            ans.push_back(upper_bound(t.begin(), t.end(), x) - t.begin());
+        }
         return ans;
     }
 };
@@ -143,25 +102,53 @@ public:
 ### **Go**
 
 ```go
-func arrayRankTransform(arr []int) []int {
-	s := make(map[int]bool)
-	for _, v := range arr {
-		s[v] = true
+func arrayRankTransform(arr []int) (ans []int) {
+	t := make([]int, len(arr))
+	copy(t, arr)
+	sort.Ints(t)
+	m := 0
+	for i, x := range t {
+		if i == 0 || x != t[i-1] {
+			t[m] = x
+			m++
+		}
 	}
-	var alls []int
-	for v := range s {
-		alls = append(alls, v)
+	t = t[:m]
+	for _, x := range arr {
+		ans = append(ans, sort.SearchInts(t, x)+1)
 	}
-	sort.Ints(alls)
-	m := make(map[int]int)
-	for i, v := range alls {
-		m[v] = i + 1
-	}
-	var ans []int
-	for _, v := range arr {
-		ans = append(ans, m[v])
-	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function arrayRankTransform(arr: number[]): number[] {
+    const t = [...arr].sort((a, b) => a - b);
+    let m = 0;
+    for (let i = 0; i < t.length; ++i) {
+        if (i === 0 || t[i] !== t[i - 1]) {
+            t[m++] = t[i];
+        }
+    }
+    const search = (t: number[], right: number, x: number) => {
+        let left = 0;
+        while (left < right) {
+            const mid = (left + right) >> 1;
+            if (t[mid] > x) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    };
+    const ans: number[] = [];
+    for (const x of arr) {
+        ans.push(search(t, m, x));
+    }
+    return ans;
 }
 ```
 
