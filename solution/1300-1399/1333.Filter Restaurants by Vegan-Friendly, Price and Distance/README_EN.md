@@ -60,13 +60,104 @@ After filter restaurants with veganFriendly = 1, maxPrice = 50 and maxDistance =
 ### **Python3**
 
 ```python
-
+class Solution:
+    def filterRestaurants(
+        self,
+        restaurants: List[List[int]],
+        veganFriendly: int,
+        maxPrice: int,
+        maxDistance: int,
+    ) -> List[int]:
+        restaurants.sort(key=lambda x: (-x[1], -x[0]))
+        ans = []
+        for idx, _, vegan, price, dist in restaurants:
+            if vegan >= veganFriendly and price <= maxPrice and dist <= maxDistance:
+                ans.append(idx)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<Integer> filterRestaurants(int[][] restaurants, int veganFriendly, int maxPrice, int maxDistance) {
+        Arrays.sort(restaurants, (a, b) -> a[1] == b[1] ? b[0] - a[0] : b[1] - a[1]);
+        List<Integer> ans = new ArrayList<>();
+        for (int[] r : restaurants) {
+            if (r[2] >= veganFriendly && r[3] <= maxPrice && r[4] <= maxDistance) {
+                ans.add(r[0]);
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> filterRestaurants(vector<vector<int>>& restaurants, int veganFriendly, int maxPrice, int maxDistance) {
+        sort(restaurants.begin(), restaurants.end(), [](const vector<int>& a, const vector<int>& b) {
+            if (a[1] != b[1]) {
+                return a[1] > b[1];
+            }
+            return a[0] > b[0];
+        });
+        vector<int> ans;
+        for (auto& r : restaurants) {
+            if (r[2] >= veganFriendly && r[3] <= maxPrice && r[4] <= maxDistance) {
+                ans.push_back(r[0]);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func filterRestaurants(restaurants [][]int, veganFriendly int, maxPrice int, maxDistance int) (ans []int) {
+	sort.Slice(restaurants, func(i, j int) bool {
+		a, b := restaurants[i], restaurants[j]
+		if a[1] != b[1] {
+			return a[1] > b[1]
+		}
+		return a[0] > b[0]
+	})
+	for _, r := range restaurants {
+		if r[2] >= veganFriendly && r[3] <= maxPrice && r[4] <= maxDistance {
+			ans = append(ans, r[0])
+		}
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function filterRestaurants(
+    restaurants: number[][],
+    veganFriendly: number,
+    maxPrice: number,
+    maxDistance: number,
+): number[] {
+    restaurants.sort((a, b) => (a[1] === b[1] ? b[0] - a[0] : b[1] - a[1]));
+    const ans: number[] = [];
+    for (const [id, _, vegan, price, distance] of restaurants) {
+        if (
+            vegan >= veganFriendly &&
+            price <= maxPrice &&
+            distance <= maxDistance
+        ) {
+            ans.push(id);
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
