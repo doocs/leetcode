@@ -44,6 +44,9 @@ class Solution:
 ```java
 class Solution {
     public boolean queryString(String s, int n) {
+        if (n > 1023) {
+            return false;
+        }
         for (int i = n; i > n / 2; i--) {
             if (!s.contains(Integer.toBinaryString(i))) {
                 return false;
@@ -60,6 +63,9 @@ class Solution {
 class Solution {
 public:
     bool queryString(string s, int n) {
+        if (n > 1023) {
+            return false;
+        }
         for (int i = n; i > n / 2; --i) {
             string b = bitset<32>(i).to_string();
             b = b.substr(b.find_first_not_of('0'));
@@ -76,6 +82,9 @@ public:
 
 ```go
 func queryString(s string, n int) bool {
+	if n > 1023 {
+		return false
+	}
 	for i := n; i > n/2; i-- {
 		if !strings.Contains(s, strconv.FormatInt(int64(i), 2)) {
 			return false
@@ -89,6 +98,9 @@ func queryString(s string, n int) bool {
 
 ```ts
 function queryString(s: string, n: number): boolean {
+    if (n > 1023) {
+        return false;
+    }
     for (let i = n; i > n / 2; --i) {
         if (s.indexOf(i.toString(2)) === -1) {
             return false;

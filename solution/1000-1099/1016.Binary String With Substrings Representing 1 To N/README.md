@@ -46,7 +46,7 @@
 
 另外，对于一个整数 $x$，如果 $x$ 的二进制表示是 $s$ 的子串，那么 $\lfloor x / 2 \rfloor$ 的二进制表示也是 $s$ 的子串。因此，我们只需要判断 $[\lfloor n / 2 \rfloor + 1,.. n]$ 范围内的整数的二进制表示是否是 $s$ 的子串即可。
 
-时间复杂度 $O(m^2)$，空间复杂度 $O(m)$，其中 $m$ 是字符串 $s$ 的长度。
+时间复杂度 $O(m^2 \times \log m)$，空间复杂度 $O(\log n)$，其中 $m$ 是字符串 $s$ 的长度，而 $n$ 为题目给定的正整数。
 
 <!-- tabs:start -->
 
@@ -69,20 +69,10 @@ class Solution:
 ```java
 class Solution {
     public boolean queryString(String s, int n) {
-        for (int i = n; i > n / 2; i--) {
-            if (!s.contains(Integer.toBinaryString(i))) {
-                return false;
-            }
+        if (n > 1023) {
+            return false;
         }
-        return true;
-    }
-}
-```
-
-```java
-class Solution {
-    public boolean queryString(String s, int n) {
-        for (int i = 1; i <= n; ++i) {
+        for (int i = n; i > n / 2; i--) {
             if (!s.contains(Integer.toBinaryString(i))) {
                 return false;
             }
@@ -98,6 +88,9 @@ class Solution {
 class Solution {
 public:
     bool queryString(string s, int n) {
+        if (n > 1023) {
+            return false;
+        }
         for (int i = n; i > n / 2; --i) {
             string b = bitset<32>(i).to_string();
             b = b.substr(b.find_first_not_of('0'));
@@ -114,6 +107,9 @@ public:
 
 ```go
 func queryString(s string, n int) bool {
+	if n > 1023 {
+		return false
+	}
 	for i := n; i > n/2; i-- {
 		if !strings.Contains(s, strconv.FormatInt(int64(i), 2)) {
 			return false
@@ -127,6 +123,9 @@ func queryString(s string, n int) bool {
 
 ```ts
 function queryString(s: string, n: number): boolean {
+    if (n > 1023) {
+        return false;
+    }
     for (let i = n; i > n / 2; --i) {
         if (s.indexOf(i.toString(2)) === -1) {
             return false;
