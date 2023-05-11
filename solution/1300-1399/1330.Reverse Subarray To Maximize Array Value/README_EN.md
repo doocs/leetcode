@@ -41,13 +41,174 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxValueAfterReverse(self, nums: List[int]) -> int:
+        ans = s = sum(abs(x - y) for x, y in pairwise(nums))
+        for x, y in pairwise(nums):
+            ans = max(ans, s + abs(nums[0] - y) - abs(x - y))
+            ans = max(ans, s + abs(nums[-1] - x) - abs(x - y))
+        for k1, k2 in pairwise((1, -1, -1, 1, 1)):
+            mx, mi = -inf, inf
+            for x, y in pairwise(nums):
+                a = k1 * x + k2 * y
+                b = abs(x - y)
+                mx = max(mx, a - b)
+                mi = min(mi, a + b)
+            ans = max(ans, s + max(mx - mi, 0))
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxValueAfterReverse(int[] nums) {
+        int n = nums.length;
+        int s = 0;
+        for (int i = 0; i < n - 1; ++i) {
+            s += Math.abs(nums[i] - nums[i + 1]);
+        }
+        int ans = s;
+        for (int i = 0; i < n - 1; ++i) {
+            ans = Math.max(ans, s + Math.abs(nums[0] - nums[i + 1]) - Math.abs(nums[i] - nums[i + 1]));
+            ans = Math.max(ans, s + Math.abs(nums[n - 1] - nums[i]) - Math.abs(nums[i] - nums[i + 1]));
+        }
+        int[] dirs = {1, -1, -1, 1, 1};
+        final int inf = 1 << 30;
+        for (int k = 0; k < 4; ++k) {
+            int k1 = dirs[k], k2 = dirs[k + 1];
+            int mx = -inf, mi = inf;
+            for (int i = 0; i < n - 1; ++i) {
+                int a = k1 * nums[i] + k2 * nums[i + 1];
+                int b = Math.abs(nums[i] - nums[i + 1]);
+                mx = Math.max(mx, a - b);
+                mi = Math.min(mi, a + b);
+            }
+            ans = Math.max(ans, s + Math.max(0, mx - mi));
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxValueAfterReverse(vector<int>& nums) {
+        int n = nums.size();
+        int s = 0;
+        for (int i = 0; i < n - 1; ++i) {
+            s += abs(nums[i] - nums[i + 1]);
+        }
+        int ans = s;
+        for (int i = 0; i < n - 1; ++i) {
+            ans = max(ans, s + abs(nums[0] - nums[i + 1]) - abs(nums[i] - nums[i + 1]));
+            ans = max(ans, s + abs(nums[n - 1] - nums[i]) - abs(nums[i] - nums[i + 1]));
+        }
+        int dirs[5] = {1, -1, -1, 1, 1};
+        const int inf = 1 << 30;
+        for (int k = 0; k < 4; ++k) {
+            int k1 = dirs[k], k2 = dirs[k + 1];
+            int mx = -inf, mi = inf;
+            for (int i = 0; i < n - 1; ++i) {
+                int a = k1 * nums[i] + k2 * nums[i + 1];
+                int b = abs(nums[i] - nums[i + 1]);
+                mx = max(mx, a - b);
+                mi = min(mi, a + b);
+            }
+            ans = max(ans, s + max(0, mx - mi));
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxValueAfterReverse(nums []int) int {
+	s, n := 0, len(nums)
+	for i, x := range nums[:n-1] {
+		y := nums[i+1]
+		s += abs(x - y)
+	}
+	ans := s
+	for i, x := range nums[:n-1] {
+		y := nums[i+1]
+		ans = max(ans, s+abs(nums[0]-y)-abs(x-y))
+		ans = max(ans, s+abs(nums[n-1]-x)-abs(x-y))
+	}
+	dirs := [5]int{1, -1, -1, 1, 1}
+	const inf = 1 << 30
+	for k := 0; k < 4; k++ {
+		k1, k2 := dirs[k], dirs[k+1]
+		mx, mi := -inf, inf
+		for i, x := range nums[:n-1] {
+			y := nums[i+1]
+			a := k1*x + k2*y
+			b := abs(x - y)
+			mx = max(mx, a-b)
+			mi = min(mi, a+b)
+		}
+		ans = max(ans, s+max(mx-mi, 0))
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a int, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxValueAfterReverse(nums: number[]): number {
+    const n = nums.length;
+    let s = 0;
+    for (let i = 0; i < n - 1; ++i) {
+        s += Math.abs(nums[i] - nums[i + 1]);
+    }
+    let ans = s;
+    for (let i = 0; i < n - 1; ++i) {
+        const d = Math.abs(nums[i] - nums[i + 1]);
+        ans = Math.max(ans, s + Math.abs(nums[0] - nums[i + 1]) - d);
+        ans = Math.max(ans, s + Math.abs(nums[n - 1] - nums[i]) - d);
+    }
+    const dirs = [1, -1, -1, 1, 1];
+    const inf = 1 << 30;
+    for (let k = 0; k < 4; ++k) {
+        let mx = -inf;
+        let mi = inf;
+        for (let i = 0; i < n - 1; ++i) {
+            const a = dirs[k] * nums[i] + dirs[k + 1] * nums[i + 1];
+            const b = Math.abs(nums[i] - nums[i + 1]);
+            mx = Math.max(mx, a - b);
+            mi = Math.min(mi, a + b);
+        }
+        ans = Math.max(ans, s + Math.max(0, mx - mi));
+    }
+    return ans;
+}
 ```
 
 ### **...**
