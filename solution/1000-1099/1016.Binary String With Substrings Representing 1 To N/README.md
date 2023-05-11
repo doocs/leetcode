@@ -42,7 +42,7 @@
 
 **方法一：脑筋急转弯**
 
-我们注意到，字符串 $s$ 的长度不超过 $1000$，所以字符串 $s$ 能表示不超过 $100$ 个 $10$ 位的二进制整数，因此，我们可以粗略地估算，如果 $n \gt 1023$，那么 $s$ 肯定不能表示 $[1, n]$ 范围内的所有整数的二进制表示。
+我们注意到，字符串 $s$ 的长度不超过 $1000$，所以字符串 $s$ 能表示不超过 $1000$ 个 二进制整数，因此，如果 $n \gt 1000$，那么 $s$ 肯定不能表示 $[1,.. n]$ 范围内的所有整数的二进制表示。
 
 另外，对于一个整数 $x$，如果 $x$ 的二进制表示是 $s$ 的子串，那么 $\lfloor x / 2 \rfloor$ 的二进制表示也是 $s$ 的子串。因此，我们只需要判断 $[\lfloor n / 2 \rfloor + 1,.. n]$ 范围内的整数的二进制表示是否是 $s$ 的子串即可。
 
@@ -57,7 +57,7 @@
 ```python
 class Solution:
     def queryString(self, s: str, n: int) -> bool:
-        if n > 1023:
+        if n > 1000:
             return False
         return all(bin(i)[2:] in s for i in range(n, n // 2, -1))
 ```
@@ -69,7 +69,7 @@ class Solution:
 ```java
 class Solution {
     public boolean queryString(String s, int n) {
-        if (n > 1023) {
+        if (n > 1000) {
             return false;
         }
         for (int i = n; i > n / 2; i--) {
@@ -88,7 +88,7 @@ class Solution {
 class Solution {
 public:
     bool queryString(string s, int n) {
-        if (n > 1023) {
+        if (n > 1000) {
             return false;
         }
         for (int i = n; i > n / 2; --i) {
@@ -107,7 +107,7 @@ public:
 
 ```go
 func queryString(s string, n int) bool {
-	if n > 1023 {
+	if n > 1000 {
 		return false
 	}
 	for i := n; i > n/2; i-- {
@@ -123,7 +123,7 @@ func queryString(s string, n int) bool {
 
 ```ts
 function queryString(s: string, n: number): boolean {
-    if (n > 1023) {
+    if (n > 1000) {
         return false;
     }
     for (let i = n; i > n / 2; --i) {

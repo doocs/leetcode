@@ -34,7 +34,7 @@
 ```python
 class Solution:
     def queryString(self, s: str, n: int) -> bool:
-        if n > 1023:
+        if n > 1000:
             return False
         return all(bin(i)[2:] in s for i in range(n, n // 2, -1))
 ```
@@ -44,7 +44,7 @@ class Solution:
 ```java
 class Solution {
     public boolean queryString(String s, int n) {
-        if (n > 1023) {
+        if (n > 1000) {
             return false;
         }
         for (int i = n; i > n / 2; i--) {
@@ -63,7 +63,7 @@ class Solution {
 class Solution {
 public:
     bool queryString(string s, int n) {
-        if (n > 1023) {
+        if (n > 1000) {
             return false;
         }
         for (int i = n; i > n / 2; --i) {
@@ -82,7 +82,7 @@ public:
 
 ```go
 func queryString(s string, n int) bool {
-	if n > 1023 {
+	if n > 1000 {
 		return false
 	}
 	for i := n; i > n/2; i-- {
@@ -98,7 +98,7 @@ func queryString(s string, n int) bool {
 
 ```ts
 function queryString(s: string, n: number): boolean {
-    if (n > 1023) {
+    if (n > 1000) {
         return false;
     }
     for (let i = n; i > n / 2; --i) {
