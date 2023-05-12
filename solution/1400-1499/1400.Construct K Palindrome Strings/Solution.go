@@ -2,15 +2,13 @@ func canConstruct(s string, k int) bool {
 	if len(s) < k {
 		return false
 	}
-	counter := make([]int, 26)
+	cnt := [26]int{}
 	for _, c := range s {
-		counter[c-'a']++
+		cnt[c-'a']++
 	}
-	cnt := 0
-	for _, v := range counter {
-		if v%2 == 1 {
-			cnt++
-		}
+	x := 0
+	for _, v := range cnt {
+		x += v & 1
 	}
-	return cnt <= k
+	return x <= k
 }

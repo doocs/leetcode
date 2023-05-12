@@ -1,13 +1,17 @@
 class Solution {
 public:
     bool canConstruct(string s, int k) {
-        if (s.size() < k) return 0;
-        vector<int> counter(26);
-        for (char c : s) ++counter[c - 'a'];
-        int cnt = 0;
-        for (int v : counter)
-            if (v % 2)
-                ++cnt;
-        return cnt <= k;
+        if (s.size() < k) {
+            return false;
+        }
+        int cnt[26]{};
+        for (char& c : s) {
+            ++cnt[c - 'a'];
+        }
+        int x = 0;
+        for (int v : cnt) {
+            x += v & 1;
+        }
+        return x <= k;
     }
 };

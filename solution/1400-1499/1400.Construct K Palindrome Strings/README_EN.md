@@ -52,9 +52,8 @@ class Solution:
     def canConstruct(self, s: str, k: int) -> bool:
         if len(s) < k:
             return False
-        counter = Counter(s)
-        cnt = sum(1 for n in counter.values() if n % 2 == 1)
-        return cnt <= k
+        cnt = Counter(s)
+        return sum(v & 1 for v in cnt.values()) <= k
 ```
 
 ### **Java**
@@ -62,20 +61,19 @@ class Solution:
 ```java
 class Solution {
     public boolean canConstruct(String s, int k) {
-        if (s.length() < k) {
+        int n = s.length();
+        if (n < k) {
             return false;
         }
-        int[] counter = new int[26];
-        for (char c : s.toCharArray()) {
-            ++counter[c - 'a'];
+        int[] cnt = new int[26];
+        for (int i = 0; i < n; ++i) {
+            ++cnt[s.charAt(i) - 'a'];
         }
-        int cnt = 0;
-        for (int v : counter) {
-            if (v % 2 == 1) {
-                ++cnt;
-            }
+        int x = 0;
+        for (int v : cnt) {
+            x += v & 1;
         }
-        return cnt <= k;
+        return x <= k;
     }
 }
 ```
@@ -86,14 +84,18 @@ class Solution {
 class Solution {
 public:
     bool canConstruct(string s, int k) {
-        if (s.size() < k) return 0;
-        vector<int> counter(26);
-        for (char c : s) ++counter[c - 'a'];
-        int cnt = 0;
-        for (int v : counter)
-            if (v % 2)
-                ++cnt;
-        return cnt <= k;
+        if (s.size() < k) {
+            return false;
+        }
+        int cnt[26]{};
+        for (char& c : s) {
+            ++cnt[c - 'a'];
+        }
+        int x = 0;
+        for (int v : cnt) {
+            x += v & 1;
+        }
+        return x <= k;
     }
 };
 ```
@@ -105,17 +107,34 @@ func canConstruct(s string, k int) bool {
 	if len(s) < k {
 		return false
 	}
-	counter := make([]int, 26)
+	cnt := [26]int{}
 	for _, c := range s {
-		counter[c-'a']++
+		cnt[c-'a']++
 	}
-	cnt := 0
-	for _, v := range counter {
-		if v%2 == 1 {
-			cnt++
-		}
+	x := 0
+	for _, v := range cnt {
+		x += v & 1
 	}
-	return cnt <= k
+	return x <= k
+}
+```
+
+### **TypeScript**
+
+```ts
+function canConstruct(s: string, k: number): boolean {
+    if (s.length < k) {
+        return false;
+    }
+    const cnt: number[] = new Array(26).fill(0);
+    for (const c of s) {
+        ++cnt[c.charCodeAt(0) - 'a'.charCodeAt(0)];
+    }
+    let x = 0;
+    for (const v of cnt) {
+        x += v & 1;
+    }
+    return x <= k;
 }
 ```
 
