@@ -1,23 +1,23 @@
 class Solution {
-    private long[] memo;
+    private int n;
+    private Long[] f;
     private int[][] questions;
 
     public long mostPoints(int[][] questions) {
+        n = questions.length;
+        f = new Long[n];
         this.questions = questions;
-        memo = new long[questions.length];
-        Arrays.fill(memo, -1);
         return dfs(0);
     }
 
     private long dfs(int i) {
-        if (i >= questions.length) {
+        if (i >= n) {
             return 0;
         }
-        if (memo[i] != -1) {
-            return memo[i];
+        if (f[i] != null) {
+            return f[i];
         }
-        long ans = Math.max(questions[i][0] + dfs(i + questions[i][1] + 1), dfs(i + 1));
-        memo[i] = ans;
-        return ans;
+        int p = questions[i][0], b = questions[i][1];
+        return f[i] = Math.max(p + dfs(i + b + 1), dfs(i + 1));
     }
 }

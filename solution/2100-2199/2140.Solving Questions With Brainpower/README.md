@@ -64,6 +64,31 @@
 
 **方法一：记忆化搜索**
 
+我们设计一个函数 $dfs(i)$，表示从第 $i$ 个问题开始解决，能够获得的最高分数。那么答案就是 $dfs(0)$。
+
+函数 $dfs(i)$ 的计算方式如下：
+
+-   如果 $i \geq n$，表示已经解决完所有问题，返回 $0$；
+-   否则，设第 $i$ 个问题的分数为 $p$，需要跳过的问题数为 $b$，那么 $dfs(i) = \max(p + dfs(i + b + 1), dfs(i + 1))$。
+
+为了避免重复计算，我们可以使用记忆化搜索的方法，用一个数组 $f$ 记录所有已经计算过的 $dfs(i)$ 的值。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是问题的数量。
+
+**方法二：动态规划**
+
+我们定义 $f[i]$ 表示从第 $i$ 个问题开始解决，能够获得的最高分数。那么答案就是 $f[0]$。
+
+考虑 $f[i]$，第 $i$ 个问题的分数为 $p$，需要跳过的问题数为 $b$。如果我们解决了第 $i$ 个问题，那么接下来我们需要解决 $b$ 个问题，因此 $f[i] = p + f[i + b + 1]$。如果我们跳过了第 $i$ 个问题，那么接下来我们从第 $i + 1$ 个问题开始解决，因此 $f[i] = f[i + 1]$。两者取最大值即可。状态转移方程如下：
+
+$$
+f[i] = \max(p + f[i + b + 1], f[i + 1])
+$$
+
+我们从后往前计算 $f$ 的值，最后返回 $f[0]$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是问题的数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -74,12 +99,25 @@
 class Solution:
     def mostPoints(self, questions: List[List[int]]) -> int:
         @cache
-        def dfs(i):
+        def dfs(i: int) -> int:
             if i >= len(questions):
                 return 0
-            return max(questions[i][0] + dfs(i + questions[i][1] + 1), dfs(i + 1))
+            p, b = questions[i]
+            return max(p + dfs(i + b + 1), dfs(i + 1))
 
         return dfs(0)
+```
+
+```python
+class Solution:
+    def mostPoints(self, questions: List[List[int]]) -> int:
+        n = len(questions)
+        f = [0] * (n + 1)
+        for i in range(n - 1, -1, -1):
+            p, b = questions[i]
+            j = i + b + 1
+            f[i] = max(f[i + 1], p + (0 if j > n else f[j]))
+        return f[0]
 ```
 
 ### **Java**
@@ -88,26 +126,41 @@ class Solution:
 
 ```java
 class Solution {
-    private long[] memo;
+    private int n;
+    private Long[] f;
     private int[][] questions;
 
     public long mostPoints(int[][] questions) {
+        n = questions.length;
+        f = new Long[n];
         this.questions = questions;
-        memo = new long[questions.length];
-        Arrays.fill(memo, -1);
         return dfs(0);
     }
 
     private long dfs(int i) {
-        if (i >= questions.length) {
+        if (i >= n) {
             return 0;
         }
-        if (memo[i] != -1) {
-            return memo[i];
+        if (f[i] != null) {
+            return f[i];
         }
-        long ans = Math.max(questions[i][0] + dfs(i + questions[i][1] + 1), dfs(i + 1));
-        memo[i] = ans;
-        return ans;
+        int p = questions[i][0], b = questions[i][1];
+        return f[i] = Math.max(p + dfs(i + b + 1), dfs(i + 1));
+    }
+}
+```
+
+```java
+class Solution {
+    public long mostPoints(int[][] questions) {
+        int n = questions.length;
+        long[] f = new long[n + 1];
+        for (int i = n - 1; i >= 0; --i) {
+            int p = questions[i][0], b = questions[i][1];
+            int j = i + b + 1;
+            f[i] = Math.max(f[i + 1], p + (j > n ? 0 : f[j]));
+        }
+        return f[0];
     }
 }
 ```
@@ -118,16 +171,37 @@ class Solution {
 class Solution {
 public:
     long long mostPoints(vector<vector<int>>& questions) {
-        vector<long long> memo(questions.size(), -1);
-        return dfs(0, questions, memo);
+        int n = questions.size();
+        long long f[n];
+        memset(f, 0, sizeof(f));
+        function<long long(int)> dfs = [&](int i) -> long long {
+            if (i >= n) {
+                return 0;
+            }
+            if (f[i]) {
+                return f[i];
+            }
+            int p = questions[i][0], b = questions[i][1];
+            return f[i] = max(p + dfs(i + b + 1), dfs(i + 1));
+        };
+        return dfs(0);
     }
+};
+```
 
-    long long dfs(int i, vector<vector<int>>& questions, vector<long long>& memo) {
-        if (i >= questions.size()) return 0;
-        if (memo[i] != -1) return memo[i];
-        long long ans = max(questions[i][0] + dfs(i + questions[i][1] + 1, questions, memo), dfs(i + 1, questions, memo));
-        memo[i] = ans;
-        return ans;
+```cpp
+class Solution {
+public:
+    long long mostPoints(vector<vector<int>>& questions) {
+        int n = questions.size();
+        long long f[n + 1];
+        memset(f, 0, sizeof(f));
+        for (int i = n - 1; ~i; --i) {
+            int p = questions[i][0], b = questions[i][1];
+            int j = i + b + 1;
+            f[i] = max(f[i + 1], p + (j > n ? 0 : f[j]));
+        }
+        return f[0];
     }
 };
 ```
@@ -137,26 +211,45 @@ public:
 ```go
 func mostPoints(questions [][]int) int64 {
 	n := len(questions)
-	memo := make([]int, n)
-	for i := range memo {
-		memo[i] = -1
-	}
-	var dfs func(i int) int
-	dfs = func(i int) int {
+	f := make([]int64, n)
+	var dfs func(int) int64
+	dfs = func(i int) int64 {
 		if i >= n {
 			return 0
 		}
-		if memo[i] != -1 {
-			return memo[i]
+		if f[i] > 0 {
+			return f[i]
 		}
-		ans := max(questions[i][0]+dfs(i+questions[i][1]+1), dfs(i+1))
-		memo[i] = ans
-		return ans
+		p, b := questions[i][0], questions[i][1]
+		f[i] = max(int64(p)+dfs(i+b+1), dfs(i+1))
+		return f[i]
 	}
-	return int64(dfs(0))
+	return dfs(0)
 }
 
-func max(a, b int) int {
+func max(a, b int64) int64 {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func mostPoints(questions [][]int) int64 {
+	n := len(questions)
+	f := make([]int64, n+1)
+	for i := n - 1; i >= 0; i-- {
+		p := int64(questions[i][0])
+		if j := i + questions[i][1] + 1; j <= n {
+			p += f[j]
+		}
+		f[i] = max(f[i+1], p)
+	}
+	return f[0]
+}
+
+func max(a, b int64) int64 {
 	if a > b {
 		return a
 	}
@@ -166,10 +259,35 @@ func max(a, b int) int {
 
 ### **TypeScript**
 
-<!-- 这里可写当前语言的特殊实现逻辑 -->
+```ts
+function mostPoints(questions: number[][]): number {
+    const n = questions.length;
+    const f = Array(n).fill(0);
+    const dfs = (i: number): number => {
+        if (i >= n) {
+            return 0;
+        }
+        if (f[i] > 0) {
+            return f[i];
+        }
+        const [p, b] = questions[i];
+        return (f[i] = Math.max(p + dfs(i + b + 1), dfs(i + 1)));
+    };
+    return dfs(0);
+}
+```
 
 ```ts
-
+function mostPoints(questions: number[][]): number {
+    const n = questions.length;
+    const f = Array(n + 1).fill(0);
+    for (let i = n - 1; i >= 0; --i) {
+        const [p, b] = questions[i];
+        const j = i + b + 1;
+        f[i] = Math.max(f[i + 1], p + (j > n ? 0 : f[j]));
+    }
+    return f[0];
+}
 ```
 
 ### **...**

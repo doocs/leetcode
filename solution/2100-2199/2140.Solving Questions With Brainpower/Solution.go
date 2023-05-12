@@ -1,25 +1,22 @@
 func mostPoints(questions [][]int) int64 {
 	n := len(questions)
-	memo := make([]int, n)
-	for i := range memo {
-		memo[i] = -1
-	}
-	var dfs func(i int) int
-	dfs = func(i int) int {
+	f := make([]int64, n)
+	var dfs func(int) int64
+	dfs = func(i int) int64 {
 		if i >= n {
 			return 0
 		}
-		if memo[i] != -1 {
-			return memo[i]
+		if f[i] > 0 {
+			return f[i]
 		}
-		ans := max(questions[i][0]+dfs(i+questions[i][1]+1), dfs(i+1))
-		memo[i] = ans
-		return ans
+		p, b := questions[i][0], questions[i][1]
+		f[i] = max(int64(p)+dfs(i+b+1), dfs(i+1))
+		return f[i]
 	}
-	return int64(dfs(0))
+	return dfs(0)
 }
 
-func max(a, b int) int {
+func max(a, b int64) int64 {
 	if a > b {
 		return a
 	}
