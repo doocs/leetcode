@@ -4,13 +4,11 @@ public:
         unordered_map<string, int> cnt;
         int ans = 0;
         for (auto& row : matrix) {
-            string s = "";
-            for (int v : row) {
-                if (row[0] == 1) v ^= 1;
-                s += to_string(v);
+            string s;
+            for (int x : row) {
+                s.push_back('0' + (row[0] == 0 ? x : x ^ 1));
             }
-            ++cnt[s];
-            ans = max(ans, cnt[s]);
+            ans = max(ans, ++cnt[s]);
         }
         return ans;
     }

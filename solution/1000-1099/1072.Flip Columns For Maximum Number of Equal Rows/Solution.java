@@ -1,19 +1,14 @@
 class Solution {
     public int maxEqualRowsAfterFlips(int[][] matrix) {
-        Map<String, Integer> map = new HashMap<>();
-        for (int[] row : matrix) {
-            if (row[0] == 1) {
-                for (int i = 0; i < row.length; ++i) {
-                    row[i] ^= 1;
-                }
-            }
-            StringBuilder sb = new StringBuilder();
+        Map<String, Integer> cnt = new HashMap<>();
+        int ans = 0;
+        for (var row : matrix) {
+            var sb = new StringBuilder();
             for (int x : row) {
-                sb.append(x);
+                sb.append(row[0] == 0 ? x : x ^ 1);
             }
-            String s = sb.toString();
-            map.put(s, map.getOrDefault(s, 0) + 1);
+            ans = Math.max(ans, cnt.merge(sb.toString(), 1, Integer::sum));
         }
-        return map.values().stream().max(Integer::compareTo).get();
+        return ans;
     }
 }
