@@ -51,12 +51,8 @@
 ```python
 class Solution:
     def findMaxK(self, nums: List[int]) -> int:
-        ans = -1
         s = set(nums)
-        for v in s:
-            if -v in s:
-                ans = max(ans, v)
-        return ans
+        return max((x for x in s if -x in s), default=-1)
 ```
 
 ### **Java**
@@ -66,12 +62,12 @@ class Solution {
     public int findMaxK(int[] nums) {
         int ans = -1;
         Set<Integer> s = new HashSet<>();
-        for (int v : nums) {
-            s.add(v);
+        for (int x : nums) {
+            s.add(x);
         }
-        for (int v : s) {
-            if (s.contains(-v)) {
-                ans = Math.max(ans, v);
+        for (int x : s) {
+            if (s.contains(-x)) {
+                ans = Math.max(ans, x);
             }
         }
         return ans;
@@ -87,9 +83,9 @@ public:
     int findMaxK(vector<int>& nums) {
         unordered_set<int> s(nums.begin(), nums.end());
         int ans = -1;
-        for (int& v : nums) {
-            if (s.count(-v)) {
-                ans = max(ans, v);
+        for (int x : s) {
+            if (s.count(-x)) {
+                ans = max(ans, x);
             }
         }
         return ans;
@@ -101,14 +97,14 @@ public:
 
 ```go
 func findMaxK(nums []int) int {
-	s := map[int]bool{}
-	for _, v := range nums {
-		s[v] = true
-	}
 	ans := -1
-	for v := range s {
-		if s[-v] && ans < v {
-			ans = v
+	s := map[int]bool{}
+	for _, x := range nums {
+		s[x] = true
+	}
+	for x := range s {
+		if s[-x] && ans < x {
+			ans = x
 		}
 	}
 	return ans
@@ -119,14 +115,14 @@ func findMaxK(nums []int) int {
 
 ```ts
 function findMaxK(nums: number[]): number {
-    const set = new Set(nums);
-    let res = -1;
-    for (const num of set) {
-        if (set.has(-num)) {
-            res = Math.max(num, res);
+    let ans = -1;
+    const s = new Set(nums);
+    for (const x of s) {
+        if (s.has(-x)) {
+            ans = Math.max(ans, x);
         }
     }
-    return res;
+    return ans;
 }
 ```
 
@@ -136,14 +132,14 @@ function findMaxK(nums: number[]): number {
 use std::collections::HashSet;
 impl Solution {
     pub fn find_max_k(nums: Vec<i32>) -> i32 {
-        let set = nums.into_iter().collect::<HashSet<i32>>();
-        let mut res = -1;
-        for &num in set.iter() {
-            if set.contains(&(-num)) {
-                res = res.max(num);
+        let s = nums.into_iter().collect::<HashSet<i32>>();
+        let mut ans = -1;
+        for &x in s.iter() {
+            if s.contains(&(-x)) {
+                ans = ans.max(x);
             }
         }
-        res
+        ans
     }
 }
 ```

@@ -1,10 +1,10 @@
 function findMaxK(nums: number[]): number {
-    const set = new Set(nums);
-    let res = -1;
-    for (const num of set) {
-        if (set.has(-num)) {
-            res = Math.max(num, res);
+    let ans = -1;
+    const s = new Set(nums);
+    for (const x of s) {
+        if (s.has(-x)) {
+            ans = Math.max(ans, x);
         }
     }
-    return res;
+    return ans;
 }
