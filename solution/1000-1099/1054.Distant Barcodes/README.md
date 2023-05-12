@@ -38,15 +38,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：贪心 + 哈希表 + 优先队列（大根堆）**
+**方法一：计数 + 排序**
 
-先用哈希表 `cnt` 统计每种条形码的数量，然后将每种条形码及其数量存入优先队列（大根堆） 中，优先队列中的元素按照条形码数量从大到小排序。
+我们先用哈希表或数组 $cnt$ 统计数组 $barcodes$ 中各个数出现的次数，然后将 $barcodes$ 中的数按照它们在 $cnt$ 中出现的次数从大到小排序，如果出现次数相同，那么就按照数的大小从小到大排序（确保相同的数相邻）。
 
-重排条形码时，我们每次从堆顶弹出一个元素 `(v, k)`，将 `k` 添加到结果数组中，并将 `(v-1, k)` 放入队列 `q` 中。当队列长度大于 $1$ 时，弹出队首元素 `p`，若此时 `p.v` 大于 $0$，则将 `p` 放入堆中。循环，直至堆为空。
+接下来，我们创建一个长度为 $n$ 的答案数组 $ans$，然后遍历排好序的 $barcodes$，将元素依次填入答案数组的 $0, 2, 4, \cdots$ 等偶数下标位置，然后将剩余元素依次填入答案数组的 $1, 3, 5, \cdots$ 等奇数下标位置即可。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为条形码数组的长度。
-
-相似题目：[767. 重构字符串](/solution/0700-0799/0767.Reorganize%20String/README.md)
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(M)$。其中 $n$ 和 $M$ 分别是数组 $barcodes$ 的长度以及数组 $barcodes$ 中的最大值。
 
 <!-- tabs:start -->
 
@@ -58,18 +56,11 @@
 class Solution:
     def rearrangeBarcodes(self, barcodes: List[int]) -> List[int]:
         cnt = Counter(barcodes)
-        h = [(-v, k) for k, v in cnt.items()]
-        heapify(h)
-        q = deque()
-        ans = []
-        while h:
-            v, k = heappop(h)
-            ans.append(k)
-            q.append((v + 1, k))
-            while len(q) > 1:
-                p = q.popleft()
-                if p[0]:
-                    heappush(h, p)
+        barcodes.sort(key=lambda x: (-cnt[x], x))
+        n = len(barcodes)
+        ans = [0] * len(barcodes)
+        ans[::2] = barcodes[: (n + 1) // 2]
+        ans[1::2] = barcodes[(n + 1) // 2:]
         return ans
 ```
 
@@ -80,27 +71,22 @@ class Solution:
 ```java
 class Solution {
     public int[] rearrangeBarcodes(int[] barcodes) {
-        Map<Integer, Integer> cnt = new HashMap<>();
-        for (int v : barcodes) {
-            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
+        int n = barcodes.length;
+        Integer[] t = new Integer[n];
+        int mx = 0;
+        for (int i = 0; i < n; ++i) {
+            t[i] = barcodes[i];
+            mx = Math.max(mx, barcodes[i]);
         }
-        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> b[1] - a[1]);
-        for (var e : cnt.entrySet()) {
-            pq.offer(new int[] {e.getKey(), e.getValue()});
+        int[] cnt = new int[mx + 1];
+        for (int x : barcodes) {
+            ++cnt[x];
         }
-        Deque<int[]> q = new ArrayDeque<>();
-        int[] ans = new int[barcodes.length];
-        int i = 0;
-        while (!pq.isEmpty()) {
-            var p = pq.poll();
-            ans[i++] = p[0];
-            p[1]--;
-            q.offer(p);
-            while (q.size() > 1) {
-                p = q.pollFirst();
-                if (p[1] > 0) {
-                    pq.offer(p);
-                }
+        Arrays.sort(t, (a, b) -> cnt[a] == cnt[b] ? a - b : cnt[b] - cnt[a]);
+        int[] ans = new int[n];
+        for (int k = 0, j = 0; k < 2; ++k) {
+            for (int i = k; i < n; i += 2) {
+                ans[i] = t[j++];
             }
         }
         return ans;
@@ -111,33 +97,23 @@ class Solution {
 ### **C++**
 
 ```cpp
-using pii = pair<int, int>;
-
 class Solution {
 public:
     vector<int> rearrangeBarcodes(vector<int>& barcodes) {
-        unordered_map<int, int> cnt;
-        for (auto& v : barcodes) {
-            ++cnt[v];
+        int mx = *max_element(barcodes.begin(), barcodes.end());
+        int cnt[mx + 1];
+        memset(cnt, 0, sizeof(cnt));
+        for (int x : barcodes) {
+            ++cnt[x];
         }
-        priority_queue<pii> pq;
-        for (auto& [k, v] : cnt) {
-            pq.push({v, k});
-        }
-        vector<int> ans;
-        queue<pii> q;
-        while (pq.size()) {
-            auto p = pq.top();
-            pq.pop();
-            ans.push_back(p.second);
-            p.first--;
-            q.push(p);
-            while (q.size() > 1) {
-                p = q.front();
-                q.pop();
-                if (p.first) {
-                    pq.push(p);
-                }
+        sort(barcodes.begin(), barcodes.end(), [&](int a, int b) {
+            return cnt[a] > cnt[b] || (cnt[a] == cnt[b] && a < b);
+        });
+        int n = barcodes.size();
+        vector<int> ans(n);
+        for (int k = 0, j = 0; k < 2; ++k) {
+            for (int i = k; i < n; i += 2) {
+                ans[i] = barcodes[j++];
             }
         }
         return ans;
@@ -149,47 +125,58 @@ public:
 
 ```go
 func rearrangeBarcodes(barcodes []int) []int {
-	cnt := map[int]int{}
-	for _, v := range barcodes {
-		cnt[v]++
+	mx := 0
+	for _, x := range barcodes {
+		mx = max(mx, x)
 	}
-	pq := hp{}
-	for k, v := range cnt {
-		heap.Push(&pq, pair{v, k})
+	cnt := make([]int, mx+1)
+	for _, x := range barcodes {
+		cnt[x]++
 	}
-	ans := []int{}
-	q := []pair{}
-	for len(pq) > 0 {
-		p := heap.Pop(&pq).(pair)
-		v, k := p.v, p.k
-		ans = append(ans, k)
-		q = append(q, pair{v - 1, k})
-		for len(q) > 1 {
-			p = q[0]
-			q = q[1:]
-			if p.v > 0 {
-				heap.Push(&pq, p)
-			}
+	sort.Slice(barcodes, func(i, j int) bool {
+		a, b := barcodes[i], barcodes[j]
+		if cnt[a] == cnt[b] {
+			return a < b
+		}
+		return cnt[a] > cnt[b]
+	})
+	n := len(barcodes)
+	ans := make([]int, n)
+	for k, j := 0, 0; k < 2; k++ {
+		for i := k; i < n; i, j = i+2, j+1 {
+			ans[i] = barcodes[j]
 		}
 	}
 	return ans
 }
 
-type pair struct {
-	v int
-	k int
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
+```
 
-type hp []pair
+### **TypeScript**
 
-func (h hp) Len() int { return len(h) }
-func (h hp) Less(i, j int) bool {
-	a, b := h[i], h[j]
-	return a.v > b.v
+```ts
+function rearrangeBarcodes(barcodes: number[]): number[] {
+    const mx = Math.max(...barcodes);
+    const cnt = Array(mx + 1).fill(0);
+    for (const x of barcodes) {
+        ++cnt[x];
+    }
+    barcodes.sort((a, b) => (cnt[a] === cnt[b] ? a - b : cnt[b] - cnt[a]));
+    const n = barcodes.length;
+    const ans = Array(n);
+    for (let k = 0, j = 0; k < 2; ++k) {
+        for (let i = k; i < n; i += 2, ++j) {
+            ans[i] = barcodes[j];
+        }
+    }
+    return ans;
 }
-func (h hp) Swap(i, j int)       { h[i], h[j] = h[j], h[i] }
-func (h *hp) Push(v interface{}) { *h = append(*h, v.(pair)) }
-func (h *hp) Pop() interface{}   { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
 ### **...**

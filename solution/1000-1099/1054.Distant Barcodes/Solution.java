@@ -1,26 +1,21 @@
 class Solution {
     public int[] rearrangeBarcodes(int[] barcodes) {
-        Map<Integer, Integer> cnt = new HashMap<>();
-        for (int v : barcodes) {
-            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
+        int n = barcodes.length;
+        Integer[] t = new Integer[n];
+        int mx = 0;
+        for (int i = 0; i < n; ++i) {
+            t[i] = barcodes[i];
+            mx = Math.max(mx, barcodes[i]);
         }
-        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> b[1] - a[1]);
-        for (var e : cnt.entrySet()) {
-            pq.offer(new int[] {e.getKey(), e.getValue()});
+        int[] cnt = new int[mx + 1];
+        for (int x : barcodes) {
+            ++cnt[x];
         }
-        Deque<int[]> q = new ArrayDeque<>();
-        int[] ans = new int[barcodes.length];
-        int i = 0;
-        while (!pq.isEmpty()) {
-            var p = pq.poll();
-            ans[i++] = p[0];
-            p[1]--;
-            q.offer(p);
-            while (q.size() > 1) {
-                p = q.pollFirst();
-                if (p[1] > 0) {
-                    pq.offer(p);
-                }
+        Arrays.sort(t, (a, b) -> cnt[a] == cnt[b] ? a - b : cnt[b] - cnt[a]);
+        int[] ans = new int[n];
+        for (int k = 0, j = 0; k < 2; ++k) {
+            for (int i = k; i < n; i += 2) {
+                ans[i] = t[j++];
             }
         }
         return ans;

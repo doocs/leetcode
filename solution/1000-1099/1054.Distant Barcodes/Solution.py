@@ -1,16 +1,9 @@
 class Solution:
     def rearrangeBarcodes(self, barcodes: List[int]) -> List[int]:
         cnt = Counter(barcodes)
-        h = [(-v, k) for k, v in cnt.items()]
-        heapify(h)
-        q = deque()
-        ans = []
-        while h:
-            v, k = heappop(h)
-            ans.append(k)
-            q.append((v + 1, k))
-            while len(q) > 1:
-                p = q.popleft()
-                if p[0]:
-                    heappush(h, p)
+        barcodes.sort(key=lambda x: (-cnt[x], x))
+        n = len(barcodes)
+        ans = [0] * len(barcodes)
+        ans[::2] = barcodes[: (n + 1) // 2]
+        ans[1::2] = barcodes[(n + 1) // 2:]
         return ans

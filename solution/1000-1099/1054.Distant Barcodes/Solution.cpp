@@ -1,30 +1,20 @@
-using pii = pair<int, int>;
-
 class Solution {
 public:
     vector<int> rearrangeBarcodes(vector<int>& barcodes) {
-        unordered_map<int, int> cnt;
-        for (auto& v : barcodes) {
-            ++cnt[v];
+        int mx = *max_element(barcodes.begin(), barcodes.end());
+        int cnt[mx + 1];
+        memset(cnt, 0, sizeof(cnt));
+        for (int x : barcodes) {
+            ++cnt[x];
         }
-        priority_queue<pii> pq;
-        for (auto& [k, v] : cnt) {
-            pq.push({v, k});
-        }
-        vector<int> ans;
-        queue<pii> q;
-        while (pq.size()) {
-            auto p = pq.top();
-            pq.pop();
-            ans.push_back(p.second);
-            p.first--;
-            q.push(p);
-            while (q.size() > 1) {
-                p = q.front();
-                q.pop();
-                if (p.first) {
-                    pq.push(p);
-                }
+        sort(barcodes.begin(), barcodes.end(), [&](int a, int b) {
+            return cnt[a] > cnt[b] || (cnt[a] == cnt[b] && a < b);
+        });
+        int n = barcodes.size();
+        vector<int> ans(n);
+        for (int k = 0, j = 0; k < 2; ++k) {
+            for (int i = k; i < n; i += 2) {
+                ans[i] = barcodes[j++];
             }
         }
         return ans;

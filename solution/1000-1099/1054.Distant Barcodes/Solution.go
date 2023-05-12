@@ -1,42 +1,32 @@
 func rearrangeBarcodes(barcodes []int) []int {
-	cnt := map[int]int{}
-	for _, v := range barcodes {
-		cnt[v]++
+	mx := 0
+	for _, x := range barcodes {
+		mx = max(mx, x)
 	}
-	pq := hp{}
-	for k, v := range cnt {
-		heap.Push(&pq, pair{v, k})
+	cnt := make([]int, mx+1)
+	for _, x := range barcodes {
+		cnt[x]++
 	}
-	ans := []int{}
-	q := []pair{}
-	for len(pq) > 0 {
-		p := heap.Pop(&pq).(pair)
-		v, k := p.v, p.k
-		ans = append(ans, k)
-		q = append(q, pair{v - 1, k})
-		for len(q) > 1 {
-			p = q[0]
-			q = q[1:]
-			if p.v > 0 {
-				heap.Push(&pq, p)
-			}
+	sort.Slice(barcodes, func(i, j int) bool {
+		a, b := barcodes[i], barcodes[j]
+		if cnt[a] == cnt[b] {
+			return a < b
+		}
+		return cnt[a] > cnt[b]
+	})
+	n := len(barcodes)
+	ans := make([]int, n)
+	for k, j := 0, 0; k < 2; k++ {
+		for i := k; i < n; i, j = i+2, j+1 {
+			ans[i] = barcodes[j]
 		}
 	}
 	return ans
 }
 
-type pair struct {
-	v int
-	k int
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
-
-type hp []pair
-
-func (h hp) Len() int { return len(h) }
-func (h hp) Less(i, j int) bool {
-	a, b := h[i], h[j]
-	return a.v > b.v
-}
-func (h hp) Swap(i, j int)       { h[i], h[j] = h[j], h[i] }
-func (h *hp) Push(v interface{}) { *h = append(*h, v.(pair)) }
-func (h *hp) Pop() interface{}   { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }

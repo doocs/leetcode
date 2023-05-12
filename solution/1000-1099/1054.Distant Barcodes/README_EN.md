@@ -34,18 +34,11 @@
 class Solution:
     def rearrangeBarcodes(self, barcodes: List[int]) -> List[int]:
         cnt = Counter(barcodes)
-        h = [(-v, k) for k, v in cnt.items()]
-        heapify(h)
-        q = deque()
-        ans = []
-        while h:
-            v, k = heappop(h)
-            ans.append(k)
-            q.append((v + 1, k))
-            while len(q) > 1:
-                p = q.popleft()
-                if p[0]:
-                    heappush(h, p)
+        barcodes.sort(key=lambda x: (-cnt[x], x))
+        n = len(barcodes)
+        ans = [0] * len(barcodes)
+        ans[::2] = barcodes[: (n + 1) // 2]
+        ans[1::2] = barcodes[(n + 1) // 2:]
         return ans
 ```
 
@@ -54,27 +47,22 @@ class Solution:
 ```java
 class Solution {
     public int[] rearrangeBarcodes(int[] barcodes) {
-        Map<Integer, Integer> cnt = new HashMap<>();
-        for (int v : barcodes) {
-            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
+        int n = barcodes.length;
+        Integer[] t = new Integer[n];
+        int mx = 0;
+        for (int i = 0; i < n; ++i) {
+            t[i] = barcodes[i];
+            mx = Math.max(mx, barcodes[i]);
         }
-        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> b[1] - a[1]);
-        for (var e : cnt.entrySet()) {
-            pq.offer(new int[] {e.getKey(), e.getValue()});
+        int[] cnt = new int[mx + 1];
+        for (int x : barcodes) {
+            ++cnt[x];
         }
-        Deque<int[]> q = new ArrayDeque<>();
-        int[] ans = new int[barcodes.length];
-        int i = 0;
-        while (!pq.isEmpty()) {
-            var p = pq.poll();
-            ans[i++] = p[0];
-            p[1]--;
-            q.offer(p);
-            while (q.size() > 1) {
-                p = q.pollFirst();
-                if (p[1] > 0) {
-                    pq.offer(p);
-                }
+        Arrays.sort(t, (a, b) -> cnt[a] == cnt[b] ? a - b : cnt[b] - cnt[a]);
+        int[] ans = new int[n];
+        for (int k = 0, j = 0; k < 2; ++k) {
+            for (int i = k; i < n; i += 2) {
+                ans[i] = t[j++];
             }
         }
         return ans;
@@ -85,33 +73,23 @@ class Solution {
 ### **C++**
 
 ```cpp
-using pii = pair<int, int>;
-
 class Solution {
 public:
     vector<int> rearrangeBarcodes(vector<int>& barcodes) {
-        unordered_map<int, int> cnt;
-        for (auto& v : barcodes) {
-            ++cnt[v];
+        int mx = *max_element(barcodes.begin(), barcodes.end());
+        int cnt[mx + 1];
+        memset(cnt, 0, sizeof(cnt));
+        for (int x : barcodes) {
+            ++cnt[x];
         }
-        priority_queue<pii> pq;
-        for (auto& [k, v] : cnt) {
-            pq.push({v, k});
-        }
-        vector<int> ans;
-        queue<pii> q;
-        while (pq.size()) {
-            auto p = pq.top();
-            pq.pop();
-            ans.push_back(p.second);
-            p.first--;
-            q.push(p);
-            while (q.size() > 1) {
-                p = q.front();
-                q.pop();
-                if (p.first) {
-                    pq.push(p);
-                }
+        sort(barcodes.begin(), barcodes.end(), [&](int a, int b) {
+            return cnt[a] > cnt[b] || (cnt[a] == cnt[b] && a < b);
+        });
+        int n = barcodes.size();
+        vector<int> ans(n);
+        for (int k = 0, j = 0; k < 2; ++k) {
+            for (int i = k; i < n; i += 2) {
+                ans[i] = barcodes[j++];
             }
         }
         return ans;
@@ -123,47 +101,58 @@ public:
 
 ```go
 func rearrangeBarcodes(barcodes []int) []int {
-	cnt := map[int]int{}
-	for _, v := range barcodes {
-		cnt[v]++
+	mx := 0
+	for _, x := range barcodes {
+		mx = max(mx, x)
 	}
-	pq := hp{}
-	for k, v := range cnt {
-		heap.Push(&pq, pair{v, k})
+	cnt := make([]int, mx+1)
+	for _, x := range barcodes {
+		cnt[x]++
 	}
-	ans := []int{}
-	q := []pair{}
-	for len(pq) > 0 {
-		p := heap.Pop(&pq).(pair)
-		v, k := p.v, p.k
-		ans = append(ans, k)
-		q = append(q, pair{v - 1, k})
-		for len(q) > 1 {
-			p = q[0]
-			q = q[1:]
-			if p.v > 0 {
-				heap.Push(&pq, p)
-			}
+	sort.Slice(barcodes, func(i, j int) bool {
+		a, b := barcodes[i], barcodes[j]
+		if cnt[a] == cnt[b] {
+			return a < b
+		}
+		return cnt[a] > cnt[b]
+	})
+	n := len(barcodes)
+	ans := make([]int, n)
+	for k, j := 0, 0; k < 2; k++ {
+		for i := k; i < n; i, j = i+2, j+1 {
+			ans[i] = barcodes[j]
 		}
 	}
 	return ans
 }
 
-type pair struct {
-	v int
-	k int
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
+```
 
-type hp []pair
+### **TypeScript**
 
-func (h hp) Len() int { return len(h) }
-func (h hp) Less(i, j int) bool {
-	a, b := h[i], h[j]
-	return a.v > b.v
+```ts
+function rearrangeBarcodes(barcodes: number[]): number[] {
+    const mx = Math.max(...barcodes);
+    const cnt = Array(mx + 1).fill(0);
+    for (const x of barcodes) {
+        ++cnt[x];
+    }
+    barcodes.sort((a, b) => (cnt[a] === cnt[b] ? a - b : cnt[b] - cnt[a]));
+    const n = barcodes.length;
+    const ans = Array(n);
+    for (let k = 0, j = 0; k < 2; ++k) {
+        for (let i = k; i < n; i += 2, ++j) {
+            ans[i] = barcodes[j];
+        }
+    }
+    return ans;
 }
-func (h hp) Swap(i, j int)       { h[i], h[j] = h[j], h[i] }
-func (h *hp) Push(v interface{}) { *h = append(*h, v.(pair)) }
-func (h *hp) Pop() interface{}   { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
 ### **...**
