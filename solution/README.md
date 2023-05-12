@@ -2685,6 +2685,9 @@
 |  2672  |  [有相同颜色的相邻元素数目](/solution/2600-2699/2672.Number%20of%20Adjacent%20Elements%20With%20the%20Same%20Color/README.md)  |  `数组`  |  中等  |  第 344 场周赛  |
 |  2673  |  [使二叉树所有路径值相等的最小代价](/solution/2600-2699/2673.Make%20Costs%20of%20Paths%20Equal%20in%20a%20Binary%20Tree/README.md)  |  `贪心`,`树`,`数组`,`动态规划`,`二叉树`  |  中等  |  第 344 场周赛  |
 |  2674  |  [Split a Circular Linked List](/solution/2600-2699/2674.Split%20a%20Circular%20Linked%20List/README.md)  |    |  中等  |  🔒  |
+|  2675  |  [Array of Objects to Matrix](/solution/2600-2699/2675.Array%20of%20Objects%20to%20Matrix/README.md)  |    |  中等  |    |
+|  2676  |  [Throttle](/solution/2600-2699/2676.Throttle/README.md)  |    |  中等  |    |
+|  2677  |  [Chunk Array](/solution/2600-2699/2677.Chunk%20Array/README.md)  |    |  简单  |    |
 
 ## 版权
 

@@ -54,6 +54,48 @@ class Spider:
             time.sleep(2)
             return self.get_all_questions(retry - 1) if retry > 0 else []
 
+    def get_question_detail_en(self, question_title_slug: str, retry: int = 3) -> dict:
+        headers = {
+            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;'
+                      'q=0.8,application/signed-exchange;v=b3;q=0.7',
+            'user-agent': user_agent,
+            'cookie': self.cookie_en
+        }
+        question_url = 'https://leetcode.com/problems' + question_title_slug
+        en_graph_url = 'https://leetcode.com/graphql'
+        form = {
+            'operationName': 'questionData',
+            'variables': {'titleSlug': question_title_slug},
+            'query': 'query questionData($titleSlug: String!) {\n  question(titleSlug: $titleSlug) {\n    '
+                     'questionId\n    questionFrontendId\n    categoryTitle\n    boundTopicId\n    title\n    '
+                     'titleSlug\n    content\n    translatedTitle\n    translatedContent\n    isPaidOnly\n    '
+                     'difficulty\n    likes\n    dislikes\n    isLiked\n    similarQuestions\n    '
+                     'contributors {\n      username\n      profileUrl\n      avatarUrl\n      __typename\n    '
+                     '}\n    langToValidPlayground\n    topicTags {\n      name\n      slug\n      '
+                     'translatedName\n      __typename\n    }\n    companyTagStats\n    codeSnippets {\n      '
+                     'lang\n      langSlug\n      code\n      __typename\n    }\n    stats\n    hints\n    '
+                     'solution {\n      id\n      canSeeDetail\n      __typename\n    }\n    status\n    '
+                     'sampleTestCase\n    metaData\n    judgerAvailable\n    judgeType\n    mysqlSchemas\n    '
+                     'exampleTestcases\n    __typename\n  }\n}\n',
+        }
+        for _ in range(max(0, retry) + 1):
+            try:
+                self.session.get(question_url, headers=headers, timeout=10, verify=False)
+                headers = {
+                    'User-Agent': user_agent,
+                    'Connection': 'keep-alive',
+                    'Content-Type': 'application/json',
+                    'Referer': 'https://leetcode.com/problems/' + slug,
+                    'cookie': self.cookie_en
+                }
+                resp = self.session.post(en_graph_url, headers=headers, data=json.dumps(form), timeout=10, verify=False)
+                res = resp.json()
+                return res['data']['question'] or {}
+            except Exception as e:
+                print(e)
+                time.sleep(2)
+        return {}
+
     def get_question_detail(self, question_title_slug: str, retry: int = 3) -> dict:
         """获取题目详情"""
         form1 = {
@@ -100,33 +142,29 @@ class Spider:
                      'isDailyQuestion\n    dailyRecordStatus\n    editorType\n    ugcQuestionId\n    style\n    '
                      'exampleTestcases\n    __typename\n  }\n}\n',
         }
-
-        try:
-            self.session.post(
-                url=cn_graph_url,
-                data=json.dumps(form1),
-                headers=headers,
-                timeout=10,
-                verify=False,
-            )
-            # get question detail
-            resp = self.session.post(
-                url=cn_graph_url,
-                data=json.dumps(form2).encode('utf-8'),
-                headers=headers,
-                timeout=10,
-                verify=False,
-            )
-            res = resp.json()
-            return res['data']['question'] or {}
-        except Exception as e:
-            print(e)
-            time.sleep(2)
-            return (
-                self.get_question_detail(question_title_slug, retry - 1)
-                if retry > 0
-                else {}
-            )
+        for _ in range(max(0, retry) + 1):
+            try:
+                self.session.post(
+                    url=cn_graph_url,
+                    data=json.dumps(form1),
+                    headers=headers,
+                    timeout=10,
+                    verify=False,
+                )
+                # get question detail
+                resp = self.session.post(
+                    url=cn_graph_url,
+                    data=json.dumps(form2).encode('utf-8'),
+                    headers=headers,
+                    timeout=10,
+                    verify=False,
+                )
+                res = resp.json()
+                return res['data']['question'] or {}
+            except Exception as e:
+                print(e)
+                time.sleep(2)
+        return {}
 
     @staticmethod
     def format_question_detail(question_detail: dict) -> dict:
@@ -311,7 +349,7 @@ for q in spider.get_all_questions(retry=4):
     if slug in question_details:
         print(f'skip {slug}')
         continue
-    detail = spider.get_question_detail(slug, retry=4)
+    detail = spider.get_question_detail(slug, retry=4) or spider.get_question_detail_en(slug, retry=4)
     if not detail:
         continue
     time.sleep(0.3)
