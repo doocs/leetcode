@@ -118,7 +118,7 @@ class Spider:
                 verify=False,
             )
             res = resp.json()
-            return res['data']['question']
+            return res['data']['question'] or {}
         except Exception as e:
             print(e)
             time.sleep(2)
@@ -309,9 +309,11 @@ if not refresh_all:
 for q in spider.get_all_questions(retry=4):
     slug = q['stat']['question__title_slug']
     if slug in question_details:
-        print(f'{slug} 已存在, 跳过')
+        print(f'skip {slug}')
         continue
     detail = spider.get_question_detail(slug, retry=4)
+    if not detail:
+        continue
     time.sleep(0.3)
     question_details[slug] = Spider.format_question_detail(detail)
 
