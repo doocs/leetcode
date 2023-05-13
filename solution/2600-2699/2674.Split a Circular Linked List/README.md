@@ -1,4 +1,4 @@
-# [2674. Split a Circular Linked List](https://leetcode.cn/problems/split-a-circular-linked-list)
+# [2674. 拆分循环链表](https://leetcode.cn/problems/split-a-circular-linked-list)
 
 [English Version](/solution/2600-2699/2674.Split%20a%20Circular%20Linked%20List/README_EN.md)
 
@@ -6,36 +6,38 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Given a <strong>circular linked list</strong> <code>list</code> of positive integers, your task is to split it into 2 <strong>circular linked lists</strong> so that the first one contains the <strong>first half</strong> of the nodes in <code>list</code> (exactly <code>ceil(list.length / 2)</code> nodes) in the same order they appeared in <code>list</code>, and the second one contains <strong>the rest</strong> of the nodes in <code>list</code> in the same order they appeared in <code>list</code>.</p>
+<p>现给定一个由正整数组成的 <strong>循环链表</strong> <code>list</code> ，你的任务是将其拆分为 2 个 <strong>循环链表</strong> ，使得第一个链表包含 <code>list</code> <strong>前半部分&nbsp;</strong>的节点（即 <code>ceil(list.length / 2)</code> 个节点），顺序与 list 中的顺序相同，而第二个链表包含 <code>list</code> 中 <strong>剩余</strong> 的节点，顺序也与 <code>list</code> 中的顺序相同。</p>
 
-<p>Return <em>an array answer of length 2 in which the first element is a <strong>circular linked list</strong> representing the <strong>first half</strong> and the second element is a <strong>circular linked list</strong> representing the <strong>second half</strong>.</em></p>
+<p>返回一个长度为 2 的数组，其中第一个元素是表示 <strong>前半部分</strong> 链表的<strong> 循环链表</strong> ，第二个元素是表示 <strong>后半部分</strong> 链表的 <strong>循环链表</strong> 。</p>
 
-<div>A <strong>circular linked list</strong> is a normal linked list with the only difference being that the last node&#39;s next node, is the first node.</div>
-
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [1,5,7]
-<strong>Output:</strong> [[1,5],[7]]
-<strong>Explanation:</strong> The initial list has 3 nodes so the first half would be the first 2 elements since ceil(3 / 2) = 2 and the rest which is 1 node is in the second half.
-</pre>
-
-<p><strong class="example">Example 2:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [2,6,1,5]
-<strong>Output:</strong> [[2,6],[1,5]]
-<strong>Explanation:</strong> The initial list has 4 nodes so the first half would be the first 2 elements since ceil(4 / 2) = 2 and the rest which is 2 nodes are in the second half.
-</pre>
+<p><strong>循环链表</strong> 是一个普通的链表，唯一的区别是最后一个节点的下一个节点是头节点。</p>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
+
+<pre>
+<b>输入：</b>nums = [1,5,7]
+<b>输出：</b>[[1,5],[7]]
+<b>解释：</b>初始链表有3个节点，因此前半部分是前两个元素，剩下的 1 个节点在后半部分。
+</pre>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<pre>
+<b>输入：</b>nums = [2,6,1,5]
+<b>输出：</b>[[2,6],[1,5]]
+<b>解释：</b>初始链表有4个节点，因此前半部分是前两个元素，剩下的 2 个节点在后半部分。
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
-	<li>The number of nodes in <code>list</code>&nbsp;is in the range <code>[2, 10<sup>5</sup>]</code></li>
+	<li><code>list</code> 中的节点数范围为 <code>[2, 105]</code></li>
 	<li><code>0 &lt;= Node.val &lt;= 10<sup>9</sup></code></li>
-	<li><font face="monospace"><code>LastNode.next = FirstNode</code></font> where <code>LastNode</code> is the last node of the list and <code>FirstNode</code> is the first one</li>
+	<li><code>LastNode.next = FirstNode</code> ，其中 <code>LastNode</code> 是链表的最后一个节点，<code>FirstNode</code> 是第一个节点。</li>
 </ul>
 
 ## 解法

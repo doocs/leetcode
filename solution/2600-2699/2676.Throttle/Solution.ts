@@ -1,23 +1,22 @@
 type F = (...args: any[]) => void;
 
-function throttle(fn: F, t: number): F {
-    let pre = 0;
-    let timeId = null;
-
-    return function (...args) {
-        const cur = Date.now();
-        if (cur - pre >= t) {
+const throttle = (fn: F, t: number): F => {
+    let pending = false;
+    let nextArgs;
+    const wrapper = (...args) => {
+        nextArgs = args;
+        if (!pending) {
             fn(...args);
-            pre = cur;
-        } else {
-            clearTimeout(timeId);
-            timeId = setTimeout(() => {
-                fn(...args);
-                pre += t;
-            }, t - (cur - pre));
+            pending = true;
+            nextArgs = undefined;
+            setTimeout(() => {
+                pending = false;
+                if (nextArgs) wrapper(...nextArgs);
+            }, t);
         }
     };
-}
+    return wrapper;
+};
 
 /**
  * const throttled = throttle(console.log, 100);
