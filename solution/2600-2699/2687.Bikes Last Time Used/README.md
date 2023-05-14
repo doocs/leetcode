@@ -61,7 +61,6 @@ Returning output in order by the bike that were most recently used.
 
 <p>&nbsp;</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -73,7 +72,12 @@ Returning output in order by the bike that were most recently used.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT  bike_number
+       ,MAX(end_time) AS end_time
+FROM Bikes
+GROUP BY  bike_number
+ORDER BY end_time DESC
 ```
 
 <!-- tabs:end -->

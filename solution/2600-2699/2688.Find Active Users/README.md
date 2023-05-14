@@ -58,44 +58,17 @@ Each row includes the user ID, the purchased item, the date of purchase, and the
 - User with user_id 4 has two transaction his first transaction was on 2021-09-02 and second transation was on 2021-09-13. The distance between the first and second transactions date is &gt; 7 days. So he is not an active user. 
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
-### **Python3**
+### **SQL**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-```python
-
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-
-```
-
-### **C++**
-
-```cpp
-
-```
-
-### **Go**
-
-```go
-
-```
-
-### **...**
-
-```
+```sql
 
 ```
 

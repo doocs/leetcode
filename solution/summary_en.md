@@ -2737,3 +2737,6 @@
   - [2683.Neighboring Bitwise XOR](/solution/2600-2699/2683.Neighboring%20Bitwise%20XOR/README_EN.md)
   - [2684.Maximum Number of Moves in a Grid](/solution/2600-2699/2684.Maximum%20Number%20of%20Moves%20in%20a%20Grid/README_EN.md)
   - [2685.Count the Number of Complete Components](/solution/2600-2699/2685.Count%20the%20Number%20of%20Complete%20Components/README_EN.md)
+  - [2686.Immediate Food Delivery III](/solution/2600-2699/2686.Immediate%20Food%20Delivery%20III/README_EN.md)
+  - [2687.Bikes Last Time Used](/solution/2600-2699/2687.Bikes%20Last%20Time%20Used/README_EN.md)
+  - [2688.Find Active Users](/solution/2600-2699/2688.Find%20Active%20Users/README_EN.md)

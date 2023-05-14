@@ -66,7 +66,6 @@ Delivery table:
 order_date is sorted in ascending order.
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -78,7 +77,12 @@ order_date is sorted in ascending order.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT  order_date
+       ,round(100*SUM(IF(customer_pref_delivery_date = order_date,1,0))/COUNT(*),2) AS immediate_percentage
+FROM Delivery
+GROUP BY  order_date
+ORDER BY order_date
 ```
 
 <!-- tabs:end -->

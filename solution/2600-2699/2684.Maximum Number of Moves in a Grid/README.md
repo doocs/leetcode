@@ -19,7 +19,7 @@
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2023/04/11/yetgriddrawio-10.png" style="width: 201px; height: 201px;">
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2600-2699/2684.Maximum%20Number%20of%20Moves%20in%20a%20Grid/images/yetgriddrawio-10.png" style="width: 201px; height: 201px;">
 <pre><strong>输入：</strong>grid = [[2,4,3,5],[5,4,9,3],[3,4,2,11],[10,9,13,15]]
 <strong>输出：</strong>3
 <strong>解释：</strong>可以从单元格 (0, 0) 开始并且按下面的路径移动：
@@ -30,7 +30,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<pre><img alt="" src="https://assets.leetcode.com/uploads/2023/04/12/yetgrid4drawio.png">
+<pre><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2600-2699/2684.Maximum%20Number%20of%20Moves%20in%20a%20Grid/images/yetgrid4drawio.png">
 <strong>输入：</strong>grid = [[3,2,4],[2,1,9],[1,1,7]]
 <strong>输出：</strong>0
 <strong>解释：</strong>从第一列的任一单元格开始都无法移动。
