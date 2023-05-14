@@ -181,7 +181,6 @@ def generate_summary(result):
             for sub in sorted(os.listdir('./' + file), key=lambda x: x.lower()):
                 sub = sub.replace('`', ' ')
                 enc = quote(sub)
-
                 data = m.get(int(sub[:4]))
                 sub_cn = sub
                 if data:

@@ -353,7 +353,7 @@ for q in spider.get_all_questions(retry=4):
     if not detail:
         continue
     time.sleep(0.3)
-    question_details[slug] = Spider.format_question_detail(detail, str(qid))
+    question_details[slug] = Spider.format_question_detail(detail, str(qid).zfill(4))
 
 # 周赛场次列表
 contest_list = get_contests(refresh_all)
@@ -385,12 +385,13 @@ for contest in contest_list:
 # 保存题目到本地，生成题目列表以及题目详情文件
 ls = list(question_details.values())
 save_result(ls)
+ls = load_result()
 generate_readme(ls)
 generate_question_readme(ls)
 generate_summary(ls)
 
 # 生成周赛题目列表
-generate_contest_readme(cls)
+# generate_contest_readme(cls)
 
 # 刷新题目文件
 if refresh_all:
