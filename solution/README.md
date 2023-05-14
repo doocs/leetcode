@@ -2688,6 +2688,10 @@
 |  2675  |  [将对象数组转换为矩阵](/solution/2600-2699/2675.Array%20of%20Objects%20to%20Matrix/README.md)  |    |  中等  |    |
 |  2676  |  [节流](/solution/2600-2699/2676.Throttle/README.md)  |    |  中等  |    |
 |  2677  |  [分块数组](/solution/2600-2699/2677.Chunk%20Array/README.md)  |    |  简单  |    |
+|  2678  |  [老人的数目](/solution/2600-2699/2678.Number%20of%20Senior%20Citizens/README.md)  |    |  简单  |  第 104 场双周赛  |
+|  2679  |  [矩阵中的和](/solution/2600-2699/2679.Sum%20in%20a%20Matrix/README.md)  |    |  中等  |  第 104 场双周赛  |
+|  2680  |  [最大或值](/solution/2600-2699/2680.Maximum%20OR/README.md)  |    |  中等  |  第 104 场双周赛  |
+|  2681  |  [英雄的力量](/solution/2600-2699/2681.Power%20of%20Heroes/README.md)  |    |  困难  |  第 104 场双周赛  |
 
 ## 版权
 

@@ -23,6 +23,13 @@
 
 ## 往期竞赛
 
+#### 第 104 场双周赛(2023-05-13 22:30, 90 分钟) 参赛人数 2519
+
+- [2678. 老人的数目](/solution/2600-2699/2678.Number%20of%20Senior%20Citizens/README.md)
+- [2679. 矩阵中的和](/solution/2600-2699/2679.Sum%20in%20a%20Matrix/README.md)
+- [2680. 最大或值](/solution/2600-2699/2680.Maximum%20OR/README.md)
+- [2681. 英雄的力量](/solution/2600-2699/2681.Power%20of%20Heroes/README.md)
+
 #### 第 344 场周赛(2023-05-07 10:30, 90 分钟) 参赛人数 3986
 
 - [2670. 找出不同元素数目差数组](/solution/2600-2699/2670.Find%20the%20Distinct%20Difference%20Array/README.md)

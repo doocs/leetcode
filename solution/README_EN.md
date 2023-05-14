@@ -2686,6 +2686,10 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2675  |  [Array of Objects to Matrix](/solution/2600-2699/2675.Array%20of%20Objects%20to%20Matrix/README_EN.md)  |    |  Medium  |    |
 |  2676  |  [Throttle](/solution/2600-2699/2676.Throttle/README_EN.md)  |    |  Medium  |    |
 |  2677  |  [Chunk Array](/solution/2600-2699/2677.Chunk%20Array/README_EN.md)  |    |  Easy  |    |
+|  2678  |  [Number of Senior Citizens](/solution/2600-2699/2678.Number%20of%20Senior%20Citizens/README_EN.md)  |    |  Easy  |  Biweekly Contest 104  |
+|  2679  |  [Sum in a Matrix](/solution/2600-2699/2679.Sum%20in%20a%20Matrix/README_EN.md)  |    |  Medium  |  Biweekly Contest 104  |
+|  2680  |  [Maximum OR](/solution/2600-2699/2680.Maximum%20OR/README_EN.md)  |    |  Medium  |  Biweekly Contest 104  |
+|  2681  |  [Power of Heroes](/solution/2600-2699/2681.Power%20of%20Heroes/README_EN.md)  |    |  Hard  |  Biweekly Contest 104  |
 
 ## Copyright
 

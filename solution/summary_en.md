@@ -2729,3 +2729,7 @@
   - [2675.Array of Objects to Matrix](/solution/2600-2699/2675.Array%20of%20Objects%20to%20Matrix/README_EN.md)
   - [2676.Throttle](/solution/2600-2699/2676.Throttle/README_EN.md)
   - [2677.Chunk Array](/solution/2600-2699/2677.Chunk%20Array/README_EN.md)
+  - [2678.Number of Senior Citizens](/solution/2600-2699/2678.Number%20of%20Senior%20Citizens/README_EN.md)
+  - [2679.Sum in a Matrix](/solution/2600-2699/2679.Sum%20in%20a%20Matrix/README_EN.md)
+  - [2680.Maximum OR](/solution/2600-2699/2680.Maximum%20OR/README_EN.md)
+  - [2681.Power of Heroes](/solution/2600-2699/2681.Power%20of%20Heroes/README_EN.md)

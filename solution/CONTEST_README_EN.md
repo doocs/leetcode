@@ -25,6 +25,13 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Biweekly Contest 104
+
+- [2678. Number of Senior Citizens](/solution/2600-2699/2678.Number%20of%20Senior%20Citizens/README_EN.md)
+- [2679. Sum in a Matrix](/solution/2600-2699/2679.Sum%20in%20a%20Matrix/README_EN.md)
+- [2680. Maximum OR](/solution/2600-2699/2680.Maximum%20OR/README_EN.md)
+- [2681. Power of Heroes](/solution/2600-2699/2681.Power%20of%20Heroes/README_EN.md)
+
 #### Weekly Contest 344
 
 - [2670. Find the Distinct Difference Array](/solution/2600-2699/2670.Find%20the%20Distinct%20Difference%20Array/README_EN.md)

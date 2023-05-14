@@ -167,11 +167,11 @@ class Spider:
         return {}
 
     @staticmethod
-    def format_question_detail(question_detail: dict) -> dict:
+    def format_question_detail(question_detail: dict, qid: str = None) -> dict:
         question_title_slug = question_detail.get('titleSlug')
         url_cn = f'https://leetcode.cn/problems/{question_title_slug}'
         url_en = f'https://leetcode.com/problems/{question_title_slug}'
-        frontend_question_id = str(question_detail['questionFrontendId']).zfill(4)
+        frontend_question_id = qid or str(question_detail['questionFrontendId']).zfill(4)
         no = int(frontend_question_id) // 100
         question_title_en = question_detail['title']
         question_title_en = re.sub(r'[\\/:*?"<>|]', '', question_title_en).strip()
@@ -346,14 +346,14 @@ if not refresh_all:
 
 for q in spider.get_all_questions(retry=4):
     slug = q['stat']['question__title_slug']
+    qid = q['stat']['frontend_question_id']
     if slug in question_details:
-        print(f'skip {slug}')
         continue
     detail = spider.get_question_detail(slug, retry=4) or spider.get_question_detail_en(slug, retry=4)
     if not detail:
         continue
     time.sleep(0.3)
-    question_details[slug] = Spider.format_question_detail(detail)
+    question_details[slug] = Spider.format_question_detail(detail, str(qid))
 
 # 周赛场次列表
 contest_list = get_contests(refresh_all)
