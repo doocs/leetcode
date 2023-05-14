@@ -23,6 +23,13 @@
 
 ## 往期竞赛
 
+#### 第 345 场周赛(2023-05-14 10:30, 90 分钟) 参赛人数 4165
+
+- [2682. 找出转圈游戏输家](/solution/2600-2699/2682.Find%20the%20Losers%20of%20the%20Circular%20Game/README.md)
+- [2683. 相邻值的按位异或](/solution/2600-2699/2683.Neighboring%20Bitwise%20XOR/README.md)
+- [2684. 矩阵中移动的最大次数](/solution/2600-2699/2684.Maximum%20Number%20of%20Moves%20in%20a%20Grid/README.md)
+- [2685. 统计完全连通分量的数量](/solution/2600-2699/2685.Count%20the%20Number%20of%20Complete%20Components/README.md)
+
 #### 第 104 场双周赛(2023-05-13 22:30, 90 分钟) 参赛人数 2519
 
 - [2678. 老人的数目](/solution/2600-2699/2678.Number%20of%20Senior%20Citizens/README.md)

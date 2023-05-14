@@ -25,6 +25,13 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 345
+
+- [2682. Find the Losers of the Circular Game](/solution/2600-2699/2682.Find%20the%20Losers%20of%20the%20Circular%20Game/README_EN.md)
+- [2683. Neighboring Bitwise XOR](/solution/2600-2699/2683.Neighboring%20Bitwise%20XOR/README_EN.md)
+- [2684. Maximum Number of Moves in a Grid](/solution/2600-2699/2684.Maximum%20Number%20of%20Moves%20in%20a%20Grid/README_EN.md)
+- [2685. Count the Number of Complete Components](/solution/2600-2699/2685.Count%20the%20Number%20of%20Complete%20Components/README_EN.md)
+
 #### Biweekly Contest 104
 
 - [2678. Number of Senior Citizens](/solution/2600-2699/2678.Number%20of%20Senior%20Citizens/README_EN.md)

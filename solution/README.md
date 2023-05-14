@@ -2692,6 +2692,10 @@
 |  2679  |  [矩阵中的和](/solution/2600-2699/2679.Sum%20in%20a%20Matrix/README.md)  |    |  中等  |  第 104 场双周赛  |
 |  2680  |  [最大或值](/solution/2600-2699/2680.Maximum%20OR/README.md)  |    |  中等  |  第 104 场双周赛  |
 |  2681  |  [英雄的力量](/solution/2600-2699/2681.Power%20of%20Heroes/README.md)  |    |  困难  |  第 104 场双周赛  |
+|  2682  |  [找出转圈游戏输家](/solution/2600-2699/2682.Find%20the%20Losers%20of%20the%20Circular%20Game/README.md)  |    |  简单  |  第 345 场周赛  |
+|  2683  |  [相邻值的按位异或](/solution/2600-2699/2683.Neighboring%20Bitwise%20XOR/README.md)  |    |  中等  |  第 345 场周赛  |
+|  2684  |  [矩阵中移动的最大次数](/solution/2600-2699/2684.Maximum%20Number%20of%20Moves%20in%20a%20Grid/README.md)  |    |  中等  |  第 345 场周赛  |
+|  2685  |  [统计完全连通分量的数量](/solution/2600-2699/2685.Count%20the%20Number%20of%20Complete%20Components/README.md)  |    |  中等  |  第 345 场周赛  |
 
 ## 版权
 

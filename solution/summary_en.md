@@ -2733,3 +2733,7 @@
   - [2679.Sum in a Matrix](/solution/2600-2699/2679.Sum%20in%20a%20Matrix/README_EN.md)
   - [2680.Maximum OR](/solution/2600-2699/2680.Maximum%20OR/README_EN.md)
   - [2681.Power of Heroes](/solution/2600-2699/2681.Power%20of%20Heroes/README_EN.md)
+  - [2682.Find the Losers of the Circular Game](/solution/2600-2699/2682.Find%20the%20Losers%20of%20the%20Circular%20Game/README_EN.md)
+  - [2683.Neighboring Bitwise XOR](/solution/2600-2699/2683.Neighboring%20Bitwise%20XOR/README_EN.md)
+  - [2684.Maximum Number of Moves in a Grid](/solution/2600-2699/2684.Maximum%20Number%20of%20Moves%20in%20a%20Grid/README_EN.md)
+  - [2685.Count the Number of Complete Components](/solution/2600-2699/2685.Count%20the%20Number%20of%20Complete%20Components/README_EN.md)
