@@ -56,11 +56,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：暴力枚举**
+**方法一：逐行遍历 + 排序**
 
-注意到 $k$ 的值不超过 $200$，我们逐层遍历，每一层最多保留 $k$ 个数，然后与下一层的 $n$ 个数累加，排序。
+根据题目描述，我们需要找出前 $m$ 行的所有可能数组中的第 $k$ 个最小数组和。
 
-最后返回第 $k$ 个数即可。
+如果我们能够找出前 $m - 1$ 行的所有可能数组中的前 $k$ 个最小数组和，那么我们可以将第 $m$ 行的每个元素与前 $m - 1$ 行的前 $k$ 个最小数组和相加，将得到的所有结果排序后，取前 $k$ 个最小值，即为前 $m$ 行的所有可能数组中的前 $k$ 个最小值。
+
+因此，我们可以定义一个数组 $pre$，用于存储此前遍历到的行的前 $k$ 个最小数组和，初始时 $pre$ 只有一个元素 $0$。
+
+然后，我们遍历 $mat$ 的每一行 $cur$，将 $cur$ 中的每个元素与 $pre$ 中的每个元素相加，将得到的所有结果排序后，取前 $k$ 个最小值作为新的 $pre$。继续遍历下一行，直到遍历完所有行。
+
+最后返回 $pre$ 中的第 $k$ 个数（下标 $k-1$）即可。
 
 时间复杂度 $O(m \times n \times k \times \log (n \times k))$，空间复杂度 $O(n \times k)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
@@ -161,6 +167,24 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function kthSmallest(mat: number[][], k: number): number {
+    let pre: number[] = [0];
+    for (const cur of mat) {
+        const next: number[] = [];
+        for (const a of pre) {
+            for (const b of cur) {
+                next.push(a + b);
+            }
+        }
+        pre = next.sort((a, b) => a - b).slice(0, k);
+    }
+    return pre[k - 1];
 }
 ```
 
