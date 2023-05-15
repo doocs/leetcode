@@ -391,7 +391,7 @@ generate_question_readme(ls)
 generate_summary(ls)
 
 # 生成周赛题目列表
-# generate_contest_readme(cls)
+generate_contest_readme(cls)
 
 # 刷新题目文件
 if refresh_all:
