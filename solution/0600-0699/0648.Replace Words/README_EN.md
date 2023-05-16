@@ -47,51 +47,42 @@
 ### **Python3**
 
 ```python
-class Solution:
-    def replaceWords(self, dictionary: List[str], sentence: str) -> str:
-        s = set(dictionary)
-        words = sentence.split()
-        for i, word in enumerate(words):
-            for j in range(1, len(word) + 1):
-                if word[:j] in s:
-                    words[i] = word[:j]
-                    break
-        return ' '.join(words)
-```
-
-```python
 class Trie:
     def __init__(self):
-        self.children = [None] * 26
-        self.v = None
+        self.children: List[Trie | None] = [None] * 26
+        self.ref: int = -1
 
-    def insert(self, word):
+    def insert(self, w: str, i: int):
         node = self
-        for c in word:
-            idx = ord(c) - ord('a')
+        for c in w:
+            idx = ord(c) - ord("a")
             if node.children[idx] is None:
                 node.children[idx] = Trie()
             node = node.children[idx]
-        node.v = word
+        node.ref = i
 
-    def search(self, word):
+    def search(self, w: str) -> int:
         node = self
-        for c in word:
-            idx = ord(c) - ord('a')
+        for c in w:
+            idx = ord(c) - ord("a")
             if node.children[idx] is None:
-                break
+                return -1
             node = node.children[idx]
-            if node.v:
-                return node.v
-        return word
+            if node.ref != -1:
+                return node.ref
+        return -1
 
 
 class Solution:
     def replaceWords(self, dictionary: List[str], sentence: str) -> str:
         trie = Trie()
-        for v in dictionary:
-            trie.insert(v)
-        return ' '.join(trie.search(v) for v in sentence.split())
+        for i, w in enumerate(dictionary):
+            trie.insert(w, i)
+        ans = []
+        for w in sentence.split():
+            idx = trie.search(w)
+            ans.append(dictionary[idx] if idx != -1 else w)
+        return " ".join(ans)
 ```
 
 ### **Java**
@@ -118,46 +109,47 @@ class Solution {
 
 ```java
 class Trie {
-    Trie[] children = new Trie[26];
-    String v;
+    private Trie[] children = new Trie[26];
+    private int ref = -1;
 
-    void insert(String word) {
+    public void insert(String w, int i) {
         Trie node = this;
-        for (char c : word.toCharArray()) {
-            c -= 'a';
-            if (node.children[c] == null) {
-                node.children[c] = new Trie();
+        for (int j = 0; j < w.length(); ++j) {
+            int idx = w.charAt(j) - 'a';
+            if (node.children[idx] == null) {
+                node.children[idx] = new Trie();
             }
-            node = node.children[c];
+            node = node.children[idx];
         }
-        node.v = word;
+        node.ref = i;
     }
 
-    String search(String word) {
+    public int search(String w) {
         Trie node = this;
-        for (char c : word.toCharArray()) {
-            c -= 'a';
-            if (node.children[c] == null) {
-                return word;
+        for (int j = 0; j < w.length(); ++j) {
+            int idx = w.charAt(j) - 'a';
+            if (node.children[idx] == null) {
+                return -1;
             }
-            node = node.children[c];
-            if (node.v != null) {
-                return node.v;
+            node = node.children[idx];
+            if (node.ref != -1) {
+                return node.ref;
             }
         }
-        return word;
+        return -1;
     }
 }
 
 class Solution {
     public String replaceWords(List<String> dictionary, String sentence) {
         Trie trie = new Trie();
-        for (String v : dictionary) {
-            trie.insert(v);
+        for (int i = 0; i < dictionary.size(); ++i) {
+            trie.insert(dictionary.get(i), i);
         }
         List<String> ans = new ArrayList<>();
-        for (String v : sentence.split("\\s")) {
-            ans.add(trie.search(v));
+        for (String w : sentence.split("\\s")) {
+            int idx = trie.search(w);
+            ans.add(idx == -1 ? w : dictionary.get(idx));
         }
         return String.join(" ", ans);
     }
@@ -167,60 +159,41 @@ class Solution {
 ### **C++**
 
 ```cpp
-class Solution {
+class Trie {
+private:
+    Trie* children[26];
+    int ref;
+
 public:
-    string replaceWords(vector<string>& dictionary, string sentence) {
-        unordered_set<string> s(dictionary.begin(), dictionary.end());
-        istringstream is(sentence);
-        vector<string> words;
-        string ss;
-        while (is >> ss) words.push_back(ss);
-        for (int i = 0; i < words.size(); ++i) {
-            string word = words[i];
-            for (int j = 1; j <= word.size(); ++j) {
-                string t = word.substr(0, j);
-                if (s.count(t)) {
-                    words[i] = t;
-                    break;
-                }
+    Trie(): ref(-1) {
+        memset(children, 0, sizeof(children));
+    }
+
+    void insert(const string& w, int i) {
+        Trie* node = this;
+        for (auto& c : w) {
+            int idx = c - 'a';
+            if (!node->children[idx]) {
+                node->children[idx] = new Trie();
+            }
+            node = node->children[idx];
+        }
+        node->ref = i;
+    }
+
+    int search(const string& w) {
+        Trie* node = this;
+        for (auto& c : w) {
+            int idx = c - 'a';
+            if (!node->children[idx]) {
+                return -1;
+            }
+            node = node->children[idx];
+            if (node->ref != -1) {
+                return node->ref;
             }
         }
-        string ans = "";
-        for (string& word : words) ans += word + " ";
-        ans.pop_back();
-        return ans;
-    }
-};
-```
-
-```cpp
-class Trie {
-public:
-    vector<Trie*> children;
-    string v;
-    Trie() : children(26), v("") {}
-
-    void insert(string word) {
-        Trie* node = this;
-        for (char c : word)
-        {
-            c -= 'a';
-            if (!node->children[c]) node->children[c] = new Trie();
-            node = node->children[c];
-        }
-        node->v = word;
-    }
-
-    string search(string word) {
-        Trie* node = this;
-        for (char c : word)
-        {
-            c -= 'a';
-            if (!node->children[c]) break;
-            node = node->children[c];
-            if (node->v != "") return node->v;
-        }
-        return word;
+        return -1;
     }
 };
 
@@ -228,13 +201,16 @@ class Solution {
 public:
     string replaceWords(vector<string>& dictionary, string sentence) {
         Trie* trie = new Trie();
-        for (auto& v : dictionary) trie->insert(v);
-        string ans = "";
-        istringstream is(sentence);
-        vector<string> ss;
-        string s;
-        while (is >> s) ss.push_back(s);
-        for (auto word : ss) ans += trie->search(word) + " ";
+        for (int i = 0; i < dictionary.size(); ++i) {
+            trie->insert(dictionary[i], i);
+        }
+        stringstream ss(sentence);
+        string w;
+        string ans;
+        while (ss >> w) {
+            int idx = trie->search(w);
+            ans += (idx == -1 ? w : dictionary[idx]) + " ";
+        }
         ans.pop_back();
         return ans;
     }
@@ -244,71 +220,112 @@ public:
 ### **Go**
 
 ```go
-func replaceWords(dictionary []string, sentence string) string {
-	s := map[string]bool{}
-	for _, v := range dictionary {
-		s[v] = true
-	}
-	words := strings.Split(sentence, " ")
-	for i, word := range words {
-		for j := 1; j <= len(word); j++ {
-			t := word[:j]
-			if s[t] {
-				words[i] = t
-				break
-			}
-		}
-	}
-	return strings.Join(words, " ")
-}
-```
-
-```go
 type Trie struct {
 	children [26]*Trie
-	v        string
+	ref      int
 }
 
 func newTrie() *Trie {
-	return &Trie{}
-}
-func (this *Trie) insert(word string) {
-	node := this
-	for _, c := range word {
-		c -= 'a'
-		if node.children[c] == nil {
-			node.children[c] = newTrie()
-		}
-		node = node.children[c]
-	}
-	node.v = word
+	return &Trie{ref: -1}
 }
 
-func (this *Trie) search(word string) string {
+func (this *Trie) insert(w string, i int) {
 	node := this
-	for _, c := range word {
-		c -= 'a'
-		if node.children[c] == nil {
-			break
+	for _, c := range w {
+		idx := c - 'a'
+		if node.children[idx] == nil {
+			node.children[idx] = newTrie()
 		}
-		node = node.children[c]
-		if node.v != "" {
-			return node.v
+		node = node.children[idx]
+	}
+	node.ref = i
+}
+
+func (this *Trie) search(w string) int {
+	node := this
+	for _, c := range w {
+		idx := c - 'a'
+		if node.children[idx] == nil {
+			return -1
+		}
+		node = node.children[idx]
+		if node.ref != -1 {
+			return node.ref
 		}
 	}
-	return word
+	return -1
 }
 
 func replaceWords(dictionary []string, sentence string) string {
 	trie := newTrie()
-	for _, v := range dictionary {
-		trie.insert(v)
+	for i, w := range dictionary {
+		trie.insert(w, i)
 	}
-	var ans []string
-	for _, v := range strings.Split(sentence, " ") {
-		ans = append(ans, trie.search(v))
+	ans := strings.Builder{}
+	for _, w := range strings.Split(sentence, " ") {
+		if idx := trie.search(w); idx != -1 {
+			ans.WriteString(dictionary[idx])
+		} else {
+			ans.WriteString(w)
+		}
+		ans.WriteByte(' ')
 	}
-	return strings.Join(ans, " ")
+	return ans.String()[:ans.Len()-1]
+}
+```
+
+### **TypeScript**
+
+```ts
+class Trie {
+    private children: Trie[];
+    private ref: number;
+
+    constructor() {
+        this.children = new Array<Trie>(26);
+        this.ref = -1;
+    }
+
+    public insert(w: string, i: number) {
+        let node: Trie = this;
+        for (const c of w) {
+            const idx = c.charCodeAt(0) - 97;
+            if (!node.children[idx]) {
+                node.children[idx] = new Trie();
+            }
+            node = node.children[idx];
+        }
+        node.ref = i;
+    }
+
+    public search(w: string): number {
+        let node: Trie = this;
+        for (const c of w) {
+            const idx = c.charCodeAt(0) - 97;
+            if (!node.children[idx]) {
+                return -1;
+            }
+            node = node.children[idx];
+            if (node.ref !== -1) {
+                return node.ref;
+            }
+        }
+        return -1;
+    }
+}
+
+function replaceWords(dictionary: string[], sentence: string): string {
+    const trie = new Trie();
+    for (let i = 0; i < dictionary.length; i++) {
+        trie.insert(dictionary[i], i);
+    }
+    return sentence
+        .split(' ')
+        .map(w => {
+            const idx = trie.search(w);
+            return idx !== -1 ? dictionary[idx] : w;
+        })
+        .join(' ');
 }
 ```
 

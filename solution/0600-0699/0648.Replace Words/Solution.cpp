@@ -1,30 +1,38 @@
 class Trie {
-public:
-    vector<Trie*> children;
-    string v;
-    Trie()
-        : children(26)
-        , v("") {}
+private:
+    Trie* children[26];
+    int ref;
 
-    void insert(string word) {
-        Trie* node = this;
-        for (char c : word) {
-            c -= 'a';
-            if (!node->children[c]) node->children[c] = new Trie();
-            node = node->children[c];
-        }
-        node->v = word;
+public:
+    Trie(): ref(-1) {
+        memset(children, 0, sizeof(children));
     }
 
-    string search(string word) {
+    void insert(const string& w, int i) {
         Trie* node = this;
-        for (char c : word) {
-            c -= 'a';
-            if (!node->children[c]) break;
-            node = node->children[c];
-            if (node->v != "") return node->v;
+        for (auto& c : w) {
+            int idx = c - 'a';
+            if (!node->children[idx]) {
+                node->children[idx] = new Trie();
+            }
+            node = node->children[idx];
         }
-        return word;
+        node->ref = i;
+    }
+
+    int search(const string& w) {
+        Trie* node = this;
+        for (auto& c : w) {
+            int idx = c - 'a';
+            if (!node->children[idx]) {
+                return -1;
+            }
+            node = node->children[idx];
+            if (node->ref != -1) {
+                return node->ref;
+            }
+        }
+        return -1;
     }
 };
 
@@ -32,13 +40,16 @@ class Solution {
 public:
     string replaceWords(vector<string>& dictionary, string sentence) {
         Trie* trie = new Trie();
-        for (auto& v : dictionary) trie->insert(v);
-        string ans = "";
-        istringstream is(sentence);
-        vector<string> ss;
-        string s;
-        while (is >> s) ss.push_back(s);
-        for (auto word : ss) ans += trie->search(word) + " ";
+        for (int i = 0; i < dictionary.size(); ++i) {
+            trie->insert(dictionary[i], i);
+        }
+        stringstream ss(sentence);
+        string w;
+        string ans;
+        while (ss >> w) {
+            int idx = trie->search(w);
+            ans += (idx == -1 ? w : dictionary[idx]) + " ";
+        }
         ans.pop_back();
         return ans;
     }

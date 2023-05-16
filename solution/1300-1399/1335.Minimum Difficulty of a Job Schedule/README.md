@@ -74,7 +74,7 @@
 考虑第 $j$ 天的工作安排，我们可以枚举第 $j$ 天完成的工作 $[k,..i]$，那么有状态转移方程：
 
 $$
-f[i][j] = \min_{k \in [1,i]} \{f[k-1][j-1] + \max_{k \leq t \leq i} \{jobDifficulty[t]\}\}
+f[i][j] = \min_{k \in [1,i]} \{f[k-1][j-1] + \max_{k \leq t \leq i} \{jobDifficulty[t-1]\}\}
 $$
 
 最终答案即为 $f[n][d]$。
