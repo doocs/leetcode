@@ -63,7 +63,9 @@
 
 **方法一：字符串比较**
 
-事件 1 的开始时间小于等于事件 2 的结束时间，且事件 1 的结束时间大于等于事件 2 的开始时间，即可判断出事件 1 和事件 2 存在交集。
+如果 $event1$ 的开始时间大于 $event2$ 的结束时间，或者 $event1$ 的结束时间小于 $event2$ 的开始时间，那么两个事件不会有冲突。否则，两个事件存在冲突。
+
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2400-2499/2446.Determine%20if%20Two%20Events%20Have%20Conflict/images/event.png" />
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
@@ -76,7 +78,7 @@
 ```python
 class Solution:
     def haveConflict(self, event1: List[str], event2: List[str]) -> bool:
-        return event1[0] <= event2[1] and event1[1] >= event2[0]
+        return not (event1[0] > event2[1] or event1[1] < event2[0])
 ```
 
 ### **Java**
@@ -86,7 +88,7 @@ class Solution:
 ```java
 class Solution {
     public boolean haveConflict(String[] event1, String[] event2) {
-        return event1[0].compareTo(event2[1]) <= 0 && event1[1].compareTo(event2[0]) >= 0;
+        return !(event1[0].compareTo(event2[1]) > 0 || event1[1].compareTo(event2[0]) < 0);
     }
 }
 ```
@@ -97,7 +99,7 @@ class Solution {
 class Solution {
 public:
     bool haveConflict(vector<string>& event1, vector<string>& event2) {
-        return event1[0] <= event2[1] && event1[1] >= event2[0];
+        return !(event1[0] > event2[1] || event1[1] < event2[0]);
     }
 };
 ```
@@ -106,7 +108,7 @@ public:
 
 ```go
 func haveConflict(event1 []string, event2 []string) bool {
-    return event1[0] <= event2[1] && event1[1] >= event2[0]
+	return !(event1[0] > event2[1] || event1[1] < event2[0])
 }
 ```
 
@@ -114,7 +116,7 @@ func haveConflict(event1 []string, event2 []string) bool {
 
 ```ts
 function haveConflict(event1: string[], event2: string[]): boolean {
-    return event1[0] <= event2[1] && event1[1] >= event2[0];
+    return !(event1[0] > event2[1] || event1[1] < event2[0]);
 }
 ```
 

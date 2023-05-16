@@ -62,7 +62,7 @@
 ```python
 class Solution:
     def haveConflict(self, event1: List[str], event2: List[str]) -> bool:
-        return event1[0] <= event2[1] and event1[1] >= event2[0]
+        return not (event1[0] > event2[1] or event1[1] < event2[0])
 ```
 
 ### **Java**
@@ -70,7 +70,7 @@ class Solution:
 ```java
 class Solution {
     public boolean haveConflict(String[] event1, String[] event2) {
-        return event1[0].compareTo(event2[1]) <= 0 && event1[1].compareTo(event2[0]) >= 0;
+        return !(event1[0].compareTo(event2[1]) > 0 || event1[1].compareTo(event2[0]) < 0);
     }
 }
 ```
@@ -81,7 +81,7 @@ class Solution {
 class Solution {
 public:
     bool haveConflict(vector<string>& event1, vector<string>& event2) {
-        return event1[0] <= event2[1] && event1[1] >= event2[0];
+        return !(event1[0] > event2[1] || event1[1] < event2[0]);
     }
 };
 ```
@@ -90,7 +90,7 @@ public:
 
 ```go
 func haveConflict(event1 []string, event2 []string) bool {
-    return event1[0] <= event2[1] && event1[1] >= event2[0]
+	return !(event1[0] > event2[1] || event1[1] < event2[0])
 }
 ```
 
@@ -98,7 +98,7 @@ func haveConflict(event1 []string, event2 []string) bool {
 
 ```ts
 function haveConflict(event1: string[], event2: string[]): boolean {
-    return event1[0] <= event2[1] && event1[1] >= event2[0];
+    return !(event1[0] > event2[1] || event1[1] < event2[0]);
 }
 ```
 
