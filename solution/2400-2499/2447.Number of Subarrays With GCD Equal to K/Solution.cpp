@@ -4,10 +4,10 @@ public:
         int n = nums.size();
         int ans = 0;
         for (int i = 0; i < n; ++i) {
-            int x = nums[i];
+            int g = 0;
             for (int j = i; j < n; ++j) {
-                x = __gcd(x, nums[j]);
-                ans += x == k;
+                g = gcd(g, nums[j]);
+                ans += g == k;
             }
         }
         return ans;

@@ -48,14 +48,12 @@
 ```python
 class Solution:
     def subarrayGCD(self, nums: List[int], k: int) -> int:
-        n = len(nums)
         ans = 0
-        for i in range(n):
-            x = nums[i]
-            for j in range(i, n):
-                x = gcd(x, nums[j])
-                if x == k:
-                    ans += 1
+        for i in range(len(nums)):
+            g = 0
+            for x in nums[i:]:
+                g = gcd(g, x)
+                ans += g == k
         return ans
 ```
 
@@ -67,10 +65,10 @@ class Solution {
         int n = nums.length;
         int ans = 0;
         for (int i = 0; i < n; ++i) {
-            int x = nums[i];
+            int g = 0;
             for (int j = i; j < n; ++j) {
-                x = gcd(x, nums[j]);
-                if (x == k) {
+                g = gcd(g, nums[j]);
+                if (g == k) {
                     ++ans;
                 }
             }
@@ -93,10 +91,10 @@ public:
         int n = nums.size();
         int ans = 0;
         for (int i = 0; i < n; ++i) {
-            int x = nums[i];
+            int g = 0;
             for (int j = i; j < n; ++j) {
-                x = __gcd(x, nums[j]);
-                ans += x == k;
+                g = gcd(g, nums[j]);
+                ans += g == k;
             }
         }
         return ans;
@@ -107,17 +105,17 @@ public:
 ### **Go**
 
 ```go
-func subarrayGCD(nums []int, k int) int {
-	ans, n := 0, len(nums)
-	for i, x := range nums {
-		for j := i; j < n; j++ {
-			x = gcd(x, nums[j])
-			if x == k {
+func subarrayGCD(nums []int, k int) (ans int) {
+	for i := range nums {
+		g := 0
+		for _, x := range nums[i:] {
+			g = gcd(g, x)
+			if g == k {
 				ans++
 			}
 		}
 	}
-	return ans
+	return
 }
 
 func gcd(a, b int) int {
@@ -132,22 +130,22 @@ func gcd(a, b int) int {
 
 ```ts
 function subarrayGCD(nums: number[], k: number): number {
-    const n = nums.length;
     let ans = 0;
-    for (let i = 0; i < n; i++) {
-        let x = nums[i];
-        for (let j = i; j < n; j++) {
-            x = gcd(nums[j], x);
-            if (x == k) ans += 1;
+    const n = nums.length;
+    for (let i = 0; i < n; ++i) {
+        let g = 0;
+        for (let j = i; j < n; ++j) {
+            g = gcd(g, nums[j]);
+            if (g === k) {
+                ++ans;
+            }
         }
     }
     return ans;
 }
 
 function gcd(a: number, b: number): number {
-    if (a > b) [a, b] = [b, a];
-    if (a == 0) return b;
-    return gcd(b % a, a);
+    return b === 0 ? a : gcd(b, a % b);
 }
 ```
 

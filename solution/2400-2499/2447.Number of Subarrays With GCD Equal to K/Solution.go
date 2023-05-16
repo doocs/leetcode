@@ -1,14 +1,14 @@
-func subarrayGCD(nums []int, k int) int {
-	ans, n := 0, len(nums)
-	for i, x := range nums {
-		for j := i; j < n; j++ {
-			x = gcd(x, nums[j])
-			if x == k {
+func subarrayGCD(nums []int, k int) (ans int) {
+	for i := range nums {
+		g := 0
+		for _, x := range nums[i:] {
+			g = gcd(g, x)
+			if g == k {
 				ans++
 			}
 		}
 	}
-	return ans
+	return
 }
 
 func gcd(a, b int) int {

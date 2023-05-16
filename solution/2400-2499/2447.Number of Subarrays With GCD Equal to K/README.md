@@ -47,9 +47,11 @@
 
 **方法一：直接枚举**
 
-对于每个子数组，我们可以枚举其左右端点，计算出其最大公因数，然后判断是否等于 $k$ 即可。
+我们可以枚举 $nums[i]$ 作为子数组的左端点，然后枚举 $nums[j]$ 作为子数组的右端点，其中 $i\le j$。在枚举右端点的过程中，我们可以用一个变量 $g$ 来维护当前子数组的最大公因数，每次枚举到一个新的右端点时，我们更新最大公因数 $g = \gcd(g, nums[j])$。如果 $g=k$，那么当前子数组的最大公因数等于 $k$，我们就将答案增加 $1$。
 
-时间复杂度 $O(n^2\times log M)$，其中 $n$ 和 $M$ 分别是数组 `nums` 的长度和数组 `nums` 中的最大值。
+枚举结束后，返回答案即可。
+
+时间复杂度 $O(n \times (n + \log M))$，其中 $n$ 和 $M$ 分别是数组 `nums` 的长度和数组 `nums` 中的最大值。
 
 <!-- tabs:start -->
 
@@ -60,14 +62,12 @@
 ```python
 class Solution:
     def subarrayGCD(self, nums: List[int], k: int) -> int:
-        n = len(nums)
         ans = 0
-        for i in range(n):
-            x = nums[i]
-            for j in range(i, n):
-                x = gcd(x, nums[j])
-                if x == k:
-                    ans += 1
+        for i in range(len(nums)):
+            g = 0
+            for x in nums[i:]:
+                g = gcd(g, x)
+                ans += g == k
         return ans
 ```
 
@@ -81,10 +81,10 @@ class Solution {
         int n = nums.length;
         int ans = 0;
         for (int i = 0; i < n; ++i) {
-            int x = nums[i];
+            int g = 0;
             for (int j = i; j < n; ++j) {
-                x = gcd(x, nums[j]);
-                if (x == k) {
+                g = gcd(g, nums[j]);
+                if (g == k) {
                     ++ans;
                 }
             }
@@ -107,10 +107,10 @@ public:
         int n = nums.size();
         int ans = 0;
         for (int i = 0; i < n; ++i) {
-            int x = nums[i];
+            int g = 0;
             for (int j = i; j < n; ++j) {
-                x = __gcd(x, nums[j]);
-                ans += x == k;
+                g = gcd(g, nums[j]);
+                ans += g == k;
             }
         }
         return ans;
@@ -121,17 +121,17 @@ public:
 ### **Go**
 
 ```go
-func subarrayGCD(nums []int, k int) int {
-	ans, n := 0, len(nums)
-	for i, x := range nums {
-		for j := i; j < n; j++ {
-			x = gcd(x, nums[j])
-			if x == k {
+func subarrayGCD(nums []int, k int) (ans int) {
+	for i := range nums {
+		g := 0
+		for _, x := range nums[i:] {
+			g = gcd(g, x)
+			if g == k {
 				ans++
 			}
 		}
 	}
-	return ans
+	return
 }
 
 func gcd(a, b int) int {
@@ -146,22 +146,22 @@ func gcd(a, b int) int {
 
 ```ts
 function subarrayGCD(nums: number[], k: number): number {
-    const n = nums.length;
     let ans = 0;
-    for (let i = 0; i < n; i++) {
-        let x = nums[i];
-        for (let j = i; j < n; j++) {
-            x = gcd(nums[j], x);
-            if (x == k) ans += 1;
+    const n = nums.length;
+    for (let i = 0; i < n; ++i) {
+        let g = 0;
+        for (let j = i; j < n; ++j) {
+            g = gcd(g, nums[j]);
+            if (g === k) {
+                ++ans;
+            }
         }
     }
     return ans;
 }
 
 function gcd(a: number, b: number): number {
-    if (a > b) [a, b] = [b, a];
-    if (a == 0) return b;
-    return gcd(b % a, a);
+    return b === 0 ? a : gcd(b, a % b);
 }
 ```
 
