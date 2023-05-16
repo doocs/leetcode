@@ -1,16 +1,14 @@
 class Solution:
     def numTilePossibilities(self, tiles: str) -> int:
-        def dfs():
+        def dfs(cnt: Counter) -> int:
             ans = 0
-            for i in range(26):
-                if cnt[i]:
+            for i, x in cnt.items():
+                if x > 0:
                     ans += 1
                     cnt[i] -= 1
-                    ans += dfs()
+                    ans += dfs(cnt)
                     cnt[i] += 1
             return ans
 
-        cnt = [0] * 26
-        for t in tiles:
-            cnt[ord(t) - ord('A')] += 1
-        return dfs()
+        cnt = Counter(tiles)
+        return dfs(cnt)
