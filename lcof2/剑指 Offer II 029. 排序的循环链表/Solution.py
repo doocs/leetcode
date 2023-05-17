@@ -22,7 +22,6 @@ class Solution:
                 and (insertVal <= p.next.val or insertVal >= p.val)
                 or p.next == head
             ):
-
                 node.next = p.next
                 p.next = node
                 break

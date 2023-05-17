@@ -41,10 +41,10 @@
 ```python
 class Solution:
     def kLengthApart(self, nums: List[int], k: int) -> bool:
-        j = -1
-        for i, v in enumerate(nums):
-            if v == 1:
-                if j > -1 and i - j - 1 < k:
+        j = -inf
+        for i, x in enumerate(nums):
+            if x:
+                if i - j - 1 < k:
                     return False
                 j = i
         return True
@@ -55,10 +55,10 @@ class Solution:
 ```java
 class Solution {
     public boolean kLengthApart(int[] nums, int k) {
-        int j = -1;
+        int j = -(k + 1);
         for (int i = 0; i < nums.length; ++i) {
             if (nums[i] == 1) {
-                if (j != -1 && i - j - 1 < k) {
+                if (i - j - 1 < k) {
                     return false;
                 }
                 j = i;
@@ -75,10 +75,10 @@ class Solution {
 class Solution {
 public:
     bool kLengthApart(vector<int>& nums, int k) {
-        int j = -1;
+        int j = -(k + 1);
         for (int i = 0; i < nums.size(); ++i) {
             if (nums[i] == 1) {
-                if (j != -1 && i - j - 1 < k) {
+                if (i - j - 1 < k) {
                     return false;
                 }
                 j = i;
@@ -93,16 +93,33 @@ public:
 
 ```go
 func kLengthApart(nums []int, k int) bool {
-	j := -1
-	for i, v := range nums {
-		if v == 1 {
-			if j != -1 && i-j-1 < k {
+	j := -(k + 1)
+	for i, x := range nums {
+		if x == 1 {
+			if i-j-1 < k {
 				return false
 			}
 			j = i
 		}
 	}
 	return true
+}
+```
+
+### **TypeScript**
+
+```ts
+function kLengthApart(nums: number[], k: number): boolean {
+    let j = -(k + 1);
+    for (let i = 0; i < nums.length; ++i) {
+        if (nums[i] === 1) {
+            if (i - j - 1 < k) {
+                return false;
+            }
+            j = i;
+        }
+    }
+    return true;
 }
 ```
 

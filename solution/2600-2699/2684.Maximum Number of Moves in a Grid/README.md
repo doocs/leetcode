@@ -112,7 +112,8 @@ class Solution {
             int i = p[0], j = p[1];
             for (var dir : dirs) {
                 int x = i + dir[0], y = j + dir[1];
-                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] > grid[i][j] && dist[x][y] < dist[i][j] + 1) {
+                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] > grid[i][j]
+                    && dist[x][y] < dist[i][j] + 1) {
                     dist[x][y] = dist[i][j] + 1;
                     ans = Math.max(ans, dist[x][y]);
                     q.offer(new int[] {x, y});

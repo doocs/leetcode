@@ -3,7 +3,7 @@ public:
     DinnerPlates(int capacity) {
         this->capacity = capacity;
     }
-    
+
     void push(int val) {
         if (notFull.empty()) {
             stacks.emplace_back(stack<int>());
@@ -19,11 +19,11 @@ public:
             }
         }
     }
-    
+
     int pop() {
         return popAtStack(stacks.size() - 1);
     }
-    
+
     int popAtStack(int index) {
         if (index < 0 || index >= stacks.size() || stacks[index].empty()) {
             return -1;

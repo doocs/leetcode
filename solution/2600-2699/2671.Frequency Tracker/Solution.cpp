@@ -1,18 +1,17 @@
 class FrequencyTracker {
 public:
     FrequencyTracker() {
-
     }
-    
+
     void add(int number) {
-        int f =  cnt[number];
+        int f = cnt[number];
         if (f > 0) {
             freq[f]--;
         }
         cnt[number]++;
         freq[f + 1]++;
     }
-    
+
     void deleteOne(int number) {
         int f = cnt[number];
         if (f == 0) {
@@ -22,7 +21,7 @@ public:
         cnt[number]--;
         freq[f - 1]++;
     }
-    
+
     bool hasFrequency(int frequency) {
         return freq[frequency] > 0;
     }

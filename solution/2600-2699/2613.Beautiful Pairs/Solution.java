@@ -11,13 +11,13 @@ class Solution {
         for (int i = 0; i < n; ++i) {
             long z = f(nums1[i], nums2[i]);
             if (pl.get(z).size() > 1) {
-                return new int[]{i, pl.get(z).get(1)};
+                return new int[] {i, pl.get(z).get(1)};
             }
-            points.add(new int[]{nums1[i], nums2[i], i});
+            points.add(new int[] {nums1[i], nums2[i], i});
         }
         points.sort((a, b) -> a[0] - b[0]);
         int[] ans = dfs(0, points.size() - 1);
-        return new int[]{ans[1], ans[2]};
+        return new int[] {ans[1], ans[2]};
     }
 
     private long f(int x, int y) {
@@ -30,13 +30,14 @@ class Solution {
 
     private int[] dfs(int l, int r) {
         if (l >= r) {
-            return new int[]{1 << 30, -1, -1};
+            return new int[] {1 << 30, -1, -1};
         }
         int m = (l + r) >> 1;
         int x = points.get(m)[0];
         int[] t1 = dfs(l, m);
         int[] t2 = dfs(m + 1, r);
-        if (t1[0] > t2[0] || (t1[0] == t2[0] && (t1[1] > t2[1] || (t1[1] == t2[1] && t1[2] > t2[2])))) {
+        if (t1[0] > t2[0]
+            || (t1[0] == t2[0] && (t1[1] > t2[1] || (t1[1] == t2[1] && t1[2] > t2[2])))) {
             t1 = t2;
         }
         List<int[]> t = new ArrayList<>();
@@ -55,7 +56,7 @@ class Solution {
                 int pj = Math.max(t.get(i)[2], t.get(j)[2]);
                 int d = dist(t.get(i)[0], t.get(i)[1], t.get(j)[0], t.get(j)[1]);
                 if (d < t1[0] || (d == t1[0] && (pi < t1[1] || (pi == t1[1] && pj < t1[2])))) {
-                    t1 = new int[]{d, pi, pj};
+                    t1 = new int[] {d, pi, pj};
                 }
             }
         }

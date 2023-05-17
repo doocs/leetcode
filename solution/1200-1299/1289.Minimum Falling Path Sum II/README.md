@@ -98,7 +98,7 @@ class Solution:
                     ffp = j
                 elif s < gg:
                     gg = s
-            f, g, fp, = ff, gg, ffp
+            f, g, fp = ff, gg, ffp
         return f
 ```
 

@@ -1,9 +1,8 @@
 class MyStack {
 public:
     MyStack() {
-
     }
-    
+
     void push(int x) {
         q2.push(x);
         while (!q1.empty()) {
@@ -12,17 +11,17 @@ public:
         }
         swap(q1, q2);
     }
-    
+
     int pop() {
         int x = q1.front();
         q1.pop();
         return x;
     }
-    
+
     int top() {
         return q1.front();
     }
-    
+
     bool empty() {
         return q1.empty();
     }

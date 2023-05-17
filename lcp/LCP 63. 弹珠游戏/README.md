@@ -132,18 +132,18 @@ class Solution {
         List<int[]> ans = new ArrayList<>();
         for (int i = 1; i < m - 1; ++i) {
             if (plate[i].charAt(0) == '.' && check(i, 0, 0)) {
-                ans.add(new int[]{i, 0});
+                ans.add(new int[] {i, 0});
             }
             if (plate[i].charAt(n - 1) == '.' && check(i, n - 1, 2)) {
-                ans.add(new int[]{i, n - 1});
+                ans.add(new int[] {i, n - 1});
             }
         }
         for (int j = 1; j < n - 1; ++j) {
             if (plate[0].charAt(j) == '.' && check(0, j, 1)) {
-                ans.add(new int[]{0, j});
+                ans.add(new int[] {0, j});
             }
             if (plate[m - 1].charAt(j) == '.' && check(m - 1, j, 3)) {
-                ans.add(new int[]{m - 1, j});
+                ans.add(new int[] {m - 1, j});
             }
         }
         return ans.toArray(new int[0][]);

@@ -14,12 +14,12 @@ class Graph {
             g[f][t] = c;
         }
     }
-    
+
     public void addEdge(int[] edge) {
         int f = edge[0], t = edge[1], c = edge[2];
         g[f][t] = c;
     }
-    
+
     public int shortestPath(int node1, int node2) {
         int[] dist = new int[n];
         boolean[] vis = new boolean[n];

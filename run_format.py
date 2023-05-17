@@ -4,13 +4,15 @@ import re
 path = os.getcwd()
 
 
-def format():
+def prettier_format():
+    """Format code with prettier"""
     for suffix in ['md', 'js', 'ts']:
         command = f'npx prettier --write "**/*.{suffix}"'
         os.system(command)
 
 
 def clang_format():
+    """Format code with clang-format"""
     suffix = ['c', 'cpp', 'java']
     for root, _, files in os.walk(path):
         for name in files:
@@ -76,12 +78,13 @@ def format_py():
 
 
 def git_add():
+    """Git add all files"""
     command = 'git add .'
     os.system(command)
 
 
 if __name__ == '__main__':
-    # clang_format()
-    format()
+    clang_format()
+    prettier_format()
     # format_py()
     # git_add()

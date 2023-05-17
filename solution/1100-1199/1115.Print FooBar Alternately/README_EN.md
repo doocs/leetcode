@@ -102,8 +102,8 @@ class FooBar {
     public void foo(Runnable printFoo) throws InterruptedException {
         for (int i = 0; i < n; i++) {
             f.acquire(1);
-        	// printFoo.run() outputs "foo". Do not change or remove this line.
-        	printFoo.run();
+            // printFoo.run() outputs "foo". Do not change or remove this line.
+            printFoo.run();
             b.release(1);
         }
     }
@@ -112,7 +112,7 @@ class FooBar {
         for (int i = 0; i < n; i++) {
             b.acquire(1);
             // printBar.run() outputs "bar". Do not change or remove this line.
-        	printBar.run();
+            printBar.run();
             f.release(1);
         }
     }

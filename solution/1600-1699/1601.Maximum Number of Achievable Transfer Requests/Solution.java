@@ -6,7 +6,7 @@ class Solution {
     public int maximumRequests(int n, int[][] requests) {
         m = requests.length;
         this.n = n;
-        this.requests = requests;    
+        this.requests = requests;
         int ans = 0;
         for (int mask = 0; mask < 1 << m; ++mask) {
             int cnt = Integer.bitCount(mask);

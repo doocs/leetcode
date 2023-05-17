@@ -3,9 +3,8 @@ class FrequencyTracker {
     private Map<Integer, Integer> freq = new HashMap<>();
 
     public FrequencyTracker() {
-
     }
-    
+
     public void add(int number) {
         int f = cnt.getOrDefault(number, 0);
         if (freq.getOrDefault(f, 0) > 0) {
@@ -14,7 +13,7 @@ class FrequencyTracker {
         cnt.merge(number, 1, Integer::sum);
         freq.merge(f + 1, 1, Integer::sum);
     }
-    
+
     public void deleteOne(int number) {
         int f = cnt.getOrDefault(number, 0);
         if (f == 0) {
@@ -24,7 +23,7 @@ class FrequencyTracker {
         cnt.merge(number, -1, Integer::sum);
         freq.merge(f - 1, 1, Integer::sum);
     }
-    
+
     public boolean hasFrequency(int frequency) {
         return freq.getOrDefault(frequency, 0) > 0;
     }

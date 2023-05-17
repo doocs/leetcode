@@ -7,7 +7,7 @@ class Solution {
             int s = interval[0], e = interval[1];
             if (ed < s) {
                 if (!insert) {
-                    ans.add(new int[]{st, ed});
+                    ans.add(new int[] {st, ed});
                     insert = true;
                 }
                 ans.add(interval);
@@ -19,7 +19,7 @@ class Solution {
             }
         }
         if (!insert) {
-            ans.add(new int[]{st, ed});
+            ans.add(new int[] {st, ed});
         }
         return ans.toArray(new int[ans.size()][]);
     }

@@ -3,7 +3,7 @@ class ZeroEvenOdd {
     private Semaphore z = new Semaphore(1);
     private Semaphore e = new Semaphore(0);
     private Semaphore o = new Semaphore(0);
-    
+
     public ZeroEvenOdd(int n) {
         this.n = n;
     }

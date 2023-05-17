@@ -100,7 +100,6 @@ class MyStack {
     private Deque<Integer> q2 = new ArrayDeque<>();
 
     public MyStack() {
-
     }
 
     public void push(int x) {

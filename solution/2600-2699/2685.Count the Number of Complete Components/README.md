@@ -137,7 +137,7 @@ class Solution {
                 y += t[1];
             }
         }
-        return new int[]{x, y};
+        return new int[] {x, y};
     }
 }
 ```

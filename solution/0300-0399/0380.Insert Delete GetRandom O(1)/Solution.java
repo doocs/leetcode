@@ -4,9 +4,8 @@ class RandomizedSet {
     private Random rnd = new Random();
 
     public RandomizedSet() {
-
     }
-    
+
     public boolean insert(int val) {
         if (d.containsKey(val)) {
             return false;
@@ -15,7 +14,7 @@ class RandomizedSet {
         q.add(val);
         return true;
     }
-    
+
     public boolean remove(int val) {
         if (!d.containsKey(val)) {
             return false;
@@ -27,7 +26,7 @@ class RandomizedSet {
         d.remove(val);
         return true;
     }
-    
+
     public int getRandom() {
         return q.get(rnd.nextInt(q.size()));
     }

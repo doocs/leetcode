@@ -98,11 +98,10 @@ class H2O {
     private Semaphore o = new Semaphore(0);
 
     public H2O() {
-
     }
 
     public void hydrogen(Runnable releaseHydrogen) throws InterruptedException {
-		h.acquire();
+        h.acquire();
         // releaseHydrogen.run() outputs "H". Do not change or remove this line.
         releaseHydrogen.run();
         o.release();
@@ -111,7 +110,7 @@ class H2O {
     public void oxygen(Runnable releaseOxygen) throws InterruptedException {
         o.acquire(2);
         // releaseOxygen.run() outputs "O". Do not change or remove this line.
-		releaseOxygen.run();
+        releaseOxygen.run();
         h.release(2);
     }
 }

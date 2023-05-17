@@ -213,7 +213,8 @@ class Solution {
                 }
             }
             for (TreeNode node : p) {
-                int t = (node.left == null ? 0 : node.left.val) + (node.right == null ? 0 : node.right.val);
+                int t = (node.left == null ? 0 : node.left.val)
+                    + (node.right == null ? 0 : node.right.val);
                 if (node.left != null) {
                     node.left.val = s - t;
                 }

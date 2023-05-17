@@ -7,8 +7,10 @@ class Solution {
         }
         int ans = s;
         for (int i = 0; i < n - 1; ++i) {
-            ans = Math.max(ans, s + Math.abs(nums[0] - nums[i + 1]) - Math.abs(nums[i] - nums[i + 1]));
-            ans = Math.max(ans, s + Math.abs(nums[n - 1] - nums[i]) - Math.abs(nums[i] - nums[i + 1]));
+            ans = Math.max(
+                ans, s + Math.abs(nums[0] - nums[i + 1]) - Math.abs(nums[i] - nums[i + 1]));
+            ans = Math.max(
+                ans, s + Math.abs(nums[n - 1] - nums[i]) - Math.abs(nums[i] - nums[i + 1]));
         }
         int[] dirs = {1, -1, -1, 1, 1};
         final int inf = 1 << 30;

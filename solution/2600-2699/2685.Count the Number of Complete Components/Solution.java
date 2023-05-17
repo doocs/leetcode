@@ -1,7 +1,7 @@
 class Solution {
     private List<Integer>[] g;
     private boolean[] vis;
-    
+
     public int countCompleteComponents(int n, int[][] edges) {
         g = new List[n];
         vis = new boolean[n];
@@ -22,7 +22,7 @@ class Solution {
         }
         return ans;
     }
-    
+
     private int[] dfs(int i) {
         vis[i] = true;
         int x = 1, y = g[i].size();
@@ -33,6 +33,6 @@ class Solution {
                 y += t[1];
             }
         }
-        return new int[]{x, y};
+        return new int[] {x, y};
     }
 }

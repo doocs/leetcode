@@ -141,8 +141,8 @@ class Solution {
                     dist[i][j] = col[j].peek()[0] + 1;
                 }
                 if (dist[i][j] != -1) {
-                    row[i].offer(new int[]{dist[i][j], j});
-                    col[j].offer(new int[]{dist[i][j], i});
+                    row[i].offer(new int[] {dist[i][j], j});
+                    col[j].offer(new int[] {dist[i][j], i});
                 }
             }
         }

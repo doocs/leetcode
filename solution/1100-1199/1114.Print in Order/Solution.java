@@ -4,7 +4,6 @@ class Foo {
     private Semaphore c = new Semaphore(0);
 
     public Foo() {
-        
     }
 
     public void first(Runnable printFirst) throws InterruptedException {

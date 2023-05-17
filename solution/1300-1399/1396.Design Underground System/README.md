@@ -159,7 +159,6 @@ class UndergroundSystem {
     private Map<String, int[]> d = new HashMap<>();
 
     public UndergroundSystem() {
-
     }
 
     public void checkIn(int id, String stationName, int t) {

@@ -224,10 +224,10 @@ def refresh(result):
             en_content = f2.read()
         i = cn_content.index('. ')
         j = cn_content.index(']')
-        cn_content = cn_content.replace(cn_content[i + 2: j], title)
+        cn_content = cn_content.replace(cn_content[i + 2 : j], title)
         i = en_content.index('. ')
         j = en_content.index(']')
-        en_content = en_content.replace(en_content[i + 2: j], title_en)
+        en_content = en_content.replace(en_content[i + 2 : j], title_en)
 
         # update question content
         old_content = re.search("<!-- 这里写题目描述 -->(.*?)## 解法", cn_content, re.S).group(1)
@@ -242,9 +242,9 @@ def refresh(result):
                 os.path.basename(url).replace('.PNG', '.png').replace('.JPG', '.jpg')
             )
             new_url = (
-                    'https://fastly.jsdelivr.net/gh/doocs/leetcode@main'
-                    + str(question['relative_path_cn']).replace("README.md", "images/")
-                    + image_name
+                'https://fastly.jsdelivr.net/gh/doocs/leetcode@main'
+                + str(question['relative_path_cn']).replace("README.md", "images/")
+                + image_name
             )
             cn_content = cn_content.replace(url, new_url)
 
@@ -264,9 +264,9 @@ def refresh(result):
                 os.path.basename(url).replace('.PNG', '.png').replace('.JPG', '.jpg')
             )
             new_url = (
-                    'https://fastly.jsdelivr.net/gh/doocs/leetcode@main'
-                    + str(question['relative_path_cn']).replace("README.md", "images/")
-                    + image_name
+                'https://fastly.jsdelivr.net/gh/doocs/leetcode@main'
+                + str(question['relative_path_cn']).replace("README.md", "images/")
+                + image_name
             )
             en_content = en_content.replace(url, new_url)
 

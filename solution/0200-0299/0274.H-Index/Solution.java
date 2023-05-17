@@ -5,7 +5,7 @@ class Solution {
         for (int x : citations) {
             ++cnt[Math.min(x, n)];
         }
-        for (int h = n, s = 0; ; --h) {
+        for (int h = n, s = 0;; --h) {
             s += cnt[h];
             if (s >= h) {
                 return h;

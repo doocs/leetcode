@@ -134,9 +134,7 @@ class MapSum {
     private Map<String, Integer> d = new HashMap<>();
     private Trie trie = new Trie();
 
-
     public MapSum() {
-
     }
 
     public void insert(String key, int val) {

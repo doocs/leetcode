@@ -18,7 +18,7 @@ public:
         f[0][0] = 1;
         for (int i = 1; i <= m; ++i) {
             for (int j = 0; j < 1 << n; ++j) {
-                f[i][j] = f[i -1][j];
+                f[i][j] = f[i - 1][j];
                 for (int k : g[i]) {
                     if (j >> k & 1) {
                         f[i][j] = (f[i][j] + f[i - 1][j ^ (1 << k)]) % mod;

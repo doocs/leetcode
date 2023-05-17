@@ -1,9 +1,8 @@
 class RandomizedSet {
 public:
     RandomizedSet() {
-
     }
-    
+
     bool insert(int val) {
         if (d.count(val)) {
             return false;
@@ -12,7 +11,7 @@ public:
         q.push_back(val);
         return true;
     }
-    
+
     bool remove(int val) {
         if (!d.count(val)) {
             return false;
@@ -24,7 +23,7 @@ public:
         d.erase(val);
         return true;
     }
-    
+
     int getRandom() {
         return q[rand() % q.size()];
     }

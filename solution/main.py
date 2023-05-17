@@ -57,9 +57,9 @@ class Spider:
     def get_question_detail_en(self, question_title_slug: str, retry: int = 3) -> dict:
         headers = {
             'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;'
-                      'q=0.8,application/signed-exchange;v=b3;q=0.7',
+            'q=0.8,application/signed-exchange;v=b3;q=0.7',
             'user-agent': user_agent,
-            'cookie': self.cookie_en
+            'cookie': self.cookie_en,
         }
         question_url = 'https://leetcode.com/problems' + question_title_slug
         en_graph_url = 'https://leetcode.com/graphql'
@@ -67,28 +67,36 @@ class Spider:
             'operationName': 'questionData',
             'variables': {'titleSlug': question_title_slug},
             'query': 'query questionData($titleSlug: String!) {\n  question(titleSlug: $titleSlug) {\n    '
-                     'questionId\n    questionFrontendId\n    categoryTitle\n    boundTopicId\n    title\n    '
-                     'titleSlug\n    content\n    translatedTitle\n    translatedContent\n    isPaidOnly\n    '
-                     'difficulty\n    likes\n    dislikes\n    isLiked\n    similarQuestions\n    '
-                     'contributors {\n      username\n      profileUrl\n      avatarUrl\n      __typename\n    '
-                     '}\n    langToValidPlayground\n    topicTags {\n      name\n      slug\n      '
-                     'translatedName\n      __typename\n    }\n    companyTagStats\n    codeSnippets {\n      '
-                     'lang\n      langSlug\n      code\n      __typename\n    }\n    stats\n    hints\n    '
-                     'solution {\n      id\n      canSeeDetail\n      __typename\n    }\n    status\n    '
-                     'sampleTestCase\n    metaData\n    judgerAvailable\n    judgeType\n    mysqlSchemas\n    '
-                     'exampleTestcases\n    __typename\n  }\n}\n',
+            'questionId\n    questionFrontendId\n    categoryTitle\n    boundTopicId\n    title\n    '
+            'titleSlug\n    content\n    translatedTitle\n    translatedContent\n    isPaidOnly\n    '
+            'difficulty\n    likes\n    dislikes\n    isLiked\n    similarQuestions\n    '
+            'contributors {\n      username\n      profileUrl\n      avatarUrl\n      __typename\n    '
+            '}\n    langToValidPlayground\n    topicTags {\n      name\n      slug\n      '
+            'translatedName\n      __typename\n    }\n    companyTagStats\n    codeSnippets {\n      '
+            'lang\n      langSlug\n      code\n      __typename\n    }\n    stats\n    hints\n    '
+            'solution {\n      id\n      canSeeDetail\n      __typename\n    }\n    status\n    '
+            'sampleTestCase\n    metaData\n    judgerAvailable\n    judgeType\n    mysqlSchemas\n    '
+            'exampleTestcases\n    __typename\n  }\n}\n',
         }
         for _ in range(max(0, retry) + 1):
             try:
-                self.session.get(question_url, headers=headers, timeout=10, verify=False)
+                self.session.get(
+                    question_url, headers=headers, timeout=10, verify=False
+                )
                 headers = {
                     'User-Agent': user_agent,
                     'Connection': 'keep-alive',
                     'Content-Type': 'application/json',
                     'Referer': 'https://leetcode.com/problems/' + slug,
-                    'cookie': self.cookie_en
+                    'cookie': self.cookie_en,
                 }
-                resp = self.session.post(en_graph_url, headers=headers, data=json.dumps(form), timeout=10, verify=False)
+                resp = self.session.post(
+                    en_graph_url,
+                    headers=headers,
+                    data=json.dumps(form),
+                    timeout=10,
+                    verify=False,
+                )
                 res = resp.json()
                 return res['data']['question'] or {}
             except Exception as e:
@@ -101,18 +109,18 @@ class Spider:
         form1 = {
             'operationName': 'globalData',
             'query': 'query globalData {\n  feature {\n    questionTranslation\n    subscription\n    signUp\n    '
-                     'discuss\n    mockInterview\n    contest\n    store\n    book\n    chinaProblemDiscuss\n    '
-                     'socialProviders\n    studentFooter\n    cnJobs\n    enableLsp\n    enableWs\n    '
-                     'enableDebugger\n    enableDebuggerAdmin\n    enableDarkMode\n    tasks\n    '
-                     'leetbook\n    __typename\n  }\n  userStatus {\n    isSignedIn\n    isAdmin\n    '
-                     'isStaff\n    isSuperuser\n    isTranslator\n    isPremium\n    isVerified\n    '
-                     'isPhoneVerified\n    isWechatVerified\n    checkedInToday\n    username\n    '
-                     'realName\n    userSlug\n    groups\n    avatar\n    optedIn\n    '
-                     'requestRegion\n    region\n    activeSessionId\n    permissions\n    notificationStatus {\n      '
-                     'lastModified\n      numUnread\n      __typename\n    }\n    completedFeatureGuides\n    '
-                     'useTranslation\n    accountStatus {\n      isFrozen\n      inactiveAfter\n      __typename\n    '
-                     '}\n    __typename\n  }\n  siteRegion\n  chinaHost\n  websocketUrl\n  userBannedInfo {\n    '
-                     'bannedData {\n      endAt\n      bannedType\n      __typename\n    }\n    __typename\n  }\n}\n',
+            'discuss\n    mockInterview\n    contest\n    store\n    book\n    chinaProblemDiscuss\n    '
+            'socialProviders\n    studentFooter\n    cnJobs\n    enableLsp\n    enableWs\n    '
+            'enableDebugger\n    enableDebuggerAdmin\n    enableDarkMode\n    tasks\n    '
+            'leetbook\n    __typename\n  }\n  userStatus {\n    isSignedIn\n    isAdmin\n    '
+            'isStaff\n    isSuperuser\n    isTranslator\n    isPremium\n    isVerified\n    '
+            'isPhoneVerified\n    isWechatVerified\n    checkedInToday\n    username\n    '
+            'realName\n    userSlug\n    groups\n    avatar\n    optedIn\n    '
+            'requestRegion\n    region\n    activeSessionId\n    permissions\n    notificationStatus {\n      '
+            'lastModified\n      numUnread\n      __typename\n    }\n    completedFeatureGuides\n    '
+            'useTranslation\n    accountStatus {\n      isFrozen\n      inactiveAfter\n      __typename\n    '
+            '}\n    __typename\n  }\n  siteRegion\n  chinaHost\n  websocketUrl\n  userBannedInfo {\n    '
+            'bannedData {\n      endAt\n      bannedType\n      __typename\n    }\n    __typename\n  }\n}\n',
             'variables': {},
         }
         headers = {
@@ -127,20 +135,20 @@ class Spider:
             'operationName': 'questionData',
             'variables': {'titleSlug': question_title_slug},
             'query': 'query questionData($titleSlug: String!) {\n  question(titleSlug: $titleSlug) {\n    '
-                     'questionId\n    questionFrontendId\n    categoryTitle\n    boundTopicId\n    title\n    '
-                     'titleSlug\n    content\n    translatedTitle\n    translatedContent\n    isPaidOnly\n    '
-                     'difficulty\n    likes\n    dislikes\n    isLiked\n    similarQuestions\n    '
-                     'contributors {\n      username\n      profileUrl\n      avatarUrl\n      __typename\n    '
-                     '}\n    langToValidPlayground\n    topicTags {\n      name\n      slug\n      '
-                     'translatedName\n      __typename\n    }\n    companyTagStats\n    codeSnippets {\n      '
-                     'lang\n      langSlug\n      code\n      __typename\n    }\n    stats\n    hints\n    '
-                     'solution {\n      id\n      canSeeDetail\n      __typename\n    }\n    status\n    '
-                     'sampleTestCase\n    metaData\n    judgerAvailable\n    judgeType\n    mysqlSchemas\n    '
-                     'enableRunCode\n    envInfo\n    book {\n      id\n      bookName\n      pressName\n      '
-                     'source\n      shortDescription\n      fullDescription\n      bookImgUrl\n      '
-                     'pressImgUrl\n      productUrl\n      __typename\n    }\n    isSubscribed\n    '
-                     'isDailyQuestion\n    dailyRecordStatus\n    editorType\n    ugcQuestionId\n    style\n    '
-                     'exampleTestcases\n    __typename\n  }\n}\n',
+            'questionId\n    questionFrontendId\n    categoryTitle\n    boundTopicId\n    title\n    '
+            'titleSlug\n    content\n    translatedTitle\n    translatedContent\n    isPaidOnly\n    '
+            'difficulty\n    likes\n    dislikes\n    isLiked\n    similarQuestions\n    '
+            'contributors {\n      username\n      profileUrl\n      avatarUrl\n      __typename\n    '
+            '}\n    langToValidPlayground\n    topicTags {\n      name\n      slug\n      '
+            'translatedName\n      __typename\n    }\n    companyTagStats\n    codeSnippets {\n      '
+            'lang\n      langSlug\n      code\n      __typename\n    }\n    stats\n    hints\n    '
+            'solution {\n      id\n      canSeeDetail\n      __typename\n    }\n    status\n    '
+            'sampleTestCase\n    metaData\n    judgerAvailable\n    judgeType\n    mysqlSchemas\n    '
+            'enableRunCode\n    envInfo\n    book {\n      id\n      bookName\n      pressName\n      '
+            'source\n      shortDescription\n      fullDescription\n      bookImgUrl\n      '
+            'pressImgUrl\n      productUrl\n      __typename\n    }\n    isSubscribed\n    '
+            'isDailyQuestion\n    dailyRecordStatus\n    editorType\n    ugcQuestionId\n    style\n    '
+            'exampleTestcases\n    __typename\n  }\n}\n',
         }
         for _ in range(max(0, retry) + 1):
             try:
@@ -171,7 +179,9 @@ class Spider:
         question_title_slug = question_detail.get('titleSlug')
         url_cn = f'https://leetcode.cn/problems/{question_title_slug}'
         url_en = f'https://leetcode.com/problems/{question_title_slug}'
-        frontend_question_id = qid or str(question_detail['questionFrontendId']).zfill(4)
+        frontend_question_id = qid or str(question_detail['questionFrontendId']).zfill(
+            4
+        )
         no = int(frontend_question_id) // 100
         question_title_en = question_detail['title']
         question_title_en = re.sub(r'[\\/:*?"<>|]', '', question_title_en).strip()
@@ -194,17 +204,17 @@ class Spider:
             'relative_path_cn': path_cn,
             'relative_path_en': path_en,
             'title_cn': question_detail.get('translatedTitle')
-                        or question_title_en
-                        or '',
+            or question_title_en
+            or '',
             'title_en': question_title_en or '',
             'question_title_slug': question_title_slug,
             'content_en': question_detail.get('content'),
             'content_cn': question_detail.get('translatedContent')
-                          or question_detail.get('content')
-                          or '',
+            or question_detail.get('content')
+            or '',
             'tags_en': [e['name'] for e in topic_tags if e['name']] or [],
             'tags_cn': [e['translatedName'] for e in topic_tags if e['translatedName']]
-                       or [],
+            or [],
             'difficulty_en': question_detail.get('difficulty'),
             'difficulty_cn': difficulty.get(question_detail.get('difficulty')),
             'code_snippets': question_detail.get('codeSnippets') or [],
@@ -349,7 +359,9 @@ for q in spider.get_all_questions(retry=4):
     qid = q['stat']['frontend_question_id']
     if slug in question_details:
         continue
-    detail = spider.get_question_detail(slug, retry=4) or spider.get_question_detail_en(slug, retry=4)
+    detail = spider.get_question_detail(slug, retry=4) or spider.get_question_detail_en(
+        slug, retry=4
+    )
     if not detail:
         continue
     time.sleep(0.3)

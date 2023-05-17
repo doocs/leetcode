@@ -93,7 +93,8 @@ class Solution {
         for (int k = n; k > 0; --k) {
             for (int i = 0; i <= n - k; ++i) {
                 for (int j = 0; j <= n - k; ++j) {
-                    if (down[i][j] >= k && right[i][j] >= k && right[i + k - 1][j] >= k && down[i][j + k - 1] >= k) {
+                    if (down[i][j] >= k && right[i][j] >= k && right[i + k - 1][j] >= k
+                        && down[i][j + k - 1] >= k) {
                         return new int[] {i, j, k};
                     }
                 }

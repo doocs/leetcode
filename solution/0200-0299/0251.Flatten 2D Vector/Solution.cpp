@@ -3,12 +3,12 @@ public:
     Vector2D(vector<vector<int>>& vec) {
         this->vec = move(vec);
     }
-    
+
     int next() {
         forward();
         return vec[i][j++];
     }
-    
+
     bool hasNext() {
         forward();
         return i < vec.size();
