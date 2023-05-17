@@ -1,7 +1,9 @@
 class Solution:
     def findOcurrences(self, text: str, first: str, second: str) -> List[str]:
-        ws = text.split()
-        n = len(ws)
-        return [
-            ws[i + 2] for i in range(n - 2) if ws[i] == first and ws[i + 1] == second
-        ]
+        words = text.split()
+        ans = []
+        for i in range(len(words) - 2):
+            a, b, c = words[i : i + 3]
+            if a == first and b == second:
+                ans.append(c)
+        return ans

@@ -1,10 +1,10 @@
-func findOcurrences(text string, first string, second string) []string {
+func findOcurrences(text string, first string, second string) (ans []string) {
 	words := strings.Split(text, " ")
-	var ans []string
-	for i := 0; i < len(words)-2; i++ {
+	n := len(words)
+	for i := 0; i < n-2; i++ {
 		if words[i] == first && words[i+1] == second {
 			ans = append(ans, words[i+2])
 		}
 	}
-	return ans
+	return
 }
