@@ -51,13 +51,161 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def numSubmatrixSumTarget(self, matrix: List[List[int]], target: int) -> int:
+        def f(nums: List[int]) -> int:
+            d = defaultdict(int)
+            d[0] = 1
+            cnt = s = 0
+            for x in nums:
+                s += x
+                cnt += d[s - target]
+                d[s] += 1
+            return cnt
 
+        m, n = len(matrix), len(matrix[0])
+        ans = 0
+        for i in range(m):
+            col = [0] * n
+            for j in range(i, m):
+                for k in range(n):
+                    col[k] += matrix[j][k]
+                ans += f(col)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int numSubmatrixSumTarget(int[][] matrix, int target) {
+        int m = matrix.length, n = matrix[0].length;
+        int ans = 0;
+        for (int i = 0; i < m; ++i) {
+            int[] col = new int[n];
+            for (int j = i; j < m; ++j) {
+                for (int k = 0; k < n; ++k) {
+                    col[k] += matrix[j][k];
+                }
+                ans += f(col, target);
+            }
+        }
+        return ans;
+    }
 
+    private int f(int[] nums, int target) {
+        Map<Integer, Integer> d = new HashMap<>();
+        d.put(0, 1);
+        int s = 0, cnt = 0;
+        for (int x : nums) {
+            s += x;
+            cnt += d.getOrDefault(s - target, 0);
+            d.merge(s, 1, Integer::sum);
+        }
+        return cnt;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numSubmatrixSumTarget(vector<vector<int>>& matrix, int target) {
+        int m = matrix.size(), n = matrix[0].size();
+        int ans = 0;
+        for (int i = 0; i < m; ++i) {
+            vector<int> col(n);
+            for (int j = i; j < m; ++j) {
+                for (int k = 0; k < n; ++k) {
+                    col[k] += matrix[j][k];
+                }
+                ans += f(col, target);
+            }
+        }
+        return ans;
+    }
+
+    int f(vector<int>& nums, int target) {
+        unordered_map<int, int> d{{0, 1}};
+        int cnt = 0, s = 0;
+        for (int& x : nums) {
+            s += x;
+            if (d.count(s - target)) {
+                cnt += d[s - target];
+            }
+            ++d[s];
+        }
+        return cnt;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numSubmatrixSumTarget(matrix [][]int, target int) (ans int) {
+	m, n := len(matrix), len(matrix[0])
+	for i := 0; i < m; i++ {
+		col := make([]int, n)
+		for j := i; j < m; j++ {
+			for k := 0; k < n; k++ {
+				col[k] += matrix[j][k]
+			}
+			ans += f(col, target)
+		}
+	}
+	return
+}
+
+func f(nums []int, target int) (cnt int) {
+	d := map[int]int{0: 1}
+	s := 0
+	for _, x := range nums {
+		s += x
+		if v, ok := d[s-target]; ok {
+			cnt += v
+		}
+		d[s]++
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function numSubmatrixSumTarget(matrix: number[][], target: number): number {
+    const m = matrix.length;
+    const n = matrix[0].length;
+    let ans = 0;
+    for (let i = 0; i < m; ++i) {
+        const col: number[] = new Array(n).fill(0);
+        for (let j = i; j < m; ++j) {
+            for (let k = 0; k < n; ++k) {
+                col[k] += matrix[j][k];
+            }
+            ans += f(col, target);
+        }
+    }
+    return ans;
+}
+
+function f(nums: number[], target: number): number {
+    const d: Map<number, number> = new Map();
+    d.set(0, 1);
+    let cnt = 0;
+    let s = 0;
+    for (const x of nums) {
+        s += x;
+        if (d.has(s - target)) {
+            cnt += d.get(s - target)!;
+        }
+        d.set(s, (d.get(s) || 0) + 1);
+    }
+    return cnt;
+}
 ```
 
 ### **...**

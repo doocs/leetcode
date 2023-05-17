@@ -1,31 +1,28 @@
 class Solution {
     public int numSubmatrixSumTarget(int[][] matrix, int target) {
-        int row = matrix.length, col = matrix[0].length;
-        int[][] sum = new int[row][col];
+        int m = matrix.length, n = matrix[0].length;
         int ans = 0;
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
-                if (i == 0 && j == 0) {
-                    sum[i][j] = matrix[i][j];
-                } else if (i == 0) {
-                    sum[i][j] = matrix[i][j] + sum[i][j - 1];
-                } else if (j == 0) {
-                    sum[i][j] = matrix[i][j] + sum[i - 1][j];
-                } else {
-                    sum[i][j] = matrix[i][j] - sum[i - 1][j - 1] + sum[i - 1][j] + sum[i][j - 1];
+        for (int i = 0; i < m; ++i) {
+            int[] col = new int[n];
+            for (int j = i; j < m; ++j) {
+                for (int k = 0; k < n; ++k) {
+                    col[k] += matrix[j][k];
                 }
-                for (int k = 0; k <= i; k++) {
-                    for (int l = 0; l <= j; l++) {
-                        int main = (k != 0 && l != 0) ? sum[k - 1][l - 1] : 0;
-                        int left = k != 0 ? sum[k - 1][j] : 0;
-                        int up = l != 0 ? sum[i][l - 1] : 0;
-                        if (sum[i][j] - left - up + main == target) {
-                            ans++;
-                        }
-                    }
-                }
+                ans += f(col, target);
             }
         }
         return ans;
+    }
+
+    private int f(int[] nums, int target) {
+        Map<Integer, Integer> d = new HashMap<>();
+        d.put(0, 1);
+        int s = 0, cnt = 0;
+        for (int x : nums) {
+            s += x;
+            cnt += d.getOrDefault(s - target, 0);
+            d.merge(s, 1, Integer::sum);
+        }
+        return cnt;
     }
 }
