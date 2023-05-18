@@ -11,16 +11,16 @@
  */
 
 function oddEvenList(head: ListNode | null): ListNode | null {
-    if (head == null) return head;
-    let odd: ListNode = head,
-        even: ListNode = head.next;
-    let evenHead = even;
-    while (even != null && even.next != null) {
-        odd.next = even.next;
-        odd = odd.next;
-        even.next = odd.next;
-        even = even.next;
+    if (!head) {
+        return null;
     }
-    odd.next = evenHead;
+    let [a, b, c] = [head, head.next, head.next];
+    while (b && b.next) {
+        a.next = b.next;
+        a = a.next;
+        b.next = a.next;
+        b = b.next;
+    }
+    a.next = c;
     return head;
 }

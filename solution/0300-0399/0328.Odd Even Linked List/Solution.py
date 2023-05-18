@@ -4,15 +4,15 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def oddEvenList(self, head: ListNode) -> ListNode:
+    def oddEvenList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if head is None:
-            return head
-        odd, even = head, head.next
-        even_head = even
-        while even and even.next:
-            odd.next = even.next
-            odd = odd.next
-            even.next = odd.next
-            even = even.next
-        odd.next = even_head
+            return None
+        a = head
+        b = c = head.next
+        while b and b.next:
+            a.next = b.next
+            a = a.next
+            b.next = a.next
+            b = b.next
+        a.next = c
         return head

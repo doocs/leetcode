@@ -48,17 +48,17 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def oddEvenList(self, head: ListNode) -> ListNode:
+    def oddEvenList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if head is None:
-            return head
-        odd, even = head, head.next
-        even_head = even
-        while even and even.next:
-            odd.next = even.next
-            odd = odd.next
-            even.next = odd.next
-            even = even.next
-        odd.next = even_head
+            return None
+        a = head
+        b = c = head.next
+        while b and b.next:
+            a.next = b.next
+            a = a.next
+            b.next = a.next
+            b = b.next
+        a.next = c
         return head
 ```
 
@@ -78,50 +78,19 @@ class Solution:
 class Solution {
     public ListNode oddEvenList(ListNode head) {
         if (head == null) {
-            return head;
+            return null;
         }
-        ListNode odd = head, even = head.next;
-        ListNode evenHead = even;
-        while (even != null && even.next != null) {
-            odd.next = even.next;
-            odd = odd.next;
-            even.next = odd.next;
-            even = even.next;
+        ListNode a = head;
+        ListNode b = head.next, c = b;
+        while (b != null && b.next != null) {
+            a.next = b.next;
+            a = a.next;
+            b.next = a.next;
+            b = b.next;
         }
-        odd.next = evenHead;
+        a.next = c;
         return head;
     }
-}
-```
-
-### **TypeScript**
-
-```ts
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
- * }
- */
-
-function oddEvenList(head: ListNode | null): ListNode | null {
-    if (head == null) return head;
-    let odd: ListNode = head,
-        even: ListNode = head.next;
-    let evenHead = even;
-    while (even != null && even.next != null) {
-        odd.next = even.next;
-        odd = odd.next;
-        even.next = odd.next;
-        even = even.next;
-    }
-    odd.next = evenHead;
-    return head;
 }
 ```
 
@@ -142,17 +111,17 @@ class Solution {
 public:
     ListNode* oddEvenList(ListNode* head) {
         if (!head) {
-            return head;
+            return nullptr;
         }
-        ListNode *odd = head, *even = head->next;
-        ListNode* evenHead = even;
-        while (even && even->next) {
-            odd->next = even->next;
-            odd = odd->next;
-            even->next = odd->next;
-            even = even->next;
+        ListNode *a = head;
+        ListNode *b = head->next, *c = b;
+        while (b && b->next) {
+            a->next = b->next;
+            a = a->next;
+            b->next = a->next;
+            b = b->next;
         }
-        odd->next = evenHead;
+        a->next = c;
         return head;
     }
 };
@@ -169,19 +138,50 @@ public:
  * }
  */
 func oddEvenList(head *ListNode) *ListNode {
-    if head == nil {
-        return head
+	if head == nil {
+		return nil
+	}
+	a := head
+	b, c := head.Next, head.Next
+	for b != nil && b.Next != nil {
+		a.Next = b.Next
+		a = a.Next
+		b.Next = a.Next
+		b = b.Next
+	}
+	a.Next = c
+	return head
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function oddEvenList(head: ListNode | null): ListNode | null {
+    if (!head) {
+        return null;
     }
-    odd, even := head, head.Next
-    evenHead := even
-    for even != nil && even.Next != nil {
-        odd.Next = even.Next
-        odd = odd.Next
-        even.Next = odd.Next
-        even = even.Next
+    let [a, b, c] = [head, head.next, head.next];
+    while (b && b.next) {
+        a.next = b.next;
+        a = a.next;
+        b.next = a.next;
+        b = b.next;
     }
-    odd.Next = evenHead
-    return head
+    a.next = c;
+    return head;
 }
 ```
 

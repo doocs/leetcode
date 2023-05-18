@@ -46,6 +46,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：一次遍历**
+
+我们可以用两个指针 $a$ 和 $b$ 分别表示奇数节点和偶数节点的尾节点。初始时，指针 $a$ 指向链表的头节点 $head$，指针 $b$ 指向链表的第二个节点 $head.next$。另外，我们用一个指针 $c$ 指向偶数节点的头节点 $head.next$，即指针 $b$ 的初始位置。
+
+遍历链表，我们将指针 $a$ 指向 $b$ 的下一个节点，即 $a.next = b.next$，然后将指针 $a$ 向后移动一位，即 $a = a.next$；将指针 $b$ 指向 $a$ 的下一个节点，即 $b.next = a.next$，然后将指针 $b$ 向后移动一位，即 $b = b.next$。继续遍历，直到 $b$ 到达链表的末尾。
+
+最后，我们将奇数节点的尾节点 $a$ 指向偶数节点的头节点 $c$，即 $a.next = c$，然后返回链表的头节点 $head$ 即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是链表的长度，需要遍历链表一次。空间复杂度 $O(1)$。只需要维护有限的指针。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -59,17 +69,17 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def oddEvenList(self, head: ListNode) -> ListNode:
+    def oddEvenList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if head is None:
-            return head
-        odd, even = head, head.next
-        even_head = even
-        while even and even.next:
-            odd.next = even.next
-            odd = odd.next
-            even.next = odd.next
-            even = even.next
-        odd.next = even_head
+            return None
+        a = head
+        b = c = head.next
+        while b and b.next:
+            a.next = b.next
+            a = a.next
+            b.next = a.next
+            b = b.next
+        a.next = c
         return head
 ```
 
@@ -91,50 +101,19 @@ class Solution:
 class Solution {
     public ListNode oddEvenList(ListNode head) {
         if (head == null) {
-            return head;
+            return null;
         }
-        ListNode odd = head, even = head.next;
-        ListNode evenHead = even;
-        while (even != null && even.next != null) {
-            odd.next = even.next;
-            odd = odd.next;
-            even.next = odd.next;
-            even = even.next;
+        ListNode a = head;
+        ListNode b = head.next, c = b;
+        while (b != null && b.next != null) {
+            a.next = b.next;
+            a = a.next;
+            b.next = a.next;
+            b = b.next;
         }
-        odd.next = evenHead;
+        a.next = c;
         return head;
     }
-}
-```
-
-### **TypeScript**
-
-```ts
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
- * }
- */
-
-function oddEvenList(head: ListNode | null): ListNode | null {
-    if (head == null) return head;
-    let odd: ListNode = head,
-        even: ListNode = head.next;
-    let evenHead = even;
-    while (even != null && even.next != null) {
-        odd.next = even.next;
-        odd = odd.next;
-        even.next = odd.next;
-        even = even.next;
-    }
-    odd.next = evenHead;
-    return head;
 }
 ```
 
@@ -155,17 +134,17 @@ class Solution {
 public:
     ListNode* oddEvenList(ListNode* head) {
         if (!head) {
-            return head;
+            return nullptr;
         }
-        ListNode *odd = head, *even = head->next;
-        ListNode* evenHead = even;
-        while (even && even->next) {
-            odd->next = even->next;
-            odd = odd->next;
-            even->next = odd->next;
-            even = even->next;
+        ListNode *a = head;
+        ListNode *b = head->next, *c = b;
+        while (b && b->next) {
+            a->next = b->next;
+            a = a->next;
+            b->next = a->next;
+            b = b->next;
         }
-        odd->next = evenHead;
+        a->next = c;
         return head;
     }
 };
@@ -182,19 +161,50 @@ public:
  * }
  */
 func oddEvenList(head *ListNode) *ListNode {
-    if head == nil {
-        return head
+	if head == nil {
+		return nil
+	}
+	a := head
+	b, c := head.Next, head.Next
+	for b != nil && b.Next != nil {
+		a.Next = b.Next
+		a = a.Next
+		b.Next = a.Next
+		b = b.Next
+	}
+	a.Next = c
+	return head
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function oddEvenList(head: ListNode | null): ListNode | null {
+    if (!head) {
+        return null;
     }
-    odd, even := head, head.Next
-    evenHead := even
-    for even != nil && even.Next != nil {
-        odd.Next = even.Next
-        odd = odd.Next
-        even.Next = odd.Next
-        even = even.Next
+    let [a, b, c] = [head, head.next, head.next];
+    while (b && b.next) {
+        a.next = b.next;
+        a = a.next;
+        b.next = a.next;
+        b = b.next;
     }
-    odd.Next = evenHead
-    return head
+    a.next = c;
+    return head;
 }
 ```
 
