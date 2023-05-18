@@ -9,12 +9,11 @@ func addNegabinary(arr1 []int, arr2 []int) (ans []int) {
 			x += arr2[j]
 		}
 		c = 0
-		if x > 1 {
+		if x >= 2 {
 			x -= 2
 			c -= 1
-		}
-		if x < 0 {
-			x += 2
+		} else if x == -1 {
+			x = 1
 			c += 1
 		}
 		ans = append(ans, x)

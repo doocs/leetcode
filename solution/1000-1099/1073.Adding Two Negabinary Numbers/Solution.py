@@ -8,11 +8,11 @@ class Solution:
             b = 0 if j < 0 else arr2[j]
             x = a + b + c
             c = 0
-            if x > 1:
+            if x >= 2:
                 x -= 2
                 c -= 1
-            if x < 0:
-                x += 2
+            elif x == -1:
+                x = 1
                 c += 1
             ans.append(x)
             i, j = i - 1, j - 1

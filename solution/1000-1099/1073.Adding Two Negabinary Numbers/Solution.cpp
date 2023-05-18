@@ -8,12 +8,11 @@ public:
             int b = j < 0 ? 0 : arr2[j];
             int x = a + b + c;
             c = 0;
-            if (x > 1) {
+            if (x >= 2) {
                 x -= 2;
                 c -= 1;
-            }
-            if (x < 0) {
-                x += 2;
+            } else if (x == -1) {
+                x = 1;
                 c += 1;
             }
             ans.push_back(x);

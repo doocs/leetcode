@@ -53,12 +53,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：进位转换**
+**方法一：模拟**
 
 我们遍历两个数组，从最低位开始，记两个数组当前位的数字为 $a$ 和 $b$，进位为 $c$，三个数相加的结果为 $x$。
 
--   如果 $x \gt 1$，那么执行操作：将 $x$ 减去 $2$，并向高位进位 $-1$。
--   如果 $x \lt 0$，那么执行操作：将 $x$ 加上 $2$，并向高位进位 $1$。
+-   先将进位 $c$ 置为 $0$。
+-   如果 $x \geq 2$，那么将 $x$ 减去 $2$，并向高位进位 $-1$。即逢 $2$ 进负 $1$。
+-   如果 $x = -1$，由于 $-(-2)^{i} = (-2)^{i} + (-2)^{i+1}$，所以我们可以将 $x$ 置为 $1$，并向高位进位 $1$。
 
 然后，我们将 $x$ 加入到答案数组中，然后继续处理下一位。
 
@@ -87,11 +88,11 @@ class Solution:
             b = 0 if j < 0 else arr2[j]
             x = a + b + c
             c = 0
-            if x > 1:
+            if x >= 2:
                 x -= 2
                 c -= 1
-            if x < 0:
-                x += 2
+            elif x == -1:
+                x = 1
                 c += 1
             ans.append(x)
             i, j = i - 1, j - 1
@@ -114,12 +115,11 @@ class Solution {
             int b = j < 0 ? 0 : arr2[j];
             int x = a + b + c;
             c = 0;
-            if (x > 1) {
+            if (x >= 2) {
                 x -= 2;
                 c -= 1;
-            }
-            if (x < 0) {
-                x += 2;
+            } else if (x == -1) {
+                x = 1;
                 c += 1;
             }
             ans.add(x);
@@ -146,12 +146,11 @@ public:
             int b = j < 0 ? 0 : arr2[j];
             int x = a + b + c;
             c = 0;
-            if (x > 1) {
+            if (x >= 2) {
                 x -= 2;
                 c -= 1;
-            }
-            if (x < 0) {
-                x += 2;
+            } else if (x == -1) {
+                x = 1;
                 c += 1;
             }
             ans.push_back(x);
@@ -179,12 +178,11 @@ func addNegabinary(arr1 []int, arr2 []int) (ans []int) {
 			x += arr2[j]
 		}
 		c = 0
-		if x > 1 {
+		if x >= 2 {
 			x -= 2
 			c -= 1
-		}
-		if x < 0 {
-			x += 2
+		} else if x == -1 {
+			x = 1
 			c += 1
 		}
 		ans = append(ans, x)
@@ -211,12 +209,11 @@ function addNegabinary(arr1: number[], arr2: number[]): number[] {
         const b = j < 0 ? 0 : arr2[j];
         let x = a + b + c;
         c = 0;
-        if (x > 1) {
+        if (x >= 2) {
             x -= 2;
             c -= 1;
-        }
-        if (x < 0) {
-            x += 2;
+        } else if (x === -1) {
+            x = 1;
             c += 1;
         }
         ans.push(x);
@@ -225,6 +222,36 @@ function addNegabinary(arr1: number[], arr2: number[]): number[] {
         ans.pop();
     }
     return ans.reverse();
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int[] AddNegabinary(int[] arr1, int[] arr2) {
+        int i = arr1.Length - 1, j = arr2.Length - 1;
+        List<int> ans = new List<int>();
+        for (int c = 0; i >= 0 || j >= 0 || c != 0; --i, --j) {
+            int a = i < 0 ? 0 : arr1[i];
+            int b = j < 0 ? 0 : arr2[j];
+            int x = a + b + c;
+            c = 0;
+            if (x >= 2) {
+                x -= 2;
+                c -= 1;
+            } else if (x == -1) {
+                x = 1;
+                c = 1;
+            }
+            ans.Add(x);
+        }
+        while (ans.Count > 1 && ans[ans.Count - 1] == 0) {
+            ans.RemoveAt(ans.Count - 1);
+        }
+        ans.Reverse();
+        return ans.ToArray();
+    }
 }
 ```
 
