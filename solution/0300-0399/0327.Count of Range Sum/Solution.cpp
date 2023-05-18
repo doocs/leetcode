@@ -1,54 +1,53 @@
 class BinaryIndexedTree {
 public:
-    int n;
-    vector<int> c;
+    BinaryIndexedTree(int _n) : n(_n), c(_n + 1) {}
 
-    BinaryIndexedTree(int _n)
-        : n(_n)
-        , c(_n + 1) {}
-
-    void update(int x, int delta) {
+    void update(int x, int v) {
         while (x <= n) {
-            c[x] += delta;
-            x += lowbit(x);
+            c[x] += v;
+            x += x & -x;
         }
     }
 
     int query(int x) {
         int s = 0;
-        while (x > 0) {
+        while (x) {
             s += c[x];
-            x -= lowbit(x);
+            x -= x & -x;
         }
         return s;
     }
 
-    int lowbit(int x) {
-        return x & -x;
-    }
+private:
+    int n;
+    vector<int> c;
 };
 
 class Solution {
 public:
     int countRangeSum(vector<int>& nums, int lower, int upper) {
+        using ll = long long;
         int n = nums.size();
-        vector<long long> preSum(n + 1);
-        for (int i = 0; i < n; ++i) preSum[i + 1] = preSum[i] + nums[i];
-        set<long long> alls;
-        for (auto& s : preSum) {
-            alls.insert(s);
-            alls.insert(s - upper);
-            alls.insert(s - lower);
+        ll s[n + 1];
+        s[0] = 0;
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + nums[i];
         }
-        unordered_map<long long, int> m;
-        int idx = 1;
-        for (auto& v : alls) m[v] = idx++;
-        BinaryIndexedTree* tree = new BinaryIndexedTree(m.size());
+        ll arr[(n + 1) * 3];
+        for (int i = 0, j = 0; i <= n; ++i, j += 3) {
+            arr[j] = s[i];
+            arr[j + 1] = s[i] - lower;
+            arr[j + 2] = s[i] - upper;
+        }
+        sort(arr, arr + (n + 1) * 3);
+        int m = unique(arr, arr + (n + 1) * 3) - arr;
+        BinaryIndexedTree tree(m);
         int ans = 0;
-        for (auto& s : preSum) {
-            int i = m[s - upper], j = m[s - lower];
-            ans += tree->query(j) - tree->query(i - 1);
-            tree->update(m[s], 1);
+        for (int i = 0; i <= n; ++i) {
+            int l = lower_bound(arr, arr + m, s[i] - upper) - arr + 1;
+            int r = lower_bound(arr, arr + m, s[i] - lower) - arr + 1;
+            ans += tree.query(r) - tree.query(l - 1);
+            tree.update(lower_bound(arr, arr + m, s[i]) - arr + 1, 1);
         }
         return ans;
     }

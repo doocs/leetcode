@@ -1,59 +1,70 @@
-class Solution {
-    public int countRangeSum(int[] nums, int lower, int upper) {
-        int n = nums.length;
-        long[] preSum = new long[n + 1];
-        for (int i = 0; i < n; ++i) {
-            preSum[i + 1] = preSum[i] + nums[i];
-        }
-        TreeSet<Long> ts = new TreeSet<>();
-        for (long s : preSum) {
-            ts.add(s);
-            ts.add(s - upper);
-            ts.add(s - lower);
-        }
-        Map<Long, Integer> m = new HashMap<>();
-        int idx = 1;
-        for (long s : ts) {
-            m.put(s, idx++);
-        }
-        int ans = 0;
-        BinaryIndexedTree tree = new BinaryIndexedTree(m.size());
-        for (long s : preSum) {
-            int i = m.get(s - upper);
-            int j = m.get(s - lower);
-            ans += tree.query(j) - tree.query(i - 1);
-            tree.update(m.get(s), 1);
-        }
-        return ans;
-    }
-}
-
 class BinaryIndexedTree {
     private int n;
     private int[] c;
 
     public BinaryIndexedTree(int n) {
         this.n = n;
-        c = new int[n + 1];
+        this.c = new int[n + 1];
     }
 
-    public void update(int x, int delta) {
+    public void update(int x, int v) {
         while (x <= n) {
-            c[x] += delta;
-            x += lowbit(x);
+            c[x] += v;
+            x += x & -x;
         }
     }
 
     public int query(int x) {
         int s = 0;
-        while (x > 0) {
+        while (x != 0) {
             s += c[x];
-            x -= lowbit(x);
+            x -= x & -x;
         }
         return s;
     }
+}
 
-    public static int lowbit(int x) {
-        return x & -x;
+class Solution {
+    public int countRangeSum(int[] nums, int lower, int upper) {
+        int n = nums.length;
+        long[] s = new long[n + 1];
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + nums[i];
+        }
+        long[] arr = new long[n * 3 + 3];
+        for (int i = 0, j = 0; i <= n; ++i, j += 3) {
+            arr[j] = s[i];
+            arr[j + 1] = s[i] - lower;
+            arr[j + 2] = s[i] - upper;
+        }
+        Arrays.sort(arr);
+        int m = 0;
+        for (int i = 0; i < arr.length; ++i) {
+            if (i == 0 || arr[i] != arr[i - 1]) {
+                arr[m++] = arr[i];
+            }
+        }
+        BinaryIndexedTree tree = new BinaryIndexedTree(m);
+        int ans = 0;
+        for (long x : s) {
+            int l = search(arr, m, x - upper);
+            int r = search(arr, m, x - lower);
+            ans += tree.query(r) - tree.query(l - 1);
+            tree.update(search(arr, m, x), 1);
+        }
+        return ans;
+    }
+
+    private int search(long[] nums, int r, long x) {
+        int l = 0;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (nums[mid] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l + 1;
     }
 }

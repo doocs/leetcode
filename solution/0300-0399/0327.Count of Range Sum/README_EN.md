@@ -42,278 +42,110 @@ Binary Indexed Tree or Segment Tree.
 
 ### **Python3**
 
-Binary Index Tree:
-
 ```python
 class BinaryIndexedTree:
     def __init__(self, n):
         self.n = n
         self.c = [0] * (n + 1)
 
-    @staticmethod
-    def lowbit(x):
-        return x & -x
-
-    def update(self, x, delta):
+    def update(self, x, v):
         while x <= self.n:
-            self.c[x] += delta
-            x += BinaryIndexedTree.lowbit(x)
+            self.c[x] += v
+            x += x & -x
 
     def query(self, x):
         s = 0
         while x > 0:
             s += self.c[x]
-            x -= BinaryIndexedTree.lowbit(x)
+            x -= x & -x
         return s
 
 
 class Solution:
     def countRangeSum(self, nums: List[int], lower: int, upper: int) -> int:
-        presum = [0]
-        for v in nums:
-            presum.append(presum[-1] + v)
-        alls = set()
-        for s in presum:
-            alls.add(s)
-            alls.add(s - lower)
-            alls.add(s - upper)
-        alls = sorted(alls)
-        m = {v: i for i, v in enumerate(alls, 1)}
-        tree = BinaryIndexedTree(len(m))
+        s = list(accumulate(nums, initial=0))
+        arr = sorted(set(v for x in s for v in (x, x - lower, x - upper)))
+        tree = BinaryIndexedTree(len(arr))
         ans = 0
-        for s in presum:
-            i, j = m[s - upper], m[s - lower]
-            ans += tree.query(j) - tree.query(i - 1)
-            tree.update(m[s], 1)
-        return ans
-```
-
-Segment Tree:
-
-```python
-class Node:
-    def __init__(self):
-        self.l = 0
-        self.r = 0
-        self.v = 0
-
-class SegmentTree:
-    def __init__(self, n):
-        self.tr = [Node() for _ in range(4 * n)]
-        self.build(1, 1, n)
-
-    def build(self, u, l, r):
-        self.tr[u].l = l
-        self.tr[u].r = r
-        if l == r:
-            return
-        mid = (l + r) >> 1
-        self.build(u << 1, l, mid)
-        self.build(u << 1 | 1, mid + 1, r)
-
-    def modify(self, u, x, v):
-        if self.tr[u].l == x and self.tr[u].r == x:
-            self.tr[u].v += v
-            return
-        mid = (self.tr[u].l + self.tr[u].r) >> 1
-        if x <= mid:
-            self.modify(u << 1, x, v)
-        else:
-            self.modify(u << 1 | 1, x, v)
-        self.pushup(u)
-
-    def pushup(self, u):
-        self.tr[u].v = self.tr[u << 1].v + self.tr[u << 1 | 1].v
-
-    def query(self, u, l, r):
-        if self.tr[u].l >= l and self.tr[u].r <= r:
-            return self.tr[u].v
-        mid = (self.tr[u].l + self.tr[u].r) >> 1
-        v = 0
-        if l <= mid:
-            v += self.query(u << 1, l, r)
-        if r > mid:
-            v += self.query(u << 1 | 1, l, r)
-        return v
-
-class Solution:
-    def countRangeSum(self, nums: List[int], lower: int, upper: int) -> int:
-        s = [0]
-        for x in nums:
-            s.append(s[-1] + x)
-        alls = set()
-        for v in s:
-            alls.add(v)
-            alls.add(v - lower)
-            alls.add(v - upper)
-        m = {v: i for i, v in enumerate(sorted(alls), 1)}
-        tree = SegmentTree(len(m))
-        ans = 0
-        for v in s:
-            l, r = m[v - upper], m[v - lower]
-            ans += tree.query(1, l, r)
-            tree.modify(1, m[v], 1)
+        for x in s:
+            l = bisect_left(arr, x - upper) + 1
+            r = bisect_left(arr, x - lower) + 1
+            ans += tree.query(r) - tree.query(l - 1)
+            tree.update(bisect_left(arr, x) + 1, 1)
         return ans
 ```
 
 ### **Java**
 
-Binary Indexed Tree:
-
 ```java
-class Solution {
-    public int countRangeSum(int[] nums, int lower, int upper) {
-        int n = nums.length;
-        long[] preSum = new long[n + 1];
-        for (int i = 0; i < n; ++i) {
-            preSum[i + 1] = preSum[i] + nums[i];
-        }
-        TreeSet<Long> ts = new TreeSet<>();
-        for (long s : preSum) {
-            ts.add(s);
-            ts.add(s - upper);
-            ts.add(s - lower);
-        }
-        Map<Long, Integer> m = new HashMap<>();
-        int idx = 1;
-        for (long s : ts) {
-            m.put(s, idx++);
-        }
-        int ans = 0;
-        BinaryIndexedTree tree = new BinaryIndexedTree(m.size());
-        for (long s : preSum) {
-            int i = m.get(s - upper);
-            int j = m.get(s - lower);
-            ans += tree.query(j) - tree.query(i - 1);
-            tree.update(m.get(s), 1);
-        }
-        return ans;
-    }
-}
-
 class BinaryIndexedTree {
     private int n;
     private int[] c;
 
     public BinaryIndexedTree(int n) {
         this.n = n;
-        c = new int[n + 1];
+        this.c = new int[n + 1];
     }
 
-    public void update(int x, int delta) {
+    public void update(int x, int v) {
         while (x <= n) {
-            c[x] += delta;
-            x += lowbit(x);
+            c[x] += v;
+            x += x & -x;
         }
     }
 
     public int query(int x) {
         int s = 0;
-        while (x > 0) {
+        while (x != 0) {
             s += c[x];
-            x -= lowbit(x);
+            x -= x & -x;
         }
         return s;
     }
-
-    public static int lowbit(int x) {
-        return x & -x;
-    }
 }
-```
 
-Segment Tree:
-
-```java
 class Solution {
     public int countRangeSum(int[] nums, int lower, int upper) {
         int n = nums.length;
-        long[] preSum = new long[n + 1];
+        long[] s = new long[n + 1];
         for (int i = 0; i < n; ++i) {
-            preSum[i + 1] = preSum[i] + nums[i];
+            s[i + 1] = s[i] + nums[i];
         }
-        TreeSet<Long> ts = new TreeSet<>();
-        for (long s : preSum) {
-            ts.add(s);
-            ts.add(s - upper);
-            ts.add(s - lower);
+        long[] arr = new long[n * 3 + 3];
+        for (int i = 0, j = 0; i <= n; ++i, j += 3) {
+            arr[j] = s[i];
+            arr[j + 1] = s[i] - lower;
+            arr[j + 2] = s[i] - upper;
         }
-        Map<Long, Integer> m = new HashMap<>();
-        int idx = 1;
-        for (long s : ts) {
-            m.put(s, idx++);
+        Arrays.sort(arr);
+        int m = 0;
+        for (int i = 0; i < arr.length; ++i) {
+            if (i == 0 || arr[i] != arr[i - 1]) {
+                arr[m++] = arr[i];
+            }
         }
+        BinaryIndexedTree tree = new BinaryIndexedTree(m);
         int ans = 0;
-        SegmentTree tree = new SegmentTree(m.size());
-        for (long s : preSum) {
-            int l = m.get(s - upper);
-            int r = m.get(s - lower);
-            ans += tree.query(1, l, r);
-            tree.modify(1, m.get(s), 1);
+        for (long x : s) {
+            int l = search(arr, m, x - upper);
+            int r = search(arr, m, x - lower);
+            ans += tree.query(r) - tree.query(l - 1);
+            tree.update(search(arr, m, x), 1);
         }
         return ans;
     }
-}
 
-class Node {
-    int l;
-    int r;
-    int v;
-}
-
-class SegmentTree {
-    private Node[] tr;
-
-    public SegmentTree(int n) {
-        tr = new Node[4 * n];
-        for (int i = 0; i < tr.length; ++i) {
-            tr[i] = new Node();
+    private int search(long[] nums, int r, long x) {
+        int l = 0;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (nums[mid] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
         }
-        build(1, 1, n);
-    }
-
-    public void build(int u, int l, int r) {
-        tr[u].l = l;
-        tr[u].r = r;
-        if (l == r) {
-            return;
-        }
-        int mid = (l + r) >> 1;
-        build(u << 1, l, mid);
-        build(u << 1 | 1, mid + 1, r);
-    }
-
-    public void modify(int u, int x, int v) {
-        if (tr[u].l == x && tr[u].r == x) {
-            tr[u].v += v;
-            return;
-        }
-        int mid = (tr[u].l + tr[u].r) >> 1;
-        if (x <= mid) {
-            modify(u << 1, x, v);
-        } else {
-            modify(u << 1 | 1, x, v);
-        }
-        pushup(u);
-    }
-
-    public void pushup(int u) {
-        tr[u].v = tr[u << 1].v + tr[u << 1 | 1].v;
-    }
-
-    public int query(int u, int l, int r) {
-        if (tr[u].l >= l && tr[u].r <= r) {
-            return tr[u].v;
-        }
-        int mid = (tr[u].l + tr[u].r) >> 1;
-        int v = 0;
-        if (l <= mid) {
-            v += query(u << 1, l, r);
-        }
-        if (r > mid) {
-            v += query(u << 1 | 1, l, r);
-        }
-        return v;
+        return l + 1;
     }
 }
 ```
@@ -323,55 +155,54 @@ class SegmentTree {
 ```cpp
 class BinaryIndexedTree {
 public:
-    int n;
-    vector<int> c;
+    BinaryIndexedTree(int _n) : n(_n), c(_n + 1) {}
 
-    BinaryIndexedTree(int _n)
-        : n(_n)
-        , c(_n + 1) { }
-
-    void update(int x, int delta) {
+    void update(int x, int v) {
         while (x <= n) {
-            c[x] += delta;
-            x += lowbit(x);
+            c[x] += v;
+            x += x & -x;
         }
     }
 
     int query(int x) {
         int s = 0;
-        while (x > 0) {
+        while (x) {
             s += c[x];
-            x -= lowbit(x);
+            x -= x & -x;
         }
         return s;
     }
 
-    int lowbit(int x) {
-        return x & -x;
-    }
+private:
+    int n;
+    vector<int> c;
 };
 
 class Solution {
 public:
     int countRangeSum(vector<int>& nums, int lower, int upper) {
+        using ll = long long;
         int n = nums.size();
-        vector<long long> preSum(n + 1);
-        for (int i = 0; i < n; ++i) preSum[i + 1] = preSum[i] + nums[i];
-        set<long long> alls;
-        for (auto& s : preSum) {
-            alls.insert(s);
-            alls.insert(s - upper);
-            alls.insert(s - lower);
+        ll s[n + 1];
+        s[0] = 0;
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + nums[i];
         }
-        unordered_map<long long, int> m;
-        int idx = 1;
-        for (auto& v : alls) m[v] = idx++;
-        BinaryIndexedTree* tree = new BinaryIndexedTree(m.size());
+        ll arr[(n + 1) * 3];
+        for (int i = 0, j = 0; i <= n; ++i, j += 3) {
+            arr[j] = s[i];
+            arr[j + 1] = s[i] - lower;
+            arr[j + 2] = s[i] - upper;
+        }
+        sort(arr, arr + (n + 1) * 3);
+        int m = unique(arr, arr + (n + 1) * 3) - arr;
+        BinaryIndexedTree tree(m);
         int ans = 0;
-        for (auto& s : preSum) {
-            int i = m[s - upper], j = m[s - lower];
-            ans += tree->query(j) - tree->query(i - 1);
-            tree->update(m[s], 1);
+        for (int i = 0; i <= n; ++i) {
+            int l = lower_bound(arr, arr + m, s[i] - upper) - arr + 1;
+            int r = lower_bound(arr, arr + m, s[i] - lower) - arr + 1;
+            ans += tree.query(r) - tree.query(l - 1);
+            tree.update(lower_bound(arr, arr + m, s[i]) - arr + 1, 1);
         }
         return ans;
     }
@@ -391,14 +222,10 @@ func newBinaryIndexedTree(n int) *BinaryIndexedTree {
 	return &BinaryIndexedTree{n, c}
 }
 
-func (this *BinaryIndexedTree) lowbit(x int) int {
-	return x & -x
-}
-
 func (this *BinaryIndexedTree) update(x, delta int) {
 	for x <= this.n {
 		this.c[x] += delta
-		x += this.lowbit(x)
+		x += x & -x
 	}
 }
 
@@ -406,40 +233,114 @@ func (this *BinaryIndexedTree) query(x int) int {
 	s := 0
 	for x > 0 {
 		s += this.c[x]
-		x -= this.lowbit(x)
+		x -= x & -x
 	}
 	return s
 }
 
-func countRangeSum(nums []int, lower int, upper int) int {
+func countRangeSum(nums []int, lower int, upper int) (ans int) {
 	n := len(nums)
-	presum := make([]int, n+1)
-	for i, v := range nums {
-		presum[i+1] = presum[i] + v
+	s := make([]int, n+1)
+	for i, x := range nums {
+		s[i+1] = s[i] + x
 	}
-	alls := make(map[int]bool)
-	for _, s := range presum {
-		alls[s] = true
-		alls[s-upper] = true
-		alls[s-lower] = true
+	arr := make([]int, (n+1)*3)
+	for i, j := 0, 0; i <= n; i, j = i+1, j+3 {
+		arr[j] = s[i]
+		arr[j+1] = s[i] - lower
+		arr[j+2] = s[i] - upper
 	}
-	var t []int
-	for s, _ := range alls {
-		t = append(t, s)
+	sort.Ints(arr)
+	m := 0
+	for i := range arr {
+		if i == 0 || arr[i] != arr[i-1] {
+			arr[m] = arr[i]
+			m++
+		}
 	}
-	sort.Ints(t)
-	m := make(map[int]int)
-	for i, v := range t {
-		m[v] = i + 1
+	arr = arr[:m]
+	tree := newBinaryIndexedTree(m)
+	for _, x := range s {
+		l := sort.SearchInts(arr, x-upper) + 1
+		r := sort.SearchInts(arr, x-lower) + 1
+		ans += tree.query(r) - tree.query(l-1)
+		tree.update(sort.SearchInts(arr, x)+1, 1)
 	}
-	ans := 0
-	tree := newBinaryIndexedTree(len(alls))
-	for _, s := range presum {
-		i, j := m[s-upper], m[s-lower]
-		ans += tree.query(j) - tree.query(i-1)
-		tree.update(m[s], 1)
-	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+class BinaryIndexedTree {
+    private n: number;
+    private c: number[];
+
+    constructor(n: number) {
+        this.n = n;
+        this.c = Array(n + 1).fill(0);
+    }
+
+    update(x: number, v: number) {
+        while (x <= this.n) {
+            this.c[x] += v;
+            x += x & -x;
+        }
+    }
+
+    query(x: number): number {
+        let s = 0;
+        while (x > 0) {
+            s += this.c[x];
+            x -= x & -x;
+        }
+        return s;
+    }
+}
+
+function countRangeSum(nums: number[], lower: number, upper: number): number {
+    const n = nums.length;
+    const s = Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        s[i + 1] = s[i] + nums[i];
+    }
+    let arr: number[] = Array((n + 1) * 3);
+    for (let i = 0, j = 0; i <= n; ++i, j += 3) {
+        arr[j] = s[i];
+        arr[j + 1] = s[i] - lower;
+        arr[j + 2] = s[i] - upper;
+    }
+    arr.sort((a, b) => a - b);
+    let m = 0;
+    for (let i = 0; i < arr.length; ++i) {
+        if (i === 0 || arr[i] !== arr[i - 1]) {
+            arr[m++] = arr[i];
+        }
+    }
+    arr = arr.slice(0, m);
+    const tree = new BinaryIndexedTree(m);
+    let ans = 0;
+    for (const x of s) {
+        const l = search(arr, m, x - upper);
+        const r = search(arr, m, x - lower);
+        ans += tree.query(r) - tree.query(l - 1);
+        tree.update(search(arr, m, x), 1);
+    }
+    return ans;
+}
+
+function search(nums: number[], r: number, x: number): number {
+    let l = 0;
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (nums[mid] >= x) {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return l + 1;
 }
 ```
 
