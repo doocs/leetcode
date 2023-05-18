@@ -53,6 +53,27 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心**
+
+我们假设数字 $x$ 是最小的不能表示的正整数，那么 $[1,..x-1]$ 的这些数都是可以表示的。为了能表示数字 $x$，我们需要添加一个小于等于 $x$ 的数：
+
+-   如果添加的数等于 $x$，由于 $[1,..x-1]$ 的数都可以表示，添加 $x$ 后，区间 $[1,..2x-1]$ 内的数都可以表示，最小的不能表示的正整数变成了 $2x$。
+-   如果添加的数小于 $x$，不妨设为 $x'$，由于 $[1,..x-1]$ 的数都可以表示，添加 $x'$ 后，区间 $[1,..x+x'-1]$ 内的数都可以表示，最小的不能表示的正整数变成了 $x+x' \lt 2x$。
+
+因此，我们应该贪心地添加数字 $x$，这样可以覆盖的区间更大。
+
+我们用一个变量 $x$ 记录当前不能表示的最小正整数，初始化为 $1$，此时 $[1,..x-1]$ 是空的，表示当前没有任何数可以被覆盖；用一个变量 $i$ 记录当前遍历到的数组下标。
+
+循环进行以下操作：
+
+-   如果 $i$ 在数组范围内且 $nums[i] \le x$，说明当前数字可以被覆盖，因此将 $x$ 的值加上 $nums[i]$，并将 $i$ 的值加 $1$。
+-   否则，说明 $x$ 没有被覆盖，因此需要在数组中补充一个数 $x$，然后 $x$ 更新为 $2x$。
+-   重复上述操作，直到 $x$ 的值大于 $n$。
+
+最终答案即为补充的数的数量。
+
+时间复杂度 $O(m + \log n)$，其中 $m$ 为数组 $nums$ 的长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,7 +81,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minPatches(self, nums: List[int], n: int) -> int:
+        x = 1
+        ans = i = 0
+        while x <= n:
+            if i < len(nums) and nums[i] <= x:
+                x += nums[i]
+                i += 1
+            else:
+                ans += 1
+                x <<= 1
+        return ans
 ```
 
 ### **Java**
@@ -68,7 +100,78 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minPatches(int[] nums, int n) {
+        long x = 1;
+        int ans = 0;
+        for (int i = 0; x <= n;) {
+            if (i < nums.length && nums[i] <= x) {
+                x += nums[i++];
+            } else {
+                ++ans;
+                x <<= 1;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minPatches(vector<int>& nums, int n) {
+        long long x = 1;
+        int ans = 0;
+        for (int i = 0; x <= n;) {
+            if (i < nums.size() && nums[i] <= x) {
+                x += nums[i++];
+            } else {
+                ++ans;
+                x <<= 1;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minPatches(nums []int, n int) (ans int) {
+	x := 1
+	for i := 0; x <= n; {
+		if i < len(nums) && nums[i] <= x {
+			x += nums[i]
+			i++
+		} else {
+			ans++
+			x <<= 1
+		}
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function minPatches(nums: number[], n: number): number {
+    let x = 1;
+    let ans = 0;
+    for (let i = 0; x <= n; ) {
+        if (i < nums.length && nums[i] <= x) {
+            x += nums[i++];
+        } else {
+            ++ans;
+            x *= 2;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
