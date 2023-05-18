@@ -51,7 +51,14 @@
 
 **方法一：记忆化搜索**
 
-时间复杂度 $O(mn)$。
+我们设计一个函数 $dfs(i, j)$，它表示从矩阵中的坐标 $(i, j)$ 出发，可以得到的最长递增路径的长度。那么答案就是 $\max_{i, j} \textit{dfs}(i, j)$。
+
+函数 $dfs(i, j)$ 的执行逻辑如下：
+
+-   如果 $(i, j)$ 已经被访问过，直接返回 $\textit{f}(i, j)$；
+-   否则对 $(i, j)$ 进行搜索，搜索四个方向的坐标 $(x, y)$，如果满足 $0 \le x < m, 0 \le y < n$ 以及 $matrix[x][y] \gt matrix[i][j]$，那么对 $(x, y)$ 进行搜索。搜索结束后，将 $\textit{f}(i, j)$ 更新为 $\textit{f}(i, j) = \max(\textit{f}(i, j), \textit{f}(x, y) + 1)$。最后返回 $\textit{f}(i, j)$。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 相似题目：[2328. 网格图中递增路径的数目](/solution/2300-2399/2328.Number%20of%20Increasing%20Paths%20in%20a%20Grid/README.md)。
 
@@ -65,13 +72,13 @@
 class Solution:
     def longestIncreasingPath(self, matrix: List[List[int]]) -> int:
         @cache
-        def dfs(i, j):
-            ans = 1
-            for a, b in [[-1, 0], [1, 0], [0, 1], [0, -1]]:
+        def dfs(i: int, j: int) -> int:
+            ans = 0
+            for a, b in pairwise((-1, 0, 1, 0, -1)):
                 x, y = i + a, j + b
                 if 0 <= x < m and 0 <= y < n and matrix[x][y] > matrix[i][j]:
-                    ans = max(ans, dfs(x, y) + 1)
-            return ans
+                    ans = max(ans, dfs(x, y))
+            return ans + 1
 
         m, n = len(matrix), len(matrix[0])
         return max(dfs(i, j) for i in range(m) for j in range(n))
@@ -83,22 +90,19 @@ class Solution:
 
 ```java
 class Solution {
-    private int[][] memo;
-    private int[][] matrix;
     private int m;
     private int n;
+    private int[][] matrix;
+    private int[][] f;
 
     public int longestIncreasingPath(int[][] matrix) {
-        this.matrix = matrix;
         m = matrix.length;
         n = matrix[0].length;
-        memo = new int[m][n];
-        for (int i = 0; i < m; ++i) {
-            Arrays.fill(memo[i], -1);
-        }
+        f = new int[m][n];
+        this.matrix = matrix;
         int ans = 0;
         for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
+            for (int j = 0;j < n; ++j) {
                 ans = Math.max(ans, dfs(i, j));
             }
         }
@@ -106,19 +110,18 @@ class Solution {
     }
 
     private int dfs(int i, int j) {
-        if (memo[i][j] != -1) {
-            return memo[i][j];
+        if (f[i][j] != 0) {
+            return f[i][j];
         }
-        int ans = 1;
         int[] dirs = {-1, 0, 1, 0, -1};
         for (int k = 0; k < 4; ++k) {
-            int x = i + dirs[k], y = j + dirs[k + 1];
+            int x = i + dirs[k];
+            int y = j + dirs[k + 1];
             if (x >= 0 && x < m && y >= 0 && y < n && matrix[x][y] > matrix[i][j]) {
-                ans = Math.max(ans, dfs(x, y) + 1);
+                f[i][j] = Math.max(f[i][j], dfs(x, y));
             }
         }
-        memo[i][j] = ans;
-        return ans;
+        return ++f[i][j];
     }
 }
 ```
@@ -128,33 +131,31 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<vector<int>> memo;
-    vector<vector<int>> matrix;
-    int m;
-    int n;
-
     int longestIncreasingPath(vector<vector<int>>& matrix) {
-        m = matrix.size();
-        n = matrix[0].size();
-        memo.resize(m, vector<int>(n, -1));
-        this->matrix = matrix;
+        int m = matrix.size(), n = matrix[0].size();
+        int f[m][n];
+        memset(f, 0, sizeof(f));
         int ans = 0;
-        for (int i = 0; i < m; ++i)
-            for (int j = 0; j < n; ++j)
-                ans = max(ans, dfs(i, j));
-        return ans;
-    }
+        int dirs[5] = {-1, 0, 1, 0, -1};
 
-    int dfs(int i, int j) {
-        if (memo[i][j] != -1) return memo[i][j];
-        int ans = 1;
-        vector<int> dirs = {-1, 0, 1, 0, -1};
-        for (int k = 0; k < 4; ++k) {
-            int x = i + dirs[k], y = j + dirs[k + 1];
-            if (x >= 0 && x < m && y >= 0 && y < n && matrix[x][y] > matrix[i][j])
-                ans = max(ans, dfs(x, y) + 1);
+        function<int(int, int)> dfs = [&](int i, int j) -> int {
+            if (f[i][j]) {
+                return f[i][j];
+            }
+            for (int k = 0; k < 4; ++k) {
+                int x = i + dirs[k], y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && matrix[x][y] > matrix[i][j]) {
+                    f[i][j] = max(f[i][j], dfs(x, y));
+                }
+            }
+            return ++f[i][j];
+        };
+
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                ans = max(ans, dfs(i, j));
+            }
         }
-        memo[i][j] = ans;
         return ans;
     }
 };
@@ -163,38 +164,33 @@ public:
 ### **Go**
 
 ```go
-func longestIncreasingPath(matrix [][]int) int {
+func longestIncreasingPath(matrix [][]int) (ans int) {
 	m, n := len(matrix), len(matrix[0])
-	memo := make([][]int, m)
-	for i := range memo {
-		memo[i] = make([]int, n)
-		for j := range memo[i] {
-			memo[i][j] = -1
-		}
+	f := make([][]int, m)
+	for i := range f {
+		f[i] = make([]int, n)
 	}
-	ans := -1
+	dirs := [5]int{-1, 0, 1, 0, -1}
 	var dfs func(i, j int) int
 	dfs = func(i, j int) int {
-		if memo[i][j] != -1 {
-			return memo[i][j]
+		if f[i][j] != 0 {
+			return f[i][j]
 		}
-		ans := 1
-		dirs := []int{-1, 0, 1, 0, -1}
-        for k := 0; k < 4; k++ {
-            x, y := i+dirs[k], j+dirs[k+1]
-			if x >= 0 && x < m && y >= 0 && y < n && matrix[x][y] > matrix[i][j] {
-				ans = max(ans, dfs(x, y)+1)
+		for k := 0; k < 4; k++ {
+			x, y := i+dirs[k], j+dirs[k+1]
+			if 0 <= x && x < m && 0 <= y && y < n && matrix[x][y] > matrix[i][j] {
+				f[i][j] = max(f[i][j], dfs(x, y))
 			}
 		}
-		memo[i][j] = ans
-		return ans
+		f[i][j]++
+		return f[i][j]
 	}
 	for i := 0; i < m; i++ {
 		for j := 0; j < n; j++ {
 			ans = max(ans, dfs(i, j))
 		}
 	}
-	return ans
+	return
 }
 
 func max(a, b int) int {
@@ -202,6 +198,45 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function longestIncreasingPath(matrix: number[][]): number {
+    const m = matrix.length;
+    const n = matrix[0].length;
+    const f: number[][] = Array(m)
+        .fill(0)
+        .map(() => Array(n).fill(0));
+    const dirs = [-1, 0, 1, 0, -1];
+    const dfs = (i: number, j: number): number => {
+        if (f[i][j] > 0) {
+            return f[i][j];
+        }
+        for (let k = 0; k < 4; ++k) {
+            const x = i + dirs[k];
+            const y = j + dirs[k + 1];
+            if (
+                x >= 0 &&
+                x < m &&
+                y >= 0 &&
+                y < n &&
+                matrix[x][y] > matrix[i][j]
+            ) {
+                f[i][j] = Math.max(f[i][j], dfs(x, y));
+            }
+        }
+        return ++f[i][j];
+    };
+    let ans = 0;
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            ans = Math.max(ans, dfs(i, j));
+        }
+    }
+    return ans;
 }
 ```
 
