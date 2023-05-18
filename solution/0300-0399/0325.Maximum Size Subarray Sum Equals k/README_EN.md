@@ -41,14 +41,14 @@
 ```python
 class Solution:
     def maxSubArrayLen(self, nums: List[int], k: int) -> int:
-        mp = {0: -1}
-        s = ans = 0
-        for i, v in enumerate(nums):
-            s += v
-            if s - k in mp:
-                ans = max(ans, i - mp[s - k])
-            if s not in mp:
-                mp[s] = i
+        d = {0: -1}
+        ans = s = 0
+        for i, x in enumerate(nums):
+            s += x
+            if s - k in d:
+                ans = max(ans, i - d[s - k])
+            if s not in d:
+                d[s] = i
         return ans
 ```
 
@@ -57,18 +57,14 @@ class Solution:
 ```java
 class Solution {
     public int maxSubArrayLen(int[] nums, int k) {
-        Map<Integer, Integer> mp = new HashMap<>();
-        mp.put(0, -1);
-        int s = 0;
+        Map<Long, Integer> d = new HashMap<>();
+        d.put(0L, -1);
         int ans = 0;
+        long s = 0;
         for (int i = 0; i < nums.length; ++i) {
             s += nums[i];
-            if (mp.containsKey(s - k)) {
-                ans = Math.max(ans, i - mp.get(s - k));
-            }
-            if (!mp.containsKey(s)) {
-                mp.put(s, i);
-            }
+            ans = Math.max(ans, i - d.getOrDefault(s - k, i));
+            d.putIfAbsent(s, i);
         }
         return ans;
     }
@@ -81,13 +77,17 @@ class Solution {
 class Solution {
 public:
     int maxSubArrayLen(vector<int>& nums, int k) {
-        unordered_map<int, int> mp;
-        mp[0] = -1;
-        int s = 0, ans = 0;
+        unordered_map<long long, int> d{{0, -1}};
+        int ans = 0;
+        long long s = 0;
         for (int i = 0; i < nums.size(); ++i) {
             s += nums[i];
-            if (mp.count(s - k)) ans = max(ans, i - mp[s - k]);
-            if (!mp.count(s)) mp[s] = i;
+            if (d.count(s - k)) {
+                ans = max(ans, i - d[s - k]);
+            }
+            if (!d.count(s)) {
+                d[s] = i;
+            }
         }
         return ans;
     }
@@ -97,26 +97,40 @@ public:
 ### **Go**
 
 ```go
-func maxSubArrayLen(nums []int, k int) int {
-	mp := map[int]int{0: -1}
-	s, ans := 0, 0
-	for i, v := range nums {
-		s += v
-		if j, ok := mp[s-k]; ok {
-			ans = max(ans, i-j)
+func maxSubArrayLen(nums []int, k int) (ans int) {
+	d := map[int]int{0: -1}
+	s := 0
+	for i, x := range nums {
+		s += x
+		if j, ok := d[s-k]; ok && ans < i-j {
+			ans = i - j
 		}
-		if _, ok := mp[s]; !ok {
-			mp[s] = i
+		if _, ok := d[s]; !ok {
+			d[s] = i
 		}
 	}
-	return ans
+	return
 }
+```
 
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
+### **TypeScript**
+
+```ts
+function maxSubArrayLen(nums: number[], k: number): number {
+    const d: Map<number, number> = new Map();
+    d.set(0, -1);
+    let ans = 0;
+    let s = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        s += nums[i];
+        if (d.has(s - k)) {
+            ans = Math.max(ans, i - d.get(s - k)!);
+        }
+        if (!d.has(s)) {
+            d.set(s, i);
+        }
+    }
+    return ans;
 }
 ```
 
