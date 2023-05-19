@@ -42,7 +42,19 @@ The returned string should always match the method name.</pre>
 ### **TypeScript**
 
 ```ts
+function createInfiniteObject(): Record<string, () => string> {
+    return new Proxy(
+        {},
+        {
+            get: (_, prop) => () => prop.toString(),
+        },
+    );
+}
 
+/**
+ * const obj = createInfiniteObject();
+ * obj['abc123'](); // "abc123"
+ */
 ```
 
 <!-- tabs:end -->

@@ -48,7 +48,19 @@ The returned string should always match the method name.</pre>
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
+function createInfiniteObject(): Record<string, () => string> {
+    return new Proxy(
+        {},
+        {
+            get: (_, prop) => () => prop.toString(),
+        },
+    );
+}
 
+/**
+ * const obj = createInfiniteObject();
+ * obj['abc123'](); // "abc123"
+ */
 ```
 
 <!-- tabs:end -->
