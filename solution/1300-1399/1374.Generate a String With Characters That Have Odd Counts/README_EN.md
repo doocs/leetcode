@@ -68,7 +68,9 @@ class Solution {
 public:
     string generateTheString(int n) {
         string ans(n, 'a');
-        if (n % 2 == 0) ans[0] = 'b';
+        if (n % 2 == 0) {
+            ans[0] = 'b';
+        }
         return ans;
     }
 };
@@ -92,11 +94,11 @@ func generateTheString(n int) string {
 
 ```ts
 function generateTheString(n: number): string {
-    const res = new Array(n).fill('a');
+    const ans = Array(n).fill('a');
     if (n % 2 === 0) {
-        res[n - 1] = 'b';
+        ans[0] = 'b';
     }
-    return res.join('');
+    return ans.join('');
 }
 ```
 
