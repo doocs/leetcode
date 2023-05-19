@@ -76,25 +76,132 @@ You can see that S[root] = &quot;ropetree&quot;. So S[root][7], which represents
 ### **Python3**
 
 ```python
+# Definition for a rope tree node.
+# class RopeTreeNode(object):
+#     def __init__(self, len=0, val="", left=None, right=None):
+#         self.len = len
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def getKthCharacter(self, root: Optional[object], k: int) -> str:
+        def dfs(root):
+            if root is None:
+                return ""
+            if root.len == 0:
+                return root.val
+            return dfs(root.left) + dfs(root.right)
 
+        return dfs(root)[k - 1]
 ```
 
 ### **Java**
 
 ```java
+/**
+ * Definition for a rope tree node.
+ * class RopeTreeNode {
+ *     int len;
+ *     String val;
+ *     RopeTreeNode left;
+ *     RopeTreeNode right;
+ *     RopeTreeNode() {}
+ *     RopeTreeNode(String val) {
+ *         this.len = 0;
+ *         this.val = val;
+ *     }
+ *     RopeTreeNode(int len) {
+ *         this.len = len;
+ *         this.val = "";
+ *     }
+ *     RopeTreeNode(int len, TreeNode left, TreeNode right) {
+ *         this.len = len;
+ *         this.val = "";
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public char getKthCharacter(RopeTreeNode root, int k) {
+        return dfs(root).charAt(k - 1);
+    }
 
+    private String dfs(RopeTreeNode root) {
+        if (root == null) {
+            return "";
+        }
+        if (root.val.length() > 0) {
+            return root.val;
+        }
+        String left = dfs(root.left);
+        String right = dfs(root.right);
+        return left + right;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+/**
+ * Definition for a rope tree node.
+ * struct RopeTreeNode {
+ *     int len;
+ *     string val;
+ *     RopeTreeNode *left;
+ *     RopeTreeNode *right;
+ *     RopeTreeNode() : len(0), val(""), left(nullptr), right(nullptr) {}
+ *     RopeTreeNode(string s) : len(0), val(std::move(s)), left(nullptr), right(nullptr) {}
+ *     RopeTreeNode(int x) : len(x), val(""), left(nullptr), right(nullptr) {}
+ *     RopeTreeNode(int x, RopeTreeNode *left, RopeTreeNode *right) : len(x), val(""), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    char getKthCharacter(RopeTreeNode* root, int k) {
+        function<string(RopeTreeNode* root)> dfs = [&](RopeTreeNode* root) -> string {
+            if (root == nullptr) {
+                return "";
+            }
+            if (root->len == 0) {
+                return root->val;
+            }
+            string left = dfs(root->left);
+            string right = dfs(root->right);
+            return left + right;
+        }; 
+        return dfs(root)[k - 1];
+    }
+};
 ```
 
 ### **Go**
 
 ```go
-
+/**
+ * Definition for a rope tree node.
+ * type RopeTreeNode struct {
+ * 	   len   int
+ * 	   val   string
+ * 	   left  *RopeTreeNode
+ * 	   right *RopeTreeNode
+ * }
+ */
+func getKthCharacter(root *RopeTreeNode, k int) byte {
+	var dfs func(root *RopeTreeNode) string
+	dfs = func(root *RopeTreeNode) string {
+		if root == nil {
+			return ""
+		}
+		if root.len == 0 {
+			return root.val
+		}
+		left, right := dfs(root.left), dfs(root.right)
+		return left + right
+	}
+	return dfs(root)[k-1]
+}
 ```
 
 ### **...**
