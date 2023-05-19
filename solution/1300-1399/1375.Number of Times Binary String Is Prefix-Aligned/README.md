@@ -58,13 +58,11 @@
 
 **方法一：直接遍历**
 
-遍历数组 $flips$，记录最大值，将最大值与当前遍历到的下标 $i$ 比较，若相等，答案累加。
+我们可以遍历数组 $flips$，记录当前遍历过的元素的最大值 $mx$，若 $mx$ 等于当前遍历到的下标 $i$，则说明前 $i$ 个元素都被翻转过了，即前缀一致，答案累加。
 
-时间复杂度 $O(n)$。
+遍历结束后，返回答案即可。
 
-**方法二：树状数组**
-
-时间复杂度 $O(nlogn)$。
+时间复杂度 $O(n)$，其中 $n$ 为数组 $flips$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -76,46 +74,9 @@
 class Solution:
     def numTimesAllBlue(self, flips: List[int]) -> int:
         ans = mx = 0
-        for i, v in enumerate(flips, 1):
-            mx = max(mx, v)
-            if mx == i:
-                ans += 1
-        return ans
-```
-
-```python
-class BinaryIndexedTree:
-    def __init__(self, n):
-        self.n = n
-        self.c = [0] * (n + 1)
-
-    @staticmethod
-    def lowbit(x):
-        return x & -x
-
-    def update(self, x, delta):
-        while x <= self.n:
-            self.c[x] += delta
-            x += BinaryIndexedTree.lowbit(x)
-
-    def query(self, x):
-        s = 0
-        while x > 0:
-            s += self.c[x]
-            x -= BinaryIndexedTree.lowbit(x)
-        return s
-
-
-class Solution:
-    def numTimesAllBlue(self, flips: List[int]) -> int:
-        n = len(flips)
-        tree = BinaryIndexedTree(n)
-        ans = mx = 0
-        for v in flips:
-            mx = max(mx, v)
-            tree.update(v, 1)
-            if tree.query(mx) == mx:
-                ans += 1
+        for i, x in enumerate(flips, 1):
+            mx = max(mx, x)
+            ans += mx == i
         return ans
 ```
 
@@ -126,60 +87,10 @@ class Solution:
 ```java
 class Solution {
     public int numTimesAllBlue(int[] flips) {
-        int ans = 0;
-        int mx = 0;
+        int ans = 0, mx = 0;
         for (int i = 1; i <= flips.length; ++i) {
             mx = Math.max(mx, flips[i - 1]);
             if (mx == i) {
-                ++ans;
-            }
-        }
-        return ans;
-    }
-}
-```
-
-```java
-class BinaryIndexedTree {
-    private int n;
-    private int[] c;
-
-    public BinaryIndexedTree(int n) {
-        this.n = n;
-        this.c = new int[n + 1];
-    }
-
-    public static int lowbit(int x) {
-        return x & -x;
-    }
-
-    public void update(int x, int delta) {
-        while (x <= n) {
-            c[x] += delta;
-            x += lowbit(x);
-        }
-    }
-
-    public int query(int x) {
-        int s = 0;
-        while (x > 0) {
-            s += c[x];
-            x -= lowbit(x);
-        }
-        return s;
-    }
-}
-
-class Solution {
-    public int numTimesAllBlue(int[] flips) {
-        int n = flips.length;
-        BinaryIndexedTree tree = new BinaryIndexedTree(n);
-        int ans = 0;
-        int mx = 0;
-        for (int v : flips) {
-            mx = Math.max(mx, v);
-            tree.update(v, 1);
-            if (tree.query(mx) == mx) {
                 ++ans;
             }
         }
@@ -204,119 +115,18 @@ public:
 };
 ```
 
-```cpp
-class BinaryIndexedTree {
-public:
-    int n;
-    vector<int> c;
-
-    BinaryIndexedTree(int _n): n(_n), c(_n + 1){}
-
-    void update(int x, int delta) {
-        while (x <= n)
-        {
-            c[x] += delta;
-            x += lowbit(x);
-        }
-    }
-
-    int query(int x) {
-        int s = 0;
-        while (x > 0)
-        {
-            s += c[x];
-            x -= lowbit(x);
-        }
-        return s;
-    }
-
-    int lowbit(int x) {
-        return x & -x;
-    }
-};
-
-class Solution {
-public:
-    int numTimesAllBlue(vector<int>& flips) {
-        int n = flips.size();
-        BinaryIndexedTree* tree = new BinaryIndexedTree(n);
-        int ans = 0, mx = 0;
-        for (int v : flips)
-        {
-            mx = max(mx, v);
-            tree->update(v, 1);
-            ans += tree->query(mx) == mx;
-        }
-        return ans;
-    }
-};
-```
-
 ### **Go**
 
 ```go
-func numTimesAllBlue(flips []int) int {
-	ans, mx := 0, 0
-	for i := 1; i <= len(flips); i++ {
-		mx = max(mx, flips[i-1])
-		if mx == i {
+func numTimesAllBlue(flips []int) (ans int) {
+	mx := 0
+	for i, x := range flips {
+		mx = max(mx, x)
+		if mx == i+1 {
 			ans++
 		}
 	}
-	return ans
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-```
-
-```go
-type BinaryIndexedTree struct {
-	n int
-	c []int
-}
-
-func newBinaryIndexedTree(n int) *BinaryIndexedTree {
-	c := make([]int, n+1)
-	return &BinaryIndexedTree{n, c}
-}
-
-func (this *BinaryIndexedTree) lowbit(x int) int {
-	return x & -x
-}
-
-func (this *BinaryIndexedTree) update(x, delta int) {
-	for x <= this.n {
-		this.c[x] += delta
-		x += this.lowbit(x)
-	}
-}
-
-func (this *BinaryIndexedTree) query(x int) int {
-	s := 0
-	for x > 0 {
-		s += this.c[x]
-		x -= this.lowbit(x)
-	}
-	return s
-}
-
-func numTimesAllBlue(flips []int) int {
-	n := len(flips)
-	tree := newBinaryIndexedTree(n)
-	ans, mx := 0, 0
-	for _, v := range flips {
-		mx = max(mx, v)
-		tree.update(v, 1)
-		if tree.query(mx) == mx {
-			ans++
-		}
-	}
-	return ans
+	return
 }
 
 func max(a, b int) int {
@@ -329,10 +139,18 @@ func max(a, b int) int {
 
 ### **TypeScript**
 
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```ts
-
+function numTimesAllBlue(flips: number[]): number {
+    let ans = 0;
+    let mx = 0;
+    for (let i = 1; i <= flips.length; ++i) {
+        mx = Math.max(mx, flips[i - 1]);
+        if (mx === i) {
+            ++ans;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
