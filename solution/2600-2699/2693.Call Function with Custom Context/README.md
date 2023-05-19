@@ -70,7 +70,21 @@ args = [{&quot;item&quot;: &quot;burger&quot;}, 10, 1,1]
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
+declare global {
+    interface Function {
+        callPolyfill(context: Record<any, any>, ...args: any[]): any;
+    }
+}
 
+Function.prototype.callPolyfill = function (context, ...args): any {
+    const fn = this.bind(context);
+    return fn(...args);
+};
+
+/**
+ * function increment() { this.count++; return this.count; }
+ * increment.callPolyfill({count: 1}); // 2
+ */
 ```
 
 <!-- tabs:end -->
