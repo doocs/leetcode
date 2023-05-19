@@ -43,9 +43,7 @@
 ```python
 class Solution:
     def smallestSubsequence(self, s: str) -> str:
-        last = defaultdict(int)
-        for i, c in enumerate(s):
-            last[c] = i
+        last = {c: i for i, c in enumerate(s)}
         stk = []
         vis = set()
         for i, c in enumerate(s):
@@ -55,30 +53,7 @@ class Solution:
                 vis.remove(stk.pop())
             stk.append(c)
             vis.add(c)
-        return ''.join(stk)
-```
-
-```python
-class Solution:
-    def smallestSubsequence(self, s: str) -> str:
-        count, in_stack = [0] * 128, [False] * 128
-        stack = []
-        for c in s:
-            count[ord(c)] += 1
-
-        for c in s:
-            count[ord(c)] -= 1
-            if in_stack[ord(c)]:
-                continue
-            while len(stack) and stack[-1] > c:
-                peek = stack[-1]
-                if count[ord(peek)] < 1:
-                    break
-                in_stack[ord(peek)] = False
-                stack.pop()
-            stack.append(c)
-            in_stack[ord(c)] = True
-        return ''.join(stack)
+        return "".join(stk)
 ```
 
 ### **Java**
@@ -193,27 +168,33 @@ func smallestSubsequence(s string) string {
 }
 ```
 
-```go
-func smallestSubsequence(s string) string {
-	count, in_stack, stack := make([]int, 128), make([]bool, 128), make([]rune, 0)
-	for _, c := range s {
-		count[c] += 1
-	}
+### **TypeScript**
 
-	for _, c := range s {
-		count[c] -= 1
-		if in_stack[c] {
-			continue
-		}
-		for len(stack) > 0 && stack[len(stack)-1] > c && count[stack[len(stack)-1]] > 0 {
-			peek := stack[len(stack)-1]
-			stack = stack[0 : len(stack)-1]
-			in_stack[peek] = false
-		}
-		stack = append(stack, c)
-		in_stack[c] = true
-	}
-	return string(stack)
+```ts
+function smallestSubsequence(s: string): string {
+    const f = (c: string): number => c.charCodeAt(0) - 'a'.charCodeAt(0);
+    const last: number[] = new Array(26).fill(0);
+    for (const [i, c] of [...s].entries()) {
+        last[f(c)] = i;
+    }
+    const stk: string[] = [];
+    let mask = 0;
+    for (const [i, c] of [...s].entries()) {
+        const x = f(c);
+        if ((mask >> x) & 1) {
+            continue;
+        }
+        while (
+            stk.length &&
+            stk[stk.length - 1] > c &&
+            last[f(stk[stk.length - 1])] > i
+        ) {
+            mask ^= 1 << f(stk.pop()!);
+        }
+        stk.push(c);
+        mask |= 1 << x;
+    }
+    return stk.join('');
 }
 ```
 

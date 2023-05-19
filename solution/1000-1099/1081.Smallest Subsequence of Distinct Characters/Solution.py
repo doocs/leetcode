@@ -1,8 +1,6 @@
 class Solution:
     def smallestSubsequence(self, s: str) -> str:
-        last = defaultdict(int)
-        for i, c in enumerate(s):
-            last[c] = i
+        last = {c: i for i, c in enumerate(s)}
         stk = []
         vis = set()
         for i, c in enumerate(s):
@@ -12,4 +10,4 @@ class Solution:
                 vis.remove(stk.pop())
             stk.append(c)
             vis.add(c)
-        return ''.join(stk)
+        return "".join(stk)

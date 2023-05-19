@@ -10,7 +10,7 @@
 
 <p>返回 <code>n</code>&nbsp;的长度。如果不存在这样的 <code>n</code>&nbsp;，就返回-1。</p>
 
-<p><strong>注意：</strong> <code>n</code>&nbsp;不符合 64 位带符号整数。</p>
+<p><strong>注意：</strong> <code>n</code> 可能不符合 64 位带符号整数。</p>
 
 <p>&nbsp;</p>
 

@@ -90,13 +90,14 @@ id 3的产品在2019年春季之后销售。
 ### **SQL**
 
 ```sql
-SELECT p.product_id,
-    P.product_name
-FROM product AS p
-    JOIN sales AS s ON p.product_id = s.product_id
-GROUP BY p.product_id
-HAVING SUM(sale_date < '2019-01-01') = 0
-    AND SUM(sale_date > '2019-03-31') = 0;
+# Write your MySQL query statement below
+SELECT  p.product_id
+       ,p.product_name
+FROM Product p
+JOIN Sales s
+ON p.product_id = s.product_id
+GROUP BY  p.product_id
+HAVING SUM(s.sale_date < '2019-01-01') = 0 AND SUM(s.sale_date > '2019-03-31') = 0;
 ```
 
 <!-- tabs:end -->

@@ -2461,7 +2461,7 @@
 |  2448  |  [使数组相等的最小开销](/solution/2400-2499/2448.Minimum%20Cost%20to%20Make%20Array%20Equal/README.md)  |  `贪心`,`数组`,`二分查找`,`前缀和`,`排序`  |  困难  |  第 316 场周赛  |
 |  2449  |  [使数组相似的最少操作次数](/solution/2400-2499/2449.Minimum%20Number%20of%20Operations%20to%20Make%20Arrays%20Similar/README.md)  |  `贪心`,`数组`,`排序`  |  困难  |  第 316 场周赛  |
 |  2450  |  [应用操作后不同二进制字符串的数量](/solution/2400-2499/2450.Number%20of%20Distinct%20Binary%20Strings%20After%20Applying%20Operations/README.md)  |  `数学`,`字符串`  |  中等  |  🔒  |
-|  2451  |  [差值数组不同的字符串](/solution/2400-2499/2451.Odd%20String%20Difference/README.md)  |  `哈希表`,`数学`,`字符串`  |  简单  |  第 90 场双周赛  |
+|  2451  |  [差值数组不同的字符串](/solution/2400-2499/2451.Odd%20String%20Difference/README.md)  |  `数组`,`哈希表`,`字符串`  |  简单  |  第 90 场双周赛  |
 |  2452  |  [距离字典两次编辑以内的单词](/solution/2400-2499/2452.Words%20Within%20Two%20Edits%20of%20Dictionary/README.md)  |  `数组`,`字符串`  |  中等  |  第 90 场双周赛  |
 |  2453  |  [摧毁一系列目标](/solution/2400-2499/2453.Destroy%20Sequential%20Targets/README.md)  |  `数组`,`哈希表`,`计数`  |  中等  |  第 90 场双周赛  |
 |  2454  |  [下一个更大元素 IV](/solution/2400-2499/2454.Next%20Greater%20Element%20IV/README.md)  |  `栈`,`数组`,`二分查找`,`排序`,`单调栈`,`堆（优先队列）`  |  困难  |  第 90 场双周赛  |
@@ -2656,7 +2656,7 @@
 |  2643  |  [一最多的行](/solution/2600-2699/2643.Row%20With%20Maximum%20Ones/README.md)  |  `数组`,`矩阵`  |  简单  |  第 341 场周赛  |
 |  2644  |  [找出可整除性得分最大的整数](/solution/2600-2699/2644.Find%20the%20Maximum%20Divisibility%20Score/README.md)  |  `数组`  |  简单  |  第 341 场周赛  |
 |  2645  |  [构造有效字符串的最少插入数](/solution/2600-2699/2645.Minimum%20Additions%20to%20Make%20Valid%20String/README.md)  |  `栈`,`贪心`,`字符串`,`动态规划`  |  中等  |  第 341 场周赛  |
-|  2646  |  [最小化旅行的价格总和](/solution/2600-2699/2646.Minimize%20the%20Total%20Price%20of%20the%20Trips/README.md)  |  `树`,`深度优先搜索`,`数组`,`动态规划`  |  困难  |  第 341 场周赛  |
+|  2646  |  [最小化旅行的价格总和](/solution/2600-2699/2646.Minimize%20the%20Total%20Price%20of%20the%20Trips/README.md)  |  `树`,`深度优先搜索`,`图`,`数组`,`动态规划`  |  困难  |  第 341 场周赛  |
 |  2647  |  [把三角形染成红色](/solution/2600-2699/2647.Color%20the%20Triangle%20Red/README.md)  |  `数组`,`数学`  |  困难  |  🔒  |
 |  2648  |  [生成斐波那契数列](/solution/2600-2699/2648.Generate%20Fibonacci%20Sequence/README.md)  |    |  简单  |    |
 |  2649  |  [嵌套数组生成器](/solution/2600-2699/2649.Nested%20Array%20Generator/README.md)  |    |  中等  |    |
@@ -2688,17 +2688,24 @@
 |  2675  |  [将对象数组转换为矩阵](/solution/2600-2699/2675.Array%20of%20Objects%20to%20Matrix/README.md)  |    |  中等  |    |
 |  2676  |  [节流](/solution/2600-2699/2676.Throttle/README.md)  |    |  中等  |    |
 |  2677  |  [分块数组](/solution/2600-2699/2677.Chunk%20Array/README.md)  |    |  简单  |    |
-|  2678  |  [老人的数目](/solution/2600-2699/2678.Number%20of%20Senior%20Citizens/README.md)  |    |  简单  |  第 104 场双周赛  |
-|  2679  |  [矩阵中的和](/solution/2600-2699/2679.Sum%20in%20a%20Matrix/README.md)  |    |  中等  |  第 104 场双周赛  |
-|  2680  |  [最大或值](/solution/2600-2699/2680.Maximum%20OR/README.md)  |    |  中等  |  第 104 场双周赛  |
-|  2681  |  [英雄的力量](/solution/2600-2699/2681.Power%20of%20Heroes/README.md)  |    |  困难  |  第 104 场双周赛  |
-|  2682  |  [找出转圈游戏输家](/solution/2600-2699/2682.Find%20the%20Losers%20of%20the%20Circular%20Game/README.md)  |    |  简单  |  第 345 场周赛  |
-|  2683  |  [相邻值的按位异或](/solution/2600-2699/2683.Neighboring%20Bitwise%20XOR/README.md)  |    |  中等  |  第 345 场周赛  |
-|  2684  |  [矩阵中移动的最大次数](/solution/2600-2699/2684.Maximum%20Number%20of%20Moves%20in%20a%20Grid/README.md)  |    |  中等  |  第 345 场周赛  |
-|  2685  |  [统计完全连通分量的数量](/solution/2600-2699/2685.Count%20the%20Number%20of%20Complete%20Components/README.md)  |    |  中等  |  第 345 场周赛  |
-|  2686  |  [Immediate Food Delivery III](/solution/2600-2699/2686.Immediate%20Food%20Delivery%20III/README.md)  |    |  中等  |  🔒  |
-|  2687  |  [Bikes Last Time Used](/solution/2600-2699/2687.Bikes%20Last%20Time%20Used/README.md)  |    |  简单  |  🔒  |
-|  2688  |  [Find Active Users](/solution/2600-2699/2688.Find%20Active%20Users/README.md)  |    |  中等  |  🔒  |
+|  2678  |  [老人的数目](/solution/2600-2699/2678.Number%20of%20Senior%20Citizens/README.md)  |  `数组`,`字符串`  |  简单  |  第 104 场双周赛  |
+|  2679  |  [矩阵中的和](/solution/2600-2699/2679.Sum%20in%20a%20Matrix/README.md)  |  `数组`,`矩阵`,`排序`,`模拟`,`堆（优先队列）`  |  中等  |  第 104 场双周赛  |
+|  2680  |  [最大或值](/solution/2600-2699/2680.Maximum%20OR/README.md)  |  `贪心`,`位运算`,`数组`,`前缀和`  |  中等  |  第 104 场双周赛  |
+|  2681  |  [英雄的力量](/solution/2600-2699/2681.Power%20of%20Heroes/README.md)  |  `数组`,`数学`,`前缀和`,`排序`  |  困难  |  第 104 场双周赛  |
+|  2682  |  [找出转圈游戏输家](/solution/2600-2699/2682.Find%20the%20Losers%20of%20the%20Circular%20Game/README.md)  |  `数组`,`哈希表`,`模拟`  |  简单  |  第 345 场周赛  |
+|  2683  |  [相邻值的按位异或](/solution/2600-2699/2683.Neighboring%20Bitwise%20XOR/README.md)  |  `位运算`,`数组`  |  中等  |  第 345 场周赛  |
+|  2684  |  [矩阵中移动的最大次数](/solution/2600-2699/2684.Maximum%20Number%20of%20Moves%20in%20a%20Grid/README.md)  |  `数组`,`动态规划`,`矩阵`  |  中等  |  第 345 场周赛  |
+|  2685  |  [统计完全连通分量的数量](/solution/2600-2699/2685.Count%20the%20Number%20of%20Complete%20Components/README.md)  |  `深度优先搜索`,`广度优先搜索`,`图`  |  中等  |  第 345 场周赛  |
+|  2686  |  [即时食物配送 III](/solution/2600-2699/2686.Immediate%20Food%20Delivery%20III/README.md)  |  `数据库`  |  中等  |  🔒  |
+|  2687  |  [自行车的最后使用时间](/solution/2600-2699/2687.Bikes%20Last%20Time%20Used/README.md)  |  `数据库`  |  简单  |  🔒  |
+|  2688  |  [查找活跃用户](/solution/2600-2699/2688.Find%20Active%20Users/README.md)  |  `数据库`  |  中等  |  🔒  |
+|  2689  |  [Extract Kth Character From The Rope Tree](/solution/2600-2699/2689.Extract%20Kth%20Character%20From%20The%20Rope%20Tree/README.md)  |    |  简单  |  🔒  |
+|  2690  |  [Infinite Method Object](/solution/2600-2699/2690.Infinite%20Method%20Object/README.md)  |    |  简单  |  🔒  |
+|  2691  |  [Immutability Helper](/solution/2600-2699/2691.Immutability%20Helper/README.md)  |    |  困难  |  🔒  |
+|  2692  |  [Make Object Immutable](/solution/2600-2699/2692.Make%20Object%20Immutable/README.md)  |    |  中等  |  🔒  |
+|  2693  |  [Call Function with Custom Context](/solution/2600-2699/2693.Call%20Function%20with%20Custom%20Context/README.md)  |    |  中等  |    |
+|  2694  |  [Event Emitter](/solution/2600-2699/2694.Event%20Emitter/README.md)  |    |  中等  |    |
+|  2695  |  [Array Wrapper](/solution/2600-2699/2695.Array%20Wrapper/README.md)  |    |  简单  |    |
 
 ## 版权
 

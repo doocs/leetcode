@@ -2459,7 +2459,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2448  |  [Minimum Cost to Make Array Equal](/solution/2400-2499/2448.Minimum%20Cost%20to%20Make%20Array%20Equal/README_EN.md)  |  `Greedy`,`Array`,`Binary Search`,`Prefix Sum`,`Sorting`  |  Hard  |  Weekly Contest 316  |
 |  2449  |  [Minimum Number of Operations to Make Arrays Similar](/solution/2400-2499/2449.Minimum%20Number%20of%20Operations%20to%20Make%20Arrays%20Similar/README_EN.md)  |  `Greedy`,`Array`,`Sorting`  |  Hard  |  Weekly Contest 316  |
 |  2450  |  [Number of Distinct Binary Strings After Applying Operations](/solution/2400-2499/2450.Number%20of%20Distinct%20Binary%20Strings%20After%20Applying%20Operations/README_EN.md)  |  `Math`,`String`  |  Medium  |  🔒  |
-|  2451  |  [Odd String Difference](/solution/2400-2499/2451.Odd%20String%20Difference/README_EN.md)  |  `Hash Table`,`Math`,`String`  |  Easy  |  Biweekly Contest 90  |
+|  2451  |  [Odd String Difference](/solution/2400-2499/2451.Odd%20String%20Difference/README_EN.md)  |  `Array`,`Hash Table`,`String`  |  Easy  |  Biweekly Contest 90  |
 |  2452  |  [Words Within Two Edits of Dictionary](/solution/2400-2499/2452.Words%20Within%20Two%20Edits%20of%20Dictionary/README_EN.md)  |  `Array`,`String`  |  Medium  |  Biweekly Contest 90  |
 |  2453  |  [Destroy Sequential Targets](/solution/2400-2499/2453.Destroy%20Sequential%20Targets/README_EN.md)  |  `Array`,`Hash Table`,`Counting`  |  Medium  |  Biweekly Contest 90  |
 |  2454  |  [Next Greater Element IV](/solution/2400-2499/2454.Next%20Greater%20Element%20IV/README_EN.md)  |  `Stack`,`Array`,`Binary Search`,`Sorting`,`Monotonic Stack`,`Heap (Priority Queue)`  |  Hard  |  Biweekly Contest 90  |
@@ -2654,7 +2654,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2643  |  [Row With Maximum Ones](/solution/2600-2699/2643.Row%20With%20Maximum%20Ones/README_EN.md)  |  `Array`,`Matrix`  |  Easy  |  Weekly Contest 341  |
 |  2644  |  [Find the Maximum Divisibility Score](/solution/2600-2699/2644.Find%20the%20Maximum%20Divisibility%20Score/README_EN.md)  |  `Array`  |  Easy  |  Weekly Contest 341  |
 |  2645  |  [Minimum Additions to Make Valid String](/solution/2600-2699/2645.Minimum%20Additions%20to%20Make%20Valid%20String/README_EN.md)  |  `Stack`,`Greedy`,`String`,`Dynamic Programming`  |  Medium  |  Weekly Contest 341  |
-|  2646  |  [Minimize the Total Price of the Trips](/solution/2600-2699/2646.Minimize%20the%20Total%20Price%20of%20the%20Trips/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`,`Dynamic Programming`  |  Hard  |  Weekly Contest 341  |
+|  2646  |  [Minimize the Total Price of the Trips](/solution/2600-2699/2646.Minimize%20the%20Total%20Price%20of%20the%20Trips/README_EN.md)  |  `Tree`,`Depth-First Search`,`Graph`,`Array`,`Dynamic Programming`  |  Hard  |  Weekly Contest 341  |
 |  2647  |  [Color the Triangle Red](/solution/2600-2699/2647.Color%20the%20Triangle%20Red/README_EN.md)  |  `Array`,`Math`  |  Hard  |  🔒  |
 |  2648  |  [Generate Fibonacci Sequence](/solution/2600-2699/2648.Generate%20Fibonacci%20Sequence/README_EN.md)  |    |  Easy  |    |
 |  2649  |  [Nested Array Generator](/solution/2600-2699/2649.Nested%20Array%20Generator/README_EN.md)  |    |  Medium  |    |
@@ -2686,17 +2686,24 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2675  |  [Array of Objects to Matrix](/solution/2600-2699/2675.Array%20of%20Objects%20to%20Matrix/README_EN.md)  |    |  Medium  |    |
 |  2676  |  [Throttle](/solution/2600-2699/2676.Throttle/README_EN.md)  |    |  Medium  |    |
 |  2677  |  [Chunk Array](/solution/2600-2699/2677.Chunk%20Array/README_EN.md)  |    |  Easy  |    |
-|  2678  |  [Number of Senior Citizens](/solution/2600-2699/2678.Number%20of%20Senior%20Citizens/README_EN.md)  |    |  Easy  |  Biweekly Contest 104  |
-|  2679  |  [Sum in a Matrix](/solution/2600-2699/2679.Sum%20in%20a%20Matrix/README_EN.md)  |    |  Medium  |  Biweekly Contest 104  |
-|  2680  |  [Maximum OR](/solution/2600-2699/2680.Maximum%20OR/README_EN.md)  |    |  Medium  |  Biweekly Contest 104  |
-|  2681  |  [Power of Heroes](/solution/2600-2699/2681.Power%20of%20Heroes/README_EN.md)  |    |  Hard  |  Biweekly Contest 104  |
-|  2682  |  [Find the Losers of the Circular Game](/solution/2600-2699/2682.Find%20the%20Losers%20of%20the%20Circular%20Game/README_EN.md)  |    |  Easy  |  Weekly Contest 345  |
-|  2683  |  [Neighboring Bitwise XOR](/solution/2600-2699/2683.Neighboring%20Bitwise%20XOR/README_EN.md)  |    |  Medium  |  Weekly Contest 345  |
-|  2684  |  [Maximum Number of Moves in a Grid](/solution/2600-2699/2684.Maximum%20Number%20of%20Moves%20in%20a%20Grid/README_EN.md)  |    |  Medium  |  Weekly Contest 345  |
-|  2685  |  [Count the Number of Complete Components](/solution/2600-2699/2685.Count%20the%20Number%20of%20Complete%20Components/README_EN.md)  |    |  Medium  |  Weekly Contest 345  |
-|  2686  |  [Immediate Food Delivery III](/solution/2600-2699/2686.Immediate%20Food%20Delivery%20III/README_EN.md)  |    |  Medium  |  🔒  |
-|  2687  |  [Bikes Last Time Used](/solution/2600-2699/2687.Bikes%20Last%20Time%20Used/README_EN.md)  |    |  Easy  |  🔒  |
-|  2688  |  [Find Active Users](/solution/2600-2699/2688.Find%20Active%20Users/README_EN.md)  |    |  Medium  |  🔒  |
+|  2678  |  [Number of Senior Citizens](/solution/2600-2699/2678.Number%20of%20Senior%20Citizens/README_EN.md)  |  `Array`,`String`  |  Easy  |  Biweekly Contest 104  |
+|  2679  |  [Sum in a Matrix](/solution/2600-2699/2679.Sum%20in%20a%20Matrix/README_EN.md)  |  `Array`,`Matrix`,`Sorting`,`Simulation`,`Heap (Priority Queue)`  |  Medium  |  Biweekly Contest 104  |
+|  2680  |  [Maximum OR](/solution/2600-2699/2680.Maximum%20OR/README_EN.md)  |  `Greedy`,`Bit Manipulation`,`Array`,`Prefix Sum`  |  Medium  |  Biweekly Contest 104  |
+|  2681  |  [Power of Heroes](/solution/2600-2699/2681.Power%20of%20Heroes/README_EN.md)  |  `Array`,`Math`,`Prefix Sum`,`Sorting`  |  Hard  |  Biweekly Contest 104  |
+|  2682  |  [Find the Losers of the Circular Game](/solution/2600-2699/2682.Find%20the%20Losers%20of%20the%20Circular%20Game/README_EN.md)  |  `Array`,`Hash Table`,`Simulation`  |  Easy  |  Weekly Contest 345  |
+|  2683  |  [Neighboring Bitwise XOR](/solution/2600-2699/2683.Neighboring%20Bitwise%20XOR/README_EN.md)  |  `Bit Manipulation`,`Array`  |  Medium  |  Weekly Contest 345  |
+|  2684  |  [Maximum Number of Moves in a Grid](/solution/2600-2699/2684.Maximum%20Number%20of%20Moves%20in%20a%20Grid/README_EN.md)  |  `Array`,`Dynamic Programming`,`Matrix`  |  Medium  |  Weekly Contest 345  |
+|  2685  |  [Count the Number of Complete Components](/solution/2600-2699/2685.Count%20the%20Number%20of%20Complete%20Components/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Graph`  |  Medium  |  Weekly Contest 345  |
+|  2686  |  [Immediate Food Delivery III](/solution/2600-2699/2686.Immediate%20Food%20Delivery%20III/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
+|  2687  |  [Bikes Last Time Used](/solution/2600-2699/2687.Bikes%20Last%20Time%20Used/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
+|  2688  |  [Find Active Users](/solution/2600-2699/2688.Find%20Active%20Users/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
+|  2689  |  [Extract Kth Character From The Rope Tree](/solution/2600-2699/2689.Extract%20Kth%20Character%20From%20The%20Rope%20Tree/README_EN.md)  |    |  Easy  |  🔒  |
+|  2690  |  [Infinite Method Object](/solution/2600-2699/2690.Infinite%20Method%20Object/README_EN.md)  |    |  Easy  |  🔒  |
+|  2691  |  [Immutability Helper](/solution/2600-2699/2691.Immutability%20Helper/README_EN.md)  |    |  Hard  |  🔒  |
+|  2692  |  [Make Object Immutable](/solution/2600-2699/2692.Make%20Object%20Immutable/README_EN.md)  |    |  Medium  |  🔒  |
+|  2693  |  [Call Function with Custom Context](/solution/2600-2699/2693.Call%20Function%20with%20Custom%20Context/README_EN.md)  |    |  Medium  |    |
+|  2694  |  [Event Emitter](/solution/2600-2699/2694.Event%20Emitter/README_EN.md)  |    |  Medium  |    |
+|  2695  |  [Array Wrapper](/solution/2600-2699/2695.Array%20Wrapper/README_EN.md)  |    |  Easy  |    |
 
 ## Copyright
 

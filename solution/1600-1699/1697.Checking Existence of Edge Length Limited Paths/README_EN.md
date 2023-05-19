@@ -26,7 +26,7 @@ For the second query, there is a path (0 -&gt; 1 -&gt; 2) of two edges with dist
 <pre>
 <strong>Input:</strong> n = 5, edgeList = [[0,1,10],[1,2,5],[2,3,9],[3,4,13]], queries = [[0,4,14],[1,4,13]]
 <strong>Output:</strong> [true,false]
-<strong>Exaplanation:</strong> The above figure shows the given graph.
+<strong>Explanation:</strong> The above figure shows the given graph.
 </pre>
 
 <p>&nbsp;</p>

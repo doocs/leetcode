@@ -1,4 +1,4 @@
-# [2687. Bikes Last Time Used](https://leetcode.cn/problems/bikes-last-time-used)
+# [2687. 自行车的最后使用时间](https://leetcode.cn/problems/bikes-last-time-used)
 
 [English Version](/solution/2600-2699/2687.Bikes%20Last%20Time%20Used/README_EN.md)
 
@@ -6,33 +6,38 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code><font face="monospace">Bikes</font></code></p>
+<p><code><font face="monospace">Bikes</font></code><font face="monospace">&nbsp;表：</font></p>
 
 <pre>
 +-------------+----------+ 
-| Column Name | Type     | 
+| 列名         | 类型     | 
 +-------------+----------+ 
 | ride_id     | int      | 
 | bike_number | int      | 
 | start_time  | datetime |
 | end_time    | datetime |
 +-------------+----------+
-ride_id is the primary key for this table.
-Each row contains a ride information that includes ride_id, bike number, start and end time of the ride.
-</pre>
 
-<p>Write an SQL query to find the <strong>last</strong> <strong>time</strong> when each bike was used.</p>
+ride_id是该表的主键。
+每行包含一个骑行信息，包括 ride_id、自行车编号、骑行的起始和结束时间。</pre>
 
-<p>Return<em> the result table ordered by the bikes that were <strong>most recently used</strong>.&nbsp;</em></p>
-
-<p>The query result format is in the following example.</p>
+<p>编写一个 SQL 查询，以找出每辆自行车 <strong>最后一次使用</strong> 的时间。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p>返回结果表按 <strong>最近使用</strong>&nbsp;的自行车进行排序。</p>
+
+<p>&nbsp;</p>
+
+<p>查询结果的格式如下所示：</p>
+
+<p>&nbsp;</p>
+
+<p><b>示例 1：</b></p>
 
 <pre>
-<strong>Input:
-</strong><code>Bikes</code> table:
+<strong>输入：
+</strong><code>Bikes</code> 表:
 +---------+-------------+---------------------+---------------------+ 
 | ride_id | bike_number | start_time          | end_time            |  
 +---------+-------------+---------------------+---------------------+
@@ -44,7 +49,7 @@ Each row contains a ride information that includes ride_id, bike number, start a
 | 6       | W00576      | 2012-03-28 02:30:00 | 2012-03-28 02:50:00 |
 +---------+-------------+---------------------+---------------------+ 
 
-<strong>Output:</strong>
+<b>输出：</b>
 +-------------+---------------------+ 
 | bike_number | end_time            |  
 +-------------+---------------------+
@@ -52,12 +57,11 @@ Each row contains a ride information that includes ride_id, bike number, start a
 | W00455      | 2012-03-26 17:40:00 |
 | W00300      | 2012-03-25 10:50:00 |
 +-------------+---------------------+ 
-<strong>Explanation:</strong> 
-bike with number W00576 has three rides, out of that, most recent ride is with ride_id 6 which ended on 2012-03-28 02:50:00.
-bike with number W00300 has only 1 ride so we will include end_time in output directly. 
-bike with number W00455 has two rides, out of that, most recent ride is with ride_id 3 which ended on 2012-03-26 17:40:00. 
-Returning output in order by the bike that were most recently used.
-</pre>
+<b>解释：</b>
+编号为 W00576 的自行车有三次骑行记录，其中最近的骑行记录是 ride_id 为 6，于 2012-03-28 02:50:00结束。
+编号为 W00300 的自行车只有一次骑行记录，所以我们直接在输出中包含结束时间。
+编号为 W00455 的自行车有两次骑行记录，其中最近的骑行记录是 ride_id 为 3，于 2012-03-26 17:40:00结束。
+按照最近使用的自行车顺序返回输出。</pre>
 
 <p>&nbsp;</p>
 
