@@ -125,6 +125,26 @@ func numWaterBottles(numBottles int, numExchange int) int {
 }
 ```
 
+### **PHP**
+
+```php
+class Solution {
+    /**
+     * @param Integer $numBottles
+     * @param Integer $numExchange
+     * @return Integer
+     */
+    function numWaterBottles($numBottles, $numExchange) {
+        $sum = $numBottles;
+        while ($numBottles >= $numExchange) {
+            $numBottles = $numBottles - $numExchange + 1;
+            $sum++;
+        }
+        return $sum;
+    }
+}
+```
+
 ### **...**
 
 ```
