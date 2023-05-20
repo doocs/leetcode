@@ -1,4 +1,4 @@
-# [2692. Make Object Immutable](https://leetcode.cn/problems/make-object-immutable)
+# [2692. 使对象不可变](https://leetcode.cn/problems/make-object-immutable)
 
 [English Version](/solution/2600-2699/2692.Make%20Object%20Immutable/README_EN.md)
 
@@ -6,83 +6,85 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Write a function that takes an object&nbsp;<code>obj</code> and returns a new&nbsp;<strong>immutable</strong>&nbsp;version of this object.</p>
+<p>请你编写一个函数，该函数接收一个对象 <code>obj</code> ，并返回该对象的一个新的 <strong>不可变</strong> 版本。</p>
 
-<p>An&nbsp;<strong>immutable&nbsp;</strong>object is an object that can&#39;t be altered and will throw an error if any attempt is made to alter it.</p>
+<p><strong>不可变</strong> 对象是指不能被修改的对象，如果试图修改它，则会抛出错误。</p>
 
-<p>There are three types of error messages that can be produced from this new object.</p>
+<p>此新对象可能产生三种类型的错误消息。</p>
 
 <ul>
-	<li>Attempting to modify a key on the object will result in this&nbsp;error message: <code>`Error Modifying: ${key}`</code>.</li>
-	<li>Attempting to modify an index on an array will result in this error message: <code>`Error Modifying&nbsp;Index: ${index}`</code>.</li>
-	<li>Attempting to call a method that mutates an array will result in this error message: <code>`Error Calling Method: ${methodName}`</code>. You may assume the only methods that can mutate&nbsp;an array are&nbsp;<code>[&#39;pop&#39;, &#39;push&#39;, &#39;shift&#39;, &#39;unshift&#39;, &#39;splice&#39;, &#39;sort&#39;, &#39;reverse&#39;]</code>.</li>
+	<li>如果试图修改对象的键，则会产生以下错误消息： <code>`Error Modifying: ${key}`</code> 。</li>
+	<li>如果试图修改数组的索引，则会产生以下错误消息： <code>`Error Modifying Index: ${index}`</code> 。</li>
+	<li>如果试图调用会改变数组的方法，则会产生以下错误消息： <code>`Error Calling Method: ${methodName}`</code> 。你可以假设只有以下方法能够改变数组： <code>['pop', 'push', 'shift', 'unshift', 'splice', 'sort', 'reverse']</code> 。</li>
 </ul>
 
-<p><code>obj</code>&nbsp;is a valid JSON object or array, meaning it is the output of <code>JSON.parse()</code>.</p>
+<p><code>obj</code> 是一个有效的 JSON 对象或数组，也就是说，它是 <code>JSON.parse()</code> 的输出结果。</p>
 
-<p>Note that a string literal should be thrown, not an&nbsp;<code>Error</code>.</p>
+<p>请注意，应该抛出字符串字面量，而不是 <code>Error</code> 对象。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>Input:</strong> 
+<b>输入：</b>
 obj = {
-&nbsp; &quot;x&quot;: 5
+&nbsp; "x": 5
 }
 fn = (obj) =&gt; { 
 &nbsp; obj.x = 5;
 &nbsp; return obj.x;
 }
-<strong>Output:</strong> {&quot;value&quot;: null, &quot;error&quot;: &quot;Error Modifying:&nbsp;x&quot;}
-<strong>Explanation: </strong>Attempting to modify a key on an object resuts in a thrown error. Note that it doesn&#39;t matter that the value was set to the same value as it was before.
+<b>输出：</b>{"value": null, "error": "Error Modifying:&nbsp;x"}
+<b>解释：</b>试图修改对象的键会导致抛出错误。请注意，是否将值设置为与之前相同的值并不重要。
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<strong>Input:</strong> 
+<strong>输入：</strong> 
 obj = [1, 2, 3]
 fn = (arr) =&gt; { 
 &nbsp; arr[1] = {}; 
 &nbsp; return arr[2]; 
 }
-<strong>Output:</strong> {&quot;value&quot;: null, &quot;error&quot;: &quot;Error Modifying&nbsp;Index: 1&quot;}
-<strong>Explanation: </strong>Attempting to modify an array results in a thrown error.
+<b>输出：</b>{"value": null, "error": "Error Modifying&nbsp;Index: 1"}
+<strong>解释：</strong>试图修改数组会导致抛出错误。
 </pre>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <pre>
-<strong>Input:</strong> 
+<b>输入：</b>
 obj = {
-&nbsp; &quot;arr&quot;: [1, 2, 3]
+&nbsp; "arr": [1, 2, 3]
 }
 fn = (obj) =&gt; { 
 &nbsp; obj.arr.push(4);
 &nbsp; return 42;
 }
-<strong>Output:</strong> { &quot;value&quot;: null, &quot;error&quot;: &quot;Error Calling Method: push&quot;}
-<strong>Explanation: </strong>Calling a method that can result in a mutation results in a thrown error.
+<b>输出：</b>{ "value": null, "error": "Error Calling Method: push"}
+<strong>解释：</strong>调用可能导致修改的方法会导致抛出错误。
 </pre>
 
-<p><strong class="example">Example 4:</strong></p>
+<p><strong class="example">示例 4：</strong></p>
 
 <pre>
-<strong>Input:</strong> 
+<b>输入：</b>
 obj = {
-&nbsp; &quot;x&quot;: 2,
-&nbsp; &quot;y&quot;: 2
+&nbsp; "x": 2,
+&nbsp; "y": 2
 }
 fn = (obj) =&gt; { 
 &nbsp; return Object.keys(obj);
 }
-<strong>Output:</strong> {&quot;value&quot;: [&quot;x&quot;, &quot;y&quot;], &quot;error&quot;: null}
-<strong>Explanation: </strong>No mutations were attempted so the function returns as normal.
+<b>输出：</b>{"value": ["x", "y"], "error": null}
+<strong>解释：</strong>没有尝试进行修改，因此函数正常返回。
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>2 &lt;= JSON.stringify(obj).length &lt;= 10<sup>5</sup></code></li>

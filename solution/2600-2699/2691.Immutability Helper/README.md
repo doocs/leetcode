@@ -1,4 +1,4 @@
-# [2691. Immutability Helper](https://leetcode.cn/problems/immutability-helper)
+# [2691. 不可变辅助工具](https://leetcode.cn/problems/immutability-helper)
 
 [English Version](/solution/2600-2699/2691.Immutability%20Helper/README_EN.md)
 
@@ -6,79 +6,80 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Creating clones of immutable objects with minor alterations can be a tedious process. Write a class&nbsp;<code>ImmutableHelper</code>&nbsp;that serves as a tool to help with this requirement. The constructor accepts an immutable object&nbsp;<code>obj</code>&nbsp;which will be a JSON object or array.</p>
+<p>创建带有微小修改的不可变对象的克隆副本是一个繁琐的过程。请你编写一个名为 <code>ImmutableHelper</code> 的类，作为满足这一要求的工具。构造函数接受一个不可变对象 <code>obj</code> ，该对象将是一个 JSON 对象或数组。</p>
 
-<p>The class has a single method&nbsp;<code>produce</code>&nbsp;which&nbsp;accepts a&nbsp;function&nbsp;<code>mutator</code>. The function returns a copy of&nbsp;<code>obj</code>&nbsp;with those mutations applied.</p>
+<p>该类有一个名为 <code>produce</code> 的方法，它接受一个名为 <code>mutator</code> 的函数。该函数返回应用这些变化的 <code>obj</code> 的副本。</p>
 
-<p><code>mutator</code>&nbsp;accepts a&nbsp;<strong>proxied</strong>&nbsp;version of&nbsp;<code>obj</code>. A user of this function can (appear to) mutate this object, but the original object&nbsp;<code>obj</code>&nbsp;is not actually being effected.</p>
+<p><code>mutator</code> 函数接受 <code>obj</code> 的 <strong>代理</strong> 版本。函数的使用者可以（看起来）对该对象进行修改，但原始对象 <code>obj</code> 实际上没有被改变。</p>
 
-<p>For example, a user could write code like this:</p>
+<p>例如，用户可以编写如下代码：</p>
 
 <pre>
-const originalObj = {&quot;x&quot;: 5};
+const originalObj = {"x": 5};
 const helper = new ImmutableHelper(originalObj);
 const newObj = helper.produce((proxy) =&gt; {
   proxy.x = proxy.x + 1;
 });
-console.log(originalObj); // {&quot;x&quot;: 5}
-console.log(newObj); // {&quot;x&quot;: 6}</pre>
+console.log(originalObj); // {"x": 5}
+console.log(newObj); // {"x": 6}</pre>
 
-<p>Properties of the&nbsp;<code>mutator</code>&nbsp;function:</p>
+<p><code>mutator</code> 函数的属性：</p>
 
 <ul>
-	<li>It will always return <code>undefined</code>.</li>
-	<li>It will never access keys that don&#39;t exist.</li>
-	<li>It will never delete keys (<code>delete obj.key</code>)</li>
-	<li>It will never call methods on a proxied object (<code>push</code>, <code>shift</code>, etc).</li>
-	<li>It will never set keys to objects (<code>proxy.x = {}</code>)</li>
+	<li>它始终返回 <code>undefined</code> 。</li>
+	<li>它永远不会访问不存在的键。</li>
+	<li>它永远不会删除键（ <code>delete obj.key</code> ）。</li>
+	<li>它永远不会在代理对象上调用方法（ <code>push</code> 、<code>shift</code> 等）。</li>
+	<li>它永远不会将键设置为对象（ <code>proxy.x = {}</code> ）。</li>
 </ul>
 
-<p><strong>Note on how the solution will be tested:</strong>&nbsp;the solution validator will only analyze&nbsp;differences between what was returned and the original&nbsp;<code>obj</code>. Doing a full comparison would be too computationally expensive.</p>
+<p><strong>关于如何测试解决方案的说明：</strong>解决方案验证器仅分析返回结果与原始 <code>obj</code> 之间的差异。进行完全比较的计算开销太大。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>Input:</strong> 
-obj = {&quot;val&quot;: 10}, 
+<b>输入：</b>
+obj = {"val": 10}, 
 mutators = [
 &nbsp; proxy =&gt; { proxy.val += 1; },
 &nbsp; proxy =&gt; { proxy.val -= 1; }
 ]
-<strong>Output:</strong> 
+<b>输出：</b>
 [
-  {&quot;val&quot;: 11},
-&nbsp; {&quot;val&quot;: 9}
+  {"val": 11},
+&nbsp; {"val": 9}
 ]
-<strong>Explanation:</strong>
+<strong>解释：</strong>
 const helper = new ImmutableHelper({val: 10});
-helper.produce(proxy =&gt; { proxy.val += 1; }); // { &quot;val&quot;: 11 }
-helper.produce(proxy =&gt; { proxy.val -= 1; }); // { &quot;val&quot;: 9 }
+helper.produce(proxy =&gt; { proxy.val += 1; }); // { "val": 11 }
+helper.produce(proxy =&gt; { proxy.val -= 1; }); // { "val": 9 }
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<strong>Input:</strong> 
-obj = {&quot;arr&quot;: [1, 2, 3]} 
+<b>输入：</b>
+obj = {"arr": [1, 2, 3]} 
 mutators = [
 &nbsp;proxy =&gt; { 
 &nbsp;  proxy.arr[0] = 5; 
 &nbsp;  proxy.newVal = proxy.arr[0] + proxy.arr[1];
  }
 ]
-<strong>Output:</strong> 
+<b>输出：</b>
 [
-  {&quot;arr&quot;: [5, 2, 3], &quot;newVal&quot;: 7 } 
+  {"arr": [5, 2, 3], "newVal": 7 } 
 ]
-<strong>Explanation: </strong>Two edits were made to the original array. The first element in the array was to set 5. Then a new key was added with a value of 7.
+<strong>解释：</strong>对原始数组进行了两次编辑。首先将数组的第一个元素设置为 5。然后添加了一个值为 7 的新键。
 </pre>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <pre>
-<strong>Input:</strong> 
-obj = {&quot;obj&quot;: {&quot;val&quot;: {&quot;x&quot;: 10, &quot;y&quot;: 20}}}
+<b>输入：</b>
+obj = {"obj": {"val": {"x": 10, "y": 20}}}
 mutators = [
 &nbsp; proxy =&gt; { 
 &nbsp;   let data = proxy.obj.val; 
@@ -87,19 +88,20 @@ mutators = [
 &nbsp;   data.y = temp; 
 &nbsp; }
 ]
-<strong>Output:</strong> 
+<b>输出：</b>
 [
-  {&quot;obj&quot;: {&quot;val&quot;: {&quot;x&quot;: 20, &quot;y&quot;: 10}}}
+  {"obj": {"val": {"x": 20, "y": 10}}}
 ]
-<strong>Explanation:</strong> The values of &quot;x&quot; and &quot;y&quot; were swapped.
+<b>解释：</b>交换了 "x" 和 "y" 的值。
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>2 &lt;= JSON.stringify(obj).length &lt;= 4 * 10<sup>5</sup></code></li>
-	<li><code><font face="monospace">total calls to produce() &lt; 10<sup>5</sup></font></code></li>
+	<li><code>produce() 的总调用次数 &lt; <font face="monospace">10<sup>5</sup></font></code></li>
 </ul>
 
 ## 解法

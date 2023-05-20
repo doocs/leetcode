@@ -1,4 +1,4 @@
-# [2693. Call Function with Custom Context](https://leetcode.cn/problems/call-function-with-custom-context)
+# [2693. 使用自定义上下文调用函数](https://leetcode.cn/problems/call-function-with-custom-context)
 
 [English Version](/solution/2600-2699/2693.Call%20Function%20with%20Custom%20Context/README_EN.md)
 
@@ -6,9 +6,9 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Enhance all functions to have the&nbsp;<code>callPolyfill</code>&nbsp;method. The method accepts an object&nbsp;<code>obj</code>&nbsp;as it&#39;s first parameter and any number of additional arguments. The&nbsp;<code>obj</code>&nbsp;becomes the&nbsp;<code>this</code>&nbsp;context for the function. The additional arguments are passed to the function (that the <code>callPolyfill</code>&nbsp;method belongs on).</p>
+<p>增强所有函数，使其具有&nbsp;<code>callPolyfill</code>&nbsp;方法。该方法接受一个对象&nbsp;<code>obj</code>&nbsp;作为第一个参数，以及任意数量的附加参数。<code>obj</code>&nbsp;成为函数的&nbsp;<code>this</code>&nbsp;上下文。附加参数将传递给该函数（即&nbsp;<code>callPolyfill</code>&nbsp;方法所属的函数）。</p>
 
-<p>For example if you had the function:</p>
+<p>例如，如果有以下函数：</p>
 
 <pre>
 function tax(price, taxRate) {
@@ -17,44 +17,46 @@ function tax(price, taxRate) {
 }
 </pre>
 
-<p>Calling this function like&nbsp;<code>tax(10, 0.1)</code>&nbsp;will log&nbsp;<code>&quot;The cost of undefined is 11&quot;</code>. This is because the&nbsp;<code>this</code>&nbsp;context was not defined.</p>
+<p>调用&nbsp;<code>tax(10, 0.1)</code>&nbsp;将输出&nbsp;<code>"The cost of undefined is 11"</code>&nbsp;。这是因为&nbsp;<code>this</code>&nbsp;上下文未定义。</p>
 
-<p>However, calling the function like&nbsp;<code>tax.callPolyfill({item: &quot;salad&quot;}, 10, 0.1)</code>&nbsp;will log&nbsp;<code>&quot;The cost of salad is 11&quot;</code>. The&nbsp;<code>this</code>&nbsp;context was appropriately set, and the function logged an appropriate output.</p>
+<p>然而，调用&nbsp;<code>tax.callPolyfill({item: "salad"}, 10, 0.1)</code>&nbsp;将输出&nbsp;<code>"The cost of salad is 11"</code>&nbsp;。<code>this</code>&nbsp;上下文被正确设置，函数输出了适当的结果。</p>
 
-<p>Please solve this without using&nbsp;the built-in&nbsp;<code>Function.call</code>&nbsp;method.</p>
+<p>请在不使用内置的&nbsp;<code>Function.call</code>&nbsp;方法的情况下解决这个问题。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>Input:</strong>
+<strong>输入：</strong>
 fn = function add(b) {
   return this.a + b;
 }
-args = [{&quot;a&quot;: 5}, 7]
-<strong>Output:</strong> 12
-<strong>Explanation:</strong>
-fn.callPolyfill({&quot;a&quot;: 5}, 7); // 12
-callPolyfill sets the &quot;this&quot; context to {&quot;a&quot;: 5}. 7 is passed as an argument.
+args = [{"a": 5}, 7]
+<b>输出：</b>12
+<strong>解释：</strong>
+fn.callPolyfill({"a": 5}, 7); // 12
+<code>callPolyfill </code>将 "this" 上下文设置为 <code>{"a": 5} </code>，并将 7 作为参数传递。
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<strong>Input:</strong> 
+<b>输入：</b>
 fn = function tax(price, taxRate) { 
 &nbsp;return `The cost of the ${this.item} is ${price * taxRate}`; 
 }
-args = [{&quot;item&quot;: &quot;burger&quot;}, 10, 1,1]
-<strong>Output:</strong> &quot;The cost of the burger is 11&quot;
-<strong>Explanation:</strong> callPolyfill sets the &quot;this&quot; context to {&quot;item&quot;: &quot;burger&quot;}. 10 and 1.1 are passed as additional arguments.
+args = [{"item": "burger"}, 10, 1,1]
+<b>输出：</b>"The cost of the burger is 11"
+<b>解释：</b><code>callPolyfill </code>将 "this" 上下文设置为 <code>{"item": "burger"} </code>，并将 10 和 1.1 作为附加参数传递。
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul style="list-style-type:square;">
-	<li><code><font face="monospace">typeof args[0] == &#39;object&#39; and args[0] != null</font></code></li>
+	<li><code><font face="monospace">typeof args[0] == 'object' and args[0] != null</font></code></li>
 	<li><code>1 &lt;= args.length &lt;= 100</code></li>
 	<li><code>2 &lt;= JSON.stringify(args[0]).length &lt;= 10<sup>5</sup></code></li>
 </ul>

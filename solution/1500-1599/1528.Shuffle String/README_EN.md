@@ -107,7 +107,7 @@ var restoreString = function (s, indices) {
     for (let i = 0; i < s.length; i++) {
         rs[indices[i]] = s[i];
     }
-    return rs.join("");
+    return rs.join('');
 };
 ```
 

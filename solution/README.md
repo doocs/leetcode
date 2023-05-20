@@ -2700,12 +2700,12 @@
 |  2687  |  [自行车的最后使用时间](/solution/2600-2699/2687.Bikes%20Last%20Time%20Used/README.md)  |  `数据库`  |  简单  |  🔒  |
 |  2688  |  [查找活跃用户](/solution/2600-2699/2688.Find%20Active%20Users/README.md)  |  `数据库`  |  中等  |  🔒  |
 |  2689  |  [Extract Kth Character From The Rope Tree](/solution/2600-2699/2689.Extract%20Kth%20Character%20From%20The%20Rope%20Tree/README.md)  |    |  简单  |  🔒  |
-|  2690  |  [Infinite Method Object](/solution/2600-2699/2690.Infinite%20Method%20Object/README.md)  |    |  简单  |  🔒  |
-|  2691  |  [Immutability Helper](/solution/2600-2699/2691.Immutability%20Helper/README.md)  |    |  困难  |  🔒  |
-|  2692  |  [Make Object Immutable](/solution/2600-2699/2692.Make%20Object%20Immutable/README.md)  |    |  中等  |  🔒  |
-|  2693  |  [Call Function with Custom Context](/solution/2600-2699/2693.Call%20Function%20with%20Custom%20Context/README.md)  |    |  中等  |    |
-|  2694  |  [Event Emitter](/solution/2600-2699/2694.Event%20Emitter/README.md)  |    |  中等  |    |
-|  2695  |  [Array Wrapper](/solution/2600-2699/2695.Array%20Wrapper/README.md)  |    |  简单  |    |
+|  2690  |  [无穷方法对象](/solution/2600-2699/2690.Infinite%20Method%20Object/README.md)  |    |  简单  |  🔒  |
+|  2691  |  [不可变辅助工具](/solution/2600-2699/2691.Immutability%20Helper/README.md)  |    |  困难  |  🔒  |
+|  2692  |  [使对象不可变](/solution/2600-2699/2692.Make%20Object%20Immutable/README.md)  |    |  中等  |  🔒  |
+|  2693  |  [使用自定义上下文调用函数](/solution/2600-2699/2693.Call%20Function%20with%20Custom%20Context/README.md)  |    |  中等  |    |
+|  2694  |  [事件发射器](/solution/2600-2699/2694.Event%20Emitter/README.md)  |    |  中等  |    |
+|  2695  |  [包装数组](/solution/2600-2699/2695.Array%20Wrapper/README.md)  |    |  简单  |    |
 
 ## 版权
 

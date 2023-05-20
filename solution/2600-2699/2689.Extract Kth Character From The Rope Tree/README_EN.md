@@ -170,7 +170,7 @@ public:
             string left = dfs(root->left);
             string right = dfs(root->right);
             return left + right;
-        }; 
+        };
         return dfs(root)[k - 1];
     }
 };

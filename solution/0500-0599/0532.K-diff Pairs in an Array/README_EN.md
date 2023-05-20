@@ -11,7 +11,7 @@
 <ul>
 	<li><code>0 &lt;= i, j &lt; nums.length</code></li>
 	<li><code>i != j</code></li>
-	<li><code>nums[i] - nums[j] == k</code></li>
+	<li><code>|nums[i] - nums[j]| == k</code></li>
 </ul>
 
 <p><strong>Notice</strong> that <code>|val|</code> denotes the absolute value of <code>val</code>.</p>

@@ -1,4 +1,4 @@
-# [2695. Array Wrapper](https://leetcode.cn/problems/array-wrapper)
+# [2695. 包装数组](https://leetcode.cn/problems/array-wrapper)
 
 [English Version](/solution/2600-2699/2695.Array%20Wrapper/README_EN.md)
 
@@ -6,53 +6,55 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Create a class&nbsp;<code>ArrayWrapper</code> that accepts&nbsp;an array of integers in it&#39;s constructor. This class should have two features:</p>
+<p>创建一个名为 <code>ArrayWrapper</code> 的类，它在其构造函数中接受一个整数数组作为参数。该类应具有以下两个特性：</p>
 
 <ul>
-	<li>When two instances of this class are added together with the&nbsp;<code>+</code>&nbsp;operator, the resulting value is the sum of all the elements in&nbsp;both arrays.</li>
-	<li>When the&nbsp;<code>String()</code>&nbsp;function is called on the instance, it will return a comma separated string surrounded by brackets. For example, <code>[1,2,3]</code>.</li>
+	<li>当使用 <code>+</code> 运算符将两个该类的实例相加时，结果值为两个数组中所有元素的总和。</li>
+	<li>当在实例上调用 <code>String()</code> 函数时，它将返回一个由逗号分隔的括在方括号中的字符串。例如，<code>[1,2,3]</code> 。</li>
 </ul>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [[1,2],[3,4]], operation = &quot;Add&quot;
-<strong>Output:</strong> 10
-<strong>Explanation:</strong>
+<b>输入：</b>nums = [[1,2],[3,4]], operation = "Add"
+<b>输出：</b>10
+<b>解释：</b>
 const obj1 = new ArrayWrapper([1,2]);
 const obj2 = new ArrayWrapper([3,4]);
 obj1 + obj2; // 10
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [[23,98,42,70]], operation = &quot;String&quot;
-<strong>Output:</strong> &quot;[23,98,42,70]&quot;
-<strong>Explanation:</strong>
+<b>输入：</b>nums = [[23,98,42,70]], operation = "String"
+<b>输出：</b>"[23,98,42,70]"
+<strong>解释：</strong>
 const obj = new ArrayWrapper([23,98,42,70]);
-String(obj); // &quot;[23,98,42,70]&quot;
+String(obj); // "[23,98,42,70]"
 </pre>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [[],[]], operation = &quot;Add&quot;
-<strong>Output:</strong> 0
-<strong>Explanation:</strong>
+<b>输入：</b>nums = [[],[]], operation = "Add"
+<b>输出：</b>0
+<strong>解释：</strong>
 const obj1 = new ArrayWrapper([]);
 const obj2 = new ArrayWrapper([]);
 obj1 + obj2; // 0
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><b>提示：</b></p>
 
 <ul>
 	<li><code>0 &lt;= nums.length &lt;= 1000</code></li>
 	<li><code>0 &lt;= nums[i]&nbsp;&lt;= 1000</code></li>
-	<li><code>Note: nums is the array passed to the constructor</code></li>
+	<li><code>注意：nums 是传递给构造函数的数组。</code></li>
 </ul>
 
 ## 解法

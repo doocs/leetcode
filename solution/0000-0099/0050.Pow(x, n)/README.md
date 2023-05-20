@@ -10,21 +10,21 @@
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
 <strong>输入：</strong>x = 2.00000, n = 10
 <strong>输出：</strong>1024.00000
 </pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
 <strong>输入：</strong>x = 2.10000, n = 3
 <strong>输出：</strong>9.26100
 </pre>
 
-<p><strong>示例 3：</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <pre>
 <strong>输入：</strong>x = 2.00000, n = -2
@@ -40,6 +40,7 @@
 	<li><code>-100.0 &lt; x &lt; 100.0</code></li>
 	<li><code>-2<sup>31</sup> &lt;= n &lt;= 2<sup>31</sup>-1</code></li>
 	<li><code>n</code>&nbsp;是一个整数</li>
+	<li>要么 <code>x</code> 不为零，要么 <code>n &gt; 0</code> 。</li>
 	<li><code>-10<sup>4</sup> &lt;= x<sup>n</sup> &lt;= 10<sup>4</sup></code></li>
 </ul>
 

@@ -43,6 +43,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 枚举**
+
+题目中涉及两个操作：升级水桶、蓄水。我们应该贪心地把升级水桶的操作放在前面，这样在蓄水时，每次能蓄水的量就会更多，操作次数就会更少。
+
+首先，如果最低蓄水量 $vat$ 中所有元素都为 $0$，说明不需要蓄水，直接返回 $0$ 即可。
+
+接下来，我们可以枚举蓄水的次数 $x$，其中 $x \in [1, \max(vat)]$，那么在开始蓄水前，每个水桶的容量至少应该为 $\lceil \frac{vat_i}{x} \rceil$，其中 $\lceil  \rceil$ 表示向上取整。因此，每个水桶的升级次数为 $\max(0, \lceil \frac{vat_i}{x} \rceil - bucket_i)$，我们将所有水桶的升级次数累加，记为 $y$，再加上蓄水的次数 $x$，就是总的操作次数。答案为所有 $x + y$ 中的最小值。
+
+时间复杂度 $O(n \times M)$，其中 $n$ 和 $M$ 分别为数组 $vat$ 的长度和数组 $vat$ 中的最大值。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -50,7 +60,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def storeWater(self, bucket: List[int], vat: List[int]) -> int:
+        mx = max(vat)
+        if mx == 0:
+            return 0
+        ans = inf
+        for x in range(1, mx + 1):
+            y = sum(max(0, (v + x - 1) // x - b) for v, b in zip(vat, bucket))
+            ans = min(ans, x + y)
+        return ans
 ```
 
 ### **Java**
@@ -58,7 +77,106 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int storeWater(int[] bucket, int[] vat) {
+        int mx = Arrays.stream(vat).max().getAsInt();
+        if (mx == 0) {
+            return 0;
+        }
+        int n = vat.length;
+        int ans = 1 << 30;
+        for (int x = 1; x <= mx; ++x) {
+            int y = 0;
+            for (int i = 0; i < n; ++i) {
+                y += Math.max(0, (vat[i] + x - 1) / x - bucket[i]);
+            }
+            ans = Math.min(ans, x + y);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int storeWater(vector<int>& bucket, vector<int>& vat) {
+        int mx = *max_element(vat.begin(), vat.end());
+        if (mx == 0) {
+            return 0;
+        }
+        int ans = 1 << 30;
+        int n = bucket.size();
+        for (int x = 1; x <= mx; ++x) {
+            int y = 0;
+            for (int i = 0; i < n; ++i) {
+                y += max(0, (vat[i] + x - 1) / x - bucket[i]);
+            }
+            ans = min(ans, x + y);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func storeWater(bucket []int, vat []int) int {
+	mx := 0
+	for _, x := range vat {
+		mx = max(mx, x)
+	}
+	if mx == 0 {
+		return 0
+	}
+	ans := 1 << 30
+	for x := 1; x <= mx; x++ {
+		y := 0
+		for i, v := range vat {
+			y += max(0, (v+x-1)/x-bucket[i])
+		}
+		ans = min(ans, x+y)
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+    if a < b {
+        return a
+    }
+    return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function storeWater(bucket: number[], vat: number[]): number {
+    const mx = Math.max(...vat);
+    if (mx === 0) {
+        return 0;
+    }
+    const n = vat.length;
+    let ans = 1 << 30;
+    for (let x = 1; x <= mx; ++x) {
+        let y = 0;
+        for (let i = 0; i < n; ++i) {
+            y += Math.max(0, Math.ceil(vat[i] / x) - bucket[i]);
+        }
+        ans = Math.min(ans, x + y);
+    }
+    return ans;
+}
 ```
 
 ### **...**

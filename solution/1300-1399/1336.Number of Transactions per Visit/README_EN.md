@@ -97,7 +97,7 @@ Transactions table:
 +--------------------+--------------+
 <strong>Explanation:</strong> The chart drawn for this example is shown above.
 * For transactions_count = 0, The visits (1, &quot;2020-01-01&quot;), (2, &quot;2020-01-02&quot;), (12, &quot;2020-01-01&quot;) and (19, &quot;2020-01-03&quot;) did no transactions so visits_count = 4.
-* For transactions_count = 1, The visits (2, &quot;2020-01-03&quot;), (7, &amp;quo;2020-01-11&quot;), (8, &quot;2020-01-28&quot;), (1, &quot;2020-01-02&quot;) and (1, &quot;2020-01-04&quot;) did one transaction so visits_count = 5.
+* For transactions_count = 1, The visits (2, &quot;2020-01-03&quot;), (7, &quot;2020-01-11&quot;), (8, &quot;2020-01-28&quot;), (1, &quot;2020-01-02&quot;) and (1, &quot;2020-01-04&quot;) did one transaction so visits_count = 5.
 * For transactions_count = 2, No customers visited the bank and did two transactions so visits_count = 0.
 * For transactions_count = 3, The visit (9, &quot;2020-01-25&quot;) did three transactions so visits_count = 1.
 * For transactions_count &gt;= 4, No customers visited the bank and did more than three transactions so we will stop at transactions_count = 3

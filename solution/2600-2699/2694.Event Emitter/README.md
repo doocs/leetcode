@@ -1,4 +1,4 @@
-# [2694. Event Emitter](https://leetcode.cn/problems/event-emitter)
+# [2694. 事件发射器](https://leetcode.cn/problems/event-emitter)
 
 [English Version](/solution/2600-2699/2694.Event%20Emitter/README_EN.md)
 
@@ -6,69 +6,68 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Design an <code>EventEmitter</code> class. This interface&nbsp;is similar (but with some differences) to the one found in Node.js or the Event Target interface of the DOM. The <code>EventEmitter</code> should allow for subscribing to events and emitting them.</p>
+<p>设计一个 <code>EventEmitter</code> 类。这个接口与 Node.js 或 DOM 的 Event Target 接口相似，但有一些差异。<code>EventEmitter</code> 应该允许订阅事件和触发事件。</p>
 
-<p>Your <code>EventEmitter</code> class should have the following two methods:</p>
+<p>你的 <code>EventEmitter</code> 类应该有以下两个方法：</p>
 
 <ul>
-	<li><strong>subscribe</strong> - This method takes in two arguments: the name of an event as a string and a callback function. This callback function&nbsp;will later be called when the event is emitted.<br />
-	An event should be able to have multiple listeners for the same event. When emitting an event with multiple callbacks, each should be called in the order in which they were subscribed. An array of results should be returned. You can assume no callbacks passed to&nbsp;<code>subscribe</code>&nbsp;are referentially identical.<br />
-	The <code>subscribe</code> method should also return an object with an <code>unsubscribe</code>&nbsp;method that enables the user to unsubscribe. When it is called, the callback&nbsp;should be removed from the list of subscriptions and&nbsp;<code>undefined</code>&nbsp;should be returned.</li>
-	<li><strong>emit</strong> - This method takes in two arguments: the name of an event as a string and an optional array of arguments that will be&nbsp;passed to the callback(s). If there are no callbacks subscribed to the given event, return an empty array. Otherwise, return an array of the results of all callback calls in the order they were subscribed.</li>
+	<li><strong>subscribe</strong> - 这个方法接收两个参数：一个作为字符串的事件名和一个回调函数。当事件被触发时，这个回调函数将被调用。 一个事件应该能够有多个监听器。当触发带有多个回调函数的事件时，应按照订阅的顺序依次调用每个回调函数。应返回一个结果数组。你可以假设传递给 <code>subscribe</code> 的回调函数都不是引用相同的。 <code>subscribe</code> 方法还应返回一个对象，其中包含一个 <code>unsubscribe</code> 方法，使用户可以取消订阅。当调用 <code>unsubscribe</code> 方法时，回调函数应该从订阅列表中删除，并返回 undefined。</li>
+	<li><strong>emit</strong> - 这个方法接收两个参数：一个作为字符串的事件名和一个可选的参数数组，这些参数将传递给回调函数。如果没有订阅给定事件的回调函数，则返回一个空数组。否则，按照它们被订阅的顺序返回所有回调函数调用的结果数组。</li>
 </ul>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>Input:</strong> actions = [&quot;EventEmitter&quot;, &quot;emit&quot;, &quot;subscribe&quot;, &quot;subscribe&quot;, &quot;emit&quot;], values = [[], [&quot;firstEvent&quot;, &quot;function cb1() { return 5; }&quot;],  [&quot;firstEvent&quot;, &quot;function cb1() { return 5; }&quot;], [&quot;firstEvent&quot;]]
-<strong>Output:</strong> [[],[&quot;emitted&quot;,[]],[&quot;subscribed&quot;],[&quot;subscribed&quot;],[&quot;emitted&quot;,[5,6]]]
-<strong>Explanation:</strong> 
+<b>输入：</b>actions = ["EventEmitter", "emit", "subscribe", "subscribe", "emit"], values = [[], ["firstEvent", "function cb1() { return 5; }"],  ["firstEvent", "function cb1() { return 5; }"], ["firstEvent"]]
+<b>输出：</b>[[],["emitted",[]],["subscribed"],["subscribed"],["emitted",[5,6]]]
+<b>解释：</b>
 const emitter = new EventEmitter();
-emitter.emit(&quot;firstEvent&quot;); // [], no callback are subscribed yet
-emitter.subscribe(&quot;firstEvent&quot;, function cb1() { return 5; });
-emitter.subscribe(&quot;firstEvent&quot;, function cb2() { return 6; });
-emitter.emit(&quot;firstEvent&quot;); // [5, 6], returns the output of cb1 and cb2
+emitter.emit("firstEvent"); // [], 还没有订阅任何回调函数
+emitter.subscribe("firstEvent", function cb1() { return 5; });
+emitter.subscribe("firstEvent", function cb2() { return 6; });
+emitter.emit("firstEvent"); // [5, 6], 返回 cb1 和 cb2 的输出
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>Input:</strong> actions = [&quot;EventEmitter&quot;, &quot;subscribe&quot;, &quot;emit&quot;, &quot;emit&quot;], values = [[], [&quot;firstEvent&quot;, &quot;function cb1(...args) { return args.join(&#39;,&#39;); }&quot;], [&quot;firstEvent&quot;, [1,2,3]], [&quot;firstEvent&quot;, [3,4,6]]]
-<strong>Output:</strong> [[],[&quot;subscribed&quot;],[&quot;emitted&quot;,[&quot;1,2,3&quot;]],[&quot;emitted&quot;,[&quot;3,4,6&quot;]]]
-<strong>Explanation: </strong>Note that the emit method should be able to accept an OPTIONAL array of arguents.
+<b>输入：</b>actions = ["EventEmitter", "subscribe", "emit", "emit"], values = [[], ["firstEvent", "function cb1(...args) { return args.join(','); }"], ["firstEvent", [1,2,3]], ["firstEvent", [3,4,6]]]
+<b>输出：</b>[[],["subscribed"],["emitted",["1,2,3"]],["emitted",["3,4,6"]]]
+<strong>解释：</strong>注意 emit 方法应该能够接受一个可选的参数数组。
 
 const emitter = new EventEmitter();
-emitter.subscribe(&quot;firstEvent, function cb1(...args) { return args.join(&#39;,&#39;); });
-emitter.emit(&quot;firstEvent&quot;, [1, 2, 3]); // [&quot;1,2,3&quot;]
-emitter.emit(&quot;firstEvent&quot;, [3, 4, 6]); // [&quot;3,4,6&quot;]
+emitter.subscribe("firstEvent, function cb1(...args) { return args.join(','); });
+emitter.emit("firstEvent", [1, 2, 3]); // ["1,2,3"]
+emitter.emit("firstEvent", [3, 4, 6]); // ["3,4,6"]
 </pre>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><strong>示例 3：</strong></p>
 
 <pre>
-<strong>Input:</strong> actions = [&quot;EventEmitter&quot;, &quot;subscribe&quot;, &quot;emit&quot;, &quot;unsubscribe&quot;, &quot;emit&quot;], values = [[], [&quot;firstEvent&quot;, &quot;(...args) =&gt; args.join(&#39;,&#39;)&quot;], [&quot;firstEvent&quot;, [1,2,3]], [0], [&quot;firstEvent&quot;, [4,5,6]]]
-<strong>Output:</strong> [[],[&quot;subscribed&quot;],[&quot;emitted&quot;,[&quot;1,2,3&quot;]],[&quot;unsubscribed&quot;,0],[&quot;emitted&quot;,[]]]
-<strong>Explanation:</strong>
+<b>输入：</b>actions = ["EventEmitter", "subscribe", "emit", "unsubscribe", "emit"], values = [[], ["firstEvent", "(...args) =&gt; args.join(',')"], ["firstEvent", [1,2,3]], [0], ["firstEvent", [4,5,6]]]
+<b>输出：</b>[[],["subscribed"],["emitted",["1,2,3"]],["unsubscribed",0],["emitted",[]]]
+<b>解释：</b>
 const emitter = new EventEmitter();
-const sub = emitter.subscribe(&quot;firstEvent&quot;, (...args) =&gt; args.join(&#39;,&#39;));
-emitter.emit(&quot;firstEvent&quot;, [1, 2, 3]); // [&quot;1,2,3&quot;]
+const sub = emitter.subscribe("firstEvent", (...args) =&gt; args.join(','));
+emitter.emit("firstEvent", [1, 2, 3]); // ["1,2,3"]
 sub.unsubscribe(); // undefined
-emitter.emit(&quot;firstEvent&quot;, [4, 5, 6]); // [], there are no subscriptions
+emitter.emit("firstEvent", [4, 5, 6]); // [], 没有订阅者
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= actions.length &lt;= 10</code></li>
 	<li><code>values.length === actions.length</code></li>
-	<li>All test cases are valid, e.g. you don&#39;t need to handle scenarios when unsubscribing from a non-existing subscription.</li>
-	<li>There are only 4 different actions: <code>EventEmitter</code>, <code>emit</code>, <code>subscribe</code>, and <code>unsubscribe</code>.</li>
-	<li>The <code>EventEmitter</code> action doesn&#39;t take any arguments.</li>
-	<li>The <code>emit</code>&nbsp;action takes between either 1 or&nbsp;2&nbsp;arguments. The first argument is the name of the event we want to emit, and the 2nd argument is passed to the callback functions.</li>
-	<li>The <code>subscribe</code> action takes 2 arguments, where the first one is the event name and the second is the callback function.</li>
-	<li>The <code>unsubscribe</code>&nbsp;action takes one argument, which is the 0-indexed order of the subscription made before.</li>
+	<li>所有测试用例都是有效的。例如，你不需要处理取消一个不存在的订阅的情况。</li>
+	<li>只有 4 种不同的操作：<code>EventEmitter</code>、<code>emit</code>、<code>subscribe</code> 和 <code>unsubscribe</code>&nbsp;。 <code>EventEmitter</code> 操作没有参数。</li>
+	<li><code>emit</code> 操作接收 1 或 2 个参数。第一个参数是要触发的事件名，第二个参数传递给回调函数。</li>
+	<li><code>subscribe</code> 操作接收 2 个参数，第一个是事件名，第二个是回调函数。</li>
+	<li><code>unsubscribe</code> 操作接收一个参数，即之前进行订阅的顺序（从 0 开始）。</li>
 </ul>
 
 ## 解法
