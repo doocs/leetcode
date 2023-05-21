@@ -1,15 +1,14 @@
-func mostFrequent(nums []int, key int) int {
-	cnt := make([]int, 1010)
-	mx, ans := 0, 0
-	for i, v := range nums[:len(nums)-1] {
-		if v == key {
-			target := nums[i+1]
-			cnt[target]++
-			if mx < cnt[target] {
-				mx = cnt[target]
-				ans = nums[i+1]
+func mostFrequent(nums []int, key int) (ans int) {
+	cnt := [1001]int{}
+	mx := 0
+	for i, x := range nums[1:] {
+		if nums[i] == key {
+			cnt[x]++
+			if mx < cnt[x] {
+				mx = cnt[x]
+				ans = x
 			}
 		}
 	}
-	return ans
+	return
 }

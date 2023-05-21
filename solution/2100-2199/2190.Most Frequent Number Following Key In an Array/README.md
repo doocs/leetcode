@@ -51,6 +51,16 @@ target = 2 是紧跟着 key 之后出现次数最多的数字，所以我们返�
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：遍历计数**
+
+我们用一个哈希表或数组 $cnt$ 记录每个 $target$ 出现的次数，用一个变量 $mx$ 维护 $target$ 出现的最大次数，初始时 $mx = 0$。
+
+遍历数组 $nums$，如果 $nums[i] = key$，则 $nums[i + 1]$ 出现的次数 $cnt[nums[i + 1]]$ 加一，如果此时 $mx \lt cnt[nums[i + 1]]$，则更新 $mx = cnt[nums[i + 1]]$，并更新答案 $ans = nums[i + 1]$。
+
+遍历结束后，返回答案 $ans$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(M)$。其中 $n$ 和 $M$ 分别为数组 $nums$ 的长度和数组 $nums$ 中元素的最大值。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -61,14 +71,13 @@ target = 2 是紧跟着 key 之后出现次数最多的数字，所以我们返�
 class Solution:
     def mostFrequent(self, nums: List[int], key: int) -> int:
         cnt = Counter()
-        mx = ans = 0
-        for i, v in enumerate(nums[:-1]):
-            if v == key:
-                target = nums[i + 1]
-                cnt[target] += 1
-                if mx < cnt[target]:
-                    mx = cnt[target]
-                    ans = nums[i + 1]
+        ans = mx = 0
+        for a, b in pairwise(nums):
+            if a == key:
+                cnt[b] += 1
+                if mx < cnt[b]:
+                    mx = cnt[b]
+                    ans = b
         return ans
 ```
 
@@ -79,14 +88,12 @@ class Solution:
 ```java
 class Solution {
     public int mostFrequent(int[] nums, int key) {
-        int[] cnt = new int[1010];
-        int mx = 0, ans = 0;
+        int[] cnt = new int[1001];
+        int ans = 0, mx = 0;
         for (int i = 0; i < nums.length - 1; ++i) {
             if (nums[i] == key) {
-                int target = nums[i + 1];
-                ++cnt[target];
-                if (mx < cnt[target]) {
-                    mx = cnt[target];
+                if (mx < ++cnt[nums[i + 1]]) {
+                    mx = cnt[nums[i + 1]];
                     ans = nums[i + 1];
                 }
             }
@@ -102,14 +109,12 @@ class Solution {
 class Solution {
 public:
     int mostFrequent(vector<int>& nums, int key) {
-        vector<int> cnt(1010);
-        int mx = 0, ans = 0;
+        int cnt[1001]{};
+        int ans = 0, mx = 0;
         for (int i = 0; i < nums.size() - 1; ++i) {
             if (nums[i] == key) {
-                int target = nums[i + 1];
-                ++cnt[target];
-                if (mx < cnt[target]) {
-                    mx = cnt[target];
+                if (mx < ++cnt[nums[i + 1]]) {
+                    mx = cnt[nums[i + 1]];
                     ans = nums[i + 1];
                 }
             }
@@ -122,27 +127,39 @@ public:
 ### **Go**
 
 ```go
-func mostFrequent(nums []int, key int) int {
-	cnt := make([]int, 1010)
-	mx, ans := 0, 0
-	for i, v := range nums[:len(nums)-1] {
-		if v == key {
-			target := nums[i+1]
-			cnt[target]++
-			if mx < cnt[target] {
-				mx = cnt[target]
-				ans = nums[i+1]
+func mostFrequent(nums []int, key int) (ans int) {
+	cnt := [1001]int{}
+	mx := 0
+	for i, x := range nums[1:] {
+		if nums[i] == key {
+			cnt[x]++
+			if mx < cnt[x] {
+				mx = cnt[x]
+				ans = x
 			}
 		}
 	}
-	return ans
+	return
 }
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function mostFrequent(nums: number[], key: number): number {
+    const cnt: number[] = new Array(1001).fill(0);
+    let ans = 0;
+    let mx = 0;
+    for (let i = 0; i < nums.length - 1; ++i) {
+        if (nums[i] === key) {
+            if (mx < ++cnt[nums[i + 1]]) {
+                mx = cnt[nums[i + 1]];
+                ans = nums[i + 1];
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 ### **PHP**
