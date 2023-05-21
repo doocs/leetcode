@@ -2706,6 +2706,10 @@
 |  2693  |  [使用自定义上下文调用函数](/solution/2600-2699/2693.Call%20Function%20with%20Custom%20Context/README.md)  |    |  中等  |    |
 |  2694  |  [事件发射器](/solution/2600-2699/2694.Event%20Emitter/README.md)  |    |  中等  |    |
 |  2695  |  [包装数组](/solution/2600-2699/2695.Array%20Wrapper/README.md)  |    |  简单  |    |
+|  2696  |  [删除子串后的字符串最小长度](/solution/2600-2699/2696.Minimum%20String%20Length%20After%20Removing%20Substrings/README.md)  |    |  简单  |  第 346 场周赛  |
+|  2697  |  [字典序最小回文串](/solution/2600-2699/2697.Lexicographically%20Smallest%20Palindrome/README.md)  |    |  简单  |  第 346 场周赛  |
+|  2698  |  [求一个整数的惩罚数](/solution/2600-2699/2698.Find%20the%20Punishment%20Number%20of%20an%20Integer/README.md)  |    |  中等  |  第 346 场周赛  |
+|  2699  |  [修改图中的边权](/solution/2600-2699/2699.Modify%20Graph%20Edge%20Weights/README.md)  |    |  困难  |  第 346 场周赛  |
 
 ## 版权
 

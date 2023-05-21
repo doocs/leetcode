@@ -23,6 +23,13 @@
 
 ## 往期竞赛
 
+#### 第 346 场周赛(2023-05-21 10:30, 90 分钟) 参赛人数 4035
+
+- [2696. 删除子串后的字符串最小长度](/solution/2600-2699/2696.Minimum%20String%20Length%20After%20Removing%20Substrings/README.md)
+- [2697. 字典序最小回文串](/solution/2600-2699/2697.Lexicographically%20Smallest%20Palindrome/README.md)
+- [2698. 求一个整数的惩罚数](/solution/2600-2699/2698.Find%20the%20Punishment%20Number%20of%20an%20Integer/README.md)
+- [2699. 修改图中的边权](/solution/2600-2699/2699.Modify%20Graph%20Edge%20Weights/README.md)
+
 #### 第 345 场周赛(2023-05-14 10:30, 90 分钟) 参赛人数 4165
 
 - [2682. 找出转圈游戏输家](/solution/2600-2699/2682.Find%20the%20Losers%20of%20the%20Circular%20Game/README.md)

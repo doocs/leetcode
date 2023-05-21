@@ -1,0 +1,137 @@
+# [2697. 字典序最小回文串](https://leetcode.cn/problems/lexicographically-smallest-palindrome)
+
+[English Version](/solution/2600-2699/2697.Lexicographically%20Smallest%20Palindrome/README_EN.md)
+
+## 题目描述
+
+<!-- 这里写题目描述 -->
+
+<p>给你一个由 <strong>小写英文字母</strong> 组成的字符串 <code>s</code> ，你可以对其执行一些操作。在一步操作中，你可以用其他小写英文字母 <strong>替换</strong>&nbsp; <code>s</code> 中的一个字符。</p>
+
+<p>请你执行 <strong>尽可能少的操作</strong> ，使 <code>s</code> 变成一个 <strong>回文串</strong> 。如果执行 <strong>最少</strong> 操作次数的方案不止一种，则只需选取 <strong>字典序最小</strong> 的方案。</p>
+
+<p>对于两个长度相同的字符串 <code>a</code> 和 <code>b</code> ，在 <code>a</code> 和 <code>b</code> 出现不同的第一个位置，如果该位置上 <code>a</code> 中对应字母比 <code>b</code> 中对应字母在字母表中出现顺序更早，则认为 <code>a</code> 的字典序比 <code>b</code> 的字典序要小。</p>
+
+<p>返回最终的回文字符串。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>s = "egcfe"
+<strong>输出：</strong>"efcfe"
+<strong>解释：</strong>将 "egcfe" 变成回文字符串的最小操作次数为 1 ，修改 1 次得到的字典序最小回文字符串是 "efcfe"，只需将 'g' 改为 'f' 。
+</pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>s = "abcd"
+<strong>输出：</strong>"abba"
+<strong>解释：</strong>将 "abcd" 变成回文字符串的最小操作次数为 2 ，修改 2 次得到的字典序最小回文字符串是 "abba" 。
+</pre>
+
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>s = "seven"
+<strong>输出：</strong>"neven"
+<strong>解释：</strong>将 "seven" 变成回文字符串的最小操作次数为 1 ，修改 1 次得到的字典序最小回文字符串是 "neven" 。</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 &lt;= s.length &lt;= 1000</code></li>
+	<li><code>s</code> 仅由小写英文字母组成</li>
+</ul>
+
+## 解法
+
+<!-- 这里可写通用的实现逻辑 -->
+
+**方法一：贪心 + 双指针**
+
+我们用两个指针 $i$ 和 $j$ 分别指向字符串的首尾，初始时 $i=0,j=n-1$，其中 $n$ 是字符串的长度。每次比较 $s[i]$ 和 $s[j]$，如果二者不相同，则将其中较大的字符修改为较小的字符，使得两者相同。这样在修改之后，原字符串 $s$ 就变成了一个回文串。
+
+时间复杂度 $O(n)$，其中 $n$ 是字符串的长度。我们只需要遍历一遍字符串即可。忽略答案的空间消耗，空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+### **Python3**
+
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```python
+class Solution:
+    def makeSmallestPalindrome(self, s: str) -> str:
+        i, j = 0, len(s) - 1
+        cs = list(s)
+        while i < j:
+            if s[i] != s[j]:
+                cs[i] = cs[j] = min(s[i], s[j])
+            i, j = i + 1, j - 1
+        return "".join(cs)
+```
+
+### **Java**
+
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```java
+class Solution {
+    public String makeSmallestPalindrome(String s) {
+        char[] cs = s.toCharArray();
+        for (int i = 0, j = cs.length - 1; i < j; ++i, --j) {
+            if (cs[i] != cs[j]) {
+                cs[i] = cs[j] = cs[i] < cs[j] ? cs[i] : cs[j];
+            }
+        }
+        return String.valueOf(cs);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string makeSmallestPalindrome(string s) {
+        for (int i = 0, j = s.size() - 1; i < j; ++i, --j) {
+            if (s[i] != s[j]) {
+                s[i] = s[j] = s[i] < s[j] ? s[i] : s[j];
+            }
+        }
+        return s;
+    }
+};
+```
+
+### **Go**
+
+```go
+func makeSmallestPalindrome(s string) string {
+	cs := []byte(s)
+	for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
+		if cs[i] != cs[j] {
+			if cs[i] < cs[j] {
+				cs[j] = cs[i]
+			} else {
+				cs[i] = cs[j]
+			}
+		}
+	}
+	return string(cs)
+}
+```
+
+### **...**
+
+```
+
+```
+
+<!-- tabs:end -->
