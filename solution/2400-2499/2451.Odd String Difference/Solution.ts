@@ -1,17 +1,19 @@
 function oddString(words: string[]): string {
-    const n = words[0].length;
-    const map = new Map<string, [boolean, number]>();
-    words.forEach((word, i) => {
-        const diff: number[] = [];
-        for (let j = 1; j < n; j++) {
-            diff.push(word[j].charCodeAt(0) - word[j - 1].charCodeAt(0));
+    const d: Map<string, string[]> = new Map();
+    for (const s of words) {
+        const cs: number[] = [];
+        for (let i = 0; i < s.length - 1; ++i) {
+            cs.push(s[i + 1].charCodeAt(0) - s[i].charCodeAt(0));
         }
-        const k = diff.join();
-        map.set(k, [!map.has(k), i]);
-    });
-    for (const [isOnly, i] of map.values()) {
-        if (isOnly) {
-            return words[i];
+        const t = cs.join(',');
+        if (!d.has(t)) {
+            d.set(t, []);
+        }
+        d.get(t)!.push(s);
+    }
+    for (const [_, ss] of d) {
+        if (ss.length === 1) {
+            return ss[0];
         }
     }
     return '';

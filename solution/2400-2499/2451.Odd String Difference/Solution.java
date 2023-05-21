@@ -1,16 +1,19 @@
 class Solution {
     public String oddString(String[] words) {
-        Map<String, List<String>> cnt = new HashMap<>();
-        for (var w : words) {
-            List<String> d = new ArrayList<>();
-            for (int i = 0; i < w.length() - 1; ++i) {
-                d.add(String.valueOf(w.charAt(i + 1) - w.charAt(i)));
+        var d = new HashMap<String, List<String>>();
+        for (var s : words) {
+            int m = s.length();
+            var cs = new char[m - 1];
+            for (int i = 0; i < m - 1; ++i) {
+                cs[i] = (char) (s.charAt(i + 1) - s.charAt(i));
             }
-            cnt.computeIfAbsent(String.join(",", d), k -> new ArrayList<>()).add(w);
+            var t = String.valueOf(cs);
+            d.putIfAbsent(t, new ArrayList<>());
+            d.get(t).add(s);
         }
-        for (var v : cnt.values()) {
-            if (v.size() == 1) {
-                return v.get(0);
+        for (var ss : d.values()) {
+            if (ss.size() == 1) {
+                return ss.get(0);
             }
         }
         return "";

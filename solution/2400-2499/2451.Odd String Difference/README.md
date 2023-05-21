@@ -57,9 +57,9 @@
 
 **方法一：哈希表模拟**
 
-我们用哈希表 `cnt` 存放每个差值数组以及其对应的字符串列表，然后遍历每个字符串列表，找到其中长度为 $1$ 的列表，返回对应的元素即可。
+我们用哈希表 $d$ 维护字符串的差值数组和字符串的映射关系，其中差值数组为字符串的相邻字符的差值构成的数组。由于题目保证了除了一个字符串以外，其他字符串的差值数组都相同，因此我们只需要找到差值数组不同的字符串即可。
 
-时间复杂度 $O(m\times n)$，其中 $m$ 和 $n$ 分别为字符串数组 `words` 的长度和字符串的平均长度。
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别为字符串的长度和字符串的个数。
 
 <!-- tabs:start -->
 
@@ -70,11 +70,11 @@
 ```python
 class Solution:
     def oddString(self, words: List[str]) -> str:
-        cnt = defaultdict(list)
-        for w in words:
-            d = [str(ord(b) - ord(a)) for a, b in pairwise(w)]
-            cnt[','.join(d)].append(w)
-        return next(v[0] for v in cnt.values() if len(v) == 1)
+        d = defaultdict(list)
+        for s in words:
+            t = tuple(ord(b) - ord(a) for a, b in pairwise(s))
+            d[t].append(s)
+        return next(ss[0] for ss in d.values() if len(ss) == 1)
 ```
 
 ### **Java**
@@ -84,17 +84,20 @@ class Solution:
 ```java
 class Solution {
     public String oddString(String[] words) {
-        Map<String, List<String>> cnt = new HashMap<>();
-        for (var w : words) {
-            List<String> d = new ArrayList<>();
-            for (int i = 0; i < w.length() - 1; ++i) {
-                d.add(String.valueOf(w.charAt(i + 1) - w.charAt(i)));
+        var d = new HashMap<String, List<String>>();
+        for (var s : words) {
+            int m = s.length();
+            var cs = new char[m - 1];
+            for (int i = 0; i < m - 1; ++i) {
+                cs[i] = (char) (s.charAt(i + 1) - s.charAt(i));
             }
-            cnt.computeIfAbsent(String.join(",", d), k -> new ArrayList<>()).add(w);
+            var t = String.valueOf(cs);
+            d.putIfAbsent(t, new ArrayList<>());
+            d.get(t).add(s);
         }
-        for (var v : cnt.values()) {
-            if (v.size() == 1) {
-                return v.get(0);
+        for (var ss : d.values()) {
+            if (ss.size() == 1) {
+                return ss.get(0);
             }
         }
         return "";
@@ -131,18 +134,19 @@ public:
 
 ```go
 func oddString(words []string) string {
-	cnt := map[string][]string{}
-	for _, w := range words {
-		d := make([]byte, len(w)-1)
-		for i := 0; i < len(w)-1; i++ {
-			d[i] = w[i+1] - w[i]
+	d := map[string][]string{}
+	for _, s := range words {
+		m := len(s)
+		cs := make([]byte, m-1)
+		for i := 0; i < m-1; i++ {
+			cs[i] = s[i+1] - s[i]
 		}
-		t := string(d)
-		cnt[t] = append(cnt[t], w)
+		t := string(cs)
+		d[t] = append(d[t], s)
 	}
-	for _, v := range cnt {
-		if len(v) == 1 {
-			return v[0]
+	for _, ss := range d {
+		if len(ss) == 1 {
+			return ss[0]
 		}
 	}
 	return ""
@@ -153,19 +157,21 @@ func oddString(words []string) string {
 
 ```ts
 function oddString(words: string[]): string {
-    const n = words[0].length;
-    const map = new Map<string, [boolean, number]>();
-    words.forEach((word, i) => {
-        const diff: number[] = [];
-        for (let j = 1; j < n; j++) {
-            diff.push(word[j].charCodeAt(0) - word[j - 1].charCodeAt(0));
+    const d: Map<string, string[]> = new Map();
+    for (const s of words) {
+        const cs: number[] = [];
+        for (let i = 0; i < s.length - 1; ++i) {
+            cs.push(s[i + 1].charCodeAt(0) - s[i].charCodeAt(0));
         }
-        const k = diff.join();
-        map.set(k, [!map.has(k), i]);
-    });
-    for (const [isOnly, i] of map.values()) {
-        if (isOnly) {
-            return words[i];
+        const t = cs.join(',');
+        if (!d.has(t)) {
+            d.set(t, []);
+        }
+        d.get(t)!.push(s);
+    }
+    for (const [_, ss] of d) {
+        if (ss.length === 1) {
+            return ss[0];
         }
     }
     return '';
