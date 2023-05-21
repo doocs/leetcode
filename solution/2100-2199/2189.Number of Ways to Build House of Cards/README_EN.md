@@ -59,19 +59,124 @@ The third house of cards uses 2 cards.
 ### **Python3**
 
 ```python
+class Solution:
+    def houseOfCards(self, n: int) -> int:
+        @cache
+        def dfs(n: int, k: int) -> int:
+            x = 3 * k + 2
+            if x > n:
+                return 0
+            if x == n:
+                return 1
+            return dfs(n - x, k + 1) + dfs(n, k + 1)
 
+        return dfs(n, 0)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private Integer[][] f;
 
+    public int houseOfCards(int n) {
+        f = new Integer[n + 1][n / 3];
+        return dfs(n, 0);
+    }
+
+    private int dfs(int n, int k) {
+        int x = 3 * k + 2;
+        if (x > n) {
+            return 0;
+        }
+        if (x == n) {
+            return 1;
+        }
+        if (f[n][k] != null) {
+            return f[n][k];
+        }
+        return f[n][k] = dfs(n - x, k + 1) + dfs(n, k + 1);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int houseOfCards(int n) {
+        int f[n + 1][n / 3 + 1];
+        memset(f, -1, sizeof(f));
+        function<int(int, int)> dfs = [&](int n, int k) -> int {
+            int x = 3 * k + 2;
+            if (x > n) {
+                return 0;
+            }
+            if (x == n) {
+                return 1;
+            }
+            if (f[n][k] != -1) {
+                return f[n][k];
+            }
+            return f[n][k] = dfs(n - x, k + 1) + dfs(n, k + 1);
+        };
+        return dfs(n, 0);
+    }
+};
+```
+
+### **Go**
+
+```go
+func houseOfCards(n int) int {
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, n/3+1)
+		for j := range f[i] {
+			f[i][j] = -1
+		}
+	}
+	var dfs func(n, k int) int
+	dfs = func(n, k int) int {
+		x := 3*k + 2
+		if x > n {
+			return 0
+		}
+		if x == n {
+			return 1
+		}
+		if f[n][k] == -1 {
+			f[n][k] = dfs(n-x, k+1) + dfs(n, k+1)
+		}
+		return f[n][k]
+	}
+	return dfs(n, 0)
+}
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function houseOfCards(n: number): number {
+    const f: number[][] = Array(n + 1)
+        .fill(0)
+        .map(() => Array(Math.floor(n / 3) + 1).fill(-1));
+    const dfs = (n: number, k: number): number => {
+        const x = k * 3 + 2;
+        if (x > n) {
+            return 0;
+        }
+        if (x === n) {
+            return 1;
+        }
+        if (f[n][k] === -1) {
+            f[n][k] = dfs(n - x, k + 1) + dfs(n, k + 1);
+        }
+        return f[n][k];
+    };
+    return dfs(n, 0);
+}
 ```
 
 ### **...**

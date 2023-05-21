@@ -58,6 +58,22 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：记忆化搜索**
+
+我们注意到，每一层的卡片数量为 $3 \times k + 2$，并且每一层的卡片数量都不相同。因此，问题可以转化为：整数 $n$ 可以由多少种 $3 \times k + 2$ 的数相加得到。这是一个经典的背包问题，可以使用记忆化搜索解决。
+
+我们设计一个函数 $dfs(n, k)$，表示当前剩余卡片数量为 $n$，且当前层为 $k$ 时，可以构建多少不同的纸牌屋。那么答案就是 $dfs(n, 0)$。
+
+函数 $dfs(n, k)$ 的执行逻辑如下：
+
+-   如果 $3 \times k + 2 \gt n$，那么当前层无法放置任何卡片，返回 $0$；
+-   如果 $3 \times k + 2 = n$，那么当前层可以放置卡片，放置完毕后，整个纸牌屋已经构建完毕，返回 $1$；
+-   否则，我们可以选择不放置卡片，或者放置卡片。如果选择不放置卡片，那么剩余卡片数量不变，层数增加 $1$，即 $dfs(n, k + 1)$；如果选择放置卡片，那么剩余卡片数量减少 $3 \times k + 2$，层数增加 $1$，即 $dfs(n - (3 \times k + 2), k + 1)$。两者相加即为答案。
+
+过程中，我们可以使用记忆化搜索，避免重复计算。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为卡片数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -65,7 +81,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def houseOfCards(self, n: int) -> int:
+        @cache
+        def dfs(n: int, k: int) -> int:
+            x = 3 * k + 2
+            if x > n:
+                return 0
+            if x == n:
+                return 1
+            return dfs(n - x, k + 1) + dfs(n, k + 1)
 
+        return dfs(n, 0)
 ```
 
 ### **Java**
@@ -73,13 +100,107 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private Integer[][] f;
 
+    public int houseOfCards(int n) {
+        f = new Integer[n + 1][n / 3];
+        return dfs(n, 0);
+    }
+
+    private int dfs(int n, int k) {
+        int x = 3 * k + 2;
+        if (x > n) {
+            return 0;
+        }
+        if (x == n) {
+            return 1;
+        }
+        if (f[n][k] != null) {
+            return f[n][k];
+        }
+        return f[n][k] = dfs(n - x, k + 1) + dfs(n, k + 1);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int houseOfCards(int n) {
+        int f[n + 1][n / 3 + 1];
+        memset(f, -1, sizeof(f));
+        function<int(int, int)> dfs = [&](int n, int k) -> int {
+            int x = 3 * k + 2;
+            if (x > n) {
+                return 0;
+            }
+            if (x == n) {
+                return 1;
+            }
+            if (f[n][k] != -1) {
+                return f[n][k];
+            }
+            return f[n][k] = dfs(n - x, k + 1) + dfs(n, k + 1);
+        };
+        return dfs(n, 0);
+    }
+};
+```
+
+### **Go**
+
+```go
+func houseOfCards(n int) int {
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, n/3+1)
+		for j := range f[i] {
+			f[i][j] = -1
+		}
+	}
+	var dfs func(n, k int) int
+	dfs = func(n, k int) int {
+		x := 3*k + 2
+		if x > n {
+			return 0
+		}
+		if x == n {
+			return 1
+		}
+		if f[n][k] == -1 {
+			f[n][k] = dfs(n-x, k+1) + dfs(n, k+1)
+		}
+		return f[n][k]
+	}
+	return dfs(n, 0)
+}
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function houseOfCards(n: number): number {
+    const f: number[][] = Array(n + 1)
+        .fill(0)
+        .map(() => Array(Math.floor(n / 3) + 1).fill(-1));
+    const dfs = (n: number, k: number): number => {
+        const x = k * 3 + 2;
+        if (x > n) {
+            return 0;
+        }
+        if (x === n) {
+            return 1;
+        }
+        if (f[n][k] === -1) {
+            f[n][k] = dfs(n - x, k + 1) + dfs(n, k + 1);
+        }
+        return f[n][k];
+    };
+    return dfs(n, 0);
+}
 ```
 
 ### **...**
