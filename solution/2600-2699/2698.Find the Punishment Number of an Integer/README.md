@@ -54,7 +54,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：枚举**
+**方法一：枚举 + DFS**
 
 我们枚举 $i$，其中 $1 \leq i \leq n$，对于每个 $i$，我们将 $x = i^2$ 的十进制表示的字符串进行分割，然后判断是否满足题目要求。如果满足，我们就将 $x$ 累加到答案中。
 
@@ -196,6 +196,39 @@ func punishmentNumber(n int) (ans int) {
 		}
 	}
 	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function punishmentNumber(n: number): number {
+    const check = (s: string, i: number, x: number): boolean => {
+        const m = s.length;
+        if (i >= m) {
+            return x === 0;
+        }
+        let y = 0;
+        for (let j = i; j < m; ++j) {
+            y = y * 10 + Number(s[j]);
+            if (y > x) {
+                break;
+            }
+            if (check(s, j + 1, x - y)) {
+                return true;
+            }
+        }
+        return false;
+    };
+    let ans = 0;
+    for (let i = 1; i <= n; ++i) {
+        const x = i * i;
+        const s = x.toString();
+        if (check(s, 0, i)) {
+            ans += x;
+        }
+    }
+    return ans;
 }
 ```
 

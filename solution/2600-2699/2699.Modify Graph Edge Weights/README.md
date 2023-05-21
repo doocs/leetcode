@@ -69,6 +69,21 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：最短路（Dijkstra 算法）**
+
+我们先不考虑边权为 $-1$ 的边，使用 Dijkstra 算法求出从 $source$ 到 $destination$ 的最短距离 $d$。
+
+如果 $d \lt target$，说明存在一条完全由正权边组成的最短路径，此时无论我们如何修改边权为 $-1$ 的边，都无法使得 $source$ 到 $destination$ 的最短距离等于 $target$，因此不存在满足题意的修改方案，返回一个空数组即可。
+
+如果 $d = target$，说明存在一条完全由正权边组成的、长度为 $target$ 的最短路径，此时我们可以将所有边权为 $-1$ 的边修改为最大值 $2 \times 10^9$ 即可。
+
+如果 $d \gt target$，我们可以尝试往图中加入一条边权为 $-1$ 的边，将边权设置为 $1$，然后再次使用 Dijkstra 算法求出从 $source$ 到 $destination$ 的最短距离 $d$。
+
+-   如果最短距离 $d \leq target$，说明加入这条边后，可以使得最短路变短，而且最短路也一定经过这条边，那么我们只需要将这条边的边权改为 $target-d+1$，就可以使得最短路等于 $target$。然后我们将其余的边权为 $-1$ 的边修改为最大值 $2 \times 10^9$ 即可。
+-   如果最短距离 $d \gt target$，说明加入这条边后，最短路不会变短，那么我们贪心地将这条边的边权保持为 $-1$，然后继续尝试加入其余的边权为 $-1$ 的边。
+
+时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 是图中的点数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -76,7 +91,46 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def modifiedGraphEdges(
+        self, n: int, edges: List[List[int]], source: int, destination: int, target: int
+    ) -> List[List[int]]:
+        def dijkstra(edges: List[List[int]]) -> int:
+            g = [[inf] * n for _ in range(n)]
+            for a, b, w in edges:
+                if w == -1:
+                    continue
+                g[a][b] = g[b][a] = w
+            dist = [inf] * n
+            dist[source] = 0
+            vis = [False] * n
+            for _ in range(n):
+                k = -1
+                for j in range(n):
+                    if not vis[j] and (k == -1 or dist[k] > dist[j]):
+                        k = j
+                vis[k] = True
+                for j in range(n):
+                    dist[j] = min(dist[j], dist[k] + g[k][j])
+            return dist[destination]
 
+        inf = 2 * 10**9
+        d = dijkstra(edges)
+        if d < target:
+            return []
+        ok = d == target
+        for e in edges:
+            if e[2] > 0:
+                continue
+            if ok:
+                e[2] = inf
+                continue
+            e[2] = 1
+            d = dijkstra(edges)
+            if d <= target:
+                ok = True
+                e[2] += target - d
+        return edges if ok else []
 ```
 
 ### **Java**
@@ -84,19 +138,267 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private final int inf = 2000000000;
 
+    public int[][] modifiedGraphEdges(int n, int[][] edges, int source, int destination, int target) {
+        long d = dijkstra(edges, n, source, destination);
+        if (d < target) {
+            return new int[0][];
+        }
+        boolean ok = d == target;
+        for (var e : edges) {
+            if (e[2] > 0) {
+                continue;
+            }
+            if (ok) {
+                e[2] = inf;
+                continue;
+            }
+            e[2] = 1;
+            d = dijkstra(edges, n, source, destination);
+            if (d <= target) {
+                ok = true;
+                e[2] += target - d;
+            }
+        }
+        return ok ? edges : new int[0][];
+    }
+
+    private long dijkstra(int[][] edges, int n, int src, int dest) {
+        int[][] g = new int[n][n];
+        long[] dist = new long[n];
+        Arrays.fill(dist, inf);
+        dist[src] = 0;
+        for (var f : g) {
+            Arrays.fill(f, inf);
+        }
+        for (var e : edges) {
+            int a = e[0], b = e[1], w = e[2];
+            if (w == -1) {
+                continue;
+            }
+            g[a][b] = w;
+            g[b][a] = w;
+        }
+        boolean[] vis = new boolean[n];
+        for (int i = 0; i < n; ++i) {
+            int k = -1;
+            for (int j = 0; j < n; ++j) {
+                if (!vis[j] && (k == -1 || dist[k] > dist[j])) {
+                    k = j;
+                }
+            }
+            vis[k] = true;
+            for (int j = 0; j < n; ++j) {
+                dist[j] = Math.min(dist[j], dist[k] + g[k][j]);
+            }
+        }
+        return dist[dest];
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
+using ll = long long;
+const int inf = 2e9;
 
+class Solution {
+public:
+    vector<vector<int>> modifiedGraphEdges(int n, vector<vector<int>>& edges, int source, int destination, int target) {
+        ll d = dijkstra(edges, n, source, destination);
+        if (d < target) {
+            return {};
+        }
+        bool ok = d == target;
+        for (auto& e : edges) {
+            if (e[2] > 0) {
+                continue;
+            }
+            if (ok) {
+                e[2] = inf;
+                continue;
+            }
+            e[2] = 1;
+            d = dijkstra(edges, n, source, destination);
+            if (d <= target) {
+                ok = true;
+                e[2] += target - d;
+            }
+        }
+        return ok ? edges : vector<vector<int>>{};
+    }
+
+    ll dijkstra(vector<vector<int>>& edges, int n, int src, int dest) {
+        ll g[n][n];
+        ll dist[n];
+        bool vis[n];
+        for (int i = 0; i < n; ++i) {
+            fill(g[i], g[i] + n, inf);
+            dist[i] = inf;
+            vis[i] = false;
+        }
+        dist[src] = 0;
+        for (auto& e : edges) {
+            int a = e[0], b = e[1], w = e[2];
+            if (w == -1) {
+                continue;
+            }
+            g[a][b] = w;
+            g[b][a] = w;
+        }
+        for (int i = 0; i < n; ++i) {
+            int k = -1;
+            for (int j = 0; j < n; ++j) {
+                if (!vis[j] && (k == -1 || dist[j] < dist[k])) {
+                    k = j;
+                }
+            }
+            vis[k] = true;
+            for (int j = 0; j < n; ++j) {
+                dist[j] = min(dist[j], dist[k] + g[k][j]);
+            }
+        }
+        return dist[dest];
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func modifiedGraphEdges(n int, edges [][]int, source int, destination int, target int) [][]int {
+	const inf int = 2e9
+	dijkstra := func(edges [][]int) int {
+		g := make([][]int, n)
+		dist := make([]int, n)
+		vis := make([]bool, n)
+		for i := range g {
+			g[i] = make([]int, n)
+			for j := range g[i] {
+				g[i][j] = inf
+			}
+			dist[i] = inf
+		}
+		dist[source] = 0
+		for _, e := range edges {
+			a, b, w := e[0], e[1], e[2]
+			if w == -1 {
+				continue
+			}
+			g[a][b], g[b][a] = w, w
+		}
+		for i := 0; i < n; i++ {
+			k := -1
+			for j := 0; j < n; j++ {
+				if !vis[j] && (k == -1 || dist[j] < dist[k]) {
+					k = j
+				}
+			}
+			vis[k] = true
+			for j := 0; j < n; j++ {
+				dist[j] = min(dist[j], dist[k]+g[k][j])
+			}
+		}
+		return dist[destination]
+	}
+	d := dijkstra(edges)
+	if d < target {
+		return [][]int{}
+	}
+	ok := d == target
+	for _, e := range edges {
+		if e[2] > 0 {
+			continue
+		}
+		if ok {
+			e[2] = inf
+			continue
+		}
+		e[2] = 1
+		d := dijkstra(edges)
+		if d <= target {
+			ok = true
+			e[2] += target - d
+		}
+	}
+	if ok {
+		return edges
+	}
+	return [][]int{}
+}
 
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function modifiedGraphEdges(
+    n: number,
+    edges: number[][],
+    source: number,
+    destination: number,
+    target: number,
+): number[][] {
+    const inf = 2e9;
+    const dijkstra = (edges: number[][]): number => {
+        const g: number[][] = Array(n)
+            .fill(0)
+            .map(() => Array(n).fill(inf));
+        const dist: number[] = Array(n).fill(inf);
+        const vis: boolean[] = Array(n).fill(false);
+        for (const [a, b, w] of edges) {
+            if (w === -1) {
+                continue;
+            }
+            g[a][b] = w;
+            g[b][a] = w;
+        }
+        dist[source] = 0;
+        for (let i = 0; i < n; ++i) {
+            let k = -1;
+            for (let j = 0; j < n; ++j) {
+                if (!vis[j] && (k === -1 || dist[j] < dist[k])) {
+                    k = j;
+                }
+            }
+            vis[k] = true;
+            for (let j = 0; j < n; ++j) {
+                dist[j] = Math.min(dist[j], dist[k] + g[k][j]);
+            }
+        }
+        return dist[destination];
+    };
+    let d = dijkstra(edges);
+    if (d < target) {
+        return [];
+    }
+    let ok = d === target;
+    for (const e of edges) {
+        if (e[2] > 0) {
+            continue;
+        }
+        if (ok) {
+            e[2] = inf;
+            continue;
+        }
+        e[2] = 1;
+        d = dijkstra(edges);
+        if (d <= target) {
+            ok = true;
+            e[2] += target - d;
+        }
+    }
+    return ok ? edges : [];
+}
 ```
 
 ### **...**
