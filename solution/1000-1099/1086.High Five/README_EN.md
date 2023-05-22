@@ -48,18 +48,17 @@ The student with ID = 2 got scores 93, 97, 77, 100, and 76. Their top five avera
 ```python
 class Solution:
     def highFive(self, items: List[List[int]]) -> List[List[int]]:
-        s = [None] * 101
-        for i, score in items:
-            if s[i] is None:
-                s[i] = []
-            s[i].append(score)
-        res = []
-        for i, scores in enumerate(s):
-            if scores is None:
-                continue
-            avg = sum(nlargest(5, scores)) // 5
-            res.append([i, avg])
-        return res
+        d = defaultdict(list)
+        m = 0
+        for i, x in items:
+            d[i].append(x)
+            m = max(m, i)
+        ans = []
+        for i in range(1, m + 1):
+            if xs := d[i]:
+                avg = sum(nlargest(5, xs)) // 5
+                ans.append([i, avg])
+        return ans
 ```
 
 ### **Java**
@@ -67,40 +66,100 @@ class Solution:
 ```java
 class Solution {
     public int[][] highFive(int[][] items) {
-        int size = 0;
-        PriorityQueue[] s = new PriorityQueue[101];
-        int n = 5;
-        for (int[] item : items) {
-            int i = item[0], score = item[1];
-            if (s[i] == null) {
-                ++size;
-                s[i] = new PriorityQueue<>(n);
-            }
-            s[i].offer(score);
-            if (s[i].size() > n) {
-                s[i].poll();
+        List<Integer>[] d = new List[1001];
+        Arrays.setAll(d, k -> new ArrayList<>());
+        for (var item : items) {
+            int i = item[0], x = item[1];
+            d[i].add(x);
+        }
+        for (var xs : d) {
+            xs.sort((a, b) -> b - a);
+        }
+        List<int[]> ans = new ArrayList<>();
+        for (int i = 1; i <= 1000; ++i) {
+            var xs = d[i];
+            if (!xs.isEmpty()) {
+                int s = 0;
+                for (int j = 0; j < 5; ++j) {
+                    s += xs.get(j);
+                }
+                ans.add(new int[]{i, s / 5});
             }
         }
-        int[][] res = new int[size][2];
-        int j = 0;
-        for (int i = 0; i < 101; ++i) {
-            if (s[i] == null) {
-                continue;
-            }
-            int avg = sum(s[i]) / n;
-            res[j][0] = i;
-            res[j++][1] = avg;
-        }
-        return res;
+        return ans.toArray(new int[0][]);
     }
+}
+```
 
-    private int sum(PriorityQueue<Integer> q) {
-        int s = 0;
-        while (!q.isEmpty()) {
-            s += q.poll();
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> highFive(vector<vector<int>>& items) {
+        vector<int> d[1001];
+        for (auto& item : items) {
+            int i = item[0], x = item[1];
+            d[i].push_back(x);
         }
-        return s;
+        vector<vector<int>> ans;
+        for (int i = 1; i <= 1000; ++i) {
+            if (!d[i].empty()) {
+                sort(d[i].begin(), d[i].end(), greater<int>());
+                int s = 0;
+                for (int j = 0; j < 5; ++j) {
+                    s += d[i][j];
+                }
+                ans.push_back({i, s / 5});
+            }
+        }
+        return ans;
     }
+};
+```
+
+### **Go**
+
+```go
+func highFive(items [][]int) (ans [][]int) {
+	d := make([][]int, 1001)
+	for _, item := range items {
+		i, x := item[0], item[1]
+		d[i] = append(d[i], x)
+	}
+	for i := 1; i <= 1000; i++ {
+		if len(d[i]) > 0 {
+			sort.Ints(d[i])
+			s := 0
+			for j := len(d[i]) - 1; j >= len(d[i])-5; j-- {
+				s += d[i][j]
+			}
+			ans = append(ans, []int{i, s / 5})
+		}
+	}
+	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function highFive(items: number[][]): number[][] {
+    const d: number[][] = Array(1001)
+        .fill(0)
+        .map(() => Array(0));
+    for (const [i, x] of items) {
+        d[i].push(x);
+    }
+    const ans: number[][] = [];
+    for (let i = 1; i <= 1000; ++i) {
+        if (d[i].length > 0) {
+            d[i].sort((a, b) => b - a);
+            const s = d[i].slice(0, 5).reduce((a, b) => a + b);
+            ans.push([i, Math.floor(s / 5)]);
+        }
+    }
+    return ans;
 }
 ```
 
