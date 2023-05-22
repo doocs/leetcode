@@ -60,7 +60,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：贪心**
+**方法一：贪心 + 排序 + 哈希表**
+
+根据题目描述，我们需要从 $n$ 个元素的集合中选出一个子集，子集元素个数不超过 $numWanted$，且子集中最多有相同标签的 $useLimit$ 项，使得子集的值之和最大。因此，我们应该贪心地选择集合中值较大的元素，同时记录每个标签出现的次数，当某个标签出现的次数达到 $useLimit$ 时，我们就不能再选择该标签对应的元素了。
+
+具体地，我们先将集合中的元素按照值从大到小进行排序，然后从前向后遍历排序后的元素。在遍历的过程中，我们使用一个哈希表 $cnt$ 记录每个标签出现的次数，如果某个标签出现的次数达到了 $useLimit$，那么我们就跳过该元素，否则我们就将该元素的值加到最终的答案中，并将该标签出现的次数加 $1$。同时，我们用一个变量 $num$ 记录当前子集中的元素个数，当 $num$ 达到 $numWanted$ 时，我们就可以结束遍历了。
+
+遍历结束后，我们就得到了最大的分数。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是集合中的元素个数。
 
 <!-- tabs:start -->
 
@@ -73,17 +81,15 @@ class Solution:
     def largestValsFromLabels(
         self, values: List[int], labels: List[int], numWanted: int, useLimit: int
     ) -> int:
-        arr = list(zip(values, labels))
-        arr.sort(reverse=True)
-        cnt = Counter()
         ans = num = 0
-        for v, l in arr:
+        cnt = Counter()
+        for v, l in sorted(zip(values, labels), reverse=True):
             if cnt[l] < useLimit:
                 cnt[l] += 1
                 num += 1
                 ans += v
-            if num == numWanted:
-                break
+                if num == numWanted:
+                    break
         return ans
 ```
 
@@ -95,20 +101,19 @@ class Solution:
 class Solution {
     public int largestValsFromLabels(int[] values, int[] labels, int numWanted, int useLimit) {
         int n = values.length;
-        int[][] p = new int[n][2];
+        int[][] pairs = new int[n][2];
         for (int i = 0; i < n; ++i) {
-            p[i] = new int[] {values[i], labels[i]};
+            pairs[i] = new int[]{values[i], labels[i]};
         }
-        Arrays.sort(p, (a, b) -> b[0] - a[0]);
-        int ans = 0;
-        int num = 0;
-        Map<Integer, Integer> counter = new HashMap<>();
+        Arrays.sort(pairs, (a, b) -> b[0] - a[0]);
+        Map<Integer, Integer> cnt = new HashMap<>();
+        int ans = 0, num = 0;
         for (int i = 0; i < n && num < numWanted; ++i) {
-            int v = p[i][0], l = p[i][1];
-            if (counter.getOrDefault(l, 0) < useLimit) {
-                counter.put(l, counter.getOrDefault(l, 0) + 1);
+            int v = pairs[i][0], l = pairs[i][1];
+            if (cnt.getOrDefault(l, 0) < useLimit) {
+                cnt.merge(l, 1, Integer::sum);
+                num += 1;
                 ans += v;
-                ++num;
             }
         }
         return ans;
@@ -123,15 +128,17 @@ class Solution {
 public:
     int largestValsFromLabels(vector<int>& values, vector<int>& labels, int numWanted, int useLimit) {
         int n = values.size();
-        vector<pair<int, int>> p;
-        for (int i = 0; i < n; ++i) p.emplace_back(values[i], labels[i]);
-        sort(p.begin(), p.end());
-        unordered_map<int, int> counter;
+        vector<pair<int, int>> pairs(n);
+        for (int i = 0; i < n; ++i) {
+            pairs[i] = {-values[i], labels[i]};
+        }
+        sort(pairs.begin(), pairs.end());
+        unordered_map<int, int> cnt;
         int ans = 0, num = 0;
-        for (int i = n - 1; i >= 0 && num < numWanted; --i) {
-            int v = p[i].first, l = p[i].second;
-            if (counter[l] < useLimit) {
-                ++counter[l];
+        for (int i = 0; i < n && num < numWanted; ++i) {
+            int v = -pairs[i].first, l = pairs[i].second;
+            if (cnt[l] < useLimit) {
+                ++cnt[l];
                 ++num;
                 ans += v;
             }
@@ -144,28 +151,52 @@ public:
 ### **Go**
 
 ```go
-func largestValsFromLabels(values []int, labels []int, numWanted int, useLimit int) int {
-	var p [][]int
-	for i, v := range values {
-		p = append(p, []int{v, labels[i]})
+func largestValsFromLabels(values []int, labels []int, numWanted int, useLimit int) (ans int) {
+	n := len(values)
+	pairs := make([][2]int, n)
+	for i := 0; i < n; i++ {
+		pairs[i] = [2]int{values[i], labels[i]}
 	}
-	sort.Slice(p, func(i, j int) bool {
-		return p[i][0] > p[j][0]
-	})
-	counter := make(map[int]int)
-	ans, num := 0, 0
-	for _, t := range p {
-		if num >= numWanted {
-			break
-		}
-		v, l := t[0], t[1]
-		if counter[l] < useLimit {
-			counter[l]++
+	sort.Slice(pairs, func(i, j int) bool { return pairs[i][0] > pairs[j][0] })
+	cnt := map[int]int{}
+	for i, num := 0, 0; i < n && num < numWanted; i++ {
+		v, l := pairs[i][0], pairs[i][1]
+		if cnt[l] < useLimit {
+			cnt[l]++
 			num++
 			ans += v
 		}
 	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function largestValsFromLabels(
+    values: number[],
+    labels: number[],
+    numWanted: number,
+    useLimit: number,
+): number {
+    const n = values.length;
+    const pairs = new Array(n);
+    for (let i = 0; i < n; ++i) {
+        pairs[i] = [values[i], labels[i]];
+    }
+    pairs.sort((a, b) => b[0] - a[0]);
+    const cnt: Map<number, number> = new Map();
+    let ans = 0;
+    for (let i = 0, num = 0; i < n && num < numWanted; ++i) {
+        const [v, l] = pairs[i];
+        if ((cnt.get(l) || 0) < useLimit) {
+            cnt.set(l, (cnt.get(l) || 0) + 1);
+            ++num;
+            ans += v;
+        }
+    }
+    return ans;
 }
 ```
 

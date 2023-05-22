@@ -1,23 +1,18 @@
-func largestValsFromLabels(values []int, labels []int, numWanted int, useLimit int) int {
-	var p [][]int
-	for i, v := range values {
-		p = append(p, []int{v, labels[i]})
+func largestValsFromLabels(values []int, labels []int, numWanted int, useLimit int) (ans int) {
+	n := len(values)
+	pairs := make([][2]int, n)
+	for i := 0; i < n; i++ {
+		pairs[i] = [2]int{values[i], labels[i]}
 	}
-	sort.Slice(p, func(i, j int) bool {
-		return p[i][0] > p[j][0]
-	})
-	counter := make(map[int]int)
-	ans, num := 0, 0
-	for _, t := range p {
-		if num >= numWanted {
-			break
-		}
-		v, l := t[0], t[1]
-		if counter[l] < useLimit {
-			counter[l]++
+	sort.Slice(pairs, func(i, j int) bool { return pairs[i][0] > pairs[j][0] })
+	cnt := map[int]int{}
+	for i, num := 0, 0; i < n && num < numWanted; i++ {
+		v, l := pairs[i][0], pairs[i][1]
+		if cnt[l] < useLimit {
+			cnt[l]++
 			num++
 			ans += v
 		}
 	}
-	return ans
+	return
 }
