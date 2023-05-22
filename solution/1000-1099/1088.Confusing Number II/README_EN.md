@@ -58,13 +58,167 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def confusingNumberII(self, n: int) -> int:
+        def check(x: int) -> bool:
+            y, t = 0, x
+            while t:
+                t, v = divmod(t, 10)
+                y = y * 10 + d[v]
+            return x != y
 
+        def dfs(pos: int, limit: bool, x: int) -> int:
+            if pos >= len(s):
+                return int(check(x))
+            up = int(s[pos]) if limit else 9
+            ans = 0
+            for i in range(up + 1):
+                if d[i] != -1:
+                    ans += dfs(pos + 1, limit and i == up, x * 10 + i)
+            return ans
+
+        d = [0, 1, -1, -1, -1, -1, 9, -1, 8, 6]
+        s = str(n)
+        return dfs(0, True, 0)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private final int[] d = {0, 1, -1, -1, -1, -1, 9, -1, 8, 6};
+    private String s;
 
+    public int confusingNumberII(int n) {
+        s = String.valueOf(n);
+        return dfs(0, 1, 0);
+    }
+
+    private int dfs(int pos, int limit, int x) {
+        if (pos >= s.length()) {
+            return check(x) ? 1 : 0;
+        }
+        int up = limit == 1 ? s.charAt(pos) - '0' : 9;
+        int ans = 0;
+        for (int i = 0; i <= up; ++i) {
+            if (d[i] != -1) {
+                ans += dfs(pos + 1, limit == 1 && i == up ? 1 : 0, x * 10 + i);
+            }
+        }
+        return ans;
+    }
+
+    private boolean check(int x) {
+        int y = 0;
+        for (int t = x; t > 0; t /= 10) {
+            int v = t % 10;
+            y = y * 10 + d[v];
+        }
+        return x != y;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int confusingNumberII(int n) {
+        string s = to_string(n);
+        int d[10] = {0, 1, -1, -1, -1, -1, 9, -1, 8, 6};
+        auto check = [&](int x) -> bool {
+            int y = 0;
+            for (int t = x; t; t /= 10) {
+                int v = t % 10;
+                y = y * 10 + d[v];
+            }
+            return x != y;
+        };
+        function<int(int, int, int)> dfs = [&](int pos, int limit, int x) -> int {
+            if (pos >= s.size()) {
+                return check(x);
+            }
+            int up = limit ? s[pos] - '0' : 9;
+            int ans = 0;
+            for (int i = 0; i <= up; ++i) {
+                if (d[i] != -1) {
+                    ans += dfs(pos + 1, limit && i == up, x * 10 + i);
+                }
+            }
+            return ans;
+        };
+        return dfs(0, 1, 0);
+    }
+};
+```
+
+### **Go**
+
+```go
+func confusingNumberII(n int) int {
+	d := [10]int{0, 1, -1, -1, -1, -1, 9, -1, 8, 6}
+	s := strconv.Itoa(n)
+	check := func(x int) bool {
+		y := 0
+		for t := x; t > 0; t /= 10 {
+			v := t % 10
+			y = y*10 + d[v]
+		}
+		return x != y
+	}
+	var dfs func(pos int, limit bool, x int) int
+	dfs = func(pos int, limit bool, x int) (ans int) {
+		if pos >= len(s) {
+			if check(x) {
+				return 1
+			}
+			return 0
+		}
+		up := 9
+		if limit {
+			up = int(s[pos] - '0')
+		}
+		for i := 0; i <= up; i++ {
+			if d[i] != -1 {
+				ans += dfs(pos+1, limit && i == up, x*10+i)
+			}
+		}
+		return
+	}
+	return dfs(0, true, 0)
+}
+```
+
+### **TypeScript**
+
+```ts
+function confusingNumberII(n: number): number {
+    const s = n.toString();
+    const d: number[] = [0, 1, -1, -1, -1, -1, 9, -1, 8, 6];
+    const check = (x: number) => {
+        let y = 0;
+        for (let t = x; t > 0; t = Math.floor(t / 10)) {
+            const v = t % 10;
+            y = y * 10 + d[v];
+        }
+        return x !== y;
+    };
+    const dfs = (pos: number, limit: boolean, x: number): number => {
+        if (pos >= s.length) {
+            return check(x) ? 1 : 0;
+        }
+        const up = limit ? parseInt(s[pos]) : 9;
+        let ans = 0;
+        for (let i = 0; i <= up; ++i) {
+            if (d[i] !== -1) {
+                ans += dfs(pos + 1, limit && i === up, x * 10 + i);
+            }
+        }
+        return ans;
+    };
+    return dfs(0, true, 0);
+}
 ```
 
 ### **...**

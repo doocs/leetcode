@@ -59,6 +59,26 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：数位 DP**
+
+我们先将数字 $n$ 转成字符串 $s$。
+
+接下来，我们定义一个函数 $check(x)$，用来判断 $x$ 在旋转 $180^\circ$ 之后是否变成了一个不同的数。如果 $x$ 在旋转 $180^\circ$ 之后变成了一个不同的数，那么我们就称 $x$ 是一个易混淆数。
+
+然后，我们定义另一个函数 $dfs(pos, limit, x)$，用于搜索从高位到低位的每一位。其中：
+
+-   参数 $pos$ 表示当前搜索到的位置，初始时为 $0$；
+-   参数 $limit$ 表示当前搜索的数是否受到上界的限制，初始时为 $true$；
+-   参数 $x$ 表示当前搜索的数，初始时为 $0$。
+
+在 $dfs(pos, limit, x)$ 中，如果 $pos \geq len(s)$，那么我们就判断 $x$ 是否是一个易混淆数，如果是则返回 $1$，否则返回 $0$。
+
+否则，我们计算出当前位置上的数字的上界 $up$，然后枚举当前位置上的数字 $i$，如果 $i$ 在旋转 $180^\circ$ 之后不是一个数字，那么我们就直接跳过这个数字。否则，我们将 $x$ 更新为 $x \times 10 + i$，并根据 $limit$ 的值决定下一步搜索的时候是否受到上界的限制，最后将答案返回。
+
+最终的答案即为 $dfs(0, true, 0)$。
+
+时间复杂度 $O(5^{\log_{10}n})$，空间复杂度 $O(\log_{10}n)$。其中 $5^{\log_{10}n}$ 表示 $n$ 的位数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -66,7 +86,28 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def confusingNumberII(self, n: int) -> int:
+        def check(x: int) -> bool:
+            y, t = 0, x
+            while t:
+                t, v = divmod(t, 10)
+                y = y * 10 + d[v]
+            return x != y
 
+        def dfs(pos: int, limit: bool, x: int) -> int:
+            if pos >= len(s):
+                return int(check(x))
+            up = int(s[pos]) if limit else 9
+            ans = 0
+            for i in range(up + 1):
+                if d[i] != -1:
+                    ans += dfs(pos + 1, limit and i == up, x * 10 + i)
+            return ans
+
+        d = [0, 1, -1, -1, -1, -1, 9, -1, 8, 6]
+        s = str(n)
+        return dfs(0, True, 0)
 ```
 
 ### **Java**
@@ -74,7 +115,140 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private final int[] d = {0, 1, -1, -1, -1, -1, 9, -1, 8, 6};
+    private String s;
 
+    public int confusingNumberII(int n) {
+        s = String.valueOf(n);
+        return dfs(0, 1, 0);
+    }
+
+    private int dfs(int pos, int limit, int x) {
+        if (pos >= s.length()) {
+            return check(x) ? 1 : 0;
+        }
+        int up = limit == 1 ? s.charAt(pos) - '0' : 9;
+        int ans = 0;
+        for (int i = 0; i <= up; ++i) {
+            if (d[i] != -1) {
+                ans += dfs(pos + 1, limit == 1 && i == up ? 1 : 0, x * 10 + i);
+            }
+        }
+        return ans;
+    }
+
+    private boolean check(int x) {
+        int y = 0;
+        for (int t = x; t > 0; t /= 10) {
+            int v = t % 10;
+            y = y * 10 + d[v];
+        }
+        return x != y;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int confusingNumberII(int n) {
+        string s = to_string(n);
+        int d[10] = {0, 1, -1, -1, -1, -1, 9, -1, 8, 6};
+        auto check = [&](int x) -> bool {
+            int y = 0;
+            for (int t = x; t; t /= 10) {
+                int v = t % 10;
+                y = y * 10 + d[v];
+            }
+            return x != y;
+        };
+        function<int(int, int, int)> dfs = [&](int pos, int limit, int x) -> int {
+            if (pos >= s.size()) {
+                return check(x);
+            }
+            int up = limit ? s[pos] - '0' : 9;
+            int ans = 0;
+            for (int i = 0; i <= up; ++i) {
+                if (d[i] != -1) {
+                    ans += dfs(pos + 1, limit && i == up, x * 10 + i);
+                }
+            }
+            return ans;
+        };
+        return dfs(0, 1, 0);
+    }
+};
+```
+
+### **Go**
+
+```go
+func confusingNumberII(n int) int {
+	d := [10]int{0, 1, -1, -1, -1, -1, 9, -1, 8, 6}
+	s := strconv.Itoa(n)
+	check := func(x int) bool {
+		y := 0
+		for t := x; t > 0; t /= 10 {
+			v := t % 10
+			y = y*10 + d[v]
+		}
+		return x != y
+	}
+	var dfs func(pos int, limit bool, x int) int
+	dfs = func(pos int, limit bool, x int) (ans int) {
+		if pos >= len(s) {
+			if check(x) {
+				return 1
+			}
+			return 0
+		}
+		up := 9
+		if limit {
+			up = int(s[pos] - '0')
+		}
+		for i := 0; i <= up; i++ {
+			if d[i] != -1 {
+				ans += dfs(pos+1, limit && i == up, x*10+i)
+			}
+		}
+		return
+	}
+	return dfs(0, true, 0)
+}
+```
+
+### **TypeScript**
+
+```ts
+function confusingNumberII(n: number): number {
+    const s = n.toString();
+    const d: number[] = [0, 1, -1, -1, -1, -1, 9, -1, 8, 6];
+    const check = (x: number) => {
+        let y = 0;
+        for (let t = x; t > 0; t = Math.floor(t / 10)) {
+            const v = t % 10;
+            y = y * 10 + d[v];
+        }
+        return x !== y;
+    };
+    const dfs = (pos: number, limit: boolean, x: number): number => {
+        if (pos >= s.length) {
+            return check(x) ? 1 : 0;
+        }
+        const up = limit ? parseInt(s[pos]) : 9;
+        let ans = 0;
+        for (let i = 0; i <= up; ++i) {
+            if (d[i] !== -1) {
+                ans += dfs(pos + 1, limit && i === up, x * 10 + i);
+            }
+        }
+        return ans;
+    };
+    return dfs(0, true, 0);
+}
 ```
 
 ### **...**
