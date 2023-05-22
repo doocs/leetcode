@@ -36,6 +36,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：枚举**
+
+我们可以枚举数字的第一位 $i$，然后枚举数字的最后一位 $j$，那么这个数字就是 $i,i+1,\cdots,j$ 这 $j-i+1$ 个数字组成的。我们可以通过不断地将数字乘以 $10$ 并加上下一个数字 $j+1$ 来得到下一个数字，如果数字在 $[low, high]$ 的范围内，我们就将它加入答案中。
+
+枚举结束后，我们将答案数组排序并返回即可。
+
+时间复杂度近似 $O(1)$，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -43,7 +51,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def sequentialDigits(self, low: int, high: int) -> List[int]:
+        ans = []
+        for i in range(1, 9):
+            x = i
+            for j in range(i + 1, 10):
+                x = x * 10 + j
+                if low <= x <= high:
+                    ans.append(x)
+        return sorted(ans)
 ```
 
 ### **Java**
@@ -51,7 +68,81 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public List<Integer> sequentialDigits(int low, int high) {
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 1; i < 9; ++i) {
+            int x = i;
+            for (int j = i + 1; j < 10; ++j) {
+                x = x * 10 + j;
+                if (x >= low && x <= high) {
+                    ans.add(x);
+                }
+            }
+        }
+        Collections.sort(ans);
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> sequentialDigits(int low, int high) {
+        vector<int> ans;
+        for (int i = 1; i < 9; ++i) {
+            int x = i;
+            for (int j = i + 1; j < 10; ++j) {
+                x = x * 10 + j;
+                if (x >= low && x <= high) {
+                    ans.push_back(x);
+                }
+            }
+        }
+        sort(ans.begin(), ans.end());
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func sequentialDigits(low int, high int) (ans []int) {
+	for i := 1; i < 9; i++ {
+		x := i
+		for j := i + 1; j < 10; j++ {
+			x = x*10 + j
+			if low <= x && x <= high {
+				ans = append(ans, x)
+			}
+		}
+	}
+	sort.Ints(ans)
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function sequentialDigits(low: number, high: number): number[] {
+    const ans: number[] = [];
+    for (let i = 1; i < 9; ++i) {
+        let x = i;
+        for (let j = i + 1; j < 10; ++j) {
+            x = x * 10 + j;
+            if (x >= low && x <= high) {
+                ans.push(x);
+            }
+        }
+    }
+    ans.sort((a, b) => a - b);
+    return ans;
+}
 ```
 
 ### **...**
