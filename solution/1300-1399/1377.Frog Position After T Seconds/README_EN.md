@@ -63,12 +63,13 @@ class Solution:
         while q and t >= 0:
             for _ in range(len(q)):
                 u, p = q.popleft()
-                nxt = [v for v in g[u] if not vis[v]]
-                if u == target and (not nxt or t == 0):
-                    return p
-                for v in nxt:
-                    vis[v] = True
-                    q.append((v, p / len(nxt)))
+                cnt = sum(not vis[v] for v in g[u])
+                if u == target:
+                    return p if cnt * t == 0 else 0
+                for v in g[u]:
+                    if not vis[v]:
+                        vis[v] = True
+                        q.append((v, p / cnt))
             t -= 1
         return 0
 ```
@@ -80,7 +81,7 @@ class Solution {
     public double frogPosition(int n, int[][] edges, int t, int target) {
         List<Integer>[] g = new List[n + 1];
         Arrays.setAll(g, k -> new ArrayList<>());
-        for (int[] e : edges) {
+        for (var e : edges) {
             int u = e[0], v = e[1];
             g[u].add(v);
             g[v].add(u);
@@ -89,26 +90,27 @@ class Solution {
         q.offer(new Pair<>(1, 1.0));
         boolean[] vis = new boolean[n + 1];
         vis[1] = true;
-        while (!q.isEmpty() && t >= 0) {
+        for (; !q.isEmpty() && t >= 0; --t) {
             for (int k = q.size(); k > 0; --k) {
-                Pair<Integer, Double> x = q.poll();
+                var x = q.poll();
                 int u = x.getKey();
                 double p = x.getValue();
-                List<Integer> nxt = new ArrayList<>();
+                int cnt = 0;
                 for (int v : g[u]) {
                     if (!vis[v]) {
-                        nxt.add(v);
-                        vis[v] = true;
+                        ++cnt;
                     }
                 }
-                if (u == target && (nxt.isEmpty() || t == 0)) {
-                    return p;
+                if (u == target) {
+                    return cnt * t == 0 ? p : 0;
                 }
-                for (int v : nxt) {
-                    q.offer(new Pair<>(v, p / nxt.size()));
+                for (int v : g[u]) {
+                    if (!vis[v]) {
+                        vis[v] = true;
+                        q.offer(new Pair<>(v, p / cnt));
+                    }
                 }
             }
-            --t;
         }
         return 0;
     }
@@ -127,28 +129,28 @@ public:
             g[u].push_back(v);
             g[v].push_back(u);
         }
-        typedef pair<int, double> pid;
-        queue<pid> q;
-        q.push({1, 1.0});
-        vector<bool> vis(n + 1);
+        queue<pair<int, double>> q{{{1, 1.0}}};
+        bool vis[n + 1];
+        memset(vis, false, sizeof(vis));
         vis[1] = true;
-        while (!q.empty() && t >= 0) {
+        for (; q.size() && t >= 0; --t) {
             for (int k = q.size(); k; --k) {
-                auto x = q.front();
+                auto [u, p] = q.front();
                 q.pop();
-                int u = x.first;
-                double p = x.second;
-                vector<int> nxt;
+                int cnt = 0;
+                for (int v : g[u]) {
+                    cnt += !vis[v];
+                }
+                if (u == target) {
+                    return cnt * t == 0 ? p : 0;
+                }
                 for (int v : g[u]) {
                     if (!vis[v]) {
                         vis[v] = true;
-                        nxt.push_back(v);
+                        q.push({v, p / cnt});
                     }
                 }
-                if (u == target && (t == 0 || nxt.empty())) return p;
-                for (int v : nxt) q.push({v, p / nxt.size()});
             }
-            --t;
         }
         return 0;
     }
@@ -158,11 +160,6 @@ public:
 ### **Go**
 
 ```go
-type pid struct {
-	x int
-	p float64
-}
-
 func frogPosition(n int, edges [][]int, t int, target int) float64 {
 	g := make([][]int, n+1)
 	for _, e := range edges {
@@ -170,31 +167,74 @@ func frogPosition(n int, edges [][]int, t int, target int) float64 {
 		g[u] = append(g[u], v)
 		g[v] = append(g[v], u)
 	}
-	q := []pid{pid{1, 1.0}}
+	type pair struct {
+		u int
+		p float64
+	}
+	q := []pair{{1, 1}}
 	vis := make([]bool, n+1)
 	vis[1] = true
-	for len(q) > 0 && t >= 0 {
+	for ; len(q) > 0 && t >= 0; t-- {
 		for k := len(q); k > 0; k-- {
-			x := q[0]
+			u, p := q[0].u, q[0].p
 			q = q[1:]
-			u, p := x.x, x.p
-			var nxt []int
+			cnt := 0
+			for _, v := range g[u] {
+				if !vis[v] {
+					cnt++
+				}
+			}
+			if u == target {
+				if cnt*t == 0 {
+					return p
+				}
+				return 0
+			}
 			for _, v := range g[u] {
 				if !vis[v] {
 					vis[v] = true
-					nxt = append(nxt, v)
+					q = append(q, pair{v, p / float64(cnt)})
 				}
 			}
-			if u == target && (len(nxt) == 0 || t == 0) {
-				return p
-			}
-			for _, v := range nxt {
-				q = append(q, pid{v, p / float64(len(nxt))})
-			}
 		}
-		t--
 	}
 	return 0
+}
+```
+
+### **TypeScript**
+
+```ts
+function frogPosition(
+    n: number,
+    edges: number[][],
+    t: number,
+    target: number,
+): number {
+    const g: number[][] = Array.from({ length: n + 1 }, () => []);
+    for (const [u, v] of edges) {
+        g[u].push(v);
+        g[v].push(u);
+    }
+    const q: number[][] = [[1, 1]];
+    const vis: boolean[] = Array.from({ length: n + 1 }, () => false);
+    vis[1] = true;
+    for (; q.length > 0 && t >= 0; --t) {
+        for (let k = q.length; k > 0; --k) {
+            const [u, p] = q.shift()!;
+            const cnt = g[u].filter(v => !vis[v]).length;
+            if (u === target) {
+                return cnt * t === 0 ? p : 0;
+            }
+            for (const v of g[u]) {
+                if (!vis[v]) {
+                    vis[v] = true;
+                    q.push([v, p / cnt]);
+                }
+            }
+        }
+    }
+    return 0;
 }
 ```
 

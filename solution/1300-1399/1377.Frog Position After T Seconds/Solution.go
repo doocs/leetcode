@@ -1,8 +1,3 @@
-type pid struct {
-	x int
-	p float64
-}
-
 func frogPosition(n int, edges [][]int, t int, target int) float64 {
 	g := make([][]int, n+1)
 	for _, e := range edges {
@@ -10,29 +5,36 @@ func frogPosition(n int, edges [][]int, t int, target int) float64 {
 		g[u] = append(g[u], v)
 		g[v] = append(g[v], u)
 	}
-	q := []pid{pid{1, 1.0}}
+	type pair struct {
+		u int
+		p float64
+	}
+	q := []pair{{1, 1}}
 	vis := make([]bool, n+1)
 	vis[1] = true
-	for len(q) > 0 && t >= 0 {
+	for ; len(q) > 0 && t >= 0; t-- {
 		for k := len(q); k > 0; k-- {
-			x := q[0]
+			u, p := q[0].u, q[0].p
 			q = q[1:]
-			u, p := x.x, x.p
-			var nxt []int
+			cnt := 0
+			for _, v := range g[u] {
+				if !vis[v] {
+					cnt++
+				}
+			}
+			if u == target {
+				if cnt*t == 0 {
+					return p
+				}
+				return 0
+			}
 			for _, v := range g[u] {
 				if !vis[v] {
 					vis[v] = true
-					nxt = append(nxt, v)
+					q = append(q, pair{v, p / float64(cnt)})
 				}
 			}
-			if u == target && (len(nxt) == 0 || t == 0) {
-				return p
-			}
-			for _, v := range nxt {
-				q = append(q, pid{v, p / float64(len(nxt))})
-			}
 		}
-		t--
 	}
 	return 0
 }

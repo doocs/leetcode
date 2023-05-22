@@ -12,11 +12,12 @@ class Solution:
         while q and t >= 0:
             for _ in range(len(q)):
                 u, p = q.popleft()
-                nxt = [v for v in g[u] if not vis[v]]
-                if u == target and (not nxt or t == 0):
-                    return p
-                for v in nxt:
-                    vis[v] = True
-                    q.append((v, p / len(nxt)))
+                cnt = sum(not vis[v] for v in g[u])
+                if u == target:
+                    return p if cnt * t == 0 else 0
+                for v in g[u]:
+                    if not vis[v]:
+                        vis[v] = True
+                        q.append((v, p / cnt))
             t -= 1
         return 0

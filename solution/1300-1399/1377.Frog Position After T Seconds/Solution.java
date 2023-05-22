@@ -2,7 +2,7 @@ class Solution {
     public double frogPosition(int n, int[][] edges, int t, int target) {
         List<Integer>[] g = new List[n + 1];
         Arrays.setAll(g, k -> new ArrayList<>());
-        for (int[] e : edges) {
+        for (var e : edges) {
             int u = e[0], v = e[1];
             g[u].add(v);
             g[v].add(u);
@@ -11,26 +11,27 @@ class Solution {
         q.offer(new Pair<>(1, 1.0));
         boolean[] vis = new boolean[n + 1];
         vis[1] = true;
-        while (!q.isEmpty() && t >= 0) {
+        for (; !q.isEmpty() && t >= 0; --t) {
             for (int k = q.size(); k > 0; --k) {
-                Pair<Integer, Double> x = q.poll();
+                var x = q.poll();
                 int u = x.getKey();
                 double p = x.getValue();
-                List<Integer> nxt = new ArrayList<>();
+                int cnt = 0;
                 for (int v : g[u]) {
                     if (!vis[v]) {
-                        nxt.add(v);
-                        vis[v] = true;
+                        ++cnt;
                     }
                 }
-                if (u == target && (nxt.isEmpty() || t == 0)) {
-                    return p;
+                if (u == target) {
+                    return cnt * t == 0 ? p : 0;
                 }
-                for (int v : nxt) {
-                    q.offer(new Pair<>(v, p / nxt.size()));
+                for (int v : g[u]) {
+                    if (!vis[v]) {
+                        vis[v] = true;
+                        q.offer(new Pair<>(v, p / cnt));
+                    }
                 }
             }
-            --t;
         }
         return 0;
     }
