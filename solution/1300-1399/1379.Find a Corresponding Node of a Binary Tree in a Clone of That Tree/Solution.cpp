@@ -10,20 +10,17 @@
 
 class Solution {
 public:
-    TreeNode* res;
-
     TreeNode* getTargetCopy(TreeNode* original, TreeNode* cloned, TreeNode* target) {
-        dfs(original, cloned, target);
-        return res;
-    }
-
-    void dfs(TreeNode* original, TreeNode* cloned, TreeNode* target) {
-        if (!cloned) return;
-        if (original == target) {
-            res = cloned;
-            return;
-        }
-        dfs(original->left, cloned->left, target);
-        dfs(original->right, cloned->right, target);
+        function<TreeNode*(TreeNode*, TreeNode*)> dfs = [&](TreeNode* root1, TreeNode* root2) -> TreeNode* {
+            if (root1 == nullptr) {
+                return nullptr;
+            }
+            if (root1 == target) {
+                return root2;
+            }
+            TreeNode* left = dfs(root1->left, root2->left);
+            return left == nullptr ? dfs(root1->right, root2->right) : left;
+        };
+        return dfs(original, cloned);
     }
 };

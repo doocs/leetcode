@@ -17,14 +17,17 @@ function getTargetCopy(
     cloned: TreeNode | null,
     target: TreeNode | null,
 ): TreeNode | null {
-    if (cloned === null) {
-        return null;
-    }
-    if (cloned.val === target.val) {
-        return cloned;
-    }
-    return (
-        getTargetCopy(original, cloned.left, target) ||
-        getTargetCopy(original, cloned.right, target)
-    );
+    const dfs = (
+        root1: TreeNode | null,
+        root2: TreeNode | null,
+    ): TreeNode | null => {
+        if (!root1) {
+            return null;
+        }
+        if (root1 === target) {
+            return root2;
+        }
+        return dfs(root1.left, root2.left) || dfs(root1.right, root2.right);
+    };
+    return dfs(original, cloned);
 }

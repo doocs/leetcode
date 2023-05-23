@@ -69,6 +69,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：DFS**
+
+我们设计一个函数 $dfs(root1, root2)$，它会在树 $root1$ 和 $root2$ 中同时进行 DFS 遍历，当遍历到某个节点时，如果这个节点恰好为 $target$，那么我们就返回 $root2$ 中对应的节点。否则，我们递归地在 $root1$ 和 $root2$ 的左右子树中寻找 $target$，并返回找到的结果中不为空的那一个。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是树中节点的数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -88,20 +94,14 @@ class Solution:
     def getTargetCopy(
         self, original: TreeNode, cloned: TreeNode, target: TreeNode
     ) -> TreeNode:
-        res = None
+        def dfs(root1: TreeNode, root2: TreeNode) -> TreeNode:
+            if root1 is None:
+                return None
+            if root1 == target:
+                return root2
+            return dfs(root1.left, root2.left) or dfs(root1.right, root2.right)
 
-        def dfs(original, cloned):
-            nonlocal res
-            if cloned is None:
-                return
-            if original == target:
-                res = cloned
-                return
-            dfs(original.left, cloned.left)
-            dfs(original.right, cloned.right)
-
-        dfs(original, cloned)
-        return res
+        return dfs(original, cloned)
 ```
 
 ### **Java**
@@ -120,24 +120,22 @@ class Solution:
  */
 
 class Solution {
-    private TreeNode res;
+    private TreeNode target;
 
-    public final TreeNode getTargetCopy(
-        final TreeNode original, final TreeNode cloned, final TreeNode target) {
-        dfs(original, cloned, target);
-        return res;
+    public final TreeNode getTargetCopy(final TreeNode original, final TreeNode cloned, final TreeNode target) {
+        this.target = target;
+        return dfs(original, cloned);
     }
 
-    private void dfs(TreeNode original, TreeNode cloned, TreeNode target) {
-        if (cloned == null) {
-            return;
+    private TreeNode dfs(TreeNode root1, TreeNode root2) {
+        if (root1 == null) {
+            return null;
         }
-        if (original == target) {
-            res = cloned;
-            return;
+        if (root1 == target) {
+            return root2;
         }
-        dfs(original.left, cloned.left, target);
-        dfs(original.right, cloned.right, target);
+        TreeNode res = dfs(root1.left, root2.left);
+        return res == null ? dfs(root1.right, root2.right) : res;
     }
 }
 ```
@@ -157,21 +155,18 @@ class Solution {
 
 class Solution {
 public:
-    TreeNode* res;
-
     TreeNode* getTargetCopy(TreeNode* original, TreeNode* cloned, TreeNode* target) {
-        dfs(original, cloned, target);
-        return res;
-    }
-
-    void dfs(TreeNode* original, TreeNode* cloned, TreeNode* target) {
-        if (!cloned) return;
-        if (original == target) {
-            res = cloned;
-            return;
-        }
-        dfs(original->left, cloned->left, target);
-        dfs(original->right, cloned->right, target);
+        function<TreeNode*(TreeNode*, TreeNode*)> dfs = [&](TreeNode* root1, TreeNode* root2) -> TreeNode* {
+            if (root1 == nullptr) {
+                return nullptr;
+            }
+            if (root1 == target) {
+                return root2;
+            }
+            TreeNode* left = dfs(root1->left, root2->left);
+            return left == nullptr ? dfs(root1->right, root2->right) : left;
+        };
+        return dfs(original, cloned);
     }
 };
 ```
@@ -198,16 +193,53 @@ function getTargetCopy(
     cloned: TreeNode | null,
     target: TreeNode | null,
 ): TreeNode | null {
-    if (cloned === null) {
-        return null;
+    const dfs = (
+        root1: TreeNode | null,
+        root2: TreeNode | null,
+    ): TreeNode | null => {
+        if (!root1) {
+            return null;
+        }
+        if (root1 === target) {
+            return root2;
+        }
+        return dfs(root1.left, root2.left) || dfs(root1.right, root2.right);
+    };
+    return dfs(original, cloned);
+}
+```
+
+### **C#**
+
+```cs
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int x) { val = x; }
+ * }
+ */
+
+public class Solution {
+    private TreeNode target;
+
+    public TreeNode GetTargetCopy(TreeNode original, TreeNode cloned, TreeNode target) {
+        this.target = target;
+        return dfs(original, cloned);
     }
-    if (cloned.val === target.val) {
-        return cloned;
+
+    private TreeNode dfs(TreeNode original, TreeNode cloned) {
+        if (original == null) {
+            return null;
+        }
+        if (original == target) {
+            return cloned;
+        }
+        TreeNode left = dfs(original.left, cloned.left);
+        return left == null ? dfs(original.right, cloned.right) : left;
     }
-    return (
-        getTargetCopy(original, cloned.left, target) ||
-        getTargetCopy(original, cloned.right, target)
-    );
 }
 ```
 
