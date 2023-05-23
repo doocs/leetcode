@@ -57,10 +57,6 @@ For arr1[2]=8 we have:
 
 ## Solutions
 
-**Method 1: Brute-force**
-
-**Method 2: Binary search**
-
 <!-- tabs:start -->
 
 ### **Python3**
@@ -68,46 +64,15 @@ For arr1[2]=8 we have:
 ```python
 class Solution:
     def findTheDistanceValue(self, arr1: List[int], arr2: List[int], d: int) -> int:
-        return sum(all(abs(a - b) > d for b in arr2) for a in arr1)
-```
-
-```python
-class Solution:
-    def findTheDistanceValue(self, arr1: List[int], arr2: List[int], d: int) -> int:
-        def check(a):
-            idx = bisect_left(arr2, a - d)
-            if idx != len(arr2) and arr2[idx] <= a + d:
-                return False
-            return True
+        def check(a: int) -> bool:
+            i = bisect_left(arr2, a - d)
+            return i == len(arr2) or arr2[i] > a + d
 
         arr2.sort()
         return sum(check(a) for a in arr1)
 ```
 
 ### **Java**
-
-```java
-class Solution {
-    public int findTheDistanceValue(int[] arr1, int[] arr2, int d) {
-        int ans = 0;
-        for (int a : arr1) {
-            if (check(arr2, a, d)) {
-                ++ans;
-            }
-        }
-        return ans;
-    }
-
-    private boolean check(int[] arr, int a, int d) {
-        for (int b : arr) {
-            if (Math.abs(a - b) <= d) {
-                return false;
-            }
-        }
-        return true;
-    }
-}
-```
 
 ```java
 class Solution {
@@ -123,19 +88,16 @@ class Solution {
     }
 
     private boolean check(int[] arr, int a, int d) {
-        int left = 0, right = arr.length;
-        while (left < right) {
-            int mid = (left + right) >> 1;
+        int l = 0, r = arr.length;
+        while (l < r) {
+            int mid = (l + r) >> 1;
             if (arr[mid] >= a - d) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        if (left != arr.length && arr[left] <= a + d) {
-            return false;
-        }
-        return true;
+        return l >= arr.length || arr[l] > a + d;
     }
 }
 ```
@@ -146,37 +108,16 @@ class Solution {
 class Solution {
 public:
     int findTheDistanceValue(vector<int>& arr1, vector<int>& arr2, int d) {
-        int ans = 0;
-        for (int& a : arr1)
-            ans += check(arr2, a, d);
-        return ans;
-    }
-
-    bool check(vector<int>& arr, int a, int d) {
-        for (int& b : arr)
-            if (abs(a - b) <= d)
-                return false;
-        return true;
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    int findTheDistanceValue(vector<int>& arr1, vector<int>& arr2, int d) {
+        auto check = [&](int a) -> bool {
+            auto it = lower_bound(arr2.begin(), arr2.end(), a - d);
+            return it == arr2.end() || *it > a + d;
+        };
         sort(arr2.begin(), arr2.end());
         int ans = 0;
-        for (int& a : arr1)
-            if (check(arr2, a, d))
-                ++ans;
+        for (int& a : arr1) {
+            ans += check(a);
+        }
         return ans;
-    }
-
-    bool check(vector<int>& arr, int a, int d) {
-        int idx = lower_bound(arr.begin(), arr.end(), a - d) - arr.begin();
-        if (idx != arr.size() && arr[idx] <= a + d) return false;
-        return true;
     }
 };
 ```
@@ -184,51 +125,15 @@ public:
 ### **Go**
 
 ```go
-func findTheDistanceValue(arr1 []int, arr2 []int, d int) int {
-	check := func(arr []int, a int) bool {
-		for _, b := range arr {
-			if -d <= a-b && a-b <= d {
-				return false
-			}
-		}
-		return true
-	}
-
-	ans := 0
-	for _, a := range arr1 {
-		if check(arr2, a) {
-			ans++
-		}
-	}
-	return ans
-}
-```
-
-```go
-func findTheDistanceValue(arr1 []int, arr2 []int, d int) int {
+func findTheDistanceValue(arr1 []int, arr2 []int, d int) (ans int) {
 	sort.Ints(arr2)
-	check := func(a int) bool {
-		left, right := 0, len(arr2)
-		for left < right {
-			mid := (left + right) >> 1
-			if arr2[mid] >= a-d {
-				right = mid
-			} else {
-				left = mid + 1
-			}
-		}
-		if left != len(arr2) && arr2[left] <= a+d {
-			return false
-		}
-		return true
-	}
-	ans := 0
 	for _, a := range arr1 {
-		if check(a) {
+		i := sort.SearchInts(arr2, a-d)
+		if i == len(arr2) || arr2[i] > a+d {
 			ans++
 		}
 	}
-	return ans
+	return
 }
 ```
 
@@ -240,63 +145,31 @@ function findTheDistanceValue(
     arr2: number[],
     d: number,
 ): number {
-    let res = 0;
-    for (const num of arr1) {
-        if (arr2.every(v => Math.abs(num - v) > d)) {
-            res++;
-        }
-    }
-    return res;
-}
-```
-
-```ts
-function findTheDistanceValue(
-    arr1: number[],
-    arr2: number[],
-    d: number,
-): number {
-    arr2.sort((a, b) => a - b);
-    const n = arr2.length;
-    let res = 0;
-    for (const num of arr1) {
-        let left = 0;
-        let right = n - 1;
-        while (left < right) {
-            const mid = (left + right) >>> 1;
-            if (arr2[mid] <= num) {
-                left = mid + 1;
+    const check = (a: number) => {
+        let l = 0;
+        let r = arr2.length;
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (arr2[mid] >= a - d) {
+                r = mid;
             } else {
-                right = mid;
+                l = mid + 1;
             }
         }
-        if (
-            Math.abs(num - arr2[left]) <= d ||
-            (left !== 0 && Math.abs(num - arr2[left - 1]) <= d)
-        ) {
-            continue;
+        return l === arr2.length || arr2[l] > a + d;
+    };
+    arr2.sort((a, b) => a - b);
+    let ans = 0;
+    for (const a of arr1) {
+        if (check(a)) {
+            ++ans;
         }
-        res++;
     }
-    return res;
+    return ans;
 }
 ```
 
 ### **Rust**
-
-```rust
-impl Solution {
-    pub fn find_the_distance_value(arr1: Vec<i32>, arr2: Vec<i32>, d: i32) -> i32 {
-        let mut res = 0;
-        for num in arr1.iter() {
-            if arr2.iter().all(|v| i32::abs(num - v) > d) {
-                res += 1;
-            }
-        }
-        res
-    }
-}
-```
 
 ```rust
 impl Solution {

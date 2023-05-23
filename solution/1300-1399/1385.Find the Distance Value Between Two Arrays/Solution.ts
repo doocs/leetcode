@@ -3,27 +3,25 @@ function findTheDistanceValue(
     arr2: number[],
     d: number,
 ): number {
-    arr2.sort((a, b) => a - b);
-    const n = arr2.length;
-    let res = 0;
-    for (const num of arr1) {
-        let left = 0;
-        let right = n - 1;
-        while (left < right) {
-            const mid = (left + right) >>> 1;
-            if (arr2[mid] <= num) {
-                left = mid + 1;
+    const check = (a: number) => {
+        let l = 0;
+        let r = arr2.length;
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (arr2[mid] >= a - d) {
+                r = mid;
             } else {
-                right = mid;
+                l = mid + 1;
             }
         }
-        if (
-            Math.abs(num - arr2[left]) <= d ||
-            (left !== 0 && Math.abs(num - arr2[left - 1]) <= d)
-        ) {
-            continue;
+        return l === arr2.length || arr2[l] > a + d;
+    };
+    arr2.sort((a, b) => a - b);
+    let ans = 0;
+    for (const a of arr1) {
+        if (check(a)) {
+            ++ans;
         }
-        res++;
     }
-    return res;
+    return ans;
 }
