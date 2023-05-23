@@ -58,15 +58,15 @@
 ```python
 class Solution:
     def maxNumberOfFamilies(self, n: int, reservedSeats: List[List[int]]) -> int:
-        m = defaultdict(int)
+        d = defaultdict(int)
         for i, j in reservedSeats:
-            m[i] = m[i] | (1 << (10 - j))
+            d[i] |= 1 << (10 - j)
         masks = (0b0111100000, 0b0000011110, 0b0001111000)
-        ans = (n - len(m)) << 1
-        for v in m.values():
+        ans = (n - len(d)) * 2
+        for x in d.values():
             for mask in masks:
-                if (v & mask) == 0:
-                    v |= mask
+                if (x & mask) == 0:
+                    x |= mask
                     ans += 1
         return ans
 ```
@@ -76,19 +76,17 @@ class Solution:
 ```java
 class Solution {
     public int maxNumberOfFamilies(int n, int[][] reservedSeats) {
-        Map<Integer, Integer> m = new HashMap<>();
-        for (int[] e : reservedSeats) {
-            int i = e[0], j = 10 - e[1];
-            int v = m.getOrDefault(i, 0);
-            v |= 1 << j;
-            m.put(i, v);
+        Map<Integer, Integer> d = new HashMap<>();
+        for (var e : reservedSeats) {
+            int i = e[0], j = e[1];
+            d.merge(i, 1 << (10 - j), (x, y) -> x | y);
         }
         int[] masks = {0b0111100000, 0b0000011110, 0b0001111000};
-        int ans = (n - m.size()) << 1;
-        for (int v : m.values()) {
+        int ans = (n - d.size()) * 2;
+        for (int x : d.values()) {
             for (int mask : masks) {
-                if ((v & mask) == 0) {
-                    v |= mask;
+                if ((x & mask) == 0) {
+                    x |= mask;
                     ++ans;
                 }
             }
@@ -104,17 +102,17 @@ class Solution {
 class Solution {
 public:
     int maxNumberOfFamilies(int n, vector<vector<int>>& reservedSeats) {
-        unordered_map<int, int> m;
+        unordered_map<int, int> d;
         for (auto& e : reservedSeats) {
-            int i = e[0], j = 10 - e[1];
-            m[i] |= (1 << j);
+            int i = e[0], j = e[1];
+            d[i] |= 1 << (10 - j);
         }
-        vector<int> masks = {0b0111100000, 0b0000011110, 0b0001111000};
-        int ans = (n - m.size()) << 1;
-        for (auto& [_, v] : m) {
+        int masks[3] = {0b0111100000, 0b0000011110, 0b0001111000};
+        int ans = (n - d.size()) * 2;
+        for (auto& [_, x] : d) {
             for (int& mask : masks) {
-                if ((v & mask) == 0) {
-                    v |= mask;
+                if ((x & mask) == 0) {
+                    x |= mask;
                     ++ans;
                 }
             }
@@ -128,22 +126,44 @@ public:
 
 ```go
 func maxNumberOfFamilies(n int, reservedSeats [][]int) int {
-	m := map[int]int{}
+	d := map[int]int{}
 	for _, e := range reservedSeats {
-		i, j := e[0], 10-e[1]
-		m[i] |= 1 << j
+		i, j := e[0], e[1]
+		d[i] |= 1 << (10 - j)
 	}
-	masks := []int{0b0111100000, 0b0000011110, 0b0001111000}
-	ans := (n - len(m)) << 1
-	for _, v := range m {
+	ans := (n - len(d)) * 2
+	masks := [3]int{0b0111100000, 0b0000011110, 0b0001111000}
+	for _, x := range d {
 		for _, mask := range masks {
-			if (v & mask) == 0 {
-				v |= mask
+			if x&mask == 0 {
+				x |= mask
 				ans++
 			}
 		}
 	}
 	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxNumberOfFamilies(n: number, reservedSeats: number[][]): number {
+    const d: Map<number, number> = new Map();
+    for (const [i, j] of reservedSeats) {
+        d.set(i, (d.get(i) ?? 0) | (1 << (10 - j)));
+    }
+    let ans = (n - d.size) << 1;
+    const masks = [0b0111100000, 0b0000011110, 0b0001111000];
+    for (let [_, x] of d) {
+        for (const mask of masks) {
+            if ((x & mask) === 0) {
+                x |= mask;
+                ++ans;
+            }
+        }
+    }
+    return ans;
 }
 ```
 

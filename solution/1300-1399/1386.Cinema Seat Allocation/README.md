@@ -54,13 +54,19 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：哈希表 + 位运算**
+**方法一：哈希表 + 状态压缩**
 
-用哈希表 m 记录每一行的座位预定情况。
+我们用哈希表 $d$ 来存储所有已经被预约的座位，其中键为行号，值为该行上已经被预约的座位的状态，即一个二进制数，第 $j$ 位为 $1$ 表示第 $j$ 个座位已经被预约，为 $0$ 表示第 $j$ 个座位尚未被预约。
 
-哈希表中没有出现的行，每行可坐 2 个 4 人家庭，即 `(n - len(m)) << 1`。
+我们遍历 $reservedSeats$，对于每个座位 $(i, j)$，将第 $j$ 个座位（对应低位的第 $10-j$ 位）的状态加入到 $d[i]$ 中即可。
 
-遍历哈希表中出现的行，依次贪心尝试 1234, 5678, 3456 这几个连续座位（注意这里下标从 0 开始）是否均没被预定，是则累加答案，并且将此连续座位置为已预定。
+对于没有出现在哈希表 $d$ 中的行，我们可以任意安排 $2$ 个家庭，因此，初始答案为 $(n - len(d)) \times 2$。
+
+接下来，我们遍历哈希表中每一行的状态，对于每一行，我们依次尝试安排 $1234, 5678, 3456$ 这几种情况，如果某种情况可以安排，我们就将答案加 $1$。
+
+遍历结束后，我们就得到了最终的答案。
+
+时间复杂度 $O(m)$，空间复杂度 $O(m)$，其中 $m$ 是 $reservedSeats$ 的长度。
 
 <!-- tabs:start -->
 
@@ -71,15 +77,15 @@
 ```python
 class Solution:
     def maxNumberOfFamilies(self, n: int, reservedSeats: List[List[int]]) -> int:
-        m = defaultdict(int)
+        d = defaultdict(int)
         for i, j in reservedSeats:
-            m[i] = m[i] | (1 << (10 - j))
+            d[i] |= 1 << (10 - j)
         masks = (0b0111100000, 0b0000011110, 0b0001111000)
-        ans = (n - len(m)) << 1
-        for v in m.values():
+        ans = (n - len(d)) * 2
+        for x in d.values():
             for mask in masks:
-                if (v & mask) == 0:
-                    v |= mask
+                if (x & mask) == 0:
+                    x |= mask
                     ans += 1
         return ans
 ```
@@ -91,19 +97,17 @@ class Solution:
 ```java
 class Solution {
     public int maxNumberOfFamilies(int n, int[][] reservedSeats) {
-        Map<Integer, Integer> m = new HashMap<>();
-        for (int[] e : reservedSeats) {
-            int i = e[0], j = 10 - e[1];
-            int v = m.getOrDefault(i, 0);
-            v |= 1 << j;
-            m.put(i, v);
+        Map<Integer, Integer> d = new HashMap<>();
+        for (var e : reservedSeats) {
+            int i = e[0], j = e[1];
+            d.merge(i, 1 << (10 - j), (x, y) -> x | y);
         }
         int[] masks = {0b0111100000, 0b0000011110, 0b0001111000};
-        int ans = (n - m.size()) << 1;
-        for (int v : m.values()) {
+        int ans = (n - d.size()) * 2;
+        for (int x : d.values()) {
             for (int mask : masks) {
-                if ((v & mask) == 0) {
-                    v |= mask;
+                if ((x & mask) == 0) {
+                    x |= mask;
                     ++ans;
                 }
             }
@@ -119,17 +123,17 @@ class Solution {
 class Solution {
 public:
     int maxNumberOfFamilies(int n, vector<vector<int>>& reservedSeats) {
-        unordered_map<int, int> m;
+        unordered_map<int, int> d;
         for (auto& e : reservedSeats) {
-            int i = e[0], j = 10 - e[1];
-            m[i] |= (1 << j);
+            int i = e[0], j = e[1];
+            d[i] |= 1 << (10 - j);
         }
-        vector<int> masks = {0b0111100000, 0b0000011110, 0b0001111000};
-        int ans = (n - m.size()) << 1;
-        for (auto& [_, v] : m) {
+        int masks[3] = {0b0111100000, 0b0000011110, 0b0001111000};
+        int ans = (n - d.size()) * 2;
+        for (auto& [_, x] : d) {
             for (int& mask : masks) {
-                if ((v & mask) == 0) {
-                    v |= mask;
+                if ((x & mask) == 0) {
+                    x |= mask;
                     ++ans;
                 }
             }
@@ -143,22 +147,44 @@ public:
 
 ```go
 func maxNumberOfFamilies(n int, reservedSeats [][]int) int {
-	m := map[int]int{}
+	d := map[int]int{}
 	for _, e := range reservedSeats {
-		i, j := e[0], 10-e[1]
-		m[i] |= 1 << j
+		i, j := e[0], e[1]
+		d[i] |= 1 << (10 - j)
 	}
-	masks := []int{0b0111100000, 0b0000011110, 0b0001111000}
-	ans := (n - len(m)) << 1
-	for _, v := range m {
+	ans := (n - len(d)) * 2
+	masks := [3]int{0b0111100000, 0b0000011110, 0b0001111000}
+	for _, x := range d {
 		for _, mask := range masks {
-			if (v & mask) == 0 {
-				v |= mask
+			if x&mask == 0 {
+				x |= mask
 				ans++
 			}
 		}
 	}
 	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxNumberOfFamilies(n: number, reservedSeats: number[][]): number {
+    const d: Map<number, number> = new Map();
+    for (const [i, j] of reservedSeats) {
+        d.set(i, (d.get(i) ?? 0) | (1 << (10 - j)));
+    }
+    let ans = (n - d.size) << 1;
+    const masks = [0b0111100000, 0b0000011110, 0b0001111000];
+    for (let [_, x] of d) {
+        for (const mask of masks) {
+            if ((x & mask) === 0) {
+                x |= mask;
+                ++ans;
+            }
+        }
+    }
+    return ans;
 }
 ```
 
