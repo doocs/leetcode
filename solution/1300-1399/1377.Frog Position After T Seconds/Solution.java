@@ -16,12 +16,7 @@ class Solution {
                 var x = q.poll();
                 int u = x.getKey();
                 double p = x.getValue();
-                int cnt = 0;
-                for (int v : g[u]) {
-                    if (!vis[v]) {
-                        ++cnt;
-                    }
-                }
+                int cnt = g[u].size() - (u == 1 ? 0 : 1);
                 if (u == target) {
                     return cnt * t == 0 ? p : 0;
                 }

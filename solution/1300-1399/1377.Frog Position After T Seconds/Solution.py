@@ -12,7 +12,7 @@ class Solution:
         while q and t >= 0:
             for _ in range(len(q)):
                 u, p = q.popleft()
-                cnt = sum(not vis[v] for v in g[u])
+                cnt = len(g[u]) - int(u != 1)
                 if u == target:
                     return p if cnt * t == 0 else 0
                 for v in g[u]:

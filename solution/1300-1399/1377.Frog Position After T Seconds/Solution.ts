@@ -15,7 +15,7 @@ function frogPosition(
     for (; q.length > 0 && t >= 0; --t) {
         for (let k = q.length; k > 0; --k) {
             const [u, p] = q.shift()!;
-            const cnt = g[u].filter(v => !vis[v]).length;
+            const cnt = g[u].length - (u === 1 ? 0 : 1);
             if (u === target) {
                 return cnt * t === 0 ? p : 0;
             }

@@ -103,7 +103,7 @@ class Solution:
         while q and t >= 0:
             for _ in range(len(q)):
                 u, p = q.popleft()
-                cnt = sum(not vis[v] for v in g[u])
+                cnt = len(g[u]) - int(u != 1)
                 if u == target:
                     return p if cnt * t == 0 else 0
                 for v in g[u]:
@@ -137,12 +137,7 @@ class Solution {
                 var x = q.poll();
                 int u = x.getKey();
                 double p = x.getValue();
-                int cnt = 0;
-                for (int v : g[u]) {
-                    if (!vis[v]) {
-                        ++cnt;
-                    }
-                }
+                int cnt = g[u].size() - (u == 1 ? 0 : 1);
                 if (u == target) {
                     return cnt * t == 0 ? p : 0;
                 }
@@ -179,10 +174,7 @@ public:
             for (int k = q.size(); k; --k) {
                 auto [u, p] = q.front();
                 q.pop();
-                int cnt = 0;
-                for (int v : g[u]) {
-                    cnt += !vis[v];
-                }
+                int cnt = g[u].size() - (u != 1);
                 if (u == target) {
                     return cnt * t == 0 ? p : 0;
                 }
@@ -220,12 +212,10 @@ func frogPosition(n int, edges [][]int, t int, target int) float64 {
 		for k := len(q); k > 0; k-- {
 			u, p := q[0].u, q[0].p
 			q = q[1:]
-			cnt := 0
-			for _, v := range g[u] {
-				if !vis[v] {
-					cnt++
-				}
-			}
+			cnt := len(g[u])
+            if u != 1 {
+                cnt--
+            }
 			if u == target {
 				if cnt*t == 0 {
 					return p
@@ -264,7 +254,7 @@ function frogPosition(
     for (; q.length > 0 && t >= 0; --t) {
         for (let k = q.length; k > 0; --k) {
             const [u, p] = q.shift()!;
-            const cnt = g[u].filter(v => !vis[v]).length;
+            const cnt = g[u].length - (u === 1 ? 0 : 1);
             if (u === target) {
                 return cnt * t === 0 ? p : 0;
             }
@@ -277,6 +267,44 @@ function frogPosition(
         }
     }
     return 0;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public double FrogPosition(int n, int[][] edges, int t, int target) {
+        List<int>[] g = new List<int>[n + 1];
+        for (int i = 0; i < n + 1; i++) {
+            g[i] = new List<int>();
+        }
+        foreach (int[] e in edges) {
+            int u = e[0], v = e[1];
+            g[u].Add(v);
+            g[v].Add(u);
+        }
+        Queue<Tuple<int, double>> q = new Queue<Tuple<int, double>>();
+        q.Enqueue(new Tuple<int, double>(1, 1.0));
+        bool[] vis = new bool[n + 1];
+        vis[1] = true;
+        for (; q.Count > 0 && t >= 0; --t) {
+            for (int k = q.Count; k > 0; --k) {
+                (var u, var p) = q.Dequeue();
+                int cnt = g[u].Count - (u == 1 ? 0 : 1);
+                if (u == target) {
+                    return cnt * t == 0 ? p : 0;
+                }
+                foreach (int v in g[u]) {
+                    if (!vis[v]) {
+                        vis[v] = true;
+                        q.Enqueue(new Tuple<int, double>(v, p / cnt));
+                    }
+                }
+            }
+        }
+        return 0;
+    }
 }
 ```
 

@@ -15,10 +15,7 @@ public:
             for (int k = q.size(); k; --k) {
                 auto [u, p] = q.front();
                 q.pop();
-                int cnt = 0;
-                for (int v : g[u]) {
-                    cnt += !vis[v];
-                }
+                int cnt = g[u].size() - (u != 1);
                 if (u == target) {
                     return cnt * t == 0 ? p : 0;
                 }
