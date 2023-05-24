@@ -1,23 +1,21 @@
 function luckyNumbers(matrix: number[][]): number[] {
     const m = matrix.length;
     const n = matrix[0].length;
-    const col = new Array(n).fill(0);
-    const res = [];
-    for (let j = 0; j < n; j++) {
-        for (let i = 0; i < m; i++) {
-            col[j] = Math.max(col[j], matrix[i][j]);
+    const rows: number[] = new Array(m).fill(1 << 30);
+    const cols: number[] = new Array(n).fill(0);
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; j++) {
+            rows[i] = Math.min(rows[i], matrix[i][j]);
+            cols[j] = Math.max(cols[j], matrix[i][j]);
         }
     }
-    for (let x = 0; x < m; x++) {
-        let i = 0;
-        for (let y = 1; y < n; y++) {
-            if (matrix[x][i] > matrix[x][y]) {
-                i = y;
+    const ans: number[] = [];
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; j++) {
+            if (rows[i] === cols[j]) {
+                ans.push(rows[i]);
             }
         }
-        if (matrix[x][i] === col[i]) {
-            res.push(col[i]);
-        }
     }
-    return res;
+    return ans;
 }

@@ -66,7 +66,7 @@ class Solution {
         int m = matrix.length, n = matrix[0].length;
         int[] rows = new int[m];
         int[] cols = new int[n];
-        Arrays.fill(rows, Integer.MAX_VALUE);
+        Arrays.fill(rows, 1 << 30);
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 rows[i] = Math.min(rows[i], matrix[i][j]);
@@ -77,7 +77,7 @@ class Solution {
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (rows[i] == cols[j]) {
-                    ans.add(matrix[i][j]);
+                    ans.add(rows[i]);
                 }
             }
         }
@@ -93,8 +93,10 @@ class Solution {
 public:
     vector<int> luckyNumbers(vector<vector<int>>& matrix) {
         int m = matrix.size(), n = matrix[0].size();
-        vector<int> rows(m, INT_MAX);
-        vector<int> cols(n);
+        int rows[m];
+        int cols[n];
+        memset(rows, 0x3f, sizeof(rows));
+        memset(cols, 0, sizeof(cols));
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 rows[i] = min(rows[i], matrix[i][j]);
@@ -102,10 +104,13 @@ public:
             }
         }
         vector<int> ans;
-        for (int i = 0; i < m; ++i)
-            for (int j = 0; j < n; ++j)
-                if (rows[i] == cols[j])
-                    ans.push_back(matrix[i][j]);
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0;j < n; ++j) {
+                if (rows[i] == cols[j]) {
+                    ans.push_back(rows[i]);
+                }
+            }
+        }
         return ans;
     }
 };
@@ -114,41 +119,40 @@ public:
 ### **Go**
 
 ```go
-func luckyNumbers (matrix [][]int) []int {
-    m, n := len(matrix), len(matrix[0])
-    rows, cols := make([]int, m), make([]int, n)
-    for i := range rows {
-        rows[i] = math.MaxInt32
-    }
-    for i, row := range matrix {
-        for j, v := range row {
-            rows[i] = min(rows[i], v)
-            cols[j] = max(cols[j], v)
-        }
-    }
-    var ans []int
-    for i, row := range matrix {
-        for j, v := range row {
-            if rows[i] == cols[j] {
-                ans = append(ans, v)
-            }
-        }
-    }
-    return ans
+func luckyNumbers(matrix [][]int) (ans []int) {
+	m, n := len(matrix), len(matrix[0])
+	rows, cols := make([]int, m), make([]int, n)
+	for i := range rows {
+		rows[i] = 1 << 30
+	}
+	for i, row := range matrix {
+		for j, x := range row {
+			rows[i] = min(rows[i], x)
+			cols[j] = max(cols[j], x)
+		}
+	}
+	for i, row := range matrix {
+		for j, x := range row {
+			if rows[i] == cols[j] {
+				ans = append(ans, x)
+			}
+		}
+	}
+	return
 }
 
 func min(a, b int) int {
-    if a < b {
-        return a
-    }
-    return b
+	if a < b {
+		return a
+	}
+	return b
 }
 
 func max(a, b int) int {
-    if a > b {
-        return a
-    }
-    return b
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
@@ -158,25 +162,23 @@ func max(a, b int) int {
 function luckyNumbers(matrix: number[][]): number[] {
     const m = matrix.length;
     const n = matrix[0].length;
-    const col = new Array(n).fill(0);
-    const res = [];
-    for (let j = 0; j < n; j++) {
-        for (let i = 0; i < m; i++) {
-            col[j] = Math.max(col[j], matrix[i][j]);
+    const rows: number[] = new Array(m).fill(1 << 30);
+    const cols: number[] = new Array(n).fill(0);
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; j++) {
+            rows[i] = Math.min(rows[i], matrix[i][j]);
+            cols[j] = Math.max(cols[j], matrix[i][j]);
         }
     }
-    for (let x = 0; x < m; x++) {
-        let i = 0;
-        for (let y = 1; y < n; y++) {
-            if (matrix[x][i] > matrix[x][y]) {
-                i = y;
+    const ans: number[] = [];
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; j++) {
+            if (rows[i] === cols[j]) {
+                ans.push(rows[i]);
             }
         }
-        if (matrix[x][i] === col[i]) {
-            res.push(col[i]);
-        }
     }
-    return res;
+    return ans;
 }
 ```
 
