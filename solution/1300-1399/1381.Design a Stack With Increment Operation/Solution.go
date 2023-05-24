@@ -1,32 +1,44 @@
 type CustomStack struct {
-	s []int
-	t int
+	stk []int
+	add []int
+	i   int
 }
 
 func Constructor(maxSize int) CustomStack {
-	s := make([]int, maxSize)
-	return CustomStack{s, 0}
+	return CustomStack{make([]int, maxSize), make([]int, maxSize), 0}
 }
 
 func (this *CustomStack) Push(x int) {
-	if this.t < len(this.s) {
-		this.s[this.t] = x
-		this.t++
+	if this.i < len(this.stk) {
+		this.stk[this.i] = x
+		this.i++
 	}
 }
 
 func (this *CustomStack) Pop() int {
-	if this.t == 0 {
+	if this.i <= 0 {
 		return -1
 	}
-	this.t--
-	return this.s[this.t]
+	this.i--
+	ans := this.stk[this.i] + this.add[this.i]
+	if this.i > 0 {
+		this.add[this.i-1] += this.add[this.i]
+	}
+	this.add[this.i] = 0
+	return ans
 }
 
 func (this *CustomStack) Increment(k int, val int) {
-	for i := 0; i < k && i < this.t; i++ {
-		this.s[i] += val
+	if this.i > 0 {
+		this.add[min(k, this.i)-1] += val
 	}
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
 
 /**

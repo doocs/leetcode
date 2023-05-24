@@ -1,28 +1,35 @@
 class CustomStack {
-    maxSize: number;
-    size: number;
-    stack: Array<number>;
+    private stk: number[];
+    private add: number[];
+    private i: number;
+
     constructor(maxSize: number) {
-        this.maxSize = maxSize;
-        this.size = 0;
-        this.stack = [];
+        this.stk = Array(maxSize).fill(0);
+        this.add = Array(maxSize).fill(0);
+        this.i = 0;
     }
 
     push(x: number): void {
-        if (this.size >= this.maxSize) return;
-        this.size++;
-        this.stack.unshift(x);
+        if (this.i < this.stk.length) {
+            this.stk[this.i++] = x;
+        }
     }
 
     pop(): number {
-        if (!this.size) return -1;
-        this.size--;
-        return this.stack.shift();
+        if (this.i <= 0) {
+            return -1;
+        }
+        const ans = this.stk[--this.i] + this.add[this.i];
+        if (this.i > 0) {
+            this.add[this.i - 1] += this.add[this.i];
+        }
+        this.add[this.i] = 0;
+        return ans;
     }
 
     increment(k: number, val: number): void {
-        for (let i = Math.max(this.size - k, 0); i < this.size; i++) {
-            this.stack[i] = this.stack[i] + val;
+        if (this.i > 0) {
+            this.add[Math.min(this.i, k) - 1] += val;
         }
     }
 }

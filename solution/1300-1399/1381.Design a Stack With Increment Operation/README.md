@@ -57,6 +57,18 @@ stk.pop();                            // 返回 -1 --&gt; 栈为空，返回 -1
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：数组模拟**
+
+我们可以用一个数组 $stk$ 来模拟栈，用一个整数 $i$ 表示下一个入栈的元素位置。另外，我们还需要一个数组 $add$ 来记录每个位置上的增量累加值。
+
+调用 $push(x)$ 时，如果 $i \lt maxSize$，我们将 $x$ 放入 $stk[i]$ 中，并将 $i$ 加一。
+
+调用 $pop()$ 时，如果 $i \leq 0$，说明栈为空，返回 $-1$。否则我们将 $i$ 减一，答案为 $stk[i] + add[i]$，然后我们将 $add[i - 1]$ 加上 $add[i]$，并将 $add[i]$ 清零。最后返回答案。
+
+调用 $increment(k, val)$ 时，如果 $i \gt 0$，我们将 $add[\min(i, k) - 1]$ 加上 $val$。
+
+时间复杂度 $O(1)$，空间复杂度 $O(n)$。其中 $n$ 是栈的最大容量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -66,23 +78,29 @@ stk.pop();                            // 返回 -1 --&gt; 栈为空，返回 -1
 ```python
 class CustomStack:
     def __init__(self, maxSize: int):
-        self.s = [0] * maxSize
-        self.t = 0
+        self.stk = [0] * maxSize
+        self.add = [0] * maxSize
+        self.i = 0
 
     def push(self, x: int) -> None:
-        if self.t < len(self.s):
-            self.s[self.t] = x
-            self.t += 1
+        if self.i < len(self.stk):
+            self.stk[self.i] = x
+            self.i += 1
 
     def pop(self) -> int:
-        if self.t == 0:
+        if self.i <= 0:
             return -1
-        self.t -= 1
-        return self.s[self.t]
+        self.i -= 1
+        ans = self.stk[self.i] + self.add[self.i]
+        if self.i > 0:
+            self.add[self.i - 1] += self.add[self.i]
+        self.add[self.i] = 0
+        return ans
 
     def increment(self, k: int, val: int) -> None:
-        for i in range(min(k, self.t)):
-            self.s[i] += val
+        i = min(k, self.i) - 1
+        if i >= 0:
+            self.add[i] += val
 
 
 # Your CustomStack object will be instantiated and called as such:
@@ -98,26 +116,36 @@ class CustomStack:
 
 ```java
 class CustomStack {
-    private int[] s;
-    private int t;
+    private int[] stk;
+    private int[] add;
+    private int i;
 
     public CustomStack(int maxSize) {
-        s = new int[maxSize];
+        stk = new int[maxSize];
+        add = new int[maxSize];
     }
 
     public void push(int x) {
-        if (t < s.length) {
-            s[t++] = x;
+        if (i < stk.length) {
+            stk[i++] = x;
         }
     }
 
     public int pop() {
-        return t == 0 ? -1 : s[--t];
+        if (i <= 0) {
+            return -1;
+        }
+        int ans = stk[--i] + add[i];
+        if (i > 0) {
+            add[i - 1] += add[i];
+        }
+        add[i] = 0;
+        return ans;
     }
 
     public void increment(int k, int val) {
-        for (int i = 0; i < Math.min(k, t); ++i) {
-            s[i] += val;
+        if (i > 0) {
+            add[Math.min(i, k) - 1] += val;
         }
     }
 }
@@ -131,71 +159,45 @@ class CustomStack {
  */
 ```
 
-### **TypeScript**
-
-```ts
-class CustomStack {
-    maxSize: number;
-    size: number;
-    stack: Array<number>;
-    constructor(maxSize: number) {
-        this.maxSize = maxSize;
-        this.size = 0;
-        this.stack = [];
-    }
-
-    push(x: number): void {
-        if (this.size >= this.maxSize) return;
-        this.size++;
-        this.stack.unshift(x);
-    }
-
-    pop(): number {
-        if (!this.size) return -1;
-        this.size--;
-        return this.stack.shift();
-    }
-
-    increment(k: number, val: number): void {
-        for (let i = Math.max(this.size - k, 0); i < this.size; i++) {
-            this.stack[i] = this.stack[i] + val;
-        }
-    }
-}
-
-/**
- * Your CustomStack object will be instantiated and called as such:
- * var obj = new CustomStack(maxSize)
- * obj.push(x)
- * var param_2 = obj.pop()
- * obj.increment(k,val)
- */
-```
-
 ### **C++**
 
 ```cpp
 class CustomStack {
 public:
-    vector<int> s;
-    int t;
-
     CustomStack(int maxSize) {
-        s.resize(maxSize);
-        t = 0;
+        stk.resize(maxSize);
+        add.resize(maxSize);
+        i = 0;
     }
 
     void push(int x) {
-        if (t < s.size()) s[t++] = x;
+        if (i < stk.size()) {
+            stk[i++] = x;
+        }
     }
 
     int pop() {
-        return t == 0 ? -1 : s[--t];
+        if (i <= 0) {
+            return -1;
+        }
+        int ans = stk[--i] + add[i];
+        if (i > 0) {
+            add[i - 1] += add[i];
+        }
+        add[i] = 0;
+        return ans;
     }
 
     void increment(int k, int val) {
-        for (int i = 0; i < min(k, t); ++i) s[i] += val;
+        if (i > 0) {
+            add[min(k, i) - 1] += val;
+        }
     }
+
+private:
+    vector<int> stk;
+    vector<int> add;
+    int i;
 };
 
 /**
@@ -211,34 +213,46 @@ public:
 
 ```go
 type CustomStack struct {
-	s []int
-	t int
+	stk []int
+	add []int
+	i   int
 }
 
 func Constructor(maxSize int) CustomStack {
-	s := make([]int, maxSize)
-	return CustomStack{s, 0}
+	return CustomStack{make([]int, maxSize), make([]int, maxSize), 0}
 }
 
 func (this *CustomStack) Push(x int) {
-	if this.t < len(this.s) {
-		this.s[this.t] = x
-		this.t++
+	if this.i < len(this.stk) {
+		this.stk[this.i] = x
+		this.i++
 	}
 }
 
 func (this *CustomStack) Pop() int {
-	if this.t == 0 {
+	if this.i <= 0 {
 		return -1
 	}
-	this.t--
-	return this.s[this.t]
+	this.i--
+	ans := this.stk[this.i] + this.add[this.i]
+	if this.i > 0 {
+		this.add[this.i-1] += this.add[this.i]
+	}
+	this.add[this.i] = 0
+	return ans
 }
 
 func (this *CustomStack) Increment(k int, val int) {
-	for i := 0; i < k && i < this.t; i++ {
-		this.s[i] += val
+	if this.i > 0 {
+		this.add[min(k, this.i)-1] += val
 	}
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
 
 /**
@@ -247,6 +261,54 @@ func (this *CustomStack) Increment(k int, val int) {
  * obj.Push(x);
  * param_2 := obj.Pop();
  * obj.Increment(k,val);
+ */
+```
+
+### **TypeScript**
+
+```ts
+class CustomStack {
+    private stk: number[];
+    private add: number[];
+    private i: number;
+
+    constructor(maxSize: number) {
+        this.stk = Array(maxSize).fill(0);
+        this.add = Array(maxSize).fill(0);
+        this.i = 0;
+    }
+
+    push(x: number): void {
+        if (this.i < this.stk.length) {
+            this.stk[this.i++] = x;
+        }
+    }
+
+    pop(): number {
+        if (this.i <= 0) {
+            return -1;
+        }
+        const ans = this.stk[--this.i] + this.add[this.i];
+        if (this.i > 0) {
+            this.add[this.i - 1] += this.add[this.i];
+        }
+        this.add[this.i] = 0;
+        return ans;
+    }
+
+    increment(k: number, val: number): void {
+        if (this.i > 0) {
+            this.add[Math.min(this.i, k) - 1] += val;
+        }
+    }
+}
+
+/**
+ * Your CustomStack object will be instantiated and called as such:
+ * var obj = new CustomStack(maxSize)
+ * obj.push(x)
+ * var param_2 = obj.pop()
+ * obj.increment(k,val)
  */
 ```
 
