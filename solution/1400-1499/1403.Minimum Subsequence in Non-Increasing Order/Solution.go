@@ -1,16 +1,14 @@
-func minSubsequence(nums []int) []int {
+func minSubsequence(nums []int) (ans []int) {
 	sort.Ints(nums)
 	s, t := 0, 0
-	for _, v := range nums {
-		s += v
+	for _, x := range nums {
+		s += x
 	}
-	ans := []int{}
-	for i := len(nums) - 1; i >= 0; i-- {
+	for i := len(nums) - 1; ; i-- {
 		t += nums[i]
 		ans = append(ans, nums[i])
 		if t > s-t {
-			break
+			return
 		}
 	}
-	return ans
 }
