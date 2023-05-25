@@ -55,7 +55,19 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-BFS 最短路模型。
+**方法一：BFS**
+
+根据题目描述，一条畅通路径是从左上角单元格 $(0, 0)$ 到右下角单元格 $(n - 1, n - 1)$ 的路径，且路径上所有单元格的值都是 $0$。
+
+因此，如果左上角单元格 $(0, 0)$ 的值为 $1$，则不存在满足要求的路径，直接返回 $-1$。
+
+否则，我们创建一个队列 $q$，将左上角单元格 $(0, 0)$ 加入队列，并且将其标记为已访问，即把 $grid[0][0]$ 的值置为 $1$，然后开始广度优先搜索。
+
+在每一轮搜索中，我们每次取出队首节点 $(i, j)$，如果 $(i, j)$ 为右下角单元格 $(n - 1, n - 1)$，则路径长度为当前的搜索轮数，直接返回。否则，我们将当前节点的所有未被访问过的相邻节点加入队列，并且将它们标记为已访问。每一轮搜索结束后，我们将搜索轮数增加 $1$。然后继续执行上述过程，直到队列为空或者找到目标节点。
+
+如果在搜索结束后，我们仍然没有到达右下角的节点，那么说明右下角的节点不可达，返回 $-1$。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是给定的二进制矩阵的边长。
 
 <!-- tabs:start -->
 
@@ -69,20 +81,20 @@ class Solution:
         if grid[0][0]:
             return -1
         n = len(grid)
-        q = deque([(0, 0)])
         grid[0][0] = 1
-        ans = 0
+        q = deque([(0, 0)])
+        ans = 1
         while q:
-            ans += 1
             for _ in range(len(q)):
                 i, j = q.popleft()
-                if (i, j) == (n - 1, n - 1):
+                if i == j == n - 1:
                     return ans
                 for x in range(i - 1, i + 2):
                     for y in range(j - 1, j + 2):
                         if 0 <= x < n and 0 <= y < n and grid[x][y] == 0:
-                            q.append((x, y))
                             grid[x][y] = 1
+                            q.append((x, y))
+            ans += 1
         return -1
 ```
 
@@ -97,14 +109,12 @@ class Solution {
             return -1;
         }
         int n = grid.length;
-        Deque<int[]> q = new ArrayDeque<>();
-        q.offer(new int[] {0, 0});
         grid[0][0] = 1;
-        int ans = 0;
-        while (!q.isEmpty()) {
-            ++ans;
-            for (int m = q.size(); m > 0; --m) {
-                int[] p = q.poll();
+        Deque<int[]> q = new ArrayDeque<>();
+        q.offer(new int[]{0, 0});
+        for (int ans = 1; !q.isEmpty(); ++ans) {
+            for (int k = q.size(); k > 0; --k) {
+                var p = q.poll();
                 int i = p[0], j = p[1];
                 if (i == n - 1 && j == n - 1) {
                     return ans;
@@ -112,8 +122,8 @@ class Solution {
                 for (int x = i - 1; x <= i + 1; ++x) {
                     for (int y = j - 1; y <= j + 1; ++y) {
                         if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 0) {
-                            q.offer(new int[] {x, y});
                             grid[x][y] = 1;
+                            q.offer(new int[]{x, y});
                         }
                     }
                 }
@@ -130,24 +140,25 @@ class Solution {
 class Solution {
 public:
     int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
-        if (grid[0][0]) return -1;
+        if (grid[0][0]) {
+            return -1;
+        }
         int n = grid.size();
-        queue<pair<int, int>> q;
-        q.push({0, 0});
         grid[0][0] = 1;
-        int ans = 0;
-        while (!q.empty()) {
-            ++ans;
-            for (int m = q.size(); m > 0; --m) {
-                auto p = q.front();
+        queue<pair<int, int>> q;
+        q.emplace(0, 0);
+        for (int ans = 1; !q.empty(); ++ans) {
+            for (int k = q.size(); k; --k) {
+                auto [i, j] = q.front();
                 q.pop();
-                int i = p.first, j = p.second;
-                if (i == n - 1 && j == n - 1) return ans;
+                if (i == n - 1 && j == n - 1) {
+                    return ans;
+                }
                 for (int x = i - 1; x <= i + 1; ++x) {
                     for (int y = j - 1; y <= j + 1; ++y) {
-                        if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 0) {
-                            q.push({x, y});
+                        if (x >= 0 && x < n && y >= 0 && y < n && !grid[x][y]) {
                             grid[x][y] = 1;
+                            q.emplace(x, y);
                         }
                     }
                 }
@@ -166,23 +177,21 @@ func shortestPathBinaryMatrix(grid [][]int) int {
 		return -1
 	}
 	n := len(grid)
-	q := [][]int{[]int{0, 0}}
 	grid[0][0] = 1
-	ans := 0
-	for len(q) > 0 {
-		ans++
-		for m := len(q); m > 0; m-- {
+	q := [][2]int{{0, 0}}
+	for ans := 1; len(q) > 0; ans++ {
+		for k := len(q); k > 0; k-- {
 			p := q[0]
-			q = q[1:]
 			i, j := p[0], p[1]
+			q = q[1:]
 			if i == n-1 && j == n-1 {
 				return ans
 			}
 			for x := i - 1; x <= i+1; x++ {
 				for y := j - 1; y <= j+1; y++ {
 					if x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 0 {
-						q = append(q, []int{x, y})
 						grid[x][y] = 1
+						q = append(q, [2]int{x, y})
 					}
 				}
 			}
@@ -190,6 +199,37 @@ func shortestPathBinaryMatrix(grid [][]int) int {
 	}
 	return -1
 }
+```
+
+### **TypeScript**
+
+```ts
+function shortestPathBinaryMatrix(grid: number[][]): number {
+    if (grid[0][0]) {
+        return -1;
+    }
+    const n = grid.length;
+    grid[0][0] = 1;
+    let q: number[][] = [[0, 0]];
+    for (let ans = 1; q.length > 0; ++ans) {
+        const nq: number[][] = [];
+        for (const [i, j] of q) {
+            if (i === n - 1 && j === n - 1) {
+                return ans;
+            }
+            for (let x = i - 1; x <= i + 1; ++x) {
+                for (let y = j - 1; y <= j + 1; ++y) {
+                    if (x >= 0 && x < n && y >= 0 && y < n && !grid[x][y]) {
+                        grid[x][y] = 1;
+                        nq.push([x, y]);
+                    }
+                }
+            }
+        }
+        q = nq;
+    }
+    return -1;
+};
 ```
 
 ### **Rust**
