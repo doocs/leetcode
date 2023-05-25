@@ -6,7 +6,7 @@ function sampleStats(count: number[]): number[] {
                 return k;
             }
         }
-    }
+    };
     let mi = 1 << 30;
     let mx = -1;
     let [s, cnt, mode] = [0, 0, 0];
@@ -21,6 +21,9 @@ function sampleStats(count: number[]): number[] {
             }
         }
     }
-    const median = cnt % 2 === 1 ? find((cnt >> 1) + 1) : (find(cnt >> 1) + find((cnt >> 1) + 1)) / 2;
+    const median =
+        cnt % 2 === 1
+            ? find((cnt >> 1) + 1)
+            : (find(cnt >> 1) + find((cnt >> 1) + 1)) / 2;
     return [mi, mx, s / cnt, median, mode];
-};
+}

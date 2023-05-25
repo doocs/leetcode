@@ -69,19 +69,19 @@
 
 我们直接根据题目描述模拟即可，定义以下变量：
 
-- 变量 $mi$ 表示最小值；
-- 变量 $mx$ 表示最大值；
-- 变量 $s$ 表示总和；
-- 变量 $cnt$ 表示总个数；
-- 变量 $mode$ 表示众数。
+-   变量 $mi$ 表示最小值；
+-   变量 $mx$ 表示最大值；
+-   变量 $s$ 表示总和；
+-   变量 $cnt$ 表示总个数；
+-   变量 $mode$ 表示众数。
 
 我们遍历数组 $count$，对于当前遍历到的数字 $count[k]$，如果 $count[k] \gt 0$，那么我们做以下更新操作：
 
-- 更新 $mi = \min(mi, k)$；
-- 更新 $mx = \max(mx, k)$；
-- 更新 $s = s + k \times count[k]$；
-- 更新 $cnt = cnt + count[k]$；
-- 如果 $count[k] \gt count[mode]$，那么更新 $mode = k$。
+-   更新 $mi = \min(mi, k)$；
+-   更新 $mx = \max(mx, k)$；
+-   更新 $s = s + k \times count[k]$；
+-   更新 $cnt = cnt + count[k]$；
+-   如果 $count[k] \gt count[mode]$，那么更新 $mode = k$。
 
 遍历结束后，我们再根据 $cnt$ 的奇偶性来更新中位数 $median$，如果 $cnt$ 是奇数，那么中位数就是第 $\lfloor \frac{cnt}{2} \rfloor + 1$ 个数字，如果 $cnt$ 是偶数，那么中位数就是第 $\lfloor \frac{cnt}{2} \rfloor$ 和第 $\lfloor \frac{cnt}{2} \rfloor + 1$ 个数字的平均值。
 
@@ -257,7 +257,7 @@ function sampleStats(count: number[]): number[] {
                 return k;
             }
         }
-    }
+    };
     let mi = 1 << 30;
     let mx = -1;
     let [s, cnt, mode] = [0, 0, 0];
@@ -272,9 +272,12 @@ function sampleStats(count: number[]): number[] {
             }
         }
     }
-    const median = cnt % 2 === 1 ? find((cnt >> 1) + 1) : (find(cnt >> 1) + find((cnt >> 1) + 1)) / 2;
+    const median =
+        cnt % 2 === 1
+            ? find((cnt >> 1) + 1)
+            : (find(cnt >> 1) + find((cnt >> 1) + 1)) / 2;
     return [mi, mx, s / cnt, median, mode];
-};
+}
 ```
 
 ### **...**
