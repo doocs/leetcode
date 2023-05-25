@@ -1,41 +1,33 @@
 class Solution {
+    private int[] count;
+
     public double[] sampleStats(int[] count) {
-        int n = count.length;
-        int mode = 0, modeMax = 0;
-        int min = -1, max = -1;
-        double avg = 0;
+        this.count = count;
+        int mi = 1 << 30, mx = -1;
+        long s = 0;
         int cnt = 0;
-        for (int i = 0; i < n; ++i) {
-            if (count[i] > modeMax) {
-                modeMax = count[i];
-                mode = i;
-            }
-            if (count[i] != 0) {
-                cnt += count[i];
-                avg += count[i] * i;
-                if (min == -1) min = i;
-                max = i;
-            }
-        }
-        avg /= cnt;
-        // 求中位数
-        double mid = 0;
-        int sum = 0;
-        for (int i = 0; i < n; ++i) {
-            sum += count[i];
-            if (sum << 1 > cnt) {
-                mid = i;
-                break;
-            } else if (sum << 1 == cnt) {
-                for (int j = i + 1; j < n; ++j) {
-                    if (count[j] != 0) {
-                        mid = (i + j) / 2.0;
-                        break;
-                    }
+        int mode = 0;
+        for (int k = 0; k < count.length; ++k) {
+            if (count[k] > 0) {
+                mi = Math.min(mi, k);
+                mx = Math.max(mx, k);
+                s += 1L * k * count[k];
+                cnt += count[k];
+                if (count[k] > count[mode]) {
+                    mode = k;
                 }
-                break;
             }
         }
-        return new double[] {min, max, avg, mid, mode};
+        double median = cnt % 2 == 1 ? find(cnt / 2 + 1) : (find(cnt / 2) + find(cnt / 2 + 1)) / 2.0;
+        return new double[]{mi, mx, s * 1.0 / cnt, median, mode};
+    }
+
+    private int find(int i) {
+        for (int k = 0, t = 0;; ++k) {
+            t += count[k];
+            if (t >= i) {
+                return k;
+            }
+        }
     }
 }

@@ -65,7 +65,6 @@ customer_id is sorted in ascending order.
 
 <p>&nbsp;</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -207,7 +207,7 @@ function shortestPathBinaryMatrix(grid: number[][]): number {
         q = nq;
     }
     return -1;
-};
+}
 ```
 
 ### **Rust**

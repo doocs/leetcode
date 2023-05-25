@@ -67,7 +67,6 @@ customer_id is sorted in ascending order.
 
 <p>&nbsp;</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
