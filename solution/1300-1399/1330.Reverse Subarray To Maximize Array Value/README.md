@@ -83,6 +83,10 @@ $$
 
 时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
+相似题目：
+
+-   [1131. 绝对值表达式的最大值](/solution/1100-1199/1131.Maximum%20of%20Absolute%20Value%20Expression/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
