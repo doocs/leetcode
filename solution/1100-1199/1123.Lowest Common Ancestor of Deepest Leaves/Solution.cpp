@@ -9,20 +9,24 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-using pti = pair<TreeNode*, int>;
 class Solution {
 public:
     TreeNode* lcaDeepestLeaves(TreeNode* root) {
         return dfs(root).first;
     }
 
-    pti dfs(TreeNode* root) {
-        if (!root) return {nullptr, 0};
-        pti l = dfs(root->left);
-        pti r = dfs(root->right);
-        int d1 = l.second, d2 = r.second;
-        if (d1 > d2) return {l.first, d1 + 1};
-        if (d1 < d2) return {r.first, d2 + 1};
+    pair<TreeNode*, int> dfs(TreeNode* root) {
+        if (!root) {
+            return {nullptr, 0};
+        }
+        auto [l, d1] = dfs(root->left);
+        auto [r, d2] = dfs(root->right);
+        if (d1 > d2) {
+            return {l, d1 + 1};
+        }
+        if (d1 < d2) {
+            return {r, d2 + 1};
+        }
         return {root, d1 + 1};
     }
 };

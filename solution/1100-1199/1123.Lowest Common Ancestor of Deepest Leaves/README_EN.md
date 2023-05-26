@@ -136,20 +136,24 @@ class Solution {
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-using pti = pair<TreeNode*, int>;
 class Solution {
 public:
     TreeNode* lcaDeepestLeaves(TreeNode* root) {
         return dfs(root).first;
     }
 
-    pti dfs(TreeNode* root) {
-        if (!root) return {nullptr, 0};
-        pti l = dfs(root->left);
-        pti r = dfs(root->right);
-        int d1 = l.second, d2 = r.second;
-        if (d1 > d2) return {l.first, d1 + 1};
-        if (d1 < d2) return {r.first, d2 + 1};
+    pair<TreeNode*, int> dfs(TreeNode* root) {
+        if (!root) {
+            return {nullptr, 0};
+        }
+        auto [l, d1] = dfs(root->left);
+        auto [r, d2] = dfs(root->right);
+        if (d1 > d2) {
+            return {l, d1 + 1};
+        }
+        if (d1 < d2) {
+            return {r, d2 + 1};
+        }
         return {root, d1 + 1};
     }
 };
@@ -188,6 +192,42 @@ func lcaDeepestLeaves(root *TreeNode) *TreeNode {
 		return pair{root, d1 + 1}
 	}
 	return dfs(root).first
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function lcaDeepestLeaves(root: TreeNode | null): TreeNode | null {
+    const dfs = (root: TreeNode | null): [TreeNode | null, number] => {
+        if (root === null) {
+            return [null, 0];
+        }
+        const [l, d1] = dfs(root.left);
+        const [r, d2] = dfs(root.right);
+        if (d1 > d2) {
+            return [l, d1 + 1];
+        }
+        if (d1 < d2) {
+            return [r, d2 + 1];
+        }
+        return [root, d1 + 1];
+    };
+    return dfs(root)[0];
 }
 ```
 
