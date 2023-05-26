@@ -43,23 +43,23 @@
 
 **方法一：排序 + 二分查找**
 
-我们可以先对数组 `nums` 进行排序，初始化答案为 `-1`。
+我们可以先对数组 $nums$ 进行排序，初始化答案为 $-1$。
 
-接下来，我们枚举数组中的每个元素 `nums[i]`，并在数组中寻找满足 `nums[j] + nums[i] < k` 的最大的 `nums[j]`。这里我们可以使用二分查找来加速寻找过程。如果找到了这样的 `nums[j]`，那么我们就可以更新答案，即 `ans = max(ans, nums[i] + nums[j])`。
+接下来，我们枚举数组中的每个元素 $nums[i]$，并在数组中寻找满足 $nums[j] + nums[i] \lt k$ 的最大的 $nums[j]$。这里我们可以使用二分查找来加速寻找过程。如果找到了这样的 $nums[j]$，那么我们就可以更新答案，即 $ans = \max(ans, nums[i] + nums[j])$。
 
 枚举结束后，返回答案即可。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 `nums` 的长度。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 **方法二：排序 + 双指针**
 
-与方法一类似，我们可以先对数组 `nums` 进行排序，初始化答案为 `-1`。
+与方法一类似，我们可以先对数组 $nums$ 进行排序，初始化答案为 $-1$。
 
-接下来，我们使用双指针 $i$ 和 $j$ 分别指向数组的左右两端，每次判断 `nums[i] + nums[j]` 是否小于 `k`，如果小于 `k`，那么我们就可以更新答案，即 `ans = max(ans, nums[i] + nums[j])`，并将 $i$ 右移一位，否则将 $j$ 左移一位。
+接下来，我们使用双指针 $i$ 和 $j$ 分别指向数组的左右两端，每次判断 $s = nums[i] + nums[j]$ 是否小于 $k$，如果小于 $k$，那么我们就可以更新答案，即 $ans = \max(ans, s)$，并将 $i$ 右移一位，否则将 $j$ 左移一位。
 
 枚举结束后，返回答案即可。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 `nums` 的长度。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
 
@@ -83,11 +83,11 @@ class Solution:
 class Solution:
     def twoSumLessThanK(self, nums: List[int], k: int) -> int:
         nums.sort()
-        ans = -1
         i, j = 0, len(nums) - 1
+        ans = -1
         while i < j:
-            if (t := nums[i] + nums[j]) < k:
-                ans = max(ans, t)
+            if (s := nums[i] + nums[j]) < k:
+                ans = max(ans, s)
                 i += 1
             else:
                 j -= 1
@@ -132,11 +132,10 @@ class Solution {
     public int twoSumLessThanK(int[] nums, int k) {
         Arrays.sort(nums);
         int ans = -1;
-        int i = 0, j = nums.length - 1;
-        while (i < j) {
-            int t = nums[i] + nums[j];
-            if (t < k) {
-                ans = Math.max(ans, t);
+        for (int i = 0, j = nums.length - 1; i < j;) {
+            int s = nums[i] + nums[j];
+            if (s < k) {
+                ans = Math.max(ans, s);
                 ++i;
             } else {
                 --j;
@@ -172,11 +171,10 @@ public:
     int twoSumLessThanK(vector<int>& nums, int k) {
         sort(nums.begin(), nums.end());
         int ans = -1;
-        int i = 0, j = nums.size() - 1;
-        while (i < j) {
-            int t = nums[i] + nums[j];
-            if (t < k) {
-                ans = max(ans, t);
+        for (int i = 0, j = nums.size() - 1; i < j;) {
+            int s = nums[i] + nums[j];
+            if (s < k) {
+                ans = max(ans, s);
                 ++i;
             } else {
                 --j;
@@ -207,10 +205,9 @@ func twoSumLessThanK(nums []int, k int) int {
 func twoSumLessThanK(nums []int, k int) int {
 	sort.Ints(nums)
 	ans := -1
-	i, j := 0, len(nums)-1
-	for i < j {
-		if t := nums[i] + nums[j]; t < k {
-			ans = max(ans, t)
+	for i, j := 0, len(nums)-1; i < j; {
+		if s := nums[i] + nums[j]; s < k {
+			ans = max(ans, s)
 			i++
 		} else {
 			j--
@@ -224,6 +221,25 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function twoSumLessThanK(nums: number[], k: number): number {
+    nums.sort((a, b) => a - b);
+    let ans = -1;
+    for (let i = 0, j = nums.length - 1; i < j; ) {
+        const s = nums[i] + nums[j];
+        if (s < k) {
+            ans = Math.max(ans, s);
+            ++i;
+        } else {
+            --j;
+        }
+    }
+    return ans;
 }
 ```
 

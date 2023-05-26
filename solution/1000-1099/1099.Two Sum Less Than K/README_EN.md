@@ -54,11 +54,11 @@ class Solution:
 class Solution:
     def twoSumLessThanK(self, nums: List[int], k: int) -> int:
         nums.sort()
-        ans = -1
         i, j = 0, len(nums) - 1
+        ans = -1
         while i < j:
-            if (t := nums[i] + nums[j]) < k:
-                ans = max(ans, t)
+            if (s := nums[i] + nums[j]) < k:
+                ans = max(ans, s)
                 i += 1
             else:
                 j -= 1
@@ -101,11 +101,10 @@ class Solution {
     public int twoSumLessThanK(int[] nums, int k) {
         Arrays.sort(nums);
         int ans = -1;
-        int i = 0, j = nums.length - 1;
-        while (i < j) {
-            int t = nums[i] + nums[j];
-            if (t < k) {
-                ans = Math.max(ans, t);
+        for (int i = 0, j = nums.length - 1; i < j;) {
+            int s = nums[i] + nums[j];
+            if (s < k) {
+                ans = Math.max(ans, s);
                 ++i;
             } else {
                 --j;
@@ -141,11 +140,10 @@ public:
     int twoSumLessThanK(vector<int>& nums, int k) {
         sort(nums.begin(), nums.end());
         int ans = -1;
-        int i = 0, j = nums.size() - 1;
-        while (i < j) {
-            int t = nums[i] + nums[j];
-            if (t < k) {
-                ans = max(ans, t);
+        for (int i = 0, j = nums.size() - 1; i < j;) {
+            int s = nums[i] + nums[j];
+            if (s < k) {
+                ans = max(ans, s);
                 ++i;
             } else {
                 --j;
@@ -176,10 +174,9 @@ func twoSumLessThanK(nums []int, k int) int {
 func twoSumLessThanK(nums []int, k int) int {
 	sort.Ints(nums)
 	ans := -1
-	i, j := 0, len(nums)-1
-	for i < j {
-		if t := nums[i] + nums[j]; t < k {
-			ans = max(ans, t)
+	for i, j := 0, len(nums)-1; i < j; {
+		if s := nums[i] + nums[j]; s < k {
+			ans = max(ans, s)
 			i++
 		} else {
 			j--
@@ -193,6 +190,25 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function twoSumLessThanK(nums: number[], k: number): number {
+    nums.sort((a, b) => a - b);
+    let ans = -1;
+    for (let i = 0, j = nums.length - 1; i < j; ) {
+        const s = nums[i] + nums[j];
+        if (s < k) {
+            ans = Math.max(ans, s);
+            ++i;
+        } else {
+            --j;
+        }
+    }
+    return ans;
 }
 ```
 
