@@ -55,7 +55,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-直接暴力模拟发糖即可。
+**方法一：模拟**
+
+我们可以直接模拟每一个人分到糖果的过程，按照题目描述的规则模拟即可。
+
+时间复杂度 $O(\max(\sqrt{candies}, num\_people))$，空间复杂度 $O(num\_people)$。其中 $candies$ 为糖果数量。
 
 <!-- tabs:start -->
 
@@ -68,7 +72,7 @@ class Solution:
     def distributeCandies(self, candies: int, num_people: int) -> List[int]:
         ans = [0] * num_people
         i = 0
-        while candies > 0:
+        while candies:
             ans[i % num_people] += min(candies, i + 1)
             candies -= min(candies, i + 1)
             i += 1
@@ -125,6 +129,19 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function distributeCandies(candies: number, num_people: number): number[] {
+    const ans: number[] = Array(num_people).fill(0);
+    for (let i = 0; candies > 0; ++i) {
+        ans[i % num_people] += Math.min(candies, i + 1);
+        candies -= Math.min(candies, i + 1);
+    }
+    return ans;
 }
 ```
 
