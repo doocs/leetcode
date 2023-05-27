@@ -55,6 +55,22 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def countLetters(self, s: str) -> int:
+        ans = 0
+        i, n = 0, len(s)
+        while i < n:
+            j = i
+            cnt = 0
+            while j < n and s[j] == s[i]:
+                j += 1
+                cnt += 1
+                ans += cnt
+            i = j
+        return ans
+```
+
 ### **Java**
 
 ```java
@@ -74,6 +90,25 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int countLetters(String s) {
+        int ans = 0;
+        int i = 0, n = s.length();
+        while (i < n) {
+            int j = i;
+            int cnt = 0;
+            while (j < n && s.charAt(j) == s.charAt(i)) {
+                ++j;
+                ans += ++cnt;
+            }
+            i = j;
+        }
+        return ans;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -83,8 +118,30 @@ public:
         int ans = 0;
         for (int i = 0, n = s.size(); i < n;) {
             int j = i;
-            while (j < n && s[j] == s[i]) ++j;
+            while (j < n && s[j] == s[i]) {
+                ++j;
+            }
             ans += (1 + j - i) * (j - i) / 2;
+            i = j;
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int countLetters(string s) {
+        int ans = 0;
+        int i = 0, n = s.size();
+        while (i < n) {
+            int j = i;
+            int cnt = 0;
+            while (j < n && s[j] == s[i]) {
+                ++j;
+                ans += ++cnt;
+            }
             i = j;
         }
         return ans;
@@ -106,6 +163,42 @@ func countLetters(s string) int {
 		i = j
 	}
 	return ans
+}
+```
+
+```go
+func countLetters(s string) (ans int) {
+	i, n := 0, len(s)
+	for i < n {
+		j := i
+		cnt := 0
+		for j < n && s[j] == s[i] {
+			j++
+			cnt++
+			ans += cnt
+		}
+		i = j
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function countLetters(s: string): number {
+    let ans = 0;
+    const n = s.length;
+    for (let i = 0; i < n; ) {
+        let j = i;
+        let cnt = 0;
+        while (j < n && s[j] === s[i]) {
+            ++j;
+            ans += ++cnt;
+        }
+        i = j;
+    }
+    return ans;
 }
 ```
 
