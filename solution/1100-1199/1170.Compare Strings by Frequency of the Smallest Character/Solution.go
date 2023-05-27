@@ -4,22 +4,22 @@ func numSmallerByFrequency(queries []string, words []string) (ans []int) {
 		for _, c := range s {
 			cnt[c-'a']++
 		}
-		for _, v := range cnt {
-			if v > 0 {
-				return v
+		for _, x := range cnt {
+			if x > 0 {
+				return x
 			}
 		}
 		return 0
 	}
-	arr := []int{}
-	for _, s := range words {
-		arr = append(arr, f(s))
+	n := len(words)
+	nums := make([]int, n)
+	for i, w := range words {
+		nums[i] = f(w)
 	}
-	sort.Ints(arr)
-	n := len(arr)
+	sort.Ints(nums)
 	for _, q := range queries {
 		x := f(q)
-		ans = append(ans, n-sort.Search(n, func(i int) bool { return arr[i] > x }))
+		ans = append(ans, n-sort.SearchInts(nums, x+1))
 	}
 	return
 }

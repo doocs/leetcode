@@ -1,31 +1,27 @@
 class Solution {
     public int[] numSmallerByFrequency(String[] queries, String[] words) {
         int n = words.length;
-        int[] arr = new int[n];
+        int[] nums = new int[n];
         for (int i = 0; i < n; ++i) {
-            arr[i] = f(words[i]);
+            nums[i] = f(words[i]);
         }
-        Arrays.sort(arr);
+        Arrays.sort(nums);
         int m = queries.length;
         int[] ans = new int[m];
         for (int i = 0; i < m; ++i) {
             int x = f(queries[i]);
-            ans[i] = n - search(arr, x);
+            int l = 0, r = n;
+            while (l < r) {
+                int mid = (l + r) >> 1;
+                if (nums[mid] > x) {
+                    r = mid;
+                } else {
+                    l = mid + 1;
+                }
+            }
+            ans[i] = n - l;
         }
         return ans;
-    }
-
-    private int search(int[] arr, int x) {
-        int left = 0, right = arr.length;
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            if (arr[mid] > x) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        return left;
     }
 
     private int f(String s) {
@@ -33,9 +29,9 @@ class Solution {
         for (int i = 0; i < s.length(); ++i) {
             ++cnt[s.charAt(i) - 'a'];
         }
-        for (int v : cnt) {
-            if (v > 0) {
-                return v;
+        for (int x : cnt) {
+            if (x > 0) {
+                return x;
             }
         }
         return 0;

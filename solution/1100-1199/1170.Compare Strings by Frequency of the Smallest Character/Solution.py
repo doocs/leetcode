@@ -1,12 +1,11 @@
 class Solution:
     def numSmallerByFrequency(self, queries: List[str], words: List[str]) -> List[int]:
-        def f(s):
+        def f(s: str) -> int:
             cnt = Counter(s)
             for c in ascii_lowercase:
-                if cnt[c]:
-                    return cnt[c]
+                if x := cnt[c]:
+                    return x
 
-        arr = [f(s) for s in words]
-        arr.sort()
-        n = len(arr)
-        return [n - bisect_right(arr, f(q)) for q in queries]
+        n = len(words)
+        nums = sorted(f(w) for w in words)
+        return [n - bisect_right(nums, f(q)) for q in queries]

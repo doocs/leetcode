@@ -1,27 +1,28 @@
 class Solution {
 public:
     vector<int> numSmallerByFrequency(vector<string>& queries, vector<string>& words) {
-        auto f = [](string& s) {
+        auto f = [](string s) {
             int cnt[26] = {0};
-            for (char& c : s) {
+            for (char c : s) {
                 cnt[c - 'a']++;
             }
-            for (int i = 0; i < 26; ++i) {
-                if (cnt[i]) {
-                    return cnt[i];
+            for (int x : cnt) {
+                if (x) {
+                    return x;
                 }
             }
             return 0;
         };
-        vector<int> arr;
-        for (auto& s : words) {
-            arr.emplace_back(f(s));
+        int n = words.size();
+        int nums[n];
+        for (int i = 0; i < n; i++) {
+            nums[i] = f(words[i]);
         }
-        sort(arr.begin(), arr.end());
+        sort(nums, nums + n);
         vector<int> ans;
         for (auto& q : queries) {
             int x = f(q);
-            ans.emplace_back(arr.end() - upper_bound(arr.begin(), arr.end(), x));
+            ans.push_back(n - (upper_bound(nums, nums + n, x) - nums));
         }
         return ans;
     }
