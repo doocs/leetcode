@@ -1,52 +1,46 @@
-type Trie struct {
-	children map[string]*Trie
+type trie struct {
+	children map[string]*trie
 	v        int
 }
 
-func newTrie() *Trie {
-	m := map[string]*Trie{}
-	return &Trie{children: m}
+func newTrie(v int) *trie {
+	return &trie{map[string]*trie{}, v}
 }
 
-func (this *Trie) insert(w string, v int) bool {
-	node := this
+func (t *trie) insert(w string, v int) bool {
+	node := t
 	ps := strings.Split(w, "/")
 	for _, p := range ps[1 : len(ps)-1] {
 		if _, ok := node.children[p]; !ok {
 			return false
 		}
-		node, _ = node.children[p]
+		node = node.children[p]
 	}
-	x := ps[len(ps)-1]
-	if _, ok := node.children[x]; ok {
+	if _, ok := node.children[ps[len(ps)-1]]; ok {
 		return false
 	}
-	node.children[x] = newTrie()
-	node, _ = node.children[x]
-	node.v = v
+	node.children[ps[len(ps)-1]] = newTrie(v)
 	return true
 }
 
-func (this *Trie) search(w string) int {
-	node := this
-	for _, p := range strings.Split(w, "/")[1:] {
+func (t *trie) search(w string) int {
+	node := t
+	ps := strings.Split(w, "/")
+	for _, p := range ps[1:] {
 		if _, ok := node.children[p]; !ok {
 			return -1
 		}
-		node, _ = node.children[p]
-	}
-	if node.v == 0 {
-		return -1
+		node = node.children[p]
 	}
 	return node.v
 }
 
 type FileSystem struct {
-	trie *Trie
+	trie *trie
 }
 
 func Constructor() FileSystem {
-	return FileSystem{newTrie()}
+	return FileSystem{trie: newTrie(-1)}
 }
 
 func (this *FileSystem) CreatePath(path string, value int) bool {

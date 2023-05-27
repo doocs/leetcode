@@ -67,31 +67,29 @@ fileSystem.get(&quot;/c&quot;); // return -1 because this path doesn&#39;t exist
 
 ```python
 class Trie:
-    def __init__(self):
+    def __init__(self, v: int = -1):
         self.children = {}
-        self.v = 0
+        self.v = v
 
-    def insert(self, w, v):
+    def insert(self, w: str, v: int) -> bool:
         node = self
-        ps = w.split('/')
+        ps = w.split("/")
         for p in ps[1:-1]:
             if p not in node.children:
                 return False
             node = node.children[p]
         if ps[-1] in node.children:
             return False
-        node.children[ps[-1]] = Trie()
-        node = node.children[ps[-1]]
-        node.v = v
+        node.children[ps[-1]] = Trie(v)
         return True
 
-    def search(self, w):
+    def search(self, w: str) -> int:
         node = self
-        for p in w.split('/')[1:]:
+        for p in w.split("/")[1:]:
             if p not in node.children:
                 return -1
             node = node.children[p]
-        return node.v or -1
+        return node.v
 
 
 class FileSystem:
@@ -118,11 +116,15 @@ class Trie {
     Map<String, Trie> children = new HashMap<>();
     int v;
 
+    Trie(int v) {
+        this.v = v;
+    }
+
     boolean insert(String w, int v) {
         Trie node = this;
-        String[] ps = w.split("/");
+        var ps = w.split("/");
         for (int i = 1; i < ps.length - 1; ++i) {
-            String p = ps[i];
+            var p = ps[i];
             if (!node.children.containsKey(p)) {
                 return false;
             }
@@ -131,36 +133,35 @@ class Trie {
         if (node.children.containsKey(ps[ps.length - 1])) {
             return false;
         }
-        node.children.put(ps[ps.length - 1], new Trie());
-        node = node.children.get(ps[ps.length - 1]);
-        node.v = v;
+        node.children.put(ps[ps.length - 1], new Trie(v));
         return true;
     }
 
     int search(String w) {
         Trie node = this;
-        String[] ps = w.split("/");
+        var ps = w.split("/");
         for (int i = 1; i < ps.length; ++i) {
-            String p = ps[i];
+            var p = ps[i];
             if (!node.children.containsKey(p)) {
                 return -1;
             }
             node = node.children.get(p);
         }
-        return node.v == 0 ? -1 : node.v;
+        return node.v;
     }
 }
 
 class FileSystem {
-    private Trie trie = new Trie();
+    private Trie trie = new Trie(-1);
 
     public FileSystem() {
-    }
 
+    }
+    
     public boolean createPath(String path, int value) {
         return trie.insert(path, value);
     }
-
+    
     public int get(String path) {
         return trie.search(path);
     }
@@ -174,58 +175,133 @@ class FileSystem {
  */
 ```
 
+### **C++**
+
+```cpp
+class Trie {
+public:
+    unordered_map<string, Trie*> children;
+    int v;
+
+    Trie(int v) {
+        this->v = v;
+    }
+
+    bool insert(string& w, int v) {
+        Trie* node = this;
+        auto ps = split(w, '/');
+        for (int i = 1; i < ps.size() - 1; ++i) {
+            auto p = ps[i];
+            if (!node->children.count(p)) {
+                return false;
+            }
+            node = node->children[p];
+        }
+        if (node->children.count(ps.back())) {
+            return false;
+        }
+        node->children[ps.back()] = new Trie(v);
+        return true;
+    }
+
+    int search(string& w) {
+        Trie* node = this;
+        auto ps = split(w, '/');
+        for (int i = 1; i < ps.size(); ++i) {
+            auto p = ps[i];
+            if (!node->children.count(p)) {
+                return -1;
+            }
+            node = node->children[p];
+        }
+        return node->v;
+    }
+
+
+private:
+    vector<string> split(string& s, char delim) {
+        stringstream ss(s);
+        string item;
+        vector<string> res;
+        while (getline(ss, item, delim)) {
+            res.emplace_back(item);
+        }
+        return res;
+    }
+};
+
+class FileSystem {
+public:
+    FileSystem() {
+        trie = new Trie(-1);
+    }
+    
+    bool createPath(string path, int value) {
+        return trie->insert(path, value);
+    }
+    
+    int get(string path) {
+        return trie->search(path);
+    }
+
+private:
+    Trie* trie;
+};
+
+/**
+ * Your FileSystem object will be instantiated and called as such:
+ * FileSystem* obj = new FileSystem();
+ * bool param_1 = obj->createPath(path,value);
+ * int param_2 = obj->get(path);
+ */
+```
+
 ### **Go**
 
 ```go
-type Trie struct {
-	children map[string]*Trie
+type trie struct {
+	children map[string]*trie
 	v        int
 }
 
-func newTrie() *Trie {
-	m := map[string]*Trie{}
-	return &Trie{children: m}
+func newTrie(v int) *trie {
+	return &trie{map[string]*trie{}, v}
 }
 
-func (this *Trie) insert(w string, v int) bool {
-	node := this
+func (t *trie) insert(w string, v int) bool {
+	node := t
 	ps := strings.Split(w, "/")
 	for _, p := range ps[1 : len(ps)-1] {
 		if _, ok := node.children[p]; !ok {
 			return false
 		}
-		node, _ = node.children[p]
+		node = node.children[p]
 	}
-	x := ps[len(ps)-1]
-	if _, ok := node.children[x]; ok {
+	if _, ok := node.children[ps[len(ps)-1]]; ok {
 		return false
 	}
-	node.children[x] = newTrie()
-	node, _ = node.children[x]
-	node.v = v
+	node.children[ps[len(ps)-1]] = newTrie(v)
 	return true
 }
 
-func (this *Trie) search(w string) int {
-	node := this
-	for _, p := range strings.Split(w, "/")[1:] {
+func (t *trie) search(w string) int {
+	node := t
+	ps := strings.Split(w, "/")
+	for _, p := range ps[1:] {
 		if _, ok := node.children[p]; !ok {
 			return -1
 		}
-		node, _ = node.children[p]
-	}
-	if node.v == 0 {
-		return -1
+		node = node.children[p]
 	}
 	return node.v
 }
 
 type FileSystem struct {
-	trie *Trie
+	trie *trie
 }
 
 func Constructor() FileSystem {
-	return FileSystem{newTrie()}
+	return FileSystem{trie: newTrie(-1)}
 }
 
 func (this *FileSystem) CreatePath(path string, value int) bool {
@@ -241,6 +317,72 @@ func (this *FileSystem) Get(path string) int {
  * obj := Constructor();
  * param_1 := obj.CreatePath(path,value);
  * param_2 := obj.Get(path);
+ */
+```
+
+### **TypeScript**
+
+```ts
+class Trie {
+    children: Map<string, Trie>;
+    v: number;
+
+    constructor(v: number) {
+        this.children = new Map<string, Trie>();
+        this.v = v;
+    }
+
+    insert(w: string, v: number): boolean {
+        let node: Trie = this;
+        const ps = w.split('/').slice(1);
+        for (let i = 0; i < ps.length - 1; ++i) {
+            const p = ps[i];
+            if (!node.children.has(p)) {
+                return false;
+            }
+            node = node.children.get(p)!;
+        }
+        if (node.children.has(ps[ps.length - 1])) {
+            return false;
+        }
+        node.children.set(ps[ps.length - 1], new Trie(v));
+        return true;
+    }
+
+    search(w: string): number {
+        let node: Trie = this;
+        const ps = w.split('/').slice(1);
+        for (const p of ps) {
+            if (!node.children.has(p)) {
+                return -1;
+            }
+            node = node.children.get(p)!;
+        }
+        return node.v;
+    }
+}
+
+class FileSystem {
+    trie: Trie;
+
+    constructor() {
+        this.trie = new Trie(-1);
+    }
+
+    createPath(path: string, value: number): boolean {
+        return this.trie.insert(path, value);
+    }
+
+    get(path: string): number {
+        return this.trie.search(path);
+    }
+}
+
+/**
+ * Your FileSystem object will be instantiated and called as such:
+ * var obj = new FileSystem()
+ * var param_1 = obj.createPath(path,value)
+ * var param_2 = obj.get(path)
  */
 ```
 
