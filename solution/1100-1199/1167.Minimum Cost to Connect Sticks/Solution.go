@@ -1,28 +1,21 @@
-func connectSticks(sticks []int) int {
-	h := IntHeap(sticks)
-	heap.Init(&h)
-	res := 0
-	for h.Len() > 1 {
-		val := heap.Pop(&h).(int)
-		val += heap.Pop(&h).(int)
-		res += val
-		heap.Push(&h, val)
+func connectSticks(sticks []int) (ans int) {
+	hp := &hp{sticks}
+	heap.Init(hp)
+	for hp.Len() > 1 {
+		x, y := heap.Pop(hp).(int), heap.Pop(hp).(int)
+		ans += x + y
+		heap.Push(hp, x+y)
 	}
-	return res
+	return
 }
 
-type IntHeap []int
+type hp struct{ sort.IntSlice }
 
-func (h IntHeap) Len() int           { return len(h) }
-func (h IntHeap) Less(i, j int) bool { return h[i] < h[j] }
-func (h IntHeap) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
-func (h *IntHeap) Push(x interface{}) {
-	*h = append(*h, x.(int))
-}
-func (h *IntHeap) Pop() interface{} {
-	old := *h
-	n := len(old)
-	x := old[n-1]
-	*h = old[0 : n-1]
-	return x
+func (h hp) Less(i, j int) bool  { return h.IntSlice[i] < h.IntSlice[j] }
+func (h *hp) Push(v interface{}) { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() interface{} {
+	a := h.IntSlice
+	v := a[len(a)-1]
+	h.IntSlice = a[:len(a)-1]
+	return v
 }
