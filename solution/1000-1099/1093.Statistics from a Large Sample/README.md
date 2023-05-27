@@ -83,7 +83,9 @@
 -   更新 $cnt = cnt + count[k]$；
 -   如果 $count[k] \gt count[mode]$，那么更新 $mode = k$。
 
-遍历结束后，我们再根据 $cnt$ 的奇偶性来更新中位数 $median$，如果 $cnt$ 是奇数，那么中位数就是第 $\lfloor \frac{cnt}{2} \rfloor + 1$ 个数字，如果 $cnt$ 是偶数，那么中位数就是第 $\lfloor \frac{cnt}{2} \rfloor$ 和第 $\lfloor \frac{cnt}{2} \rfloor + 1$ 个数字的平均值。
+遍历结束后，我们再根据 $cnt$ 的奇偶性来计算中位数 $median$，如果 $cnt$ 是奇数，那么中位数就是第 $\lfloor \frac{cnt}{2} \rfloor + 1$ 个数字，如果 $cnt$ 是偶数，那么中位数就是第 $\lfloor \frac{cnt}{2} \rfloor$ 和第 $\lfloor \frac{cnt}{2} \rfloor + 1$ 个数字的平均值。
+
+> 这里我们通过一个简单的辅助函数 $find(i)$ 来找到第 $i$ 个数字，具体实现可以参考下面的代码。
 
 最后，我们将 $mi, mx, \frac{s}{cnt}, median, mode$ 放入答案数组中返回即可。
 
