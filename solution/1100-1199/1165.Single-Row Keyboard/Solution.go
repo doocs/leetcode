@@ -1,15 +1,15 @@
-func calculateTime(keyboard string, word string) int {
-	index := map[byte]int{}
-	for i := 0; i < len(keyboard); i++ {
-		index[keyboard[i]] = i
+func calculateTime(keyboard string, word string) (ans int) {
+	pos := [26]int{}
+	for i, c := range keyboard {
+		pos[c-'a'] = i
 	}
-	res := 0
-	t := 0
-	for i := 0; i < len(word); i++ {
-		res += abs(index[word[i]] - t)
-		t = index[word[i]]
+	i := 0
+	for _, c := range word {
+		j := pos[c-'a']
+		ans += abs(i - j)
+		i = j
 	}
-	return res
+	return
 }
 
 func abs(x int) int {

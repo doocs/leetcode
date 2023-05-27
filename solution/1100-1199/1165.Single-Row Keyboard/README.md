@@ -45,7 +45,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-哈希表实现。
+**方法一：哈希表或数组**
+
+我们可以用哈希表或者一个长度为 $26$ 的数组 $pos$ 来存储每个字符在键盘上的位置，其中 $pos[c]$ 表示字符 $c$ 在键盘上的位置。
+
+然后我们遍历字符串 $word$，用一个变量 $i$ 记录当前手指所在的位置，初始时 $i = 0$。每次计算当前字符 $c$ 在键盘上的位置 $j$，并将答案增加 $|i - j|$，然后将 $i$ 更新为 $j$。继续遍历下一个字符，直到遍历完整个字符串 $word$。
+
+遍历完字符串 $word$ 之后，即可得到答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串 $word$ 的长度；而 $C$ 为字符集大小，本题中 $C = 26$。
 
 <!-- tabs:start -->
 
@@ -56,12 +64,12 @@
 ```python
 class Solution:
     def calculateTime(self, keyboard: str, word: str) -> int:
-        index = {c: i for i, c in enumerate(keyboard)}
-        res = t = 0
+        pos = {c: i for i, c in enumerate(keyboard)}
+        ans = i = 0
         for c in word:
-            res += abs(index[c] - t)
-            t = index[c]
-        return res
+            ans += abs(pos[c] - i)
+            i = pos[c]
+        return ans
 ```
 
 ### **Java**
@@ -71,16 +79,17 @@ class Solution:
 ```java
 class Solution {
     public int calculateTime(String keyboard, String word) {
-        Map<Character, Integer> index = new HashMap<>();
-        for (int i = 0; i < keyboard.length(); ++i) {
-            index.put(keyboard.charAt(i), i);
+        int[] pos = new int[26];
+        for (int i = 0; i < 26; ++i) {
+            pos[keyboard.charAt(i) - 'a'] = i;
         }
-        int res = 0, t = 0;
-        for (char c : word.toCharArray()) {
-            res += Math.abs(index.get(c) - t);
-            t = index.get(c);
+        int ans = 0, i = 0;
+        for (int k = 0; k < word.length(); ++k) {
+            int j = pos[word.charAt(k) - 'a'];
+            ans += Math.abs(i - j);
+            i = j;
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -91,16 +100,17 @@ class Solution {
 class Solution {
 public:
     int calculateTime(string keyboard, string word) {
-        unordered_map<char, int> index;
-        for (int i = 0; i < keyboard.size(); ++i) {
-            index[keyboard[i]] = i;
+        int pos[26];
+        for (int i = 0; i < 26; ++i) {
+            pos[keyboard[i] - 'a'] = i;
         }
-        int res = 0, t = 0;
-        for (char c : word) {
-            res += abs(index[c] - t);
-            t = index[c];
+        int ans = 0, i = 0;
+        for (char& c : word) {
+            int j = pos[c - 'a'];
+            ans += abs(i - j);
+            i = j;
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -108,18 +118,18 @@ public:
 ### **Go**
 
 ```go
-func calculateTime(keyboard string, word string) int {
-	index := map[byte]int{}
-	for i := 0; i < len(keyboard); i++ {
-		index[keyboard[i]] = i
+func calculateTime(keyboard string, word string) (ans int) {
+	pos := [26]int{}
+	for i, c := range keyboard {
+		pos[c-'a'] = i
 	}
-	res := 0
-	t := 0
-	for i := 0; i < len(word); i++ {
-		res += abs(index[word[i]] - t)
-		t = index[word[i]]
+	i := 0
+	for _, c := range word {
+		j := pos[c-'a']
+		ans += abs(i - j)
+		i = j
 	}
-	return res
+	return
 }
 
 func abs(x int) int {
@@ -127,6 +137,25 @@ func abs(x int) int {
 		return -x
 	}
 	return x
+}
+```
+
+### **TypeScript**
+
+```ts
+function calculateTime(keyboard: string, word: string): number {
+    const pos: number[] = Array(26).fill(0);
+    for (let i = 0; i < 26; ++i) {
+        pos[keyboard.charCodeAt(i) - 97] = i;
+    }
+    let ans = 0;
+    let i = 0;
+    for (const c of word) {
+        const j = pos[c.charCodeAt(0) - 97];
+        ans += Math.abs(i - j);
+        i = j;
+    }
+    return ans;
 }
 ```
 
