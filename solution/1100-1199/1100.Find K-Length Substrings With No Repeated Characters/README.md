@@ -74,6 +74,23 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def numKLenSubstrNoRepeats(self, s: str, k: int) -> int:
+        n = len(s)
+        if k > n:
+            return 0
+        cnt = Counter(s[:k])
+        ans = int(len(cnt) == k)
+        for i in range(k, n):
+            cnt[s[i]] += 1
+            cnt[s[i - k]] -= 1
+            if cnt[s[i - k]] == 0:
+                cnt.pop(s[i - k])
+            ans += len(cnt) == k
+        return ans
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
@@ -93,6 +110,30 @@ class Solution {
                 cnt[s.charAt(j++)]--;
             }
             ans += i - j + 1 == k ? 1 : 0;
+        }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int numKLenSubstrNoRepeats(String s, int k) {
+        int n = s.length();
+        if (k > n) {
+            return 0;
+        }
+        Map<Character, Integer> cnt = new HashMap<>(k);
+        for (int i = 0; i < k; ++i) {
+            cnt.merge(s.charAt(i), 1, Integer::sum);
+        }
+        int ans = cnt.size() == k ? 1 : 0;
+        for (int i = k; i < n; ++i) {
+            cnt.merge(s.charAt(i), 1, Integer::sum);
+            if (cnt.merge(s.charAt(i - k), -1, Integer::sum) == 0) {
+                cnt.remove(s.charAt(i - k));
+            }
+            ans += cnt.size() ==  k ? 1 : 0;
         }
         return ans;
     }
@@ -123,6 +164,32 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int numKLenSubstrNoRepeats(string s, int k) {
+        int n = s.size();
+        if (k > n) {
+            return 0;
+        }
+        unordered_map<char, int> cnt;
+        for (int i = 0; i < k; ++i) {
+            cnt[s[i]]++;
+        }
+        int ans = cnt.size() == k ? 1 : 0;
+        for (int i = k; i < n; ++i) {
+            cnt[s[i]]++;
+            cnt[s[i - k]]--;
+            if (cnt[s[i - k]] == 0) {
+                cnt.erase(s[i - k]);
+            }
+            ans += cnt.size() == k ? 1 : 0;
+        }
+        return ans;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -142,6 +209,58 @@ func numKLenSubstrNoRepeats(s string, k int) (ans int) {
 		}
 	}
 	return
+}
+```
+
+```go
+func numKLenSubstrNoRepeats(s string, k int) (ans int) {
+	n := len(s)
+	if k > n {
+		return 0
+	}
+	cnt := map[byte]int{}
+	for i := 0; i < k; i++ {
+		cnt[s[i]]++
+	}
+	if len(cnt) == k {
+		ans++
+	}
+	for i := k; i < n; i++ {
+		cnt[s[i]]++
+		cnt[s[i-k]]--
+		if cnt[s[i-k]] == 0 {
+			delete(cnt, s[i-k])
+		}
+		if len(cnt) == k {
+			ans++
+		}
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function numKLenSubstrNoRepeats(s: string, k: number): number {
+    const n = s.length;
+    if (k > n) {
+        return 0;
+    }
+    const cnt: Map<string, number> = new Map();
+    for (let i = 0; i < k; ++i) {
+        cnt.set(s[i], (cnt.get(s[i]) ?? 0) + 1);
+    }
+    let ans = cnt.size === k ? 1 : 0;
+    for (let i = k; i < n; ++i) {
+        cnt.set(s[i], (cnt.get(s[i]) ?? 0) + 1);
+        cnt.set(s[i - k], (cnt.get(s[i - k]) ?? 0) - 1);
+        if (cnt.get(s[i - k]) === 0) {
+            cnt.delete(s[i - k]);
+        }
+        ans += cnt.size === k ? 1 : 0;
+    }
+    return ans;
 }
 ```
 
