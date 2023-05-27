@@ -6,7 +6,7 @@
  *     public int length() {}
  * }
  */
- 
+
 class Solution {
     private MountainArray mountainArr;
     private int target;

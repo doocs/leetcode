@@ -6,7 +6,7 @@ class Solution {
         }
         return ans;
     }
-    
+
     private int f(int x) {
         int cnt = 2, s = x + 1;
         for (int i = 2; i <= x / i; ++i) {

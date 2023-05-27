@@ -89,7 +89,7 @@ class Solution {
         int n = grid.length;
         grid[0][0] = 1;
         Deque<int[]> q = new ArrayDeque<>();
-        q.offer(new int[]{0, 0});
+        q.offer(new int[] {0, 0});
         for (int ans = 1; !q.isEmpty(); ++ans) {
             for (int k = q.size(); k > 0; --k) {
                 var p = q.poll();
@@ -101,7 +101,7 @@ class Solution {
                     for (int y = j - 1; y <= j + 1; ++y) {
                         if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 0) {
                             grid[x][y] = 1;
-                            q.offer(new int[]{x, y});
+                            q.offer(new int[] {x, y});
                         }
                     }
                 }

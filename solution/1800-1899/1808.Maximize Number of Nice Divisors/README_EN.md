@@ -16,39 +16,28 @@
 <p>Note that a prime number is a natural number greater than <code>1</code> that is not a product of two smaller natural numbers. The prime factors of a number <code>n</code> is a list of prime numbers such that their product equals <code>n</code>.</p>
 
 <p>&nbsp;</p>
-
 <p><strong class="example">Example 1:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> primeFactors = 5
-
 <strong>Output:</strong> 6
-
 <strong>Explanation:</strong> 200 is a valid value of n.
-
 It has 5 prime factors: [2,2,2,5,5], and it has 6 nice divisors: [10,20,40,50,100,200].
-
 There is not other value of n that has at most 5 prime factors and more nice divisors.
-
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> primeFactors = 8
-
 <strong>Output:</strong> 18
-
 </pre>
 
 <p>&nbsp;</p>
-
 <p><strong>Constraints:</strong></p>
 
 <ul>
-    <li><code>1 &lt;= primeFactors &lt;= 10<sup>9</sup></code></li>
+	<li><code>1 &lt;= primeFactors &lt;= 10<sup>9</sup></code></li>
 </ul>
 
 ## Solutions

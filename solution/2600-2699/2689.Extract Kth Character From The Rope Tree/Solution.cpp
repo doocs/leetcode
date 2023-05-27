@@ -14,7 +14,7 @@
 class Solution {
 public:
     char getKthCharacter(RopeTreeNode* root, int k) {
-        function<string(RopeTreeNode* root)> dfs = [&](RopeTreeNode* root) -> string {
+        function<string(RopeTreeNode * root)> dfs = [&](RopeTreeNode* root) -> string {
             if (root == nullptr) {
                 return "";
             }
@@ -24,7 +24,7 @@ public:
             string left = dfs(root->left);
             string right = dfs(root->right);
             return left + right;
-        }; 
+        };
         return dfs(root)[k - 1];
     }
 };

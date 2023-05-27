@@ -17,7 +17,7 @@ class Solution {
                 for (int j = 0; j < 5; ++j) {
                     s += xs.get(j);
                 }
-                ans.add(new int[]{i, s / 5});
+                ans.add(new int[] {i, s / 5});
             }
         }
         return ans.toArray(new int[0][]);

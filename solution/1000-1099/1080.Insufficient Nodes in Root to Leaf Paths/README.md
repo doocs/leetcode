@@ -6,44 +6,44 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一棵二叉树的根 <code>root</code>，请你考虑它所有&nbsp;<strong>从根到叶的路径</strong>：从根到任何叶的路径。（所谓一个叶子节点，就是一个没有子节点的节点）</p>
+<p>给你二叉树的根节点 <code>root</code> 和一个整数 <code>limit</code> ，请你同时删除树中所有 <strong>不足节点 </strong>，并返回最终二叉树的根节点。</p>
 
-<p>假如通过节点 <code>node</code> 的每种可能的 &ldquo;根-叶&rdquo; 路径上值的总和全都小于给定的 <code>limit</code>，则该节点被称之为「不足节点」，需要被删除。</p>
+<p>假如通过节点 <code>node</code> 的每种可能的 “根-叶” 路径上值的总和全都小于给定的 <code>limit</code>，则该节点被称之为<strong> 不足节点 </strong>，需要被删除。</p>
 
-<p>请你删除所有不足节点，并返回生成的二叉树的根。</p>
+<p><strong>叶子节点</strong>，就是没有子节点的节点。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
-
-<pre><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1080.Insufficient%20Nodes%20in%20Root%20to%20Leaf%20Paths/images/insufficient-1.png" style="height: 200px; width: 482px;">
-输入：</strong>root = [1,2,3,4,-99,-99,7,8,9,-99,-99,12,13,-99,14], limit = 1
-<strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1080.Insufficient%20Nodes%20in%20Root%20to%20Leaf%20Paths/images/insufficient-2.png" style="height: 200px; width: 258px;">
-输出：</strong>[1,2,3,4,null,null,7,8,9,null,14]
+<p><strong class="example">示例 1：</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1080.Insufficient%20Nodes%20in%20Root%20to%20Leaf%20Paths/images/insufficient-11.png" style="width: 500px; height: 207px;" />
+<pre>
+<strong>输入：</strong>root = [1,2,3,4,-99,-99,7,8,9,-99,-99,12,13,-99,14], limit = 1
+<strong>输出：</strong>[1,2,3,4,null,null,7,8,9,null,14]
 </pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1080.Insufficient%20Nodes%20in%20Root%20to%20Leaf%20Paths/images/insufficient-3.png" style="width: 400px; height: 274px;" />
+<pre>
+<strong>输入：</strong>root = [5,4,8,11,null,17,4,7,1,null,null,5,3], limit = 22
+<strong>输出：</strong>[5,4,8,11,null,17,4,7,null,null,null,5]
+</pre>
 
-<pre><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1080.Insufficient%20Nodes%20in%20Root%20to%20Leaf%20Paths/images/insufficient-3.png" style="height: 200px; width: 292px;">
-输入：</strong>root = [5,4,8,11,null,17,4,7,1,null,null,5,3], limit = 22
-<strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1080.Insufficient%20Nodes%20in%20Root%20to%20Leaf%20Paths/images/insufficient-4.png" style="height: 200px; width: 264px;">
-输出：</strong>[5,4,8,11,null,17,4,7,null,null,null,5]</pre>
-
-<p><strong>示例 3：</strong></p>
-
-<pre><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1080.Insufficient%20Nodes%20in%20Root%20to%20Leaf%20Paths/images/insufficient-5.png" style="height: 100px; width: 140px;">
-输入：</strong>root = [5,-6,-6], limit = 0<strong>
-输出：</strong>[]</pre>
+<p><strong class="example">示例 3：</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1080.Insufficient%20Nodes%20in%20Root%20to%20Leaf%20Paths/images/screen-shot-2019-06-11-at-83301-pm.png" style="width: 250px; height: 199px;" />
+<pre>
+<strong>输入：</strong>root = [1,2,-3,-5,null,4,null], limit = -1
+<strong>输出：</strong>[1,null,-3,4]
+</pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li>给定的树有&nbsp;<code>1</code>&nbsp;到&nbsp;<code>5000</code>&nbsp;个节点</li>
-	<li><code>-10^5&nbsp;&lt;= node.val &lt;= 10^5</code></li>
-	<li><code>-10^9 &lt;= limit&nbsp;&lt;= 10^9</code></li>
-</ol>
+<ul>
+	<li>树中节点数目在范围 <code>[1, 5000]</code> 内</li>
+	<li><code>-10<sup>5</sup> &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
+	<li><code>-10<sup>9</sup> &lt;= limit &lt;= 10<sup>9</sup></code></li>
+</ul>
 
 <p>&nbsp;</p>
 

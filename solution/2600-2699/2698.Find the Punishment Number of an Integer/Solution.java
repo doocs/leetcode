@@ -9,7 +9,7 @@ class Solution {
         }
         return ans;
     }
-    
+
     private boolean check(String s, int i, int x) {
         int m = s.length();
         if (i >= m) {

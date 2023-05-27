@@ -496,7 +496,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0485  |  [Max Consecutive Ones](/solution/0400-0499/0485.Max%20Consecutive%20Ones/README_EN.md)  |  `Array`  |  Easy  |    |
 |  0486  |  [Predict the Winner](/solution/0400-0499/0486.Predict%20the%20Winner/README_EN.md)  |  `Recursion`,`Array`,`Math`,`Dynamic Programming`,`Game Theory`  |  Medium  |    |
 |  0487  |  [Max Consecutive Ones II](/solution/0400-0499/0487.Max%20Consecutive%20Ones%20II/README_EN.md)  |  `Array`,`Dynamic Programming`,`Sliding Window`  |  Medium  |  🔒  |
-|  0488  |  [Zuma Game](/solution/0400-0499/0488.Zuma%20Game/README_EN.md)  |  `Breadth-First Search`,`Memoization`,`String`,`Dynamic Programming`  |  Hard  |    |
+|  0488  |  [Zuma Game](/solution/0400-0499/0488.Zuma%20Game/README_EN.md)  |  `Stack`,`Breadth-First Search`,`Memoization`,`String`,`Dynamic Programming`  |  Hard  |    |
 |  0489  |  [Robot Room Cleaner](/solution/0400-0499/0489.Robot%20Room%20Cleaner/README_EN.md)  |  `Backtracking`,`Interactive`  |  Hard  |  🔒  |
 |  0490  |  [The Maze](/solution/0400-0499/0490.The%20Maze/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Graph`  |  Medium  |  🔒  |
 |  0491  |  [Non-decreasing Subsequences](/solution/0400-0499/0491.Non-decreasing%20Subsequences/README_EN.md)  |  `Bit Manipulation`,`Array`,`Hash Table`,`Backtracking`  |  Medium  |    |
@@ -1118,7 +1118,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  1107  |  [New Users Daily Count](/solution/1100-1199/1107.New%20Users%20Daily%20Count/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 |  1108  |  [Defanging an IP Address](/solution/1100-1199/1108.Defanging%20an%20IP%20Address/README_EN.md)  |  `String`  |  Easy  |  Weekly Contest 144  |
 |  1109  |  [Corporate Flight Bookings](/solution/1100-1199/1109.Corporate%20Flight%20Bookings/README_EN.md)  |  `Array`,`Prefix Sum`  |  Medium  |  Weekly Contest 144  |
-|  1110  |  [Delete Nodes And Return Forest](/solution/1100-1199/1110.Delete%20Nodes%20And%20Return%20Forest/README_EN.md)  |  `Tree`,`Depth-First Search`,`Binary Tree`  |  Medium  |  Weekly Contest 144  |
+|  1110  |  [Delete Nodes And Return Forest](/solution/1100-1199/1110.Delete%20Nodes%20And%20Return%20Forest/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`,`Hash Table`,`Binary Tree`  |  Medium  |  Weekly Contest 144  |
 |  1111  |  [Maximum Nesting Depth of Two Valid Parentheses Strings](/solution/1100-1199/1111.Maximum%20Nesting%20Depth%20of%20Two%20Valid%20Parentheses%20Strings/README_EN.md)  |  `Stack`,`String`  |  Medium  |  Weekly Contest 144  |
 |  1112  |  [Highest Grade For Each Student](/solution/1100-1199/1112.Highest%20Grade%20For%20Each%20Student/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 |  1113  |  [Reported Posts](/solution/1100-1199/1113.Reported%20Posts/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
@@ -2697,19 +2697,23 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2686  |  [Immediate Food Delivery III](/solution/2600-2699/2686.Immediate%20Food%20Delivery%20III/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 |  2687  |  [Bikes Last Time Used](/solution/2600-2699/2687.Bikes%20Last%20Time%20Used/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
 |  2688  |  [Find Active Users](/solution/2600-2699/2688.Find%20Active%20Users/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
-|  2689  |  [Extract Kth Character From The Rope Tree](/solution/2600-2699/2689.Extract%20Kth%20Character%20From%20The%20Rope%20Tree/README_EN.md)  |    |  Easy  |  🔒  |
+|  2689  |  [Extract Kth Character From The Rope Tree](/solution/2600-2699/2689.Extract%20Kth%20Character%20From%20The%20Rope%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`  |  Easy  |  🔒  |
 |  2690  |  [Infinite Method Object](/solution/2600-2699/2690.Infinite%20Method%20Object/README_EN.md)  |    |  Easy  |  🔒  |
 |  2691  |  [Immutability Helper](/solution/2600-2699/2691.Immutability%20Helper/README_EN.md)  |    |  Hard  |  🔒  |
 |  2692  |  [Make Object Immutable](/solution/2600-2699/2692.Make%20Object%20Immutable/README_EN.md)  |    |  Medium  |  🔒  |
 |  2693  |  [Call Function with Custom Context](/solution/2600-2699/2693.Call%20Function%20with%20Custom%20Context/README_EN.md)  |    |  Medium  |    |
 |  2694  |  [Event Emitter](/solution/2600-2699/2694.Event%20Emitter/README_EN.md)  |    |  Medium  |    |
 |  2695  |  [Array Wrapper](/solution/2600-2699/2695.Array%20Wrapper/README_EN.md)  |    |  Easy  |    |
-|  2696  |  [Minimum String Length After Removing Substrings](/solution/2600-2699/2696.Minimum%20String%20Length%20After%20Removing%20Substrings/README_EN.md)  |    |  Easy  |  Weekly Contest 346  |
-|  2697  |  [Lexicographically Smallest Palindrome](/solution/2600-2699/2697.Lexicographically%20Smallest%20Palindrome/README_EN.md)  |    |  Easy  |  Weekly Contest 346  |
-|  2698  |  [Find the Punishment Number of an Integer](/solution/2600-2699/2698.Find%20the%20Punishment%20Number%20of%20an%20Integer/README_EN.md)  |    |  Medium  |  Weekly Contest 346  |
-|  2699  |  [Modify Graph Edge Weights](/solution/2600-2699/2699.Modify%20Graph%20Edge%20Weights/README_EN.md)  |    |  Hard  |  Weekly Contest 346  |
+|  2696  |  [Minimum String Length After Removing Substrings](/solution/2600-2699/2696.Minimum%20String%20Length%20After%20Removing%20Substrings/README_EN.md)  |  `Stack`,`String`,`Simulation`  |  Easy  |  Weekly Contest 346  |
+|  2697  |  [Lexicographically Smallest Palindrome](/solution/2600-2699/2697.Lexicographically%20Smallest%20Palindrome/README_EN.md)  |  `Two Pointers`,`String`  |  Easy  |  Weekly Contest 346  |
+|  2698  |  [Find the Punishment Number of an Integer](/solution/2600-2699/2698.Find%20the%20Punishment%20Number%20of%20an%20Integer/README_EN.md)  |  `Recursion`,`Math`  |  Medium  |  Weekly Contest 346  |
+|  2699  |  [Modify Graph Edge Weights](/solution/2600-2699/2699.Modify%20Graph%20Edge%20Weights/README_EN.md)  |  `Graph`,`Shortest Path`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 346  |
 |  2700  |  [Differences Between Two Objects](/solution/2700-2799/2700.Differences%20Between%20Two%20Objects/README_EN.md)  |    |  Medium  |    |
 |  2701  |  [Consecutive Transactions with Increasing Amounts](/solution/2700-2799/2701.Consecutive%20Transactions%20with%20Increasing%20Amounts/README_EN.md)  |    |  Hard  |  🔒  |
+|  2702  |  [Minimum Operations to Make Numbers Non-positive](/solution/2700-2799/2702.Minimum%20Operations%20to%20Make%20Numbers%20Non-positive/README_EN.md)  |    |  Hard  |  🔒  |
+|  2703  |  [Return Length of Arguments Passed](/solution/2700-2799/2703.Return%20Length%20of%20Arguments%20Passed/README_EN.md)  |    |  Easy  |    |
+|  2704  |  [To Be Or Not To Be](/solution/2700-2799/2704.To%20Be%20Or%20Not%20To%20Be/README_EN.md)  |    |  Easy  |    |
+|  2705  |  [Compact Object](/solution/2700-2799/2705.Compact%20Object/README_EN.md)  |    |  Medium  |    |
 
 ## Copyright
 

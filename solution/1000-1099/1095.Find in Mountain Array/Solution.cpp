@@ -10,7 +10,7 @@
 
 class Solution {
 public:
-    int findInMountainArray(int target, MountainArray &mountainArr) {
+    int findInMountainArray(int target, MountainArray& mountainArr) {
         int n = mountainArr.length();
         int l = 0, r = n - 1;
         while (l < r) {

@@ -103,7 +103,7 @@ class Solution {
         int n = values.length;
         int[][] pairs = new int[n][2];
         for (int i = 0; i < n; ++i) {
-            pairs[i] = new int[]{values[i], labels[i]};
+            pairs[i] = new int[] {values[i], labels[i]};
         }
         Arrays.sort(pairs, (a, b) -> b[0] - a[0]);
         Map<Integer, Integer> cnt = new HashMap<>();

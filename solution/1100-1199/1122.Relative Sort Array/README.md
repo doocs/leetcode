@@ -73,7 +73,7 @@ class Solution {
         }
         int[][] arr = new int[arr1.length][0];
         for (int i = 0; i < arr.length; ++i) {
-            arr[i] = new int[]{arr1[i], pos.getOrDefault(arr1[i], arr2.length + arr1[i])};
+            arr[i] = new int[] {arr1[i], pos.getOrDefault(arr1[i], arr2.length + arr1[i])};
         }
         Arrays.sort(arr, (a, b) -> a[1] - b[1]);
         for (int i = 0; i < arr.length; ++i) {

@@ -141,7 +141,8 @@ class Solution:
 class Solution {
     private final int inf = 2000000000;
 
-    public int[][] modifiedGraphEdges(int n, int[][] edges, int source, int destination, int target) {
+    public int[][] modifiedGraphEdges(
+        int n, int[][] edges, int source, int destination, int target) {
         long d = dijkstra(edges, n, source, destination);
         if (d < target) {
             return new int[0][];

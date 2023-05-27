@@ -2755,3 +2755,7 @@
 - 2700-2799
   - [2700.Differences Between Two Objects](/solution/2700-2799/2700.Differences%20Between%20Two%20Objects/README_EN.md)
   - [2701.Consecutive Transactions with Increasing Amounts](/solution/2700-2799/2701.Consecutive%20Transactions%20with%20Increasing%20Amounts/README_EN.md)
+  - [2702.Minimum Operations to Make Numbers Non-positive](/solution/2700-2799/2702.Minimum%20Operations%20to%20Make%20Numbers%20Non-positive/README_EN.md)
+  - [2703.Return Length of Arguments Passed](/solution/2700-2799/2703.Return%20Length%20of%20Arguments%20Passed/README_EN.md)
+  - [2704.To Be Or Not To Be](/solution/2700-2799/2704.To%20Be%20Or%20Not%20To%20Be/README_EN.md)
+  - [2705.Compact Object](/solution/2700-2799/2705.Compact%20Object/README_EN.md)

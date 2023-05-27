@@ -70,12 +70,12 @@ Result table:
 SELECT
 	extra report_reason,
 	count(
-	DISTINCT ( post_id )) report_count 
+	DISTINCT ( post_id )) report_count
 FROM
-	Actions 
+	Actions
 WHERE
-	action_date = '2019-07-04' 
-	AND action = 'report' 
+	action_date = '2019-07-04'
+	AND action = 'report'
 GROUP BY
 	extra
 ```

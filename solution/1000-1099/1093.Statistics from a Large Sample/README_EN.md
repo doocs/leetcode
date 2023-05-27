@@ -115,8 +115,9 @@ class Solution {
                 }
             }
         }
-        double median = cnt % 2 == 1 ? find(cnt / 2 + 1) : (find(cnt / 2) + find(cnt / 2 + 1)) / 2.0;
-        return new double[]{mi, mx, s * 1.0 / cnt, median, mode};
+        double median
+            = cnt % 2 == 1 ? find(cnt / 2 + 1) : (find(cnt / 2) + find(cnt / 2 + 1)) / 2.0;
+        return new double[] {mi, mx, s * 1.0 / cnt, median, mode};
     }
 
     private int find(int i) {

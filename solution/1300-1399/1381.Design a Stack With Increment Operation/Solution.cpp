@@ -5,13 +5,13 @@ public:
         add.resize(maxSize);
         i = 0;
     }
-    
+
     void push(int x) {
         if (i < stk.size()) {
             stk[i++] = x;
         }
     }
-    
+
     int pop() {
         if (i <= 0) {
             return -1;
@@ -23,7 +23,7 @@ public:
         add[i] = 0;
         return ans;
     }
-    
+
     void increment(int k, int val) {
         if (i > 0) {
             add[min(k, i) - 1] += val;

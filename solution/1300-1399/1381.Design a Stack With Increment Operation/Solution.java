@@ -7,13 +7,13 @@ class CustomStack {
         stk = new int[maxSize];
         add = new int[maxSize];
     }
-    
+
     public void push(int x) {
         if (i < stk.length) {
             stk[i++] = x;
         }
     }
-    
+
     public int pop() {
         if (i <= 0) {
             return -1;
@@ -25,7 +25,7 @@ class CustomStack {
         add[i] = 0;
         return ans;
     }
-    
+
     public void increment(int k, int val) {
         if (i > 0) {
             add[Math.min(i, k) - 1] += val;

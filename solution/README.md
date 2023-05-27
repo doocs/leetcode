@@ -498,7 +498,7 @@
 |  0485  |  [最大连续 1 的个数](/solution/0400-0499/0485.Max%20Consecutive%20Ones/README.md)  |  `数组`  |  简单  |    |
 |  0486  |  [预测赢家](/solution/0400-0499/0486.Predict%20the%20Winner/README.md)  |  `递归`,`数组`,`数学`,`动态规划`,`博弈`  |  中等  |    |
 |  0487  |  [最大连续1的个数 II](/solution/0400-0499/0487.Max%20Consecutive%20Ones%20II/README.md)  |  `数组`,`动态规划`,`滑动窗口`  |  中等  |  🔒  |
-|  0488  |  [祖玛游戏](/solution/0400-0499/0488.Zuma%20Game/README.md)  |  `广度优先搜索`,`记忆化搜索`,`字符串`,`动态规划`  |  困难  |    |
+|  0488  |  [祖玛游戏](/solution/0400-0499/0488.Zuma%20Game/README.md)  |  `栈`,`广度优先搜索`,`记忆化搜索`,`字符串`,`动态规划`  |  困难  |    |
 |  0489  |  [扫地机器人](/solution/0400-0499/0489.Robot%20Room%20Cleaner/README.md)  |  `回溯`,`交互`  |  困难  |  🔒  |
 |  0490  |  [迷宫](/solution/0400-0499/0490.The%20Maze/README.md)  |  `深度优先搜索`,`广度优先搜索`,`图`  |  中等  |  🔒  |
 |  0491  |  [递增子序列](/solution/0400-0499/0491.Non-decreasing%20Subsequences/README.md)  |  `位运算`,`数组`,`哈希表`,`回溯`  |  中等  |    |
@@ -1120,7 +1120,7 @@
 |  1107  |  [每日新用户统计](/solution/1100-1199/1107.New%20Users%20Daily%20Count/README.md)  |  `数据库`  |  中等  |  🔒  |
 |  1108  |  [IP 地址无效化](/solution/1100-1199/1108.Defanging%20an%20IP%20Address/README.md)  |  `字符串`  |  简单  |  第 144 场周赛  |
 |  1109  |  [航班预订统计](/solution/1100-1199/1109.Corporate%20Flight%20Bookings/README.md)  |  `数组`,`前缀和`  |  中等  |  第 144 场周赛  |
-|  1110  |  [删点成林](/solution/1100-1199/1110.Delete%20Nodes%20And%20Return%20Forest/README.md)  |  `树`,`深度优先搜索`,`二叉树`  |  中等  |  第 144 场周赛  |
+|  1110  |  [删点成林](/solution/1100-1199/1110.Delete%20Nodes%20And%20Return%20Forest/README.md)  |  `树`,`深度优先搜索`,`数组`,`哈希表`,`二叉树`  |  中等  |  第 144 场周赛  |
 |  1111  |  [有效括号的嵌套深度](/solution/1100-1199/1111.Maximum%20Nesting%20Depth%20of%20Two%20Valid%20Parentheses%20Strings/README.md)  |  `栈`,`字符串`  |  中等  |  第 144 场周赛  |
 |  1112  |  [每位学生的最高成绩](/solution/1100-1199/1112.Highest%20Grade%20For%20Each%20Student/README.md)  |  `数据库`  |  中等  |  🔒  |
 |  1113  |  [报告的记录](/solution/1100-1199/1113.Reported%20Posts/README.md)  |  `数据库`  |  简单  |  🔒  |
@@ -2699,19 +2699,23 @@
 |  2686  |  [即时食物配送 III](/solution/2600-2699/2686.Immediate%20Food%20Delivery%20III/README.md)  |  `数据库`  |  中等  |  🔒  |
 |  2687  |  [自行车的最后使用时间](/solution/2600-2699/2687.Bikes%20Last%20Time%20Used/README.md)  |  `数据库`  |  简单  |  🔒  |
 |  2688  |  [查找活跃用户](/solution/2600-2699/2688.Find%20Active%20Users/README.md)  |  `数据库`  |  中等  |  🔒  |
-|  2689  |  [Extract Kth Character From The Rope Tree](/solution/2600-2699/2689.Extract%20Kth%20Character%20From%20The%20Rope%20Tree/README.md)  |    |  简单  |  🔒  |
+|  2689  |  [Extract Kth Character From The Rope Tree](/solution/2600-2699/2689.Extract%20Kth%20Character%20From%20The%20Rope%20Tree/README.md)  |  `树`,`深度优先搜索`  |  简单  |  🔒  |
 |  2690  |  [无穷方法对象](/solution/2600-2699/2690.Infinite%20Method%20Object/README.md)  |    |  简单  |  🔒  |
 |  2691  |  [不可变辅助工具](/solution/2600-2699/2691.Immutability%20Helper/README.md)  |    |  困难  |  🔒  |
 |  2692  |  [使对象不可变](/solution/2600-2699/2692.Make%20Object%20Immutable/README.md)  |    |  中等  |  🔒  |
 |  2693  |  [使用自定义上下文调用函数](/solution/2600-2699/2693.Call%20Function%20with%20Custom%20Context/README.md)  |    |  中等  |    |
 |  2694  |  [事件发射器](/solution/2600-2699/2694.Event%20Emitter/README.md)  |    |  中等  |    |
 |  2695  |  [包装数组](/solution/2600-2699/2695.Array%20Wrapper/README.md)  |    |  简单  |    |
-|  2696  |  [删除子串后的字符串最小长度](/solution/2600-2699/2696.Minimum%20String%20Length%20After%20Removing%20Substrings/README.md)  |    |  简单  |  第 346 场周赛  |
-|  2697  |  [字典序最小回文串](/solution/2600-2699/2697.Lexicographically%20Smallest%20Palindrome/README.md)  |    |  简单  |  第 346 场周赛  |
-|  2698  |  [求一个整数的惩罚数](/solution/2600-2699/2698.Find%20the%20Punishment%20Number%20of%20an%20Integer/README.md)  |    |  中等  |  第 346 场周赛  |
-|  2699  |  [修改图中的边权](/solution/2600-2699/2699.Modify%20Graph%20Edge%20Weights/README.md)  |    |  困难  |  第 346 场周赛  |
+|  2696  |  [删除子串后的字符串最小长度](/solution/2600-2699/2696.Minimum%20String%20Length%20After%20Removing%20Substrings/README.md)  |  `栈`,`字符串`,`模拟`  |  简单  |  第 346 场周赛  |
+|  2697  |  [字典序最小回文串](/solution/2600-2699/2697.Lexicographically%20Smallest%20Palindrome/README.md)  |  `双指针`,`字符串`  |  简单  |  第 346 场周赛  |
+|  2698  |  [求一个整数的惩罚数](/solution/2600-2699/2698.Find%20the%20Punishment%20Number%20of%20an%20Integer/README.md)  |  `递归`,`数学`  |  中等  |  第 346 场周赛  |
+|  2699  |  [修改图中的边权](/solution/2600-2699/2699.Modify%20Graph%20Edge%20Weights/README.md)  |  `图`,`最短路`,`堆（优先队列）`  |  困难  |  第 346 场周赛  |
 |  2700  |  [两个对象之间的差异](/solution/2700-2799/2700.Differences%20Between%20Two%20Objects/README.md)  |    |  中等  |    |
 |  2701  |  [Consecutive Transactions with Increasing Amounts](/solution/2700-2799/2701.Consecutive%20Transactions%20with%20Increasing%20Amounts/README.md)  |    |  困难  |  🔒  |
+|  2702  |  [Minimum Operations to Make Numbers Non-positive](/solution/2700-2799/2702.Minimum%20Operations%20to%20Make%20Numbers%20Non-positive/README.md)  |    |  困难  |  🔒  |
+|  2703  |  [Return Length of Arguments Passed](/solution/2700-2799/2703.Return%20Length%20of%20Arguments%20Passed/README.md)  |    |  简单  |    |
+|  2704  |  [To Be Or Not To Be](/solution/2700-2799/2704.To%20Be%20Or%20Not%20To%20Be/README.md)  |    |  简单  |    |
+|  2705  |  [Compact Object](/solution/2700-2799/2705.Compact%20Object/README.md)  |    |  中等  |    |
 
 ## 版权
 

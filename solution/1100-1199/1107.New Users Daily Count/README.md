@@ -69,11 +69,11 @@ ID 为 5 的用户第一次登陆于 2019-03-01，因此他不算在 2019-06-21 
 # Write your MySQL query statement below
 SELECT
 	login_date,
-	count( user_id ) AS user_count 
+	count( user_id ) AS user_count
 FROM
-	( SELECT min( activity_date ) AS login_date, user_id FROM Traffic WHERE activity = 'login' GROUP BY user_id ) t 
+	( SELECT min( activity_date ) AS login_date, user_id FROM Traffic WHERE activity = 'login' GROUP BY user_id ) t
 WHERE
-	DATEDIFF( '2019-6-30', login_date ) <= 90 
+	DATEDIFF( '2019-6-30', login_date ) <= 90
 GROUP BY
 	login_date;
 ```

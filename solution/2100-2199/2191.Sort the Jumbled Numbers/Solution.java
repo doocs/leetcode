@@ -10,7 +10,7 @@ class Solution {
                 y += k * mapping[x % 10];
                 k *= 10;
             }
-            arr[i] = new int[]{y, i};
+            arr[i] = new int[] {y, i};
         }
         Arrays.sort(arr, (a, b) -> a[0] == b[0] ? a[1] - b[1] : a[0] - b[0]);
         int[] ans = new int[n];

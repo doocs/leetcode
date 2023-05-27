@@ -92,7 +92,8 @@ class Solution:
 class Solution {
     private TreeNode target;
 
-    public final TreeNode getTargetCopy(final TreeNode original, final TreeNode cloned, final TreeNode target) {
+    public final TreeNode getTargetCopy(
+        final TreeNode original, final TreeNode cloned, final TreeNode target) {
         this.target = target;
         return dfs(original, cloned);
     }
@@ -107,7 +108,6 @@ class Solution {
         TreeNode res = dfs(root1.left, root2.left);
         return res == null ? dfs(root1.right, root2.right) : res;
     }
-
 ```
 
 ### **C++**

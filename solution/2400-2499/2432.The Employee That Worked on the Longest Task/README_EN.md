@@ -41,7 +41,7 @@ Task 0 started at 0 and ended at 1 with 1 unit of times.
 Task 1 started at 1 and ended at 7 with 6 units of times.
 Task 2 started at 7 and ended at 12 with 5 units of times.
 Task 3 started at 12 and ended at 17 with 5 units of times.
-The tasks with the longest time is task 1. The employees that worked on it is 3, so we return 3.
+The tasks with the longest time is task 1. The employee that worked on it is 3, so we return 3.
 </pre>
 
 <p><strong class="example">Example 3:</strong></p>

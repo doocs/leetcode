@@ -37,7 +37,7 @@
 <p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0756.Pyramid%20Transition%20Matrix/images/pyramid2-grid.jpg" style="height: 359px; width: 600px;" /></p>
 
 <pre>
-<strong>输入：</strong>bottom = "AABA", allowed = ["AAB","AAC","BCD","BBE","DEF"]
+<strong>输入：</strong>bottom = "AAAA", allowed = ["AAB","AAC","BCD","BBE","DEF"]
 <strong>输出：</strong>false
 <strong>解释：</strong>允许的三角形模式显示在右边。
 从最底层(游戏邦注:即第4个关卡)开始，创造第3个关卡有多种方法，但如果尝试所有可能性，你便会在创造第1个关卡前陷入困境。

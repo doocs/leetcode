@@ -19,7 +19,7 @@
 
 <p>你想购买一些水果，这样总的味道是最大的，总价不超过 <code>maxAmount</code>。</p>
 
-<p>此外，你还可以用优惠券以&nbsp;<strong>半价&nbsp;</strong>购买水果 (四舍五入到最接近的整数)。您最多可以使用 <code>maxCoupons</code>&nbsp;次该优惠券。</p>
+<p>此外，你还可以用优惠券以&nbsp;<strong>半价 </strong>购买水果 (向下取整到最接近的整数)。您最多可以使用 <code>maxCoupons</code>&nbsp;次该优惠券。</p>
 
 <p>返回可购买的最大总口味。</p>
 

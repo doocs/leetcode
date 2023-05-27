@@ -112,7 +112,7 @@ class Solution {
             if (cnt.merge(s.charAt(i - k), -1, Integer::sum) == 0) {
                 cnt.remove(s.charAt(i - k));
             }
-            ans += cnt.size() ==  k ? 1 : 0;
+            ans += cnt.size() == k ? 1 : 0;
         }
         return ans;
     }
