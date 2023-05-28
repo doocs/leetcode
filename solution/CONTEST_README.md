@@ -22,6 +22,20 @@
 
 ## 往期竞赛
 
+#### 第 347 场周赛(2023-05-28 10:30, 90 分钟) 参赛人数 3836
+
+- [2710. 移除字符串中的尾随零](/solution/2700-2799/2710.Remove%20Trailing%20Zeros%20From%20a%20String/README.md)
+- [2711. 对角线上不同值的数量差](/solution/2700-2799/2711.Difference%20of%20Number%20of%20Distinct%20Values%20on%20Diagonals/README.md)
+- [2712. 使所有字符相等的最小成本](/solution/2700-2799/2712.Minimum%20Cost%20to%20Make%20All%20Characters%20Equal/README.md)
+- [2713. 矩阵中严格递增的单元格数](/solution/2700-2799/2713.Maximum%20Strictly%20Increasing%20Cells%20in%20a%20Matrix/README.md)
+
+#### 第 105 场双周赛(2023-05-27 22:30, 90 分钟) 参赛人数 2604
+
+- [2706. 购买两块巧克力](/solution/2700-2799/2706.Buy%20Two%20Chocolates/README.md)
+- [2707. 字符串中的额外字符](/solution/2700-2799/2707.Extra%20Characters%20in%20a%20String/README.md)
+- [2708. 一个小组的最大实力值](/solution/2700-2799/2708.Maximum%20Strength%20of%20a%20Group/README.md)
+- [2709. 最大公约数遍历](/solution/2700-2799/2709.Greatest%20Common%20Divisor%20Traversal/README.md)
+
 #### 第 346 场周赛(2023-05-21 10:30, 90 分钟) 参赛人数 4035
 
 - [2696. 删除子串后的字符串最小长度](/solution/2600-2699/2696.Minimum%20String%20Length%20After%20Removing%20Substrings/README.md)

@@ -25,6 +25,20 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 347
+
+- [2710. Remove Trailing Zeros From a String](/solution/2700-2799/2710.Remove%20Trailing%20Zeros%20From%20a%20String/README_EN.md)
+- [2711. Difference of Number of Distinct Values on Diagonals](/solution/2700-2799/2711.Difference%20of%20Number%20of%20Distinct%20Values%20on%20Diagonals/README_EN.md)
+- [2712. Minimum Cost to Make All Characters Equal](/solution/2700-2799/2712.Minimum%20Cost%20to%20Make%20All%20Characters%20Equal/README_EN.md)
+- [2713. Maximum Strictly Increasing Cells in a Matrix](/solution/2700-2799/2713.Maximum%20Strictly%20Increasing%20Cells%20in%20a%20Matrix/README_EN.md)
+
+#### Biweekly Contest 105
+
+- [2706. Buy Two Chocolates](/solution/2700-2799/2706.Buy%20Two%20Chocolates/README_EN.md)
+- [2707. Extra Characters in a String](/solution/2700-2799/2707.Extra%20Characters%20in%20a%20String/README_EN.md)
+- [2708. Maximum Strength of a Group](/solution/2700-2799/2708.Maximum%20Strength%20of%20a%20Group/README_EN.md)
+- [2709. Greatest Common Divisor Traversal](/solution/2700-2799/2709.Greatest%20Common%20Divisor%20Traversal/README_EN.md)
+
 #### Weekly Contest 346
 
 - [2696. Minimum String Length After Removing Substrings](/solution/2600-2699/2696.Minimum%20String%20Length%20After%20Removing%20Substrings/README_EN.md)
