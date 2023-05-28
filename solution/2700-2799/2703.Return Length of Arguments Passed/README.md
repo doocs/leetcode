@@ -50,7 +50,13 @@ Three values were passed to the function so it should return 3.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
+function argumentsLength(...args: any[]): number {
+    return args.length;
+}
 
+/**
+ * argumentsLength(1, 2, 3); // 3
+ */
 ```
 
 <!-- tabs:end -->
