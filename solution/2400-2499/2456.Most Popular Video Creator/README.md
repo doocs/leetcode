@@ -61,9 +61,9 @@ id 为 "b" 和 "c" 的视频都满足播放量最高的条件。
 
 **方法一：哈希表**
 
-我们用哈希表 `cnt` 统计每个创作者的视频播放量总和，用哈希表 `d` 和 `x` 记录每个创作者的最大播放量和对应的视频 `id`。
+我们遍历三个数组，用哈希表 $cnt$ 统计每个创作者的播放量总和，用哈希表 $d$ 记录每个创作者播放量最大的视频的下标。
 
-然后遍历哈希表 `cnt`，找到最大视频播放量总和的创作者，将其对应的视频 `id` 加入答案数组 `ans` 中。
+然后，我们遍历哈希表 $cnt$，找出最大的播放量 $mx$；接着再次遍历哈希表 $cnt$，找出播放量为 $mx$ 的创作者，将其加入答案数组中。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为视频数量。
 
@@ -77,21 +77,13 @@ id 为 "b" 和 "c" 的视频都满足播放量最高的条件。
 class Solution:
     def mostPopularCreator(self, creators: List[str], ids: List[str], views: List[int]) -> List[List[str]]:
         cnt = defaultdict(int)
-        d = {}
-        x = {}
-        for c, i, v in zip(creators, ids, views):
+        d = defaultdict(int)
+        for k, (c, i, v) in enumerate(zip(creators, ids, views)):
             cnt[c] += v
-            if c not in d or d[c] < v or (d[c] == v and x[c] > i):
-                d[c], x[c] = v, i
-        ans = []
-        pre = -1
-        for a, b in cnt.items():
-            if b > pre:
-                ans = [[a, x[a]]]
-                pre = b
-            elif b == pre:
-                ans.append([a, x[a]])
-        return ans
+            if c not in d or views[d[c]] < v or (views[d[c]] == v and ids[d[c]] > i):
+                d[c] = k
+        mx = max(cnt.values())
+        return [[c, ids[d[c]]] for c, x in cnt.items() if x == mx]
 ```
 
 ### **Java**
@@ -101,31 +93,26 @@ class Solution:
 ```java
 class Solution {
     public List<List<String>> mostPopularCreator(String[] creators, String[] ids, int[] views) {
-        Map<String, Integer> cnt = new HashMap<>();
-        Map<String, Integer> d = new HashMap<>();
-        Map<String, String> x = new HashMap<>();
         int n = ids.length;
+        Map<String, Long> cnt = new HashMap<>(n);
+        Map<String, Integer> d = new HashMap<>(n);
         for (int k = 0; k < n; ++k) {
-            var c = creators[k];
-            var i = ids[k];
-            int v = views[k];
-            cnt.put(c, cnt.getOrDefault(c, 0) + v);
-            if (!d.containsKey(c) || d.get(c) < v || (d.get(c) == v && x.get(c).compareTo(i) > 0)) {
-                d.put(c, v);
-                x.put(c, i);
+            String c = creators[k], i = ids[k];
+            long v = views[k];
+            cnt.merge(c, v, Long::sum);
+            if (!d.containsKey(c) || views[d.get(c)] < v || (views[d.get(c)] == v && ids[d.get(c)].compareTo(i) > 0)) {
+                d.put(c, k);
             }
         }
+        long mx = 0;
+        for (long x : cnt.values()) {
+            mx = Math.max(mx, x);
+        }
         List<List<String>> ans = new ArrayList<>();
-        int pre = -1;
         for (var e : cnt.entrySet()) {
-            String a = e.getKey();
-            int b = e.getValue();
-            if (b > pre) {
-                ans.clear();
-                ans.add(Arrays.asList(a, x.get(a)));
-                pre = b;
-            } else if (b == pre) {
-                ans.add(Arrays.asList(a, x.get(a)));
+            if (e.getValue() == mx) {
+                String c = e.getKey();
+                ans.add(List.of(c, ids[d.get(c)]));
             }
         }
         return ans;
@@ -139,29 +126,25 @@ class Solution {
 class Solution {
 public:
     vector<vector<string>> mostPopularCreator(vector<string>& creators, vector<string>& ids, vector<int>& views) {
-        unordered_map<string, long> cnt;
+        unordered_map<string, long long> cnt;
         unordered_map<string, int> d;
-        unordered_map<string, string> x;
         int n = ids.size();
         for (int k = 0; k < n; ++k) {
-            auto c = creators[k];
-            auto i = ids[k];
+            auto c = creators[k], id = ids[k];
             int v = views[k];
             cnt[c] += v;
-            if (!d.count(c) || d[c] < v || (d[c] == v && x[c] > i)) {
-                d[c] = v;
-                x[c] = i;
+            if (!d.count(c) || views[d[c]] < v || (views[d[c]] == v && ids[d[c]] > id)) {
+                d[c] = k;
             }
         }
-        long pre = -1;
+        long long mx = 0;
+        for (auto& [_, x] : cnt) {
+            mx = max(mx, x);
+        }
         vector<vector<string>> ans;
-        for (auto& [a, b] : cnt) {
-            if (b > pre) {
-                ans.clear();
-                ans.push_back({a, x[a]});
-                pre = b;
-            } else if (b == pre) {
-                ans.push_back({a, x[a]});
+        for (auto& [c, x] : cnt) {
+            if (x == mx) {
+                ans.push_back({c, ids[d[c]]});
             }
         }
         return ans;
@@ -175,32 +158,59 @@ public:
 func mostPopularCreator(creators []string, ids []string, views []int) (ans [][]string) {
 	cnt := map[string]int{}
 	d := map[string]int{}
-	x := map[string]string{}
 	for k, c := range creators {
 		i, v := ids[k], views[k]
 		cnt[c] += v
-		if t, ok := d[c]; !ok || t < v || (t == v && x[c] > i) {
-			d[c] = v
-			x[c] = i
+		if j, ok := d[c]; !ok || views[j] < v || (views[j] == v && ids[j] > i) {
+			d[c] = k
 		}
 	}
-	pre := -1
-	for a, b := range cnt {
-		if b > pre {
-			ans = [][]string{[]string{a, x[a]}}
-			pre = b
-		} else if b == pre {
-			ans = append(ans, []string{a, x[a]})
+	mx := 0
+	for _, x := range cnt {
+		if mx < x {
+			mx = x
 		}
 	}
-	return ans
+	for c, x := range cnt {
+		if x == mx {
+			ans = append(ans, []string{c, ids[d[c]]})
+		}
+	}
+	return
 }
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function mostPopularCreator(
+    creators: string[],
+    ids: string[],
+    views: number[],
+): string[][] {
+    const cnt: Map<string, number> = new Map();
+    const d: Map<string, number> = new Map();
+    const n = ids.length;
+    for (let k = 0; k < n; ++k) {
+        const [c, i, v] = [creators[k], ids[k], views[k]];
+        cnt.set(c, (cnt.get(c) ?? 0) + v);
+        if (
+            !d.has(c) ||
+            views[d.get(c)!] < v ||
+            (views[d.get(c)!] === v && ids[d.get(c)!] > i)
+        ) {
+            d.set(c, k);
+        }
+    }
+    const mx = Math.max(...cnt.values());
+    const ans: string[][] = [];
+    for (const [c, x] of cnt) {
+        if (x === mx) {
+            ans.push([c, ids[d.get(c)!]]);
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**

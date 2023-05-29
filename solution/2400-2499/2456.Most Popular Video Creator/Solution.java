@@ -1,30 +1,25 @@
 class Solution {
     public List<List<String>> mostPopularCreator(String[] creators, String[] ids, int[] views) {
-        Map<String, Integer> cnt = new HashMap<>();
-        Map<String, Integer> d = new HashMap<>();
-        Map<String, String> x = new HashMap<>();
         int n = ids.length;
+        Map<String, Long> cnt = new HashMap<>(n);
+        Map<String, Integer> d = new HashMap<>(n);
         for (int k = 0; k < n; ++k) {
-            var c = creators[k];
-            var i = ids[k];
-            int v = views[k];
-            cnt.put(c, cnt.getOrDefault(c, 0) + v);
-            if (!d.containsKey(c) || d.get(c) < v || (d.get(c) == v && x.get(c).compareTo(i) > 0)) {
-                d.put(c, v);
-                x.put(c, i);
+            String c = creators[k], i = ids[k];
+            long v = views[k];
+            cnt.merge(c, v, Long::sum);
+            if (!d.containsKey(c) || views[d.get(c)] < v || (views[d.get(c)] == v && ids[d.get(c)].compareTo(i) > 0)) {
+                d.put(c, k);
             }
         }
+        long mx = 0;
+        for (long x : cnt.values()) {
+            mx = Math.max(mx, x);
+        }
         List<List<String>> ans = new ArrayList<>();
-        int pre = -1;
         for (var e : cnt.entrySet()) {
-            String a = e.getKey();
-            int b = e.getValue();
-            if (b > pre) {
-                ans.clear();
-                ans.add(Arrays.asList(a, x.get(a)));
-                pre = b;
-            } else if (b == pre) {
-                ans.add(Arrays.asList(a, x.get(a)));
+            if (e.getValue() == mx) {
+                String c = e.getKey();
+                ans.add(List.of(c, ids[d.get(c)]));
             }
         }
         return ans;
