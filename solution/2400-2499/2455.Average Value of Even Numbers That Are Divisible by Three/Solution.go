@@ -1,8 +1,8 @@
 func averageValue(nums []int) int {
-	s, n := 0, 0
-	for _, v := range nums {
-		if v%6 == 0 {
-			s += v
+	var s, n int
+	for _, x := range nums {
+		if x%6 == 0 {
+			s += x
 			n++
 		}
 	}

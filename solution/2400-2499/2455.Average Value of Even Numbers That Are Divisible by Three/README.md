@@ -43,9 +43,9 @@
 
 **方法一：模拟**
 
-直接遍历 `nums`，统计可被 3 整除的偶数的和，以及可被 3 整除的偶数的个数，最后返回两者的商即可。注意，如果没有可被 3 整除的偶数，返回 0。
+我们注意到，可被 $3$ 整除的偶数一定是 $6$ 的倍数，因此我们只需要遍历数组，统计所有 $6$ 的倍数的和与个数，然后计算平均值即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `nums` 的长度。
+时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -57,9 +57,9 @@
 class Solution:
     def averageValue(self, nums: List[int]) -> int:
         s = n = 0
-        for v in nums:
-            if v % 6 == 0:
-                s += v
+        for x in nums:
+            if x % 6 == 0:
+                s += x
                 n += 1
         return 0 if n == 0 else s // n
 ```
@@ -72,9 +72,9 @@ class Solution:
 class Solution {
     public int averageValue(int[] nums) {
         int s = 0, n = 0;
-        for (int v : nums) {
-            if (v % 6 == 0) {
-                s += v;
+        for (int x : nums) {
+            if (x % 6 == 0) {
+                s += x;
                 ++n;
             }
         }
@@ -90,9 +90,9 @@ class Solution {
 public:
     int averageValue(vector<int>& nums) {
         int s = 0, n = 0;
-        for (int v : nums) {
-            if (v % 6 == 0) {
-                s += v;
+        for (int x : nums) {
+            if (x % 6 == 0) {
+                s += x;
                 ++n;
             }
         }
@@ -105,10 +105,10 @@ public:
 
 ```go
 func averageValue(nums []int) int {
-	s, n := 0, 0
-	for _, v := range nums {
-		if v%6 == 0 {
-			s += v
+	var s, n int
+	for _, x := range nums {
+		if x%6 == 0 {
+			s += x
 			n++
 		}
 	}
@@ -119,43 +119,34 @@ func averageValue(nums []int) int {
 }
 ```
 
-### **C**
-
-```c
-int averageValue(int *nums, int numsSize) {
-    int sum = 0;
-    int n = 0;
-    for (int i = 0; i < numsSize; i++) {
-        if (nums[i] % 6 == 0) {
-            sum += nums[i];
-            n++;
-        }
-    }
-
-    if (n == 0) {
-        return 0;
-    }
-    return sum / n;
-}
-```
-
 ### **TypeScript**
 
 ```ts
 function averageValue(nums: number[]): number {
-    let sum = 0;
+    let s = 0;
     let n = 0;
-    for (const num of nums) {
-        if (num % 6 === 0) {
-            sum += num;
-            n++;
+    for (const x of nums) {
+        if (x % 6 === 0) {
+            s += x;
+            ++n;
         }
     }
+    return n === 0 ? 0 : ~~(s / n);
+}
+```
 
-    if (n === 0) {
-        return 0;
+### **C**
+
+```c
+int averageValue(int* nums, int numsSize){
+    int s = 0, n = 0;
+    for (int i = 0; i < numsSize; ++i) {
+        if (nums[i] % 6 == 0) {
+            s += nums[i];
+            ++n;
+        }
     }
-    return Math.floor(sum / n);
+    return n == 0 ? 0 : s / n;
 }
 ```
 
@@ -164,19 +155,18 @@ function averageValue(nums: number[]): number {
 ```rust
 impl Solution {
     pub fn average_value(nums: Vec<i32>) -> i32 {
-        let mut sum = 0;
+        let mut s = 0;
         let mut n = 0;
-        for num in nums.iter() {
-            if num % 6 == 0 {
-                sum += num;
+        for x in nums.iter() {
+            if x % 6 == 0 {
+                s += x;
                 n += 1;
             }
         }
-
         if n == 0 {
             return 0;
         }
-        sum / n
+        s / n
     }
 }
 ```
