@@ -32,7 +32,6 @@
 	<li><code>num</code> doesn&#39;t&nbsp;have any leading zeros.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

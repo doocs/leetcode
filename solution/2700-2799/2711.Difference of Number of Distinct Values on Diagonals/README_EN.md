@@ -55,7 +55,6 @@ The answers of other cells are similarly calculated.
 	<li><code>1 &lt;= m, n, grid[i][j] &lt;= 50</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

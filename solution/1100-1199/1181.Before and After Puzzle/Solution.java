@@ -1,33 +1,21 @@
 class Solution {
     public List<String> beforeAndAfterPuzzles(String[] phrases) {
-        Map<String, Set<Integer>> sameFirstWord = new HashMap<>();
-        for (int i = 0; i < phrases.length; ++i) {
-            String phrase = phrases[i];
-            String word = phrase.split(" ")[0];
-            sameFirstWord.computeIfAbsent(word, k -> new HashSet<>()).add(i);
+        int n = phrases.length;
+        var ps = new String[n][];
+        for (int i = 0; i < n; ++i) {
+            var ws = phrases[i].split(" ");
+            ps[i] = new String[]{ws[0], ws[ws.length - 1]};
         }
-        Set<String> res = new HashSet<>();
-        for (int i = 0; i < phrases.length; ++i) {
-            String phrase = phrases[i];
-            String[] words = phrase.split(" ");
-            String lastWord = words[words.length - 1];
-            if (sameFirstWord.containsKey(lastWord)) {
-                for (int j : sameFirstWord.get(lastWord)) {
-                    if (i != j) {
-                        List<String> t = new ArrayList<>();
-                        for (int k = 0; k < words.length - 1; ++k) {
-                            t.add(words[k]);
-                        }
-                        for (String word : phrases[j].split(" ")) {
-                            t.add(word);
-                        }
-                        res.add(String.join(" ", t));
-                    }
+        Set<String> s = new HashSet<>();
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (i != j && ps[i][1].equals(ps[j][0])) {
+                    s.add(phrases[i] + phrases[j].substring(ps[j][0].length()));
                 }
             }
         }
-        List<String> output = new ArrayList<>(res);
-        Collections.sort(output);
-        return output;
+        var ans = new ArrayList<>(s);
+        Collections.sort(ans);
+        return ans;
     }
 }

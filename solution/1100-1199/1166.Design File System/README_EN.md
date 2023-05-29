@@ -157,11 +157,11 @@ class FileSystem {
     public FileSystem() {
 
     }
-    
+
     public boolean createPath(String path, int value) {
         return trie.insert(path, value);
     }
-    
+
     public int get(String path) {
         return trie.search(path);
     }
@@ -235,11 +235,11 @@ public:
     FileSystem() {
         trie = new Trie(-1);
     }
-    
+
     bool createPath(string path, int value) {
         return trie->insert(path, value);
     }
-    
+
     int get(string path) {
         return trie->search(path);
     }

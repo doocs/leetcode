@@ -6,6 +6,7 @@
 #    def get(self, index: int) -> int:
 #    def length(self) -> int:
 
+
 class Solution:
     def findInMountainArray(self, target: int, mountain_arr: 'MountainArray') -> int:
         def search(l: int, r: int, k: int) -> int:

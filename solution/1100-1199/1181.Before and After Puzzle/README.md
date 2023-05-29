@@ -63,7 +63,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-“哈希表 + 排序”实现。
+**方法一：哈希表 + 排序**
+
+我们先遍历列表 `phrases`，将每个短语的首尾单词存储数组 $ps$ 中，其中 $ps[i][0]$ 和 $ps[i][1]$ 分别表示第 $i$ 个短语的首尾单词。
+
+接下来，我们枚举所有 $(i, j)$，其中 $i, j \in [0, n)$ 且 $i \neq j$。如果 $ps[i][1] = ps[j][0]$，那么我们就可以将第 $i$ 个短语和第 $j$ 个短语进行拼接，得到的新短语为 $phrases[i] + phrases[j][len(ps[j][0]):]$，将新短语加入哈希表 $s$ 中。
+
+最后，我们将哈希表 $s$ 转化为数组并排序，即可得到答案。
+
+时间复杂度 $O(n^2 \times m \times (\log n + \log m))$，空间复杂度 $O(n^2 \times m)$。其中 $n$ 和 $m$ 分别表示数组 $phrases$ 的长度和每个短语的平均长度。
 
 <!-- tabs:start -->
 
@@ -74,18 +82,17 @@
 ```python
 class Solution:
     def beforeAndAfterPuzzles(self, phrases: List[str]) -> List[str]:
-        same_first_word = defaultdict(set)
-        for i, phrase in enumerate(phrases):
-            same_first_word[phrase.split()[0]].add(i)
-        res = set()
-        for i, phrase in enumerate(phrases):
-            words = phrase.split()
-            last_word = words[-1]
-            if last_word in same_first_word:
-                for j in same_first_word[last_word]:
-                    if i != j:
-                        res.add(' '.join(words[:-1] + phrases[j].split()))
-        return sorted(list(res))
+        ps = []
+        for p in phrases:
+            ws = p.split()
+            ps.append((ws[0], ws[-1]))
+        n = len(ps)
+        ans = []
+        for i in range(n):
+            for j in range(n):
+                if i != j and ps[i][1] == ps[j][0]:
+                    ans.append(phrases[i] + phrases[j][len(ps[j][0]):])
+        return sorted(set(ans))
 ```
 
 ### **Java**
@@ -95,36 +102,105 @@ class Solution:
 ```java
 class Solution {
     public List<String> beforeAndAfterPuzzles(String[] phrases) {
-        Map<String, Set<Integer>> sameFirstWord = new HashMap<>();
-        for (int i = 0; i < phrases.length; ++i) {
-            String phrase = phrases[i];
-            String word = phrase.split(" ")[0];
-            sameFirstWord.computeIfAbsent(word, k -> new HashSet<>()).add(i);
+        int n = phrases.length;
+        var ps = new String[n][];
+        for (int i = 0; i < n; ++i) {
+            var ws = phrases[i].split(" ");
+            ps[i] = new String[]{ws[0], ws[ws.length - 1]};
         }
-        Set<String> res = new HashSet<>();
-        for (int i = 0; i < phrases.length; ++i) {
-            String phrase = phrases[i];
-            String[] words = phrase.split(" ");
-            String lastWord = words[words.length - 1];
-            if (sameFirstWord.containsKey(lastWord)) {
-                for (int j : sameFirstWord.get(lastWord)) {
-                    if (i != j) {
-                        List<String> t = new ArrayList<>();
-                        for (int k = 0; k < words.length - 1; ++k) {
-                            t.add(words[k]);
-                        }
-                        for (String word : phrases[j].split(" ")) {
-                            t.add(word);
-                        }
-                        res.add(String.join(" ", t));
-                    }
+        Set<String> s = new HashSet<>();
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (i != j && ps[i][1].equals(ps[j][0])) {
+                    s.add(phrases[i] + phrases[j].substring(ps[j][0].length()));
                 }
             }
         }
-        List<String> output = new ArrayList<>(res);
-        Collections.sort(output);
-        return output;
+        var ans = new ArrayList<>(s);
+        Collections.sort(ans);
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> beforeAndAfterPuzzles(vector<string>& phrases) {
+        int n = phrases.size();
+        pair<string, string> ps[n];
+        for (int i = 0; i < n; ++i) {
+            int j = phrases[i].find(' ');
+            if (j == string::npos) {
+                ps[i] = {phrases[i], phrases[i]};
+            } else {
+                int k = phrases[i].rfind(' ');
+                ps[i] = {phrases[i].substr(0, j), phrases[i].substr(k + 1)};
+            }
+        }
+        unordered_set<string> s;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (i != j && ps[i].second == ps[j].first) {
+                    s.insert(phrases[i] + phrases[j].substr(ps[i].second.size()));
+                }
+            }
+        }
+        vector<string> ans(s.begin(), s.end());
+        sort(ans.begin(), ans.end());
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func beforeAndAfterPuzzles(phrases []string) []string {
+	n := len(phrases)
+	ps := make([][2]string, n)
+	for i, p := range phrases {
+		ws := strings.Split(p, " ")
+		ps[i] = [2]string{ws[0], ws[len(ws)-1]}
+	}
+	s := map[string]bool{}
+	for i := 0; i < n; i++ {
+		for j := 0; j < n; j++ {
+			if i != j && ps[i][1] == ps[j][0] {
+				s[phrases[i]+phrases[j][len(ps[j][0]):]] = true
+			}
+		}
+	}
+	ans := make([]string, 0, len(s))
+	for k := range s {
+		ans = append(ans, k)
+	}
+	sort.Strings(ans)
+	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function beforeAndAfterPuzzles(phrases: string[]): string[] {
+    const ps: string[][] = [];
+    for (const p of phrases) {
+        const ws = p.split(' ');
+        ps.push([ws[0], ws[ws.length - 1]]);
+    }
+    const n = ps.length;
+    const s: Set<string> = new Set();
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (i !== j && ps[i][1] === ps[j][0]) {
+                s.add(`${phrases[i]}${phrases[j].substring(ps[j][0].length)}`);
+            }
+        }
+    }
+    return [...s].sort();
 }
 ```
 

@@ -45,7 +45,6 @@ The total cost to make all characters equal is 9. It can be shown that 9 is the 
 	<li><code>s[i]</code> is either <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
