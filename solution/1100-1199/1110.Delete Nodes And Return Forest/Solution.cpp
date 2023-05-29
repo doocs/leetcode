@@ -12,22 +12,32 @@
 class Solution {
 public:
     vector<TreeNode*> delNodes(TreeNode* root, vector<int>& to_delete) {
-        vector<TreeNode*> ans;
-        unordered_set<int> s(to_delete.begin(), to_delete.end());
-        if (!s.count(root->val)) ans.push_back(root);
-        dfs(nullptr, root, s, ans);
-        return ans;
-    }
-
-    void dfs(TreeNode* fa, TreeNode* root, unordered_set<int>& s, vector<TreeNode*>& ans) {
-        if (!root) return;
-        dfs(root, root->left, s, ans);
-        dfs(root, root->right, s, ans);
-        if (s.count(root->val)) {
-            if (fa && fa->left == root) fa->left = nullptr;
-            if (fa && fa->right == root) fa->right = nullptr;
-            if (root->left) ans.push_back(root->left);
-            if (root->right) ans.push_back(root->right);
+        bool s[1001];
+        memset(s, 0, sizeof(s));
+        for (int x : to_delete) {
+            s[x] = true;
         }
+        vector<TreeNode*> ans;
+        function<TreeNode*(TreeNode*)> dfs = [&](TreeNode* root) -> TreeNode* {
+            if (!root) {
+                return nullptr;
+            }
+            root->left = dfs(root->left);
+            root->right = dfs(root->right);
+            if (!s[root->val]) {
+                return root;
+            }
+            if (root->left) {
+                ans.push_back(root->left);
+            }
+            if (root->right) {
+                ans.push_back(root->right);
+            }
+            return nullptr;
+        };
+        if (dfs(root)) {
+            ans.push_back(root);
+        }
+        return ans;
     }
 };

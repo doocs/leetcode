@@ -6,38 +6,31 @@
  *     Right *TreeNode
  * }
  */
-func delNodes(root *TreeNode, to_delete []int) []*TreeNode {
-	s := map[int]bool{}
-	for _, v := range to_delete {
-		s[v] = true
+func delNodes(root *TreeNode, to_delete []int) (ans []*TreeNode) {
+	s := make([]bool, 1001)
+	for _, x := range to_delete {
+		s[x] = true
 	}
-	ans := []*TreeNode{}
-	if !s[root.Val] {
+	var dfs func(*TreeNode) *TreeNode
+	dfs = func(root *TreeNode) *TreeNode {
+		if root == nil {
+			return nil
+		}
+		root.Left = dfs(root.Left)
+		root.Right = dfs(root.Right)
+		if !s[root.Val] {
+			return root
+		}
+		if root.Left != nil {
+			ans = append(ans, root.Left)
+		}
+		if root.Right != nil {
+			ans = append(ans, root.Right)
+		}
+		return nil
+	}
+	if dfs(root) != nil {
 		ans = append(ans, root)
 	}
-	var fa *TreeNode
-	var dfs func(fa, root *TreeNode)
-	dfs = func(fa, root *TreeNode) {
-		if root == nil {
-			return
-		}
-		dfs(root, root.Left)
-		dfs(root, root.Right)
-		if s[root.Val] {
-			if fa != nil && fa.Left == root {
-				fa.Left = nil
-			}
-			if fa != nil && fa.Right == root {
-				fa.Right = nil
-			}
-			if root.Left != nil {
-				ans = append(ans, root.Left)
-			}
-			if root.Right != nil {
-				ans = append(ans, root.Right)
-			}
-		}
-	}
-	dfs(fa, root)
-	return ans
+	return
 }
