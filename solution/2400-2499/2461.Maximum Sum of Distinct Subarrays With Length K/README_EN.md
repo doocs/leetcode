@@ -57,21 +57,18 @@ We return 0 because no subarrays meet the conditions.
 ```python
 class Solution:
     def maximumSubarraySum(self, nums: List[int], k: int) -> int:
-        n = len(nums)
         cnt = Counter(nums[:k])
         s = sum(nums[:k])
-        ans = 0
-        for i in range(k, n):
-            if len(cnt) == k:
-                ans = max(ans, s)
+        ans = s if len(cnt) == k else 0
+        for i in range(k, len(nums)):
             cnt[nums[i]] += 1
-            cnt[nums[i - k]] -= 1
             s += nums[i]
+            cnt[nums[i - k]] -= 1
             s -= nums[i - k]
             if cnt[nums[i - k]] == 0:
-                cnt.pop(nums[i - k])
-        if len(cnt) == k:
-            ans = max(ans, s)
+                del cnt[nums[i - k]]
+            if len(cnt) == k:
+                ans = max(ans, s)
         return ans
 ```
 
@@ -84,24 +81,20 @@ class Solution {
         Map<Integer, Integer> cnt = new HashMap<>(k);
         long s = 0;
         for (int i = 0; i < k; ++i) {
-            cnt.put(nums[i], cnt.getOrDefault(nums[i], 0) + 1);
+            cnt.merge(nums[i], 1, Integer::sum);
             s += nums[i];
         }
-        long ans = 0;
+        long ans = cnt.size() == k ? s : 0;
         for (int i = k; i < n; ++i) {
+            cnt.merge(nums[i], 1, Integer::sum);
+            s += nums[i];
+            if (cnt.merge(nums[i - k], -1, Integer::sum) == 0) {
+                cnt.remove(nums[i - k]);
+            }
+            s -= nums[i - k];
             if (cnt.size() == k) {
                 ans = Math.max(ans, s);
             }
-            cnt.put(nums[i], cnt.getOrDefault(nums[i], 0) + 1);
-            cnt.put(nums[i - k], cnt.getOrDefault(nums[i - k], 0) - 1);
-            if (cnt.get(nums[i - k]) == 0) {
-                cnt.remove(nums[i - k]);
-            }
-            s += nums[i];
-            s -= nums[i - k];
-        }
-        if (cnt.size() == k) {
-            ans = Math.max(ans, s);
         }
         return ans;
     }
@@ -114,22 +107,27 @@ class Solution {
 class Solution {
 public:
     long long maximumSubarraySum(vector<int>& nums, int k) {
+        using ll = long long;
         int n = nums.size();
-        unordered_map<int, int> cnt;
-        long long s = 0, ans = 0;
+        unordered_map<int, ll> cnt;
+        ll s = 0;
         for (int i = 0; i < k; ++i) {
             cnt[nums[i]]++;
             s += nums[i];
         }
+        ll ans = cnt.size() == k ? s : 0;
         for (int i = k; i < n; ++i) {
-            if (cnt.size() == k) ans = max(ans, s);
             cnt[nums[i]]++;
-            cnt[nums[i - k]]--;
-            if (cnt[nums[i - k]] == 0) cnt.erase(nums[i - k]);
             s += nums[i];
+            cnt[nums[i - k]]--;
             s -= nums[i - k];
+            if (cnt[nums[i - k]] == 0) {
+                cnt.erase(nums[i - k]);
+            }
+            if (cnt.size() == k) {
+                ans = max(ans, s);
+            }
         }
-        if (cnt.size() == k) ans = max(ans, s);
         return ans;
     }
 };
@@ -138,44 +136,59 @@ public:
 ### **Go**
 
 ```go
-func maximumSubarraySum(nums []int, k int) int64 {
+func maximumSubarraySum(nums []int, k int) (ans int64) {
 	n := len(nums)
-	cnt := map[int]int{}
-	s, ans := 0, 0
-	for i := 0; i < k; i++ {
-		cnt[nums[i]]++
-		s += nums[i]
+	cnt := map[int]int64{}
+	var s int64
+	for _, x := range nums[:k] {
+		cnt[x]++
+		s += int64(x)
+	}
+	if len(cnt) == k {
+		ans = s
 	}
 	for i := k; i < n; i++ {
-		if len(cnt) == k {
-			ans = max(ans, s)
-		}
 		cnt[nums[i]]++
+		s += int64(nums[i])
 		cnt[nums[i-k]]--
+		s -= int64(nums[i-k])
 		if cnt[nums[i-k]] == 0 {
 			delete(cnt, nums[i-k])
 		}
-		s += nums[i]
-		s -= nums[i-k]
+		if len(cnt) == k && ans < s {
+			ans = s
+		}
 	}
-	if len(cnt) == k {
-		ans = max(ans, s)
-	}
-	return int64(ans)
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
+	return
 }
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function maximumSubarraySum(nums: number[], k: number): number {
+    const n = nums.length;
+    const cnt: Map<number, number> = new Map();
+    let s = 0;
+    for (let i = 0; i < k; ++i) {
+        cnt.set(nums[i], (cnt.get(nums[i]) ?? 0) + 1);
+        s += nums[i];
+    }
+    let ans = cnt.size === k ? s : 0;
+    for (let i = k; i < n; ++i) {
+        cnt.set(nums[i], (cnt.get(nums[i]) ?? 0) + 1);
+        s += nums[i];
+        cnt.set(nums[i - k], cnt.get(nums[i - k])! - 1);
+        s -= nums[i - k];
+        if (cnt.get(nums[i - k]) === 0) {
+            cnt.delete(nums[i - k]);
+        }
+        if (cnt.size === k) {
+            ans = Math.max(ans, s);
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**

@@ -4,24 +4,20 @@ class Solution {
         Map<Integer, Integer> cnt = new HashMap<>(k);
         long s = 0;
         for (int i = 0; i < k; ++i) {
-            cnt.put(nums[i], cnt.getOrDefault(nums[i], 0) + 1);
+            cnt.merge(nums[i], 1, Integer::sum);
             s += nums[i];
         }
-        long ans = 0;
+        long ans = cnt.size() == k ? s : 0;
         for (int i = k; i < n; ++i) {
+            cnt.merge(nums[i], 1, Integer::sum);
+            s += nums[i];
+            if (cnt.merge(nums[i - k], -1, Integer::sum) == 0) {
+                cnt.remove(nums[i - k]);
+            }
+            s -= nums[i - k];
             if (cnt.size() == k) {
                 ans = Math.max(ans, s);
             }
-            cnt.put(nums[i], cnt.getOrDefault(nums[i], 0) + 1);
-            cnt.put(nums[i - k], cnt.getOrDefault(nums[i - k], 0) - 1);
-            if (cnt.get(nums[i - k]) == 0) {
-                cnt.remove(nums[i - k]);
-            }
-            s += nums[i];
-            s -= nums[i - k];
-        }
-        if (cnt.size() == k) {
-            ans = Math.max(ans, s);
         }
         return ans;
     }
