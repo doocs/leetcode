@@ -14,11 +14,11 @@ class Solution {
     }
 
     private int f(long x) {
-        int v = 0;
+        int y = 0;
         while (x > 0) {
-            v += x % 10;
+            y += x % 10;
             x /= 10;
         }
-        return v;
+        return y;
     }
 }

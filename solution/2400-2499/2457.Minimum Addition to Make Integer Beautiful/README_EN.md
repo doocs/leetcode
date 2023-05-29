@@ -53,12 +53,12 @@
 ```python
 class Solution:
     def makeIntegerBeautiful(self, n: int, target: int) -> int:
-        def f(x):
-            v = 0
+        def f(x: int) -> int:
+            y = 0
             while x:
-                v += x % 10
+                y += x % 10
                 x //= 10
-            return v
+            return y
 
         x = 0
         while f(n + x) > target:
@@ -90,12 +90,12 @@ class Solution {
     }
 
     private int f(long x) {
-        int v = 0;
+        int y = 0;
         while (x > 0) {
-            v += x % 10;
+            y += x % 10;
             x /= 10;
         }
-        return v;
+        return y;
     }
 }
 ```
@@ -103,19 +103,19 @@ class Solution {
 ### **C++**
 
 ```cpp
-using ll = long long;
-
 class Solution {
 public:
     long long makeIntegerBeautiful(long long n, int target) {
+        using ll = long long;
         auto f = [](ll x) {
-            int v = 0;
+            int y = 0;
             while (x) {
-                v += x % 10;
+                y += x % 10;
                 x /= 10;
             }
-            return v;
+            return y;
         };
+
         ll x = 0;
         while (f(n + x) > target) {
             ll y = n + x;
@@ -134,16 +134,13 @@ public:
 ### **Go**
 
 ```go
-func makeIntegerBeautiful(n int64, target int) int64 {
-	f := func(x int64) int {
-		v := 0
-		for x > 0 {
-			v += int(x % 10)
-			x /= 10
+func makeIntegerBeautiful(n int64, target int) (x int64) {
+	f := func(x int64) (y int) {
+		for ; x > 0; x /= 10 {
+			y += int(x % 10)
 		}
-		return v
+		return
 	}
-	var x int64
 	for f(n+x) > target {
 		y := n + x
 		var p int64 = 10
@@ -153,14 +150,34 @@ func makeIntegerBeautiful(n int64, target int) int64 {
 		}
 		x = (y/10+1)*p - n
 	}
-	return x
+	return
 }
 ```
 
 ### **TypeScript**
 
 ```ts
+function makeIntegerBeautiful(n: number, target: number): number {
+    const f = (x: number): number => {
+        let y = 0;
+        for (; x > 0; x = Math.floor(x / 10)) {
+            y += x % 10;
+        }
+        return y;
+    };
 
+    let x = 0;
+    while (f(n + x) > target) {
+        let y = n + x;
+        let p = 10;
+        while (y % 10 === 0) {
+            y = Math.floor(y / 10);
+            p *= 10;
+        }
+        x = (Math.floor(y / 10) + 1) * p - n;
+    }
+    return x;
+}
 ```
 
 ### **...**

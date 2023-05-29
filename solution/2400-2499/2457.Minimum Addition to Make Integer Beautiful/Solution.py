@@ -1,11 +1,11 @@
 class Solution:
     def makeIntegerBeautiful(self, n: int, target: int) -> int:
-        def f(x):
-            v = 0
+        def f(x: int) -> int:
+            y = 0
             while x:
-                v += x % 10
+                y += x % 10
                 x //= 10
-            return v
+            return y
 
         x = 0
         while f(n + x) > target:

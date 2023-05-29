@@ -1,16 +1,16 @@
-using ll = long long;
-
 class Solution {
 public:
     long long makeIntegerBeautiful(long long n, int target) {
+        using ll = long long;
         auto f = [](ll x) {
-            int v = 0;
+            int y = 0;
             while (x) {
-                v += x % 10;
+                y += x % 10;
                 x /= 10;
             }
-            return v;
+            return y;
         };
+
         ll x = 0;
         while (f(n + x) > target) {
             ll y = n + x;

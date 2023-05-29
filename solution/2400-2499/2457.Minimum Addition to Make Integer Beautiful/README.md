@@ -50,13 +50,24 @@
 
 **方法一：贪心**
 
-我们定义函数 $f(x)$ 表示一个整数 $x$ 的每一位数字之和，那么题目要求的最小非负整数 $x$ 就是 $f(n + x) \leq target$ 的最小值。
+我们定义函数 $f(x)$ 表示一个整数 $x$ 的每一位数字之和，那么题目求的是 $f(n + x) \leq target$ 的最小非负整数 $x$。
 
-初始化 $x = 0$，循环判断 $f(n+x)$ 是否大于 $target$，如果大于，此时 $n+x$ 的最低一位非 $0$ 的数要置为 $0$，而前一位要加 $1$，然后继续判断。
+如果 $y = n+x$ 的每一位数字之和大于 $target$，那么我们可以循环通过以下操作，将 $y$ 的每一位数字之和减小到小于等于 $target$：
+
+-   找到 $y$ 的最低位的非零数字，将其减小到 $0$，并将其高一位的数字加 $1$；
+-   更新 $x$，继续上述操作，直到 $n+x$ 的每一位数字之和小于等于 $target$。
 
 循环结束，返回 $x$ 即可。
 
-时间复杂度 $O(\log^2 n)$。
+我们可以举个例子，假设 $n=467$, $target=6$，那么 $n$ 的变化过程如下：
+
+$$
+\begin{aligned}
+& 467 \rightarrow 470 \rightarrow 500 \\
+\end{aligned}
+$$
+
+时间复杂度 $O(\log^2 n)$，其中 $n$ 给题目给定的整数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -67,12 +78,12 @@
 ```python
 class Solution:
     def makeIntegerBeautiful(self, n: int, target: int) -> int:
-        def f(x):
-            v = 0
+        def f(x: int) -> int:
+            y = 0
             while x:
-                v += x % 10
+                y += x % 10
                 x //= 10
-            return v
+            return y
 
         x = 0
         while f(n + x) > target:
@@ -106,12 +117,12 @@ class Solution {
     }
 
     private int f(long x) {
-        int v = 0;
+        int y = 0;
         while (x > 0) {
-            v += x % 10;
+            y += x % 10;
             x /= 10;
         }
-        return v;
+        return y;
     }
 }
 ```
@@ -119,19 +130,19 @@ class Solution {
 ### **C++**
 
 ```cpp
-using ll = long long;
-
 class Solution {
 public:
     long long makeIntegerBeautiful(long long n, int target) {
+        using ll = long long;
         auto f = [](ll x) {
-            int v = 0;
+            int y = 0;
             while (x) {
-                v += x % 10;
+                y += x % 10;
                 x /= 10;
             }
-            return v;
+            return y;
         };
+
         ll x = 0;
         while (f(n + x) > target) {
             ll y = n + x;
@@ -150,16 +161,13 @@ public:
 ### **Go**
 
 ```go
-func makeIntegerBeautiful(n int64, target int) int64 {
-	f := func(x int64) int {
-		v := 0
-		for x > 0 {
-			v += int(x % 10)
-			x /= 10
+func makeIntegerBeautiful(n int64, target int) (x int64) {
+	f := func(x int64) (y int) {
+		for ; x > 0; x /= 10 {
+			y += int(x % 10)
 		}
-		return v
+		return
 	}
-	var x int64
 	for f(n+x) > target {
 		y := n + x
 		var p int64 = 10
@@ -169,14 +177,34 @@ func makeIntegerBeautiful(n int64, target int) int64 {
 		}
 		x = (y/10+1)*p - n
 	}
-	return x
+	return
 }
 ```
 
 ### **TypeScript**
 
 ```ts
+function makeIntegerBeautiful(n: number, target: number): number {
+    const f = (x: number): number => {
+        let y = 0;
+        for (; x > 0; x = Math.floor(x / 10)) {
+            y += x % 10;
+        }
+        return y;
+    };
 
+    let x = 0;
+    while (f(n + x) > target) {
+        let y = n + x;
+        let p = 10;
+        while (y % 10 === 0) {
+            y = Math.floor(y / 10);
+            p *= 10;
+        }
+        x = (Math.floor(y / 10) + 1) * p - n;
+    }
+    return x;
+}
 ```
 
 ### **...**
