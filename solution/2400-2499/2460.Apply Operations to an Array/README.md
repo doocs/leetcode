@@ -63,9 +63,15 @@
 
 **方法一：模拟**
 
-直接根据题意模拟即可。
+我们直接根据题意模拟即可。
 
-时间复杂度 $O(n)$，忽略答案的空间消耗，空间复杂度 $O(1)$。其中 $n$ 是数组 `nums` 的长度。
+首先，我们遍历数组 $nums$，对于任意相邻的两个元素 $nums[i]$ 和 $nums[i+1]$，如果 $nums[i]=nums[i+1]$，那么我们将 $nums[i]$ 的值变为原来的 $2$ 倍，同时将 $nums[i+1]$ 的值变为 $0$。
+
+然后，我们创建一个长度为 $n$ 的答案数组 $ans$，并将 $nums$ 中所有非零元素按顺序放入 $ans$ 中。
+
+最后，返回答案数组 $ans$ 即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -81,8 +87,12 @@ class Solution:
             if nums[i] == nums[i + 1]:
                 nums[i] <<= 1
                 nums[i + 1] = 0
-        ans = [v for v in nums if v]
-        ans += [0] * (n - len(ans))
+        ans = [0] * n
+        i = 0
+        for x in nums:
+            if x:
+                ans[i] = x
+                i += 1
         return ans
 ```
 
@@ -131,9 +141,12 @@ public:
             }
         }
         vector<int> ans(n);
-        int j = 0;
-        for (int i = 0; i < n; ++i) if (nums[i]) ans[j++] = nums[i];
-        for (int i = 0; i < n; ++i) if (!nums[i]) ans[j++] = nums[i];
+        int i = 0;
+        for (int& x : nums) {
+            if (x) {
+                ans[i++] = x;
+            }
+        }
         return ans;
     }
 };
@@ -142,32 +155,46 @@ public:
 ### **Go**
 
 ```go
-func applyOperations(nums []int) (ans []int) {
-    n := len(nums)
-    for i := 0; i < n - 1; i++ {
-        if nums[i] == nums[i + 1] {
-            nums[i] <<= 1
-            nums[i + 1] = 0
-        }
-    }
-    for _, v := range nums {
-        if v != 0 {
-            ans = append(ans, v)
-        }
-    }
-    for _, v := range nums {
-        if v == 0 {
-            ans = append(ans, v)
-        }
-    }
-    return
+func applyOperations(nums []int) []int {
+	n := len(nums)
+	for i := 0; i < n-1; i++ {
+		if nums[i] == nums[i+1] {
+			nums[i] <<= 1
+			nums[i+1] = 0
+		}
+	}
+	ans := make([]int, n)
+	i := 0
+	for _, x := range nums {
+		if x > 0 {
+			ans[i] = x
+			i++
+		}
+	}
+	return ans
 }
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function applyOperations(nums: number[]): number[] {
+    const n = nums.length;
+    for (let i = 0; i < n - 1; ++i) {
+        if (nums[i] === nums[i + 1]) {
+            nums[i] <<= 1;
+            nums[i + 1] = 0;
+        }
+    }
+    const ans: number[] = Array(n).fill(0);
+    let i = 0;
+    for (const x of nums) {
+        if (x !== 0) {
+            ans[i++] = x;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**

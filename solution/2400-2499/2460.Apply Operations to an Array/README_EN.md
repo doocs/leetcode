@@ -67,8 +67,12 @@ class Solution:
             if nums[i] == nums[i + 1]:
                 nums[i] <<= 1
                 nums[i + 1] = 0
-        ans = [v for v in nums if v]
-        ans += [0] * (n - len(ans))
+        ans = [0] * n
+        i = 0
+        for x in nums:
+            if x:
+                ans[i] = x
+                i += 1
         return ans
 ```
 
@@ -85,15 +89,10 @@ class Solution {
             }
         }
         int[] ans = new int[n];
-        int j = 0;
-        for (int i = 0; i < n; ++i) {
-            if (nums[i] != 0) {
-                ans[j++] = nums[i];
-            }
-        }
-        for (int i = 0; i < n; ++i) {
-            if (nums[i] == 0) {
-                ans[j++] = nums[i];
+        int i = 0;
+        for (int x : nums) {
+            if (x > 0) {
+                ans[i++] = x;
             }
         }
         return ans;
@@ -115,9 +114,12 @@ public:
             }
         }
         vector<int> ans(n);
-        int j = 0;
-        for (int i = 0; i < n; ++i) if (nums[i]) ans[j++] = nums[i];
-        for (int i = 0; i < n; ++i) if (!nums[i]) ans[j++] = nums[i];
+        int i = 0;
+        for (int& x : nums) {
+            if (x) {
+                ans[i++] = x;
+            }
+        }
         return ans;
     }
 };
@@ -126,32 +128,46 @@ public:
 ### **Go**
 
 ```go
-func applyOperations(nums []int) (ans []int) {
-    n := len(nums)
-    for i := 0; i < n - 1; i++ {
-        if nums[i] == nums[i + 1] {
-            nums[i] <<= 1
-            nums[i + 1] = 0
-        }
-    }
-    for _, v := range nums {
-        if v != 0 {
-            ans = append(ans, v)
-        }
-    }
-    for _, v := range nums {
-        if v == 0 {
-            ans = append(ans, v)
-        }
-    }
-    return
+func applyOperations(nums []int) []int {
+	n := len(nums)
+	for i := 0; i < n-1; i++ {
+		if nums[i] == nums[i+1] {
+			nums[i] <<= 1
+			nums[i+1] = 0
+		}
+	}
+	ans := make([]int, n)
+	i := 0
+	for _, x := range nums {
+		if x > 0 {
+			ans[i] = x
+			i++
+		}
+	}
+	return ans
 }
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function applyOperations(nums: number[]): number[] {
+    const n = nums.length;
+    for (let i = 0; i < n - 1; ++i) {
+        if (nums[i] === nums[i + 1]) {
+            nums[i] <<= 1;
+            nums[i + 1] = 0;
+        }
+    }
+    const ans: number[] = Array(n).fill(0);
+    let i = 0;
+    for (const x of nums) {
+        if (x !== 0) {
+            ans[i++] = x;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
