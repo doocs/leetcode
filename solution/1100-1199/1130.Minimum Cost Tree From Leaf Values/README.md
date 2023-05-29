@@ -51,16 +51,25 @@
 
 **方法一：记忆化搜索**
 
-根据题目描述，数组 $arr$ 中的值与树的中序遍历中每个叶节点的值一一对应，因此可以将数组 $arr$ 中的值看作是树的叶节点，我们可以将数组划分为左右两个子数组，分别对应树的左右子树，递归地每个子树的所有非叶子节点的值的最小可能总和。
+根据题目描述，数组 $arr$ 中的值与树的中序遍历中每个叶节点的值一一对应，我们可以将数组划分为左右两个非空子数组，分别对应树的左右子树，递归地求解每个子树的所有非叶节点的值的最小可能总和。
 
-我们设计一个函数 $dfs(i, j)$，表示数组 $arr$ 中下标范围 $[i, j]$ 内的所有叶节点的值的最小可能总和，那么答案就是 $dfs(0, n - 1)$，其中 $n$ 为数组 $arr$ 的长度。
+我们设计一个函数 $dfs(i, j)$，表示数组 $arr$ 中下标范围 $[i, j]$ 内的所有非叶节点的值的最小可能总和，那么答案就是 $dfs(0, n - 1)$，其中 $n$ 为数组 $arr$ 的长度。
 
 函数 $dfs(i, j)$ 的计算过程如下：
 
--   如果 $i = j$，说明数组 $arr$ 中只有一个元素，因此 $dfs(i, j) = 0$。
--   否则，我们枚举 $k \in [i, j - 1]$，将数组 $arr$ 划分为两个子数组 $arr[i \cdots k]$ 和 $arr[k + 1 \cdots j]$，对于每个 $k$，我们计算 $dfs(i, k)$ 和 $dfs(k + 1, j)$，其中 $dfs(i, k)$ 表示数组 $arr$ 中下标范围 $[i, k]$ 内的所有叶节点的值的最小可能总和，而 $dfs(k + 1, j)$ 表示数组 $arr$ 中下标范围 $[k + 1, j]$ 内的所有叶节点的值的最小可能总和，那么 $dfs(i, j) = \min_{i \leq k < j} \{dfs(i, k) + dfs(k + 1, j) + \max_{i \leq t \leq k} \{arr[t]\} \max_{k < t \leq j} \{arr[t]\}\}$。
+-   如果 $i = j$，说明数组 $arr[i..j]$ 中只有一个元素，因此 $dfs(i, j) = 0$。
+-   否则，我们枚举 $k \in [i, j - 1]$，将数组 $arr$ 划分为两个子数组 $arr[i \cdots k]$ 和 $arr[k + 1 \cdots j]$，对于每个 $k$，我们递归计算 $dfs(i, k)$ 和 $dfs(k + 1, j)$，其中 $dfs(i, k)$ 表示数组 $arr$ 中下标范围 $[i, k]$ 内的所有非叶节点的值的最小可能总和，而 $dfs(k + 1, j)$ 表示数组 $arr$ 中下标范围 $[k + 1, j]$ 内的所有非叶节点的值的最小可能总和，那么 $dfs(i, j) = \min_{i \leq k < j} \{dfs(i, k) + dfs(k + 1, j) + \max_{i \leq t \leq k} \{arr[t]\} \max_{k < t \leq j} \{arr[t]\}\}$。
 
-上述递归过程中，我们可以使用记忆化搜索的方法进行优化，避免重复计算。
+综上所述，我们可以得到：
+
+$$
+dfs(i, j) = \begin{cases}
+0, & \text{if } i = j \\
+\min_{i \leq k < j} \{dfs(i, k) + dfs(k + 1, j) + \max_{i \leq t \leq k} \{arr[t]\} \max_{k < t \leq j} \{arr[t]\}\}, & \text{if } i < j
+\end{cases}
+$$
+
+上述递归过程中，我们可以使用记忆化搜索的方法，避免重复计算。
 
 最后，我们返回 $dfs(0, n - 1)$ 即可。
 
@@ -70,7 +79,14 @@
 
 我们可以将方法一中的记忆化搜索改为动态规划的方式进行求解。
 
-定义 $f[i][j]$ 表示数组 $arr$ 中下标范围 $[i, j]$ 内的所有叶节点的值的最小可能总和，而 $g[i][j]$ 表示数组 $arr$ 中下标范围 $[i, j]$ 内的所有叶节点的最大值，那么 $f[i][j] = \min_{i \leq k < j} \{f[i][k] + f[k + 1][j] + g[i][k] \cdot g[k + 1][j]\}$，其中 $g[i][j] = \max_{i \leq k \leq j} \{arr[k]\}$。
+定义 $f[i][j]$ 表示数组 $arr$ 中下标范围 $[i, j]$ 内的所有非叶节点的值的最小可能总和，而 $g[i][j]$ 表示数组 $arr$ 中下标范围 $[i, j]$ 内的所有叶节点的最大值，那么状态转移方程为：
+
+$$
+f[i][j] = \begin{cases}
+0, & \text{if } i = j \\
+\min_{i \leq k < j} \{f[i][k] + f[k + 1][j] + g[i][k] \cdot g[k + 1][j]\}, & \text{if } i < j
+\end{cases}
+$$
 
 最后，我们返回 $f[0][n - 1]$ 即可。
 
@@ -86,7 +102,7 @@
 class Solution:
     def mctFromLeafValues(self, arr: List[int]) -> int:
         @cache
-        def dfs(i: int, j: int):
+        def dfs(i: int, j: int) -> Tuple:
             if i == j:
                 return 0, arr[i]
             s, mx = inf, -1
@@ -105,18 +121,32 @@ class Solution:
 ```python
 class Solution:
     def mctFromLeafValues(self, arr: List[int]) -> int:
+        @cache
+        def dfs(i: int, j: int) -> int:
+            if i == j:
+                return 0
+            return min(dfs(i, k) + dfs(k + 1, j) + g[i][k] * g[k + 1][j] for k in range(i, j))
+
         n = len(arr)
-        f = [[0] * n for _ in range(n)]
         g = [[0] * n for _ in range(n)]
-        for i in range(n):
+        for i in range(n - 1, -1, -1):
             g[i][i] = arr[i]
             for j in range(i + 1, n):
                 g[i][j] = max(g[i][j - 1], arr[j])
+        return dfs(0, n - 1)
+```
+
+```python
+class Solution:
+    def mctFromLeafValues(self, arr: List[int]) -> int:
+        n = len(arr)
+        f = [[0] * n for _ in range(n)]
+        g = [[0] * n for _ in range(n)]
         for i in range(n - 1, -1, -1):
+            g[i][i] = arr[i]
             for j in range(i + 1, n):
-                f[i][j] = inf
-                for k in range(i, j):
-                    f[i][j] = min(f[i][j], f[i][k] + f[k + 1][j] + g[i][k] * g[k + 1][j])
+                g[i][j] = max(g[i][j - 1], arr[j])
+                f[i][j] = min(f[i][k] + f[k + 1][j] + g[i][k] * g[k + 1][j] for k in range(i, j))
         return f[0][n - 1]
 ```
 
@@ -133,9 +163,9 @@ class Solution {
         int n = arr.length;
         f = new Integer[n][n];
         g = new int[n][n];
-        for (int i = 0; i < n; i++) {
+        for (int i = n - 1; i >= 0; --i) {
             g[i][i] = arr[i];
-            for (int j = i + 1; j < n; j++) {
+            for (int j = i + 1; j < n; ++j) {
                 g[i][j] = Math.max(g[i][j - 1], arr[j]);
             }
         }
@@ -164,14 +194,10 @@ class Solution {
         int n = arr.length;
         int[][] f = new int[n][n];
         int[][] g = new int[n][n];
-        for (int i = 0; i < n; ++i) {
+        for (int i = n - 1; i >= 0; --i) {
             g[i][i] = arr[i];
             for (int j = i + 1; j < n; ++j) {
                 g[i][j] = Math.max(g[i][j - 1], arr[j]);
-            }
-        }
-        for (int i = n - 2; i >= 0; --i) {
-            for (int j = i + 1; j < n; ++j) {
                 f[i][j] = 1 << 30;
                 for (int k = i; k < j; ++k) {
                     f[i][j] = Math.min(f[i][j], f[i][k] + f[k + 1][j] + g[i][k] * g[k + 1][j]);
@@ -193,7 +219,7 @@ public:
         int f[n][n];
         int g[n][n];
         memset(f, 0, sizeof(f));
-        for (int i = 0; i < n; ++i) {
+        for (int i = n - 1; ~i; --i) {
             g[i][i] = arr[i];
             for (int j = i + 1; j < n; ++j) {
                 g[i][j] = max(g[i][j - 1], arr[j]);
@@ -225,14 +251,10 @@ public:
         int f[n][n];
         int g[n][n];
         memset(f, 0, sizeof(f));
-        for (int i = 0; i < n; ++i) {
+        for (int i = n - 1; ~i; --i) {
             g[i][i] = arr[i];
             for (int j = i + 1; j < n; ++j) {
                 g[i][j] = max(g[i][j - 1], arr[j]);
-            }
-        }
-        for (int i = n - 2; ~i; --i) {
-            for (int j = i + 1; j < n; ++j) {
                 f[i][j] = 1 << 30;
                 for (int k = i; k < j; ++k) {
                     f[i][j] = min(f[i][j], f[i][k] + f[k + 1][j] + g[i][k] * g[k + 1][j]);
@@ -299,13 +321,11 @@ func mctFromLeafValues(arr []int) int {
 	for i := range g {
 		f[i] = make([]int, n)
 		g[i] = make([]int, n)
+	}
+	for i := n - 1; i >= 0; i-- {
 		g[i][i] = arr[i]
 		for j := i + 1; j < n; j++ {
 			g[i][j] = max(g[i][j-1], arr[j])
-		}
-	}
-	for i := n - 2; i >= 0; i-- {
-		for j := i + 1; j < n; j++ {
 			f[i][j] = 1 << 30
 			for k := i; k < j; k++ {
 				f[i][j] = min(f[i][j], f[i][k]+f[k+1][j]+g[i][k]*g[k+1][j])
@@ -327,6 +347,61 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function mctFromLeafValues(arr: number[]): number {
+    const n = arr.length;
+    const f: number[][] = new Array(n).fill(0).map(() => new Array(n).fill(0));
+    const g: number[][] = new Array(n).fill(0).map(() => new Array(n).fill(0));
+    for (let i = n - 1; i >= 0; --i) {
+        g[i][i] = arr[i];
+        for (let j = i + 1; j < n; ++j) {
+            g[i][j] = Math.max(g[i][j - 1], arr[j]);
+        }
+    }
+    const dfs = (i: number, j: number): number => {
+        if (i === j) {
+            return 0;
+        }
+        if (f[i][j] > 0) {
+            return f[i][j];
+        }
+        let ans = 1 << 30;
+        for (let k = i; k < j; ++k) {
+            ans = Math.min(
+                ans,
+                dfs(i, k) + dfs(k + 1, j) + g[i][k] * g[k + 1][j],
+            );
+        }
+        return (f[i][j] = ans);
+    };
+    return dfs(0, n - 1);
+}
+```
+
+```ts
+function mctFromLeafValues(arr: number[]): number {
+    const n = arr.length;
+    const f: number[][] = new Array(n).fill(0).map(() => new Array(n).fill(0));
+    const g: number[][] = new Array(n).fill(0).map(() => new Array(n).fill(0));
+    for (let i = n - 1; i >= 0; --i) {
+        g[i][i] = arr[i];
+        for (let j = i + 1; j < n; ++j) {
+            g[i][j] = Math.max(g[i][j - 1], arr[j]);
+            f[i][j] = 1 << 30;
+            for (let k = i; k < j; ++k) {
+                f[i][j] = Math.min(
+                    f[i][j],
+                    f[i][k] + f[k + 1][j] + g[i][k] * g[k + 1][j],
+                );
+            }
+        }
+    }
+    return f[0][n - 1];
 }
 ```
 
