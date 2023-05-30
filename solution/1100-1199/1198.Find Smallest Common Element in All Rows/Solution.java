@@ -1,11 +1,10 @@
 class Solution {
     public int smallestCommonElement(int[][] mat) {
-        int[] counter = new int[10001];
-        for (int[] row : mat) {
-            for (int num : row) {
-                ++counter[num];
-                if (counter[num] == mat.length) {
-                    return num;
+        int[] cnt = new int[10001];
+        for (var row : mat) {
+            for (int x : row) {
+                if (++cnt[x] == mat.length) {
+                    return x;
                 }
             }
         }

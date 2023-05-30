@@ -43,12 +43,12 @@
 ```python
 class Solution:
     def smallestCommonElement(self, mat: List[List[int]]) -> int:
-        counter = Counter()
+        cnt = Counter()
         for row in mat:
-            for num in row:
-                counter[num] += 1
-                if counter[num] == len(mat):
-                    return num
+            for x in row:
+                cnt[x] += 1
+                if cnt[x] == len(mat):
+                    return x
         return -1
 ```
 
@@ -57,17 +57,68 @@ class Solution:
 ```java
 class Solution {
     public int smallestCommonElement(int[][] mat) {
-        int[] counter = new int[10001];
-        for (int[] row : mat) {
-            for (int num : row) {
-                ++counter[num];
-                if (counter[num] == mat.length) {
-                    return num;
+        int[] cnt = new int[10001];
+        for (var row : mat) {
+            for (int x : row) {
+                if (++cnt[x] == mat.length) {
+                    return x;
                 }
             }
         }
         return -1;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int smallestCommonElement(vector<vector<int>>& mat) {
+        int cnt[10001]{};
+        for (auto& row : mat) {
+            for (int x : row) {
+                if (++cnt[x] == mat.size()) {
+                    return x;
+                }
+            }
+        }
+        return -1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func smallestCommonElement(mat [][]int) int {
+	cnt := [10001]int{}
+	for _, row := range mat {
+		for _, x := range row {
+			cnt[x]++
+			if cnt[x] == len(mat) {
+				return x
+			}
+		}
+	}
+	return -1
+}
+```
+
+### **TypeScript**
+
+```ts
+function smallestCommonElement(mat: number[][]): number {
+    const cnt: number[] = new Array(10001).fill(0);
+    for (const row of mat) {
+        for (const x of row) {
+            if (++cnt[x] == mat.length) {
+                return x;
+            }
+        }
+    }
+    return -1;
 }
 ```
 

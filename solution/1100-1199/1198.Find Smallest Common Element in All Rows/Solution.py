@@ -1,9 +1,9 @@
 class Solution:
     def smallestCommonElement(self, mat: List[List[int]]) -> int:
-        counter = Counter()
+        cnt = Counter()
         for row in mat:
-            for num in row:
-                counter[num] += 1
-                if counter[num] == len(mat):
-                    return num
+            for x in row:
+                cnt[x] += 1
+                if cnt[x] == len(mat):
+                    return x
         return -1
