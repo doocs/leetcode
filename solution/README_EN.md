@@ -2719,7 +2719,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2708  |  [Maximum Strength of a Group](/solution/2700-2799/2708.Maximum%20Strength%20of%20a%20Group/README_EN.md)  |    |  Medium  |  Biweekly Contest 105  |
 |  2709  |  [Greatest Common Divisor Traversal](/solution/2700-2799/2709.Greatest%20Common%20Divisor%20Traversal/README_EN.md)  |    |  Hard  |  Biweekly Contest 105  |
 |  2710  |  [Remove Trailing Zeros From a String](/solution/2700-2799/2710.Remove%20Trailing%20Zeros%20From%20a%20String/README_EN.md)  |    |  Easy  |  Weekly Contest 347  |
-|  2711  |  [Difference of Number of Distinct Values on Diagonals](/solution/2700-2799/2711.Difference%20of%20Number%20of%20Distinct%20Values%20on%20Diagonals/README_EN.md)  |    |  Easy  |  Weekly Contest 347  |
+|  2711  |  [Difference of Number of Distinct Values on Diagonals](/solution/2700-2799/2711.Difference%20of%20Number%20of%20Distinct%20Values%20on%20Diagonals/README_EN.md)  |    |  Medium  |  Weekly Contest 347  |
 |  2712  |  [Minimum Cost to Make All Characters Equal](/solution/2700-2799/2712.Minimum%20Cost%20to%20Make%20All%20Characters%20Equal/README_EN.md)  |    |  Medium  |  Weekly Contest 347  |
 |  2713  |  [Maximum Strictly Increasing Cells in a Matrix](/solution/2700-2799/2713.Maximum%20Strictly%20Increasing%20Cells%20in%20a%20Matrix/README_EN.md)  |    |  Hard  |  Weekly Contest 347  |
 

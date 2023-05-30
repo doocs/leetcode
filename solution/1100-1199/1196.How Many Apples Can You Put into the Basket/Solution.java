@@ -1,14 +1,13 @@
 class Solution {
     public int maxNumberOfApples(int[] weight) {
         Arrays.sort(weight);
-        int ans = 0, t = 0;
-        for (int v : weight) {
-            if (t + v > 5000) {
-                break;
+        int s = 0;
+        for (int i = 0; i < weight.length; ++i) {
+            s += weight[i];
+            if (s > 5000) {
+                return i;
             }
-            t += v;
-            ++ans;
         }
-        return ans;
+        return weight.length;
     }
 }

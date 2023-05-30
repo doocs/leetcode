@@ -2721,7 +2721,7 @@
 |  2708  |  [一个小组的最大实力值](/solution/2700-2799/2708.Maximum%20Strength%20of%20a%20Group/README.md)  |    |  中等  |  第 105 场双周赛  |
 |  2709  |  [最大公约数遍历](/solution/2700-2799/2709.Greatest%20Common%20Divisor%20Traversal/README.md)  |    |  困难  |  第 105 场双周赛  |
 |  2710  |  [移除字符串中的尾随零](/solution/2700-2799/2710.Remove%20Trailing%20Zeros%20From%20a%20String/README.md)  |    |  简单  |  第 347 场周赛  |
-|  2711  |  [对角线上不同值的数量差](/solution/2700-2799/2711.Difference%20of%20Number%20of%20Distinct%20Values%20on%20Diagonals/README.md)  |    |  简单  |  第 347 场周赛  |
+|  2711  |  [对角线上不同值的数量差](/solution/2700-2799/2711.Difference%20of%20Number%20of%20Distinct%20Values%20on%20Diagonals/README.md)  |    |  中等  |  第 347 场周赛  |
 |  2712  |  [使所有字符相等的最小成本](/solution/2700-2799/2712.Minimum%20Cost%20to%20Make%20All%20Characters%20Equal/README.md)  |    |  中等  |  第 347 场周赛  |
 |  2713  |  [矩阵中严格递增的单元格数](/solution/2700-2799/2713.Maximum%20Strictly%20Increasing%20Cells%20in%20a%20Matrix/README.md)  |    |  困难  |  第 347 场周赛  |
 

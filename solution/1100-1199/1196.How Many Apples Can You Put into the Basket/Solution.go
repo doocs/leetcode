@@ -1,12 +1,11 @@
 func maxNumberOfApples(weight []int) int {
 	sort.Ints(weight)
-	ans, t := 0, 0
-	for _, v := range weight {
-		if t+v > 5000 {
-			break
+	s := 0
+	for i, x := range weight {
+		s += x
+		if s > 5000 {
+			return i
 		}
-		t += v
-		ans++
 	}
-	return ans
+	return len(weight)
 }

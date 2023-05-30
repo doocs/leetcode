@@ -43,14 +43,12 @@
 class Solution:
     def maxNumberOfApples(self, weight: List[int]) -> int:
         weight.sort()
-        ans = 0
-        t = 0
-        for v in weight:
-            if t + v > 5000:
-                break
-            t += v
-            ans += 1
-        return ans
+        s = 0
+        for i, x in enumerate(weight):
+            s += x
+            if s > 5000:
+                return i
+        return len(weight)
 ```
 
 ### **Java**
@@ -59,15 +57,14 @@ class Solution:
 class Solution {
     public int maxNumberOfApples(int[] weight) {
         Arrays.sort(weight);
-        int ans = 0, t = 0;
-        for (int v : weight) {
-            if (t + v > 5000) {
-                break;
+        int s = 0;
+        for (int i = 0; i < weight.length; ++i) {
+            s += weight[i];
+            if (s > 5000) {
+                return i;
             }
-            t += v;
-            ++ans;
         }
-        return ans;
+        return weight.length;
     }
 }
 ```
@@ -79,13 +76,14 @@ class Solution {
 public:
     int maxNumberOfApples(vector<int>& weight) {
         sort(weight.begin(), weight.end());
-        int ans = 0, t = 0;
-        for (int v : weight) {
-            if (t + v > 5000) break;
-            t += v;
-            ++ans;
+        int s = 0;
+        for (int i = 0; i < weight.size(); ++i) {
+            s += weight[i];
+            if (s > 5000) {
+                return i;
+            }
         }
-        return ans;
+        return weight.size();
     }
 };
 ```
@@ -95,15 +93,30 @@ public:
 ```go
 func maxNumberOfApples(weight []int) int {
 	sort.Ints(weight)
-	ans, t := 0, 0
-	for _, v := range weight {
-		if t+v > 5000 {
-			break
+	s := 0
+	for i, x := range weight {
+		s += x
+		if s > 5000 {
+			return i
 		}
-		t += v
-		ans++
 	}
-	return ans
+	return len(weight)
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxNumberOfApples(weight: number[]): number {
+    weight.sort((a, b) => a - b);
+    let s = 0;
+    for (let i = 0; i < weight.length; ++i) {
+        s += weight[i];
+        if (s > 5000) {
+            return i;
+        }
+    }
+    return weight.length;
 }
 ```
 
