@@ -59,7 +59,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：一次遍历**
+**方法一：模拟**
+
+我们可以先统计出公交车的总行驶距离 $s$，然后模拟公交车的行驶过程，从出发点开始，每次向右移动一站，直到到达目的地为止。在模拟的过程中，我们可以记录从出发点到目的地的距离 $a$，那么从目的地到出发点的最短距离就是 $\min(a, s - a)$。
+
+时间复杂度 $O(n)$，其中 $n$ 是公交车站的数量。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -69,14 +73,12 @@
 
 ```python
 class Solution:
-    def distanceBetweenBusStops(
-        self, distance: List[int], start: int, destination: int
-    ) -> int:
-        if start > destination:
-            start, destination = destination, start
-        a = sum(distance[start:destination])
-        b = sum(distance[:start]) + sum(distance[destination:])
-        return min(a, b)
+    def distanceBetweenBusStops(self, distance: List[int], start: int, destination: int) -> int:
+        a, n = 0, len(distance)
+        while start != destination:
+            a += distance[start]
+            start = (start + 1) % n
+        return min(a, sum(distance) - a)
 ```
 
 ### **Java**
@@ -86,18 +88,14 @@ class Solution:
 ```java
 class Solution {
     public int distanceBetweenBusStops(int[] distance, int start, int destination) {
-        if (start > destination) {
-            return distanceBetweenBusStops(distance, destination, start);
+        int s = Arrays.stream(distance).sum();
+        int n = distance.length;
+        int a = 0;
+        while (start != destination) {
+            a += distance[start];
+            start = (start + 1) % n;
         }
-        int a = 0, b = 0;
-        for (int i = 0; i < distance.length; ++i) {
-            if (i >= start && i < destination) {
-                a += distance[i];
-            } else {
-                b += distance[i];
-            }
-        }
-        return Math.min(a, b);
+        return Math.min(a, s - a);
     }
 }
 ```
@@ -108,15 +106,13 @@ class Solution {
 class Solution {
 public:
     int distanceBetweenBusStops(vector<int>& distance, int start, int destination) {
-        if (start > destination) return distanceBetweenBusStops(distance, destination, start);
-        int a = 0, b = 0;
-        for (int i = 0; i < distance.size(); ++i) {
-            if (i >= start && i < destination)
-                a += distance[i];
-            else
-                b += distance[i];
+        int s = accumulate(distance.begin(), distance.end(), 0);
+        int a = 0, n = distance.size();
+        while (start != destination) {
+            a += distance[start];
+            start = (start + 1) % n;
         }
-        return min(a, b);
+        return min(a, s - a);
     }
 };
 ```
@@ -125,17 +121,19 @@ public:
 
 ```go
 func distanceBetweenBusStops(distance []int, start int, destination int) int {
-	if start > destination {
-		return distanceBetweenBusStops(distance, destination, start)
+	s := 0
+	for _, x := range distance {
+		s += x
 	}
-	a, b := 0, 0
-	for i, v := range distance {
-		if i >= start && i < destination {
-			a += v
-		} else {
-			b += v
-		}
+	a, n := 0, len(distance)
+	for start != destination {
+		a += distance[start]
+		start = (start + 1) % n
 	}
+	return min(a, s-a)
+}
+
+func min(a, b int) int {
 	if a < b {
 		return a
 	}
@@ -153,20 +151,34 @@ func distanceBetweenBusStops(distance []int, start int, destination int) int {
  * @return {number}
  */
 var distanceBetweenBusStops = function (distance, start, destination) {
-    if (start > destination) {
-        return distanceBetweenBusStops(distance, destination, start);
-    }
+    const s = distance.reduce((a, b) => a + b, 0);
     let a = 0;
-    let b = 0;
-    for (let i = 0; i < distance.length; ++i) {
-        if (i >= start && i < destination) {
-            a += distance[i];
-        } else {
-            b += distance[i];
-        }
+    const n = distance.length;
+    while (start != destination) {
+        a += distance[start];
+        start = (start + 1) % n;
     }
-    return Math.min(a, b);
+    return Math.min(a, s - a);
 };
+```
+
+### **TypeScript**
+
+```ts
+function distanceBetweenBusStops(
+    distance: number[],
+    start: number,
+    destination: number,
+): number {
+    const s = distance.reduce((a, b) => a + b, 0);
+    let a = 0;
+    const n = distance.length;
+    while (start != destination) {
+        a += distance[start];
+        start = (start + 1) % n;
+    }
+    return Math.min(a, s - a);
+}
 ```
 
 ### **...**
