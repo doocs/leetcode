@@ -1,13 +1,14 @@
 class Solution {
     public int[] maxDepthAfterSplit(String seq) {
-        int[] res = new int[seq.length()];
-        for (int i = 0, cnt = 0; i < res.length; ++i) {
+        int n = seq.length();
+        int[] ans = new int[n];
+        for (int i = 0, x = 0; i < n; ++i) {
             if (seq.charAt(i) == '(') {
-                res[i] = cnt++ & 1;
+                ans[i] = x++ & 1;
             } else {
-                res[i] = --cnt & 1;
+                ans[i] = --x & 1;
             }
         }
-        return res;
+        return ans;
     }
 }
