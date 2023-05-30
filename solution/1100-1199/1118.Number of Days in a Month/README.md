@@ -44,6 +44,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：判断闰年**
+
+我们可以先判断给定的年份是否为闰年，如果年份能被 $4$ 整除但不能被 $100$ 整除，或者能被 $400$ 整除，那么这一年就是闰年。
+
+闰年的二月有 $29$ 天，平年的二月有 $28$ 天。
+
+我们可以用一个数组 $days$ 存储当前年份每个月的天数，其中 $days[0]=0$，$days[i]$ 表示当前年份第 $i$ 个月的天数。那么答案就是 $days[month]$。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -96,6 +106,30 @@ func numberOfDays(year int, month int) int {
 	}
 	days := []int{0, 31, x, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
 	return days[month]
+}
+```
+
+### **TypeScript**
+
+```ts
+function numberOfDays(year: number, month: number): number {
+    const leap = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+    const days = [
+        0,
+        31,
+        leap ? 29 : 28,
+        31,
+        30,
+        31,
+        30,
+        31,
+        31,
+        30,
+        31,
+        30,
+        31,
+    ];
+    return days[month];
 }
 ```
 
