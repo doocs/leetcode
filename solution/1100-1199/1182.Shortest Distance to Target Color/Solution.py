@@ -1,27 +1,18 @@
 class Solution:
-    def shortestDistanceColor(
-        self, colors: List[int], queries: List[List[int]]
-    ) -> List[int]:
-        color_indexes = defaultdict(list)
-        for i, c in enumerate(colors):
-            color_indexes[c].append(i)
-        res = []
+    def shortestDistanceColor(self, colors: List[int], queries: List[List[int]]) -> List[int]:
+        n = len(colors)
+        right = [[inf] * 3 for _ in range(n + 1)]
+        for i in range(n - 1, -1, -1):
+            for j in range(3):
+                right[i][j] = right[i + 1][j]
+            right[i][colors[i] - 1] = i
+        left = [[-inf] * 3 for _ in range(n + 1)]
+        for i, c in enumerate(colors, 1):
+            for j in range(3):
+                left[i][j] = left[i - 1][j]
+            left[i][c - 1] = i - 1
+        ans = []
         for i, c in queries:
-            if c not in color_indexes:
-                res.append(-1)
-            else:
-                t = color_indexes[c]
-                left, right = 0, len(t) - 1
-                while left < right:
-                    mid = (left + right) >> 1
-                    if t[mid] >= i:
-                        right = mid
-                    else:
-                        left = mid + 1
-                val = abs(t[left] - i)
-                if left > 0:
-                    val = min(val, abs(t[left - 1] - i))
-                if left < len(t) - 1:
-                    val = min(val, abs(t[left + 1] - i))
-                res.append(val)
-        return res
+            d = min(i - left[i + 1][c - 1], right[i][c - 1] - i)
+            ans.append(-1 if d > n else d)
+        return ans
