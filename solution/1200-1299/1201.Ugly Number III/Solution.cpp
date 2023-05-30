@@ -1,34 +1,27 @@
 class Solution {
 public:
-    long gcd(long x, long y) {
-        while (y != 0) {
-            if (x < y)
-                swap(x, y);
-            long tmp = x % y;
-            x = y;
-            y = tmp;
-        }
-        return x;
-    }
-
-    long lcm(long x, long y) { return x * y / gcd(x, y); }
-
-    long f(int num, int a, int b, int c) {
-        long sumabc = long(num / a) + num / b + num / c;
-        long intersections = long(num / lcm(a, b)) + num / lcm(a, c) + num / lcm(b, c) - num / lcm(lcm(a, b), c);
-        return sumabc - intersections;
-    }
-
     int nthUglyNumber(int n, int a, int b, int c) {
-        int left = 1, right = int(2e9);
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
-            if (f(mid, a, b, c) < n) {
-                left = mid + 1;
+        long long ab = lcm(a, b);
+        long long bc = lcm(b, c);
+        long long ac = lcm(a, c);
+        long long abc = lcm(ab, c);
+        long long l = 1, r = 2000000000;
+        while (l < r) {
+            long long mid = (l + r) >> 1;
+            if (mid / a + mid / b + mid / c - mid / ab - mid / bc - mid / ac + mid / abc >= n) {
+                r = mid;
             } else {
-                right = mid - 1;
+                l = mid + 1;
             }
         }
-        return left;
+        return l;
+    }
+
+    long long lcm(long long a, long long b) {
+        return a * b / gcd(a, b);
+    }
+
+    long long gcd(long long a, long long b) {
+        return b == 0 ? a : gcd(b, a % b);
     }
 };

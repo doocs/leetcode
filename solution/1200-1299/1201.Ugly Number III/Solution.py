@@ -1,21 +1,14 @@
 class Solution:
-    def f(self, num: int, a: int, b: int, c: int) -> int:
-        return (
-            num // a
-            + num // b
-            + num // c
-            - num // math.lcm(a, b)
-            - num // math.lcm(a, c)
-            - num // math.lcm(b, c)
-            + num // math.lcm(a, b, c)
-        )
-
     def nthUglyNumber(self, n: int, a: int, b: int, c: int) -> int:
-        left, right = 1, int(2e9)
-        while left <= right:
-            mid = left + (right - left) // 2
-            if self.f(mid, a, b, c) < n:
-                left = mid + 1
+        ab = lcm(a, b)
+        bc = lcm(b, c)
+        ac = lcm(a, c)
+        abc = lcm(a, b, c)
+        l, r = 1, 2 * 10**9
+        while l < r:
+            mid = (l + r) >> 1
+            if mid // a + mid // b + mid // c - mid // ab - mid // bc - mid // ac + mid // abc >= n:
+                r = mid
             else:
-                right = mid - 1
-        return left
+                l = mid + 1
+        return l

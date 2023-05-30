@@ -56,16 +56,21 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：二分搜索**
+**方法一：二分查找 + 容斥原理**
 
-根据题目提示结果在 [1, 2 * 10<sup>9</sup>] 的闭区间上，所以定义二分搜索的左边界 left=1，右边界 right=2e9。此时我们只需要在 [left,right] 的闭区间内找到一个最小的数 num，使其满足 [1,num] 内的丑数总数等于 n，则 num 就是第 n 个丑数。计算在 [1,num] 的范围内丑数的数目，即可以被 a、b 或 c 任意一个数整除的数的总数，其方法如下：
+我们可以将题目转换为：找到最小的正整数 $x$，使得小于等于 $x$ 的丑数个数恰好为 $n$ 个。
 
-`f(num, a, b, c) = num/a + num/b + num/c - a⋂b - a⋂c - b⋂c + a⋂b⋂c`
+对于一个正整数 $x$，能被 $a$ 整除的数有 $\left\lfloor \frac{x}{a} \right\rfloor$ 个，能被 $b$ 整除的数有 $\left\lfloor \frac{x}{b} \right\rfloor$ 个，能被 $c$ 整除的数有 $\left\lfloor \frac{x}{c} \right\rfloor$ 个，能被 $a$ 和 $b$ 同时整除的数有 $\left\lfloor \frac{x}{lcm(a, b)} \right\rfloor$ 个，能被 $a$ 和 $c$ 同时整除的数有 $\left\lfloor \frac{x}{lcm(a, c)} \right\rfloor$ 个，能被 $b$ 和 $c$ 同时整除的数有 $\left\lfloor \frac{x}{lcm(b, c)} \right\rfloor$ 个，能被 $a$, $b$ 和 $c$ 同时整除的数有 $\left\lfloor \frac{x}{lcm(a, b, c)} \right\rfloor$ 个。根据容斥原理，小于等于 $x$ 的丑数个数为：
 
--   num/a 表示在 [1,num] 内可以整除 a 的数目，num/b 表示在 [1,num] 内可以整除 b 的数目，num/c 表示在 [1,num] 内可以整除 c 的数目。
--   a⋂b 表示在 [1,num] 内可以同时整除 a 和 b 的数目，a⋂c 表示在 [1,num] 内可以同时整除 a 和 c 的数，b⋂c 表示在 [1,num] 内可以同时整除 b 和 c 的数。
--   a⋂b⋂c 表示在 [1,num] 内可以同时整除 a、b 和 c 的数。
--   a⋂b = num/least_common_multiple(a, b)，其他情况依次类推。
+$$
+\left\lfloor \frac{x}{a} \right\rfloor + \left\lfloor \frac{x}{b} \right\rfloor + \left\lfloor \frac{x}{c} \right\rfloor - \left\lfloor \frac{x}{lcm(a, b)} \right\rfloor - \left\lfloor \frac{x}{lcm(a, c)} \right\rfloor - \left\lfloor \frac{x}{lcm(b, c)} \right\rfloor + \left\lfloor \frac{x}{lcm(a, b, c)} \right\rfloor
+$$
+
+我们可以使用二分查找的方法找到最小的正整数 $x$，使得小于等于 $x$ 的丑数个数恰好为 $n$ 个。
+
+定义二分查找的左边界为 $l=1$，右边界为 $r=2 \times 10^9$，其中 $2 \times 10^9$ 是题目给定的最大值。在二分查找的每一步中，我们找出中间数 $mid$，如果小于等于 $mid$ 的丑数个数大于等于 $n$，那么说明最小的正整数 $x$ 落在 $[l,mid]$ 区间内，否则落在 $[mid+1,r]$ 区间内。在二分查找的过程中，我们需要不断更新小于等于 $mid$ 的丑数个数，直到找到最小的正整数 $x$。
+
+时间复杂度 $O(\log m)$，其中 $m = 2 \times 10^9$。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -75,98 +80,152 @@
 
 ```python
 class Solution:
-    def f(self, num: int, a: int, b: int, c: int) -> int:
-        return num // a + num // b + num // c - num // math.lcm(a, b) - num // math.lcm(a, c) - num // math.lcm(b, c) \
-            + num // math.lcm(a, b, c)
-
     def nthUglyNumber(self, n: int, a: int, b: int, c: int) -> int:
-        left, right = 1, int(2e9)
-        while left <= right:
-            mid = left + (right - left) // 2
-            if self.f(mid, a, b, c) < n:
-                left = mid + 1
+        ab = lcm(a, b)
+        bc = lcm(b, c)
+        ac = lcm(a, c)
+        abc = lcm(a, b, c)
+        l, r = 1, 2 * 10**9
+        while l < r:
+            mid = (l + r) >> 1
+            if mid // a + mid // b + mid // c - mid // ab - mid // bc - mid // ac + mid // abc >= n:
+                r = mid
             else:
-                right = mid - 1
-        return left
+                l = mid + 1
+        return l
 ```
 
-### **Go**
+### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-```go
-func nthUglyNumber(n int, a int, b int, c int) int {
-	left, right := 1, int(2e9)
-	for left <= right {
-		mid := left + (right-left)/2
-		if f(mid, a, b, c) < n {
-			left = mid + 1
-		} else {
-			right = mid - 1
-		}
-	}
-	return left
-}
+```java
+class Solution {
+    public int nthUglyNumber(int n, int a, int b, int c) {
+        long ab = lcm(a, b);
+        long bc = lcm(b, c);
+        long ac = lcm(a, c);
+        long abc = lcm(ab, c);
+        long l = 1, r = 2000000000;
+        while (l < r) {
+            long mid = (l + r) >> 1;
+            if (mid / a + mid / b + mid / c - mid / ab - mid / bc - mid / ac + mid / abc >= n) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return (int) l;
+    }
 
-func f(num int, a int, b int, c int) int {
-	return num/a + num/b + num/c - num/lcm(a, b) - num/lcm(a, c) - num/lcm(b, c) + num/lcm(lcm(a, b), c)
-}
+    private long gcd(long a, long b) {
+        return b == 0 ? a : gcd(b, a % b);
+    }
 
-// Least common multiple
-func lcm(a, b int) int {
-	// Greatest common divisor
-	gcd := func(x, y int) int {
-		for y != 0 {
-			if x < y {
-				x, y = y, x
-			}
-			x, y = y, x%y
-		}
-		return x
-	}
-	return a * b / gcd(a, b)
+    private long lcm(long a, long b) {
+        return a * b / gcd(a, b);
+    }
 }
 ```
 
 ### **C++**
 
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```cpp
 class Solution {
 public:
-    long gcd(long x, long y) {
-        while (y != 0) {
-            if (x < y)
-                swap(x, y);
-            long tmp = x % y;
-            x = y;
-            y = tmp;
-        }
-        return x;
-    }
-
-    long lcm(long x, long y) { return x * y / gcd(x, y); }
-
-    long f(int num, int a, int b, int c) {
-        long sumabc = long(num / a) + num / b + num / c;
-        long intersections = long(num / lcm(a, b)) + num / lcm(a, c) + num / lcm(b, c) - num / lcm(lcm(a, b), c);
-        return sumabc - intersections;
-    }
-
     int nthUglyNumber(int n, int a, int b, int c) {
-        int left = 1, right = int(2e9);
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
-            if (f(mid, a, b, c) < n) {
-                left = mid + 1;
+        long long ab = lcm(a, b);
+        long long bc = lcm(b, c);
+        long long ac = lcm(a, c);
+        long long abc = lcm(ab, c);
+        long long l = 1, r = 2000000000;
+        while (l < r) {
+            long long mid = (l + r) >> 1;
+            if (mid / a + mid / b + mid / c - mid / ab - mid / bc - mid / ac + mid / abc >= n) {
+                r = mid;
             } else {
-                right = mid - 1;
+                l = mid + 1;
             }
         }
-        return left;
+        return l;
+    }
+
+    long long lcm(long long a, long long b) {
+        return a * b / gcd(a, b);
+    }
+
+    long long gcd(long long a, long long b) {
+        return b == 0 ? a : gcd(b, a % b);
     }
 };
+```
+
+### **Go**
+
+```go
+func nthUglyNumber(n int, a int, b int, c int) int {
+	ab, bc, ac := lcm(a, b), lcm(b, c), lcm(a, c)
+	abc := lcm(ab, c)
+	var l, r int = 1, 2e9
+	for l < r {
+		mid := (l + r) >> 1
+		if mid/a+mid/b+mid/c-mid/ab-mid/bc-mid/ac+mid/abc >= n {
+			r = mid
+		} else {
+			l = mid + 1
+		}
+	}
+	return l
+}
+
+func gcd(a, b int) int {
+	if b == 0 {
+		return a
+	}
+	return gcd(b, a%b)
+}
+
+func lcm(a, b int) int {
+	return a * b / gcd(a, b)
+}
+```
+
+### **TypeScript**
+
+```ts
+function nthUglyNumber(n: number, a: number, b: number, c: number): number {
+    const ab = lcm(BigInt(a), BigInt(b));
+    const bc = lcm(BigInt(b), BigInt(c));
+    const ac = lcm(BigInt(a), BigInt(c));
+    const abc = lcm(BigInt(a), bc);
+    let l = 1n;
+    let r = BigInt(2e9);
+    while (l < r) {
+        const mid = (l + r) >> 1n;
+        const count =
+            mid / BigInt(a) +
+            mid / BigInt(b) +
+            mid / BigInt(c) -
+            mid / ab -
+            mid / bc -
+            mid / ac +
+            mid / abc;
+        if (count >= BigInt(n)) {
+            r = mid;
+        } else {
+            l = mid + 1n;
+        }
+    }
+    return Number(l);
+}
+
+function gcd(a: bigint, b: bigint): bigint {
+    return b === 0n ? a : gcd(b, a % b);
+}
+
+function lcm(a: bigint, b: bigint): bigint {
+    return (a * b) / gcd(a, b);
+}
 ```
 
 ### **...**
