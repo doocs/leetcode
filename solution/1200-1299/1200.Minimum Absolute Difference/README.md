@@ -56,7 +56,11 @@
 
 **方法一：排序**
 
-时间复杂度 $O(nlogn)$，其中 $n$ 表示 $arr$ 的长度。
+根据题目描述，我们需要找出数组 $arr$ 中任意两个元素的最小绝对差，因此我们可以先对数组 $arr$ 排序，随后遍历相邻元素，得到最小绝对差 $mi$。
+
+最后我们再遍历相邻元素，找出所有最小绝对差等于 $mi$ 的元素对。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $arr$ 的长度。
 
 <!-- tabs:start -->
 
@@ -68,16 +72,8 @@
 class Solution:
     def minimumAbsDifference(self, arr: List[int]) -> List[List[int]]:
         arr.sort()
-        ans = []
-        mi = inf
-        for a, b in pairwise(arr):
-            d = b - a
-            if d < mi:
-                ans = [(a, b)]
-                mi = d
-            elif d == mi:
-                ans.append((a, b))
-        return ans
+        mi = min(b - a for a, b in pairwise(arr))
+        return [[a, b] for a, b in pairwise(arr) if b - a == mi]
 ```
 
 ### **Java**
@@ -88,18 +84,15 @@ class Solution:
 class Solution {
     public List<List<Integer>> minimumAbsDifference(int[] arr) {
         Arrays.sort(arr);
-        List<List<Integer>> ans = new ArrayList<>();
         int n = arr.length;
-        int mi = Integer.MAX_VALUE;
+        int mi = 1 << 30;
         for (int i = 0; i < n - 1; ++i) {
-            int a = arr[i], b = arr[i + 1];
-            int d = b - a;
-            if (d < mi) {
-                ans.clear();
-                ans.add(Arrays.asList(a, b));
-                mi = d;
-            } else if (d == mi) {
-                ans.add(Arrays.asList(a, b));
+            mi = Math.min(mi, arr[i + 1] - arr[i]);
+        }
+        List<List<Integer>> ans = new ArrayList<>();
+        for (int i = 0; i < n - 1; ++i) {
+            if (arr[i + 1] - arr[i] == mi) {
+                ans.add(List.of(arr[i], arr[i + 1]));
             }
         }
         return ans;
@@ -114,18 +107,16 @@ class Solution {
 public:
     vector<vector<int>> minimumAbsDifference(vector<int>& arr) {
         sort(arr.begin(), arr.end());
-        int mi = INT_MAX;
+        int mi = 1 << 30;
         int n = arr.size();
+        for (int i = 0; i < n - 1; ++i) {
+            mi = min(mi, arr[i + 1] - arr[i]);
+        }
         vector<vector<int>> ans;
         for (int i = 0; i < n - 1; ++i) {
-            int a = arr[i], b = arr[i + 1];
-            int d = b - a;
-            if (d < mi) {
-                mi = d;
-                ans.clear();
-                ans.push_back({a, b});
-            } else if (d == mi)
-                ans.push_back({a, b});
+            if (arr[i + 1] - arr[i] == mi) {
+                ans.push_back({arr[i], arr[i + 1]});
+            }
         }
         return ans;
     }
@@ -135,21 +126,41 @@ public:
 ### **Go**
 
 ```go
-func minimumAbsDifference(arr []int) [][]int {
+func minimumAbsDifference(arr []int) (ans [][]int) {
 	sort.Ints(arr)
-	mi := math.MaxInt32
-	var ans [][]int
-	for i, a := range arr[:len(arr)-1] {
-		b := arr[i+1]
-		d := b - a
-		if d < mi {
-			mi = d
-			ans = [][]int{[]int{a, b}}
-		} else if d == mi {
-			ans = append(ans, []int{a, b})
+	mi := 1 << 30
+	n := len(arr)
+	for i := 0; i < n-1; i++ {
+		if t := arr[i+1] - arr[i]; t < mi {
+			mi = t
 		}
 	}
-	return ans
+	for i := 0; i < n-1; i++ {
+		if arr[i+1]-arr[i] == mi {
+			ans = append(ans, []int{arr[i], arr[i+1]})
+		}
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function minimumAbsDifference(arr: number[]): number[][] {
+    arr.sort((a, b) => a - b);
+    let mi = 1 << 30;
+    const n = arr.length;
+    for (let i = 0; i < n - 1; ++i) {
+        mi = Math.min(mi, arr[i + 1] - arr[i]);
+    }
+    const ans: number[][] = [];
+    for (let i = 0; i < n - 1; ++i) {
+        if (arr[i + 1] - arr[i] === mi) {
+            ans.push([arr[i], arr[i + 1]]);
+        }
+    }
+    return ans;
 }
 ```
 

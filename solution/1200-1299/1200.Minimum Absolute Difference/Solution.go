@@ -1,16 +1,16 @@
-func minimumAbsDifference(arr []int) [][]int {
+func minimumAbsDifference(arr []int) (ans [][]int) {
 	sort.Ints(arr)
-	mi := math.MaxInt32
-	var ans [][]int
-	for i, a := range arr[:len(arr)-1] {
-		b := arr[i+1]
-		d := b - a
-		if d < mi {
-			mi = d
-			ans = [][]int{[]int{a, b}}
-		} else if d == mi {
-			ans = append(ans, []int{a, b})
+	mi := 1 << 30
+	n := len(arr)
+	for i := 0; i < n-1; i++ {
+		if t := arr[i+1] - arr[i]; t < mi {
+			mi = t
 		}
 	}
-	return ans
+	for i := 0; i < n-1; i++ {
+		if arr[i+1]-arr[i] == mi {
+			ans = append(ans, []int{arr[i], arr[i+1]})
+		}
+	}
+	return
 }
