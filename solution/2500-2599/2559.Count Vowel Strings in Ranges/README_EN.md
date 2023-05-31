@@ -53,41 +53,74 @@ We return [2,3,0].
 ```python
 class Solution:
     def vowelStrings(self, words: List[str], queries: List[List[int]]) -> List[int]:
-        t = [i for i, w in enumerate(words) if w[0] in "aeiou" and w[-1] in "aeiou"]
-        return [bisect_left(t, r + 1) - bisect_left(t, l) for l, r in queries]
+        vowels = set("aeiou")
+        nums = [i for i, w in enumerate(words) if w[0] in vowels and w[-1] in vowels]
+        return [bisect_right(nums, r) - bisect_left(nums, l) for l, r in queries]
+```
+
+```python
+class Solution:
+    def vowelStrings(self, words: List[str], queries: List[List[int]]) -> List[int]:
+        vowels = set("aeiou")
+        s = list(accumulate((int(w[0] in vowels and w[-1] in vowels) for w in words), initial=0))
+        return [s[r + 1] - s[l] for l, r in queries]
 ```
 
 ### **Java**
 
 ```java
 class Solution {
+    private List<Integer> nums = new ArrayList<>();
+
     public int[] vowelStrings(String[] words, int[][] queries) {
-        List<Integer> t = new ArrayList<>();
         Set<Character> vowels = Set.of('a', 'e', 'i', 'o', 'u');
         for (int i = 0; i < words.length; ++i) {
             char a = words[i].charAt(0), b = words[i].charAt(words[i].length() - 1);
             if (vowels.contains(a) && vowels.contains(b)) {
-                t.add(i);
+                nums.add(i);
             }
         }
-        int[] ans = new int[queries.length];
-        for (int i = 0; i < ans.length; ++i) {
-            ans[i] = search(t, queries[i][1] + 1) - search(t, queries[i][0]);
+        int m = queries.length;
+        int[] ans = new int[m];
+        for (int i = 0; i < m; ++i) {
+            int l = queries[i][0], r = queries[i][1];
+            ans[i] = search(r + 1) - search(l);
         }
         return ans;
     }
 
-    private int search(List<Integer> nums, int x) {
-        int left = 0, right = nums.size();
-        while (left < right) {
-            int mid = (left + right) >> 1;
+    private int search(int x) {
+        int l = 0, r = nums.size();
+        while (l < r) {
+            int mid = (l + r) >> 1;
             if (nums.get(mid) >= x) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return left;
+        return l;
+    }
+}
+```
+
+```java
+class Solution {
+    public int[] vowelStrings(String[] words, int[][] queries) {
+        Set<Character> vowels = Set.of('a', 'e', 'i', 'o', 'u');
+        int n = words.length;
+        int[] s = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            char a = words[i].charAt(0), b = words[i].charAt(words[i].length() - 1);
+            s[i + 1] = s[i] + (vowels.contains(a) && vowels.contains(b) ? 1 : 0);
+        }
+        int m = queries.length;
+        int[] ans = new int[m];
+        for (int i = 0; i < m; ++i) {
+            int l = queries[i][0], r = queries[i][1];
+            ans[i] = s[r + 1] - s[l];
+        }
+        return ans;
     }
 }
 ```
@@ -98,17 +131,41 @@ class Solution {
 class Solution {
 public:
     vector<int> vowelStrings(vector<string>& words, vector<vector<int>>& queries) {
-        vector<int> t;
         unordered_set<char> vowels = {'a', 'e', 'i', 'o', 'u'};
+        vector<int> nums;
         for (int i = 0; i < words.size(); ++i) {
-            if (vowels.count(words[i][0]) && vowels.count(words[i].back())) {
-                t.push_back(i);
+            char a = words[i][0], b = words[i].back();
+            if (vowels.count(a) && vowels.count(b)) {
+                nums.push_back(i);
             }
         }
         vector<int> ans;
         for (auto& q : queries) {
-            int x = lower_bound(t.begin(), t.end(), q[1] + 1) - lower_bound(t.begin(), t.end(), q[0]);
-            ans.push_back(x);
+            int l = q[0], r = q[1];
+            int cnt = upper_bound(nums.begin(), nums.end(), r) - lower_bound(nums.begin(), nums.end(), l);
+            ans.push_back(cnt);
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> vowelStrings(vector<string>& words, vector<vector<int>>& queries) {
+        unordered_set<char> vowels = {'a', 'e', 'i', 'o', 'u'};
+        int n = words.size();
+        int s[n + 1];
+        s[0] = 0;
+        for (int i = 0; i < n; ++i) {
+            char a = words[i][0], b = words[i].back();
+            s[i + 1] = s[i] + (vowels.count(a) && vowels.count(b));
+        }
+        vector<int> ans;
+        for (auto& q : queries) {
+            int l = q[0], r = q[1];
+            ans.push_back(s[r + 1] - s[l]);
         }
         return ans;
     }
@@ -118,20 +175,89 @@ public:
 ### **Go**
 
 ```go
-func vowelStrings(words []string, queries [][]int) (ans []int) {
-	vowels := "aeiou"
-	t := []int{}
+func vowelStrings(words []string, queries [][]int) []int {
+	vowels := map[byte]bool{'a': true, 'e': true, 'i': true, 'o': true, 'u': true}
+	nums := []int{}
 	for i, w := range words {
-		if strings.Contains(vowels, w[:1]) && strings.Contains(vowels, w[len(w)-1:]) {
-			t = append(t, i)
+		if vowels[w[0]] && vowels[w[len(w)-1]] {
+			nums = append(nums, i)
 		}
 	}
-	for _, q := range queries {
-		i := sort.Search(len(t), func(i int) bool { return t[i] >= q[0] })
-		j := sort.Search(len(t), func(i int) bool { return t[i] >= q[1]+1 })
-		ans = append(ans, j-i)
+	ans := make([]int, len(queries))
+	for i, q := range queries {
+		l, r := q[0], q[1]
+		ans[i] = sort.SearchInts(nums, r+1) - sort.SearchInts(nums, l)
 	}
-	return
+	return ans
+}
+```
+
+```go
+func vowelStrings(words []string, queries [][]int) []int {
+	vowels := map[byte]bool{'a': true, 'e': true, 'i': true, 'o': true, 'u': true}
+	n := len(words)
+	s := make([]int, n+1)
+	for i, w := range words {
+		x := 0
+		if vowels[w[0]] && vowels[w[len(w)-1]] {
+			x = 1
+		}
+		s[i+1] = s[i] + x
+	}
+	ans := make([]int, len(queries))
+	for i, q := range queries {
+		l, r := q[0], q[1]
+		ans[i] = s[r+1] - s[l]
+	}
+	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function vowelStrings(words: string[], queries: number[][]): number[] {
+    const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
+    const nums: number[] = [];
+    for (let i = 0; i < words.length; ++i) {
+        if (
+            vowels.has(words[i][0]) &&
+            vowels.has(words[i][words[i].length - 1])
+        ) {
+            nums.push(i);
+        }
+    }
+    const search = (x: number): number => {
+        let l = 0,
+            r = nums.length;
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (nums[mid] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    };
+    return queries.map(([l, r]) => search(r + 1) - search(l));
+}
+```
+
+```ts
+function vowelStrings(words: string[], queries: number[][]): number[] {
+    const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
+    const n = words.length;
+    const s: number[] = new Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        s[i + 1] =
+            s[i] +
+            (vowels.has(words[i][0]) &&
+            vowels.has(words[i][words[i].length - 1])
+                ? 1
+                : 0);
+    }
+    return queries.map(([l, r]) => s[r + 1] - s[l]);
 }
 ```
 

@@ -1,17 +1,18 @@
 class Solution {
 public:
     vector<int> vowelStrings(vector<string>& words, vector<vector<int>>& queries) {
-        vector<int> t;
         unordered_set<char> vowels = {'a', 'e', 'i', 'o', 'u'};
-        for (int i = 0; i < words.size(); ++i) {
-            if (vowels.count(words[i][0]) && vowels.count(words[i].back())) {
-                t.push_back(i);
-            }
+        int n = words.size();
+        int s[n + 1];
+        s[0] = 0;
+        for (int i = 0; i < n; ++i) {
+            char a = words[i][0], b = words[i].back();
+            s[i + 1] = s[i] + (vowels.count(a) && vowels.count(b));
         }
         vector<int> ans;
         for (auto& q : queries) {
-            int x = lower_bound(t.begin(), t.end(), q[1] + 1) - lower_bound(t.begin(), t.end(), q[0]);
-            ans.push_back(x);
+            int l = q[0], r = q[1];
+            ans.push_back(s[r + 1] - s[l]);
         }
         return ans;
     }

@@ -1,15 +1,18 @@
-func vowelStrings(words []string, queries [][]int) (ans []int) {
-	vowels := "aeiou"
-	t := []int{}
+func vowelStrings(words []string, queries [][]int) []int {
+	vowels := map[byte]bool{'a': true, 'e': true, 'i': true, 'o': true, 'u': true}
+	n := len(words)
+	s := make([]int, n+1)
 	for i, w := range words {
-		if strings.Contains(vowels, w[:1]) && strings.Contains(vowels, w[len(w)-1:]) {
-			t = append(t, i)
+		x := 0
+		if vowels[w[0]] && vowels[w[len(w)-1]] {
+			x = 1
 		}
+		s[i+1] = s[i] + x
 	}
-	for _, q := range queries {
-		i := sort.Search(len(t), func(i int) bool { return t[i] >= q[0] })
-		j := sort.Search(len(t), func(i int) bool { return t[i] >= q[1]+1 })
-		ans = append(ans, j-i)
+	ans := make([]int, len(queries))
+	for i, q := range queries {
+		l, r := q[0], q[1]
+		ans[i] = s[r+1] - s[l]
 	}
-	return
+	return ans
 }
