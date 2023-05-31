@@ -4,21 +4,27 @@ class Solution {
     public String smallestStringWithSwaps(String s, List<List<Integer>> pairs) {
         int n = s.length();
         p = new int[n];
+        List<Character>[] d = new List[n];
         for (int i = 0; i < n; ++i) {
             p[i] = i;
+            d[i] = new ArrayList<>();
         }
-        for (List<Integer> pair : pairs) {
-            p[find(pair.get(0))] = find(pair.get(1));
+        for (var pair : pairs) {
+            int a = pair.get(0), b = pair.get(1);
+            p[find(a)] = find(b);
         }
-        Map<Integer, PriorityQueue<Character>> mp = new HashMap<>();
-        char[] chars = s.toCharArray();
+        char[] cs = s.toCharArray();
         for (int i = 0; i < n; ++i) {
-            mp.computeIfAbsent(find(i), k -> new PriorityQueue<>()).offer(chars[i]);
+            d[find(i)].add(cs[i]);
+        }
+        for (var e : d) {
+            e.sort((a, b) -> b - a);
         }
         for (int i = 0; i < n; ++i) {
-            chars[i] = mp.get(find(i)).poll();
+            var e = d[find(i)];
+            cs[i] = e.remove(e.size() - 1);
         }
-        return new String(chars);
+        return String.valueOf(cs);
     }
 
     private int find(int x) {

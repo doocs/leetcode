@@ -57,7 +57,7 @@
 
 函数 $dfs(i, j)$ 的计算过程如下：
 
--   如果 $i = j$，说明数组 $arr[i..j]$ 中只有一个元素，因此 $dfs(i, j) = 0$。
+-   如果 $i = j$，说明数组 $arr[i..j]$ 中只有一个元素，没有非叶节点，因此 $dfs(i, j) = 0$。
 -   否则，我们枚举 $k \in [i, j - 1]$，将数组 $arr$ 划分为两个子数组 $arr[i \cdots k]$ 和 $arr[k + 1 \cdots j]$，对于每个 $k$，我们递归计算 $dfs(i, k)$ 和 $dfs(k + 1, j)$，其中 $dfs(i, k)$ 表示数组 $arr$ 中下标范围 $[i, k]$ 内的所有非叶节点的值的最小可能总和，而 $dfs(k + 1, j)$ 表示数组 $arr$ 中下标范围 $[k + 1, j]$ 内的所有非叶节点的值的最小可能总和，那么 $dfs(i, j) = \min_{i \leq k < j} \{dfs(i, k) + dfs(k + 1, j) + \max_{i \leq t \leq k} \{arr[t]\} \max_{k < t \leq j} \{arr[t]\}\}$。
 
 综上所述，我们可以得到：
@@ -69,7 +69,14 @@ dfs(i, j) = \begin{cases}
 \end{cases}
 $$
 
-上述递归过程中，我们可以使用记忆化搜索的方法，避免重复计算。
+上述递归过程中，我们可以使用记忆化搜索的方法，避免重复计算。另外，我们还可以使用数组 $g$ 记录数组 $arr$ 中下标范围 $[i, j]$ 内的所有叶节点的最大值，那么 $dfs(i, j)$ 的计算过程可以优化为：
+
+$$
+dfs(i, j) = \begin{cases}
+0, & \text{if } i = j \\
+\min_{i \leq k < j} \{dfs(i, k) + dfs(k + 1, j) + g[i][k] \cdot g[k + 1][j]\}, & \text{if } i < j
+\end{cases}
+$$
 
 最后，我们返回 $dfs(0, n - 1)$ 即可。
 

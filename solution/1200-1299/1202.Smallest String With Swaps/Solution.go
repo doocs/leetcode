@@ -1,10 +1,11 @@
 func smallestStringWithSwaps(s string, pairs [][]int) string {
 	n := len(s)
 	p := make([]int, n)
+	d := make([][]byte, n)
 	for i := range p {
 		p[i] = i
 	}
-	var find func(x int) int
+	var find func(int) int
 	find = func(x int) int {
 		if p[x] != x {
 			p[x] = find(p[x])
@@ -12,21 +13,21 @@ func smallestStringWithSwaps(s string, pairs [][]int) string {
 		return p[x]
 	}
 	for _, pair := range pairs {
-		p[find(pair[0])] = find(pair[1])
+		a, b := pair[0], pair[1]
+		p[find(a)] = find(b)
 	}
-	mp := make(map[int][]rune)
-	for i, c := range s {
-		mp[find(i)] = append(mp[find(i)], c)
+	cs := []byte(s)
+	for i, c := range cs {
+		j := find(i)
+		d[j] = append(d[j], c)
 	}
-	for _, v := range mp {
-		sort.Slice(v, func(i, j int) bool {
-			return v[i] < v[j]
-		})
+	for i := range d {
+		sort.Slice(d[i], func(a, b int) bool { return d[i][a] > d[i][b] })
 	}
-	var ans []rune
-	for i := 0; i < n; i++ {
-		ans = append(ans, mp[find(i)][0])
-		mp[find(i)] = mp[find(i)][1:]
+	for i := range cs {
+		j := find(i)
+		cs[i] = d[j][len(d[j])-1]
+		d[j] = d[j][:len(d[j])-1]
 	}
-	return string(ans)
+	return string(cs)
 }

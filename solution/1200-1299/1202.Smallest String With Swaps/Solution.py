@@ -1,6 +1,6 @@
 class Solution:
     def smallestStringWithSwaps(self, s: str, pairs: List[List[int]]) -> str:
-        def find(x):
+        def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
@@ -9,7 +9,9 @@ class Solution:
         p = list(range(n))
         for a, b in pairs:
             p[find(a)] = find(b)
-        mp = defaultdict(list)
+        d = defaultdict(list)
         for i, c in enumerate(s):
-            heappush(mp[find(i)], c)
-        return ''.join(heappop(mp[find(i)]) for i in range(n))
+            d[find(i)].append(c)
+        for i in d.keys():
+            d[i].sort(reverse=True)
+        return "".join(d[find(i)].pop() for i in range(n))

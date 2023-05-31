@@ -57,69 +57,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-并查集。对于本题，索引对具备传递性。即如果索引对是 `[0,2]`, `[0, 3]`，那么索引 0、2、3 可以进行任意交换。我们可以利用并查集，遍历每个索引对，将其中的两个索引进行合并，得到并查集，连在一起的索引对应的字符按照字典序排列，这里可以利用优先级队列实现（也可以先用列表存储，再排序）。
+**方法一：并查集**
 
-最后遍历字符串，找到每个字符的根元素，并替换为字典序中对应的字符。
+我们注意到，索引对具有传递性，即如果 $a$ 与 $b$ 可交换，而 $b$ 与 $c$ 可交换，那么 $a$ 与 $c$ 也可交换。因此，我们可以考虑使用并查集维护这些索引对的连通性，将属于同一个连通分量的字符按照字典序排序。
 
-以下是并查集的几个常用模板。
+最后，遍历字符串，对于当前位置的字符，我们将其替换为该连通分量中最小的字符，然后从该连通分量中取出该字符，继续遍历字符串即可。
 
-模板 1——朴素并查集：
-
-```python
-# 初始化，p存储每个点的父节点
-p = list(range(n))
-
-# 返回x的祖宗节点
-def find(x):
-    if p[x] != x:
-        # 路径压缩
-        p[x] = find(p[x])
-    return p[x]
-
-
-# 合并a和b所在的两个集合
-p[find(a)] = find(b)
-```
-
-模板 2——维护 size 的并查集：
-
-```python
-# 初始化，p存储每个点的父节点，size只有当节点是祖宗节点时才有意义，表示祖宗节点所在集合中，点的数量
-p = list(range(n))
-size = [1] * n
-
-# 返回x的祖宗节点
-def find(x):
-    if p[x] != x:
-        # 路径压缩
-        p[x] = find(p[x])
-    return p[x]
-
-# 合并a和b所在的两个集合
-if find(a) != find(b):
-    size[find(b)] += size[find(a)]
-    p[find(a)] = find(b)
-```
-
-模板 3——维护到祖宗节点距离的并查集：
-
-```python
-# 初始化，p存储每个点的父节点，d[x]存储x到p[x]的距离
-p = list(range(n))
-d = [0] * n
-
-# 返回x的祖宗节点
-def find(x):
-    if p[x] != x:
-        t = find(p[x])
-        d[x] += d[p[x]]
-        p[x] = t
-    return p[x]
-
-# 合并a和b所在的两个集合
-p[find(a)] = find(b)
-d[find(a)] = distance
-```
+时间复杂度 $O(n \times \log n + m \times \alpha(m))$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别为字符串的长度和索引对的数量，而 $\alpha$ 为阿克曼函数的反函数。
 
 <!-- tabs:start -->
 
@@ -130,7 +74,7 @@ d[find(a)] = distance
 ```python
 class Solution:
     def smallestStringWithSwaps(self, s: str, pairs: List[List[int]]) -> str:
-        def find(x):
+        def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
@@ -139,10 +83,12 @@ class Solution:
         p = list(range(n))
         for a, b in pairs:
             p[find(a)] = find(b)
-        mp = defaultdict(list)
+        d = defaultdict(list)
         for i, c in enumerate(s):
-            heappush(mp[find(i)], c)
-        return ''.join(heappop(mp[find(i)]) for i in range(n))
+            d[find(i)].append(c)
+        for i in d.keys():
+            d[i].sort(reverse=True)
+        return "".join(d[find(i)].pop() for i in range(n))
 ```
 
 ### **Java**
@@ -156,21 +102,27 @@ class Solution {
     public String smallestStringWithSwaps(String s, List<List<Integer>> pairs) {
         int n = s.length();
         p = new int[n];
+        List<Character>[] d = new List[n];
         for (int i = 0; i < n; ++i) {
             p[i] = i;
+            d[i] = new ArrayList<>();
         }
-        for (List<Integer> pair : pairs) {
-            p[find(pair.get(0))] = find(pair.get(1));
+        for (var pair : pairs) {
+            int a = pair.get(0), b = pair.get(1);
+            p[find(a)] = find(b);
         }
-        Map<Integer, PriorityQueue<Character>> mp = new HashMap<>();
-        char[] chars = s.toCharArray();
+        char[] cs = s.toCharArray();
         for (int i = 0; i < n; ++i) {
-            mp.computeIfAbsent(find(i), k -> new PriorityQueue<>()).offer(chars[i]);
+            d[find(i)].add(cs[i]);
+        }
+        for (var e : d) {
+            e.sort((a, b) -> b - a);
         }
         for (int i = 0; i < n; ++i) {
-            chars[i] = mp.get(find(i)).poll();
+            var e = d[find(i)];
+            cs[i] = e.remove(e.size() - 1);
         }
-        return new String(chars);
+        return String.valueOf(cs);
     }
 
     private int find(int x) {
@@ -187,27 +139,33 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> p;
-
     string smallestStringWithSwaps(string s, vector<vector<int>>& pairs) {
-        int n = s.length();
-        p.resize(n);
-        for (int i = 0; i < n; ++i) p[i] = i;
-        for (auto& pair : pairs) p[find(pair[0])] = find(pair[1]);
-        unordered_map<int, vector<char>> mp;
-        for (int i = 0; i < n; ++i) mp[find(i)].push_back(s[i]);
-        for (auto& [k, v] : mp) sort(v.rbegin(), v.rend());
-        string ans;
-        for (int i = 0; i < n; ++i) {
-            ans.push_back(mp[find(i)].back());
-            mp[find(i)].pop_back();
+        int n = s.size();
+        int p[n];
+        iota(p, p + n, 0);
+        vector<char> d[n];
+        function<int(int)> find = [&](int x) -> int {
+            if (p[x] != x) {
+                p[x] = find(p[x]);
+            }
+            return p[x];
+        };
+        for (auto e : pairs) {
+            int a = e[0], b = e[1];
+            p[find(a)] = find(b);
         }
-        return ans;
-    }
-
-    int find(int x) {
-        if (p[x] != x) p[x] = find(p[x]);
-        return p[x];
+        for (int i = 0; i < n; ++i) {
+            d[find(i)].push_back(s[i]);
+        }
+        for (auto& e : d) {
+            sort(e.rbegin(), e.rend());
+        }
+        for (int i = 0; i < n; ++i) {
+            auto& e = d[find(i)];
+            s[i] = e.back();
+            e.pop_back();
+        }
+        return s;
     }
 };
 ```
@@ -218,10 +176,11 @@ public:
 func smallestStringWithSwaps(s string, pairs [][]int) string {
 	n := len(s)
 	p := make([]int, n)
+	d := make([][]byte, n)
 	for i := range p {
 		p[i] = i
 	}
-	var find func(x int) int
+	var find func(int) int
 	find = func(x int) int {
 		if p[x] != x {
 			p[x] = find(p[x])
@@ -229,23 +188,53 @@ func smallestStringWithSwaps(s string, pairs [][]int) string {
 		return p[x]
 	}
 	for _, pair := range pairs {
-		p[find(pair[0])] = find(pair[1])
+		a, b := pair[0], pair[1]
+		p[find(a)] = find(b)
 	}
-	mp := make(map[int][]rune)
-	for i, c := range s {
-		mp[find(i)] = append(mp[find(i)], c)
+	cs := []byte(s)
+	for i, c := range cs {
+		j := find(i)
+		d[j] = append(d[j], c)
 	}
-	for _, v := range mp {
-		sort.Slice(v, func(i, j int) bool {
-			return v[i] < v[j]
-		})
+	for i := range d {
+		sort.Slice(d[i], func(a, b int) bool { return d[i][a] > d[i][b] })
 	}
-	var ans []rune
-	for i := 0; i < n; i++ {
-		ans = append(ans, mp[find(i)][0])
-		mp[find(i)] = mp[find(i)][1:]
+	for i := range cs {
+		j := find(i)
+		cs[i] = d[j][len(d[j])-1]
+		d[j] = d[j][:len(d[j])-1]
 	}
-	return string(ans)
+	return string(cs)
+}
+```
+
+### **TypeScript**
+
+```ts
+function smallestStringWithSwaps(s: string, pairs: number[][]): string {
+    const n = s.length;
+    const p = new Array(n).fill(0).map((_, i) => i);
+    const find = (x: number): number => {
+        if (p[x] !== x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    };
+    const d: string[][] = new Array(n).fill(0).map(() => []);
+    for (const [a, b] of pairs) {
+        p[find(a)] = find(b);
+    }
+    for (let i = 0; i < n; ++i) {
+        d[find(i)].push(s[i]);
+    }
+    for (const e of d) {
+        e.sort((a, b) => b.charCodeAt(0) - a.charCodeAt(0));
+    }
+    const ans: string[] = [];
+    for (let i = 0; i < n; ++i) {
+        ans.push(d[find(i)].pop()!);
+    }
+    return ans.join('');
 }
 ```
 

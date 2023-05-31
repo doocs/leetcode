@@ -1,25 +1,31 @@
 class Solution {
 public:
-    vector<int> p;
-
     string smallestStringWithSwaps(string s, vector<vector<int>>& pairs) {
-        int n = s.length();
-        p.resize(n);
-        for (int i = 0; i < n; ++i) p[i] = i;
-        for (auto& pair : pairs) p[find(pair[0])] = find(pair[1]);
-        unordered_map<int, vector<char>> mp;
-        for (int i = 0; i < n; ++i) mp[find(i)].push_back(s[i]);
-        for (auto& [k, v] : mp) sort(v.rbegin(), v.rend());
-        string ans;
-        for (int i = 0; i < n; ++i) {
-            ans.push_back(mp[find(i)].back());
-            mp[find(i)].pop_back();
+        int n = s.size();
+        int p[n];
+        iota(p, p + n, 0);
+        vector<char> d[n];
+        function<int(int)> find = [&](int x) -> int {
+            if (p[x] != x) {
+                p[x] = find(p[x]);
+            }
+            return p[x];
+        };
+        for (auto e : pairs) {
+            int a = e[0], b = e[1];
+            p[find(a)] = find(b);
         }
-        return ans;
-    }
-
-    int find(int x) {
-        if (p[x] != x) p[x] = find(p[x]);
-        return p[x];
+        for (int i = 0; i < n; ++i) {
+            d[find(i)].push_back(s[i]);
+        }
+        for (auto& e : d) {
+            sort(e.rbegin(), e.rend());
+        }
+        for (int i = 0; i < n; ++i) {
+            auto& e = d[find(i)];
+            s[i] = e.back();
+            e.pop_back();
+        }
+        return s;
     }
 };
