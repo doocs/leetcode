@@ -56,11 +56,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：二分查找**
+**方法一：贪心 + 二分查找**
 
-我们先对数组 `price` 进行排序，然后二分枚举甜蜜度，找到最大的且满足至少有 $k$ 类糖果的甜蜜度。
+我们注意到，如果一个甜蜜度为 $x$ 的礼盒是可行的，那么所有甜蜜度小于 $x$ 的礼盒也是可行的，这存在单调性，因此可以使用二分查找的方法找到最大的可行甜蜜度。
 
-时间复杂度 $O(n \times \log M)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `price` 的长度，而 $M$ 为数组 `price` 中的最大值。本题中我们取 $M = 10^9$。
+我们首先将数组 $price$ 排序，然后定义二分查找的左边界 $l=0$, $r=price[n-1]-price[0]$。每一次，我们计算出当前的中间值 $mid = \lfloor \frac{l+r+1}{2} \rfloor$，以 $mid$ 作为甜蜜度，判断是否可行。若可行，那么我们将左边界 $l$ 更新为 $mid$，否则将右边界 $r$ 更新为 $mid-1$。最后返回 $l$ 即可。
+
+那么问题的关键就是判断一个甜蜜度是否可行，我们通过函数 $check(x)$ 来判断。函数 $check(x)$ 的实现逻辑如下：
+
+定义一个变量 $cnt$ 表示当前已经选取的糖果的数量，初始值为 $0$，定义一个变量 $pre$ 表示上一个选取的糖果的价格，初始值为 $-x$。然后我们遍历排好序的数组 $price$，对于每一个糖果的价格 $cur$，如果 $cur-pre \geq x$，那么我们就选取这个糖果，将 $pre$ 更新为 $cur$，并将 $cnt$ 加一。最后判断 $cnt$ 是否大于等于 $k$，如果是，那么返回 $true$，否则返回 $false$。
+
+时间复杂度 $O(n \times (\log n + \log M))$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $price$ 的长度；而 $M$ 是数组 $price$ 中的最大值，本题中 $M \leq 10^9$。
 
 <!-- tabs:start -->
 
@@ -71,24 +77,23 @@
 ```python
 class Solution:
     def maximumTastiness(self, price: List[int], k: int) -> int:
-        def check(x):
-            cnt = 1
-            s = price[0]
-            for p in price[1:]:
-                if p - s >= x:
-                    s = p
+        def check(x: int) -> bool:
+            cnt, pre = 0, -x
+            for cur in price:
+                if cur - pre >= x:
+                    pre = cur
                     cnt += 1
             return cnt >= k
 
         price.sort()
-        left, right = 0, 10**9
-        while left < right:
-            mid = (left + right + 1) >> 1
+        l, r = 0, price[-1] - price[0]
+        while l < r:
+            mid = (l + r + 1) >> 1
             if check(mid):
-                left = mid
+                l = mid
             else:
-                right = mid - 1
-        return left
+                r = mid - 1
+        return l
 ```
 
 ### **Java**
@@ -97,31 +102,25 @@ class Solution:
 
 ```java
 class Solution {
-    private int[] price;
-    private int k;
-
     public int maximumTastiness(int[] price, int k) {
         Arrays.sort(price);
-        this.price = price;
-        this.k = k;
-        int left = 0, right = 1000000000;
-        while (left < right) {
-            int mid = (left + right + 1) >> 1;
-            if (check(mid)) {
-                left = mid;
+        int l = 0, r = price[price.length - 1] - price[0];
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            if (check(price, k, mid)) {
+                l = mid;
             } else {
-                right = mid - 1;
+                r = mid - 1;
             }
         }
-        return left;
+        return l;
     }
 
-    private boolean check(int x) {
-        int s = price[0];
-        int cnt = 1;
-        for (int i = 1; i < price.length; ++i) {
-            if (price[i] - s >= x) {
-                s = price[i];
+    private boolean check(int[] price, int k, int x) {
+        int cnt = 0, pre = -x;
+        for (int cur : price) {
+            if (cur - pre >= x) {
+                pre = cur;
                 ++cnt;
             }
         }
@@ -137,27 +136,26 @@ class Solution {
 public:
     int maximumTastiness(vector<int>& price, int k) {
         sort(price.begin(), price.end());
-        int left = 0, right = 1e9;
-        auto check = [&](int x) {
-            int s = price[0];
-            int cnt = 1;
-            for (int i = 1; i < price.size(); ++i) {
-                if (price[i] - s >= x) {
-                    s = price[i];
+        int l = 0, r = price.back() - price[0];
+        auto check = [&](int x) -> bool {
+            int cnt = 0, pre = -x;
+            for (int& cur : price) {
+                if (cur - pre >= x) {
+                    pre = cur;
                     ++cnt;
                 }
             }
             return cnt >= k;
         };
-        while (left < right) {
-            int mid = (left + right + 1) >> 1;
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
             if (check(mid)) {
-                left = mid;
+                l = mid;
             } else {
-                right = mid - 1;
+                r = mid - 1;
             }
         }
-        return left;
+        return l;
     }
 };
 ```
@@ -167,27 +165,76 @@ public:
 ```go
 func maximumTastiness(price []int, k int) int {
 	sort.Ints(price)
-	check := func(x int) bool {
-		s := price[0]
-		cnt := 1
-		for _, p := range price[1:] {
-			if p-s >= x {
-				s = p
+	return sort.Search(price[len(price)-1], func(x int) bool {
+		cnt, pre := 0, -x
+		for _, cur := range price {
+			if cur-pre >= x {
+				pre = cur
 				cnt++
 			}
 		}
-		return cnt >= k
-	}
-	left, right := 0, 1000000000
-	for left < right {
-		mid := (left + right + 1) >> 1
-		if check(mid) {
-			left = mid
-		} else {
-			right = mid - 1
-		}
-	}
-	return left
+		return cnt < k
+	}) - 1
+}
+```
+
+### **TypeScript**
+
+```ts
+function maximumTastiness(price: number[], k: number): number {
+    price.sort((a, b) => a - b);
+    let l = 0;
+    let r = price[price.length - 1] - price[0];
+    const check = (x: number): boolean => {
+        let [cnt, pre] = [0, -x];
+        for (const cur of price) {
+            if (cur - pre >= x) {
+                pre = cur;
+                ++cnt;
+            }
+        }
+        return cnt >= k;
+    };
+    while (l < r) {
+        const mid = (l + r + 1) >> 1;
+        if (check(mid)) {
+            l = mid;
+        } else {
+            r = mid - 1;
+        }
+    }
+    return l;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int MaximumTastiness(int[] price, int k) {
+        Array.Sort(price);
+        int l = 0, r = price[price.Length - 1] - price[0];
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            if (check(price, mid, k)) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return l;
+    }
+
+    private bool check(int[] price, int x, int k) {
+        int cnt = 0, pre = -x;
+        foreach (int cur in price) {
+            if (cur - pre >= x) {
+                ++cnt;
+                pre = cur;
+            }
+        }
+        return cnt >= k;
+    }
 }
 ```
 

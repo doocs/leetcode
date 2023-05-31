@@ -56,55 +56,48 @@ It can be proven that 2 is the maximum tastiness that can be achieved.
 ```python
 class Solution:
     def maximumTastiness(self, price: List[int], k: int) -> int:
-        def check(x):
-            cnt = 1
-            s = price[0]
-            for p in price[1:]:
-                if p - s >= x:
-                    s = p
+        def check(x: int) -> bool:
+            cnt, pre = 0, -x
+            for cur in price:
+                if cur - pre >= x:
+                    pre = cur
                     cnt += 1
             return cnt >= k
 
         price.sort()
-        left, right = 0, 10**9
-        while left < right:
-            mid = (left + right + 1) >> 1
+        l, r = 0, price[-1] - price[0]
+        while l < r:
+            mid = (l + r + 1) >> 1
             if check(mid):
-                left = mid
+                l = mid
             else:
-                right = mid - 1
-        return left
+                r = mid - 1
+        return l
 ```
 
 ### **Java**
 
 ```java
 class Solution {
-    private int[] price;
-    private int k;
-
     public int maximumTastiness(int[] price, int k) {
         Arrays.sort(price);
-        this.price = price;
-        this.k = k;
-        int left = 0, right = 1000000000;
-        while (left < right) {
-            int mid = (left + right + 1) >> 1;
-            if (check(mid)) {
-                left = mid;
+        int l = 0, r = price[price.length - 1] - price[0];
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            if (check(price, k, mid)) {
+                l = mid;
             } else {
-                right = mid - 1;
+                r = mid - 1;
             }
         }
-        return left;
+        return l;
     }
 
-    private boolean check(int x) {
-        int s = price[0];
-        int cnt = 1;
-        for (int i = 1; i < price.length; ++i) {
-            if (price[i] - s >= x) {
-                s = price[i];
+    private boolean check(int[] price, int k, int x) {
+        int cnt = 0, pre = -x;
+        for (int cur : price) {
+            if (cur - pre >= x) {
+                pre = cur;
                 ++cnt;
             }
         }
@@ -120,27 +113,26 @@ class Solution {
 public:
     int maximumTastiness(vector<int>& price, int k) {
         sort(price.begin(), price.end());
-        int left = 0, right = 1e9;
-        auto check = [&](int x) {
-            int s = price[0];
-            int cnt = 1;
-            for (int i = 1; i < price.size(); ++i) {
-                if (price[i] - s >= x) {
-                    s = price[i];
+        int l = 0, r = price.back() - price[0];
+        auto check = [&](int x) -> bool {
+            int cnt = 0, pre = -x;
+            for (int& cur : price) {
+                if (cur - pre >= x) {
+                    pre = cur;
                     ++cnt;
                 }
             }
             return cnt >= k;
         };
-        while (left < right) {
-            int mid = (left + right + 1) >> 1;
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
             if (check(mid)) {
-                left = mid;
+                l = mid;
             } else {
-                right = mid - 1;
+                r = mid - 1;
             }
         }
-        return left;
+        return l;
     }
 };
 ```
@@ -150,27 +142,76 @@ public:
 ```go
 func maximumTastiness(price []int, k int) int {
 	sort.Ints(price)
-	check := func(x int) bool {
-		s := price[0]
-		cnt := 1
-		for _, p := range price[1:] {
-			if p-s >= x {
-				s = p
+	return sort.Search(price[len(price)-1], func(x int) bool {
+		cnt, pre := 0, -x
+		for _, cur := range price {
+			if cur-pre >= x {
+				pre = cur
 				cnt++
 			}
 		}
-		return cnt >= k
-	}
-	left, right := 0, 1000000000
-	for left < right {
-		mid := (left + right + 1) >> 1
-		if check(mid) {
-			left = mid
-		} else {
-			right = mid - 1
-		}
-	}
-	return left
+		return cnt < k
+	}) - 1
+}
+```
+
+### **TypeScript**
+
+```ts
+function maximumTastiness(price: number[], k: number): number {
+    price.sort((a, b) => a - b);
+    let l = 0;
+    let r = price[price.length - 1] - price[0];
+    const check = (x: number): boolean => {
+        let [cnt, pre] = [0, -x];
+        for (const cur of price) {
+            if (cur - pre >= x) {
+                pre = cur;
+                ++cnt;
+            }
+        }
+        return cnt >= k;
+    };
+    while (l < r) {
+        const mid = (l + r + 1) >> 1;
+        if (check(mid)) {
+            l = mid;
+        } else {
+            r = mid - 1;
+        }
+    }
+    return l;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int MaximumTastiness(int[] price, int k) {
+        Array.Sort(price);
+        int l = 0, r = price[price.Length - 1] - price[0];
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            if (check(price, mid, k)) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return l;
+    }
+
+    private bool check(int[] price, int x, int k) {
+        int cnt = 0, pre = -x;
+        foreach (int cur in price) {
+            if (cur - pre >= x) {
+                ++cnt;
+                pre = cur;
+            }
+        }
+        return cnt >= k;
+    }
 }
 ```
 

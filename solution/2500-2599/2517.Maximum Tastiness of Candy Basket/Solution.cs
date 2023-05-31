@@ -1,10 +1,10 @@
-class Solution {
-    public int maximumTastiness(int[] price, int k) {
-        Arrays.sort(price);
-        int l = 0, r = price[price.length - 1] - price[0];
+public class Solution {
+    public int MaximumTastiness(int[] price, int k) {
+        Array.Sort(price);
+        int l = 0, r = price[price.Length - 1] - price[0];
         while (l < r) {
             int mid = (l + r + 1) >> 1;
-            if (check(price, k, mid)) {
+            if (check(price, mid, k)) {
                 l = mid;
             } else {
                 r = mid - 1;
@@ -13,12 +13,12 @@ class Solution {
         return l;
     }
 
-    private boolean check(int[] price, int k, int x) {
+    private bool check(int[] price, int x, int k) {
         int cnt = 0, pre = -x;
-        for (int cur : price) {
+        foreach (int cur in price) {
             if (cur - pre >= x) {
-                pre = cur;
                 ++cnt;
+                pre = cur;
             }
         }
         return cnt >= k;
