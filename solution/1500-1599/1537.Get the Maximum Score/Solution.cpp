@@ -1,9 +1,10 @@
 class Solution {
-    public int maxSum(int[] nums1, int[] nums2) {
-        final int mod = (int) 1e9 + 7;
-        int m = nums1.length, n = nums2.length;
+public:
+    int maxSum(vector<int>& nums1, vector<int>& nums2) {
+        const int mod = 1e9 + 7;
+        int m = nums1.size(), n = nums2.size();
         int i = 0, j = 0;
-        long f = 0, g = 0;
+        long long f = 0, g = 0;
         while (i < m || j < n) {
             if (i == m) {
                 g += nums2[j++];
@@ -14,11 +15,11 @@ class Solution {
             } else if (nums1[i] > nums2[j]) {
                 g += nums2[j++];
             } else {
-                f = g = Math.max(f, g) + nums1[i];
+                f = g = max(f, g) + nums1[i];
                 i++;
                 j++;
             }
         }
-        return (int) (Math.max(f, g) % mod);
+        return max(f, g) % mod;
     }
-}
+};
