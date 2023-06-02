@@ -1,4 +1,4 @@
-# [2702. Minimum Operations to Make Numbers Non-positive](https://leetcode.cn/problems/minimum-operations-to-make-numbers-non-positive)
+# [2702. 使数字变为非正数的最小操作次数](https://leetcode.cn/problems/minimum-operations-to-make-numbers-non-positive)
 
 [English Version](/solution/2700-2799/2702.Minimum%20Operations%20to%20Make%20Numbers%20Non-positive/README_EN.md)
 
@@ -6,38 +6,40 @@
 
 <!-- 这里写题目描述 -->
 
-<p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and two integers <code>x</code> and <code>y</code>. In one operation, you must choose an index <code>i</code> such that <code>0 &lt;= i &lt; nums.length</code> and perform the following:</p>
+<p>给定一个 <strong>下标从0开始</strong> 的整数数组 <code>nums</code>，以及两个整数 <code>x</code> 和 <code>y</code>。在每一次操作中，你需要选择一个满足条件 <code>0 &lt;= i &lt; nums.length</code> 的下标 <code>i</code>&nbsp;，并执行以下操作：</p>
 
 <ul>
-	<li>Decrement <code>nums[i]</code> by <code>x</code>.</li>
-	<li>Decrement values by <code>y</code> at all indices except the <code>i<sup>th</sup></code> one.</li>
+	<li>将 <code>nums[i]</code> 减去 <code>x</code>。</li>
+	<li>将除了下标为 <code>i</code> 的位置外，其他位置的值都减去 <code>y</code>。</li>
 </ul>
 
-<p>Return <em>the minimum number of operations to make all the integers in </em><code>nums</code> <em><strong>less than or equal to zero.</strong></em></p>
+<p>返回使得 <code>nums</code> 中的所有整数都 <strong>小于等于零&nbsp;</strong>所需的最小操作次数。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><b>示例 1：</b></p>
 
 <pre>
-<strong>Input:</strong> nums = [3,4,1,7,6], x = 4, y = 2
-<strong>Output:</strong> 3
-<strong>Explanation:</strong> You will need three operations. One of the optimal sequence of operations is:
-Operation 1: Choose i = 3. Then, nums = [1,2,-1,3,4]. 
-Operation 2: Choose i = 3. Then, nums = [-1,0,-3,-1,2].
-Operation 3: Choose i = 4. Then, nums = [-3,-2,-5,-3,-2].
-Now, all the numbers in nums are non-positive. Therefore, we return 3.
+<b>输入：</b>nums = [3,4,1,7,6], x = 4, y = 2
+<b>输出：</b>3
+<b>解释：</b>你需要进行三次操作。其中一种最优操作序列如下：
+操作 1: 选择 i = 3。 然后, nums = [1,2,-1,3,4]. 
+操作 2: 选择 i = 3。 然后, nums = [-1,0,-3,-1,2].
+操作 3: 选择 i = 4。 然后, nums = [-3,-2,-5,-3,-2].
+现在，<code>nums</code> 中的所有数字都是非正数。因此，返回 3。
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [1,2,1], x = 2, y = 1
-<strong>Output:</strong> 1
-<strong>Explanation:</strong> We can perform the operation once on i = 1. Then, nums becomes [0,0,0]. All the positive numbers are removed, and therefore, we return 1.
+<b>输入：</b>nums = [1,2,1], x = 2, y = 1
+<b>输出：</b>1
+<b>解释：</b>我们可以在 <code>i = 1</code> 处执行一次操作，得到 <code>nums = [0,0,0]</code>。所有正数都被移除，因此返回 1。
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>

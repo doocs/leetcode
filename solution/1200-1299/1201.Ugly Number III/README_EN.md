@@ -194,7 +194,6 @@ function gcd(a: bigint, b: bigint): bigint {
 function lcm(a: bigint, b: bigint): bigint {
     return (a * b) / gcd(a, b);
 }
-
 ```
 
 ### **...**

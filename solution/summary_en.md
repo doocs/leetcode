@@ -2767,3 +2767,5 @@
   - [2711.Difference of Number of Distinct Values on Diagonals](/solution/2700-2799/2711.Difference%20of%20Number%20of%20Distinct%20Values%20on%20Diagonals/README_EN.md)
   - [2712.Minimum Cost to Make All Characters Equal](/solution/2700-2799/2712.Minimum%20Cost%20to%20Make%20All%20Characters%20Equal/README_EN.md)
   - [2713.Maximum Strictly Increasing Cells in a Matrix](/solution/2700-2799/2713.Maximum%20Strictly%20Increasing%20Cells%20in%20a%20Matrix/README_EN.md)
+  - [2714.Find Shortest Path with K Hops](/solution/2700-2799/2714.Find%20Shortest%20Path%20with%20K%20Hops/README_EN.md)
+  - [2715.Execute Cancellable Function With Delay](/solution/2700-2799/2715.Execute%20Cancellable%20Function%20With%20Delay/README_EN.md)

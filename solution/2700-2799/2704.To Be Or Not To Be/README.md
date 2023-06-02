@@ -1,4 +1,4 @@
-# [2704. To Be Or Not To Be](https://leetcode.cn/problems/to-be-or-not-to-be)
+# [2704. 相等还是不相等](https://leetcode.cn/problems/to-be-or-not-to-be)
 
 [English Version](/solution/2700-2799/2704.To%20Be%20Or%20Not%20To%20Be/README_EN.md)
 
@@ -6,36 +6,37 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Write a function&nbsp;<code>expect</code> that helps developers test their code. It should take in any value&nbsp;<code>val</code>&nbsp;and return an object with the following two functions.</p>
+<p>请你编写一个名为 <code>expect</code> 的函数，用于帮助开发人员测试他们的代码。它应该接受任何值 <code>val</code> 并返回一个包含以下两个函数的对象。</p>
 
 <ul>
-	<li><code>toBe(val)</code>&nbsp;accepts another value and returns&nbsp;<code>true</code>&nbsp;if the two values&nbsp;<code>===</code>&nbsp;each other. If they are not equal, it should throw an error&nbsp;<code>&quot;Not Equal&quot;</code>.</li>
-	<li><code>notToBe(val)</code>&nbsp;accepts another value and returns&nbsp;<code>true</code>&nbsp;if the two values&nbsp;<code>!==</code>&nbsp;each other. If they are equal, it should throw an error&nbsp;<code>&quot;Equal&quot;</code>.</li>
+	<li><code>toBe(val)</code> 接受另一个值并在两个值相等（ <code>===</code> ）时返回 <code>true</code> 。如果它们不相等，则应抛出错误 <code>"Not Equal"</code> 。</li>
+	<li><code>notToBe(val)</code> 接受另一个值并在两个值不相等（ <code>!==</code> ）时返回 <code>true</code> 。如果它们相等，则应抛出错误 <code>"Equal"</code> 。</li>
 </ul>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>Input:</strong> func = () =&gt; expect(5).toBe(5)
-<strong>Output:</strong> {&quot;value&quot;: true}
-<strong>Explanation:</strong> 5 === 5 so this expression returns true.
+<b>输入：</b>func = () =&gt; expect(5).toBe(5)
+<b>输出：</b>{"value": true}
+<b>解释：</b>5 === 5 因此该表达式返回 true。
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<strong>Input:</strong> func = () =&gt; expect(5).toBe(null)
-<strong>Output:</strong> {&quot;error&quot;: &quot;Not Equal&quot;}
-<strong>Explanation:</strong> 5 !== null so this expression throw the error &quot;Not Equal&quot;.
+<b>输入：</b>func = () =&gt; expect(5).toBe(null)
+<b>输出：</b>{"error": "Not Equal"}
+<b>解释：</b>5 !== null 因此抛出错误 "Not Equal".
 </pre>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <pre>
-<strong>Input:</strong> func = () =&gt; expect(5).notToBe(null)
-<strong>Output:</strong> {&quot;value&quot;: true}
-<strong>Explanation:</strong> 5 !== null so this expression returns true.
+<b>输入：</b>func = () =&gt; expect(5).notToBe(null)
+<b>输出：</b>{"value": true}
+<b>解释：</b>5 !== null 因此该表达式返回 true.
 </pre>
 
 ## 解法

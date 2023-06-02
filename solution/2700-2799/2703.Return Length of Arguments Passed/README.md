@@ -1,4 +1,4 @@
-# [2703. Return Length of Arguments Passed](https://leetcode.cn/problems/return-length-of-arguments-passed)
+# [2703. 返回传递的参数的长度](https://leetcode.cn/problems/return-length-of-arguments-passed)
 
 [English Version](/solution/2700-2799/2703.Return%20Length%20of%20Arguments%20Passed/README_EN.md)
 
@@ -6,36 +6,38 @@
 
 <!-- 这里写题目描述 -->
 
-Write a function&nbsp;<code>argumentsLength</code> that returns the count of arguments passed to it.
+请你编写一个函数 <code>argumentsLength</code>，返回传递给该函数的参数数量。
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>Input:</strong> argsArr = [5]
-<strong>Output:</strong> 1
-<strong>Explanation:</strong>
+<b>输入：</b>argsArr = [5]
+<b>输出：</b>1
+<strong>解释：</strong>
 argumentsLength(5); // 1
 
-One value was passed to the function so it should return 1.
+只传递了一个值给函数，因此它应返回 1。
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<strong>Input:</strong> argsArr = [{}, null, &quot;3&quot;]
-<strong>Output:</strong> 3
-<strong>Explanation:</strong> 
-argumentsLength({}, null, &quot;3&quot;); // 3
+<b>输入：</b>argsArr = [{}, null, "3"]
+<b>输出：</b>3
+<b>解释：</b>
+argumentsLength({}, null, "3"); // 3
 
-Three values were passed to the function so it should return 3.
+传递了三个值给函数，因此它应返回 3。
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>argsArr is a valid JSON array</code></li>
+	<li><code>argsArr 是一个有效的 JSON 数组</code></li>
 	<li><code>0 &lt;= argsArr.length &lt;= 100</code></li>
 </ul>
 

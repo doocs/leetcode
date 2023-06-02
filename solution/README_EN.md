@@ -960,7 +960,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0949  |  [Largest Time for Given Digits](/solution/0900-0999/0949.Largest%20Time%20for%20Given%20Digits/README_EN.md)  |  `String`,`Enumeration`  |  Medium  |  Weekly Contest 113  |
 |  0950  |  [Reveal Cards In Increasing Order](/solution/0900-0999/0950.Reveal%20Cards%20In%20Increasing%20Order/README_EN.md)  |  `Queue`,`Array`,`Sorting`,`Simulation`  |  Medium  |  Weekly Contest 113  |
 |  0951  |  [Flip Equivalent Binary Trees](/solution/0900-0999/0951.Flip%20Equivalent%20Binary%20Trees/README_EN.md)  |  `Tree`,`Depth-First Search`,`Binary Tree`  |  Medium  |  Weekly Contest 113  |
-|  0952  |  [Largest Component Size by Common Factor](/solution/0900-0999/0952.Largest%20Component%20Size%20by%20Common%20Factor/README_EN.md)  |  `Union Find`,`Array`,`Math`  |  Hard  |  Weekly Contest 113  |
+|  0952  |  [Largest Component Size by Common Factor](/solution/0900-0999/0952.Largest%20Component%20Size%20by%20Common%20Factor/README_EN.md)  |  `Union Find`,`Array`,`Math`,`Number Theory`  |  Hard  |  Weekly Contest 113  |
 |  0953  |  [Verifying an Alien Dictionary](/solution/0900-0999/0953.Verifying%20an%20Alien%20Dictionary/README_EN.md)  |  `Array`,`Hash Table`,`String`  |  Easy  |  Weekly Contest 114  |
 |  0954  |  [Array of Doubled Pairs](/solution/0900-0999/0954.Array%20of%20Doubled%20Pairs/README_EN.md)  |  `Greedy`,`Array`,`Hash Table`,`Sorting`  |  Medium  |  Weekly Contest 114  |
 |  0955  |  [Delete Columns to Make Sorted II](/solution/0900-0999/0955.Delete%20Columns%20to%20Make%20Sorted%20II/README_EN.md)  |  `Greedy`,`Array`,`String`  |  Medium  |  Weekly Contest 114  |
@@ -1164,7 +1164,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  1153  |  [String Transforms Into Another String](/solution/1100-1199/1153.String%20Transforms%20Into%20Another%20String/README_EN.md)  |  `Hash Table`,`String`  |  Hard  |  Biweekly Contest 6  |
 |  1154  |  [Day of the Year](/solution/1100-1199/1154.Day%20of%20the%20Year/README_EN.md)  |  `Math`,`String`  |  Easy  |  Weekly Contest 149  |
 |  1155  |  [Number of Dice Rolls With Target Sum](/solution/1100-1199/1155.Number%20of%20Dice%20Rolls%20With%20Target%20Sum/README_EN.md)  |  `Dynamic Programming`  |  Medium  |  Weekly Contest 149  |
-|  1156  |  [Swap For Longest Repeated Character Substring](/solution/1100-1199/1156.Swap%20For%20Longest%20Repeated%20Character%20Substring/README_EN.md)  |  `String`,`Sliding Window`  |  Medium  |  Weekly Contest 149  |
+|  1156  |  [Swap For Longest Repeated Character Substring](/solution/1100-1199/1156.Swap%20For%20Longest%20Repeated%20Character%20Substring/README_EN.md)  |  `Hash Table`,`String`,`Sliding Window`  |  Medium  |  Weekly Contest 149  |
 |  1157  |  [Online Majority Element In Subarray](/solution/1100-1199/1157.Online%20Majority%20Element%20In%20Subarray/README_EN.md)  |  `Design`,`Binary Indexed Tree`,`Segment Tree`,`Array`,`Binary Search`  |  Hard  |  Weekly Contest 149  |
 |  1158  |  [Market Analysis I](/solution/1100-1199/1158.Market%20Analysis%20I/README_EN.md)  |  `Database`  |  Medium  |    |
 |  1159  |  [Market Analysis II](/solution/1100-1199/1159.Market%20Analysis%20II/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
@@ -2006,7 +2006,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  1995  |  [Count Special Quadruplets](/solution/1900-1999/1995.Count%20Special%20Quadruplets/README_EN.md)  |  `Array`,`Enumeration`  |  Easy  |  Weekly Contest 257  |
 |  1996  |  [The Number of Weak Characters in the Game](/solution/1900-1999/1996.The%20Number%20of%20Weak%20Characters%20in%20the%20Game/README_EN.md)  |  `Stack`,`Greedy`,`Array`,`Sorting`,`Monotonic Stack`  |  Medium  |  Weekly Contest 257  |
 |  1997  |  [First Day Where You Have Been in All the Rooms](/solution/1900-1999/1997.First%20Day%20Where%20You%20Have%20Been%20in%20All%20the%20Rooms/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |  Weekly Contest 257  |
-|  1998  |  [GCD Sort of an Array](/solution/1900-1999/1998.GCD%20Sort%20of%20an%20Array/README_EN.md)  |  `Union Find`,`Array`,`Math`,`Sorting`  |  Hard  |  Weekly Contest 257  |
+|  1998  |  [GCD Sort of an Array](/solution/1900-1999/1998.GCD%20Sort%20of%20an%20Array/README_EN.md)  |  `Union Find`,`Array`,`Math`,`Number Theory`,`Sorting`  |  Hard  |  Weekly Contest 257  |
 |  1999  |  [Smallest Greater Multiple Made of Two Digits](/solution/1900-1999/1999.Smallest%20Greater%20Multiple%20Made%20of%20Two%20Digits/README_EN.md)  |  `Math`,`Enumeration`  |  Medium  |  🔒  |
 |  2000  |  [Reverse Prefix of Word](/solution/2000-2099/2000.Reverse%20Prefix%20of%20Word/README_EN.md)  |  `Two Pointers`,`String`  |  Easy  |  Weekly Contest 258  |
 |  2001  |  [Number of Pairs of Interchangeable Rectangles](/solution/2000-2099/2001.Number%20of%20Pairs%20of%20Interchangeable%20Rectangles/README_EN.md)  |  `Array`,`Hash Table`,`Math`,`Counting`,`Number Theory`  |  Medium  |  Weekly Contest 258  |
@@ -2709,19 +2709,21 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2698  |  [Find the Punishment Number of an Integer](/solution/2600-2699/2698.Find%20the%20Punishment%20Number%20of%20an%20Integer/README_EN.md)  |  `Recursion`,`Math`  |  Medium  |  Weekly Contest 346  |
 |  2699  |  [Modify Graph Edge Weights](/solution/2600-2699/2699.Modify%20Graph%20Edge%20Weights/README_EN.md)  |  `Graph`,`Shortest Path`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 346  |
 |  2700  |  [Differences Between Two Objects](/solution/2700-2799/2700.Differences%20Between%20Two%20Objects/README_EN.md)  |    |  Medium  |    |
-|  2701  |  [Consecutive Transactions with Increasing Amounts](/solution/2700-2799/2701.Consecutive%20Transactions%20with%20Increasing%20Amounts/README_EN.md)  |    |  Hard  |  🔒  |
-|  2702  |  [Minimum Operations to Make Numbers Non-positive](/solution/2700-2799/2702.Minimum%20Operations%20to%20Make%20Numbers%20Non-positive/README_EN.md)  |    |  Hard  |  🔒  |
+|  2701  |  [Consecutive Transactions with Increasing Amounts](/solution/2700-2799/2701.Consecutive%20Transactions%20with%20Increasing%20Amounts/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
+|  2702  |  [Minimum Operations to Make Numbers Non-positive](/solution/2700-2799/2702.Minimum%20Operations%20to%20Make%20Numbers%20Non-positive/README_EN.md)  |  `Array`,`Binary Search`  |  Hard  |  🔒  |
 |  2703  |  [Return Length of Arguments Passed](/solution/2700-2799/2703.Return%20Length%20of%20Arguments%20Passed/README_EN.md)  |    |  Easy  |    |
 |  2704  |  [To Be Or Not To Be](/solution/2700-2799/2704.To%20Be%20Or%20Not%20To%20Be/README_EN.md)  |    |  Easy  |    |
 |  2705  |  [Compact Object](/solution/2700-2799/2705.Compact%20Object/README_EN.md)  |    |  Medium  |    |
-|  2706  |  [Buy Two Chocolates](/solution/2700-2799/2706.Buy%20Two%20Chocolates/README_EN.md)  |    |  Easy  |  Biweekly Contest 105  |
-|  2707  |  [Extra Characters in a String](/solution/2700-2799/2707.Extra%20Characters%20in%20a%20String/README_EN.md)  |    |  Medium  |  Biweekly Contest 105  |
-|  2708  |  [Maximum Strength of a Group](/solution/2700-2799/2708.Maximum%20Strength%20of%20a%20Group/README_EN.md)  |    |  Medium  |  Biweekly Contest 105  |
-|  2709  |  [Greatest Common Divisor Traversal](/solution/2700-2799/2709.Greatest%20Common%20Divisor%20Traversal/README_EN.md)  |    |  Hard  |  Biweekly Contest 105  |
-|  2710  |  [Remove Trailing Zeros From a String](/solution/2700-2799/2710.Remove%20Trailing%20Zeros%20From%20a%20String/README_EN.md)  |    |  Easy  |  Weekly Contest 347  |
-|  2711  |  [Difference of Number of Distinct Values on Diagonals](/solution/2700-2799/2711.Difference%20of%20Number%20of%20Distinct%20Values%20on%20Diagonals/README_EN.md)  |    |  Medium  |  Weekly Contest 347  |
-|  2712  |  [Minimum Cost to Make All Characters Equal](/solution/2700-2799/2712.Minimum%20Cost%20to%20Make%20All%20Characters%20Equal/README_EN.md)  |    |  Medium  |  Weekly Contest 347  |
-|  2713  |  [Maximum Strictly Increasing Cells in a Matrix](/solution/2700-2799/2713.Maximum%20Strictly%20Increasing%20Cells%20in%20a%20Matrix/README_EN.md)  |    |  Hard  |  Weekly Contest 347  |
+|  2706  |  [Buy Two Chocolates](/solution/2700-2799/2706.Buy%20Two%20Chocolates/README_EN.md)  |  `Array`,`Sorting`  |  Easy  |  Biweekly Contest 105  |
+|  2707  |  [Extra Characters in a String](/solution/2700-2799/2707.Extra%20Characters%20in%20a%20String/README_EN.md)  |  `Trie`,`Array`,`Hash Table`,`String`,`Dynamic Programming`  |  Medium  |  Biweekly Contest 105  |
+|  2708  |  [Maximum Strength of a Group](/solution/2700-2799/2708.Maximum%20Strength%20of%20a%20Group/README_EN.md)  |  `Greedy`,`Recursion`,`Array`,`Sorting`  |  Medium  |  Biweekly Contest 105  |
+|  2709  |  [Greatest Common Divisor Traversal](/solution/2700-2799/2709.Greatest%20Common%20Divisor%20Traversal/README_EN.md)  |  `Union Find`,`Array`,`Math`,`Number Theory`  |  Hard  |  Biweekly Contest 105  |
+|  2710  |  [Remove Trailing Zeros From a String](/solution/2700-2799/2710.Remove%20Trailing%20Zeros%20From%20a%20String/README_EN.md)  |  `String`  |  Easy  |  Weekly Contest 347  |
+|  2711  |  [Difference of Number of Distinct Values on Diagonals](/solution/2700-2799/2711.Difference%20of%20Number%20of%20Distinct%20Values%20on%20Diagonals/README_EN.md)  |  `Array`,`Hash Table`,`Matrix`  |  Medium  |  Weekly Contest 347  |
+|  2712  |  [Minimum Cost to Make All Characters Equal](/solution/2700-2799/2712.Minimum%20Cost%20to%20Make%20All%20Characters%20Equal/README_EN.md)  |  `Greedy`,`String`,`Dynamic Programming`  |  Medium  |  Weekly Contest 347  |
+|  2713  |  [Maximum Strictly Increasing Cells in a Matrix](/solution/2700-2799/2713.Maximum%20Strictly%20Increasing%20Cells%20in%20a%20Matrix/README_EN.md)  |  `Memoization`,`Array`,`Binary Search`,`Dynamic Programming`,`Matrix`,`Sorting`  |  Hard  |  Weekly Contest 347  |
+|  2714  |  [Find Shortest Path with K Hops](/solution/2700-2799/2714.Find%20Shortest%20Path%20with%20K%20Hops/README_EN.md)  |    |  Hard  |  🔒  |
+|  2715  |  [Execute Cancellable Function With Delay](/solution/2700-2799/2715.Execute%20Cancellable%20Function%20With%20Delay/README_EN.md)  |    |  Easy  |    |
 
 ## Copyright
 
