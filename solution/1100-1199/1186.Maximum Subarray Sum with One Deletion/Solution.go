@@ -2,17 +2,15 @@ func maximumSum(arr []int) int {
 	n := len(arr)
 	left := make([]int, n)
 	right := make([]int, n)
-	t := 0
-	ans := math.MinInt32
-	for i, v := range arr {
-		t = max(t, 0) + v
-		left[i] = t
-		ans = max(ans, left[i])
+	ans := -(1 << 30)
+	for i, s := 0, 0; i < n; i++ {
+		s = max(s, 0) + arr[i]
+		left[i] = s
+		ans = max(ans, s)
 	}
-	t = 0
-	for i := n - 1; i >= 0; i-- {
-		t = max(t, 0) + arr[i]
-		right[i] = t
+	for i, s := n-1, 0; i >= 0; i-- {
+		s = max(s, 0) + arr[i]
+		right[i] = s
 	}
 	for i := 1; i < n-1; i++ {
 		ans = max(ans, left[i-1]+right[i+1])

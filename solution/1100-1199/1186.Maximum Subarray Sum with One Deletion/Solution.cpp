@@ -4,13 +4,13 @@ public:
         int n = arr.size();
         int left[n];
         int right[n];
-        for (int i = 0, t = 0; i < n; ++i) {
-            t = max(t, 0) + arr[i];
-            left[i] = t;
+        for (int i = 0, s = 0; i < n; ++i) {
+            s = max(s, 0) + arr[i];
+            left[i] = s;
         }
-        for (int i = n - 1, t = 0; ~i; --i) {
-            t = max(t, 0) + arr[i];
-            right[i] = t;
+        for (int i = n - 1, s = 0; ~i; --i) {
+            s = max(s, 0) + arr[i];
+            right[i] = s;
         }
         int ans = *max_element(left, left + n);
         for (int i = 1; i < n - 1; ++i) {

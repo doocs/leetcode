@@ -52,9 +52,11 @@
 
 **方法一：预处理 + 枚举**
 
-我们可以先预处理出数组 `arr` 以每个元素结尾和开头的最大子数组和，分别存入数组 `left` 和 `right` 中。然后枚举 `arr` 中的每个元素，如果删除该元素，则最大子数组和为 `left[i - 1] + right[i + 1]`。最后取所有可能的最大值即可，注意也可能不删除任何元素。
+我们可以先预处理出数组 $arr$ 以每个元素结尾和开头的最大子数组和，分别存入数组 $left$ 和 $right$ 中。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `arr` 的长度。
+如果我们不删除任何元素，那么最大子数组和就是 $left[i]$ 或 $right[i]$ 中的最大值；如果我们删除一个元素，我们可以枚举 $[1..n-2]$ 中的每个位置 $i$，计算 $left[i-1] + right[i+1]$ 的值，取最大值即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $arr$ 的长度。
 
 <!-- tabs:start -->
 
@@ -68,14 +70,14 @@ class Solution:
         n = len(arr)
         left = [0] * n
         right = [0] * n
-        t = 0
-        for i, v in enumerate(arr):
-            t = max(t, 0) + v
-            left[i] = t
-        t = 0
+        s = 0
+        for i, x in enumerate(arr):
+            s = max(s, 0) + x
+            left[i] = s
+        s = 0
         for i in range(n - 1, -1, -1):
-            t = max(t, 0) + arr[i]
-            right[i] = t
+            s = max(s, 0) + arr[i]
+            right[i] = s
         ans = max(left)
         for i in range(1, n - 1):
             ans = max(ans, left[i - 1] + right[i + 1])
@@ -92,17 +94,16 @@ class Solution {
         int n = arr.length;
         int[] left = new int[n];
         int[] right = new int[n];
-        int t = 0;
-        for (int i = 0; i < n; ++i) {
-            t = Math.max(t, 0) + arr[i];
-            left[i] = t;
+        int ans = -(1 << 30);
+        for (int i = 0, s = 0; i < n; ++i) {
+            s = Math.max(s, 0) + arr[i];
+            left[i] = s;
+            ans = Math.max(ans, left[i]);
         }
-        t = 0;
-        for (int i = n - 1; i >= 0; --i) {
-            t = Math.max(t, 0) + arr[i];
-            right[i] = t;
+        for (int i = n - 1, s = 0; i >= 0; --i) {
+            s = Math.max(s, 0) + arr[i];
+            right[i] = s;
         }
-        int ans = Arrays.stream(left).max().getAsInt();
         for (int i = 1; i < n - 1; ++i) {
             ans = Math.max(ans, left[i - 1] + right[i + 1]);
         }
@@ -120,13 +121,13 @@ public:
         int n = arr.size();
         int left[n];
         int right[n];
-        for (int i = 0, t = 0; i < n; ++i) {
-            t = max(t, 0) + arr[i];
-            left[i] = t;
+        for (int i = 0, s = 0; i < n; ++i) {
+            s = max(s, 0) + arr[i];
+            left[i] = s;
         }
-        for (int i = n - 1, t = 0; ~i; --i) {
-            t = max(t, 0) + arr[i];
-            right[i] = t;
+        for (int i = n - 1, s = 0; ~i; --i) {
+            s = max(s, 0) + arr[i];
+            right[i] = s;
         }
         int ans = *max_element(left, left + n);
         for (int i = 1; i < n - 1; ++i) {
@@ -144,17 +145,15 @@ func maximumSum(arr []int) int {
 	n := len(arr)
 	left := make([]int, n)
 	right := make([]int, n)
-	t := 0
-	ans := math.MinInt32
-	for i, v := range arr {
-		t = max(t, 0) + v
-		left[i] = t
-		ans = max(ans, left[i])
+	ans := -(1 << 30)
+	for i, s := 0, 0; i < n; i++ {
+		s = max(s, 0) + arr[i]
+		left[i] = s
+		ans = max(ans, s)
 	}
-	t = 0
-	for i := n - 1; i >= 0; i-- {
-		t = max(t, 0) + arr[i]
-		right[i] = t
+	for i, s := n-1, 0; i >= 0; i-- {
+		s = max(s, 0) + arr[i]
+		right[i] = s
 	}
 	for i := 1; i < n-1; i++ {
 		ans = max(ans, left[i-1]+right[i+1])
@@ -167,6 +166,29 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maximumSum(arr: number[]): number {
+    const n = arr.length;
+    const left: number[] = new Array(n);
+    const right: number[] = new Array(n);
+    for (let i = 0, s = 0; i < n; ++i) {
+        s = Math.max(s, 0) + arr[i];
+        left[i] = s;
+    }
+    for (let i = n - 1, s = 0; i >= 0; --i) {
+        s = Math.max(s, 0) + arr[i];
+        right[i] = s;
+    }
+    let ans = Math.max(...left);
+    for (let i = 1; i < n - 1; ++i) {
+        ans = Math.max(ans, left[i - 1] + right[i + 1]);
+    }
+    return ans;
 }
 ```
 
