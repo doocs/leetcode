@@ -1,11 +1,14 @@
 class Solution {
     public int distinctAverages(int[] nums) {
         Arrays.sort(nums);
+        int[] cnt = new int[201];
         int n = nums.length;
-        Set<Integer> s = new HashSet<>();
-        for (int i = 0; i<n> > 1; ++i) {
-            s.add(nums[i] + nums[n - i - 1]);
+        int ans = 0;
+        for (int i = 0; i < n >> 1; ++i) {
+            if (++cnt[nums[i] + nums[n - i - 1]] == 1) {
+                ++ans;
+            }
         }
-        return s.size();
+        return ans;
     }
 }

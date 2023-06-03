@@ -64,9 +64,22 @@ There is only one average to be calculated after removing 1 and 100, so we retur
 ```python
 class Solution:
     def distinctAverages(self, nums: List[int]) -> int:
-        n = len(nums)
         nums.sort()
-        return len(set(nums[i] + nums[n - i - 1] for i in range(n >> 1)))
+        return len(set(nums[i] + nums[-i - 1] for i in range(len(nums) >> 1)))
+```
+
+```python
+class Solution:
+    def distinctAverages(self, nums: List[int]) -> int:
+        nums.sort()
+        ans = 0
+        cnt = Counter()
+        for i in range(len(nums) >> 1):
+            x = nums[i] + nums[-i - 1]
+            cnt[x] += 1
+            if cnt[x] == 1:
+                ans += 1
+        return ans
 ```
 
 ### **Java**
@@ -75,12 +88,29 @@ class Solution:
 class Solution {
     public int distinctAverages(int[] nums) {
         Arrays.sort(nums);
-        int n = nums.length;
         Set<Integer> s = new HashSet<>();
-        for (int i = 0; i<n> > 1; ++i) {
+        int n = nums.length;
+        for (int i = 0; i < n >> 1; ++i) {
             s.add(nums[i] + nums[n - i - 1]);
         }
         return s.size();
+    }
+}
+```
+
+```java
+class Solution {
+    public int distinctAverages(int[] nums) {
+        Arrays.sort(nums);
+        int[] cnt = new int[201];
+        int n = nums.length;
+        int ans = 0;
+        for (int i = 0; i < n >> 1; ++i) {
+            if (++cnt[nums[i] + nums[n - i - 1]] == 1) {
+                ++ans;
+            }
+        }
+        return ans;
     }
 }
 ```
@@ -92,10 +122,30 @@ class Solution {
 public:
     int distinctAverages(vector<int>& nums) {
         sort(nums.begin(), nums.end());
-        int n = nums.size();
         unordered_set<int> s;
-        for (int i = 0; i < n >> 1; ++i) s.insert(nums[i] + nums[n - i - 1]);
+        int n = nums.size();
+        for (int i = 0; i < n >> 1; ++i) {
+            s.insert(nums[i] + nums[n - i - 1]);
+        }
         return s.size();
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int distinctAverages(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int cnt[201]{};
+        int n = nums.size();
+        int ans = 0;
+        for (int i = 0; i < n >> 1; ++i) {
+            if (++cnt[nums[i] + nums[n - i - 1]] == 1) {
+                ++ans;
+            }
+        }
+        return ans;
     }
 };
 ```
@@ -103,7 +153,7 @@ public:
 ### **Go**
 
 ```go
-func distinctAverages(nums []int) int {
+func distinctAverages(nums []int) (ans int) {
 	sort.Ints(nums)
 	n := len(nums)
 	s := map[int]struct{}{}
@@ -114,10 +164,49 @@ func distinctAverages(nums []int) int {
 }
 ```
 
+```go
+func distinctAverages(nums []int) (ans int) {
+	sort.Ints(nums)
+	n := len(nums)
+	cnt := [201]int{}
+	for i := 0; i < n>>1; i++ {
+		x := nums[i] + nums[n-i-1]
+		cnt[x]++
+		if cnt[x] == 1 {
+			ans++
+		}
+	}
+	return
+}
+```
+
 ### **TypeScript**
 
 ```ts
+function distinctAverages(nums: number[]): number {
+    nums.sort((a, b) => a - b);
+    const s: Set<number> = new Set();
+    const n = nums.length;
+    for (let i = 0; i < n >> 1; ++i) {
+        s.add(nums[i] + nums[n - i - 1]);
+    }
+    return s.size;
+}
+```
 
+```ts
+function distinctAverages(nums: number[]): number {
+    nums.sort((a, b) => a - b);
+    const cnt: number[] = Array(201).fill(0);
+    let ans = 0;
+    const n = nums.length;
+    for (let i = 0; i < n >> 1; ++i) {
+        if (++cnt[nums[i] + nums[n - i - 1]] === 1) {
+            ++ans;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**

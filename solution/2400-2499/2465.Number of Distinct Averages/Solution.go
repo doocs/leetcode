@@ -1,9 +1,13 @@
-func distinctAverages(nums []int) int {
+func distinctAverages(nums []int) (ans int) {
 	sort.Ints(nums)
 	n := len(nums)
-	s := map[int]struct{}{}
+	cnt := [201]int{}
 	for i := 0; i < n>>1; i++ {
-		s[nums[i]+nums[n-i-1]] = struct{}{}
+		x := nums[i] + nums[n-i-1]
+		cnt[x]++
+		if cnt[x] == 1 {
+			ans++
+		}
 	}
-	return len(s)
+	return
 }
