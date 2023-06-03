@@ -65,7 +65,36 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def criticalConnections(
+        self, n: int, connections: List[List[int]]
+    ) -> List[List[int]]:
+        def tarjan(a: int, fa: int):
+            nonlocal now
+            now += 1
+            dfn[a] = low[a] = now
+            for b in g[a]:
+                if b == fa:
+                    continue
+                if not dfn[b]:
+                    tarjan(b, a)
+                    low[a] = min(low[a], low[b])
+                    if low[b] > dfn[a]:
+                        ans.append([a, b])
+                else:
+                    low[a] = min(low[a], dfn[b])
 
+        g = [[] for _ in range(n)]
+        for a, b in connections:
+            g[a].append(b)
+            g[b].append(a)
+
+        dfn = [0] * n
+        low = [0] * n
+        now = 0
+        ans = []
+        tarjan(0, -1)
+        return ans
 ```
 
 ### **Java**
@@ -73,7 +102,45 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int now;
+    private List<Integer>[] g;
+    private List<List<Integer>> ans = new ArrayList<>();
+    private int[] dfn;
+    private int[] low;
 
+    public List<List<Integer>> criticalConnections(int n, List<List<Integer>> connections) {
+        g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        dfn = new int[n];
+        low = new int[n];
+        for (var e : connections) {
+            int a = e.get(0), b = e.get(1);
+            g[a].add(b);
+            g[b].add(a);
+        }
+        tarjan(0, -1);
+        return ans;
+    }
+
+    private void tarjan(int a, int fa) {
+        dfn[a] = low[a] = ++now;
+        for (int b : g[a]) {
+            if (b == fa) {
+                continue;
+            }
+            if (dfn[b] == 0) {
+                tarjan(b, a);
+                low[a] = Math.min(low[a], low[b]);
+                if (low[b] > dfn[a]) {
+                    ans.add(List.of(a, b));
+                }
+            } else {
+                low[a] = Math.min(low[a], dfn[b]);
+            }
+        }
+    }
+}
 ```
 
 ### **C++**
@@ -81,41 +148,119 @@
 ```cpp
 class Solution {
 public:
-    int count = 0;
-    vector<int> dfn, low;
-    vector<vector<int>> graph;
-    vector<vector<int>> res;
-    void tarjan(int u, int fa) {
-        dfn[u] = low[u] = ++count;
-        for (auto& v : graph[u]) {
-            if (v == fa)
-                continue;
-            if (!dfn[v]) {
-                tarjan(v, u);
-                low[u] = min(low[u], low[v]);
-                if (dfn[u] < low[v])
-                    res.push_back({u, v});
-            } else {
-                low[u] = min(dfn[v], low[u]);
-            }
-        }
-    }
-
     vector<vector<int>> criticalConnections(int n, vector<vector<int>>& connections) {
-        dfn.resize(n);
-        low.resize(n);
-        graph.resize(n);
-        for (auto& edge : connections) {
-            graph[edge[0]].push_back(edge[1]);
-            graph[edge[1]].push_back(edge[0]);
+        int now = 0;
+        vector<int> dfn(n);
+        vector<int> low(n);
+        vector<int> g[n];
+        for (auto& e : connections) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
         }
-        for (int i = 0; i < n; i++) {
-            if (!dfn[i])
-                tarjan(i, -1);
-        }
-        return res;
+        vector<vector<int>> ans;
+        function<void(int, int)> tarjan = [&](int a, int fa) -> void {
+            dfn[a] = low[a] = ++now;
+            for (int b : g[a]) {
+                if (b == fa) {
+                    continue;
+                }
+                if (!dfn[b]) {
+                    tarjan(b, a);
+                    low[a] = min(low[a], low[b]);
+                    if (low[b] > dfn[a]) {
+                        ans.push_back({a, b});
+                    }
+                } else {
+                    low[a] = min(low[a], dfn[b]);
+                }
+            }
+        };
+        tarjan(0, -1);
+        return ans;
     }
 };
+```
+
+### **Go**
+
+```go
+func criticalConnections(n int, connections [][]int) (ans [][]int) {
+	now := 0
+	g := make([][]int, n)
+	dfn := make([]int, n)
+	low := make([]int, n)
+	for _, e := range connections {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	var tarjan func(int, int)
+	tarjan = func(a, fa int) {
+		now++
+		dfn[a], low[a] = now, now
+		for _, b := range g[a] {
+			if b == fa {
+				continue
+			}
+			if dfn[b] == 0 {
+				tarjan(b, a)
+				low[a] = min(low[a], low[b])
+				if low[b] > dfn[a] {
+					ans = append(ans, []int{a, b})
+				}
+			} else {
+				low[a] = min(low[a], dfn[b])
+			}
+		}
+	}
+	tarjan(0, -1)
+	return
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function criticalConnections(n: number, connections: number[][]): number[][] {
+    let now: number = 0;
+    const g: number[][] = Array(n)
+        .fill(0)
+        .map(() => []);
+    const dfn: number[] = Array(n).fill(0);
+    const low: number[] = Array(n).fill(0);
+    for (const [a, b] of connections) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    const ans: number[][] = [];
+    const tarjan = (a: number, fa: number) => {
+        dfn[a] = low[a] = ++now;
+        for (const b of g[a]) {
+            if (b === fa) {
+                continue;
+            }
+            if (!dfn[b]) {
+                tarjan(b, a);
+                low[a] = Math.min(low[a], low[b]);
+                if (low[b] > dfn[a]) {
+                    ans.push([a, b]);
+                }
+            } else {
+                low[a] = Math.min(low[a], dfn[b]);
+            }
+        }
+    };
+    tarjan(0, -1);
+    return ans;
+}
 ```
 
 ### **...**
