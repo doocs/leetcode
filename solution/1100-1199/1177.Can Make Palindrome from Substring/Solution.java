@@ -1,20 +1,19 @@
 class Solution {
     public List<Boolean> canMakePaliQueries(String s, int[][] queries) {
         int n = s.length();
-        int[][] cnt = new int[n + 1][26];
+        int[][] ss = new int[n + 1][26];
         for (int i = 1; i <= n; ++i) {
-            int j = s.charAt(i - 1) - 'a';
-            for (int k = 0; k < 26; ++k) {
-                cnt[i][k] = cnt[i - 1][k];
+            for (int j = 0; j < 26; ++j) {
+                ss[i][j] = ss[i - 1][j];
             }
-            cnt[i][j]++;
+            ss[i][s.charAt(i - 1) - 'a']++;
         }
         List<Boolean> ans = new ArrayList<>();
         for (var q : queries) {
-            int left = q[0], right = q[1], k = q[2];
+            int l = q[0], r = q[1], k = q[2];
             int x = 0;
             for (int j = 0; j < 26; ++j) {
-                x += (cnt[right + 1][j] - cnt[left][j]) & 1;
+                x += (ss[r + 1][j] - ss[l][j]) & 1;
             }
             ans.add(x / 2 <= k);
         }

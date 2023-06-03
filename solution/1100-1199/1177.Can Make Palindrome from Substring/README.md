@@ -47,11 +47,11 @@ queries[4] :&nbsp;子串 = &quot;abcda&quot;，可以变成回文的 &quot;abcba
 
 **方法一：前缀和**
 
-我们可以使用前缀和的思想，预处理出字符串 $s$ 中每个位置的字符出现次数，即 $cnt[i][j]$ 表示字符串 $s$ 中前 $i$ 个字符中第 $j$ 个字母出现的次数。
+我们先考虑一个子串能否在经过最多 $k$ 次替换后变成回文串，显然，我们需要统计子串中每个字符出现的次数，这可以通过前缀和来实现。对于出现偶数次的字符，我们不需要进行替换，对于出现奇数次的字符，我们需要进行替换，替换的次数为 $\lfloor \frac{x}{2} \rfloor$，其中 $x$ 为出现奇数次的字符的个数。如果 $\lfloor \frac{x}{2} \rfloor \leq k$，那么这个子串就可以变成回文串。
 
-对于每个查询 $[left, right, k]$，我们可以利用前缀和计算出 $s[left..right]$ 中每个字母出现的次数，统计出现次数为奇数的字母个数 $x$，则需要替换的次数为 $\frac{x}{2}$，如果 $\frac{x}{2} \leq k$，则可以将 $s[left..right]$ 变成回文串。
+因此，我们定义一个前缀和数组 $ss$，其中 $ss[i][j]$ 表示字符串 $s$ 的前 $i$ 个字符中，字符 $j$ 出现的次数。那么对于一个子串 $s[l..r]$，我们可以通过 $ss[r + 1][j] - ss[l][j]$ 得到子串中字符 $j$ 出现的次数。我们遍历所有的查询，对于每个查询 $[l, r, k]$，我们统计子串 $s[l..r]$ 中出现奇数次的字符的个数 $x$，如果 $\lfloor \frac{x}{2} \rfloor \leq k$，那么这个子串就可以变成回文串。
 
-时间复杂度 $O((n + m) \times C)$，空间复杂度 $O(n \times C)$，其中 $n$ 和 $m$ 分别为字符串 $s$ 和查询数组 $queries$ 的长度，而 $C$ 为字符集大小。本题中 $C = 26$。
+时间复杂度 $O((n + m) \times C)$，空间复杂度 $O(n \times C)$，其中 $n$ 和 $m$ 分别为字符串 $s$ 和查询数组的长度；而 $C$ 为字符集的大小，本题中字符集为小写英文字母，因此 $C = 26$。
 
 <!-- tabs:start -->
 
@@ -63,16 +63,14 @@ queries[4] :&nbsp;子串 = &quot;abcda&quot;，可以变成回文的 &quot;abcba
 class Solution:
     def canMakePaliQueries(self, s: str, queries: List[List[int]]) -> List[bool]:
         n = len(s)
-        cnt = [[0] * 26]
+        ss = [[0] * 26 for _ in range(n + 1)]
         for i, c in enumerate(s, 1):
-            j = ord(c) - ord('a')
-            t = cnt[-1][:]
-            t[j] += 1
-            cnt.append(t)
+            ss[i] = ss[i - 1][:]
+            ss[i][ord(c) - ord("a")] += 1
         ans = []
-        for left, right, k in queries:
-            x = sum((b - a) & 1 for a, b in zip(cnt[right + 1], cnt[left]))
-            ans.append(x // 2 <= k)
+        for l, r, k in queries:
+            cnt = sum((ss[r + 1][j] - ss[l][j]) & 1 for j in range(26))
+            ans.append(cnt // 2 <= k)
         return ans
 ```
 
@@ -84,20 +82,19 @@ class Solution:
 class Solution {
     public List<Boolean> canMakePaliQueries(String s, int[][] queries) {
         int n = s.length();
-        int[][] cnt = new int[n + 1][26];
+        int[][] ss = new int[n + 1][26];
         for (int i = 1; i <= n; ++i) {
-            int j = s.charAt(i - 1) - 'a';
-            for (int k = 0; k < 26; ++k) {
-                cnt[i][k] = cnt[i - 1][k];
+            for (int j = 0; j < 26; ++j) {
+                ss[i][j] = ss[i - 1][j];
             }
-            cnt[i][j]++;
+            ss[i][s.charAt(i - 1) - 'a']++;
         }
         List<Boolean> ans = new ArrayList<>();
         for (var q : queries) {
-            int left = q[0], right = q[1], k = q[2];
+            int l = q[0], r = q[1], k = q[2];
             int x = 0;
             for (int j = 0; j < 26; ++j) {
-                x += (cnt[right + 1][j] - cnt[left][j]) & 1;
+                x += (ss[r + 1][j] - ss[l][j]) & 1;
             }
             ans.add(x / 2 <= k);
         }
@@ -113,21 +110,20 @@ class Solution {
 public:
     vector<bool> canMakePaliQueries(string s, vector<vector<int>>& queries) {
         int n = s.size();
-        int cnt[n + 1][26];
-        memset(cnt, 0, sizeof cnt);
+        int ss[n + 1][26];
+        memset(ss, 0, sizeof(ss));
         for (int i = 1; i <= n; ++i) {
-            int j = s[i - 1] - 'a';
-            for (int k = 0; k < 26; ++k) {
-                cnt[i][k] = cnt[i - 1][k];
+            for (int j = 0; j < 26; ++j) {
+                ss[i][j] = ss[i - 1][j];
             }
-            cnt[i][j]++;
+            ss[i][s[i - 1] - 'a']++;
         }
         vector<bool> ans;
         for (auto& q : queries) {
-            int left = q[0], right = q[1], k = q[2];
+            int l = q[0], r = q[1], k = q[2];
             int x = 0;
             for (int j = 0; j < 26; ++j) {
-                x += (cnt[right + 1][j] - cnt[left][j]) & 1;
+                x += (ss[r + 1][j] - ss[l][j]) & 1;
             }
             ans.emplace_back(x / 2 <= k);
         }
@@ -141,23 +137,46 @@ public:
 ```go
 func canMakePaliQueries(s string, queries [][]int) (ans []bool) {
 	n := len(s)
-	cnt := make([][26]int, n+1)
+	ss := make([][26]int, n+1)
 	for i := 1; i <= n; i++ {
-		j := s[i-1] - 'a'
-		for k := 0; k < 26; k++ {
-			cnt[i][k] = cnt[i-1][k]
+		for j := 0; j < 26; j++ {
+			ss[i][j] = ss[i-1][j]
 		}
-		cnt[i][j]++
+		ss[i][s[i-1]-'a']++
 	}
 	for _, q := range queries {
-		left, right, k := q[0], q[1], q[2]
+		l, r, k := q[0], q[1], q[2]
 		x := 0
 		for j := 0; j < 26; j++ {
-			x += (cnt[right+1][j] - cnt[left][j]) & 1
+			x += (ss[r+1][j] - ss[l][j]) & 1
 		}
 		ans = append(ans, x/2 <= k)
 	}
 	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function canMakePaliQueries(s: string, queries: number[][]): boolean[] {
+    const n = s.length;
+    const ss: number[][] = Array(n + 1)
+        .fill(0)
+        .map(() => Array(26).fill(0));
+    for (let i = 1; i <= n; ++i) {
+        ss[i] = ss[i - 1].slice();
+        ++ss[i][s.charCodeAt(i - 1) - 97];
+    }
+    const ans: boolean[] = [];
+    for (const [l, r, k] of queries) {
+        let x = 0;
+        for (let j = 0; j < 26; ++j) {
+            x += (ss[r + 1][j] - ss[l][j]) & 1;
+        }
+        ans.push(x >> 1 <= k);
+    }
+    return ans;
 }
 ```
 

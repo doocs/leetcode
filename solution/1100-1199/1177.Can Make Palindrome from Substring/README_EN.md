@@ -53,16 +53,14 @@ queries[4]: substring = &quot;abcda&quot;, could be changed to &quot;abcba&quot;
 class Solution:
     def canMakePaliQueries(self, s: str, queries: List[List[int]]) -> List[bool]:
         n = len(s)
-        cnt = [[0] * 26]
+        ss = [[0] * 26 for _ in range(n + 1)]
         for i, c in enumerate(s, 1):
-            j = ord(c) - ord('a')
-            t = cnt[-1][:]
-            t[j] += 1
-            cnt.append(t)
+            ss[i] = ss[i - 1][:]
+            ss[i][ord(c) - ord("a")] += 1
         ans = []
-        for left, right, k in queries:
-            x = sum((b - a) & 1 for a, b in zip(cnt[right + 1], cnt[left]))
-            ans.append(x // 2 <= k)
+        for l, r, k in queries:
+            cnt = sum((ss[r + 1][j] - ss[l][j]) & 1 for j in range(26))
+            ans.append(cnt // 2 <= k)
         return ans
 ```
 
@@ -72,20 +70,19 @@ class Solution:
 class Solution {
     public List<Boolean> canMakePaliQueries(String s, int[][] queries) {
         int n = s.length();
-        int[][] cnt = new int[n + 1][26];
+        int[][] ss = new int[n + 1][26];
         for (int i = 1; i <= n; ++i) {
-            int j = s.charAt(i - 1) - 'a';
-            for (int k = 0; k < 26; ++k) {
-                cnt[i][k] = cnt[i - 1][k];
+            for (int j = 0; j < 26; ++j) {
+                ss[i][j] = ss[i - 1][j];
             }
-            cnt[i][j]++;
+            ss[i][s.charAt(i - 1) - 'a']++;
         }
         List<Boolean> ans = new ArrayList<>();
         for (var q : queries) {
-            int left = q[0], right = q[1], k = q[2];
+            int l = q[0], r = q[1], k = q[2];
             int x = 0;
             for (int j = 0; j < 26; ++j) {
-                x += (cnt[right + 1][j] - cnt[left][j]) & 1;
+                x += (ss[r + 1][j] - ss[l][j]) & 1;
             }
             ans.add(x / 2 <= k);
         }
@@ -101,21 +98,20 @@ class Solution {
 public:
     vector<bool> canMakePaliQueries(string s, vector<vector<int>>& queries) {
         int n = s.size();
-        int cnt[n + 1][26];
-        memset(cnt, 0, sizeof cnt);
+        int ss[n + 1][26];
+        memset(ss, 0, sizeof(ss));
         for (int i = 1; i <= n; ++i) {
-            int j = s[i - 1] - 'a';
-            for (int k = 0; k < 26; ++k) {
-                cnt[i][k] = cnt[i - 1][k];
+            for (int j = 0; j < 26; ++j) {
+                ss[i][j] = ss[i - 1][j];
             }
-            cnt[i][j]++;
+            ss[i][s[i - 1] - 'a']++;
         }
         vector<bool> ans;
         for (auto& q : queries) {
-            int left = q[0], right = q[1], k = q[2];
+            int l = q[0], r = q[1], k = q[2];
             int x = 0;
             for (int j = 0; j < 26; ++j) {
-                x += (cnt[right + 1][j] - cnt[left][j]) & 1;
+                x += (ss[r + 1][j] - ss[l][j]) & 1;
             }
             ans.emplace_back(x / 2 <= k);
         }
@@ -129,23 +125,46 @@ public:
 ```go
 func canMakePaliQueries(s string, queries [][]int) (ans []bool) {
 	n := len(s)
-	cnt := make([][26]int, n+1)
+	ss := make([][26]int, n+1)
 	for i := 1; i <= n; i++ {
-		j := s[i-1] - 'a'
-		for k := 0; k < 26; k++ {
-			cnt[i][k] = cnt[i-1][k]
+		for j := 0; j < 26; j++ {
+			ss[i][j] = ss[i-1][j]
 		}
-		cnt[i][j]++
+		ss[i][s[i-1]-'a']++
 	}
 	for _, q := range queries {
-		left, right, k := q[0], q[1], q[2]
+		l, r, k := q[0], q[1], q[2]
 		x := 0
 		for j := 0; j < 26; j++ {
-			x += (cnt[right+1][j] - cnt[left][j]) & 1
+			x += (ss[r+1][j] - ss[l][j]) & 1
 		}
 		ans = append(ans, x/2 <= k)
 	}
 	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function canMakePaliQueries(s: string, queries: number[][]): boolean[] {
+    const n = s.length;
+    const ss: number[][] = Array(n + 1)
+        .fill(0)
+        .map(() => Array(26).fill(0));
+    for (let i = 1; i <= n; ++i) {
+        ss[i] = ss[i - 1].slice();
+        ++ss[i][s.charCodeAt(i - 1) - 97];
+    }
+    const ans: boolean[] = [];
+    for (const [l, r, k] of queries) {
+        let x = 0;
+        for (let j = 0; j < 26; ++j) {
+            x += (ss[r + 1][j] - ss[l][j]) & 1;
+        }
+        ans.push(x >> 1 <= k);
+    }
+    return ans;
 }
 ```
 
