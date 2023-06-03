@@ -7,7 +7,16 @@ class Solution:
         l, r = 1, 2 * 10**9
         while l < r:
             mid = (l + r) >> 1
-            if mid // a + mid // b + mid // c - mid // ab - mid // bc - mid // ac + mid // abc >= n:
+            if (
+                mid // a
+                + mid // b
+                + mid // c
+                - mid // ab
+                - mid // bc
+                - mid // ac
+                + mid // abc
+                >= n
+            ):
                 r = mid
             else:
                 l = mid + 1

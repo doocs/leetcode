@@ -68,27 +68,26 @@ class Solution:
     def minCostToSupplyWater(
         self, n: int, wells: List[int], pipes: List[List[int]]
     ) -> int:
-        for i, w in enumerate(wells):
-            pipes.append([0, i + 1, w])
-        pipes.sort(key=lambda x: x[2])
-
-        p = list(range(n + 1))
-
-        def find(x):
+        def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
-        res = 0
-        for u, v, w in pipes:
-            if find(u) == find(v):
+        for i, w in enumerate(wells, 1):
+            pipes.append([0, i, w])
+        pipes.sort(key=lambda x: x[2])
+        p = list(range(n + 1))
+        ans = 0
+        for i, j, c in pipes:
+            pa, pb = find(i), find(j)
+            if pa == pb:
                 continue
-            p[find(u)] = find(v)
-            res += w
+            p[pa] = pb
+            ans += c
             n -= 1
             if n == 0:
                 break
-        return res
+        return ans
 ```
 
 ### **Java**
@@ -98,32 +97,32 @@ class Solution {
     private int[] p;
 
     public int minCostToSupplyWater(int n, int[] wells, int[][] pipes) {
-        int[][] all = new int[pipes.length + n][3];
-        int idx = 0;
-        for (int[] pipe : pipes) {
-            all[idx++] = pipe;
+        var nums = new int[n + pipes.length][0];
+        int j = 0;
+        for (var pipe : pipes) {
+            nums[j++] = pipe;
         }
-        for (int j = 0; j < n; ++j) {
-            all[idx++] = new int[] {0, j + 1, wells[j]};
+        for (int i = 0; i < n; ++i) {
+            nums[j++] = new int[]{0, i + 1, wells[i]};
         }
+        Arrays.sort(nums, (a, b) -> a[2] - b[2]);
         p = new int[n + 1];
-        for (int i = 0; i < p.length; ++i) {
+        for (int i = 1; i <= n; ++i) {
             p[i] = i;
         }
-        Arrays.sort(all, Comparator.comparingInt(a -> a[2]));
-        int res = 0;
-        for (int[] e : all) {
-            if (find(e[0]) == find(e[1])) {
+        int ans = 0;
+        for (var x : nums) {
+            int pa = find(x[0]), pb = find(x[1]);
+            if (pa == pb) {
                 continue;
             }
-            p[find(e[0])] = find(e[1]);
-            res += e[2];
-            --n;
-            if (n == 0) {
+            ans += x[2];
+            p[pa] = pb;
+            if (--n == 0) {
                 break;
             }
         }
-        return res;
+        return ans;
     }
 
     private int find(int x) {
@@ -140,29 +139,34 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> p;
-
     int minCostToSupplyWater(int n, vector<int>& wells, vector<vector<int>>& pipes) {
-        p.resize(n + 1);
-        for (int i = 0; i < p.size(); ++i) p[i] = i;
-        for (int i = 0; i < n; ++i) pipes.push_back({0, i + 1, wells[i]});
-        sort(pipes.begin(), pipes.end(), [](const auto& a, const auto& b) {
+        for (int i = 0; i < n; ++i) {
+            pipes.push_back({0, i + 1, wells[i]});
+        }
+        sort(pipes.begin(), pipes.end(), [](const vector<int>& a, const vector<int>& b) {
             return a[2] < b[2];
         });
-        int res = 0;
-        for (auto e : pipes) {
-            if (find(e[0]) == find(e[1])) continue;
-            p[find(e[0])] = find(e[1]);
-            res += e[2];
-            --n;
-            if (n == 0) break;
+        int p[n + 1];
+        iota(p, p + n + 1, 0);
+        function<int(int)> find = [&](int x) {
+            if (p[x] != x) {
+                p[x] = find(p[x]);
+            }
+            return p[x];
+        };
+        int ans = 0;
+        for (const auto& x : pipes) {
+            int pa = find(x[0]), pb = find(x[1]);
+            if (pa == pb) {
+                continue;
+            }
+            p[pa] = pb;
+            ans += x[2];
+            if (--n == 0) {
+                break;
+            }
         }
-        return res;
-    }
-
-    int find(int x) {
-        if (p[x] != x) p[x] = find(p[x]);
-        return p[x];
+        return ans;
     }
 };
 ```
@@ -170,39 +174,72 @@ public:
 ### **Go**
 
 ```go
-var p []int
-
-func minCostToSupplyWater(n int, wells []int, pipes [][]int) int {
-	p = make([]int, n+1)
-	for i := 0; i < len(p); i++ {
-		p[i] = i
-	}
+func minCostToSupplyWater(n int, wells []int, pipes [][]int) (ans int) {
 	for i, w := range wells {
 		pipes = append(pipes, []int{0, i + 1, w})
 	}
-	sort.Slice(pipes, func(i, j int) bool {
-		return pipes[i][2] < pipes[j][2]
-	})
-	res := 0
-	for _, e := range pipes {
-		if find(e[0]) == find(e[1]) {
+	sort.Slice(pipes, func(i, j int) bool { return pipes[i][2] < pipes[j][2] })
+	p := make([]int, n+1)
+	for i := range p {
+		p[i] = i
+	}
+	var find func(int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+
+	for _, x := range pipes {
+		pa, pb := find(x[0]), find(x[1])
+		if pa == pb {
 			continue
 		}
-		p[find(e[0])] = find(e[1])
-		res += e[2]
+		p[pa] = pb
+		ans += x[2]
 		n--
 		if n == 0 {
 			break
 		}
 	}
-	return res
+	return
 }
+```
 
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
+### **TypeScript**
+
+```ts
+function minCostToSupplyWater(
+    n: number,
+    wells: number[],
+    pipes: number[][],
+): number {
+    for (let i = 0; i < n; ++i) {
+        pipes.push([0, i + 1, wells[i]]);
+    }
+    pipes.sort((a, b) => a[2] - b[2]);
+    const p = new Array(n + 1).fill(0).map((_, i) => i);
+    const find = (x: number): number => {
+        if (p[x] !== x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    };
+    let ans = 0;
+    for (const [i, j, c] of pipes) {
+        const pa = find(i);
+        const pb = find(j);
+        if (pa === pb) {
+            continue;
+        }
+        p[pa] = pb;
+        ans += c;
+        if (--n === 0) {
+            break;
+        }
+    }
+    return ans;
 }
 ```
 

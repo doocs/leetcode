@@ -2,32 +2,32 @@ class Solution {
     private int[] p;
 
     public int minCostToSupplyWater(int n, int[] wells, int[][] pipes) {
-        int[][] all = new int[pipes.length + n][3];
-        int idx = 0;
-        for (int[] pipe : pipes) {
-            all[idx++] = pipe;
+        var nums = new int[n + pipes.length][0];
+        int j = 0;
+        for (var pipe : pipes) {
+            nums[j++] = pipe;
         }
-        for (int j = 0; j < n; ++j) {
-            all[idx++] = new int[] {0, j + 1, wells[j]};
+        for (int i = 0; i < n; ++i) {
+            nums[j++] = new int[]{0, i + 1, wells[i]};
         }
+        Arrays.sort(nums, (a, b) -> a[2] - b[2]);
         p = new int[n + 1];
-        for (int i = 0; i < p.length; ++i) {
+        for (int i = 1; i <= n; ++i) {
             p[i] = i;
         }
-        Arrays.sort(all, Comparator.comparingInt(a -> a[2]));
-        int res = 0;
-        for (int[] e : all) {
-            if (find(e[0]) == find(e[1])) {
+        int ans = 0;
+        for (var x : nums) {
+            int pa = find(x[0]), pb = find(x[1]);
+            if (pa == pb) {
                 continue;
             }
-            p[find(e[0])] = find(e[1]);
-            res += e[2];
-            --n;
-            if (n == 0) {
+            ans += x[2];
+            p[pa] = pb;
+            if (--n == 0) {
                 break;
             }
         }
-        return res;
+        return ans;
     }
 
     private int find(int x) {

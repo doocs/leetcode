@@ -2,24 +2,23 @@ class Solution:
     def minCostToSupplyWater(
         self, n: int, wells: List[int], pipes: List[List[int]]
     ) -> int:
-        for i, w in enumerate(wells):
-            pipes.append([0, i + 1, w])
-        pipes.sort(key=lambda x: x[2])
-
-        p = list(range(n + 1))
-
-        def find(x):
+        def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
-        res = 0
-        for u, v, w in pipes:
-            if find(u) == find(v):
+        for i, w in enumerate(wells, 1):
+            pipes.append([0, i, w])
+        pipes.sort(key=lambda x: x[2])
+        p = list(range(n + 1))
+        ans = 0
+        for i, j, c in pipes:
+            pa, pb = find(i), find(j)
+            if pa == pb:
                 continue
-            p[find(u)] = find(v)
-            res += w
+            p[pa] = pb
+            ans += c
             n -= 1
             if n == 0:
                 break
-        return res
+        return ans
