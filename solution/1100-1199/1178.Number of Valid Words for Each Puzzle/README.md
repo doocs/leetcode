@@ -53,6 +53,18 @@ puzzles = ["aboveyz","abrodyz","abslute","absoryz","actresz","gaswxyz"]
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：状态压缩 + 哈希表 + 子集枚举**
+
+根据题目描述，对于字谜数组 $puzzles$ 中的每一个字谜 $p$，我们需要统计有多少个单词 $w$ 包含了字谜 $p$ 的第一个字母，且 $w$ 的每一个字母都可以在 $p$ 中找到。
+
+由于每个单词重复的字母只需要统计一次，因此，我们可以使用二进制状态压缩的方法，将每个单词 $w$ 转换成一个二进制数 $mask$，其中 $mask$ 的第 $i$ 位为 $1$，当且仅当字母 $i$ 在单词 $w$ 中出现过。我们用哈希表 $cnt$ 统计所有单词的状态压缩后的值出现的次数。
+
+接下来，遍历字谜数组 $puzzles$，对于每一个字谜 $p$，我们注意到其长度固定为 $7$，因此我们只需要枚举 $p$ 的子集，如果该子集包含 $p$ 的第一个字母，那么我们查找其在哈希表中对应的值并累加到当前字谜的答案中。
+
+遍历结束后，我们就可以得到字谜数组 $puzzles$ 中每个字谜对应的谜底数量，将其返回即可。
+
+时间复杂度 $O(m \times |w| + n \times 2^{|p|})$，空间复杂度 $O(m)$。其中 $m$ 和 $n$ 分别为数组 $words$ 和 $puzzles$ 的长度，而 $|w|$ 和 $|p|$ 分别为数组 $words$ 中单词的最大长度和数组 $puzzles$ 中字谜的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,7 +72,27 @@ puzzles = ["aboveyz","abrodyz","abslute","absoryz","actresz","gaswxyz"]
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def findNumOfValidWords(self, words: List[str], puzzles: List[str]) -> List[int]:
+        cnt = Counter()
+        for w in words:
+            mask = 0
+            for c in w:
+                mask |= 1 << (ord(c) - ord("a"))
+            cnt[mask] += 1
 
+        ans = []
+        for p in puzzles:
+            mask = 0
+            for c in p:
+                mask |= 1 << (ord(c) - ord("a"))
+            x, i, j = 0, ord(p[0]) - ord("a"), mask
+            while j:
+                if j >> i & 1:
+                    x += cnt[j]
+                j = (j - 1) & mask
+            ans.append(x)
+        return ans
 ```
 
 ### **Java**
@@ -68,7 +100,128 @@ puzzles = ["aboveyz","abrodyz","abslute","absoryz","actresz","gaswxyz"]
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public List<Integer> findNumOfValidWords(String[] words, String[] puzzles) {
+        Map<Integer, Integer> cnt = new HashMap<>(words.length);
+        for (var w : words) {
+            int mask = 0;
+            for (int i = 0; i < w.length(); ++i) {
+                mask |= 1 << (w.charAt(i) - 'a');
+            }
+            cnt.merge(mask, 1, Integer::sum);
+        }
+        List<Integer> ans = new ArrayList<>();
+        for (var p : puzzles) {
+            int mask = 0;
+            for (int i = 0; i < p.length(); ++i) {
+                mask |= 1 << (p.charAt(i) - 'a');
+            }
+            int x = 0;
+            int i = p.charAt(0) - 'a';
+            for (int j = mask; j > 0; j = (j - 1) & mask) {
+                if ((j >> i & 1) == 1) {
+                    x += cnt.getOrDefault(j, 0);
+                }
+            }
+            ans.add(x);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> findNumOfValidWords(vector<string>& words, vector<string>& puzzles) {
+        unordered_map<int, int> cnt;
+        for (auto& w : words) {
+            int mask = 0;
+            for (char& c : w) {
+                mask |= 1 << (c - 'a');
+            }
+            cnt[mask]++;
+        }
+        vector<int> ans;
+        for (auto& p : puzzles) {
+            int mask = 0;
+            for (char& c : p) {
+                mask |= 1 << (c - 'a');
+            }
+            int x = 0;
+            int i = p[0] - 'a';
+            for (int j = mask; j; j = (j - 1) & mask) {
+                if (j >> i & 1) {
+                    x += cnt[j];
+                }
+            }
+            ans.push_back(x);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findNumOfValidWords(words []string, puzzles []string) (ans []int) {
+	cnt := map[int]int{}
+	for _, w := range words {
+		mask := 0
+		for _, c := range w {
+			mask |= 1 << (c - 'a')
+		}
+		cnt[mask]++
+	}
+	for _, p := range puzzles {
+		mask := 0
+		for _, c := range p {
+			mask |= 1 << (c - 'a')
+		}
+		x, i := 0, p[0]-'a'
+		for j := mask; j > 0; j = (j - 1) & mask {
+			if j>>i&1 > 0 {
+				x += cnt[j]
+			}
+		}
+		ans = append(ans, x)
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function findNumOfValidWords(words: string[], puzzles: string[]): number[] {
+    const cnt: Map<number, number> = new Map();
+    for (const w of words) {
+        let mask = 0;
+        for (const c of w) {
+            mask |= 1 << (c.charCodeAt(0) - 97);
+        }
+        cnt.set(mask, (cnt.get(mask) || 0) + 1);
+    }
+    const ans: number[] = [];
+    for (const p of puzzles) {
+        let mask = 0;
+        for (const c of p) {
+            mask |= 1 << (c.charCodeAt(0) - 97);
+        }
+        let x = 0;
+        const i = p.charCodeAt(0) - 97;
+        for (let j = mask; j; j = (j - 1) & mask) {
+            if ((j >> i) & 1) {
+                x += cnt.get(j) || 0;
+            }
+        }
+        ans.push(x);
+    }
+    return ans;
+}
 ```
 
 ### **...**
