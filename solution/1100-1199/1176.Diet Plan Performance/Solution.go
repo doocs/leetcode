@@ -1,17 +1,21 @@
-func dietPlanPerformance(calories []int, k int, lower int, upper int) int {
+func dietPlanPerformance(calories []int, k int, lower int, upper int) (ans int) {
 	n := len(calories)
-	s := make([]int, n+1)
-	for i, v := range calories {
-		s[i+1] = s[i] + v
+	s := 0
+	for _, x := range calories[:k] {
+		s += x
 	}
-	ans := 0
-	for i := 0; i < n-k+1; i++ {
-		t := s[i+k] - s[i]
-		if t < lower {
+	if s < lower {
+		ans--
+	} else if s > upper {
+		ans++
+	}
+	for i := k; i < n; i++ {
+		s += calories[i] - calories[i-k]
+		if s < lower {
 			ans--
-		} else if t > upper {
+		} else if s > upper {
 			ans++
 		}
 	}
-	return ans
+	return
 }

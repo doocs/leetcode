@@ -80,7 +80,9 @@ class Solution:
 
 ```python
 class Solution:
-    def dietPlanPerformance(self, calories: List[int], k: int, lower: int, upper: int) -> int:
+    def dietPlanPerformance(
+        self, calories: List[int], k: int, lower: int, upper: int
+    ) -> int:
         def check(s):
             if s < lower:
                 return -1
@@ -153,13 +155,19 @@ class Solution {
 public:
     int dietPlanPerformance(vector<int>& calories, int k, int lower, int upper) {
         int n = calories.size();
-        vector<int> s(n + 1);
-        for (int i = 0; i < n; ++i) s[i + 1] = s[i] + calories[i];
+        int s[n + 1];
+        s[0] = 0;
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + calories[i];
+        }
         int ans = 0;
         for (int i = 0; i < n - k + 1; ++i) {
             int t = s[i + k] - s[i];
-            if (t < lower) --ans;
-            else if (t > upper) ++ans;
+            if (t < lower) {
+                --ans;
+            } else if (t > upper) {
+                ++ans;
+            }
         }
         return ans;
     }
@@ -173,12 +181,18 @@ public:
         int n = calories.size();
         int s = accumulate(calories.begin(), calories.begin() + k, 0);
         int ans = 0;
-        if (s < lower) --ans;
-        else if (s > upper) ++ans;
+        if (s < lower) {
+            --ans;
+        } else if (s > upper) {
+            ++ans;
+        }
         for (int i = k; i < n; ++i) {
             s += calories[i] - calories[i - k];
-            if (s < lower) --ans;
-            else if (s > upper) ++ans;
+            if (s < lower) {
+                --ans;
+            } else if (s > upper) {
+                ++ans;
+            }
         }
         return ans;
     }
@@ -188,13 +202,12 @@ public:
 ### **Go**
 
 ```go
-func dietPlanPerformance(calories []int, k int, lower int, upper int) int {
+func dietPlanPerformance(calories []int, k int, lower int, upper int) (ans int) {
 	n := len(calories)
 	s := make([]int, n+1)
-	for i, v := range calories {
-		s[i+1] = s[i] + v
+	for i, x := range calories {
+		s[i+1] = s[i] + x
 	}
-	ans := 0
 	for i := 0; i < n-k+1; i++ {
 		t := s[i+k] - s[i]
 		if t < lower {
@@ -203,32 +216,85 @@ func dietPlanPerformance(calories []int, k int, lower int, upper int) int {
 			ans++
 		}
 	}
-	return ans
+	return
 }
 ```
 
 ```go
-func dietPlanPerformance(calories []int, k int, lower int, upper int) int {
-	check := func(s int) int {
-		if s < lower {
-			return -1
-		}
-		if s > upper {
-			return 1
-		}
-		return 0
-	}
+func dietPlanPerformance(calories []int, k int, lower int, upper int) (ans int) {
 	n := len(calories)
 	s := 0
-	for i := 0; i < k; i++ {
-		s += calories[i]
+	for _, x := range calories[:k] {
+		s += x
 	}
-	ans := check(s)
+	if s < lower {
+		ans--
+	} else if s > upper {
+		ans++
+	}
 	for i := k; i < n; i++ {
 		s += calories[i] - calories[i-k]
-		ans += check(s)
+		if s < lower {
+			ans--
+		} else if s > upper {
+			ans++
+		}
 	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function dietPlanPerformance(
+    calories: number[],
+    k: number,
+    lower: number,
+    upper: number,
+): number {
+    const n = calories.length;
+    const s: number[] = new Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        s[i + 1] = s[i] + calories[i];
+    }
+    let ans = 0;
+    for (let i = 0; i < n - k + 1; ++i) {
+        const t = s[i + k] - s[i];
+        if (t < lower) {
+            --ans;
+        } else if (t > upper) {
+            ++ans;
+        }
+    }
+    return ans;
+}
+```
+
+```ts
+function dietPlanPerformance(
+    calories: number[],
+    k: number,
+    lower: number,
+    upper: number,
+): number {
+    const n = calories.length;
+    let s = calories.slice(0, k).reduce((a, b) => a + b);
+    let ans = 0;
+    if (s < lower) {
+        --ans;
+    } else if (s > upper) {
+        ++ans;
+    }
+    for (let i = k; i < n; ++i) {
+        s += calories[i] - calories[i - k];
+        if (s < lower) {
+            --ans;
+        } else if (s > upper) {
+            ++ans;
+        }
+    }
+    return ans;
 }
 ```
 
