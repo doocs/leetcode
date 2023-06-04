@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 348 场周赛(2023-06-04 10:30, 90 分钟) 参赛人数 3909
+
+- [2716. 最小化字符串长度](/solution/2700-2799/2716.Minimize%20String%20Length/README.md)
+- [2717. 半有序排列](/solution/2700-2799/2717.Semi-Ordered%20Permutation/README.md)
+- [2718. 查询后矩阵的和](/solution/2700-2799/2718.Sum%20of%20Matrix%20After%20Queries/README.md)
+- [2719. 统计整数数目](/solution/2700-2799/2719.Count%20of%20Integers/README.md)
+
 #### 第 347 场周赛(2023-05-28 10:30, 90 分钟) 参赛人数 3836
 
 - [2710. 移除字符串中的尾随零](/solution/2700-2799/2710.Remove%20Trailing%20Zeros%20From%20a%20String/README.md)

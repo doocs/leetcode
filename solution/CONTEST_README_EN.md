@@ -25,6 +25,13 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 348
+
+- [2716. Minimize String Length](/solution/2700-2799/2716.Minimize%20String%20Length/README_EN.md)
+- [2717. Semi-Ordered Permutation](/solution/2700-2799/2717.Semi-Ordered%20Permutation/README_EN.md)
+- [2718. Sum of Matrix After Queries](/solution/2700-2799/2718.Sum%20of%20Matrix%20After%20Queries/README_EN.md)
+- [2719. Count of Integers](/solution/2700-2799/2719.Count%20of%20Integers/README_EN.md)
+
 #### Weekly Contest 347
 
 - [2710. Remove Trailing Zeros From a String](/solution/2700-2799/2710.Remove%20Trailing%20Zeros%20From%20a%20String/README_EN.md)

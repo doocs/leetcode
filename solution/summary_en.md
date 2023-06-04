@@ -2769,3 +2769,7 @@
   - [2713.Maximum Strictly Increasing Cells in a Matrix](/solution/2700-2799/2713.Maximum%20Strictly%20Increasing%20Cells%20in%20a%20Matrix/README_EN.md)
   - [2714.Find Shortest Path with K Hops](/solution/2700-2799/2714.Find%20Shortest%20Path%20with%20K%20Hops/README_EN.md)
   - [2715.Execute Cancellable Function With Delay](/solution/2700-2799/2715.Execute%20Cancellable%20Function%20With%20Delay/README_EN.md)
+  - [2716.Minimize String Length](/solution/2700-2799/2716.Minimize%20String%20Length/README_EN.md)
+  - [2717.Semi-Ordered Permutation](/solution/2700-2799/2717.Semi-Ordered%20Permutation/README_EN.md)
+  - [2718.Sum of Matrix After Queries](/solution/2700-2799/2718.Sum%20of%20Matrix%20After%20Queries/README_EN.md)
+  - [2719.Count of Integers](/solution/2700-2799/2719.Count%20of%20Integers/README_EN.md)

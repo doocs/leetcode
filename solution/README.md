@@ -2726,6 +2726,10 @@
 |  2713  |  [矩阵中严格递增的单元格数](/solution/2700-2799/2713.Maximum%20Strictly%20Increasing%20Cells%20in%20a%20Matrix/README.md)  |  `记忆化搜索`,`数组`,`二分查找`,`动态规划`,`矩阵`,`排序`  |  困难  |  第 347 场周赛  |
 |  2714  |  [找到最短路径的 K 次跨越](/solution/2700-2799/2714.Find%20Shortest%20Path%20with%20K%20Hops/README.md)  |    |  困难  |  🔒  |
 |  2715  |  [Execute Cancellable Function With Delay](/solution/2700-2799/2715.Execute%20Cancellable%20Function%20With%20Delay/README.md)  |    |  简单  |    |
+|  2716  |  [最小化字符串长度](/solution/2700-2799/2716.Minimize%20String%20Length/README.md)  |    |  中等  |  第 348 场周赛  |
+|  2717  |  [半有序排列](/solution/2700-2799/2717.Semi-Ordered%20Permutation/README.md)  |    |  简单  |  第 348 场周赛  |
+|  2718  |  [查询后矩阵的和](/solution/2700-2799/2718.Sum%20of%20Matrix%20After%20Queries/README.md)  |    |  中等  |  第 348 场周赛  |
+|  2719  |  [统计整数数目](/solution/2700-2799/2719.Count%20of%20Integers/README.md)  |    |  困难  |  第 348 场周赛  |
 
 ## 版权
 
