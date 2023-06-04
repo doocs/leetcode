@@ -71,7 +71,15 @@ Account ID 4 --&gt; 该账户从 "2021-02-01 17:00:00" 到 "2021-02-01 17:00:00"
 ### **SQL**
 
 ```sql
-
+# Write your MySQL query statement below
+select
+    distinct a.account_id
+from
+    LogInfo a
+    join LogInfo b on a.account_id = b.account_id
+    and a.ip_address != b.ip_address
+    and a.login between b.login
+    and b.logout;
 ```
 
 <!-- tabs:end -->
