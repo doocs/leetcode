@@ -12,6 +12,5 @@ function vowelStrings(words: string[], queries: number[][]): number[] {
             s[i + 1] = s[i];
         }
     }
-
     return queries.map(([l, r]) => s[r + 1] - s[l]);
 }
