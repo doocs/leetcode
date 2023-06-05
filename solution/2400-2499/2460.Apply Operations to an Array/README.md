@@ -111,15 +111,10 @@ class Solution {
             }
         }
         int[] ans = new int[n];
-        int j = 0;
-        for (int i = 0; i < n; ++i) {
-            if (nums[i] != 0) {
-                ans[j++] = nums[i];
-            }
-        }
-        for (int i = 0; i < n; ++i) {
-            if (nums[i] == 0) {
-                ans[j++] = nums[i];
+        int i = 0;
+        for (int x : nums) {
+            if (x > 0) {
+                ans[i++] = x;
             }
         }
         return ans;

@@ -126,26 +126,35 @@ John (customer 5) 没有订购过商品, 所以我们并没有把 John 包含在
 
 <!-- tabs:start -->
 
-### **Python3**
+### **SQL**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-```python
-
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-
-```
-
-### **...**
-
-```
-
+```sql
+# Write your MySQL query statement below
+select
+    customer_id,
+    p.product_id,
+    p.product_name
+from
+    (
+        select
+            customer_id,
+            product_id,
+            rank() over(
+                partition by customer_id
+                order by
+                    count(1) desc
+            ) rk
+        from
+            Orders
+        group by
+            customer_id,
+            product_id
+    ) o
+    join Products p on o.product_id = p.product_id
+where
+    rk = 1;
 ```
 
 <!-- tabs:end -->
