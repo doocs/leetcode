@@ -196,18 +196,9 @@ function numSmallerByFrequency(queries: string[], words: string[]): number[] {
         for (const c of s) {
             cnt[c.charCodeAt(0) - 'a'.charCodeAt(0)]++;
         }
-        for (const x of cnt) {
-            if (x) {
-                return x;
-            }
-        }
-        return 0;
+        return cnt.find(x => x > 0);
     };
-    const nums: number[] = [];
-    for (const w of words) {
-        nums.push(f(w));
-    }
-    nums.sort((a, b) => a - b);
+    const nums = words.map(f).sort((a, b) => a - b);
     const ans: number[] = [];
     for (const q of queries) {
         const x = f(q);

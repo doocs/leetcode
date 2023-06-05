@@ -151,11 +151,7 @@ var maximumNumberOfOnes = function (width, height, sideLength, maxOnes) {
         }
     }
     cnt.sort((a, b) => b - a);
-    let ans = 0;
-    for (let i = 0; i < maxOnes; ++i) {
-        ans += cnt[i];
-    }
-    return ans;
+    return cnt.slice(0, maxOnes).reduce((a, b) => a + b, 0);
 };
 ```
 
