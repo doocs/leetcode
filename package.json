@@ -1,12 +1,18 @@
 {
   "scripts": {
     "dev": "docsify serve --open",
-    "convert": "docsify-pdf-converter"
+    "convert": "docsify-pdf-converter",
+    "prepare": "husky install"
   },
   "dependencies": {
     "docsify-cli": "^4.4.4"
   },
   "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
     "prettier": "^2.8.8"
+  },
+  "lint-staged": {
+    "*.{js,ts,md}": "prettier --write"
   }
 }
