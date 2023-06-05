@@ -7,6 +7,15 @@
     "docsify-cli": "^4.4.4"
   },
   "devDependencies": {
+    "husky": "^8.0.3",
     "prettier": "^2.8.8"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,md,js}": "npx prettier --write '**/*.{ts,md,js}'"
   }
 }
