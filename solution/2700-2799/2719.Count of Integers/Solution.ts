@@ -26,6 +26,7 @@ function count(
         }
         return ans;
     };
+
     let ans = dfs(0, 0, true);
     num = (BigInt(num1) - 1n).toString();
     f = Array(22)
