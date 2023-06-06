@@ -15,6 +15,10 @@
     "prettier": "^2.8.8"
   },
   "lint-staged": {
-    "*.{js,ts,md}": "prettier --write"
+    "*.{js,ts,md}": "prettier --write",
+    "*.py": "black -S",
+    "*.{c,cpp,java,h}": [
+      "clang-format -style=file -i"
+    ]
   }
 }
