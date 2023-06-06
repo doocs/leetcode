@@ -1,8 +1,14 @@
 class Solution {
 public:
     bool checkOverlap(int radius, int xCenter, int yCenter, int x1, int y1, int x2, int y2) {
-        int dx = x1 > xCenter ? x1 - xCenter : (x2 < xCenter ? xCenter - x2 : 0);
-        int dy = y1 > yCenter ? y1 - yCenter : (y2 < yCenter ? yCenter - y2 : 0);
-        return dx * dx + dy * dy <= radius * radius;
+        auto f = [](int i, int j, int k) -> int {
+            if (i <= k && k <= j) {
+                return 0;
+            }
+            return k < i ? i - k : k - j;
+        };
+        int a = f(x1, x2, xCenter);
+        int b = f(y1, y2, yCenter);
+        return a * a + b * b <= radius * radius;
     }
 };

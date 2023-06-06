@@ -49,37 +49,32 @@
 
 ```python
 class Solution:
-    def checkOverlap(
-        self,
-        radius: int,
-        xCenter: int,
-        yCenter: int,
-        x1: int,
-        y1: int,
-        x2: int,
-        y2: int,
-    ) -> bool:
-        dx = dy = 0
-        if x1 > xCenter:
-            dx = xCenter - x1
-        elif x2 < xCenter:
-            dx = xCenter - x2
-        if y1 > yCenter:
-            dy = yCenter - y1
-        elif y2 < yCenter:
-            dy = yCenter - y2
-        return dx * dx + dy * dy <= radius * radius
+    def checkOverlap(self, radius: int, xCenter: int, yCenter: int, x1: int, y1: int, x2: int, y2: int) -> bool:
+        def f(i: int, j: int, k: int) -> int:
+            if i <= k <= j:
+                return 0
+            return i - k if k < i else k - j
+
+        a = f(x1, x2, xCenter)
+        b = f(y1, y2, yCenter)
+        return a * a + b * b <= radius * radius
 ```
 
 ### **Java**
 
 ```java
 class Solution {
-    public boolean checkOverlap(
-        int radius, int xCenter, int yCenter, int x1, int y1, int x2, int y2) {
-        int dx = x1 > xCenter ? x1 - xCenter : (x2 < xCenter ? xCenter - x2 : 0);
-        int dy = y1 > yCenter ? y1 - yCenter : (y2 < yCenter ? yCenter - y2 : 0);
-        return dx * dx + dy * dy <= radius * radius;
+    public boolean checkOverlap(int radius, int xCenter, int yCenter, int x1, int y1, int x2, int y2) {
+        int a = f(x1, x2, xCenter);
+        int b = f(y1, y2, yCenter);
+        return a * a + b * b <= radius * radius;
+    }
+
+    private int f(int i, int j, int k) {
+        if (i <= k && k <= j) {
+            return 0;
+        }
+        return k < i ? i - k : k - j;
     }
 }
 ```
@@ -90,9 +85,15 @@ class Solution {
 class Solution {
 public:
     bool checkOverlap(int radius, int xCenter, int yCenter, int x1, int y1, int x2, int y2) {
-        int dx = x1 > xCenter ? x1 - xCenter : (x2 < xCenter ? xCenter - x2 : 0);
-        int dy = y1 > yCenter ? y1 - yCenter : (y2 < yCenter ? yCenter - y2 : 0);
-        return dx * dx + dy * dy <= radius * radius;
+        auto f = [](int i, int j, int k) -> int {
+            if (i <= k && k <= j) {
+                return 0;
+            }
+            return k < i ? i - k : k - j;
+        };
+        int a = f(x1, x2, xCenter);
+        int b = f(y1, y2, yCenter);
+        return a * a + b * b <= radius * radius;
     }
 };
 ```
@@ -101,18 +102,42 @@ public:
 
 ```go
 func checkOverlap(radius int, xCenter int, yCenter int, x1 int, y1 int, x2 int, y2 int) bool {
-	dx, dy := 0, 0
-	if x1 > xCenter {
-		dx = x1 - xCenter
-	} else if x2 < xCenter {
-		dx = x2 - xCenter
+	f := func(i, j, k int) int {
+		if i <= k && k <= j {
+			return 0
+		}
+		if k < i {
+			return i - k
+		}
+		return k - j
 	}
-	if y1 > yCenter {
-		dy = y1 - yCenter
-	} else if y2 < yCenter {
-		dy = y2 - yCenter
-	}
-	return dx*dx+dy*dy <= radius*radius
+	a := f(x1, x2, xCenter)
+	b := f(y1, y2, yCenter)
+	return a*a+b*b <= radius*radius
+}
+```
+
+### **TypeScript**
+
+```ts
+function checkOverlap(
+    radius: number,
+    xCenter: number,
+    yCenter: number,
+    x1: number,
+    y1: number,
+    x2: number,
+    y2: number,
+): boolean {
+    const f = (i: number, j: number, k: number) => {
+        if (i <= k && k <= j) {
+            return 0;
+        }
+        return k < i ? i - k : k - j;
+    };
+    const a = f(x1, x2, xCenter);
+    const b = f(y1, y2, yCenter);
+    return a * a + b * b <= radius * radius;
 }
 ```
 

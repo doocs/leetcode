@@ -9,13 +9,11 @@ class Solution:
         x2: int,
         y2: int,
     ) -> bool:
-        dx = dy = 0
-        if x1 > xCenter:
-            dx = xCenter - x1
-        elif x2 < xCenter:
-            dx = xCenter - x2
-        if y1 > yCenter:
-            dy = yCenter - y1
-        elif y2 < yCenter:
-            dy = yCenter - y2
-        return dx * dx + dy * dy <= radius * radius
+        def f(i: int, j: int, k: int) -> int:
+            if i <= k <= j:
+                return 0
+            return i - k if k < i else k - j
+
+        a = f(x1, x2, xCenter)
+        b = f(y1, y2, yCenter)
+        return a * a + b * b <= radius * radius

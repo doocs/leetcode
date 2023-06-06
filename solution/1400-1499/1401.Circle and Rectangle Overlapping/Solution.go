@@ -1,14 +1,14 @@
 func checkOverlap(radius int, xCenter int, yCenter int, x1 int, y1 int, x2 int, y2 int) bool {
-	dx, dy := 0, 0
-	if x1 > xCenter {
-		dx = x1 - xCenter
-	} else if x2 < xCenter {
-		dx = x2 - xCenter
+	f := func(i, j, k int) int {
+		if i <= k && k <= j {
+			return 0
+		}
+		if k < i {
+			return i - k
+		}
+		return k - j
 	}
-	if y1 > yCenter {
-		dy = y1 - yCenter
-	} else if y2 < yCenter {
-		dy = y2 - yCenter
-	}
-	return dx*dx+dy*dy <= radius*radius
+	a := f(x1, x2, xCenter)
+	b := f(y1, y2, yCenter)
+	return a*a+b*b <= radius*radius
 }
