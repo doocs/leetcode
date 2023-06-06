@@ -86,6 +86,8 @@ Task 3 被分成了 4 subtasks (1, 2, 3, 4)。所有的subtask都被成功执行
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：递归生成数据表**
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -93,7 +95,30 @@ Task 3 被分成了 4 subtasks (1, 2, 3, 4)。所有的subtask都被成功执行
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-
+# Write your MySQL query statement below
+with recursive t(task_id, subtask_id) as (
+    select
+        task_id,
+        subtasks_count
+    from
+        Tasks
+    union
+    all
+    select
+        task_id,
+        subtask_id - 1
+    from
+        t
+    where
+        subtask_id >= 2
+)
+select
+    t.*
+from
+    t
+    left join Executed e using(task_id, subtask_id)
+where
+    e.subtask_id is null
 ```
 
 <!-- tabs:end -->
