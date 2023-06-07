@@ -1,6 +1,6 @@
 class Solution:
     def tilingRectangle(self, n: int, m: int) -> int:
-        def dfs(i, j, t):
+        def dfs(i: int, j: int, t: int):
             nonlocal ans
             if j == m:
                 i += 1
