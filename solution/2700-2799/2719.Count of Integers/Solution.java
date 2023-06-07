@@ -11,10 +11,10 @@ class Solution {
         min = min_sum;
         max = max_sum;
         num = num2;
-        f = new Integer[22][220];
+        f = new Integer[23][220];
         int ans = dfs(0, 0, true);
         num = new BigInteger(num1).subtract(BigInteger.ONE).toString();
-        f = new Integer[22][220];
+        f = new Integer[23][220];
         ans = (ans - dfs(0, 0, true) + mod) % mod;
         return ans;
     }

@@ -5,7 +5,7 @@ function count(
     max_sum: number,
 ): number {
     const mod = 1e9 + 7;
-    let f: number[][] = Array(22)
+    let f: number[][] = Array(23)
         .fill(0)
         .map(() => Array(220).fill(-1));
     let num = num2;
@@ -28,7 +28,7 @@ function count(
     };
     let ans = dfs(0, 0, true);
     num = (BigInt(num1) - 1n).toString();
-    f = Array(22)
+    f = Array(23)
         .fill(0)
         .map(() => Array(220).fill(-1));
     ans = (ans - dfs(0, 0, true) + mod) % mod;

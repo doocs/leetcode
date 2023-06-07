@@ -16,9 +16,6 @@
   },
   "lint-staged": {
     "*.{js,ts,md}": "prettier --write",
-    "*.py": "black -S",
-    "*.{c,cpp,java,h}": [
-      "clang-format -style=file -i"
-    ]
+    "*.py": "black -S"
   }
 }

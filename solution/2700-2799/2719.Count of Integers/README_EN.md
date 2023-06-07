@@ -83,10 +83,10 @@ class Solution {
         min = min_sum;
         max = max_sum;
         num = num2;
-        f = new Integer[22][220];
+        f = new Integer[23][220];
         int ans = dfs(0, 0, true);
         num = new BigInteger(num1).subtract(BigInteger.ONE).toString();
-        f = new Integer[22][220];
+        f = new Integer[23][220];
         ans = (ans - dfs(0, 0, true) + mod) % mod;
         return ans;
     }
@@ -118,7 +118,7 @@ class Solution {
 public:
     int count(string num1, string num2, int min_sum, int max_sum) {
         const int mod = 1e9 + 7;
-        int f[22][220];
+        int f[23][220];
         memset(f, -1, sizeof(f));
         string num = num2;
 
@@ -163,7 +163,7 @@ public:
 ```go
 func count(num1 string, num2 string, min_sum int, max_sum int) int {
 	const mod = 1e9 + 7
-	f := [22][220]int{}
+	f := [23][220]int{}
 	for i := range f {
 		for j := range f[i] {
 			f[i][j] = -1
@@ -204,7 +204,7 @@ func count(num1 string, num2 string, min_sum int, max_sum int) int {
 		t[i] = '9'
 	}
 	num = string(t)
-	f = [22][220]int{}
+	f = [23][220]int{}
 	for i := range f {
 		for j := range f[i] {
 			f[i][j] = -1
@@ -225,7 +225,7 @@ function count(
     max_sum: number,
 ): number {
     const mod = 1e9 + 7;
-    let f: number[][] = Array(22)
+    let f: number[][] = Array(23)
         .fill(0)
         .map(() => Array(220).fill(-1));
     let num = num2;
@@ -248,7 +248,7 @@ function count(
     };
     let ans = dfs(0, 0, true);
     num = (BigInt(num1) - 1n).toString();
-    f = Array(22)
+    f = Array(23)
         .fill(0)
         .map(() => Array(220).fill(-1));
     ans = (ans - dfs(0, 0, true) + mod) % mod;

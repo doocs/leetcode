@@ -2,7 +2,7 @@ class Solution {
 public:
     int count(string num1, string num2, int min_sum, int max_sum) {
         const int mod = 1e9 + 7;
-        int f[22][220];
+        int f[23][220];
         memset(f, -1, sizeof(f));
         string num = num2;
 

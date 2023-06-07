@@ -1,6 +1,6 @@
 func count(num1 string, num2 string, min_sum int, max_sum int) int {
 	const mod = 1e9 + 7
-	f := [22][220]int{}
+	f := [23][220]int{}
 	for i := range f {
 		for j := range f[i] {
 			f[i][j] = -1
@@ -41,7 +41,7 @@ func count(num1 string, num2 string, min_sum int, max_sum int) int {
 		t[i] = '9'
 	}
 	num = string(t)
-	f = [22][220]int{}
+	f = [23][220]int{}
 	for i := range f {
 		for j := range f[i] {
 			f[i][j] = -1
