@@ -98,26 +98,18 @@ Id为4的商品(LC-T-Shirt)的存货量为 4x10x20 = 800
 
 <!-- tabs:start -->
 
-### **Python3**
+### **SQL**
 
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
-
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-
-```
-
-### **...**
-
-```
-
+```sql
+# Write your MySQL query statement below
+SELECT
+    name AS warehouse_name,
+    SUM(units * Width * Length * Height) AS volume
+FROM
+    Warehouse w
+    JOIN Products p ON w.product_id = p.product_id
+GROUP BY
+    name
 ```
 
 <!-- tabs:end -->

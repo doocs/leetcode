@@ -60,13 +60,17 @@ So the result is customer_number 3.
 ### **SQL**
 
 ```sql
+# Write your MySQL query statement below
 SELECT
     customer_number
 FROM
-    Orders
-GROUP BY customer_number
-ORDER BY COUNT(customer_number) DESC
-LIMIT 1;
+    orders
+GROUP BY
+    customer_number
+ORDER BY
+    count(1) DESC
+LIMIT
+    1;
 ```
 
 SQL Server

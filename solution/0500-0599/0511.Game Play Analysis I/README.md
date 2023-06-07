@@ -60,10 +60,12 @@ Result 表：
 
 ```sql
 SELECT
-    player_id, MIN(event_date) first_login
+    player_id,
+    MIN(event_date) first_login
 FROM
     Activity
-GROUP BY player_id;
+GROUP BY
+    player_id;
 ```
 
 <!-- tabs:end -->

@@ -94,22 +94,18 @@ LCHouse3: 1 unit of LC-T-Shirt.
 
 <!-- tabs:start -->
 
-### **Python3**
+### **SQL**
 
-```python
-
-```
-
-### **Java**
-
-```java
-
-```
-
-### **...**
-
-```
-
+```sql
+# Write your MySQL query statement below
+SELECT
+    name AS warehouse_name,
+    SUM(units * Width * Length * Height) AS volume
+FROM
+    Warehouse w
+    JOIN Products p ON w.product_id = p.product_id
+GROUP BY
+    name
 ```
 
 <!-- tabs:end -->
