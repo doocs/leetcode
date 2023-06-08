@@ -52,6 +52,14 @@ The number of houses is equal to k, which is 5.
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：遍历**
+
+我们先循环 $k$ 次，每次打开当前房子的门，然后向左移动一格，循环结束后，所有房子的门都是打开的。
+
+然后，我们再循环左移，如果当前房子的门是打开的，就关闭它，房子数加一，继续左移，直到当前房子的门是关闭的，循环结束，返回房子数。
+
+时间复杂度 $O(k)$，其中 $k$ 为题目给定的整数。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -59,7 +67,29 @@ The number of houses is equal to k, which is 5.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+# Definition for a street.
+# class Street:
+#     def openDoor(self):
+#         pass
+#     def closeDoor(self):
+#         pass
+#     def isDoorOpen(self):
+#         pass
+#     def moveRight(self):
+#         pass
+#     def moveLeft(self):
+#         pass
+class Solution:
+    def houseCount(self, street: Optional["Street"], k: int) -> int:
+        for _ in range(k):
+            street.openDoor()
+            street.moveLeft()
+        ans = 0
+        while street.isDoorOpen():
+            street.closeDoor()
+            street.moveLeft()
+            ans += 1
+        return ans
 ```
 
 ### **Java**
@@ -67,19 +97,120 @@ The number of houses is equal to k, which is 5.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+/**
+ * Definition for a street.
+ * class Street {
+ *     public Street(int[] doors);
+ *     public void openDoor();
+ *     public void closeDoor();
+ *     public boolean isDoorOpen();
+ *     public void moveRight();
+ *     public void moveLeft();
+ * }
+ */
+class Solution {
+    public int houseCount(Street street, int k) {
+        while (k-- > 0) {
+            street.openDoor();
+            street.moveLeft();
+        }
+        int ans = 0;
+        while (street.isDoorOpen()) {
+            ++ans;
+            street.closeDoor();
+            street.moveLeft();
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+/**
+ * Definition for a street.
+ * class Street {
+ * public:
+ *     Street(vector<int> doors);
+ *     void openDoor();
+ *     void closeDoor();
+ *     bool isDoorOpen();
+ *     void moveRight();
+ *     void moveLeft();
+ * };
+ */
+class Solution {
+public:
+    int houseCount(Street* street, int k) {
+        while (k--) {
+            street->openDoor();
+            street->moveLeft();
+        }
+        int ans = 0;
+        while (street->isDoorOpen()) {
+            ans++;
+            street->closeDoor();
+            street->moveLeft();
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+/**
+ * Definition for a street.
+ * type Street interface {
+ *     OpenDoor()
+ *     CloseDoor()
+ *     IsDoorOpen() bool
+ *     MoveRight()
+ *     MoveLeft()
+ * }
+ */
+func houseCount(street Street, k int) (ans int) {
+	for ; k > 0; k-- {
+		street.OpenDoor()
+		street.MoveLeft()
+	}
+	for ; street.IsDoorOpen(); street.MoveLeft() {
+		ans++
+		street.CloseDoor()
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a street.
+ * class Street {
+ *     constructor(doors: number[]);
+ *     public openDoor(): void;
+ *     public closeDoor(): void;
+ *     public isDoorOpen(): boolean;
+ *     public moveRight(): void;
+ *     public moveLeft(): void;
+ * }
+ */
+function houseCount(street: Street | null, k: number): number {
+    while (k-- > 0) {
+        street.openDoor();
+        street.moveLeft();
+    }
+    let ans = 0;
+    while (street.isDoorOpen()) {
+        ++ans;
+        street.closeDoor();
+        street.moveLeft();
+    }
+    return ans;
+}
 ```
 
 ### **...**
