@@ -55,7 +55,9 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
-
+function sortBy(arr: any[], fn: Function): any[] {
+    return arr.sort((a, b) => fn(a) - fn(b));
+}
 ```
 
 <!-- tabs:end -->

@@ -47,7 +47,17 @@ promise2 = new Promise(resolve =&gt; setTimeout(() =&gt; resolve(-12), 30))
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
+async function addTwoPromises(
+    promise1: Promise<number>,
+    promise2: Promise<number>,
+): Promise<number> {
+    return (await promise1) + (await promise2);
+}
 
+/**
+ * addTwoPromises(Promise.resolve(2), Promise.resolve(2))
+ *   .then(console.log); // 4
+ */
 ```
 
 <!-- tabs:end -->
