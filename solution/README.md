@@ -2730,6 +2730,15 @@
 |  2717  |  [半有序排列](/solution/2700-2799/2717.Semi-Ordered%20Permutation/README.md)  |    |  简单  |  第 348 场周赛  |
 |  2718  |  [查询后矩阵的和](/solution/2700-2799/2718.Sum%20of%20Matrix%20After%20Queries/README.md)  |    |  中等  |  第 348 场周赛  |
 |  2719  |  [统计整数数目](/solution/2700-2799/2719.Count%20of%20Integers/README.md)  |    |  困难  |  第 348 场周赛  |
+|  2720  |  [Popularity Percentage](/solution/2700-2799/2720.Popularity%20Percentage/README.md)  |    |  困难  |  🔒  |
+|  2721  |  [Execute Asynchronous Functions in Parallel](/solution/2700-2799/2721.Execute%20Asynchronous%20Functions%20in%20Parallel/README.md)  |    |  中等  |    |
+|  2722  |  [Join Two Arrays by ID](/solution/2700-2799/2722.Join%20Two%20Arrays%20by%20ID/README.md)  |    |  中等  |    |
+|  2723  |  [Add Two Promises](/solution/2700-2799/2723.Add%20Two%20Promises/README.md)  |    |  简单  |    |
+|  2724  |  [Sort By](/solution/2700-2799/2724.Sort%20By/README.md)  |    |  简单  |    |
+|  2725  |  [Interval Cancellation](/solution/2700-2799/2725.Interval%20Cancellation/README.md)  |    |  简单  |    |
+|  2726  |  [Calculator with Method Chaining](/solution/2700-2799/2726.Calculator%20with%20Method%20Chaining/README.md)  |    |  简单  |    |
+|  2727  |  [Is Object Empty](/solution/2700-2799/2727.Is%20Object%20Empty/README.md)  |    |  简单  |    |
+|  2728  |  [Count Houses in a Circular Street](/solution/2700-2799/2728.Count%20Houses%20in%20a%20Circular%20Street/README.md)  |    |  简单  |  🔒  |
 
 ## 版权
 
