@@ -54,6 +54,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：遍历**
+
+我们可以遍历对象或数组，如果遍历到了第一个元素，就返回 `false`，否则返回 `true`。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **TypeScript**
@@ -61,7 +67,12 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
-
+function isEmpty(obj: Record<string, any> | any[]): boolean {
+    for (const x in obj) {
+        return false;
+    }
+    return true;
+}
 ```
 
 <!-- tabs:end -->
