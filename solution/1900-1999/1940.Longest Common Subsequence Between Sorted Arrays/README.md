@@ -169,16 +169,14 @@ func longestCommomSubsequence(arrays [][]int) []int {
  * @return {number[]}
  */
 var longestCommonSubsequence = function (arrays) {
-    let m = new Map();
-    let rs = [];
+    const m = new Map();
+    const rs = [];
     const len = arrays.length;
     for (let i = 0; i < len; i++) {
         for (let j = 0; j < arrays[i].length; j++) {
             m.set(arrays[i][j], (m.get(arrays[i][j]) || 0) + 1);
+            if (m.get(arrays[i][j]) === len) rs.push(arrays[i][j]);
         }
-    }
-    for (let k of m.keys()) {
-        if (m.get(k) === len) rs.push(k);
     }
     return rs;
 };
