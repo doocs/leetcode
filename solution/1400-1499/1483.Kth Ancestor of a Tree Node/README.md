@@ -57,9 +57,9 @@ treeAncestor.getKthAncestor(6, 3);  // 返回 -1 因为不存在满足要求的�
 
 **方法一：动态规划 + 倍增**
 
-题目要我们寻找节点 `node` 的第 $k$ 个祖先节点，如果暴力求解，需要从 `node` 开始向上遍历 $k$ 次，时间复杂度为 $O(k)$，显然会超时。
+题目要我们寻找节点 $node$ 的第 $k$ 个祖先节点，如果暴力求解，需要从 $node$ 开始向上遍历 $k$ 次，时间复杂度为 $O(k)$，显然会超时。
 
-我们可以使用动态规划的思想，结合倍增的思想来处理。
+我们可以使用动态规划，结合倍增的思想来处理。
 
 我们定义 $p[i][j]$ 表示节点 $i$ 的第 $2^j$ 个祖先节点，即 $p[i][j]$ 表示节点 $i$ 向上走 $2^j$ 步的节点。那么我们可以得到状态转移方程：
 
@@ -71,7 +71,7 @@ $$
 
 之后对于每次查询，我们可以把 $k$ 拆成二进制的表示形式，然后根据二进制中 $1$ 的位置，累计向上查询，最终得到节点 $node$ 的第 $k$ 个祖先节点。
 
-时间复杂度：初始化为 $O(n \times \log n)$，查询为 $O(\log n)$。空间复杂度：$O(n \times \log n)$。其中 $n$ 为树的节点数。
+时间复杂度方面，初始化为 $O(n \times \log n)$，查询为 $O(\log n)$。空间复杂度 $O(n \times \log n)$。其中 $n$ 为树的节点数。
 
 <!-- tabs:start -->
 
@@ -237,6 +237,48 @@ func (this *TreeAncestor) GetKthAncestor(node int, k int) int {
  * Your TreeAncestor object will be instantiated and called as such:
  * obj := Constructor(n, parent);
  * param_1 := obj.GetKthAncestor(node,k);
+ */
+```
+
+### **TypeScript**
+
+```ts
+class TreeAncestor {
+    private p: number[][];
+
+    constructor(n: number, parent: number[]) {
+        const p = new Array(n).fill(0).map(() => new Array(18).fill(-1));
+        for (let i = 0; i < n; ++i) {
+            p[i][0] = parent[i];
+        }
+        for (let i = 0; i < n; ++i) {
+            for (let j = 1; j < 18; ++j) {
+                if (p[i][j - 1] === -1) {
+                    continue;
+                }
+                p[i][j] = p[p[i][j - 1]][j - 1];
+            }
+        }
+        this.p = p;
+    }
+
+    getKthAncestor(node: number, k: number): number {
+        for (let i = 17; i >= 0; --i) {
+            if (((k >> i) & 1) === 1) {
+                node = this.p[node][i];
+                if (node === -1) {
+                    break;
+                }
+            }
+        }
+        return node;
+    }
+}
+
+/**
+ * Your TreeAncestor object will be instantiated and called as such:
+ * var obj = new TreeAncestor(n, parent)
+ * var param_1 = obj.getKthAncestor(node,k)
  */
 ```
 
