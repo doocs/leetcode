@@ -92,4 +92,16 @@ ORDER BY
 	id;
 ```
 
+```sql
+# Write your MySQL query statement below
+select
+    rank() over(
+        order by
+            (id -1) ^ 1
+    ) as id,
+    student
+from
+    seat
+```
+
 <!-- tabs:end -->
