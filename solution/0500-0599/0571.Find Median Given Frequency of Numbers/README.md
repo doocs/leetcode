@@ -59,22 +59,36 @@ Numbers 表：
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：开窗函数**
+
 <!-- tabs:start -->
 
-### **Python3**
+### **SQL**
 
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
-
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-
+```sql
+# Write your MySQL query statement below
+with t as (
+    select
+        *,
+        sum(frequency) over(
+            order by
+                num asc
+        ) as rk1,
+        sum(frequency) over(
+            order by
+                num desc
+        ) as rk2,
+        sum(frequency) over() as s
+    from
+        Numbers
+)
+select
+    round(avg(num), 1) median
+from
+    t
+where
+    rk1 >= s / 2
+    and rk2 >= s / 2;
 ```
 
 ### **...**
