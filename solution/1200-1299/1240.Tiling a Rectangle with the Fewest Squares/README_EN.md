@@ -88,6 +88,46 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def tilingRectangle(self, n: int, m: int) -> int:
+        def dfs(i: int, j: int, t: int):
+            nonlocal ans
+            if j == m:
+                i += 1
+                j = 0
+            if i == n:
+                ans = t
+                return
+            if filled[i] >> j & 1:
+                dfs(i, j + 1, t)
+            elif t + 1 < ans:
+                r = c = 0
+                for k in range(i, n):
+                    if filled[k] >> j & 1:
+                        break
+                    r += 1
+                for k in range(j, m):
+                    if filled[i] >> k & 1:
+                        break
+                    c += 1
+                mx = min(r, c)
+                for x in range(i, i + mx):
+                    for y in range(j, j + mx):
+                        filled[x] |= 1 << y
+                for w in range(mx, 0, -1):
+                    dfs(i, j + w, t + 1)
+                    for k in range(w):
+                        filled[i + w - 1] ^= 1 << (j + k)
+                        if k < w - 1:
+                            filled[i + k] ^= 1 << (j + w - 1)
+
+        ans = n * m
+        filled = [0] * n
+        dfs(0, 0, 0)
+        return ans
+```
+
 ### **Java**
 
 ```java
@@ -142,6 +182,67 @@ class Solution {
             for (int x = i; x < i + mx; ++x) {
                 for (int y = j; y < j + mx; ++y) {
                     filled[x] ^= 1 << y;
+                }
+            }
+        }
+    }
+}
+```
+
+```java
+class Solution {
+    private int n;
+    private int m;
+    private int[] filled;
+    private int ans;
+
+    public int tilingRectangle(int n, int m) {
+        this.n = n;
+        this.m = m;
+        ans = n * m;
+        filled = new int[n];
+        dfs(0, 0, 0);
+        return ans;
+    }
+
+    private void dfs(int i, int j, int t) {
+        if (j == m) {
+            ++i;
+            j = 0;
+        }
+        if (i == n) {
+            ans = t;
+            return;
+        }
+        if ((filled[i] >> j & 1) == 1) {
+            dfs(i, j + 1, t);
+        } else if (t + 1 < ans) {
+            int r = 0, c = 0;
+            for (int k = i; k < n; ++k) {
+                if ((filled[k] >> j & 1) == 1) {
+                    break;
+                }
+                ++r;
+            }
+            for (int k = j; k < m; ++k) {
+                if ((filled[i] >> k & 1) == 1) {
+                    break;
+                }
+                ++c;
+            }
+            int mx = Math.min(r, c);
+            for (int x = i; x < i + mx; ++x) {
+                for (int y = j; y < j + mx; ++y) {
+                    filled[x] |= 1 << y;
+                }
+            }
+            for (int w = mx; w > 0; --w) {
+                dfs(i, j + w, t + 1);
+                for (int k = 0; k < w; ++k) {
+                    filled[i + w - 1] ^= 1 << (j + k);
+                    if (k < w - 1) {
+                        filled[i + k] ^= 1 << (j + w - 1);
+                    }
                 }
             }
         }
@@ -211,6 +312,68 @@ private:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int tilingRectangle(int n, int m) {
+        memset(filled, 0, sizeof(filled));
+        this->n = n;
+        this->m = m;
+        ans = n * m;
+        dfs(0, 0, 0);
+        return ans;
+    }
+
+private:
+    int filled[13];
+    int n, m;
+    int ans;
+
+    void dfs(int i, int j, int t) {
+        if (j == m) {
+            ++i;
+            j = 0;
+        }
+        if (i == n) {
+            ans = t;
+            return;
+        }
+        if (filled[i] >> j & 1) {
+            dfs(i, j + 1, t);
+        } else if (t + 1 < ans) {
+            int r = 0, c = 0;
+            for (int k = i; k < n; ++k) {
+                if (filled[k] >> j & 1) {
+                    break;
+                }
+                ++r;
+            }
+            for (int k = j; k < m; ++k) {
+                if (filled[i] >> k & 1) {
+                    break;
+                }
+                ++c;
+            }
+            int mx = min(r, c);
+            for (int x = i; x < i + mx; ++x) {
+                for (int y = j; y < j + mx; ++y) {
+                    filled[x] |= 1 << y;
+                }
+            }
+            for (int w = mx; w; --w) {
+                dfs(i, j + w, t + 1);
+                for (int k = 0; k < w; ++k) {
+                    filled[i + w - 1] ^= 1 << (j + k);
+                    if (k < w - 1) {
+                        filled[i + k] ^= 1 << (j + w - 1);
+                    }
+                }
+            }
+        }
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -270,6 +433,65 @@ func min(a, b int) int {
 }
 ```
 
+```go
+func tilingRectangle(n int, m int) int {
+	ans := n * m
+	filled := make([]int, n)
+	var dfs func(i, j, t int)
+	dfs = func(i, j, t int) {
+		if j == m {
+			i++
+			j = 0
+		}
+		if i == n {
+			ans = t
+			return
+		}
+		if filled[i]>>j&1 == 1 {
+			dfs(i, j+1, t)
+		} else if t+1 < ans {
+			var r, c int
+			for k := i; k < n; k++ {
+				if filled[k]>>j&1 == 1 {
+					break
+				}
+				r++
+			}
+			for k := j; k < m; k++ {
+				if filled[i]>>k&1 == 1 {
+					break
+				}
+				c++
+			}
+			mx := min(r, c)
+			for x := i; x < i+mx; x++ {
+				for y := j; y < j+mx; y++ {
+					filled[x] |= 1 << y
+				}
+			}
+			for w := mx; w > 0; w-- {
+				dfs(i, j+w, t+1)
+				for k := 0; k < w; k++ {
+					filled[i+w-1] ^= 1 << (j + k)
+					if k < w-1 {
+						filled[i+k] ^= 1 << (j + w - 1)
+					}
+				}
+			}
+		}
+	}
+	dfs(0, 0, 0)
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
 ### **TypeScript**
 
 ```ts
@@ -312,6 +534,57 @@ function tilingRectangle(n: number, m: number): number {
             for (let x = i; x < i + mx; ++x) {
                 for (let y = j; y < j + mx; ++y) {
                     filled[x] ^= 1 << y;
+                }
+            }
+        }
+    };
+    dfs(0, 0, 0);
+    return ans;
+}
+```
+
+```ts
+function tilingRectangle(n: number, m: number): number {
+    let ans = n * m;
+    const filled: number[] = new Array(n).fill(0);
+    const dfs = (i: number, j: number, t: number) => {
+        if (j === m) {
+            ++i;
+            j = 0;
+        }
+        if (i === n) {
+            ans = t;
+            return;
+        }
+        if ((filled[i] >> j) & 1) {
+            dfs(i, j + 1, t);
+        } else if (t + 1 < ans) {
+            let [r, c] = [0, 0];
+            for (let k = i; k < n; ++k) {
+                if ((filled[k] >> j) & 1) {
+                    break;
+                }
+                ++r;
+            }
+            for (let k = j; k < m; ++k) {
+                if ((filled[i] >> k) & 1) {
+                    break;
+                }
+                ++c;
+            }
+            const mx = Math.min(r, c);
+            for (let x = i; x < i + mx; ++x) {
+                for (let y = j; y < j + mx; ++y) {
+                    filled[x] |= 1 << y;
+                }
+            }
+            for (let w = mx; w > 0; --w) {
+                dfs(i, j + w, t + 1);
+                for (let k = 0; k < w; ++k) {
+                    filled[i + w - 1] ^= 1 << (j + k);
+                    if (k < w - 1) {
+                        filled[i + k] ^= 1 << (j + w - 1);
+                    }
                 }
             }
         }
