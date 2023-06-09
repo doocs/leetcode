@@ -78,7 +78,31 @@ The single function was resolved at 200ms with a value of 5.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
+async function promiseAll<T>(functions: (() => Promise<T>)[]): Promise<T[]> {
+    return new Promise<T[]>((resolve, reject) => {
+        let cnt = 0;
+        const ans = new Array(functions.length);
+        for (let i = 0; i < functions.length; ++i) {
+            const f = functions[i];
+            f()
+                .then(res => {
+                    ans[i] = res;
+                    cnt++;
+                    if (cnt === functions.length) {
+                        resolve(ans);
+                    }
+                })
+                .catch(err => {
+                    reject(err);
+                });
+        }
+    });
+}
 
+/**
+ * const promise = promiseAll([() => new Promise(res => res(42))])
+ * promise.then(console.log); // [42]
+ */
 ```
 
 <!-- tabs:end -->
