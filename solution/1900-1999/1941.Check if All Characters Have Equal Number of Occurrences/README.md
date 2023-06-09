@@ -40,6 +40,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：计数**
+
+我们用一个哈希表或一个长度为 $26$ 的数组 $cnt$ 记录字符串 $s$ 中每个字符出现的次数。
+
+接下来遍历 $cnt$ 中的每个值，判断所有非零值是否相等即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 是字符串 $s$ 的长度；而 $C$ 是字符集大小，本题中字符集为小写英文字母，因此 $C=26$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -61,18 +69,17 @@ class Solution:
 class Solution {
     public boolean areOccurrencesEqual(String s) {
         int[] cnt = new int[26];
-        for (char c : s.toCharArray()) {
-            ++cnt[c - 'a'];
+        for (int i = 0; i < s.length(); ++i) {
+            ++cnt[s.charAt(i) - 'a'];
         }
-        int t = 0;
+        int x = 0;
         for (int v : cnt) {
-            if (v == 0) {
-                continue;
-            }
-            if (t == 0) {
-                t = v;
-            } else if (t != v) {
-                return false;
+            if (v > 0) {
+                if (x == 0) {
+                    x = v;
+                } else if (x != v) {
+                    return false;
+                }
             }
         }
         return true;
@@ -86,12 +93,21 @@ class Solution {
 class Solution {
 public:
     bool areOccurrencesEqual(string s) {
-        vector<int> cnt(26);
-        for (char& c : s) ++cnt[c - 'a'];
-        unordered_set<int> ss;
-        for (int& v : cnt)
-            if (v) ss.insert(v);
-        return ss.size() == 1;
+        int cnt[26]{};
+        for (char& c : s) {
+            ++cnt[c - 'a'];
+        }
+        int x = 0;
+        for (int& v : cnt) {
+            if (v) {
+                if (!x) {
+                    x = v;
+                } else if (x != v) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 };
 ```
@@ -100,18 +116,43 @@ public:
 
 ```go
 func areOccurrencesEqual(s string) bool {
-	cnt := make([]int, 26)
+	cnt := [26]int{}
 	for _, c := range s {
 		cnt[c-'a']++
 	}
-	ss := map[int]bool{}
+	x := 0
 	for _, v := range cnt {
-		if v == 0 {
-			continue
+		if v > 0 {
+			if x == 0 {
+				x = v
+			} else if x != v {
+				return false
+			}
 		}
-		ss[v] = true
 	}
-	return len(ss) == 1
+	return true
+}
+```
+
+### **TypeScript**
+
+```ts
+function areOccurrencesEqual(s: string): boolean {
+    const cnt: number[] = new Array(26).fill(0);
+    for (const c of s) {
+        ++cnt[c.charCodeAt(0) - 'a'.charCodeAt(0)];
+    }
+    let x = 0;
+    for (const v of cnt) {
+        if (v) {
+            if (!x) {
+                x = v;
+            } else if (x !== v) {
+                return false;
+            }
+        }
+    }
+    return true;
 }
 ```
 

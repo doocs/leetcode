@@ -1,14 +1,17 @@
 func areOccurrencesEqual(s string) bool {
-	cnt := make([]int, 26)
+	cnt := [26]int{}
 	for _, c := range s {
 		cnt[c-'a']++
 	}
-	ss := map[int]bool{}
+	x := 0
 	for _, v := range cnt {
-		if v == 0 {
-			continue
+		if v > 0 {
+			if x == 0 {
+				x = v
+			} else if x != v {
+				return false
+			}
 		}
-		ss[v] = true
 	}
-	return len(ss) == 1
+	return true
 }
