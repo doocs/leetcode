@@ -151,9 +151,9 @@ func longestCommomSubsequence(arrays [][]int) []int {
 }
 ```
 
-### **PHP**
+### **JavaScript**
 
-```php
+```js
 /**
  * @param {number[][]} arrays
  * @return {number[]}
