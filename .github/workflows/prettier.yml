@@ -23,5 +23,6 @@ jobs:
         uses: creyD/prettier_action@v4.3
         with:
           prettier_options: --write **/*.{js,ts,md}
+          prettier_plugins: '@prettier/plugin-php'
           only_changed: true
           commit_message: "style: format code with prettier"
