@@ -92,6 +92,12 @@ Candidates table:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：窗口函数**
+
+相似题目：
+
+-   [2010. 职员招聘人数 II](/solution/2000-2099/2010.The%20Number%20of%20Seniors%20and%20Juniors%20to%20Join%20the%20Company%20II/README.md)
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -99,7 +105,57 @@ Candidates table:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-
+# Write your MySQL query statement below
+with s as (
+    select
+        employee_id,
+        sum(salary) over(
+            order by
+                salary
+        ) cur
+    from
+        Candidates
+    where
+        experience = 'Senior'
+),
+j as (
+    select
+        employee_id,
+        ifnull(
+            (
+                select
+                    max(cur)
+                from
+                    s
+                where
+                    cur <= 70000
+            ),
+            0
+        ) + sum(salary) over(
+            order by
+                salary
+        ) cur
+    from
+        Candidates
+    where
+        experience = 'Junior'
+)
+select
+    'Senior' experience,
+    count(employee_id) accepted_candidates
+from
+    s
+where
+    cur <= 70000
+union
+all
+select
+    'Junior' experience,
+    count(employee_id) accepted_candidates
+from
+    j
+where
+    cur <= 70000;
 ```
 
 <!-- tabs:end -->
