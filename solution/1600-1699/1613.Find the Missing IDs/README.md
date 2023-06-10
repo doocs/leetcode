@@ -57,12 +57,45 @@ Customers</code> 表:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：递归**
+
+利用 `recursive` 关键字，递归生成 `[1, 100]` 的序列，然后排除已有的 `customer_id`，即可得到结果。
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
-
+# Write your MySQL query statement below
+with recursive t as (
+    select
+        1 as n
+    union
+    all
+    select
+        n + 1
+    from
+        t
+    where
+        n < 100
+)
+select
+    n ids
+from
+    t
+where
+    n < (
+        select
+            max(customer_id)
+        from
+            Customers
+    )
+    and n not in (
+        select
+            customer_id
+        from
+            Customers
+    )
 ```
 
 <!-- tabs:end -->
