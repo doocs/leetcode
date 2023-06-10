@@ -21,7 +21,7 @@ public:
         }
         ll ans = 0;
         for (int i = 0; i < n; ++i) {
-            ans += (ll)(i - left[i]) * (right[i] - i) * arr[i] % mod;
+            ans += (ll) (i - left[i]) * (right[i] - i) * arr[i] % mod;
             ans %= mod;
         }
         return ans;

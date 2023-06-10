@@ -180,7 +180,6 @@ class FileSystem {
     private Trie trie = new Trie(-1);
 
     public FileSystem() {
-
     }
 
     public boolean createPath(String path, int value) {
