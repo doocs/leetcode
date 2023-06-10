@@ -8,7 +8,7 @@ class Solution {
             nums[j++] = pipe;
         }
         for (int i = 0; i < n; ++i) {
-            nums[j++] = new int[]{0, i + 1, wells[i]};
+            nums[j++] = new int[] {0, i + 1, wells[i]};
         }
         Arrays.sort(nums, (a, b) -> a[2] - b[2]);
         p = new int[n + 1];

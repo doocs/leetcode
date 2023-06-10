@@ -4,7 +4,7 @@ class Solution {
         for (int x : nums) {
             if (x % 6 == 0) {
                 s += x;
-                ++n;   
+                ++n;
             }
         }
         return n == 0 ? 0 : s / n;

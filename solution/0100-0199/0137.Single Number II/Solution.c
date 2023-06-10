@@ -7,7 +7,7 @@ int singleNumber(int* nums, int numsSize) {
                 count++;
             }
         }
-        ans |= (uint)(count % 3) << i;
+        ans |= (uint) (count % 3) << i;
     }
     return ans;
 }

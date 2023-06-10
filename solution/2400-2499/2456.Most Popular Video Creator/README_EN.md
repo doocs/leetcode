@@ -82,7 +82,8 @@ class Solution {
             String c = creators[k], i = ids[k];
             long v = views[k];
             cnt.merge(c, v, Long::sum);
-            if (!d.containsKey(c) || views[d.get(c)] < v || (views[d.get(c)] == v && ids[d.get(c)].compareTo(i) > 0)) {
+            if (!d.containsKey(c) || views[d.get(c)] < v
+                || (views[d.get(c)] == v && ids[d.get(c)].compareTo(i) > 0)) {
                 d.put(c, k);
             }
         }

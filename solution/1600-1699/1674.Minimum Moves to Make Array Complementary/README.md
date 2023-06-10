@@ -123,7 +123,7 @@ class Solution {
     public int minMoves(int[] nums, int limit) {
         int n = nums.length;
         int[] d = new int[limit * 2 + 2];
-        for (int i = 0; i<n> > 1; ++i) {
+        for (int i = 0; i < n >> 1; ++i) {
             int a = Math.min(nums[i], nums[n - i - 1]);
             int b = Math.max(nums[i], nums[n - i - 1]);
 
