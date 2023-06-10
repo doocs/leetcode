@@ -51,11 +51,11 @@
 
 我们先按照题目描述，实现函数 $f(s)$，函数返回字符串 $s$ 中按字典序比较最小字母的出现频次。
 
-接下来，我们将 $words$ 中的每个字符串 $s$ 都计算出 $f(s)$，并将其排序，存放在数组 $arr$ 中。
+接下来，我们将 $words$ 中的每个字符串 $w$ 都计算出 $f(w)$，并将其排序，存放在数组 $nums$ 中。
 
-最后，我们遍历 $queries$ 中的每个字符串 $s$，计算 $f(s)$，然后在 $arr$ 中二分查找第一个大于 $f(s)$ 的位置 $i$，则 $arr$ 中下标 $i$ 及其后面的元素都满足 $f(s) < f(W)$，其中 $W$ 表示 $words$ 中的每个字符串，因此当前查询的答案就是 $n - i$。
+然后，我们遍历 $queries$ 中的每个字符串 $q$，在 $nums$ 中二分查找第一个大于 $f(q)$ 的位置 $i$，则 $nums$ 中下标 $i$ 及其后面的元素都满足 $f(q) < f(W)$，那么当前查询的答案就是 $n - i$。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为 $words$ 的长度。
+时间复杂度 $O((n + q) \times M)$，空间复杂度 $O(n)$。其中 $n$ 和 $q$ 分别是数组 $words$ 和 $queries$ 的长度，而 $M$ 是字符串的最大长度。
 
 <!-- tabs:start -->
 
@@ -68,9 +68,7 @@ class Solution:
     def numSmallerByFrequency(self, queries: List[str], words: List[str]) -> List[int]:
         def f(s: str) -> int:
             cnt = Counter(s)
-            for c in ascii_lowercase:
-                if x := cnt[c]:
-                    return x
+            return next(cnt[c] for c in ascii_lowercase if cnt[c])
 
         n = len(words)
         nums = sorted(f(w) for w in words)
