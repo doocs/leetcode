@@ -140,7 +140,7 @@ class BoundedBlockingQueue {
     }
 
     public int dequeue() throws InterruptedException {
-        s2.acquire();;
+        s2.acquire();
         int ans = q.poll();
         s1.release();
         return ans;

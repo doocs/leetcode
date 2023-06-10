@@ -4,7 +4,7 @@ class Solution {
         var ps = new String[n][];
         for (int i = 0; i < n; ++i) {
             var ws = phrases[i].split(" ");
-            ps[i] = new String[]{ws[0], ws[ws.length - 1]};
+            ps[i] = new String[] {ws[0], ws[ws.length - 1]};
         }
         Set<String> s = new HashSet<>();
         for (int i = 0; i < n; ++i) {

@@ -91,7 +91,7 @@ class Solution {
         TreeMap<Integer, List<int[]>> g = new TreeMap<>();
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                g.computeIfAbsent(mat[i][j], k -> new ArrayList<>()).add(new int[]{i, j});
+                g.computeIfAbsent(mat[i][j], k -> new ArrayList<>()).add(new int[] {i, j});
             }
         }
         int[] rowMax = new int[m];

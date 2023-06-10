@@ -37,7 +37,6 @@ public:
         return node->v;
     }
 
-
 private:
     vector<string> split(string& s, char delim) {
         stringstream ss(s);
@@ -55,11 +54,11 @@ public:
     FileSystem() {
         trie = new Trie(-1);
     }
-    
+
     bool createPath(string path, int value) {
         return trie->insert(path, value);
     }
-    
+
     int get(string path) {
         return trie->search(path);
     }
