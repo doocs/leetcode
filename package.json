@@ -16,7 +16,7 @@
     "prettier": "^2.8.8"
   },
   "lint-staged": {
-    "*.{js,ts,md}": "prettier --write",
+    "*.{js,ts,php,md}": "prettier --write",
     "*.py": "black -S"
   }
 }

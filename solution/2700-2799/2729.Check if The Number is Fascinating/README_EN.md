@@ -47,25 +47,65 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def isFascinating(self, n: int) -> bool:
+        s = str(n) + str(2 * n) + str(3 * n)
+        return "".join(sorted(s)) == "123456789"
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public boolean isFascinating(int n) {
+        String s = "" + n + (2 * n) + (3 * n);
+        int[] cnt = new int[10];
+        for (char c : s.toCharArray()) {
+            if (++cnt[c - '0'] > 1) {
+                return false;
+            }
+        }
+        return cnt[0] == 0 && s.length() == 9;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    bool isFascinating(int n) {
+        string s = to_string(n) + to_string(n * 2) + to_string(n * 3);
+        sort(s.begin(), s.end());
+        return s == "123456789";
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func isFascinating(n int) bool {
+	s := strconv.Itoa(n) + strconv.Itoa(n*2) + strconv.Itoa(n*3)
+	cnt := [10]int{}
+	for _, c := range s {
+		cnt[c-'0']++
+		if cnt[c-'0'] > 1 {
+			return false
+		}
+	}
+	return cnt[0] == 0 && len(s) == 9
+}
+```
 
+### **TypeScript**
+
+```ts
+function isFascinating(n: number): boolean {
+    const s = `${n}${n * 2}${n * 3}`;
+    return s.split('').sort().join('') === '123456789';
+}
 ```
 
 ### **...**
