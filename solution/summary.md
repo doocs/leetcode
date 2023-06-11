@@ -2786,3 +2786,7 @@
   - [2730.找到最长的半重复子字符串](/solution/2700-2799/2730.Find%20the%20Longest%20Semi-Repetitive%20Substring/README.md)
   - [2731.移动机器人](/solution/2700-2799/2731.Movement%20of%20Robots/README.md)
   - [2732.找到矩阵中的好子集](/solution/2700-2799/2732.Find%20a%20Good%20Subset%20of%20the%20Matrix/README.md)
+  - [2733.既不是最小值也不是最大值](/solution/2700-2799/2733.Neither%20Minimum%20nor%20Maximum/README.md)
+  - [2734.执行子串操作后的字典序最小字符串](/solution/2700-2799/2734.Lexicographically%20Smallest%20String%20After%20Substring%20Operation/README.md)
+  - [2735.收集巧克力](/solution/2700-2799/2735.Collecting%20Chocolates/README.md)
+  - [2736.最大和查询](/solution/2700-2799/2736.Maximum%20Sum%20Queries/README.md)

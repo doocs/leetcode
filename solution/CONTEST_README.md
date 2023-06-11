@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 349 场周赛(2023-06-11 10:30, 90 分钟) 参赛人数 3713
+
+- [2733. 既不是最小值也不是最大值](/solution/2700-2799/2733.Neither%20Minimum%20nor%20Maximum/README.md)
+- [2734. 执行子串操作后的字典序最小字符串](/solution/2700-2799/2734.Lexicographically%20Smallest%20String%20After%20Substring%20Operation/README.md)
+- [2735. 收集巧克力](/solution/2700-2799/2735.Collecting%20Chocolates/README.md)
+- [2736. 最大和查询](/solution/2700-2799/2736.Maximum%20Sum%20Queries/README.md)
+
 #### 第 106 场双周赛(2023-06-10 22:30, 90 分钟) 参赛人数 2346
 
 - [2729. 判断一个数是否迷人](/solution/2700-2799/2729.Check%20if%20The%20Number%20is%20Fascinating/README.md)
