@@ -1,4 +1,4 @@
-# [2720. Popularity Percentage](https://leetcode.cn/problems/popularity-percentage)
+# [2720. 受欢迎度百分比](https://leetcode.cn/problems/popularity-percentage)
 
 [English Version](/solution/2700-2799/2720.Popularity%20Percentage/README_EN.md)
 
@@ -6,31 +6,32 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Friends</code></p>
+<p>表：<code>Friends</code></p>
 
 <pre>
 +-------------+------+
-| Column Name | Type |
+| 列名        | 类型  |
 +-------------+------+
 | user1       | int  |
 | user2       | int  |
 +-------------+------+
-(user1, user2) is the primary key of this table.
-Each row contains information about friendship where user1 and user2 are friends.
+(user1, user2) 是该表的主键。 
+每一行包含关于用户1和用户2是朋友的信息。 
 </pre>
 
-<p>Write an SQL query to find the popularity percentage for each user on Meta/Facebook. The popularity percentage is defined as the total number of friends the user has divided by the total number of users on the platform, then converted into a percentage by multiplying by 100, <strong>rounded to 2 decimal places</strong>.</p>
+<p>编写一条 SQL 查询，找出 Meta/Facebook 平台上每个用户的受欢迎度的百分比。受欢迎度百分比定义为用户拥有的朋友总数除以平台上的总用户数，然后乘以 100，并&nbsp;<strong>四舍五入保留 2 位小数&nbsp;</strong>。</p>
 
-<p>Return <em>the result table ordered by</em> <code>user1</code> <em>in <strong>ascending</strong> order.</em></p>
+<p>返回按照 <code>user1</code> <strong>升序</strong> 排序的结果表。</p>
 
-<p>The query result format is in the following example.</p>
+<p>查询结果的格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>Input:</strong>&nbsp;
-Friends table:
+<strong>输入：</strong>&nbsp;
+Friends 表:
 +-------+-------+
 | user1 | user2 | 
 +-------+-------+
@@ -44,7 +45,7 @@ Friends table:
 | 8 &nbsp; &nbsp; | 3&nbsp; &nbsp; &nbsp;| 
 | 3 &nbsp; &nbsp; | 9 &nbsp; &nbsp; |  
 +-------+-------+
-<strong>Output:</strong>&nbsp;
+<b>输出：</b>
 +-------+-----------------------+
 | user1 | percentage_popularity |
 +-------+-----------------------+
@@ -58,19 +59,18 @@ Friends table:
 | 8     | 11.11 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
 | 9     | 11.11 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
 +-------+-----------------------+
-<strong>Explanation:</strong>&nbsp;
-There are total 9 users on the platform.
-- User &quot;1&quot; has friendships with 2, 3, 4, 5 and 6. Therefore, the percentage popularity for user 1 would be calculated as (5/9) * 100 = 55.56.
-- User &quot;2&quot; has friendships with 1, 6 and 7. Therefore, the percentage popularity for user 2 would be calculated as (3/9) * 100 = 33.33.
-- User &quot;3&quot; has friendships with 1, 8 and 9. Therefore, the percentage popularity for user 3 would be calculated as (3/9) * 100 = 33.33.
-- User &quot;4&quot; has friendships with 1. Therefore, the percentage popularity for user 4 would be calculated as (1/9) * 100 = 11.11.
-- User &quot;5&quot; has friendships with 1. Therefore, the percentage popularity for user 5 would be calculated as (1/9) * 100 = 11.11.
-- User &quot;6&quot; has friendships with 1 and 2. Therefore, the percentage popularity for user 6 would be calculated as (2/9) * 100 = 22.22.
-- User &quot;7&quot; has friendships with 2. Therefore, the percentage popularity for user 7 would be calculated as (1/9) * 100 = 11.11.
-- User &quot;8&quot; has friendships with 3. Therefore, the percentage popularity for user 8 would be calculated as (1/9) * 100 = 11.11.
-- User &quot;9&quot; has friendships with 3. Therefore, the percentage popularity for user 9 would be calculated as (1/9) * 100 = 11.11.
-user1 is sorted in ascending order.
-</pre>
+<b>解释：</b>
+平台上总共有 9 个用户。
+- 用户 "1" 与 2、3、4、5 和 6 是朋友。因此，用户 1 的受欢迎度百分比计算为（5/9）* 100 = 55.56。
+- 用户 "2" 与 1、6 和 7 是朋友。因此，用户 2 的受欢迎度百分比计算为（3/9）* 100 = 33.33。
+- 用户 "3" 与 1、8 和 9 是朋友。因此，用户 3 的受欢迎度百分比计算为（3/9）* 100 = 33.33。
+- 用户 "4" 与 1 是朋友。因此，用户 4 的受欢迎度百分比计算为（1/9）* 100 = 11.11。
+- 用户 "5" 与 1 是朋友。因此，用户 5 的受欢迎度百分比计算为（1/9）* 100 = 11.11。
+- 用户 "6" 与 1 和 2 是朋友。因此，用户 6 的受欢迎度百分比计算为（2/9）* 100 = 22.22。
+- 用户 "7" 与 2 是朋友。因此，用户 7 的受欢迎度百分比计算为（1/9）* 100 = 11.11。
+- 用户 "8" 与 3 是朋友。因此，用户 8 的受欢迎度百分比计算为（1/9）* 100 = 11.11。
+- 用户 "9" 与 3 是朋友。因此，用户 9 的受欢迎度百分比计算为（1/9）* 100 = 11.11。 
+user1 按升序排序。</pre>
 
 ## 解法
 

@@ -12,7 +12,7 @@
 
 <p>Each of the remaining rows corresponds to an object in&nbsp;<code>arr</code>. Each value in the matrix corresponds to a value in an object. If a given object doesn&#39;t contain a value for a given column, the cell should contain an empty string&nbsp;<code>&quot;&quot;</code>.</p>
 
-<p>The colums in the matrix should be in <strong>lexographically ascending</strong> order.</p>
+<p>The columns in the matrix should be in <strong>lexographically ascending</strong> order.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

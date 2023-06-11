@@ -1,4 +1,4 @@
-# [2715. Execute Cancellable Function With Delay](https://leetcode.cn/problems/execute-cancellable-function-with-delay)
+# [2715. 执行可取消的延迟函数](https://leetcode.cn/problems/execute-cancellable-function-with-delay)
 
 [English Version](/solution/2700-2799/2715.Execute%20Cancellable%20Function%20With%20Delay/README_EN.md)
 
@@ -6,45 +6,47 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Given a function <code>fn</code>, an array or arguments&nbsp;<code>args</code>, and a timeout&nbsp;<code>t</code>&nbsp;in milliseconds, return a cancel function <code>cancelFn</code>.</p>
+<p>现给定一个函数 <code>fn</code>&nbsp;，一个参数数组 <code>args</code> 和一个以毫秒为单位的超时时间 <code>t</code> ，返回一个取消函数 <code>cancelFn</code> 。</p>
 
-<p>After a delay of&nbsp;<code>t</code>,&nbsp;<code>fn</code>&nbsp;should be called with <code>args</code> passed as parameters <strong>unless</strong> <code>cancelFn</code> was called first. In that case,&nbsp;<code>fn</code> should never be called.</p>
+<p>在经过 <code>t</code> 毫秒的延迟后，<strong>除非</strong> 先调用 <code>cancelFn</code> ，否则&nbsp;<code>fn</code> 应该以 <code>args</code> 作为参数被调用。并且在这种情况下，<code>fn</code> 不应该被调用。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> fn = (x) =&gt; x * 5, args = [2], t = 20, cancelTime = 50
-<strong>Output:</strong> [{&quot;time&quot;: 20, &quot;returned&quot;: 10}]
-<strong>Explanation:</strong> 
-const cancel = cancellable(fn, [2], 20); // fn(2) called at t=20ms
+<b>输入：</b>fn = (x) =&gt; x * 5, args = [2], t = 20, cancelTime = 50
+<b>输出：</b>[{"time": 20, "returned": 10}]
+<b>解释：</b>
+const cancel = cancellable(fn, [2], 20); // // 在 t=20ms 时调用 fn(2)
 setTimeout(cancel, 50);
 
-the cancelTime (50ms) is after the delay time (20ms), so fn(2) should be called at t=20ms. The value returned from fn is 10.
+cancelTime（50ms）在延迟时间（20ms）之后，所以 fn(2) 应该在 t=20ms 时调用。fn 的返回值是 10。
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<strong>Input:</strong> fn = (x) =&gt; x**2, args = [2], t = 100, cancelTime = 50
-<strong>Output:</strong> []
-<strong>Explanation:</strong> fn(2) was never called because cancelTime (50ms) is before the delay time (100ms).
+<b>输入：</b>fn = (x) =&gt; x**2, args = [2], t = 100, cancelTime = 50
+<b>输出：</b>[]
+<b>解释：</b>fn(2) 从未被调用，因为 cancelTime（50ms）在延迟时间（100ms）之前。
 </pre>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <pre>
-<strong>Input:</strong> fn = (x1, x2) =&gt; x1 * x2, args = [2,4], t = 30, cancelTime = 100
-<strong>Output:</strong> [{&quot;time&quot;: 30, &quot;returned&quot;: 8}]
-<strong>Explanation:</strong> fn(2, 4) was called at t=30ms because cancelTime &gt; t.
+<b>输入：</b>fn = (x1, x2) =&gt; x1 * x2, args = [2,4], t = 30, cancelTime = 100
+<b>输出：</b>[{"time": 30, "returned": 8}]
+<b>解释：</b>fn(2) 从未被调用，因为 cancelTime（50ms）在延迟时间（100ms）之前。
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>fn is a function</code></li>
-	<li><code>args is a valid JSON array</code></li>
+	<li><code>fn 是一个函数</code></li>
+	<li><code>args 是一个有效的 JSON 数组</code></li>
 	<li><code>1 &lt;= args.length &lt;= 10</code></li>
 	<li><code><font face="monospace">20 &lt;= t &lt;= 1000</font></code></li>
 	<li><code><font face="monospace">10 &lt;= cancelT &lt;= 1000</font></code></li>

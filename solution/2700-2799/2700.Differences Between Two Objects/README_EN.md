@@ -52,7 +52,7 @@ obj2 = {
 &nbsp;   &quot;a&quot;: [null, 2]
 &nbsp; }
 }
-<strong>Explanation:</strong> The keys &quot;a&quot;, &quot;v&quot;, and &quot;z&quot; all had changes applied. &quot;a&quot; was chnaged from 1 to 2. &quot;v&quot; was changed from 3 to 4. &quot;z&quot; had a change applied to a child object. &quot;z.a&quot; was changed from null to 2.
+<strong>Explanation:</strong> The keys &quot;a&quot;, &quot;v&quot;, and &quot;z&quot; all had changes applied. &quot;a&quot; was changed from 1 to 2. &quot;v&quot; was changed from 3 to 4. &quot;z&quot; had a change applied to a child object. &quot;z.a&quot; was changed from null to 2.
 </pre>
 
 <p><strong>Example 3:</strong></p>

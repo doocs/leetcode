@@ -6,9 +6,9 @@
 
 <!-- 这里写题目描述 -->
 
-<p>请你编写一个函数，检查给定的对象是否是给定类或超类的实例。</p>
+<p>请你编写一个函数，检查给定的值是否是给定类或超类的实例。</p>
 
-<p>可以传递给函数的数据类型没有限制。</p>
+<p>可以传递给函数的数据类型没有限制。例如，值或类可能是&nbsp; <code>undefined</code> 。</p>
 
 <p>&nbsp;</p>
 
@@ -28,7 +28,7 @@
 <strong>解释：</strong>
 class Animal {};
 class Dog extends Animal {};
-checkIfInstance(new Dog(), Animal); // true
+checkIfInstanceOf(new Dog(), Animal); // true
 
 Dog 是 Animal 的子类。因此，Dog 对象同时是 Dog 和 Animal 的实例。</pre>
 

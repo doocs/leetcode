@@ -1185,7 +1185,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  1174  |  [Immediate Food Delivery II](/solution/1100-1199/1174.Immediate%20Food%20Delivery%20II/README_EN.md)  |  `Database`  |  Medium  |    |
 |  1175  |  [Prime Arrangements](/solution/1100-1199/1175.Prime%20Arrangements/README_EN.md)  |  `Math`  |  Easy  |  Weekly Contest 152  |
 |  1176  |  [Diet Plan Performance](/solution/1100-1199/1176.Diet%20Plan%20Performance/README_EN.md)  |  `Array`,`Sliding Window`  |  Easy  |  Weekly Contest 152  |
-|  1177  |  [Can Make Palindrome from Substring](/solution/1100-1199/1177.Can%20Make%20Palindrome%20from%20Substring/README_EN.md)  |  `Bit Manipulation`,`Hash Table`,`String`,`Prefix Sum`  |  Medium  |  Weekly Contest 152  |
+|  1177  |  [Can Make Palindrome from Substring](/solution/1100-1199/1177.Can%20Make%20Palindrome%20from%20Substring/README_EN.md)  |  `Bit Manipulation`,`Array`,`Hash Table`,`String`,`Prefix Sum`  |  Medium  |  Weekly Contest 152  |
 |  1178  |  [Number of Valid Words for Each Puzzle](/solution/1100-1199/1178.Number%20of%20Valid%20Words%20for%20Each%20Puzzle/README_EN.md)  |  `Bit Manipulation`,`Trie`,`Array`,`Hash Table`,`String`  |  Hard  |  Weekly Contest 152  |
 |  1179  |  [Reformat Department Table](/solution/1100-1199/1179.Reformat%20Department%20Table/README_EN.md)  |  `Database`  |  Easy  |    |
 |  1180  |  [Count Substrings with Only One Distinct Letter](/solution/1100-1199/1180.Count%20Substrings%20with%20Only%20One%20Distinct%20Letter/README_EN.md)  |  `Math`,`String`  |  Easy  |  Biweekly Contest 8  |
@@ -2636,15 +2636,15 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2625  |  [Flatten Deeply Nested Array](/solution/2600-2699/2625.Flatten%20Deeply%20Nested%20Array/README_EN.md)  |    |  Medium  |    |
 |  2626  |  [Array Reduce Transformation](/solution/2600-2699/2626.Array%20Reduce%20Transformation/README_EN.md)  |    |  Easy  |    |
 |  2627  |  [Debounce](/solution/2600-2699/2627.Debounce/README_EN.md)  |    |  Medium  |    |
-|  2628  |  [JSON Deep Equal](/solution/2600-2699/2628.JSON%20Deep%20Equal/README_EN.md)  |    |  Medium  |    |
+|  2628  |  [JSON Deep Equal](/solution/2600-2699/2628.JSON%20Deep%20Equal/README_EN.md)  |    |  Medium  |  🔒  |
 |  2629  |  [Function Composition](/solution/2600-2699/2629.Function%20Composition/README_EN.md)  |    |  Easy  |    |
 |  2630  |  [Memoize II](/solution/2600-2699/2630.Memoize%20II/README_EN.md)  |    |  Hard  |    |
 |  2631  |  [Group By](/solution/2600-2699/2631.Group%20By/README_EN.md)  |    |  Medium  |    |
-|  2632  |  [Curry](/solution/2600-2699/2632.Curry/README_EN.md)  |    |  Medium  |    |
-|  2633  |  [Convert Object to JSON String](/solution/2600-2699/2633.Convert%20Object%20to%20JSON%20String/README_EN.md)  |    |  Medium  |    |
+|  2632  |  [Curry](/solution/2600-2699/2632.Curry/README_EN.md)  |    |  Medium  |  🔒  |
+|  2633  |  [Convert Object to JSON String](/solution/2600-2699/2633.Convert%20Object%20to%20JSON%20String/README_EN.md)  |    |  Medium  |  🔒  |
 |  2634  |  [Filter Elements from Array](/solution/2600-2699/2634.Filter%20Elements%20from%20Array/README_EN.md)  |    |  Easy  |    |
 |  2635  |  [Apply Transform Over Each Element in Array](/solution/2600-2699/2635.Apply%20Transform%20Over%20Each%20Element%20in%20Array/README_EN.md)  |    |  Easy  |    |
-|  2636  |  [Promise Pool](/solution/2600-2699/2636.Promise%20Pool/README_EN.md)  |    |  Medium  |    |
+|  2636  |  [Promise Pool](/solution/2600-2699/2636.Promise%20Pool/README_EN.md)  |    |  Medium  |  🔒  |
 |  2637  |  [Promise Time Limit](/solution/2600-2699/2637.Promise%20Time%20Limit/README_EN.md)  |    |  Easy  |    |
 |  2638  |  [Count the Number of K-Free Subsets](/solution/2600-2699/2638.Count%20the%20Number%20of%20K-Free%20Subsets/README_EN.md)  |  `Array`,`Dynamic Programming`,`Sorting`  |  Medium  |  🔒  |
 |  2639  |  [Find the Width of Columns of a Grid](/solution/2600-2699/2639.Find%20the%20Width%20of%20Columns%20of%20a%20Grid/README_EN.md)  |  `Array`,`Matrix`  |  Easy  |  Biweekly Contest 102  |
@@ -2683,8 +2683,8 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2672  |  [Number of Adjacent Elements With the Same Color](/solution/2600-2699/2672.Number%20of%20Adjacent%20Elements%20With%20the%20Same%20Color/README_EN.md)  |  `Array`  |  Medium  |  Weekly Contest 344  |
 |  2673  |  [Make Costs of Paths Equal in a Binary Tree](/solution/2600-2699/2673.Make%20Costs%20of%20Paths%20Equal%20in%20a%20Binary%20Tree/README_EN.md)  |  `Greedy`,`Tree`,`Array`,`Dynamic Programming`,`Binary Tree`  |  Medium  |  Weekly Contest 344  |
 |  2674  |  [Split a Circular Linked List](/solution/2600-2699/2674.Split%20a%20Circular%20Linked%20List/README_EN.md)  |    |  Medium  |  🔒  |
-|  2675  |  [Array of Objects to Matrix](/solution/2600-2699/2675.Array%20of%20Objects%20to%20Matrix/README_EN.md)  |    |  Medium  |    |
-|  2676  |  [Throttle](/solution/2600-2699/2676.Throttle/README_EN.md)  |    |  Medium  |    |
+|  2675  |  [Array of Objects to Matrix](/solution/2600-2699/2675.Array%20of%20Objects%20to%20Matrix/README_EN.md)  |    |  Medium  |  🔒  |
+|  2676  |  [Throttle](/solution/2600-2699/2676.Throttle/README_EN.md)  |    |  Medium  |  🔒  |
 |  2677  |  [Chunk Array](/solution/2600-2699/2677.Chunk%20Array/README_EN.md)  |    |  Easy  |    |
 |  2678  |  [Number of Senior Citizens](/solution/2600-2699/2678.Number%20of%20Senior%20Citizens/README_EN.md)  |  `Array`,`String`  |  Easy  |  Biweekly Contest 104  |
 |  2679  |  [Sum in a Matrix](/solution/2600-2699/2679.Sum%20in%20a%20Matrix/README_EN.md)  |  `Array`,`Matrix`,`Sorting`,`Simulation`,`Heap (Priority Queue)`  |  Medium  |  Biweekly Contest 104  |
@@ -2708,7 +2708,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2697  |  [Lexicographically Smallest Palindrome](/solution/2600-2699/2697.Lexicographically%20Smallest%20Palindrome/README_EN.md)  |  `Two Pointers`,`String`  |  Easy  |  Weekly Contest 346  |
 |  2698  |  [Find the Punishment Number of an Integer](/solution/2600-2699/2698.Find%20the%20Punishment%20Number%20of%20an%20Integer/README_EN.md)  |  `Recursion`,`Math`  |  Medium  |  Weekly Contest 346  |
 |  2699  |  [Modify Graph Edge Weights](/solution/2600-2699/2699.Modify%20Graph%20Edge%20Weights/README_EN.md)  |  `Graph`,`Shortest Path`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 346  |
-|  2700  |  [Differences Between Two Objects](/solution/2700-2799/2700.Differences%20Between%20Two%20Objects/README_EN.md)  |    |  Medium  |    |
+|  2700  |  [Differences Between Two Objects](/solution/2700-2799/2700.Differences%20Between%20Two%20Objects/README_EN.md)  |    |  Medium  |  🔒  |
 |  2701  |  [Consecutive Transactions with Increasing Amounts](/solution/2700-2799/2701.Consecutive%20Transactions%20with%20Increasing%20Amounts/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
 |  2702  |  [Minimum Operations to Make Numbers Non-positive](/solution/2700-2799/2702.Minimum%20Operations%20to%20Make%20Numbers%20Non-positive/README_EN.md)  |  `Array`,`Binary Search`  |  Hard  |  🔒  |
 |  2703  |  [Return Length of Arguments Passed](/solution/2700-2799/2703.Return%20Length%20of%20Arguments%20Passed/README_EN.md)  |    |  Easy  |    |
@@ -2722,12 +2722,12 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2711  |  [Difference of Number of Distinct Values on Diagonals](/solution/2700-2799/2711.Difference%20of%20Number%20of%20Distinct%20Values%20on%20Diagonals/README_EN.md)  |  `Array`,`Hash Table`,`Matrix`  |  Medium  |  Weekly Contest 347  |
 |  2712  |  [Minimum Cost to Make All Characters Equal](/solution/2700-2799/2712.Minimum%20Cost%20to%20Make%20All%20Characters%20Equal/README_EN.md)  |  `Greedy`,`String`,`Dynamic Programming`  |  Medium  |  Weekly Contest 347  |
 |  2713  |  [Maximum Strictly Increasing Cells in a Matrix](/solution/2700-2799/2713.Maximum%20Strictly%20Increasing%20Cells%20in%20a%20Matrix/README_EN.md)  |  `Memoization`,`Array`,`Binary Search`,`Dynamic Programming`,`Matrix`,`Sorting`  |  Hard  |  Weekly Contest 347  |
-|  2714  |  [Find Shortest Path with K Hops](/solution/2700-2799/2714.Find%20Shortest%20Path%20with%20K%20Hops/README_EN.md)  |    |  Hard  |  🔒  |
+|  2714  |  [Find Shortest Path with K Hops](/solution/2700-2799/2714.Find%20Shortest%20Path%20with%20K%20Hops/README_EN.md)  |  `Graph`,`Shortest Path`,`Heap (Priority Queue)`  |  Hard  |  🔒  |
 |  2715  |  [Execute Cancellable Function With Delay](/solution/2700-2799/2715.Execute%20Cancellable%20Function%20With%20Delay/README_EN.md)  |    |  Easy  |    |
-|  2716  |  [Minimize String Length](/solution/2700-2799/2716.Minimize%20String%20Length/README_EN.md)  |    |  Medium  |  Weekly Contest 348  |
-|  2717  |  [Semi-Ordered Permutation](/solution/2700-2799/2717.Semi-Ordered%20Permutation/README_EN.md)  |    |  Easy  |  Weekly Contest 348  |
-|  2718  |  [Sum of Matrix After Queries](/solution/2700-2799/2718.Sum%20of%20Matrix%20After%20Queries/README_EN.md)  |    |  Medium  |  Weekly Contest 348  |
-|  2719  |  [Count of Integers](/solution/2700-2799/2719.Count%20of%20Integers/README_EN.md)  |    |  Hard  |  Weekly Contest 348  |
+|  2716  |  [Minimize String Length](/solution/2700-2799/2716.Minimize%20String%20Length/README_EN.md)  |  `Hash Table`,`String`  |  Easy  |  Weekly Contest 348  |
+|  2717  |  [Semi-Ordered Permutation](/solution/2700-2799/2717.Semi-Ordered%20Permutation/README_EN.md)  |  `Array`,`Simulation`  |  Easy  |  Weekly Contest 348  |
+|  2718  |  [Sum of Matrix After Queries](/solution/2700-2799/2718.Sum%20of%20Matrix%20After%20Queries/README_EN.md)  |  `Array`,`Hash Table`  |  Medium  |  Weekly Contest 348  |
+|  2719  |  [Count of Integers](/solution/2700-2799/2719.Count%20of%20Integers/README_EN.md)  |  `Math`,`String`,`Dynamic Programming`  |  Hard  |  Weekly Contest 348  |
 |  2720  |  [Popularity Percentage](/solution/2700-2799/2720.Popularity%20Percentage/README_EN.md)  |    |  Hard  |  🔒  |
 |  2721  |  [Execute Asynchronous Functions in Parallel](/solution/2700-2799/2721.Execute%20Asynchronous%20Functions%20in%20Parallel/README_EN.md)  |    |  Medium  |    |
 |  2722  |  [Join Two Arrays by ID](/solution/2700-2799/2722.Join%20Two%20Arrays%20by%20ID/README_EN.md)  |    |  Medium  |    |
@@ -2737,6 +2737,10 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2726  |  [Calculator with Method Chaining](/solution/2700-2799/2726.Calculator%20with%20Method%20Chaining/README_EN.md)  |    |  Easy  |    |
 |  2727  |  [Is Object Empty](/solution/2700-2799/2727.Is%20Object%20Empty/README_EN.md)  |    |  Easy  |    |
 |  2728  |  [Count Houses in a Circular Street](/solution/2700-2799/2728.Count%20Houses%20in%20a%20Circular%20Street/README_EN.md)  |    |  Easy  |  🔒  |
+|  2729  |  [Check if The Number is Fascinating](/solution/2700-2799/2729.Check%20if%20The%20Number%20is%20Fascinating/README_EN.md)  |    |  Easy  |  Biweekly Contest 106  |
+|  2730  |  [Find the Longest Semi-Repetitive Substring](/solution/2700-2799/2730.Find%20the%20Longest%20Semi-Repetitive%20Substring/README_EN.md)  |    |  Medium  |  Biweekly Contest 106  |
+|  2731  |  [Movement of Robots](/solution/2700-2799/2731.Movement%20of%20Robots/README_EN.md)  |    |  Medium  |  Biweekly Contest 106  |
+|  2732  |  [Find a Good Subset of the Matrix](/solution/2700-2799/2732.Find%20a%20Good%20Subset%20of%20the%20Matrix/README_EN.md)  |    |  Hard  |  Biweekly Contest 106  |
 
 ## Copyright
 

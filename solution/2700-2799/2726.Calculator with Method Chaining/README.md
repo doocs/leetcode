@@ -1,4 +1,4 @@
-# [2726. Calculator with Method Chaining](https://leetcode.cn/problems/calculator-with-method-chaining)
+# [2726. 使用方法链的计算器](https://leetcode.cn/problems/calculator-with-method-chaining)
 
 [English Version](/solution/2700-2799/2726.Calculator%20with%20Method%20Chaining/README_EN.md)
 
@@ -6,60 +6,62 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Design a <code>Calculator</code> class. The class should provide the&nbsp;mathematical operations of&nbsp;addition, subtraction, multiplication, division, and exponentiation. It should also allow consecutive operations to be performed using method chaining.&nbsp;The <code>Calculator</code> class constructor should accept a number&nbsp;which serves as the&nbsp;initial value of <code>result</code>.</p>
+<p>设计一个类 <code>Calculator</code> 。该类应提供加法、减法、乘法、除法和乘方等数学运算功能。同时，它还应支持连续操作的方法链式调用。<code>Calculator</code> 类的构造函数应接受一个数字作为 <code>result</code> 的初始值。</p>
 
-<p>Your <font face="monospace"><code>Calculator</code>&nbsp;</font>class should have the following methods:</p>
+<p>你的 <code>Calculator</code> 类应包含以下方法：</p>
 
 <ul>
-	<li><code>add</code> - This method adds the given number <code>value</code> to the&nbsp;<code>result</code> and returns the updated <code>Calculator</code>.</li>
-	<li><code>subtract</code> -&nbsp;This method subtracts the given number <code>value</code>&nbsp;from the&nbsp;<code>result</code> and returns the updated <code>Calculator</code>.</li>
-	<li><code>multiply</code> -&nbsp;This method multiplies the <code>result</code>&nbsp; by the given number <code>value</code> and returns the updated <code>Calculator</code>.</li>
-	<li><code>divide</code> -&nbsp;This method divides the <code>result</code> by the given number <code>value</code> and returns the updated <code>Calculator</code>. If the passed value is <code>0</code>, an error <code>&quot;Division by zero is not allowed&quot;</code> should be thrown.</li>
-	<li><code>power</code> -&nbsp;This method raises the&nbsp;<code>result</code> to the power of the given number <code>value</code> and returns the updated <code>Calculator</code>.</li>
-	<li><code>getResult</code> -&nbsp;This method returns the <code>result</code>.</li>
+	<li><code>add</code> - 将给定的数字 <code>value</code> 与 <code>result</code> 相加，并返回更新后的 <code>Calculator</code> 对象。</li>
+	<li><code>subtract</code> - 从 <code>result</code> 中减去给定的数字 <code>value</code>&nbsp;，并返回更新后的 <code>Calculator</code> 对象。</li>
+	<li><code>multiply</code> - 将 <code>result</code> 乘以给定的数字 <code>value</code> ，并返回更新后的&nbsp;<code>Calculator</code> 对象。</li>
+	<li><code>divide</code> - 将 <code>result</code> 除以给定的数字 <code>value</code> ，并返回更新后的&nbsp;<code>Calculator</code> 对象。如果传入的值为 <code>0</code> ，则抛出错误 <code>"Division by zero is not allowed"</code> 。</li>
+	<li><code>power</code> - 将 <code>result</code> 的值乘以给定的数字 <code>value</code> ，并返回更新后的&nbsp;<code>Calculator</code> 对象。</li>
+	<li><code>getResult</code> - 返回 <code>result</code> 的值。</li>
 </ul>
 
-<p>Solutions within&nbsp;<code>10<sup>-5</sup></code>&nbsp;of the actual result are considered correct.</p>
+<p>结果与实际结果相差在 <code>10<sup>-5</sup></code><sup>&nbsp;</sup>范围内的解被认为是正确的。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><b>示例 1：</b></p>
 
 <pre>
-<strong>Input:</strong> actions = [&quot;Calculator&quot;, &quot;add&quot;, &quot;subtract&quot;, &quot;getResult&quot;], values = [10, 5, 7]
-<strong>Output:</strong> 8
-<strong>Explanation:</strong> 
+<b>输入：</b>actions = ["Calculator", "add", "subtract", "getResult"], values = [10, 5, 7]
+<b>输出：</b>8
+<b>解释：</b>
 new Calculator(10).add(5).subtract(7).getResult() // 10 + 5 - 7 = 8
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<strong>Input:</strong> actions = [&quot;Calculator&quot;, &quot;multiply&quot;, &quot;power&quot;, &quot;getResult&quot;], values = [2, 5, 2]
-<strong>Output:</strong> 100
-<strong>Explanation:</strong> 
+<b>输入：</b>actions = ["Calculator", "multiply", "power", "getResult"], values = [2, 5, 2]
+<b>输出：</b>100
+<b>解释：</b>
 new Calculator(2).multiply(5).power(2).getResult() // (2 * 5) ^ 2 = 100
 </pre>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <pre>
-<strong>Input:</strong> actions = [&quot;Calculator&quot;, &quot;divide&quot;, &quot;getResult&quot;], values = [20, 0]
-<strong>Output:</strong> &quot;Division by zero is not allowed&quot;
-<strong>Explanation:</strong> 
+<b>输入：</b>actions = ["Calculator", "divide", "getResult"], values = [20, 0]
+<b>输出：</b>"Division by zero is not allowed"
+<b>解释：</b>
 new Calculator(20).divide(0).getResult() // 20 / 0 
 
-The error should be thrown because we cannot divide by zero.
+由于不能除以零，因此应抛出错误。
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>2 &lt;= actions.length &lt;= 2 * 10<sup>4</sup></code></li>
 	<li><code>1 &lt;= values.length &lt;= 2 * 10<sup>4</sup></code><code>&nbsp;- 1</code></li>
-	<li><code>actions[i] is one of &quot;Calculator&quot;, &quot;add&quot;, &quot;subtract&quot;, &quot;multiply&quot;, &quot;divide&quot;, &quot;power&quot;, and&nbsp;&quot;getResult&quot;</code></li>
-	<li><code><font face="monospace">Last action is always &quot;getResult&quot;</font></code></li>
-	<li><code><font face="monospace">values is a JSON array of numbers</font></code></li>
+	<li><code>actions[i] 是 "Calculator", "add", "subtract", "multiply", "divide", "power", 和 "getResult" 其中的元素</code></li>
+	<li><code><font face="monospace">最后一个操作总是&nbsp;"getResult"</font></code></li>
+	<li><code><font face="monospace">values </font>是一个数字的 JSON 数组</code></li>
 </ul>
 
 ## 解法

@@ -1,4 +1,4 @@
-# [2727. Is Object Empty](https://leetcode.cn/problems/is-object-empty)
+# [2727. 判断对象是否为空](https://leetcode.cn/problems/is-object-empty)
 
 [English Version](/solution/2700-2799/2727.Is%20Object%20Empty/README_EN.md)
 
@@ -6,49 +6,51 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Given an object or an array, return if it is empty.</p>
+<p>给定一个对象或数组，判断它是否为空。</p>
 
 <ul>
-	<li>An empty object contains no key-value pairs.</li>
-	<li>An empty array contains no elements.</li>
+	<li>一个空对象不包含任何键值对。</li>
+	<li>一个空数组不包含任何元素。</li>
 </ul>
 
-<p>You may assume the object or array is the output of&nbsp;<code>JSON.parse</code>.</p>
+<p>你可以假设对象或数组是通过 <code>JSON.parse</code> 解析得到的。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>Input:</strong> obj = {&quot;x&quot;: 5, &quot;y&quot;: 42}
-<strong>Output:</strong> false
-<strong>Explanation:</strong> The object has 2 key-value pairs so it is not empty.
+<b>输入：</b>obj = {"x": 5, "y": 42}
+<b>输出：</b>false
+<b>解释：</b>The object has 2 key-value pairs so it is not empty.
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<strong>Input:</strong> obj = {}
-<strong>Output:</strong> true
-<strong>Explanation:</strong> The object doesn&#39;t have any key-value pairs so it is empty.
+<b>输入：</b>obj = {}
+<b>输出：</b>true
+<b>解释：</b>The object doesn't have any key-value pairs so it is empty.
 </pre>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <pre>
-<strong>Input:</strong> obj = [null, false, 0]
-<strong>Output:</strong> false
-<strong>Explanation:</strong> The array has 3 elements so it is not empty.
+<b>输入：</b>obj = [null, false, 0]
+<b>输出：</b>false
+<b>解释：</b>The array has 3 elements so it is not empty.
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li>&nbsp;<code>2 &lt;= JSON.stringify(obj).length &lt;= 10<sup>5</sup></code></li>
 </ul>
 
 <p>&nbsp;</p>
-<strong>Can you solve it in O(1) time?</strong>
+<strong>你可以在 O(1) 时间复杂度内解决这个问题吗？</strong>
 
 ## 解法
 

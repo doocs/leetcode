@@ -1187,7 +1187,7 @@
 |  1174  |  [即时食物配送 II](/solution/1100-1199/1174.Immediate%20Food%20Delivery%20II/README.md)  |  `数据库`  |  中等  |    |
 |  1175  |  [质数排列](/solution/1100-1199/1175.Prime%20Arrangements/README.md)  |  `数学`  |  简单  |  第 152 场周赛  |
 |  1176  |  [健身计划评估](/solution/1100-1199/1176.Diet%20Plan%20Performance/README.md)  |  `数组`,`滑动窗口`  |  简单  |  第 152 场周赛  |
-|  1177  |  [构建回文串检测](/solution/1100-1199/1177.Can%20Make%20Palindrome%20from%20Substring/README.md)  |  `位运算`,`哈希表`,`字符串`,`前缀和`  |  中等  |  第 152 场周赛  |
+|  1177  |  [构建回文串检测](/solution/1100-1199/1177.Can%20Make%20Palindrome%20from%20Substring/README.md)  |  `位运算`,`数组`,`哈希表`,`字符串`,`前缀和`  |  中等  |  第 152 场周赛  |
 |  1178  |  [猜字谜](/solution/1100-1199/1178.Number%20of%20Valid%20Words%20for%20Each%20Puzzle/README.md)  |  `位运算`,`字典树`,`数组`,`哈希表`,`字符串`  |  困难  |  第 152 场周赛  |
 |  1179  |  [重新格式化部门表](/solution/1100-1199/1179.Reformat%20Department%20Table/README.md)  |  `数据库`  |  简单  |    |
 |  1180  |  [统计只含单一字母的子串](/solution/1100-1199/1180.Count%20Substrings%20with%20Only%20One%20Distinct%20Letter/README.md)  |  `数学`,`字符串`  |  简单  |  第 8 场双周赛  |
@@ -2638,15 +2638,15 @@
 |  2625  |  [扁平化嵌套数组](/solution/2600-2699/2625.Flatten%20Deeply%20Nested%20Array/README.md)  |    |  中等  |    |
 |  2626  |  [数组归约运算](/solution/2600-2699/2626.Array%20Reduce%20Transformation/README.md)  |    |  简单  |    |
 |  2627  |  [函数防抖](/solution/2600-2699/2627.Debounce/README.md)  |    |  中等  |    |
-|  2628  |  [完全相等的 JSON 字符串](/solution/2600-2699/2628.JSON%20Deep%20Equal/README.md)  |    |  中等  |    |
+|  2628  |  [完全相等的 JSON 字符串](/solution/2600-2699/2628.JSON%20Deep%20Equal/README.md)  |    |  中等  |  🔒  |
 |  2629  |  [复合函数](/solution/2600-2699/2629.Function%20Composition/README.md)  |    |  简单  |    |
 |  2630  |  [记忆函数 II](/solution/2600-2699/2630.Memoize%20II/README.md)  |    |  困难  |    |
 |  2631  |  [分组](/solution/2600-2699/2631.Group%20By/README.md)  |    |  中等  |    |
-|  2632  |  [柯里化](/solution/2600-2699/2632.Curry/README.md)  |    |  中等  |    |
-|  2633  |  [将对象转换为 JSON 字符串](/solution/2600-2699/2633.Convert%20Object%20to%20JSON%20String/README.md)  |    |  中等  |    |
+|  2632  |  [柯里化](/solution/2600-2699/2632.Curry/README.md)  |    |  中等  |  🔒  |
+|  2633  |  [将对象转换为 JSON 字符串](/solution/2600-2699/2633.Convert%20Object%20to%20JSON%20String/README.md)  |    |  中等  |  🔒  |
 |  2634  |  [过滤数组中的元素](/solution/2600-2699/2634.Filter%20Elements%20from%20Array/README.md)  |    |  简单  |    |
 |  2635  |  [转换数组中的每个元素](/solution/2600-2699/2635.Apply%20Transform%20Over%20Each%20Element%20in%20Array/README.md)  |    |  简单  |    |
-|  2636  |  [Promise 对象池](/solution/2600-2699/2636.Promise%20Pool/README.md)  |    |  中等  |    |
+|  2636  |  [Promise 对象池](/solution/2600-2699/2636.Promise%20Pool/README.md)  |    |  中等  |  🔒  |
 |  2637  |  [有时间限制的 Promise 对象](/solution/2600-2699/2637.Promise%20Time%20Limit/README.md)  |    |  简单  |    |
 |  2638  |  [统计 K-Free 子集的总数](/solution/2600-2699/2638.Count%20the%20Number%20of%20K-Free%20Subsets/README.md)  |  `数组`,`动态规划`,`排序`  |  中等  |  🔒  |
 |  2639  |  [查询网格图中每一列的宽度](/solution/2600-2699/2639.Find%20the%20Width%20of%20Columns%20of%20a%20Grid/README.md)  |  `数组`,`矩阵`  |  简单  |  第 102 场双周赛  |
@@ -2685,8 +2685,8 @@
 |  2672  |  [有相同颜色的相邻元素数目](/solution/2600-2699/2672.Number%20of%20Adjacent%20Elements%20With%20the%20Same%20Color/README.md)  |  `数组`  |  中等  |  第 344 场周赛  |
 |  2673  |  [使二叉树所有路径值相等的最小代价](/solution/2600-2699/2673.Make%20Costs%20of%20Paths%20Equal%20in%20a%20Binary%20Tree/README.md)  |  `贪心`,`树`,`数组`,`动态规划`,`二叉树`  |  中等  |  第 344 场周赛  |
 |  2674  |  [拆分循环链表](/solution/2600-2699/2674.Split%20a%20Circular%20Linked%20List/README.md)  |    |  中等  |  🔒  |
-|  2675  |  [将对象数组转换为矩阵](/solution/2600-2699/2675.Array%20of%20Objects%20to%20Matrix/README.md)  |    |  中等  |    |
-|  2676  |  [节流](/solution/2600-2699/2676.Throttle/README.md)  |    |  中等  |    |
+|  2675  |  [将对象数组转换为矩阵](/solution/2600-2699/2675.Array%20of%20Objects%20to%20Matrix/README.md)  |    |  中等  |  🔒  |
+|  2676  |  [节流](/solution/2600-2699/2676.Throttle/README.md)  |    |  中等  |  🔒  |
 |  2677  |  [分块数组](/solution/2600-2699/2677.Chunk%20Array/README.md)  |    |  简单  |    |
 |  2678  |  [老人的数目](/solution/2600-2699/2678.Number%20of%20Senior%20Citizens/README.md)  |  `数组`,`字符串`  |  简单  |  第 104 场双周赛  |
 |  2679  |  [矩阵中的和](/solution/2600-2699/2679.Sum%20in%20a%20Matrix/README.md)  |  `数组`,`矩阵`,`排序`,`模拟`,`堆（优先队列）`  |  中等  |  第 104 场双周赛  |
@@ -2710,7 +2710,7 @@
 |  2697  |  [字典序最小回文串](/solution/2600-2699/2697.Lexicographically%20Smallest%20Palindrome/README.md)  |  `双指针`,`字符串`  |  简单  |  第 346 场周赛  |
 |  2698  |  [求一个整数的惩罚数](/solution/2600-2699/2698.Find%20the%20Punishment%20Number%20of%20an%20Integer/README.md)  |  `递归`,`数学`  |  中等  |  第 346 场周赛  |
 |  2699  |  [修改图中的边权](/solution/2600-2699/2699.Modify%20Graph%20Edge%20Weights/README.md)  |  `图`,`最短路`,`堆（优先队列）`  |  困难  |  第 346 场周赛  |
-|  2700  |  [两个对象之间的差异](/solution/2700-2799/2700.Differences%20Between%20Two%20Objects/README.md)  |    |  中等  |    |
+|  2700  |  [两个对象之间的差异](/solution/2700-2799/2700.Differences%20Between%20Two%20Objects/README.md)  |    |  中等  |  🔒  |
 |  2701  |  [连续递增交易](/solution/2700-2799/2701.Consecutive%20Transactions%20with%20Increasing%20Amounts/README.md)  |  `数据库`  |  困难  |  🔒  |
 |  2702  |  [使数字变为非正数的最小操作次数](/solution/2700-2799/2702.Minimum%20Operations%20to%20Make%20Numbers%20Non-positive/README.md)  |  `数组`,`二分查找`  |  困难  |  🔒  |
 |  2703  |  [返回传递的参数的长度](/solution/2700-2799/2703.Return%20Length%20of%20Arguments%20Passed/README.md)  |    |  简单  |    |
@@ -2724,21 +2724,25 @@
 |  2711  |  [对角线上不同值的数量差](/solution/2700-2799/2711.Difference%20of%20Number%20of%20Distinct%20Values%20on%20Diagonals/README.md)  |  `数组`,`哈希表`,`矩阵`  |  中等  |  第 347 场周赛  |
 |  2712  |  [使所有字符相等的最小成本](/solution/2700-2799/2712.Minimum%20Cost%20to%20Make%20All%20Characters%20Equal/README.md)  |  `贪心`,`字符串`,`动态规划`  |  中等  |  第 347 场周赛  |
 |  2713  |  [矩阵中严格递增的单元格数](/solution/2700-2799/2713.Maximum%20Strictly%20Increasing%20Cells%20in%20a%20Matrix/README.md)  |  `记忆化搜索`,`数组`,`二分查找`,`动态规划`,`矩阵`,`排序`  |  困难  |  第 347 场周赛  |
-|  2714  |  [找到最短路径的 K 次跨越](/solution/2700-2799/2714.Find%20Shortest%20Path%20with%20K%20Hops/README.md)  |    |  困难  |  🔒  |
-|  2715  |  [Execute Cancellable Function With Delay](/solution/2700-2799/2715.Execute%20Cancellable%20Function%20With%20Delay/README.md)  |    |  简单  |    |
-|  2716  |  [最小化字符串长度](/solution/2700-2799/2716.Minimize%20String%20Length/README.md)  |    |  中等  |  第 348 场周赛  |
-|  2717  |  [半有序排列](/solution/2700-2799/2717.Semi-Ordered%20Permutation/README.md)  |    |  简单  |  第 348 场周赛  |
-|  2718  |  [查询后矩阵的和](/solution/2700-2799/2718.Sum%20of%20Matrix%20After%20Queries/README.md)  |    |  中等  |  第 348 场周赛  |
-|  2719  |  [统计整数数目](/solution/2700-2799/2719.Count%20of%20Integers/README.md)  |    |  困难  |  第 348 场周赛  |
-|  2720  |  [Popularity Percentage](/solution/2700-2799/2720.Popularity%20Percentage/README.md)  |    |  困难  |  🔒  |
-|  2721  |  [Execute Asynchronous Functions in Parallel](/solution/2700-2799/2721.Execute%20Asynchronous%20Functions%20in%20Parallel/README.md)  |    |  中等  |    |
-|  2722  |  [Join Two Arrays by ID](/solution/2700-2799/2722.Join%20Two%20Arrays%20by%20ID/README.md)  |    |  中等  |    |
-|  2723  |  [Add Two Promises](/solution/2700-2799/2723.Add%20Two%20Promises/README.md)  |    |  简单  |    |
-|  2724  |  [Sort By](/solution/2700-2799/2724.Sort%20By/README.md)  |    |  简单  |    |
-|  2725  |  [Interval Cancellation](/solution/2700-2799/2725.Interval%20Cancellation/README.md)  |    |  简单  |    |
-|  2726  |  [Calculator with Method Chaining](/solution/2700-2799/2726.Calculator%20with%20Method%20Chaining/README.md)  |    |  简单  |    |
-|  2727  |  [Is Object Empty](/solution/2700-2799/2727.Is%20Object%20Empty/README.md)  |    |  简单  |    |
-|  2728  |  [Count Houses in a Circular Street](/solution/2700-2799/2728.Count%20Houses%20in%20a%20Circular%20Street/README.md)  |    |  简单  |  🔒  |
+|  2714  |  [找到最短路径的 K 次跨越](/solution/2700-2799/2714.Find%20Shortest%20Path%20with%20K%20Hops/README.md)  |  `图`,`最短路`,`堆（优先队列）`  |  困难  |  🔒  |
+|  2715  |  [执行可取消的延迟函数](/solution/2700-2799/2715.Execute%20Cancellable%20Function%20With%20Delay/README.md)  |    |  简单  |    |
+|  2716  |  [最小化字符串长度](/solution/2700-2799/2716.Minimize%20String%20Length/README.md)  |  `哈希表`,`字符串`  |  简单  |  第 348 场周赛  |
+|  2717  |  [半有序排列](/solution/2700-2799/2717.Semi-Ordered%20Permutation/README.md)  |  `数组`,`模拟`  |  简单  |  第 348 场周赛  |
+|  2718  |  [查询后矩阵的和](/solution/2700-2799/2718.Sum%20of%20Matrix%20After%20Queries/README.md)  |  `数组`,`哈希表`  |  中等  |  第 348 场周赛  |
+|  2719  |  [统计整数数目](/solution/2700-2799/2719.Count%20of%20Integers/README.md)  |  `数学`,`字符串`,`动态规划`  |  困难  |  第 348 场周赛  |
+|  2720  |  [受欢迎度百分比](/solution/2700-2799/2720.Popularity%20Percentage/README.md)  |    |  困难  |  🔒  |
+|  2721  |  [并行执行异步函数](/solution/2700-2799/2721.Execute%20Asynchronous%20Functions%20in%20Parallel/README.md)  |    |  中等  |    |
+|  2722  |  [根据 ID 合并两个数组](/solution/2700-2799/2722.Join%20Two%20Arrays%20by%20ID/README.md)  |    |  中等  |    |
+|  2723  |  [添加两个 Promise 对象](/solution/2700-2799/2723.Add%20Two%20Promises/README.md)  |    |  简单  |    |
+|  2724  |  [排序方式](/solution/2700-2799/2724.Sort%20By/README.md)  |    |  简单  |    |
+|  2725  |  [间隔取消](/solution/2700-2799/2725.Interval%20Cancellation/README.md)  |    |  简单  |    |
+|  2726  |  [使用方法链的计算器](/solution/2700-2799/2726.Calculator%20with%20Method%20Chaining/README.md)  |    |  简单  |    |
+|  2727  |  [判断对象是否为空](/solution/2700-2799/2727.Is%20Object%20Empty/README.md)  |    |  简单  |    |
+|  2728  |  [计算一个环形街道上的房屋数量](/solution/2700-2799/2728.Count%20Houses%20in%20a%20Circular%20Street/README.md)  |    |  简单  |  🔒  |
+|  2729  |  [判断一个数是否迷人](/solution/2700-2799/2729.Check%20if%20The%20Number%20is%20Fascinating/README.md)  |    |  简单  |  第 106 场双周赛  |
+|  2730  |  [找到最长的半重复子字符串](/solution/2700-2799/2730.Find%20the%20Longest%20Semi-Repetitive%20Substring/README.md)  |    |  中等  |  第 106 场双周赛  |
+|  2731  |  [移动机器人](/solution/2700-2799/2731.Movement%20of%20Robots/README.md)  |    |  中等  |  第 106 场双周赛  |
+|  2732  |  [找到矩阵中的好子集](/solution/2700-2799/2732.Find%20a%20Good%20Subset%20of%20the%20Matrix/README.md)  |    |  困难  |  第 106 场双周赛  |
 
 ## 版权
 

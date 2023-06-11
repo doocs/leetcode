@@ -1,4 +1,4 @@
-# [2728. Count Houses in a Circular Street](https://leetcode.cn/problems/count-houses-in-a-circular-street)
+# [2728. 计算一个环形街道上的房屋数量](https://leetcode.cn/problems/count-houses-in-a-circular-street)
 
 [English Version](/solution/2700-2799/2728.Count%20Houses%20in%20a%20Circular%20Street/README_EN.md)
 
@@ -6,45 +6,46 @@
 
 <!-- 这里写题目描述 -->
 
-<p>You are given an object <code>street</code> of class <code>Street</code> that represents a circular street and a positive integer <code>k</code> which represents a maximum bound for the number of houses in that street (in other words, the number of houses is less than or equal to <code>k</code>). Houses&#39; doors could be open or closed initially.</p>
+<p>给定一个代表环形街道的类 <code>Street</code> 和一个正整数 <code>k</code>，表示街道上房屋的最大数量（也就是说房屋数量不超过 <code>k</code>&nbsp;）。每个房屋的门初始时可以是开着的也可以是关着的。</p>
 
-<p>Initially, you are standing in front of a door to a house on this street. Your task is to count the number of houses in the street.</p>
+<p>刚开始，你站在一座房子的门前。你的任务是计算街道上的房屋数量。</p>
 
-<p>The class <code>Street</code> contains the following functions which may help you:</p>
+<p><code>Street</code> 类包含以下函数：</p>
 
 <ul>
-	<li><code>void openDoor()</code>: Open the door of the house you are in front of.</li>
-	<li><code>void closeDoor()</code>: Close the door of the house you are in front of.</li>
-	<li><code>boolean isDoorOpen()</code>: Returns <code>true</code> if the door of the current house is open and <code>false</code> otherwise.</li>
-	<li><code>void moveRight()</code>: Move to the right house.</li>
-	<li><code>void moveLeft()</code>: Move to the left house.</li>
+	<li><code>void openDoor()</code> ：打开当前房屋的门。</li>
+	<li><code>void closeDoor()</code> ：关闭当前房屋的门。</li>
+	<li><code>boolean isDoorOpen()</code> ：如果当前房屋的门是开着的返回 <code>true</code> ，否则返回 <code>false</code> 。</li>
+	<li><code>void moveRight()</code> ：向右移动到下一座房屋。</li>
+	<li><code>void moveLeft()</code> ：向左移动到上一座房屋。</li>
 </ul>
 
-<p>Return <code>ans</code> <em>which represents the number of houses on this street.</em></p>
+<p>返回 <code>ans</code>，它表示街道上的房屋数量。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>Input:</strong> street = [0,0,0,0], k = 10
-<strong>Output:</strong> 4
-<strong>Explanation:</strong> There are 4 houses, and all their doors are closed. 
-The number of houses is less than k, which is 10.</pre>
+<b>输入：</b>street = [0,0,0,0], k = 10
+<b>输出：</b>4
+<b>解释：</b>街道上有 4 座房屋，它们的门都是关着的。
+房屋数量小于 k，即 10。</pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<strong>Input:</strong> street = [1,0,1,1,0], k = 5
-<strong>Output:</strong> 5
-<strong>Explanation:</strong> There are 5 houses, and the doors of the 1st, 3rd, and 4th house (moving in the right direction) are open, and the rest are closed.
-The number of houses is equal to k, which is 5.
+<b>输入：</b>street = [1,0,1,1,0], k = 5
+<b>输出：</b>5
+<b>解释：</b>街道上有 5 座房屋，向右移动时第 1、3 和 4 座房屋的门是开着的，其余的门都是关着的。房屋数量等于 k，即 5。
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li><code>n == number of houses</code></li>
+	<li><code>n&nbsp; 是房屋数量</code></li>
 	<li><code>1 &lt;= n &lt;= k &lt;= 10<sup>3</sup></code></li>
 </ul>
 

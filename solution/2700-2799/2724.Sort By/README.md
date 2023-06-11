@@ -1,4 +1,4 @@
-# [2724. Sort By](https://leetcode.cn/problems/sort-by)
+# [2724. 排序方式](https://leetcode.cn/problems/sort-by)
 
 [English Version](/solution/2700-2799/2724.Sort%20By/README_EN.md)
 
@@ -6,41 +6,43 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Given an array <code>arr</code> and a function <code>fn</code>, return a sorted array <code>sortedArr</code>. You can assume&nbsp;<code>fn</code>&nbsp;only returns numbers and those numbers determine the sort order of&nbsp;<code>sortedArr</code>. <code>sortedArray</code> must be sorted in <strong>ascending order</strong> by <code>fn</code> output.</p>
+<p>给定一个数组 <code>arr</code> 和一个函数 <code>fn</code>，返回一个排序后的数组 <code>sortedArr</code>。你可以假设 <code>fn</code> 只返回数字，并且这些数字决定了 <code>sortedArr</code> 的排序顺序。<code>sortedArr</code> 必须按照 <code>fn</code> 的输出值&nbsp;<strong>升序</strong> 排序。</p>
 
-<p>You may assume that <code>fn</code> will never duplicate numbers for a given array.</p>
-
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-
-<pre>
-<strong>Input:</strong> arr = [5, 4, 1, 2, 3], fn = (x) =&gt; x
-<strong>Output:</strong> [1, 2, 3, 4, 5]
-<strong>Explanation:</strong> fn simply returns the number passed to it so the array is sorted in ascending order.
-</pre>
-
-<p><strong class="example">Example 2:</strong></p>
-
-<pre>
-<strong>Input:</strong> arr = [{&quot;x&quot;: 1}, {&quot;x&quot;: 0}, {&quot;x&quot;: -1}], fn = (d) =&gt; d.x
-<strong>Output:</strong> [{&quot;x&quot;: -1}, {&quot;x&quot;: 0}, {&quot;x&quot;: 1}]
-<strong>Explanation:</strong> fn returns the value for the &quot;x&quot; key. So the array is sorted based on that value.
-</pre>
-
-<p><strong class="example">Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> arr = [[3, 4], [5, 2], [10, 1]], fn = (x) =&gt; x[1]
-<strong>Output:</strong> [[10, 1], [5, 2], [3, 4]]
-<strong>Explanation:</strong> arr is sorted in ascending order by number at index=1.&nbsp;
-</pre>
+<p>你可以假设对于给定的数组，<code>fn</code> 不会返回重复的数字。</p>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
+
+<pre>
+<b>输入：</b>arr = [5, 4, 1, 2, 3], fn = (x) =&gt; x
+<b>输出：</b>[1, 2, 3, 4, 5]
+<b>解释：</b>fn 只是返回传入的数字，因此数组按升序排序。
+</pre>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<pre>
+<b>输入：</b>arr = [{"x": 1}, {"x": 0}, {"x": -1}], fn = (d) =&gt; d.x
+<b>输出：</b>[{"x": -1}, {"x": 0}, {"x": 1}]
+<b>解释：</b>fn 返回 "x" 键的值，因此数组根据该值排序。
+</pre>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<pre>
+<b>输入：</b>arr = [[3, 4], [5, 2], [10, 1]], fn = (x) =&gt; x[1]
+<b>输出：</b>[[10, 1], [5, 2], [3, 4]]
+<b>解释：</b>数组按照索引为 1 处的数字升序排序。
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>arr is a valid JSON array</code></li>
-	<li><code>fn is a function that returns a number</code></li>
+	<li><code>arr 是一个有效的 JSON 数组</code></li>
+	<li><code>fn 是一个函数，返回一个数字</code></li>
 	<li><code>1 &lt;=&nbsp;arr.length &lt;= 5 * 10<sup>5</sup></code></li>
 </ul>
 

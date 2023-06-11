@@ -25,7 +25,7 @@
 <strong>Explanation:</strong>
 class Animal {};
 class Dog extends Animal {};
-checkIfInstance(new Dog(), Animal); // true
+checkIfInstanceOf(new Dog(), Animal); // true
 
 Dog is a subclass of Animal. Therefore, a Dog object is an instance of both Dog and Animal.</pre>
 

@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 106 场双周赛(2023-06-10 22:30, 90 分钟) 参赛人数 2346
+
+- [2729. 判断一个数是否迷人](/solution/2700-2799/2729.Check%20if%20The%20Number%20is%20Fascinating/README.md)
+- [2730. 找到最长的半重复子字符串](/solution/2700-2799/2730.Find%20the%20Longest%20Semi-Repetitive%20Substring/README.md)
+- [2731. 移动机器人](/solution/2700-2799/2731.Movement%20of%20Robots/README.md)
+- [2732. 找到矩阵中的好子集](/solution/2700-2799/2732.Find%20a%20Good%20Subset%20of%20the%20Matrix/README.md)
+
 #### 第 348 场周赛(2023-06-04 10:30, 90 分钟) 参赛人数 3909
 
 - [2716. 最小化字符串长度](/solution/2700-2799/2716.Minimize%20String%20Length/README.md)

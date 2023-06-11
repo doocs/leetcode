@@ -34,7 +34,7 @@ emitter.emit(&quot;firstEvent&quot;); // [5, 6], returns the output of cb1 and c
 <pre>
 <strong>Input:</strong> actions = [&quot;EventEmitter&quot;, &quot;subscribe&quot;, &quot;emit&quot;, &quot;emit&quot;], values = [[], [&quot;firstEvent&quot;, &quot;function cb1(...args) { return args.join(&#39;,&#39;); }&quot;], [&quot;firstEvent&quot;, [1,2,3]], [&quot;firstEvent&quot;, [3,4,6]]]
 <strong>Output:</strong> [[],[&quot;subscribed&quot;],[&quot;emitted&quot;,[&quot;1,2,3&quot;]],[&quot;emitted&quot;,[&quot;3,4,6&quot;]]]
-<strong>Explanation: </strong>Note that the emit method should be able to accept an OPTIONAL array of arguents.
+<strong>Explanation: </strong>Note that the emit method should be able to accept an OPTIONAL array of arguments.
 
 const emitter = new EventEmitter();
 emitter.subscribe(&quot;firstEvent, function cb1(...args) { return args.join(&#39;,&#39;); });

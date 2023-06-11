@@ -20,7 +20,7 @@
 <p><strong class="example">Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> values = [1,2,3,7]
+<strong>Input:</strong> stoneValue = [1,2,3,7]
 <strong>Output:</strong> &quot;Bob&quot;
 <strong>Explanation:</strong> Alice will always lose. Her best move will be to take three piles and the score become 6. Now the score of Bob is 7 and Bob wins.
 </pre>
@@ -28,7 +28,7 @@
 <p><strong class="example">Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> values = [1,2,3,-9]
+<strong>Input:</strong> stoneValue = [1,2,3,-9]
 <strong>Output:</strong> &quot;Alice&quot;
 <strong>Explanation:</strong> Alice must choose all the three piles at the first move to win and leave Bob with negative score.
 If Alice chooses one pile her score will be 1 and the next move Bob&#39;s score becomes 5. In the next move, Alice will take the pile with value = -9 and lose.
@@ -39,7 +39,7 @@ Remember that both play optimally so here Alice will choose the scenario that ma
 <p><strong class="example">Example 3:</strong></p>
 
 <pre>
-<strong>Input:</strong> values = [1,2,3,6]
+<strong>Input:</strong> stoneValue = [1,2,3,6]
 <strong>Output:</strong> &quot;Tie&quot;
 <strong>Explanation:</strong> Alice cannot win this game. She can end the game in a draw if she decided to choose all the first three piles, otherwise she will lose.
 </pre>

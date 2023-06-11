@@ -6,11 +6,18 @@
 
 <!-- 这里写题目描述 -->
 
-<p>请你编写一个函数，该函数接受一个整数数组参数 <code>arr</code> 和一个过滤函数 <code>fn</code>，并返回一个过滤后元素数量较少或元素数量相等的新数组。</p>
+<p>给定一个整数数组&nbsp;<code>arr</code> 和一个过滤函数 <code>fn</code>，并返回一个过滤后的数组 <code>filteredArr</code> 。</p>
 
-<p>返回的数组应该只包含通过过滤函数&nbsp;<code>fn(arr[i]， i)</code> 计算后为真值的元素。</p>
+<p><code>fn</code> 函数接受一个或两个参数：</p>
 
-<p>请你在不使用内置函数&nbsp;<code>Array.filter</code>&nbsp;的前提下解决该问题。</p>
+<ul>
+	<li><code>arr[i]</code> - <code>arr</code> 中的数字</li>
+	<li><code>i</code> - <code>arr[i]</code> 的索引</li>
+</ul>
+
+<p><code>filteredArr</code> 应该只包含使表达式 <code>fn(arr[i], i)</code> 的值为 <strong>真值</strong> 的 <code>arr</code> 中的元素。<strong>真值</strong> 是指 <code>Boolean(value)</code>&nbsp;返回参数为&nbsp;<code>true</code> 的值。</p>
+
+<p>请在不使用内置的 Array.filter 方法的情况下解决该问题。</p>
 
 <p>&nbsp;</p>
 

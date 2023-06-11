@@ -6,9 +6,9 @@
 
 <p>Creating clones of immutable objects with minor alterations can be a tedious process. Write a class&nbsp;<code>ImmutableHelper</code>&nbsp;that serves as a tool to help with this requirement. The constructor accepts an immutable object&nbsp;<code>obj</code>&nbsp;which will be a JSON object or array.</p>
 
-<p>The class has a single method&nbsp;<code>produce</code>&nbsp;which&nbsp;accepts a&nbsp;function&nbsp;<code>mutator</code>. The function returns a copy of&nbsp;<code>obj</code>&nbsp;with those mutations applied.</p>
+<p>The class has a single method&nbsp;<code>produce</code>&nbsp;which&nbsp;accepts a&nbsp;function&nbsp;<code>mutator</code>. The function returns a new object which is similar to the original except it has&nbsp;those mutations applied.</p>
 
-<p><code>mutator</code>&nbsp;accepts a&nbsp;<strong>proxied</strong>&nbsp;version of&nbsp;<code>obj</code>. A user of this function can (appear to) mutate this object, but the original object&nbsp;<code>obj</code>&nbsp;is not actually being effected.</p>
+<p><code>mutator</code>&nbsp;accepts a&nbsp;<strong>proxied</strong>&nbsp;version of&nbsp;<code>obj</code>. A user of this function can (appear to) mutate this object, but the original object&nbsp;<code>obj</code>&nbsp;should&nbsp;not actually be&nbsp;effected.</p>
 
 <p>For example, a user could write code like this:</p>
 
@@ -31,7 +31,7 @@ console.log(newObj); // {&quot;x&quot;: 6}</pre>
 	<li>It will never set keys to objects (<code>proxy.x = {}</code>)</li>
 </ul>
 
-<p><strong>Note on how the solution will be tested:</strong>&nbsp;the solution validator will only analyze&nbsp;differences between what was returned and the original&nbsp;<code>obj</code>. Doing a full comparison would be too computationally expensive.</p>
+<p><strong>Note on how the solution will be tested:</strong>&nbsp;the solution validator will only analyze&nbsp;differences between what was returned and the original&nbsp;<code>obj</code>. Doing a full comparison would be too computationally expensive. Also, any mutations to the original object will result in a wrong answer.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

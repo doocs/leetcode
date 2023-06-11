@@ -25,6 +25,13 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Biweekly Contest 106
+
+- [2729. Check if The Number is Fascinating](/solution/2700-2799/2729.Check%20if%20The%20Number%20is%20Fascinating/README_EN.md)
+- [2730. Find the Longest Semi-Repetitive Substring](/solution/2700-2799/2730.Find%20the%20Longest%20Semi-Repetitive%20Substring/README_EN.md)
+- [2731. Movement of Robots](/solution/2700-2799/2731.Movement%20of%20Robots/README_EN.md)
+- [2732. Find a Good Subset of the Matrix](/solution/2700-2799/2732.Find%20a%20Good%20Subset%20of%20the%20Matrix/README_EN.md)
+
 #### Weekly Contest 348
 
 - [2716. Minimize String Length](/solution/2700-2799/2716.Minimize%20String%20Length/README_EN.md)

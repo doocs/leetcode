@@ -8,7 +8,7 @@
 
 <p>创建带有微小修改的不可变对象的克隆副本是一个繁琐的过程。请你编写一个名为 <code>ImmutableHelper</code> 的类，作为满足这一要求的工具。构造函数接受一个不可变对象 <code>obj</code> ，该对象将是一个 JSON 对象或数组。</p>
 
-<p>该类有一个名为 <code>produce</code> 的方法，它接受一个名为 <code>mutator</code> 的函数。该函数返回应用这些变化的 <code>obj</code> 的副本。</p>
+<p>该类有一个名为 <code>produce</code> 的方法，它接受一个名为 <code>mutator</code> 的函数。该函数返回一个新的对象，它与原始对象相似，但应用了这些变化。</p>
 
 <p><code>mutator</code> 函数接受 <code>obj</code> 的 <strong>代理</strong> 版本。函数的使用者可以（看起来）对该对象进行修改，但原始对象 <code>obj</code> 实际上没有被改变。</p>
 
@@ -33,7 +33,7 @@ console.log(newObj); // {"x": 6}</pre>
 	<li>它永远不会将键设置为对象（ <code>proxy.x = {}</code> ）。</li>
 </ul>
 
-<p><strong>关于如何测试解决方案的说明：</strong>解决方案验证器仅分析返回结果与原始 <code>obj</code> 之间的差异。进行完全比较的计算开销太大。</p>
+<p><strong>关于如何测试解决方案的说明：</strong>解决方案验证器仅分析返回结果与原始 <code>obj</code> 之间的差异。进行完全比较的计算开销太大。此外，对原始对象进行的任何变更都将导致答案错误。</p>
 
 <p>&nbsp;</p>
 
