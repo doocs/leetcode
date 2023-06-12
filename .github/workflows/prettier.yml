@@ -15,12 +15,10 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: ${{ github.head_ref }}
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
 
       - name: Prettify code
         uses: creyD/prettier_action@v4.3
         with:
           prettier_options: --write **/*.{js,ts,php,md}
           prettier_plugins: '@prettier/plugin-php'
-          only_changed: true
           commit_message: "style: format code with prettier"
