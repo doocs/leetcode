@@ -50,25 +50,104 @@ Thus, the total cost will become (1 + 5 + 1 + 5 + 1) = 13. We can prove that thi
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minCost(self, nums: List[int], x: int) -> int:
+        n = len(nums)
+        f = [[0] * n for _ in range(n)]
+        for i, v in enumerate(nums):
+            f[i][0] = v
+            for j in range(1, n):
+                f[i][j] = min(f[i][j - 1], nums[(i + j) % n])
+        ans = inf
+        for j in range(n):
+            cost = sum(f[i][j] for i in range(n)) + x * j
+            ans = min(ans, cost)
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public long minCost(int[] nums, int x) {
+        int n = nums.length;
+        int[][] f = new int[n][n];
+        for (int i = 0; i < n; ++i) {
+            f[i][0] = nums[i];
+            for (int j = 1; j < n; ++j) {
+                f[i][j] = Math.min(f[i][j - 1], nums[(i + j) % n]);
+            }
+        }
+        long ans = 1L << 60;
+        for (int j = 0; j < n; ++j) {
+            long cost = 1L * j * x;
+            for (int i = 0; i < n; ++i) {
+                cost += f[i][j];
+            }
+            ans = Math.min(ans, cost);
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    long long minCost(vector<int>& nums, int x) {
+        int n = nums.size();
+        int f[n][n];
+        for (int i = 0; i < n; ++i) {
+            f[i][0] = nums[i];
+            for (int j = 1; j < n; ++j) {
+                f[i][j] = min(f[i][j - 1], nums[(i + j) % n]);
+            }
+        }
+        long long ans = 1LL << 60;
+        for (int j = 0; j < n; ++j) {
+            long long cost = 1LL * j * x;
+            for (int i = 0; i < n; ++i) {
+                cost += f[i][j];
+            }
+            ans = min(ans, cost);
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minCost(nums []int, x int) int64 {
+	n := len(nums)
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, n)
+		f[i][0] = nums[i]
+		for j := 1; j < n; j++ {
+			f[i][j] = min(f[i][j-1], nums[(i+j)%n])
+		}
+	}
+	ans := 1 << 60
+	for j := 0; j < n; j++ {
+		cost := x * j
+		for i := range nums {
+			cost += f[i][j]
+		}
+		ans = min(ans, cost)
+	}
+	return int64(ans)
+}
 
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

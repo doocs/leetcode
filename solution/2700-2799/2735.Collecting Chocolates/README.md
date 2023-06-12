@@ -51,23 +51,27 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-### 方法1：暴力
+**方法一：枚举**
 
-成本分为移动成本 + 收集成本
+我们考虑枚举操作的次数，定义 $f[i][j]$ 表示类型为 $i$ 的巧克力进行了 $j$ 次操作后的最小成本。那么有：
 
-枚举最大移动次数`len`。
+$$
+f[i][j] =
+\begin{cases}
+nums[i] ,& j = 0 \\
+\min(f[i][j - 1], nums[(i + j) \bmod n]) ,& j > 0
+\end{cases}
+$$
 
-若移动次数为`len`，移动成本`= len * x`
+接下来，我们枚举操作的次数 $j$，其中 $j \in [0,..n-1]$，那么进行 $j$ 次操作的最小成本为：
 
-对应下标为`i` 的巧克力，收集成本为`min[i][(i + len) % n]` ，其中`n` 为巧克力个数，`min[i][j]` 表示`nums[i-j]` 的最小值（可$$O(n^2)$$）预处理。
+$$
+\sum_{i=0}^{n-1} f[i][j] + j \times x
+$$
 
-最终结果$$result = \sum_{i = 0}^{n - 1} min[i][(i + len)\mod n] + len * x$$ 
+我们取所有操作次数中的最小值即可。
 
-
-
-时间复杂度：$$O(n^2)$$
-
-空间复杂度：$$O(n^2)$$ 
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
 
@@ -76,7 +80,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minCost(self, nums: List[int], x: int) -> int:
+        n = len(nums)
+        f = [[0] * n for _ in range(n)]
+        for i, v in enumerate(nums):
+            f[i][0] = v
+            for j in range(1, n):
+                f[i][j] = min(f[i][j - 1], nums[(i + j) % n])
+        ans = inf
+        for j in range(n):
+            cost = sum(f[i][j] for i in range(n)) + x * j
+            ans = min(ans, cost)
+        return ans
 ```
 
 ### **Java**
@@ -87,29 +103,22 @@
 class Solution {
     public long minCost(int[] nums, int x) {
         int n = nums.length;
-        int[][] min = new int[n][n];
-        for (int i = 0; i < n; i++) {
-            int w = 0x3f3f3f3f;
-            for (int j = i; j < n; j++) {
-                w = Math.min(w, nums[j]);
-                min[i][j] = w;
+        int[][] f = new int[n][n];
+        for (int i = 0; i < n; ++i) {
+            f[i][0] = nums[i];
+            for (int j = 1; j < n; ++j) {
+                f[i][j] = Math.min(f[i][j - 1], nums[(i + j) % n]);
             }
         }
-        
-        long res = Long.MAX_VALUE;
-        for (int i = 0; i < n; i++) {
-            long sum = 0;
-            for (int j = 0; j < n; j++) {
-                int l = j - i;
-                if (l < 0) {
-                    sum += Math.min(min[0][j], min[n + l][n - 1]);
-                } else {
-                    sum += min[l][j];
-                }
+        long ans = 1L << 60;
+        for (int j = 0; j < n; ++j) {
+            long cost = 1L * j * x;
+            for (int i = 0; i < n; ++i) {
+                cost += f[i][j];
             }
-            res = Math.min(res, sum + x * 1L * i);
+            ans = Math.min(ans, cost);
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -117,13 +126,60 @@ class Solution {
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    long long minCost(vector<int>& nums, int x) {
+        int n = nums.size();
+        int f[n][n];
+        for (int i = 0; i < n; ++i) {
+            f[i][0] = nums[i];
+            for (int j = 1; j < n; ++j) {
+                f[i][j] = min(f[i][j - 1], nums[(i + j) % n]);
+            }
+        }
+        long long ans = 1LL << 60;
+        for (int j = 0; j < n; ++j) {
+            long long cost = 1LL * j * x;
+            for (int i = 0; i < n; ++i) {
+                cost += f[i][j];
+            }
+            ans = min(ans, cost);
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minCost(nums []int, x int) int64 {
+	n := len(nums)
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, n)
+		f[i][0] = nums[i]
+		for j := 1; j < n; j++ {
+			f[i][j] = min(f[i][j-1], nums[(i+j)%n])
+		}
+	}
+	ans := 1 << 60
+	for j := 0; j < n; j++ {
+		cost := x * j
+		for i := range nums {
+			cost += f[i][j]
+		}
+		ans = min(ans, cost)
+	}
+	return int64(ans)
+}
 
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
