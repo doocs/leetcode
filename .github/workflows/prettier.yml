@@ -8,8 +8,7 @@ jobs:
   prettier:
     runs-on: ubuntu-latest
 
-    permissions:
-      contents: write
+    permissions: read-all|write-all
 
     steps:
       - name: Checkout
