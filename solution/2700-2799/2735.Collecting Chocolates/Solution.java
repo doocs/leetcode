@@ -9,7 +9,6 @@ class Solution {
                 min[i][j] = w;
             }
         }
-        
         long res = Long.MAX_VALUE;
         for (int i = 0; i < n; i++) {
             long sum = 0;

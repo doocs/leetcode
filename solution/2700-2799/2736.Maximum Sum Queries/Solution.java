@@ -16,7 +16,6 @@ class Solution {
         Arrays.sort(a, (o1, o2) -> o1[0] - o2[0]);
         Arrays.sort(b, (o1, o2) -> o1[0] - o2[0]);
 
-        
         TreeMap<Integer, Integer> map = new TreeMap<>();
         int[] res = new int[m];
         int max = -1;
@@ -29,14 +28,16 @@ class Solution {
                     while (key != null && map.get(key) <= a[j][0] + a[j][1]) {
                         map.remove(key);
                         key = map.floorKey(key);
-                    }  
+                    }
                     map.put(max, a[j][0] + a[j][1]);
                 }
                 j--;
             }
             Integer key = map.ceilingKey(y);
-            if (key == null) res[idx] = -1;
-            else res[idx] = map.get(key);
+            if (key == null)
+                res[idx] = -1;
+            else
+                res[idx] = map.get(key);
         }
         return res;
     }
