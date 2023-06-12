@@ -11,7 +11,7 @@ class Solution {
         int j = i;
         char[] cs = s.toCharArray();
         while (j < n && cs[j] != 'a') {
-            cs[j] = (char)(cs[j] - 1);
+            cs[j] = (char) (cs[j] - 1);
             ++j;
         }
         return String.valueOf(cs);

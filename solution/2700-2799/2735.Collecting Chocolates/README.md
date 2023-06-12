@@ -51,6 +51,24 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+### 方法1：暴力
+
+成本分为移动成本 + 收集成本
+
+枚举最大移动次数`len`。
+
+若移动次数为`len`，移动成本`= len * x`
+
+对应下标为`i` 的巧克力，收集成本为`min[i][(i + len) % n]` ，其中`n` 为巧克力个数，`min[i][j]` 表示`nums[i-j]` 的最小值（可$$O(n^2)$$）预处理。
+
+最终结果$$result = \sum_{i = 0}^{n - 1} min[i][(i + len)\mod n] + len * x$$ 
+
+
+
+时间复杂度：$$O(n^2)$$
+
+空间复杂度：$$O(n^2)$$ 
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -66,7 +84,34 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public long minCost(int[] nums, int x) {
+        int n = nums.length;
+        int[][] min = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            int w = 0x3f3f3f3f;
+            for (int j = i; j < n; j++) {
+                w = Math.min(w, nums[j]);
+                min[i][j] = w;
+            }
+        }
+        
+        long res = Long.MAX_VALUE;
+        for (int i = 0; i < n; i++) {
+            long sum = 0;
+            for (int j = 0; j < n; j++) {
+                int l = j - i;
+                if (l < 0) {
+                    sum += Math.min(min[0][j], min[n + l][n - 1]);
+                } else {
+                    sum += min[l][j];
+                }
+            }
+            res = Math.min(res, sum + x * 1L * i);
+        }
+        return res;
+    }
+}
 ```
 
 ### **C++**

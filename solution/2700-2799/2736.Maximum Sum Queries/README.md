@@ -59,6 +59,30 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+### 方法1：排序 + 单调栈 + 二分 + 离线操作
+
+其中单调栈和二分可用TreeMap统一实现。
+
+**预处理：**
+
+合并`nums1`和`nums2` 为一个数组`a`并按`nums1`从小到大排序。
+
+对`queries`添加下标，记录为数组`b`并按第一维从小到大排序。
+
+**离线查询处理：**
+
+从后往前处理每个查询，即第一维从大到小处理。
+
+用指针记录当前数组`a`的下标（从后往前），满足`a[i][0] >= b[i][0]` ，移动的同时第二维可递增处理（原因：`a[i][0]`从后往前非递增，若`a[i][1]`非递增，`a[i][0] + a[i][1]` 对于同样大小的`a[i][1]` 只会变小或不变），故可维护按第二维从小到大维护一个单调递减栈（用TreeMap实现）。
+
+对于每个查询，只需考虑第二维，在TreeMap中找到第一个大于等于`b[i][1]`的键对应的值，若键不存在，说明该查询无结果。
+
+时间复杂度：`O(nlogn + mlogm)`
+
+空间复杂度：`O(n + m)` 
+
+
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -74,7 +98,48 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int[] maximumSumQueries(int[] nums1, int[] nums2, int[][] q) {
+        int n = nums1.length, m = q.length;
+        int[][] a = new int[n][2];
+        for (int i = 0; i < n; i++) {
+            a[i][0] = nums1[i];
+            a[i][1] = nums2[i];
+        }
+        int[][] b = new int[m][3];
+        for (int i = 0; i < m; i++) {
+            b[i][0] = q[i][0];
+            b[i][1] = q[i][1];
+            b[i][2] = i;
+        }
+        Arrays.sort(a, (o1, o2) -> o1[0] - o2[0]);
+        Arrays.sort(b, (o1, o2) -> o1[0] - o2[0]);
+        TreeMap<Integer, Integer> map = new TreeMap<>();
+        int[] res = new int[m];
+        int max = -1;
+        for (int i = m - 1, j = n - 1; i >= 0; i--) {
+            int x = b[i][0], y = b[i][1], idx = b[i][2];
+            while (j >= 0 && a[j][0] >= x) {
+                if (max < a[j][1]) {
+                    max = a[j][1];
+                    Integer key = map.floorKey(a[j][1]);
+                    while (key != null && map.get(key) <= a[j][0] + a[j][1]) {
+                        map.remove(key);
+                        key = map.floorKey(key);
+                    }
+                    map.put(max, a[j][0] + a[j][1]);
+                }
+                j--;
+            }
+            Integer key = map.ceilingKey(y);
+            if (key == null)
+                res[idx] = -1;
+            else
+                res[idx] = map.get(key);
+        }
+        return res;
+    }
+}
 ```
 
 ### **C++**
