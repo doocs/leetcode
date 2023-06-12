@@ -12,10 +12,9 @@ class Solution {
             b[i][1] = q[i][1];
             b[i][2] = i;
         }
-        
         Arrays.sort(a, (o1, o2) -> o1[0] - o2[0]);
         Arrays.sort(b, (o1, o2) -> o1[0] - o2[0]);
-
+        
         TreeMap<Integer, Integer> map = new TreeMap<>();
         int[] res = new int[m];
         int max = -1;
