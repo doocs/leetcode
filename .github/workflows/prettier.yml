@@ -17,7 +17,6 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
           repository: ${{ github.event.pull_request.head.repo.full_name }}
-          fetch-depth: 0
 
       - name: Prettify code
         uses: creyD/prettier_action@v4.3
