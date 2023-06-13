@@ -73,7 +73,7 @@
 
 我们还可以使用哈希表 $cnt$ 来统计数组 $nums$ 中每个元素的数量。
 
-然后遍历哈希表 $cnt$，枚举中间元素的个数 $b$，左侧元素个数记为 $a$，那么右侧元素个数有 $n - a - b$，此时符合条件的三元组数量为 $a \times b \times c$，累加到答案中。接着更新 $a = a + b$，继续枚举中间元素的个数 $b$。
+然后遍历哈希表 $cnt$，枚举中间元素的个数 $b$，左侧元素个数记为 $a$，那么右侧元素个数有 $c = n - a - b$，此时符合条件的三元组数量为 $a \times b \times c$，累加到答案中。接着更新 $a = a + b$，继续枚举中间元素的个数 $b$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
@@ -177,7 +177,7 @@ class Solution {
     public int unequalTriplets(int[] nums) {
         Map<Integer, Integer> cnt = new HashMap<>();
         for (int v : nums) {
-            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
+            cnt.merge(v, 1, Integer::sum);
         }
         int ans = 0, a = 0;
         int n = nums.length;

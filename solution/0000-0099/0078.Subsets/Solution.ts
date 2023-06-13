@@ -1,10 +1,9 @@
 function subsets(nums: number[]): number[][] {
-    const n = nums.length;
+    const ans: number[][] = [];
     const t: number[] = [];
-    const res: number[][] = [];
     const dfs = (i: number) => {
-        if (i === n) {
-            res.push([...t]);
+        if (i === nums.length) {
+            ans.push(t.slice());
             return;
         }
         dfs(i + 1);
@@ -13,5 +12,5 @@ function subsets(nums: number[]): number[][] {
         t.pop();
     };
     dfs(0);
-    return res;
+    return ans;
 }
