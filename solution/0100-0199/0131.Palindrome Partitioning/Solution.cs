@@ -1,84 +1,38 @@
-using System.Collections.Generic;
-using System.Linq;
-
 public class Solution {
+    private int n;
+    private string s;
+    private bool[,] f;
+    private IList<IList<string>> ans = new List<IList<string>>();
+    private IList<string> t = new List<string>();
+
     public IList<IList<string>> Partition(string s) {
-        if (s.Length == 0) return new List<IList<string>>();
-            
-        var paths = new List<int>[s.Length];
-        for (var i = 0; i < s.Length; ++i)
-        {
-            int j, k;
-            for (j = i, k = i + 1; j >= 0 && k < s.Length; --j, ++k)
-            {
-                if (s[j] == s[k])
-                {
-                    if (paths[k] == null)
-                    {
-                        paths[k] = new List<int>();
-                    }
-                    paths[k].Add(j - 1);
-                }
-                else
-                {
-                    break;
-                }
-            }
-            for (j = i, k = i; j >= 0 && k < s.Length; --j, ++k)
-            {
-                if (s[j] == s[k])
-                {
-                    if (paths[k] == null)
-                    {
-                        paths[k] = new List<int>();
-                    }
-                    paths[k].Add(j - 1);
-                }
-                else
-                {
-                    break;
-                }
+        n = s.Length;
+        this.s = s;
+        f = new bool[n, n];
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j <= i; ++j) {
+                f[i, j] = true;
             }
         }
-        
-        var prevs = new List<int>[s.Length];
-        for (var i = 0; i < s.Length; ++i)
-        {
-            if (paths[i] != null)
-            {
-                foreach (var path in paths[i])
-                {
-                    if (path < 0 || prevs[path] != null)
-                    {
-                        if (prevs[i] == null)
-                        {
-                            prevs[i] = new List<int>();
-                        }
-                        prevs[i].Add(path);
-                    }
-                }
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                f[i, j] = s[i] == s[j] && f[i + 1, j - 1];
             }
         }
-        
-        var results = new List<IList<string>>();
-        var temp = new List<string>();
-        GenerateResults(prevs, s, s.Length - 1, temp, results);
-        return results;
+        dfs(0);
+        return ans;
     }
-    
-    private void GenerateResults(List<int>[] prevs, string s, int i, IList<string> temp, IList<IList<string>> results)
-    {
-        if (i < 0)
-        {
-            results.Add(temp.Reverse().ToList());
+
+    private void dfs(int i) {
+        if (i == n) {
+            ans.Add(new List<string>(t));
+            return;
         }
-        else
-        {
-            foreach (var prev in prevs[i])
-            {
-                temp.Add(s.Substring(prev + 1, i - prev));
-                GenerateResults(prevs, s, prev, temp, results);
-                temp.RemoveAt(temp.Count - 1);
+        for (int j = i; j < n; ++j) {
+            if (f[i, j]) {
+                t.Add(s.Substring(i, j + 1 - i));
+                dfs(j + 1);
+                t.RemoveAt(t.Count - 1);
             }
         }
     }
