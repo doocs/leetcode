@@ -183,8 +183,9 @@ class Solution {
     function findMaxConsecutiveOnes($nums) {
         $tmp = $max = 0;
         for ($i = 0; $i < count($nums); $i++) {
-            if ($nums[$i] == 1) $tmp++;
-            else {
+            if ($nums[$i] == 1) {
+                $tmp++;
+            } else {
                 $max = max($tmp, $max);
                 $tmp = 0;
             }

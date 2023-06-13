@@ -315,7 +315,9 @@ class Solution {
             if ($nums[$i] > $max) {
                 $submax = $max;
                 $max = $nums[$i];
-            } else if ($nums[$i] > $submax) $submax = $nums[$i];
+            } elseif ($nums[$i] > $submax) {
+                $submax = $nums[$i];
+            }
         }
         return ($max - 1) * ($submax - 1);
     }

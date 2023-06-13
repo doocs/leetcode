@@ -269,7 +269,7 @@ class Solution {
         }
         $rs = 0;
         for ($j = 0; $j < count($arr); $j++) {
-            $rs += $v[$arr[$j]] * ($v[$arr[$j]] - 1) / 2;
+            $rs += ($v[$arr[$j]] * ($v[$arr[$j]] - 1)) / 2;
         }
         return $rs;
     }

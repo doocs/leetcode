@@ -20,12 +20,14 @@
 
 <ol>
 	<li>Choose a white triangle that has <strong>at least two</strong> red neighbors.
+
     <ul>
     	<li>If there is no such triangle, stop the algorithm.</li>
     </ul>
     </li>
     <li>Color that triangle <strong>red</strong>.</li>
     <li>Go to step 1.</li>
+
 </ol>
 
 <p>Choose the minimum <code>k</code> possible and set <code>k</code> triangles red before running this algorithm such that after the algorithm stops, all unit triangles are colored red.</p>

@@ -196,7 +196,6 @@ impl Solution {
 
 ```php
 class Solution {
-
     /**
      * @param Integer[] $nums
      * @param Integer $val

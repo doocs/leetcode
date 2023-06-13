@@ -243,7 +243,7 @@ class Solution {
      * @return Integer[][]
      */
     function findDifference($nums1, $nums2) {
-        $rs = [ [] , [] ];
+        $rs = [[], []];
         $hashtable1 = array_flip(array_unique($nums1));
         $hashtable2 = array_flip(array_unique($nums2));
         for ($m = 0; $m < count($nums1); $m++) {

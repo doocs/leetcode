@@ -4,13 +4,15 @@
 
 ## Description
 
-Write code that enhances all arrays such that you can call the&nbsp;<code>array.last()</code>&nbsp;method on any array and it will return the last element. If there are no elements in the array, it should return&nbsp;<code>-1</code>.
+<p>Write code that enhances all arrays such that you can call the&nbsp;<code>array.last()</code>&nbsp;method on any array and it will return the last element. If there are no elements in the array, it should return&nbsp;<code>-1</code>.</p>
+
+<p>You may assume the array is the output of&nbsp;<code>JSON.parse</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [1,2,3]
+<strong>Input:</strong> nums = [null, {}, 3]
 <strong>Output:</strong> 3
 <strong>Explanation:</strong> Calling nums.last() should return the last element: 3.
 </pre>
@@ -28,7 +30,6 @@ Write code that enhances all arrays such that you can call the&nbsp;<code>array.
 
 <ul>
 	<li><code>0 &lt;= arr.length &lt;= 1000</code></li>
-	<li><code>0 &lt;= arr[i] &lt;= 1000</code></li>
 </ul>
 
 ## Solutions

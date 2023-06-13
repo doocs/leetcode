@@ -167,8 +167,11 @@ class Solution {
     function removeStars($s) {
         $rs = [];
         for ($i = 0; $i < strlen($s); $i++) {
-            if ($s[$i] == "*") array_pop($rs);
-            else array_push($rs, $s[$i]);
+            if ($s[$i] == '*') {
+                array_pop($rs);
+            } else {
+                array_push($rs, $s[$i]);
+            }
         }
         return join($rs);
     }

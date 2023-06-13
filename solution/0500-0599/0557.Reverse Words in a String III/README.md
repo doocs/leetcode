@@ -151,7 +151,7 @@ class Solution {
         for ($i = 0; $i < count($sArr); $i++) {
             $sArr[$i] = strrev($sArr[$i]);
         }
-        return implode(" ", $sArr);
+        return implode(' ', $sArr);
     }
 }
 ```

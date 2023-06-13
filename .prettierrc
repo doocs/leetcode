@@ -6,5 +6,6 @@
     "trailingComma": "all",
     "bracketSpacing": true,
     "arrowParens": "avoid",
-    "phpVersion": "8.1"
+    "phpVersion": "8.1",
+    "braceStyle": "1tbs"
 }

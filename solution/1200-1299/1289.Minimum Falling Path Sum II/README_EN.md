@@ -12,7 +12,7 @@
 <p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1289.Minimum%20Falling%20Path%20Sum%20II/images/falling-grid.jpg" style="width: 244px; height: 245px;" />
 <pre>
-<strong>Input:</strong> arr = [[1,2,3],[4,5,6],[7,8,9]]
+<strong>Input:</strong> grid = [[1,2,3],[4,5,6],[7,8,9]]
 <strong>Output:</strong> 13
 <strong>Explanation:</strong> 
 The possible falling paths are:

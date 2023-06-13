@@ -55,6 +55,18 @@ sub.unsubscribe(); // undefined
 emitter.emit(&quot;firstEvent&quot;, [4, 5, 6]); // [], there are no subscriptions
 </pre>
 
+<p><strong class="example">Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> actions = [&quot;EventEmitter&quot;, &quot;subscribe&quot;, &quot;subscribe&quot;, &quot;unsubscribe&quot;, &quot;emit&quot;], values = [[], [&quot;firstEvent&quot;, &quot;x =&gt; x + 1&quot;], [&quot;firstEvent&quot;, &quot;x =&gt; x + 2&quot;], [0], [&quot;firstEvent&quot;, [5]]]
+<strong>Output:</strong> [[],[&quot;subscribed&quot;],[&quot;emitted&quot;,[&quot;1,2,3&quot;]],[&quot;unsubscribed&quot;,0],[&quot;emitted&quot;,[7]]]
+<strong>Explanation:</strong>
+const emitter = new EventEmitter();
+const sub1 = emitter.subscribe(&quot;firstEvent&quot;, x =&gt; x + 1);
+const sub2 = emitter.subscribe(&quot;firstEvent&quot;, x =&gt; x + 2);
+sub1.unsubscribe(); // undefined
+emitter.emit(&quot;firstEvent&quot;, [5]); // [7]</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

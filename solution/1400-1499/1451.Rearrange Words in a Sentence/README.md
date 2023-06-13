@@ -147,7 +147,7 @@ class Solution {
      */
     function arrangeWords($text) {
         $text = lcfirst($text);
-        $arr = explode(" ", $text);
+        $arr = explode(' ', $text);
         for ($i = 0; $i < count($arr); $i++) {
             $hashtable[$i] = strlen($arr[$i]);
         }
@@ -157,7 +157,7 @@ class Solution {
         for ($j = 0; $j < count($key); $j++) {
             array_push($rs, $arr[$key[$j]]);
         }
-        return ucfirst(implode(" ", $rs));
+        return ucfirst(implode(' ', $rs));
     }
 }
 ```

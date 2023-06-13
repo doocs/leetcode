@@ -180,7 +180,7 @@ class Solution {
         $len = strlen($word);
         $rs = '';
         for ($i = 0; $i < $len; $i++) {
-            $rs = $rs.$word[$i];
+            $rs = $rs . $word[$i];
             if ($word[$i] == $ch) {
                 break;
             }
@@ -189,7 +189,7 @@ class Solution {
             return $word;
         }
         $rs = strrev($rs);
-        $rs = $rs.substr($word, strlen($rs));
+        $rs = $rs . substr($word, strlen($rs));
         return $rs;
     }
 }

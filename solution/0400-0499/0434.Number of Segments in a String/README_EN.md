@@ -149,10 +149,12 @@ class Solution {
      * @return Integer
      */
     function countSegments($s) {
-        $arr = explode(" ", $s);
+        $arr = explode(' ', $s);
         $cnt = 0;
         for ($i = 0; $i < count($arr); $i++) {
-            if (strlen($arr[$i]) != 0) $cnt++;
+            if (strlen($arr[$i]) != 0) {
+                $cnt++;
+            }
         }
         return $cnt;
     }

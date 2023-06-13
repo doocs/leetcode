@@ -163,7 +163,9 @@ class Solution {
         }
         $keys = array_keys($hashtable);
         for ($j = 0; $j < count($keys); $j++) {
-            if ($hashtable[$keys[$j]] == $keys[$j]) $max = max($max, $keys[$j]);
+            if ($hashtable[$keys[$j]] == $keys[$j]) {
+                $max = max($max, $keys[$j]);
+            }
         }
         return $max;
     }

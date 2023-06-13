@@ -177,8 +177,11 @@ class Solution {
         $cntB = 0;
         $len = strlen($secret);
         for ($i = 0; $i < $len; $i++) {
-            if ($secret[$i] == $guess[$i]) $cntA++;
-            else $hashtable[$secret[$i]] += 1;
+            if ($secret[$i] == $guess[$i]) {
+                $cntA++;
+            } else {
+                $hashtable[$secret[$i]] += 1;
+            }
         }
         for ($i = 0; $i < $len; $i++) {
             if ($secret[$i] != $guess[$i] && $hashtable[$guess[$i]] > 0) {
@@ -186,7 +189,7 @@ class Solution {
                 $hashtable[$guess[$i]] -= 1;
             }
         }
-        return $cntA."A".$cntB."B";
+        return $cntA . 'A' . $cntB . 'B';
     }
 }
 ```

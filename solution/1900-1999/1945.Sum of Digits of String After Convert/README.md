@@ -196,10 +196,10 @@ class Solution {
      * @return Integer
      */
     function getLucky($s, $k) {
-        $rs = "";
+        $rs = '';
         for ($i = 0; $i < strlen($s); $i++) {
             $num = ord($s[$i]) - 96;
-            $rs = $rs.strval($num);
+            $rs = $rs . strval($num);
         }
         while ($k != 0) {
             $sum = 0;

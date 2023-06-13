@@ -170,7 +170,9 @@ class Solution {
             if ($nums[$i] < $nums[$i + 1]) {
                 $tmp++;
                 $max = max($max, $tmp);
-            } else $tmp = 1;
+            } else {
+                $tmp = 1;
+            }
         }
         return $max;
     }

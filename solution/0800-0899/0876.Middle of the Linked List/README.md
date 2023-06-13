@@ -237,7 +237,6 @@ struct ListNode *middleNode(struct ListNode *head) {
  * }
  */
 class Solution {
-
     /**
      * @param ListNode $head
      * @return ListNode

@@ -148,7 +148,7 @@ class Solution {
     function tribonacci($n) {
         if ($n == 0) {
             return 0;
-        } else if ($n == 1 || $n == 2) {
+        } elseif ($n == 1 || $n == 2) {
             return 1;
         }
         $dp = [0, 1, 1];
