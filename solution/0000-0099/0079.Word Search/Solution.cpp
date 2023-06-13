@@ -2,24 +2,32 @@ class Solution {
 public:
     bool exist(vector<vector<char>>& board, string word) {
         int m = board.size(), n = board[0].size();
-        for (int i = 0; i < m; ++i)
-            for (int j = 0; j < n; ++j)
-                if (dfs(i, j, 0, m, n, board, word))
+        int dirs[5] = {-1, 0, 1, 0, -1};
+        function<bool(int, int, int)> dfs = [&](int i, int j, int k) -> bool {
+            if (k == word.size() - 1) {
+                return board[i][j] == word[k];
+            }
+            if (board[i][j] != word[k]) {
+                return false;
+            }
+            char c = board[i][j];
+            board[i][j] = '0';
+            for (int u = 0; u < 4; ++u) {
+                int x = i + dirs[u], y = j + dirs[u + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && board[x][y] != '0' && dfs(x, y, k + 1)) {
                     return true;
-        return false;
-    }
-
-    bool dfs(int i, int j, int cur, int m, int n, vector<vector<char>>& board, string& word) {
-        if (cur == word.size()) return true;
-        if (i < 0 || i >= m || j < 0 || j >= n || board[i][j] != word[cur]) return false;
-        char t = board[i][j];
-        board[i][j] = '0';
-        vector<int> dirs = {-1, 0, 1, 0, -1};
-        for (int k = 0; k < 4; ++k) {
-            int x = i + dirs[k], y = j + dirs[k + 1];
-            if (dfs(x, y, cur + 1, m, n, board, word)) return true;
+                }
+            }
+            board[i][j] = c;
+            return false;
+        };
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (dfs(i, j, 0)) {
+                    return true;
+                }
+            }
         }
-        board[i][j] = t;
         return false;
     }
 };

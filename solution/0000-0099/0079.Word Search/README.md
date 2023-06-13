@@ -53,7 +53,19 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-回溯（深度优先搜索 DFS ）实现。
+**方法一：DFS(回溯)**
+
+我们可以枚举网格的每一个位置 $(i, j)$ 作为搜索的起点，然后从起点开始进行深度优先搜索，如果可以搜索到单词的末尾，就说明单词存在，否则说明单词不存在。
+
+因此，我们设计一个函数 $dfs(i, j, k)$，表示从网格的 $(i, j)$ 位置出发，且从单词的第 $k$ 个字符开始搜索，是否能够搜索成功。函数 $dfs(i, j, k)$ 的执行步骤如下：
+
+-   如果 $k = |word|-1$，说明已经搜索到单词的最后一个字符，此时只需要判断网格 $(i, j)$ 位置的字符是否等于 $word[k]$，如果相等则说明单词存在，否则说明单词不存在。无论单词是否存在，都无需继续往下搜索，因此直接返回结果。
+-   否则，如果 $word[k]$ 字符不等于网格 $(i, j)$ 位置的字符，说明本次搜索失败，直接返回 `false`。
+-   否则，我们将网格 $(i, j)$ 位置的字符暂存于 $c$ 中，然后将此位置的字符修改为一个特殊字符 `'0'`，代表此位置的字符已经被使用过，防止之后搜索时重复使用。然后我们从 $(i, j)$ 位置的上、下、左、右四个方向分别出发，去搜索网格中第 $k+1$ 个字符，如果四个方向有任何一个方向搜索成功，就说明搜索成功，否则说明搜索失败，此时我们需要还原网格 $(i, j)$ 位置的字符，即把 $c$ 放回网格 $(i, j)$ 位置（回溯）。
+
+在主函数中，我们枚举网格中的每一个位置 $(i, j)$ 作为起点，如果调用 $dfs(i, j, 0)$ 返回 `true`，就说明单词存在，否则说明单词不存在，返回 `false`。
+
+时间复杂度 $O(m \times n \times 3^k)$，空间复杂度 $O(\min(m \times n, k))$。其中 $m$ 和 $n$ 分别是网格的行数和列数；而 $k$ 是字符串 $word$ 的长度。
 
 <!-- tabs:start -->
 
@@ -64,25 +76,19 @@
 ```python
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
-        def dfs(i, j, cur):
-            if cur == len(word):
-                return True
-            if (
-                i < 0
-                or i >= m
-                or j < 0
-                or j >= n
-                or board[i][j] == '0'
-                or word[cur] != board[i][j]
-            ):
+        def dfs(i: int, j: int, k: int) -> bool:
+            if k == len(word) - 1:
+                return board[i][j] == word[k]
+            if board[i][j] != word[k]:
                 return False
-            t = board[i][j]
-            board[i][j] = '0'
-            for a, b in [[0, 1], [0, -1], [-1, 0], [1, 0]]:
+            c = board[i][j]
+            board[i][j] = "0"
+            for a, b in pairwise((-1, 0, 1, 0, -1)):
                 x, y = i + a, j + b
-                if dfs(x, y, cur + 1):
+                ok = 0 <= x < m and 0 <= y < n and board[x][y] != "0"
+                if ok and dfs(x, y, k + 1):
                     return True
-            board[i][j] = t
+            board[i][j] = c
             return False
 
         m, n = len(board), len(board[0])
@@ -95,12 +101,19 @@ class Solution:
 
 ```java
 class Solution {
+    private int m;
+    private int n;
+    private String word;
+    private char[][] board;
+
     public boolean exist(char[][] board, String word) {
-        int m = board.length;
-        int n = board[0].length;
+        m = board.length;
+        n = board[0].length;
+        this.word = word;
+        this.board = board;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (dfs(i, j, 0, m, n, board, word)) {
+                if (dfs(i, j, 0)) {
                     return true;
                 }
             }
@@ -108,81 +121,25 @@ class Solution {
         return false;
     }
 
-    private boolean dfs(int i, int j, int cur, int m, int n, char[][] board, String word) {
-        if (cur == word.length()) {
-            return true;
+    private boolean dfs(int i, int j, int k) {
+        if (k == word.length() - 1) {
+            return board[i][j] == word.charAt(k);
         }
-        if (i < 0 || i >= m || j < 0 || j >= n || board[i][j] != word.charAt(cur)) {
+        if (board[i][j] != word.charAt(k)) {
             return false;
         }
-        board[i][j] += 256;
+        char c = board[i][j];
+        board[i][j] = '0';
         int[] dirs = {-1, 0, 1, 0, -1};
-        for (int k = 0; k < 4; ++k) {
-            int x = i + dirs[k];
-            int y = j + dirs[k + 1];
-            if (dfs(x, y, cur + 1, m, n, board, word)) {
+        for (int u = 0; u < 4; ++u) {
+            int x = i + dirs[u], y = j + dirs[u + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && board[x][y] != '0' && dfs(x, y, k + 1)) {
                 return true;
             }
         }
-        board[i][j] -= 256;
+        board[i][j] = c;
         return false;
     }
-}
-```
-
-### **TypeScript**
-
-```ts
-function exist(board: string[][], word: string): boolean {
-    let m = board.length,
-        n = board[0].length;
-    let visited = Array.from({ length: m }, v => new Array(n).fill(false));
-    for (let i = 0; i < m; ++i) {
-        for (let j = 0; j < n; ++j) {
-            if (dfs(board, word, i, j, 0, visited)) {
-                return true;
-            }
-        }
-    }
-    return false;
-}
-
-function dfs(
-    board: string[][],
-    word: string,
-    i: number,
-    j: number,
-    depth: number,
-    visited: boolean[][],
-): boolean {
-    let m = board.length,
-        n = board[0].length;
-    if (i < 0 || i > m - 1 || j < 0 || j > n - 1 || visited[i][j]) {
-        return false;
-    }
-    if (board[i][j] != word.charAt(depth)) {
-        return false;
-    }
-
-    if (depth == word.length - 1) {
-        return true;
-    }
-
-    visited[i][j] = true;
-    ++depth;
-    let res = false;
-    for (let [dx, dy] of [
-        [0, 1],
-        [0, -1],
-        [1, 0],
-        [-1, 0],
-    ]) {
-        let x = i + dx,
-            y = j + dy;
-        res = res || dfs(board, word, x, y, depth, visited);
-    }
-    visited[i][j] = false;
-    return res;
 }
 ```
 
@@ -193,69 +150,35 @@ class Solution {
 public:
     bool exist(vector<vector<char>>& board, string word) {
         int m = board.size(), n = board[0].size();
-        for (int i = 0; i < m; ++i)
-            for (int j = 0; j < n; ++j)
-                if (dfs(i, j, 0, m, n, board, word))
+        int dirs[5] = {-1, 0, 1, 0, -1};
+        function<bool(int, int, int)> dfs = [&](int i, int j, int k) -> bool {
+            if (k == word.size() - 1) {
+                return board[i][j] == word[k];
+            }
+            if (board[i][j] != word[k]) {
+                return false;
+            }
+            char c = board[i][j];
+            board[i][j] = '0';
+            for (int u = 0; u < 4; ++u) {
+                int x = i + dirs[u], y = j + dirs[u + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && board[x][y] != '0' && dfs(x, y, k + 1)) {
                     return true;
-        return false;
-    }
-
-    bool dfs(int i, int j, int cur, int m, int n, vector<vector<char>>& board, string& word) {
-        if (cur == word.size()) return true;
-        if (i < 0 || i >= m || j < 0 || j >= n || board[i][j] != word[cur]) return false;
-        char t = board[i][j];
-        board[i][j] = '0';
-        vector<int> dirs = {-1, 0, 1, 0, -1};
-        for (int k = 0; k < 4; ++k) {
-            int x = i + dirs[k], y = j + dirs[k + 1];
-            if (dfs(x, y, cur + 1, m, n, board, word)) return true;
-        }
-        board[i][j] = t;
-        return false;
-    }
-};
-```
-
-### **C#**
-
-```cs
-public class Solution {
-    public bool Exist(char[][] board, string word) {
-        var lenI = board.Length;
-        var lenJ = lenI == 0 ? 0 : board[0].Length;
-        var visited = new bool[lenI, lenJ];
-        for (var i = 0; i < lenI; ++i)
-        {
-            for (var j = 0; j < lenJ; ++j)
-            {
-                if (Search(board, visited, word, lenI, lenJ, i, j, 0))
-                {
+                }
+            }
+            board[i][j] = c;
+            return false;
+        };
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (dfs(i, j, 0)) {
                     return true;
                 }
             }
         }
         return false;
     }
-
-    private int[,] paths = new int[4,2] { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } };
-
-    private bool Search(char[][] board, bool[,] visited, string word, int lenI, int lenJ, int i, int j, int p)
-    {
-        if (p == word.Length)
-        {
-            return true;
-        }
-        if (i < 0 || i >= lenI || j < 0 || j >= lenJ) return false;
-        if (visited[i, j] || word[p] != board[i][j]) return false;
-        visited[i, j] = true;
-        for (var k = 0; k < 4; ++k)
-        {
-            if (Search(board, visited, word, lenI, lenJ, i + paths[k, 0], j + paths[k, 1], p + 1)) return true;
-        }
-        visited[i, j] = false;
-        return false;
-    }
-}
+};
 ```
 
 ### **Go**
@@ -263,24 +186,24 @@ public class Solution {
 ```go
 func exist(board [][]byte, word string) bool {
 	m, n := len(board), len(board[0])
-	var dfs func(i, j, cur int) bool
-	dfs = func(i, j, cur int) bool {
-		if cur == len(word) {
-			return true
+	var dfs func(int, int, int) bool
+	dfs = func(i, j, k int) bool {
+		if k == len(word)-1 {
+			return board[i][j] == word[k]
 		}
-		if i < 0 || i >= m || j < 0 || j >= n || board[i][j] != word[cur] {
+		if board[i][j] != word[k] {
 			return false
 		}
-		t := board[i][j]
+		dirs := [5]int{-1, 0, 1, 0, -1}
+		c := board[i][j]
 		board[i][j] = '0'
-		dirs := []int{-1, 0, 1, 0, -1}
-		for k := 0; k < 4; k++ {
-			x, y := i+dirs[k], j+dirs[k+1]
-			if dfs(x, y, cur+1) {
+		for u := 0; u < 4; u++ {
+			x, y := i+dirs[u], j+dirs[u+1]
+			if x >= 0 && x < m && y >= 0 && y < n && board[x][y] != '0' && dfs(x, y, k+1) {
 				return true
 			}
 		}
-		board[i][j] = t
+		board[i][j] = c
 		return false
 	}
 	for i := 0; i < m; i++ {
@@ -291,6 +214,89 @@ func exist(board [][]byte, word string) bool {
 		}
 	}
 	return false
+}
+```
+
+### **TypeScript**
+
+```ts
+function exist(board: string[][], word: string): boolean {
+    const [m, n] = [board.length, board[0].length];
+    const dirs = [-1, 0, 1, 0, -1];
+    const dfs = (i: number, j: number, k: number): boolean => {
+        if (k === word.length - 1) {
+            return board[i][j] === word[k];
+        }
+        if (board[i][j] !== word[k]) {
+            return false;
+        }
+        const c = board[i][j];
+        board[i][j] = '0';
+        for (let u = 0; u < 4; ++u) {
+            const [x, y] = [i + dirs[u], j + dirs[u + 1]];
+            const ok = x >= 0 && x < m && y >= 0 && y < n;
+            if (ok && board[x][y] !== '0' && dfs(x, y, k + 1)) {
+                return true;
+            }
+        }
+        board[i][j] = c;
+        return false;
+    };
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (dfs(i, j, 0)) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    private int m;
+    private int n;
+    private char[][] board;
+    private string word;
+
+    public bool Exist(char[][] board, string word) {
+        m = board.Length;
+        n = board[0].Length;
+        this.board = board;
+        this.word = word;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (dfs(i, j, 0)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private bool dfs(int i, int j, int k) {
+        if (k == word.Length - 1) {
+            return board[i][j] == word[k];
+        }
+        if (board[i][j] != word[k]) {
+            return false;
+        }
+        char c = board[i][j];
+        board[i][j] = '0';
+        int[] dirs = { -1, 0, 1, 0, -1 };
+        for (int u = 0; u < 4; ++u) {
+            int x = i + dirs[u];
+            int y = j + dirs[u + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && board[x][y] != '0' && dfs(x, y, k + 1)) {
+                return true;
+            }
+        }
+        board[i][j] = c;
+        return false;
+    }
 }
 ```
 

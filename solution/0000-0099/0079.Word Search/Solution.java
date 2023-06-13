@@ -1,10 +1,17 @@
 class Solution {
+    private int m;
+    private int n;
+    private String word;
+    private char[][] board;
+
     public boolean exist(char[][] board, String word) {
-        int m = board.length;
-        int n = board[0].length;
+        m = board.length;
+        n = board[0].length;
+        this.word = word;
+        this.board = board;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (dfs(i, j, 0, m, n, board, word)) {
+                if (dfs(i, j, 0)) {
                     return true;
                 }
             }
@@ -12,23 +19,23 @@ class Solution {
         return false;
     }
 
-    private boolean dfs(int i, int j, int cur, int m, int n, char[][] board, String word) {
-        if (cur == word.length()) {
-            return true;
+    private boolean dfs(int i, int j, int k) {
+        if (k == word.length() - 1) {
+            return board[i][j] == word.charAt(k);
         }
-        if (i < 0 || i >= m || j < 0 || j >= n || board[i][j] != word.charAt(cur)) {
+        if (board[i][j] != word.charAt(k)) {
             return false;
         }
-        board[i][j] += 256;
+        char c = board[i][j];
+        board[i][j] = '0';
         int[] dirs = {-1, 0, 1, 0, -1};
-        for (int k = 0; k < 4; ++k) {
-            int x = i + dirs[k];
-            int y = j + dirs[k + 1];
-            if (dfs(x, y, cur + 1, m, n, board, word)) {
+        for (int u = 0; u < 4; ++u) {
+            int x = i + dirs[u], y = j + dirs[u + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && board[x][y] != '0' && dfs(x, y, k + 1)) {
                 return true;
             }
         }
-        board[i][j] -= 256;
+        board[i][j] = c;
         return false;
     }
 }
