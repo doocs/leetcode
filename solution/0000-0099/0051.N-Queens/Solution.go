@@ -1,35 +1,34 @@
-func solveNQueens(n int) [][]string {
-	res := [][]string{}
-	g := make([][]string, n)
-	for i := range g {
-		g[i] = make([]string, n)
-		for j := range g[i] {
-			g[i][j] = "."
+func solveNQueens(n int) (ans [][]string) {
+	col := make([]int, n)
+	dg := make([]int, n<<1)
+	udg := make([]int, n<<1)
+	t := make([][]byte, n)
+	for i := range t {
+		t[i] = make([]byte, n)
+		for j := range t[i] {
+			t[i][j] = '.'
 		}
 	}
-	col := make([]bool, n)
-	dg := make([]bool, 2*n)
-	udg := make([]bool, 2*n)
-	dfs(0, n, col, dg, udg, g, &res)
-	return res
-}
-
-func dfs(u, n int, col, dg, udg []bool, g [][]string, res *[][]string) {
-	if u == n {
-		t := make([]string, n)
-		for i := 0; i < n; i++ {
-			t[i] = strings.Join(g[i], "")
+	var dfs func(int)
+	dfs = func(i int) {
+		if i == n {
+			tmp := make([]string, n)
+			for i := range tmp {
+				tmp[i] = string(t[i])
+			}
+			ans = append(ans, tmp)
+			return
 		}
-		*res = append(*res, t)
-		return
-	}
-	for i := 0; i < n; i++ {
-		if !col[i] && !dg[u+i] && !udg[n-u+i] {
-			g[u][i] = "Q"
-			col[i], dg[u+i], udg[n-u+i] = true, true, true
-			dfs(u+1, n, col, dg, udg, g, res)
-			g[u][i] = "."
-			col[i], dg[u+i], udg[n-u+i] = false, false, false
+		for j := 0; j < n; j++ {
+			if col[j]+dg[i+j]+udg[n-i+j] == 0 {
+				col[j], dg[i+j], udg[n-i+j] = 1, 1, 1
+				t[i][j] = 'Q'
+				dfs(i + 1)
+				t[i][j] = '.'
+				col[j], dg[i+j], udg[n-i+j] = 0, 0, 0
+			}
 		}
 	}
+	dfs(0)
+	return
 }
