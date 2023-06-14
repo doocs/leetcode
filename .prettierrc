@@ -7,5 +7,6 @@
     "bracketSpacing": true,
     "arrowParens": "avoid",
     "phpVersion": "8.1",
-    "braceStyle": "1tbs"
+    "braceStyle": "1tbs",
+    "endOfLine": "lf"
 }

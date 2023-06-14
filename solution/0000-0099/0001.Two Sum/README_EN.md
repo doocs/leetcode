@@ -233,13 +233,12 @@ class Solution {
      * @return Integer[]
      */
     function twoSum($nums, $target) {
-        $len = count($nums);
-        for ($i = 0; $i < $len; $i++) {
-            for ($j = 1 + $i; $j < $len; $j++) {
-                if ($nums[$i] + $nums[$j] == $target) {
-                    return [$i, $j];
-                }
+        foreach ($nums as $key => $x) {
+            $y = $target - $x;
+            if (isset($hashtable[$y])) {
+                return [$hashtable[$y], $key];
             }
+            $hashtable[$x] = $key;
         }
     }
 }
