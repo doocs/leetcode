@@ -10,6 +10,28 @@ def prettier_format():
         command = f'npx prettier --write "**/*.{suffix}"'
         os.system(command)
 
+    # format php code
+    for root, _, files in os.walk(path):
+        for name in files:
+            if name.endswith('.php'):
+                p1 = root + '/' + name
+                with open(p1, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                    content = '<?php\n' + content
+                with open(p1, 'w', encoding='utf-8') as f:
+                    f.write(content)
+    command = 'npx prettier --write "**/*.php"'
+    os.system(command)
+    for root, _, files in os.walk(path):
+        for name in files:
+            if name.endswith('.php'):
+                p1 = root + '/' + name
+                with open(p1, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                    content = content.replace('<?php\n', '')
+                with open(p1, 'w', encoding='utf-8') as f:
+                    f.write(content)
+
 
 def clang_format():
     """Format code with clang-format"""
@@ -49,7 +71,8 @@ def clang_format():
                         os.remove(p2)
 
 
-def format_py():
+def black_format():
+    """Format python code with black"""
     command = 'black -S .'
     os.system(command)
 
@@ -60,7 +83,7 @@ def format_py():
                 with open(p1, 'r', encoding='utf-8') as f:
                     content = f.read()
                     x = content
-                res = re.findall(f'```python\n(.*?)```', content, re.S)
+                res = re.findall('```python\n(.*?)```', content, re.S)
                 if not res:
                     continue
                 print(p1)
@@ -77,29 +100,6 @@ def format_py():
                     os.remove(p2)
 
 
-def format_php():
-    for root, _, files in os.walk(path):
-        for name in files:
-            if name.endswith('.php'):
-                p1 = root + '/' + name
-                with open(p1, 'r', encoding='utf-8') as f:
-                    content = f.read()
-                    content = '<?php\n' + content
-                with open(p1, 'w', encoding='utf-8') as f:
-                    f.write(content)
-    command = f'npx prettier --write "**/*.php"'
-    os.system(command)
-    for root, _, files in os.walk(path):
-        for name in files:
-            if name.endswith('.php'):
-                p1 = root + '/' + name
-                with open(p1, 'r', encoding='utf-8') as f:
-                    content = f.read()
-                    content = content.replace('<?php\n', '')
-                with open(p1, 'w', encoding='utf-8') as f:
-                    f.write(content)
-
-
 def git_add():
     """Git add all files"""
     command = 'git add .'
@@ -107,8 +107,7 @@ def git_add():
 
 
 if __name__ == '__main__':
+    prettier_format()
+    black_format()
     # clang_format()
-    # prettier_format()
-    # format_py()
-    # git_add()
-    format_php()
+    git_add()
