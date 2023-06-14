@@ -6,30 +6,31 @@ path = os.getcwd()
 
 def prettier_format():
     """Format code with prettier"""
-    for suffix in ['md', 'js', 'ts']:
+    # before prettier, add `<?php` to php files
+    for root, _, files in os.walk(path):
+        for name in files:
+            if name.endswith('.php'):
+                p = root + '/' + name
+                with open(p, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                    content = '<?php\n' + content
+                with open(p, 'w', encoding='utf-8') as f:
+                    f.write(content)
+
+    # start formatting with prettier
+    for suffix in ['md', 'js', 'ts', 'php']:
         command = f'npx prettier --write "**/*.{suffix}"'
         os.system(command)
 
-    # format php code
+    # after prettier, remove `<?php` from php files
     for root, _, files in os.walk(path):
         for name in files:
             if name.endswith('.php'):
-                p1 = root + '/' + name
-                with open(p1, 'r', encoding='utf-8') as f:
-                    content = f.read()
-                    content = '<?php\n' + content
-                with open(p1, 'w', encoding='utf-8') as f:
-                    f.write(content)
-    command = 'npx prettier --write "**/*.php"'
-    os.system(command)
-    for root, _, files in os.walk(path):
-        for name in files:
-            if name.endswith('.php'):
-                p1 = root + '/' + name
-                with open(p1, 'r', encoding='utf-8') as f:
+                p = root + '/' + name
+                with open(p, 'r', encoding='utf-8') as f:
                     content = f.read()
                     content = content.replace('<?php\n', '')
-                with open(p1, 'w', encoding='utf-8') as f:
+                with open(p, 'w', encoding='utf-8') as f:
                     f.write(content)
 
 
@@ -48,11 +49,11 @@ def clang_format():
     for root, _, files in os.walk(path):
         for name in files:
             if name.endswith('.md'):
-                p1 = root + '/' + name
-                with open(p1, 'r', encoding='utf-8') as f:
+                p = root + '/' + name
+                with open(p, 'r', encoding='utf-8') as f:
                     content = f.read()
                     x = content
-                print(p1)
+                print(p)
                 for suf in suffix:
                     res = re.findall(f'```{suf}\n(.*?)```', content, re.S)
                     if not res:
@@ -66,7 +67,7 @@ def clang_format():
                         with open(p2, 'r', encoding='utf-8') as f:
                             content = f.read()
                         content = x.replace(v, content)
-                        with open(p1, 'w', encoding='utf-8') as f:
+                        with open(p, 'w', encoding='utf-8') as f:
                             f.write(content)
                         os.remove(p2)
 
@@ -108,6 +109,6 @@ def git_add():
 
 if __name__ == '__main__':
     prettier_format()
-    black_format()
+    # black_format()
     # clang_format()
     git_add()
