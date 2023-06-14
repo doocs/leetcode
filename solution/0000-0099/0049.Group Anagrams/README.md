@@ -221,16 +221,15 @@ func groupAnagrams(strs []string) (ans [][]string) {
 
 ```ts
 function groupAnagrams(strs: string[]): string[][] {
-    let map = new Map();
-    for (let str of strs) {
-        let arr = str.split('');
-        arr.sort();
-        let key = arr.join('');
-        let value = map.get(key) ? map.get(key) : [];
-        value.push(str);
-        map.set(key, value);
+    const d: Map<string, string[]> = new Map();
+    for (const s of strs) {
+        const k = s.split('').sort().join('');
+        if (!d.has(k)) {
+            d.set(k, []);
+        }
+        d.get(k)!.push(s);
     }
-    return Array.from(map.values());
+    return Array.from(d.values());
 }
 ```
 
