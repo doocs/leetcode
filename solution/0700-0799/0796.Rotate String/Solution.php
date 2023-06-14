@@ -5,6 +5,6 @@ class Solution {
      * @return Boolean
      */
     function rotateString($s, $goal) {
-        return strlen($goal) === strlen($s) && strpos(($s.$s), $goal) !== false;
+        return strlen($goal) === strlen($s) && strpos($s . $s, $goal) !== false;
     }
 }

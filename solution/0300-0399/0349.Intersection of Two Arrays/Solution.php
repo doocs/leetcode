@@ -12,7 +12,9 @@ class Solution {
             $hashmap[$set1[$i]] = 1;
         }
         for ($j = 0; $j < count($set2); $j++) {
-            if ($hashmap[$set2[$j]]) array_push($rs, $set2[$j]);
+            if ($hashmap[$set2[$j]]) {
+                array_push($rs, $set2[$j]);
+            }
         }
         return $rs;
     }

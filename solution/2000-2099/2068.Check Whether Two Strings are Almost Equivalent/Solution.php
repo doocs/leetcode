@@ -11,7 +11,9 @@ class Solution {
         }
         $keys = array_keys($hashtable);
         for ($j = 0; $j < count($keys); $j++) {
-            if (abs($hashtable[$keys[$j]]) > 3) return false;
+            if (abs($hashtable[$keys[$j]]) > 3) {
+                return false;
+            }
         }
         return true;
     }
