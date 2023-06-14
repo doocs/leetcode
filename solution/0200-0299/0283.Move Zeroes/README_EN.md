@@ -36,14 +36,11 @@
 ```python
 class Solution:
     def moveZeroes(self, nums: List[int]) -> None:
-        """
-        Do not return anything, modify nums in-place instead.
-        """
-        left, n = 0, len(nums)
-        for right in range(n):
-            if nums[right] != 0:
-                nums[left], nums[right] = nums[right], nums[left]
-                left += 1
+        i = -1
+        for j, x in enumerate(nums):
+            if x:
+                i += 1
+                nums[i], nums[j] = nums[j], nums[i]
 ```
 
 ### **Java**
@@ -51,13 +48,12 @@ class Solution:
 ```java
 class Solution {
     public void moveZeroes(int[] nums) {
-        int left = 0, n = nums.length;
-        for (int right = 0; right < n; ++right) {
-            if (nums[right] != 0) {
-                int t = nums[left];
-                nums[left] = nums[right];
-                nums[right] = t;
-                ++left;
+        int i = -1, n = nums.length;
+        for (int j = 0; j < n; ++j) {
+            if (nums[j] != 0) {
+                int t = nums[++i];
+                nums[i] = nums[j];
+                nums[j] = t;
             }
         }
     }
@@ -70,11 +66,10 @@ class Solution {
 class Solution {
 public:
     void moveZeroes(vector<int>& nums) {
-        int left = 0, n = nums.size();
-        for (int right = 0; right < n; ++right) {
-            if (nums[right] != 0) {
-                swap(nums[left], nums[right]);
-                ++left;
+        int i = -1, n = nums.size();
+        for (int j = 0; j < n; ++j) {
+            if (nums[j]) {
+                swap(nums[++i], nums[j]);
             }
         }
     }
@@ -85,12 +80,11 @@ public:
 
 ```go
 func moveZeroes(nums []int) {
-	n := len(nums)
-	left := 0
-	for right := 0; right < n; right++ {
-		if nums[right] != 0 {
-			nums[left], nums[right] = nums[right], nums[left]
-			left++
+	i := -1
+	for j, x := range nums {
+		if x != 0 {
+			i++
+			nums[i], nums[j] = nums[j], nums[i]
 		}
 	}
 }
@@ -104,41 +98,12 @@ func moveZeroes(nums []int) {
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var moveZeroes = function (nums) {
-    let left = 0,
-        n = nums.length;
-    for (let right = 0; right < n; ++right) {
-        if (nums[right]) {
-            [nums[left], nums[right]] = [nums[right], nums[left]];
-            ++left;
-        }
-    }
-};
-```
-
-```js
-/**
- * @param {number[]} nums
- * @return {void} Do not return anything, modify nums in-place instead.
- */
-var moveZeroes = function (nums) {
-    let left = 0;
-    let right = left;
-    while (left < nums.length) {
-        if (nums[left] != 0) {
-            left++;
-        } else {
-            right = left + 1;
-            while (right < nums.length) {
-                if (nums[right] == 0) {
-                    right++;
-                } else {
-                    let tem = nums[left];
-                    nums[left] = nums[right];
-                    nums[right] = tem;
-                    break;
-                }
-            }
-            left++;
+    let i = -1;
+    for (let j = 0; j < nums.length; ++j) {
+        if (nums[j]) {
+            const t = nums[++i];
+            nums[i] = nums[j];
+            nums[j] = t;
         }
     }
 };
