@@ -80,7 +80,6 @@ productOfNumbers.getProduct(2); // 返回 32 。最后 2 个数字的乘积是 4
 
 ```python
 class ProductOfNumbers:
-
     def __init__(self):
         self.s = [1]
 

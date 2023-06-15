@@ -207,7 +207,7 @@ impl Solution {
 ### **C**
 
 ```c
-bool checkXMatrix(int **grid, int gridSize, int *gridColSize) {
+bool checkXMatrix(int** grid, int gridSize, int* gridColSize) {
     for (int i = 0; i < gridSize; i++) {
         for (int j = 0; j < gridSize; j++) {
             if (i == j || i + j == gridSize - 1) {

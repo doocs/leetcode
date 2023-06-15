@@ -100,7 +100,9 @@
 
 ```python
 class Solution:
-    def closestCost(self, baseCosts: List[int], toppingCosts: List[int], target: int) -> int:
+    def closestCost(
+        self, baseCosts: List[int], toppingCosts: List[int], target: int
+    ) -> int:
         def dfs(i, t):
             if i >= len(toppingCosts):
                 arr.append(t)
@@ -247,11 +249,11 @@ func closestCost(baseCosts []int, toppingCosts []int, target int) int {
 	sort.Ints(arr)
 	const inf = 1 << 30
 	ans, d := inf, inf
-    // 选择一种冰激淋基料
+	// 选择一种冰激淋基料
 	for _, x := range baseCosts {
-        // 枚举子集和
+		// 枚举子集和
 		for _, y := range arr {
-            // 二分查找
+			// 二分查找
 			i := sort.Search(len(arr), func(i int) bool { return arr[i] >= target-x-y })
 			for j := i - 1; j < i+1; j++ {
 				if j >= 0 && j < len(arr) {

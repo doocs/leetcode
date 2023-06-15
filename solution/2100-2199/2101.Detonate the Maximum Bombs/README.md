@@ -174,7 +174,7 @@ public:
                 g[i][j] = check(i, j, bombs);
         int ans = 0;
         for (int k = 0; k < n; ++k) {
-            queue<int> q {{k}};
+            queue<int> q{{k}};
             vector<bool> vis(n);
             vis[k] = true;
             int cnt = 0;

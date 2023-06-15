@@ -112,7 +112,6 @@ class TwoSum {
 class TwoSum {
 public:
     TwoSum() {
-
     }
 
     void add(int number) {

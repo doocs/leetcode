@@ -269,7 +269,7 @@ impl Solution {
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 
-int maximumCount(int *nums, int numsSize) {
+int maximumCount(int* nums, int numsSize) {
     int count[2] = {0};
     for (int i = 0; i < numsSize; i++) {
         if (nums[i] < 0) {
@@ -285,7 +285,7 @@ int maximumCount(int *nums, int numsSize) {
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 
-int search(int *nums, int numsSize, int target) {
+int search(int* nums, int numsSize, int target) {
     int left = 0;
     int right = numsSize;
     while (left < right) {
@@ -299,7 +299,7 @@ int search(int *nums, int numsSize, int target) {
     return left;
 }
 
-int maximumCount(int *nums, int numsSize) {
+int maximumCount(int* nums, int numsSize) {
     int i = search(nums, numsSize, 0);
     int j = search(nums, numsSize, 1);
     return max(i, numsSize - j);

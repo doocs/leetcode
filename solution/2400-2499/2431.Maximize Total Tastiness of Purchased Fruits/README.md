@@ -93,7 +93,9 @@
 
 ```python
 class Solution:
-    def maxTastiness(self, price: List[int], tastiness: List[int], maxAmount: int, maxCoupons: int) -> int:
+    def maxTastiness(
+        self, price: List[int], tastiness: List[int], maxAmount: int, maxCoupons: int
+    ) -> int:
         @cache
         def dfs(i, j, k):
             if i == len(price):
@@ -102,8 +104,7 @@ class Solution:
             if j >= price[i]:
                 ans = max(ans, dfs(i + 1, j - price[i], k) + tastiness[i])
             if j >= price[i] // 2 and k:
-                ans = max(
-                    ans, dfs(i + 1, j - price[i] // 2, k - 1) + tastiness[i])
+                ans = max(ans, dfs(i + 1, j - price[i] // 2, k - 1) + tastiness[i])
             return ans
 
         return dfs(0, maxAmount, maxCoupons)
@@ -161,13 +162,14 @@ public:
             if (i == n) return 0;
             if (f[i][j][k]) return f[i][j][k];
             int ans = dfs(i + 1, j, k);
-            if (j >= price[i])  ans = max(ans, dfs(i + 1, j - price[i], k) + tastiness[i]);
+            if (j >= price[i]) ans = max(ans, dfs(i + 1, j - price[i], k) + tastiness[i]);
             if (j >= price[i] / 2 && k) ans = max(ans, dfs(i + 1, j - price[i] / 2, k - 1) + tastiness[i]);
             f[i][j][k] = ans;
             return ans;
         };
         return dfs(0, maxAmount, maxCoupons);
     }
+
 private:
     int f[101][1001][6];
 };

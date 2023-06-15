@@ -136,7 +136,6 @@ func (this *MyCalendar) Book(start int, end int) bool {
 	return true
 }
 
-
 /**
  * Your MyCalendar object will be instantiated and called as such:
  * obj := Constructor();

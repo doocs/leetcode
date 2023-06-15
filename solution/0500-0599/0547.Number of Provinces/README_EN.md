@@ -51,7 +51,7 @@ class Solution:
         def dfs(i: int):
             vis[i] = True
             for j, x in enumerate(isConnected[i]):
-                if not vis[j]  and x:
+                if not vis[j] and x:
                     dfs(j)
 
         n = len(isConnected)

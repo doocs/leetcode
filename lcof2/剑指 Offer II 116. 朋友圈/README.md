@@ -63,6 +63,7 @@
 # 初始化，p存储每个点的父节点
 p = list(range(n))
 
+
 # 返回x的祖宗节点
 def find(x):
     if p[x] != x:
@@ -289,7 +290,6 @@ public:
             if (i == p[i])
                 ++ans;
         return ans;
-
     }
 
     int find(int x) {
@@ -305,25 +305,25 @@ public:
 
 ```go
 func findCircleNum(isConnected [][]int) int {
-    n := len(isConnected)
-    vis := make([]bool, n)
-    var dfs func(i int)
-    dfs = func(i int) {
-        vis[i] = true
-        for j := 0; j < n; j++ {
-            if !vis[j] && isConnected[i][j] == 1 {
-                dfs(j)
-            }
-        }
-    }
-    ans := 0
-    for i := 0; i < n; i++ {
-        if !vis[i] {
-            dfs(i)
-            ans++
-        }
-    }
-    return ans
+	n := len(isConnected)
+	vis := make([]bool, n)
+	var dfs func(i int)
+	dfs = func(i int) {
+		vis[i] = true
+		for j := 0; j < n; j++ {
+			if !vis[j] && isConnected[i][j] == 1 {
+				dfs(j)
+			}
+		}
+	}
+	ans := 0
+	for i := 0; i < n; i++ {
+		if !vis[i] {
+			dfs(i)
+			ans++
+		}
+	}
+	return ans
 }
 ```
 

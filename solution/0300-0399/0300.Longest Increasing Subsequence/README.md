@@ -375,7 +375,7 @@ class Solution {
 public:
     int lengthOfLIS(vector<int>& nums) {
         int n = nums.size();
-        vector<int> d {nums[0]};
+        vector<int> d{nums[0]};
         for (int i = 1; i < n; ++i) {
             if (nums[i] > d[d.size() - 1])
                 d.push_back(nums[i]);
@@ -398,11 +398,12 @@ public:
     int n;
     vector<int> c;
 
-    BinaryIndexedTree(int _n): n(_n), c(_n + 1){}
+    BinaryIndexedTree(int _n)
+        : n(_n)
+        , c(_n + 1) {}
 
     void update(int x, int val) {
-        while (x <= n)
-        {
+        while (x <= n) {
             c[x] = max(c[x], val);
             x += lowbit(x);
         }
@@ -410,8 +411,7 @@ public:
 
     int query(int x) {
         int s = 0;
-        while (x > 0)
-        {
+        while (x > 0) {
             s = max(s, c[x]);
             x -= lowbit(x);
         }
@@ -432,8 +432,7 @@ public:
         for (int v : s) m[v] = idx++;
         BinaryIndexedTree* tree = new BinaryIndexedTree(m.size());
         int ans = 1;
-        for (int v : nums)
-        {
+        for (int v : nums) {
             int x = m[v];
             int t = tree->query(x - 1) + 1;
             ans = max(ans, t);

@@ -286,7 +286,7 @@ private:
     int largeSize = 0;
     int k;
 
-    template<typename T>
+    template <typename T>
     void prune(T& pq) {
         while (!pq.empty() && delayed[pq.top()]) {
             if (--delayed[pq.top()] == 0) {

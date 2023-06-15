@@ -47,7 +47,7 @@ def find_all_paths() -> List[str]:
             path = root + '/' + file
             if 'node_modules' in path or '__pycache__' in path or '.git' in path:
                 continue
-            if any(path.endswith(suf) for suf in suffixes):
+            if any(path.endswith(f'.{suf}') for suf in suffixes):
                 paths.append(path)
     return paths
 
@@ -62,6 +62,9 @@ def format_inline_code(path: str):
     for suf in code_blocks:
         res = re.findall(f'```{suf}\n(.*?)```', content, re.S)
         for block in res or []:
+            # skip empty code block
+            if not block or not block.strip():
+                continue
             if suf in ['c', 'cpp', 'java', 'python', 'go']:
                 suf = 'py' if suf == 'python' else suf
                 file = f'{root}/Solution2.{suf}'
@@ -87,20 +90,20 @@ def run():
     """Start formatting"""
     paths = find_all_paths()
 
-    for path in paths:
-        add_header(path)
-        if any(path.endswith(suf) for suf in ['c', 'cpp', 'java']):
-            # format with clang-format
-            os.system(f'npx clang-format -i --style=file "{path}"')
+    # for path in paths:
+    #     add_header(path)
+    #     if any(path.endswith(suf) for suf in ['c', 'cpp', 'java']):
+    #         # format with clang-format
+    #         os.system(f'npx clang-format -i --style=file "{path}"')
 
-    # format with prettier
-    os.system('npx prettier --write "**/*.{md,js,ts,php}"')
+    # # format with prettier
+    # os.system('npx prettier --write "**/*.{md,js,ts,php}"')
 
-    # format with gofmt
-    os.system('gofmt -w .')
+    # # format with gofmt
+    # os.system('gofmt -w .')
 
-    for path in paths:
-        remove_header(path)
+    # for path in paths:
+    #     remove_header(path)
     for path in paths:
         format_inline_code(path)
 

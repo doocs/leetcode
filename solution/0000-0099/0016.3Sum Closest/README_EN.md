@@ -108,8 +108,10 @@ public:
                 int t = nums[i] + nums[j] + nums[k];
                 if (t == target) return t;
                 if (abs(t - target) < abs(ans - target)) ans = t;
-                if (t > target) -- k;
-                else ++j;
+                if (t > target)
+                    --k;
+                else
+                    ++j;
             }
         }
         return ans;

@@ -510,9 +510,9 @@ impl Solution {
  * };
  */
 
-#define min(a,b) (((a) < (b)) ? (a) : (b))
+#define min(a, b) (((a) < (b)) ? (a) : (b))
 
-int minDepth(struct TreeNode *root) {
+int minDepth(struct TreeNode* root) {
     if (!root) {
         return 0;
     }

@@ -182,11 +182,11 @@ class Solution {
             g[i] = new ArrayList<>();
         }
         for (int[] t : times) {
-            g[t[0] - 1].add(new int[]{t[1] - 1, t[2]});
+            g[t[0] - 1].add(new int[] {t[1] - 1, t[2]});
         }
         dist[k - 1] = 0;
         PriorityQueue<int[]> q = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
-        q.offer(new int[]{0, k - 1});
+        q.offer(new int[] {0, k - 1});
         while (!q.isEmpty()) {
             int[] p = q.poll();
             int u = p[1];
@@ -194,7 +194,7 @@ class Solution {
                 int v = ne[0], w = ne[1];
                 if (dist[v] > dist[u] + w) {
                     dist[v] = dist[u] + w;
-                    q.offer(new int[]{dist[v], v});
+                    q.offer(new int[] {dist[v], v});
                 }
             }
         }
@@ -531,11 +531,9 @@ public:
     int networkDelayTime(vector<vector<int>>& times, int n, int k) {
         vector<int> dist(n, inf);
         dist[k - 1] = 0;
-        for (int i = 0; i < n; ++i)
-        {
+        for (int i = 0; i < n; ++i) {
             vector<int> backup = dist;
-            for (auto& e : times)
-            {
+            for (auto& e : times) {
                 int u = e[0] - 1, v = e[1] - 1, w = e[2];
                 dist[v] = min(dist[v], backup[u] + w);
             }
@@ -554,8 +552,7 @@ public:
     int networkDelayTime(vector<vector<int>>& times, int n, int k) {
         vector<int> dist(n, inf);
         vector<vector<vector<int>>> g(n);
-        for (auto& e : times)
-        {
+        for (auto& e : times) {
             int u = e[0] - 1, v = e[1] - 1, w = e[2];
             g[u].push_back({v, w});
         }
@@ -564,19 +561,15 @@ public:
         queue<int> q{{k}};
         vis[k] = true;
         dist[k] = 0;
-        while (!q.empty())
-        {
+        while (!q.empty()) {
             int u = q.front();
             q.pop();
             vis[u] = false;
-            for (auto& ne : g[u])
-            {
+            for (auto& ne : g[u]) {
                 int v = ne[0], w = ne[1];
-                if (dist[v] > dist[u] + w)
-                {
+                if (dist[v] > dist[u] + w) {
                     dist[v] = dist[u] + w;
-                    if (!vis[v])
-                    {
+                    if (!vis[v]) {
                         q.push(v);
                         vis[v] = true;
                     }

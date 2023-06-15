@@ -67,6 +67,7 @@
 # 初始化，p存储每个点的父节点
 p = list(range(n))
 
+
 # 返回x的祖宗节点
 def find(x):
     if p[x] != x:
@@ -279,11 +280,9 @@ public:
         int n = graph.size();
         p.resize(n);
         for (int i = 0; i < n; ++i) p[i] = i;
-        for (int u = 0; u < n; ++u)
-        {
+        for (int u = 0; u < n; ++u) {
             auto& g = graph[u];
-            for (int v : g)
-            {
+            for (int v : g) {
                 if (find(u) == find(v)) return 0;
                 p[find(v)] = find(g[0]);
             }

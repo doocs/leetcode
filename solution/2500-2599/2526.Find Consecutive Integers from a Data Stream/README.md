@@ -66,7 +66,6 @@ dataStream.consec(3); // 最后 k 个整数分别是 [4,4,3] 。
 
 ```python
 class DataStream:
-
     def __init__(self, value: int, k: int):
         self.val, self.k = value, k
         self.cnt = 0

@@ -210,7 +210,7 @@ class Solution {
 public:
     int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
         unordered_set<string> words(wordList.begin(), wordList.end());
-        queue<string> q {{beginWord}};
+        queue<string> q{{beginWord}};
         int ans = 1;
         while (!q.empty()) {
             ++ans;
@@ -241,8 +241,8 @@ public:
     int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
         unordered_set<string> words(wordList.begin(), wordList.end());
         if (!words.count(endWord)) return 0;
-        queue<string> q1 {{beginWord}};
-        queue<string> q2 {{endWord}};
+        queue<string> q1{{beginWord}};
+        queue<string> q2{{endWord}};
         unordered_map<string, int> m1;
         unordered_map<string, int> m2;
         m1[beginWord] = 0;

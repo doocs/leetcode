@@ -257,17 +257,14 @@ public:
         if (depth == 1) return new TreeNode(val, root, nullptr);
         queue<TreeNode*> q{{root}};
         int i = 0;
-        while (!q.empty())
-        {
+        while (!q.empty()) {
             ++i;
-            for (int k = q.size(); k; --k)
-            {
+            for (int k = q.size(); k; --k) {
                 TreeNode* node = q.front();
                 q.pop();
                 if (node->left) q.push(node->left);
                 if (node->right) q.push(node->right);
-                if (i == depth - 1)
-                {
+                if (i == depth - 1) {
                     node->left = new TreeNode(val, node->left, nullptr);
                     node->right = new TreeNode(val, nullptr, node->right);
                 }

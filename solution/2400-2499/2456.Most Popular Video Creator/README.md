@@ -75,7 +75,9 @@ id 为 "b" 和 "c" 的视频都满足播放量最高的条件。
 
 ```python
 class Solution:
-    def mostPopularCreator(self, creators: List[str], ids: List[str], views: List[int]) -> List[List[str]]:
+    def mostPopularCreator(
+        self, creators: List[str], ids: List[str], views: List[int]
+    ) -> List[List[str]]:
         cnt = defaultdict(int)
         d = defaultdict(int)
         for k, (c, i, v) in enumerate(zip(creators, ids, views)):

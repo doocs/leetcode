@@ -156,7 +156,7 @@ int firstMissingPositive(int* nums, int numsSize) {
         Max = (Max < nums[i]) ? nums[i] : Max;
     }
 
-    Count = (int*)calloc(Max + 1, sizeof(int));
+    Count = (int*) calloc(Max + 1, sizeof(int));
     for (i = 0; i < numsSize; i++) {
         if (nums[i] > 0) {
             Count[nums[i]]++;

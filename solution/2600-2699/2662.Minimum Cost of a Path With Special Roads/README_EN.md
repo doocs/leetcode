@@ -71,7 +71,9 @@ The time complexity is $O(n^2 \times \log n)$, and the space complexity is $O(n^
 
 ```python
 class Solution:
-    def minimumCost(self, start: List[int], target: List[int], specialRoads: List[List[int]]) -> int:
+    def minimumCost(
+        self, start: List[int], target: List[int], specialRoads: List[List[int]]
+    ) -> int:
         def dist(x1: int, y1: int, x2: int, y2: int) -> int:
             return abs(x1 - x2) + abs(y1 - y2)
 

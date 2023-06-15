@@ -85,7 +85,7 @@ class Solution:
                 i = 0
                 for j in range(1, k + 1):
                     tail = f'<{j}/{k}>'
-                    t = message[i: i + limit - len(tail)] + tail
+                    t = message[i : i + limit - len(tail)] + tail
                     ans.append(t)
                     i += limit - len(tail)
                 return ans

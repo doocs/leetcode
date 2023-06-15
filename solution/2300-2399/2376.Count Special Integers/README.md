@@ -362,7 +362,7 @@ func A(m, n int) int {
 
 ```go
 func countSpecialNumbers(n int) int {
-    return f(n)
+	return f(n)
 }
 
 func f(n int) int {

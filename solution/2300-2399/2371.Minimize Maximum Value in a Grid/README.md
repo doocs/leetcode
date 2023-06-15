@@ -77,8 +77,7 @@
 class Solution:
     def minScore(self, grid: List[List[int]]) -> List[List[int]]:
         m, n = len(grid), len(grid[0])
-        nums = [(v, i, j) for i, row in enumerate(grid)
-                for j, v in enumerate(row)]
+        nums = [(v, i, j) for i, row in enumerate(grid) for j, v in enumerate(row)]
         nums.sort()
         row_max = [0] * m
         col_max = [0] * n

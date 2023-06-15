@@ -259,7 +259,7 @@ public:
     void operator delete(void* p, size_t) {
         if (p) add(static_cast<T*>(p));
     }
-    virtual ~CachedObj() { }
+    virtual ~CachedObj() {}
 
 protected:
     T* next;

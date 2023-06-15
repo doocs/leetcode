@@ -61,7 +61,6 @@ myStack.empty(); // return False
 
 ```python
 class MyStack:
-
     def __init__(self):
         self.q1 = deque()
         self.q2 = deque()
@@ -141,7 +140,6 @@ class MyStack {
 class MyStack {
 public:
     MyStack() {
-
     }
 
     void push(int x) {

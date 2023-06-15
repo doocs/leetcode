@@ -144,7 +144,7 @@ public:
 
 ```go
 func cuttingRope(n int) int {
-    dp := make([]int, n+1)
+	dp := make([]int, n+1)
 	dp[1] = 1
 	for i := 2; i <= n; i++ {
 		for j := 1; j < i; j++ {

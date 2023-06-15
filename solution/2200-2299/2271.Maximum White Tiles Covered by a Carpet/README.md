@@ -90,7 +90,7 @@ class Solution:
                 ans = max(ans, s + li + carpetLen - tiles[j][0])
             else:
                 ans = max(ans, s)
-            s -= (ri - li + 1)
+            s -= ri - li + 1
         return ans
 ```
 

@@ -139,8 +139,8 @@ public:
     void foo(function<void()> printFoo) {
         for (int i = 0; i < n; i++) {
             sem_wait(&f);
-        	// printFoo() outputs "foo". Do not change or remove this line.
-        	printFoo();
+            // printFoo() outputs "foo". Do not change or remove this line.
+            printFoo();
             sem_post(&b);
         }
     }
@@ -148,8 +148,8 @@ public:
     void bar(function<void()> printBar) {
         for (int i = 0; i < n; i++) {
             sem_wait(&b);
-        	// printBar() outputs "bar". Do not change or remove this line.
-        	printBar();
+            // printBar() outputs "bar". Do not change or remove this line.
+            printBar();
             sem_post(&f);
         }
     }

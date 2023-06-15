@@ -171,7 +171,6 @@ class Leaderboard {
 class Leaderboard {
 public:
     Leaderboard() {
-
     }
 
     void addScore(int playerId, int score) {

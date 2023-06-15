@@ -107,7 +107,8 @@ public:
         add(s1);
         add(s2);
         vector<string> ans;
-        for (auto& [s, v] : cnt) if (v == 1) ans.emplace_back(s);
+        for (auto& [s, v] : cnt)
+            if (v == 1) ans.emplace_back(s);
         return ans;
     }
 };
@@ -117,19 +118,19 @@ public:
 
 ```go
 func uncommonFromSentences(s1 string, s2 string) (ans []string) {
-    cnt := map[string]int{}
-    for _, s := range strings.Split(s1, " ") {
-        cnt[s]++
-    }
-    for _, s := range strings.Split(s2, " ") {
-        cnt[s]++
-    }
-    for s, v := range cnt {
-        if v == 1 {
-            ans = append(ans, s)
-        }
-    }
-    return
+	cnt := map[string]int{}
+	for _, s := range strings.Split(s1, " ") {
+		cnt[s]++
+	}
+	for _, s := range strings.Split(s2, " ") {
+		cnt[s]++
+	}
+	for s, v := range cnt {
+		if v == 1 {
+			ans = append(ans, s)
+		}
+	}
+	return
 }
 ```
 

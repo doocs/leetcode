@@ -107,7 +107,8 @@ class Solution {
             for (int j = 0; j <= budget; ++j) {
                 f[i][j] = f[i - 1][j];
                 if (j >= present[i - 1]) {
-                    f[i][j] = Math.max(f[i][j], f[i - 1][j - present[i - 1]] + future[i - 1] - present[i - 1]);
+                    f[i][j] = Math.max(
+                        f[i][j], f[i - 1][j - present[i - 1]] + future[i - 1] - present[i - 1]);
                 }
             }
         }

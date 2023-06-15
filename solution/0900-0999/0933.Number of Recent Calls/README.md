@@ -169,7 +169,6 @@ public:
     vector<int> s;
 
     RecentCounter() {
-
     }
 
     int ping(int t) {

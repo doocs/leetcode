@@ -149,9 +149,9 @@ func hardestWorker(n int, logs [][]int) (ans int) {
 ### **C**
 
 ```c
-#define min(a,b) (((a) < (b)) ? (a) : (b))
+#define min(a, b) (((a) < (b)) ? (a) : (b))
 
-int hardestWorker(int n, int **logs, int logsSize, int *logsColSize) {
+int hardestWorker(int n, int** logs, int logsSize, int* logsColSize) {
     int res = 0;
     int max = 0;
     int pre = 0;

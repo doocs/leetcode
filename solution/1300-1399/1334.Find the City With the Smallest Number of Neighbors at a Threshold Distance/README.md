@@ -78,7 +78,9 @@
 
 ```python
 class Solution:
-    def findTheCity(self, n: int, edges: List[List[int]], distanceThreshold: int) -> int:
+    def findTheCity(
+        self, n: int, edges: List[List[int]], distanceThreshold: int
+    ) -> int:
         def dijkstra(u):
             dist = [inf] * n
             dist[u] = 0

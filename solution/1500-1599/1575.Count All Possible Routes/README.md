@@ -101,7 +101,9 @@
 
 ```python
 class Solution:
-    def countRoutes(self, locations: List[int], start: int, finish: int, fuel: int) -> int:
+    def countRoutes(
+        self, locations: List[int], start: int, finish: int, fuel: int
+    ) -> int:
         @cache
         def dfs(i: int, k: int) -> int:
             if k < abs(locations[i] - locations[finish]):

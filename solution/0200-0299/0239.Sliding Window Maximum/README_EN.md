@@ -50,7 +50,7 @@ Window position                Max
 ```python
 class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
-        q = [(-v, i) for i, v in enumerate(nums[:k - 1])]
+        q = [(-v, i) for i, v in enumerate(nums[: k - 1])]
         heapify(q)
         ans = []
         for i in range(k - 1, len(nums)):
@@ -82,7 +82,8 @@ class Solution:
 ```java
 class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
-        PriorityQueue<int[]> q = new PriorityQueue<>((a, b) -> a[0] == b[0] ? a[1] - b[1] : b[0] - a[0]);
+        PriorityQueue<int[]> q
+            = new PriorityQueue<>((a, b) -> a[0] == b[0] ? a[1] - b[1] : b[0] - a[0]);
         int n = nums.length;
         for (int i = 0; i < k - 1; ++i) {
             q.offer(new int[] {nums[i], i});

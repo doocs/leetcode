@@ -464,7 +464,7 @@ public:
         unordered_set<string> s(deadends.begin(), deadends.end());
         if (s.count("0000")) return -1;
         if (target == "0000") return 0;
-        queue<string> q {{"0000"}};
+        queue<string> q{{"0000"}};
         s.insert("0000");
         int ans = 0;
         while (!q.empty()) {
@@ -488,9 +488,9 @@ public:
         vector<string> res;
         for (int i = 0; i < 4; ++i) {
             char c = t[i];
-            t[i] = c == '0' ? '9' : (char)(c - 1);
+            t[i] = c == '0' ? '9' : (char) (c - 1);
             res.push_back(t);
-            t[i] = c == '9' ? '0' : (char)(c + 1);
+            t[i] = c == '9' ? '0' : (char) (c + 1);
             res.push_back(t);
             t[i] = c;
         }
@@ -524,8 +524,7 @@ public:
         m2[target] = 0;
         queue<string> q1{{start}};
         queue<string> q2{{target}};
-        while (!q1.empty() && !q2.empty())
-        {
+        while (!q1.empty() && !q2.empty()) {
             int t = q1.size() <= q2.size() ? extend(m1, m2, q1) : extend(m2, m1, q2);
             if (t != -1) return t;
         }
@@ -533,13 +532,11 @@ public:
     }
 
     int extend(unordered_map<string, int>& m1, unordered_map<string, int>& m2, queue<string>& q) {
-        for (int n = q.size(); n > 0; --n)
-        {
+        for (int n = q.size(); n > 0; --n) {
             string p = q.front();
             int step = m1[p];
             q.pop();
-            for (string t : next(p))
-            {
+            for (string t : next(p)) {
                 if (s.count(t) || m1.count(t)) continue;
                 if (m2.count(t)) return step + 1 + m2[t];
                 m1[t] = step + 1;
@@ -551,8 +548,7 @@ public:
 
     vector<string> next(string& t) {
         vector<string> res;
-        for (int i = 0; i < 4; ++i)
-        {
+        for (int i = 0; i < 4; ++i) {
             char c = t[i];
             t[i] = c == '0' ? '9' : (char) (c - 1);
             res.push_back(t);
@@ -578,23 +574,20 @@ public:
         if (s.count("0000")) return -1;
         string start = "0000";
         this->target = target;
-        typedef pair<int , string> PIS;
+        typedef pair<int, string> PIS;
         priority_queue<PIS, vector<PIS>, greater<PIS>> q;
         unordered_map<string, int> dist;
         dist[start] = 0;
         q.push({f(start), start});
-        while (!q.empty())
-        {
+        while (!q.empty()) {
             PIS t = q.top();
             q.pop();
             string state = t.second;
             int step = dist[state];
             if (state == target) return step;
-            for (string& t : next(state))
-            {
+            for (string& t : next(state)) {
                 if (s.count(t)) continue;
-                if (!dist.count(t) || dist[t] > step + 1)
-                {
+                if (!dist.count(t) || dist[t] > step + 1) {
                     dist[t] = step + 1;
                     q.push({step + 1 + f(t), t});
                 }
@@ -605,12 +598,10 @@ public:
 
     int f(string s) {
         int ans = 0;
-        for (int i = 0; i < 4; ++i)
-        {
+        for (int i = 0; i < 4; ++i) {
             int a = s[i] - '0';
             int b = target[i] - '0';
-            if (a < b)
-            {
+            if (a < b) {
                 int t = a;
                 a = b;
                 b = t;
@@ -622,8 +613,7 @@ public:
 
     vector<string> next(string& t) {
         vector<string> res;
-        for (int i = 0; i < 4; ++i)
-        {
+        for (int i = 0; i < 4; ++i) {
             char c = t[i];
             t[i] = c == '0' ? '9' : (char) (c - 1);
             res.push_back(t);

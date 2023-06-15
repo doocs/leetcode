@@ -174,7 +174,7 @@ func duplicateZeros(arr []int) {
 ### **C**
 
 ```c
-void duplicateZeros(int* arr, int arrSize){
+void duplicateZeros(int* arr, int arrSize) {
     int i = 0;
     int j = 0;
     while (j < arrSize) {

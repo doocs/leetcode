@@ -364,7 +364,7 @@ impl Solution {
  *     struct TreeNode *right;
  * };
  */
-bool evaluateTree(struct TreeNode *root) {
+bool evaluateTree(struct TreeNode* root) {
     if (!root->left) {
         return root->val == 1;
     }

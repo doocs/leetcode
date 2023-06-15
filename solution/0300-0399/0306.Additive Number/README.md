@@ -151,7 +151,7 @@ public:
     bool dfs(long long a, long long b, string num) {
         if (num == "") return true;
         if (a + b > 0 && num[0] == '0') return false;
-        for (int i = 1; i < min((int)num.size() + 1, 19); ++i)
+        for (int i = 1; i < min((int) num.size() + 1, 19); ++i)
             if (a + b == stoll(num.substr(0, i)))
                 if (dfs(b, a + b, num.substr(i, num.size() - i)))
                     return true;

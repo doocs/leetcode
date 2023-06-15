@@ -108,7 +108,7 @@ class Solution:
 ```java
 class Solution {
     public int[] getNoZeroIntegers(int n) {
-        for (int a = 1; ; ++a) {
+        for (int a = 1;; ++a) {
             int b = n - a;
             if (!(a + "" + b).contains("0")) {
                 return new int[] {a, b};
@@ -146,7 +146,7 @@ class Solution {
 class Solution {
 public:
     vector<int> getNoZeroIntegers(int n) {
-        for (int a = 1; ; ++a) {
+        for (int a = 1;; ++a) {
             int b = n - a;
             if ((to_string(a) + to_string(b)).find('0') == -1) {
                 return {a, b};
@@ -168,7 +168,7 @@ public:
             }
             return true;
         };
-        for (int a = 1; ; ++a) {
+        for (int a = 1;; ++a) {
             int b = n - a;
             if (f(a) && f(b)) {
                 return {a, b};

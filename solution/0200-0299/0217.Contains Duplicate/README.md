@@ -150,14 +150,14 @@ func containsDuplicate(nums []int) bool {
 
 ```go
 func containsDuplicate(nums []int) bool {
-    s := map[int]bool{}
-    for _, v := range nums {
-        if s[v] {
-            return true
-        }
-        s[v] = true
-    }
-    return false
+	s := map[int]bool{}
+	for _, v := range nums {
+		if s[v] {
+			return true
+		}
+		s[v] = true
+	}
+	return false
 }
 ```
 
@@ -223,11 +223,11 @@ impl Solution {
 ### **C**
 
 ```c
-int cmp(const void *a, const void *b) {
-    return *(int *) a - *(int *) b;
+int cmp(const void* a, const void* b) {
+    return *(int*) a - *(int*) b;
 }
 
-bool containsDuplicate(int *nums, int numsSize) {
+bool containsDuplicate(int* nums, int numsSize) {
     qsort(nums, numsSize, sizeof(int), cmp);
     for (int i = 1; i < numsSize; i++) {
         if (nums[i - 1] == nums[i]) {

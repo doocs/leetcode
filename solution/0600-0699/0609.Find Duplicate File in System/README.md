@@ -93,7 +93,7 @@ class Solution:
             ps = p.split()
             for f in ps[1:]:
                 i = f.find('(')
-                name, content = f[:i], f[i + 1: -1]
+                name, content = f[:i], f[i + 1 : -1]
                 d[content].append(ps[0] + '/' + name)
         return [v for v in d.values() if len(v) > 1]
 ```

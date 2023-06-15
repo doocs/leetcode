@@ -82,17 +82,16 @@ lRUCache.get(4);    // 返回 4
 
 ```java
 class Node {
-	int key;
-	int value;
-	Node prev;
-	Node next;
-	Node() {
-
-	}
-	Node(int key, int value) {
-		this.key = key;
-		this.value = value;
-	}
+    int key;
+    int value;
+    Node prev;
+    Node next;
+    Node() {
+    }
+    Node(int key, int value) {
+        this.key = key;
+        this.value = value;
+    }
 }
 ```
 
@@ -486,12 +485,12 @@ struct Node {
         : k(0)
         , v(0)
         , prev(nullptr)
-        , next(nullptr) { }
+        , next(nullptr) {}
     Node(int key, int val)
         : k(key)
         , v(val)
         , prev(nullptr)
-        , next(nullptr) { }
+        , next(nullptr) {}
 };
 
 class LRUCache {

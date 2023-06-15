@@ -58,7 +58,9 @@ class Solution:
             d[j + 1] -= v
         for i in range(1, n + 1):
             d[i] += d[i - 1]
-        return ''.join(chr(ord('a') + (ord(s[i]) - ord('a') + d[i] + 26) % 26) for i in range(n))
+        return ''.join(
+            chr(ord('a') + (ord(s[i]) - ord('a') + d[i] + 26) % 26) for i in range(n)
+        )
 ```
 
 ### **Java**

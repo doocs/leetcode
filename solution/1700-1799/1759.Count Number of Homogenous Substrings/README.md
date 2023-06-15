@@ -152,7 +152,7 @@ public:
         for (int i = 0, j = 0; i < n; i = j) {
             j = i;
             while (j < n && s[j] == s[i]) ++j;
-            int cnt = j -  i;
+            int cnt = j - i;
             ans += 1ll * (1 + cnt) * cnt / 2;
             ans %= mod;
         }
@@ -255,7 +255,7 @@ impl Solution {
 ### **C**
 
 ```c
-int countHomogenous(char *s) {
+int countHomogenous(char* s) {
     int MOD = 1e9 + 7;
     int ans = 0;
     for (int i = 0, j = 0; s[j]; j++) {

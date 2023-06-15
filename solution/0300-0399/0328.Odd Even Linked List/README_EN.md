@@ -113,7 +113,7 @@ public:
         if (!head) {
             return nullptr;
         }
-        ListNode *a = head;
+        ListNode* a = head;
         ListNode *b = head->next, *c = b;
         while (b && b->next) {
             a->next = b->next;

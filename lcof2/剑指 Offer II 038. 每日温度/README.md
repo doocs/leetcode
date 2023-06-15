@@ -159,7 +159,7 @@ public:
 ```cpp
 class Solution {
 public:
-    vector<int> dailyTemperatures(vector<int> &temperatures) {
+    vector<int> dailyTemperatures(vector<int>& temperatures) {
         int n = temperatures.size();
         vector<int> ans(n);
         stack<int> stk;

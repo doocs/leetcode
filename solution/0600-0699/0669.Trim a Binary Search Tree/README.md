@@ -440,8 +440,7 @@ var trimBST = function (root, low, high) {
  * };
  */
 
-
-struct TreeNode *trimBST(struct TreeNode *root, int low, int high) {
+struct TreeNode* trimBST(struct TreeNode* root, int low, int high) {
     if (!root) {
         return root;
     }

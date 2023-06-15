@@ -138,9 +138,9 @@ func max(a, b int) int {
 ### **C**
 
 ```c
-#define max(a,b) (((a) > (b)) ? (a) : (b))
+#define max(a, b) (((a) > (b)) ? (a) : (b))
 
-int longestContinuousSubstring(char *s) {
+int longestContinuousSubstring(char* s) {
     int n = strlen(s);
     int i = 0;
     int res = 1;

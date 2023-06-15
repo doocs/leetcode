@@ -89,6 +89,7 @@
 p = list(range(n))
 size = [1] * n
 
+
 def find(x):
     if p[x] != x:
         # 路径压缩

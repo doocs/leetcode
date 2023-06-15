@@ -149,7 +149,7 @@ public:
     bool isEnd;
     Trie()
         : children(26)
-        , isEnd(false) { }
+        , isEnd(false) {}
 
     void insert(string w) {
         Trie* node = this;

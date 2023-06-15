@@ -88,7 +88,6 @@ class RecentCounter {
     private Deque<Integer> q = new ArrayDeque<>();
 
     public RecentCounter() {
-
     }
 
     public int ping(int t) {
@@ -171,7 +170,6 @@ public:
     vector<int> s;
 
     RecentCounter() {
-
     }
 
     int ping(int t) {

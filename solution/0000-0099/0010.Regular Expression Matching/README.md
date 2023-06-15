@@ -97,7 +97,9 @@ class Solution:
             if j >= n:
                 return i == m
             if j + 1 < n and p[j + 1] == '*':
-                return dfs(i, j + 2) or (i < m and (s[i] == p[j] or p[j] == '.') and dfs(i + 1, j))
+                return dfs(i, j + 2) or (
+                    i < m and (s[i] == p[j] or p[j] == '.') and dfs(i + 1, j)
+                )
             return i < m and (s[i] == p[j] or p[j] == '.') and dfs(i + 1, j + 1)
 
         m, n = len(s), len(p)
@@ -151,7 +153,8 @@ class Solution {
         }
         boolean res = false;
         if (j + 1 < n && p.charAt(j + 1) == '*') {
-            res = dfs(i, j + 2) || (i < m && (s.charAt(i) == p.charAt(j) || p.charAt(j) == '.') && dfs(i + 1, j));
+            res = dfs(i, j + 2)
+                || (i < m && (s.charAt(i) == p.charAt(j) || p.charAt(j) == '.') && dfs(i + 1, j));
         } else {
             res = i < m && (s.charAt(i) == p.charAt(j) || p.charAt(j) == '.') && dfs(i + 1, j + 1);
         }

@@ -157,7 +157,7 @@ impl Solution {
 ### **C**
 
 ```c
-int minimumMoves(char *s) {
+int minimumMoves(char* s) {
     int n = strlen(s);
     int ans = 0;
     int i = 0;

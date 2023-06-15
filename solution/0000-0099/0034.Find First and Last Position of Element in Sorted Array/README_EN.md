@@ -38,7 +38,8 @@ Binary search.
 Template 1:
 
 ```java
-boolean check(int x) {}
+boolean check(int x) {
+}
 
 int search(int left, int right) {
     while (left < right) {
@@ -56,7 +57,8 @@ int search(int left, int right) {
 Template 2:
 
 ```java
-boolean check(int x) {}
+boolean check(int x) {
+}
 
 int search(int left, int right) {
     while (left < right) {

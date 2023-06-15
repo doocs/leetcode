@@ -194,7 +194,7 @@ impl Solution {
 ```c
 #define min(a, b) (((a) < (b)) ? (a) : (b))
 
-int rearrangeCharacters(char *s, char *target) {
+int rearrangeCharacters(char* s, char* target) {
     int count1[26] = {0};
     int count2[26] = {0};
     for (int i = 0; s[i]; i++) {

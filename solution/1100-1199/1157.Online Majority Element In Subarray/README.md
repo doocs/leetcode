@@ -136,7 +136,6 @@ class SegmentTree:
 
 
 class MajorityChecker:
-
     def __init__(self, arr: List[int]):
         self.tree = SegmentTree(arr)
         self.d = defaultdict(list)

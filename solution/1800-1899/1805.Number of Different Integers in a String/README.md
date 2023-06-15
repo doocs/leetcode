@@ -80,7 +80,7 @@ class Solution:
                 j = i
                 while j < n and word[j].isdigit():
                     j += 1
-                s.add(word[i: j])
+                s.add(word[i:j])
                 i = j
             i += 1
         return len(s)

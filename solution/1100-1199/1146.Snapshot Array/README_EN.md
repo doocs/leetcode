@@ -46,7 +46,6 @@ snapshotArr.get(0,0);  // Get the value of array[0] with snap_id = 0, return 5</
 
 ```python
 class SnapshotArray:
-
     def __init__(self, length: int):
         self.idx = 0
         self.arr = defaultdict(list)

@@ -72,7 +72,9 @@ The time complexity is $O(m \times n \times minProfit)$, and the space complexit
 
 ```python
 class Solution:
-    def profitableSchemes(self, n: int, minProfit: int, group: List[int], profit: List[int]) -> int:
+    def profitableSchemes(
+        self, n: int, minProfit: int, group: List[int], profit: List[int]
+    ) -> int:
         @cache
         def dfs(i: int, j: int, k: int) -> int:
             if i >= len(group):

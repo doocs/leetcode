@@ -195,7 +195,7 @@ impl Solution {
 ### **C**
 
 ```c
-int sumOddLengthSubarrays(int* arr, int arrSize){
+int sumOddLengthSubarrays(int* arr, int arrSize) {
     int ans = 0;
     for (int i = 0; i < arrSize; ++i) {
         int s = 0;

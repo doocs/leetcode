@@ -320,7 +320,7 @@ impl Solution {
 ```c
 #define min(a, b) (((a) < (b)) ? (a) : (b))
 
-int minOperations(int *nums, int numsSize, int x) {
+int minOperations(int* nums, int numsSize, int x) {
     int target = -x;
     for (int i = 0; i < numsSize; i++) {
         target += nums[i];

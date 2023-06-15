@@ -215,8 +215,10 @@ public:
         int ans = 0;
         for (auto& row : matrix) {
             for (int j = 0; j < n; ++j) {
-                if (row[j] == '1') ++heights[j];
-                else heights[j] = 0;
+                if (row[j] == '1')
+                    ++heights[j];
+                else
+                    heights[j] = 0;
             }
             ans = max(ans, largestRectangleArea(heights));
         }

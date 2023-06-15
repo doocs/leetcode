@@ -209,7 +209,7 @@ class Solution {
 public:
     vector<int> largestValues(TreeNode* root) {
         if (!root) return {};
-        queue<TreeNode*> q {{root}};
+        queue<TreeNode*> q{{root}};
         vector<int> ans;
         while (!q.empty()) {
             int t = q.front()->val;
@@ -250,8 +250,10 @@ public:
 
     void dfs(TreeNode* root, int curr) {
         if (!root) return;
-        if (curr == ans.size()) ans.push_back(root->val);
-        else ans[curr] = max(ans[curr], root->val);
+        if (curr == ans.size())
+            ans.push_back(root->val);
+        else
+            ans[curr] = max(ans[curr], root->val);
         dfs(root->left, curr + 1);
         dfs(root->right, curr + 1);
     }

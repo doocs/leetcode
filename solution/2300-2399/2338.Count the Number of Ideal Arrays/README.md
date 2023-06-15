@@ -171,7 +171,6 @@ class Solution {
         }
         f[i][cnt] = res;
         return res;
-
     }
 }
 ```
@@ -259,10 +258,8 @@ public:
                 c[i][j] = j == 0 ? 1 : (c[i - 1][j] + c[i - 1][j - 1]) % mod;
         vector<vector<ll>> dp(maxValue + 1, vector<ll>(16));
         for (int i = 1; i <= maxValue; ++i) dp[i][1] = 1;
-        for (int j = 1; j < 15; ++j)
-        {
-            for (int i = 1; i <= maxValue; ++i)
-            {
+        for (int j = 1; j < 15; ++j) {
+            for (int i = 1; i <= maxValue; ++i) {
                 int k = 2;
                 for (; k * i <= maxValue; ++k) dp[k * i][j + 1] = (dp[k * i][j + 1] + dp[i][j]) % mod;
             }

@@ -164,7 +164,7 @@ class Solution {
         TreeNode p1 = null, p2 = null;
         int d1 = 0, d2 = 0;
         Deque<TreeNode[]> q = new ArrayDeque<>();
-        q.offer(new TreeNode[]{root, null});
+        q.offer(new TreeNode[] {root, null});
         int d = 0;
         while (!q.isEmpty()) {
             for (int n = q.size(); n > 0; --n) {
@@ -179,10 +179,10 @@ class Solution {
                     d2 = d;
                 }
                 if (node.left != null) {
-                    q.offer(new TreeNode[]{node.left, node});
+                    q.offer(new TreeNode[] {node.left, node});
                 }
                 if (node.right != null) {
-                    q.offer(new TreeNode[]{node.right, node});
+                    q.offer(new TreeNode[] {node.right, node});
                 }
             }
             ++d;
@@ -308,7 +308,7 @@ DFS：
 class Solution {
 public:
     bool isCousins(TreeNode* root, int x, int y) {
-        TreeNode* p1, *p2;
+        TreeNode *p1, *p2;
         int d1, d2;
         function<void(TreeNode*, TreeNode*, int)> dfs = [&](TreeNode* root, TreeNode* fa, int d) {
             if (!root) {

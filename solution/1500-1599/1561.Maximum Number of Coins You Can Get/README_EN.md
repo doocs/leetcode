@@ -91,7 +91,7 @@ public:
     int maxCoins(vector<int>& piles) {
         sort(piles.begin(), piles.end());
         int ans = 0;
-        for (int i = piles.size() - 2; i >= (int)piles.size() / 3; i -= 2) ans += piles[i];
+        for (int i = piles.size() - 2; i >= (int) piles.size() / 3; i -= 2) ans += piles[i];
         return ans;
     }
 };
@@ -143,11 +143,11 @@ impl Solution {
 ### **C**
 
 ```c
-int cmp(const void *a, const void *b) {
-    return *(int *) a - *(int *) b;
+int cmp(const void* a, const void* b) {
+    return *(int*) a - *(int*) b;
 }
 
-int maxCoins(int *piles, int pilesSize) {
+int maxCoins(int* piles, int pilesSize) {
     qsort(piles, pilesSize, sizeof(int), cmp);
     int ans = 0;
     for (int i = 1; i <= pilesSize / 3; i++) {

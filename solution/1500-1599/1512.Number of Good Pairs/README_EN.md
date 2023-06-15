@@ -216,7 +216,7 @@ impl Solution {
 ### **C**
 
 ```c
-int numIdenticalPairs(int *nums, int numsSize) {
+int numIdenticalPairs(int* nums, int numsSize) {
     int cnt[101] = {0};
     int ans = 0;
     for (int i = 0; i < numsSize; i++) {
@@ -227,7 +227,7 @@ int numIdenticalPairs(int *nums, int numsSize) {
 ```
 
 ```c
-int numIdenticalPairs(int *nums, int numsSize) {
+int numIdenticalPairs(int* nums, int numsSize) {
     int cnt[101] = {0};
     for (int i = 0; i < numsSize; i++) {
         cnt[nums[i]]++;

@@ -92,7 +92,8 @@ public:
     bool checkIfPangram(string sentence) {
         int vis[26] = {0};
         for (char& c : sentence) vis[c - 'a'] = 1;
-        for (int& v : vis) if (!v) return false;
+        for (int& v : vis)
+            if (!v) return false;
         return true;
     }
 };
@@ -187,7 +188,7 @@ impl Solution {
 ### **C**
 
 ```c
-bool checkIfPangram(char *sentence) {
+bool checkIfPangram(char* sentence) {
     int vis[26] = {0};
     for (int i = 0; sentence[i]; i++) {
         vis[sentence[i] - 'a'] = 1;
@@ -202,7 +203,7 @@ bool checkIfPangram(char *sentence) {
 ```
 
 ```c
-bool checkIfPangram(char *sentence) {
+bool checkIfPangram(char* sentence) {
     int mark = 0;
     for (int i = 0; sentence[i]; i++) {
         mark |= 1 << (sentence[i] - 'a');

@@ -63,7 +63,7 @@ class Solution:
         k = binary.find('0')
         if k == -1:
             return binary
-        k += binary[k + 1:].count('0')
+        k += binary[k + 1 :].count('0')
         return '1' * k + '0' + '1' * (len(binary) - k - 1)
 ```
 

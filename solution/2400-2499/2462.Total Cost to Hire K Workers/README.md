@@ -163,7 +163,8 @@ public:
         int n = costs.size();
         int i = candidates - 1, j = n - candidates;
         for (int h = 0; h < candidates; ++h) q.push({costs[h], h});
-        for (int h = n - candidates; h < n; ++h) if (h > i) q.push({costs[h], h});
+        for (int h = n - candidates; h < n; ++h)
+            if (h > i) q.push({costs[h], h});
         long long ans = 0;
         while (k--) {
             auto [c, x] = q.top();

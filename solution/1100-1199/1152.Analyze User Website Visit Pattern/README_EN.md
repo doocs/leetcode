@@ -68,9 +68,13 @@ The pattern (&quot;home&quot;, &quot;home&quot;, &quot;home&quot;) has score 0 (
 
 ```python
 class Solution:
-    def mostVisitedPattern(self, username: List[str], timestamp: List[int], website: List[str]) -> List[str]:
+    def mostVisitedPattern(
+        self, username: List[str], timestamp: List[int], website: List[str]
+    ) -> List[str]:
         d = defaultdict(list)
-        for user, _, site in sorted(zip(username, timestamp, website), key=lambda x: x[1]):
+        for user, _, site in sorted(
+            zip(username, timestamp, website), key=lambda x: x[1]
+        ):
             d[user].append(site)
 
         cnt = Counter()

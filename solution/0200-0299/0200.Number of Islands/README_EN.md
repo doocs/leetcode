@@ -193,7 +193,7 @@ class Solution {
     private void bfs(int i, int j) {
         grid[i][j] = '0';
         Deque<int[]> q = new ArrayDeque<>();
-        q.offer(new int[]{i, j});
+        q.offer(new int[] {i, j});
         int[] dirs = {-1, 0, 1, 0, -1};
         while (!q.isEmpty()) {
             int[] p = q.poll();
@@ -201,7 +201,7 @@ class Solution {
                 int x = p[0] + dirs[k];
                 int y = p[1] + dirs[k + 1];
                 if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == '1') {
-                    q.offer(new int[]{x, y});
+                    q.offer(new int[] {x, y});
                     grid[x][y] = '0';
                 }
             }

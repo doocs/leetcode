@@ -64,7 +64,12 @@ class Solution:
         for k in range(min(m, n), 0, -1):
             for i in range(m - k + 1):
                 for j in range(n - k + 1):
-                    if down[i][j] >= k and right[i][j] >= k and right[i + k - 1][j] >= k and down[i][j + k - 1] >= k:
+                    if (
+                        down[i][j] >= k
+                        and right[i][j] >= k
+                        and right[i + k - 1][j] >= k
+                        and down[i][j + k - 1] >= k
+                    ):
                         return k * k
         return 0
 ```

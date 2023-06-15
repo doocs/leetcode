@@ -131,7 +131,7 @@ class Solution {
                 }
             }
         }
-        return dp[m][amount] > amount ? - 1 : dp[m][amount];
+        return dp[m][amount] > amount ? -1 : dp[m][amount];
     }
 }
 ```

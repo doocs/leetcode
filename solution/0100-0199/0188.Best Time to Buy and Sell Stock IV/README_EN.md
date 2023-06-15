@@ -146,8 +146,10 @@ public:
             if (i >= n) return 0;
             if (f[i][j][k] != 0x3f3f3f3f) return f[i][j][k];
             int ans = dfs(i + 1, j, k);
-            if (k) ans = max(ans, prices[i] + dfs(i + 1, j, 0));
-            else if (j) ans = max(ans, -prices[i] + dfs(i + 1, j - 1, 1));
+            if (k)
+                ans = max(ans, prices[i] + dfs(i + 1, j, 0));
+            else if (j)
+                ans = max(ans, -prices[i] + dfs(i + 1, j - 1, 1));
             f[i][j][k] = ans;
             return ans;
         };

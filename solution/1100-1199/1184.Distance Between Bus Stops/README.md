@@ -73,7 +73,9 @@
 
 ```python
 class Solution:
-    def distanceBetweenBusStops(self, distance: List[int], start: int, destination: int) -> int:
+    def distanceBetweenBusStops(
+        self, distance: List[int], start: int, destination: int
+    ) -> int:
         a, n = 0, len(distance)
         while start != destination:
             a += distance[start]

@@ -123,7 +123,6 @@ undergroundSystem.getAverageTime("Leyton", "Paradise"); // 返回 6.66667 ，(5 
 
 ```python
 class UndergroundSystem:
-
     def __init__(self):
         self.ts = {}
         self.d = {}

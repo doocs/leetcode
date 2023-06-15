@@ -167,7 +167,7 @@ impl Solution {
 ### **C**
 
 ```c
-bool digitCount(char *num) {
+bool digitCount(char* num) {
     int count[10] = {0};
     for (int i = 0; num[i]; i++) {
         count[i] = num[i] - '0';

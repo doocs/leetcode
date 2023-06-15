@@ -123,7 +123,6 @@ class DoubleLinkedList:
 
 
 class MaxStack:
-
     def __init__(self):
         self.stk = DoubleLinkedList()
         self.sl = SortedList(key=lambda x: x.val)
@@ -147,6 +146,7 @@ class MaxStack:
         node = self.sl.pop()
         DoubleLinkedList.remove(node)
         return node.val
+
 
 # Your MaxStack object will be instantiated and called as such:
 # obj = MaxStack()

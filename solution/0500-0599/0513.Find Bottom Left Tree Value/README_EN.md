@@ -248,7 +248,7 @@ function findBottomLeftValue(root: TreeNode | null): number {
 class Solution {
 public:
     int findBottomLeftValue(TreeNode* root) {
-        queue<TreeNode*> q {{root}};
+        queue<TreeNode*> q{{root}};
         int ans = 0;
         while (!q.empty()) {
             ans = q.front()->val;
@@ -289,8 +289,7 @@ public:
         if (!root) return;
         dfs(root->left, curr + 1);
         dfs(root->right, curr + 1);
-        if (mx < curr)
-        {
+        if (mx < curr) {
             mx = curr;
             ans = root->val;
         }

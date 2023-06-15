@@ -118,7 +118,10 @@ class Solution:
             for j in range(n):
                 curRowMask |= board[i][j] << j
                 curColMask |= board[j][i] << j
-            if curRowMask not in (rowMask, revRowMask) or curColMask not in (colMask, revColMask):
+            if curRowMask not in (rowMask, revRowMask) or curColMask not in (
+                colMask,
+                revColMask,
+            ):
                 return -1
             sameRow += curRowMask == rowMask
             sameCol += curColMask == colMask

@@ -248,31 +248,30 @@ public:
     vector<int> c;
     vector<int> d;
 
-    BinaryIndexedTree(int _n): n(_n), c(_n + 1), d(n + 1){}
+    BinaryIndexedTree(int _n)
+        : n(_n)
+        , c(_n + 1)
+        , d(n + 1) {}
 
     void update(int x, int val, int cnt) {
-        while (x <= n)
-        {
-            if (c[x] < val)
-            {
+        while (x <= n) {
+            if (c[x] < val) {
                 c[x] = val;
                 d[x] = cnt;
-            }
-            else if (c[x] == val) d[x] += cnt;
+            } else if (c[x] == val)
+                d[x] += cnt;
             x += lowbit(x);
         }
     }
 
     vector<int> query(int x) {
         int val = 0, cnt = 0;
-        while (x > 0)
-        {
-            if (val < c[x])
-            {
+        while (x > 0) {
+            if (val < c[x]) {
                 val = c[x];
                 cnt = d[x];
-            }
-            else if (val == c[x]) cnt += d[x];
+            } else if (val == c[x])
+                cnt += d[x];
             x -= lowbit(x);
         }
         return {val, cnt};
@@ -292,8 +291,7 @@ public:
         for (int v : s) m[v] = idx++;
         int n = m.size();
         BinaryIndexedTree* tree = new BinaryIndexedTree(n);
-        for (int v : nums)
-        {
+        for (int v : nums) {
             int x = m[v];
             auto t = tree->query(x - 1);
             tree->update(x, t[0] + 1, max(t[1], 1));

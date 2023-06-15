@@ -135,7 +135,8 @@ public:
     bool validTicTacToe(vector<string>& board) {
         auto count = [&](char x) {
             int ans = 0;
-            for (auto& row : board) for (auto& c : row) ans += c == x;
+            for (auto& row : board)
+                for (auto& c : row) ans += c == x;
             return ans;
         };
         auto win = [&](char x) {

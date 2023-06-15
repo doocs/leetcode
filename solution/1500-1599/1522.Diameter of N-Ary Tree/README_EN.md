@@ -352,8 +352,7 @@ public:
     void dfs(Node* u, int t) {
         if (vis.count(u)) return;
         vis.insert(u);
-        if (ans < t)
-        {
+        if (ans < t) {
             ans = t;
             next = u;
         }
@@ -364,8 +363,7 @@ public:
 
     void build(Node* root) {
         if (!root) return;
-        for (Node* child : root->children)
-        {
+        for (Node* child : root->children) {
             g[root].insert(child);
             g[child].insert(root);
             build(child);

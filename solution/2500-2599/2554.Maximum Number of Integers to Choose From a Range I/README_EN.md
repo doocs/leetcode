@@ -299,11 +299,11 @@ impl Solution {
 ### **C**
 
 ```c
-int cmp(const void *a, const void *b) {
-    return *(int *) a - *(int *) b;
+int cmp(const void* a, const void* b) {
+    return *(int*) a - *(int*) b;
 }
 
-int maxCount(int *banned, int bannedSize, int n, int maxSum) {
+int maxCount(int* banned, int bannedSize, int n, int maxSum) {
     qsort(banned, bannedSize, sizeof(int), cmp);
     int sum = 0;
     int ans = 0;

@@ -162,8 +162,8 @@ class Solution {
             return memo.get(i * 100 + j);
         }
 
-        boolean ret = (i < m && s1.charAt(i) == s3.charAt(i + j) && dfs(i + 1, j)) ||
-                (j < n && s2.charAt(j) == s3.charAt(i + j) && dfs(i, j + 1));
+        boolean ret = (i < m && s1.charAt(i) == s3.charAt(i + j) && dfs(i + 1, j))
+            || (j < n && s2.charAt(j) == s3.charAt(i + j) && dfs(i, j + 1));
 
         memo.put(i * 100 + j, ret);
         return ret;
@@ -232,10 +232,8 @@ public:
         if (m + n != s3.size()) return false;
         vector<int> dp(n + 1);
         dp[0] = 1;
-        for (int i = 0; i <= m; ++i)
-        {
-            for (int j = 0; j <= n; ++j)
-            {
+        for (int i = 0; i <= m; ++i) {
+            for (int j = 0; j <= n; ++j) {
                 int k = i + j - 1;
                 if (i) dp[j] &= (s1[i - 1] == s3[k]);
                 if (j) dp[j] |= (s2[j - 1] == s3[k] && dp[j - 1]);

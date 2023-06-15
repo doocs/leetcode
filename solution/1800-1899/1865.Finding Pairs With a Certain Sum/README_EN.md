@@ -62,7 +62,6 @@ findSumPairs.count(7);  // return 11; pairs (2,1), (2,2), (2,4), (3,1), (3,2), (
 
 ```python
 class FindSumPairs:
-
     def __init__(self, nums1: List[int], nums2: List[int]):
         self.nums1 = nums1
         self.nums2 = nums2

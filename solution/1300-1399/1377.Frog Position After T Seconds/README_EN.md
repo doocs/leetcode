@@ -171,9 +171,9 @@ func frogPosition(n int, edges [][]int, t int, target int) float64 {
 			u, p := q[0].u, q[0].p
 			q = q[1:]
 			cnt := len(g[u])
-            if u != 1 {
-                cnt--
-            }
+			if u != 1 {
+				cnt--
+			}
 			if u == target {
 				if cnt*t == 0 {
 					return p

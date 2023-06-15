@@ -343,7 +343,7 @@ struct Node {
     vector<Node*> next;
     Node(int v, int level)
         : val(v)
-        , next(level, nullptr) { }
+        , next(level, nullptr) {}
 };
 
 class Skiplist {

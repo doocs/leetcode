@@ -134,7 +134,7 @@ impl Solution {
 ### **C**
 
 ```c
-int numJewelsInStones(char *jewels, char *stones) {
+int numJewelsInStones(char* jewels, char* stones) {
     int set[128] = {0};
     for (int i = 0; jewels[i]; i++) {
         set[jewels[i]] = 1;

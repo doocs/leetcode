@@ -155,7 +155,7 @@ public:
             for (int i = 0; i < 10; ++i) f[i] = t[i] % mod;
         }
         ll ans = accumulate(f.begin(), f.end(), 0ll);
-        return (int)(ans % mod);
+        return (int) (ans % mod);
     }
 };
 ```

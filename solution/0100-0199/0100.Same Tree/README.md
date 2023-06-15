@@ -249,8 +249,7 @@ public:
         if (!p || !q) return false;
         queue<TreeNode*> q1{{p}};
         queue<TreeNode*> q2{{q}};
-        while (!q1.empty() && !q2.empty())
-        {
+        while (!q1.empty() && !q2.empty()) {
             p = q1.front();
             q = q2.front();
             if (p->val != q->val) return false;
@@ -260,13 +259,11 @@ public:
             TreeNode *lb = q->left, *rb = q->right;
             if ((la && !lb) || (lb && !la)) return false;
             if ((ra && !rb) || (rb && !ra)) return false;
-            if (la)
-            {
+            if (la) {
                 q1.push(la);
                 q2.push(lb);
             }
-            if (ra)
-            {
+            if (ra) {
                 q1.push(ra);
                 q2.push(rb);
             }

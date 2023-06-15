@@ -107,7 +107,6 @@ class Trie:
 
 
 class StreamChecker:
-
     def __init__(self, words: List[str]):
         self.trie = Trie()
         self.cs = []
@@ -117,7 +116,8 @@ class StreamChecker:
 
     def query(self, letter: str) -> bool:
         self.cs.append(letter)
-        return self.trie.search(self.cs[-self.limit:])
+        return self.trie.search(self.cs[-self.limit :])
+
 
 # Your StreamChecker object will be instantiated and called as such:
 # obj = StreamChecker(words)
