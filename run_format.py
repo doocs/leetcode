@@ -122,15 +122,13 @@ def golang_format():
         for name in files:
             if name.endswith('.go'):
                 p = root + '/' + name
-                if 'sorting' in p:
-                    continue
                 with open(p, 'r', encoding='utf-8') as f:
                     content = f.read()
-                    content = (
-                        content.replace('package main\n\n', '')
-                        .replace('package main\n', '')
-                        .rstrip()
-                    )
+                    content = content.rstrip()
+                    if 'sorting' not in p:
+                        content = content.replace('package main\n\n', '').replace(
+                            'package main\n', ''
+                        )
                 with open(p, 'w', encoding='utf-8') as f:
                     f.write(content)
 
