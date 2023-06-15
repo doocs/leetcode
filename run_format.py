@@ -101,6 +101,40 @@ def black_format():
                     os.remove(p2)
 
 
+def golang_format():
+    """Format golang code with gofmt"""
+    for root, _, files in os.walk(path):
+        for name in files:
+            if name.endswith('.go'):
+                p = root + '/' + name
+                with open(p, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                if content.startswith('package '):
+                    continue
+                content = 'package main\n' + content
+                with open(p, 'w', encoding='utf-8') as f:
+                    f.write(content)
+
+    command = 'gofmt -w .'
+    os.system(command)
+
+    for root, _, files in os.walk(path):
+        for name in files:
+            if name.endswith('.go'):
+                p = root + '/' + name
+                if 'sorting' in p:
+                    continue
+                with open(p, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                    content = (
+                        content.replace('package main\n\n', '')
+                        .replace('package main\n', '')
+                        .rstrip()
+                    )
+                with open(p, 'w', encoding='utf-8') as f:
+                    f.write(content)
+
+
 def git_add():
     """Git add all files"""
     command = 'git add .'
@@ -108,7 +142,8 @@ def git_add():
 
 
 if __name__ == '__main__':
-    prettier_format()
+    # prettier_format()
     # black_format()
     # clang_format()
+    golang_format()
     git_add()
