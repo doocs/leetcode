@@ -2,26 +2,26 @@ impl Solution {
     pub fn find_anagrams(s: String, p: String) -> Vec<i32> {
         let (s, p) = (s.as_bytes(), p.as_bytes());
         let (m, n) = (s.len(), p.len());
-        let mut res = vec![];
-        if n > m {
-            return res;
+        let mut ans = vec![];
+        if m < n {
+            return ans;
         }
 
-        let mut counter = [0; 26];
+        let mut cnt = [0; 26];
         for i in 0..n {
-            counter[(p[i] - b'a') as usize] += 1;
-            counter[(s[i] - b'a') as usize] -= 1;
+            cnt[(p[i] - b'a') as usize] += 1;
+            cnt[(s[i] - b'a') as usize] -= 1;
         }
         for i in n..m {
-            if counter.iter().all(|&v| v == 0) {
-                res.push((i - n) as i32);
+            if cnt.iter().all(|&v| v == 0) {
+                ans.push((i - n) as i32);
             }
-            counter[(s[i] - b'a') as usize] -= 1;
-            counter[(s[i - n] - b'a') as usize] += 1;
+            cnt[(s[i] - b'a') as usize] -= 1;
+            cnt[(s[i - n] - b'a') as usize] += 1;
         }
-        if counter.iter().all(|&v| v == 0) {
-            res.push((m - n) as i32);
+        if cnt.iter().all(|&v| v == 0) {
+            ans.push((m - n) as i32);
         }
-        res
+        ans
     }
 }

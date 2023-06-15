@@ -1,22 +1,22 @@
-func findAnagrams(s string, p string) []int {
-	counter := make([]int, 26)
+func findAnagrams(s string, p string) (ans []int) {
+	m, n := len(s), len(p)
+	if m < n {
+		return
+	}
+	cnt1 := [26]int{}
+	cnt2 := [26]int{}
 	for _, c := range p {
-		counter[c-'a']++
+		cnt1[c-'a']++
 	}
-	var ans []int
-	left, right := 0, 0
-	t := make([]int, 26)
-	for right < len(s) {
-		i := s[right] - 'a'
-		t[i]++
-		for t[i] > counter[i] {
-			t[s[left]-'a']--
-			left++
-		}
-		if right-left+1 == len(p) {
-			ans = append(ans, left)
-		}
-		right++
+	for _, c := range s[:n-1] {
+		cnt2[c-'a']++
 	}
-	return ans
+	for i := n - 1; i < m; i++ {
+		cnt2[s[i]-'a']++
+		if cnt1 == cnt2 {
+			ans = append(ans, i-n+1)
+		}
+		cnt2[s[i-n+1]-'a']--
+	}
+	return
 }
