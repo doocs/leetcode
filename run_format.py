@@ -142,6 +142,6 @@ def git_add():
 if __name__ == '__main__':
     # prettier_format()
     # black_format()
-    # clang_format()
-    golang_format()
+    clang_format()
+    # golang_format()
     git_add()
