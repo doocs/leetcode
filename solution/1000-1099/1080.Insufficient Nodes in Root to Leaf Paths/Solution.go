@@ -1,25 +1,29 @@
 /**
  * Definition for a binary tree node.
- * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
  * }
  */
-/**
- * @param {TreeNode} root
- * @param {number} limit
- * @return {TreeNode}
- */
- var sufficientSubset = function(root, limit) {
-    if (!root) {
-        return null;
-    }
-    limit -= root.val;
-    if (!root.left && !root.right) {
-        return limit > 0 ? null : root;
-    }
-    root.left = sufficientSubset(root.left, limit);
-    root.right = sufficientSubset(root.right, limit);
-    return !root.left && !root.right ? null : root;
-};
+func sufficientSubset(root *TreeNode, limit int) *TreeNode {
+	if root == nil {
+		return nil
+	}
+
+	limit -= root.Val
+	if root.Left == nil && root.Right == nil {
+		if limit > 0 {
+			return nil
+		}
+		return root
+	}
+
+	root.Left = sufficientSubset(root.Left, limit)
+	root.Right = sufficientSubset(root.Right, limit)
+
+	if root.Left == nil && root.Right == nil {
+		return nil
+	}
+	return root
+}

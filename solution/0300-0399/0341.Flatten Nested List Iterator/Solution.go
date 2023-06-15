@@ -24,7 +24,7 @@
  * func (this NestedInteger) GetList() []*NestedInteger {}
  */
 
- type NestedIterator struct {
+type NestedIterator struct {
 	nested *list.List
 }
 

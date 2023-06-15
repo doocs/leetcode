@@ -1,4 +1,4 @@
-package CountingSort
+package main
 
 func CountingSort(nums []int, min, max int) {
 	n := len(nums)
