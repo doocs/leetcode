@@ -1,19 +1,20 @@
-class Solution {
+public class Solution {
     private int[] p;
 
-    public int minSwapsCouples(int[] row) {
-        int n = row.length >> 1;
+    public int MinSwapsCouples(int[] row) {
+        int n = row.Length >> 1;
         p = new int[n];
         for (int i = 0; i < n; ++i) {
             p[i] = i;
         }
         for (int i = 0; i < n << 1; i += 2) {
-            int a = row[i] >> 1, b = row[i + 1] >> 1;
+            int a = row[i] >> 1;
+            int b = row[i + 1] >> 1;
             p[find(a)] = find(b);
         }
         int ans = n;
         for (int i = 0; i < n; ++i) {
-            if (i == find(i)) {
+            if (p[i] == i) {
                 --ans;
             }
         }

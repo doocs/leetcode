@@ -1,20 +1,25 @@
 ﻿class Solution {
 public:
     vector<int> findAnagrams(string s, string p) {
-        vector<int> counter(26);
-        for (char c : p) ++counter[c - 'a'];
+        int m = s.size(), n = p.size();
         vector<int> ans;
-        int left = 0, right = 0;
-        vector<int> t(26);
-        while (right < s.size()) {
-            int i = s[right] - 'a';
-            ++t[i];
-            while (t[i] > counter[i]) {
-                --t[s[left] - 'a'];
-                ++left;
+        if (m < n) {
+            return ans;
+        }
+        vector<int> cnt1(26);
+        for (char& c : p) {
+            ++cnt1[c - 'a'];
+        }
+        vector<int> cnt2(26);
+        for (int i = 0; i < n - 1; ++i) {
+            ++cnt2[s[i] - 'a'];
+        }
+        for (int i = n - 1; i < m; ++i) {
+            ++cnt2[s[i] - 'a'];
+            if (cnt1 == cnt2) {
+                ans.push_back(i - n + 1);
             }
-            if (right - left + 1 == p.size()) ans.push_back(left);
-            ++right;
+            --cnt2[s[i - n + 1] - 'a'];
         }
         return ans;
     }

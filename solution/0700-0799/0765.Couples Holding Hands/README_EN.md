@@ -47,7 +47,7 @@
 ```python
 class Solution:
     def minSwapsCouples(self, row: List[int]) -> int:
-        def find(x):
+        def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
@@ -72,17 +72,17 @@ class Solution {
         for (int i = 0; i < n; ++i) {
             p[i] = i;
         }
-        for (int i = 0; i < row.length; i += 2) {
+        for (int i = 0; i < n << 1; i += 2) {
             int a = row[i] >> 1, b = row[i + 1] >> 1;
             p[find(a)] = find(b);
         }
-        int cnt = 0;
+        int ans = n;
         for (int i = 0; i < n; ++i) {
             if (i == find(i)) {
-                ++cnt;
+                --ans;
             }
         }
-        return n - cnt;
+        return ans;
     }
 
     private int find(int x) {
@@ -99,31 +99,25 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> p;
-
     int minSwapsCouples(vector<int>& row) {
-        int n = row.size() >> 1;
-        p.resize(n);
-        for (int i = 0; i < n; ++i) {
-            p[i] = i;
-        }
-        for (int i = 0; i < row.size(); i += 2) {
+        int n = row.size() / 2;
+        int p[n];
+        iota(p, p + n, 0);
+        function<int(int)> find = [&](int x) -> int {
+            if (p[x] != x) {
+                p[x] = find(p[x]);
+            }
+            return p[x];
+        };
+        for (int i = 0; i < n << 1; i += 2) {
             int a = row[i] >> 1, b = row[i + 1] >> 1;
             p[find(a)] = find(b);
         }
-        int cnt = 0;
+        int ans = n;
         for (int i = 0; i < n; ++i) {
-            if (i == find(i))
-                ++cnt;
+            ans -= i == find(i);
         }
-        return n - cnt;
-    }
-
-    int find(int x) {
-        if (p[x] != x) {
-            p[x] = find(p[x]);
-        }
-        return p[x];
+        return ans;
     }
 };
 ```
@@ -131,32 +125,94 @@ public:
 ### **Go**
 
 ```go
-var p []int
-
 func minSwapsCouples(row []int) int {
 	n := len(row) >> 1
-	p = make([]int, n)
-	for i := 0; i < n; i++ {
+	p := make([]int, n)
+	for i := range p {
 		p[i] = i
 	}
-	for i := 0; i < len(row); i += 2 {
+	var find func(int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+	for i := 0; i < n<<1; i += 2 {
 		a, b := row[i]>>1, row[i+1]>>1
 		p[find(a)] = find(b)
 	}
-	cnt := 0
-	for i := 0; i < n; i++ {
-		if i == find(i) {
-			cnt++
+	ans := n
+	for i := range p {
+		if find(i) == i {
+			ans--
 		}
 	}
-	return n - cnt
+	return ans
 }
+```
 
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
+### **TypeScript**
+
+```ts
+function minSwapsCouples(row: number[]): number {
+    const n = row.length >> 1;
+    const p: number[] = Array(n)
+        .fill(0)
+        .map((_, i) => i);
+    const find = (x: number): number => {
+        if (p[x] !== x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    };
+    for (let i = 0; i < n << 1; i += 2) {
+        const a = row[i] >> 1;
+        const b = row[i + 1] >> 1;
+        p[find(a)] = find(b);
+    }
+    let ans = n;
+    for (let i = 0; i < n; ++i) {
+        if (i === find(i)) {
+            --ans;
+        }
+    }
+    return ans;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    private int[] p;
+
+    public int MinSwapsCouples(int[] row) {
+        int n = row.Length >> 1;
+        p = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+        }
+        for (int i = 0; i < n << 1; i += 2) {
+            int a = row[i] >> 1;
+            int b = row[i + 1] >> 1;
+            p[find(a)] = find(b);
+        }
+        int ans = n;
+        for (int i = 0; i < n; ++i) {
+            if (p[i] == i) {
+                --ans;
+            }
+        }
+        return ans;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
 }
 ```
 

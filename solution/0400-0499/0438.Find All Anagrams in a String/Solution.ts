@@ -1,21 +1,25 @@
 function findAnagrams(s: string, p: string): number[] {
-    let n = s.length,
-        m = p.length;
-    let cnt = new Array(26).fill(0);
-    let ans = [];
-    for (let i = 0; i < m; i++) {
-        cnt[p.charCodeAt(i) - 97]--;
-        cnt[s.charCodeAt(i) - 97]++;
+    const m = s.length;
+    const n = p.length;
+    const ans: number[] = [];
+    if (m < n) {
+        return ans;
     }
-    if (cnt.every(v => v == 0)) {
-        ans.push(0);
+    const cnt1: number[] = new Array(26).fill(0);
+    const cnt2: number[] = new Array(26).fill(0);
+    const idx = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
+    for (const c of p) {
+        ++cnt1[idx(c)];
     }
-    for (let i = m; i < n; i++) {
-        cnt[s.charCodeAt(i) - 97]++;
-        cnt[s.charCodeAt(i - m) - 97]--;
-        if (cnt.every(v => v == 0)) {
-            ans.push(i - m + 1);
+    for (const c of s.slice(0, n - 1)) {
+        ++cnt2[idx(c)];
+    }
+    for (let i = n - 1; i < m; ++i) {
+        ++cnt2[idx(s[i])];
+        if (cnt1.toString() === cnt2.toString()) {
+            ans.push(i - n + 1);
         }
+        --cnt2[idx(s[i - n + 1])];
     }
     return ans;
 }
