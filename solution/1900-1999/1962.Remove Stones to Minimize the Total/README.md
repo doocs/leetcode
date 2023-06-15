@@ -128,18 +128,18 @@ public:
 
 ```go
 func minStoneSum(piles []int, k int) int {
-    q := &hp{piles}
-    heap.Init(q)
-    for k > 0 {
-        p := q.pop()
-        q.push((p + 1) >> 1)
-        k--
-    }
-    ans := 0
-    for q.Len() > 0 {
-        ans += q.pop()
-    }
-    return ans
+	q := &hp{piles}
+	heap.Init(q)
+	for k > 0 {
+		p := q.pop()
+		q.push((p + 1) >> 1)
+		k--
+	}
+	ans := 0
+	for q.Len() > 0 {
+		ans += q.pop()
+	}
+	return ans
 }
 
 type hp struct{ sort.IntSlice }
