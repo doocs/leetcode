@@ -160,7 +160,7 @@ private:
 public:
     Trie()
         : children(26)
-        , idx(-1) { }
+        , idx(-1) {}
 
     void insert(string word, int i) {
         Trie* node = this;

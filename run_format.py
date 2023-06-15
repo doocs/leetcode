@@ -1,147 +1,109 @@
+from typing import List
+
 import os.path
 import re
 
-path = os.getcwd()
+suffixes = ['md', 'py', 'java', 'c', 'cpp', 'go', 'php', 'cs', 'rs', 'js', 'ts']
+
+code_blocks = ['python', 'java', 'cpp', 'c', 'go', 'ts', 'js', 'php', 'cs', 'rs']
 
 
-def prettier_format():
-    """Format code with prettier"""
-    # before prettier, add `<?php` to php files
-    for root, _, files in os.walk(path):
-        for name in files:
-            if name.endswith('.php'):
-                p = root + '/' + name
-                with open(p, 'r', encoding='utf-8') as f:
-                    content = f.read()
-                    content = '<?php\n' + content
-                with open(p, 'w', encoding='utf-8') as f:
-                    f.write(content)
-
-    # start formatting with prettier
-    for suffix in ['md', 'js', 'ts', 'php']:
-        command = f'npx prettier --write "**/*.{suffix}"'
-        os.system(command)
-
-    # after prettier, remove `<?php` from php files
-    for root, _, files in os.walk(path):
-        for name in files:
-            if name.endswith('.php'):
-                p = root + '/' + name
-                with open(p, 'r', encoding='utf-8') as f:
-                    content = f.read()
-                    content = content.replace('<?php\n', '')
-                with open(p, 'w', encoding='utf-8') as f:
-                    f.write(content)
+def add_header(path: str):
+    """Add header to php and go files"""
+    print(f'[add header] path: {path}')
+    with open(path, 'r', encoding='utf-8') as f:
+        content = f.read()
+    if path.endswith('.php'):
+        content = '<?php\n' + content
+    elif path.endswith('.go') and 'sorting' not in path:
+        content = 'package main\n' + content
+    else:
+        return
+    with open(path, 'w', encoding='utf-8') as f:
+        f.write(content)
 
 
-def clang_format():
-    """Format code with clang-format"""
-    suffix = ['c', 'cpp', 'java']
-    for root, _, files in os.walk(path):
-        for name in files:
-            for suf in suffix:
-                if name.endswith('.' + suf):
-                    local_path = root + '/' + name
-                    command = f'clang-format -i --style=file "{local_path}"'
-                    print(command)
-                    os.system(command)
-
-    for root, _, files in os.walk(path):
-        for name in files:
-            if name.endswith('.md'):
-                p = root + '/' + name
-                with open(p, 'r', encoding='utf-8') as f:
-                    content = f.read()
-                    x = content
-                print(p)
-                for suf in suffix:
-                    res = re.findall(f'```{suf}\n(.*?)```', content, re.S)
-                    if not res:
-                        continue
-                    for v in res:
-                        p2 = f'{root}/Solution2.{suf}'
-                        with open(p2, 'w', encoding='utf-8') as f:
-                            f.write(v)
-                        command = f'clang-format -i --style=file "{p2}"'
-                        os.system(command)
-                        with open(p2, 'r', encoding='utf-8') as f:
-                            content = f.read()
-                        content = x.replace(v, content)
-                        with open(p, 'w', encoding='utf-8') as f:
-                            f.write(content)
-                        os.remove(p2)
+def remove_header(path: str):
+    """Remove header from php and go files"""
+    print(f'[remove header] path: {path}')
+    with open(path, 'r', encoding='utf-8') as f:
+        content = f.read()
+    if path.endswith('.php'):
+        content = content.rstrip()
+        content = content.replace('<?php\n', '')
+    elif path.endswith('.go') and 'sorting' not in path:
+        content = content.replace('package main\n\n', '').replace('package main\n', '')
+    else:
+        return
+    with open(path, 'w', encoding='utf-8') as f:
+        f.write(content)
 
 
-def black_format():
-    """Format python code with black"""
-    command = 'black -S .'
-    os.system(command)
-
-    for root, _, files in os.walk(path):
-        for name in files:
-            if name.endswith('.md'):
-                p1 = root + '/' + name
-                with open(p1, 'r', encoding='utf-8') as f:
-                    content = f.read()
-                    x = content
-                res = re.findall('```python\n(.*?)```', content, re.S)
-                if not res:
-                    continue
-                print(p1)
-                for v in res:
-                    p2 = root + "/tmp.py"
-                    with open(p2, 'w', encoding='utf-8') as f:
-                        f.write(v)
-                    os.system(f'black -S "{p2}"')
-                    with open(p2, 'r', encoding='utf-8') as f:
-                        content = f.read()
-                    content = x.replace(v, content)
-                    with open(p1, 'w', encoding='utf-8') as f:
-                        f.write(content)
-                    os.remove(p2)
+def find_all_paths() -> List[str]:
+    """Find all paths of files with suffixes"""
+    paths = []
+    for root, _, files in os.walk(os.getcwd()):
+        for file in files:
+            path = root + '/' + file
+            if 'node_modules' in path or '__pycache__' in path or '.git' in path:
+                continue
+            if any(path.endswith(suf) for suf in suffixes):
+                paths.append(path)
+    return paths
 
 
-def golang_format():
-    """Format golang code with gofmt"""
-    for root, _, files in os.walk(path):
-        for name in files:
-            if name.endswith('.go'):
-                p = root + '/' + name
-                with open(p, 'r', encoding='utf-8') as f:
-                    content = f.read()
-                if content.startswith('package '):
-                    continue
-                content = 'package main\n' + content
-                with open(p, 'w', encoding='utf-8') as f:
-                    f.write(content)
+def format_inline_code(path: str):
+    """Format inline code in .md file"""
+    if not path.endswith('.md'):
+        return
+    with open(path, 'r', encoding='utf-8') as f:
+        content = f.read()
+    root = path[: path.rfind('/')]
+    for suf in code_blocks:
+        res = re.findall(f'```{suf}\n(.*?)```', content, re.S)
+        for block in res or []:
+            if suf in ['c', 'cpp', 'java', 'python', 'go']:
+                suf = 'py' if suf == 'python' else suf
+                file = f'{root}/Solution2.{suf}'
+                with open(file, 'w', encoding='utf-8') as f:
+                    f.write(block)
+                if suf == 'py':
+                    os.system(f'black -S "{file}"')
+                elif suf == 'go':
+                    add_header(file)
+                    os.system(f'gofmt -w "{file}"')
+                    remove_header(file)
+                else:
+                    os.system(f'npx clang-format -i --style=file "{file}"')
+                with open(file, 'r', encoding='utf-8') as f:
+                    new_block = f.read()
+                content = content.replace(block, new_block)
+                os.remove(file)
+    with open(path, 'w', encoding='utf-8') as f:
+        f.write(content)
 
-    command = 'gofmt -w .'
-    os.system(command)
 
-    for root, _, files in os.walk(path):
-        for name in files:
-            if name.endswith('.go'):
-                p = root + '/' + name
-                with open(p, 'r', encoding='utf-8') as f:
-                    content = f.read()
-                    content = content.rstrip()
-                    if 'sorting' not in p:
-                        content = content.replace('package main\n\n', '').replace(
-                            'package main\n', ''
-                        )
-                with open(p, 'w', encoding='utf-8') as f:
-                    f.write(content)
+def run():
+    """Start formatting"""
+    paths = find_all_paths()
 
+    for path in paths:
+        add_header(path)
+        if any(path.endswith(suf) for suf in ['c', 'cpp', 'java']):
+            # format with clang-format
+            os.system(f'npx clang-format -i --style=file "{path}"')
 
-def git_add():
-    """Git add all files"""
-    command = 'git add .'
-    os.system(command)
+    # format with prettier
+    os.system('npx prettier --write "**/*.{md,js,ts,php}"')
+
+    # format with gofmt
+    os.system('gofmt -w .')
+
+    for path in paths:
+        remove_header(path)
+    for path in paths:
+        format_inline_code(path)
 
 
 if __name__ == '__main__':
-    # prettier_format()
-    # black_format()
-    clang_format()
-    # golang_format()
-    git_add()
+    run()
