@@ -154,7 +154,9 @@ public:
 ```cpp
 class Trie {
 public:
-    Trie(): children(26), cnt(0) {}
+    Trie()
+        : children(26)
+        , cnt(0) {}
 
     void insert(string w) {
         Trie* node = this;
@@ -274,7 +276,7 @@ impl Solution {
 ### **C**
 
 ```c
-int prefixCount(char **words, int wordsSize, char *pref) {
+int prefixCount(char** words, int wordsSize, char* pref) {
     int ans = 0;
     int n = strlen(pref);
     for (int i = 0; i < wordsSize; i++) {

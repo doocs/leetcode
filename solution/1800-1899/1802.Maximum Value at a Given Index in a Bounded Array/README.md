@@ -75,7 +75,9 @@
 class Solution:
     def maxValue(self, n: int, index: int, maxSum: int) -> int:
         def sum(x, cnt):
-            return (x + x - cnt + 1) * cnt // 2 if x >= cnt else (x + 1) * x // 2 + cnt - x
+            return (
+                (x + x - cnt + 1) * cnt // 2 if x >= cnt else (x + 1) * x // 2 + cnt - x
+            )
 
         left, right = 1, maxSum
         while left < right:

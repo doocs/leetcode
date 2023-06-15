@@ -111,7 +111,6 @@ class LUPrefix {
 class LUPrefix {
 public:
     LUPrefix(int n) {
-
     }
 
     void upload(int video) {

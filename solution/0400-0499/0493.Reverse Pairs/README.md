@@ -472,11 +472,12 @@ public:
     int n;
     vector<int> c;
 
-    BinaryIndexedTree(int _n): n(_n), c(_n + 1){}
+    BinaryIndexedTree(int _n)
+        : n(_n)
+        , c(_n + 1) {}
 
     void update(int x, int delta) {
-        while (x <= n)
-        {
+        while (x <= n) {
             c[x] += delta;
             x += lowbit(x);
         }
@@ -484,8 +485,7 @@ public:
 
     int query(int x) {
         int s = 0;
-        while (x > 0)
-        {
+        while (x > 0) {
             s += c[x];
             x -= lowbit(x);
         }
@@ -501,8 +501,7 @@ class Solution {
 public:
     int reversePairs(vector<int>& nums) {
         set<long long> s;
-        for (int num : nums)
-        {
+        for (int num : nums) {
             s.insert(num);
             s.insert(num * 2ll);
         }
@@ -511,8 +510,7 @@ public:
         for (long long num : s) m[num] = ++idx;
         BinaryIndexedTree* tree = new BinaryIndexedTree(m.size());
         int ans = 0;
-        for (int i = nums.size() - 1; i >= 0; --i)
-        {
+        for (int i = nums.size() - 1; i >= 0; --i) {
             ans += tree->query(m[nums[i]] - 1);
             tree->update(m[nums[i] * 2ll], 1);
         }
@@ -551,14 +549,15 @@ public:
     }
 
     void modify(int u, int x, int v) {
-        if (tr[u]->l == x && tr[u]->r == x)
-        {
+        if (tr[u]->l == x && tr[u]->r == x) {
             tr[u]->v += v;
             return;
         }
         int mid = (tr[u]->l + tr[u]->r) >> 1;
-        if (x <= mid) modify(u << 1, x, v);
-        else modify(u << 1 | 1, x, v);
+        if (x <= mid)
+            modify(u << 1, x, v);
+        else
+            modify(u << 1 | 1, x, v);
         pushup(u);
     }
 
@@ -580,8 +579,7 @@ class Solution {
 public:
     int reversePairs(vector<int>& nums) {
         set<long long> s;
-        for (int num : nums)
-        {
+        for (int num : nums) {
             s.insert(num);
             s.insert(num * 2ll);
         }
@@ -590,8 +588,7 @@ public:
         for (long long num : s) m[num] = ++idx;
         SegmentTree* tree = new SegmentTree(m.size());
         int ans = 0;
-        for (int i = nums.size() - 1; i >= 0; --i)
-        {
+        for (int i = nums.size() - 1; i >= 0; --i) {
             ans += tree->query(1, 1, m[nums[i]] - 1);
             tree->modify(1, m[nums[i] * 2ll], 1);
         }

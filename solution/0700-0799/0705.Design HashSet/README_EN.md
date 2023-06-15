@@ -51,7 +51,6 @@ myHashSet.contains(2); // return False, (already removed)</pre>
 
 ```python
 class MyHashSet:
-
     def __init__(self):
         self.data = [False] * 1000001
 
@@ -113,7 +112,6 @@ class MyHashSet {
     private boolean[] data = new boolean[1000001];
 
     public MyHashSet() {
-
     }
 
     public void add(int key) {
@@ -232,8 +230,8 @@ private:
     vector<list<int>> data;
 
 public:
-    MyHashSet(): data(size) {
-
+    MyHashSet()
+        : data(size) {
     }
 
     void add(int key) {

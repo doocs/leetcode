@@ -79,7 +79,7 @@ class Solution:
 class Solution {
     public int findRepeatNumber(int[] nums) {
         Arrays.sort(nums);
-        for (int i = 0; ; ++i) {
+        for (int i = 0;; ++i) {
             if (nums[i] == nums[i + 1]) {
                 return nums[i];
             }
@@ -92,7 +92,7 @@ class Solution {
 class Solution {
     public int findRepeatNumber(int[] nums) {
         Set<Integer> vis = new HashSet<>();
-        for (int i = 0; ; ++i) {
+        for (int i = 0;; ++i) {
             if (!vis.add(nums[i])) {
                 return nums[i];
             }
@@ -126,7 +126,7 @@ class Solution {
 public:
     int findRepeatNumber(vector<int>& nums) {
         sort(nums.begin(), nums.end());
-        for (int i = 0; ; ++i) {
+        for (int i = 0;; ++i) {
             if (nums[i] == nums[i + 1]) {
                 return nums[i];
             }
@@ -140,7 +140,7 @@ class Solution {
 public:
     int findRepeatNumber(vector<int>& nums) {
         unordered_set<int> vis;
-        for (int i = 0; ; ++i) {
+        for (int i = 0;; ++i) {
             if (vis.count(nums[i])) {
                 return nums[i];
             }
@@ -154,7 +154,7 @@ public:
 class Solution {
 public:
     int findRepeatNumber(vector<int>& nums) {
-        for (int i = 0; ; ++i) {
+        for (int i = 0;; ++i) {
             while (nums[i] != i) {
                 int j = nums[i];
                 if (nums[j] == j) {

@@ -124,7 +124,7 @@ class Solution {
 class Solution {
 public:
     bool isCompleteTree(TreeNode* root) {
-        queue<TreeNode*> q {{root}};
+        queue<TreeNode*> q{{root}};
         while (q.front()) {
             root = q.front();
             q.pop();

@@ -225,8 +225,7 @@ public:
     int pairSum(ListNode* head) {
         ListNode* slow = head;
         ListNode* fast = head->next;
-        while (fast && fast->next)
-        {
+        while (fast && fast->next) {
             slow = slow->next;
             fast = fast->next->next;
         }
@@ -235,8 +234,7 @@ public:
         slow->next = nullptr;
         ListNode* pb = reverse(q);
         int ans = 0;
-        while (pa)
-        {
+        while (pa) {
             ans = max(ans, pa->val + pb->val);
             pa = pa->next;
             pb = pb->next;
@@ -247,8 +245,7 @@ public:
     ListNode* reverse(ListNode* head) {
         ListNode* dummy = new ListNode();
         ListNode* curr = head;
-        while (curr)
-        {
+        while (curr) {
             ListNode* next = curr->next;
             curr->next = dummy->next;
             dummy->next = curr;

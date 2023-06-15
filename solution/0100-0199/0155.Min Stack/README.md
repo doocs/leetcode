@@ -74,7 +74,6 @@ minStack.getMin();   --&gt; 返回 -2.
 
 ```python
 class MinStack:
-
     def __init__(self):
         self.stk1 = []
         self.stk2 = [inf]

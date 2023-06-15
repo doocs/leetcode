@@ -56,7 +56,6 @@ myLinkedList.get(1);              // return 3
 
 ```python
 class MyLinkedList:
-
     def __init__(self):
         self.dummy = ListNode()
         self.cnt = 0
@@ -178,7 +177,6 @@ class MyLinkedList {
     private int cnt;
 
     public MyLinkedList() {
-
     }
 
     public int get(int index) {

@@ -151,8 +151,8 @@ public:
             for (int j = 0; j < n; ++j)
                 if (mat[i][j])
                     state |= (1 << (i * n + j));
-        queue<int> q {{state}};
-        unordered_set<int> vis {{state}};
+        queue<int> q{{state}};
+        unordered_set<int> vis{{state}};
         int ans = 0;
         vector<int> dirs = {0, -1, 0, 1, 0, 0};
         while (!q.empty()) {

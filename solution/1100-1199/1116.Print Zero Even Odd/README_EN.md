@@ -63,6 +63,7 @@ One of them calls zero(), the other calls even(), and the last one calls odd().
 ```python
 from threading import Semaphore
 
+
 class ZeroEvenOdd:
     def __init__(self, n):
         self.n = n
@@ -70,7 +71,7 @@ class ZeroEvenOdd:
         self.e = Semaphore(0)
         self.o = Semaphore(0)
 
-	# printNumber(x) outputs "x", where x is an integer.
+    # printNumber(x) outputs "x", where x is an integer.
     def zero(self, printNumber: 'Callable[[int], None]') -> None:
         for i in range(self.n):
             self.z.acquire()

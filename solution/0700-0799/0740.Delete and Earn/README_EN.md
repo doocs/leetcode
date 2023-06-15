@@ -59,8 +59,8 @@ Then we have the following conclusions:
 -   If you do not choose i, then i-1 can choose or not, so we choose the larger one;
 
 ```java
-select[i] = nonSelect[i-1] + sums[i];
-nonSelect[i] = Math.max(select[i-1], nonSelect[i-1]);
+select[i] = nonSelect[i - 1] + sums[i];
+nonSelect[i] = Math.max(select[i - 1], nonSelect[i - 1]);
 ```
 
 <!-- tabs:start -->

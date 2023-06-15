@@ -49,7 +49,7 @@
 ```python
 class Solution:
     def hasAllCodes(self, s: str, k: int) -> bool:
-        ss = {s[i: i + k] for i in range(len(s) - k + 1)}
+        ss = {s[i : i + k] for i in range(len(s) - k + 1)}
         return len(ss) == 1 << k
 ```
 
@@ -139,7 +139,8 @@ public:
             num = (num - a) << 1 | b;
             vis[num] = true;
         }
-        for (bool v : vis) if (!v) return false;
+        for (bool v : vis)
+            if (!v) return false;
         return true;
     }
 };

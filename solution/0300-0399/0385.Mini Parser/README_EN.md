@@ -122,7 +122,7 @@ class Solution:
         depth, j = 0, 1
         for i in range(1, len(s)):
             if depth == 0 and (s[i] == ',' or i == len(s) - 1):
-                ans.add(self.deserialize(s[j: i]))
+                ans.add(self.deserialize(s[j:i]))
                 j = i + 1
             elif s[i] == '[':
                 depth += 1

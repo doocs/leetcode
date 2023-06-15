@@ -71,7 +71,7 @@ class Solution:
                 cnt += nums[j] % p == 0
                 if cnt > k:
                     break
-                s.add(tuple(nums[i: j + 1]))
+                s.add(tuple(nums[i : j + 1]))
         return len(s)
 ```
 

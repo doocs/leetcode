@@ -121,7 +121,9 @@ $$
 ```python
 # 33/39 个通过测试用例，超出时间限制
 class Solution:
-    def boxDelivering(self, boxes: List[List[int]], portsCount: int, maxBoxes: int, maxWeight: int) -> int:
+    def boxDelivering(
+        self, boxes: List[List[int]], portsCount: int, maxBoxes: int, maxWeight: int
+    ) -> int:
         n = len(boxes)
         ws = list(accumulate((box[1] for box in boxes), initial=0))
         c = [int(a != b) for a, b in pairwise(box[0] for box in boxes)]

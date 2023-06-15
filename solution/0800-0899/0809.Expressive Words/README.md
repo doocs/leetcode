@@ -142,7 +142,7 @@ class Solution {
 class Solution {
 public:
     int expressiveWords(string s, vector<string>& words) {
-        auto check = [](string&s, string& t) -> int {
+        auto check = [](string& s, string& t) -> int {
             int m = s.size(), n = t.size();
             if (n > m) return 0;
             int i = 0, j = 0;

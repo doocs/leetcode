@@ -84,7 +84,11 @@ class Solution:
                     nxt = state
                     if 0 <= x < m and 0 <= y < n:
                         c = grid[x][y]
-                        if c == '#' or c.isupper() and (state & (1 << (ord(c) - ord('A')))) == 0:
+                        if (
+                            c == '#'
+                            or c.isupper()
+                            and (state & (1 << (ord(c) - ord('A')))) == 0
+                        ):
                             continue
                         if c.islower():
                             nxt |= 1 << (ord(c) - ord('a'))
@@ -168,8 +172,10 @@ public:
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 char c = grid[i][j];
-                if (islower(c)) ++k;
-                else if (c == '@') si = i, sj = j;
+                if (islower(c))
+                    ++k;
+                else if (c == '@')
+                    si = i, sj = j;
             }
         }
         queue<tuple<int, int, int>> q{{{si, sj, 0}}};

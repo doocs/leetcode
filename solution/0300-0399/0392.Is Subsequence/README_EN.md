@@ -143,7 +143,7 @@ impl Solution {
 ### **C**
 
 ```c
-bool isSubsequence(char * s, char * t){
+bool isSubsequence(char* s, char* t) {
     int m = strlen(s);
     int n = strlen(t);
     int i = 0;

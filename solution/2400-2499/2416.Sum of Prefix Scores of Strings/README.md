@@ -173,7 +173,7 @@ private:
 public:
     Trie()
         : children(26)
-        , cnt(0) { }
+        , cnt(0) {}
 
     void insert(string& w) {
         Trie* node = this;

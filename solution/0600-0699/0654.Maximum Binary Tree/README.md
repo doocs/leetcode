@@ -104,7 +104,7 @@ class Solution:
             i = nums.index(val)
             root = TreeNode(val)
             root.left = dfs(nums[:i])
-            root.right = dfs(nums[i + 1:])
+            root.right = dfs(nums[i + 1 :])
             return root
 
         return dfs(nums)
@@ -543,23 +543,23 @@ public:
  * }
  */
 func constructMaximumBinaryTree(nums []int) *TreeNode {
-    var dfs func(l, r int) *TreeNode
-    dfs = func(l, r int) *TreeNode {
-        if l > r {
-            return nil
-        }
-        i := l
-        for j := l; j <= r; j++ {
-            if nums[i] < nums[j] {
-                i = j
-            }
-        }
-        root := &TreeNode{Val: nums[i]}
-        root.Left = dfs(l, i - 1)
-        root.Right = dfs(i + 1, r)
-        return root
-    }
-    return dfs(0, len(nums)-1)
+	var dfs func(l, r int) *TreeNode
+	dfs = func(l, r int) *TreeNode {
+		if l > r {
+			return nil
+		}
+		i := l
+		for j := l; j <= r; j++ {
+			if nums[i] < nums[j] {
+				i = j
+			}
+		}
+		root := &TreeNode{Val: nums[i]}
+		root.Left = dfs(l, i-1)
+		root.Right = dfs(i+1, r)
+		return root
+	}
+	return dfs(0, len(nums)-1)
 }
 ```
 
@@ -706,7 +706,7 @@ struct TreeNode* construct(int* nums, int start, int end) {
             maxVal = nums[i];
         }
     }
-    struct TreeNode* res = (struct TreeNode*)malloc(sizeof(struct TreeNode));
+    struct TreeNode* res = (struct TreeNode*) malloc(sizeof(struct TreeNode));
     res->val = maxVal;
     res->left = construct(nums, start, idx);
     res->right = construct(nums, idx + 1, end);

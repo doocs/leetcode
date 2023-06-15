@@ -92,8 +92,7 @@ class Solution:
                 dfs(i + 1, l - 1, r, lcnt, rcnt, t)
             elif s[i] == ')' and r:
                 dfs(i + 1, l, r - 1, lcnt, rcnt, t)
-            dfs(i + 1, l, r, lcnt + (s[i] == '('),
-                rcnt + (s[i] == ')'), t + s[i])
+            dfs(i + 1, l, r, lcnt + (s[i] == '('), rcnt + (s[i] == ')'), t + s[i])
 
         l = r = 0
         for c in s:

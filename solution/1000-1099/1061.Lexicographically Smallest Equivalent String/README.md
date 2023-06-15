@@ -74,6 +74,7 @@
 # 初始化，p存储每个点的父节点
 p = list(range(n))
 
+
 # 返回x的祖宗节点
 def find(x):
     if p[x] != x:
@@ -219,7 +220,7 @@ public:
         }
         string res = "";
         for (char a : baseStr) {
-            char b = (char)(find(a - 'a') + 'a');
+            char b = (char) (find(a - 'a') + 'a');
             res += b;
         }
         return res;

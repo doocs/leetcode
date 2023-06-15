@@ -312,7 +312,6 @@ private:
     vector<int> p, size;
 };
 
-
 class Solution {
 public:
     int closedIsland(vector<vector<int>>& grid) {

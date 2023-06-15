@@ -160,10 +160,10 @@ class Solution {
         IntBinaryOperator op1 = (x, y) -> x + y;
         IntBinaryOperator op2 = (x, y) -> x - y;
         IntBinaryOperator op3 = (x, y) -> x ^ y;
-        IntBinaryOperator[] ops = { op1, op2, op3 };
+        IntBinaryOperator[] ops = {op1, op2, op3};
         boolean[] vis = new boolean[1001];
         Queue<int[]> queue = new ArrayDeque<>();
-        queue.offer(new int[] { start, 0 });
+        queue.offer(new int[] {start, 0});
         while (!queue.isEmpty()) {
             int[] p = queue.poll();
             int x = p[0], step = p[1];
@@ -174,7 +174,7 @@ class Solution {
                         return step + 1;
                     }
                     if (nx >= 0 && nx <= 1000 && !vis[nx]) {
-                        queue.offer(new int[] { nx, step + 1 });
+                        queue.offer(new int[] {nx, step + 1});
                         vis[nx] = true;
                     }
                 }
@@ -286,7 +286,7 @@ class Solution {
 public:
     int minimumOperations(vector<int>& nums, int start, int goal) {
         using pii = pair<int, int>;
-        vector<function<int(int, int)>> ops {
+        vector<function<int(int, int)>> ops{
             [](int x, int y) { return x + y; },
             [](int x, int y) { return x - y; },
             [](int x, int y) { return x ^ y; },
@@ -322,18 +322,14 @@ public:
         queue<int> q{{start}};
         vector<bool> vis(1001);
         int ans = 0;
-        while (!q.empty())
-        {
+        while (!q.empty()) {
             ++ans;
-            for (int n = q.size(); n > 0; --n)
-            {
+            for (int n = q.size(); n > 0; --n) {
                 int x = q.front();
                 q.pop();
-                for (int y : next(nums, x))
-                {
+                for (int y : next(nums, x)) {
                     if (y == goal) return ans;
-                    if (y >= 0 && y <= 1000 && !vis[y])
-                    {
+                    if (y >= 0 && y <= 1000 && !vis[y]) {
                         vis[y] = true;
                         q.push(y);
                     }
@@ -345,8 +341,7 @@ public:
 
     vector<int> next(vector<int>& nums, int x) {
         vector<int> res;
-        for (int num : nums)
-        {
+        for (int num : nums) {
             res.push_back(x + num);
             res.push_back(x - num);
             res.push_back(x ^ num);
@@ -368,8 +363,7 @@ public:
         m2[goal] = 0;
         queue<int> q1{{start}};
         queue<int> q2{{goal}};
-        while (!q1.empty() && !q2.empty())
-        {
+        while (!q1.empty() && !q2.empty()) {
             int t = q1.size() <= q2.size() ? extend(m1, m2, q1, nums) : extend(m2, m1, q2, nums);
             if (t != -1) return t;
         }
@@ -377,17 +371,14 @@ public:
     }
 
     int extend(unordered_map<int, int>& m1, unordered_map<int, int>& m2, queue<int>& q, vector<int>& nums) {
-        for (int i = q.size(); i > 0; --i)
-        {
+        for (int i = q.size(); i > 0; --i) {
             int x = q.front();
             int step = m1[x];
             q.pop();
-            for (int y : next(nums, x))
-            {
+            for (int y : next(nums, x)) {
                 if (m1.count(y)) continue;
                 if (m2.count(y)) return step + 1 + m2[y];
-                if (y >= 0 && y <= 1000)
-                {
+                if (y >= 0 && y <= 1000) {
                     m1[y] = step + 1;
                     q.push(y);
                 }
@@ -398,8 +389,7 @@ public:
 
     vector<int> next(vector<int>& nums, int x) {
         vector<int> res;
-        for (int num : nums)
-        {
+        for (int num : nums) {
             res.push_back(x + num);
             res.push_back(x - num);
             res.push_back(x ^ num);

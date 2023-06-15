@@ -100,7 +100,6 @@ from sortedcontainers import SortedList
 
 
 class MKAverage:
-
     def __init__(self, m: int, k: int):
         self.m = m
         self.k = k

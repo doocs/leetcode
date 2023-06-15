@@ -123,7 +123,8 @@ public:
     bool parseBoolExpr(string expression) {
         stack<char> stk;
         for (char c : expression) {
-            if (c != '(' && c != ')' && c != ',') stk.push(c);
+            if (c != '(' && c != ')' && c != ',')
+                stk.push(c);
             else if (c == ')') {
                 int t = 0, f = 0;
                 while (stk.top() == 't' || stk.top() == 'f') {

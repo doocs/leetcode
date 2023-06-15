@@ -199,7 +199,8 @@ public:
 
 ```cpp
 class Solution {
-    public : int rob(vector<int>& nums) {
+public:
+    int rob(vector<int>& nums) {
         int n = nums.size();
         int a = 0, b = nums[0];
         for (int i = 1; i < n; ++i) {

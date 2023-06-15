@@ -163,7 +163,6 @@ class MyCalendarTwo {
     private Map<Integer, Integer> tm = new TreeMap<>();
 
     public MyCalendarTwo() {
-
     }
 
     public boolean book(int start, int end) {
@@ -366,10 +365,9 @@ public:
         modify(l, r, v, root);
     }
 
-    void modify(int l, int r,int v, Node* node) {
+    void modify(int l, int r, int v, Node* node) {
         if (l > r) return;
-        if (node->l >= l && node->r <= r)
-        {
+        if (node->l >= l && node->r <= r) {
             node->v += v;
             node->add += v;
             return;
@@ -386,7 +384,7 @@ public:
 
     int query(int l, int r, Node* node) {
         if (l > r) return 0;
-        if (node->l >= l && node-> r <= r) return node->v;
+        if (node->l >= l && node->r <= r) return node->v;
         pushdown(node);
         int v = 0;
         if (l <= node->mid) v = max(v, query(l, r, node->left));
@@ -401,8 +399,7 @@ public:
     void pushdown(Node* node) {
         if (!node->left) node->left = new Node(node->l, node->mid);
         if (!node->right) node->right = new Node(node->mid + 1, node->r);
-        if (node->add)
-        {
+        if (node->add) {
             Node* left = node->left;
             Node* right = node->right;
             left->v += node->add;
@@ -419,7 +416,6 @@ public:
     SegmentTree* tree = new SegmentTree();
 
     MyCalendarTwo() {
-
     }
 
     bool book(int start, int end) {

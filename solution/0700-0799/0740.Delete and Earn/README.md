@@ -62,8 +62,8 @@
 -   如果不选 i，那么 i-1 选不选都可以，因此我们选择其中较大的选法
 
 ```java
-select[i] = nonSelect[i-1] + sums[i];
-nonSelect[i] = Math.max(select[i-1], nonSelect[i-1]);
+select[i] = nonSelect[i - 1] + sums[i];
+nonSelect[i] = Math.max(select[i - 1], nonSelect[i - 1]);
 ```
 
 <!-- tabs:start -->

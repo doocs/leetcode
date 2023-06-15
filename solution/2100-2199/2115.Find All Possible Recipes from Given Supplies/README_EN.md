@@ -64,7 +64,9 @@ We can create &quot;burger&quot; since we have the ingredient &quot;meat&quot; a
 
 ```python
 class Solution:
-    def findAllRecipes(self, recipes: List[str], ingredients: List[List[str]], supplies: List[str]) -> List[str]:
+    def findAllRecipes(
+        self, recipes: List[str], ingredients: List[List[str]], supplies: List[str]
+    ) -> List[str]:
         g = defaultdict(list)
         indeg = defaultdict(int)
         for a, b in zip(recipes, ingredients):

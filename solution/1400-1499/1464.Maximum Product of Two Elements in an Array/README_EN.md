@@ -49,7 +49,7 @@ class Solution:
     def maxProduct(self, nums: List[int]) -> int:
         ans = 0
         for i, a in enumerate(nums):
-            for b in nums[i + 1:]:
+            for b in nums[i + 1 :]:
                 ans = max(ans, (a - 1) * (b - 1))
         return ans
 ```
@@ -205,7 +205,7 @@ func maxProduct(nums []int) int {
 ### **C**
 
 ```c
-int maxProduct(int* nums, int numsSize){
+int maxProduct(int* nums, int numsSize) {
     int max = 0;
     int submax = 0;
     for (int i = 0; i < numsSize; i++) {

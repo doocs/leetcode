@@ -86,13 +86,11 @@ String[] strs = decoder.decode(msg);
 ```python
 class Codec:
     def encode(self, strs: List[str]) -> str:
-        """Encodes a list of strings to a single string.
-        """
+        """Encodes a list of strings to a single string."""
         return chr(257).join(strs)
 
     def decode(self, s: str) -> List[str]:
-        """Decodes a single string to a list of strings.
-        """
+        """Decodes a single string to a list of strings."""
         return s.split(chr(257))
 
 
@@ -166,13 +164,12 @@ public class Codec {
 ```cpp
 class Codec {
 public:
-
     // Encodes a list of strings to a single string.
     string encode(vector<string>& strs) {
         string ans;
         for (string s : strs) {
             int size = s.size();
-            ans += string((const char*)& size, sizeof(size));
+            ans += string((const char*) &size, sizeof(size));
             ans += s;
         }
         return ans;

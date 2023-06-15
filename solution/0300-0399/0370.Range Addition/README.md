@@ -212,11 +212,12 @@ public:
     int n;
     vector<int> c;
 
-    BinaryIndexedTree(int _n): n(_n), c(_n + 1){}
+    BinaryIndexedTree(int _n)
+        : n(_n)
+        , c(_n + 1) {}
 
     void update(int x, int delta) {
-        while (x <= n)
-        {
+        while (x <= n) {
             c[x] += delta;
             x += lowbit(x);
         }
@@ -224,8 +225,7 @@ public:
 
     int query(int x) {
         int s = 0;
-        while (x > 0)
-        {
+        while (x > 0) {
             s += c[x];
             x -= lowbit(x);
         }
@@ -241,8 +241,7 @@ class Solution {
 public:
     vector<int> getModifiedArray(int length, vector<vector<int>>& updates) {
         BinaryIndexedTree* tree = new BinaryIndexedTree(length);
-        for (auto& e : updates)
-        {
+        for (auto& e : updates) {
             int start = e[0], end = e[1], inc = e[2];
             tree->update(start + 1, inc);
             tree->update(end + 2, -inc);

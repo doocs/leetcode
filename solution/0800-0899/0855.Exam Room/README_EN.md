@@ -59,7 +59,6 @@ from sortedcontainers import SortedList
 
 
 class ExamRoom:
-
     def __init__(self, n: int):
         def dist(x):
             l, r = x

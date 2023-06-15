@@ -94,7 +94,7 @@ public:
     int superPow(int a, vector<int>& b) {
         int ans = 1;
         for (int i = b.size() - 1; i >= 0; --i) {
-            ans = (long)ans * quickPowAndMod(a, b[i]) % MOD;
+            ans = (long) ans * quickPowAndMod(a, b[i]) % MOD;
             a = quickPowAndMod(a, 10);
         }
         return ans;

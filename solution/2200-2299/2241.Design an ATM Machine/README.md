@@ -150,7 +150,6 @@ class ATM {
 class ATM {
 public:
     ATM() {
-
     }
 
     void deposit(vector<int> banknotesCount) {

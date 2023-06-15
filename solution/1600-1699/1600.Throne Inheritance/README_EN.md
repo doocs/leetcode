@@ -81,7 +81,6 @@ t.getInheritanceOrder(); // return [&quot;king&quot;, &quot;andy&quot;, &quot;ma
 
 ```python
 class ThroneInheritance:
-
     def __init__(self, kingName: str):
         self.g = defaultdict(list)
         self.dead = set()
@@ -103,6 +102,7 @@ class ThroneInheritance:
         ans = []
         dfs(self.king)
         return ans
+
 
 # Your ThroneInheritance object will be instantiated and called as such:
 # obj = ThroneInheritance(kingName)

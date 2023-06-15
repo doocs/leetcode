@@ -105,7 +105,6 @@ class StockSpanner {
 class StockSpanner {
 public:
     StockSpanner() {
-
     }
 
     int next(int price) {

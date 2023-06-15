@@ -81,7 +81,6 @@ sql.selectCell("two", 2, 2); // 返回 "fifth"，查找表 "two" 中 id 为 2 �
 
 ```python
 class SQL:
-
     def __init__(self, names: List[str], columns: List[int]):
         self.tables = defaultdict(list)
 

@@ -104,7 +104,6 @@ firstUnique.showFirstUnique(); // 返回 -1
 
 ```python
 class FirstUnique:
-
     def __init__(self, nums: List[int]):
         self.cnt = Counter(nums)
         self.unique = OrderedDict({v: 1 for v in nums if self.cnt[v] == 1})
@@ -118,6 +117,7 @@ class FirstUnique:
             self.unique[value] = 1
         elif value in self.unique:
             self.unique.pop(value)
+
 
 # Your FirstUnique object will be instantiated and called as such:
 # obj = FirstUnique(nums)

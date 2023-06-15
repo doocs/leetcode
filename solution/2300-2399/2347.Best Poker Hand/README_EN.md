@@ -202,7 +202,7 @@ impl Solution {
 ### **C**
 
 ```c
-char *bestHand(int *ranks, int ranksSize, char *suits, int suitsSize) {
+char* bestHand(int* ranks, int ranksSize, char* suits, int suitsSize) {
     bool isFlush = true;
     for (int i = 1; i < suitsSize; i++) {
         if (suits[0] != suits[i]) {

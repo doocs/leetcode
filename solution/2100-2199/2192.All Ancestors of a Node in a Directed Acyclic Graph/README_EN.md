@@ -146,7 +146,7 @@ public:
                 ans.push_back(t);
                 continue;
             }
-            queue<int> q {{i}};
+            queue<int> q{{i}};
             vector<bool> vis(n);
             vis[i] = true;
             while (!q.empty()) {

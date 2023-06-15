@@ -12,8 +12,10 @@ void quickSort(int[] nums, int left, int right) {
     int i = left - 1, j = right + 1;
     int x = nums[left];
     while (i < j) {
-        while (nums[++i] < x);
-        while (nums[--j] > x);
+        while (nums[++i] < x)
+            ;
+        while (nums[--j] > x)
+            ;
         if (i < j) {
             int t = nums[i];
             nums[i] = nums[j];

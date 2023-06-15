@@ -189,7 +189,7 @@ int getLen(int num) {
 
 int minMaxDifference(int num) {
     int n = getLen(num);
-    int *nums = malloc(sizeof(int) * n);
+    int* nums = malloc(sizeof(int) * n);
     int t = num;
     for (int i = n - 1; i >= 0; i--) {
         nums[i] = t % 10;

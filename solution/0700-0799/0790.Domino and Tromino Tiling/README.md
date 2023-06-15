@@ -93,7 +93,12 @@ class Solution:
                 return 1
             ans = 0
             if i == j:
-                ans = dfs(i + 2, j + 2) + dfs(i + 1, j + 1) + dfs(i + 2, j + 1) + dfs(i + 1, j + 2)
+                ans = (
+                    dfs(i + 2, j + 2)
+                    + dfs(i + 1, j + 1)
+                    + dfs(i + 2, j + 1)
+                    + dfs(i + 1, j + 2)
+                )
             elif i > j:
                 ans = dfs(i, j + 2) + dfs(i + 1, j + 2)
             else:

@@ -232,27 +232,21 @@ public:
         int n = s.size();
         vector<int> ans(n, -1);
         queue<int> q;
-        for (int i = 0; i < n; ++i)
-        {
-            if (s[i] == c)
-            {
+        for (int i = 0; i < n; ++i) {
+            if (s[i] == c) {
                 q.push(i);
                 ans[i] = 0;
             }
         }
         int d = 0;
-        while (!q.empty())
-        {
+        while (!q.empty()) {
             ++d;
-            for (int t = q.size(); t > 0; --t)
-            {
+            for (int t = q.size(); t > 0; --t) {
                 int i = q.front();
                 q.pop();
                 vector<int> dirs{i - 1, i + 1};
-                for (int& j : dirs)
-                {
-                    if (j >= 0 && j < n && ans[j] == -1)
-                    {
+                for (int& j : dirs) {
+                    if (j >= 0 && j < n && ans[j] == -1) {
                         ans[j] = d;
                         q.push(j);
                     }

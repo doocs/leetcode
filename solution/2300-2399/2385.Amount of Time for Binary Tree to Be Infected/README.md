@@ -278,7 +278,7 @@ public:
 
     int amountOfTime(TreeNode* root, int start) {
         dfs(root);
-        queue<int> q {{start}};
+        queue<int> q{{start}};
         unordered_set<int> vis;
         int ans = -1;
         while (q.size()) {

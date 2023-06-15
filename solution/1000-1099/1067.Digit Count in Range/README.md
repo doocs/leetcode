@@ -91,8 +91,7 @@ class Solution:
                 if i == 0 and lead:
                     ans += dfs(pos - 1, cnt, lead, limit and i == up)
                 else:
-                    ans += dfs(pos - 1, cnt + (i == d),
-                               False, limit and i == up)
+                    ans += dfs(pos - 1, cnt + (i == d), False, limit and i == up)
             return ans
 
         a = [0] * 11

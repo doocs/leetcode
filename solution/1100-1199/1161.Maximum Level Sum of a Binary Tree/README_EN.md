@@ -206,7 +206,7 @@ class Solution {
 class Solution {
 public:
     int maxLevelSum(TreeNode* root) {
-        queue<TreeNode*> q {{root}};
+        queue<TreeNode*> q{{root}};
         int mx = INT_MIN;
         int ans = 0;
         int i = 0;
@@ -246,14 +246,17 @@ public:
         dfs(root, 0, s);
         int mx = INT_MIN;
         int ans = 0;
-        for (int i = 0; i < s.size(); ++i) if (mx < s[i]) mx = s[i], ans = i + 1;
+        for (int i = 0; i < s.size(); ++i)
+            if (mx < s[i]) mx = s[i], ans = i + 1;
         return ans;
     }
 
     void dfs(TreeNode* root, int i, vector<int>& s) {
         if (!root) return;
-        if (s.size() == i) s.push_back(root->val);
-        else s[i] += root->val;
+        if (s.size() == i)
+            s.push_back(root->val);
+        else
+            s[i] += root->val;
         dfs(root->left, i + 1, s);
         dfs(root->right, i + 1, s);
     }

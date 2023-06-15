@@ -153,13 +153,10 @@ public:
         vector<vector<int>> ans;
         vector<int> t;
         int n = nums.size();
-        for (int mask = 0; mask < 1 << n; ++mask)
-        {
+        for (int mask = 0; mask < 1 << n; ++mask) {
             t.clear();
-            for (int i = 0; i < n; ++i)
-            {
-                if ((mask >> i) & 1)
-                {
+            for (int i = 0; i < n; ++i) {
+                if ((mask >> i) & 1) {
                     t.push_back(nums[i]);
                 }
             }

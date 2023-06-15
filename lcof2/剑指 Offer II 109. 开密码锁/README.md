@@ -207,11 +207,11 @@ public:
     }
 
     char prev(char c) {
-        return c == '0' ? '9' : (char)(c - 1);
+        return c == '0' ? '9' : (char) (c - 1);
     }
 
     char next(char c) {
-        return c == '9' ? '0' : (char)(c + 1);
+        return c == '9' ? '0' : (char) (c + 1);
     }
 
     vector<string> get(string& t) {

@@ -272,7 +272,7 @@ function preorder(root: Node | null): number[] {
  * Note: The returned array must be malloced, assume caller calls free().
  */
 
-void dfs(struct Node *root, int *ans, int *i) {
+void dfs(struct Node* root, int* ans, int* i) {
     if (!root) {
         return;
     }
@@ -282,8 +282,8 @@ void dfs(struct Node *root, int *ans, int *i) {
     }
 }
 
-int *preorder(struct Node *root, int *returnSize) {
-    int *ans = malloc(sizeof(int) * 10000);
+int* preorder(struct Node* root, int* returnSize) {
+    int* ans = malloc(sizeof(int) * 10000);
     *returnSize = 0;
     dfs(root, ans, returnSize);
     return ans;

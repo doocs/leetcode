@@ -154,9 +154,9 @@ func max(a, b int) int {
 ### **C**
 
 ```c
-#define max(a,b) (((a) > (b)) ? (a) : (b))
+#define max(a, b) (((a) > (b)) ? (a) : (b))
 
-int maxLengthBetweenEqualCharacters(char *s) {
+int maxLengthBetweenEqualCharacters(char* s) {
     int pos[26];
     memset(pos, -1, sizeof(pos));
     int n = strlen(s);

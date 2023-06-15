@@ -297,7 +297,7 @@ impl Solution {
  * };
  */
 
-struct TreeNode *dfs(struct TreeNode *root, struct TreeNode *cur) {
+struct TreeNode* dfs(struct TreeNode* root, struct TreeNode* cur) {
     if (!root) {
         return cur;
     }
@@ -310,8 +310,8 @@ struct TreeNode *dfs(struct TreeNode *root, struct TreeNode *cur) {
     return dfs(root->right, cur);
 }
 
-struct TreeNode *increasingBST(struct TreeNode *root) {
-    struct TreeNode *dummy = malloc(sizeof(struct TreeNode));
+struct TreeNode* increasingBST(struct TreeNode* root) {
+    struct TreeNode* dummy = malloc(sizeof(struct TreeNode));
     dfs(root, dummy);
     return dummy->right;
 }

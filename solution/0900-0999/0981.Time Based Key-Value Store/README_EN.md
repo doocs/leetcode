@@ -53,7 +53,6 @@ timeMap.get(&quot;foo&quot;, 5);         // return &quot;bar2&quot;
 
 ```python
 class TimeMap:
-
     def __init__(self):
         self.ktv = defaultdict(list)
 
@@ -111,7 +110,6 @@ class TimeMap {
 class TimeMap {
 public:
     TimeMap() {
-
     }
 
     void set(string key, string value, int timestamp) {

@@ -59,7 +59,9 @@ Since &quot;b&quot; is lexicographically smaller than &quot;c&quot;, it is inclu
 
 ```python
 class Solution:
-    def mostPopularCreator(self, creators: List[str], ids: List[str], views: List[int]) -> List[List[str]]:
+    def mostPopularCreator(
+        self, creators: List[str], ids: List[str], views: List[int]
+    ) -> List[List[str]]:
         cnt = defaultdict(int)
         d = defaultdict(int)
         for k, (c, i, v) in enumerate(zip(creators, ids, views)):

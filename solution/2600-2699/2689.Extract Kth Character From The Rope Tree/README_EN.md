@@ -160,7 +160,7 @@ class Solution {
 class Solution {
 public:
     char getKthCharacter(RopeTreeNode* root, int k) {
-        function<string(RopeTreeNode* root)> dfs = [&](RopeTreeNode* root) -> string {
+        function<string(RopeTreeNode * root)> dfs = [&](RopeTreeNode* root) -> string {
             if (root == nullptr) {
                 return "";
             }

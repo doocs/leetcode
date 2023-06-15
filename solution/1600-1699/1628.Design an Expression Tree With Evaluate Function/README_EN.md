@@ -209,7 +209,7 @@ class TreeBuilder {
 
 class Node {
 public:
-    virtual ~Node() {};
+    virtual ~Node(){};
     virtual int evaluate() const = 0;
 
 protected:

@@ -65,7 +65,6 @@ Time complexity $O(1)$, space complexity $O(n)$, where $n$ is the number of elem
 
 ```python
 class RandomizedSet:
-
     def __init__(self):
         self.d = {}
         self.q = []
@@ -150,7 +149,6 @@ class RandomizedSet {
 class RandomizedSet {
 public:
     RandomizedSet() {
-
     }
 
     bool insert(int val) {

@@ -103,7 +103,7 @@ class Solution {
         y += 310;
         int ans = 0;
         Queue<int[]> q = new ArrayDeque<>();
-        q.offer(new int[]{310, 310});
+        q.offer(new int[] {310, 310});
         boolean[][] vis = new boolean[700][700];
         vis[310][310] = true;
         int[][] dirs = {{-2, 1}, {-1, 2}, {1, 2}, {2, 1}, {2, -1}, {1, -2}, {-1, -2}, {-2, -1}};
@@ -118,7 +118,7 @@ class Solution {
                     int d = p[1] + dir[1];
                     if (!vis[c][d]) {
                         vis[c][d] = true;
-                        q.offer(new int[]{c, d});
+                        q.offer(new int[] {c, d});
                     }
                 }
             }
@@ -236,8 +236,7 @@ public:
         queue<PII> q2;
         q1.push({310, 310});
         q2.push({x, y});
-        while (!q1.empty() && !q2.empty())
-        {
+        while (!q1.empty() && !q2.empty()) {
             int t = q1.size() <= q2.size() ? extend(m1, m2, q1) : extend(m2, m1, q2);
             if (t != -1) return t;
         }
@@ -246,14 +245,12 @@ public:
 
     int extend(unordered_map<int, int>& m1, unordered_map<int, int>& m2, queue<PII>& q) {
         vector<vector<int>> dirs = {{-2, 1}, {-1, 2}, {1, 2}, {2, 1}, {2, -1}, {1, -2}, {-1, -2}, {-2, -1}};
-        for (int k = q.size(); k > 0; --k)
-        {
+        for (int k = q.size(); k > 0; --k) {
             auto p = q.front();
             q.pop();
             int i = p.first, j = p.second;
             int step = m1[i * n + j];
-            for (auto& dir : dirs)
-            {
+            for (auto& dir : dirs) {
                 int x = i + dir[0], y = j + dir[1];
                 if (m1.count(x * n + y)) continue;
                 if (m2.count(x * n + y)) return step + 1 + m2[x * n + y];

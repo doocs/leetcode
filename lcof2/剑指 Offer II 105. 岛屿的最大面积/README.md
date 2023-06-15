@@ -58,6 +58,7 @@
 # 初始化，p存储每个点的父节点
 p = list(range(n))
 
+
 # 返回x的祖宗节点
 def find(x):
     if p[x] != x:
@@ -388,18 +389,13 @@ public:
         size.resize(m * n, 1);
         for (int i = 0; i < p.size(); ++i) p[i] = i;
         vector<int> dirs = {0, 1, 0};
-        for (int i = 0; i < m; ++i)
-        {
-            for (int j = 0; j < n; ++j)
-            {
-                if (grid[i][j])
-                {
-                    for (int k = 0; k < 2; ++k)
-                    {
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j]) {
+                    for (int k = 0; k < 2; ++k) {
                         int x = i + dirs[k];
                         int y = j + dirs[k + 1];
-                        if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] && find(i * n + j) != find(x * n + y))
-                        {
+                        if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] && find(i * n + j) != find(x * n + y)) {
                             size[find(x * n + y)] += size[find(i * n + j)];
                             p[find(i * n + j)] = find(x * n + y);
                         }

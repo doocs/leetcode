@@ -147,6 +147,7 @@ public:
         }
         return ans;
     }
+
 private:
     unordered_map<string, vector<int>> d;
 };

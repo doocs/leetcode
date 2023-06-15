@@ -254,9 +254,9 @@ impl Solution {
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
-int *executeInstructions(int n, int *startPos, int startPosSize, char *s, int *returnSize) {
+int* executeInstructions(int n, int* startPos, int startPosSize, char* s, int* returnSize) {
     int m = strlen(s);
-    int *ans = malloc(sizeof(int) * m);
+    int* ans = malloc(sizeof(int) * m);
     for (int i = 0; i < m; i++) {
         int y = startPos[0];
         int x = startPos[1];

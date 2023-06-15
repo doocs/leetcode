@@ -168,11 +168,10 @@ class FrequencyTracker {
 class FrequencyTracker {
 public:
     FrequencyTracker() {
-
     }
 
     void add(int number) {
-        int f =  cnt[number];
+        int f = cnt[number];
         if (f > 0) {
             freq[f]--;
         }

@@ -72,7 +72,6 @@ from sortedcontainers import SortedList
 
 
 class TweetCounts:
-
     def __init__(self):
         self.d = {"minute": 60, "hour": 3600, "day": 86400}
         self.data = defaultdict(SortedList)
@@ -80,7 +79,9 @@ class TweetCounts:
     def recordTweet(self, tweetName: str, time: int) -> None:
         self.data[tweetName].add(time)
 
-    def getTweetCountsPerFrequency(self, freq: str, tweetName: str, startTime: int, endTime: int) -> List[int]:
+    def getTweetCountsPerFrequency(
+        self, freq: str, tweetName: str, startTime: int, endTime: int
+    ) -> List[int]:
         f = self.d[freq]
         tweets = self.data[tweetName]
         t = startTime

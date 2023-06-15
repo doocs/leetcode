@@ -68,7 +68,7 @@ class Solution {
         for (int i = 0; i < s.length(); ++i) {
             ++cnt[s.charAt(i) - 'a'];
         }
-        for (int i = 0; ; ++i) {
+        for (int i = 0;; ++i) {
             if (--cnt[t.charAt(i) - 'a'] < 0) {
                 return t.charAt(i);
             }
@@ -100,7 +100,8 @@ public:
     char findTheDifference(string s, string t) {
         int cnt[26] = {0};
         for (char& c : s) ++cnt[c - 'a'];
-        for (char& c : t) if (--cnt[c - 'a'] < 0) return c;
+        for (char& c : t)
+            if (--cnt[c - 'a'] < 0) return c;
         return ' ';
     }
 };
@@ -181,7 +182,7 @@ impl Solution {
 ### **C**
 
 ```c
-char findTheDifference(char *s, char *t) {
+char findTheDifference(char* s, char* t) {
     int n = strlen(s);
     int count[26] = {0};
     for (int i = 0; i < n; i++) {
@@ -200,7 +201,7 @@ char findTheDifference(char *s, char *t) {
 ```
 
 ```c
-char findTheDifference(char *s, char *t) {
+char findTheDifference(char* s, char* t) {
     int n = strlen(s);
     char ans = 0;
     for (int i = 0; i < n; i++) {

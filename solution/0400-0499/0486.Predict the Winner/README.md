@@ -205,7 +205,7 @@ public:
 
 ```go
 func PredictTheWinner(nums []int) bool {
-    n := len(nums)
+	n := len(nums)
 	f := make([][]int, n)
 	for i := range f {
 		f[i] = make([]int, n)

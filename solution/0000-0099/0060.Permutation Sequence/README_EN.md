@@ -106,7 +106,8 @@ public:
             for (int j = 1; j < n - i; ++j) fact *= j;
             for (int j = 1; j <= n; ++j) {
                 if (vis[j]) continue;
-                if (k > fact) k -= fact;
+                if (k > fact)
+                    k -= fact;
                 else {
                     ans += to_string(j);
                     vis[j] = 1;

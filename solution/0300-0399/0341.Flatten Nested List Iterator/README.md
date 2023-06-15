@@ -207,7 +207,7 @@ public class NestedIterator implements Iterator<Integer> {
 
 class NestedIterator {
 public:
-    NestedIterator(vector<NestedInteger> &nestedList) {
+    NestedIterator(vector<NestedInteger>& nestedList) {
         dfs(nestedList);
     }
 
@@ -218,11 +218,12 @@ public:
     bool hasNext() {
         return cur < vals.size();
     }
+
 private:
     vector<int> vals;
     int cur = 0;
 
-    void dfs(vector<NestedInteger> &nestedList) {
+    void dfs(vector<NestedInteger>& nestedList) {
         for (auto& e : nestedList) {
             if (e.isInteger()) {
                 vals.push_back(e.getInteger());

@@ -290,7 +290,7 @@ public:
                             if (pa == pb) continue;
                             p[pa] = pb;
                             size[pb] += size[pa];
-                            ans = max(ans,size[pb]);
+                            ans = max(ans, size[pb]);
                         }
                     }
                 }

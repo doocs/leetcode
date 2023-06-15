@@ -310,7 +310,8 @@ private:
 class Trie {
 public:
     vector<Trie*> children;
-    Trie() : children(26) {}
+    Trie()
+        : children(26) {}
 
     int insert(string w) {
         Trie* node = this;
@@ -330,7 +331,7 @@ public:
 class Solution {
 public:
     int minimumLengthEncoding(vector<string>& words) {
-        sort(words.begin(), words.end(), [](string &a, string &b) {return a.size() > b.size();});
+        sort(words.begin(), words.end(), [](string& a, string& b) { return a.size() > b.size(); });
         Trie* trie = new Trie();
         int ans = 0;
         for (auto& w : words) {

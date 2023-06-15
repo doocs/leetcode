@@ -69,7 +69,6 @@ stringIterator.hasNext(); // 返回 True</pre>
 
 ```python
 class StringIterator:
-
     def __init__(self, compressedString: str):
         self.d = []
         self.p = 0
@@ -189,6 +188,7 @@ public:
     bool hasNext() {
         return p < d.size() && d[p].second > 0;
     }
+
 private:
     vector<pair<char, int>> d;
     int p = 0;

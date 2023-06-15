@@ -76,6 +76,7 @@
 #         self.left = None
 #         self.right = None
 
+
 class Solution:
     def isBalanced(self, root: TreeNode) -> bool:
         def dfs(root):

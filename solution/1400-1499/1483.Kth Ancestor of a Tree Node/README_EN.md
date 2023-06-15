@@ -51,7 +51,6 @@ treeAncestor.getKthAncestor(6, 3); // returns -1 because there is no such ancest
 
 ```python
 class TreeAncestor:
-
     def __init__(self, n: int, parent: List[int]):
         self.p = [[-1] * 18 for _ in range(n)]
         for i, fa in enumerate(parent):

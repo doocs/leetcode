@@ -235,11 +235,11 @@ impl Solution {
 ### **C**
 
 ```c
-int cmp(const void *a, const void *b) {
-    return *(char *) a - *(char *) b;
+int cmp(const void* a, const void* b) {
+    return *(char*) a - *(char*) b;
 }
 
-bool isAnagram(char *s, char *t) {
+bool isAnagram(char* s, char* t) {
     int n = strlen(s);
     int m = strlen(t);
     if (n != m) {
@@ -252,7 +252,7 @@ bool isAnagram(char *s, char *t) {
 ```
 
 ```c
-bool isAnagram(char *s, char *t) {
+bool isAnagram(char* s, char* t) {
     int n = strlen(s);
     int m = strlen(t);
     if (n != m) {

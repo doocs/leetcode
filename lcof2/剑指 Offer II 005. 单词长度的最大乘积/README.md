@@ -144,7 +144,7 @@ public:
         for (int i = 0; i < n - 1; ++i)
             for (int j = i + 1; j < n; ++j)
                 if (!(mask[i] & mask[j]))
-                    ans = max(ans, (int)words[i].size() * (int)words[j].size());
+                    ans = max(ans, (int) words[i].size() * (int) words[j].size());
         return ans;
     }
 };

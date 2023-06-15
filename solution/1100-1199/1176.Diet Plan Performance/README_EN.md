@@ -66,7 +66,9 @@ calories[2] + calories[3] &lt; lower so 1 point is lost.
 
 ```python
 class Solution:
-    def dietPlanPerformance(self, calories: List[int], k: int, lower: int, upper: int) -> int:
+    def dietPlanPerformance(
+        self, calories: List[int], k: int, lower: int, upper: int
+    ) -> int:
         s = list(accumulate(calories, initial=0))
         ans, n = 0, len(calories)
         for i in range(n - k + 1):

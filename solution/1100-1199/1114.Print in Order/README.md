@@ -215,21 +215,21 @@ public:
     }
 
     void first(function<void()> printFirst) {
-         sem_wait(&a);
+        sem_wait(&a);
         // printFirst() outputs "first". Do not change or remove this line.
         printFirst();
         sem_post(&b);
     }
 
     void second(function<void()> printSecond) {
-         sem_wait(&b);
+        sem_wait(&b);
         // printSecond() outputs "second". Do not change or remove this line.
         printSecond();
         sem_post(&c);
     }
 
     void third(function<void()> printThird) {
-         sem_wait(&c);
+        sem_wait(&c);
         // printThird() outputs "third". Do not change or remove this line.
         printThird();
         sem_post(&a);

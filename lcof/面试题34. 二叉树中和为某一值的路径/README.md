@@ -153,7 +153,7 @@ public:
     vector<vector<int>> pathSum(TreeNode* root, int target) {
         vector<vector<int>> ans;
         vector<int> t;
-        function<void(TreeNode* root, int s)> dfs = [&](TreeNode* root, int s) {
+        function<void(TreeNode * root, int s)> dfs = [&](TreeNode* root, int s) {
             if (!root) {
                 return;
             }

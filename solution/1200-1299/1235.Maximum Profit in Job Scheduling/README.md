@@ -109,7 +109,9 @@ $$
 
 ```python
 class Solution:
-    def jobScheduling(self, startTime: List[int], endTime: List[int], profit: List[int]) -> int:
+    def jobScheduling(
+        self, startTime: List[int], endTime: List[int], profit: List[int]
+    ) -> int:
         @cache
         def dfs(i):
             if i >= n:

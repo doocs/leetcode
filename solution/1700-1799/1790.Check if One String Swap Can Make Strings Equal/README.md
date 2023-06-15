@@ -152,7 +152,7 @@ func areAlmostEqual(s1 string, s2 string) bool {
 ### **C**
 
 ```c
-bool areAlmostEqual(char *s1, char *s2) {
+bool areAlmostEqual(char* s1, char* s2) {
     int n = strlen(s1);
     int i1 = -1;
     int i2 = -1;
@@ -175,7 +175,6 @@ bool areAlmostEqual(char *s1, char *s2) {
     }
     return s1[i1] == s2[i2] && s1[i2] == s2[i1];
 }
-
 ```
 
 ### **TypeScript**

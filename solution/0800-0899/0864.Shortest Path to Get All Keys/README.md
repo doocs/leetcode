@@ -132,7 +132,11 @@ class Solution:
                     if 0 <= x < m and 0 <= y < n:
                         c = grid[x][y]
                         # 是墙，或者是锁，但此时没有对应的钥匙，无法通过
-                        if c == '#' or c.isupper() and (state & (1 << (ord(c) - ord('A')))) == 0:
+                        if (
+                            c == '#'
+                            or c.isupper()
+                            and (state & (1 << (ord(c) - ord('A')))) == 0
+                        ):
                             continue
                         # 是钥匙
                         if c.islower():
@@ -235,7 +239,8 @@ public:
                 // 累加钥匙数量
                 if (islower(c)) ++k;
                 // 起点
-                else if (c == '@') si = i, sj = j;
+                else if (c == '@')
+                    si = i, sj = j;
             }
         }
         queue<tuple<int, int, int>> q{{{si, sj, 0}}};

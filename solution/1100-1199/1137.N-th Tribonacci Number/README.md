@@ -99,7 +99,7 @@ public:
             b = c;
             c = d;
         }
-        return (int)a;
+        return (int) a;
     }
 };
 ```

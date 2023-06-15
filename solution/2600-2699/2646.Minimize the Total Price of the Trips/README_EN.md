@@ -63,7 +63,9 @@ The total price sum of all trips is 1. It can be proven, that 1 is the minimum a
 
 ```python
 class Solution:
-    def minimumTotalPrice(self, n: int, edges: List[List[int]], price: List[int], trips: List[List[int]]) -> int:
+    def minimumTotalPrice(
+        self, n: int, edges: List[List[int]], price: List[int], trips: List[List[int]]
+    ) -> int:
         def dfs(i: int, fa: int, k: int) -> bool:
             cnt[i] += 1
             if i == k:

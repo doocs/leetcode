@@ -157,7 +157,8 @@ class Solution {
 public:
     vector<string> letterCasePermutation(string s) {
         int n = 0;
-        for (char c : s) if (isalpha(c)) ++n;
+        for (char c : s)
+            if (isalpha(c)) ++n;
         vector<string> ans;
         for (int i = 0; i < 1 << n; ++i) {
             int j = 0;

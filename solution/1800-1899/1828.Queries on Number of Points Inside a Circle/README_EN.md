@@ -179,9 +179,9 @@ impl Solution {
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
-int *countPoints(int **points, int pointsSize, int *pointsColSize, int **queries, int queriesSize, int *queriesColSize,
-                 int *returnSize) {
-    int *ans = malloc(sizeof(int) * queriesSize);
+int* countPoints(int** points, int pointsSize, int* pointsColSize, int** queries, int queriesSize, int* queriesColSize,
+    int* returnSize) {
+    int* ans = malloc(sizeof(int) * queriesSize);
     for (int i = 0; i < queriesSize; i++) {
         int cx = queries[i][0];
         int cy = queries[i][1];

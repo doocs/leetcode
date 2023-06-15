@@ -134,8 +134,8 @@ public:
     unordered_set<long> get(string& n) {
         int l = n.size();
         unordered_set<long> res;
-        res.insert((long)pow(10, l - 1) - 1);
-        res.insert((long)pow(10, l) + 1);
+        res.insert((long) pow(10, l - 1) - 1);
+        res.insert((long) pow(10, l) + 1);
         long left = stol(n.substr(0, (l + 1) / 2));
         for (long i = left - 1; i <= left + 1; ++i) {
             string prefix = to_string(i);

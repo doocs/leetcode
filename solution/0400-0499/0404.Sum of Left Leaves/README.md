@@ -218,7 +218,7 @@ impl Solution {
  * };
  */
 
-int dfs(struct TreeNode *root, int isLeft) {
+int dfs(struct TreeNode* root, int isLeft) {
     if (!root) {
         return 0;
     }
@@ -228,7 +228,7 @@ int dfs(struct TreeNode *root, int isLeft) {
     return dfs(root->left, 1) + dfs(root->right, 0);
 }
 
-int sumOfLeftLeaves(struct TreeNode *root) {
+int sumOfLeftLeaves(struct TreeNode* root) {
     return dfs(root, 0);
 }
 ```

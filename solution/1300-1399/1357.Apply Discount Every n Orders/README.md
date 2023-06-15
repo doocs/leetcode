@@ -79,7 +79,6 @@ cashier.getBill([2,3,5],[5,3,2]);                    // 返回 2500.0
 
 ```python
 class Cashier:
-
     def __init__(self, n: int, discount: int, products: List[int], prices: List[int]):
         self.i = 0
         self.n = n

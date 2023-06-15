@@ -204,7 +204,7 @@ impl Solution {
 ### **C**
 
 ```c
-int minimumLength(char *s) {
+int minimumLength(char* s) {
     int n = strlen(s);
     int start = 0;
     int end = n - 1;

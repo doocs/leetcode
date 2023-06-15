@@ -287,27 +287,20 @@ public:
     TreeNode* bstToGst(TreeNode* root) {
         int s = 0;
         TreeNode* node = root;
-        while (root)
-        {
+        while (root) {
             if (root->right == nullptr) {
                 s += root->val;
                 root->val = s;
                 root = root->left;
-            }
-            else
-            {
+            } else {
                 TreeNode* next = root->right;
-                while (next->left && next->left != root)
-                {
+                while (next->left && next->left != root) {
                     next = next->left;
                 }
-                if (next->left == nullptr)
-                {
+                if (next->left == nullptr) {
                     next->left = root;
                     root = root->right;
-                }
-                else
-                {
+                } else {
                     s += root->val;
                     root->val = s;
                     next->left = nullptr;
@@ -550,8 +543,7 @@ impl Solution {
  * };
  */
 
-
-int dfs(struct TreeNode *root, int sum) {
+int dfs(struct TreeNode* root, int sum) {
     if (root) {
         sum = dfs(root->right, sum) + root->val;
         root->val = sum;
@@ -560,7 +552,7 @@ int dfs(struct TreeNode *root, int sum) {
     return sum;
 }
 
-struct TreeNode *bstToGst(struct TreeNode *root) {
+struct TreeNode* bstToGst(struct TreeNode* root) {
     dfs(root, 0);
     return root;
 }
@@ -576,9 +568,8 @@ struct TreeNode *bstToGst(struct TreeNode *root) {
  * };
  */
 
-
-struct TreeNode *bstToGst(struct TreeNode *root) {
-    struct TreeNode *cur = root;
+struct TreeNode* bstToGst(struct TreeNode* root) {
+    struct TreeNode* cur = root;
     int sum = 0;
     while (cur) {
         if (!cur->right) {
@@ -586,7 +577,7 @@ struct TreeNode *bstToGst(struct TreeNode *root) {
             cur->val = sum;
             cur = cur->left;
         } else {
-            struct TreeNode *next = cur->right;
+            struct TreeNode* next = cur->right;
             while (next->left && next->left != cur) {
                 next = next->left;
             }

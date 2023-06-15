@@ -85,7 +85,7 @@ class Solution:
             l = r = i
             t = 0
             while r + k <= m:
-                w = s[r: r + k]
+                w = s[r : r + k]
                 r += k
                 if w not in cnt:
                     l = r
@@ -95,7 +95,7 @@ class Solution:
                 cnt1[w] += 1
                 t += 1
                 while cnt1[w] > cnt[w]:
-                    remove = s[l: l + k]
+                    remove = s[l : l + k]
                     l += k
                     cnt1[remove] -= 1
                     t -= 1

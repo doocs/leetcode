@@ -88,7 +88,7 @@ public:
             else
                 right = mid - 1;
         }
-        return (int)left;
+        return (int) left;
     }
 };
 ```

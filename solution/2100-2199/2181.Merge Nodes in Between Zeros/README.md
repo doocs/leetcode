@@ -257,10 +257,9 @@ impl Solution {
  * };
  */
 
-
-struct ListNode *mergeNodes(struct ListNode *head) {
+struct ListNode* mergeNodes(struct ListNode* head) {
     struct ListNode dummy;
-    struct ListNode *cur = &dummy;
+    struct ListNode* cur = &dummy;
     int sum = 0;
     while (head) {
         if (head->val == 0 && sum != 0) {

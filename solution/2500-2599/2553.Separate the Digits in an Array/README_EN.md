@@ -168,7 +168,7 @@ impl Solution {
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
-int *separateDigits(int *nums, int numsSize, int *returnSize) {
+int* separateDigits(int* nums, int numsSize, int* returnSize) {
     int n = 0;
     for (int i = 0; i < numsSize; i++) {
         int t = nums[i];
@@ -177,7 +177,7 @@ int *separateDigits(int *nums, int numsSize, int *returnSize) {
             n++;
         }
     }
-    int *ans = malloc(sizeof(int) * n);
+    int* ans = malloc(sizeof(int) * n);
     for (int i = numsSize - 1, j = n - 1; i >= 0; i--) {
         int t = nums[i];
         while (t != 0) {

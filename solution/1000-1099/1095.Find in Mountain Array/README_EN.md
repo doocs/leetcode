@@ -69,6 +69,7 @@
 #    def get(self, index: int) -> int:
 #    def length(self) -> int:
 
+
 class Solution:
     def findInMountainArray(self, target: int, mountain_arr: 'MountainArray') -> int:
         def search(l: int, r: int, k: int) -> int:
@@ -154,7 +155,7 @@ class Solution {
 
 class Solution {
 public:
-    int findInMountainArray(int target, MountainArray &mountainArr) {
+    int findInMountainArray(int target, MountainArray& mountainArr) {
         int n = mountainArr.length();
         int l = 0, r = n - 1;
         while (l < r) {

@@ -124,9 +124,9 @@ func maxRepeating(sequence string, word string) int {
 ### **C**
 
 ```c
-#define max(a,b) (((a) > (b)) ? (a) : (b))
+#define max(a, b) (((a) > (b)) ? (a) : (b))
 
-int findWord(int i, char *sequence, char *word) {
+int findWord(int i, char* sequence, char* word) {
     int n = strlen(word);
     for (int j = 0; j < n; j++) {
         if (sequence[j + i] != word[j]) {
@@ -136,7 +136,7 @@ int findWord(int i, char *sequence, char *word) {
     return 1 + findWord(i + n, sequence, word);
 }
 
-int maxRepeating(char *sequence, char *word) {
+int maxRepeating(char* sequence, char* word) {
     int n = strlen(sequence);
     int m = strlen(word);
     int ans = 0;

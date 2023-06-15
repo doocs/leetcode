@@ -148,7 +148,7 @@ public:
             }
             return cnt;
         };
-        return f(right) - f(left -1);
+        return f(right) - f(left - 1);
     }
 };
 ```

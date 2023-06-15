@@ -165,7 +165,7 @@ public:
             g[u].push_back(v);
             g[v].push_back(u);
         }
-        queue<int> q {{0}};
+        queue<int> q{{0}};
         vis[0] = true;
         int ans = 0, step = 0;
         while (!q.empty()) {

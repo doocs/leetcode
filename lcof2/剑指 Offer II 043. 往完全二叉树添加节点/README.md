@@ -182,7 +182,7 @@ public:
     vector<TreeNode*> tree;
 
     CBTInserter(TreeNode* root) {
-        queue<TreeNode*> q {{root}};
+        queue<TreeNode*> q{{root}};
         while (!q.empty()) {
             auto node = q.front();
             q.pop();
