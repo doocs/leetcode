@@ -126,29 +126,24 @@ John (customer 5) did not order anything, so we do not include them in the resul
 
 ```sql
 # Write your MySQL query statement below
-select
+SELECT
     customer_id,
     p.product_id,
     p.product_name
-from
+FROM
     (
-        select
+        SELECT
             customer_id,
             product_id,
-            rank() over(
-                partition by customer_id
-                order by
-                    count(1) desc
-            ) rk
-        from
-            Orders
-        group by
-            customer_id,
-            product_id
-    ) o
-    join Products p on o.product_id = p.product_id
-where
-    rk = 1;
+            rank() OVER (
+                PARTITION BY customer_id
+                ORDER BY count(1) DESC
+            ) AS rk
+        FROM Orders
+        GROUP BY customer_id, product_id
+    ) AS o
+    JOIN Products AS p ON o.product_id = p.product_id
+WHERE rk = 1;
 ```
 
 <!-- tabs:end -->

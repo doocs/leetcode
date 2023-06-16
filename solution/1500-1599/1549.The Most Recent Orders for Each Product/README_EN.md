@@ -121,28 +121,23 @@ The hard disk was never ordered and we do not include it in the result table.
 
 ```sql
 # Write your MySQL query statement below
-select
+SELECT
     product_name,
     o.product_id,
     o.order_id,
     o.order_date
-from
-    Orders o
-    join Products p on o.product_id = p.product_id
-where
-    (o.product_id, order_date) in (
-        select
+FROM
+    Orders AS o
+    JOIN Products AS p ON o.product_id = p.product_id
+WHERE
+    (o.product_id, order_date) IN (
+        SELECT
             product_id,
-            max(order_date) order_date
-        from
-            Orders
-        group by
-            product_id
+            max(order_date) AS order_date
+        FROM Orders
+        GROUP BY product_id
     )
-order by
-    product_name,
-    o.product_id,
-    o.order_id
+ORDER BY product_name, o.product_id, o.order_id;
 ```
 
 <!-- tabs:end -->

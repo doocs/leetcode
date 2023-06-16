@@ -97,15 +97,12 @@ John, Daiana, Steve 和 Jasmine 所在的院系分别是 14, 33, 74 和 77， �
 ```sql
 # Write your MySQL query statement below
 SELECT
-    s.id, s.name
+    s.id,
+    s.name
 FROM
-    Students s
-LEFT JOIN
-    Departments d
-ON
-    s.department_id = d.id
-WHERE
-    d.id IS NULL;
+    Students AS s
+    LEFT JOIN Departments AS d ON s.department_id = d.id
+WHERE d.id IS NULL;
 ```
 
 <!-- tabs:end -->

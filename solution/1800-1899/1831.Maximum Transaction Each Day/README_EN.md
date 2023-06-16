@@ -68,24 +68,20 @@ We order the result table by transaction_id after collecting these IDs.
 
 ```sql
 # Write your MySQL query statement below
-select
+SELECT
     transaction_id
-from
+FROM
     (
-        select
+        SELECT
             transaction_id,
-            rank() over(
-                partition by date_format(day, '%Y-%m-%d')
-                order by
-                    amount desc
-            ) rk
-        from
-            Transactions
-        order by
-            transaction_id
-    ) t
-where
-    rk = 1
+            rank() OVER (
+                PARTITION BY date_format(day, '%Y-%m-%d')
+                ORDER BY amount DESC
+            ) AS rk
+        FROM Transactions
+        ORDER BY transaction_id
+    ) AS t
+WHERE rk = 1;
 ```
 
 <!-- tabs:end -->

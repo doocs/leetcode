@@ -86,64 +86,61 @@ Department 表:
 
 ```sql
 SELECT
-	Department.NAME AS Department,
-	Employee.NAME AS Employee,
-	Salary
+    Department.NAME AS Department,
+    Employee.NAME AS Employee,
+    Salary
 FROM
-	Employee,
-	Department
+    Employee,
+    Department
 WHERE
-	Employee.DepartmentId = Department.Id
-	AND ( Employee.DepartmentId, Salary )
-    IN (SELECT DepartmentId, max( Salary )
+    Employee.DepartmentId = Department.Id
+    AND (Employee.DepartmentId, Salary) IN (
+        SELECT DepartmentId, max(Salary)
         FROM Employee
-        GROUP BY DepartmentId )
+        GROUP BY DepartmentId
+    );
 ```
 
 ```sql
 # Write your MySQL query statement below
 SELECT
-	d.NAME AS Department,
-	e1.NAME AS Employee,
-	e1.salary AS Salary
+    d.NAME AS Department,
+    e1.NAME AS Employee,
+    e1.salary AS Salary
 FROM
-	Employee AS e1
-	JOIN Department AS d ON e1.departmentId = d.id
+    Employee AS e1
+    JOIN Department AS d ON e1.departmentId = d.id
 WHERE
-	e1.salary = (
-	SELECT
-		MAX( Salary )
-	FROM
-		Employee AS e2
-	WHERE
-		e2.departmentId = d.id
-	)
+    e1.salary = (
+        SELECT
+            MAX(Salary)
+        FROM Employee AS e2
+        WHERE e2.departmentId = d.id
+    );
 ```
 
 ```sql
 # Write your MySQL query statement below
-with t as (
-    select
-        departmentId,
-        name,
-        salary,
-        rank() over(
-            partition by departmentId
-            order by
-                salary desc
-        ) as rk
-    from
-        Employee
-)
-select
-    d.name Department,
-    t.name Employee,
-    salary Salary
-from
+WITH
+    t AS (
+        SELECT
+            departmentId,
+            name,
+            salary,
+            rank() OVER (
+                PARTITION BY departmentId
+                ORDER BY salary DESC
+            ) AS rk
+        FROM Employee
+    )
+SELECT
+    d.name AS Department,
+    t.name AS Employee,
+    salary AS Salary
+FROM
     t
-    join Department d on t.departmentId = d.id
-where
-    rk = 1;
+    JOIN Department AS d ON t.departmentId = d.id
+WHERE rk = 1;
 ```
 
 <!-- tabs:end -->

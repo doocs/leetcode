@@ -1,8 +1,7 @@
 # Write your MySQL query statement
-SELECT
-    DISTINCT user_id
-FROM
-    Users
+SELECT DISTINCT
+    user_id
+FROM Users
 WHERE
     user_id IN (
         SELECT
@@ -12,14 +11,11 @@ WHERE
                 SELECT
                     user_id,
                     created_at,
-                    lag(created_at, 1) over (
-                        partition by user_id
-                        ORDER BY
-                            created_at
+                    lag(created_at, 1) OVER (
+                        PARTITION BY user_id
+                        ORDER BY created_at
                     ) AS prev_created_at
-                FROM
-                    Users
+                FROM Users
             ) AS t
-        WHERE
-            DATEDIFF(created_at, prev_created_at) <= 7
-    )
+        WHERE DATEDIFF(created_at, prev_created_at) <= 7
+    );

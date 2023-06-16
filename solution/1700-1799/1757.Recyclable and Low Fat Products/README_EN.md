@@ -60,11 +60,8 @@ Products table:
 ```sql
 SELECT
     product_id
-FROM
-    Products
-WHERE
-    low_fats = 'Y'
-    AND recyclable = 'Y';
+FROM Products
+WHERE low_fats = 'Y' AND recyclable = 'Y';
 ```
 
 <!-- tabs:end -->

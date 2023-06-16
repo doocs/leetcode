@@ -1,11 +1,9 @@
 # Write your MySQL query statement below
-select
+SELECT
     seller_name
-from
-    seller s
-    left join orders o on s.seller_id = o.seller_id
-    and year(sale_date) = '2020'
-where
-    o.seller_id is null
-order by
-    seller_name
+FROM
+    seller AS s
+    LEFT JOIN orders AS o
+        ON s.seller_id = o.seller_id AND year(sale_date) = '2020'
+WHERE o.seller_id IS NULL
+ORDER BY seller_name;

@@ -88,17 +88,14 @@ Scores表:
 
 ```sql
 # Write your MySQL query statement below
-select
+SELECT
     gender,
     day,
-    sum(score_points) over(
-        partition by gender
-        order by
-            gender,
-            day
-    ) total
-from
-    Scores
+    sum(score_points) OVER (
+        PARTITION BY gender
+        ORDER BY gender, day
+    ) AS total
+FROM Scores;
 ```
 
 <!-- tabs:end -->

@@ -111,53 +111,36 @@ Candidates table:
 
 ```sql
 # Write your MySQL query statement below
-with s as (
-    select
-        employee_id,
-        sum(salary) over(
-            order by
-                salary
-        ) cur
-    from
-        Candidates
-    where
-        experience = 'Senior'
-),
-j as (
-    select
-        employee_id,
-        ifnull(
-            (
-                select
+WITH
+    s AS (
+        SELECT
+            employee_id,
+            sum(salary) OVER (ORDER BY salary) AS cur
+        FROM Candidates
+        WHERE experience = 'Senior'
+    ),
+    j AS (
+        SELECT
+            employee_id,
+            ifnull(
+                SELECT
                     max(cur)
-                from
-                    s
-                where
-                    cur <= 70000
-            ),
-            0
-        ) + sum(salary) over(
-            order by
-                salary
-        ) cur
-    from
-        Candidates
-    where
-        experience = 'Junior'
-)
-select
+                FROM s
+                WHERE cur <= 70000,
+                0
+            ) + sum(salary) OVER (ORDER BY salary) AS cur
+        FROM Candidates
+        WHERE experience = 'Junior'
+    )
+SELECT
     employee_id
-from
-    s
-where
-    cur <= 70000
-union
-select
+FROM s
+WHERE cur <= 70000
+UNION
+SELECT
     employee_id
-from
-    j
-where
-    cur <= 70000;
+FROM j
+WHERE cur <= 70000;
 ```
 
 <!-- tabs:end -->

@@ -98,10 +98,12 @@ ID = 96 的顾客曾经去过购物中心，并且没有进行任何交易。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-SELECT customer_id,
+SELECT
+    customer_id,
     COUNT(*) AS count_no_trans
 FROM Visits
-WHERE visit_id NOT IN (
+WHERE
+    visit_id NOT IN (
         SELECT visit_id
         FROM Transactions
     )

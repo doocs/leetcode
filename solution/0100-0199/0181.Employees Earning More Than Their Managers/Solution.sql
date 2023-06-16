@@ -1,7 +1,8 @@
-select Name as Employee
-from Employee Curr
-where Salary > (
-        select Salary
-        from Employee
-        where Id = Curr.ManagerId
-    )
+SELECT Name AS Employee
+FROM Employee AS Curr
+WHERE
+    Salary > (
+        SELECT Salary
+        FROM Employee
+        WHERE Id = Curr.ManagerId
+    );

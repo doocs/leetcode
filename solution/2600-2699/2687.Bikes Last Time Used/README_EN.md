@@ -67,11 +67,12 @@ Returning output in order by the bike that were most recently used.
 
 ```sql
 # Write your MySQL query statement below
-SELECT  bike_number
-       ,MAX(end_time) AS end_time
+SELECT
+    bike_number,
+    MAX(end_time) AS end_time
 FROM Bikes
-GROUP BY  bike_number
-ORDER BY end_time DESC
+GROUP BY bike_number
+ORDER BY end_time DESC;
 ```
 
 <!-- tabs:end -->

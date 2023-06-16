@@ -89,31 +89,22 @@ As shown, you need to find the value of each boolean expression in the table usi
 
 ```sql
 # Write your MySQL query statement below
-select
+SELECT
     left_operand,
     operator,
     right_operand,
-    case
-        when (
-            (
-                e.operator = '='
-                and v1.value = v2.value
-            )
-            or (
-                e.operator = '>'
-                and v1.value > v2.value
-            )
-            or (
-                e.operator = '<'
-                and v1.value < v2.value
-            )
-        ) then 'true'
-        else 'false'
-    end value
-from
-    Expressions e
-    left join Variables v1 on e.left_operand = v1.name
-    left join Variables v2 on e.right_operand = v2.name
+    CASE
+        WHEN (
+            (e.operator = '=' AND v1.value = v2.value)
+            OR (e.operator = '>' AND v1.value > v2.value)
+            OR (e.operator = '<' AND v1.value < v2.value)
+        ) THEN 'true'
+        ELSE 'false'
+    END AS value
+FROM
+    Expressions AS e
+    LEFT JOIN Variables AS v1 ON e.left_operand = v1.name
+    LEFT JOIN Variables AS v2 ON e.right_operand = v2.name;
 ```
 
 <!-- tabs:end -->

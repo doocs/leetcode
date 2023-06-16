@@ -85,17 +85,14 @@ The fifth day is 2020-01-07, Bajrang scored 7 points and the total score for the
 
 ```sql
 # Write your MySQL query statement below
-select
+SELECT
     gender,
     day,
-    sum(score_points) over(
-        partition by gender
-        order by
-            gender,
-            day
-    ) total
-from
-    Scores
+    sum(score_points) OVER (
+        PARTITION BY gender
+        ORDER BY gender, day
+    ) AS total
+FROM Scores;
 ```
 
 <!-- tabs:end -->
