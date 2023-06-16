@@ -52,7 +52,7 @@ Also note that the first cut will not divide the circle into distinct parts.
 ```python
 class Solution:
     def numberOfCuts(self, n: int) -> int:
-        return n if n > 1 and n % 2 else n >> 1
+        return n if (n > 1 and n & 1) else n >> 1
 ```
 
 ### **Java**
@@ -84,6 +84,24 @@ func numberOfCuts(n int) int {
 		return n
 	}
 	return n >> 1
+}
+```
+
+### **TypeScript**
+
+```ts
+function numberOfCuts(n: number): number {
+    return n > 1 && n & 1 ? n : n >> 1;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int NumberOfCuts(int n) {
+        return n > 1 && n % 2 == 1 ? n : n >> 1;
+    }
 }
 ```
 
