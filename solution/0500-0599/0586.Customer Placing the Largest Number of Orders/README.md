@@ -69,14 +69,10 @@ customer_number 为 '3' 的顾客有两个订单，比顾客 '1' 或者 '2' 都�
 # Write your MySQL query statement below
 SELECT
     customer_number
-FROM
-    orders
-GROUP BY
-    customer_number
-ORDER BY
-    count(1) DESC
-LIMIT
-    1;
+FROM orders
+GROUP BY customer_number
+ORDER BY count(1) DESC
+LIMIT 1;
 ```
 
 SQL Server

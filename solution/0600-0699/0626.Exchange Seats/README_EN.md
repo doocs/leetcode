@@ -76,16 +76,15 @@ ORDER BY
 SELECT
     id + (
         CASE
-            WHEN id % 2 = 1 AND id != (SELECT MAX(id) FROM seat) THEN 1
-			WHEN id % 2 = 0 THEN -1
-			ELSE 0
-		END
+            WHEN id % 2 = 1
+            AND id != (SELECT MAX(id) FROM seat) THEN 1
+            WHEN id % 2 = 0 THEN -1
+            ELSE 0
+        END
     ) AS id,
     student
-FROM
-    seat
-ORDER BY
-	id;
+FROM seat
+ORDER BY id;
 ```
 
 ```sql

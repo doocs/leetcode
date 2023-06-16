@@ -82,12 +82,12 @@ Employee 表：
 ```sql
 # Write your MySQL query statement below
 SELECT
-(
-    SELECT DISTINCT Salary
-    FROM Employee
-    ORDER BY Salary DESC
-    LIMIT 1 OFFSET 1
-) AS SecondHighestSalary;
+    (
+        SELECT DISTINCT Salary
+        FROM Employee
+        ORDER BY Salary DESC
+        LIMIT 1 OFFSET 1
+    ) AS SecondHighestSalary;
 ```
 
 解法 2：使用 `MAX()` 函数，从小于 `MAX()` 的 Salary 中挑选最大值 `MAX()` 即可。
@@ -96,10 +96,11 @@ SELECT
 # Write your MySQL query statement below
 SELECT MAX(Salary) AS SecondHighestSalary
 FROM Employee
-WHERE Salary < (
-    SELECT MAX(Salary)
-    FROM Employee
-);
+WHERE
+    Salary < (
+        SELECT MAX(Salary)
+        FROM Employee
+    );
 ```
 
 <!-- tabs:end -->

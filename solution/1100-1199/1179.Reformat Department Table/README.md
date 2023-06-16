@@ -61,84 +61,70 @@ Department 表：
 
 ```sql
 # Write your MySQL query statement below
-select
+SELECT
     id,
     sum(
-        case
-            month
-            when 'Jan' then revenue
-        end
-    ) as Jan_Revenue,
+        CASE month
+            WHEN 'Jan' THEN revenue
+        END
+    ) AS Jan_Revenue,
     sum(
-        case
-            month
-            when 'Feb' then revenue
-        end
-    ) as Feb_Revenue,
+        CASE month
+            WHEN 'Feb' THEN revenue
+        END
+    ) AS Feb_Revenue,
     sum(
-        case
-            month
-            when 'Mar' then revenue
-        end
-    ) as Mar_Revenue,
+        CASE month
+            WHEN 'Mar' THEN revenue
+        END
+    ) AS Mar_Revenue,
     sum(
-        case
-            month
-            when 'Apr' then revenue
-        end
-    ) as Apr_Revenue,
+        CASE month
+            WHEN 'Apr' THEN revenue
+        END
+    ) AS Apr_Revenue,
     sum(
-        case
-            month
-            when 'May' then revenue
-        end
-    ) as May_Revenue,
+        CASE month
+            WHEN 'May' THEN revenue
+        END
+    ) AS May_Revenue,
     sum(
-        case
-            month
-            when 'Jun' then revenue
-        end
-    ) as Jun_Revenue,
+        CASE month
+            WHEN 'Jun' THEN revenue
+        END
+    ) AS Jun_Revenue,
     sum(
-        case
-            month
-            when 'Jul' then revenue
-        end
-    ) as Jul_Revenue,
+        CASE month
+            WHEN 'Jul' THEN revenue
+        END
+    ) AS Jul_Revenue,
     sum(
-        case
-            month
-            when 'Aug' then revenue
-        end
-    ) as Aug_Revenue,
+        CASE month
+            WHEN 'Aug' THEN revenue
+        END
+    ) AS Aug_Revenue,
     sum(
-        case
-            month
-            when 'Sep' then revenue
-        end
-    ) as Sep_Revenue,
+        CASE month
+            WHEN 'Sep' THEN revenue
+        END
+    ) AS Sep_Revenue,
     sum(
-        case
-            month
-            when 'Oct' then revenue
-        end
-    ) as Oct_Revenue,
+        CASE month
+            WHEN 'Oct' THEN revenue
+        END
+    ) AS Oct_Revenue,
     sum(
-        case
-            month
-            when 'Nov' then revenue
-        end
-    ) as Nov_Revenue,
+        CASE month
+            WHEN 'Nov' THEN revenue
+        END
+    ) AS Nov_Revenue,
     sum(
-        case
-            month
-            when 'Dec' then revenue
-        end
-    ) as Dec_Revenue
-from
-    Department
-group by
-    id
+        CASE month
+            WHEN 'Dec' THEN revenue
+        END
+    ) AS Dec_Revenue
+FROM Department
+GROUP BY id;
 ```
 
 <!-- tabs:end -->

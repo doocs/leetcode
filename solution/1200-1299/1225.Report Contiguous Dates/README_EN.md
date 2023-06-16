@@ -90,49 +90,38 @@ From 2019-01-06 to 2019-01-06 all tasks succeeded and the system state was &quot
 
 ```sql
 # Write your MySQL query statement below
-select
-    state as period_state,
-    min(dt) as start_date,
-    max(dt) as end_date
-from
+SELECT
+    state AS period_state,
+    min(dt) AS start_date,
+    max(dt) AS end_date
+FROM
     (
-        select
+        SELECT
             *,
             subdate(
                 dt,
-                rank() over(
-                    partition by state
-                    order by
-                        dt
+                rank() OVER (
+                    PARTITION BY state
+                    ORDER BY dt
                 )
-            ) as dif
-        from
+            ) AS dif
+        FROM
             (
-                select
-                    'failed' as state,
-                    fail_date as dt
-                from
-                    failed
-                where
-                    fail_date between '2019-01-01'
-                    and '2019-12-31'
-                union
-                all
-                select
-                    'succeeded' as state,
-                    success_date as dt
-                from
-                    succeeded
-                where
-                    success_date between '2019-01-01'
-                    and '2019-12-31'
-            ) t1
-    ) t2
-group by
-    state,
-    dif
-order by
-    dt
+                SELECT
+                    'failed' AS state,
+                    fail_date AS dt
+                FROM failed
+                WHERE fail_date BETWEEN '2019-01-01' AND '2019-12-31'
+                UNION ALL
+                SELECT
+                    'succeeded' AS state,
+                    success_date AS dt
+                FROM succeeded
+                WHERE success_date BETWEEN '2019-01-01' AND '2019-12-31'
+            ) AS t1
+    ) AS t2
+GROUP BY state, dif
+ORDER BY dt;
 ```
 
 <!-- tabs:end -->

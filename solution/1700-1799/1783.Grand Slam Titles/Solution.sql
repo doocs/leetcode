@@ -1,34 +1,32 @@
 # Write your MySQL query statement below
-select
+SELECT
     player_id,
     player_name,
     sum(
         (
-            case
-                when Wimbledon = player_id then 1
-                else 0
-            end
+            CASE
+                WHEN Wimbledon = player_id THEN 1
+                ELSE 0
+            END
         ) + (
-            case
-                when Fr_open = player_id then 1
-                else 0
-            end
+            CASE
+                WHEN Fr_open = player_id THEN 1
+                ELSE 0
+            END
         ) + (
-            case
-                when US_open = player_id then 1
-                else 0
-            end
+            CASE
+                WHEN US_open = player_id THEN 1
+                ELSE 0
+            END
         ) + (
-            case
-                when Au_open = player_id then 1
-                else 0
-            end
+            CASE
+                WHEN Au_open = player_id THEN 1
+                ELSE 0
+            END
         )
-    ) grand_slams_count
-from
+    ) AS grand_slams_count
+FROM
     Championships
-    cross join Players
-group by
-    player_id
-having
-    grand_slams_count > 0;
+    CROSS JOIN Players
+GROUP BY player_id
+HAVING grand_slams_count > 0;

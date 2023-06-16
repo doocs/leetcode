@@ -62,10 +62,8 @@ tweet_id 是这个表的主键。
 # Write your MySQL query statement below
 SELECT
     tweet_id
-FROM
-    Tweets
-WHERE
-    CHAR_LENGTH(content) > 15;
+FROM Tweets
+WHERE CHAR_LENGTH(content) > 15;
 ```
 
 <!-- tabs:end -->

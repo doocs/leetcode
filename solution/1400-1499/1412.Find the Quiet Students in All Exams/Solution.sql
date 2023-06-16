@@ -1,28 +1,23 @@
 # Write your MySQL query statement below
-with t as (
-    select
-        *,
-        rank() over(
-            partition by exam_id
-            order by
-                score desc
-        ) rk1,
-        rank() over(
-            partition by exam_id
-            order by
-                score asc
-        ) rk2
-    from
-        Exam
-)
-select
+WITH
+    t AS (
+        SELECT
+            *,
+            rank() OVER (
+                PARTITION BY exam_id
+                ORDER BY score DESC
+            ) AS rk1,
+            rank() OVER (
+                PARTITION BY exam_id
+                ORDER BY score ASC
+            ) AS rk2
+        FROM Exam
+    )
+SELECT
     t.student_id,
     student_name
-from
+FROM
     t
-    join Student s on t.student_id = s.student_id
-group by
-    t.student_id
-having
-    sum(rk1 = 1) = 0
-    and sum(rk2 = 1) = 0;
+    JOIN Student AS s ON t.student_id = s.student_id
+GROUP BY t.student_id
+HAVING sum(rk1 = 1) = 0 AND sum(rk2 = 1) = 0;

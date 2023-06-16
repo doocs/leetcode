@@ -73,14 +73,12 @@ employee_id 是 3, 8 ，9 的职员不会直接或间接的汇报给公司 CEO�
 
 ```sql
 # Write your MySQL query statement below
-SELECT  e1.employee_id
-FROM Employees e1
-JOIN Employees e2
-ON e1.manager_id = e2.employee_id
-JOIN Employees e3
-ON e2.manager_id = e3.employee_id
-WHERE e1.employee_id != 1
-AND e3.manager_id = 1
+SELECT e1.employee_id
+FROM
+    Employees AS e1
+    JOIN Employees AS e2 ON e1.manager_id = e2.employee_id
+    JOIN Employees AS e3 ON e2.manager_id = e3.employee_id
+WHERE e1.employee_id != 1 AND e3.manager_id = 1;
 ```
 
 <!-- tabs:end -->

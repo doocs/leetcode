@@ -73,35 +73,28 @@ We did not include the friendship of users 2 and 3 because they only have two co
 
 ```sql
 # Write your MySQL query statement below
-with t as (
-    select
-        *
-    from
-        Friendship
-    union
-    all
-    select
-        user2_id,
-        user1_id
-    from
-        Friendship
-)
-select
+WITH
+    t AS (
+        SELECT
+            *
+        FROM Friendship
+        UNION ALL
+        SELECT
+            user2_id,
+            user1_id
+        FROM Friendship
+    )
+SELECT
     t1.user1_id,
     t1.user2_id,
-    count(1) common_friend
-from
-    t t1
-    join t t2 on t1.user2_id = t2.user1_id
-    join t t3 on t1.user1_id = t3.user1_id
-where
-    t3.user2_id = t2.user2_id
-    and t1.user1_id < t1.user2_id
-group by
-    t1.user1_id,
-    t1.user2_id
-having
-    count(1) >= 3;
+    count(1) AS common_friend
+FROM
+    t AS t1
+    JOIN t AS t2 ON t1.user2_id = t2.user1_id
+    JOIN t AS t3 ON t1.user1_id = t3.user1_id
+WHERE t3.user2_id = t2.user2_id AND t1.user1_id < t1.user2_id
+GROUP BY t1.user1_id, t1.user2_id
+HAVING count(1) >= 3;
 ```
 
 <!-- tabs:end -->

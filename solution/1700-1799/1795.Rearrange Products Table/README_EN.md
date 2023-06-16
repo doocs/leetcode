@@ -62,19 +62,22 @@ Product 1 is available in store1 with price 70 and store3 with price 80. The pro
 ### **SQL**
 
 ```sql
-SELECT product_id,
+SELECT
+    product_id,
     'store1' AS store,
     store1 AS price
 FROM products
 WHERE store1 IS NOT NULL
 UNION
-SELECT product_id,
+SELECT
+    product_id,
     'store2' AS store,
     store2 AS price
 FROM products
 WHERE store2 IS NOT NULL
 UNION
-SELECT product_id,
+SELECT
+    product_id,
     'store3' AS store,
     store3 AS price
 FROM products
@@ -83,32 +86,26 @@ WHERE store3 IS NOT NULL;
 
 ```sql
 # Write your MySQL query statement below
-select
+SELECT
     product_id,
-    'store1' as store,
-    store1 as price
-from
-    Products
-where
-    store1 > 0
-union
-select
+    'store1' AS store,
+    store1 AS price
+FROM Products
+WHERE store1 > 0
+UNION
+SELECT
     product_id,
-    'store2' as store,
-    store2 as price
-from
-    Products
-where
-    store2 > 0
-union
-select
+    'store2' AS store,
+    store2 AS price
+FROM Products
+WHERE store2 > 0
+UNION
+SELECT
     product_id,
-    'store3' as store,
-    store3 as price
-from
-    Products
-where
-    store3 > 0
+    'store3' AS store,
+    store3 AS price
+FROM Products
+WHERE store3 > 0;
 ```
 
 <!-- tabs:end -->

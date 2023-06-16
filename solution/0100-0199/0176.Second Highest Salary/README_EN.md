@@ -73,12 +73,12 @@ Solution 1: Use Sub Query and LIMIT.
 ```sql
 # Write your MySQL query statement below
 SELECT
-(
-    SELECT DISTINCT Salary
-    FROM Employee
-    ORDER BY Salary DESC
-    LIMIT 1 OFFSET 1
-) AS SecondHighestSalary;
+    (
+        SELECT DISTINCT Salary
+        FROM Employee
+        ORDER BY Salary DESC
+        LIMIT 1 OFFSET 1
+    ) AS SecondHighestSalary;
 ```
 
 Solution 2: Use `MAX()` function.
@@ -87,10 +87,11 @@ Solution 2: Use `MAX()` function.
 # Write your MySQL query statement below
 SELECT MAX(Salary) AS SecondHighestSalary
 FROM Employee
-WHERE Salary < (
-    SELECT MAX(Salary)
-    FROM Employee
-);
+WHERE
+    Salary < (
+        SELECT MAX(Salary)
+        FROM Employee
+    );
 ```
 
 <!-- tabs:end -->

@@ -97,30 +97,26 @@ Donald did not have any rides, the distance traveled by him is 0.
 ### **SQL**
 
 ```sql
-SELECT name,
+SELECT
+    name,
     COALESCE(SUM(distance), 0) AS travelled_distance
-FROM Users AS u
+FROM
+    Users AS u
     LEFT JOIN Rides AS r ON u.id = r.user_id
-GROUP BY
-    name
-ORDER BY
-    travelled_distance DESC,
-    name;
+GROUP BY name
+ORDER BY travelled_distance DESC, name;
 ```
 
 ```sql
 # Write your MySQL query statement below
-select
+SELECT
     name,
-    sum(ifnull(distance, 0)) travelled_distance
-from
-    Users u
-    left join Rides r on u.id = r.user_id
-group by
-(u.id)
-order by
-    travelled_distance desc,
-    name asc;
+    sum(ifnull(distance, 0)) AS travelled_distance
+FROM
+    Users AS u
+    LEFT JOIN Rides AS r ON u.id = r.user_id
+GROUP BY (u.id)
+ORDER BY travelled_distance DESC, name ASC;
 ```
 
 <!-- tabs:end -->

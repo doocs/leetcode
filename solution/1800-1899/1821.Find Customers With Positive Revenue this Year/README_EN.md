@@ -69,11 +69,8 @@ Thus only customers 1 and 4 have positive revenue in the year 2021.
 # Write your MySQL query statement below
 SELECT
     customer_id
-FROM
-    Customers
-WHERE
-    year = '2021'
-AND revenue > 0;
+FROM Customers
+WHERE year = '2021' AND revenue > 0;
 ```
 
 <!-- tabs:end -->

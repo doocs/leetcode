@@ -61,9 +61,11 @@ Result 表：
 ### **SQL**
 
 ```sql
-select distinct(Num) as ConsecutiveNums from Logs Curr where
-    Num = (select Num from Logs where id = Curr.id - 1) and
-    Num = (select Num from Logs where id = Curr.id - 2)
+SELECT DISTINCT (Num) AS ConsecutiveNums
+FROM Logs AS Curr
+WHERE
+    Num = (SELECT Num FROM Logs WHERE id = Curr.id - 1)
+    AND Num = (SELECT Num FROM Logs WHERE id = Curr.id - 2);
 ```
 
 ```sql
@@ -75,12 +77,9 @@ FROM
     logs AS l3
 WHERE
     l1.id = l2.id - 1
-    AND
-    l2.id = l3.id - 1
-    AND
-    l1.num = l2.num
-    AND
-    l2.num = l3.num
+    AND l2.id = l3.id - 1
+    AND l1.num = l2.num
+    AND l2.num = l3.num;
 ```
 
 <!-- tabs:end -->

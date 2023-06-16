@@ -68,29 +68,23 @@ Note that we do not have any information about the users that follow users 3, 4,
 
 ```sql
 # Write your MySQL query statement below
-with t as (
-    select
-        r1.user_id user1_id,
-        r2.user_id user2_id,
-        rank() over(
-            order by
-                count(1) desc
-        ) rk
-    from
-        Relations r1
-        join Relations r2 on r1.follower_id = r2.follower_id
-        and r1.user_id < r2.user_id
-    group by
-        r1.user_id,
-        r2.user_id
-)
-select
+WITH
+    t AS (
+        SELECT
+            r1.user_id AS user1_id,
+            r2.user_id AS user2_id,
+            rank() OVER (ORDER BY count(1) DESC) AS rk
+        FROM
+            Relations AS r1
+            JOIN Relations AS r2
+                ON r1.follower_id = r2.follower_id AND r1.user_id < r2.user_id
+        GROUP BY r1.user_id, r2.user_id
+    )
+SELECT
     user1_id,
     user2_id
-from
-    t
-where
-    rk = 1;
+FROM t
+WHERE rk = 1;
 ```
 
 <!-- tabs:end -->

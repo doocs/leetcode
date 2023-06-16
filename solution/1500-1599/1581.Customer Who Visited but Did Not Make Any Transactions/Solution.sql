@@ -1,7 +1,9 @@
-SELECT customer_id,
+SELECT
+    customer_id,
     COUNT(*) AS count_no_trans
 FROM Visits
-WHERE visit_id NOT IN (
+WHERE
+    visit_id NOT IN (
         SELECT visit_id
         FROM Transactions
     )

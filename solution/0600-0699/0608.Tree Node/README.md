@@ -80,7 +80,8 @@
 ### **SQL**
 
 ```sql
-SELECT id,
+SELECT
+    id,
     (
         CASE
             WHEN p_id IS NULL THEN 'Root'
@@ -96,20 +97,18 @@ FROM tree;
 
 ```sql
 # Write your MySQL query statement below
-select
+SELECT
     id,
-    case
-        when p_id is null then 'Root'
-        when id in (
-            select
+    CASE
+        WHEN p_id IS NULL THEN 'Root'
+        WHEN id IN (
+            SELECT
                 p_id
-            from
-                tree
-        ) then 'Inner'
-        else 'Leaf'
-    end Type
-from
-    tree;
+            FROM tree
+        ) THEN 'Inner'
+        ELSE 'Leaf'
+    END AS Type
+FROM tree;
 ```
 
 <!-- tabs:end -->

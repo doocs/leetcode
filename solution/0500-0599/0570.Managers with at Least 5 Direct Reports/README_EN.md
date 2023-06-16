@@ -61,22 +61,19 @@ Employee table:
 
 ```sql
 # Write your MySQL query statement below
-select
+SELECT
     name
-from
-    Employee e1
-    join (
-        select
+FROM
+    Employee AS e1
+    JOIN (
+        SELECT
             managerId
-        from
-            Employee
-        where
-            managerId is not null
-        group by
-            managerId
-        having
-            count(1) >= 5
-    ) e2 on e1.id = e2.managerId;
+        FROM Employee
+        WHERE managerId IS NOT NULL
+        GROUP BY managerId
+        HAVING count(1) >= 5
+    ) AS e2
+        ON e1.id = e2.managerId;
 ```
 
 <!-- tabs:end -->

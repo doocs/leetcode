@@ -68,14 +68,14 @@ Account ID 4 --&gt; The account was active from &quot;2021-02-01 17:00:00&quot; 
 
 ```sql
 # Write your MySQL query statement below
-select
-    distinct a.account_id
-from
-    LogInfo a
-    join LogInfo b on a.account_id = b.account_id
-    and a.ip_address != b.ip_address
-    and a.login between b.login
-    and b.logout;
+SELECT DISTINCT
+    a.account_id
+FROM
+    LogInfo AS a
+    JOIN LogInfo AS b
+        ON a.account_id = b.account_id
+        AND a.ip_address != b.ip_address
+        AND a.login BETWEEN b.login AND b.logout;
 ```
 
 <!-- tabs:end -->

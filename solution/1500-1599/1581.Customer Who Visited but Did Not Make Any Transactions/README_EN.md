@@ -94,10 +94,12 @@ As we can see, users with IDs 30 and 96 visited the mall one time without making
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-SELECT customer_id,
+SELECT
+    customer_id,
     COUNT(*) AS count_no_trans
 FROM Visits
-WHERE visit_id NOT IN (
+WHERE
+    visit_id NOT IN (
         SELECT visit_id
         FROM Transactions
     )

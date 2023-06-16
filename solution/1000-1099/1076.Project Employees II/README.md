@@ -85,15 +85,16 @@ GROUP BY  project_id )
 
 ```sql
 # Write your MySQL query statement below
-SELECT  project_id
+SELECT project_id
 FROM
-(
-	SELECT  project_id
-	       ,dense_rank() over(order by COUNT(employee_id) desc) AS rk
-	FROM Project
-	GROUP BY  project_id
-) t
-WHERE rk = 1
+    (
+        SELECT
+            project_id,
+            dense_rank() OVER (ORDER BY COUNT(employee_id) DESC) AS rk
+        FROM Project
+        GROUP BY project_id
+    ) AS t
+WHERE rk = 1;
 ```
 
 <!-- tabs:end -->

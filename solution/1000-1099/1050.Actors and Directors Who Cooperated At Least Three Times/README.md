@@ -59,9 +59,9 @@ Result 表：
 
 ```sql
 SELECT
-    actor_id, director_id
-FROM
-    ActorDirector
+    actor_id,
+    director_id
+FROM ActorDirector
 GROUP BY actor_id, director_id
 HAVING count(1) >= 3;
 ```
