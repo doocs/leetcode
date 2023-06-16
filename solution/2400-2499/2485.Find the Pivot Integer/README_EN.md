@@ -53,10 +53,18 @@
 ```python
 class Solution:
     def pivotInteger(self, n: int) -> int:
-        for x in range(1, 1000):
+        for x in range(1, n + 1):
             if (1 + x) * x == (x + n) * (n - x + 1):
                 return x
         return -1
+```
+
+```python
+class Solution:
+    def pivotInteger(self, n: int) -> int:
+        y = n * (n + 1) // 2
+        x = int(sqrt(y))
+        return x if x * x == y else -1
 ```
 
 ### **Java**
@@ -64,12 +72,22 @@ class Solution:
 ```java
 class Solution {
     public int pivotInteger(int n) {
-        for (int x = 1; x < 1000; ++x) {
+        for (int x = 1; x <= n; ++x) {
             if ((1 + x) * x == (x + n) * (n - x + 1)) {
                 return x;
             }
         }
         return -1;
+    }
+}
+```
+
+```java
+class Solution {
+    public int pivotInteger(int n) {
+        int y = n * (n + 1) / 2;
+        int x = (int) Math.sqrt(y);
+        return x * x == y ? x : -1;
     }
 }
 ```
@@ -80,7 +98,7 @@ class Solution {
 class Solution {
 public:
     int pivotInteger(int n) {
-        for (int x = 1; x < 1000; ++x) {
+        for (int x = 1; x <= n; ++x) {
             if ((1 + x) * x == (x + n) * (n - x + 1)) {
                 return x;
             }
@@ -90,16 +108,59 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int pivotInteger(int n) {
+        int y = n * (n + 1) / 2;
+        int x = sqrt(y);
+        return x * x == y ? x : -1;
+    }
+};
+```
+
 ### **Go**
 
 ```go
 func pivotInteger(n int) int {
-	for x := 1; x < 1000; x++ {
+	for x := 1; x <= n; x++ {
 		if (1+x)*x == (x+n)*(n-x+1) {
 			return x
 		}
 	}
 	return -1
+}
+```
+
+```go
+func pivotInteger(n int) int {
+	y := n * (n + 1) / 2
+	x := int(math.Sqrt(float64(y)))
+	if x*x == y {
+		return x
+	}
+	return -1
+}
+```
+
+### **TypeScript**
+
+```ts
+function pivotInteger(n: number): number {
+    for (let x = 1; x <= n; ++x) {
+        if ((1 + x) * x === (x + n) * (n - x + 1)) {
+            return x;
+        }
+    }
+    return -1;
+}
+```
+
+```ts
+function pivotInteger(n: number): number {
+    const y = Math.floor((n * (n + 1)) / 2);
+    const x = Math.floor(Math.sqrt(y));
+    return x * x === y ? x : -1;
 }
 ```
 
