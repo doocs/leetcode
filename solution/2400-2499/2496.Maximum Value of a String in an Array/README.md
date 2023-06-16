@@ -55,9 +55,11 @@
 
 **方法一：模拟**
 
-根据题意模拟即可。
+我们定义一个函数 $f(s)$，用于计算字符串 $s$ 的值。如果 $s$ 只包含数字，那么 $f(s)$ 就是 $s$ 在十进制下的值；否则 $f(s)$ 就是 $s$ 的长度。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 `strs` 的长度。
+答案为 $\max\limits_{s \in \textit{strs}} f(s)$。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $strs$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -68,8 +70,22 @@
 ```python
 class Solution:
     def maximumValue(self, strs: List[str]) -> int:
-        def f(s):
+        def f(s: str) -> int:
             return int(s) if all(c.isdigit() for c in s) else len(s)
+
+        return max(f(s) for s in strs)
+```
+
+```python
+class Solution:
+    def maximumValue(self, strs: List[str]) -> int:
+        def f(s: str) -> int:
+            x = 0
+            for c in s:
+                if c.isalpha():
+                    return len(s)
+                x = x * 10 + ord(c) - ord("0")
+            return x
 
         return max(f(s) for s in strs)
 ```
@@ -82,19 +98,22 @@ class Solution:
 class Solution {
     public int maximumValue(String[] strs) {
         int ans = 0;
-        for (String s : strs) {
+        for (var s : strs) {
             ans = Math.max(ans, f(s));
         }
         return ans;
     }
 
     private int f(String s) {
-        for (int i = 0; i < s.length(); ++i) {
-            if (s.charAt(i) >= 'a' && s.charAt(i) <= 'z') {
-                return s.length();
+        int x = 0;
+        for (int i = 0, n = s.length(); i < n; ++i) {
+            char c = s.charAt(i);
+            if (Character.isLetter(c)) {
+                return n;
             }
+            x = x * 10 + (c - '0');
         }
-        return Integer.parseInt(s);
+        return x;
     }
 }
 ```
@@ -106,15 +125,19 @@ class Solution {
 public:
     int maximumValue(vector<string>& strs) {
         auto f = [](string& s) {
-            int n = s.size(), m = 0;
+            int x = 0;
             for (char& c : s) {
-                if (!isdigit(c)) return n;
-                m = m * 10 + (c - '0');
+                if (!isdigit(c)) {
+                    return (int) s.size();
+                }
+                x = x * 10 + c - '0';
             }
-            return m;
+            return x;
         };
         int ans = 0;
-        for (auto& s : strs) ans = max(ans, f(s));
+        for (auto& s : strs) {
+            ans = max(ans, f(s));
+        }
         return ans;
     }
 };
@@ -124,19 +147,18 @@ public:
 
 ```go
 func maximumValue(strs []string) (ans int) {
-	f := func(s string) int {
-		n, m := len(s), 0
+	f := func(s string) (x int) {
 		for _, c := range s {
 			if c >= 'a' && c <= 'z' {
-				return n
+				return len(s)
 			}
-			m = m*10 + int(c-'0')
+			x = x*10 + int(c-'0')
 		}
-		return m
+		return
 	}
 	for _, s := range strs {
-		if t := f(s); ans < t {
-			ans = t
+		if x := f(s); ans < x {
+			ans = x
 		}
 	}
 	return
@@ -147,12 +169,29 @@ func maximumValue(strs []string) (ans int) {
 
 ```ts
 function maximumValue(strs: string[]): number {
-    let ans = 0;
-    for (const s of strs) {
-        const num = Number(s);
-        ans = Math.max(ans, Number.isNaN(num) ? s.length : num);
+    const f = (s: string) => (Number.isNaN(Number(s)) ? s.length : Number(s));
+    return Math.max(...strs.map(f));
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int MaximumValue(string[] strs) {
+        return strs.Max(f);
     }
-    return ans;
+
+    private int f(string s) {
+        int x = 0;
+        foreach (var c in s) {
+            if (c >= 'a') {
+                return s.Length;
+            }
+            x = x * 10 + (c - '0');
+        }
+        return x;
+    }
 }
 ```
 

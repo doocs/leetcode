@@ -1,17 +1,16 @@
 func maximumValue(strs []string) (ans int) {
-	f := func(s string) int {
-		n, m := len(s), 0
+	f := func(s string) (x int) {
 		for _, c := range s {
 			if c >= 'a' && c <= 'z' {
-				return n
+				return len(s)
 			}
-			m = m*10 + int(c-'0')
+			x = x*10 + int(c-'0')
 		}
-		return m
+		return
 	}
 	for _, s := range strs {
-		if t := f(s); ans < t {
-			ans = t
+		if x := f(s); ans < x {
+			ans = x
 		}
 	}
 	return

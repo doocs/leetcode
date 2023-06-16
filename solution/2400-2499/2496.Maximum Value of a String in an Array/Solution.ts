@@ -1,8 +1,4 @@
 function maximumValue(strs: string[]): number {
-    let ans = 0;
-    for (const s of strs) {
-        const num = Number(s);
-        ans = Math.max(ans, Number.isNaN(num) ? s.length : num);
-    }
-    return ans;
+    const f = (s: string) => (Number.isNaN(Number(s)) ? s.length : Number(s));
+    return Math.max(...strs.map(f));
 }
