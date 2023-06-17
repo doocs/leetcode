@@ -44,9 +44,17 @@
 
 **方法一：动态规划**
 
-假设 `dp[i][j]` 表示到达网格 `(i,j)` 的最小数字和，先初始化 dp 第一列和第一行的所有值，然后利用递推公式：`dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j]` 求得 dp。
+我们定义 $f[i][j]$ 表示从左上角走到 $(i, j)$ 位置的最小路径和。初始时 $f[0][0] = grid[0][0]$，答案为 $f[m - 1][n - 1]$。
 
-最后返回 `dp[m - 1][n - 1]` 即可。
+考虑 $f[i][j]$：
+
+-   如果 $j = 0$，那么 $f[i][j] = f[i - 1][j] + grid[i][j]$；
+-   如果 $i = 0$，那么 $f[i][j] = f[i][j - 1] + grid[i][j]$；
+-   如果 $i \gt 0$ 且 $j \gt 0$，那么 $f[i][j] = \min(f[i - 1][j], f[i][j - 1]) + grid[i][j]$。
+
+最后返回 $f[m - 1][n - 1]$ 即可。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是网格的行数和列数。
 
 <!-- tabs:start -->
 
@@ -58,15 +66,16 @@
 class Solution:
     def minPathSum(self, grid: List[List[int]]) -> int:
         m, n = len(grid), len(grid[0])
-        dp = [[grid[0][0]] * n for _ in range(m)]
+        f = [[0] * n for _ in range(m)]
+        f[0][0] = grid[0][0]
         for i in range(1, m):
-            dp[i][0] = dp[i - 1][0] + grid[i][0]
+            f[i][0] = f[i - 1][0] + grid[i][0]
         for j in range(1, n):
-            dp[0][j] = dp[0][j - 1] + grid[0][j]
+            f[0][j] = f[0][j - 1] + grid[0][j]
         for i in range(1, m):
             for j in range(1, n):
-                dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j]
-        return dp[-1][-1]
+                f[i][j] = min(f[i - 1][j], f[i][j - 1]) + grid[i][j]
+        return f[-1][-1]
 ```
 
 ### **Java**
@@ -77,44 +86,21 @@ class Solution:
 class Solution {
     public int minPathSum(int[][] grid) {
         int m = grid.length, n = grid[0].length;
-        int[][] dp = new int[m][n];
-        dp[0][0] = grid[0][0];
+        int[][] f = new int[m][n];
+        f[0][0] = grid[0][0];
         for (int i = 1; i < m; ++i) {
-            dp[i][0] = dp[i - 1][0] + grid[i][0];
+            f[i][0] = f[i - 1][0] + grid[i][0];
         }
         for (int j = 1; j < n; ++j) {
-            dp[0][j] = dp[0][j - 1] + grid[0][j];
+            f[0][j] = f[0][j - 1] + grid[0][j];
         }
         for (int i = 1; i < m; ++i) {
             for (int j = 1; j < n; ++j) {
-                dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j];
+                f[i][j] = Math.min(f[i - 1][j], f[i][j - 1]) + grid[i][j];
             }
         }
-        return dp[m - 1][n - 1];
+        return f[m - 1][n - 1];
     }
-}
-```
-
-### **TypeScript**
-
-```ts
-function minPathSum(grid: number[][]): number {
-    let m = grid.length,
-        n = grid[0].length;
-    let dp = Array.from({ length: m }, v => new Array(n).fill(0));
-    dp[0][0] = grid[0][0];
-    for (let i = 1; i < m; ++i) {
-        dp[i][0] = dp[i - 1][0] + grid[i][0];
-    }
-    for (let j = 1; j < n; ++j) {
-        dp[0][j] = dp[0][j - 1] + grid[0][j];
-    }
-    for (let i = 1; i < m; ++i) {
-        for (let j = 1; j < n; ++j) {
-            dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j];
-        }
-    }
-    return dp[m - 1][n - 1];
 }
 ```
 
@@ -125,19 +111,20 @@ class Solution {
 public:
     int minPathSum(vector<vector<int>>& grid) {
         int m = grid.size(), n = grid[0].size();
-        vector<vector<int>> dp(m, vector<int>(n, grid[0][0]));
+        int f[m][n];
+        f[0][0] = grid[0][0];
         for (int i = 1; i < m; ++i) {
-            dp[i][0] = dp[i - 1][0] + grid[i][0];
+            f[i][0] = f[i - 1][0] + grid[i][0];
         }
         for (int j = 1; j < n; ++j) {
-            dp[0][j] = dp[0][j - 1] + grid[0][j];
+            f[0][j] = f[0][j - 1] + grid[0][j];
         }
         for (int i = 1; i < m; ++i) {
             for (int j = 1; j < n; ++j) {
-                dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j];
+                f[i][j] = min(f[i - 1][j], f[i][j - 1]) + grid[i][j];
             }
         }
-        return dp[m - 1][n - 1];
+        return f[m - 1][n - 1];
     }
 };
 ```
@@ -147,23 +134,23 @@ public:
 ```go
 func minPathSum(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
-	dp := make([][]int, m)
-	for i := 0; i < m; i++ {
-		dp[i] = make([]int, n)
+	f := make([][]int, m)
+	for i := range f {
+		f[i] = make([]int, n)
 	}
-	dp[0][0] = grid[0][0]
+	f[0][0] = grid[0][0]
 	for i := 1; i < m; i++ {
-		dp[i][0] = dp[i-1][0] + grid[i][0]
+		f[i][0] = f[i-1][0] + grid[i][0]
 	}
 	for j := 1; j < n; j++ {
-		dp[0][j] = dp[0][j-1] + grid[0][j]
+		f[0][j] = f[0][j-1] + grid[0][j]
 	}
 	for i := 1; i < m; i++ {
 		for j := 1; j < n; j++ {
-			dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + grid[i][j]
+			f[i][j] = min(f[i-1][j], f[i][j-1]) + grid[i][j]
 		}
 	}
-	return dp[m-1][n-1]
+	return f[m-1][n-1]
 }
 
 func min(a, b int) int {
@@ -174,30 +161,51 @@ func min(a, b int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function minPathSum(grid: number[][]): number {
+    const m = grid.length;
+    const n = grid[0].length;
+    const f: number[][] = Array(m)
+        .fill(0)
+        .map(() => Array(n).fill(0));
+    f[0][0] = grid[0][0];
+    for (let i = 1; i < m; ++i) {
+        f[i][0] = f[i - 1][0] + grid[i][0];
+    }
+    for (let j = 1; j < n; ++j) {
+        f[0][j] = f[0][j - 1] + grid[0][j];
+    }
+    for (let i = 1; i < m; ++i) {
+        for (let j = 1; j < n; ++j) {
+            f[i][j] = Math.min(f[i - 1][j], f[i][j - 1]) + grid[i][j];
+        }
+    }
+    return f[m - 1][n - 1];
+}
+```
+
 ### **C#**
 
 ```cs
 public class Solution {
     public int MinPathSum(int[][] grid) {
         int m = grid.Length, n = grid[0].Length;
-        int[,] dp = new int[m, n];
-        dp[0, 0] = grid[0][0];
-        for (int i = 1; i < m; ++i)
-        {
-            dp[i, 0] = dp[i - 1, 0] + grid[i][0];
+        int[,] f = new int[m, n];
+        f[0, 0] = grid[0][0];
+        for (int i = 1; i < m; ++i) {
+            f[i, 0] = f[i - 1, 0] + grid[i][0];
         }
-        for (int j = 1; j < n; ++j)
-        {
-            dp[0, j] = dp[0, j - 1] + grid[0][j];
+        for (int j = 1; j < n; ++j) {
+            f[0, j] = f[0, j - 1] + grid[0][j];
         }
-        for (int i = 1; i < m; ++i)
-        {
-            for (int j = 1; j < n; ++j)
-            {
-                dp[i, j] = Math.Min(dp[i - 1, j], dp[i, j - 1]) + grid[i][j];
+        for (int i = 1; i < m; ++i) {
+            for (int j = 1; j < n; ++j) {
+                f[i, j] = Math.Min(f[i - 1, j], f[i, j - 1]) + grid[i][j];
             }
         }
-        return dp[m- 1, n - 1];
+        return f[m - 1, n - 1];
     }
 }
 ```
@@ -210,22 +218,24 @@ public class Solution {
  * @return {number}
  */
 var minPathSum = function (grid) {
-    let m = grid.length,
-        n = grid[0].length;
-    let dp = Array.from({ length: m }, v => new Array(n).fill(0));
-    dp[0][0] = grid[0][0];
+    const m = grid.length;
+    const n = grid[0].length;
+    const f = Array(m)
+        .fill(0)
+        .map(() => Array(n).fill(0));
+    f[0][0] = grid[0][0];
     for (let i = 1; i < m; ++i) {
-        dp[i][0] = dp[i - 1][0] + grid[i][0];
+        f[i][0] = f[i - 1][0] + grid[i][0];
     }
     for (let j = 1; j < n; ++j) {
-        dp[0][j] = dp[0][j - 1] + grid[0][j];
+        f[0][j] = f[0][j - 1] + grid[0][j];
     }
     for (let i = 1; i < m; ++i) {
         for (let j = 1; j < n; ++j) {
-            dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j];
+            f[i][j] = Math.min(f[i - 1][j], f[i][j - 1]) + grid[i][j];
         }
     }
-    return dp[m - 1][n - 1];
+    return f[m - 1][n - 1];
 };
 ```
 
