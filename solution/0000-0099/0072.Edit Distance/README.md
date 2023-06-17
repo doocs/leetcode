@@ -55,22 +55,29 @@ exection -&gt; execution (插入 'u')
 
 <!-- 这里可写通用的实现逻辑 -->
 
-动态规划。
+**方法一：动态规划**
 
-设 `dp[i][j]` 表示将 word1 前 i 个字符组成的字符串 `word1[0...i-1]` 转换成 word2 前 j 个字符组成的字符串 `word2[0...j-1]` 的最小操作次数。m, n 分别表示 word1, word2 的长度。
+我们定义 $f[i][j]$ 表示将 $word1$ 的前 $i$ 个字符转换成 $word2$ 的前 $j$ 个字符所使用的最少操作数。初始时 $f[i][0] = i$, f[0][j] = j$。其中 $i \in [1, m], j \in [0, n]$。
 
-初始化 `dp[i][0] = i`（`i∈[0, m]`），`dp[0][j] = j` （`j∈[0, m]`）。
+考虑 $f[i][j]$：
 
-i, j 分别从 1 开始遍历，判断 `word1[i - 1]` 与 `word2[j - 1]` 是否相等：
+-   如果 $word1[i - 1] = word2[j - 1]$，那么我们只需要考虑将 $word1$ 的前 $i - 1$ 个字符转换成 $word2$ 的前 $j - 1$ 个字符所使用的最少操作数，因此 $f[i][j] = f[i - 1][j - 1]$；
+-   否则，我们可以考虑插入、删除、替换操作，那么 $f[i][j] = \min(f[i - 1][j], f[i][j - 1], f[i - 1][j - 1]) + 1$。
 
--   若 `word1[i - 1] == word2[j - 1]`，则 `dp[i][j] = dp[i - 1][j - 1]`。
--   若 `word1[i - 1] != word2[j - 1]`，则 `dp[i][j] = min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]) + 1`。其中 `dp[i - 1][j] + 1` 对应插入操作，`dp[i][j - 1] + 1` 对应删除操作，`dp[i - 1][j - 1] + 1` 对应替换操作。取三者的最小值即可。
+综上，我们可以得到状态转移方程：
 
-递推公式如下：
+$$
+f[i][j] = \begin{cases}
+i, & \text{if } j = 0 \\
+j, & \text{if } i = 0 \\
+f[i - 1][j - 1], & \text{if } word1[i - 1] = word2[j - 1] \\
+\min(f[i - 1][j], f[i][j - 1], f[i - 1][j - 1]) + 1, & \text{otherwise}
+\end{cases}
+$$
 
-![](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0072.Edit%20Distance/images/gif.gif)
+最后，我们返回 $f[m][n]$ 即可。
 
-最后返回 `dp[m][n]` 即可。
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是 $word1$ 和 $word2$ 的长度。
 
 <!-- tabs:start -->
 
@@ -82,18 +89,17 @@ i, j 分别从 1 开始遍历，判断 `word1[i - 1]` 与 `word2[j - 1]` 是否�
 class Solution:
     def minDistance(self, word1: str, word2: str) -> int:
         m, n = len(word1), len(word2)
-        dp = [[0] * (n + 1) for _ in range(m + 1)]
-        for i in range(m + 1):
-            dp[i][0] = i
-        for j in range(n + 1):
-            dp[0][j] = j
-        for i in range(1, m + 1):
-            for j in range(1, n + 1):
-                if word1[i - 1] == word2[j - 1]:
-                    dp[i][j] = dp[i - 1][j - 1]
+        f = [[0] * (n + 1) for _ in range(m + 1)]
+        for j in range(1, n + 1):
+            f[0][j] = j
+        for i, a in enumerate(word1, 1):
+            f[i][0] = i
+            for j, b in enumerate(word2, 1):
+                if a == b:
+                    f[i][j] = f[i - 1][j - 1]
                 else:
-                    dp[i][j] = min(dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1]) + 1
-        return dp[-1][-1]
+                    f[i][j] = min(f[i - 1][j], f[i][j - 1], f[i - 1][j - 1]) + 1
+        return f[m][n]
 ```
 
 ### **Java**
@@ -104,23 +110,21 @@ class Solution:
 class Solution {
     public int minDistance(String word1, String word2) {
         int m = word1.length(), n = word2.length();
-        int[][] dp = new int[m + 1][n + 1];
-        for (int i = 0; i <= m; ++i) {
-            dp[i][0] = i;
-        }
-        for (int j = 0; j <= n; ++j) {
-            dp[0][j] = j;
+        int[][] f = new int[m + 1][n + 1];
+        for (int j = 1; j <= n; ++j) {
+            f[0][j] = j;
         }
         for (int i = 1; i <= m; ++i) {
+            f[i][0] = i;
             for (int j = 1; j <= n; ++j) {
                 if (word1.charAt(i - 1) == word2.charAt(j - 1)) {
-                    dp[i][j] = dp[i - 1][j - 1];
+                    f[i][j] = f[i - 1][j - 1];
                 } else {
-                    dp[i][j] = Math.min(Math.min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
+                    f[i][j] = Math.min(f[i - 1][j], Math.min(f[i][j - 1], f[i - 1][j - 1])) + 1;
                 }
             }
         }
-        return dp[m][n];
+        return f[m][n];
     }
 }
 ```
@@ -132,23 +136,21 @@ class Solution {
 public:
     int minDistance(string word1, string word2) {
         int m = word1.size(), n = word2.size();
-        vector<vector<int>> dp(m + 1, vector<int>(n + 1));
-        for (int i = 0; i <= m; ++i) {
-            dp[i][0] = i;
-        }
+        int f[m + 1][n + 1];
         for (int j = 0; j <= n; ++j) {
-            dp[0][j] = j;
+            f[0][j] = j;
         }
         for (int i = 1; i <= m; ++i) {
+            f[i][0] = i;
             for (int j = 1; j <= n; ++j) {
                 if (word1[i - 1] == word2[j - 1]) {
-                    dp[i][j] = dp[i - 1][j - 1];
+                    f[i][j] = f[i - 1][j - 1];
                 } else {
-                    dp[i][j] = min(min(dp[i - 1][j], dp[i][j - 1]), dp[i - 1][j - 1]) + 1;
+                    f[i][j] = min({f[i - 1][j], f[i][j - 1], f[i - 1][j - 1]}) + 1;
                 }
             }
         }
-        return dp[m][n];
+        return f[m][n];
     }
 };
 ```
@@ -158,24 +160,24 @@ public:
 ```go
 func minDistance(word1 string, word2 string) int {
 	m, n := len(word1), len(word2)
-	dp := make([][]int, m+1)
-	for i := 0; i <= m; i++ {
-		dp[i] = make([]int, n+1)
-		dp[i][0] = i
+	f := make([][]int, m+1)
+	for i := range f {
+		f[i] = make([]int, n+1)
 	}
-	for j := 0; j <= n; j++ {
-		dp[0][j] = j
+	for j := 1; j <= n; j++ {
+		f[0][j] = j
 	}
 	for i := 1; i <= m; i++ {
+		f[i][0] = i
 		for j := 1; j <= n; j++ {
 			if word1[i-1] == word2[j-1] {
-				dp[i][j] = dp[i-1][j-1]
+				f[i][j] = f[i-1][j-1]
 			} else {
-				dp[i][j] = min(min(dp[i-1][j], dp[i][j-1]), dp[i-1][j-1]) + 1
+				f[i][j] = min(f[i-1][j], min(f[i][j-1], f[i-1][j-1])) + 1
 			}
 		}
 	}
-	return dp[m][n]
+	return f[m][n]
 }
 
 func min(a, b int) int {
@@ -183,6 +185,33 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function minDistance(word1: string, word2: string): number {
+    const m = word1.length;
+    const n = word2.length;
+    const f: number[][] = Array(m + 1)
+        .fill(0)
+        .map(() => Array(n + 1).fill(0));
+    for (let j = 1; j <= n; ++j) {
+        f[0][j] = j;
+    }
+    for (let i = 1; i <= m; ++i) {
+        f[i][0] = i;
+        for (let j = 1; j <= n; ++j) {
+            if (word1[i - 1] === word2[j - 1]) {
+                f[i][j] = f[i - 1][j - 1];
+            } else {
+                f[i][j] =
+                    Math.min(f[i - 1][j], f[i][j - 1], f[i - 1][j - 1]) + 1;
+            }
+        }
+    }
+    return f[m][n];
 }
 ```
 
