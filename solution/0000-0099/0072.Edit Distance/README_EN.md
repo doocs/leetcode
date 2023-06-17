@@ -49,7 +49,29 @@ exection -&gt; execution (insert &#39;u&#39;)
 
 ## Solutions
 
-Dynamic programming.
+**Solution 1: Dynamic Programming**
+
+We define $f[i][j]$ as the minimum number of operations to convert $word1$ of length $i$ to $word2$ of length $j$. $f[i][0] = i$, $f[0][j] = j$, $i \in [1, m], j \in [0, n]$.
+
+We consider $f[i][j]$:
+
+-   If $word1[i - 1] = word2[j - 1]$, then we only need to consider the minimum number of operations to convert $word1$ of length $i - 1$ to $word2$ of length $j - 1$, so $f[i][j] = f[i - 1][j - 1]$;
+-   Otherwise, we can consider insert, delete, and replace operations, then $f[i][j] = \min(f[i - 1][j], f[i][j - 1], f[i - 1][j - 1]) + 1$.
+
+Finally, we can get the state transition equation:
+
+$$
+f[i][j] = \begin{cases}
+i, & \text{if } j = 0 \\
+j, & \text{if } i = 0 \\
+f[i - 1][j - 1], & \text{if } word1[i - 1] = word2[j - 1] \\
+\min(f[i - 1][j], f[i][j - 1], f[i - 1][j - 1]) + 1, & \text{otherwise}
+\end{cases}
+$$
+
+Finally, we return $f[m][n]$.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. $m$ and $n$ are the lengths of $word1$ and $word2$ respectively.
 
 <!-- tabs:start -->
 
@@ -181,6 +203,38 @@ function minDistance(word1: string, word2: string): number {
     }
     return f[m][n];
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} word1
+ * @param {string} word2
+ * @return {number}
+ */
+var minDistance = function (word1, word2) {
+    const m = word1.length;
+    const n = word2.length;
+    const f = Array(m + 1)
+        .fill(0)
+        .map(() => Array(n + 1).fill(0));
+    for (let j = 1; j <= n; ++j) {
+        f[0][j] = j;
+    }
+    for (let i = 1; i <= m; ++i) {
+        f[i][0] = i;
+        for (let j = 1; j <= n; ++j) {
+            if (word1[i - 1] === word2[j - 1]) {
+                f[i][j] = f[i - 1][j - 1];
+            } else {
+                f[i][j] =
+                    Math.min(f[i - 1][j], f[i][j - 1], f[i - 1][j - 1]) + 1;
+            }
+        }
+    }
+    return f[m][n];
+};
 ```
 
 ### **...**

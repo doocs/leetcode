@@ -57,7 +57,7 @@ exection -&gt; execution (插入 'u')
 
 **方法一：动态规划**
 
-我们定义 $f[i][j]$ 表示将 $word1$ 的前 $i$ 个字符转换成 $word2$ 的前 $j$ 个字符所使用的最少操作数。初始时 $f[i][0] = i$, f[0][j] = j$。其中 $i \in [1, m], j \in [0, n]$。
+我们定义 $f[i][j]$ 表示将 $word1$ 的前 $i$ 个字符转换成 $word2$ 的前 $j$ 个字符所使用的最少操作数。初始时 $f[i][0] = i$, $f[0][j] = j$。其中 $i \in [1, m], j \in [0, n]$。
 
 考虑 $f[i][j]$：
 
@@ -213,6 +213,38 @@ function minDistance(word1: string, word2: string): number {
     }
     return f[m][n];
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} word1
+ * @param {string} word2
+ * @return {number}
+ */
+var minDistance = function (word1, word2) {
+    const m = word1.length;
+    const n = word2.length;
+    const f = Array(m + 1)
+        .fill(0)
+        .map(() => Array(n + 1).fill(0));
+    for (let j = 1; j <= n; ++j) {
+        f[0][j] = j;
+    }
+    for (let i = 1; i <= m; ++i) {
+        f[i][0] = i;
+        for (let j = 1; j <= n; ++j) {
+            if (word1[i - 1] === word2[j - 1]) {
+                f[i][j] = f[i - 1][j - 1];
+            } else {
+                f[i][j] =
+                    Math.min(f[i - 1][j], f[i][j - 1], f[i - 1][j - 1]) + 1;
+            }
+        }
+    }
+    return f[m][n];
+};
 ```
 
 ### **...**
