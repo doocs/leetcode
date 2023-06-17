@@ -54,7 +54,11 @@
 
 **方法一：二分查找**
 
-如果值范围在 `[1, mid]` 的数小于等于 mid，说明此范围内没有重复的数，否则说明有重复数。
+我们可以发现，如果 $[1,..x]$ 中的数字个数大于 $x$，那么重复的数字一定在 $[1,..x]$ 中，否则重复的数字一定在 $[x+1,..n]$ 中。
+
+因此，我们可以二分枚举 $x$，每次判断 $[1,..x]$ 中的数字个数是否大于 $x$，从而确定重复的数字在哪个区间中，进而缩小区间范围，直到找到重复的数字。
+
+时间复杂度 $O(n \times \log n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -65,15 +69,10 @@
 ```python
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
-        left, right = 1, len(nums) - 1
-        while left < right:
-            mid = (left + right) >> 1
-            cnt = sum(v <= mid for v in nums)
-            if cnt > mid:
-                right = mid
-            else:
-                left = mid + 1
-        return left
+        def f(x: int) -> bool:
+            return sum(v <= x for v in nums) > x
+
+        return bisect_left(range(len(nums)), True, key=f)
 ```
 
 ### **Java**
@@ -83,9 +82,9 @@ class Solution:
 ```java
 class Solution {
     public int findDuplicate(int[] nums) {
-        int left = 1, right = nums.length - 1;
-        while (left < right) {
-            int mid = (left + right) >> 1;
+        int l = 0, r = nums.length - 1;
+        while (l < r) {
+            int mid = (l + r) >> 1;
             int cnt = 0;
             for (int v : nums) {
                 if (v <= mid) {
@@ -93,12 +92,12 @@ class Solution {
                 }
             }
             if (cnt > mid) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return left;
+        return l;
     }
 }
 ```
@@ -109,19 +108,20 @@ class Solution {
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
-        int left = 1, right = nums.size() - 1;
-        while (left < right) {
-            int mid = (left + right) >> 1;
+        int l = 0, r = nums.size() - 1;
+        while (l < r) {
+            int mid = (l + r) >> 1;
             int cnt = 0;
-            for (int& v : nums)
-                if (v <= mid)
-                    ++cnt;
-            if (cnt > mid)
-                right = mid;
-            else
-                left = mid + 1;
+            for (int& v : nums) {
+                cnt += v <= mid;
+            }
+            if (cnt > mid) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
         }
-        return left;
+        return l;
     }
 };
 ```
@@ -130,22 +130,15 @@ public:
 
 ```go
 func findDuplicate(nums []int) int {
-	left, right := 1, len(nums)-1
-	for left < right {
-		mid := (left + right) >> 1
+	return sort.Search(len(nums), func(x int) bool {
 		cnt := 0
 		for _, v := range nums {
-			if v <= mid {
+			if v <= x {
 				cnt++
 			}
 		}
-		if cnt > mid {
-			right = mid
-		} else {
-			left = mid + 1
-		}
-	}
-	return left
+		return cnt > x
+	})
 }
 ```
 
@@ -157,23 +150,23 @@ func findDuplicate(nums []int) int {
  * @return {number}
  */
 var findDuplicate = function (nums) {
-    let left = 1,
-        right = nums.length - 1;
-    while (left < right) {
-        const mid = (left + right) >> 1;
+    let l = 0;
+    let r = nums.length - 1;
+    while (l < r) {
+        const mid = (l + r) >> 1;
         let cnt = 0;
-        for (let v of nums) {
+        for (const v of nums) {
             if (v <= mid) {
                 ++cnt;
             }
         }
         if (cnt > mid) {
-            right = mid;
+            r = mid;
         } else {
-            left = mid + 1;
+            l = mid + 1;
         }
     }
-    return left;
+    return l;
 };
 ```
 
@@ -181,23 +174,23 @@ var findDuplicate = function (nums) {
 
 ```ts
 function findDuplicate(nums: number[]): number {
-    let left = 1,
-        right = nums.length - 1;
-    while (left < right) {
-        const mid = (left + right) >> 1;
+    let l = 0;
+    let r = nums.length - 1;
+    while (l < r) {
+        const mid = (l + r) >> 1;
         let cnt = 0;
-        for (let v of nums) {
+        for (const v of nums) {
             if (v <= mid) {
                 ++cnt;
             }
         }
         if (cnt > mid) {
-            right = mid;
+            r = mid;
         } else {
-            left = mid + 1;
+            l = mid + 1;
         }
     }
-    return left;
+    return l;
 }
 ```
 
