@@ -46,21 +46,17 @@
 ```python
 class Solution:
     def sortColors(self, nums: List[int]) -> None:
-        """
-        Do not return anything, modify nums in-place instead.
-        """
-        i, j = -1, len(nums)
-        cur = 0
-        while cur < j:
-            if nums[cur] == 0:
+        i, j, k = -1, len(nums), 0
+        while k < j:
+            if nums[k] == 0:
                 i += 1
-                nums[cur], nums[i] = nums[i], nums[cur]
-                cur += 1
-            elif nums[cur] == 1:
-                cur += 1
-            else:
+                nums[i], nums[k] = nums[k], nums[i]
+                k += 1
+            elif nums[k] == 2:
                 j -= 1
-                nums[cur], nums[j] = nums[j], nums[cur]
+                nums[j], nums[k] = nums[k], nums[j]
+            else:
+                k += 1
 ```
 
 ### **Java**
@@ -68,74 +64,22 @@ class Solution:
 ```java
 class Solution {
     public void sortColors(int[] nums) {
-        int i = -1, j = nums.length;
-        int cur = 0;
-        while (cur < j) {
-            if (nums[cur] == 0) {
-                swap(nums, cur++, ++i);
-            } else if (nums[cur] == 1) {
-                ++cur;
+        int i = -1, j = nums.length, k = 0;
+        while (k < j) {
+            if (nums[k] == 0) {
+                swap(nums, ++i, k++);
+            } else if (nums[k] == 2) {
+                swap(nums, --j, k);
             } else {
-                swap(nums, cur, --j);
+                ++k;
             }
         }
     }
 
     private void swap(int[] nums, int i, int j) {
         int t = nums[i];
-        nums[i] = nums[j];
+        nums[i]  = nums[j];
         nums[j] = t;
-    }
-}
-```
-
-### **TypeScript**
-
-```ts
-/**
- Do not return anything, modify nums in-place instead.
- */
-function sortColors(nums: number[]): void {
-    let n = nums.length;
-    if (n < 2) return;
-    let p0 = 0,
-        p2 = n - 1;
-    let p1 = 0;
-    while (p1 <= p2) {
-        if (nums[p1] == 0) {
-            [nums[p0], nums[p1]] = [nums[p1], nums[p0]];
-            p0++;
-            p1++;
-        } else if (nums[p1] == 1) {
-            p1++;
-        } else {
-            [nums[p1], nums[p2]] = [nums[p2], nums[p1]];
-            p2--;
-        }
-    }
-}
-```
-
-```ts
-/**
- Do not return anything, modify nums in-place instead.
- */
-function sortColors(nums: number[]): void {
-    const n = nums.length;
-    let l = -1;
-    let r = n;
-    let i = 0;
-    while (i < r) {
-        if (nums[i] === 2) {
-            r--;
-            [nums[r], nums[i]] = [nums[i], nums[r]];
-        } else {
-            if (nums[i] === 0) {
-                l++;
-                [nums[l], nums[i]] = [nums[i], nums[l]];
-            }
-            i++;
-        }
     }
 }
 ```
@@ -146,14 +90,14 @@ function sortColors(nums: number[]): void {
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
-        int i = -1, j = nums.size(), cur = 0;
-        while (cur < j) {
-            if (nums[cur] == 0) {
-                swap(nums[++i], nums[cur++]);
-            } else if (nums[cur] == 1) {
-                ++cur;
+        int i = -1, j = nums.size(), k = 0;
+        while (k < j) {
+            if (nums[k] == 0) {
+                swap(nums[++i], nums[k++]);
+            } else if (nums[k] == 2) {
+                swap(nums[--j], nums[k]);
             } else {
-                swap(nums[cur], nums[--j]);
+                ++k;
             }
         }
     }
@@ -164,19 +108,44 @@ public:
 
 ```go
 func sortColors(nums []int) {
-	i, j, cur := -1, len(nums), 0
-	for cur < j {
-		if nums[cur] == 0 {
+	i, j, k := -1, len(nums), 0
+	for k < j {
+		if nums[k] == 0 {
 			i++
-			nums[cur], nums[i] = nums[i], nums[cur]
-			cur++
-		} else if nums[cur] == 1 {
-			cur++
-		} else {
+			nums[i], nums[k] = nums[k], nums[i]
+			k++
+		} else if nums[k] == 2 {
 			j--
-			nums[cur], nums[j] = nums[j], nums[cur]
+			nums[j], nums[k] = nums[k], nums[j]
+		} else {
+			k++
 		}
 	}
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ Do not return anything, modify nums in-place instead.
+ */
+function sortColors(nums: number[]): void {
+    let i = -1;
+    let j = nums.length;
+    let k = 0;
+    while (k < j) {
+        if (nums[k] === 0) {
+            ++i;
+            [nums[i], nums[k]] = [nums[k], nums[i]];
+            ++k;
+        } else if (nums[k] === 2) {
+            --j;
+            [nums[j], nums[k]] = [nums[k], nums[j]];
+        } else {
+            ++k;
+        }
+    }
 }
 ```
 
@@ -185,50 +154,46 @@ func sortColors(nums []int) {
 ```rust
 impl Solution {
     pub fn sort_colors(nums: &mut Vec<i32>) {
-        let mut l = 0;
-        let mut r = nums.len() - 1;
-        let mut i = 0;
-        while i <= r {
-            match nums[i] {
-                2 => {
-                    nums.swap(i, r);
-                    match r {
-                        0 => return,
-                        _ => r -= 1,
-                    }
-                }
-                n => {
-                    if n == 0 {
-                        nums.swap(i, l);
-                        l += 1;
-                    }
-                    i += 1;
-                }
+        let mut i = -1;
+        let mut j = nums.len();
+        let mut k = 0;
+        while k < j {
+            if nums[k] == 0 {
+                i += 1;
+                nums.swap(i as usize, k as usize);
+                k += 1;
+            } else if nums[k] == 2 {
+                j -= 1;
+                nums.swap(j, k);
+            } else {
+                k += 1;
             }
         }
     }
 }
 ```
 
-```rust
-impl Solution {
-    pub fn sort_colors(nums: &mut Vec<i32>) {
-        let mut count = [0, 0, 0];
-        for num in nums.iter() {
-            count[*num as usize] += 1;
-        }
-        count[1] += count[0];
-        count[2] += count[1];
+### **C#**
 
-        for i in 0..count[0] {
-            nums[i] = 0;
+```cs
+public class Solution {
+    public void SortColors(int[] nums) {
+        int i = -1, j = nums.Length, k = 0;
+        while (k < j) {
+            if (nums[k] == 0) {
+                swap(nums, ++i, k++);
+            } else if (nums[k] == 2) {
+                swap(nums, --j, k);
+            } else {
+                ++k;
+            }
         }
-        for i in count[0]..count[1] {
-            nums[i] = 1;
-        }
-        for i in count[1]..count[2] {
-            nums[i] = 2;
-        }
+    }
+
+    private void swap(int[] nums, int i, int j) {
+        int t = nums[i];
+        nums[i] = nums[j];
+        nums[j] = t;
     }
 }
 ```

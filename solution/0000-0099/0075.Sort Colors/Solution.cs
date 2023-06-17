@@ -1,6 +1,6 @@
-class Solution {
-    public void sortColors(int[] nums) {
-        int i = -1, j = nums.length, k = 0;
+public class Solution {
+    public void SortColors(int[] nums) {
+        int i = -1, j = nums.Length, k = 0;
         while (k < j) {
             if (nums[k] == 0) {
                 swap(nums, ++i, k++);
@@ -14,7 +14,7 @@ class Solution {
 
     private void swap(int[] nums, int i, int j) {
         int t = nums[i];
-        nums[i]  = nums[j];
+        nums[i] = nums[j];
         nums[j] = t;
     }
 }

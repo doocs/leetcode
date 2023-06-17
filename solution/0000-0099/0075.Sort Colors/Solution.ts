@@ -2,21 +2,19 @@
  Do not return anything, modify nums in-place instead.
  */
 function sortColors(nums: number[]): void {
-    let n = nums.length;
-    if (n < 2) return;
-    let p0 = 0,
-        p2 = n - 1;
-    let p1 = 0;
-    while (p1 <= p2) {
-        if (nums[p1] == 0) {
-            [nums[p0], nums[p1]] = [nums[p1], nums[p0]];
-            p0++;
-            p1++;
-        } else if (nums[p1] == 1) {
-            p1++;
+    let i = -1;
+    let j = nums.length;
+    let k = 0;
+    while (k < j) {
+        if (nums[k] === 0) {
+            ++i;
+            [nums[i], nums[k]] = [nums[k], nums[i]];
+            ++k;
+        } else if (nums[k] === 2) {
+            --j;
+            [nums[j], nums[k]] = [nums[k], nums[j]];
         } else {
-            [nums[p1], nums[p2]] = [nums[p2], nums[p1]];
-            p2--;
+            ++k;
         }
     }
 }
