@@ -95,7 +95,7 @@ class Solution:
             if mx < t:
                 mx = t
                 start = i - ((t - 1) >> 1)
-        return s[start: start + mx]
+        return s[start : start + mx]
 ```
 
 ### **Java**

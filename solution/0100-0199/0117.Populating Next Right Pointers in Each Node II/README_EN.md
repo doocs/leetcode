@@ -99,6 +99,7 @@ class Node:
         self.next = next
 """
 
+
 class Solution:
     def connect(self, root: 'Node') -> 'Node':
         def modify(curr):

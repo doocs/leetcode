@@ -143,7 +143,9 @@ class Solution:
                     q.append(node.right)
                     s += node.right.val
             for node in p:
-                t = (node.left.val if node.left else 0) + (node.right.val if node.right else 0)
+                t = (node.left.val if node.left else 0) + (
+                    node.right.val if node.right else 0
+                )
                 if node.left:
                     node.left.val = s - t
                 if node.right:

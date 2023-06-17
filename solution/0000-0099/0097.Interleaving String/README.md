@@ -106,7 +106,7 @@ class Solution:
                 if i:
                     dp[i][j] = s1[i - 1] == s3[k] and dp[i - 1][j]
                 if j:
-                    dp[i][j] |= (s2[j - 1] == s3[k] and dp[i][j - 1])
+                    dp[i][j] |= s2[j - 1] == s3[k] and dp[i][j - 1]
         return dp[-1][-1]
 ```
 
@@ -122,9 +122,9 @@ class Solution:
             for j in range(n + 1):
                 k = i + j - 1
                 if i:
-                    dp[j] &= (s1[i - 1] == s3[k])
+                    dp[j] &= s1[i - 1] == s3[k]
                 if j:
-                    dp[j] |= (s2[j - 1] == s3[k] and dp[j - 1])
+                    dp[j] |= s2[j - 1] == s3[k] and dp[j - 1]
         return dp[-1]
 ```
 

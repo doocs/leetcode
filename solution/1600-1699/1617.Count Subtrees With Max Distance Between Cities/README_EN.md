@@ -95,7 +95,9 @@ class Solution:
 
 ```python
 class Solution:
-    def countSubgraphsForEachDiameter(self, n: int, edges: List[List[int]]) -> List[int]:
+    def countSubgraphsForEachDiameter(
+        self, n: int, edges: List[List[int]]
+    ) -> List[int]:
         def bfs(u: int) -> int:
             d = -1
             q = deque([u])

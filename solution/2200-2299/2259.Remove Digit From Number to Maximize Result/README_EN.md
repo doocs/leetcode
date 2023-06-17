@@ -69,7 +69,7 @@ class Solution:
                 last = i
                 if i + 1 < n and d < number[i + 1]:
                     break
-        return number[:last] + number[last + 1:]
+        return number[:last] + number[last + 1 :]
 ```
 
 ### **Java**

@@ -132,7 +132,6 @@ class BSTIterator:
 #         self.left = left
 #         self.right = right
 class BSTIterator:
-
     def __init__(self, root: TreeNode):
         self.stack = []
         while root:

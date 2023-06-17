@@ -94,6 +94,7 @@ class Trie:
         dfs(self)
         return ans
 
+
 class Solution:
     def removeSubfolders(self, folder: List[str]) -> List[str]:
         trie = Trie()

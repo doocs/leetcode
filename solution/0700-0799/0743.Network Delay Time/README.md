@@ -108,7 +108,7 @@ class Solution:
 ```python
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
-        INF = 0x3f3f
+        INF = 0x3F3F
         g = defaultdict(list)
         for u, v, w in times:
             g[u - 1].append((v - 1, w))
@@ -130,7 +130,7 @@ Bellman Ford 算法：
 ```python
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
-        INF = 0x3f3f
+        INF = 0x3F3F
         dist = [INF] * n
         dist[k - 1] = 0
         for _ in range(n):
@@ -146,7 +146,7 @@ SPFA 算法：
 ```python
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
-        INF = 0x3f3f
+        INF = 0x3F3F
         dist = [INF] * n
         vis = [False] * n
         g = defaultdict(list)

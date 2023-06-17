@@ -135,6 +135,7 @@ class Node:
         self.r = 0
         self.v = 0
 
+
 class SegmentTree:
     def __init__(self, n):
         self.tr = [Node() for _ in range(4 * n)]

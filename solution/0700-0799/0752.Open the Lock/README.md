@@ -76,30 +76,30 @@ BFS 最小步数模型。
 3. 每次搜索时，优先选择元素数量较少的队列进行搜索扩展，如果在扩展过程中，搜索到另一个方向已经访问过的节点，说明找到了最短路径；
 4. 只要其中一个队列为空，说明当前方向的搜索已经进行不下去了，说明起点到终点不连通，无需继续搜索。
 
-    ```python
+```python
+while q1 and q2:
+    if len(q1) <= len(q2):
+        # 优先选择较少元素的队列进行扩展
+        extend(m1, m2, q1)
+    else:
+        extend(m2, m1, q2)
 
-    while q1 and q2:
-        if len(q1) <= len(q2):
-            # 优先选择较少元素的队列进行扩展
-            extend(m1, m2, q1)
-        else:
-            extend(m2, m1, q2)
 
-    def extend(m1, m2, q):
-        # 新一轮扩展
-        for _ in range(len(q)):
-            p = q.popleft()
-            step = m1[p]
-            for t in next(p):
-                if t in m1:
-                    # 此前已经访问过
-                    continue
-                if t in m2:
-                    # 另一个方向已经搜索过，说明找到了一条最短的连通路径
-                    return step + 1 + m2[t]
-                q.append(t)
-                m1[t] = step + 1
-    ```
+def extend(m1, m2, q):
+    # 新一轮扩展
+    for _ in range(len(q)):
+        p = q.popleft()
+        step = m1[p]
+        for t in next(p):
+            if t in m1:
+                # 此前已经访问过
+                continue
+            if t in m2:
+                # 另一个方向已经搜索过，说明找到了一条最短的连通路径
+                return step + 1 + m2[t]
+            q.append(t)
+            m1[t] = step + 1
+```
 
 **方法三：A\*算法**
 
@@ -223,7 +223,7 @@ class Solution:
             ans = 0
             for i in range(4):
                 a = ord(s[i]) - ord('0')
-                b =ord(target[i]) - ord('0')
+                b = ord(target[i]) - ord('0')
                 if a > b:
                     a, b = b, a
                 ans += min(b - a, a + 10 - b)

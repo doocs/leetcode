@@ -75,6 +75,7 @@ class Foo:
 ```python
 from threading import Semaphore
 
+
 class Foo:
     def __init__(self):
         self.a = Semaphore(1)

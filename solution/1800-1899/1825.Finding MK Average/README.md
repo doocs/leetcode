@@ -159,7 +159,6 @@ from sortedcontainers import SortedList
 
 
 class MKAverage:
-
     def __init__(self, m: int, k: int):
         self.m = m
         self.k = k
@@ -171,7 +170,7 @@ class MKAverage:
         self.q.append(num)
         if len(self.q) == self.m:
             self.sl = SortedList(self.q)
-            self.s = sum(self.sl[self.k: -self.k])
+            self.s = sum(self.sl[self.k : -self.k])
         elif len(self.q) > self.m:
             i = self.sl.bisect_left(num)
             if i < self.k:

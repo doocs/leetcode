@@ -148,7 +148,6 @@ class MyLinkedList:
 
 ```python
 class MyLinkedList:
-
     def __init__(self):
         self.e = [0] * 1010
         self.ne = [0] * 1010

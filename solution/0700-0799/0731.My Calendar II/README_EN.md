@@ -139,8 +139,8 @@ class SegmentTree:
             node.right.add += node.add
             node.add = 0
 
-class MyCalendarTwo:
 
+class MyCalendarTwo:
     def __init__(self):
         self.tree = SegmentTree()
 

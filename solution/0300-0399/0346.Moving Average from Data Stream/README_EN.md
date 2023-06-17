@@ -68,7 +68,6 @@ class MovingAverage:
 
 ```python
 class MovingAverage:
-
     def __init__(self, size: int):
         self.n = size
         self.s = 0

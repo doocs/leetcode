@@ -85,7 +85,6 @@ class SmallestInfiniteSet:
 
 ```python
 class SmallestInfiniteSet:
-
     def __init__(self):
         self.h = list(range(1, 1010))
         self.s = set(self.h)

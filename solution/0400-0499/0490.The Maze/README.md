@@ -101,7 +101,9 @@ BFS：
 
 ```python
 class Solution:
-    def hasPath(self, maze: List[List[int]], start: List[int], destination: List[int]) -> bool:
+    def hasPath(
+        self, maze: List[List[int]], start: List[int], destination: List[int]
+    ) -> bool:
         m, n = len(maze), len(maze[0])
         q = deque([start])
         rs, cs = start

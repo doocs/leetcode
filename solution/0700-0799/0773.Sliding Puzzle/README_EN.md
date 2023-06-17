@@ -135,7 +135,6 @@ class Solution:
                     ans += abs(i // n - num // n) + abs(i % n - num % n)
             return ans
 
-
         if not check(seq):
             return -1
         q = [(f(start), start)]

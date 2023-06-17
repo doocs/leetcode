@@ -66,12 +66,14 @@ p[find(a)] = find(b)
 p = list(range(n))
 size = [1] * n
 
+
 # 返回x的祖宗节点
 def find(x):
     if p[x] != x:
         # 路径压缩
         p[x] = find(p[x])
     return p[x]
+
 
 # 合并a和b所在的两个集合
 if find(a) != find(b):
@@ -86,6 +88,7 @@ if find(a) != find(b):
 p = list(range(n))
 d = [0] * n
 
+
 # 返回x的祖宗节点
 def find(x):
     if p[x] != x:
@@ -93,6 +96,7 @@ def find(x):
         d[x] += d[p[x]]
         p[x] = t
     return p[x]
+
 
 # 合并a和b所在的两个集合
 p[find(a)] = find(b)
@@ -130,10 +134,20 @@ class Solution:
                 else:
                     for a, b in dirs:
                         x, y = i + a, j + b
-                        if (grid[x][y] == '0' or grid[i][j] == grid[x][y]) and find(x * n + y) != find(i * n + j):
+                        if (grid[x][y] == '0' or grid[i][j] == grid[x][y]) and find(
+                            x * n + y
+                        ) != find(i * n + j):
                             size[find(x * n + y)] += size[find(i * n + j)]
                             p[find(i * n + j)] = find(x * n + y)
-        return max([size[i * n + j] for i in range(m) for j in range(n) if find(i * n + j) != find(m * n)], default=0)
+        return max(
+            [
+                size[i * n + j]
+                for i in range(m)
+                for j in range(n)
+                if find(i * n + j) != find(m * n)
+            ],
+            default=0,
+        )
 ```
 
 ### **Java**

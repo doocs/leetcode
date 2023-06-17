@@ -146,7 +146,11 @@ class Solution:
                             x, y = i + a, j + b
                             if x >= 0 and x < m and y >= 0 and y < n and grid[x][y]:
                                 uf.union(i * n + j, x * n + y)
-        return sum(grid[i][j] == 1 and uf.find(i * n + j) != uf.find(m * n) for i in range(m) for j in range(n))
+        return sum(
+            grid[i][j] == 1 and uf.find(i * n + j) != uf.find(m * n)
+            for i in range(m)
+            for j in range(n)
+        )
 ```
 
 ### **Java**

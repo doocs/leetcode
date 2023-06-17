@@ -80,7 +80,7 @@ class Solution:
             for i, x in enumerate(start):
                 for y in 'ACGT':
                     if x != y:
-                        nxt = start[:i] + y + start[i + 1:]
+                        nxt = start[:i] + y + start[i + 1 :]
                         if nxt in s:
                             s.remove(nxt)
                             dfs(nxt, t + 1)
