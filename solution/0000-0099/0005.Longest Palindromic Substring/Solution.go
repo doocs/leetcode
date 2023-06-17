@@ -1,21 +1,24 @@
 func longestPalindrome(s string) string {
 	n := len(s)
-	dp := make([][]bool, n)
-	for i := 0; i < n; i++ {
-		dp[i] = make([]bool, n)
+	f := make([][]bool, n)
+	for i := range f {
+		f[i] = make([]bool, n)
+		for j := range f[i] {
+			f[i][j] = true
+		}
 	}
-	mx, start := 1, 0
-	for j := 0; j < n; j++ {
-		for i := 0; i <= j; i++ {
-			if j-i < 2 {
-				dp[i][j] = s[i] == s[j]
-			} else {
-				dp[i][j] = dp[i+1][j-1] && s[i] == s[j]
-			}
-			if dp[i][j] && mx < j-i+1 {
-				mx, start = j-i+1, i
+	k, mx := 0, 1
+	for i := n - 2; i >= 0; i-- {
+		for j := i + 1; j < n; j++ {
+			f[i][j] = false
+			if s[i] == s[j] {
+				f[i][j] = f[i+1][j-1]
+				if f[i][j] && mx < j-i+1 {
+					mx = j - i + 1
+					k = i
+				}
 			}
 		}
 	}
-	return s[start : start+mx]
+	return s[k : k+mx]
 }
