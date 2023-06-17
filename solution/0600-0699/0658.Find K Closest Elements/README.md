@@ -88,7 +88,7 @@ class Solution:
                 r -= 1
             else:
                 l += 1
-        return arr[l: r]
+        return arr[l:r]
 ```
 
 ```python
@@ -101,7 +101,7 @@ class Solution:
                 right = mid
             else:
                 left = mid + 1
-        return arr[left: left + k]
+        return arr[left : left + k]
 ```
 
 ### **Java**

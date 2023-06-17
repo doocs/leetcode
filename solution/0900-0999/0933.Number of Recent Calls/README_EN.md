@@ -67,7 +67,6 @@ class RecentCounter:
 
 ```python
 class RecentCounter:
-
     def __init__(self):
         self.s = []
 

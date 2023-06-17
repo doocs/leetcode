@@ -80,16 +80,16 @@ from sortedcontainers import SortedList
 
 
 class TodoList:
-
     def __init__(self):
         self.i = 1
         self.tasks = defaultdict(SortedList)
 
-    def addTask(self, userId: int, taskDescription: str, dueDate: int, tags: List[str]) -> int:
+    def addTask(
+        self, userId: int, taskDescription: str, dueDate: int, tags: List[str]
+    ) -> int:
         taskId = self.i
         self.i += 1
-        self.tasks[userId].add(
-            [dueDate, taskDescription, set(tags), taskId, False])
+        self.tasks[userId].add([dueDate, taskDescription, set(tags), taskId, False])
         return taskId
 
     def getAllTasks(self, userId: int) -> List[str]:

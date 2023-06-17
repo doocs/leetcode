@@ -83,6 +83,7 @@ class Solution:
         """
         Do not return anything, modify board in-place instead.
         """
+
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])

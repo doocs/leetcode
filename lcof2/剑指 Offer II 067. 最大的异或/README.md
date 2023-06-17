@@ -132,6 +132,7 @@ class Trie:
                 node = node.children[v]
         return res
 
+
 class Solution:
     def findMaximumXOR(self, nums: List[int]) -> int:
         trie = Trie()

@@ -70,7 +70,7 @@ class Solution:
             if state == (1 << len(matchsticks)) - 1:
                 return True
             for i, v in enumerate(matchsticks):
-                if (state & (1 << i)):
+                if state & (1 << i):
                     continue
                 if t + v > s:
                     break

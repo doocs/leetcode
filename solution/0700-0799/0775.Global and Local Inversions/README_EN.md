@@ -91,8 +91,8 @@ class Solution:
         tree = BinaryIndexedTree(n)
         cnt = 0
         for i, v in enumerate(nums):
-            cnt += (i < n - 1 and v > nums[i + 1])
-            cnt -= (i - tree.query(v))
+            cnt += i < n - 1 and v > nums[i + 1]
+            cnt -= i - tree.query(v)
             if cnt < 0:
                 return False
             tree.update(v + 1, 1)

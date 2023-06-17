@@ -110,6 +110,7 @@ class Node:
         self.r = 0
         self.v = 0
 
+
 class SegmentTree:
     def __init__(self, nums):
         self.nums = nums
@@ -152,8 +153,8 @@ class SegmentTree:
     def pushup(self, u):
         self.tr[u].v = self.tr[u << 1].v + self.tr[u << 1 | 1].v
 
-class NumArray:
 
+class NumArray:
     def __init__(self, nums: List[int]):
         self.tree = SegmentTree(nums)
 

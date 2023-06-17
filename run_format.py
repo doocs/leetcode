@@ -2,6 +2,7 @@ from typing import List
 
 import os.path
 import re
+import black
 
 suffixes = ['md', 'py', 'java', 'c', 'cpp', 'go', 'php', 'cs', 'rs', 'js', 'ts']
 
@@ -59,20 +60,18 @@ def format_inline_code(path: str):
     with open(path, 'r', encoding='utf-8') as f:
         content = f.read()
     root = path[: path.rfind('/')]
+    print(f'[format inline code] path: {path}')
     for suf in code_blocks:
         res = re.findall(f'```{suf}\n(.*?)```', content, re.S)
         for block in res or []:
             # skip empty code block
             if not block or not block.strip():
                 continue
-            if suf in ['c', 'cpp', 'java', 'python', 'go']:
-                suf = 'py' if suf == 'python' else suf
+            if suf in ['c', 'cpp', 'java', 'go']:
                 file = f'{root}/Solution2.{suf}'
                 with open(file, 'w', encoding='utf-8') as f:
                     f.write(block)
-                if suf == 'py':
-                    os.system(f'black -S "{file}"')
-                elif suf == 'go':
+                if suf == 'go':
                     add_header(file)
                     os.system(f'gofmt -w "{file}"')
                     remove_header(file)
@@ -82,6 +81,12 @@ def format_inline_code(path: str):
                     new_block = f.read()
                 content = content.replace(block, new_block)
                 os.remove(file)
+            elif suf == 'python':
+                new_block = black.format_str(
+                    block, mode=black.FileMode(string_normalization=False)
+                )
+                content = content.replace(block, new_block)
+
     with open(path, 'w', encoding='utf-8') as f:
         f.write(content)
 

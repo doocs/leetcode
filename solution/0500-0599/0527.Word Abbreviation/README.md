@@ -128,6 +128,7 @@ class Trie:
         t = ''.join(res)
         return t if len(t) < len(w) else w
 
+
 class Solution:
     def wordsAbbreviation(self, words: List[str]) -> List[str]:
         trees = {}

@@ -136,6 +136,7 @@ class Solution:
         :type root: 'Node'
         :rtype: int
         """
+
         def build(root):
             nonlocal d
             if root is None:

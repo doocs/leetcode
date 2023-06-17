@@ -102,7 +102,6 @@ class BinaryIndexedTree:
 
 
 class MRUQueue:
-
     def __init__(self, n: int):
         self.q = list(range(n + 1))
         self.tree = BinaryIndexedTree(n + 2010)
@@ -119,6 +118,7 @@ class MRUQueue:
         self.q.append(x)
         self.tree.update(l, 1)
         return x
+
 
 # Your MRUQueue object will be instantiated and called as such:
 # obj = MRUQueue(n)

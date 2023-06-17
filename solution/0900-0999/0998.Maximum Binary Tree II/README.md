@@ -118,7 +118,9 @@ class Solution:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def insertIntoMaxTree(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
+    def insertIntoMaxTree(
+        self, root: Optional[TreeNode], val: int
+    ) -> Optional[TreeNode]:
         if root.val < val:
             return TreeNode(val, root)
         curr = root

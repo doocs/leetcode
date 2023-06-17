@@ -66,6 +66,7 @@ class Solution:
 #         self.val = x
 #         self.next = None
 
+
 class Solution:
     def reverseList(self, head: ListNode) -> ListNode:
         if head is None or head.next is None:

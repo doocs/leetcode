@@ -110,7 +110,9 @@ class Solution:
 
 ```python
 class Solution:
-    def busyStudent(self, startTime: List[int], endTime: List[int], queryTime: int) -> int:
+    def busyStudent(
+        self, startTime: List[int], endTime: List[int], queryTime: int
+    ) -> int:
         c = [0] * 1010
         for a, b in zip(startTime, endTime):
             c[a] += 1

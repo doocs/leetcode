@@ -92,7 +92,9 @@ class Solution:
 
 ```python
 class Solution:
-    def reachableNodes(self, n: int, edges: List[List[int]], restricted: List[int]) -> int:
+    def reachableNodes(
+        self, n: int, edges: List[List[int]], restricted: List[int]
+    ) -> int:
         s = set(restricted)
         g = defaultdict(list)
         for a, b in edges:

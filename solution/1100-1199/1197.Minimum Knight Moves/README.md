@@ -92,7 +92,16 @@ class Solution:
             for _ in range(len(q)):
                 i, j = q.popleft()
                 step = m1[(i, j)]
-                for a, b in ((-2, 1), (-1, 2), (1, 2), (2, 1), (2, -1), (1, -2), (-1, -2), (-2, -1)):
+                for a, b in (
+                    (-2, 1),
+                    (-1, 2),
+                    (1, 2),
+                    (2, 1),
+                    (2, -1),
+                    (1, -2),
+                    (-1, -2),
+                    (-2, -1),
+                ):
                     x, y = i + a, j + b
                     if (x, y) in m1:
                         continue

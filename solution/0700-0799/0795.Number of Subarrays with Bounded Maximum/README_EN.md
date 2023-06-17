@@ -71,7 +71,9 @@ class Solution:
             if stk:
                 r[i] = stk[-1]
             stk.append(i)
-        return sum((i - l[i]) * (r[i] - i) for i, v in enumerate(nums) if left <= v <= right)
+        return sum(
+            (i - l[i]) * (r[i] - i) for i, v in enumerate(nums) if left <= v <= right
+        )
 ```
 
 ### **Java**

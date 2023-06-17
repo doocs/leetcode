@@ -94,6 +94,7 @@ class Node:
         self.r = 0
         self.v = 0
 
+
 class SegmentTree:
     def __init__(self, n):
         self.tr = [Node() for _ in range(n << 2)]
@@ -132,6 +133,7 @@ class SegmentTree:
 
     def pushup(self, u):
         self.tr[u].v = self.tr[u << 1].v + self.tr[u << 1 | 1].v
+
 
 class Solution:
     def countSmaller(self, nums: List[int]) -> List[int]:

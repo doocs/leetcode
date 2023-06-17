@@ -68,7 +68,9 @@ class Solution:
 
 ```python
 class Solution:
-    def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
+    def insert(
+        self, intervals: List[List[int]], newInterval: List[int]
+    ) -> List[List[int]]:
         st, ed = newInterval
         ans = []
         insert = False

@@ -101,7 +101,7 @@ class Solution:
         n = len(nums)
         left, right = set(), set()
         dfs(nums[: n >> 1], left, 0, 0)
-        dfs(nums[n >> 1:], right, 0, 0)
+        dfs(nums[n >> 1 :], right, 0, 0)
         right = sorted(right)
         ans = inf
         for l in left:

@@ -106,8 +106,7 @@ class Solution:
         q1, q2 = deque([beginWord]), deque([endWord])
         m1, m2 = {beginWord: 0}, {endWord: 0}
         while q1 and q2:
-            t = extend(m1, m2, q1) if len(q1) <= len(
-                q2) else extend(m2, m1, q2)
+            t = extend(m1, m2, q1) if len(q1) <= len(q2) else extend(m2, m1, q2)
             if t != -1:
                 return t + 1
         return 0

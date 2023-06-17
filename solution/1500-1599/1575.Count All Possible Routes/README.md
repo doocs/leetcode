@@ -120,7 +120,9 @@ class Solution:
 
 ```python
 class Solution:
-    def countRoutes(self, locations: List[int], start: int, finish: int, fuel: int) -> int:
+    def countRoutes(
+        self, locations: List[int], start: int, finish: int, fuel: int
+    ) -> int:
         mod = 10**9 + 7
         n = len(locations)
         f = [[0] * (fuel + 1) for _ in range(n)]
@@ -130,7 +132,9 @@ class Solution:
             for i in range(n):
                 for j in range(n):
                     if j != i and abs(locations[i] - locations[j]) <= k:
-                        f[i][k] = (f[i][k] + f[j][k - abs(locations[i] - locations[j])]) % mod
+                        f[i][k] = (
+                            f[i][k] + f[j][k - abs(locations[i] - locations[j])]
+                        ) % mod
         return f[start][fuel]
 ```
 

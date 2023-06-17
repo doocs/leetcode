@@ -92,12 +92,14 @@ p[find(a)] = find(b)
 p = list(range(n))
 size = [1] * n
 
+
 # 返回x的祖宗节点
 def find(x):
     if p[x] != x:
         # 路径压缩
         p[x] = find(p[x])
     return p[x]
+
 
 # 合并a和b所在的两个集合
 if find(a) != find(b):
@@ -112,6 +114,7 @@ if find(a) != find(b):
 p = list(range(n))
 d = [0] * n
 
+
 # 返回x的祖宗节点
 def find(x):
     if p[x] != x:
@@ -119,6 +122,7 @@ def find(x):
         d[x] += d[p[x]]
         p[x] = t
     return p[x]
+
 
 # 合并a和b所在的两个集合
 p[find(a)] = find(b)
@@ -155,9 +159,21 @@ class Solution:
         for i in range(m):
             for j in range(n):
                 if i < m - 1:
-                    e.append((abs(heights[i][j] - heights[i + 1][j]), i * n + j, (i + 1) * n + j))
+                    e.append(
+                        (
+                            abs(heights[i][j] - heights[i + 1][j]),
+                            i * n + j,
+                            (i + 1) * n + j,
+                        )
+                    )
                 if j < n - 1:
-                    e.append((abs(heights[i][j] - heights[i][j + 1]), i * n + j, i * n + j + 1))
+                    e.append(
+                        (
+                            abs(heights[i][j] - heights[i][j + 1]),
+                            i * n + j,
+                            i * n + j + 1,
+                        )
+                    )
         e.sort()
         for h, i, j in e:
             p[find(i)] = find(j)
@@ -181,7 +197,12 @@ class Solution:
                 i, j = q.popleft()
                 for a, b in [[0, 1], [0, -1], [1, 0], [-1, 0]]:
                     x, y = i + a, j + b
-                    if 0 <= x < m and 0 <= y < n and (x, y) not in vis and abs(heights[i][j] - heights[x][y]) <= mid:
+                    if (
+                        0 <= x < m
+                        and 0 <= y < n
+                        and (x, y) not in vis
+                        and abs(heights[i][j] - heights[x][y]) <= mid
+                    ):
                         q.append((x, y))
                         vis.add((x, y))
             if (m - 1, n - 1) in vis:
@@ -196,7 +217,7 @@ Dijkstra 算法：
 ```python
 class Solution:
     def minimumEffortPath(self, heights: List[List[int]]) -> int:
-        INF = 0x3f3f3f3f
+        INF = 0x3F3F3F3F
         m, n = len(heights), len(heights[0])
         dist = [[INF] * n for _ in range(m)]
         dist[0][0] = 0
@@ -206,7 +227,11 @@ class Solution:
             t, i, j = heappop(q)
             for k in range(4):
                 x, y = i + dirs[k], j + dirs[k + 1]
-                if 0 <= x < m and 0 <= y < n and max(t, abs(heights[x][y] - heights[i][j])) < dist[x][y]:
+                if (
+                    0 <= x < m
+                    and 0 <= y < n
+                    and max(t, abs(heights[x][y] - heights[i][j])) < dist[x][y]
+                ):
                     dist[x][y] = max(t, abs(heights[x][y] - heights[i][j]))
                     heappush(q, (dist[x][y], x, y))
         return dist[-1][-1]

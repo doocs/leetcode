@@ -82,7 +82,7 @@ class BST:
             if self.cnt[node.left] == k - 1:
                 return node.val
             if self.cnt[node.left] < k - 1:
-                k -= (self.cnt[node.left] + 1)
+                k -= self.cnt[node.left] + 1
                 node = node.right
             else:
                 node = node.left

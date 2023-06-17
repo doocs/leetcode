@@ -81,10 +81,18 @@ class Solution:
                 if grid[i][j] == 1:
                     for a, b in [[0, 1], [1, 0]]:
                         x, y = i + a, j + b
-                        if 0 <= x < m and 0 <= y < n and grid[x][y] == 1 and find(i * n + j) != find(x * n + y):
+                        if (
+                            0 <= x < m
+                            and 0 <= y < n
+                            and grid[x][y] == 1
+                            and find(i * n + j) != find(x * n + y)
+                        ):
                             size[find(x * n + y)] += size[find(i * n + j)]
                             p[find(i * n + j)] = find(x * n + y)
-        return max([size[i * n + j] for i in range(m) for j in range(n) if grid[i][j] == 1], default=0)
+        return max(
+            [size[i * n + j] for i in range(m) for j in range(n) if grid[i][j] == 1],
+            default=0,
+        )
 ```
 
 ### **Java**

@@ -104,7 +104,14 @@ class Solution:
 
 ```python
 class Solution:
-    def maxProbability(self, n: int, edges: List[List[int]], succProb: List[float], start: int, end: int) -> float:
+    def maxProbability(
+        self,
+        n: int,
+        edges: List[List[int]],
+        succProb: List[float],
+        start: int,
+        end: int,
+    ) -> float:
         g = defaultdict(list)
         for (a, b), s in zip(edges, succProb):
             g[a].append((b, s))

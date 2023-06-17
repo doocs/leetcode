@@ -91,11 +91,14 @@ class Trie:
             node = node.children[idx]
         return node.is_end
 
+
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
         @cache
         def dfs(s):
-            return not s or any(trie.search(s[:i]) and dfs(s[i:]) for i in range(1, len(s) + 1))
+            return not s or any(
+                trie.search(s[:i]) and dfs(s[i:]) for i in range(1, len(s) + 1)
+            )
 
         trie = Trie()
         for w in wordDict:

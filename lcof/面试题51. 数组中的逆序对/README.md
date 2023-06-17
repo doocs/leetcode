@@ -94,6 +94,7 @@ class BinaryIndexedTree:
             x -= x & -x
         return s
 
+
 class Solution:
     def reversePairs(self, nums: List[int]) -> int:
         alls = sorted(set(nums))

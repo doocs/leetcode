@@ -62,6 +62,7 @@ class Solution:
 #         self.left = None
 #         self.right = None
 
+
 class Solution:
     def maxDepth(self, root: TreeNode) -> int:
         def dfs(root):

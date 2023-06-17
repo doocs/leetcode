@@ -86,7 +86,6 @@ class CombinationIterator:
 
 ```python
 class CombinationIterator:
-
     def __init__(self, characters: str, combinationLength: int):
         self.curr = (1 << len(characters)) - 1
         self.size = combinationLength
