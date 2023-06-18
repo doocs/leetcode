@@ -25,6 +25,13 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 350
+
+- [2739. Total Distance Traveled](/solution/2700-2799/2739.Total%20Distance%20Traveled/README_EN.md)
+- [2740. Find the Value of the Partition](/solution/2700-2799/2740.Find%20the%20Value%20of%20the%20Partition/README_EN.md)
+- [2741. Special Permutations](/solution/2700-2799/2741.Special%20Permutations/README_EN.md)
+- [2742. Painting the Walls](/solution/2700-2799/2742.Painting%20the%20Walls/README_EN.md)
+
 #### Weekly Contest 349
 
 - [2733. Neither Minimum nor Maximum](/solution/2700-2799/2733.Neither%20Minimum%20nor%20Maximum/README_EN.md)

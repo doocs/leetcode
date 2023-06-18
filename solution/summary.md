@@ -2792,3 +2792,7 @@
   - [2736.最大和查询](/solution/2700-2799/2736.Maximum%20Sum%20Queries/README.md)
   - [2737.Find the Closest Marked Node](/solution/2700-2799/2737.Find%20the%20Closest%20Marked%20Node/README.md)
   - [2738.Count Occurrences in Text](/solution/2700-2799/2738.Count%20Occurrences%20in%20Text/README.md)
+  - [2739.总行驶距离](/solution/2700-2799/2739.Total%20Distance%20Traveled/README.md)
+  - [2740.找出分区值](/solution/2700-2799/2740.Find%20the%20Value%20of%20the%20Partition/README.md)
+  - [2741.特别的排列](/solution/2700-2799/2741.Special%20Permutations/README.md)
+  - [2742.给墙壁刷油漆](/solution/2700-2799/2742.Painting%20the%20Walls/README.md)
