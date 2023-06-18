@@ -11,20 +11,17 @@
  */
 
 function detectCycle(head: ListNode | null): ListNode | null {
-    let slow = head,
-        fast = head;
-    while (fast) {
+    let [slow, fast] = [head, head];
+    while (fast && fast.next) {
         slow = slow.next;
-        if (!fast.next) return null;
         fast = fast.next.next;
-
-        if (fast == slow) {
-            let cur = head;
-            while (cur != slow) {
+        if (slow === fast) {
+            let ans = head;
+            while (ans !== slow) {
+                ans = ans.next;
                 slow = slow.next;
-                cur = cur.next;
             }
-            return cur;
+            return ans;
         }
     }
     return null;
