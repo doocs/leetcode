@@ -1,20 +1,21 @@
 class Solution {
     public boolean canPartition(int[] nums) {
+        // int s = Arrays.stream(nums).sum();
         int s = 0;
-        for (int v : nums) {
-            s += v;
+        for (int x : nums) {
+            s += x;
         }
-        if (s % 2 != 0) {
+        if (s % 2 == 1) {
             return false;
         }
-        int n = s >> 1;
-        boolean[] dp = new boolean[n + 1];
-        dp[0] = true;
-        for (int v : nums) {
-            for (int j = n; j >= v; --j) {
-                dp[j] = dp[j] || dp[j - v];
+        int m = s >> 1;
+        boolean[] f = new boolean[m + 1];
+        f[0] = true;
+        for (int x : nums) {
+            for (int j = m; j >= x; --j) {
+                f[j] |= f[j - x];
             }
         }
-        return dp[n];
+        return f[m];
     }
 }

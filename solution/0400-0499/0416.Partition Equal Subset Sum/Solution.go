@@ -1,18 +1,18 @@
 func canPartition(nums []int) bool {
 	s := 0
-	for _, v := range nums {
-		s += v
+	for _, x := range nums {
+		s += x
 	}
-	if s%2 != 0 {
+	if s%2 == 1 {
 		return false
 	}
-	n := s >> 1
-	dp := make([]bool, n+1)
-	dp[0] = true
-	for _, v := range nums {
-		for j := n; j >= v; j-- {
-			dp[j] = dp[j] || dp[j-v]
+	m := s >> 1
+	f := make([]bool, m+1)
+	f[0] = true
+	for _, x := range nums {
+		for j := m; j >= x; j-- {
+			f[j] = f[j] || f[j-x]
 		}
 	}
-	return dp[n]
+	return f[m]
 }
