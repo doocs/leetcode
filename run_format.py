@@ -32,8 +32,12 @@ def remove_header(path: str):
     if path.endswith('.php'):
         content = content.rstrip()
         content = content.replace('<?php\n', '')
-    elif path.endswith('.go') and 'sorting' not in path:
-        content = content.replace('package main\n\n', '').replace('package main\n', '')
+    elif path.endswith('.go'):
+        content = content.rstrip()
+        if 'sorting' not in path:
+            content = content.replace('package main\n\n', '').replace(
+                'package main\n', ''
+            )
     else:
         return
     with open(path, 'w', encoding='utf-8') as f:
@@ -95,20 +99,20 @@ def run():
     """Start formatting"""
     paths = find_all_paths()
 
-    # for path in paths:
-    #     add_header(path)
-    #     if any(path.endswith(suf) for suf in ['c', 'cpp', 'java']):
-    #         # format with clang-format
-    #         os.system(f'npx clang-format -i --style=file "{path}"')
+    for path in paths:
+        add_header(path)
+        if any(path.endswith(suf) for suf in ['c', 'cpp', 'java']):
+            # format with clang-format
+            os.system(f'npx clang-format -i --style=file "{path}"')
 
-    # # format with prettier
-    # os.system('npx prettier --write "**/*.{md,js,ts,php}"')
+    # format with prettier
+    os.system('npx prettier --write "**/*.{md,js,ts,php}"')
 
-    # # format with gofmt
-    # os.system('gofmt -w .')
+    # format with gofmt
+    os.system('gofmt -w .')
 
-    # for path in paths:
-    #     remove_header(path)
+    for path in paths:
+        remove_header(path)
     for path in paths:
         format_inline_code(path)
 

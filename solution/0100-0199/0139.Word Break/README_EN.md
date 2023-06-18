@@ -57,53 +57,47 @@ class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
         words = set(wordDict)
         n = len(s)
-        dp = [False] * (n + 1)
-        dp[0] = True
+        f = [True] + [False] * n
         for i in range(1, n + 1):
-            for j in range(i):
-                if dp[j] and s[j:i] in words:
-                    dp[i] = True
-                    break
-        return dp[-1]
+            f[i] = any(f[j] and s[j:i] in words for j in range(i))
+        return f[n]
 ```
 
 ```python
 class Trie:
     def __init__(self):
-        self.children = [None] * 26
-        self.is_end = False
+        self.children: List[Trie | None] = [None] * 26
+        self.isEnd = False
 
-    def insert(self, w):
+    def insert(self, w: str):
         node = self
         for c in w:
             idx = ord(c) - ord('a')
-            if node.children[idx] is None:
+            if not node.children[idx]:
                 node.children[idx] = Trie()
             node = node.children[idx]
-        node.is_end = True
-
-    def search(self, w):
-        node = self
-        for c in w:
-            idx = ord(c) - ord('a')
-            if node.children[idx] is None:
-                return False
-            node = node.children[idx]
-        return node.is_end
+        node.isEnd = True
 
 
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
-        @cache
-        def dfs(s):
-            return not s or any(
-                trie.search(s[:i]) and dfs(s[i:]) for i in range(1, len(s) + 1)
-            )
-
         trie = Trie()
         for w in wordDict:
             trie.insert(w)
-        return dfs(s)
+        n = len(s)
+        f = [False] * (n + 1)
+        f[n] = True
+        for i in range(n - 1, -1, -1):
+            node = trie
+            for j in range(i, n):
+                idx = ord(s[j]) - ord('a')
+                if not node.children[idx]:
+                    break
+                node = node.children[idx]
+                if node.isEnd and f[j + 1]:
+                    f[i] = True
+                    break
+        return f[0]
 ```
 
 ### **Java**
@@ -113,77 +107,63 @@ class Solution {
     public boolean wordBreak(String s, List<String> wordDict) {
         Set<String> words = new HashSet<>(wordDict);
         int n = s.length();
-        boolean[] dp = new boolean[n + 1];
-        dp[0] = true;
+        boolean[] f = new boolean[n + 1];
+        f[0] = true;
         for (int i = 1; i <= n; ++i) {
             for (int j = 0; j < i; ++j) {
-                if (dp[j] && words.contains(s.substring(j, i))) {
-                    dp[i] = true;
+                if (f[j] && words.contains(s.substring(j, i))) {
+                    f[i] = true;
                     break;
                 }
             }
         }
-        return dp[n];
+        return f[n];
     }
 }
 ```
 
 ```java
-class Trie {
-    Trie[] children = new Trie[26];
-    boolean isEnd;
-
-    void insert(String w) {
-        Trie node = this;
-        for (char c : w.toCharArray()) {
-            c -= 'a';
-            if (node.children[c] == null) {
-                node.children[c] = new Trie();
-            }
-            node = node.children[c];
-        }
-        node.isEnd = true;
-    }
-
-    boolean search(String w) {
-        Trie node = this;
-        for (char c : w.toCharArray()) {
-            c -= 'a';
-            if (node.children[c] == null) {
-                return false;
-            }
-            node = node.children[c];
-        }
-        return node.isEnd;
-    }
-}
-
 class Solution {
-    private Trie trie = new Trie();
-    private Map<String, Boolean> memo = new HashMap<>();
-
     public boolean wordBreak(String s, List<String> wordDict) {
+        Trie trie = new Trie();
         for (String w : wordDict) {
             trie.insert(w);
         }
-        return dfs(s);
-    }
-
-    private boolean dfs(String s) {
-        if (memo.containsKey(s)) {
-            return memo.get(s);
-        }
-        if ("".equals(s)) {
-            return true;
-        }
-        for (int i = 1; i <= s.length(); ++i) {
-            if (trie.search(s.substring(0, i)) && dfs(s.substring(i))) {
-                memo.put(s, true);
-                return true;
+        int n = s.length();
+        boolean[] f = new boolean[n + 1];
+        f[n] = true;
+        for (int i = n - 1; i >= 0; --i) {
+            Trie node = trie;
+            for (int j = i; j < n; ++j) {
+                int k = s.charAt(j) - 'a';
+                if (node.children[k] == null) {
+                    break;
+                }
+                node = node.children[k];
+                if (node.isEnd && f[j + 1]) {
+                    f[i] = true;
+                    break;
+                }
             }
         }
-        memo.put(s, false);
-        return false;
+        return f[0];
+    }
+}
+
+class Trie {
+    Trie[] children = new Trie[26];
+    boolean isEnd = false;
+
+    public void insert(String w) {
+        Trie node = this;
+        for (int i = 0; i < w.length(); ++i) {
+            int j = w.charAt(i) - 'a';
+            if (node.children[j] == null) {
+                node.children[j] = new Trie();
+            }
+            node = node.children[j];
+        }
+        node.isEnd = true;
     }
 }
 ```
@@ -196,28 +176,27 @@ public:
     bool wordBreak(string s, vector<string>& wordDict) {
         unordered_set<string> words(wordDict.begin(), wordDict.end());
         int n = s.size();
-        vector<bool> dp(n + 1);
-        dp[0] = true;
+        bool f[n + 1];
+        memset(f, false, sizeof(f));
+        f[0] = true;
         for (int i = 1; i <= n; ++i) {
             for (int j = 0; j < i; ++j) {
-                if (dp[j] && words.count(s.substr(j, i - j))) {
-                    dp[i] = true;
+                if (f[j] && words.count(s.substr(j, i - j))) {
+                    f[i] = true;
                     break;
                 }
             }
         }
-        return dp[n];
+        return f[n];
     }
 };
 ```
 
 ```cpp
 class Trie {
-private:
+public:
     vector<Trie*> children;
     bool isEnd;
-
-public:
     Trie()
         : children(26)
         , isEnd(false) {}
@@ -231,39 +210,33 @@ public:
         }
         node->isEnd = true;
     }
-
-    bool search(string word) {
-        Trie* node = this;
-        for (char c : word) {
-            c -= 'a';
-            if (!node->children[c]) return false;
-            node = node->children[c];
-        }
-        return node->isEnd;
-    }
 };
 
 class Solution {
 public:
-    Trie* trie = new Trie();
-    unordered_map<string, bool> memo;
-
     bool wordBreak(string s, vector<string>& wordDict) {
-        for (auto w : wordDict) trie->insert(w);
-        return dfs(s);
-    }
-
-    bool dfs(string s) {
-        if (memo.count(s)) return memo[s];
-        if (s == "") return true;
-        for (int i = 1; i <= s.size(); ++i) {
-            if (trie->search(s.substr(0, i)) && dfs(s.substr(i))) {
-                memo[s] = true;
-                return true;
+        Trie trie;
+        for (auto& w : wordDict) {
+            trie.insert(w);
+        }
+        int n = s.size();
+        vector<bool> f(n + 1);
+        f[n] = true;
+        for (int i = n - 1; ~i; --i) {
+            Trie* node = &trie;
+            for (int j = i; j < n; ++j) {
+                int k = s[j] - 'a';
+                if (!node->children[k]) {
+                    break;
+                }
+                node = node->children[k];
+                if (node->isEnd && f[j + 1]) {
+                    f[i] = true;
+                    break;
+                }
             }
         }
-        memo[s] = false;
-        return false;
+        return f[0];
     }
 };
 ```
@@ -272,37 +245,38 @@ public:
 
 ```go
 func wordBreak(s string, wordDict []string) bool {
-	words := make(map[string]bool)
-	for _, word := range wordDict {
-		words[word] = true
+	words := map[string]bool{}
+	for _, w := range wordDict {
+		words[w] = true
 	}
 	n := len(s)
-	dp := make([]bool, n+1)
-	dp[0] = true
+	f := make([]bool, n+1)
+	f[0] = true
 	for i := 1; i <= n; i++ {
 		for j := 0; j < i; j++ {
-			if dp[j] && words[s[j:i]] {
-				dp[i] = true
+			if f[j] && words[s[j:i]] {
+				f[i] = true
 				break
 			}
 		}
 	}
-	return dp[n]
+	return f[n]
 }
 ```
 
 ```go
-type Trie struct {
-	children [26]*Trie
+type trie struct {
+	children [26]*trie
 	isEnd    bool
 }
 
-func newTrie() *Trie {
-	return &Trie{}
+func newTrie() *trie {
+	return &trie{}
 }
-func (this *Trie) insert(word string) {
-	node := this
-	for _, c := range word {
+
+func (t *trie) insert(w string) {
+	node := t
+	for _, c := range w {
 		c -= 'a'
 		if node.children[c] == nil {
 			node.children[c] = newTrie()
@@ -311,16 +285,30 @@ func (this *Trie) insert(word string) {
 	}
 	node.isEnd = true
 }
-func (this *Trie) search(word string) bool {
-	node := this
-	for _, c := range word {
-		c -= 'a'
-		node = node.children[c]
-		if !node.isEnd {
-			return false
+
+func wordBreak(s string, wordDict []string) bool {
+	trie := newTrie()
+	for _, w := range wordDict {
+		trie.insert(w)
+	}
+	n := len(s)
+	f := make([]bool, n+1)
+	f[n] = true
+	for i := n - 1; i >= 0; i-- {
+		node := trie
+		for j := i; j < n; j++ {
+			k := s[j] - 'a'
+			if node.children[k] == nil {
+				break
+			}
+			node = node.children[k]
+			if node.isEnd && f[j+1] {
+				f[i] = true
+				break
+			}
 		}
 	}
-	return true
+	return f[0]
 }
 ```
 
@@ -331,20 +319,137 @@ public class Solution {
     public bool WordBreak(string s, IList<string> wordDict) {
         var words = new HashSet<string>(wordDict);
         int n = s.Length;
-        var dp = new bool[n + 1];
-        dp[0] = true;
-        for (int i = 1; i <= n; ++i)
-        {
-            for (int j = 0; j < i; ++j)
-            {
-                if (dp[j] && words.Contains(s.Substring(j, i - j)))
-                {
-                    dp[i] = true;
+        var f = new bool[n + 1];
+        f[0] = true;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                if (f[j] && words.Contains(s.Substring(j, i - j))) {
+                    f[i] = true;
                     break;
                 }
             }
         }
-        return dp[n];
+        return f[n];
+    }
+}
+```
+
+```cs
+public class Solution {
+    public bool WordBreak(string s, IList<string> wordDict) {
+        Trie trie = new Trie();
+        foreach (string w in wordDict) {
+            trie.Insert(w);
+        }
+        int n = s.Length;
+        bool[] f = new bool[n + 1];
+        f[n] = true;
+        for (int i = n - 1; i >= 0; --i) {
+            Trie node = trie;
+            for (int j = i; j < n; ++j) {
+                int k = s[j] - 'a';
+                if (node.Children[k] == null) {
+                    break;
+                }
+                node = node.Children[k];
+                if (node.IsEnd && f[j + 1]) {
+                    f[i] = true;
+                    break;
+                }
+            }
+        }
+        return f[0];
+    }
+}
+
+class Trie {
+    public Trie[] Children { get; set; }
+    public bool IsEnd { get; set; }
+
+    public Trie() {
+        Children = new Trie[26];
+        IsEnd = false;
+    }
+
+    public void Insert(string word) {
+        Trie node = this;
+        foreach (char c in word) {
+            int i = c - 'a';
+            if (node.Children[i] == null) {
+                node.Children[i] = new Trie();
+            }
+            node = node.Children[i];
+        }
+        node.IsEnd = true;
+    }
+}
+```
+
+### **TypeScript**
+
+```ts
+function wordBreak(s: string, wordDict: string[]): boolean {
+    const words = new Set(wordDict);
+    const n = s.length;
+    const f: boolean[] = new Array(n + 1).fill(false);
+    f[0] = true;
+    for (let i = 1; i <= n; ++i) {
+        for (let j = 0; j < i; ++j) {
+            if (f[j] && words.has(s.substring(j, i))) {
+                f[i] = true;
+                break;
+            }
+        }
+    }
+    return f[n];
+}
+```
+
+```ts
+function wordBreak(s: string, wordDict: string[]): boolean {
+    const trie = new Trie();
+    for (const w of wordDict) {
+        trie.insert(w);
+    }
+    const n = s.length;
+    const f: boolean[] = new Array(n + 1).fill(false);
+    f[n] = true;
+    for (let i = n - 1; i >= 0; --i) {
+        let node: Trie = trie;
+        for (let j = i; j < n; ++j) {
+            const k = s.charCodeAt(j) - 97;
+            if (!node.children[k]) {
+                break;
+            }
+            node = node.children[k];
+            if (node.isEnd && f[j + 1]) {
+                f[i] = true;
+                break;
+            }
+        }
+    }
+    return f[0];
+}
+
+class Trie {
+    children: Trie[];
+    isEnd: boolean;
+
+    constructor() {
+        this.children = new Array(26);
+        this.isEnd = false;
+    }
+
+    insert(w: string): void {
+        let node: Trie = this;
+        for (const c of w) {
+            const i = c.charCodeAt(0) - 97;
+            if (!node.children[i]) {
+                node.children[i] = new Trie();
+            }
+            node = node.children[i];
+        }
+        node.isEnd = true;
     }
 }
 ```
