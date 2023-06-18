@@ -3,7 +3,7 @@ class Solution {
     private int[] cost;
     private int[] time;
     private Integer[][] f;
-    
+
     public int paintWalls(int[] cost, int[] time) {
         n = cost.length;
         this.cost = cost;

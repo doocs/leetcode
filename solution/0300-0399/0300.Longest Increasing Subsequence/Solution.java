@@ -1,26 +1,61 @@
 class Solution {
     public int lengthOfLIS(int[] nums) {
-        int n = nums.length;
-        int[] d = new int[n + 1];
-        d[1] = nums[0];
-        int size = 1;
-        for (int i = 1; i < n; ++i) {
-            if (nums[i] > d[size]) {
-                d[++size] = nums[i];
-            } else {
-                int left = 1, right = size;
-                while (left < right) {
-                    int mid = (left + right) >> 1;
-                    if (d[mid] >= nums[i]) {
-                        right = mid;
-                    } else {
-                        left = mid + 1;
-                    }
-                }
-                int p = d[left] >= nums[i] ? left : 1;
-                d[p] = nums[i];
+        int[] s = nums.clone();
+        Arrays.sort(s);
+        int m = 0;
+        int n = s.length;
+        for (int i = 0; i < n; ++i) {
+            if (i == 0 || s[i] != s[i - 1]) {
+                s[m++] = s[i];
             }
         }
-        return size;
+        BinaryIndexedTree tree = new BinaryIndexedTree(m);
+        int ans = 1;
+        for (int x : nums) {
+            x = search(s, x, m);
+            int t = tree.query(x - 1) + 1;
+            ans = Math.max(ans, t);
+            tree.update(x, t);
+        }
+        return ans;
+    }
+
+    private int search(int[] nums, int x, int r) {
+        int l = 0;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (nums[mid] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l + 1;
+    }
+}
+
+class BinaryIndexedTree {
+    private int n;
+    private int[] c;
+
+    public BinaryIndexedTree(int n) {
+        this.n = n;
+        c = new int[n + 1];
+    }
+
+    public void update(int x, int v) {
+        while (x <= n) {
+            c[x] = Math.max(c[x], v);
+            x += x & -x;
+        }
+    }
+
+    public int query(int x) {
+        int mx = 0;
+        while (x > 0) {
+            mx = Math.max(mx, c[x]);
+            x -= x & -x;
+        }
+        return mx;
     }
 }
