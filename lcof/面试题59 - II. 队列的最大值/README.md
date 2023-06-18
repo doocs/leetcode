@@ -137,7 +137,6 @@ class MaxQueue {
 class MaxQueue {
 public:
     MaxQueue() {
-
     }
 
     int max_value() {

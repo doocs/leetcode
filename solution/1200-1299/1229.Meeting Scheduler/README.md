@@ -61,7 +61,9 @@
 
 ```python
 class Solution:
-    def minAvailableDuration(self, slots1: List[List[int]], slots2: List[List[int]], duration: int) -> List[int]:
+    def minAvailableDuration(
+        self, slots1: List[List[int]], slots2: List[List[int]], duration: int
+    ) -> List[int]:
         slots1.sort()
         slots2.sort()
         m, n = len(slots1), len(slots2)

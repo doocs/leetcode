@@ -86,13 +86,11 @@ String[] strs = decoder.decode(msg);
 ```python
 class Codec:
     def encode(self, strs: List[str]) -> str:
-        """Encodes a list of strings to a single string.
-        """
+        """Encodes a list of strings to a single string."""
         return chr(257).join(strs)
 
     def decode(self, s: str) -> List[str]:
-        """Decodes a single string to a list of strings.
-        """
+        """Decodes a single string to a list of strings."""
         return s.split(chr(257))
 
 
@@ -104,22 +102,20 @@ class Codec:
 ```python
 class Codec:
     def encode(self, strs: List[str]) -> str:
-        """Encodes a list of strings to a single string.
-        """
+        """Encodes a list of strings to a single string."""
         ans = []
         for s in strs:
             ans.append('{:4}'.format(len(s)) + s)
         return ''.join(ans)
 
     def decode(self, s: str) -> List[str]:
-        """Decodes a single string to a list of strings.
-        """
+        """Decodes a single string to a list of strings."""
         ans = []
         i, n = 0, len(s)
         while i < n:
-            size = int(s[i: i + 4])
+            size = int(s[i : i + 4])
             i += 4
-            ans.append(s[i: i + size])
+            ans.append(s[i : i + size])
             i += size
         return ans
 
@@ -166,13 +162,12 @@ public class Codec {
 ```cpp
 class Codec {
 public:
-
     // Encodes a list of strings to a single string.
     string encode(vector<string>& strs) {
         string ans;
         for (string s : strs) {
             int size = s.size();
-            ans += string((const char*)& size, sizeof(size));
+            ans += string((const char*) &size, sizeof(size));
             ans += s;
         }
         return ans;

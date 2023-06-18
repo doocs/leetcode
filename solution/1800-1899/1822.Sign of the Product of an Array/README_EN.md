@@ -162,7 +162,7 @@ impl Solution {
 ### **C**
 
 ```c
-int arraySign(int *nums, int numsSize) {
+int arraySign(int* nums, int numsSize) {
     int ans = 1;
     for (int i = 0; i < numsSize; i++) {
         if (nums[i] == 0) {

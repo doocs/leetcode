@@ -1,12 +1,12 @@
 class Solution {
     public int maxProduct(int[] nums) {
-        int maxf = nums[0], minf = nums[0], res = nums[0];
+        int f = nums[0], g = nums[0], ans = nums[0];
         for (int i = 1; i < nums.length; ++i) {
-            int m = maxf, n = minf;
-            maxf = Math.max(nums[i], Math.max(m * nums[i], n * nums[i]));
-            minf = Math.min(nums[i], Math.min(m * nums[i], n * nums[i]));
-            res = Math.max(res, maxf);
+            int ff = f, gg = g;
+            f = Math.max(nums[i], Math.max(ff * nums[i], gg * nums[i]));
+            g = Math.min(nums[i], Math.min(ff * nums[i], gg * nums[i]));
+            ans = Math.max(ans, f);
         }
-        return res;
+        return ans;
     }
 }

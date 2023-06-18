@@ -69,8 +69,7 @@ User 14 did not login in 2020, so we do not include them in the result table.
 SELECT
     user_id,
     MAX(time_stamp) AS last_stamp
-FROM
-    Logins
+FROM Logins
 WHERE YEAR(time_stamp) = 2020
 GROUP BY user_id;
 ```

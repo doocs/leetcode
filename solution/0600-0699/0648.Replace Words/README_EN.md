@@ -165,7 +165,8 @@ private:
     int ref;
 
 public:
-    Trie(): ref(-1) {
+    Trie()
+        : ref(-1) {
         memset(children, 0, sizeof(children));
     }
 

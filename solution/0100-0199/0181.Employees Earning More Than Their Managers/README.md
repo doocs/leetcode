@@ -61,24 +61,24 @@ Employee 表:
 ### **SQL**
 
 ```sql
-select Name as Employee
-from Employee Curr
-where Salary > (
-        select Salary
-        from Employee
-        where Id = Curr.ManagerId
-    )
+SELECT Name AS Employee
+FROM Employee AS Curr
+WHERE
+    Salary > (
+        SELECT Salary
+        FROM Employee
+        WHERE Id = Curr.ManagerId
+    );
 ```
 
 ```sql
 # Write your MySQL query statement below
-select
-    e1.name Employee
-from
-    Employee e1
-    join Employee e2 on e1.managerId = e2.id
-where
-    e1.salary > e2.salary
+SELECT
+    e1.name AS Employee
+FROM
+    Employee AS e1
+    JOIN Employee AS e2 ON e1.managerId = e2.id
+WHERE e1.salary > e2.salary;
 ```
 
 <!-- tabs:end -->

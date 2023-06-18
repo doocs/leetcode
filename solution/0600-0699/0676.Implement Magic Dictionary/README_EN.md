@@ -79,14 +79,13 @@ class MagicDictionary:
 
 ```python
 class MagicDictionary:
-
     def __init__(self):
         """
         Initialize your data structure here.
         """
 
     def gen(self, word):
-        return [word[:i] + '*' + word[i + 1:] for i in range(len(word))]
+        return [word[:i] + '*' + word[i + 1 :] for i in range(len(word))]
 
     def buildDict(self, dictionary: List[str]) -> None:
         self.s = set(dictionary)
@@ -112,7 +111,6 @@ class MagicDictionary {
     private String[] d;
 
     public MagicDictionary() {
-
     }
 
     public void buildDict(String[] dictionary) {
@@ -233,20 +231,17 @@ class MagicDictionary {
 public:
     /** Initialize your data structure here. */
     MagicDictionary() {
-
     }
 
     void buildDict(vector<string> dictionary) {
-        for (string word : dictionary)
-        {
+        for (string word : dictionary) {
             s.insert(word);
             for (string p : gen(word)) ++cnt[p];
         }
     }
 
     bool search(string searchWord) {
-        for (string p : gen(searchWord))
-        {
+        for (string p : gen(searchWord)) {
             if (cnt[p] > 1 || (cnt[p] == 1 && !s.count(searchWord))) return true;
         }
         return false;
@@ -258,8 +253,7 @@ private:
 
     vector<string> gen(string word) {
         vector<string> res;
-        for (int i = 0; i < word.size(); ++i)
-        {
+        for (int i = 0; i < word.size(); ++i) {
             char c = word[i];
             word[i] = '*';
             res.push_back(word);

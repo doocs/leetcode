@@ -205,7 +205,7 @@ class Solution {
 public:
     int deepestLeavesSum(TreeNode* root) {
         int ans = 0;
-        queue<TreeNode*> q {{root}};
+        queue<TreeNode*> q{{root}};
         while (!q.empty()) {
             ans = 0;
             for (int n = q.size(); n; --n) {
@@ -331,7 +331,6 @@ func deepestLeavesSum(root *TreeNode) int {
  * };
  */
 
-
 void dfs(struct TreeNode* root, int depth, int* maxDepth, int* res) {
     if (!root->left && !root->right) {
         if (depth == *maxDepth) {
@@ -350,7 +349,7 @@ void dfs(struct TreeNode* root, int depth, int* maxDepth, int* res) {
     }
 }
 
-int deepestLeavesSum(struct TreeNode* root){
+int deepestLeavesSum(struct TreeNode* root) {
     int res = 0;
     int maxDepth = 0;
     dfs(root, 0, &maxDepth, &res);

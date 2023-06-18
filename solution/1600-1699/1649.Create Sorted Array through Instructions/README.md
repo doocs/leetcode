@@ -132,7 +132,7 @@ class Solution:
         m = max(instructions)
         tree = BinaryIndexedTree(m)
         ans = 0
-        mod = 10 ** 9 + 7
+        mod = 10**9 + 7
         for i, x in enumerate(instructions):
             cost = min(tree.query(x - 1), i - tree.query(x))
             ans += cost
@@ -148,6 +148,7 @@ class Node:
         self.l = 0
         self.r = 0
         self.v = 0
+
 
 class SegmentTree:
     def __init__(self, n):
@@ -187,6 +188,7 @@ class SegmentTree:
         if r > mid:
             v += self.query(u << 1 | 1, l, r)
         return v
+
 
 class Solution:
     def createSortedArray(self, instructions: List[int]) -> int:
@@ -417,14 +419,15 @@ public:
     }
 
     void modify(int u, int x, int v) {
-        if (tr[u]->l == x && tr[u]->r == x)
-        {
+        if (tr[u]->l == x && tr[u]->r == x) {
             tr[u]->v += v;
             return;
         }
         int mid = (tr[u]->l + tr[u]->r) >> 1;
-        if (x <= mid) modify(u << 1, x, v);
-        else modify(u << 1 | 1, x, v);
+        if (x <= mid)
+            modify(u << 1, x, v);
+        else
+            modify(u << 1 | 1, x, v);
         pushup(u);
     }
 
@@ -449,8 +452,7 @@ public:
         int mod = 1e9 + 7;
         SegmentTree* tree = new SegmentTree(n);
         int ans = 0;
-        for (int num : instructions)
-        {
+        for (int num : instructions) {
             int a = tree->query(1, 1, num - 1);
             int b = tree->query(1, 1, n) - tree->query(1, 1, num);
             ans += min(a, b);

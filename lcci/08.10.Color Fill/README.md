@@ -112,7 +112,8 @@ class Solution {
     }
 
     private void dfs(int i, int j) {
-        if (i < 0 || i >= image.length || j < 0 || j >= image[0].length || image[i][j] != oc || image[i][j] == nc) {
+        if (i < 0 || i >= image.length || j < 0 || j >= image[0].length || image[i][j] != oc
+            || image[i][j] == nc) {
             return;
         }
         image[i][j] = nc;

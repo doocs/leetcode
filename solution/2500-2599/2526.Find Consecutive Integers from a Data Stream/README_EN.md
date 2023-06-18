@@ -50,7 +50,6 @@ dataStream.consec(3); // The last k integers parsed in the stream are [4,4,3].
 
 ```python
 class DataStream:
-
     def __init__(self, value: int, k: int):
         self.val, self.k = value, k
         self.cnt = 0

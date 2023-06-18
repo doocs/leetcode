@@ -187,7 +187,7 @@ class Solution {
             for (int t = q.size(); t > 0; --t) {
                 var p = q.pollFirst();
                 int i = p[0], j = p[1] + 1;
-                if (j ==  words[i].length()) {
+                if (j == words[i].length()) {
                     ++ans;
                 } else {
                     d[words[i].charAt(j) - 'a'].offer(new int[] {i, j});
@@ -259,8 +259,10 @@ public:
             for (int k = q.size(); k; --k) {
                 auto t = q.front();
                 q.pop();
-                if (t.size() == 1) ++ans;
-                else d[t[1] - 'a'].emplace(t.substr(1));
+                if (t.size() == 1)
+                    ++ans;
+                else
+                    d[t[1] - 'a'].emplace(t.substr(1));
             }
         }
         return ans;
@@ -280,8 +282,10 @@ public:
             for (int t = q.size(); t; --t) {
                 auto [i, j] = q.front();
                 q.pop();
-                if (++j == words[i].size()) ++ans;
-                else d[words[i][j] - 'a'].emplace(i, j);
+                if (++j == words[i].size())
+                    ++ans;
+                else
+                    d[words[i][j] - 'a'].emplace(i, j);
             }
         }
         return ans;

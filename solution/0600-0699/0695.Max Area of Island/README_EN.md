@@ -81,10 +81,18 @@ class Solution:
                 if grid[i][j] == 1:
                     for a, b in [[0, 1], [1, 0]]:
                         x, y = i + a, j + b
-                        if 0 <= x < m and 0 <= y < n and grid[x][y] == 1 and find(i * n + j) != find(x * n + y):
+                        if (
+                            0 <= x < m
+                            and 0 <= y < n
+                            and grid[x][y] == 1
+                            and find(i * n + j) != find(x * n + y)
+                        ):
                             size[find(x * n + y)] += size[find(i * n + j)]
                             p[find(i * n + j)] = find(x * n + y)
-        return max([size[i * n + j] for i in range(m) for j in range(n) if grid[i][j] == 1], default=0)
+        return max(
+            [size[i * n + j] for i in range(m) for j in range(n) if grid[i][j] == 1],
+            default=0,
+        )
 ```
 
 ### **Java**
@@ -315,18 +323,13 @@ public:
         size.resize(m * n, 1);
         for (int i = 0; i < p.size(); ++i) p[i] = i;
         vector<int> dirs = {0, 1, 0};
-        for (int i = 0; i < m; ++i)
-        {
-            for (int j = 0; j < n; ++j)
-            {
-                if (grid[i][j])
-                {
-                    for (int k = 0; k < 2; ++k)
-                    {
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j]) {
+                    for (int k = 0; k < 2; ++k) {
                         int x = i + dirs[k];
                         int y = j + dirs[k + 1];
-                        if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] && find(i * n + j) != find(x * n + y))
-                        {
+                        if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] && find(i * n + j) != find(x * n + y)) {
                             size[find(x * n + y)] += size[find(i * n + j)];
                             p[find(i * n + j)] = find(x * n + y);
                         }

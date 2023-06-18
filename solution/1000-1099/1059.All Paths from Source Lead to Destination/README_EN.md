@@ -59,7 +59,9 @@
 
 ```python
 class Solution:
-    def leadsToDestination(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
+    def leadsToDestination(
+        self, n: int, edges: List[List[int]], source: int, destination: int
+    ) -> bool:
         @cache
         def dfs(i):
             if i == destination:

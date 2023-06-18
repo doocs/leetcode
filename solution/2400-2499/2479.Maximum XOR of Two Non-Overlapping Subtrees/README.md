@@ -226,7 +226,7 @@ public:
     vector<Trie*> children;
     string v;
     Trie()
-        : children(2) { }
+        : children(2) {}
 
     void insert(ll x) {
         Trie* node = this;

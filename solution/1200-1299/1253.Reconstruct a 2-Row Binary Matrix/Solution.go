@@ -20,7 +20,7 @@ func reconstructMatrix(upper int, lower int, colsum []int) [][]int {
 			}
 		}
 		if upper < 0 || lower < 0 {
-			return [][]int{}
+			break
 		}
 	}
 	if upper != 0 || lower != 0 {

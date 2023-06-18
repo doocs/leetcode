@@ -69,13 +69,13 @@ For 2020-12-7, toyota gets leads = [0] and partners = [1, 2] while honda gets le
 ### **SQL**
 
 ```sql
-SELECT date_id,
+SELECT
+    date_id,
     make_name,
     COUNT(DISTINCT lead_id) AS unique_leads,
     COUNT(DISTINCT partner_id) AS unique_partners
 FROM DailySales
-GROUP BY date_id,
-    make_name;
+GROUP BY date_id, make_name;
 ```
 
 <!-- tabs:end -->

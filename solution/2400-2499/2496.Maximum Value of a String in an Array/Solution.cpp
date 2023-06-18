@@ -2,15 +2,19 @@ class Solution {
 public:
     int maximumValue(vector<string>& strs) {
         auto f = [](string& s) {
-            int n = s.size(), m = 0;
+            int x = 0;
             for (char& c : s) {
-                if (!isdigit(c)) return n;
-                m = m * 10 + (c - '0');
+                if (!isdigit(c)) {
+                    return (int) s.size();
+                }
+                x = x * 10 + c - '0';
             }
-            return m;
+            return x;
         };
         int ans = 0;
-        for (auto& s : strs) ans = max(ans, f(s));
+        for (auto& s : strs) {
+            ans = max(ans, f(s));
+        }
         return ans;
     }
 };

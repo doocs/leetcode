@@ -63,8 +63,7 @@ class Solution:
             return False
 
         n = len(s)
-        f = list(accumulate((abs(ord(a) - ord(b))
-                 for a, b in zip(s, t)), initial=0))
+        f = list(accumulate((abs(ord(a) - ord(b)) for a, b in zip(s, t)), initial=0))
         l, r = 0, n
         while l < r:
             mid = (l + r + 1) >> 1

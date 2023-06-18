@@ -115,6 +115,7 @@ class BinaryIndexedTree:
             x -= BinaryIndexedTree.lowbit(x)
         return s
 
+
 class Solution:
     def processQueries(self, queries: List[int], m: int) -> List[int]:
         n = len(queries)
@@ -245,11 +246,12 @@ public:
     int n;
     vector<int> c;
 
-    BinaryIndexedTree(int _n): n(_n), c(_n + 1){}
+    BinaryIndexedTree(int _n)
+        : n(_n)
+        , c(_n + 1) {}
 
     void update(int x, int delta) {
-        while (x <= n)
-        {
+        while (x <= n) {
             c[x] += delta;
             x += lowbit(x);
         }
@@ -257,8 +259,7 @@ public:
 
     int query(int x) {
         int s = 0;
-        while (x > 0)
-        {
+        while (x > 0) {
             s += c[x];
             x -= lowbit(x);
         }
@@ -276,14 +277,12 @@ public:
         int n = queries.size();
         vector<int> pos(m + 1);
         BinaryIndexedTree* tree = new BinaryIndexedTree(m + n);
-        for (int i = 1; i <= m; ++i)
-        {
+        for (int i = 1; i <= m; ++i) {
             pos[i] = n + i;
             tree->update(n + i, 1);
         }
         vector<int> ans;
-        for (int i = 0; i < n; ++i)
-        {
+        for (int i = 0; i < n; ++i) {
             int v = queries[i];
             int j = pos[v];
             tree->update(j, -1);

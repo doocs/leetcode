@@ -111,17 +111,17 @@ public:
 
 ```go
 func maximumWealth(accounts [][]int) int {
-    ans := 0
-    for _, e := range accounts {
-        s := 0
-        for _, v := range e {
-            s += v
-        }
-        if ans < s {
-            ans = s
-        }
-    }
-    return ans
+	ans := 0
+	for _, e := range accounts {
+		s := 0
+		for _, v := range e {
+			s += v
+		}
+		if ans < s {
+			ans = s
+		}
+	}
+	return ans
 }
 ```
 
@@ -159,7 +159,7 @@ impl Solution {
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 
-int maximumWealth(int **accounts, int accountsSize, int *accountsColSize) {
+int maximumWealth(int** accounts, int accountsSize, int* accountsColSize) {
     int ans = INT_MIN;
     for (int i = 0; i < accountsSize; i++) {
         int sum = 0;

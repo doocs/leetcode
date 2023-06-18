@@ -98,6 +98,7 @@ class UnionFind:
                 self.p[pa] = pb
                 self.size[pb] += self.size[pa]
 
+
 class Solution:
     def maximumMinimumPath(self, grid: List[List[int]]) -> int:
         m, n = len(grid), len(grid[0])

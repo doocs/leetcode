@@ -71,6 +71,7 @@
 # 初始化，p存储每个点的父节点
 p = list(range(n))
 
+
 # 返回x的祖宗节点
 def find(x):
     if p[x] != x:
@@ -90,12 +91,14 @@ p[find(a)] = find(b)
 p = list(range(n))
 size = [1] * n
 
+
 # 返回x的祖宗节点
 def find(x):
     if p[x] != x:
         # 路径压缩
         p[x] = find(p[x])
     return p[x]
+
 
 # 合并a和b所在的两个集合
 if find(a) != find(b):
@@ -110,6 +113,7 @@ if find(a) != find(b):
 p = list(range(n))
 d = [0] * n
 
+
 # 返回x的祖宗节点
 def find(x):
     if p[x] != x:
@@ -117,6 +121,7 @@ def find(x):
         d[x] += d[p[x]]
         p[x] = t
     return p[x]
+
 
 # 合并a和b所在的两个集合
 p[find(a)] = find(b)
@@ -131,7 +136,9 @@ d[find(a)] = distance
 
 ```python
 class Solution:
-    def calcEquation(self, equations: List[List[str]], values: List[float], queries: List[List[str]]) -> List[float]:
+    def calcEquation(
+        self, equations: List[List[str]], values: List[float], queries: List[List[str]]
+    ) -> List[float]:
         def find(x):
             if p[x] != x:
                 origin = p[x]
@@ -150,7 +157,10 @@ class Solution:
                 continue
             p[pa] = pb
             w[pa] = w[b] * v / w[a]
-        return [-1 if c not in p or d not in p or find(c) != find(d) else w[c] / w[d] for c, d in queries]
+        return [
+            -1 if c not in p or d not in p or find(c) != find(d) else w[c] / w[d]
+            for c, d in queries
+        ]
 ```
 
 ### **Java**

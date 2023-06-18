@@ -130,7 +130,7 @@ public:
         int n0 = 0;
         for (char c : s)
             if (c == '0') ++n0;
-        return {n0, (int)s.size() - n0};
+        return {n0, (int) s.size() - n0};
     }
 };
 ```

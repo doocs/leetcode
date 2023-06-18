@@ -78,7 +78,9 @@ class Solution:
 
 ```python
 class Solution:
-    def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, k: int) -> int:
+    def findCheapestPrice(
+        self, n: int, flights: List[List[int]], src: int, dst: int, k: int
+    ) -> int:
         @cache
         def dfs(u, k):
             if u == dst:

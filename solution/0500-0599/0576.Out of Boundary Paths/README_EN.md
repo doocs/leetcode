@@ -41,7 +41,9 @@
 
 ```python
 class Solution:
-    def findPaths(self, m: int, n: int, maxMove: int, startRow: int, startColumn: int) -> int:
+    def findPaths(
+        self, m: int, n: int, maxMove: int, startRow: int, startColumn: int
+    ) -> int:
         @cache
         def dfs(i, j, k):
             if i < 0 or j < 0 or i >= m or j >= n:

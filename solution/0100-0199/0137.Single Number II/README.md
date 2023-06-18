@@ -262,7 +262,7 @@ impl Solution {
 ### **C**
 
 ```c
-int singleNumber(int *nums, int numsSize) {
+int singleNumber(int* nums, int numsSize) {
     int ans = 0;
     for (int i = 0; i < 32; i++) {
         int count = 0;
@@ -271,7 +271,7 @@ int singleNumber(int *nums, int numsSize) {
                 count++;
             }
         }
-        ans |= (uint)(count % 3) << i;
+        ans |= (uint) (count % 3) << i;
     }
     return ans;
 }

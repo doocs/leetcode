@@ -87,7 +87,7 @@ class Solution:
             d2, pi2, pj2 = dfs(m + 1, r)
             if d1 > d2 or (d1 == d2 and (pi1 > pi2 or (pi1 == pi2 and pj1 > pj2))):
                 d1, pi1, pj1 = d2, pi2, pj2
-            t = [p for p in points[l: r + 1] if abs(p[0] - x) <= d1]
+            t = [p for p in points[l : r + 1] if abs(p[0] - x) <= d1]
             t.sort(key=lambda x: x[1])
             for i in range(len(t)):
                 for j in range(i + 1, len(t)):

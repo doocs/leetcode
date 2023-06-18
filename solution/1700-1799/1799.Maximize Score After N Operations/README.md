@@ -95,7 +95,10 @@ class Solution:
                     if k >> i & 1:
                         for j in range(i + 1, m):
                             if k >> j & 1:
-                                f[k] = max(f[k], f[k ^ (1 << i) ^ (1 << j)] + cnt // 2 * g[i][j])
+                                f[k] = max(
+                                    f[k],
+                                    f[k ^ (1 << i) ^ (1 << j)] + cnt // 2 * g[i][j],
+                                )
         return f[-1]
 ```
 

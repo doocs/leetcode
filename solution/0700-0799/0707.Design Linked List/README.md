@@ -98,7 +98,6 @@ myLinkedList.get(1);              // 返回 3
 
 ```python
 class MyLinkedList:
-
     def __init__(self):
         self.dummy = ListNode()
         self.cnt = 0
@@ -149,7 +148,6 @@ class MyLinkedList:
 
 ```python
 class MyLinkedList:
-
     def __init__(self):
         self.e = [0] * 1010
         self.ne = [0] * 1010
@@ -222,7 +220,6 @@ class MyLinkedList {
     private int cnt;
 
     public MyLinkedList() {
-
     }
 
     public int get(int index) {

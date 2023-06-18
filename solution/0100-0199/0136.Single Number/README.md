@@ -105,7 +105,9 @@ class Solution {
 public:
     int singleNumber(vector<int>& nums) {
         int ans = 0;
-        for (int v : nums) ans ^= v;
+        for (int v : nums) {
+            ans ^= v;
+        }
         return ans;
     }
 };
@@ -130,11 +132,7 @@ func singleNumber(nums []int) (ans int) {
  * @return {number}
  */
 var singleNumber = function (nums) {
-    let ans = 0;
-    for (const v of nums) {
-        ans ^= v;
-    }
-    return ans;
+    return nums.reduce((a, b) => a ^ b);
 };
 ```
 
@@ -159,7 +157,7 @@ impl Solution {
 ### **C**
 
 ```c
-int singleNumber(int *nums, int numsSize) {
+int singleNumber(int* nums, int numsSize) {
     int ans = 0;
     for (int i = 0; i < numsSize; i++) {
         ans ^= nums[i];
@@ -173,14 +171,17 @@ int singleNumber(int *nums, int numsSize) {
 ```swift
 class Solution {
     func singleNumber(_ nums: [Int]) -> Int {
-        var a = nums.sorted()
-        var n = a.count
-        for i in stride(from: 0, through: n - 2, by: 2) {
-            if a[i] != a[i + 1] {
-                return a[i]
-            }
-        }
-        return a[n - 1]
+        return nums.reduce(0, ^)
+    }
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int SingleNumber(int[] nums) {
+        return nums.Aggregate(0, (a, b) => a ^ b);
     }
 }
 ```

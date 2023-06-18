@@ -107,20 +107,18 @@ Morocco 11 月的平均 weather_state 为 (25 + 27 + 31) / 3 = 27.667 所以天�
 
 ```sql
 # Write your MySQL query statement below
-select
+SELECT
     country_name,
-    case
-        when avg(weather_state) <= 15 then 'Cold'
-        when avg(weather_state) >= 25 then 'Hot'
-        else 'Warm'
-    end weather_type
-from
-    Weather w
-    join Countries c on w.country_id = c.country_id
-where
-    date_format(day, '%Y-%m') = '2019-11'
-group by
-    w.country_id
+    CASE
+        WHEN avg(weather_state) <= 15 THEN 'Cold'
+        WHEN avg(weather_state) >= 25 THEN 'Hot'
+        ELSE 'Warm'
+    END AS weather_type
+FROM
+    Weather AS w
+    JOIN Countries AS c ON w.country_id = c.country_id
+WHERE date_format(day, '%Y-%m') = '2019-11'
+GROUP BY w.country_id;
 ```
 
 <!-- tabs:end -->

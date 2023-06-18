@@ -82,6 +82,7 @@ Flood fill 算法是从一个区域中提取若干个连通的点与其他相邻
 p = list(range(n))
 size = [1] * n
 
+
 def find(x):
     if p[x] != x:
         # 路径压缩
@@ -175,7 +176,11 @@ class Solution:
                         x, y = i + a, j + b
                         if x < m and y < n and grid[x][y] == '1':
                             p[find(i * n + j)] = find(x * n + y)
-        return sum(grid[i][j] == '1' and i * n + j == find(i * n + j) for i in range(m) for j in range(n))
+        return sum(
+            grid[i][j] == '1' and i * n + j == find(i * n + j)
+            for i in range(m)
+            for j in range(n)
+        )
 ```
 
 ### **Java**
@@ -247,7 +252,7 @@ class Solution {
     private void bfs(int i, int j) {
         grid[i][j] = '0';
         Deque<int[]> q = new ArrayDeque<>();
-        q.offer(new int[]{i, j});
+        q.offer(new int[] {i, j});
         int[] dirs = {-1, 0, 1, 0, -1};
         while (!q.isEmpty()) {
             int[] p = q.poll();
@@ -255,7 +260,7 @@ class Solution {
                 int x = p[0] + dirs[k];
                 int y = p[1] + dirs[k + 1];
                 if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == '1') {
-                    q.offer(new int[]{x, y});
+                    q.offer(new int[] {x, y});
                     grid[x][y] = '0';
                 }
             }

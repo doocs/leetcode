@@ -114,8 +114,10 @@ public:
         string ans;
         for (int i = 0; i < command.size(); ++i) {
             char c = command[i];
-            if (c == 'G') ans += c;
-            else if (c == '(') ans += command[i + 1] == ')' ? "o" : "al";
+            if (c == 'G')
+                ans += c;
+            else if (c == '(')
+                ans += command[i + 1] == ')' ? "o" : "al";
         }
         return ans;
     }
@@ -126,9 +128,9 @@ public:
 
 ```go
 func interpret(command string) string {
-    command = strings.ReplaceAll(command, "()", "o")
-    command = strings.ReplaceAll(command, "(al)", "al")
-    return command
+	command = strings.ReplaceAll(command, "()", "o")
+	command = strings.ReplaceAll(command, "(al)", "al")
+	return command
 }
 ```
 
@@ -211,9 +213,9 @@ impl Solution {
 ### **C**
 
 ```c
-char *interpret(char *command) {
+char* interpret(char* command) {
     int n = strlen(command);
-    char *ans = malloc(sizeof(char) * n + 1);
+    char* ans = malloc(sizeof(char) * n + 1);
     int i = 0;
     for (int j = 0; j < n; j++) {
         char c = command[j];

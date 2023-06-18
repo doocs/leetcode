@@ -91,7 +91,7 @@ class Solution {
 public:
     double maxAverageRatio(vector<vector<int>>& classes, int extraStudents) {
         priority_queue<tuple<double, int, int>> pq;
-        for(auto& e : classes) {
+        for (auto& e : classes) {
             int a = e[0], b = e[1];
             double x = (double) (a + 1) / (b + 1) - (double) a / b;
             pq.push({x, a, b});

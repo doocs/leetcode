@@ -153,7 +153,7 @@ public:
             }
             return;
         }
-        for (int i = 1; i < min(4, (int)s.size() + 1); ++i) {
+        for (int i = 1; i < min(4, (int) s.size() + 1); ++i) {
             string c = s.substr(0, i);
             if (check(c)) {
                 t.push_back(c);

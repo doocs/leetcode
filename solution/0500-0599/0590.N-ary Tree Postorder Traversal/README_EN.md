@@ -239,8 +239,7 @@ public:
         vector<int> ans;
         if (!root) return ans;
         stack<Node*> stk{{root}};
-        while (!stk.empty())
-        {
+        while (!stk.empty()) {
             root = stk.top();
             ans.push_back(root->val);
             stk.pop();

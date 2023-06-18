@@ -132,8 +132,6 @@ class Solution {
 ### **C++**
 
 ```cpp
-using pii = pair<int, int>;
-
 class Solution {
 public:
     int minNumberOfSemesters(int n, vector<vector<int>>& relations, int k) {
@@ -141,7 +139,7 @@ public:
         for (auto& e : relations) {
             d[e[1]] |= 1 << e[0];
         }
-        queue<pii> q;
+        queue<pair<int, int>> q;
         q.push({0, 0});
         unordered_set<int> vis{{0}};
         while (!q.empty()) {

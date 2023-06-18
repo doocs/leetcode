@@ -1,22 +1,18 @@
 # Write your MySQL query statement below
-with t as (
-    select
-        *,
-        row_number() over(
-            partition by company
-            order by
-                salary asc
-        ) rk,
-        count(id) over(partition by company) n
-    from
-        Employee
-)
-select
+WITH
+    t AS (
+        SELECT
+            *,
+            row_number() OVER (
+                PARTITION BY company
+                ORDER BY salary ASC
+            ) AS rk,
+            count(id) OVER (PARTITION BY company) AS n
+        FROM Employee
+    )
+SELECT
     id,
     company,
     salary
-from
-    t
-where
-    rk >= n / 2
-    and rk <= n / 2 + 1;
+FROM t
+WHERE rk >= n / 2 AND rk <= n / 2 + 1;

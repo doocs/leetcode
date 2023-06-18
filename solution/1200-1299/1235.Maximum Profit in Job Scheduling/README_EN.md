@@ -59,7 +59,9 @@ Profit obtained 150 = 20 + 70 + 60.
 
 ```python
 class Solution:
-    def jobScheduling(self, startTime: List[int], endTime: List[int], profit: List[int]) -> int:
+    def jobScheduling(
+        self, startTime: List[int], endTime: List[int], profit: List[int]
+    ) -> int:
         @cache
         def dfs(i):
             if i >= n:
@@ -75,7 +77,9 @@ class Solution:
 
 ```python
 class Solution:
-    def jobScheduling(self, startTime: List[int], endTime: List[int], profit: List[int]) -> int:
+    def jobScheduling(
+        self, startTime: List[int], endTime: List[int], profit: List[int]
+    ) -> int:
         @cache
         def dfs(i: int) -> int:
             if i >= n:
@@ -90,7 +94,9 @@ class Solution:
 
 ```python
 class Solution:
-    def jobScheduling(self, startTime: List[int], endTime: List[int], profit: List[int]) -> int:
+    def jobScheduling(
+        self, startTime: List[int], endTime: List[int], profit: List[int]
+    ) -> int:
         jobs = sorted(zip(endTime, startTime, profit))
         n = len(profit)
         dp = [0] * (n + 1)

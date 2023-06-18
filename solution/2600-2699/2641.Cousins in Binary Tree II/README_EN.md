@@ -73,8 +73,9 @@ class Solution:
         def dfs2(root, d):
             if root is None:
                 return
-            t = (root.left.val if root.left else 0) + \
-                (root.right.val if root.right else 0)
+            t = (root.left.val if root.left else 0) + (
+                root.right.val if root.right else 0
+            )
             if root.left:
                 root.left.val = s[d] - t
             if root.right:
@@ -112,7 +113,9 @@ class Solution:
                     q.append(node.right)
                     s += node.right.val
             for node in p:
-                t = (node.left.val if node.left else 0) + (node.right.val if node.right else 0)
+                t = (node.left.val if node.left else 0) + (
+                    node.right.val if node.right else 0
+                )
                 if node.left:
                     node.left.val = s - t
                 if node.right:

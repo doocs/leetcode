@@ -82,7 +82,7 @@ class BST:
             if self.cnt[node.left] == k - 1:
                 return node.val
             if self.cnt[node.left] < k - 1:
-                k -= (self.cnt[node.left] + 1)
+                k -= self.cnt[node.left] + 1
                 node = node.right
             else:
                 node = node.left
@@ -248,22 +248,21 @@ public:
  */
 class BST {
 public:
-    BST(TreeNode* root) : root(root) {
+    BST(TreeNode* root)
+        : root(root) {
         count(root);
     }
 
     int kthSmallest(int k) {
         TreeNode* node = root;
-        while (node)
-        {
+        while (node) {
             int v = !node->left ? 0 : cnt[node->left];
             if (v == k - 1) return node->val;
-            if (v < k - 1)
-            {
+            if (v < k - 1) {
                 node = node->right;
                 k -= (v + 1);
-            }
-            else node = node->left;
+            } else
+                node = node->left;
         }
         return 0;
     }

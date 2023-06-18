@@ -62,7 +62,6 @@ parkingSystem.addCar(1); // 返回 false ，因为没有空的大车位，唯一
 
 ```python
 class ParkingSystem:
-
     def __init__(self, big: int, medium: int, small: int):
         self.cnt = [0, big, medium, small]
 
@@ -224,12 +223,11 @@ impl ParkingSystem {
 
 ```c
 typedef struct {
-    int *count;
+    int* count;
 } ParkingSystem;
 
-
-ParkingSystem *parkingSystemCreate(int big, int medium, int small) {
-    ParkingSystem *res = malloc(sizeof(ParkingSystem));
+ParkingSystem* parkingSystemCreate(int big, int medium, int small) {
+    ParkingSystem* res = malloc(sizeof(ParkingSystem));
     res->count = malloc(sizeof(int) * 3);
     res->count[0] = big;
     res->count[1] = medium;
@@ -237,7 +235,7 @@ ParkingSystem *parkingSystemCreate(int big, int medium, int small) {
     return res;
 }
 
-bool parkingSystemAddCar(ParkingSystem *obj, int carType) {
+bool parkingSystemAddCar(ParkingSystem* obj, int carType) {
     int i = carType - 1;
     if (!obj->count[i]) {
         return 0;
@@ -246,7 +244,7 @@ bool parkingSystemAddCar(ParkingSystem *obj, int carType) {
     return 1;
 }
 
-void parkingSystemFree(ParkingSystem *obj) {
+void parkingSystemFree(ParkingSystem* obj) {
     free(obj);
 }
 

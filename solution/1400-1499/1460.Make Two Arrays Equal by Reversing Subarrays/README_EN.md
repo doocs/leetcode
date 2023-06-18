@@ -154,7 +154,8 @@ public:
     bool canBeEqual(vector<int>& target, vector<int>& arr) {
         vector<int> cnt(1001);
         for (int& v : target) ++cnt[v];
-        for (int& v : arr) if (--cnt[v] < 0) return false;
+        for (int& v : arr)
+            if (--cnt[v] < 0) return false;
         return true;
     }
 };
@@ -213,9 +214,9 @@ func canBeEqual(target []int, arr []int) bool {
 ### **C**
 
 ```c
-bool canBeEqual(int* target, int targetSize, int* arr, int arrSize){
+bool canBeEqual(int* target, int targetSize, int* arr, int arrSize) {
     int count[1001] = {0};
-    for (int i = 0 ; i < targetSize; i++) {
+    for (int i = 0; i < targetSize; i++) {
         count[target[i]]++;
         count[arr[i]]--;
     }

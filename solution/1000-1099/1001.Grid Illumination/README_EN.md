@@ -62,7 +62,9 @@ The 1<sup>st</sup>&nbsp;query asks if the lamp at grid[1][0] is illuminated or n
 
 ```python
 class Solution:
-    def gridIllumination(self, n: int, lamps: List[List[int]], queries: List[List[int]]) -> List[int]:
+    def gridIllumination(
+        self, n: int, lamps: List[List[int]], queries: List[List[int]]
+    ) -> List[int]:
         s = {(i, j) for i, j in lamps}
         row, col, diag1, diag2 = Counter(), Counter(), Counter(), Counter()
         for i, j in s:

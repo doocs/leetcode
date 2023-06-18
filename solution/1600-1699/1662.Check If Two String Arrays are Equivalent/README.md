@@ -187,7 +187,7 @@ func arrayStringsAreEqual(word1 []string, word2 []string) bool {
 ### **C**
 
 ```c
-bool arrayStringsAreEqual(char **word1, int word1Size, char **word2, int word2Size) {
+bool arrayStringsAreEqual(char** word1, int word1Size, char** word2, int word2Size) {
     int i = 0;
     int j = 0;
     int x = 0;

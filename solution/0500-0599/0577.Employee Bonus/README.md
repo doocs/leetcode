@@ -53,13 +53,12 @@ empId 是这张表单的主关键字
 
 ```sql
 SELECT
-    e.name, b.bonus
+    e.name,
+    b.bonus
 FROM
-    Employee e
-        LEFT JOIN
-    Bonus b ON e.empid = b.empid
-WHERE
-    b.bonus < 1000 OR b.bonus IS NULL;
+    Employee AS e
+    LEFT JOIN Bonus AS b ON e.empid = b.empid
+WHERE b.bonus < 1000 OR b.bonus IS NULL;
 ```
 
 <!-- tabs:end -->

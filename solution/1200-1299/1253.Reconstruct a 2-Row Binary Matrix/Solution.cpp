@@ -19,9 +19,9 @@ public:
                 }
             }
             if (upper < 0 || lower < 0) {
-                return {};
+                break;
             }
         }
-        return upper != 0 || lower != 0 ? vector<vector<int>>{} : ans;
+        return upper || lower ? vector<vector<int>>() : ans;
     }
 };

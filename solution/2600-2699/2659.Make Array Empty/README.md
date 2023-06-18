@@ -194,6 +194,7 @@ class BinaryIndexedTree:
             x -= x & -x
         return s
 
+
 class Solution:
     def countOperationsToEmptyArray(self, nums: List[int]) -> int:
         pos = {x: i for i, x in enumerate(nums)}
@@ -266,7 +267,9 @@ class Solution {
 ```cpp
 class BinaryIndexedTree {
 public:
-    BinaryIndexedTree(int _n) : n(_n), c(_n + 1) {}
+    BinaryIndexedTree(int _n)
+        : n(_n)
+        , c(_n + 1) {}
 
     void update(int x, int delta) {
         while (x <= n) {

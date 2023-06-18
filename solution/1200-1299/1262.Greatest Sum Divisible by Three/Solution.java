@@ -1,11 +1,13 @@
 class Solution {
     public int maxSumDivThree(int[] nums) {
-        int[] f = new int[3];
+        final int inf = 1 << 30;
+        int[] f = new int[] {0, -inf, -inf};
         for (int x : nums) {
-            int a = f[0] + x, b = f[1] + x, c = f[2] + x;
-            f[a % 3] = Math.max(f[a % 3], a);
-            f[b % 3] = Math.max(f[b % 3], b);
-            f[c % 3] = Math.max(f[c % 3], c);
+            int[] g = f.clone();
+            for (int j = 0; j < 3; ++j) {
+                g[j] = Math.max(f[j], f[(j - x % 3 + 3) % 3] + x);
+            }
+            f = g;
         }
         return f[0];
     }

@@ -1,18 +1,21 @@
 class Solution {
     public int maximumValue(String[] strs) {
         int ans = 0;
-        for (String s : strs) {
+        for (var s : strs) {
             ans = Math.max(ans, f(s));
         }
         return ans;
     }
 
     private int f(String s) {
-        for (int i = 0; i < s.length(); ++i) {
-            if (s.charAt(i) >= 'a' && s.charAt(i) <= 'z') {
-                return s.length();
+        int x = 0;
+        for (int i = 0, n = s.length(); i < n; ++i) {
+            char c = s.charAt(i);
+            if (Character.isLetter(c)) {
+                return n;
             }
+            x = x * 10 + (c - '0');
         }
-        return Integer.parseInt(s);
+        return x;
     }
 }

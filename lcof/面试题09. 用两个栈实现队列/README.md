@@ -105,7 +105,6 @@ class CQueue {
 class CQueue {
 public:
     CQueue() {
-
     }
 
     void appendTail(int value) {

@@ -190,7 +190,7 @@ impl Solution {
 ### **C**
 
 ```c
-int wateringPlants(int *plants, int plantsSize, int capacity) {
+int wateringPlants(int* plants, int plantsSize, int capacity) {
     int ans = 0;
     int water = capacity;
     for (int i = 0; i < plantsSize; i++) {

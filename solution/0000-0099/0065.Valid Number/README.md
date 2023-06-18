@@ -198,7 +198,8 @@ public:
                 if (s[j + 1] == '+' || s[j + 1] == '-') {
                     if (++j == n - 1) return false;
                 }
-            } else if (s[j] < '0' || s[j] > '9') return false;
+            } else if (s[j] < '0' || s[j] > '9')
+                return false;
         }
         return true;
     }

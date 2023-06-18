@@ -8,8 +8,10 @@ class Solution {
         $max = 0;
         for ($i = 0; $i < strlen($number); $i++) {
             if ($number[$i] == $digit) {
-                $tmp = substr($number, 0, $i).substr($number, $i + 1);
-                if ($tmp > $max) $max = $tmp;
+                $tmp = substr($number, 0, $i) . substr($number, $i + 1);
+                if ($tmp > $max) {
+                    $max = $tmp;
+                }
             }
         }
         return $max;

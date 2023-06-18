@@ -231,8 +231,10 @@ public:
         int i = 1, j = 1;
         while (i < a.size() && j < b.size()) {
             if (s1 == s2) return false;
-            if (s1 < s2) s1 += a[i++];
-            else s2 += b[j++];
+            if (s1 < s2)
+                s1 += a[i++];
+            else
+                s2 += b[j++];
         }
         return true;
     }

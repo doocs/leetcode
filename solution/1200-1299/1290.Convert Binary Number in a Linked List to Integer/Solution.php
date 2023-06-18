@@ -10,13 +10,12 @@
  * }
  */
 class Solution {
-
     /**
      * @param ListNode $head
      * @return Integer
      */
     function getDecimalValue($head) {
-        $rs = array();
+        $rs = [];
         while ($head != null) {
             array_push($rs, $head->val);
             $head = $head->next;

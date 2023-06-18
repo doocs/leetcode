@@ -76,7 +76,7 @@ class Solution:
             if (n >> i) == 1:
                 base = 1 << i
                 break
-        return 2*base-1 - self.minimumOneBitOperations(n-base)
+        return 2 * base - 1 - self.minimumOneBitOperations(n - base)
 ```
 
 ### **Go**

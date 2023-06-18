@@ -72,10 +72,11 @@ Corona Masks stock was bought at day 1 for 10$ and was sold at day 3 for 1010$. 
 ### **SQL**
 
 ```sql
-SELECT stock_name,
+SELECT
+    stock_name,
     SUM(
         CASE
-            WHEN operation = 'Buy' THEN - price
+            WHEN operation = 'Buy' THEN -price
             ELSE price
         END
     ) AS capital_gain_loss

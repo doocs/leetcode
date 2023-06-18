@@ -126,7 +126,7 @@ public:
         for (int i = 1; i < m; ++i) {
             for (int j : pos[key[i] - 'a']) {
                 for (int k : pos[key[i - 1] - 'a']) {
-                    f[i][j] = min(f[i][j], f[i - 1][k] + min(abs(j - k), n - abs(j -  k)) + 1);
+                    f[i][j] = min(f[i][j], f[i - 1][k] + min(abs(j - k), n - abs(j - k)) + 1);
                 }
             }
         }

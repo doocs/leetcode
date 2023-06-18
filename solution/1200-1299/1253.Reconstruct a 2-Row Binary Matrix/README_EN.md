@@ -61,7 +61,9 @@
 
 ```python
 class Solution:
-    def reconstructMatrix(self, upper: int, lower: int, colsum: List[int]) -> List[List[int]]:
+    def reconstructMatrix(
+        self, upper: int, lower: int, colsum: List[int]
+    ) -> List[List[int]]:
         n = len(colsum)
         ans = [[0] * n for _ in range(2)]
         for j, v in enumerate(colsum):
@@ -86,39 +88,30 @@ class Solution:
 class Solution {
     public List<List<Integer>> reconstructMatrix(int upper, int lower, int[] colsum) {
         int n = colsum.length;
-        List<List<Integer>> ans = new ArrayList<>();
         List<Integer> first = new ArrayList<>();
         List<Integer> second = new ArrayList<>();
         for (int j = 0; j < n; ++j) {
+            int a = 0, b = 0;
             if (colsum[j] == 2) {
-                first.add(1);
-                second.add(1);
+                a = b = 1;
                 upper--;
                 lower--;
             } else if (colsum[j] == 1) {
                 if (upper > lower) {
                     upper--;
-                    first.add(1);
-                    second.add(0);
+                    a = 1;
                 } else {
                     lower--;
-                    first.add(0);
-                    second.add(1);
+                    b = 1;
                 }
-            } else {
-                first.add(0);
-                second.add(0);
             }
             if (upper < 0 || lower < 0) {
-                return ans;
+                break;
             }
+            first.add(a);
+            second.add(b);
         }
-        if (upper != 0 || lower != 0) {
-            return ans;
-        }
-        ans.add(first);
-        ans.add(second);
-        return ans;
+        return upper == 0 && lower == 0 ? List.of(first, second) : List.of();
     }
 }
 ```
@@ -147,10 +140,10 @@ public:
                 }
             }
             if (upper < 0 || lower < 0) {
-                return {};
+                break;
             }
         }
-        return upper != 0 || lower != 0 ? vector<vector<int>>{} : ans;
+        return upper || lower ? vector<vector<int>>() : ans;
     }
 };
 ```
@@ -180,13 +173,47 @@ func reconstructMatrix(upper int, lower int, colsum []int) [][]int {
 			}
 		}
 		if upper < 0 || lower < 0 {
-			return [][]int{}
+			break
 		}
 	}
 	if upper != 0 || lower != 0 {
 		return [][]int{}
 	}
 	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function reconstructMatrix(
+    upper: number,
+    lower: number,
+    colsum: number[],
+): number[][] {
+    const n = colsum.length;
+    const ans: number[][] = Array(2)
+        .fill(0)
+        .map(() => Array(n).fill(0));
+    for (let j = 0; j < n; ++j) {
+        if (colsum[j] === 2) {
+            ans[0][j] = ans[1][j] = 1;
+            upper--;
+            lower--;
+        } else if (colsum[j] === 1) {
+            if (upper > lower) {
+                ans[0][j] = 1;
+                upper--;
+            } else {
+                ans[1][j] = 1;
+                lower--;
+            }
+        }
+        if (upper < 0 || lower < 0) {
+            break;
+        }
+    }
+    return upper || lower ? [] : ans;
 }
 ```
 

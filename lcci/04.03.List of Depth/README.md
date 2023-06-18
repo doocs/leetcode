@@ -44,6 +44,7 @@
 #         self.left = None
 #         self.right = None
 
+
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, x):

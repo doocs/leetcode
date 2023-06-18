@@ -69,7 +69,6 @@ browserHistory.back(7);                   // 你原本在浏览 &quot;google.com
 
 ```python
 class BrowserHistory:
-
     def __init__(self, homepage: str):
         self.stk1 = []
         self.stk2 = []

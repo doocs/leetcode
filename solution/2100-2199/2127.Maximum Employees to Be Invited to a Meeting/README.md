@@ -214,7 +214,7 @@ public:
             }
             for (int k = 0; k < cycle.size(); ++k) {
                 if (cycle[k] == j) {
-                    ans = max(ans, (int)cycle.size() - k);
+                    ans = max(ans, (int) cycle.size() - k);
                     break;
                 }
             }

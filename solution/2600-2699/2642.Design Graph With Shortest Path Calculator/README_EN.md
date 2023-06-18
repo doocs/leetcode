@@ -55,7 +55,6 @@ g.shortestPath(0, 3); // return 6. The shortest path from 0 to 3 now is 0 -&gt; 
 
 ```python
 class Graph:
-
     def __init__(self, n: int, edges: List[List[int]]):
         self.n = n
         self.g = [[inf] * n for _ in range(n)]

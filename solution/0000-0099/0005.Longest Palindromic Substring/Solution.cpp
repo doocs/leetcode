@@ -2,21 +2,20 @@ class Solution {
 public:
     string longestPalindrome(string s) {
         int n = s.size();
-        vector<vector<bool>> dp(n, vector<bool>(n, false));
-        int start = 0, mx = 1;
-        for (int j = 0; j < n; ++j) {
-            for (int i = 0; i <= j; ++i) {
-                if (j - i < 2) {
-                    dp[i][j] = s[i] == s[j];
-                } else {
-                    dp[i][j] = dp[i + 1][j - 1] && s[i] == s[j];
-                }
-                if (dp[i][j] && mx < j - i + 1) {
-                    start = i;
-                    mx = j - i + 1;
+        vector<vector<bool>> f(n, vector<bool>(n, true));
+        int k = 0, mx = 1;
+        for (int i = n - 2; ~i; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                f[i][j] = false;
+                if (s[i] == s[j]) {
+                    f[i][j] = f[i + 1][j - 1];
+                    if (f[i][j] && mx < j - i + 1) {
+                        mx = j - i + 1;
+                        k = i;
+                    }
                 }
             }
         }
-        return s.substr(start, mx);
+        return s.substr(k, mx);
     }
 };

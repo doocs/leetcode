@@ -66,7 +66,9 @@ class Solution:
 
 ```python
 class Solution:
-    def findWhetherExistsPath(self, n: int, graph: List[List[int]], start: int, target: int) -> bool:
+    def findWhetherExistsPath(
+        self, n: int, graph: List[List[int]], start: int, target: int
+    ) -> bool:
         g = defaultdict(list)
         for u, v in graph:
             g[u].append(v)
@@ -150,7 +152,7 @@ public:
     bool findWhetherExistsPath(int n, vector<vector<int>>& graph, int start, int target) {
         unordered_map<int, vector<int>> g;
         for (auto& e : graph) g[e[0]].push_back(e[1]);
-        unordered_set<int> vis {{start}};
+        unordered_set<int> vis{{start}};
         return dfs(start, target, g, vis);
     }
 
@@ -173,8 +175,8 @@ public:
     bool findWhetherExistsPath(int n, vector<vector<int>>& graph, int start, int target) {
         unordered_map<int, vector<int>> g;
         for (auto& e : graph) g[e[0]].push_back(e[1]);
-        queue<int> q {{start}};
-        unordered_set<int> vis {{start}};
+        queue<int> q{{start}};
+        unordered_set<int> vis{{start}};
         while (!q.empty()) {
             int u = q.front();
             if (u == target) return true;

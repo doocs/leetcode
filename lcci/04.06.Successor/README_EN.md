@@ -169,9 +169,9 @@ public:
  */
 class Solution {
 public:
-    TreeNode *inorderSuccessor(TreeNode *root, TreeNode *p) {
-        stack<TreeNode *> stk;
-        TreeNode *cur = root;
+    TreeNode* inorderSuccessor(TreeNode* root, TreeNode* p) {
+        stack<TreeNode*> stk;
+        TreeNode* cur = root;
         while (cur != nullptr || !stk.empty()) {
             if (cur == nullptr) {
                 cur = stk.top();

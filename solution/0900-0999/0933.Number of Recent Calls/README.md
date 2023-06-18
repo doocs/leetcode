@@ -87,7 +87,6 @@ class RecentCounter:
 
 ```python
 class RecentCounter:
-
     def __init__(self):
         self.s = []
 
@@ -169,7 +168,6 @@ public:
     vector<int> s;
 
     RecentCounter() {
-
     }
 
     int ping(int t) {

@@ -102,6 +102,7 @@ class Node:
         self.children = children
 """
 
+
 class Solution:
     def levelOrder(self, root: 'Node') -> List[List[int]]:
         def dfs(root, i):
@@ -240,7 +241,7 @@ public:
     vector<vector<int>> levelOrder(Node* root) {
         vector<vector<int>> ans;
         if (!root) return ans;
-        queue<Node*> q {{root}};
+        queue<Node*> q{{root}};
         while (!q.empty()) {
             vector<int> t;
             for (int n = q.size(); n > 0; --n) {

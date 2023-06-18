@@ -67,6 +67,7 @@
 # 初始化，p存储每个点的父节点
 p = list(range(n))
 
+
 # 返回x的祖宗节点
 def find(x):
     if p[x] != x:
@@ -86,12 +87,14 @@ p[find(a)] = find(b)
 p = list(range(n))
 size = [1] * n
 
+
 # 返回x的祖宗节点
 def find(x):
     if p[x] != x:
         # 路径压缩
         p[x] = find(p[x])
     return p[x]
+
 
 # 合并a和b所在的两个集合
 if find(a) != find(b):
@@ -106,6 +109,7 @@ if find(a) != find(b):
 p = list(range(n))
 d = [0] * n
 
+
 # 返回x的祖宗节点
 def find(x):
     if p[x] != x:
@@ -113,6 +117,7 @@ def find(x):
         d[x] += d[p[x]]
         p[x] = t
     return p[x]
+
 
 # 合并a和b所在的两个集合
 p[find(a)] = find(b)
@@ -279,11 +284,9 @@ public:
         int n = graph.size();
         p.resize(n);
         for (int i = 0; i < n; ++i) p[i] = i;
-        for (int u = 0; u < n; ++u)
-        {
+        for (int u = 0; u < n; ++u) {
             auto& g = graph[u];
-            for (int v : g)
-            {
+            for (int v : g) {
                 if (find(u) == find(v)) return 0;
                 p[find(v)] = find(g[0]);
             }

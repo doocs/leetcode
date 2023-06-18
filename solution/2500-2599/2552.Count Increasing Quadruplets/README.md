@@ -87,7 +87,9 @@ class Solution:
                     g[j][k] = cnt
                 else:
                     cnt -= 1
-        return sum(f[j][k] * g[j][k] for j in range(1, n - 2) for k in range(j + 1, n - 1))
+        return sum(
+            f[j][k] * g[j][k] for j in range(1, n - 2) for k in range(j + 1, n - 1)
+        )
 ```
 
 ### **Java**

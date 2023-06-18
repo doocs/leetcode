@@ -124,8 +124,8 @@ class Solution:
         tree = BinaryIndexedTree(n)
         cnt = 0
         for i, v in enumerate(nums):
-            cnt += (i < n - 1 and v > nums[i + 1])
-            cnt -= (i - tree.query(v))
+            cnt += i < n - 1 and v > nums[i + 1]
+            cnt -= i - tree.query(v)
             if cnt < 0:
                 return False
             tree.update(v + 1, 1)
@@ -212,7 +212,9 @@ public:
 ```cpp
 class BinaryIndexedTree {
 public:
-    BinaryIndexedTree(int _n) : n(_n), c(_n + 1) {}
+    BinaryIndexedTree(int _n)
+        : n(_n)
+        , c(_n + 1) {}
 
     void update(int x, int delta) {
         while (x <= n) {

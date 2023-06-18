@@ -67,7 +67,7 @@ class Solution:
             return i >= j or check2(a, i, j) or check2(b, i, j)
 
         def check2(a: str, i: int, j: int) -> bool:
-            return a[i: j + 1] == a[i: j + 1][::-1]
+            return a[i : j + 1] == a[i : j + 1][::-1]
 
         return check1(a, b) or check1(b, a)
 ```
@@ -110,7 +110,7 @@ public:
     }
 
 private:
-    bool check1(string &a, string &b) {
+    bool check1(string& a, string& b) {
         int i = 0, j = b.size() - 1;
         while (i < j && a[i] == b[j]) {
             ++i;
@@ -119,7 +119,7 @@ private:
         return i >= j || check2(a, i, j) || check2(b, i, j);
     }
 
-    bool check2(string &a, int i, int j) {
+    bool check2(string& a, int i, int j) {
         while (i <= j && a[i] == a[j]) {
             ++i;
             --j;

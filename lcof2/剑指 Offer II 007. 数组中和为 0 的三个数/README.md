@@ -170,7 +170,7 @@ public:
 
             while (i < j) {
                 if (nums[i] + nums[j] + nums[k] == 0) {
-                    res.push_back(vector<int> {nums[k], nums[i], nums[j]});
+                    res.push_back(vector<int>{nums[k], nums[i], nums[j]});
                     i++;
                     j--;
 

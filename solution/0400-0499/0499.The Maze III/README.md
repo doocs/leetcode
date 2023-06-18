@@ -185,7 +185,7 @@ public:
             int i = p.first, j = p.second;
             for (auto& dir : dirs) {
                 int a = dir[0], b = dir[1];
-                char d = (char)dir[2];
+                char d = (char) dir[2];
                 int x = i, y = j;
                 int step = dist[i][j];
                 while (x + a >= 0 && x + a < m && y + b >= 0 && y + b < n && maze[x + a][y + b] == 0 && (x != rh || y != ch)) {

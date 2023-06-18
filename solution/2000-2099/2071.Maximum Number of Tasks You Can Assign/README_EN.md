@@ -67,7 +67,9 @@ The last pill is not given because it will not make any worker strong enough for
 
 ```python
 class Solution:
-    def maxTaskAssign(self, tasks: List[int], workers: List[int], pills: int, strength: int) -> int:
+    def maxTaskAssign(
+        self, tasks: List[int], workers: List[int], pills: int, strength: int
+    ) -> int:
         def check(x):
             i = 0
             q = deque()

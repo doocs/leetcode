@@ -52,6 +52,7 @@ class Solution:
         """
         Do not return anything, modify root in-place instead.
         """
+
         def dfs(root):
             if root is None:
                 return
@@ -136,7 +137,7 @@ public:
         TreeNode* prev = nullptr;
         TreeNode* first = nullptr;
         TreeNode* second = nullptr;
-        function<void(TreeNode* root)> dfs = [&](TreeNode* root) {
+        function<void(TreeNode * root)> dfs = [&](TreeNode* root) {
             if (!root) return;
             dfs(root->left);
             if (prev && prev->val > root->val) {

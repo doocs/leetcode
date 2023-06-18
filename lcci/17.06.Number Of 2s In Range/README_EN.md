@@ -138,7 +138,7 @@ func numberOf2sInRange(n int) int {
 	}
 	l := 0
 	for n > 0 {
-        l++
+		l++
 		a[l] = n % 10
 		n /= 10
 	}

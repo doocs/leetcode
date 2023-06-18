@@ -1,15 +1,10 @@
 function maxProduct(nums: number[]): number {
-    let n = nums.length;
-    let preMax = nums[0],
-        preMin = nums[0],
-        ans = nums[0];
-    for (let i = 1; i < n; ++i) {
-        let cur = nums[i];
-        let x = preMax,
-            y = preMin;
-        preMax = Math.max(x * cur, y * cur, cur);
-        preMin = Math.min(x * cur, y * cur, cur);
-        ans = Math.max(preMax, ans);
+    let [f, g, ans] = [nums[0], nums[0], nums[0]];
+    for (let i = 1; i < nums.length; ++i) {
+        const [ff, gg] = [f, g];
+        f = Math.max(nums[i], ff * nums[i], gg * nums[i]);
+        g = Math.min(nums[i], ff * nums[i], gg * nums[i]);
+        ans = Math.max(ans, f);
     }
     return ans;
 }

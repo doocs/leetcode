@@ -109,7 +109,8 @@ class Solution:
                 pm, pc, pt = prev_state
                 if res[pm][pc][pt] == TIE:
                     win = (t == MOUSE_WIN and pt == MOUSE_TURN) or (
-                        t == CAT_WIN and pt == CAT_TURN)
+                        t == CAT_WIN and pt == CAT_TURN
+                    )
                     if win:
                         res[pm][pc][pt] = t
                         q.append(prev_state)

@@ -77,7 +77,6 @@ randomizedSet.getRandom(); // 由于 2 是集合中唯一的数字，getRandom �
 
 ```python
 class RandomizedSet:
-
     def __init__(self):
         self.d = {}
         self.q = []
@@ -164,7 +163,6 @@ class RandomizedSet {
 class RandomizedSet {
 public:
     RandomizedSet() {
-
     }
 
     bool insert(int val) {

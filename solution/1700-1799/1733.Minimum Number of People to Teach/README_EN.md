@@ -56,7 +56,9 @@ Note that friendships are not transitive, meaning if <code>x</code> is a friend 
 
 ```python
 class Solution:
-    def minimumTeachings(self, n: int, languages: List[List[int]], friendships: List[List[int]]) -> int:
+    def minimumTeachings(
+        self, n: int, languages: List[List[int]], friendships: List[List[int]]
+    ) -> int:
         def check(u, v):
             for x in languages[u - 1]:
                 for y in languages[v - 1]:

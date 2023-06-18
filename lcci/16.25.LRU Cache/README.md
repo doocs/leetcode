@@ -50,17 +50,16 @@ cache.get(4);       // 返回  4
 
 ```java
 class Node {
-	int key;
-	int value;
-	Node prev;
-	Node next;
-	Node() {
-
-	}
-	Node(int key, int value) {
-		this.key = key;
-		this.value = value;
-	}
+    int key;
+    int value;
+    Node prev;
+    Node next;
+    Node() {
+    }
+    Node(int key, int value) {
+        this.key = key;
+        this.value = value;
+    }
 }
 ```
 

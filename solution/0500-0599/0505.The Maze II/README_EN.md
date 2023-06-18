@@ -134,7 +134,7 @@ public:
         int n = maze[0].size();
         vector<vector<int>> dist(m, vector<int>(n, INT_MAX));
         dist[start[0]][start[1]] = 0;
-        queue<vector<int>> q {{start}};
+        queue<vector<int>> q{{start}};
         vector<int> dirs = {-1, 0, 1, 0, -1};
         while (!q.empty()) {
             auto p = q.front();

@@ -82,7 +82,9 @@ Thus, Alice opens the gate at node 0 only. Hence, her net income is -7280.
 
 ```python
 class Solution:
-    def mostProfitablePath(self, edges: List[List[int]], bob: int, amount: List[int]) -> int:
+    def mostProfitablePath(
+        self, edges: List[List[int]], bob: int, amount: List[int]
+    ) -> int:
         def dfs1(i, fa, t):
             if i == 0:
                 ts[i] = min(ts[i], t)
@@ -210,13 +212,16 @@ public:
         ts[bob] = 0;
         int ans = INT_MIN;
         function<void(int i, int fa, int t, int v)> dfs2 = [&](int i, int fa, int t, int v) {
-            if (t == ts[i]) v += amount[i] >> 1;
-            else if (t < ts[i]) v += amount[i];
+            if (t == ts[i])
+                v += amount[i] >> 1;
+            else if (t < ts[i])
+                v += amount[i];
             if (g[i].size() == 1 && g[i][0] == fa) {
                 ans = max(ans, v);
                 return;
             }
-            for (int j : g[i]) if (j != fa) dfs2(j, i, t + 1, v);
+            for (int j : g[i])
+                if (j != fa) dfs2(j, i, t + 1, v);
         };
         dfs2(0, -1, 0, 0);
         return ans;

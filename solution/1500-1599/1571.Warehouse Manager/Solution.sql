@@ -3,7 +3,6 @@ SELECT
     name AS warehouse_name,
     SUM(units * Width * Length * Height) AS volume
 FROM
-    Warehouse w
-    JOIN Products p ON w.product_id = p.product_id
-GROUP BY
-    name
+    Warehouse AS w
+    JOIN Products AS p ON w.product_id = p.product_id
+GROUP BY name;

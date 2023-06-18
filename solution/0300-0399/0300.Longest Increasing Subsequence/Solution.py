@@ -1,12 +1,29 @@
+class BinaryIndexedTree:
+    def __init__(self, n: int):
+        self.n = n
+        self.c = [0] * (n + 1)
+
+    def update(self, x: int, v: int):
+        while x <= self.n:
+            self.c[x] = max(self.c[x], v)
+            x += x & -x
+
+    def query(self, x: int) -> int:
+        mx = 0
+        while x:
+            mx = max(mx, self.c[x])
+            x -= x & -x
+        return mx
+
+
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
-        d = [nums[0]]
-        for x in nums[1:]:
-            if x > d[-1]:
-                d.append(x)
-            else:
-                idx = bisect_left(d, x)
-                if idx == len(d):
-                    idx = 0
-                d[idx] = x
-        return len(d)
+        s = sorted(set(nums))
+        tree = BinaryIndexedTree(len(s))
+        ans = 1
+        for x in nums:
+            x = bisect_left(s, x) + 1
+            t = tree.query(x - 1) + 1
+            ans = max(ans, t)
+            tree.update(x, t)
+        return ans

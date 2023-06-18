@@ -128,6 +128,7 @@ class Node:
         self.r = 0
         self.v = 0
 
+
 class SegmentTree:
     def __init__(self, n):
         self.tr = [Node() for _ in range(n << 2)]
@@ -166,6 +167,7 @@ class SegmentTree:
 
     def pushup(self, u):
         self.tr[u].v = self.tr[u << 1].v + self.tr[u << 1 | 1].v
+
 
 class Solution:
     def countSmaller(self, nums: List[int]) -> List[int]:
@@ -344,7 +346,7 @@ public:
 
     BinaryIndexedTree(int _n)
         : n(_n)
-        , c(_n + 1) { }
+        , c(_n + 1) {}
 
     void update(int x, int delta) {
         while (x <= n) {
@@ -418,14 +420,15 @@ public:
     }
 
     void modify(int u, int x, int v) {
-        if (tr[u]->l == x && tr[u]->r == x)
-        {
+        if (tr[u]->l == x && tr[u]->r == x) {
             tr[u]->v += v;
             return;
         }
         int mid = (tr[u]->l + tr[u]->r) >> 1;
-        if (x <= mid) modify(u << 1, x, v);
-        else modify(u << 1 | 1, x, v);
+        if (x <= mid)
+            modify(u << 1, x, v);
+        else
+            modify(u << 1 | 1, x, v);
         pushup(u);
     }
 
@@ -454,8 +457,7 @@ public:
         for (int i = 0; i < n; ++i) m[alls[i]] = i + 1;
         SegmentTree* tree = new SegmentTree(n);
         vector<int> ans(nums.size());
-        for (int i = nums.size() - 1; i >= 0; --i)
-        {
+        for (int i = nums.size() - 1; i >= 0; --i) {
             int x = m[nums[i]];
             tree->modify(1, x, 1);
             ans[i] = tree->query(1, 1, x - 1);

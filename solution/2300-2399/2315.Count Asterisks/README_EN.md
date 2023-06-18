@@ -156,7 +156,7 @@ impl Solution {
 ### **C**
 
 ```c
-int countAsterisks(char * s){
+int countAsterisks(char* s) {
     int ans = 0;
     int ok = 1;
     for (int i = 0; s[i]; i++) {

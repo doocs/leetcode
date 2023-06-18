@@ -57,11 +57,12 @@
 ### **SQL**
 
 ```sql
-select Name as Customers
-from Customers
-where id not in (
-        select CustomerId
-        from Orders
+SELECT Name AS Customers
+FROM Customers
+WHERE
+    id NOT IN (
+        SELECT CustomerId
+        FROM Orders
     );
 ```
 
@@ -70,9 +71,8 @@ SELECT
     c.Name AS Customers
 FROM
     customers AS c
-    LEFT JOIN orders AS o ON c.Id  = o.CustomerId
-WHERE
-    o.CustomerId IS NULL;
+    LEFT JOIN orders AS o ON c.Id = o.CustomerId
+WHERE o.CustomerId IS NULL;
 ```
 
 <!-- tabs:end -->

@@ -57,7 +57,7 @@ class Solution:
                 r -= 1
             else:
                 l += 1
-        return arr[l: r]
+        return arr[l:r]
 ```
 
 ```python
@@ -70,7 +70,7 @@ class Solution:
                 right = mid
             else:
                 left = mid + 1
-        return arr[left: left + k]
+        return arr[left : left + k]
 ```
 
 ### **Java**
@@ -78,10 +78,13 @@ class Solution:
 ```java
 class Solution {
     public List<Integer> findClosestElements(int[] arr, int k, int x) {
-        List<Integer> ans = Arrays.stream(arr).boxed().sorted((a, b) -> {
-            int v = Math.abs(a - x) - Math.abs(b - x);
-            return v == 0 ? a - b : v;
-        }).collect(Collectors.toList());
+        List<Integer> ans = Arrays.stream(arr)
+                                .boxed()
+                                .sorted((a, b) -> {
+                                    int v = Math.abs(a - x) - Math.abs(b - x);
+                                    return v == 0 ? a - b : v;
+                                })
+                                .collect(Collectors.toList());
         ans = ans.subList(0, k);
         Collections.sort(ans);
         return ans;
@@ -177,8 +180,10 @@ public:
         int left = 0, right = arr.size() - k;
         while (left < right) {
             int mid = (left + right) >> 1;
-            if (x - arr[mid] <= arr[mid + k] - x) right = mid;
-            else left = mid + 1;
+            if (x - arr[mid] <= arr[mid + k] - x)
+                right = mid;
+            else
+                left = mid + 1;
         }
         return vector<int>(arr.begin() + left, arr.begin() + left + k);
     }

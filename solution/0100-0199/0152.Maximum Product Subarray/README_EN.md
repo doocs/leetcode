@@ -43,13 +43,13 @@
 ```python
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
-        maxf = minf = res = nums[0]
-        for num in nums[1:]:
-            m, n = maxf, minf
-            maxf = max(num, m * num, n * num)
-            minf = min(num, m * num, n * num)
-            res = max(res, maxf)
-        return res
+        ans = f = g = nums[0]
+        for x in nums[1:]:
+            ff, gg = f, g
+            f = max(x, ff * x, gg * x)
+            g = min(x, ff * x, gg * x)
+            ans = max(ans, f)
+        return ans
 ```
 
 ### **Java**
@@ -57,52 +57,14 @@ class Solution:
 ```java
 class Solution {
     public int maxProduct(int[] nums) {
-        int maxf = nums[0], minf = nums[0], res = nums[0];
+        int f = nums[0], g = nums[0], ans = nums[0];
         for (int i = 1; i < nums.length; ++i) {
-            int m = maxf, n = minf;
-            maxf = Math.max(nums[i], Math.max(m * nums[i], n * nums[i]));
-            minf = Math.min(nums[i], Math.min(m * nums[i], n * nums[i]));
-            res = Math.max(res, maxf);
+            int ff = f, gg = g;
+            f = Math.max(nums[i], Math.max(ff * nums[i], gg * nums[i]));
+            g = Math.min(nums[i], Math.min(ff * nums[i], gg * nums[i]));
+            ans = Math.max(ans, f);
         }
-        return res;
-    }
-}
-```
-
-### **TypeScript**
-
-```ts
-function maxProduct(nums: number[]): number {
-    let n = nums.length;
-    let preMax = nums[0],
-        preMin = nums[0],
-        ans = nums[0];
-    for (let i = 1; i < n; ++i) {
-        let cur = nums[i];
-        let x = preMax,
-            y = preMin;
-        preMax = Math.max(x * cur, y * cur, cur);
-        preMin = Math.min(x * cur, y * cur, cur);
-        ans = Math.max(preMax, ans);
-    }
-    return ans;
-}
-```
-
-### **C#**
-
-```cs
-public class Solution {
-    public int MaxProduct(int[] nums) {
-        int maxf = nums[0], minf = nums[0], res = nums[0];
-        for (int i = 1; i < nums.Length; ++i)
-        {
-            int m = maxf, n = minf;
-            maxf = Math.Max(nums[i], Math.Max(nums[i] * m, nums[i] * n));
-            minf = Math.Min(nums[i], Math.Min(nums[i] * m, nums[i] * n));
-            res = Math.Max(res, maxf);
-        }
-        return res;
+        return ans;
     }
 }
 ```
@@ -113,14 +75,14 @@ public class Solution {
 class Solution {
 public:
     int maxProduct(vector<int>& nums) {
-        int maxf = nums[0], minf = nums[0], res = nums[0];
+        int f = nums[0], g = nums[0], ans = nums[0];
         for (int i = 1; i < nums.size(); ++i) {
-            int m = maxf, n = minf;
-            maxf = max(nums[i], max(nums[i] * m, nums[i] * n));
-            minf = min(nums[i], min(nums[i] * m, nums[i] * n));
-            res = max(res, maxf);
+            int ff = f, gg = g;
+            f = max({nums[i], ff * nums[i], gg * nums[i]});
+            g = min({nums[i], ff * nums[i], gg * nums[i]});
+            ans = max(ans, f);
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -129,14 +91,14 @@ public:
 
 ```go
 func maxProduct(nums []int) int {
-	maxf, minf, res := nums[0], nums[0], nums[0]
-	for i := 1; i < len(nums); i++ {
-		m, n := maxf, minf
-		maxf = max(nums[i], max(nums[i]*m, nums[i]*n))
-		minf = min(nums[i], min(nums[i]*m, nums[i]*n))
-		res = max(res, maxf)
+	f, g, ans := nums[0], nums[0], nums[0]
+	for _, x := range nums[1:] {
+		ff, gg := f, g
+		f = max(x, max(ff*x, gg*x))
+		g = min(x, min(ff*x, gg*x))
+		ans = max(ans, f)
 	}
-	return res
+	return ans
 }
 
 func max(a, b int) int {
@@ -154,23 +116,74 @@ func min(a, b int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function maxProduct(nums: number[]): number {
+    let [f, g, ans] = [nums[0], nums[0], nums[0]];
+    for (let i = 1; i < nums.length; ++i) {
+        const [ff, gg] = [f, g];
+        f = Math.max(nums[i], ff * nums[i], gg * nums[i]);
+        g = Math.min(nums[i], ff * nums[i], gg * nums[i]);
+        ans = Math.max(ans, f);
+    }
+    return ans;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int MaxProduct(int[] nums) {
+        int f = nums[0], g = nums[0], ans = nums[0];
+        for (int i = 1; i < nums.Length; ++i) {
+            int ff = f, gg = g;
+            f = Math.Max(nums[i], Math.Max(ff * nums[i], gg * nums[i]));
+            g = Math.Min(nums[i], Math.Min(ff * nums[i], gg * nums[i]));
+            ans = Math.Max(ans, f);
+        }
+        return ans;
+    }
+}
+```
+
 ### **Rust**
 
 ```rust
 impl Solution {
     pub fn max_product(nums: Vec<i32>) -> i32 {
-        let mut min = nums[0];
-        let mut max = nums[0];
-        let mut res = nums[0];
-        for &num in nums.iter().skip(1) {
-            let (pre_min, pre_max) = (min, max);
-            min = num.min(num * pre_min).min(num * pre_max);
-            max = num.max(num * pre_min).max(num * pre_max);
-            res = res.max(max);
+        let mut f = nums[0];
+        let mut g = nums[0];
+        let mut ans = nums[0];
+        for &x in nums.iter().skip(1) {
+            let (ff, gg) = (f, g);
+            f = x.max(x * ff).max(x * gg);
+            g = x.min(x * ff).min(x * gg);
+            ans = ans.max(f);
         }
-        res
+        ans
     }
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxProduct = function (nums) {
+    let [f, g, ans] = [nums[0], nums[0], nums[0]];
+    for (let i = 1; i < nums.length; ++i) {
+        const [ff, gg] = [f, g];
+        f = Math.max(nums[i], ff * nums[i], gg * nums[i]);
+        g = Math.min(nums[i], ff * nums[i], gg * nums[i]);
+        ans = Math.max(ans, f);
+    }
+    return ans;
+};
 ```
 
 ### **...**

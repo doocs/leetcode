@@ -139,7 +139,6 @@ class DetectSquares {
 class DetectSquares {
 public:
     DetectSquares() {
-
     }
 
     void add(vector<int> point) {

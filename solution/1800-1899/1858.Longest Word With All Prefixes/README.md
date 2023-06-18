@@ -165,7 +165,7 @@ private:
 public:
     Trie()
         : children(26)
-        , isEnd(false) { }
+        , isEnd(false) {}
 
     void insert(string word) {
         Trie* node = this;

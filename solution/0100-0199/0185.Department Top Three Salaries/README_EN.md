@@ -100,48 +100,46 @@ In the Sales department:
 
 ```sql
 SELECT
-	Department.NAME AS Department,
-	Employee.NAME AS Employee,
-	Salary
+    Department.NAME AS Department,
+    Employee.NAME AS Employee,
+    Salary
 FROM
-	Employee,
-	Department
+    Employee,
+    Department
 WHERE
-	Employee.DepartmentId = Department.Id
-	AND  (SELECT
+    Employee.DepartmentId = Department.Id
+    AND (
+        SELECT
             COUNT(DISTINCT e2.Salary)
-        FROM
-            Employee e2
+        FROM Employee AS e2
         WHERE
             e2.Salary > Employee.Salary
-                AND Employee.DepartmentId = e2.DepartmentId
-    ) < 3
+            AND Employee.DepartmentId = e2.DepartmentId
+    ) < 3;
 ```
 
 ```sql
 # Write your MySQL query statement below
-with t as (
-    select
-        departmentId,
-        name,
-        salary,
-        dense_rank() over(
-            partition by departmentId
-            order by
-                salary desc
-        ) as rk
-    from
-        Employee
-)
-select
-    d.name Department,
-    t.name Employee,
-    salary Salary
-from
+WITH
+    t AS (
+        SELECT
+            departmentId,
+            name,
+            salary,
+            dense_rank() OVER (
+                PARTITION BY departmentId
+                ORDER BY salary DESC
+            ) AS rk
+        FROM Employee
+    )
+SELECT
+    d.name AS Department,
+    t.name AS Employee,
+    salary AS Salary
+FROM
     t
-    join Department d on t.departmentId = d.id
-where
-    rk < 4
+    JOIN Department AS d ON t.departmentId = d.id
+WHERE rk < 4;
 ```
 
 <!-- tabs:end -->

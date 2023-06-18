@@ -1,12 +1,12 @@
 func maxProduct(nums []int) int {
-	maxf, minf, res := nums[0], nums[0], nums[0]
-	for i := 1; i < len(nums); i++ {
-		m, n := maxf, minf
-		maxf = max(nums[i], max(nums[i]*m, nums[i]*n))
-		minf = min(nums[i], min(nums[i]*m, nums[i]*n))
-		res = max(res, maxf)
+	f, g, ans := nums[0], nums[0], nums[0]
+	for _, x := range nums[1:] {
+		ff, gg := f, g
+		f = max(x, max(ff*x, gg*x))
+		g = min(x, min(ff*x, gg*x))
+		ans = max(ans, f)
 	}
-	return res
+	return ans
 }
 
 func max(a, b int) int {

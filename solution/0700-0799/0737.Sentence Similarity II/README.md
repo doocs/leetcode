@@ -73,6 +73,7 @@
 # 初始化，p存储每个点的父节点
 p = list(range(n))
 
+
 # 返回x的祖宗节点
 def find(x):
     if p[x] != x:
@@ -92,12 +93,14 @@ p[find(a)] = find(b)
 p = list(range(n))
 size = [1] * n
 
+
 # 返回x的祖宗节点
 def find(x):
     if p[x] != x:
         # 路径压缩
         p[x] = find(p[x])
     return p[x]
+
 
 # 合并a和b所在的两个集合
 if find(a) != find(b):
@@ -112,6 +115,7 @@ if find(a) != find(b):
 p = list(range(n))
 d = [0] * n
 
+
 # 返回x的祖宗节点
 def find(x):
     if p[x] != x:
@@ -119,6 +123,7 @@ def find(x):
         d[x] += d[p[x]]
         p[x] = t
     return p[x]
+
 
 # 合并a和b所在的两个集合
 p[find(a)] = find(b)
@@ -137,7 +142,9 @@ d[find(a)] = distance
 
 ```python
 class Solution:
-    def areSentencesSimilarTwo(self, sentence1: List[str], sentence2: List[str], similarPairs: List[List[str]]) -> bool:
+    def areSentencesSimilarTwo(
+        self, sentence1: List[str], sentence2: List[str], similarPairs: List[List[str]]
+    ) -> bool:
         if len(sentence1) != len(sentence2):
             return False
         n = len(similarPairs)
@@ -162,7 +169,11 @@ class Solution:
         for i in range(len(sentence1)):
             if sentence1[i] == sentence2[i]:
                 continue
-            if sentence1[i] not in words or sentence2[i] not in words or find(words[sentence1[i]]) != find(words[sentence2[i]]):
+            if (
+                sentence1[i] not in words
+                or sentence2[i] not in words
+                or find(words[sentence1[i]]) != find(words[sentence2[i]])
+            ):
                 return False
         return True
 ```

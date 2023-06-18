@@ -61,7 +61,9 @@ It can be proven that there is only 1 good string satisfying all conditions.
 
 ```python
 class Solution:
-    def goodBinaryStrings(self, minLength: int, maxLength: int, oneGroup: int, zeroGroup: int) -> int:
+    def goodBinaryStrings(
+        self, minLength: int, maxLength: int, oneGroup: int, zeroGroup: int
+    ) -> int:
         mod = 10**9 + 7
         f = [1] + [0] * maxLength
         for i in range(1, len(f)):

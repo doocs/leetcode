@@ -93,9 +93,12 @@ public:
         string t = ss.str();
         for (int i = 0; i < t.size(); ++i) {
             if (t[i] >= '2' && t[i] <= '9') return "ERROR";
-            if (t[i] == '0') t[i] = 'O';
-            else if (t[i] == '1') t[i] = 'I';
-            else t[i] = t[i] - 32;
+            if (t[i] == '0')
+                t[i] = 'O';
+            else if (t[i] == '1')
+                t[i] = 'I';
+            else
+                t[i] = t[i] - 32;
         }
         return t;
     }

@@ -60,7 +60,7 @@ Union find.
 ```python
 class Solution:
     def closedIsland(self, grid: List[List[int]]) -> int:
-        def dfs(i, j):
+        def dfs(i: int, j: int) -> int:
             res = int(0 < i < m - 1 and 0 < j < n - 1)
             grid[i][j] = 1
             for a, b in pairwise(dirs):
@@ -76,16 +76,16 @@ class Solution:
 
 ```python
 class UnionFind:
-    def __init__(self, n):
+    def __init__(self, n: int):
         self.p = list(range(n))
         self.size = [1] * n
 
-    def find(self, x):
+    def find(self, x: int) -> int:
         if self.p[x] != x:
             self.p[x] = self.find(self.p[x])
         return self.p[x]
 
-    def union(self, a, b):
+    def union(self, a: int, b: int):
         pa, pb = self.find(a), self.find(b)
         if pa != pb:
             if self.size[pa] > self.size[pb]:
@@ -284,7 +284,6 @@ private:
     vector<int> p, size;
 };
 
-
 class Solution {
 public:
     int closedIsland(vector<vector<int>>& grid) {
@@ -409,6 +408,206 @@ func closedIsland(grid [][]int) (ans int) {
 		}
 	}
 	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function closedIsland(grid: number[][]): number {
+    const m = grid.length;
+    const n = grid[0].length;
+    const dirs = [-1, 0, 1, 0, -1];
+    const dfs = (i: number, j: number): number => {
+        let res = i > 0 && j > 0 && i < m - 1 && j < n - 1 ? 1 : 0;
+        grid[i][j] = 1;
+        for (let k = 0; k < 4; ++k) {
+            const [x, y] = [i + dirs[k], j + dirs[k + 1]];
+            if (x >= 0 && y >= 0 && x < m && y < n && grid[x][y] === 0) {
+                res &= dfs(x, y);
+            }
+        }
+        return res;
+    };
+    let ans = 0;
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; j++) {
+            if (grid[i][j] === 0) {
+                ans += dfs(i, j);
+            }
+        }
+    }
+    return ans;
+}
+```
+
+```ts
+function closedIsland(grid: number[][]): number {
+    const m = grid.length;
+    const n = grid[0].length;
+    const uf = new UnionFind(m * n + 1);
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (i === 0 || i === m - 1 || j === 0 || j === n - 1) {
+                uf.union(i * n + j, m * n);
+            }
+            if (grid[i][j] === 0) {
+                if (i + 1 < m && grid[i + 1][j] === 0) {
+                    uf.union(i * n + j, (i + 1) * n + j);
+                }
+                if (j + 1 < n && grid[i][j + 1] === 0) {
+                    uf.union(i * n + j, i * n + j + 1);
+                }
+            }
+        }
+    }
+    let ans = 0;
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; j++) {
+            if (grid[i][j] === 0 && uf.find(i * n + j) === i * n + j) {
+                ++ans;
+            }
+        }
+    }
+    return ans;
+}
+
+class UnionFind {
+    private p: number[];
+    private size: number[];
+
+    constructor(n: number) {
+        this.p = Array(n)
+            .fill(0)
+            .map((_, i) => i);
+        this.size = Array(n).fill(1);
+    }
+
+    find(x: number): number {
+        if (this.p[x] !== x) {
+            this.p[x] = this.find(this.p[x]);
+        }
+        return this.p[x];
+    }
+
+    union(a: number, b: number): void {
+        const [pa, pb] = [this.find(a), this.find(b)];
+        if (pa === pb) {
+            return;
+        }
+        if (this.size[pa] > this.size[pb]) {
+            this.p[pb] = pa;
+            this.size[pa] += this.size[pb];
+        } else {
+            this.p[pa] = pb;
+            this.size[pb] += this.size[pa];
+        }
+    }
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    private int m;
+    private int n;
+    private int[][] grid;
+
+    public int ClosedIsland(int[][] grid) {
+        m = grid.Length;
+        n = grid[0].Length;
+        this.grid = grid;
+        int ans = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == 0) {
+                    ans += dfs(i, j);
+                }
+            }
+        }
+        return ans;
+    }
+
+    private int dfs(int i, int j) {
+        int res = i > 0 && i < m - 1 && j > 0 && j < n - 1 ? 1 : 0;
+        grid[i][j] = 1;
+        int[] dirs = {-1, 0, 1, 0, -1};
+        for (int k = 0; k < 4; ++k) {
+            int x = i + dirs[k], y = j + dirs[k + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 0) {
+                res &= dfs(x, y);
+            }
+        }
+        return res;
+    }
+}
+```
+
+```cs
+class UnionFind {
+    private int[] p;
+    private int[] size;
+
+    public UnionFind(int n) {
+        p = new int[n];
+        size = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+            size[i] = 1;
+        }
+    }
+
+    public int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+
+    public void union(int a, int b) {
+        int pa = find(a), pb = find(b);
+        if (pa != pb) {
+            if (size[pa] > size[pb]) {
+                p[pb] = pa;
+                size[pa] += size[pb];
+            } else {
+                p[pa] = pb;
+                size[pb] += size[pa];
+            }
+        }
+    }
+}
+
+public class Solution {
+    public int ClosedIsland(int[][] grid) {
+        int m = grid.Length, n = grid[0].Length;
+        UnionFind uf = new UnionFind(m * n + 1);
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (i == 0 || i == m - 1 || j == 0 || j == n - 1) {
+                    uf.union(i * n + j, m * n);
+                }
+                if (grid[i][j] == 0) {
+                    if (i + 1 < m && grid[i + 1][j] == 0) {
+                        uf.union(i * n + j, (i + 1) * n + j);
+                    }
+                    if (j + 1 < n && grid[i][j + 1] == 0) {
+                        uf.union(i * n + j, i * n + j + 1);
+                    }
+                }
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == 0 && uf.find(i * n + j) == i * n + j) {
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
 }
 ```
 

@@ -76,17 +76,14 @@ Each row contains employees details and their yearly salaries, however, some of 
 ```sql
 # Write your MySQL query statement below
 SELECT
-	emp_id,
-	firstname,
-	lastname,
-	max( salary ) AS salary,
-	department_id
-FROM
-	Salary
-GROUP BY
-	emp_id
-ORDER BY
-	emp_id;
+    emp_id,
+    firstname,
+    lastname,
+    max(salary) AS salary,
+    department_id
+FROM Salary
+GROUP BY emp_id
+ORDER BY emp_id;
 ```
 
 <!-- tabs:end -->

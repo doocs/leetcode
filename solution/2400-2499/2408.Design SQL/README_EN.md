@@ -67,7 +67,6 @@ sql.selectCell(&quot;two&quot;, 2, 2); // return &quot;fifth&quot;, finds the va
 
 ```python
 class SQL:
-
     def __init__(self, names: List[str], columns: List[int]):
         self.tables = defaultdict(list)
 

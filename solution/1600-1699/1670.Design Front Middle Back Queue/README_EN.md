@@ -204,7 +204,6 @@ class FrontMiddleBackQueue {
 class FrontMiddleBackQueue {
 public:
     FrontMiddleBackQueue() {
-
     }
 
     void pushFront(int val) {

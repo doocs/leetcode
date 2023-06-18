@@ -84,7 +84,7 @@ class Solution:
                 j = i
                 while j < n and s[j] != ' ':
                     j += 1
-                ans.append(s[i: j])
+                ans.append(s[i:j])
                 i = j
         return ' '.join(ans[::-1])
 ```

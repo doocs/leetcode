@@ -129,7 +129,6 @@ public:
             }
             if (!stk.empty()) {
                 ans[i] = stk.top();
-
             }
             stk.push(nums[i]);
         }

@@ -106,8 +106,7 @@ class Solution:
         q1, q2 = deque([beginWord]), deque([endWord])
         m1, m2 = {beginWord: 0}, {endWord: 0}
         while q1 and q2:
-            t = extend(m1, m2, q1) if len(q1) <= len(
-                q2) else extend(m2, m1, q2)
+            t = extend(m1, m2, q1) if len(q1) <= len(q2) else extend(m2, m1, q2)
             if t != -1:
                 return t + 1
         return 0
@@ -210,7 +209,7 @@ class Solution {
 public:
     int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
         unordered_set<string> words(wordList.begin(), wordList.end());
-        queue<string> q {{beginWord}};
+        queue<string> q{{beginWord}};
         int ans = 1;
         while (!q.empty()) {
             ++ans;
@@ -241,8 +240,8 @@ public:
     int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
         unordered_set<string> words(wordList.begin(), wordList.end());
         if (!words.count(endWord)) return 0;
-        queue<string> q1 {{beginWord}};
-        queue<string> q2 {{endWord}};
+        queue<string> q1{{beginWord}};
+        queue<string> q2{{endWord}};
         unordered_map<string, int> m1;
         unordered_map<string, int> m2;
         m1[beginWord] = 0;

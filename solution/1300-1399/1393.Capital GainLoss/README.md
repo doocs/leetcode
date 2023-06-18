@@ -72,10 +72,11 @@ Corona Masks 股票在第1天以10美元的价格买入，在第3天以1010美�
 ### **SQL**
 
 ```sql
-SELECT stock_name,
+SELECT
+    stock_name,
     SUM(
         CASE
-            WHEN operation = 'Buy' THEN - price
+            WHEN operation = 'Buy' THEN -price
             ELSE price
         END
     ) AS capital_gain_loss

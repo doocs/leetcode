@@ -152,7 +152,7 @@ class Solution {
     private boolean bfs(int i, int j, int m, int n, int[][] grid1, int[][] grid2) {
         Queue<int[]> q = new ArrayDeque<>();
         grid2[i][j] = 0;
-        q.offer(new int[]{i, j});
+        q.offer(new int[] {i, j});
         boolean ans = true;
         int[] dirs = {-1, 0, 1, 0, -1};
         while (!q.isEmpty()) {
@@ -166,7 +166,7 @@ class Solution {
                 int x = i + dirs[k];
                 int y = j + dirs[k + 1];
                 if (x >= 0 && x < m && y >= 0 && y < n && grid2[x][y] == 1) {
-                    q.offer(new int[]{x, y});
+                    q.offer(new int[] {x, y});
                     grid2[x][y] = 0;
                 }
             }
@@ -201,7 +201,8 @@ class Solution {
         for (int k = 0; k < 4; ++k) {
             int x = i + dirs[k];
             int y = j + dirs[k + 1];
-            if (x >= 0 && x < m && y >= 0 && y < n && grid2[x][y] == 1 && !dfs(x, y, m, n, grid1, grid2)) {
+            if (x >= 0 && x < m && y >= 0 && y < n && grid2[x][y] == 1
+                && !dfs(x, y, m, n, grid1, grid2)) {
                 ans = false;
             }
         }
@@ -380,8 +381,7 @@ public:
         bool ans = grid1[i][j];
         grid2[i][j] = 0;
         vector<int> dirs = {-1, 0, 1, 0, -1};
-        for (int k = 0; k < 4; ++k)
-        {
+        for (int k = 0; k < 4; ++k) {
             int x = i + dirs[k], y = j + dirs[k + 1];
             if (x >= 0 && x < m && y >= 0 && y < n && grid2[x][y] && !dfs(x, y, m, n, grid1, grid2))
                 ans = false;

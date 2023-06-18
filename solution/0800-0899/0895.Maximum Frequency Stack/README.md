@@ -84,7 +84,6 @@ freqStack.pop ();//返回 4 ，因为 4, 5 和 7 出现频率最高，但 4 是�
 
 ```python
 class FreqStack:
-
     def __init__(self):
         self.cnt = defaultdict(int)
         self.q = []
@@ -109,7 +108,6 @@ class FreqStack:
 
 ```python
 class FreqStack:
-
     def __init__(self):
         self.cnt = defaultdict(int)
         self.d = defaultdict(list)
@@ -141,11 +139,11 @@ class FreqStack:
 ```java
 class FreqStack {
     private Map<Integer, Integer> cnt = new HashMap<>();
-    private PriorityQueue<int[]> q = new PriorityQueue<>((a, b) -> a[0] == b[0] ? b[1] - a[1] : b[0] - a[0]);
+    private PriorityQueue<int[]> q
+        = new PriorityQueue<>((a, b) -> a[0] == b[0] ? b[1] - a[1] : b[0] - a[0]);
     private int ts;
 
     public FreqStack() {
-
     }
 
     public void push(int val) {
@@ -208,7 +206,6 @@ class FreqStack {
 class FreqStack {
 public:
     FreqStack() {
-
     }
 
     void push(int val) {
@@ -241,7 +238,6 @@ private:
 class FreqStack {
 public:
     FreqStack() {
-
     }
 
     void push(int val) {

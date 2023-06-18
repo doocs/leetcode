@@ -83,7 +83,7 @@ class Solution:
         while i < n:
             if s[i] == '(':
                 j = s.find(')', i + 1)
-                ans.append(d.get(s[i + 1: j], '?'))
+                ans.append(d.get(s[i + 1 : j], '?'))
                 i = j
             else:
                 ans.append(s[i])

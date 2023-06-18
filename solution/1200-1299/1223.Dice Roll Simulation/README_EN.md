@@ -61,7 +61,7 @@ class Solution:
                     ans += dfs(i + 1, k, 1)
                 elif x < rollMax[j - 1]:
                     ans += dfs(i + 1, j, x + 1)
-            return ans % (10 ** 9 + 7)
+            return ans % (10**9 + 7)
 
         return dfs(0, 0, 0)
 ```

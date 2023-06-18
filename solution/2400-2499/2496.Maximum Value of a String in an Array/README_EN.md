@@ -55,8 +55,22 @@ Each string in the array has value 1. Hence, we return 1.
 ```python
 class Solution:
     def maximumValue(self, strs: List[str]) -> int:
-        def f(s):
+        def f(s: str) -> int:
             return int(s) if all(c.isdigit() for c in s) else len(s)
+
+        return max(f(s) for s in strs)
+```
+
+```python
+class Solution:
+    def maximumValue(self, strs: List[str]) -> int:
+        def f(s: str) -> int:
+            x = 0
+            for c in s:
+                if c.isalpha():
+                    return len(s)
+                x = x * 10 + ord(c) - ord("0")
+            return x
 
         return max(f(s) for s in strs)
 ```
@@ -67,19 +81,22 @@ class Solution:
 class Solution {
     public int maximumValue(String[] strs) {
         int ans = 0;
-        for (String s : strs) {
+        for (var s : strs) {
             ans = Math.max(ans, f(s));
         }
         return ans;
     }
 
     private int f(String s) {
-        for (int i = 0; i < s.length(); ++i) {
-            if (s.charAt(i) >= 'a' && s.charAt(i) <= 'z') {
-                return s.length();
+        int x = 0;
+        for (int i = 0, n = s.length(); i < n; ++i) {
+            char c = s.charAt(i);
+            if (Character.isLetter(c)) {
+                return n;
             }
+            x = x * 10 + (c - '0');
         }
-        return Integer.parseInt(s);
+        return x;
     }
 }
 ```
@@ -91,15 +108,19 @@ class Solution {
 public:
     int maximumValue(vector<string>& strs) {
         auto f = [](string& s) {
-            int n = s.size(), m = 0;
+            int x = 0;
             for (char& c : s) {
-                if (!isdigit(c)) return n;
-                m = m * 10 + (c - '0');
+                if (!isdigit(c)) {
+                    return (int) s.size();
+                }
+                x = x * 10 + c - '0';
             }
-            return m;
+            return x;
         };
         int ans = 0;
-        for (auto& s : strs) ans = max(ans, f(s));
+        for (auto& s : strs) {
+            ans = max(ans, f(s));
+        }
         return ans;
     }
 };
@@ -109,19 +130,18 @@ public:
 
 ```go
 func maximumValue(strs []string) (ans int) {
-	f := func(s string) int {
-		n, m := len(s), 0
+	f := func(s string) (x int) {
 		for _, c := range s {
 			if c >= 'a' && c <= 'z' {
-				return n
+				return len(s)
 			}
-			m = m*10 + int(c-'0')
+			x = x*10 + int(c-'0')
 		}
-		return m
+		return
 	}
 	for _, s := range strs {
-		if t := f(s); ans < t {
-			ans = t
+		if x := f(s); ans < x {
+			ans = x
 		}
 	}
 	return
@@ -132,12 +152,29 @@ func maximumValue(strs []string) (ans int) {
 
 ```ts
 function maximumValue(strs: string[]): number {
-    let ans = 0;
-    for (const s of strs) {
-        const num = Number(s);
-        ans = Math.max(ans, Number.isNaN(num) ? s.length : num);
+    const f = (s: string) => (Number.isNaN(Number(s)) ? s.length : Number(s));
+    return Math.max(...strs.map(f));
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int MaximumValue(string[] strs) {
+        return strs.Max(f);
     }
-    return ans;
+
+    private int f(string s) {
+        int x = 0;
+        foreach (var c in s) {
+            if (c >= 'a') {
+                return s.Length;
+            }
+            x = x * 10 + (c - '0');
+        }
+        return x;
+    }
 }
 ```
 
@@ -161,7 +198,7 @@ impl Solution {
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 
-int parseInt(char *s) {
+int parseInt(char* s) {
     int n = strlen(s);
     int res = 0;
     for (int i = 0; i < n; i++) {
@@ -173,7 +210,7 @@ int parseInt(char *s) {
     return res;
 }
 
-int maximumValue(char **strs, int strsSize) {
+int maximumValue(char** strs, int strsSize) {
     int ans = 0;
     for (int i = 0; i < strsSize; i++) {
         int num = parseInt(strs[i]);

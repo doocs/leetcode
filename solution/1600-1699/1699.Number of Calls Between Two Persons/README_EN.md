@@ -71,11 +71,8 @@ SELECT
     to_id AS person2,
     COUNT(1) AS call_count,
     SUM(duration) AS total_duration
-FROM
-    Calls
-GROUP BY
-    LEAST(from_id, to_id),
-    GREATEST(from_id, to_id);
+FROM Calls
+GROUP BY LEAST(from_id, to_id), GREATEST(from_id, to_id);
 ```
 
 <!-- tabs:end -->

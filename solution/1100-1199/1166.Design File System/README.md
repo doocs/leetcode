@@ -241,7 +241,6 @@ public:
         return node->v;
     }
 
-
 private:
     vector<string> split(string& s, char delim) {
         stringstream ss(s);

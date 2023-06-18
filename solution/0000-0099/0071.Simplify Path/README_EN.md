@@ -163,7 +163,7 @@ func simplifyPath(path string) string {
 
 ```go
 func simplifyPath(path string) string {
-    return filepath.Clean(path)
+	return filepath.Clean(path)
 }
 ```
 

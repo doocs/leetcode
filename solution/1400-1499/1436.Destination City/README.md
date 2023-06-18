@@ -188,7 +188,7 @@ impl Solution {
 ### **C**
 
 ```c
-char *destCity(char ***paths, int pathsSize, int *pathsColSize) {
+char* destCity(char*** paths, int pathsSize, int* pathsColSize) {
     for (int i = 0; i < pathsSize; i++) {
         int flag = 1;
         for (int j = 0; j < pathsSize; j++) {

@@ -47,7 +47,9 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def splitBST(self, root: Optional[TreeNode], target: int) -> List[Optional[TreeNode]]:
+    def splitBST(
+        self, root: Optional[TreeNode], target: int
+    ) -> List[Optional[TreeNode]]:
         def dfs(root):
             if root is None:
                 return [None, None]

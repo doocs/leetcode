@@ -108,7 +108,6 @@ class Solution {
         return dp[m][amount] > amount ? -1 : dp[m][amount];
     }
 }
-
 ```
 
 下面对 k 这层循环进行优化：
@@ -142,7 +141,6 @@ class Solution {
         return dp[m][amount] > amount ? -1 : dp[m][amount];
     }
 }
-
 ```
 
 空间优化：

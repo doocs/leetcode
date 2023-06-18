@@ -94,6 +94,7 @@ class BinaryIndexedTree:
             x -= x & -x
         return s
 
+
 class Solution:
     def reversePairs(self, nums: List[int]) -> int:
         alls = sorted(set(nums))
@@ -250,7 +251,9 @@ public:
     int n;
     vector<int> c;
 
-    BinaryIndexedTree(int _n): n(_n), c(_n + 1){}
+    BinaryIndexedTree(int _n)
+        : n(_n)
+        , c(_n + 1) {}
 
     void update(int x, int delta) {
         while (x <= n) {
@@ -268,7 +271,6 @@ public:
         return s;
     }
 };
-
 
 class Solution {
 public:

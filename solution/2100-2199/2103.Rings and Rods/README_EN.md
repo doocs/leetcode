@@ -178,7 +178,7 @@ impl Solution {
 ### **C**
 
 ```c
-int countPoints(char *rings) {
+int countPoints(char* rings) {
     int target = (1 << ('R' - 'A')) + (1 << ('G' - 'A')) + (1 << ('B' - 'A'));
     int count[10] = {0};
     for (int i = 0; rings[i]; i += 2) {

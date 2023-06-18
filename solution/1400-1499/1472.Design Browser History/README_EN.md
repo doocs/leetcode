@@ -58,7 +58,6 @@ browserHistory.back(7);                   // You are in &quot;google.com&quot;, 
 
 ```python
 class BrowserHistory:
-
     def __init__(self, homepage: str):
         self.stk1 = []
         self.stk2 = []

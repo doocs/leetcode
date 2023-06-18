@@ -99,7 +99,7 @@ class Solution:
             for i, x in enumerate(start):
                 for y in 'ACGT':
                     if x != y:
-                        nxt = start[:i] + y + start[i + 1:]
+                        nxt = start[:i] + y + start[i + 1 :]
                         if nxt in s:
                             s.remove(nxt)
                             dfs(nxt, t + 1)
@@ -240,19 +240,15 @@ public:
     }
 
     void dfs(string& start, string& end, unordered_set<string>& s, int t) {
-        if (start == end)
-        {
+        if (start == end) {
             ans = min(ans, t);
             return;
         }
-        for (int i = 0; i < start.size(); ++i)
-        {
-            for (char& c : seq)
-            {
+        for (int i = 0; i < start.size(); ++i) {
+            for (char& c : seq) {
                 if (start[i] == c) continue;
                 string nxt = start.substr(0, i) + c + start.substr(i + 1, start.size() - i - 1);
-                if (s.count(nxt))
-                {
+                if (s.count(nxt)) {
                     s.erase(nxt);
                     dfs(nxt, end, s, t + 1);
                 }

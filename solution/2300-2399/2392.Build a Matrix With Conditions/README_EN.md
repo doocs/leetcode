@@ -71,7 +71,9 @@ Topological Sort.
 
 ```python
 class Solution:
-    def buildMatrix(self, k: int, rowConditions: List[List[int]], colConditions: List[List[int]]) -> List[List[int]]:
+    def buildMatrix(
+        self, k: int, rowConditions: List[List[int]], colConditions: List[List[int]]
+    ) -> List[List[int]]:
         def f(cond):
             g = defaultdict(list)
             indeg = [0] * (k + 1)

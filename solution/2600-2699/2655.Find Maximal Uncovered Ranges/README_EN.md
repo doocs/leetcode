@@ -68,7 +68,9 @@
 
 ```python
 class Solution:
-    def findMaximalUncoveredRanges(self, n: int, ranges: List[List[int]]) -> List[List[int]]:
+    def findMaximalUncoveredRanges(
+        self, n: int, ranges: List[List[int]]
+    ) -> List[List[int]]:
         ranges.sort()
         last = -1
         ans = []

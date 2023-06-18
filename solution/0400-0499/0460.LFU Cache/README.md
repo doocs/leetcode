@@ -224,7 +224,6 @@ type LFUCache struct {
 	capacity int
 }
 
-
 func Constructor(capacity int) LFUCache {
 	return LFUCache{
 		cache:    make(map[int]*node),
@@ -233,29 +232,24 @@ func Constructor(capacity int) LFUCache {
 	}
 }
 
-
 func (this *LFUCache) Get(key int) int {
 	if this.capacity == 0 {
 		return -1
 	}
-
 
 	n, ok := this.cache[key]
 	if !ok {
 		return -1
 	}
 
-
 	this.incrFreq(n)
 	return n.val
 }
-
 
 func (this *LFUCache) Put(key int, value int) {
 	if this.capacity == 0 {
 		return
 	}
-
 
 	n, ok := this.cache[key]
 	if ok {
@@ -263,7 +257,6 @@ func (this *LFUCache) Put(key int, value int) {
 		this.incrFreq(n)
 		return
 	}
-
 
 	if len(this.cache) == this.capacity {
 		l := this.freqMap[this.minFreq]
@@ -274,7 +267,6 @@ func (this *LFUCache) Put(key int, value int) {
 	this.cache[key] = n
 	this.minFreq = 1
 }
-
 
 func (this *LFUCache) incrFreq(n *node) {
 	l := this.freqMap[n.freq]
@@ -289,7 +281,6 @@ func (this *LFUCache) incrFreq(n *node) {
 	this.addNode(n)
 }
 
-
 func (this *LFUCache) addNode(n *node) {
 	l, ok := this.freqMap[n.freq]
 	if !ok {
@@ -299,7 +290,6 @@ func (this *LFUCache) addNode(n *node) {
 	l.pushFront(n)
 }
 
-
 type node struct {
 	key  int
 	val  int
@@ -308,12 +298,10 @@ type node struct {
 	next *node
 }
 
-
 type list struct {
 	head *node
 	tail *node
 }
-
 
 func newList() *list {
 	head := new(node)
@@ -326,14 +314,12 @@ func newList() *list {
 	}
 }
 
-
 func (l *list) pushFront(n *node) {
 	n.prev = l.head
 	n.next = l.head.next
 	l.head.next.prev = n
 	l.head.next = n
 }
-
 
 func (l *list) remove(n *node) {
 	n.prev.next = n.next
@@ -342,13 +328,11 @@ func (l *list) remove(n *node) {
 	n.prev = nil
 }
 
-
 func (l *list) removeBack() *node {
 	n := l.tail.prev
 	l.remove(n)
 	return n
 }
-
 
 func (l *list) empty() bool {
 	return l.head.next == l.tail

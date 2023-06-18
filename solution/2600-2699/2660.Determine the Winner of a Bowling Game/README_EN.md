@@ -123,7 +123,8 @@ class Solution {
 public:
     int isWinner(vector<int>& player1, vector<int>& player2) {
         int a = f(player1), b = f(player2);
-        return a > b ? 1 : b > a ? 2 : 0;
+        return a > b ? 1 : b > a ? 2
+                                 : 0;
     }
 
     int f(vector<int>& arr) {

@@ -168,7 +168,7 @@ impl Solution {
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 
-int largestAltitude(int *gain, int gainSize) {
+int largestAltitude(int* gain, int gainSize) {
     int ans = 0;
     int h = 0;
     for (int i = 0; i < gainSize; i++) {
@@ -191,7 +191,9 @@ class Solution {
         $max = 0;
         for ($i = 0; $i < count($gain); $i++) {
             $tmp += $gain[$i];
-            if ($tmp > $max) $max = $tmp;
+            if ($tmp > $max) {
+                $max = $tmp;
+            }
         }
         return $max;
     }

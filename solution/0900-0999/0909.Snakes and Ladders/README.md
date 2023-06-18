@@ -165,7 +165,7 @@ public:
 
     int snakesAndLadders(vector<vector<int>>& board) {
         n = board.size();
-        queue<int> q {{1}};
+        queue<int> q{{1}};
         vector<bool> vis(n * n + 1);
         vis[1] = true;
         int ans = 0;

@@ -1,4 +1,4 @@
- class Solution {
+class Solution {
     /**
      * @param String $s
      * @return String
@@ -10,8 +10,8 @@
         arsort($hashtable);
         $keys = array_keys($hashtable);
         for ($j = 0; $j < count($keys); $j++) {
-            $rs = $rs.str_repeat($keys[$j], $hashtable[$keys[$j]]);
+            $rs = $rs . str_repeat($keys[$j], $hashtable[$keys[$j]]);
         }
         return $rs;
     }
-};
+}

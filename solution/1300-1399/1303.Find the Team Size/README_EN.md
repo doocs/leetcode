@@ -69,19 +69,18 @@ Solution 1:
 ```sql
 # Write your MySQL query statement below
 SELECT
-    e.employee_id, t.team_size
+    e.employee_id,
+    t.team_size
 FROM
-    Employee e
-LEFT JOIN
-    (SELECT
-        team_id, count(1) as team_size
-    FROM
-        Employee
-    GROUP BY
-        team_id
-    ) t
-ON
-    e.team_id = t.team_id;
+    Employee AS e
+    LEFT JOIN (
+        SELECT
+            team_id,
+            count(1) AS team_size
+        FROM Employee
+        GROUP BY team_id
+    ) AS t
+        ON e.team_id = t.team_id;
 ```
 
 Solution 2:
@@ -89,15 +88,12 @@ Solution 2:
 ```sql
 # Write your MySQL query statement below
 SELECT
-    e1.employee_id, count(*) as team_size
+    e1.employee_id,
+    count(*) AS team_size
 FROM
-    Employee e1
-LEFT JOIN
-    Employee e2
-ON
-    e1.team_id = e2.team_id
-GROUP BY
-    e1.employee_id;
+    Employee AS e1
+    LEFT JOIN Employee AS e2 ON e1.team_id = e2.team_id
+GROUP BY e1.employee_id;
 ```
 
 <!-- tabs:end -->

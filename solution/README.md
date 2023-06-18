@@ -2747,6 +2747,12 @@
 |  2734  |  [执行子串操作后的字典序最小字符串](/solution/2700-2799/2734.Lexicographically%20Smallest%20String%20After%20Substring%20Operation/README.md)  |    |  中等  |  第 349 场周赛  |
 |  2735  |  [收集巧克力](/solution/2700-2799/2735.Collecting%20Chocolates/README.md)  |    |  中等  |  第 349 场周赛  |
 |  2736  |  [最大和查询](/solution/2700-2799/2736.Maximum%20Sum%20Queries/README.md)  |    |  困难  |  第 349 场周赛  |
+|  2737  |  [Find the Closest Marked Node](/solution/2700-2799/2737.Find%20the%20Closest%20Marked%20Node/README.md)  |  `图`,`数组`,`最短路`,`堆（优先队列）`  |  中等  |  🔒  |
+|  2738  |  [Count Occurrences in Text](/solution/2700-2799/2738.Count%20Occurrences%20in%20Text/README.md)  |    |  中等  |  🔒  |
+|  2739  |  [总行驶距离](/solution/2700-2799/2739.Total%20Distance%20Traveled/README.md)  |    |  简单  |  第 350 场周赛  |
+|  2740  |  [找出分区值](/solution/2700-2799/2740.Find%20the%20Value%20of%20the%20Partition/README.md)  |    |  中等  |  第 350 场周赛  |
+|  2741  |  [特别的排列](/solution/2700-2799/2741.Special%20Permutations/README.md)  |    |  中等  |  第 350 场周赛  |
+|  2742  |  [给墙壁刷油漆](/solution/2700-2799/2742.Painting%20the%20Walls/README.md)  |    |  困难  |  第 350 场周赛  |
 
 ## 版权
 

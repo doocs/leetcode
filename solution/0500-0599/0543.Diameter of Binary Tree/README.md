@@ -243,9 +243,9 @@ func max(a, b int) int {
  * };
  */
 
-#define max(a,b) (((a) > (b)) ? (a) : (b))
+#define max(a, b) (((a) > (b)) ? (a) : (b))
 
-int dfs(struct TreeNode *root, int *res) {
+int dfs(struct TreeNode* root, int* res) {
     if (!root) {
         return 0;
     }
@@ -255,7 +255,7 @@ int dfs(struct TreeNode *root, int *res) {
     return max(left, right) + 1;
 }
 
-int diameterOfBinaryTree(struct TreeNode *root) {
+int diameterOfBinaryTree(struct TreeNode* root) {
     int res = 0;
     dfs(root, &res);
     return res;

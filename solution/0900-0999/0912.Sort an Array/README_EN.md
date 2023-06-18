@@ -86,9 +86,9 @@ class Solution:
                     tmp.append(nums[j])
                     j += 1
             if i <= mid:
-                tmp.extend(nums[i:mid + 1])
+                tmp.extend(nums[i : mid + 1])
             if j <= r:
-                tmp.extend(nums[j: r + 1])
+                tmp.extend(nums[j : r + 1])
             for i in range(l, r + 1):
                 nums[i] = tmp[i - l]
 

@@ -107,7 +107,6 @@ from threading import Semaphore
 
 
 class BoundedBlockingQueue(object):
-
     def __init__(self, capacity: int):
         self.s1 = Semaphore(capacity)
         self.s2 = Semaphore(0)

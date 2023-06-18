@@ -128,7 +128,7 @@ class Solution:
                     if window[ch] == need[ch]:
                         windowCount -= 1
                     window[ch] -= 1
-        return "" if minLen == inf else s[start:start + minLen]
+        return "" if minLen == inf else s[start : start + minLen]
 ```
 
 ### **Java**

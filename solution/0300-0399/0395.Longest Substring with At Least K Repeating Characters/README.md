@@ -55,7 +55,7 @@
 class Solution:
     def longestSubstring(self, s: str, k: int) -> int:
         def dfs(l, r):
-            cnt = Counter(s[l: r + 1])
+            cnt = Counter(s[l : r + 1])
             split = next((c for c, v in cnt.items() if v < k), '')
             if not split:
                 return r - l + 1

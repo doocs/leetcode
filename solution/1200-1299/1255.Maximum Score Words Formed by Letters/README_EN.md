@@ -60,7 +60,9 @@ Letter &quot;e&quot; can only be used once.</pre>
 
 ```python
 class Solution:
-    def maxScoreWords(self, words: List[str], letters: List[str], score: List[int]) -> int:
+    def maxScoreWords(
+        self, words: List[str], letters: List[str], score: List[int]
+    ) -> int:
         cnt = Counter(letters)
         n = len(words)
         ans = 0

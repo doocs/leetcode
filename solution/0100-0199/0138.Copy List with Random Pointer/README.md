@@ -300,7 +300,7 @@ public:
         if (!head) {
             return nullptr;
         }
-        for (Node* cur = head; cur; ) {
+        for (Node* cur = head; cur;) {
             Node* node = new Node(cur->val);
             node->next = cur->next;
             cur->next = node;
@@ -312,7 +312,7 @@ public:
             }
         }
         Node* ans = head->next;
-        for (Node* cur = head; cur; ) {
+        for (Node* cur = head; cur;) {
             Node* nxt = cur->next;
             if (nxt) {
                 cur->next = nxt->next;

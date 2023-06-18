@@ -75,7 +75,6 @@ class SmallestInfiniteSet:
 
 ```python
 class SmallestInfiniteSet:
-
     def __init__(self):
         self.h = list(range(1, 1010))
         self.s = set(self.h)
@@ -105,12 +104,12 @@ class SmallestInfiniteSet {
     private Set<Integer> black = new HashSet<>();
 
     public SmallestInfiniteSet() {
-
     }
 
     public int popSmallest() {
         int i = 1;
-        for (; black.contains(i); ++i);
+        for (; black.contains(i); ++i)
+            ;
         black.add(i);
         return i;
     }
@@ -200,8 +199,7 @@ public:
     unordered_set<int> s;
 
     SmallestInfiniteSet() {
-        for (int i = 1; i < 1010; ++i)
-        {
+        for (int i = 1; i < 1010; ++i) {
             pq.push(i);
             s.insert(i);
         }
@@ -215,8 +213,7 @@ public:
     }
 
     void addBack(int num) {
-        if (!s.count(num))
-        {
+        if (!s.count(num)) {
             s.insert(num);
             pq.push(num);
         }

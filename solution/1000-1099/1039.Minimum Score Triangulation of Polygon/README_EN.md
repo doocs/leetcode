@@ -58,7 +58,10 @@ class Solution:
         def dfs(i: int, j: int) -> int:
             if i + 1 == j:
                 return 0
-            return min(dfs(i, k) + dfs(k, j) + values[i] * values[k] * values[j] for k in range(i + 1, j))
+            return min(
+                dfs(i, k) + dfs(k, j) + values[i] * values[k] * values[j]
+                for k in range(i + 1, j)
+            )
 
         return dfs(0, len(values) - 1)
 ```
@@ -70,7 +73,10 @@ class Solution:
         f = [[0] * n for _ in range(n)]
         for i in range(n - 3, -1, -1):
             for j in range(i + 2, n):
-                f[i][j] = min(f[i][k] + f[k][j] + values[i] * values[k] * values[j] for k in range(i + 1, j))
+                f[i][j] = min(
+                    f[i][k] + f[k][j] + values[i] * values[k] * values[j]
+                    for k in range(i + 1, j)
+                )
         return f[0][-1]
 ```
 
@@ -82,7 +88,10 @@ class Solution:
         for l in range(3, n + 1):
             for i in range(n - l + 1):
                 j = i + l - 1
-                f[i][j] = min(f[i][k] + f[k][j] + values[i] * values[k] * values[j] for k in range(i + 1, j))
+                f[i][j] = min(
+                    f[i][k] + f[k][j] + values[i] * values[k] * values[j]
+                    for k in range(i + 1, j)
+                )
         return f[0][-1]
 ```
 
@@ -126,7 +135,8 @@ class Solution {
             for (int j = i + 2; j < n; ++j) {
                 f[i][j] = 1 << 30;
                 for (int k = i + 1; k < j; ++k) {
-                    f[i][j] = Math.min(f[i][j], f[i][k] + f[k][j] + values[i] * values[k] * values[j]);
+                    f[i][j]
+                        = Math.min(f[i][j], f[i][k] + f[k][j] + values[i] * values[k] * values[j]);
                 }
             }
         }

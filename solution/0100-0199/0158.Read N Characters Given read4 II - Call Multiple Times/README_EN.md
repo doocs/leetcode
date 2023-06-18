@@ -107,6 +107,7 @@ sol.read(buf, 1); // We have reached the end of file, no more characters can be 
 # The read4 API is already defined for you.
 # def read4(buf4: List[str]) -> int:
 
+
 class Solution:
     def __init__(self):
         self.buf4 = [None] * 4
@@ -179,7 +180,7 @@ public:
      * @param n   Number of characters to read
      * @return    The number of actual characters read
      */
-    int read(char *buf, int n) {
+    int read(char* buf, int n) {
         int j = 0;
         while (j < n) {
             if (i == size) {
@@ -193,7 +194,7 @@ public:
     }
 
 private:
-    char *buf4 = new char[4];
+    char* buf4 = new char[4];
     int i = 0;
     int size = 0;
 };

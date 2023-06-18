@@ -318,7 +318,7 @@ public:
 
     int height(TreeNode* root) {
         int h = -1;
-        queue<TreeNode*> q {{root}};
+        queue<TreeNode*> q{{root}};
         while (!q.empty()) {
             ++h;
             for (int n = q.size(); n; --n) {

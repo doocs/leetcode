@@ -84,9 +84,9 @@ class Solution {
 func leastBricks(wall [][]int) int {
 	cnt := make(map[int]int)
 	for _, row := range wall {
-        width := 0
+		width := 0
 		for _, brick := range row[:len(row)-1] {
-            width += brick
+			width += brick
 			cnt[width]++
 		}
 	}

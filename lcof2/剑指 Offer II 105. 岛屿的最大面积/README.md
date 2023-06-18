@@ -58,6 +58,7 @@
 # 初始化，p存储每个点的父节点
 p = list(range(n))
 
+
 # 返回x的祖宗节点
 def find(x):
     if p[x] != x:
@@ -77,12 +78,14 @@ p[find(a)] = find(b)
 p = list(range(n))
 size = [1] * n
 
+
 # 返回x的祖宗节点
 def find(x):
     if p[x] != x:
         # 路径压缩
         p[x] = find(p[x])
     return p[x]
+
 
 # 合并a和b所在的两个集合
 if find(a) != find(b):
@@ -97,6 +100,7 @@ if find(a) != find(b):
 p = list(range(n))
 d = [0] * n
 
+
 # 返回x的祖宗节点
 def find(x):
     if p[x] != x:
@@ -104,6 +108,7 @@ def find(x):
         d[x] += d[p[x]]
         p[x] = t
     return p[x]
+
 
 # 合并a和b所在的两个集合
 p[find(a)] = find(b)
@@ -131,7 +136,10 @@ class Solution:
             return ans
 
         m, n = len(grid), len(grid[0])
-        return max([dfs(i, j) for i in range(m) for j in range(n) if grid[i][j] == 1], default=0)
+        return max(
+            [dfs(i, j) for i in range(m) for j in range(n) if grid[i][j] == 1],
+            default=0,
+        )
 ```
 
 并查集：
@@ -152,10 +160,18 @@ class Solution:
                 if grid[i][j] == 1:
                     for a, b in [[0, 1], [1, 0]]:
                         x, y = i + a, j + b
-                        if 0 <= x < m and 0 <= y < n and grid[x][y] == 1 and find(i * n + j) != find(x * n + y):
+                        if (
+                            0 <= x < m
+                            and 0 <= y < n
+                            and grid[x][y] == 1
+                            and find(i * n + j) != find(x * n + y)
+                        ):
                             size[find(x * n + y)] += size[find(i * n + j)]
                             p[find(i * n + j)] = find(x * n + y)
-        return max([size[i * n + j] for i in range(m) for j in range(n) if grid[i][j] == 1], default=0)
+        return max(
+            [size[i * n + j] for i in range(m) for j in range(n) if grid[i][j] == 1],
+            default=0,
+        )
 ```
 
 ### **Java**
@@ -388,18 +404,13 @@ public:
         size.resize(m * n, 1);
         for (int i = 0; i < p.size(); ++i) p[i] = i;
         vector<int> dirs = {0, 1, 0};
-        for (int i = 0; i < m; ++i)
-        {
-            for (int j = 0; j < n; ++j)
-            {
-                if (grid[i][j])
-                {
-                    for (int k = 0; k < 2; ++k)
-                    {
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j]) {
+                    for (int k = 0; k < 2; ++k) {
                         int x = i + dirs[k];
                         int y = j + dirs[k + 1];
-                        if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] && find(i * n + j) != find(x * n + y))
-                        {
+                        if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] && find(i * n + j) != find(x * n + y)) {
                             size[find(x * n + y)] += size[find(i * n + j)];
                             p[find(i * n + j)] = find(x * n + y);
                         }

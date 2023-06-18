@@ -83,7 +83,7 @@ class Solution:
                     cnt -= 1
                 window[s[j]] -= 1
                 j += 1
-        return '' if k < 0 else s[k: k + mi]
+        return '' if k < 0 else s[k : k + mi]
 ```
 
 ### **Java**

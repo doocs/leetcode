@@ -4,8 +4,9 @@ class Solution {
      * @return Integer[]
      */
     function runningSum($nums) {
-        for ($i = 1; $i < count($nums); $i++)
+        for ($i = 1; $i < count($nums); $i++) {
             $nums[$i] += $nums[$i - 1];
+        }
         return $nums;
     }
 }

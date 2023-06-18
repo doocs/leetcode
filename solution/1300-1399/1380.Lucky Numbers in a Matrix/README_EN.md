@@ -105,7 +105,7 @@ public:
         }
         vector<int> ans;
         for (int i = 0; i < m; ++i) {
-            for (int j = 0;j < n; ++j) {
+            for (int j = 0; j < n; ++j) {
                 if (rows[i] == cols[j]) {
                     ans.push_back(rows[i]);
                 }

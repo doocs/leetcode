@@ -117,6 +117,7 @@ class Trie:
         dfs(self)
         return ans
 
+
 class Solution:
     def removeSubfolders(self, folder: List[str]) -> List[str]:
         trie = Trie()
@@ -138,7 +139,9 @@ class Solution {
         for (int i = 1; i < folder.length; ++i) {
             int m = ans.get(ans.size() - 1).length();
             int n = folder[i].length();
-            if (m >= n || !(ans.get(ans.size() - 1).equals(folder[i].substring(0, m)) && folder[i].charAt(m) == '/')) {
+            if (m >= n
+                || !(ans.get(ans.size() - 1).equals(folder[i].substring(0, m))
+                    && folder[i].charAt(m) == '/')) {
                 ans.add(folder[i]);
             }
         }

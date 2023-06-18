@@ -91,11 +91,14 @@ class Trie:
             node = node.children[idx]
         return node.is_end
 
+
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
         @cache
         def dfs(s):
-            return not s or any(trie.search(s[:i]) and dfs(s[i:]) for i in range(1, len(s) + 1))
+            return not s or any(
+                trie.search(s[:i]) and dfs(s[i:]) for i in range(1, len(s) + 1)
+            )
 
         trie = Trie()
         for w in wordDict:
@@ -213,13 +216,15 @@ class Trie {
 private:
     vector<Trie*> children;
     bool isEnd;
+
 public:
-    Trie() : children(26), isEnd(false) {}
+    Trie()
+        : children(26)
+        , isEnd(false) {}
 
     void insert(string word) {
         Trie* node = this;
-        for (char c : word)
-        {
+        for (char c : word) {
             c -= 'a';
             if (!node->children[c]) node->children[c] = new Trie();
             node = node->children[c];
@@ -229,8 +234,7 @@ public:
 
     bool search(string word) {
         Trie* node = this;
-        for (char c : word)
-        {
+        for (char c : word) {
             c -= 'a';
             if (!node->children[c]) return false;
             node = node->children[c];
@@ -252,10 +256,8 @@ public:
     bool dfs(string s) {
         if (memo.count(s)) return memo[s];
         if (s == "") return true;
-        for (int i = 1; i <= s.size(); ++i)
-        {
-            if (trie->search(s.substr(0, i)) && dfs(s.substr(i)))
-            {
+        for (int i = 1; i <= s.size(); ++i) {
+            if (trie->search(s.substr(0, i)) && dfs(s.substr(i))) {
                 memo[s] = true;
                 return true;
             }

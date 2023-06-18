@@ -192,7 +192,7 @@ impl Solution {
 ### **C**
 
 ```c
-bool areNumbersAscending(char *s) {
+bool areNumbersAscending(char* s) {
     int pre = -1;
     int cur = 0;
     for (int i = 0; s[i]; i++) {

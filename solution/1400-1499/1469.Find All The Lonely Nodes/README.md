@@ -170,7 +170,7 @@ class Solution {
 public:
     vector<int> getLonelyNodes(TreeNode* root) {
         vector<int> ans;
-        function<void(TreeNode* root)> dfs;
+        function<void(TreeNode * root)> dfs;
         dfs = [&](TreeNode* root) {
             if (!root || (!root->left && !root->right)) return;
             if (!root->left) ans.push_back(root->right->val);

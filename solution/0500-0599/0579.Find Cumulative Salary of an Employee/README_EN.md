@@ -114,29 +114,24 @@ So the cumulative salary summary for this employee is:
 
 ```sql
 # Write your MySQL query statement below
-select
+SELECT
     id,
     month,
-    sum(salary) over (
-        partition by id
-        order by
-            month range 2 preceding
-    ) as Salary
-from
-    employee
-where
-    (id, month) not in (
-        select
+    sum(salary) OVER (
+        PARTITION BY id
+        ORDER BY month
+        RANGE 2 PRECEDING
+    ) AS Salary
+FROM employee
+WHERE
+    (id, month) NOT IN (
+        SELECT
             id,
             max(month)
-        from
-            Employee
-        group by
-            id
+        FROM Employee
+        GROUP BY id
     )
-order by
-    id,
-    month desc
+ORDER BY id, month DESC;
 ```
 
 <!-- tabs:end -->

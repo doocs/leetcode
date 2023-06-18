@@ -73,7 +73,9 @@
 
 ```python
 class Solution:
-    def minCost(self, n: int, roads: List[List[int]], appleCost: List[int], k: int) -> List[int]:
+    def minCost(
+        self, n: int, roads: List[List[int]], appleCost: List[int], k: int
+    ) -> List[int]:
         def dijkstra(i):
             q = [(0, i)]
             dist = [inf] * n

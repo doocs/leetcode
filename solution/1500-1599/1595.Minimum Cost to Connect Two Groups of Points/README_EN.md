@@ -61,13 +61,275 @@ Note that there are multiple points connected to point 2 in the first group and 
 ### **Python3**
 
 ```python
+class Solution:
+    def connectTwoGroups(self, cost: List[List[int]]) -> int:
+        m, n = len(cost), len(cost[0])
+        f = [[inf] * (1 << n) for _ in range(m + 1)]
+        f[0][0] = 0
+        for i in range(1, m + 1):
+            for j in range(1 << n):
+                for k in range(n):
+                    if (j >> k & 1) == 0:
+                        continue
+                    c = cost[i - 1][k]
+                    x = min(f[i][j ^ (1 << k)], f[i - 1][j], f[i - 1][j ^ (1 << k)]) + c
+                    f[i][j] = min(f[i][j], x)
+        return f[m][-1]
+```
 
+```python
+class Solution:
+    def connectTwoGroups(self, cost: List[List[int]]) -> int:
+        m, n = len(cost), len(cost[0])
+        f = [inf] * (1 << n)
+        f[0] = 0
+        g = f[:]
+        for i in range(1, m + 1):
+            for j in range(1 << n):
+                g[j] = inf
+                for k in range(n):
+                    if (j >> k & 1) == 0:
+                        continue
+                    c = cost[i - 1][k]
+                    x = min(g[j ^ (1 << k)], f[j], f[j ^ (1 << k)]) + c
+                    g[j] = min(g[j], x)
+            f = g[:]
+        return f[-1]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int connectTwoGroups(List<List<Integer>> cost) {
+        int m = cost.size(), n = cost.get(0).size();
+        final int inf = 1 << 30;
+        int[][] f = new int[m + 1][1 << n];
+        for (int[] g : f) {
+            Arrays.fill(g, inf);
+        }
+        f[0][0] = 0;
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 0; j < 1 << n; ++j) {
+                for (int k = 0; k < n; ++k) {
+                    if ((j >> k & 1) == 1) {
+                        int c = cost.get(i - 1).get(k);
+                        f[i][j] = Math.min(f[i][j], f[i][j ^ (1 << k)] + c);
+                        f[i][j] = Math.min(f[i][j], f[i - 1][j] + c);
+                        f[i][j] = Math.min(f[i][j], f[i - 1][j ^ (1 << k)] + c);
+                    }
+                }
+            }
+        }
+        return f[m][(1 << n) - 1];
+    }
+}
+```
 
+```java
+class Solution {
+    public int connectTwoGroups(List<List<Integer>> cost) {
+        int m = cost.size(), n = cost.get(0).size();
+        final int inf = 1 << 30;
+        int[] f = new int[1 << n];
+        Arrays.fill(f, inf);
+        f[0] = 0;
+        int[] g = f.clone();
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 0; j < 1 << n; ++j) {
+                g[j] = inf;
+                for (int k = 0; k < n; ++k) {
+                    if ((j >> k & 1) == 1) {
+                        int c = cost.get(i - 1).get(k);
+                        g[j] = Math.min(g[j], g[j ^ (1 << k)] + c);
+                        g[j] = Math.min(g[j], f[j] + c);
+                        g[j] = Math.min(g[j], f[j ^ (1 << k)] + c);
+                    }
+                }
+            }
+            System.arraycopy(g, 0, f, 0, 1 << n);
+        }
+        return f[(1 << n) - 1];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int connectTwoGroups(vector<vector<int>>& cost) {
+        int m = cost.size(), n = cost[0].size();
+        int f[m + 1][1 << n];
+        memset(f, 0x3f, sizeof(f));
+        f[0][0] = 0;
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 0; j < 1 << n; ++j) {
+                for (int k = 0; k < n; ++k) {
+                    if (j >> k & 1) {
+                        int c = cost[i - 1][k];
+                        int x = min({f[i][j ^ (1 << k)], f[i - 1][j], f[i - 1][j ^ (1 << k)]}) + c;
+                        f[i][j] = min(f[i][j], x);
+                    }
+                }
+            }
+        }
+        return f[m][(1 << n) - 1];
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int connectTwoGroups(vector<vector<int>>& cost) {
+        int m = cost.size(), n = cost[0].size();
+        const int inf = 1 << 30;
+        vector<int> f(1 << n, inf);
+        f[0] = 0;
+        vector<int> g = f;
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 0; j < 1 << n; ++j) {
+                g[j] = inf;
+                for (int k = 0; k < n; ++k) {
+                    if (j >> k & 1) {
+                        int c = cost[i - 1][k];
+                        int x = min({g[j ^ (1 << k)], f[j], f[j ^ (1 << k)]}) + c;
+                        g[j] = min(g[j], x);
+                    }
+                }
+            }
+            f.swap(g);
+        }
+        return f[(1 << n) - 1];
+    }
+};
+```
+
+### **Go**
+
+```go
+func connectTwoGroups(cost [][]int) int {
+	m, n := len(cost), len(cost[0])
+	const inf = 1 << 30
+	f := make([][]int, m+1)
+	for i := range f {
+		f[i] = make([]int, 1<<n)
+		for j := range f[i] {
+			f[i][j] = inf
+		}
+	}
+	f[0][0] = 0
+	for i := 1; i <= m; i++ {
+		for j := 0; j < 1<<n; j++ {
+			for k := 0; k < n; k++ {
+				c := cost[i-1][k]
+				if j>>k&1 == 1 {
+					f[i][j] = min(f[i][j], f[i][j^(1<<k)]+c)
+					f[i][j] = min(f[i][j], f[i-1][j]+c)
+					f[i][j] = min(f[i][j], f[i-1][j^(1<<k)]+c)
+				}
+			}
+		}
+	}
+	return f[m][(1<<n)-1]
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func connectTwoGroups(cost [][]int) int {
+	m, n := len(cost), len(cost[0])
+	const inf = 1 << 30
+	f := make([]int, 1<<n)
+	for i := range f {
+		f[i] = inf
+	}
+	f[0] = 0
+	g := make([]int, 1<<n)
+	for i := 1; i <= m; i++ {
+		for j := 0; j < 1<<n; j++ {
+			g[j] = inf
+			for k := 0; k < n; k++ {
+				c := cost[i-1][k]
+				if j>>k&1 == 1 {
+					g[j] = min(g[j], g[j^1<<k]+c)
+					g[j] = min(g[j], f[j]+c)
+					g[j] = min(g[j], f[j^1<<k]+c)
+				}
+			}
+		}
+		copy(f, g)
+	}
+	return f[1<<n-1]
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function connectTwoGroups(cost: number[][]): number {
+    const m = cost.length;
+    const n = cost[0].length;
+    const inf = 1 << 30;
+    const f: number[][] = Array(m + 1)
+        .fill(0)
+        .map(() => Array(1 << n).fill(inf));
+    f[0][0] = 0;
+    for (let i = 1; i <= m; ++i) {
+        for (let j = 0; j < 1 << n; ++j) {
+            for (let k = 0; k < n; ++k) {
+                if (((j >> k) & 1) === 1) {
+                    const c = cost[i - 1][k];
+                    f[i][j] = Math.min(f[i][j], f[i][j ^ (1 << k)] + c);
+                    f[i][j] = Math.min(f[i][j], f[i - 1][j] + c);
+                    f[i][j] = Math.min(f[i][j], f[i - 1][j ^ (1 << k)] + c);
+                }
+            }
+        }
+    }
+    return f[m][(1 << n) - 1];
+}
+```
+
+```ts
+function connectTwoGroups(cost: number[][]): number {
+    const m = cost.length;
+    const n = cost[0].length;
+    const inf = 1 << 30;
+    const f: number[] = new Array(1 << n).fill(inf);
+    f[0] = 0;
+    const g = new Array(1 << n).fill(0);
+    for (let i = 1; i <= m; ++i) {
+        for (let j = 0; j < 1 << n; ++j) {
+            g[j] = inf;
+            for (let k = 0; k < n; ++k) {
+                if (((j >> k) & 1) === 1) {
+                    const c = cost[i - 1][k];
+                    g[j] = Math.min(g[j], g[j ^ (1 << k)] + c);
+                    g[j] = Math.min(g[j], f[j] + c);
+                    g[j] = Math.min(g[j], f[j ^ (1 << k)] + c);
+                }
+            }
+        }
+        f.splice(0, f.length, ...g);
+    }
+    return f[(1 << n) - 1];
+}
 ```
 
 ### **...**

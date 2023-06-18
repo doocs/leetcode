@@ -74,14 +74,12 @@ The employees with employee_id 3, 8, and 9 do not report their work to the head 
 # Write your MySQL query statement below
 
 # Write your MySQL query statement below
-SELECT  e1.employee_id
-FROM Employees e1
-JOIN Employees e2
-ON e1.manager_id = e2.employee_id
-JOIN Employees e3
-ON e2.manager_id = e3.employee_id
-WHERE e1.employee_id != 1
-AND e3.manager_id = 1
+SELECT e1.employee_id
+FROM
+    Employees AS e1
+    JOIN Employees AS e2 ON e1.manager_id = e2.employee_id
+    JOIN Employees AS e3 ON e2.manager_id = e3.employee_id
+WHERE e1.employee_id != 1 AND e3.manager_id = 1;
 ```
 
 <!-- tabs:end -->

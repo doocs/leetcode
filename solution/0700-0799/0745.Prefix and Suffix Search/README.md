@@ -105,7 +105,6 @@ class Trie:
 
 
 class WordFilter:
-
     def __init__(self, words: List[str]):
         self.p = Trie()
         self.s = Trie()

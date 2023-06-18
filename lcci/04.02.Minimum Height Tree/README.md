@@ -31,6 +31,7 @@
 #         self.left = None
 #         self.right = None
 
+
 class Solution:
     def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
         def dfs(l, r):

@@ -146,7 +146,7 @@ func countStudents(students []int, sandwiches []int) int {
 ### **C**
 
 ```c
-int countStudents(int *students, int studentsSize, int *sandwiches, int sandwichesSize) {
+int countStudents(int* students, int studentsSize, int* sandwiches, int sandwichesSize) {
     int count[2] = {0};
     for (int i = 0; i < studentsSize; i++) {
         count[students[i]]++;

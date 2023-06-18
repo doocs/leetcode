@@ -121,7 +121,7 @@ public:
                 m3 = num;
             }
         }
-        return (int)(m3 != LONG_MIN ? m3 : m1);
+        return (int) (m3 != LONG_MIN ? m3 : m1);
     }
 };
 ```

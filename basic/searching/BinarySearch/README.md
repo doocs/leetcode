@@ -7,7 +7,8 @@
 ### 模板 1
 
 ```java
-boolean check(int x) {}
+boolean check(int x) {
+}
 
 int search(int left, int right) {
     while (left < right) {

@@ -59,7 +59,6 @@ productOfNumbers.getProduct(2); // return 32. The product of the last 2 numbers 
 
 ```python
 class ProductOfNumbers:
-
     def __init__(self):
         self.s = [1]
 

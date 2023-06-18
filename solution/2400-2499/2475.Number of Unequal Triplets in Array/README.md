@@ -91,7 +91,9 @@ class Solution:
         for i in range(n):
             for j in range(i + 1, n):
                 for k in range(j + 1, n):
-                    ans += nums[i] != nums[j] and nums[j] != nums[k] and nums[i] != nums[k]
+                    ans += (
+                        nums[i] != nums[j] and nums[j] != nums[k] and nums[i] != nums[k]
+                    )
         return ans
 ```
 
@@ -147,7 +149,7 @@ class Solution {
 class Solution {
     public int unequalTriplets(int[] nums) {
         Arrays.sort(nums);
-        int ans = 0, n  = nums.length;
+        int ans = 0, n = nums.length;
         for (int j = 1; j < n - 1; ++j) {
             int i = search(nums, nums[j], 0, j) - 1;
             int k = search(nums, nums[j] + 1, j + 1, n);

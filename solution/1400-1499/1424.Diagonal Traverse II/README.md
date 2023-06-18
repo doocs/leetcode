@@ -119,7 +119,7 @@ public:
         }
         sort(arr.begin(), arr.end());
         vector<int> ans;
-        for (auto& e: arr) {
+        for (auto& e : arr) {
             ans.push_back(get<2>(e));
         }
         return ans;

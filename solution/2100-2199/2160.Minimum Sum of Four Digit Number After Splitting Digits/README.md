@@ -143,8 +143,8 @@ impl Solution {
 ### **C**
 
 ```c
-int cmp(const void *a, const void *b) {
-    return *(int *) a - *(int *) b;
+int cmp(const void* a, const void* b) {
+    return *(int*) a - *(int*) b;
 }
 
 int minimumSum(int num) {
@@ -154,7 +154,7 @@ int minimumSum(int num) {
         num /= 10;
     }
     qsort(nums, 4, sizeof(int), cmp);
-    return 10 * (nums[0] + nums[1])  + nums[2] + nums[3];
+    return 10 * (nums[0] + nums[1]) + nums[2] + nums[3];
 }
 ```
 

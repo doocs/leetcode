@@ -149,7 +149,9 @@ class Solution {
 ```cpp
 class Trie {
 public:
-    Trie(): children(2), cnt(0) {}
+    Trie()
+        : children(2)
+        , cnt(0) {}
 
     void insert(int x) {
         Trie* node = this;

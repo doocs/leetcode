@@ -136,6 +136,7 @@ class Node:
         self.r = 0
         self.v = 0
 
+
 class SegmentTree:
     def __init__(self, n):
         self.tr = [Node() for _ in range(4 * n)]
@@ -174,6 +175,7 @@ class SegmentTree:
         if r > mid:
             v += self.query(u << 1 | 1, l, r)
         return v
+
 
 class Solution:
     def goodTriplets(self, nums1: List[int], nums2: List[int]) -> int:
@@ -346,7 +348,7 @@ public:
 
     BinaryIndexedTree(int _n)
         : n(_n)
-        , c(_n + 1) { }
+        , c(_n + 1) {}
 
     void update(int x, int delta) {
         while (x <= n) {
@@ -419,14 +421,15 @@ public:
     }
 
     void modify(int u, int x, int v) {
-        if (tr[u]->l == x && tr[u]->r == x)
-        {
+        if (tr[u]->l == x && tr[u]->r == x) {
             tr[u]->v += v;
             return;
         }
         int mid = (tr[u]->l + tr[u]->r) >> 1;
-        if (x <= mid) modify(u << 1, x, v);
-        else modify(u << 1 | 1, x, v);
+        if (x <= mid)
+            modify(u << 1, x, v);
+        else
+            modify(u << 1 | 1, x, v);
         pushup(u);
     }
 
@@ -452,8 +455,7 @@ public:
         for (int i = 0; i < n; ++i) pos[nums2[i]] = i + 1;
         SegmentTree* tree = new SegmentTree(n);
         long long ans = 0;
-        for (int& num : nums1)
-        {
+        for (int& num : nums1) {
             int p = pos[num];
             int left = tree->query(1, 1, p);
             int right = n - p - (tree->query(1, 1, n) - tree->query(1, 1, p));

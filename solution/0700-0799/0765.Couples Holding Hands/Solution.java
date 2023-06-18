@@ -7,17 +7,17 @@ class Solution {
         for (int i = 0; i < n; ++i) {
             p[i] = i;
         }
-        for (int i = 0; i < row.length; i += 2) {
+        for (int i = 0; i < n << 1; i += 2) {
             int a = row[i] >> 1, b = row[i + 1] >> 1;
             p[find(a)] = find(b);
         }
-        int cnt = 0;
+        int ans = n;
         for (int i = 0; i < n; ++i) {
             if (i == find(i)) {
-                ++cnt;
+                --ans;
             }
         }
-        return n - cnt;
+        return ans;
     }
 
     private int find(int x) {

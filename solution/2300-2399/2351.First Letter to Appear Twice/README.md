@@ -98,7 +98,7 @@ class Solution:
 class Solution {
     public char repeatedCharacter(String s) {
         int[] cnt = new int[26];
-        for (int i = 0; ; ++i) {
+        for (int i = 0;; ++i) {
             char c = s.charAt(i);
             if (++cnt[c - 'a'] == 2) {
                 return c;
@@ -130,7 +130,7 @@ class Solution {
 public:
     char repeatedCharacter(string s) {
         int cnt[26]{};
-        for (int i = 0; ; ++i) {
+        for (int i = 0;; ++i) {
             if (++cnt[s[i] - 'a'] == 2) {
                 return s[i];
             }
@@ -144,7 +144,7 @@ class Solution {
 public:
     char repeatedCharacter(string s) {
         int mask = 0;
-        for (int i = 0; ; ++i) {
+        for (int i = 0;; ++i) {
             if (mask >> (s[i] - 'a') & 1) {
                 return s[i];
             }
@@ -245,7 +245,7 @@ impl Solution {
 ### **C**
 
 ```c
-char repeatedCharacter(char *s) {
+char repeatedCharacter(char* s) {
     int vis[26] = {0};
     for (int i = 0; s[i]; i++) {
         if (vis[s[i] - 'a']) {
@@ -258,7 +258,7 @@ char repeatedCharacter(char *s) {
 ```
 
 ```c
-char repeatedCharacter(char *s) {
+char repeatedCharacter(char* s) {
     int mask = 0;
     for (int i = 0; s[i]; i++) {
         if (mask & (1 << s[i] - 'a')) {

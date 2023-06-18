@@ -101,7 +101,9 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def insertIntoMaxTree(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
+    def insertIntoMaxTree(
+        self, root: Optional[TreeNode], val: int
+    ) -> Optional[TreeNode]:
         if root is None or root.val < val:
             return TreeNode(val, root)
         root.right = self.insertIntoMaxTree(root.right, val)
@@ -116,7 +118,9 @@ class Solution:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def insertIntoMaxTree(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
+    def insertIntoMaxTree(
+        self, root: Optional[TreeNode], val: int
+    ) -> Optional[TreeNode]:
         if root.val < val:
             return TreeNode(val, root)
         curr = root
@@ -360,10 +364,9 @@ func insertIntoMaxTree(root *TreeNode, val int) *TreeNode {
  * };
  */
 
-
-struct TreeNode *insertIntoMaxTree(struct TreeNode *root, int val) {
+struct TreeNode* insertIntoMaxTree(struct TreeNode* root, int val) {
     if (!root || root->val < val) {
-        struct TreeNode *res = (struct TreeNode *) malloc(sizeof(struct TreeNode));
+        struct TreeNode* res = (struct TreeNode*) malloc(sizeof(struct TreeNode));
         res->val = val;
         res->left = root;
         res->right = NULL;

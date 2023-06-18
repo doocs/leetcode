@@ -10,7 +10,9 @@ class Solution {
         $arr = array_merge($arr1, $arr2, $arr3);
         for ($i = 0; $i < count($arr); $i++) {
             $hashtable[$arr[$i]] += 1;
-            if ($hashtable[$arr[$i]] === 3) array_push($rs, $arr[$i]);
+            if ($hashtable[$arr[$i]] === 3) {
+                array_push($rs, $arr[$i]);
+            }
         }
         return $rs;
     }

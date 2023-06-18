@@ -97,7 +97,6 @@ loc.free(7); // 释放 mID 为 7 的所有内存单元。内存数组保持原�
 
 ```python
 class Allocator:
-
     def __init__(self, n: int):
         self.m = [0] * n
 
@@ -109,10 +108,9 @@ class Allocator:
             else:
                 cnt += 1
                 if cnt == size:
-                    self.m[i - size + 1: i + 1] = [mID] * size
+                    self.m[i - size + 1 : i + 1] = [mID] * size
                     return i - size + 1
         return -1
-
 
     def free(self, mID: int) -> int:
         ans = 0
@@ -121,6 +119,7 @@ class Allocator:
                 self.m[i] = 0
                 ans += 1
         return ans
+
 
 # Your Allocator object will be instantiated and called as such:
 # obj = Allocator(n)
@@ -133,7 +132,6 @@ from sortedcontainers import SortedList
 
 
 class Allocator:
-
     def __init__(self, n: int):
         self.sl = SortedList([(-1, -1), (n, n)])
         self.d = defaultdict(list)

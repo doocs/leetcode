@@ -112,7 +112,12 @@ class Solution:
                 i, j = q.popleft()
                 for a, b in [[0, 1], [0, -1], [1, 0], [-1, 0]]:
                     x, y = i + a, j + b
-                    if 0 <= x < m and 0 <= y < n and (x, y) not in vis and abs(heights[i][j] - heights[x][y]) <= mid:
+                    if (
+                        0 <= x < m
+                        and 0 <= y < n
+                        and (x, y) not in vis
+                        and abs(heights[i][j] - heights[x][y]) <= mid
+                    ):
                         q.append((x, y))
                         vis.add((x, y))
             if (m - 1, n - 1) in vis:
@@ -125,7 +130,7 @@ class Solution:
 ```python
 class Solution:
     def minimumEffortPath(self, heights: List[List[int]]) -> int:
-        INF = 0x3f3f3f3f
+        INF = 0x3F3F3F3F
         m, n = len(heights), len(heights[0])
         dist = [[INF] * n for _ in range(m)]
         dist[0][0] = 0
@@ -135,7 +140,11 @@ class Solution:
             t, i, j = heappop(q)
             for k in range(4):
                 x, y = i + dirs[k], j + dirs[k + 1]
-                if 0 <= x < m and 0 <= y < n and max(t, abs(heights[x][y] - heights[i][j])) < dist[x][y]:
+                if (
+                    0 <= x < m
+                    and 0 <= y < n
+                    and max(t, abs(heights[x][y] - heights[i][j])) < dist[x][y]
+                ):
                     dist[x][y] = max(t, abs(heights[x][y] - heights[i][j]))
                     heappush(q, (dist[x][y], x, y))
         return dist[-1][-1]
@@ -160,10 +169,12 @@ class Solution {
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (i < m - 1) {
-                    edges.add(new int[]{Math.abs(heights[i][j] - heights[i + 1][j]), i * n + j, (i + 1) * n + j});
+                    edges.add(new int[] {
+                        Math.abs(heights[i][j] - heights[i + 1][j]), i * n + j, (i + 1) * n + j});
                 }
                 if (j < n - 1) {
-                    edges.add(new int[]{Math.abs(heights[i][j] - heights[i][j + 1]), i * n + j, i * n + j + 1});
+                    edges.add(new int[] {
+                        Math.abs(heights[i][j] - heights[i][j + 1]), i * n + j, i * n + j + 1});
                 }
             }
         }
@@ -202,14 +213,15 @@ class Solution {
             boolean[][] vis = new boolean[m][n];
             vis[0][0] = true;
             Deque<int[]> q = new ArrayDeque<>();
-            q.offer(new int[]{0, 0});
+            q.offer(new int[] {0, 0});
             while (!q.isEmpty()) {
                 int[] p = q.poll();
                 int i = p[0], j = p[1];
                 for (int k = 0; k < 4; ++k) {
                     int x = i + dirs[k], y = j + dirs[k + 1];
-                    if (x >= 0 && x < m && y >= 0 && y < n && !vis[x][y] && Math.abs(heights[i][j] - heights[x][y]) <= mid) {
-                        q.offer(new int[]{x, y});
+                    if (x >= 0 && x < m && y >= 0 && y < n && !vis[x][y]
+                        && Math.abs(heights[i][j] - heights[x][y]) <= mid) {
+                        q.offer(new int[] {x, y});
                         vis[x][y] = true;
                     }
                 }
@@ -302,29 +314,27 @@ public:
         int m = heights.size(), n = heights[0].size();
         int left = 0, right = 999999;
         vector<int> dirs = {-1, 0, 1, 0, -1};
-        while (left < right)
-        {
+        while (left < right) {
             int mid = (left + right) >> 1;
             vector<vector<bool>> vis(m, vector<bool>(n));
             vis[0][0] = true;
             queue<pair<int, int>> q;
             q.push({0, 0});
-            while (!q.empty())
-            {
+            while (!q.empty()) {
                 auto [i, j] = q.front();
                 q.pop();
-                for (int k = 0; k < 4; ++k)
-                {
+                for (int k = 0; k < 4; ++k) {
                     int x = i + dirs[k], y = j + dirs[k + 1];
-                    if (x >= 0 && x < m && y >= 0 && y < n && !vis[x][y] && abs(heights[i][j] - heights[x][y]) <= mid)
-                    {
+                    if (x >= 0 && x < m && y >= 0 && y < n && !vis[x][y] && abs(heights[i][j] - heights[x][y]) <= mid) {
                         q.push({x, y});
                         vis[x][y] = true;
                     }
                 }
             }
-            if (vis[m - 1][n - 1]) right = mid;
-            else left = mid + 1;
+            if (vis[m - 1][n - 1])
+                right = mid;
+            else
+                left = mid + 1;
         }
         return left;
     }
@@ -341,18 +351,14 @@ public:
         priority_queue<tuple<int, int, int>, vector<tuple<int, int, int>>, greater<tuple<int, int, int>>> q;
         q.push({0, 0, 0});
         vector<int> dirs = {-1, 0, 1, 0, -1};
-        while (!q.empty())
-        {
+        while (!q.empty()) {
             auto [t, i, j] = q.top();
             q.pop();
-            for (int k = 0; k < 4; ++k)
-            {
+            for (int k = 0; k < 4; ++k) {
                 int x = i + dirs[k], y = j + dirs[k + 1];
-                if (x >= 0 && x < m && y >= 0 && y < n)
-                {
+                if (x >= 0 && x < m && y >= 0 && y < n) {
                     int nd = max(t, abs(heights[x][y] - heights[i][j]));
-                    if (nd < dist[x][y])
-                    {
+                    if (nd < dist[x][y]) {
                         dist[x][y] = nd;
                         q.push({nd, x, y});
                     }

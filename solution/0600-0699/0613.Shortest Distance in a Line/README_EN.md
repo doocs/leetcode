@@ -55,11 +55,11 @@ Point table:
 
 ```sql
 # Write your MySQL query statement below
-select
-    min(abs(p1.x - p2.x)) as shortest
-from
-    Point p1
-    join Point p2 on p1.x != p2.x;
+SELECT
+    min(abs(p1.x - p2.x)) AS shortest
+FROM
+    Point AS p1
+    JOIN Point AS p2 ON p1.x != p2.x;
 ```
 
 <!-- tabs:end -->

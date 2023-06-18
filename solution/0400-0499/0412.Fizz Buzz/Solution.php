@@ -8,12 +8,12 @@ class Solution {
         for ($i = 1; $i <= $n; $i++) {
             if ($i % 3 != 0 && $i % 5 != 0) {
                 array_push($rs, strval($i));
-            } else if ($i % 3 == 0 && $i % 5 != 0) {
-                array_push($rs, "Fizz");
-            } else if ($i % 3 != 0 && $i % 5 == 0) {
-                array_push($rs, "Buzz");
+            } elseif ($i % 3 == 0 && $i % 5 != 0) {
+                array_push($rs, 'Fizz');
+            } elseif ($i % 3 != 0 && $i % 5 == 0) {
+                array_push($rs, 'Buzz');
             } else {
-                array_push($rs, "FizzBuzz");
+                array_push($rs, 'FizzBuzz');
             }
         }
         return $rs;

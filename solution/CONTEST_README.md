@@ -22,7 +22,14 @@
 
 ## 往期竞赛
 
-#### 第 349 场周赛(2023-06-11 10:30, 90 分钟) 参赛人数 3714
+#### 第 350 场周赛(2023-06-18 10:30, 90 分钟) 参赛人数 3580
+
+- [2739. 总行驶距离](/solution/2700-2799/2739.Total%20Distance%20Traveled/README.md)
+- [2740. 找出分区值](/solution/2700-2799/2740.Find%20the%20Value%20of%20the%20Partition/README.md)
+- [2741. 特别的排列](/solution/2700-2799/2741.Special%20Permutations/README.md)
+- [2742. 给墙壁刷油漆](/solution/2700-2799/2742.Painting%20the%20Walls/README.md)
+
+#### 第 349 场周赛(2023-06-11 10:30, 90 分钟) 参赛人数 3713
 
 - [2733. 既不是最小值也不是最大值](/solution/2700-2799/2733.Neither%20Minimum%20nor%20Maximum/README.md)
 - [2734. 执行子串操作后的字典序最小字符串](/solution/2700-2799/2734.Lexicographically%20Smallest%20String%20After%20Substring%20Operation/README.md)

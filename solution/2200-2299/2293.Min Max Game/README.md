@@ -195,7 +195,7 @@ impl Solution {
 #define min(a, b) (((a) < (b)) ? (a) : (b))
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 
-int minMaxGame(int *nums, int numsSize) {
+int minMaxGame(int* nums, int numsSize) {
     while (numsSize != 1) {
         numsSize >>= 1;
         for (int i = 0; i < numsSize; i++) {
