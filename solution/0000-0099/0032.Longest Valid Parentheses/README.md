@@ -52,11 +52,7 @@
 
 **方法一：动态规划**
 
-我们定义 $f[i]$ 表示以 $s[i-1]$ 结尾的最长有效括号的长度，那么答案就是 $max(f[i])$。
-
-当 $i \lt 2$ 时，字符串长度小于 $2$，不存在有效括号，因此 $f[i] = 0$。
-
-当 $i \ge 2$ 时，我们考虑以 $s[i-1]$ 结尾的最长有效括号的长度 $f[i]$：
+我们定义 $f[i]$ 表示以 $s[i-1]$ 结尾的最长有效括号的长度，那么答案就是 $\max\limits_{i=1}^n f[i]$。
 
 -   如果 $s[i-1]$ 是左括号，那么以 $s[i-1]$ 结尾的最长有效括号的长度一定为 $0$，因此 $f[i] = 0$。
 -   如果 $s[i-1]$ 是右括号，有以下两种情况：
@@ -73,7 +69,7 @@ f[i] = f[i-1] + 2 + f[i-f[i-1]-2], & \text{if } s[i-1] = ')' \text{ and } s[i-2]
 \end{cases}
 $$
 
-最后，我们只需要返回 $max(f)$ 即可。
+最后返回 $\max\limits_{i=1}^n f[i]$ 即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串的长度。
 
@@ -87,16 +83,14 @@ $$
 class Solution:
     def longestValidParentheses(self, s: str) -> int:
         n = len(s)
-        if n < 2:
-            return 0
         f = [0] * (n + 1)
-        for i in range(2, n + 1):
-            if s[i - 1] == ')':
-                if s[i - 2] == '(':
+        for i, c in enumerate(s, 1):
+            if c == ")":
+                if i > 1 and s[i - 2] == "(":
                     f[i] = f[i - 2] + 2
                 else:
                     j = i - f[i - 1] - 1
-                    if j > 0 and s[j - 1] == '(':
+                    if j and s[j - 1] == "(":
                         f[i] = f[i - 1] + 2 + f[j - 1]
         return max(f)
 ```
@@ -109,9 +103,6 @@ class Solution:
 class Solution {
     public int longestValidParentheses(String s) {
         int n = s.length();
-        if (n < 2) {
-            return 0;
-        }
         int[] f = new int[n + 1];
         int ans = 0;
         for (int i = 2; i <= n; ++i) {
@@ -139,9 +130,6 @@ class Solution {
 public:
     int longestValidParentheses(string s) {
         int n = s.size();
-        if (n < 2) {
-            return 0;
-        }
         int f[n + 1];
         memset(f, 0, sizeof(f));
         for (int i = 2; i <= n; ++i) {
@@ -166,19 +154,13 @@ public:
 ```go
 func longestValidParentheses(s string) (ans int) {
 	n := len(s)
-	if n < 2 {
-		return 0
-	}
 	f := make([]int, n+1)
 	for i := 2; i <= n; i++ {
 		if s[i-1] == ')' {
 			if s[i-2] == '(' {
 				f[i] = f[i-2] + 2
-			} else {
-				j := i - f[i-1] - 1
-				if j > 0 && s[j-1] == '(' {
-					f[i] = f[i-1] + 2 + f[j-1]
-				}
+			} else if j := i - f[i-1] - 1; j > 0 && s[j-1] == '(' {
+				f[i] = f[i-1] + 2 + f[j-1]
 			}
 			ans = max(ans, f[i])
 		}
@@ -200,9 +182,6 @@ func max(a, b int) int {
 public class Solution {
     public int LongestValidParentheses(string s) {
         int n = s.Length;
-        if (n < 2) {
-            return 0;
-        }
         int[] f = new int[n + 1];
         int ans = 0;
         for (int i = 2; i <= n; ++i) {
@@ -243,6 +222,32 @@ function longestValidParentheses(s: string): number {
     }
     return Math.max(...f);
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var longestValidParentheses = function (s) {
+    const n = s.length;
+    const f = new Array(n + 1).fill(0);
+    for (let i = 2; i <= n; ++i) {
+        if (s[i - 1] === ')') {
+            if (s[i - 2] === '(') {
+                f[i] = f[i - 2] + 2;
+            } else {
+                const j = i - f[i - 1] - 1;
+                if (j && s[j - 1] === '(') {
+                    f[i] = f[i - 1] + 2 + f[j - 1];
+                }
+            }
+        }
+    }
+    return Math.max(...f);
+};
 ```
 
 ### **...**

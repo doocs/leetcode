@@ -1,9 +1,6 @@
 class Solution {
     public int longestValidParentheses(String s) {
         int n = s.length();
-        if (n < 2) {
-            return 0;
-        }
         int[] f = new int[n + 1];
         int ans = 0;
         for (int i = 2; i <= n; ++i) {

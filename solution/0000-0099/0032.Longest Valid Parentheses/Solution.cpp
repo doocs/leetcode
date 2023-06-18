@@ -2,9 +2,6 @@ class Solution {
 public:
     int longestValidParentheses(string s) {
         int n = s.size();
-        if (n < 2) {
-            return 0;
-        }
         int f[n + 1];
         memset(f, 0, sizeof(f));
         for (int i = 2; i <= n; ++i) {
