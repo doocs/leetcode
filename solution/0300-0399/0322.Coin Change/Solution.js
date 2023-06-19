@@ -4,12 +4,13 @@
  * @return {number}
  */
 var coinChange = function (coins, amount) {
-    let dp = Array(amount + 1).fill(amount + 1);
-    dp[0] = 0;
-    for (const coin of coins) {
-        for (let j = coin; j <= amount; ++j) {
-            dp[j] = Math.min(dp[j], dp[j - coin] + 1);
+    const n = amount;
+    const f = Array(n + 1).fill(1 << 30);
+    f[0] = 0;
+    for (const x of coins) {
+        for (let j = x; j <= n; ++j) {
+            f[j] = Math.min(f[j], f[j - x] + 1);
         }
     }
-    return dp[amount] > amount ? -1 : dp[amount];
+    return f[n] > n ? -1 : f[n];
 };

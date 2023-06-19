@@ -1,21 +1,17 @@
 impl Solution {
     pub fn coin_change(coins: Vec<i32>, amount: i32) -> i32 {
-        let n = coins.len();
-        let amount = amount as usize;
-        let mut dp = vec![amount + 1; amount + 1];
-        dp[0] = 0;
-        for i in 1..=amount {
-            for j in 0..n {
-                let coin = coins[j] as usize;
-                if coin <= i {
-                    dp[i] = dp[i].min(dp[i - coin] + 1);
-                }
+        let n = amount as usize;
+        let mut f = vec![n + 1; n + 1];
+        f[0] = 0;
+        for &x in &coins {
+            for j in x as usize..=n {
+                f[j] = f[j].min(f[j - x as usize] + 1);
             }
         }
-        if dp[amount] > amount {
+        if f[n] > n {
             -1
         } else {
-            dp[amount] as i32
+            f[n] as i32
         }
     }
 }

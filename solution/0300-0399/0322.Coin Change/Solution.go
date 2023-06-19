@@ -1,17 +1,19 @@
 func coinChange(coins []int, amount int) int {
-	dp := make([]int, amount+1)
-	for i := 1; i <= amount; i++ {
-		dp[i] = amount + 1
+	n := amount
+	f := make([]int, n+1)
+	for i := range f {
+		f[i] = 1 << 30
 	}
-	for _, coin := range coins {
-		for j := coin; j <= amount; j++ {
-			dp[j] = min(dp[j], dp[j-coin]+1)
+	f[0] = 0
+	for _, x := range coins {
+		for j := x; j <= n; j++ {
+			f[j] = min(f[j], f[j-x]+1)
 		}
 	}
-	if dp[amount] > amount {
+	if f[n] > n {
 		return -1
 	}
-	return dp[amount]
+	return f[n]
 }
 
 func min(a, b int) int {
