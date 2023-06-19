@@ -1,18 +1,17 @@
-func partitionLabels(s string) []int {
-	last := make([]int, 26)
-	n := len(s)
-	for i := 0; i < n; i++ {
-		last[s[i]-'a'] = i
+func partitionLabels(s string) (ans []int) {
+	last := [26]int{}
+	for i, c := range s {
+		last[c-'a'] = i
 	}
-	var ans []int
-	for i, left, right := 0, 0, 0; i < n; i++ {
-		right = max(right, last[s[i]-'a'])
-		if i == right {
-			ans = append(ans, right-left+1)
-			left = right + 1
+	var mx, j int
+	for i, c := range s {
+		mx = max(mx, last[c-'a'])
+		if mx == i {
+			ans = append(ans, i-j+1)
+			j = i + 1
 		}
 	}
-	return ans
+	return
 }
 
 func max(a, b int) int {
