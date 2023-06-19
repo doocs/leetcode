@@ -1,10 +1,8 @@
 class Solution:
     def numSquares(self, n: int) -> int:
-        dp = [0] * (n + 1)
-        for i in range(1, n + 1):
-            j, mi = 1, inf
-            while j * j <= i:
-                mi = min(mi, dp[i - j * j])
-                j += 1
-            dp[i] = mi + 1
-        return dp[-1]
+        m = int(sqrt(n))
+        f = [0] + [inf] * n
+        for i in range(1, m + 1):
+            for j in range(i * i, n + 1):
+                f[j] = min(f[j], f[j - i * i] + 1)
+        return f[n]

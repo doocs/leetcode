@@ -38,7 +38,39 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-动态规划，定义 `dp[i]` 表示和为 `i` 的完全平方数的最少数量。
+**方法一：动态规划(完全背包)**
+
+我们定义 $f[i][j]$ 表示使用数字 $1, 2, \cdots, i$ 的完全平方数组成和为 $j$ 的最少数量。初始时 $f[0][0] = 0$，其余位置的值均为正无穷。
+
+我们可以枚举使用的最后一个数字的数量 $k$，那么：
+
+$$
+f[i][j] = \min(f[i - 1][j], f[i - 1][j - i^2] + 1, \cdots, f[i - 1][j - k \times i^2] + k)
+$$
+
+其中 $i^2$ 表示最后一个数字 $i$ 的完全平方数。
+
+不妨令 $j = j - i^2$，那么有：
+
+$$
+f[i][j - i^2] = \min(f[i - 1][j - i^2], f[i - 1][j - 2 \times i^2] + 1, \cdots, f[i - 1][j - k \times i^2] + k - 1)
+$$
+
+将二式代入一式，我们可以得到以下状态转移方程：
+
+$$
+f[i][j] = \min(f[i - 1][j], f[i][j - i^2] + 1)
+$$
+
+最后答案即为 $f[m][n]$。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 为 $sqrt(n)$ 的整数部分。
+
+注意到 $f[i][j]$ 只与 $f[i - 1][j]$ 和 $f[i][j - i^2]$ 有关，因此我们可以将二维数组优化为一维数组，空间复杂度降为 $O(n)$。
+
+相似题目：
+
+-   [322. 零钱兑换](/solution/0300-0399/0322.Coin%20Change/README.md)
 
 <!-- tabs:start -->
 
@@ -49,14 +81,26 @@
 ```python
 class Solution:
     def numSquares(self, n: int) -> int:
-        dp = [0] * (n + 1)
-        for i in range(1, n + 1):
-            j, mi = 1, inf
-            while j * j <= i:
-                mi = min(mi, dp[i - j * j])
-                j += 1
-            dp[i] = mi + 1
-        return dp[-1]
+        m = int(sqrt(n))
+        f = [[inf] * (n + 1) for _ in range(m + 1)]
+        f[0][0] = 0
+        for i in range(1, m + 1):
+            for j in range(n + 1):
+                f[i][j] = f[i - 1][j]
+                if j >= i * i:
+                    f[i][j] = min(f[i][j], f[i][j - i * i] + 1)
+        return f[m][n]
+```
+
+```python
+class Solution:
+    def numSquares(self, n: int) -> int:
+        m = int(sqrt(n))
+        f = [0] + [inf] * n
+        for i in range(1, m + 1):
+            for j in range(i * i, n + 1):
+                f[j] = min(f[j], f[j - i * i] + 1)
+        return f[n]
 ```
 
 ### **Java**
@@ -66,15 +110,38 @@ class Solution:
 ```java
 class Solution {
     public int numSquares(int n) {
-        int[] dp = new int[n + 1];
-        for (int i = 1; i <= n; ++i) {
-            int mi = Integer.MAX_VALUE;
-            for (int j = 1; j * j <= i; ++j) {
-                mi = Math.min(mi, dp[i - j * j]);
-            }
-            dp[i] = mi + 1;
+        int m = (int) Math.sqrt(n);
+        int[][] f = new int[m + 1][n + 1];
+        for (var g : f) {
+            Arrays.fill(g, 1 << 30);
         }
-        return dp[n];
+        f[0][0] = 0;
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 0; j <= n; ++j) {
+                f[i][j] = f[i - 1][j];
+                if (j >= i * i) {
+                    f[i][j] = Math.min(f[i][j], f[i][j - i * i] + 1);
+                }
+            }
+        }
+        return f[m][n];
+    }
+}
+```
+
+```java
+class Solution {
+    public int numSquares(int n) {
+        int m = (int) Math.sqrt(n);
+        int[] f = new int[n + 1];
+        Arrays.fill(f, 1 << 30);
+        f[0] = 0;
+        for (int i = 1; i <= m; ++i) {
+            for (int j = i * i; j <= n; ++j) {
+                f[j] = Math.min(f[j], f[j - i * i] + 1);
+            }
+        }
+        return f[n];
     }
 }
 ```
@@ -85,48 +152,64 @@ class Solution {
 class Solution {
 public:
     int numSquares(int n) {
-        vector<int> dp(n + 1);
-        for (int i = 1; i <= n; ++i) {
-            int mi = 100000;
-            for (int j = 1; j * j <= i; ++j) {
-                mi = min(mi, dp[i - j * j]);
+        int m = sqrt(n);
+        int f[m + 1][n + 1];
+        memset(f, 0x3f, sizeof(f));
+        f[0][0] = 0;
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 0; j <= n; ++j) {
+                f[i][j] = f[i - 1][j];
+                if (j >= i * i) {
+                    f[i][j] = min(f[i][j], f[i][j - i * i] + 1);
+                }
             }
-            dp[i] = mi + 1;
         }
-        return dp[n];
+        return f[m][n];
     }
 };
 ```
 
-### **TypeScript**
-
-```ts
-function numSquares(n: number): number {
-    let dp = new Array(n + 1).fill(0);
-    for (let i = 1; i <= n; ++i) {
-        let min = Infinity;
-        for (let j = 1; j * j <= i; ++j) {
-            min = Math.min(min, dp[i - j * j]);
+```cpp
+class Solution {
+public:
+    int numSquares(int n) {
+        int m = sqrt(n);
+        int f[n + 1];
+        memset(f, 0x3f, sizeof(f));
+        f[0] = 0;
+        for (int i = 1; i <= m; ++i) {
+            for (int j = i * i; j <= n; ++j) {
+                f[j] = min(f[j], f[j - i * i] + 1);
+            }
         }
-        dp[i] = min + 1;
+        return f[n];
     }
-    return dp.pop();
-}
+};
 ```
 
 ### **Go**
 
 ```go
 func numSquares(n int) int {
-	dp := make([]int, n+1)
-	for i := 1; i <= n; i++ {
-		mi := 100000
-		for j := 1; j*j <= i; j++ {
-			mi = min(mi, dp[i-j*j])
+	m := int(math.Sqrt(float64(n)))
+	f := make([][]int, m+1)
+	const inf = 1 << 30
+	for i := range f {
+		f[i] = make([]int, n+1)
+		for j := range f[i] {
+			f[i][j] = inf
 		}
-		dp[i] = mi + 1
 	}
-	return dp[n]
+	f[0][0] = 0
+	for i := 1; i <= m; i++ {
+		for j := 0; j <= n; j++ {
+			f[i][j] = f[i-1][j]
+			if j >= i*i {
+				f[i][j] = min(f[i][j], f[i][j-i*i]+1)
+			}
+		}
+	}
+	return f[m][n]
 }
 
 func min(a, b int) int {
@@ -134,6 +217,65 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+```go
+func numSquares(n int) int {
+	m := int(math.Sqrt(float64(n)))
+	f := make([]int, n+1)
+	for i := range f {
+		f[i] = 1 << 30
+	}
+	f[0] = 0
+	for i := 1; i <= m; i++ {
+		for j := i * i; j <= n; j++ {
+			f[j] = min(f[j], f[j-i*i]+1)
+		}
+	}
+	return f[n]
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function numSquares(n: number): number {
+    const m = Math.floor(Math.sqrt(n));
+    const f: number[][] = Array(m + 1)
+        .fill(0)
+        .map(() => Array(n + 1).fill(1 << 30));
+    f[0][0] = 0;
+    for (let i = 1; i <= m; ++i) {
+        for (let j = 0; j <= n; ++j) {
+            f[i][j] = f[i - 1][j];
+            if (j >= i * i) {
+                f[i][j] = Math.min(f[i][j], f[i][j - i * i] + 1);
+            }
+        }
+    }
+    return f[m][n];
+}
+```
+
+```ts
+function numSquares(n: number): number {
+    const m = Math.floor(Math.sqrt(n));
+    const f: number[] = Array(n + 1).fill(1 << 30);
+    f[0] = 0;
+    for (let i = 1; i <= m; ++i) {
+        for (let j = i * i; j <= n; ++j) {
+            f[j] = Math.min(f[j], f[j - i * i] + 1);
+        }
+    }
+    return f[n];
 }
 ```
 

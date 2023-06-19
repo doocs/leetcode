@@ -1,13 +1,14 @@
 class Solution {
     public int numSquares(int n) {
-        int[] dp = new int[n + 1];
-        for (int i = 1; i <= n; ++i) {
-            int mi = Integer.MAX_VALUE;
-            for (int j = 1; j * j <= i; ++j) {
-                mi = Math.min(mi, dp[i - j * j]);
+        int m = (int) Math.sqrt(n);
+        int[] f = new int[n + 1];
+        Arrays.fill(f, 1 << 30);
+        f[0] = 0;
+        for (int i = 1; i <= m; ++i) {
+            for (int j = i * i; j <= n; ++j) {
+                f[j] = Math.min(f[j], f[j - i * i] + 1);
             }
-            dp[i] = mi + 1;
         }
-        return dp[n];
+        return f[n];
     }
 }

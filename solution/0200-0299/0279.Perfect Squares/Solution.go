@@ -1,13 +1,16 @@
 func numSquares(n int) int {
-	dp := make([]int, n+1)
-	for i := 1; i <= n; i++ {
-		mi := 100000
-		for j := 1; j*j <= i; j++ {
-			mi = min(mi, dp[i-j*j])
-		}
-		dp[i] = mi + 1
+	m := int(math.Sqrt(float64(n)))
+	f := make([]int, n+1)
+	for i := range f {
+		f[i] = 1 << 30
 	}
-	return dp[n]
+	f[0] = 0
+	for i := 1; i <= m; i++ {
+		for j := i * i; j <= n; j++ {
+			f[j] = min(f[j], f[j-i*i]+1)
+		}
+	}
+	return f[n]
 }
 
 func min(a, b int) int {

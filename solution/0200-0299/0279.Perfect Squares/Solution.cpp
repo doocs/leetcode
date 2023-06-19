@@ -1,14 +1,15 @@
 class Solution {
 public:
     int numSquares(int n) {
-        vector<int> dp(n + 1);
-        for (int i = 1; i <= n; ++i) {
-            int mi = 100000;
-            for (int j = 1; j * j <= i; ++j) {
-                mi = min(mi, dp[i - j * j]);
+        int m = sqrt(n);
+        int f[n + 1];
+        memset(f, 0x3f, sizeof(f));
+        f[0] = 0;
+        for (int i = 1; i <= m; ++i) {
+            for (int j = i * i; j <= n; ++j) {
+                f[j] = min(f[j], f[j - i * i] + 1);
             }
-            dp[i] = mi + 1;
         }
-        return dp[n];
+        return f[n];
     }
 };
