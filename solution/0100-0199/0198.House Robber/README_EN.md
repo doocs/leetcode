@@ -44,72 +44,35 @@ Total amount you can rob = 2 + 9 + 1 = 12.
 ```python
 class Solution:
     def rob(self, nums: List[int]) -> int:
-        @cache
-        def dfs(i):
-            if i >= len(nums):
-                return 0
-            return max(nums[i] + dfs(i + 2), dfs(i + 1))
-
-        return dfs(0)
-```
-
-```python
-class Solution:
-    def rob(self, nums: List[int]) -> int:
         n = len(nums)
-        dp = [0] * (n + 1)
-        dp[1] = nums[0]
+        f = [0] * (n + 1)
+        f[1] = nums[0]
         for i in range(2, n + 1):
-            dp[i] = max(nums[i - 1] + dp[i - 2], dp[i - 1])
-        return dp[n]
+            f[i] = max(f[i - 1], f[i - 2] + nums[i - 1])
+        return f[n]
 ```
 
 ```python
 class Solution:
     def rob(self, nums: List[int]) -> int:
-        a, b = 0, nums[0]
-        for num in nums[1:]:
-            a, b = b, max(num + a, b)
-        return b
+        f, g = 0, nums[0]
+        for x in nums[1:]:
+            f, g = g, max(f + x, g)
+        return g
 ```
 
 ### **Java**
 
 ```java
 class Solution {
-    private int[] f;
-    private int[] nums;
-
-    public int rob(int[] nums) {
-        this.nums = nums;
-        f = new int[nums.length];
-        Arrays.fill(f, -1);
-        return dfs(0);
-    }
-
-    private int dfs(int i) {
-        if (i >= nums.length) {
-            return 0;
-        }
-        if (f[i] != -1) {
-            return f[i];
-        }
-        f[i] = Math.max(nums[i] + dfs(i + 2), dfs(i + 1));
-        return f[i];
-    }
-}
-```
-
-```java
-class Solution {
     public int rob(int[] nums) {
         int n = nums.length;
-        int[] dp = new int[n + 1];
-        dp[1] = nums[0];
+        int[] f = new int[n + 1];
+        f[1] = nums[0];
         for (int i = 2; i <= n; ++i) {
-            dp[i] = Math.max(nums[i - 1] + dp[i - 2], dp[i - 1]);
+            f[i] = Math.max(f[i - 1], f[i - 2] + nums[i - 1]);
         }
-        return dp[n];
+        return f[n];
     }
 }
 ```
@@ -117,13 +80,13 @@ class Solution {
 ```java
 class Solution {
     public int rob(int[] nums) {
-        int a = 0, b = nums[0];
+        int f = 0, g = nums[0];
         for (int i = 1; i < nums.length; ++i) {
-            int c = Math.max(nums[i] + a, b);
-            a = b;
-            b = c;
+            int t = g;
+            g = Math.max(g, f + nums[i]);
+            f = t;
         }
-        return b;
+        return g;
     }
 }
 ```
@@ -135,29 +98,13 @@ class Solution {
 public:
     int rob(vector<int>& nums) {
         int n = nums.size();
-        vector<int> f(n, -1);
-        function<int(int)> dfs = [&](int i) -> int {
-            if (i >= n) return 0;
-            if (f[i] != -1) return f[i];
-            f[i] = max(nums[i] + dfs(i + 2), dfs(i + 1));
-            return f[i];
-        };
-        return dfs(0);
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    int rob(vector<int>& nums) {
-        int n = nums.size();
-        vector<int> dp(n + 1);
-        dp[1] = nums[0];
+        int f[n + 1];
+        memset(f, 0, sizeof(f));
+        f[1] = nums[0];
         for (int i = 2; i <= n; ++i) {
-            dp[i] = max(nums[i - 1] + dp[i - 2], dp[i - 1]);
+            f[i] = max(f[i - 1], f[i - 2] + nums[i - 1]);
         }
-        return dp[n];
+        return f[n];
     }
 };
 ```
@@ -166,14 +113,13 @@ public:
 class Solution {
 public:
     int rob(vector<int>& nums) {
-        int n = nums.size();
-        int a = 0, b = nums[0];
-        for (int i = 1; i < n; ++i) {
-            int c = max(nums[i] + a, b);
-            a = b;
-            b = c;
+        int f = 0, g = nums[0];
+        for (int i = 1; i < nums.size(); ++i) {
+            int t = g;
+            g = max(g, f + nums[i]);
+            f = t;
         }
-        return b;
+        return g;
     }
 };
 ```
@@ -183,41 +129,12 @@ public:
 ```go
 func rob(nums []int) int {
 	n := len(nums)
-	f := make([]int, n)
-	for i := range f {
-		f[i] = -1
-	}
-	var dfs func(int) int
-	dfs = func(i int) int {
-		if i >= n {
-			return 0
-		}
-		if f[i] != -1 {
-			return f[i]
-		}
-		f[i] = max(nums[i]+dfs(i+2), dfs(i+1))
-		return f[i]
-	}
-	return dfs(0)
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-```
-
-```go
-func rob(nums []int) int {
-	n := len(nums)
-	dp := make([]int, n+1)
-	dp[1] = nums[0]
+	f := make([]int, n+1)
+	f[1] = nums[0]
 	for i := 2; i <= n; i++ {
-		dp[i] = max(nums[i-1]+dp[i-2], dp[i-1])
+		f[i] = max(f[i-1], f[i-2]+nums[i-1])
 	}
-	return dp[n]
+	return f[n]
 }
 
 func max(a, b int) int {
@@ -230,11 +147,11 @@ func max(a, b int) int {
 
 ```go
 func rob(nums []int) int {
-	a, b, n := 0, nums[0], len(nums)
-	for i := 1; i < n; i++ {
-		a, b = b, max(nums[i]+a, b)
+	f, g := 0, nums[0]
+	for _, x := range nums[1:] {
+		f, g = g, max(f+x, g)
 	}
-	return b
+	return g
 }
 
 func max(a, b int) int {
@@ -250,40 +167,22 @@ func max(a, b int) int {
 ```ts
 function rob(nums: number[]): number {
     const n = nums.length;
-    const f = new Array(n).fill(-1);
-    function dfs(i) {
-        if (i >= n) {
-            return 0;
-        }
-        if (f[i] != -1) {
-            return f[i];
-        }
-        f[i] = Math.max(nums[i] + dfs(i + 2), dfs(i + 1));
-        return f[i];
-    }
-    return dfs(0);
-}
-```
-
-```ts
-function rob(nums: number[]): number {
-    const n = nums.length;
-    const dp = new Array(n + 1).fill(0);
-    dp[1] = nums[0];
+    const f: number[] = Array(n + 1).fill(0);
+    f[1] = nums[0];
     for (let i = 2; i <= n; ++i) {
-        dp[i] = Math.max(nums[i - 1] + dp[i - 2], dp[i - 1]);
+        f[i] = Math.max(f[i - 1], f[i - 2] + nums[i - 1]);
     }
-    return dp[n];
+    return f[n];
 }
 ```
 
 ```ts
 function rob(nums: number[]): number {
-    const dp = [0, 0];
-    for (const num of nums) {
-        [dp[0], dp[1]] = [dp[1], Math.max(dp[1], dp[0] + num)];
+    let [f, g] = [0, nums[0]];
+    for (let i = 1; i < nums.length; ++i) {
+        [f, g] = [g, Math.max(f + nums[i], g)];
     }
-    return dp[1];
+    return g;
 }
 ```
 
@@ -292,11 +191,11 @@ function rob(nums: number[]): number {
 ```rust
 impl Solution {
     pub fn rob(nums: Vec<i32>) -> i32 {
-        let mut dp = [0, 0];
-        for num in nums {
-            dp = [dp[1], dp[1].max(dp[0] + num)]
+        let mut f = [0, 0];
+        for x in nums {
+            f = [f[1], f[1].max(f[0] + x)]
         }
-        dp[1]
+        f[1]
     }
 }
 ```
