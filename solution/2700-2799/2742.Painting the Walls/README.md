@@ -200,6 +200,7 @@ impl Solution {
     }
 }
 ```
+
 ```rust
 impl Solution {
     pub fn distance_traveled(mut main_tank: i32, mut additional_tank: i32) -> i32 {
