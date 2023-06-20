@@ -12,7 +12,7 @@ class Solution {
             if (mx == i) {
                 ans.add(i - j + 1);
                 j = i + 1;
-            } 
+            }
         }
         return ans;
     }
