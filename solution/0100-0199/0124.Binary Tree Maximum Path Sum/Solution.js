@@ -11,15 +11,15 @@
  * @return {number}
  */
 var maxPathSum = function (root) {
-    let ans = -1000;
-    let dfs = function (root) {
+    let ans = -1001;
+    const dfs = root => {
         if (!root) {
             return 0;
         }
         const left = Math.max(0, dfs(root.left));
         const right = Math.max(0, dfs(root.right));
         ans = Math.max(ans, left + right + root.val);
-        return root.val + Math.max(left, right);
+        return Math.max(left, right) + root.val;
     };
     dfs(root);
     return ans;

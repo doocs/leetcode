@@ -12,17 +12,17 @@
  * }
  */
 public class Solution {
-    private int ans;
+    private int ans = -1001;
 
     public int MaxPathSum(TreeNode root) {
-        ans = int.MinValue;
         dfs(root);
         return ans;
     }
 
-    private int dfs(TreeNode root)
-    {
-        if (root == null) return 0;
+    private int dfs(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
         int left = Math.Max(0, dfs(root.left));
         int right = Math.Max(0, dfs(root.right));
         ans = Math.Max(ans, left + right + root.val);
