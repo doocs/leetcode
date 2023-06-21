@@ -53,6 +53,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：BFS**
+
+我们注意到，题目中棋盘的大小最大为 $8 \times 8$，因此，我们可以尝试枚举所有的空余位置作为下一步放置黑棋的位置，然后使用广度优先搜索的方法计算在该位置下可以翻转的白棋的数量，找出最大值即可。
+
+我们定义一个函数 $bfs(i, j)$，表示在棋盘上放置黑棋在 $(i, j)$ 位置后，可以翻转的白棋的数量。
+
+在函数中，我们使用队列来进行广度优先搜索，初始时将 $(i, j)$ 放入队列中，然后不断取出队首位置，遍历棋盘的八个方向，如果该方向上是一段连续的白棋，且在末尾是黑棋，则将该黑棋之前的所有白棋都可以翻转，将这些白棋的位置放入队列中，继续进行广度优先搜索。最后，我们返回可以翻转的白棋的数量。
+
+时间复杂度 $O(m^2 \times n^2 \times \max(m, n))$，空间复杂度 $O(m^2 \times n^2)$。其中 $m$ 和 $n$ 分别是棋盘的行数和列数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,6 +70,32 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def flipChess(self, chessboard: List[str]) -> int:
+        def bfs(i: int, j: int) -> int:
+            q = deque([(i, j)])
+            g = [list(row) for row in chessboard]
+            cnt = 0
+            while q:
+                i, j = q.popleft()
+                for a, b in dirs:
+                    x, y = i + a, j + b
+                    while 0 <= x < m and 0 <= y < n and g[x][y] == "O":
+                        x, y = x + a, y + b
+                    if 0 <= x < m and 0 <= y < n and g[x][y] == "X":
+                        x, y = x - a, y - b
+                        cnt += max(abs(x - i), abs(y - j))
+                        while x != i or y != j:
+                            g[x][y] = "X"
+                            q.append((x, y))
+                            x, y = x - a, y - b
+            return cnt
+
+        m, n = len(chessboard), len(chessboard[0])
+        dirs = [(a, b) for a in range(-1, 2) for b in range(-1, 2) if a != 0 or b != 0]
+        return max(
+            bfs(i, j) for i in range(m) for j in range(n) if chessboard[i][j] == "."
+        )
 
 ```
 
@@ -68,7 +104,190 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int m;
+    private int n;
+    private String[] chessboard;
 
+    public int flipChess(String[] chessboard) {
+        m = chessboard.length;
+        n = chessboard[0].length();
+        this.chessboard = chessboard;
+        int ans = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (chessboard[i].charAt(j) == '.') {
+                    ans = Math.max(ans, bfs(i, j));
+                }
+            }
+        }
+        return ans;
+    }
+
+    private int bfs(int i, int j) {
+        Deque<int[]> q = new ArrayDeque<>();
+        q.offer(new int[] {i, j});
+        char[][] g = new char[m][0];
+        for (int k = 0; k < m; ++k) {
+            g[k] = chessboard[k].toCharArray();
+        }
+        int cnt = 0;
+        while (!q.isEmpty()) {
+            var p = q.poll();
+            i = p[0];
+            j = p[1];
+            for (int a = -1; a <= 1; ++a) {
+                for (int b = -1; b <= 1; ++b) {
+                    if (a == 0 && b == 0) {
+                        continue;
+                    }
+                    int x = i + a, y = j + b;
+                    while (x >= 0 && x < m && y >= 0 && y < n && g[x][y] == 'O') {
+                        x += a;
+                        y += b;
+                    }
+                    if (x >= 0 && x < m && y >= 0 && y < n && g[x][y] == 'X') {
+                        x -= a;
+                        y -= b;
+                        cnt += Math.max(Math.abs(x - i), Math.abs(y - j));
+                        while (x != i || y != j) {
+                            g[x][y] = 'X';
+                            q.offer(new int[] {x, y});
+                            x -= a;
+                            y -= b;
+                        }
+                    }
+                }
+            }
+        }
+        return cnt;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int flipChess(vector<string>& chessboard) {
+        int m = chessboard.size();
+        int n = chessboard[0].size();
+        auto bfs = [&](int i, int j) -> int {
+            queue<pair<int, int>> q;
+            q.emplace(i, j);
+            auto g = chessboard;
+            int cnt = 0;
+            while (q.size()) {
+                auto p = q.front();
+                q.pop();
+                i = p.first;
+                j = p.second;
+                for (int a = -1; a <= 1; ++a) {
+                    for (int b = -1; b <= 1; ++b) {
+                        if (a == 0 && b == 0) {
+                            continue;
+                        }
+                        int x = i + a, y = j + b;
+                        while (x >= 0 && x < m && y >= 0 && y < n && g[x][y] == 'O') {
+                            x += a;
+                            y += b;
+                        }
+                        if (x >= 0 && x < m && y >= 0 && y < n && g[x][y] == 'X') {
+                            x -= a;
+                            y -= b;
+                            cnt += max(abs(x - i), abs(y - j));
+                            while (x != i || y != j) {
+                                g[x][y] = 'X';
+                                q.emplace(x, y);
+                                x -= a;
+                                y -= b;
+                            }
+                        }
+                    }
+                }
+            }
+            return cnt;
+        };
+
+        int ans = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (chessboard[i][j] == '.') {
+                    ans = max(ans, bfs(i, j));
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func flipChess(chessboard []string) (ans int) {
+	m, n := len(chessboard), len(chessboard[0])
+	bfs := func(i, j int) int {
+		q := [][2]int{{i, j}}
+		g := make([][]byte, m)
+		for i := range g {
+			g[i] = make([]byte, n)
+			copy(g[i], []byte(chessboard[i]))
+		}
+		cnt := 0
+		for len(q) > 0 {
+			p := q[0]
+			q = q[1:]
+			i, j = p[0], p[1]
+			for a := -1; a <= 1; a++ {
+				for b := -1; b <= 1; b++ {
+					if a == 0 && b == 0 {
+						continue
+					}
+					x, y := i+a, j+b
+					for x >= 0 && x < m && y >= 0 && y < n && g[x][y] == 'O' {
+						x, y = x+a, y+b
+					}
+					if x >= 0 && x < m && y >= 0 && y < n && g[x][y] == 'X' {
+						x -= a
+						y -= b
+						cnt += max(abs(x-i), abs(y-j))
+						for x != i || y != j {
+							g[x][y] = 'X'
+							q = append(q, [2]int{x, y})
+							x -= a
+							y -= b
+						}
+					}
+				}
+			}
+		}
+		return cnt
+	}
+	for i, row := range chessboard {
+		for j, c := range row {
+			if c == '.' {
+				ans = max(ans, bfs(i, j))
+			}
+		}
+	}
+	return
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
