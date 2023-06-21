@@ -1,10 +1,10 @@
-func isCircularSentence(sentence string) bool {
-	if sentence[0] != sentence[len(sentence)-1] {
+func isCircularSentence(s string) bool {
+	n := len(s)
+	if s[0] != s[n-1] {
 		return false
 	}
-	ss := strings.Split(sentence, " ")
-	for i := 1; i < len(ss); i++ {
-		if ss[i][0] != ss[i-1][len(ss[i-1])-1] {
+	for i := 1; i < n; i++ {
+		if s[i] == ' ' && s[i-1] != s[i+1] {
 			return false
 		}
 	}
