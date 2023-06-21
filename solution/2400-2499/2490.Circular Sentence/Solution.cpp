@@ -1,13 +1,12 @@
 class Solution {
 public:
-    bool isCircularSentence(string sentence) {
-        if (sentence[0] != sentence[sentence.size() - 1]) return false;
-        istringstream is(sentence);
-        vector<string> ss;
-        string s;
-        while (is >> s) ss.emplace_back(s);
-        for (int i = 1; i < ss.size(); ++i) {
-            if (ss[i][0] != ss[i - 1][ss[i - 1].size() - 1]) {
+    bool isCircularSentence(string s) {
+        int n = s.size();
+        if (s[0] != s.back()) {
+            return false;
+        }
+        for (int i = 1; i < n; ++i) {
+            if (s[i] == ' ' && s[i - 1] != s[i + 1]) {
                 return false;
             }
         }
