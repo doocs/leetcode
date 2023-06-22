@@ -3,6 +3,7 @@ class Solution:
         def bfs(i: int, j: int) -> int:
             q = deque([(i, j)])
             g = [list(row) for row in chessboard]
+            g[i][j] = "X"
             cnt = 0
             while q:
                 i, j = q.popleft()

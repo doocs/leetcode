@@ -7,6 +7,7 @@ public:
             queue<pair<int, int>> q;
             q.emplace(i, j);
             auto g = chessboard;
+            g[i][j] = 'X';
             int cnt = 0;
             while (q.size()) {
                 auto p = q.front();
