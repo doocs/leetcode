@@ -25,6 +25,7 @@ class Solution {
         for (int k = 0; k < m; ++k) {
             g[k] = chessboard[k].toCharArray();
         }
+        g[i][j] = 'X';
         int cnt = 0;
         while (!q.isEmpty()) {
             var p = q.poll();

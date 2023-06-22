@@ -75,6 +75,7 @@ class Solution:
         def bfs(i: int, j: int) -> int:
             q = deque([(i, j)])
             g = [list(row) for row in chessboard]
+            g[i][j] = "X"
             cnt = 0
             while q:
                 i, j = q.popleft()
@@ -96,7 +97,6 @@ class Solution:
         return max(
             bfs(i, j) for i in range(m) for j in range(n) if chessboard[i][j] == "."
         )
-
 ```
 
 ### **Java**
@@ -131,6 +131,7 @@ class Solution {
         for (int k = 0; k < m; ++k) {
             g[k] = chessboard[k].toCharArray();
         }
+        g[i][j] = 'X';
         int cnt = 0;
         while (!q.isEmpty()) {
             var p = q.poll();
@@ -177,6 +178,7 @@ public:
             queue<pair<int, int>> q;
             q.emplace(i, j);
             auto g = chessboard;
+            g[i][j] = 'X';
             int cnt = 0;
             while (q.size()) {
                 auto p = q.front();
@@ -235,6 +237,7 @@ func flipChess(chessboard []string) (ans int) {
 			g[i] = make([]byte, n)
 			copy(g[i], []byte(chessboard[i]))
 		}
+		g[i][j] = 'X'
 		cnt := 0
 		for len(q) > 0 {
 			p := q[0]

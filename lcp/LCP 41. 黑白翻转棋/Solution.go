@@ -7,6 +7,7 @@ func flipChess(chessboard []string) (ans int) {
 			g[i] = make([]byte, n)
 			copy(g[i], []byte(chessboard[i]))
 		}
+		g[i][j] = 'X'
 		cnt := 0
 		for len(q) > 0 {
 			p := q[0]
