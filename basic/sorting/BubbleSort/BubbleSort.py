@@ -5,7 +5,7 @@ def bubbleSort(arr):
     for i in range(n):
         if not hasChange:
             break
-        
+
         hasChange = False
         # Last i elements are already in place
         for j in range(n - i - 1):
