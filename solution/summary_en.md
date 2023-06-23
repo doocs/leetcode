@@ -2796,3 +2796,4 @@
   - [2740.Find the Value of the Partition](/solution/2700-2799/2740.Find%20the%20Value%20of%20the%20Partition/README_EN.md)
   - [2741.Special Permutations](/solution/2700-2799/2741.Special%20Permutations/README_EN.md)
   - [2742.Painting the Walls](/solution/2700-2799/2742.Painting%20the%20Walls/README_EN.md)
+  - [2743.Count Substrings Without Repeating Character](/solution/2700-2799/2743.Count%20Substrings%20Without%20Repeating%20Character/README_EN.md)
