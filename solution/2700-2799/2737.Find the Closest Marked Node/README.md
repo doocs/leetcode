@@ -68,6 +68,16 @@ So the answer is 3.
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：Dijkstra 算法**
+
+我们先根据题目中提供的边的信息，建立一个邻接矩阵 $g$，其中 $g[i][j]$ 表示节点 $i$ 到节点 $j$ 的距离，如果不存在这样的边，则 $g[i][j]$ 为正无穷。
+
+然后我们就可以使用 Dijkstra 算法求出从起点 $s$ 到所有节点的最短距离，记为 $dist$。
+
+最后我们遍历所有的标记节点，找到距离最小的标记节点，如果距离为正无穷，则返回 $-1$。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为节点数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -75,7 +85,26 @@ So the answer is 3.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minimumDistance(
+        self, n: int, edges: List[List[int]], s: int, marked: List[int]
+    ) -> int:
+        g = [[inf] * n for _ in range(n)]
+        for u, v, w in edges:
+            g[u][v] = min(g[u][v], w)
+        dist = [inf] * n
+        vis = [False] * n
+        dist[s] = 0
+        for _ in range(n):
+            t = -1
+            for j in range(n):
+                if not vis[j] and (t == -1 or dist[t] > dist[j]):
+                    t = j
+            vis[t] = True
+            for j in range(n):
+                dist[j] = min(dist[j], dist[t] + g[t][j])
+        ans = min(dist[i] for i in marked)
+        return -1 if ans >= inf else ans
 ```
 
 ### **Java**
@@ -83,19 +112,165 @@ So the answer is 3.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int minimumDistance(int n, List<List<Integer>> edges, int s, int[] marked) {
+        final int inf = 1 << 29;
+        int[][] g = new int[n][n];
+        for (var e : g) {
+            Arrays.fill(e, inf);
+        }
+        for (var e : edges) {
+            int u = e.get(0), v = e.get(1), w = e.get(2);
+            g[u][v] = Math.min(g[u][v], w);
+        }
+        int[] dist = new int[n];
+        Arrays.fill(dist, inf);
+        dist[s] = 0;
+        boolean[] vis = new boolean[n];
+        for (int i = 0; i < n; ++i) {
+            int t = -1;
+            for (int j = 0; j < n; ++j) {
+                if (!vis[j] && (t == -1 || dist[t] > dist[j])) {
+                    t = j;
+                }
+            }
+            vis[t] = true;
+            for (int j = 0; j < n; ++j) {
+                dist[j] = Math.min(dist[j], dist[t] + g[t][j]);
+            }
+        }
+        int ans = inf;
+        for (int i : marked) {
+            ans = Math.min(ans, dist[i]);
+        }
+        return ans >= inf ? -1 : ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int minimumDistance(int n, vector<vector<int>>& edges, int s, vector<int>& marked) {
+        const int inf = 1 << 29;
+        vector<vector<int>> g(n, vector<int>(n, inf));
+        vector<int> dist(n, inf);
+        dist[s] = 0;
+        vector<bool> vis(n);
+        for (auto& e : edges) {
+            int u = e[0], v = e[1], w = e[2];
+            g[u][v] = min(g[u][v], w);
+        }
+        for (int i = 0; i < n; ++i) {
+            int t = -1;
+            for (int j = 0; j < n; ++j) {
+                if (!vis[j] && (t == -1 || dist[t] > dist[j])) {
+                    t = j;
+                }
+            }
+            vis[t] = true;
+            for (int j = 0; j < n; ++j) {
+                dist[j] = min(dist[j], dist[t] + g[t][j]);
+            }
+        }
+        int ans = inf;
+        for (int i : marked) {
+            ans = min(ans, dist[i]);
+        }
+        return ans >= inf ? -1 : ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minimumDistance(n int, edges [][]int, s int, marked []int) int {
+	const inf = 1 << 29
+	g := make([][]int, n)
+	dist := make([]int, n)
+	for i := range g {
+		g[i] = make([]int, n)
+		for j := range g[i] {
+			g[i][j] = inf
+		}
+		dist[i] = inf
+	}
+	dist[s] = 0
+	for _, e := range edges {
+		u, v, w := e[0], e[1], e[2]
+		g[u][v] = min(g[u][v], w)
+	}
+	vis := make([]bool, n)
+	for _ = range g {
+		t := -1
+		for j := 0; j < n; j++ {
+			if !vis[j] && (t == -1 || dist[j] < dist[t]) {
+				t = j
+			}
+		}
+		vis[t] = true
+		for j := 0; j < n; j++ {
+			dist[j] = min(dist[j], dist[t]+g[t][j])
+		}
+	}
+	ans := inf
+	for _, i := range marked {
+		ans = min(ans, dist[i])
+	}
+	if ans >= inf {
+		return -1
+	}
+	return ans
+}
 
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function minimumDistance(
+    n: number,
+    edges: number[][],
+    s: number,
+    marked: number[],
+): number {
+    const inf = 1 << 29;
+    const g: number[][] = Array(n)
+        .fill(0)
+        .map(() => Array(n).fill(inf));
+    const dist: number[] = Array(n).fill(inf);
+    const vis: boolean[] = Array(n).fill(false);
+    for (const [u, v, w] of edges) {
+        g[u][v] = Math.min(g[u][v], w);
+    }
+    dist[s] = 0;
+    for (let i = 0; i < n; ++i) {
+        let t = -1;
+        for (let j = 0; j < n; ++j) {
+            if (!vis[j] && (t == -1 || dist[t] > dist[j])) {
+                t = j;
+            }
+        }
+        vis[t] = true;
+        for (let j = 0; j < n; ++j) {
+            dist[j] = Math.min(dist[j], dist[t] + g[t][j]);
+        }
+    }
+    let ans = inf;
+    for (const i of marked) {
+        ans = Math.min(ans, dist[i]);
+    }
+    return ans >= inf ? -1 : ans;
+}
 ```
 
 ### **...**
