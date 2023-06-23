@@ -52,25 +52,99 @@ And it can be shown that there are no special substrings with a length of at lea
 ### **Python3**
 
 ```python
-
+class Solution:
+    def numberOfSpecialSubstrings(self, s: str) -> int:
+        cnt = Counter()
+        ans = j = 0
+        for i, c in enumerate(s):
+            cnt[c] += 1
+            while cnt[c] > 1:
+                cnt[s[j]] -= 1
+                j += 1
+            ans += i - j + 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int numberOfSpecialSubstrings(String s) {
+        int n = s.length();
+        int ans = 0;
+        int[] cnt = new int[26];
+        for (int i = 0, j = 0; i < n; ++i) {
+            int k = s.charAt(i) - 'a';
+            ++cnt[k];
+            while (cnt[k] > 1) {
+                --cnt[s.charAt(j++) - 'a'];
+            }
+            ans += i - j + 1;
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int numberOfSpecialSubstrings(string s) {
+        int n = s.size();
+        int cnt[26]{};
+        int ans = 0;
+        for (int i = 0, j = 0; i < n; ++i) {
+            int k = s[i] - 'a';
+            ++cnt[k];
+            while (cnt[k] > 1) {
+                --cnt[s[j++] - 'a'];
+            }
+            ans += i - j + 1;
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func numberOfSpecialSubstrings(s string) (ans int) {
+	j := 0
+	cnt := [26]int{}
+	for i, c := range s {
+		k := c - 'a'
+		cnt[k]++
+		for cnt[k] > 1 {
+			cnt[s[j]-'a']--
+			j++
+		}
+		ans += i - j + 1
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function numberOfSpecialSubstrings(s: string): number {
+    const idx = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
+    const n = s.length;
+    const cnt: number[] = Array(26).fill(0);
+    let ans = 0;
+    for (let i = 0, j = 0; i < n; ++i) {
+        const k = idx(s[i]);
+        ++cnt[k];
+        while (cnt[k] > 1) {
+            --cnt[idx(s[j++])];
+        }
+        ans += i - j + 1;
+    }
+    return ans;
+}
 ```
 
 ### **...**
