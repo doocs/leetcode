@@ -147,7 +147,7 @@ class Solution {
 public:
     vector<ListNode*> listOfDepth(TreeNode* tree) {
         vector<ListNode*> ans;
-        queue<TreeNode*> q {{tree}};
+        queue<TreeNode*> q{{tree}};
         while (!q.empty()) {
             ListNode* dummy = new ListNode(0);
             ListNode* cur = dummy;
