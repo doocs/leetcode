@@ -60,10 +60,8 @@ Sort & Greedy.
 class Solution:
     def minPairSum(self, nums: List[int]) -> int:
         nums.sort()
-        res, n = 0, len(nums)
-        for i in range(n >> 1):
-            res = max(res, nums[i] + nums[n - i - 1])
-        return res
+        n = len(nums)
+        return max(x + nums[n - i - 1] for i, x in enumerate(nums[: n >> 1]))
 ```
 
 ### **Java**
@@ -72,11 +70,11 @@ class Solution:
 class Solution {
     public int minPairSum(int[] nums) {
         Arrays.sort(nums);
-        int res = 0, n = nums.length;
-        for (int i = 0; i < (n >> 1); ++i) {
-            res = Math.max(res, nums[i] + nums[n - i - 1]);
+        int ans = 0, n = nums.length;
+        for (int i = 0; i < n >> 1; ++i) {
+            ans = Math.max(ans, nums[i] + nums[n - i - 1]);
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -88,11 +86,11 @@ class Solution {
 public:
     int minPairSum(vector<int>& nums) {
         sort(nums.begin(), nums.end());
-        int res = 0, n = nums.size();
-        for (int i = 0; i < (n >> 1); ++i) {
-            res = max(res, nums[i] + nums[n - i - 1]);
+        int ans = 0, n = nums.size();
+        for (int i = 0; i < n >> 1; ++i) {
+            ans = max(ans, nums[i] + nums[n - i - 1]);
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -100,13 +98,13 @@ public:
 ### **Go**
 
 ```go
-func minPairSum(nums []int) int {
+func minPairSum(nums []int) (ans int) {
 	sort.Ints(nums)
-	res, n := 0, len(nums)
-	for i := 0; i < (n >> 1); i++ {
-		res = max(res, nums[i]+nums[n-i-1])
+	n := len(nums)
+	for i, x := range nums[:n>>1] {
+		ans = max(ans, x+nums[n-1-i])
 	}
-	return res
+	return
 }
 
 func max(a, b int) int {
@@ -114,6 +112,20 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function minPairSum(nums: number[]): number {
+    nums.sort((a, b) => a - b);
+    let ans = 0;
+    const n = nums.length;
+    for (let i = 0; i < n >> 1; ++i) {
+        ans = Math.max(ans, nums[i] + nums[n - 1 - i]);
+    }
+    return ans;
 }
 ```
 
