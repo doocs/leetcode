@@ -5,28 +5,26 @@
 #         self.left = None
 #         self.right = None
 
-
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, x):
 #         self.val = x
 #         self.next = None
+
+
 class Solution:
     def listOfDepth(self, tree: TreeNode) -> List[ListNode]:
-        q = [tree]
         ans = []
+        q = deque([tree])
         while q:
-            n = len(q)
-            head = ListNode(-1)
-            tail = head
-            for i in range(n):
-                front = q.pop(0)
-                node = ListNode(front.val)
-                tail.next = node
-                tail = node
-                if front.left:
-                    q.append(front.left)
-                if front.right:
-                    q.append(front.right)
-            ans.append(head.next)
+            dummy = cur = ListNode(0)
+            for _ in range(len(q)):
+                node = q.popleft()
+                cur.next = ListNode(node.val)
+                cur = cur.next
+                if node.left:
+                    q.append(node.left)
+                if node.right:
+                    q.append(node.right)
+            ans.append(dummy.next)
         return ans

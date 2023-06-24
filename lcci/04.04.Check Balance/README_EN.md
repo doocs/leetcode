@@ -67,19 +67,36 @@ return&nbsp;false.</pre>
 
 class Solution:
     def isBalanced(self, root: TreeNode) -> bool:
-        if not root:
-            return True
-        l, r = self._height(root.left), self._height(root.right)
-        return (
-            abs(l - r) < 2
-            and self.isBalanced(root.left)
-            and self.isBalanced(root.right)
-        )
+        def dfs(root: TreeNode):
+            if root is None:
+                return 0, True
+            a, b = dfs(root.left)
+            c, d = dfs(root.right)
+            return max(a, c) + 1, abs(a - c) <= 1 and b and d
 
-    def _height(self, node):
-        if not node:
-            return 0
-        return 1 + max(self._height(node.left), self._height(node.right))
+        return dfs(root)[1]
+```
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+
+class Solution:
+    def isBalanced(self, root: TreeNode) -> bool:
+        def dfs(root: TreeNode):
+            if root is None:
+                return 0
+            l, r = dfs(root.left), dfs(root.right)
+            if l == -1 or r == -1 or abs(l - r) > 1:
+                return -1
+            return max(l, r) + 1
+
+        return dfs(root) >= 0
 ```
 
 ### **Java**
@@ -96,48 +113,85 @@ class Solution:
  */
 class Solution {
     public boolean isBalanced(TreeNode root) {
-        if (root == null) {
-            return true;
-        }
-        int l = height(root.left), r = height(root.right);
-        return Math.abs(l - r) < 2 && isBalanced(root.left) && isBalanced(root.right);
+        return dfs(root) >= 0;
     }
 
-    private int height(TreeNode node) {
-        if (node == null) {
+    private int dfs(TreeNode root) {
+        if (root == null) {
             return 0;
         }
-        return 1 + Math.max(height(node.left), height(node.right));
+        int l = dfs(root.left);
+        int r = dfs(root.right);
+        if (l < 0 || r < 0 || Math.abs(l - r) > 1) {
+            return -1;
+        }
+        return Math.max(l, r) + 1;
     }
 }
 ```
 
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool isBalanced(TreeNode* root) {
+        function<int(TreeNode*)> dfs = [&](TreeNode* root) {
+            if (!root) {
+                return 0;
+            }
+            int l = dfs(root->left);
+            int r = dfs(root->right);
+            if (l == -1 || r == -1 || abs(l - r) > 1) {
+                return -1;
+            }
+            return max(l, r) + 1;
+        };
+        return dfs(root) >= 0;
+    }
+};
+```
+
 ### **Go**
 
-Bottom-up recursion
-
 ```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
 func isBalanced(root *TreeNode) bool {
-	return depth(root) >= 0
+	var dfs func(*TreeNode) int
+	dfs = func(root *TreeNode) int {
+		if root == nil {
+			return 0
+		}
+		l, r := dfs(root.Left), dfs(root.Right)
+		if l == -1 || r == -1 || abs(l-r) > 1 {
+			return -1
+		}
+		return max(l, r) + 1
+	}
+	return dfs(root) >= 0
 }
 
-func depth(root *TreeNode) int {
-	if root == nil {
-		return 0
+func max(a, b int) int {
+	if a > b {
+		return a
 	}
-	left := depth(root.Left)
-	right := depth(root.Right)
-	if left == -1 || right == -1 || abs(left-right) > 1 {
-		return -1
-	}
-	return max(left, right) + 1
-}
-
-func max(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
+	return b
 }
 
 func abs(x int) int {
@@ -145,6 +199,39 @@ func abs(x int) int {
 		return -x
 	}
 	return x
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function isBalanced(root: TreeNode | null): boolean {
+    const dfs = (root: TreeNode | null): number => {
+        if (!root) {
+            return 0;
+        }
+        const l = dfs(root.left);
+        const r = dfs(root.right);
+        if (l === -1 || r === -1 || Math.abs(l - r) > 1) {
+            return -1;
+        }
+        return Math.max(l, r) + 1;
+    };
+    return dfs(root) >= 0;
 }
 ```
 

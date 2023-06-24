@@ -19,29 +19,23 @@ class Solution {
 public:
     vector<ListNode*> listOfDepth(TreeNode* tree) {
         vector<ListNode*> ans;
-        if (tree == nullptr) {
-            return ans;
-        }
-        queue<TreeNode*> q;
-        q.push(tree);
+        queue<TreeNode*> q {{tree}};
         while (!q.empty()) {
-            int n = q.size();
-            ListNode* head = new ListNode(-1);
-            ListNode* tail = head;
-            for (int i = 0; i < n; ++i) {
-                TreeNode* front = q.front();
+            ListNode* dummy = new ListNode(0);
+            ListNode* cur = dummy;
+            for (int k = q.size(); k; --k) {
+                TreeNode* node = q.front();
                 q.pop();
-                ListNode* node = new ListNode(front->val);
-                tail->next = node;
-                tail = node;
-                if (front->left != nullptr) {
-                    q.push(front->left);
+                cur->next = new ListNode(node->val);
+                cur = cur->next;
+                if (node->left) {
+                    q.push(node->left);
                 }
-                if (front->right != nullptr) {
-                    q.push(front->right);
+                if (node->right) {
+                    q.push(node->right);
                 }
             }
-            ans.push_back(head->next);
+            ans.push_back(dummy->next);
         }
         return ans;
     }

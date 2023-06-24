@@ -13,28 +13,24 @@
  *     Next *ListNode
  * }
  */
-func listOfDepth(tree *TreeNode) []*ListNode {
-	queue := make([]*TreeNode, 0)
-	queue = append(queue, tree)
-	ans := make([]*ListNode, 0)
-	for len(queue) > 0 {
-		n := len(queue)
-		head := new(ListNode)
-		tail := head
-		for i := 0; i < n; i++ {
-			front := queue[0]
-			queue = queue[1:]
-			node := &ListNode{Val: front.Val}
-			tail.Next = node
-			tail = node
-			if front.Left != nil {
-				queue = append(queue, front.Left)
+func listOfDepth(tree *TreeNode) (ans []*ListNode) {
+	q := []*TreeNode{tree}
+	for len(q) > 0 {
+		dummy := &ListNode{}
+		cur := dummy
+		for k := len(q); k > 0; k-- {
+			node := q[0]
+			q = q[1:]
+			cur.Next = &ListNode{Val: node.Val}
+			cur = cur.Next
+			if node.Left != nil {
+				q = append(q, node.Left)
 			}
-			if front.Right != nil {
-				queue = append(queue, front.Right)
+			if node.Right != nil {
+				q = append(q, node.Right)
 			}
 		}
-		ans = append(ans, head.Next)
+		ans = append(ans, dummy.Next)
 	}
-	return ans
+	return
 }

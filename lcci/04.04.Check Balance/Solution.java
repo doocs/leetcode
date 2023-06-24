@@ -9,17 +9,18 @@
  */
 class Solution {
     public boolean isBalanced(TreeNode root) {
-        if (root == null) {
-            return true;
-        }
-        int l = height(root.left), r = height(root.right);
-        return Math.abs(l - r) < 2 && isBalanced(root.left) && isBalanced(root.right);
+        return dfs(root) >= 0;
     }
 
-    private int height(TreeNode node) {
-        if (node == null) {
+    private int dfs(TreeNode root) {
+        if (root == null) {
             return 0;
         }
-        return 1 + Math.max(height(node.left), height(node.right));
+        int l = dfs(root.left);
+        int r = dfs(root.right);
+        if (l < 0 || r < 0 || Math.abs(l - r) > 1) {
+            return -1;
+        }
+        return Math.max(l, r) + 1;
     }
 }
