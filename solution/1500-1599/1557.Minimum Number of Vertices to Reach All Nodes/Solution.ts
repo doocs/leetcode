@@ -1,13 +1,13 @@
 function findSmallestSetOfVertices(n: number, edges: number[][]): number[] {
-    const arr = new Array(n).fill(true);
-    for (const [_, i] of edges) {
-        arr[i] = false;
+    const cnt: number[] = new Array(n).fill(0);
+    for (const [_, t] of edges) {
+        cnt[t]++;
     }
-    const res = [];
-    arr.forEach((v, i) => {
-        if (v) {
-            res.push(i);
+    const ans: number[] = [];
+    for (let i = 0; i < n; ++i) {
+        if (cnt[i] === 0) {
+            ans.push(i);
         }
-    });
-    return res;
+    }
+    return ans;
 }

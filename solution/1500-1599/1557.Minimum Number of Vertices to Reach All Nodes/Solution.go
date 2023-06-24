@@ -1,13 +1,12 @@
-func findSmallestSetOfVertices(n int, edges [][]int) []int {
-	s := make(map[int]bool)
+func findSmallestSetOfVertices(n int, edges [][]int) (ans []int) {
+	cnt := make([]int, n)
 	for _, e := range edges {
-		s[e[1]] = true
+		cnt[e[1]]++
 	}
-	var ans []int
-	for i := 0; i < n; i++ {
-		if !s[i] {
+	for i, c := range cnt {
+		if c == 0 {
 			ans = append(ans, i)
 		}
 	}
-	return ans
+	return
 }
