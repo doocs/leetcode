@@ -99,7 +99,12 @@ Exam 表:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT school_id, min(ifnull(score, -1)) AS score
+FROM
+    Schools AS s
+    LEFT JOIN Exam AS e ON s.capacity >= e.student_count
+GROUP BY school_id;
 ```
 
 <!-- tabs:end -->
