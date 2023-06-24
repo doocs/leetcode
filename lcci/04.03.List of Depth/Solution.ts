@@ -25,23 +25,19 @@
  */
 
 function listOfDepth(tree: TreeNode | null): Array<ListNode | null> {
-    const res = [];
-    if (tree == null) {
-        return res;
-    }
-    const queue = [tree];
-    while (queue.length !== 0) {
-        const n = queue.length;
+    const ans: Array<ListNode | null> = [];
+    const q: Array<TreeNode | null> = [tree];
+    while (q.length) {
         const dummy = new ListNode();
         let cur = dummy;
-        for (let i = 0; i < n; i++) {
-            const { val, left, right } = queue.shift();
-            left && queue.push(left);
-            right && queue.push(right);
+        for (let k = q.length; k; --k) {
+            const { val, left, right } = q.shift()!;
             cur.next = new ListNode(val);
             cur = cur.next;
+            left && q.push(left);
+            right && q.push(right);
         }
-        res.push(dummy.next);
+        ans.push(dummy.next);
     }
-    return res;
+    return ans;
 }

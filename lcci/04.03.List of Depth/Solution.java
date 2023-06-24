@@ -17,26 +17,24 @@
  */
 class Solution {
     public ListNode[] listOfDepth(TreeNode tree) {
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(tree);
         List<ListNode> ans = new ArrayList<>();
-        while (!queue.isEmpty()) {
-            int n = queue.size();
-            ListNode head = new ListNode(-1);
-            ListNode tail = head;
-            for (int i = 0; i < n; i++) {
-                TreeNode front = queue.poll();
-                ListNode node = new ListNode(front.val);
-                tail.next = node;
-                tail = node;
-                if (front.left != null) {
-                    queue.offer(front.left);
+        Deque<TreeNode> q = new ArrayDeque<>();
+        q.offer(tree);
+        while (!q.isEmpty()) {
+            ListNode dummy = new ListNode(0);
+            ListNode cur = dummy;
+            for (int k = q.size(); k > 0; --k) {
+                TreeNode node = q.poll();
+                cur.next = new ListNode(node.val);
+                cur = cur.next;
+                if (node.left != null) {
+                    q.offer(node.left);
                 }
-                if (front.right != null) {
-                    queue.offer(front.right);
+                if (node.right != null) {
+                    q.offer(node.right);
                 }
             }
-            ans.add(head.next);
+            ans.add(dummy.next);
         }
         return ans.toArray(new ListNode[0]);
     }
