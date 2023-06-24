@@ -104,6 +104,36 @@ function removeTrailingZeros(num: string): string {
 }
 ```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn remove_trailing_zeros(num: String) -> String {
+        let mut i = num.len() - 1;
+
+        while num.chars().nth(i) == Some('0') {
+            i -= 1;
+        }
+
+        num[..i + 1].to_string()
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn remove_trailing_zeros(num: String) -> String {
+        num.chars()
+        .rev()
+        .skip_while(|&c| c == '0')
+        .collect::<String>()
+        .chars()
+        .rev()
+    .collect::<String>()
+    }
+}
+```
+
 ### **...**
 
 ```
