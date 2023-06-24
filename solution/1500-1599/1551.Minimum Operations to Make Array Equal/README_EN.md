@@ -44,10 +44,7 @@ In the second operation choose x = 2 and y = 0 again, thus arr = [3, 3, 3].
 ```python
 class Solution:
     def minOperations(self, n: int) -> int:
-        ans = 0
-        for i in range(n >> 1):
-            ans += n - (2 * i + 1)
-        return ans
+        return sum(n - (i << 1 | 1) for i in range(n >> 1))
 ```
 
 ### **Java**
@@ -56,8 +53,8 @@ class Solution:
 class Solution {
     public int minOperations(int n) {
         int ans = 0;
-        for (int i = 0; i < (n >> 1); i++) {
-            ans += (n - (2 * i + 1));
+        for (int i = 0; i < n >> 1; ++i) {
+            ans += n - (i << 1 | 1);
         }
         return ans;
     }
@@ -71,7 +68,9 @@ class Solution {
 public:
     int minOperations(int n) {
         int ans = 0;
-        for (int i = 0; i < (n >> 1); ++i) ans += (n - (2 * i + 1));
+        for (int i = 0; i < n >> 1; ++i) {
+            ans += n - (i << 1 | 1);
+        }
         return ans;
     }
 };
@@ -80,12 +79,23 @@ public:
 ### **Go**
 
 ```go
-func minOperations(n int) int {
-	ans := 0
-	for i := 0; i < (n >> 1); i++ {
-		ans += (n - (2*i + 1))
+func minOperations(n int) (ans int) {
+	for i := 0; i < n>>1; i++ {
+		ans += n - (i<<1 | 1)
 	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function minOperations(n: number): number {
+    let ans = 0;
+    for (let i = 0; i < n >> 1; ++i) {
+        ans += n - ((i << 1) | 1);
+    }
+    return ans;
 }
 ```
 

@@ -41,7 +41,25 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-数组 arr 的前 n 项和为 `(1 + (2 * n - 1)) * n / 2 = n * n`，若数组所有元素相等，那么每一项元素应该都是 n，因此只需累计数组前半部分的元素操作次数 `n - (2 * i + 1)` 即可，即 n ∈ `[0, n / 2)`。
+**方法一：数学**
+
+根据题目描述，数组 $arr$ 是一个首项为 $1$，公差为 $2$ 的等差数列。那么数组前 $n$ 项的和为：
+
+$$
+\begin{aligned}
+S_n &= \frac{n}{2} \times (a_1 + a_n) \\
+&= \frac{n}{2} \times (1 + (2n - 1)) \\
+&= n^2
+\end{aligned}
+$$
+
+由于一次操作中，一个数减一，另一个数加一，数组中所有元素的和不变。因此，数组中所有元素相等时，每个元素的值为 $S_n / n = n$。那么，数组中所有元素相等所需的最小操作数为：
+
+$$
+\sum_{i=0}{\frac{n}{2}} (n - (2i + 1))
+$$
+
+时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -52,10 +70,7 @@
 ```python
 class Solution:
     def minOperations(self, n: int) -> int:
-        ans = 0
-        for i in range(n >> 1):
-            ans += n - (2 * i + 1)
-        return ans
+        return sum(n - (i << 1 | 1) for i in range(n >> 1))
 ```
 
 ### **Java**
@@ -66,8 +81,8 @@ class Solution:
 class Solution {
     public int minOperations(int n) {
         int ans = 0;
-        for (int i = 0; i < (n >> 1); i++) {
-            ans += (n - (2 * i + 1));
+        for (int i = 0; i < n >> 1; ++i) {
+            ans += n - (i << 1 | 1);
         }
         return ans;
     }
@@ -81,7 +96,9 @@ class Solution {
 public:
     int minOperations(int n) {
         int ans = 0;
-        for (int i = 0; i < (n >> 1); ++i) ans += (n - (2 * i + 1));
+        for (int i = 0; i < n >> 1; ++i) {
+            ans += n - (i << 1 | 1);
+        }
         return ans;
     }
 };
@@ -90,12 +107,23 @@ public:
 ### **Go**
 
 ```go
-func minOperations(n int) int {
-	ans := 0
-	for i := 0; i < (n >> 1); i++ {
-		ans += (n - (2*i + 1))
+func minOperations(n int) (ans int) {
+	for i := 0; i < n>>1; i++ {
+		ans += n - (i<<1 | 1)
 	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function minOperations(n: number): number {
+    let ans = 0;
+    for (let i = 0; i < n >> 1; ++i) {
+        ans += n - ((i << 1) | 1);
+    }
+    return ans;
 }
 ```
 
