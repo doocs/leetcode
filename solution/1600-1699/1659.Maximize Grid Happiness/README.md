@@ -81,7 +81,7 @@
 
 如果 $ic = 0$ 且 $ec = 0$，表示所有的人都已经分配完了，那么返回 $0$；
 
-否则，枚举当前行的状态 $cur$，其中 $cur \in [0, 3^n)$，然后计算当前行的幸福感 $f[cur]$，以及与上一行的状态 $pre$ 之间的相互贡献 $g[pre][cur]$，并计算 $dfs(i + 1, cur, ic - ix[cur], ec - ex[cur])$，最后返回 $f[cur] + g[pre][cur] + dfs(i + 1, cur, ic - ix[cur], ec - ex[cur])$ 的最大值，即：
+否则，枚举当前行的状态 $cur$，其中 $cur \in [0, 3^n)$，然后计算当前行的幸福感 $f[cur]$，以及与上一行的状态 $pre$ 之间对幸福感的贡献 $g[pre][cur]$，并递归计算 $dfs(i + 1, cur, ic - ix[cur], ec - ex[cur])$，最后返回 $f[cur] + g[pre][cur] + dfs(i + 1, cur, ic - ix[cur], ec - ex[cur])$ 的最大值，即：
 
 $$
 dfs(i, pre, ic, ec) = \max_{cur} \{f[cur] + g[pre][cur] + dfs(i + 1, cur, ic - ix[cur], ec - ex[cur])\}
@@ -92,7 +92,7 @@ $$
 -   $ix[cur]$ 表示状态 $cur$ 中内向的人的个数；
 -   $ex[cur]$ 表示状态 $cur$ 中外向的人的个数；
 -   $f[cur]$ 表示状态 $cur$ 中的人的初始幸福感；
--   $g[pre][cur]$ 表示状态 $pre$ 中的人对状态 $cur$ 中的人的幸福感的贡献。
+-   $g[pre][cur]$ 表示两个相邻状态行对幸福感的贡献。
 
 这些值都可以通过预处理得到。并且，我们可以使用记忆化搜索的方法，避免重复计算。
 

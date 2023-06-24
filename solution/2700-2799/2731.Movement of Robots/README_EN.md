@@ -37,7 +37,7 @@ After 2 seconds, the positions are [-2,0,0]. Now, the robot at index 1 will move
 After 3 seconds, the positions are [-3,-1,1].
 The distance between the robot at index 0 and 1 is abs(-3 - (-1)) = 2.
 The distance between the robot at index 0 and 2 is abs(-3 - 1) = 4.
-The distance between the robot at index 0 and 1 is abs(-1 - 1) = 2.
+The distance between the robot at index 1 and 2 is abs(-1 - 1) = 2.
 The sum of the pairs of all distances = 2 + 4 + 2 = 8.
 </pre>
 

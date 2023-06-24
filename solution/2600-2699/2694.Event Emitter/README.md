@@ -56,6 +56,18 @@ sub.unsubscribe(); // undefined
 emitter.emit("firstEvent", [4, 5, 6]); // [], 没有订阅者
 </pre>
 
+<p><strong>示例 4：</strong></p>
+
+<pre>
+<b>输入：</b>actions = ["EventEmitter", "subscribe", "subscribe", "unsubscribe", "emit"], values = [[], ["firstEvent", "x =&gt; x + 1"], ["firstEvent", "x =&gt; x + 2"], [0], ["firstEvent", [5]]]
+<b>输出：</b>[[],["subscribed"],["emitted",["1,2,3"]],["unsubscribed",0],["emitted",[7]]]
+<b>解释：</b>
+const emitter = new EventEmitter();
+const sub1 = emitter.subscribe("firstEvent", x =&gt; x + 1);
+const sub2 = emitter.subscribe("firstEvent", x =&gt; x + 2);
+sub1.unsubscribe(); // undefined
+emitter.emit("firstEvent", [5]); // [7]</pre>
+
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
