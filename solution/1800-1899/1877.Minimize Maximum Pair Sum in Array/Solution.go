@@ -1,10 +1,10 @@
-func minPairSum(nums []int) int {
+func minPairSum(nums []int) (ans int) {
 	sort.Ints(nums)
-	res, n := 0, len(nums)
-	for i := 0; i < (n >> 1); i++ {
-		res = max(res, nums[i]+nums[n-i-1])
+	n := len(nums)
+	for i, x := range nums[:n>>1] {
+		ans = max(ans, x+nums[n-1-i])
 	}
-	return res
+	return
 }
 
 func max(a, b int) int {
