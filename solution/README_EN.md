@@ -1248,7 +1248,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  1237  |  [Find Positive Integer Solution for a Given Equation](/solution/1200-1299/1237.Find%20Positive%20Integer%20Solution%20for%20a%20Given%20Equation/README_EN.md)  |  `Math`,`Two Pointers`,`Binary Search`,`Interactive`  |  Medium  |  Weekly Contest 160  |
 |  1238  |  [Circular Permutation in Binary Representation](/solution/1200-1299/1238.Circular%20Permutation%20in%20Binary%20Representation/README_EN.md)  |  `Bit Manipulation`,`Math`,`Backtracking`  |  Medium  |  Weekly Contest 160  |
 |  1239  |  [Maximum Length of a Concatenated String with Unique Characters](/solution/1200-1299/1239.Maximum%20Length%20of%20a%20Concatenated%20String%20with%20Unique%20Characters/README_EN.md)  |  `Bit Manipulation`,`Array`,`String`,`Backtracking`  |  Medium  |  Weekly Contest 160  |
-|  1240  |  [Tiling a Rectangle with the Fewest Squares](/solution/1200-1299/1240.Tiling%20a%20Rectangle%20with%20the%20Fewest%20Squares/README_EN.md)  |  `Dynamic Programming`,`Backtracking`  |  Hard  |  Weekly Contest 160  |
+|  1240  |  [Tiling a Rectangle with the Fewest Squares](/solution/1200-1299/1240.Tiling%20a%20Rectangle%20with%20the%20Fewest%20Squares/README_EN.md)  |  `Backtracking`  |  Hard  |  Weekly Contest 160  |
 |  1241  |  [Number of Comments per Post](/solution/1200-1299/1241.Number%20of%20Comments%20per%20Post/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
 |  1242  |  [Web Crawler Multithreaded](/solution/1200-1299/1242.Web%20Crawler%20Multithreaded/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Concurrency`  |  Medium  |  🔒  |
 |  1243  |  [Array Transformation](/solution/1200-1299/1243.Array%20Transformation/README_EN.md)  |  `Array`,`Simulation`  |  Easy  |  Biweekly Contest 12  |
@@ -1270,7 +1270,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  1259  |  [Handshakes That Don't Cross](/solution/1200-1299/1259.Handshakes%20That%20Don%27t%20Cross/README_EN.md)  |  `Math`,`Dynamic Programming`  |  Hard  |  Biweekly Contest 13  |
 |  1260  |  [Shift 2D Grid](/solution/1200-1299/1260.Shift%202D%20Grid/README_EN.md)  |  `Array`,`Matrix`,`Simulation`  |  Easy  |  Weekly Contest 163  |
 |  1261  |  [Find Elements in a Contaminated Binary Tree](/solution/1200-1299/1261.Find%20Elements%20in%20a%20Contaminated%20Binary%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`,`Design`,`Hash Table`,`Binary Tree`  |  Medium  |  Weekly Contest 163  |
-|  1262  |  [Greatest Sum Divisible by Three](/solution/1200-1299/1262.Greatest%20Sum%20Divisible%20by%20Three/README_EN.md)  |  `Greedy`,`Array`,`Dynamic Programming`  |  Medium  |  Weekly Contest 163  |
+|  1262  |  [Greatest Sum Divisible by Three](/solution/1200-1299/1262.Greatest%20Sum%20Divisible%20by%20Three/README_EN.md)  |  `Greedy`,`Array`,`Dynamic Programming`,`Sorting`  |  Medium  |  Weekly Contest 163  |
 |  1263  |  [Minimum Moves to Move a Box to Their Target Location](/solution/1200-1299/1263.Minimum%20Moves%20to%20Move%20a%20Box%20to%20Their%20Target%20Location/README_EN.md)  |  `Breadth-First Search`,`Array`,`Matrix`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 163  |
 |  1264  |  [Page Recommendations](/solution/1200-1299/1264.Page%20Recommendations/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 |  1265  |  [Print Immutable Linked List in Reverse](/solution/1200-1299/1265.Print%20Immutable%20Linked%20List%20in%20Reverse/README_EN.md)  |  `Stack`,`Recursion`,`Linked List`,`Two Pointers`  |  Medium  |  🔒  |
@@ -2728,7 +2728,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2717  |  [Semi-Ordered Permutation](/solution/2700-2799/2717.Semi-Ordered%20Permutation/README_EN.md)  |  `Array`,`Simulation`  |  Easy  |  Weekly Contest 348  |
 |  2718  |  [Sum of Matrix After Queries](/solution/2700-2799/2718.Sum%20of%20Matrix%20After%20Queries/README_EN.md)  |  `Array`,`Hash Table`  |  Medium  |  Weekly Contest 348  |
 |  2719  |  [Count of Integers](/solution/2700-2799/2719.Count%20of%20Integers/README_EN.md)  |  `Math`,`String`,`Dynamic Programming`  |  Hard  |  Weekly Contest 348  |
-|  2720  |  [Popularity Percentage](/solution/2700-2799/2720.Popularity%20Percentage/README_EN.md)  |    |  Hard  |  🔒  |
+|  2720  |  [Popularity Percentage](/solution/2700-2799/2720.Popularity%20Percentage/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
 |  2721  |  [Execute Asynchronous Functions in Parallel](/solution/2700-2799/2721.Execute%20Asynchronous%20Functions%20in%20Parallel/README_EN.md)  |    |  Medium  |    |
 |  2722  |  [Join Two Arrays by ID](/solution/2700-2799/2722.Join%20Two%20Arrays%20by%20ID/README_EN.md)  |    |  Medium  |    |
 |  2723  |  [Add Two Promises](/solution/2700-2799/2723.Add%20Two%20Promises/README_EN.md)  |    |  Easy  |    |
@@ -2736,15 +2736,15 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2725  |  [Interval Cancellation](/solution/2700-2799/2725.Interval%20Cancellation/README_EN.md)  |    |  Easy  |    |
 |  2726  |  [Calculator with Method Chaining](/solution/2700-2799/2726.Calculator%20with%20Method%20Chaining/README_EN.md)  |    |  Easy  |    |
 |  2727  |  [Is Object Empty](/solution/2700-2799/2727.Is%20Object%20Empty/README_EN.md)  |    |  Easy  |    |
-|  2728  |  [Count Houses in a Circular Street](/solution/2700-2799/2728.Count%20Houses%20in%20a%20Circular%20Street/README_EN.md)  |    |  Easy  |  🔒  |
-|  2729  |  [Check if The Number is Fascinating](/solution/2700-2799/2729.Check%20if%20The%20Number%20is%20Fascinating/README_EN.md)  |    |  Easy  |  Biweekly Contest 106  |
-|  2730  |  [Find the Longest Semi-Repetitive Substring](/solution/2700-2799/2730.Find%20the%20Longest%20Semi-Repetitive%20Substring/README_EN.md)  |    |  Medium  |  Biweekly Contest 106  |
-|  2731  |  [Movement of Robots](/solution/2700-2799/2731.Movement%20of%20Robots/README_EN.md)  |    |  Medium  |  Biweekly Contest 106  |
-|  2732  |  [Find a Good Subset of the Matrix](/solution/2700-2799/2732.Find%20a%20Good%20Subset%20of%20the%20Matrix/README_EN.md)  |    |  Hard  |  Biweekly Contest 106  |
-|  2733  |  [Neither Minimum nor Maximum](/solution/2700-2799/2733.Neither%20Minimum%20nor%20Maximum/README_EN.md)  |    |  Easy  |  Weekly Contest 349  |
-|  2734  |  [Lexicographically Smallest String After Substring Operation](/solution/2700-2799/2734.Lexicographically%20Smallest%20String%20After%20Substring%20Operation/README_EN.md)  |    |  Medium  |  Weekly Contest 349  |
-|  2735  |  [Collecting Chocolates](/solution/2700-2799/2735.Collecting%20Chocolates/README_EN.md)  |    |  Medium  |  Weekly Contest 349  |
-|  2736  |  [Maximum Sum Queries](/solution/2700-2799/2736.Maximum%20Sum%20Queries/README_EN.md)  |    |  Hard  |  Weekly Contest 349  |
+|  2728  |  [Count Houses in a Circular Street](/solution/2700-2799/2728.Count%20Houses%20in%20a%20Circular%20Street/README_EN.md)  |  `Array`  |  Easy  |  🔒  |
+|  2729  |  [Check if The Number is Fascinating](/solution/2700-2799/2729.Check%20if%20The%20Number%20is%20Fascinating/README_EN.md)  |  `Hash Table`,`Math`  |  Easy  |  Biweekly Contest 106  |
+|  2730  |  [Find the Longest Semi-Repetitive Substring](/solution/2700-2799/2730.Find%20the%20Longest%20Semi-Repetitive%20Substring/README_EN.md)  |  `String`,`Sliding Window`  |  Medium  |  Biweekly Contest 106  |
+|  2731  |  [Movement of Robots](/solution/2700-2799/2731.Movement%20of%20Robots/README_EN.md)  |  `Brainteaser`,`Array`,`Prefix Sum`,`Sorting`  |  Medium  |  Biweekly Contest 106  |
+|  2732  |  [Find a Good Subset of the Matrix](/solution/2700-2799/2732.Find%20a%20Good%20Subset%20of%20the%20Matrix/README_EN.md)  |  `Greedy`,`Bit Manipulation`,`Array`,`Matrix`  |  Hard  |  Biweekly Contest 106  |
+|  2733  |  [Neither Minimum nor Maximum](/solution/2700-2799/2733.Neither%20Minimum%20nor%20Maximum/README_EN.md)  |  `Array`,`Sorting`  |  Easy  |  Weekly Contest 349  |
+|  2734  |  [Lexicographically Smallest String After Substring Operation](/solution/2700-2799/2734.Lexicographically%20Smallest%20String%20After%20Substring%20Operation/README_EN.md)  |  `Greedy`,`String`  |  Medium  |  Weekly Contest 349  |
+|  2735  |  [Collecting Chocolates](/solution/2700-2799/2735.Collecting%20Chocolates/README_EN.md)  |  `Array`,`Enumeration`  |  Medium  |  Weekly Contest 349  |
+|  2736  |  [Maximum Sum Queries](/solution/2700-2799/2736.Maximum%20Sum%20Queries/README_EN.md)  |  `Stack`,`Binary Indexed Tree`,`Segment Tree`,`Array`,`Binary Search`,`Sorting`,`Monotonic Stack`  |  Hard  |  Weekly Contest 349  |
 |  2737  |  [Find the Closest Marked Node](/solution/2700-2799/2737.Find%20the%20Closest%20Marked%20Node/README_EN.md)  |  `Graph`,`Array`,`Shortest Path`,`Heap (Priority Queue)`  |  Medium  |  🔒  |
 |  2738  |  [Count Occurrences in Text](/solution/2700-2799/2738.Count%20Occurrences%20in%20Text/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 |  2739  |  [Total Distance Traveled](/solution/2700-2799/2739.Total%20Distance%20Traveled/README_EN.md)  |  `Math`,`Simulation`  |  Easy  |  Weekly Contest 350  |

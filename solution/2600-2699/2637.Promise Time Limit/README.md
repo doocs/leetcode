@@ -6,9 +6,14 @@
 
 <!-- 这里写题目描述 -->
 
-<p>请你编写一个函数，它接收一个异步函数 <code>fn</code>&nbsp;和一个以毫秒为单位的时间 <code>t</code>。它应根据限时函数返回一个有 <strong>限时</strong> 效果的函数。</p>
+<p>请你编写一个函数，它接受一个异步函数 <code>fn</code>&nbsp;和一个以毫秒为单位的时间 <code>t</code>。它应根据限时函数返回一个有 <strong>限时</strong> 效果的函数。函数 <code>fn</code> 接受提供给 <strong>限时</strong> 函数的参数。</p>
 
-<p>限时函数是与原函数相同的函数，除非它需要 <code>t</code> 毫秒以上的时间来完成。如果出现了这种情况，请你返回 <code>"Time Limit Exceeded"</code>&nbsp;拒绝这次函数的调用。注意，它应该返回一个字符串拒绝，而不是一个&nbsp;<code>Error</code>&nbsp;。</p>
+<p><strong>限时</strong> 函数应遵循以下规则：</p>
+
+<ul>
+	<li>如果 <code>fn</code> 在 <code>t</code> 毫秒的时间限制内完成，<strong>限时</strong> 函数应返回结果。</li>
+	<li>如果 <code>fn</code> 的执行超过时间限制，<strong>限时&nbsp;</strong>函数应拒绝并返回字符串 <code>"Time Limit Exceeded"</code> 。</li>
+</ul>
 
 <p>&nbsp;</p>
 
@@ -23,7 +28,18 @@ fn = async (n) =&gt; {
 inputs = [5]
 t = 50
 <b>输出：</b>{"rejected":"Time Limit Exceeded","time":50}
-<b>解释：
+<b>解释：</b>
+const limited = timeLimit(fn, t)
+const start = performance.now()
+let result;
+try {
+&nbsp; &nbsp;const res = await limited(...inputs)
+&nbsp; &nbsp;result = {"resolved": res, "time": Math.floor(performance.now() - start)};
+} catch (err) {
+&nbsp;  result = {"rejected": err, "time": Math.floor(performance.now() - start)};
+}
+console.log(result) // 输出结果
+<b>
 </b>提供的函数设置在 100ms 后执行完成，但是设置的超时时间为 50ms，所以在 t=50ms 时拒绝因为达到了超时时间。
 </pre>
 

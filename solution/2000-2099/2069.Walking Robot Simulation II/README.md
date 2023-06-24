@@ -21,7 +21,7 @@
 
 <ul>
 	<li><code>Robot(int width, int height)</code>&nbsp;初始化一个&nbsp;<code>width x height</code>&nbsp;的网格图，机器人初始在&nbsp;<code>(0, 0)</code>&nbsp;，方向朝&nbsp;<code>"East"</code>&nbsp;。</li>
-	<li><code>void move(int num)</code>&nbsp;给机器人下达前进&nbsp;<code>num</code>&nbsp;步的指令。</li>
+	<li><code>void step(int num)</code>&nbsp;给机器人下达前进&nbsp;<code>num</code>&nbsp;步的指令。</li>
 	<li><code>int[] getPos()</code>&nbsp;返回机器人当前所处的格子位置，用一个长度为 2 的数组&nbsp;<code>[x, y]</code>&nbsp;表示。</li>
 	<li><code>String getDir()</code>&nbsp;返回当前机器人的朝向，为&nbsp;<code>"North"</code>&nbsp;，<code>"East"</code>&nbsp;，<code>"South"</code>&nbsp;或者&nbsp;<code>"West"</code>&nbsp;。</li>
 </ul>
@@ -30,25 +30,26 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="example-1" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2069.Walking%20Robot%20Simulation%20II/images/example-1.png" style="width: 498px; height: 268px;"></p>
+<p><img alt="example-1" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2069.Walking%20Robot%20Simulation%20II/images/example-1.png" style="width: 498px; height: 268px;" /></p>
 
-<pre><strong>输入：</strong>
-["Robot", "move", "move", "getPos", "getDir", "move", "move", "move", "getPos", "getDir"]
+<pre>
+<strong>输入：</strong>
+["Robot", "step", "step", "getPos", "getDir", "step", "step", "step", "getPos", "getDir"]
 [[6, 3], [2], [2], [], [], [2], [1], [4], [], []]
 <strong>输出：</strong>
 [null, null, null, [4, 0], "East", null, null, null, [1, 2], "West"]
 
 <strong>解释：</strong>
 Robot robot = new Robot(6, 3); // 初始化网格图，机器人在 (0, 0) ，朝东。
-robot.move(2);  // 机器人朝东移动 2 步，到达 (2, 0) ，并朝东。
-robot.move(2);  // 机器人朝东移动 2 步，到达 (4, 0) ，并朝东。
+robot.step(2);  // 机器人朝东移动 2 步，到达 (2, 0) ，并朝东。
+robot.step(2);  // 机器人朝东移动 2 步，到达 (4, 0) ，并朝东。
 robot.getPos(); // 返回 [4, 0]
 robot.getDir(); // 返回 "East"
-robot.move(2);  // 朝东移动 1 步到达 (5, 0) ，并朝东。
+robot.step(2);  // 朝东移动 1 步到达 (5, 0) ，并朝东。
                 // 下一步继续往东移动将出界，所以逆时针转变方向朝北。
                 // 然后，往北移动 1 步到达 (5, 1) ，并朝北。
-robot.move(1);  // 朝北移动 1 步到达 (5, 2) ，并朝 <strong>北</strong> （不是朝西）。
-robot.move(4);  // 下一步继续往北移动将出界，所以逆时针转变方向朝西。
+robot.step(1);  // 朝北移动 1 步到达 (5, 2) ，并朝 <strong>北</strong> （不是朝西）。
+robot.step(4);  // 下一步继续往北移动将出界，所以逆时针转变方向朝西。
                 // 然后，移动 4 步到 (1, 2) ，并朝西。
 robot.getPos(); // 返回 [1, 2]
 robot.getDir(); // 返回 "West"
@@ -62,7 +63,7 @@ robot.getDir(); // 返回 "West"
 <ul>
 	<li><code>2 &lt;= width, height &lt;= 100</code></li>
 	<li><code>1 &lt;= num &lt;= 10<sup>5</sup></code></li>
-	<li><code>move</code>&nbsp;，<code>getPos</code>&nbsp;和&nbsp;<code>getDir</code>&nbsp;<strong>总共&nbsp;</strong>调用次数不超过&nbsp;<code>10<sup>4</sup></code>&nbsp;次。</li>
+	<li><code>step</code> ，<code>getPos</code>&nbsp;和&nbsp;<code>getDir</code>&nbsp;<strong>总共&nbsp;</strong>调用次数不超过&nbsp;<code>10<sup>4</sup></code>&nbsp;次。</li>
 </ul>
 
 ## 解法

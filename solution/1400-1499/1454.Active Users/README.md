@@ -92,7 +92,19 @@ id = 7 的用户 Jonathon 在不同的 6 天内登录了 7 次, , 6 天中有 5 
 ### **SQL**
 
 ```sql
-
+# Write your MySQL query statement below
+WITH t AS
+    (SELECT *,
+		 sum(id) over(partition by id
+    ORDER BY  login_date range interval 4 day preceding)/id cnt
+    FROM
+        (SELECT DISTINCT *
+        FROM Accounts
+        JOIN Logins using(id) ) tt )
+    SELECT DISTINCT id,
+		 name
+FROM t
+WHERE cnt=5;
 ```
 
 <!-- tabs:end -->

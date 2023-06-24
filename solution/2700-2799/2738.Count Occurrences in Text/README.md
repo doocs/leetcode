@@ -1,4 +1,4 @@
-# [2738. Count Occurrences in Text](https://leetcode.cn/problems/count-occurrences-in-text)
+# [2738. 统计文本中单词的出现次数](https://leetcode.cn/problems/count-occurrences-in-text)
 
 [English Version](/solution/2700-2799/2738.Count%20Occurrences%20in%20Text/README_EN.md)
 
@@ -6,31 +6,32 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table:<font face="monospace"> <code>Files</code></font></p>
+<p>表：<font face="monospace"><code>Files</code></font></p>
 
 <pre>
 +-------------+---------+
-| Column Name | Type    |
+| 列名        | 类型    |
 +-- ----------+---------+
 | file_name   | varchar |
 | content     | text    |
 +-------------+---------+
-file_name is the primary key of this table. 
-Each row contains file_name and the content of that file.
+file_name 为该表的主键。
+每行包含 file_name 和该文件的内容。
 </pre>
 
-<p>Write an SQL query to find&nbsp;the number of occurrences of the words&nbsp;<strong>&#39;bull&#39;</strong> and <strong>&#39;bear&#39;</strong> as a <strong>standalone word</strong>, disregarding any instances where it appears as part of another word (e.g. &#39;bullet&#39; and &#39;bears&#39; will <strong>not</strong> be considered).</p>
+<p>编写一个 SQL 查询来查找出单词 <strong>'bull' </strong>和 <strong>'bear'</strong> 作为 <strong>独立词</strong> 出现的次数，不考虑它们作为其他词的一部分出现的情况（例如，'bullet' 和 'bears' <strong>不会</strong> 被考虑）。</p>
 
-<p>Return <em>the word &#39;bull&#39; and &#39;bear&#39; along with the corresponding number of occurrences in <strong>any order.</strong></em></p>
+<p>返回单词 'bull' 和 'bear' 以及它们对应的出现次数，<strong>顺序没有限制</strong>&nbsp;。</p>
 
-<p>The query result format is in the following example.</p>
+<p>查询结果的格式如下所示：</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>Input:</strong>&nbsp;
-Files table:
+<b>输入：</b>
+Files 表:
 +------------+----------------------------------------------------------------------------------+
 | file_name  | contenet                                                                         | 
 +------------+----------------------------------------------------------------------------------+
@@ -43,18 +44,16 @@ Files table:
 |&nbsp;           | awaiting a bear market. As always predicting the future market is an uncertain   |
 |            | game and all investors should follow their instincts and best practices.         | 
 +------------+----------------------------------------------------------------------------------+
-<strong>Output:</strong>&nbsp;
+<strong>输出：</strong>&nbsp;
 +------+-------+
 | word | count | &nbsp;
 +------+-------+
 | bull |&nbsp;3     |&nbsp;
 | bear |&nbsp;2     | 
 +------+-------+
-<strong>Explanation:</strong>&nbsp;
-- The word &quot;bull&quot; appears 1 time in &quot;draft1.txt&quot;, 1 time in &quot;draft2.txt&quot;, and 1 time in &quot;draft3.txt&quot;. Therefore, the total number of occurrences for the word &quot;bull&quot; is 3.
-- The word &quot;bear&quot; appears 1 time in &quot;draft2.txt&quot;, and 1 time in &quot;draft3.txt&quot;. Therefore, the total number of occurrences for the word &quot;bear&quot; is 2.
-
-</pre>
+<b>解释：</b>
+- 单词 "bull" 在 "draft1.txt" 中出现1次，在 "draft2.txt" 中出现 1 次，在 "draft3.txt" 中出现 1 次。因此，单词 "bull" 的总出现次数为 3 次。
+- 单词 "bear" 在 "draft2.txt" 中出现1次，在 "draft3.txt" 中出现 1 次。因此，单词 "bear" 的总出现次数为 2 次。</pre>
 
 ## 解法
 
