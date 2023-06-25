@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 107 场双周赛(2023-06-24 22:30, 90 分钟) 参赛人数 1870
+
+- [2744. 最大字符串配对数目](/solution/2700-2799/2744.Find%20Maximum%20Number%20of%20String%20Pairs/README.md)
+- [2745. 构造最长的新字符串](/solution/2700-2799/2745.Construct%20the%20Longest%20New%20String/README.md)
+- [2746. 字符串连接删减字母](/solution/2700-2799/2746.Decremental%20String%20Concatenation/README.md)
+- [2747. 统计没有收到请求的服务器数目](/solution/2700-2799/2747.Count%20Zero%20Request%20Servers/README.md)
+
 #### 第 350 场周赛(2023-06-18 10:30, 90 分钟) 参赛人数 3580
 
 - [2739. 总行驶距离](/solution/2700-2799/2739.Total%20Distance%20Traveled/README.md)
