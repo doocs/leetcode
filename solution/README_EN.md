@@ -2756,6 +2756,10 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2745  |  [Construct the Longest New String](/solution/2700-2799/2745.Construct%20the%20Longest%20New%20String/README_EN.md)  |    |  Medium  |  Biweekly Contest 107  |
 |  2746  |  [Decremental String Concatenation](/solution/2700-2799/2746.Decremental%20String%20Concatenation/README_EN.md)  |    |  Medium  |  Biweekly Contest 107  |
 |  2747  |  [Count Zero Request Servers](/solution/2700-2799/2747.Count%20Zero%20Request%20Servers/README_EN.md)  |    |  Medium  |  Biweekly Contest 107  |
+|  2748  |  [Number of Beautiful Pairs](/solution/2700-2799/2748.Number%20of%20Beautiful%20Pairs/README_EN.md)  |    |  Easy  |  Weekly Contest 351  |
+|  2749  |  [Minimum Operations to Make the Integer Zero](/solution/2700-2799/2749.Minimum%20Operations%20to%20Make%20the%20Integer%20Zero/README_EN.md)  |    |  Medium  |  Weekly Contest 351  |
+|  2750  |  [Ways to Split Array Into Good Subarrays](/solution/2700-2799/2750.Ways%20to%20Split%20Array%20Into%20Good%20Subarrays/README_EN.md)  |    |  Medium  |  Weekly Contest 351  |
+|  2751  |  [Robot Collisions](/solution/2700-2799/2751.Robot%20Collisions/README_EN.md)  |    |  Hard  |  Weekly Contest 351  |
 
 ## Copyright
 

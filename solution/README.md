@@ -2758,6 +2758,10 @@
 |  2745  |  [构造最长的新字符串](/solution/2700-2799/2745.Construct%20the%20Longest%20New%20String/README.md)  |    |  中等  |  第 107 场双周赛  |
 |  2746  |  [字符串连接删减字母](/solution/2700-2799/2746.Decremental%20String%20Concatenation/README.md)  |    |  中等  |  第 107 场双周赛  |
 |  2747  |  [统计没有收到请求的服务器数目](/solution/2700-2799/2747.Count%20Zero%20Request%20Servers/README.md)  |    |  中等  |  第 107 场双周赛  |
+|  2748  |  [美丽下标对的数目](/solution/2700-2799/2748.Number%20of%20Beautiful%20Pairs/README.md)  |    |  简单  |  第 351 场周赛  |
+|  2749  |  [得到整数零需要执行的最少操作数](/solution/2700-2799/2749.Minimum%20Operations%20to%20Make%20the%20Integer%20Zero/README.md)  |    |  中等  |  第 351 场周赛  |
+|  2750  |  [将数组划分成若干好子数组的方式](/solution/2700-2799/2750.Ways%20to%20Split%20Array%20Into%20Good%20Subarrays/README.md)  |    |  中等  |  第 351 场周赛  |
+|  2751  |  [机器人碰撞](/solution/2700-2799/2751.Robot%20Collisions/README.md)  |    |  困难  |  第 351 场周赛  |
 
 ## 版权
 

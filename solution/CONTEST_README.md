@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 351 场周赛(2023-06-25 10:30, 90 分钟) 参赛人数 2471
+
+- [2748. 美丽下标对的数目](/solution/2700-2799/2748.Number%20of%20Beautiful%20Pairs/README.md)
+- [2749. 得到整数零需要执行的最少操作数](/solution/2700-2799/2749.Minimum%20Operations%20to%20Make%20the%20Integer%20Zero/README.md)
+- [2750. 将数组划分成若干好子数组的方式](/solution/2700-2799/2750.Ways%20to%20Split%20Array%20Into%20Good%20Subarrays/README.md)
+- [2751. 机器人碰撞](/solution/2700-2799/2751.Robot%20Collisions/README.md)
+
 #### 第 107 场双周赛(2023-06-24 22:30, 90 分钟) 参赛人数 1870
 
 - [2744. 最大字符串配对数目](/solution/2700-2799/2744.Find%20Maximum%20Number%20of%20String%20Pairs/README.md)
