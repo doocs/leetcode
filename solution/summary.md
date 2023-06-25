@@ -2797,3 +2797,7 @@
   - [2741.特别的排列](/solution/2700-2799/2741.Special%20Permutations/README.md)
   - [2742.给墙壁刷油漆](/solution/2700-2799/2742.Painting%20the%20Walls/README.md)
   - [2743.Count Substrings Without Repeating Character](/solution/2700-2799/2743.Count%20Substrings%20Without%20Repeating%20Character/README.md)
+  - [2744.最大字符串配对数目](/solution/2700-2799/2744.Find%20Maximum%20Number%20of%20String%20Pairs/README.md)
+  - [2745.构造最长的新字符串](/solution/2700-2799/2745.Construct%20the%20Longest%20New%20String/README.md)
+  - [2746.字符串连接删减字母](/solution/2700-2799/2746.Decremental%20String%20Concatenation/README.md)
+  - [2747.统计没有收到请求的服务器数目](/solution/2700-2799/2747.Count%20Zero%20Request%20Servers/README.md)
