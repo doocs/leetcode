@@ -65,6 +65,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表**
+
+我们可以用哈希表 $cnt$ 来存储数组 $words$ 中每个字符串的反转字符串出现的次数。
+
+遍历数组 $words$，对于每个字符串 $w$，我们直接将 $cnt[w]$ 的值加到答案中，然后将 $w$ 的反转字符串出现的次数加 $1$。
+
+遍历结束后，即可得到最大匹配数目。
+
+时间复杂度 $O(L)$，空间复杂度 $O(L)$，其中 $L$ 是数组 $words$ 中字符串的长度之和。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -72,7 +82,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maximumNumberOfStringPairs(self, words: List[str]) -> int:
+        cnt = Counter()
+        ans = 0
+        for w in words:
+            ans += cnt[w]
+            cnt[w[::-1]] += 1
+        return ans
 ```
 
 ### **Java**
@@ -80,19 +97,67 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int maximumNumberOfStringPairs(String[] words) {
+        Map<String, Integer> cnt = new HashMap<>(words.length);
+        int ans = 0;
+        for (String w : words) {
+            ans += cnt.getOrDefault(w, 0);
+            cnt.merge(new StringBuilder(w).reverse().toString(), 1, Integer::sum);
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int maximumNumberOfStringPairs(vector<string>& words) {
+        unordered_map<string, int> cnt;
+        int ans = 0;
+        for (auto& w : words) {
+            ans += cnt[w];
+            reverse(w.begin(), w.end());
+            cnt[w]++;
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func maximumNumberOfStringPairs(words []string) (ans int) {
+	cnt := map[string]int{}
+	for _, w := range words {
+		ans += cnt[w]
+		s := []byte(w)
+		for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
+			s[i], s[j] = s[j], s[i]
+		}
+		cnt[string(s)]++
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function maximumNumberOfStringPairs(words: string[]): number {
+    const cnt: Map<string, number> = new Map();
+    let ans = 0;
+    for (const w of words) {
+        ans += cnt.get(w) || 0;
+        const s = w.split('').reverse().join('');
+        cnt.set(s, (cnt.get(s) || 0) + 1);
+    }
+    return ans;
+}
 ```
 
 ### **...**

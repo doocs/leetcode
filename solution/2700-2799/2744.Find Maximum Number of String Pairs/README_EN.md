@@ -63,25 +63,80 @@ It can be proven that 1 is the maximum number of pairs that can be formed.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maximumNumberOfStringPairs(self, words: List[str]) -> int:
+        cnt = Counter()
+        ans = 0
+        for w in words:
+            ans += cnt[w]
+            cnt[w[::-1]] += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int maximumNumberOfStringPairs(String[] words) {
+        Map<String, Integer> cnt = new HashMap<>(words.length);
+        int ans = 0;
+        for (String w : words) {
+            ans += cnt.getOrDefault(w, 0);
+            cnt.merge(new StringBuilder(w).reverse().toString(), 1, Integer::sum);
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int maximumNumberOfStringPairs(vector<string>& words) {
+        unordered_map<string, int> cnt;
+        int ans = 0;
+        for (auto& w : words) {
+            ans += cnt[w];
+            reverse(w.begin(), w.end());
+            cnt[w]++;
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func maximumNumberOfStringPairs(words []string) (ans int) {
+	cnt := map[string]int{}
+	for _, w := range words {
+		ans += cnt[w]
+		s := []byte(w)
+		for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
+			s[i], s[j] = s[j], s[i]
+		}
+		cnt[string(s)]++
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function maximumNumberOfStringPairs(words: string[]): number {
+    const cnt: Map<string, number> = new Map();
+    let ans = 0;
+    for (const w of words) {
+        ans += cnt.get(w) || 0;
+        const s = w.split('').reverse().join('');
+        cnt.set(s, (cnt.get(s) || 0) + 1);
+    }
+    return ans;
+}
 ```
 
 ### **...**
