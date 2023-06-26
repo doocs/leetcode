@@ -46,6 +46,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：分类讨论**
+
+我们观察发现，字符串 `'AA'` 之后只能跟 `'BB'`，而字符串 `'AB'` 可以放在字符串开头或结尾。因此：
+
+-   如果 $x \lt y$，那么我们可以先交替放置 `'BBAABBAA..BB'`，一共放置 $x$ 个 `'AA'` 和 $x+1$ 个 `'BB'`，然后放置剩余的 $z$ 个 `'AB'`，总长度为 $(x \times 2 + z + 1) \times 2$；
+-   如果 $x \gt y$，那么我们可以先交替放置 `'AABBAABB..AA'`，一共放置 $y$ 个 `'BB'` 和 $y+1$ 个 `'AA'`，然后放置剩余的 $z$ 个 `'AB'`，总长度为 $(y \times 2 + z + 1) \times 2$；
+-   如果 $x = y$，我们只需要交替放置 `'AABB'`，一共放置 $x$ 个 `'AA'` 和 $y$ 个 `'BB'`，然后放置剩余的 $z$ 个 `'AB'`，总长度为 $(x + y + z) \times 2$。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -53,7 +63,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def longestString(self, x: int, y: int, z: int) -> int:
+        if x < y:
+            return (x * 2 + z + 1) * 2
+        if x > y:
+            return (y * 2 + z + 1) * 2
+        return (x + y + z) * 2
 ```
 
 ### **Java**
@@ -61,19 +77,62 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int longestString(int x, int y, int z) {
+        if (x < y) {
+            return (x * 2 + z + 1) * 2;
+        }
+        if (x > y) {
+            return (y * 2 + z + 1) * 2;
+        }
+        return (x + y + z) * 2;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int longestString(int x, int y, int z) {
+        if (x < y) {
+            return (x * 2 + z + 1) * 2;
+        }
+        if (x > y) {
+            return (y * 2 + z + 1) * 2;
+        }
+        return (x + y + z) * 2;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func longestString(x int, y int, z int) int {
+	if x < y {
+		return (x*2 + z + 1) * 2
+	}
+	if x > y {
+		return (y*2 + z + 1) * 2
+	}
+	return (x + y + z) * 2
+}
+```
 
+### **TypeScript**
+
+```ts
+function longestString(x: number, y: number, z: number): number {
+    if (x < y) {
+        return (x * 2 + z + 1) * 2;
+    }
+    if (x > y) {
+        return (y * 2 + z + 1) * 2;
+    }
+    return (x + y + z) * 2;
+}
 ```
 
 ### **...**
