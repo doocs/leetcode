@@ -2,7 +2,7 @@ class Solution {
     private Integer[][][] f;
     private String[] words;
     private int n;
-    
+
     public int minimizeConcatenatedLength(String[] words) {
         n = words.length;
         this.words = words;
