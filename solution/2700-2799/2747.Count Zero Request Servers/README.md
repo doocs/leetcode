@@ -55,6 +55,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：离线查询 + 排序 + 双指针**
+
+我们可以将所有的查询按照时间从小到大排序，然后按照时间顺序依次处理每个查询。
+
+对于每个查询 $q = (r, i)$，其窗口左边界为 $l = r - x$，我们需要统计在窗口 $[l, r]$ 内有多少个服务器收到了请求。我们用双指针 $j$ 和 $k$ 分别维护窗口的左右边界，初始时 $j = k = 0$。每一次，如果 $k$ 指向的日志的时间小于等于 $r$，我们就将其加入到窗口中，然后将 $k$ 向右移动一位。如果 $j$ 指向的日志的时间小于 $l$，我们就将其从窗口中移除，然后将 $j$ 向右移动一位。在移动的过程中，我们需要统计窗口中有多少个不同的服务器，这可以使用哈希表来实现。移动结束后，当前时间区间中没有收到请求的服务器数目就是 $n$ 减去哈希表中不同的服务器数目。
+
+时间复杂度 $O(l \times \log l + m \times \log m + n)$，空间复杂度 $O(l + m)$。其中 $l$ 和 $n$ 分别是数组 $logs$ 的长度和服务器的数量，而 $m$ 是数组 $queries$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -62,7 +70,26 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countServers(
+        self, n: int, logs: List[List[int]], x: int, queries: List[int]
+    ) -> List[int]:
+        cnt = Counter()
+        logs.sort(key=lambda x: x[1])
+        ans = [0] * len(queries)
+        j = k = 0
+        for r, i in sorted(zip(queries, count())):
+            l = r - x
+            while k < len(logs) and logs[k][1] <= r:
+                cnt[logs[k][0]] += 1
+                k += 1
+            while j < len(logs) and logs[j][1] < l:
+                cnt[logs[j][0]] -= 1
+                if cnt[logs[j][0]] == 0:
+                    cnt.pop(logs[j][0])
+                j += 1
+            ans[i] = n - len(cnt)
+        return ans
 ```
 
 ### **Java**
@@ -70,19 +97,144 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int[] countServers(int n, int[][] logs, int x, int[] queries) {
+        Arrays.sort(logs, (a, b) -> a[1] - b[1]);
+        int m = queries.length;
+        int[][] qs = new int[m][0];
+        for (int i = 0; i < m; ++i) {
+            qs[i] = new int[] {queries[i], i};
+        }
+        Arrays.sort(qs, (a, b) -> a[0] - b[0]);
+        Map<Integer, Integer> cnt = new HashMap<>();
+        int[] ans = new int[m];
+        int j = 0, k = 0;
+        for (var q : qs) {
+            int r = q[0], i = q[1];
+            int l = r - x;
+            while (k < logs.length && logs[k][1] <= r) {
+                cnt.merge(logs[k++][0], 1, Integer::sum);
+            }
+            while (j < logs.length && logs[j][1] < l) {
+                if (cnt.merge(logs[j][0], -1, Integer::sum) == 0) {
+                    cnt.remove(logs[j][0]);
+                }
+                j++;
+            }
+            ans[i] = n - cnt.size();
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> countServers(int n, vector<vector<int>>& logs, int x, vector<int>& queries) {
+        sort(logs.begin(), logs.end(), [](const auto& a, const auto& b) {
+            return a[1] < b[1];
+        });
+        int m = queries.size();
+        vector<pair<int, int>> qs(m);
+        for (int i = 0; i < m; ++i) {
+            qs[i] = {queries[i], i};
+        }
+        sort(qs.begin(), qs.end());
+        unordered_map<int, int> cnt;
+        vector<int> ans(m);
+        int j = 0, k = 0;
+        for (auto& [r, i] : qs) {
+            int l = r - x;
+            while (k < logs.size() && logs[k][1] <= r) {
+                ++cnt[logs[k++][0]];
+            }
+            while (j < logs.size() && logs[j][1] < l) {
+                if (--cnt[logs[j][0]] == 0) {
+                    cnt.erase(logs[j][0]);
+                }
+                ++j;
+            }
+            ans[i] = n - cnt.size();
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func countServers(n int, logs [][]int, x int, queries []int) []int {
+	sort.Slice(logs, func(i, j int) bool { return logs[i][1] < logs[j][1] })
+	m := len(queries)
+	qs := make([][2]int, m)
+	for i, q := range queries {
+		qs[i] = [2]int{q, i}
+	}
+	sort.Slice(qs, func(i, j int) bool { return qs[i][0] < qs[j][0] })
+	cnt := map[int]int{}
+	ans := make([]int, m)
+	j, k := 0, 0
+	for _, q := range qs {
+		r, i := q[0], q[1]
+		l := r - x
+		for k < len(logs) && logs[k][1] <= r {
+			cnt[logs[k][0]]++
+			k++
+		}
+		for j < len(logs) && logs[j][1] < l {
+			cnt[logs[j][0]]--
+			if cnt[logs[j][0]] == 0 {
+				delete(cnt, logs[j][0])
+			}
+			j++
+		}
+		ans[i] = n - len(cnt)
+	}
+	return ans
+}
+```
 
+### **TypeScript**
+
+```ts
+function countServers(
+    n: number,
+    logs: number[][],
+    x: number,
+    queries: number[],
+): number[] {
+    logs.sort((a, b) => a[1] - b[1]);
+    const m = queries.length;
+    const qs: number[][] = [];
+    for (let i = 0; i < m; ++i) {
+        qs.push([queries[i], i]);
+    }
+    qs.sort((a, b) => a[0] - b[0]);
+    const cnt: Map<number, number> = new Map();
+    const ans: number[] = new Array(m);
+    let j = 0;
+    let k = 0;
+    for (const [r, i] of qs) {
+        const l = r - x;
+        while (k < logs.length && logs[k][1] <= r) {
+            cnt.set(logs[k][0], (cnt.get(logs[k][0]) || 0) + 1);
+            ++k;
+        }
+        while (j < logs.length && logs[j][1] < l) {
+            cnt.set(logs[j][0], (cnt.get(logs[j][0]) || 0) - 1);
+            if (cnt.get(logs[j][0]) === 0) {
+                cnt.delete(logs[j][0]);
+            }
+            ++j;
+        }
+        ans[i] = n - cnt.size;
+    }
+    return ans;
+}
 ```
 
 ### **...**

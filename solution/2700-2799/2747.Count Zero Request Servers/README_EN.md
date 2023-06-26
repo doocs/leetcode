@@ -56,25 +56,169 @@ For queries[1]: Only server with id 3 gets no request in the duration [2,4].
 ### **Python3**
 
 ```python
-
+class Solution:
+    def countServers(
+        self, n: int, logs: List[List[int]], x: int, queries: List[int]
+    ) -> List[int]:
+        cnt = Counter()
+        logs.sort(key=lambda x: x[1])
+        ans = [0] * len(queries)
+        j = k = 0
+        for r, i in sorted(zip(queries, count())):
+            l = r - x
+            while k < len(logs) and logs[k][1] <= r:
+                cnt[logs[k][0]] += 1
+                k += 1
+            while j < len(logs) and logs[j][1] < l:
+                cnt[logs[j][0]] -= 1
+                if cnt[logs[j][0]] == 0:
+                    cnt.pop(logs[j][0])
+                j += 1
+            ans[i] = n - len(cnt)
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int[] countServers(int n, int[][] logs, int x, int[] queries) {
+        Arrays.sort(logs, (a, b) -> a[1] - b[1]);
+        int m = queries.length;
+        int[][] qs = new int[m][0];
+        for (int i = 0; i < m; ++i) {
+            qs[i] = new int[] {queries[i], i};
+        }
+        Arrays.sort(qs, (a, b) -> a[0] - b[0]);
+        Map<Integer, Integer> cnt = new HashMap<>();
+        int[] ans = new int[m];
+        int j = 0, k = 0;
+        for (var q : qs) {
+            int r = q[0], i = q[1];
+            int l = r - x;
+            while (k < logs.length && logs[k][1] <= r) {
+                cnt.merge(logs[k++][0], 1, Integer::sum);
+            }
+            while (j < logs.length && logs[j][1] < l) {
+                if (cnt.merge(logs[j][0], -1, Integer::sum) == 0) {
+                    cnt.remove(logs[j][0]);
+                }
+                j++;
+            }
+            ans[i] = n - cnt.size();
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> countServers(int n, vector<vector<int>>& logs, int x, vector<int>& queries) {
+        sort(logs.begin(), logs.end(), [](const auto& a, const auto& b) {
+            return a[1] < b[1];
+        });
+        int m = queries.size();
+        vector<pair<int, int>> qs(m);
+        for (int i = 0; i < m; ++i) {
+            qs[i] = {queries[i], i};
+        }
+        sort(qs.begin(), qs.end());
+        unordered_map<int, int> cnt;
+        vector<int> ans(m);
+        int j = 0, k = 0;
+        for (auto& [r, i] : qs) {
+            int l = r - x;
+            while (k < logs.size() && logs[k][1] <= r) {
+                ++cnt[logs[k++][0]];
+            }
+            while (j < logs.size() && logs[j][1] < l) {
+                if (--cnt[logs[j][0]] == 0) {
+                    cnt.erase(logs[j][0]);
+                }
+                ++j;
+            }
+            ans[i] = n - cnt.size();
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func countServers(n int, logs [][]int, x int, queries []int) []int {
+	sort.Slice(logs, func(i, j int) bool { return logs[i][1] < logs[j][1] })
+	m := len(queries)
+	qs := make([][2]int, m)
+	for i, q := range queries {
+		qs[i] = [2]int{q, i}
+	}
+	sort.Slice(qs, func(i, j int) bool { return qs[i][0] < qs[j][0] })
+	cnt := map[int]int{}
+	ans := make([]int, m)
+	j, k := 0, 0
+	for _, q := range qs {
+		r, i := q[0], q[1]
+		l := r - x
+		for k < len(logs) && logs[k][1] <= r {
+			cnt[logs[k][0]]++
+			k++
+		}
+		for j < len(logs) && logs[j][1] < l {
+			cnt[logs[j][0]]--
+			if cnt[logs[j][0]] == 0 {
+				delete(cnt, logs[j][0])
+			}
+			j++
+		}
+		ans[i] = n - len(cnt)
+	}
+	return ans
+}
+```
 
+### **TypeScript**
+
+```ts
+function countServers(
+    n: number,
+    logs: number[][],
+    x: number,
+    queries: number[],
+): number[] {
+    logs.sort((a, b) => a[1] - b[1]);
+    const m = queries.length;
+    const qs: number[][] = [];
+    for (let i = 0; i < m; ++i) {
+        qs.push([queries[i], i]);
+    }
+    qs.sort((a, b) => a[0] - b[0]);
+    const cnt: Map<number, number> = new Map();
+    const ans: number[] = new Array(m);
+    let j = 0;
+    let k = 0;
+    for (const [r, i] of qs) {
+        const l = r - x;
+        while (k < logs.length && logs[k][1] <= r) {
+            cnt.set(logs[k][0], (cnt.get(logs[k][0]) || 0) + 1);
+            ++k;
+        }
+        while (j < logs.length && logs[j][1] < l) {
+            cnt.set(logs[j][0], (cnt.get(logs[j][0]) || 0) - 1);
+            if (cnt.get(logs[j][0]) === 0) {
+                cnt.delete(logs[j][0]);
+            }
+            ++j;
+        }
+        ans[i] = n - cnt.size;
+    }
+    return ans;
+}
 ```
 
 ### **...**
