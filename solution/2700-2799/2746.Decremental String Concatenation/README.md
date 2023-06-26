@@ -72,6 +72,21 @@ join(str<sub>0</sub>, "b") = "ab" 或者 join("b", str<sub>0</sub>) = "bab" 。
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：记忆化搜索**
+
+我们注意到，字符串连接时，字符串的第一个字符和最后一个字符会影响到连接后字符串的长度。因此，我们设计一个函数 $dfs(i, a, b)$，表示从第 $i$ 个字符串开始连接，且此前已经连接的字符串的第一个字符为 $a$，最后一个字符为 $b$ 时，连接后字符串的最小长度。
+
+函数 $dfs(i, a, b)$ 的执行过程如下：
+
+-   如果 $i = n$，说明所有字符串已经连接完毕，返回 $0$；
+-   否则，我们考虑将第 $i$ 个字符串连接到已经连接的字符串的末尾或者开头，得到连接后字符串的长度 $x$ 和 $y$，则 $dfs(i, a, b) = \min(x, y) + |words[i]|$。
+
+为了避免重复计算，我们使用记忆化搜索的方法。具体地，我们使用一个三维数组 $f$ 存储所有的 $dfs(i, a, b)$ 的返回值。当我们需要计算 $dfs(i, a, b)$ 时，如果 $f[i][a][b]$ 已经被计算过，我们直接返回 $f[i][a][b]$；否则我们按照上述的递推关系计算 $dfs(i, a, b)$ 的值，并将其存入 $f[i][a][b]$ 中。
+
+在主函数中，我们直接返回 $|words[0]| + dfs(1, words[0][0], words[0][|words[0]| - 1])$。
+
+时间复杂度 $O(n \times C^2)$，空间复杂度 $O(n \times C^2)$，其中 $C$ 表示字符串的最大长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -79,7 +94,18 @@ join(str<sub>0</sub>, "b") = "ab" 或者 join("b", str<sub>0</sub>) = "bab" 。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def minimizeConcatenatedLength(self, words: List[str]) -> int:
+        @cache
+        def dfs(i: int, a: str, b: str) -> int:
+            if i >= len(words):
+                return 0
+            s = words[i]
+            x = dfs(i + 1, a, s[-1]) - int(s[0] == b)
+            y = dfs(i + 1, s[0], b) - int(s[-1] == a)
+            return len(s) + min(x, y)
 
+        return len(words[0]) + dfs(1, words[0][0], words[0][-1])
 ```
 
 ### **Java**
@@ -87,19 +113,137 @@ join(str<sub>0</sub>, "b") = "ab" 或者 join("b", str<sub>0</sub>) = "bab" 。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private Integer[][][] f;
+    private String[] words;
+    private int n;
 
+    public int minimizeConcatenatedLength(String[] words) {
+        n = words.length;
+        this.words = words;
+        f = new Integer[n][26][26];
+        return words[0].length() + dfs(1, words[0].charAt(0) - 'a', words[0].charAt(words[0].length() - 1) - 'a');
+    }
+
+    private int dfs(int i, int a, int b) {
+        if (i >= n) {
+            return 0;
+        }
+        if (f[i][a][b] != null) {
+            return f[i][a][b];
+        }
+        String s = words[i];
+        int m = s.length();
+        int x = dfs(i + 1, a, s.charAt(m - 1) - 'a') - (s.charAt(0) - 'a' == b ? 1 : 0);
+        int y = dfs(i + 1, s.charAt(0) - 'a', b) - (s.charAt(m - 1) - 'a' == a ? 1 : 0);
+        return f[i][a][b] = m + Math.min(x, y);
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int minimizeConcatenatedLength(vector<string>& words) {
+        int n = words.size();
+        int f[n][26][26];
+        memset(f, 0, sizeof(f));
+        function<int(int, int, int)> dfs = [&](int i, int a, int b) {
+            if (i >= n) {
+                return 0;
+            }
+            if (f[i][a][b]) {
+                return f[i][a][b];
+            }
+            auto s = words[i];
+            int m = s.size();
+            int x = dfs(i + 1, a, s[m - 1] - 'a') - (s[0] - 'a' == b);
+            int y = dfs(i + 1, s[0] - 'a', b) - (s[m - 1] - 'a' == a);
+            return f[i][a][b] = m + min(x, y);
+        };
+        return words[0].size() + dfs(1, words[0].front() - 'a', words[0].back() - 'a');
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minimizeConcatenatedLength(words []string) int {
+	n := len(words)
+	f := make([][26][26]int, n)
+	var dfs func(i, a, b int) int
+	dfs = func(i, a, b int) int {
+		if i >= n {
+			return 0
+		}
+		if f[i][a][b] > 0 {
+			return f[i][a][b]
+		}
+		s := words[i]
+		m := len(s)
+		x := dfs(i+1, a, int(s[m-1]-'a'))
+		y := dfs(i+1, int(s[0]-'a'), b)
+		if int(s[0]-'a') == b {
+			x--
+		}
+		if int(s[m-1]-'a') == a {
+			y--
+		}
+		f[i][a][b] = m + min(x, y)
+		return f[i][a][b]
+	}
+	return len(words[0]) + dfs(1, int(words[0][0]-'a'), int(words[0][len(words[0])-1]-'a'))
+}
 
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function minimizeConcatenatedLength(words: string[]): number {
+    const n = words.length;
+    const f: number[][][] = Array(n)
+        .fill(0)
+        .map(() =>
+            Array(26)
+                .fill(0)
+                .map(() => Array(26).fill(0)),
+        );
+    const dfs = (i: number, a: number, b: number): number => {
+        if (i >= n) {
+            return 0;
+        }
+        if (f[i][a][b] > 0) {
+            return f[i][a][b];
+        }
+        const s = words[i];
+        const m = s.length;
+        const x =
+            dfs(i + 1, a, s[m - 1].charCodeAt(0) - 97) -
+            (s[0].charCodeAt(0) - 97 === b ? 1 : 0);
+        const y =
+            dfs(i + 1, s[0].charCodeAt(0) - 97, b) -
+            (s[m - 1].charCodeAt(0) - 97 === a ? 1 : 0);
+        return (f[i][a][b] = Math.min(x + m, y + m));
+    };
+    return (
+        words[0].length +
+        dfs(
+            1,
+            words[0][0].charCodeAt(0) - 97,
+            words[0][words[0].length - 1].charCodeAt(0) - 97,
+        )
+    );
+}
 ```
 
 ### **...**
