@@ -99,7 +99,8 @@ class Solution {
         n = words.length;
         this.words = words;
         f = new Integer[n][26][26];
-        return words[0].length() + dfs(1, words[0].charAt(0) - 'a', words[0].charAt(words[0].length() - 1) - 'a');
+        return words[0].length()
+            + dfs(1, words[0].charAt(0) - 'a', words[0].charAt(words[0].length() - 1) - 'a');
     }
 
     private int dfs(int i, int a, int b) {
