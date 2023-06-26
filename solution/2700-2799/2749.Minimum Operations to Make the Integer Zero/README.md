@@ -49,6 +49,20 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：枚举**
+
+如果我们操作了 $k$ 次，那么问题实际上就变成了：判断 $num1 - k \times num2$ 能否拆分成 $k$ 个 $2^i$ 之和。
+
+我们不妨假设 $x = num1 - k \times num2$，接下来分类讨论：
+
+-   如果 $x \lt 0$，那么 $x$ 无法拆分成 $k$ 个 $2^i$ 之和，因为 $2^i \gt 0$，显然无解；
+-   如果 $x$ 的二进制表示中 $1$ 的个数大于 $k$，此时也是无解；
+-   否则，对于当前 $k$，一定存在一个拆分方案。
+
+因此，我们从 $1$ 开始枚举 $k$，一旦找到一个满足条件的 $k$，就可以直接返回答案。
+
+时间复杂度 $O(\log x)$，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -56,7 +70,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def makeTheIntegerZero(self, num1: int, num2: int) -> int:
+        for k in count(1):
+            x = num1 - k * num2
+            if x < 0:
+                break
+            if x.bit_count() <= k <= x:
+                return k
+        return -1
 ```
 
 ### **Java**
@@ -64,19 +86,58 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int makeTheIntegerZero(int num1, int num2) {
+        for (long k = 1;; ++k) {
+            long x = num1 - k * num2;
+            if (x < 0) {
+                break;
+            }
+            if (Long.bitCount(x) <= k && k <= x) {
+                return (int) k;
+            }
+        }
+        return -1;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int makeTheIntegerZero(int num1, int num2) {
+        using ll = long long;
+        for (ll k = 1;; ++k) {
+            ll x = num1 - k * num2;
+            if (x < 0) {
+                break;
+            }
+            if (__builtin_popcountll(x) <= k && k <= x) {
+                return k;
+            }
+        }
+        return -1;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
-
+func makeTheIntegerZero(num1 int, num2 int) int {
+	for k := 1; ; k++ {
+		x := num1 - k*num2
+		if x < 0 {
+			break
+		}
+		if bits.OnesCount(uint(x)) <= k && k <= x {
+			return k
+		}
+	}
+	return -1
+}
 ```
 
 ### **...**
