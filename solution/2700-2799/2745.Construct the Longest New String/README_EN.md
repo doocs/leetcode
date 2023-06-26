@@ -45,25 +45,74 @@ That string has length 14, and we can show that it is impossible to construct a 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def longestString(self, x: int, y: int, z: int) -> int:
+        if x < y:
+            return (x * 2 + z + 1) * 2
+        if x > y:
+            return (y * 2 + z + 1) * 2
+        return (x + y + z) * 2
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int longestString(int x, int y, int z) {
+        if (x < y) {
+            return (x * 2 + z + 1) * 2;
+        }
+        if (x > y) {
+            return (y * 2 + z + 1) * 2;
+        }
+        return (x + y + z) * 2;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int longestString(int x, int y, int z) {
+        if (x < y) {
+            return (x * 2 + z + 1) * 2;
+        }
+        if (x > y) {
+            return (y * 2 + z + 1) * 2;
+        }
+        return (x + y + z) * 2;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func longestString(x int, y int, z int) int {
+	if x < y {
+		return (x*2 + z + 1) * 2
+	}
+	if x > y {
+		return (y*2 + z + 1) * 2
+	}
+	return (x + y + z) * 2
+}
+```
 
+### **TypeScript**
+
+```ts
+function longestString(x: number, y: number, z: number): number {
+    if (x < y) {
+        return (x * 2 + z + 1) * 2;
+    }
+    if (x > y) {
+        return (y * 2 + z + 1) * 2;
+    }
+    return (x + y + z) * 2;
+}
 ```
 
 ### **...**
