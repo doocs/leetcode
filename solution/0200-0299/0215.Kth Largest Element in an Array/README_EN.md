@@ -8,7 +8,7 @@
 
 <p>Note that it is the <code>k<sup>th</sup></code> largest element in the sorted order, not the <code>k<sup>th</sup></code> distinct element.</p>
 
-<p>You must solve it in <code>O(n)</code> time complexity.</p>
+<p>Can you solve it without sorting?</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

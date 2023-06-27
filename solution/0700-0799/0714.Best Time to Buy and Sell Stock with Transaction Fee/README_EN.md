@@ -8,7 +8,12 @@
 
 <p>Find the maximum profit you can achieve. You may complete as many transactions as you like, but you need to pay the transaction fee for each transaction.</p>
 
-<p><strong>Note:</strong> You may not engage in multiple transactions simultaneously (i.e., you must sell the stock before you buy again).</p>
+<p><strong>Note:</strong></p>
+
+<ul>
+	<li>You may not engage in multiple transactions simultaneously (i.e., you must sell the stock before you buy again).</li>
+	<li>The transaction fee is only charged once for each stock purchase and sale.</li>
+</ul>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

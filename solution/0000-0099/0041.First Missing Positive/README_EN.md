@@ -6,7 +6,7 @@
 
 <p>Given an unsorted integer array <code>nums</code>, return the smallest missing positive integer.</p>
 
-<p>You must implement an algorithm that runs in <code>O(n)</code> time and uses constant extra space.</p>
+<p>You must implement an algorithm that runs in <code>O(n)</code> time and uses <code>O(1)</code> auxiliary space.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

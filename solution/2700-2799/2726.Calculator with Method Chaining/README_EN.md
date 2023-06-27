@@ -54,7 +54,7 @@ The error should be thrown because we cannot divide by zero.
 
 <ul>
 	<li><code>2 &lt;= actions.length &lt;= 2 * 10<sup>4</sup></code></li>
-	<li><code>1 &lt;= values.length &lt;= 2 * 10<sup>4</sup></code><code>&nbsp;- 1</code></li>
+	<li><code>1 &lt;= values.length &lt;= 2 * 10<sup>4</sup>&nbsp;- 1</code></li>
 	<li><code>actions[i] is one of &quot;Calculator&quot;, &quot;add&quot;, &quot;subtract&quot;, &quot;multiply&quot;, &quot;divide&quot;, &quot;power&quot;, and&nbsp;&quot;getResult&quot;</code></li>
 	<li><code><font face="monospace">Last action is always &quot;getResult&quot;</font></code></li>
 	<li><code><font face="monospace">values is a JSON array of numbers</font></code></li>
