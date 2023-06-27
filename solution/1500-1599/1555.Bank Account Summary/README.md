@@ -100,26 +100,25 @@ Luis 未收到任何转账信息，额度 = $800</pre>
 
 <!-- tabs:start -->
 
-### **Python3**
+### **SQL**
 
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
-
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-
-```
-
-### **...**
-
-```
-
+```sql
+# Write your MySQL query statement below
+SELECT
+    t.user_id,
+    user_name,
+    sum(t.credit) AS credit,
+    if(sum(t.credit) < 0, 'Yes', 'No') AS credit_limit_breached
+FROM
+    (
+        SELECT paid_by AS user_id, -amount AS credit FROM Transactions
+        UNION ALL
+        SELECT paid_to AS user_id, amount AS credit FROM Transactions
+        UNION ALL
+        SELECT user_id, credit FROM Users
+    ) AS t
+    JOIN Users AS u ON t.user_id = u.user_id
+GROUP BY t.user_id;
 ```
 
 <!-- tabs:end -->
