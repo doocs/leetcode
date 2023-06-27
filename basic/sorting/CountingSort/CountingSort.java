@@ -26,12 +26,12 @@ public class CountingSort {
     public static void main(String[] args) {
 
         // test case 1
-        int[] nums = { 1, 2, 7, 9, 5, 5, 8 };
+        int[] nums = {1, 2, 7, 9, 5, 5, 8};
         countingSort(nums, 1, 9);
         System.out.println(Arrays.toString(nums));
 
         // test case 2
-        int[] nums2 = { 2, 7, 9, 5, 5, 8 };
+        int[] nums2 = {2, 7, 9, 5, 5, 8};
         countingSort(nums2, 2, 9);
         System.out.println(Arrays.toString(nums2));
     }
