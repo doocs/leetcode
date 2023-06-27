@@ -132,7 +132,7 @@
 |  0119  |  [杨辉三角 II](/solution/0100-0199/0119.Pascal%27s%20Triangle%20II/README.md)  |  `数组`,`动态规划`  |  简单  |    |
 |  0120  |  [三角形最小路径和](/solution/0100-0199/0120.Triangle/README.md)  |  `数组`,`动态规划`  |  中等  |    |
 |  0121  |  [买卖股票的最佳时机](/solution/0100-0199/0121.Best%20Time%20to%20Buy%20and%20Sell%20Stock/README.md)  |  `数组`,`动态规划`  |  简单  |    |
-|  0122  |  [买卖股票的最佳时机 II](/solution/0100-0199/0122.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20II/README.md)  |  `贪心`,`数组`,`动态规划`  |  中等  |    |
+|  0122  |  [买卖股票的最佳时机 II](/solution/0100-0199/0122.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20II/README.md)  |  `贪心`,`数组`  |  中等  |    |
 |  0123  |  [买卖股票的最佳时机 III](/solution/0100-0199/0123.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20III/README.md)  |  `数组`,`动态规划`  |  困难  |    |
 |  0124  |  [二叉树中的最大路径和](/solution/0100-0199/0124.Binary%20Tree%20Maximum%20Path%20Sum/README.md)  |  `树`,`深度优先搜索`,`动态规划`,`二叉树`  |  困难  |    |
 |  0125  |  [验证回文串](/solution/0100-0199/0125.Valid%20Palindrome/README.md)  |  `双指针`,`字符串`  |  简单  |    |
@@ -185,7 +185,7 @@
 |  0172  |  [阶乘后的零](/solution/0100-0199/0172.Factorial%20Trailing%20Zeroes/README.md)  |  `数学`  |  中等  |    |
 |  0173  |  [二叉搜索树迭代器](/solution/0100-0199/0173.Binary%20Search%20Tree%20Iterator/README.md)  |  `栈`,`树`,`设计`,`二叉搜索树`,`二叉树`,`迭代器`  |  中等  |    |
 |  0174  |  [地下城游戏](/solution/0100-0199/0174.Dungeon%20Game/README.md)  |  `数组`,`动态规划`,`矩阵`  |  困难  |    |
-|  0175  |  [组合两个表](/solution/0100-0199/0175.Combine%20Two%20Tables/README.md)  |  `数据库`  |  简单  |    |
+|  0175  |  [组合两个表](/solution/0100-0199/0175.Combine%20Two%20Tables/README.md)  |    |  简单  |    |
 |  0176  |  [第二高的薪水](/solution/0100-0199/0176.Second%20Highest%20Salary/README.md)  |  `数据库`  |  中等  |    |
 |  0177  |  [第N高的薪水](/solution/0100-0199/0177.Nth%20Highest%20Salary/README.md)  |  `数据库`  |  中等  |    |
 |  0178  |  [分数排名](/solution/0100-0199/0178.Rank%20Scores/README.md)  |  `数据库`  |  中等  |    |
@@ -724,7 +724,7 @@
 |  0711  |  [不同岛屿的数量 II](/solution/0700-0799/0711.Number%20of%20Distinct%20Islands%20II/README.md)  |  `深度优先搜索`,`广度优先搜索`,`并查集`,`哈希表`,`哈希函数`  |  困难  |  🔒  |
 |  0712  |  [两个字符串的最小ASCII删除和](/solution/0700-0799/0712.Minimum%20ASCII%20Delete%20Sum%20for%20Two%20Strings/README.md)  |  `字符串`,`动态规划`  |  中等  |    |
 |  0713  |  [乘积小于 K 的子数组](/solution/0700-0799/0713.Subarray%20Product%20Less%20Than%20K/README.md)  |  `数组`,`滑动窗口`  |  中等  |    |
-|  0714  |  [买卖股票的最佳时机含手续费](/solution/0700-0799/0714.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20with%20Transaction%20Fee/README.md)  |  `贪心`,`数组`,`动态规划`  |  中等  |    |
+|  0714  |  [买卖股票的最佳时机含手续费](/solution/0700-0799/0714.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20with%20Transaction%20Fee/README.md)  |  `贪心`,`数组`  |  中等  |    |
 |  0715  |  [Range 模块](/solution/0700-0799/0715.Range%20Module/README.md)  |  `设计`,`线段树`,`有序集合`  |  困难  |    |
 |  0716  |  [最大栈](/solution/0700-0799/0716.Max%20Stack/README.md)  |  `栈`,`设计`,`链表`,`双向链表`,`有序集合`  |  困难  |  🔒  |
 |  0717  |  [1 比特与 2 比特字符](/solution/0700-0799/0717.1-bit%20and%202-bit%20Characters/README.md)  |  `数组`  |  简单  |    |
@@ -2762,6 +2762,7 @@
 |  2749  |  [得到整数零需要执行的最少操作数](/solution/2700-2799/2749.Minimum%20Operations%20to%20Make%20the%20Integer%20Zero/README.md)  |    |  中等  |  第 351 场周赛  |
 |  2750  |  [将数组划分成若干好子数组的方式](/solution/2700-2799/2750.Ways%20to%20Split%20Array%20Into%20Good%20Subarrays/README.md)  |    |  中等  |  第 351 场周赛  |
 |  2751  |  [机器人碰撞](/solution/2700-2799/2751.Robot%20Collisions/README.md)  |    |  困难  |  第 351 场周赛  |
+|  2752  |  [Customers with Maximum Number of Transactions on Consecutive Days](/solution/2700-2799/2752.Customers%20with%20Maximum%20Number%20of%20Transactions%20on%20Consecutive%20Days/README.md)  |    |  困难  |  🔒  |
 
 ## 版权
 

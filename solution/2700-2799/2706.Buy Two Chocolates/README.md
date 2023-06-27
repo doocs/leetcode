@@ -127,7 +127,7 @@ impl Solution {
 impl Solution {
     pub fn buy_choco(mut prices: Vec<i32>, money: i32) -> i32 {
         prices.sort();
-        
+
         let sum = prices
         .iter()
         .take(2)

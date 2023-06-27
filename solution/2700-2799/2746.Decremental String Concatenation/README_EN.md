@@ -27,11 +27,11 @@
 <pre>
 <strong>Input:</strong> words = [&quot;aa&quot;,&quot;ab&quot;,&quot;bc&quot;]
 <strong>Output:</strong> 4
-<strong>Explanation: </strong>In this example, we can perform join operations in the following order to minimize the length of <code node="[object Object]">str<sub>2</sub></code>: 
-<code node="[object Object]">str<sub>0</sub> = &quot;aa&quot;</code>
-<code node="[object Object]">str<sub>1</sub> = join(str<sub>0</sub>, &quot;ab&quot;) = &quot;aab&quot;
-</code><code node="[object Object]">str<sub>2</sub> = join(str<sub>1</sub>, &quot;bc&quot;) = &quot;aabc&quot;</code> 
-It can be shown that the minimum possible length of <code node="[object Object]">str<sub>2</sub></code> is 4.</pre>
+<strong>Explanation: </strong>In this example, we can perform join operations in the following order to minimize the length of str<sub>2</sub>: 
+str<sub>0</sub> = &quot;aa&quot;
+str<sub>1</sub> = join(str<sub>0</sub>, &quot;ab&quot;) = &quot;aab&quot;
+str<sub>2</sub> = join(str<sub>1</sub>, &quot;bc&quot;) = &quot;aabc&quot; 
+It can be shown that the minimum possible length of str<sub>2</sub> is 4.</pre>
 
 <p><strong class="example">Example 2:</strong></p>
 
@@ -48,11 +48,11 @@ The first string, &quot;ab&quot;, has the minimum length. Hence, the answer is 2
 <pre>
 <strong>Input:</strong> words = [&quot;aaa&quot;,&quot;c&quot;,&quot;aba&quot;]
 <strong>Output:</strong> 6
-<strong>Explanation:</strong> In this example, we can perform join operations in the following order to minimize the length of <code node="[object Object]">str<sub>2</sub></code>: 
-<code node="[object Object]">str<sub>0</sub> = &quot;</code>aaa&quot;
-<code node="[object Object]">str<sub>1</sub> = join(str<sub>0</sub>, &quot;c&quot;) = &quot;aaac&quot;</code>
-<code node="[object Object]">str<sub>2</sub> = join(&quot;aba&quot;, str<sub>1</sub>) = &quot;abaaac&quot;</code>
-It can be shown that the minimum possible length of <code node="[object Object]">str<sub>2</sub></code> is 6.
+<strong>Explanation:</strong> In this example, we can perform join operations in the following order to minimize the length of str<sub>2</sub>: 
+str<sub>0</sub> = &quot;aaa&quot;
+str<sub>1</sub> = join(str<sub>0</sub>, &quot;c&quot;) = &quot;aaac&quot;
+str<sub>2</sub> = join(&quot;aba&quot;, str<sub>1</sub>) = &quot;abaaac&quot;
+It can be shown that the minimum possible length of str<sub>2</sub> is 6.
 </pre>
 
 <div class="notranslate" style="all: initial;">&nbsp;</div>

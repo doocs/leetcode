@@ -130,7 +130,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0119  |  [Pascal's Triangle II](/solution/0100-0199/0119.Pascal%27s%20Triangle%20II/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Easy  |    |
 |  0120  |  [Triangle](/solution/0100-0199/0120.Triangle/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |    |
 |  0121  |  [Best Time to Buy and Sell Stock](/solution/0100-0199/0121.Best%20Time%20to%20Buy%20and%20Sell%20Stock/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Easy  |    |
-|  0122  |  [Best Time to Buy and Sell Stock II](/solution/0100-0199/0122.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20II/README_EN.md)  |  `Greedy`,`Array`,`Dynamic Programming`  |  Medium  |    |
+|  0122  |  [Best Time to Buy and Sell Stock II](/solution/0100-0199/0122.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20II/README_EN.md)  |  `Greedy`,`Array`  |  Medium  |    |
 |  0123  |  [Best Time to Buy and Sell Stock III](/solution/0100-0199/0123.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20III/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Hard  |    |
 |  0124  |  [Binary Tree Maximum Path Sum](/solution/0100-0199/0124.Binary%20Tree%20Maximum%20Path%20Sum/README_EN.md)  |  `Tree`,`Depth-First Search`,`Dynamic Programming`,`Binary Tree`  |  Hard  |    |
 |  0125  |  [Valid Palindrome](/solution/0100-0199/0125.Valid%20Palindrome/README_EN.md)  |  `Two Pointers`,`String`  |  Easy  |    |
@@ -183,7 +183,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0172  |  [Factorial Trailing Zeroes](/solution/0100-0199/0172.Factorial%20Trailing%20Zeroes/README_EN.md)  |  `Math`  |  Medium  |    |
 |  0173  |  [Binary Search Tree Iterator](/solution/0100-0199/0173.Binary%20Search%20Tree%20Iterator/README_EN.md)  |  `Stack`,`Tree`,`Design`,`Binary Search Tree`,`Binary Tree`,`Iterator`  |  Medium  |    |
 |  0174  |  [Dungeon Game](/solution/0100-0199/0174.Dungeon%20Game/README_EN.md)  |  `Array`,`Dynamic Programming`,`Matrix`  |  Hard  |    |
-|  0175  |  [Combine Two Tables](/solution/0100-0199/0175.Combine%20Two%20Tables/README_EN.md)  |  `Database`  |  Easy  |    |
+|  0175  |  [Combine Two Tables](/solution/0100-0199/0175.Combine%20Two%20Tables/README_EN.md)  |    |  Easy  |    |
 |  0176  |  [Second Highest Salary](/solution/0100-0199/0176.Second%20Highest%20Salary/README_EN.md)  |  `Database`  |  Medium  |    |
 |  0177  |  [Nth Highest Salary](/solution/0100-0199/0177.Nth%20Highest%20Salary/README_EN.md)  |  `Database`  |  Medium  |    |
 |  0178  |  [Rank Scores](/solution/0100-0199/0178.Rank%20Scores/README_EN.md)  |  `Database`  |  Medium  |    |
@@ -722,7 +722,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0711  |  [Number of Distinct Islands II](/solution/0700-0799/0711.Number%20of%20Distinct%20Islands%20II/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Union Find`,`Hash Table`,`Hash Function`  |  Hard  |  🔒  |
 |  0712  |  [Minimum ASCII Delete Sum for Two Strings](/solution/0700-0799/0712.Minimum%20ASCII%20Delete%20Sum%20for%20Two%20Strings/README_EN.md)  |  `String`,`Dynamic Programming`  |  Medium  |    |
 |  0713  |  [Subarray Product Less Than K](/solution/0700-0799/0713.Subarray%20Product%20Less%20Than%20K/README_EN.md)  |  `Array`,`Sliding Window`  |  Medium  |    |
-|  0714  |  [Best Time to Buy and Sell Stock with Transaction Fee](/solution/0700-0799/0714.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20with%20Transaction%20Fee/README_EN.md)  |  `Greedy`,`Array`,`Dynamic Programming`  |  Medium  |    |
+|  0714  |  [Best Time to Buy and Sell Stock with Transaction Fee](/solution/0700-0799/0714.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20with%20Transaction%20Fee/README_EN.md)  |  `Greedy`,`Array`  |  Medium  |    |
 |  0715  |  [Range Module](/solution/0700-0799/0715.Range%20Module/README_EN.md)  |  `Design`,`Segment Tree`,`Ordered Set`  |  Hard  |    |
 |  0716  |  [Max Stack](/solution/0700-0799/0716.Max%20Stack/README_EN.md)  |  `Stack`,`Design`,`Linked List`,`Doubly-Linked List`,`Ordered Set`  |  Hard  |  🔒  |
 |  0717  |  [1-bit and 2-bit Characters](/solution/0700-0799/0717.1-bit%20and%202-bit%20Characters/README_EN.md)  |  `Array`  |  Easy  |    |
@@ -2760,6 +2760,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2749  |  [Minimum Operations to Make the Integer Zero](/solution/2700-2799/2749.Minimum%20Operations%20to%20Make%20the%20Integer%20Zero/README_EN.md)  |    |  Medium  |  Weekly Contest 351  |
 |  2750  |  [Ways to Split Array Into Good Subarrays](/solution/2700-2799/2750.Ways%20to%20Split%20Array%20Into%20Good%20Subarrays/README_EN.md)  |    |  Medium  |  Weekly Contest 351  |
 |  2751  |  [Robot Collisions](/solution/2700-2799/2751.Robot%20Collisions/README_EN.md)  |    |  Hard  |  Weekly Contest 351  |
+|  2752  |  [Customers with Maximum Number of Transactions on Consecutive Days](/solution/2700-2799/2752.Customers%20with%20Maximum%20Number%20of%20Transactions%20on%20Consecutive%20Days/README_EN.md)  |    |  Hard  |  🔒  |
 
 ## Copyright
 
