@@ -72,26 +72,17 @@ Orders</code>
 
 <!-- tabs:start -->
 
-### **Python3**
+### **SQL**
 
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
-
-```
-
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-
-```
-
-### **...**
-
-```
-
+```sql
+# Write your MySQL query statement below
+SELECT
+    date_format(order_date, '%Y-%m') AS month,
+    count(order_id) AS order_count,
+    count(DISTINCT customer_id) AS customer_count
+FROM Orders
+WHERE invoice > 20
+GROUP BY month;
 ```
 
 <!-- tabs:end -->
