@@ -53,12 +53,29 @@ Triangle 表:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：if 语句 + 三角形判断条件**
+
+三条边能否构成三角形的条件是：任意两边之和大于第三边。因此，我们可以使用 `if` 语句来判断是否满足这个条件，如果满足则返回 `Yes`，否则返回 `No`。
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
-
+# Write your MySQL query statement below
+select
+    *,
+    if(
+        (
+            x + y > z
+            and x + z > y
+            and y + z > x
+        ),
+        'Yes',
+        'No'
+    ) triangle
+from
+    Triangle
 ```
 
 <!-- tabs:end -->

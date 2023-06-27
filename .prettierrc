@@ -14,6 +14,7 @@
         {
             "files": [
                 "solution/0500-0599/0578.Get Highest Answer Rate Question/Solution.sql",
+                "solution/0600-0699/0610.Triangle Judgement/Solution.sql",
                 "solution/0600-0699/0618.Students Report By Geography/Solution.sql",
                 "solution/0600-0699/0626.Exchange Seats/Solution.sql",
                 "solution/1000-1099/1098.Unpopular Books/Solution.sql",
