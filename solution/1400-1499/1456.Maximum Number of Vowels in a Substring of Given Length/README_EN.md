@@ -175,6 +175,8 @@ function maxVowels(s: string, k: number): number {
 }
 ```
 
+### **PHP**
+
 ```php
 class Solution {
     /**
