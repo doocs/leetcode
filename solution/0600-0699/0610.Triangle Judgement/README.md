@@ -63,19 +63,17 @@ Triangle 表:
 
 ```sql
 # Write your MySQL query statement below
-select
+SELECT
     *,
     if(
-        (
-            x + y > z
-            and x + z > y
-            and y + z > x
-        ),
+        x + y > z
+        AND x + z > y
+        AND y + z > x,
         'Yes',
         'No'
-    ) triangle
-from
-    Triangle
+    ) AS triangle
+FROM
+    Triangle;
 ```
 
 <!-- tabs:end -->
