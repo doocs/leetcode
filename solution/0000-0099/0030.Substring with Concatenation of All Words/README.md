@@ -22,7 +22,7 @@
 
 <pre>
 <strong>输入：</strong>s = "barfoothefoobarman", words = ["foo","bar"]
-<strong>输出：</strong><code>[0,9]</code>
+<strong>输出：</strong>[0,9]
 <strong>解释：</strong>因为 words.length == 2 同时 words[i].length == 3，连接的子字符串的长度必须为 6。
 子串 "barfoo" 开始位置是 0。它是 words 中以 ["bar","foo"] 顺序排列的连接。
 子串 "foobar" 开始位置是 9。它是 words 中以 ["foo","bar"] 顺序排列的连接。
@@ -33,7 +33,7 @@
 
 <pre>
 <strong>输入：</strong>s = "wordgoodgoodgoodbestword", words = ["word","good","best","word"]
-<code><strong>输出：</strong>[]</code>
+<strong>输出：</strong>[]
 <strong>解释：</strong>因为<strong> </strong>words.length == 4 并且 words[i].length == 4，所以串联子串的长度必须为 16。
 s 中没有子串长度为 16 并且等于 words 的任何顺序排列的连接。
 所以我们返回一个空数组。

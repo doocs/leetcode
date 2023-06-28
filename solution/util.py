@@ -205,6 +205,7 @@ def refresh(result):
     pattern = re.compile('src="(.*?)"')
     skip_question_ids = {
         3,
+        30,
         33,
         34,
         375,
