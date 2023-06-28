@@ -59,7 +59,7 @@ The substring starting at 12 is &quot;thefoobar&quot;. It is the concatenation o
 
 ## Solutions
 
-**Approach 1: Hash Table + Sliding Window**
+**Solution 1: Hash Table + Sliding Window**
 
 We use a hash table $cnt$ to count the number of times each word in $words$ appears, and use a hash table $cnt1$ to count the number of times each word in the current sliding window appears. Let the length of the string $s$ be $m$, the number of words in the string array $words$ be $n$, and the length of each word be $k$.
 

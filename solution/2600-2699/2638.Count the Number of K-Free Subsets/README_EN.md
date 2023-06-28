@@ -48,7 +48,7 @@
 
 ## Solutions
 
-**Approach 1: Grouping + Dynamic Programming**
+**Solution 1: Grouping + Dynamic Programming**
 
 First, sort the array $nums$ in ascending order, and then group the elements in the array according to the remainder modulo $k$, that is, the elements $nums[i] \bmod k$ with the same remainder are in the same group. Then for any two elements in different groups, their absolute difference is not equal to $k$. Therefore, we can obtain the number of subsets in each group, and then multiply the number of subsets in each group to obtain the answer.
 

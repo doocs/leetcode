@@ -30,7 +30,7 @@
 
 ## Solutions
 
-**Approach 1: Two Pointers**
+**Solution 1: Two Pointers**
 
 We define two pointers $i$ and $j$ to point to the initial position of the string $s$ and $t$ respectively. Each time we compare the two characters pointed to by the two pointers, if they are the same, both pointers move right at the same time; if they are not the same, only $j$ moves right. When the pointer $i$ moves to the end of the string $s$, it means that $s$ is the subsequence of $t$.
 

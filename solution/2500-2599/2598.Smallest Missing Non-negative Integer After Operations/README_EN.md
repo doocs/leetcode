@@ -53,7 +53,7 @@ The MEX of nums is 2. It can be shown that 2 is the maximum MEX we can achieve.
 
 ## Solutions
 
-**Approach 1: Count**
+**Solution 1: Count**
 
 We use a hash table or array $cnt$ to count the number of times each remainder of $value$ is taken modulo in the array.
 

@@ -72,7 +72,7 @@ Considering any node as root will give at least 1 correct guess.
 
 ## Solutions
 
-**Approach 1: Tree DP (change root)**
+**Solution 1: Tree DP (change root)**
 
 First, we traverse the given edge set $edges$ and convert it to an adjacency list $g$ where $g[i]$ represents the adjacent nodes of node $i$. Use a hash map $gs$ to record the given guess set $guesses$.
 

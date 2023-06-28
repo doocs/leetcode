@@ -42,7 +42,7 @@
 
 ## Solutions
 
-**Approach 1: Dynamic Programming**
+**Solution 1: Dynamic Programming**
 
 We define $f[i]$ to represent the maximum element sum of the first $i$ elements of the array after separating them into several subarrays. At the beginning, $f[i]=0$, and the answer is $f[n]$.
 

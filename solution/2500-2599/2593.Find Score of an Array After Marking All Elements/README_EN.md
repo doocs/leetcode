@@ -52,7 +52,7 @@ Our score is 1 + 2 + 2 = 5.
 
 ## Solutions
 
-**Approach 1: Priority Queue (Min Heap)**
+**Solution 1: Priority Queue (Min Heap)**
 
 We use a priority queue to maintain the unmarked elements in the array, and each item in the queue is a tuple $(x, i)$, where $x$ and $i$ represent the element value and index of the array respectively. An array $vis$ is used to record whether the element in the array is marked.
 
@@ -62,7 +62,7 @@ Finally, return the answer.
 
 The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the length of the array.
 
-**Approach 2: Sorting**
+**Solution 2: Sorting**
 
 We can create an index array $idx$ where $idx[i]=i$, and then we sort the index array $idx$ according to the element values in the array $nums$. If the element values are the same, then sort them according to the index values.
 

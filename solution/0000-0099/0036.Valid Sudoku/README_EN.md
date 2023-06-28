@@ -64,7 +64,7 @@
 
 ## Solutions
 
-**Approach 1: Traversal once**
+**Solution 1: Traversal once**
 
 The valid sudoku satisfies the following three conditions:
 

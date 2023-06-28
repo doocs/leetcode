@@ -57,7 +57,7 @@ The difference is 4, which is more than the allowed 3.
 
 ## Solutions
 
-**Approach 1: Counting**
+**Solution 1: Counting**
 
 We can create an array $cnt$ of length $26$ to record the difference in the number of times each letter appears in the two strings. Then we traverse $cnt$, if any letter appears the difference in the number of times greater than $3$, then return `false`, otherwise return `true`.
 

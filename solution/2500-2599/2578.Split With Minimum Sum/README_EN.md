@@ -50,7 +50,7 @@
 
 ## Solutions
 
-**Approach 1: Count + Greedy**
+**Solution 1: Count + Greedy**
 
 We first use a hash table or array `cnt` to count the number of times each digit appears in `num`, and use the variable `n` to record the number of digits in `num`.
 
@@ -58,7 +58,7 @@ Then, enumerate the number of digits $i$ of `nums`, and assign the numbers in `c
 
 The time complexity is $O(n)$ and the space complexity is $O(C)$. Where $n$ is the number of digits in `num`; and $C$ is the number of different numbers in `num`, which is $C \leq 10$ in this problem.
 
-**Approach 2: Sorting + Greedy**
+**Solution 2: Sorting + Greedy**
 
 We can convert `num` to a string or character array and sort it. Then assign the numbers in the sorted array in ascending order alternately to `num1` and `num2`, and finally return the sum of `num1` and `num2`.
 

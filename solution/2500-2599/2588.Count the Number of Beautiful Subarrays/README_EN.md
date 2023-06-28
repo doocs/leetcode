@@ -52,7 +52,7 @@
 
 ## Solutions
 
-**Approach 1: Prefix XOR + Hash Table**
+**Solution 1: Prefix XOR + Hash Table**
 
 We observe that a subarray can become an array of all $0$ s if and only if the number of $1$s in each bit of all the elements in the subarray is even.
 

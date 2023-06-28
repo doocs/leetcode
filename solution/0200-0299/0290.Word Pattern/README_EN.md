@@ -44,7 +44,7 @@
 
 ## Solutions
 
-**Approach 1: Hash Table**
+**Solution 1: Hash Table**
 
 First, we split the string $s$ into a word array $ws$ with spaces. If the length of $pattern$ and $ws$ is not equal, return `false` directly. Otherwise, we use two hash tables $d_1$ and $d_2$ to record the correspondence between each character and word in $pattern$ and $ws$.
 

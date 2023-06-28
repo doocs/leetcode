@@ -50,7 +50,7 @@ So, the maximum time needed is 1.
 
 ## Solutions
 
-**Approach 1: Sorting + Binary Search**
+**Solution 1: Sorting + Binary Search**
 
 First, sort the chickens and grains by their position from left to right. Then enumerate the time $t$ using binary search to find the smallest $t$ such that all the grains can be eaten up in $t$ seconds.
 

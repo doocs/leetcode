@@ -44,7 +44,7 @@
 
 ## Solutions
 
-**Approach 1: Array Mark**
+**Solution 1: Array Mark**
 
 We use arrays `rows` and `cols` to mark the rows and columns to be cleared.
 
@@ -52,7 +52,7 @@ Then traverse the matrix again, and clear the elements in the rows and columns m
 
 The time complexity is $O(m\times n)$, and the space complexity is $O(m+n)$. Where $m$ and $n$ are the number of rows and columns of the matrix respectively.
 
-**Approach 2: Mark in Place**
+**Solution 2: Mark in Place**
 
 In the first method, we use an additional array to mark the rows and columns to be cleared. In fact, we can also use the first row and first column of the matrix to mark them, without creating an additional array.
 

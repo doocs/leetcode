@@ -48,7 +48,7 @@
 
 ## Solutions
 
-**Approach 1: Hash Table**
+**Solution 1: Hash Table**
 
 We can use the hash table $m$ to store the array value and the corresponding subscript.
 

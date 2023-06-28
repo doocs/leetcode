@@ -47,7 +47,7 @@ The computer will be on for a total of 4 seconds.
 
 ## Solutions
 
-**Approach 1: Greedy + Sort**
+**Solution 1: Greedy + Sort**
 
 We find that the problem is equivalent to choosing $duration$ integer time points in each interval $[start,..,end]$ so that the total number of integer time points selected is the smallest.
 

@@ -40,7 +40,7 @@
 
 ## Solutions
 
-**Approach 1: Number of Combinations + Hash Table**
+**Solution 1: Number of Combinations + Hash Table**
 
 Time complexity $O(n^2)$, Space complexity $O(n^2)$.
 

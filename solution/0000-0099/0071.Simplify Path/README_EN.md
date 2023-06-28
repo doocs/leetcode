@@ -55,7 +55,7 @@
 
 ## Solutions
 
-**Approach 1: Stack**
+**Solution 1: Stack**
 
 We first split the path into a number of substrings split by `'/'`. Then, we traverse each substring and perform the following operations based on the content of the substring:
 

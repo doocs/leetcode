@@ -38,7 +38,7 @@ Note that buying on day 2 and selling on day 1 is not allowed because you must b
 
 ## Solutions
 
-**Approach 1: Enumerate + Maintain the Minimum Value of the Prefix**
+**Solution 1: Enumerate + Maintain the Minimum Value of the Prefix**
 
 We can enumerate each element of the array $nums$ as the selling price. Then we need to find a minimum value in front of it as the purchase price to maximize the profit.
 

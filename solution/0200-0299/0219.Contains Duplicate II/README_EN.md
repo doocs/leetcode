@@ -39,7 +39,7 @@
 
 ## Solutions
 
-**Approach 1: Hash Table**
+**Solution 1: Hash Table**
 
 We use a hash table $d$ to store the nearest index of the number it has visited.
 

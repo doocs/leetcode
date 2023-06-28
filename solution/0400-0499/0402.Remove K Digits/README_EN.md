@@ -42,7 +42,7 @@
 
 ## Solutions
 
-**Approach 1: Greedy Algorithm**
+**Solution 1: Greedy Algorithm**
 
 <!-- tabs:start -->
 

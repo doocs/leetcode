@@ -42,7 +42,7 @@
 
 ## Solutions
 
-**Approach 1: Greedy**
+**Solution 1: Greedy**
 
 We can use a variable $mx$ to record the furthest position that can be reached at the current position, and use a variable $last$ to record the last jump position, and use a variable $ans$ to record the number of jumps.
 

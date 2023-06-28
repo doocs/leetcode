@@ -35,7 +35,7 @@
 
 ## Solutions
 
-**Approach 1: Greedy**
+**Solution 1: Greedy**
 
 We use a variable $mx$ to maintain the farthest index that can be reached, initially $mx = 0$.
 

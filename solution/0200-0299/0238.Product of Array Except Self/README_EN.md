@@ -32,7 +32,7 @@
 
 ## Solutions
 
-**Approach 1: Two Passes**
+**Solution 1: Two Passes**
 
 We define two variables $left$ and $right$, which represent the product of all elements to the left and right of the current element respectively. Initially, $left=1$, $right=1$. Define an answer array $ans$ of length $n$.
 

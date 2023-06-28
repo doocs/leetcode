@@ -76,7 +76,7 @@ The time complexity is $O(n^2 \times m)$, and the space complexity is $O(n \time
 
 **Solution 2: Dynamic Programming**
 
-We can also convert the memoization of approach 1 into dynamic programming.
+We can also convert the memoization of solution 1 into dynamic programming.
 
 We define $f[i][k]$ represents the number of paths from city $i$ with $k$ remaining fuel to the destination $finish$. So the answer is $f[start][fuel]$. Initially $f[finish][k]=1$, others are $0$.
 

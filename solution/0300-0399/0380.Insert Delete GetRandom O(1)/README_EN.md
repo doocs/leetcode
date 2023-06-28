@@ -47,7 +47,7 @@ randomizedSet.getRandom(); // Since 2 is the only number in the set, getRandom()
 
 ## Solutions
 
-**Approach 1: Hash Table + Dynamic List**
+**Solution 1: Hash Table + Dynamic List**
 
 We define a dynamic list $q$ to store the elements in the set, and a hash table $d$ to store the index of each element in $q$.
 

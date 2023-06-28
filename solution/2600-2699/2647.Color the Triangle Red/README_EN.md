@@ -67,7 +67,7 @@ It can be shown that choosing any 2 triangles and running the algorithm will not
 
 ## Solutions
 
-**Approach 1: Find the Pattern**
+**Solution 1: Find the Pattern**
 
 We draw a graph to observe, and we can find that the first row only has one triangle and must be colored, and from the last row to the second row, the coloring scheme of every four rows is the same:
 

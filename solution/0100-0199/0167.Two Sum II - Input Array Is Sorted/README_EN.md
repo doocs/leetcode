@@ -50,13 +50,13 @@
 
 ## Solutions
 
-**Approach 1: Binary Search**
+**Solution 1: Binary Search**
 
 Note that the array is sorted in non-decreasing order, so for each `numbers[i]`, we can find the position of `target - numbers[i]` by binary search, and return $[i + 1, j + 1]$ if it exists.
 
 The time complexity is $O(n \times \log n)$, where $n$ is the length of the array `numbers`. The space complexity is $O(1)$.
 
-**Approach 2: Two Pointers**
+**Solution 2: Two Pointers**
 
 We define two pointers $i$ and $j$, which point to the first element and the last element of the array respectively. Each time we calculate $numbers[i] + numbers[j]$. If the sum is equal to the target value, return $[i + 1, j + 1]$ directly. If the sum is less than the target value, move $i$ to the right by one position, and if the sum is greater than the target value, move $j$ to the left by one position.
 

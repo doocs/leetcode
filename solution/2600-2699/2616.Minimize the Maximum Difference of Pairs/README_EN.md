@@ -39,7 +39,7 @@ The maximum difference is max(|nums[1] - nums[4]|, |nums[2] - nums[5]|) = max(0,
 
 ## Solutions
 
-**Approach 1: Binary search + Greedy**
+**Solution 1: Binary search + Greedy**
 
 We find that the maximum difference has the monotonicity, that is, if the maximum difference $x$ satisfies the condition, then $x-1$ must also satisfy the condition. Therefore, we can use the binary search method to find the smallest maximum difference that satisfies the condition.
 

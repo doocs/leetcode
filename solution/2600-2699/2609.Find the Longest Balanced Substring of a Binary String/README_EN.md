@@ -47,13 +47,13 @@
 
 ## Solutions
 
-**Approach 1: Brute force**
+**Solution 1: Brute force**
 
 Since the range of $n$ is small, we can enumerate all substrings $s[i..j]$ to check if it is a balanced string. If so, update the answer.
 
 The time complexity is $O(n^3)$, and the space complexity is $O(1)$. Where $n$ is the length of string $s$.
 
-**Approach 2: Enumeration optimization**
+**Solution 2: Enumeration optimization**
 
 We use variables $zero$ and $one$ to record the number of continuous $0$ and $1$.
 

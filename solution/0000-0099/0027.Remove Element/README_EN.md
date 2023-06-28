@@ -65,7 +65,7 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 ## Solutions
 
-**Approach 1: One Pass**
+**Solution 1: One Pass**
 
 We use the variable $k$ to record the number of elements that are not equal to $val$.
 

@@ -42,7 +42,7 @@
 
 ## Solutions
 
-**Approach 1: Dynamic Programming**
+**Solution 1: Dynamic Programming**
 
 We define $f[i]$ to represent the maximum value of the subarray ending with $nums[i]$, and define $g[i]$ to represent the minimum value of the subarray ending with $nums[i]$. Then the state transition equation of $f[i]$ and $g[i]$ is as follows:
 

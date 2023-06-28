@@ -57,7 +57,7 @@ todoList.getAllTasks(1); // return [&quot;Task3&quot;, &quot;Task1&quot;]. User 
 
 ## Solutions
 
-**Approach 1: Hash Table + Sorted Set**
+**Solution 1: Hash Table + Sorted Set**
 
 We use a hash table $tasks$ to record the set of tasks for each user, where the key is the user ID and the value is a sorted set sorted by the deadline of the task. In addition, we use a variable $i$ to record the current task ID.
 

@@ -56,7 +56,7 @@
 
 ## Solutions
 
-**Approach 1: Two pointers**
+**Solution 1: Two pointers**
 
 We define two pointers $i$ and $j$ to point to the head and tail of the string $s$ respectively, then move them to the middle until the characters pointed to by $i$ and $j$ are not equal, then $\max(0, j - i + 1)$ is the answer.
 

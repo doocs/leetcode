@@ -54,7 +54,7 @@
 
 ## Solutions
 
-**Approach 1: Priority Queue**
+**Solution 1: Priority Queue**
 
 Let's denote the number of rows of the grid as $m$ and the number of columns as $n$. Define $dist[i][j]$ to be the shortest distance from the coordinate $(0, 0)$ to the coordinate $(i, j)$. Initially, $dist[0][0]=1$ and $dist[i][j]=-1$ for all other $i$ and $j$.
 

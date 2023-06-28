@@ -52,7 +52,7 @@
 
 ## Solutions
 
-**Approach 1: In-place marking**
+**Solution 1: In-place marking**
 
 Let's define two new states. State $2$ indicates that the living cell becomes dead in the next state, and state $-1$ indicates that the dead cell becomes alive in the next state. Therefore, for the current grid we are traversing, if the grid is greater than $0$, it means that the current grid is a living cell, otherwise it is a dead cell.
 

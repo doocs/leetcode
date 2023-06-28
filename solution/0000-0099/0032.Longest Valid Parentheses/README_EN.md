@@ -40,7 +40,7 @@
 
 ## Solutions
 
-**Approach 1: Dynamic Programming**
+**Solution 1: Dynamic Programming**
 
 We define $f[i]$ to be the length of the longest valid parentheses that ends with $s[i-1]$, and the answer is $max(f[i])$.
 

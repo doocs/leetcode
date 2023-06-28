@@ -38,11 +38,11 @@
 
 ## Solutions
 
-**Approach 1: Iteration**
+**Solution 1: Iteration**
 
 Time complexity $O(n)$, Space complexity $O(1)$.
 
-**Approach 2: Recursion**
+**Solution 2: Recursion**
 
 Time complexity $O(n)$, Space complexity $O(n)$.
 

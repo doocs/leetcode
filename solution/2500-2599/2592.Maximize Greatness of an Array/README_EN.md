@@ -38,7 +38,7 @@ At indices = 0, 1, and 2, perm[i] &gt; nums[i]. Hence, we return 3.
 
 ## Solutions
 
-**Approach 1: Greedy**
+**Solution 1: Greedy**
 
 We can sort the array $nums$ first.
 

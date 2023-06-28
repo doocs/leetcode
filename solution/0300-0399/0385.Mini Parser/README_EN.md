@@ -42,7 +42,7 @@
 
 ## Solutions
 
-**Approach 1: Recursion**
+**Solution 1: Recursion**
 
 We first judge whether the string $s$ is empty or an empty list. If so, simply return an empty `NestedInteger`. If $s$ is an integer, we simply return a `NestedInteger` containing this integer. Otherwise, we traverse the string $s$ from left to right. If the current depth is $0$ and we encounter a comma or the end of the string $s$, we take a substring and recursively call the function to parse the substring and add the return value to the list. Otherwise, if the current encounter is a left parenthesis, we increase the depth by $1$ and continue to traverse. If we encounter a right parenthesis, we decrease the depth by $1$ and continue to traverse.
 
@@ -50,7 +50,7 @@ After the traversal is over, return the answer.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
 
-**Approach 2: Stack**
+**Solution 2: Stack**
 
 We can use a stack to simulate the recursive process.
 

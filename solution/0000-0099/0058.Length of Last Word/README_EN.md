@@ -44,7 +44,7 @@
 
 ## Solutions
 
-**Approach 1: Reverse traversal + two pointers**
+**Solution 1: Reverse traversal + two pointers**
 
 We start traversing from the end of the string $s$, finding the last character of the last word, which is not a space, and the subscript is $i$. Then continue to traverse forward to find the first space character, which is the character before the first character of the last word, and mark it as $j$. Then the length of the last word is $i - j$.
 

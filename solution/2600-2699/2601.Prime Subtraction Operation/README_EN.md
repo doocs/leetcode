@@ -51,7 +51,7 @@ After the second operation, nums is sorted in strictly increasing order, so the 
 
 ## Solutions
 
-**Approach 1: Preprocessing prime numbers + binary search**
+**Solution 1: Preprocessing prime numbers + binary search**
 
 We first preprocess all the primes within $1000$ and record them in the array $p$.
 

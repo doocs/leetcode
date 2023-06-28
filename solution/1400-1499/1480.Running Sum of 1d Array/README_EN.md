@@ -40,7 +40,7 @@
 
 ## Solutions
 
-**Approach 1: Prefix Sum**
+**Solution 1: Prefix Sum**
 
 We directly traverse the array. For the current element $nums[i]$, we add it with the prefix sum $nums[i-1]$ to get the prefix sum $nums[i]$ of the current element.
 

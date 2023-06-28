@@ -55,7 +55,7 @@ So the total number of operations for the second query is 2 + 4 + 1 + 3 = 10.
 
 ## Solutions
 
-**Approach 1: sort + prefix sum + binary search**
+**Solution 1: sort + prefix sum + binary search**
 
 First, we sort the array $nums$ and calculate the prefix sum array $s$ with a length of $n+1$, where $s[i]$ represents the sum of the first $i$ elements in the array $nums$.
 

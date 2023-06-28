@@ -47,7 +47,7 @@
 
 ## Solutions
 
-**Approach 1: Two Pointers**
+**Solution 1: Two Pointers**
 
 We can traverse every string in `queries` and check whether it matches `pattern` or not. If it matches, we add `true` to the answer array, otherwise we add `false`.
 
