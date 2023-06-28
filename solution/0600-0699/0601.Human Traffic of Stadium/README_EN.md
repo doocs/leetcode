@@ -63,22 +63,24 @@ The rows with ids 2 and 3 are not included because we need at least three consec
 
 <!-- tabs:start -->
 
-### **Python3**
+### **SQL**
 
-```python
-
-```
-
-### **Java**
-
-```java
-
-```
-
-### **...**
-
-```
-
+```sql
+# Write your MySQL query statement below
+WITH
+    s AS (
+        SELECT *, id - row_number() OVER (ORDER BY id) AS rk
+        FROM Stadium
+        WHERE people >= 100
+    ),
+    t AS (
+        SELECT *, count(*) OVER (PARTITION BY rk) AS cnt
+        FROM s
+    )
+SELECT id, visit_date, people
+FROM t
+WHERE cnt >= 3
+ORDER BY visit_date;
 ```
 
 <!-- tabs:end -->
