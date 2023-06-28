@@ -57,7 +57,7 @@ Order_date is the date in format (&#39;YYYY-MM-DD&#39;) when the order was shipp
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the <code>customer_id</code> and <code>customer_name</code> of customers who have spent at least <code>$100</code> in each month of <strong>June and July 2020</strong>.</p>
+<p>Write an SQL query to report the <code>customer_id</code> and <code>customer_name</code> of customers who have spent at least <code>100</code> in each month of <strong>June and July 2020</strong>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
@@ -105,9 +105,9 @@ Orders table:
 | 1            | Winston    |
 +--------------+------------+
 <strong>Explanation:</strong> 
-Winston spent $300 (300 * 1) in June and $100 ( 10 * 1 + 45 * 2) in July 2020.
-Jonathan spent $600 (300 * 2) in June and $20 ( 2 * 10) in July 2020.
-Moustafa spent $110 (10 * 2 + 45 * 2) in June and $0 in July 2020.
+Winston spent 300 (300 * 1) in June and 100 ( 10 * 1 + 45 * 2) in July 2020.
+Jonathan spent 600 (300 * 2) in June and 20 ( 2 * 10) in July 2020.
+Moustafa spent 110 (10 * 2 + 45 * 2) in June and 0 in July 2020.
 </pre>
 
 

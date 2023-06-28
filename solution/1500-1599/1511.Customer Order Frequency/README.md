@@ -57,7 +57,7 @@ Order_date 是订单发货的日期, 格式为('YYYY-MM-DD').</pre>
 
 <p>&nbsp;</p>
 
-<p>写一个 SQL 查询，报告在&nbsp;<strong>2020 年 6 月和 7 月&nbsp;</strong>每个月至少花费 $100 的客户的 customer_id 和 customer_name 。</p>
+<p>写一个 SQL 查询，报告在&nbsp;<strong>2020 年 6 月和 7 月&nbsp;</strong>每个月至少花费 100 的客户的 customer_id 和 customer_name 。</p>
 
 <p>以<strong>任意顺序</strong>返回结果表.</p>
 
@@ -109,9 +109,9 @@ Customers table:</code>
 | 1            | Winston    |
 +--------------+------------+ 
 解释：
-Winston 在2020年6月花费了$300(300 * 1), 在7月花费了$100(10 * 1 + 45 * 2).
-Jonathan 在2020年6月花费了$600(300 * 2), 在7月花费了$20(2 * 10).
-Moustafa 在2020年6月花费了$110 (10 * 2 + 45 * 2), 在7月花费了$0.</pre>
+Winston 在2020年6月花费了300(300 * 1), 在7月花费了100(10 * 1 + 45 * 2).
+Jonathan 在2020年6月花费了600(300 * 2), 在7月花费了20(2 * 10).
+Moustafa 在2020年6月花费了110 (10 * 2 + 45 * 2), 在7月花费了0.</pre>
 
 
 ## 解法
