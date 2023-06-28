@@ -68,12 +68,17 @@ user_id （用户 ID）是该表的主键。
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：REGEXP 正则匹配**
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT *
+FROM Users
+WHERE mail REGEXP '^[a-zA-Z][a-zA-Z0-9_.-]*@leetcode[.]com$';
 ```
 
 <!-- tabs:end -->
