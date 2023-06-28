@@ -34,7 +34,7 @@
 
 ## Solutions
 
-**Approach 1: Sorting**
+**Solution 1: Sorting**
 
 First, we sort the array, and use a variable $t$ to record the length of the current continuous sequence, and use a variable $ans$ to record the length of the longest continuous sequence.
 
@@ -48,7 +48,7 @@ Finally, we return the answer $ans$.
 
 Time complexity $O(n \times \log n)$, space complexity $O(\log n)$, where $n$ is the length of the array.
 
-**Approach 2: Hash Table**
+**Solution 2: Hash Table**
 
 We use a hash table to store all the elements in the array, and then we traverse the array to find the longest continuous sequence for each element $x$. If the predecessor of the current element $x-1$ is not in the hash table, we use the current element as the starting point, and keep trying to match $x+1, x+2, x+3, \dots$ until we cannot match, the matching length at this time is the length of the longest continuous sequence starting from $x$, so we update the answer.
 

@@ -39,7 +39,7 @@
 
 ## Solutions
 
-**Approach 1: Quick Power**
+**Solution 1: Quick Power**
 
 Time complexity $O(\log a \times \log b)$, Space complexity $O(1)$.
 

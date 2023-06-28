@@ -48,7 +48,7 @@ Notice that the order of the output and the order of the triplets does not matte
 
 ## Solutions
 
-**Approach 1: Sort + Two Pointers**
+**Solution 1: Sort + Two Pointers**
 
 We notice that the problem does not require us to return the triplet in order, so we might as well sort the array first, which makes it easy to skip duplicate elements.
 

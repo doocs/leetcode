@@ -34,7 +34,7 @@
 
 ## Solutions
 
-**Approach 1: In-place**
+**Solution 1: In-place**
 
 According to the requirements of the problem, we actually need to rotate $matrix[i][j]$ to $matrix[j][n - i - 1]$.
 

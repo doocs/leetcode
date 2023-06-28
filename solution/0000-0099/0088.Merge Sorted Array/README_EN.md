@@ -55,7 +55,7 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
 
 ## Solutions
 
-**Approach 1: Two Pointers**
+**Solution 1: Two Pointers**
 
 We use two pointers $i$ and $j$ pointing to the end of two arrays, and a pointer $k$ pointing to the end of the merged array.
 

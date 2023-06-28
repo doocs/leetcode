@@ -47,7 +47,7 @@ It can be shown that we cannot have less than 3 rows in a valid array.</pre>
 
 ## Solutions
 
-**Approach 1: Array or Hash Table**
+**Solution 1: Array or Hash Table**
 
 We use an array or hash table $cnt$ to count the number of occurrences of each element in the array $nums$.
 

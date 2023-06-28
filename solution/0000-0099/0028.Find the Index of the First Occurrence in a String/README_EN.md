@@ -34,15 +34,15 @@ The first occurrence is at index 0, so we return 0.
 
 ## Solutions
 
-**Approach 1: Traverse**
+**Solution 1: Traverse**
 
 Time complexity $O((n-m) \times m)$, Space complexity $O(1)$.
 
-**Approach 2: Rabin-Karp**
+**Solution 2: Rabin-Karp**
 
 Time complexity $O(n+m)$, Space complexity $O(1)$.
 
-**Approach 3: KMP**
+**Solution 3: KMP**
 
 Time complexity $O(n+m)$, Space complexity $O(m)$.
 

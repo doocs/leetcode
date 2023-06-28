@@ -32,11 +32,11 @@
 
 ## Solutions
 
-**Approach 1: HashTable**
+**Solution 1: HashTable**
 
 Time complexity $O(n \times 10)$, Space complexity $O(n)$.
 
-**Approach 2: Rabin-Karp**
+**Solution 2: Rabin-Karp**
 
 Time complexity $O(n)$, Space complexity $O(n)$.
 

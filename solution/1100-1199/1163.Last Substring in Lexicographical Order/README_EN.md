@@ -32,7 +32,7 @@
 
 ## Solutions
 
-**Approach 1: Two pointers**
+**Solution 1: Two pointers**
 
 We notice that if a substring starts from position $i$, then the largest substring with the largest dictionary order must be $s[i,..n-1]$, which is the longest suffix starting from position $i$. Therefore, we only need to find the largest suffix substring.
 

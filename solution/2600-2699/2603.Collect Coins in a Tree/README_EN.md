@@ -50,7 +50,7 @@
 
 ## Solutions
 
-**Approach 1: Topological sorting**
+**Solution 1: Topological sorting**
 
 We first convert the edges in $edges$ to the adjacency list $g$, where $g[i]$ represents all the adjacent nodes of node $i$, represented by a set.
 

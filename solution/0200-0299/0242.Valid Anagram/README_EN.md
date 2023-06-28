@@ -29,7 +29,7 @@
 
 ## Solutions
 
-**Approach 1: Counting**
+**Solution 1: Counting**
 
 We first determine whether the length of the two strings is equal. If they are not equal, the characters in the two strings must be different, so return `false`.
 

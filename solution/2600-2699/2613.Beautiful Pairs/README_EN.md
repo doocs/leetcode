@@ -44,7 +44,7 @@
 
 ## Solutions
 
-**Approach 1: Sorting + Divide and Conquer**
+**Solution 1: Sorting + Divide and Conquer**
 
 This problem is equivalent to finding two points in the plane, such that the Manhattan distance between them is the smallest. If there are multiple points satisfying the condition, return the one with the smallest index.
 

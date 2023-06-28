@@ -33,7 +33,7 @@
 
 ## Solutions
 
-**Approach 1: Dynamic Programming**
+**Solution 1: Dynamic Programming**
 
 We define $left[i]$ as the height of the highest pillar to the left of and including the position with index $i$, and define $right[i]$ as the height of the highest pillar to the right of and including the position with index $i$. Then the amount of rain water that can be trapped at the position with index $i$ is $min(left[i], right[i]) - height[i]$. We traverse the array, calculate $left[i]$ and $right[i]$, and the answer is $\sum_{i=0}^{n-1} min(left[i], right[i]) - height[i]$.
 

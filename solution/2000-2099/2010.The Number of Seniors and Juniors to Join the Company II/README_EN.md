@@ -21,7 +21,7 @@ The salary of each candidate is guaranteed to be <strong>unique</strong>.</pre>
 
 <p>&nbsp;</p>
 
-<p>A company wants to hire new employees. The budget of the company for the salaries is <code>$70000</code>. The company&#39;s criteria for hiring are:</p>
+<p>A company wants to hire new employees. The budget of the company for the salaries is <code>70000</code>. The company&#39;s criteria for hiring are:</p>
 
 <ol>
 	<li>Keep hiring the senior with the smallest salary until you cannot hire any more seniors.</li>
@@ -61,8 +61,8 @@ Candidates table:
 | 9           |
 +-------------+
 <strong>Explanation:</strong> 
-We can hire 2 seniors with IDs (11, 2). Since the budget is $70000 and the sum of their salaries is $36000, we still have $34000 but they are not enough to hire the senior candidate with ID 13.
-We can hire 2 juniors with IDs (1, 9). Since the remaining budget is $34000 and the sum of their salaries is $25000, we still have $9000 but they are not enough to hire the junior candidate with ID 4.
+We can hire 2 seniors with IDs (11, 2). Since the budget is 70000 and the sum of their salaries is 36000, we still have 34000 but they are not enough to hire the senior candidate with ID 13.
+We can hire 2 juniors with IDs (1, 9). Since the remaining budget is 34000 and the sum of their salaries is 25000, we still have 9000 but they are not enough to hire the junior candidate with ID 4.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -89,7 +89,7 @@ Candidates table:
 | 4           |
 +-------------+
 <strong>Explanation:</strong> 
-We cannot hire any seniors with the current budget as we need at least $80000 to hire one senior.
+We cannot hire any seniors with the current budget as we need at least 80000 to hire one senior.
 We can hire all three juniors with the remaining budget.
 </pre>
 

@@ -71,12 +71,12 @@ Purchases table:
 | 1          | 4        | 400   |
 +------------+----------+-------+
 <strong>Explanation:</strong> 
-Invoice 1: price = (2 * 100) = $200
-Invoice 2: price = (4 * 100) + (3 * 200) = $1000
-Invoice 3: price = (1 * 200) = $200
-Invoice 4: price = (10 * 100) = $1000
+Invoice 1: price = (2 * 100) = 200
+Invoice 2: price = (4 * 100) + (3 * 200) = 1000
+Invoice 3: price = (1 * 200) = 200
+Invoice 4: price = (10 * 100) = 1000
 
-The highest price is $1000, and the invoices with the highest prices are 2 and 4. We return the details of the one with the smallest ID, which is invoice 2.
+The highest price is 1000, and the invoices with the highest prices are 2 and 4. We return the details of the one with the smallest ID, which is invoice 2.
 </pre>
 
 ## Solutions

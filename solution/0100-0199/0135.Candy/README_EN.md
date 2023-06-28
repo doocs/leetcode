@@ -44,7 +44,7 @@ The third child gets 1 candy because it satisfies the above two conditions.
 
 ## Solutions
 
-**Approach 1: Two traversals**
+**Solution 1: Two traversals**
 
 We initialize two arrays $left$ and $right$, where $left[i]$ represents the minimum number of candies the current child should get when the current child's score is higher than the left child's score, and $right[i]$ represents the minimum number of candies the current child should get when the current child's score is higher than the right child's score. Initially, $left[i]=1$, $right[i]=1$.
 

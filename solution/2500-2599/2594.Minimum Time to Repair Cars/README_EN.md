@@ -49,7 +49,7 @@ It can be proved that the cars cannot be repaired in less than 16 minutes.​​
 
 ## Solutions
 
-**Approach 1: Binary Search**
+**Solution 1: Binary Search**
 
 We notice that the longer the repair time, the more repaired cars. Therefore, we can use binary search to find the minimum repair time.
 

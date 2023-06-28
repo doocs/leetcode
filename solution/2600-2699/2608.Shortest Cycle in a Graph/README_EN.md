@@ -41,7 +41,7 @@
 
 ## Solutions
 
-**Approach 1: Enumerate edges + BFS**
+**Solution 1: Enumerate edges + BFS**
 
 We first construct the adjacency list $g$ of the graph according to the array $edges$, where $g[u]$ represents all the adjacent vertices of vertex $u$.
 
@@ -49,9 +49,9 @@ Then we enumerate the two-directional edge $(u, v)$, if the path from vertex $u$
 
 The time complexity is $O(m^2)$ and the space complexity is $O(m + n)$, where $m$ and $n$ are the length of the array $edges$ and the number of vertices.
 
-**Approach 2: Enumerate points + BFS**
+**Solution 2: Enumerate points + BFS**
 
-Similar to Approach 1, we first construct the adjacency list $g$ of the graph according to the array $edges$, where $g[u]$ represents all the adjacent vertices of vertex $u$.
+Similar to Solution 1, we first construct the adjacency list $g$ of the graph according to the array $edges$, where $g[u]$ represents all the adjacent vertices of vertex $u$.
 
 Then we enumerate the vertex $u$, if there are two paths from vertex $u$ to vertex $v$, then we currently find a cycle, the length is the sum of the length of the two paths. We take the minimum of all these cycles.
 

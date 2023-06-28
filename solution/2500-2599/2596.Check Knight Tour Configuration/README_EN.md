@@ -41,7 +41,7 @@
 
 ## Solutions
 
-**Approach 1: Simulation**
+**Solution 1: Simulation**
 
 We first use the array $pos$ to record the coordinates of the grid visited by the knight, and then traverse the $pos$ array to check whether the difference between the adjacent two grid coordinates is $(1, 2)$ or $(2, 1)$. If not, return `false`.
 

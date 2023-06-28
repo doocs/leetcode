@@ -48,7 +48,7 @@ The function increases each value in the array by one.
 
 ## Solutions
 
-**Approach 1: traversal**
+**Solution 1: traversal**
 
 We traverse the array $arr$, for each element $arr[i]$, replace it with $fn(arr[i], i)$. Finally, return the array $arr$.
 

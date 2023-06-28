@@ -53,7 +53,7 @@
 
 ## Solutions
 
-**Approach 1: Two Pointers**
+**Solution 1: Two Pointers**
 
 We can use two pointers $i$ and $j$ to find the left and right endpoints of each interval.
 

@@ -30,7 +30,7 @@
 
 ## Solutions
 
-**Approach 1: Moore Voting Algorithm**
+**Solution 1: Moore Voting Algorithm**
 
 The basic steps of the Moore voting algorithm are as follows:
 

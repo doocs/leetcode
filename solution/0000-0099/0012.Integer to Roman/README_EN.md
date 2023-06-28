@@ -62,7 +62,7 @@ M             1000</pre>
 
 ## Solutions
 
-**Approach 1: Greedy**
+**Solution 1: Greedy**
 
 We can list all possible symbols $cs$ and corresponding values $vs$ first, then enumerate the value $vs[i]$ from large to small, and use the symbol $cs[i]$ as much as possible each time until the number $num$ becomes $0$.
 

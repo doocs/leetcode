@@ -33,7 +33,7 @@
 
 ## Solutions
 
-**Approach 1: Simulation**
+**Solution 1: Simulation**
 
 We use $i$ and $j$ to respectively represent the row and column of the current element being visited, and use $k$ to represent the current direction. We use an array or hash table $vis$ to record whether each element has been visited. After each element is visited, it is marked as visited, and then the current direction is moved forward one step. If the forward step goes out of bounds or has been visited, the direction is changed and continued. Move forward until the entire matrix is traversed.
 
@@ -41,7 +41,7 @@ The time complexity is $O(m \times n)$ and the space complexity is $O(m \times n
 
 For the visited elements, we can also add a constant $300$ to their values, so we do not need an extra $vis$ array or hash table to record whether it has been visited, thus reducing the space complexity to $O(1)$.
 
-**Approach 2: Layer-by-layer Simulation**
+**Solution 2: Layer-by-layer Simulation**
 
 We can also traverse and store the matrix elements from the outside to the inside layer by layer.
 

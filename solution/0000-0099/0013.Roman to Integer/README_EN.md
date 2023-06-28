@@ -64,7 +64,7 @@ M             1000</pre>
 
 ## Solutions
 
-**Approach 1: Hash table + simulation**
+**Solution 1: Hash table + simulation**
 
 We first use a hash table $d$ to record the numerical value corresponding to each character, and then traverse the string $s$ from left to right. If the numerical value corresponding to the current character is less than the numerical value corresponding to the right character, subtract the numerical value corresponding to the current character, otherwise add the numerical value corresponding to the current character.
 

@@ -40,7 +40,7 @@
 
 ## Solutions
 
-**Approach 1: Two Pointers**
+**Solution 1: Two Pointers**
 
 Time complexity $O(n^3)$, Space complexity $O(\log n)$.
 

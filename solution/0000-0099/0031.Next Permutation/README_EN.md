@@ -54,7 +54,7 @@
 
 ## Solutions
 
-**Approach 1: Two traversals**
+**Solution 1: Two traversals**
 
 We first traverse the array from back to front and find the first position $i$ where $nums[i] \lt nums[i + 1]$.
 

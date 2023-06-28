@@ -47,7 +47,7 @@
 
 ## Solutions
 
-**Approach 1: Math + Simulation**
+**Solution 1: Math + Simulation**
 
 We implement a function `is_prime` to check whether a number is prime.
 

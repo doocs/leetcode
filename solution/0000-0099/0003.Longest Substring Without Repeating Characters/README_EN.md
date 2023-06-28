@@ -42,7 +42,7 @@ Notice that the answer must be a substring, &quot;pwke&quot; is a subsequence an
 
 ## Solutions
 
-**Approach 1: Two pointers + Hash Table**
+**Solution 1: Two pointers + Hash Table**
 
 Define a hash table to record the characters in the current window. Let $i$ and $j$ represent the start and end positions of the non-repeating substring, respectively. The length of the longest non-repeating substring is recorded by `ans`.
 

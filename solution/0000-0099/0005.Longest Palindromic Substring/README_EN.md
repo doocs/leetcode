@@ -32,7 +32,7 @@
 
 ## Solutions
 
-**Approach 1: Dynamic Programming**
+**Solution 1: Dynamic Programming**
 
 Set $dp[i][j]$ to indicate whether the string $s[i..j]$ is a palindrome.
 
@@ -41,7 +41,7 @@ Set $dp[i][j]$ to indicate whether the string $s[i..j]$ is a palindrome.
 
 The time complexity is $O(n^2)$ and the space complexity is $O(n^2)$. Where $n$ is the length of the string $s$.
 
-**Approach 2: Enumerate the Palindrome Center**
+**Solution 2: Enumerate the Palindrome Center**
 
 We can enumerate the palindrome center, spread to both sides, and find the longest palindrome.
 

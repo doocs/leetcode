@@ -50,13 +50,13 @@
 
 ## Solutions
 
-**Approach 1: Use Language Built-in Functions**
+**Solution 1: Use Language Built-in Functions**
 
 We split the string into a list of strings by spaces, then reverse the list, and finally join the list into a string separated by spaces.
 
 Time complexity $O(n)$, space complexity $O(n)$, where $n$ is the length of the string.
 
-**Approach 2: Two Pointers**
+**Solution 2: Two Pointers**
 
 We can use two pointers $i$ and $j$, each time we find a word, add it to the result list, then reverse the result list, and finally join the list into a string.
 

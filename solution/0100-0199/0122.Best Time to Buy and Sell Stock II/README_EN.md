@@ -48,13 +48,13 @@ Total profit is 4.
 
 ## Solutions
 
-**Approach 1: Greedy**
+**Solution 1: Greedy**
 
 From the second day, if the stock price on that day is greater than the previous day, buy it on the previous day and sell it on that day to get a profit. If the stock price on that day is less than the previous day, do not buy it or sell it. That is to say, all the rising trading days are bought and sold, and all the falling trading days are not bought or sold, and the final profit is the maximum.
 
 The time complexity is $O(n)$, where $n$ is the length of the array `prices`. The space complexity is $O(1)$.
 
-**Approach 2: Dynamic Programming**
+**Solution 2: Dynamic Programming**
 
 Let $f[i][j]$ represent the maximum profit after the $i$th day of trading, where $j$ represents whether the current stock is held, and $j=0$ when the stock is held, and $j=1$ when the stock is not held. The initial state is $f[0][0]=-prices[0]$, and all other states are $0$.
 
@@ -75,9 +75,9 @@ The final answer is $f[n-1][1]$, where $n$ is the length of the array `prices`.
 
 The time complexity is $O(n)$ and the space complexity is $O(n)$. $n$ is the length of the array `prices`.
 
-**Approach 3: Dynamic Programming (space optimization)**
+**Solution 3: Dynamic Programming (space optimization)**
 
-We can find that in approach 2, the state of the $i$th day only depends on the state of the $i-1$th day, so we can only use two variables to maintain the state of the $i-1$th day. Therefore, the space complexity can be optimized to $O(1)$.
+We can find that in Solution 2, the state of the $i$th day only depends on the state of the $i-1$th day, so we can only use two variables to maintain the state of the $i-1$th day. Therefore, the space complexity can be optimized to $O(1)$.
 
 Time complexity $O(n)$, where $n$ is the length of the array `prices`. Space complexity $O(1)$.
 

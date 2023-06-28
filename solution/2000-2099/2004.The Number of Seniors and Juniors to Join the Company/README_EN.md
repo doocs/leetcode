@@ -21,7 +21,7 @@ Each row of this table indicates the id of a candidate, their monthly salary, an
 
 <p>&nbsp;</p>
 
-<p>A company wants to hire new employees. The budget of the company for the salaries is <code>$70000</code>. The company&#39;s criteria for hiring are:</p>
+<p>A company wants to hire new employees. The budget of the company for the salaries is <code>70000</code>. The company&#39;s criteria for hiring are:</p>
 
 <ol>
 	<li>Hiring the largest number of seniors.</li>
@@ -58,8 +58,8 @@ Candidates table:
 | Junior     | 2                   |
 +------------+---------------------+
 <strong>Explanation:</strong> 
-We can hire 2 seniors with IDs (2, 11). Since the budget is $70000 and the sum of their salaries is $40000, we still have $30000 but they are not enough to hire the senior candidate with ID 13.
-We can hire 2 juniors with IDs (1, 9). Since the remaining budget is $30000 and the sum of their salaries is $20000, we still have $10000 but they are not enough to hire the junior candidate with ID 4.
+We can hire 2 seniors with IDs (2, 11). Since the budget is 70000 and the sum of their salaries is 40000, we still have 30000 but they are not enough to hire the senior candidate with ID 13.
+We can hire 2 juniors with IDs (1, 9). Since the remaining budget is 30000 and the sum of their salaries is 20000, we still have 10000 but they are not enough to hire the junior candidate with ID 4.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -85,7 +85,7 @@ Candidates table:
 | Junior     | 3                   |
 +------------+---------------------+
 <strong>Explanation:</strong> 
-We cannot hire any seniors with the current budget as we need at least $80000 to hire one senior.
+We cannot hire any seniors with the current budget as we need at least 80000 to hire one senior.
 We can hire all three juniors with the remaining budget.
 </pre>
 

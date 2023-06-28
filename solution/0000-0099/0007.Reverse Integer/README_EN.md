@@ -39,7 +39,7 @@
 
 ## Solutions
 
-**Approach 1: Mathematical**
+**Solution 1: Mathematical**
 
 Let $mi$ and $mx$ be $-2^{31}$ and $2^{31} - 1$ respectively. The reversed result $ans$ needs to satisfy $mi \le ans \le mx$.
 

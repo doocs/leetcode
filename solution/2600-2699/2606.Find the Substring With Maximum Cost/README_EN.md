@@ -56,7 +56,7 @@ It can be proven that 0 is the maximum cost.
 
 ## Solutions
 
-**Approach 1: Prefix sum + Maintain the minimum prefix sum**
+**Solution 1: Prefix sum + Maintain the minimum prefix sum**
 
 According to the description of the problem, we traverse each character $c$ in the string $s$, obtain its corresponding value $v$, and then update the current prefix sum $tot=tot+v$. Then, the cost of the maximum cost substring ending with $c$ is $tot$ minus the minimum prefix sum $mi$, that is, $tot-mi$. We update the answer $ans=max(ans,tot-mi)$ and maintain the minimum prefix sum $mi=min(mi,tot)$.
 
@@ -64,7 +64,7 @@ After the traversal is over, return the answer $ans$.
 
 The time complexity is $O(n)$, and the space complexity is $O(C)$. Where $n$ is the length of the string $s$; and $C$ is the size of the character set, which is $26$ in this problem.
 
-**Approach 2: Convert to the maximum subarray sum problem**
+**Solution 2: Convert to the maximum subarray sum problem**
 
 We can consider the value $v$ of each character $c$ as an integer, so the actual problem is to solve the maximum subarray sum problem.
 

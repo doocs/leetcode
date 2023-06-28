@@ -36,7 +36,7 @@
 
 ## Solutions
 
-**Approach 1: Hash Table + Sorting**
+**Solution 1: Hash Table + Sorting**
 
 We use the hash table $cnt$ to count the number of times each integer in the array $arr$ appears, and then sort the values in $cnt$ in ascending order, and record them in the array $nums$.
 

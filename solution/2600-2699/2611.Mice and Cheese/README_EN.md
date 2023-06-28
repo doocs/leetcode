@@ -49,7 +49,7 @@ It can be proven that 2 is the maximum total points that the mice can achieve.
 
 ## Solutions
 
-**Approach 1: Greedy + Sort**
+**Solution 1: Greedy + Sort**
 
 We can first give all the cheese to the second mouse. Next, consider giving $k$ pieces of cheese to the first mouse. How should we choose these $k$ pieces of cheese? Obviously, if we give the $i$-th piece of cheese from the second mouse to the first mouse, the change in the score is $reward1[i] - reward2[i]$. We hope that this change is as large as possible, so that the total score is maximized.
 

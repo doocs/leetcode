@@ -58,7 +58,7 @@
 
 ## Solutions
 
-**Approach 1: Ordered Set + BFS**
+**Solution 1: Ordered Set + BFS**
 
 We notice that for any index $i$ in the subarray interval $[l,..r]$, the flipped index $j = l + r - i$.
 

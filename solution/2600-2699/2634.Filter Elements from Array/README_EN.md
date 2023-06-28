@@ -56,7 +56,7 @@ Falsey values such as 0 should be filtered out
 
 ## Solutions
 
-**Approach 1: Traversal**
+**Solution 1: Traversal**
 
 We traverse the array $arr$ and for each element $arr[i]$, if $fn(arr[i], i)$ is true, we add it to the answer array. Finally, we return the answer array.
 

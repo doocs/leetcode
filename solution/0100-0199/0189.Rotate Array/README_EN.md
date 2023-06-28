@@ -47,7 +47,7 @@ rotate 2 steps to the right: [3,99,-1,-100]
 
 ## Solutions
 
-**Approach 1: Reverse three times**
+**Solution 1: Reverse three times**
 
 We can assume the length of the array is $n$ and calculate the actual number of steps needed by taking the module of $k$ and $n$, which is $k \bmod n$.
 

@@ -48,7 +48,7 @@ It can be proven that no distribution exists such that number of children gettin
 
 ## Solutions
 
-**Approach 1: Case analysis**
+**Solution 1: Case analysis**
 
 If $money \lt children$, then there must be a child who did not receive money, return $-1$.
 

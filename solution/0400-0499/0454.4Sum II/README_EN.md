@@ -44,7 +44,7 @@ The two tuples are:
 
 ## Solutions
 
-**Approach 1: HashMap**
+**Solution 1: HashMap**
 
 Time complexity $O(n^2)$, Space complexity $O(n^2)$.
 

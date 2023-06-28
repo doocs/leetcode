@@ -58,7 +58,7 @@ P     I
 
 ## Solutions
 
-**Approach 1: Simulation**
+**Solution 1: Simulation**
 
 We use a 2D array $g$ to simulate the process of the $Z$-shaped arrangement, where $g[i][j]$ represents the character in the $i$th row and the $j$th column. Initially, $i=0$, and we also define a direction variable $k$, initially $k=-1$, which means up.
 

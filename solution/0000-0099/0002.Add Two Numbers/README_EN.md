@@ -42,7 +42,7 @@
 
 ## Solutions
 
-**Approach 1: Simulation**
+**Solution 1: Simulation**
 
 We traverse two linked lists $l_1$ and $l_2$ at the same time, and use the variable $carry$ to indicate whether there is a carry.
 

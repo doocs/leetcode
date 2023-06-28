@@ -32,7 +32,7 @@
 
 ## Solutions
 
-**Approach 1: Hash Table or Array**
+**Solution 1: Hash Table or Array**
 
 We can use two hash tables or arrays $d_1$ and $d_2$ to record the character mapping relationship between $s$ and $t$.
 
