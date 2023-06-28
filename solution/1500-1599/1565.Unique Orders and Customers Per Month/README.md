@@ -23,7 +23,7 @@ order_id 是 <strong>Orders </strong>表的主键<sub>。</sub>
 
 <p>&nbsp;</p>
 
-<p>写一个查询语句来 <strong>按月 </strong>统计金额（invoice）<strong>大于 $20 </strong>的唯一 <strong>订单数</strong> 和唯一 <strong>顾客数 。</strong></p>
+<p>写一个查询语句来 <strong>按月 </strong>统计金额（invoice）<strong>大于 20 </strong>的唯一 <strong>订单数</strong> 和唯一 <strong>顾客数 。</strong></p>
 
 <p>查询结果无排序要求。</p>
 
@@ -60,11 +60,11 @@ Orders</code>
 | 2021-01 | 1           | 1              |
 +---------+-------------+----------------+
 <strong>解释：</strong>
-在 2020 年 09 月<sub>，</sub>有 2 份来自 2 位不同顾客的金额大于 $20 的订单<sub>。</sub>
-在 2020 年 10 月<sub>，</sub>有 2 份来自 1 位顾客的订单<sub>，</sub>并且只有其中的 1 份订单金额大于 $20 <sub>。</sub>
-在 2020 年 11 月<sub>，</sub>有 2 份来自 2 位不同顾客的订单<sub>，</sub>但由于金额都小于 $20 <sub>，</sub>所以我们的查询结果中不包含这个月的数据<sub>。</sub>
-在 2020 年 12 月<sub>，</sub>有 2 份来自 1 位顾客的订单<sub>，</sub>且 2 份订单金额都大于 $20<sub> 。</sub>
-在 2021 年 01 月<sub>，</sub>有 2 份来自 2 位不同顾客的订单<sub>，</sub>但只有其中一份订单金额大于 $20 <sub>。</sub></pre>
+在 2020 年 09 月<sub>，</sub>有 2 份来自 2 位不同顾客的金额大于 20 的订单<sub>。</sub>
+在 2020 年 10 月<sub>，</sub>有 2 份来自 1 位顾客的订单<sub>，</sub>并且只有其中的 1 份订单金额大于 20 <sub>。</sub>
+在 2020 年 11 月<sub>，</sub>有 2 份来自 2 位不同顾客的订单<sub>，</sub>但由于金额都小于 20 <sub>，</sub>所以我们的查询结果中不包含这个月的数据<sub>。</sub>
+在 2020 年 12 月<sub>，</sub>有 2 份来自 1 位顾客的订单<sub>，</sub>且 2 份订单金额都大于 20<sub> 。</sub>
+在 2021 年 01 月<sub>，</sub>有 2 份来自 2 位不同顾客的订单<sub>，</sub>但只有其中一份订单金额大于 20 <sub>。</sub></pre>
 
 ## 解法
 

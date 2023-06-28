@@ -203,7 +203,7 @@ def generate_summary(result):
 def refresh(result):
     """update problems"""
     pattern = re.compile("src=\"(.*?)\"")
-    skip_question_ids = {3, 33, 34, 1599}
+    skip_question_ids = {3, 33, 34, 375, 465, 638, 860, 983, 1511, 1555, 1565, 1599}
 
     for question in result:
         front_question_id = question['frontend_question_id']
