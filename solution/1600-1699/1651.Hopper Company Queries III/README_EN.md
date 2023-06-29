@@ -150,7 +150,40 @@ By the end of October --&gt; average_ride_distance = (0+163+6)/3=56.33, average_
 ### **SQL**
 
 ```sql
-
+# Write your MySQL query statement below
+WITH RECURSIVE
+    Months AS (
+        SELECT 1 AS month
+        UNION ALL
+        SELECT month + 1
+        FROM Months
+        WHERE month < 12
+    ),
+    Ride AS (
+        SELECT
+            month,
+            sum(ifnull(ride_distance, 0)) AS ride_distance,
+            sum(ifnull(ride_duration, 0)) AS ride_duration
+        FROM
+            Months AS m
+            LEFT JOIN Rides AS r
+                ON month = month(requested_at) AND year(requested_at) = 2020
+            LEFT JOIN AcceptedRides AS a ON r.ride_id = a.ride_id
+        GROUP BY month
+    )
+SELECT
+    month,
+    round(
+        avg(ride_distance) OVER (ROWS BETWEEN CURRENT ROW AND 2 FOLLOWING),
+        2
+    ) AS average_ride_distance,
+    round(
+        avg(ride_duration) OVER (ROWS BETWEEN CURRENT ROW AND 2 FOLLOWING),
+        2
+    ) AS average_ride_duration
+FROM Ride
+ORDER BY month
+LIMIT 10;
 ```
 
 <!-- tabs:end -->

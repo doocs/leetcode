@@ -96,29 +96,25 @@ Task 3 被分成了 4 subtasks (1, 2, 3, 4)。所有的subtask都被成功执行
 
 ```sql
 # Write your MySQL query statement below
-with recursive t(task_id, subtask_id) as (
-    select
-        task_id,
-        subtasks_count
-    from
-        Tasks
-    union
-    all
-    select
-        task_id,
-        subtask_id - 1
-    from
-        t
-    where
-        subtask_id >= 2
-)
-select
+WITH RECURSIVE
+    t(task_id, subtask_id) AS (
+        SELECT
+            task_id,
+            subtasks_count
+        FROM Tasks
+        UNION ALL
+        SELECT
+            task_id,
+            subtask_id - 1
+        FROM t
+        WHERE subtask_id >= 2
+    )
+SELECT
     t.*
-from
+FROM
     t
-    left join Executed e using(task_id, subtask_id)
-where
-    e.subtask_id is null
+    LEFT JOIN Executed AS e USING (task_id, subtask_id)
+WHERE e.subtask_id IS NULL;
 ```
 
 <!-- tabs:end -->
