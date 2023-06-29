@@ -100,7 +100,53 @@ We can see that the income exceeded the max income in May and July, but not in J
 ### **SQL**
 
 ```sql
+# Write your MySQL query statement below
+WITH
+    S AS (
+        SELECT DISTINCT
+            t.account_id,
+            date_format(day, '%Y-%m-01') AS day,
+            transaction_id AS tx,
+            sum(amount) OVER (
+                PARTITION BY account_id, date_format(day, '%Y-%m-01')
+            ) > max_income AS marked
+        FROM
+            Transactions AS t
+            LEFT JOIN Accounts AS a ON t.account_id = a.account_id
+        WHERE type = 'Creditor'
+    )
+SELECT DISTINCT s1.account_id
+FROM
+    S AS s1
+    LEFT JOIN S AS s2
+        ON s1.account_id = s2.account_id
+        AND timestampdiff(Month, s1.day, s2.day) = 1
+WHERE s1.marked = 1 AND s2.marked = 1
+ORDER BY s1.tx;
+```
 
+```sql
+# Write your MySQL query statement below
+WITH
+    S AS (
+        SELECT
+            account_id,
+            date_format(day, '%Y%m') AS yearmonth,
+            transaction_id AS tx
+        FROM
+            Transactions
+            JOIN Accounts USING (account_id)
+        WHERE type = 'Creditor'
+        GROUP BY account_id, yearmonth
+        HAVING sum(amount) > avg(max_income)
+    )
+SELECT DISTINCT account_id
+FROM S
+WHERE
+    (account_id, period_add(yearmonth, 1)) IN (
+        SELECT account_id, yearmonth FROM S
+    )
+ORDER BY tx;
 ```
 
 <!-- tabs:end -->
