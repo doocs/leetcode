@@ -80,7 +80,20 @@ Machine 2&#39;s average time is ((4.512 - 4.100) + (5.000 - 2.500)) / 2 = 1.456
 ### **SQL**
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT
+    machine_id,
+    round(
+        avg(
+            CASE
+                WHEN activity_type = 'start' THEN -timestamp
+                ELSE timestamp
+            END
+        ) * 2,
+        3
+    ) AS processing_time
+FROM Activity
+GROUP BY machine_id;
 ```
 
 <!-- tabs:end -->
