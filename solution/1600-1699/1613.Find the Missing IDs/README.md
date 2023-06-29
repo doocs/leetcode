@@ -67,35 +67,30 @@ Customers</code> 表:
 
 ```sql
 # Write your MySQL query statement below
-with recursive t as (
-    select
-        1 as n
-    union
-    all
-    select
-        n + 1
-    from
-        t
-    where
-        n < 100
-)
-select
-    n ids
-from
-    t
-where
+WITH RECURSIVE
+    t AS (
+        SELECT
+            1 AS n
+        UNION ALL
+        SELECT
+            n + 1
+        FROM t
+        WHERE n < 100
+    )
+SELECT
+    n AS ids
+FROM t
+WHERE
     n < (
-        select
+        SELECT
             max(customer_id)
-        from
-            Customers
+        FROM Customers
     )
-    and n not in (
-        select
+    AND n NOT IN (
+        SELECT
             customer_id
-        from
-            Customers
-    )
+        FROM Customers
+    );
 ```
 
 <!-- tabs:end -->
