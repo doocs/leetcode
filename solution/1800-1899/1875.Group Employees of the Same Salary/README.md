@@ -83,7 +83,23 @@ Juan的工资(6100)没有被计算在排名中，因为他不属于任何一个�
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-
+# Write your MySQL query statement below
+WITH
+    S AS (
+        SELECT salary
+        FROM Employees
+        GROUP BY salary
+        HAVING count(1) > 1
+    ),
+    T AS (
+        SELECT salary, row_number() OVER (ORDER BY salary) AS team_id
+        FROM S
+    )
+SELECT e.*, t.team_id
+FROM
+    Employees AS e
+    JOIN T AS t ON e.salary = t.salary
+ORDER BY 4, 1;
 ```
 
 <!-- tabs:end -->

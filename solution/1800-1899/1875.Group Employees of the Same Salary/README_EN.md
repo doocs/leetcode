@@ -77,7 +77,23 @@ Juan&#39;s salary of 6100 is not included in the ranking because they are not on
 ### **SQL**
 
 ```sql
-
+# Write your MySQL query statement below
+WITH
+    S AS (
+        SELECT salary
+        FROM Employees
+        GROUP BY salary
+        HAVING count(1) > 1
+    ),
+    T AS (
+        SELECT salary, row_number() OVER (ORDER BY salary) AS team_id
+        FROM S
+    )
+SELECT e.*, t.team_id
+FROM
+    Employees AS e
+    JOIN T AS t ON e.salary = t.salary
+ORDER BY 4, 1;
 ```
 
 <!-- tabs:end -->
