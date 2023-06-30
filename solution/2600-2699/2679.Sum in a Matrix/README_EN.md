@@ -48,8 +48,7 @@ class Solution:
     def matrixSum(self, nums: List[List[int]]) -> int:
         for row in nums:
             row.sort()
-        n = len(nums[0])
-        return sum(max(row[j] for row in nums) for j in range(n))
+        return sum(map(max, zip(*nums)))
 ```
 
 ### **Java**
@@ -117,6 +116,25 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function matrixSum(nums: number[][]): number {
+    for (const row of nums) {
+        row.sort((a, b) => a - b);
+    }
+    let ans = 0;
+    for (let j = 0; j < nums[0].length; ++j) {
+        let mx = 0;
+        for (const row of nums) {
+            mx = Math.max(mx, row[j]);
+        }
+        ans += mx;
+    }
+    return ans;
 }
 ```
 
