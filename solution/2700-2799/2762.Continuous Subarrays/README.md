@@ -1,6 +1,6 @@
-# [6911. 不间断子数组](https://leetcode.cn/problems/continuous-subarrays)
+# [2762. 不间断子数组](https://leetcode.cn/problems/continuous-subarrays)
 
-[English Version](/solution/6900-6999/6911.Continuous%20Subarrays/README_EN.md)
+[English Version](/solution/2700-2799/2762.Continuous%20Subarrays/README_EN.md)
 
 ## 题目描述
 

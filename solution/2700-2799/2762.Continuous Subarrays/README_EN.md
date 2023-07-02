@@ -1,6 +1,6 @@
-# [6911. Continuous Subarrays](https://leetcode.com/problems/continuous-subarrays)
+# [2762. Continuous Subarrays](https://leetcode.com/problems/continuous-subarrays)
 
-[中文文档](/solution/6900-6999/6911.Continuous%20Subarrays/README.md)
+[中文文档](/solution/2700-2799/2762.Continuous%20Subarrays/README.md)
 
 ## Description
 

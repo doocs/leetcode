@@ -1,6 +1,6 @@
-# [6916. 和等于目标值的质数对](https://leetcode.cn/problems/prime-pairs-with-target-sum)
+# [2761. 和等于目标值的质数对](https://leetcode.cn/problems/prime-pairs-with-target-sum)
 
-[English Version](/solution/6900-6999/6916.Prime%20Pairs%20With%20Target%20Sum/README_EN.md)
+[English Version](/solution/2700-2799/2761.Prime%20Pairs%20With%20Target%20Sum/README_EN.md)
 
 ## 题目描述
 

@@ -1,6 +1,6 @@
-# [6894. 所有子数组中不平衡数字之和](https://leetcode.cn/problems/sum-of-imbalance-numbers-of-all-subarrays)
+# [2763. 所有子数组中不平衡数字之和](https://leetcode.cn/problems/sum-of-imbalance-numbers-of-all-subarrays)
 
-[English Version](/solution/6800-6899/6894.Sum%20of%20Imbalance%20Numbers%20of%20All%20Subarrays/README_EN.md)
+[English Version](/solution/2700-2799/2763.Sum%20of%20Imbalance%20Numbers%20of%20All%20Subarrays/README_EN.md)
 
 ## 题目描述
 

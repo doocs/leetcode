@@ -1,6 +1,6 @@
-# [6909. 最长奇偶子数组](https://leetcode.cn/problems/longest-even-odd-subarray-with-threshold)
+# [2760. 最长奇偶子数组](https://leetcode.cn/problems/longest-even-odd-subarray-with-threshold)
 
-[English Version](/solution/6900-6999/6909.Longest%20Even%20Odd%20Subarray%20With%20Threshold/README_EN.md)
+[English Version](/solution/2700-2799/2760.Longest%20Even%20Odd%20Subarray%20With%20Threshold/README_EN.md)
 
 ## 题目描述
 
