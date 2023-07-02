@@ -1,27 +1,32 @@
 class Solution {
+    private int m;
+    private int n;
+    private int[] nums1;
+    private int[] nums2;
+
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        int m = nums1.length;
-        int n = nums2.length;
-        int left = (m + n + 1) / 2;
-        int right = (m + n + 2) / 2;
-        return (findKth(nums1, 0, nums2, 0, left) + findKth(nums1, 0, nums2, 0, right)) / 2.0;
+        m = nums1.length;
+        n = nums2.length;
+        this.nums1 = nums1;
+        this.nums2 = nums2;
+        int a = f(0, 0, (m + n + 1) / 2);
+        int b = f(0, 0, (m + n + 2) / 2);
+        return (a + b) / 2.0;
     }
 
-    private int findKth(int[] nums1, int i, int[] nums2, int j, int k) {
-        if (i >= nums1.length) {
+    private int f(int i, int j, int k) {
+        if (i >= m) {
             return nums2[j + k - 1];
         }
-        if (j >= nums2.length) {
+        if (j >= n) {
             return nums1[i + k - 1];
         }
         if (k == 1) {
             return Math.min(nums1[i], nums2[j]);
         }
-        int midVal1 = (i + k / 2 - 1 < nums1.length) ? nums1[i + k / 2 - 1] : Integer.MAX_VALUE;
-        int midVal2 = (j + k / 2 - 1 < nums2.length) ? nums2[j + k / 2 - 1] : Integer.MAX_VALUE;
-        if (midVal1 < midVal2) {
-            return findKth(nums1, i + k / 2, nums2, j, k - k / 2);
-        }
-        return findKth(nums1, i, nums2, j + k / 2, k - k / 2);
+        int p = k / 2;
+        int x = i + p - 1 < m ? nums1[i + p - 1] : 1 << 30;
+        int y = j + p - 1 < n ? nums2[j + p - 1] : 1 << 30;
+        return x < y ? f(i + p, j, k - p) : f(i, j + p, k - p);
     }
 }
