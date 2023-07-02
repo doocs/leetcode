@@ -50,7 +50,8 @@ day 1
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sh
-
+# Read from the file words.txt and output the word frequency list to stdout.
+cat words.txt | tr -s ' ' '\n' | sort | uniq -c | sort -nr | awk '{print $2, $1}'
 ```
 
 <!-- tabs:end -->
