@@ -45,6 +45,7 @@ It can be shown that we cannot make the array equal with a smaller cost.
 	<li><code>n == nums.length == cost.length</code></li>
 	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= nums[i], cost[i] &lt;= 10<sup>6</sup></code></li>
+	<li>Test cases are generated in a way that the output doesn&#39;t exceed&nbsp;2<sup>53</sup>-1</li>
 </ul>
 
 ## Solutions

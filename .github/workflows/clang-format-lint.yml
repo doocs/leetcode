@@ -19,9 +19,9 @@ jobs:
         inplace: True
 
     - uses: EndBug/add-and-commit@v9
-        with:
-          committer_name: yanglbme
-          committer_email: contact@yanglibin.info
-          message: 'chore: format code with clang-format'
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
+      with:
+        committer_name: yanglbme
+        committer_email: contact@yanglibin.info
+        message: 'chore: format code with clang-format'
+      env:
+        GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}

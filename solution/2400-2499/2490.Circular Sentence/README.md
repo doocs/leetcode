@@ -45,7 +45,7 @@
 <strong>输入：</strong>sentence = "eetcode"
 <strong>输出：</strong>true
 <strong>解释：</strong>句子中的单词是 ["eetcode"] 。
-- eetcod<em><strong>e</strong></em> 的最后一个字符和 eetcod<em><strong>e</strong></em> 的第一个字符相等。
+- eetcod<em><strong>e</strong></em> 的最后一个字符和 <em><strong>e</strong></em>etcod<em>e</em> 的第一个字符相等。
 这个句子是回环句。</pre>
 
 <p><strong>示例 3：</strong></p>
@@ -54,7 +54,7 @@
 <strong>输入：</strong>sentence = "Leetcode is cool"
 <strong>输出：</strong>false
 <strong>解释：</strong>句子中的单词是 ["Leetcode", "is", "cool"] 。
-- Leetcod<em><strong>e</strong></em>&nbsp;的最后一个字符和 i<strong><em>s</em></strong> 的第一个字符 <strong>不</strong> 相等。 
+- Leetcod<em><strong>e</strong></em>&nbsp;的最后一个字符和 <em><strong>i</strong></em>s 的第一个字符 <strong>不</strong> 相等。 
 这个句子 <strong>不</strong> 是回环句。</pre>
 
 <p>&nbsp;</p>

@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>Create a class&nbsp;<code>ArrayWrapper</code> that accepts&nbsp;an array of integers in it&#39;s constructor. This class should have two features:</p>
+<p>Create a class&nbsp;<code>ArrayWrapper</code> that accepts&nbsp;an array of integers in its constructor. This class should have two features:</p>
 
 <ul>
 	<li>When two instances of this class are added together with the&nbsp;<code>+</code>&nbsp;operator, the resulting value is the sum of all the elements in&nbsp;both arrays.</li>

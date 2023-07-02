@@ -25,6 +25,13 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 352
+
+- [6909. Longest Even Odd Subarray With Threshold](/solution/6900-6999/6909.Longest%20Even%20Odd%20Subarray%20With%20Threshold/README_EN.md)
+- [6916. Prime Pairs With Target Sum](/solution/6900-6999/6916.Prime%20Pairs%20With%20Target%20Sum/README_EN.md)
+- [6911. Continuous Subarrays](/solution/6900-6999/6911.Continuous%20Subarrays/README_EN.md)
+- [6894. Sum of Imbalance Numbers of All Subarrays](/solution/6800-6899/6894.Sum%20of%20Imbalance%20Numbers%20of%20All%20Subarrays/README_EN.md)
+
 #### Weekly Contest 351
 
 - [2748. Number of Beautiful Pairs](/solution/2700-2799/2748.Number%20of%20Beautiful%20Pairs/README_EN.md)

@@ -6,7 +6,7 @@
 
 <p>Given a function&nbsp;<code>fn</code> and a time in milliseconds&nbsp;<code>t</code>, return&nbsp;a&nbsp;<strong>debounced</strong>&nbsp;version of that function.</p>
 
-<p>A&nbsp;<strong>debounced</strong>&nbsp;function is a function whose execution is delayed by&nbsp;<code>t</code>&nbsp;milliseconds and whose&nbsp;execution is cancelled if it is called again within that window of time. The debounced function should also recieve the passed parameters.</p>
+<p>A&nbsp;<strong>debounced</strong>&nbsp;function is a function whose execution is delayed by&nbsp;<code>t</code>&nbsp;milliseconds and whose&nbsp;execution is cancelled if it is called again within that window of time. The debounced function should also receive the passed parameters.</p>
 
 <p>For example, let&#39;s say&nbsp;<code>t = 50ms</code>, and the function was called at&nbsp;<code>30ms</code>,&nbsp;<code>60ms</code>, and <code>100ms</code>. The first 2 function calls would be cancelled, and the 3rd function call would be executed at&nbsp;<code>150ms</code>. If instead&nbsp;<code>t = 35ms</code>, The 1st call would be cancelled, the 2nd would be executed at&nbsp;<code>95ms</code>, and the 3rd would be executed at&nbsp;<code>135ms</code>.</p>
 

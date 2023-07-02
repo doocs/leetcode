@@ -43,7 +43,7 @@ callPolyfill sets the &quot;this&quot; context to {&quot;a&quot;: 5}. 7 is passe
 fn = function tax(price, taxRate) { 
 &nbsp;return `The cost of the ${this.item} is ${price * taxRate}`; 
 }
-args = [{&quot;item&quot;: &quot;burger&quot;}, 10, 1,1]
+args = [{&quot;item&quot;: &quot;burger&quot;}, 10, 1.1]
 <strong>Output:</strong> &quot;The cost of the burger is 11&quot;
 <strong>Explanation:</strong> callPolyfill sets the &quot;this&quot; context to {&quot;item&quot;: &quot;burger&quot;}. 10 and 1.1 are passed as additional arguments.
 </pre>
