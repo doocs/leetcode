@@ -60,6 +60,16 @@
 
 **方法一：二维前缀和 + 二维差分**
 
+根据题给的约束，很容易推出，一个格子能贴邮票的条件为，在加上邮票的长和宽后，右下角不越界的情况下，当前子区域中所有格子的和为 0。
+
+那么显然我们可以维护一个二维的前缀和数组，在 `O(1)` 的时间复杂度下就可以判断每次遍历到的格子是否能贴邮票。
+
+而因为贴邮票的操作，可以概括为将当前子区域的所有格子的值都置为 `1`，很自然的就能想到用一个二维的差分数组来维护贴邮票后的状态。
+
+最后只要对该差分数组再求一次二维前缀和，只要当前格子的和为 `0`，就意味着存在没有覆盖完全的情况，直接返回 `false` 即可。
+
+需要注意的是二维数组的下标关系，具体参考如下。
+
 `s[i + 1][j + 1]` 表示第 i 行第 j 列左上部分所有元素之和，其中 i, j 下标从 0 开始。
 
 则 `s[i + 1][j + 1] = s[i + 1][j] + s[i][j + 1] - s[i][j] + nums[i][j]`。
@@ -181,6 +191,72 @@ public:
         return true;
     }
 };
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn possible_to_stamp(grid: Vec<Vec<i32>>, stamp_height: i32, stamp_width: i32) -> bool {
+        let n: usize = grid.len();
+        let m: usize = grid[0].len();
+
+        let mut prefix_vec: Vec<Vec<i32>> = vec![vec![0; m + 1]; n + 1];
+
+        // Initialize the prefix vector
+        for i in 0..n {
+            for j in 0..m {
+                prefix_vec[i + 1][j + 1] = prefix_vec[i][j + 1] + prefix_vec[i + 1][j] - prefix_vec[i][j] + grid[i][j];
+            }
+        }
+
+        let mut diff_vec: Vec<Vec<i32>> = vec![vec![0; m + 1]; n + 1];
+
+        // Construct the difference vector based on prefix sum vector
+        for i in 0..n {
+            for j in 0..m {
+                // If the value of the cell is one, just bypass this
+                if grid[i][j] == 1 {
+                    continue;
+                }
+                // Otherwise, try stick the stamp
+                let x: usize = i + stamp_height as usize;
+                let y: usize = j + stamp_width as usize;
+                // Check the bound
+                if x <= n && y <= m {
+                    // If the region can be sticked (All cells are empty, which means the sum will be zero)
+                    if prefix_vec[x][y] - prefix_vec[x][j] - prefix_vec[i][y] + prefix_vec[i][j] == 0 {
+                        // Update the difference vector
+                        diff_vec[i][j] += 1;
+                        diff_vec[x][y] += 1;
+
+                        diff_vec[x][j] -= 1;
+                        diff_vec[i][y] -= 1;
+                    }
+                }
+            }
+        }
+
+        let mut check_vec: Vec<Vec<i32>> = vec![vec![0; m + 1]; n + 1];
+
+        // Check the prefix sum of difference vector, to determine if there is any empty cell left
+        for i in 0..n {
+            for j in 0..m {
+                // If the value of the cell is one, just bypass this
+                if grid[i][j] == 1 {
+                    continue;
+                }
+                // Otherwise, check if the region is empty, by calculating the prefix sum of difference vector
+                check_vec[i + 1][j + 1] = check_vec[i][j + 1] + check_vec[i + 1][j] - check_vec[i][j] + diff_vec[i][j];
+                if check_vec[i + 1][j + 1] == 0 {
+                    return false;
+                }
+            }
+        }
+
+        true
+    }
+}
 ```
 
 ### **Go**

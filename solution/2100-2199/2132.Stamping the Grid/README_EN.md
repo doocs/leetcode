@@ -50,6 +50,24 @@
 
 ## Solutions
 
+Based on the constraints provided by the question, it's easy to infer that a cell can accommodate a stamp if, after adding the length and width of the stamp, the bottom-right corner does not exceed the boundary, and the sum of all cells in the current sub-area is zero.
+
+Apparently, we can maintain a two-dimensional prefix sum array, and in `O(1)` time complexity, we can judge whether each cell traversed can accommodate a stamp.
+
+Since the action of affixing a stamp can be generalized to setting the values of all cells in the current sub-area to `1`, it's natural to think of maintaining the state after stamp affixing using a two-dimensional difference array.
+
+Finally, just calculate the two-dimensional prefix sum for this difference array again. 
+
+If the sum of the current cell is `0`, it means there are cases that have not been completely covered, and you can directly return `false`.
+
+It's worth noting the subscript relationship of the two-dimensional array, which is as follows.
+
+`s[i + 1][j + 1]` represents the sum of all elements in the upper left part of the i-th row and j-th column, where the subscript i, j starts from 0.
+
+So `s[i + 1][j + 1] = s[i + 1][j] + s[i][j + 1] - s[i][j] + nums[i][j]`.
+
+For a sub-matrix with (x1, y1) as the upper left corner and (x2, y2) as the bottom right corner, the sum `sub = s[x2 + 1][y2 + 1] - s[x2 + 1][y1] - s[x1][y2 + 1] + s[x1][y1]`.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -161,6 +179,72 @@ public:
         return true;
     }
 };
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn possible_to_stamp(grid: Vec<Vec<i32>>, stamp_height: i32, stamp_width: i32) -> bool {
+        let n: usize = grid.len();
+        let m: usize = grid[0].len();
+
+        let mut prefix_vec: Vec<Vec<i32>> = vec![vec![0; m + 1]; n + 1];
+
+        // Initialize the prefix vector
+        for i in 0..n {
+            for j in 0..m {
+                prefix_vec[i + 1][j + 1] = prefix_vec[i][j + 1] + prefix_vec[i + 1][j] - prefix_vec[i][j] + grid[i][j];
+            }
+        } 
+
+        let mut diff_vec: Vec<Vec<i32>> = vec![vec![0; m + 1]; n + 1];
+
+        // Construct the difference vector based on prefix sum vector
+        for i in 0..n {
+            for j in 0..m {
+                // If the value of the cell is one, just bypass this
+                if grid[i][j] == 1 {
+                    continue;
+                }
+                // Otherwise, try stick the stamp
+                let x: usize = i + stamp_height as usize;
+                let y: usize = j + stamp_width as usize;
+                // Check the bound
+                if x <= n && y <= m {
+                    // If the region can be sticked (All cells are empty, which means the sum will be zero)
+                    if prefix_vec[x][y] - prefix_vec[x][j] - prefix_vec[i][y] + prefix_vec[i][j] == 0 {
+                        // Update the difference vector
+                        diff_vec[i][j] += 1;
+                        diff_vec[x][y] += 1;
+
+                        diff_vec[x][j] -= 1;
+                        diff_vec[i][y] -= 1;
+                    }
+                }
+            }
+        }
+
+        let mut check_vec: Vec<Vec<i32>> = vec![vec![0; m + 1]; n + 1];
+
+        // Check the prefix sum of difference vector, to determine if there is any empty cell left
+        for i in 0..n {
+            for j in 0..m {
+                // If the value of the cell is one, just bypass this
+                if grid[i][j] == 1 {
+                    continue;
+                }
+                // Otherwise, check if the region is empty, by calculating the prefix sum of difference vector
+                check_vec[i + 1][j + 1] = check_vec[i][j + 1] + check_vec[i + 1][j] - check_vec[i][j] + diff_vec[i][j];
+                if check_vec[i + 1][j + 1] == 0 {
+                    return false;
+                }
+            }
+        }
+
+        true
+    }
+}
 ```
 
 ### **Go**

@@ -49,19 +49,22 @@
 
 **方法一：分治**
 
-本题限制了时间复杂度为 $O(\log (m+n))$，看到这个时间复杂度，自然而然的想到了应该使用二分查找法来求解。那么回顾一下中位数的定义，如果某个有序数组长度是奇数，那么其中位数就是最中间那个，如果是偶数，那么就是最中间两个数字的平均值。这里对于两个有序数组也是一样的，假设两个有序数组的长度分别为 $m$ 和 $n$，由于两个数组长度之和 $m+n$ 的奇偶不确定，因此需要分情况来讨论，对于奇数的情况，直接找到最中间的数即可，偶数的话需要求最中间两个数的平均值。为了简化代码，不分情况讨论，我们使用一个小 trick，我们分别找第 $\frac{m+n+1}{2}$ 和 $\frac{m+n+2}{2}$ 个，然后求其平均值即可，这对奇偶数均适用。假如 $m+n$ 为奇数的话，那么其实 $\frac{m+n+1}{2}$ 和 $\frac{m+n+2}{2}$ 的值相等，相当于两个相同的数字相加再除以 2，还是其本身。
+题目要求算法的时间复杂度为 $O(\log (m + n))$，因此不能直接遍历两个数组，而是需要使用二分查找的方法。
 
-这里我们需要定义一个函数来在两个有序数组中找到第 $k$ 个元素，下面重点来看如何实现找到第 $k$ 个元素。
+如果 $m + n$ 是奇数，那么中位数就是第 $\left\lfloor\frac{m + n + 1}{2}\right\rfloor$ 个数；如果 $m + n$ 是偶数，那么中位数就是第 $\left\lfloor\frac{m + n + 1}{2}\right\rfloor$ 和第 $\left\lfloor\frac{m + n + 2}{2}\right\rfloor$ 个数的平均数。实际上，我们可以统一为求第 $\left\lfloor\frac{m + n + 1}{2}\right\rfloor$ 个数和第 $\left\lfloor\frac{m + n + 2}{2}\right\rfloor$ 个数的平均数。
 
-首先，为了避免产生新的数组从而增加时间复杂度，我们使用两个变量 $i$ 和 $j$ 分别来标记数组 `nums1` 和 `nums2` 的起始位置。然后来处理一些边界问题，比如当某一个数组的起始位置大于等于其数组长度时，说明其所有数字均已经被淘汰了，相当于一个空数组了，那么实际上就变成了在另一个数组中找数字，直接就可以找出来了。还有就是如果 $k=1$ 的话，那么我们只要比较 `nums1` 和 `nums2` 的起始位置 $i$ 和 $j$ 上的数字就可以了。
+因此，我们可以设计一个函数 $f(i, j, k)$，表示在数组 $nums1$ 的区间 $[i, m)$ 和数组 $nums2$ 的区间 $[j, n)$ 中，求第 $k$ 小的数。那么中位数就是 $f(0, 0, \left\lfloor\frac{m + n + 1}{2}\right\rfloor)$ 和 $f(0, 0, \left\lfloor\frac{m + n + 2}{2}\right\rfloor)$ 的平均数。
 
-难点就在于一般的情况怎么处理？因为我们需要在两个有序数组中找到第 $k$ 个元素，为了加快搜索的速度，我们要使用二分法，对 $k$ 二分，意思是我们需要分别在 `nums1` 和 `nums2` 中查找第 $\left \lfloor \frac{k}{2} \right \rfloor$ 个元素，注意这里由于两个数组的长度不定，所以有可能某个数组没有第 $\left \lfloor \frac{k}{2} \right \rfloor$ 个数字，所以我们需要先检查一下，数组中到底存不存在第 $\left \lfloor \frac{k}{2} \right \rfloor$ 个数字，如果存在就取出来，否则就赋值上一个整型最大值。如果某个数组没有第 $\left \lfloor \frac{k}{2} \right \rfloor$ 个数字，那么我们就淘汰另一个数字的前 $\left \lfloor \frac{k}{2} \right \rfloor$ 个数字即可。有没有可能两个数组都不存在第 $\left \lfloor \frac{k}{2} \right \rfloor$ 个数字呢，这道题里是不可能的，因为我们的 $k$ 不是任意给的，而是给的 $m+n$ 的中间值，所以必定至少会有一个数组是存在第 $\left \lfloor \frac{k}{2} \right \rfloor$ 个数字的。
+函数 $f(i, j, k)$ 的实现思路如下：
 
-最后是二分法的核心，比较这两个数组的第 $\left \lfloor \frac{k}{2} \right \rfloor$ 小的数字 `midVal1` 和 `midVal2` 的大小，如果第一个数组的第 $\left \lfloor \frac{k}{2} \right \rfloor$ 个数字小的话，那么说明我们要找的数字肯定不在 `nums1` 中的前 $\left \lfloor \frac{k}{2} \right \rfloor$ 个数字，所以我们可以将其淘汰，将 `nums1` 的起始位置向后移动 $\left \lfloor \frac{k}{2} \right \rfloor$ 个，并且此时的 $k$ 也自减去 $\left \lfloor \frac{k}{2} \right \rfloor$，调用递归。反之，我们淘汰 `nums2` 中的前 $\left \lfloor \frac{k}{2} \right \rfloor$ 个数字，并将 `nums2` 的起始位置向后移动 $\left \lfloor \frac{k}{2} \right \rfloor$ 个，并且此时的 $k$ 也自减去 $\left \lfloor \frac{k}{2} \right \rfloor$，调用递归即可。
+-   如果 $i \geq m$，说明数组 $nums1$ 的区间 $[i, m)$ 为空，因此直接返回 $nums2[j + k - 1]$；
+-   如果 $j \geq n$，说明数组 $nums2$ 的区间 $[j, n)$ 为空，因此直接返回 $nums1[i + k - 1]$；
+-   如果 $k = 1$，说明要找第一个数，因此只需要返回 $nums1[i]$ 和 $nums2[j]$ 中的最小值；
+-   否则，我们分别在两个数组中查找第 $\left\lfloor\frac{k}{2}\right\rfloor$ 个数，设为 $x$ 和 $y$。（注意，如果某个数组不存在第 $\left\lfloor\frac{k}{2}\right\rfloor$ 个数，那么我们将第 $\left\lfloor\frac{k}{2}\right\rfloor$ 个数视为 $+\infty$。）比较 $x$ 和 $y$ 的大小：
+    -   如果 $x \leq y$，则说明数组 $nums1$ 的第 $\left\lfloor\frac{k}{2}\right\rfloor$ 个数不可能是第 $k$ 小的数，因此我们可以排除数组 $nums1$ 的区间 $[i, i + \left\lfloor\frac{k}{2}\right\rfloor)$，递归调用 $f(i + \left\lfloor\frac{k}{2}\right\rfloor, j, k - \left\lfloor\frac{k}{2}\right\rfloor)$。
+    -   如果 $x > y$，则说明数组 $nums2$ 的第 $\left\lfloor\frac{k}{2}\right\rfloor$ 个数不可能是第 $k$ 小的数，因此我们可以排除数组 $nums2$ 的区间 $[j, j + \left\lfloor\frac{k}{2}\right\rfloor)$，递归调用 $f(i, j + \left\lfloor\frac{k}{2}\right\rfloor, k - \left\lfloor\frac{k}{2}\right\rfloor)$。
 
-> 实际是比较两个数组中的第 $\left \lfloor \frac{k}{2} \right \rfloor$ 个数字哪一个可能到达最后合并后排序数组中的第 $k$ 个元素的位置，其中小的那个数字注定不可能到达，所以可以直接将小的元素对应的数组的前 $\left \lfloor \frac{k}{2} \right \rfloor$ 个数字淘汰。
-
-时间复杂度 $O(\log (m+n))$，其中 $m$ 和 $n$ 是两个数组的长度。
+时间复杂度 $O(\log(m + n))$，空间复杂度 $O(\log(m + n))$。其中 $m$ 和 $n$ 分别是数组 $nums1$ 和 $nums2$ 的长度。
 
 <!-- tabs:start -->
 
@@ -72,22 +75,22 @@
 ```python
 class Solution:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
-        def findKth(i, j, k):
+        def f(i: int, j: int, k: int) -> int:
             if i >= m:
                 return nums2[j + k - 1]
             if j >= n:
                 return nums1[i + k - 1]
             if k == 1:
                 return min(nums1[i], nums2[j])
-            midVal1 = nums1[i + k // 2 - 1] if i + k // 2 - 1 < m else inf
-            midVal2 = nums2[j + k // 2 - 1] if j + k // 2 - 1 < n else inf
-            if midVal1 < midVal2:
-                return findKth(i + k // 2, j, k - k // 2)
-            return findKth(i, j + k // 2, k - k // 2)
+            p = k // 2
+            x = nums1[i + p - 1] if i + p - 1 < m else inf
+            y = nums2[j + p - 1] if j + p - 1 < n else inf
+            return f(i + p, j, k - p) if x < y else f(i, j + p, k - p)
 
         m, n = len(nums1), len(nums2)
-        left, right = (m + n + 1) // 2, (m + n + 2) // 2
-        return (findKth(0, 0, left) + findKth(0, 0, right)) / 2
+        a = f(0, 0, (m + n + 1) // 2)
+        b = f(0, 0, (m + n + 2) // 2)
+        return (a + b) / 2
 ```
 
 ### **Java**
@@ -96,30 +99,35 @@ class Solution:
 
 ```java
 class Solution {
+    private int m;
+    private int n;
+    private int[] nums1;
+    private int[] nums2;
+
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        int m = nums1.length;
-        int n = nums2.length;
-        int left = (m + n + 1) / 2;
-        int right = (m + n + 2) / 2;
-        return (findKth(nums1, 0, nums2, 0, left) + findKth(nums1, 0, nums2, 0, right)) / 2.0;
+        m = nums1.length;
+        n = nums2.length;
+        this.nums1 = nums1;
+        this.nums2 = nums2;
+        int a = f(0, 0, (m + n + 1) / 2);
+        int b = f(0, 0, (m + n + 2) / 2);
+        return (a + b) / 2.0;
     }
 
-    private int findKth(int[] nums1, int i, int[] nums2, int j, int k) {
-        if (i >= nums1.length) {
+    private int f(int i, int j, int k) {
+        if (i >= m) {
             return nums2[j + k - 1];
         }
-        if (j >= nums2.length) {
+        if (j >= n) {
             return nums1[i + k - 1];
         }
         if (k == 1) {
             return Math.min(nums1[i], nums2[j]);
         }
-        int midVal1 = (i + k / 2 - 1 < nums1.length) ? nums1[i + k / 2 - 1] : Integer.MAX_VALUE;
-        int midVal2 = (j + k / 2 - 1 < nums2.length) ? nums2[j + k / 2 - 1] : Integer.MAX_VALUE;
-        if (midVal1 < midVal2) {
-            return findKth(nums1, i + k / 2, nums2, j, k - k / 2);
-        }
-        return findKth(nums1, i, nums2, j + k / 2, k - k / 2);
+        int p = k / 2;
+        int x = i + p - 1 < m ? nums1[i + p - 1] : 1 << 30;
+        int y = j + p - 1 < n ? nums2[j + p - 1] : 1 << 30;
+        return x < y ? f(i + p, j, k - p) : f(i, j + p, k - p);
     }
 }
 ```
@@ -130,21 +138,25 @@ class Solution {
 class Solution {
 public:
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
-        int m = nums1.size();
-        int n = nums2.size();
-        int left = (m + n + 1) / 2;
-        int right = (m + n + 2) / 2;
-        return (findKth(nums1, 0, nums2, 0, left) + findKth(nums1, 0, nums2, 0, right)) / 2.0;
-    }
-
-    int findKth(vector<int>& nums1, int i, vector<int>& nums2, int j, int k) {
-        if (i >= nums1.size()) return nums2[j + k - 1];
-        if (j >= nums2.size()) return nums1[i + k - 1];
-        if (k == 1) return min(nums1[i], nums2[j]);
-        int midVal1 = i + k / 2 - 1 < nums1.size() ? nums1[i + k / 2 - 1] : INT_MAX;
-        int midVal2 = j + k / 2 - 1 < nums2.size() ? nums2[j + k / 2 - 1] : INT_MAX;
-        if (midVal1 < midVal2) return findKth(nums1, i + k / 2, nums2, j, k - k / 2);
-        return findKth(nums1, i, nums2, j + k / 2, k - k / 2);
+        int m = nums1.size(), n = nums2.size();
+        function<int(int, int, int)> f = [&](int i, int j, int k) {
+            if (i >= m) {
+                return nums2[j + k - 1];
+            }
+            if (j >= n) {
+                return nums1[i + k - 1];
+            }
+            if (k == 1) {
+                return min(nums1[i], nums2[j]);
+            }
+            int p = k / 2;
+            int x = i + p - 1 < m ? nums1[i + p - 1] : 1 << 30;
+            int y = j + p - 1 < n ? nums2[j + p - 1] : 1 << 30;
+            return x < y ? f(i + p, j, k - p) : f(i, j + p, k - p);
+        };
+        int a = f(0, 0, (m + n + 1) / 2);
+        int b = f(0, 0, (m + n + 2) / 2);
+        return (a + b) / 2.0;
     }
 };
 ```
@@ -154,9 +166,8 @@ public:
 ```go
 func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 	m, n := len(nums1), len(nums2)
-	left, right := (m+n+1)/2, (m+n+2)/2
-	var findKth func(i, j, k int) int
-	findKth = func(i, j, k int) int {
+	var f func(i, j, k int) int
+	f = func(i, j, k int) int {
 		if i >= m {
 			return nums2[j+k-1]
 		}
@@ -166,20 +177,21 @@ func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 		if k == 1 {
 			return min(nums1[i], nums2[j])
 		}
-		midVal1 := math.MaxInt32
-		midVal2 := math.MaxInt32
-		if i+k/2-1 < m {
-			midVal1 = nums1[i+k/2-1]
+		p := k / 2
+		x, y := 1<<30, 1<<30
+		if ni := i + p - 1; ni < m {
+			x = nums1[ni]
 		}
-		if j+k/2-1 < n {
-			midVal2 = nums2[j+k/2-1]
+		if nj := j + p - 1; nj < n {
+			y = nums2[nj]
 		}
-		if midVal1 < midVal2 {
-			return findKth(i+k/2, j, k-k/2)
+		if x < y {
+			return f(i+p, j, k-p)
 		}
-		return findKth(i, j+k/2, k-k/2)
+		return f(i, j+p, k-p)
 	}
-	return (float64(findKth(0, 0, left)) + float64(findKth(0, 0, right))) / 2.0
+	a, b := f(0, 0, (m+n+1)/2), f(0, 0, (m+n+2)/2)
+	return float64(a+b) / 2.0
 }
 
 func min(a, b int) int {
@@ -187,6 +199,102 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function findMedianSortedArrays(nums1: number[], nums2: number[]): number {
+    const m = nums1.length;
+    const n = nums2.length;
+    const f = (i: number, j: number, k: number): number => {
+        if (i >= m) {
+            return nums2[j + k - 1];
+        }
+        if (j >= n) {
+            return nums1[i + k - 1];
+        }
+        if (k == 1) {
+            return Math.min(nums1[i], nums2[j]);
+        }
+        const p = Math.floor(k / 2);
+        const x = i + p - 1 < m ? nums1[i + p - 1] : 1 << 30;
+        const y = j + p - 1 < n ? nums2[j + p - 1] : 1 << 30;
+        return x < y ? f(i + p, j, k - p) : f(i, j + p, k - p);
+    };
+    const a = f(0, 0, Math.floor((m + n + 1) / 2));
+    const b = f(0, 0, Math.floor((m + n + 2) / 2));
+    return (a + b) / 2;
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number}
+ */
+var findMedianSortedArrays = function (nums1, nums2) {
+    const m = nums1.length;
+    const n = nums2.length;
+    const f = (i, j, k) => {
+        if (i >= m) {
+            return nums2[j + k - 1];
+        }
+        if (j >= n) {
+            return nums1[i + k - 1];
+        }
+        if (k == 1) {
+            return Math.min(nums1[i], nums2[j]);
+        }
+        const p = Math.floor(k / 2);
+        const x = i + p - 1 < m ? nums1[i + p - 1] : 1 << 30;
+        const y = j + p - 1 < n ? nums2[j + p - 1] : 1 << 30;
+        return x < y ? f(i + p, j, k - p) : f(i, j + p, k - p);
+    };
+    const a = f(0, 0, Math.floor((m + n + 1) / 2));
+    const b = f(0, 0, Math.floor((m + n + 2) / 2));
+    return (a + b) / 2;
+};
+```
+
+### **TypeScript**
+
+```ts
+public class Solution {
+    private int m;
+    private int n;
+    private int[] nums1;
+    private int[] nums2;
+
+    public double FindMedianSortedArrays(int[] nums1, int[] nums2) {
+        m = nums1.Length;
+        n = nums2.Length;
+        this.nums1 = nums1;
+        this.nums2 = nums2;
+        int a = f(0, 0, (m + n + 1) / 2);
+        int b = f(0, 0, (m + n + 2) / 2);
+        return (a + b) / 2.0;
+    }
+
+    private int f(int i, int j, int k) {
+        if (i >= m) {
+            return nums2[j + k - 1];
+        }
+        if (j >= n) {
+            return nums1[i + k - 1];
+        }
+        if (k == 1) {
+            return Math.Min(nums1[i], nums2[j]);
+        }
+        int p = k / 2;
+        int x = i + p - 1 < m ? nums1[i + p - 1] : 1 << 30;
+        int y = j + p - 1 < n ? nums2[j + p - 1] : 1 << 30;
+        return x < y ? f(i + p, j, k - p) : f(i, j + p, k - p);
+    }
 }
 ```
 
