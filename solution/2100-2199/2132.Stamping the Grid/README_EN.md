@@ -50,6 +50,24 @@
 
 ## Solutions
 
+Based on the constraints provided by the question, it's easy to infer that a cell can accommodate a stamp if, after adding the length and width of the stamp, the bottom-right corner does not exceed the boundary, and the sum of all cells in the current sub-area is zero.
+
+Apparently, we can maintain a two-dimensional prefix sum array, and in `O(1)` time complexity, we can judge whether each cell traversed can accommodate a stamp.
+
+Since the action of affixing a stamp can be generalized to setting the values of all cells in the current sub-area to `1`, it's natural to think of maintaining the state after stamp affixing using a two-dimensional difference array.
+
+Finally, just calculate the two-dimensional prefix sum for this difference array again. 
+
+If the sum of the current cell is `0`, it means there are cases that have not been completely covered, and you can directly return `false`.
+
+It's worth noting the subscript relationship of the two-dimensional array, which is as follows.
+
+`s[i + 1][j + 1]` represents the sum of all elements in the upper left part of the i-th row and j-th column, where the subscript i, j starts from 0.
+
+So `s[i + 1][j + 1] = s[i + 1][j] + s[i][j + 1] - s[i][j] + nums[i][j]`.
+
+For a sub-matrix with (x1, y1) as the upper left corner and (x2, y2) as the bottom right corner, the sum `sub = s[x2 + 1][y2 + 1] - s[x2 + 1][y1] - s[x1][y2 + 1] + s[x1][y1]`.
+
 <!-- tabs:start -->
 
 ### **Python3**
