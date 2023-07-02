@@ -24,10 +24,10 @@
 
 #### 第 352 场周赛(2023-07-02 10:30, 90 分钟) 参赛人数 3437
 
-- [6909. 最长奇偶子数组](/solution/6900-6999/6909.Longest%20Even%20Odd%20Subarray%20With%20Threshold/README.md)
-- [6916. 和等于目标值的质数对](/solution/6900-6999/6916.Prime%20Pairs%20With%20Target%20Sum/README.md)
-- [6911. 不间断子数组](/solution/6900-6999/6911.Continuous%20Subarrays/README.md)
-- [6894. 所有子数组中不平衡数字之和](/solution/6800-6899/6894.Sum%20of%20Imbalance%20Numbers%20of%20All%20Subarrays/README.md)
+- [2760. 最长奇偶子数组](/solution/2700-2799/2760.Longest%20Even%20Odd%20Subarray%20With%20Threshold/README.md)
+- [2761. 和等于目标值的质数对](/solution/2700-2799/2761.Prime%20Pairs%20With%20Target%20Sum/README.md)
+- [2762. 不间断子数组](/solution/2700-2799/2762.Continuous%20Subarrays/README.md)
+- [2763. 所有子数组中不平衡数字之和](/solution/2700-2799/2763.Sum%20of%20Imbalance%20Numbers%20of%20All%20Subarrays/README.md)
 
 #### 第 351 场周赛(2023-06-25 10:30, 90 分钟) 参赛人数 2471
 
