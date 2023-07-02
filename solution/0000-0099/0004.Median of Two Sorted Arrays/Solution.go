@@ -1,8 +1,7 @@
 func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 	m, n := len(nums1), len(nums2)
-	left, right := (m+n+1)/2, (m+n+2)/2
-	var findKth func(i, j, k int) int
-	findKth = func(i, j, k int) int {
+	var f func(i, j, k int) int
+	f = func(i, j, k int) int {
 		if i >= m {
 			return nums2[j+k-1]
 		}
@@ -12,20 +11,21 @@ func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 		if k == 1 {
 			return min(nums1[i], nums2[j])
 		}
-		midVal1 := math.MaxInt32
-		midVal2 := math.MaxInt32
-		if i+k/2-1 < m {
-			midVal1 = nums1[i+k/2-1]
+		p := k / 2
+		x, y := 1<<30, 1<<30
+		if ni := i + p - 1; ni < m {
+			x = nums1[ni]
 		}
-		if j+k/2-1 < n {
-			midVal2 = nums2[j+k/2-1]
+		if nj := j + p - 1; nj < n {
+			y = nums2[nj]
 		}
-		if midVal1 < midVal2 {
-			return findKth(i+k/2, j, k-k/2)
+		if x < y {
+			return f(i+p, j, k-p)
 		}
-		return findKth(i, j+k/2, k-k/2)
+		return f(i, j+p, k-p)
 	}
-	return (float64(findKth(0, 0, left)) + float64(findKth(0, 0, right))) / 2.0
+	a, b := f(0, 0, (m+n+1)/2), f(0, 0, (m+n+2)/2)
+	return float64(a+b) / 2.0
 }
 
 func min(a, b int) int {

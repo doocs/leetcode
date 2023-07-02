@@ -1,12 +1,7 @@
-/**
- * @param {number[]} nums1
- * @param {number[]} nums2
- * @return {number}
- */
-var findMedianSortedArrays = function (nums1, nums2) {
+function findMedianSortedArrays(nums1: number[], nums2: number[]): number {
     const m = nums1.length;
     const n = nums2.length;
-    const f = (i, j, k) => {
+    const f = (i: number, j: number, k: number): number => {
         if (i >= m) {
             return nums2[j + k - 1];
         }
@@ -24,4 +19,4 @@ var findMedianSortedArrays = function (nums1, nums2) {
     const a = f(0, 0, Math.floor((m + n + 1) / 2));
     const b = f(0, 0, Math.floor((m + n + 2) / 2));
     return (a + b) / 2;
-};
+}
