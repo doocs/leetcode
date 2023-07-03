@@ -66,7 +66,14 @@ Out of the three users, only User 3 is eligible for a discount.
 ### **SQL**
 
 ```sql
-
+CREATE PROCEDURE getUserIDs(startDate DATE, endDate DATE, minAmount INT)
+BEGIN
+    # Write your MySQL query statement below.
+    SELECT DISTINCT user_id
+    FROM Purchases
+    WHERE amount >= minAmount AND time_stamp BETWEEN startDate AND endDate
+    ORDER BY user_id;
+END;
 ```
 
 <!-- tabs:end -->

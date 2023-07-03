@@ -32,8 +32,10 @@
                 "solution/1500-1599/1555.Bank Account Summary/Solution.sql",
                 "solution/1600-1699/1667.Fix Names in a Table/Solution.sql",
                 "solution/1700-1799/1777.Product's Price for Each Store/Solution.sql",
+                "solution/1900-1999/1934.Confirmation Rate/Solution.sql",
                 "solution/1900-1999/1972.First and Last Call On the Same Day/Solution.sql",
                 "solution/2000-2099/2066.Account Balance/Solution.sql",
+                "solution/2200-2299/2230.The Users That Are Eligible for Discount/Solution.sql",
                 "solution/2600-2699/2686.Immediate Food Delivery III/Solution.sql",
                 "solution/2700-2799/2752.Customers with Maximum Number of Transactions on Consecutive Days/Solution.sql"
             ],

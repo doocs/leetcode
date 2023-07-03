@@ -56,13 +56,61 @@ Now s has no occurrences of &quot;xy&quot;.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def removeOccurrences(self, s: str, part: str) -> str:
+        while part in s:
+            s = s.replace(part, '', 1)
+        return s
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String removeOccurrences(String s, String part) {
+        while (s.contains(part)) {
+            s = s.replaceFirst(part, "");
+        }
+        return s;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string removeOccurrences(string s, string part) {
+        int m = part.size();
+        while (s.find(part) != -1) {
+            s = s.erase(s.find(part), m);
+        }
+        return s;
+    }
+};
+```
+
+### **Go**
+
+```go
+func removeOccurrences(s string, part string) string {
+	for strings.Contains(s, part) {
+		s = strings.Replace(s, part, "", 1)
+	}
+	return s
+}
+```
+
+### **TypeScript**
+
+```ts
+function removeOccurrences(s: string, part: string): string {
+    while (s.includes(part)) {
+        s = s.replace(part, '');
+    }
+    return s;
+}
 ```
 
 ### **...**

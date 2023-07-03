@@ -72,7 +72,11 @@ Problems 表:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT problem_id
+FROM Problems
+WHERE likes / (likes + dislikes) < 0.6
+ORDER BY problem_id;
 ```
 
 <!-- tabs:end -->

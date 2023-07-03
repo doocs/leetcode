@@ -94,7 +94,17 @@ User 2 made 2 requests where one was confirmed and the other timed out. The conf
 ### **SQL**
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT
+    user_id,
+    round(
+        sum(if(action = 'confirmed', 1, 0)) / count(1),
+        2
+    ) AS confirmation_rate
+FROM
+    Signups
+    LEFT JOIN Confirmations USING (user_id)
+GROUP BY user_id;
 ```
 
 <!-- tabs:end -->

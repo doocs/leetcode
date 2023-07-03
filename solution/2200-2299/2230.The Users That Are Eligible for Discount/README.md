@@ -66,7 +66,14 @@ startDate = 2022-03-08, endDate = 2022-03-20, minAmount = 1000
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-
+CREATE PROCEDURE getUserIDs(startDate DATE, endDate DATE, minAmount INT)
+BEGIN
+    # Write your MySQL query statement below.
+    SELECT DISTINCT user_id
+    FROM Purchases
+    WHERE amount >= minAmount AND time_stamp BETWEEN startDate AND endDate
+    ORDER BY user_id;
+END;
 ```
 
 <!-- tabs:end -->

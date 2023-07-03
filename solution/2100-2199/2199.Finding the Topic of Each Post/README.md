@@ -110,7 +110,15 @@ Posts 表:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT
+    post_id,
+    ifnull(group_concat(DISTINCT topic_id), 'Ambiguous!') AS topic
+FROM
+    Posts
+    LEFT JOIN Keywords
+        ON instr(concat(' ', content, ' '), concat(' ', word, ' ')) > 0
+GROUP BY post_id;
 ```
 
 <!-- tabs:end -->
