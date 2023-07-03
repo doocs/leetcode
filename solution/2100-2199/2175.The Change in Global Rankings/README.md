@@ -115,6 +115,10 @@ New Zealand 没有获得或丢失分数，他们的排名也没有发生变化�
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：窗口函数**
+
+利用 `rank()` 函数求出新老排名，然后用 `CAST` 将字段类型改为 `signed`，保证两个排名可以进行减法操作。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -122,7 +126,22 @@ New Zealand 没有获得或丢失分数，他们的排名也没有发生变化�
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-
+# Write your MySQL query statement below
+WITH
+    P AS (
+        SELECT team_id, sum(points_change) AS delta
+        FROM PointsChange
+        GROUP BY team_id
+    )
+SELECT
+    team_id,
+    name,
+    CAST(rank() OVER (ORDER BY points DESC, name) AS SIGNED) - CAST(
+        rank() OVER (ORDER BY (points + delta) DESC, name) AS SIGNED
+    ) AS 'rank_diff'
+FROM
+    TeamPoints
+    JOIN P USING (team_id);
 ```
 
 <!-- tabs:end -->
