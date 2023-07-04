@@ -19,11 +19,11 @@ This table contains the ID and the name of the user. The name consists of only l
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to fix the names so that only the first character is uppercase and the rest are lowercase.</p>
+<p>Fix the names so that only the first character is uppercase and the rest are lowercase.</p>
 
 <p>Return the result table ordered by <code>user_id</code>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

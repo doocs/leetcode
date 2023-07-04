@@ -1,4 +1,4 @@
-# [2756. Query Batching](https://leetcode.cn/problems/query-batching)
+# [2756. 批处理查询](https://leetcode.cn/problems/query-batching)
 
 [English Version](/solution/2700-2799/2756.Query%20Batching/README_EN.md)
 
@@ -6,122 +6,124 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Batching multiple small queries into a single large query can be a useful optimization. Write a class&nbsp;<code>QueryBatcher</code>&nbsp;that implements this functionality.</p>
+<p>将多个小查询批处理为单个大查询可以是一种有用的优化。请编写一个名为&nbsp;<code>QueryBatcher</code>&nbsp;的类来实现这个功能。</p>
 
-<p>The constructor should accept two parameters:</p>
-
-<ul>
-	<li>An asyncronous function&nbsp;<code>queryMultiple</code>&nbsp;which accepts an array of&nbsp;string keys <code>input</code>. It will resolve with an array of values that is the same length as the input array. Each index corresponds to the value associated with&nbsp;<code>input[i]</code>.&nbsp;You can assume the promise will never reject.</li>
-	<li>A throttle time in milliseconds&nbsp;<code>t</code>.</li>
-</ul>
-
-<p>The class has a single method.</p>
+<p>它的构造函数应接受两个参数：</p>
 
 <ul>
-	<li><code>async getValue(key)</code>. Accepts a single string key and resolves with a single string value. The keys passed to this function should eventually get passed to the&nbsp;<code>queryMultiple</code>&nbsp;function.&nbsp;<code>queryMultiple</code>&nbsp;should never be called consecutively within&nbsp;<code>t</code>&nbsp;milliseconds. The first time&nbsp;<code>getValue</code>&nbsp;is called,&nbsp;<code>queryMultiple</code>&nbsp;should immediately be called with that single key. If after&nbsp;<code>t</code>&nbsp;milliseconds,&nbsp;<code>getValue</code>&nbsp;had been called again, all the passed keys should be passed to&nbsp;<code>queryMultiple</code>&nbsp;and ultimately returned. You can assume every key passed to this method is unique.</li>
+	<li>一个异步函数&nbsp;<code>queryMultiple</code>&nbsp;，它接受一个字符串键的数组作为输入。它将返回一个与输入数组长度相同的值数组。每个索引对应于与&nbsp;<code>input[i]</code>&nbsp;相关联的值。可以假设该异步函数永远不会被拒绝。</li>
+	<li>一个以毫秒为单位的节流时间<code>t</code>。</li>
 </ul>
 
-<p>The following diagram illustrates how the throttling algorithm works. Each rectangle represents 100ms. The throttle time is 400ms.</p>
+<p>该类有一个方法：</p>
+
+<ul>
+	<li><code>async getValue(key)</code>：接受一个字符串键，并返回一个解析后的字符串值。传递给此函数的键值最终应传递给&nbsp;<code>queryMultiple</code>&nbsp;函数。在&nbsp;<code>t</code>&nbsp;毫秒内不应连续调用&nbsp;<code>queryMultiple</code>&nbsp;。第一次调用&nbsp;<code>getValue</code>&nbsp;时，应立即使用该单个键调用&nbsp;<code>queryMultiple</code>&nbsp;。如果在&nbsp;<code>t</code>&nbsp;毫秒后再次调用了&nbsp;<code>getValue</code>&nbsp;，则所有传递的键应传递给&nbsp;<code>queryMultiple</code>&nbsp;，并返回最终结果。可以假设传递给该方法的每个键都是唯一的。</li>
+</ul>
+
+<p>下图说明了节流算法的工作原理。每个矩形代表 100毫秒。节流时间为 400毫秒。</p>
 
 <p><img alt="Throttle info" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2700-2799/2756.Query%20Batching/images/throttle.png" style="width: 622px; height: 200px;" /></p>
 
 <p>&nbsp;</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>Input:</strong> 
+<b>输入：</b>
 queryMultiple = async function(keys) { 
-&nbsp; return keys.map(key =&gt; key + &#39;!&#39;);
+&nbsp; return keys.map(key =&gt; key + '!');
 }
 t = 100 
 calls = [
-&nbsp;{&quot;key&quot;: &quot;a&quot;, &quot;time&quot;: 10}, 
-&nbsp;{&quot;key&quot;: &quot;b&quot;, &quot;time&quot;: 20}, 
-&nbsp;{&quot;key&quot;: &quot;c&quot;, &quot;time&quot;: 30}
+&nbsp;{"key": "a", "time": 10}, 
+&nbsp;{"key": "b", "time": 20}, 
+&nbsp;{"key": "c", "time": 30}
 ]
-<strong>Output:</strong> [
-&nbsp;{&quot;resolved&quot;: &quot;a!&quot;, &quot;time&quot;: 10},
-&nbsp;{&quot;resolved&quot;: &quot;b!&quot;, &quot;time&quot;: 110},
-&nbsp;{&quot;resolved&quot;: &quot;c!&quot;, &quot;time&quot;: 110}
+<b>输出：</b>[
+&nbsp;{"resolved": "a!", "time": 10},
+&nbsp;{"resolved": "b!", "time": 110},
+&nbsp;{"resolved": "c!", "time": 110}
 ]
-<strong>Explanation:</strong>
+<strong>解释：</strong>
 const batcher = new QueryBatcher(queryMultiple, 100);
-setTimeout(() =&gt; batcher.getValue(&#39;a&#39;), 10); // &quot;a!&quot; at t=10ms
-setTimeout(() =&gt; batcher.getValue(&#39;b&#39;), 20); // &quot;b!&quot; at t=110ms
-setTimeout(() =&gt; batcher.getValue(&#39;c&#39;), 30); // &quot;c!&quot; at t=110ms
+setTimeout(() =&gt; batcher.getValue('a'), 10); // "a!" at t=10ms
+setTimeout(() =&gt; batcher.getValue('b'), 20); // "b!" at t=110ms
+setTimeout(() =&gt; batcher.getValue('c'), 30); // "c!" at t=110ms
 
-queryMultiple simply adds an &quot;!&quot; to the key
-At t=10ms, getValue(&#39;a&#39;) is called, queryMultiple([&#39;a&#39;]) is immediately called and the result is immediately returned.
-At t=20ms, getValue(&#39;b&#39;) is called but the query is queued
-At t=30ms, getValue(&#39;c&#39;) is called but the query is queued.
-At t=110ms, queryMultiple([&#39;a&#39;, &#39;b&#39;]) is called and the results are immediately returned.
+<code>queryMultiple </code>简单地给键添加了"!"。 
+在 t=10ms 时，调用 <code>getValue('a')</code>，立即调用 <code>queryMultiple(['a']) </code>并立即返回结果。 
+在 t=20ms 时，调用 <code>getValue('b')</code>，但查询需要等待。 
+在 t=30ms 时，调用 <code>getValue('c')</code>，但查询需要等待。 
+在 t=110ms 时，调用 <code>queryMultiple(['a', 'b']) </code>并立即返回结果。
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2；</strong></p>
 
 <pre>
-<strong>Input:</strong> 
+<b>输入：</b>
 queryMultiple = async function(keys) {
 &nbsp; await new Promise(res =&gt; setTimeout(res, 100));
-&nbsp; return keys.map(key =&gt; key + &#39;!&#39;);
+&nbsp; return keys.map(key =&gt; key + '!');
 }
 t = 100
 calls = [
-&nbsp;{&quot;key&quot;: &quot;a&quot;, &quot;time&quot;: 10},
-&nbsp;{&quot;key&quot;: &quot;b&quot;, &quot;time&quot;: 20},
-&nbsp;{&quot;key&quot;: &quot;c&quot;, &quot;time&quot;: 30}
+&nbsp;{"key": "a", "time": 10},
+&nbsp;{"key": "b", "time": 20},
+&nbsp;{"key": "c", "time": 30}
 ]
-<strong>Output:</strong> [
-&nbsp; {&quot;resolved&quot;: &quot;a!&quot;, &quot;time&quot;: 110},
-&nbsp; {&quot;resolved&quot;: &quot;b!&quot;, &quot;time&quot;: 210},
-&nbsp; {&quot;resolved&quot;: &quot;c!&quot;, &quot;time&quot;: 210}
+<b>输出：</b>[
+&nbsp; {"resolved": "a!", "time": 110},
+&nbsp; {"resolved": "b!", "time": 210},
+&nbsp; {"resolved": "c!", "time": 210}
 ]
-<strong>Explanation:</strong>
-This example is the same as example 1 except there is a 100ms delay in queryMultiple. The results are the same except the promises resolve 100ms later.
+<strong>解释：</strong>
+这个例子与示例 1 相同，只是在 <code>queryMultiple </code>中有一个 100ms 的延迟。结果也相同，只是 promise 的解析时间延迟了 100ms。
 </pre>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <pre>
-<strong>Input:</strong> 
+<b>输入：</b>
 queryMultiple = async function(keys) { 
 &nbsp; await new Promise(res =&gt; setTimeout(res, keys.length * 100)); 
-&nbsp; return keys.map(key =&gt; key + &#39;!&#39;);
+&nbsp; return keys.map(key =&gt; key + '!');
 }
 t = 100
 calls = [
-&nbsp; {&quot;key&quot;: &quot;a&quot;, &quot;time&quot;: 10}, 
-  {&quot;key&quot;: &quot;b&quot;, &quot;time&quot;: 20}, 
-&nbsp; {&quot;key&quot;: &quot;c&quot;, &quot;time&quot;: 30}, 
-  {&quot;key&quot;: &quot;d&quot;, &quot;time&quot;: 40}, 
-&nbsp; {&quot;key&quot;: &quot;e&quot;, &quot;time&quot;: 250}
-&nbsp; {&quot;key&quot;: &quot;f&quot;, &quot;time&quot;: 300}
+&nbsp; {"key": "a", "time": 10}, 
+  {"key": "b", "time": 20}, 
+&nbsp; {"key": "c", "time": 30}, 
+  {"key": "d", "time": 40}, 
+&nbsp; {"key": "e", "time": 250}
+&nbsp; {"key": "f", "time": 300}
 ]
-<strong>Output:</strong> [
-&nbsp; {&quot;resolved&quot;:&quot;a!&quot;,&quot;time&quot;:110},
-&nbsp; {&quot;resolved&quot;:&quot;e!&quot;,&quot;time&quot;:350},
-&nbsp; {&quot;resolved&quot;:&quot;b!&quot;,&quot;time&quot;:410},
-&nbsp; {&quot;resolved&quot;:&quot;c!&quot;,&quot;time&quot;:410},
-&nbsp; {&quot;resolved&quot;:&quot;d!&quot;,&quot;time&quot;:410},
-  {&quot;resolved&quot;:&quot;f!&quot;,&quot;time&quot;:450}
+<b>输出：</b>[
+&nbsp; {"resolved":"a!","time":110},
+&nbsp; {"resolved":"e!","time":350},
+&nbsp; {"resolved":"b!","time":410},
+&nbsp; {"resolved":"c!","time":410},
+&nbsp; {"resolved":"d!","time":410},
+  {"resolved":"f!","time":450}
 ]
-<strong>Explanation:
-</strong>queryMultiple([&#39;a&#39;]) is called at t=10ms, it is resolved at t=110ms
-queryMultiple([&#39;b&#39;, &#39;c&#39;, &#39;d&#39;]) is called at t=110ms, it is resolved at 410ms
-queryMultiple([&#39;e&#39;]) is called at t=250ms, it is resolved at 350ms
-queryMultiple([&#39;f&#39;]) is called at t=350ms, it is resolved at 450ms
+<strong>解释：
+</strong>在 t=10ms 时，调用 <code>queryMultiple(['a']) </code>，在 t=110ms 时解析。 
+在 t=110ms 时，调用 <code>queryMultiple(['b', 'c', 'd']) </code>，在 t=410ms 时解析。 
+在 t=250ms 时，调用 <code>queryMultiple(['e']) </code>，在 t=350ms 时解析。 
+在 t=350ms 时，调用 <code>queryMultiple(['f']) </code>，在 t=450ms 时解析。
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>0 &lt;= t &lt;= 1000</code></li>
 	<li><code>0 &lt;= calls.length &lt;= 10</code></li>
 	<li><code>1 &lt;= key.length&nbsp;&lt;= 100</code></li>
-	<li><code>all keys are unique</code></li>
+	<li><code>所有的键值都是唯一的</code></li>
 </ul>
 
 ## 解法

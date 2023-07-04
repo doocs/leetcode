@@ -22,11 +22,11 @@ Note that equal author_id and viewer_id indicate the same person.
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find all the authors that viewed at least one of their own articles.</p>
+<p>Find all the authors that viewed at least one of their own articles.</p>
 
 <p>Return the result table sorted by <code>id</code> in ascending order.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

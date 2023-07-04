@@ -19,9 +19,9 @@ Each row of this table contains information about the salary of an employee.
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the second highest salary from the <code>Employee</code> table. If there is no second highest salary, the query should report <code>null</code>.</p>
+<p>Find&nbsp;the second highest salary from the <code>Employee</code> table. If there is no second highest salary,&nbsp;return&nbsp;<code>null</code>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

@@ -74,7 +74,10 @@ Teacher 表:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT teacher_id, count(DISTINCT subject_id) AS cnt
+FROM Teacher
+GROUP BY teacher_id;
 ```
 
 <!-- tabs:end -->

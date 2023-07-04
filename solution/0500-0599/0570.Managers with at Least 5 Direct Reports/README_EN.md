@@ -23,11 +23,11 @@ No employee will be the manager of themself.
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the managers with at least <strong>five direct reports</strong>.</p>
+<p>Find the managers with at least <strong>five direct reports</strong>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

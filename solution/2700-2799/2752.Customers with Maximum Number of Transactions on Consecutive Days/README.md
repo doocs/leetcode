@@ -1,4 +1,4 @@
-# [2752. Customers with Maximum Number of Transactions on Consecutive Days](https://leetcode.cn/problems/customers-with-maximum-number-of-transactions-on-consecutive-days)
+# [2752. 在连续天数上进行了最多交易次数的顾客](https://leetcode.cn/problems/customers-with-maximum-number-of-transactions-on-consecutive-days)
 
 [English Version](/solution/2700-2799/2752.Customers%20with%20Maximum%20Number%20of%20Transactions%20on%20Consecutive%20Days/README_EN.md)
 
@@ -6,33 +6,34 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Transactions</code></p>
+<p>表：&nbsp;<code>Transactions</code></p>
 
 <pre>
 +------------------+------+
-| Column Name      | Type |
+| 列名             | 类型 |
 +------------------+------+
 | transaction_id   | int  |
 | customer_id      | int  |
 | transaction_date | date |
 | amount           | int  |
 +------------------+------+
-transaction_id is the primary key of this table.
-Each row contains information about transactions that includes unique (customer_id, transaction_date) along with the corresponding customer_id and amount.   
+transaction_id 是这个表的主键。 
+每行包含有关交易的信息，包括唯一的（customer_id，transaction_date）以及相应的 customer_id 和 amount。
 </pre>
 
-<p>Write an SQL query to find all&nbsp;<code>customer_id</code>&nbsp;who made the maximum number of transactions on consecutive days.</p>
+<p>编写一个 SQL 查询，找到连续天数上进行了最多交易的所有 <code>customer_id</code> 。</p>
 
-<p>Return <em>all</em> <code>customer_id</code>&nbsp;<em>with the maximum number of consecutive transactions.&nbsp;</em><em>Order the result table by</em>&nbsp;<code>customer_id</code> <em>in <strong>ascending</strong> order.</em></p>
+<p>返回所有具有最大连续交易次数的 <code>customer_id</code> 。结果表按 <code>customer_id</code> 的 <strong>升序</strong> 排序。</p>
 
-<p>The query result format is in the following example.</p>
+<p>查询结果的格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>Input:</strong> 
-Transactions table:
+<b>输入：</b>
+Transactions 表:
 +----------------+-------------+------------------+--------+
 | transaction_id | customer_id | transaction_date | amount |
 +----------------+-------------+------------------+--------+
@@ -46,19 +47,18 @@ Transactions table:
 | 8              | 105         | 2023-05-02       | 150    |
 | 9              | 105         | 2023-05-03       | 200    |
 +----------------+-------------+------------------+--------+
-<strong>Output:</strong> 
+<b>输出：</b>
 +-------------+
 | customer_id | 
 +-------------+
 | 101         | 
 | 105         | 
 +-------------+
-<strong>Explanation:</strong> 
-- customer_id 101 has a total of 3 transactions, and all of them are consecutive.
-- customer_id 102 has a total of 3 transactions, but only 2 of them are consecutive. 
-- customer_id 105 has a total of 3 transactions, and all of them are consecutive.
-In total, the highest number of consecutive transactions is 3, achieved by customer_id 101 and 105. The customer_id are sorted in ascending order.
-</pre>
+<b>解释：</b>
+- customer_id 为 101 共有 3 次交易，且全部是连续的。
+- customer_id 为 102 共有 3 次交易，但只有其中 2 次是连续的。
+- customer_id 为 105 共有 3 次交易，且全部是连续的。 
+总的来说，最大连续交易次数为 3，由 customer_id 为 101 和 105 的完成。customer_id 按升序排序。</pre>
 
 ## 解法
 

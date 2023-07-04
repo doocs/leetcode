@@ -58,11 +58,11 @@ Each row of this table contains information about one order. This includes the I
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the names of all the salespersons who did not have any orders related to the company with the name <strong>&quot;RED&quot;</strong>.</p>
+<p>Find the names of all the salespersons who did not have any orders related to the company with the name <strong>&quot;RED&quot;</strong>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

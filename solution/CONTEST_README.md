@@ -1387,7 +1387,7 @@
 - [1718. 构建字典序最大的可行序列](/solution/1700-1799/1718.Construct%20the%20Lexicographically%20Largest%20Valid%20Sequence/README.md)
 - [1719. 重构一棵树的方案数](/solution/1700-1799/1719.Number%20Of%20Ways%20To%20Reconstruct%20A%20Tree/README.md)
 
-#### 第 222 场周赛(2021-01-03 10:30, 90 分钟) 参赛人数 3118
+#### 第 222 场周赛(2021-01-03 10:30, 90 分钟) 参赛人数 3119
 
 - [1710. 卡车上的最大单元数](/solution/1700-1799/1710.Maximum%20Units%20on%20a%20Truck/README.md)
 - [1711. 大餐计数](/solution/1700-1799/1711.Count%20Good%20Meals/README.md)

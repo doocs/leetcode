@@ -19,11 +19,11 @@ timestamp is the primary key column for this table.
 
 <p>&nbsp;</p>
 
-<p>Write a SQL query for a report that provides the pairs <code>(actor_id, director_id)</code> where the actor has cooperated with the director at least three times.</p>
+<p>Find all the pairs <code>(actor_id, director_id)</code> where the actor has cooperated with the director at least three times.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

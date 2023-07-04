@@ -22,11 +22,11 @@ The name consists of only lowercase English letters.
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query that will, for each <code>date_id</code> and <code>make_name</code>, return the number of <strong>distinct</strong> <code>lead_id</code>&#39;s and <strong>distinct</strong> <code>partner_id</code>&#39;s.</p>
+<p>For each <code>date_id</code> and <code>make_name</code>, find the number of <strong>distinct</strong> <code>lead_id</code>&#39;s and <strong>distinct</strong> <code>partner_id</code>&#39;s.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

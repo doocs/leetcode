@@ -20,11 +20,11 @@ recyclable is an ENUM of types (&#39;Y&#39;, &#39;N&#39;) where &#39;Y&#39; mean
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find the ids of products that are both low fat and recyclable.</p>
+<p>Find the ids of products that are both low fat and recyclable.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

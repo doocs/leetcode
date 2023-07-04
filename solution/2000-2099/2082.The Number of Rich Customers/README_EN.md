@@ -20,9 +20,9 @@ Each row contains information about the amount of one bill and the customer asso
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the number of customers who had <strong>at least one</strong> bill with an amount <strong>strictly greater</strong> than <code>500</code>.</p>
+<p>Report the number of customers who had <strong>at least one</strong> bill with an amount <strong>strictly greater</strong> than <code>500</code>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

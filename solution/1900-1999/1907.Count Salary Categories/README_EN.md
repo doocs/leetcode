@@ -19,7 +19,7 @@ Each row contains information about the monthly income for one bank account.
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the number of bank accounts of each salary category. The salary categories are:</p>
+<p>Calculate the number of bank accounts of each salary category. The salary categories are:</p>
 
 <ul>
 	<li><code>&quot;Low Salary&quot;</code>: All the salaries <strong>strictly less</strong> than <code>$20000</code>.</li>
@@ -31,7 +31,7 @@ Each row contains information about the monthly income for one bank account.
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

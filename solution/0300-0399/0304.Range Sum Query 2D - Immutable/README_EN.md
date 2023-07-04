@@ -52,7 +52,7 @@ numMatrix.sumRegion(1, 2, 2, 4); // return 12 (i.e sum of the blue rectangle)
 
 ## Solutions
 
-We use $s[i + 1][j + 1]$ to represent the sum of all elements in the upper-left part up to the $i$-th row and $j$-th column, where the indices $i$ and $j$ both start from $0$. 
+We use $s[i + 1][j + 1]$ to represent the sum of all elements in the upper-left part up to the $i$-th row and $j$-th column, where the indices $i$ and $j$ both start from $0$.
 
 We can derive the following prefix sum formula:
 
@@ -166,7 +166,7 @@ public:
  */
 
  struct NumMatrix {
-    // Of size (N + 1) * (M + 1) 
+    // Of size (N + 1) * (M + 1)
     prefix_vec: Vec<Vec<i32>>,
     n: usize,
     m: usize,
@@ -175,14 +175,14 @@ public:
 }
 
 
-/** 
+/**
  * `&self` means the method takes an immutable reference.
  * If you need a mutable reference, change it to `&mut self` instead.
  */
 impl NumMatrix {
 
     fn new(matrix: Vec<Vec<i32>>) -> Self {
-        NumMatrix { 
+        NumMatrix {
             prefix_vec: vec![vec![0; matrix[0].len() + 1]; matrix.len() + 1],
             n: matrix.len(),
             m: matrix[0].len(),
@@ -190,7 +190,7 @@ impl NumMatrix {
             ref_vec: matrix,
         }
     }
-    
+
     fn sum_region(&mut self, row1: i32, col1: i32, row2: i32, col2: i32) -> i32 {
         if !self.is_initialized {
             self.initialize_prefix_vec();

@@ -37,11 +37,11 @@ Each row of this table indicates the ID of a department and its name.
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find employees who have the highest salary in each of the departments.</p>
+<p>Find employees who have the highest salary in each of the departments.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

@@ -22,11 +22,11 @@ Each row is a record of a player who logged in and played a number of games (pos
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the <strong>first login date</strong> for each player.</p>
+<p>Find the <strong>first login date</strong> for each player.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
