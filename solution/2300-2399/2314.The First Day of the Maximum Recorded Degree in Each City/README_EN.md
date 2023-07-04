@@ -65,7 +65,21 @@ For city 3, the maximum degree was recorded on 2022-12-07 with -6 degrees.
 ### **SQL**
 
 ```sql
-
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT
+            *,
+            rank() OVER (
+                PARTITION BY city_id
+                ORDER BY degree DESC, day
+            ) AS rk
+        FROM Weather
+    )
+SELECT city_id, day, degree
+FROM T
+WHERE rk = 1
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->

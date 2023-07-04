@@ -93,7 +93,13 @@ Product 表：
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT user_id, sum(quantity * price) AS spending
+FROM
+    Sales
+    JOIN Product USING (product_id)
+GROUP BY 1
+ORDER BY 2 DESC, 1;
 ```
 
 <!-- tabs:end -->
