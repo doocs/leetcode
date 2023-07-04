@@ -77,7 +77,10 @@ Olympic 表:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT *
+FROM Olympic
+ORDER BY 2 DESC, 3 DESC, 4 DESC, 1;
 ```
 
 <!-- tabs:end -->

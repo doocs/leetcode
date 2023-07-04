@@ -63,7 +63,12 @@ Teams 表:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT t1.team_name AS home_team, t2.team_name AS away_team
+FROM
+    Teams AS t1
+    CROSS JOIN Teams AS t2
+WHERE t1.team_name != t2.team_name;
 ```
 
 <!-- tabs:end -->
