@@ -18,13 +18,14 @@ class Solution {
         for (; l2 != null; l2 = l2.next) {
             s2.push(l2.val);
         }
-        int carry = 0;
         ListNode dummy = new ListNode();
+        int carry = 0;
         while (!s1.isEmpty() || !s2.isEmpty() || carry != 0) {
-            carry += (s1.isEmpty() ? 0 : s1.pop()) + (s2.isEmpty() ? 0 : s2.pop());
-            ListNode node = new ListNode(carry % 10, dummy.next);
-            dummy.next = node;
-            carry /= 10;
+            int s = (s1.isEmpty() ? 0 : s1.pop()) + (s2.isEmpty() ? 0 : s2.pop()) + carry;
+            // ListNode node = new ListNode(s % 10, dummy.next);
+            // dummy.next = node;
+            dummy.next = new ListNode(s % 10, dummy.next);
+            carry = s / 10;
         }
         return dummy.next;
     }
