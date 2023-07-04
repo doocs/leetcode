@@ -59,7 +59,13 @@
 
 **方法二：栈**
 
-进阶条件限制，不可翻转。可以利用两个栈，分别存储两个链表元素。然后对两个栈中对应元素相加，并记录进位 carry。
+我们可以使用两个栈 $s1$ 和 $s2$ 分别存储两个链表元素，然后同时遍历两个栈，并使用变量 $carry$ 表示当前是否有进位。
+
+遍历时，我们弹出对应栈的栈顶元素，计算它们与进位 $carry$ 的和，然后更新进位的值，并创建一个链表节点，插入答案链表的头部。如果两个栈都遍历结束，并且进位为 $0$ 时，遍历结束。
+
+最后我们返回答案链表的头节点即可。
+
+时间复杂度 $O(\max(m, n))$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别为两个链表的长度。
 
 <!-- tabs:start -->
 
@@ -74,7 +80,9 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+    def addTwoNumbers(
+        self, l1: Optional[ListNode], l2: Optional[ListNode]
+    ) -> Optional[ListNode]:
         s1, s2 = [], []
         while l1:
             s1.append(l1.val)
@@ -82,12 +90,14 @@ class Solution:
         while l2:
             s2.append(l2.val)
             l2 = l2.next
-        carry, dummy = 0, ListNode()
+        dummy = ListNode()
+        carry = 0
         while s1 or s2 or carry:
-            carry += (0 if not s1 else s1.pop()) + (0 if not s2 else s2.pop())
-            carry, val = divmod(carry, 10)
-            node = ListNode(val, dummy.next)
-            dummy.next = node
+            s = (0 if not s1 else s1.pop()) + (0 if not s2 else s2.pop()) + carry
+            carry, val = divmod(s, 10)
+            # node = ListNode(val, dummy.next)
+            # dummy.next = node
+            dummy.next = ListNode(val, dummy.next)
         return dummy.next
 ```
 
@@ -107,7 +117,6 @@ class Solution:
  * }
  */
 class Solution {
-
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         Deque<Integer> s1 = new ArrayDeque<>();
         Deque<Integer> s2 = new ArrayDeque<>();
@@ -117,13 +126,14 @@ class Solution {
         for (; l2 != null; l2 = l2.next) {
             s2.push(l2.val);
         }
-        int carry = 0;
         ListNode dummy = new ListNode();
+        int carry = 0;
         while (!s1.isEmpty() || !s2.isEmpty() || carry != 0) {
-            carry += (s1.isEmpty() ? 0 : s1.pop()) + (s2.isEmpty() ? 0 : s2.pop());
-            ListNode node = new ListNode(carry % 10, dummy.next);
-            dummy.next = node;
-            carry /= 10;
+            int s = (s1.isEmpty() ? 0 : s1.pop()) + (s2.isEmpty() ? 0 : s2.pop()) + carry;
+            // ListNode node = new ListNode(s % 10, dummy.next);
+            // dummy.next = node;
+            dummy.next = new ListNode(s % 10, dummy.next);
+            carry = s / 10;
         }
         return dummy.next;
     }
@@ -150,20 +160,22 @@ public:
         stack<int> s2;
         for (; l1; l1 = l1->next) s1.push(l1->val);
         for (; l2; l2 = l2->next) s2.push(l2->val);
-        int carry = 0;
         ListNode* dummy = new ListNode();
+        int carry = 0;
         while (!s1.empty() || !s2.empty() || carry) {
+            int s = carry;
             if (!s1.empty()) {
-                carry += s1.top();
+                s += s1.top();
                 s1.pop();
             }
             if (!s2.empty()) {
-                carry += s2.top();
+                s += s2.top();
                 s2.pop();
             }
-            ListNode* node = new ListNode(carry % 10, dummy->next);
-            dummy->next = node;
-            carry /= 10;
+            // ListNode* node = new ListNode(s % 10, dummy->next);
+            // dummy->next = node;
+            dummy->next = new ListNode(s % 10, dummy->next);
+            carry = s / 10;
         }
         return dummy->next;
     }
@@ -192,17 +204,19 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	}
 	carry, dummy := 0, new(ListNode)
 	for !s1.Empty() || !s2.Empty() || carry > 0 {
+		s := carry
 		v, ok := s1.Pop()
 		if ok {
-			carry += v.(int)
+			s += v.(int)
 		}
 		v, ok = s2.Pop()
 		if ok {
-			carry += v.(int)
+			s += v.(int)
 		}
-		node := &ListNode{Val: carry % 10, Next: dummy.Next}
-		dummy.Next = node
-		carry /= 10
+		// node := &ListNode{s % 10, dummy.Next}
+		// dummy.Next = node
+		dummy.Next = &ListNode{s % 10, dummy.Next}
+		carry = s / 10
 	}
 	return dummy.Next
 }
@@ -223,77 +237,26 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
  * }
  */
 
-const reverse = (head: ListNode | null) => {
-    let pre = null;
-    while (head != null) {
-        const { next } = head;
-        head.next = pre;
-        pre = head;
-        head = next;
-    }
-    return pre;
-};
-
 function addTwoNumbers(
     l1: ListNode | null,
     l2: ListNode | null,
 ): ListNode | null {
-    l1 = reverse(l1);
-    l2 = reverse(l2);
-    const dummy = new ListNode();
-    let cur = dummy;
-    let sum = 0;
-    while (l1 != null || l2 != null || sum !== 0) {
-        if (l1 != null) {
-            sum += l1.val;
-            l1 = l1.next;
-        }
-        if (l2 != null) {
-            sum += l2.val;
-            l2 = l2.next;
-        }
-        cur.next = new ListNode(sum % 10);
-        cur = cur.next;
-        sum = Math.floor(sum / 10);
+    const s1: number[] = [];
+    const s2: number[] = [];
+    for (; l1; l1 = l1.next) {
+        s1.push(l1.val);
     }
-    return reverse(dummy.next);
-}
-```
-
-```ts
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
- * }
- */
-
-const createStack = (head: ListNode | null) => {
-    const res = [];
-    while (head != null) {
-        res.push(head.val);
-        head = head.next;
+    for (; l2; l2 = l2.next) {
+        s2.push(l2.val);
     }
-    return res;
-};
-
-function addTwoNumbers(
-    l1: ListNode | null,
-    l2: ListNode | null,
-): ListNode | null {
-    const stack1 = createStack(l1);
-    const stack2 = createStack(l2);
     const dummy = new ListNode();
-    let sum = 0;
-    while (stack1.length !== 0 || stack2.length !== 0 || sum !== 0) {
-        sum += (stack1.pop() ?? 0) + (stack2.pop() ?? 0);
-        dummy.next = new ListNode(sum % 10, dummy.next);
-        sum = Math.floor(sum / 10);
+    let carry = 0;
+    while (s1.length || s2.length || carry) {
+        const s = (s1.pop() ?? 0) + (s2.pop() ?? 0) + carry;
+        // const node = new ListNode(s % 10, dummy.next);
+        // dummy.next = node;
+        dummy.next = new ListNode(s % 10, dummy.next);
+        carry = Math.floor(s / 10);
     }
     return dummy.next;
 }
@@ -388,23 +351,23 @@ impl Solution {
         l1: Option<Box<ListNode>>,
         l2: Option<Box<ListNode>>,
     ) -> Option<Box<ListNode>> {
-        let mut stack1 = Self::create_stack(l1);
-        let mut stack2 = Self::create_stack(l2);
+        let mut s1 = Self::create_stack(l1);
+        let mut s2 = Self::create_stack(l2);
 
         let mut dummy = Box::new(ListNode::new(0));
-        let mut sum = 0;
-        while !stack1.is_empty() || !stack2.is_empty() || sum != 0 {
-            if let Some(val) = stack1.pop() {
-                sum += val;
+        let mut carry = 0;
+        while !s1.is_empty() || !s2.is_empty() || carry != 0 {
+            if let Some(val) = s1.pop() {
+                carry += val;
             }
-            if let Some(val) = stack2.pop() {
-                sum += val;
+            if let Some(val) = s2.pop() {
+                carry += val;
             }
             dummy.next = Some(Box::new(ListNode {
-                val: sum % 10,
+                val: carry % 10,
                 next: dummy.next.take(),
             }));
-            sum /= 10;
+            carry /= 10;
         }
         dummy.next.take()
     }

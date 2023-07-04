@@ -17,17 +17,19 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	}
 	carry, dummy := 0, new(ListNode)
 	for !s1.Empty() || !s2.Empty() || carry > 0 {
+		s := carry
 		v, ok := s1.Pop()
 		if ok {
-			carry += v.(int)
+			s += v.(int)
 		}
 		v, ok = s2.Pop()
 		if ok {
-			carry += v.(int)
+			s += v.(int)
 		}
-		node := &ListNode{Val: carry % 10, Next: dummy.Next}
-		dummy.Next = node
-		carry /= 10
+		// node := &ListNode{s % 10, dummy.Next}
+		// dummy.Next = node
+		dummy.Next = &ListNode{s % 10, dummy.Next}
+		carry = s / 10
 	}
 	return dummy.Next
 }

@@ -10,27 +10,26 @@
  * }
  */
 
-const createStack = (head: ListNode | null) => {
-    const res = [];
-    while (head != null) {
-        res.push(head.val);
-        head = head.next;
-    }
-    return res;
-};
-
 function addTwoNumbers(
     l1: ListNode | null,
     l2: ListNode | null,
 ): ListNode | null {
-    const stack1 = createStack(l1);
-    const stack2 = createStack(l2);
+    const s1: number[] = [];
+    const s2: number[] = [];
+    for (; l1; l1 = l1.next) {
+        s1.push(l1.val);
+    }
+    for (; l2; l2 = l2.next) {
+        s2.push(l2.val);
+    }
     const dummy = new ListNode();
-    let sum = 0;
-    while (stack1.length !== 0 || stack2.length !== 0 || sum !== 0) {
-        sum += (stack1.pop() ?? 0) + (stack2.pop() ?? 0);
-        dummy.next = new ListNode(sum % 10, dummy.next);
-        sum = Math.floor(sum / 10);
+    let carry = 0;
+    while (s1.length || s2.length || carry) {
+        const s = (s1.pop() ?? 0) + (s2.pop() ?? 0) + carry;
+        // const node = new ListNode(s % 10, dummy.next);
+        // dummy.next = node;
+        dummy.next = new ListNode(s % 10, dummy.next);
+        carry = Math.floor(s / 10);
     }
     return dummy.next;
 }

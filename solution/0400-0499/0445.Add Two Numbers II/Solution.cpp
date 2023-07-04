@@ -15,20 +15,22 @@ public:
         stack<int> s2;
         for (; l1; l1 = l1->next) s1.push(l1->val);
         for (; l2; l2 = l2->next) s2.push(l2->val);
-        int carry = 0;
         ListNode* dummy = new ListNode();
+        int carry = 0;
         while (!s1.empty() || !s2.empty() || carry) {
+            int s = carry;
             if (!s1.empty()) {
-                carry += s1.top();
+                s += s1.top();
                 s1.pop();
             }
             if (!s2.empty()) {
-                carry += s2.top();
+                s += s2.top();
                 s2.pop();
             }
-            ListNode* node = new ListNode(carry % 10, dummy->next);
-            dummy->next = node;
-            carry /= 10;
+            // ListNode* node = new ListNode(s % 10, dummy->next);
+            // dummy->next = node;
+            dummy->next = new ListNode(s % 10, dummy->next);
+            carry = s / 10;
         }
         return dummy->next;
     }
