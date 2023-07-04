@@ -49,11 +49,11 @@ Each row of this table indicates that a student with ID student_id attended the 
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find the number of times each student attended each exam.</p>
+<p>Find the number of times each student attended each exam.</p>
 
 <p>Return the result table ordered by <code>student_id</code> and <code>subject_name</code>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

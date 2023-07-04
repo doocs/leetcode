@@ -20,11 +20,11 @@ Each row in this table indicates that the teacher with teacher_id teaches the su
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the number of unique subjects each teacher teaches in the university.</p>
+<p>Calculate&nbsp;the number of unique subjects each teacher teaches in the university.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is shown in the following example.</p>
+<p>The&nbsp;result format is shown in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -68,7 +68,10 @@ Teacher 2:
 ### **SQL**
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT teacher_id, count(DISTINCT subject_id) AS cnt
+FROM Teacher
+GROUP BY teacher_id;
 ```
 
 <!-- tabs:end -->

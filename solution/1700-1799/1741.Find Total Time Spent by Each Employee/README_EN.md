@@ -24,11 +24,11 @@ It is guaranteed that no two events on the same day intersect in time, and in_ti
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to calculate the total time <strong>in minutes</strong> spent by each employee on each day at the office. Note that within one day, an employee can enter and leave more than once. The time spent in the office for a single entry is <code>out_time - in_time</code>.</p>
+<p>Calculate the total time <strong>in minutes</strong> spent by each employee on each day at the office. Note that within one day, an employee can enter and leave more than once. The time spent in the office for a single entry is <code>out_time - in_time</code>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

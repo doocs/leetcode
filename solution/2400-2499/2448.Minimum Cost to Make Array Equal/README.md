@@ -22,7 +22,8 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><b>输入：</b>nums = [1,3,5,2], cost = [2,3,1,14]
+<pre>
+<b>输入：</b>nums = [1,3,5,2], cost = [2,3,1,14]
 <b>输出：</b>8
 <b>解释：</b>我们可以执行以下操作使所有元素变为 2 ：
 - 增加第 0 个元素 1 次，开销为 2 。
@@ -34,7 +35,8 @@
 
 <p><strong>示例 2：</strong></p>
 
-<pre><b>输入：</b>nums = [2,2,2,2,2], cost = [4,2,8,1,3]
+<pre>
+<b>输入：</b>nums = [2,2,2,2,2], cost = [4,2,8,1,3]
 <b>输出：</b>0
 <b>解释：</b>数组中所有元素已经全部相等，不需要执行额外的操作。
 </pre>
@@ -47,6 +49,7 @@
 	<li><code>n == nums.length == cost.length</code></li>
 	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= nums[i], cost[i] &lt;= 10<sup>6</sup></code></li>
+	<li>测试用例确保输出不超过 2<sup>53</sup>-1。</li>
 </ul>
 
 ## 解法

@@ -4,6 +4,8 @@ import re
 from typing import Tuple, List
 from urllib.parse import quote, unquote
 
+from config import skip_lc_problems
+
 
 def load_template(template_name: str) -> str:
     with open("./template.md", "r", encoding="utf-8") as f:
@@ -203,36 +205,10 @@ def generate_summary(result):
 def refresh(result):
     """update problems"""
     pattern = re.compile('src="(.*?)"')
-    skip_question_ids = {
-        3,
-        30,
-        33,
-        34,
-        375,
-        465,
-        638,
-        860,
-        983,
-        1511,
-        1555,
-        1565,
-        1599,
-        1928,
-        2004,
-        2010,
-        2043,
-        2241,
-        2288,
-        2303,
-        2362,
-        2643,
-        2682,
-    }
-
     for question in result:
         front_question_id = question["frontend_question_id"]
         print(front_question_id)
-        if int(front_question_id) in skip_question_ids:
+        if int(front_question_id) in skip_lc_problems:
             continue
         title = question["title_cn"]
         title_en = question["title_en"]

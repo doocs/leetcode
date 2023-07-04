@@ -19,11 +19,11 @@ This table contains information about the order ID and the customer ID.
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find the <code>customer_number</code> for the customer who has placed <strong>the largest number of orders</strong>.</p>
+<p>Find the <code>customer_number</code> for the customer who has placed <strong>the largest number of orders</strong>.</p>
 
 <p>The test cases are generated so that <strong>exactly one customer</strong> will have placed more orders than any other customer.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

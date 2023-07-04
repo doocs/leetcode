@@ -19,11 +19,11 @@ Each row of this table indicates the name of a student and the class in which th
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report all the classes that have <strong>at least five students</strong>.</p>
+<p>Find all the classes that have <strong>at least five students</strong>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

@@ -175,7 +175,7 @@ public:
  */
 
 struct NumMatrix {
-    // Of size (N + 1) * (M + 1) 
+    // Of size (N + 1) * (M + 1)
     prefix_vec: Vec<Vec<i32>>,
     n: usize,
     m: usize,
@@ -184,14 +184,14 @@ struct NumMatrix {
 }
 
 
-/** 
+/**
  * `&self` means the method takes an immutable reference.
  * If you need a mutable reference, change it to `&mut self` instead.
  */
 impl NumMatrix {
 
     fn new(matrix: Vec<Vec<i32>>) -> Self {
-        NumMatrix { 
+        NumMatrix {
             prefix_vec: vec![vec![0; matrix[0].len() + 1]; matrix.len() + 1],
             n: matrix.len(),
             m: matrix[0].len(),
@@ -199,7 +199,7 @@ impl NumMatrix {
             ref_vec: matrix,
         }
     }
-    
+
     fn sum_region(&mut self, row1: i32, col1: i32, row2: i32, col2: i32) -> i32 {
         if !self.is_initialized {
             self.initialize_prefix_vec();

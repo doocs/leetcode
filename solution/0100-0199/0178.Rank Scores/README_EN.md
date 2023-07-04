@@ -19,7 +19,7 @@ Each row of this table contains the score of a game. Score is a floating point v
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to rank the scores. The ranking should be calculated according to the following rules:</p>
+<p>Find the rank of the scores. The ranking should be calculated according to the following rules:</p>
 
 <ul>
 	<li>The scores should be ranked from the highest to the lowest.</li>
@@ -29,7 +29,7 @@ Each row of this table contains the score of a game. Score is a floating point v
 
 <p>Return the result table ordered by <code>score</code> in descending order.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

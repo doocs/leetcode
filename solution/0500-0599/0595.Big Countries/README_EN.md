@@ -29,11 +29,11 @@ Each row of this table gives information about the name of a country, the contin
 	<li>it has a population of at least&nbsp;twenty-five million (i.e., <code>25000000</code>).</li>
 </ul>
 
-<p>Write an SQL query to report the name, population, and area of the <strong>big countries</strong>.</p>
+<p>Find the name, population, and area of the <strong>big countries</strong>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

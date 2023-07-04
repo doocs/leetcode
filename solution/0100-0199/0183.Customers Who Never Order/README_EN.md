@@ -35,11 +35,11 @@ Each row of this table indicates the ID of an order and the ID of the customer w
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report all customers who never order anything.</p>
+<p>Find all customers who never order anything.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

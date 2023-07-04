@@ -23,9 +23,9 @@ The table holds information about food delivery to customers that make orders at
 
 <p>If the customer&#39;s preferred delivery date is the same as the order date, then the order is called <strong>immediate;</strong> otherwise, it is called <strong>scheduled</strong>.</p>
 
-<p>Write an SQL query to find the percentage of immediate orders in the table, <strong>rounded to 2 decimal places</strong>.</p>
+<p>Find the percentage of immediate orders in the table, <strong>rounded to 2 decimal places</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

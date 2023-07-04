@@ -27,7 +27,7 @@
 <pre>
 <strong>输入：</strong>mat = [[0,0,0],[0,1,1]]
 <strong>输出：</strong>[1,2]
-<strong>解释：</strong>下标为 1 的行中 1 的数量最多。该行 1 的数量为 2 。所以，答案为 [1,2] 。
+<strong>解释：</strong>下标为 1 的行中 1 的数量最多<code>。</code>该行 1 的数量<code>为 2 。所以，答案为</code> [1,2] 。
 </pre>
 
 <p><strong>示例 3：</strong></p>
@@ -35,7 +35,7 @@
 <pre>
 <strong>输入：</strong>mat = [[0,0],[1,1],[0,0]]
 <strong>输出：</strong>[1,2]
-<strong>解释：</strong>下标为 1 的行中 1 的数量最多。该行 1 的数量为 2 。所以，答案为 [1,2] 。</pre>
+<strong>解释：</strong>下标为 1 的行中 1 的数量最多。该行 1 的数量<code>为 2 。所以，答案为</code> [1,2] 。</pre>
 
 <p>&nbsp;</p>
 

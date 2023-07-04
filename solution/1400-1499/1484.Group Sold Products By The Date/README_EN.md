@@ -19,13 +19,13 @@ Each row of this table contains the product name and the date it was sold in a m
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find for each date the number of different products sold and their names.</p>
+<p>Find for each date the number of different products sold and their names.</p>
 
 <p>The sold products names for each date should be sorted lexicographically.</p>
 
 <p>Return the result table ordered by <code>sell_date</code>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

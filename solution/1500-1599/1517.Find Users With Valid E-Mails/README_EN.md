@@ -20,7 +20,7 @@ This table contains information of the users signed up in a website. Some e-mail
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find the users who have <strong>valid emails</strong>.</p>
+<p>Find the users who have <strong>valid emails</strong>.</p>
 
 <p>A valid e-mail has a prefix name and a domain where:</p>
 
@@ -31,7 +31,7 @@ This table contains information of the users signed up in a website. Some e-mail
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
