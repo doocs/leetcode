@@ -88,7 +88,19 @@ boundFunc(); // &quot;My name is Kathy&quot;
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
+type Fn = (...args) => any;
 
+declare global {
+    interface Function {
+        bindPolyfill(obj: Record<any, any>): Fn;
+    }
+}
+
+Function.prototype.bindPolyfill = function (obj) {
+    return (...args) => {
+        return this.call(obj, ...args);
+    };
+};
 ```
 
 <!-- tabs:end -->
