@@ -66,6 +66,14 @@ CoffeeShop 表:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：临时变量**
+
+我们可以使用一个临时变量 $cur$ 来记录上一个不为 $null$ 的值，如果当前值为 $null$，则将 $cur$ 的值赋给当前值，否则我们更新 $cur$ 的值为当前值。
+
+**方法二：窗口函数**
+
+我们先用窗口函数 `row_number()` 为每一行生成一个序号，然后使用 `sum()` 窗口函数来生成一个分组序号，分组序号的生成规则为：如果当前行的值为 $null$，则分组序号与上一行相同，否则分组序号加一。最后我们使用 `max()` 窗口函数来获取每一组唯一一个不为 $null$ 的值。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -73,7 +81,41 @@ CoffeeShop 表:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
+# Write your MySQL query statement below
+SELECT
+    id,
+    CASE
+        WHEN drink IS NOT NULL THEN @cur := drink
+        ELSE @cur
+    END AS drink
+FROM CoffeeShop;
+```
 
+```sql
+# Write your MySQL query statement below
+WITH
+    S AS (
+        SELECT *, row_number() OVER () AS rk
+        FROM CoffeeShop
+    ),
+    T AS (
+        SELECT
+            *,
+            sum(
+                CASE
+                    WHEN drink IS NULL THEN 0
+                    ELSE 1
+                END
+            ) OVER (ORDER BY rk) AS gid
+        FROM S
+    )
+SELECT
+    id,
+    max(drink) OVER (
+        PARTITION BY gid
+        ORDER BY rk
+    ) AS drink
+FROM T;
 ```
 
 <!-- tabs:end -->
