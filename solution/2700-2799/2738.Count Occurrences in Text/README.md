@@ -66,7 +66,14 @@ Files 表:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT 'bull' AS word, count(*) AS count
+FROM Files
+WHERE content LIKE '% bull %'
+UNION
+SELECT 'bear' AS word, count(*) AS count
+FROM Files
+WHERE content LIKE '% bear %';
 ```
 
 <!-- tabs:end -->

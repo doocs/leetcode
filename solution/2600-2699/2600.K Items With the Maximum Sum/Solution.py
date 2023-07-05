@@ -4,8 +4,6 @@ class Solution:
     ) -> int:
         if numOnes >= k:
             return k
-        k -= numOnes
-        if numZeros >= k:
+        if numZeros >= k - numOnes:
             return numOnes
-        k -= numZeros
-        return numOnes - k
+        return numOnes - (k - numOnes - numZeros)

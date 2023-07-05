@@ -1,5 +1,5 @@
-class Solution {
-    public int kItemsWithMaximumSum(int numOnes, int numZeros, int numNegOnes, int k) {
+public class Solution {
+    public int KItemsWithMaximumSum(int numOnes, int numZeros, int numNegOnes, int k) {
         if (numOnes >= k) {
             return k;
         }
