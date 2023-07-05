@@ -74,6 +74,10 @@ Students 表:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：窗口函数**
+
+注意空值判断。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -81,7 +85,23 @@ Students 表:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT
+    student_id,
+    department_id,
+    ifnull(
+        round(
+            (
+                rank() OVER (
+                    PARTITION BY department_id
+                    ORDER BY mark DESC
+                ) - 1
+            ) * 100 / (count(1) OVER (PARTITION BY department_id) - 1),
+            2
+        ),
+        0
+    ) AS percentage
+FROM Students;
 ```
 
 <!-- tabs:end -->
