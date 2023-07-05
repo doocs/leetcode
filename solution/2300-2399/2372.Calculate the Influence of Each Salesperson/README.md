@@ -121,7 +121,13 @@ Jerry 的总数是 0。</pre>
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT sp.salesperson_id, name, ifnull(sum(price), 0) AS total
+FROM
+    Salesperson AS sp
+    LEFT JOIN Customer AS c ON sp.salesperson_id = c.salesperson_id
+    LEFT JOIN Sales AS s ON s.customer_id = c.customer_id
+GROUP BY 1;
 ```
 
 <!-- tabs:end -->
