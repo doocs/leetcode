@@ -75,11 +75,9 @@ class Solution:
     ) -> int:
         if numOnes >= k:
             return k
-        k -= numOnes
-        if numZeros >= k:
+        if numZeros >= k - numOnes:
             return numOnes
-        k -= numZeros
-        return numOnes - k
+        return numOnes - (k - numOnes - numZeros)
 ```
 
 ### **Java**
@@ -92,12 +90,10 @@ class Solution {
         if (numOnes >= k) {
             return k;
         }
-        k -= numOnes;
-        if (numZeros >= k) {
+        if (numZeros >= k - numOnes) {
             return numOnes;
         }
-        k -= numZeros;
-        return numOnes - k;
+        return numOnes - (k - numOnes - numZeros);
     }
 }
 ```
@@ -111,12 +107,10 @@ public:
         if (numOnes >= k) {
             return k;
         }
-        k -= numOnes;
-        if (numZeros >= k) {
+        if (numZeros >= k - numOnes) {
             return numOnes;
         }
-        k -= numZeros;
-        return numOnes - k;
+        return numOnes - (k - numOnes - numZeros);
     }
 };
 ```
@@ -128,12 +122,10 @@ func kItemsWithMaximumSum(numOnes int, numZeros int, numNegOnes int, k int) int 
 	if numOnes >= k {
 		return k
 	}
-	k -= numOnes
-	if numZeros >= k {
+	if numZeros >= k-numOnes {
 		return numOnes
 	}
-	k -= numZeros
-	return numOnes - k
+	return numOnes - (k - numOnes - numZeros)
 }
 ```
 
@@ -149,12 +141,26 @@ function kItemsWithMaximumSum(
     if (numOnes >= k) {
         return k;
     }
-    k -= numOnes;
-    if (numZeros >= k) {
+    if (numZeros >= k - numOnes) {
         return numOnes;
     }
-    k -= numZeros;
-    return numOnes - k;
+    return numOnes - (k - numOnes - numZeros);
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int KItemsWithMaximumSum(int numOnes, int numZeros, int numNegOnes, int k) {
+        if (numOnes >= k) {
+            return k;
+        }
+        if (numZeros >= k - numOnes) {
+            return numOnes;
+        }
+        return numOnes - (k - numOnes - numZeros);
+    }
 }
 ```
 
