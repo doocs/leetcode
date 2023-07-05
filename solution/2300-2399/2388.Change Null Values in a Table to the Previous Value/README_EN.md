@@ -66,7 +66,41 @@ Note that the rows in the output are the same as in the input.
 ### **SQL**
 
 ```sql
+# Write your MySQL query statement below
+SELECT
+    id,
+    CASE
+        WHEN drink IS NOT NULL THEN @cur := drink
+        ELSE @cur
+    END AS drink
+FROM CoffeeShop;
+```
 
+```sql
+# Write your MySQL query statement below
+WITH
+    S AS (
+        SELECT *, row_number() OVER () AS rk
+        FROM CoffeeShop
+    ),
+    T AS (
+        SELECT
+            *,
+            sum(
+                CASE
+                    WHEN drink IS NULL THEN 0
+                    ELSE 1
+                END
+            ) OVER (ORDER BY rk) AS gid
+        FROM S
+    )
+SELECT
+    id,
+    max(drink) OVER (
+        PARTITION BY gid
+        ORDER BY rk
+    ) AS drink
+FROM T;
 ```
 
 <!-- tabs:end -->
