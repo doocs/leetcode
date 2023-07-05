@@ -37,6 +37,7 @@
                 "solution/2000-2099/2066.Account Balance/Solution.sql",
                 "solution/2200-2299/2230.The Users That Are Eligible for Discount/Solution.sql",
                 "solution/2600-2699/2686.Immediate Food Delivery III/Solution.sql",
+                "solution/2400-2499/2494.Merge Overlapping Events in the Same Hall/Solution.sql",
                 "solution/2700-2799/2752.Customers with Maximum Number of Transactions on Consecutive Days/Solution.sql"
             ],
             "options": {
