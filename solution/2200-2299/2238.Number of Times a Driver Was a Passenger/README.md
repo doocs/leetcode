@@ -68,7 +68,13 @@ ID = 11 的司机从来不是乘客。</pre>
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-
+# Write your MySQL query statement below
+WITH T AS (SELECT DISTINCT driver_id FROM Rides)
+SELECT t.driver_id, count(passenger_id) AS cnt
+FROM
+    T AS t
+    LEFT JOIN Rides AS r ON t.driver_id = r.passenger_id
+GROUP BY 1;
 ```
 
 <!-- tabs:end -->
