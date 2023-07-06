@@ -59,6 +59,12 @@
 
 **方法一：贪心**
 
+如果 $finalSum$ 是奇数，那么无法拆分成若干个互不相同的正偶数之和，直接返回空数组。
+
+否则，我们可以贪心地按照 $2, 4, 6, \cdots$ 的顺序拆分 $finalSum$，直到 $finalSum$ 无法再拆分出一个不同的正偶数为止，此时我们将剩余的 $finalSum$ 加到最后一个正偶数上即可。
+
+时间复杂度 $O(\sqrt{finalSum})$，忽略答案数组的空间消耗，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -122,17 +128,16 @@ public:
 ### **Go**
 
 ```go
-func maximumEvenSplit(finalSum int64) []int64 {
-	ans := []int64{}
+func maximumEvenSplit(finalSum int64) (ans []int64) {
 	if finalSum%2 == 1 {
-		return ans
+		return
 	}
 	for i := int64(2); i <= finalSum; i += 2 {
 		ans = append(ans, i)
 		finalSum -= i
 	}
 	ans[len(ans)-1] += finalSum
-	return ans
+	return
 }
 ```
 
@@ -150,6 +155,25 @@ function maximumEvenSplit(finalSum: number): number[] {
     }
     ans[ans.length - 1] += finalSum;
     return ans;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public IList<long> MaximumEvenSplit(long finalSum) {
+        IList<long> ans = new List<long>();
+        if (finalSum % 2 == 1) {
+            return ans;
+        }
+        for (long i = 2; i <= finalSum; i += 2) {
+            ans.Add(i);
+            finalSum -= i;
+        }
+        ans[ans.Count - 1] += finalSum;
+        return ans;
+    }
 }
 ```
 

@@ -110,17 +110,16 @@ public:
 ### **Go**
 
 ```go
-func maximumEvenSplit(finalSum int64) []int64 {
-	ans := []int64{}
+func maximumEvenSplit(finalSum int64) (ans []int64) {
 	if finalSum%2 == 1 {
-		return ans
+		return
 	}
 	for i := int64(2); i <= finalSum; i += 2 {
 		ans = append(ans, i)
 		finalSum -= i
 	}
 	ans[len(ans)-1] += finalSum
-	return ans
+	return
 }
 ```
 
@@ -138,6 +137,25 @@ function maximumEvenSplit(finalSum: number): number[] {
     }
     ans[ans.length - 1] += finalSum;
     return ans;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public IList<long> MaximumEvenSplit(long finalSum) {
+        IList<long> ans = new List<long>();
+        if (finalSum % 2 == 1) {
+            return ans;
+        }
+        for (long i = 2; i <= finalSum; i += 2) {
+            ans.Add(i);
+            finalSum -= i;
+        }
+        ans[ans.Count - 1] += finalSum;
+        return ans;
+    }
 }
 ```
 
