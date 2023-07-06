@@ -155,7 +155,7 @@ def generate_question_readme(result):
                     item["title_cn"],
                     item["url_cn"],
                     item["relative_path_en"],
-                    item["content_cn"],
+                    item["content_cn"].replace('leetcode-cn.com', 'leetcode.cn'),
                 )
             )
 
@@ -248,6 +248,7 @@ def refresh(result):
             )
             cn_content = cn_content.replace(url, new_url)
 
+        cn_content = cn_content.replace('leetcode-cn.com', 'leetcode.cn')
         with open(path_cn, "w", encoding="utf-8") as f1:
             f1.write(cn_content)
 

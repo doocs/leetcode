@@ -2770,10 +2770,11 @@
 |  2757  |  [生成循环数组的值](/solution/2700-2799/2757.Generate%20Circular%20Array%20Values/README.md)  |    |  中等  |  🔒  |
 |  2758  |  [下一天](/solution/2700-2799/2758.Next%20Day/README.md)  |    |  简单  |  🔒  |
 |  2759  |  [将 JSON 字符串转换为对象](/solution/2700-2799/2759.Convert%20JSON%20String%20to%20Object/README.md)  |    |  困难  |  🔒  |
-|  2760  |  [最长奇偶子数组](/solution/2700-2799/2760.Longest%20Even%20Odd%20Subarray%20With%20Threshold/README.md)  |    |  简单  |  第 352 场周赛  |
-|  2761  |  [和等于目标值的质数对](/solution/2700-2799/2761.Prime%20Pairs%20With%20Target%20Sum/README.md)  |    |  中等  |  第 352 场周赛  |
-|  2762  |  [不间断子数组](/solution/2700-2799/2762.Continuous%20Subarrays/README.md)  |    |  中等  |  第 352 场周赛  |
-|  2763  |  [所有子数组中不平衡数字之和](/solution/2700-2799/2763.Sum%20of%20Imbalance%20Numbers%20of%20All%20Subarrays/README.md)  |    |  困难  |  第 352 场周赛  |
+|  2760  |  [最长奇偶子数组](/solution/2700-2799/2760.Longest%20Even%20Odd%20Subarray%20With%20Threshold/README.md)  |  `数组`,`滑动窗口`  |  简单  |  第 352 场周赛  |
+|  2761  |  [和等于目标值的质数对](/solution/2700-2799/2761.Prime%20Pairs%20With%20Target%20Sum/README.md)  |  `数组`,`数学`,`枚举`,`数论`  |  中等  |  第 352 场周赛  |
+|  2762  |  [不间断子数组](/solution/2700-2799/2762.Continuous%20Subarrays/README.md)  |  `队列`,`数组`,`有序集合`,`滑动窗口`,`单调队列`,`堆（优先队列）`  |  中等  |  第 352 场周赛  |
+|  2763  |  [所有子数组中不平衡数字之和](/solution/2700-2799/2763.Sum%20of%20Imbalance%20Numbers%20of%20All%20Subarrays/README.md)  |  `数组`,`哈希表`,`有序集合`  |  困难  |  第 352 场周赛  |
+|  2764  |  [is Array a Preorder of Some ‌Binary Tree](/solution/2700-2799/2764.is%20Array%20a%20Preorder%20of%20Some%20%E2%80%8CBinary%20Tree/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
