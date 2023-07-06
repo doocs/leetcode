@@ -55,25 +55,140 @@ The number of houses is equal to k, which is 5.
 ### **Python3**
 
 ```python
-
+# Definition for a street.
+# class Street:
+#     def closeDoor(self):
+#         pass
+#     def isDoorOpen(self):
+#         pass
+#     def moveRight(self):
+#         pass
+class Solution:
+    def houseCount(self, street: Optional["Street"], k: int) -> int:
+        while not street.isDoorOpen():
+            street.moveRight()
+        for i in range(1, k + 1):
+            street.moveRight()
+            if street.isDoorOpen():
+                ans = i
+                street.closeDoor()
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+/**
+ * Definition for a street.
+ * class Street {
+ *     public Street(int[] doors);
+ *     public void closeDoor();
+ *     public boolean isDoorOpen();
+ *     public void moveRight();
+ * }
+ */
+class Solution {
+    public int houseCount(Street street, int k) {
+        while (!street.isDoorOpen()) {
+            street.moveRight();
+        }
+        int ans = 0;
+        for (int i = 1; i <= k; ++i) {
+            street.moveRight();
+            if (street.isDoorOpen()) {
+                ans = i;
+                street.closeDoor();
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+/**
+ * Definition for a street.
+ * class Street {
+ * public:
+ *     Street(vector<int> doors);
+ *     void closeDoor();
+ *     bool isDoorOpen();
+ *     void moveRight();
+ * };
+ */
+class Solution {
+public:
+    int houseCount(Street* street, int k) {
+        while (!street->isDoorOpen()) {
+            street->moveRight();
+        }
+        int ans = 0;
+        for (int i = 1; i <= k; ++i) {
+            street->moveRight();
+            if (street->isDoorOpen()) {
+                ans = i;
+                street->closeDoor();
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+/**
+ * Definition for a street.
+ * type Street interface {
+ *     CloseDoor()
+ *     IsDoorOpen() bool
+ *     MoveRight()
+ * }
+ */
+func houseCount(street Street, k int) (ans int) {
+	for !street.IsDoorOpen() {
+		street.MoveRight()
+	}
+	for i := 1; i <= k; i++ {
+		street.MoveRight()
+		if street.IsDoorOpen() {
+			ans = i
+			street.CloseDoor()
+		}
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a street.
+ * class Street {
+ *     constructor(doors: number[]);
+ *     public closeDoor(): void;
+ *     public isDoorOpen(): boolean;
+ *     public moveRight(): void;
+ * }
+ */
+function houseCount(street: Street | null, k: number): number {
+    while (!street.isDoorOpen()) {
+        street.moveRight();
+    }
+    let ans = 0;
+    for (let i = 1; i <= k; ++i) {
+        street.moveRight();
+        if (street.isDoorOpen()) {
+            ans = i;
+            street.closeDoor();
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
