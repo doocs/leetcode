@@ -56,7 +56,7 @@ Apparently, we can maintain a two-dimensional prefix sum array, and in `O(1)` ti
 
 Since the action of affixing a stamp can be generalized to setting the values of all cells in the current sub-area to `1`, it's natural to think of maintaining the state after stamp affixing using a two-dimensional difference array.
 
-Finally, just calculate the two-dimensional prefix sum for this difference array again. 
+Finally, just calculate the two-dimensional prefix sum for this difference array again.
 
 If the sum of the current cell is `0`, it means there are cases that have not been completely covered, and you can directly return `false`.
 
@@ -196,7 +196,7 @@ impl Solution {
             for j in 0..m {
                 prefix_vec[i + 1][j + 1] = prefix_vec[i][j + 1] + prefix_vec[i + 1][j] - prefix_vec[i][j] + grid[i][j];
             }
-        } 
+        }
 
         let mut diff_vec: Vec<Vec<i32>> = vec![vec![0; m + 1]; n + 1];
 

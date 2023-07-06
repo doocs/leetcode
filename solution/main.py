@@ -190,6 +190,9 @@ class Spider:
 
         print(f'{frontend_question_id}. {question_title_en}')
         topic_tags = question_detail.get('topicTags')
+        for tag in topic_tags:
+            if tag['name'] == '数据库':
+                tag['name'] = 'Database'
 
         item = {
             'sub_folder': sub_folders[no],
@@ -404,6 +407,7 @@ generate_summary(ls)
 
 # 生成周赛题目列表
 generate_contest_readme(cls)
+
 
 # 刷新题目文件
 if refresh_all:
