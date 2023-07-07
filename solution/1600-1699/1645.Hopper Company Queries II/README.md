@@ -151,6 +151,16 @@ ride_id是该表的主键。
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：递归 + 左连接 + 分组**
+
+我们可以使用递归的方法生成 $1 \sim 12$ 月的数据，记录在 `Month` 表中。
+
+接下来，我们用 `Month` 表与 `Drivers` 表进行左连接，连接的条件是 `year(d.join_date) < 2020 or (year(d.join_date) = 2020 and month(d.join_date) <= month)`，这样就可以得到每个月的活跃司机数。
+
+然后，我们再用 `Rides` 表与 `AcceptedRides` 表进行内连接，连接的条件是 `ride_id` 相等，并且我们只查出 `year(requested_at) = 2020` 的数据，这样就可以得到 $2020$ 年被接受的所有行程。
+
+最后，我们将上面两个表进行左连接，连接的条件是 `month` 相等、`driver_id` 相等，并且 `join_date` 小于等于 `requested_at`，这样就可以得到每个月被接受的行程数，按月份进行分组，就可以得到每个月的活跃司机数和被接受的行程数，从而计算出每个月的接单率。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -158,7 +168,46 @@ ride_id是该表的主键。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-
+# Write your MySQL query statement below
+WITH RECURSIVE
+    Month AS (
+        SELECT 1 AS month
+        UNION
+        SELECT month + 1
+        FROM Month
+        WHERE month < 12
+    ),
+    S AS (
+        SELECT month, driver_id, join_date
+        FROM
+            Month AS m
+            LEFT JOIN Drivers AS d
+                ON year(d.join_date) < 2020
+                OR (year(d.join_date) = 2020 AND month(d.join_date) <= month)
+    ),
+    T AS (
+        SELECT driver_id, requested_at
+        FROM
+            Rides
+            JOIN AcceptedRides USING (ride_id)
+        WHERE year(requested_at) = 2020
+    )
+SELECT
+    month,
+    ifnull(
+        round(
+            count(DISTINCT t.driver_id) * 100 / count(DISTINCT s.driver_id),
+            2
+        ),
+        0
+    ) AS working_percentage
+FROM
+    S AS s
+    LEFT JOIN T AS t
+        ON s.driver_id = t.driver_id
+        AND s.join_date <= t.requested_at
+        AND s.month = month(t.requested_at)
+GROUP BY 1;
 ```
 
 <!-- tabs:end -->
