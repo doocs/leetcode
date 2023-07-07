@@ -14,7 +14,6 @@ WITH RECURSIVE
             LEFT JOIN Drivers AS d
                 ON year(d.join_date) < 2020
                 OR (year(d.join_date) = 2020 AND month(d.join_date) <= month)
-        ORDER BY 1, 3
     ),
     T AS (
         SELECT driver_id, requested_at
