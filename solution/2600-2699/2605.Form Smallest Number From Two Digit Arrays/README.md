@@ -337,7 +337,7 @@ function minNumber(nums1: number[], nums2: number[]): number {
     let ans = 100;
     for (const a of nums1) {
         for (const b of nums2) {
-            if (a == b) {
+            if (a === b) {
                 ans = Math.min(ans, a);
             } else {
                 ans = Math.min(ans, a * 10 + b, b * 10 + a);
@@ -364,10 +364,10 @@ function minNumber(nums1: number[], nums2: number[]): number {
         if (s1[i] && s2[i]) {
             return i;
         }
-        if (a == 0 && s1[i]) {
+        if (a === 0 && s1[i]) {
             a = i;
         }
-        if (b == 0 && s2[i]) {
+        if (b === 0 && s2[i]) {
             b = i;
         }
     }
@@ -476,7 +476,7 @@ impl Solution {
 
             if b == 0 && h2.contains_key(&i) {
                 b = i;
-            } 
+            }
         }
 
 
