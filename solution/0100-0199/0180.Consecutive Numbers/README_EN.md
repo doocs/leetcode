@@ -58,25 +58,22 @@ Logs table:
 ### **SQL**
 
 ```sql
-SELECT DISTINCT (Num) AS ConsecutiveNums
-FROM Logs AS Curr
-WHERE
-    Num = (SELECT Num FROM Logs WHERE id = Curr.id - 1)
-    AND Num = (SELECT Num FROM Logs WHERE id = Curr.id - 2);
-```
-
-```sql
 # Write your MySQL query statement below
-SELECT DISTINCT l1.num AS ConsecutiveNums
-FROM
-    logs AS l1,
-    logs AS l2,
-    logs AS l3
-WHERE
-    l1.id = l2.id - 1
-    AND l2.id = l3.id - 1
-    AND l1.num = l2.num
-    AND l2.num = l3.num;
+WITH
+    t AS (
+        SELECT
+            *,
+            CASE
+                WHEN (lag(num) OVER (ORDER BY id)) = num THEN 0
+                ELSE 1
+            END AS mark
+        FROM Logs
+    ),
+    p AS (SELECT num, sum(mark) OVER (ORDER BY id) AS gid FROM t)
+SELECT DISTINCT num AS ConsecutiveNums
+FROM p
+GROUP BY gid
+HAVING count(1) >= 3;
 ```
 
 <!-- tabs:end -->

@@ -73,11 +73,21 @@ Employee 表：
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：使用 LIMIT 语句和子查询**
+
+我们可以按照薪水降序排列，然后使用 `LIMIT` 语句来获取第二高的薪水，如果不存在第二高的薪水，那么就返回 `null`。
+
+**方法二：使用 MAX() 函数和子查询**
+
+使用 `MAX()` 函数，从小于 `MAX()` 的 Salary 中挑选最大值 `MAX()` 即可。
+
+**方法三：使用 IFNULL() 和窗口函数**
+
+我们也可以先通过 `dense_rank()` 函数计算出每个员工的薪水排名，然后再筛选出排名为 $2$ 的员工即可，如果不存在第二高的薪水，那么就返回 `null`。
+
 <!-- tabs:start -->
 
 ### **SQL**
-
-解法 1：使用 LIMIT 语句和子查询。
 
 ```sql
 # Write your MySQL query statement below
@@ -90,8 +100,6 @@ SELECT
     ) AS SecondHighestSalary;
 ```
 
-解法 2：使用 `MAX()` 函数，从小于 `MAX()` 的 Salary 中挑选最大值 `MAX()` 即可。
-
 ```sql
 # Write your MySQL query statement below
 SELECT MAX(Salary) AS SecondHighestSalary
@@ -101,6 +109,22 @@ WHERE
         SELECT MAX(Salary)
         FROM Employee
     );
+```
+
+```sql
+# Write your MySQL query statement below
+WITH
+    S AS (
+        SELECT salary, dense_rank() OVER (ORDER BY salary DESC) AS rk
+        FROM Employee
+    )
+SELECT
+    ifnull(
+        SELECT salary
+        FROM S
+        WHERE rk = 2
+        LIMIT 1, NULL
+    ) AS SecondHighestSalary;
 ```
 
 <!-- tabs:end -->

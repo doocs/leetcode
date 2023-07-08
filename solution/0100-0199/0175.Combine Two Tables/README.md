@@ -80,20 +80,18 @@ addressId = 1 包含了 personId = 2 的地址信息。</pre>
 
 **方法一：左连接**
 
+我们可以使用左连接，将 `Person` 表左连接 `Address` 表，连接条件为 `Person.personId = Address.personId`，这样就可以得到每个人的姓、名、城市和州。如果 `personId` 的地址不在 `Address` 表中，则报告为空 `null`。
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    firstName,
-    lastName,
-    city,
-    state
+SELECT firstName, lastName, city, state
 FROM
-    Person AS p
-    LEFT JOIN Address AS a ON p.personId = a.personId;
+    Person
+    LEFT JOIN Address USING (personId);
 ```
 
 <!-- tabs:end -->

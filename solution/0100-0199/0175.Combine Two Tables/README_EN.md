@@ -82,14 +82,10 @@ addressId = 1 contains information about the address of personId = 2.
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    firstName,
-    lastName,
-    city,
-    state
+SELECT firstName, lastName, city, state
 FROM
-    Person AS p
-    LEFT JOIN Address AS a ON p.personId = a.personId;
+    Person
+    LEFT JOIN Address USING (personId);
 ```
 
 <!-- tabs:end -->
