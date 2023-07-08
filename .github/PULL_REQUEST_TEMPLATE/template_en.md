@@ -1,6 +1,8 @@
-<!– 🤭 Thank you for your contribution. Please check if your changes comply with the following project specifications. –>
+[中文模板](?quick_pull=1&template=pull_request_template.md)
 
-[中文模板](?quick_pull=1&template=template.md)
+---
+
+<!– 🤭 Thank you for your contribution. Please check if your changes comply with the following project specifications. –>
 
 ### 1. Formatting
 
@@ -12,7 +14,7 @@ We use different formatting tools for various programming languages (including d
 -   .{go} use gofmt
 -   Others to be improved
 
-### 2. Commit msg
+### 2. Git Commit Message
 
 Our project follows the [AngularJS Git Commit Message Conventions](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#). We hope that your submission information is as consistent as possible with the project.
 
