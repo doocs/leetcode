@@ -64,11 +64,15 @@ Employee table:
 
 ## Solutions
 
+**Solution 1: Use Sub Query and LIMIT**
+
+**Solution 2: Use `MAX()` function**
+
+**Solution 3: Use `IFNULL()` and window function**
+
 <!-- tabs:start -->
 
 ### **SQL**
-
-Solution 1: Use Sub Query and LIMIT.
 
 ```sql
 # Write your MySQL query statement below
@@ -81,8 +85,6 @@ SELECT
     ) AS SecondHighestSalary;
 ```
 
-Solution 2: Use `MAX()` function.
-
 ```sql
 # Write your MySQL query statement below
 SELECT MAX(Salary) AS SecondHighestSalary
@@ -92,6 +94,22 @@ WHERE
         SELECT MAX(Salary)
         FROM Employee
     );
+```
+
+```sql
+# Write your MySQL query statement below
+WITH
+    S AS (
+        SELECT salary, dense_rank() OVER (ORDER BY salary DESC) AS rk
+        FROM Employee
+    )
+SELECT
+    ifnull(
+        SELECT salary
+        FROM S
+        WHERE rk = 2
+        LIMIT 1, NULL
+    ) AS SecondHighestSalary;
 ```
 
 <!-- tabs:end -->
