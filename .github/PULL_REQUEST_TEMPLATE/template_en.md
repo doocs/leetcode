@@ -1,12 +1,6 @@
-[中文模板](?quick_pull=1&template=pull_request_template.md)
-
----
-
 <!-- 
+
 🤭 Thank you for your contribution. Please check if your changes comply with the following project specifications. 
--->
-
-<!-- 
 
 ### 1. Formatting
 
