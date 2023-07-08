@@ -351,7 +351,7 @@ impl Solution {
                 if j - i + 1 < ans {
                     break;
                 }
-                
+
                 if check(i, j) {
                     ans = std::cmp::max(ans, j - i + 1);
                     break;
