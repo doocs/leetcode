@@ -2,7 +2,11 @@
 
 ---
 
-<!– 🤭 Thank you for your contribution. Please check if your changes comply with the following project specifications. –>
+<!-- 
+🤭 Thank you for your contribution. Please check if your changes comply with the following project specifications. 
+-->
+
+<!-- 
 
 ### 1. Formatting
 
@@ -26,4 +30,6 @@ Our project follows the [AngularJS Git Commit Message Conventions](https://docs.
 
 When adding solutions and code, you need to create a Solution.xxx source code file (if it already exists, please confirm whether the algorithm is better, if yes, overwrite the existing algorithm code), and at the same time, you need to add the corresponding code snippets in README.md and README_EN.md (do not have Chinese comments in the English file)
 
-In addition, the coding style (such as the naming of variables and functions) should be as consistent as possible with the existing code in the project.
+In addition, the coding style (such as the naming of variables and functions) should be as consistent as possible with the existing code in the project. 
+
+-->
