@@ -125,25 +125,20 @@ WHERE
 ```sql
 # Write your MySQL query statement below
 WITH
-    t AS (
+    T AS (
         SELECT
-            departmentId,
-            name,
-            salary,
+            *,
             dense_rank() OVER (
                 PARTITION BY departmentId
                 ORDER BY salary DESC
             ) AS rk
         FROM Employee
     )
-SELECT
-    d.name AS Department,
-    t.name AS Employee,
-    salary AS Salary
+SELECT d.name AS Department, t.name AS Employee, salary AS Salary
 FROM
-    t
+    T AS t
     JOIN Department AS d ON t.departmentId = d.id
-WHERE rk < 4;
+WHERE rk <= 3;
 ```
 
 <!-- tabs:end -->

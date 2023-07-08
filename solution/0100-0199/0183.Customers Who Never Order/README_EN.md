@@ -78,22 +78,23 @@ Orders table:
 ### **SQL**
 
 ```sql
-SELECT Name AS Customers
+# Write your MySQL query statement below
+SELECT name AS Customers
 FROM Customers
 WHERE
     id NOT IN (
-        SELECT CustomerId
+        SELECT customerId
         FROM Orders
     );
 ```
 
 ```sql
-SELECT
-    c.Name AS Customers
+# Write your MySQL query statement below
+SELECT name AS Customers
 FROM
-    customers AS c
-    LEFT JOIN orders AS o ON c.Id = o.CustomerId
-WHERE o.CustomerId IS NULL;
+    Customers AS c
+    LEFT JOIN Orders AS o ON c.id = o.customerId
+WHERE o.id IS NULL;
 ```
 
 <!-- tabs:end -->
