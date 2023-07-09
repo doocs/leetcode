@@ -5,7 +5,7 @@ on:
     types: [opened]
 
 jobs:
-  pr-check:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Pull request
