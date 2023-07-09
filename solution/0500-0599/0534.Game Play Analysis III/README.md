@@ -59,20 +59,24 @@ Result table:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：SUM() OVER() 窗口函数**
+
+我们可以使用 `SUM() OVER()` 窗口函数来计算每个玩家到目前为止玩了多少游戏。在 `OVER()` 子句中，我们使用 `PARTITION BY` 子句将玩家分组，然后使用 `ORDER BY` 子句按日期排序。
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
+# Write your MySQL query statement below
 SELECT
     player_id,
     event_date,
-    SUM(games_played) OVER (
+    sum(games_played) OVER (
         PARTITION BY player_id
         ORDER BY event_date
     ) AS games_played_so_far
-FROM Activity
-ORDER BY 1, 2;
+FROM Activity;
 ```
 
 <!-- tabs:end -->
