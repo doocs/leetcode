@@ -1,19 +1,21 @@
 # Write your MySQL query statement below
-SELECT
-    id,
-    month,
-    sum(salary) OVER (
-        PARTITION BY id
-        ORDER BY month
-        RANGE 2 PRECEDING
-    ) AS Salary
-FROM employee
-WHERE
-    (id, month) NOT IN (
+WITH
+    T AS (
         SELECT
             id,
-            max(month)
+            month,
+            sum(salary) OVER (
+                PARTITION BY id
+                ORDER BY month
+                RANGE 2 PRECEDING
+            ) AS salary,
+            rank() OVER (
+                PARTITION BY id
+                ORDER BY month DESC
+            ) AS rk
         FROM Employee
-        GROUP BY id
     )
-ORDER BY id, month DESC;
+SELECT id, month, salary
+FROM T
+WHERE rk > 1
+ORDER BY 1, 2 DESC;

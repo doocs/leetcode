@@ -73,11 +73,28 @@ SurveyLog table:
 ### **SQL**
 
 ```sql
+# Write your MySQL query statement below
 SELECT question_id AS survey_log
-FROM   SurveyLog
-GROUP  BY 1
-ORDER  BY SUM(action = 'answer') / SUM(action = 'show') DESC
-LIMIT  1;
+FROM SurveyLog
+GROUP BY 1
+ORDER BY sum(action = 'answer') / sum(action = 'show') DESC, 1
+LIMIT 1;
+```
+
+```sql
+WITH
+    T AS (
+        SELECT
+            question_id AS survey_log,
+            (sum(action = 'answer') OVER (PARTITION BY question_id)) / (
+                sum(action = 'show') OVER (PARTITION BY question_id)
+            ) AS ratio
+        FROM SurveyLog
+    )
+SELECT survey_log
+FROM T
+ORDER BY ratio DESC, 1
+LIMIT 1;
 ```
 
 <!-- tabs:end -->

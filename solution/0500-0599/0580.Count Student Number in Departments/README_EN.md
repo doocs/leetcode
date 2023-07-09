@@ -81,14 +81,18 @@ Department table:
 ### **SQL**
 
 ```sql
-SELECT
-    department.dept_name,
-    COUNT(student.dept_id) AS student_number
+# Write your MySQL query statement below
+WITH
+    S AS (
+        SELECT dept_id, count(1) AS cnt
+        FROM Student
+        GROUP BY dept_id
+    )
+SELECT dept_name, ifnull(cnt, 0) AS student_number
 FROM
-    Student
-    RIGHT JOIN Department ON student.dept_id = department.dept_id
-GROUP BY dept_name
-ORDER BY student_number DESC, dept_name;
+    S
+    RIGHT JOIN Department USING (dept_id)
+ORDER BY 2 DESC, 1;
 ```
 
 <!-- tabs:end -->
