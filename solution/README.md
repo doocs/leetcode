@@ -2775,6 +2775,14 @@
 |  2762  |  [不间断子数组](/solution/2700-2799/2762.Continuous%20Subarrays/README.md)  |  `队列`,`数组`,`有序集合`,`滑动窗口`,`单调队列`,`堆（优先队列）`  |  中等  |  第 352 场周赛  |
 |  2763  |  [所有子数组中不平衡数字之和](/solution/2700-2799/2763.Sum%20of%20Imbalance%20Numbers%20of%20All%20Subarrays/README.md)  |  `数组`,`哈希表`,`有序集合`  |  困难  |  第 352 场周赛  |
 |  2764  |  [is Array a Preorder of Some ‌Binary Tree](/solution/2700-2799/2764.is%20Array%20a%20Preorder%20of%20Some%20%E2%80%8CBinary%20Tree/README.md)  |    |  中等  |  🔒  |
+|  2765  |  [最长交替子序列](/solution/2700-2799/2765.Longest%20Alternating%20Subarray/README.md)  |    |  简单  |  第 108 场双周赛  |
+|  2766  |  [重新放置石块](/solution/2700-2799/2766.Relocate%20Marbles/README.md)  |    |  中等  |  第 108 场双周赛  |
+|  2767  |  [将字符串分割为最少的美丽子字符串](/solution/2700-2799/2767.Partition%20String%20Into%20Minimum%20Beautiful%20Substrings/README.md)  |    |  中等  |  第 108 场双周赛  |
+|  2768  |  [黑格子的数目](/solution/2700-2799/2768.Number%20of%20Black%20Blocks/README.md)  |    |  中等  |  第 108 场双周赛  |
+|  2769  |  [找出最大的可达成数字](/solution/2700-2799/2769.Find%20the%20Maximum%20Achievable%20Number/README.md)  |    |  简单  |  第 353 场周赛  |
+|  2770  |  [达到末尾下标所需的最大跳跃次数](/solution/2700-2799/2770.Maximum%20Number%20of%20Jumps%20to%20Reach%20the%20Last%20Index/README.md)  |    |  中等  |  第 353 场周赛  |
+|  2771  |  [构造最长非递减子数组](/solution/2700-2799/2771.Longest%20Non-decreasing%20Subarray%20From%20Two%20Arrays/README.md)  |    |  中等  |  第 353 场周赛  |
+|  2772  |  [使数组中的所有元素都等于零](/solution/2700-2799/2772.Apply%20Operations%20to%20Make%20All%20Array%20Elements%20Equal%20to%20Zero/README.md)  |    |  中等  |  第 353 场周赛  |
 
 ## 版权
 

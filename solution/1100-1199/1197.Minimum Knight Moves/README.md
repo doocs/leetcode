@@ -383,7 +383,7 @@ impl Solution {
         q_from.push_back((x, y));
 
         while !q_to.is_empty() && !q_from.is_empty() {
-            let step = if q_to.len() < q_from.len() { 
+            let step = if q_to.len() < q_from.len() {
                 Self::extend(&mut map_to, &mut map_from, &mut q_to)
             } else {
                 Self::extend(&mut map_from, &mut map_to, &mut q_from)
