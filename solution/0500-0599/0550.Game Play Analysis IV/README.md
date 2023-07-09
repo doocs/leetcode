@@ -71,4 +71,34 @@ FROM
         AND DATEDIFF(a.event_date, b.event_date) = -1;
 ```
 
+```sql
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT
+            player_id,
+            datediff(
+                lead(event_date) OVER (
+                    PARTITION BY player_id
+                    ORDER BY event_date
+                ),
+                event_date
+            ) AS diff,
+            row_number() OVER (
+                PARTITION BY player_id
+                ORDER BY event_date
+            ) AS rk
+        FROM Activity
+    )
+SELECT
+    round(
+        count(DISTINCT if(diff = 1, player_id, NULL)) / count(
+            DISTINCT player_id
+        ),
+        2
+    ) AS fraction
+FROM T
+WHERE rk = 1;
+```
+
 <!-- tabs:end -->
