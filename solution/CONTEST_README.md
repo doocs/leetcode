@@ -22,6 +22,20 @@
 
 ## 往期竞赛
 
+#### 第 353 场周赛(2023-07-09 10:30, 90 分钟) 参赛人数 4112
+
+- [2769. 找出最大的可达成数字](/solution/2700-2799/2769.Find%20the%20Maximum%20Achievable%20Number/README.md)
+- [2770. 达到末尾下标所需的最大跳跃次数](/solution/2700-2799/2770.Maximum%20Number%20of%20Jumps%20to%20Reach%20the%20Last%20Index/README.md)
+- [2771. 构造最长非递减子数组](/solution/2700-2799/2771.Longest%20Non-decreasing%20Subarray%20From%20Two%20Arrays/README.md)
+- [2772. 使数组中的所有元素都等于零](/solution/2700-2799/2772.Apply%20Operations%20to%20Make%20All%20Array%20Elements%20Equal%20to%20Zero/README.md)
+
+#### 第 108 场双周赛(2023-07-08 22:30, 90 分钟) 参赛人数 2349
+
+- [2765. 最长交替子序列](/solution/2700-2799/2765.Longest%20Alternating%20Subarray/README.md)
+- [2766. 重新放置石块](/solution/2700-2799/2766.Relocate%20Marbles/README.md)
+- [2767. 将字符串分割为最少的美丽子字符串](/solution/2700-2799/2767.Partition%20String%20Into%20Minimum%20Beautiful%20Substrings/README.md)
+- [2768. 黑格子的数目](/solution/2700-2799/2768.Number%20of%20Black%20Blocks/README.md)
+
 #### 第 352 场周赛(2023-07-02 10:30, 90 分钟) 参赛人数 3437
 
 - [2760. 最长奇偶子数组](/solution/2700-2799/2760.Longest%20Even%20Odd%20Subarray%20With%20Threshold/README.md)
