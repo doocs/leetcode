@@ -2773,6 +2773,14 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2762  |  [Continuous Subarrays](/solution/2700-2799/2762.Continuous%20Subarrays/README_EN.md)  |  `Queue`,`Array`,`Ordered Set`,`Sliding Window`,`Monotonic Queue`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 352  |
 |  2763  |  [Sum of Imbalance Numbers of All Subarrays](/solution/2700-2799/2763.Sum%20of%20Imbalance%20Numbers%20of%20All%20Subarrays/README_EN.md)  |  `Array`,`Hash Table`,`Ordered Set`  |  Hard  |  Weekly Contest 352  |
 |  2764  |  [is Array a Preorder of Some ‌Binary Tree](/solution/2700-2799/2764.is%20Array%20a%20Preorder%20of%20Some%20%E2%80%8CBinary%20Tree/README_EN.md)  |    |  Medium  |  🔒  |
+|  2765  |  [Longest Alternating Subarray](/solution/2700-2799/2765.Longest%20Alternating%20Subarray/README_EN.md)  |    |  Easy  |  Biweekly Contest 108  |
+|  2766  |  [Relocate Marbles](/solution/2700-2799/2766.Relocate%20Marbles/README_EN.md)  |    |  Medium  |  Biweekly Contest 108  |
+|  2767  |  [Partition String Into Minimum Beautiful Substrings](/solution/2700-2799/2767.Partition%20String%20Into%20Minimum%20Beautiful%20Substrings/README_EN.md)  |    |  Medium  |  Biweekly Contest 108  |
+|  2768  |  [Number of Black Blocks](/solution/2700-2799/2768.Number%20of%20Black%20Blocks/README_EN.md)  |    |  Medium  |  Biweekly Contest 108  |
+|  2769  |  [Find the Maximum Achievable Number](/solution/2700-2799/2769.Find%20the%20Maximum%20Achievable%20Number/README_EN.md)  |    |  Easy  |  Weekly Contest 353  |
+|  2770  |  [Maximum Number of Jumps to Reach the Last Index](/solution/2700-2799/2770.Maximum%20Number%20of%20Jumps%20to%20Reach%20the%20Last%20Index/README_EN.md)  |    |  Medium  |  Weekly Contest 353  |
+|  2771  |  [Longest Non-decreasing Subarray From Two Arrays](/solution/2700-2799/2771.Longest%20Non-decreasing%20Subarray%20From%20Two%20Arrays/README_EN.md)  |    |  Medium  |  Weekly Contest 353  |
+|  2772  |  [Apply Operations to Make All Array Elements Equal to Zero](/solution/2700-2799/2772.Apply%20Operations%20to%20Make%20All%20Array%20Elements%20Equal%20to%20Zero/README_EN.md)  |    |  Medium  |  Weekly Contest 353  |
 
 ## Copyright
 

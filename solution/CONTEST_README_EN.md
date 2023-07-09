@@ -25,6 +25,20 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 353
+
+- [2769. Find the Maximum Achievable Number](/solution/2700-2799/2769.Find%20the%20Maximum%20Achievable%20Number/README_EN.md)
+- [2770. Maximum Number of Jumps to Reach the Last Index](/solution/2700-2799/2770.Maximum%20Number%20of%20Jumps%20to%20Reach%20the%20Last%20Index/README_EN.md)
+- [2771. Longest Non-decreasing Subarray From Two Arrays](/solution/2700-2799/2771.Longest%20Non-decreasing%20Subarray%20From%20Two%20Arrays/README_EN.md)
+- [2772. Apply Operations to Make All Array Elements Equal to Zero](/solution/2700-2799/2772.Apply%20Operations%20to%20Make%20All%20Array%20Elements%20Equal%20to%20Zero/README_EN.md)
+
+#### Biweekly Contest 108
+
+- [2765. Longest Alternating Subarray](/solution/2700-2799/2765.Longest%20Alternating%20Subarray/README_EN.md)
+- [2766. Relocate Marbles](/solution/2700-2799/2766.Relocate%20Marbles/README_EN.md)
+- [2767. Partition String Into Minimum Beautiful Substrings](/solution/2700-2799/2767.Partition%20String%20Into%20Minimum%20Beautiful%20Substrings/README_EN.md)
+- [2768. Number of Black Blocks](/solution/2700-2799/2768.Number%20of%20Black%20Blocks/README_EN.md)
+
 #### Weekly Contest 352
 
 - [2760. Longest Even Odd Subarray With Threshold](/solution/2700-2799/2760.Longest%20Even%20Odd%20Subarray%20With%20Threshold/README_EN.md)
