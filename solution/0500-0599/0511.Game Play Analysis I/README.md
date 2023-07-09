@@ -54,14 +54,17 @@ Result 表：
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：GROUP BY**
+
+我们可以用 `GROUP BY` 对 `player_id` 进行分组，然后取每一组中最小的 `event_date` 作为玩家第一次登录平台的日期。
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
-SELECT
-    player_id,
-    MIN(event_date) AS first_login
+# Write your MySQL query statement below
+SELECT player_id, min(event_date) AS first_login
 FROM Activity
 GROUP BY player_id;
 ```

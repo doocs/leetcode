@@ -60,9 +60,8 @@ Activity table:
 ### **SQL**
 
 ```sql
-SELECT
-    player_id,
-    MIN(event_date) AS first_login
+# Write your MySQL query statement below
+SELECT player_id, min(event_date) AS first_login
 FROM Activity
 GROUP BY player_id;
 ```

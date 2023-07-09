@@ -51,6 +51,14 @@ Result table:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：子查询**
+
+我们可以使用 `GROUP BY` 和 `MIN` 函数来找到每个玩家的第一次登录日期，然后使用联合键子查询来找到每个玩家的第一次登录设备。
+
+**方法二：窗口函数**
+
+我们可以使用窗口函数 `rank()`，它可以为每个玩家的每个登录日期分配一个排名，然后我们可以选择排名为 $1$ 的行。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -69,6 +77,23 @@ WHERE
         FROM Activity
         GROUP BY player_id
     );
+```
+
+```sql
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT
+            *,
+            rank() OVER (
+                PARTITION BY player_id
+                ORDER BY event_date
+            ) AS rk
+        FROM Activity
+    )
+SELECT player_id, device_id
+FROM T
+WHERE rk = 1;
 ```
 
 <!-- tabs:end -->

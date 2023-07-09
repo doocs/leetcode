@@ -68,4 +68,5 @@ jobs:
             In addition, the coding style (such as the naming of variables and functions) should be as consistent as possible with the existing code in the project. 
 
             <!-- Sticky Pull Request Comment -->
+          emojis: '+1, laugh'
           body-include: '<!-- Sticky Pull Request Comment -->'
