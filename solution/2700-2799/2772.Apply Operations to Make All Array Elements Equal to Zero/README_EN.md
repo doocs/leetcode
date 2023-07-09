@@ -46,6 +46,25 @@
 
 ## Solutions
 
+**Solution 1: Difference Array + Prefix Sum**
+
+Let's first consider the first element $nums[0]$ of $nums$:
+
+-   If $nums[0] = 0$, then we don't need to do anything;
+-   If $nums[0] \gt 0$, then we need to operate $nums[0]$ times on $nums[0..k-1]$ to make the elements in $nums[0..k-1]$ all subtract $nums[0]$, so that $nums[0]$ becomes $0$.
+
+We can use difference array to maintain the operations on a segment of continuous elements. We use $d[i]$ to represent the difference array, and take the prefix sum of the difference array to get the variation amount of each position.
+
+Therefore, we traverse $nums$, for each element $nums[i]$, the current variation amount $s = \sum_{j=0}^{i} d[j]$ and we add $s$ to $nums[i]$ to get the actual value of $nums[i]$.
+
+-   If $nums[i] = 0$, then we don't need to do anything, just skip.
+-   If $nums[i]=0$ or $i + k \gt n$, it means that after the previous operation, $nums[i]$ has become negative, or $nums[i..i+k-1]$ out of bounds, so it is impossible to make all elements in $nums$ equal to $0$, then return `false`. Otherwise, we need to subtract $nums[i]$ from all elements in $[i..i+k-1]$, so we subtract $nums[i]$ from $s$ and add $nums[i]$ to $d[i+k]$.
+-   Continue to traverse the next element.
+
+If the traversal is over, it means that we can make all elements in $nums$ equal to $0$, return `true`.
+
+Time complexity $O(n)$, space complexity $O(n)$. Where $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -52,6 +52,18 @@ Therefore, we return [0,2,2,0,0].
 
 ## Solutions
 
+**Solution 1: Hash Table**
+
+For each $2 \times 2$ submatrix, we can use its upper-left corner coordinate $(x, y)$ to represent it.
+
+For each black cell $(x, y)$, its contribution to the 4 submatrices is $1$, namely the matrices $(x - 1, y - 1)$, $(x - 1, y)$, $(x, y - 1)$, $(x, y)$.
+
+Therefore, we traverse all the black cells, and then accumulate the number of black cells in each submatrix, recorded in the hash table $cnt$.
+
+Finally, we traverse all the values in $cnt$ (greater than $0$), count the number of times they appear, and record them in the answer array $ans$, while $ans[0]$ represents the number of submatrices without black cells, the value is $(m - 1) \times (n - 1) - \sum_{i = 1}^4 ans[i]$.
+
+Time complexity $O(l)$, space complexity $O(l)$, where $l$ is the length of $coordinates$.
+
 <!-- tabs:start -->
 
 ### **Python3**

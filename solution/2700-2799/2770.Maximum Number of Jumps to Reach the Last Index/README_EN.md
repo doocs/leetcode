@@ -61,6 +61,21 @@ It can be proven that there is no other jumping sequence that goes from 0 to n -
 
 ## Solutions
 
+**Solution 1: Memoization**
+
+For each position $i$, we consider to jump to position $j$ which satisfies $|nums[i] - nums[j]| \leq target$. Then we can jump from $i$ to $j$, and continue to jump from $j$ to the end.
+
+Therefore, we design a function $dfs(i)$, which represents the maximum number of jumps needed to jump to the end index starting from position $i$. Then the answer is $dfs(0)$.
+
+The calculation process of function $dfs(i)$ is as follows:
+
+-   If $i = n - 1$, then we have reached the end index and no jumps are required, so return $0$;
+-   Otherwise, we need to enumerate the positions $j$ that can be jumped from position $i$, and calculate the maximum number of jumps needed to jump to the end index starting from $j$, then $dfs(i)$ is equal to the maximum value of all $dfs(j)$ plus $1$. If there is no position $j$ that can be jumped from $i$, then $dfs(i) = -\infty$.
+
+To avoid duplicate calculations, we can use memoization.
+
+Time complexity $O(n^2)$, space complexity $O(n)$. where $n$ is the length of array.
+
 <!-- tabs:start -->
 
 ### **Python3**

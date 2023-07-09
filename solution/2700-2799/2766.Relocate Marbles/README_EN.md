@@ -53,6 +53,12 @@ Since 2 is the only occupied position, we return [2].
 
 ## Solutions
 
+**Solution 1: Hash Table**
+
+Let's use a hash table $pos$ to record all stone positions. Initially, $pos$ contains all elements of $nums$. Then we iterate through $moveFrom$ and $moveTo$. Each time, we remove $moveFrom[i]$ from $pos$ and add $moveTo[i]$ to $pos$. Finally, we sort the elements in $pos$ and return.
+
+The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$. Here, $n$ is the length of array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**
