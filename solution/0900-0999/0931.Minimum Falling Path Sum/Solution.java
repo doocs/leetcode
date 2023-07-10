@@ -1,22 +1,25 @@
 class Solution {
     public int minFallingPathSum(int[][] matrix) {
         int n = matrix.length;
-        for (int i = 1; i < n; ++i) {
+        var f = new int[n];
+        for (var row : matrix) {
+            var g = f.clone();
             for (int j = 0; j < n; ++j) {
-                int mi = matrix[i - 1][j];
                 if (j > 0) {
-                    mi = Math.min(mi, matrix[i - 1][j - 1]);
+                    g[j] = Math.min(g[j], f[j - 1]);
                 }
-                if (j < n - 1) {
-                    mi = Math.min(mi, matrix[i - 1][j + 1]);
+                if (j + 1 < n) {
+                    g[j] = Math.min(g[j], f[j + 1]);
                 }
-                matrix[i][j] += mi;
+                g[j] += row[j];
             }
+            f = g;
         }
-        int res = Integer.MAX_VALUE;
-        for (int j = 0; j < n; ++j) {
-            res = Math.min(res, matrix[n - 1][j]);
+        // return Arrays.stream(f).min().getAsInt();
+        int ans = 1 << 30;
+        for (int x : f) {
+            ans = Math.min(ans, x);
         }
-        return res;
+        return ans;
     }
 }

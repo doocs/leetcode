@@ -1,22 +1,30 @@
 func minFallingPathSum(matrix [][]int) int {
 	n := len(matrix)
-	for i := 1; i < n; i++ {
-		for j := 0; j < n; j++ {
-			mi := matrix[i-1][j]
-			if j > 0 && mi > matrix[i-1][j-1] {
-				mi = matrix[i-1][j-1]
+	f := make([]int, n)
+	for _, row := range matrix {
+		g := make([]int, n)
+		copy(g, f)
+		for j, x := range row {
+			if j > 0 {
+				g[j] = min(g[j], f[j-1])
 			}
-			if j < n-1 && mi > matrix[i-1][j+1] {
-				mi = matrix[i-1][j+1]
+			if j+1 < n {
+				g[j] = min(g[j], f[j+1])
 			}
-			matrix[i][j] += mi
+			g[j] += x
 		}
+		f = g
 	}
-	res := 10000
-	for j := 0; j < n; j++ {
-		if res > matrix[n-1][j] {
-			res = matrix[n-1][j]
-		}
+	ans := 1 << 30
+	for _, x := range f {
+		ans = min(ans, x)
 	}
-	return res
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
