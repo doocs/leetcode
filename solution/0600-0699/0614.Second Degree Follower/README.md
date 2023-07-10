@@ -57,14 +57,17 @@
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    f1.follower,
-    COUNT(DISTINCT f2.follower) AS num
-FROM
-    follow AS f1
-    JOIN follow AS f2 ON f1.follower = f2.followee
-GROUP BY f1.follower
-ORDER BY f1.follower;
+WITH
+    T AS (
+        SELECT f1.follower AS follower, f2.follower AS followee
+        FROM
+            Follow AS f1
+            JOIN Follow AS f2 ON f1.follower = f2.followee
+    )
+SELECT follower, count(DISTINCT followee) AS num
+FROM T
+GROUP BY 1
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->
