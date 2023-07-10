@@ -102,19 +102,19 @@ RequestAccepted 表：
 ### **SQL**
 
 ```sql
+# Write your MySQL query statement below
 SELECT
-    IFNULL(
-        ROUND(
+    round(
+        ifnull(
             (
-                SELECT COUNT(DISTINCT requester_id, accepter_id)
+                SELECT count(DISTINCT requester_id, accepter_id)
                 FROM RequestAccepted
             ) / (
-                SELECT COUNT(DISTINCT sender_id, send_to_id)
-                FROM FriendRequest
+                SELECT count(DISTINCT sender_id, send_to_id) FROM FriendRequest
             ),
-            2
+            0
         ),
-        0.00
+        2
     ) AS accept_rate;
 ```
 

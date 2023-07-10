@@ -72,17 +72,34 @@ World 表：
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：使用 WHERE + OR**
+
+我们可以使用 `WHERE` + `OR` 查询出所有符合条件的国家。
+
+**方法二：使用 UNION**
+
+我们可以查询出所有面积大于等于 300 万平方公里的国家，然后再查询出所有人口大于等于 2500 万的国家，最后使用 `UNION` 将两个结果集合并起来。
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
-SELECT
-    name,
-    population,
-    area
-FROM world
-WHERE area > 3000000 OR population > 25000000;
+# Write your MySQL query statement below
+SELECT name, population, area
+FROM World
+WHERE area >= 3000000 OR population >= 25000000;
+```
+
+```sql
+# Write your MySQL query statement below
+SELECT name, population, area
+FROM World
+WHERE area >= 3000000
+UNION
+SELECT name, population, area
+FROM World
+WHERE population >= 25000000;
 ```
 
 <!-- tabs:end -->
