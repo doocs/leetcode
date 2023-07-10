@@ -75,9 +75,8 @@ ORDER BY count(1) DESC
 LIMIT 1;
 ```
 
-SQL Server
-
 ```sql
+/* Write your T-SQL query statement below */
 SELECT TOP 1
     customer_number
 FROM

@@ -61,17 +61,15 @@ So the result is customer_number 3.
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    customer_number
-FROM orders
-GROUP BY customer_number
+SELECT customer_number
+FROM Orders
+GROUP BY 1
 ORDER BY count(1) DESC
 LIMIT 1;
 ```
 
-SQL Server
-
 ```sql
+/* Write your T-SQL query statement below */
 SELECT TOP 1
     customer_number
 FROM
