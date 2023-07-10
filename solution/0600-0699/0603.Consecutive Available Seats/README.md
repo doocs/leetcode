@@ -66,9 +66,23 @@ Cinema 表:
 SELECT DISTINCT a.seat_id
 FROM
     Cinema AS a
-    JOIN Cinema AS b
-        ON ABS(a.seat_id - b.seat_id) = 1 AND a.free = TRUE AND b.free = TRUE
-ORDER BY a.seat_id;
+    JOIN Cinema AS b ON abs(a.seat_id - b.seat_id) = 1 AND a.free AND b.free
+ORDER BY 1;
+```
+
+```sql
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT
+            seat_id,
+            (free + (lag(free) OVER (ORDER BY seat_id))) AS a,
+            (free + (lead(free) OVER (ORDER BY seat_id))) AS b
+        FROM Cinema
+    )
+SELECT seat_id
+FROM T
+WHERE a = 2 OR b = 2;
 ```
 
 <!-- tabs:end -->

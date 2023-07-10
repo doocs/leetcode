@@ -59,4 +59,12 @@ FROM
     JOIN Point AS p2 ON p1.x != p2.x;
 ```
 
+```sql
+# Write your MySQL query statement below
+SELECT x - lag(x) OVER (ORDER BY x) AS shortest
+FROM Point
+ORDER BY 1
+LIMIT 1, 1;
+```
+
 <!-- tabs:end -->
