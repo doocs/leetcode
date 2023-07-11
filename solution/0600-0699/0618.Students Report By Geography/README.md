@@ -60,31 +60,32 @@ Student table:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：窗口函数 + GROUP BY**
+
+我们可以使用窗口函数 `row_number()` 来为每个大洲的学生编号，然后使用 `GROUP BY` 来将同一编号的学生聚合到一行中。
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
 # Write your MySQL query statement below
-with t as (
-    select
-        *,
-        row_number() over(
-            partition by continent
-            order by
-                name
-        ) rn
-    from
-        Student
-)
-select
-    max(if(continent = 'America', name, null)) America,
-    max(if(continent = 'Asia', name, null)) Asia,
-    max(if(continent = 'Europe', name, null)) Europe
-from
-    t
-group by
-    rn
+WITH
+    T AS (
+        SELECT
+            *,
+            row_number() OVER (
+                PARTITION BY continent
+                ORDER BY name
+            ) AS rk
+        FROM Student
+    )
+SELECT
+    max(if(continent = 'America', name, NULL)) AS 'America',
+    max(if(continent = 'Asia', name, NULL)) AS 'Asia',
+    max(if(continent = 'Europe', name, NULL)) AS 'Europe'
+FROM T
+GROUP BY rk;
 ```
 
 <!-- tabs:end -->
