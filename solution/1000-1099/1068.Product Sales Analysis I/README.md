@@ -78,19 +78,20 @@ Result 表：
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：使用 `JOIN` 内连接**
+
+我们直接使用 `JOIN` 连接 `Sales` 和 `Product` 两张表，连接字段为 `product_id`，然后选择需要的字段即可。
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    p.product_name AS product_name,
-    s.year AS year,
-    s.price AS price
+SELECT product_name, year, price
 FROM
-    Sales AS s
-    LEFT JOIN Product AS p ON s.product_id = p.product_id;
+    Sales
+    JOIN Product USING (product_id);
 ```
 
 <!-- tabs:end -->
