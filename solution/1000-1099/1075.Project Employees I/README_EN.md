@@ -83,14 +83,12 @@ Employee table:
 ### **SQL**
 
 ```sql
-# Write your MySQL query statement below
-SELECT
-    project_id,
-    round(AVG(experience_years), 2) AS average_years
+# Write your MySQL query statement
+SELECT project_id, round(avg(experience_years), 2) AS average_years
 FROM
-    Project AS p
-    LEFT JOIN Employee AS e ON p.employee_id = e.employee_id
-GROUP BY project_id;
+    Project
+    JOIN Employee USING (employee_id)
+GROUP BY 1;
 ```
 
 <!-- tabs:end -->

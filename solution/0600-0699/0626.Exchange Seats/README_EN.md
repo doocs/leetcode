@@ -99,4 +99,17 @@ from
     seat
 ```
 
+```sql
+# Write your MySQL query statement below
+SELECT
+    CASE
+        WHEN id & 1 = 0 THEN id - 1
+        WHEN row_number() OVER (ORDER BY id) != count(id) OVER () THEN id + 1
+        ELSE id
+    END AS id,
+    student
+FROM Seat
+ORDER BY 1;
+```
+
 <!-- tabs:end -->

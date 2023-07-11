@@ -66,22 +66,20 @@ Result 表：
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：GROUP BY + HAVING**
+
+我们将 `Customer` 表按照 `customer_id` 进行分组，然后使用 `HAVING` 子句筛选出购买了所有产品的客户。
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    customer_id
+SELECT customer_id
 FROM Customer
-GROUP BY customer_id
-HAVING
-    COUNT(DISTINCT product_key) = (
-        SELECT
-            COUNT(1)
-        FROM Product
-    );
+GROUP BY 1
+HAVING count(DISTINCT product_key) = (SELECT count(1) FROM Product);
 ```
 
 <!-- tabs:end -->
