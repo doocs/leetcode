@@ -259,6 +259,7 @@ impl Solution {
 ```
 
 Union find:
+
 ```rust
 impl Solution {
     #[allow(dead_code)]
