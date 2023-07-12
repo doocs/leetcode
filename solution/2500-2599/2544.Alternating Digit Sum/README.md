@@ -56,7 +56,9 @@
 
 **方法一：模拟**
 
-从最高有效位开始，每次取出一位数字，根据其相邻数字的符号，决定当前数字的符号，然后将当前数字加入答案。
+直接根据题目描述模拟即可。
+
+我们定义一个初始符号 $sign=1$，然后从最高有效位开始，每次取出一位数字 $x$，与 $sign$ 相乘，将结果加到答案中，然后将 $sign$ 取反，继续处理下一位数字，直到处理完所有数字。
 
 时间复杂度 $O(\log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为给定数字。
 
@@ -65,6 +67,12 @@
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```python
+class Solution:
+    def alternateDigitSum(self, n: int) -> int:
+        return sum((-1) ** i * int(x) for i, x in enumerate(str(n)))
+```
 
 ```python
 class Solution:
