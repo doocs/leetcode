@@ -85,22 +85,22 @@ id 3的产品在2019年春季之后销售。
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：JOIN + GROUP BY + HAVING**
+
+我们可以通过 `JOIN` 将 `Sales` 表和 `Product` 表连接起来，然后通过 `GROUP BY` 和 `HAVING` 来筛选出符合条件的产品。
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    p.product_id,
-    p.product_name
+SELECT product_id, product_name
 FROM
-    Product AS p
-    JOIN Sales AS s ON p.product_id = s.product_id
-GROUP BY p.product_id
-HAVING
-    SUM(s.sale_date < '2019-01-01') = 0
-    AND SUM(s.sale_date > '2019-03-31') = 0;
+    Sales
+    JOIN Product USING (product_id)
+GROUP BY 1
+HAVING count(1) = sum(sale_date BETWEEN '2019-01-01' AND '2019-03-31');
 ```
 
 <!-- tabs:end -->
