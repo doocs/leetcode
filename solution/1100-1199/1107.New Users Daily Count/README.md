@@ -67,18 +67,18 @@ ID 为 5 的用户第一次登陆于 2019-03-01，因此他不算在 2019-06-21 
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    login_date,
-    count(user_id) AS user_count
-FROM
-    (
-        SELECT min(activity_date) AS login_date, user_id
+WITH
+    T AS (
+        SELECT
+            user_id,
+            min(activity_date) OVER (PARTITION BY user_id) AS login_date
         FROM Traffic
         WHERE activity = 'login'
-        GROUP BY user_id
-    ) AS t
-WHERE DATEDIFF('2019-6-30', login_date) <= 90
-GROUP BY login_date;
+    )
+SELECT login_date, count(DISTINCT user_id) AS user_count
+FROM T
+WHERE datediff('2019-06-30', login_date) <= 90
+GROUP BY 1;
 ```
 
 <!-- tabs:end -->
