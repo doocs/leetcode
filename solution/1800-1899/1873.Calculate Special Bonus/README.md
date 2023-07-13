@@ -22,17 +22,17 @@ employee_id 是这个表的主键。
 
 <p>&nbsp;</p>
 
-<p>写出一个SQL 查询语句，计算每个雇员的奖金。如果一个雇员的id是奇数并且他的名字不是以'M'开头，那么他的奖金是他工资的100%，否则奖金为0。</p>
-
-<p>Return the result table ordered by <code>employee_id</code>.</p>
-
-<p>返回的结果集请按照<code>employee_id</code>排序。</p>
-
-<p>查询结果格式如下面的例子所示。</p>
+<p>计算每个雇员的奖金。如果一个雇员的id是奇数并且他的名字不是以'M'开头，那么他的奖金是他工资的100%，否则奖金为0。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1:</strong></p>
+<p>返回的结果集请按照<code>employee_id</code>排序。</p>
+
+<p>返回结果格式如下面的例子所示。</p>
+
+<p>&nbsp;</p>
+
+<p><strong class="example">示例 1:</strong></p>
 
 <pre>
 <strong>输入：</strong>
