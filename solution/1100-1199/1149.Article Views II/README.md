@@ -61,7 +61,9 @@ Views 表:
 
 <!-- 这里可写通用的实现逻辑 -->
 
-“`DISTINCT` + `GROUP BY`” 实现。
+**方法一：DISTINCT + GROUP BY + HAVING**
+
+我们将数据按照 `viewer_id` 和 `view_date` 分组，然后利用 `HAVING` 子句来筛选出浏览文章数大于 $1$ 的记录，最后按照 `id` 去重排序即可。
 
 <!-- tabs:start -->
 
@@ -69,12 +71,11 @@ Views 表:
 
 ```sql
 # Write your MySQL query statement below
-SELECT DISTINCT
-    (viewer_id) AS id
+SELECT DISTINCT viewer_id AS id
 FROM Views
-GROUP BY view_date, viewer_id
-HAVING COUNT(DISTINCT article_id) > 1
-ORDER BY id;
+GROUP BY viewer_id, view_date
+HAVING count(DISTINCT article_id) > 1
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->
