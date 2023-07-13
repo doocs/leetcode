@@ -40,7 +40,7 @@ cashier.getBill([7,3],[10,10]);                      // return 4000.0. 5<sup>th<
 cashier.getBill([7,5,3,1,6,4,2],[10,10,10,9,9,9,7]); // return 7350.0. 6<sup>th</sup> customer, 50% discount.
                                                      // Original bill = 14700, but with
                                                      // Actual bill = 14700 * ((100 - 50) / 100) = 7350.
-cashier.getBill([2,3,5],[5,3,2]);                    // return 2500.0.  6<sup>th</sup> customer, no discount.
+cashier.getBill([2,3,5],[5,3,2]);                    // return 2500.0.  7<sup>th</sup> customer, no discount.
 </pre>
 
 <p>&nbsp;</p>

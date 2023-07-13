@@ -155,7 +155,7 @@ function vowelStrings(words: string[], left: number, right: number): number {
 ```rust
 impl Solution {
     pub fn vowel_strings(words: Vec<String>, left: i32, right: i32) -> i32 {
-        let check = |c: u8| -> bool { 
+        let check = |c: u8| -> bool {
             c == b'a' || c == b'e' || c == b'i' || c == b'o' || c == b'u'
         };
 

@@ -65,7 +65,7 @@ promiseAll(functions).then(console.log); // [5]
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>functions&nbsp;is an array of functions that returns promises</code></li>
+	<li><code>函数 functions 是一个返回 Promise 的函数数组</code></li>
 	<li><code>1 &lt;= functions.length &lt;= 10</code></li>
 </ul>
 
