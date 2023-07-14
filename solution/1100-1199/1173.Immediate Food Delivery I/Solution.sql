@@ -1,8 +1,7 @@
 # Write your MySQL query statement below
-select
+SELECT
     round(
-        sum(if(order_date = customer_pref_delivery_date, 1, 0)) / count(1) * 100,
+        sum(order_date = customer_pref_delivery_date) * 100 / count(1),
         2
-    ) as immediate_percentage
-from
-    Delivery;
+    ) AS immediate_percentage
+FROM Delivery;
