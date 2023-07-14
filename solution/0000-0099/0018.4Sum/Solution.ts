@@ -1,11 +1,6 @@
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number[][]}
- */
-var fourSum = function (nums, target) {
+function fourSum(nums: number[], target: number): number[][] {
     const n = nums.length;
-    const ans = [];
+    const ans: number[][] = [];
     if (n < 4) {
         return ans;
     }
@@ -38,4 +33,4 @@ var fourSum = function (nums, target) {
         }
     }
     return ans;
-};
+}
