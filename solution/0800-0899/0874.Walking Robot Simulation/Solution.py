@@ -1,17 +1,17 @@
 class Solution:
     def robotSim(self, commands: List[int], obstacles: List[List[int]]) -> int:
-        dirs = [[-1, 0], [0, 1], [1, 0], [0, -1]]
+        dirs = (0, 1, 0, -1, 0)
         s = {(x, y) for x, y in obstacles}
-        ans, p = 0, 1
+        ans = k = 0
         x = y = 0
-        for v in commands:
-            if v == -2:
-                p = (p + 3) % 4
-            elif v == -1:
-                p = (p + 1) % 4
+        for c in commands:
+            if c == -2:
+                k = (k + 3) % 4
+            elif c == -1:
+                k = (k + 1) % 4
             else:
-                for _ in range(v):
-                    nx, ny = x + dirs[p][0], y + dirs[p][1]
+                for _ in range(c):
+                    nx, ny = x + dirs[k], y + dirs[k + 1]
                     if (nx, ny) in s:
                         break
                     x, y = nx, ny

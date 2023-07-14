@@ -84,7 +84,23 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：模拟**
+**方法一：哈希表 + 模拟**
+
+我们定义一个长度为 $5$ 的方向数组 $dirs=[0, 1, 0, -1, 0]$，数组中的相邻两个元素表示一个方向。即 $(dirs[0], dirs[1])$ 表示向北，而 $(dirs[1], dirs[2])$ 表示向东，以此类推。
+
+我们使用一个哈希表 $s$ 来存储所有障碍物的坐标，这样我们就可以在 $O(1)$ 的时间内判断下一步是否会遇到障碍物。
+
+我们使用两个变量 $x$ 和 $y$ 来表示机器人当前所在的坐标，初始时 $x = y = 0$。变量 $k$ 表示机器人当前的方向，答案变量 $ans$ 表示机器人距离原点的最大欧式距离的平方。
+
+接下来，我们遍历数组 $commands$ 中的每个元素 $c$：
+
+-   如果 $c = -2$，表示机器人向左转 $90$ 度，即 $k = (k + 3) \bmod 4$；
+-   如果 $c = -1$，表示机器人向右转 $90$ 度，即 $k = (k + 1) \bmod 4$；
+-   否则，表示机器人向前移动 $c$ 个单位长度。我们将机器人当前的方向 $k$ 与方向数组 $dirs$ 结合，即可得到机器人在 $x$ 轴和 $y$ 轴上的增量。我们将 $c$ 个单位长度的增量分别累加到 $x$ 和 $y$ 上，并判断每次移动后的新坐标 $(x, y)$ 是否在障碍物的坐标中，如果不在，则更新答案 $ans$，否则停止模拟，进行下一条指令的模拟。
+
+最后返回答案 $ans$ 即可。
+
+时间复杂度 $O(C \times n + m)$，空间复杂度 $O(m)$。其中 $C$ 表示每次可以移动的最大步数，而 $n$ 和 $m$ 分别表示数组 $commands$ 和数组 $obstacles$ 的长度。
 
 <!-- tabs:start -->
 
@@ -95,18 +111,18 @@
 ```python
 class Solution:
     def robotSim(self, commands: List[int], obstacles: List[List[int]]) -> int:
-        dirs = [[-1, 0], [0, 1], [1, 0], [0, -1]]
+        dirs = (0, 1, 0, -1, 0)
         s = {(x, y) for x, y in obstacles}
-        ans, p = 0, 1
+        ans = k = 0
         x = y = 0
-        for v in commands:
-            if v == -2:
-                p = (p + 3) % 4
-            elif v == -1:
-                p = (p + 1) % 4
+        for c in commands:
+            if c == -2:
+                k = (k + 3) % 4
+            elif c == -1:
+                k = (k + 1) % 4
             else:
-                for _ in range(v):
-                    nx, ny = x + dirs[p][0], y + dirs[p][1]
+                for _ in range(c):
+                    nx, ny = x + dirs[k], y + dirs[k + 1]
                     if (nx, ny) in s:
                         break
                     x, y = nx, ny
@@ -121,22 +137,22 @@ class Solution:
 ```java
 class Solution {
     public int robotSim(int[] commands, int[][] obstacles) {
-        int[][] dirs = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
-        Set<String> s = new HashSet<>();
-        for (int[] v : obstacles) {
-            s.add(v[0] + "." + v[1]);
+        int[] dirs = {0, 1, 0, -1, 0};
+        Set<Integer> s = new HashSet<>(obstacles.length);
+        for (var e : obstacles) {
+            s.add(f(e[0], e[1]));
         }
-        int ans = 0, p = 1;
+        int ans = 0, k = 0;
         int x = 0, y = 0;
-        for (int v : commands) {
-            if (v == -2) {
-                p = (p + 3) % 4;
-            } else if (v == -1) {
-                p = (p + 1) % 4;
+        for (int c : commands) {
+            if (c == -2) {
+                k = (k + 3) % 4;
+            } else if (c == -1) {
+                k = (k + 1) % 4;
             } else {
-                while (v-- > 0) {
-                    int nx = x + dirs[p][0], ny = y + dirs[p][1];
-                    if (s.contains(nx + "." + ny)) {
+                while (c-- > 0) {
+                    int nx = x + dirs[k], ny = y + dirs[k + 1];
+                    if (s.contains(f(nx, ny))) {
                         break;
                     }
                     x = nx;
@@ -147,6 +163,10 @@ class Solution {
         }
         return ans;
     }
+
+    private int f(int x, int y) {
+        return x * 60010 + y;
+    }
 }
 ```
 
@@ -156,20 +176,27 @@ class Solution {
 class Solution {
 public:
     int robotSim(vector<int>& commands, vector<vector<int>>& obstacles) {
-        vector<vector<int>> dirs = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
-        unordered_set<string> s;
-        for (auto v : obstacles) s.insert(to_string(v[0]) + "." + to_string(v[1]));
-        int ans = 0, p = 1;
+        int dirs[5] = {0, 1, 0, -1, 0};
+        auto f = [](int x, int y) {
+            return x * 60010 + y;
+        };
+        unordered_set<int> s;
+        for (auto& e : obstacles) {
+            s.insert(f(e[0], e[1]));
+        }
+        int ans = 0, k = 0;
         int x = 0, y = 0;
-        for (int v : commands) {
-            if (v == -2)
-                p = (p + 3) % 4;
-            else if (v == -1)
-                p = (p + 1) % 4;
-            else {
-                while (v--) {
-                    int nx = x + dirs[p][0], ny = y + dirs[p][1];
-                    if (s.count(to_string(nx) + "." + to_string(ny))) break;
+        for (int c : commands) {
+            if (c == -2) {
+                k = (k + 3) % 4;
+            } else if (c == -1) {
+                k = (k + 1) % 4;
+            } else {
+                while (c--) {
+                    int nx = x + dirs[k], ny = y + dirs[k + 1];
+                    if (s.count(f(nx, ny))) {
+                        break;
+                    }
                     x = nx;
                     y = ny;
                     ans = max(ans, x * x + y * y);
@@ -184,33 +211,28 @@ public:
 ### **Go**
 
 ```go
-func robotSim(commands []int, obstacles [][]int) int {
-	dirs := [][]int{{-1, 0}, {0, 1}, {1, 0}, {0, -1}}
-	s := map[string]bool{}
-	for _, v := range obstacles {
-		t := strconv.Itoa(v[0]) + "." + strconv.Itoa(v[1])
-		s[t] = true
+func robotSim(commands []int, obstacles [][]int) (ans int) {
+	dirs := [5]int{0, 1, 0, -1, 0}
+	type pair struct{ x, y int }
+	s := map[pair]bool{}
+	for _, e := range obstacles {
+		s[pair{e[0], e[1]}] = true
 	}
-	ans, p := 0, 1
-	x, y := 0, 0
-	for _, v := range commands {
-		if v == -2 {
-			p = (p + 3) % 4
-		} else if v == -1 {
-			p = (p + 1) % 4
+	var x, y, k int
+	for _, c := range commands {
+		if c == -2 {
+			k = (k + 3) % 4
+		} else if c == -1 {
+			k = (k + 1) % 4
 		} else {
-			for i := 0; i < v; i++ {
-				nx, ny := x+dirs[p][0], y+dirs[p][1]
-				t := strconv.Itoa(nx) + "." + strconv.Itoa(ny)
-				if s[t] {
-					break
-				}
-				x, y = nx, ny
+			for ; c > 0 && !s[pair{x + dirs[k], y + dirs[k+1]}]; c-- {
+				x += dirs[k]
+				y += dirs[k+1]
 				ans = max(ans, x*x+y*y)
 			}
 		}
 	}
-	return ans
+	return
 }
 
 func max(a, b int) int {
@@ -218,6 +240,37 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function robotSim(commands: number[], obstacles: number[][]): number {
+    const dirs = [0, 1, 0, -1, 0];
+    const s: Set<number> = new Set();
+    const f = (x: number, y: number) => x * 60010 + y;
+    for (const [x, y] of obstacles) {
+        s.add(f(x, y));
+    }
+    let [ans, x, y, k] = [0, 0, 0, 0];
+    for (let c of commands) {
+        if (c === -2) {
+            k = (k + 3) % 4;
+        } else if (c === -1) {
+            k = (k + 1) % 4;
+        } else {
+            while (c-- > 0) {
+                const [nx, ny] = [x + dirs[k], y + dirs[k + 1]];
+                if (s.has(f(nx, ny))) {
+                    break;
+                }
+                [x, y] = [nx, ny];
+                ans = Math.max(ans, x * x + y * y);
+            }
+        }
+    }
+    return ans;
 }
 ```
 

@@ -1,30 +1,25 @@
-func robotSim(commands []int, obstacles [][]int) int {
-	dirs := [][]int{{-1, 0}, {0, 1}, {1, 0}, {0, -1}}
-	s := map[string]bool{}
-	for _, v := range obstacles {
-		t := strconv.Itoa(v[0]) + "." + strconv.Itoa(v[1])
-		s[t] = true
+func robotSim(commands []int, obstacles [][]int) (ans int) {
+	dirs := [5]int{0, 1, 0, -1, 0}
+	type pair struct{ x, y int }
+	s := map[pair]bool{}
+	for _, e := range obstacles {
+		s[pair{e[0], e[1]}] = true
 	}
-	ans, p := 0, 1
-	x, y := 0, 0
-	for _, v := range commands {
-		if v == -2 {
-			p = (p + 3) % 4
-		} else if v == -1 {
-			p = (p + 1) % 4
+	var x, y, k int
+	for _, c := range commands {
+		if c == -2 {
+			k = (k + 3) % 4
+		} else if c == -1 {
+			k = (k + 1) % 4
 		} else {
-			for i := 0; i < v; i++ {
-				nx, ny := x+dirs[p][0], y+dirs[p][1]
-				t := strconv.Itoa(nx) + "." + strconv.Itoa(ny)
-				if s[t] {
-					break
-				}
-				x, y = nx, ny
+			for ; c > 0 && !s[pair{x + dirs[k], y + dirs[k+1]}]; c-- {
+				x += dirs[k]
+				y += dirs[k+1]
 				ans = max(ans, x*x+y*y)
 			}
 		}
 	}
-	return ans
+	return
 }
 
 func max(a, b int) int {
