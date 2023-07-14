@@ -1,18 +1,17 @@
 # Write your MySQL query statement below
-SELECT
-    project_id,
-    employee_id
-FROM
-    (
+WITH
+    T AS (
         SELECT
-            p.project_id,
-            p.employee_id,
+            project_id,
+            employee_id,
             rank() OVER (
-                PARTITION BY p.project_id
-                ORDER BY e.experience_years DESC
+                PARTITION BY project_id
+                ORDER BY experience_years DESC
             ) AS rk
         FROM
-            Project AS p
-            LEFT JOIN Employee AS e ON p.employee_id = e.employee_id
-    ) AS t
+            Project
+            JOIN Employee USING (employee_id)
+    )
+SELECT project_id, employee_id
+FROM T
 WHERE rk = 1;

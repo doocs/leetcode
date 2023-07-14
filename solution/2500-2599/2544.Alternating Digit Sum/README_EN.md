@@ -63,6 +63,12 @@
 ```python
 class Solution:
     def alternateDigitSum(self, n: int) -> int:
+        return sum((-1) ** i * int(x) for i, x in enumerate(str(n)))
+```
+
+```python
+class Solution:
+    def alternateDigitSum(self, n: int) -> int:
         ans, sign = 0, 1
         for c in str(n):
             x = int(c)

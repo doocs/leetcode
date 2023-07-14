@@ -74,28 +74,31 @@ employee_id 为 1 和 3 的员工在 project_id 为 1 的项目中拥有最丰�
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：内连接 + 窗口函数**
+
+我们先将 `Project` 表和 `Employee` 表进行内连接，然后使用窗口函数 `rank()` 对 `Project` 表进行分组，按照 `experience_years` 降序排列，最后取出每个项目中经验最丰富的雇员。
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    project_id,
-    employee_id
-FROM
-    (
+WITH
+    T AS (
         SELECT
-            p.project_id,
-            p.employee_id,
+            project_id,
+            employee_id,
             rank() OVER (
-                PARTITION BY p.project_id
-                ORDER BY e.experience_years DESC
+                PARTITION BY project_id
+                ORDER BY experience_years DESC
             ) AS rk
         FROM
-            Project AS p
-            LEFT JOIN Employee AS e ON p.employee_id = e.employee_id
-    ) AS t
+            Project
+            JOIN Employee USING (employee_id)
+    )
+SELECT project_id, employee_id
+FROM T
 WHERE rk = 1;
 ```
 

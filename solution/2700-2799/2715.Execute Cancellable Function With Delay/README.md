@@ -15,10 +15,11 @@
 <p><strong class="example">示例 1:</strong></p>
 
 <pre>
-<b>输入：</b>fn = (x) =&gt; x * 5, args = [2], t = 20, cancelTime = 50
+<b>输入：</b>fn = (x) =&gt; x * 5, args = [2], t = 20
 <b>输出：</b>[{"time": 20, "returned": 10}]
 <b>解释：</b>
-const cancel = cancellable(fn, [2], 20); // // 在 t=20ms 时调用 fn(2)
+const cancelTime = 50
+const cancel = cancellable((x) =&gt; x * 5, [2], 20); // 在 t=20ms 时调用 fn(2)
 setTimeout(cancel, 50);
 
 cancelTime（50ms）在延迟时间（20ms）之后，所以 fn(2) 应该在 t=20ms 时调用。fn 的返回值是 10。
@@ -27,9 +28,14 @@ cancelTime（50ms）在延迟时间（20ms）之后，所以 fn(2) 应该在 t=2
 <p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<b>输入：</b>fn = (x) =&gt; x**2, args = [2], t = 100, cancelTime = 50
+<b>输入：</b>fn = (x) =&gt; x**2, args = [2], t = 100
 <b>输出：</b>[]
-<b>解释：</b>fn(2) 从未被调用，因为 cancelTime（50ms）在延迟时间（100ms）之前。
+<b>解释：</b>
+const cancelTime = 50 
+const cancel = cancellable((x) =&gt; x**2, [2], 100); // fn(2) 没被调用
+setTimeout(cancel, cancelTime);
+
+fn(2) 从未被调用，因为 cancelTime（50ms）在延迟时间（100ms）之前。
 </pre>
 
 <p><strong class="example">示例 3：</strong></p>
@@ -37,7 +43,12 @@ cancelTime（50ms）在延迟时间（20ms）之后，所以 fn(2) 应该在 t=2
 <pre>
 <b>输入：</b>fn = (x1, x2) =&gt; x1 * x2, args = [2,4], t = 30, cancelTime = 100
 <b>输出：</b>[{"time": 30, "returned": 8}]
-<b>解释：</b>fn(2) 从未被调用，因为 cancelTime（50ms）在延迟时间（100ms）之前。
+<b>解释：</b>
+const cancelTime = 100
+const cancel = cancellable((x1, x2) =&gt; x1 * x2, [2,4], 30); // fn(2,4) 在 t=30ms 时被调用
+setTimeout(cancel, cancelTime);
+
+fn(2) 从未被调用，因为 cancelTime（50ms）在延迟时间（100ms）之前。
 </pre>
 
 <p>&nbsp;</p>

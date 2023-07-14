@@ -93,18 +93,20 @@ Note that the output is only one number and that we do not care about the remove
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    round(avg(avg_per * 100), 2) AS average_daily_percent
-FROM
-    (
+WITH
+    T AS (
         SELECT
-            count(DISTINCT t2.post_id) / count(DISTINCT t1.post_id) AS avg_per
+            count(DISTINCT t2.post_id) / count(
+                DISTINCT t1.post_id
+            ) * 100 AS percent
         FROM
             Actions AS t1
             LEFT JOIN Removals AS t2 ON t1.post_id = t2.post_id
-        WHERE t1.extra = 'spam'
+        WHERE extra = 'spam'
         GROUP BY action_date
-    ) AS t3;
+    )
+SELECT round(avg(percent), 2) AS average_daily_percent
+FROM T;
 ```
 
 <!-- tabs:end -->

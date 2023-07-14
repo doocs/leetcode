@@ -88,13 +88,31 @@ Product 表：
 
 ```sql
 # Write your MySQL query statement below
-SELECT  seller_id
+SELECT seller_id
 FROM Sales
-GROUP BY  seller_id
-HAVING SUM(price) >= ALL (
-SELECT  SUM(price)
-FROM Sales
-GROUP BY  seller_id )
+GROUP BY seller_id
+HAVING
+    SUM(price) >= ALL(
+        SELECT SUM(price)
+        FROM Sales
+        GROUP BY seller_id
+    );
+```
+
+```sql
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT
+            seller_id,
+            sum(price) AS tot,
+            rank() OVER (ORDER BY sum(price) DESC) AS rk
+        FROM Sales
+        GROUP BY seller_id
+    )
+SELECT seller_id
+FROM T
+WHERE rk = 1;
 ```
 
 <!-- tabs:end -->

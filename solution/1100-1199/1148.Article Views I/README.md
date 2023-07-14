@@ -55,17 +55,20 @@ Views 表：
 
 <!-- 这里可写通用的实现逻辑 -->
 
-“`DISTINCT` + `ORDER BY`” 实现。
+**方法一：DISTINCT + WHERE**
+
+我们利用 `WHERE` 子句来筛选出 `author_id` 和 `viewer_id` 相等的记录，然后利用 `DISTINCT` 来去重，最后按照 `id` 排序即可。
 
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
-SELECT DISTINCT (author_id) AS id
+# Write your MySQL query statement below
+SELECT DISTINCT author_id AS id
 FROM Views
 WHERE author_id = viewer_id
-ORDER BY id;
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->

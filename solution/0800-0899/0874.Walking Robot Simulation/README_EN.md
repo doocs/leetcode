@@ -78,6 +78,24 @@ The furthest point the robot ever gets from the origin is (0, 6), which squared 
 
 ## Solutions
 
+**Solution 1: Hash table + simulation**
+
+We define a direction array $dirs=[0, 1, 0, -1, 0]$ of length $5$, where adjacent elements in the array represent a direction. That is, $(dirs[0], dirs[1])$ represents north, and $(dirs[1], dirs[2])$ represents east, and so on.
+
+We use a hash table $s$ to store the coordinates of all obstacles, so that we can determine in $O(1)$ time whether the next step will encounter an obstacle.
+
+We use two variables $x$ and $y$ to represent the current coordinates of the robot, initially $x = y = 0$. The variable $k$ represents the current direction of the robot, and the answer variable $ans$ represents the maximum Euclidean distance squared of the robot from the origin.
+
+Next, we traverse each element $c$ in the array $commands$:
+
+-   If $c = -2$, it means that the robot turns left by $90$ degrees, that is, $k = (k + 3) \bmod 4$;
+-   If $c = -1$, it means that the robot turns right by $90$ degrees, that is, $k = (k + 1) \bmod 4$;
+-   Otherwise, it means that the robot moves forward by $c$ units of length. We combine the robot's current direction $k$ with the direction array $dirs$, and we can get the increment of the robot on the $x$ axis and the $y$ axis. We add the increment of $c$ units of length to $x$ and $y$ respectively, and judge whether the new coordinates $(x, y)$ after each move are in the coordinates of obstacles. If not, update the answer $ans$, otherwise stop simulating and perform the simulation of the next instruction.
+
+Finally return the answer $ans$.
+
+Time complexity is $O(C \times n + m)$, space complexity is $O(m)$. Where $C$ represents the maximum number of steps that can be moved each time, and $n$ and $m$ respectively represent the lengths of arrays $commands$ and arrays $obstacles$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -85,18 +103,18 @@ The furthest point the robot ever gets from the origin is (0, 6), which squared 
 ```python
 class Solution:
     def robotSim(self, commands: List[int], obstacles: List[List[int]]) -> int:
-        dirs = [[-1, 0], [0, 1], [1, 0], [0, -1]]
+        dirs = (0, 1, 0, -1, 0)
         s = {(x, y) for x, y in obstacles}
-        ans, p = 0, 1
+        ans = k = 0
         x = y = 0
-        for v in commands:
-            if v == -2:
-                p = (p + 3) % 4
-            elif v == -1:
-                p = (p + 1) % 4
+        for c in commands:
+            if c == -2:
+                k = (k + 3) % 4
+            elif c == -1:
+                k = (k + 1) % 4
             else:
-                for _ in range(v):
-                    nx, ny = x + dirs[p][0], y + dirs[p][1]
+                for _ in range(c):
+                    nx, ny = x + dirs[k], y + dirs[k + 1]
                     if (nx, ny) in s:
                         break
                     x, y = nx, ny
@@ -109,22 +127,22 @@ class Solution:
 ```java
 class Solution {
     public int robotSim(int[] commands, int[][] obstacles) {
-        int[][] dirs = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
-        Set<String> s = new HashSet<>();
-        for (int[] v : obstacles) {
-            s.add(v[0] + "." + v[1]);
+        int[] dirs = {0, 1, 0, -1, 0};
+        Set<Integer> s = new HashSet<>(obstacles.length);
+        for (var e : obstacles) {
+            s.add(f(e[0], e[1]));
         }
-        int ans = 0, p = 1;
+        int ans = 0, k = 0;
         int x = 0, y = 0;
-        for (int v : commands) {
-            if (v == -2) {
-                p = (p + 3) % 4;
-            } else if (v == -1) {
-                p = (p + 1) % 4;
+        for (int c : commands) {
+            if (c == -2) {
+                k = (k + 3) % 4;
+            } else if (c == -1) {
+                k = (k + 1) % 4;
             } else {
-                while (v-- > 0) {
-                    int nx = x + dirs[p][0], ny = y + dirs[p][1];
-                    if (s.contains(nx + "." + ny)) {
+                while (c-- > 0) {
+                    int nx = x + dirs[k], ny = y + dirs[k + 1];
+                    if (s.contains(f(nx, ny))) {
                         break;
                     }
                     x = nx;
@@ -135,6 +153,10 @@ class Solution {
         }
         return ans;
     }
+
+    private int f(int x, int y) {
+        return x * 60010 + y;
+    }
 }
 ```
 
@@ -144,20 +166,27 @@ class Solution {
 class Solution {
 public:
     int robotSim(vector<int>& commands, vector<vector<int>>& obstacles) {
-        vector<vector<int>> dirs = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
-        unordered_set<string> s;
-        for (auto v : obstacles) s.insert(to_string(v[0]) + "." + to_string(v[1]));
-        int ans = 0, p = 1;
+        int dirs[5] = {0, 1, 0, -1, 0};
+        auto f = [](int x, int y) {
+            return x * 60010 + y;
+        };
+        unordered_set<int> s;
+        for (auto& e : obstacles) {
+            s.insert(f(e[0], e[1]));
+        }
+        int ans = 0, k = 0;
         int x = 0, y = 0;
-        for (int v : commands) {
-            if (v == -2)
-                p = (p + 3) % 4;
-            else if (v == -1)
-                p = (p + 1) % 4;
-            else {
-                while (v--) {
-                    int nx = x + dirs[p][0], ny = y + dirs[p][1];
-                    if (s.count(to_string(nx) + "." + to_string(ny))) break;
+        for (int c : commands) {
+            if (c == -2) {
+                k = (k + 3) % 4;
+            } else if (c == -1) {
+                k = (k + 1) % 4;
+            } else {
+                while (c--) {
+                    int nx = x + dirs[k], ny = y + dirs[k + 1];
+                    if (s.count(f(nx, ny))) {
+                        break;
+                    }
                     x = nx;
                     y = ny;
                     ans = max(ans, x * x + y * y);
@@ -172,33 +201,28 @@ public:
 ### **Go**
 
 ```go
-func robotSim(commands []int, obstacles [][]int) int {
-	dirs := [][]int{{-1, 0}, {0, 1}, {1, 0}, {0, -1}}
-	s := map[string]bool{}
-	for _, v := range obstacles {
-		t := strconv.Itoa(v[0]) + "." + strconv.Itoa(v[1])
-		s[t] = true
+func robotSim(commands []int, obstacles [][]int) (ans int) {
+	dirs := [5]int{0, 1, 0, -1, 0}
+	type pair struct{ x, y int }
+	s := map[pair]bool{}
+	for _, e := range obstacles {
+		s[pair{e[0], e[1]}] = true
 	}
-	ans, p := 0, 1
-	x, y := 0, 0
-	for _, v := range commands {
-		if v == -2 {
-			p = (p + 3) % 4
-		} else if v == -1 {
-			p = (p + 1) % 4
+	var x, y, k int
+	for _, c := range commands {
+		if c == -2 {
+			k = (k + 3) % 4
+		} else if c == -1 {
+			k = (k + 1) % 4
 		} else {
-			for i := 0; i < v; i++ {
-				nx, ny := x+dirs[p][0], y+dirs[p][1]
-				t := strconv.Itoa(nx) + "." + strconv.Itoa(ny)
-				if s[t] {
-					break
-				}
-				x, y = nx, ny
+			for ; c > 0 && !s[pair{x + dirs[k], y + dirs[k+1]}]; c-- {
+				x += dirs[k]
+				y += dirs[k+1]
 				ans = max(ans, x*x+y*y)
 			}
 		}
 	}
-	return ans
+	return
 }
 
 func max(a, b int) int {
@@ -206,6 +230,37 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function robotSim(commands: number[], obstacles: number[][]): number {
+    const dirs = [0, 1, 0, -1, 0];
+    const s: Set<number> = new Set();
+    const f = (x: number, y: number) => x * 60010 + y;
+    for (const [x, y] of obstacles) {
+        s.add(f(x, y));
+    }
+    let [ans, x, y, k] = [0, 0, 0, 0];
+    for (let c of commands) {
+        if (c === -2) {
+            k = (k + 3) % 4;
+        } else if (c === -1) {
+            k = (k + 1) % 4;
+        } else {
+            while (c-- > 0) {
+                const [nx, ny] = [x + dirs[k], y + dirs[k + 1]];
+                if (s.has(f(nx, ny))) {
+                    break;
+                }
+                [x, y] = [nx, ny];
+                ans = Math.max(ans, x * x + y * y);
+            }
+        }
+    }
+    return ans;
 }
 ```
 

@@ -9,7 +9,7 @@
 <p><code>promise</code> resolves:</p>
 
 <ul>
-	<li>When all the promises returned from&nbsp;<code>functions</code>&nbsp;were resolved successfully.&nbsp;The resolved&nbsp;value of&nbsp;<code>promise</code> should be an array of all the resolved values of promises in the same order as they were in the&nbsp;<code>functions.</code></li>
+	<li>When all the promises returned from&nbsp;<code>functions</code>&nbsp;were resolved successfully.&nbsp;The resolved&nbsp;value of&nbsp;<code>promise</code> should be an array of all the resolved values of promises in the same order as they were in the&nbsp;<code>functions</code>.</li>
 </ul>
 
 <p><code>promise</code> rejects:</p>

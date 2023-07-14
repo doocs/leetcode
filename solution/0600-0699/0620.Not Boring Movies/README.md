@@ -48,9 +48,10 @@
 ### **SQL**
 
 ```sql
+# Write your MySQL query statement below
 SELECT *
-FROM cinema
-WHERE description NOT LIKE '%boring%' AND mod(id, 2) = 1
+FROM Cinema
+WHERE description != 'boring' AND id % 2 = 1
 ORDER BY rating DESC;
 ```
 

@@ -83,26 +83,29 @@ Employee table:
 
 ```sql
 # Write your MySQL query statement below
-SELECT  project_id
-FROM Project p
-GROUP BY  project_id
-HAVING COUNT(employee_id) >= all(
-SELECT  COUNT(employee_id)
+SELECT project_id
 FROM Project
-GROUP BY  project_id )
+GROUP BY 1
+HAVING
+    count(1) >= all(
+        SELECT count(1)
+        FROM Project
+        GROUP BY project_id
+    );
 ```
 
 ```sql
 # Write your MySQL query statement below
-SELECT project_id
-FROM
-    (
+WITH
+    T AS (
         SELECT
             project_id,
-            dense_rank() OVER (ORDER BY COUNT(employee_id) DESC) AS rk
+            rank() OVER (ORDER BY count(employee_id) DESC) AS rk
         FROM Project
-        GROUP BY project_id
-    ) AS t
+        GROUP BY 1
+    )
+SELECT project_id
+FROM T
 WHERE rk = 1;
 ```
 
