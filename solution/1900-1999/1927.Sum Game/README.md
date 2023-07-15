@@ -71,6 +71,24 @@ Bob 获胜，因为 9 + 3 + 2 + 9 = 5 + 9 + 2 + 7 。
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：分类讨论**
+
+如果 `'?'` 的个数为奇数，那么 Alice 一定会获胜，因为她可以选择将最后一个 `'?'` 替换为任何一个数字，使得前一半的和与后一半的和不相等。
+
+如果 `'?'` 的个数为偶数，Alice 为了使得前一半的和与后一半的和不相等，那么会选择在当前和较大的一半数字中放置 $9$，在当前和较小的一半数字中放置 $0$，而 Bob 为了使得前后两半的和相等，那么会选择在 Alice 替换数字的另一半放置一个与 Alice 替换数字相同的数字。
+
+因此，最终会使得剩下的所有偶数个 `'?'` 集中在其中一半。假设当前两半的数字差值为 $d$。
+
+我们先考虑，如果剩下两个 `'?'`，差值为 $x$，此时：
+
+-   如果 $x \lt 9$，那么 Alice 必胜，因为 Alice 可以将其中一个 `'?'` 替换为 $9$，使得前一半的和与后一半的和不相等；
+-   如果 $x \gt 9$，那么 Alice 必胜，因为 Alice 可以将其中一个 `'?'` 替换为 $0$，使得前一半的和与后一半的和不相等；
+-   如果 $x = 9$，那么 Bob 必胜，假设 Alice 替换的数字为 $a$，那么 Bob 可以将另一个 `'?'` 替换为 $9 - a$，使得前后两半的和相等。
+
+因此，如果两半数字差值为 $d= \frac{9 \times cnt}{2}$，其中 $cnt$ 为剩下的 `'?'` 的个数，那么 Bob 必胜，否则 Alice 必胜。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串的长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -78,7 +96,14 @@ Bob 获胜，因为 9 + 3 + 2 + 9 = 5 + 9 + 2 + 7 。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def sumGame(self, num: str) -> bool:
+        n = len(num)
+        cnt1 = num[: n // 2].count("?")
+        cnt2 = num[n // 2 :].count("?")
+        s1 = sum(int(x) for x in num[: n // 2] if x != "?")
+        s2 = sum(int(x) for x in num[n // 2 :] if x != "?")
+        return (cnt1 + cnt2) % 2 == 1 or s1 - s2 != 9 * (cnt2 - cnt1) // 2
 ```
 
 ### **Java**
@@ -86,7 +111,104 @@ Bob 获胜，因为 9 + 3 + 2 + 9 = 5 + 9 + 2 + 7 。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean sumGame(String num) {
+        int n = num.length();
+        int cnt1 = 0, cnt2 = 0;
+        int s1 = 0, s2 = 0;
+        for (int i = 0; i < n / 2; ++i) {
+            if (num.charAt(i) == '?') {
+                cnt1++;
+            } else {
+                s1 += num.charAt(i) - '0';
+            }
+        }
+        for (int i = n / 2; i < n; ++i) {
+            if (num.charAt(i) == '?') {
+                cnt2++;
+            } else {
+                s2 += num.charAt(i) - '0';
+            }
+        }
+        return (cnt1 + cnt2) % 2 == 1 || s1 - s2 != 9 * (cnt2 - cnt1) / 2;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool sumGame(string num) {
+        int n = num.size();
+        int cnt1 = 0, cnt2 = 0;
+        int s1 = 0, s2 = 0;
+        for (int i = 0; i < n / 2; ++i) {
+            if (num[i] == '?') {
+                cnt1++;
+            } else {
+                s1 += num[i] - '0';
+            }
+        }
+        for (int i = n / 2; i < n; ++i) {
+            if (num[i] == '?') {
+                cnt2++;
+            } else {
+                s2 += num[i] - '0';
+            }
+        }
+        return (cnt1 + cnt2) % 2 == 1 || (s1 - s2) != 9 * (cnt2 - cnt1) / 2;
+    }
+};
+```
+
+### **Go**
+
+```go
+func sumGame(num string) bool {
+	n := len(num)
+	var cnt1, cnt2, s1, s2 int
+	for i := 0; i < n/2; i++ {
+		if num[i] == '?' {
+			cnt1++
+		} else {
+			s1 += int(num[i] - '0')
+		}
+	}
+	for i := n / 2; i < n; i++ {
+		if num[i] == '?' {
+			cnt2++
+		} else {
+			s2 += int(num[i] - '0')
+		}
+	}
+	return (cnt1+cnt2)%2 == 1 || s1-s2 != (cnt2-cnt1)*9/2
+}
+```
+
+### **TypeScript**
+
+```ts
+function sumGame(num: string): boolean {
+    const n = num.length;
+    let [cnt1, cnt2, s1, s2] = [0, 0, 0, 0];
+    for (let i = 0; i < n >> 1; ++i) {
+        if (num[i] === '?') {
+            ++cnt1;
+        } else {
+            s1 += num[i].charCodeAt(0) - '0'.charCodeAt(0);
+        }
+    }
+    for (let i = n >> 1; i < n; ++i) {
+        if (num[i] === '?') {
+            ++cnt2;
+        } else {
+            s2 += num[i].charCodeAt(0) - '0'.charCodeAt(0);
+        }
+    }
+    return (cnt1 + cnt2) % 2 === 1 || 2 * (s1 - s2) !== 9 * (cnt2 - cnt1);
+}
 ```
 
 ### **...**
