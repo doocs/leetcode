@@ -46,6 +46,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：二分查找**
+
+我们注意到，如果一个膨胀值 $x$ 满足条件，那么所有小于 $x$ 的值也都满足条件，这存在着单调性。因此我们可以使用二分查找的方法，找到最大的满足条件的膨胀值。
+
+我们定义二分查找的左边界 $left=0$, $right=rampart[1][0]-rampart[0][1]+rampart[2][0]-rampart[1][1]$，其中 $rampart[i][0]$ 表示第 $i$ 段城墙的左端点，$rampart[i][1]$ 表示第 $i$ 段城墙的右端点。
+
+接下来，我们开始进行二分查找。每一次，我们求出当前的中间值 $mid$，并判断其是否满足条件。如果满足条件，那么我们就将左边界 $left$ 更新为 $mid$，否则将右边界 $right$ 更新为 $mid-1$。在二分查找结束后，我们返回左边界 $left$ 即可。
+
+那么问题的关键在于如何判断一个值 $w$ 是否满足条件。显然，我们可以用贪心的策略，每次先尽可能往左膨胀，如果还有剩余的膨胀值，再往右膨胀，如果在向右膨胀的过程中，发生了重叠，那么说明当前的膨胀值 $w$ 不满足条件，直接返回 `false` 即可。否则，遍历结束，返回 `true`。
+
+时间复杂度 $O(n \times \log M)$，其中 $n$ 和 $M$ 分别是数组 $rampart$ 的长度和二分查找的右边界，本题中右边界最大为 $range=rampart[1][0]-rampart[0][1]+rampart[2][0]-rampart[1][1]$。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -53,7 +65,27 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def rampartDefensiveLine(self, rampart: List[List[int]]) -> int:
+        def check(w: int) -> bool:
+            last = rampart[0][1]
+            for i in range(1, len(rampart) - 1):
+                x, y = rampart[i]
+                a = x - last
+                b = max(w - a, 0)
+                if y + b > rampart[i + 1][0]:
+                    return False
+                last = y + b
+            return True
 
+        left, right = 0, rampart[1][0] - rampart[0][1] + rampart[2][0] - rampart[1][1]
+        while left < right:
+            mid = (left + right + 1) >> 1
+            if check(mid):
+                left = mid
+            else:
+                right = mid - 1
+        return left
 ```
 
 ### **Java**
@@ -61,7 +93,140 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int[][] rampart;
 
+    public int rampartDefensiveLine(int[][] rampart) {
+        this.rampart = rampart;
+        int left = 0, right = rampart[1][0] - rampart[0][1] + rampart[2][0] - rampart[1][1];
+        while (left < right) {
+            int mid = (left + right + 1) >> 1;
+            if (check(mid)) {
+                left = mid;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return left;
+    }
+
+    private boolean check(int w) {
+        int last = rampart[0][1];
+        for (int i = 1; i < rampart.length - 1; ++i) {
+            int x = rampart[i][0], y = rampart[i][1];
+            int a = x - last;
+            int b = Math.max(w - a, 0);
+            if (y + b > rampart[i + 1][0]) {
+                return false;
+            }
+            last = y + b;
+        }
+        return true;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int rampartDefensiveLine(vector<vector<int>>& rampart) {
+        int left = 0, right = rampart[1][0] - rampart[0][1] + rampart[2][0] - rampart[1][1];
+        auto check = [&](int w) {
+            int last = rampart[0][1];
+            for (int i = 1; i < rampart.size() - 1; ++i) {
+                int x = rampart[i][0], y = rampart[i][1];
+                int a = x - last;
+                int b = max(w - a, 0);
+                if (y + b > rampart[i + 1][0]) {
+                    return false;
+                }
+                last = y + b;
+            }
+            return true;
+        };
+
+        while (left < right) {
+            int mid = (left + right + 1) >> 1;
+            if (check(mid)) {
+                left = mid;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return left;
+    }
+};
+```
+
+### **Go**
+
+```go
+func rampartDefensiveLine(rampart [][]int) int {
+	check := func(w int) bool {
+		last := rampart[0][1]
+		for i := 1; i < len(rampart)-1; i++ {
+			x, y := rampart[i][0], rampart[i][1]
+			a := x - last
+			b := max(w-a, 0)
+			if y+b > rampart[i+1][0] {
+				return false
+			}
+			last = y + b
+		}
+		return true
+	}
+
+	left, right := 0, rampart[1][0]-rampart[0][1]+rampart[2][0]-rampart[1][1]
+	for left < right {
+		mid := (left + right + 1) >> 1
+		if check(mid) {
+			left = mid
+		} else {
+			right = mid - 1
+		}
+	}
+	return left
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function rampartDefensiveLine(rampart: number[][]): number {
+    const check = (w: number): boolean => {
+        let last = rampart[0][1];
+        for (let i = 1; i < rampart.length - 1; ++i) {
+            const [x, y] = rampart[i];
+            const a = x - last;
+            const b = Math.max(w - a, 0);
+            if (y + b > rampart[i + 1][0]) {
+                return false;
+            }
+            last = y + b;
+        }
+        return true;
+    };
+    let left = 0;
+    let right = rampart[1][0] - rampart[0][1] + rampart[2][0] - rampart[1][1];
+    while (left < right) {
+        const mid = (left + right + 1) >> 1;
+        if (check(mid)) {
+            left = mid;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return left;
+}
 ```
 
 ### **...**

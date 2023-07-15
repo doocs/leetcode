@@ -38,6 +38,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：排序**
+
+我们可以将符文按照魔力值从小到大排序，然后使用双指针维护一个滑动窗口，使得滑动窗口中的任意相邻的两块符文之间的魔力值相差不超过，找出满足条件的最大窗口长度即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $runes$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -45,7 +51,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def runeReserve(self, runes: List[int]) -> int:
+        runes.sort()
+        ans = i = 0
+        for j, x in enumerate(runes):
+            if j and runes[j] - runes[j - 1] > 1:
+                i = j
+            else:
+                ans = max(ans, j - i + 1)
+        return ans
 ```
 
 ### **Java**
@@ -53,7 +68,75 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int runeReserve(int[] runes) {
+        Arrays.sort(runes);
+        int ans = 0;
+        for (int i = 0, j = 0; j < runes.length; ++j) {
+            if (j > 0 && runes[j] - runes[j - 1] > 1) {
+                i = j;
+            } else {
+                ans = Math.max(ans, j - i + 1);
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int runeReserve(vector<int>& runes) {
+        sort(runes.begin(), runes.end());
+        int ans = 0;
+        for (int i = 0, j = 0; j < runes.size(); ++j) {
+            if (j && runes[j] - runes[j - 1] > 1) {
+                i = j;
+            } else {
+                ans = max(ans, j - i + 1);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func runeReserve(runes []int) (ans int) {
+	sort.Ints(runes)
+	i := 0
+	for j, x := range runes {
+		if j > 0 && x-runes[j-1] > 1 {
+			i = j
+		} else if t := j - i + 1; ans < t {
+			ans = t
+		}
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function runeReserve(runes: number[]): number {
+    runes.sort((a, b) => a - b);
+    let ans = 0;
+    let i = 0;
+    for (let j = 0; j < runes.length; ++j) {
+        if (j > 0 && runes[j] - runes[j - 1] > 1) {
+            i = j;
+        } else {
+            ans = Math.max(ans, j - i + 1);
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
