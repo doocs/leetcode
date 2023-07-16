@@ -15,7 +15,7 @@ public:
             }
             return true;
         };
-        
+
         while (left < right) {
             int mid = (left + right + 1) >> 1;
             if (check(mid)) {
