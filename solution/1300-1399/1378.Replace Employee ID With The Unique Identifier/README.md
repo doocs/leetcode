@@ -36,15 +36,15 @@ id 是这张表的主键。
 
 <p>&nbsp;</p>
 
-<p>写一段SQL查询来展示每位用户的<strong> 唯一标识码（unique ID ）</strong>；如果某位员工没有唯一标识码，使用 null 填充即可。</p>
+<p>展示每位用户的<strong> 唯一标识码（unique ID ）</strong>；如果某位员工没有唯一标识码，使用 null 填充即可。</p>
 
 <p>你可以以<strong> 任意</strong> 顺序返回结果表。</p>
 
-<p>查询结果的格式如下例所示。</p>
+<p>返回结果的格式如下例所示。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
 <code><strong>输入：</strong>

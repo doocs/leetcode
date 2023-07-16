@@ -74,19 +74,21 @@ Result 表：
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：内连接 + `GROUP BY` 分组**
+
+我们可以通过内连接将两张表连接起来，然后通过 `GROUP BY` 分组，最后使用 `AVG` 函数求工作年限的平均值。
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
-# Write your MySQL query statement below
-SELECT
-    project_id,
-    round(AVG(experience_years), 2) AS average_years
+# Write your MySQL query statement
+SELECT project_id, round(avg(experience_years), 2) AS average_years
 FROM
-    Project AS p
-    LEFT JOIN Employee AS e ON p.employee_id = e.employee_id
-GROUP BY project_id;
+    Project
+    JOIN Employee USING (employee_id)
+GROUP BY 1;
 ```
 
 <!-- tabs:end -->

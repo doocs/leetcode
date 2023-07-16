@@ -84,14 +84,28 @@ MyNumbers table:
 ### **SQL**
 
 ```sql
-SELECT MAX(a.num) AS num
+# Write your MySQL query statement below
+SELECT max(num) AS num
 FROM
     (
         SELECT num
         FROM MyNumbers
         GROUP BY num
-        HAVING count(*) = 1
-    ) AS a;
+        HAVING count(1) = 1
+    ) AS t;
+```
+
+```sql
+# Write your MySQL query statement below
+SELECT
+    CASE
+        WHEN count(1) = 1 THEN num
+        ELSE NULL
+    END AS num
+FROM MyNumbers
+GROUP BY num
+ORDER BY 1 DESC
+LIMIT 1;
 ```
 
 <!-- tabs:end -->

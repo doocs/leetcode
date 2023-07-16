@@ -1,10 +1,2 @@
-#!/usr/bin/env bash
-
-# tail -n: use -n +K to output starting with the Kth
-tail -n +10 file.txt | head -1
-
-# awk: 
-awk 'NR == 10' file.txt
-
-# sed:
+# Read from the file file.txt and output the tenth line to stdout.
 sed -n 10p file.txt

@@ -1,6 +1,6 @@
 # Write your MySQL query statement below
 WITH
-    t AS (
+    T AS (
         SELECT
             player_id,
             event_date,
@@ -11,10 +11,8 @@ SELECT
     install_dt,
     count(DISTINCT player_id) AS installs,
     round(
-        sum(if(datediff(event_date, install_dt) = 1, 1, 0)) / count(
-            DISTINCT player_id
-        ),
+        sum(datediff(event_date, install_dt) = 1) / count(DISTINCT player_id),
         2
     ) AS day1_retention
-FROM t
-GROUP BY install_dt;
+FROM T
+GROUP BY 1;

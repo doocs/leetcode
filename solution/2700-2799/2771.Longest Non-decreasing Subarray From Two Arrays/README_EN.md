@@ -72,7 +72,7 @@ Then, we update $f = ff$ and $g = gg$, and update $ans$ to $max(ans, f, g)$.
 
 After the traversal is over, we return $ans$.
 
-Time complexity $O(n)$, where $n$ is the length of the array. Space complexity $O(1)$.
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

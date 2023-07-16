@@ -65,29 +65,29 @@ Result table:
 ```sql
 # Write your MySQL query statement below
 WITH
-    s AS (
+    P AS (
         SELECT DISTINCT spend_date, 'desktop' AS platform FROM Spending
         UNION
-        SELECT DISTINCT spend_date, 'mobile' AS platform FROM Spending
+        SELECT DISTINCT spend_date, 'mobile' FROM Spending
         UNION
-        SELECT DISTINCT spend_date, 'both' AS platform FROM Spending
+        SELECT DISTINCT spend_date, 'both' FROM Spending
     ),
-    t AS (
+    T AS (
         SELECT
             user_id,
             spend_date,
-            if(count(platform) = 2, 'both', platform) AS platform,
-            sum(amount) AS amount
+            sum(amount) AS amount,
+            if(count(platform) = 1, platform, 'both') AS platform
         FROM Spending
         GROUP BY 1, 2
     )
 SELECT
-    t1.*,
+    p.*,
     ifnull(sum(amount), 0) AS total_amount,
-    count(t2.user_id) AS total_users
+    count(t.user_id) AS total_users
 FROM
-    s AS t1
-    LEFT JOIN t AS t2 USING (spend_date, platform)
+    P AS p
+    LEFT JOIN T AS t USING (spend_date, platform)
 GROUP BY 1, 2;
 ```
 

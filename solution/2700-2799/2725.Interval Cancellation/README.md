@@ -23,15 +23,19 @@
    {"time": 80, "returned": 8},
    {"time": 100, "returned": 8}
 ]
-<strong>解释：</strong> 每隔 20ms，调用 fn(4)。直到 t=110ms，然后取消。
+<strong>解释：</strong> 
+const cancelT = 110
 const cancel = cancellable(x =&gt; x * 2, [4], 20);
-setTimeout(cancel, 110);
+setTimeout(cancel, cancelT);
+每隔 20ms，调用 fn(4)。
 第一次调用 fn 是在 0ms。fn(4) 返回 8。
 第二次调用 fn 是在 20ms。fn(4) 返回 8。
 第三次调用 fn 是在 40ms。fn(4) 返回 8。
 第四次调用 fn 是在&nbsp;60ms。fn(4) 返回 8。
 第五次调用 fn 是在 80ms。fn(4) 返回 8。
-第六次调用 fn 是在 100ms。fn(4) 返回 8。</pre>
+第六次调用 fn 是在 100ms。fn(4) 返回 8。
+在 t=110ms 时取消。
+</pre>
 
 <p><strong class="example">示例 2：</strong></p>
 
@@ -46,7 +50,12 @@ setTimeout(cancel, 110);
    {"time": 100, "returned": 10},
    {"time": 125, "returned": 10}
 ]
-<strong>解释：</strong>每隔 25ms，调用 fn(2, 5)。直到 t=140ms，然后取消。
+<strong>解释：
+</strong>const cancelT = 140
+const cancel = cancellable((x1, x2) =&gt; (x1 * x2), [2, 5], 25); 
+setTimeout(cancel, cancelT);
+
+每隔 25ms，调用 fn(2, 5)。直到 t=140ms，然后取消。
 第一次调用 fn 是在 0ms
 第二次调用 fn 是在 25ms
 第三次调用 fn 是在 50ms
@@ -67,7 +76,12 @@ setTimeout(cancel, 110);
    {"time": 100, "returned": 9},
    {"time": 150, "returned": 9}
 ]
-<b>解释：</b>每隔 50ms，调用 fn(5, 1, 3)。直到 t=180ms，然后取消。
+<b>解释：</b>
+const cancelT = 180
+const cancel = cancellable((x1, x2, x3) =&gt; (x1 + x2 + x3), [5, 1, 3], 50);
+setTimeout(cancel, cancelT);
+
+每隔 50ms，调用 fn(5, 1, 3)。直到 t=180ms，然后取消。
 第一次调用 fn 是在 0ms
 第二次调用 fn 是在 50ms
 第三次调用 fn 是在 100ms

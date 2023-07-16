@@ -5,29 +5,37 @@
  */
 var fourSum = function (nums, target) {
     const n = nums.length;
-    if (n < 4) return [];
-    let res = [];
+    const ans = [];
+    if (n < 4) {
+        return ans;
+    }
     nums.sort((a, b) => a - b);
     for (let i = 0; i < n - 3; ++i) {
-        if (i > 0 && nums[i] == nums[i - 1]) continue;
+        if (i > 0 && nums[i] === nums[i - 1]) {
+            continue;
+        }
         for (let j = i + 1; j < n - 2; ++j) {
-            if (j > i + 1 && nums[j] == nums[j - 1]) continue;
-            let k = j + 1;
-            let l = n - 1;
+            if (j > i + 1 && nums[j] === nums[j - 1]) {
+                continue;
+            }
+            let [k, l] = [j + 1, n - 1];
             while (k < l) {
-                if (nums[i] + nums[j] + nums[k] + nums[l] == target) {
-                    res.push([nums[i], nums[j], nums[k], nums[l]]);
+                const x = nums[i] + nums[j] + nums[k] + nums[l];
+                if (x < target) {
                     ++k;
+                } else if (x > target) {
                     --l;
-                    while (k < n && nums[k] == nums[k - 1]) ++k;
-                    while (l > j && nums[l] == nums[l + 1]) --l;
-                } else if (nums[i] + nums[j] + nums[k] + nums[l] < target) {
-                    ++k;
                 } else {
-                    --l;
+                    ans.push([nums[i], nums[j], nums[k++], nums[l--]]);
+                    while (k < l && nums[k] === nums[k - 1]) {
+                        ++k;
+                    }
+                    while (k < l && nums[l] === nums[l + 1]) {
+                        --l;
+                    }
                 }
             }
         }
     }
-    return res;
+    return ans;
 };

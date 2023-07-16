@@ -87,20 +87,13 @@ Orders table:
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-	b.book_id,
-	b.NAME
+SELECT book_id, name
 FROM
-	books b
-	LEFT JOIN orders o ON b.book_id = o.book_id
-WHERE
-	b.available_from < '2019-05-23'
-GROUP BY
-	b.book_id
-HAVING
-	ifnull( sum( IF ( o.dispatch_date < '2018-06-23', 0, quantity )), 0 )< 10
-ORDER BY
-	b.book_id
+    Books
+    LEFT JOIN Orders USING (book_id)
+WHERE available_from < '2019-05-23'
+GROUP BY 1
+HAVING sum(if(dispatch_date >= '2018-06-23', quantity, 0)) < 10;
 ```
 
 <!-- tabs:end -->

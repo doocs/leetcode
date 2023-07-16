@@ -12,29 +12,40 @@
 <p><strong class="example">Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> fn = (x) =&gt; x * 5, args = [2], t = 20, cancelTime = 50
+<strong>Input:</strong> fn = (x) =&gt; x * 5, args = [2], t = 20
 <strong>Output:</strong> [{&quot;time&quot;: 20, &quot;returned&quot;: 10}]
 <strong>Explanation:</strong> 
-const cancel = cancellable(fn, [2], 20); // fn(2) called at t=20ms
-setTimeout(cancel, 50);
+const cancelTime = 50
+const cancel = cancellable((x) =&gt; x * 5, [2], 20); // fn(2) called at t=20ms
+setTimeout(cancel, cancelTime);
 
-the cancelTime (50ms) is after the delay time (20ms), so fn(2) should be called at t=20ms. The value returned from fn is 10.
+The cancellation was scheduled to occur after a delay of cancelTime (50ms), which happened after the execution of fn(2) at 20ms.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> fn = (x) =&gt; x**2, args = [2], t = 100, cancelTime = 50
+<strong>Input:</strong> fn = (x) =&gt; x**2, args = [2], t = 100
 <strong>Output:</strong> []
-<strong>Explanation:</strong> fn(2) was never called because cancelTime (50ms) is before the delay time (100ms).
+<strong>Explanation:</strong> 
+const cancelTime = 50 
+const cancel = cancellable((x) =&gt; x**2, [2], 100); // fn(2) not called
+setTimeout(cancel, cancelTime);
+
+The cancellation was scheduled to occur after a delay of cancelTime (50ms), which happened before the execution of fn(2) at 100ms, resulting in fn(2) never being called.
 </pre>
 
 <p><strong class="example">Example 3:</strong></p>
 
 <pre>
-<strong>Input:</strong> fn = (x1, x2) =&gt; x1 * x2, args = [2,4], t = 30, cancelTime = 100
+<strong>Input:</strong> fn = (x1, x2) =&gt; x1 * x2, args = [2,4], t = 30
 <strong>Output:</strong> [{&quot;time&quot;: 30, &quot;returned&quot;: 8}]
-<strong>Explanation:</strong> fn(2, 4) was called at t=30ms because cancelTime &gt; t.
+<strong>Explanation:</strong>
+const cancelTime = 100
+const cancel = cancellable((x1, x2) =&gt; x1 * x2, [2,4], 30); // fn(2,4) called at t=30ms
+setTimeout(cancel, cancelTime);
+
+The cancellation was scheduled to occur after a delay of cancelTime (100ms), which happened after the execution of fn(2,4) at 30ms.
 </pre>
 
 <p>&nbsp;</p>

@@ -62,4 +62,4 @@ SELECT
         END
     ) AS Dec_Revenue
 FROM Department
-GROUP BY id;
+GROUP BY 1;

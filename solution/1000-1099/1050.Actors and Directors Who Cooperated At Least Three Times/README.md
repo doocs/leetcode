@@ -51,18 +51,19 @@ Result 表：
 
 <!-- 这里可写通用的实现逻辑 -->
 
-`GROUP BY` + `HAVING` 解决。
+**方法一：使用 `GROUP BY` + `HAVING`**
+
+我们将 `ActorDirector` 表按照 `actor_id` 和 `director_id` 进行分组，然后使用 `HAVING` 过滤出合作次数大于等于 $3$ 次的组。
 
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
-SELECT
-    actor_id,
-    director_id
+# Write your MySQL query statement below
+SELECT actor_id, director_id
 FROM ActorDirector
-GROUP BY actor_id, director_id
+GROUP BY 1, 2
 HAVING count(1) >= 3;
 ```
 
