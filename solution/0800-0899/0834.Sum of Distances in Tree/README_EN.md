@@ -234,7 +234,7 @@ function sumOfDistancesInTree(n: number, edges: number[][]): number[] {
     const dfs2 = (i: number, fa: number, t: number) => {
         ans[i] = t;
         for (const j of g[i]) {
-            if (j != fa) {
+            if (j !== fa) {
                 dfs2(j, i, t - size[j] + n - size[j]);
             }
         }
