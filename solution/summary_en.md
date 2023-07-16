@@ -2831,3 +2831,7 @@
   - [2775.Undefined to Null](/solution/2700-2799/2775.Undefined%20to%20Null/README_EN.md)
   - [2776.Convert Callback Based Function to Promise Based Function](/solution/2700-2799/2776.Convert%20Callback%20Based%20Function%20to%20Promise%20Based%20Function/README_EN.md)
   - [2777.Date Range Generator](/solution/2700-2799/2777.Date%20Range%20Generator/README_EN.md)
+  - [2778.Sum of Squares of Special Elements](/solution/2700-2799/2778.Sum%20of%20Squares%20of%20Special%20Elements/README_EN.md)
+  - [2779.Maximum Beauty of an Array After Applying Operation](/solution/2700-2799/2779.Maximum%20Beauty%20of%20an%20Array%20After%20Applying%20Operation/README_EN.md)
+  - [2780.Minimum Index of a Valid Split](/solution/2700-2799/2780.Minimum%20Index%20of%20a%20Valid%20Split/README_EN.md)
+  - [2781.Length of the Longest Valid Substring](/solution/2700-2799/2781.Length%20of%20the%20Longest%20Valid%20Substring/README_EN.md)

@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 354 场周赛(2023-07-16 10:30, 90 分钟) 参赛人数 3957
+
+- [2778. 特殊元素平方和](/solution/2700-2799/2778.Sum%20of%20Squares%20of%20Special%20Elements/README.md)
+- [2779. 数组的最大美丽值](/solution/2700-2799/2779.Maximum%20Beauty%20of%20an%20Array%20After%20Applying%20Operation/README.md)
+- [2780. 合法分割的最小下标](/solution/2700-2799/2780.Minimum%20Index%20of%20a%20Valid%20Split/README.md)
+- [2781. 最长合法子字符串的长度](/solution/2700-2799/2781.Length%20of%20the%20Longest%20Valid%20Substring/README.md)
+
 #### 第 353 场周赛(2023-07-09 10:30, 90 分钟) 参赛人数 4112
 
 - [2769. 找出最大的可达成数字](/solution/2700-2799/2769.Find%20the%20Maximum%20Achievable%20Number/README.md)
