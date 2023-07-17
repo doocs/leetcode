@@ -359,12 +359,7 @@ function findErrorNums(nums: number[]): number[] {
         }
     }
     const b = eor ^ a;
-    for (const x of nums) {
-        if (x === a) {
-            return [a, b];
-        }
-    }
-    return [b, a];
+    return nums.includes(a) ? [a, b] : [b, a];
 }
 ```
 
