@@ -86,18 +86,20 @@ Jonathan 唯一标识码是 1 。</pre>
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：LEFT JOIN**
+
+我们可以使用 `LEFT JOIN` 来连接 `Employees` 和 `EmployeeUNI` 表，然后使用 `SELECT` 语句来选择 `unique_id` 和 `name` 列。
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    b.unique_id AS unique_id,
-    a.name AS name
+SELECT unique_id, name
 FROM
-    Employees AS a
-    LEFT JOIN EmployeeUNI AS b ON a.id = b.id;
+    Employees
+    LEFT JOIN EmployeeUNI USING (id);
 ```
 
 <!-- tabs:end -->

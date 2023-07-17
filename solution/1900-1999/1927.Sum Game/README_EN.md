@@ -70,13 +70,117 @@ Bob wins because 9 + 3 + 2 + 9 = 5 + 9 + 2 + 7.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def sumGame(self, num: str) -> bool:
+        n = len(num)
+        cnt1 = num[: n // 2].count("?")
+        cnt2 = num[n // 2 :].count("?")
+        s1 = sum(int(x) for x in num[: n // 2] if x != "?")
+        s2 = sum(int(x) for x in num[n // 2 :] if x != "?")
+        return (cnt1 + cnt2) % 2 == 1 or s1 - s2 != 9 * (cnt2 - cnt1) // 2
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean sumGame(String num) {
+        int n = num.length();
+        int cnt1 = 0, cnt2 = 0;
+        int s1 = 0, s2 = 0;
+        for (int i = 0; i < n / 2; ++i) {
+            if (num.charAt(i) == '?') {
+                cnt1++;
+            } else {
+                s1 += num.charAt(i) - '0';
+            }
+        }
+        for (int i = n / 2; i < n; ++i) {
+            if (num.charAt(i) == '?') {
+                cnt2++;
+            } else {
+                s2 += num.charAt(i) - '0';
+            }
+        }
+        return (cnt1 + cnt2) % 2 == 1 || s1 - s2 != 9 * (cnt2 - cnt1) / 2;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool sumGame(string num) {
+        int n = num.size();
+        int cnt1 = 0, cnt2 = 0;
+        int s1 = 0, s2 = 0;
+        for (int i = 0; i < n / 2; ++i) {
+            if (num[i] == '?') {
+                cnt1++;
+            } else {
+                s1 += num[i] - '0';
+            }
+        }
+        for (int i = n / 2; i < n; ++i) {
+            if (num[i] == '?') {
+                cnt2++;
+            } else {
+                s2 += num[i] - '0';
+            }
+        }
+        return (cnt1 + cnt2) % 2 == 1 || (s1 - s2) != 9 * (cnt2 - cnt1) / 2;
+    }
+};
+```
+
+### **Go**
+
+```go
+func sumGame(num string) bool {
+	n := len(num)
+	var cnt1, cnt2, s1, s2 int
+	for i := 0; i < n/2; i++ {
+		if num[i] == '?' {
+			cnt1++
+		} else {
+			s1 += int(num[i] - '0')
+		}
+	}
+	for i := n / 2; i < n; i++ {
+		if num[i] == '?' {
+			cnt2++
+		} else {
+			s2 += int(num[i] - '0')
+		}
+	}
+	return (cnt1+cnt2)%2 == 1 || s1-s2 != (cnt2-cnt1)*9/2
+}
+```
+
+### **TypeScript**
+
+```ts
+function sumGame(num: string): boolean {
+    const n = num.length;
+    let [cnt1, cnt2, s1, s2] = [0, 0, 0, 0];
+    for (let i = 0; i < n >> 1; ++i) {
+        if (num[i] === '?') {
+            ++cnt1;
+        } else {
+            s1 += num[i].charCodeAt(0) - '0'.charCodeAt(0);
+        }
+    }
+    for (let i = n >> 1; i < n; ++i) {
+        if (num[i] === '?') {
+            ++cnt2;
+        } else {
+            s2 += num[i].charCodeAt(0) - '0'.charCodeAt(0);
+        }
+    }
+    return (cnt1 + cnt2) % 2 === 1 || 2 * (s1 - s2) !== 9 * (cnt2 - cnt1);
+}
 ```
 
 ### **...**

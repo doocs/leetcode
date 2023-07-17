@@ -48,22 +48,22 @@
 
 **Solution 1: Difference Array + Prefix Sum**
 
-Let's first consider the first element $nums[0]$ of $nums$:
+First, let's consider the first element of $nums$, $nums[0]$:
 
--   If $nums[0] = 0$, then we don't need to do anything;
--   If $nums[0] \gt 0$, then we need to operate $nums[0]$ times on $nums[0..k-1]$ to make the elements in $nums[0..k-1]$ all subtract $nums[0]$, so that $nums[0]$ becomes $0$.
+-   If $nums[0] = 0$, we don't need to do anything.
+-   If $nums[0] > 0$, we need to operate on $nums[0..k-1]$ for $nums[0]$ times, subtracting $nums[0]$ from all elements in $nums[0..k-1]$, so $nums[0]$ becomes $0$.
 
-We can use difference array to maintain the operations on a segment of continuous elements. We use $d[i]$ to represent the difference array, and take the prefix sum of the difference array to get the variation amount of each position.
+To perform the add and subtract operations on a contiguous segment of elements simultaneously, we can use a difference array to manage these operations. We represent the difference array with $d[i]$, and calculating the prefix sum of the difference array gives us the change of the value at each position.
 
-Therefore, we traverse $nums$, for each element $nums[i]$, the current variation amount $s = \sum_{j=0}^{i} d[j]$ and we add $s$ to $nums[i]$ to get the actual value of $nums[i]$.
+Therefore, we iterate over $nums$. For each element $nums[i]$, the current position's change quantity is $s = \sum_{j=0}^{i} d[j]$. We add $s$ to $nums[i]$ to get the actual value of $nums[i]$.
 
--   If $nums[i] = 0$, then we don't need to do anything, just skip.
--   If $nums[i]=0$ or $i + k \gt n$, it means that after the previous operation, $nums[i]$ has become negative, or $nums[i..i+k-1]$ out of bounds, so it is impossible to make all elements in $nums$ equal to $0$, then return `false`. Otherwise, we need to subtract $nums[i]$ from all elements in $[i..i+k-1]$, so we subtract $nums[i]$ from $s$ and add $nums[i]$ to $d[i+k]$.
--   Continue to traverse the next element.
+-   If $nums[i] = 0$, there's no need for any operation, and we can skip directly.
+-   If $nums[i]=0$ or $i + k > n$, it indicates that after the previous operations, $nums[i]$ has become negative, or $nums[i..i+k-1]$ is out of bounds. Therefore, it's impossible to make all elements in $nums$ equal to $0$. We return `false`. Otherwise, we need to subtract $nums[i]$ from all elements in the interval $[i..i+k-1]$. Therefore, we subtract $nums[i]$ from $s$ and add $nums[i]$ to $d[i+k]$.
+-   We continue to iterate over the next element.
 
-If the traversal is over, it means that we can make all elements in $nums$ equal to $0$, return `true`.
+If the iteration ends, it means that all elements in $nums$ can be made equal to $0$, so we return `true`.
 
-Time complexity $O(n)$, space complexity $O(n)$. Where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
