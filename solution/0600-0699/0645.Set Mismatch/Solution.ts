@@ -1,30 +1,19 @@
 function findErrorNums(nums: number[]): number[] {
-    let xor = 0;
-    for (let i = 0; i < nums.length; ++i) {
-        xor ^= (i + 1) ^ nums[i];
+    const n = nums.length;
+    let eor = 0;
+    for (let i = 1; i <= n; ++i) {
+        eor ^= i ^ nums[i - 1];
     }
-
-    let divide = 1;
-    while ((xor & divide) == 0) {
-        divide <<= 1;
-    }
-
-    let ans1 = 0,
-        ans2 = 0;
-    for (let i = 0; i < nums.length; ++i) {
-        let cur = nums[i];
-        if (divide & cur) {
-            ans1 ^= cur;
-        } else {
-            ans2 ^= cur;
+    const lb = eor & -eor;
+    let a = 0;
+    for (let i = 1; i <= n; ++i) {
+        if (i & lb) {
+            a ^= i;
         }
-
-        let idx = i + 1;
-        if (divide & idx) {
-            ans1 ^= idx;
-        } else {
-            ans2 ^= idx;
+        if (nums[i - 1] & lb) {
+            a ^= nums[i - 1];
         }
     }
-    return nums.includes(ans1) ? [ans1, ans2] : [ans2, ans1];
+    const b = eor ^ a;
+    return nums.includes(a) ? [a, b] : [b, a];
 }
