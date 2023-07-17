@@ -44,6 +44,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+我们用一个变量 $s$ 记录数组 $nums$ 中所有偶数的和。
+
+对于每次查询 $(v, i)$：
+
+我们先判断 $nums[i]$ 是否为偶数，若 $nums[i]$ 为偶数，则将 $s$ 减去 $nums[i]$；然后将 $nums[i]$ 加上 $v$；
+
+若 $nums[i]$ 为偶数，则将 $s$ 加上 $nums[i]$，然后将 $s$ 加入答案数组。
+
+时间复杂度 $O(n + m)$，其中 $n$ 和 $m$ 分别为数组 $nums$ 和 $queries$ 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -55,17 +67,14 @@ class Solution:
     def sumEvenAfterQueries(
         self, nums: List[int], queries: List[List[int]]
     ) -> List[int]:
+        s = sum(x for x in nums if x % 2 == 0)
         ans = []
-        s = sum(num for num in nums if num % 2 == 0)
         for v, i in queries:
-            old = nums[i]
+            if nums[i] % 2 == 0:
+                s -= nums[i]
             nums[i] += v
-            if nums[i] % 2 == 0 and old % 2 == 0:
-                s += v
-            elif nums[i] % 2 == 0 and old % 2 == 1:
+            if nums[i] % 2 == 0:
                 s += nums[i]
-            elif old % 2 == 0:
-                s -= old
             ans.append(s)
         return ans
 ```
@@ -78,25 +87,24 @@ class Solution:
 class Solution {
     public int[] sumEvenAfterQueries(int[] nums, int[][] queries) {
         int s = 0;
-        for (int num : nums) {
-            if (num % 2 == 0) {
-                s += num;
+        for (int x : nums) {
+            if (x % 2 == 0) {
+                s += x;
             }
         }
-        int[] ans = new int[queries.length];
-        int idx = 0;
-        for (int[] q : queries) {
+        int m = queries.length;
+        int[] ans = new int[m];
+        int k = 0;
+        for (var q : queries) {
             int v = q[0], i = q[1];
-            int old = nums[i];
-            nums[i] += v;
-            if (nums[i] % 2 == 0 && old % 2 == 0) {
-                s += v;
-            } else if (nums[i] % 2 == 0 && old % 2 != 0) {
-                s += nums[i];
-            } else if (old % 2 == 0) {
-                s -= old;
+            if (nums[i] % 2 == 0) {
+                s -= nums[i];
             }
-            ans[idx++] = s;
+            nums[i] += v;
+            if (nums[i] % 2 == 0) {
+                s += nums[i];
+            }
+            ans[k++] = s;
         }
         return ans;
     }
@@ -110,20 +118,21 @@ class Solution {
 public:
     vector<int> sumEvenAfterQueries(vector<int>& nums, vector<vector<int>>& queries) {
         int s = 0;
-        for (int& num : nums)
-            if (num % 2 == 0)
-                s += num;
+        for (int x : nums) {
+            if (x % 2 == 0) {
+                s += x;
+            }
+        }
         vector<int> ans;
         for (auto& q : queries) {
             int v = q[0], i = q[1];
-            int old = nums[i];
+            if (nums[i] % 2 == 0) {
+                s -= nums[i];
+            }
             nums[i] += v;
-            if (nums[i] % 2 == 0 && old % 2 == 0)
-                s += v;
-            else if (nums[i] % 2 == 0 && old % 2 != 0)
+            if (nums[i] % 2 == 0) {
                 s += nums[i];
-            else if (old % 2 == 0)
-                s -= old;
+            }
             ans.push_back(s);
         }
         return ans;
@@ -134,28 +143,25 @@ public:
 ### **Go**
 
 ```go
-func sumEvenAfterQueries(nums []int, queries [][]int) []int {
+func sumEvenAfterQueries(nums []int, queries [][]int) (ans []int) {
 	s := 0
-	for _, num := range nums {
-		if num%2 == 0 {
-			s += num
+	for _, x := range nums {
+		if x%2 == 0 {
+			s += x
 		}
 	}
-	var ans []int
 	for _, q := range queries {
 		v, i := q[0], q[1]
-		old := nums[i]
+		if nums[i]%2 == 0 {
+			s -= nums[i]
+		}
 		nums[i] += v
-		if nums[i]%2 == 0 && old%2 == 0 {
-			s += v
-		} else if nums[i]%2 == 0 && old%2 != 0 {
+		if nums[i]%2 == 0 {
 			s += nums[i]
-		} else if old%2 == 0 {
-			s -= old
 		}
 		ans = append(ans, s)
 	}
-	return ans
+	return
 }
 ```
 
@@ -169,26 +175,49 @@ func sumEvenAfterQueries(nums []int, queries [][]int) []int {
  */
 var sumEvenAfterQueries = function (nums, queries) {
     let s = 0;
-    for (let num of nums) {
-        if (num % 2 == 0) {
-            s += num;
+    for (const x of nums) {
+        if (x % 2 === 0) {
+            s += x;
         }
     }
-    let ans = [];
-    for (let [v, i] of queries) {
-        const old = nums[i];
+    const ans = [];
+    for (const [v, i] of queries) {
+        if (nums[i] % 2 === 0) {
+            s -= nums[i];
+        }
         nums[i] += v;
-        if (nums[i] % 2 == 0 && old % 2 == 0) {
-            s += v;
-        } else if (nums[i] % 2 == 0 && old % 2 != 0) {
+        if (nums[i] % 2 === 0) {
             s += nums[i];
-        } else if (old % 2 == 0) {
-            s -= old;
         }
         ans.push(s);
     }
     return ans;
 };
+```
+
+### **TypeScript**
+
+```ts
+function sumEvenAfterQueries(nums: number[], queries: number[][]): number[] {
+    let s = 0;
+    for (const x of nums) {
+        if (x % 2 === 0) {
+            s += x;
+        }
+    }
+    const ans: number[] = [];
+    for (const [v, i] of queries) {
+        if (nums[i] % 2 === 0) {
+            s -= nums[i];
+        }
+        nums[i] += v;
+        if (nums[i] % 2 === 0) {
+            s += nums[i];
+        }
+        ans.push(s);
+    }
+    return ans;
+}
 ```
 
 ### **...**
