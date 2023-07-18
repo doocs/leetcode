@@ -28,6 +28,32 @@
 
 ## Solutions
 
+**Solution 1: Mathematics**
+
+We denote $s_1$ as the sum of all numbers from $[1,..n]$, $s_2$ as the sum of the numbers in the array $nums$ after removing duplicates, and $s$ as the sum of the numbers in the array $nums$.
+
+Then $s - s_2$ is the duplicate number, and $s_1 - s_2$ is the missing number.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$. Extra space is needed to store the array after de-duplication.
+
+**Solution 2: Hash Table**
+
+We can also use a more intuitive method, using a hash table $cnt$ to count the occurrence of each number in the array $nums$.
+
+Next, iterate through $x \in [1, n]$, if $cnt[x] = 2$, then $x$ is the duplicate number, if $cnt[x] = 0$, then $x$ is the missing number.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+
+**Solution 3: Bit Operation**
+
+According to the properties of the XOR operation, for integer $x$, we have $x \oplus x = 0$ and $x \oplus 0 = x$. Therefore, if we perform the XOR operation on all elements in the array $nums$ and all numbers $i \in [1, n]$, we can eliminate the numbers that appear twice, leaving only the XOR result of the missing number and the duplicate number, i.e., $eor = a \oplus b$.
+
+Since these two numbers are not equal, there must be at least one bit in the XOR result that is $1$. We find the lowest bit of $1$ in the XOR result through the $lowbit$ operation, and then divide all numbers in the array $nums$ and all numbers $i \in [1, n]$ into two groups according to whether this bit is $1$. In this way, the two numbers are divided into different groups. The XOR result of one group of numbers is $a$, and the XOR result of the other group is $b$. These two numbers are the answers we are looking for.
+
+Next, we only need to determine which of $a$ and $b$ is the duplicate number and which is the missing number. Therefore, iterate through the array $nums$, for the traversed number $x$, if $x=a$, then $a$ is the duplicate number, return $[a, b]$, otherwise, at the end of the iteration, return $[b, a]$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$, only using a constant size of extra space.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -35,19 +61,43 @@
 ```python
 class Solution:
     def findErrorNums(self, nums: List[int]) -> List[int]:
-        eor, n = 0, len(nums)
-        for i in range(1, n + 1):
-            eor ^= i ^ nums[i - 1]
-        diff = eor & (~eor + 1)
+        n = len(nums)
+        s1 = (1 + n) * n // 2
+        s2 = sum(set(nums))
+        s = sum(nums)
+        return [s - s2, s1 - s2]
+```
+
+```python
+class Solution:
+    def findErrorNums(self, nums: List[int]) -> List[int]:
+        cnt = Counter(nums)
+        n = len(nums)
+        ans = [0] * 2
+        for x in range(1, n + 1):
+            if cnt[x] == 2:
+                ans[0] = x
+            if cnt[x] == 0:
+                ans[1] = x
+        return ans
+```
+
+```python
+class Solution:
+    def findErrorNums(self, nums: List[int]) -> List[int]:
+        eor = 0
+        for i, x in enumerate(nums, 1):
+            eor ^= i ^ x
         a = 0
-        for i in range(1, n + 1):
-            if (nums[i - 1] & diff) == 0:
-                a ^= nums[i - 1]
-            if (i & diff) == 0:
+        lb = eor & -eor
+        for i, x in enumerate(nums, 1):
+            if i & lb:
                 a ^= i
+            if x & lb:
+                a ^= x
         b = eor ^ a
-        for num in nums:
-            if a == num:
+        for x in nums:
+            if x == a:
                 return [a, b]
         return [b, a]
 ```
@@ -57,63 +107,70 @@ class Solution:
 ```java
 class Solution {
     public int[] findErrorNums(int[] nums) {
-        int eor = 0;
-        for (int i = 1; i <= nums.length; ++i) {
-            eor ^= (i ^ nums[i - 1]);
-        }
-        int diff = eor & (~eor + 1);
-        int a = 0;
-        for (int i = 1; i <= nums.length; ++i) {
-            if ((nums[i - 1] & diff) == 0) {
-                a ^= nums[i - 1];
+        int n = nums.length;
+        int s1 = (1 + n) * n / 2;
+        int s2 = 0;
+        Set<Integer> set = new HashSet<>();
+        int s = 0;
+        for (int x : nums) {
+            if (set.add(x)) {
+                s2 += x;
             }
-            if ((i & diff) == 0) {
+            s += x;
+        }
+        return new int[] {s - s2, s1 - s2};
+    }
+}
+```
+
+```java
+class Solution {
+    public int[] findErrorNums(int[] nums) {
+        int n = nums.length;
+        Map<Integer, Integer> cnt = new HashMap<>(n);
+        for (int x : nums) {
+            cnt.merge(x, 1, Integer::sum);
+        }
+        int[] ans = new int[2];
+        for (int x = 1; x <= n; ++x) {
+            int t = cnt.getOrDefault(x, 0);
+            if (t == 2) {
+                ans[0] = x;
+            } else if (t == 0) {
+                ans[1] = x;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int[] findErrorNums(int[] nums) {
+        int n = nums.length;
+        int eor = 0;
+        for (int i = 1; i <= n; ++i) {
+            eor ^= i ^ nums[i - 1];
+        }
+        int lb = eor & -eor;
+        int a = 0;
+        for (int i = 1; i <= n; ++i) {
+            if ((i & lb) > 0) {
                 a ^= i;
+            }
+            if ((nums[i - 1] & lb) > 0) {
+                a ^= nums[i - 1];
             }
         }
         int b = eor ^ a;
-        for (int num : nums) {
-            if (a == num) {
+        for (int i = 0; i < n; ++i) {
+            if (nums[i] == a) {
                 return new int[] {a, b};
             }
         }
         return new int[] {b, a};
     }
-}
-```
-
-### **TypeScript**
-
-```ts
-function findErrorNums(nums: number[]): number[] {
-    let xor = 0;
-    for (let i = 0; i < nums.length; ++i) {
-        xor ^= (i + 1) ^ nums[i];
-    }
-
-    let divide = 1;
-    while ((xor & divide) == 0) {
-        divide <<= 1;
-    }
-
-    let ans1 = 0,
-        ans2 = 0;
-    for (let i = 0; i < nums.length; ++i) {
-        let cur = nums[i];
-        if (divide & cur) {
-            ans1 ^= cur;
-        } else {
-            ans2 ^= cur;
-        }
-
-        let idx = i + 1;
-        if (divide & idx) {
-            ans1 ^= idx;
-        } else {
-            ans2 ^= idx;
-        }
-    }
-    return nums.includes(ans1) ? [ans1, ans2] : [ans2, ans1];
 }
 ```
 
@@ -123,23 +180,63 @@ function findErrorNums(nums: number[]): number[] {
 class Solution {
 public:
     vector<int> findErrorNums(vector<int>& nums) {
-        int eor = 0, n = nums.size();
-        for (int i = 1; i <= n; ++i) {
-            eor ^= (i ^ nums[i - 1]);
+        int n = nums.size();
+        int s1 = (1 + n) * n / 2;
+        int s2 = 0;
+        unordered_set<int> set(nums.begin(), nums.end());
+        for (int x : set) {
+            s2 += x;
         }
-        int diff = eor & (~eor + 1);
+        int s = accumulate(nums.begin(), nums.end(), 0);
+        return {s - s2, s1 - s2};
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> findErrorNums(vector<int>& nums) {
+        int n = nums.size();
+        unordered_map<int, int> cnt;
+        for (int x : nums) {
+            ++cnt[x];
+        }
+        vector<int> ans(2);
+        for (int x = 1; x <= n; ++x) {
+            if (cnt[x] == 2) {
+                ans[0] = x;
+            } else if (cnt[x] == 0) {
+                ans[1] = x;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> findErrorNums(vector<int>& nums) {
+        int n = nums.size();
+        int eor = 0;
+        for (int i = 1; i <= n; ++i) {
+            eor ^= i ^ nums[i - 1];
+        }
+        int lb = eor & -eor;
         int a = 0;
         for (int i = 1; i <= n; ++i) {
-            if ((nums[i - 1] & diff) == 0) {
-                a ^= nums[i - 1];
-            }
-            if ((i & diff) == 0) {
+            if (i & lb) {
                 a ^= i;
+            }
+            if (nums[i - 1] & lb) {
+                a ^= nums[i - 1];
             }
         }
         int b = eor ^ a;
-        for (int num : nums) {
-            if (a == num) {
+        for (int i = 0; i < n; ++i) {
+            if (nums[i] == a) {
                 return {a, b};
             }
         }
@@ -150,46 +247,61 @@ public:
 
 ### **Go**
 
-把每个数都放到它应该在的位置，最后出现“异常”的就是重复的数和丢失的数。
+```go
+func findErrorNums(nums []int) []int {
+	n := len(nums)
+	s1 := (1 + n) * n / 2
+	s2, s := 0, 0
+	set := map[int]bool{}
+	for _, x := range nums {
+		if !set[x] {
+			set[x] = true
+			s2 += x
+		}
+		s += x
+	}
+	return []int{s - s2, s1 - s2}
+}
+```
 
 ```go
 func findErrorNums(nums []int) []int {
 	n := len(nums)
-	for i := 0; i < n; i++ {
-		for nums[i] != i+1 && nums[nums[i]-1] != nums[i] {
-			nums[i], nums[nums[i]-1] = nums[nums[i]-1], nums[i]
+	cnt := map[int]int{}
+	for _, x := range nums {
+		cnt[x]++
+	}
+	ans := make([]int, 2)
+	for x := 1; x <= n; x++ {
+		if cnt[x] == 2 {
+			ans[0] = x
+		} else if cnt[x] == 0 {
+			ans[1] = x
 		}
 	}
-	for i := 0; i < n; i++ {
-		if nums[i] != i+1 {
-			return []int{nums[i], i + 1}
-		}
-	}
-	return []int{-1, -1}
+	return ans
 }
 ```
 
-也可以使用位运算。
-
 ```go
 func findErrorNums(nums []int) []int {
-	eor, n := 0, len(nums)
-	for i := 1; i <= n; i++ {
-		eor ^= (i ^ nums[i-1])
+	eor := 0
+	for i, x := range nums {
+		eor ^= x ^ (i + 1)
 	}
-	diff := eor & (-eor)
+	lb := eor & -eor
 	a := 0
-	for i := 1; i <= n; i++ {
-		if (nums[i-1] & diff) == 0 {
-			a ^= nums[i-1]
+	for i, x := range nums {
+		if (i+1)&lb != 0 {
+			a ^= (i + 1)
 		}
-		if (i & diff) == 0 {
-			a ^= i
+		if x&lb != 0 {
+			a ^= x
 		}
 	}
 	b := eor ^ a
-	for _, num := range nums {
-		if a == num {
+	for _, x := range nums {
+		if x == a {
 			return []int{a, b}
 		}
 	}
@@ -197,35 +309,58 @@ func findErrorNums(nums []int) []int {
 }
 ```
 
-### **C++**
+### **TypeScript**
 
-```cpp
-class Solution {
-public:
-    vector<int> findErrorNums(vector<int>& nums) {
-        int eor = 0, n = nums.size();
-        for (int i = 1; i <= n; ++i) {
-            eor ^= (i ^ nums[i - 1]);
-        }
-        int diff = eor & (~eor + 1);
-        int a = 0;
-        for (int i = 1; i <= n; ++i) {
-            if ((nums[i - 1] & diff) == 0) {
-                a ^= nums[i - 1];
-            }
-            if ((i & diff) == 0) {
-                a ^= i;
-            }
-        }
-        int b = eor ^ a;
-        for (int num : nums) {
-            if (a == num) {
-                return {a, b};
-            }
-        }
-        return {b, a};
+```ts
+function findErrorNums(nums: number[]): number[] {
+    const n = nums.length;
+    const s1 = (n * (n + 1)) >> 1;
+    const s2 = [...new Set(nums)].reduce((a, b) => a + b);
+    const s = nums.reduce((a, b) => a + b);
+    return [s - s2, s1 - s2];
+}
+```
+
+```ts
+function findErrorNums(nums: number[]): number[] {
+    const n = nums.length;
+    const cnt: Map<number, number> = new Map();
+    for (const x of nums) {
+        cnt.set(x, (cnt.get(x) || 0) + 1);
     }
-};
+    const ans: number[] = new Array(2).fill(0);
+    for (let x = 1; x <= n; ++x) {
+        const t = cnt.get(x) || 0;
+        if (t === 2) {
+            ans[0] = x;
+        } else if (t === 0) {
+            ans[1] = x;
+        }
+    }
+    return ans;
+}
+```
+
+```ts
+function findErrorNums(nums: number[]): number[] {
+    const n = nums.length;
+    let eor = 0;
+    for (let i = 1; i <= n; ++i) {
+        eor ^= i ^ nums[i - 1];
+    }
+    const lb = eor & -eor;
+    let a = 0;
+    for (let i = 1; i <= n; ++i) {
+        if (i & lb) {
+            a ^= i;
+        }
+        if (nums[i - 1] & lb) {
+            a ^= nums[i - 1];
+        }
+    }
+    const b = eor ^ a;
+    return nums.includes(a) ? [a, b] : [b, a];
+}
 ```
 
 ### **...**

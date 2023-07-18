@@ -2831,3 +2831,7 @@
   - [2775.将 undefined 转为 null](/solution/2700-2799/2775.Undefined%20to%20Null/README.md)
   - [2776.转换回调函数为 Promise 函数](/solution/2700-2799/2776.Convert%20Callback%20Based%20Function%20to%20Promise%20Based%20Function/README.md)
   - [2777.日期范围生成器](/solution/2700-2799/2777.Date%20Range%20Generator/README.md)
+  - [2778.特殊元素平方和](/solution/2700-2799/2778.Sum%20of%20Squares%20of%20Special%20Elements/README.md)
+  - [2779.数组的最大美丽值](/solution/2700-2799/2779.Maximum%20Beauty%20of%20an%20Array%20After%20Applying%20Operation/README.md)
+  - [2780.合法分割的最小下标](/solution/2700-2799/2780.Minimum%20Index%20of%20a%20Valid%20Split/README.md)
+  - [2781.最长合法子字符串的长度](/solution/2700-2799/2781.Length%20of%20the%20Longest%20Valid%20Substring/README.md)

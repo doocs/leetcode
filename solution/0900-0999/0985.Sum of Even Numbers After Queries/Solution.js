@@ -5,21 +5,19 @@
  */
 var sumEvenAfterQueries = function (nums, queries) {
     let s = 0;
-    for (let num of nums) {
-        if (num % 2 == 0) {
-            s += num;
+    for (const x of nums) {
+        if (x % 2 === 0) {
+            s += x;
         }
     }
-    let ans = [];
-    for (let [v, i] of queries) {
-        const old = nums[i];
+    const ans = [];
+    for (const [v, i] of queries) {
+        if (nums[i] % 2 === 0) {
+            s -= nums[i];
+        }
         nums[i] += v;
-        if (nums[i] % 2 == 0 && old % 2 == 0) {
-            s += v;
-        } else if (nums[i] % 2 == 0 && old % 2 != 0) {
+        if (nums[i] % 2 === 0) {
             s += nums[i];
-        } else if (old % 2 == 0) {
-            s -= old;
         }
         ans.push(s);
     }
