@@ -53,13 +53,135 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minInterval(self, intervals: List[List[int]], queries: List[int]) -> List[int]:
+        n, m = len(intervals), len(queries)
+        intervals.sort()
+        queries = sorted((x, i) for i, x in enumerate(queries))
+        ans = [-1] * m
+        pq = []
+        i = 0
+        for x, j in queries:
+            while i < n and intervals[i][0] <= x:
+                a, b = intervals[i]
+                heappush(pq, (b - a + 1, b))
+                i += 1
+            while pq and pq[0][1] < x:
+                heappop(pq)
+            if pq:
+                ans[j] = pq[0][0]
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] minInterval(int[][] intervals, int[] queries) {
+        int n = intervals.length, m = queries.length;
+        Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
+        int[][] qs = new int[m][0];
+        for (int i = 0; i < m; ++i) {
+            qs[i] = new int[] {queries[i], i};
+        }
+        Arrays.sort(qs, (a, b) -> a[0] - b[0]);
+        int[] ans = new int[m];
+        Arrays.fill(ans, -1);
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+        int i = 0;
+        for (int[] q : qs) {
+            while (i < n && intervals[i][0] <= q[0]) {
+                int a = intervals[i][0], b = intervals[i][1];
+                pq.offer(new int[] {b - a + 1, b});
+                ++i;
+            }
+            while (!pq.isEmpty() && pq.peek()[1] < q[0]) {
+                pq.poll();
+            }
+            if (!pq.isEmpty()) {
+                ans[q[1]] = pq.peek()[0];
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> minInterval(vector<vector<int>>& intervals, vector<int>& queries) {
+        int n = intervals.size(), m = queries.size();
+        sort(intervals.begin(), intervals.end());
+        using pii = pair<int, int>;
+        vector<pii> qs;
+        for (int i = 0; i < m; ++i) {
+            qs.emplace_back(queries[i], i);
+        }
+        sort(qs.begin(), qs.end());
+        vector<int> ans(m, -1);
+        priority_queue<pii, vector<pii>, greater<pii>> pq;
+        int i = 0;
+        for (auto& [x, j] : qs) {
+            while (i < n && intervals[i][0] <= x) {
+                int a = intervals[i][0], b = intervals[i][1];
+                pq.emplace(b - a + 1, b);
+                ++i;
+            }
+            while (!pq.empty() && pq.top().second < x) {
+                pq.pop();
+            }
+            if (!pq.empty()) {
+                ans[j] = pq.top().first;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minInterval(intervals [][]int, queries []int) []int {
+	n, m := len(intervals), len(queries)
+	sort.Slice(intervals, func(i, j int) bool { return intervals[i][0] < intervals[j][0] })
+	qs := make([][2]int, m)
+	ans := make([]int, m)
+	for i := range qs {
+		qs[i] = [2]int{queries[i], i}
+		ans[i] = -1
+	}
+	sort.Slice(qs, func(i, j int) bool { return qs[i][0] < qs[j][0] })
+	pq := hp{}
+	i := 0
+	for _, q := range qs {
+		x, j := q[0], q[1]
+		for i < n && intervals[i][0] <= x {
+			a, b := intervals[i][0], intervals[i][1]
+			heap.Push(&pq, pair{b - a + 1, b})
+			i++
+		}
+		for len(pq) > 0 && pq[0].r < x {
+			heap.Pop(&pq)
+		}
+		if len(pq) > 0 {
+			ans[j] = pq[0].v
+		}
+	}
+	return ans
+}
+
+type pair struct{ v, r int }
+type hp []pair
+
+func (h hp) Len() int            { return len(h) }
+func (h hp) Less(i, j int) bool  { return h[i].v < h[j].v }
+func (h hp) Swap(i, j int)       { h[i], h[j] = h[j], h[i] }
+func (h *hp) Push(v interface{}) { *h = append(*h, v.(pair)) }
+func (h *hp) Pop() interface{}   { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
 ### **...**
