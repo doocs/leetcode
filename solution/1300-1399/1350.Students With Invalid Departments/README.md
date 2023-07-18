@@ -88,7 +88,9 @@ John, Daiana, Steve 和 Jasmine 所在的院系分别是 14, 33, 74 和 77， �
 
 <!-- 这里可写通用的实现逻辑 -->
 
-外连接查询。
+**方法一：左连接**
+
+我们将 `Students` 表左连接 `Departments` 表，然后筛选出所有 `Departments` 表中 `id` 为 `NULL` 的记录即可。
 
 <!-- tabs:start -->
 
@@ -96,9 +98,7 @@ John, Daiana, Steve 和 Jasmine 所在的院系分别是 14, 33, 74 和 77， �
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    s.id,
-    s.name
+SELECT s.id, s.name
 FROM
     Students AS s
     LEFT JOIN Departments AS d ON s.department_id = d.id

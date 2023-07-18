@@ -1,23 +1,20 @@
-func sumEvenAfterQueries(nums []int, queries [][]int) []int {
+func sumEvenAfterQueries(nums []int, queries [][]int) (ans []int) {
 	s := 0
-	for _, num := range nums {
-		if num%2 == 0 {
-			s += num
+	for _, x := range nums {
+		if x%2 == 0 {
+			s += x
 		}
 	}
-	var ans []int
 	for _, q := range queries {
 		v, i := q[0], q[1]
-		old := nums[i]
+		if nums[i]%2 == 0 {
+			s -= nums[i]
+		}
 		nums[i] += v
-		if nums[i]%2 == 0 && old%2 == 0 {
-			s += v
-		} else if nums[i]%2 == 0 && old%2 != 0 {
+		if nums[i]%2 == 0 {
 			s += nums[i]
-		} else if old%2 == 0 {
-			s -= old
 		}
 		ans = append(ans, s)
 	}
-	return ans
+	return
 }
