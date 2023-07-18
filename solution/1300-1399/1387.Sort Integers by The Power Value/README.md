@@ -59,6 +59,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：自定义排序**
+
+我们先定义一个函数 $f(x)$，表示将数字 $x$ 变成 $1$ 所需要的步数，也即是数字 $x$ 的权重。
+
+然后我们将区间 $[lo, hi]$ 内的所有数字按照权重升序排序，如果权重相同，按照数字自身的数值升序排序。
+
+最后返回排序后的第 $k$ 个数字。
+
+时间复杂度 $O(n \times \log n \times M)$，空间复杂度 $O(n)$。其中 $n$ 是区间 $[lo, hi]$ 内的数字个数，而 $M$ 是 $f(x)$ 的最大值，本题中 $M$ 最大为 $178$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -66,7 +76,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+@cache
+def f(x: int) -> int:
+    ans = 0
+    while x != 1:
+        if x % 2 == 0:
+            x //= 2
+        else:
+            x = 3 * x + 1
+        ans += 1
+    return ans
 
+
+class Solution:
+    def getKth(self, lo: int, hi: int, k: int) -> int:
+        return sorted(range(lo, hi + 1), key=f)[k - 1]
 ```
 
 ### **Java**
@@ -74,7 +98,119 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int getKth(int lo, int hi, int k) {
+        Integer[] nums = new Integer[hi - lo + 1];
+        for (int i = lo; i <= hi; ++i) {
+            nums[i - lo] = i;
+        }
+        Arrays.sort(nums, (a, b) -> {
+            int fa = f(a), fb = f(b);
+            return fa == fb ? a - b : fa - fb;
+        });
+        return nums[k - 1];
+    }
 
+    private int f(int x) {
+        int ans = 0;
+        for (; x != 1; ++ans) {
+            if (x % 2 == 0) {
+                x /= 2;
+            } else {
+                x = x * 3 + 1;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int getKth(int lo, int hi, int k) {
+        auto f = [](int x) {
+            int ans = 0;
+            for (; x != 1; ++ans) {
+                if (x % 2 == 0) {
+                    x /= 2;
+                } else {
+                    x = 3 * x + 1;
+                }
+            }
+            return ans;
+        };
+        vector<int> nums;
+        for (int i = lo; i <= hi; ++i) {
+            nums.push_back(i);
+        }
+        sort(nums.begin(), nums.end(), [&](int x, int y) {
+            int fx = f(x), fy = f(y);
+            if (fx != fy) {
+                return fx < fy;
+            } else {
+                return x < y;
+            }
+        });
+        return nums[k - 1];
+    }
+};
+```
+
+### **Go**
+
+```go
+func getKth(lo int, hi int, k int) int {
+	f := func(x int) (ans int) {
+		for ; x != 1; ans++ {
+			if x%2 == 0 {
+				x /= 2
+			} else {
+				x = 3*x + 1
+			}
+		}
+		return
+	}
+	nums := make([]int, hi-lo+1)
+	for i := range nums {
+		nums[i] = lo + i
+	}
+	sort.Slice(nums, func(i, j int) bool {
+		fx, fy := f(nums[i]), f(nums[j])
+		if fx != fy {
+			return fx < fy
+		}
+		return nums[i] < nums[j]
+	})
+	return nums[k-1]
+}
+```
+
+### **TypeScript**
+
+```ts
+function getKth(lo: number, hi: number, k: number): number {
+    const f = (x: number): number => {
+        let ans = 0;
+        for (; x !== 1; ++ans) {
+            if (x % 2 === 0) {
+                x >>= 1;
+            } else {
+                x = x * 3 + 1;
+            }
+        }
+        return ans;
+    };
+    const nums = new Array(hi - lo + 1).fill(0).map((_, i) => i + lo);
+    nums.sort((a, b) => {
+        const fa = f(a),
+            fb = f(b);
+        return fa === fb ? a - b : fa - fb;
+    });
+    return nums[k - 1];
+}
 ```
 
 ### **...**

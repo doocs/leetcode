@@ -65,23 +65,21 @@ Corona Masks 股票在第1天以10美元的价格买入，在第3天以1010美�
 
 <!-- 这里可写通用的实现逻辑 -->
 
-`CASE WHEN` + `GROUP BY`。
+**方法一：GROUP BY + SUM(IF())**
+
+我们使用 `GROUP BY` 将同一支股票的买卖操作分组，然后使用 `SUM(IF())` 计算每支股票的资本损益。
 
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
+# Write your MySQL query statement below
 SELECT
     stock_name,
-    SUM(
-        CASE
-            WHEN operation = 'Buy' THEN -price
-            ELSE price
-        END
-    ) AS capital_gain_loss
+    sum(if(operation = 'Buy', -price, price)) AS capital_gain_loss
 FROM Stocks
-GROUP BY stock_name;
+GROUP BY 1;
 ```
 
 <!-- tabs:end -->

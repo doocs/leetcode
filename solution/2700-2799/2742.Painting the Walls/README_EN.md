@@ -42,6 +42,20 @@
 
 ## Solutions
 
+**Solution 1: Memorization**
+
+We can consider whether each wall is painted by a paid painter or a free painter. Design a function $dfs(i, j)$, which means that from the $i$th wall, and the current remaining free painter working time is $j$, the minimum cost of painting all the remaining walls. Then the answer is $dfs(0, 0)$.
+
+The calculation process of function $dfs(i, j)$ is as follows:
+
+-   If $n - i \le j$, it means that there are no more walls than the free painter's working time, so the remaining walls are painted by the free painter, and the cost is $0$;
+-   If $i \ge n$, return $+\infty$;
+-   Otherwise, if the $i$th wall is painted by a paid painter, the cost is $cost[i]$, then $dfs(i, j) = dfs(i + 1, j + time[i]) + cost[i]$; if the $i$th wall is painted by a free painter, the cost is $0$, then $dfs(i, j) = dfs(i + 1, j - 1)$.
+
+Note that the parameter $j$ may be less than $0$. Therefore, in the actual coding process, except for the $Python$ language, we add an offset $n$ to $j$ so that the range of $j$ is $[0, 2n]$.
+
+Time complexity $O(n^2)$, space complexity $O(n^2)$. Where $n$ is the length of the array.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -159,47 +173,33 @@ func min(a, b int) int {
 
 ```rust
 impl Solution {
-    pub fn distance_traveled(mut main_tank: i32, mut additional_tank: i32) -> i32 {
-        let mut cur = 0;
-        let mut ans = 0;
-
-        while main_tank > 0 {
-            cur += 1;
-            main_tank -= 1;
-            ans += 10;
-
-            if cur % 5 == 0 && additional_tank > 0 {
-                additional_tank -= 1;
-                main_tank += 1;
-            }
-        }
-
-        ans
+    #[allow(dead_code)]
+    pub fn paint_walls(cost: Vec<i32>, time: Vec<i32>) -> i32 {
+        let n = cost.len();
+        let mut record_vec: Vec<Vec<i32>> = vec![vec![-1; n << 1 | 1]; n];
+        Self::dfs(&mut record_vec, 0, n as i32, n as i32, &time, &cost)
     }
-}
-```
 
-```rust
-impl Solution {
-    pub fn distance_traveled(mut main_tank: i32, mut additional_tank: i32) -> i32 {
-        let mut ans = 0;
-
-        while main_tank > 0 {
-            if main_tank >= 5 {
-                ans += 50;
-                main_tank -= 5;
-
-                if additional_tank > 0 {
-                    additional_tank -= 1;
-                    main_tank += 1;
-                }
-            } else {
-                ans += main_tank * 10;
-                main_tank = 0;
-            }
+    #[allow(dead_code)]
+    fn dfs(record_vec: &mut Vec<Vec<i32>>, i: i32, j: i32, n: i32, time: &Vec<i32>, cost: &Vec<i32>) -> i32 {
+        if n - i <= j - n {
+            // All the remaining walls can be printed at no cost
+            // Just return 0
+            return 0;
         }
-
-        ans
+        if i >= n {
+            // No way this case can be achieved
+            // Just return +INF
+            return 1 << 30;
+        }
+        if record_vec[i as usize][j as usize] == -1 {
+            // This record hasn't been written
+            record_vec[i as usize][j as usize] = std::cmp::min(
+                Self::dfs(record_vec, i + 1, j + time[i as usize], n, time, cost) + cost[i as usize],
+                Self::dfs(record_vec, i + 1, j - 1, n, time, cost)
+            );
+        }
+        record_vec[i as usize][j as usize]
     }
 }
 ```
