@@ -84,7 +84,169 @@ class Solution:
 ### **Java**
 
 ```java
+class Solution {
+    private Map<Integer, Boolean> memo = new HashMap<>();
+    private int[] p = new int[8];
 
+    public Solution() {
+        p[0] = 1;
+        for (int i = 1; i < 8; ++i) {
+            p[i] = p[i - 1] * 8;
+        }
+    }
+
+    public boolean nimGame(int[] piles) {
+        return dfs(piles);
+    }
+
+    private boolean dfs(int[] piles) {
+        int st = f(piles);
+        if (memo.containsKey(st)) {
+            return memo.get(st);
+        }
+        for (int i = 0; i < piles.length; ++i) {
+            for (int j = 1; j <= piles[i]; ++j) {
+                piles[i] -= j;
+                if (!dfs(piles)) {
+                    piles[i] += j;
+                    memo.put(st, true);
+                    return true;
+                }
+                piles[i] += j;
+            }
+        }
+        memo.put(st, false);
+        return false;
+    }
+
+    private int f(int[] piles) {
+        int st = 0;
+        for (int i = 0; i < piles.length; ++i) {
+            st += piles[i] * p[i];
+        }
+        return st;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool nimGame(vector<int>& piles) {
+        unordered_map<int, int> memo;
+        int p[8] = {1};
+        for (int i = 1; i < 8; ++i) {
+            p[i] = p[i - 1] * 8;
+        }
+        auto f = [&](vector<int>& piles) {
+            int st = 0;
+            for (int i = 0; i < piles.size(); ++i) {
+                st += piles[i] * p[i];
+            }
+            return st;
+        };
+        function<bool(vector<int>&)> dfs = [&](vector<int>& piles) {
+            int st = f(piles);
+            if (memo.count(st)) {
+                return memo[st];
+            }
+            for (int i = 0; i < piles.size(); ++i) {
+                for (int j = 1; j <= piles[i]; ++j) {
+                    piles[i] -= j;
+                    if (!dfs(piles)) {
+                        piles[i] += j;
+                        return memo[st] = true;
+                    }
+                    piles[i] += j;
+                }
+            }
+            return memo[st] = false;
+        };
+        return dfs(piles);
+    }
+};
+```
+
+### **Go**
+
+```go
+func nimGame(piles []int) bool {
+	memo := map[int]bool{}
+	p := make([]int, 8)
+	p[0] = 1
+	for i := 1; i < 8; i++ {
+		p[i] = p[i-1] * 8
+	}
+	f := func(piles []int) int {
+		st := 0
+		for i, x := range piles {
+			st += x * p[i]
+		}
+		return st
+	}
+	var dfs func(piles []int) bool
+	dfs = func(piles []int) bool {
+		st := f(piles)
+		if v, ok := memo[st]; ok {
+			return v
+		}
+		for i, x := range piles {
+			for j := 1; j <= x; j++ {
+				piles[i] -= j
+				if !dfs(piles) {
+					piles[i] += j
+					memo[st] = true
+					return true
+				}
+				piles[i] += j
+			}
+		}
+		memo[st] = false
+		return false
+	}
+	return dfs(piles)
+}
+```
+
+### **TypeScript**
+
+```ts
+function nimGame(piles: number[]): boolean {
+    const p: number[] = Array(8).fill(1);
+    for (let i = 1; i < 8; ++i) {
+        p[i] = p[i - 1] * 8;
+    }
+    const f = (piles: number[]): number => {
+        let st = 0;
+        for (let i = 0; i < piles.length; ++i) {
+            st += piles[i] * p[i];
+        }
+        return st;
+    };
+    const memo: Map<number, boolean> = new Map();
+    const dfs = (piles: number[]): boolean => {
+        const st = f(piles);
+        if (memo.has(st)) {
+            return memo.get(st)!;
+        }
+        for (let i = 0; i < piles.length; ++i) {
+            for (let j = 1; j <= piles[i]; ++j) {
+                piles[i] -= j;
+                if (!dfs(piles)) {
+                    piles[i] += j;
+                    memo.set(st, true);
+                    return true;
+                }
+                piles[i] += j;
+            }
+        }
+        memo.set(st, false);
+        return false;
+    };
+    return dfs(piles);
+}
 ```
 
 ### **...**
