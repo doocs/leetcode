@@ -2792,6 +2792,7 @@
 |  2779  |  [数组的最大美丽值](/solution/2700-2799/2779.Maximum%20Beauty%20of%20an%20Array%20After%20Applying%20Operation/README.md)  |    |  中等  |  第 354 场周赛  |
 |  2780  |  [合法分割的最小下标](/solution/2700-2799/2780.Minimum%20Index%20of%20a%20Valid%20Split/README.md)  |    |  中等  |  第 354 场周赛  |
 |  2781  |  [最长合法子字符串的长度](/solution/2700-2799/2781.Length%20of%20the%20Longest%20Valid%20Substring/README.md)  |    |  困难  |  第 354 场周赛  |
+|  2782  |  [Number of Unique Categories](/solution/2700-2799/2782.Number%20of%20Unique%20Categories/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
