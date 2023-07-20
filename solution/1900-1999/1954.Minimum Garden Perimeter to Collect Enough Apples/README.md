@@ -57,6 +57,36 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：数学 + 枚举**
+
+假设正方形右上角坐标为 $(n, n)$，那么它的边长为 $2n$，周长为 $8n$，里面的苹果总数为：
+
+$$
+\begin{aligned}
+&\sum_{x=-n}^{n} \sum_{y=-n}^{n} |x| + |y| \\
+\end{aligned}
+$$
+
+由于 $x$ 和 $y$ 是对称的，所以可以化简为：
+
+$$
+\begin{aligned}
+&\sum_{x=-n}^{n} \sum_{y=-n}^{n} |x| + |y| \\
+&= 2 \sum_{x=-n}^{n} \sum_{y=-n}^{n} |x| \\
+&= 2 \sum_{x=-n}^{n} (2n + 1) |x| \\
+&= 2 (2n + 1) \sum_{x=-n}^{n} |x| \\
+&= 2n(n+1)(2n+1)
+\end{aligned}
+$$
+
+所以，我们只需要枚举 $n$，直到找到第一个满足 $2n(n+1)(2n+1) \geq neededApples$ 的 $n$ 即可。
+
+时间复杂度 $O(m^{\frac{1}{3}})$，其中 $m$ 为 $neededApples$ 的值。空间复杂度 $O(1)$。
+
+**方法二：二分查找**
+
+我们也可以二分枚举 $n$，时间复杂度 $O(\log m)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -64,7 +94,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def minimumPerimeter(self, neededApples: int) -> int:
+        x = 1
+        while 2 * x * (x + 1) * (2 * x + 1) < neededApples:
+            x += 1
+        return x * 8
+```
 
+```python
+class Solution:
+    def minimumPerimeter(self, neededApples: int) -> int:
+        l, r = 1, 100000
+        while l < r:
+            mid = (l + r) >> 1
+            if 2 * mid * (mid + 1) * (2 * mid + 1) >= neededApples:
+                r = mid
+            else:
+                l = mid + 1
+        return l * 8
 ```
 
 ### **Java**
@@ -72,7 +120,120 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public long minimumPerimeter(long neededApples) {
+        long x = 1;
+        while (2 * x * (x + 1) * (2 * x + 1) < neededApples) {
+            ++x;
+        }
+        return 8 * x;
+    }
+}
+```
 
+```java
+class Solution {
+    public long minimumPerimeter(long neededApples) {
+        long l = 1, r = 100000;
+        while (l < r) {
+            long mid = (l + r) >> 1;
+            if (2 * mid * (mid + 1) * (2 * mid + 1) >= neededApples) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l * 8;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    long long minimumPerimeter(long long neededApples) {
+        long long x = 1;
+        while (2 * x * (x + 1) * (2 * x + 1) < neededApples) {
+            ++x;
+        }
+        return 8 * x;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    long long minimumPerimeter(long long neededApples) {
+        long long l = 1, r = 100000;
+        while (l < r) {
+            long mid = (l + r) >> 1;
+            if (2 * mid * (mid + 1) * (2 * mid + 1) >= neededApples) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l * 8;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumPerimeter(neededApples int64) int64 {
+	var x int64 = 1
+	for 2*x*(x+1)*(2*x+1) < neededApples {
+		x++
+	}
+	return 8 * x
+}
+```
+
+```go
+func minimumPerimeter(neededApples int64) int64 {
+	var l, r int64 = 1, 100000
+	for l < r {
+		mid := (l + r) >> 1
+		if 2*mid*(mid+1)*(2*mid+1) >= neededApples {
+			r = mid
+		} else {
+			l = mid + 1
+		}
+	}
+	return l * 8
+}
+```
+
+### **TypeScript**
+
+```ts
+function minimumPerimeter(neededApples: number): number {
+    let x = 1;
+    while (2 * x * (x + 1) * (2 * x + 1) < neededApples) {
+        ++x;
+    }
+    return 8 * x;
+}
+```
+
+```ts
+function minimumPerimeter(neededApples: number): number {
+    let l = 1;
+    let r = 100000;
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (2 * mid * (mid + 1) * (2 * mid + 1) >= neededApples) {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return 8 * l;
+}
 ```
 
 ### **...**
