@@ -279,7 +279,7 @@ impl Solution {
             cur_sum += cost[i] as i64;
             i += 1;
         }
-        
+
         Self::compute_manhattan_dis(&nums, &cost, nums[i])
     }
 
