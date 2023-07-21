@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>You are given a <code>root</code> which is the root of a binary tree with <code>n</code> nodes. The nodes of the binary tree are numbered from <code>1</code> to <code>n</code>. Suppose the tree has <code>k</code> leaves in the following order: <code>b<sub>1 </sub>&lt;<sub> </sub>b<sub>2 </sub>&lt; ... &lt; b<sub>k</sub></code>.</p>
+<p>You are given a <code>root</code>, which is the root of a <strong>special</strong> binary tree with <code>n</code> nodes. The nodes of the special binary tree are numbered from <code>1</code> to <code>n</code>. Suppose the tree has <code>k</code> leaves in the following order: <code>b<sub>1 </sub>&lt;<sub> </sub>b<sub>2 </sub>&lt; ... &lt; b<sub>k</sub></code>.</p>
 
 <p>The leaves of this tree have a <strong>special</strong> property! That is, for every leaf <code>b<sub>i</sub></code>, the following conditions hold:</p>
 
@@ -15,7 +15,7 @@
 
 <p>Return<em> the height of the given tree.</em></p>
 
-<p><strong>Note:</strong> The height of a binary tree is the length of the <strong>longest path</strong> from the root to any other vertex.</p>
+<p><strong>Note:</strong> The height of a binary tree is the length of the <strong>longest path</strong> from the root to any other node.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

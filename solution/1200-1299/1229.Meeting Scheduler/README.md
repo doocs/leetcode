@@ -157,7 +157,7 @@ impl Solution {
         let mut j: usize = 0;
         let N = slots1.len();
         let M = slots2.len();
-        
+
         while i < N && j < M {
             let (start, end) = (slots1[i][0], slots1[i][1]);
             while j < M && slots2[j][0] < end {
