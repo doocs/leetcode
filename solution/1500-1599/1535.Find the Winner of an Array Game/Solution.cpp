@@ -1,7 +1,8 @@
 class Solution {
-    public int getWinner(int[] arr, int k) {
+public:
+    int getWinner(vector<int>& arr, int k) {
         int mx = arr[0];
-        for (int i = 1, cnt = 0; i < arr.length; ++i) {
+        for (int i = 1, cnt = 0; i < arr.size(); ++i) {
             if (mx < arr[i]) {
                 mx = arr[i];
                 cnt = 1;
@@ -14,4 +15,4 @@ class Solution {
         }
         return mx;
     }
-}
+};
