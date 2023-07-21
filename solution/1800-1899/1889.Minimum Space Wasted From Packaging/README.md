@@ -66,7 +66,19 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-“排序 + 二分查找 + 前缀和”实现。
+**方法一：排序 + 二分查找**
+
+我们首先对包裹的尺寸数组 $packages$ 进行排序。
+
+然后遍历每个供应商的箱子数组 $boxes$，对于每个箱子数组 $boxes$，我们也对其进行排序。
+
+如果当前箱子数组中最大的箱子尺寸小于包裹数组中最大的包裹尺寸，那么我们就可以跳过这个供应商，因为这个供应商的箱子无法装下最大的包裹。否则，我们从小到大遍历当前供应商的每个箱子 $b$，用一个指针 $i$ 指向当前待装箱的包裹。
+
+接下来，我们在数组 $packages$ 中二分查找，找到第一个尺寸大于 $b$ 的包裹 $packages[j]$。那么我们可以用箱子 $b$ 装下 $packages[i..j-1]$ 中的所有包裹，此时总空间为 $b \times (j - i)$。然后我们将指针 $i$ 移动到 $j$，继续寻找下一个箱子的装包情况。
+
+遍历完该供应商的所有箱子后，我们就可以得到该供应商所需的箱子总空间。我们遍历所有供应商，找到所需箱子的最小总空间，那么浪费的空间就是总空间减去所有包裹的总尺寸。
+
+时间复杂度 $O(n \times \log n + l \times \log l + l \times \log n)$，空间复杂度 $O(\log n + \log l)$。其中 $n$ 是包裹的数量，而 $l$ 是所有箱子的数量。
 
 <!-- tabs:start -->
 
@@ -77,19 +89,22 @@
 ```python
 class Solution:
     def minWastedSpace(self, packages: List[int], boxes: List[List[int]]) -> int:
+        mod = 10**9 + 7
+        ans = inf
         packages.sort()
-        res = inf
         for box in boxes:
             box.sort()
             if packages[-1] > box[-1]:
                 continue
-            t = last = 0
+            s = i = 0
             for b in box:
-                idx = bisect_right(packages, b, lo=last)
-                t += (idx - last) * b
-                last = idx
-            res = min(res, t)
-        return -1 if res == inf else (res - sum(packages)) % (10**9 + 7)
+                j = bisect_right(packages, b, lo=i)
+                s += (j - i) * b
+                i = j
+            ans = min(ans, s)
+        if ans == inf:
+            return -1
+        return (ans - sum(packages)) % mod
 ```
 
 ### **Java**
@@ -100,43 +115,116 @@ class Solution:
 class Solution {
     public int minWastedSpace(int[] packages, int[][] boxes) {
         int n = packages.length;
+        final long inf = 1L << 62;
         Arrays.sort(packages);
-        long[] preSum = new long[n + 1];
-        for (int i = 0; i < n; ++i) {
-            preSum[i + 1] = preSum[i] + packages[i];
-        }
-
-        long res = Long.MAX_VALUE;
-        for (int[] box : boxes) {
+        long ans = inf;
+        for (var box : boxes) {
             Arrays.sort(box);
             if (packages[n - 1] > box[box.length - 1]) {
                 continue;
             }
-            long t = 0;
-            int low = 0;
+            long s = 0;
+            int i = 0;
             for (int b : box) {
-                int idx = searchRight(packages, b, low);
-                // 这里需要手动转 long
-                t += ((idx - low) * (long) b - (preSum[idx] - preSum[low]));
-                low = idx;
+                int j = search(packages, b, i);
+                s += 1L * (j - i) * b;
+                i = j;
             }
-            res = Math.min(res, t);
+            ans = Math.min(ans, s);
         }
-        return res == Long.MAX_VALUE ? -1 : (int) (res % 1000000007);
+        if (ans == inf) {
+            return -1;
+        }
+        long s = 0;
+        for (int p : packages) {
+            s += p;
+        }
+        final int mod = (int) 1e9 + 7;
+        return (int) ((ans - s) % mod);
     }
 
-    private int searchRight(int[] packages, int target, int low) {
-        int high = packages.length;
-        while (low < high) {
-            int mid = (low + high) >> 1;
-            if (packages[mid] <= target) {
-                low = mid + 1;
+    private int search(int[] nums, int x, int l) {
+        int r = nums.length;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (nums[mid] > x) {
+                r = mid;
             } else {
-                high = mid;
+                l = mid + 1;
             }
         }
-        return low;
+        return l;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minWastedSpace(vector<int>& packages, vector<vector<int>>& boxes) {
+        int n = packages.size(), m = boxes.size();
+        sort(packages.begin(), packages.end());
+        const int mod = 1e9 + 7;
+        const long long inf = 1LL << 62;
+        long long ans = inf;
+        for (auto& box : boxes) {
+            sort(box.begin(), box.end());
+            if (packages.back() > box.back()) {
+                continue;
+            }
+            int i = 0;
+            long long s = 0;
+            for (auto& b : box) {
+                int j = upper_bound(packages.begin() + i, packages.end(), b) - packages.begin();
+                s += 1LL * (j - i) * b;
+                i = j;
+            }
+            ans = min(ans, s);
+        }
+        return ans == inf ? -1 : (ans - accumulate(packages.begin(), packages.end(), 0LL)) % mod;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minWastedSpace(packages []int, boxes [][]int) int {
+	n := len(packages)
+	inf := 1 << 62
+	sort.Ints(packages)
+	ans := inf
+	for _, box := range boxes {
+		sort.Ints(box)
+		if packages[n-1] > box[len(box)-1] {
+			continue
+		}
+		s, i := 0, 0
+		for _, b := range box {
+			j := sort.SearchInts(packages[i:], b+1) + i
+			s += (j - i) * b
+			i = j
+		}
+		ans = min(ans, s)
+	}
+	if ans == inf {
+		return -1
+	}
+	s := 0
+	for _, p := range packages {
+		s += p
+	}
+	const mod = 1e9 + 7
+	return (ans - s) % mod
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
 ```
 
@@ -144,37 +232,42 @@ class Solution {
 
 ```ts
 function minWastedSpace(packages: number[], boxes: number[][]): number {
-    const MOD = 10 ** 9 + 7;
+    const n = packages.length;
+    const inf = Infinity;
     packages.sort((a, b) => a - b);
-    const max_package = packages[packages.length - 1];
-    const total = packages.reduce((a, c) => a + c, 0);
-    let res = Infinity;
-    for (let box of boxes) {
+    let ans = inf;
+    for (const box of boxes) {
         box.sort((a, b) => a - b);
-        if (max_package > box[box.length - 1]) continue;
-        let left = 0,
-            sum = 0;
-        for (let capacity of box) {
-            let right = searchRight(packages, capacity, left);
-            sum += (right - left) * capacity;
-            left = right;
+        if (packages[n - 1] > box[box.length - 1]) {
+            continue;
         }
-        res = Math.min(res, sum);
+        let s = 0;
+        let i = 0;
+        for (const b of box) {
+            const j = search(packages, b, i);
+            s += (j - i) * b;
+            i = j;
+        }
+        ans = Math.min(ans, s);
     }
-    return res == Infinity ? -1 : (res - total) % MOD;
+    if (ans === inf) {
+        return -1;
+    }
+    const s = packages.reduce((a, b) => a + b, 0);
+    return (ans - s) % 1000000007;
 }
 
-function searchRight(packages: number[], target: number, left: number): number {
-    let right = packages.length;
-    while (left < right) {
-        let mid = (left + right) >> 1;
-        if (packages[mid] <= target) {
-            left = mid + 1;
+function search(nums: number[], x: number, l: number): number {
+    let r = nums.length;
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (nums[mid] > x) {
+            r = mid;
         } else {
-            right = mid;
+            l = mid + 1;
         }
     }
-    return left;
+    return l;
 }
 ```
 
