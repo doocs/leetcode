@@ -82,16 +82,16 @@ class Solution:
 class Solution {
     public int findMaxValueOfEquation(int[][] points, int k) {
         int ans = -(1 << 30);
-        Priority<int[]> pq = new Priority<>((a, b) -> b[0] - a[0]);
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> b[0] - a[0]);
         for (var p : points) {
             int x = p[0], y = p[1];
-            while (!hp.isEmpty() && x - hp.peek()[1] > k) {
-                hp.poll();
+            while (!pq.isEmpty() && x - pq.peek()[1] > k) {
+                pq.poll();
             }
-            if (!hp.isEmpty()) {
-                ans = Math.max(ans, x + y + hp.peek()[0]);
+            if (!pq.isEmpty()) {
+                ans = Math.max(ans, x + y + pq.peek()[0]);
             }
-            hp.offer(new int[] {y - x, x});
+            pq.offer(new int[] {y - x, x});
         }
         return ans;
     }
