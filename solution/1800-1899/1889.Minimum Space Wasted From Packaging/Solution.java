@@ -1,40 +1,44 @@
 class Solution {
     public int minWastedSpace(int[] packages, int[][] boxes) {
         int n = packages.length;
+        final long inf = 1L << 62;
         Arrays.sort(packages);
-        long[] preSum = new long[n + 1];
-        for (int i = 0; i < n; ++i) {
-            preSum[i + 1] = preSum[i] + packages[i];
-        }
-
-        long res = Long.MAX_VALUE;
-        for (int[] box : boxes) {
+        long ans = inf;
+        for (var box : boxes) {
             Arrays.sort(box);
             if (packages[n - 1] > box[box.length - 1]) {
                 continue;
             }
-            long t = 0;
-            int low = 0;
+            long s = 0;
+            int i = 0;
             for (int b : box) {
-                int idx = searchRight(packages, b, low);
-                t += ((idx - low) * (long) b - (preSum[idx] - preSum[low]));
-                low = idx;
+                int j = search(packages, b, i);
+                s += 1L * (j - i) * b;
+                i = j;
             }
-            res = Math.min(res, t);
+            ans = Math.min(ans, s);
         }
-        return res == Long.MAX_VALUE ? -1 : (int) (res % 1000000007);
+        if (ans == inf) {
+            return -1;
+        }
+        long s = 0;
+        for (int p : packages) {
+            s += p;
+        }
+        final int mod = (int) 1e9 + 7;
+        return (int) ((ans - s) % mod);
     }
 
-    private int searchRight(int[] packages, int target, int low) {
-        int high = packages.length;
-        while (low < high) {
-            int mid = (low + high) >> 1;
-            if (packages[mid] <= target) {
-                low = mid + 1;
+    private int search(int[] nums, int x, int l) {
+        int r = nums.length;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (nums[mid] > x) {
+                r = mid;
             } else {
-                high = mid;
+                l = mid + 1;
             }
         }
-        return low;
+        return l;
     }
 }

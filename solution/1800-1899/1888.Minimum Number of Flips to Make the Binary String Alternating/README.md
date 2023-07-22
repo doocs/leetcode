@@ -58,7 +58,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-“滑动窗口”实现。
+**方法一：滑动窗口**
+
+我们注意到，操作 $1$ 的作用实际上是让字符串成为一个环，而操作 $2$ 是使得环中的一段长度为 $n$ 的子串变成交替二进制串。
+
+因此，我们只需要枚举每个长度为 $n$ 的子串，计算将其变成交替二进制串的代价，取最小值即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是字符串的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -70,16 +76,14 @@
 class Solution:
     def minFlips(self, s: str) -> int:
         n = len(s)
-        target = '01'
-        cnt = 0
-        for i, c in enumerate(s):
-            cnt += c != target[i & 1]
-        res = min(cnt, n - cnt)
+        target = "01"
+        cnt = sum(c != target[i & 1] for i, c in enumerate(s))
+        ans = min(cnt, n - cnt)
         for i in range(n):
             cnt -= s[i] != target[i & 1]
             cnt += s[i] != target[(i + n) & 1]
-            res = min(res, cnt, n - cnt)
-        return res
+            ans = min(ans, cnt, n - cnt)
+        return ans
 ```
 
 ### **Java**
@@ -93,16 +97,84 @@ class Solution {
         String target = "01";
         int cnt = 0;
         for (int i = 0; i < n; ++i) {
-            cnt += (s.charAt(i) == target.charAt(i & 1) ? 0 : 1);
+            if (s.charAt(i) != target.charAt(i & 1)) {
+                ++cnt;
+            }
         }
-        int res = Math.min(cnt, n - cnt);
+        int ans = Math.min(cnt, n - cnt);
         for (int i = 0; i < n; ++i) {
-            cnt -= (s.charAt(i) == target.charAt(i & 1) ? 0 : 1);
-            cnt += (s.charAt(i) == target.charAt((i + n) & 1) ? 0 : 1);
-            res = Math.min(res, Math.min(cnt, n - cnt));
+            if (s.charAt(i) != target.charAt(i & 1)) {
+                --cnt;
+            }
+            if (s.charAt(i) != target.charAt((i + n) & 1)) {
+                ++cnt;
+            }
+            ans = Math.min(ans, Math.min(cnt, n - cnt));
         }
-        return res;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minFlips(string s) {
+        int n = s.size();
+        string target = "01";
+        int cnt = 0;
+        for (int i = 0; i < n; ++i) {
+            if (s[i] != target[i & 1]) {
+                ++cnt;
+            }
+        }
+        int ans = min(cnt, n - cnt);
+        for (int i = 0; i < n; ++i) {
+            if (s[i] != target[i & 1]) {
+                --cnt;
+            }
+            if (s[i] != target[(i + n) & 1]) {
+                ++cnt;
+            }
+            ans = min({ans, cnt, n - cnt});
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minFlips(s string) int {
+	n := len(s)
+	target := "01"
+	cnt := 0
+	for i := range s {
+		if s[i] != target[i&1] {
+			cnt++
+		}
+	}
+	ans := min(cnt, n-cnt)
+	for i := range s {
+		if s[i] != target[i&1] {
+			cnt--
+		}
+		if s[i] != target[(i+n)&1] {
+			cnt++
+		}
+		ans = min(ans, min(cnt, n-cnt))
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
 ```
 
@@ -110,19 +182,25 @@ class Solution {
 
 ```ts
 function minFlips(s: string): number {
-    const n: number = s.length;
-    const target: string[] = ['0', '1'];
-    let count: number = 0;
-    for (let i: number = 0; i < n; ++i) {
-        count += s.charAt(i) == target[i & 1] ? 0 : 1;
+    const n = s.length;
+    const target = '01';
+    let cnt = 0;
+    for (let i = 0; i < n; ++i) {
+        if (s[i] !== target[i & 1]) {
+            ++cnt;
+        }
     }
-    let res = Math.min(count, n - count);
-    for (let i: number = 0; i < n; ++i) {
-        count -= s.charAt(i) == target[i & 1] ? 0 : 1;
-        count += s.charAt(i) == target[(i + n) & 1] ? 0 : 1;
-        res = Math.min(res, count, n - count);
+    let ans = Math.min(cnt, n - cnt);
+    for (let i = 0; i < n; ++i) {
+        if (s[i] !== target[i & 1]) {
+            --cnt;
+        }
+        if (s[i] !== target[(i + n) & 1]) {
+            ++cnt;
+        }
+        ans = Math.min(ans, cnt, n - cnt);
     }
-    return res;
+    return ans;
 }
 ```
 
