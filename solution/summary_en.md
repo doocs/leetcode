@@ -2835,3 +2835,5 @@
   - [2779.Maximum Beauty of an Array After Applying Operation](/solution/2700-2799/2779.Maximum%20Beauty%20of%20an%20Array%20After%20Applying%20Operation/README_EN.md)
   - [2780.Minimum Index of a Valid Split](/solution/2700-2799/2780.Minimum%20Index%20of%20a%20Valid%20Split/README_EN.md)
   - [2781.Length of the Longest Valid Substring](/solution/2700-2799/2781.Length%20of%20the%20Longest%20Valid%20Substring/README_EN.md)
+  - [2782.Number of Unique Categories](/solution/2700-2799/2782.Number%20of%20Unique%20Categories/README_EN.md)
+  - [2783.Flight Occupancy and Waitlist Analysis](/solution/2700-2799/2783.Flight%20Occupancy%20and%20Waitlist%20Analysis/README_EN.md)

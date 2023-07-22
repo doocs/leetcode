@@ -64,13 +64,84 @@ The array product is 1 * 6 * 1 * 6 * 1 * 6 * 7 = 1512, which is the minimum poss
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minNonZeroProduct(self, p: int) -> int:
+        mod = 10**9 + 7
+        return (2**p - 1) * pow(2**p - 2, 2 ** (p - 1) - 1, mod) % mod
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minNonZeroProduct(int p) {
+        final int mod = (int) 1e9 + 7;
+        long a = ((1L << p) - 1) % mod;
+        long b = qmi(((1L << p) - 2) % mod, (1L << (p - 1)) - 1, mod);
+        return (int) (a * b % mod);
+    }
 
+    long qmi(long a, long k, long p) {
+        long res = 1;
+        while (k != 0) {
+            if ((k & 1) == 1) {
+                res = res * a % p;
+            }
+            k >>= 1;
+            a = a * a % p;
+        }
+        return res;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minNonZeroProduct(int p) {
+        const int mod = 1e9 + 7;
+        long long a = ((1LL << p) - 1) % mod;
+        long long b = qmi(((1LL << p) - 2) % mod, (1L << (p - 1)) - 1, mod);
+        return a * b % mod;
+    }
+
+    long long qmi(long long a, long long k, int p) {
+        long long res = 1;
+        while (k != 0) {
+            if ((k & 1) == 1) {
+                res = res * a % p;
+            }
+            k >>= 1;
+            a = a * a % p;
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minNonZeroProduct(p int) int {
+	const mod int = 1e9 + 7
+	a := ((1 << p) - 1) % mod
+	b := qmi(((1<<p)-2)%mod, (1<<(p-1))-1, mod)
+	return a * b % mod
+}
+
+func qmi(a, k, p int) int {
+	res := 1
+	for k != 0 {
+		if k&1 == 1 {
+			res = res * a % p
+		}
+		k >>= 1
+		a = a * a % p
+	}
+	return res
+}
 ```
 
 ### **...**
