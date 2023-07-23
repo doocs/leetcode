@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 355 场周赛(2023-07-23 10:30, 90 分钟) 参赛人数 4112
+
+- [2788. 按分隔符拆分字符串](/solution/2700-2799/2788.Split%20Strings%20by%20Separator/README.md)
+- [2789. 合并后数组中的最大元素](/solution/2700-2799/2789.Largest%20Element%20in%20an%20Array%20after%20Merge%20Operations/README.md)
+- [2790. 长度递增组的最大数目](/solution/2700-2799/2790.Maximum%20Number%20of%20Groups%20With%20Increasing%20Length/README.md)
+- [2791. 树中可以形成回文的路径数](/solution/2700-2799/2791.Count%20Paths%20That%20Can%20Form%20a%20Palindrome%20in%20a%20Tree/README.md)
+
 #### 第 109 场双周赛(2023-07-22 22:30, 90 分钟) 参赛人数 2461
 
 - [2784. 检查数组是否是好的](/solution/2700-2799/2784.Check%20if%20Array%20is%20Good/README.md)
