@@ -62,6 +62,20 @@ class Solution:
         return s1 if s1 <= 0 else max(s1, sum(nums) - s2)
 ```
 
+```python
+class Solution:
+    def maxSubarraySumCircular(self, nums: List[int]) -> int:
+        pmi, pmx = 0, -inf
+        ans, s, smi = -inf, 0, inf
+        for x in nums:
+            s += x
+            ans = max(ans, s - pmi)
+            smi = min(smi, s - pmx)
+            pmi = min(pmi, s)
+            pmx = max(pmx, s)
+        return max(ans, s - smi)
+```
+
 ### **Java**
 
 ```java
@@ -80,26 +94,21 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function maxSubarraySumCircular(nums: number[]): number {
-    let pre1 = nums[0],
-        pre2 = nums[0];
-    let ans1 = nums[0],
-        ans2 = nums[0];
-    let sum = nums[0];
-
-    for (let i = 1; i < nums.length; ++i) {
-        let cur = nums[i];
-        sum += cur;
-        pre1 = Math.max(pre1 + cur, cur);
-        ans1 = Math.max(pre1, ans1);
-
-        pre2 = Math.min(pre2 + cur, cur);
-        ans2 = Math.min(pre2, ans2);
+```java
+class Solution {
+    public int maxSubarraySumCircular(int[] nums) {
+        final int inf = 1 << 30;
+        int pmi = 0, pmx = -inf;
+        int ans = -inf, s = 0, smi = inf;
+        for (int x : nums) {
+            s += x;
+            ans = Math.max(ans, s - pmi);
+            smi = Math.min(smi, s - pmx);
+            pmi = Math.min(pmi, s);
+            pmx = Math.max(pmx, s);
+        }
+        return Math.max(ans, s - smi);
     }
-    return ans1 > 0 ? Math.max(ans1, sum - ans2) : ans1;
 }
 ```
 
@@ -118,6 +127,25 @@ public:
             s2 = min(s2, f2);
         }
         return s1 > 0 ? max(s1, total - s2) : s1;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int maxSubarraySumCircular(vector<int>& nums) {
+        const int inf = 1 << 30;
+        int pmi = 0, pmx = -inf;
+        int ans = -inf, s = 0, smi = inf;
+        for (int x : nums) {
+            s += x;
+            ans = max(ans, s - pmi);
+            smi = min(smi, s - pmx);
+            pmi = min(pmi, s);
+            pmx = max(pmx, s);
+        }
+        return max(ans, s - smi);
     }
 };
 ```
@@ -152,6 +180,75 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+```go
+func maxSubarraySumCircular(nums []int) int {
+	const inf = 1 << 30
+	pmi, pmx := 0, -inf
+	ans, s, smi := -inf, 0, inf
+	for _, x := range nums {
+		s += x
+		ans = max(ans, s-pmi)
+		smi = min(smi, s-pmx)
+		pmi = min(pmi, s)
+		pmx = max(pmx, s)
+	}
+	return max(ans, s-smi)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxSubarraySumCircular(nums: number[]): number {
+    let pre1 = nums[0],
+        pre2 = nums[0];
+    let ans1 = nums[0],
+        ans2 = nums[0];
+    let sum = nums[0];
+
+    for (let i = 1; i < nums.length; ++i) {
+        let cur = nums[i];
+        sum += cur;
+        pre1 = Math.max(pre1 + cur, cur);
+        ans1 = Math.max(pre1, ans1);
+
+        pre2 = Math.min(pre2 + cur, cur);
+        ans2 = Math.min(pre2, ans2);
+    }
+    return ans1 > 0 ? Math.max(ans1, sum - ans2) : ans1;
+}
+```
+
+```ts
+function maxSubarraySumCircular(nums: number[]): number {
+    const inf = 1 << 30;
+    let [pmi, pmx] = [0, -inf];
+    let [ans, s, smi] = [-inf, 0, inf];
+    for (const x of nums) {
+        s += x;
+        ans = Math.max(ans, s - pmi);
+        smi = Math.min(smi, s - pmx);
+        pmi = Math.min(pmi, s);
+        pmx = Math.max(pmx, s);
+    }
+    return Math.max(ans, s - smi);
 }
 ```
 

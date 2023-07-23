@@ -65,6 +65,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 快速幂**
+
+我们注意到，每一次操作，并不会改变元素的和，而在元素和不变的情况下，要想使得乘积最小，应该尽可能最大化元素的差值。
+
+由于最大的元素为 $2^p - 1$，无论与哪个元素交换，都不会使得差值变大，因此我们不需要考虑与最大元素交换的情况。
+
+对于其它的 $[1,..2^p-2]$ 的元素，我们依次将首尾元素两两配对，即 $x$ 与 $2^p-1-x$ 进行配置，那么经过若干次操作过后，每一对元素都变成了 $(1, 2^p-2)$，那么最终的乘积为 $(2^p-1) \times (2^p-2)^{2^{p-1}-1}$。
+
+时间复杂度 $O(p)$，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -72,7 +82,10 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minNonZeroProduct(self, p: int) -> int:
+        mod = 10**9 + 7
+        return (2**p - 1) * pow(2**p - 2, 2 ** (p - 1) - 1, mod) % mod
 ```
 
 ### **Java**
@@ -80,7 +93,75 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minNonZeroProduct(int p) {
+        final int mod = (int) 1e9 + 7;
+        long a = ((1L << p) - 1) % mod;
+        long b = qmi(((1L << p) - 2) % mod, (1L << (p - 1)) - 1, mod);
+        return (int) (a * b % mod);
+    }
 
+    long qmi(long a, long k, long p) {
+        long res = 1;
+        while (k != 0) {
+            if ((k & 1) == 1) {
+                res = res * a % p;
+            }
+            k >>= 1;
+            a = a * a % p;
+        }
+        return res;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minNonZeroProduct(int p) {
+        const int mod = 1e9 + 7;
+        long long a = ((1LL << p) - 1) % mod;
+        long long b = qmi(((1LL << p) - 2) % mod, (1L << (p - 1)) - 1, mod);
+        return a * b % mod;
+    }
+
+    long long qmi(long long a, long long k, int p) {
+        long long res = 1;
+        while (k != 0) {
+            if ((k & 1) == 1) {
+                res = res * a % p;
+            }
+            k >>= 1;
+            a = a * a % p;
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minNonZeroProduct(p int) int {
+	const mod int = 1e9 + 7
+	a := ((1 << p) - 1) % mod
+	b := qmi(((1<<p)-2)%mod, (1<<(p-1))-1, mod)
+	return a * b % mod
+}
+
+func qmi(a, k, p int) int {
+	res := 1
+	for k != 0 {
+		if k&1 == 1 {
+			res = res * a % p
+		}
+		k >>= 1
+		a = a * a % p
+	}
+	return res
+}
 ```
 
 ### **...**

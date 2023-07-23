@@ -15,13 +15,13 @@
 | order_number    | int      |
 | customer_number | int      |
 +-----------------+----------+
-Order_number是该表的主键。
+在 SQL 中，Order_number是该表的主键。
 此表包含关于订单ID和客户ID的信息。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>编写一个SQL查询，为下了 <strong>最多订单</strong> 的客户查找 <code>customer_number</code> 。</p>
+<p>查找下了 <strong>最多订单</strong>&nbsp;的客户的 <code>customer_number</code> 。</p>
 
 <p>测试用例生成后， <strong>恰好有一个客户</strong> 比任何其他客户下了更多的订单。</p>
 
