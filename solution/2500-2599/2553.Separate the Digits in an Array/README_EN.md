@@ -169,7 +169,7 @@ impl Solution {
 
         for n in nums {
             let mut t = vec![];
-            let mut x = n; 
+            let mut x = n;
 
             while x != 0 {
                 t.push(x % 10);
