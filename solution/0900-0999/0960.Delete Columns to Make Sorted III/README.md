@@ -24,9 +24,9 @@
 <strong>输入：</strong>strs = ["babca","bbazb"]
 <strong>输出：</strong>3
 <strong>解释：
-</strong>删除 0、1 和 4 这三列后，最终得到的数组是 A = ["bc", "az"]。
-这两行是分别按字典序排列的（即，A[0][0] &lt;= A[0][1] 且 A[1][0] &lt;= A[1][1]）。
-注意，A[0] &gt; A[1] —— 数组 A 不一定是按字典序排列的。
+</strong>删除 0、1 和 4 这三列后，最终得到的数组是 strs = ["bc", "az"]。
+这两行是分别按字典序排列的（即，strs[0][0] &lt;= strs[0][1] 且 strs[1][0] &lt;= strs[1][1]）。
+注意，strs[0] &gt; strs[1] —— 数组 strs 不一定是按字典序排列的。
 </pre>
 
 <p><strong>示例 2：</strong></p>

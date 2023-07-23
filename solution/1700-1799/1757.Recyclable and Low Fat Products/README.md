@@ -16,19 +16,24 @@
 | low_fats    | enum    |
 | recyclable  | enum    |
 +-------------+---------+
-product_id 是这个表的主键。
+在 SQL 中，product_id 是这个表的主键。
 low_fats 是枚举类型，取值为以下两种 ('Y', 'N')，其中 'Y' 表示该产品是低脂产品，'N' 表示不是低脂产品。
 recyclable 是枚举类型，取值为以下两种 ('Y', 'N')，其中 'Y' 表示该产品可回收，而 'N' 表示不可回收。</pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
-<p>写出 SQL 语句，查找既是低脂又是可回收的产品编号。</p>
+<p>查找既是低脂又是可回收的产品编号。</p>
 
 <p>返回结果 <strong>无顺序要求</strong> 。</p>
 
 <p>查询结果格式如下例所示：</p>
 
+<p>&nbsp;</p>
+
+<p><strong>示例 1：</strong></p>
+
 <pre>
+<strong>输入：</strong>
 Products 表：
 +-------------+----------+------------+
 | product_id  | low_fats | recyclable |
@@ -39,13 +44,14 @@ Products 表：
 | 3           | Y        | Y          |
 | 4           | N        | N          |
 +-------------+----------+------------+
-Result 表：
+<strong>输出：</strong>
 +-------------+
 | product_id  |
 +-------------+
 | 1           |
 | 3           |
 +-------------+
+<strong>解释：</strong>
 只有产品 id 为 1 和 3 的产品，既是低脂又是可回收的产品。
 </pre>
 

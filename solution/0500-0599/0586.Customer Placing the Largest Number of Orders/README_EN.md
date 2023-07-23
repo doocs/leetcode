@@ -13,7 +13,7 @@
 | order_number    | int      |
 | customer_number | int      |
 +-----------------+----------+
-order_number is the primary key for this table.
+In SQL, order_number is the primary key for this table.
 This table contains information about the order ID and the customer ID.
 </pre>
 
