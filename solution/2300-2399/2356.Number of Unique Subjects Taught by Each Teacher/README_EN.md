@@ -14,7 +14,7 @@
 | subject_id  | int  |
 | dept_id     | int  |
 +-------------+------+
-(subject_id, dept_id) is the primary key for this table.
+In SQL, (subject_id, dept_id) is the primary key for this table.
 Each row in this table indicates that the teacher with teacher_id teaches the subject subject_id in the department dept_id.
 </pre>
 

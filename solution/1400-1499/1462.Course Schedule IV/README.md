@@ -61,6 +61,7 @@
 	<li><code>a<sub>i</sub>&nbsp;!= b<sub>i</sub></code></li>
 	<li>每一对<meta charset="UTF-8" />&nbsp;<code>[a<sub>i</sub>, b<sub>i</sub>]</code>&nbsp;都 <strong>不同</strong></li>
 	<li>先修课程图中没有环。</li>
+	<li><code>1 &lt;= queries.length &lt;= 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= u<sub>i</sub>, v<sub>i</sub>&nbsp;&lt;= n - 1</code></li>
 	<li><code>u<sub>i</sub>&nbsp;!= v<sub>i</sub></code></li>
 </ul>

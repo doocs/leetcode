@@ -13,7 +13,7 @@
 | sell_date   | date    |
 | product     | varchar |
 +-------------+---------+
-There is no primary key for this table, it may contain duplicates.
+This table may contain duplicates (In other words, there is no primary key for this table in SQL).
 Each row of this table contains the product name and the date it was sold in a market.
 </pre>
 

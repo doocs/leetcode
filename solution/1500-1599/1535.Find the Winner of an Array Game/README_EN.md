@@ -52,13 +52,105 @@ So we can see that 4 rounds will be played and 5 is the winner because it wins 2
 ### **Python3**
 
 ```python
-
+class Solution:
+    def getWinner(self, arr: List[int], k: int) -> int:
+        mx = arr[0]
+        cnt = 0
+        for x in arr[1:]:
+            if mx < x:
+                mx = x
+                cnt = 1
+            else:
+                cnt += 1
+            if cnt == k:
+                break
+        return mx
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int getWinner(int[] arr, int k) {
+        int mx = arr[0];
+        for (int i = 1, cnt = 0; i < arr.length; ++i) {
+            if (mx < arr[i]) {
+                mx = arr[i];
+                cnt = 1;
+            } else {
+                ++cnt;
+            }
+            if (cnt == k) {
+                break;
+            }
+        }
+        return mx;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int getWinner(vector<int>& arr, int k) {
+        int mx = arr[0];
+        for (int i = 1, cnt = 0; i < arr.size(); ++i) {
+            if (mx < arr[i]) {
+                mx = arr[i];
+                cnt = 1;
+            } else {
+                ++cnt;
+            }
+            if (cnt == k) {
+                break;
+            }
+        }
+        return mx;
+    }
+};
+```
+
+### **Go**
+
+```go
+func getWinner(arr []int, k int) int {
+	mx, cnt := arr[0], 0
+	for _, x := range arr[1:] {
+		if mx < x {
+			mx = x
+			cnt = 1
+		} else {
+			cnt++
+		}
+		if cnt == k {
+			break
+		}
+	}
+	return mx
+}
+```
+
+### **TypeScript**
+
+```ts
+function getWinner(arr: number[], k: number): number {
+    let mx = arr[0];
+    let cnt = 0;
+    for (const x of arr.slice(1)) {
+        if (mx < x) {
+            mx = x;
+            cnt = 1;
+        } else {
+            ++cnt;
+        }
+        if (cnt === k) {
+            break;
+        }
+    }
+    return mx;
+}
 ```
 
 ### **...**

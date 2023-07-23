@@ -19,6 +19,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：排序**
+
+我们先对数组进行排序，然后遍历数组，将偶数下标的元素与后一个元素交换即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -26,7 +32,11 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def wiggleSort(self, nums: List[int]) -> None:
+        nums.sort()
+        for i in range(0, len(nums), 2):
+            nums[i : i + 2] = nums[i : i + 2][::-1]
 ```
 
 ### **Java**
@@ -34,7 +44,58 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public void wiggleSort(int[] nums) {
+        Arrays.sort(nums);
+        int n = nums.length;
+        for (int i = 0; i < n - 1; i += 2) {
+            int t = nums[i];
+            nums[i] = nums[i + 1];
+            nums[i + 1] = t;
+        }
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    void wiggleSort(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int n = nums.size();
+        for (int i = 0; i < n - 1; i += 2) {
+            swap(nums[i], nums[i + 1]);
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+func wiggleSort(nums []int) {
+	sort.Ints(nums)
+	for i := 0; i < len(nums)-1; i += 2 {
+		nums[i], nums[i+1] = nums[i+1], nums[i]
+	}
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ Do not return anything, modify nums in-place instead.
+ */
+function wiggleSort(nums: number[]): void {
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    for (let i = 0; i < n - 1; i += 2) {
+        [nums[i], nums[i + 1]] = [nums[i + 1], nums[i]];
+    }
+}
 ```
 
 ### **...**
