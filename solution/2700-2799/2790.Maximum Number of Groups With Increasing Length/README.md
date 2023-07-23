@@ -77,7 +77,30 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def maxIncreasingGroups(self, usageLimits: List[int]) -> int:
+        usageLimits.sort()
+        k, n = 0, len(usageLimits)
+        for i in range(n):
+            if usageLimits[i] > k:
+                k += 1
+                usageLimits[i] -= k
+            if i + 1 < n:
+                usageLimits[i + 1] += usageLimits[i]
+        return k
+```
 
+```python
+class Solution:
+    def maxIncreasingGroups(self, usageLimits: List[int]) -> int:
+        usageLimits.sort()
+        k = s = 0
+        for x in usageLimits:
+            s += x
+            if s > k:
+                k += 1
+                s -= k
+        return k
 ```
 
 ### **Java**
@@ -85,19 +108,77 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int maxIncreasingGroups(List<Integer> usageLimits) {
+        Collections.sort(usageLimits);
+        int k = 0;
+        long s = 0;
+        for (int x : usageLimits) {
+            s += x;
+            if (s > k) {
+                ++k;
+                s -= k;
+            }
+        }
+        return k;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int maxIncreasingGroups(vector<int>& usageLimits) {
+        sort(usageLimits.begin(), usageLimits.end());
+        int k = 0;
+        long long s = 0;
+        for (int x : usageLimits) {
+            s += x;
+            if (s > k) {
+                ++k;
+                s -= k;
+            }
+        }
+        return k;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func maxIncreasingGroups(usageLimits []int) int {
+	sort.Ints(usageLimits)
+	s, k := 0, 0
+	for _, x := range usageLimits {
+		s += x
+		if s > k {
+			k++
+			s -= k
+		}
+	}
+	return k
+}
+```
 
+### **TypeScript**
+
+```ts
+function maxIncreasingGroups(usageLimits: number[]): number {
+    usageLimits.sort((a, b) => a - b);
+    let k = 0;
+    let s = 0;
+    for (const x of usageLimits) {
+        s += x;
+        if (s > k) {
+            ++k;
+            s -= k;
+        }
+    }
+    return k;
+}
 ```
 
 ### **...**
