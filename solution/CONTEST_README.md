@@ -1385,7 +1385,7 @@
 - [1742. 盒子中小球的最大数量](/solution/1700-1799/1742.Maximum%20Number%20of%20Balls%20in%20a%20Box/README.md)
 - [1743. 从相邻元素对还原数组](/solution/1700-1799/1743.Restore%20the%20Array%20From%20Adjacent%20Pairs/README.md)
 - [1744. 你能在你最喜欢的那天吃到你最喜欢的糖果吗？](/solution/1700-1799/1744.Can%20You%20Eat%20Your%20Favorite%20Candy%20on%20Your%20Favorite%20Day/README.md)
-- [1745. 回文串分割 IV](/solution/1700-1799/1745.Palindrome%20Partitioning%20IV/README.md)
+- [1745. 分割回文串 IV](/solution/1700-1799/1745.Palindrome%20Partitioning%20IV/README.md)
 
 #### 第 225 场周赛(2021-01-24 10:30, 90 分钟) 参赛人数 3853
 

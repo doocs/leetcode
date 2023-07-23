@@ -13,7 +13,7 @@
 | id          | int     |
 | score       | decimal |
 +-------------+---------+
-id is the primary key for this table.
+In SQL, id is the primary key for this table.
 Each row of this table contains the score of a game. Score is a floating point value with two decimal places.
 </pre>
 

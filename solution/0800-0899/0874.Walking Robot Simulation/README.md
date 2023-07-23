@@ -6,15 +6,15 @@
 
 <!-- 这里写题目描述 -->
 
-<p>机器人在一个无限大小的 XY 网格平面上行走，从点 <code>(0, 0)</code> 处开始出发，面向北方。该机器人可以接收以下三种类型的命令 <code>commands</code> ：</p>
+<p>机器人在一个无限大小的 XY 网格平面上行走，从点&nbsp;<code>(0, 0)</code> 处开始出发，面向北方。该机器人可以接收以下三种类型的命令 <code>commands</code> ：</p>
 
 <ul>
-	<li><code>-2</code> ：向左转 <code>90</code> 度</li>
+	<li><code>-2</code> ：向左转&nbsp;<code>90</code> 度</li>
 	<li><code>-1</code> ：向右转 <code>90</code> 度</li>
-	<li><code>1 <= x <= 9</code> ：向前移动 <code>x</code> 个单位长度</li>
+	<li><code>1 &lt;= x &lt;= 9</code> ：向前移动&nbsp;<code>x</code>&nbsp;个单位长度</li>
 </ul>
 
-<p>在网格上有一些格子被视为障碍物 <code>obstacles</code> 。第 <code>i</code> 个障碍物位于网格点  <code>obstacles[i] = (x<sub>i</sub>, y<sub>i</sub>)</code> 。</p>
+<p>在网格上有一些格子被视为障碍物&nbsp;<code>obstacles</code> 。第 <code>i</code>&nbsp;个障碍物位于网格点 &nbsp;<code>obstacles[i] = (x<sub>i</sub>, y<sub>i</sub>)</code> 。</p>
 
 <p>机器人无法走到障碍物上，它将会停留在障碍物的前一个网格方块上，但仍然可以继续尝试进行该路线的其余部分。</p>
 
@@ -24,7 +24,7 @@
 <div>
 <div class="MachineTrans-Text">
 <div class="MachineTrans-Lines">
-<div class="MachineTrans-Lines-collapse MachineTrans-lang-en"> </div>
+<div class="MachineTrans-Lines-collapse MachineTrans-lang-en">&nbsp;</div>
 </div>
 
 <div class="MachineTrans-Lines">
@@ -41,7 +41,7 @@
 </div>
 </div>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -55,7 +55,7 @@
 3. 向东移动 3 个单位，到达 (3, 4)
 距离原点最远的是 (3, 4) ，距离为 3<sup>2</sup> + 4<sup>2</sup> = 25</pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong>示例&nbsp;2：</strong></p>
 
 <pre>
 <strong>输入：</strong>commands = [4,-1,4,-2,4], obstacles = [[2,4]]
@@ -68,15 +68,15 @@
 5. 向北走 4 个单位，到达 (1, 8)
 距离原点最远的是 (1, 8) ，距离为 1<sup>2</sup> + 8<sup>2</sup> = 65</pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= commands.length <= 10<sup>4</sup></code></li>
-	<li><code>commands[i]</code> is one of the values in the list <code>[-2,-1,1,2,3,4,5,6,7,8,9]</code>.</li>
-	<li><code>0 <= obstacles.length <= 10<sup>4</sup></code></li>
-	<li><code>-3 * 10<sup>4</sup> <= x<sub>i</sub>, y<sub>i</sub> <= 3 * 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= commands.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>commands[i]</code> 的值可以取 <code>-2</code>、<code>-1</code> 或者是范围 <code>[1, 9]</code> 内的一个整数。</li>
+	<li><code>0 &lt;= obstacles.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>-3 * 10<sup>4</sup> &lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= 3 * 10<sup>4</sup></code></li>
 	<li>答案保证小于 <code>2<sup>31</sup></code></li>
 </ul>
 

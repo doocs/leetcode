@@ -15,7 +15,7 @@
 | department  | varchar |
 | managerId   | int     |
 +-------------+---------+
-id is the primary key column for this table.
+In SQL, id is the primary key column for this table.
 Each row of this table indicates the name of an employee, their department, and the id of their manager.
 If managerId is null, then the employee does not have a manager.
 No employee will be the manager of themself.

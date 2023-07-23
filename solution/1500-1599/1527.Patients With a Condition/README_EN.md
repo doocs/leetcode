@@ -14,7 +14,7 @@
 | patient_name | varchar |
 | conditions   | varchar |
 +--------------+---------+
-patient_id is the primary key for this table.
+In SQL, patient_id is the primary key for this table.
 &#39;conditions&#39; contains 0 or more code separated by spaces. 
 This table contains information of the patients in the hospital.
 </pre>
