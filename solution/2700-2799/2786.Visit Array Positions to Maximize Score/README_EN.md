@@ -53,25 +53,85 @@ The total score is: 2 + 4 + 6 + 8 = 20.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxScore(self, nums: List[int], x: int) -> int:
+        f = [-inf] * 2
+        f[nums[0] & 1] = nums[0]
+        for v in nums[1:]:
+            f[v & 1] = max(f[v & 1] + v, f[v & 1 ^ 1] + v - x)
+        return max(f)
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public long maxScore(int[] nums, int x) {
+        long[] f = new long[2];
+        Arrays.fill(f, -(1L << 60));
+        f[nums[0] & 1] = nums[0];
+        for (int i = 1; i < nums.length; ++i) {
+            f[nums[i] & 1] = Math.max(f[nums[i] & 1] + nums[i], f[nums[i] & 1 ^ 1] + nums[i] - x);
+        }
+        return Math.max(f[0], f[1]);
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    long long maxScore(vector<int>& nums, int x) {
+        const long long inf = 1LL << 60;
+        vector<long long> f(2, -inf);
+        f[nums[0] & 1] = nums[0];
+        int n = nums.size();
+        for (int i = 1; i < n; ++i) {
+            f[nums[i] & 1] = max(f[nums[i] & 1] + nums[i], f[nums[i] & 1 ^ 1] + nums[i] - x);
+        }
+        return max(f[0], f[1]);
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func maxScore(nums []int, x int) int64 {
+	const inf int = 1 << 40
+	f := [2]int{-inf, -inf}
+	f[nums[0]&1] = nums[0]
+	for _, v := range nums[1:] {
+		f[v&1] = max(f[v&1]+v, f[v&1^1]+v-x)
+	}
+	return int64(max(f[0], f[1]))
+}
 
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxScore(nums: number[], x: number): number {
+    const inf = 1 << 30;
+    const f: number[] = Array(2).fill(-inf);
+    f[nums[0] & 1] = nums[0];
+    for (let i = 1; i < nums.length; ++i) {
+        f[nums[i] & 1] = Math.max(
+            f[nums[i] & 1] + nums[i],
+            f[(nums[i] & 1) ^ 1] + nums[i] - x,
+        );
+    }
+    return Math.max(f[0], f[1]);
+}
 ```
 
 ### **...**

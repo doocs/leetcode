@@ -47,25 +47,109 @@ It can be shown that it is the only way to express 10 as the sum of the 2<sup>nd
 ### **Python3**
 
 ```python
-
+class Solution:
+    def numberOfWays(self, n: int, x: int) -> int:
+        mod = 10**9 + 7
+        f = [[0] * (n + 1) for _ in range(n + 1)]
+        f[0][0] = 1
+        for i in range(1, n + 1):
+            k = pow(i, x)
+            for j in range(n + 1):
+                f[i][j] = f[i - 1][j]
+                if k <= j:
+                    f[i][j] = (f[i][j] + f[i - 1][j - k]) % mod
+        return f[n][n]
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int numberOfWays(int n, int x) {
+        final int mod = (int) 1e9 + 7;
+        int[][] f = new int[n + 1][n + 1];
+        f[0][0] = 1;
+        for (int i = 1; i <= n; ++i) {
+            long k = (long) Math.pow(i, x);
+            for (int j = 0; j <= n; ++j) {
+                f[i][j] = f[i - 1][j];
+                if (k <= j) {
+                    f[i][j] = (f[i][j] + f[i - 1][j - (int) k]) % mod;
+                }
+            }
+        }
+        return f[n][n];
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int numberOfWays(int n, int x) {
+        const int mod = 1e9 + 7;
+        int f[n + 1][n + 1];
+        memset(f, 0, sizeof(f));
+        f[0][0] = 1;
+        for (int i = 1; i <= n; ++i) {
+            long long k = (long long) pow(i, x);
+            for (int j = 0; j <= n; ++j) {
+                f[i][j] = f[i - 1][j];
+                if (k <= j) {
+                    f[i][j] = (f[i][j] + f[i - 1][j - k]) % mod;
+                }
+            }
+        }
+        return f[n][n];
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func numberOfWays(n int, x int) int {
+	const mod int = 1e9 + 7
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, n+1)
+	}
+	f[0][0] = 1
+	for i := 1; i <= n; i++ {
+		k := int(math.Pow(float64(i), float64(x)))
+		for j := 0; j <= n; j++ {
+			f[i][j] = f[i-1][j]
+			if k <= j {
+				f[i][j] = (f[i][j] + f[i-1][j-k]) % mod
+			}
+		}
+	}
+	return f[n][n]
+}
+```
 
+### **TypeScript**
+
+```ts
+function numberOfWays(n: number, x: number): number {
+    const mod = 10 ** 9 + 7;
+    const f: number[][] = Array(n + 1)
+        .fill(0)
+        .map(() => Array(n + 1).fill(0));
+    f[0][0] = 1;
+    for (let i = 1; i <= n; ++i) {
+        const k = Math.pow(i, x);
+        for (let j = 0; j <= n; ++j) {
+            f[i][j] = f[i - 1][j];
+            if (k <= j) {
+                f[i][j] = (f[i][j] + f[i - 1][j - k]) % mod;
+            }
+        }
+    }
+    return f[n][n];
+}
 ```
 
 ### **...**
