@@ -152,7 +152,7 @@ public:
 //   pub left: Option<Rc<RefCell<TreeNode>>>,
 //   pub right: Option<Rc<RefCell<TreeNode>>>,
 // }
-// 
+//
 // impl TreeNode {
 //   #[inline]
 //   pub fn new(val: i32) -> Self {
@@ -269,10 +269,10 @@ func flatten(root *TreeNode) {
  Do not return anything, modify root in-place instead.
  */
 function flatten(root: TreeNode | null): void {
-    while (root != null) {
-        if (root.left != null) {
+    while (root !== null) {
+        if (root.left !== null) {
             let pre = root.left;
-            while (pre.right != null) {
+            while (pre.right !== null) {
                 pre = pre.right;
             }
             pre.right = root.right;

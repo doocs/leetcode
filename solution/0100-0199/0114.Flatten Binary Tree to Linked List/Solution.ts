@@ -16,10 +16,10 @@
  Do not return anything, modify root in-place instead.
  */
 function flatten(root: TreeNode | null): void {
-    while (root != null) {
-        if (root.left != null) {
+    while (root !== null) {
+        if (root.left !== null) {
             let pre = root.left;
-            while (pre.right != null) {
+            while (pre.right !== null) {
                 pre = pre.right;
             }
             pre.right = root.right;
