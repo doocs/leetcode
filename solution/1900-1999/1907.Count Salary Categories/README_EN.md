@@ -13,7 +13,7 @@
 | account_id  | int  |
 | income      | int  |
 +-------------+------+
-account_id is the primary key for this table.
+In SQL, account_id is the primary key for this table.
 Each row contains information about the monthly income for one bank account.
 </pre>
 
@@ -27,7 +27,7 @@ Each row contains information about the monthly income for one bank account.
 	<li><code>&quot;High Salary&quot;</code>: All the salaries <strong>strictly greater</strong> than <code>$50000</code>.</li>
 </ul>
 
-<p>The result table <strong>must</strong> contain all three categories. If there are no accounts in a category, then report <code>0</code>.</p>
+<p>The result table <strong>must</strong> contain all three categories. If there are no accounts in a category,&nbsp;return&nbsp;<code>0</code>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 

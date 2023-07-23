@@ -43,13 +43,112 @@ Of all the ways, &quot;aaccba&quot; is the lexicographically smallest.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def breakPalindrome(self, palindrome: str) -> str:
+        n = len(palindrome)
+        if n == 1:
+            return ""
+        s = list(palindrome)
+        i = 0
+        while i < n // 2 and s[i] == "a":
+            i += 1
+        if i == n // 2:
+            s[-1] = "b"
+        else:
+            s[i] = "a"
+        return "".join(s)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String breakPalindrome(String palindrome) {
+        int n = palindrome.length();
+        if (n == 1) {
+            return "";
+        }
+        char[] cs = palindrome.toCharArray();
+        int i = 0;
+        while (i < n / 2 && cs[i] == 'a') {
+            ++i;
+        }
+        if (i == n / 2) {
+            cs[n - 1] = 'b';
+        } else {
+            cs[i] = 'a';
+        }
+        return String.valueOf(cs);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string breakPalindrome(string palindrome) {
+        int n = palindrome.size();
+        if (n == 1) {
+            return "";
+        }
+        int i = 0;
+        while (i < n / 2 && palindrome[i] == 'a') {
+            ++i;
+        }
+        if (i == n / 2) {
+            palindrome[n - 1] = 'b';
+        } else {
+            palindrome[i] = 'a';
+        }
+        return palindrome;
+    }
+};
+```
+
+### **Go**
+
+```go
+func breakPalindrome(palindrome string) string {
+	n := len(palindrome)
+	if n == 1 {
+		return ""
+	}
+	i := 0
+	s := []byte(palindrome)
+	for i < n/2 && s[i] == 'a' {
+		i++
+	}
+	if i == n/2 {
+		s[n-1] = 'b'
+	} else {
+		s[i] = 'a'
+	}
+	return string(s)
+}
+```
+
+### **TypeScript**
+
+```ts
+function breakPalindrome(palindrome: string): string {
+    const n = palindrome.length;
+    if (n === 1) {
+        return '';
+    }
+    const s = palindrome.split('');
+    let i = 0;
+    while (i < n >> 1 && s[i] === 'a') {
+        i++;
+    }
+    if (i == n >> 1) {
+        s[n - 1] = 'b';
+    } else {
+        s[i] = 'a';
+    }
+    return s.join('');
+}
 ```
 
 ### **...**

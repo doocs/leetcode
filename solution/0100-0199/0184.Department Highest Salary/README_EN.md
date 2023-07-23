@@ -15,8 +15,8 @@
 | salary       | int     |
 | departmentId | int     |
 +--------------+---------+
-id is the primary key column for this table.
-departmentId is a foreign key of the ID from the <code>Department </code>table.
+In SQL, id is the primary key column for this table.
+departmentId is a foreign key (join key in Pandas) of the ID from the <code>Department </code>table.
 Each row of this table indicates the ID, name, and salary of an employee. It also contains the ID of their department.
 </pre>
 
@@ -31,7 +31,7 @@ Each row of this table indicates the ID, name, and salary of an employee. It als
 | id          | int     |
 | name        | varchar |
 +-------------+---------+
-id is the primary key column for this table. It is guaranteed that department name is not <code>NULL.</code>
+In SQL, id is the primary key column for this table. It is guaranteed that department name is not <code>NULL.</code>
 Each row of this table indicates the ID of a department and its name.
 </pre>
 

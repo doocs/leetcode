@@ -13,7 +13,7 @@
 | id          | int     |
 | email       | varchar |
 +-------------+---------+
-id is the primary key column for this table.
+In SQL, id is the primary key column for this table.
 Each row of this table contains an email. The emails will not contain uppercase letters.
 </pre>
 
@@ -21,9 +21,9 @@ Each row of this table contains an email. The emails will not contain uppercase 
 
 <p><strong>Delete</strong> all the duplicate emails, keeping only one unique email with the smallest <code>id</code>.</p>
 
-<p>(For SQL users, please note that you are supposed to write a <code>DELETE</code> statement and not a <code>SELECT</code> one.)</p>
+<p>For SQL users, please note that you are supposed to write a <code>DELETE</code> statement and not a <code>SELECT</code> one.</p>
 
-<p>(For Pandas users, please note that you are supposed to modify <code>Person</code> in place.)</p>
+<p>For Pandas users, please note that you are supposed to modify <code>Person</code> in place.</p>
 
 <p>After running your script, the answer shown is the <code>Person</code> table. The driver will first compile and run your piece of code and then show the <code>Person</code> table. The final order of the <code>Person</code> table <strong>does not matter</strong>.</p>
 
