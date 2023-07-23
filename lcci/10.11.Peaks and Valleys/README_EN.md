@@ -25,13 +25,68 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def wiggleSort(self, nums: List[int]) -> None:
+        nums.sort()
+        for i in range(0, len(nums), 2):
+            nums[i : i + 2] = nums[i : i + 2][::-1]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public void wiggleSort(int[] nums) {
+        Arrays.sort(nums);
+        int n = nums.length;
+        for (int i = 0; i < n - 1; i += 2) {
+            int t = nums[i];
+            nums[i] = nums[i + 1];
+            nums[i + 1] = t;
+        }
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    void wiggleSort(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int n = nums.size();
+        for (int i = 0; i < n - 1; i += 2) {
+            swap(nums[i], nums[i + 1]);
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+func wiggleSort(nums []int) {
+	sort.Ints(nums)
+	for i := 0; i < len(nums)-1; i += 2 {
+		nums[i], nums[i+1] = nums[i+1], nums[i]
+	}
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ Do not return anything, modify nums in-place instead.
+ */
+function wiggleSort(nums: number[]): void {
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    for (let i = 0; i < n - 1; i += 2) {
+        [nums[i], nums[i + 1]] = [nums[i + 1], nums[i]];
+    }
+}
 ```
 
 ### **...**
