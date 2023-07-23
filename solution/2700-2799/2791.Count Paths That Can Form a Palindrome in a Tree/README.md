@@ -60,7 +60,27 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def countPalindromePaths(self, parent: List[int], s: str) -> int:
+        def dfs(i: int, xor: int):
+            nonlocal ans
+            for j, v in g[i]:
+                x = xor ^ v
+                ans += cnt[x]
+                for k in range(26):
+                    ans += cnt[x ^ (1 << k)]
+                cnt[x] += 1
+                dfs(j, x)
 
+        n = len(parent)
+        g = defaultdict(list)
+        for i in range(1, n):
+            p = parent[i]
+            g[p].append((i, 1 << (ord(s[i]) - ord('a'))))
+        ans = 0
+        cnt = Counter({0: 1})
+        dfs(0, 0)
+        return ans
 ```
 
 ### **Java**
@@ -68,19 +88,126 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private List<int[]>[] g;
+    private Map<Integer, Integer> cnt = new HashMap<>();
+    private long ans;
 
+    public long countPalindromePaths(List<Integer> parent, String s) {
+        int n = parent.size();
+        g = new List[n];
+        cnt.put(0, 1);
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int i = 1; i < n; ++i) {
+            int p = parent.get(i);
+            g[p].add(new int[] {i, 1 << (s.charAt(i) - 'a')});
+        }
+        dfs(0, 0);
+        return ans;
+    }
+
+    private void dfs(int i, int xor) {
+        for (int[] e : g[i]) {
+            int j = e[0], v = e[1];
+            int x = xor ^ v;
+            ans += cnt.getOrDefault(x, 0);
+            for (int k = 0; k < 26; ++k) {
+                ans += cnt.getOrDefault(x ^ (1 << k), 0);
+            }
+            cnt.merge(x, 1, Integer::sum);
+            dfs(j, x);
+        }
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    long long countPalindromePaths(vector<int>& parent, string s) {
+        int n = parent.size();
+        vector<vector<pair<int, int>>> g(n);
+        unordered_map<int, int> cnt;
+        cnt[0] = 1;
+        for (int i = 1; i < n; ++i) {
+            int p = parent[i];
+            g[p].emplace_back(i, 1 << (s[i] - 'a'));
+        }
+        long long ans = 0;
+        function<void(int, int)> dfs = [&](int i, int xo) {
+            for (auto [j, v] : g[i]) {
+                int x = xo ^ v;
+                ans += cnt[x];
+                for (int k = 0; k < 26; ++k) {
+                    ans += cnt[x ^ (1 << k)];
+                }
+                ++cnt[x];
+                dfs(j, x);
+            }
+        };
+        dfs(0, 0);
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func countPalindromePaths(parent []int, s string) (ans int64) {
+	type pair struct{ i, v int }
+	n := len(parent)
+	g := make([][]pair, n)
+	for i := 1; i < n; i++ {
+		p := parent[i]
+		g[p] = append(g[p], pair{i, 1 << (s[i] - 'a')})
+	}
+	cnt := map[int]int{0: 1}
+	var dfs func(i, xor int)
+	dfs = func(i, xor int) {
+		for _, e := range g[i] {
+			x := xor ^ e.v
+			ans += int64(cnt[x])
+			for k := 0; k < 26; k++ {
+				ans += int64(cnt[x^(1<<k)])
+			}
+			cnt[x]++
+			dfs(e.i, x)
+		}
+	}
+	dfs(0, 0)
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function countPalindromePaths(parent: number[], s: string): number {
+    const n = parent.length;
+    const g: [number, number][][] = Array.from({ length: n }, () => []);
+    for (let i = 1; i < n; ++i) {
+        g[parent[i]].push([i, 1 << (s.charCodeAt(i) - 97)]);
+    }
+    const cnt: Map<number, number> = new Map();
+    cnt.set(0, 1);
+    let ans = 0;
+    const dfs = (i: number, xor: number): void => {
+        for (const [j, v] of g[i]) {
+            const x = xor ^ v;
+            ans += cnt.get(x) || 0;
+            for (let k = 0; k < 26; ++k) {
+                ans += cnt.get(x ^ (1 << k)) || 0;
+            }
+            cnt.set(x, (cnt.get(x) || 0) + 1);
+            dfs(j, x);
+        }
+    };
+    dfs(0, 0);
+    return ans;
+}
 ```
 
 ### **...**
