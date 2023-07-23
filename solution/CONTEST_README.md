@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 109 场双周赛(2023-07-22 22:30, 90 分钟) 参赛人数 2461
+
+- [2784. 检查数组是否是好的](/solution/2700-2799/2784.Check%20if%20Array%20is%20Good/README.md)
+- [2785. 将字符串中的元音字母排序](/solution/2700-2799/2785.Sort%20Vowels%20in%20a%20String/README.md)
+- [2786. 访问数组中的位置使分数最大](/solution/2700-2799/2786.Visit%20Array%20Positions%20to%20Maximize%20Score/README.md)
+- [2787. 将一个数字表示成幂的和的方案数](/solution/2700-2799/2787.Ways%20to%20Express%20an%20Integer%20as%20Sum%20of%20Powers/README.md)
+
 #### 第 354 场周赛(2023-07-16 10:30, 90 分钟) 参赛人数 3957
 
 - [2778. 特殊元素平方和](/solution/2700-2799/2778.Sum%20of%20Squares%20of%20Special%20Elements/README.md)

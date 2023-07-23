@@ -25,6 +25,13 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Biweekly Contest 109
+
+- [2784. Check if Array is Good](/solution/2700-2799/2784.Check%20if%20Array%20is%20Good/README_EN.md)
+- [2785. Sort Vowels in a String](/solution/2700-2799/2785.Sort%20Vowels%20in%20a%20String/README_EN.md)
+- [2786. Visit Array Positions to Maximize Score](/solution/2700-2799/2786.Visit%20Array%20Positions%20to%20Maximize%20Score/README_EN.md)
+- [2787. Ways to Express an Integer as Sum of Powers](/solution/2700-2799/2787.Ways%20to%20Express%20an%20Integer%20as%20Sum%20of%20Powers/README_EN.md)
+
 #### Weekly Contest 354
 
 - [2778. Sum of Squares of Special Elements](/solution/2700-2799/2778.Sum%20of%20Squares%20of%20Special%20Elements/README_EN.md)

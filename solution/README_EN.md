@@ -2792,6 +2792,10 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2781  |  [Length of the Longest Valid Substring](/solution/2700-2799/2781.Length%20of%20the%20Longest%20Valid%20Substring/README_EN.md)  |  `Array`,`Hash Table`,`String`,`Sliding Window`  |  Hard  |  Weekly Contest 354  |
 |  2782  |  [Number of Unique Categories](/solution/2700-2799/2782.Number%20of%20Unique%20Categories/README_EN.md)  |    |  Medium  |  🔒  |
 |  2783  |  [Flight Occupancy and Waitlist Analysis](/solution/2700-2799/2783.Flight%20Occupancy%20and%20Waitlist%20Analysis/README_EN.md)  |    |  Medium  |  🔒  |
+|  2784  |  [Check if Array is Good](/solution/2700-2799/2784.Check%20if%20Array%20is%20Good/README_EN.md)  |    |  Easy  |  Biweekly Contest 109  |
+|  2785  |  [Sort Vowels in a String](/solution/2700-2799/2785.Sort%20Vowels%20in%20a%20String/README_EN.md)  |    |  Medium  |  Biweekly Contest 109  |
+|  2786  |  [Visit Array Positions to Maximize Score](/solution/2700-2799/2786.Visit%20Array%20Positions%20to%20Maximize%20Score/README_EN.md)  |    |  Medium  |  Biweekly Contest 109  |
+|  2787  |  [Ways to Express an Integer as Sum of Powers](/solution/2700-2799/2787.Ways%20to%20Express%20an%20Integer%20as%20Sum%20of%20Powers/README_EN.md)  |    |  Medium  |  Biweekly Contest 109  |
 
 ## Copyright
 

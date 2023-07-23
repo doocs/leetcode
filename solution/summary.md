@@ -2837,3 +2837,7 @@
   - [2781.最长合法子字符串的长度](/solution/2700-2799/2781.Length%20of%20the%20Longest%20Valid%20Substring/README.md)
   - [2782.唯一类别的数量](/solution/2700-2799/2782.Number%20of%20Unique%20Categories/README.md)
   - [2783.航班入座率和等待名单分析](/solution/2700-2799/2783.Flight%20Occupancy%20and%20Waitlist%20Analysis/README.md)
+  - [2784.检查数组是否是好的](/solution/2700-2799/2784.Check%20if%20Array%20is%20Good/README.md)
+  - [2785.将字符串中的元音字母排序](/solution/2700-2799/2785.Sort%20Vowels%20in%20a%20String/README.md)
+  - [2786.访问数组中的位置使分数最大](/solution/2700-2799/2786.Visit%20Array%20Positions%20to%20Maximize%20Score/README.md)
+  - [2787.将一个数字表示成幂的和的方案数](/solution/2700-2799/2787.Ways%20to%20Express%20an%20Integer%20as%20Sum%20of%20Powers/README.md)
