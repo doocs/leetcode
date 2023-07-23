@@ -53,25 +53,91 @@ There is only one element in the final array, which is 11.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxArrayValue(self, nums: List[int]) -> int:
+        for i in range(len(nums) - 2, -1, -1):
+            if nums[i] <= nums[i + 1]:
+                nums[i] += nums[i + 1]
+        return max(nums)
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public long maxArrayValue(int[] nums) {
+        int n = nums.length;
+        long ans = nums[n - 1], t = nums[n - 1];
+        for (int i = n - 2; i >= 0; --i) {
+            if (nums[i] <= t) {
+                t += nums[i];
+            } else {
+                t = nums[i];
+            }
+            ans = Math.max(ans, t);
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    long long maxArrayValue(vector<int>& nums) {
+        int n = nums.size();
+        long long ans = nums[n - 1], t = nums[n - 1];
+        for (int i = n - 2; ~i; --i) {
+            if (nums[i] <= t) {
+                t += nums[i];
+            } else {
+                t = nums[i];
+            }
+            ans = max(ans, t);
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func maxArrayValue(nums []int) int64 {
+	n := len(nums)
+	ans, t := nums[n-1], nums[n-1]
+	for i := n - 2; i >= 0; i-- {
+		if nums[i] <= t {
+			t += nums[i]
+		} else {
+			t = nums[i]
+		}
+		ans = max(ans, t)
+	}
+	return int64(ans)
+}
 
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxArrayValue(nums: number[]): number {
+    for (let i = nums.length - 2; i >= 0; --i) {
+        if (nums[i] <= nums[i + 1]) {
+            nums[i] += nums[i + 1];
+        }
+    }
+    return Math.max(...nums);
+}
 ```
 
 ### **...**

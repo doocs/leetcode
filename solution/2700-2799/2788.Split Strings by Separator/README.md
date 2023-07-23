@@ -75,7 +75,9 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def splitWordsBySeparator(self, words: List[str], separator: str) -> List[str]:
+        return [s for w in words for s in w.split(separator) if s]
 ```
 
 ### **Java**
@@ -83,19 +85,81 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+import java.util.regex.Pattern;
 
+class Solution {
+    public List<String> splitWordsBySeparator(List<String> words, char separator) {
+        List<String> ans = new ArrayList<>();
+        for (var w : words) {
+            for (var s : w.split(Pattern.quote(String.valueOf(separator)))) {
+                if (s.length() > 0) {
+                    ans.add(s);
+                }
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
+class Solution {
+public:
+    vector<string> splitWordsBySeparator(vector<string>& words, char separator) {
+        vector<string> ans;
+        for (auto& w : words) {
+            for (auto& s : split(w, separator)) {
+                if (!s.empty()) {
+                    ans.emplace_back(s);
+                }
+            }
+        }
+        return ans;
+    }
 
+    vector<string> split(string& s, char c) {
+        vector<string> res;
+        stringstream ss(s);
+        string t;
+        while (getline(ss, t, c)) {
+            res.push_back(t);
+        }
+        return res;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func splitWordsBySeparator(words []string, separator byte) (ans []string) {
+	for _, w := range words {
+		for _, s := range strings.Split(w, string(separator)) {
+			if s != "" {
+				ans = append(ans, s)
+			}
+		}
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function splitWordsBySeparator(words: string[], separator: string): string[] {
+    const ans: string[] = [];
+    for (const w of words) {
+        for (const s of w.split(separator)) {
+            if (s.length > 0) {
+                ans.push(s);
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
