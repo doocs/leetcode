@@ -66,13 +66,137 @@ Swapping the orange and green boxes is also valid, or swapping one of them with 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxBoxesInWarehouse(self, boxes: List[int], warehouse: List[int]) -> int:
+        n = len(warehouse)
+        left = [warehouse[0]] * n
+        for i in range(1, n):
+            left[i] = min(left[i - 1], warehouse[i])
+        boxes.sort()
+        i, j = 0, n - 1
+        while i < len(boxes):
+            while j >= 0 and left[j] < boxes[i]:
+                j -= 1
+            if j < 0:
+                break
+            i, j = i + 1, j - 1
+        return i
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxBoxesInWarehouse(int[] boxes, int[] warehouse) {
+        int n = warehouse.length;
+        int[] left = new int[n];
+        left[0] = warehouse[0];
+        for (int i = 1; i < n; ++i) {
+            left[i] = Math.min(left[i - 1], warehouse[i]);
+        }
+        Arrays.sort(boxes);
+        int i = 0, j = n - 1;
+        while (i < boxes.length) {
+            while (j >= 0 && left[j] < boxes[i]) {
+                --j;
+            }
+            if (j < 0) {
+                break;
+            }
+            ++i;
+            --j;
+        }
+        return i;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxBoxesInWarehouse(vector<int>& boxes, vector<int>& warehouse) {
+        int n = warehouse.size();
+        int left[n];
+        left[0] = warehouse[0];
+        for (int i = 1; i < n; ++i) {
+            left[i] = min(left[i - 1], warehouse[i]);
+        }
+        sort(boxes.begin(), boxes.end());
+        int i = 0, j = n - 1;
+        while (i < boxes.size()) {
+            while (j >= 0 && left[j] < boxes[i]) {
+                --j;
+            }
+            if (j < 0) {
+                break;
+            }
+            ++i;
+            --j;
+        }
+        return i;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxBoxesInWarehouse(boxes []int, warehouse []int) int {
+	n := len(warehouse)
+	left := make([]int, n)
+	left[0] = warehouse[0]
+	for i := 1; i < n; i++ {
+		left[i] = min(left[i-1], warehouse[i])
+	}
+	sort.Ints(boxes)
+	i, j := 0, n-1
+	for i < len(boxes) {
+		for j >= 0 && left[j] < boxes[i] {
+			j--
+		}
+		if j < 0 {
+			break
+		}
+		i, j = i+1, j-1
+	}
+	return i
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxBoxesInWarehouse(boxes: number[], warehouse: number[]): number {
+    const n = warehouse.length;
+    const left: number[] = new Array(n);
+    left[0] = warehouse[0];
+    for (let i = 1; i < n; ++i) {
+        left[i] = Math.min(left[i - 1], warehouse[i]);
+    }
+    boxes.sort((a, b) => a - b);
+    let i = 0;
+    let j = n - 1;
+    while (i < boxes.length) {
+        while (j >= 0 && left[j] < boxes[i]) {
+            --j;
+        }
+        if (j < 0) {
+            break;
+        }
+        ++i;
+        --j;
+    }
+    return i;
+}
 ```
 
 ### **...**
