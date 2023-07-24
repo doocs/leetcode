@@ -172,7 +172,7 @@ public:
 //   pub left: Option<Rc<RefCell<TreeNode>>>,
 //   pub right: Option<Rc<RefCell<TreeNode>>>,
 // }
-// 
+//
 // impl TreeNode {
 //   #[inline]
 //   pub fn new(val: i32) -> Self {
@@ -273,11 +273,11 @@ func levelOrderBottom(root *TreeNode) [][]int {
  * @return {number[][]}
  */
 var levelOrderBottom = function (root) {
-    let ans = [];
+    const ans = [];
     if (!root) return ans;
-    let q = [root];
+    const q = [root];
     while (q.length) {
-        let t = [];
+        const t = [];
         for (let i = q.length; i > 0; --i) {
             const node = q.shift();
             t.push(node.val);
