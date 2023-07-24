@@ -58,13 +58,121 @@ All buckets have 3.5 gallons of water in them so return 3.5.
 ### **Python3**
 
 ```python
+class Solution:
+    def equalizeWater(self, buckets: List[int], loss: int) -> float:
+        def check(v):
+            a = b = 0
+            for x in buckets:
+                if x >= v:
+                    a += x - v
+                else:
+                    b += (v - x) * 100 / (100 - loss)
+            return a >= b
 
+        l, r = 0, max(buckets)
+        while r - l > 1e-5:
+            mid = (l + r) / 2
+            if check(mid):
+                l = mid
+            else:
+                r = mid
+        return l
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public double equalizeWater(int[] buckets, int loss) {
+        double l = 0, r = Arrays.stream(buckets).max().getAsInt();
+        while (r - l > 1e-5) {
+            double mid = (l + r) / 2;
+            if (check(buckets, loss, mid)) {
+                l = mid;
+            } else {
+                r = mid;
+            }
+        }
+        return l;
+    }
 
+    private boolean check(int[] buckets, int loss, double v) {
+        double a = 0;
+        double b = 0;
+        for (int x : buckets) {
+            if (x > v) {
+                a += x - v;
+            } else {
+                b += (v - x) * 100 / (100 - loss);
+            }
+        }
+        return a >= b;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    double equalizeWater(vector<int>& buckets, int loss) {
+        double l = 0, r = *max_element(buckets.begin(), buckets.end());
+        auto check = [&](double v) {
+            double a = 0, b = 0;
+            for (int x : buckets) {
+                if (x > v) {
+                    a += x - v;
+                } else {
+                    b += (v - x) * 100 / (100 - loss);
+                }
+            }
+            return a >= b;
+        };
+        while (r - l > 1e-5) {
+            double mid = (l + r) / 2;
+            if (check(mid)) {
+                l = mid;
+            } else {
+                r = mid;
+            }
+        }
+        return l;
+    }
+};
+```
+
+### **Go**
+
+```go
+func equalizeWater(buckets []int, loss int) float64 {
+	var l, r float64
+	for _, x := range buckets {
+		r = math.Max(r, float64(x))
+	}
+
+	check := func(v float64) bool {
+		var a, b float64
+		for _, x := range buckets {
+			if float64(x) >= v {
+				a += float64(x) - v
+			} else {
+				b += (v - float64(x)) * 100 / float64(100-loss)
+			}
+		}
+		return a >= b
+	}
+
+	for r-l > 1e-5 {
+		mid := (l + r) / 2
+		if check(mid) {
+			l = mid
+		} else {
+			r = mid
+		}
+	}
+	return l
+}
 ```
 
 ### **TypeScript**

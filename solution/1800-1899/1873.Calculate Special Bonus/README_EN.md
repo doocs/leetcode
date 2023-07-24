@@ -14,7 +14,7 @@
 | name        | varchar |
 | salary      | int     |
 +-------------+---------+
-employee_id is the primary key for this table.
+In SQL, employee_id is the primary key for this table.
 Each row of this table indicates the employee ID, employee name, and salary.
 </pre>
 

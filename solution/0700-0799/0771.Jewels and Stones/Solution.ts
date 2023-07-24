@@ -1,8 +1,8 @@
 function numJewelsInStones(jewels: string, stones: string): number {
-    const set = new Set([...jewels]);
+    const s = new Set([...jewels]);
     let ans = 0;
     for (const c of stones) {
-        set.has(c) && ans++;
+        s.has(c) && ans++;
     }
     return ans;
 }

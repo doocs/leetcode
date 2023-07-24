@@ -41,6 +41,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心**
+
+我们先判断字符串的长度是否为 $1$，若是则直接返回空串。
+
+否则，我们从左到右遍历字符串的前半部分，找到第一个不为 `'a'` 的字符，将其改为 `'a'` 即可。如果不存在这样的字符，那么我们将最后一个字符改为 `'b'` 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -48,7 +56,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def breakPalindrome(self, palindrome: str) -> str:
+        n = len(palindrome)
+        if n == 1:
+            return ""
+        s = list(palindrome)
+        i = 0
+        while i < n // 2 and s[i] == "a":
+            i += 1
+        if i == n // 2:
+            s[-1] = "b"
+        else:
+            s[i] = "a"
+        return "".join(s)
 ```
 
 ### **Java**
@@ -56,7 +77,93 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String breakPalindrome(String palindrome) {
+        int n = palindrome.length();
+        if (n == 1) {
+            return "";
+        }
+        char[] cs = palindrome.toCharArray();
+        int i = 0;
+        while (i < n / 2 && cs[i] == 'a') {
+            ++i;
+        }
+        if (i == n / 2) {
+            cs[n - 1] = 'b';
+        } else {
+            cs[i] = 'a';
+        }
+        return String.valueOf(cs);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string breakPalindrome(string palindrome) {
+        int n = palindrome.size();
+        if (n == 1) {
+            return "";
+        }
+        int i = 0;
+        while (i < n / 2 && palindrome[i] == 'a') {
+            ++i;
+        }
+        if (i == n / 2) {
+            palindrome[n - 1] = 'b';
+        } else {
+            palindrome[i] = 'a';
+        }
+        return palindrome;
+    }
+};
+```
+
+### **Go**
+
+```go
+func breakPalindrome(palindrome string) string {
+	n := len(palindrome)
+	if n == 1 {
+		return ""
+	}
+	i := 0
+	s := []byte(palindrome)
+	for i < n/2 && s[i] == 'a' {
+		i++
+	}
+	if i == n/2 {
+		s[n-1] = 'b'
+	} else {
+		s[i] = 'a'
+	}
+	return string(s)
+}
+```
+
+### **TypeScript**
+
+```ts
+function breakPalindrome(palindrome: string): string {
+    const n = palindrome.length;
+    if (n === 1) {
+        return '';
+    }
+    const s = palindrome.split('');
+    let i = 0;
+    while (i < n >> 1 && s[i] === 'a') {
+        i++;
+    }
+    if (i == n >> 1) {
+        s[n - 1] = 'b';
+    } else {
+        s[i] = 'a';
+    }
+    return s.join('');
+}
 ```
 
 ### **...**
