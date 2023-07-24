@@ -1,5 +1,5 @@
 func numJewelsInStones(jewels string, stones string) (ans int) {
-	s := make([]int, 128)
+	s := [128]int{}
 	for _, c := range jewels {
 		s[c] = 1
 	}

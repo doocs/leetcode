@@ -13,7 +13,7 @@
 | student_id    | int     |
 | student_name  | varchar |
 +---------------+---------+
-student_id is the primary key for this table.
+In SQL, student_id is the primary key for this table.
 Each row of this table contains the ID and the name of one student in the school.
 </pre>
 
@@ -27,7 +27,7 @@ Each row of this table contains the ID and the name of one student in the school
 +--------------+---------+
 | subject_name | varchar |
 +--------------+---------+
-subject_name is the primary key for this table.
+In SQL, subject_name is the primary key for this table.
 Each row of this table contains the name of one subject in the school.
 </pre>
 
@@ -42,7 +42,7 @@ Each row of this table contains the name of one subject in the school.
 | student_id   | int     |
 | subject_name | varchar |
 +--------------+---------+
-There is no primary key for this table. It may contain duplicates.
+This table may contain duplicates (In other words, there is no primary key for this table in SQL).
 Each student from the Students table takes every course from the Subjects table.
 Each row of this table indicates that a student with ID student_id attended the exam of subject_name.
 </pre>

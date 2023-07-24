@@ -14,7 +14,7 @@
 | customer_id | int  |
 | amount      | int  |
 +-------------+------+
-bill_id is the primary key for this table.
+In SQL, bill_id is the primary key for this table.
 Each row contains information about the amount of one bill and the customer associated with it.
 </pre>
 

@@ -61,21 +61,14 @@ v1.dotProduct(v2) = 0*0 + 1*0 + 0*0 + 0*0 + 0*2 = 0
 ```python
 class SparseVector:
     def __init__(self, nums: List[int]):
-        self.v = {}
-        for i, num in enumerate(nums):
-            if num != 0:
-                self.v[i] = num
+        self.d = {i: v for i, v in enumerate(nums) if v}
 
     # Return the dotProduct of two sparse vectors
-    def dotProduct(self, vec: 'SparseVector') -> int:
-        res = 0
-        if len(self.v) > len(vec.v):
-            self.v, vec.v = vec.v, self.v
-        for i, num in self.v.items():
-            if i not in vec.v:
-                continue
-            res += num * vec.v[i]
-        return res
+    def dotProduct(self, vec: "SparseVector") -> int:
+        a, b = self.d, vec.d
+        if len(b) < len(a):
+            a, b = b, a
+        return sum(v * b.get(i, 0) for i, v in a.items())
 
 
 # Your SparseVector object will be instantiated and called as such:
@@ -88,31 +81,31 @@ class SparseVector:
 
 ```java
 class SparseVector {
-
-    private Map<Integer, Integer> v;
+    public Map<Integer, Integer> d = new HashMap<>(128);
 
     SparseVector(int[] nums) {
-        v = new HashMap<>();
         for (int i = 0; i < nums.length; ++i) {
             if (nums[i] != 0) {
-                v.put(i, nums[i]);
+                d.put(i, nums[i]);
             }
         }
     }
 
     // Return the dotProduct of two sparse vectors
     public int dotProduct(SparseVector vec) {
-        int res = 0;
-        if (v.size() > vec.v.size()) {
-            Map<Integer, Integer> t = v;
-            v = vec.v;
-            vec.v = t;
+        var a = d;
+        var b = vec.d;
+        if (b.size() < a.size()) {
+            var t = a;
+            a = b;
+            b = t;
         }
-        for (Map.Entry<Integer, Integer> entry : v.entrySet()) {
-            int i = entry.getKey(), num = entry.getValue();
-            res += num * vec.v.getOrDefault(i, 0);
+        int ans = 0;
+        for (var e : a.entrySet()) {
+            int i = e.getKey(), v = e.getValue();
+            ans += v * b.getOrDefault(i, 0);
         }
-        return res;
+        return ans;
     }
 }
 
@@ -120,6 +113,123 @@ class SparseVector {
 // SparseVector v1 = new SparseVector(nums1);
 // SparseVector v2 = new SparseVector(nums2);
 // int ans = v1.dotProduct(v2);
+```
+
+### **C++**
+
+```cpp
+class SparseVector {
+public:
+    unordered_map<int, int> d;
+
+    SparseVector(vector<int>& nums) {
+        for (int i = 0; i < nums.size(); ++i) {
+            if (nums[i]) {
+                d[i] = nums[i];
+            }
+        }
+    }
+
+    // Return the dotProduct of two sparse vectors
+    int dotProduct(SparseVector& vec) {
+        auto a = d;
+        auto b = vec.d;
+        if (a.size() > b.size()) {
+            swap(a, b);
+        }
+        int ans = 0;
+        for (auto& [i, v] : a) {
+            if (b.count(i)) {
+                ans += v * b[i];
+            }
+        }
+        return ans;
+    }
+};
+
+// Your SparseVector object will be instantiated and called as such:
+// SparseVector v1(nums1);
+// SparseVector v2(nums2);
+// int ans = v1.dotProduct(v2);
+```
+
+### **Go**
+
+```go
+type SparseVector struct {
+	d map[int]int
+}
+
+func Constructor(nums []int) SparseVector {
+	d := map[int]int{}
+	for i, x := range nums {
+		if x != 0 {
+			d[i] = x
+		}
+	}
+	return SparseVector{d}
+}
+
+// Return the dotProduct of two sparse vectors
+func (this *SparseVector) dotProduct(vec SparseVector) (ans int) {
+	a, b := this.d, vec.d
+	if len(a) > len(b) {
+		a, b = b, a
+	}
+	for i, x := range a {
+		if y, has := b[i]; has {
+			ans += x * y
+		}
+	}
+	return
+}
+
+/**
+ * Your SparseVector object will be instantiated and called as such:
+ * v1 := Constructor(nums1);
+ * v2 := Constructor(nums2);
+ * ans := v1.dotProduct(v2);
+ */
+```
+
+### **TypeScript**
+
+```ts
+class SparseVector {
+    d: Map<number, number>;
+
+    constructor(nums: number[]) {
+        this.d = new Map();
+        for (let i = 0; i < nums.length; ++i) {
+            if (nums[i] != 0) {
+                this.d.set(i, nums[i]);
+            }
+        }
+    }
+
+    // Return the dotProduct of two sparse vectors
+    dotProduct(vec: SparseVector): number {
+        let a = this.d;
+        let b = vec.d;
+        if (a.size > b.size) {
+            [a, b] = [b, a];
+        }
+        let ans = 0;
+        for (const [i, x] of a) {
+            if (b.has(i)) {
+                ans += x * b.get(i)!;
+            }
+        }
+        return ans;
+    }
+}
+
+/**
+ * Your SparseVector object will be instantiated and called as such:
+ * var v1 = new SparseVector(nums1)
+ * var v2 = new SparseVector(nums1)
+ * var ans = v1.dotProduct(v2)
+ */
 ```
 
 ### **...**

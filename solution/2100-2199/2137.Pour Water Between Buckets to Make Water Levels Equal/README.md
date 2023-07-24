@@ -56,6 +56,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：二分查找（浮点数二分）**
+
+我们注意到，如果一个水量 $x$ 满足条件，那么所有小于 $x$ 的水量也满足条件。因此我们可以使用二分查找的方法找到最大的满足条件的水量。
+
+我们定义二分查找的左边界 $l=0$，右边界 $r=\max(buckets)$。每次二分查找时，我们取 $l$ 和 $r$ 的中点 $m$，判断 $m$ 是否满足条件。如果满足条件，那么我们将 $l$ 更新为 $m$，否则我们将 $r$ 更新为 $m$。在二分查找结束后，最大的满足条件的水量即为 $l$。
+
+问题的关键转换为如果判断一个水量 $v$ 是否满足条件。我们可以遍历所有水桶，对于每个水桶，如果其水量大于 $v$，那么需要倒出 $x-v$ 的水量；如果其水量小于 $v$，那么需要向其中倒入 $(v-x)\times\frac{100}{100-\textit{loss}}$ 的水量。如果倒出的水量大于等于倒入的水量，那么说明 $v$ 满足条件。
+
+时间复杂度 $O(n \times \log M)$，其中 $n$ 和 $M$ 分别是数组 $buckets$ 的长度和最大值。二分查找的时间复杂度为 $O(\log M)$，每次二分查找需要遍历数组 $buckets$，时间复杂度为 $O(n)$。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,7 +73,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def equalizeWater(self, buckets: List[int], loss: int) -> float:
+        def check(v):
+            a = b = 0
+            for x in buckets:
+                if x >= v:
+                    a += x - v
+                else:
+                    b += (v - x) * 100 / (100 - loss)
+            return a >= b
 
+        l, r = 0, max(buckets)
+        while r - l > 1e-5:
+            mid = (l + r) / 2
+            if check(mid):
+                l = mid
+            else:
+                r = mid
+        return l
 ```
 
 ### **Java**
@@ -71,12 +99,100 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public double equalizeWater(int[] buckets, int loss) {
+        double l = 0, r = Arrays.stream(buckets).max().getAsInt();
+        while (r - l > 1e-5) {
+            double mid = (l + r) / 2;
+            if (check(buckets, loss, mid)) {
+                l = mid;
+            } else {
+                r = mid;
+            }
+        }
+        return l;
+    }
 
+    private boolean check(int[] buckets, int loss, double v) {
+        double a = 0;
+        double b = 0;
+        for (int x : buckets) {
+            if (x > v) {
+                a += x - v;
+            } else {
+                b += (v - x) * 100 / (100 - loss);
+            }
+        }
+        return a >= b;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    double equalizeWater(vector<int>& buckets, int loss) {
+        double l = 0, r = *max_element(buckets.begin(), buckets.end());
+        auto check = [&](double v) {
+            double a = 0, b = 0;
+            for (int x : buckets) {
+                if (x > v) {
+                    a += x - v;
+                } else {
+                    b += (v - x) * 100 / (100 - loss);
+                }
+            }
+            return a >= b;
+        };
+        while (r - l > 1e-5) {
+            double mid = (l + r) / 2;
+            if (check(mid)) {
+                l = mid;
+            } else {
+                r = mid;
+            }
+        }
+        return l;
+    }
+};
+```
+
+### **Go**
+
+```go
+func equalizeWater(buckets []int, loss int) float64 {
+	var l, r float64
+	for _, x := range buckets {
+		r = math.Max(r, float64(x))
+	}
+
+	check := func(v float64) bool {
+		var a, b float64
+		for _, x := range buckets {
+			if float64(x) >= v {
+				a += float64(x) - v
+			} else {
+				b += (v - float64(x)) * 100 / float64(100-loss)
+			}
+		}
+		return a >= b
+	}
+
+	for r-l > 1e-5 {
+		mid := (l + r) / 2
+		if check(mid) {
+			l = mid
+		} else {
+			r = mid
+		}
+	}
+	return l
+}
 ```
 
 ### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
 
