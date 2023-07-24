@@ -122,7 +122,7 @@ class SparseVector {
 public:
     unordered_map<int, int> d;
 
-    SparseVector(vector<int> &nums) {
+    SparseVector(vector<int>& nums) {
         for (int i = 0; i < nums.size(); ++i) {
             if (nums[i]) {
                 d[i] = nums[i];
