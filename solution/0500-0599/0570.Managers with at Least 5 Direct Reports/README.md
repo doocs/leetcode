@@ -17,7 +17,7 @@
 | department  | varchar |
 | managerId   | int     |
 +-------------+---------+
-Id是该表的主键列。
+在 SQL 中，id 是该表的主键列。
 该表的每一行都表示雇员的名字、他们的部门和他们的经理的id。
 如果managerId为空，则该员工没有经理。
 没有员工会成为自己的管理者。
@@ -25,7 +25,7 @@ Id是该表的主键列。
 
 <p>&nbsp;</p>
 
-<p>编写一个SQL查询，查询<strong>至少有5名直接下属</strong>的经理<strong> </strong>。</p>
+<p>查询<strong>至少有5名直接下属</strong>的经理<strong> </strong>。</p>
 
 <p>以 <strong>任意顺序 </strong>返回结果表。</p>
 

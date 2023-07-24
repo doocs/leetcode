@@ -17,7 +17,7 @@
 | in_time     | int  |
 | out_time    | int  |
 +-------------+------+
-(emp_id, event_day, in_time) 是这个表的主键。
+在 SQL 中，(emp_id, event_day, in_time) 是这个表的主键。
 该表显示了员工在办公室的出入情况。
 event_day 是此事件发生的日期，in_time 是员工进入办公室的时间，而 out_time 是他们离开办公室的时间。
 in_time 和 out_time 的取值在1到1440之间。

@@ -75,7 +75,7 @@ public:
 
 ```go
 func numJewelsInStones(jewels string, stones string) (ans int) {
-	s := make([]int, 128)
+	s := [128]int{}
 	for _, c := range jewels {
 		s[c] = 1
 	}
@@ -104,10 +104,10 @@ var numJewelsInStones = function (jewels, stones) {
 
 ```ts
 function numJewelsInStones(jewels: string, stones: string): number {
-    const set = new Set([...jewels]);
+    const s = new Set([...jewels]);
     let ans = 0;
     for (const c of stones) {
-        set.has(c) && ans++;
+        s.has(c) && ans++;
     }
     return ans;
 }

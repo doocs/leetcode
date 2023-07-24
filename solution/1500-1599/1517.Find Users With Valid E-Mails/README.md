@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>用户表：&nbsp;Users</p>
+<p>用户表：&nbsp;<code>Users</code></p>
 
 <pre>
 +---------------+---------+
@@ -16,28 +16,31 @@
 | name          | varchar |
 | mail          | varchar | 
 +---------------+---------+
-user_id （用户 ID）是该表的主键。
+在 SQL 中，user_id （用户 ID）是该表的主键。
 这个表包含用户在某网站上注册的信息。有些邮箱是无效的。</pre>
 
 <p>&nbsp;</p>
 
-<p>写一条&nbsp;SQL 语句，查询拥有<strong>有效邮箱</strong>的用户。</p>
+<p>查询拥有<strong>有效邮箱</strong>的用户。</p>
 
 <p>有效的邮箱包含符合下列条件的前缀名和域名：</p>
 
 <ul>
-	<li><strong>前缀名</strong>是包含字母（大写或小写）、数字、下划线&nbsp;<code>&#39;_&#39;</code>、句点&nbsp;<code>&#39;.&#39;</code>&nbsp;和/或横杠&nbsp;<code>&#39;-&#39;</code>&nbsp;的字符串。前缀名<strong>必须</strong>以字母开头。</li>
-	<li><strong>域名</strong>是&nbsp;<code>&#39;@leetcode.com&#39;</code>&nbsp;。</li>
+	<li><strong>前缀名</strong>是包含字母（大写或小写）、数字、下划线&nbsp;<code>'_'</code>、句点&nbsp;<code>'.'</code>&nbsp;和/或横杠&nbsp;<code>'-'</code>&nbsp;的字符串。前缀名<strong>必须</strong>以字母开头。</li>
+	<li><strong>域名</strong>是&nbsp;<code>'@leetcode.com'</code>&nbsp;。</li>
 </ul>
 
 <p>按任意顺序返回结果表。</p>
 
+<p>查询格式如下所示。</p>
+
 <p>&nbsp;</p>
 
-<p>查询格式如下所示：</p>
+<p><strong>示例 1：</strong></p>
 
 <pre>
-<code>Users</code>
+<code><strong>输入：</strong>
+Users:</code>
 +---------+-----------+-------------------------+
 | user_id | name      | mail                    |
 +---------+-----------+-------------------------+
@@ -50,7 +53,7 @@ user_id （用户 ID）是该表的主键。
 | 7       | Shapiro   | .shapo@leetcode.com     |
 +---------+-----------+-------------------------+
 
-结果表：
+<strong>输出：</strong>
 +---------+-----------+-------------------------+
 | user_id | name      | mail                    |
 +---------+-----------+-------------------------+
@@ -58,6 +61,7 @@ user_id （用户 ID）是该表的主键。
 | 3       | Annabelle | bella-@leetcode.com     |
 | 4       | Sally     | sally.come@leetcode.com |
 +---------+-----------+-------------------------+
+<strong>解释：</strong>
 2 号用户的邮箱没有域名。
 5 号用户的邮箱包含非法字符 #。
 6 号用户的邮箱的域名不是 leetcode。

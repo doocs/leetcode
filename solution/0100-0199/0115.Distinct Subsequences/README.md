@@ -15,26 +15,26 @@
 <p><strong>示例&nbsp;1：</strong></p>
 
 <pre>
-<strong>输入：</strong>s = "rabbbit", t = "rabbit"<code>
-<strong>输出</strong></code><strong>：</strong><code>3
-</code><strong>解释：</strong>
-如下所示, 有 3 种可以从 s 中得到 <code>"rabbit" 的方案</code>。
-<code><strong><u>rabb</u></strong>b<strong><u>it</u></strong></code>
-<code><strong><u>ra</u></strong>b<strong><u>bbit</u></strong></code>
-<code><strong><u>rab</u></strong>b<strong><u>bit</u></strong></code></pre>
+<strong>输入：</strong>s = "rabbbit", t = "rabbit"
+<strong>输出</strong><strong>：</strong>3
+<strong>解释：</strong>
+如下所示, 有 3 种可以从 s 中得到 "rabbit" 的方案。
+<strong><u>rabb</u></strong>b<strong><u>it</u></strong>
+<strong><u>ra</u></strong>b<strong><u>bbit</u></strong>
+<strong><u>rab</u></strong>b<strong><u>bit</u></strong></pre>
 
 <p><strong>示例&nbsp;2：</strong></p>
 
 <pre>
 <strong>输入：</strong>s = "babgbag", t = "bag"
-<code><strong>输出</strong></code><strong>：</strong><code>5
-</code><strong>解释：</strong>
-如下所示, 有 5 种可以从 s 中得到 <code>"bag" 的方案</code>。 
-<code><strong><u>ba</u></strong>b<u><strong>g</strong></u>bag</code>
-<code><strong><u>ba</u></strong>bgba<strong><u>g</u></strong></code>
-<code><u><strong>b</strong></u>abgb<strong><u>ag</u></strong></code>
-<code>ba<u><strong>b</strong></u>gb<u><strong>ag</strong></u></code>
-<code>babg<strong><u>bag</u></strong></code>
+<strong>输出</strong><strong>：</strong>5
+<strong>解释：</strong>
+如下所示, 有 5 种可以从 s 中得到 "bag" 的方案。 
+<strong><u>ba</u></strong>b<u><strong>g</strong></u>bag
+<strong><u>ba</u></strong>bgba<strong><u>g</u></strong>
+<u><strong>b</strong></u>abgb<strong><u>ag</u></strong>
+ba<u><strong>b</strong></u>gb<u><strong>ag</strong></u>
+babg<strong><u>bag</u></strong>
 </pre>
 
 <p>&nbsp;</p>
@@ -160,6 +160,37 @@ public:
         return dp[m][n];
     }
 };
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    #[allow(dead_code)]
+    pub fn num_distinct(s: String, t: String) -> i32 {
+        let n = s.len();
+        let m = t.len();
+        let mut dp: Vec<Vec<u64>> = vec![vec![0; m + 1]; n + 1];
+
+        // Initialize the dp vector
+        for i in 0..=n {
+            dp[i][0] = 1;
+        }
+
+        // Begin the actual dp process
+        for i in 1..=n {
+            for j in 1..=m {
+                dp[i][j] = if s.as_bytes()[i - 1] == t.as_bytes()[j - 1] {
+                    dp[i - 1][j] + dp[i - 1][j - 1]
+                } else {
+                    dp[i - 1][j]
+                }
+            }
+        }
+
+        dp[n][m] as i32
+    }
+}
 ```
 
 ### **TypeScript**

@@ -13,7 +13,7 @@
 | id          | int     |
 | name        | varchar |
 +-------------+---------+
-id is the primary key column for this table.
+In SQL, id is the primary key column for this table.
 Each row of this table indicates the ID and name of a customer.
 </pre>
 
@@ -28,8 +28,8 @@ Each row of this table indicates the ID and name of a customer.
 | id          | int  |
 | customerId  | int  |
 +-------------+------+
-id is the primary key column for this table.
-customerId is a foreign key of the ID from the Customers table.
+In SQL, id is the primary key column for this table.
+customerId is a foreign key (join key in Pandas) of the ID from the Customers table.
 Each row of this table indicates the ID of an order and the ID of the customer who ordered it.
 </pre>
 

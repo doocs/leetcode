@@ -15,7 +15,7 @@
 	<li><code>subtract</code> - 从 <code>result</code> 中减去给定的数字 <code>value</code>&nbsp;，并返回更新后的 <code>Calculator</code> 对象。</li>
 	<li><code>multiply</code> - 将 <code>result</code> 乘以给定的数字 <code>value</code> ，并返回更新后的&nbsp;<code>Calculator</code> 对象。</li>
 	<li><code>divide</code> - 将 <code>result</code> 除以给定的数字 <code>value</code> ，并返回更新后的&nbsp;<code>Calculator</code> 对象。如果传入的值为 <code>0</code> ，则抛出错误 <code>"Division by zero is not allowed"</code> 。</li>
-	<li><code>power</code> - 将 <code>result</code> 的值乘以给定的数字 <code>value</code> ，并返回更新后的&nbsp;<code>Calculator</code> 对象。</li>
+	<li><code>power</code> - 计算 <code>result</code> 的幂，指数为给定的数字 <code>value</code> ，并返回更新后的&nbsp;<code>Calculator</code> 对象。（<code>result = result ^ value</code> ）</li>
 	<li><code>getResult</code> - 返回 <code>result</code> 的值。</li>
 </ul>
 

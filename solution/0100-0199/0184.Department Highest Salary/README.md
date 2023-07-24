@@ -17,9 +17,9 @@
 | salary       | int     |
 | departmentId | int     |
 +--------------+---------+
-id是此表的主键列。
-departmentId是Department表中ID的外键。
-此表的每一行都表示员工的ID、姓名和工资。它还包含他们所在部门的ID。
+在 SQL 中，id是此表的主键。
+departmentId 是 Department 表中 id 的外键（在 Pandas 中称为 join key）。
+此表的每一行都表示员工的 id、姓名和工资。它还包含他们所在部门的 id。
 </pre>
 
 <p>&nbsp;</p>
@@ -33,13 +33,13 @@ departmentId是Department表中ID的外键。
 | id          | int     |
 | name        | varchar |
 +-------------+---------+
-id是此表的主键列。
-此表的每一行都表示一个部门的ID及其名称。
+在 SQL 中，id 是此表的主键列。
+此表的每一行都表示一个部门的 id 及其名称。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>编写SQL查询以查找每个部门中薪资最高的员工。<br />
+<p>查找出每个部门中薪资最高的员工。<br />
 按 <strong>任意顺序</strong> 返回结果表。<br />
 查询结果格式如下例所示。</p>
 
