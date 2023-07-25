@@ -53,6 +53,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：双端队列 BFS(0-1 BFS)**
+
+每走到一个格子 $(i, j)$，有 $4$ 个方向可以走，如果方向与当前格子的方向相同，那么不需要施法，否则需要施法一次。
+
+因此，我们可以使用 BFS 求出从起点到终点的最短路径。
+
+我们定义一个双端队列 $q$，存储当前可以到达的格子，每次从队首取出一个格子 $(i, j)$，然后向四个方向扩展，如果扩展的格子 $(x, y)$ 不需要施法，那么将其加入队首，否则加入队尾。当我们第一次到达终点时，就得到了最短路径。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,7 +70,28 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def conveyorBelt(self, matrix: List[str], start: List[int], end: List[int]) -> int:
+        dirs = (-1, 0, 1, 0, -1)
+        d = {"^": 0, "v": 2, "<": 3, ">": 1}
+        i, j = start
+        q = deque([(i, j)])
+        m, n = len(matrix), len(matrix[0])
+        dist = [[inf] * n for _ in range(m)]
+        dist[i][j] = 0
+        while 1:
+            i, j = q.popleft()
+            if i == end[0] and j == end[1]:
+                return int(dist[i][j])
+            for k in range(4):
+                x, y = i + dirs[k], j + dirs[k + 1]
+                t = dist[i][j] + int(k != d[matrix[i][j]])
+                if 0 <= x < m and 0 <= y < n and t < dist[x][y]:
+                    dist[x][y] = t
+                    if dist[x][y] == dist[i][j]:
+                        q.appendleft((x, y))
+                    else:
+                        q.append((x, y))
 ```
 
 ### **Java**
@@ -68,7 +99,174 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int conveyorBelt(String[] matrix, int[] start, int[] end) {
+        int[] dirs = {-1, 0, 1, 0, -1};
+        Map<Character, Integer> d = new HashMap<>(4);
+        d.put('^', 0);
+        d.put('>', 1);
+        d.put('v', 2);
+        d.put('<', 3);
+        Deque<int[]> q = new ArrayDeque<>();
+        q.offer(new int[] {start[0], start[1]});
+        int m = matrix.length, n = matrix[0].length();
+        int[][] dist = new int[m][n];
+        for (int[] row : dist) {
+            Arrays.fill(row, 1 << 30);
+        }
+        dist[start[0]][start[1]] = 0;
+        while (true) {
+            int[] p = q.poll();
+            int i = p[0], j = p[1];
+            if (i == end[0] && j == end[1]) {
+                return dist[i][j];
+            }
+            for (int k = 0; k < 4; ++k) {
+                int x = i + dirs[k], y = j + dirs[k + 1];
+                int t = dist[i][j] + (k == d.get(matrix[i].charAt(j)) ? 0 : 1);
+                if (x >= 0 && x < m && y >= 0 && y < n && t < dist[x][y]) {
+                    dist[x][y] = t;
+                    if (dist[x][y] == dist[i][j]) {
+                        q.offerFirst(new int[] {x, y});
+                    } else {
+                        q.offerLast(new int[] {x, y});
+                    }
+                }
+            }
+        }
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int conveyorBelt(vector<string>& matrix, vector<int>& start, vector<int>& end) {
+        int dirs[5] = {-1, 0, 1, 0, -1};
+        unordered_map<char, int> d;
+        d['^'] = 0;
+        d['>'] = 1;
+        d['v'] = 2;
+        d['<'] = 3;
+        deque<pair<int, int>> q;
+        q.emplace_back(start[0], start[1]);
+        int m = matrix.size(), n = matrix[0].size();
+        int dist[m][n];
+        memset(dist, 0x3f, sizeof(dist));
+        dist[start[0]][start[1]] = 0;
+        while (1) {
+            auto [i, j] = q.front();
+            q.pop_front();
+            if (i == end[0] && j == end[1]) {
+                return dist[i][j];
+            }
+            for (int k = 0; k < 4; ++k) {
+                int x = i + dirs[k], y = j + dirs[k + 1];
+                int t = dist[i][j] + (k == d[matrix[i][j]] ? 0 : 1);
+                if (x >= 0 && x < m && y >= 0 && y < n && t < dist[x][y]) {
+                    dist[x][y] = t;
+                    if (dist[x][y] == dist[i][j]) {
+                        q.emplace_front(x, y);
+                    } else {
+                        q.emplace_back(x, y);
+                    }
+                }
+            }
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+func conveyorBelt(matrix []string, start []int, end []int) int {
+	dirs := [5]int{-1, 0, 1, 0, -1}
+	d := map[byte]int{
+		'^': 0,
+		'>': 1,
+		'v': 2,
+		'<': 3,
+	}
+	q := [][2]int{[2]int{start[0], start[1]}}
+	m, n := len(matrix), len(matrix[0])
+	dist := make([][]int, m)
+	for i := range dist {
+		dist[i] = make([]int, n)
+		for j := range dist[i] {
+			dist[i][j] = 1 << 30
+		}
+	}
+	dist[start[0]][start[1]] = 0
+	for {
+		p := q[0]
+		i, j := p[0], p[1]
+		if i == end[0] && j == end[1] {
+			return dist[i][j]
+		}
+		q = q[1:]
+		for k := 0; k < 4; k++ {
+			x, y := i+dirs[k], j+dirs[k+1]
+			t := dist[i][j]
+			if k != d[matrix[i][j]] {
+				t++
+			}
+			if x >= 0 && x < m && y >= 0 && y < n && t < dist[x][y] {
+				dist[x][y] = t
+				if dist[x][y] == dist[i][j] {
+					q = append([][2]int{[2]int{x, y}}, q...)
+				} else {
+					q = append(q, [2]int{x, y})
+				}
+			}
+		}
+	}
+}
+```
+
+### **TypeScript**
+
+```ts
+function conveyorBelt(
+    matrix: string[],
+    start: number[],
+    end: number[],
+): number {
+    const dirs = [-1, 0, 1, 0, -1];
+    const d: Map<string, number> = new Map();
+    d.set('^', 0);
+    d.set('>', 1);
+    d.set('v', 2);
+    d.set('<', 3);
+    const q: number[][] = [start];
+    const m = matrix.length;
+    const n = matrix[0].length;
+    const dist: number[][] = Array(m)
+        .fill(0)
+        .map(() => Array(n).fill(1 << 30));
+    dist[start[0]][start[1]] = 0;
+    while (true) {
+        const [i, j] = q.shift()!;
+        if (i === end[0] && j === end[1]) {
+            return dist[i][j];
+        }
+        for (let k = 0; k < 4; ++k) {
+            const x = i + dirs[k];
+            const y = j + dirs[k + 1];
+            const t = dist[i][j] + (d.get(matrix[i][j]) === k ? 0 : 1);
+            if (x >= 0 && x < m && y >= 0 && y < n && t < dist[x][y]) {
+                dist[x][y] = t;
+                if (t == dist[i][j]) {
+                    q.unshift([x, y]);
+                } else {
+                    q.push([x, y]);
+                }
+            }
+        }
+    }
+}
 ```
 
 ### **...**

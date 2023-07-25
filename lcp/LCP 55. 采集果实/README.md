@@ -54,6 +54,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心**
+
+对于每个任务，我们贪心地按照 $limit$ 的大小来采集，那么每个任务需要的时间为 $\lceil \frac{num}{limit} \rceil \times time[type]$，其中 $\lceil x \rceil$ 表示对 $x$ 向上取整。我们将所有任务需要的时间求和即为答案。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $fruits$ 的长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -61,7 +67,11 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def getMinimumTime(
+        self, time: List[int], fruits: List[List[int]], limit: int
+    ) -> int:
+        return sum((num + limit - 1) // limit * time[i] for i, num in fruits)
 ```
 
 ### **Java**
@@ -69,7 +79,60 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int getMinimumTime(int[] time, int[][] fruits, int limit) {
+        int ans = 0;
+        for (int[] f : fruits) {
+            int i = f[0], num = f[1];
+            ans += (num + limit - 1) / limit * time[i];
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int getMinimumTime(vector<int>& time, vector<vector<int>>& fruits, int limit) {
+        int ans = 0;
+        for (auto& f : fruits) {
+            int i = f[0], num = f[1];
+            ans += (num + limit - 1) / limit * time[i];
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func getMinimumTime(time []int, fruits [][]int, limit int) (ans int) {
+	for _, f := range fruits {
+		i, num := f[0], f[1]
+		ans += (num + limit - 1) / limit * time[i]
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function getMinimumTime(
+    time: number[],
+    fruits: number[][],
+    limit: number,
+): number {
+    let ans = 0;
+    for (const [i, num] of fruits) {
+        ans += Math.ceil(num / limit) * time[i];
+    }
+    return ans;
+}
 ```
 
 ### **...**
