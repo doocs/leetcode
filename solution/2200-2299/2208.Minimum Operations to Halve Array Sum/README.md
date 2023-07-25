@@ -55,6 +55,14 @@ nums 的和减小了 31 - 14.5 = 16.5 ，减小的部分超过了初始数组和
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 优先队列（大根堆）**
+
+根据题目描述，每一次操作，都会将数组中的一个数减半。要使得数组和至少减少一半的操作次数最少，那么每一次操作都应该选择当前数组中的最大值进行减半。
+
+因此，我们先算出数组要减少的总和 $s$，然后用一个优先队列（大根堆）维护数组中的所有数，每次从优先队列中取出最大值 $t$，将其减半，然后将减半后的数重新放入优先队列中，同时更新 $s$，直到 $s \le 0$ 为止。那么此时的操作次数就是答案。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -84,17 +92,17 @@ class Solution:
 ```java
 class Solution {
     public int halveArray(int[] nums) {
-        long s = 0;
+        double s = 0;
         PriorityQueue<Double> q = new PriorityQueue<>(Collections.reverseOrder());
         for (int v : nums) {
             q.offer(v * 1.0);
             s += v;
         }
-        double d = s / 2.0;
+        s /= 2.0;
         int ans = 0;
-        while (d > 0) {
+        while (s > 0) {
             double t = q.poll();
-            d -= t / 2.0;
+            s -= t / 2.0;
             q.offer(t / 2.0);
             ++ans;
         }
@@ -110,17 +118,17 @@ class Solution {
 public:
     int halveArray(vector<int>& nums) {
         priority_queue<double> q;
-        long long s = 0;
+        double s = 0;
         for (int& v : nums) {
             s += v;
             q.push(v);
         }
-        double d = s / 2.0;
+        s /= 2.0;
         int ans = 0;
-        while (d > 0) {
+        while (s > 0) {
             double t = q.top() / 2;
             q.pop();
-            d -= t;
+            s -= t;
             q.push(t);
             ++ans;
         }
@@ -130,6 +138,36 @@ public:
 ```
 
 ### **Go**
+
+```go
+func halveArray(nums []int) (ans int) {
+	var s float64
+	q := hp{}
+	for _, x := range nums {
+		s += float64(x)
+		heap.Push(&q, float64(x))
+	}
+	s /= 2
+	for s > 0 {
+		x := heap.Pop(&q).(float64)
+		ans++
+		s -= x / 2
+		heap.Push(&q, x/2)
+	}
+	return
+}
+
+type hp struct{ sort.Float64Slice }
+
+func (h hp) Less(i, j int) bool  { return h.Float64Slice[i] > h.Float64Slice[j] }
+func (h *hp) Push(v interface{}) { h.Float64Slice = append(h.Float64Slice, v.(float64)) }
+func (h *hp) Pop() interface{} {
+	a := h.Float64Slice
+	v := a[len(a)-1]
+	h.Float64Slice = a[:len(a)-1]
+	return v
+}
+```
 
 ```go
 func halveArray(nums []int) (ans int) {
