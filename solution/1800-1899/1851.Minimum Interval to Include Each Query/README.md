@@ -8,11 +8,11 @@
 
 <p>给你一个二维整数数组 <code>intervals</code> ，其中 <code>intervals[i] = [left<sub>i</sub>, right<sub>i</sub>]</code> 表示第 <code>i</code> 个区间开始于 <code>left<sub>i</sub></code> 、结束于 <code>right<sub>i</sub></code>（包含两侧取值，<strong>闭区间</strong>）。区间的 <strong>长度</strong> 定义为区间中包含的整数数目，更正式地表达是 <code>right<sub>i</sub> - left<sub>i</sub> + 1</code> 。</p>
 
-<p>再给你一个整数数组 <code>queries</code> 。第 <code>j</code> 个查询的答案是满足 <code>left<sub>i</sub> <= queries[j] <= right<sub>i</sub></code> 的 <strong>长度最小区间 <code>i</code> 的长度</strong> 。如果不存在这样的区间，那么答案是 <code>-1</code> 。</p>
+<p>再给你一个整数数组 <code>queries</code> 。第 <code>j</code> 个查询的答案是满足&nbsp;<code>left<sub>i</sub> &lt;= queries[j] &lt;= right<sub>i</sub></code> 的 <strong>长度最小区间 <code>i</code> 的长度</strong> 。如果不存在这样的区间，那么答案是 <code>-1</code> 。</p>
 
 <p>以数组形式返回对应查询的所有答案。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -38,16 +38,16 @@
 - Query = 22：区间 [20,25] 是包含 22 的最小区间，答案为 25 - 20 + 1 = 6 。
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= intervals.length <= 10<sup>5</sup></code></li>
-	<li><code>1 <= queries.length <= 10<sup>5</sup></code></li>
-	<li><code>queries[i].length == 2</code></li>
-	<li><code>1 <= left<sub>i</sub> <= right<sub>i</sub> <= 10<sup>7</sup></code></li>
-	<li><code>1 <= queries[j] <= 10<sup>7</sup></code></li>
+	<li><code>1 &lt;= intervals.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= queries.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>intervals[i].length == 2</code></li>
+	<li><code>1 &lt;= left<sub>i</sub> &lt;= right<sub>i</sub> &lt;= 10<sup>7</sup></code></li>
+	<li><code>1 &lt;= queries[j] &lt;= 10<sup>7</sup></code></li>
 </ul>
 
 ## 解法

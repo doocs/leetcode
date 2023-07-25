@@ -14,7 +14,7 @@
 | director_id | int     |
 | timestamp   | int     |
 +-------------+---------+
-timestamp is the primary key column for this table.
+In SQL, timestamp is the primary key column for this table.
 </pre>
 
 <p>&nbsp;</p>

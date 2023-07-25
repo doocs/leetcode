@@ -73,6 +73,10 @@
 
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
+相似题目：
+
+-   [2128. 通过翻转行或列来去除所有的 1](/solution/2100-2199/2128.Remove%20All%20Ones%20With%20Row%20and%20Column%20Flips/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**

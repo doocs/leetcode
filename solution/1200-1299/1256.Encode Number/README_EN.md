@@ -39,13 +39,56 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def encode(self, num: int) -> str:
+        return bin(num + 1)[3:]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String encode(int num) {
+        return Integer.toBinaryString(num + 1).substring(1);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string encode(int num) {
+        bitset<32> bs(++num);
+        string ans = bs.to_string();
+        int i = 0;
+        while (ans[i] == '0') {
+            ++i;
+        }
+        return ans.substr(i + 1);
+    }
+};
+```
+
+### **Go**
+
+```go
+func encode(num int) string {
+	num++
+	s := strconv.FormatInt(int64(num), 2)
+	return s[1:]
+}
+```
+
+### **TypeScript**
+
+```ts
+function encode(num: number): string {
+    ++num;
+    let s = num.toString(2);
+    return s.slice(1);
+}
 ```
 
 ### **...**
