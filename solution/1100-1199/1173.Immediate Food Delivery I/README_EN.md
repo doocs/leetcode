@@ -15,7 +15,7 @@
 | order_date                  | date    |
 | customer_pref_delivery_date | date    |
 +-----------------------------+---------+
-delivery_id is the primary key of this table.
+In SQL, delivery_id is the primary key of this table.
 The table holds information about food delivery to customers that make orders at some date and specify a preferred delivery date (on the same order date or after it).
 </pre>
 

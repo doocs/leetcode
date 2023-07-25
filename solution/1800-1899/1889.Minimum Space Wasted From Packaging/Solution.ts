@@ -1,33 +1,38 @@
 function minWastedSpace(packages: number[], boxes: number[][]): number {
-    const MOD = 10 ** 9 + 7;
+    const n = packages.length;
+    const inf = Infinity;
     packages.sort((a, b) => a - b);
-    const max_package = packages[packages.length - 1];
-    const total = packages.reduce((a, c) => a + c, 0);
-    let res = Infinity;
-    for (let box of boxes) {
+    let ans = inf;
+    for (const box of boxes) {
         box.sort((a, b) => a - b);
-        if (max_package > box[box.length - 1]) continue;
-        let left = 0,
-            sum = 0;
-        for (let capacity of box) {
-            let right = searchRight(packages, capacity, left);
-            sum += (right - left) * capacity;
-            left = right;
+        if (packages[n - 1] > box[box.length - 1]) {
+            continue;
         }
-        res = Math.min(res, sum);
+        let s = 0;
+        let i = 0;
+        for (const b of box) {
+            const j = search(packages, b, i);
+            s += (j - i) * b;
+            i = j;
+        }
+        ans = Math.min(ans, s);
     }
-    return res == Infinity ? -1 : (res - total) % MOD;
+    if (ans === inf) {
+        return -1;
+    }
+    const s = packages.reduce((a, b) => a + b, 0);
+    return (ans - s) % 1000000007;
 }
 
-function searchRight(packages: number[], target: number, left: number): number {
-    let right = packages.length;
-    while (left < right) {
-        let mid = (left + right) >> 1;
-        if (packages[mid] <= target) {
-            left = mid + 1;
+function search(nums: number[], x: number, l: number): number {
+    let r = nums.length;
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (nums[mid] > x) {
+            r = mid;
         } else {
-            right = mid;
+            l = mid + 1;
         }
     }
-    return left;
+    return l;
 }

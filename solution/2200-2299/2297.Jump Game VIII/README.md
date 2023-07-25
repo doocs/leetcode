@@ -55,6 +55,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：单调栈 + 动态规划**
+
+根据题目描述，我们实际上需要找到 $nums[i]$ 的下一个大于等于 $nums[i]$ 的位置 $j$，以及下一个小于 $nums[i]$ 的位置 $j$。我们利用单调栈可以在 $O(n)$ 的时间内找到这两个位置，然后构建邻接表 $g$，其中 $g[i]$ 表示下标 $i$ 可以跳转到的下标。
+
+然后我们使用动态规划求解最小代价。设 $f[i]$ 表示跳转到下标 $i$ 的最小代价，初始时 $f[0] = 0$，其余 $f[i] = \infty$。我们从小到大枚举下标 $i$，对于每个 $i$，我们枚举 $g[i]$ 中的每个下标 $j$，进行状态转移 $f[j] = \min(f[j], f[i] + costs[j])$。答案为 $f[n - 1]$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -62,7 +70,32 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def minCost(self, nums: List[int], costs: List[int]) -> int:
+        n = len(nums)
+        g = defaultdict(list)
+        stk = []
+        for i in range(n - 1, -1, -1):
+            while stk and nums[stk[-1]] < nums[i]:
+                stk.pop()
+            if stk:
+                g[i].append(stk[-1])
+            stk.append(i)
 
+        stk = []
+        for i in range(n - 1, -1, -1):
+            while stk and nums[stk[-1]] >= nums[i]:
+                stk.pop()
+            if stk:
+                g[i].append(stk[-1])
+            stk.append(i)
+
+        f = [inf] * n
+        f[0] = 0
+        for i in range(n):
+            for j in g[i]:
+                f[j] = min(f[j], f[i] + costs[j])
+        return f[n - 1]
 ```
 
 ### **Java**
@@ -70,13 +103,165 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public long minCost(int[] nums, int[] costs) {
+        int n = nums.length;
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        Deque<Integer> stk = new ArrayDeque<>();
+        for (int i = n - 1; i >= 0; --i) {
+            while (!stk.isEmpty() && nums[stk.peek()] < nums[i]) {
+                stk.pop();
+            }
+            if (!stk.isEmpty()) {
+                g[i].add(stk.peek());
+            }
+            stk.push(i);
+        }
+        stk.clear();
+        for (int i = n - 1; i >= 0; --i) {
+            while (!stk.isEmpty() && nums[stk.peek()] >= nums[i]) {
+                stk.pop();
+            }
+            if (!stk.isEmpty()) {
+                g[i].add(stk.peek());
+            }
+            stk.push(i);
+        }
+        long[] f = new long[n];
+        Arrays.fill(f, 1L << 60);
+        f[0] = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j : g[i]) {
+                f[j] = Math.min(f[j], f[i] + costs[j]);
+            }
+        }
+        return f[n - 1];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    long long minCost(vector<int>& nums, vector<int>& costs) {
+        int n = nums.size();
+        vector<int> g[n];
+        stack<int> stk;
+        for (int i = n - 1; ~i; --i) {
+            while (!stk.empty() && nums[stk.top()] < nums[i]) {
+                stk.pop();
+            }
+            if (!stk.empty()) {
+                g[i].push_back(stk.top());
+            }
+            stk.push(i);
+        }
+        stk = stack<int>();
+        for (int i = n - 1; ~i; --i) {
+            while (!stk.empty() && nums[stk.top()] >= nums[i]) {
+                stk.pop();
+            }
+            if (!stk.empty()) {
+                g[i].push_back(stk.top());
+            }
+            stk.push(i);
+        }
+        vector<long long> f(n, 1e18);
+        f[0] = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j : g[i]) {
+                f[j] = min(f[j], f[i] + costs[j]);
+            }
+        }
+        return f[n - 1];
+    }
+};
+```
+
+### **Go**
+
+```go
+func minCost(nums []int, costs []int) int64 {
+	n := len(nums)
+	g := make([][]int, n)
+	stk := []int{}
+	for i := n - 1; i >= 0; i-- {
+		for len(stk) > 0 && nums[stk[len(stk)-1]] < nums[i] {
+			stk = stk[:len(stk)-1]
+		}
+		if len(stk) > 0 {
+			g[i] = append(g[i], stk[len(stk)-1])
+		}
+		stk = append(stk, i)
+	}
+	stk = []int{}
+	for i := n - 1; i >= 0; i-- {
+		for len(stk) > 0 && nums[stk[len(stk)-1]] >= nums[i] {
+			stk = stk[:len(stk)-1]
+		}
+		if len(stk) > 0 {
+			g[i] = append(g[i], stk[len(stk)-1])
+		}
+		stk = append(stk, i)
+	}
+	f := make([]int64, n)
+	for i := 1; i < n; i++ {
+		f[i] = math.MaxInt64
+	}
+	for i := 0; i < n; i++ {
+		for _, j := range g[i] {
+			f[j] = min(f[j], f[i]+int64(costs[j]))
+		}
+	}
+	return f[n-1]
+}
+
+func min(a, b int64) int64 {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function minCost(nums: number[], costs: number[]): number {
+    const n = nums.length;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    const stk: number[] = [];
+    for (let i = n - 1; i >= 0; --i) {
+        while (stk.length && nums[stk[stk.length - 1]] < nums[i]) {
+            stk.pop();
+        }
+        if (stk.length) {
+            g[i].push(stk[stk.length - 1]);
+        }
+        stk.push(i);
+    }
+    stk.length = 0;
+    for (let i = n - 1; i >= 0; --i) {
+        while (stk.length && nums[stk[stk.length - 1]] >= nums[i]) {
+            stk.pop();
+        }
+        if (stk.length) {
+            g[i].push(stk[stk.length - 1]);
+        }
+        stk.push(i);
+    }
+    const f: number[] = Array.from({ length: n }, () => Infinity);
+    f[0] = 0;
+    for (let i = 0; i < n; ++i) {
+        for (const j of g[i]) {
+            f[j] = Math.min(f[j], f[i] + costs[j]);
+        }
+    }
+    return f[n - 1];
+}
 ```
 
 ### **...**

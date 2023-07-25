@@ -14,7 +14,7 @@
 | low_fats    | enum    |
 | recyclable  | enum    |
 +-------------+---------+
-product_id is the primary key for this table.
+In SQL, product_id is the primary key for this table.
 low_fats is an ENUM of type (&#39;Y&#39;, &#39;N&#39;) where &#39;Y&#39; means this product is low fat and &#39;N&#39; means it is not.
 recyclable is an ENUM of types (&#39;Y&#39;, &#39;N&#39;) where &#39;Y&#39; means this product is recyclable and &#39;N&#39; means it is not.</pre>
 

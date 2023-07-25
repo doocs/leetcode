@@ -54,19 +54,88 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def removeOnes(self, grid: List[List[int]]) -> bool:
+        s = set()
+        for row in grid:
+            t = tuple(row) if row[0] == grid[0][0] else tuple(x ^ 1 for x in row)
+            s.add(t)
+        return len(s) == 1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean removeOnes(int[][] grid) {
+        Set<String> s = new HashSet<>();
+        int n = grid[0].length;
+        for (var row : grid) {
+            var cs = new char[n];
+            for (int i = 0; i < n; ++i) {
+                cs[i] = (char) (row[0] ^ row[i]);
+            }
+            s.add(String.valueOf(cs));
+        }
+        return s.size() == 1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool removeOnes(vector<vector<int>>& grid) {
+        unordered_set<string> s;
+        for (auto& row : grid) {
+            string t;
+            for (int x : row) {
+                t.push_back('0' + (row[0] == 0 ? x : x ^ 1));
+            }
+            s.insert(t);
+        }
+        return s.size() == 1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func removeOnes(grid [][]int) bool {
+	s := map[string]bool{}
+	for _, row := range grid {
+		t := []byte{}
+		for _, x := range row {
+			if row[0] == 1 {
+				x ^= 1
+			}
+			t = append(t, byte(x)+'0')
+		}
+		s[string(t)] = true
+	}
+	return len(s) == 1
+}
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function removeOnes(grid: number[][]): boolean {
+    const s = new Set<string>();
+    for (const row of grid) {
+        if (row[0] === 1) {
+            for (let i = 0; i < row.length; i++) {
+                row[i] ^= 1;
+            }
+        }
+        const t = row.join('');
+        s.add(t);
+    }
+    return s.size === 1;
+}
 ```
 
 ### **...**
