@@ -13,13 +13,13 @@
 | id          | int  |
 | salary      | int  |
 +-------------+------+
-id is the primary key column for this table.
+In SQL, id is the primary key column for this table.
 Each row of this table contains information about the salary of an employee.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Find&nbsp;the second highest salary from the <code>Employee</code> table. If there is no second highest salary,&nbsp;return&nbsp;<code>null</code>.</p>
+<p>Find&nbsp;the second highest salary from the <code>Employee</code> table. If there is no second highest salary,&nbsp;return&nbsp;<code>null (return&nbsp;None in Pandas)</code>.</p>
 
 <p>The result format is in the following example.</p>
 

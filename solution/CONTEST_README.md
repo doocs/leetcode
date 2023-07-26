@@ -22,6 +22,27 @@
 
 ## 往期竞赛
 
+#### 第 355 场周赛(2023-07-23 10:30, 90 分钟) 参赛人数 4112
+
+- [2788. 按分隔符拆分字符串](/solution/2700-2799/2788.Split%20Strings%20by%20Separator/README.md)
+- [2789. 合并后数组中的最大元素](/solution/2700-2799/2789.Largest%20Element%20in%20an%20Array%20after%20Merge%20Operations/README.md)
+- [2790. 长度递增组的最大数目](/solution/2700-2799/2790.Maximum%20Number%20of%20Groups%20With%20Increasing%20Length/README.md)
+- [2791. 树中可以形成回文的路径数](/solution/2700-2799/2791.Count%20Paths%20That%20Can%20Form%20a%20Palindrome%20in%20a%20Tree/README.md)
+
+#### 第 109 场双周赛(2023-07-22 22:30, 90 分钟) 参赛人数 2461
+
+- [2784. 检查数组是否是好的](/solution/2700-2799/2784.Check%20if%20Array%20is%20Good/README.md)
+- [2785. 将字符串中的元音字母排序](/solution/2700-2799/2785.Sort%20Vowels%20in%20a%20String/README.md)
+- [2786. 访问数组中的位置使分数最大](/solution/2700-2799/2786.Visit%20Array%20Positions%20to%20Maximize%20Score/README.md)
+- [2787. 将一个数字表示成幂的和的方案数](/solution/2700-2799/2787.Ways%20to%20Express%20an%20Integer%20as%20Sum%20of%20Powers/README.md)
+
+#### 第 354 场周赛(2023-07-16 10:30, 90 分钟) 参赛人数 3957
+
+- [2778. 特殊元素平方和](/solution/2700-2799/2778.Sum%20of%20Squares%20of%20Special%20Elements/README.md)
+- [2779. 数组的最大美丽值](/solution/2700-2799/2779.Maximum%20Beauty%20of%20an%20Array%20After%20Applying%20Operation/README.md)
+- [2780. 合法分割的最小下标](/solution/2700-2799/2780.Minimum%20Index%20of%20a%20Valid%20Split/README.md)
+- [2781. 最长合法子字符串的长度](/solution/2700-2799/2781.Length%20of%20the%20Longest%20Valid%20Substring/README.md)
+
 #### 第 353 场周赛(2023-07-09 10:30, 90 分钟) 参赛人数 4112
 
 - [2769. 找出最大的可达成数字](/solution/2700-2799/2769.Find%20the%20Maximum%20Achievable%20Number/README.md)
@@ -1364,7 +1385,7 @@
 - [1742. 盒子中小球的最大数量](/solution/1700-1799/1742.Maximum%20Number%20of%20Balls%20in%20a%20Box/README.md)
 - [1743. 从相邻元素对还原数组](/solution/1700-1799/1743.Restore%20the%20Array%20From%20Adjacent%20Pairs/README.md)
 - [1744. 你能在你最喜欢的那天吃到你最喜欢的糖果吗？](/solution/1700-1799/1744.Can%20You%20Eat%20Your%20Favorite%20Candy%20on%20Your%20Favorite%20Day/README.md)
-- [1745. 回文串分割 IV](/solution/1700-1799/1745.Palindrome%20Partitioning%20IV/README.md)
+- [1745. 分割回文串 IV](/solution/1700-1799/1745.Palindrome%20Partitioning%20IV/README.md)
 
 #### 第 225 场周赛(2021-01-24 10:30, 90 分钟) 参赛人数 3853
 

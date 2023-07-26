@@ -1,7 +1,5 @@
 # Write your MySQL query statement below
-SELECT
-    s.id,
-    s.name
+SELECT s.id, s.name
 FROM
     Students AS s
     LEFT JOIN Departments AS d ON s.department_id = d.id

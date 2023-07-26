@@ -55,9 +55,16 @@
 
 **方法一：贪心 + 模拟**
 
-从前往后遍历账单数组 `bills`，如果当前账单是 5 美元，那么直接收下即可；如果当前账单是 10 美元，那么需要找零 5 美元；如果当前账单是 20 美元，那么需要找零 15 美元，此时有两种找零方式：找零 1 张 10 美元 + 1 张 5 美元；找零 3 张 5 美元。如果找零失败，直接返回 `false`。
+我们从前往后遍历账单数组 $bills$，对于当前遍历到的账单：
 
-时间复杂度 O(n)，空间复杂度 O(1)。其中 n 为账单数组 `bills` 的长度。
+-   如果是 $5$ 美元，那么直接收下即可；
+-   如果是 $10$ 美元，那么需要找零 $5$ 美元；
+-   如果是 $20$ 美元，那么需要找零 $15$ 美元，此时有两种找零方式：找零 $1$ 张 $10$ 美元 + $1$ 张 $5$ 美元；找零 $3$ 张 $5$ 美元。我们优先用第一种找零方式，如果没有足够的 $10$ 美元，那么用第二种方式；
+-   如果发现 $5$ 美元的数量不够，直接返回 `false`。
+
+遍历结束，说明我们没有遇到无法找零的情况，返回 `true` 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为账单数组 $bills$ 的长度。
 
 <!-- tabs:start -->
 
@@ -95,17 +102,19 @@ class Solution {
     public boolean lemonadeChange(int[] bills) {
         int five = 0, ten = 0;
         for (int v : bills) {
-            if (v == 5) {
-                ++five;
-            } else if (v == 10) {
-                ++ten;
-                --five;
-            } else {
-                if (ten > 0) {
-                    --ten;
+            switch (v) {
+                case 5 -> ++five;
+                case 10 -> {
+                    ++ten;
                     --five;
-                } else {
-                    five -= 3;
+                }
+                case 20 -> {
+                    if (ten > 0) {
+                        --ten;
+                        --five;
+                    } else {
+                        five -= 3;
+                    }
                 }
             }
             if (five < 0) {
@@ -123,20 +132,24 @@ class Solution {
 class Solution {
 public:
     bool lemonadeChange(vector<int>& bills) {
-        int five = 0, ten = 0;
+        int five = 0, ten = 10;
         for (int v : bills) {
-            if (v == 5)
+            if (v == 5) {
                 ++five;
-            else if (v == 10) {
+            } else if (v == 10) {
                 ++ten;
                 --five;
             } else {
-                if (ten)
-                    --ten, --five;
-                else
+                if (ten) {
+                    --ten;
+                    --five;
+                } else {
                     five -= 3;
+                }
             }
-            if (five < 0) return false;
+            if (five < 0) {
+                return false;
+            }
         }
         return true;
     }

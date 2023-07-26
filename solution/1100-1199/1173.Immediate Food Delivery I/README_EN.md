@@ -15,7 +15,7 @@
 | order_date                  | date    |
 | customer_pref_delivery_date | date    |
 +-----------------------------+---------+
-delivery_id is the primary key of this table.
+In SQL, delivery_id is the primary key of this table.
 The table holds information about food delivery to customers that make orders at some date and specify a preferred delivery date (on the same order date or after it).
 </pre>
 
@@ -60,13 +60,12 @@ Delivery table:
 
 ```sql
 # Write your MySQL query statement below
-select
+SELECT
     round(
-        sum(if(order_date = customer_pref_delivery_date, 1, 0)) / count(1) * 100,
+        sum(order_date = customer_pref_delivery_date) * 100 / count(1),
         2
-    ) as immediate_percentage
-from
-    Delivery;
+    ) AS immediate_percentage
+FROM Delivery;
 ```
 
 <!-- tabs:end -->

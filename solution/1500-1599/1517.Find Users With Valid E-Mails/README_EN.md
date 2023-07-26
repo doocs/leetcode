@@ -14,7 +14,7 @@
 | name          | varchar |
 | mail          | varchar |
 +---------------+---------+
-user_id is the primary key for this table.
+In SQL, user_id is the primary key for this table.
 This table contains information of the users signed up in a website. Some e-mails are invalid.
 </pre>
 

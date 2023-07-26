@@ -51,31 +51,32 @@ Time complexity $O(n^3)$, Space complexity $O(\log n)$.
 ```python
 class Solution:
     def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
-        n, res = len(nums), []
+        n = len(nums)
+        ans = []
         if n < 4:
-            return []
+            return ans
         nums.sort()
         for i in range(n - 3):
-            if i > 0 and nums[i] == nums[i - 1]:
+            if i and nums[i] == nums[i - 1]:
                 continue
             for j in range(i + 1, n - 2):
                 if j > i + 1 and nums[j] == nums[j - 1]:
                     continue
                 k, l = j + 1, n - 1
                 while k < l:
-                    if nums[i] + nums[j] + nums[k] + nums[l] == target:
-                        res.append([nums[i], nums[j], nums[k], nums[l]])
+                    x = nums[i] + nums[j] + nums[k] + nums[l]
+                    if x < target:
                         k += 1
+                    elif x > target:
                         l -= 1
-                        while k < n and nums[k] == nums[k - 1]:
-                            k += 1
-                        while l > j and nums[l] == nums[l + 1]:
-                            l -= 1
-                    elif nums[i] + nums[j] + nums[k] + nums[l] < target:
-                        k += 1
                     else:
-                        l -= 1
-        return res
+                        ans.append([nums[i], nums[j], nums[k], nums[l]])
+                        k, l = k + 1, l - 1
+                        while k < l and nums[k] == nums[k - 1]:
+                            k += 1
+                        while k < l and nums[l] == nums[l + 1]:
+                            l -= 1
+        return ans
 ```
 
 ### **Java**
@@ -84,11 +85,11 @@ class Solution:
 class Solution {
     public List<List<Integer>> fourSum(int[] nums, int target) {
         int n = nums.length;
+        List<List<Integer>> ans = new ArrayList<>();
         if (n < 4) {
-            return Collections.emptyList();
+            return ans;
         }
         Arrays.sort(nums);
-        List<List<Integer>> res = new ArrayList<>();
         for (int i = 0; i < n - 3; ++i) {
             if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;
@@ -99,25 +100,24 @@ class Solution {
                 }
                 int k = j + 1, l = n - 1;
                 while (k < l) {
-                    if (nums[i] + nums[j] + nums[k] + nums[l] == target) {
-                        res.add(Arrays.asList(nums[i], nums[j], nums[k], nums[l]));
+                    long x = (long) nums[i] + nums[j] + nums[k] + nums[l];
+                    if (x < target) {
                         ++k;
+                    } else if (x > target) {
                         --l;
-                        while (k < n && nums[k] == nums[k - 1]) {
+                    } else {
+                        ans.add(List.of(nums[i], nums[j], nums[k++], nums[l--]));
+                        while (k < l && nums[k] == nums[k - 1]) {
                             ++k;
                         }
-                        while (l > j && nums[l] == nums[l + 1]) {
+                        while (k < l && nums[l] == nums[l + 1]) {
                             --l;
                         }
-                    } else if (nums[i] + nums[j] + nums[k] + nums[l] < target) {
-                        ++k;
-                    } else {
-                        --l;
                     }
                 }
             }
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -129,32 +129,39 @@ class Solution {
 public:
     vector<vector<int>> fourSum(vector<int>& nums, int target) {
         int n = nums.size();
+        vector<vector<int>> ans;
         if (n < 4) {
-            return {};
+            return ans;
         }
         sort(nums.begin(), nums.end());
-        vector<vector<int>> res;
         for (int i = 0; i < n - 3; ++i) {
-            if (i > 0 && nums[i] == nums[i - 1]) continue;
+            if (i && nums[i] == nums[i - 1]) {
+                continue;
+            }
             for (int j = i + 1; j < n - 2; ++j) {
-                if (j > i + 1 && nums[j] == nums[j - 1]) continue;
+                if (j > i + 1 && nums[j] == nums[j - 1]) {
+                    continue;
+                }
                 int k = j + 1, l = n - 1;
                 while (k < l) {
-                    if (nums[i] + nums[j] == target - nums[k] - nums[l]) {
-                        res.push_back({nums[i], nums[j], nums[k], nums[l]});
+                    long long x = (long long) nums[i] + nums[j] + nums[k] + nums[l];
+                    if (x < target) {
                         ++k;
+                    } else if (x > target) {
                         --l;
-                        while (k < n && nums[k] == nums[k - 1]) ++k;
-                        while (l > j && nums[l] == nums[l + 1]) --l;
-                    } else if (nums[i] + nums[j] < target - nums[k] - nums[l]) {
-                        ++k;
                     } else {
-                        --l;
+                        ans.push_back({nums[i], nums[j], nums[k++], nums[l--]});
+                        while (k < l && nums[k] == nums[k - 1]) {
+                            ++k;
+                        }
+                        while (k < l && nums[l] == nums[l + 1]) {
+                            --l;
+                        }
                     }
                 }
             }
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -162,36 +169,42 @@ public:
 ### **Go**
 
 ```go
-func fourSum(nums []int, target int) [][]int {
-	ans, n := [][]int{}, len(nums)
+func fourSum(nums []int, target int) (ans [][]int) {
+	n := len(nums)
+	if n < 4 {
+		return
+	}
 	sort.Ints(nums)
-	for i := 0; i < n; i++ {
-		for j := i + 1; j < n; j++ {
-			for l, r := j+1, n-1; l < r; {
-				if nums[i]+nums[j]+nums[l]+nums[r] == target {
-					ans = append(ans, []int{nums[i], nums[j], nums[l], nums[r]})
-					l, r = l+1, r-1
-					for l < r && nums[l] == nums[l-1] {
-						l++
-					}
-					for l < r && nums[r] == nums[r+1] {
-						r--
-					}
-				} else if nums[i]+nums[j]+nums[l]+nums[r] < target {
-					l++
+	for i := 0; i < n-3; i++ {
+		if i > 0 && nums[i] == nums[i-1] {
+			continue
+		}
+		for j := i + 1; j < n-2; j++ {
+			if j > i+1 && nums[j] == nums[j-1] {
+				continue
+			}
+			k, l := j+1, n-1
+			for k < l {
+				x := nums[i] + nums[j] + nums[k] + nums[l]
+				if x < target {
+					k++
+				} else if x > target {
+					l--
 				} else {
-					r--
+					ans = append(ans, []int{nums[i], nums[j], nums[k], nums[l]})
+					k++
+					l--
+					for k < l && nums[k] == nums[k-1] {
+						k++
+					}
+					for k < l && nums[l] == nums[l+1] {
+						l--
+					}
 				}
 			}
-			for j+1 < n && nums[j+1] == nums[j] {
-				j++
-			}
-		}
-		for i+1 < n && nums[i+1] == nums[i] {
-			i++
 		}
 	}
-	return ans
+	return
 }
 ```
 
@@ -205,32 +218,124 @@ func fourSum(nums []int, target int) [][]int {
  */
 var fourSum = function (nums, target) {
     const n = nums.length;
-    if (n < 4) return [];
-    let res = [];
+    const ans = [];
+    if (n < 4) {
+        return ans;
+    }
     nums.sort((a, b) => a - b);
     for (let i = 0; i < n - 3; ++i) {
-        if (i > 0 && nums[i] == nums[i - 1]) continue;
+        if (i > 0 && nums[i] === nums[i - 1]) {
+            continue;
+        }
         for (let j = i + 1; j < n - 2; ++j) {
-            if (j > i + 1 && nums[j] == nums[j - 1]) continue;
-            let k = j + 1;
-            let l = n - 1;
+            if (j > i + 1 && nums[j] === nums[j - 1]) {
+                continue;
+            }
+            let [k, l] = [j + 1, n - 1];
             while (k < l) {
-                if (nums[i] + nums[j] + nums[k] + nums[l] == target) {
-                    res.push([nums[i], nums[j], nums[k], nums[l]]);
+                const x = nums[i] + nums[j] + nums[k] + nums[l];
+                if (x < target) {
                     ++k;
+                } else if (x > target) {
                     --l;
-                    while (k < n && nums[k] == nums[k - 1]) ++k;
-                    while (l > j && nums[l] == nums[l + 1]) --l;
-                } else if (nums[i] + nums[j] + nums[k] + nums[l] < target) {
-                    ++k;
                 } else {
-                    --l;
+                    ans.push([nums[i], nums[j], nums[k++], nums[l--]]);
+                    while (k < l && nums[k] === nums[k - 1]) {
+                        ++k;
+                    }
+                    while (k < l && nums[l] === nums[l + 1]) {
+                        --l;
+                    }
                 }
             }
         }
     }
-    return res;
+    return ans;
 };
+```
+
+### **TypeScript**
+
+```ts
+function fourSum(nums: number[], target: number): number[][] {
+    const n = nums.length;
+    const ans: number[][] = [];
+    if (n < 4) {
+        return ans;
+    }
+    nums.sort((a, b) => a - b);
+    for (let i = 0; i < n - 3; ++i) {
+        if (i > 0 && nums[i] === nums[i - 1]) {
+            continue;
+        }
+        for (let j = i + 1; j < n - 2; ++j) {
+            if (j > i + 1 && nums[j] === nums[j - 1]) {
+                continue;
+            }
+            let [k, l] = [j + 1, n - 1];
+            while (k < l) {
+                const x = nums[i] + nums[j] + nums[k] + nums[l];
+                if (x < target) {
+                    ++k;
+                } else if (x > target) {
+                    --l;
+                } else {
+                    ans.push([nums[i], nums[j], nums[k++], nums[l--]]);
+                    while (k < l && nums[k] === nums[k - 1]) {
+                        ++k;
+                    }
+                    while (k < l && nums[l] === nums[l + 1]) {
+                        --l;
+                    }
+                }
+            }
+        }
+    }
+    return ans;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public IList<IList<int>> FourSum(int[] nums, int target) {
+        int n = nums.Length;
+        var ans = new List<IList<int>>();
+        if (n < 4) {
+            return ans;
+        }
+        Array.Sort(nums);
+        for (int i = 0; i < n - 3; ++i) {
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+            for (int j = i + 1; j < n - 2; ++j) {
+                if (j > i + 1 && nums[j] == nums[j - 1]) {
+                    continue;
+                }
+                int k = j + 1, l = n - 1;
+                while (k < l) {
+                    long x = (long) nums[i] + nums[j] + nums[k] + nums[l];
+                    if (x < target) {
+                        ++k;
+                    } else if (x > target) {
+                        --l;
+                    } else {
+                        ans.Add(new List<int> {nums[i], nums[j], nums[k++], nums[l--]});
+                        while (k < l && nums[k] == nums[k - 1]) {
+                            ++k;
+                        }
+                        while (k < l && nums[l] == nums[l + 1]) {
+                            --l;
+                        }
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **...**

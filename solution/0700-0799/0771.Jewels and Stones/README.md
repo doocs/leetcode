@@ -44,7 +44,7 @@
 
 我们可以先用一个哈希表或数组 $s$ 记录所有宝石的类型。然后遍历所有石头，如果当前石头是宝石，就将答案加一。
 
-时间复杂度 $O(m+n)$。其中 $m$ 和 $n$ 分别是字符串 $jewels$ 和 $stones$ 的长度。
+时间复杂度 $O(m+n)$，空间复杂度 $O(|\Sigma|)$，其中 $m$ 和 $n$ 分别是字符串 $jewels$ 和 $stones$ 的长度，而 $\Sigma$ 是字符集，本题中字符集为所有大小写英文字母的集合。
 
 <!-- tabs:start -->
 
@@ -98,7 +98,7 @@ public:
 
 ```go
 func numJewelsInStones(jewels string, stones string) (ans int) {
-	s := make([]int, 128)
+	s := [128]int{}
 	for _, c := range jewels {
 		s[c] = 1
 	}
@@ -127,10 +127,10 @@ var numJewelsInStones = function (jewels, stones) {
 
 ```ts
 function numJewelsInStones(jewels: string, stones: string): number {
-    const set = new Set([...jewels]);
+    const s = new Set([...jewels]);
     let ans = 0;
     for (const c of stones) {
-        set.has(c) && ans++;
+        s.has(c) && ans++;
     }
     return ans;
 }

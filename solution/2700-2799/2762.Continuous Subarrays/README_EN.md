@@ -53,6 +53,16 @@ Total continuous subarrays = 3 + 2 + 1 = 6.
 
 ## Solutions
 
+**Solution 1: Ordered List + Two Pointers**
+
+We can use two pointers, $i$ and $j$, to maintain the left and right endpoints of the current subarray, and use an ordered list to maintain all elements in the current subarray.
+
+Iterate through the array $nums$. For the current number $nums[i]$ we're iterating over, we add it to the ordered list. If the difference between the maximum and minimum values in the ordered list is greater than $2$, we then loop to move the pointer $i$ to the right, continuously removing $nums[i]$ from the ordered list, until the list is empty or the maximum difference between elements in the ordered list is not greater than $2$. At this point, the number of uninterrupted subarrays is $j - i + 1$, which we add to the answer.
+
+After the iteration, return the answer.
+
+The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**

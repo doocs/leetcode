@@ -17,7 +17,7 @@
 <pre>
 <strong>输入：</strong>nums = [100,4,200,1,3,2]
 <strong>输出：</strong>4
-<strong>解释：</strong>最长数字连续序列是 <code>[1, 2, 3, 4]。它的长度为 4。</code></pre>
+<strong>解释：</strong>最长数字连续序列是 [1, 2, 3, 4]。它的长度为 4。</pre>
 
 <p><strong>示例 2：</strong></p>
 
@@ -193,6 +193,39 @@ public:
         return ans;
     }
 };
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashSet;
+
+impl Solution {
+    #[allow(dead_code)]
+    pub fn longest_consecutive(nums: Vec<i32>) -> i32 {
+        let mut s = HashSet::new();
+        let mut ret = 0;
+
+        // Initialize the set
+        for num in &nums {
+            s.insert(*num);
+        }
+
+        for num in &nums {
+            if s.contains(&(*num - 1)) {
+                continue;
+            }
+            let mut cur_num = num.clone();
+            while s.contains(&cur_num) {
+                cur_num  += 1;
+            }
+            // Update the answer
+            ret = std::cmp::max(ret, cur_num - num);
+        }
+
+        ret
+    }
+}
 ```
 
 ### **Go**

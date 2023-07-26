@@ -17,18 +17,25 @@
 | viewer_id     | int     |
 | view_date     | date    |
 +---------------+---------+
-此表无主键，因此可能会存在重复行。
+此表可能会存在重复行。（换句话说，在 SQL 中这个表没有主键）
 此表的每一行都表示某人在某天浏览了某位作者的某篇文章。
 请注意，同一人的 author_id 和 viewer_id 是相同的。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>请编写一条 SQL 查询以找出所有浏览过自己文章的作者，结果按照 id 升序排列。</p>
+<p>请查询出所有浏览过自己文章的作者</p>
+
+<p>结果按照 <code>id</code> 升序排列。</p>
 
 <p>查询结果的格式如下所示：</p>
 
+<p>&nbsp;</p>
+
+<p><strong>示例 1：</strong></p>
+
 <pre>
+<strong>输入：</strong>
 Views 表：
 +------------+-----------+-----------+------------+
 | article_id | author_id | viewer_id | view_date  |
@@ -42,7 +49,7 @@ Views 表：
 | 3          | 4         | 4         | 2019-07-21 |
 +------------+-----------+-----------+------------+
 
-结果表：
+<strong>输出：</strong>
 +------+
 | id   |
 +------+
@@ -55,17 +62,20 @@ Views 表：
 
 <!-- 这里可写通用的实现逻辑 -->
 
-“`DISTINCT` + `ORDER BY`” 实现。
+**方法一：DISTINCT + WHERE**
+
+我们利用 `WHERE` 子句来筛选出 `author_id` 和 `viewer_id` 相等的记录，然后利用 `DISTINCT` 来去重，最后按照 `id` 排序即可。
 
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
-SELECT DISTINCT (author_id) AS id
+# Write your MySQL query statement below
+SELECT DISTINCT author_id AS id
 FROM Views
 WHERE author_id = viewer_id
-ORDER BY id;
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->

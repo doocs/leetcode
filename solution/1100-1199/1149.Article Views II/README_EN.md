@@ -62,12 +62,11 @@ Views table:
 
 ```sql
 # Write your MySQL query statement below
-SELECT DISTINCT
-    (viewer_id) AS id
+SELECT DISTINCT viewer_id AS id
 FROM Views
-GROUP BY view_date, viewer_id
-HAVING COUNT(DISTINCT article_id) > 1
-ORDER BY id;
+GROUP BY viewer_id, view_date
+HAVING count(DISTINCT article_id) > 1
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->

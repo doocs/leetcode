@@ -147,6 +147,55 @@ func deleteGreatestValue(grid [][]int) (ans int) {
 }
 ```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn delete_greatest_value(grid: Vec<Vec<i32>>) -> i32 {
+        let mut grid = grid;
+        for i in 0..grid.len() {
+            grid[i].sort();
+        }
+
+        let mut ans = 0;
+        for j in 0..grid[0].len() {
+            let mut mx = 0;
+
+            for i in 0..grid.len() {
+                if grid[i][j] > mx {
+                    mx = grid[i][j];
+                }
+            }
+
+            ans += mx;
+        }
+
+        ans
+    }
+}
+```
+
+### **TypeScript**
+
+```ts
+function deleteGreatestValue(grid: number[][]): number {
+    for (const row of grid) {
+        row.sort((a, b) => a - b);
+    }
+
+    let ans = 0;
+    for (let j = 0; j < grid[0].length; ++j) {
+        let t = 0;
+        for (let i = 0; i < grid.length; ++i) {
+            t = Math.max(t, grid[i][j]);
+        }
+        ans += t;
+    }
+
+    return ans;
+}
+```
+
 ### **...**
 
 ```

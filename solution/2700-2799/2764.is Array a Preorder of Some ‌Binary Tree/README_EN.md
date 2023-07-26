@@ -48,6 +48,20 @@ For the preorder traversal, first we visit node 0, then we do the preorder trave
 
 ## Solutions
 
+**Solution 1：Depth-First Search**
+
+First, we construct a graph $g$ based on the $nodes$ data, where $g[i]$ represents all the child nodes of node $i$.
+
+Next, we design a function $dfs(i)$, which represents a pre-order traversal starting from node $i$. We use a variable $k$ to represent the $k$-th node in the $nodes$ list that we have currently traversed, with an initial value of $k = 0$.
+
+The execution logic of the function $dfs(i)$ is as follows:
+
+If $i \neq nodes[k][0]$, it indicates that the current sequence is not a pre-order traversal sequence of a binary tree, and returns false.
+Otherwise, we increment $k$ by $1$, and then recursively search all child nodes of $i$. If a false is found during the search, we return false immediately. Otherwise, when the search is finished, we return true.
+In the main function, we call $dfs(nodes[0][0])$. If the return value is true and $k = |nodes|$, then the $nodes$ sequence is a pre-order traversal sequence of a binary tree, and we return true; otherwise, we return false.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of nodes in $nodes$.
+
 <!-- tabs:start -->
 
 ### **Python3**

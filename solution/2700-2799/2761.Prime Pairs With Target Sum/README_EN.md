@@ -43,6 +43,16 @@ These pairs are [3,7] and [5,5], and we return them in the sorted order as descr
 
 ## Solutions
 
+**Solution 1: Preprocessing + Enumeration**
+
+First, we pre-process all the prime numbers within the range of $n$, and record them in the array $primes$, where $primes[i]$ is `true` if $i$ is a prime number.
+
+Next, we enumerate $x$ in the range of $[2, \frac{n}{2}]$. In this case, $y = n - x$. If both $primes[x]$ and $primes[y]$ are `true`, then $(x, y)$ is a pair of prime numbers, which is added to the answer.
+
+After the enumeration is complete, we return the answer.
+
+The time complexity is $O(n \log \log n)$ and the space complexity is $O(n)$, where $n$ is the number given in the problem.
+
 <!-- tabs:start -->
 
 ### **Python3**

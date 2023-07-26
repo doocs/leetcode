@@ -25,6 +25,27 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 355
+
+- [2788. Split Strings by Separator](/solution/2700-2799/2788.Split%20Strings%20by%20Separator/README_EN.md)
+- [2789. Largest Element in an Array after Merge Operations](/solution/2700-2799/2789.Largest%20Element%20in%20an%20Array%20after%20Merge%20Operations/README_EN.md)
+- [2790. Maximum Number of Groups With Increasing Length](/solution/2700-2799/2790.Maximum%20Number%20of%20Groups%20With%20Increasing%20Length/README_EN.md)
+- [2791. Count Paths That Can Form a Palindrome in a Tree](/solution/2700-2799/2791.Count%20Paths%20That%20Can%20Form%20a%20Palindrome%20in%20a%20Tree/README_EN.md)
+
+#### Biweekly Contest 109
+
+- [2784. Check if Array is Good](/solution/2700-2799/2784.Check%20if%20Array%20is%20Good/README_EN.md)
+- [2785. Sort Vowels in a String](/solution/2700-2799/2785.Sort%20Vowels%20in%20a%20String/README_EN.md)
+- [2786. Visit Array Positions to Maximize Score](/solution/2700-2799/2786.Visit%20Array%20Positions%20to%20Maximize%20Score/README_EN.md)
+- [2787. Ways to Express an Integer as Sum of Powers](/solution/2700-2799/2787.Ways%20to%20Express%20an%20Integer%20as%20Sum%20of%20Powers/README_EN.md)
+
+#### Weekly Contest 354
+
+- [2778. Sum of Squares of Special Elements](/solution/2700-2799/2778.Sum%20of%20Squares%20of%20Special%20Elements/README_EN.md)
+- [2779. Maximum Beauty of an Array After Applying Operation](/solution/2700-2799/2779.Maximum%20Beauty%20of%20an%20Array%20After%20Applying%20Operation/README_EN.md)
+- [2780. Minimum Index of a Valid Split](/solution/2700-2799/2780.Minimum%20Index%20of%20a%20Valid%20Split/README_EN.md)
+- [2781. Length of the Longest Valid Substring](/solution/2700-2799/2781.Length%20of%20the%20Longest%20Valid%20Substring/README_EN.md)
+
 #### Weekly Contest 353
 
 - [2769. Find the Maximum Achievable Number](/solution/2700-2799/2769.Find%20the%20Maximum%20Achievable%20Number/README_EN.md)

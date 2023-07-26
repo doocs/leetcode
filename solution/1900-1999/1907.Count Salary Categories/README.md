@@ -15,13 +15,13 @@
 | account_id  | int  |
 | income      | int  |
 +-------------+------+
-account_id&nbsp;是这个表的主键。
+在 SQL 中，account_id&nbsp;是这个表的主键。
 每一行都包含一个银行帐户的月收入的信息。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>写出一个&nbsp;SQL&nbsp;查询，来报告每个工资类别的银行账户数量。&nbsp;工资类别如下：</p>
+<p>查询每个工资类别的银行账户数量。&nbsp;工资类别如下：</p>
 
 <ul>
 	<li><code>"Low Salary"</code>：所有工资 <strong>严格低于</strong> <code>20000</code> 美元。</li>

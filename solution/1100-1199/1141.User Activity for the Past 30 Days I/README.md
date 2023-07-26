@@ -66,19 +66,22 @@ Activity table:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：GROUP BY + HAVING**
+
+我们查询出所有在 `2019-07-27` 且在 $30$ 天内的所有活动记录，然后按照日期分组，统计每天的去重活跃用户数。
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
-SELECT
-    activity_date AS day,
-    COUNT(DISTINCT user_id) AS active_users
+# Write your MySQL query statement below
+SELECT activity_date AS day, count(DISTINCT user_id) AS active_users
 FROM Activity
 WHERE
-    DATEDIFF('2019-07-27', activity_date) >= 0
-    AND DATEDIFF('2019-07-27', activity_date) < 30
-GROUP BY activity_date;
+    activity_date <= '2019-07-27'
+    AND datediff('2019-07-27', activity_date) < 30
+GROUP BY 1;
 ```
 
 <!-- tabs:end -->
