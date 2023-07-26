@@ -45,38 +45,43 @@
 </ul>
 
 ## 解法
+
+<!-- 这里可写通用的实现逻辑 -->
+
+**方法一：递归**
+
 如果 `obj` 不是对象或为空，函数会原封不动地返回，因为无需检查非对象值中的键。
 
 如果 `obj` 是一个数组，它会使用 `obj.filter(Boolean)` 过滤掉虚假值（如 `null`、`undefined`、`false`、0、""），然后使用 `map(compactObject)` 对每个元素递归调用 `compactObject`。这样可以确保嵌套数组也被压缩。
 
 如果 `obj` 是一个对象，则会创建一个新的空对象 `compactedObj`。它会遍历 `obj` 的所有键，并对每个键在相应的值上递归调用 `compactObject`，然后将结果存储在值变量中。如果值是真实的（即不是虚假的），它就会将其赋值给具有相应键的压缩对象。
 
-时间复杂度 $$O(n)$$, 空间复杂度 $$O(n)$$。
-
-<!-- 这里可写通用的实现逻辑 --> 
+时间复杂度 $O(n)$, 空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
 
 ### **JavaScript**
 
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
 ```js
-var compactObject = function(obj) {
+var compactObject = function (obj) {
     if (obj === null || typeof obj !== 'object') {
         return obj;
     }
-  
+
     if (Array.isArray(obj)) {
         return obj.filter(Boolean).map(compactObject);
     }
-    
+
     const result = {};
     for (const key in obj) {
         const value = compactObject(obj[key]);
         if (Boolean(value)) {
-          result[key] = value;
+            result[key] = value;
         }
     }
-    return result;   
+    return result;
 };
 ```
 
@@ -84,27 +89,26 @@ var compactObject = function(obj) {
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-
 ```ts
 type Obj = Record<any, any>;
 
 function compactObject(obj: Obj): Obj {
     if (Array.isArray(obj)) {
-        const temp = []
+        const temp = [];
         for (const item of obj) {
             if (item) {
-                if (typeof item === 'object') temp.push(compactObject(item))
-                else temp.push(item)
+                if (typeof item === 'object') temp.push(compactObject(item));
+                else temp.push(item);
             }
         }
-        return temp
+        return temp;
     }
     for (const [key, value] of Object.entries(obj)) {
-        if (!value) delete obj[key]
-        else if (typeof value === 'object') obj[key] = compactObject(value)
+        if (!value) delete obj[key];
+        else if (typeof value === 'object') obj[key] = compactObject(value);
     }
-    return obj
-};
+    return obj;
+}
 ```
 
 <!-- tabs:end -->
