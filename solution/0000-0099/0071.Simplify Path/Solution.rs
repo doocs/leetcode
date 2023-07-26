@@ -1,5 +1,3 @@
-pub struct Solution;
-
 impl Solution {
     #[allow(dead_code)]
     pub fn simplify_path(path: String) -> String {
