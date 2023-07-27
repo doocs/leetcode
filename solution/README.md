@@ -2802,6 +2802,7 @@
 |  2789  |  [合并后数组中的最大元素](/solution/2700-2799/2789.Largest%20Element%20in%20an%20Array%20after%20Merge%20Operations/README.md)  |    |  中等  |  第 355 场周赛  |
 |  2790  |  [长度递增组的最大数目](/solution/2700-2799/2790.Maximum%20Number%20of%20Groups%20With%20Increasing%20Length/README.md)  |    |  困难  |  第 355 场周赛  |
 |  2791  |  [树中可以形成回文的路径数](/solution/2700-2799/2791.Count%20Paths%20That%20Can%20Form%20a%20Palindrome%20in%20a%20Tree/README.md)  |    |  困难  |  第 355 场周赛  |
+|  2792  |  [Count Nodes That Are Great Enough](/solution/2700-2799/2792.Count%20Nodes%20That%20Are%20Great%20Enough/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
