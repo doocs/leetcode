@@ -29,7 +29,7 @@ public:
             vis[i] = false;
             return ans;
         };
-        
+
         return dfs(1, 1) * 4 + dfs(2, 1) * 4 + dfs(5, 1);
     }
 };
