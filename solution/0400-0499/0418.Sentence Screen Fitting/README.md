@@ -79,6 +79,18 @@ had--
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心**
+
+我们将句子的每个单词拼接上一个空格，然后把句子拼接起来，得到字符串 $s$。例如，对于句子 `["hello", "world"]`，得到的字符串为 `"hello world "`。记 $s$ 的长度为 $m$。
+
+接下来，我们使用贪心的方法，找到最大的可显示句子数。定义一个变量 $cur$，表示当前已经在屏幕上显示的字符串的长度，初始时 $cur=0$。
+
+我们循环 $rows$ 次，每次循环中，我们首先将 $cur$ 增加 $cols$，如果 $s[cur \bmod m]$ 是一个空格，说明我们可以将完整的若干个单词放置到当前行，因此我们将 $cur$ 增加一个额外的 $1$；否则，说明我们需要回退 $cur$，直到 $cur$ 指向的字符是一个空格为止。然后继续下一次循环。
+
+循环结束，返回 $\lfloor \frac{cur}{m} \rfloor$ 即可。
+
+时间复杂度 $O(rows \times M)$，空间复杂度 $O(L)$。其中 $M$ 是单词的最大长度，而 $L$ 是单词的总长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -86,7 +98,18 @@ had--
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def wordsTyping(self, sentence: List[str], rows: int, cols: int) -> int:
+        s = " ".join(sentence) + " "
+        m = len(s)
+        cur = 0
+        for _ in range(rows):
+            cur += cols
+            if s[cur % m] == " ":
+                cur += 1
+            while cur and s[(cur - 1) % m] != " ":
+                cur -= 1
+        return cur // m
 ```
 
 ### **Java**
@@ -94,7 +117,94 @@ had--
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int wordsTyping(String[] sentence, int rows, int cols) {
+        String s = String.join(" ", sentence) + " ";
+        int m = s.length();
+        int cur = 0;
+        while (rows-- > 0) {
+            cur += cols;
+            if (s.charAt(cur % m) == ' ') {
+                ++cur;
+            } else {
+                while (cur > 0 && s.charAt((cur - 1) % m) != ' ') {
+                    --cur;
+                }
+            }
+        }
+        return cur / m;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int wordsTyping(vector<string>& sentence, int rows, int cols) {
+        string s;
+        for (auto& t: sentence) {
+            s += t;
+            s += " ";
+        }
+        int m = s.size();
+        int cur = 0;
+        while (rows--) {
+            cur += cols;
+            if (s[cur % m] == ' ') {
+                ++cur;
+            } else {
+                while (cur && s[(cur - 1) % m] != ' ') {
+                    --cur;
+                }
+            }
+        }
+        return cur / m;
+    }
+};
+```
+
+### **Go**
+
+```go
+func wordsTyping(sentence []string, rows int, cols int) int {
+	s := strings.Join(sentence, " ") + " "
+	m := len(s)
+	cur := 0
+	for i := 0; i < rows; i++ {
+		cur += cols
+		if s[cur%m] == ' ' {
+			cur++
+		} else {
+			for cur > 0 && s[(cur-1)%m] != ' ' {
+				cur--
+			}
+		}
+	}
+	return cur / m
+}
+```
+
+### **TypeScript**
+
+```ts
+function wordsTyping(sentence: string[], rows: number, cols: number): number {
+    const s = sentence.join(' ') + ' ';
+    let cur = 0;
+    const m = s.length;
+    for (let i = 0; i < rows; ++i) {
+        cur += cols;
+        if (s[cur % m] === ' ') {
+            ++cur;
+        } else {
+            while (cur > 0 && s[(cur - 1) % m] !== ' ') {
+                --cur;
+            }
+        }
+    }
+    return Math.floor(cur / m);
+}
 ```
 
 ### **...**
