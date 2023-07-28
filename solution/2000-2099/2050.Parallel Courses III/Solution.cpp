@@ -9,13 +9,13 @@ public:
             ++indeg[b];
         }
         queue<int> q;
-        vector<int> dp(n);
+        vector<int> f(n);
         int ans = 0;
         for (int i = 0; i < n; ++i) {
             int v = indeg[i], t = time[i];
             if (v == 0) {
                 q.push(i);
-                dp[i] = t;
+                f[i] = t;
                 ans = max(ans, t);
             }
         }
@@ -23,9 +23,11 @@ public:
             int i = q.front();
             q.pop();
             for (int j : g[i]) {
-                if (--indeg[j] == 0) q.push(j);
-                dp[j] = max(dp[j], dp[i] + time[j]);
-                ans = max(ans, dp[j]);
+                if (--indeg[j] == 0) {
+                    q.push(j);
+                }
+                f[j] = max(f[j], f[i] + time[j]);
+                ans = max(ans, f[j]);
             }
         }
         return ans;
