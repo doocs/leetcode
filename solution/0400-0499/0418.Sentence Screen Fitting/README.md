@@ -144,7 +144,7 @@ class Solution {
 public:
     int wordsTyping(vector<string>& sentence, int rows, int cols) {
         string s;
-        for (auto& t: sentence) {
+        for (auto& t : sentence) {
             s += t;
             s += " ";
         }
