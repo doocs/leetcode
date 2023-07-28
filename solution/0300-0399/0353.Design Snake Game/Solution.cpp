@@ -9,7 +9,7 @@ public:
         q.push_back(0);
         vis.insert(0);
     }
-    
+
     int move(string direction) {
         int p = q.front();
         int i = p / n, j = p % n;
