@@ -83,6 +83,8 @@ def format_inline_code(path: str):
                     os.system(f'npx clang-format -i --style=file "{file}"')
                 with open(file, 'r', encoding='utf-8') as f:
                     new_block = f.read()
+                if not new_block.endswith('\n'):
+                    new_block += '\n'
                 content = content.replace(block, new_block)
                 os.remove(file)
             elif suf == 'python':
@@ -106,7 +108,7 @@ def run():
             os.system(f'npx clang-format -i --style=file "{path}"')
 
     # format with prettier
-    os.system('npx prettier --write "**/*.{md,js,ts,php}"')
+    os.system('npx prettier --write "**/*.{md,js,ts,php,sql}"')
 
     # format with gofmt
     os.system('gofmt -w .')

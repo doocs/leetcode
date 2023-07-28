@@ -6,13 +6,13 @@ func minimumTime(n int, relations [][]int, time []int) int {
 		g[a] = append(g[a], b)
 		indeg[b]++
 	}
-	dp := make([]int, n)
+	f := make([]int, n)
 	q := []int{}
 	ans := 0
 	for i, v := range indeg {
 		if v == 0 {
 			q = append(q, i)
-			dp[i] = time[i]
+			f[i] = time[i]
 			ans = max(ans, time[i])
 		}
 	}
@@ -24,8 +24,8 @@ func minimumTime(n int, relations [][]int, time []int) int {
 			if indeg[j] == 0 {
 				q = append(q, j)
 			}
-			dp[j] = max(dp[j], dp[i]+time[j])
-			ans = max(ans, dp[j])
+			f[j] = max(f[j], f[i]+time[j])
+			ans = max(ans, f[j])
 		}
 	}
 	return ans

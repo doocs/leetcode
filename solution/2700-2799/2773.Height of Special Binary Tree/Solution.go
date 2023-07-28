@@ -6,7 +6,7 @@
  *     Right *TreeNode
  * }
  */
- func heightOfTree(root *TreeNode) (ans int) {
+func heightOfTree(root *TreeNode) (ans int) {
 	var dfs func(*TreeNode, int)
 	dfs = func(root *TreeNode, d int) {
 		if ans < d {
