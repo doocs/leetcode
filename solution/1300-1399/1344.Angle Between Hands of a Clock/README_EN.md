@@ -42,17 +42,11 @@
 
 <!-- tabs:start -->
 
-<<<<<<< HEAD
-The hour hand moves 30 degrees every hour and an additional 0.5 degrees for each minute. The minute hand moves 6 degrees every minute. If the angle between the hands is greater than 180 degrees, take its difference from 360 degrees to ensure the smallest angle is obtained.
-
-=======
 **Solution 1: Mathematics**
 
 The hour hand moves 30 degrees every hour and an additional 0.5 degrees for each minute. The minute hand moves 6 degrees every minute. If the angle between the hands is greater than 180 degrees, take its difference from 360 degrees to ensure the smallest angle is obtained.
 
 The time complexity is $O(1)$ and the space complexity is $O(1)$.
-
-> > > > > > > main
 
 ### **Python3**
 
