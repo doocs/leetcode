@@ -89,6 +89,10 @@ Passengers 表:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：Rank() 窗口函数**
+
+注意，如果多个人在同一时间预定了同一个航班，只要有空位，就都可以确认预定。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -96,7 +100,23 @@ Passengers 表:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT
+    passenger_id,
+    if(
+        (
+            rank() OVER (
+                PARTITION BY flight_id
+                ORDER BY booking_time
+            )
+        ) <= capacity,
+        'Confirmed',
+        'Waitlist'
+    ) AS Status
+FROM
+    Passengers
+    JOIN Flights USING (flight_id)
+ORDER BY passenger_id;
 ```
 
 <!-- tabs:end -->
