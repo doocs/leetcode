@@ -2801,6 +2801,11 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2790  |  [Maximum Number of Groups With Increasing Length](/solution/2700-2799/2790.Maximum%20Number%20of%20Groups%20With%20Increasing%20Length/README_EN.md)  |    |  Hard  |  Weekly Contest 355  |
 |  2791  |  [Count Paths That Can Form a Palindrome in a Tree](/solution/2700-2799/2791.Count%20Paths%20That%20Can%20Form%20a%20Palindrome%20in%20a%20Tree/README_EN.md)  |    |  Hard  |  Weekly Contest 355  |
 |  2792  |  [Count Nodes That Are Great Enough](/solution/2700-2799/2792.Count%20Nodes%20That%20Are%20Great%20Enough/README_EN.md)  |    |  Medium  |  🔒  |
+|  2793  |  [Status of Flight Tickets](/solution/2700-2799/2793.Status%20of%20Flight%20Tickets/README_EN.md)  |    |  Hard  |  🔒  |
+|  2794  |  [Create Object from Two Arrays](/solution/2700-2799/2794.Create%20Object%20from%20Two%20Arrays/README_EN.md)  |    |  Easy  |  🔒  |
+|  2795  |  [Parallel Execution of Promises for Individual Results Retrieval](/solution/2700-2799/2795.Parallel%20Execution%20of%20Promises%20for%20Individual%20Results%20Retrieval/README_EN.md)  |    |  Medium  |  🔒  |
+|  2796  |  [Repeat String](/solution/2700-2799/2796.Repeat%20String/README_EN.md)  |    |  Easy  |  🔒  |
+|  2797  |  [Partial Function with Placeholders](/solution/2700-2799/2797.Partial%20Function%20with%20Placeholders/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
