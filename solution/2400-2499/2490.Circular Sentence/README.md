@@ -308,7 +308,7 @@ impl Solution {
     pub fn is_circular_sentence(sentence: String) -> bool {
         let n = sentence.len();
         let chars: Vec<char> = sentence.chars().collect();
-        
+
         if chars[0] != chars[n - 1] {
             return false;
         }
