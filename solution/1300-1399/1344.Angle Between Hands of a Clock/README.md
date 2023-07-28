@@ -74,10 +74,7 @@ class Solution:
         h = 30 * hour + 0.5 * minutes
         m = 6 * minutes
         diff = abs(h - m)
-        if diff > 180:
-            diff = 360 - diff
-        return diff
-
+        return min(diff, 360 - diff)
 ```
 
 ### **Java**
