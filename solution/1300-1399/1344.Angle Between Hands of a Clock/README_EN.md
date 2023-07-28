@@ -42,9 +42,19 @@
 
 <!-- tabs:start -->
 
+The hour hand moves 30 degrees every hour and an additional 0.5 degrees for each minute. The minute hand moves 6 degrees every minute. If the angle between the hands is greater than 180 degrees, take its difference from 360 degrees to ensure the smallest angle is obtained.
+
 ### **Python3**
 
 ```python
+class Solution:
+    def angleClock(self, hour: int, minutes: int) -> float:
+        h = 30 * hour + 0.5 * minutes
+        m = 6 * minutes
+        diff = abs(h - m)
+        if diff > 180:
+            diff = 360 - diff
+        return diff
 
 ```
 
