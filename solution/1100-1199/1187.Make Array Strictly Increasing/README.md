@@ -27,7 +27,7 @@
 <pre>
 <strong>输入：</strong>arr1 = [1,5,3,6,7], arr2 = [4,3,1]
 <strong>输出：</strong>2
-<strong>解释：</strong>用 3 来替换 5，然后用 4 来替换 3，得到arr1 = [1, 3, 4, 6, 7]。
+<strong>解释：</strong>用 3 来替换 5，然后用 4 来替换 3，得到 arr1 = [1, 3, 4, 6, 7]。
 </pre>
 
 <p><strong class="example">示例&nbsp;3：</strong></p>
