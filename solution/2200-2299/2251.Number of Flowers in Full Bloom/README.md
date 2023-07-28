@@ -50,6 +50,13 @@
 
 离散差分+离散查询
 
+-   按开始时间对鲜花进行排序
+-   按结束时间对鲜花进行排序
+-   在每个人的新花数组中执行二分搜索
+-   对按开始时间排序的花进行分析，`bisect_right` 给出给定人员考虑的最后一朵花
+-   对按结束时间排序的花执行 `flowers` 操作`bisect_left`，给出针对给定人员考虑的第一朵花
+-   两者相减，就得到当时盛开的花朵
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -57,6 +64,10 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def fullBloomFlowers(self, flowers: List[List[int]], persons: List[int]) -> List[int]:
+        start, end = sorted(a for a,b in flowers), sorted(b for a,b in flowers)
+        return [bisect_right(start, p) - bisect_left(end, p) for p in persons]
 
 ```
 
