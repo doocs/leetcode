@@ -70,7 +70,7 @@
 
 遍历过程中，直接使用 `f1`, `f2`, `f3`, `f4` 计算，考虑的是在同一天买入和卖出时，收益是 $0$，不会对答案产生影响。
 
-最后返回 `f2` 即可。
+最后返回 `f4` 即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `prices` 的长度。
 
@@ -131,6 +131,30 @@ public:
 };
 ```
 
+### **Rust**
+
+```rust
+impl Solution {
+    #[allow(dead_code)]
+    pub fn max_profit(prices: Vec<i32>) -> i32 {
+        let mut f1 = -prices[0];
+        let mut f2 = 0;
+        let mut f3 = -prices[0];
+        let mut f4 = 0;
+        let n = prices.len();
+
+        for i in 1..n {
+            f1 = std::cmp::max(f1, -prices[i]);
+            f2 = std::cmp::max(f2, f1 + prices[i]);
+            f3 = std::cmp::max(f3, f2 - prices[i]);
+            f4 = std::cmp::max(f4, f3 + prices[i]);
+        }
+
+        f4
+    }
+}
+```
+
 ### **Go**
 
 ```go
@@ -168,6 +192,24 @@ public class Solution {
         }
         return f4;
     }
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxProfit(prices: number[]): number {
+    let f1 = -prices[0],
+        f2 = 0,
+        f3 = -prices[0],
+        f4 = 0;
+    for (let i = 1; i < prices.length; ++i) {
+        f1 = Math.max(f1, -prices[i]);
+        f2 = Math.max(f2, f1 + prices[i]);
+        f3 = Math.max(f3, f2 - prices[i]);
+        f4 = Math.max(f4, f3 + prices[i]);
+    }
+    return f4;
 }
 ```
 
