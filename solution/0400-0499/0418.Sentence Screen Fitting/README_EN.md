@@ -62,13 +62,111 @@ The character &#39;-&#39; signifies an empty space on the screen.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def wordsTyping(self, sentence: List[str], rows: int, cols: int) -> int:
+        s = " ".join(sentence) + " "
+        m = len(s)
+        cur = 0
+        for _ in range(rows):
+            cur += cols
+            if s[cur % m] == " ":
+                cur += 1
+            while cur and s[(cur - 1) % m] != " ":
+                cur -= 1
+        return cur // m
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int wordsTyping(String[] sentence, int rows, int cols) {
+        String s = String.join(" ", sentence) + " ";
+        int m = s.length();
+        int cur = 0;
+        while (rows-- > 0) {
+            cur += cols;
+            if (s.charAt(cur % m) == ' ') {
+                ++cur;
+            } else {
+                while (cur > 0 && s.charAt((cur - 1) % m) != ' ') {
+                    --cur;
+                }
+            }
+        }
+        return cur / m;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int wordsTyping(vector<string>& sentence, int rows, int cols) {
+        string s;
+        for (auto& t : sentence) {
+            s += t;
+            s += " ";
+        }
+        int m = s.size();
+        int cur = 0;
+        while (rows--) {
+            cur += cols;
+            if (s[cur % m] == ' ') {
+                ++cur;
+            } else {
+                while (cur && s[(cur - 1) % m] != ' ') {
+                    --cur;
+                }
+            }
+        }
+        return cur / m;
+    }
+};
+```
+
+### **Go**
+
+```go
+func wordsTyping(sentence []string, rows int, cols int) int {
+	s := strings.Join(sentence, " ") + " "
+	m := len(s)
+	cur := 0
+	for i := 0; i < rows; i++ {
+		cur += cols
+		if s[cur%m] == ' ' {
+			cur++
+		} else {
+			for cur > 0 && s[(cur-1)%m] != ' ' {
+				cur--
+			}
+		}
+	}
+	return cur / m
+}
+```
+
+### **TypeScript**
+
+```ts
+function wordsTyping(sentence: string[], rows: number, cols: number): number {
+    const s = sentence.join(' ') + ' ';
+    let cur = 0;
+    const m = s.length;
+    for (let i = 0; i < rows; ++i) {
+        cur += cols;
+        if (s[cur % m] === ' ') {
+            ++cur;
+        } else {
+            while (cur > 0 && s[(cur - 1) % m] !== ' ') {
+                --cur;
+            }
+        }
+    }
+    return Math.floor(cur / m);
+}
 ```
 
 ### **...**
