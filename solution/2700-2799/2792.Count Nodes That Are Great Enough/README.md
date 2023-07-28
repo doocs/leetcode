@@ -225,7 +225,7 @@ public:
  *     Right *TreeNode
  * }
  */
- func countGreatEnoughNodes(root *TreeNode, k int) (ans int) {
+func countGreatEnoughNodes(root *TreeNode, k int) (ans int) {
 	var dfs func(*TreeNode) hp
 	dfs = func(root *TreeNode) hp {
 		if root == nil {
