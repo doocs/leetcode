@@ -60,6 +60,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+时针每小时移动 30 度，每分钟移动 0.5 度。分针每分钟移动 6 度。如果指针之间的夹角大于 180 度，则取其与 360 度的差值，以确保获得最小的夹角。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -67,7 +69,12 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def angleClock(self, hour: int, minutes: int) -> float:
+        h = 30 * hour + 0.5 * minutes
+        m = 6 * minutes
+        diff = abs(h - m)
+        return min(diff, 360 - diff)
 ```
 
 ### **Java**
