@@ -65,7 +65,7 @@ impl Solution {
     #[allow(dead_code)]
     pub fn max_run_time(n: i32, batteries: Vec<i32>) -> i64 {
 
-        // First sort the batteries 
+        // First sort the batteries
         let mut batteries = batteries;
         let m = batteries.len() as i32;
         batteries.sort();

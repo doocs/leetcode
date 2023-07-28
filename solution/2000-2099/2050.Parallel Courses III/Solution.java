@@ -9,21 +9,21 @@ class Solution {
             ++indeg[b];
         }
         Deque<Integer> q = new ArrayDeque<>();
-        int[] dp = new int[n];
+        int[] f = new int[n];
         int ans = 0;
         for (int i = 0; i < n; ++i) {
             int v = indeg[i], t = time[i];
             if (v == 0) {
                 q.offer(i);
-                dp[i] = t;
+                f[i] = t;
                 ans = Math.max(ans, t);
             }
         }
         while (!q.isEmpty()) {
             int i = q.pollFirst();
             for (int j : g[i]) {
-                dp[j] = Math.max(dp[j], dp[i] + time[j]);
-                ans = Math.max(ans, dp[j]);
+                f[j] = Math.max(f[j], f[i] + time[j]);
+                ans = Math.max(ans, f[j]);
                 if (--indeg[j] == 0) {
                     q.offer(j);
                 }
