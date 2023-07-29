@@ -64,13 +64,179 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def printKMoves(self, K: int) -> List[str]:
+        x1 = y1 = x2 = y2 = 0
+        dirs = (0, 1, 0, -1, 0)
+        d = "RDLU"
+        x = y = 0
+        p = 0
+        black = set()
+        for _ in range(K):
+            if (x, y) in black:
+                black.remove((x, y))
+                p = (p + 3) % 4
+            else:
+                black.add((x, y))
+                p = (p + 1) % 4
+            x += dirs[p]
+            y += dirs[p + 1]
+            x1 = min(x1, x)
+            y1 = min(y1, y)
+            x2 = max(x2, x)
+            y2 = max(y2, y)
+        m, n = x2 - x1 + 1, y2 - y1 + 1
+        g = [["_"] * n for _ in range(m)]
+        for i, j in black:
+            g[i - x1][j - y1] = "X"
+        g[x - x1][y - y1] = d[p]
+        return ["".join(row) for row in g]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<String> printKMoves(int K) {
+        int x1 = 0, y1 = 0, x2 = 0, y2 = 0;
+        int[] dirs = {0, 1, 0, -1, 0};
+        String d = "RDLU";
+        int x = 0, y = 0, p = 0;
+        Set<List<Integer>> black = new HashSet<>();
+        while (K-- > 0) {
+            List<Integer> t = List.of(x, y);
+            if (black.add(t)) {
+                p = (p + 1) % 4;
+            } else {
+                black.remove(t);
+                p = (p + 3) % 4;
+            }
+            x += dirs[p];
+            y += dirs[p + 1];
+            x1 = Math.min(x1, x);
+            y1 = Math.min(y1, y);
+            x2 = Math.max(x2, x);
+            y2 = Math.max(y2, y);
+        }
+        int m = x2 - x1 + 1;
+        int n = y2 - y1 + 1;
+        char[][] g = new char[m][n];
+        for (char[] row : g) {
+            Arrays.fill(row, '_');
+        }
+        for (List<Integer> t : black) {
+            int i = t.get(0) - x1;
+            int j = t.get(1) - y1;
+            g[i][j] = 'X';
+        }
+        g[x - x1][y - y1] = d.charAt(p);
+        List<String> ans = new ArrayList<>();
+        for (char[] row : g) {
+            ans.add(String.valueOf(row));
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> printKMoves(int K) {
+        int x1 = 0, y1 = 0, x2 = 0, y2 = 0;
+        int dirs[5] = {0, 1, 0, -1, 0};
+        string d = "RDLU";
+        int x = 0, y = 0, p = 0;
+        set<pair<int, int>> black;
+        while (K--) {
+            auto t = make_pair(x, y);
+            if (black.count(t)) {
+                black.erase(t);
+                p = (p + 3) % 4;
+            } else {
+                black.insert(t);
+                p = (p + 1) % 4;
+            }
+            x += dirs[p];
+            y += dirs[p + 1];
+            x1 = min(x1, x);
+            y1 = min(y1, y);
+            x2 = max(x2, x);
+            y2 = max(y2, y);
+        }
+        int m = x2 - x1 + 1, n = y2 - y1 + 1;
+        vector<string> g(m, string(n, '_'));
+        for (auto& [i, j] : black) {
+            g[i - x1][j - y1] = 'X';
+        }
+        g[x - x1][y - y1] = d[p];
+        return g;
+    }
+};
+```
+
+### **Go**
+
+```go
+func printKMoves(K int) []string {
+	var x1, y1, x2, y2, x, y, p int
+	dirs := [5]int{0, 1, 0, -1, 0}
+	d := "RDLU"
+	type pair struct{ x, y int }
+	black := map[pair]bool{}
+	for K > 0 {
+		t := pair{x, y}
+		if black[t] {
+			delete(black, t)
+			p = (p + 3) % 4
+		} else {
+			black[t] = true
+			p = (p + 1) % 4
+		}
+		x += dirs[p]
+		y += dirs[p+1]
+		x1 = min(x1, x)
+		y1 = min(y1, y)
+		x2 = max(x2, x)
+		y2 = max(y2, y)
+		K--
+	}
+	m, n := x2-x1+1, y2-y1+1
+	g := make([][]byte, m)
+	for i := range g {
+		g[i] = make([]byte, n)
+		for j := range g[i] {
+			g[i][j] = '_'
+		}
+	}
+	for t := range black {
+		i, j := t.x-x1, t.y-y1
+		g[i][j] = 'X'
+	}
+	g[x-x1][y-y1] = d[p]
+	ans := make([]string, m)
+	for i := range ans {
+		ans[i] = string(g[i])
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+
+}
 ```
 
 ### **...**
