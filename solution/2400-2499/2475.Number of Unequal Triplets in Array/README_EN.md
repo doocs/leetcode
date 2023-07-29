@@ -353,6 +353,72 @@ impl Solution {
 }
 ```
 
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn unequal_triplets(nums: Vec<i32>) -> i32 {
+        let cnt = nums.iter().fold(HashMap::new(), |mut map, &n| {
+            *map.entry(n).or_insert(0) += 1;
+            map
+        });
+
+        let mut ans = 0;
+        let n = nums.len();
+        let mut a = 0;
+        for &b in cnt.values() {
+            let c = n - a - b;
+            ans += a * b * c;
+            a += b;
+        }
+
+        ans as i32
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn unequal_triplets(nums: Vec<i32>) -> i32 {
+        let mut ans = 0;
+        let mut nums = nums;
+        nums.sort();
+        let n = nums.len();
+
+        for i in 1..n - 1 {
+
+            let mut l = 0;
+            let mut r = i;
+            while l < r {
+                let mid = (l + r) >> 1;
+                if nums[mid] >= nums[i] {
+                    r = mid;
+                } else {
+                    l = mid + 1;
+                }
+            }
+            let j = r;
+
+            let mut l = i + 1;
+            let mut r = n;
+            while l < r {
+                let mid = (l + r) >> 1;
+                if nums[mid] > nums[i] {
+                    r = mid;
+                } else {
+                    l = mid + 1;
+                }
+            }
+            let k = r;
+
+            ans += j * (n - k)
+        } 
+
+        ans as i32
+    }
+}
+```
+
 ### **...**
 
 ```
