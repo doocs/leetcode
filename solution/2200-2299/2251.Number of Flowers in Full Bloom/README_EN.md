@@ -42,10 +42,24 @@ For each person, we return the number of flowers in full bloom during their arri
 
 <!-- tabs:start -->
 
+Discrete Differentiation + Discrete Querying
+
+-   Sort flowers by start time
+-   Sort flowers by end time
+-   Perform binary search in the new flowers arrays for each person
+-   Performing a `bisect_right` on flowers sorted by start time gives the last flower to be considered for given person
+-   Performing a `bisect_left` on flowers sorted by end time gives the first flower to be considered for given person
+-   Subtract the two and you get the flowers that are blooming at the time
+
 ### **Python3**
 
 ```python
-
+class Solution:
+    def fullBloomFlowers(
+        self, flowers: List[List[int]], persons: List[int]
+    ) -> List[int]:
+        start, end = sorted(a for a, _ in flowers), sorted(b for _, b in flowers)
+        return [bisect_right(start, p) - bisect_left(end, p) for p in persons]
 ```
 
 ### **Java**
