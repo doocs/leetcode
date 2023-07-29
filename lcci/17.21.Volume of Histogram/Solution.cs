@@ -1,6 +1,6 @@
-class Solution {
-    public int trap(int[] height) {
-        int n = height.length;
+public class Solution {
+    public int Trap(int[] height) {
+        int n = height.Length;
         if (n < 3) {
             return 0;
         }
@@ -9,12 +9,12 @@ class Solution {
         left[0] = height[0];
         right[n - 1] = height[n - 1];
         for (int i = 1; i < n; ++i) {
-            left[i] = Math.max(left[i - 1], height[i]);
-            right[n - i - 1] = Math.max(right[n - i], height[n - i - 1]);
+            left[i] = Math.Max(left[i - 1], height[i]);
+            right[n - i - 1] = Math.Max(right[n - i], height[n - i - 1]);
         }
         int ans = 0;
         for (int i = 0; i < n; ++i) {
-            ans += Math.min(left[i], right[i]) - height[i];
+            ans += Math.Min(left[i], right[i]) - height[i];
         }
         return ans;
     }
