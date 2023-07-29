@@ -60,7 +60,36 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
+function createObject(keysArr: any[], valuesArr: any[]): Record<string, any> {
+    const ans: Record<string, any> = {};
+    for (let i = 0; i < keysArr.length; ++i) {
+        const k = String(keysArr[i]);
+        if (ans[k] === undefined) {
+            ans[k] = valuesArr[i];
+        }
+    }
+    return ans;
+}
+```
 
+### **JavaScript**
+
+```js
+/**
+ * @param {Array} keysArr
+ * @param {Array} valuesArr
+ * @return {Object}
+ */
+var createObject = function (keysArr, valuesArr) {
+    const ans = {};
+    for (let i = 0; i < keysArr.length; ++i) {
+        const k = keysArr[i] + '';
+        if (ans[k] === undefined) {
+            ans[k] = valuesArr[i];
+        }
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->

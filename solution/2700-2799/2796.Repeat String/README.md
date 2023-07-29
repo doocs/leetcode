@@ -56,7 +56,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
+declare global {
+    interface String {
+        replicate(times: number): string;
+    }
+}
 
+String.prototype.replicate = function (times: number) {
+    return new Array(times).fill(this).join('');
+};
+```
+
+### **JavaScript**
+
+```js
+String.prototype.replicate = function (times) {
+    return Array(times).fill(this).join('');
+};
 ```
 
 <!-- tabs:end -->
