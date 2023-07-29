@@ -66,11 +66,15 @@
 
 遍历链表，并使用哈希表记录每个节点。当某个节点二次出现时，则表示存在环，直接返回 `true`。否则链表遍历结束，返回 `false`。
 
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是链表中的节点数。
+
 **方法二：快慢指针**
 
-定义快慢指针 `slow`、`fast`，初始指向 `head`。
+我们定义快慢指针 $fast$ 和 $slow$，初始时均指向 $head$。
 
-快指针每次走两步，慢指针每次走一步，不断循环。当相遇时，说明链表存在环。如果循环结束依然没有相遇，说明链表不存在环。
+快指针每次走两步，慢指针每次走一步，不断循环。当快慢指针相遇时，说明链表存在环。如果循环结束依然没有相遇，说明链表不存在环。
+
+时间复杂度 $O(n)$，其中 $n$ 是链表中的节点数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -156,35 +160,6 @@ public:
 };
 ```
 
-### **JavaScript**
-
-```js
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
-
-/**
- * @param {ListNode} head
- * @return {boolean}
- */
-var hasCycle = function (head) {
-    let slow = head;
-    let fast = head;
-    while (fast && fast.next) {
-        slow = slow.next;
-        fast = fast.next.next;
-        if (slow == fast) {
-            return true;
-        }
-    }
-    return false;
-};
-```
-
 ### **Go**
 
 ```go
@@ -250,19 +225,75 @@ function hasCycle(head: ListNode | null): boolean {
  */
 
 function hasCycle(head: ListNode | null): boolean {
-    if (head == null) {
-        return false;
-    }
     let slow = head;
-    let fast = head.next;
+    let fast = head;
     while (fast != null && fast.next != null) {
-        if (slow == fast) {
-            return true;
-        }
         slow = slow.next;
         fast = fast.next.next;
+        if (slow === fast) {
+            return true;
+        }
     }
     return false;
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+
+/**
+ * @param {ListNode} head
+ * @return {boolean}
+ */
+var hasCycle = function (head) {
+    let slow = head;
+    let fast = head;
+    while (fast && fast.next) {
+        slow = slow.next;
+        fast = fast.next.next;
+        if (slow === fast) {
+            return true;
+        }
+    }
+    return false;
+};
+```
+
+### **C#**
+
+```cs
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public bool HasCycle(ListNode head) {
+        var fast = head;
+        var slow = head;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 ```
 
