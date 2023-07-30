@@ -47,6 +47,26 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表 + 枚举**
+
+我们先用哈希表统计数组中不同元素的数目，记为 $cnt$。
+
+接下来，我们枚举子数组的左端点下标 $i$，并维护一个集合 $s$，用于存储子数组中的元素。每次向右移动右端点下标 $j$ 时，我们将 $nums[j]$ 加入集合 $s$ 中，并判断集合 $s$ 的大小是否等于 $cnt$。如果等于 $cnt$，则说明当前子数组是完全子数组，我们将答案增加 $1$。
+
+枚举结束后，返回答案即可。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
+
+**方法二：哈希表 + 双指针**
+
+与方法一类似，我们可以使用哈希表统计数组中不同元素的数目，记为 $cnt$。
+
+接下来，我们使用双指针维护一个滑动窗口，滑动窗口的右端点下标为 $j$，左端点下标为 $i$。
+
+每次固定左端点下标 $i$，然后向右移动右端点下标 $j$，当滑动窗口中的元素种类数等于 $cnt$ 时，这意味着从左端点下标 $i$ 到右端点下标 $j$ 以及右侧的所有子数组都是完全子数组，我们将答案增加 $n - j$，其中 $n$ 是数组的长度。然后我们将左端点下标 $i$ 右移一位，继续上述过程。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -64,6 +84,24 @@ class Solution:
                 s.add(x)
                 if len(s) == cnt:
                     ans += 1
+        return ans
+```
+
+```python
+class Solution:
+    def countCompleteSubarrays(self, nums: List[int]) -> int:
+        cnt = len(set(nums))
+        d = Counter()
+        ans, n = 0, len(nums)
+        i = 0
+        for j, x in enumerate(nums):
+            d[x] += 1
+            while len(d) == cnt:
+                ans += n - j
+                d[nums[i]] -= 1
+                if d[nums[i]] == 0:
+                    d.pop(nums[i])
+                i += 1
         return ans
 ```
 
@@ -94,6 +132,31 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int countCompleteSubarrays(int[] nums) {
+        Map<Integer, Integer> d = new HashMap<>();
+        for (int x : nums) {
+            d.put(x, 1);
+        }
+        int cnt = d.size();
+        int ans = 0, n = nums.length;
+        d.clear();
+        for (int i = 0, j = 0; j < n; ++j) {
+            d.merge(nums[j], 1, Integer::sum);
+            while (d.size() == cnt) {
+                ans += n - j;
+                if (d.merge(nums[i], -1, Integer::sum) == 0) {
+                    d.remove(nums[i]);
+                }
+                ++i;
+            }
+        }
+        return ans;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -110,6 +173,32 @@ public:
                 if (s.size() == cnt) {
                     ++ans;
                 }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int countCompleteSubarrays(vector<int>& nums) {
+        unordered_map<int, int> d;
+        for (int x : nums) {
+            d[x] = 1;
+        }
+        int cnt = d.size();
+        d.clear();
+        int ans = 0, n = nums.size();
+        for (int i = 0, j = 0; j < n; ++j) {
+            d[nums[j]]++;
+            while (d.size() == cnt) {
+                ans += n - j;
+                if (--d[nums[i]] == 0) {
+                    d.erase(nums[i]);
+                }
+                ++i;
             }
         }
         return ans;
@@ -139,6 +228,30 @@ func countCompleteSubarrays(nums []int) (ans int) {
 }
 ```
 
+```go
+func countCompleteSubarrays(nums []int) (ans int) {
+	d := map[int]int{}
+	for _, x := range nums {
+		d[x] = 1
+	}
+	cnt := len(d)
+	i, n := 0, len(nums)
+	d = map[int]int{}
+	for j, x := range nums {
+		d[x]++
+		for len(d) == cnt {
+			ans += n - j
+			d[nums[i]]--
+			if d[nums[i]] == 0 {
+				delete(d, nums[i])
+			}
+			i++
+		}
+	}
+	return
+}
+```
+
 ### **TypeScript**
 
 ```ts
@@ -154,6 +267,32 @@ function countCompleteSubarrays(nums: number[]): number {
             if (s.size === cnt) {
                 ++ans;
             }
+        }
+    }
+    return ans;
+}
+```
+
+```ts
+function countCompleteSubarrays(nums: number[]): number {
+    const d: Map<number, number> = new Map();
+    for (const x of nums) {
+        d.set(x, (d.get(x) ?? 0) + 1);
+    }
+    const cnt = d.size;
+    d.clear();
+    const n = nums.length;
+    let ans = 0;
+    let i = 0;
+    for (let j = 0; j < n; ++j) {
+        d.set(nums[j], (d.get(nums[j]) ?? 0) + 1);
+        while (d.size === cnt) {
+            ans += n - j;
+            d.set(nums[i], d.get(nums[i])! - 1);
+            if (d.get(nums[i]) === 0) {
+                d.delete(nums[i]);
+            }
+            ++i;
         }
     }
     return ans;

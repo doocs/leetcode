@@ -1,16 +1,20 @@
 func countCompleteSubarrays(nums []int) (ans int) {
-	s := map[int]bool{}
+	d := map[int]int{}
 	for _, x := range nums {
-		s[x] = true
+		d[x] = 1
 	}
-	cnt := len(s)
-	for i := range nums {
-		s = map[int]bool{}
-		for _, x := range nums[i:] {
-			s[x] = true
-			if len(s) == cnt {
-				ans++
+	cnt := len(d)
+	i, n := 0, len(nums)
+	d = map[int]int{}
+	for j, x := range nums {
+		d[x]++
+		for len(d) == cnt {
+			ans += n - j
+			d[nums[i]]--
+			if d[nums[i]] == 0 {
+				delete(d, nums[i])
 			}
+			i++
 		}
 	}
 	return
