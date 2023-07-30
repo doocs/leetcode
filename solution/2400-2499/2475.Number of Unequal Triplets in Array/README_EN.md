@@ -412,7 +412,7 @@ impl Solution {
             let k = r;
 
             ans += j * (n - k)
-        } 
+        }
 
         ans as i32
     }

@@ -116,17 +116,21 @@ function isPalinddrome(s: string): boolean {
 class Solution {
 public:
     bool validPalindrome(string s) {
-        for (int i = 0, j = s.size() - 1; i < j; ++i, --j)
-            if (s[i] != s[j])
+        for (int i = 0, j = s.size() - 1; i < j; ++i, --j) {
+            if (s[i] != s[j]) {
                 return check(s, i + 1, j) || check(s, i, j - 1);
+            }
+        }
         return 1;
     }
 
     bool check(string s, int i, int j) {
-        for (; i < j; ++i, --j)
-            if (s[i] != s[j])
-                return 0;
-        return 1;
+        for (; i < j; ++i, --j) {
+            if (s[i] != s[j]) {
+                return false;
+            }
+        }
+        return true;
     }
 };
 ```
@@ -175,6 +179,35 @@ var validPalindrome = function (s) {
     }
     return true;
 };
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public bool ValidPalindrome(string s) {
+        int i = 0, j = s.Length - 1;
+        while (i < j && s[i] == s[j]) {
+            i++;
+            j--;
+        }
+        if (i >= j) {
+            return true;
+        }
+        return check(s, i + 1, j) || check(s, i, j - 1);
+    }
+
+    private bool check(string s, int i, int j) {
+        while (i < j) {
+            if (s[i] != s[j]) {
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
+}
 ```
 
 ### **...**

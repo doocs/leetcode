@@ -237,7 +237,7 @@ impl Solution {
         for i in 0..n >> 1 {
             let x = (nums[i] + nums[n - i - 1]) as usize;
             cnt[x] += 1;
-        
+
             if cnt[x] == 1 {
                 ans += 1;
             }
