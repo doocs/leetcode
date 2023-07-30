@@ -169,7 +169,7 @@ func hasCycle(head *ListNode) bool {
 function hasCycle(head: ListNode | null): boolean {
     const set = new Set<ListNode>();
     let node = head;
-    while (node != null) {
+    while (node !== null) {
         if (set.has(node)) {
             return true;
         }
@@ -196,7 +196,7 @@ function hasCycle(head: ListNode | null): boolean {
 function hasCycle(head: ListNode | null): boolean {
     let slow = head;
     let fast = head;
-    while (fast != null && fast.next != null) {
+    while (fast !== null && fast.next !== null) {
         slow = slow.next;
         fast = fast.next.next;
         if (slow === fast) {
