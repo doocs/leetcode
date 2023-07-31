@@ -188,7 +188,7 @@ public:
 
         // 此时 cur, pre 分别指向链表左右两半的第一个节点
         // 合并
-        while (pre != nullptr) {
+        while (pre) {
             ListNode* t = pre->next;
             pre->next = cur->next;
             cur->next = pre;

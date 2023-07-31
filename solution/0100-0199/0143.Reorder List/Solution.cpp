@@ -30,7 +30,7 @@ public:
         }
         cur = head;
 
-        while (pre != nullptr) {
+        while (pre) {
             ListNode* t = pre->next;
             pre->next = cur->next;
             cur->next = pre;
