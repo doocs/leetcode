@@ -71,7 +71,7 @@ Teacher 2:
 # Write your MySQL query statement below
 SELECT teacher_id, count(DISTINCT subject_id) AS cnt
 FROM Teacher
-GROUP BY teacher_id;
+GROUP BY 1;
 ```
 
 <!-- tabs:end -->
