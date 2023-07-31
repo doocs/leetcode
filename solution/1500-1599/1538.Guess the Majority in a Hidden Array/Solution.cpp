@@ -16,7 +16,7 @@
 
 class Solution {
 public:
-    int guessMajority(ArrayReader &reader) {
+    int guessMajority(ArrayReader& reader) {
         int n = reader.length();
         int x = reader.query(0, 1, 2, 3);
         int a = 1, b = 0;
@@ -29,7 +29,7 @@ public:
                 k = i;
             }
         }
-        
+
         int y = reader.query(0, 1, 2, 4);
         if (reader.query(1, 2, 3, 4) == y) {
             ++a;
