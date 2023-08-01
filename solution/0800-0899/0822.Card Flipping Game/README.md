@@ -22,8 +22,8 @@
 
 <pre>
 <strong>输入：</strong>fronts = [1,2,4,4,7], backs = [1,3,4,1,3]
-<strong>输出：</strong><code>2</code>
-<strong>解释：</strong>假设我们翻转第二张卡片，那么在正面的数变成了 <code>[1,3,4,4,7]</code> ， 背面的数变成了 <code>[1,2,4,1,3]。</code>
+<strong>输出：</strong>2
+<strong>解释：</strong>假设我们翻转第二张卡片，那么在正面的数变成了 [1,3,4,4,7] ， 背面的数变成了 [1,2,4,1,3]。
 接着我们选择第二张卡片，因为现在该卡片的背面的数是 2，2 与任意卡片上正面的数都不同，所以 2 就是我们想要的数字。</pre>
 
 <p>&nbsp;</p>
@@ -144,6 +144,32 @@ func min(a, b int) int {
 	}
 	return b
 }
+```
+
+### **TypeScript**
+
+```ts
+function flipgame(fronts: number[], backs: number[]): number {
+	const s: Set<number> = new Set();
+	const n = fronts.length;
+	for (let i = 0; i < n; ++i) {
+		if (fronts[i] === backs[i]) {
+			s.add(fronts[i]);
+		}
+	}
+	let ans = 9999;
+	for (const v of fronts) {
+		if (!s.has(v)) {
+			ans = Math.min(ans, v);
+		}
+	}
+	for (const v of backs) {
+		if (!s.has(v)) {
+			ans = Math.min(ans, v);
+		}
+	}
+	return ans % 9999;
+};
 ```
 
 ### **...**
