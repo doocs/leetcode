@@ -51,6 +51,130 @@ We can run the two computers simultaneously for at most 2 minutes, so we return 
 
 <!-- tabs:start -->
 
+### **Python3**
+
+```python
+class Solution:
+    def maxRunTime(self, n: int, batteries: List[int]) -> int:
+        l, r = 0, sum(batteries)
+        while l < r:
+            mid = (l + r + 1) >> 1
+            if sum(min(x, mid) for x in batteries) >= n * mid:
+                l = mid
+            else:
+                r = mid - 1
+        return l
+```
+
+### **Java**
+
+```java
+class Solution {
+    public long maxRunTime(int n, int[] batteries) {
+        long l = 0, r = 0;
+        for (int x : batteries) {
+            r += x;
+        }
+        while (l < r) {
+            long mid = (l + r + 1) >> 1;
+            long s = 0;
+            for (int x : batteries) {
+                s += Math.min(mid, x);
+            }
+            if (s >= n * mid) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return l;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    long long maxRunTime(int n, vector<int>& batteries) {
+        long long l = 0, r = 0;
+        for (int x : batteries) {
+            r += x;
+        }
+        while (l < r) {
+            long long mid = (l + r + 1) >> 1;
+            long long s = 0;
+            for (int x : batteries) {
+                s += min(1LL * x, mid);
+            }
+            if (s >= n * mid) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return l;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxRunTime(n int, batteries []int) int64 {
+	l, r := 0, 0
+	for _, x := range batteries {
+		r += x
+	}
+	for l < r {
+		mid := (l + r + 1) >> 1
+		s := 0
+		for _, x := range batteries {
+			s += min(x, mid)
+		}
+		if s >= n*mid {
+			l = mid
+		} else {
+			r = mid - 1
+		}
+	}
+	return int64(l)
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxRunTime(n: number, batteries: number[]): number {
+    let l = 0n;
+    let r = 0n;
+    for (const x of batteries) {
+        r += BigInt(x);
+    }
+    while (l < r) {
+        const mid = (l + r + 1n) >> 1n;
+        let s = 0n;
+        for (const x of batteries) {
+            s += BigInt(Math.min(x, Number(mid)));
+        }
+        if (s >= mid * BigInt(n)) {
+            l = mid;
+        } else {
+            r = mid - 1n;
+        }
+    }
+    return Number(l);
+}
+```
+
 ### **Rust**
 
 ```rust
@@ -102,24 +226,6 @@ impl Solution {
         ret
     }
 }
-```
-
-### **Python3**
-
-```python
-
-```
-
-### **Java**
-
-```java
-
-```
-
-### **TypeScript**
-
-```ts
-
 ```
 
 ### **...**
