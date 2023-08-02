@@ -1,16 +1,16 @@
 class Solution {
     public long wonderfulSubstrings(String word) {
-        int[] counter = new int[1 << 10];
-        counter[0] = 1;
-        int state = 0;
+        int[] cnt = new int[1 << 10];
+        cnt[0] = 1;
         long ans = 0;
+        int st = 0;
         for (char c : word.toCharArray()) {
-            state ^= (1 << (c - 'a'));
-            ans += counter[state];
+            st ^= 1 << (c - 'a');
+            ans += cnt[st];
             for (int i = 0; i < 10; ++i) {
-                ans += counter[state ^ (1 << i)];
+                ans += cnt[st ^ (1 << i)];
             }
-            ++counter[state];
+            ++cnt[st];
         }
         return ans;
     }
