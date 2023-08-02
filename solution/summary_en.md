@@ -2845,3 +2845,15 @@
   - [2789.Largest Element in an Array after Merge Operations](/solution/2700-2799/2789.Largest%20Element%20in%20an%20Array%20after%20Merge%20Operations/README_EN.md)
   - [2790.Maximum Number of Groups With Increasing Length](/solution/2700-2799/2790.Maximum%20Number%20of%20Groups%20With%20Increasing%20Length/README_EN.md)
   - [2791.Count Paths That Can Form a Palindrome in a Tree](/solution/2700-2799/2791.Count%20Paths%20That%20Can%20Form%20a%20Palindrome%20in%20a%20Tree/README_EN.md)
+  - [2792.Count Nodes That Are Great Enough](/solution/2700-2799/2792.Count%20Nodes%20That%20Are%20Great%20Enough/README_EN.md)
+  - [2793.Status of Flight Tickets](/solution/2700-2799/2793.Status%20of%20Flight%20Tickets/README_EN.md)
+  - [2794.Create Object from Two Arrays](/solution/2700-2799/2794.Create%20Object%20from%20Two%20Arrays/README_EN.md)
+  - [2795.Parallel Execution of Promises for Individual Results Retrieval](/solution/2700-2799/2795.Parallel%20Execution%20of%20Promises%20for%20Individual%20Results%20Retrieval/README_EN.md)
+  - [2796.Repeat String](/solution/2700-2799/2796.Repeat%20String/README_EN.md)
+  - [2797.Partial Function with Placeholders](/solution/2700-2799/2797.Partial%20Function%20with%20Placeholders/README_EN.md)
+  - [2798.Number of Employees Who Met the Target](/solution/2700-2799/2798.Number%20of%20Employees%20Who%20Met%20the%20Target/README_EN.md)
+  - [2799.Count Complete Subarrays in an Array](/solution/2700-2799/2799.Count%20Complete%20Subarrays%20in%20an%20Array/README_EN.md)
+
+- 2800-2899
+  - [2800.Shortest String That Contains Three Strings](/solution/2800-2899/2800.Shortest%20String%20That%20Contains%20Three%20Strings/README_EN.md)
+  - [2801.Count Stepping Numbers in Range](/solution/2800-2899/2801.Count%20Stepping%20Numbers%20in%20Range/README_EN.md)

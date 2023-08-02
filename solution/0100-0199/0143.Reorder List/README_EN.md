@@ -54,16 +54,11 @@ L<sub>0</sub> &rarr; L<sub>n</sub> &rarr; L<sub>1</sub> &rarr; L<sub>n - 1</sub>
 #         self.val = val
 #         self.next = next
 class Solution:
-    def reorderList(self, head: ListNode) -> None:
-        """
-        Do not return anything, modify head in-place instead.
-        """
-        if head is None or head.next is None:
-            return
-
-        slow, fast = head, head.next
-        while fast and fast.next:
-            slow, fast = slow.next, fast.next.next
+    def reorderList(self, head: Optional[ListNode]) -> None:
+        fast = slow = head
+        while fast.next and fast.next.next:
+            slow = slow.next
+            fast = fast.next.next
 
         cur = slow.next
         slow.next = None
@@ -97,12 +92,8 @@ class Solution:
  */
 class Solution {
     public void reorderList(ListNode head) {
-        if (head == null || head.next == null) {
-            return;
-        }
-        ListNode slow = head;
-        ListNode fast = head.next;
-        while (fast != null && fast.next != null) {
+        ListNode fast = head, slow = head;
+        while (fast.next != null && fast.next.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
@@ -130,57 +121,50 @@ class Solution {
 }
 ```
 
-### **C#**
+### **C++**
 
-```cs
+```cpp
 /**
  * Definition for singly-linked list.
- * public class ListNode {
- *     public int val;
- *     public ListNode next;
- *     public ListNode(int val=0, ListNode next=null) {
- *         this.val = val;
- *         this.next = next;
- *     }
- * }
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
  */
-public class Solution {
-    public void ReorderList(ListNode head) {
-        if (head == null || head.next == null)
-        {
-            return;
-        }
-        ListNode slow = head;
-        ListNode fast = head.next;
-        while (fast != null && fast.next != null)
-        {
-            slow = slow.next;
-            fast = fast.next.next;
+class Solution {
+public:
+    void reorderList(ListNode* head) {
+        ListNode* fast = head;
+        ListNode* slow = head;
+        while (fast->next && fast->next->next) {
+            slow = slow->next;
+            fast = fast->next->next;
         }
 
-        ListNode cur = slow.next;
-        slow.next = null;
+        ListNode* cur = slow->next;
+        slow->next = nullptr;
 
-        ListNode pre = null;
-        while (cur != null)
-        {
-            ListNode t = cur.next;
-            cur.next = pre;
+        ListNode* pre = nullptr;
+        while (cur) {
+            ListNode* t = cur->next;
+            cur->next = pre;
             pre = cur;
             cur = t;
         }
         cur = head;
 
-        while (pre != null)
-        {
-            ListNode t = pre.next;
-            pre.next = cur.next;
-            cur.next = pre;
-            cur = pre.next;
+        while (pre) {
+            ListNode* t = pre->next;
+            pre->next = cur->next;
+            cur->next = pre;
+            cur = pre->next;
             pre = t;
         }
     }
-}
+};
 ```
 
 ### **Go**
@@ -194,11 +178,8 @@ public class Solution {
  * }
  */
 func reorderList(head *ListNode) {
-	if head == nil || head.Next == nil {
-		return
-	}
-	slow, fast := head, head.Next
-	for fast != nil && fast.Next != nil {
+	fast, slow := head, head
+	for fast.Next != nil && fast.Next.Next != nil {
 		slow, fast = slow.Next, fast.Next.Next
 	}
 
@@ -237,12 +218,9 @@ func reorderList(head *ListNode) {
  * @return {void} Do not return anything, modify head in-place instead.
  */
 var reorderList = function (head) {
-    if (!head || !head.next) {
-        return;
-    }
     let slow = head;
-    let fast = head.next;
-    while (fast && fast.next) {
+    let fast = head;
+    while (fast.next && fast.next.next) {
         slow = slow.next;
         fast = fast.next.next;
     }
@@ -267,6 +245,52 @@ var reorderList = function (head) {
         pre = t;
     }
 };
+```
+
+### **C#**
+
+```cs
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public class Solution {
+    public void ReorderList(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        ListNode cur = slow.next;
+        slow.next = null;
+
+        ListNode pre = null;
+        while (cur != null) {
+            ListNode t = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = t;
+        }
+        cur = head;
+
+        while (pre != null) {
+            ListNode t = pre.next;
+            pre.next = cur.next;
+            cur.next = pre;
+            cur = pre.next;
+            pre = t;
+        }
+    }
+}
 ```
 
 ### **TypeScript**

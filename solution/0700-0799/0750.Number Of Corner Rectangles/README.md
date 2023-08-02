@@ -60,6 +60,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表 + 枚举**
+
+我们枚举每一行作为矩形的下边，对于当前行，如果列 $i$ 和列 $j$ 都是 $1$，那么我们用哈希表找出此前的所有行中，有多少行的 $i$ 和 $j$ 列都是 $1$，那么就有多少个以 $(i, j)$ 为右下角的矩形，我们将其数量加入答案。然后将 $(i, j)$ 加入哈希表，继续枚举下一对 $(i, j)$。
+
+时间复杂度 $O(m \times n^2)$，空间复杂度 $O(n^2)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -67,7 +73,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countCornerRectangles(self, grid: List[List[int]]) -> int:
+        ans = 0
+        cnt = Counter()
+        n = len(grid[0])
+        for row in grid:
+            for i, c1 in enumerate(row):
+                if c1:
+                    for j in range(i + 1, n):
+                        if row[j]:
+                            ans += cnt[(i, j)]
+                            cnt[(i, j)] += 1
+        return ans
 ```
 
 ### **Java**
@@ -75,7 +93,101 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int countCornerRectangles(int[][] grid) {
+        int n = grid[0].length;
+        int ans = 0;
+        Map<List<Integer>, Integer> cnt = new HashMap<>();
+        for (var row : grid) {
+            for (int i = 0; i < n; ++i) {
+                if (row[i] == 1) {
+                    for (int j = i + 1; j < n; ++j) {
+                        if (row[j] == 1) {
+                            List<Integer> t = List.of(i, j);
+                            ans += cnt.getOrDefault(t, 0);
+                            cnt.merge(t, 1, Integer::sum);
+                        }
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countCornerRectangles(vector<vector<int>>& grid) {
+        int n = grid[0].size();
+        int ans = 0;
+        map<pair<int, int>, int> cnt;
+        for (auto& row : grid) {
+            for (int i = 0; i < n; ++i) {
+                if (row[i]) {
+                    for (int j = i + 1; j < n; ++j) {
+                        if (row[j]) {
+                            ans += cnt[{i, j}];
+                            ++cnt[{i, j}];
+                        }
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countCornerRectangles(grid [][]int) (ans int) {
+	n := len(grid[0])
+	type pair struct{ x, y int }
+	cnt := map[pair]int{}
+	for _, row := range grid {
+		for i, x := range row {
+			if x == 1 {
+				for j := i + 1; j < n; j++ {
+					if row[j] == 1 {
+						t := pair{i, j}
+						ans += cnt[t]
+						cnt[t]++
+					}
+				}
+			}
+		}
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function countCornerRectangles(grid: number[][]): number {
+    const n = grid[0].length;
+    let ans = 0;
+    const cnt: Map<number, number> = new Map();
+    for (const row of grid) {
+        for (let i = 0; i < n; ++i) {
+            if (row[i] === 1) {
+                for (let j = i + 1; j < n; ++j) {
+                    if (row[j] === 1) {
+                        const t = i * 200 + j;
+                        ans += cnt.get(t) ?? 0;
+                        cnt.set(t, (cnt.get(t) ?? 0) + 1);
+                    }
+                }
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**

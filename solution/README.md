@@ -2802,6 +2802,16 @@
 |  2789  |  [合并后数组中的最大元素](/solution/2700-2799/2789.Largest%20Element%20in%20an%20Array%20after%20Merge%20Operations/README.md)  |    |  中等  |  第 355 场周赛  |
 |  2790  |  [长度递增组的最大数目](/solution/2700-2799/2790.Maximum%20Number%20of%20Groups%20With%20Increasing%20Length/README.md)  |    |  困难  |  第 355 场周赛  |
 |  2791  |  [树中可以形成回文的路径数](/solution/2700-2799/2791.Count%20Paths%20That%20Can%20Form%20a%20Palindrome%20in%20a%20Tree/README.md)  |    |  困难  |  第 355 场周赛  |
+|  2792  |  [Count Nodes That Are Great Enough](/solution/2700-2799/2792.Count%20Nodes%20That%20Are%20Great%20Enough/README.md)  |    |  中等  |  🔒  |
+|  2793  |  [航班机票状态](/solution/2700-2799/2793.Status%20of%20Flight%20Tickets/README.md)  |    |  困难  |  🔒  |
+|  2794  |  [从两个数组中创建对象](/solution/2700-2799/2794.Create%20Object%20from%20Two%20Arrays/README.md)  |    |  简单  |  🔒  |
+|  2795  |  [并行执行 Promise 以获取独有的结果](/solution/2700-2799/2795.Parallel%20Execution%20of%20Promises%20for%20Individual%20Results%20Retrieval/README.md)  |    |  中等  |  🔒  |
+|  2796  |  [重复字符串](/solution/2700-2799/2796.Repeat%20String/README.md)  |    |  简单  |  🔒  |
+|  2797  |  [带有占位符的部分函数](/solution/2700-2799/2797.Partial%20Function%20with%20Placeholders/README.md)  |    |  中等  |  🔒  |
+|  2798  |  [满足目标工作时长的员工数目](/solution/2700-2799/2798.Number%20of%20Employees%20Who%20Met%20the%20Target/README.md)  |    |  简单  |  第 356 场周赛  |
+|  2799  |  [统计完全子数组的数目](/solution/2700-2799/2799.Count%20Complete%20Subarrays%20in%20an%20Array/README.md)  |    |  中等  |  第 356 场周赛  |
+|  2800  |  [包含三个字符串的最短字符串](/solution/2800-2899/2800.Shortest%20String%20That%20Contains%20Three%20Strings/README.md)  |    |  中等  |  第 356 场周赛  |
+|  2801  |  [统计范围内的步进数字数目](/solution/2800-2899/2801.Count%20Stepping%20Numbers%20in%20Range/README.md)  |    |  困难  |  第 356 场周赛  |
 
 ## 版权
 

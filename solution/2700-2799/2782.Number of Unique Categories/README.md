@@ -182,7 +182,7 @@ public:
  *  HaveSameCategory(int, int) bool
  * }
  */
- func numberOfCategories(n int, categoryHandler CategoryHandler) (ans int) {
+func numberOfCategories(n int, categoryHandler CategoryHandler) (ans int) {
 	p := make([]int, n)
 	for i := range p {
 		p[i] = i

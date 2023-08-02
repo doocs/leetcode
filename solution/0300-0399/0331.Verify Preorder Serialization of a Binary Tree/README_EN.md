@@ -46,13 +46,93 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def isValidSerialization(self, preorder: str) -> bool:
+        stk = []
+        for c in preorder.split(","):
+            stk.append(c)
+            while len(stk) > 2 and stk[-1] == stk[-2] == "#" and stk[-3] != "#":
+                stk = stk[:-3]
+                stk.append("#")
+        return len(stk) == 1 and stk[0] == "#"
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean isValidSerialization(String preorder) {
+        String[] strs = preorder.split(",");
+        int diff = 1;
+        for (String s : strs) {
+            if (--diff < 0) {
+                return false;
+            }
+            if (!s.equals("#")) {
+                diff += 2;
+            }
+        }
+        return diff == 0;
+    }
+}
+```
 
+```java
+class Solution {
+    public boolean isValidSerialization(String preorder) {
+        List<String> stk = new ArrayList<>();
+        for (String s : preorder.split(",")) {
+            stk.add(s);
+            while (stk.size() >= 3 && stk.get(stk.size() - 1).equals("#")
+                && stk.get(stk.size() - 2).equals("#") && !stk.get(stk.size() - 3).equals("#")) {
+                stk.remove(stk.size() - 1);
+                stk.remove(stk.size() - 1);
+                stk.remove(stk.size() - 1);
+                stk.add("#");
+            }
+        }
+        return stk.size() == 1 && stk.get(0).equals("#");
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isValidSerialization(string preorder) {
+        vector<string> stk;
+        stringstream ss(preorder);
+        string s;
+        while (getline(ss, s, ',')) {
+            stk.push_back(s);
+            while (stk.size() >= 3 && stk[stk.size() - 1] == "#" && stk[stk.size() - 2] == "#" && stk[stk.size() - 3] != "#") {
+                stk.pop_back();
+                stk.pop_back();
+                stk.pop_back();
+                stk.push_back("#");
+            }
+        }
+        return stk.size() == 1 && stk[0] == "#";
+    }
+};
+```
+
+### **Go**
+
+```go
+func isValidSerialization(preorder string) bool {
+	stk := []string{}
+	for _, s := range strings.Split(preorder, ",") {
+		stk = append(stk, s)
+		for len(stk) >= 3 && stk[len(stk)-1] == "#" && stk[len(stk)-2] == "#" && stk[len(stk)-3] != "#" {
+			stk = stk[:len(stk)-3]
+			stk = append(stk, "#")
+		}
+	}
+	return len(stk) == 1 && stk[0] == "#"
+}
 ```
 
 ### **...**

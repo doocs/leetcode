@@ -51,13 +51,119 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def countCornerRectangles(self, grid: List[List[int]]) -> int:
+        ans = 0
+        cnt = Counter()
+        n = len(grid[0])
+        for row in grid:
+            for i, c1 in enumerate(row):
+                if c1:
+                    for j in range(i + 1, n):
+                        if row[j]:
+                            ans += cnt[(i, j)]
+                            cnt[(i, j)] += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int countCornerRectangles(int[][] grid) {
+        int n = grid[0].length;
+        int ans = 0;
+        Map<List<Integer>, Integer> cnt = new HashMap<>();
+        for (var row : grid) {
+            for (int i = 0; i < n; ++i) {
+                if (row[i] == 1) {
+                    for (int j = i + 1; j < n; ++j) {
+                        if (row[j] == 1) {
+                            List<Integer> t = List.of(i, j);
+                            ans += cnt.getOrDefault(t, 0);
+                            cnt.merge(t, 1, Integer::sum);
+                        }
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countCornerRectangles(vector<vector<int>>& grid) {
+        int n = grid[0].size();
+        int ans = 0;
+        map<pair<int, int>, int> cnt;
+        for (auto& row : grid) {
+            for (int i = 0; i < n; ++i) {
+                if (row[i]) {
+                    for (int j = i + 1; j < n; ++j) {
+                        if (row[j]) {
+                            ans += cnt[{i, j}];
+                            ++cnt[{i, j}];
+                        }
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countCornerRectangles(grid [][]int) (ans int) {
+	n := len(grid[0])
+	type pair struct{ x, y int }
+	cnt := map[pair]int{}
+	for _, row := range grid {
+		for i, x := range row {
+			if x == 1 {
+				for j := i + 1; j < n; j++ {
+					if row[j] == 1 {
+						t := pair{i, j}
+						ans += cnt[t]
+						cnt[t]++
+					}
+				}
+			}
+		}
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function countCornerRectangles(grid: number[][]): number {
+    const n = grid[0].length;
+    let ans = 0;
+    const cnt: Map<number, number> = new Map();
+    for (const row of grid) {
+        for (let i = 0; i < n; ++i) {
+            if (row[i] === 1) {
+                for (let j = i + 1; j < n; ++j) {
+                    if (row[j] === 1) {
+                        const t = i * 200 + j;
+                        ans += cnt.get(t) ?? 0;
+                        cnt.set(t, (cnt.get(t) ?? 0) + 1);
+                    }
+                }
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
