@@ -1,15 +1,13 @@
-func wonderfulSubstrings(word string) int64 {
-	counter := make([]int, 1024)
-	counter[0] = 1
-	state := 0
-	var ans int64
+func wonderfulSubstrings(word string) (ans int64) {
+	cnt := [1024]int{1}
+	st := 0
 	for _, c := range word {
-		state ^= (1 << (c - 'a'))
-		ans += int64(counter[state])
+		st ^= 1 << (c - 'a')
+		ans += int64(cnt[st])
 		for i := 0; i < 10; i++ {
-			ans += int64(counter[state^(1<<i)])
+			ans += int64(cnt[st^(1<<i)])
 		}
-		counter[state]++
+		cnt[st]++
 	}
-	return ans
+	return
 }
