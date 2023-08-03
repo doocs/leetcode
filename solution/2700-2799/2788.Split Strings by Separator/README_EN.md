@@ -57,7 +57,7 @@ Hence, the resulting array is [&quot;easy&quot;,&quot;problem&quot;].
 	<li><code>1 &lt;= words.length &lt;= 100</code></li>
 	<li><code>1 &lt;= words[i].length &lt;= 20</code></li>
 	<li>characters in <code>words[i]</code> are either lowercase English letters or characters from the string <code>&quot;.,|$#@&quot;</code> (excluding the quotes)</li>
-	<li><code>separator</code> is a character from the string <code>&quot;.,|$#@&quot;</code> (excluding the quotes)</li>
+	<li><code>separator</code> is a character from the string <code>&quot;.,|&#36;#@&quot;</code> (excluding the quotes)</li>
 </ul>
 
 ## Solutions
