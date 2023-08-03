@@ -61,7 +61,7 @@
 	<li><code>1 &lt;= words.length &lt;= 100</code></li>
 	<li><code>1 &lt;= words[i].length &lt;= 20</code></li>
 	<li><code>words[i]</code> 中的字符要么是小写英文字母，要么就是字符串 <code>".,|&#36;#@"</code> 中的字符（不包括引号）</li>
-	<li><code>separator</code> 是字符串 <code>".,|$#@"</code> 中的某个字符（不包括引号）</li>
+	<li><code>separator</code> 是字符串 <code>".,|&#36;#@"</code> 中的某个字符（不包括引号）</li>
 </ul>
 
 ## 解法
