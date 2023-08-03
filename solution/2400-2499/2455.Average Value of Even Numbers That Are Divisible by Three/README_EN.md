@@ -163,7 +163,7 @@ impl Solution {
                                         .cloned()
                                         .filter(|&n| n % 6 == 0)
                                         .collect();
-        
+
         if filtered_nums.is_empty() {
             return 0;
         }

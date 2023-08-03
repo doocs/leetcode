@@ -6,7 +6,7 @@
 
 <p>You are given the heads of two sorted linked lists <code>list1</code> and <code>list2</code>.</p>
 
-<p>Merge the two lists in a one <strong>sorted</strong> list. The list should be made by splicing together the nodes of the first two lists.</p>
+<p>Merge the two lists into one <strong>sorted</strong> list. The list should be made by splicing together the nodes of the first two lists.</p>
 
 <p>Return <em>the head of the merged linked list</em>.</p>
 

@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>An array <code>arr</code> a <strong>mountain</strong> if the following properties hold:</p>
+<p>An array <code>arr</code> is a <strong>mountain</strong> if the following properties hold:</p>
 
 <ul>
 	<li><code>arr.length &gt;= 3</code></li>

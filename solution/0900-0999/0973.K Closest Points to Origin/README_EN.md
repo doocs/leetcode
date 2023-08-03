@@ -36,7 +36,7 @@ We only want the closest k = 1 points from the origin, so the answer is just [[-
 
 <ul>
 	<li><code>1 &lt;= k &lt;= points.length &lt;= 10<sup>4</sup></code></li>
-	<li><code>-10<sup>4</sup> &lt; x<sub>i</sub>, y<sub>i</sub> &lt; 10<sup>4</sup></code></li>
+	<li><code>-10<sup>4</sup> &lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= 10<sup>4</sup></code></li>
 </ul>
 
 ## Solutions

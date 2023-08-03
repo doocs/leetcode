@@ -4,11 +4,13 @@
 
 ## Description
 
-<p>There is a new alien language that uses the English alphabet. However, the order among the letters is unknown to you.</p>
+<p>There is a new alien language that uses the English alphabet. However, the order of the letters is unknown to you.</p>
 
-<p>You are given a list of strings <code>words</code> from the alien language&#39;s dictionary, where the strings in <code>words</code> are <span data-keyword="lexicographically-smaller-string-alien"><strong>sorted lexicographically</strong></span> by the rules of this new language.</p>
+<p>You are given a list of strings <code>words</code> from the alien language&#39;s dictionary. Now it is claimed that the strings in <code>words</code> are <span data-keyword="lexicographically-smaller-string-alien"><strong>sorted lexicographically</strong></span> by the rules of this new language.</p>
 
-<p>Return <em>a string of the unique letters in the new alien language sorted in <strong>lexicographically increasing order</strong> by the new language&#39;s rules. </em>If there is no solution, return <code>&quot;&quot;</code><em>. </em>If there are multiple solutions, return<em> <strong>any of them</strong></em>.</p>
+<p>If this claim is incorrect, and the given arrangement of string in&nbsp;<code>words</code>&nbsp;cannot correspond to any order of letters,&nbsp;return&nbsp;<code>&quot;&quot;.</code></p>
+
+<p>Otherwise, return <em>a string of the unique letters in the new alien language sorted in <strong>lexicographically increasing order</strong> by the new language&#39;s rules</em><em>. </em>If there are multiple solutions, return<em> <strong>any of them</strong></em>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

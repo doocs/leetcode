@@ -13,17 +13,17 @@
 | id          | int     |
 | drink       | varchar |
 +-------------+---------+
-id is the primary key for this table.
+id is the primary key (column with unique values) for this table.
 Each row in this table shows the order id and the name of the drink ordered. Some drink rows are nulls.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to replace the <code>null</code> values of drink with the name of the drink of the previous row that is not <code>null</code>. It is guaranteed that the drink of the first row of the table is not <code>null</code>.</p>
+<p>Write a solution to replace the <code>null</code> values of the drink with the name of the drink of the previous row that is not <code>null</code>. It is guaranteed that the drink on the first row of the table is not <code>null</code>.</p>
 
 <p>Return the result table <strong>in the same order as the input</strong>.</p>
 
-<p>The query result format is shown in the following example.</p>
+<p>The result format is shown in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

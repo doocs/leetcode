@@ -23,6 +23,7 @@
 	<li>East means +X direction.</li>
 	<li>South means -Y direction.</li>
 	<li>West means -X direction.</li>
+	<li>There can be obstacle in&nbsp;[0,0].</li>
 </ul>
 
 <p>&nbsp;</p>

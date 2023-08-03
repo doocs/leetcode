@@ -14,18 +14,18 @@
 | revenue     | int     |
 | month       | varchar |
 +-------------+---------+
-(id, month) is the primary key of this table.
+In SQL,(id, month) is the primary key of this table.
 The table has information about the revenue of each department per month.
 The month has values in [&quot;Jan&quot;,&quot;Feb&quot;,&quot;Mar&quot;,&quot;Apr&quot;,&quot;May&quot;,&quot;Jun&quot;,&quot;Jul&quot;,&quot;Aug&quot;,&quot;Sep&quot;,&quot;Oct&quot;,&quot;Nov&quot;,&quot;Dec&quot;].
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to reformat the table such that there is a department id column and a revenue column <strong>for each month</strong>.</p>
+<p>Reformat the table such that there is a department id column and a revenue column <strong>for each month</strong>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

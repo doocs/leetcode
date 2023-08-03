@@ -13,17 +13,17 @@
 | id          | int     |
 | num         | varchar |
 +-------------+---------+
-id is the primary key for this table.
+In SQL, id is the primary key for this table.
 id is an autoincrement column.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find all numbers that appear at least three times consecutively.</p>
+<p>Find all numbers that appear at least three times consecutively.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

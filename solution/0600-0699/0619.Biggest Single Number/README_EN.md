@@ -12,7 +12,7 @@
 +-------------+------+
 | num         | int  |
 +-------------+------+
-There is no primary key for this table. It may contain duplicates.
+This table may contain duplicates (In other words, there is no primary key for this table in SQL).
 Each row of this table contains an integer.
 </pre>
 
@@ -20,9 +20,9 @@ Each row of this table contains an integer.
 
 <p>A <strong>single number</strong> is a number that appeared only once in the <code>MyNumbers</code> table.</p>
 
-<p>Write an SQL query to report the largest <strong>single number</strong>. If there is no <strong>single number</strong>, report <code>null</code>.</p>
+<p>Find the largest <strong>single number</strong>. If there is no <strong>single number</strong>, report <code>null</code>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 <ptable> </ptable>
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

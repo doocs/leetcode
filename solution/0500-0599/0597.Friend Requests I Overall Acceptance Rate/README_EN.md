@@ -14,7 +14,7 @@
 | send_to_id     | int     |
 | request_date   | date    |
 +----------------+---------+
-There is no primary key for this table, it may contain duplicates.
+This table may contain duplicates (In other words, there is no primary key for this table in SQL).
 This table contains the ID of the user who sent the request, the ID of the user who received the request, and the date of the request.
 </pre>
 
@@ -30,13 +30,13 @@ This table contains the ID of the user who sent the request, the ID of the user 
 | accepter_id    | int     |
 | accept_date    | date    |
 +----------------+---------+
-There is no primary key for this table, it may contain duplicates.
+This table may contain duplicates (In other words, there is no primary key for this table in SQL).
 This table contains the ID of the user who sent the request, the ID of the user who received the request, and the date when the request was accepted.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find the overall acceptance rate of requests, which is the number of acceptance divided by the number of requests. Return the answer rounded to 2 decimals places.</p>
+<p>Find the overall acceptance rate of requests, which is the number of acceptance divided by the number of requests. Return the answer rounded to 2 decimals places.</p>
 
 <p><strong>Note that:</strong></p>
 
@@ -46,7 +46,7 @@ This table contains the ID of the user who sent the request, the ID of the user 
 	<li>If there are no requests at all, you should return 0.00 as the <code>accept_rate</code>.</li>
 </ul>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -87,8 +87,8 @@ There are 4 unique accepted requests, and there are 5 requests in total. So the 
 <p><strong>Follow up:</strong></p>
 
 <ul>
-	<li>Could you write a query to return the acceptance rate for every month?</li>
-	<li>Could you write a query to return the cumulative acceptance rate for every day?</li>
+	<li>Could you find the acceptance rate for every month?</li>
+	<li>Could you find the cumulative acceptance rate for every day?</li>
 </ul>
 
 ## Solutions
