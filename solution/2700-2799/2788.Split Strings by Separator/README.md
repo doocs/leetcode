@@ -36,12 +36,12 @@
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>输入：</strong>words = ["$easy$","$problem$"], separator = "$"
+<strong>输入：</strong>words = ["easy","problem"], separator = "&#36;"
 <strong>输出：</strong>["easy","problem"]
 <strong>解释：</strong>在本示例中，我们进行下述拆分：
 
-"$easy$" 拆分为 "easy"（不包括空字符串）
-"$problem$" 拆分为 "problem"（不包括空字符串）
+"&#36;easy&#36;" 拆分为 "easy"（不包括空字符串）
+"&#36;problem&#36;" 拆分为 "problem"（不包括空字符串）
 
 因此，结果数组为 ["easy","problem"] 。
 </pre>
