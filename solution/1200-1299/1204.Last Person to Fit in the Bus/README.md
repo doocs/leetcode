@@ -1,4 +1,4 @@
-# [1204. 最后一个能进入电梯的人](https://leetcode.cn/problems/last-person-to-fit-in-the-bus)
+# [1204. 最后一个能进入巴士的人](https://leetcode.cn/problems/last-person-to-fit-in-the-bus)
 
 [English Version](/solution/1200-1299/1204.Last%20Person%20to%20Fit%20in%20the%20Bus/README_EN.md)
 
@@ -18,35 +18,37 @@
 | turn        | int     |
 +-------------+---------+
 person_id 是这个表的主键。
-该表展示了所有等待电梯的人的信息。
+该表展示了所有候车乘客的信息。
 表中 person_id 和 turn 列将包含从 1 到 n 的所有数字，其中 n 是表中的行数。
+turn 决定了候车乘客上巴士的顺序，其中 turn=1 表示第一个上巴士，turn=n 表示最后一个上巴士。
+weight 表示候车乘客的体重，以千克为单位。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>有一群人在等着上公共汽车。然而，巴士有<code>1000</code>&nbsp;公斤的重量限制，所以可能会有一些人不能上。</p>
+<p>有一队乘客在等着上巴士。然而，巴士有<code>1000</code>&nbsp; <strong>千克</strong> 的重量限制，所以其中一部分乘客可能无法上巴士。</p>
 
-<p>写一条 SQL 查询语句查找 <strong>最后一个</strong> 能进入电梯且不超过重量限制的 <code>person_name</code> 。题目确保队列中第一位的人可以进入电梯，不会超重。</p>
+<p>写一条 SQL 查询语句找出 <strong>最后一个</strong> 上巴士且不超过重量限制的乘客，并报告 <code>person_name</code> 。题目测试用例确保顺位第一的人可以上巴士且不会超重。</p>
 
-<p>查询结果如下所示。</p>
+<p>查询结果格式如下所示。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1:</strong></p>
+<p><strong>示例：</strong></p>
 
 <pre>
 <strong>输入：</strong>
 Queue 表
-+-----------+-------------------+--------+------+
-| person_id | person_name       | weight | turn |
-+-----------+-------------------+--------+------+
-| 5         | George Washington | 250    | 1    |
-| 3         | John Adams        | 350    | 2    |
-| 6         | Thomas Jefferson  | 400    | 3    |
-| 2         | Will Johnliams    | 200    | 4    |
-| 4         | Thomas Jefferson  | 175    | 5    |
-| 1         | James Elephant    | 500    | 6    |
-+-----------+-------------------+--------+------+
++-----------+-------------+--------+------+
+| person_id | person_name | weight | turn |
++-----------+-------------+--------+------+
+| 5         | Alice       | 250    | 1    |
+| 4         | Bob         | 175    | 5    |
+| 3         | Alex        | 350    | 2    |
+| 6         | John Cena   | 400    | 3    |
+| 1         | Winston     | 500    | 6    |
+| 2         | Marie       | 200    | 4    |
++-----------+-------------+--------+------+
 <strong>输出：</strong>
 +-------------------+
 | person_name       |
@@ -55,8 +57,16 @@ Queue 表
 +-------------------+
 <strong>解释：</strong>
 为了简化，Queue 表按 turn 列由小到大排序。
-上例中 George Washington(id 5), John Adams(id 3) 和 Thomas Jefferson(id 6) 将可以进入电梯,因为他们的体重和为 250 + 350 + 400 = 1000。
-Thomas Jefferson(id 6) 是最后一个体重合适并进入电梯的人。</pre>
++------+----+-----------+--------+--------------+
+| Turn | ID | Name      | Weight | Total Weight |
++------+----+-----------+--------+--------------+
+| 1    | 5  | Alice     | 250    | 250          |
+| 2    | 3  | Alex      | 350    | 600          |
+| 3    | 6  | John Cena | 400    | 1000         | (最后一个上巴士)
+| 4    | 2  | Marie     | 200    | 1200         | (无法上巴士)
+| 5    | 4  | Bob       | 175    | ___          |
+| 6    | 1  | Winston   | 500    | ___          |
++------+----+-----------+--------+--------------+</pre>
 
 ## 解法
 

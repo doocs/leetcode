@@ -43,29 +43,29 @@ sale_id 是该表主键
 <pre>
 <code><strong>输入：</strong>
 Sales</code> 表：
-+------------+------------------+--------------+
-| sale_id    | product_name     | sale_date    |
-+------------+------------------+--------------+
-| 1          |      LCPHONE     | 2000-01-16   |
-| 2    &nbsp;     |    LCPhone       | 2000-01-17   |
-| 3    &nbsp;     |     LcPhOnE     &nbsp;| 2000-02-18   |
-| 4 &nbsp;        |      LCKeyCHAiN  | 2000-02-19   |
-| 5 &nbsp;        |   LCKeyChain     | 2000-02-28   |
-| 6        &nbsp; | Matryoshka     &nbsp; | 2000-03-31   | 
-+------------+------------------+--------------+
++---------+--------------+------------+
+| sale_id | product_name | sale_date  |
++---------+--------------+------------+
+| 1       | LCPHONE      | 2000-01-16 |
+| 2       | LCPhone      | 2000-01-17 |
+| 3       | LcPhOnE      | 2000-02-18 |
+| 4       | LCKeyCHAiN   | 2000-02-19 |
+| 5       | LCKeyChain   | 2000-02-28 |
+| 6       | Matryoshka   | 2000-03-31 |
++---------+--------------+------------+
 <strong>输出：</strong>
-+--------------+--------------+----------+
-| product_name | sale_date    | total    |
-+--------------+--------------+----------+
-| lcphone   &nbsp;  | 2000-01     &nbsp;| 2       &nbsp;|
-| lckeychain   | 2000-02  &nbsp;   | 2       &nbsp;| 
-| lcphone      | 2000-02    &nbsp; | 1       &nbsp;| 
-| matryoshka   | 2000-03 &nbsp;    | 1       &nbsp;| 
-+--------------+--------------+----------+
++--------------+-----------+-------+
+| product_name | sale_date | total |
++--------------+-----------+-------+
+| lckeychain   | 2000-02   | 2     |
+| lcphone      | 2000-01   | 2     |
+| lcphone      | 2000-02   | 1     |
+| matryoshka   | 2000-03   | 1     |
++--------------+-----------+-------+
 <strong>解释：</strong>
-1 月份，卖了 2 个 LcPhones，请注意产品名称是小写的，中间可能包含空格
-2 月份，卖了 2 个 LCKeychains 和 1 个 LCPhone
-3 月份，卖了 1 个 matryoshka</pre>
+一月份售出 2 部 LcPhones。请注意，产品名称不区分大小写，且可能包含空格。 
+二月份售出 2 个 LCKeychains 和 1部 LCPhone。 
+三月份售出 1 个 Matryoshka。</pre>
 
 ## 解法
 

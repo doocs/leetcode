@@ -14,7 +14,7 @@
 | name          | varchar |
 | activity      | varchar |
 +---------------+---------+
-id is the id of the friend and primary key for this table.
+id is the id of the friend and the primary key for this table in SQL.
 name is the name of the friend.
 activity is the name of the activity which the friend takes part in.
 </pre>
@@ -30,19 +30,19 @@ activity is the name of the activity which the friend takes part in.
 | id            | int     |
 | name          | varchar |
 +---------------+---------+
-id is the primary key for this table.
+In SQL, id is the primary key for this table.
 name is the name of the activity.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find the names of all the activities with neither the maximum nor the minimum number of participants.</p>
+<p>Find the names of all the activities with neither the maximum nor the minimum number of participants.</p>
 
 <p>Each activity in the <code>Activities</code> table is performed by any person in the table Friends.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

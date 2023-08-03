@@ -6,7 +6,9 @@
 
 <!-- 这里写题目描述 -->
 
-现给定一个函数 <code>fn</code>，一个参数数组 <code>args</code> 和一个时间间隔 <code>t</code>，返回一个取消函数 <code>cancelFn</code>。函数 <code>fn</code> 应该立即使用 <code>args</code> 调用，并且在每个 <code>t</code> 毫秒内再次调用，直到调用 <code>cancelFn</code>。
+<p>现给定一个函数 <code>fn</code>，一个参数数组 <code>args</code> 和一个时间间隔 <code>t</code>，返回一个取消函数 <code>cancelFn</code>。</p>
+
+<p>函数 <code>fn</code> 应该立即使用 <code>args</code> 调用，并且在每个 <code>t</code> 毫秒内再次调用，直到调用 <code>cancelFn</code>。</p>
 
 <p>&nbsp;</p>
 
@@ -24,7 +26,6 @@
    {"time": 100, "returned": 8}
 ]
 <strong>解释：</strong> 
-const cancelT = 110
 const cancel = cancellable(x =&gt; x * 2, [4], 20);
 setTimeout(cancel, cancelT);
 每隔 20ms，调用 fn(4)。
@@ -50,8 +51,7 @@ setTimeout(cancel, cancelT);
    {"time": 100, "returned": 10},
    {"time": 125, "returned": 10}
 ]
-<strong>解释：
-</strong>const cancelT = 140
+<strong>解释：</strong>
 const cancel = cancellable((x1, x2) =&gt; (x1 * x2), [2, 5], 25); 
 setTimeout(cancel, cancelT);
 
@@ -77,7 +77,6 @@ setTimeout(cancel, cancelT);
    {"time": 150, "returned": 9}
 ]
 <b>解释：</b>
-const cancelT = 180
 const cancel = cancellable((x1, x2, x3) =&gt; (x1 + x2 + x3), [5, 1, 3], 50);
 setTimeout(cancel, cancelT);
 

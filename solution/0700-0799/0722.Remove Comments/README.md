@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给一个 C++ 程序，删除程序中的注释。这个程序<code>source</code>是一个数组，其中<code>source[i]</code>表示第&nbsp;<code>i</code>&nbsp;行源码。&nbsp;这表示每行源码由<font color="#c7254e"><font face="Menlo, Monaco, Consolas, Courier New, monospace"><span style="font-size:12.6px"><span style="background-color:#f9f2f4"> <code>'\n'&nbsp;</code></span></span></font></font>分隔。</p>
+<p>给一个 C++ 程序，删除程序中的注释。这个程序<code>source</code>是一个数组，其中<code>source[i]</code>表示第&nbsp;<code>i</code>&nbsp;行源码。&nbsp;这表示每行源码由 <code>'\n'</code>&nbsp;分隔。</p>
 
 <p>在 C++ 中有两种注释风格，行内注释和块注释。</p>
 

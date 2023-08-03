@@ -14,22 +14,22 @@
 | assignee_id | int  |
 | submit_date | date |
 +-------------+------+
-task_id is the primary key for this table.
+task_id is the primary key (column with unique values) for this table.
 Each row in this table contains the ID of a task, the id of the assignee, and the submission date.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report:</p>
+<p>Write a solution&nbsp;to report:</p>
 
 <ul>
-	<li>the number of the tasks that were submitted during the weekend (Saturday, Sunday) as <code>weekend_cnt</code>, and</li>
-	<li>the number of the tasks that were submitted during the working days as <code>working_cnt</code>.</li>
+	<li>the number of tasks that were submitted during the weekend (Saturday, Sunday) as <code>weekend_cnt</code>, and</li>
+	<li>the number of tasks that were submitted during the working days as <code>working_cnt</code>.</li>
 </ul>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is shown in the following example.</p>
+<p>The&nbsp;result format is shown in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

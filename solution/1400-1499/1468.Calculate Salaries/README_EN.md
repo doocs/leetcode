@@ -15,13 +15,13 @@
 | employee_name | varchar |
 | salary        | int     |
 +---------------+---------+
-(company_id, employee_id) is the primary key for this table.
+In SQL,(company_id, employee_id) is the primary key for this table.
 This table contains the company id, the id, the name, and the salary for an employee.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find the salaries of the employees after applying taxes. Round the salary to <strong>the nearest integer</strong>.</p>
+<p>Find the salaries of the employees after applying taxes. Round the salary to <strong>the nearest integer</strong>.</p>
 
 <p>The tax rate is calculated for each company based on the following criteria:</p>
 
@@ -33,7 +33,7 @@ This table contains the company id, the id, the name, and the salary for an empl
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

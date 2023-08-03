@@ -15,7 +15,7 @@
 | store2      | int     |
 | store3      | int     |
 +-------------+---------+
-product_id is the primary key for this table.
+In SQL, product_id is the primary key for this table.
 Each row in this table indicates the product&#39;s price in 3 different stores: store1, store2, and store3.
 If the product is not available in a store, the price will be null in that store&#39;s column.
 </pre>

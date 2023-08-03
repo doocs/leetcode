@@ -14,18 +14,18 @@
 | name        | varchar |
 | profession  | ENUM    |
 +-------------+---------+
-person_id is the primary key for this table.
+person_id is the primary key (column with a unique value) for this table.
 Each row in this table contains a person&#39;s ID, name, and profession.
-The profession   column in an enum of the type (&#39;Doctor&#39;, &#39;Singer&#39;, &#39;Actor&#39;, &#39;Player&#39;, &#39;Engineer&#39;, or &#39;Lawyer&#39;)
+The profession column in an enum of the type (&#39;Doctor&#39;, &#39;Singer&#39;, &#39;Actor&#39;, &#39;Player&#39;, &#39;Engineer&#39;, or &#39;Lawyer&#39;)
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report each person&#39;s name followed by the first letter of their profession enclosed in parentheses.</p>
+<p>Write a solution to report each person&#39;s name followed by the first letter of their profession enclosed in parentheses.</p>
 
 <p>Return the result table <strong>ordered</strong> by <code>person_id</code> in <strong>descending order</strong>.</p>
 
-<p>The query result format is shown in the following example.</p>
+<p>The result format is shown in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

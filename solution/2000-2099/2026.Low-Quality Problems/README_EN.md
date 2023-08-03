@@ -14,17 +14,17 @@
 | likes       | int  |
 | dislikes    | int  |
 +-------------+------+
-problem_id is the primary key column for this table.
+In SQL, problem_id is the primary key column for this table.
 Each row of this table indicates the number of likes and dislikes for a LeetCode problem.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the IDs of the <strong>low-quality</strong> problems. A LeetCode problem is <strong>low-quality</strong> if the like percentage of the problem (number of likes divided by the total number of votes) is <strong>strictly less than</strong> <code>60%</code>.</p>
+<p>Find the IDs of the <strong>low-quality</strong> problems. A LeetCode problem is <strong>low-quality</strong> if the like percentage of the problem (number of likes divided by the total number of votes) is <strong>strictly less than</strong> <code>60%</code>.</p>
 
 <p>Return the result table ordered by <code>problem_id</code> in ascending order.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

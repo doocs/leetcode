@@ -16,9 +16,9 @@
 
 <p>在网格上有一些格子被视为障碍物&nbsp;<code>obstacles</code> 。第 <code>i</code>&nbsp;个障碍物位于网格点 &nbsp;<code>obstacles[i] = (x<sub>i</sub>, y<sub>i</sub>)</code> 。</p>
 
-<p>机器人无法走到障碍物上，它将会停留在障碍物的前一个网格方块上，但仍然可以继续尝试进行该路线的其余部分。</p>
+<p>机器人无法走到障碍物上，它将会停留在障碍物的前一个网格方块上，并继续执行下一个命令。</p>
 
-<p>返回从原点到机器人所有经过的路径点（坐标为整数）的最大欧式距离的平方。（即，如果距离为 <code>5</code> ，则返回 <code>25</code> ）</p>
+<p>返回机器人距离原点的 <strong>最大欧式距离</strong> 的 <strong>平方</strong> 。（即，如果距离为 <code>5</code> ，则返回 <code>25</code> ）</p>
 
 <div class="d-google dictRoot saladict-panel isAnimate">
 <div>
@@ -31,10 +31,11 @@
 <p class="MachineTrans-lang-zh-CN"><strong>注意：</strong></p>
 
 <ul>
-	<li class="MachineTrans-lang-zh-CN">北表示 <code>+Y</code> 方向。</li>
-	<li class="MachineTrans-lang-zh-CN">东表示 <code>+X</code> 方向。</li>
-	<li class="MachineTrans-lang-zh-CN">南表示 <code>-Y</code> 方向。</li>
-	<li class="MachineTrans-lang-zh-CN">西表示 <code>-X</code> 方向。</li>
+	<li class="MachineTrans-lang-zh-CN">北方表示 +Y 方向。</li>
+	<li class="MachineTrans-lang-zh-CN">东方表示 +X 方向。</li>
+	<li class="MachineTrans-lang-zh-CN">南方表示 -Y 方向。</li>
+	<li class="MachineTrans-lang-zh-CN">西方表示 -X 方向。</li>
+	<li class="MachineTrans-lang-zh-CN">原点 [0,0] 可能会有障碍物。</li>
 </ul>
 </div>
 </div>
@@ -68,7 +69,17 @@
 5. 向北走 4 个单位，到达 (1, 8)
 距离原点最远的是 (1, 8) ，距离为 1<sup>2</sup> + 8<sup>2</sup> = 65</pre>
 
-<p>&nbsp;</p>
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<b>输入：</b>commands = [6,-1,-1,6], obstacles = []
+<b>输出：</b>36
+<b>解释：</b>机器人开始位于 (0, 0):
+1. 向北移动 6 个单位，到达 (0, 6).
+2. 右转
+3. 右转
+4. 向南移动 6 个单位，到达 (0, 0).
+机器人距离原点最远的点是 (0, 6)，其距离的平方是 6<sup>2</sup> = 36 个单位。</pre>
 
 <p><strong>提示：</strong></p>
 
