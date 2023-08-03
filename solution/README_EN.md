@@ -2723,7 +2723,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2712  |  [Minimum Cost to Make All Characters Equal](/solution/2700-2799/2712.Minimum%20Cost%20to%20Make%20All%20Characters%20Equal/README_EN.md)  |  `Greedy`,`String`,`Dynamic Programming`  |  Medium  |  Weekly Contest 347  |
 |  2713  |  [Maximum Strictly Increasing Cells in a Matrix](/solution/2700-2799/2713.Maximum%20Strictly%20Increasing%20Cells%20in%20a%20Matrix/README_EN.md)  |  `Memoization`,`Array`,`Binary Search`,`Dynamic Programming`,`Matrix`,`Sorting`  |  Hard  |  Weekly Contest 347  |
 |  2714  |  [Find Shortest Path with K Hops](/solution/2700-2799/2714.Find%20Shortest%20Path%20with%20K%20Hops/README_EN.md)  |  `Graph`,`Shortest Path`,`Heap (Priority Queue)`  |  Hard  |  🔒  |
-|  2715  |  [Execute Cancellable Function With Delay](/solution/2700-2799/2715.Execute%20Cancellable%20Function%20With%20Delay/README_EN.md)  |    |  Easy  |    |
+|  2715  |  [Timeout Cancellation](/solution/2700-2799/2715.Timeout%20Cancellation/README_EN.md)  |    |  Easy  |    |
 |  2716  |  [Minimize String Length](/solution/2700-2799/2716.Minimize%20String%20Length/README_EN.md)  |  `Hash Table`,`String`  |  Easy  |  Weekly Contest 348  |
 |  2717  |  [Semi-Ordered Permutation](/solution/2700-2799/2717.Semi-Ordered%20Permutation/README_EN.md)  |  `Array`,`Simulation`  |  Easy  |  Weekly Contest 348  |
 |  2718  |  [Sum of Matrix After Queries](/solution/2700-2799/2718.Sum%20of%20Matrix%20After%20Queries/README_EN.md)  |  `Array`,`Hash Table`  |  Medium  |  Weekly Contest 348  |
@@ -2810,6 +2810,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2799  |  [Count Complete Subarrays in an Array](/solution/2700-2799/2799.Count%20Complete%20Subarrays%20in%20an%20Array/README_EN.md)  |    |  Medium  |  Weekly Contest 356  |
 |  2800  |  [Shortest String That Contains Three Strings](/solution/2800-2899/2800.Shortest%20String%20That%20Contains%20Three%20Strings/README_EN.md)  |    |  Medium  |  Weekly Contest 356  |
 |  2801  |  [Count Stepping Numbers in Range](/solution/2800-2899/2801.Count%20Stepping%20Numbers%20in%20Range/README_EN.md)  |    |  Hard  |  Weekly Contest 356  |
+|  2802  |  [Find The K-th Lucky Number](/solution/2800-2899/2802.Find%20The%20K-th%20Lucky%20Number/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
