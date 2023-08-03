@@ -36,7 +36,7 @@
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>输入：</strong>words = ["easy","problem"], separator = "&#36;"
+<strong>输入：</strong>words = ["&#36;easy&#36;","&#36;problem&#36;"], separator = "&#36;"
 <strong>输出：</strong>["easy","problem"]
 <strong>解释：</strong>在本示例中，我们进行下述拆分：
 

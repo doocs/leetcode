@@ -33,7 +33,7 @@ Hence, the resulting array is [&quot;one&quot;,&quot;two&quot;,&quot;three&quot;
 <p><strong class="example">Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> words = [&quot;$easy$&quot;,&quot;$problem$&quot;], separator = &quot;&#36;&quot;
+<strong>Input:</strong> words = [&quot;&#36;easy&#36;&quot;,&quot;&#36;problem&#36;&quot;], separator = &quot;&#36;&quot;
 <strong>Output:</strong> [&quot;easy&quot;,&quot;problem&quot;]
 <strong>Explanation:</strong> In this example we split as follows: 
 
