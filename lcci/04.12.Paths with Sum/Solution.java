@@ -1,25 +1,32 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
 class Solution {
-    int ans = 0;
+    private Map<Long, Integer> cnt = new HashMap<>();
+    private int target;
+
     public int pathSum(TreeNode root, int sum) {
-        traverse(root, sum);
+        cnt.put(0L, 1);
+        target = sum;
+        return dfs(root, 0);
+    }
+
+    private int dfs(TreeNode root, long s) {
+        if (root == null) {
+            return 0;
+        }
+        s += root.val;
+        int ans = cnt.getOrDefault(s - target, 0);
+        cnt.merge(s, 1, Integer::sum);
+        ans += dfs(root.left, s);
+        ans += dfs(root.right, s);
+        cnt.merge(s, -1, Integer::sum);
         return ans;
-    }
-
-    void traverse(TreeNode root, int sum) {
-        if (root == null) return;
-        ans += dfs(root, sum, 0);
-        traverse(root.left, sum);
-        traverse(root.right, sum);
-    }
-
-    // check if sum of path is sum.
-    int dfs(TreeNode root, int sum, int cur) {
-        if (root == null) return 0;
-        cur += root.val;
-        int res = 0;
-        if (cur == sum) res++;
-        res += dfs(root.left, sum, cur);
-        res += dfs(root.right, sum, cur);
-        return res;
     }
 }
