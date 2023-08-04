@@ -21,7 +21,6 @@
 	<li>当机器人相撞时，它们 <strong>立即改变</strong>&nbsp;它们的前进时间，这个过程不消耗任何时间。</li>
 	<li>
 	<p>当两个机器人在同一时刻占据相同的位置时，就会相撞。</p>
-
     <ul>
     	<li>
     	<p>例如，如果一个机器人位于位置 0 并往右移动，另一个机器人位于位置 2 并往左移动，下一秒，它们都将占据位置 1，并改变方向。再下一秒钟后，第一个机器人位于位置 0 并往左移动，而另一个机器人位于位置 2 并往右移动。</p>
@@ -31,7 +30,6 @@
     	</li>
     </ul>
     </li>
-
 </ul>
 
 <p>&nbsp;</p>
@@ -79,6 +77,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：脑筋急转弯 + 排序**
+
+两个机器人相撞后，它们会立即改变方向，实际上相当于两个机器人继续往原来的方向移动。因此，我们遍历数组 $nums$，按照字符串 $s$ 的指令，将每个机器人的位置加上或减去 $d$，然后对数组 $nums$ 进行排序。
+
+接下来，我们从小到大枚举每个机器人的位置，计算出当前机器人与前面所有机器人的距离之和，即为答案。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是机器人的数目。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -86,7 +92,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def sumDistance(self, nums: List[int], s: str, d: int) -> int:
+        mod = 10**9 + 7
+        for i, c in enumerate(s):
+            nums[i] += d if c == "R" else -d
+        nums.sort()
+        ans = s = 0
+        for i, x in enumerate(nums):
+            ans += i * x - s
+            s += x
+        return ans % mod
 ```
 
 ### **Java**
@@ -94,19 +110,89 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int sumDistance(int[] nums, String s, int d) {
+        int n = nums.length;
+        long[] arr = new long[n];
+        for (int i = 0; i < n; ++i) {
+            arr[i] = (long) nums[i] + (s.charAt(i) == 'L' ? -d : d);
+        }
+        Arrays.sort(arr);
+        long ans = 0, sum = 0;
+        final int mod = (int) 1e9 + 7;
+        for (int i = 0; i < n; ++i) {
+            ans = (ans + i * arr[i] - sum) % mod;
+            sum += arr[i];
+        }
+        return (int) ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int sumDistance(vector<int>& nums, string s, int d) {
+        int n = nums.size();
+        vector<long long> arr(n);
+        for (int i = 0; i < n; ++i) {
+            arr[i] = 1LL * nums[i] + (s[i] == 'L' ? -d : d);
+        }
+        sort(arr.begin(), arr.end());
+        long long ans = 0;
+        long long sum = 0;
+        const int mod = 1e9 + 7;
+        for (int i = 0; i < n; ++i) {
+            ans = (ans + i * arr[i] - sum) % mod;
+            sum += arr[i];
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func sumDistance(nums []int, s string, d int) (ans int) {
+	for i, c := range s {
+		if c == 'R' {
+			nums[i] += d
+		} else {
+			nums[i] -= d
+		}
+	}
+	sort.Ints(nums)
+	sum := 0
+	const mod int = 1e9 + 7
+	for i, x := range nums {
+		ans = (ans + i*x - sum) % mod
+		sum += x
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function sumDistance(nums: number[], s: string, d: number): number {
+    const n = nums.length;
+    for (let i = 0; i < n; ++i) {
+        nums[i] += s[i] === 'L' ? -d : d;
+    }
+    nums.sort((a, b) => a - b);
+    let ans = 0;
+    let sum = 0;
+    const mod = 1e9 + 7;
+    for (let i = 0; i < n; ++i) {
+        ans = (ans + i * nums[i] - sum) % mod;
+        sum += nums[i];
+    }
+    return ans;
+}
 ```
 
 ### **...**
