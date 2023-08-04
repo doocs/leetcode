@@ -3,9 +3,9 @@ class Solution:
         ans = [-1] * 2
         dirs = (0, 1, 0)
         for p in range(2):
+            a, b = dirs[p], dirs[p + 1]
             x = num
             for i in range(1, 31):
-                a, b = dirs[p], dirs[p + 1]
                 if (x >> i & 1) == a and (x >> (i - 1) & 1) == b:
                     x ^= 1 << i
                     x ^= 1 << (i - 1)
