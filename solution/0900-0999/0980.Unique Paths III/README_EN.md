@@ -61,6 +61,20 @@ Note that the starting and ending square can be anywhere in the grid.
 
 ## Solutions
 
+**Solution 1: Backtracking**
+
+We can first traverse the entire grid, find the starting point $(x, y)$, and count the number of blank spaces $cnt$.
+
+Next, we can start searching from the starting point to get all the path numbers. We design a function $dfs(i, j, k)$ to indicate that the path number is $k$ and the starting point is $(i, j)$.
+
+In the function, we first determine whether the current cell is the end point. If it is, we determine whether $k$ is equal to $cnt + 1$. If it is, the current path is a valid path, and $1$ is returned, otherwise $0$ is returned.
+
+If the current cell is not the end point, we enumerate the four adjacent cells of the current cell. If the adjacent cell has not been visited, we mark the adjacent cell as visited, and then continue to search the path number from the adjacent cell. After the search is completed, we mark the adjacent cell as unvisited. After the search is completed, we return the sum of the path numbers of all adjacent cells.
+
+Finally, we return the path number from the starting point, that is, $dfs(x, y, 1)$.
+
+The time complexity is $O(3^{m \times n})$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the grid, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -68,7 +82,7 @@ Note that the starting and ending square can be anywhere in the grid.
 ```python
 class Solution:
     def uniquePathsIII(self, grid: List[List[int]]) -> int:
-        def dfs(i, j, k):
+        def dfs(i: int, j: int, k: int) -> int:
             if grid[i][j] == 2:
                 return int(k == cnt + 1)
             ans = 0
@@ -83,7 +97,7 @@ class Solution:
         m, n = len(grid), len(grid[0])
         start = next((i, j) for i in range(m) for j in range(n) if grid[i][j] == 1)
         dirs = (-1, 0, 1, 0, -1)
-        cnt = sum(grid[i][j] == 0 for i in range(m) for j in range(n))
+        cnt = sum(row.count(0) for row in grid)
         vis = {start}
         return dfs(*start, 0)
 ```
@@ -221,6 +235,54 @@ func uniquePathsIII(grid [][]int) int {
 	}
 	vis[x][y] = true
 	return dfs(x, y, 0)
+}
+```
+
+### **TypeScript**
+
+```ts
+function uniquePathsIII(grid: number[][]): number {
+    const m = grid.length;
+    const n = grid[0].length;
+    let [x, y] = [0, 0];
+    let cnt = 0;
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (grid[i][j] === 0) {
+                ++cnt;
+            } else if (grid[i][j] == 1) {
+                [x, y] = [i, j];
+            }
+        }
+    }
+    const vis: boolean[][] = Array(m)
+        .fill(0)
+        .map(() => Array(n).fill(false));
+    vis[x][y] = true;
+    const dirs = [-1, 0, 1, 0, -1];
+    const dfs = (i: number, j: number, k: number): number => {
+        if (grid[i][j] === 2) {
+            return k === cnt + 1 ? 1 : 0;
+        }
+        let ans = 0;
+        for (let d = 0; d < 4; ++d) {
+            const [x, y] = [i + dirs[d], j + dirs[d + 1]];
+            if (
+                x >= 0 &&
+                x < m &&
+                y >= 0 &&
+                y < n &&
+                !vis[x][y] &&
+                grid[x][y] !== -1
+            ) {
+                vis[x][y] = true;
+                ans += dfs(x, y, k + 1);
+                vis[x][y] = false;
+            }
+        }
+        return ans;
+    };
+    return dfs(x, y, 0);
 }
 ```
 

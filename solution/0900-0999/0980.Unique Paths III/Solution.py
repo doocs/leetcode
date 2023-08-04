@@ -1,6 +1,6 @@
 class Solution:
     def uniquePathsIII(self, grid: List[List[int]]) -> int:
-        def dfs(i, j, k):
+        def dfs(i: int, j: int, k: int) -> int:
             if grid[i][j] == 2:
                 return int(k == cnt + 1)
             ans = 0
@@ -15,6 +15,6 @@ class Solution:
         m, n = len(grid), len(grid[0])
         start = next((i, j) for i in range(m) for j in range(n) if grid[i][j] == 1)
         dirs = (-1, 0, 1, 0, -1)
-        cnt = sum(grid[i][j] == 0 for i in range(m) for j in range(n))
+        cnt = sum(row.count(0) for row in grid)
         vis = {start}
         return dfs(*start, 0)
