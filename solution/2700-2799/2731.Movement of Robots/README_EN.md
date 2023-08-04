@@ -66,30 +66,118 @@ The distance between the two robots is abs(-2 - 3) = 5.
 
 ## Solutions
 
+**Solution 1: Quick thinking + Sorting**
+
+After two robots collide, they will immediately change direction, which is equivalent to the two robots continuing to move in their original direction. Therefore, we traverse the array $nums$, and according to the instructions in the string $s$, we add or subtract $d$ from the position of each robot, and then sort the array $nums$.
+
+Next, we enumerate the position of each robot from small to large, and calculate the sum of the distances between the current robot and all robots in front, which is the answer.
+
+The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the number of robots.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def sumDistance(self, nums: List[int], s: str, d: int) -> int:
+        mod = 10**9 + 7
+        for i, c in enumerate(s):
+            nums[i] += d if c == "R" else -d
+        nums.sort()
+        ans = s = 0
+        for i, x in enumerate(nums):
+            ans += i * x - s
+            s += x
+        return ans % mod
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int sumDistance(int[] nums, String s, int d) {
+        int n = nums.length;
+        long[] arr = new long[n];
+        for (int i = 0; i < n; ++i) {
+            arr[i] = (long) nums[i] + (s.charAt(i) == 'L' ? -d : d);
+        }
+        Arrays.sort(arr);
+        long ans = 0, sum = 0;
+        final int mod = (int) 1e9 + 7;
+        for (int i = 0; i < n; ++i) {
+            ans = (ans + i * arr[i] - sum) % mod;
+            sum += arr[i];
+        }
+        return (int) ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int sumDistance(vector<int>& nums, string s, int d) {
+        int n = nums.size();
+        vector<long long> arr(n);
+        for (int i = 0; i < n; ++i) {
+            arr[i] = 1LL * nums[i] + (s[i] == 'L' ? -d : d);
+        }
+        sort(arr.begin(), arr.end());
+        long long ans = 0;
+        long long sum = 0;
+        const int mod = 1e9 + 7;
+        for (int i = 0; i < n; ++i) {
+            ans = (ans + i * arr[i] - sum) % mod;
+            sum += arr[i];
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func sumDistance(nums []int, s string, d int) (ans int) {
+	for i, c := range s {
+		if c == 'R' {
+			nums[i] += d
+		} else {
+			nums[i] -= d
+		}
+	}
+	sort.Ints(nums)
+	sum := 0
+	const mod int = 1e9 + 7
+	for i, x := range nums {
+		ans = (ans + i*x - sum) % mod
+		sum += x
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function sumDistance(nums: number[], s: string, d: number): number {
+    const n = nums.length;
+    for (let i = 0; i < n; ++i) {
+        nums[i] += s[i] === 'L' ? -d : d;
+    }
+    nums.sort((a, b) => a - b);
+    let ans = 0;
+    let sum = 0;
+    const mod = 1e9 + 7;
+    for (let i = 0; i < n; ++i) {
+        ans = (ans + i * nums[i] - sum) % mod;
+        sum += nums[i];
+    }
+    return ans;
+}
 ```
 
 ### **...**
