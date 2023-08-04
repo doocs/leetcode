@@ -25,54 +25,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-~~**最佳方案：**~~
-~~直接返回 `A * B`~~
-正常递归，叠加总和
+**方法一：递归 + 位运算**
 
-```txt
-MULTIPLY(A, B)
-    if A == 0 || B == 0
-        return 0
-    A + multiply(A, B - 1)
-```
+我们先判断 $B$ 是否为 $1$，如果是，那么直接返回 $A$。
 
-优化 1：
-由数值较小的数字决定递归层次
+否则，我们判断 $B$ 是否为奇数，如果是，那么我们可以将 $B$ 右移一位，然后递归调用函数，最后将结果左移一位，再加上 $A$。否则，我们可以将 $B$ 右移一位，然后递归调用函数，最后将结果左移一位。
 
-```txt
-MULTIPLY(A, B)
-    if A == 0 || B == 0
-        return 0
-    return max(A, B) + multiply(max(A, B), min(A, B) - 1)
-```
-
-优化 2：
-使用位移减少递归层次
-
-```txt
-MULTIPLY(A, B)
-    return (B % 1 == 1 ? A : 0) + (B > 1 ? MULTIPLY(A + A, B >> 1) : 0)
-```
-
-可进一步，转换为循环，虽然并不符合递归主题。
-
-> A 与 B 皆为**正整数**，初始值不会为 0，所以终止条件是 `B != 1`
-
-```txt
-MULTIPLY(A, B)
-    T = min(A, B)
-    A = max(A, B)
-    B = T
-    r = 0
-    while B != 1 {
-        if B % 2 == 1 {
-            r = r + A
-        }
-        A = A + A
-        B = B >> 1
-    }
-    return res + A
-```
+时间复杂度 $O(\log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是 $B$ 的大小。
 
 <!-- tabs:start -->
 
@@ -81,7 +40,13 @@ MULTIPLY(A, B)
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def multiply(self, A: int, B: int) -> int:
+        if B == 1:
+            return A
+        if B & 1:
+            return (self.multiply(A, B >> 1) << 1) + A
+        return self.multiply(A, B >> 1) << 1
 ```
 
 ### **Java**
@@ -89,28 +54,61 @@ MULTIPLY(A, B)
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int multiply(int A, int B) {
+        if (B == 1) {
+            return A;
+        }
+        if ((B & 1) == 1) {
+            return (multiply(A, B >> 1) << 1) + A;
+        }
+        return multiply(A, B >> 1) << 1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int multiply(int A, int B) {
+        if (B == 1) {
+            return A;
+        }
+        if ((B & 1) == 1) {
+            return (multiply(A, B >> 1) << 1) + A;
+        }
+        return multiply(A, B >> 1) << 1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func multiply(A int, B int) int {
+	if B == 1 {
+		return A
+	}
+	if B&1 == 1 {
+		return (multiply(A, B>>1) << 1) + A
+	}
+	return multiply(A, B>>1) << 1
+}
 ```
 
 ### **TypeScript**
 
 ```ts
 function multiply(A: number, B: number): number {
-    if (A === 0 || B === 0) {
-        return 0;
+    if (B === 1) {
+        return A;
     }
-    const [max, min] = [Math.max(A, B), Math.min(A, B)];
-    return max + multiply(max, min - 1);
-}
-```
-
-```ts
-function multiply(A: number, B: number): number {
-    const max = Math.max(A, B);
-    const min = Math.min(A, B);
-    const helper = (a: number, b: number) =>
-        (b & 1 ? a : 0) + (b > 1 ? helper(a + a, b >> 1) : 0);
-    return helper(max, min);
+    if ((B & 1) === 1) {
+        return (multiply(A, B >> 1) << 1) + A;
+    }
+    return multiply(A, B >> 1) << 1;
 }
 ```
 
@@ -119,10 +117,13 @@ function multiply(A: number, B: number): number {
 ```rust
 impl Solution {
     pub fn multiply(a: i32, b: i32) -> i32 {
-        if a == 0 || b == 0 {
-            return 0;
+        if b == 1 {
+            return a;
         }
-        a.max(b) + Self::multiply(a.max(b), a.min(b) - 1)
+        if b & 1 == 1 {
+            return (Self::multiply(a, b >> 1) << 1) + a;
+        }
+        Self::multiply(a, b >> 1) << 1
     }
 }
 ```
