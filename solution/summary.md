@@ -2857,7 +2857,7 @@
 - 2800-2899
   - [2800.包含三个字符串的最短字符串](/solution/2800-2899/2800.Shortest%20String%20That%20Contains%20Three%20Strings/README.md)
   - [2801.统计范围内的步进数字数目](/solution/2800-2899/2801.Count%20Stepping%20Numbers%20in%20Range/README.md)
-  - [2802.Find The K-th Lucky Number](/solution/2800-2899/2802.Find%20The%20K-th%20Lucky%20Number/README.md)
-  - [2803.Factorial Generator](/solution/2800-2899/2803.Factorial%20Generator/README.md)
-  - [2804.Array Prototype ForEach](/solution/2800-2899/2804.Array%20Prototype%20ForEach/README.md)
-  - [2805.Custom Interval](/solution/2800-2899/2805.Custom%20Interval/README.md)
+  - [2802.找出第 K 个幸运数字](/solution/2800-2899/2802.Find%20The%20K-th%20Lucky%20Number/README.md)
+  - [2803.阶乘生成器](/solution/2800-2899/2803.Factorial%20Generator/README.md)
+  - [2804.数组原型的 forEach 方法](/solution/2800-2899/2804.Array%20Prototype%20ForEach/README.md)
+  - [2805.自定义间隔](/solution/2800-2899/2805.Custom%20Interval/README.md)

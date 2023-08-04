@@ -1,4 +1,4 @@
-# [2805. Custom Interval](https://leetcode.cn/problems/custom-interval)
+# [2805. 自定义间隔](https://leetcode.cn/problems/custom-interval)
 
 [English Version](/solution/2800-2899/2805.Custom%20Interval/README_EN.md)
 
@@ -6,21 +6,22 @@
 
 <!-- 这里写题目描述 -->
 
-<p><strong>Function&nbsp;</strong><code>customInterval</code></p>
+<p><strong>函数</strong>&nbsp;<code>customInterval</code></p>
 
-<p>Given a function <code>fn</code>, a number <code>delay</code> and a number <code>period</code>, return&nbsp;a number&nbsp;<code>id</code>. <code>customInterval</code>&nbsp;is a function that should execute the provided function <code>fn</code> at intervals based on a linear pattern defined by the formula <code>delay&nbsp;+ period&nbsp;* count</code>.&nbsp;The <code>count</code> in the formula&nbsp;represents the number of times the interval has been&nbsp;executed starting from an initial value of 0.</p>
+<p>给定一个函数 <code>fn</code>、一个数字 <code>delay</code> 和一个数字 <code>period</code>，返回一个数字 <code>id</code>。<code>customInterval</code> 是一个函数，它应该根据公式 <code>delay + period * count</code> 在间隔中执行提供的函数 <code>fn</code>，公式中的 <code>count</code> 表示从初始值 0 开始执行间隔的次数。</p>
 
-<p><strong>Function </strong><code>customClearInterval</code>&nbsp;</p>
+<p><strong>函数</strong> <code>customClearInterval</code></p>
 
-<p>Given the&nbsp;<code>id</code>. <code>id</code>&nbsp;is the&nbsp;returned value from&nbsp;the function&nbsp;<code>customInterval</code>. <code>customClearInterval</code>&nbsp;should stop executing&nbsp;provided function <code>fn</code> at intervals.</p>
+<p>给定 <code>id</code>。<code>id</code> 是从函数 <code>customInterval</code> 返回的值。<code>customClearInterval</code> 应该停止在间隔中执行提供的函数 <code>fn</code>。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><b>示例 1：</b></p>
 
 <pre>
-<strong>Input:</strong> delay = 50, period = 20, stopTime = 225
-<strong>Output:</strong> [50,120,210]
-<strong>Explanation:</strong> 
+<b>输入：</b>delay = 50, period = 20, stopTime = 225
+<b>输出：</b>[50,120,210]
+<b>解释：</b>
 const t = performance.now()&nbsp;&nbsp;
 const result = []
 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
@@ -33,34 +34,35 @@ setTimeout(() =&gt; {
     customClearInterval(id)
 }, 225)
 
-50 + 20 * 0 = 50 // 50ms - 1st function call
-50 + 20&nbsp;* 1 = 70 // 50ms + 70ms = 120ms - 2nd function call
-50 + 20 * 2 = 90 // 50ms + 70ms + 90ms = 210ms - 3rd function call
+50 + 20 * 0 = 50 // 50ms - 第一个函数调用
+50 + 20&nbsp;* 1 = 70 // 50ms + 70ms = 120ms - 第二个函数调用
+50 + 20 * 2 = 90 // 50ms + 70ms + 90ms = 210ms - 第三个函数调用
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<strong>Input:</strong> delay = 20, period = 20, stopTime = 150
-<strong>Output:</strong> [20,60,120]
-<strong>Explanation:</strong> 
-20 + 20 * 0 = 20 // 20ms - 1st function call
-20 + 20&nbsp;* 1 = 40 // 20ms + 40ms = 60ms - 2nd function call
-20 + 20 * 2 = 60 // 20ms + 40ms + 60ms = 120ms - 3rd function call
+<b>输入：</b>delay = 20, period = 20, stopTime = 150
+<b>输出：</b>[20,60,120]
+<b>解释：</b>
+20 + 20 * 0 = 20 // 20ms - 第一个函数调用
+20 + 20&nbsp;* 1 = 40 // 20ms + 40ms = 60ms - 第二个函数调用
+20 + 20 * 2 = 60 // 20ms + 40ms + 60ms = 120ms - 第三个函数调用
 </pre>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <pre>
-<strong>Input:</strong> delay = 100, period = 200, stopTime = 500
-<strong>Output:</strong> [100,400]
-<strong>Explanation:</strong> 
-100 + 200 * 0 = 100 // 100ms - 1st function call
-100 + 200&nbsp;* 1 = 300 // 100ms + 300ms = 400ms - 2nd function call
+<b>输入：</b>delay = 100, period = 200, stopTime = 500
+<b>输出：</b>[100,400]
+<b>解释：</b>
+100 + 200 * 0 = 100 // 100ms - 第一个函数调用
+100 + 200&nbsp;* 1 = 300 // 100ms + 300ms = 400ms - 第二个函数调用
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>20 &lt;= delay, period &lt;= 250</code></li>
