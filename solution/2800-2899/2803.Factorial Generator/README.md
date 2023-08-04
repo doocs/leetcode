@@ -66,7 +66,22 @@ gen.next().value // 1
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
+function* factorial(n: number): Generator<number> {
+    if (n === 0) {
+        yield 1;
+    }
+    let ans = 1;
+    for (let i = 1; i <= n; ++i) {
+        ans *= i;
+        yield ans;
+    }
+}
 
+/**
+ * const gen = factorial(2);
+ * gen.next().value; // 1
+ * gen.next().value; // 2
+ */
 ```
 
 <!-- tabs:end -->
