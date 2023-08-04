@@ -1,4 +1,4 @@
-# [2803. Factorial Generator](https://leetcode.cn/problems/factorial-generator)
+# [2803. 阶乘生成器](https://leetcode.cn/problems/factorial-generator)
 
 [English Version](/solution/2800-2899/2803.Factorial%20Generator/README_EN.md)
 
@@ -6,19 +6,20 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Write a generator function that takes an integer <code>n</code> as an argument and returns a generator object which yields the <strong>factorial sequence</strong>.</p>
+<p>编写一个生成器函数，该函数以一个整数 <code>n</code> 作为参数，并返回一个生成器对象，该生成器对象可以生成 <strong>阶乘序列</strong> 。</p>
 
-<p>The&nbsp;<strong>factorial sequence</strong>&nbsp;is defined by the relation <code>n!&nbsp;= n *&nbsp;<span style="font-size: 13px;">(</span>n-1)&nbsp;* (n-2)&nbsp;*&nbsp;...&nbsp;* 2 * 1​​​.</code></p>
+<p><strong>阶乘序列</strong> 的定义如下：<code>n! = n * (n-1) * (n-2) * ... * 2 * 1</code>&nbsp;。</p>
 
-<p>The factorial of 0 is defined as 1.</p>
+<p>0 的阶乘被定义为 1。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>Input:</strong> n = 5
-<strong>Output:</strong> [1,2,6,24,120]
-<strong>Explanation:</strong> 
+<b>输入：</b>n = 5
+<b>输出：</b>[1,2,6,24,120]
+<b>解释：</b>
 const gen = factorial(5)
 gen.next().value // 1
 gen.next().value // 2
@@ -27,29 +28,30 @@ gen.next().value // 24
 gen.next().value // 120
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<strong>Input:</strong> n = 2
-<strong>Output:</strong> [1,2]
-<strong>Explanation:</strong> 
+<b>输入：</b>n = 2
+<b>输出：</b>[1,2]
+<b>解释：</b>
 const gen = factorial(2) 
 gen.next().value // 1 
 gen.next().value // 2 
 </pre>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <pre>
-<strong>Input:</strong> n = 0
-<strong>Output:</strong> [1]
-<strong>Explanation:</strong> 
+<b>输入：</b>n = 0
+<b>输出：</b>[1]
+<b>解释：</b>
 const gen = factorial(0) 
 gen.next().value // 1 
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>0 &lt;= n &lt;= 18</code></li>
