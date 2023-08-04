@@ -2811,6 +2811,9 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2800  |  [Shortest String That Contains Three Strings](/solution/2800-2899/2800.Shortest%20String%20That%20Contains%20Three%20Strings/README_EN.md)  |  `Greedy`,`String`,`Enumeration`  |  Medium  |  Weekly Contest 356  |
 |  2801  |  [Count Stepping Numbers in Range](/solution/2800-2899/2801.Count%20Stepping%20Numbers%20in%20Range/README_EN.md)  |  `String`,`Dynamic Programming`  |  Hard  |  Weekly Contest 356  |
 |  2802  |  [Find The K-th Lucky Number](/solution/2800-2899/2802.Find%20The%20K-th%20Lucky%20Number/README_EN.md)  |    |  Medium  |  🔒  |
+|  2803  |  [Factorial Generator](/solution/2800-2899/2803.Factorial%20Generator/README_EN.md)  |    |  Easy  |  🔒  |
+|  2804  |  [Array Prototype ForEach](/solution/2800-2899/2804.Array%20Prototype%20ForEach/README_EN.md)  |    |  Easy  |  🔒  |
+|  2805  |  [Custom Interval](/solution/2800-2899/2805.Custom%20Interval/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
