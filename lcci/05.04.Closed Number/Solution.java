@@ -3,9 +3,9 @@ class Solution {
         int[] ans = {-1, -1};
         int[] dirs = {0, 1, 0};
         for (int p = 0; p < 2; ++p) {
+            int a = dirs[p], b = dirs[p + 1];
             int x = num;
             for (int i = 1; i < 31; ++i) {
-                int a = dirs[p], b = dirs[p + 1];
                 if ((x >> i & 1) == a && (x >> (i - 1) & 1) == b) {
                     x ^= 1 << i;
                     x ^= 1 << (i - 1);

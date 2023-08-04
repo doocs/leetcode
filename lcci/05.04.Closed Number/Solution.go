@@ -2,9 +2,9 @@ func findClosedNumbers(num int) []int {
 	ans := []int{-1, -1}
 	dirs := [3]int{0, 1, 0}
 	for p := 0; p < 2; p++ {
+		a, b := dirs[p], dirs[p+1]
 		x := num
 		for i := 1; i < 31; i++ {
-			a, b := dirs[p], dirs[p+1]
 			if x>>i&1 == a && x>>(i-1)&1 == b {
 				x ^= 1 << i
 				x ^= 1 << (i - 1)

@@ -4,9 +4,9 @@ public:
         vector<int> ans(2, -1);
         int dirs[3] = {0, 1, 0};
         for (int p = 0; p < 2; ++p) {
+            int a = dirs[p], b = dirs[p + 1];
             int x = num;
             for (int i = 1; i < 31; ++i) {
-                int a = dirs[p], b = dirs[p + 1];
                 if ((x >> i & 1) == a && (x >> (i - 1) & 1) == b) {
                     x ^= 1 << i;
                     x ^= 1 << (i - 1);

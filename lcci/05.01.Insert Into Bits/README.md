@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>插入。给定两个32位的整数<code>N</code>与<code>M</code>，以及表示比特位置的<code>i</code>与<code>j</code>。编写一种方法，将<code>M</code>插入<code>N</code>，使得M从N的第j位开始，到第<code>i</code>位结束。假定从<code>j</code>位到<code>i</code>位足以容纳<code>M</code>，也即若M = 10 011，那么j和i之间至少可容纳5个位。例如，不可能出现j = 3和i = 2的情况，因为第3位和第2位之间放不下M。</p>
 
 <p> <strong>示例1:</strong></p>
@@ -25,6 +26,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：位运算**
+
+我们先将 $N$ 的第 $i$ 位到第 $j$ 位清零，然后再将 $M$ 左移 $i$ 位，最后将 $M$ 与 $N$ 进行或运算。
+
+时间复杂度 $O(\log n)$，其中 $n$ 是 $N$ 的大小。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -32,8 +39,11 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
-
+class Solution:
+    def insertBits(self, N: int, M: int, i: int, j: int) -> int:
+        for k in range(i, j + 1):
+            N &= ~(1 << k)
+        return N | M << i
 ```
 
 ### **Java**
@@ -43,18 +53,53 @@
 ```java
 class Solution {
     public int insertBits(int N, int M, int i, int j) {
-        for (int k = i; k <= j; k++) {
+        for (int k = i; k <= j; ++k) {
             N &= ~(1 << k);
         }
-        return N ^ (M << i);
+        return N | M << i;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int insertBits(int N, int M, int i, int j) {
+        for (int k = i; k <= j; ++k) {
+            N &= ~(1 << k);
+        }
+        return N | M << i;
+    }
+};
+```
+
+### **Go**
+
+```go
+func insertBits(N int, M int, i int, j int) int {
+	for k := i; k <= j; k++ {
+		N &= ^(1 << k)
+	}
+	return N | M<<i
+}
+```
+
+### **TypeScript**
+
+```ts
+function insertBits(N: number, M: number, i: number, j: number): number {
+    for (let k = i; k <= j; ++k) {
+        N &= ~(1 << k);
+    }
+    return N | (M << i);
 }
 ```
 
 ### **...**
 
 ```
-
 
 ```
 
