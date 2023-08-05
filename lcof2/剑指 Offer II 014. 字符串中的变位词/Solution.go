@@ -1,31 +1,41 @@
 func checkInclusion(s1 string, s2 string) bool {
-	n1, n2 := len(s1), len(s2)
-	if n1 > n2 {
+	m, n := len(s1), len(s2)
+	if m > n {
 		return false
 	}
-	window := make([]int, 26)
-	for i := 0; i < n1; i++ {
-		window[s1[i]-'a']++
-		window[s2[i]-'a']--
+	cnt := [26]int{}
+	for i := 0; i < m; i++ {
+		cnt[s1[i]-'a']--
+		cnt[s2[i]-'a']++
 	}
-	if check(window) {
+	diff := 0
+	for _, x := range cnt {
+		if x != 0 {
+			diff++
+		}
+	}
+	if diff == 0 {
 		return true
 	}
-	for i := n1; i < n2; i++ {
-		window[s2[i]-'a']--
-		window[s2[i-n1]-'a']++
-		if check(window) {
+	for i := m; i < n; i++ {
+		a, b := s2[i-m]-'a', s2[i]-'a'
+		if cnt[a] == 0 {
+			diff++
+		}
+		cnt[a]--
+		if cnt[a] == 0 {
+			diff--
+		}
+		if cnt[b] == 0 {
+			diff++
+		}
+		cnt[b]++
+		if cnt[b] == 0 {
+			diff--
+		}
+		if diff == 0 {
 			return true
 		}
 	}
 	return false
-}
-
-func check(window []int) bool {
-	for _, cnt := range window {
-		if cnt != 0 {
-			return false
-		}
-	}
-	return true
 }
