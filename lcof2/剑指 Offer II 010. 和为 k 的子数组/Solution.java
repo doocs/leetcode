@@ -1,12 +1,12 @@
 class Solution {
     public int subarraySum(int[] nums, int k) {
-        Map<Integer, Integer> map = new HashMap<>();
-        int ans = 0, sum = 0;
-        map.put(0, 1);
-        for (int num : nums) {
-            sum += num;
-            ans += map.getOrDefault(sum - k, 0);
-            map.merge(sum, 1, Integer::sum);
+        Map<Integer, Integer> cnt = new HashMap<>();
+        cnt.put(0, 1);
+        int ans = 0, s = 0;
+        for (int x : nums) {
+            s += x;
+            ans += cnt.getOrDefault(s - k, 0);
+            cnt.merge(s, 1, Integer::sum);
         }
         return ans;
     }

@@ -43,7 +43,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-数组中既有正数又有负数，无法使用双指针。可以利用前缀和思想，快速判断子数组的和
+**方法一：哈希表 + 前缀和**
+
+由于数组中既有正数又有负数，无法使用双指针。我们可以使用哈希表记录每个前缀和出现的次数，从而在 $O(1)$ 的时间内得到以当前位置为右端点的子数组中和为 $k$ 的子数组个数。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
 
@@ -54,12 +58,12 @@
 ```python
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
-        d = defaultdict(int, {0: 1})
-        ans, sum = 0, 0
-        for num in nums:
-            sum += num
-            ans += d[sum - k]
-            d[sum] += 1
+        cnt = Counter({0: 1})
+        ans = s = 0
+        for x in nums:
+            s += x
+            ans += cnt[s - k]
+            cnt[s] += 1
         return ans
 ```
 
@@ -70,31 +74,16 @@ class Solution:
 ```java
 class Solution {
     public int subarraySum(int[] nums, int k) {
-        Map<Integer, Integer> map = new HashMap<>();
-        int ans = 0, sum = 0;
-        map.put(0, 1);
-        for (int num : nums) {
-            sum += num;
-            ans += map.getOrDefault(sum - k, 0);
-            map.merge(sum, 1, Integer::sum);
+        Map<Integer, Integer> cnt = new HashMap<>();
+        cnt.put(0, 1);
+        int ans = 0, s = 0;
+        for (int x : nums) {
+            s += x;
+            ans += cnt.getOrDefault(s - k, 0);
+            cnt.merge(s, 1, Integer::sum);
         }
         return ans;
     }
-}
-```
-
-### **Go**
-
-```go
-func subarraySum(nums []int, k int) int {
-	m := map[int]int{0: 1}
-	sum, ans := 0, 0
-	for _, num := range nums {
-		sum += num
-		ans += m[sum-k]
-		m[sum]++
-	}
-	return ans
 }
 ```
 
@@ -104,22 +93,49 @@ func subarraySum(nums []int, k int) int {
 class Solution {
 public:
     int subarraySum(vector<int>& nums, int k) {
-        if (nums.size() < 0) return 0;
-
-        int presum = 0;
-        int count = 0;
-        unordered_map<int, int> mp;
-        mp[0] = 1;
-
-        for (int right = 0; right < nums.size(); right++) {
-            presum += nums[right];
-            count += mp[presum - k];
-            mp[presum]++;
+        unordered_map<int, int> cnt;
+        cnt[0] = 1;
+        int ans = 0, s = 0;
+        for (int x : nums) {
+            s += x;
+            ans += cnt[s - k];
+            cnt[s]++;
         }
-
-        return count;
+        return ans;
     }
 };
+```
+
+### **Go**
+
+```go
+func subarraySum(nums []int, k int) (ans int) {
+	cnt := map[int]int{0: 1}
+	s := 0
+	for _, x := range nums {
+		s += x
+		ans += cnt[s-k]
+		cnt[s]++
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function subarraySum(nums: number[], k: number): number {
+    const cnt: Map<number, number> = new Map();
+    cnt.set(0, 1);
+    let ans = 0;
+    let s = 0;
+    for (const x of nums) {
+        s += x;
+        ans += cnt.get(s - k) ?? 0;
+        cnt.set(s, (cnt.get(s) ?? 0) + 1);
+    }
+    return ans;
+}
 ```
 
 ### **...**
