@@ -9,13 +9,13 @@
  */
 class Solution {
     public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
-        TreeNode cur = root, ans = null;
-        while (cur != null) {
-            if (cur.val <= p.val) {
-                cur = cur.right;
+        TreeNode ans = null;
+        while (root != null) {
+            if (root.val > p.val) {
+                ans = root;
+                root = root.left;
             } else {
-                ans = cur;
-                cur = cur.left;
+                root = root.right;
             }
         }
         return ans;

@@ -7,13 +7,12 @@
  * }
  */
 func inorderSuccessor(root *TreeNode, p *TreeNode) (ans *TreeNode) {
-	cur := root
-	for cur != nil {
-		if cur.Val <= p.Val {
-			cur = cur.Right
+	for root != nil {
+		if root.Val > p.Val {
+			ans = root
+			root = root.Left
 		} else {
-			ans = cur
-			cur = cur.Left
+			root = root.Right
 		}
 	}
 	return
