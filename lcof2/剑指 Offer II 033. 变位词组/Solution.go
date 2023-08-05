@@ -1,15 +1,14 @@
-func groupAnagrams(strs []string) [][]string {
-	chars := map[string][]string{}
+func groupAnagrams(strs []string) (ans [][]string) {
+	d := map[[26]int][]string{}
 	for _, s := range strs {
-		key := []byte(s)
-		sort.Slice(key, func(i, j int) bool {
-			return key[i] < key[j]
-		})
-		chars[string(key)] = append(chars[string(key)], s)
+		cnt := [26]int{}
+		for _, c := range s {
+			cnt[c-'a']++
+		}
+		d[cnt] = append(d[cnt], s)
 	}
-	var res [][]string
-	for _, v := range chars {
-		res = append(res, v)
+	for _, v := range d {
+		ans = append(ans, v)
 	}
-	return res
+	return
 }
