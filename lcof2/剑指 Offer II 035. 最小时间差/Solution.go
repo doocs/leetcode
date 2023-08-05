@@ -11,11 +11,11 @@ func findMinDifference(timePoints []string) int {
 	}
 	sort.Ints(mins)
 	mins = append(mins, mins[0]+24*60)
-	res := 24 * 60
-	for i := 1; i < len(mins); i++ {
-		res = min(res, mins[i]-mins[i-1])
+	ans := 1 << 30
+	for i, x := range mins[1:] {
+		ans = min(ans, x-mins[i])
 	}
-	return res
+	return ans
 }
 
 func min(a, b int) int {

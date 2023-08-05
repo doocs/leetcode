@@ -39,15 +39,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-我们注意到，时间点最多只有 `24 * 60` 个，因此，当 timePoints 长度超过 `24 * 60`，说明有重复的时间点，提前返回 0。
+**方法一：排序**
 
-接下来：
+我们注意到，时间点最多只有 $24 \times 60$ 个，因此，当 $timePoints$ 长度超过 $24 \times 60$，说明有重复的时间点，提前返回 $0$。
 
-首先，遍历时间列表，将其转换为“分钟制”列表 `mins`，比如，对于时间点 `13:14`，将其转换为 `13 * 60 + 14`。
+接下来，我们首先遍历时间列表，将其转换为“分钟制”列表 $mins$，比如，对于时间点 `13:14`，将其转换为 $13 \times 60 + 14$。
 
-接着将“分钟制”列表按升序排列，然后将此列表的最小时间 `mins[0]` 加上 `24 * 60` 追加至列表尾部，用于处理最大值、最小值的差值这种特殊情况。
+接着将“分钟制”列表按升序排列，然后将此列表的最小时间 $mins[0]$ 加上 $24 \times 60$ 追加至列表尾部，用于处理最大值、最小值的差值这种特殊情况。
 
 最后遍历“分钟制”列表，找出相邻两个时间的最小值即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为时间点个数。
 
 <!-- tabs:start -->
 
@@ -62,10 +64,7 @@ class Solution:
             return 0
         mins = sorted(int(t[:2]) * 60 + int(t[3:]) for t in timePoints)
         mins.append(mins[0] + 24 * 60)
-        res = mins[-1]
-        for i in range(1, len(mins)):
-            res = min(res, mins[i] - mins[i - 1])
-        return res
+        return min(b - a for a, b in pairwise(mins))
 ```
 
 ### **Java**
@@ -85,11 +84,11 @@ class Solution {
         }
         Collections.sort(mins);
         mins.add(mins.get(0) + 24 * 60);
-        int res = 24 * 60;
+        int ans = 1 << 30;
         for (int i = 1; i < mins.size(); ++i) {
-            res = Math.min(res, mins.get(i) - mins.get(i - 1));
+            ans = Math.min(ans, mins.get(i) - mins.get(i - 1));
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -100,17 +99,20 @@ class Solution {
 class Solution {
 public:
     int findMinDifference(vector<string>& timePoints) {
-        if (timePoints.size() > 24 * 60)
+        if (timePoints.size() > 24 * 60) {
             return 0;
+        }
         vector<int> mins;
-        for (auto t : timePoints)
+        for (auto& t : timePoints) {
             mins.push_back(stoi(t.substr(0, 2)) * 60 + stoi(t.substr(3)));
+        }
         sort(mins.begin(), mins.end());
         mins.push_back(mins[0] + 24 * 60);
-        int res = 24 * 60;
-        for (int i = 1; i < mins.size(); ++i)
-            res = min(res, mins[i] - mins[i - 1]);
-        return res;
+        int ans = 1 << 30;
+        for (int i = 1; i < mins.size(); ++i) {
+            ans = min(ans, mins[i] - mins[i - 1]);
+        }
+        return ans;
     }
 };
 ```
@@ -131,11 +133,11 @@ func findMinDifference(timePoints []string) int {
 	}
 	sort.Ints(mins)
 	mins = append(mins, mins[0]+24*60)
-	res := 24 * 60
-	for i := 1; i < len(mins); i++ {
-		res = min(res, mins[i]-mins[i-1])
+	ans := 1 << 30
+	for i, x := range mins[1:] {
+		ans = min(ans, x-mins[i])
 	}
-	return res
+	return ans
 }
 
 func min(a, b int) int {
@@ -143,6 +145,27 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function findMinDifference(timePoints: string[]): number {
+    if (timePoints.length > 24 * 60) {
+        return 0;
+    }
+    const mins: number[] = timePoints.map(timePoint => {
+        const [hour, minute] = timePoint.split(':').map(num => parseInt(num));
+        return hour * 60 + minute;
+    });
+    mins.sort((a, b) => a - b);
+    mins.push(mins[0] + 24 * 60);
+    let ans = 1 << 30;
+    for (let i = 1; i < mins.length; ++i) {
+        ans = Math.min(ans, mins[i] - mins[i - 1]);
+    }
+    return ans;
 }
 ```
 
