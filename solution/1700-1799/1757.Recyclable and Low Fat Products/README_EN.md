@@ -66,7 +66,7 @@ WHERE low_fats = 'Y' AND recyclable = 'Y';
 
 ### **PANDAS**
 
-```py
+```python
 import pandas as pd
 
 
