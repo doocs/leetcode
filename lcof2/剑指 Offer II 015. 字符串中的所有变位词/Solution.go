@@ -1,32 +1,41 @@
-func findAnagrams(s string, p string) []int {
+func findAnagrams(s string, p string) (ans []int) {
 	m, n := len(s), len(p)
-	if n > m {
-		return []int{}
+	if m < n {
+		return
 	}
-	ans := make([]int, 0)
-	window := make([]int, 26)
+	cnt := [26]int{}
 	for i := 0; i < n; i++ {
-		window[p[i]-'a']++
-		window[s[i]-'a']--
+		cnt[s[i]-'a']++
+		cnt[p[i]-'a']--
 	}
-	if check(window) {
+	diff := 0
+	for _, x := range cnt {
+		if x != 0 {
+			diff++
+		}
+	}
+	if diff == 0 {
 		ans = append(ans, 0)
 	}
 	for i := n; i < m; i++ {
-		window[s[i]-'a']--
-		window[s[i-n]-'a']++
-		if check(window) {
+		a, b := s[i-n]-'a', s[i]-'a'
+		if cnt[a] == 0 {
+			diff++
+		}
+		cnt[a]--
+		if cnt[a] == 0 {
+			diff--
+		}
+		if cnt[b] == 0 {
+			diff++
+		}
+		cnt[b]++
+		if cnt[b] == 0 {
+			diff--
+		}
+		if diff == 0 {
 			ans = append(ans, i-n+1)
 		}
 	}
-	return ans
-}
-
-func check(window []int) bool {
-	for _, cnt := range window {
-		if cnt != 0 {
-			return false
-		}
-	}
-	return true
+	return
 }

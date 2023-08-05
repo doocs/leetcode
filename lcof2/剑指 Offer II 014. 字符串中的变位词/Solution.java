@@ -1,28 +1,45 @@
 class Solution {
     public boolean checkInclusion(String s1, String s2) {
-        int n1 = s1.length(), n2 = s2.length();
-        if (n1 > n2) {
+        int m = s1.length();
+        int n = s2.length();
+        if (m > n) {
             return false;
         }
-        int[] window = new int[26];
-        for (int i = 0; i < n1; i++) {
-            window[s1.charAt(i) - 'a']++;
-            window[s2.charAt(i) - 'a']--;
+        int[] cnt = new int[26];
+        for (int i = 0; i < m; ++i) {
+            --cnt[s1.charAt(i) - 'a'];
+            ++cnt[s2.charAt(i) - 'a'];
         }
-        if (check(window)) {
+        int diff = 0;
+        for (int x : cnt) {
+            if (x != 0) {
+                ++diff;
+            }
+        }
+        if (diff == 0) {
             return true;
         }
-        for (int i = n1; i < n2; i++) {
-            window[s2.charAt(i) - 'a']--;
-            window[s2.charAt(i - n1) - 'a']++;
-            if (check(window)) {
+        for (int i = m; i < n; ++i) {
+            int a = s2.charAt(i - m) - 'a';
+            int b = s2.charAt(i) - 'a';
+            if (cnt[a] == 0) {
+                ++diff;
+            }
+            --cnt[a];
+            if (cnt[a] == 0) {
+                --diff;
+            }
+            if (cnt[b] == 0) {
+                ++diff;
+            }
+            ++cnt[b];
+            if (cnt[b] == 0) {
+                --diff;
+            }
+            if (diff == 0) {
                 return true;
             }
         }
         return false;
-    }
-
-    private boolean check(int[] window) {
-        return Arrays.stream(window).allMatch(cnt -> cnt == 0);
     }
 }

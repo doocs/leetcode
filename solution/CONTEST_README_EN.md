@@ -25,6 +25,13 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 356
+
+- [2798. Number of Employees Who Met the Target](/solution/2700-2799/2798.Number%20of%20Employees%20Who%20Met%20the%20Target/README_EN.md)
+- [2799. Count Complete Subarrays in an Array](/solution/2700-2799/2799.Count%20Complete%20Subarrays%20in%20an%20Array/README_EN.md)
+- [2800. Shortest String That Contains Three Strings](/solution/2800-2899/2800.Shortest%20String%20That%20Contains%20Three%20Strings/README_EN.md)
+- [2801. Count Stepping Numbers in Range](/solution/2800-2899/2801.Count%20Stepping%20Numbers%20in%20Range/README_EN.md)
+
 #### Weekly Contest 355
 
 - [2788. Split Strings by Separator](/solution/2700-2799/2788.Split%20Strings%20by%20Separator/README_EN.md)

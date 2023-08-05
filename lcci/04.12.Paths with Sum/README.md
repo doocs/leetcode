@@ -34,7 +34,23 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-DFS 深度优先搜索
+**方法一：哈希表 + 前缀和 + 递归**
+
+我们可以运用前缀和的思想，对二叉树进行递归遍历，同时用哈希表 $cnt$ 统计从根节点到当前节点的路径上各个前缀和出现的次数。
+
+我们设计一个递归函数 $dfs(node, s)$，表示当前遍历到的节点为 $node$，从根节点到当前节点的路径上的前缀和为 $s$。函数的返回值是统计以 $node$ 节点及其子树节点作为路径终点且路径和为 $sum$ 的路径数目。那么答案就是 $dfs(root, 0)$。
+
+函数 $dfs(node, s)$ 的递归过程如下：
+
+-   如果当前节点 $node$ 为空，则返回 $0$。
+-   计算从根节点到当前节点的路径上的前缀和 $s$。
+-   用 $cnt[s - sum]$ 表示以当前节点为路径终点且路径和为 $sum$ 的路径数目，其中 $cnt[s - sum]$ 即为 $cnt$ 中前缀和为 $s - sum$ 的个数。
+-   将前缀和 $s$ 的计数值加 $1$，即 $cnt[s] = cnt[s] + 1$。
+-   递归地遍历当前节点的左右子节点，即调用函数 $dfs(node.left, s)$ 和 $dfs(node.right, s)$，并将它们的返回值相加。
+-   在返回值计算完成以后，需要将当前节点的前缀和 $s$ 的计数值减 $1$，即执行 $cnt[s] = cnt[s] - 1$。
+-   最后返回答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。
 
 <!-- tabs:start -->
 
@@ -42,71 +58,132 @@ DFS 深度优先搜索
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-采用递归的思想，每递归到某个节点时：
-
--   若`root.val-sum == 0`，结果加 1
--   考虑将此节点纳入或不纳入路径两种情况
-
-特殊情况：若此节点的父节点在路径中，此节点必纳入路径（路径不能断）
-
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+
 class Solution:
     def pathSum(self, root: TreeNode, sum: int) -> int:
-        def dfs(root, sum, flag):
-            nonlocal ans
-            if not root:
+        def dfs(root: TreeNode, s: int):
+            if root is None:
                 return 0
-            if sum - root.val == 0:
-                ans += 1
-            if flag == 0:
-                dfs(root.left, sum, 0)
-                dfs(root.right, sum, 0)
-            dfs(root.left, sum - root.val, 1)
-            dfs(root.right, sum - root.val, 1)
+            s += root.val
+            ans = cnt[s - sum]
+            cnt[s] += 1
+            ans += dfs(root.left, s)
+            ans += dfs(root.right, s)
+            cnt[s] -= 1
+            return ans
 
-        if not root:
-            return 0
-        ans = 0
-        dfs(root, sum, 0)
-        return ans
+        cnt = Counter({0: 1})
+        return dfs(root, 0)
 ```
 
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-使用到 2 个递归过程：
-
--   BFS:(traverse)遍历每个树节点；
--   DFS: 从每个树节点出发，节点求和，看是否能满足 sum。
-
-需要注意，节点值有正有负，需要穷尽所有的可能路径。
-
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
 class Solution {
-    int ans = 0;
+    private Map<Long, Integer> cnt = new HashMap<>();
+    private int target;
+
     public int pathSum(TreeNode root, int sum) {
-        traverse(root, sum);
+        cnt.put(0L, 1);
+        target = sum;
+        return dfs(root, 0);
+    }
+
+    private int dfs(TreeNode root, long s) {
+        if (root == null) {
+            return 0;
+        }
+        s += root.val;
+        int ans = cnt.getOrDefault(s - target, 0);
+        cnt.merge(s, 1, Integer::sum);
+        ans += dfs(root.left, s);
+        ans += dfs(root.right, s);
+        cnt.merge(s, -1, Integer::sum);
         return ans;
     }
+}
+```
 
-    void traverse(TreeNode root, int sum) {
-        if (root == null) return;
-        ans += dfs(root, sum, 0);
-        traverse(root.left, sum);
-        traverse(root.right, sum);
-    }
+### **C++**
 
-    // check if sum of path is sum.
-    int dfs(TreeNode root, int sum, int cur) {
-        if (root == null) return 0;
-        cur += root.val;
-        int res = 0;
-        if (cur == sum) res++;
-        res += dfs(root.left, sum, cur);
-        res += dfs(root.right, sum, cur);
-        return res;
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    int pathSum(TreeNode* root, int sum) {
+        unordered_map<long long, int> cnt;
+        cnt[0] = 1;
+        function<int(TreeNode*, long long)> dfs = [&](TreeNode* root, long long s) {
+            if (!root) {
+                return 0;
+            }
+            s += root->val;
+            int ans = cnt[s - sum];
+            ++cnt[s];
+            ans += dfs(root->left, s);
+            ans += dfs(root->right, s);
+            --cnt[s];
+            return ans;
+        };
+        return dfs(root, 0);
     }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func pathSum(root *TreeNode, sum int) int {
+	cnt := map[int]int{0: 1}
+	var dfs func(*TreeNode, int) int
+	dfs = func(root *TreeNode, s int) int {
+		if root == nil {
+			return 0
+		}
+		s += root.Val
+		ans := cnt[s-sum]
+		cnt[s]++
+		ans += dfs(root.Left, s)
+		ans += dfs(root.Right, s)
+		cnt[s]--
+		return ans
+	}
+	return dfs(root, 0)
 }
 ```
 
@@ -127,23 +204,22 @@ class Solution {
  * }
  */
 
-function dfs(root: TreeNode | null, sum: number): number {
-    let res = 0;
-    if (root == null) {
-        return res;
-    }
-    sum -= root.val;
-    if (sum === 0) {
-        res++;
-    }
-    return res + dfs(root.left, sum) + dfs(root.right, sum);
-}
-
 function pathSum(root: TreeNode | null, sum: number): number {
-    if (root == null) {
-        return 0;
-    }
-    return dfs(root, sum) + pathSum(root.left, sum) + pathSum(root.right, sum);
+    const cnt: Map<number, number> = new Map();
+    cnt.set(0, 1);
+    const dfs = (root: TreeNode | null, s: number): number => {
+        if (!root) {
+            return 0;
+        }
+        s += root.val;
+        let ans = cnt.get(s - sum) ?? 0;
+        cnt.set(s, (cnt.get(s) ?? 0) + 1);
+        ans += dfs(root.left, s);
+        ans += dfs(root.right, s);
+        cnt.set(s, (cnt.get(s) ?? 0) - 1);
+        return ans;
+    };
+    return dfs(root, 0);
 }
 ```
 
@@ -170,38 +246,26 @@ function pathSum(root: TreeNode | null, sum: number): number {
 // }
 use std::rc::Rc;
 use std::cell::RefCell;
-use std::collections::VecDeque;
+use std::collections::HashMap;
 impl Solution {
-    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, mut sum: i32) -> i32 {
-        let mut res = 0;
-        if root.is_none() {
-            return res;
-        }
-        let root = root.as_ref().unwrap().borrow();
-        sum -= root.val;
-        if sum == 0 {
-            res += 1;
-        }
-        res + Self::dfs(&root.left, sum) + Self::dfs(&root.right, sum)
+    pub fn path_sum(root: Option<Rc<RefCell<TreeNode>>>, sum: i32) -> i32 {
+        let mut cnt = HashMap::new();
+        cnt.insert(0, 1);
+        return Self::dfs(root, sum, 0, &mut cnt);
     }
 
-    pub fn path_sum(root: Option<Rc<RefCell<TreeNode>>>, sum: i32) -> i32 {
-        let mut queue = VecDeque::new();
-        if root.is_some() {
-            queue.push_back(root);
+    fn dfs(root: Option<Rc<RefCell<TreeNode>>>, sum: i32, s: i32, cnt: &mut HashMap<i32, i32>) -> i32 {
+        if let Some(node) = root {
+            let node = node.borrow();
+            let s = s + node.val;
+            let mut ans = *cnt.get(&(s - sum)).unwrap_or(&0);
+            *cnt.entry(s).or_insert(0) += 1;
+            ans += Self::dfs(node.left.clone(), sum, s, cnt);
+            ans += Self::dfs(node.right.clone(), sum, s, cnt);
+            *cnt.entry(s).or_insert(0) -= 1;
+            return ans;
         }
-        let mut res = 0;
-        while let Some(mut root) = queue.pop_front() {
-            res += Self::dfs(&root, sum);
-            let mut root = root.as_mut().unwrap().borrow_mut();
-            if root.left.is_some() {
-                queue.push_back(root.left.take());
-            }
-            if root.right.is_some() {
-                queue.push_back(root.right.take());
-            }
-        }
-        res
+        return 0;
     }
 }
 ```

@@ -11,14 +11,13 @@
  * @return {TreeNode}
  */
 var inorderSuccessor = function (root, p) {
-    let cur = root;
     let ans = null;
-    while (cur != null) {
-        if (cur.val <= p.val) {
-            cur = cur.right;
+    while (root) {
+        if (root.val > p.val) {
+            ans = root;
+            root = root.left;
         } else {
-            ans = cur;
-            cur = cur.left;
+            root = root.right;
         }
     }
     return ans;

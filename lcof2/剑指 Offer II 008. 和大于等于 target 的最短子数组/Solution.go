@@ -1,18 +1,16 @@
 func minSubArrayLen(target int, nums []int) int {
-	n := len(nums)
-	ans := math.MaxInt32
-	sum := 0
-	left, right := 0, 0
-	for right < n {
-		sum += nums[right]
-		right++
-		for sum >= target {
-			ans = min(ans, right-left)
-			sum -= nums[left]
-			left++
+	const inf = 1 << 30
+	ans := inf
+	s, i := 0, 0
+	for j, x := range nums {
+		s += x
+		for s >= target {
+			ans = min(ans, j-i+1)
+			s -= nums[i]
+			i++
 		}
 	}
-	if ans == math.MaxInt32 {
+	if ans == inf {
 		return 0
 	}
 	return ans

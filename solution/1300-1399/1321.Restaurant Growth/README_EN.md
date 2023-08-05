@@ -15,7 +15,7 @@
 | visited_on    | date    |
 | amount        | int     |
 +---------------+---------+
-(customer_id, visited_on) is the primary key for this table.
+In SQL,(customer_id, visited_on) is the primary key for this table.
 This table contains data about customer transactions in a restaurant.
 visited_on is the date on which the customer with ID (customer_id) has visited the restaurant.
 amount is the total paid by a customer.
@@ -25,11 +25,11 @@ amount is the total paid by a customer.
 
 <p>You are the restaurant owner and you want to analyze a possible expansion (there will be at least one customer every day).</p>
 
-<p>Write an SQL query to compute the moving average of how much the customer paid in a seven days window (i.e., current day + 6 days before). <code>average_amount</code> should be <strong>rounded to two decimal places</strong>.</p>
+<p>Compute the moving average of how much the customer paid in a seven days window (i.e., current day + 6 days before). <code>average_amount</code> should be <strong>rounded to two decimal places</strong>.</p>
 
-<p>Return result table ordered by <code>visited_on</code> <strong>in ascending order</strong>.</p>
+<p>Return the result table ordered by <code>visited_on</code> <strong>in ascending order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

@@ -44,18 +44,9 @@ Given the following tree and &nbsp;<code>sum = 22,</code></p>
 
 ## Solutions
 
-Depth-First-Search
-
 <!-- tabs:start -->
 
 ### **Python3**
-
-Using the idea of recursion, at each recursion to a node.
-
--   If root.val-sum == 0, add 1 to the result
--   Consider two scenarios for inclusion or exclusion of this node from the pathway
-
-Special case: if the parent node of this node is in the path, this node must be included in the path (the path cannot be broken)
 
 ```python
 class Solution:
@@ -81,38 +72,102 @@ class Solution:
 
 ### **Java**
 
-Use to 2 recursive processes.
-
--   BFS: (traverse) traverses each tree node.
--   DFS: Starting from each tree node, the nodes sum to see if sum can be satisfied.
-
-Note that node values can be positive or negative, and all possible paths need to be exhausted.
-
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
 class Solution {
-    int ans = 0;
+    private Map<Long, Integer> cnt = new HashMap<>();
+    private int target;
+
     public int pathSum(TreeNode root, int sum) {
-        traverse(root, sum);
+        cnt.put(0L, 1);
+        target = sum;
+        return dfs(root, 0);
+    }
+
+    private int dfs(TreeNode root, long s) {
+        if (root == null) {
+            return 0;
+        }
+        s += root.val;
+        int ans = cnt.getOrDefault(s - target, 0);
+        cnt.merge(s, 1, Integer::sum);
+        ans += dfs(root.left, s);
+        ans += dfs(root.right, s);
+        cnt.merge(s, -1, Integer::sum);
         return ans;
     }
+}
+```
 
-    void traverse(TreeNode root, int sum) {
-        if (root == null) return;
-        ans += dfs(root, sum, 0);
-        traverse(root.left, sum);
-        traverse(root.right, sum);
-    }
+### **C++**
 
-    // check if sum of path is sum.
-    int dfs(TreeNode root, int sum, int cur) {
-        if (root == null) return 0;
-        cur += root.val;
-        int res = 0;
-        if (cur == sum) res++;
-        res += dfs(root.left, sum, cur);
-        res += dfs(root.right, sum, cur);
-        return res;
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    int pathSum(TreeNode* root, int sum) {
+        unordered_map<long long, int> cnt;
+        cnt[0] = 1;
+        function<int(TreeNode*, long long)> dfs = [&](TreeNode* root, long long s) {
+            if (!root) {
+                return 0;
+            }
+            s += root->val;
+            int ans = cnt[s - sum];
+            ++cnt[s];
+            ans += dfs(root->left, s);
+            ans += dfs(root->right, s);
+            --cnt[s];
+            return ans;
+        };
+        return dfs(root, 0);
     }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func pathSum(root *TreeNode, sum int) int {
+	cnt := map[int]int{0: 1}
+	var dfs func(*TreeNode, int) int
+	dfs = func(root *TreeNode, s int) int {
+		if root == nil {
+			return 0
+		}
+		s += root.Val
+		ans := cnt[s-sum]
+		cnt[s]++
+		ans += dfs(root.Left, s)
+		ans += dfs(root.Right, s)
+		cnt[s]--
+		return ans
+	}
+	return dfs(root, 0)
 }
 ```
 
@@ -133,23 +188,22 @@ class Solution {
  * }
  */
 
-function dfs(root: TreeNode | null, sum: number): number {
-    let res = 0;
-    if (root == null) {
-        return res;
-    }
-    sum -= root.val;
-    if (sum === 0) {
-        res++;
-    }
-    return res + dfs(root.left, sum) + dfs(root.right, sum);
-}
-
 function pathSum(root: TreeNode | null, sum: number): number {
-    if (root == null) {
-        return 0;
-    }
-    return dfs(root, sum) + pathSum(root.left, sum) + pathSum(root.right, sum);
+    const cnt: Map<number, number> = new Map();
+    cnt.set(0, 1);
+    const dfs = (root: TreeNode | null, s: number): number => {
+        if (!root) {
+            return 0;
+        }
+        s += root.val;
+        let ans = cnt.get(s - sum) ?? 0;
+        cnt.set(s, (cnt.get(s) ?? 0) + 1);
+        ans += dfs(root.left, s);
+        ans += dfs(root.right, s);
+        cnt.set(s, (cnt.get(s) ?? 0) - 1);
+        return ans;
+    };
+    return dfs(root, 0);
 }
 ```
 
@@ -176,38 +230,26 @@ function pathSum(root: TreeNode | null, sum: number): number {
 // }
 use std::rc::Rc;
 use std::cell::RefCell;
-use std::collections::VecDeque;
+use std::collections::HashMap;
 impl Solution {
-    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, mut sum: i32) -> i32 {
-        let mut res = 0;
-        if root.is_none() {
-            return res;
-        }
-        let root = root.as_ref().unwrap().borrow();
-        sum -= root.val;
-        if sum == 0 {
-            res += 1;
-        }
-        res + Self::dfs(&root.left, sum) + Self::dfs(&root.right, sum)
+    pub fn path_sum(root: Option<Rc<RefCell<TreeNode>>>, sum: i32) -> i32 {
+        let mut cnt = HashMap::new();
+        cnt.insert(0, 1);
+        return Self::dfs(root, sum, 0, &mut cnt);
     }
 
-    pub fn path_sum(root: Option<Rc<RefCell<TreeNode>>>, sum: i32) -> i32 {
-        let mut queue = VecDeque::new();
-        if root.is_some() {
-            queue.push_back(root);
+    fn dfs(root: Option<Rc<RefCell<TreeNode>>>, sum: i32, s: i32, cnt: &mut HashMap<i32, i32>) -> i32 {
+        if let Some(node) = root {
+            let node = node.borrow();
+            let s = s + node.val;
+            let mut ans = *cnt.get(&(s - sum)).unwrap_or(&0);
+            *cnt.entry(s).or_insert(0) += 1;
+            ans += Self::dfs(node.left.clone(), sum, s, cnt);
+            ans += Self::dfs(node.right.clone(), sum, s, cnt);
+            *cnt.entry(s).or_insert(0) -= 1;
+            return ans;
         }
-        let mut res = 0;
-        while let Some(mut root) = queue.pop_front() {
-            res += Self::dfs(&root, sum);
-            let mut root = root.as_mut().unwrap().borrow_mut();
-            if root.left.is_some() {
-                queue.push_back(root.left.take());
-            }
-            if root.right.is_some() {
-                queue.push_back(root.right.take());
-            }
-        }
-        res
+        return 0;
     }
 }
 ```

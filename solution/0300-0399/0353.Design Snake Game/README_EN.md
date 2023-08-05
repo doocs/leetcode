@@ -65,13 +65,310 @@ snakeGame.move(&quot;U&quot;); // return -1, game over because snake collides wi
 ### **Python3**
 
 ```python
+class SnakeGame:
+    def __init__(self, width: int, height: int, food: List[List[int]]):
+        self.m = height
+        self.n = width
+        self.food = food
+        self.score = 0
+        self.idx = 0
+        self.q = deque([(0, 0)])
+        self.vis = {(0, 0)}
 
+    def move(self, direction: str) -> int:
+        i, j = self.q[0]
+        x, y = i, j
+        match direction:
+            case "U":
+                x -= 1
+            case "D":
+                x += 1
+            case "L":
+                y -= 1
+            case "R":
+                y += 1
+        if x < 0 or x >= self.m or y < 0 or y >= self.n:
+            return -1
+        if (
+            self.idx < len(self.food)
+            and x == self.food[self.idx][0]
+            and y == self.food[self.idx][1]
+        ):
+            self.score += 1
+            self.idx += 1
+        else:
+            self.vis.remove(self.q.pop())
+        if (x, y) in self.vis:
+            return -1
+        self.q.appendleft((x, y))
+        self.vis.add((x, y))
+        return self.score
+
+
+# Your SnakeGame object will be instantiated and called as such:
+# obj = SnakeGame(width, height, food)
+# param_1 = obj.move(direction)
 ```
 
 ### **Java**
 
 ```java
+class SnakeGame {
+    private int m;
+    private int n;
+    private int[][] food;
+    private int score;
+    private int idx;
+    private Deque<Integer> q = new ArrayDeque<>();
+    private Set<Integer> vis = new HashSet<>();
 
+    public SnakeGame(int width, int height, int[][] food) {
+        m = height;
+        n = width;
+        this.food = food;
+        q.offer(0);
+        vis.add(0);
+    }
+
+    public int move(String direction) {
+        int p = q.peekFirst();
+        int i = p / n, j = p % n;
+        int x = i, y = j;
+        if ("U".equals(direction)) {
+            --x;
+        } else if ("D".equals(direction)) {
+            ++x;
+        } else if ("L".equals(direction)) {
+            --y;
+        } else {
+            ++y;
+        }
+        if (x < 0 || x >= m || y < 0 || y >= n) {
+            return -1;
+        }
+        if (idx < food.length && x == food[idx][0] && y == food[idx][1]) {
+            ++score;
+            ++idx;
+        } else {
+            int t = q.pollLast();
+            vis.remove(t);
+        }
+        int cur = f(x, y);
+        if (vis.contains(cur)) {
+            return -1;
+        }
+        q.offerFirst(cur);
+        vis.add(cur);
+        return score;
+    }
+
+    private int f(int i, int j) {
+        return i * n + j;
+    }
+}
+
+/**
+ * Your SnakeGame object will be instantiated and called as such:
+ * SnakeGame obj = new SnakeGame(width, height, food);
+ * int param_1 = obj.move(direction);
+ */
+```
+
+### **C++**
+
+```cpp
+class SnakeGame {
+public:
+    SnakeGame(int width, int height, vector<vector<int>>& food) {
+        m = height;
+        n = width;
+        this->food = food;
+        score = 0;
+        idx = 0;
+        q.push_back(0);
+        vis.insert(0);
+    }
+
+    int move(string direction) {
+        int p = q.front();
+        int i = p / n, j = p % n;
+        int x = i, y = j;
+        if (direction == "U") {
+            --x;
+        } else if (direction == "D") {
+            ++x;
+        } else if (direction == "L") {
+            --y;
+        } else {
+            ++y;
+        }
+        if (x < 0 || x >= m || y < 0 || y >= n) {
+            return -1;
+        }
+        if (idx < food.size() && x == food[idx][0] && y == food[idx][1]) {
+            ++score;
+            ++idx;
+        } else {
+            int tail = q.back();
+            q.pop_back();
+            vis.erase(tail);
+        }
+        int cur = f(x, y);
+        if (vis.count(cur)) {
+            return -1;
+        }
+        q.push_front(cur);
+        vis.insert(cur);
+        return score;
+    }
+
+private:
+    int m;
+    int n;
+    vector<vector<int>> food;
+    int score;
+    int idx;
+    deque<int> q;
+    unordered_set<int> vis;
+
+    int f(int i, int j) {
+        return i * n + j;
+    }
+};
+
+/**
+ * Your SnakeGame object will be instantiated and called as such:
+ * SnakeGame* obj = new SnakeGame(width, height, food);
+ * int param_1 = obj->move(direction);
+ */
+```
+
+### **Go**
+
+```go
+type SnakeGame struct {
+	m     int
+	n     int
+	food  [][]int
+	score int
+	idx   int
+	q     []int
+	vis   map[int]bool
+}
+
+func Constructor(width int, height int, food [][]int) SnakeGame {
+	return SnakeGame{height, width, food, 0, 0, []int{0}, map[int]bool{}}
+}
+
+func (this *SnakeGame) Move(direction string) int {
+	f := func(i, j int) int {
+		return i*this.n + j
+	}
+	p := this.q[0]
+	i, j := p/this.n, p%this.n
+	x, y := i, j
+	if direction == "U" {
+		x--
+	} else if direction == "D" {
+		x++
+	} else if direction == "L" {
+		y--
+	} else {
+		y++
+	}
+	if x < 0 || x >= this.m || y < 0 || y >= this.n {
+		return -1
+	}
+	if this.idx < len(this.food) && x == this.food[this.idx][0] && y == this.food[this.idx][1] {
+		this.score++
+		this.idx++
+	} else {
+		t := this.q[len(this.q)-1]
+		this.q = this.q[:len(this.q)-1]
+		this.vis[t] = false
+	}
+	cur := f(x, y)
+	if this.vis[cur] {
+		return -1
+	}
+	this.q = append([]int{cur}, this.q...)
+	this.vis[cur] = true
+	return this.score
+}
+
+/**
+ * Your SnakeGame object will be instantiated and called as such:
+ * obj := Constructor(width, height, food);
+ * param_1 := obj.Move(direction);
+ */
+```
+
+### **TypeScript**
+
+```ts
+class SnakeGame {
+    private m: number;
+    private n: number;
+    private food: number[][];
+    private score: number;
+    private idx: number;
+    private q: number[];
+    private vis: Set<number>;
+
+    constructor(width: number, height: number, food: number[][]) {
+        this.m = height;
+        this.n = width;
+        this.food = food;
+        this.score = 0;
+        this.idx = 0;
+        this.q = [0];
+        this.vis = new Set([0]);
+    }
+
+    move(direction: string): number {
+        const p = this.q[0];
+        const i = Math.floor(p / this.n);
+        const j = p % this.n;
+        let x = i;
+        let y = j;
+        if (direction === 'U') {
+            --x;
+        } else if (direction === 'D') {
+            ++x;
+        } else if (direction === 'L') {
+            --y;
+        } else {
+            ++y;
+        }
+        if (x < 0 || x >= this.m || y < 0 || y >= this.n) {
+            return -1;
+        }
+        if (
+            this.idx < this.food.length &&
+            x === this.food[this.idx][0] &&
+            y === this.food[this.idx][1]
+        ) {
+            ++this.score;
+            ++this.idx;
+        } else {
+            const t = this.q.pop()!;
+            this.vis.delete(t);
+        }
+        const cur = x * this.n + y;
+        if (this.vis.has(cur)) {
+            return -1;
+        }
+        this.q.unshift(cur);
+        this.vis.add(cur);
+        return this.score;
+    }
+}
+
+/**
+ * Your SnakeGame object will be instantiated and called as such:
+ * var obj = new SnakeGame(width, height, food)
+ * var param_1 = obj.move(direction)
+ */
 ```
 
 ### **...**

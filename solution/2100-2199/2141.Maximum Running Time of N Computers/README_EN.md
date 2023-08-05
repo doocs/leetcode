@@ -54,19 +54,178 @@ We can run the two computers simultaneously for at most 2 minutes, so we return 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxRunTime(self, n: int, batteries: List[int]) -> int:
+        l, r = 0, sum(batteries)
+        while l < r:
+            mid = (l + r + 1) >> 1
+            if sum(min(x, mid) for x in batteries) >= n * mid:
+                l = mid
+            else:
+                r = mid - 1
+        return l
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public long maxRunTime(int n, int[] batteries) {
+        long l = 0, r = 0;
+        for (int x : batteries) {
+            r += x;
+        }
+        while (l < r) {
+            long mid = (l + r + 1) >> 1;
+            long s = 0;
+            for (int x : batteries) {
+                s += Math.min(mid, x);
+            }
+            if (s >= n * mid) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return l;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    long long maxRunTime(int n, vector<int>& batteries) {
+        long long l = 0, r = 0;
+        for (int x : batteries) {
+            r += x;
+        }
+        while (l < r) {
+            long long mid = (l + r + 1) >> 1;
+            long long s = 0;
+            for (int x : batteries) {
+                s += min(1LL * x, mid);
+            }
+            if (s >= n * mid) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return l;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxRunTime(n int, batteries []int) int64 {
+	l, r := 0, 0
+	for _, x := range batteries {
+		r += x
+	}
+	for l < r {
+		mid := (l + r + 1) >> 1
+		s := 0
+		for _, x := range batteries {
+			s += min(x, mid)
+		}
+		if s >= n*mid {
+			l = mid
+		} else {
+			r = mid - 1
+		}
+	}
+	return int64(l)
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
 
 ```ts
+function maxRunTime(n: number, batteries: number[]): number {
+    let l = 0n;
+    let r = 0n;
+    for (const x of batteries) {
+        r += BigInt(x);
+    }
+    while (l < r) {
+        const mid = (l + r + 1n) >> 1n;
+        let s = 0n;
+        for (const x of batteries) {
+            s += BigInt(Math.min(x, Number(mid)));
+        }
+        if (s >= mid * BigInt(n)) {
+            l = mid;
+        } else {
+            r = mid - 1n;
+        }
+    }
+    return Number(l);
+}
+```
 
+### **Rust**
+
+```rust
+impl Solution {
+    #[allow(dead_code)]
+    pub fn max_run_time(n: i32, batteries: Vec<i32>) -> i64 {
+
+        // First sort the batteries
+        let mut batteries = batteries;
+        let m = batteries.len() as i32;
+        batteries.sort();
+
+        let mut extra_sum: i64 = 0;
+        for i in 0..(m - n) as usize {
+            extra_sum += batteries[i] as i64;
+        }
+
+        let mut i = (m - n) as usize;
+        let mut cur_height = batteries[i];
+        let mut ret = cur_height as i64;
+        while extra_sum != 0 {
+            if i + 1 == m as usize {
+                assert!(cur_height == *batteries.last().unwrap());
+                ret += extra_sum / n as i64;
+                break;
+            }
+
+            if batteries[i] == batteries[i + 1] {
+                i += 1;
+                continue;
+            }
+
+            let diff = extra_sum / (i - (m - n) as usize + 1) as i64;
+
+            if (cur_height as i64 + diff) <= batteries[i + 1] as i64 {
+                ret = cur_height as i64 + diff;
+                break;
+            } else {
+                extra_sum -= (batteries[i + 1] - batteries[i]) as i64 * (i - (m - n) as usize + 1) as i64;
+                ret = batteries[i + 1] as i64;
+            }
+
+            i += 1;
+            if i != m as usize {
+                cur_height = batteries[i];
+            }
+        }
+
+        ret
+    }
+}
 ```
 
 ### **...**

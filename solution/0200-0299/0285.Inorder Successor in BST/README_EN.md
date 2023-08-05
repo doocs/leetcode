@@ -50,14 +50,14 @@
 
 
 class Solution:
-    def inorderSuccessor(self, root: 'TreeNode', p: 'TreeNode') -> 'TreeNode':
-        cur, ans = root, None
-        while cur:
-            if cur.val <= p.val:
-                cur = cur.right
+    def inorderSuccessor(self, root: TreeNode, p: TreeNode) -> Optional[TreeNode]:
+        ans = None
+        while root:
+            if root.val > p.val:
+                ans = root
+                root = root.left
             else:
-                ans = cur
-                cur = cur.left
+                root = root.right
         return ans
 ```
 
@@ -75,42 +75,17 @@ class Solution:
  */
 class Solution {
     public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
-        TreeNode cur = root, ans = null;
-        while (cur != null) {
-            if (cur.val <= p.val) {
-                cur = cur.right;
+        TreeNode ans = null;
+        while (root != null) {
+            if (root.val > p.val) {
+                ans = root;
+                root = root.left;
             } else {
-                ans = cur;
-                cur = cur.left;
+                root = root.right;
             }
         }
         return ans;
     }
-}
-```
-
-### **Go**
-
-```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-func inorderSuccessor(root *TreeNode, p *TreeNode) (ans *TreeNode) {
-	cur := root
-	for cur != nil {
-		if cur.Val <= p.Val {
-			cur = cur.Right
-		} else {
-			ans = cur
-			cur = cur.Left
-		}
-	}
-	return
 }
 ```
 
@@ -129,18 +104,76 @@ func inorderSuccessor(root *TreeNode, p *TreeNode) (ans *TreeNode) {
 class Solution {
 public:
     TreeNode* inorderSuccessor(TreeNode* root, TreeNode* p) {
-        TreeNode *cur = root, *ans = nullptr;
-        while (cur != nullptr) {
-            if (cur->val <= p->val) {
-                cur = cur->right;
+        TreeNode* ans = nullptr;
+        while (root) {
+            if (root->val > p->val) {
+                ans = root;
+                root = root->left;
             } else {
-                ans = cur;
-                cur = cur->left;
+                root = root->right;
             }
         }
         return ans;
     }
 };
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func inorderSuccessor(root *TreeNode, p *TreeNode) (ans *TreeNode) {
+	for root != nil {
+		if root.Val > p.Val {
+			ans = root
+			root = root.Left
+		} else {
+			root = root.Right
+		}
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function inorderSuccessor(
+    root: TreeNode | null,
+    p: TreeNode | null,
+): TreeNode | null {
+    let ans: TreeNode | null = null;
+    while (root) {
+        if (root.val > p.val) {
+            ans = root;
+            root = root.left;
+        } else {
+            root = root.right;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **JavaScript**
@@ -159,14 +192,13 @@ public:
  * @return {TreeNode}
  */
 var inorderSuccessor = function (root, p) {
-    let cur = root;
     let ans = null;
-    while (cur != null) {
-        if (cur.val <= p.val) {
-            cur = cur.right;
+    while (root) {
+        if (root.val > p.val) {
+            ans = root;
+            root = root.left;
         } else {
-            ans = cur;
-            cur = cur.left;
+            root = root.right;
         }
     }
     return ans;

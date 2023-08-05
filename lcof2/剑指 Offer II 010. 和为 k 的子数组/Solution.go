@@ -1,10 +1,10 @@
-func subarraySum(nums []int, k int) int {
-	m := map[int]int{0: 1}
-	sum, ans := 0, 0
-	for _, num := range nums {
-		sum += num
-		ans += m[sum-k]
-		m[sum]++
+func subarraySum(nums []int, k int) (ans int) {
+	cnt := map[int]int{0: 1}
+	s := 0
+	for _, x := range nums {
+		s += x
+		ans += cnt[s-k]
+		cnt[s]++
 	}
-	return ans
+	return
 }

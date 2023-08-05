@@ -203,7 +203,8 @@ class Solution {
         int ans = 0;
         for (int cur = 0; cur < mx; ++cur) {
             if (ix[cur] <= ic && ex[cur] <= ec) {
-                ans = Math.max(ans, f[cur] + g[pre][cur] + dfs(i + 1, cur, ic - ix[cur], ec - ex[cur]));
+                ans = Math.max(
+                    ans, f[cur] + g[pre][cur] + dfs(i + 1, cur, ic - ix[cur], ec - ex[cur]));
             }
         }
         return memo[i][pre][ic][ec] = ans;

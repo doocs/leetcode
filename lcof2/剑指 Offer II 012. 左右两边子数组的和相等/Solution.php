@@ -4,16 +4,14 @@ class Solution {
      * @return Integer
      */
     function pivotIndex($nums) {
-        $sum = 0;
-        $pre = 0;
+        $left = 0;
+        $right = array_sum($nums);
         for ($i = 0; $i < count($nums); $i++) {
-            $sum += $nums[$i];
-        }
-        for ($i = 0; $i < count($nums); $i++) {
-            if ($pre === $sum - $pre - $nums[$i]) {
+            $right -= $nums[$i];
+            if ($left == $right) {
                 return $i;
             }
-            $pre += $nums[$i];
+            $left += $nums[$i];
         }
         return -1;
     }

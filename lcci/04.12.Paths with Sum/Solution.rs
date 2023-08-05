@@ -5,7 +5,7 @@
 //   pub left: Option<Rc<RefCell<TreeNode>>>,
 //   pub right: Option<Rc<RefCell<TreeNode>>>,
 // }
-//
+// 
 // impl TreeNode {
 //   #[inline]
 //   pub fn new(val: i32) -> Self {
@@ -18,37 +18,25 @@
 // }
 use std::rc::Rc;
 use std::cell::RefCell;
-use std::collections::VecDeque;
+use std::collections::HashMap;
 impl Solution {
-    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, mut sum: i32) -> i32 {
-        let mut res = 0;
-        if root.is_none() {
-            return res;
-        }
-        let root = root.as_ref().unwrap().borrow();
-        sum -= root.val;
-        if sum == 0 {
-            res += 1;
-        }
-        res + Self::dfs(&root.left, sum) + Self::dfs(&root.right, sum)
+    pub fn path_sum(root: Option<Rc<RefCell<TreeNode>>>, sum: i32) -> i32 {
+        let mut cnt = HashMap::new();
+        cnt.insert(0, 1);
+        return Self::dfs(root, sum, 0, &mut cnt);
     }
 
-    pub fn path_sum(root: Option<Rc<RefCell<TreeNode>>>, sum: i32) -> i32 {
-        let mut queue = VecDeque::new();
-        if root.is_some() {
-            queue.push_back(root);
+    fn dfs(root: Option<Rc<RefCell<TreeNode>>>, sum: i32, s: i32, cnt: &mut HashMap<i32, i32>) -> i32 {
+        if let Some(node) = root {
+            let node = node.borrow();
+            let s = s + node.val;
+            let mut ans = *cnt.get(&(s - sum)).unwrap_or(&0);
+            *cnt.entry(s).or_insert(0) += 1;
+            ans += Self::dfs(node.left.clone(), sum, s, cnt);
+            ans += Self::dfs(node.right.clone(), sum, s, cnt);
+            *cnt.entry(s).or_insert(0) -= 1;
+            return ans;
         }
-        let mut res = 0;
-        while let Some(mut root) = queue.pop_front() {
-            res += Self::dfs(&root, sum);
-            let mut root = root.as_mut().unwrap().borrow_mut();
-            if root.left.is_some() {
-                queue.push_back(root.left.take());
-            }
-            if root.right.is_some() {
-                queue.push_back(root.right.take());
-            }
-        }
-        res
+        return 0;
     }
 }

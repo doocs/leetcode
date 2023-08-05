@@ -14,18 +14,18 @@
 | store       | enum    |
 | price       | int     |
 +-------------+---------+
-(product_id, store) is the primary key for this table.
-store is an ENUM of type (&#39;store1&#39;, &#39;store2&#39;, &#39;store3&#39;) where each represents the store this product is available at.
+In SQL, (product_id, store) is the primary key for this table.
+store is a category of type (&#39;store1&#39;, &#39;store2&#39;, &#39;store3&#39;) where each represents the store this product is available at.
 price is the price of the product at this store.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find the price of each product in each store.</p>
+<p>Find the price of each product in each store.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

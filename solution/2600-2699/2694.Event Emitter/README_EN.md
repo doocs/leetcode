@@ -19,7 +19,9 @@
 <p><strong class="example">Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> actions = [&quot;EventEmitter&quot;, &quot;emit&quot;, &quot;subscribe&quot;, &quot;subscribe&quot;, &quot;emit&quot;], values = [[], [&quot;firstEvent&quot;, &quot;function cb1() { return 5; }&quot;],  [&quot;firstEvent&quot;, &quot;function cb1() { return 5; }&quot;], [&quot;firstEvent&quot;]]
+<strong>Input:</strong> 
+actions = [&quot;EventEmitter&quot;, &quot;emit&quot;, &quot;subscribe&quot;, &quot;subscribe&quot;, &quot;emit&quot;], 
+values = [[], [&quot;firstEvent&quot;, &quot;function cb1() { return 5; }&quot;],  [&quot;firstEvent&quot;, &quot;function cb1() { return 6; }&quot;], [&quot;firstEvent&quot;]]
 <strong>Output:</strong> [[],[&quot;emitted&quot;,[]],[&quot;subscribed&quot;],[&quot;subscribed&quot;],[&quot;emitted&quot;,[5,6]]]
 <strong>Explanation:</strong> 
 const emitter = new EventEmitter();
@@ -32,7 +34,9 @@ emitter.emit(&quot;firstEvent&quot;); // [5, 6], returns the output of cb1 and c
 <p><strong class="example">Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> actions = [&quot;EventEmitter&quot;, &quot;subscribe&quot;, &quot;emit&quot;, &quot;emit&quot;], values = [[], [&quot;firstEvent&quot;, &quot;function cb1(...args) { return args.join(&#39;,&#39;); }&quot;], [&quot;firstEvent&quot;, [1,2,3]], [&quot;firstEvent&quot;, [3,4,6]]]
+<strong>Input:</strong> 
+actions = [&quot;EventEmitter&quot;, &quot;subscribe&quot;, &quot;emit&quot;, &quot;emit&quot;], 
+values = [[], [&quot;firstEvent&quot;, &quot;function cb1(...args) { return args.join(&#39;,&#39;); }&quot;], [&quot;firstEvent&quot;, [1,2,3]], [&quot;firstEvent&quot;, [3,4,6]]]
 <strong>Output:</strong> [[],[&quot;subscribed&quot;],[&quot;emitted&quot;,[&quot;1,2,3&quot;]],[&quot;emitted&quot;,[&quot;3,4,6&quot;]]]
 <strong>Explanation: </strong>Note that the emit method should be able to accept an OPTIONAL array of arguments.
 
@@ -45,7 +49,9 @@ emitter.emit(&quot;firstEvent&quot;, [3, 4, 6]); // [&quot;3,4,6&quot;]
 <p><strong class="example">Example 3:</strong></p>
 
 <pre>
-<strong>Input:</strong> actions = [&quot;EventEmitter&quot;, &quot;subscribe&quot;, &quot;emit&quot;, &quot;unsubscribe&quot;, &quot;emit&quot;], values = [[], [&quot;firstEvent&quot;, &quot;(...args) =&gt; args.join(&#39;,&#39;)&quot;], [&quot;firstEvent&quot;, [1,2,3]], [0], [&quot;firstEvent&quot;, [4,5,6]]]
+<strong>Input:</strong> 
+actions = [&quot;EventEmitter&quot;, &quot;subscribe&quot;, &quot;emit&quot;, &quot;unsubscribe&quot;, &quot;emit&quot;], 
+values = [[], [&quot;firstEvent&quot;, &quot;(...args) =&gt; args.join(&#39;,&#39;)&quot;], [&quot;firstEvent&quot;, [1,2,3]], [0], [&quot;firstEvent&quot;, [4,5,6]]]
 <strong>Output:</strong> [[],[&quot;subscribed&quot;],[&quot;emitted&quot;,[&quot;1,2,3&quot;]],[&quot;unsubscribed&quot;,0],[&quot;emitted&quot;,[]]]
 <strong>Explanation:</strong>
 const emitter = new EventEmitter();
@@ -58,7 +64,9 @@ emitter.emit(&quot;firstEvent&quot;, [4, 5, 6]); // [], there are no subscriptio
 <p><strong class="example">Example 4:</strong></p>
 
 <pre>
-<strong>Input:</strong> actions = [&quot;EventEmitter&quot;, &quot;subscribe&quot;, &quot;subscribe&quot;, &quot;unsubscribe&quot;, &quot;emit&quot;], values = [[], [&quot;firstEvent&quot;, &quot;x =&gt; x + 1&quot;], [&quot;firstEvent&quot;, &quot;x =&gt; x + 2&quot;], [0], [&quot;firstEvent&quot;, [5]]]
+<strong>Input:</strong> 
+actions = [&quot;EventEmitter&quot;, &quot;subscribe&quot;, &quot;subscribe&quot;, &quot;unsubscribe&quot;, &quot;emit&quot;], 
+values = [[], [&quot;firstEvent&quot;, &quot;x =&gt; x + 1&quot;], [&quot;firstEvent&quot;, &quot;x =&gt; x + 2&quot;], [0], [&quot;firstEvent&quot;, [5]]]
 <strong>Output:</strong> [[],[&quot;subscribed&quot;],[&quot;emitted&quot;,[&quot;1,2,3&quot;]],[&quot;unsubscribed&quot;,0],[&quot;emitted&quot;,[7]]]
 <strong>Explanation:</strong>
 const emitter = new EventEmitter();

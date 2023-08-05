@@ -13,18 +13,18 @@
 | id          | int     |
 | student     | varchar |
 +-------------+---------+
-id is the primary key column for this table.
+id is the primary key (unique value) column for this table.
 Each row of this table indicates the name and the ID of a student.
 id is a continuous increment.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to swap the seat id of every two consecutive students. If the number of students is odd, the id of the last student is not swapped.</p>
+<p>Write a solution to swap the seat id of every two consecutive students. If the number of students is odd, the id of the last student is not swapped.</p>
 
 <p>Return the result table ordered by <code>id</code> <strong>in ascending order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

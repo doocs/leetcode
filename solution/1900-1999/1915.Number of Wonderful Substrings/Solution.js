@@ -3,17 +3,17 @@
  * @return {number}
  */
 var wonderfulSubstrings = function (word) {
-    let counter = new Array(1 << 10).fill(0);
-    counter[0] = 1;
-    let state = 0;
+    const cnt = new Array(1024).fill(0);
+    cnt[0] = 1;
     let ans = 0;
-    for (let c of word) {
-        state ^= 1 << (c.charCodeAt(0) - 'a'.charCodeAt(0));
-        ans += counter[state];
+    let st = 0;
+    for (const c of word) {
+        st ^= 1 << (c.charCodeAt() - 'a'.charCodeAt());
+        ans += cnt[st];
         for (let i = 0; i < 10; ++i) {
-            ans += counter[state ^ (1 << i)];
+            ans += cnt[st ^ (1 << i)];
         }
-        ++counter[state];
+        cnt[st]++;
     }
     return ans;
 };

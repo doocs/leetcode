@@ -1,28 +1,46 @@
 class Solution {
 public:
     vector<int> findAnagrams(string s, string p) {
-        vector<int> res;
-        vector<int> hash(26, 0), zero(26, 0);
-
-        if (p.size() > s.size())
-            return res;
-
-        for (int i = 0; i < p.size(); i++) {
-            hash[p[i] - 'a']++;
-            hash[s[i] - 'a']--;
+        int m = s.size(), n = p.size();
+        vector<int> ans;
+        if (m < n) {
+            return ans;
         }
-
-        if (hash == zero)
-            res.push_back(0);
-
-        for (int i = p.size(); i < s.size(); i++) {
-            hash[s[i] - 'a']--;
-            hash[s[i - p.size()] - 'a']++;
-
-            if (hash == zero)
-                res.push_back(i - p.size() + 1);
+        vector<int> cnt(26);
+        for (int i = 0; i < n; ++i) {
+            ++cnt[s[i] - 'a'];
+            --cnt[p[i] - 'a'];
         }
-
-        return res;
+        int diff = 0;
+        for (int x : cnt) {
+            if (x != 0) {
+                ++diff;
+            }
+        }
+        if (diff == 0) {
+            ans.push_back(0);
+        }
+        for (int i = n; i < m; ++i) {
+            int a = s[i - n] - 'a';
+            int b = s[i] - 'a';
+            if (cnt[a] == 0) {
+                ++diff;
+            }
+            --cnt[a];
+            if (cnt[a] == 0) {
+                --diff;
+            }
+            if (cnt[b] == 0) {
+                ++diff;
+            }
+            ++cnt[b];
+            if (cnt[b] == 0) {
+                --diff;
+            }
+            if (diff == 0) {
+                ans.push_back(i - n + 1);
+            }
+        }
+        return ans;
     }
 };

@@ -7,12 +7,12 @@
 
 
 class Solution:
-    def inorderSuccessor(self, root: 'TreeNode', p: 'TreeNode') -> 'TreeNode':
-        cur, ans = root, None
-        while cur:
-            if cur.val <= p.val:
-                cur = cur.right
+    def inorderSuccessor(self, root: TreeNode, p: TreeNode) -> Optional[TreeNode]:
+        ans = None
+        while root:
+            if root.val > p.val:
+                ans = root
+                root = root.left
             else:
-                ans = cur
-                cur = cur.left
+                root = root.right
         return ans

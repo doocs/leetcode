@@ -15,17 +15,17 @@
 | manager_id  | int      |
 | salary      | int      |
 +-------------+----------+
-employee_id is the primary key for this table.
+In SQL, employee_id is the primary key for this table.
 This table contains information about the employees, their salary, and the ID of their manager. Some employees do not have a manager (manager_id is null). 
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the IDs of the employees whose salary is strictly less than <code>$30000</code> and whose manager left the company. When a manager leaves the company, their information is deleted from the <code>Employees</code> table, but the reports still have their <code>manager_id</code> set to the manager that left.</p>
+<p>Find the IDs of the employees whose salary is strictly less than <code>$30000</code> and whose manager left the company. When a manager leaves the company, their information is deleted from the <code>Employees</code> table, but the reports still have their <code>manager_id</code> set to the manager that left.</p>
 
 <p>Return the result table ordered by <code>employee_id</code>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

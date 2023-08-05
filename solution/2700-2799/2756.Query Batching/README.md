@@ -57,7 +57,7 @@ setTimeout(() =&gt; batcher.getValue('c'), 30); // "c!" at t=110ms
 在 t=10ms 时，调用 <code>getValue('a')</code>，立即调用 <code>queryMultiple(['a']) </code>并立即返回结果。 
 在 t=20ms 时，调用 <code>getValue('b')</code>，但查询需要等待。 
 在 t=30ms 时，调用 <code>getValue('c')</code>，但查询需要等待。 
-在 t=110ms 时，调用 <code>queryMultiple(['a', 'b']) </code>并立即返回结果。
+在 t=110ms 时，调用 <code>queryMultiple(['b', 'c']) </code>并立即返回结果。
 </pre>
 
 <p><strong class="example">示例 2；</strong></p>

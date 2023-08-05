@@ -1,12 +1,11 @@
 class Solution:
     def wonderfulSubstrings(self, word: str) -> int:
-        counter = Counter({0: 1})
-        state = 0
-        ans = 0
+        cnt = Counter({0: 1})
+        ans = st = 0
         for c in word:
-            state ^= 1 << (ord(c) - ord('a'))
-            ans += counter[state]
+            st ^= 1 << (ord(c) - ord("a"))
+            ans += cnt[st]
             for i in range(10):
-                ans += counter[state ^ (1 << i)]
-            counter[state] += 1
+                ans += cnt[st ^ (1 << i)]
+            cnt[st] += 1
         return ans
