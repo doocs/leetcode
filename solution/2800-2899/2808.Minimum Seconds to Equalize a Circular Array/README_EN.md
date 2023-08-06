@@ -61,25 +61,129 @@ It can be proven that 2 seconds is the minimum amount of seconds needed for equa
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minimumSeconds(self, nums: List[int]) -> int:
+        d = defaultdict(list)
+        for i, x in enumerate(nums):
+            d[x].append(i)
+        ans = inf
+        n = len(nums)
+        for idx in d.values():
+            t = idx[0] + n - idx[-1]
+            for i, j in pairwise(idx):
+                t = max(t, j - i)
+            ans = min(ans, t // 2)
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int minimumSeconds(List<Integer> nums) {
+        Map<Integer, List<Integer>> d = new HashMap<>();
+        int n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            d.computeIfAbsent(nums.get(i), k -> new ArrayList<>()).add(i);
+        }
+        int ans = 1 << 30;
+        for (List<Integer> idx : d.values()) {
+            int m = idx.size();
+            int t = idx.get(0) + n - idx.get(m - 1);
+            for (int i = 1; i < m; ++i) {
+                t = Math.max(t, idx.get(i) - idx.get(i - 1));
+            }
+            ans = Math.min(ans, t / 2);
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int minimumSeconds(vector<int>& nums) {
+        unordered_map<int, vector<int>> d;
+        int n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            d[nums[i]].push_back(i);
+        }
+        int ans = 1 << 30;
+        for (auto& [_, idx] : d) {
+            int m = idx.size();
+            int t = idx[0] + n - idx[m - 1];
+            for (int i = 1; i < m; ++i) {
+                t = max(t, idx[i] - idx[i - 1]);
+            }
+            ans = min(ans, t / 2);
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minimumSeconds(nums []int) int {
+	d := map[int][]int{}
+	for i, x := range nums {
+		d[x] = append(d[x], i)
+	}
+	ans := 1 << 30
+	n := len(nums)
+	for _, idx := range d {
+		m := len(idx)
+		t := idx[0] + n - idx[m-1]
+		for i := 1; i < m; i++ {
+			t = max(t, idx[i]-idx[i-1])
+		}
+		ans = min(ans, t/2)
+	}
+	return ans
+}
 
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function minimumSeconds(nums: number[]): number {
+    const d: Map<number, number[]> = new Map();
+    const n = nums.length;
+    for (let i = 0; i < n; ++i) {
+        if (!d.has(nums[i])) {
+            d.set(nums[i], []);
+        }
+        d.get(nums[i])!.push(i);
+    }
+    let ans = 1 << 30;
+    for (const [_, idx] of d) {
+        const m = idx.length;
+        let t = idx[0] + n - idx[m - 1];
+        for (let i = 1; i < m; ++i) {
+            t = Math.max(t, idx[i] - idx[i - 1]);
+        }
+        ans = Math.min(ans, t >> 1);
+    }
+    return ans;
+}
 ```
 
 ### **...**
