@@ -2861,3 +2861,7 @@
   - [2803.Factorial Generator](/solution/2800-2899/2803.Factorial%20Generator/README_EN.md)
   - [2804.Array Prototype ForEach](/solution/2800-2899/2804.Array%20Prototype%20ForEach/README_EN.md)
   - [2805.Custom Interval](/solution/2800-2899/2805.Custom%20Interval/README_EN.md)
+  - [2806.Account Balance After Rounded Purchase](/solution/2800-2899/2806.Account%20Balance%20After%20Rounded%20Purchase/README_EN.md)
+  - [2807.Insert Greatest Common Divisors in Linked List](/solution/2800-2899/2807.Insert%20Greatest%20Common%20Divisors%20in%20Linked%20List/README_EN.md)
+  - [2808.Minimum Seconds to Equalize a Circular Array](/solution/2800-2899/2808.Minimum%20Seconds%20to%20Equalize%20a%20Circular%20Array/README_EN.md)
+  - [2809.Minimum Time to Make Array Sum At Most x](/solution/2800-2899/2809.Minimum%20Time%20to%20Make%20Array%20Sum%20At%20Most%20x/README_EN.md)
