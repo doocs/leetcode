@@ -48,25 +48,90 @@ Hence, your account balance becomes 100 - 20 = 80.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def accountBalanceAfterPurchase(self, purchaseAmount: int) -> int:
+        diff, x = 100, 0
+        for y in range(100, -1, -10):
+            if (t := abs(y - purchaseAmount)) < diff:
+                diff = t
+                x = y
+        return 100 - x
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int accountBalanceAfterPurchase(int purchaseAmount) {
+        int diff = 100, x = 0;
+        for (int y = 100; y >= 0; y -= 10) {
+            int t = Math.abs(y - purchaseAmount);
+            if (t < diff) {
+                diff = t;
+                x = y;
+            }
+        }
+        return 100 - x;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int accountBalanceAfterPurchase(int purchaseAmount) {
+        int diff = 100, x = 0;
+        for (int y = 100; y >= 0; y -= 10) {
+            int t = abs(y - purchaseAmount);
+            if (t < diff) {
+                diff = t;
+                x = y;
+            }
+        }
+        return 100 - x;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func accountBalanceAfterPurchase(purchaseAmount int) int {
+	diff, x := 100, 0
+	for y := 100; y >= 0; y -= 10 {
+		t := abs(y - purchaseAmount)
+		if t < diff {
+			diff = t
+			x = y
+		}
+	}
+	return 100 - x
+}
 
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+### **TypeScript**
+
+```ts
+function accountBalanceAfterPurchase(purchaseAmount: number): number {
+    let [diff, x] = [100, 0];
+    for (let y = 100; y >= 0; y -= 10) {
+        const t = Math.abs(y - purchaseAmount);
+        if (t < diff) {
+            diff = t;
+            x = y;
+        }
+    }
+    return 100 - x;
+}
 ```
 
 ### **...**

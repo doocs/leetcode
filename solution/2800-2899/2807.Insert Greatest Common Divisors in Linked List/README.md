@@ -52,6 +52,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+我们用两个指针 $pre$ 和 $cur$ 分别指向当前遍历到的结点和下一个结点，那么我们只需要在 $pre$ 和 $cur$ 之间插入一个新的结点即可。因此，每次计算出 $pre$ 和 $cur$ 的最大公约数 $x$，然后在 $pre$ 和 $cur$ 之间插入一个值为 $x$ 的新结点，然后更新 $pre$ 和 $cur$ 即可。当 $cur$ 为空时，说明已经遍历完了链表，此时返回链表的头结点即可。
+
+时间复杂度 $O(n \times \log M)$，其中 $n$ 是链表的长度，而 $M$ 是链表中结点的最大值。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -59,7 +65,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def insertGreatestCommonDivisors(
+        self, head: Optional[ListNode]
+    ) -> Optional[ListNode]:
+        pre, cur = head, head.next
+        while cur:
+            x = gcd(pre.val, cur.val)
+            pre.next = ListNode(x, cur)
+            pre, cur = cur, cur.next
+        return head
 ```
 
 ### **Java**
@@ -67,19 +87,127 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode insertGreatestCommonDivisors(ListNode head) {
+        ListNode pre = head, cur = head.next;
+        while (cur != null) {
+            int x = gcd(pre.val, cur.val);
+            pre.next = new ListNode(x, cur);
+            pre = cur;
+            cur = cur.next;
+        }
+        return head;
+    }
 
+    private int gcd(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+        return gcd(b, a % b);
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* insertGreatestCommonDivisors(ListNode* head) {
+        ListNode* pre = head;
+        ListNode* cur = head->next;
+        while (cur) {
+            int x = gcd(pre->val, cur->val);
+            pre->next = new ListNode(x, cur);
+            pre = cur;
+            cur = cur->next;
+        }
+        return head;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func insertGreatestCommonDivisors(head *ListNode) *ListNode {
+	pre, cur := head, head.Next
+	for cur != nil {
+		x := gcd(pre.Val, cur.Val)
+		pre.Next = &ListNode{x, cur}
+		pre, cur = cur, cur.Next
+	}
+	return head
+}
 
+func gcd(a, b int) int {
+	if b == 0 {
+		return a
+	}
+	return gcd(b, a%b)
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function insertGreatestCommonDivisors(head: ListNode | null): ListNode | null {
+    let pre = head;
+    let cur = head.next;
+    while (cur) {
+        const x = gcd(pre.val, cur.val);
+        pre.next = new ListNode(x, cur);
+        pre = cur;
+        cur = cur.next;
+    }
+    return head;
+}
+
+function gcd(a: number, b: number): number {
+    if (b === 0) {
+        return a;
+    }
+    return gcd(b, a % b);
+}
 ```
 
 ### **...**

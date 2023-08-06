@@ -49,25 +49,147 @@ There are no pairs of adjacent nodes, so we return the initial linked list.
 ### **Python3**
 
 ```python
-
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def insertGreatestCommonDivisors(
+        self, head: Optional[ListNode]
+    ) -> Optional[ListNode]:
+        pre, cur = head, head.next
+        while cur:
+            x = gcd(pre.val, cur.val)
+            pre.next = ListNode(x, cur)
+            pre, cur = cur, cur.next
+        return head
 ```
 
 ### **Java**
 
 ```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode insertGreatestCommonDivisors(ListNode head) {
+        ListNode pre = head, cur = head.next;
+        while (cur != null) {
+            int x = gcd(pre.val, cur.val);
+            pre.next = new ListNode(x, cur);
+            pre = cur;
+            cur = cur.next;
+        }
+        return head;
+    }
 
+    private int gcd(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+        return gcd(b, a % b);
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* insertGreatestCommonDivisors(ListNode* head) {
+        ListNode* pre = head;
+        ListNode* cur = head->next;
+        while (cur) {
+            int x = gcd(pre->val, cur->val);
+            pre->next = new ListNode(x, cur);
+            pre = cur;
+            cur = cur->next;
+        }
+        return head;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func insertGreatestCommonDivisors(head *ListNode) *ListNode {
+	pre, cur := head, head.Next
+	for cur != nil {
+		x := gcd(pre.Val, cur.Val)
+		pre.Next = &ListNode{x, cur}
+		pre, cur = cur, cur.Next
+	}
+	return head
+}
 
+func gcd(a, b int) int {
+	if b == 0 {
+		return a
+	}
+	return gcd(b, a%b)
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function insertGreatestCommonDivisors(head: ListNode | null): ListNode | null {
+    let pre = head;
+    let cur = head.next;
+    while (cur) {
+        const x = gcd(pre.val, cur.val);
+        pre.next = new ListNode(x, cur);
+        pre = cur;
+        cur = cur.next;
+    }
+    return head;
+}
+
+function gcd(a: number, b: number): number {
+    if (b === 0) {
+        return a;
+    }
+    return gcd(b, a % b);
+}
 ```
 
 ### **...**

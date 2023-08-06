@@ -47,6 +47,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：枚举 + 模拟**
+
+我们在 $[0, 100]$ 的范围内枚举所有的 $10$ 的倍数，然后找到与 `purchaseAmount` 最接近的那个数，记为 $x$，那么答案就是 $100 - x$。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -54,7 +60,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def accountBalanceAfterPurchase(self, purchaseAmount: int) -> int:
+        diff, x = 100, 0
+        for y in range(100, -1, -10):
+            if (t := abs(y - purchaseAmount)) < diff:
+                diff = t
+                x = y
+        return 100 - x
 ```
 
 ### **Java**
@@ -62,19 +75,77 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int accountBalanceAfterPurchase(int purchaseAmount) {
+        int diff = 100, x = 0;
+        for (int y = 100; y >= 0; y -= 10) {
+            int t = Math.abs(y - purchaseAmount);
+            if (t < diff) {
+                diff = t;
+                x = y;
+            }
+        }
+        return 100 - x;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int accountBalanceAfterPurchase(int purchaseAmount) {
+        int diff = 100, x = 0;
+        for (int y = 100; y >= 0; y -= 10) {
+            int t = abs(y - purchaseAmount);
+            if (t < diff) {
+                diff = t;
+                x = y;
+            }
+        }
+        return 100 - x;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func accountBalanceAfterPurchase(purchaseAmount int) int {
+	diff, x := 100, 0
+	for y := 100; y >= 0; y -= 10 {
+		t := abs(y - purchaseAmount)
+		if t < diff {
+			diff = t
+			x = y
+		}
+	}
+	return 100 - x
+}
 
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+### **TypeScript**
+
+```ts
+function accountBalanceAfterPurchase(purchaseAmount: number): number {
+    let [diff, x] = [100, 0];
+    for (let y = 100; y >= 0; y -= 10) {
+        const t = Math.abs(y - purchaseAmount);
+        if (t < diff) {
+            diff = t;
+            x = y;
+        }
+    }
+    return 100 - x;
+}
 ```
 
 ### **...**
