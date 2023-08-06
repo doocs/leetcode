@@ -102,7 +102,6 @@ class Solution:
             pre.next = t
             pre, cur = cur, cur.next
         return dummy.next
-
 ```
 
 ### **Java**
