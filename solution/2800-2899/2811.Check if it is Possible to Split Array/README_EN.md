@@ -56,25 +56,165 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def canSplitArray(self, nums: List[int], m: int) -> bool:
+        @cache
+        def dfs(i: int, j: int) -> bool:
+            if i == j:
+                return True
+            for k in range(i, j):
+                a = k == i or s[k + 1] - s[i] >= m
+                b = k == j - 1 or s[j + 1] - s[k + 1] >= m
+                if a and b and dfs(i, k) and dfs(k + 1, j):
+                    return True
+            return False
 
+        s = list(accumulate(nums, initial=0))
+        return dfs(0, len(nums) - 1)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private Boolean[][] f;
+    private int[] s;
+    private int m;
 
+    public boolean canSplitArray(List<Integer> nums, int m) {
+        int n = nums.size();
+        f = new Boolean[n][n];
+        s = new int[n + 1];
+        for (int i = 1; i <= n; ++i) {
+            s[i] = s[i - 1] + nums.get(i - 1);
+        }
+        this.m = m;
+        return dfs(0, n - 1);
+    }
+
+    private boolean dfs(int i, int j) {
+        if (i == j) {
+            return true;
+        }
+        if (f[i][j] != null) {
+            return f[i][j];
+        }
+        for (int k = i; k < j; ++k) {
+            boolean a = k == i || s[k + 1] - s[i] >= m;
+            boolean b = k == j - 1 || s[j + 1] - s[k + 1] >= m;
+            if (a && b && dfs(i, k) && dfs(k + 1, j)) {
+                return f[i][j] = true;
+            }
+        }
+        return f[i][j] = false;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    bool canSplitArray(vector<int>& nums, int m) {
+        int n = nums.size();
+        vector<int> s(n + 1);
+        for (int i = 1; i <= n; ++i) {
+            s[i] = s[i - 1] + nums[i - 1];
+        }
+        int f[n][n];
+        memset(f, -1, sizeof f);
+        function<bool(int, int)> dfs = [&](int i, int j) {
+            if (i == j) {
+                return true;
+            }
+            if (f[i][j] != -1) {
+                return f[i][j] == 1;
+            }
+            for (int k = i; k < j; ++k) {
+                bool a = k == i || s[k + 1] - s[i] >= m;
+                bool b = k == j - 1 || s[j + 1] - s[k + 1] >= m;
+                if (a && b && dfs(i, k) && dfs(k + 1, j)) {
+                    f[i][j] = 1;
+                    return true;
+                }
+            }
+            f[i][j] = 0;
+            return false;
+        };
+        return dfs(0, n - 1);
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func canSplitArray(nums []int, m int) bool {
+	n := len(nums)
+	f := make([][]int, n)
+	s := make([]int, n+1)
+	for i, x := range nums {
+		s[i+1] = s[i] + x
+	}
+	for i := range f {
+		f[i] = make([]int, n)
+	}
+	var dfs func(i, j int) bool
+	dfs = func(i, j int) bool {
+		if i == j {
+			return true
+		}
+		if f[i][j] != 0 {
+			return f[i][j] == 1
+		}
+		for k := i; k < j; k++ {
+			a := k == i || s[k+1]-s[i] >= m
+			b := k == j-1 || s[j+1]-s[k+1] >= m
+			if a && b && dfs(i, k) && dfs(k+1, j) {
+				f[i][j] = 1
+				return true
+			}
+		}
+		f[i][j] = -1
+		return false
+	}
+	return dfs(0, n-1)
+}
+```
 
+### **TypeScript**
+
+```ts
+function canSplitArray(nums: number[], m: number): boolean {
+    const n = nums.length;
+    const s: number[] = new Array(n + 1).fill(0);
+    for (let i = 1; i <= n; ++i) {
+        s[i] = s[i - 1] + nums[i - 1];
+    }
+    const f: number[][] = Array(n)
+        .fill(0)
+        .map(() => Array(n).fill(-1));
+    const dfs = (i: number, j: number): boolean => {
+        if (i === j) {
+            return true;
+        }
+        if (f[i][j] !== -1) {
+            return f[i][j] === 1;
+        }
+        for (let k = i; k < j; ++k) {
+            const a = k === i || s[k + 1] - s[i] >= m;
+            const b = k === j - 1 || s[j + 1] - s[k + 1] >= m;
+            if (a && b && dfs(i, k) && dfs(k + 1, j)) {
+                f[i][j] = 1;
+                return true;
+            }
+        }
+        f[i][j] = 0;
+        return false;
+    };
+    return dfs(0, n - 1);
+}
 ```
 
 ### **...**

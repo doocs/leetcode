@@ -58,25 +58,86 @@ Therefore, we return &quot;ponter&quot;.</pre>
 ### **Python3**
 
 ```python
-
+class Solution:
+    def finalString(self, s: str) -> str:
+        t = []
+        for c in s:
+            if c == "i":
+                t = t[::-1]
+            else:
+                t.append(c)
+        return "".join(t)
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public String finalString(String s) {
+        StringBuilder t = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            if (c == 'i') {
+                t.reverse();
+            } else {
+                t.append(c);
+            }
+        }
+        return t.toString();
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    string finalString(string s) {
+        string t;
+        for (char c : s) {
+            if (c == 'i') {
+                reverse(t.begin(), t.end());
+            } else {
+                t.push_back(c);
+            }
+        }
+        return t;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func finalString(s string) string {
+	t := []rune{}
+	for _, c := range s {
+		if c == 'i' {
+			for i, j := 0, len(t)-1; i < j; i, j = i+1, j-1 {
+				t[i], t[j] = t[j], t[i]
+			}
+		} else {
+			t = append(t, c)
+		}
+	}
+	return string(t)
+}
+```
 
+### **TypeScript**
+
+```ts
+function finalString(s: string): string {
+    const t: string[] = [];
+    for (const c of s) {
+        if (c === 'i') {
+            t.reverse();
+        } else {
+            t.push(c);
+        }
+    }
+    return t.join('');
+}
 ```
 
 ### **...**
