@@ -25,6 +25,13 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 357
+
+- [2810. Faulty Keyboard](/solution/2800-2899/2810.Faulty%20Keyboard/README_EN.md)
+- [2811. Check if it is Possible to Split Array](/solution/2800-2899/2811.Check%20if%20it%20is%20Possible%20to%20Split%20Array/README_EN.md)
+- [2812. Find the Safest Path in a Grid](/solution/2800-2899/2812.Find%20the%20Safest%20Path%20in%20a%20Grid/README_EN.md)
+- [2813. Maximum Elegance of a K-Length Subsequence](/solution/2800-2899/2813.Maximum%20Elegance%20of%20a%20K-Length%20Subsequence/README_EN.md)
+
 #### Biweekly Contest 110
 
 - [2806. Account Balance After Rounded Purchase](/solution/2800-2899/2806.Account%20Balance%20After%20Rounded%20Purchase/README_EN.md)

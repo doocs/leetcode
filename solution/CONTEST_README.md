@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 357 场周赛(2023-08-06 10:30, 90 分钟) 参赛人数 4265
+
+- [2810. 故障键盘](/solution/2800-2899/2810.Faulty%20Keyboard/README.md)
+- [2811. 判断是否能拆分数组](/solution/2800-2899/2811.Check%20if%20it%20is%20Possible%20to%20Split%20Array/README.md)
+- [2812. 找出最安全路径](/solution/2800-2899/2812.Find%20the%20Safest%20Path%20in%20a%20Grid/README.md)
+- [2813. 子序列最大优雅度](/solution/2800-2899/2813.Maximum%20Elegance%20of%20a%20K-Length%20Subsequence/README.md)
+
 #### 第 110 场双周赛(2023-08-05 22:30, 90 分钟) 参赛人数 2546
 
 - [2806. 取整购买后的账户余额](/solution/2800-2899/2806.Account%20Balance%20After%20Rounded%20Purchase/README.md)

@@ -2818,6 +2818,10 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2807  |  [Insert Greatest Common Divisors in Linked List](/solution/2800-2899/2807.Insert%20Greatest%20Common%20Divisors%20in%20Linked%20List/README_EN.md)  |    |  Medium  |  Biweekly Contest 110  |
 |  2808  |  [Minimum Seconds to Equalize a Circular Array](/solution/2800-2899/2808.Minimum%20Seconds%20to%20Equalize%20a%20Circular%20Array/README_EN.md)  |    |  Medium  |  Biweekly Contest 110  |
 |  2809  |  [Minimum Time to Make Array Sum At Most x](/solution/2800-2899/2809.Minimum%20Time%20to%20Make%20Array%20Sum%20At%20Most%20x/README_EN.md)  |    |  Hard  |  Biweekly Contest 110  |
+|  2810  |  [Faulty Keyboard](/solution/2800-2899/2810.Faulty%20Keyboard/README_EN.md)  |    |  Easy  |  Weekly Contest 357  |
+|  2811  |  [Check if it is Possible to Split Array](/solution/2800-2899/2811.Check%20if%20it%20is%20Possible%20to%20Split%20Array/README_EN.md)  |    |  Medium  |  Weekly Contest 357  |
+|  2812  |  [Find the Safest Path in a Grid](/solution/2800-2899/2812.Find%20the%20Safest%20Path%20in%20a%20Grid/README_EN.md)  |    |  Medium  |  Weekly Contest 357  |
+|  2813  |  [Maximum Elegance of a K-Length Subsequence](/solution/2800-2899/2813.Maximum%20Elegance%20of%20a%20K-Length%20Subsequence/README_EN.md)  |    |  Hard  |  Weekly Contest 357  |
 
 ## Copyright
 
