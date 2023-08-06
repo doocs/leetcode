@@ -63,30 +63,179 @@ Hence, the maximum elegance is 6 + 1<sup>2</sup> = 7.  </pre>
 
 ## Solutions
 
+**Solution 1: Greedy**
+
+We can sort all items by profit from large to small. First choose the first $k$ items and calculate the total profit $tot$. Use a hash table $vis$ to record the categories of these $k$ items, use a stack $dup$ to record the profits of the repeated categories in order, and use a variable $ans$ to record the current maximum elegance.
+
+Next, we consider starting from the $k+1$ item. If its category is already in $vis$, it means that if we choose this category, the number of different categories will not increase, so we can skip this item directly. If there is no duplicate category before, we can also skip this item directly. Otherwise, we can consider replacing the top item of $dup$ stack (the item with the minimum profit in the duplicate category) with the current item, which can increase the total profit by $p - dup.pop()$ and increase the number of different categories by $1$, so we can update $tot$ and $ans$.
+
+Finally, we return $ans$.
+
+The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the number of items.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findMaximumElegance(self, items: List[List[int]], k: int) -> int:
+        items.sort(key=lambda x: -x[0])
+        tot = 0
+        vis = set()
+        dup = []
+        for p, c in items[:k]:
+            tot += p
+            if c not in vis:
+                vis.add(c)
+            else:
+                dup.append(p)
+        ans = tot + len(vis) ** 2
+        for p, c in items[k:]:
+            if c in vis or not dup:
+                continue
+            vis.add(c)
+            tot += p - dup.pop()
+            ans = max(ans, tot + len(vis) ** 2)
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public long findMaximumElegance(int[][] items, int k) {
+        Arrays.sort(items, (a, b) -> b[0] - a[0]);
+        int n = items.length;
+        long tot = 0;
+        Set<Integer> vis = new HashSet<>();
+        Deque<Integer> dup = new ArrayDeque<>();
+        for (int i = 0; i < k; ++i) {
+            int p = items[i][0], c = items[i][1];
+            tot += p;
+            if (!vis.add(c)) {
+                dup.push(p);
+            }
+        }
+        long ans = tot + (long) vis.size() * vis.size();
+        for (int i = k; i < n; ++i) {
+            int p = items[i][0], c = items[i][1];
+            if (vis.contains(c) || dup.isEmpty()) {
+                continue;
+            }
+            vis.add(c);
+            tot += p - dup.pop();
+            ans = Math.max(ans, tot + (long) vis.size() * vis.size());
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    long long findMaximumElegance(vector<vector<int>>& items, int k) {
+        sort(items.begin(), items.end(), [](const vector<int>& a, const vector<int>& b) {
+            return a[0] > b[0];
+        });
+        long long tot = 0;
+        unordered_set<int> vis;
+        stack<int> dup;
+        for (int i = 0; i < k; ++i) {
+            int p = items[i][0], c = items[i][1];
+            tot += p;
+            if (vis.count(c)) {
+                dup.push(p);
+            } else {
+                vis.insert(c);
+            }
+        }
+        int n = items.size();
+        long long ans = tot + 1LL * vis.size() * vis.size();
+        for (int i = k; i < n; ++i) {
+            int p = items[i][0], c = items[i][1];
+            if (vis.count(c) || dup.empty()) {
+                continue;
+            }
+            vis.insert(c);
+            tot += p - dup.top();
+            dup.pop();
+            ans = max(ans, tot + (long long) (1LL * vis.size() * vis.size()));
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func findMaximumElegance(items [][]int, k int) int64 {
+	sort.Slice(items, func(i, j int) bool { return items[i][0] > items[j][0] })
+	tot := 0
+	vis := map[int]bool{}
+	dup := []int{}
+	for _, item := range items[:k] {
+		p, c := item[0], item[1]
+		tot += p
+		if vis[c] {
+			dup = append(dup, p)
+		} else {
+			vis[c] = true
+		}
+	}
+	ans := tot + len(vis)*len(vis)
+	for _, item := range items[k:] {
+		p, c := item[0], item[1]
+		if vis[c] || len(dup) == 0 {
+			continue
+		}
+		vis[c] = true
+		tot += p - dup[len(dup)-1]
+		dup = dup[:len(dup)-1]
+		ans = max(ans, tot+len(vis)*len(vis))
+	}
+	return int64(ans)
+}
 
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function findMaximumElegance(items: number[][], k: number): number {
+    items.sort((a, b) => b[0] - a[0]);
+    let tot = 0;
+    const vis: Set<number> = new Set();
+    const dup: number[] = [];
+    for (const [p, c] of items.slice(0, k)) {
+        tot += p;
+        if (vis.has(c)) {
+            dup.push(p);
+        } else {
+            vis.add(c);
+        }
+    }
+    let ans = tot + vis.size ** 2;
+    for (const [p, c] of items.slice(k)) {
+        if (vis.has(c) || dup.length === 0) {
+            continue;
+        }
+        tot += p - dup.pop()!;
+        vis.add(c);
+        ans = Math.max(ans, tot + vis.size ** 2);
+    }
+    return ans;
+}
 ```
 
 ### **...**

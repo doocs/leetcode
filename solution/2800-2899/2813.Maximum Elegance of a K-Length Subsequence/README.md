@@ -72,6 +72,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心**
+
+我们可以将所有项目按照利润从大到小排序，先选取前 $k$ 个项目，计算其总利润 $tot$，用一个哈希表 $vis$ 记录这 $k$ 个项目的类别，用一个栈 $dup$ 按顺序记录这 $k$ 个项目中重复类别的利润，用一个变量 $ans$ 记录当前的最大优雅度。
+
+接下来，我们考虑从第 $k+1$ 个项目开始，如果其类别已经在 $vis$ 中，这意味着如果选择该类别，不会使得不同的类别数量增加，因此我们可以直接跳过该项目。如果此前不存在重复类别，我们也可以直接跳过该项目。否则，我们可以考虑将 $dup$ 栈顶的项目（即重复类别中利润最小的项目）替换为当前项目，这样可以使得总利润增加 $p - dup.pop()$，同时不同类别数量增加 $1$，因此我们可以更新 $tot$ 和 $ans$。
+
+最后，我们返回 $ans$ 即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为项目数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -79,7 +89,26 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findMaximumElegance(self, items: List[List[int]], k: int) -> int:
+        items.sort(key=lambda x: -x[0])
+        tot = 0
+        vis = set()
+        dup = []
+        for p, c in items[:k]:
+            tot += p
+            if c not in vis:
+                vis.add(c)
+            else:
+                dup.append(p)
+        ans = tot + len(vis) ** 2
+        for p, c in items[k:]:
+            if c in vis or not dup:
+                continue
+            vis.add(c)
+            tot += p - dup.pop()
+            ans = max(ans, tot + len(vis) ** 2)
+        return ans
 ```
 
 ### **Java**
@@ -87,19 +116,139 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public long findMaximumElegance(int[][] items, int k) {
+        Arrays.sort(items, (a, b) -> b[0] - a[0]);
+        int n = items.length;
+        long tot = 0;
+        Set<Integer> vis = new HashSet<>();
+        Deque<Integer> dup = new ArrayDeque<>();
+        for (int i = 0; i < k; ++i) {
+            int p = items[i][0], c = items[i][1];
+            tot += p;
+            if (!vis.add(c)) {
+                dup.push(p);
+            }
+        }
+        long ans = tot + (long) vis.size() * vis.size();
+        for (int i = k; i < n; ++i) {
+            int p = items[i][0], c = items[i][1];
+            if (vis.contains(c) || dup.isEmpty()) {
+                continue;
+            }
+            vis.add(c);
+            tot += p - dup.pop();
+            ans = Math.max(ans, tot + (long) vis.size() * vis.size());
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    long long findMaximumElegance(vector<vector<int>>& items, int k) {
+        sort(items.begin(), items.end(), [](const vector<int>& a, const vector<int>& b) {
+            return a[0] > b[0];
+        });
+        long long tot = 0;
+        unordered_set<int> vis;
+        stack<int> dup;
+        for (int i = 0; i < k; ++i) {
+            int p = items[i][0], c = items[i][1];
+            tot += p;
+            if (vis.count(c)) {
+                dup.push(p);
+            } else {
+                vis.insert(c);
+            }
+        }
+        int n = items.size();
+        long long ans = tot + 1LL * vis.size() * vis.size();
+        for (int i = k; i < n; ++i) {
+            int p = items[i][0], c = items[i][1];
+            if (vis.count(c) || dup.empty()) {
+                continue;
+            }
+            vis.insert(c);
+            tot += p - dup.top();
+            dup.pop();
+            ans = max(ans, tot + (long long) (1LL * vis.size() * vis.size()));
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func findMaximumElegance(items [][]int, k int) int64 {
+	sort.Slice(items, func(i, j int) bool { return items[i][0] > items[j][0] })
+	tot := 0
+	vis := map[int]bool{}
+	dup := []int{}
+	for _, item := range items[:k] {
+		p, c := item[0], item[1]
+		tot += p
+		if vis[c] {
+			dup = append(dup, p)
+		} else {
+			vis[c] = true
+		}
+	}
+	ans := tot + len(vis)*len(vis)
+	for _, item := range items[k:] {
+		p, c := item[0], item[1]
+		if vis[c] || len(dup) == 0 {
+			continue
+		}
+		vis[c] = true
+		tot += p - dup[len(dup)-1]
+		dup = dup[:len(dup)-1]
+		ans = max(ans, tot+len(vis)*len(vis))
+	}
+	return int64(ans)
+}
 
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function findMaximumElegance(items: number[][], k: number): number {
+    items.sort((a, b) => b[0] - a[0]);
+    let tot = 0;
+    const vis: Set<number> = new Set();
+    const dup: number[] = [];
+    for (const [p, c] of items.slice(0, k)) {
+        tot += p;
+        if (vis.has(c)) {
+            dup.push(p);
+        } else {
+            vis.add(c);
+        }
+    }
+    let ans = tot + vis.size ** 2;
+    for (const [p, c] of items.slice(k)) {
+        if (vis.has(c) || dup.length === 0) {
+            continue;
+        }
+        tot += p - dup.pop()!;
+        vis.add(c);
+        ans = Math.max(ans, tot + vis.size ** 2);
+    }
+    return ans;
+}
 ```
 
 ### **...**

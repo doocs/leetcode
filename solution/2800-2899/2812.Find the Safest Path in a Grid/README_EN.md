@@ -63,6 +63,12 @@ It can be shown that there are no other paths with a higher safeness factor.
 
 ## Solutions
 
+**Solution 1: BFS + Sorting + Union-Find**
+
+We can first find out the positions of all thieves, and then start multi-source BFS from these positions to get the shortest distance from each position to the thieves. Then sort in descending order according to the distance, and add each position to the union-find set one by one. If the start and end points are in the same connected component, the current distance is the answer.
+
+The time complexity is $O(n^2 \times \log n)$, and the space complexity $O(n^2)$. Where $n$ is the size of the grid.
+
 <!-- tabs:start -->
 
 ### **Python3**
