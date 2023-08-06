@@ -2816,6 +2816,14 @@
 |  2803  |  [阶乘生成器](/solution/2800-2899/2803.Factorial%20Generator/README.md)  |    |  简单  |  🔒  |
 |  2804  |  [数组原型的 forEach 方法](/solution/2800-2899/2804.Array%20Prototype%20ForEach/README.md)  |    |  简单  |  🔒  |
 |  2805  |  [自定义间隔](/solution/2800-2899/2805.Custom%20Interval/README.md)  |    |  中等  |  🔒  |
+|  2806  |  [取整购买后的账户余额](/solution/2800-2899/2806.Account%20Balance%20After%20Rounded%20Purchase/README.md)  |    |  简单  |  第 110 场双周赛  |
+|  2807  |  [在链表中插入最大公约数](/solution/2800-2899/2807.Insert%20Greatest%20Common%20Divisors%20in%20Linked%20List/README.md)  |    |  中等  |  第 110 场双周赛  |
+|  2808  |  [使循环数组所有元素相等的最少秒数](/solution/2800-2899/2808.Minimum%20Seconds%20to%20Equalize%20a%20Circular%20Array/README.md)  |    |  中等  |  第 110 场双周赛  |
+|  2809  |  [使数组和小于等于 x 的最少时间](/solution/2800-2899/2809.Minimum%20Time%20to%20Make%20Array%20Sum%20At%20Most%20x/README.md)  |    |  困难  |  第 110 场双周赛  |
+|  2810  |  [故障键盘](/solution/2800-2899/2810.Faulty%20Keyboard/README.md)  |    |  简单  |  第 357 场周赛  |
+|  2811  |  [判断是否能拆分数组](/solution/2800-2899/2811.Check%20if%20it%20is%20Possible%20to%20Split%20Array/README.md)  |    |  中等  |  第 357 场周赛  |
+|  2812  |  [找出最安全路径](/solution/2800-2899/2812.Find%20the%20Safest%20Path%20in%20a%20Grid/README.md)  |    |  中等  |  第 357 场周赛  |
+|  2813  |  [子序列最大优雅度](/solution/2800-2899/2813.Maximum%20Elegance%20of%20a%20K-Length%20Subsequence/README.md)  |    |  困难  |  第 357 场周赛  |
 
 ## 版权
 
