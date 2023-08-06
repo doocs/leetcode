@@ -46,7 +46,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-双指针，当 `s[i]` 不等于 `s[j]` 时，分别尝试跳过 `i` 或跳过 `j`。
+**方法一：双指针**
+
+我们用两个指针分别指向字符串的左右两端，每次判断两个指针指向的字符是否相同，如果不相同，则判断删除左指针对应的字符后字符串是否是回文字符串，或者判断删除右指针对应的字符后字符串是否是回文字符串。如果两个指针指向的字符相同，则将左右指针都往中间移动一位，直到两个指针相遇为止。
+
+如果遍历结束，都没有遇到指针指向的字符不相同的情况，那么字符串本身就是一个回文字符串，返回 `true` 即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -129,17 +135,21 @@ function isPalinddrome(s: string): boolean {
 class Solution {
 public:
     bool validPalindrome(string s) {
-        for (int i = 0, j = s.size() - 1; i < j; ++i, --j)
-            if (s[i] != s[j])
+        for (int i = 0, j = s.size() - 1; i < j; ++i, --j) {
+            if (s[i] != s[j]) {
                 return check(s, i + 1, j) || check(s, i, j - 1);
+            }
+        }
         return 1;
     }
 
     bool check(string s, int i, int j) {
-        for (; i < j; ++i, --j)
-            if (s[i] != s[j])
-                return 0;
-        return 1;
+        for (; i < j; ++i, --j) {
+            if (s[i] != s[j]) {
+                return false;
+            }
+        }
+        return true;
     }
 };
 ```
@@ -188,6 +198,35 @@ var validPalindrome = function (s) {
     }
     return true;
 };
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public bool ValidPalindrome(string s) {
+        int i = 0, j = s.Length - 1;
+        while (i < j && s[i] == s[j]) {
+            i++;
+            j--;
+        }
+        if (i >= j) {
+            return true;
+        }
+        return check(s, i + 1, j) || check(s, i, j - 1);
+    }
+
+    private bool check(string s, int i, int j) {
+        while (i < j) {
+            if (s[i] != s[j]) {
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
+}
 ```
 
 ### **...**

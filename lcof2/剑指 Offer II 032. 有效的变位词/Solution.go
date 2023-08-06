@@ -1,14 +1,15 @@
 func isAnagram(s string, t string) bool {
-	if len(s) != len(t) || s == t {
+	m, n := len(s), len(t)
+	if m != n || s == t {
 		return false
 	}
-	var chars [26]int
-	for i := 0; i < len(s); i++ {
-		chars[s[i]-'a']++
-		chars[t[i]-'a']--
+	cnt := [26]int{}
+	for i, c := range s {
+		cnt[c-'a']++
+		cnt[t[i]-'a']--
 	}
-	for _, c := range chars {
-		if c != 0 {
+	for _, x := range cnt {
+		if x != 0 {
 			return false
 		}
 	}

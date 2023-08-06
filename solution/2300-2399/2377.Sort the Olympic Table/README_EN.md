@@ -15,7 +15,7 @@
 | silver_medals | int     |
 | bronze_medals | int     |
 +---------------+---------+
-country is the primary key for this table.
+In SQL, country is the primary key for this table.
 Each row in this table shows a country name and the number of gold, silver, and bronze medals it won in the Olympic games.
 </pre>
 
@@ -30,9 +30,9 @@ Each row in this table shows a country name and the number of gold, silver, and 
 	<li>If there is a tie in the bronze medals, the countries with the tie are sorted in ascending order lexicographically.</li>
 </ul>
 
-<p>Write an SQL query to sort the Olympic table</p>
+<p>Write a solution to sort the Olympic table.</p>
 
-<p>The query result format is shown in the following example.</p>
+<p>The result format is shown in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

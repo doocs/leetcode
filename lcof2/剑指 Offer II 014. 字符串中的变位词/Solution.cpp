@@ -1,46 +1,45 @@
 class Solution {
 public:
     bool checkInclusion(string s1, string s2) {
-
-        int len1 = s1.size();
-        int len2 = s2.size();
-
-        if (len2 < len1) {
+        int m = s1.size(), n = s2.size();
+        if (m > n) {
             return false;
         }
-
-        int count[30] = {0};
-
-        for (int i = 0; i < len1; ++i) {
-            ++count[s1[i] - 'a'];
-            --count[s2[i] - 'a'];
+        vector<int> cnt(26);
+        for (int i = 0; i < m; ++i) {
+            --cnt[s1[i] - 'a'];
+            ++cnt[s2[i] - 'a'];
         }
-
-        int l = 0;
-        int r = len1 - 1;
-
-        while (r < len2) {
-
-            bool flag = true;
-
-            for (int i : count) {
-                if (i != 0) {
-                    flag = false;
-                }
+        int diff = 0;
+        for (int x : cnt) {
+            if (x != 0) {
+                ++diff;
             }
-
-            if (flag) {
+        }
+        if (diff == 0) {
+            return true;
+        }
+        for (int i = m; i < n; ++i) {
+            int a = s2[i - m] - 'a';
+            int b = s2[i] - 'a';
+            if (cnt[a] == 0) {
+                ++diff;
+            }
+            --cnt[a];
+            if (cnt[a] == 0) {
+                --diff;
+            }
+            if (cnt[b] == 0) {
+                ++diff;
+            }
+            ++cnt[b];
+            if (cnt[b] == 0) {
+                --diff;
+            }
+            if (diff == 0) {
                 return true;
             }
-
-            if (r + 1 >= len2) {
-                break;
-            }
-
-            ++count[s2[l++] - 'a'];
-            --count[s2[++r] - 'a'];
         }
-
         return false;
     }
 };

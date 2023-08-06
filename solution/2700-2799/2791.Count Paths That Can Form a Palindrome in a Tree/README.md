@@ -18,9 +18,10 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2700-2799/2791.Count%20Paths%20That%20Can%20Form%20a%20Palindrome%20in%20a%20Tree/images/treedrawio-8drawio.png" style="width: 281px; height: 181px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2700-2799/2791.Count%20Paths%20That%20Can%20Form%20a%20Palindrome%20in%20a%20Tree/images/treedrawio-8drawio.png" style="width: 281px; height: 181px;" /></p>
 
-<pre><strong>输入：</strong>parent = [-1,0,0,1,1,2], s = "acaabc"
+<pre>
+<strong>输入：</strong>parent = [-1,0,0,1,1,2], s = "acaabc"
 <strong>输出：</strong>8
 <strong>解释：</strong>符合题目要求的节点对分别是：
 - (0,1)、(0,2)、(1,3)、(1,4) 和 (2,5) ，路径上只有一个字符，满足回文定义。
@@ -31,7 +32,8 @@
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>parent = [-1,0,0,0,0], s = "aaaaa"
+<pre>
+<strong>输入：</strong>parent = [-1,0,0,0,0], s = "aaaaa"
 <strong>输出：</strong>10
 <strong>解释：</strong>任何满足 u &lt; v 的节点对 (u,v) 都符合题目要求。
 </pre>
@@ -46,7 +48,7 @@
 	<li>对于所有 <code>i &gt;= 1</code> ，<code>0 &lt;= parent[i] &lt;= n - 1</code> 均成立</li>
 	<li><code>parent[0] == -1</code></li>
 	<li><code>parent</code> 表示一棵有效的树</li>
-	<li><code>s</code> 仅由小写英文数字组成</li>
+	<li><code>s</code> 仅由小写英文字母组成</li>
 </ul>
 
 ## 解法

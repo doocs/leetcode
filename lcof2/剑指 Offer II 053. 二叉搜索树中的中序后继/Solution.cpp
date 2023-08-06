@@ -10,13 +10,13 @@
 class Solution {
 public:
     TreeNode* inorderSuccessor(TreeNode* root, TreeNode* p) {
-        TreeNode *cur = root, *ans = nullptr;
-        while (cur != nullptr) {
-            if (cur->val <= p->val) {
-                cur = cur->right;
+        TreeNode* ans = nullptr;
+        while (root) {
+            if (root->val > p->val) {
+                ans = root;
+                root = root->left;
             } else {
-                ans = cur;
-                cur = cur->left;
+                root = root->right;
             }
         }
         return ans;

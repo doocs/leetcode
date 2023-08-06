@@ -14,17 +14,17 @@
 | recordDate    | date    |
 | temperature   | int     |
 +---------------+---------+
-id is the primary key for this table.
+In SQL, id is the primary key for this table.
 This table contains information about the temperature on a certain day.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find all dates&#39; <code>Id</code> with higher temperatures compared to its previous dates (yesterday).</p>
+<p>Find all dates&#39; <code>Id</code> with higher temperatures compared to its previous dates (yesterday).</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

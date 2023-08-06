@@ -12,15 +12,15 @@
 +-------------+------+
 | x           | int  |
 +-------------+------+
-x is the primary key column for this table.
+In SQL, x is the primary key column for this table.
 Each row of this table indicates the position of a point on the X-axis.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the shortest distance between any two points from the <code>Point</code> table.</p>
+<p>Find the shortest distance between any two points from the <code>Point</code> table.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -45,7 +45,7 @@ Point table:
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Follow up:</strong> How could you optimize your query if the <code>Point</code> table is ordered <strong>in ascending order</strong>?</p>
+<p><strong>Follow up:</strong> How could you optimize your solution if the <code>Point</code> table is ordered <strong>in ascending order</strong>?</p>
 
 ## Solutions
 

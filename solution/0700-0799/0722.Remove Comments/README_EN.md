@@ -90,13 +90,217 @@ a = b + c;
 ### **Python3**
 
 ```python
-
+class Solution:
+    def removeComments(self, source: List[str]) -> List[str]:
+        ans = []
+        t = []
+        block_comment = False
+        for s in source:
+            i, m = 0, len(s)
+            while i < m:
+                if block_comment:
+                    if i + 1 < m and s[i : i + 2] == "*/":
+                        block_comment = False
+                        i += 1
+                else:
+                    if i + 1 < m and s[i : i + 2] == "/*":
+                        block_comment = True
+                        i += 1
+                    elif i + 1 < m and s[i : i + 2] == "//":
+                        break
+                    else:
+                        t.append(s[i])
+                i += 1
+            if not block_comment and t:
+                ans.append("".join(t))
+                t.clear()
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<String> removeComments(String[] source) {
+        List<String> ans = new ArrayList<>();
+        StringBuilder sb = new StringBuilder();
+        boolean blockComment = false;
+        for (String s : source) {
+            int m = s.length();
+            for (int i = 0; i < m; ++i) {
+                if (blockComment) {
+                    if (i + 1 < m && s.charAt(i) == '*' && s.charAt(i + 1) == '/') {
+                        blockComment = false;
+                        ++i;
+                    }
+                } else {
+                    if (i + 1 < m && s.charAt(i) == '/' && s.charAt(i + 1) == '*') {
+                        blockComment = true;
+                        ++i;
+                    } else if (i + 1 < m && s.charAt(i) == '/' && s.charAt(i + 1) == '/') {
+                        break;
+                    } else {
+                        sb.append(s.charAt(i));
+                    }
+                }
+            }
+            if (!blockComment && sb.length() > 0) {
+                ans.add(sb.toString());
+                sb.setLength(0);
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> removeComments(vector<string>& source) {
+        vector<string> ans;
+        string t;
+        bool blockComment = false;
+        for (auto& s : source) {
+            int m = s.size();
+            for (int i = 0; i < m; ++i) {
+                if (blockComment) {
+                    if (i + 1 < m && s[i] == '*' && s[i + 1] == '/') {
+                        blockComment = false;
+                        ++i;
+                    }
+                } else {
+                    if (i + 1 < m && s[i] == '/' && s[i + 1] == '*') {
+                        blockComment = true;
+                        ++i;
+                    } else if (i + 1 < m && s[i] == '/' && s[i + 1] == '/') {
+                        break;
+                    } else {
+                        t.push_back(s[i]);
+                    }
+                }
+            }
+            if (!blockComment && !t.empty()) {
+                ans.emplace_back(t);
+                t.clear();
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func removeComments(source []string) (ans []string) {
+	t := []byte{}
+	blockComment := false
+	for _, s := range source {
+		m := len(s)
+		for i := 0; i < m; i++ {
+			if blockComment {
+				if i+1 < m && s[i] == '*' && s[i+1] == '/' {
+					blockComment = false
+					i++
+				}
+			} else {
+				if i+1 < m && s[i] == '/' && s[i+1] == '*' {
+					blockComment = true
+					i++
+				} else if i+1 < m && s[i] == '/' && s[i+1] == '/' {
+					break
+				} else {
+					t = append(t, s[i])
+				}
+			}
+		}
+		if !blockComment && len(t) > 0 {
+			ans = append(ans, string(t))
+			t = []byte{}
+		}
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function removeComments(source: string[]): string[] {
+    const ans: string[] = [];
+    const t: string[] = [];
+    let blockComment = false;
+    for (const s of source) {
+        const m = s.length;
+        for (let i = 0; i < m; ++i) {
+            if (blockComment) {
+                if (i + 1 < m && s.slice(i, i + 2) === '*/') {
+                    blockComment = false;
+                    ++i;
+                }
+            } else {
+                if (i + 1 < m && s.slice(i, i + 2) === '/*') {
+                    blockComment = true;
+                    ++i;
+                } else if (i + 1 < m && s.slice(i, i + 2) === '//') {
+                    break;
+                } else {
+                    t.push(s[i]);
+                }
+            }
+        }
+        if (!blockComment && t.length) {
+            ans.push(t.join(''));
+            t.length = 0;
+        }
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn remove_comments(source: Vec<String>) -> Vec<String> {
+        let mut ans: Vec<String> = Vec::new();
+        let mut t: Vec<String> = Vec::new();
+        let mut blockComment = false;
+
+        for s in &source {
+            let m = s.len();
+            let mut i = 0;
+            while i < m {
+                if blockComment {
+                    if i + 1 < m && &s[i..i + 2] == "*/" {
+                        blockComment = false;
+                        i += 2;
+                    } else {
+                        i += 1;
+                    }
+                } else {
+                    if i + 1 < m && &s[i..i + 2] == "/*" {
+                        blockComment = true;
+                        i += 2;
+                    } else if i + 1 < m && &s[i..i + 2] == "//" {
+                        break;
+                    } else {
+                        t.push(s.chars().nth(i).unwrap().to_string());
+                        i += 1;
+                    }
+                }
+            }
+            if !blockComment && !t.is_empty() {
+                ans.push(t.join(""));
+                t.clear();
+            }
+        }
+        ans
+    }
+}
 ```
 
 ### **...**

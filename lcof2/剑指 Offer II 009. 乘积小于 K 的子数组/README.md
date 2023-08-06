@@ -41,7 +41,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-利用滑动窗口，我们能求出每个不同 `right` 结尾的合法子数组的个数
+**方法一：滑动窗口**
+
+我们使用滑动窗口维护一个乘积不超过 $k$ 的连续子数组。每次右边界 $j$ 向右移动一位，如果乘积超过了 $k$，则左边界 $i$ 向右移动，直到乘积小于 $k$。那么以右边界 $j$ 为结尾的子数组个数为 $j - i + 1$，我们将其累加到答案中。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -52,17 +56,14 @@
 ```python
 class Solution:
     def numSubarrayProductLessThanK(self, nums: List[int], k: int) -> int:
-        n = len(nums)
-        ans = 0
-        sum = 1
-        left, right = 0, 0
-        while right < n:
-            sum *= nums[right]
-            right += 1
-            while sum >= k and left < right:
-                sum /= nums[left]
-                left += 1
-            ans += right - left
+        s = 1
+        ans = i = 0
+        for j, x in enumerate(nums):
+            s *= x
+            while i <= j and s >= k:
+                s //= nums[i]
+                i += 1
+            ans += j - i + 1
         return ans
 ```
 
@@ -73,40 +74,17 @@ class Solution:
 ```java
 class Solution {
     public int numSubarrayProductLessThanK(int[] nums, int k) {
-        int n = nums.length;
+        long s = 1;
         int ans = 0;
-        int sum = 1;
-        int left = 0, right = 0;
-        while (right < n) {
-            sum *= nums[right++];
-            while (sum >= k && left < right) {
-                sum /= nums[left++];
+        for (int i = 0, j = 0; j < nums.length; ++j) {
+            s *= nums[j];
+            while (i <= j && s >= k) {
+                s /= nums[i++];
             }
-            ans += right - left;
+            ans += j - i + 1;
         }
         return ans;
     }
-}
-```
-
-### **Go**
-
-```go
-func numSubarrayProductLessThanK(nums []int, k int) int {
-	n := len(nums)
-	ans := 0
-	sum := 1
-	left, right := 0, 0
-	for right < n {
-		sum *= nums[right]
-		right++
-		for sum >= k && left < right {
-			sum /= nums[left]
-			left++
-		}
-		ans += right - left
-	}
-	return ans
 }
 ```
 
@@ -116,23 +94,54 @@ func numSubarrayProductLessThanK(nums []int, k int) int {
 class Solution {
 public:
     int numSubarrayProductLessThanK(vector<int>& nums, int k) {
-        int left = 0, right;
-        long mul = 1;
-        int count = 0;
-
-        for (right = 0; right < nums.size(); right++) {
-            mul *= nums[right];
-
-            while (left <= right && mul >= k) {
-                mul /= nums[left++];
+        long long s = 1;
+        int ans = 0, n = nums.size();
+        for (int i = 0, j = 0; j < n; ++j) {
+            s *= nums[j];
+            while (i <= j && s >= k) {
+                s /= nums[i++];
             }
-
-            count += right >= left ? right - left + 1 : 0;
+            ans += j - i + 1;
         }
-
-        return count;
+        return ans;
     }
 };
+```
+
+### **Go**
+
+```go
+func numSubarrayProductLessThanK(nums []int, k int) int {
+	s := 1
+	ans, i := 0, 0
+	for j, x := range nums {
+		s *= x
+		for i <= j && s >= k {
+			s /= nums[i]
+			i++
+		}
+		ans += j - i + 1
+	}
+	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function numSubarrayProductLessThanK(nums: number[], k: number): number {
+    let s = 1;
+    let ans = 0;
+    const n = nums.length;
+    for (let i = 0, j = 0; j < n; ++j) {
+        s *= nums[j];
+        while (i <= j && s >= k) {
+            s /= nums[i++];
+        }
+        ans += j - i + 1;
+    }
+    return ans;
+}
 ```
 
 ### **...**

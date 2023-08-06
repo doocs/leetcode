@@ -1,13 +1,14 @@
 func pivotIndex(nums []int) int {
-	n := len(nums)
-	sum := make([]int, n+1)
-	for i := 1; i <= n; i++ {
-		sum[i] = sum[i-1] + nums[i-1]
+	left, right := 0, 0
+	for _, x := range nums {
+		right += x
 	}
-	for i := 0; i < n; i++ {
-		if sum[i] == sum[n]-sum[i+1] {
+	for i, x := range nums {
+		right -= x
+		if left == right {
 			return i
 		}
+		left += x
 	}
 	return -1
 }

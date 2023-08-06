@@ -59,7 +59,33 @@ numMatrix.sumRegion(1, 2, 2, 4); // return 12 (蓝色矩形框的元素总和)
 
 <!-- 这里可写通用的实现逻辑 -->
 
-动态规划-二维前缀和。
+**方法一：二维前缀和**
+
+我们可以用一个二维数组 $s$ 来保存矩阵 $matrix$ 的前缀和，其中 $s[i+1][j+1]$ 表示矩阵 $matrix$ 中以 $(0,0)$ 为左上角，$(i,j)$ 为右下角的子矩阵中所有元素的和。
+
+那么：
+
+$$
+\begin{aligned}
+s[i+1][j+1] &= s[i][j+1] + s[i+1][j] - s[i][j] + matrix[i][j]
+\end{aligned}
+$$
+
+我们可以用前缀和数组 $s$ 来快速计算矩阵 $matrix$ 中任意子矩阵的元素和，计算公式如下：
+
+$$
+\begin{aligned}
+&\textit{sumRegion}(row_1,col_1,row_2,col_2) \\
+&= s[row_2+1][col_2+1] - s[row_2+1][col_1] - s[row_1][col_2+1] + s[row_1][col_1]
+\end{aligned}
+$$
+
+时间复杂度：
+
+-   初始化的时间复杂度为 $O(m \times n)$，其中 $m$ 和 $n$ 分别是矩阵 $matrix$ 的行数和列数。
+-   每次计算子矩阵的元素和的时间复杂度为 $O(1)$。
+
+空间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别是矩阵 $matrix$ 的行数和列数。我们需要创建一个二维数组 $s$ 来保存矩阵 $matrix$ 的前缀和。
 
 <!-- tabs:start -->
 
@@ -70,23 +96,19 @@ numMatrix.sumRegion(1, 2, 2, 4); // return 12 (蓝色矩形框的元素总和)
 ```python
 class NumMatrix:
     def __init__(self, matrix: List[List[int]]):
-        m, n = len(matrix), len(matrix[0])
-        self.pre = [[0] * (n + 1) for _ in range(m + 1)]
-        for i in range(1, m + 1):
-            for j in range(1, n + 1):
-                self.pre[i][j] = (
-                    self.pre[i - 1][j]
-                    + self.pre[i][j - 1]
-                    - self.pre[i - 1][j - 1]
-                    + matrix[i - 1][j - 1]
+        self.s = [[0] * (len(matrix[0]) + 1) for _ in range(len(matrix) + 1)]
+        for i, row in enumerate(matrix, 1):
+            for j, x in enumerate(row, 1):
+                self.s[i][j] = (
+                    self.s[i - 1][j] + self.s[i][j - 1] - self.s[i - 1][j - 1] + x
                 )
 
     def sumRegion(self, row1: int, col1: int, row2: int, col2: int) -> int:
         return (
-            self.pre[row2 + 1][col2 + 1]
-            - self.pre[row2 + 1][col1]
-            - self.pre[row1][col2 + 1]
-            + self.pre[row1][col1]
+            self.s[row2 + 1][col2 + 1]
+            - self.s[row2 + 1][col1]
+            - self.s[row1][col2 + 1]
+            + self.s[row1][col1]
         )
 
 
@@ -101,22 +123,21 @@ class NumMatrix:
 
 ```java
 class NumMatrix {
-    private int[][] pre;
+    private int[][] s;
 
     public NumMatrix(int[][] matrix) {
-        int m = matrix.length, n = matrix[0].length;
-        pre = new int[m + 1][n + 1];
+        int m = matrix.length;
+        int n = matrix[0].length;
+        s = new int[m + 1][n + 1];
         for (int i = 1; i <= m; ++i) {
             for (int j = 1; j <= n; ++j) {
-                pre[i][j]
-                    = pre[i - 1][j] + pre[i][j - 1] - pre[i - 1][j - 1] + matrix[i - 1][j - 1];
+                s[i][j] = s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1] + matrix[i - 1][j - 1];
             }
         }
     }
 
     public int sumRegion(int row1, int col1, int row2, int col2) {
-        return pre[row2 + 1][col2 + 1] - pre[row2 + 1][col1] - pre[row1][col2 + 1]
-            + pre[row1][col1];
+        return s[row2 + 1][col2 + 1] - s[row2 + 1][col1] - s[row1][col2 + 1] + s[row1][col1];
     }
 }
 
@@ -132,21 +153,23 @@ class NumMatrix {
 ```cpp
 class NumMatrix {
 public:
-    vector<vector<int>> pre;
-
     NumMatrix(vector<vector<int>>& matrix) {
-        int m = matrix.size(), n = matrix[0].size();
-        pre.resize(m + 1, vector<int>(n + 1));
+        int m = matrix.size();
+        int n = matrix[0].size();
+        s.resize(m + 1, vector<int>(n + 1, 0));
         for (int i = 1; i <= m; ++i) {
             for (int j = 1; j <= n; ++j) {
-                pre[i][j] = pre[i - 1][j] + pre[i][j - 1] - pre[i - 1][j - 1] + matrix[i - 1][j - 1];
+                s[i][j] = s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1] + matrix[i - 1][j - 1];
             }
         }
     }
 
     int sumRegion(int row1, int col1, int row2, int col2) {
-        return pre[row2 + 1][col2 + 1] - pre[row2 + 1][col1] - pre[row1][col2 + 1] + pre[row1][col1];
+        return s[row2 + 1][col2 + 1] - s[row2 + 1][col1] - s[row1][col2 + 1] + s[row1][col1];
     }
+
+private:
+    vector<vector<int>> s;
 };
 
 /**
@@ -160,31 +183,69 @@ public:
 
 ```go
 type NumMatrix struct {
-	pre [][]int
+	s [][]int
 }
 
 func Constructor(matrix [][]int) NumMatrix {
 	m, n := len(matrix), len(matrix[0])
-	pre := make([][]int, m+1)
+	s := make([][]int, m+1)
 	for i := 0; i < m+1; i++ {
-		pre[i] = make([]int, n+1)
+		s[i] = make([]int, n+1)
 	}
-	for i := 1; i < m+1; i++ {
-		for j := 1; j < n+1; j++ {
-			pre[i][j] = pre[i-1][j] + pre[i][j-1] + -pre[i-1][j-1] + matrix[i-1][j-1]
+	for i := 1; i <= m; i++ {
+		for j := 1; j <= n; j++ {
+			s[i][j] = s[i-1][j] + s[i][j-1] + -s[i-1][j-1] + matrix[i-1][j-1]
 		}
 	}
-	return NumMatrix{pre}
+	return NumMatrix{s}
 }
 
 func (this *NumMatrix) SumRegion(row1 int, col1 int, row2 int, col2 int) int {
-	return this.pre[row2+1][col2+1] - this.pre[row2+1][col1] - this.pre[row1][col2+1] + this.pre[row1][col1]
+	return this.s[row2+1][col2+1] - this.s[row2+1][col1] - this.s[row1][col2+1] + this.s[row1][col1]
 }
 
 /**
  * Your NumMatrix object will be instantiated and called as such:
  * obj := Constructor(matrix);
  * param_1 := obj.SumRegion(row1,col1,row2,col2);
+ */
+```
+
+### **TypeScript**
+
+```ts
+class NumMatrix {
+    s: number[][];
+
+    constructor(matrix: number[][]) {
+        const m = matrix.length;
+        const n = matrix[0].length;
+        this.s = new Array(m + 1).fill(0).map(() => new Array(n + 1).fill(0));
+        for (let i = 1; i <= m; i++) {
+            for (let j = 1; j <= n; j++) {
+                this.s[i][j] =
+                    this.s[i - 1][j] +
+                    this.s[i][j - 1] -
+                    this.s[i - 1][j - 1] +
+                    matrix[i - 1][j - 1];
+            }
+        }
+    }
+
+    sumRegion(row1: number, col1: number, row2: number, col2: number): number {
+        return (
+            this.s[row2 + 1][col2 + 1] -
+            this.s[row2 + 1][col1] -
+            this.s[row1][col2 + 1] +
+            this.s[row1][col1]
+        );
+    }
+}
+
+/**
+ * Your NumMatrix object will be instantiated and called as such:
+ * var obj = new NumMatrix(matrix)
+ * var param_1 = obj.sumRegion(row1,col1,row2,col2)
  */
 ```
 

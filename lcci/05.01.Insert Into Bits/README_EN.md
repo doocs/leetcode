@@ -29,7 +29,11 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def insertBits(self, N: int, M: int, i: int, j: int) -> int:
+        for k in range(i, j + 1):
+            N &= ~(1 << k)
+        return N | M << i
 ```
 
 ### **Java**
@@ -37,11 +41,47 @@
 ```java
 class Solution {
     public int insertBits(int N, int M, int i, int j) {
-        for (int k = i; k <= j; k++) {
+        for (int k = i; k <= j; ++k) {
             N &= ~(1 << k);
         }
-        return N ^ (M << i);
+        return N | M << i;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int insertBits(int N, int M, int i, int j) {
+        for (int k = i; k <= j; ++k) {
+            N &= ~(1 << k);
+        }
+        return N | M << i;
+    }
+};
+```
+
+### **Go**
+
+```go
+func insertBits(N int, M int, i int, j int) int {
+	for k := i; k <= j; k++ {
+		N &= ^(1 << k)
+	}
+	return N | M<<i
+}
+```
+
+### **TypeScript**
+
+```ts
+function insertBits(N: number, M: number, i: number, j: number): number {
+    for (let k = i; k <= j; ++k) {
+        N &= ~(1 << k);
+    }
+    return N | (M << i);
 }
 ```
 

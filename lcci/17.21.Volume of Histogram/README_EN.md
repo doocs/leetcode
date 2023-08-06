@@ -30,19 +30,12 @@ class Solution:
         n = len(height)
         if n < 3:
             return 0
-
-        left_max = [height[0]] * n
+        left = [height[0]] * n
+        right = [height[-1]] * n
         for i in range(1, n):
-            left_max[i] = max(left_max[i - 1], height[i])
-
-        right_max = [height[n - 1]] * n
-        for i in range(n - 2, -1, -1):
-            right_max[i] = max(right_max[i + 1], height[i])
-
-        res = 0
-        for i in range(n):
-            res += min(left_max[i], right_max[i]) - height[i]
-        return res
+            left[i] = max(left[i - 1], height[i])
+            right[n - i - 1] = max(right[n - i], height[n - i - 1])
+        return sum(min(l, r) - h for l, r, h in zip(left, right, height))
 ```
 
 ### **Java**
@@ -50,26 +43,133 @@ class Solution:
 ```java
 class Solution {
     public int trap(int[] height) {
-        int n;
-        if ((n = height.length) < 3) return 0;
-
-        int[] leftMax = new int[n];
-        leftMax[0] = height[0];
+        int n = height.length;
+        if (n < 3) {
+            return 0;
+        }
+        int[] left = new int[n];
+        int[] right = new int[n];
+        left[0] = height[0];
+        right[n - 1] = height[n - 1];
         for (int i = 1; i < n; ++i) {
-            leftMax[i] = Math.max(leftMax[i - 1], height[i]);
+            left[i] = Math.max(left[i - 1], height[i]);
+            right[n - i - 1] = Math.max(right[n - i], height[n - i - 1]);
         }
-
-        int[] rightMax = new int[n];
-        rightMax[n - 1] = height[n - 1];
-        for (int i = n - 2; i >= 0; --i) {
-            rightMax[i] = Math.max(rightMax[i + 1], height[i]);
-        }
-
-        int res = 0;
+        int ans = 0;
         for (int i = 0; i < n; ++i) {
-            res += Math.min(leftMax[i], rightMax[i]) - height[i];
+            ans += Math.min(left[i], right[i]) - height[i];
         }
-        return res;
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        int n = height.size();
+        if (n < 3) {
+            return 0;
+        }
+        int left[n], right[n];
+        left[0] = height[0];
+        right[n - 1] = height[n - 1];
+        for (int i = 1; i < n; ++i) {
+            left[i] = max(left[i - 1], height[i]);
+            right[n - i - 1] = max(right[n - i], height[n - i - 1]);
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans += min(left[i], right[i]) - height[i];
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func trap(height []int) (ans int) {
+	n := len(height)
+	if n < 3 {
+		return 0
+	}
+	left := make([]int, n)
+	right := make([]int, n)
+	left[0], right[n-1] = height[0], height[n-1]
+	for i := 1; i < n; i++ {
+		left[i] = max(left[i-1], height[i])
+		right[n-i-1] = max(right[n-i], height[n-i-1])
+	}
+	for i, h := range height {
+		ans += min(left[i], right[i]) - h
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function trap(height: number[]): number {
+    const n = height.length;
+    if (n < 3) {
+        return 0;
+    }
+    const left: number[] = new Array(n).fill(height[0]);
+    const right: number[] = new Array(n).fill(height[n - 1]);
+    for (let i = 1; i < n; ++i) {
+        left[i] = Math.max(left[i - 1], height[i]);
+        right[n - i - 1] = Math.max(right[n - i], height[n - i - 1]);
+    }
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        ans += Math.min(left[i], right[i]) - height[i];
+    }
+    return ans;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int Trap(int[] height) {
+        int n = height.Length;
+        if (n < 3) {
+            return 0;
+        }
+        int[] left = new int[n];
+        int[] right = new int[n];
+        left[0] = height[0];
+        right[n - 1] = height[n - 1];
+        for (int i = 1; i < n; ++i) {
+            left[i] = Math.Max(left[i - 1], height[i]);
+            right[n - i - 1] = Math.Max(right[n - i], height[n - i - 1]);
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans += Math.Min(left[i], right[i]) - height[i];
+        }
+        return ans;
     }
 }
 ```

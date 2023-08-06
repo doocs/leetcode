@@ -1,8 +1,11 @@
 impl Solution {
     pub fn multiply(a: i32, b: i32) -> i32 {
-        if a == 0 || b == 0 {
-            return 0;
+        if b == 1 {
+            return a;
         }
-        a.max(b) + Self::multiply(a.max(b), a.min(b) - 1)
+        if b & 1 == 1 {
+            return (Self::multiply(a, b >> 1) << 1) + a;
+        }
+        Self::multiply(a, b >> 1) << 1
     }
 }

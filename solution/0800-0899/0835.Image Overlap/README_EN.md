@@ -56,13 +56,130 @@ The number of positions that have a 1 in both images is 3 (shown in red).
 ### **Python3**
 
 ```python
-
+class Solution:
+    def largestOverlap(self, img1: List[List[int]], img2: List[List[int]]) -> int:
+        n = len(img1)
+        cnt = Counter()
+        for i in range(n):
+            for j in range(n):
+                if img1[i][j]:
+                    for h in range(n):
+                        for k in range(n):
+                            if img2[h][k]:
+                                cnt[(i - h, j - k)] += 1
+        return max(cnt.values()) if cnt else 0
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int largestOverlap(int[][] img1, int[][] img2) {
+        int n = img1.length;
+        Map<List<Integer>, Integer> cnt = new HashMap<>();
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (img1[i][j] == 1) {
+                    for (int h = 0; h < n; ++h) {
+                        for (int k = 0; k < n; ++k) {
+                            if (img2[h][k] == 1) {
+                                List<Integer> t = List.of(i - h, j - k);
+                                ans = Math.max(ans, cnt.merge(t, 1, Integer::sum));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int largestOverlap(vector<vector<int>>& img1, vector<vector<int>>& img2) {
+        int n = img1.size();
+        map<pair<int, int>, int> cnt;
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (img1[i][j]) {
+                    for (int h = 0; h < n; ++h) {
+                        for (int k = 0; k < n; ++k) {
+                            if (img2[h][k]) {
+                                ans = max(ans, ++cnt[{i - h, j - k}]);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func largestOverlap(img1 [][]int, img2 [][]int) (ans int) {
+	type pair struct{ x, y int }
+	cnt := map[pair]int{}
+	for i, row1 := range img1 {
+		for j, x1 := range row1 {
+			if x1 == 1 {
+				for h, row2 := range img2 {
+					for k, x2 := range row2 {
+						if x2 == 1 {
+							t := pair{i - h, j - k}
+							cnt[t]++
+							ans = max(ans, cnt[t])
+						}
+					}
+				}
+			}
+		}
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function largestOverlap(img1: number[][], img2: number[][]): number {
+    const n = img1.length;
+    const cnt: Map<number, number> = new Map();
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (img1[i][j] === 1) {
+                for (let h = 0; h < n; ++h) {
+                    for (let k = 0; k < n; ++k) {
+                        if (img2[h][k] === 1) {
+                            const t = (i - h) * 200 + (j - k);
+                            cnt.set(t, (cnt.get(t) ?? 0) + 1);
+                            ans = Math.max(ans, cnt.get(t)!);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**

@@ -56,6 +56,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：二分查找**
+
+我们注意到，如果我们可以让 $n$ 台电脑同时运行 $t$ 分钟，那么我们也可以让 $n$ 台电脑同时运行 $t' \le t$ 分钟，这存在着单调性。因此，我们可以使用二分查找的方法找到最大的 $t$。
+
+我们定义二分查找的左边界 $l=0$，右边界 $r=\sum_{i=0}^{n-1} batteries[i]$。每次二分查找的过程中，我们使用一个变量 $mid$ 表示当前的中间值，即 $mid = (l + r + 1) >> 1$。我们判断是否存在一种方案，使得 $n$ 台电脑同时运行 $mid$ 分钟。如果存在，那么我们就将 $l$ 更新为 $mid$，否则我们将 $r$ 更新为 $mid - 1$。最后，我们返回 $l$ 即为答案。
+
+问题转化为如何判断是否存在一种方案，使得 $n$ 台电脑同时运行 $mid$ 分钟。如果一个电池可以运行的分钟数大于 $mid$，由于电脑同时运行 $mid$ 分钟，而一个电池同一时间只能供电一台电脑，因此我们只能使用这个电池 $mid$ 分钟。如果一个电池可以运行的分钟数小于等于 $mid$，我们可以使用这个电池的全部电量。因此，我们统计所有电池可以供电的分钟数之和 $s$，如果 $s \ge n \times mid$，那么我们就可以使得 $n$ 台电脑同时运行 $mid$ 分钟。
+
+时间复杂度 $O(n \times \log M)$，其中 $M$ 为所有电池的电量之和，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,7 +73,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxRunTime(self, n: int, batteries: List[int]) -> int:
+        l, r = 0, sum(batteries)
+        while l < r:
+            mid = (l + r + 1) >> 1
+            if sum(min(x, mid) for x in batteries) >= n * mid:
+                l = mid
+            else:
+                r = mid - 1
+        return l
 ```
 
 ### **Java**
@@ -71,15 +90,163 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public long maxRunTime(int n, int[] batteries) {
+        long l = 0, r = 0;
+        for (int x : batteries) {
+            r += x;
+        }
+        while (l < r) {
+            long mid = (l + r + 1) >> 1;
+            long s = 0;
+            for (int x : batteries) {
+                s += Math.min(mid, x);
+            }
+            if (s >= n * mid) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return l;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    long long maxRunTime(int n, vector<int>& batteries) {
+        long long l = 0, r = 0;
+        for (int x : batteries) {
+            r += x;
+        }
+        while (l < r) {
+            long long mid = (l + r + 1) >> 1;
+            long long s = 0;
+            for (int x : batteries) {
+                s += min(1LL * x, mid);
+            }
+            if (s >= n * mid) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return l;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxRunTime(n int, batteries []int) int64 {
+	l, r := 0, 0
+	for _, x := range batteries {
+		r += x
+	}
+	for l < r {
+		mid := (l + r + 1) >> 1
+		s := 0
+		for _, x := range batteries {
+			s += min(x, mid)
+		}
+		if s >= n*mid {
+			l = mid
+		} else {
+			r = mid - 1
+		}
+	}
+	return int64(l)
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
 
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```ts
+function maxRunTime(n: number, batteries: number[]): number {
+    let l = 0n;
+    let r = 0n;
+    for (const x of batteries) {
+        r += BigInt(x);
+    }
+    while (l < r) {
+        const mid = (l + r + 1n) >> 1n;
+        let s = 0n;
+        for (const x of batteries) {
+            s += BigInt(Math.min(x, Number(mid)));
+        }
+        if (s >= mid * BigInt(n)) {
+            l = mid;
+        } else {
+            r = mid - 1n;
+        }
+    }
+    return Number(l);
+}
+```
 
+### **Rust**
+
+```rust
+impl Solution {
+    #[allow(dead_code)]
+    pub fn max_run_time(n: i32, batteries: Vec<i32>) -> i64 {
+
+        // First sort the batteries
+        let mut batteries = batteries;
+        let m = batteries.len() as i32;
+        batteries.sort();
+
+        let mut extra_sum: i64 = 0;
+        for i in 0..(m - n) as usize {
+            extra_sum += batteries[i] as i64;
+        }
+
+        let mut i = (m - n) as usize;
+        let mut cur_height = batteries[i];
+        let mut ret = cur_height as i64;
+        while extra_sum != 0 {
+            if i + 1 == m as usize {
+                assert!(cur_height == *batteries.last().unwrap());
+                ret += extra_sum / n as i64;
+                break;
+            }
+
+            if batteries[i] == batteries[i + 1] {
+                i += 1;
+                continue;
+            }
+
+            let diff = extra_sum / (i - (m - n) as usize + 1) as i64;
+
+            if (cur_height as i64 + diff) <= batteries[i + 1] as i64 {
+                ret = cur_height as i64 + diff;
+                break;
+            } else {
+                extra_sum -= (batteries[i + 1] - batteries[i]) as i64 * (i - (m - n) as usize + 1) as i64;
+                ret = batteries[i + 1] as i64;
+            }
+
+            i += 1;
+            if i != m as usize {
+                cur_height = batteries[i];
+            }
+        }
+
+        ret
+    }
+}
 ```
 
 ### **...**

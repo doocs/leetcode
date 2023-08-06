@@ -12,6 +12,8 @@
 
 <p><strong>Note:</strong> The input is always valid. You may assume that evaluating the queries will not result in division by zero and that there is no contradiction.</p>
 
+<p><strong>Note:&nbsp;</strong>The variables that do not occur in the list of equations are undefined, so the answer cannot be determined for them.</p>
+
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
@@ -20,9 +22,9 @@
 <strong>Output:</strong> [6.00000,0.50000,-1.00000,1.00000,-1.00000]
 <strong>Explanation:</strong> 
 Given: <em>a / b = 2.0</em>, <em>b / c = 3.0</em>
-queries are: <em>a / c = ?</em>, <em>b / a = ?</em>, <em>a / e = ?</em>, <em>a / a = ?</em>, <em>x / x = ?</em>
+queries are: <em>a / c = ?</em>, <em>b / a = ?</em>, <em>a / e = ?</em>, <em>a / a = ?</em>, <em>x / x = ? </em>
 return: [6.0, 0.5, -1.0, 1.0, -1.0 ]
-</pre>
+note: x is undefined =&gt; -1.0</pre>
 
 <p><strong class="example">Example 2:</strong></p>
 

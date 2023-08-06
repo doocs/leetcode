@@ -22,6 +22,27 @@
 
 ## 往期竞赛
 
+#### 第 357 场周赛(2023-08-06 10:30, 90 分钟) 参赛人数 4265
+
+- [2810. 故障键盘](/solution/2800-2899/2810.Faulty%20Keyboard/README.md)
+- [2811. 判断是否能拆分数组](/solution/2800-2899/2811.Check%20if%20it%20is%20Possible%20to%20Split%20Array/README.md)
+- [2812. 找出最安全路径](/solution/2800-2899/2812.Find%20the%20Safest%20Path%20in%20a%20Grid/README.md)
+- [2813. 子序列最大优雅度](/solution/2800-2899/2813.Maximum%20Elegance%20of%20a%20K-Length%20Subsequence/README.md)
+
+#### 第 110 场双周赛(2023-08-05 22:30, 90 分钟) 参赛人数 2546
+
+- [2806. 取整购买后的账户余额](/solution/2800-2899/2806.Account%20Balance%20After%20Rounded%20Purchase/README.md)
+- [2807. 在链表中插入最大公约数](/solution/2800-2899/2807.Insert%20Greatest%20Common%20Divisors%20in%20Linked%20List/README.md)
+- [2808. 使循环数组所有元素相等的最少秒数](/solution/2800-2899/2808.Minimum%20Seconds%20to%20Equalize%20a%20Circular%20Array/README.md)
+- [2809. 使数组和小于等于 x 的最少时间](/solution/2800-2899/2809.Minimum%20Time%20to%20Make%20Array%20Sum%20At%20Most%20x/README.md)
+
+#### 第 356 场周赛(2023-07-30 10:30, 90 分钟) 参赛人数 4082
+
+- [2798. 满足目标工作时长的员工数目](/solution/2700-2799/2798.Number%20of%20Employees%20Who%20Met%20the%20Target/README.md)
+- [2799. 统计完全子数组的数目](/solution/2700-2799/2799.Count%20Complete%20Subarrays%20in%20an%20Array/README.md)
+- [2800. 包含三个字符串的最短字符串](/solution/2800-2899/2800.Shortest%20String%20That%20Contains%20Three%20Strings/README.md)
+- [2801. 统计范围内的步进数字数目](/solution/2800-2899/2801.Count%20Stepping%20Numbers%20in%20Range/README.md)
+
 #### 第 355 场周赛(2023-07-23 10:30, 90 分钟) 参赛人数 4112
 
 - [2788. 按分隔符拆分字符串](/solution/2700-2799/2788.Split%20Strings%20by%20Separator/README.md)

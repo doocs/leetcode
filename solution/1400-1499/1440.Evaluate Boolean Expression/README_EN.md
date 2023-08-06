@@ -13,7 +13,7 @@
 | name          | varchar |
 | value         | int     |
 +---------------+---------+
-name is the primary key for this table.
+In SQL, name is the primary key for this table.
 This table contains the stored variables and their values.
 </pre>
 
@@ -29,7 +29,7 @@ This table contains the stored variables and their values.
 | operator      | enum    |
 | right_operand | varchar |
 +---------------+---------+
-(left_operand, operator, right_operand) is the primary key for this table.
+In SQL, (left_operand, operator, right_operand) is the primary key for this table.
 This table contains a boolean expression that should be evaluated.
 operator is an enum that takes one of the values (&#39;&lt;&#39;, &#39;&gt;&#39;, &#39;=&#39;)
 The values of left_operand and right_operand are guaranteed to be in the Variables table.
@@ -37,11 +37,11 @@ The values of left_operand and right_operand are guaranteed to be in the Variabl
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to evaluate the boolean expressions in <code>Expressions</code> table.</p>
+<p>Evaluate the boolean expressions in <code>Expressions</code> table.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

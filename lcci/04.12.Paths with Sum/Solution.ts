@@ -12,21 +12,20 @@
  * }
  */
 
-function dfs(root: TreeNode | null, sum: number): number {
-    let res = 0;
-    if (root == null) {
-        return res;
-    }
-    sum -= root.val;
-    if (sum === 0) {
-        res++;
-    }
-    return res + dfs(root.left, sum) + dfs(root.right, sum);
-}
-
 function pathSum(root: TreeNode | null, sum: number): number {
-    if (root == null) {
-        return 0;
-    }
-    return dfs(root, sum) + pathSum(root.left, sum) + pathSum(root.right, sum);
+    const cnt: Map<number, number> = new Map();
+    cnt.set(0, 1);
+    const dfs = (root: TreeNode | null, s: number): number => {
+        if (!root) {
+            return 0;
+        }
+        s += root.val;
+        let ans = cnt.get(s - sum) ?? 0;
+        cnt.set(s, (cnt.get(s) ?? 0) + 1);
+        ans += dfs(root.left, s);
+        ans += dfs(root.right, s);
+        cnt.set(s, (cnt.get(s) ?? 0) - 1);
+        return ans;
+    };
+    return dfs(root, 0);
 }

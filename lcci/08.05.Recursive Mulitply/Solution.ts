@@ -1,7 +1,9 @@
 function multiply(A: number, B: number): number {
-    if (A === 0 || B === 0) {
-        return 0;
+    if (B === 1) {
+        return A;
     }
-    const [max, min] = [Math.max(A, B), Math.min(A, B)];
-    return max + multiply(max, min - 1);
+    if ((B & 1) === 1) {
+        return (multiply(A, B >> 1) << 1) + A;
+    }
+    return multiply(A, B >> 1) << 1;
 }

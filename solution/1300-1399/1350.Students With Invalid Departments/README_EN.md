@@ -13,7 +13,7 @@
 | id            | int     |
 | name          | varchar |
 +---------------+---------+
-id is the primary key of this table.
+In SQL, id is the primary key of this table.
 The table has information about the id of each department of a university.
 </pre>
 
@@ -29,17 +29,17 @@ The table has information about the id of each department of a university.
 | name          | varchar |
 | department_id | int     |
 +---------------+---------+
-id is the primary key of this table.
+In SQL, id is the primary key of this table.
 The table has information about the id of each student at a university and the id of the department he/she studies at.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find the id and the name of all students who are enrolled in departments that no longer exist.</p>
+<p>Find the id and the name of all students who are enrolled in departments that no longer exist.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

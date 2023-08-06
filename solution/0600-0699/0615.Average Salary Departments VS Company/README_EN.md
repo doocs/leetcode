@@ -15,9 +15,9 @@
 | amount      | int  |
 | pay_date    | date |
 +-------------+------+
-id is the primary key column for this table.
+In SQL, id is the primary key column for this table.
 Each row of this table indicates the salary of an employee in one month.
-employee_id is a foreign key from the Employee table.
+employee_id is a foreign key (reference column) from the Employee table.
 </pre>
 
 <p>&nbsp;</p>
@@ -31,17 +31,17 @@ employee_id is a foreign key from the Employee table.
 | employee_id   | int  |
 | department_id | int  |
 +---------------+------+
-employee_id is the primary key column for this table.
+In SQL, employee_id is the primary key column for this table.
 Each row of this table indicates the department of an employee.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the comparison result <strong>(higher/lower/same)</strong> of the average salary of employees in a department to the company&#39;s average salary.</p>
+<p>Find the comparison result <strong>(higher/lower/same)</strong> of the average salary of employees in a department to the company&#39;s average salary.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

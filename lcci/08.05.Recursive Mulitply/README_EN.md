@@ -33,34 +33,73 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def multiply(self, A: int, B: int) -> int:
+        if B == 1:
+            return A
+        if B & 1:
+            return (self.multiply(A, B >> 1) << 1) + A
+        return self.multiply(A, B >> 1) << 1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int multiply(int A, int B) {
+        if (B == 1) {
+            return A;
+        }
+        if ((B & 1) == 1) {
+            return (multiply(A, B >> 1) << 1) + A;
+        }
+        return multiply(A, B >> 1) << 1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int multiply(int A, int B) {
+        if (B == 1) {
+            return A;
+        }
+        if ((B & 1) == 1) {
+            return (multiply(A, B >> 1) << 1) + A;
+        }
+        return multiply(A, B >> 1) << 1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func multiply(A int, B int) int {
+	if B == 1 {
+		return A
+	}
+	if B&1 == 1 {
+		return (multiply(A, B>>1) << 1) + A
+	}
+	return multiply(A, B>>1) << 1
+}
 ```
 
 ### **TypeScript**
 
 ```ts
 function multiply(A: number, B: number): number {
-    if (A === 0 || B === 0) {
-        return 0;
+    if (B === 1) {
+        return A;
     }
-    const [max, min] = [Math.max(A, B), Math.min(A, B)];
-    return max + multiply(max, min - 1);
-}
-```
-
-```ts
-function multiply(A: number, B: number): number {
-    const max = Math.max(A, B);
-    const min = Math.min(A, B);
-    const helper = (a: number, b: number) =>
-        (b & 1 ? a : 0) + (b > 1 ? helper(a + a, b >> 1) : 0);
-    return helper(max, min);
+    if ((B & 1) === 1) {
+        return (multiply(A, B >> 1) << 1) + A;
+    }
+    return multiply(A, B >> 1) << 1;
 }
 ```
 
@@ -69,10 +108,13 @@ function multiply(A: number, B: number): number {
 ```rust
 impl Solution {
     pub fn multiply(a: i32, b: i32) -> i32 {
-        if a == 0 || b == 0 {
-            return 0;
+        if b == 1 {
+            return a;
         }
-        a.max(b) + Self::multiply(a.max(b), a.min(b) - 1)
+        if b & 1 == 1 {
+            return (Self::multiply(a, b >> 1) << 1) + a;
+        }
+        Self::multiply(a, b >> 1) << 1
     }
 }
 ```
