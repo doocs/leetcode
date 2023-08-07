@@ -54,25 +54,310 @@ Now sum of nums1 = 4. It can be shown that these operations are optimal, so we r
 ### **Python3**
 
 ```python
+class Solution:
+    def minimumTime(self, nums1: List[int], nums2: List[int], x: int) -> int:
+        n = len(nums1)
+        f = [[0] * (n + 1) for _ in range(n + 1)]
+        for i, (a, b) in enumerate(sorted(zip(nums1, nums2), key=lambda z: z[1]), 1):
+            for j in range(n + 1):
+                f[i][j] = f[i - 1][j]
+                if j > 0:
+                    f[i][j] = max(f[i][j], f[i - 1][j - 1] + a + b * j)
+        s1 = sum(nums1)
+        s2 = sum(nums2)
+        for j in range(n + 1):
+            if s1 + s2 * j - f[n][j] <= x:
+                return j
+        return -1
+```
 
+```python
+class Solution:
+    def minimumTime(self, nums1: List[int], nums2: List[int], x: int) -> int:
+        n = len(nums1)
+        f = [0] * (n + 1)
+        for a, b in sorted(zip(nums1, nums2), key=lambda z: z[1]):
+            for j in range(n, 0, -1):
+                f[j] = max(f[j], f[j - 1] + a + b * j)
+        s1 = sum(nums1)
+        s2 = sum(nums2)
+        for j in range(n + 1):
+            if s1 + s2 * j - f[j] <= x:
+                return j
+        return -1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minimumTime(List<Integer> nums1, List<Integer> nums2, int x) {
+        int n = nums1.size();
+        int[][] f = new int[n + 1][n + 1];
+        int[][] nums = new int[n][0];
+        for (int i = 0; i < n; ++i) {
+            nums[i] = new int[] {nums1.get(i), nums2.get(i)};
+        }
+        Arrays.sort(nums, Comparator.comparingInt(a -> a[1]));
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 0; j <= n; ++j) {
+                f[i][j] = f[i - 1][j];
+                if (j > 0) {
+                    int a = nums[i - 1][0], b = nums[i - 1][1];
+                    f[i][j] = Math.max(f[i][j], f[i - 1][j - 1] + a + b * j);
+                }
+            }
+        }
+        int s1 = 0, s2 = 0;
+        for (int v : nums1) {
+            s1 += v;
+        }
+        for (int v : nums2) {
+            s2 += v;
+        }
 
+        for (int j = 0; j <= n; ++j) {
+            if (s1 + s2 * j - f[n][j] <= x) {
+                return j;
+            }
+        }
+        return -1;
+    }
+}
+```
+
+```java
+class Solution {
+    public int minimumTime(List<Integer> nums1, List<Integer> nums2, int x) {
+        int n = nums1.size();
+        int[] f = new int[n + 1];
+        int[][] nums = new int[n][0];
+        for (int i = 0; i < n; ++i) {
+            nums[i] = new int[] {nums1.get(i), nums2.get(i)};
+        }
+        Arrays.sort(nums, Comparator.comparingInt(a -> a[1]));
+        for (int[] e : nums) {
+            int a = e[0], b = e[1];
+            for (int j = n; j > 0; --j) {
+                f[j] = Math.max(f[j], f[j - 1] + a + b * j);
+            }
+        }
+        int s1 = 0, s2 = 0;
+        for (int v : nums1) {
+            s1 += v;
+        }
+        for (int v : nums2) {
+            s2 += v;
+        }
+
+        for (int j = 0; j <= n; ++j) {
+            if (s1 + s2 * j - f[j] <= x) {
+                return j;
+            }
+        }
+        return -1;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
+class Solution {
+public:
+    int minimumTime(vector<int>& nums1, vector<int>& nums2, int x) {
+        int n = nums1.size();
+        vector<pair<int, int>> nums;
+        for (int i = 0; i < n; ++i) {
+            nums.emplace_back(nums2[i], nums1[i]);
+        }
+        sort(nums.begin(), nums.end());
+        int f[n + 1][n + 1];
+        memset(f, 0, sizeof(f));
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 0; j <= n; ++j) {
+                f[i][j] = f[i - 1][j];
+                if (j) {
+                    auto [b, a] = nums[i - 1];
+                    f[i][j] = max(f[i][j], f[i - 1][j - 1] + a + b * j);
+                }
+            }
+        }
+        int s1 = accumulate(nums1.begin(), nums1.end(), 0);
+        int s2 = accumulate(nums2.begin(), nums2.end(), 0);
+        for (int j = 0; j <= n; ++j) {
+            if (s1 + s2 * j - f[n][j] <= x) {
+                return j;
+            }
+        }
+        return -1;
+    }
+};
+```
 
+```cpp
+class Solution {
+public:
+    int minimumTime(vector<int>& nums1, vector<int>& nums2, int x) {
+        int n = nums1.size();
+        vector<pair<int, int>> nums;
+        for (int i = 0; i < n; ++i) {
+            nums.emplace_back(nums2[i], nums1[i]);
+        }
+        sort(nums.begin(), nums.end());
+        int f[n + 1];
+        memset(f, 0, sizeof(f));
+        for (auto [b, a] : nums) {
+            for (int j = n; j; --j) {
+                f[j] = max(f[j], f[j - 1] + a + b * j);
+            }
+        }
+        int s1 = accumulate(nums1.begin(), nums1.end(), 0);
+        int s2 = accumulate(nums2.begin(), nums2.end(), 0);
+        for (int j = 0; j <= n; ++j) {
+            if (s1 + s2 * j - f[j] <= x) {
+                return j;
+            }
+        }
+        return -1;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minimumTime(nums1 []int, nums2 []int, x int) int {
+	n := len(nums1)
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, n+1)
+	}
+	type pair struct{ a, b int }
+	nums := make([]pair, n)
+	var s1, s2 int
+	for i := range nums {
+		s1 += nums1[i]
+		s2 += nums2[i]
+		nums[i] = pair{nums1[i], nums2[i]}
+	}
+	sort.Slice(nums, func(i, j int) bool { return nums[i].b < nums[j].b })
+	for i := 1; i <= n; i++ {
+		for j := 0; j <= n; j++ {
+			f[i][j] = f[i-1][j]
+			if j > 0 {
+				a, b := nums[i-1].a, nums[i-1].b
+				f[i][j] = max(f[i][j], f[i-1][j-1]+a+b*j)
+			}
+		}
+	}
+	for j := 0; j <= n; j++ {
+		if s1+s2*j-f[n][j] <= x {
+			return j
+		}
+	}
+	return -1
+}
 
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func minimumTime(nums1 []int, nums2 []int, x int) int {
+	n := len(nums1)
+	f := make([]int, n+1)
+	type pair struct{ a, b int }
+	nums := make([]pair, n)
+	var s1, s2 int
+	for i := range nums {
+		s1 += nums1[i]
+		s2 += nums2[i]
+		nums[i] = pair{nums1[i], nums2[i]}
+	}
+	sort.Slice(nums, func(i, j int) bool { return nums[i].b < nums[j].b })
+	for _, e := range nums {
+		a, b := e.a, e.b
+		for j := n; j > 0; j-- {
+			f[j] = max(f[j], f[j-1]+a+b*j)
+		}
+	}
+	for j := 0; j <= n; j++ {
+		if s1+s2*j-f[j] <= x {
+			return j
+		}
+	}
+	return -1
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function minimumTime(nums1: number[], nums2: number[], x: number): number {
+    const n = nums1.length;
+    const f: number[][] = Array(n + 1)
+        .fill(0)
+        .map(() => Array(n + 1).fill(0));
+    const nums: number[][] = [];
+    for (let i = 0; i < n; ++i) {
+        nums.push([nums1[i], nums2[i]]);
+    }
+    nums.sort((a, b) => a[1] - b[1]);
+    for (let i = 1; i <= n; ++i) {
+        for (let j = 0; j <= n; ++j) {
+            f[i][j] = f[i - 1][j];
+            if (j > 0) {
+                const [a, b] = nums[i - 1];
+                f[i][j] = Math.max(f[i][j], f[i - 1][j - 1] + a + b * j);
+            }
+        }
+    }
+    const s1 = nums1.reduce((a, b) => a + b, 0);
+    const s2 = nums2.reduce((a, b) => a + b, 0);
+    for (let j = 0; j <= n; ++j) {
+        if (s1 + s2 * j - f[n][j] <= x) {
+            return j;
+        }
+    }
+    return -1;
+}
+```
+
+```ts
+function minimumTime(nums1: number[], nums2: number[], x: number): number {
+    const n = nums1.length;
+    const f: number[] = new Array(n + 1).fill(0);
+    const nums: number[][] = [];
+    for (let i = 0; i < n; ++i) {
+        nums.push([nums1[i], nums2[i]]);
+    }
+    nums.sort((a, b) => a[1] - b[1]);
+    for (const [a, b] of nums) {
+        for (let j = n; j > 0; --j) {
+            f[j] = Math.max(f[j], f[j - 1] + a + b * j);
+        }
+    }
+    const s1 = nums1.reduce((a, b) => a + b, 0);
+    const s2 = nums2.reduce((a, b) => a + b, 0);
+    for (let j = 0; j <= n; ++j) {
+        if (s1 + s2 * j - f[j] <= x) {
+            return j;
+        }
+    }
+    return -1;
+}
 ```
 
 ### **...**
