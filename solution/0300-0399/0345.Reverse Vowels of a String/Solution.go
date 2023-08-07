@@ -1,23 +1,21 @@
 func reverseVowels(s string) string {
-	left, right := 0, len(s)-1
-	a := []byte(s)
-	for left < right {
-		for left < right && !isVowel(a[left]) {
-			left++
+	vowels := [128]bool{}
+	for _, c := range "aeiouAEIOU" {
+		vowels[c] = true
+	}
+	cs := []byte(s)
+	i, j := 0, len(cs)-1
+	for i < j {
+		for i < j && !vowels[cs[i]] {
+			i++
 		}
-		for left < right && !isVowel(a[right]) {
-			right--
+		for i < j && !vowels[cs[j]] {
+			j--
 		}
-		if left != right && isVowel(a[left]) && isVowel(a[right]) {
-			a[left], a[right] = a[right], a[left]
-			left++
-			right--
+		if i < j {
+			cs[i], cs[j] = cs[j], cs[i]
+			i, j = i+1, j-1
 		}
 	}
-	return string(a)
-}
-
-func isVowel(b byte) bool {
-	return b == 'a' || b == 'e' || b == 'i' || b == 'o' || b == 'u' ||
-		b == 'A' || b == 'E' || b == 'I' || b == 'O' || b == 'U'
+	return string(cs)
 }
