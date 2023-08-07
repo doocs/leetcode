@@ -13,13 +13,13 @@
 | id          | int     |
 | email       | varchar |
 +-------------+---------+
-In SQL, id is the primary key column for this table.
+id is the primary key (column with unique values) for this table.
 Each row of this table contains an email. The emails will not contain uppercase letters.
 </pre>
 
 <p>&nbsp;</p>
 
-<p><strong>Delete</strong> all the duplicate emails, keeping only one unique email with the smallest <code>id</code>.</p>
+<p>Write a solution to<strong> delete</strong> all duplicate emails, keeping only one unique email with the smallest <code>id</code>.</p>
 
 <p>For SQL users, please note that you are supposed to write a <code>DELETE</code> statement and not a <code>SELECT</code> one.</p>
 

@@ -18,20 +18,20 @@
 | recordDate    | date    |
 | temperature   | int     |
 +---------------+---------+
-id 是这个表的主键
+在 SQL 中，id 是该表的主键。
 该表包含特定日期的温度信息</pre>
 
 <p>&nbsp;</p>
 
-<p>编写一个 SQL 查询，来查找与之前（昨天的）日期相比温度更高的所有日期的 <code>id</code> 。</p>
+<p>找出与之前（昨天的）日期相比温度更高的所有日期的 <code>id</code> 。</p>
 
-<p>返回结果 <strong>不要求顺序</strong> 。</p>
+<p>返回结果 <strong>无顺序要求</strong> 。</p>
 
-<p>查询结果格式如下例。</p>
+<p>结果格式如下例子所示。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
 <code><strong>输入：</strong>

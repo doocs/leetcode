@@ -13,17 +13,17 @@
 | employee_id   | int     |
 | team_id       | int     |
 +---------------+---------+
-employee_id is the primary key for this table.
+employee_id is the primary key (column with unique values) for this table.
 Each row of this table contains the ID of each employee and their respective team.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find the team size of each of the employees.</p>
+<p>Write a solution to find the team size of each of the employees.</p>
 
-<p>Return result table in <strong>any order</strong>.</p>
+<p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

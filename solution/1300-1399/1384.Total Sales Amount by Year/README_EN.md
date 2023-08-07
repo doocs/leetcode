@@ -13,7 +13,7 @@
 | product_id    | int     |
 | product_name  | varchar |
 +---------------+---------+
-product_id is the primary key for this table.
+product_id is the primary key (column with unique values) for this table.
 product_name is the name of the product.
 </pre>
 
@@ -30,7 +30,7 @@ product_name is the name of the product.
 | period_end          | date    |
 | average_daily_sales | int     |
 +---------------------+---------+
-product_id is the primary key for this table. 
+product_id is the primary key (column with unique values) for this table. 
 period_start and period_end indicate the start and end date for the sales period, and both dates are inclusive.
 The average_daily_sales column holds the average daily sales amount of the items for the period.
 The dates of the sales years are between 2018 to 2020.
@@ -38,11 +38,11 @@ The dates of the sales years are between 2018 to 2020.
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the total sales amount of each item for each year, with corresponding <code>product_name</code>, <code>product_id</code>, <code>report_year</code>, and <code>total_amount</code>.</p>
+<p>Write a solution to report the total sales amount of each item for each year, with corresponding <code>product_name</code>, <code>product_id</code>, <code>report_year</code>, and <code>total_amount</code>.</p>
 
 <p>Return the result table <strong>ordered</strong> by <code>product_id</code> and <code>report_year</code>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

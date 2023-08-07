@@ -14,7 +14,7 @@
 | product_id   | int     |
 | units        | int     |
 +--------------+---------+
-(name, product_id) is the primary key for this table.
+(name, product_id) is the primary key (combination of columns with unique values) for this table.
 Each row of this table contains the information of the products in each warehouse.
 </pre>
 
@@ -32,13 +32,13 @@ Each row of this table contains the information of the products in each warehous
 | Length        | int     |
 | Height        | int     |
 +---------------+---------+
-product_id is the primary key for this table.
+product_id is the primary key (column with unique values) for this table.
 Each row of this table contains information about the product dimensions (Width, Lenght, and Height) in feets of each product.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the number of cubic feet of <strong>volume </strong>the inventory occupies in each warehouse.</p>
+<p>Write a solution to report the number of cubic feet of <strong>volume </strong>the inventory occupies in each warehouse.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 

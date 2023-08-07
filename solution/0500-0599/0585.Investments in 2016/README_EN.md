@@ -16,7 +16,7 @@
 | lat         | float |
 | lon         | float |
 +-------------+-------+
-pid is the primary key column for this table.
+pid is the primary key (column with unique values) for this table.
 Each row of this table contains information about one policy where:
 pid is the policyholder&#39;s policy ID.
 tiv_2015 is the total investment value in 2015 and tiv_2016 is the total investment value in 2016.
@@ -26,16 +26,16 @@ lon is the longitude of the policy holder&#39;s city. It&#39;s guaranteed that l
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the sum of all total investment values in 2016 <code>tiv_2016</code>, for all policyholders who:</p>
+<p>Write a solution to report the sum of all total investment values in 2016 <code>tiv_2016</code>, for all policyholders who:</p>
 
 <ul>
 	<li>have the same <code>tiv_2015</code> value as one or more other policyholders, and</li>
-	<li>are not located in the same city like any other policyholder (i.e., the (<code>lat, lon</code>) attribute pairs must be unique).</li>
+	<li>are not located in the same city as any other policyholder (i.e., the (<code>lat, lon</code>) attribute pairs must be unique).</li>
 </ul>
 
 <p>Round <code>tiv_2016</code> to <strong>two decimal places</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

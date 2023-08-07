@@ -16,15 +16,17 @@
 | likes       | int  |
 | dislikes    | int  |
 +-------------+------+
-problem_id 是这张表的主键。
+在 SQL 中，problem_id 是这张表的主键。
 该表的每一行都表示一个力扣问题的喜欢和不喜欢的数量。
 </pre>
 
-<p>写一个 SQL 查询<strong>低质量</strong>问题的 ID 集合。如果一个力扣问题的喜欢率（喜欢数除以总投票数）<strong>严格低于</strong><code>60%</code><strong>&nbsp;</strong>，则该问题为<strong>低质量</strong>问题。</p>
+<p>&nbsp;</p>
+
+<p>找出&nbsp;<strong>低质量&nbsp;</strong>问题的 ID 集合。如果一个力扣问题的喜欢率（喜欢数除以总投票数）<strong>严格低于&nbsp;</strong><code>60%</code><strong>&nbsp;</strong>，则该问题为<strong>低质量</strong>问题。</p>
 
 <p>按&nbsp;<code>problem_id</code> 升序排列返回结果表。</p>
 
-<p>查询结果的格式在下面的例子中。</p>
+<p>结果表的格式如下例所示。</p>
 
 <p>&nbsp;</p>
 

@@ -13,13 +13,13 @@
 | order_number    | int      |
 | customer_number | int      |
 +-----------------+----------+
-In SQL, order_number is the primary key for this table.
+order_number is the primary key (column with unique values) for this table.
 This table contains information about the order ID and the customer ID.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Find the <code>customer_number</code> for the customer who has placed <strong>the largest number of orders</strong>.</p>
+<p>Write a solution to find the <code>customer_number</code> for the customer who has placed <strong>the largest number of orders</strong>.</p>
 
 <p>The test cases are generated so that <strong>exactly one customer</strong> will have placed more orders than any other customer.</p>
 

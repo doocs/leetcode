@@ -15,7 +15,7 @@
 | department  | varchar |
 | managerId   | int     |
 +-------------+---------+
-In SQL, id is the primary key column for this table.
+id is the primary key (column with unique values) for this table.
 Each row of this table indicates the name of an employee, their department, and the id of their manager.
 If managerId is null, then the employee does not have a manager.
 No employee will be the manager of themself.
@@ -23,7 +23,7 @@ No employee will be the manager of themself.
 
 <p>&nbsp;</p>
 
-<p>Find the managers with at least <strong>five direct reports</strong>.</p>
+<p>Write a solution to find managers with at least <strong>five direct reports</strong>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 

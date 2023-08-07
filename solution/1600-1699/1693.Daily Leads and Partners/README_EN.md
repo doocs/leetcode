@@ -15,7 +15,7 @@
 | lead_id     | int     |
 | partner_id  | int     |
 +-------------+---------+
-This table may contain duplicates (In other words, there is no primary key for this table in SQL).
+There is no primary key (column with unique values) for this table. It may contain duplicates.
 This table contains the date and the name of the product sold and the IDs of the lead and partner it was sold to.
 The name consists of only lowercase English letters.
 </pre>

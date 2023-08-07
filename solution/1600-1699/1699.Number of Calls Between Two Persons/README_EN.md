@@ -14,18 +14,18 @@
 | to_id       | int     |
 | duration    | int     |
 +-------------+---------+
-This table does not have a primary key, it may contain duplicates.
+This table does not have a primary key (column with unique values), it may contain duplicates.
 This table contains the duration of a phone call between from_id and to_id.
 from_id != to_id
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the number of calls and the total call duration between each pair of distinct persons <code>(person1, person2)</code> where <code>person1 &lt; person2</code>.</p>
+<p>Write a solution&nbsp;to report the number of calls and the total call duration between each pair of distinct persons <code>(person1, person2)</code> where <code>person1 &lt; person2</code>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

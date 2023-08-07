@@ -14,15 +14,15 @@
 | track_name  | varchar |
 | artist      | varchar |
 +-------------+---------+
-<code>id</code> is the primary Key for this table.
+<code>id</code> is the primary key (column with unique values) for this table.
 Each row contains an id, track_name, and artist.
 </pre>
 
-<p>Write an SQL query to find how many times each artist appeared on the spotify ranking list.</p>
+<p>Write a solution to find how many times each artist appeared on the Spotify ranking list.</p>
 
-<p>Return <em>the result table having the artist&#39;s name along with the corresponding number of occurrences&nbsp;ordered by occurrence count in&nbsp;<strong>descending </strong>order. If the occurrences are equal, then it&rsquo;s ordered by the artist&rsquo;s name in <strong>ascending</strong> order.</em></p>
+<p>Return the result table having the artist&#39;s name along with the corresponding number of occurrences&nbsp;ordered by occurrence count in&nbsp;<strong>descending </strong>order. If the occurrences are equal, then it&rsquo;s ordered by the artist&rsquo;s name in <strong>ascending</strong> order.</p>
 
-<p>The query result format is in the following example​​​​​​.</p>
+<p>The result format is in the following example​​​​​.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

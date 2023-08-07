@@ -13,13 +13,13 @@
 | account_id  | int  |
 | income      | int  |
 +-------------+------+
-In SQL, account_id is the primary key for this table.
+account_id is the primary key (column with unique values) for this table.
 Each row contains information about the monthly income for one bank account.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Calculate the number of bank accounts of each salary category. The salary categories are:</p>
+<p>Write a solution&nbsp;to calculate the number of bank accounts for each salary category. The salary categories are:</p>
 
 <ul>
 	<li><code>&quot;Low Salary&quot;</code>: All the salaries <strong>strictly less</strong> than <code>$20000</code>.</li>

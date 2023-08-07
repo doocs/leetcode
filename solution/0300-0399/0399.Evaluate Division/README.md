@@ -14,9 +14,11 @@
 
 <p><strong>注意：</strong>输入总是有效的。你可以假设除法运算中不会出现除数为 0 的情况，且不存在任何矛盾的结果。</p>
 
-<p> </p>
+<p><strong>注意：</strong>未在等式列表中出现的变量是未定义的，因此无法确定它们的答案。</p>
 
-<p><strong>示例 1：</strong></p>
+<p>&nbsp;</p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
 <strong>输入：</strong>equations = [["a","b"],["b","c"]], values = [2.0,3.0], queries = [["a","c"],["b","a"],["a","e"],["a","a"],["x","x"]]
@@ -25,35 +27,35 @@
 条件：<em>a / b = 2.0</em>, <em>b / c = 3.0</em>
 问题：<em>a / c = ?</em>, <em>b / a = ?</em>, <em>a / e = ?</em>, <em>a / a = ?</em>, <em>x / x = ?</em>
 结果：[6.0, 0.5, -1.0, 1.0, -1.0 ]
-</pre>
+注意：x 是未定义的 =&gt; -1.0</pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
 <strong>输入：</strong>equations = [["a","b"],["b","c"],["bc","cd"]], values = [1.5,2.5,5.0], queries = [["a","c"],["c","b"],["bc","cd"],["cd","bc"]]
 <strong>输出：</strong>[3.75000,0.40000,5.00000,0.20000]
 </pre>
 
-<p><strong>示例 3：</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <pre>
 <strong>输入：</strong>equations = [["a","b"]], values = [0.5], queries = [["a","b"],["b","a"],["a","c"],["x","y"]]
 <strong>输出：</strong>[0.50000,2.00000,-1.00000,-1.00000]
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= equations.length <= 20</code></li>
+	<li><code>1 &lt;= equations.length &lt;= 20</code></li>
 	<li><code>equations[i].length == 2</code></li>
-	<li><code>1 <= A<sub>i</sub>.length, B<sub>i</sub>.length <= 5</code></li>
+	<li><code>1 &lt;= A<sub>i</sub>.length, B<sub>i</sub>.length &lt;= 5</code></li>
 	<li><code>values.length == equations.length</code></li>
-	<li><code>0.0 < values[i] <= 20.0</code></li>
-	<li><code>1 <= queries.length <= 20</code></li>
+	<li><code>0.0 &lt; values[i] &lt;= 20.0</code></li>
+	<li><code>1 &lt;= queries.length &lt;= 20</code></li>
 	<li><code>queries[i].length == 2</code></li>
-	<li><code>1 <= C<sub>j</sub>.length, D<sub>j</sub>.length <= 5</code></li>
+	<li><code>1 &lt;= C<sub>j</sub>.length, D<sub>j</sub>.length &lt;= 5</code></li>
 	<li><code>A<sub>i</sub>, B<sub>i</sub>, C<sub>j</sub>, D<sub>j</sub></code> 由小写英文字母与数字组成</li>
 </ul>
 

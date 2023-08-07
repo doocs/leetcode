@@ -13,13 +13,13 @@
 | sell_date   | date    |
 | product     | varchar |
 +-------------+---------+
-This table may contain duplicates (In other words, there is no primary key for this table in SQL).
+There is no primary key (column with unique values) for this table. It may contain duplicates.
 Each row of this table contains the product name and the date it was sold in a market.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Find for each date the number of different products sold and their names.</p>
+<p>Write a solution to find for each date the number of different products sold and their names.</p>
 
 <p>The sold products names for each date should be sorted lexicographically.</p>
 

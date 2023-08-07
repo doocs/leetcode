@@ -14,13 +14,13 @@
 | name        | varchar |
 | salary      | int     |
 +-------------+---------+
-In SQL, employee_id is the primary key for this table.
+employee_id is the primary key (column with unique values) for this table.
 Each row of this table indicates the employee ID, employee name, and salary.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Calculate the bonus of each employee. The bonus of an employee is <code>100%</code> of their salary if the ID of the employee is <strong>an odd number</strong> and <strong>the employee name does not start with the character </strong><code>&#39;M&#39;</code>. The bonus of an employee is <code>0</code> otherwise.</p>
+<p>Write a solution to calculate the bonus of each employee. The bonus of an employee is <code>100%</code> of their salary if the ID of the employee is <strong>an odd number</strong> and <strong>the employee&#39;s name does not start with the character </strong><code>&#39;M&#39;</code>. The bonus of an employee is <code>0</code> otherwise.</p>
 
 <p>Return the result table ordered by <code>employee_id</code>.</p>
 

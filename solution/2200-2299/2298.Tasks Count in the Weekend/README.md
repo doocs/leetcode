@@ -16,13 +16,13 @@
 | assignee_id | int  |
 | submit_date | date |
 +-------------+------+
-task_id 是此表的主键。
+<code>task_id</code> 是该表的主键（具有唯一值的列）。
 此表中的每一行都包含任务 ID、委托人 ID 和提交日期。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>编写一个 SQL 来查询：</p>
+<p>编写一个解决方案来报告：</p>
 
 <ul>
 	<li>在周末 (周六，周日) 提交的任务的数量&nbsp;<code>weekend_cnt</code>，以及</li>
@@ -30,7 +30,7 @@ task_id 是此表的主键。
 </ul>
 
 <p>按 <strong>任意顺序</strong> 返回结果表。<br />
-查询结果格式如以下示例所示。</p>
+返回结果格式如以下示例所示。</p>
 
 <p>&nbsp;</p>
 

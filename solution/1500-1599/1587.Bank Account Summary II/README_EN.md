@@ -13,7 +13,7 @@
 | account      | int     |
 | name         | varchar |
 +--------------+---------+
-account is the primary key for this table.
+account is the primary key (column with unique values) for this table.
 Each row of this table contains the account number of each user in the bank.
 There will be no two users having the same name in the table.
 </pre>
@@ -31,7 +31,7 @@ There will be no two users having the same name in the table.
 | amount        | int     |
 | transacted_on | date    |
 +---------------+---------+
-trans_id is the primary key for this table.
+trans_id is the primary key (column with unique values) for this table.
 Each row of this table contains all changes made to all accounts.
 amount is positive if the user received money and negative if they transferred money.
 All accounts start with a balance of 0.
@@ -39,11 +39,11 @@ All accounts start with a balance of 0.
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the name and balance of users with a balance higher than <code>10000</code>. The balance of an account is equal to the sum of the amounts of all transactions involving that account.</p>
+<p>Write a solution to report the name and balance of users with a balance higher than <code>10000</code>. The balance of an account is equal to the sum of the amounts of all transactions involving that account.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

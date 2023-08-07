@@ -20,7 +20,9 @@
 <p><strong>示例 1：</strong></p>
 
 <pre>
-<b>输入：</b>actions = ["EventEmitter", "emit", "subscribe", "subscribe", "emit"], values = [[], ["firstEvent", "function cb1() { return 5; }"],  ["firstEvent", "function cb1() { return 5; }"], ["firstEvent"]]
+<b>输入：
+</b>actions = ["EventEmitter", "emit", "subscribe", "subscribe", "emit"], 
+values = [[], ["firstEvent", "function cb1() { return 5; }"],  ["firstEvent", "function cb1() { return 5; }"], ["firstEvent"]]
 <b>输出：</b>[[],["emitted",[]],["subscribed"],["subscribed"],["emitted",[5,6]]]
 <b>解释：</b>
 const emitter = new EventEmitter();
@@ -33,7 +35,9 @@ emitter.emit("firstEvent"); // [5, 6], 返回 cb1 和 cb2 的输出
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<b>输入：</b>actions = ["EventEmitter", "subscribe", "emit", "emit"], values = [[], ["firstEvent", "function cb1(...args) { return args.join(','); }"], ["firstEvent", [1,2,3]], ["firstEvent", [3,4,6]]]
+<b>输入：
+</b>actions = ["EventEmitter", "subscribe", "emit", "emit"], 
+values = [[], ["firstEvent", "function cb1(...args) { return args.join(','); }"], ["firstEvent", [1,2,3]], ["firstEvent", [3,4,6]]]
 <b>输出：</b>[[],["subscribed"],["emitted",["1,2,3"]],["emitted",["3,4,6"]]]
 <strong>解释：</strong>注意 emit 方法应该能够接受一个可选的参数数组。
 
@@ -46,7 +50,9 @@ emitter.emit("firstEvent", [3, 4, 6]); // ["3,4,6"]
 <p><strong>示例 3：</strong></p>
 
 <pre>
-<b>输入：</b>actions = ["EventEmitter", "subscribe", "emit", "unsubscribe", "emit"], values = [[], ["firstEvent", "(...args) =&gt; args.join(',')"], ["firstEvent", [1,2,3]], [0], ["firstEvent", [4,5,6]]]
+<b>输入：
+</b>actions = ["EventEmitter", "subscribe", "emit", "unsubscribe", "emit"], 
+values = [[], ["firstEvent", "(...args) =&gt; args.join(',')"], ["firstEvent", [1,2,3]], [0], ["firstEvent", [4,5,6]]]
 <b>输出：</b>[[],["subscribed"],["emitted",["1,2,3"]],["unsubscribed",0],["emitted",[]]]
 <b>解释：</b>
 const emitter = new EventEmitter();
@@ -59,7 +65,9 @@ emitter.emit("firstEvent", [4, 5, 6]); // [], 没有订阅者
 <p><strong>示例 4：</strong></p>
 
 <pre>
-<b>输入：</b>actions = ["EventEmitter", "subscribe", "subscribe", "unsubscribe", "emit"], values = [[], ["firstEvent", "x =&gt; x + 1"], ["firstEvent", "x =&gt; x + 2"], [0], ["firstEvent", [5]]]
+<b>输入：
+</b>actions = ["EventEmitter", "subscribe", "subscribe", "unsubscribe", "emit"], 
+values = [[], ["firstEvent", "x =&gt; x + 1"], ["firstEvent", "x =&gt; x + 2"], [0], ["firstEvent", [5]]]
 <b>输出：</b>[[],["subscribed"],["emitted",["1,2,3"]],["unsubscribed",0],["emitted",[7]]]
 <b>解释：</b>
 const emitter = new EventEmitter();

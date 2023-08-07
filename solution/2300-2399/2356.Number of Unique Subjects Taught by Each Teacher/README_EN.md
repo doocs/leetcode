@@ -14,13 +14,13 @@
 | subject_id  | int  |
 | dept_id     | int  |
 +-------------+------+
-In SQL, (subject_id, dept_id) is the primary key for this table.
+(subject_id, dept_id) is the primary key (combinations of columns with unique values) of this table.
 Each row in this table indicates that the teacher with teacher_id teaches the subject subject_id in the department dept_id.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Calculate&nbsp;the number of unique subjects each teacher teaches in the university.</p>
+<p>Write a solution to calculate&nbsp;the number of unique subjects each teacher teaches in the university.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 

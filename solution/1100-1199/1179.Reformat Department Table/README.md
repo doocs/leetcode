@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>部门表&nbsp;<code>Department</code>：</p>
+<p>表&nbsp;<code>Department</code>：</p>
 
 <pre>
 +---------------+---------+
@@ -16,19 +16,26 @@
 | revenue       | int     |
 | month         | varchar |
 +---------------+---------+
-(id, month) 是表的联合主键。
+在 SQL 中，(id, month) 是表的联合主键。
 这个表格有关于每个部门每月收入的信息。
-月份（month）可以取下列值 [&quot;Jan&quot;,&quot;Feb&quot;,&quot;Mar&quot;,&quot;Apr&quot;,&quot;May&quot;,&quot;Jun&quot;,&quot;Jul&quot;,&quot;Aug&quot;,&quot;Sep&quot;,&quot;Oct&quot;,&quot;Nov&quot;,&quot;Dec&quot;]。
+月份（month）可以取下列值 ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>编写一个 SQL 查询来重新格式化表，使得新的表中有一个部门 id 列和一些对应&nbsp;<strong>每个月 </strong>的收入（revenue）列。</p>
+<p>重新格式化表格，使得&nbsp;<strong>每个月&nbsp;</strong>都有一个部门 id 列和一个收入列。</p>
 
-<p>查询结果格式如下面的示例所示：</p>
+<p>以 <strong>任意顺序</strong> 返回结果表。</p>
+
+<p>结果格式如以下示例所示。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1：</strong></p>
 
 <pre>
-Department 表：
+<b>输入：</b>
+Department table:
 +------+---------+-------+
 | id   | revenue | month |
 +------+---------+-------+
@@ -38,8 +45,7 @@ Department 表：
 | 1    | 7000    | Feb   |
 | 1    | 6000    | Mar   |
 +------+---------+-------+
-
-查询得到的结果表：
+<b>输出：</b>
 +------+-------------+-------------+-------------+-----+-------------+
 | id   | Jan_Revenue | Feb_Revenue | Mar_Revenue | ... | Dec_Revenue |
 +------+-------------+-------------+-------------+-----+-------------+
@@ -47,9 +53,8 @@ Department 表：
 | 2    | 9000        | null        | null        | ... | null        |
 | 3    | null        | 10000       | null        | ... | null        |
 +------+-------------+-------------+-------------+-----+-------------+
-
-注意，结果表有 13 列 (1个部门 id 列 + 12个月份的收入列)。
-</pre>
+<b>解释：</b>四月到十二月的收入为空。 
+请注意，结果表共有 13 列（1 列用于部门 ID，其余 12 列用于各个月份）。</pre>
 
 ## 解法
 

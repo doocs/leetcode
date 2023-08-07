@@ -13,13 +13,13 @@
 | id          | int     |
 | score       | decimal |
 +-------------+---------+
-In SQL, id is the primary key for this table.
+id is the primary key (column with unique values) for this table.
 Each row of this table contains the score of a game. Score is a floating point value with two decimal places.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Find the rank of the scores. The ranking should be calculated according to the following rules:</p>
+<p>Write a solution to find the rank of the scores. The ranking should be calculated according to the following rules:</p>
 
 <ul>
 	<li>The scores should be ranked from the highest to the lowest.</li>

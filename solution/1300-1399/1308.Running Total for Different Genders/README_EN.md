@@ -15,7 +15,7 @@
 | day           | date    |
 | score_points  | int     |
 +---------------+---------+
-(gender, day) is the primary key for this table.
+(gender, day) is the primary key (combination of columns with unique values) for this table.
 A competition is held between the female team and the male team.
 Each row of this table indicates that a player_name and with gender has scored score_point in someday.
 Gender is &#39;F&#39; if the player is in the female team and &#39;M&#39; if the player is in the male team.
@@ -23,11 +23,11 @@ Gender is &#39;F&#39; if the player is in the female team and &#39;M&#39; if the
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find the total score for each gender on each day.</p>
+<p>Write a solution to find the total score for each gender on each day.</p>
 
 <p>Return the result table ordered by <code>gender</code> and <code>day</code> in <strong>ascending order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

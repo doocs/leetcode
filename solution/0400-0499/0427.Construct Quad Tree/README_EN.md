@@ -50,7 +50,7 @@ class Node {
 <strong>Input:</strong> grid = [[0,1],[1,0]]
 <strong>Output:</strong> [[0,1],[1,0],[1,1],[1,1],[1,0]]
 <strong>Explanation:</strong> The explanation of this example is shown below:
-Notice that 0 represnts False and 1 represents True in the photo representing the Quad-Tree.
+Notice that 0 represents False and 1 represents True in the photo representing the Quad-Tree.
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0427.Construct%20Quad%20Tree/images/e1tree.png" style="width: 777px; height: 186px;" />
 </pre>
 

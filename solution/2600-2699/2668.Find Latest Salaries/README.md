@@ -18,15 +18,15 @@
 | salary        | varchar |
 | department_id | varchar |
 +---------------+---------+
-(emp_id, salary) 是此表的主键。 
+在 SQL 中，(emp_id, salary) 是此表的主键。 
 每行包含员工的详细信息和他们每年的薪水，但有些记录是旧的，包含过时的薪资信息。
 </pre>
 
-<p>编写一个 SQL 查询，找到每个员工的当前薪水，假设薪水每年增加。输出他们的 <code>emp_id</code>&nbsp;、<code>firstname</code>&nbsp;、<code>lastname</code>&nbsp;、<code>salary</code> 和 <code>department_id</code> 。</p>
+<p>找出每个员工的当前薪水，假设薪水每年增加。输出他们的 <code>emp_id</code>&nbsp;、<code>firstname</code>&nbsp;、<code>lastname</code>&nbsp;、<code>salary</code> 和 <code>department_id</code> 。</p>
 
-<p>按升序顺序按 <code>emp_id</code> 排序返回结果表。</p>
+<p>按&nbsp;<code>emp_id</code> <strong>升序排序</strong> 返回结果表。</p>
 
-<p>查询结果格式如下所示。</p>
+<p>返回结果格式如下所示。</p>
 
 <p>&nbsp;</p>
 

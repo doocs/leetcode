@@ -13,13 +13,13 @@
 | user_id        | int     |
 | name           | varchar |
 +----------------+---------+
-In SQL, user_id is the primary key for this table.
+user_id is the primary key (column with unique values) for this table.
 This table contains the ID and the name of the user. The name consists of only lowercase and uppercase characters.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Fix the names so that only the first character is uppercase and the rest are lowercase.</p>
+<p>Write a solution to fix the names so that only the first character is uppercase and the rest are lowercase.</p>
 
 <p>Return the result table ordered by <code>user_id</code>.</p>
 

@@ -14,17 +14,17 @@
 | fruit         | enum    | 
 | sold_num      | int     | 
 +---------------+---------+
-(sale_date, fruit) is the primary key for this table.
+(sale_date, fruit) is the primary key (combination of columns with unique values) of this table.
 This table contains the sales of &quot;apples&quot; and &quot;oranges&quot; sold each day.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the difference between the number of <strong>apples</strong> and <strong>oranges</strong> sold each day.</p>
+<p>Write a solution to report the difference between the number of <strong>apples</strong> and <strong>oranges</strong> sold each day.</p>
 
 <p>Return the result table <strong>ordered</strong> by <code>sale_date</code>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

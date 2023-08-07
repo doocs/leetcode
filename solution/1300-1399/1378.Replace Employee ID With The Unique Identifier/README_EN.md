@@ -13,7 +13,7 @@
 | id            | int     |
 | name          | varchar |
 +---------------+---------+
-In SQL, id is the primary key for this table.
+id is the primary key (column with unique values) for this table.
 Each row of this table contains the id and the name of an employee in a company.
 </pre>
 
@@ -28,13 +28,13 @@ Each row of this table contains the id and the name of an employee in a company.
 | id            | int     |
 | unique_id     | int     |
 +---------------+---------+
-In SQL, (id, unique_id) is the primary key for this table.
+(id, unique_id) is the primary key (combination of columns with unique values) for this table.
 Each row of this table contains the id and the corresponding unique id of an employee in the company.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Show the <strong>unique ID </strong>of each user, If a user does not have a unique ID replace just show <code>null</code>.</p>
+<p>Write a solution to show the <strong>unique ID </strong>of each user, If a user does not have a unique ID replace just show <code>null</code>.</p>
 
 <p>Return the result table in <strong>any</strong> order.</p>
 
