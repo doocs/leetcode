@@ -1,10 +1,9 @@
 func subtractProductAndSum(n int) int {
-	s, p := 0, 1
-	for n != 0 {
-		t := n % 10
-		n /= 10
-		s += t
-		p *= t
+	x, y := 1, 0
+	for ; n > 0; n /= 10 {
+		v := n % 10
+		x *= v
+		y += v
 	}
-	return p - s
+	return x - y
 }

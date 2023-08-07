@@ -42,6 +42,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+我们用两个变量 $x$ 和 $y$ 分别记录各位数之积、各位数之和，初始时 $x=1,y=0$。
+
+当 $n \gt 0$ 时，每次将 $n$ 对 $10$ 取模得到当前位的数字 $v$，并将 $n$ 除以 $10$ 后继续进行下一次循环。在每次循环中，我们更新 $x = x \times v$, $y = y + v$。
+
+最终，我们返回 $x - y$ 即可。
+
+时间复杂度 $O(\log n)$，其中 $n$ 是题目给定的整数。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -51,13 +61,12 @@
 ```python
 class Solution:
     def subtractProductAndSum(self, n: int) -> int:
-        s, p = 0, 1
+        x, y = 1, 0
         while n:
-            t = n % 10
-            n //= 10
-            s += t
-            p *= t
-        return p - s
+            n, v = divmod(n, 10)
+            x *= v
+            y += v
+        return x - y
 ```
 
 ### **Java**
@@ -67,14 +76,13 @@ class Solution:
 ```java
 class Solution {
     public int subtractProductAndSum(int n) {
-        int s = 0, p = 1;
-        while (n != 0) {
-            int t = n % 10;
-            n /= 10;
-            s += t;
-            p *= t;
+        int x = 1, y = 0;
+        for (; n > 0; n /= 10) {
+            int v = n % 10;
+            x *= v;
+            y += v;
         }
-        return p - s;
+        return x - y;
     }
 }
 ```
@@ -85,14 +93,13 @@ class Solution {
 class Solution {
 public:
     int subtractProductAndSum(int n) {
-        int s = 0, p = 1;
-        while (n) {
-            int t = n % 10;
-            n /= 10;
-            s += t;
-            p *= t;
+        int x = 1, y = 0;
+        for (; n; n /= 10) {
+            int v = n % 10;
+            x *= v;
+            y += v;
         }
-        return p - s;
+        return x - y;
     }
 };
 ```
@@ -101,14 +108,13 @@ public:
 
 ```go
 func subtractProductAndSum(n int) int {
-	s, p := 0, 1
-	for n != 0 {
-		t := n % 10
-		n /= 10
-		s += t
-		p *= t
+	x, y := 1, 0
+	for ; n > 0; n /= 10 {
+		v := n % 10
+		x *= v
+		y += v
 	}
-	return p - s
+	return x - y
 }
 ```
 
@@ -116,15 +122,13 @@ func subtractProductAndSum(n int) int {
 
 ```ts
 function subtractProductAndSum(n: number): number {
-    let p = 1;
-    let s = 0;
-    while (n) {
-        const num = n % 10;
-        n = Math.floor(n / 10);
-        p *= num;
-        s += num;
+    let [x, y] = [1, 0];
+    for (; n > 0; n = Math.floor(n / 10)) {
+        const v = n % 10;
+        x *= v;
+        y += v;
     }
-    return p - s;
+    return x - y;
 }
 ```
 
@@ -133,15 +137,15 @@ function subtractProductAndSum(n: number): number {
 ```rust
 impl Solution {
     pub fn subtract_product_and_sum(mut n: i32) -> i32 {
-        let mut p = 1;
-        let mut s = 0;
+        let mut x = 1;
+        let mut y = 0;
         while n != 0 {
-            let num = n % 10;
+            let v = n % 10;
             n /= 10;
-            p *= num;
-            s += num;
+            x *= v;
+            y += v;
         }
-        p - s
+        x - y
     }
 }
 ```
@@ -150,15 +154,31 @@ impl Solution {
 
 ```c
 int subtractProductAndSum(int n) {
-    int p = 1;
-    int s = 0;
-    while (n) {
-        int num = n % 10;
-        n /= 10;
-        p *= num;
-        s += num;
+    int x = 1;
+    int y = 0;
+    for (; n > 0; n /= 10) {
+        int v = n % 10;
+        x *= v;
+        y += v;
     }
-    return p - s;
+    return x - y;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int SubtractProductAndSum(int n) {
+        int x = 1;
+        int y = 0;
+        for (; n > 0; n /= 10) {
+            int v = n % 10;
+            x *= v;
+            y += v;
+        }
+        return x - y;
+    }
 }
 ```
 

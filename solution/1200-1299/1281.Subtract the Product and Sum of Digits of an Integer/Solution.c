@@ -1,11 +1,10 @@
 int subtractProductAndSum(int n) {
-    int p = 1;
-    int s = 0;
-    while (n) {
-        int num = n % 10;
-        n /= 10;
-        p *= num;
-        s += num;
+    int x = 1;
+    int y = 0;
+    for (; n > 0; n /= 10) {
+        int v = n % 10;
+        x *= v;
+        y += v;
     }
-    return p - s;
+    return x - y;
 }
