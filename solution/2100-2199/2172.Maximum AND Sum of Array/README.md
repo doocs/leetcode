@@ -50,6 +50,26 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：状态压缩 + 动态规划**
+
+由于每个篮子最多只能放两个数，我们不妨将篮子数乘以 $2$，这样每个篮子最多只能放一个数。
+
+接下来，我们定义 $f[i]$ 表示篮子状态为 $i$ 时的最大与和，其中 $i$ 是一个二进制数，表示每个篮子是否放了数。初始时 $f[0]=0$。
+
+接下来，我们考虑 $f[i]$ 如何进行状态转移。
+
+我们可以枚举 $i$，记 $i$ 的二进制表示中 $1$ 的个数为 $cnt$。如果 $cnt \gt n$，那么 $i$ 不是一个合法的状态，我们可以直接跳过。否则，我们可以枚举 $i$ 的二进制表示中的每一位 $j$，如果 $i$ 的第 $j$ 位为 $1$，那么我们可以将第 $(cnt-1)$ 个数 $nums[cnt-1]$ 放入第 $j$ 个篮子中，此时有：
+
+$$
+f[i] = \max\{f[i], f[i \oplus (1 << j)] + (nums[cnt-1] \wedge  (j / 2 + 1))\}
+$$
+
+其中 $\oplus$ 表示异或运算，而 $\wedge$ 表示按位与运算。
+
+答案为 $\max\{f[i]\}$。
+
+时间复杂度 $O(4^k \times k \times 2)$，空间复杂度 $O(4^k)$。其中 $k$ 表示篮子的数量，即题目中的 $numSlots$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -57,7 +77,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maximumANDSum(self, nums: List[int], numSlots: int) -> int:
+        n = len(nums)
+        m = numSlots << 1
+        f = [0] * (1 << m)
+        for i in range(1 << m):
+            cnt = i.bit_count()
+            if cnt > n:
+                continue
+            for j in range(m):
+                if i >> j & 1:
+                    f[i] = max(f[i], f[i ^ (1 << j)] + (nums[cnt - 1] & (j // 2 + 1)))
+        return max(f)
 ```
 
 ### **Java**
@@ -65,13 +97,111 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maximumANDSum(int[] nums, int numSlots) {
+        int n = nums.length;
+        int m = numSlots << 1;
+        int[] f = new int[1 << m];
+        int ans = 0;
+        for (int i = 0; i < 1 << m; ++i) {
+            int cnt = Integer.bitCount(i);
+            if (cnt > n) {
+                continue;
+            }
+            for (int j = 0; j < m; ++j) {
+                if ((i >> j & 1) == 1) {
+                    f[i] = Math.max(f[i], f[i ^ (1 << j)] + (nums[cnt - 1] & (j / 2 + 1)));
+                }
+            }
+            ans = Math.max(ans, f[i]);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maximumANDSum(vector<int>& nums, int numSlots) {
+        int n = nums.size();
+        int m = numSlots << 1;
+        int f[1 << m];
+        memset(f, 0, sizeof(f));
+        for (int i = 0; i < 1 << m; ++i) {
+            int cnt = __builtin_popcount(i);
+            if (cnt > n) {
+                continue;
+            }
+            for (int j = 0; j < m; ++j) {
+                if (i >> j & 1) {
+                    f[i] = max(f[i], f[i ^ (1 << j)] + (nums[cnt - 1] & (j / 2 + 1)));
+                }
+            }
+        }
+        return *max_element(f, f + (1 << m));
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximumANDSum(nums []int, numSlots int) (ans int) {
+	n := len(nums)
+	m := numSlots << 1
+	f := make([]int, 1<<m)
+	for i := range f {
+		cnt := bits.OnesCount(uint(i))
+		if cnt > n {
+			continue
+		}
+		for j := 0; j < m; j++ {
+			if i>>j&1 == 1 {
+				f[i] = max(f[i], f[i^(1<<j)]+(nums[cnt-1]&(j/2+1)))
+			}
+		}
+		ans = max(ans, f[i])
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function maximumANDSum(nums: number[], numSlots: number): number {
+    const n = nums.length;
+    const m = numSlots << 1;
+    const f: number[] = new Array(1 << m).fill(0);
+    for (let i = 0; i < 1 << m; ++i) {
+        const cnt = i
+            .toString(2)
+            .split('')
+            .filter(c => c === '1').length;
+        if (cnt > n) {
+            continue;
+        }
+        for (let j = 0; j < m; ++j) {
+            if (((i >> j) & 1) === 1) {
+                f[i] = Math.max(
+                    f[i],
+                    f[i ^ (1 << j)] + (nums[cnt - 1] & ((j >> 1) + 1)),
+                );
+            }
+        }
+    }
+    return Math.max(...f);
+}
 ```
 
 ### **...**
