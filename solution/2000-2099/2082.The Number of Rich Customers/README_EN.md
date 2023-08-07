@@ -14,13 +14,13 @@
 | customer_id | int  |
 | amount      | int  |
 +-------------+------+
-In SQL, bill_id is the primary key for this table.
+bill_id is the primary key (column with unique values) for this table.
 Each row contains information about the amount of one bill and the customer associated with it.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Report the number of customers who had <strong>at least one</strong> bill with an amount <strong>strictly greater</strong> than <code>500</code>.</p>
+<p>Write a solution to report the number of customers who had <strong>at least one</strong> bill with an amount <strong>strictly greater</strong> than <code>500</code>.</p>
 
 <p>The result format is in the following example.</p>
 

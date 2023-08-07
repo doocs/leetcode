@@ -16,15 +16,15 @@
 | salary        | varchar |
 | department_id | varchar |
 +---------------+---------+
-(emp_id, salary) is the primary key for this table.
+(emp_id, salary) is the primary key (combination of columns with unique values) for this table.
 Each row contains employees details and their yearly salaries, however, some of the records are old and contain outdated salary information. 
 </pre>
 
-<p>Write an SQL query to find the current salary of each employee assuming that salaries increase each year. Output their <code>emp_id</code>, <code>firstname</code>, <code>lastname</code>, <code>salary</code>, and <code>department_id</code>.</p>
+<p>Write a solution to find the current salary of each employee assuming that salaries increase each year. Output their <code>emp_id</code>, <code>firstname</code>, <code>lastname</code>, <code>salary</code>, and <code>department_id</code>.</p>
 
-<p>Return<em> the result table ordered</em>&nbsp;<em>by</em> <code>emp_id</code> <em>in <strong>ascending</strong> order.</em></p>
+<p>Return the result table ordered&nbsp;by <code>emp_id</code> in <strong>ascending</strong> order<em>.</em></p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

@@ -16,7 +16,7 @@
 | name          | varchar |
 | activity      | varchar |
 +---------------+---------+
-id 是朋友的 id 和该表的主键
+id 是朋友的 id，并且在 SQL 中，是该表的主键
 name 是朋友的名字
 activity 是朋友参加的活动的名字
 </pre>
@@ -32,19 +32,19 @@ activity 是朋友参加的活动的名字
 | id            | int     |
 | name          | varchar |
 +---------------+---------+
-id 是该表的主键
+在 SQL 中，id 是该表的主键
 name 是活动的名字
 </pre>
 
 <p>&nbsp;</p>
 
-<p>写一条 SQL 查询那些既没有最多，也没有最少参与者的活动的名字</p>
+<p>找出那些既没有最多，也没有最少参与者的活动的名字。</p>
 
-<p><code>Activities</code> 表中的任意活动都有在&nbsp;<code>Friends</code> 中参与过</p>
+<p><code>Activities</code> 表中的任意活动都有在&nbsp;<code>Friends</code> 中参与过。</p>
 
 <p>可以以 <strong>任何顺序</strong> 返回结果。</p>
 
-<p>下面是查询结果格式的例子。</p>
+<p>下面是返回结果格式的例子。</p>
 
 <p>&nbsp;</p>
 

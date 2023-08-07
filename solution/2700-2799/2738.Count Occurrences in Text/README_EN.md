@@ -17,7 +17,7 @@ file_name is the primary key of this table.
 Each row contains file_name and the content of that file.
 </pre>
 
-<p>Write an SQL query to find&nbsp;the number of occurrences of the words&nbsp;<strong>&#39;bull&#39;</strong> and <strong>&#39;bear&#39;</strong> as a <strong>standalone word</strong>, disregarding any instances where it appears as part of another word (e.g. &#39;bullet&#39; and &#39;bears&#39; will <strong>not</strong> be considered).</p>
+<p>Write an SQL query to find&nbsp;the number of occurrences of the words&nbsp;<strong>&#39;bull&#39;</strong> and <strong>&#39;bear&#39;</strong> as a <strong>standalone word</strong>, disregarding any instances where it appears without space on either side (e.g. &#39;bullet&#39;,&nbsp;&#39;bears&#39;, &#39;bull.&#39;,&nbsp;or &#39;bear&#39;&nbsp;at the beginning or end of a sentence will <strong>not</strong> be considered)&nbsp;</p>
 
 <p>Return <em>the word &#39;bull&#39; and &#39;bear&#39; along with the corresponding number of occurrences in <strong>any order.</strong></em></p>
 

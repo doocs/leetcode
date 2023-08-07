@@ -13,13 +13,13 @@
 | student     | varchar |
 | class       | varchar |
 +-------------+---------+
-In SQL, (student, class) is the primary key column for this table.
+(student, class) is the primary key (combination of columns with unique values) for this table.
 Each row of this table indicates the name of a student and the class in which they are enrolled.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Find all the classes that have <strong>at least five students</strong>.</p>
+<p>Write a solution to find all the classes that have <strong>at least five students</strong>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 

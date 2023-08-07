@@ -13,7 +13,7 @@
 | student_id    | int     |
 | student_name  | varchar |
 +---------------+---------+
-In SQL, student_id is the primary key for this table.
+student_id is the primary key (column with unique values) for this table.
 Each row of this table contains the ID and the name of one student in the school.
 </pre>
 
@@ -27,7 +27,7 @@ Each row of this table contains the ID and the name of one student in the school
 +--------------+---------+
 | subject_name | varchar |
 +--------------+---------+
-In SQL, subject_name is the primary key for this table.
+subject_name is the primary key (column with unique values) for this table.
 Each row of this table contains the name of one subject in the school.
 </pre>
 
@@ -42,14 +42,14 @@ Each row of this table contains the name of one subject in the school.
 | student_id   | int     |
 | subject_name | varchar |
 +--------------+---------+
-This table may contain duplicates (In other words, there is no primary key for this table in SQL).
+There is no primary key (column with unique values) for this table. It may contain duplicates.
 Each student from the Students table takes every course from the Subjects table.
 Each row of this table indicates that a student with ID student_id attended the exam of subject_name.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Find the number of times each student attended each exam.</p>
+<p>Write a solution to find the number of times each student attended each exam.</p>
 
 <p>Return the result table ordered by <code>student_id</code> and <code>subject_name</code>.</p>
 

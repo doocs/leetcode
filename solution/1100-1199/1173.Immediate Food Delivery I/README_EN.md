@@ -15,7 +15,7 @@
 | order_date                  | date    |
 | customer_pref_delivery_date | date    |
 +-----------------------------+---------+
-In SQL, delivery_id is the primary key of this table.
+delivery_id is the primary key (column with unique values) of this table.
 The table holds information about food delivery to customers that make orders at some date and specify a preferred delivery date (on the same order date or after it).
 </pre>
 
@@ -23,7 +23,7 @@ The table holds information about food delivery to customers that make orders at
 
 <p>If the customer&#39;s preferred delivery date is the same as the order date, then the order is called <strong>immediate;</strong> otherwise, it is called <strong>scheduled</strong>.</p>
 
-<p>Find the percentage of immediate orders in the table, <strong>rounded to 2 decimal places</strong>.</p>
+<p>Write a solution to find the percentage of immediate orders in the table, <strong>rounded to 2 decimal places</strong>.</p>
 
 <p>The result format is in the following example.</p>
 

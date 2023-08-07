@@ -8,7 +8,8 @@
 
 <p>表： <code>Listens</code></p>
 
-<pre>+-------------+---------+
+<pre>
++-------------+---------+
 | Column Name | Type    |
 +-------------+---------+
 | user_id     | int     |
@@ -23,7 +24,8 @@
 
 <p>表： <code>Friendship</code></p>
 
-<pre>+---------------+---------+
+<pre>
++---------------+---------+
 | Column Name   | Type    |
 +---------------+---------+
 | user1_id      | int     |
@@ -53,7 +55,8 @@
 
 <p><strong>示例 1:</strong></p>
 
-<pre><strong>输入：</strong>
+<pre>
+<strong>输入：</strong>
 Listens 表：
 +---------+---------+------------+
 | user_id | song_id | day        |

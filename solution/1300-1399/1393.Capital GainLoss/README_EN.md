@@ -15,21 +15,21 @@
 | operation_day | int     |
 | price         | int     |
 +---------------+---------+
-(stock_name, operation_day) is the primary key for this table.
-The operation column is an ENUM of type (&#39;Sell&#39;, &#39;Buy&#39;)
+(stock_name, operation_day) is the primary key (combination of columns with unique values) for this table.
+The operation column is an ENUM (category) of type (&#39;Sell&#39;, &#39;Buy&#39;)
 Each row of this table indicates that the stock which has stock_name had an operation on the day operation_day with the price.
 It is guaranteed that each &#39;Sell&#39; operation for a stock has a corresponding &#39;Buy&#39; operation in a previous day. It is also guaranteed that each &#39;Buy&#39; operation for a stock has a corresponding &#39;Sell&#39; operation in an upcoming day.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the <strong>Capital gain/loss</strong> for each stock.</p>
+<p>Write a solution to report the <strong>Capital gain/loss</strong> for each stock.</p>
 
 <p>The <strong>Capital gain/loss</strong> of a stock is the total gain or loss after buying and selling the stock one or many times.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

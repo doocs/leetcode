@@ -15,14 +15,14 @@
 | store2      | int     |
 | store3      | int     |
 +-------------+---------+
-In SQL, product_id is the primary key for this table.
+product_id is the primary key (column with unique values) for this table.
 Each row in this table indicates the product&#39;s price in 3 different stores: store1, store2, and store3.
 If the product is not available in a store, the price will be null in that store&#39;s column.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Rearrange the <code>Products</code> table so that each row has <code>(product_id, store, price)</code>. If a product is not available in a store, do <strong>not</strong> include a row with that <code>product_id</code> and <code>store</code> combination in the result table.</p>
+<p>Write a solution to rearrange the <code>Products</code> table so that each row has <code>(product_id, store, price)</code>. If a product is not available in a store, do <strong>not</strong> include a row with that <code>product_id</code> and <code>store</code> combination in the result table.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 

@@ -183,7 +183,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0172  |  [Factorial Trailing Zeroes](/solution/0100-0199/0172.Factorial%20Trailing%20Zeroes/README_EN.md)  |  `Math`  |  Medium  |    |
 |  0173  |  [Binary Search Tree Iterator](/solution/0100-0199/0173.Binary%20Search%20Tree%20Iterator/README_EN.md)  |  `Stack`,`Tree`,`Design`,`Binary Search Tree`,`Binary Tree`,`Iterator`  |  Medium  |    |
 |  0174  |  [Dungeon Game](/solution/0100-0199/0174.Dungeon%20Game/README_EN.md)  |  `Array`,`Dynamic Programming`,`Matrix`  |  Hard  |    |
-|  0175  |  [Combine Two Tables](/solution/0100-0199/0175.Combine%20Two%20Tables/README_EN.md)  |    |  Easy  |    |
+|  0175  |  [Combine Two Tables](/solution/0100-0199/0175.Combine%20Two%20Tables/README_EN.md)  |  `Database`  |  Easy  |    |
 |  0176  |  [Second Highest Salary](/solution/0100-0199/0176.Second%20Highest%20Salary/README_EN.md)  |  `Database`  |  Medium  |    |
 |  0177  |  [Nth Highest Salary](/solution/0100-0199/0177.Nth%20Highest%20Salary/README_EN.md)  |  `Database`  |  Medium  |    |
 |  0178  |  [Rank Scores](/solution/0100-0199/0178.Rank%20Scores/README_EN.md)  |  `Database`  |  Medium  |    |
@@ -722,7 +722,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  0711  |  [Number of Distinct Islands II](/solution/0700-0799/0711.Number%20of%20Distinct%20Islands%20II/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Union Find`,`Hash Table`,`Hash Function`  |  Hard  |  🔒  |
 |  0712  |  [Minimum ASCII Delete Sum for Two Strings](/solution/0700-0799/0712.Minimum%20ASCII%20Delete%20Sum%20for%20Two%20Strings/README_EN.md)  |  `String`,`Dynamic Programming`  |  Medium  |    |
 |  0713  |  [Subarray Product Less Than K](/solution/0700-0799/0713.Subarray%20Product%20Less%20Than%20K/README_EN.md)  |  `Array`,`Sliding Window`  |  Medium  |    |
-|  0714  |  [Best Time to Buy and Sell Stock with Transaction Fee](/solution/0700-0799/0714.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20with%20Transaction%20Fee/README_EN.md)  |  `Greedy`,`Array`  |  Medium  |    |
+|  0714  |  [Best Time to Buy and Sell Stock with Transaction Fee](/solution/0700-0799/0714.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20with%20Transaction%20Fee/README_EN.md)  |  `Greedy`,`Array`,`Dynamic Programming`  |  Medium  |    |
 |  0715  |  [Range Module](/solution/0700-0799/0715.Range%20Module/README_EN.md)  |  `Design`,`Segment Tree`,`Ordered Set`  |  Hard  |    |
 |  0716  |  [Max Stack](/solution/0700-0799/0716.Max%20Stack/README_EN.md)  |  `Stack`,`Design`,`Linked List`,`Doubly-Linked List`,`Ordered Set`  |  Hard  |  🔒  |
 |  0717  |  [1-bit and 2-bit Characters](/solution/0700-0799/0717.1-bit%20and%202-bit%20Characters/README_EN.md)  |  `Array`  |  Easy  |    |
@@ -2760,7 +2760,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2749  |  [Minimum Operations to Make the Integer Zero](/solution/2700-2799/2749.Minimum%20Operations%20to%20Make%20the%20Integer%20Zero/README_EN.md)  |  `Bit Manipulation`,`Brainteaser`  |  Medium  |  Weekly Contest 351  |
 |  2750  |  [Ways to Split Array Into Good Subarrays](/solution/2700-2799/2750.Ways%20to%20Split%20Array%20Into%20Good%20Subarrays/README_EN.md)  |  `Array`,`Math`  |  Medium  |  Weekly Contest 351  |
 |  2751  |  [Robot Collisions](/solution/2700-2799/2751.Robot%20Collisions/README_EN.md)  |  `Stack`,`Array`,`Sorting`,`Simulation`  |  Hard  |  Weekly Contest 351  |
-|  2752  |  [Customers with Maximum Number of Transactions on Consecutive Days](/solution/2700-2799/2752.Customers%20with%20Maximum%20Number%20of%20Transactions%20on%20Consecutive%20Days/README_EN.md)  |    |  Hard  |  🔒  |
+|  2752  |  [Customers with Maximum Number of Transactions on Consecutive Days](/solution/2700-2799/2752.Customers%20with%20Maximum%20Number%20of%20Transactions%20on%20Consecutive%20Days/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
 |  2753  |  [Count Houses in a Circular Street II](/solution/2700-2799/2753.Count%20Houses%20in%20a%20Circular%20Street%20II/README_EN.md)  |    |  Hard  |  🔒  |
 |  2754  |  [Bind Function to Context](/solution/2700-2799/2754.Bind%20Function%20to%20Context/README_EN.md)  |    |  Medium  |  🔒  |
 |  2755  |  [Deep Merge of Two Objects](/solution/2700-2799/2755.Deep%20Merge%20of%20Two%20Objects/README_EN.md)  |    |  Medium  |  🔒  |

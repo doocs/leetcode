@@ -13,17 +13,17 @@
 | user_id        | int      |
 | time_stamp     | datetime |
 +----------------+----------+
-(user_id, time_stamp) is the primary key for this table.
+(user_id, time_stamp) is the primary key (combination of columns with unique values) for this table.
 Each row contains information about the login time for the user with ID user_id.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the <strong>latest</strong> login for all users in the year <code>2020</code>. Do <strong>not</strong> include the users who did not login in <code>2020</code>.</p>
+<p>Write a solution to report the <strong>latest</strong> login for all users in the year <code>2020</code>. Do <strong>not</strong> include the users who did not login in <code>2020</code>.</p>
 
 <p>Return the result table <strong>in any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

@@ -16,18 +16,18 @@
 | name        | varchar |
 | profession  | ENUM    |
 +-------------+---------+
-person_id 是该表的主键。
+<code>person_id</code> 是该表的主键（具有唯一值的列）。
 该表中的每一行都包含一个人的 ID、姓名和职业。
 profession 是 ENUM 类型，其值为 ('Doctor', 'Singer', 'Actor', 'Player', 'Engineer', 'Lawyer') 之一。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>编写一个 SQL 查询，报告每个人的名字，后面是他们职业的第一个字母，用括号括起来。</p>
+<p>编写一个解决方案报告每个人的名字，后面是他们职业的第一个字母，用括号括起来。</p>
 
 <p>返回按 <code>person_id</code> <strong>降序排列&nbsp;</strong>的结果表。</p>
 
-<p>查询结果格式示例如下。</p>
+<p>返回结果格式示例如下。</p>
 
 <p>&nbsp;</p>
 

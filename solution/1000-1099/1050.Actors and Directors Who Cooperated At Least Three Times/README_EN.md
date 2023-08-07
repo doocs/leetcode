@@ -14,12 +14,12 @@
 | director_id | int     |
 | timestamp   | int     |
 +-------------+---------+
-In SQL, timestamp is the primary key column for this table.
+timestamp is the primary key (column with unique values) for this table.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Find all the pairs <code>(actor_id, director_id)</code> where the actor has cooperated with the director at least three times.</p>
+<p>Write a solution to find all the pairs <code>(actor_id, director_id)</code> where the actor has cooperated with the director at least three times.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 

@@ -16,7 +16,7 @@
 | population  | int     |
 | gdp         | bigint  |
 +-------------+---------+
-In SQL, name is the primary key column for this table.
+name is the primary key (column with unique values) for this table.
 Each row of this table gives information about the name of a country, the continent to which it belongs, its area, the population, and its GDP value.
 </pre>
 
@@ -29,7 +29,7 @@ Each row of this table gives information about the name of a country, the contin
 	<li>it has a population of at least&nbsp;twenty-five million (i.e., <code>25000000</code>).</li>
 </ul>
 
-<p>Find the name, population, and area of the <strong>big countries</strong>.</p>
+<p>Write a solution to find the name, population, and area of the <strong>big countries</strong>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 

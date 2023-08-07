@@ -15,14 +15,14 @@
 | viewer_id     | int     |
 | view_date     | date    |
 +---------------+---------+
-The table may have duplicate rows (In other words, there is no primary key for this table in SQL).
+There is no primary key (column with unique values) for this table, the table may have duplicate rows.
 Each row of this table indicates that some viewer viewed an article (written by some author) on some date. 
 Note that equal author_id and viewer_id indicate the same person.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Find all the authors that viewed at least one of their own articles.</p>
+<p>Write a solution to find all the authors that viewed at least one of their own articles.</p>
 
 <p>Return the result table sorted by <code>id</code> in ascending order.</p>
 

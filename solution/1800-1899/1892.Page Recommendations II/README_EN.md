@@ -13,7 +13,7 @@
 | user1_id      | int     |
 | user2_id      | int     |
 +---------------+---------+
-(user1_id, user2_id) is the primary key for this table.
+(user1_id, user2_id) is the primary key (combination of columns with unique values)&nbsp;for this table.
 Each row of this table indicates that the users user1_id and user2_id are friends.
 </pre>
 
@@ -28,15 +28,15 @@ Each row of this table indicates that the users user1_id and user2_id are friend
 | user_id     | int     |
 | page_id     | int     |
 +-------------+---------+
-(user_id, page_id) is the primary key for this table.
+(user_id, page_id) is the primary key (combination of columns with unique values) for this table.
 Each row of this table indicates that user_id likes page_id.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>You are implementing a page recommendation system for a social media website. Your system will <strong>recommended</strong> a page to <code>user_id</code> if the page is <strong>liked</strong> by <strong>at least one</strong> friend of <code>user_id</code> and is <strong>not liked</strong> by <code>user_id</code>.</p>
+<p>You are implementing a page recommendation system for a social media website. Your system will <strong>recommend</strong> a page to <code>user_id</code> if the page is <strong>liked</strong> by <strong>at least one</strong> friend of <code>user_id</code> and is <strong>not liked</strong> by <code>user_id</code>.</p>
 
-<p>Write an SQL query to find all the possible <strong>page recommendations</strong> for every user. Each recommendation should appear as a row in the result table with these columns:</p>
+<p>Write a solution&nbsp;to find all the possible <strong>page recommendations</strong> for every user. Each recommendation should appear as a row in the result table with these columns:</p>
 
 <ul>
 	<li><code>user_id</code>: The ID of the user that your system is making the recommendation to.</li>
@@ -44,9 +44,9 @@ Each row of this table indicates that user_id likes page_id.
 	<li><code>friends_likes</code>: The number of the friends of <code>user_id</code> that like <code>page_id</code>.</li>
 </ul>
 
-<p>Return result table in <strong>any order</strong>.</p>
+<p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

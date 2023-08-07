@@ -221,7 +221,7 @@ impl Solution {
                 // Choose the song that has not been chosen before
                 // We have n - (j - 1) songs to choose
                 dp[i][j] += dp[i - 1][j - 1] * ((n - (j as i32 - 1))) as i64;
-                
+
                 // Choose the song that has been chosen before
                 // We have j - k songs to choose if j > k
                 if j as i32 > k {

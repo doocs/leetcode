@@ -14,7 +14,7 @@
 | product_name | varchar |
 | unit_price   | int     |
 +--------------+---------+
-product_id is the primary key of this table.
+product_id is the primary key (column with unique values) of this table.
 Each row of this table indicates the name and the price of each product.
 </pre>
 
@@ -31,8 +31,8 @@ Each row of this table indicates the name and the price of each product.
 | quantity    | int     |
 | price       | int     |
 +-------------+---------+
-This table has no primary key, it can have repeated rows.
-product_id is a foreign key to the Product table.
+This table might have repeated rows.
+product_id is a foreign key (reference column) to the Product table.
 buyer_id is never NULL. 
 sale_date is never NULL. 
 Each row of this table contains some information about one sale.
@@ -40,11 +40,11 @@ Each row of this table contains some information about one sale.
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query that reports the <strong>buyers</strong> who have bought <em>S8</em> but not <em>iPhone</em>. Note that <em>S8</em> and <em>iPhone</em> are products present in the <code>Product</code> table.</p>
+<p>Write a solution to&nbsp;report&nbsp;the <strong>buyers</strong> who have bought <em>S8</em> but not <em>iPhone</em>. Note that <em>S8</em> and <em>iPhone</em> are products presented in the <code>Product</code> table.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

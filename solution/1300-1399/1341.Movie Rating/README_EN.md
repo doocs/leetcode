@@ -13,7 +13,7 @@
 | movie_id      | int     |
 | title         | varchar |
 +---------------+---------+
-movie_id is the primary key for this table.
+movie_id is the primary key (column with unique values) for this table.
 title is the name of the movie.
 </pre>
 
@@ -28,7 +28,7 @@ title is the name of the movie.
 | user_id       | int     |
 | name          | varchar |
 +---------------+---------+
-user_id is the primary key for this table.
+user_id is the primary key (column with unique values) for this table.
 </pre>
 
 <p>&nbsp;</p>
@@ -44,21 +44,21 @@ user_id is the primary key for this table.
 | rating        | int     |
 | created_at    | date    |
 +---------------+---------+
-(movie_id, user_id) is the primary key for this table.
+(movie_id, user_id) is the primary key (column with unique values)&nbsp;for this table.
 This table contains the rating of a movie by a user in their review.
 created_at is the user&#39;s review date. 
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to:</p>
+<p>Write a solution to:</p>
 
 <ul>
 	<li>Find the name of the user who has rated the greatest number of movies. In case of a tie, return the lexicographically smaller user name.</li>
 	<li>Find the movie name with the <strong>highest average</strong> rating in <code>February 2020</code>. In case of a tie, return the lexicographically smaller movie name.</li>
 </ul>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

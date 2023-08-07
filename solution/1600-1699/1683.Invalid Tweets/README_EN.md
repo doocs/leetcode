@@ -13,13 +13,13 @@
 | tweet_id       | int     |
 | content        | varchar |
 +----------------+---------+
-In SQL, tweet_id is the primary key for this table.
+tweet_id is the primary key (column with unique values) for this table.
 This table contains all the tweets in a social media app.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Find the IDs of the invalid tweets. The tweet is invalid if the number of characters used in the content of the tweet is <strong>strictly greater</strong> than <code>15</code>.</p>
+<p>Write a solution to find the IDs of the invalid tweets. The tweet is invalid if the number of characters used in the content of the tweet is <strong>strictly greater</strong> than <code>15</code>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 

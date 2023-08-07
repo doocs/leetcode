@@ -16,7 +16,7 @@
 +-------------+------+
 | num         | int  |
 +-------------+------+
-这张表没有主键。可能包含重复数字。
+该表可能包含重复项（换句话说，在SQL中，该表没有主键）。
 这张表的每一行都含有一个整数。
 </pre>
 
@@ -24,7 +24,7 @@
 
 <p><strong>单一数字</strong> 是在 <code>MyNumbers</code> 表中只出现一次的数字。</p>
 
-<p>请你编写一个 SQL 查询来报告最大的 <strong>单一数字</strong> 。如果不存在 <strong>单一数字</strong> ，查询需报告 <code>null</code> 。</p>
+<p>找出最大的 <strong>单一数字</strong> 。如果不存在 <strong>单一数字</strong> ，则返回&nbsp;<code>null</code> 。</p>
 
 <p>查询结果如下例所示。</p>
 <ptable> </ptable>

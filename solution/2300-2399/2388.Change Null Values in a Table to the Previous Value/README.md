@@ -15,13 +15,13 @@
 | id          | int     |
 | drink       | varchar |
 +-------------+---------+
-id 是该表的主键。
+id 是该表的主键（具有唯一值的列）。
 该表中的每一行都显示了订单 id 和所点饮料的名称。一些饮料行为 null。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>编写一个 SQL 查询，将 drink 的 <code>null</code>&nbsp;值替换为前面最近一行不为 <code>null</code>&nbsp;的 drink。保证表第一行的 drink 不为 <code>null</code>。</p>
+<p>编写一个解决方案将 drink 的 <code>null</code>&nbsp;值替换为前面最近一行不为 <code>null</code>&nbsp;的 drink。保证表第一行的 drink 不为 <code>null</code>。</p>
 
 <p>返回&nbsp;<strong>与输入顺序相同的&nbsp;</strong>结果表。</p>
 
