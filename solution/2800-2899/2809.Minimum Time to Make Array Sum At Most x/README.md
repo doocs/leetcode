@@ -61,10 +61,12 @@
 我们不妨假设进行了 $j$ 次操作，操作的数字下标分别为 $i_1, i_2, \cdots, i_j$，那么对于这 $j$ 次操作，每一次可以使得数组元素和减少的值为：
 
 $$
-d_1 = nums_1[i_1] + nums_2[i_1] \times 1 \\
-d_2 = nums_1[i_2] + nums_2[i_2] \times 2 \\
-\cdots \\
-d_j = nums_1[i_j] + nums_2[i_j] \times j
+\begin{aligned}
+& d_1 = nums_1[i_1] + nums_2[i_1] \times 1 \\
+& d_2 = nums_1[i_2] + nums_2[i_2] \times 2 \\
+& \cdots \\
+& d_j = nums_1[i_j] + nums_2[i_j] \times j
+\end{aligned}
 $$
 
 从贪心的角度考虑，为了使得数组元素和的减少量最大，我们应当让 $nums_2$ 中的较大元素尽可能放在后面操作。因此，我们可以对 $nums_1$ 和 $nums_2$ 按照 $nums_2$ 的元素值从小到大进行排序。
