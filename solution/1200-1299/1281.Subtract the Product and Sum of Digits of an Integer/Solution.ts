@@ -1,11 +1,9 @@
 function subtractProductAndSum(n: number): number {
-    let p = 1;
-    let s = 0;
-    while (n) {
-        const num = n % 10;
-        n = Math.floor(n / 10);
-        p *= num;
-        s += num;
+    let [x, y] = [1, 0];
+    for (; n > 0; n = Math.floor(n / 10)) {
+        const v = n % 10;
+        x *= v;
+        y += v;
     }
-    return p - s;
+    return x - y;
 }
