@@ -67,6 +67,36 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+我们定义 $f[i]$ 表示从车站 $0$ 到车站 $i$ 且到达车站 $i$ 时乘坐常规路线的最少费用，定义 $g[i]$ 表示从车站 $0$ 到车站 $i$ 且到达车站 $i$ 时乘坐特快路线的最少费用。初始时 $f[0]=0, g[0]=\infty$。
+
+接下来，我们考虑 $f[i]$ 和 $g[i]$ 如何进行状态转移。
+
+如果我们到达车站 $i$ 乘坐的是常规路线，那么我们可以从车站 $i-1$ 乘坐常规路线或者从车站 $i-1$ 乘坐特快路线转换到常规路线。因此我们可以得到状态转移方程：
+
+$$
+f[i]=\min\{f[i-1]+a_i, g[i-1]+a_i\}
+$$
+
+其中 $a_i$ 表示从车站 $i-1$ 到车站 $i$ 乘坐常规路线的费用。
+
+如果我们到达车站 $i$ 乘坐的是特快路线，那么我们可以从车站 $i-1$ 乘坐常规路线转换到特快路线或者从车站 $i-1$ 乘坐特快路线。因此我们可以得到状态转移方程：
+
+$$
+g[i]=\min\{f[i-1]+expressCost+b_i, g[i-1]+b_i\}
+$$
+
+其中 $b_i$ 表示从车站 $i-1$ 到车站 $i$ 乘坐特快路线的费用。
+
+我们记答案数组为 $cost$，其中 $cost[i]$ 表示从车站 $0$ 到车站 $i$ 的最少费用。由于我们可以从任意一条路线到达车站 $i$，因此我们有 $cost[i]=\min\{f[i], g[i]\}$。
+
+最后返回 $cost$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 表示车站的数量。
+
+我们注意到 $f[i]$ 和 $g[i]$ 的状态转移方程中，我们只需要用到 $f[i-1]$ 和 $g[i-1]$，因此我们可以使用两个变量 $f$ 和 $g$ 分别记录 $f[i-1]$ 和 $g[i-1]$ 的值，这样可以将空间复杂度优化到 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -74,7 +104,35 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def minimumCosts(
+        self, regular: List[int], express: List[int], expressCost: int
+    ) -> List[int]:
+        n = len(regular)
+        f = [0] * (n + 1)
+        g = [inf] * (n + 1)
+        cost = [0] * n
+        for i, (a, b) in enumerate(zip(regular, express), 1):
+            f[i] = min(f[i - 1] + a, g[i - 1] + a)
+            g[i] = min(f[i - 1] + expressCost + b, g[i - 1] + b)
+            cost[i - 1] = min(f[i], g[i])
+        return cost
+```
 
+```python
+class Solution:
+    def minimumCosts(
+        self, regular: List[int], express: List[int], expressCost: int
+    ) -> List[int]:
+        n = len(regular)
+        f, g = 0, inf
+        cost = [0] * n
+        for i, (a, b) in enumerate(zip(regular, express), 1):
+            ff = min(f + a, g + a)
+            gg = min(f + expressCost + b, g + b)
+            f, g = ff, gg
+            cost[i - 1] = min(f, g)
+        return cost
 ```
 
 ### **Java**
@@ -82,13 +140,182 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public long[] minimumCosts(int[] regular, int[] express, int expressCost) {
+        int n = regular.length;
+        long[] f = new long[n + 1];
+        long[] g = new long[n + 1];
+        g[0] = 1 << 30;
+        long[] cost = new long[n];
+        for (int i = 1; i <= n; ++i) {
+            int a = regular[i - 1];
+            int b = express[i - 1];
+            f[i] = Math.min(f[i - 1] + a, g[i - 1] + a);
+            g[i] = Math.min(f[i - 1] + expressCost + b, g[i - 1] + b);
+            cost[i - 1] = Math.min(f[i], g[i]);
+        }
+        return cost;
+    }
+}
+```
 
+```java
+class Solution {
+    public long[] minimumCosts(int[] regular, int[] express, int expressCost) {
+        int n = regular.length;
+        long f = 0;
+        long g = 1 << 30;
+        long[] cost = new long[n];
+        for (int i = 0; i < n; ++i) {
+            int a = regular[i];
+            int b = express[i];
+            long ff = Math.min(f + a, g + a);
+            long gg = Math.min(f + expressCost + b, g + b);
+            f = ff;
+            g = gg;
+            cost[i] = Math.min(f, g);
+        }
+        return cost;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<long long> minimumCosts(vector<int>& regular, vector<int>& express, int expressCost) {
+        int n = regular.size();
+        long long f[n + 1];
+        long long g[n + 1];
+        f[0] = 0;
+        g[0] = 1 << 30;
+        vector<long long> cost(n);
+        for (int i = 1; i <= n; ++i) {
+            int a = regular[i - 1];
+            int b = express[i - 1];
+            f[i] = min(f[i - 1] + a, g[i - 1] + a);
+            g[i] = min(f[i - 1] + expressCost + b, g[i - 1] + b);
+            cost[i - 1] = min(f[i], g[i]);
+        }
+        return cost;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<long long> minimumCosts(vector<int>& regular, vector<int>& express, int expressCost) {
+        int n = regular.size();
+        long long f = 0;
+        long long g = 1 << 30;
+        vector<long long> cost(n);
+        for (int i = 0; i < n; ++i) {
+            int a = regular[i];
+            int b = express[i];
+            long long ff = min(f + a, g + a);
+            long long gg = min(f + expressCost + b, g + b);
+            f = ff;
+            g = gg;
+            cost[i] = min(f, g);
+        }
+        return cost;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumCosts(regular []int, express []int, expressCost int) []int64 {
+	n := len(regular)
+	f := make([]int, n+1)
+	g := make([]int, n+1)
+	g[0] = 1 << 30
+	cost := make([]int64, n)
+	for i := 1; i <= n; i++ {
+		a, b := regular[i-1], express[i-1]
+		f[i] = min(f[i-1]+a, g[i-1]+a)
+		g[i] = min(f[i-1]+expressCost+b, g[i-1]+b)
+		cost[i-1] = int64(min(f[i], g[i]))
+	}
+	return cost
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func minimumCosts(regular []int, express []int, expressCost int) []int64 {
+	f, g := 0, 1<<30
+	cost := make([]int64, len(regular))
+	for i, a := range regular {
+		b := express[i]
+		ff := min(f+a, g+a)
+		gg := min(f+expressCost+b, g+b)
+		f, g = ff, gg
+		cost[i] = int64(min(f, g))
+	}
+	return cost
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
 
 ```ts
+function minimumCosts(
+    regular: number[],
+    express: number[],
+    expressCost: number,
+): number[] {
+    const n = regular.length;
+    const f: number[] = new Array(n + 1).fill(0);
+    const g: number[] = new Array(n + 1).fill(0);
+    g[0] = 1 << 30;
+    const cost: number[] = new Array(n).fill(0);
+    for (let i = 1; i <= n; ++i) {
+        const [a, b] = [regular[i - 1], express[i - 1]];
+        f[i] = Math.min(f[i - 1] + a, g[i - 1] + a);
+        g[i] = Math.min(f[i - 1] + expressCost + b, g[i - 1] + b);
+        cost[i - 1] = Math.min(f[i], g[i]);
+    }
+    return cost;
+}
+```
 
+```ts
+function minimumCosts(
+    regular: number[],
+    express: number[],
+    expressCost: number,
+): number[] {
+    const n = regular.length;
+    let f = 0;
+    let g = 1 << 30;
+    const cost: number[] = new Array(n).fill(0);
+    for (let i = 0; i < n; ++i) {
+        const [a, b] = [regular[i], express[i]];
+        const ff = Math.min(f + a, g + a);
+        const gg = Math.min(f + expressCost + b, g + b);
+        [f, g] = [ff, gg];
+        cost[i] = Math.min(f, g);
+    }
+    return cost;
+}
 ```
 
 ### **...**
