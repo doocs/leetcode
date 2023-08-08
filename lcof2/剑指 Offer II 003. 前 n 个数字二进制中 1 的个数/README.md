@@ -59,6 +59,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+我们定义 $f[i]$ 表示整数 $i$ 的二进制表示中 $1$ 的个数。那么对于一个整数 $i$，它的二进制表示中 $1$ 的个数为 $f[i \wedge (i - 1)] + 1$，其中 $i \wedge (i - 1)$ 是将 $i$ 的二进制表示中的最低位的 $1$ 变成 $0$ 之后的数，显然 $i \wedge (i - 1) \lt i$，且 $f[i \wedge (i - 1)]$ 已经被计算出来了，因此我们可以得到状态转移方程：
+
+$$
+f[i] = f[i \wedge (i - 1)] + 1
+$$
+
+时间复杂度 $O(n)$，其中 $n$ 是题目给定的整数。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -68,10 +78,10 @@
 ```python
 class Solution:
     def countBits(self, n: int) -> List[int]:
-        dp = [0 for _ in range(n + 1)]
+        f = [0] * (n + 1)
         for i in range(1, n + 1):
-            dp[i] = dp[i & (i - 1)] + 1
-        return dp
+            f[i] = f[i & (i - 1)] + 1
+        return f
 ```
 
 ### **Java**
@@ -81,24 +91,12 @@ class Solution:
 ```java
 class Solution {
     public int[] countBits(int n) {
-        int[] dp = new int[n + 1];
-        for (int i = 1; i <= n; i++) {
-            dp[i] = dp[i & (i - 1)] + 1;
+        int[] f = new int[n + 1];
+        for (int i = 1; i <= n; ++i) {
+            f[i] = f[i & (i - 1)] + 1;
         }
-        return dp;
+        return f;
     }
-}
-```
-
-### **Go**
-
-```go
-func countBits(n int) []int {
-	dp := make([]int, n+1)
-	for i := 1; i <= n; i++ {
-		dp[i] = dp[i&(i-1)] + 1
-	}
-	return dp
 }
 ```
 
@@ -108,14 +106,37 @@ func countBits(n int) []int {
 class Solution {
 public:
     vector<int> countBits(int n) {
-        vector<int> res(n + 1);
-        for (int i = 1; i <= n; i++) {
-            res[i] = res[i & (i - 1)] + 1;
+        vector<int> f(n + 1);
+        for (int i = 1; i <= n; ++i) {
+            f[i] = f[i & (i - 1)] + 1;
         }
-
-        return res;
+        return f;
     }
 };
+```
+
+### **Go**
+
+```go
+func countBits(n int) []int {
+	f := make([]int, n+1)
+	for i := 1; i <= n; i++ {
+		f[i] = f[i&(i-1)] + 1
+	}
+	return f
+}
+```
+
+### **TypeScript**
+
+```ts
+function countBits(n: number): number[] {
+    const f: number[] = Array(n + 1).fill(0);
+    for (let i = 1; i <= n; ++i) {
+        f[i] = f[i & (i - 1)] + 1;
+    }
+    return f;
+}
 ```
 
 ### **...**
