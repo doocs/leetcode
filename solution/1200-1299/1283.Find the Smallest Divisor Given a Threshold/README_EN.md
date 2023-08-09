@@ -38,6 +38,16 @@ If the divisor is 4 we can get a sum of 7 (1+1+2+3) and if the divisor is 5 the 
 
 ## Solutions
 
+**Solution 1: Binary Search**
+
+Notice that for number $v$, if the sum of results of dividing each number in $nums$ by $v$ is less than or equal to $threshold$, then all values greater than $v$ satisfy the condition. There is a monotonicity, so we can use binary search to find the smallest $v$ that satisfies the condition.
+
+We define the left boundary of the binary search $l=1$, $r=\max(nums)$. Each time we take $mid=(l+r)/2$, calculate the sum of the results of dividing each number in $nums$ by $mid$ $s$, if $s$ is less than or equal to $threshold$, then it means that $mid$ satisfies the condition, we will update $r$ to $mid$, otherwise we will update $l$ to $mid+1$.
+
+Finally, return $l$.
+
+The time complexity is $O(n \times \log M)$, where $n$ is the length of the array $nums$ and $M$ is the maximum value in the array $nums$. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -45,15 +55,24 @@ If the divisor is 4 we can get a sum of 7 (1+1+2+3) and if the divisor is 5 the 
 ```python
 class Solution:
     def smallestDivisor(self, nums: List[int], threshold: int) -> int:
-        left, right = 1, 10**6
-        while left < right:
-            mid = (left + right) >> 1
-            s = sum((v + mid - 1) // mid for v in nums)
-            if s <= threshold:
-                right = mid
+        l, r = 1, max(nums)
+        while l < r:
+            mid = (l + r) >> 1
+            if sum((x + mid - 1) // mid for x in nums) <= threshold:
+                r = mid
             else:
-                left = mid + 1
-        return left
+                l = mid + 1
+        return l
+```
+
+```python
+class Solution:
+    def smallestDivisor(self, nums: List[int], threshold: int) -> int:
+        def f(v: int) -> bool:
+            v += 1
+            return sum((x + v - 1) // v for x in nums) <= threshold
+
+        return bisect_left(range(max(nums)), True, key=f) + 1
 ```
 
 ### **Java**
@@ -61,20 +80,20 @@ class Solution:
 ```java
 class Solution {
     public int smallestDivisor(int[] nums, int threshold) {
-        int left = 1, right = 1000000;
-        while (left < right) {
-            int mid = (left + right) >> 1;
+        int l = 1, r = 1000000;
+        while (l < r) {
+            int mid = (l + r) >> 1;
             int s = 0;
-            for (int v : nums) {
-                s += (v + mid - 1) / mid;
+            for (int x : nums) {
+                s += (x + mid - 1) / mid;
             }
             if (s <= threshold) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return left;
+        return l;
     }
 }
 ```
@@ -85,17 +104,21 @@ class Solution {
 class Solution {
 public:
     int smallestDivisor(vector<int>& nums, int threshold) {
-        int left = 1, right = 1e6;
-        while (left < right) {
-            int mid = (left + right) >> 1;
+        int l = 1;
+        int r = *max_element(nums.begin(), nums.end());
+        while (l < r) {
+            int mid = (l + r) >> 1;
             int s = 0;
-            for (int& v : nums) s += (v + mid - 1) / mid;
-            if (s <= threshold)
-                right = mid;
-            else
-                left = mid + 1;
+            for (int x : nums) {
+                s += (x + mid - 1) / mid;
+            }
+            if (s <= threshold) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
         }
-        return left;
+        return l;
     }
 };
 ```
@@ -104,20 +127,14 @@ public:
 
 ```go
 func smallestDivisor(nums []int, threshold int) int {
-	left, right := 1, 1000000
-	for left < right {
-		mid := (left + right) >> 1
+	return sort.Search(1000000, func(v int) bool {
+		v++
 		s := 0
-		for _, v := range nums {
-			s += (v + mid - 1) / mid
+		for _, x := range nums {
+			s += (x + v - 1) / v
 		}
-		if s <= threshold {
-			right = mid
-		} else {
-			left = mid + 1
-		}
-	}
-	return left
+		return s <= threshold
+	}) + 1
 }
 ```
 
@@ -130,21 +147,21 @@ func smallestDivisor(nums []int, threshold int) int {
  * @return {number}
  */
 var smallestDivisor = function (nums, threshold) {
-    let left = 1,
-        right = 1000000;
-    while (left < right) {
-        const mid = (left + right) >> 1;
+    let l = 1;
+    let r = Math.max(...nums);
+    while (l < r) {
+        const mid = (l + r) >> 1;
         let s = 0;
-        for (let v of nums) {
-            s += Math.ceil(v / mid);
+        for (const x of nums) {
+            s += Math.ceil(x / mid);
         }
         if (s <= threshold) {
-            right = mid;
+            r = mid;
         } else {
-            left = mid + 1;
+            l = mid + 1;
         }
     }
-    return left;
+    return l;
 };
 ```
 
@@ -152,21 +169,45 @@ var smallestDivisor = function (nums, threshold) {
 
 ```ts
 function smallestDivisor(nums: number[], threshold: number): number {
-    let left = 1,
-        right = 1000000;
-    while (left < right) {
-        const mid = (left + right) >> 1;
+    let l = 1;
+    let r = Math.max(...nums);
+    while (l < r) {
+        const mid = (l + r) >> 1;
         let s = 0;
-        for (let v of nums) {
-            s += Math.ceil(v / mid);
+        for (const x of nums) {
+            s += Math.ceil(x / mid);
         }
         if (s <= threshold) {
-            right = mid;
+            r = mid;
         } else {
-            left = mid + 1;
+            l = mid + 1;
         }
     }
-    return left;
+    return l;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int SmallestDivisor(int[] nums, int threshold) {
+        int l = 1;
+        int r = nums.Max();
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            int s = 0;
+            foreach (int x in nums) {
+                s += (x + mid - 1) / mid;
+            }
+            if (s <= threshold) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    }
 }
 ```
 

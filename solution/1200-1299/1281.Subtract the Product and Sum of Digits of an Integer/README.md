@@ -69,6 +69,13 @@ class Solution:
         return x - y
 ```
 
+```python
+class Solution:
+    def subtractProductAndSum(self, n: int) -> int:
+        nums = list(map(int, str(n)))
+        return prod(nums) - sum(nums)
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->

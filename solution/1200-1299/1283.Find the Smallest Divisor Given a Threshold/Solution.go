@@ -1,16 +1,10 @@
 func smallestDivisor(nums []int, threshold int) int {
-	left, right := 1, 1000000
-	for left < right {
-		mid := (left + right) >> 1
+	return sort.Search(1000000, func(v int) bool {
+		v++
 		s := 0
-		for _, v := range nums {
-			s += (v + mid - 1) / mid
+		for _, x := range nums {
+			s += (x + v - 1) / v
 		}
-		if s <= threshold {
-			right = mid
-		} else {
-			left = mid + 1
-		}
-	}
-	return left
+		return s <= threshold
+	}) + 1
 }
