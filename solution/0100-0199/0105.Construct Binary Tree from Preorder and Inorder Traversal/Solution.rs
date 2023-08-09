@@ -18,21 +18,25 @@
 // }
 use std::rc::Rc;
 use std::cell::RefCell;
+use std::collections::HashMap;
 impl Solution {
-    fn to_tree(preorder: &[i32], inorder: &[i32]) -> Option<Rc<RefCell<TreeNode>>> {
-        if preorder.is_empty() {
-            return None;
+    pub fn build_tree(preorder: Vec<i32>, inorder: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
+        let mut d = HashMap::new();
+        for (i, &x) in inorder.iter().enumerate() {
+            d.insert(x, i);
         }
-        let val = preorder[0];
-        let index = inorder.iter().position(|&v| v == val).unwrap();
-        Some(Rc::new(RefCell::new(TreeNode {
-            val,
-            left: Self::to_tree(&preorder[1..index + 1], &inorder[..index]),
-            right: Self::to_tree(&preorder[index + 1..], &inorder[index + 1..]),
-        })))
+        Self::dfs(&preorder, &d, 0, 0, preorder.len())
     }
 
-    pub fn build_tree(preorder: Vec<i32>, inorder: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
-        Self::to_tree(&preorder[..], &inorder[..])
+    pub fn dfs(preorder: &Vec<i32>, d: &HashMap<i32, usize>, i: usize, j: usize, n: usize) -> Option<Rc<RefCell<TreeNode>>> {
+        if n <= 0 {
+            return None;
+        }
+        let v = preorder[i];
+        let k = d[&v];
+        let mut root = TreeNode::new(v);
+        root.left = Self::dfs(preorder, d, i + 1, j, k - j);
+        root.right = Self::dfs(preorder, d, i + k - j + 1, k + 1, n - k + j - 1);
+        Some(Rc::new(RefCell::new(root)))
     }
 }
