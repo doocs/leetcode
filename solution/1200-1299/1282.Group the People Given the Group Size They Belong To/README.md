@@ -72,6 +72,23 @@ class Solution:
         return [v[j : j + i] for i, v in g.items() for j in range(0, len(v), i)]
 ```
 
+```python
+class Solution:
+    def groupThePeople(self, groupSizes: List[int]) -> List[List[int]]:
+        g = defaultdict(list)
+        for i, x in enumerate(groupSizes):
+            g[x].append(i)
+        ans = []
+        for x, idx in g.items():
+            t = []
+            for i in idx:
+                t.append(i)
+                if len(t) == x:
+                    ans.append(t)
+                    t = []
+        return ans
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->

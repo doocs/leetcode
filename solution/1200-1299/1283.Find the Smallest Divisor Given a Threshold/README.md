@@ -53,7 +53,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-二分查找。
+**方法一：二分查找**
+
+我们注意到，对于一个数字 $v$，如果将 $nums$ 中的每个数字都除以 $v$ 的结果之和小于等于 $threshold$，那么所有大于 $v$ 的值都满足条件。这存在着单调性，因此我们可以使用二分查找的方法找到最小的满足条件的 $v$。
+
+我们定义二分查找的左边界 $l=1$, $r=\max(nums)$，每次取 $mid=(l+r)/2$，计算 $nums$ 中每个数字除以 $mid$ 的结果之和 $s$，如果 $s$ 小于等于 $threshold$，那么说明 $mid$ 满足条件，我们将 $r$ 更新为 $mid$，否则将 $l$ 更新为 $mid+1$。
+
+最后返回 $l$ 即可。
+
+时间复杂度 $O(n \times \log M)$，其中 $n$ 是数组 $nums$ 的长度，而 $M$ 是数组 $nums$ 中的最大值。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -64,15 +72,24 @@
 ```python
 class Solution:
     def smallestDivisor(self, nums: List[int], threshold: int) -> int:
-        left, right = 1, 10**6
-        while left < right:
-            mid = (left + right) >> 1
-            s = sum((v + mid - 1) // mid for v in nums)
-            if s <= threshold:
-                right = mid
+        l, r = 1, max(nums)
+        while l < r:
+            mid = (l + r) >> 1
+            if sum((x + mid - 1) // mid for x in nums) <= threshold:
+                r = mid
             else:
-                left = mid + 1
-        return left
+                l = mid + 1
+        return l
+```
+
+```python
+class Solution:
+    def smallestDivisor(self, nums: List[int], threshold: int) -> int:
+        def f(v: int) -> bool:
+            v += 1
+            return sum((x + v - 1) // v for x in nums) <= threshold
+
+        return bisect_left(range(max(nums)), True, key=f) + 1
 ```
 
 ### **Java**
@@ -82,20 +99,20 @@ class Solution:
 ```java
 class Solution {
     public int smallestDivisor(int[] nums, int threshold) {
-        int left = 1, right = 1000000;
-        while (left < right) {
-            int mid = (left + right) >> 1;
+        int l = 1, r = 1000000;
+        while (l < r) {
+            int mid = (l + r) >> 1;
             int s = 0;
-            for (int v : nums) {
-                s += (v + mid - 1) / mid;
+            for (int x : nums) {
+                s += (x + mid - 1) / mid;
             }
             if (s <= threshold) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return left;
+        return l;
     }
 }
 ```
@@ -106,17 +123,21 @@ class Solution {
 class Solution {
 public:
     int smallestDivisor(vector<int>& nums, int threshold) {
-        int left = 1, right = 1e6;
-        while (left < right) {
-            int mid = (left + right) >> 1;
+        int l = 1;
+        int r = *max_element(nums.begin(), nums.end());
+        while (l < r) {
+            int mid = (l + r) >> 1;
             int s = 0;
-            for (int& v : nums) s += (v + mid - 1) / mid;
-            if (s <= threshold)
-                right = mid;
-            else
-                left = mid + 1;
+            for (int x : nums) {
+                s += (x + mid - 1) / mid;
+            }
+            if (s <= threshold) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
         }
-        return left;
+        return l;
     }
 };
 ```
@@ -125,20 +146,14 @@ public:
 
 ```go
 func smallestDivisor(nums []int, threshold int) int {
-	left, right := 1, 1000000
-	for left < right {
-		mid := (left + right) >> 1
+	return sort.Search(1000000, func(v int) bool {
+		v++
 		s := 0
-		for _, v := range nums {
-			s += (v + mid - 1) / mid
+		for _, x := range nums {
+			s += (x + v - 1) / v
 		}
-		if s <= threshold {
-			right = mid
-		} else {
-			left = mid + 1
-		}
-	}
-	return left
+		return s <= threshold
+	}) + 1
 }
 ```
 
@@ -151,21 +166,21 @@ func smallestDivisor(nums []int, threshold int) int {
  * @return {number}
  */
 var smallestDivisor = function (nums, threshold) {
-    let left = 1,
-        right = 1000000;
-    while (left < right) {
-        const mid = (left + right) >> 1;
+    let l = 1;
+    let r = Math.max(...nums);
+    while (l < r) {
+        const mid = (l + r) >> 1;
         let s = 0;
-        for (let v of nums) {
-            s += Math.ceil(v / mid);
+        for (const x of nums) {
+            s += Math.ceil(x / mid);
         }
         if (s <= threshold) {
-            right = mid;
+            r = mid;
         } else {
-            left = mid + 1;
+            l = mid + 1;
         }
     }
-    return left;
+    return l;
 };
 ```
 
@@ -173,21 +188,45 @@ var smallestDivisor = function (nums, threshold) {
 
 ```ts
 function smallestDivisor(nums: number[], threshold: number): number {
-    let left = 1,
-        right = 1000000;
-    while (left < right) {
-        const mid = (left + right) >> 1;
+    let l = 1;
+    let r = Math.max(...nums);
+    while (l < r) {
+        const mid = (l + r) >> 1;
         let s = 0;
-        for (let v of nums) {
-            s += Math.ceil(v / mid);
+        for (const x of nums) {
+            s += Math.ceil(x / mid);
         }
         if (s <= threshold) {
-            right = mid;
+            r = mid;
         } else {
-            left = mid + 1;
+            l = mid + 1;
         }
     }
-    return left;
+    return l;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int SmallestDivisor(int[] nums, int threshold) {
+        int l = 1;
+        int r = nums.Max();
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            int s = 0;
+            foreach (int x in nums) {
+                s += (x + mid - 1) / mid;
+            }
+            if (s <= threshold) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    }
 }
 ```
 

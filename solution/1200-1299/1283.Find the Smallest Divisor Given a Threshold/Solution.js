@@ -4,19 +4,19 @@
  * @return {number}
  */
 var smallestDivisor = function (nums, threshold) {
-    let left = 1,
-        right = 1000000;
-    while (left < right) {
-        const mid = (left + right) >> 1;
+    let l = 1;
+    let r = Math.max(...nums);
+    while (l < r) {
+        const mid = (l + r) >> 1;
         let s = 0;
-        for (let v of nums) {
-            s += Math.ceil(v / mid);
+        for (const x of nums) {
+            s += Math.ceil(x / mid);
         }
         if (s <= threshold) {
-            right = mid;
+            r = mid;
         } else {
-            left = mid + 1;
+            l = mid + 1;
         }
     }
-    return left;
+    return l;
 };
