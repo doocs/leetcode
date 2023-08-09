@@ -4,15 +4,16 @@
  * @return {number[]}
  */
 var intersection = function (nums1, nums2) {
-    const s = new Set();
-    for (const num of nums1) {
-        s.add(num);
+    const s = Array(1001).fill(false);
+    for (const x of nums1) {
+        s[x] = true;
     }
-    let res = new Set();
-    for (const num of nums2) {
-        if (s.has(num)) {
-            res.add(num);
+    const ans = [];
+    for (const x of nums2) {
+        if (s[x]) {
+            ans.push(x);
+            s[x] = false;
         }
     }
-    return [...res];
+    return ans;
 };
