@@ -1,20 +1,16 @@
 class Solution {
     public int[] intersection(int[] nums1, int[] nums2) {
-        Set<Integer> s = new HashSet<>();
-        for (int num : nums1) {
-            s.add(num);
+        boolean[] s = new boolean[1001];
+        for (int x : nums1) {
+            s[x] = true;
         }
-        Set<Integer> t = new HashSet<>();
-        for (int num : nums2) {
-            if (s.contains(num)) {
-                t.add(num);
+        List<Integer> ans = new ArrayList<>();
+        for (int x : nums2) {
+            if (s[x]) {
+                ans.add(x);
+                s[x] = false;
             }
         }
-        int[] res = new int[t.size()];
-        int i = 0;
-        for (int num : t) {
-            res[i++] = num;
-        }
-        return res;
+        return ans.stream().mapToInt(Integer::intValue).toArray();
     }
 }
