@@ -6,15 +6,14 @@
 #         self.right = right
 class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
-        def dfs(i, j, n):
+        def dfs(i: int, j: int, n: int):
             if n <= 0:
                 return None
             v = preorder[i]
             k = d[v]
-            root = TreeNode(v)
-            root.left = dfs(i + 1, j, k - j)
-            root.right = dfs(i + 1 + k - j, k + 1, n - k + j - 1)
-            return root
+            l = dfs(i + 1, j, k - j)
+            r = dfs(i + 1 + k - j, k + 1, n - k + j - 1)
+            return TreeNode(v, l, r)
 
         d = {v: i for i, v in enumerate(inorder)}
         return dfs(0, 0, len(preorder))

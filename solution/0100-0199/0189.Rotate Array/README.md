@@ -92,6 +92,13 @@ class Solution:
         reverse(k, n - 1)
 ```
 
+```python
+class Solution:
+    def rotate(self, nums: List[int], k: int) -> None:
+        k %= len(nums)
+        nums[:] = nums[-k:] + nums[:-k]
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->

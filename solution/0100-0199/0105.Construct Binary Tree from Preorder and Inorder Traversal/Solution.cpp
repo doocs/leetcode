@@ -11,20 +11,22 @@
  */
 class Solution {
 public:
-    unordered_map<int, int> indexes;
-
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
-        for (int i = 0; i < inorder.size(); ++i) indexes[inorder[i]] = i;
-        return dfs(preorder, inorder, 0, 0, inorder.size());
-    }
-
-    TreeNode* dfs(vector<int>& preorder, vector<int>& inorder, int i, int j, int n) {
-        if (n <= 0) return nullptr;
-        int v = preorder[i];
-        int k = indexes[v];
-        TreeNode* root = new TreeNode(v);
-        root->left = dfs(preorder, inorder, i + 1, j, k - j);
-        root->right = dfs(preorder, inorder, i + 1 + k - j, k + 1, n - k + j - 1);
-        return root;
+        int n = preorder.size();
+        unordered_map<int, int> d;
+        for (int i = 0; i < n; ++i) {
+            d[inorder[i]] = i;
+        }
+        function<TreeNode*(int, int, int)> dfs = [&](int i, int j, int n) -> TreeNode* {
+            if (n <= 0) {
+                return nullptr;
+            }
+            int v = preorder[i];
+            int k = d[v];
+            TreeNode* l = dfs(i + 1, j, k - j);
+            TreeNode* r = dfs(i + 1 + k - j, k + 1, n - 1 - (k - j));
+            return new TreeNode(v, l, r);
+        };
+        return dfs(0, 0, n);
     }
 };

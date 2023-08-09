@@ -7,9 +7,9 @@
  * }
  */
 func buildTree(preorder []int, inorder []int) *TreeNode {
-	indexes := make(map[int]int)
-	for i, v := range inorder {
-		indexes[v] = i
+	d := map[int]int{}
+	for i, x := range inorder {
+		d[x] = i
 	}
 	var dfs func(i, j, n int) *TreeNode
 	dfs = func(i, j, n int) *TreeNode {
@@ -17,11 +17,10 @@ func buildTree(preorder []int, inorder []int) *TreeNode {
 			return nil
 		}
 		v := preorder[i]
-		k := indexes[v]
-		root := &TreeNode{Val: v}
-		root.Left = dfs(i+1, j, k-j)
-		root.Right = dfs(i+1+k-j, k+1, n-k+j-1)
-		return root
+		k := d[v]
+		l := dfs(i+1, j, k-j)
+		r := dfs(i+1+k-j, k+1, n-1-(k-j))
+		return &TreeNode{v, l, r}
 	}
-	return dfs(0, 0, len(inorder))
+	return dfs(0, 0, len(preorder))
 }
