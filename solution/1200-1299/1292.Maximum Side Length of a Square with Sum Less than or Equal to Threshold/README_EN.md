@@ -42,65 +42,65 @@
 ```python
 class Solution:
     def maxSideLength(self, mat: List[List[int]], threshold: int) -> int:
-        m, n = len(mat), len(mat[0])
-        s = [[0] * 310 for _ in range(310)]
-        for i in range(m):
-            for j in range(n):
-                s[i + 1][j + 1] = s[i][j + 1] + s[i + 1][j] - s[i][j] + mat[i][j]
-
-        def check(l):
-            for i in range(m):
-                for j in range(n):
-                    if i + l - 1 < m and j + l - 1 < n:
-                        i1, j1 = i + l - 1, j + l - 1
-                        t = s[i1 + 1][j1 + 1] - s[i1 + 1][j] - s[i][j1 + 1] + s[i][j]
-                        if t <= threshold:
-                            return True
+        def check(k: int) -> bool:
+            for i in range(m - k + 1):
+                for j in range(n - k + 1):
+                    v = s[i + k][j + k] - s[i][j + k] - s[i + k][j] + s[i][j]
+                    if v <= threshold:
+                        return True
             return False
 
-        left, right = 0, min(m, n)
-        while left < right:
-            mid = (left + right + 1) >> 1
+        m, n = len(mat), len(mat[0])
+        s = [[0] * (n + 1) for _ in range(m + 1)]
+        for i, row in enumerate(mat, 1):
+            for j, x in enumerate(row, 1):
+                s[i][j] = s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1] + x
+        l, r = 0, min(m, n)
+        while l < r:
+            mid = (l + r + 1) >> 1
             if check(mid):
-                left = mid
+                l = mid
             else:
-                right = mid - 1
-        return left
+                r = mid - 1
+        return l
 ```
 
 ### **Java**
 
 ```java
 class Solution {
+    private int m;
+    private int n;
+    private int threshold;
+    private int[][] s;
+
     public int maxSideLength(int[][] mat, int threshold) {
-        int m = mat.length, n = mat[0].length;
-        int[][] s = new int[310][310];
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                s[i + 1][j + 1] = s[i][j + 1] + s[i + 1][j] - s[i][j] + mat[i][j];
+        m = mat.length;
+        n = mat[0].length;
+        this.threshold = threshold;
+        s = new int[m + 1][n + 1];
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                s[i][j] = s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1] + mat[i - 1][j - 1];
             }
         }
-        int left = 0, right = Math.min(m, n);
-        while (left < right) {
-            int mid = (left + right + 1) >> 1;
-            if (check(mid, s, m, n, threshold)) {
-                left = mid;
+        int l = 0, r = Math.min(m, n);
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            if (check(mid)) {
+                l = mid;
             } else {
-                right = mid - 1;
+                r = mid - 1;
             }
         }
-        return left;
+        return l;
     }
 
-    private boolean check(int l, int[][] s, int m, int n, int threshold) {
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (i + l - 1 < m && j + l - 1 < n) {
-                    int i1 = i + l - 1, j1 = j + l - 1;
-                    int t = s[i1 + 1][j1 + 1] - s[i1 + 1][j] - s[i][j1 + 1] + s[i][j];
-                    if (t <= threshold) {
-                        return true;
-                    }
+    private boolean check(int k) {
+        for (int i = 0; i < m - k + 1; ++i) {
+            for (int j = 0; j < n - k + 1; ++j) {
+                if (s[i + k][j + k] - s[i][j + k] - s[i + k][j] + s[i][j] <= threshold) {
+                    return true;
                 }
             }
         }
@@ -116,32 +116,33 @@ class Solution {
 public:
     int maxSideLength(vector<vector<int>>& mat, int threshold) {
         int m = mat.size(), n = mat[0].size();
-        vector<vector<int>> s(310, vector<int>(310));
-        for (int i = 0; i < m; ++i)
-            for (int j = 0; j < n; ++j)
-                s[i + 1][j + 1] = s[i][j + 1] + s[i + 1][j] - s[i][j] + mat[i][j];
-        int left = 0, right = min(m, n);
-        while (left < right) {
-            int mid = left + right + 1 >> 1;
-            if (check(mid, s, m, n, threshold))
-                left = mid;
-            else
-                right = mid - 1;
-        }
-        return left;
-    }
-
-    bool check(int l, vector<vector<int>>& s, int m, int n, int threshold) {
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (i + l - 1 < m && j + l - 1 < n) {
-                    int i1 = i + l - 1, j1 = j + l - 1;
-                    int t = s[i1 + 1][j1 + 1] - s[i1 + 1][j] - s[i][j1 + 1] + s[i][j];
-                    if (t <= threshold) return true;
-                }
+        int s[m + 1][n + 1];
+        memset(s, 0, sizeof(s));
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                s[i][j] = s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1] + mat[i - 1][j - 1];
             }
         }
-        return false;
+        auto check = [&](int k) {
+            for (int i = 0; i < m - k + 1; ++i) {
+                for (int j = 0; j < n - k + 1; ++j) {
+                    if (s[i + k][j + k] - s[i][j + k] - s[i + k][j] + s[i][j] <= threshold) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        };
+        int l = 0, r = min(m, n);
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            if (check(mid)) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return l;
     }
 };
 ```
@@ -151,39 +152,35 @@ public:
 ```go
 func maxSideLength(mat [][]int, threshold int) int {
 	m, n := len(mat), len(mat[0])
-	s := make([][]int, 310)
-	for i := 0; i < len(s); i++ {
-		s[i] = make([]int, 310)
+	s := make([][]int, m+1)
+	for i := range s {
+		s[i] = make([]int, n+1)
 	}
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			s[i+1][j+1] = s[i][j+1] + s[i+1][j] - s[i][j] + mat[i][j]
+	for i := 1; i <= m; i++ {
+		for j := 1; j <= n; j++ {
+			s[i][j] = s[i-1][j] + s[i][j-1] - s[i-1][j-1] + mat[i-1][j-1]
 		}
 	}
-	left, right := 0, min(m, n)
-	check := func(l int) bool {
-		for i := 0; i < m; i++ {
-			for j := 0; j < n; j++ {
-				if i+l-1 < m && j+l-1 < n {
-					i1, j1 := i+l-1, j+l-1
-					t := s[i1+1][j1+1] - s[i1+1][j] - s[i][j1+1] + s[i][j]
-					if t <= threshold {
-						return true
-					}
+	check := func(k int) bool {
+		for i := 0; i < m-k+1; i++ {
+			for j := 0; j < n-k+1; j++ {
+				if s[i+k][j+k]-s[i][j+k]-s[i+k][j]+s[i][j] <= threshold {
+					return true
 				}
 			}
 		}
 		return false
 	}
-	for left < right {
-		mid := (left + right + 1) >> 1
+	l, r := 0, min(m, n)
+	for l < r {
+		mid := (l + r + 1) >> 1
 		if check(mid) {
-			left = mid
+			l = mid
 		} else {
-			right = mid - 1
+			r = mid - 1
 		}
 	}
-	return left
+	return l
 }
 
 func min(a, b int) int {
@@ -191,6 +188,49 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxSideLength(mat: number[][], threshold: number): number {
+    const m = mat.length;
+    const n = mat[0].length;
+    const s: number[][] = Array(m + 1)
+        .fill(0)
+        .map(() => Array(n + 1).fill(0));
+    for (let i = 1; i <= m; ++i) {
+        for (let j = 1; j <= n; ++j) {
+            s[i][j] =
+                s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1] + mat[i - 1][j - 1];
+        }
+    }
+    const check = (k: number): boolean => {
+        for (let i = 0; i < m - k + 1; ++i) {
+            for (let j = 0; j < n - k + 1; ++j) {
+                if (
+                    s[i + k][j + k] - s[i + k][j] - s[i][j + k] + s[i][j] <=
+                    threshold
+                ) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    };
+
+    let l = 0;
+    let r = Math.min(m, n);
+    while (l < r) {
+        const mid = (l + r + 1) >> 1;
+        if (check(mid)) {
+            l = mid;
+        } else {
+            r = mid - 1;
+        }
+    }
+    return l;
 }
 ```
 

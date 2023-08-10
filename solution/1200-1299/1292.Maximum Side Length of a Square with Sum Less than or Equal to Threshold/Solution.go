@@ -1,38 +1,34 @@
 func maxSideLength(mat [][]int, threshold int) int {
 	m, n := len(mat), len(mat[0])
-	s := make([][]int, 310)
-	for i := 0; i < len(s); i++ {
-		s[i] = make([]int, 310)
+	s := make([][]int, m+1)
+	for i := range s {
+		s[i] = make([]int, n+1)
 	}
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			s[i+1][j+1] = s[i][j+1] + s[i+1][j] - s[i][j] + mat[i][j]
+	for i := 1; i <= m; i++ {
+		for j := 1; j <= n; j++ {
+			s[i][j] = s[i-1][j] + s[i][j-1] - s[i-1][j-1] + mat[i-1][j-1]
 		}
 	}
-	left, right := 0, min(m, n)
-	check := func(l int) bool {
-		for i := 0; i < m; i++ {
-			for j := 0; j < n; j++ {
-				if i+l-1 < m && j+l-1 < n {
-					i1, j1 := i+l-1, j+l-1
-					t := s[i1+1][j1+1] - s[i1+1][j] - s[i][j1+1] + s[i][j]
-					if t <= threshold {
-						return true
-					}
+	check := func(k int) bool {
+		for i := 0; i < m-k+1; i++ {
+			for j := 0; j < n-k+1; j++ {
+				if s[i+k][j+k]-s[i][j+k]-s[i+k][j]+s[i][j] <= threshold {
+					return true
 				}
 			}
 		}
 		return false
 	}
-	for left < right {
-		mid := (left + right + 1) >> 1
+	l, r := 0, min(m, n)
+	for l < r {
+		mid := (l + r + 1) >> 1
 		if check(mid) {
-			left = mid
+			l = mid
 		} else {
-			right = mid - 1
+			r = mid - 1
 		}
 	}
-	return left
+	return l
 }
 
 func min(a, b int) int {
