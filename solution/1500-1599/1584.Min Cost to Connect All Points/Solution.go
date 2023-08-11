@@ -1,41 +1,45 @@
-func minCostConnectPoints(points [][]int) int {
+func minCostConnectPoints(points [][]int) (ans int) {
 	n := len(points)
-	var g [][]int
-	for i, p := range points {
-		x1, y1 := p[0], p[1]
+	g := make([][]int, n)
+	vis := make([]bool, n)
+	dist := make([]int, n)
+	for i := range g {
+		g[i] = make([]int, n)
+		dist[i] = 1 << 30
+	}
+	for i := range g {
+		x1, y1 := points[i][0], points[i][1]
 		for j := i + 1; j < n; j++ {
 			x2, y2 := points[j][0], points[j][1]
-			g = append(g, []int{abs(x1-x2) + abs(y1-y2), i, j})
+			t := abs(x1-x2) + abs(y1-y2)
+			g[i][j] = t
+			g[j][i] = t
 		}
 	}
-	sort.Slice(g, func(i, j int) bool {
-		return g[i][0] < g[j][0]
-	})
-	ans := 0
-	p := make([]int, n)
-	for i := range p {
-		p[i] = i
-	}
-	var find func(x int) int
-	find = func(x int) int {
-		if p[x] != x {
-			p[x] = find(p[x])
+	dist[0] = 0
+	for i := 0; i < n; i++ {
+		j := -1
+		for k := 0; k < n; k++ {
+			if !vis[k] && (j == -1 || dist[k] < dist[j]) {
+				j = k
+			}
 		}
-		return p[x]
-	}
-	for _, e := range g {
-		cost, i, j := e[0], e[1], e[2]
-		if find(i) == find(j) {
-			continue
-		}
-		p[find(i)] = find(j)
-		ans += cost
-		n--
-		if n == 1 {
-			return ans
+		vis[j] = true
+		ans += dist[j]
+		for k := 0; k < n; k++ {
+			if !vis[k] {
+				dist[k] = min(dist[k], g[j][k])
+			}
 		}
 	}
-	return 0
+	return
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
 
 func abs(x int) int {
