@@ -1,40 +1,37 @@
 class Solution {
-    private int[] p;
-
     public int minCostConnectPoints(int[][] points) {
+        final int inf = 1 << 30;
         int n = points.length;
-        List<int[]> g = new ArrayList<>();
+        int[][] g = new int[n][n];
         for (int i = 0; i < n; ++i) {
             int x1 = points[i][0], y1 = points[i][1];
             for (int j = i + 1; j < n; ++j) {
                 int x2 = points[j][0], y2 = points[j][1];
-                g.add(new int[] {Math.abs(x1 - x2) + Math.abs(y1 - y2), i, j});
+                int t = Math.abs(x1 - x2) + Math.abs(y1 - y2);
+                g[i][j] = t;
+                g[j][i] = t;
             }
         }
-        g.sort(Comparator.comparingInt(a -> a[0]));
-        p = new int[n];
-        for (int i = 0; i < n; ++i) {
-            p[i] = i;
-        }
+        int[] dist = new int[n];
+        boolean[] vis = new boolean[n];
+        Arrays.fill(dist, inf);
+        dist[0] = 0;
         int ans = 0;
-        for (int[] e : g) {
-            int cost = e[0], i = e[1], j = e[2];
-            if (find(i) == find(j)) {
-                continue;
+        for (int i = 0; i < n; ++i) {
+            int j = -1;
+            for (int k = 0; k < n; ++k) {
+                if (!vis[k] && (j == -1 || dist[k] < dist[j])) {
+                    j = k;
+                }
             }
-            p[find(i)] = find(j);
-            ans += cost;
-            if (--n == 1) {
-                return ans;
+            vis[j] = true;
+            ans += dist[j];
+            for (int k = 0; k < n; ++k) {
+                if (!vis[k]) {
+                    dist[k] = Math.min(dist[k], g[j][k]);
+                }
             }
         }
-        return 0;
-    }
-
-    private int find(int x) {
-        if (p[x] != x) {
-            p[x] = find(p[x]);
-        }
-        return p[x];
+        return ans;
     }
 }
