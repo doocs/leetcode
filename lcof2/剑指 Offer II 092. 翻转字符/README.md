@@ -53,7 +53,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-我们需要找到一个分界点 `i`，使 `[:i]` 全为 0，`[i:]` 全为 1，并且翻转次数最少，问题就转换成计算 `i` 的左右两侧的翻转次数，可以用前缀和进行优化
+**方法一：枚举**
+
+我们先预处理得到右侧的 $0$ 的个数，记为 $right0$，初始化一个变量 $left0$，表示左侧的 $0$ 的个数。如果最终字符串变成全 `'0'` 或者全 `'1'`，那么答案为 $ans= \min(right0, n - right0)$。
+
+接下来，我们枚举每个位置作为 `'0'` 和 `'1'` 的分界点（约定分界点为 `'0'`），计算出以当前位置为分界点的答案，最后取最小值即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是字符串的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -64,15 +70,14 @@
 ```python
 class Solution:
     def minFlipsMonoIncr(self, s: str) -> int:
+        left0, right0 = 0, s.count("0")
         n = len(s)
-        left, right = [0] * (n + 1), [0] * (n + 1)
-        ans = 0x3F3F3F3F
-        for i in range(1, n + 1):
-            left[i] = left[i - 1] + (1 if s[i - 1] == '1' else 0)
-        for i in range(n - 1, -1, -1):
-            right[i] = right[i + 1] + (1 if s[i] == '0' else 0)
-        for i in range(0, n + 1):
-            ans = min(ans, left[i] + right[i])
+        ans = min(right0, n - right0)
+        for i, c in enumerate(s, 1):
+            x = int(c)
+            right0 -= x ^ 1
+            left0 += x ^ 1
+            ans = min(ans, i - left0 + right0)
         return ans
 ```
 
@@ -84,17 +89,18 @@ class Solution:
 class Solution {
     public int minFlipsMonoIncr(String s) {
         int n = s.length();
-        int[] left = new int[n + 1];
-        int[] right = new int[n + 1];
-        int ans = Integer.MAX_VALUE;
-        for (int i = 1; i <= n; i++) {
-            left[i] = left[i - 1] + (s.charAt(i - 1) == '1' ? 1 : 0);
+        int left0 = 0, right0 = 0;
+        for (int i = 0; i < n; ++i) {
+            if (s.charAt(i) == '0') {
+                ++right0;
+            }
         }
-        for (int i = n - 1; i >= 0; i--) {
-            right[i] = right[i + 1] + (s.charAt(i) == '0' ? 1 : 0);
-        }
-        for (int i = 0; i <= n; i++) {
-            ans = Math.min(ans, left[i] + right[i]);
+        int ans = Math.min(right0, n - right0);
+        for (int i = 1; i <= n; ++i) {
+            int x = s.charAt(i - 1) == '0' ? 0 : 1;
+            right0 -= x ^ 1;
+            left0 += x ^ 1;
+            ans = Math.min(ans, i - left0 + right0);
         }
         return ans;
     }
@@ -108,16 +114,16 @@ class Solution {
 public:
     int minFlipsMonoIncr(string s) {
         int n = s.size();
-        vector<int> left(n + 1, 0), right(n + 1, 0);
-        int ans = INT_MAX;
+        int left0 = 0, right0 = 0;
+        for (char& c : s) {
+            right0 += c == '0';
+        }
+        int ans = min(right0, n - right0);
         for (int i = 1; i <= n; ++i) {
-            left[i] = left[i - 1] + (s[i - 1] == '1');
-        }
-        for (int i = n - 1; i >= 0; --i) {
-            right[i] = right[i + 1] + (s[i] == '0');
-        }
-        for (int i = 0; i <= n; i++) {
-            ans = min(ans, left[i] + right[i]);
+            int x = s[i - 1] == '1';
+            right0 -= x ^ 1;
+            left0 += x ^ 1;
+            ans = min(ans, i - left0 + right0);
         }
         return ans;
     }
@@ -129,31 +135,50 @@ public:
 ```go
 func minFlipsMonoIncr(s string) int {
 	n := len(s)
-	left, right := make([]int, n+1), make([]int, n+1)
-	ans := math.MaxInt32
-	for i := 1; i <= n; i++ {
-		left[i] = left[i-1]
-		if s[i-1] == '1' {
-			left[i]++
+	left0, right0 := 0, 0
+	for _, c := range s {
+		if c == '0' {
+			right0++
 		}
 	}
-	for i := n - 1; i >= 0; i-- {
-		right[i] = right[i+1]
-		if s[i] == '0' {
-			right[i]++
+	ans := min(right0, n-right0)
+	for i, c := range s {
+		x := 0
+		if c == '1' {
+			x = 1
 		}
-	}
-	for i := 0; i <= n; i++ {
-		ans = min(ans, left[i]+right[i])
+		right0 -= x ^ 1
+		left0 += x ^ 1
+		ans = min(ans, i+1-left0+right0)
 	}
 	return ans
 }
 
-func min(x, y int) int {
-	if x < y {
-		return x
+func min(a, b int) int {
+	if a < b {
+		return a
 	}
-	return y
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function minFlipsMonoIncr(s: string): number {
+    const n = s.length;
+    let [left0, right0] = [0, 0];
+    for (const c of s) {
+        right0 += c === '0' ? 1 : 0;
+    }
+    let ans = Math.min(right0, n - right0);
+    for (let i = 1; i <= n; ++i) {
+        const x = s[i - 1] === '0' ? 0 : 1;
+        right0 -= x ^ 1;
+        left0 += x ^ 1;
+        ans = Math.min(ans, i - left0 + right0);
+    }
+    return ans;
 }
 ```
 

@@ -60,13 +60,99 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def numberOfArithmeticSlices(self, nums: List[int]) -> int:
+        f = [defaultdict(int) for _ in nums]
+        ans = 0
+        for i, x in enumerate(nums):
+            for j, y in enumerate(nums[:i]):
+                d = x - y
+                ans += f[j][d]
+                f[i][d] += f[j][d] + 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int numberOfArithmeticSlices(int[] nums) {
+        int n = nums.length;
+        Map<Long, Integer>[] f = new Map[n];
+        Arrays.setAll(f, k -> new HashMap<>());
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                Long d = 1L * nums[i] - nums[j];
+                int cnt = f[j].getOrDefault(d, 0);
+                ans += cnt;
+                f[i].merge(d, cnt + 1, Integer::sum);
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numberOfArithmeticSlices(vector<int>& nums) {
+        int n = nums.size();
+        unordered_map<long long, int> f[n];
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                long long d = 1LL * nums[i] - nums[j];
+                int cnt = f[j][d];
+                ans += cnt;
+                f[i][d] += cnt + 1;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numberOfArithmeticSlices(nums []int) (ans int) {
+	f := make([]map[int]int, len(nums))
+	for i := range f {
+		f[i] = map[int]int{}
+	}
+	for i, x := range nums {
+		for j, y := range nums[:i] {
+			d := x - y
+			cnt := f[j][d]
+			ans += cnt
+			f[i][d] += cnt + 1
+		}
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function numberOfArithmeticSlices(nums: number[]): number {
+    const n = nums.length;
+    const f: Map<number, number>[] = new Array(n).fill(0).map(() => new Map());
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < i; ++j) {
+            const d = nums[i] - nums[j];
+            const cnt = f[j].get(d) || 0;
+            ans += cnt;
+            f[i].set(d, (f[i].get(d) || 0) + cnt + 1);
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
