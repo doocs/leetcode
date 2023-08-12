@@ -44,13 +44,150 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def getMaxRepetitions(self, s1: str, n1: int, s2: str, n2: int) -> int:
+        n = len(s2)
+        d = {}
+        for i in range(n):
+            cnt = 0
+            j = i
+            for c in s1:
+                if c == s2[j]:
+                    j += 1
+                if j == n:
+                    cnt += 1
+                    j = 0
+            d[i] = (cnt, j)
 
+        ans = 0
+        j = 0
+        for _ in range(n1):
+            cnt, j = d[j]
+            ans += cnt
+        return ans // n2
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int getMaxRepetitions(String s1, int n1, String s2, int n2) {
+        int m = s1.length(), n = s2.length();
+        int[][] d = new int[n][0];
+        for (int i = 0; i < n; ++i) {
+            int j = i;
+            int cnt = 0;
+            for (int k = 0; k < m; ++k) {
+                if (s1.charAt(k) == s2.charAt(j)) {
+                    if (++j == n) {
+                        j = 0;
+                        ++cnt;
+                    }
+                }
+            }
+            d[i] = new int[] {cnt, j};
+        }
+        int ans = 0;
+        for (int j = 0; n1 > 0; --n1) {
+            ans += d[j][0];
+            j = d[j][1];
+        }
+        return ans / n2;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int getMaxRepetitions(string s1, int n1, string s2, int n2) {
+        int m = s1.size(), n = s2.size();
+        vector<pair<int, int>> d;
+        for (int i = 0; i < n; ++i) {
+            int j = i;
+            int cnt = 0;
+            for (int k = 0; k < m; ++k) {
+                if (s1[k] == s2[j]) {
+                    if (++j == n) {
+                        ++cnt;
+                        j = 0;
+                    }
+                }
+            }
+            d.emplace_back(cnt, j);
+        }
+        int ans = 0;
+        for (int j = 0; n1; --n1) {
+            ans += d[j].first;
+            j = d[j].second;
+        }
+        return ans / n2;
+    }
+};
+```
+
+### **Go**
+
+```go
+func getMaxRepetitions(s1 string, n1 int, s2 string, n2 int) (ans int) {
+	n := len(s2)
+	d := make([][2]int, n)
+	for i := 0; i < n; i++ {
+		j := i
+		cnt := 0
+		for k := range s1 {
+			if s1[k] == s2[j] {
+				j++
+				if j == n {
+					cnt++
+					j = 0
+				}
+			}
+		}
+		d[i] = [2]int{cnt, j}
+	}
+	for j := 0; n1 > 0; n1-- {
+		ans += d[j][0]
+		j = d[j][1]
+	}
+	ans /= n2
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function getMaxRepetitions(
+    s1: string,
+    n1: number,
+    s2: string,
+    n2: number,
+): number {
+    const n = s2.length;
+    const d: number[][] = new Array(n).fill(0).map(() => new Array(2).fill(0));
+    for (let i = 0; i < n; ++i) {
+        let j = i;
+        let cnt = 0;
+        for (const c of s1) {
+            if (c === s2[j]) {
+                if (++j === n) {
+                    j = 0;
+                    ++cnt;
+                }
+            }
+        }
+        d[i] = [cnt, j];
+    }
+    let ans = 0;
+    for (let j = 0; n1 > 0; --n1) {
+        ans += d[j][0];
+        j = d[j][1];
+    }
+    return Math.floor(ans / n2);
+}
 ```
 
 ### **...**

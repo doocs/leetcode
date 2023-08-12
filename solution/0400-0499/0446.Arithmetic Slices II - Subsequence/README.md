@@ -61,6 +61,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划 + 哈希表**
+
+我们定义 $f[i][d]$ 表示以 $nums[i]$ 为结尾，公差为 $d$ 的弱等差子序列（最少有两个元素）的个数。由于 $d$ 的范围很大，所以我们使用哈希表来统计。
+
+接下来，我们枚举 $nums$ 中的所有元素对 $(nums[i], nums[j])$，其中 $j \lt i$。我们将其作为等差数列的最后两个元素，由此即可得到公差 $d = nums[i] - nums[j]$。由于公差相同，我们可以将 $nums[i]$ 加到以 $nums[j]$ 为结尾的弱等差子序列的末尾，此时以 $nums[i]$ 为结尾的等差子序列的数量为 $f[j][d]$，我们将其加入答案。然后，我们再将 $nums[i]$ 加到以 $nums[j]$ 为结尾的弱等差子序列的末尾，这对应着状态转移 $f[i][d] += f[j][d]$。同时，$(nums[i], nums[j])$ 这一对元素也可以当作一个弱等差子序列，因此有状态转移 $f[i][d] += f[j][d] + 1$。
+
+枚举结束，返回答案即可。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是数组 $nums$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -68,7 +78,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numberOfArithmeticSlices(self, nums: List[int]) -> int:
+        f = [defaultdict(int) for _ in nums]
+        ans = 0
+        for i, x in enumerate(nums):
+            for j, y in enumerate(nums[:i]):
+                d = x - y
+                ans += f[j][d]
+                f[i][d] += f[j][d] + 1
+        return ans
 ```
 
 ### **Java**
@@ -76,7 +95,84 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int numberOfArithmeticSlices(int[] nums) {
+        int n = nums.length;
+        Map<Long, Integer>[] f = new Map[n];
+        Arrays.setAll(f, k -> new HashMap<>());
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                Long d = 1L * nums[i] - nums[j];
+                int cnt = f[j].getOrDefault(d, 0);
+                ans += cnt;
+                f[i].merge(d, cnt + 1, Integer::sum);
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numberOfArithmeticSlices(vector<int>& nums) {
+        int n = nums.size();
+        unordered_map<long long, int> f[n];
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                long long d = 1LL * nums[i] - nums[j];
+                int cnt = f[j][d];
+                ans += cnt;
+                f[i][d] += cnt + 1;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numberOfArithmeticSlices(nums []int) (ans int) {
+	f := make([]map[int]int, len(nums))
+	for i := range f {
+		f[i] = map[int]int{}
+	}
+	for i, x := range nums {
+		for j, y := range nums[:i] {
+			d := x - y
+			cnt := f[j][d]
+			ans += cnt
+			f[i][d] += cnt + 1
+		}
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function numberOfArithmeticSlices(nums: number[]): number {
+    const n = nums.length;
+    const f: Map<number, number>[] = new Array(n).fill(0).map(() => new Map());
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < i; ++j) {
+            const d = nums[i] - nums[j];
+            const cnt = f[j].get(d) || 0;
+            ans += cnt;
+            f[i].set(d, (f[i].get(d) || 0) + cnt + 1);
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
