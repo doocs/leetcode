@@ -43,9 +43,9 @@ S = &quot;abcdebdde&quot;, T = &quot;bde&quot;
 
 $$
 f[i][j] = \begin{cases}
-i, & j = 1 \text{ and } s1[i] = s2[j] \\
-f[i - 1][j - 1], & j > 1 \text{ and } s1[i] = s2[j] \\
-f[i - 1][j], & s1[i] \ne s2[j]
+i, & j = 1 \text{ and } s1[i-1] = s2[j] \\
+f[i - 1][j - 1], & j > 1 \text{ and } s1[i-1] = s2[j-1] \\
+f[i - 1][j], & s1[i-1] \ne s2[j-1]
 \end{cases}
 $$
 
