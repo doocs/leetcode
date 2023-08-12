@@ -17,18 +17,24 @@ class Solution {
     private int ans;
 
     public int longestConsecutive(TreeNode root) {
-        ans = 1;
-        dfs(root, null, 1);
+        dfs(root);
         return ans;
     }
 
-    private void dfs(TreeNode root, TreeNode p, int t) {
+    private int dfs(TreeNode root) {
         if (root == null) {
-            return;
+            return 0;
         }
-        t = p != null && p.val + 1 == root.val ? t + 1 : 1;
+        int l = dfs(root.left) + 1;
+        int r = dfs(root.right) + 1;
+        if (root.left != null && root.left.val - root.val != 1) {
+            l = 1;
+        }
+        if (root.right != null && root.right.val - root.val != 1) {
+            r = 1;
+        }
+        int t = Math.max(l, r);
         ans = Math.max(ans, t);
-        dfs(root.left, root, t);
-        dfs(root.right, root, t);
+        return t;
     }
 }

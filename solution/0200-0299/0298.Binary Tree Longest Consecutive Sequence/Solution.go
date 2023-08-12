@@ -6,24 +6,26 @@
  *     Right *TreeNode
  * }
  */
-func longestConsecutive(root *TreeNode) int {
-	ans := 1
-	var dfs func(root, p *TreeNode, t int)
-	dfs = func(root, p *TreeNode, t int) {
+func longestConsecutive(root *TreeNode) (ans int) {
+	var dfs func(*TreeNode) int
+	dfs = func(root *TreeNode) int {
 		if root == nil {
-			return
+			return 0
 		}
-		if p != nil && p.Val+1 == root.Val {
-			t++
-			ans = max(ans, t)
-		} else {
-			t = 1
+		l := dfs(root.Left) + 1
+		r := dfs(root.Right) + 1
+		if root.Left != nil && root.Left.Val-root.Val != 1 {
+			l = 1
 		}
-		dfs(root.Left, root, t)
-		dfs(root.Right, root, t)
+		if root.Right != nil && root.Right.Val-root.Val != 1 {
+			r = 1
+		}
+		t := max(l, r)
+		ans = max(ans, t)
+		return t
 	}
-	dfs(root, nil, 1)
-	return ans
+	dfs(root)
+	return
 }
 
 func max(a, b int) int {
