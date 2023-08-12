@@ -14,44 +14,30 @@
 //     }
 //   }
 // }
-impl Solution {
-    pub fn merge_k_lists(mut lists: Vec<Option<Box<ListNode>>>) -> Option<Box<ListNode>> {
-        let n = lists.len();
-        Self::dfs(&mut lists, 0, n)
-    }
+use std::cmp::Ordering;
+use std::collections::BinaryHeap;
 
-    fn dfs(
-        lists: &mut Vec<Option<Box<ListNode>>>,
-        start: usize,
-        end: usize,
-    ) -> Option<Box<ListNode>> {
-        if end - start <= 1 {
-            if lists.get(start).is_some() {
-                return lists[start].take();
+impl PartialOrd for ListNode {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+impl Ord for ListNode {
+    fn cmp(&self, other: &Self) -> Ordering {
+        self.val.cmp(&other.val).reverse()
+    }
+}
+impl Solution {
+    pub fn merge_k_lists(lists: Vec<Option<Box<ListNode>>>) -> Option<Box<ListNode>> {
+        let mut pq = lists.into_iter().filter_map(|head| head).collect::<BinaryHeap<_>>();
+        let mut head = None;
+        let mut cur = &mut head;
+        while let Some(node) = pq.pop() {
+            cur = &mut cur.insert(Box::new(ListNode::new(node.val))).next;
+            if let Some(next) = node.next {
+                pq.push(next);
             }
-            return None;
         }
-        let mid = start + (end - start) / 2;
-        let mut left = Self::dfs(lists, start, mid);
-        let mut right = Self::dfs(lists, mid, end);
-        let mut dummy = Box::new(ListNode::new(0));
-        let mut cur = &mut dummy;
-        while left.is_some() || right.is_some() {
-            let mut next = None;
-            if left.is_some()
-                && (right.is_none() || left.as_ref().unwrap().val < right.as_ref().unwrap().val)
-            {
-                let t = left.as_mut().unwrap().next.take();
-                next = left.take();
-                left = t;
-            } else {
-                let t = right.as_mut().unwrap().next.take();
-                next = right.take();
-                right = t;
-            }
-            cur.next = next;
-            cur = cur.next.as_mut().unwrap();
-        }
-        dummy.next
+        head
     }
 }

@@ -63,26 +63,17 @@ merging them into one sorted list:
 #         self.val = val
 #         self.next = next
 class Solution:
-    def mergeKLists(self, lists: List[ListNode]) -> ListNode:
-        n = len(lists)
-        if n == 0:
-            return None
-        for i in range(n - 1):
-            lists[i + 1] = self.mergeTwoLists(lists[i], lists[i + 1])
-        return lists[-1]
-
-    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
-        dummy = ListNode()
-        cur = dummy
-        while l1 and l2:
-            if l1.val <= l2.val:
-                cur.next = l1
-                l1 = l1.next
-            else:
-                cur.next = l2
-                l2 = l2.next
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        setattr(ListNode, "__lt__", lambda a, b: a.val < b.val)
+        pq = [head for head in lists if head]
+        heapify(pq)
+        dummy = cur = ListNode()
+        while pq:
+            node = heappop(pq)
+            if node.next:
+                heappush(pq, node.next)
+            cur.next = node
             cur = cur.next
-        cur.next = l1 or l2
         return dummy.next
 ```
 
@@ -101,30 +92,22 @@ class Solution:
  */
 class Solution {
     public ListNode mergeKLists(ListNode[] lists) {
-        int n = lists.length;
-        if (n == 0) {
-            return null;
+        PriorityQueue<ListNode> pq = new PriorityQueue<>((a, b) -> a.val - b.val);
+        for (ListNode head : lists) {
+            if (head != null) {
+                pq.offer(head);
+            }
         }
-        for (int i = 0; i < n - 1; ++i) {
-            lists[i + 1] = mergeLists(lists[i], lists[i + 1]);
-        }
-        return lists[n - 1];
-    }
-
-    private ListNode mergeLists(ListNode l1, ListNode l2) {
         ListNode dummy = new ListNode();
         ListNode cur = dummy;
-        while (l1 != null && l2 != null) {
-            if (l1.val <= l2.val) {
-                cur.next = l1;
-                l1 = l1.next;
-            } else {
-                cur.next = l2;
-                l2 = l2.next;
+        while (!pq.isEmpty()) {
+            ListNode node = pq.poll();
+            if (node.next != null) {
+                pq.offer(node.next);
             }
+            cur.next = node;
             cur = cur.next;
         }
-        cur.next = l1 == null ? l2 : l1;
         return dummy.next;
     }
 }
@@ -146,27 +129,24 @@ class Solution {
 class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
-        int n = lists.size();
-        if (n == 0) return nullptr;
-        for (int i = 1; i < n; ++i) lists[i] = mergeTwoLists(lists[i - 1], lists[i]);
-        return lists[n - 1];
-    }
-
-private:
-    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        auto cmp = [](ListNode* a, ListNode* b) { return a->val > b->val; };
+        priority_queue<ListNode*, vector<ListNode*>, decltype(cmp)> pq;
+        for (auto head : lists) {
+            if (head) {
+                pq.push(head);
+            }
+        }
         ListNode* dummy = new ListNode();
         ListNode* cur = dummy;
-        while (l1 && l2) {
-            if (l1->val <= l2->val) {
-                cur->next = l1;
-                l1 = l1->next;
-            } else {
-                cur->next = l2;
-                l2 = l2->next;
+        while (!pq.empty()) {
+            ListNode* node = pq.top();
+            pq.pop();
+            if (node->next) {
+                pq.push(node->next);
             }
+            cur->next = node;
             cur = cur->next;
         }
-        cur->next = l1 ? l1 : l2;
         return dummy->next;
     }
 };
@@ -183,165 +163,32 @@ private:
  * }
  */
 func mergeKLists(lists []*ListNode) *ListNode {
-	n := len(lists)
-	if n == 0 {
-		return nil
+	pq := hp{}
+	for _, head := range lists {
+		if head != nil {
+			pq = append(pq, head)
+		}
 	}
-	for i := 1; i < n; i++ {
-		lists[i] = mergeTwoLists(lists[i-1], lists[i])
-	}
-	return lists[n-1]
-}
-
-func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
+	heap.Init(&pq)
 	dummy := &ListNode{}
 	cur := dummy
-	for l1 != nil && l2 != nil {
-		if l1.Val <= l2.Val {
-			cur.Next = l1
-			l1 = l1.Next
-		} else {
-			cur.Next = l2
-			l2 = l2.Next
-		}
+	for len(pq) > 0 {
+		cur.Next = heap.Pop(&pq).(*ListNode)
 		cur = cur.Next
-	}
-	if l1 != nil {
-		cur.Next = l1
-	} else if l2 != nil {
-		cur.Next = l2
+		if cur.Next != nil {
+			heap.Push(&pq, cur.Next)
+		}
 	}
 	return dummy.Next
 }
-```
 
-### **JavaScript**
+type hp []*ListNode
 
-```js
-/**
- * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
- * }
- */
-/**
- * @param {ListNode[]} lists
- * @return {ListNode}
- */
-var mergeKLists = function (lists) {
-    const n = lists.length;
-    if (n == 0) {
-        return null;
-    }
-    for (let i = 1; i < n; ++i) {
-        lists[i] = mergeTwoLists(lists[i - 1], lists[i]);
-    }
-    return lists[n - 1];
-};
-
-function mergeTwoLists(l1, l2) {
-    const dummy = new ListNode();
-    let cur = dummy;
-    while (l1 && l2) {
-        if (l1.val <= l2.val) {
-            cur.next = l1;
-            l1 = l1.next;
-        } else {
-            cur.next = l2;
-            l2 = l2.next;
-        }
-        cur = cur.next;
-    }
-    cur.next = l1 || l2;
-    return dummy.next;
-}
-```
-
-### **Ruby**
-
-```rb
-# Definition for singly-linked list.
-# class ListNode
-#     attr_accessor :val, :next
-#     def initialize(val = 0, _next = nil)
-#         @val = val
-#         @next = _next
-#     end
-# end
-# @param {ListNode[]} lists
-# @return {ListNode}
-def merge_k_lists(lists)
-    n = lists.length
-    i = 1
-    while i < n
-        lists[i] = merge_two_lists(lists[i - 1], lists[i])
-        i += 1
-    end
-    lists[n - 1]
-end
-
-def merge_two_lists(l1, l2)
-  dummy = ListNode.new()
-  cur = dummy
-  while l1 && l2
-      if l1.val <= l2.val
-          cur.next = l1
-          l1 = l1.next
-      else
-          cur.next = l2
-          l2 = l2.next
-      end
-      cur = cur.next
-  end
-  cur.next = l1 || l2
-  dummy.next
-end
-```
-
-### **C#**
-
-```cs
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     public int val;
- *     public ListNode next;
- *     public ListNode(int val=0, ListNode next=null) {
- *         this.val = val;
- *         this.next = next;
- *     }
- * }
- */
-public class Solution {
-    public ListNode MergeKLists(ListNode[] lists) {
-        int n = lists.Length;
-        if (n == 0) {
-            return null;
-        }
-        for (int i = 1; i < n; ++i) {
-            lists[i] = MergeTwoLists(lists[i - 1], lists[i]);
-        }
-        return lists[n - 1];
-    }
-
-    private ListNode MergeTwoLists(ListNode l1, ListNode l2) {
-        ListNode dummy = new ListNode();
-        ListNode cur = dummy;
-        while (l1 != null && l2 != null) {
-            if (l1.val <= l2.val) {
-                cur.next = l1;
-                l1 = l1.next;
-            } else {
-                cur.next = l2;
-                l2 = l2.next;
-            }
-            cur = cur.next;
-        }
-        cur.next = l1 == null ? l2 : l1;
-        return dummy.next;
-    }
-}
+func (h hp) Len() int           { return len(h) }
+func (h hp) Less(i, j int) bool { return h[i].Val < h[j].Val }
+func (h hp) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
+func (h *hp) Push(v any)        { *h = append(*h, v.(*ListNode)) }
+func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
 ### **TypeScript**
@@ -360,36 +207,95 @@ public class Solution {
  */
 
 function mergeKLists(lists: Array<ListNode | null>): ListNode | null {
-    const n = lists.length;
-    const dfs = (start: number, end: number) => {
-        if (end - start <= 1) {
-            return lists[start] ?? null;
+    const pq = new MinPriorityQueue({ priority: (node: ListNode) => node.val });
+    for (const head of lists) {
+        if (head) {
+            pq.enqueue(head);
         }
+    }
+    const dummy: ListNode = new ListNode();
+    let cur: ListNode = dummy;
+    while (!pq.isEmpty()) {
+        const node = pq.dequeue().element;
+        cur.next = node;
+        cur = cur.next;
+        if (node.next) {
+            pq.enqueue(node.next);
+        }
+    }
+    return dummy.next;
+}
+```
 
-        const mid = (start + end) >> 1;
-        let left = dfs(start, mid);
-        let right = dfs(mid, end);
+### **JavaScript**
 
-        const dummy = new ListNode();
-        let cur = dummy;
-        while (left || right) {
-            let next: ListNode;
-            if (
-                (left ?? { val: Infinity }).val <
-                (right ?? { val: Infinity }).val
-            ) {
-                next = left;
-                left = left.next;
-            } else {
-                next = right;
-                right = right.next;
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode[]} lists
+ * @return {ListNode}
+ */
+var mergeKLists = function (lists) {
+    const pq = new MinPriorityQueue({ priority: node => node.val });
+    for (const head of lists) {
+        if (head) {
+            pq.enqueue(head);
+        }
+    }
+    const dummy = new ListNode();
+    let cur = dummy;
+    while (!pq.isEmpty()) {
+        const node = pq.dequeue().element;
+        cur.next = node;
+        cur = cur.next;
+        if (node.next) {
+            pq.enqueue(node.next);
+        }
+    }
+    return dummy.next;
+};
+```
+
+### **C#**
+
+```cs
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode MergeKLists(ListNode[] lists) {
+        PriorityQueue<ListNode, int> pq = new PriorityQueue<ListNode, int>();
+        foreach (var head in lists) {
+            if (head != null) {
+                pq.Enqueue(head, head.val);
             }
-            cur.next = next;
-            cur = next;
+        }
+        var dummy = new ListNode();
+        var cur = dummy;
+        while (pq.Count > 0) {
+            var node = pq.Dequeue();
+            cur.next = node;
+            cur = cur.next;
+            if (node.next != null) {
+                pq.Enqueue(node.next, node.next.val);
+            }
         }
         return dummy.next;
-    };
-    return dfs(0, n);
+    }
 }
 ```
 
@@ -412,45 +318,31 @@ function mergeKLists(lists: Array<ListNode | null>): ListNode | null {
 //     }
 //   }
 // }
-impl Solution {
-    pub fn merge_k_lists(mut lists: Vec<Option<Box<ListNode>>>) -> Option<Box<ListNode>> {
-        let n = lists.len();
-        Self::dfs(&mut lists, 0, n)
-    }
+use std::cmp::Ordering;
+use std::collections::BinaryHeap;
 
-    fn dfs(
-        lists: &mut Vec<Option<Box<ListNode>>>,
-        start: usize,
-        end: usize,
-    ) -> Option<Box<ListNode>> {
-        if end - start <= 1 {
-            if lists.get(start).is_some() {
-                return lists[start].take();
+impl PartialOrd for ListNode {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+impl Ord for ListNode {
+    fn cmp(&self, other: &Self) -> Ordering {
+        self.val.cmp(&other.val).reverse()
+    }
+}
+impl Solution {
+    pub fn merge_k_lists(lists: Vec<Option<Box<ListNode>>>) -> Option<Box<ListNode>> {
+        let mut pq = lists.into_iter().filter_map(|head| head).collect::<BinaryHeap<_>>();
+        let mut head = None;
+        let mut cur = &mut head;
+        while let Some(node) = pq.pop() {
+            cur = &mut cur.insert(Box::new(ListNode::new(node.val))).next;
+            if let Some(next) = node.next {
+                pq.push(next);
             }
-            return None;
         }
-        let mid = start + (end - start) / 2;
-        let mut left = Self::dfs(lists, start, mid);
-        let mut right = Self::dfs(lists, mid, end);
-        let mut dummy = Box::new(ListNode::new(0));
-        let mut cur = &mut dummy;
-        while left.is_some() || right.is_some() {
-            let mut next = None;
-            if left.is_some()
-                && (right.is_none() || left.as_ref().unwrap().val < right.as_ref().unwrap().val)
-            {
-                let t = left.as_mut().unwrap().next.take();
-                next = left.take();
-                left = t;
-            } else {
-                let t = right.as_mut().unwrap().next.take();
-                next = right.take();
-                right = t;
-            }
-            cur.next = next;
-            cur = cur.next.as_mut().unwrap();
-        }
-        dummy.next
+        head
     }
 }
 ```

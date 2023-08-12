@@ -5,34 +5,30 @@
  *     Next *ListNode
  * }
  */
-func mergeKLists(lists []*ListNode) *ListNode {
-	n := len(lists)
-	if n == 0 {
-		return nil
+ func mergeKLists(lists []*ListNode) *ListNode {
+	pq := hp{}
+	for _, head := range lists {
+		if head != nil {
+			pq = append(pq, head)
+		}
 	}
-	for i := 1; i < n; i++ {
-		lists[i] = mergeTwoLists(lists[i-1], lists[i])
-	}
-	return lists[n-1]
-}
-
-func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
+	heap.Init(&pq)
 	dummy := &ListNode{}
 	cur := dummy
-	for l1 != nil && l2 != nil {
-		if l1.Val <= l2.Val {
-			cur.Next = l1
-			l1 = l1.Next
-		} else {
-			cur.Next = l2
-			l2 = l2.Next
-		}
+	for len(pq) > 0 {
+		cur.Next = heap.Pop(&pq).(*ListNode)
 		cur = cur.Next
-	}
-	if l1 != nil {
-		cur.Next = l1
-	} else if l2 != nil {
-		cur.Next = l2
+		if cur.Next != nil {
+			heap.Push(&pq, cur.Next)
+		}
 	}
 	return dummy.Next
 }
+
+type hp []*ListNode
+
+func (h hp) Len() int           { return len(h) }
+func (h hp) Less(i, j int) bool { return h[i].Val < h[j].Val }
+func (h hp) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
+func (h *hp) Push(v any)        { *h = append(*h, v.(*ListNode)) }
+func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
