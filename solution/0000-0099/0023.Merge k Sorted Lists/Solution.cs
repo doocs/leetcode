@@ -11,30 +11,22 @@
  */
 public class Solution {
     public ListNode MergeKLists(ListNode[] lists) {
-        int n = lists.Length;
-        if (n == 0) {
-            return null;
-        }
-        for (int i = 1; i < n; ++i) {
-            lists[i] = MergeTwoLists(lists[i - 1], lists[i]);
-        }
-        return lists[n - 1];
-    }
-
-    private ListNode MergeTwoLists(ListNode l1, ListNode l2) {
-        ListNode dummy = new ListNode();
-        ListNode cur = dummy;
-        while (l1 != null && l2 != null) {
-            if (l1.val <= l2.val) {
-                cur.next = l1;
-                l1 = l1.next;
-            } else {
-                cur.next = l2;
-                l2 = l2.next;
+        PriorityQueue<ListNode, int> pq = new PriorityQueue<ListNode, int>();
+        foreach (var head in lists) {
+            if (head != null) {
+                pq.Enqueue(head, head.val);
             }
-            cur = cur.next;
         }
-        cur.next = l1 == null ? l2 : l1;
+        var dummy = new ListNode();
+        var cur = dummy;
+        while (pq.Count > 0) {
+            var node = pq.Dequeue();
+            cur.next = node;
+            cur = cur.next;
+            if (node.next != null) {
+                pq.Enqueue(node.next, node.next.val);
+            }
+        }
         return dummy.next;
     }
 }
