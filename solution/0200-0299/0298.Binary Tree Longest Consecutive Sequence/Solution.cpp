@@ -11,19 +11,25 @@
  */
 class Solution {
 public:
-    int ans;
-
     int longestConsecutive(TreeNode* root) {
-        ans = 1;
-        dfs(root, nullptr, 1);
+        int ans = 0;
+        function<int(TreeNode*)> dfs = [&](TreeNode* root) {
+            if (!root) {
+                return 0;
+            }
+            int l = dfs(root->left) + 1;
+            int r = dfs(root->right) + 1;
+            if (root->left && root->left->val - root->val != 1) {
+                l = 1;
+            }
+            if (root->right && root->right->val - root->val != 1) {
+                r = 1;
+            }
+            int t = max(l, r);
+            ans = max(ans, t);
+            return t;
+        };
+        dfs(root);
         return ans;
-    }
-
-    void dfs(TreeNode* root, TreeNode* p, int t) {
-        if (!root) return;
-        t = p != nullptr && p->val + 1 == root->val ? t + 1 : 1;
-        ans = max(ans, t);
-        dfs(root->left, root, t);
-        dfs(root->right, root, t);
     }
 };

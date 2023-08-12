@@ -5,16 +5,21 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def longestConsecutive(self, root: TreeNode) -> int:
-        def dfs(root, p, t):
-            nonlocal ans
+    def longestConsecutive(self, root: Optional[TreeNode]) -> int:
+        def dfs(root: Optional[TreeNode]) -> int:
             if root is None:
-                return
-            t = t + 1 if p is not None and p.val + 1 == root.val else 1
+                return 0
+            l = dfs(root.left) + 1
+            r = dfs(root.right) + 1
+            if root.left and root.left.val - root.val != 1:
+                l = 1
+            if root.right and root.right.val - root.val != 1:
+                r = 1
+            t = max(l, r)
+            nonlocal ans
             ans = max(ans, t)
-            dfs(root.left, root, t)
-            dfs(root.right, root, t)
+            return t
 
-        ans = 1
-        dfs(root, None, 1)
+        ans = 0
+        dfs(root)
         return ans
