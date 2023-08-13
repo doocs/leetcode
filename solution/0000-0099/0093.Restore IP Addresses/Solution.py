@@ -1,23 +1,24 @@
 class Solution:
     def restoreIpAddresses(self, s: str) -> List[str]:
-        def check(s):
-            if not (0 <= int(s) <= 255):
+        def check(i: int, j: int) -> int:
+            if s[i] == "0" and i != j:
                 return False
-            if s[0] == '0' and len(s) > 1:
-                return False
-            return True
+            return 0 <= int(s[i : j + 1]) <= 255
 
-        def dfs(s, t):
-            if len(t) == 4:
-                if not s:
-                    ans.append('.'.join(t))
+        def dfs(i: int):
+            if i >= n and len(t) == 4:
+                ans.append(".".join(t))
                 return
-            for i in range(1, min(4, len(s) + 1)):
-                if check(s[:i]):
-                    t.append(s[:i])
-                    dfs(s[i:], t)
+            if i >= n or len(t) >= 4:
+                return
+            for j in range(i, min(i + 3, n)):
+                if check(i, j):
+                    t.append(s[i : j + 1])
+                    dfs(j + 1)
                     t.pop()
 
+        n = len(s)
         ans = []
-        dfs(s, [])
+        t = []
+        dfs(0)
         return ans

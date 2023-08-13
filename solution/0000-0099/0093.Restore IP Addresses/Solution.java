@@ -1,40 +1,33 @@
 class Solution {
-    private List<String> ans;
+    private int n;
+    private String s;
+    private List<String> ans = new ArrayList<>();
+    private List<String> t = new ArrayList<>();
 
     public List<String> restoreIpAddresses(String s) {
-        ans = new ArrayList<>();
-        dfs(s, new ArrayList<>());
+        n = s.length();
+        this.s = s;
+        dfs(0);
         return ans;
     }
 
-    private void dfs(String s, List<String> t) {
-        if (t.size() == 4) {
-            if ("".equals(s)) {
-                ans.add(String.join(".", t));
-            }
+    private void dfs(int i) {
+        if (i >= n && t.size() == 4) {
+            ans.add(String.join(".", t));
             return;
         }
-        for (int i = 1; i < Math.min(4, s.length() + 1); ++i) {
-            String c = s.substring(0, i);
-            if (check(c)) {
-                t.add(c);
-                dfs(s.substring(i), t);
-                t.remove(t.size() - 1);
+        if (i >= n || t.size() >= 4) {
+            return;
+        }
+        int x = 0;
+        for (int j = i; j < Math.min(i + 3, n); ++j) {
+            x = x * 10 + s.charAt(j) - '0';
+            if (x > 255 || (s.charAt(i) == '0' && i != j)) {
+                break;
             }
+            t.add(s.substring(i, j + 1));
+            dfs(j + 1);
+            t.remove(t.size() - 1);
         }
-    }
-
-    private boolean check(String s) {
-        if ("".equals(s)) {
-            return false;
-        }
-        int num = Integer.parseInt(s);
-        if (num > 255) {
-            return false;
-        }
-        if (s.charAt(0) == '0' && s.length() > 1) {
-            return false;
-        }
-        return true;
     }
 }
