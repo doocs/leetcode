@@ -1,37 +1,29 @@
 class Solution {
 public:
     vector<string> restoreIpAddresses(string s) {
+        int n = s.size();
         vector<string> ans;
         vector<string> t;
-        dfs(s, t, ans);
-        return ans;
-    }
-
-    void dfs(string s, vector<string>& t, vector<string>& ans) {
-        if (t.size() == 4) {
-            if (s == "") {
-                string p = "";
-                for (auto e : t) p += e + ".";
-                p.pop_back();
-                ans.push_back(p);
+        function<void(int)> dfs = [&](int i) {
+            if (i >= n && t.size() == 4) {
+                ans.push_back(t[0] + "." + t[1] + "." + t[2] + "." + t[3]);
+                return;
             }
-            return;
-        }
-        for (int i = 1; i < min(4, (int) s.size() + 1); ++i) {
-            string c = s.substr(0, i);
-            if (check(c)) {
-                t.push_back(c);
-                dfs(s.substr(i, s.size() - i), t, ans);
+            if (i >= n || t.size() >= 4) {
+                return;
+            }
+            int x = 0;
+            for (int j = i; j < min(n, i + 3); ++j) {
+                x = x * 10 + s[j] - '0';
+                if (x > 255 || (j > i && s[i] == '0')) {
+                    break;
+                }
+                t.push_back(s.substr(i, j - i + 1));
+                dfs(j + 1);
                 t.pop_back();
             }
-        }
-    }
-
-    bool check(string s) {
-        if (s == "") return false;
-        int num = stoi(s);
-        if (num > 255) return false;
-        if (s[0] == '0' && s.size() > 1) return false;
-        return true;
+        };
+        dfs(0);
+        return ans;
     }
 };
