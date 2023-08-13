@@ -3,19 +3,12 @@ class Solution:
         m, n = len(s1), len(s2)
         if m + n != len(s3):
             return False
-
-        @cache
-        def dfs(i, j):
-            if i == m and j == n:
-                return True
-
-            return (
-                i < m
-                and s1[i] == s3[i + j]
-                and dfs(i + 1, j)
-                or j < n
-                and s2[j] == s3[i + j]
-                and dfs(i, j + 1)
-            )
-
-        return dfs(0, 0)
+        f = [True] + [False] * n
+        for i in range(m + 1):
+            for j in range(n + 1):
+                k = i + j - 1
+                if i:
+                    f[j] &= s1[i - 1] == s3[k]
+                if j:
+                    f[j] |= f[j - 1] and s2[j - 1] == s3[k]
+        return f[n]
