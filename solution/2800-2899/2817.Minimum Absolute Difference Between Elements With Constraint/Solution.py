@@ -7,9 +7,9 @@ class Solution:
         ans = inf
         for i in range(x, len(nums)):
             sl.add(nums[i - x])
-            p = bisect_left(sl, nums[i])
-            if p < len(sl):
-                ans = min(ans, abs(nums[i] - sl[p]))
-            if p:
-                ans = min(ans, abs(nums[i] - sl[p - 1]))
+            j = bisect_left(sl, nums[i])
+            if j < len(sl):
+                ans = min(ans, sl[j] - nums[i])
+            if j:
+                ans = min(ans, nums[i] - sl[j - 1])
         return ans

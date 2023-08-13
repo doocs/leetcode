@@ -64,6 +64,12 @@
 
 **方法一：单调栈 + 排序贪心**
 
+我们不妨考虑枚举每个元素 $nums[i]$ 作为质数分数最高的元素，那么我们需要找出左边第一个质数分数大于等于当前元素的位置 $l$，以及右边第一个质数分数大于当前元素的位置 $r$，那么以当前元素为最高质数分数的子数组有 $cnt = (i - l) \times (r - i)$ 个，它对答案的贡献为 $nums[i]^{cnt}$。
+
+而题目限制了最多进行 $k$ 次操作，我们可以贪心地从大到小枚举 $nums[i]$，每一次算出其子数组的个数 $cnt$，如果 $cnt \le k$，那么 $nums[i]$ 对答案的贡献就是 $nums[i]^{cnt}$，然后我们更新 $k = k - cnt$，继续枚举下一个元素。如果 $cnt \gt k$，那么 $nums[i]$ 对答案的贡献就是 $nums[i]^{k}$，然后退出循环。
+
+枚举结束，返回答案即可。注意，由于幂次较大，我们需要用到快速幂。
+
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
@@ -129,19 +135,332 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private final int mod = (int) 1e9 + 7;
 
+    public int maximumScore(List<Integer> nums, int k) {
+        int n = nums.size();
+        int[][] arr = new int[n][0];
+        for (int i = 0; i < n; ++i) {
+            arr[i] = new int[]{i, primeFactors(nums.get(i)), nums.get(i)};
+        }
+        int[] left = new int[n];
+        int[] right = new int[n];
+        Arrays.fill(left, -1);
+        Arrays.fill(right, n);
+        Deque<Integer> stk = new ArrayDeque<>();
+        for (int[] e : arr) {
+            int i = e[0], f = e[1];
+            while (!stk.isEmpty() && arr[stk.peek()][1] < f) {
+                stk.pop();
+            }
+            if (!stk.isEmpty()) {
+                left[i] = stk.peek();
+            }
+            stk.push(i);
+        }
+        stk.clear();
+        for (int i = n - 1; i >= 0; --i) {
+            int f = arr[i][1];
+            while (!stk.isEmpty() && arr[stk.peek()][1] <= f) {
+                stk.pop();
+            }
+            if (!stk.isEmpty()) {
+                right[i] = stk.peek();
+            }
+            stk.push(i);
+        }
+        Arrays.sort(arr, (a, b) -> b[2] - a[2]);
+        long ans = 1;
+        for (int[] e : arr) {
+            int i = e[0], x = e[2];
+            int l = left[i], r = right[i];
+            long cnt = (long) (i - l) * (r - i);
+            if (cnt <= k) {
+                ans = ans * qmi(x, cnt, mod) % mod;
+                k -= cnt;
+            } else {
+                ans = ans * qmi(x, k, mod) % mod;
+                break;
+            }
+        }
+        return (int) ans;
+    }
+
+    private int primeFactors(int n) {
+        int i = 2;
+        Set<Integer> ans = new HashSet<>();
+        while (i <= n / i) {
+            while (n % i == 0) {
+                ans.add(i);
+                n /= i;
+            }
+            ++i;
+        }
+        if (n > 1) {
+            ans.add(n);
+        }
+        return ans.size();
+    }
+
+    private int qmi(long a, long k, int p) {
+        long res = 1;
+        while (k != 0) {
+            if ((k & 1) == 1) {
+                res = res * a % p;
+            }
+            k >>= 1;
+            a = a * a % p;
+        }
+        return (int) res;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
+class Solution {
+public:
+    int maximumScore(vector<int>& nums, int k) {
+        const int mod = 1e9 + 7;
+        int n = nums.size();
+        vector<tuple<int, int, int>> arr(n);
+        for (int i = 0; i < n; ++i) {
+            arr[i] = {i, primeFactors(nums[i]), nums[i]};
+        }
+        vector<int> left(n, -1);
+        vector<int> right(n, n);
+        stack<int> stk;
+        for (auto [i, f, _] : arr) {
+            while (!stk.empty() && get<1>(arr[stk.top()]) < f) {
+                stk.pop();
+            }
+            if (!stk.empty()) {
+                left[i] = stk.top();
+            }
+            stk.push(i);
+        }
+        stk = stack<int>();
+        for (int i = n - 1; ~i; --i) {
+            int f = get<1>(arr[i]);
+            while (!stk.empty() && get<1>(arr[stk.top()]) <= f) {
+                stk.pop();
+            }
+            if (!stk.empty()) {
+                right[i] = stk.top();
+            }
+            stk.push(i);
+        }
+        sort(arr.begin(), arr.end(), [](const auto& lhs, const auto& rhs) {
+            return get<2>(rhs) < get<2>(lhs);
+        });
+        long long ans = 1;
+        for (auto [i, _, x] : arr) {
+            int l = left[i], r = right[i];
+            long long cnt = 1LL * (i - l) * (r - i);
+            if (cnt <= k) {
+                ans = ans * qmi(x, cnt, mod) % mod;
+                k -= cnt;
+            } else {
+                ans = ans * qmi(x, k, mod) % mod;
+                break;
+            }
+        }
+        return ans;
+    }
 
+    int primeFactors(int n) {
+        int i = 2;
+        unordered_set<int> ans;
+        while (i <= n / i) {
+            while (n % i == 0) {
+                ans.insert(i);
+                n /= i;
+            }
+            ++i;
+        }
+        if (n > 1) {
+            ans.insert(n);
+        }
+        return ans.size();
+    }
+
+    long qmi(long a, long k, long p) {
+        long res = 1;
+        while (k != 0) {
+            if ((k & 1) == 1) {
+                res = res * a % p;
+            }
+            k >>= 1;
+            a = a * a % p;
+        }
+        return res;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func maximumScore(nums []int, k int) int {
+	n := len(nums)
+	const mod = 1e9 + 7
+	arr := make([][3]int, n)
+	left := make([]int, n)
+	right := make([]int, n)
+	for i, x := range nums {
+		left[i] = -1
+		right[i] = n
+		arr[i] = [3]int{i, primeFactors(x), x}
+	}
+	stk := []int{}
+	for _, e := range arr {
+		i, f := e[0], e[1]
+		for len(stk) > 0 && arr[stk[len(stk)-1]][1] < f {
+			stk = stk[:len(stk)-1]
+		}
+		if len(stk) > 0 {
+			left[i] = stk[len(stk)-1]
+		}
+		stk = append(stk, i)
+	}
+	stk = []int{}
+	for i := n - 1; i >= 0; i-- {
+		f := arr[i][1]
+		for len(stk) > 0 && arr[stk[len(stk)-1]][1] <= f {
+			stk = stk[:len(stk)-1]
+		}
+		if len(stk) > 0 {
+			right[i] = stk[len(stk)-1]
+		}
+		stk = append(stk, i)
+	}
+	sort.Slice(arr, func(i, j int) bool { return arr[i][2] > arr[j][2] })
+	ans := 1
+	for _, e := range arr {
+		i, x := e[0], e[2]
+		l, r := left[i], right[i]
+		cnt := (i - l) * (r - i)
+		if cnt <= k {
+			ans = ans * qmi(x, cnt, mod) % mod
+			k -= cnt
+		} else {
+			ans = ans * qmi(x, k, mod) % mod
+			break
+		}
+	}
+	return ans
+}
 
+func primeFactors(n int) int {
+	i := 2
+	ans := map[int]bool{}
+	for i <= n/i {
+		for n%i == 0 {
+			ans[i] = true
+			n /= i
+		}
+		i++
+	}
+	if n > 1 {
+		ans[n] = true
+	}
+	return len(ans)
+}
+
+func qmi(a, k, p int) int {
+	res := 1
+	for k != 0 {
+		if k&1 == 1 {
+			res = res * a % p
+		}
+		k >>= 1
+		a = a * a % p
+	}
+	return res
+}
+```
+
+### **TypeScript**
+
+```ts
+function maximumScore(nums: number[], k: number): number {
+    const mod = 10 ** 9 + 7;
+    const n = nums.length;
+    const arr: number[][] = Array(n)
+        .fill(0)
+        .map(() => Array(3).fill(0));
+    const left: number[] = Array(n).fill(-1);
+    const right: number[] = Array(n).fill(n);
+    for (let i = 0; i < n; ++i) {
+        arr[i] = [i, primeFactors(nums[i]), nums[i]];
+    }
+    const stk: number[] = [];
+    for (const [i, f, _] of arr) {
+        while (stk.length && arr[stk.at(-1)!][1] < f) {
+            stk.pop();
+        }
+        if (stk.length) {
+            left[i] = stk.at(-1)!;
+        }
+        stk.push(i);
+    }
+    stk.length = 0;
+    for (let i = n - 1; i >= 0; --i) {
+        const f = arr[i][1];
+        while (stk.length && arr[stk.at(-1)!][1] <= f) {
+            stk.pop();
+        }
+        if (stk.length) {
+            right[i] = stk.at(-1)!;
+        }
+        stk.push(i);
+    }
+    arr.sort((a, b) => b[2] - a[2]);
+    let ans = 1n;
+    for (const [i, _, x] of arr) {
+        const l = left[i];
+        const r = right[i];
+        const cnt = (i - l) * (r - i);
+        if (cnt <= k) {
+            ans = (ans * qmi(BigInt(x), cnt, BigInt(mod))) % BigInt(mod);
+            k -= cnt;
+        } else {
+            ans = (ans * qmi(BigInt(x), k, BigInt(mod))) % BigInt(mod);
+            break;
+        }
+    }
+    return Number(ans);
+}
+
+function primeFactors(n: number): number {
+    let i = 2;
+    const s: Set<number> = new Set();
+    while (i * i <= n) {
+        while (n % i === 0) {
+            s.add(i);
+            n = Math.floor(n / i);
+        }
+        ++i;
+    }
+    if (n > 1) {
+        s.add(n);
+    }
+    return s.size;
+}
+
+function qmi(a: bigint, k: number, p: bigint): bigint {
+    let res = 1n;
+    while (k) {
+        if ((k & 1) === 1) {
+            res = (res * a) % p;
+        }
+        k >>= 1;
+        a = (a * a) % p;
+    }
+    return res;
+}
 ```
 
 ### **...**
