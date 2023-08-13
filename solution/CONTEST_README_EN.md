@@ -25,6 +25,13 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 358
+
+- [2815. Max Pair Sum in an Array](/solution/2800-2899/2815.Max%20Pair%20Sum%20in%20an%20Array/README_EN.md)
+- [2816. Double a Number Represented as a Linked List](/solution/2800-2899/2816.Double%20a%20Number%20Represented%20as%20a%20Linked%20List/README_EN.md)
+- [2817. Minimum Absolute Difference Between Elements With Constraint](/solution/2800-2899/2817.Minimum%20Absolute%20Difference%20Between%20Elements%20With%20Constraint/README_EN.md)
+- [2818. Apply Operations to Maximize Score](/solution/2800-2899/2818.Apply%20Operations%20to%20Maximize%20Score/README_EN.md)
+
 #### Weekly Contest 357
 
 - [2810. Faulty Keyboard](/solution/2800-2899/2810.Faulty%20Keyboard/README_EN.md)

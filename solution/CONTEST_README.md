@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 358 场周赛(2023-08-13 10:30, 90 分钟) 参赛人数 4475
+
+- [2815. 数组中的最大数对和](/solution/2800-2899/2815.Max%20Pair%20Sum%20in%20an%20Array/README.md)
+- [2816. 翻倍以链表形式表示的数字](/solution/2800-2899/2816.Double%20a%20Number%20Represented%20as%20a%20Linked%20List/README.md)
+- [2817. 限制条件下元素之间的最小绝对差](/solution/2800-2899/2817.Minimum%20Absolute%20Difference%20Between%20Elements%20With%20Constraint/README.md)
+- [2818. 操作使得分最大](/solution/2800-2899/2818.Apply%20Operations%20to%20Maximize%20Score/README.md)
+
 #### 第 357 场周赛(2023-08-06 10:30, 90 分钟) 参赛人数 4265
 
 - [2810. 故障键盘](/solution/2800-2899/2810.Faulty%20Keyboard/README.md)
