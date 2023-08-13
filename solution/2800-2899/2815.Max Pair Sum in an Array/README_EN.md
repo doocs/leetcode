@@ -37,6 +37,12 @@ It can be shown that there are no other pairs with equal maximum digits, so the 
 
 ## Solutions
 
+**Solution 1: Enumeration**
+
+First, we initialize the answer variable $ans=-1$. Next, we directly enumerate all pairs $(nums[i], nums[j])$ where $i \lt j$, and calculate their sum $v=nums[i] + nums[j]$. If $v$ is greater than $ans$ and the largest digit of $nums[i]$ and $nums[j]$ are the same, then we update $ans$ with $v$.
+
+The time complexity is $O(n^2 \times \log M)$, where $n$ is the length of the array and $M$ is the maximum value in the array.
+
 <!-- tabs:start -->
 
 ### **Python3**

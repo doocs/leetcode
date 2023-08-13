@@ -36,6 +36,12 @@
 
 ## Solutions
 
+**Solution 1: Reverse Linked List + Simulation**
+
+First, we reverse the linked list, then simulate the multiplication operation, and finally reverse the linked list back.
+
+Time complexity is $O(n)$, where $n$ is the length of the linked list. Ignoring the space taken by the answer linked list, the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
