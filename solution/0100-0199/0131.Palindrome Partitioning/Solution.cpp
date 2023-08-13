@@ -11,7 +11,7 @@ public:
         }
         vector<vector<string>> ans;
         vector<string> t;
-        function<void(int)> dfs = [&](int i) -> void {
+        function<void(int)> dfs = [&](int i) {
             if (i == n) {
                 ans.push_back(t);
                 return;
