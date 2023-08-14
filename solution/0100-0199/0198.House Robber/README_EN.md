@@ -55,10 +55,10 @@ class Solution:
 ```python
 class Solution:
     def rob(self, nums: List[int]) -> int:
-        f, g = 0, nums[0]
-        for x in nums[1:]:
-            f, g = g, max(f + x, g)
-        return g
+        f = g = 0
+        for x in nums:
+            f, g = max(f, g), f + x
+        return max(f, g)
 ```
 
 ### **Java**
@@ -80,13 +80,13 @@ class Solution {
 ```java
 class Solution {
     public int rob(int[] nums) {
-        int f = 0, g = nums[0];
-        for (int i = 1; i < nums.length; ++i) {
-            int t = g;
-            g = Math.max(g, f + nums[i]);
-            f = t;
+        int f = 0, g = 0;
+        for (int x : nums) {
+            int ff = Math.max(f, g);
+            g = f + x;
+            f = ff;
         }
-        return g;
+        return Math.max(f, g);
     }
 }
 ```
@@ -113,13 +113,13 @@ public:
 class Solution {
 public:
     int rob(vector<int>& nums) {
-        int f = 0, g = nums[0];
-        for (int i = 1; i < nums.size(); ++i) {
-            int t = g;
-            g = max(g, f + nums[i]);
-            f = t;
+        int f = 0, g = 0;
+        for (int& x : nums) {
+            int ff = max(f, g);
+            g = f + x;
+            f = ff;
         }
-        return g;
+        return max(f, g);
     }
 };
 ```
@@ -147,11 +147,11 @@ func max(a, b int) int {
 
 ```go
 func rob(nums []int) int {
-	f, g := 0, nums[0]
-	for _, x := range nums[1:] {
-		f, g = g, max(f+x, g)
+	f, g := 0, 0
+	for _, x := range nums {
+		f, g = max(f, g), f+x
 	}
-	return g
+	return max(f, g)
 }
 
 func max(a, b int) int {
@@ -178,11 +178,11 @@ function rob(nums: number[]): number {
 
 ```ts
 function rob(nums: number[]): number {
-    let [f, g] = [0, nums[0]];
-    for (let i = 1; i < nums.length; ++i) {
-        [f, g] = [g, Math.max(f + nums[i], g)];
+    let [f, g] = [0, 0];
+    for (const x of nums) {
+        [f, g] = [Math.max(f, g), f + x];
     }
-    return g;
+    return Math.max(f, g);
 }
 ```
 
@@ -193,9 +193,9 @@ impl Solution {
     pub fn rob(nums: Vec<i32>) -> i32 {
         let mut f = [0, 0];
         for x in nums {
-            f = [f[1], f[1].max(f[0] + x)]
+            f = [f[0].max(f[1]), f[0] + x]
         }
-        f[1]
+        f[0].max(f[1])
     }
 }
 ```

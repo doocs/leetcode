@@ -1,12 +1,12 @@
 class Solution {
 public:
     int rob(vector<int>& nums) {
-        int f = 0, g = nums[0];
-        for (int i = 1; i < nums.size(); ++i) {
-            int t = g;
-            g = max(g, f + nums[i]);
-            f = t;
+        int f = 0, g = 0;
+        for (int& x : nums) {
+            int ff = max(f, g);
+            g = f + x;
+            f = ff;
         }
-        return g;
+        return max(f, g);
     }
 };

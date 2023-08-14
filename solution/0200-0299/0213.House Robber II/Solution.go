@@ -3,16 +3,15 @@ func rob(nums []int) int {
 	if n == 1 {
 		return nums[0]
 	}
-	s1, s2 := robRange(nums, 0, n-2), robRange(nums, 1, n-1)
-	return max(s1, s2)
+	return max(robRange(nums, 0, n-2), robRange(nums, 1, n-1))
 }
 
 func robRange(nums []int, l, r int) int {
-	a, b := 0, nums[l]
-	for i := l + 1; i <= r; i++ {
-		a, b = b, max(nums[i]+a, b)
+	f, g := 0, 0
+	for _, x := range nums[l : r+1] {
+		f, g = max(f, g), f+x
 	}
-	return b
+	return max(f, g)
 }
 
 func max(a, b int) int {

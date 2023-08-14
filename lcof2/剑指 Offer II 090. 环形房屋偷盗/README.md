@@ -50,7 +50,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-直接利用上一题的代码，同样的思路，只不过需要特殊考虑第一个房子（环的连接处）
+**方法一：动态规划**
+
+环状排列意味着第一个房屋和最后一个房屋中最多只能选择一个偷窃，因此可以把此环状排列房间问题约化为两个单排排列房屋子问题。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -61,20 +65,15 @@
 ```python
 class Solution:
     def rob(self, nums: List[int]) -> int:
+        def _rob(nums):
+            f = g = 0
+            for x in nums:
+                f, g = max(f, g), f + x
+            return max(f, g)
+
         if len(nums) == 1:
             return nums[0]
-        return max(self._rob(nums[:-1]), self._rob(nums[1:]))
-
-    def _rob(self, nums: List[int]) -> int:
-        if len(nums) == 1:
-            return nums[0]
-
-        n = len(nums)
-        dp = [0] * n
-        dp[0], dp[1] = nums[0], max(nums[0], nums[1])
-        for i in range(2, n):
-            dp[i] = max(dp[i - 2] + nums[i], dp[i - 1])
-        return dp[n - 1]
+        return max(_rob(nums[1:]), _rob(nums[:-1]))
 ```
 
 ### **Java**
@@ -84,24 +83,21 @@ class Solution:
 ```java
 class Solution {
     public int rob(int[] nums) {
-        if (nums.length == 1) {
+        int n = nums.length;
+        if (n == 1) {
             return nums[0];
         }
-        return Math.max(_rob(nums, 0, nums.length - 1), _rob(nums, 1, nums.length));
+        return Math.max(rob(nums, 0, n - 2), rob(nums, 1, n - 1));
     }
 
-    public int _rob(int[] nums, int start, int end) {
-        if (start + 1 == end) {
-            return nums[start];
+    private int rob(int[] nums, int l, int r) {
+        int f = 0, g = 0;
+        for (; l <= r; ++l) {
+            int ff = Math.max(f, g);
+            g = f + nums[l];
+            f = ff;
         }
-        int n = end - start;
-        int[] dp = new int[n];
-        dp[0] = nums[start];
-        dp[1] = Math.max(nums[start], nums[start + 1]);
-        for (int i = 2; i < n; i++) {
-            dp[i] = Math.max(dp[i - 2] + nums[start + i], dp[i - 1]);
-        }
-        return dp[n - 1];
+        return Math.max(f, g);
     }
 }
 ```
@@ -112,24 +108,21 @@ class Solution {
 class Solution {
 public:
     int rob(vector<int>& nums) {
-        if (nums.size() == 1) {
+        int n = nums.size();
+        if (n == 1) {
             return nums[0];
         }
-        return max(_rob(nums, 0, nums.size() - 1), _rob(nums, 1, nums.size()));
+        return max(robRange(nums, 0, n - 2), robRange(nums, 1, n - 1));
     }
 
-    int _rob(vector<int>& nums, int start, int end) {
-        if (start + 1 == end) {
-            return nums[start];
+    int robRange(vector<int>& nums, int l, int r) {
+        int f = 0, g = 0;
+        for (; l <= r; ++l) {
+            int ff = max(f, g);
+            g = f + nums[l];
+            f = ff;
         }
-        int n = end - start;
-        vector<int> dp(n, 0);
-        dp[0] = nums[start];
-        dp[1] = max(nums[start], nums[start + 1]);
-        for (int i = 2; i < n; ++i) {
-            dp[i] = max(dp[i - 2] + nums[start + i], dp[i - 1]);
-        }
-        return dp[n - 1];
+        return max(f, g);
     }
 };
 ```
@@ -138,32 +131,66 @@ public:
 
 ```go
 func rob(nums []int) int {
-	if len(nums) == 1 {
-		return nums[0]
-	}
-	return max(_rob(nums[:len(nums)-1]), _rob(nums[1:]))
-}
-
-func _rob(nums []int) int {
-	if len(nums) == 1 {
-		return nums[0]
-	}
-
 	n := len(nums)
-	dp := make([]int, n)
-	dp[0] = nums[0]
-	dp[1] = max(nums[0], nums[1])
-	for i := 2; i < n; i++ {
-		dp[i] = max(dp[i-2]+nums[i], dp[i-1])
+	if n == 1 {
+		return nums[0]
 	}
-	return dp[n-1]
+	return max(robRange(nums, 0, n-2), robRange(nums, 1, n-1))
 }
 
-func max(x, y int) int {
-	if x > y {
-		return x
+func robRange(nums []int, l, r int) int {
+	f, g := 0, 0
+	for _, x := range nums[l : r+1] {
+		f, g = max(f, g), f+x
 	}
-	return y
+	return max(f, g)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function rob(nums: number[]): number {
+    const n = nums.length;
+    if (n === 1) {
+        return nums[0];
+    }
+    const robRange = (l: number, r: number): number => {
+        let [f, g] = [0, 0];
+        for (; l <= r; ++l) {
+            [f, g] = [Math.max(f, g), f + nums[l]];
+        }
+        return Math.max(f, g);
+    };
+    return Math.max(robRange(0, n - 2), robRange(1, n - 1));
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn rob(nums: Vec<i32>) -> i32 {
+        let n = nums.len();
+        if n == 1 {
+            return nums[0];
+        }
+        let rob_range = |l, r| {
+            let mut f = [0, 0];
+            for i in l..r {
+                f = [f[0].max(f[1]), f[0] + nums[i]];
+            }
+            f[0].max(f[1])
+        };
+        rob_range(0, n - 1).max(rob_range(1, n))
+    }
 }
 ```
 
