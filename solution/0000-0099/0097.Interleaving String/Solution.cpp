@@ -2,22 +2,23 @@ class Solution {
 public:
     bool isInterleave(string s1, string s2, string s3) {
         int m = s1.size(), n = s2.size();
-        if (m + n != s3.size()) return false;
-
-        unordered_map<int, bool> memo;
-
-        function<bool(int, int)> dfs;
-        dfs = [&](int i, int j) {
-            if (i == m && j == n) return true;
-            auto it = memo.find(i * 100 + j);
-            if (it != memo.end()) return it->second;
-
-            bool ret = (i < m && s1[i] == s3[i + j] && dfs(i + 1, j)) || (j < n && s2[j] == s3[i + j] && dfs(i, j + 1));
-
-            memo[i * 100 + j] = ret;
-            return ret;
-        };
-
-        return dfs(0, 0);
+        if (m + n != s3.size()) {
+            return false;
+        }
+        bool f[n + 1];
+        memset(f, false, sizeof(f));
+        f[0] = true;
+        for (int i = 0; i <= m; ++i) {
+            for (int j = 0; j <= n; ++j) {
+                int k = i + j - 1;
+                if (i) {
+                    f[j] &= s1[i - 1] == s3[k];
+                }
+                if (j) {
+                    f[j] |= (s2[j - 1] == s3[k] && f[j - 1]);
+                }
+            }
+        }
+        return f[n];
     }
 };
