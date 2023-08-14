@@ -48,7 +48,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
 环状排列意味着第一个房屋和最后一个房屋中最多只能选择一个偷窃，因此可以把此环状排列房间问题约化为两个单排排列房屋子问题。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -59,17 +63,15 @@
 ```python
 class Solution:
     def rob(self, nums: List[int]) -> int:
-        def robRange(nums, l, r):
-            a, b = 0, nums[l]
-            for num in nums[l + 1 : r + 1]:
-                a, b = b, max(num + a, b)
-            return b
+        def _rob(nums):
+            f = g = 0
+            for x in nums:
+                f, g = max(f, g), f + x
+            return max(f, g)
 
-        n = len(nums)
-        if n == 1:
+        if len(nums) == 1:
             return nums[0]
-        s1, s2 = robRange(nums, 0, n - 2), robRange(nums, 1, n - 1)
-        return max(s1, s2)
+        return max(_rob(nums[1:]), _rob(nums[:-1]))
 ```
 
 ### **Java**
@@ -83,19 +85,17 @@ class Solution {
         if (n == 1) {
             return nums[0];
         }
-        int s1 = robRange(nums, 0, n - 2);
-        int s2 = robRange(nums, 1, n - 1);
-        return Math.max(s1, s2);
+        return Math.max(rob(nums, 0, n - 2), rob(nums, 1, n - 1));
     }
 
-    private int robRange(int[] nums, int l, int r) {
-        int a = 0, b = nums[l];
-        for (int i = l + 1; i <= r; ++i) {
-            int c = Math.max(nums[i] + a, b);
-            a = b;
-            b = c;
+    private int rob(int[] nums, int l, int r) {
+        int f = 0, g = 0;
+        for (; l <= r; ++l) {
+            int ff = Math.max(f, g);
+            g = f + nums[l];
+            f = ff;
         }
-        return b;
+        return Math.max(f, g);
     }
 }
 ```
@@ -107,20 +107,20 @@ class Solution {
 public:
     int rob(vector<int>& nums) {
         int n = nums.size();
-        if (n == 1) return nums[0];
-        int s1 = robRange(nums, 0, n - 2);
-        int s2 = robRange(nums, 1, n - 1);
-        return max(s1, s2);
+        if (n == 1) {
+            return nums[0];
+        }
+        return max(robRange(nums, 0, n - 2), robRange(nums, 1, n - 1));
     }
 
     int robRange(vector<int>& nums, int l, int r) {
-        int a = 0, b = nums[l];
-        for (int i = l + 1; i <= r; ++i) {
-            int c = max(nums[i] + a, b);
-            a = b;
-            b = c;
+        int f = 0, g = 0;
+        for (; l <= r; ++l) {
+            int ff = max(f, g);
+            g = f + nums[l];
+            f = ff;
         }
-        return b;
+        return max(f, g);
     }
 };
 ```
@@ -133,16 +133,15 @@ func rob(nums []int) int {
 	if n == 1 {
 		return nums[0]
 	}
-	s1, s2 := robRange(nums, 0, n-2), robRange(nums, 1, n-1)
-	return max(s1, s2)
+	return max(robRange(nums, 0, n-2), robRange(nums, 1, n-1))
 }
 
 func robRange(nums []int, l, r int) int {
-	a, b := 0, nums[l]
-	for i := l + 1; i <= r; i++ {
-		a, b = b, max(nums[i]+a, b)
+	f, g := 0, 0
+	for _, x := range nums[l : r+1] {
+		f, g = max(f, g), f+x
 	}
-	return b
+	return max(f, g)
 }
 
 func max(a, b int) int {
@@ -161,14 +160,14 @@ function rob(nums: number[]): number {
     if (n === 1) {
         return nums[0];
     }
-    const robRange = (left: number, right: number) => {
-        const dp = [0, 0];
-        for (let i = left; i < right; i++) {
-            [dp[0], dp[1]] = [dp[1], Math.max(dp[1], dp[0] + nums[i])];
+    const robRange = (l: number, r: number): number => {
+        let [f, g] = [0, 0];
+        for (; l <= r; ++l) {
+            [f, g] = [Math.max(f, g), f + nums[l]];
         }
-        return dp[1];
+        return Math.max(f, g);
     };
-    return Math.max(robRange(0, n - 1), robRange(1, n));
+    return Math.max(robRange(0, n - 2), robRange(1, n - 1));
 }
 ```
 
@@ -181,12 +180,12 @@ impl Solution {
         if n == 1 {
             return nums[0];
         }
-        let rob_range = |left, right| {
-            let mut dp = [0, 0];
-            for i in left..right {
-                dp = [dp[1], dp[1].max(dp[0] + nums[i])];
+        let rob_range = |l, r| {
+            let mut f = [0, 0];
+            for i in l..r {
+                f = [f[0].max(f[1]), f[0] + nums[i]];
             }
-            dp[1]
+            f[0].max(f[1])
         };
         rob_range(0, n - 1).max(rob_range(1, n))
     }
