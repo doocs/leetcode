@@ -40,7 +40,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-模拟笔算加法的过程，注意进位
+**方法一：模拟**
+
+我们用一个变量 $carry$ 记录当前的进位，用两个指针 $i$ 和 $j$ 分别指向 $a$ 和 $b$ 的末尾，从末尾到开头逐位相加即可。
+
+时间复杂度 $O(\max(m, n))$，其中 $m$ 和 $n$ 分别为字符串 $a$ 和 $b$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -51,23 +55,20 @@
 ```python
 class Solution:
     def addBinary(self, a: str, b: str) -> str:
-        x, y = len(a) - 1, len(b) - 1
-        arr = []
-        carry = 0
-        while x >= 0 or y >= 0:
-            if x >= 0:
-                if a[x] == '1':
-                    carry += 1
-                x -= 1
-            if y >= 0:
-                if b[y] == '1':
-                    carry += 1
-                y -= 1
-            arr.append(chr((carry & 1) + ord('0')))
-            carry >>= 1
-        if carry == 1:
-            arr.append('1')
-        return ''.join(reversed(arr))
+        return bin(int(a, 2) + int(b, 2))[2:]
+```
+
+```python
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+        ans = []
+        i, j, carry = len(a) - 1, len(b) - 1, 0
+        while i >= 0 or j >= 0 or carry:
+            carry += (0 if i < 0 else int(a[i])) + (0 if j < 0 else int(b[j]))
+            carry, v = divmod(carry, 2)
+            ans.append(str(v))
+            i, j = i - 1, j - 1
+        return ''.join(ans[::-1])
 ```
 
 ### **Java**
@@ -77,64 +78,15 @@ class Solution:
 ```java
 class Solution {
     public String addBinary(String a, String b) {
-        int x = a.length() - 1, y = b.length() - 1;
-        StringBuilder builder = new StringBuilder();
-        int carry = 0;
-        while (x >= 0 || y >= 0) {
-            if (x >= 0) {
-                if (a.charAt(x) == '1') {
-                    carry += 1;
-                }
-                x--;
-            }
-            if (y >= 0) {
-                if (b.charAt(y) == '1') {
-                    carry += 1;
-                }
-                y--;
-            }
-            builder.append((char) ((carry & 1) + '0'));
-            carry >>= 1;
+        var sb = new StringBuilder();
+        int i = a.length() - 1, j = b.length() - 1;
+        for (int carry = 0; i >= 0 || j >= 0 || carry > 0; --i, --j) {
+            carry += (i >= 0 ? a.charAt(i) - '0' : 0) + (j >= 0 ? b.charAt(j) - '0' : 0);
+            sb.append(carry % 2);
+            carry /= 2;
         }
-        if (carry == 1) {
-            builder.append('1');
-        }
-        return builder.reverse().toString();
+        return sb.reverse().toString();
     }
-}
-```
-
-### **Go**
-
-```go
-func addBinary(a string, b string) string {
-	x, y := len(a)-1, len(b)-1
-	var builder strings.Builder
-	carry := 0
-	for x >= 0 || y >= 0 {
-		if x >= 0 {
-			if a[x] == '1' {
-				carry += 1
-			}
-			x--
-		}
-		if y >= 0 {
-			if b[y] == '1' {
-				carry += 1
-			}
-			y--
-		}
-		builder.WriteRune(rune(carry&1 + '0'))
-		carry >>= 1
-	}
-	if carry == 1 {
-		builder.WriteRune('1')
-	}
-	bytes := []byte(builder.String())
-	for i, j := 0, len(bytes)-1; i < j; i, j = i+1, j-1 {
-		bytes[i], bytes[j] = bytes[j], bytes[i]
-	}
-	return string(bytes)
 }
 ```
 
@@ -144,26 +96,85 @@ func addBinary(a string, b string) string {
 class Solution {
 public:
     string addBinary(string a, string b) {
-        string res;
-        int carry = 0;
-
-        int i = a.size() - 1;
-        int j = b.size() - 1;
-
-        while (i >= 0 || j >= 0) {
-            int digitA = i >= 0 ? a.at(i--) - '0' : 0;
-            int digitB = j >= 0 ? b.at(j--) - '0' : 0;
-            int sum = digitA + digitB + carry;
-            carry = sum >= 2 ? 1 : 0;
-            sum = sum >= 2 ? sum - 2 : sum;
-            res += to_string(sum);
+        string ans;
+        int i = a.size() - 1, j = b.size() - 1;
+        for (int carry = 0; i >= 0 || j >= 0 || carry; --i, --j) {
+            carry += (i >= 0 ? a[i] - '0' : 0) + (j >= 0 ? b[j] - '0' : 0);
+            ans.push_back((carry % 2) + '0');
+            carry /= 2;
         }
-
-        if (carry == 1) res.push_back('1');
-        reverse(res.begin(), res.end());
-        return res;
+        reverse(ans.begin(), ans.end());
+        return ans;
     }
 };
+```
+
+### **Go**
+
+```go
+func addBinary(a string, b string) string {
+	i, j := len(a)-1, len(b)-1
+	ans := []byte{}
+	for carry := 0; i >= 0 || j >= 0 || carry > 0; i, j = i-1, j-1 {
+		if i >= 0 {
+			carry += int(a[i] - '0')
+		}
+		if j >= 0 {
+			carry += int(b[j] - '0')
+		}
+		ans = append(ans, byte(carry%2+'0'))
+		carry /= 2
+	}
+	for i, j := 0, len(ans)-1; i < j; i, j = i+1, j-1 {
+		ans[i], ans[j] = ans[j], ans[i]
+	}
+	return string(ans)
+}
+```
+
+### **TypeScript**
+
+```ts
+function addBinary(a: string, b: string): string {
+    let i = a.length - 1;
+    let j = b.length - 1;
+    let ans: number[] = [];
+    for (let carry = 0; i >= 0 || j >= 0 || carry; --i, --j) {
+        carry += (i >= 0 ? a[i] : '0').charCodeAt(0) - '0'.charCodeAt(0);
+        carry += (j >= 0 ? b[j] : '0').charCodeAt(0) - '0'.charCodeAt(0);
+        ans.push(carry % 2);
+        carry >>= 1;
+    }
+    return ans.reverse().join('');
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn add_binary(a: String, b: String) -> String {
+        let mut i = a.len() as i32 - 1;
+        let mut j = b.len() as i32 - 1;
+        let mut carry = 0;
+        let mut ans = String::new();
+        let a = a.as_bytes();
+        let b = b.as_bytes();
+        while i >= 0 || j >= 0 || carry > 0 {
+            if i >= 0 {
+                carry += a[i as usize] - b'0';
+                i -= 1;
+            }
+            if j >= 0 {
+                carry += b[j as usize] - b'0';
+                j -= 1;
+            }
+            ans.push_str(&(carry % 2).to_string());
+            carry /= 2;
+        }
+        ans.chars().rev().collect()
+    }
+}
 ```
 
 ### **...**

@@ -1,19 +1,10 @@
 class Solution:
     def addBinary(self, a: str, b: str) -> str:
-        x, y = len(a) - 1, len(b) - 1
-        arr = []
-        carry = 0
-        while x >= 0 or y >= 0:
-            if x >= 0:
-                if a[x] == '1':
-                    carry += 1
-                x -= 1
-            if y >= 0:
-                if b[y] == '1':
-                    carry += 1
-                y -= 1
-            arr.append(chr((carry & 1) + ord('0')))
-            carry >>= 1
-        if carry == 1:
-            arr.append('1')
-        return ''.join(reversed(arr))
+        ans = []
+        i, j, carry = len(a) - 1, len(b) - 1, 0
+        while i >= 0 or j >= 0 or carry:
+            carry += (0 if i < 0 else int(a[i])) + (0 if j < 0 else int(b[j]))
+            carry, v = divmod(carry, 2)
+            ans.append(str(v))
+            i, j = i - 1, j - 1
+        return "".join(ans[::-1])

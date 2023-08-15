@@ -1,27 +1,12 @@
 class Solution {
     public String addBinary(String a, String b) {
-        int x = a.length() - 1, y = b.length() - 1;
-        StringBuilder builder = new StringBuilder();
-        int carry = 0;
-        while (x >= 0 || y >= 0) {
-            if (x >= 0) {
-                if (a.charAt(x) == '1') {
-                    carry += 1;
-                }
-                x--;
-            }
-            if (y >= 0) {
-                if (b.charAt(y) == '1') {
-                    carry += 1;
-                }
-                y--;
-            }
-            builder.append((char) ((carry & 1) + '0'));
-            carry >>= 1;
+        var sb = new StringBuilder();
+        int i = a.length() - 1, j = b.length() - 1;
+        for (int carry = 0; i >= 0 || j >= 0 || carry > 0; --i, --j) {
+            carry += (i >= 0 ? a.charAt(i) - '0' : 0) + (j >= 0 ? b.charAt(j) - '0' : 0);
+            sb.append(carry % 2);
+            carry /= 2;
         }
-        if (carry == 1) {
-            builder.append('1');
-        }
-        return builder.reverse().toString();
+        return sb.reverse().toString();
     }
 }
