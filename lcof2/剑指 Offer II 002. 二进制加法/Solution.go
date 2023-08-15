@@ -1,29 +1,18 @@
 func addBinary(a string, b string) string {
-	x, y := len(a)-1, len(b)-1
-	var builder strings.Builder
-	carry := 0
-	for x >= 0 || y >= 0 {
-		if x >= 0 {
-			if a[x] == '1' {
-				carry += 1
-			}
-			x--
+	i, j := len(a)-1, len(b)-1
+	ans := []byte{}
+	for carry := 0; i >= 0 || j >= 0 || carry > 0; i, j = i-1, j-1 {
+		if i >= 0 {
+			carry += int(a[i] - '0')
 		}
-		if y >= 0 {
-			if b[y] == '1' {
-				carry += 1
-			}
-			y--
+		if j >= 0 {
+			carry += int(b[j] - '0')
 		}
-		builder.WriteRune(rune(carry&1 + '0'))
-		carry >>= 1
+		ans = append(ans, byte(carry%2+'0'))
+		carry /= 2
 	}
-	if carry == 1 {
-		builder.WriteRune('1')
+	for i, j := 0, len(ans)-1; i < j; i, j = i+1, j-1 {
+		ans[i], ans[j] = ans[j], ans[i]
 	}
-	bytes := []byte(builder.String())
-	for i, j := 0, len(bytes)-1; i < j; i, j = i+1, j-1 {
-		bytes[i], bytes[j] = bytes[j], bytes[i]
-	}
-	return string(bytes)
+	return string(ans)
 }
