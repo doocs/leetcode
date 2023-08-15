@@ -57,6 +57,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+我们直接模拟宝石的赠送过程，最后返回最大值和最小值的差值即可。
+
+时间复杂度 $O(m + n)$，其中 $m$ 和 $n$ 分别是数组 `gem` 和 `operations` 的长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -64,7 +70,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def giveGem(self, gem: List[int], operations: List[List[int]]) -> int:
+        for x, y in operations:
+            v = gem[x] >> 1
+            gem[y] += v
+            gem[x] -= v
+        return max(gem) - min(gem)
 ```
 
 ### **Java**
@@ -72,7 +84,87 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int giveGem(int[] gem, int[][] operations) {
+        for (var op : operations) {
+            int x = op[0], y = op[1];
+            int v = gem[x] >> 1;
+            gem[y] += v;
+            gem[x] -= v;
+        }
+        int mx = 0, mi = 1 << 30;
+        for (int x : gem) {
+            mx = Math.max(mx, x);
+            mi = Math.min(mi, x);
+        }
+        return mx - mi;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int giveGem(vector<int>& gem, vector<vector<int>>& operations) {
+        for (auto& op : operations) {
+            int x = op[0], y = op[1];
+            int v = gem[x] >> 1;
+            gem[y] += v;
+            gem[x] -= v;
+        }
+        int mx = *max_element(gem.begin(), gem.end());
+        int mi = *min_element(gem.begin(), gem.end());
+        return mx - mi;
+    }
+};
+```
+
+### **Go**
+
+```go
+func giveGem(gem []int, operations [][]int) int {
+	for _, op := range operations {
+		x, y := op[0], op[1]
+		v := gem[x] >> 1
+		gem[y] += v
+		gem[x] -= v
+	}
+	mx, mi := 0, 1<<30
+	for _, x := range gem {
+		mx = max(mx, x)
+		mi = min(mi, x)
+	}
+	return mx - mi
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function giveGem(gem: number[], operations: number[][]): number {
+    for (const [x, y] of operations) {
+        const v = gem[x] >> 1;
+        gem[y] += v;
+        gem[x] -= v;
+    }
+    return Math.max(...gem) - Math.min(...gem);
+}
 ```
 
 ### **...**
