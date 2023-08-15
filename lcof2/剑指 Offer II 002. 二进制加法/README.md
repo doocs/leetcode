@@ -136,6 +136,12 @@ func addBinary(a string, b string) string {
 
 ```ts
 function addBinary(a: string, b: string): string {
+    return (BigInt('0b' + a) + BigInt('0b' + b)).toString(2);
+}
+```
+
+```ts
+function addBinary(a: string, b: string): string {
     let i = a.length - 1;
     let j = b.length - 1;
     let ans: number[] = [];
