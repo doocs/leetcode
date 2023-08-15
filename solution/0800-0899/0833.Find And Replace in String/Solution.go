@@ -1,10 +1,9 @@
 func findReplaceString(s string, indices []int, sources []string, targets []string) string {
 	n := len(s)
 	d := make([]int, n)
-	for i, j := range indices {
-		source := sources[i]
-		if s[j:min(j+len(source), n)] == source {
-			d[j] = i + 1
+	for k, i := range indices {
+		if strings.HasPrefix(s[i:], sources[k]) {
+			d[i] = k + 1
 		}
 	}
 	ans := &strings.Builder{}
@@ -18,11 +17,4 @@ func findReplaceString(s string, indices []int, sources []string, targets []stri
 		}
 	}
 	return ans.String()
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }

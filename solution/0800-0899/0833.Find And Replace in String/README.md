@@ -72,11 +72,11 @@
 
 **方法一：模拟**
 
-我们先遍历 `indices`，对于每个 $i$，如果 `s[indices[i]: indices[i] + len(sources[i])] == sources[i]`，则说明 $s$ 中从 `indices[i]` 开始的 `len(sources[i])` 个字符与 `sources[i]` 相等，我们记录下标 `indices[i]` 处需要替换的是 `targets[i]`，否则不需要替换。
+我们遍历每个替换操作，对于当前第 $k$ 个替换操作 $(i, src)$，如果 $s[i..i+|src|-1]$ 与 $src$ 相等，此时我们记录下标 $i$ 处需要替换的是 $targets$ 的第 $k$ 个字符串，否则不需要替换。
 
-然后我们从左到右遍历 $s$，如果当前下标 $i$ 处需要替换，则将 `targets[d[i]]` 加入答案，并且 $i$ 跳过 `len(sources[d[i]])` 个字符，否则将 `s[i]` 加入答案，然后 $i$ 自增 $1$。
+接下来，我们只需要遍历原字符串 $s$，根据记录的信息进行替换即可。
 
-时间复杂度 $O(k + n)$，空间复杂度 $O(n)$。其中 $k$ 和 $n$ 分别是 `indices` 和 $s$ 的长度。
+时间复杂度 $O(L)$，空间复杂度 $O(n)$。其中 $L$ 是所有字符串的长度之和，而 $n$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 
@@ -91,19 +91,19 @@ class Solution:
     ) -> str:
         n = len(s)
         d = [-1] * n
-        for i, (j, source) in enumerate(zip(indices, sources)):
-            if s[j : j + len(source)] == source:
-                d[j] = i
+        for k, (i, src) in enumerate(zip(indices, sources)):
+            if s.startswith(src, i):
+                d[i] = k
         ans = []
         i = 0
         while i < n:
-            if d[i] >= 0:
+            if ~d[i]:
                 ans.append(targets[d[i]])
                 i += len(sources[d[i]])
             else:
                 ans.append(s[i])
                 i += 1
-        return ''.join(ans)
+        return "".join(ans)
 ```
 
 ### **Java**
@@ -114,16 +114,15 @@ class Solution:
 class Solution {
     public String findReplaceString(String s, int[] indices, String[] sources, String[] targets) {
         int n = s.length();
-        int[] d = new int[n];
+        var d = new int[n];
         Arrays.fill(d, -1);
-        for (int i = 0; i < indices.length; ++i) {
-            int j = indices[i];
-            String source = sources[i];
-            if (s.substring(j, Math.min(n, j + source.length())).equals(source)) {
-                d[j] = i;
+        for (int k = 0; k < indices.length; ++k) {
+            int i = indices[k];
+            if (s.startsWith(sources[k], i)) {
+                d[i] = k;
             }
         }
-        StringBuilder ans = new StringBuilder();
+        var ans = new StringBuilder();
         for (int i = 0; i < n;) {
             if (d[i] >= 0) {
                 ans.append(targets[d[i]]);
@@ -145,16 +144,15 @@ public:
     string findReplaceString(string s, vector<int>& indices, vector<string>& sources, vector<string>& targets) {
         int n = s.size();
         vector<int> d(n, -1);
-        for (int i = 0; i < indices.size(); ++i) {
-            int j = indices[i];
-            string source = sources[i];
-            if (s.substr(j, source.size()) == source) {
-                d[j] = i;
+        for (int k = 0; k < indices.size(); ++k) {
+            int i = indices[k];
+            if (s.compare(i, sources[k].size(), sources[k]) == 0) {
+                d[i] = k;
             }
         }
         string ans;
         for (int i = 0; i < n;) {
-            if (d[i] >= 0) {
+            if (~d[i]) {
                 ans += targets[d[i]];
                 i += sources[d[i]].size();
             } else {
@@ -172,10 +170,9 @@ public:
 func findReplaceString(s string, indices []int, sources []string, targets []string) string {
 	n := len(s)
 	d := make([]int, n)
-	for i, j := range indices {
-		source := sources[i]
-		if s[j:min(j+len(source), n)] == source {
-			d[j] = i + 1
+	for k, i := range indices {
+		if strings.HasPrefix(s[i:], sources[k]) {
+			d[i] = k + 1
 		}
 	}
 	ans := &strings.Builder{}
@@ -190,12 +187,35 @@ func findReplaceString(s string, indices []int, sources []string, targets []stri
 	}
 	return ans.String()
 }
+```
 
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
+### **TypeScript**
+
+```ts
+function findReplaceString(
+    s: string,
+    indices: number[],
+    sources: string[],
+    targets: string[],
+): string {
+    const n = s.length;
+    const d: number[] = Array(n).fill(-1);
+    for (let k = 0; k < indices.length; ++k) {
+        const [i, src] = [indices[k], sources[k]];
+        if (s.startsWith(src, i)) {
+            d[i] = k;
+        }
+    }
+    const ans: string[] = [];
+    for (let i = 0; i < n; ) {
+        if (d[i] >= 0) {
+            ans.push(targets[d[i]]);
+            i += sources[d[i]].length;
+        } else {
+            ans.push(s[i++]);
+        }
+    }
+    return ans.join('');
 }
 ```
 
