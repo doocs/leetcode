@@ -45,6 +45,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：DFS + 数学**
+
+我们设计一个函数 $dfs(i)$，表示从下标 $i$ 开始到最后一个元素的连分数的值，那么答案就是 $dfs(0)$。
+
+函数 $dfs(i)$ 的执行逻辑如下：
+
+如果 $i = n - 1$，只有一个元素，那么它的值就是 $cont[i]$，分母为 $1$，返回 $[cont[i], 1]$。
+
+否则，我们递归调用 $dfs(i + 1)$，记返回值为 $[a, b]$，那么 $dfs(i)= 1 + \frac{1}{\frac{a}{b}}$，即 $dfs(i) = \frac{a \times cont[i] + b}{a}$，分子为 $x = a \times cont[i] + b$，分母为 $y = a$，我们求出 $x$ 和 $y$ 的最大公约数 $g$，最终返回 $[\frac{x}{g}, \frac{y}{g}]$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 $cont$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -54,13 +66,15 @@
 ```python
 class Solution:
     def fraction(self, cont: List[int]) -> List[int]:
-        def dfs(cont):
-            if len(cont) == 1:
-                return [cont[0], 1]
-            a, b = dfs(cont[1:])
-            return [a * cont[0] + b, a]
+        def dfs(i: int) -> List[int]:
+            if i == len(cont) - 1:
+                return [cont[i], 1]
+            a, b = dfs(i + 1)
+            x, y = a * cont[i] + b, a
+            g = gcd(x, y)
+            return [x // g, y // g]
 
-        return dfs(cont)
+        return dfs(0)
 ```
 
 ### **Java**
@@ -69,17 +83,26 @@ class Solution:
 
 ```java
 class Solution {
+    private int[] cont;
+
     public int[] fraction(int[] cont) {
-        return dfs(cont, 0);
+        this.cont = cont;
+        return dfs(0);
     }
 
-    private int[] dfs(int[] cont, int i) {
+    private int[] dfs(int i) {
         if (i == cont.length - 1) {
             return new int[] {cont[i], 1};
         }
-        int[] ans = dfs(cont, i + 1);
-        int a = ans[0], b = ans[1];
-        return new int[] {a * cont[i] + b, a};
+        int[] next = dfs(i + 1);
+        int a = next[0], b = next[1];
+        int x = a * cont[i] + b, y = a;
+        int g = gcd(x, y);
+        return new int[] {x / g, y / g};
+    }
+
+    private int gcd(int a, int b) {
+        return b == 0 ? a : gcd(b, a % b);
     }
 }
 ```
@@ -90,14 +113,18 @@ class Solution {
 class Solution {
 public:
     vector<int> fraction(vector<int>& cont) {
-        return dfs(cont, 0);
-    }
-
-    vector<int> dfs(vector<int>& cont, int i) {
-        if (i == cont.size() - 1) return {cont[i], 1};
-        vector<int> ans = dfs(cont, i + 1);
-        int a = ans[0], b = ans[1];
-        return {a * cont[i] + b, a};
+        function<vector<int>(int)> dfs = [&](int i) {
+            if (i == cont.size() - 1) {
+                return vector<int>{cont[i], 1};
+            }
+            vector<int> next = dfs(i + 1);
+            int a = next[0], b = next[1];
+            int x = a * cont[i] + b;
+            int y = a;
+            int g = __gcd(x, y);
+            return vector<int>{x / g, y / g};
+        };
+        return dfs(0);
     }
 };
 ```
@@ -119,6 +146,26 @@ func fraction(cont []int) []int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function fraction(cont: number[]): number[] {
+    const dfs = (i: number): number[] => {
+        if (i === cont.length - 1) {
+            return [cont[i], 1];
+        }
+        const [a, b] = dfs(i + 1);
+        const [x, y] = [a * cont[i] + b, a];
+        const g = gcd(x, y);
+        return [x / g, y / g];
+    };
+    const gcd = (a: number, b: number): number => {
+        return b === 0 ? a : gcd(b, a % b);
+    };
+    return dfs(0);
+}
+```
+
 ### **JavaScript**
 
 ```js
@@ -127,13 +174,18 @@ func fraction(cont []int) []int {
  * @return {number[]}
  */
 var fraction = function (cont) {
-    function dfs(i) {
+    const dfs = i => {
         if (i === cont.length - 1) {
             return [cont[i], 1];
         }
         const [a, b] = dfs(i + 1);
-        return [a * cont[i] + b, a];
-    }
+        const [x, y] = [a * cont[i] + b, a];
+        const g = gcd(x, y);
+        return [Math.floor(x / g), Math.floor(y / g)];
+    };
+    const gcd = (a, b) => {
+        return b === 0 ? a : gcd(b, a % b);
+    };
     return dfs(0);
 };
 ```
