@@ -1,9 +1,4 @@
-/**
- * @param {number[]} guess
- * @param {number[]} answer
- * @return {number}
- */
-var game = function (guess, answer) {
+function game(guess: number[], answer: number[]): number {
     let ans = 0;
     for (let i = 0; i < 3; ++i) {
         if (guess[i] === answer[i]) {
@@ -11,4 +6,4 @@ var game = function (guess, answer) {
         }
     }
     return ans;
-};
+}

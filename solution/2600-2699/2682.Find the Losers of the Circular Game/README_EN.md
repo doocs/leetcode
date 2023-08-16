@@ -108,7 +108,7 @@ public:
             i = (i + p * k) % n;
         }
         vector<int> ans;
-        for (int i = 0, j = 0; i < n; ++i) {
+        for (int i = 0; i < n; ++i) {
             if (!vis[i]) {
                 ans.push_back(i + 1);
             }
