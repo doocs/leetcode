@@ -13,7 +13,7 @@
 | num         | int  |
 | frequency   | int  |
 +-------------+------+
-num is the primary key for this table.
+num is the primary key (column with unique values) for this table.
 Each row of this table shows the frequency of a number in the database.
 </pre>
 
@@ -21,9 +21,9 @@ Each row of this table shows the frequency of a number in the database.
 
 <p>The <a href="https://en.wikipedia.org/wiki/Median" target="_blank"><strong>median</strong></a> is the value separating the higher half from the lower half of a data sample.</p>
 
-<p>Write an SQL query to report the <strong>median</strong> of all the numbers in the database after decompressing the <code>Numbers</code> table. Round the median to <strong>one decimal point</strong>.</p>
+<p>Write a solution to report the <strong>median</strong> of all the numbers in the database after decompressing the <code>Numbers</code> table. Round the median to <strong>one decimal point</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

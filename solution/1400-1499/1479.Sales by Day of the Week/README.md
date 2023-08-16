@@ -18,7 +18,7 @@
 | item_id       | varchar |
 | quantity      | int     |
 +---------------+---------+
-(order_id, item_id) 是该表主键
+(order_id, item_id) 是该表主键(具有唯一值的列的组合)
 该表包含了订单信息
 order_date 是id为 item_id 的商品被id为 customer_id 的消费者订购的日期.</pre>
 
@@ -32,7 +32,7 @@ order_date 是id为 item_id 的商品被id为 customer_id 的消费者订购的�
 | item_name           | varchar |
 | item_category       | varchar |
 +---------------------+---------+
-item_id 是该表主键
+item_id 是该表主键(具有唯一值的列)
 item_name 是商品的名字
 item_category&nbsp;是商品的类别
 </pre>
@@ -41,11 +41,11 @@ item_category&nbsp;是商品的类别
 
 <p>你是企业主，想要获得分类商品和周内每天的销售报告。</p>
 
-<p>写一个SQL语句，报告 <strong>周内每天 </strong>每个商品类别下订购了多少单位。</p>
+<p>编写解决方案，报告 <strong>周内每天 </strong>每个商品类别下订购了多少单位。</p>
 
 <p>返回结果表单<strong> 按商品类别排序 </strong>。</p>
 
-<p>查询结果格式如下例所示。</p>
+<p>结果格式如下例所示。</p>
 
 <p>&nbsp;</p>
 

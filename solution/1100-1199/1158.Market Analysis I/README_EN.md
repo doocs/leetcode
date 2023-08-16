@@ -14,7 +14,7 @@
 | join_date      | date    |
 | favorite_brand | varchar |
 +----------------+---------+
-user_id is the primary key of this table.
+user_id is the primary key (column with unique values) of this table.
 This table has the info of the users of an online shopping website where users can sell and buy items.
 </pre>
 
@@ -32,8 +32,8 @@ This table has the info of the users of an online shopping website where users c
 | buyer_id      | int     |
 | seller_id     | int     |
 +---------------+---------+
-order_id is the primary key of this table.
-item_id is a foreign key to the Items table.
+order_id is the primary key (column with unique values) of this table.
+item_id is a foreign key (reference column) to the Items table.
 buyer_id and seller_id are foreign keys to the Users table.
 </pre>
 
@@ -48,16 +48,16 @@ buyer_id and seller_id are foreign keys to the Users table.
 | item_id       | int     |
 | item_brand    | varchar |
 +---------------+---------+
-item_id is the primary key of this table.
+item_id is the primary key (column with unique values) of this table.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find for each user, the join date and the number of orders they made as a buyer in <code>2019</code>.</p>
+<p>Write a solution&nbsp;to find for each user, the join date and the number of orders they made as a buyer in <code>2019</code>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

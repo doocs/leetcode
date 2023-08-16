@@ -15,7 +15,7 @@
 | employee_id | int     |
 | name        | varchar |
 +-------------+---------+
-employee_id 是这个表的主键。
+employee_id 是该表中具有唯一值的列。
 每一行表示雇员的id 和他的姓名。
 </pre>
 
@@ -28,13 +28,13 @@ employee_id 是这个表的主键。
 | employee_id | int     |
 | salary      | int     |
 +-------------+---------+
-employee_id is 这个表的主键。
+employee_id is 是该表中具有唯一值的列。
 每一行表示雇员的id 和他的薪水。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>写出一个查询语句，找到所有 <strong>丢失信息</strong> 的雇员id。当满足下面一个条件时，就被认为是雇员的信息丢失：</p>
+<p>编写解决方案，找到所有 <strong>丢失信息</strong> 的雇员 id。当满足下面一个条件时，就被认为是雇员的信息丢失：</p>
 
 <ul>
 	<li>雇员的 <strong>姓名</strong> 丢失了，或者</li>

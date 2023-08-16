@@ -18,7 +18,7 @@
 | commission_rate | int     |
 | hire_date       | date    |
 +-----------------+---------+
-在 SQL 中，sales_id 是该表的主键列。
+sales_id 是该表的主键列(具有唯一值的列)。
 该表的每一行都显示了销售人员的姓名和 ID ，以及他们的工资、佣金率和雇佣日期。
 </pre>
 
@@ -34,7 +34,7 @@
 | name        | varchar |
 | city        | varchar |
 +-------------+---------+
-在 SQL 中，com_id 是该表的主键列。
+com_id 是该表的主键列(具有唯一值的列)。
 该表的每一行都表示公司的名称和 ID ，以及公司所在的城市。
 </pre>
 
@@ -52,23 +52,23 @@
 | sales_id    | int  |
 | amount      | int  |
 +-------------+------+
-在 SQL 中，order_id 是该表的主键列。
-com_id 是 Company 表中 com_id 的外键。
-sales_id 是来自销售员表 sales_id 的外键。
+order_id 是该表的主键列(具有唯一值的列)。
+com_id 是 Company 表中 com_id 的外键（reference 列）。
+sales_id 是来自销售员表 sales_id 的外键（reference 列）。
 该表的每一行包含一个订单的信息。这包括公司的 ID 、销售人员的 ID 、订单日期和支付的金额。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>查询没有任何与名为 <strong>“RED”</strong> 的公司相关的订单的所有销售人员的姓名。</p>
+<p>编写解决方案，找出没有任何与名为 <strong>“RED”</strong> 的公司相关的订单的所有销售人员的姓名。</p>
 
 <p>以 <strong>任意顺序</strong> 返回结果表。</p>
 
-<p>查询结果格式如下所示。</p>
+<p>返回结果格式如下所示。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例：</strong></p>
+<p><strong>示例 1：</strong></p>
 
 <pre>
 <strong>输入：</strong>

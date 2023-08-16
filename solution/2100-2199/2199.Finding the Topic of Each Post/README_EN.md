@@ -13,7 +13,7 @@
 | topic_id    | int     |
 | word        | varchar |
 +-------------+---------+
-(topic_id, word) is the primary key for this table.
+(topic_id, word) is the primary key (combination of columns with unique values) for this table.
 Each row of this table contains the id of a topic and a word that is used to express this topic.
 There may be more than one word to express the same topic and one word may be used to express multiple topics.
 </pre>
@@ -29,7 +29,7 @@ There may be more than one word to express the same topic and one word may be us
 | post_id     | int     |
 | content     | varchar |
 +-------------+---------+
-post_id is the primary key for this table.
+post_id is the primary key (column with unique values) for this table.
 Each row of this table contains the ID of a post and its content.
 Content will consist only of English letters and spaces.
 </pre>
@@ -38,7 +38,7 @@ Content will consist only of English letters and spaces.
 
 <p>Leetcode has collected some posts from its social media website and is interested in finding the topics of each post. Each topic can be expressed by one or more keywords. If a keyword of a certain topic exists in the content of a post (<strong>case insensitive</strong>) then the post has this topic.</p>
 
-<p>Write an SQL query to find the topics of each post according to the following rules:</p>
+<p>Write a solution to find the topics of each post according to the following rules:</p>
 
 <ul>
 	<li>If the post does not have keywords from any topic, its topic should be <code>&quot;Ambiguous!&quot;</code>.</li>
@@ -47,7 +47,7 @@ Content will consist only of English letters and spaces.
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

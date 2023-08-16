@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Transactions</code></p>
+<p>表：<code>Transactions</code></p>
 
 <pre>
 +---------------+---------+
@@ -20,7 +20,7 @@
 +---------------+---------+
 id 是这个表的主键。
 该表包含有关传入事务的信息。
-state 列类型为 “[”批准“，”拒绝“] 之一。
+state 列类型为 ["approved", "declined"] 之一。
 </pre>
 
 <p>&nbsp;</p>

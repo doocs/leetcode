@@ -16,8 +16,8 @@
 | action        | enum    |
 | extra         | varchar |
 +---------------+---------+
-There is no primary key for this table, it may have duplicate rows.
-The action column is an ENUM type of (&#39;view&#39;, &#39;like&#39;, &#39;reaction&#39;, &#39;comment&#39;, &#39;report&#39;, &#39;share&#39;).
+This table may have duplicate rows.
+The action column is an ENUM (category) type of (&#39;view&#39;, &#39;like&#39;, &#39;reaction&#39;, &#39;comment&#39;, &#39;report&#39;, &#39;share&#39;).
 The extra column has optional information about the action, such as a reason for the report or a type of reaction.
 </pre>
 
@@ -32,15 +32,15 @@ The extra column has optional information about the action, such as a reason for
 | post_id       | int     |
 | remove_date   | date    | 
 +---------------+---------+
-post_id is the primary key of this table.
+post_id is the primary key (column with unique values) of this table.
 Each row in this table indicates that some post was removed due to being reported or as a result of an admin review.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find the average daily percentage of posts that got removed after being reported as spam, <strong>rounded to 2 decimal places</strong>.</p>
+<p>Write a solution to find the average daily percentage of posts that got removed after being reported as spam, <strong>rounded to 2 decimal places</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

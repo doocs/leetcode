@@ -13,7 +13,7 @@
 | id            | int     |
 | name          | varchar |
 +---------------+---------+
-id is the primary key for this table.
+id is the primary key (column with unique values) for this table.
 This table contains the account id and the user name of each account.
 </pre>
 
@@ -28,7 +28,7 @@ This table contains the account id and the user name of each account.
 | id            | int     |
 | login_date    | date    |
 +---------------+---------+
-There is no primary key for this table, it may contain duplicates.
+This table may contain duplicate rows.
 This table contains the account id of the user who logged in and the login date. A user may log in multiple times in the day.
 </pre>
 
@@ -36,11 +36,11 @@ This table contains the account id of the user who logged in and the login date.
 
 <p><strong>Active users</strong> are those who logged in to their accounts for five or more consecutive days.</p>
 
-<p>Write an SQL query to find the id and the name of <strong>active users</strong>.</p>
+<p>Write a solution to find the id and the name of <strong>active users</strong>.</p>
 
 <p>Return the result table <strong>ordered</strong> by <code>id</code>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

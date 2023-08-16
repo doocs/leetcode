@@ -16,19 +16,19 @@
 | action        | enum    |
 | extra         | varchar |
 +---------------+---------+
-There is no primary key for this table, it may have duplicate rows.
-The action column is an ENUM type of (&#39;view&#39;, &#39;like&#39;, &#39;reaction&#39;, &#39;comment&#39;, &#39;report&#39;, &#39;share&#39;).
+This table may have duplicate rows.
+The action column is an ENUM (category) type of (&#39;view&#39;, &#39;like&#39;, &#39;reaction&#39;, &#39;comment&#39;, &#39;report&#39;, &#39;share&#39;).
 The extra column has optional information about the action, such as a reason for the report or a type of reaction.
 extra is never NULL.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query that reports the number of posts reported yesterday for each report reason. Assume today is <code>2019-07-05</code>.</p>
+<p>Write a solution to report&nbsp;the number of posts reported yesterday for each report reason. Assume today is <code>2019-07-05</code>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

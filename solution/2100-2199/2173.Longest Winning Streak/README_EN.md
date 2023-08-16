@@ -14,20 +14,20 @@
 | match_day   | date |
 | result      | enum |
 +-------------+------+
-(player_id, match_day) is the primary key for this table.
+(player_id, match_day) is the primary key (combination of columns with unique values) for this table.
 Each row of this table contains the ID of a player, the day of the match they played, and the result of that match.
-The result column is an ENUM type of (&#39;Win&#39;, &#39;Draw&#39;, &#39;Lose&#39;).
+The result column is an ENUM (category) type of (&#39;Win&#39;, &#39;Draw&#39;, &#39;Lose&#39;).
 </pre>
 
 <p>&nbsp;</p>
 
 <p>The <strong>winning streak</strong> of a player is the number of consecutive wins uninterrupted by draws or losses.</p>
 
-<p>Write an SQL query to count the longest winning streak for each player.</p>
+<p>Write a solution to count the longest winning streak for each player.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

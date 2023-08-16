@@ -15,7 +15,7 @@
 | user_id     | int     |
 | user_name   | varchar |
 +-------------+---------+
-user_id 是该表的主键。
+user_id 是该表的主键(具有唯一值的列)。
 该表中的每行包括用户 ID 和用户名。</pre>
 
 <p>&nbsp;</p>
@@ -29,16 +29,16 @@ user_id 是该表的主键。
 | contest_id  | int     |
 | user_id     | int     |
 +-------------+---------+
-(contest_id, user_id) 是该表的主键。
+(contest_id, user_id) 是该表的主键(具有唯一值的列的组合)。
 该表中的每行包含用户的 ID 和他们注册的赛事。</pre>
 
 <p>&nbsp;</p>
 
-<p>写一条 SQL 语句，查询各赛事的用户注册百分率，保留两位小数。</p>
+<p>编写解决方案统计出各赛事的用户注册百分率，保留两位小数。</p>
 
 <p>返回的结果表按&nbsp;<code>percentage</code>&nbsp;的&nbsp;<strong>降序&nbsp;</strong>排序，若相同则按&nbsp;<code>contest_id</code>&nbsp;的&nbsp;<strong>升序&nbsp;</strong>排序。</p>
 
-<p>查询结果如下示例所示。</p>
+<p>返回结果如下示例所示。</p>
 
 <p>&nbsp;</p>
 

@@ -14,18 +14,18 @@
 | driver_id    | int  |
 | passenger_id | int  |
 +--------------+------+
-ride_id is the primary key for this table.
+ride_id is the column with unique values for this table.
 Each row of this table contains the ID of the driver and the ID of the passenger that rode in ride_id.
 Note that driver_id != passenger_id.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the ID of each driver and the number of times they were a passenger.</p>
+<p>Write a solution&nbsp;to report the ID of each driver and the number of times they were a passenger.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

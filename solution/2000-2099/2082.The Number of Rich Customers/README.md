@@ -16,19 +16,19 @@
 | customer_id | int  |
 | amount      | int  |
 +-------------+------+
-在 SQL 中，bill_id 是这个表的主键。
+bill_id 是这个表的主键(具有唯一值的列)。
 每一行包含一个订单的金额及相关客户的信息。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>查询<strong>至少有一个</strong>订单的金额<strong>严格大于</strong> <code>500</code> 的客户的数量。</p>
+<p>编写解决方案找出&nbsp;<strong>至少有一个&nbsp;</strong>订单的金额&nbsp;<strong>严格大于</strong> <code>500</code> 的客户的数量。</p>
 
 <p>返回结果格式如下示例所示：</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例:</strong></p>
+<p><strong>示例 1:</strong></p>
 
 <pre>
 <strong>输入：</strong>

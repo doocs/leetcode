@@ -15,7 +15,7 @@
 | start_time  | int  |
 | end_time    | int  |
 +-------------+------+
-session_id is the primary key for this table.
+session_id is the column with unique values for this table.
 customer_id is the ID of the customer watching this session.
 The session runs during the <strong>inclusive</strong> interval between start_time and end_time.
 It is guaranteed that start_time &lt;= end_time and that two sessions for the same customer do not intersect.</pre>
@@ -32,18 +32,18 @@ It is guaranteed that start_time &lt;= end_time and that two sessions for the sa
 | customer_id | int  |
 | timestamp   | int  |
 +-------------+------+
-ad_id is the primary key for this table.
+ad_id is the column with unique values for this table.
 customer_id is the ID of the customer viewing this ad.
 timestamp is the moment of time at which the ad was shown.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report all the sessions that did not get shown any ads.</p>
+<p>Write a solution to report all the sessions that did not get shown any ads.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

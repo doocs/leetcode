@@ -13,8 +13,8 @@
 | project_id  | int     |
 | employee_id | int     |
 +-------------+---------+
-(project_id, employee_id) is the primary key of this table.
-employee_id is a foreign key to <code>Employee</code> table.
+(project_id, employee_id) is the primary key (combination of columns with unique values) of this table.
+employee_id is a foreign key (reference column) to <code>Employee</code> table.
 Each row of this table indicates that the employee with employee_id is working on the project with project_id.
 </pre>
 
@@ -30,17 +30,17 @@ Each row of this table indicates that the employee with employee_id is working o
 | name             | varchar |
 | experience_years | int     |
 +------------------+---------+
-employee_id is the primary key of this table.
+employee_id is the primary key (column with unique values) of this table.
 Each row of this table contains information about one employee.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query that reports the <strong>most experienced</strong> employees in each project. In case of a tie, report all employees with the maximum number of experience years.</p>
+<p>Write a solution to report&nbsp;the <strong>most experienced</strong> employees in each project. In case of a tie, report all employees with the maximum number of experience years.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

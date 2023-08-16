@@ -14,7 +14,7 @@
 | content_id    | int     |
 | channel       | varchar |
 +---------------+---------+
-(program_date, content_id) is the primary key for this table.
+(program_date, content_id) is the primary key (combination of columns with unique values) for this table.
 This table contains information of the programs on the TV.
 content_id is the id of the program in some channel on the TV.</pre>
 
@@ -31,19 +31,19 @@ content_id is the id of the program in some channel on the TV.</pre>
 | Kids_content     | enum    |
 | content_type     | varchar |
 +------------------+---------+
-content_id is the primary key for this table.
-Kids_content is an enum that takes one of the values (&#39;Y&#39;, &#39;N&#39;) where: 
+content_id is the primary key (column with unique values) for this table.
+Kids_content is an ENUM (category) of types (&#39;Y&#39;, &#39;N&#39;) where: 
 &#39;Y&#39; means is content for kids otherwise &#39;N&#39; is not content for kids.
 content_type is the category of the content as movies, series, etc.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the distinct titles of the kid-friendly movies streamed in <strong>June 2020</strong>.</p>
+<p>Write a solution to report the distinct titles of the kid-friendly movies streamed in <strong>June 2020</strong>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

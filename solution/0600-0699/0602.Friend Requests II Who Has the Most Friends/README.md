@@ -6,12 +6,10 @@
 
 <!-- 这里写题目描述 -->
 
-<p>在 Facebook 或者 Twitter 这样的社交应用中，人们经常会发好友申请也会收到其他人的好友申请。</p>
+<p><code>RequestAccepted</code> 表：</p>
 
 <div class="original__bRMd">
 <div>
-<p><code>RequestAccepted</code> 表：</p>
-
 <pre>
 +----------------+---------+
 | Column Name    | Type    |
@@ -20,13 +18,13 @@
 | accepter_id    | int     |
 | accept_date    | date    |
 +----------------+---------+
-(requester_id, accepter_id) 是这张表的主键。
+(requester_id, accepter_id) 是这张表的主键(具有唯一值的列的组合)。
 这张表包含发送好友请求的人的 ID ，接收好友请求的人的 ID ，以及好友请求通过的日期。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>写一个查询语句，找出拥有最多的好友的人和他拥有的好友数目。</p>
+<p>编写解决方案，找出拥有最多的好友的人和他拥有的好友数目。</p>
 
 <p>生成的测试用例保证拥有最多好友数目的只有 1 个人。</p>
 
@@ -34,7 +32,7 @@
 
 <p>&nbsp;</p>
 
-<p><strong>示例：</strong></p>
+<p><strong>示例 1：</strong></p>
 
 <pre>
 <strong>输入：</strong>

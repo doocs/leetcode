@@ -16,7 +16,7 @@
 | item_id       | varchar |
 | quantity      | int     |
 +---------------+---------+
-(ordered_id, item_id) is the primary key for this table.
+(ordered_id, item_id) is the primary key (combination of columns with unique values) for this table.
 This table contains information on the orders placed.
 order_date is the date item_id was ordered by the customer with id customer_id.
 </pre>
@@ -33,7 +33,7 @@ order_date is the date item_id was ordered by the customer with id customer_id.
 | item_name           | varchar |
 | item_category       | varchar |
 +---------------------+---------+
-item_id is the primary key for this table.
+item_id is the primary key (column with unique values) for this table.
 item_name is the name of the item.
 item_category is the category of the item.
 </pre>
@@ -42,11 +42,11 @@ item_category is the category of the item.
 
 <p>You are the business owner and would like to obtain a sales report for category items and the day of the week.</p>
 
-<p>Write an SQL query to report how many units in each category have been ordered on each <strong>day of the week</strong>.</p>
+<p>Write a solution to report how many units in each category have been ordered on each <strong>day of the week</strong>.</p>
 
 <p>Return the result table <strong>ordered</strong> by <code>category</code>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

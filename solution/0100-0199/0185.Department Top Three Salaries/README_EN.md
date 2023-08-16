@@ -15,8 +15,8 @@
 | salary       | int     |
 | departmentId | int     |
 +--------------+---------+
-id is the primary key column for this table.
-departmentId is a foreign key of the ID from the <code>Department </code>table.
+id is the primary key (column with unique values) for this table.
+departmentId is a foreign key (reference column) of the ID from the <code>Department </code>table.
 Each row of this table indicates the ID, name, and salary of an employee. It also contains the ID of their department.
 </pre>
 
@@ -31,7 +31,7 @@ Each row of this table indicates the ID, name, and salary of an employee. It als
 | id          | int     |
 | name        | varchar |
 +-------------+---------+
-id is the primary key column for this table.
+id is the primary key (column with unique values) for this table.
 Each row of this table indicates the ID of a department and its name.
 </pre>
 
@@ -39,11 +39,11 @@ Each row of this table indicates the ID of a department and its name.
 
 <p>A company&#39;s executives are interested in seeing who earns the most money in each of the company&#39;s departments. A <strong>high earner</strong> in a department is an employee who has a salary in the <strong>top three unique</strong> salaries for that department.</p>
 
-<p>Write an SQL query to find the employees who are <strong>high earners</strong> in each of the departments.</p>
+<p>Write a solution to find the employees who are <strong>high earners</strong> in each of the departments.</p>
 
 <p>Return the result table <strong>in any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

@@ -16,7 +16,7 @@
 | match_day   | date |
 | result      | enum |
 +-------------+------+
-(player_id, match_day) 是该表的主键。
+(player_id, match_day) 是该表的主键（具有唯一值的列的组合）。
 每一行包括了：参赛选手 id、 比赛时间、 比赛结果。
 比赛结果（result）的枚举类型为 ('Win', 'Draw', 'Lose')。</pre>
 
@@ -24,9 +24,9 @@
 
 <p>选手的&nbsp;<strong>连胜数</strong> 是指连续获胜的次数，且没有被平局或输球中断。</p>
 
-<p>写一个SQL 语句来计算每个参赛选手最多的<strong>连胜数</strong>。</p>
+<p>编写解决方案来计算每个参赛选手最多的<strong>连胜数</strong>。</p>
 
-<p>结果可以以任何顺序返回。</p>
+<p>结果可以以 <strong>任何顺序</strong> 返回。</p>
 
 <p>结果格式如下例所示：</p>
 

@@ -21,8 +21,8 @@
 | q_num       | int  |
 | timestamp   | int  |
 +-------------+------+
-这张表没有主键，其中可能包含重复项。
-action 是一个 ENUM 数据，可以是 "show"、"answer" 或者 "skip" 。
+这张表可能包含重复项。
+action 是一个 ENUM(category) 数据，可以是 "show"、"answer" 或者 "skip" 。
 这张表的每一行表示：ID = id 的用户对 question_id 的问题在 timestamp 时间进行了 action 操作。
 如果用户对应的操作是 "answer" ，answer_id 将会是对应答案的 id ，否则，值为 null 。
 q_num 是该问题在当前会话中的数字顺序。
@@ -32,13 +32,13 @@ q_num 是该问题在当前会话中的数字顺序。
 
 <p><strong>回答率</strong> 是指：同一问题编号中回答次数占显示次数的比率。</p>
 
-<p>编写一个 SQL 查询以报告 <strong>回答率</strong> 最高的问题。如果有多个问题具有相同的最大 <strong>回答率</strong> ，返回 <code>question_id</code> 最小的那个。</p>
+<p>编写一个解决方案以报告 <strong>回答率</strong> 最高的问题。如果有多个问题具有相同的最大 <strong>回答率</strong> ，返回 <code>question_id</code> 最小的那个。</p>
 
 <p>查询结果如下例所示。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例：</strong></p>
+<p><strong>示例 1：</strong></p>
 
 <pre>
 <strong>输入：</strong>

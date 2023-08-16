@@ -13,7 +13,7 @@
 | user_id       | int     |
 | visit_date    | date    |
 +---------------+---------+
-(user_id, visit_date) is the primary key for this table.
+(user_id, visit_date) is the primary key (combination of columns with unique values) for this table.
 Each row of this table indicates that user_id has visited the bank in visit_date.
 </pre>
 
@@ -29,7 +29,7 @@ Each row of this table indicates that user_id has visited the bank in visit_date
 | transaction_date | date    |
 | amount           | int     |
 +------------------+---------+
-There is no primary key for this table, it may contain duplicates.
+This table may contain duplicates rows.
 Each row of this table indicates that user_id has done a transaction of amount in transaction_date.
 It is guaranteed that the user has visited the bank in the transaction_date.(i.e The Visits table contains (user_id, transaction_date) in one row)
 </pre>
@@ -38,7 +38,7 @@ It is guaranteed that the user has visited the bank in the transaction_date.(i.e
 
 <p>A bank wants to draw a chart of the number of transactions bank visitors did in one visit to the bank and the corresponding number of visitors who have done this number of transaction in one visit.</p>
 
-<p>Write an SQL query to find how many users visited the bank and didn&#39;t do any transactions, how many visited the bank and did one transaction and so on.</p>
+<p>Write a solution&nbsp;to find how many users visited the bank and didn&#39;t do any transactions, how many visited the bank and did one transaction, and so on.</p>
 
 <p>The result table will contain two columns:</p>
 
@@ -51,7 +51,7 @@ It is guaranteed that the user has visited the bank in the transaction_date.(i.e
 
 <p>Return the result table ordered by <code>transactions_count</code>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

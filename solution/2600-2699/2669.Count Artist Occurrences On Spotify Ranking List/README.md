@@ -16,15 +16,15 @@
 | track_name  | varchar |
 | artist      | varchar |
 +-------------+---------+
-id是该表的主键。
+id 是该表的主键(具有唯一值的列)。
 每行包含 id、track_name 和 artist。
 </pre>
 
-<p>编写一个SQL查询来查找每个艺术家在Spotify排行榜上出现的次数。</p>
+<p>编写解决方案来查找每个艺术家在Spotify排行榜上出现的次数。</p>
 
-<p>返回结果表，其中包含艺术家的名称以及相应的出现次数，按出现次数<strong>降序</strong>排列。如果出现次数相等，则按艺术家名称<strong>升序</strong>排列。</p>
+<p>返回结果表，其中包含艺术家的名称以及相应的出现次数，按出现次数&nbsp;<strong>降序&nbsp;</strong>排列。如果出现次数相等，则按艺术家名称&nbsp;<strong>升序&nbsp;</strong>排列。</p>
 
-<p>查询结果格式如下所示：</p>
+<p>返回结果格式如下所示：</p>
 
 <p>&nbsp;</p>
 

@@ -16,17 +16,17 @@
 | amount      | int     |
 +-------------+---------+
 The table logs the history of the spending of users that make purchases from an online shopping website that has a desktop and a mobile application.
-(user_id, spend_date, platform) is the primary key of this table.
-The platform column is an ENUM type of (&#39;desktop&#39;, &#39;mobile&#39;).
+(user_id, spend_date, platform) is the primary key (combination of columns with unique values) of this table.
+The platform column is an ENUM (category) type of (&#39;desktop&#39;, &#39;mobile&#39;).
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find the total number of users and the total amount spent using the mobile only, the desktop only, and both mobile and desktop together for each date.</p>
+<p>Write a solution to find the total number of users and the total amount spent using the mobile only, the desktop only, and both mobile and desktop together for each date.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

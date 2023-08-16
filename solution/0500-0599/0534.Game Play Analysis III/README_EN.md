@@ -15,18 +15,18 @@
 | event_date   | date    |
 | games_played | int     |
 +--------------+---------+
-(player_id, event_date) is the primary key of this table.
+(player_id, event_date) is the primary key (column with unique values) of this table.
 This table shows the activity of players of some games.
 Each row is a record of a player who logged in and played a number of games (possibly 0) before logging out on someday using some device.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report for each player and date, how many games played <strong>so far</strong> by the player. That is, the total number of games played by the player until that date. Check the example for clarity.</p>
+<p>Write a solution to report for each player and date, how many games played <strong>so far</strong> by the player. That is, the total number of games played by the player until that date. Check the example for clarity.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

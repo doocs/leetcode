@@ -13,7 +13,7 @@
 | user_id     | int  |
 | visit_date  | date |
 +-------------+------+
-This table does not have a primary key.
+This table does not have a primary key, it might contain duplicate rows.
 This table contains logs of the dates that users visited a certain retailer.
 </pre>
 
@@ -21,7 +21,7 @@ This table contains logs of the dates that users visited a certain retailer.
 
 <p>Assume today&#39;s date is <code>&#39;2021-1-1&#39;</code>.</p>
 
-<p>Write an SQL query that will, for each <code>user_id</code>, find out the largest <code>window</code> of days between each visit and the one right after it (or today if you are considering the last visit).</p>
+<p>Write a solution that will, for each <code>user_id</code>, find out the largest <code>window</code> of days between each visit and the one right after it (or today if you are considering the last visit).</p>
 
 <p>Return the result table ordered by <code>user_id</code>.</p>
 

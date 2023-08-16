@@ -15,7 +15,7 @@
 | player_id   | int   |
 | group_id    | int   |
 +-------------+-------+
-player_id 是此表的主键。
+player_id 是此表的主键(具有唯一值的列)。
 此表的每一行表示每个玩家的组。
 </pre>
 
@@ -31,7 +31,7 @@ player_id 是此表的主键。
 | first_score   | int     |
 | second_score  | int     |
 +---------------+---------+
-match_id 是此表的主键。
+match_id 是此表的主键(具有唯一值的列)。
 每一行是一场比赛的记录，first_player 和 second_player 表示该场比赛的球员 ID。
 first_score 和 second_score 分别表示 first_player 和 second_player 的得分。
 你可以假设，在每一场比赛中，球员都属于同一组。
@@ -41,11 +41,11 @@ first_score 和 second_score 分别表示 first_player 和 second_player 的得�
 
 <p>每组的获胜者是在组内累积得分最高的选手。如果平局，<code>player_id</code> <strong>最小&nbsp;</strong>的选手获胜。</p>
 
-<p>编写一个 SQL 查询来查找每组中的获胜者。</p>
+<p>编写解决方案来查找每组中的获胜者。</p>
 
 <p>返回的结果表单 <strong>没有顺序要求</strong>&nbsp;。</p>
 
-<p>查询结果格式如下所示。</p>
+<p>返回结果格式如下所示。</p>
 
 <p>&nbsp;</p>
 

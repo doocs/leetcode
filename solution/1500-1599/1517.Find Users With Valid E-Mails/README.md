@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>用户表：&nbsp;<code>Users</code></p>
+<p>表: <code>Users</code></p>
 
 <pre>
 +---------------+---------+
@@ -14,33 +14,34 @@
 +---------------+---------+
 | user_id       | int     |
 | name          | varchar |
-| mail          | varchar | 
+| mail          | varchar |
 +---------------+---------+
-在 SQL 中，user_id （用户 ID）是该表的主键。
-这个表包含用户在某网站上注册的信息。有些邮箱是无效的。</pre>
+user_id 是该表的主键（具有唯一值的列）。
+该表包含了网站已注册用户的信息。有一些电子邮件是无效的。
+</pre>
 
 <p>&nbsp;</p>
 
-<p>查询拥有<strong>有效邮箱</strong>的用户。</p>
+<p>编写一个解决方案，以查找具有有效电子邮件的用户。</p>
 
-<p>有效的邮箱包含符合下列条件的前缀名和域名：</p>
+<p>一个有效的电子邮件具有前缀名称和域，其中：</p>
 
-<ul>
-	<li><strong>前缀名</strong>是包含字母（大写或小写）、数字、下划线&nbsp;<code>'_'</code>、句点&nbsp;<code>'.'</code>&nbsp;和/或横杠&nbsp;<code>'-'</code>&nbsp;的字符串。前缀名<strong>必须</strong>以字母开头。</li>
-	<li><strong>域名</strong>是&nbsp;<code>'@leetcode.com'</code>&nbsp;。</li>
-</ul>
+<ol>
+	<li>&nbsp;<strong>前缀</strong> 名称是一个字符串，可以包含字母（大写或小写），数字，下划线 <code>'_'</code> ，点 <code>'.'</code> 和/或破折号 <code>'-'</code> 。前缀名称 <strong>必须</strong> 以字母开头。</li>
+	<li><strong>域</strong> 为 <code>'@leetcode.com'</code> 。</li>
+</ol>
 
-<p>按任意顺序返回结果表。</p>
+<p>以任何顺序返回结果表。</p>
 
-<p>查询格式如下所示。</p>
+<p>结果的格式如以下示例所示：</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<code><strong>输入：</strong>
-Users:</code>
+<b>输入：</b>
+Users 表:
 +---------+-----------+-------------------------+
 | user_id | name      | mail                    |
 +---------+-----------+-------------------------+
@@ -52,8 +53,7 @@ Users:</code>
 | 6       | David     | david69@gmail.com       |
 | 7       | Shapiro   | .shapo@leetcode.com     |
 +---------+-----------+-------------------------+
-
-<strong>输出：</strong>
+<b>输出：</b>
 +---------+-----------+-------------------------+
 | user_id | name      | mail                    |
 +---------+-----------+-------------------------+
@@ -61,11 +61,11 @@ Users:</code>
 | 3       | Annabelle | bella-@leetcode.com     |
 | 4       | Sally     | sally.come@leetcode.com |
 +---------+-----------+-------------------------+
-<strong>解释：</strong>
-2 号用户的邮箱没有域名。
-5 号用户的邮箱包含非法字符 #。
-6 号用户的邮箱的域名不是 leetcode。
-7 号用户的邮箱以句点（.）开头。
+<b>解释：</b>
+用户 2 的电子邮件没有域。 
+用户 5 的电子邮件带有不允许的 '#' 符号。
+用户 6 的电子邮件没有 leetcode 域。 
+用户 7 的电子邮件以点开头。
 </pre>
 
 ## 解法

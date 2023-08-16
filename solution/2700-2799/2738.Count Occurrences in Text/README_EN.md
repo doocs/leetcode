@@ -13,15 +13,15 @@
 | file_name   | varchar |
 | content     | text    |
 +-------------+---------+
-file_name is the primary key of this table. 
+file_name is the column with unique values of this table. 
 Each row contains file_name and the content of that file.
 </pre>
 
-<p>Write an SQL query to find&nbsp;the number of occurrences of the words&nbsp;<strong>&#39;bull&#39;</strong> and <strong>&#39;bear&#39;</strong> as a <strong>standalone word</strong>, disregarding any instances where it appears without space on either side (e.g. &#39;bullet&#39;,&nbsp;&#39;bears&#39;, &#39;bull.&#39;,&nbsp;or &#39;bear&#39;&nbsp;at the beginning or end of a sentence will <strong>not</strong> be considered)&nbsp;</p>
+<p>Write a solution to find&nbsp;the number of files that have at least one occurrence of the words&nbsp;<strong>&#39;bull&#39;</strong> and <strong>&#39;bear&#39;</strong> as a <strong>standalone word</strong>, respectively, disregarding any instances where it appears without space on either side (e.g. &#39;bullet&#39;,&nbsp;&#39;bears&#39;, &#39;bull.&#39;,&nbsp;or &#39;bear&#39;&nbsp;at the beginning or end of a sentence will <strong>not</strong> be considered)&nbsp;</p>
 
 <p>Return <em>the word &#39;bull&#39; and &#39;bear&#39; along with the corresponding number of occurrences in <strong>any order.</strong></em></p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

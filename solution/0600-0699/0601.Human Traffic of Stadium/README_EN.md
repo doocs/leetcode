@@ -14,18 +14,18 @@
 | visit_date    | date    |
 | people        | int     |
 +---------------+---------+
-visit_date is the primary key for this table.
+visit_date is the column with unique values for this table.
 Each row of this table contains the visit date and visit id to the stadium with the number of people during the visit.
-No two rows will have the same visit_date, and as the id increases, the dates increase as well.
+As the id increases, the date increases as well.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to display the records with three or more rows with <strong>consecutive</strong> <code>id</code>&#39;s, and the number of people is greater than or equal to 100 for each.</p>
+<p>Write a solution to display the records with three or more rows with <strong>consecutive</strong> <code>id</code>&#39;s, and the number of people is greater than or equal to 100 for each.</p>
 
 <p>Return the result table ordered by <code>visit_date</code> in <strong>ascending order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

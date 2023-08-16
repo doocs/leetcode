@@ -13,7 +13,7 @@
 | player_id   | int   |
 | group_id    | int   |
 +-------------+-------+
-player_id is the primary key of this table.
+player_id is the primary key (column with unique values) of this table.
 Each row of this table indicates the group of each player.
 </pre>
 
@@ -29,7 +29,7 @@ Each row of this table indicates the group of each player.
 | first_score   | int     |
 | second_score  | int     |
 +---------------+---------+
-match_id is the primary key of this table.
+match_id is the primary key (column with unique values) of this table.
 Each row is a record of a match, first_player and second_player contain the player_id of each match.
 first_score and second_score contain the number of points of the first_player and second_player respectively.
 You may assume that, in each match, players belong to the same group.
@@ -39,11 +39,11 @@ You may assume that, in each match, players belong to the same group.
 
 <p>The winner in each group is the player who scored the maximum total points within the group. In the case of a tie, the <strong>lowest</strong> <code>player_id</code> wins.</p>
 
-<p>Write an SQL query to find the winner in each group.</p>
+<p>Write a solution to find the winner in each group.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

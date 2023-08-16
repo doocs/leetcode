@@ -15,13 +15,13 @@
 | id          | int     |
 | email       | varchar |
 +-------------+---------+
-在 SQL 中，id 是该表的主键列。
+id 是该表的主键列(具有唯一值的列)。
 该表的每一行包含一封电子邮件。电子邮件将不包含大写字母。
 </pre>
 
 <p>&nbsp;</p>
 
-<p><strong>删除</strong> 所有重复的电子邮件，只保留一个具有最小 <code>id</code> 的唯一电子邮件。</p>
+<p>编写解决方案<strong> 删除</strong> 所有重复的电子邮件，只保留一个具有最小 <code>id</code> 的唯一电子邮件。</p>
 
 <p>（对于 SQL 用户，请注意你应该编写一个 <code>DELETE</code> 语句而不是 <code>SELECT</code> 语句。）</p>
 

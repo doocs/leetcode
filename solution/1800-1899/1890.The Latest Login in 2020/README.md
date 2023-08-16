@@ -15,17 +15,17 @@
 | user_id        | int      |
 | time_stamp     | datetime |
 +----------------+----------+
-(user_id, time_stamp) 是这个表的主键。
+(user_id, time_stamp) 是这个表的主键(具有唯一值的列的组合)。
 每一行包含的信息是user_id 这个用户的登录时间。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>编写一个 SQL 查询，该查询可以获取在 <code>2020</code> 年登录过的所有用户的本年度 <strong>最后一次 </strong>登录时间。结果集 <strong>不</strong> 包含 <code>2020</code> 年没有登录过的用户。</p>
+<p>编写解决方案以获取在 <code>2020</code> 年登录过的所有用户的本年度 <strong>最后一次 </strong>登录时间。结果集 <strong>不</strong> 包含 <code>2020</code> 年没有登录过的用户。</p>
 
 <p>返回的结果集可以按 <strong>任意顺序 </strong>排列。</p>
 
-<p>查询结果格式如下例。</p>
+<p>返回结果格式如下例。</p>
 
 <p>&nbsp;</p>
 

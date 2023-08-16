@@ -13,7 +13,7 @@
 | player_id      | int     |
 | player_name    | varchar |
 +----------------+---------+
-player_id is the primary key for this table.
+player_id is the primary key (column with unique values) for this table.
 Each row in this table contains the name and the ID of a tennis player.
 </pre>
 
@@ -31,17 +31,17 @@ Each row in this table contains the name and the ID of a tennis player.
 | US_open       | int     |
 | Au_open       | int     |
 +---------------+---------+
-year is the primary key for this table.
+year is the primary key (column with unique values) for this table.
 Each row of this table contains the IDs of the players who won one each tennis tournament of the grand slam.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the number of grand slam tournaments won by each player. Do not include the players who did not win any tournament.</p>
+<p>Write a solution to report the number of grand slam tournaments won by each player. Do not include the players who did not win any tournament.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

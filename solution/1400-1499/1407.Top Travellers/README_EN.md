@@ -13,7 +13,7 @@
 | id            | int     |
 | name          | varchar |
 +---------------+---------+
-id is the primary key for this table.
+id is the column with unique values for this table.
 name is the name of the user.
 </pre>
 
@@ -29,17 +29,17 @@ name is the name of the user.
 | user_id       | int     |
 | distance      | int     |
 +---------------+---------+
-id is the primary key for this table.
+id is the column with unique values for this table.
 user_id is the id of the user who traveled the distance &quot;distance&quot;.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the distance traveled by each user.</p>
+<p>Write a solution&nbsp;to report the distance traveled by each user.</p>
 
 <p>Return the result table ordered by <code>travelled_distance</code> in <strong>descending order</strong>, if two or more users traveled the same distance, order them by their <code>name</code> in <strong>ascending order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

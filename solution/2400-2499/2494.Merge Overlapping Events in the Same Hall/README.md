@@ -16,16 +16,16 @@
 | start_day   | date |
 | end_day     | date |
 +-------------+------+
-该表中没有主键。它可能包含重复字段。
+该表可能包含重复字段。
 该表的每一行表示活动的开始日期和结束日期，以及活动举行的大厅。
 </pre>
 
 <p><br />
-编写一个 SQL 查询来合并在&nbsp;<strong>同一个大厅举行&nbsp;</strong>的所有重叠活动。如果两个活动&nbsp;<strong>至少有一天&nbsp;</strong>相同，那么它们就是重叠的。</p>
+编写解决方案，合并在&nbsp;<strong>同一个大厅举行&nbsp;</strong>的所有重叠活动。如果两个活动&nbsp;<strong>至少有一天&nbsp;</strong>相同，那么它们就是重叠的。</p>
 
 <p data-group="1-1">以<strong>任意顺序</strong>返回结果表。</p>
 
-<p>查询结果格式如下所示。</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
 

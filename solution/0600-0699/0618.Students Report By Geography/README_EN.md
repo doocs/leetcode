@@ -13,7 +13,7 @@
 | name        | varchar |
 | continent   | varchar |
 +-------------+---------+
-There is no primary key for this table. It may contain duplicate rows.
+This table may contain duplicate rows.
 Each row of this table indicates the name of a student and the continent they came from.
 </pre>
 
@@ -21,11 +21,11 @@ Each row of this table indicates the name of a student and the continent they ca
 
 <p>A school has students from Asia, Europe, and America.</p>
 
-<p>Write an SQL query to <a href="https://en.wikipedia.org/wiki/Pivot_table" target="_blank">pivot</a> the continent column in the <code>Student</code> table so that each name is <strong>sorted alphabetically</strong> and displayed underneath its corresponding continent. The output headers should be <code>America</code>, <code>Asia</code>, and <code>Europe</code>, respectively.</p>
+<p>Write a solution to <a href="https://en.wikipedia.org/wiki/Pivot_table" target="_blank">pivot</a> the continent column in the <code>Student</code> table so that each name is <strong>sorted alphabetically</strong> and displayed underneath its corresponding continent. The output headers should be <code>America</code>, <code>Asia</code>, and <code>Europe</code>, respectively.</p>
 
 <p>The test cases are generated so that the student number from America is not less than either Asia or Europe.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -51,7 +51,7 @@ Student table:
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Follow up:</strong> If it is unknown which continent has the most students, could you write a query to generate the student report?</p>
+<p><strong>Follow up:</strong> If it is unknown which continent has the most students, could you write a solution to generate the student report?</p>
 
 ## Solutions
 

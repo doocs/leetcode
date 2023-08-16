@@ -14,7 +14,7 @@
 | name           | varchar |
 | available_from | date    |
 +----------------+---------+
-book_id is the primary key of this table.
+book_id is the primary key (column with unique values) of this table.
 </pre>
 
 <p>&nbsp;</p>
@@ -30,17 +30,17 @@ book_id is the primary key of this table.
 | quantity       | int     |
 | dispatch_date  | date    |
 +----------------+---------+
-order_id is the primary key of this table.
-book_id is a foreign key to the Books table.
+order_id is the primary key (column with unique values) of this table.
+book_id is a foreign key (reference column) to the Books table.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query that reports the <strong>books</strong> that have sold <strong>less than </strong><code>10</code> copies in the last year, excluding books that have been available for less than one month from today. <strong>Assume today is </strong><code>2019-06-23</code>.</p>
+<p>Write a solution to report&nbsp;the <strong>books</strong> that have sold <strong>less than </strong><code>10</code> copies in the last year, excluding books that have been available for less than one month from today. <strong>Assume today is </strong><code>2019-06-23</code>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

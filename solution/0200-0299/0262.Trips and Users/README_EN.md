@@ -17,9 +17,9 @@
 | status      | enum     |
 | request_at  | date     |     
 +-------------+----------+
-id is the primary key for this table.
+id is the primary key (column with unique values) for this table.
 The table holds all taxi trips. Each trip has a unique id, while client_id and driver_id are foreign keys to the users_id at the Users table.
-Status is an ENUM type of (&#39;completed&#39;, &#39;cancelled_by_driver&#39;, &#39;cancelled_by_client&#39;).
+Status is an ENUM (category) type of (&#39;completed&#39;, &#39;cancelled_by_driver&#39;, &#39;cancelled_by_client&#39;).
 </pre>
 
 <p>&nbsp;</p>
@@ -34,20 +34,20 @@ Status is an ENUM type of (&#39;completed&#39;, &#39;cancelled_by_driver&#39;, &
 | banned      | enum     |
 | role        | enum     |
 +-------------+----------+
-users_id is the primary key for this table.
+users_id is the primary key (column with unique values) for this table.
 The table holds all users. Each user has a unique users_id, and role is an ENUM type of (&#39;client&#39;, &#39;driver&#39;, &#39;partner&#39;).
-banned is an ENUM type of (&#39;Yes&#39;, &#39;No&#39;).
+banned is an ENUM (category) type of (&#39;Yes&#39;, &#39;No&#39;).
 </pre>
 
 <p>&nbsp;</p>
 
 <p>The <strong>cancellation rate</strong> is computed by dividing the number of canceled (by client or driver) requests with unbanned users by the total number of requests with unbanned users on that day.</p>
 
-<p>Write a SQL query to find the <strong>cancellation rate</strong> of requests with unbanned users (<strong>both client and driver must not be banned</strong>) each day between <code>&quot;2013-10-01&quot;</code> and <code>&quot;2013-10-03&quot;</code>. Round <code>Cancellation Rate</code> to <strong>two decimal</strong> points.</p>
+<p>Write a solution to find the <strong>cancellation rate</strong> of requests with unbanned users (<strong>both client and driver must not be banned</strong>) each day between <code>&quot;2013-10-01&quot;</code> and <code>&quot;2013-10-03&quot;</code>. Round <code>Cancellation Rate</code> to <strong>two decimal</strong> points.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

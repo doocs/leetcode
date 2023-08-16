@@ -16,18 +16,18 @@
 | to_id       | int     |
 | duration    | int     |
 +-------------+---------+
-该表没有主键，可能存在重复项。
+该表没有主键(具有唯一值的列)，它可能包含重复项。
 该表包含 from_id 与 to_id 间的一次电话的时长。
 from_id != to_id
 </pre>
 
 <p>&nbsp;</p>
 
-<p>编写 SQL 语句，查询每一对用户&nbsp;<code>(person1, person2)</code>&nbsp;之间的通话次数和通话总时长，其中&nbsp;<code>person1 &lt; person2</code>&nbsp;。</p>
+<p>编写解决方案，统计每一对用户&nbsp;<code>(person1, person2)</code>&nbsp;之间的通话次数和通话总时长，其中&nbsp;<code>person1 &lt; person2</code>&nbsp;。</p>
 
 <p>以 <strong>任意顺序</strong> 返回结果表。</p>
 
-<p>查询结果格式如下示例所示。</p>
+<p>返回结果格式如下示例所示。</p>
 
 <p>&nbsp;</p>
 

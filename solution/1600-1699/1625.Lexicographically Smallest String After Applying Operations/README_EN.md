@@ -32,8 +32,8 @@ Rotate: &quot;5323&quot;
 Add:    &quot;5222&quot;
 Add:    &quot;5121&quot;
 Rotate: &quot;2151&quot;
-​​​​​​​Add:    &quot;2050&quot;​​​​​​​​​​​​
-There is no way to obtain a string that is lexicographically smaller then &quot;2050&quot;.
+Add:    &quot;2050&quot;​​​​​
+There is no way to obtain a string that is lexicographically smaller than &quot;2050&quot;.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -46,7 +46,7 @@ Start:  &quot;74&quot;
 Rotate: &quot;47&quot;
 ​​​​​​​Add:    &quot;42&quot;
 ​​​​​​​Rotate: &quot;24&quot;​​​​​​​​​​​​
-There is no way to obtain a string that is lexicographically smaller then &quot;24&quot;.
+There is no way to obtain a string that is lexicographically smaller than &quot;24&quot;.
 </pre>
 
 <p><strong class="example">Example 3:</strong></p>
