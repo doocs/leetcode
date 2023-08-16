@@ -16,7 +16,7 @@
 | type        | enum    |
 | electrons   | int     |
 +-------------+---------+
-symbol 是该表的主键。
+symbol 是该表的主键(具有唯一值的列)。
 该表的每一行包含一个元素的信息。
 type 是 ENUM&nbsp;类型，它的值是 ('Metal', 'Nonmetal', 'Noble') 之一
  - 如果 type 是 Noble, electrons 是 0。
@@ -28,7 +28,7 @@ type 是 ENUM&nbsp;类型，它的值是 ('Metal', 'Nonmetal', 'Noble') 之一
 
 <p>如果一个元素是&nbsp;<code>'Metal'</code>，另外一个元素是&nbsp;<code>'Nonmetal'</code>&nbsp;，那么它们可以形成键。</p>
 
-<p>编写一个 SQL 查询来查找所有可以形成键的元素对。</p>
+<p>编写一个解决方案找出所有可以形成键的元素对。</p>
 
 <p data-group="1-1">以&nbsp;<strong>任意顺序&nbsp;</strong>返回结果表。</p>
 

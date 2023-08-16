@@ -15,7 +15,7 @@
 | event_date   | date    |
 | games_played | int     |
 +--------------+---------+
-(player_id, event_date) is the primary key of this table.
+(player_id, event_date) is the primary key (combination of columns with unique values) of this table.
 This table shows the activity of players of some games.
 Each row is a record of a player who logged in and played a number of games (possibly 0) before logging out on someday using some device.
 </pre>
@@ -26,11 +26,11 @@ Each row is a record of a player who logged in and played a number of games (pos
 
 <p>We define <strong>day one retention</strong> of some date <code>x</code> to be the number of players whose <strong>install date</strong> is <code>x</code> and they logged back in on the day right after <code>x</code>, divided by the number of players whose install date is <code>x</code>, rounded to <code>2</code> decimal places.</p>
 
-<p>Write an SQL query to report for each install date, the number of players that installed the game on that day, and the <strong>day one retention</strong>.</p>
+<p>Write a solution to report for each install date, the number of players that installed the game on that day, and the <strong>day one retention</strong>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

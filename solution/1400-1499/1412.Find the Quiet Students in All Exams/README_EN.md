@@ -13,7 +13,7 @@
 | student_id          | int     |
 | student_name        | varchar |
 +---------------------+---------+
-student_id is the primary key for this table.
+student_id is the primary key (column with unique values) for this table.
 student_name is the name of the student.</pre>
 
 <p>&nbsp;</p>
@@ -28,19 +28,19 @@ student_name is the name of the student.</pre>
 | student_id    | int     |
 | score         | int     |
 +---------------+---------+
-(exam_id, student_id) is the primary key for this table.
+(exam_id, student_id) is the primary key (combination of columns with unique values) for this table.
 Each row of this table indicates that the student with student_id had a score points in the exam with id exam_id.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>A <strong>quiet student</strong> is the one who took at least one exam and did not score the high or the low score.</p>
+<p>A <strong>quiet student</strong> is the one who took at least one exam and did not score the highest or the lowest score.</p>
 
-<p>Write an SQL query to report the students <code>(student_id, student_name)</code> being quiet in all exams. Do not return the student who has never taken any exam.</p>
+<p>Write a solution&nbsp;to report the students <code>(student_id, student_name)</code> being quiet in all exams. Do not return the student who has never taken any exam.</p>
 
 <p>Return the result table <strong>ordered</strong> by <code>student_id</code>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

@@ -14,17 +14,17 @@
 | activity      | enum    |
 | activity_date | date    |
 +---------------+---------+
-There is no primary key for this table, it may have duplicate rows.
-The activity column is an ENUM type of (&#39;login&#39;, &#39;logout&#39;, &#39;jobs&#39;, &#39;groups&#39;, &#39;homepage&#39;).
+This table may have duplicate rows.
+The activity column is an ENUM (category) type of (&#39;login&#39;, &#39;logout&#39;, &#39;jobs&#39;, &#39;groups&#39;, &#39;homepage&#39;).
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to reports for every date within at most <code>90</code> days from today, the number of users that logged in for the first time on that date. Assume today is <code>2019-06-30</code>.</p>
+<p>Write a solution to reports for every date within at most <code>90</code> days from today, the number of users that logged in for the first time on that date. Assume today is <code>2019-06-30</code>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

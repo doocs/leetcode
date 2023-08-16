@@ -15,7 +15,7 @@
 | product_id    | int     |
 | product_name  | varchar |
 +---------------+---------+
-product_id 是这张表的主键。
+product_id 是这张表的主键(具有唯一值的列)。
 product_name 是产品的名称。
 </pre>
 
@@ -32,7 +32,7 @@ product_name 是产品的名称。
 | period_end          | date    |
 | average_daily_sales | int     |
 +---------------------+---------+
-product_id 是这张表的主键。
+product_id 是这张表的主键(具有唯一值的列)。
 period_start&nbsp;和 period_end&nbsp;是该产品销售期的起始日期和结束日期，且这两个日期包含在销售期内。
 average_daily_sales 列存储销售期内该产品的日平均销售额。
 销售日期范围为2018年到2020年。
@@ -40,11 +40,11 @@ average_daily_sales 列存储销售期内该产品的日平均销售额。
 
 <p>&nbsp;</p>
 
-<p>编写一段 SQL 查询，查找出每个产品每年的总销售额，并包含 <code>product_id</code> , <code>product_name</code> ,&nbsp;<code>report_year</code> 以及 <code>total_amount</code>&nbsp;。</p>
+<p>编写解决方案，找出每个产品每年的总销售额，并包含 <code>product_id</code> , <code>product_name</code> ,&nbsp;<code>report_year</code> 以及 <code>total_amount</code>&nbsp;。</p>
 
 <p>返回结果并按&nbsp;<code>product_id</code> 和 <code>report_year</code><strong> 排序</strong>。</p>
 
-<p>查询结果格式如下例所示。</p>
+<p>返回结果格式如下例所示。</p>
 
 <p>&nbsp;</p>
 

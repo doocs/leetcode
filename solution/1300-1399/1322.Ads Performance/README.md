@@ -8,16 +8,17 @@
 
 <p>表: <code>Ads</code></p>
 
-<pre>+---------------+---------+
+<pre>
++---------------+---------+
 | Column Name   | Type    |
 +---------------+---------+
 | ad_id         | int     |
 | user_id       | int     |
 | action        | enum    |
 +---------------+---------+
-(ad_id, user_id) 是该表的主键
+(ad_id, user_id) 是该表的主键(具有唯一值的列的组合)
 该表的每一行包含一条广告的 ID(ad_id)，用户的 ID(user_id) 和用户对广告采取的行为 (action)
-action 列是一个枚举类型 (&#39;Clicked&#39;, &#39;Viewed&#39;, &#39;Ignored&#39;) 。
+action 列是一个枚举类型 ('Clicked', 'Viewed', 'Ignored') 。
 </pre>
 
 <p>&nbsp;</p>
@@ -26,17 +27,21 @@ action 列是一个枚举类型 (&#39;Clicked&#39;, &#39;Viewed&#39;, &#39;Ignor
 
 <p>广告效果用点击通过率（Click-Through Rate：CTR）来衡量，公式如下:</p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1322.Ads%20Performance/images/sql1.png" style="height: 75px; width: 600px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1322.Ads%20Performance/images/sql1.png" style="height: 55px; width: 600px;" /></p>
 
-<p>写一条SQL语句来查询每一条广告的&nbsp;<code>ctr</code>&nbsp;，</p>
+<p>编写解决方案找出每一条广告的&nbsp;<code>ctr</code>&nbsp;，<code>ctr</code>&nbsp;要 <strong>保留两位小数</strong> 。</p>
 
-<p>&nbsp;<code>ctr</code>&nbsp;要保留两位小数。结果需要按&nbsp;<code>ctr</code>&nbsp;<strong>降序</strong>、按&nbsp;<code>ad_id</code>&nbsp;<strong>升序&nbsp;</strong>进行排序。</p>
+<p>返回结果需要按&nbsp;<code>ctr</code>&nbsp;<strong>降序</strong>、按&nbsp;<code>ad_id</code>&nbsp;<strong>升序&nbsp;</strong>进行排序。</p>
+
+<p>返回结果示例如下：</p>
 
 <p>&nbsp;</p>
 
-<p>查询结果示例如下：</p>
+<p><strong>示例 1：</strong></p>
 
-<pre>Ads 表:
+<pre>
+<strong>输入：</strong>
+Ads 表:
 +-------+---------+---------+
 | ad_id | user_id | action  |
 +-------+---------+---------+
@@ -51,7 +56,7 @@ action 列是一个枚举类型 (&#39;Clicked&#39;, &#39;Viewed&#39;, &#39;Ignor
 | 2     | 11      | Viewed  |
 | 1     | 2       | Clicked |
 +-------+---------+---------+
-结果表:
+<strong>输出：</strong>
 +-------+-------+
 | ad_id | ctr   |
 +-------+-------+
@@ -60,12 +65,12 @@ action 列是一个枚举类型 (&#39;Clicked&#39;, &#39;Viewed&#39;, &#39;Ignor
 | 2     | 33.33 |
 | 5     | 0.00  |
 +-------+-------+
+<strong>解释：</strong>
 对于 ad_id = 1, ctr = (2/(2+1)) * 100 = 66.67
 对于 ad_id = 2, ctr = (1/(1+2)) * 100 = 33.33
 对于 ad_id = 3, ctr = (1/(1+1)) * 100 = 50.00
 对于 ad_id = 5, ctr = 0.00, 注意 ad_id = 5 没有被点击 (Clicked) 或查看 (Viewed) 过
 注意我们不关心 action 为 Ingnored 的广告
-结果按 ctr（降序），ad_id（升序）排序
 </pre>
 
 ## 解法

@@ -16,13 +16,13 @@
 | name        | varchar |
 | salary      | int     |
 +-------------+---------+
-在 SQL 中，employee_id 是这个表的主键。
+employee_id 是这个表的主键(具有唯一值的列)。
 此表的每一行给出了雇员id ，名字和薪水。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>计算每个雇员的奖金。如果一个雇员的 id 是 <strong>奇数</strong> 并且他的名字不是以 <code>'M'</code> <strong>开头</strong>，那么他的奖金是他工资的 <code>100%</code> ，否则奖金为 <code>0</code> 。</p>
+<p>编写解决方案，计算每个雇员的奖金。如果一个雇员的 id 是 <strong>奇数</strong> 并且他的名字不是以 <code>'M'</code> <strong>开头</strong>，那么他的奖金是他工资的 <code>100%</code> ，否则奖金为 <code>0</code> 。</p>
 
 <p>返回的结果按照&nbsp;<code>employee_id</code>&nbsp;排序。</p>
 

@@ -16,12 +16,12 @@
 | director_id | int     |
 | timestamp   | int     |
 +-------------+---------+
-在 SQL 中，timestamp 是这张表的主键.
+timestamp 是这张表的主键(具有唯一值的列).
 </pre>
 
 <p>&nbsp;</p>
 
-<p>查询合作过至少三次的演员和导演的 id 对&nbsp;<code>(actor_id, director_id)</code></p>
+<p>编写解决方案找出合作过至少三次的演员和导演的 id 对&nbsp;<code>(actor_id, director_id)</code></p>
 
 <p>&nbsp;</p>
 

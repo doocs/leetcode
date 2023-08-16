@@ -6,46 +6,61 @@
 
 <!-- 这里写题目描述 -->
 
-<p>在 facebook 中，表&nbsp;<code>follow</code>&nbsp;会有 2 个字段： <strong>followee</strong>, <strong>follower</strong>&nbsp;，分别表示被关注者和关注者。</p>
+<p>表：<code>Follow</code></p>
 
-<p>请写一个 sql 查询语句，对每一个关注者，查询关注他的关注者的数目。</p>
-
-<p>比方说：</p>
-
-<pre>+-------------+------------+
-| followee    | follower   |
-+-------------+------------+
-|     A       |     B      |
-|     B       |     C      |
-|     B       |     D      |
-|     D       |     E      |
-+-------------+------------+
+<pre>
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| followee    | varchar |
+| follower    | varchar |
++-------------+---------+
+(followee, follower) 是该表的主键(具有唯一值的列的组合)。
+该表的每一行表示关注者关注了社交网络上的关注者。
+不会有用户关注他们自己。
 </pre>
-
-<p>应该输出：</p>
-
-<pre>+-------------+------------+
-| follower    | num        |
-+-------------+------------+
-|     B       |  2         |
-|     D       |  1         |
-+-------------+------------+
-</pre>
-
-<p><strong>解释：</strong></p>
-
-<p>B 和 D 都在在&nbsp;<strong>follower</strong>&nbsp;字段中出现，作为被关注者，B 被 C 和 D 关注，D 被 E 关注。A 不在 <strong>follower</strong>&nbsp;字段内，所以A不在输出列表中。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>注意：</strong></p>
+<p><strong>二级关注者</strong> 是指满足以下条件的用户:</p>
 
 <ul>
-	<li>被关注者永远不会被他 / 她自己关注。</li>
-	<li>将结果按照字典序返回。</li>
+	<li>关注至少一个用户，</li>
+	<li>被至少一个用户关注。</li>
 </ul>
 
+<p>编写一个解决方案来报告 <strong>二级用户</strong> 及其关注者的数量。</p>
+
+<p>返回按 <code>follower</code> <strong>字典序排序&nbsp;</strong>的结果表。</p>
+
+<p>结果格式如下所示。</p>
+
 <p>&nbsp;</p>
+
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<b>输入：</b>
+Follow table:
++----------+----------+
+| followee | follower |
++----------+----------+
+| Alice    | Bob      |
+| Bob      | Cena     |
+| Bob      | Donald   |
+| Donald   | Edward   |
++----------+----------+
+<b>输出：</b>
++----------+-----+
+| follower | num |
++----------+-----+
+| Bob      | 2   |
+| Donald   | 1   |
++----------+-----+
+<b>解释：</b>
+用户 Bob 有 2 个关注者。Bob 是二级关注者，因为他关注了 Alice，所以我们把他包括在结果表中。
+用户 Donald 有 1 个关注者。Donald 是二级关注者，因为他关注了 Bob，所以我们把他包括在结果表中。
+用户 Alice 有 1 个关注者。Alice 不是二级关注者，但是她不关注任何人，所以我们不把她包括在结果表中。</pre>
 
 ## 解法
 

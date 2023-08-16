@@ -16,8 +16,8 @@
 | quantity    | int   |
 | price       | int   |
 +-------------+-------+
-(sale_id, year) is the primary key of this table.
-product_id is a foreign key to <code>Product</code> table.
+(sale_id, year) is the primary key (combination of columns with unique values) of this table.
+product_id is a foreign key (reference column) to <code>Product</code> table.
 Each row of this table shows a sale on the product product_id in a certain year.
 Note that the price is per unit.
 </pre>
@@ -33,17 +33,17 @@ Note that the price is per unit.
 | product_id   | int     |
 | product_name | varchar |
 +--------------+---------+
-product_id is the primary key of this table.
+product_id is the primary key (column with unique values) of this table.
 Each row of this table indicates the product name of each product.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query that reports the total quantity sold for every product id.</p>
+<p>Write a solution that reports the total quantity sold for every product id.</p>
 
 <p>Return the resulting table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

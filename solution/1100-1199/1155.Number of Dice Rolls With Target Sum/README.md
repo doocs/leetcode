@@ -19,8 +19,8 @@
 <pre>
 <strong>输入：</strong>n = 1, k = 6, target = 3
 <strong>输出：</strong>1
-<strong>解释：</strong>你扔一个有6张脸的骰子。
-得到3的和只有一种方法。
+<strong>解释：</strong>你扔一个有 6 个面的骰子。
+得到 3 的和只有一种方法。
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -28,8 +28,8 @@
 <pre>
 <strong>输入：</strong>n = 2, k = 6, target = 7
 <strong>输出：</strong>6
-<strong>解释：</strong>你扔两个骰子，每个骰子有6个面。
-得到7的和有6种方法1+6 2+5 3+4 4+3 5+2 6+1。
+<strong>解释：</strong>你扔两个骰子，每个骰子有 6 个面。
+得到 7 的和有 6 种方法：1+6 2+5 3+4 4+3 5+2 6+1。
 </pre>
 
 <p><strong>示例 3：</strong></p>

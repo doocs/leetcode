@@ -15,7 +15,7 @@
 | years_of_exp | int      |
 | interview_id | int      |
 +--------------+----------+
-candidate_id is the primary key column for this table.
+candidate_id is the primary key (column with unique values) for this table.
 Each row of this table indicates the name of a candidate, their number of years of experience, and their interview ID.
 </pre>
 
@@ -31,17 +31,17 @@ Each row of this table indicates the name of a candidate, their number of years 
 | round_id     | int  |
 | score        | int  |
 +--------------+------+
-(interview_id, round_id) is the primary key column for this table.
+(interview_id, round_id) is the primary key (combination of columns with unique values) for this table.
 Each row of this table indicates the score of one round of an interview.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the IDs of the candidates who have <strong>at least two</strong> years of experience and the sum of the score of their interview rounds is <strong>strictly greater than <code>15</code></strong>.</p>
+<p>Write a solution to report the IDs of the candidates who have <strong>at least two</strong> years of experience and the sum of the score of their interview rounds is <strong>strictly greater than <code>15</code></strong>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

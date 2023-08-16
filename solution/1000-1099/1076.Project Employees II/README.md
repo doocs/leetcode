@@ -6,36 +6,48 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table:&nbsp;<code>Project</code></p>
+<p>表：<code>Project</code></p>
 
-<pre>+-------------+---------+
+<pre>
++-------------+---------+
 | Column Name | Type    |
 +-------------+---------+
 | project_id  | int     |
 | employee_id | int     |
 +-------------+---------+
-主键为 (project_id, employee_id)。
-employee_id 是员工表 <code>Employee 表的外键。</code>
+(project_id, employee_id) 是该表的主键(具有唯一值的列的组合)。
+employee_id 是该表的外键(reference 列)。
+该表的每一行都表明 employee_id 的雇员正在处理 Project 表中 project_id 的项目。
 </pre>
 
-<p>Table:&nbsp;<code>Employee</code></p>
+<p>表：<code>Employee</code></p>
 
-<pre>+------------------+---------+
+<pre>
++------------------+---------+
 | Column Name      | Type    |
 +------------------+---------+
 | employee_id      | int     |
 | name             | varchar |
 | experience_years | int     |
 +------------------+---------+
-主键是 employee_id。</pre>
+employee_id 是该表的主键(具有唯一值的列)。
+该表的每一行都包含一名雇员的信息。</pre>
 
 <p>&nbsp;</p>
 
-<p>编写一个SQL查询，报告所有雇员最多的项目。</p>
+<p>编写一个解决方案来报告所有拥有最多员工的 <strong>项目</strong>。</p>
 
-<p>查询结果格式如下所示：</p>
+<p>以 <strong>任意顺序</strong> 返回结果表。</p>
 
-<pre>Project table:
+<p>返回结果格式如下所示。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>
+Project table:
 +-------------+-------------+
 | project_id  | employee_id |
 +-------------+-------------+
@@ -45,7 +57,6 @@ employee_id 是员工表 <code>Employee 表的外键。</code>
 | 2           | 1           |
 | 2           | 4           |
 +-------------+-------------+
-
 Employee table:
 +-------------+--------+------------------+
 | employee_id | name   | experience_years |
@@ -55,13 +66,13 @@ Employee table:
 | 3           | John   | 1                |
 | 4           | Doe    | 2                |
 +-------------+--------+------------------+
-
-Result table:
+<strong>输出：</strong>
 +-------------+
 | project_id  |
 +-------------+
 | 1           |
 +-------------+
+<strong>解释：</strong>
 第一个项目有3名员工，第二个项目有2名员工。</pre>
 
 ## 解法

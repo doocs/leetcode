@@ -13,7 +13,7 @@
 | id          | int  |
 | p_id        | int  |
 +-------------+------+
-id is the primary key column for this table.
+id is the column with unique values for this table.
 Each row of this table contains information about the id of a node and the id of its parent node in a tree.
 The given structure is always a valid tree.
 </pre>
@@ -28,11 +28,11 @@ The given structure is always a valid tree.
 	<li><strong>&quot;Inner&quot;</strong>: If the node is neither a leaf node nor a root node.</li>
 </ul>
 
-<p>Write an SQL query to report the type of each node in the tree.</p>
+<p>Write a solution to report the type of each node in the tree.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

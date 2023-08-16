@@ -14,13 +14,13 @@
 | month       | int  |
 | salary      | int  |
 +-------------+------+
-(id, month) is the primary key for this table.
+(id, month) is the primary key (combination of columns with unique values) for this table.
 Each row in the table indicates the salary of an employee in one month during the year 2020.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to calculate the <strong>cumulative salary summary</strong> for every employee in a single unified table.</p>
+<p>Write a solution&nbsp;to calculate the <strong>cumulative salary summary</strong> for every employee in a single unified table.</p>
 
 <p>The <strong>cumulative salary summary</strong> for an employee can be calculated as follows:</p>
 
@@ -32,7 +32,7 @@ Each row in the table indicates the salary of an employee in one month during th
 
 <p>Return the result table ordered by <code>id</code> in <strong>ascending order</strong>. In case of a tie, order it by <code>month</code> in <strong>descending order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

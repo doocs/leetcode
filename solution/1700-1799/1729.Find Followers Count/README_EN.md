@@ -13,16 +13,16 @@
 | user_id     | int  |
 | follower_id | int  |
 +-------------+------+
-(user_id, follower_id) is the primary key for this table.
+(user_id, follower_id) is the primary key (combination of columns with unique values) for this table.
 This table contains the IDs of a user and a follower in a social media app where the follower follows the user.</pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query that will, for each user, return the number of followers.</p>
+<p>Write a solution that will, for each user, return the number of followers.</p>
 
 <p>Return the result table ordered by <code>user_id</code> in ascending order.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

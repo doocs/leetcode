@@ -6,21 +6,24 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table:&nbsp;<code>Product</code></p>
+<p>表：<code>Product</code></p>
 
-<pre>+--------------+---------+
+<pre>
++--------------+---------+
 | Column Name  | Type    |
 +--------------+---------+
 | product_id   | int     |
 | product_name | varchar |
 | unit_price   | int     |
 +--------------+---------+
-product_id 是这张表的主键
+Product_id 是该表的主键(具有唯一值的列)。
+该表的每一行表示每种产品的名称和价格。
 </pre>
 
-<p>Table:&nbsp;<code>Sales</code></p>
+<p>表：<code>Sales</code></p>
 
-<pre>+-------------+---------+
+<pre>
++-------------+---------+
 | Column Name | Type    |
 +-------------+---------+
 | seller_id   | int     |
@@ -30,15 +33,28 @@ product_id 是这张表的主键
 | quantity    | int     |
 | price       | int     |
 +------ ------+---------+
-这个表没有主键，它可以有重复的行.
-product_id 是 Product 表的外键.
+这个表可能有重复的行。
+product_id 是 Product 表的外键(reference 列)。
+buyer_id 永远不会是 NULL。
+sale_date 永远不会是 NULL。
+该表的每一行都包含一次销售的一些信息。
 </pre>
 
-<p>编写一个 SQL 查询，查询购买了 S8 手机却没有购买 iPhone 的买家。注意这里 S8 和 iPhone 是 Product 表中的产品。</p>
+<p>&nbsp;</p>
 
-<p>查询结果格式如下图表示：</p>
+<p>编写一个解决方案，报告那些买了 <em>S8</em> 而没有买 <em>iPhone</em> 的 <strong>买家</strong>。注意，<em>S8</em> 和 <em>iPhone</em> 是 <code>Product</code> 表中显示的产品。</p>
 
-<pre>Product table:
+<p>以 <strong>任意顺序</strong> 返回结果表。</p>
+
+<p>结果格式如下所示。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>
+Product table:
 +------------+--------------+------------+
 | product_id | product_name | unit_price |
 +------------+--------------+------------+
@@ -46,7 +62,6 @@ product_id 是 Product 表的外键.
 | 2          | G4           | 800        |
 | 3          | iPhone       | 1400       |
 +------------+--------------+------------+
-
 <code>Sales </code>table:
 +-----------+------------+----------+------------+----------+-------+
 | seller_id | product_id | buyer_id | sale_date  | quantity | price |
@@ -56,15 +71,14 @@ product_id 是 Product 表的外键.
 | 2         | 1          | 3        | 2019-06-02 | 1        | 800   |
 | 3         | 3          | 3        | 2019-05-13 | 2        | 2800  |
 +-----------+------------+----------+------------+----------+-------+
-
-Result table:
+<strong>输出：</strong>
 +-------------+
 | buyer_id    |
 +-------------+
 | 1           |
 +-------------+
+解释：
 id 为 1 的买家购买了一部 S8，但是却没有购买 iPhone，而 id 为 3 的买家却同时购买了这 2 部手机。
-
 </pre>
 
 ## 解法

@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>国家表：<code>Countries</code></p>
+<p>表：<code>Countries</code></p>
 
 <pre>
 +---------------+---------+
@@ -15,13 +15,13 @@
 | country_id    | int     |
 | country_name  | varchar |
 +---------------+---------+
-country_id 是这张表的主键。
+country_id 是这张表的主键(具有唯一值的列)。
 该表的每行有 country_id 和 country_name 两列。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>天气表：<code>Weather</code></p>
+<p>表：<code>Weather</code></p>
 
 <pre>
 +---------------+---------+
@@ -31,21 +31,32 @@ country_id 是这张表的主键。
 | weather_state | varchar |
 | day           | date    |
 +---------------+---------+
-(country_id, day) 是该表的复合主键。
+(country_id, day) 是该表的复合主键(具有唯一值的列)。
 该表的每一行记录了某个国家某一天的天气情况。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>写一段 SQL 来找到表中每个国家在 2019 年 11 月的天气类型。</p>
+<p>编写解决方案找到表中每个国家在 2019 年 11 月的天气类型。</p>
 
-<p>天气类型的定义如下：当 weather_state 的平均值小于或等于15返回 <strong>Cold</strong>，当 weather_state 的平均值大于或等于 25 返回 <strong>Hot</strong>，否则返回&nbsp;<strong>Warm</strong>。</p>
+<p>天气类型的定义如下：</p>
 
-<p>你可以以任意顺序返回你的查询结果。</p>
+<ul>
+	<li>当 <code>weather_state</code> 的平均值小于或等于 <code>15</code> 返回 <strong>Cold</strong>，</li>
+	<li>当 <code>weather_state</code> 的平均值大于或等于 <code>25</code> 返回 <strong>Hot</strong>，</li>
+	<li>否则返回&nbsp;<strong>Warm</strong>。</li>
+</ul>
 
-<p>查询结果格式如下所示：</p>
+<p>以 <strong>任意顺序</strong> 返回你的查询结果。</p>
+
+<p>返回结果格式如下所示：</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1：</strong></p>
 
 <pre>
+<strong>输入：</strong>
 Countries table:
 +------------+--------------+
 | country_id | country_name |
@@ -79,7 +90,7 @@ Weather table:
 | 9          | 7             | 2019-10-23 |
 | 9          | 3             | 2019-12-23 |
 +------------+---------------+------------+
-Result table:
+<strong>输出：</strong>
 +--------------+--------------+
 | country_name | weather_type |
 +--------------+--------------+
@@ -89,6 +100,7 @@ Result table:
 | China        | Warm         |
 | Morocco      | Hot          |
 +--------------+--------------+
+<strong>解释：</strong>
 USA 11 月的平均 weather_state 为 (15) / 1 = 15 所以天气类型为 Cold。
 Australia 11 月的平均 weather_state 为 (-2 + 0 + 3) / 3 = 0.333 所以天气类型为 Cold。
 Peru 11 月的平均 weather_state 为 (25) / 1 = 25 所以天气类型为 Hot。

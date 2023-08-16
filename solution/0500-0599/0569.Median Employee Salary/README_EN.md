@@ -14,17 +14,17 @@
 | company      | varchar |
 | salary       | int     |
 +--------------+---------+
-id is the primary key column for this table.
+id is the primary key (column with unique values) for this table.
 Each row of this table indicates the company and the salary of one employee.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find the rows that contain the median salary of each company. While calculating the median, when you sort the salaries of the company, break the ties by <code>id</code>.</p>
+<p>Write a solution to find the rows that contain the median salary of each company. While calculating the median, when you sort the salaries of the company, break the ties by <code>id</code>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

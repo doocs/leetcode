@@ -13,7 +13,7 @@
 | visit_id    | int     |
 | customer_id | int     |
 +-------------+---------+
-visit_id is the primary key for this table.
+visit_id is the column with unique values for this table.
 This table contains information about the customers who visited the mall.
 </pre>
 
@@ -29,17 +29,17 @@ This table contains information about the customers who visited the mall.
 | visit_id       | int     |
 | amount         | int     |
 +----------------+---------+
-transaction_id is the primary key for this table.
+transaction_id is column with unique values for this table.
 This table contains information about the transactions made during the visit_id.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write a&nbsp;SQL query to find the IDs of the users who visited without making any transactions and the number of times they made these types of visits.</p>
+<p>Write a&nbsp;solution to find the IDs of the users who visited without making any transactions and the number of times they made these types of visits.</p>
 
 <p>Return the result table sorted in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

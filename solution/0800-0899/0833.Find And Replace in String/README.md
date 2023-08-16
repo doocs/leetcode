@@ -32,20 +32,20 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0833.Find%20And%20Replace%20in%20String/images/833-ex1.png" style="height: 251px; width: 411px;" /></p>
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0833.Find%20And%20Replace%20in%20String/images/833-ex1.png" /></p>
 
 <pre>
-<strong>输入：</strong>s = "abcd", indexes = [0,2], sources = ["a","cd"], targets = ["eee","ffff"]
+<strong>输入：</strong>s = "abcd", indices = [0,2], sources = ["a","cd"], targets = ["eee","ffff"]
 <strong>输出：</strong>"eeebffff"
 <strong>解释：
 </strong>"a" 从 s 中的索引 0 开始，所以它被替换为 "eee"。
 "cd" 从 s 中的索引 2 开始，所以它被替换为 "ffff"。
 </pre>
 
-<p><strong>示例 2：</strong><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0833.Find%20And%20Replace%20in%20String/images/833-ex2-1.png" style="height: 251px; width: 411px;" /></p>
+<p><strong>示例 2：</strong><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0833.Find%20And%20Replace%20in%20String/images/833-ex2-1.png" /></p>
 
 <pre>
-<strong>输入：</strong>s = "abcd", indexes = [0,2], sources = ["ab","ec"], targets = ["eee","ffff"]
+<strong>输入：</strong>s = "abcd", indices = [0,2], sources = ["ab","ec"], targets = ["eee","ffff"]
 <strong>输出：</strong>"eeecd"
 <strong>解释：
 </strong>"ab" 从 s 中的索引 0 开始，所以它被替换为 "eee"。
@@ -60,7 +60,7 @@
 	<li><code>1 &lt;= s.length &lt;= 1000</code></li>
 	<li><code>k == indices.length == sources.length == targets.length</code></li>
 	<li><code>1 &lt;= k &lt;= 100</code></li>
-	<li><code>0 &lt;= indexes[i] &lt; s.length</code></li>
+	<li><code>0 &lt;= indices[i] &lt; s.length</code></li>
 	<li><code>1 &lt;= sources[i].length, targets[i].length &lt;= 50</code></li>
 	<li><code>s</code> 仅由小写英文字母组成</li>
 	<li><code>sources[i]</code> 和 <code>targets[i]</code> 仅由小写英文字母组成</li>

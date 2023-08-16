@@ -13,7 +13,7 @@
 | customer_id         | int     |
 | customer_name       | varchar |
 +---------------------+---------+
-customer_id is the primary key for this table.
+customer_id is the column with unique values for this table.
 customer_name is the name of the customer.</pre>
 
 <p>&nbsp;</p>
@@ -28,17 +28,17 @@ customer_name is the name of the customer.</pre>
 | customer_id   | int     |
 | product_name  | varchar |
 +---------------+---------+
-order_id is the primary key for this table.
+order_id is the column with unique values for this table.
 customer_id is the id of the customer who bought the product &quot;product_name&quot;.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the customer_id and customer_name of customers who bought products <strong>&quot;A&quot;</strong>, <strong>&quot;B&quot;</strong> but did not buy the product <strong>&quot;C&quot;</strong> since we want to recommend them to purchase this product.</p>
+<p>Write a solution&nbsp;to report the customer_id and customer_name of customers who bought products <strong>&quot;A&quot;</strong>, <strong>&quot;B&quot;</strong> but did not buy the product <strong>&quot;C&quot;</strong> since we want to recommend them to purchase this product.</p>
 
 <p>Return the result table <strong>ordered</strong> by <code>customer_id</code>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

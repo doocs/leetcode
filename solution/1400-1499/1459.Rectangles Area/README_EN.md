@@ -14,12 +14,12 @@
 | x_value       | int     |
 | y_value       | int     |
 +---------------+---------+
-id is the primary key for this table.
+id is the column with unique values for this table.
 Each point is represented as a 2D coordinate (x_value, y_value).</pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report all possible <strong>axis-aligned</strong> rectangles with a <strong>non-zero area</strong> that can be formed by any two points from the <code>Points</code> table.</p>
+<p>Write a solution to report all possible <strong>axis-aligned</strong> rectangles with a <strong>non-zero area</strong> that can be formed by any two points from the <code>Points</code> table.</p>
 
 <p>Each row in the result should contain three columns <code>(p1, p2, area)</code> where:</p>
 
@@ -30,7 +30,7 @@ Each point is represented as a 2D coordinate (x_value, y_value).</pre>
 
 <p>Return the result table <strong>ordered</strong> by <code>area</code> <strong>in descending order</strong>. If there is a tie, order them by <code>p1</code> <strong>in ascending order</strong>. If there is still a tie, order them by <code>p2</code> <strong>in ascending order</strong>.</p>
 
-<p>The query result format is in the following table.</p>
+<p>The&nbsp;result format is in the following table.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

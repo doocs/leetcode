@@ -13,8 +13,9 @@
 | customer_id | int     |
 | product_key | int     |
 +-------------+---------+
-There is no primary key for this table. It may contain duplicates. <code>customer_id</code> is not NULL<code>.</code>
-product_key is a foreign key to <code>Product</code> table.
+This table may contain duplicates rows. 
+<code>customer_id</code> is not NULL<code>.</code>
+product_key is a foreign key (reference column) to <code>Product</code> table.
 </pre>
 
 <p>&nbsp;</p>
@@ -27,16 +28,16 @@ product_key is a foreign key to <code>Product</code> table.
 +-------------+---------+
 | product_key | int     |
 +-------------+---------+
-product_key is the primary key column for this table.
+product_key is the primary key (column with unique values) for this table.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the customer ids from the <code>Customer</code> table that bought all the products in the <code>Product</code> table.</p>
+<p>Write a solution to report the customer ids from the <code>Customer</code> table that bought all the products in the <code>Product</code> table.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

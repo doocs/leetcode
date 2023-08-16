@@ -15,19 +15,19 @@
 | activity_date | date    |
 | activity_type | enum    |
 +---------------+---------+
-There is no primary key for this table, it may have duplicate rows.
-The activity_type column is an ENUM of type (&#39;open_session&#39;, &#39;end_session&#39;, &#39;scroll_down&#39;, &#39;send_message&#39;).
+This table may have duplicate rows.
+The activity_type column is an ENUM (category) of type (&#39;open_session&#39;, &#39;end_session&#39;, &#39;scroll_down&#39;, &#39;send_message&#39;).
 The table shows the user activities for a social media website. 
 Note that each session belongs to exactly one user.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find the daily active user count for a period of <code>30</code> days ending <code>2019-07-27</code> inclusively. A user was active on someday if they made at least one activity on that day.</p>
+<p>Write a solution to find the daily active user count for a period of <code>30</code> days ending <code>2019-07-27</code> inclusively. A user was active on someday if they made at least one activity on that day.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

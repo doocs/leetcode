@@ -17,8 +17,8 @@
 | q_num       | int  |
 | timestamp   | int  |
 +-------------+------+
-There is no primary key for this table. It may contain duplicates.
-action is an ENUM of the type: &quot;show&quot;, &quot;answer&quot;, or &quot;skip&quot;.
+This table may contain duplicate rows.
+action is an ENUM (category) of the type: &quot;show&quot;, &quot;answer&quot;, or &quot;skip&quot;.
 Each row of this table indicates the user with ID = id has taken an action with the question question_id at time timestamp.
 If the action taken by the user is &quot;answer&quot;, answer_id will contain the id of that answer, otherwise, it will be null.
 q_num is the numeral order of the question in the current session.
@@ -28,9 +28,9 @@ q_num is the numeral order of the question in the current session.
 
 <p>The <strong>answer rate</strong> for a question is the number of times a user answered the question by the number of times a user showed the question.</p>
 
-<p>Write an SQL query to report the question that has the highest <strong>answer rate</strong>. If multiple questions have the same maximum <strong>answer rate</strong>, report the question with the smallest <code>question_id</code>.</p>
+<p>Write a solution to report the question that has the highest <strong>answer rate</strong>. If multiple questions have the same maximum <strong>answer rate</strong>, report the question with the smallest <code>question_id</code>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

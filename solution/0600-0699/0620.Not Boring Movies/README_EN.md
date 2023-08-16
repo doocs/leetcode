@@ -15,18 +15,18 @@
 | description    | varchar  |
 | rating         | float    |
 +----------------+----------+
-id is the primary key for this table.
+id is the primary key (column with unique values) for this table.
 Each row contains information about the name of a movie, its genre, and its rating.
 rating is a 2 decimal places float in the range [0, 10]
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the movies with an odd-numbered ID and a description that is not <code>&quot;boring&quot;</code>.</p>
+<p>Write a solution to report the movies with an odd-numbered ID and a description that is not <code>&quot;boring&quot;</code>.</p>
 
 <p>Return the result table ordered by <code>rating</code> <strong>in descending order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

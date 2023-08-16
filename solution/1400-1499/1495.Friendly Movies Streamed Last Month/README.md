@@ -16,9 +16,9 @@
 | content_id    | int     |
 | channel       | varchar |
 +---------------+---------+
-(program_date, content_id) 是该表主键.
-该表包含电视上的节目信息.
-content_id 是电视一些频道上的节目的 id.</pre>
+(program_date, content_id) 是该表的主键(具有唯一值的列的组合)。
+该表包含电视上的节目信息。
+content_id 是电视一些频道上的节目的 id。</pre>
 
 <p>&nbsp;</p>
 
@@ -33,19 +33,19 @@ content_id 是电视一些频道上的节目的 id.</pre>
 | Kids_content     | enum    |
 | content_type     | varchar |
 +------------------+---------+
-content_id 是该表主键.
+content_id 是该表主键(具有唯一值的列)。
 Kids_content 是枚举类型, 取值为('Y', 'N'), 其中: 
-'Y' 表示儿童适宜内容, 而'N'表示儿童不宜内容.
-content_type&nbsp;表示内容的类型, 比如电影, 电视剧等.
+'Y' 表示儿童适宜内容, 而'N'表示儿童不宜内容。
+content_type&nbsp;表示内容的类型, 比如电影, 电视剧等。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>写一个 SQL 语句,&nbsp;&nbsp;报告在 2020 年 6 月份播放的儿童适宜电影的去重电影名.</p>
+<p>编写解决方案，&nbsp;报告在 2020 年 6 月份播放的儿童适宜电影的去重电影名.</p>
 
 <p>返回的结果表单 <strong>没有顺序要求</strong> .</p>
 
-<p>查询结果的格式如下例所示.</p>
+<p>返回结果的格式如下例所示.</p>
 
 <p>&nbsp;</p>
 

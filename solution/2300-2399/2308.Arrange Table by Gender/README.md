@@ -15,7 +15,7 @@
 | user_id     | int     |
 | gender      | varchar |
 +-------------+---------+
-user_id 是该表的主键。
+user_id 是该表的主键(具有唯一值的列)。
 gender 的值是 'female', 'male','other' 之一。
 该表中的每一行都包含用户的 ID 及其性别。
 表格中 'female', 'male','other' 数量相等。
@@ -23,9 +23,9 @@ gender 的值是 'female', 'male','other' 之一。
 
 <p>&nbsp;</p>
 
-<p>编写一个SQL查询以重新排列 <code>Genders</code> 表，使行按顺序在&nbsp;<code>'female'</code>,&nbsp;<code>'other'</code>&nbsp;和&nbsp;<code>'male'</code>&nbsp;之间交替。同时每种性别按照&nbsp;user_id 升序进行排序。<br />
+<p>编写一个解决方案以重新排列 <code>Genders</code> 表，使行按顺序在&nbsp;<code>'female'</code>,&nbsp;<code>'other'</code>&nbsp;和&nbsp;<code>'male'</code>&nbsp;之间交替。同时每种性别按照&nbsp;user_id 升序进行排序。<br />
 按 <strong>上述顺序</strong> 返回结果表。<br />
-查询结果格式如以下示例所示。</p>
+返回结果格式如以下示例所示。</p>
 
 <p>&nbsp;</p>
 

@@ -15,7 +15,7 @@
 | customer_id         | int     |
 | customer_name       | varchar |
 +---------------------+---------+
-customer_id 是这张表的主键。
+customer_id 是这张表中具有唯一值的列。
 customer_name 是顾客的名称。</pre>
 
 <p>&nbsp;</p>
@@ -30,20 +30,24 @@ customer_name 是顾客的名称。</pre>
 | customer_id   | int     |
 | product_name  | varchar |
 +---------------+---------+
-order_id 是这张表的主键。
-customer_id 是购买了名为 &quot;product_name&quot; 产品顾客的id。
+order_id 是这张表中具有唯一值的列。
+customer_id 是购买了名为 "product_name" 产品顾客的id。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>请你设计 SQL 查询来报告购买了产品 A 和产品 B 却没有购买产品 C 的顾客的 ID 和姓名（ <code>customer_id</code> 和&nbsp;<code>customer_name</code> ），我们将基于此结果为他们推荐产品 C 。<br />
-您返回的查询结果需要按照&nbsp;<code>customer_id</code> <strong>排序</strong>。</p>
+<p>请你编写解决方案，报告购买了产品 <strong>"A"</strong>，<strong>"B"</strong> 但没有购买产品 <strong>"C"</strong> 的客户的 customer_id 和 customer_name，因为我们想推荐他们购买这样的产品。</p>
+
+<p>返回按 <code>customer_id</code> <strong>排序</strong> 的结果表。</p>
+
+<p>返回结果格式如下所示。</p>
 
 <p>&nbsp;</p>
 
-<p>查询结果如下例所示。</p>
+<p><strong>示例 1：</strong></p>
 
 <pre>
+<strong>输入：</strong>
 Customers table:
 +-------------+---------------+
 | customer_id | customer_name |
@@ -68,13 +72,13 @@ Orders table:
 | 80         |     3        |     D         |
 | 90         |     4        |     C         |
 +------------+--------------+---------------+
-
-Result table:
+<strong>输出：</strong>
 +-------------+---------------+
 | customer_id | customer_name |
 +-------------+---------------+
 | 3           | Elizabeth     |
 +-------------+---------------+
+<strong>解释：</strong>
 只有 customer_id 为 3 的顾客购买了产品 A 和产品 B ，却没有购买产品 C 。</pre>
 
 ## 解法

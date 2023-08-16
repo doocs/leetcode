@@ -15,7 +15,7 @@
 | user1_id      | int     |
 | user2_id      | int     |
 +---------------+---------+
-(user1_id,user2_id)是Friendship表的主键。
+(user1_id,user2_id) 是 Friendship 表的主键(具有唯一值的列的组合)。
 该表的每一行表示用户user1_id和user2_id是好友。
 </pre>
 
@@ -30,8 +30,7 @@
 | user_id     | int     |
 | page_id     | int     |
 +-------------+---------+
-(user_id,page_id)是Likes表的主键。
-(user_id, page_id) is the primary key for this table.
+(user_id,page_id) 是 Likes 表的主键(具有唯一值的列)。
 该表的每一行表示user_id喜欢page_id。
 </pre>
 
@@ -39,7 +38,7 @@
 
 <p>您正在为一个社交媒体网站实施一个页面推荐系统。如果页面被<code>user_id</code>的&nbsp;<strong>至少一个朋友喜欢&nbsp;</strong>，而&nbsp;<strong>不被</strong><code>user_id</code><strong>喜欢&nbsp;</strong>，你的系统将&nbsp;<strong>推荐&nbsp;</strong>一个页面到<code>user_id</code>。</p>
 
-<p>编写一个SQL查询来查找针对每个用户的所有可能的&nbsp;<strong>页面建议&nbsp;</strong>。每个建议应该在结果表中显示为一行，包含以下列:</p>
+<p>编写一个解决方案来查找针对每个用户的所有可能的&nbsp;<strong>页面建议&nbsp;</strong>。每个建议应该在结果表中显示为一行，包含以下列:</p>
 
 <ul>
 	<li><code>user_id</code>: 系统向其提出建议的用户的ID。</li>
@@ -49,7 +48,7 @@
 
 <p>以&nbsp;<strong>任意顺序&nbsp;</strong>返回结果表。</p>
 
-<p>查询结果格式示例如下。</p>
+<p>返回结果格式示例如下。</p>
 
 <p>&nbsp;</p>
 

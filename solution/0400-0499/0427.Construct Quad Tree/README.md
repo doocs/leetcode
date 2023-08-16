@@ -8,18 +8,17 @@
 
 <p>给你一个 <code>n * n</code> 矩阵 <code>grid</code> ，矩阵由若干 <code>0</code> 和 <code>1</code> 组成。请你用四叉树表示该矩阵 <code>grid</code> 。</p>
 
-<p>你需要返回能表示矩阵的 四叉树 的根结点。</p>
-
-<p>注意，当 <code>isLeaf</code> 为 <strong>False </strong>时，你可以把 <strong>True</strong> 或者 <strong>False</strong> 赋值给节点，两种值都会被判题机制 <strong>接受</strong> 。</p>
+<p>你需要返回能表示矩阵 <code>grid</code> 的 四叉树 的根结点。</p>
 
 <p>四叉树数据结构中，每个内部节点只有四个子节点。此外，每个节点都有两个属性：</p>
 
 <ul>
-	<li><code>val</code>：储存叶子结点所代表的区域的值。1 对应 <strong>True</strong>，0 对应 <strong>False</strong>；</li>
+	<li><code>val</code>：储存叶子结点所代表的区域的值。1 对应 <strong>True</strong>，0 对应 <strong>False</strong>。注意，当 <code>isLeaf</code> 为 <strong>False </strong>时，你可以把 <strong>True</strong> 或者 <strong>False</strong> 赋值给节点，两种值都会被判题机制 <strong>接受</strong> 。</li>
 	<li><code>isLeaf</code>: 当这个节点是一个叶子结点时为 <strong>True</strong>，如果它有 4 个子节点则为 <strong>False</strong> 。</li>
 </ul>
 
-<pre>class Node {
+<pre>
+class Node {
     public boolean val;
 &nbsp; &nbsp; public boolean isLeaf;
 &nbsp; &nbsp; public Node topLeft;
@@ -36,13 +35,13 @@
 	<li>使用适当的子网格递归每个子节点。</li>
 </ol>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0427.Construct%20Quad%20Tree/images/new_top.png" style="height: 181px; width: 777px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0427.Construct%20Quad%20Tree/images/new_top.png" style="height: 181px; width: 777px;" /></p>
 
 <p>如果你想了解更多关于四叉树的内容，可以参考 <a href="https://en.wikipedia.org/wiki/Quadtree">wiki</a> 。</p>
 
 <p><strong>四叉树格式：</strong></p>
 
-<p>输出为使用层序遍历后四叉树的序列化形式，其中 <code>null</code> 表示路径终止符，其下面不存在节点。</p>
+<p>你不需要阅读本节来解决这个问题。只有当你想了解输出格式时才会这样做。输出为使用层序遍历后四叉树的序列化形式，其中 <code>null</code> 表示路径终止符，其下面不存在节点。</p>
 
 <p>它与二叉树的序列化非常相似。唯一的区别是节点以列表形式表示 <code>[isLeaf, val]</code> 。</p>
 
@@ -52,44 +51,28 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0427.Construct%20Quad%20Tree/images/grid1.png" style="height: 99px; width: 777px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0427.Construct%20Quad%20Tree/images/grid1.png" style="height: 99px; width: 777px;" /></p>
 
-<pre><strong>输入：</strong>grid = [[0,1],[1,0]]
+<pre>
+<strong>输入：</strong>grid = [[0,1],[1,0]]
 <strong>输出：</strong>[[0,1],[1,0],[1,1],[1,1],[1,0]]
 <strong>解释：</strong>此示例的解释如下：
 请注意，在下面四叉树的图示中，0 表示 false，1 表示 True 。
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0427.Construct%20Quad%20Tree/images/e1tree.png" style="height: 186px; width: 777px;">
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0427.Construct%20Quad%20Tree/images/e1tree.png" style="height: 186px; width: 777px;" />
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0427.Construct%20Quad%20Tree/images/e2mat.png" style="height: 343px; width: 777px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0427.Construct%20Quad%20Tree/images/e2mat.png" style="height: 343px; width: 777px;" /></p>
 
-<pre><strong>输入：</strong>grid = [[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1],[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0]]
+<pre>
+<strong>输入：</strong>grid = [[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1],[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0]]
 <strong>输出：</strong>[[0,1],[1,1],[0,1],[1,1],[1,0],null,null,null,null,[1,0],[1,0],[1,1],[1,1]]
 <strong>解释：</strong>网格中的所有值都不相同。我们将网格划分为四个子网格。
 topLeft，bottomLeft 和 bottomRight 均具有相同的值。
 topRight 具有不同的值，因此我们将其再分为 4 个子网格，这样每个子网格都具有相同的值。
 解释如下图所示：
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0427.Construct%20Quad%20Tree/images/e2tree.png" style="height: 328px; width: 777px;">
-</pre>
-
-<p><strong>示例 3：</strong></p>
-
-<pre><strong>输入：</strong>grid = [[1,1],[1,1]]
-<strong>输出：</strong>[[1,1]]
-</pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre><strong>输入：</strong>grid = [[0]]
-<strong>输出：</strong>[[1,0]]
-</pre>
-
-<p><strong>示例 5：</strong></p>
-
-<pre><strong>输入：</strong>grid = [[1,1,0,0],[1,1,0,0],[0,0,1,1],[0,0,1,1]]
-<strong>输出：</strong>[[0,1],[1,1],[1,0],[1,0],[1,1]]
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0427.Construct%20Quad%20Tree/images/e2tree.png" style="height: 328px; width: 777px;" />
 </pre>
 
 <p>&nbsp;</p>
@@ -98,7 +81,7 @@ topRight 具有不同的值，因此我们将其再分为 4 个子网格，这�
 
 <ol>
 	<li><code>n == grid.length == grid[i].length</code></li>
-	<li><code>n == 2^x</code> 其中 <code>0 &lt;= x &lt;= 6</code></li>
+	<li><code>n == 2<sup>x</sup></code> 其中 <code>0 &lt;= x &lt;= 6</code></li>
 </ol>
 
 ## 解法

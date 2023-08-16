@@ -13,7 +13,7 @@
 | driver_id   | int     |
 | join_date   | date    |
 +-------------+---------+
-driver_id is the primary key for this table.
+driver_id is the primary key (column with unique values) for this table.
 Each row of this table contains the driver&#39;s ID and the date they joined the Hopper company.
 </pre>
 
@@ -29,7 +29,7 @@ Each row of this table contains the driver&#39;s ID and the date they joined the
 | user_id      | int     |
 | requested_at | date    |
 +--------------+---------+
-ride_id is the primary key for this table.
+ride_id is the primary key (column with unique values) for this table.
 Each row of this table contains the ID of a ride, the user&#39;s ID that requested it, and the day they requested it.
 There may be some ride requests in this table that were not accepted.
 </pre>
@@ -47,14 +47,14 @@ There may be some ride requests in this table that were not accepted.
 | ride_distance | int     |
 | ride_duration | int     |
 +---------------+---------+
-ride_id is the primary key for this table.
+ride_id is the primary key (column with unique values) for this table.
 Each row of this table contains some information about an accepted ride.
 It is guaranteed that each accepted ride exists in the Rides table.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the following statistics for each month of <strong>2020</strong>:</p>
+<p>Write a solution to report the following statistics for each month of <strong>2020</strong>:</p>
 
 <ul>
 	<li>The number of drivers currently with the Hopper company by the end of the month (<code>active_drivers</code>).</li>
@@ -63,7 +63,7 @@ It is guaranteed that each accepted ride exists in the Rides table.
 
 <p>Return the result table ordered by <code>month</code> in ascending order, where <code>month</code> is the month&#39;s number (January is <code>1</code>, February is <code>2</code>, etc.).</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

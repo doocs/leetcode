@@ -12,7 +12,7 @@
 +--------------+---------+
 | fail_date    | date    |
 +--------------+---------+
-fail_date is the primary key for this table.
+fail_date is the primary key (column with unique values) for this table.
 This table contains the days of failed tasks.
 </pre>
 
@@ -26,7 +26,7 @@ This table contains the days of failed tasks.
 +--------------+---------+
 | success_date | date    |
 +--------------+---------+
-success_date is the primary key for this table.
+success_date is the primary key (column with unique values) for this table.
 This table contains the days of succeeded tasks.
 </pre>
 
@@ -34,13 +34,13 @@ This table contains the days of succeeded tasks.
 
 <p>A system is running one task <strong>every day</strong>. Every task is independent of the previous tasks. The tasks can fail or succeed.</p>
 
-<p>Write an SQL query to generate a report of <code>period_state</code> for each continuous interval of days in the period from <code>2019-01-01</code> to <code>2019-12-31</code>.</p>
+<p>Write a solution&nbsp;to report the&nbsp;<code>period_state</code> for each continuous interval of days in the period from <code>2019-01-01</code> to <code>2019-12-31</code>.</p>
 
 <p><code>period_state</code> is <em>&#39;</em><code>failed&#39;</code><em> </em>if tasks in this interval failed or <code>&#39;succeeded&#39;</code> if tasks in this interval succeeded. Interval of days are retrieved as <code>start_date</code> and <code>end_date.</code></p>
 
 <p>Return the result table ordered by <code>start_date</code>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

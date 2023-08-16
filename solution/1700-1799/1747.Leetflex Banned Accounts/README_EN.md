@@ -15,18 +15,18 @@
 | login       | datetime |
 | logout      | datetime |
 +-------------+----------+
-There is no primary key for this table, and it may contain duplicates.
+This table may contain duplicate rows.
 The table contains information about the login and logout dates of Leetflex accounts. It also contains the IP address from which the account was logged in and out.
 It is guaranteed that the logout time is after the login time.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find the <code>account_id</code> of the accounts that should be banned from Leetflex. An account should be banned if it was logged in at some moment from two different IP addresses.</p>
+<p>Write a solution&nbsp;to find the <code>account_id</code> of the accounts that should be banned from Leetflex. An account should be banned if it was logged in at some moment from two different IP addresses.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

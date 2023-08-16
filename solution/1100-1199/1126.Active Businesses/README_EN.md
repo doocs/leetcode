@@ -14,7 +14,7 @@
 | event_type    | varchar |
 | occurences    | int     | 
 +---------------+---------+
-(business_id, event_type) is the primary key of this table.
+(business_id, event_type) is the primary key (combination of columns with unique values) of this table.
 Each row in the table logs the info that an event of some type occurred at some business for a number of times.
 </pre>
 
@@ -24,11 +24,11 @@ Each row in the table logs the info that an event of some type occurred at some 
 
 <p>An <strong>active business</strong> is a business that has <strong>more than one</strong> <code>event_type</code> such that their <code>occurences</code> is <strong>strictly greater</strong> than the average activity for that event.</p>
 
-<p>Write an SQL query to find all <strong>active businesses</strong>.</p>
+<p>Write a solution to find all <strong>active businesses</strong>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

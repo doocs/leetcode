@@ -13,7 +13,7 @@
 | flight_id   | int  |
 | capacity    | int  |
 +-------------+------+
-<code>flight_id</code> is the primary key column for this table.
+<code>flight_id</code> is the column with unique values for this table.
 Each row of this table contains flight id and its capacity.
 </pre>
 
@@ -26,17 +26,17 @@ Each row of this table contains flight id and its capacity.
 | passenger_id | int  |
 | flight_id    | int  |
 +--------------+------+
-passenger_id is the primary key column for this table.
+passenger_id is the column with unique values for this table.
 Each row of this table contains passenger id and flight id.
 </pre>
 
 <p>Passengers book tickets for flights in advance. If a passenger books a ticket for a flight and there are still empty seats available on the flight, the passenger ticket will be <strong>confirmed</strong>. However, the passenger will be on a <strong>waitlist</strong> if the flight is already at full capacity.</p>
 
-<p>Write an SQL query to report the number of passengers who successfully booked a flight (got a seat) and the number of passengers who are on the waitlist for each flight.</p>
+<p>Write a solution to report the number of passengers who successfully booked a flight (got a seat) and the number of passengers who are on the waitlist for each flight.</p>
 
-<p>Return <em>the result table ordered by</em> <code>flight_id</code>&nbsp;in <strong>ascending</strong><em><strong>&nbsp;order</strong>.</em></p>
+<p>Return the result table ordered by<em> </em><code>flight_id</code>&nbsp;in <strong>ascending</strong><em><strong>&nbsp;order</strong>.</em></p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

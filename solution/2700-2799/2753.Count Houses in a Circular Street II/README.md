@@ -6,21 +6,21 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个代表 <strong>环形 </strong>街道的类 <code>Street</code> 和一个正整数 <code>k</code>，表示街道上房屋的最大数量（也就是说房屋数量不超过 <code>k</code>）。每个房屋的门初始时可以是开着的也可以是关着的（至少有一个房屋的门是开着的）。</p>
+<p>给定一个代表&nbsp;<strong>环形&nbsp;</strong>街道的类&nbsp;<code>Street</code>&nbsp;和一个正整数&nbsp;<code>k</code>，表示街道上房屋的最大数量（也就是说房屋数量不超过&nbsp;<code>k</code>）。每个房屋的门初始时可以是开着的也可以是关着的（至少有一个房屋的门是开着的）。</p>
 
 <p>刚开始，你站在一座房子的门前。你的任务是计算街道上的房屋数量。</p>
 
-<p><code>Street</code> 类包含以下函数：</p>
+<p><code>Street</code>&nbsp;类包含以下函数：</p>
 
 <ul>
 	<li><code>void closeDoor()</code>：关闭当前房屋的门。</li>
-	<li><code>boolean isDoorOpen()</code>：如果当前房屋的门是开着的返回 <code>true</code>，否则返回 <code>false</code>。</li>
+	<li><code>boolean isDoorOpen()</code>：如果当前房屋的门是开着的返回&nbsp;<code>true</code>，否则返回&nbsp;<code>false</code>。</li>
 	<li><code>void moveRight()</code>：向右移动到下一座房屋。</li>
 </ul>
 
-<p><strong>注意：</strong>在<strong> 环形 </strong>街道内，如果将房屋从 <code>1</code> 到 <code>n</code> 编号，则当 <code>i &lt; n</code> 时&nbsp;<code>house<sub>i</sub></code> 右边的房子是&nbsp;<code>house<sub>i+1</sub></code>，<code>house<sub>n</sub></code> 右边的房子是&nbsp;<code>house<sub>1</sub></code>。</p>
+<p><strong>注意：</strong>在<strong>&nbsp;环形&nbsp;</strong>街道内，如果将房屋从&nbsp;<code>1</code>&nbsp;到&nbsp;<code>n</code>&nbsp;编号，则当&nbsp;<code>i &lt; n</code>&nbsp;时&nbsp;<code>house<sub>i</sub></code>&nbsp;右边的房子是&nbsp;<code>house<sub>i+1</sub></code>，<code>house<sub>n</sub></code>&nbsp;右边的房子是&nbsp;<code>house<sub>1</sub></code>。</p>
 
-<p>返回 <code>ans</code>，它表示街道上的房屋数量。</p>
+<p>返回&nbsp;<code>ans</code>，它表示街道上的房屋数量。</p>
 
 <p>&nbsp;</p>
 
@@ -29,7 +29,7 @@
 <pre>
 <b>输入：</b>street = [1,1,1,1], k = 10
 <b>输出：</b>4
-<b>解释：</b>街道上有 4 座房屋，它们的门都是关着的。
+<b>解释：</b>街道上有 4 座房屋，它们的门都是开着的。
 房屋数量小于 k，即 10。</pre>
 
 <p><strong>示例 2：</strong></p>

@@ -14,7 +14,7 @@
 | product_name | varchar |
 | unit_price   | int     |
 +--------------+---------+
-product_id is the primary key of this table.
+product_id is the primary key (column with unique values) of this table.
 Each row of this table indicates the name and the price of each product.
 </pre>
 
@@ -31,18 +31,18 @@ Each row of this table indicates the name and the price of each product.
 | quantity    | int     |
 | price       | int     |
 +-------------+---------+
-This table has no primary key, it can have repeated rows.
-product_id is a foreign key to the Product table.
+This table can have repeated rows.
+product_id is a foreign key (reference column) to the Product table.
 Each row of this table contains some information about one sale.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query that reports the best <strong>seller</strong> by total sales price, If there is a tie, report them all.</p>
+<p>Write a solution that reports the best <strong>seller</strong> by total sales price, If there is a tie, report them all.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

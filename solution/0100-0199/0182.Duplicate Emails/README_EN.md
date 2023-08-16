@@ -13,17 +13,17 @@
 | id          | int     |
 | email       | varchar |
 +-------------+---------+
-id is the primary key column for this table.
+id is the primary key (column with unique values) for this table.
 Each row of this table contains an email. The emails will not contain uppercase letters.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report all the duplicate emails. Note that it&#39;s guaranteed that the email&nbsp;field is not NULL.</p>
+<p>Write a solution to report all the duplicate emails. Note that it&#39;s guaranteed that the email&nbsp;field is not NULL.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
