@@ -6,7 +6,7 @@
 #         self.right = right
 class Solution:
     def goodNodes(self, root: TreeNode) -> int:
-        def dfs(root, mx):
+        def dfs(root: TreeNode, mx: int):
             if root is None:
                 return
             nonlocal ans
@@ -17,5 +17,5 @@ class Solution:
             dfs(root.right, mx)
 
         ans = 0
-        dfs(root, -10000)
+        dfs(root, -1000000)
         return ans

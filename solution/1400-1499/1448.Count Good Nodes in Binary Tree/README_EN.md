@@ -61,7 +61,7 @@ Node 3 -&gt; (3,1,3) is the maximum value in the path.</pre>
 #         self.right = right
 class Solution:
     def goodNodes(self, root: TreeNode) -> int:
-        def dfs(root, mx):
+        def dfs(root: TreeNode, mx: int):
             if root is None:
                 return
             nonlocal ans
@@ -72,7 +72,7 @@ class Solution:
             dfs(root.right, mx)
 
         ans = 0
-        dfs(root, -10000)
+        dfs(root, -1000000)
         return ans
 ```
 
@@ -95,11 +95,10 @@ class Solution:
  * }
  */
 class Solution {
-    private int ans;
+    private int ans = 0;
 
     public int goodNodes(TreeNode root) {
-        ans = 0;
-        dfs(root, -10000);
+        dfs(root, -100000);
         return ans;
     }
 
@@ -133,22 +132,21 @@ class Solution {
  */
 class Solution {
 public:
-    int ans;
-
     int goodNodes(TreeNode* root) {
-        ans = 0;
-        dfs(root, -10000);
+        int ans = 0;
+        function<void(TreeNode*, int)> dfs = [&](TreeNode* root, int mx) {
+            if (!root) {
+                return;
+            }
+            if (mx <= root->val) {
+                ++ans;
+                mx = root->val;
+            }
+            dfs(root->left, mx);
+            dfs(root->right, mx);
+        };
+        dfs(root, -1e6);
         return ans;
-    }
-
-    void dfs(TreeNode* root, int mx) {
-        if (!root) return;
-        if (mx <= root->val) {
-            ++ans;
-            mx = root->val;
-        }
-        dfs(root->left, mx);
-        dfs(root->right, mx);
     }
 };
 ```
@@ -164,9 +162,8 @@ public:
  *     Right *TreeNode
  * }
  */
-func goodNodes(root *TreeNode) int {
-	ans := 0
-	var dfs func(root *TreeNode, mx int)
+func goodNodes(root *TreeNode) (ans int) {
+	var dfs func(*TreeNode, int)
 	dfs = func(root *TreeNode, mx int) {
 		if root == nil {
 			return
@@ -178,8 +175,43 @@ func goodNodes(root *TreeNode) int {
 		dfs(root.Left, mx)
 		dfs(root.Right, mx)
 	}
-	dfs(root, -10000)
-	return ans
+	dfs(root, -10001)
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function goodNodes(root: TreeNode | null): number {
+    let ans = 0;
+    const dfs = (root: TreeNode | null, mx: number) => {
+        if (!root) {
+            return;
+        }
+        if (mx <= root.val) {
+            ++ans;
+            mx = root.val;
+        }
+        dfs(root.left, mx);
+        dfs(root.right, mx);
+    };
+    dfs(root, -1e6);
+    return ans;
 }
 ```
 

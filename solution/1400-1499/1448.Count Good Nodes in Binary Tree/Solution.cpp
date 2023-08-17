@@ -11,21 +11,20 @@
  */
 class Solution {
 public:
-    int ans;
-
     int goodNodes(TreeNode* root) {
-        ans = 0;
-        dfs(root, -10000);
+        int ans = 0;
+        function<void(TreeNode*, int)> dfs = [&](TreeNode* root, int mx) {
+            if (!root) {
+                return;
+            }
+            if (mx <= root->val) {
+                ++ans;
+                mx = root->val;
+            }
+            dfs(root->left, mx);
+            dfs(root->right, mx);
+        };
+        dfs(root, -1e6);
         return ans;
-    }
-
-    void dfs(TreeNode* root, int mx) {
-        if (!root) return;
-        if (mx <= root->val) {
-            ++ans;
-            mx = root->val;
-        }
-        dfs(root->left, mx);
-        dfs(root->right, mx);
     }
 };

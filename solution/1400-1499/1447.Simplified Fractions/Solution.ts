@@ -1,8 +1,8 @@
 function simplifiedFractions(n: number): string[] {
-    let ans: Array<string> = [];
-    for (let j = 2; j <= n; j++) {
-        for (let i = 1; i < j; i++) {
-            if (gcd(i, j) == 1) {
+    const ans: string[] = [];
+    for (let i = 1; i < n; ++i) {
+        for (let j = i + 1; j < n + 1; ++j) {
+            if (gcd(i, j) === 1) {
                 ans.push(`${i}/${j}`);
             }
         }
@@ -10,11 +10,6 @@ function simplifiedFractions(n: number): string[] {
     return ans;
 }
 
-// a < b
 function gcd(a: number, b: number): number {
-    if (a > b) [a, b] = [b, a];
-    while (a) {
-        [a, b] = [b % a, a];
-    }
-    return b;
+    return b === 0 ? a : gcd(b, a % b);
 }

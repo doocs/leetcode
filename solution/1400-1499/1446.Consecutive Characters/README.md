@@ -41,6 +41,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：遍历计数**
+
+我们定义一个变量 $t$，表示当前连续字符的长度，初始时 $t=1$。
+
+接下来，我们从字符串 $s$ 的第二个字符开始遍历，如果当前字符与上一个字符相同，那么 $t = t + 1$，然后更新答案 $ans = \max(ans, t)$；否则，$t = 1$。
+
+最后返回答案 $ans$ 即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是字符串 $s$ 的长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -50,13 +60,13 @@
 ```python
 class Solution:
     def maxPower(self, s: str) -> int:
-        ans = t = 0
-        for i, c in enumerate(s):
-            if i == 0 or c == s[i - 1]:
+        ans = t = 1
+        for a, b in pairwise(s):
+            if a == b:
                 t += 1
+                ans = max(ans, t)
             else:
                 t = 1
-            ans = max(ans, t)
         return ans
 ```
 
@@ -67,14 +77,13 @@ class Solution:
 ```java
 class Solution {
     public int maxPower(String s) {
-        int ans = 0, t = 0;
-        for (int i = 0; i < s.length(); ++i) {
-            if (i == 0 || s.charAt(i) == s.charAt(i - 1)) {
-                ++t;
+        int ans = 1, t = 1;
+        for (int i = 1; i < s.length(); ++i) {
+            if (s.charAt(i) == s.charAt(i - 1)) {
+                ans = Math.max(ans, ++t);
             } else {
                 t = 1;
             }
-            ans = Math.max(ans, t);
         }
         return ans;
     }
@@ -87,13 +96,13 @@ class Solution {
 class Solution {
 public:
     int maxPower(string s) {
-        int ans = 0, t = 0;
-        for (int i = 0; i < s.size(); ++i) {
-            if (i == 0 || s[i] == s[i - 1])
-                ++t;
-            else
+        int ans = 1, t = 1;
+        for (int i = 1; i < s.size(); ++i) {
+            if (s[i] == s[i - 1]) {
+                ans = max(ans, ++t);
+            } else {
                 t = 1;
-            ans = max(ans, t);
+            }
         }
         return ans;
     }
@@ -104,14 +113,14 @@ public:
 
 ```go
 func maxPower(s string) int {
-	ans, t := 0, 0
-	for i := range s {
-		if i == 0 || s[i] == s[i-1] {
+	ans, t := 1, 1
+	for i := 1; i < len(s); i++ {
+		if s[i] == s[i-1] {
 			t++
+			ans = max(ans, t)
 		} else {
 			t = 1
 		}
-		ans = max(ans, t)
 	}
 	return ans
 }
@@ -121,6 +130,23 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxPower(s: string): number {
+    let ans = 1;
+    let t = 1;
+    for (let i = 1; i < s.length; ++i) {
+        if (s[i] === s[i - 1]) {
+            ans = Math.max(ans, ++t);
+        } else {
+            t = 1;
+        }
+    }
+    return ans;
 }
 ```
 

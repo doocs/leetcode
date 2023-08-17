@@ -6,9 +6,8 @@
  *     Right *TreeNode
  * }
  */
-func goodNodes(root *TreeNode) int {
-	ans := 0
-	var dfs func(root *TreeNode, mx int)
+func goodNodes(root *TreeNode) (ans int) {
+	var dfs func(*TreeNode, int)
 	dfs = func(root *TreeNode, mx int) {
 		if root == nil {
 			return
@@ -20,6 +19,6 @@ func goodNodes(root *TreeNode) int {
 		dfs(root.Left, mx)
 		dfs(root.Right, mx)
 	}
-	dfs(root, -10000)
-	return ans
+	dfs(root, -10001)
+	return
 }
