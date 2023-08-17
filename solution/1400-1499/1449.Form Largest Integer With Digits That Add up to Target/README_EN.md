@@ -64,13 +64,193 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def largestNumber(self, cost: List[int], target: int) -> str:
+        f = [[-inf] * (target + 1) for _ in range(10)]
+        f[0][0] = 0
+        g = [[0] * (target + 1) for _ in range(10)]
+        for i, c in enumerate(cost, 1):
+            for j in range(target + 1):
+                if j < c or f[i][j - c] + 1 < f[i - 1][j]:
+                    f[i][j] = f[i - 1][j]
+                    g[i][j] = j
+                else:
+                    f[i][j] = f[i][j - c] + 1
+                    g[i][j] = j - c
+        if f[9][target] < 0:
+            return "0"
+        ans = []
+        i, j = 9, target
+        while i:
+            if j == g[i][j]:
+                i -= 1
+            else:
+                ans.append(str(i))
+                j = g[i][j]
+        return "".join(ans)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String largestNumber(int[] cost, int target) {
+        final int inf = 1 << 30;
+        int[][] f = new int[10][target + 1];
+        int[][] g = new int[10][target + 1];
+        for (var e : f) {
+            Arrays.fill(e, -inf);
+        }
+        f[0][0] = 0;
+        for (int i = 1; i <= 9; ++i) {
+            int c = cost[i - 1];
+            for (int j = 0; j <= target; ++j) {
+                if (j < c || f[i][j - c] + 1 < f[i - 1][j]) {
+                    f[i][j] = f[i - 1][j];
+                    g[i][j] = j;
+                } else {
+                    f[i][j] = f[i][j - c] + 1;
+                    g[i][j] = j - c;
+                }
+            }
+        }
+        if (f[9][target] < 0) {
+            return "0";
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int i = 9, j = target; i > 0;) {
+            if (j == g[i][j]) {
+                --i;
+            } else {
+                sb.append(i);
+                j = g[i][j];
+            }
+        }
+        return sb.toString();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string largestNumber(vector<int>& cost, int target) {
+        const int inf = 1 << 30;
+        vector<vector<int>> f(10, vector<int>(target + 1, -inf));
+        vector<vector<int>> g(10, vector<int>(target + 1));
+        f[0][0] = 0;
+        for (int i = 1; i <= 9; ++i) {
+            int c = cost[i - 1];
+            for (int j = 0; j <= target; ++j) {
+                if (j < c || f[i][j - c] + 1 < f[i - 1][j]) {
+                    f[i][j] = f[i - 1][j];
+                    g[i][j] = j;
+                } else {
+                    f[i][j] = f[i][j - c] + 1;
+                    g[i][j] = j - c;
+                }
+            }
+        }
+        if (f[9][target] < 0) {
+            return "0";
+        }
+        string ans;
+        for (int i = 9, j = target; i;) {
+            if (g[i][j] == j) {
+                --i;
+            } else {
+                ans += '0' + i;
+                j = g[i][j];
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func largestNumber(cost []int, target int) string {
+	const inf = 1 << 30
+	f := make([][]int, 10)
+	g := make([][]int, 10)
+	for i := range f {
+		f[i] = make([]int, target+1)
+		g[i] = make([]int, target+1)
+		for j := range f[i] {
+			f[i][j] = -inf
+		}
+	}
+	f[0][0] = 0
+	for i := 1; i <= 9; i++ {
+		c := cost[i-1]
+		for j := 0; j <= target; j++ {
+			if j < c || f[i][j-c]+1 < f[i-1][j] {
+				f[i][j] = f[i-1][j]
+				g[i][j] = j
+			} else {
+				f[i][j] = f[i][j-c] + 1
+				g[i][j] = j - c
+			}
+		}
+	}
+	if f[9][target] < 0 {
+		return "0"
+	}
+	ans := []byte{}
+	for i, j := 9, target; i > 0; {
+		if g[i][j] == j {
+			i--
+		} else {
+			ans = append(ans, '0'+byte(i))
+			j = g[i][j]
+		}
+	}
+	return string(ans)
+}
+```
+
+### **TypeScript**
+
+```ts
+function largestNumber(cost: number[], target: number): string {
+    const inf = 1 << 30;
+    const f: number[][] = Array(10)
+        .fill(0)
+        .map(() => Array(target + 1).fill(-inf));
+    const g: number[][] = Array(10)
+        .fill(0)
+        .map(() => Array(target + 1).fill(0));
+    f[0][0] = 0;
+    for (let i = 1; i <= 9; ++i) {
+        const c = cost[i - 1];
+        for (let j = 0; j <= target; ++j) {
+            if (j < c || f[i][j - c] + 1 < f[i - 1][j]) {
+                f[i][j] = f[i - 1][j];
+                g[i][j] = j;
+            } else {
+                f[i][j] = f[i][j - c] + 1;
+                g[i][j] = j - c;
+            }
+        }
+    }
+    if (f[9][target] < 0) {
+        return '0';
+    }
+    const ans: number[] = [];
+    for (let i = 9, j = target; i; ) {
+        if (g[i][j] === j) {
+            --i;
+        } else {
+            ans.push(i);
+            j = g[i][j];
+        }
+    }
+    return ans.join('');
+}
 ```
 
 ### **...**
