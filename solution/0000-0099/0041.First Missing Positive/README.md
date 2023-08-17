@@ -232,6 +232,18 @@ function firstMissingPositive(nums: number[]): number {
 }
 ```
 
+```ts
+function firstMissingPositive(nums: number[]): number {
+    const set = new Set();
+    let ans = 1;
+    nums.forEach(i => set.add(i));
+    while (true) {
+        if (!set.has(ans)) return ans;
+        ans++;
+    }
+}
+```
+
 ### **Rust**
 
 ```rust
