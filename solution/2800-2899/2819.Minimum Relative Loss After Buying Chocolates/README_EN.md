@@ -71,25 +71,205 @@ It can be shown that these are the minimum possible relative losses.
 ### **Python3**
 
 ```python
+class Solution:
+    def minimumRelativeLosses(
+        self, prices: List[int], queries: List[List[int]]
+    ) -> List[int]:
+        def f(k: int, m: int) -> int:
+            l, r = 0, min(m, bisect_right(prices, k))
+            while l < r:
+                mid = (l + r) >> 1
+                right = m - mid
+                if prices[mid] < 2 * k - prices[n - right]:
+                    l = mid + 1
+                else:
+                    r = mid
+            return l
 
+        prices.sort()
+        s = list(accumulate(prices, initial=0))
+        ans = []
+        n = len(prices)
+        for k, m in queries:
+            l = f(k, m)
+            r = m - l
+            loss = s[l] + 2 * k * r - (s[n] - s[n - r])
+            ans.append(loss)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int n;
+    private int[] prices;
 
+    public long[] minimumRelativeLosses(int[] prices, int[][] queries) {
+        n = prices.length;
+        Arrays.sort(prices);
+        this.prices = prices;
+        long[] s = new long[n + 1];
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + prices[i];
+        }
+        int q = queries.length;
+        long[] ans = new long[q];
+        for (int i = 0; i < q; ++i) {
+            int k = queries[i][0], m = queries[i][1];
+            int l = f(k, m);
+            int r = m - l;
+            ans[i] = s[l] + 2L * k * r - (s[n] - s[n - r]);
+        }
+        return ans;
+    }
+
+    private int f(int k, int m) {
+        int l = 0, r = Arrays.binarySearch(prices, k);
+        if (r < 0) {
+            r = -(r + 1);
+        }
+        r = Math.min(m, r);
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            int right = m - mid;
+            if (prices[mid] < 2L * k - prices[n - right]) {
+                l = mid + 1;
+            } else {
+                r = mid;
+            }
+        }
+        return l;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    vector<long long> minimumRelativeLosses(vector<int>& prices, vector<vector<int>>& queries) {
+        int n = prices.size();
+        sort(prices.begin(), prices.end());
+        long long s[n + 1];
+        s[0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            s[i] = s[i - 1] + prices[i - 1];
+        }
+        auto f = [&](int k, int m) {
+            int l = 0, r = upper_bound(prices.begin(), prices.end(), k) - prices.begin();
+            r = min(r, m);
+            while (l < r) {
+                int mid = (l + r) >> 1;
+                int right = m - mid;
+                if (prices[mid] < 2LL * k - prices[n - right]) {
+                    l = mid + 1;
+                } else {
+                    r = mid;
+                }
+            }
+            return l;
+        };
+        vector<long long> ans;
+        for (auto& q : queries) {
+            int k = q[0], m = q[1];
+            int l = f(k, m);
+            int r = m - l;
+            ans.push_back(s[l] + 2LL * k * r - (s[n] - s[n - r]));
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minimumRelativeLosses(prices []int, queries [][]int) []int64 {
+	n := len(prices)
+	sort.Ints(prices)
+	s := make([]int, n+1)
+	for i, x := range prices {
+		s[i+1] = s[i] + x
+	}
+	f := func(k, m int) int {
+		l, r := 0, sort.Search(n, func(i int) bool { return prices[i] > k })
+		if r > m {
+			r = m
+		}
+		for l < r {
+			mid := (l + r) >> 1
+			right := m - mid
+			if prices[mid] < 2*k-prices[n-right] {
+				l = mid + 1
+			} else {
+				r = mid
+			}
+		}
+		return l
+	}
+	ans := make([]int64, len(queries))
+	for i, q := range queries {
+		k, m := q[0], q[1]
+		l := f(k, m)
+		r := m - l
+		ans[i] = int64(s[l] + 2*k*r - (s[n] - s[n-r]))
+	}
+	return ans
+}
+```
 
+### **TypeScript**
+
+```ts
+function minimumRelativeLosses(
+    prices: number[],
+    queries: number[][],
+): number[] {
+    const n = prices.length;
+    prices.sort((a, b) => a - b);
+    const s: number[] = Array(n).fill(0);
+    for (let i = 0; i < n; ++i) {
+        s[i + 1] = s[i] + prices[i];
+    }
+
+    const search = (x: number): number => {
+        let l = 0;
+        let r = n;
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (prices[mid] > x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    };
+
+    const f = (k: number, m: number): number => {
+        let l = 0;
+        let r = Math.min(search(k), m);
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            const right = m - mid;
+            if (prices[mid] < 2 * k - prices[n - right]) {
+                l = mid + 1;
+            } else {
+                r = mid;
+            }
+        }
+        return l;
+    };
+    const ans: number[] = [];
+    for (const [k, m] of queries) {
+        const l = f(k, m);
+        const r = m - l;
+        ans.push(s[l] + 2 * k * r - (s[n] - s[n - r]));
+    }
+    return ans;
+}
 ```
 
 ### **...**
