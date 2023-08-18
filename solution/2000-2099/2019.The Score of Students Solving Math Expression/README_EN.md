@@ -74,13 +74,284 @@ The points for the students are: [0,0,5,0,0,5]. The sum of the points is 10.
 ### **Python3**
 
 ```python
+class Solution:
+    def scoreOfStudents(self, s: str, answers: List[int]) -> int:
+        def cal(s: str) -> int:
+            res, pre = 0, int(s[0])
+            for i in range(1, n, 2):
+                if s[i] == "*":
+                    pre *= int(s[i + 1])
+                else:
+                    res += pre
+                    pre = int(s[i + 1])
+            res += pre
+            return res
 
+        n = len(s)
+        x = cal(s)
+        m = (n + 1) >> 1
+        f = [[set() for _ in range(m)] for _ in range(m)]
+        for i in range(m):
+            f[i][i] = {int(s[i << 1])}
+        for i in range(m - 1, -1, -1):
+            for j in range(i, m):
+                for k in range(i, j):
+                    for l in f[i][k]:
+                        for r in f[k + 1][j]:
+                            if s[k << 1 | 1] == "+" and l + r <= 1000:
+                                f[i][j].add(l + r)
+                            elif s[k << 1 | 1] == "*" and l * r <= 1000:
+                                f[i][j].add(l * r)
+        cnt = Counter(answers)
+        ans = cnt[x] * 5
+        for k, v in cnt.items():
+            if k != x and k in f[0][m - 1]:
+                ans += v << 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int scoreOfStudents(String s, int[] answers) {
+        int n = s.length();
+        int x = cal(s);
+        int m = (n + 1) >> 1;
+        Set<Integer>[][] f = new Set[m][m];
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < m; ++j) {
+                f[i][j] = new HashSet<>();
+            }
+            f[i][i].add(s.charAt(i << 1) - '0');
+        }
+        for (int i = m - 1; i >= 0; --i) {
+            for (int j = i; j < m; ++j) {
+                for (int k = i; k < j; ++k) {
+                    for (int l : f[i][k]) {
+                        for (int r : f[k + 1][j]) {
+                            char op = s.charAt(k << 1 | 1);
+                            if (op == '+' && l + r <= 1000) {
+                                f[i][j].add(l + r);
+                            } else if (op == '*' && l * r <= 1000) {
+                                f[i][j].add(l * r);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        int[] cnt = new int[1001];
+        for (int ans : answers) {
+            ++cnt[ans];
+        }
+        int ans = 5 * cnt[x];
+        for (int i = 0; i <= 1000; ++i) {
+            if (i != x && f[0][m - 1].contains(i)) {
+                ans += 2 * cnt[i];
+            }
+        }
+        return ans;
+    }
 
+    private int cal(String s) {
+        int res = 0, pre = s.charAt(0) - '0';
+        for (int i = 1; i < s.length(); i += 2) {
+            char op = s.charAt(i);
+            int cur = s.charAt(i + 1) - '0';
+            if (op == '*') {
+                pre *= cur;
+            } else {
+                res += pre;
+                pre = cur;
+            }
+        }
+        res += pre;
+        return res;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int scoreOfStudents(string s, vector<int>& answers) {
+        int n = s.size();
+        int x = cal(s);
+        int m = (n + 1) >> 1;
+        unordered_set<int> f[m][m];
+        for (int i = 0; i < m; ++i) {
+            f[i][i] = {s[i * 2] - '0'};
+        }
+        for (int i = m - 1; ~i; --i) {
+            for (int j = i; j < m; ++j) {
+                for (int k = i; k < j; ++k) {
+                    for (int l : f[i][k]) {
+                        for (int r : f[k + 1][j]) {
+                            char op = s[k << 1 | 1];
+                            if (op == '+' && l + r <= 1000) {
+                                f[i][j].insert(l + r);
+                            } else if (op == '*' && l * r <= 1000) {
+                                f[i][j].insert(l * r);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        int cnt[1001]{};
+        for (int t : answers) {
+            ++cnt[t];
+        }
+        int ans = 5 * cnt[x];
+        for (int i = 0; i <= 1000; ++i) {
+            if (i != x && f[0][m - 1].count(i)) {
+                ans += cnt[i] << 1;
+            }
+        }
+        return ans;
+    }
+
+    int cal(string& s) {
+        int res = 0;
+        int pre = s[0] - '0';
+        for (int i = 1; i < s.size(); i += 2) {
+            int cur = s[i + 1] - '0';
+            if (s[i] == '*') {
+                pre *= cur;
+            } else {
+                res += pre;
+                pre = cur;
+            }
+        }
+        res += pre;
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func scoreOfStudents(s string, answers []int) int {
+	n := len(s)
+	x := cal(s)
+	m := (n + 1) >> 1
+	f := make([][]map[int]bool, m)
+	for i := range f {
+		f[i] = make([]map[int]bool, m)
+		for j := range f[i] {
+			f[i][j] = make(map[int]bool)
+		}
+		f[i][i][int(s[i<<1]-'0')] = true
+	}
+	for i := m - 1; i >= 0; i-- {
+		for j := i; j < m; j++ {
+			for k := i; k < j; k++ {
+				for l := range f[i][k] {
+					for r := range f[k+1][j] {
+						op := s[k<<1|1]
+						if op == '+' && l+r <= 1000 {
+							f[i][j][l+r] = true
+						} else if op == '*' && l*r <= 1000 {
+							f[i][j][l*r] = true
+						}
+					}
+				}
+			}
+		}
+	}
+	cnt := [1001]int{}
+	for _, v := range answers {
+		cnt[v]++
+	}
+	ans := cnt[x] * 5
+	for k, v := range cnt {
+		if k != x && f[0][m-1][k] {
+			ans += v << 1
+		}
+	}
+	return ans
+}
+
+func cal(s string) int {
+	res, pre := 0, int(s[0]-'0')
+	for i := 1; i < len(s); i += 2 {
+		cur := int(s[i+1] - '0')
+		if s[i] == '+' {
+			res += pre
+			pre = cur
+		} else {
+			pre *= cur
+		}
+	}
+	res += pre
+	return res
+}
+```
+
+### **TypeScript**
+
+```ts
+function scoreOfStudents(s: string, answers: number[]): number {
+    const n = s.length;
+    const cal = (s: string): number => {
+        let res = 0;
+        let pre = s.charCodeAt(0) - '0'.charCodeAt(0);
+        for (let i = 1; i < s.length; i += 2) {
+            const cur = s.charCodeAt(i + 1) - '0'.charCodeAt(0);
+            if (s[i] === '+') {
+                res += pre;
+                pre = cur;
+            } else {
+                pre *= cur;
+            }
+        }
+        res += pre;
+        return res;
+    };
+    const x = cal(s);
+    const m = (n + 1) >> 1;
+    const f: Set<number>[][] = Array(m)
+        .fill(0)
+        .map(() =>
+            Array(m)
+                .fill(0)
+                .map(() => new Set()),
+        );
+    for (let i = 0; i < m; ++i) {
+        f[i][i].add(s[i << 1].charCodeAt(0) - '0'.charCodeAt(0));
+    }
+    for (let i = m - 1; i >= 0; --i) {
+        for (let j = i; j < m; ++j) {
+            for (let k = i; k < j; ++k) {
+                for (const l of f[i][k]) {
+                    for (const r of f[k + 1][j]) {
+                        const op = s[(k << 1) + 1];
+                        if (op === '+' && l + r <= 1000) {
+                            f[i][j].add(l + r);
+                        } else if (op === '*' && l * r <= 1000) {
+                            f[i][j].add(l * r);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    const cnt: number[] = Array(1001).fill(0);
+    for (const v of answers) {
+        ++cnt[v];
+    }
+    let ans = cnt[x] * 5;
+    for (let i = 0; i <= 1000; ++i) {
+        if (i !== x && f[0][m - 1].has(i)) {
+            ans += cnt[i] << 1;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
