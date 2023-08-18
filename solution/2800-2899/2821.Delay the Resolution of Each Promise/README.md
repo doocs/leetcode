@@ -61,7 +61,14 @@ ms = 70
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
-
+function delayAll(functions: Function[], ms: number): Function[] {
+    return functions.map(fn => {
+        return async function () {
+            await new Promise(resolve => setTimeout(resolve, ms));
+            return fn();
+        };
+    });
+}
 ```
 
 <!-- tabs:end -->

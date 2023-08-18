@@ -63,6 +63,12 @@ Since Ryan and Christine received an equal number of votes, we will display thei
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：窗口函数 + 分组统计**
+
+我们可以使用窗口函数 `count` 计算每个投票人投给的候选人的票数，然后再使用分组统计函数 `sum` 计算每个候选人的总票数，最后使用窗口函数 `rank` 计算每个候选人的排名，最后筛选出排名第一的候选人即可。
+
+注意，结果集中可能会有多个排名第一的候选人，因此我们需要使用 `order by` 对候选人进行排序。
+
 <!-- tabs:start -->
 
 ### **SQL**
