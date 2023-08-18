@@ -2874,3 +2874,8 @@
   - [2816.翻倍以链表形式表示的数字](/solution/2800-2899/2816.Double%20a%20Number%20Represented%20as%20a%20Linked%20List/README.md)
   - [2817.限制条件下元素之间的最小绝对差](/solution/2800-2899/2817.Minimum%20Absolute%20Difference%20Between%20Elements%20With%20Constraint/README.md)
   - [2818.操作使得分最大](/solution/2800-2899/2818.Apply%20Operations%20to%20Maximize%20Score/README.md)
+  - [2819.Minimum Relative Loss After Buying Chocolates](/solution/2800-2899/2819.Minimum%20Relative%20Loss%20After%20Buying%20Chocolates/README.md)
+  - [2820.Election Results](/solution/2800-2899/2820.Election%20Results/README.md)
+  - [2821.Delay the Resolution of Each Promise](/solution/2800-2899/2821.Delay%20the%20Resolution%20of%20Each%20Promise/README.md)
+  - [2822.Inversion of Object](/solution/2800-2899/2822.Inversion%20of%20Object/README.md)
+  - [2823.Deep Object Filter](/solution/2800-2899/2823.Deep%20Object%20Filter/README.md)
