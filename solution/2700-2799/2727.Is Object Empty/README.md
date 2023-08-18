@@ -77,4 +77,19 @@ function isEmpty(obj: Record<string, any> | any[]): boolean {
 }
 ```
 
+### **JavaScript**
+
+```js
+/**
+ * @param {Object | Array} obj
+ * @return {boolean}
+ */
+var isEmpty = function (obj) {
+    for (const x in obj) {
+        return false;
+    }
+    return true;
+};
+```
+
 <!-- tabs:end -->
