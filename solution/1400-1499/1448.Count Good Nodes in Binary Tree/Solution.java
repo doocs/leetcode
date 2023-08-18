@@ -20,7 +20,7 @@ class Solution {
         dfs(root, -100000);
         return ans;
     }
-    
+
     private void dfs(TreeNode root, int mx) {
         if (root == null) {
             return;
