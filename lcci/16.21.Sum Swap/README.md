@@ -30,7 +30,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-先计算两个数组的差值 `diff`，若 `diff` 为奇数，则说明无满足条件的数值，返回空数组。否则，将 `array2` 转为 `set`。然后遍历 `array1` 中的每个数 `a`，若值 `a - diff` 在 `set` 中，则说明找到满足条件的数值对。
+**方法一：哈希表**
+
+我们先求出两个数组的和，然后计算两个数组和的差值 $diff$。如果 $diff$ 为奇数，则说明两个数组的和不可能相等，直接返回空数组。
+
+如果 $diff$ 为偶数，那么我们可以遍历其中一个数组，假设当前遍历到的元素为 $a$，则另一个数组中需要找到一个元素 $b$，使得 $a - b = diff / 2$，即 $b = a - diff / 2$。我们可以使用哈希表来快速查找 $b$ 是否存在。如果存在，则说明找到了一对符合条件的元素，直接返回即可。
+
+时间复杂度 $O(m + n)$，空间复杂度 $O(n)$。其中 $m$ 和 $n$ 分别为两个数组的长度。
 
 <!-- tabs:start -->
 
@@ -47,8 +53,7 @@ class Solution:
         diff >>= 1
         s = set(array2)
         for a in array1:
-            b = a - diff
-            if b in s:
+            if (b := (a - diff)) in s:
                 return [a, b]
         return []
 ```
@@ -60,27 +65,27 @@ class Solution:
 ```java
 class Solution {
     public int[] findSwapValues(int[] array1, int[] array2) {
-        int s1 = 0, s2 = 0;
+        long s1 = 0, s2 = 0;
         Set<Integer> s = new HashSet<>();
+        for (int x : array1) {
+            s1 += x;
+        }
+        for (int x : array2) {
+            s2 += x;
+            s.add(x);
+        }
+        long diff = s1 - s2;
+        if (diff % 2 != 0) {
+            return new int[0];
+        }
+        diff /= 2;
         for (int a : array1) {
-            s1 += a;
-        }
-        for (int b : array2) {
-            s.add(b);
-            s2 += b;
-        }
-        int diff = s1 - s2;
-        if ((diff & 1) == 1) {
-            return new int[] {};
-        }
-        diff >>= 1;
-        for (int a : array1) {
-            int b = a - diff;
+            int b = (int) (a - diff);
             if (s.contains(b)) {
                 return new int[] {a, b};
             }
         }
-        return new int[] {};
+        return new int[0];
     }
 }
 ```
@@ -91,22 +96,18 @@ class Solution {
 class Solution {
 public:
     vector<int> findSwapValues(vector<int>& array1, vector<int>& array2) {
-        int s1 = 0, s2 = 0;
-        unordered_set<int> s;
-        for (int a : array1) s1 += a;
-        for (int b : array2) {
-            s2 += b;
-            s.insert(b);
-        }
-        int diff = s1 - s2;
+        long long s1 = accumulate(array1.begin(), array1.end(), 0LL);
+        long long s2 = accumulate(array2.begin(), array2.end(), 0LL);
+        long long diff = s1 - s2;
         if (diff & 1) {
             return {};
         }
         diff >>= 1;
-        for (int a : array1) {
-            int b = a - diff;
-            if (s.count(b)) {
-                return {a, b};
+        unordered_set<int> s(array2.begin(), array2.end());
+        for (int x : array1) {
+            int y = x - diff;
+            if (s.count(y)) {
+                return {x, y};
             }
         }
         return {};
@@ -119,10 +120,10 @@ public:
 ```go
 func findSwapValues(array1 []int, array2 []int) []int {
 	s1, s2 := 0, 0
+	s := map[int]bool{}
 	for _, a := range array1 {
 		s1 += a
 	}
-	s := make(map[int]bool)
 	for _, b := range array2 {
 		s2 += b
 		s[b] = true
@@ -133,12 +134,33 @@ func findSwapValues(array1 []int, array2 []int) []int {
 	}
 	diff >>= 1
 	for _, a := range array1 {
-		b := a - diff
-		if s[b] {
+		if b := a - diff; s[b] {
 			return []int{a, b}
 		}
 	}
 	return []int{}
+}
+```
+
+### **TypeScript**
+
+```ts
+function findSwapValues(array1: number[], array2: number[]): number[] {
+    const s1 = array1.reduce((a, b) => a + b, 0);
+    const s2 = array2.reduce((a, b) => a + b, 0);
+    let diff = s1 - s2;
+    if (diff & 1) {
+        return [];
+    }
+    diff >>= 1;
+    const s: Set<number> = new Set(array2);
+    for (const x of array1) {
+        const y = x - diff;
+        if (s.has(y)) {
+            return [x, y];
+        }
+    }
+    return [];
 }
 ```
 
