@@ -10,8 +10,7 @@ func isPalindrome(s string) bool {
 		if tolower(s[i]) != tolower(s[j]) {
 			return false
 		}
-		i++
-		j--
+		i, j = i+1, j-1
 	}
 	return true
 }

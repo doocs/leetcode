@@ -41,6 +41,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：双指针**
+
+我们定义两个指针 $i$ 和 $j$，初始时分别指向字符串的首尾位置，每次判断两个指针指向的字符是否为数字或字母，如果两个指针指向的字符都为数字或字母时，判断两个指针指向的字符是否相同（忽略大小写），如果不相同则返回 `false`，否则将两个指针向中间移动一位，直到两个指针相遇时返回 `true`。
+
+时间复杂度 $O(n)$，其中 $n$ 是字符串的长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -58,8 +64,7 @@ class Solution:
                 j -= 1
             if s[i].lower() != s[j].lower():
                 return False
-            i += 1
-            j -= 1
+            i, j = i + 1, j - 1
         return True
 ```
 
@@ -73,20 +78,45 @@ class Solution {
         int i = 0, j = s.length() - 1;
         while (i < j) {
             while (i < j && !Character.isLetterOrDigit(s.charAt(i))) {
-                i++;
+                ++i;
             }
             while (i < j && !Character.isLetterOrDigit(s.charAt(j))) {
-                j--;
+                --j;
             }
             if (Character.toLowerCase(s.charAt(i)) != Character.toLowerCase(s.charAt(j))) {
                 return false;
             }
-            i++;
-            j--;
+            ++i;
+            --j;
         }
         return true;
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        int i = 0, j = s.size() - 1;
+        while (i < j) {
+            while (i < j && !isalnum(s[i])) {
+                ++i;
+            }
+            while (i < j && !isalnum(s[j])) {
+                --j;
+            }
+            if (tolower(s[i]) != tolower(s[j])) {
+                return false;
+            }
+            ++i;
+            --j;
+        }
+        return true;
+    }
+};
 ```
 
 ### **Go**
@@ -104,8 +134,7 @@ func isPalindrome(s string) bool {
 		if tolower(s[i]) != tolower(s[j]) {
 			return false
 		}
-		i++
-		j--
+		i, j = i+1, j-1
 	}
 	return true
 }
