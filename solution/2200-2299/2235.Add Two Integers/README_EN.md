@@ -42,6 +42,16 @@ class Solution:
         return num1 + num2
 ```
 
+```python
+class Solution:
+    def sum(self, num1: int, num2: int) -> int:
+        num1, num2 = num1 & 0xFFFFFFFF, num2 & 0xFFFFFFFF
+        while num2:
+            carry = ((num1 & num2) << 1) & 0xFFFFFFFF
+            num1, num2 = num1 ^ num2, carry
+        return num1 if num1 < 0x80000000 else ~(num1 ^ 0xFFFFFFFF)
+```
+
 ### **Java**
 
 ```java
@@ -52,11 +62,16 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function sum(num1: number, num2: number): number {
-    return num1 + num2;
+```java
+class Solution {
+    public int sum(int num1, int num2) {
+        while (num2 != 0) {
+            int carry = (num1 & num2) << 1;
+            num1 ^= num2;
+            num2 = carry;
+        }
+        return num1;
+    }
 }
 ```
 
@@ -71,11 +86,36 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int sum(int num1, int num2) {
+        while (num2) {
+            unsigned int carry = (unsigned int) (num1 & num2) << 1;
+            num1 ^= num2;
+            num2 = carry;
+        }
+        return num1;
+    }
+};
+```
+
 ### **Go**
 
 ```go
 func sum(num1 int, num2 int) int {
 	return num1 + num2
+}
+```
+
+```go
+func sum(num1 int, num2 int) int {
+	for num2 != 0 {
+		carry := (num1 & num2) << 1
+		num1 ^= num2
+		num2 = carry
+	}
+	return num1
 }
 ```
 
@@ -87,12 +127,38 @@ function sum(num1: number, num2: number): number {
 }
 ```
 
+```ts
+function sum(num1: number, num2: number): number {
+    while (num2) {
+        const carry = (num1 & num2) << 1;
+        num1 ^= num2;
+        num2 = carry;
+    }
+    return num1;
+}
+```
+
 ### **Rust**
 
 ```rust
 impl Solution {
     pub fn sum(num1: i32, num2: i32) -> i32 {
         num1 + num2
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn sum(num1: i32, num2: i32) -> i32 {
+        let mut num1 = num1;
+        let mut num2 = num2;
+        while num2 != 0 {
+            let carry = (num1 & num2) << 1;
+            num1 ^= num2;
+            num2 = carry;
+        }
+        num1
     }
 }
 ```
