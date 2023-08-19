@@ -101,6 +101,25 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        boolean[] ss = new boolean[128];
+        int ans = 0, j = 0;
+        int n = s.length();
+        for (int i = 0; i < n; ++i) {
+            char c = s.charAt(i);
+            while (ss[c]) {
+                ss[s.charAt(j++)] = false;
+            }
+            ans = Math.max(ans, i - j + 1);
+            ss[c] = true;
+        }
+        return ans;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -113,6 +132,25 @@ public:
             while (ss.count(s[j])) ss.erase(s[i++]);
             ss.insert(s[j]);
             ans = max(ans, j - i + 1);
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        bool ss[128] = {false};
+        int n = s.size();
+        int ans = 0;
+        for (int i = 0, j = 0; i < n; ++i) {
+            while (ss[s[i]]) {
+                ss[s[j++]] = false;
+            }
+            ss[s[i]] = true;
+            ans = max(ans, i - j + 1);
         }
         return ans;
     }
@@ -134,6 +172,29 @@ func lengthOfLongestSubstring(s string) int {
 		ans = max(ans, j-i+1)
 	}
 	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func lengthOfLongestSubstring(s string) (ans int) {
+	ss := make([]bool, 128)
+	j := 0
+	for i, c := range s {
+		for ss[c] {
+			ss[s[j]] = false
+			j++
+		}
+		ss[c] = true
+		ans = max(ans, i-j+1)
+	}
+	return
 }
 
 func max(a, b int) int {
@@ -191,15 +252,30 @@ public class Solution {
 
 ```ts
 function lengthOfLongestSubstring(s: string): number {
-    const ss = new Set();
-    let i = 0;
     let ans = 0;
-    for (let j = 0; j < s.length; ++j) {
-        while (ss.has(s[j])) {
-            ss.delete(s[i++]);
+    const vis = new Set<string>();
+    for (let i = 0, j = 0; i < s.length; ++i) {
+        while (vis.has(s[i])) {
+            vis.delete(s[j++]);
         }
-        ss.add(s[j]);
-        ans = Math.max(ans, j - i + 1);
+        vis.add(s[i]);
+        ans = Math.max(ans, i - j + 1);
+    }
+    return ans;
+}
+```
+
+```ts
+function lengthOfLongestSubstring(s: string): number {
+    let ans = 0;
+    const n = s.length;
+    const ss: boolean[] = new Array(128).fill(false);
+    for (let i = 0, j = 0; i < n; ++i) {
+        while (ss[s[i]]) {
+            ss[s[j++]] = false;
+        }
+        ss[s[i]] = true;
+        ans = Math.max(ans, i - j + 1);
     }
     return ans;
 }
