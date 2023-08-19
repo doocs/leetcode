@@ -57,7 +57,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-因为 `s` 中可能会出现字母、数字、符号和空格，所以可以用哈希表表示窗口
+**方法一：双指针 + 哈希表**
+
+我们用两个指针 $j$ 和 $i$ 维护一个不包含重复字符的子串，其中 $j$ 为子串的左边界，$i$ 为子串的右边界，用一个哈希表或数组 $ss$ 记录窗口中所有出现过的字符。
+
+接下来，我们遍历字符串 $s$，对于当前遍历到的字符 $s[i]$，如果 $s[i]$ 在 $[j, i)$ 范围内有与 $s[i]$ 相同的字符，我们就不断地向右移动指针 $j$，直到 $ss[s[i]]$ 为 `false`，此时 $[j,i)$ 中没有任何与 $s[i]$ 相同的字符，我们就找到了以字符 $s[i]$ 为结尾的最长子串。对于每个 $i$，我们都更新最长子串的长度，最终返回答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(|\Sigma|)$，其中 $n$ 为字符串 $s$ 的长度，而 $\Sigma$ 表示字符集，本题中字符集为所有 ASCII 码在 $[0, 128)$ 内的字符，即 $|\Sigma|=128$。
 
 <!-- tabs:start -->
 
@@ -68,17 +74,14 @@
 ```python
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        window = defaultdict(int)
-        n, ans = len(s), 0
-        left, right = 0, 0
-        while right < n:
-            ch = s[right]
-            right += 1
-            window[ch] += 1
-            while window[ch] > 1:
-                window[s[left]] -= 1
-                left += 1
-            ans = max(ans, right - left)
+        ss = set()
+        ans = j = 0
+        for i, c in enumerate(s):
+            while c in ss:
+                ss.remove(s[j])
+                j += 1
+            ans = max(ans, i - j + 1)
+            ss.add(c)
         return ans
 ```
 
@@ -89,41 +92,58 @@ class Solution:
 ```java
 class Solution {
     public int lengthOfLongestSubstring(String s) {
-        Map<Character, Integer> window = new HashMap<>();
-        int n = s.length(), ans = 0;
-        int left = 0, right = 0;
-        while (right < n) {
-            char ch = s.charAt(right++);
-            window.merge(ch, 1, Integer::sum);
-            while (window.get(ch) > 1) {
-                window.merge(s.charAt(left++), -1, Integer::sum);
+        boolean[] ss = new boolean[128];
+        int ans = 0, j = 0;
+        int n = s.length();
+        for (int i = 0; i < n; ++i) {
+            char c = s.charAt(i);
+            while (ss[c]) {
+                ss[s.charAt(j++)] = false;
             }
-            ans = Math.max(ans, right - left);
+            ans = Math.max(ans, i - j + 1);
+            ss[c] = true;
         }
         return ans;
     }
 }
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        bool ss[128] = {false};
+        int n = s.size();
+        int ans = 0;
+        for (int i = 0, j = 0; i < n; ++i) {
+            while (ss[s[i]]) {
+                ss[s[j++]] = false;
+            }
+            ss[s[i]] = true;
+            ans = max(ans, i - j + 1);
+        }
+        return ans;
+    }
+};
+```
+
 ### **Go**
 
 ```go
-func lengthOfLongestSubstring(s string) int {
-	window := make(map[byte]int)
-	n := len(s)
-	ans := 0
-	left, right := 0, 0
-	for right < n {
-		ch := s[right]
-		right++
-		window[ch]++
-		for window[ch] > 1 {
-			window[s[left]]--
-			left++
+func lengthOfLongestSubstring(s string) (ans int) {
+	ss := make([]bool, 128)
+	j := 0
+	for i, c := range s {
+		for ss[c] {
+			ss[s[j]] = false
+			j++
 		}
-		ans = max(ans, right-left)
+		ss[c] = true
+		ans = max(ans, i-j+1)
 	}
-	return ans
+	return
 }
 
 func max(a, b int) int {
@@ -134,32 +154,22 @@ func max(a, b int) int {
 }
 ```
 
-### **C++**
+### **TypeScript**
 
-```cpp
-class Solution {
-public:
-    int lengthOfLongestSubstring(string s) {
-        if (s.size() == 0)
-            return 0;
-
-        int left = 0;
-        int maxlen = 0;
-        unordered_set<char> hash;
-
-        for (int right = 0; right < s.size(); right++) {
-            while (hash.find(s[right]) != hash.end()) {
-                hash.erase(s[left]);
-                left++;
-            }
-
-            hash.insert(s[right]);
-            maxlen = max(maxlen, right - left + 1);
+```ts
+function lengthOfLongestSubstring(s: string): number {
+    let ans = 0;
+    const n = s.length;
+    const ss: boolean[] = new Array(128).fill(false);
+    for (let i = 0, j = 0; i < n; ++i) {
+        while (ss[s.charCodeAt(i)]) {
+            ss[s.charCodeAt(j++)] = false;
         }
-
-        return maxlen;
+        ss[s.charCodeAt(i)] = true;
+        ans = Math.max(ans, i - j + 1);
     }
-};
+    return ans;
+}
 ```
 
 ### **...**
