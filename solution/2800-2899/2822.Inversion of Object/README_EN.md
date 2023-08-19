@@ -38,7 +38,7 @@
 <ul>
 	<li><code>obj</code> is a valid JSON object</li>
 	<li><code>typeof obj[key] === &quot;string&quot;</code></li>
-	<li><code>2 &lt;= JSON.stringify(obj).length &lt;= 10**5</code></li>
+	<li><code>2 &lt;= JSON.stringify(obj).length &lt;= 10<sup>5</sup></code></li>
 </ul>
 
 ## Solutions

@@ -1,4 +1,4 @@
-# [2814. Minimum Time Takes to Reach Destination Without Drowning](https://leetcode.cn/problems/minimum-time-takes-to-reach-destination-without-drowning)
+# [2814. 避免淹死并到达目的地的最短时间](https://leetcode.cn/problems/minimum-time-takes-to-reach-destination-without-drowning)
 
 [English Version](/solution/2800-2899/2814.Minimum%20Time%20Takes%20to%20Reach%20Destination%20Without%20Drowning/README_EN.md)
 
@@ -6,67 +6,70 @@
 
 <!-- 这里写题目描述 -->
 
-<p>You are given an <code>n * m</code> <strong>0-indexed</strong> grid of string <code>land</code>. Right now, you are standing at the cell that contains <code>&quot;S&quot;</code>, and you want to get to the cell containing <code>&quot;D&quot;</code>. There are three other types of cells in this land:</p>
+<p>现给定一个 <code>n * m</code> 的索引从 <strong>0</strong> 开始的二维字符串网格 <code>land</code>，目前你站在为&nbsp;<code>"S"</code> 的单元格上，你需要到达为&nbsp;<code>"D"</code> 的单元格。在这片区域上还有另外三种类型的单元格：</p>
 
 <ul>
-	<li><code>&quot;.&quot;</code>: These cells are empty.</li>
-	<li><code>&quot;X&quot;</code>: These cells are stone.</li>
-	<li><code>&quot;*&quot;</code>: These cells are flooded.</li>
+	<li><code>"."</code>：这些单元格是空的。</li>
+	<li><code>"X"</code>：这些单元格是石头。</li>
+	<li><code>"*"</code>：这些单元格被淹没了。</li>
 </ul>
 
-<p>At each second, you can move to a cell that shares a side with your current cell (if it exists). Also, at each second, every <strong>empty cell</strong> that shares a side with a flooded cell becomes flooded as well.<br />
-There are two problems ahead of your journey:</p>
+<p>每秒钟，你可以移动到与当前单元格共享边的单元格（如果它存在）。此外，每秒钟，与被淹没的单元格共享边的每个 <strong>空单元格</strong> 也会被淹没。</p>
+
+<p>在你的旅程中，有两个需要注意的问题：</p>
 
 <ul>
-	<li>You can&#39;t step on stone cells.</li>
-	<li>You can&#39;t step on flooded cells since you will drown (also, you can&#39;t step on a cell that will be flooded at the same time as you step on it).</li>
+	<li>你不能踩在石头单元格上。</li>
+	<li>你不能踩在被淹没的单元格上，因为你会淹死（同时，你也不能踩在在你踩上时会被淹没的单元格上）。</li>
 </ul>
 
-<p>Return<em> the <strong>minimum</strong> time it takes you to reach the destination in seconds, or </em><code>-1</code><em> if it is impossible.</em></p>
+<p>返回从起始位置到达目标位置所需的 <strong>最小</strong> 时间（以秒为单位），如果不可能达到目标位置，则返回 <code>-1</code>。</p>
 
-<p><strong>Note</strong> that the destination will never be flooded.</p>
+<p><strong>注意</strong>，目标位置永远不会被淹没。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>Input:</strong> land = [[&quot;D&quot;,&quot;.&quot;,&quot;*&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;S&quot;,&quot;.&quot;]]
-<strong>Output:</strong> 3
-<strong>Explanation: </strong>The picture below shows the simulation of the land second by second. The blue cells are flooded, and the gray cells are stone.
-Picture (0) shows the initial state and picture (3) shows the final state when we reach destination. As you see, it takes us 3 second to reach destination and the answer would be 3.
-It can be shown that 3 is the minimum time needed to reach from S to D.
+<b>输入：</b>land = [["D",".","*"],[".",".","."],[".","S","."]]
+<b>输出：</b>3
+<strong>解释：</strong>下面的图片逐秒模拟了土地的变化。蓝色的单元格被淹没，灰色的单元格是石头。
+ 图片（0）显示了初始状态，图片（3）显示了当我们到达目标时的最终状态。正如你所看到的，我们需要 3 秒才能到达目标位置，答案是 3。
+可以证明 3 是从 S 到 D 所需的最小时间。
 </pre>
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2800-2899/2814.Minimum%20Time%20Takes%20to%20Reach%20Destination%20Without%20Drowning/images/ex1.png" style="padding: 5px; background: rgb(255, 255, 255); border-radius: 0.5rem; width: 600px; height: 111px;" /></p>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<strong>Input:</strong> land = [[&quot;D&quot;,&quot;X&quot;,&quot;*&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;S&quot;]]
-<strong>Output:</strong> -1
-<strong>Explanation:</strong> The picture below shows the simulation of the land second by second. The blue cells are flooded, and the gray cells are stone.
-Picture (0) shows the initial state. As you see, no matter which paths we choose, we will drown at the 3<sup>rd</sup>&nbsp;second. Also the minimum path takes us 4 seconds to reach from S to D.
-So the answer would be -1.
+<b>输入：</b>land = [["D","X","*"],[".",".","."],[".",".","S"]]
+<b>输出：</b>-1
+<b>解释：</b>下面的图片逐秒模拟了土地的变化。蓝色的单元格被淹没，灰色的单元格是石头。
+图片（0）显示了初始状态。正如你所看到的，无论我们选择哪条路径，我们都会在第三秒淹没。并且从 S 到 D 的最小路径需要 4 秒。
+所以答案是 -1。
 </pre>
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2800-2899/2814.Minimum%20Time%20Takes%20to%20Reach%20Destination%20Without%20Drowning/images/ex2-2.png" style="padding: 7px; background: rgb(255, 255, 255); border-radius: 0.5rem; width: 600px; height: 107px;" /></p>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <pre>
-<strong>Input:</strong> land = [[&quot;D&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;*&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;X&quot;,&quot;.&quot;,&quot;X&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;S&quot;,&quot;.&quot;]]
-<strong>Output:</strong> 6
-<strong>Explanation:</strong> It can be shown that we can reach destination in 6 seconds. Also it can be shown that 6 is the minimum seconds one need to reach from S to D.
+<b>输入：</b>land = [["D",".",".",".","*","."],[".","X",".","X",".","."],[".",".",".",".","S","."]]
+<b>输出：</b>6
+<b>解释：</b>可以证明我们可以在 6 秒内到达目标位置。同时也可以证明 6 是从 S 到 D 所需的最小秒数。
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>2 &lt;= n, m &lt;= 100</code></li>
-	<li><code>land</code>&nbsp;consists only of&nbsp;<code>&quot;S&quot;</code>, <code>&quot;D&quot;</code>, <code>&quot;.&quot;</code>, <code>&quot;*&quot;</code> and&nbsp;<code>&quot;X&quot;</code>.</li>
-	<li><strong>Exactly</strong> one of the cells is equal to <code>&quot;S&quot;</code>.</li>
-	<li><strong>Exactly</strong> one of the cells is equal to <code>&quot;D&quot;</code>.</li>
+	<li><code>land</code>&nbsp;只由&nbsp;<code>"S"</code>, <code>"D"</code>, <code>"."</code>, <code>"*"</code> 和&nbsp;<code>"X"</code>&nbsp;组成。</li>
+	<li><strong>恰好</strong>有一个单元格等于&nbsp;<code>"S"</code>。</li>
+	<li><strong>恰好</strong>有一个单元格等于 <code>"D"</code>。</li>
 </ul>
 
 ## 解法

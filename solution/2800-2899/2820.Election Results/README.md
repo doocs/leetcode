@@ -1,4 +1,4 @@
-# [2820. Election Results](https://leetcode.cn/problems/election-results)
+# [2820. 选举结果](https://leetcode.cn/problems/election-results)
 
 [English Version](/solution/2800-2899/2820.Election%20Results/README_EN.md)
 
@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code><font face="monospace">Votes</font></code></p>
+<p>表：<code><font face="monospace">Votes</font></code></p>
 
 <pre>
 +-------------+---------+ 
@@ -15,23 +15,24 @@
 | voter       | varchar | 
 | candidate   | varchar |
 +-------------+---------+
-(voter, candidate) is the primary key for this table.
-Each row of this table contains name of the voter and their candidate. 
+(voter, candidate) 是该表的主键。
+该表的每一行都包含选民及其候选人的姓名。
 </pre>
 
-<p>The election is conducted in a city where everyone can vote for <strong>one or more</strong> candidates or choose <strong>not</strong> to vote. Each person has <code>1</code><strong> vote</strong> so if they vote for multiple candidates, their vote gets equally split across them. For example, if a person votes for <code>2</code> candidates, these candidates receive an equivalent of <code>0.5</code>&nbsp;votes each.</p>
+<p>选举在一个城市进行，每个人都可以投票给 <strong>一个或多个</strong> 候选人，也可以选择 <strong>不</strong> 投票。每个人都有 <code>1</code> 票，所以如果他们投票给多个候选人，他们的选票会被平均分配。例如，如果一个人投票给 <code>2</code> 个候选人，这些候选人每人获得&nbsp;<code>0.5</code> 张选票。</p>
 
-<p>Write an SQL query to find <code>candidate</code> who got the most votes and won the election. Output the name of the <strong>candidate</strong> or If multiple candidates have an <strong>equal number</strong> of votes, display the names of all of them.</p>
+<p>编写一个 SQL 查询来查找获得最多选票并赢得选举的候选人&nbsp;<code>candidate</code> 。输出 <strong>候选人</strong> 的姓名，或者如果多个候选人的票数 <strong>相等</strong> ，则输出所有候选人的姓名。</p>
 
-<p>Return<em> the result table ordered</em> <em>by</em> <code>candidate</code> <em>in <strong>ascending</strong> order.</em></p>
+<p>返回按 <code>candidate</code>&nbsp;<strong>升序排序&nbsp;</strong>的结果表。</p>
 
-<p>The query result format is in the following example.</p>
+<p>查询结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>Input:</strong> 
+<strong>输入：</strong> 
 Votes table:
 +----------+-----------+
 | voter    | candidate |
@@ -47,17 +48,17 @@ Votes table:
 | Evelyn   | Kathy     |
 | Arthur   | Christine |
 +----------+-----------+
-<strong>Output:</strong> 
+<b>输出：</b>
 +-----------+
 | candidate | 
 +-----------+
 | Christine |  
 | Ryan      |  
 +-----------+
-<strong>Explanation:</strong> 
-- Kathy and Terry opted not to participate in voting, resulting in their votes being recorded as 0. Charles distributed his vote among three candidates, equating to 0.33 for each candidate. On the other hand, Benjamin, Arthur, Anthony, Edward, and Evelyn each cast their votes for a single candidate.
-- Collectively, Candidate Ryan and Christine amassed a total of 2.33 votes, while Kathy received a combined total of 1.33 votes.
-Since Ryan and Christine received an equal number of votes, we will display their names in ascending order.</pre>
+<b>解释：</b>
+- Kathy 和 Terry 选择不投票，导致他们的投票被记录为 0。 Charles 将他的选票分配给了三位候选人，相当于每位候选人得到 0.33 票。另一方面，Benjamin, Arthur, Anthony, Edward, 和 Evely 各自把票投给了一位候选人。
+- Ryan 和 Christine 总共获得了2.33票，而 Kathy 总共获得了 1.33 票。
+由于 Ryan 和 Christine 获得的票数相等，我们将按升序显示他们的名字。</pre>
 
 ## 解法
 
