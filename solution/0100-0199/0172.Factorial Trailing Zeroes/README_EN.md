@@ -73,19 +73,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function trailingZeroes(n: number): number {
-    let ans = 0;
-    while (n > 0) {
-        n = Math.floor(n / 5);
-        ans += n;
-    }
-    return ans;
-}
-```
-
 ### **C++**
 
 ```cpp
@@ -93,7 +80,10 @@ class Solution {
 public:
     int trailingZeroes(int n) {
         int ans = 0;
-        for (int i = 5; i <= n; i *= 5) ans += n / i;
+        while (n) {
+            n /= 5;
+            ans += n;
+        }
         return ans;
     }
 };
@@ -109,6 +99,19 @@ func trailingZeroes(n int) int {
 		ans += n
 	}
 	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function trailingZeroes(n: number): number {
+    let ans = 0;
+    while (n > 0) {
+        n = Math.floor(n / 5);
+        ans += n;
+    }
+    return ans;
 }
 ```
 

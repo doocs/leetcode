@@ -62,6 +62,8 @@
 1. 第 $3$ 次除以 $5$，得到 $1$，表示存在 $1$ 个包含因数 $5^3$ 的数；
 1. 累加得到从 $[1,n]$ 中所有 $5$ 的因数的个数。
 
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -95,19 +97,6 @@ class Solution {
 }
 ```
 
-### **TypeScript**
-
-```ts
-function trailingZeroes(n: number): number {
-    let ans = 0;
-    while (n > 0) {
-        n = Math.floor(n / 5);
-        ans += n;
-    }
-    return ans;
-}
-```
-
 ### **C++**
 
 ```cpp
@@ -115,7 +104,10 @@ class Solution {
 public:
     int trailingZeroes(int n) {
         int ans = 0;
-        for (int i = 5; i <= n; i *= 5) ans += n / i;
+        while (n) {
+            n /= 5;
+            ans += n;
+        }
         return ans;
     }
 };
@@ -131,6 +123,19 @@ func trailingZeroes(n int) int {
 		ans += n
 	}
 	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function trailingZeroes(n: number): number {
+    let ans = 0;
+    while (n > 0) {
+        n = Math.floor(n / 5);
+        ans += n;
+    }
+    return ans;
 }
 ```
 
