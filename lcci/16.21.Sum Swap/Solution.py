@@ -6,7 +6,6 @@ class Solution:
         diff >>= 1
         s = set(array2)
         for a in array1:
-            b = a - diff
-            if b in s:
+            if (b := (a - diff)) in s:
                 return [a, b]
         return []
