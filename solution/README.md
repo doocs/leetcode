@@ -2824,16 +2824,16 @@
 |  2811  |  [判断是否能拆分数组](/solution/2800-2899/2811.Check%20if%20it%20is%20Possible%20to%20Split%20Array/README.md)  |  `贪心`,`数组`,`动态规划`  |  中等  |  第 357 场周赛  |
 |  2812  |  [找出最安全路径](/solution/2800-2899/2812.Find%20the%20Safest%20Path%20in%20a%20Grid/README.md)  |  `广度优先搜索`,`并查集`,`数组`,`二分查找`,`矩阵`  |  中等  |  第 357 场周赛  |
 |  2813  |  [子序列最大优雅度](/solution/2800-2899/2813.Maximum%20Elegance%20of%20a%20K-Length%20Subsequence/README.md)  |  `贪心`,`数组`,`哈希表`,`排序`,`堆（优先队列）`  |  困难  |  第 357 场周赛  |
-|  2814  |  [Minimum Time Takes to Reach Destination Without Drowning](/solution/2800-2899/2814.Minimum%20Time%20Takes%20to%20Reach%20Destination%20Without%20Drowning/README.md)  |  `广度优先搜索`,`数组`,`矩阵`  |  困难  |  🔒  |
+|  2814  |  [避免淹死并到达目的地的最短时间](/solution/2800-2899/2814.Minimum%20Time%20Takes%20to%20Reach%20Destination%20Without%20Drowning/README.md)  |  `广度优先搜索`,`数组`,`矩阵`  |  困难  |  🔒  |
 |  2815  |  [数组中的最大数对和](/solution/2800-2899/2815.Max%20Pair%20Sum%20in%20an%20Array/README.md)  |  `数组`,`哈希表`  |  简单  |  第 358 场周赛  |
 |  2816  |  [翻倍以链表形式表示的数字](/solution/2800-2899/2816.Double%20a%20Number%20Represented%20as%20a%20Linked%20List/README.md)  |  `栈`,`链表`,`数学`  |  中等  |  第 358 场周赛  |
 |  2817  |  [限制条件下元素之间的最小绝对差](/solution/2800-2899/2817.Minimum%20Absolute%20Difference%20Between%20Elements%20With%20Constraint/README.md)  |  `数组`,`二分查找`,`有序集合`  |  中等  |  第 358 场周赛  |
 |  2818  |  [操作使得分最大](/solution/2800-2899/2818.Apply%20Operations%20to%20Maximize%20Score/README.md)  |  `栈`,`贪心`,`数组`,`数学`,`数论`,`单调栈`  |  困难  |  第 358 场周赛  |
-|  2819  |  [Minimum Relative Loss After Buying Chocolates](/solution/2800-2899/2819.Minimum%20Relative%20Loss%20After%20Buying%20Chocolates/README.md)  |    |  困难  |  🔒  |
-|  2820  |  [Election Results](/solution/2800-2899/2820.Election%20Results/README.md)  |    |  中等  |  🔒  |
-|  2821  |  [Delay the Resolution of Each Promise](/solution/2800-2899/2821.Delay%20the%20Resolution%20of%20Each%20Promise/README.md)  |    |  简单  |  🔒  |
-|  2822  |  [Inversion of Object](/solution/2800-2899/2822.Inversion%20of%20Object/README.md)  |    |  简单  |  🔒  |
-|  2823  |  [Deep Object Filter](/solution/2800-2899/2823.Deep%20Object%20Filter/README.md)  |    |  中等  |  🔒  |
+|  2819  |  [购买巧克力后的最小相对损失](/solution/2800-2899/2819.Minimum%20Relative%20Loss%20After%20Buying%20Chocolates/README.md)  |    |  困难  |  🔒  |
+|  2820  |  [选举结果](/solution/2800-2899/2820.Election%20Results/README.md)  |    |  中等  |  🔒  |
+|  2821  |  [延迟每个 Promise 对象的解析](/solution/2800-2899/2821.Delay%20the%20Resolution%20of%20Each%20Promise/README.md)  |    |  简单  |  🔒  |
+|  2822  |  [对象反转](/solution/2800-2899/2822.Inversion%20of%20Object/README.md)  |    |  简单  |  🔒  |
+|  2823  |  [深度对象筛选](/solution/2800-2899/2823.Deep%20Object%20Filter/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
