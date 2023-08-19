@@ -159,13 +159,28 @@ func max(a, b int) int {
 ```ts
 function lengthOfLongestSubstring(s: string): number {
     let ans = 0;
+    const vis = new Set<string>();
+    for (let i = 0, j = 0; i < s.length; ++i) {
+        while (vis.has(s[i])) {
+            vis.delete(s[j++]);
+        }
+        vis.add(s[i]);
+        ans = Math.max(ans, i - j + 1);
+    }
+    return ans;
+}
+```
+
+```ts
+function lengthOfLongestSubstring(s: string): number {
+    let ans = 0;
     const n = s.length;
     const ss: boolean[] = new Array(128).fill(false);
     for (let i = 0, j = 0; i < n; ++i) {
-        while (ss[s.charCodeAt(i)]) {
-            ss[s.charCodeAt(j++)] = false;
+        while (ss[s[i]]) {
+            ss[s[j++]] = false;
         }
-        ss[s.charCodeAt(i)] = true;
+        ss[s[i]] = true;
         ans = Math.max(ans, i - j + 1);
     }
     return ans;
