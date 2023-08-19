@@ -101,6 +101,25 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        boolean[] ss = new boolean[128];
+        int ans = 0, j = 0;
+        int n = s.length();
+        for (int i = 0; i < n; ++i) {
+            char c = s.charAt(i);
+            while (ss[c]) {
+                ss[s.charAt(j++)] = false;
+            }
+            ans = Math.max(ans, i - j + 1);
+            ss[c] = true;
+        }
+        return ans;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -114,6 +133,25 @@ public:
                 vis.erase(s[j++]);
             }
             vis.insert(s[i]);
+            ans = max(ans, i - j + 1);
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        bool ss[128] = {false};
+        int n = s.size();
+        int ans = 0;
+        for (int i = 0, j = 0; i < n; ++i) {
+            while (ss[s[i]]) {
+                ss[s[j++]] = false;
+            }
+            ss[s[i]] = true;
             ans = max(ans, i - j + 1);
         }
         return ans;
@@ -146,6 +184,29 @@ func max(a, b int) int {
 }
 ```
 
+```go
+func lengthOfLongestSubstring(s string) (ans int) {
+	ss := make([]bool, 128)
+	j := 0
+	for i, c := range s {
+		for ss[c] {
+			ss[s[j]] = false
+			j++
+		}
+		ss[c] = true
+		ans = max(ans, i-j+1)
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
 ### **JavaScript**
 
 ```js
@@ -155,7 +216,7 @@ func max(a, b int) int {
  */
 var lengthOfLongestSubstring = function (s) {
     let ans = 0;
-    let vis = new Set();
+    const vis = new Set();
     for (let i = 0, j = 0; i < s.length; ++i) {
         while (vis.has(s[i])) {
             vis.delete(s[j++]);
