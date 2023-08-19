@@ -1,13 +1,12 @@
 class Solution:
     def maxProduct(self, words: List[str]) -> int:
-        n = len(words)
-        mask = [0] * n
-        for i, word in enumerate(words):
-            for ch in word:
-                mask[i] |= 1 << (ord(ch) - ord('a'))
+        mask = [0] * len(words)
+        for i, w in enumerate(words):
+            for c in w:
+                mask[i] |= 1 << (ord(c) - ord("a"))
         ans = 0
-        for i in range(n - 1):
-            for j in range(i + 1, n):
-                if mask[i] & mask[j] == 0:
-                    ans = max(ans, len(words[i]) * len(words[j]))
+        for i, a in enumerate(words):
+            for j, b in enumerate(words[i + 1 :], i + 1):
+                if (mask[i] & mask[j]) == 0:
+                    ans = max(ans, len(a) * len(b))
         return ans

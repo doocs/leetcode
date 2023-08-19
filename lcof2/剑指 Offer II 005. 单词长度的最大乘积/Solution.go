@@ -1,20 +1,19 @@
-func maxProduct(words []string) int {
+func maxProduct(words []string) (ans int) {
 	n := len(words)
-	mask := make([]int32, n)
-	for i, word := range words {
-		for _, r := range word {
-			mask[i] |= 1 << (r - 'a')
+	mask := make([]int, n)
+	for i, w := range words {
+		for _, c := range w {
+			mask[i] |= 1 << (c - 'a')
 		}
 	}
-	ans := 0
-	for i := 0; i < n-1; i++ {
+	for i, x := range mask {
 		for j := i + 1; j < n; j++ {
-			if mask[i]&mask[j] == 0 {
+			if x&mask[j] == 0 {
 				ans = max(ans, len(words[i])*len(words[j]))
 			}
 		}
 	}
-	return ans
+	return
 }
 
 func max(a, b int) int {

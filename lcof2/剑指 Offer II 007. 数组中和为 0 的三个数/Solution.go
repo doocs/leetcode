@@ -1,30 +1,28 @@
-func threeSum(nums []int) [][]int {
-	n := len(nums)
-	ans := make([][]int, 0)
+func threeSum(nums []int) (ans [][]int) {
 	sort.Ints(nums)
+	n := len(nums)
 	for i := 0; i < n-2 && nums[i] <= 0; i++ {
-		left, right := i+1, n-1
-		for left < right {
-			cur := nums[i] + nums[left] + nums[right]
-			if cur < 0 {
-				left++
-			} else if cur > 0 {
-				right--
+		if i > 0 && nums[i] == nums[i-1] {
+			continue
+		}
+		j, k := i+1, n-1
+		for j < k {
+			x := nums[i] + nums[j] + nums[k]
+			if x < 0 {
+				j++
+			} else if x > 0 {
+				k--
 			} else {
-				ans = append(ans, []int{nums[i], nums[left], nums[right]})
-				for left < right && nums[left] == nums[left+1] {
-					left++
+				ans = append(ans, []int{nums[i], nums[j], nums[k]})
+				j, k = j+1, k-1
+				for j < k && nums[j] == nums[j-1] {
+					j++
 				}
-				for left < right && nums[right] == nums[right-1] {
-					right--
+				for j < k && nums[k] == nums[k+1] {
+					k--
 				}
-				left++
-				right--
 			}
 		}
-		for i < n-2 && nums[i] == nums[i+1] {
-			i++
-		}
 	}
-	return ans
+	return
 }

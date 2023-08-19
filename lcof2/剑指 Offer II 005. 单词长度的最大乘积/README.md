@@ -48,7 +48,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-因为只有 26 个小写字符，所以可以用一个 `int32` 存储字符的出现情况，然后枚举最大乘积。
+**方法一：位运算 + 枚举**
+
+由于题目限定了字符串中只包含英语的小写字母，因此每个字符串可以用一个 $32$ 位整数表示，该整数的每个二进制位都是 $0$ 或 $1$，分别对应字符串的每个字母是否出现。这样一来，我们判断两个字符串是否含有相同字符，只需要将对应的整数进行按位与运算，即可得到一个新的整数，如果新的整数的二进制表示中的每一位都是 $0$，就说明两个字符串不含有相同的字符。
+
+具体地，我们用一个长度为 $n$ 的整数数组 $mask$ 表示每个字符串对应的整数，其中第 $i$ 个元素 $mask[i]$ 表示字符串 $words[i]$ 对应的整数。对于任意两个下标 $i$ 和 $j$，如果 $mask[i]$ 和 $mask[j]$ 按位与运算的结果为 $0$，就说明 $words[i]$ 和 $words[j]$ 不包含相同字符。由于需要找到长度乘积的最大值，因此我们可以枚举所有的 $0 \leq i \lt j \lt n$，并计算 $words[i]$ 和 $words[j]$ 的长度乘积，最终得到长度乘积的最大值。
+
+时间复杂度 $O(n \times (n + |S|))$，空间复杂度 $O(n)$。其中 $n$ 是数组 $words$ 的长度，而 $|S|$ 是字符串的最大长度。
 
 <!-- tabs:start -->
 
@@ -59,16 +65,15 @@
 ```python
 class Solution:
     def maxProduct(self, words: List[str]) -> int:
-        n = len(words)
-        mask = [0] * n
-        for i, word in enumerate(words):
-            for ch in word:
-                mask[i] |= 1 << (ord(ch) - ord('a'))
+        mask = [0] * len(words)
+        for i, w in enumerate(words):
+            for c in w:
+                mask[i] |= 1 << (ord(c) - ord("a"))
         ans = 0
-        for i in range(n - 1):
-            for j in range(i + 1, n):
-                if mask[i] & mask[j] == 0:
-                    ans = max(ans, len(words[i]) * len(words[j]))
+        for i, a in enumerate(words):
+            for j, b in enumerate(words[i + 1 :], i + 1):
+                if (mask[i] & mask[j]) == 0:
+                    ans = max(ans, len(a) * len(b))
         return ans
 ```
 
@@ -81,14 +86,14 @@ class Solution {
     public int maxProduct(String[] words) {
         int n = words.length;
         int[] mask = new int[n];
-        for (int i = 0; i < n; i++) {
-            for (char ch : words[i].toCharArray()) {
-                mask[i] |= 1 << (ch - 'a');
+        for (int i = 0; i < n; ++i) {
+            for (char c : words[i].toCharArray()) {
+                mask[i] |= 1 << (c - 'a');
             }
         }
         int ans = 0;
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = i + 1; j < n; j++) {
+        for (int i = 0; i < n; ++i) {
+            for (int j = i + 1; j < n; ++j) {
                 if ((mask[i] & mask[j]) == 0) {
                     ans = Math.max(ans, words[i].length() * words[j].length());
                 }
@@ -99,26 +104,52 @@ class Solution {
 }
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxProduct(vector<string>& words) {
+        int n = words.size();
+        int mask[n];
+        memset(mask, 0, sizeof(mask));
+        for (int i = 0; i < n; i++) {
+            for (char c : words[i]) {
+                mask[i] |= 1 << (c - 'a');
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j = i + 1; j < n; ++j) {
+                if ((mask[i] & mask[j]) == 0) {
+                    ans = max(ans, int(words[i].size() * words[j].size()));
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
 ### **Go**
 
 ```go
-func maxProduct(words []string) int {
+func maxProduct(words []string) (ans int) {
 	n := len(words)
-	mask := make([]int32, n)
-	for i, word := range words {
-		for _, r := range word {
-			mask[i] |= 1 << (r - 'a')
+	mask := make([]int, n)
+	for i, w := range words {
+		for _, c := range w {
+			mask[i] |= 1 << (c - 'a')
 		}
 	}
-	ans := 0
-	for i := 0; i < n-1; i++ {
+	for i, x := range mask {
 		for j := i + 1; j < n; j++ {
-			if mask[i]&mask[j] == 0 {
+			if x&mask[j] == 0 {
 				ans = max(ans, len(words[i])*len(words[j]))
 			}
 		}
 	}
-	return ans
+	return
 }
 
 func max(a, b int) int {
@@ -129,25 +160,27 @@ func max(a, b int) int {
 }
 ```
 
-### **C++**
+### **TypeScript**
 
-```cpp
-class Solution {
-public:
-    int maxProduct(vector<string>& words) {
-        int n = words.size();
-        vector<int> mask(n);
-        for (int i = 0; i < n; ++i)
-            for (char ch : words[i])
-                mask[i] |= 1 << (ch - 'a');
-        int ans = 0;
-        for (int i = 0; i < n - 1; ++i)
-            for (int j = i + 1; j < n; ++j)
-                if (!(mask[i] & mask[j]))
-                    ans = max(ans, (int) words[i].size() * (int) words[j].size());
-        return ans;
+```ts
+function maxProduct(words: string[]): number {
+    const n = words.length;
+    const mask: number[] = new Array(n).fill(0);
+    for (let i = 0; i < n; ++i) {
+        for (const c of words[i]) {
+            mask[i] |= 1 << (c.charCodeAt(0) - 'a'.charCodeAt(0));
+        }
     }
-};
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        for (let j = i + 1; j < n; ++j) {
+            if ((mask[i] & mask[j]) === 0) {
+                ans = Math.max(ans, words[i].length * words[j].length);
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
