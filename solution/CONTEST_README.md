@@ -22,6 +22,20 @@
 
 ## 往期竞赛
 
+#### 第 359 场周赛(2023-08-20 10:30, 90 分钟) 参赛人数 4097
+
+- [2828. 判别首字母缩略词](/solution/2800-2899/2828.Check%20if%20a%20String%20Is%20an%20Acronym%20of%20Words/README.md)
+- [2829. k-avoiding 数组的最小总和](/solution/2800-2899/2829.Determine%20the%20Minimum%20Sum%20of%20a%20k-avoiding%20Array/README.md)
+- [2830. 销售利润最大化](/solution/2800-2899/2830.Maximize%20the%20Profit%20as%20the%20Salesman/README.md)
+- [2831. 找出最长等值子数组](/solution/2800-2899/2831.Find%20the%20Longest%20Equal%20Subarray/README.md)
+
+#### 第 111 场双周赛(2023-08-19 22:30, 90 分钟) 参赛人数 2787
+
+- [2824. 统计和小于目标的下标对数目](/solution/2800-2899/2824.Count%20Pairs%20Whose%20Sum%20is%20Less%20than%20Target/README.md)
+- [2825. 循环增长使字符串子序列等于另一个字符串](/solution/2800-2899/2825.Make%20String%20a%20Subsequence%20Using%20Cyclic%20Increments/README.md)
+- [2826. 将三个组排序](/solution/2800-2899/2826.Sorting%20Three%20Groups/README.md)
+- [2827. 范围中美丽整数的数目](/solution/2800-2899/2827.Number%20of%20Beautiful%20Integers%20in%20the%20Range/README.md)
+
 #### 第 358 场周赛(2023-08-13 10:30, 90 分钟) 参赛人数 4475
 
 - [2815. 数组中的最大数对和](/solution/2800-2899/2815.Max%20Pair%20Sum%20in%20an%20Array/README.md)

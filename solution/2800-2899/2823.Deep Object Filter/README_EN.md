@@ -55,7 +55,7 @@ fn = (x) =&gt; Array.isArray(x)
 <ul>
 	<li><code>fn</code> is a function that returns a boolean value</li>
 	<li><code>obj</code> is a valid JSON object</li>
-	<li><code>2 &lt;= JSON.stringify(obj).length &lt;= 10**5</code></li>
+	<li><code>2 &lt;= JSON.stringify(obj).length &lt;= 10<sup>5</sup></code></li>
 </ul>
 
 ## Solutions
