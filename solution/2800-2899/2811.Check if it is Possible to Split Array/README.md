@@ -88,6 +88,14 @@
 
 时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 是数组 $nums$ 的长度。
 
+**方法二：脑筋急转弯**
+
+不论如何操作，最终总会剩下一个 `length == 2` 的子数组，又因为元素数值不存在负数，所以随着分割操作的进行，子数组的长度和总和都会逐渐变小，其它 `length > 2` 子数组之和肯定要比该子数组之和更大，进而，我们只需要考虑，是否存在一个 `length == 2` 且总和大于等于 `m` 的子数组即可。
+
+> 📢 注意，当 `nums.length <= 2` 时，无需进行操作。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -255,6 +263,40 @@ function canSplitArray(nums: number[], m: number): boolean {
         return false;
     };
     return dfs(0, n - 1);
+}
+```
+
+```ts
+function canSplitArray(nums: number[], m: number): boolean {
+    const n = nums.length;
+    if (n <= 2) {
+        return true;
+    }
+    for (let i = 1; i < n; i++) {
+        if (nums[i - 1] + nums[i] >= m) {
+            return true;
+        }
+    }
+    return false;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn can_split_array(nums: Vec<i32>, m: i32) -> bool {
+        let n = nums.len();
+        if (n <= 2) {
+            return true;
+        }
+        for i in 1..n {
+            if nums[i - 1] + nums[i] >= m {
+                return true;
+            }
+        }
+        false
+    }
 }
 ```
 

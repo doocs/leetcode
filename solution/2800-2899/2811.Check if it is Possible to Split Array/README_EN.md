@@ -217,6 +217,40 @@ function canSplitArray(nums: number[], m: number): boolean {
 }
 ```
 
+```ts
+function canSplitArray(nums: number[], m: number): boolean {
+    const n = nums.length;
+    if (n <= 2) {
+        return true;
+    }
+    for (let i = 1; i < n; i++) {
+        if (nums[i - 1] + nums[i] >= m) {
+            return true;
+        }
+    }
+    return false;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn can_split_array(nums: Vec<i32>, m: i32) -> bool {
+        let n = nums.len();
+        if (n <= 2) {
+            return true;
+        }
+        for i in 1..n {
+            if nums[i - 1] + nums[i] >= m {
+                return true;
+            }
+        }
+        false
+    }
+}
+```
+
 ### **...**
 
 ```
