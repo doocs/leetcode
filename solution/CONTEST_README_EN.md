@@ -25,6 +25,20 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 359
+
+- [2828. Check if a String Is an Acronym of Words](/solution/2800-2899/2828.Check%20if%20a%20String%20Is%20an%20Acronym%20of%20Words/README_EN.md)
+- [2829. Determine the Minimum Sum of a k-avoiding Array](/solution/2800-2899/2829.Determine%20the%20Minimum%20Sum%20of%20a%20k-avoiding%20Array/README_EN.md)
+- [2830. Maximize the Profit as the Salesman](/solution/2800-2899/2830.Maximize%20the%20Profit%20as%20the%20Salesman/README_EN.md)
+- [2831. Find the Longest Equal Subarray](/solution/2800-2899/2831.Find%20the%20Longest%20Equal%20Subarray/README_EN.md)
+
+#### Biweekly Contest 111
+
+- [2824. Count Pairs Whose Sum is Less than Target](/solution/2800-2899/2824.Count%20Pairs%20Whose%20Sum%20is%20Less%20than%20Target/README_EN.md)
+- [2825. Make String a Subsequence Using Cyclic Increments](/solution/2800-2899/2825.Make%20String%20a%20Subsequence%20Using%20Cyclic%20Increments/README_EN.md)
+- [2826. Sorting Three Groups](/solution/2800-2899/2826.Sorting%20Three%20Groups/README_EN.md)
+- [2827. Number of Beautiful Integers in the Range](/solution/2800-2899/2827.Number%20of%20Beautiful%20Integers%20in%20the%20Range/README_EN.md)
+
 #### Weekly Contest 358
 
 - [2815. Max Pair Sum in an Array](/solution/2800-2899/2815.Max%20Pair%20Sum%20in%20an%20Array/README_EN.md)
