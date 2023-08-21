@@ -1,26 +1,31 @@
 func minCut(s string) int {
 	n := len(s)
-	dp1 := make([][]bool, n)
-	for i := 0; i < n; i++ {
-		dp1[i] = make([]bool, n)
-	}
-	for i := n - 1; i >= 0; i-- {
-		for j := i; j < n; j++ {
-			dp1[i][j] = s[i] == s[j] && (j-i < 3 || dp1[i+1][j-1])
+	g := make([][]bool, n)
+	f := make([]int, n)
+	for i := range g {
+		g[i] = make([]bool, n)
+		f[i] = i
+		for j := range g[i] {
+			g[i][j] = true
 		}
 	}
-	dp2 := make([]int, n)
-	for i := 0; i < n; i++ {
-		if !dp1[0][i] {
-			dp2[i] = i
-			for j := 1; j <= i; j++ {
-				if dp1[j][i] {
-					dp2[i] = min(dp2[i], dp2[j-1]+1)
+	for i := n - 1; i >= 0; i-- {
+		for j := i + 1; j < n; j++ {
+			g[i][j] = s[i] == s[j] && g[i+1][j-1]
+		}
+	}
+	for i := 1; i < n; i++ {
+		for j := 0; j <= i; j++ {
+			if g[j][i] {
+				if j == 0 {
+					f[i] = 0
+				} else {
+					f[i] = min(f[i], f[j-1]+1)
 				}
 			}
 		}
 	}
-	return dp2[n-1]
+	return f[n-1]
 }
 
 func min(x, y int) int {
