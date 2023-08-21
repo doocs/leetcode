@@ -52,15 +52,27 @@ As shown below, there are 5 ways you can generate &quot;bag&quot; from s.
 class Solution:
     def numDistinct(self, s: str, t: str) -> int:
         m, n = len(s), len(t)
-        dp = [[0] * (n + 1) for _ in range(m + 1)]
+        f = [[0] * (n + 1) for _ in range(m + 1)]
         for i in range(m + 1):
-            dp[i][0] = 1
-        for i in range(1, m + 1):
-            for j in range(1, n + 1):
-                dp[i][j] = dp[i - 1][j]
-                if s[i - 1] == t[j - 1]:
-                    dp[i][j] += dp[i - 1][j - 1]
-        return dp[m][n]
+            f[i][0] = 1
+        for i, a in enumerate(s, 1):
+            for j, b in enumerate(t, 1):
+                f[i][j] = f[i - 1][j]
+                if a == b:
+                    f[i][j] += f[i - 1][j - 1]
+        return f[m][n]
+```
+
+```python
+class Solution:
+    def numDistinct(self, s: str, t: str) -> int:
+        n = len(t)
+        f = [1] + [0] * n
+        for a in s:
+            for j in range(n, 0, -1):
+                if a == t[j - 1]:
+                    f[j] += f[j - 1]
+        return f[n]
 ```
 
 ### **Java**
@@ -69,19 +81,38 @@ class Solution:
 class Solution {
     public int numDistinct(String s, String t) {
         int m = s.length(), n = t.length();
-        int[][] dp = new int[m + 1][n + 1];
-        for (int i = 0; i <= m; ++i) {
-            dp[i][0] = 1;
+        int[][] f = new int[m + 1][n + 1];
+        for (int i = 0; i < m + 1; ++i) {
+            f[i][0] = 1;
         }
-        for (int i = 1; i <= m; ++i) {
-            for (int j = 1; j <= n; ++j) {
-                dp[i][j] += dp[i - 1][j];
+        for (int i = 1; i < m + 1; ++i) {
+            for (int j = 1; j < n + 1; ++j) {
+                f[i][j] = f[i - 1][j];
                 if (s.charAt(i - 1) == t.charAt(j - 1)) {
-                    dp[i][j] += dp[i - 1][j - 1];
+                    f[i][j] += f[i - 1][j - 1];
                 }
             }
         }
-        return dp[m][n];
+        return f[m][n];
+    }
+}
+```
+
+```java
+class Solution {
+    public int numDistinct(String s, String t) {
+        int n = t.length();
+        int[] f = new int[n + 1];
+        f[0] = 1;
+        for (char a : s.toCharArray()) {
+            for (int j = n; j > 0; --j) {
+                char b = t.charAt(j - 1);
+                if (a == b) {
+                    f[j] += f[j - 1];
+                }
+            }
+        }
+        return f[n];
     }
 }
 ```
@@ -115,21 +146,124 @@ class Solution {
 public:
     int numDistinct(string s, string t) {
         int m = s.size(), n = t.size();
-        vector<vector<unsigned long long>> dp(m + 1, vector<unsigned long long>(n + 1));
-        for (int i = 0; i <= m; ++i) {
-            dp[i][0] = 1;
+        unsigned long long f[m + 1][n + 1];
+        memset(f, 0, sizeof(f));
+        for (int i = 0; i < m + 1; ++i) {
+            f[i][0] = 1;
         }
-        for (int i = 1; i <= m; ++i) {
-            for (int j = 1; j <= n; ++j) {
-                dp[i][j] = dp[i - 1][j];
+        for (int i = 1; i < m + 1; ++i) {
+            for (int j = 1; j < n + 1; ++j) {
+                f[i][j] = f[i - 1][j];
                 if (s[i - 1] == t[j - 1]) {
-                    dp[i][j] += dp[i - 1][j - 1];
+                    f[i][j] += f[i - 1][j - 1];
                 }
             }
         }
-        return dp[m][n];
+        return f[m][n];
     }
 };
+```
+
+```cpp
+class Solution {
+public:
+    int numDistinct(string s, string t) {
+        int n = t.size();
+        unsigned long long f[n + 1];
+        memset(f, 0, sizeof(f));
+        f[0] = 1;
+        for (char& a : s) {
+            for (int j = n; j; --j) {
+                char b = t[j - 1];
+                if (a == b) {
+                    f[j] += f[j - 1];
+                }
+            }
+        }
+        return f[n];
+    }
+};
+```
+
+### **Go**
+
+```go
+func numDistinct(s string, t string) int {
+	m, n := len(s), len(t)
+	f := make([][]int, m+1)
+	for i := range f {
+		f[i] = make([]int, n+1)
+	}
+	for i := 0; i <= m; i++ {
+		f[i][0] = 1
+	}
+	for i := 1; i <= m; i++ {
+		for j := 1; j <= n; j++ {
+			f[i][j] = f[i-1][j]
+			if s[i-1] == t[j-1] {
+				f[i][j] += f[i-1][j-1]
+			}
+		}
+	}
+	return f[m][n]
+}
+```
+
+```go
+func numDistinct(s string, t string) int {
+	n := len(t)
+	f := make([]int, n+1)
+	f[0] = 1
+	for _, a := range s {
+		for j := n; j > 0; j-- {
+			if b := t[j-1]; byte(a) == b {
+				f[j] += f[j-1]
+			}
+		}
+	}
+	return f[n]
+}
+```
+
+### **TypeScript**
+
+```ts
+function numDistinct(s: string, t: string): number {
+    const m = s.length;
+    const n = t.length;
+    const f: number[][] = new Array(m + 1)
+        .fill(0)
+        .map(() => new Array(n + 1).fill(0));
+    for (let i = 0; i <= m; ++i) {
+        f[i][0] = 1;
+    }
+    for (let i = 1; i <= m; ++i) {
+        for (let j = 1; j <= n; ++j) {
+            f[i][j] = f[i - 1][j];
+            if (s[i - 1] === t[j - 1]) {
+                f[i][j] += f[i - 1][j - 1];
+            }
+        }
+    }
+    return f[m][n];
+}
+```
+
+```ts
+function numDistinct(s: string, t: string): number {
+    const n = t.length;
+    const f: number[] = new Array(n + 1).fill(0);
+    f[0] = 1;
+    for (const a of s) {
+        for (let j = n; j; --j) {
+            const b = t[j - 1];
+            if (a === b) {
+                f[j] += f[j - 1];
+            }
+        }
+    }
+    return f[n];
+}
 ```
 
 ### **Rust**
@@ -160,30 +294,6 @@ impl Solution {
 
         dp[n][m] as i32
     }
-}
-```
-
-### **TypeScript**
-
-```ts
-function numDistinct(s: string, t: string): number {
-    const m = s.length;
-    const n = t.length;
-    const dp: number[][] = new Array(m + 1)
-        .fill(0)
-        .map(() => new Array(n + 1).fill(0));
-    for (let i = 0; i <= m; ++i) {
-        dp[i][0] = 1;
-    }
-    for (let i = 1; i <= m; ++i) {
-        for (let j = 1; j <= n; ++j) {
-            dp[i][j] = dp[i - 1][j];
-            if (s.charAt(i - 1) === t.charAt(j - 1)) {
-                dp[i][j] += dp[i - 1][j - 1];
-            }
-        }
-    }
-    return dp[m][n];
 }
 ```
 
