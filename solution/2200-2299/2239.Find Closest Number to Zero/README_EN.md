@@ -45,10 +45,10 @@ Thus, the closest number to 0 in the array is 1.
 ```python
 class Solution:
     def findClosestNumber(self, nums: List[int]) -> int:
-        ans, d = 0, 1000000
-        for v in nums:
-            if (t := abs(v)) < d or (t == d and v > ans):
-                ans, d = v, t
+        ans, d = 0, inf
+        for x in nums:
+            if (y := abs(x)) < d or (y == d and x > ans):
+                ans, d = x, y
         return ans
 ```
 
@@ -57,12 +57,12 @@ class Solution:
 ```java
 class Solution {
     public int findClosestNumber(int[] nums) {
-        int ans = 0, d = 1000000;
-        for (int v : nums) {
-            int t = Math.abs(v);
-            if (t < d || (t == d && v > ans)) {
-                ans = v;
-                d = t;
+        int ans = 0, d = 1 << 30;
+        for (int x : nums) {
+            int y = Math.abs(x);
+            if (y < d || (y == d && x > ans)) {
+                ans = x;
+                d = y;
             }
         }
         return ans;
@@ -76,12 +76,12 @@ class Solution {
 class Solution {
 public:
     int findClosestNumber(vector<int>& nums) {
-        int ans = 0, d = 1e6;
-        for (int& v : nums) {
-            int t = abs(v);
-            if (t < d || (t == d && v > ans)) {
-                ans = v;
-                d = t;
+        int ans = 0, d = 1 << 30;
+        for (int x : nums) {
+            int y = abs(x);
+            if (y < d || (y == d && x > ans)) {
+                ans = x;
+                d = y;
             }
         }
         return ans;
@@ -93,11 +93,10 @@ public:
 
 ```go
 func findClosestNumber(nums []int) int {
-	ans, d := 0, 1000000
-	for _, v := range nums {
-		t := abs(v)
-		if t < d || (t == d && v > ans) {
-			ans, d = v, t
+	ans, d := 0, 1<<30
+	for _, x := range nums {
+		if y := abs(x); y < d || (y == d && x > ans) {
+			ans, d = x, y
 		}
 	}
 	return ans
@@ -114,7 +113,16 @@ func abs(x int) int {
 ### **TypeScript**
 
 ```ts
-
+function findClosestNumber(nums: number[]): number {
+    let [ans, d] = [0, 1 << 30];
+    for (const x of nums) {
+        const y = Math.abs(x);
+        if (y < d || (y == d && x > ans)) {
+            [ans, d] = [x, y];
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**

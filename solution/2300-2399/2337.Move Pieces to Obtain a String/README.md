@@ -60,7 +60,7 @@
 
 替换操作实际上是将 `L` 往左移动（`L` 左边为 `_` 时才能移动），`R` 往右移动（`R` 右边是 `_` 时才能移动），但 `L` 无法穿过 `R`。所以，如果去掉 `start` 和 `target` 中的所有 `_`，剩下的字符应该是相同的，否则返回 `false`。
 
-双指针遍历 `start` 和 `target`：
+我们使用双指针 $i$ 和 $j$ 从头到尾遍历 `start` 和 `target`：
 
 -   如果当前字符为 `L` 且 $i\lt j$，那么这个 `L` 无法向右移动，返回 `false`；
 -   如果当前字符为 `R` 且 $i\gt j$，那么这个 `R` 无法向左移动，返回 `false`。
@@ -336,6 +336,69 @@ function canChange(start: string, target: string): boolean {
         j++;
     }
     return true;
+}
+```
+
+### **TypeScript**
+
+```ts
+function canChange(start: string, target: string): boolean {
+    if (
+        [...start].filter(c => c !== '_').join('') !==
+        [...target].filter(c => c !== '_').join('')
+    ) {
+        return false;
+    }
+    const n = start.length;
+    let i = 0;
+    let j = 0;
+    while (i < n || j < n) {
+        while (start[i] === '_') {
+            i++;
+        }
+        while (target[j] === '_') {
+            j++;
+        }
+        if (start[i] === 'R') {
+            if (i > j) {
+                return false;
+            }
+        }
+        if (start[i] === 'L') {
+            if (i < j) {
+                return false;
+            }
+        }
+        i++;
+        j++;
+    }
+    return true;
+}
+```
+
+```ts
+function canChange(start: string, target: string): boolean {
+    const n = start.length;
+    let [i, j] = [0, 0];
+    while (1) {
+        while (i < n && start[i] === '_') {
+            ++i;
+        }
+        while (j < n && target[j] === '_') {
+            ++j;
+        }
+        if (i === n && j === n) {
+            return true;
+        }
+        if (i === n || j === n || start[i] !== target[j]) {
+            return false;
+        }
+        if ((start[i] === 'L' && i < j) || (start[i] === 'R' && i > j)) {
+            return false;
+        }
+        ++i;
+        ++j;
+    }
 }
 ```
 
