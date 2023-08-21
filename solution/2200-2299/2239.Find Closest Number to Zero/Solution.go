@@ -1,9 +1,8 @@
 func findClosestNumber(nums []int) int {
-	ans, d := 0, 1000000
-	for _, v := range nums {
-		t := abs(v)
-		if t < d || (t == d && v > ans) {
-			ans, d = v, t
+	ans, d := 0, 1<<30
+	for _, x := range nums {
+		if y := abs(x); y < d || (y == d && x > ans) {
+			ans, d = x, y
 		}
 	}
 	return ans
