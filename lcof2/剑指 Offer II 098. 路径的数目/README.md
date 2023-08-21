@@ -62,9 +62,29 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-动态规划。
+**方法一：动态规划**
 
-假设 `dp[i][j]` 表示到达网格 `(i,j)` 的路径数，则 `dp[i][j] = dp[i - 1][j] + dp[i][j - 1]`。
+我们定义 $f[i][j]$ 表示从左上角走到 $(i, j)$ 的路径数量，初始时 $f[0][0] = 1$，答案为 $f[m - 1][n - 1]$。
+
+考虑 $f[i][j]$：
+
+-   如果 $i \gt 0$，那么 $f[i][j]$ 可以从 $f[i - 1][j]$ 走一步到达，因此 $f[i][j] = f[i][j] + f[i - 1][j]$；
+-   如果 $j \gt 0$，那么 $f[i][j]$ 可以从 $f[i][j - 1]$ 走一步到达，因此 $f[i][j] = f[i][j] + f[i][j - 1]$。
+
+因此，我们有如下的状态转移方程：
+
+$$
+f[i][j] = \begin{cases}
+1 & i = 0, j = 0 \\
+f[i - 1][j] + f[i][j - 1] & \text{otherwise}
+\end{cases}
+$$
+
+最终的答案即为 $f[m - 1][n - 1]$。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是网格的行数和列数。
+
+我们注意到 $f[i][j]$ 仅与 $f[i - 1][j]$ 和 $f[i][j - 1]$ 有关，因此我们优化掉第一维空间，仅保留第二维空间，得到时间复杂度 $O(m \times n)$，空间复杂度 $O(n)$ 的实现。
 
 <!-- tabs:start -->
 
@@ -75,11 +95,35 @@
 ```python
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
-        dp = [[1] * n for _ in range(m)]
+        f = [[0] * n for _ in range(m)]
+        f[0][0] = 1
+        for i in range(m):
+            for j in range(n):
+                if i:
+                    f[i][j] += f[i - 1][j]
+                if j:
+                    f[i][j] += f[i][j - 1]
+        return f[-1][-1]
+```
+
+```python
+class Solution:
+    def uniquePaths(self, m: int, n: int) -> int:
+        f = [[1] * n for _ in range(m)]
         for i in range(1, m):
             for j in range(1, n):
-                dp[i][j] = dp[i - 1][j] + dp[i][j - 1]
-        return dp[-1][-1]
+                f[i][j] = f[i - 1][j] + f[i][j - 1]
+        return f[-1][-1]
+```
+
+```python
+class Solution:
+    def uniquePaths(self, m: int, n: int) -> int:
+        f = [1] * n
+        for _ in range(1, m):
+            for j in range(1, n):
+                f[j] += f[j - 1]
+        return f[-1]
 ```
 
 ### **Java**
@@ -89,31 +133,52 @@ class Solution:
 ```java
 class Solution {
     public int uniquePaths(int m, int n) {
-        int[][] dp = new int[m][n];
+        var f = new int[m][n];
+        f[0][0] = 1;
         for (int i = 0; i < m; ++i) {
-            Arrays.fill(dp[i], 1);
-        }
-        for (int i = 1; i < m; ++i) {
-            for (int j = 1; j < n; ++j) {
-                dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+            for (int j = 0; j < n; ++j) {
+                if (i > 0) {
+                    f[i][j] += f[i - 1][j];
+                }
+                if (j > 0) {
+                    f[i][j] += f[i][j - 1];
+                }
             }
         }
-        return dp[m - 1][n - 1];
+        return f[m - 1][n - 1];
     }
 }
 ```
 
-### **TypeScript**
-
-```ts
-function uniquePaths(m: number, n: number): number {
-    let dp = Array.from({ length: m }, v => new Array(n).fill(1));
-    for (let i = 1; i < m; ++i) {
-        for (let j = 1; j < n; ++j) {
-            dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+```java
+class Solution {
+    public int uniquePaths(int m, int n) {
+        var f = new int[m][n];
+        for (var g : f) {
+            Arrays.fill(g, 1);
         }
+        for (int i = 1; i < m; ++i) {
+            for (int j = 1; j < n; j++) {
+                f[i][j] = f[i - 1][j] + f[i][j - 1];
+            }
+        }
+        return f[m - 1][n - 1];
     }
-    return dp[m - 1][n - 1];
+}
+```
+
+```java
+class Solution {
+    public int uniquePaths(int m, int n) {
+        int[] f = new int[n];
+        Arrays.fill(f, 1);
+        for (int i = 1; i < m; ++i) {
+            for (int j = 1; j < n; ++j) {
+                f[j] += f[j - 1];
+            }
+        }
+        return f[n - 1];
+    }
 }
 ```
 
@@ -123,13 +188,49 @@ function uniquePaths(m: number, n: number): number {
 class Solution {
 public:
     int uniquePaths(int m, int n) {
-        vector<vector<int>> dp(m, vector<int>(n, 1));
-        for (int i = 1; i < m; ++i) {
-            for (int j = 1; j < n; ++j) {
-                dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+        vector<vector<int>> f(m, vector<int>(n));
+        f[0][0] = 1;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (i) {
+                    f[i][j] += f[i - 1][j];
+                }
+                if (j) {
+                    f[i][j] += f[i][j - 1];
+                }
             }
         }
-        return dp[m - 1][n - 1];
+        return f[m - 1][n - 1];
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int uniquePaths(int m, int n) {
+        vector<vector<int>> f(m, vector<int>(n, 1));
+        for (int i = 1; i < m; ++i) {
+            for (int j = 1; j < n; ++j) {
+                f[i][j] = f[i - 1][j] + f[i][j - 1];
+            }
+        }
+        return f[m - 1][n - 1];
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int uniquePaths(int m, int n) {
+        vector<int> f(n, 1);
+        for (int i = 1; i < m; ++i) {
+            for (int j = 1; j < n; ++j) {
+                f[j] += f[j - 1];
+            }
+        }
+        return f[n - 1];
     }
 };
 ```
@@ -138,20 +239,183 @@ public:
 
 ```go
 func uniquePaths(m int, n int) int {
-	dp := make([][]int, m)
-	for i := 0; i < m; i++ {
-		dp[i] = make([]int, n)
+	f := make([][]int, m)
+	for i := range f {
+		f[i] = make([]int, n)
 	}
+	f[0][0] = 1
 	for i := 0; i < m; i++ {
 		for j := 0; j < n; j++ {
-			if i == 0 || j == 0 {
-				dp[i][j] = 1
-			} else {
-				dp[i][j] = dp[i-1][j] + dp[i][j-1]
+			if i > 0 {
+				f[i][j] += f[i-1][j]
+			}
+			if j > 0 {
+				f[i][j] += f[i][j-1]
 			}
 		}
 	}
-	return dp[m-1][n-1]
+	return f[m-1][n-1]
+}
+```
+
+```go
+func uniquePaths(m int, n int) int {
+	f := make([][]int, m)
+	for i := range f {
+		f[i] = make([]int, n)
+		for j := range f[i] {
+			f[i][j] = 1
+		}
+	}
+	for i := 1; i < m; i++ {
+		for j := 1; j < n; j++ {
+			f[i][j] = f[i-1][j] + f[i][j-1]
+		}
+	}
+	return f[m-1][n-1]
+}
+```
+
+```go
+func uniquePaths(m int, n int) int {
+	f := make([]int, n+1)
+	for i := range f {
+		f[i] = 1
+	}
+	for i := 1; i < m; i++ {
+		for j := 1; j < n; j++ {
+			f[j] += f[j-1]
+		}
+	}
+	return f[n-1]
+}
+```
+
+### **TypeScript**
+
+```ts
+function uniquePaths(m: number, n: number): number {
+    const f: number[][] = Array(m)
+        .fill(0)
+        .map(() => Array(n).fill(0));
+    f[0][0] = 1;
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (i > 0) {
+                f[i][j] += f[i - 1][j];
+            }
+            if (j > 0) {
+                f[i][j] += f[i][j - 1];
+            }
+        }
+    }
+    return f[m - 1][n - 1];
+}
+```
+
+```ts
+function uniquePaths(m: number, n: number): number {
+    const f: number[][] = Array(m)
+        .fill(0)
+        .map(() => Array(n).fill(1));
+    for (let i = 1; i < m; ++i) {
+        for (let j = 1; j < n; ++j) {
+            f[i][j] = f[i - 1][j] + f[i][j - 1];
+        }
+    }
+    return f[m - 1][n - 1];
+}
+```
+
+```ts
+function uniquePaths(m: number, n: number): number {
+    const f: number[] = Array(n).fill(1);
+    for (let i = 1; i < m; ++i) {
+        for (let j = 1; j < n; ++j) {
+            f[j] += f[j - 1];
+        }
+    }
+    return f[n - 1];
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number} m
+ * @param {number} n
+ * @return {number}
+ */
+var uniquePaths = function (m, n) {
+    const f = Array(m)
+        .fill(0)
+        .map(() => Array(n).fill(0));
+    f[0][0] = 1;
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (i > 0) {
+                f[i][j] += f[i - 1][j];
+            }
+            if (j > 0) {
+                f[i][j] += f[i][j - 1];
+            }
+        }
+    }
+    return f[m - 1][n - 1];
+};
+```
+
+```js
+/**
+ * @param {number} m
+ * @param {number} n
+ * @return {number}
+ */
+var uniquePaths = function (m, n) {
+    const f = Array(m)
+        .fill(0)
+        .map(() => Array(n).fill(1));
+    for (let i = 1; i < m; ++i) {
+        for (let j = 1; j < n; ++j) {
+            f[i][j] = f[i - 1][j] + f[i][j - 1];
+        }
+    }
+    return f[m - 1][n - 1];
+};
+```
+
+```js
+/**
+ * @param {number} m
+ * @param {number} n
+ * @return {number}
+ */
+var uniquePaths = function (m, n) {
+    const f = Array(n).fill(1);
+    for (let i = 1; i < m; ++i) {
+        for (let j = 1; j < n; ++j) {
+            f[j] += f[j - 1];
+        }
+    }
+    return f[n - 1];
+};
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn unique_paths(m: i32, n: i32) -> i32 {
+        let (m, n) = (m as usize, n as usize);
+        let mut f = vec![1; n];
+        for i in 1..m {
+            for j in 1..n {
+                f[j] += f[j - 1];
+            }
+        }
+        f[n - 1]
+    }
 }
 ```
 

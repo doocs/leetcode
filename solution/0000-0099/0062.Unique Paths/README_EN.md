@@ -68,6 +68,16 @@ class Solution:
         return f[-1][-1]
 ```
 
+```python
+class Solution:
+    def uniquePaths(self, m: int, n: int) -> int:
+        f = [1] * n
+        for _ in range(1, m):
+            for j in range(1, n):
+                f[j] += f[j - 1]
+        return f[-1]
+```
+
 ### **Java**
 
 ```java
@@ -107,6 +117,21 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int uniquePaths(int m, int n) {
+        int[] f = new int[n];
+        Arrays.fill(f, 1);
+        for (int i = 1; i < m; ++i) {
+            for (int j = 1; j < n; ++j) {
+                f[j] += f[j - 1];
+            }
+        }
+        return f[n - 1];
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -141,6 +166,21 @@ public:
             }
         }
         return f[m - 1][n - 1];
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int uniquePaths(int m, int n) {
+        vector<int> f(n, 1);
+        for (int i = 1; i < m; ++i) {
+            for (int j = 1; j < n; ++j) {
+                f[j] += f[j - 1];
+            }
+        }
+        return f[n - 1];
     }
 };
 ```
@@ -186,6 +226,21 @@ func uniquePaths(m int, n int) int {
 }
 ```
 
+```go
+func uniquePaths(m int, n int) int {
+	f := make([]int, n+1)
+	for i := range f {
+		f[i] = 1
+	}
+	for i := 1; i < m; i++ {
+		for j := 1; j < n; j++ {
+			f[j] += f[j-1]
+		}
+	}
+	return f[n-1]
+}
+```
+
 ### **TypeScript**
 
 ```ts
@@ -219,6 +274,18 @@ function uniquePaths(m: number, n: number): number {
         }
     }
     return f[m - 1][n - 1];
+}
+```
+
+```ts
+function uniquePaths(m: number, n: number): number {
+    const f: number[] = Array(n).fill(1);
+    for (let i = 1; i < m; ++i) {
+        for (let j = 1; j < n; ++j) {
+            f[j] += f[j - 1];
+        }
+    }
+    return f[n - 1];
 }
 ```
 
@@ -268,19 +335,36 @@ var uniquePaths = function (m, n) {
 };
 ```
 
+```js
+/**
+ * @param {number} m
+ * @param {number} n
+ * @return {number}
+ */
+var uniquePaths = function (m, n) {
+    const f = Array(n).fill(1);
+    for (let i = 1; i < m; ++i) {
+        for (let j = 1; j < n; ++j) {
+            f[j] += f[j - 1];
+        }
+    }
+    return f[n - 1];
+};
+```
+
 ### **Rust**
 
 ```rust
 impl Solution {
     pub fn unique_paths(m: i32, n: i32) -> i32 {
         let (m, n) = (m as usize, n as usize);
-        let mut dp = vec![1; n];
+        let mut f = vec![1; n];
         for i in 1..m {
             for j in 1..n {
-                dp[j] += dp[j - 1];
+                f[j] += f[j - 1];
             }
         }
-        dp[n - 1]
+        f[n - 1]
     }
 }
 ```
