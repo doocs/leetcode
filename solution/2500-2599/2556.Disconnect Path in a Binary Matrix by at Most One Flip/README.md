@@ -54,9 +54,9 @@
 
 **方法一：两次 DFS**
 
-我们先进行一次 DFS，判断从 `(0, 0)` 到 `(m - 1, n - 1)` 是否存在路径，记结果为 $a$。在 DFS 的过程中，我们将访问过的格子的值置为 $0$，以防止重复访问。
+我们先进行一次 DFS，判断从 $(0, 0)$ 到 $(m - 1, n - 1)$ 是否存在路径，记结果为 $a$。在 DFS 的过程中，我们将访问过的格子的值置为 $0$，以防止重复访问。
 
-接下来，我们将 `(0, 0)` 和 `(m - 1, n - 1)` 的值置为 $1$，再进行一次 DFS，判断从 `(0, 0)` 到 `(m - 1, n - 1)` 是否存在路径，记结果为 $b$。在 DFS 的过程中，我们将访问过的格子的值置为 $0$，以防止重复访问。
+接下来，我们将 $(0, 0)$ 和 $(m - 1, n - 1)$ 的值置为 $1$，再进行一次 DFS，判断从 $(0, 0)$ 到 $(m - 1, n - 1)$ 是否存在路径，记结果为 $b$。在 DFS 的过程中，我们将访问过的格子的值置为 $0$，避免重复访问。
 
 最后，如果 $a$ 和 $b$ 都为 `true`，则返回 `false`，否则返回 `true`。
 
@@ -165,6 +165,31 @@ func isPossibleToCutPath(grid [][]int) bool {
 	grid[0][0], grid[m-1][n-1] = 1, 1
 	b := dfs(0, 0)
 	return !(a && b)
+}
+```
+
+### **TypeScript**
+
+```ts
+function isPossibleToCutPath(grid: number[][]): boolean {
+    const m = grid.length;
+    const n = grid[0].length;
+
+    const dfs = (i: number, j: number): boolean => {
+        if (i >= m || j >= n || grid[i][j] !== 1) {
+            return false;
+        }
+        grid[i][j] = 0;
+        if (i === m - 1 && j === n - 1) {
+            return true;
+        }
+        return dfs(i + 1, j) || dfs(i, j + 1);
+    };
+    const a = dfs(0, 0);
+    grid[0][0] = 1;
+    grid[m - 1][n - 1] = 1;
+    const b = dfs(0, 0);
+    return !(a && b);
 }
 ```
 
