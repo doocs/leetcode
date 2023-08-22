@@ -67,6 +67,24 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：树形 DP + 分情况讨论**
+
+我们定义一个函数 $dfs(root)$，它的返回值是一个长度为 $2$ 的数组，其中第一个表示将 $root$ 节点的值变成 `false` 所需要的最少翻转次数，第二个表示将 $root$ 节点的值变成 `true` 所需要的最少翻转次数。那么答案为 $dfs(root)[result]$。
+
+函数 $dfs(root)$ 的实现如下：
+
+如果 $root$ 为空，那么返回 $[+\infty, +\infty]$。
+
+否则，我们记 $root$ 的值为 $x$，左子树的返回值为 $l$，右子树的返回值为 $r$，然后分情况讨论：
+
+-   如果 $x \in \{0, 1\}$，那么返回 $[x, x \oplus 1]$。
+-   如果 $x = 2$，即布尔运算符是 `OR`，为了使 $root$ 的值为 `false`，我们需要将左右子树的值都变成 `false`，因此返回值的第一个元素为 $l[0] + r[0]$；为了使 $root$ 的值为 `true`，我们需要将左右子树的值中至少有一个变成 `true`，因此返回值的第二个元素为 $\min(l[0] + r[1], l[1] + r[0], l[1] + r[1])$。
+-   如果 $x = 3$，即布尔运算符是 `AND`，为了使 $root$ 的值为 `false`，我们需要将左右子树的值中至少有一个变成 `false`，因此返回值的第一个元素为 $\min(l[0] + r[0], l[0] + r[1], l[1] + r[0])$；为了使 $root$ 的值为 `true`，我们需要将左右子树的值都变成 `true`，因此返回值的第二个元素为 $l[1] + r[1]$。
+-   如果 $x = 4$，即布尔运算符是 `XOR`，为了使 $root$ 的值为 `false`，我们需要将左右子树的值同为 `false` 或同为 `true`，因此返回值的第一个元素为 $\min(l[0] + r[0], l[1] + r[1])$；为了使 $root$ 的值为 `true`，我们需要将左右子树的值不同，因此返回值的第二个元素为 $\min(l[0] + r[1], l[1] + r[0])$。
+-   如果 $x = 5$，即布尔运算符是 `NOT`，为了使 $root$ 的值为 `false`，我们需要将左右子树的值中至少有一个变成 `true`，因此返回值的第一个元素为 $\min(l[1], r[1])$；为了使 $root$ 的值为 `true`，我们需要将左右子树的值中至少有一个变成 `false`，因此返回值的第二个元素为 $\min(l[0], r[0])$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -74,7 +92,30 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def minimumFlips(self, root: Optional[TreeNode], result: bool) -> int:
+        def dfs(root: Optional[TreeNode]) -> (int, int):
+            if root is None:
+                return inf, inf
+            x = root.val
+            if x in (0, 1):
+                return x, x ^ 1
+            l, r = dfs(root.left), dfs(root.right)
+            if x == 2:
+                return l[0] + r[0], min(l[0] + r[1], l[1] + r[0], l[1] + r[1])
+            if x == 3:
+                return min(l[0] + r[0], l[0] + r[1], l[1] + r[0]), l[1] + r[1]
+            if x == 4:
+                return min(l[0] + r[0], l[1] + r[1]), min(l[0] + r[1], l[1] + r[0])
+            return min(l[1], r[1]), min(l[0], r[0])
 
+        return dfs(root)[int(result)]
 ```
 
 ### **Java**
@@ -82,13 +123,199 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public int minimumFlips(TreeNode root, boolean result) {
+        return dfs(root)[result ? 1 : 0];
+    }
 
+    private int[] dfs(TreeNode root) {
+        if (root == null) {
+            return new int[] {1 << 30, 1 << 30};
+        }
+        int x = root.val;
+        if (x < 2) {
+            return new int[] {x, x ^ 1};
+        }
+        var l = dfs(root.left);
+        var r = dfs(root.right);
+        int a = 0, b = 0;
+        if (x == 2) {
+            a = l[0] + r[0];
+            b = Math.min(l[0] + r[1], Math.min(l[1] + r[0], l[1] + r[1]));
+        } else if (x == 3) {
+            a = Math.min(l[0] + r[0], Math.min(l[0] + r[1], l[1] + r[0]));
+            b = l[1] + r[1];
+        } else if (x == 4) {
+            a = Math.min(l[0] + r[0], l[1] + r[1]);
+            b = Math.min(l[0] + r[1], l[1] + r[0]);
+        } else {
+            a = Math.min(l[1], r[1]);
+            b = Math.min(l[0], r[0]);
+        }
+        return new int[] {a, b};
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int minimumFlips(TreeNode* root, bool result) {
+        function<pair<int, int>(TreeNode*)> dfs = [&](TreeNode* root) -> pair<int, int> {
+            if (!root) {
+                return {1 << 30, 1 << 30};
+            }
+            int x = root->val;
+            if (x < 2) {
+                return {x, x ^ 1};
+            }
+            auto [l0, l1] = dfs(root->left);
+            auto [r0, r1] = dfs(root->right);
+            int a = 0, b = 0;
+            if (x == 2) {
+                a = l0 + r0;
+                b = min({l0 + r1, l1 + r0, l1 + r1});
+            } else if (x == 3) {
+                a = min({l0 + r0, l0 + r1, l1 + r0});
+                b = l1 + r1;
+            } else if (x == 4) {
+                a = min(l0 + r0, l1 + r1);
+                b = min(l0 + r1, l1 + r0);
+            } else {
+                a = min(l1, r1);
+                b = min(l0, r0);
+            }
+            return {a, b};
+        };
+        auto [a, b] = dfs(root);
+        return result ? b : a;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func minimumFlips(root *TreeNode, result bool) int {
+	var dfs func(*TreeNode) (int, int)
+	dfs = func(root *TreeNode) (int, int) {
+		if root == nil {
+			return 1 << 30, 1 << 30
+		}
+		x := root.Val
+		if x < 2 {
+			return x, x ^ 1
+		}
+		l0, l1 := dfs(root.Left)
+		r0, r1 := dfs(root.Right)
+		var a, b int
+		if x == 2 {
+			a = l0 + r0
+			b = min(l0+r1, min(l1+r0, l1+r1))
+		} else if x == 3 {
+			a = min(l0+r0, min(l0+r1, l1+r0))
+			b = l1 + r1
+		} else if x == 4 {
+			a = min(l0+r0, l1+r1)
+			b = min(l0+r1, l1+r0)
+		} else {
+			a = min(l1, r1)
+			b = min(l0, r0)
+		}
+		return a, b
+	}
+	a, b := dfs(root)
+	if result {
+		return b
+	}
+	return a
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
 
 ```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
 
+function minimumFlips(root: TreeNode | null, result: boolean): number {
+    const dfs = (root: TreeNode | null): [number, number] => {
+        if (!root) {
+            return [1 << 30, 1 << 30];
+        }
+        const x = root.val;
+        if (x < 2) {
+            return [x, x ^ 1];
+        }
+        const [l0, l1] = dfs(root.left);
+        const [r0, r1] = dfs(root.right);
+        if (x === 2) {
+            return [l0 + r0, Math.min(l0 + r1, l1 + r0, l1 + r1)];
+        }
+        if (x === 3) {
+            return [Math.min(l0 + r0, l0 + r1, l1 + r0), l1 + r1];
+        }
+        if (x === 4) {
+            return [Math.min(l0 + r0, l1 + r1), Math.min(l0 + r1, l1 + r0)];
+        }
+        return [Math.min(l1, r1), Math.min(l0, r0)];
+    };
+    return dfs(root)[result ? 1 : 0];
+}
 ```
 
 ### **...**

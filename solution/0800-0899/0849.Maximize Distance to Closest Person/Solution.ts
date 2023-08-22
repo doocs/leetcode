@@ -14,5 +14,5 @@ function maxDistToClosest(seats: number[]): number {
             last = i;
         }
     }
-    return Math.max(Math.floor(d / 2), Math.max(first, n - last - 1));
+    return Math.max(first, n - last - 1, d >> 1);
 }
