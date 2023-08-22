@@ -51,15 +51,29 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：递归**
+**方法一：格雷码逆变换（格雷码转二进制码）**
 
-通过找规律可以发现动态规划转移方程如下：
+本题实际上求的是格雷码为 $n$ 的逆变换，即通过格雷码构造原数。
 
-$$
-dp[n] = dp[2^k] - dp[n - 2^k]
-$$
+我们先来回顾一下二进制码转换成二进制格雷码，其法则是保留二进制码的最高位作为格雷码的最高位，而次高位格雷码为二进制码的高位与次高位相异或，而格雷码其余各位与次高位的求法相类似。
 
-其中 $dp[2^k] = 2^{k+1}-1$，而 $k$ 表示小于等于 $n$ 的最大的 $2$ 的整数次幂的位数，即 $2^k$ 是小于等于 $n$ 的最大的 $2$ 的整数次幂。
+假设某个二进制数表示为 $B_{n-1}B_{n-2}...B_2B_1B_0$，其格雷码表示为 $G_{n-1}G_{n-2}...G_2G_1G_0$。最高位保留，所以 $G_{n-1} = B_{n-1}$；而其它各位 $G_i = B_{i+1} \oplus B_{i}$，其中 $i=0,1,2..,n-2$。
+
+那么，格雷码转换成二进制码的逆变换是什么呢？
+
+我们可以发现，格雷码的最高位保留，所以 $B_{n-1} = G_{n-1}$；而 $B_{n-2} = G_{n-2} \oplus B_{n-1} = G_{n-2} \oplus G_{n-1}$；而其它各位 $B_i = G_{i} \oplus G_{i+1} \cdots \oplus G_{n-1}$，其中 $i=0,1,2..,n-2$。因此，我们可以用下面的函数 $rev(x)$ 得到其二进制码：
+
+```java
+int rev(int x) {
+    int n = 0;
+    for (; x != 0; x >>= 1) {
+        n ^= x;
+    }
+    return n;
+}
+```
+
+时间复杂度 $O(\log n)$，其中 $n$ 为题目给定的整数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -70,32 +84,64 @@ $$
 ```python
 class Solution:
     def minimumOneBitOperations(self, n: int) -> int:
-        if n <= 1:
-            return n
-        for i in range(64):
-            if (n >> i) == 1:
-                base = 1 << i
-                break
-        return 2 * base - 1 - self.minimumOneBitOperations(n - base)
+        ans = 0
+        while n:
+            ans ^= n
+            n >>= 1
+        return ans
 ```
 
 ### **Go**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
+```java
+class Solution {
+    public int minimumOneBitOperations(int n) {
+        int ans = 0;
+        for (; n > 0; n >>= 1) {
+            ans ^= n;
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimumOneBitOperations(int n) {
+        int ans = 0;
+        for (; n > 0; n >>= 1) {
+            ans ^= n;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
 ```go
-func minimumOneBitOperations(n int) int {
-	if n <= 1 {
-		return n
+func minimumOneBitOperations(n int) (ans int) {
+	for ; n > 0; n >>= 1 {
+		ans ^= n
 	}
-	base := 0
-	for i := 0; i < 64; i++ {
-		if (n >> i) == 1 {
-			base = 1 << i
-			break
-		}
-	}
-	return (base << 1) - 1 - minimumOneBitOperations(n-base)
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function minimumOneBitOperations(n: number): number {
+    let ans = 0;
+    for (; n > 0; n >>= 1) {
+        ans ^= n;
+    }
+    return ans;
 }
 ```
 
