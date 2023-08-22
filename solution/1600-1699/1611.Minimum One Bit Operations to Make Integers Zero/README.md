@@ -65,11 +65,11 @@
 
 ```java
 int rev(int x) {
-	int n = 0;
-	for (; x != 0; x >>= 1) {
-		n ^= x;
-	}
-	return n;
+    int n = 0;
+    for (; x != 0; x >>= 1) {
+        n ^= x;
+    }
+    return n;
 }
 ```
 
