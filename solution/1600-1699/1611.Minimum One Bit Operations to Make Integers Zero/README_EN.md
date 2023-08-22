@@ -52,30 +52,62 @@
 ```python
 class Solution:
     def minimumOneBitOperations(self, n: int) -> int:
-        if n <= 1:
-            return n
-        for i in range(64):
-            if (n >> i) == 1:
-                base = 1 << i
-                break
-        return 2 * base - 1 - self.minimumOneBitOperations(n - base)
+        ans = 0
+        while n:
+            ans ^= n
+            n >>= 1
+        return ans
+```
+
+### **Java**
+
+```java
+class Solution {
+    public int minimumOneBitOperations(int n) {
+        int ans = 0;
+        for (; n > 0; n >>= 1) {
+            ans ^= n;
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimumOneBitOperations(int n) {
+        int ans = 0;
+        for (; n > 0; n >>= 1) {
+            ans ^= n;
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
-func minimumOneBitOperations(n int) int {
-	if n <= 1 {
-		return n
+func minimumOneBitOperations(n int) (ans int) {
+	for ; n > 0; n >>= 1 {
+		ans ^= n
 	}
-	base := 0
-	for i := 0; i < 64; i++ {
-		if (n >> i) == 1 {
-			base = 1 << i
-			break
-		}
-	}
-	return (base << 1) - 1 - minimumOneBitOperations(n-base)
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function minimumOneBitOperations(n: number): number {
+    let ans = 0;
+    for (; n > 0; n >>= 1) {
+        ans ^= n;
+    }
+    return ans;
 }
 ```
 

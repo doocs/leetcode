@@ -1,13 +1,6 @@
-func minimumOneBitOperations(n int) int {
-	if n <= 1 {
-		return n
+func minimumOneBitOperations(n int) (ans int) {
+	for ; n > 0; n >>= 1 {
+		ans ^= n
 	}
-	base := 0
-	for i := 0; i < 64; i++ {
-		if (n >> i) == 1 {
-			base = 1 << i
-			break
-		}
-	}
-	return (base << 1) - 1 - minimumOneBitOperations(n-base)
+	return
 }
