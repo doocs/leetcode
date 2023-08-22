@@ -62,13 +62,232 @@ Probability = 108 / 180 = 0.6
 ### **Python3**
 
 ```python
+class Solution:
+    def getProbability(self, balls: List[int]) -> float:
+        @cache
+        def dfs(i: int, j: int, diff: int) -> float:
+            if i >= k:
+                return 1 if j == 0 and diff == 0 else 0
+            if j < 0:
+                return 0
+            ans = 0
+            for x in range(balls[i] + 1):
+                y = 1 if x == balls[i] else (-1 if x == 0 else 0)
+                ans += dfs(i + 1, j - x, diff + y) * comb(balls[i], x)
+            return ans
 
+        n = sum(balls) >> 1
+        k = len(balls)
+        return dfs(0, n, 0) / comb(n << 1, n)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int n;
+    private long[][] c;
+    private int[] balls;
+    private Map<List<Integer>, Long> f = new HashMap<>();
 
+    public double getProbability(int[] balls) {
+        int mx = 0;
+        for (int x : balls) {
+            n += x;
+            mx = Math.max(mx, x);
+        }
+        n >>= 1;
+        this.balls = balls;
+        int m = Math.max(mx, n << 1);
+        c = new long[m + 1][m + 1];
+        for (int i = 0; i <= m; ++i) {
+            c[i][0] = 1;
+            for (int j = 1; j <= i; ++j) {
+                c[i][j] = c[i - 1][j - 1] + c[i - 1][j];
+            }
+        }
+        return dfs(0, n, 0) * 1.0 / c[n << 1][n];
+    }
+
+    private long dfs(int i, int j, int diff) {
+        if (i >= balls.length) {
+            return j == 0 && diff == 0 ? 1 : 0;
+        }
+        if (j < 0) {
+            return 0;
+        }
+        List<Integer> key = List.of(i, j, diff);
+        if (f.containsKey(key)) {
+            return f.get(key);
+        }
+        long ans = 0;
+        for (int x = 0; x <= balls[i]; ++x) {
+            int y = x == balls[i] ? 1 : (x == 0 ? -1 : 0);
+            ans += dfs(i + 1, j - x, diff + y) * c[balls[i]][x];
+        }
+        f.put(key, ans);
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    double getProbability(vector<int>& balls) {
+        int n = accumulate(balls.begin(), balls.end(), 0) / 2;
+        int mx = *max_element(balls.begin(), balls.end());
+        int m = max(mx, n << 1);
+        long long c[m + 1][m + 1];
+        memset(c, 0, sizeof(c));
+        for (int i = 0; i <= m; ++i) {
+            c[i][0] = 1;
+            for (int j = 1; j <= i; ++j) {
+                c[i][j] = c[i - 1][j - 1] + c[i - 1][j];
+            }
+        }
+        int k = balls.size();
+        long long f[k][n + 1][k << 1 | 1];
+        memset(f, -1, sizeof(f));
+        function<long long(int, int, int)> dfs = [&](int i, int j, int diff) -> long long {
+            if (i >= k) {
+                return j == 0 && diff == k ? 1 : 0;
+            }
+            if (j < 0) {
+                return 0;
+            }
+            if (f[i][j][diff] != -1) {
+                return f[i][j][diff];
+            }
+            long long ans = 0;
+            for (int x = 0; x <= balls[i]; ++x) {
+                int y = x == balls[i] ? 1 : (x == 0 ? -1 : 0);
+                ans += dfs(i + 1, j - x, diff + y) * c[balls[i]][x];
+            }
+            return f[i][j][diff] = ans;
+        };
+        return dfs(0, n, k) * 1.0 / c[n << 1][n];
+    }
+};
+```
+
+### **Go**
+
+```go
+func getProbability(balls []int) float64 {
+	n, mx := 0, 0
+	for _, x := range balls {
+		n += x
+		mx = max(mx, x)
+	}
+	n >>= 1
+	m := max(mx, n<<1)
+	c := make([][]int, m+1)
+	for i := range c {
+		c[i] = make([]int, m+1)
+	}
+	for i := 0; i <= m; i++ {
+		c[i][0] = 1
+		for j := 1; j <= i; j++ {
+			c[i][j] = c[i-1][j-1] + c[i-1][j]
+		}
+	}
+	k := len(balls)
+	f := make([][][]int, k)
+	for i := range f {
+		f[i] = make([][]int, n+1)
+		for j := range f[i] {
+			f[i][j] = make([]int, k<<1|1)
+			for h := range f[i][j] {
+				f[i][j][h] = -1
+			}
+		}
+	}
+	var dfs func(int, int, int) int
+	dfs = func(i, j, diff int) int {
+		if i >= k {
+			if j == 0 && diff == k {
+				return 1
+			}
+			return 0
+		}
+		if j < 0 {
+			return 0
+		}
+		if f[i][j][diff] != -1 {
+			return f[i][j][diff]
+		}
+		ans := 0
+		for x := 0; x <= balls[i]; x++ {
+			y := 1
+			if x != balls[i] {
+				if x == 0 {
+					y = -1
+				} else {
+					y = 0
+				}
+			}
+			ans += dfs(i+1, j-x, diff+y) * c[balls[i]][x]
+		}
+		f[i][j][diff] = ans
+		return ans
+	}
+	return float64(dfs(0, n, k)) / float64(c[n<<1][n])
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function getProbability(balls: number[]): number {
+    const n = balls.reduce((a, b) => a + b, 0) >> 1;
+    const mx = Math.max(...balls);
+    const m = Math.max(mx, n << 1);
+    const c: number[][] = Array(m + 1)
+        .fill(0)
+        .map(() => Array(m + 1).fill(0));
+    for (let i = 0; i <= m; ++i) {
+        c[i][0] = 1;
+        for (let j = 1; j <= i; ++j) {
+            c[i][j] = c[i - 1][j - 1] + c[i - 1][j];
+        }
+    }
+    const k = balls.length;
+    const f: number[][][] = Array(k)
+        .fill(0)
+        .map(() =>
+            Array(n + 1)
+                .fill(0)
+                .map(() => Array((k << 1) | 1).fill(-1)),
+        );
+    const dfs = (i: number, j: number, diff: number): number => {
+        if (i >= k) {
+            return j === 0 && diff === k ? 1 : 0;
+        }
+        if (j < 0) {
+            return 0;
+        }
+        if (f[i][j][diff] !== -1) {
+            return f[i][j][diff];
+        }
+        let ans = 0;
+        for (let x = 0; x <= balls[i]; ++x) {
+            const y = x === balls[i] ? 1 : x === 0 ? -1 : 0;
+            ans += dfs(i + 1, j - x, diff + y) * c[balls[i]][x];
+        }
+        return (f[i][j][diff] = ans);
+    };
+    return dfs(0, n, k) / c[n << 1][n];
+}
 ```
 
 ### **...**
