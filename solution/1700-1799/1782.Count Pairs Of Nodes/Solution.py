@@ -6,10 +6,9 @@ class Solution:
         g = defaultdict(int)
         for a, b in edges:
             a, b = a - 1, b - 1
+            a, b = min(a, b), max(a, b)
             cnt[a] += 1
             cnt[b] += 1
-            if a > b:
-                a, b = b, a
             g[(a, b)] += 1
 
         s = sorted(cnt)

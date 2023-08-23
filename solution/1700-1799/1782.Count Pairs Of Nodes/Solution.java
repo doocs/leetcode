@@ -7,7 +7,7 @@ class Solution {
             ++cnt[a];
             ++cnt[b];
             int k = Math.min(a, b) * n + Math.max(a, b);
-            g.put(k, g.getOrDefault(k, 0) + 1);
+            g.merge(k, 1, Integer::sum);
         }
         int[] s = cnt.clone();
         Arrays.sort(s);
