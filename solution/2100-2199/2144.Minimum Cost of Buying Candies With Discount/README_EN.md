@@ -65,13 +65,8 @@ Hence, the minimum cost to buy all candies is 5 + 5 = 10.
 ```python
 class Solution:
     def minimumCost(self, cost: List[int]) -> int:
-        cost.sort()
-        ans, n = 0, len(cost)
-        for i in range(n - 1, -1, -3):
-            ans += cost[i]
-            if i >= 1:
-                ans += cost[i - 1]
-        return ans
+        cost.sort(reverse=True)
+        return sum(cost) - sum(cost[2::3])
 ```
 
 ### **Java**
@@ -80,10 +75,10 @@ class Solution:
 class Solution {
     public int minimumCost(int[] cost) {
         Arrays.sort(cost);
-        int ans = 0, n = cost.length;
-        for (int i = n - 1; i >= 0; i -= 3) {
+        int ans = 0;
+        for (int i = cost.length - 1; i >= 0; i -= 3) {
             ans += cost[i];
-            if (i >= 1) {
+            if (i > 0) {
                 ans += cost[i - 1];
             }
         }
@@ -98,11 +93,13 @@ class Solution {
 class Solution {
 public:
     int minimumCost(vector<int>& cost) {
-        sort(cost.begin(), cost.end());
-        int ans = 0, n = cost.size();
-        for (int i = n - 1; i >= 0; i -= 3) {
+        sort(cost.rbegin(), cost.rend());
+        int ans = 0;
+        for (int i = 0; i < cost.size(); i += 3) {
             ans += cost[i];
-            if (i >= 1) ans += cost[i - 1];
+            if (i < cost.size() - 1) {
+                ans += cost[i + 1];
+            }
         }
         return ans;
     }
@@ -112,23 +109,32 @@ public:
 ### **Go**
 
 ```go
-func minimumCost(cost []int) int {
+func minimumCost(cost []int) (ans int) {
 	sort.Ints(cost)
-	ans, n := 0, len(cost)
-	for i := n - 1; i >= 0; i -= 3 {
+	for i := len(cost) - 1; i >= 0; i -= 3 {
 		ans += cost[i]
-		if i >= 1 {
+		if i > 0 {
 			ans += cost[i-1]
 		}
 	}
-	return ans
+	return
 }
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function minimumCost(cost: number[]): number {
+    cost.sort((a, b) => a - b);
+    let ans = 0;
+    for (let i = cost.length - 1; i >= 0; i -= 3) {
+        ans += cost[i];
+        if (i) {
+            ans += cost[i - 1];
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**

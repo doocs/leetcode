@@ -1,11 +1,10 @@
-func minimumCost(cost []int) int {
+func minimumCost(cost []int) (ans int) {
 	sort.Ints(cost)
-	ans, n := 0, len(cost)
-	for i := n - 1; i >= 0; i -= 3 {
+	for i := len(cost) - 1; i >= 0; i -= 3 {
 		ans += cost[i]
-		if i >= 1 {
+		if i > 0 {
 			ans += cost[i-1]
 		}
 	}
-	return ans
+	return
 }
