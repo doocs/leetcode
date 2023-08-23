@@ -10,7 +10,6 @@ function numberOfUniqueGoodSubsequences(binary: string): number {
             f = (f + g + 1) % mod;
         }
     }
-    ans = (ans + f) % mod;
-    ans = (ans + g) % mod;
+    ans = (ans + g + f) % mod;
     return ans;
 }
