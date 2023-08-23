@@ -56,6 +56,23 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+我们定义 $f$ 表示以 $1$ 结尾的不同好子序列的数目，定义 $g$ 表示以 $0$ 结尾的且以 $1$ 开头的不同好子序列的数目。初始时 $f = g = 0$。
+
+对于一个二进制字符串，我们可以从左到右遍历每一位，假设当前位为 $c$，那么：
+
+-   如果 $c = 0$，那么我们可以在 $f$ 和 $g$ 个不同的好子序列拼上 $c$，因此更新 $g = (g + f) \bmod (10^9 + 7)$；
+-   如果 $c = 1$，那么我们可以在 $f$ 和 $g$ 个不同的好子序列拼上 $c$，同时还可以单独拼上 $c$，因此更新 $f = (f + g + 1) \bmod (10^9 + 7)$。
+
+如果字符串包含 $0$，那么最终答案为 $f + g + 1$，否则答案为 $f + g$。
+
+时间复杂度 $O(n)$，其中 $n$ 是字符串长度。空间复杂度 $O(1)$。
+
+相似题目：
+
+-   [940. 不同的子序列 II](/solution/0900-0999/0940.Distinct%20Subsequences%20II/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,7 +80,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numberOfUniqueGoodSubsequences(self, binary: str) -> int:
+        f = g = 0
+        ans = 0
+        mod = 10**9 + 7
+        for c in binary:
+            if c == "0":
+                g = (g + f) % mod
+                ans = 1
+            else:
+                f = (f + g + 1) % mod
+        ans = (ans + f + g) % mod
+        return ans
 ```
 
 ### **Java**
@@ -71,7 +100,88 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int numberOfUniqueGoodSubsequences(String binary) {
+        final int mod = (int) 1e9 + 7;
+        int f = 0, g = 0;
+        int ans = 0;
+        for (int i = 0; i < binary.length(); ++i) {
+            if (binary.charAt(i) == '0') {
+                g = (g + f) % mod;
+                ans = 1;
+            } else {
+                f = (f + g + 1) % mod;
+            }
+        }
+        ans = (ans + f) % mod;
+        ans = (ans + g) % mod;
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numberOfUniqueGoodSubsequences(string binary) {
+        const int mod = 1e9 + 7;
+        int f = 0, g = 0;
+        int ans = 0;
+        for (char& c : binary) {
+            if (c == '0') {
+                g = (g + f) % mod;
+                ans = 1;
+            } else {
+                f = (f + g + 1) % mod;
+            }
+        }
+        ans = (ans + f) % mod;
+        ans = (ans + g) % mod;
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numberOfUniqueGoodSubsequences(binary string) (ans int) {
+	const mod int = 1e9 + 7
+	f, g := 0, 0
+	for _, c := range binary {
+		if c == '0' {
+			g = (g + f) % mod
+			ans = 1
+		} else {
+			f = (f + g + 1) % mod
+		}
+	}
+	ans = (ans + f + g) % mod
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function numberOfUniqueGoodSubsequences(binary: string): number {
+    let [f, g] = [0, 0];
+    let ans = 0;
+    const mod = 1e9 + 7;
+    for (const c of binary) {
+        if (c === '0') {
+            g = (g + f) % mod;
+            ans = 1;
+        } else {
+            f = (f + g + 1) % mod;
+        }
+    }
+    ans = (ans + f) % mod;
+    ans = (ans + g) % mod;
+    return ans;
+}
 ```
 
 ### **...**
