@@ -89,8 +89,7 @@ class Solution {
                 f = (f + g + 1) % mod;
             }
         }
-        ans = (ans + f) % mod;
-        ans = (ans + g) % mod;
+        ans = (ans + f + g) % mod;
         return ans;
     }
 }
@@ -113,8 +112,7 @@ public:
                 f = (f + g + 1) % mod;
             }
         }
-        ans = (ans + f) % mod;
-        ans = (ans + g) % mod;
+        ans = (ans + f + g) % mod;
         return ans;
     }
 };
@@ -154,8 +152,7 @@ function numberOfUniqueGoodSubsequences(binary: string): number {
             f = (f + g + 1) % mod;
         }
     }
-    ans = (ans + f) % mod;
-    ans = (ans + g) % mod;
+    ans = (ans + f + g) % mod;
     return ans;
 }
 ```
