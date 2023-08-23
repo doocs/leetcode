@@ -72,19 +72,160 @@ In the second balanced range, we choose nums2[1] and in the third balanced range
 ### **Python3**
 
 ```python
-
+class Solution:
+    def countSubranges(self, nums1: List[int], nums2: List[int]) -> int:
+        n = len(nums1)
+        s1, s2 = sum(nums1), sum(nums2)
+        f = [[0] * (s1 + s2 + 1) for _ in range(n)]
+        ans = 0
+        mod = 10**9 + 7
+        for i, (a, b) in enumerate(zip(nums1, nums2)):
+            f[i][a + s2] += 1
+            f[i][-b + s2] += 1
+            if i:
+                for j in range(s1 + s2 + 1):
+                    if j >= a:
+                        f[i][j] = (f[i][j] + f[i - 1][j - a]) % mod
+                    if j + b < s1 + s2 + 1:
+                        f[i][j] = (f[i][j] + f[i - 1][j + b]) % mod
+            ans = (ans + f[i][s2]) % mod
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int countSubranges(int[] nums1, int[] nums2) {
+        int n = nums1.length;
+        int s1 = Arrays.stream(nums1).sum();
+        int s2 = Arrays.stream(nums2).sum();
+        int[][] f = new int[n][s1 + s2 + 1];
+        int ans = 0;
+        final int mod = (int) 1e9 + 7;
+        for (int i = 0; i < n; ++i) {
+            int a = nums1[i], b = nums2[i];
+            f[i][a + s2]++;
+            f[i][-b + s2]++;
+            if (i > 0) {
+                for (int j = 0; j <= s1 + s2; ++j) {
+                    if (j >= a) {
+                        f[i][j] = (f[i][j] + f[i - 1][j - a]) % mod;
+                    }
+                    if (j + b <= s1 + s2) {
+                        f[i][j] = (f[i][j] + f[i - 1][j + b]) % mod;
+                    }
+                }
+            }
+            ans = (ans + f[i][s2]) % mod;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countSubranges(vector<int>& nums1, vector<int>& nums2) {
+        int n = nums1.size();
+        int s1 = accumulate(nums1.begin(), nums1.end(), 0);
+        int s2 = accumulate(nums2.begin(), nums2.end(), 0);
+        int f[n][s1 + s2 + 1];
+        memset(f, 0, sizeof(f));
+        int ans = 0;
+        const int mod = 1e9 + 7;
+        for (int i = 0; i < n; ++i) {
+            int a = nums1[i], b = nums2[i];
+            f[i][a + s2]++;
+            f[i][-b + s2]++;
+            if (i) {
+                for (int j = 0; j <= s1 + s2; ++j) {
+                    if (j >= a) {
+                        f[i][j] = (f[i][j] + f[i - 1][j - a]) % mod;
+                    }
+                    if (j + b <= s1 + s2) {
+                        f[i][j] = (f[i][j] + f[i - 1][j + b]) % mod;
+                    }
+                }
+            }
+            ans = (ans + f[i][s2]) % mod;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countSubranges(nums1 []int, nums2 []int) (ans int) {
+	n := len(nums1)
+	s1, s2 := sum(nums1), sum(nums2)
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, s1+s2+1)
+	}
+	const mod int = 1e9 + 7
+	for i, a := range nums1 {
+		b := nums2[i]
+		f[i][a+s2]++
+		f[i][-b+s2]++
+		if i > 0 {
+			for j := 0; j <= s1+s2; j++ {
+				if j >= a {
+					f[i][j] = (f[i][j] + f[i-1][j-a]) % mod
+				}
+				if j+b <= s1+s2 {
+					f[i][j] = (f[i][j] + f[i-1][j+b]) % mod
+				}
+			}
+		}
+		ans = (ans + f[i][s2]) % mod
+	}
+	return
+}
+
+func sum(nums []int) (ans int) {
+	for _, x := range nums {
+		ans += x
+	}
+	return
+}
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function countSubranges(nums1: number[], nums2: number[]): number {
+    const n = nums1.length;
+    const s1 = nums1.reduce((a, b) => a + b, 0);
+    const s2 = nums2.reduce((a, b) => a + b, 0);
+    const f: number[][] = Array(n)
+        .fill(0)
+        .map(() => Array(s1 + s2 + 1).fill(0));
+    const mod = 1e9 + 7;
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        const [a, b] = [nums1[i], nums2[i]];
+        f[i][a + s2]++;
+        f[i][-b + s2]++;
+        if (i) {
+            for (let j = 0; j <= s1 + s2; ++j) {
+                if (j >= a) {
+                    f[i][j] = (f[i][j] + f[i - 1][j - a]) % mod;
+                }
+                if (j + b <= s1 + s2) {
+                    f[i][j] = (f[i][j] + f[i - 1][j + b]) % mod;
+                }
+            }
+        }
+        ans = (ans + f[i][s2]) % mod;
+    }
+    return ans;
+}
 ```
 
 ### **...**

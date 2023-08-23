@@ -71,6 +71,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+我们定义 $f[i][j]$ 表示以第 $i$ 个元素结尾，且从 $nums1$ 中选取的数字和与从 $nums2$ 中选取的数字和之差为 $j$ 的平衡区间的个数。由于差值可能为负数，因此，我们统一将 $j$ 加上 $s_2 = \sum_{k=0}^{n-1}nums2[k]$，这样就可以保证 $j$ 为非负整数。
+
+考虑 $f[i][j]$，我们可以单独将第 $i$ 个元素视为一个区间，那么 $f[i][nums1[i] + s_2]$ 和 $f[i][-nums2[i] + s_2]$ 都会增加 $1$。此外，如果 $i \gt 0$，我们也可以将第 $i$ 个元素添加到前面的某个区间中，我们在 $[0, s_1 + s_2]$ 范围内枚举 $j$，如果 $j \geq a$，那么 $f[i][j]$ 会增加 $f[i - 1][j - a]$，如果 $j + b \leq s_1 + s_2$，那么 $f[i][j]$ 会增加 $f[i - 1][j + b]$。
+
+答案为 $\sum_{i=0}^{n-1}f[i][s_2]$。
+
+时间复杂度 $O(n \times M)$，空间复杂度 $O(n \times M)$。其中 $n$ 和 $M$ 分别为数组 $nums1$ 的长度以及数字和的最大值。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -78,7 +88,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countSubranges(self, nums1: List[int], nums2: List[int]) -> int:
+        n = len(nums1)
+        s1, s2 = sum(nums1), sum(nums2)
+        f = [[0] * (s1 + s2 + 1) for _ in range(n)]
+        ans = 0
+        mod = 10**9 + 7
+        for i, (a, b) in enumerate(zip(nums1, nums2)):
+            f[i][a + s2] += 1
+            f[i][-b + s2] += 1
+            if i:
+                for j in range(s1 + s2 + 1):
+                    if j >= a:
+                        f[i][j] = (f[i][j] + f[i - 1][j - a]) % mod
+                    if j + b < s1 + s2 + 1:
+                        f[i][j] = (f[i][j] + f[i - 1][j + b]) % mod
+            ans = (ans + f[i][s2]) % mod
+        return ans
 ```
 
 ### **Java**
@@ -86,15 +113,137 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int countSubranges(int[] nums1, int[] nums2) {
+        int n = nums1.length;
+        int s1 = Arrays.stream(nums1).sum();
+        int s2 = Arrays.stream(nums2).sum();
+        int[][] f = new int[n][s1 + s2 + 1];
+        int ans = 0;
+        final int mod = (int) 1e9 + 7;
+        for (int i = 0; i < n; ++i) {
+            int a = nums1[i], b = nums2[i];
+            f[i][a + s2]++;
+            f[i][-b + s2]++;
+            if (i > 0) {
+                for (int j = 0; j <= s1 + s2; ++j) {
+                    if (j >= a) {
+                        f[i][j] = (f[i][j] + f[i - 1][j - a]) % mod;
+                    }
+                    if (j + b <= s1 + s2) {
+                        f[i][j] = (f[i][j] + f[i - 1][j + b]) % mod;
+                    }
+                }
+            }
+            ans = (ans + f[i][s2]) % mod;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countSubranges(vector<int>& nums1, vector<int>& nums2) {
+        int n = nums1.size();
+        int s1 = accumulate(nums1.begin(), nums1.end(), 0);
+        int s2 = accumulate(nums2.begin(), nums2.end(), 0);
+        int f[n][s1 + s2 + 1];
+        memset(f, 0, sizeof(f));
+        int ans = 0;
+        const int mod = 1e9 + 7;
+        for (int i = 0; i < n; ++i) {
+            int a = nums1[i], b = nums2[i];
+            f[i][a + s2]++;
+            f[i][-b + s2]++;
+            if (i) {
+                for (int j = 0; j <= s1 + s2; ++j) {
+                    if (j >= a) {
+                        f[i][j] = (f[i][j] + f[i - 1][j - a]) % mod;
+                    }
+                    if (j + b <= s1 + s2) {
+                        f[i][j] = (f[i][j] + f[i - 1][j + b]) % mod;
+                    }
+                }
+            }
+            ans = (ans + f[i][s2]) % mod;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countSubranges(nums1 []int, nums2 []int) (ans int) {
+	n := len(nums1)
+	s1, s2 := sum(nums1), sum(nums2)
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, s1+s2+1)
+	}
+	const mod int = 1e9 + 7
+	for i, a := range nums1 {
+		b := nums2[i]
+		f[i][a+s2]++
+		f[i][-b+s2]++
+		if i > 0 {
+			for j := 0; j <= s1+s2; j++ {
+				if j >= a {
+					f[i][j] = (f[i][j] + f[i-1][j-a]) % mod
+				}
+				if j+b <= s1+s2 {
+					f[i][j] = (f[i][j] + f[i-1][j+b]) % mod
+				}
+			}
+		}
+		ans = (ans + f[i][s2]) % mod
+	}
+	return
+}
+
+func sum(nums []int) (ans int) {
+	for _, x := range nums {
+		ans += x
+	}
+	return
+}
 ```
 
 ### **TypeScript**
 
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```ts
-
+function countSubranges(nums1: number[], nums2: number[]): number {
+    const n = nums1.length;
+    const s1 = nums1.reduce((a, b) => a + b, 0);
+    const s2 = nums2.reduce((a, b) => a + b, 0);
+    const f: number[][] = Array(n)
+        .fill(0)
+        .map(() => Array(s1 + s2 + 1).fill(0));
+    const mod = 1e9 + 7;
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        const [a, b] = [nums1[i], nums2[i]];
+        f[i][a + s2]++;
+        f[i][-b + s2]++;
+        if (i) {
+            for (let j = 0; j <= s1 + s2; ++j) {
+                if (j >= a) {
+                    f[i][j] = (f[i][j] + f[i - 1][j - a]) % mod;
+                }
+                if (j + b <= s1 + s2) {
+                    f[i][j] = (f[i][j] + f[i - 1][j + b]) % mod;
+                }
+            }
+        }
+        ans = (ans + f[i][s2]) % mod;
+    }
+    return ans;
+}
 ```
 
 ### **...**
