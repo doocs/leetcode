@@ -61,6 +61,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心**
+
+我们可以先将糖果按照价格从高到低排序，然后每三个糖果中取两个糖果，这样可以保证免费获得的糖果价格最高，从而使得总开销最小。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是糖果数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -70,13 +76,8 @@
 ```python
 class Solution:
     def minimumCost(self, cost: List[int]) -> int:
-        cost.sort()
-        ans, n = 0, len(cost)
-        for i in range(n - 1, -1, -3):
-            ans += cost[i]
-            if i >= 1:
-                ans += cost[i - 1]
-        return ans
+        cost.sort(reverse=True)
+        return sum(cost) - sum(cost[2::3])
 ```
 
 ### **Java**
@@ -87,10 +88,10 @@ class Solution:
 class Solution {
     public int minimumCost(int[] cost) {
         Arrays.sort(cost);
-        int ans = 0, n = cost.length;
-        for (int i = n - 1; i >= 0; i -= 3) {
+        int ans = 0;
+        for (int i = cost.length - 1; i >= 0; i -= 3) {
             ans += cost[i];
-            if (i >= 1) {
+            if (i > 0) {
                 ans += cost[i - 1];
             }
         }
@@ -105,11 +106,13 @@ class Solution {
 class Solution {
 public:
     int minimumCost(vector<int>& cost) {
-        sort(cost.begin(), cost.end());
-        int ans = 0, n = cost.size();
-        for (int i = n - 1; i >= 0; i -= 3) {
+        sort(cost.rbegin(), cost.rend());
+        int ans = 0;
+        for (int i = 0; i < cost.size(); i += 3) {
             ans += cost[i];
-            if (i >= 1) ans += cost[i - 1];
+            if (i < cost.size() - 1) {
+                ans += cost[i + 1];
+            }
         }
         return ans;
     }
@@ -119,25 +122,32 @@ public:
 ### **Go**
 
 ```go
-func minimumCost(cost []int) int {
+func minimumCost(cost []int) (ans int) {
 	sort.Ints(cost)
-	ans, n := 0, len(cost)
-	for i := n - 1; i >= 0; i -= 3 {
+	for i := len(cost) - 1; i >= 0; i -= 3 {
 		ans += cost[i]
-		if i >= 1 {
+		if i > 0 {
 			ans += cost[i-1]
 		}
 	}
-	return ans
+	return
 }
 ```
 
 ### **TypeScript**
 
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```ts
-
+function minimumCost(cost: number[]): number {
+    cost.sort((a, b) => a - b);
+    let ans = 0;
+    for (let i = cost.length - 1; i >= 0; i -= 3) {
+        ans += cost[i];
+        if (i) {
+            ans += cost[i - 1];
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
