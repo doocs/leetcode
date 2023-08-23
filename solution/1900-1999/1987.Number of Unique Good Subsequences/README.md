@@ -69,6 +69,10 @@
 
 时间复杂度 $O(n)$，其中 $n$ 是字符串长度。空间复杂度 $O(1)$。
 
+相似题目：
+
+-   [940. 不同的子序列 II](/solution/0900-0999/0940.Distinct%20Subsequences%20II/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
