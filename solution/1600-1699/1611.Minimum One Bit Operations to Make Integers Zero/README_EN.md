@@ -59,6 +59,14 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def minimumOneBitOperations(self, n: int) -> int:
+        if n == 0:
+            return 0
+        return n ^ self.minimumOneBitOperations(n >> 1)
+```
+
 ### **Java**
 
 ```java
@@ -69,6 +77,17 @@ class Solution {
             ans ^= n;
         }
         return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int minimumOneBitOperations(int n) {
+        if (n == 0) {
+            return 0;
+        }
+        return n ^ minimumOneBitOperations(n >> 1);
     }
 }
 ```
@@ -88,6 +107,18 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int minimumOneBitOperations(int n) {
+        if (n == 0) {
+            return 0;
+        }
+        return n ^ minimumOneBitOperations(n >> 1);
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -96,6 +127,15 @@ func minimumOneBitOperations(n int) (ans int) {
 		ans ^= n
 	}
 	return
+}
+```
+
+```go
+func minimumOneBitOperations(n int) int {
+	if n == 0 {
+		return 0
+	}
+	return n ^ minimumOneBitOperations(n>>1)
 }
 ```
 
@@ -108,6 +148,15 @@ function minimumOneBitOperations(n: number): number {
         ans ^= n;
     }
     return ans;
+}
+```
+
+```ts
+function minimumOneBitOperations(n: number): number {
+    if (n === 0) {
+        return 0;
+    }
+    return n ^ minimumOneBitOperations(n >> 1);
 }
 ```
 
