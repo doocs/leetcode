@@ -2,12 +2,11 @@
 public:
     int repeatedNTimes(vector<int>& nums) {
         unordered_set<int> s;
-        for (auto& num : nums) {
-            if (s.find(num) != s.end()) {
-                return num;
+        for (int i = 0;; ++i) {
+            if (s.count(nums[i])) {
+                return nums[i];
             }
-            s.insert(num);
+            s.insert(nums[i]);
         }
-        return -1;
     }
 };

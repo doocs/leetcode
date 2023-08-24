@@ -4,11 +4,10 @@
  */
 var repeatedNTimes = function (nums) {
     const s = new Set();
-    for (const num of nums) {
-        if (s.has(num)) {
-            return num;
+    for (const x of nums) {
+        if (s.has(x)) {
+            return x;
         }
-        s.add(num);
+        s.add(x);
     }
-    return -1;
 };
