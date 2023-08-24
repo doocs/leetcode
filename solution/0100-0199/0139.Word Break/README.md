@@ -44,7 +44,7 @@
 	<li><code>1 &lt;= s.length &lt;= 300</code></li>
 	<li><code>1 &lt;= wordDict.length &lt;= 1000</code></li>
 	<li><code>1 &lt;= wordDict[i].length &lt;= 20</code></li>
-	<li><code>s</code> 和 <code>wordDict[i]</code> 仅有小写英文字母组成</li>
+	<li><code>s</code> 和 <code>wordDict[i]</code> 仅由小写英文字母组成</li>
 	<li><code>wordDict</code> 中的所有字符串 <strong>互不相同</strong></li>
 </ul>
 

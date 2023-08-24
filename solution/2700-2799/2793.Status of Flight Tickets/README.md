@@ -15,7 +15,7 @@
 | flight_id   | int  |
 | capacity    | int  |
 +-------------+------+
-flight_id 是该表的主键列。 
+flight_id 列包含不同的值。
 每行包含航班 id 和座位容量。
 </pre>
 
@@ -29,14 +29,14 @@ flight_id 是该表的主键列。
 | flight_id    | int      |
 | booking_time | datetime |
 +--------------+----------+
-passenger_id 是该表的主键。 
+passenger_id 包含不同的值。
 booking_time 包含不同的值。
 每行包含乘客 id、预订时间和所预订的航班 id。
 </pre>
 
 <p>乘客提前预订航班机票。如果乘客预订了一张航班机票，并且航班上还有空座位，则乘客的机票将 <strong>得到确认</strong> 。然而，如果航班已经满员，乘客将被列入 <strong>等候名单</strong> 。</p>
 
-<p>编写一个 SQL 查询来确定每个乘客航班机票的当前状态。</p>
+<p>编写解决方案来确定每个乘客航班机票的当前状态。</p>
 
 <p>按 <code>passenger_id</code> <strong>升序排序&nbsp;</strong>返回结果表。</p>
 

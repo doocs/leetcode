@@ -16,12 +16,12 @@
 | course_id     | int     |
 | grade         | int     |
 +---------------+---------+
-(student_id, course_id) 是该表的主键。
-</pre>
+(student_id, course_id) 是该表的主键（具有唯一值的列的组合）。
+grade 不会为 NULL。</pre>
 
 <p>&nbsp;</p>
 
-<p>编写一个 SQL 查询，查询每位学生获得的最高成绩和它所对应的科目，若科目成绩并列，取&nbsp;<code>course_id</code>&nbsp;最小的一门。查询结果需按&nbsp;<code>student_id</code>&nbsp;增序进行排序。</p>
+<p>编写解决方案，找出每位学生获得的最高成绩和它所对应的科目，若科目成绩并列，取&nbsp;<code>course_id</code>&nbsp;最小的一门。查询结果需按&nbsp;<code>student_id</code>&nbsp;增序进行排序。</p>
 
 <p>以 <strong>任意顺序</strong> 返回结果表。</p>
 

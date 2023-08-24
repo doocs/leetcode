@@ -2647,7 +2647,7 @@
 |  2634  |  [过滤数组中的元素](/solution/2600-2699/2634.Filter%20Elements%20from%20Array/README.md)  |    |  简单  |    |
 |  2635  |  [转换数组中的每个元素](/solution/2600-2699/2635.Apply%20Transform%20Over%20Each%20Element%20in%20Array/README.md)  |    |  简单  |    |
 |  2636  |  [Promise 对象池](/solution/2600-2699/2636.Promise%20Pool/README.md)  |    |  中等  |  🔒  |
-|  2637  |  [有时间限制的 Promise 对象](/solution/2600-2699/2637.Promise%20Time%20Limit/README.md)  |    |  简单  |    |
+|  2637  |  [有时间限制的 Promise 对象](/solution/2600-2699/2637.Promise%20Time%20Limit/README.md)  |    |  中等  |    |
 |  2638  |  [统计 K-Free 子集的总数](/solution/2600-2699/2638.Count%20the%20Number%20of%20K-Free%20Subsets/README.md)  |  `数组`,`动态规划`,`排序`  |  中等  |  🔒  |
 |  2639  |  [查询网格图中每一列的宽度](/solution/2600-2699/2639.Find%20the%20Width%20of%20Columns%20of%20a%20Grid/README.md)  |  `数组`,`矩阵`  |  简单  |  第 102 场双周赛  |
 |  2640  |  [一个数组所有前缀的分数](/solution/2600-2699/2640.Find%20the%20Score%20of%20All%20Prefixes%20of%20an%20Array/README.md)  |  `数组`,`前缀和`  |  中等  |  第 102 场双周赛  |
@@ -2834,14 +2834,15 @@
 |  2821  |  [延迟每个 Promise 对象的解析](/solution/2800-2899/2821.Delay%20the%20Resolution%20of%20Each%20Promise/README.md)  |    |  简单  |  🔒  |
 |  2822  |  [对象反转](/solution/2800-2899/2822.Inversion%20of%20Object/README.md)  |    |  简单  |  🔒  |
 |  2823  |  [深度对象筛选](/solution/2800-2899/2823.Deep%20Object%20Filter/README.md)  |    |  中等  |  🔒  |
-|  2824  |  [统计和小于目标的下标对数目](/solution/2800-2899/2824.Count%20Pairs%20Whose%20Sum%20is%20Less%20than%20Target/README.md)  |    |  简单  |  第 111 场双周赛  |
-|  2825  |  [循环增长使字符串子序列等于另一个字符串](/solution/2800-2899/2825.Make%20String%20a%20Subsequence%20Using%20Cyclic%20Increments/README.md)  |    |  中等  |  第 111 场双周赛  |
-|  2826  |  [将三个组排序](/solution/2800-2899/2826.Sorting%20Three%20Groups/README.md)  |    |  中等  |  第 111 场双周赛  |
-|  2827  |  [范围中美丽整数的数目](/solution/2800-2899/2827.Number%20of%20Beautiful%20Integers%20in%20the%20Range/README.md)  |    |  困难  |  第 111 场双周赛  |
-|  2828  |  [判别首字母缩略词](/solution/2800-2899/2828.Check%20if%20a%20String%20Is%20an%20Acronym%20of%20Words/README.md)  |    |  简单  |  第 359 场周赛  |
-|  2829  |  [k-avoiding 数组的最小总和](/solution/2800-2899/2829.Determine%20the%20Minimum%20Sum%20of%20a%20k-avoiding%20Array/README.md)  |    |  中等  |  第 359 场周赛  |
-|  2830  |  [销售利润最大化](/solution/2800-2899/2830.Maximize%20the%20Profit%20as%20the%20Salesman/README.md)  |    |  中等  |  第 359 场周赛  |
-|  2831  |  [找出最长等值子数组](/solution/2800-2899/2831.Find%20the%20Longest%20Equal%20Subarray/README.md)  |    |  中等  |  第 359 场周赛  |
+|  2824  |  [统计和小于目标的下标对数目](/solution/2800-2899/2824.Count%20Pairs%20Whose%20Sum%20is%20Less%20than%20Target/README.md)  |  `数组`,`双指针`,`排序`  |  简单  |  第 111 场双周赛  |
+|  2825  |  [循环增长使字符串子序列等于另一个字符串](/solution/2800-2899/2825.Make%20String%20a%20Subsequence%20Using%20Cyclic%20Increments/README.md)  |  `双指针`,`字符串`  |  中等  |  第 111 场双周赛  |
+|  2826  |  [将三个组排序](/solution/2800-2899/2826.Sorting%20Three%20Groups/README.md)  |  `数组`,`动态规划`  |  中等  |  第 111 场双周赛  |
+|  2827  |  [范围中美丽整数的数目](/solution/2800-2899/2827.Number%20of%20Beautiful%20Integers%20in%20the%20Range/README.md)  |  `数学`,`动态规划`  |  困难  |  第 111 场双周赛  |
+|  2828  |  [判别首字母缩略词](/solution/2800-2899/2828.Check%20if%20a%20String%20Is%20an%20Acronym%20of%20Words/README.md)  |  `数组`,`字符串`  |  简单  |  第 359 场周赛  |
+|  2829  |  [k-avoiding 数组的最小总和](/solution/2800-2899/2829.Determine%20the%20Minimum%20Sum%20of%20a%20k-avoiding%20Array/README.md)  |  `贪心`,`数学`  |  中等  |  第 359 场周赛  |
+|  2830  |  [销售利润最大化](/solution/2800-2899/2830.Maximize%20the%20Profit%20as%20the%20Salesman/README.md)  |  `数组`,`二分查找`,`动态规划`,`排序`  |  中等  |  第 359 场周赛  |
+|  2831  |  [找出最长等值子数组](/solution/2800-2899/2831.Find%20the%20Longest%20Equal%20Subarray/README.md)  |  `数组`,`哈希表`,`二分查找`,`滑动窗口`  |  中等  |  第 359 场周赛  |
+|  2832  |  [Maximal Range That Each Element Is Maximum in It](/solution/2800-2899/2832.Maximal%20Range%20That%20Each%20Element%20Is%20Maximum%20in%20It/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

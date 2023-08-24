@@ -8,7 +8,7 @@
 
 <p>Choose <strong>at most</strong> <code>k</code> different engineers out of the <code>n</code> engineers to form a team with the maximum <strong>performance</strong>.</p>
 
-<p>The performance of a team is the sum of their engineers&#39; speeds multiplied by the minimum efficiency among their engineers.</p>
+<p>The performance of a team is the sum of its engineers&#39; speeds multiplied by the minimum efficiency among its engineers.</p>
 
 <p>Return <em>the maximum performance of this team</em>. Since the answer can be a huge number, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
 

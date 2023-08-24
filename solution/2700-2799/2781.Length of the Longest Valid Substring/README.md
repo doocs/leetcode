@@ -18,14 +18,16 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><b>输入：</b>word = "cbaaaabc", forbidden = ["aaa","cb"]
+<pre>
+<b>输入：</b>word = "cbaaaabc", forbidden = ["aaa","cb"]
 <b>输出：</b>4
-<b>解释：</b>总共有 9 个合法子字符串："c" ，"b" ，"a" ，"ba" ，"aa" ，"bc" ，"baa" ，"aab" 和 "aabc" 。最长合法子字符串的长度为 4 。
+<b>解释：</b>总共有 11 个合法子字符串："c", "b", "a", "ba", "aa", "bc", "baa", "aab", "ab", "abc" 和 "aabc"。最长合法子字符串的长度为 4 。
 其他子字符串都要么包含 "aaa" ，要么包含 "cb" 。</pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><b>输入：</b>word = "leetcode", forbidden = ["de","le","e"]
+<pre>
+<b>输入：</b>word = "leetcode", forbidden = ["de","le","e"]
 <strong>输出：</strong>4
 <b>解释：</b>总共有 11 个合法子字符串："l" ，"t" ，"c" ，"o" ，"d" ，"tc" ，"co" ，"od" ，"tco" ，"cod" 和 "tcod" 。最长合法子字符串的长度为 4 。
 所有其他子字符串都至少包含 "de" ，"le" 和 "e" 之一。

@@ -40,7 +40,7 @@ product_id 是这张表的主键（具有唯一值的列）。
 
 <p>&nbsp;</p>
 
-<p>编写解决方案，选出每个销售产品&nbsp;<strong>第一年</strong> 销售的 <strong>产品 id</strong>、<strong>年份</strong>、<strong>数量&nbsp;</strong>和 <strong>价格</strong>。</p>
+<p>编写解决方案，选出每个售出过的产品&nbsp;<strong>第一年</strong> 销售的 <strong>产品 id</strong>、<strong>年份</strong>、<strong>数量&nbsp;</strong>和 <strong>价格</strong>。</p>
 
 <p>结果表中的条目可以按 <strong>任意顺序</strong> 排列。</p>
 

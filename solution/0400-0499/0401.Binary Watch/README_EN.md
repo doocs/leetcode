@@ -20,7 +20,7 @@
 	<li>For example, <code>&quot;01:00&quot;</code> is not valid. It should be <code>&quot;1:00&quot;</code>.</li>
 </ul>
 
-<p>The minute must be consist of two digits and may contain a leading zero.</p>
+<p>The minute must&nbsp;consist of two digits and may contain a leading zero.</p>
 
 <ul>
 	<li>For example, <code>&quot;10:2&quot;</code> is not valid. It should be <code>&quot;10:02&quot;</code>.</li>

@@ -18,7 +18,7 @@
 | action        | enum    |
 | extra         | varchar |
 +---------------+---------+
-这张表没有主键，并有可能存在重复的行。
+这张表可能存在重复的行。
 action 列的类型是 ENUM，可能的值为 ('view', 'like', 'reaction', 'comment', 'report', 'share')。
 extra 列拥有一些可选信息，例如：报告理由（a reason for report）或反应类型（a type of reaction）等。</pre>
 
@@ -33,17 +33,15 @@ extra 列拥有一些可选信息，例如：报告理由（a reason for report�
 | post_id       | int     |
 | remove_date   | date    | 
 +---------------+---------+
-这张表的主键是 post_id。
+这张表的主键是 post_id（具有唯一值的列）。
 这张表的每一行表示一个被移除的帖子，原因可能是由于被举报或被管理员审查。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>编写一段 SQL 来查找：在被报告为垃圾广告的帖子中，被移除的帖子的每日平均占比，<strong>四舍五入到小数点后 2 位</strong>。</p>
+<p>编写解决方案，统计在被报告为垃圾广告的帖子中，被移除的帖子的每日平均占比，<strong>四舍五入到小数点后 2 位</strong>。</p>
 
-<p>以 <strong>任意顺序</strong> 返回结果表。</p>
-
-<p>查询结果的格式如下。</p>
+<p>结果的格式如下。</p>
 
 <p>&nbsp;</p>
 

@@ -17,15 +17,15 @@
 | transaction_date | date |
 | amount           | int  |
 +------------------+------+
-transaction_id 是这个表的主键。 
+transaction_id 是这个表的具有唯一值的列。 
 每行包含有关交易的信息，包括唯一的（customer_id，transaction_date）以及相应的 customer_id 和 amount。
 </pre>
 
-<p>编写一个 SQL 查询，找到连续天数上进行了最多交易的所有 <code>customer_id</code> 。</p>
+<p>编写一个解决方案，找到连续天数上进行了最多交易的所有 <code>customer_id</code> 。</p>
 
 <p>返回所有具有最大连续交易次数的 <code>customer_id</code> 。结果表按 <code>customer_id</code> 的 <strong>升序</strong> 排序。</p>
 
-<p>查询结果的格式如下所示。</p>
+<p>结果的格式如下所示。</p>
 
 <p>&nbsp;</p>
 

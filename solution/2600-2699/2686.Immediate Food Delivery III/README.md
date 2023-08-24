@@ -10,24 +10,24 @@
 
 <pre>
 +-----------------------------+---------+
-| 字段名                       | 类型     |
+| 字段名                       | 类型   |
 +-----------------------------+---------+
 | delivery_id                 | int     |
 | customer_id                 | int     |
 | order_date                  | date    |
 | customer_pref_delivery_date | date    |
 +-----------------------------+---------+
-delivery_id 是该表的主键。
+delivery_id 是该表的具有唯一值的列。
 每一行包含有关向顾客交付食物的信息，顾客在某个日期下订单，并指定了一个首选交付日期（在订单日期当天或之后）。
 </pre>
 
+<p>&nbsp;</p>
+
 <p>如果顾客的首选交付日期与订单日期相同，则该订单称为 <strong>立即交付</strong>&nbsp;，否则称为 <strong>计划交付</strong>&nbsp;。</p>
 
-<p>编写一条 SQL 查询，找出每个唯一的 <code>order_date</code> 中立即交付订单的百分比。<strong>结果保留两位小数</strong>。</p>
+<p>编写解决方案，找出每个唯一的 <code>order_date</code> 中立即交付订单的百分比。<strong>结果保留两位小数</strong>。</p>
 
 <p>返回查询结果并按 <code>order_date</code> <strong>升序</strong> 排序。</p>
-
-<p>&nbsp;</p>
 
 <p>查询结果的格式如下所示。</p>
 
