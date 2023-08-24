@@ -16,17 +16,17 @@
 | driver_id    | int  |
 | passenger_id | int  |
 +--------------+------+
-ride_id 是该表的主键。
+ride_id 是该表的主键（具有唯一值的列）。
 该表的每一行都包含驾驶员的 ID 和在 ride_id 中乘车的乘客的 ID。
 注意 driver_id != passenger_id。</pre>
 
 <p>&nbsp;</p>
 
-<p>编写一个 SQL 查询，获取每个司机的 ID 和他们作为乘客的次数。</p>
+<p>编写解决方案，获取每个司机的 ID 和他们作为乘客的次数。</p>
 
 <p data-group="1-1">以&nbsp;<strong>任意顺序&nbsp;</strong>返回结果表。</p>
 
-<p>查询结果格式如下所示。</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
 

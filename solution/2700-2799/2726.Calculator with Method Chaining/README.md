@@ -26,7 +26,8 @@
 <p><b>示例 1：</b></p>
 
 <pre>
-<b>输入：</b>actions = ["Calculator", "add", "subtract", "getResult"], values = [10, 5, 7]
+<b>输入：</b>actions = ["Calculator", "add", "subtract", "getResult"], 
+values = [10, 5, 7]
 <b>输出：</b>8
 <b>解释：</b>
 new Calculator(10).add(5).subtract(7).getResult() // 10 + 5 - 7 = 8
@@ -35,7 +36,8 @@ new Calculator(10).add(5).subtract(7).getResult() // 10 + 5 - 7 = 8
 <p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<b>输入：</b>actions = ["Calculator", "multiply", "power", "getResult"], values = [2, 5, 2]
+<b>输入：</b>actions = ["Calculator", "multiply", "power", "getResult"], 
+values = [2, 5, 2]
 <b>输出：</b>100
 <b>解释：</b>
 new Calculator(2).multiply(5).power(2).getResult() // (2 * 5) ^ 2 = 100
@@ -44,7 +46,8 @@ new Calculator(2).multiply(5).power(2).getResult() // (2 * 5) ^ 2 = 100
 <p><strong class="example">示例 3：</strong></p>
 
 <pre>
-<b>输入：</b>actions = ["Calculator", "divide", "getResult"], values = [20, 0]
+<b>输入：</b>actions = ["Calculator", "divide", "getResult"], 
+values = [20, 0]
 <b>输出：</b>"Division by zero is not allowed"
 <b>解释：</b>
 new Calculator(20).divide(0).getResult() // 20 / 0 
@@ -57,11 +60,13 @@ new Calculator(20).divide(0).getResult() // 20 / 0
 <p><strong>提示：</strong></p>
 
 <ul>
+	<li><code>actions</code>&nbsp;是一个有效的 JSON 字符串数组</li>
+	<li><code>values</code>&nbsp;是一个有效的 JSON 字符串数组</li>
 	<li><code>2 &lt;= actions.length &lt;= 2 * 10<sup>4</sup></code></li>
-	<li><code>1 &lt;= values.length &lt;= 2 * 10<sup>4</sup></code><code>&nbsp;- 1</code></li>
-	<li><code>actions[i] 是 "Calculator", "add", "subtract", "multiply", "divide", "power", 和 "getResult" 其中的元素</code></li>
-	<li><code><font face="monospace">最后一个操作总是&nbsp;"getResult"</font></code></li>
-	<li><code><font face="monospace">values </font>是一个数字的 JSON 数组</code></li>
+	<li><code>1 &lt;= values.length &lt;= 2 * 10<sup>4</sup>&nbsp;- 1</code></li>
+	<li><code>actions[i]</code>&nbsp;是 "Calculator", "add", "subtract", "multiply", "divide", "power", 和 "getResult" 其中的元素</li>
+	<li>第一个操作总是 "Calculator"</li>
+	<li>最后一个操作总是&nbsp;"getResult"</li>
 </ul>
 
 ## 解法

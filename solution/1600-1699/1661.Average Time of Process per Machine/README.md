@@ -17,22 +17,22 @@
 | activity_type  | enum    |
 | timestamp      | float   |
 +----------------+---------+
-该表展示了一家工厂网站的用户活动.
-(machine_id, process_id, activity_type) 是当前表的主键.
-machine_id 是一台机器的ID号.
-process_id 是运行在各机器上的进程ID号.
-activity_type 是枚举类型 ('start', 'end').
-timestamp 是浮点类型,代表当前时间(以秒为单位).
-'start' 代表该进程在这台机器上的开始运行时间戳 , 'end' 代表该进程在这台机器上的终止运行时间戳.
-同一台机器，同一个进程都有一对开始时间戳和结束时间戳，而且开始时间戳永远在结束时间戳前面.</pre>
+该表展示了一家工厂网站的用户活动。
+(machine_id, process_id, activity_type) 是当前表的主键（具有唯一值的列的组合）。
+machine_id 是一台机器的ID号。
+process_id 是运行在各机器上的进程ID号。
+activity_type 是枚举类型 ('start', 'end')。
+timestamp 是浮点类型,代表当前时间(以秒为单位)。
+'start' 代表该进程在这台机器上的开始运行时间戳 , 'end' 代表该进程在这台机器上的终止运行时间戳。
+同一台机器，同一个进程都有一对开始时间戳和结束时间戳，而且开始时间戳永远在结束时间戳前面。</pre>
 
 <p>&nbsp;</p>
 
-<p>现在有一个工厂网站由几台机器运行，每台机器上运行着相同数量的进程. 请写出一条SQL计算每台机器各自完成一个进程任务的平均耗时.</p>
+<p>现在有一个工厂网站由几台机器运行，每台机器上运行着 <strong>相同数量的进程</strong> 。编写解决方案，计算每台机器各自完成一个进程任务的平均耗时。</p>
 
-<p>完成一个进程任务的时间指进程的<code>'end' 时间戳</code> 减去&nbsp;<code>'start' 时间戳</code>. 平均耗时通过计算每台机器上所有进程任务的总耗费时间除以机器上的总进程数量获得.</p>
+<p>完成一个进程任务的时间指进程的<code>'end' 时间戳</code> 减去&nbsp;<code>'start' 时间戳</code>。平均耗时通过计算每台机器上所有进程任务的总耗费时间除以机器上的总进程数量获得。</p>
 
-<p>结果表必须包含<code>machine_id（机器ID）</code> 和对应的&nbsp;<strong>average time（平均耗时）</strong>&nbsp;别名&nbsp;<code>processing_time</code>, 且<strong>四舍五入保留3位小数.</strong></p>
+<p>结果表必须包含<code>machine_id（机器ID）</code> 和对应的&nbsp;<strong>average time（平均耗时）</strong>&nbsp;别名&nbsp;<code>processing_time</code>，且<strong>四舍五入保留3位小数。</strong></p>
 
 <p>以 <strong>任意顺序</strong> 返回表。</p>
 

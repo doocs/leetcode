@@ -16,7 +16,7 @@
 | FirstName   | varchar |
 | LastName    | varchar |
 +-------------+---------+
-personId 是该表的主键列。
+personId 是该表的主键（具有唯一值的列）。
 该表包含一些人的 ID 和他们的姓和名的信息。
 </pre>
 
@@ -33,15 +33,17 @@ personId 是该表的主键列。
 | City        | varchar |
 | State       | varchar |
 +-------------+---------+
-addressId 是该表的主键列。
+addressId 是该表的主键（具有唯一值的列）。
 该表的每一行都包含一个 ID = PersonId 的人的城市和州的信息。
 </pre>
 
-<p>编写一个SQL查询来报告 <code>Person</code> 表中每个人的姓、名、城市和州。如果 <code>personId</code> 的地址不在&nbsp;<code>Address</code>&nbsp;表中，则报告为空 &nbsp;<code>null</code>&nbsp;。</p>
+<p>&nbsp;</p>
+
+<p>编写解决方案，报告 <code>Person</code> 表中每个人的姓、名、城市和州。如果 <code>personId</code> 的地址不在&nbsp;<code>Address</code>&nbsp;表中，则报告为&nbsp;<code>null</code>&nbsp;。</p>
 
 <p>以 <strong>任意顺序</strong> 返回结果表。</p>
 
-<p>查询结果格式如下所示。</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
 

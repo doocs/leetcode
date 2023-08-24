@@ -84,7 +84,7 @@ TVProgram</code> 表:
 "Leetcode Movie" 是儿童不宜的电影.
 "Alg. for Kids" 不是电影.
 "Database Sols" 不是电影
-"Alladin" 是电影, 儿童适宜, 并且在 2020 年 6 月份播放.
+"Aladin" 是电影, 儿童适宜, 并且在 2020 年 6 月份播放.
 "Cinderella" 不在 2020 年 6 月份播放.</pre>
 
 ## 解法

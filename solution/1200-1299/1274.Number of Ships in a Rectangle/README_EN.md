@@ -48,13 +48,178 @@ ships = [[1,1],[2,2],[3,3],[5,5]], topRight = [4,4], bottomLeft = [0,0]
 ### **Python3**
 
 ```python
+# """
+# This is Sea's API interface.
+# You should not implement it, or speculate about its implementation
+# """
+# class Sea:
+#    def hasShips(self, topRight: 'Point', bottomLeft: 'Point') -> bool:
+#
+# class Point:
+# 	def __init__(self, x: int, y: int):
+# 		self.x = x
+# 		self.y = y
 
+
+class Solution:
+    def countShips(self, sea: "Sea", topRight: "Point", bottomLeft: "Point") -> int:
+        def dfs(topRight, bottomLeft):
+            x1, y1 = bottomLeft.x, bottomLeft.y
+            x2, y2 = topRight.x, topRight.y
+            if x1 > x2 or y1 > y2:
+                return 0
+            if not sea.hasShips(topRight, bottomLeft):
+                return 0
+            if x1 == x2 and y1 == y2:
+                return 1
+            midx = (x1 + x2) >> 1
+            midy = (y1 + y2) >> 1
+            a = dfs(topRight, Point(midx + 1, midy + 1))
+            b = dfs(Point(midx, y2), Point(x1, midy + 1))
+            c = dfs(Point(midx, midy), bottomLeft)
+            d = dfs(Point(x2, midy), Point(midx + 1, y1))
+            return a + b + c + d
+
+        return dfs(topRight, bottomLeft)
 ```
 
 ### **Java**
 
 ```java
+/**
+ * // This is Sea's API interface.
+ * // You should not implement it, or speculate about its implementation
+ * class Sea {
+ *     public boolean hasShips(int[] topRight, int[] bottomLeft);
+ * }
+ */
 
+class Solution {
+    public int countShips(Sea sea, int[] topRight, int[] bottomLeft) {
+        int x1 = bottomLeft[0], y1 = bottomLeft[1];
+        int x2 = topRight[0], y2 = topRight[1];
+        if (x1 > x2 || y1 > y2) {
+            return 0;
+        }
+        if (!sea.hasShips(topRight, bottomLeft)) {
+            return 0;
+        }
+        if (x1 == x2 && y1 == y2) {
+            return 1;
+        }
+        int midx = (x1 + x2) >> 1;
+        int midy = (y1 + y2) >> 1;
+        int a = countShips(sea, topRight, new int[] {midx + 1, midy + 1});
+        int b = countShips(sea, new int[] {midx, y2}, new int[] {x1, midy + 1});
+        int c = countShips(sea, new int[] {midx, midy}, bottomLeft);
+        int d = countShips(sea, new int[] {x2, midy}, new int[] {midx + 1, y1});
+        return a + b + c + d;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * // This is Sea's API interface.
+ * // You should not implement it, or speculate about its implementation
+ * class Sea {
+ *   public:
+ *     bool hasShips(vector<int> topRight, vector<int> bottomLeft);
+ * };
+ */
+
+class Solution {
+public:
+    int countShips(Sea sea, vector<int> topRight, vector<int> bottomLeft) {
+        int x1 = bottomLeft[0], y1 = bottomLeft[1];
+        int x2 = topRight[0], y2 = topRight[1];
+        if (x1 > x2 || y1 > y2) {
+            return 0;
+        }
+        if (!sea.hasShips(topRight, bottomLeft)) {
+            return 0;
+        }
+        if (x1 == x2 && y1 == y2) {
+            return 1;
+        }
+        int midx = (x1 + x2) >> 1;
+        int midy = (y1 + y2) >> 1;
+        int a = countShips(sea, topRight, {midx + 1, midy + 1});
+        int b = countShips(sea, {midx, y2}, {x1, midy + 1});
+        int c = countShips(sea, {midx, midy}, bottomLeft);
+        int d = countShips(sea, {x2, midy}, {midx + 1, y1});
+        return a + b + c + d;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * // This is Sea's API interface.
+ * // You should not implement it, or speculate about its implementation
+ * type Sea struct {
+ *     func hasShips(topRight, bottomLeft []int) bool {}
+ * }
+ */
+
+func countShips(sea Sea, topRight, bottomLeft []int) int {
+	x1, y1 := bottomLeft[0], bottomLeft[1]
+	x2, y2 := topRight[0], topRight[1]
+	if x1 > x2 || y1 > y2 {
+		return 0
+	}
+	if !sea.hasShips(topRight, bottomLeft) {
+		return 0
+	}
+	if x1 == x2 && y1 == y2 {
+		return 1
+	}
+	midx := (x1 + x2) >> 1
+	midy := (y1 + y2) >> 1
+	a := countShips(sea, topRight, []int{midx + 1, midy + 1})
+	b := countShips(sea, []int{midx, y2}, []int{x1, midy + 1})
+	c := countShips(sea, []int{midx, midy}, bottomLeft)
+	d := countShips(sea, []int{x2, midy}, []int{midx + 1, y1})
+	return a + b + c + d
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * // This is the Sea's API interface.
+ * // You should not implement it, or speculate about its implementation
+ * class Sea {
+ *      hasShips(topRight: number[], bottomLeft: number[]): boolean {}
+ * }
+ */
+
+function countShips(
+    sea: Sea,
+    topRight: number[],
+    bottomLeft: number[],
+): number {
+    const [x1, y1] = bottomLeft;
+    const [x2, y2] = topRight;
+    if (x1 > x2 || y1 > y2 || !sea.hasShips(topRight, bottomLeft)) {
+        return 0;
+    }
+    if (x1 === x2 && y1 === y2) {
+        return 1;
+    }
+    const midx = (x1 + x2) >> 1;
+    const midy = (y1 + y2) >> 1;
+    const a = countShips(sea, topRight, [midx + 1, midy + 1]);
+    const b = countShips(sea, [midx, y2], [x1, midy + 1]);
+    const c = countShips(sea, [midx, midy], bottomLeft);
+    const d = countShips(sea, [x2, midy], [midx + 1, y1]);
+    return a + b + c + d;
+}
 ```
 
 ### **...**

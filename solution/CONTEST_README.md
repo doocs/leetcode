@@ -22,7 +22,7 @@
 
 ## 往期竞赛
 
-#### 第 359 场周赛(2023-08-20 10:30, 90 分钟) 参赛人数 4097
+#### 第 359 场周赛(2023-08-20 10:30, 90 分钟) 参赛人数 4101
 
 - [2828. 判别首字母缩略词](/solution/2800-2899/2828.Check%20if%20a%20String%20Is%20an%20Acronym%20of%20Words/README.md)
 - [2829. k-avoiding 数组的最小总和](/solution/2800-2899/2829.Determine%20the%20Minimum%20Sum%20of%20a%20k-avoiding%20Array/README.md)

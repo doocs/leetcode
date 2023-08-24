@@ -15,17 +15,17 @@
 | order_date                  | date    |
 | customer_pref_delivery_date | date    |
 +-----------------------------+---------+
-delivery_id is the primary key of this table.
+delivery_id is the column with unique values of this table.
 Each row contains information about food delivery to a customer that makes an order at some date and specifies a preferred delivery date (on the order date or after it).
 </pre>
 
 <p>If the customer&#39;s preferred delivery date is the same as the order date, then the order is called <strong>immediate,</strong>&nbsp;otherwise, it is <strong>scheduled</strong>.</p>
 
-<p>Write an SQL query to find the percentage of immediate orders on each unique&nbsp;<code>order_date</code>, <strong>rounded to 2 decimal places</strong>.&nbsp;</p>
+<p>Write a solution&nbsp;to find the percentage of immediate orders on each unique&nbsp;<code>order_date</code>, <strong>rounded to 2 decimal places</strong>.&nbsp;</p>
 
 <p>Return <em>the result table ordered by</em> <code>order_date</code> <em>in <strong>ascending</strong> order.</em></p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

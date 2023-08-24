@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table:&nbsp;<code>Product</code></p>
+<p>表：&nbsp;<code>Product</code></p>
 
 <pre>
 +--------------+---------+
@@ -16,11 +16,11 @@
 | product_name | varchar |
 | unit_price   | int     |
 +--------------+---------+
-Product_id是该表的主键。
+product_id 是该表的主键（具有唯一值的列）。
 该表的每一行显示每个产品的名称和价格。
 </pre>
 
-<p>Table:&nbsp;<code>Sales</code></p>
+<p>表：<code>Sales</code></p>
 
 <pre>
 +-------------+---------+
@@ -33,18 +33,18 @@ Product_id是该表的主键。
 | quantity    | int     |
 | price       | int     |
 +------ ------+---------+
-这个表没有主键，它可以有重复的行。
-product_id 是 Product 表的外键。
+这个表可能有重复的行。
+product_id 是 Product 表的外键（reference 列）。
 该表的每一行包含关于一个销售的一些信息。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>编写一个SQL查询，报告<code>2019年春季</code>才售出的产品。即<strong>仅</strong>在<code><strong>2019-01-01</strong></code>至<code><strong>2019-03-31</strong></code>（含）之间出售的商品。</p>
+<p>编写解决方案，报告<code>2019年春季</code>才售出的产品。即<strong>仅</strong>在<code><strong>2019-01-01</strong></code>至<code><strong>2019-03-31</strong></code>（含）之间出售的商品。</p>
 
 <p>以 <strong>任意顺序</strong> 返回结果表。</p>
 
-<p>查询结果格式如下所示。</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
 

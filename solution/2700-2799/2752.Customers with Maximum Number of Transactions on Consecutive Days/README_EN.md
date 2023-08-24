@@ -15,15 +15,15 @@
 | transaction_date | date |
 | amount           | int  |
 +------------------+------+
-transaction_id is the primary key of this table.
+transaction_id is the column with unique values of this table.
 Each row contains information about transactions that includes unique (customer_id, transaction_date) along with the corresponding customer_id and amount.   
 </pre>
 
-<p>Write an SQL query to find all&nbsp;<code>customer_id</code>&nbsp;who made the maximum number of transactions on consecutive days.</p>
+<p>Write a solution to find all&nbsp;<code>customer_id</code>&nbsp;who made the maximum number of transactions on consecutive days.</p>
 
-<p>Return <em>all</em> <code>customer_id</code>&nbsp;<em>with the maximum number of consecutive transactions.&nbsp;</em><em>Order the result table by</em>&nbsp;<code>customer_id</code> <em>in <strong>ascending</strong> order.</em></p>
+<p>Return all <code>customer_id</code>&nbsp;with the maximum number of consecutive transactions.&nbsp;Order the result table by&nbsp;<code>customer_id</code> in <strong>ascending</strong> order.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

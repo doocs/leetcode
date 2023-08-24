@@ -18,7 +18,7 @@
 <pre>
 <strong>Input:</strong> word = &quot;cbaaaabc&quot;, forbidden = [&quot;aaa&quot;,&quot;cb&quot;]
 <strong>Output:</strong> 4
-<strong>Explanation:</strong> There are 11 valid substrings in word: &quot;c&quot;, &quot;b&quot;, &quot;a&quot;, &quot;ba&quot;, &quot;aa&quot;, &quot;bc&quot;, &quot;baa&quot;, &quot;aab&quot;, &quot;ab&quot;, &quot;abc&quot;and &quot;aabc&quot;. The length of the longest valid substring is 4. 
+<strong>Explanation:</strong> There are 11 valid substrings in word: &quot;c&quot;, &quot;b&quot;, &quot;a&quot;, &quot;ba&quot;, &quot;aa&quot;, &quot;bc&quot;, &quot;baa&quot;, &quot;aab&quot;, &quot;ab&quot;, &quot;abc&quot; and &quot;aabc&quot;. The length of the longest valid substring is 4. 
 It can be shown that all other substrings contain either &quot;aaa&quot; or &quot;cb&quot; as a substring. </pre>
 
 <p><strong class="example">Example 2:</strong></p>

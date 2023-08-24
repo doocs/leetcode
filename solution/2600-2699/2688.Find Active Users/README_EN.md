@@ -15,17 +15,17 @@
 | created_at  | datetime |
 | amount      | int      |
 +-------------+----------+
-There is no primary key in this table. The table may contain duplicate records. 
+This table may contain duplicate records. 
 Each row includes the user ID, the purchased item, the date of purchase, and the purchase amount.
 </pre>
 
-<p>Write an SQL query that&#39;ll identify active users. An active user is a user that has made a second purchase <strong>within 7&nbsp;days&nbsp;</strong>of any other of their purchases.</p>
+<p>Write a solution to identify active users. An active user is a user that has made a second purchase <strong>within 7&nbsp;days&nbsp;</strong>of any other of their purchases.</p>
 
 <p>For example, if the ending date is May 31, 2023.&nbsp;So any date between May 31, 2023, and June 7, 2023 (inclusive) would be considered &quot;within 7 days&quot; of May 31, 2023.</p>
 
-<p>Return&nbsp;<em>a list of&nbsp;</em><code>user_id</code>&nbsp;<em>which denotes the list of active users&nbsp;in <strong>any order</strong>.</em></p>
+<p>Return&nbsp;a list of&nbsp;<code>user_id</code>&nbsp;which denotes the list of active users&nbsp;in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

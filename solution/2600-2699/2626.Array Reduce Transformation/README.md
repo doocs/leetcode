@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>请你编写一个函数，它的参数为一个整数数组&nbsp;<code>nums</code>&nbsp;、一个计算函数&nbsp;<code>fn</code>&nbsp;和初始值&nbsp;<font color="#c7254e"><font face="Menlo, Monaco, Consolas, Courier New, monospace"><span style="font-size:12.6px"><span style="background-color:#f9f2f4">init&nbsp;</span></span></font></font>。返回一个数组&nbsp;<strong>归约后 </strong>的值。</p>
+<p>请你编写一个函数，它的参数为一个整数数组&nbsp;<code>nums</code>&nbsp;、一个计算函数&nbsp;<code>fn</code>&nbsp;和初始值<code>init</code>&nbsp;。返回一个数组&nbsp;<strong>归约后 </strong>的值。</p>
 
 <p>你可以定义一个数组&nbsp;<strong>归约后 </strong>的值，然后应用以下操作： <code>val = fn(init, nums[0])</code>&nbsp;， <code>val = fn(val, nums[1])</code>&nbsp;， <code>val = fn(val, nums[2])</code>&nbsp;，<code>...</code>&nbsp;直到数组中的每个元素都被处理完毕。返回 <code>val</code> 的最终值。</p>
 
@@ -42,7 +42,7 @@ fn = function sum(accum, curr) { return accum + curr * curr; }
 init = 100
 <strong>输出：</strong>130
 <strong>解释：</strong>
-初始值为 init=0 。
+初始值为 init=100 。
 (100) + nums[0]^2 = 101
 (101) + nums[1]^2 = 105
 (105) + nums[2]^2 = 114

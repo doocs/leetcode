@@ -2887,3 +2887,4 @@
   - [2829.Determine the Minimum Sum of a k-avoiding Array](/solution/2800-2899/2829.Determine%20the%20Minimum%20Sum%20of%20a%20k-avoiding%20Array/README_EN.md)
   - [2830.Maximize the Profit as the Salesman](/solution/2800-2899/2830.Maximize%20the%20Profit%20as%20the%20Salesman/README_EN.md)
   - [2831.Find the Longest Equal Subarray](/solution/2800-2899/2831.Find%20the%20Longest%20Equal%20Subarray/README_EN.md)
+  - [2832.Maximal Range That Each Element Is Maximum in It](/solution/2800-2899/2832.Maximal%20Range%20That%20Each%20Element%20Is%20Maximum%20in%20It/README_EN.md)

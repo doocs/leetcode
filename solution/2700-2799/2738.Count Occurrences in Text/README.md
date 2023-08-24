@@ -15,15 +15,17 @@
 | file_name   | varchar |
 | content     | text    |
 +-------------+---------+
-file_name 为该表的主键。
+file_name 为该表的主键（具有唯一值的列）。
 每行包含 file_name 和该文件的内容。
 </pre>
 
-<p>编写一个 SQL 查询来查找出单词 <strong>'bull' </strong>和 <strong>'bear'</strong> 作为 <strong>独立词</strong> 出现的次数，不考虑任何它出现在两侧没有空格的情况（例如，'bullet',&nbsp;'bears', 'bull.'，或者 'bear'&nbsp;在句首或句尾&nbsp;<strong>不会</strong> 被考虑）。</p>
+<p>&nbsp;</p>
+
+<p>编写解决方案，找出单词 <strong>'bull' </strong>和 <strong>'bear'</strong> 作为 <strong>独立词</strong> 出现的次数，不考虑任何它出现在两侧没有空格的情况（例如，'bullet',&nbsp;'bears', 'bull.'，或者 'bear'&nbsp;在句首或句尾&nbsp;<strong>不会</strong> 被考虑）。</p>
 
 <p>返回单词 'bull' 和 'bear' 以及它们对应的出现次数，<strong>顺序没有限制</strong>&nbsp;。</p>
 
-<p>查询结果的格式如下所示：</p>
+<p>结果的格式如下所示：</p>
 
 <p>&nbsp;</p>
 

@@ -13,7 +13,7 @@
 | employee_id  | int  |
 | needed_hours | int  |
 +--------------+------+
-employee_id is the primary key for this table.
+employee_id is column with unique values for this table.
 Each row contains the id of an employee and the minimum number of hours needed for them to work to get their salary.
 </pre>
 
@@ -29,7 +29,7 @@ Each row contains the id of an employee and the minimum number of hours needed f
 | in_time     | datetime |
 | out_time    | datetime |
 +-------------+----------+
-(employee_id, in_time, out_time) is the primary key for this table.
+(employee_id, in_time, out_time) is the primary key (combination of columns with unique values) for this table.
 Each row of this table shows the time stamps for an employee. in_time is the time the employee started to work, and out_time is the time the employee ended work.
 All the times are in October 2022. out_time can be one day after in_time which means the employee worked after the midnight.
 </pre>
@@ -42,11 +42,11 @@ All the times are in October 2022. out_time can be one day after in_time which m
 	<li>For example, if the employee worked for <code>51</code> minutes and <code>2</code> seconds in a session, we consider it <code>52</code> minutes.</li>
 </ul>
 
-<p>Write an SQL query to report the IDs of the employees that will be deducted. In other words, report the IDs of the employees that did not work the needed hours.</p>
+<p>Write a solution to report the IDs of the employees that will be deducted. In other words, report the IDs of the employees that did not work the needed hours.</p>
 
 <p>Return the result table <strong>in any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

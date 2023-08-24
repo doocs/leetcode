@@ -13,7 +13,7 @@
 <ul>
 	<li>The character <code>&#39;S&#39;</code> represents the player. The player can move up, down, left, right in <code>grid</code> if it is a floor (empty cell).</li>
 	<li>The character <code>&#39;.&#39;</code> represents the floor which means a free cell to walk.</li>
-	<li>The character <code>&#39;#&#39; </code>represents the wall which means an obstacle (impossible to walk there).</li>
+	<li>The character<font face="monospace">&nbsp;</font><code>&#39;#&#39;</code><font face="monospace">&nbsp;</font>represents the wall which means an obstacle (impossible to walk there).</li>
 	<li>There is only one box <code>&#39;B&#39;</code> and one target cell <code>&#39;T&#39;</code> in the <code>grid</code>.</li>
 	<li>The box can be moved to an adjacent free cell by standing next to the box and then moving in the direction of the box. This is a <strong>push</strong>.</li>
 	<li>The player cannot walk through the box.</li>

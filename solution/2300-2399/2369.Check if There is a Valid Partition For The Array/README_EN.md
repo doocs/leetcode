@@ -9,8 +9,8 @@
 <p>We call a partition of the array <strong>valid</strong> if each of the obtained subarrays satisfies <strong>one</strong> of the following conditions:</p>
 
 <ol>
-	<li>The subarray consists of <strong>exactly</strong> <code>2</code> equal elements. For example, the subarray <code>[2,2]</code> is good.</li>
-	<li>The subarray consists of <strong>exactly</strong> <code>3</code> equal elements. For example, the subarray <code>[4,4,4]</code> is good.</li>
+	<li>The subarray consists of <strong>exactly</strong> <code>2,</code> equal elements. For example, the subarray <code>[2,2]</code> is good.</li>
+	<li>The subarray consists of <strong>exactly</strong> <code>3,</code> equal elements. For example, the subarray <code>[4,4,4]</code> is good.</li>
 	<li>The subarray consists of <strong>exactly</strong> <code>3</code> consecutive increasing elements, that is, the difference between adjacent elements is <code>1</code>. For example, the subarray <code>[3,4,5]</code> is good, but the subarray <code>[1,3,5]</code> is not.</li>
 </ol>
 

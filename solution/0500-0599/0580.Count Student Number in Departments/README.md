@@ -17,7 +17,7 @@
 | gender       | varchar |
 | dept_id      | int     |
 +--------------+---------+
-Student_id是该表的主键。
+student_id 是该表的主键（具有唯一值的列）。
 dept_id是Department表中dept_id的外键。
 该表的每一行都表示学生的姓名、性别和所属系的id。
 </pre>
@@ -33,16 +33,16 @@ dept_id是Department表中dept_id的外键。
 | dept_id     | int     |
 | dept_name   | varchar |
 +-------------+---------+
-Dept_id是该表的主键。
+dept_id是该表的主键（具有唯一值的列）。
 该表的每一行包含一个部门的id和名称。</pre>
 
 <p>&nbsp;</p>
 
-<p>编写一个SQL查询，为&nbsp;<code>Department</code>&nbsp;表中的所有部门(甚至是没有当前学生的部门)报告各自的部门名称和每个部门的学生人数。</p>
+<p>编写解决方案，为&nbsp;<code>Department</code>&nbsp;表中的所有部门(甚至是没有当前学生的部门)报告各自的部门名称和每个部门的学生人数。</p>
 
 <p>按 <code>student_number</code> <strong>降序&nbsp;</strong>返回结果表。如果是平局，则按 <code>dept_name</code> 的&nbsp; <strong>字母顺序&nbsp;</strong>排序。</p>
 
-<p>查询结果格式如下所示。</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
 

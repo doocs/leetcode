@@ -13,7 +13,7 @@
 | flight_id   | int  |
 | capacity    | int  |
 +-------------+------+
-<code>flight_id</code> is the primary key column for this table.
+<code>flight_id</code> column contains distinct values.
 Each row of this table contains flight id and capacity.
 </pre>
 
@@ -27,18 +27,18 @@ Each row of this table contains flight id and capacity.
 | flight_id    | int      |
 | booking_time | datetime |
 +--------------+----------+
-passenger_id is the primary key column for this table.
+passenger_id column contains distinct values.
 booking_time column contains distinct values.
 Each row of this table contains passenger id, booking time, and their flight id.
 </pre>
 
 <p>Passengers book tickets for flights in advance. If a passenger books a ticket for a flight and there are still empty seats available on the flight, the passenger&#39;s ticket will be <strong>confirmed</strong>. However, the passenger will be on a <strong>waitlist</strong> if the flight is already at full capacity.</p>
 
-<p>Write an SQL query to determine the current status of flight tickets for each passenger.</p>
+<p>Write a solution to determine the current status of flight tickets for each passenger.</p>
 
-<p>Return <em>the result table ordered by</em> <code>passenger_id</code> <em>in <strong>ascending order</strong>.</em></p>
+<p>Return the result table ordered by <code>passenger_id</code> <em>in <strong>ascending order</strong>.</em></p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
