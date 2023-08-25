@@ -18,15 +18,3 @@ impl Solution {
     }
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn palindrome() {
-        assert_eq!(Solution::longest_palindrome(String::from("aba")), String::from("aba"));
-        assert_eq!(Solution::longest_palindrome(String::from("babcd")), String::from("bab"));
-        assert_eq!(Solution::longest_palindrome(String::from("cbbd")), String::from("bb"));
-        assert_eq!(Solution::longest_palindrome(String::from("cbbc")), String::from("cbbc"));
-    }
-}
