@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 360 场周赛(2023-08-27 10:30, 90 分钟) 参赛人数 4496
+
+- [2833. 距离原点最远的点](/solution/2800-2899/2833.Furthest%20Point%20From%20Origin/README.md)
+- [2834. 找出美丽数组的最小和](/solution/2800-2899/2834.Find%20the%20Minimum%20Possible%20Sum%20of%20a%20Beautiful%20Array/README.md)
+- [2835. 使子序列的和等于目标的最少操作次数](/solution/2800-2899/2835.Minimum%20Operations%20to%20Form%20Subsequence%20With%20Target%20Sum/README.md)
+- [2836. 在传球游戏中最大化函数值](/solution/2800-2899/2836.Maximize%20Value%20of%20Function%20in%20a%20Ball%20Passing%20Game/README.md)
+
 #### 第 359 场周赛(2023-08-20 10:30, 90 分钟) 参赛人数 4101
 
 - [2828. 判别首字母缩略词](/solution/2800-2899/2828.Check%20if%20a%20String%20Is%20an%20Acronym%20of%20Words/README.md)
