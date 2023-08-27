@@ -32,7 +32,7 @@
 <pre>
 <strong>Input:</strong> words = [&quot;z&quot;,&quot;x&quot;,&quot;z&quot;]
 <strong>Output:</strong> &quot;&quot;
-<strong>Explanation:</strong> The order is invalid, so return <code>&quot;&quot;</code>.
+<strong>Explanation:</strong> The order is invalid, so return &quot;&quot;.
 </pre>
 
 <p>&nbsp;</p>
