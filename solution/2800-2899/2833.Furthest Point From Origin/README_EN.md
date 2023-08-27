@@ -55,25 +55,68 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def furthestDistanceFromOrigin(self, moves: str) -> int:
+        return abs(moves.count("L") - moves.count("R")) + moves.count("_")
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int furthestDistanceFromOrigin(String moves) {
+        return Math.abs(count(moves, 'L') - count(moves, 'R')) + count(moves, '_');
+    }
 
+    private int count(String s, char c) {
+        int cnt = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            if (s.charAt(i) == c) {
+                ++cnt;
+            }
+        }
+        return cnt;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int furthestDistanceFromOrigin(string moves) {
+        auto cnt = [&](char c) {
+            return count(moves.begin(), moves.end(), c);
+        };
+        return abs(cnt('L') - cnt('R')) + cnt('_');
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func furthestDistanceFromOrigin(moves string) int {
+	count := func(c string) int { return strings.Count(moves, c) }
+	return abs(count("L")-count("R")) + count("_")
+}
 
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+### **TypeScript**
+
+```ts
+function furthestDistanceFromOrigin(moves: string): number {
+    const count = (c: string) => moves.split('').filter(x => x === c).length;
+    return Math.abs(count('L') - count('R')) + count('_');
+}
 ```
 
 ### **...**

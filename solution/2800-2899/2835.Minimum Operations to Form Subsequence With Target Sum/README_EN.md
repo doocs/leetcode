@@ -64,25 +64,210 @@ It can be shown that there is no shorter sequence of operations that results in 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minOperations(self, nums: List[int], target: int) -> int:
+        s = sum(nums)
+        if s < target:
+            return -1
+        cnt = [0] * 32
+        for x in nums:
+            for i in range(32):
+                if x >> i & 1:
+                    cnt[i] += 1
+        i = j = 0
+        ans = 0
+        while 1:
+            while i < 32 and (target >> i & 1) == 0:
+                i += 1
+            if i == 32:
+                break
+            while j < i:
+                cnt[j + 1] += cnt[j] // 2
+                cnt[j] %= 2
+                j += 1
+            while cnt[j] == 0:
+                cnt[j] = 1
+                j += 1
+            ans += j - i
+            cnt[j] -= 1
+            j = i
+            i += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int minOperations(List<Integer> nums, int target) {
+        long s = 0;
+        int[] cnt = new int[32];
+        for (int x : nums) {
+            s += x;
+            for (int i = 0; i < 32; ++i) {
+                if ((x >> i & 1) == 1) {
+                    ++cnt[i];
+                }
+            }
+        }
+        if (s < target) {
+            return -1;
+        }
+        int i = 0, j = 0;
+        int ans = 0;
+        while (true) {
+            while (i < 32 && (target >> i & 1) == 0) {
+                ++i;
+            }
+            if (i == 32) {
+                return ans;
+            }
+            while (j < i) {
+                cnt[j + 1] += cnt[j] / 2;
+                cnt[j] %= 2;
+                ++j;
+            }
+            while (cnt[j] == 0) {
+                cnt[j] = 1;
+                ++j;
+            }
+            ans += j - i;
+            --cnt[j];
+            j = i;
+            ++i;
+        }
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int minOperations(vector<int>& nums, int target) {
+        long long s = 0;
+        int cnt[32]{};
+        for (int x : nums) {
+            s += x;
+            for (int i = 0; i < 32; ++i) {
+                if (x >> i & 1) {
+                    ++cnt[i];
+                }
+            }
+        }
+        if (s < target) {
+            return -1;
+        }
+        int i = 0, j = 0;
+        int ans = 0;
+        while (1) {
+            while (i < 32 && (target >> i & 1) == 0) {
+                ++i;
+            }
+            if (i == 32) {
+                return ans;
+            }
+            while (j < i) {
+                cnt[j + 1] += cnt[j] / 2;
+                cnt[j] %= 2;
+                ++j;
+            }
+            while (cnt[j] == 0) {
+                cnt[j] = 1;
+                ++j;
+            }
+            ans += j - i;
+            --cnt[j];
+            j = i;
+            ++i;
+        }
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minOperations(nums []int, target int) (ans int) {
+	s := 0
+	cnt := [32]int{}
+	for _, x := range nums {
+		s += x
+		for i := 0; i < 32; i++ {
+			if x>>i&1 > 0 {
+				cnt[i]++
+			}
+		}
+	}
+	if s < target {
+		return -1
+	}
+	var i, j int
+	for {
+		for i < 32 && target>>i&1 == 0 {
+			i++
+		}
+		if i == 32 {
+			return
+		}
+		for j < i {
+			cnt[j+1] += cnt[j] >> 1
+			cnt[j] %= 2
+			j++
+		}
+		for cnt[j] == 0 {
+			cnt[j] = 1
+			j++
+		}
+		ans += j - i
+		cnt[j]--
+		j = i
+		i++
+	}
+}
+```
 
+### **TypeScript**
+
+```ts
+function minOperations(nums: number[], target: number): number {
+    let s = 0;
+    const cnt: number[] = Array(32).fill(0);
+    for (const x of nums) {
+        s += x;
+        for (let i = 0; i < 32; ++i) {
+            if ((x >> i) & 1) {
+                ++cnt[i];
+            }
+        }
+    }
+    if (s < target) {
+        return -1;
+    }
+    let [ans, i, j] = [0, 0, 0];
+    while (1) {
+        while (i < 32 && ((target >> i) & 1) === 0) {
+            ++i;
+        }
+        if (i === 32) {
+            return ans;
+        }
+        while (j < i) {
+            cnt[j + 1] += cnt[j] >> 1;
+            cnt[j] %= 2;
+            ++j;
+        }
+        while (cnt[j] == 0) {
+            cnt[j] = 1;
+            j++;
+        }
+        ans += j - i;
+        cnt[j]--;
+        j = i;
+        i++;
+    }
+}
 ```
 
 ### **...**

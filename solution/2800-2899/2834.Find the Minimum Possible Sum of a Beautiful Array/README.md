@@ -64,6 +64,12 @@ nums = [1,3,4] 是美丽数组。
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 哈希表**
+
+我们从正整数 $i=1$ 开始，依次判断 $i$ 是否可以加入数组中，如果可以加入，则将 $i$ 加入数组中，累加到答案中，然后将 $target-i$ 置为已访问，表示 $target-i$ 不能加入数组中。循环直到数组长度为 $n$。
+
+时间复杂度 $O(n + target)$，空间复杂度 $O(n + target)$。其中 $n$ 为数组长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -71,7 +77,18 @@ nums = [1,3,4] 是美丽数组。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minimumPossibleSum(self, n: int, target: int) -> int:
+        vis = set()
+        ans = 0
+        i = 1
+        for _ in range(n):
+            while i in vis:
+                i += 1
+            ans += i
+            vis.add(target - i)
+            i += 1
+        return ans
 ```
 
 ### **Java**
@@ -79,19 +96,82 @@ nums = [1,3,4] 是美丽数组。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public long minimumPossibleSum(int n, int target) {
+        boolean[] vis = new boolean[n + target];
+        long ans = 0;
+        for (int i = 1; n > 0; --n, ++i) {
+            while (vis[i]) {
+                ++i;
+            }
+            ans += i;
+            if (target >= i) {
+                vis[target - i] = true;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    long long minimumPossibleSum(int n, int target) {
+        bool vis[n + target];
+        memset(vis, false, sizeof(vis));
+        long long ans = 0;
+        for (int i = 1; n; ++i, --n) {
+            while (vis[i]) {
+                ++i;
+            }
+            ans += i;
+            if (target >= i) {
+                vis[target - i] = true;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minimumPossibleSum(n int, target int) (ans int64) {
+	vis := make([]bool, n+target)
+	for i := 1; n > 0; i, n = i+1, n-1 {
+		for vis[i] {
+			i++
+		}
+		ans += int64(i)
+		if target >= i {
+			vis[target-i] = true
+		}
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function minimumPossibleSum(n: number, target: number): number {
+    const vis: boolean[] = Array(n + target).fill(false);
+    let ans = 0;
+    for (let i = 1; n; ++i, --n) {
+        while (vis[i]) {
+            ++i;
+        }
+        ans += i;
+        if (target >= i) {
+            vis[target - i] = true;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**

@@ -133,25 +133,139 @@ Hence, the output is 10.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def getMaxFunctionValue(self, receiver: List[int], k: int) -> int:
+        n, m = len(receiver), k.bit_length()
+        f = [[0] * m for _ in range(n)]
+        g = [[0] * m for _ in range(n)]
+        for i, x in enumerate(receiver):
+            f[i][0] = x
+            g[i][0] = i
+        for j in range(1, m):
+            for i in range(n):
+                f[i][j] = f[f[i][j - 1]][j - 1]
+                g[i][j] = g[i][j - 1] + g[f[i][j - 1]][j - 1]
+        ans = 0
+        for i in range(n):
+            p, t = i, 0
+            for j in range(m):
+                if k >> j & 1:
+                    t += g[p][j]
+                    p = f[p][j]
+            ans = max(ans, t + p)
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public long getMaxFunctionValue(List<Integer> receiver, long k) {
+        int n = receiver.size(), m = 64 - Long.numberOfLeadingZeros(k);
+        int[][] f = new int[n][m];
+        long[][] g = new long[n][m];
+        for (int i = 0; i < n; ++i) {
+            f[i][0] = receiver.get(i);
+            g[i][0] = i;
+        }
+        for (int j = 1; j < m; ++j) {
+            for (int i = 0; i < n; ++i) {
+                f[i][j] = f[f[i][j - 1]][j - 1];
+                g[i][j] = g[i][j - 1] + g[f[i][j - 1]][j - 1];
+            }
+        }
+        long ans = 0;
+        for (int i = 0; i < n; ++i) {
+            int p = i;
+            long t = 0;
+            for (int j = 0; j < m; ++j) {
+                if ((k >> j & 1) == 1) {
+                    t += g[p][j];
+                    p = f[p][j];
+                }
+            }
+            ans = Math.max(ans, p + t);
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    long long getMaxFunctionValue(vector<int>& receiver, long long k) {
+        int n = receiver.size(), m = 64 - __builtin_clzll(k);
+        int f[n][m];
+        long long g[n][m];
+        for (int i = 0; i < n; ++i) {
+            f[i][0] = receiver[i];
+            g[i][0] = i;
+        }
+        for (int j = 1; j < m; ++j) {
+            for (int i = 0; i < n; ++i) {
+                f[i][j] = f[f[i][j - 1]][j - 1];
+                g[i][j] = g[i][j - 1] + g[f[i][j - 1]][j - 1];
+            }
+        }
+        long long ans = 0;
+        for (int i = 0; i < n; ++i) {
+            int p = i;
+            long long t = 0;
+            for (int j = 0; j < m; ++j) {
+                if (k >> j & 1) {
+                    t += g[p][j];
+                    p = f[p][j];
+                }
+            }
+            ans = max(ans, p + t);
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func getMaxFunctionValue(receiver []int, k int64) (ans int64) {
+	n, m := len(receiver), bits.Len(uint(k))
+	f := make([][]int, n)
+	g := make([][]int64, n)
+	for i := range f {
+		f[i] = make([]int, m)
+		g[i] = make([]int64, m)
+		f[i][0] = receiver[i]
+		g[i][0] = int64(i)
+	}
+	for j := 1; j < m; j++ {
+		for i := 0; i < n; i++ {
+			f[i][j] = f[f[i][j-1]][j-1]
+			g[i][j] = g[i][j-1] + g[f[i][j-1]][j-1]
+		}
+	}
+	for i := 0; i < n; i++ {
+		p := i
+		t := int64(0)
+		for j := 0; j < m; j++ {
+			if k>>j&1 == 1 {
+				t += g[p][j]
+				p = f[p][j]
+			}
+		}
+		ans = max(ans, t+int64(p))
+	}
+	return
+}
 
+func max(a, b int64) int64 {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

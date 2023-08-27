@@ -138,6 +138,26 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划 + 倍增**
+
+题目要我们寻找从每个玩家 $i$ 开始，传球 $k$ 次内所有接触过球玩家的编号之和的最大值。如果暴力求解，需要从 $i$ 开始向上遍历 $k$ 次，时间复杂度为 $O(k)$，显然会超时。
+
+我们可以使用动态规划，结合倍增的思想来处理。
+
+我们定义 $f[i][j]$ 表示从玩家 $i$ 开始，传球 $2^j$ 次所能到达的玩家编号，定义 $g[i][j]$ 表示从玩家 $i$ 开始，传球 $2^j$ 次所能到达的玩家编号之和（不包括最后一个玩家）。
+
+当 $j=0$ 是，传球次数为 $1$，所以 $f[i][0] = receiver[i]$，而 $g[i][0] = i$。
+
+当 $j \gt 0$ 时，传球次数为 $2^j$，相当于从玩家 $i$ 开始，传球 $2^{j-1}$ 次，再从玩家 $f[i][j-1]$ 开始，传球 $2^{j-1}$ 次，所以 $f[i][j] = f[f[i][j-1]][j-1]$，而 $g[i][j] = g[i][j-1] + g[f[i][j-1]][j-1]$。
+
+接下来，我们可以枚举每个玩家 $i$ 作为开始玩家，然后根据 $k$ 的二进制表示，累计向上查询，最终得到玩家 $i$ 开始，传球 $k$ 次内所有接触过球玩家的编号之和的最大值。
+
+时间复杂度 $O(n \times \log k)$，空间复杂度 $O(n \times \log k)$。其中 $n$ 为玩家数。
+
+相似题目：
+
+-   [1483. 树节点的第 K 个祖先](/solution/1400-1499/1483.Kth%20Ancestor%20of%20a%20Tree%20Node/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -145,7 +165,27 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def getMaxFunctionValue(self, receiver: List[int], k: int) -> int:
+        n, m = len(receiver), k.bit_length()
+        f = [[0] * m for _ in range(n)]
+        g = [[0] * m for _ in range(n)]
+        for i, x in enumerate(receiver):
+            f[i][0] = x
+            g[i][0] = i
+        for j in range(1, m):
+            for i in range(n):
+                f[i][j] = f[f[i][j - 1]][j - 1]
+                g[i][j] = g[i][j - 1] + g[f[i][j - 1]][j - 1]
+        ans = 0
+        for i in range(n):
+            p, t = i, 0
+            for j in range(m):
+                if k >> j & 1:
+                    t += g[p][j]
+                    p = f[p][j]
+            ans = max(ans, t + p)
+        return ans
 ```
 
 ### **Java**
@@ -153,19 +193,113 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public long getMaxFunctionValue(List<Integer> receiver, long k) {
+        int n = receiver.size(), m = 64 - Long.numberOfLeadingZeros(k);
+        int[][] f = new int[n][m];
+        long[][] g = new long[n][m];
+        for (int i = 0; i < n; ++i) {
+            f[i][0] = receiver.get(i);
+            g[i][0] = i;
+        }
+        for (int j = 1; j < m; ++j) {
+            for (int i = 0; i < n; ++i) {
+                f[i][j] = f[f[i][j - 1]][j - 1];
+                g[i][j] = g[i][j - 1] + g[f[i][j - 1]][j - 1];
+            }
+        }
+        long ans = 0;
+        for (int i = 0; i < n; ++i) {
+            int p = i;
+            long t = 0;
+            for (int j = 0; j < m; ++j) {
+                if ((k >> j & 1) == 1) {
+                    t += g[p][j];
+                    p = f[p][j];
+                }
+            }
+            ans = Math.max(ans, p + t);
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    long long getMaxFunctionValue(vector<int>& receiver, long long k) {
+        int n = receiver.size(), m = 64 - __builtin_clzll(k);
+        int f[n][m];
+        long long g[n][m];
+        for (int i = 0; i < n; ++i) {
+            f[i][0] = receiver[i];
+            g[i][0] = i;
+        }
+        for (int j = 1; j < m; ++j) {
+            for (int i = 0; i < n; ++i) {
+                f[i][j] = f[f[i][j - 1]][j - 1];
+                g[i][j] = g[i][j - 1] + g[f[i][j - 1]][j - 1];
+            }
+        }
+        long long ans = 0;
+        for (int i = 0; i < n; ++i) {
+            int p = i;
+            long long t = 0;
+            for (int j = 0; j < m; ++j) {
+                if (k >> j & 1) {
+                    t += g[p][j];
+                    p = f[p][j];
+                }
+            }
+            ans = max(ans, p + t);
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func getMaxFunctionValue(receiver []int, k int64) (ans int64) {
+	n, m := len(receiver), bits.Len(uint(k))
+	f := make([][]int, n)
+	g := make([][]int64, n)
+	for i := range f {
+		f[i] = make([]int, m)
+		g[i] = make([]int64, m)
+		f[i][0] = receiver[i]
+		g[i][0] = int64(i)
+	}
+	for j := 1; j < m; j++ {
+		for i := 0; i < n; i++ {
+			f[i][j] = f[f[i][j-1]][j-1]
+			g[i][j] = g[i][j-1] + g[f[i][j-1]][j-1]
+		}
+	}
+	for i := 0; i < n; i++ {
+		p := i
+		t := int64(0)
+		for j := 0; j < m; j++ {
+			if k>>j&1 == 1 {
+				t += g[p][j]
+				p = f[p][j]
+			}
+		}
+		ans = max(ans, t+int64(p))
+	}
+	return
+}
 
+func max(a, b int64) int64 {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
