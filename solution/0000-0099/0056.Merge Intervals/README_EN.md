@@ -54,6 +54,19 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+        intervals.sort()
+        ans = [intervals[0]]
+        for s, e in intervals[1:]:
+            if ans[-1][1] < s:
+                ans.append([s, e])
+            else:
+                ans[-1][1] = max(ans[-1][1], e)
+        return ans
+```
+
 ### **Java**
 
 ```java
@@ -73,6 +86,25 @@ class Solution {
             }
         }
         ans.add(new int[] {st, ed});
+        return ans.toArray(new int[ans.size()][]);
+    }
+}
+```
+
+```java
+class Solution {
+    public int[][] merge(int[][] intervals) {
+        Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
+        List<int[]> ans = new ArrayList<>();
+        ans.add(intervals[0]);
+        for (int i = 1; i < intervals.length; ++i) {
+            int s = intervals[i][0], e = intervals[i][1];
+            if (ans.get(ans.size() - 1)[1] < s) {
+                ans.add(intervals[i]);
+            } else {
+                ans.get(ans.size() - 1)[1] = Math.max(ans.get(ans.size() - 1)[1], e);
+            }
+        }
         return ans.toArray(new int[ans.size()][]);
     }
 }
@@ -102,6 +134,25 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        sort(intervals.begin(), intervals.end());
+        vector<vector<int>> ans;
+        ans.emplace_back(intervals[0]);
+        for (int i = 1; i < intervals.size(); ++i) {
+            if (ans.back()[1] < intervals[i][0]) {
+                ans.emplace_back(intervals[i]);
+            } else {
+                ans.back()[1] = max(ans.back()[1], intervals[i][1]);
+            }
+        }
+        return ans;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -120,6 +171,28 @@ func merge(intervals [][]int) (ans [][]int) {
 	}
 	ans = append(ans, []int{st, ed})
 	return ans
+}
+```
+
+```go
+func merge(intervals [][]int) (ans [][]int) {
+	sort.Slice(intervals, func(i, j int) bool { return intervals[i][0] < intervals[j][0] })
+	ans = append(ans, intervals[0])
+	for _, e := range intervals[1:] {
+		if ans[len(ans)-1][1] < e[0] {
+			ans = append(ans, e)
+		} else {
+			ans[len(ans)-1][1] = max(ans[len(ans)-1][1], e[1])
+		}
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
@@ -162,6 +235,21 @@ function merge(intervals: number[][]): number[][] {
         }
     }
     ans.push([st, ed]);
+    return ans;
+}
+```
+
+```ts
+function merge(intervals: number[][]): number[][] {
+    intervals.sort((a, b) => a[0] - b[0]);
+    const ans: number[][] = [intervals[0]];
+    for (let i = 1; i < intervals.length; ++i) {
+        if (ans.at(-1)[1] < intervals[i][0]) {
+            ans.push(intervals[i]);
+        } else {
+            ans.at(-1)[1] = Math.max(ans.at(-1)[1], intervals[i][1]);
+        }
+    }
     return ans;
 }
 ```

@@ -52,6 +52,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：树形 DP**
+
+我们先根据数组 $parent$ 构建邻接表 $g$，其中 $g[i]$ 表示节点 $i$ 的所有子节点。
+
+然后我们从根节点开始 DFS，对于每个节点 $i$，我们遍历 $g[i]$ 中的每个子节点 $j$，如果 $s[i] \neq s[j]$，那么我们就可以从 $i$ 节点出发，经过 $j$ 节点，到达某个叶子节点，这条路径的长度为 $x = 1 + dfs(j)$，我们用 $mx$ 记录最长的一条从节点 $i$ 出发的路径长度。同时，在遍历的过程中，更新答案 $ans = \max(ans, mx + x)$。
+
+最后，我们返回 $ans + 1$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点个数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -59,7 +69,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def longestPath(self, parent: List[int], s: str) -> int:
+        def dfs(i: int) -> int:
+            mx = 0
+            nonlocal ans
+            for j in g[i]:
+                x = dfs(j) + 1
+                if s[i] != s[j]:
+                    ans = max(ans, mx + x)
+                    mx = max(mx, x)
+            return mx
 
+        g = defaultdict(list)
+        for i in range(1, len(parent)):
+            g[parent[i]].append(i)
+        ans = 0
+        dfs(0)
+        return ans + 1
 ```
 
 ### **Java**
@@ -67,7 +94,98 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private List<Integer>[] g;
+    private String s;
+    private int ans;
 
+    public int longestPath(int[] parent, String s) {
+        int n = parent.length;
+        g = new List[n];
+        this.s = s;
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int i = 1; i < n; ++i) {
+            g[parent[i]].add(i);
+        }
+        dfs(0);
+        return ans + 1;
+    }
+
+    private int dfs(int i) {
+        int mx = 0;
+        for (int j : g[i]) {
+            int x = dfs(j) + 1;
+            if (s.charAt(i) != s.charAt(j)) {
+                ans = Math.max(ans, mx + x);
+                mx = Math.max(mx, x);
+            }
+        }
+        return mx;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int longestPath(vector<int>& parent, string s) {
+        int n = parent.size();
+        vector<int> g[n];
+        for (int i = 1; i < n; ++i) {
+            g[parent[i]].push_back(i);
+        }
+        int ans = 0;
+        function<int(int)> dfs = [&](int i) -> int {
+            int mx = 0;
+            for (int j : g[i]) {
+                int x = dfs(j) + 1;
+                if (s[i] != s[j]) {
+                    ans = max(ans, mx + x);
+                    mx = max(mx, x);
+                }
+            }
+            return mx;
+        };
+        dfs(0);
+        return ans + 1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func longestPath(parent []int, s string) int {
+	n := len(parent)
+	g := make([][]int, n)
+	for i := 1; i < n; i++ {
+		g[parent[i]] = append(g[parent[i]], i)
+	}
+	ans := 0
+	var dfs func(int) int
+	dfs = func(i int) int {
+		mx := 0
+		for _, j := range g[i] {
+			x := dfs(j) + 1
+			if s[i] != s[j] {
+				ans = max(ans, x+mx)
+				mx = max(mx, x)
+			}
+		}
+		return mx
+	}
+	dfs(0)
+	return ans + 1
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
@@ -75,22 +193,22 @@
 ```ts
 function longestPath(parent: number[], s: string): number {
     const n = parent.length;
-    let graph = Array.from({ length: n }, v => []);
-    for (let i = 1; i < n; i++) {
-        graph[parent[i]].push(i);
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (let i = 1; i < n; ++i) {
+        g[parent[i]].push(i);
     }
     let ans = 0;
-    function dfs(x: number): number {
-        let maxLen = 0;
-        for (let y of graph[x]) {
-            let len = dfs(y) + 1;
-            if (s.charAt(x) !== s.charAt(y)) {
-                ans = Math.max(maxLen + len, ans);
-                maxLen = Math.max(len, maxLen);
+    const dfs = (i: number): number => {
+        let mx = 0;
+        for (const j of g[i]) {
+            const x = dfs(j) + 1;
+            if (s[i] !== s[j]) {
+                ans = Math.max(ans, mx + x);
+                mx = Math.max(mx, x);
             }
         }
-        return maxLen;
-    }
+        return mx;
+    };
     dfs(0);
     return ans + 1;
 }
