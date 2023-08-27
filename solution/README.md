@@ -2725,7 +2725,7 @@
 |  2712  |  [使所有字符相等的最小成本](/solution/2700-2799/2712.Minimum%20Cost%20to%20Make%20All%20Characters%20Equal/README.md)  |  `贪心`,`字符串`,`动态规划`  |  中等  |  第 347 场周赛  |
 |  2713  |  [矩阵中严格递增的单元格数](/solution/2700-2799/2713.Maximum%20Strictly%20Increasing%20Cells%20in%20a%20Matrix/README.md)  |  `记忆化搜索`,`数组`,`二分查找`,`动态规划`,`矩阵`,`排序`  |  困难  |  第 347 场周赛  |
 |  2714  |  [找到最短路径的 K 次跨越](/solution/2700-2799/2714.Find%20Shortest%20Path%20with%20K%20Hops/README.md)  |  `图`,`最短路`,`堆（优先队列）`  |  困难  |  🔒  |
-|  2715  |  [Timeout Cancellation](/solution/2700-2799/2715.Timeout%20Cancellation/README.md)  |    |  简单  |    |
+|  2715  |  [执行可取消的延迟函数](/solution/2700-2799/2715.Timeout%20Cancellation/README.md)  |    |  简单  |    |
 |  2716  |  [最小化字符串长度](/solution/2700-2799/2716.Minimize%20String%20Length/README.md)  |  `哈希表`,`字符串`  |  简单  |  第 348 场周赛  |
 |  2717  |  [半有序排列](/solution/2700-2799/2717.Semi-Ordered%20Permutation/README.md)  |  `数组`,`模拟`  |  简单  |  第 348 场周赛  |
 |  2718  |  [查询后矩阵的和](/solution/2700-2799/2718.Sum%20of%20Matrix%20After%20Queries/README.md)  |  `数组`,`哈希表`  |  中等  |  第 348 场周赛  |
@@ -2842,7 +2842,11 @@
 |  2829  |  [k-avoiding 数组的最小总和](/solution/2800-2899/2829.Determine%20the%20Minimum%20Sum%20of%20a%20k-avoiding%20Array/README.md)  |  `贪心`,`数学`  |  中等  |  第 359 场周赛  |
 |  2830  |  [销售利润最大化](/solution/2800-2899/2830.Maximize%20the%20Profit%20as%20the%20Salesman/README.md)  |  `数组`,`二分查找`,`动态规划`,`排序`  |  中等  |  第 359 场周赛  |
 |  2831  |  [找出最长等值子数组](/solution/2800-2899/2831.Find%20the%20Longest%20Equal%20Subarray/README.md)  |  `数组`,`哈希表`,`二分查找`,`滑动窗口`  |  中等  |  第 359 场周赛  |
-|  2832  |  [Maximal Range That Each Element Is Maximum in It](/solution/2800-2899/2832.Maximal%20Range%20That%20Each%20Element%20Is%20Maximum%20in%20It/README.md)  |    |  中等  |  🔒  |
+|  2832  |  [每个元素为最大值的最大范围](/solution/2800-2899/2832.Maximal%20Range%20That%20Each%20Element%20Is%20Maximum%20in%20It/README.md)  |    |  中等  |  🔒  |
+|  2833  |  [距离原点最远的点](/solution/2800-2899/2833.Furthest%20Point%20From%20Origin/README.md)  |    |  简单  |  第 360 场周赛  |
+|  2834  |  [找出美丽数组的最小和](/solution/2800-2899/2834.Find%20the%20Minimum%20Possible%20Sum%20of%20a%20Beautiful%20Array/README.md)  |    |  中等  |  第 360 场周赛  |
+|  2835  |  [使子序列的和等于目标的最少操作次数](/solution/2800-2899/2835.Minimum%20Operations%20to%20Form%20Subsequence%20With%20Target%20Sum/README.md)  |    |  困难  |  第 360 场周赛  |
+|  2836  |  [在传球游戏中最大化函数值](/solution/2800-2899/2836.Maximize%20Value%20of%20Function%20in%20a%20Ball%20Passing%20Game/README.md)  |    |  困难  |  第 360 场周赛  |
 
 ## 版权
 

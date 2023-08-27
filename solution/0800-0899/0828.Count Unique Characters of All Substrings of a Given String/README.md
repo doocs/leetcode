@@ -16,7 +16,7 @@
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
 <strong>输入: </strong>s = "ABC"
@@ -26,7 +26,7 @@
      所以其长度总和为：1 + 1 + 1 + 2 + 2 + 3 = 10
 </pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
 <strong>输入: </strong>s = "ABA"
@@ -34,7 +34,7 @@
 <strong>解释: </strong>除<code>了 countUniqueChars</code>("ABA") = 1 之外，其余与示例 1 相同。
 </pre>
 
-<p><strong>示例 3：</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <pre>
 <strong>输入：</strong>s = "LEETCODE"
@@ -46,7 +46,7 @@
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= s.length &lt;= 10^5</code></li>
+	<li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>s</code> 只包含大写英文字符</li>
 </ul>
 

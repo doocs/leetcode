@@ -39,7 +39,7 @@ At t=150, get(1) is called but -1 is returned because the cache is empty.
 [&quot;TimeLimitedCache&quot;, &quot;set&quot;, &quot;set&quot;, &quot;get&quot;, &quot;get&quot;, &quot;get&quot;, &quot;count&quot;]
 [[], [1, 42, 50], [1, 50, 100], [1], [1], [1], []]
 [0, 0, 40, 50, 120, 200, 250]
-<strong>Output:</strong> [null, false, true, 50, 50, -1]
+<strong>Output:</strong> [null, false, true, 50, 50, -1, 0]
 <strong>Explanation:</strong>
 At t=0, the cache is constructed.
 At t=0, a key-value pair (1: 42) is added with a time limit of 50ms. The value doesn&#39;t exist so false is returned.
@@ -58,7 +58,7 @@ At t=250, count() returns 0 because the cache is empty.
 	<li><code>0 &lt;= key &lt;= 10<sup>9</sup></code></li>
 	<li><code>0 &lt;= value &lt;= 10<sup>9</sup></code></li>
 	<li><code>0 &lt;= duration &lt;= 1000</code></li>
-	<li><code>total method calls will not exceed 100</code></li>
+	<li>total method calls will not exceed 100</li>
 </ul>
 
 ## Solutions

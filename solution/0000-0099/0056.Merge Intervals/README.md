@@ -39,28 +39,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：区间合并**
-
-这道题是一道典型的区间合并问题，即给定一些区间，要求将所有有交集的区间合并成一个区间。
+**方法一：排序 + 一次遍历**
 
 我们可以将区间按照左端点升序排列，然后遍历区间进行合并操作。
 
-模板如下：
+具体的合并操作如下。
 
-```python
-def merge(intervals):
-    ans = []
-    intervals.sort()
-    st, ed = intervals[0]
-    for s, e in intervals[1:]:
-        if ed < s:
-            ans.append([st, ed])
-            st, ed = s, e
-        else:
-            ed = max(ed, e)
-    ans.append([st, ed])
-    return ans
-```
+我们先将第一个区间加入答案，然后依次考虑之后的每个区间：
+
+-   如果答案数组中最后一个区间的右端点小于当前考虑区间的左端点，说明两个区间不会重合，因此我们可以直接将当前区间加入答案数组末尾；
+-   否则，说明两个区间重合，我们需要用当前区间的右端点更新答案数组中最后一个区间的右端点，将其置为二者的较大值。
+
+最后，我们返回答案数组即可。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为区间个数。
 
@@ -83,6 +73,19 @@ class Solution:
             else:
                 ed = max(ed, e)
         ans.append([st, ed])
+        return ans
+```
+
+```python
+class Solution:
+    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+        intervals.sort()
+        ans = [intervals[0]]
+        for s, e in intervals[1:]:
+            if ans[-1][1] < s:
+                ans.append([s, e])
+            else:
+                ans[-1][1] = max(ans[-1][1], e)
         return ans
 ```
 
@@ -112,6 +115,25 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int[][] merge(int[][] intervals) {
+        Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
+        List<int[]> ans = new ArrayList<>();
+        ans.add(intervals[0]);
+        for (int i = 1; i < intervals.length; ++i) {
+            int s = intervals[i][0], e = intervals[i][1];
+            if (ans.get(ans.size() - 1)[1] < s) {
+                ans.add(intervals[i]);
+            } else {
+                ans.get(ans.size() - 1)[1] = Math.max(ans.get(ans.size() - 1)[1], e);
+            }
+        }
+        return ans.toArray(new int[ans.size()][]);
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -136,6 +158,25 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        sort(intervals.begin(), intervals.end());
+        vector<vector<int>> ans;
+        ans.emplace_back(intervals[0]);
+        for (int i = 1; i < intervals.size(); ++i) {
+            if (ans.back()[1] < intervals[i][0]) {
+                ans.emplace_back(intervals[i]);
+            } else {
+                ans.back()[1] = max(ans.back()[1], intervals[i][1]);
+            }
+        }
+        return ans;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -154,6 +195,28 @@ func merge(intervals [][]int) (ans [][]int) {
 	}
 	ans = append(ans, []int{st, ed})
 	return ans
+}
+```
+
+```go
+func merge(intervals [][]int) (ans [][]int) {
+	sort.Slice(intervals, func(i, j int) bool { return intervals[i][0] < intervals[j][0] })
+	ans = append(ans, intervals[0])
+	for _, e := range intervals[1:] {
+		if ans[len(ans)-1][1] < e[0] {
+			ans = append(ans, e)
+		} else {
+			ans[len(ans)-1][1] = max(ans[len(ans)-1][1], e[1])
+		}
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
@@ -196,6 +259,21 @@ function merge(intervals: number[][]): number[][] {
         }
     }
     ans.push([st, ed]);
+    return ans;
+}
+```
+
+```ts
+function merge(intervals: number[][]): number[][] {
+    intervals.sort((a, b) => a[0] - b[0]);
+    const ans: number[][] = [intervals[0]];
+    for (let i = 1; i < intervals.length; ++i) {
+        if (ans.at(-1)[1] < intervals[i][0]) {
+            ans.push(intervals[i]);
+        } else {
+            ans.at(-1)[1] = Math.max(ans.at(-1)[1], intervals[i][1]);
+        }
+    }
     return ans;
 }
 ```
