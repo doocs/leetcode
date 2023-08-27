@@ -2768,7 +2768,7 @@
   - [2712.使所有字符相等的最小成本](/solution/2700-2799/2712.Minimum%20Cost%20to%20Make%20All%20Characters%20Equal/README.md)
   - [2713.矩阵中严格递增的单元格数](/solution/2700-2799/2713.Maximum%20Strictly%20Increasing%20Cells%20in%20a%20Matrix/README.md)
   - [2714.找到最短路径的 K 次跨越](/solution/2700-2799/2714.Find%20Shortest%20Path%20with%20K%20Hops/README.md)
-  - [2715.Timeout Cancellation](/solution/2700-2799/2715.Timeout%20Cancellation/README.md)
+  - [2715.执行可取消的延迟函数](/solution/2700-2799/2715.Timeout%20Cancellation/README.md)
   - [2716.最小化字符串长度](/solution/2700-2799/2716.Minimize%20String%20Length/README.md)
   - [2717.半有序排列](/solution/2700-2799/2717.Semi-Ordered%20Permutation/README.md)
   - [2718.查询后矩阵的和](/solution/2700-2799/2718.Sum%20of%20Matrix%20After%20Queries/README.md)
