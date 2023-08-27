@@ -55,6 +55,26 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：状态压缩动态规划**
+
+我们注意到，题目要求正好经过 $k$ 条公路，而每个城市最多只能访问一次，城市的数量为 $n$，因此，我们最多只能经过 $n - 1$ 条公路。所以，如果 $k \ge n$，那么我们无法满足题目要求，直接返回 $-1$ 即可。
+
+另外，我们也可以发现，城市数量 $n$ 不超过 $15$，这提示我们可以考虑使用状态压缩动态规划的方法求解本题。我们用一个长度为 $n$ 的二进制数表示当前已经经过的城市，其中第 $i$ 位为 $1$ 表示已经经过了第 $i$ 个城市，为 $0$ 表示还没有经过第 $i$ 个城市。
+
+我们用 $f[i][j]$ 表示当前已经经过的城市为 $i$，最后一个经过的城市为 $j$ 的情况下，最大的旅行费用。初始时 $f[2^i][i]=0$，其余 $f[i][j]=-\infty$。
+
+考虑 $f[i][j]$ 如何进行状态转移。对于 $f[i]$，我们枚举所有城市 $j$，如果 $i$ 的第 $j$ 位为 $1$，那么我们就可以从其它城市 $h$ 经过公路到达城市 $j$，此时 $f[i][j]$ 的值为 $f[i][h]+cost(h, j)$ 的最大值，其中 $cost(h, j)$ 表示从城市 $h$ 到城市 $j$ 的旅行费用。因此，我们可以得到状态转移方程：
+
+$$
+f[i][j]=\max_{h \in \text{city}}\{f[i \backslash j][h]+cost(h, j)\}
+$$
+
+其中 $i \backslash j$ 表示将 $i$ 的第 $j$ 位变为 $0$。
+
+求出 $f[i][j]$ 后，我们判断经过的城市数量是否为 $k+1$，即 $i$ 的二进制表示中 $1$ 的个数是否为 $k+1$，如果是，那么我们就更新答案为 $ans = \max(ans, f[i][j])$。
+
+时间复杂度 $O(2^n \times n^2)$，空间复杂度 $O(2^n \times n)$。其中 $n$ 表示城市数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -62,7 +82,27 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maximumCost(self, n: int, highways: List[List[int]], k: int) -> int:
+        if k >= n:
+            return -1
+        g = defaultdict(list)
+        for a, b, cost in highways:
+            g[a].append((b, cost))
+            g[b].append((a, cost))
+        f = [[-inf] * n for _ in range(1 << n)]
+        for i in range(n):
+            f[1 << i][i] = 0
+        ans = -1
+        for i in range(1 << n):
+            for j in range(n):
+                if i >> j & 1:
+                    for h, cost in g[j]:
+                        if i >> h & 1:
+                            f[i][j] = max(f[i][j], f[i ^ (1 << j)][h] + cost)
+                if i.bit_count() == k + 1:
+                    ans = max(ans, f[i][j])
+        return ans
 ```
 
 ### **Java**
@@ -70,13 +110,180 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maximumCost(int n, int[][] highways, int k) {
+        if (k >= n) {
+            return -1;
+        }
+        List<int[]>[] g = new List[n];
+        Arrays.setAll(g, h -> new ArrayList<>());
+        for (int[] h : highways) {
+            int a = h[0], b = h[1], cost = h[2];
+            g[a].add(new int[] {b, cost});
+            g[b].add(new int[] {a, cost});
+        }
+        int[][] f = new int[1 << n][n];
+        for (int[] e : f) {
+            Arrays.fill(e, -(1 << 30));
+        }
+        for (int i = 0; i < n; ++i) {
+            f[1 << i][i] = 0;
+        }
+        int ans = -1;
+        for (int i = 0; i < 1 << n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if ((i >> j & 1) == 1) {
+                    for (var e : g[j]) {
+                        int h = e[0], cost = e[1];
+                        if ((i >> h & 1) == 1) {
+                            f[i][j] = Math.max(f[i][j], f[i ^ (1 << j)][h] + cost);
+                        }
+                    }
+                }
+                if (Integer.bitCount(i) == k + 1) {
+                    ans = Math.max(ans, f[i][j]);
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maximumCost(int n, vector<vector<int>>& highways, int k) {
+        if (k >= n) {
+            return -1;
+        }
+        vector<pair<int, int>> g[n];
+        for (auto& h : highways) {
+            int a = h[0], b = h[1], cost = h[2];
+            g[a].emplace_back(b, cost);
+            g[b].emplace_back(a, cost);
+        }
+        int f[1 << n][n];
+        memset(f, -0x3f, sizeof(f));
+        for (int i = 0; i < n; ++i) {
+            f[1 << i][i] = 0;
+        }
+        int ans = -1;
+        for (int i = 0; i < 1 << n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (i >> j & 1) {
+                    for (auto& [h, cost] : g[j]) {
+                        if (i >> h & 1) {
+                            f[i][j] = max(f[i][j], f[i ^ (1 << j)][h] + cost);
+                        }
+                    }
+                }
+                if (__builtin_popcount(i) == k + 1) {
+                    ans = max(ans, f[i][j]);
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximumCost(n int, highways [][]int, k int) int {
+	if k >= n {
+		return -1
+	}
+	g := make([][][2]int, n)
+	for _, h := range highways {
+		a, b, cost := h[0], h[1], h[2]
+		g[a] = append(g[a], [2]int{b, cost})
+		g[b] = append(g[b], [2]int{a, cost})
+	}
+	f := make([][]int, 1<<n)
+	for i := range f {
+		f[i] = make([]int, n)
+		for j := range f[i] {
+			f[i][j] = -(1 << 30)
+		}
+	}
+	for i := 0; i < n; i++ {
+		f[1<<i][i] = 0
+	}
+	ans := -1
+	for i := 0; i < 1<<n; i++ {
+		for j := 0; j < n; j++ {
+			if i>>j&1 == 1 {
+				for _, e := range g[j] {
+					h, cost := e[0], e[1]
+					if i>>h&1 == 1 {
+						f[i][j] = max(f[i][j], f[i^(1<<j)][h]+cost)
+					}
+				}
+			}
+			if bits.OnesCount(uint(i)) == k+1 {
+				ans = max(ans, f[i][j])
+			}
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
 
 ```ts
+function maximumCost(n: number, highways: number[][], k: number): number {
+    if (k >= n) {
+        return -1;
+    }
+    const g: [number, number][][] = Array.from({ length: n }, () => []);
+    for (const [a, b, cost] of highways) {
+        g[a].push([b, cost]);
+        g[b].push([a, cost]);
+    }
+    const f: number[][] = Array(1 << n)
+        .fill(0)
+        .map(() => Array(n).fill(-(1 << 30)));
+    for (let i = 0; i < n; ++i) {
+        f[1 << i][i] = 0;
+    }
+    let ans = -1;
+    for (let i = 0; i < 1 << n; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if ((i >> j) & 1) {
+                for (const [h, cost] of g[j]) {
+                    if ((i >> h) & 1) {
+                        f[i][j] = Math.max(f[i][j], f[i ^ (1 << j)][h] + cost);
+                    }
+                }
+            }
+            if (bitCount(i) === k + 1) {
+                ans = Math.max(ans, f[i][j]);
+            }
+        }
+    }
+    return ans;
+}
 
+function bitCount(i: number): number {
+    i = i - ((i >>> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
+    i = (i + (i >>> 4)) & 0x0f0f0f0f;
+    i = i + (i >>> 8);
+    i = i + (i >>> 16);
+    return i & 0x3f;
+}
 ```
 
 ### **...**
