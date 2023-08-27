@@ -57,24 +57,38 @@ class Solution:
     def canSeePersonsCount(self, heights: List[int]) -> List[int]:
         n = len(heights)
         ans = [0] * n
-        stack = list()
-
+        stk = []
         for i in range(n - 1, -1, -1):
-            while stack:
+            while stk and stk[-1] < heights[i]:
                 ans[i] += 1
-                if heights[i] > stack[-1]:
-                    stack.pop()
-                else:
-                    break
-            stack.append(heights[i])
-
+                stk.pop()
+            if stk:
+                ans[i] += 1
+            stk.append(heights[i])
         return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int[] canSeePersonsCount(int[] heights) {
+        int n = heights.length;
+        int[] ans = new int[n];
+        Deque<Integer> stk = new ArrayDeque<>();
+        for (int i = n - 1; i >= 0; --i) {
+            while (!stk.isEmpty() && stk.peek() < heights[i]) {
+                stk.pop();
+                ++ans[i];
+            }
+            if (!stk.isEmpty()) {
+                ++ans[i];
+            }
+            stk.push(heights[i]);
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
@@ -86,11 +100,13 @@ public:
         int n = heights.size();
         vector<int> ans(n);
         stack<int> stk;
-        for (int i = n - 1; i >= 0; --i) {
-            while (!stk.empty()) {
-                ans[i]++;
-                if (heights[i] <= stk.top()) break;
+        for (int i = n - 1; ~i; --i) {
+            while (stk.size() && stk.top() < heights[i]) {
+                ++ans[i];
                 stk.pop();
+            }
+            if (stk.size()) {
+                ++ans[i];
             }
             stk.push(heights[i]);
         }
@@ -99,22 +115,43 @@ public:
 };
 ```
 
+### **Go**
+
+```go
+func canSeePersonsCount(heights []int) []int {
+	n := len(heights)
+	ans := make([]int, n)
+	stk := []int{}
+	for i := n - 1; i >= 0; i-- {
+		for len(stk) > 0 && stk[len(stk)-1] < heights[i] {
+			ans[i]++
+			stk = stk[:len(stk)-1]
+		}
+		if len(stk) > 0 {
+			ans[i]++
+		}
+		stk = append(stk, heights[i])
+	}
+	return ans
+}
+```
+
 ### **TypeScript**
 
 ```ts
 function canSeePersonsCount(heights: number[]): number[] {
     const n = heights.length;
-    const ans = new Array(n).fill(0);
-    const stack = [];
-    for (let i = n - 1; i >= 0; i--) {
-        while (stack.length !== 0) {
-            ans[i]++;
-            if (heights[i] <= heights[stack[stack.length - 1]]) {
-                break;
-            }
-            stack.pop();
+    const ans: number[] = new Array(n).fill(0);
+    const stk: number[] = [];
+    for (let i = n - 1; ~i; --i) {
+        while (stk.length && stk.at(-1) < heights[i]) {
+            ++ans[i];
+            stk.pop();
         }
-        stack.push(i);
+        if (stk.length) {
+            ++ans[i];
+        }
+        stk.push(heights[i]);
     }
     return ans;
 }
