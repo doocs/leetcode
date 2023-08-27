@@ -1,4 +1,4 @@
-# [2715. Timeout Cancellation](https://leetcode.cn/problems/timeout-cancellation)
+# [2715. 执行可取消的延迟函数](https://leetcode.cn/problems/execute-cancellable-function-with-delay)
 
 [English Version](/solution/2700-2799/2715.Timeout%20Cancellation/README_EN.md)
 
@@ -69,16 +69,10 @@ setTimeout(cancel, 100);
 
 ```ts
 function cancellable(fn: Function, args: any[], t: number): Function {
-    let cancelled = false;
-    const cancel = () => {
-        cancelled = true;
+    const timer = setTimeout(() => fn(...args), t);
+    return () => {
+        clearTimeout(timer);
     };
-    setTimeout(() => {
-        if (!cancelled) {
-            fn(...args);
-        }
-    }, t);
-    return cancel;
 }
 
 /**
@@ -118,14 +112,10 @@ function cancellable(fn: Function, args: any[], t: number): Function {
  * @return {Function}
  */
 var cancellable = function (fn, args, t) {
-    let cancelled = false;
-    const calcel = () => (cancelled = true);
-    setTimeout(() => {
-        if (!cancelled) {
-            fn(...args);
-        }
-    }, t);
-    return calcel;
+    const timer = setTimeout(() => fn(...args), t);
+    return () => {
+        clearTimeout(timer);
+    };
 };
 
 /**
