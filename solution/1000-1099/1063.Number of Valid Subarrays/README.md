@@ -83,6 +83,20 @@ class Solution:
         return sum(j - i for i, j in enumerate(right))
 ```
 
+```python
+class Solution:
+    def validSubarrays(self, nums: List[int]) -> int:
+        n = len(nums)
+        stk = []
+        ans = 0
+        for i in range(n - 1, -1, -1):
+            while stk and nums[stk[-1]] >= nums[i]:
+                stk.pop()
+            ans += (stk[-1] if stk else n) - i
+            stk.append(i)
+        return ans
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
@@ -106,6 +120,25 @@ class Solution {
         int ans = 0;
         for (int i = 0; i < n; ++i) {
             ans += right[i] - i;
+        }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int validSubarrays(int[] nums) {
+        int n = nums.length;
+        Deque<Integer> stk = new ArrayDeque<>();
+        int ans = 0;
+        for (int i = n - 1; i >= 0; --i) {
+            while (!stk.isEmpty() && nums[stk.peek()] >= nums[i]) {
+                stk.pop();
+            }
+            ans += (stk.isEmpty() ? n : stk.peek()) - i;
+
+            stk.push(i);
         }
         return ans;
     }
@@ -139,6 +172,25 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int validSubarrays(vector<int>& nums) {
+        int n = nums.size();
+        stack<int> stk;
+        int ans = 0;
+        for (int i = n - 1; ~i; --i) {
+            while (stk.size() && nums[stk.top()] >= nums[i]) {
+                stk.pop();
+            }
+            ans += (stk.size() ? stk.top() : n) - i;
+            stk.push(i);
+        }
+        return ans;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -165,29 +217,63 @@ func validSubarrays(nums []int) (ans int) {
 }
 ```
 
-### **TypeScript**
-
-```ts
+```go
 func validSubarrays(nums []int) (ans int) {
 	n := len(nums)
-	right := make([]int, n)
-	for i := range right {
-		right[i] = n
-	}
 	stk := []int{}
 	for i := n - 1; i >= 0; i-- {
 		for len(stk) > 0 && nums[stk[len(stk)-1]] >= nums[i] {
 			stk = stk[:len(stk)-1]
 		}
+		ans -= i
 		if len(stk) > 0 {
-			right[i] = stk[len(stk)-1]
+			ans += stk[len(stk)-1]
+		} else {
+			ans += n
 		}
 		stk = append(stk, i)
 	}
-	for i, j := range right {
-		ans += j - i
-	}
 	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function validSubarrays(nums: number[]): number {
+    const n = nums.length;
+    const right: number[] = Array(n).fill(n);
+    const stk: number[] = [];
+    for (let i = n - 1; ~i; --i) {
+        while (stk.length && nums[stk.at(-1)] >= nums[i]) {
+            stk.pop();
+        }
+        if (stk.length) {
+            right[i] = stk.at(-1)!;
+        }
+        stk.push(i);
+    }
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        ans += right[i] - i;
+    }
+    return ans;
+}
+```
+
+```ts
+function validSubarrays(nums: number[]): number {
+    const n = nums.length;
+    const stk: number[] = [];
+    let ans = 0;
+    for (let i = n - 1; ~i; --i) {
+        while (stk.length && nums[stk.at(-1)!] >= nums[i]) {
+            stk.pop();
+        }
+        ans += (stk.at(-1) ?? n) - i;
+        stk.push(i);
+    }
+    return ans;
 }
 ```
 
