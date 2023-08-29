@@ -1,19 +1,27 @@
 func shortestToChar(s string, c byte) []int {
 	n := len(s)
 	ans := make([]int, n)
-	for i, j := 0, -10000; i < n; i++ {
+	const inf int = 1 << 30
+	pre := -inf
+	for i := range s {
 		if s[i] == c {
-			j = i
+			pre = i
 		}
-		ans[i] = i - j
+		ans[i] = i - pre
 	}
-	for i, j := n-1, 10000; i >= 0; i-- {
+	suf := inf
+	for i := n - 1; i >= 0; i-- {
 		if s[i] == c {
-			j = i
+			suf = i
 		}
-		if j-i < ans[i] {
-			ans[i] = j - i
-		}
+		ans[i] = min(ans[i], suf-i)
 	}
 	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
