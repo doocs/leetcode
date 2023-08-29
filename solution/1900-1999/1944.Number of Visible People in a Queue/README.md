@@ -66,6 +66,10 @@
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $heights$ 的长度。
 
+相似题目：
+
+-   [2282. 在一个网格中可以看到的人数](/solution/2200-2299/2282.Number%20of%20People%20That%20Can%20Be%20Seen%20in%20a%20Grid/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
