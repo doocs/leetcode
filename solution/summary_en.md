@@ -2892,3 +2892,4 @@
   - [2834.Find the Minimum Possible Sum of a Beautiful Array](/solution/2800-2899/2834.Find%20the%20Minimum%20Possible%20Sum%20of%20a%20Beautiful%20Array/README_EN.md)
   - [2835.Minimum Operations to Form Subsequence With Target Sum](/solution/2800-2899/2835.Minimum%20Operations%20to%20Form%20Subsequence%20With%20Target%20Sum/README_EN.md)
   - [2836.Maximize Value of Function in a Ball Passing Game](/solution/2800-2899/2836.Maximize%20Value%20of%20Function%20in%20a%20Ball%20Passing%20Game/README_EN.md)
+  - [2837.Total Traveled Distance](/solution/2800-2899/2837.Total%20Traveled%20Distance/README_EN.md)
