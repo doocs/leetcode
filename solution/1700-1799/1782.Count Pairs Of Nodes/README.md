@@ -17,12 +17,14 @@
 
 <p>请你返回一个数组&nbsp;<code>answers</code>&nbsp;，其中&nbsp;<code>answers.length == queries.length</code> 且&nbsp;<code>answers[j]</code>&nbsp;是第 <code>j</code>&nbsp;个查询的答案。</p>
 
-<p>请注意，图中可能会有 <strong>重复边</strong>&nbsp;。</p>
+<p>请注意，图中可能会有 <strong>多重边</strong>&nbsp;。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1700-1799/1782.Count%20Pairs%20Of%20Nodes/images/1614828447-GMnLVg-image.png" style="width: 310px; height: 278px;" />
+
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1700-1799/1782.Count%20Pairs%20Of%20Nodes/images/1692844033-Kvxjvr-image.png" style="width: 600px; height: 338px;" /></p>
+
 <pre>
 <b>输入：</b>n = 4, edges = [[1,2],[2,4],[1,3],[2,3],[2,1]], queries = [2,3]
 <b>输出：</b>[6,5]

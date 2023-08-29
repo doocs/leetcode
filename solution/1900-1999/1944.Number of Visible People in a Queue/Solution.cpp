@@ -4,11 +4,13 @@ public:
         int n = heights.size();
         vector<int> ans(n);
         stack<int> stk;
-        for (int i = n - 1; i >= 0; --i) {
-            while (!stk.empty()) {
-                ans[i]++;
-                if (heights[i] <= stk.top()) break;
+        for (int i = n - 1; ~i; --i) {
+            while (stk.size() && stk.top() < heights[i]) {
+                ++ans[i];
                 stk.pop();
+            }
+            if (stk.size()) {
+                ++ans[i];
             }
             stk.push(heights[i]);
         }

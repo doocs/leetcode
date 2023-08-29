@@ -62,6 +62,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：优先队列（大小根堆）+ 前后缀和 + 枚举分割点**
+
+题目实际上等价于在 $nums$ 中找到一个分割点，将数组分成左右两部分，在前一部分中选取最小的 $n$ 个元素，在后一部分中选取最大的 $n$ 个元素，使得两部分和的差值最小。
+
+我们可以用一个大根堆维护前缀中最小的 $n$ 个元素，用一个小根堆维护后缀中最大的 $n$ 个元素。我们定义 $pre[i]$ 表示在数组 $nums$ 的前 $i$ 个元素中选择最小的 $n$ 个元素的和，定义 $suf[i]$ 表示从数组第 $i$ 个元素到最后一个元素中选择最大的 $n$ 个元素的和。在维护大小根堆的过程中，更新 $pre[i]$ 和 $suf[i]$ 的值。
+
+最后，我们在 $i \in [n, 2n]$ 的范围内枚举分割点，计算 $pre[i] - suf[i + 1]$ 的值，取最小值即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -69,7 +79,33 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def minimumDifference(self, nums: List[int]) -> int:
+        m = len(nums)
+        n = m // 3
 
+        s = 0
+        pre = [0] * (m + 1)
+        q1 = []
+        for i, x in enumerate(nums[: n * 2], 1):
+            s += x
+            heappush(q1, -x)
+            if len(q1) > n:
+                s -= -heappop(q1)
+            pre[i] = s
+
+        s = 0
+        suf = [0] * (m + 1)
+        q2 = []
+        for i in range(m, n, -1):
+            x = nums[i - 1]
+            s += x
+            heappush(q2, x)
+            if len(q2) > n:
+                s -= heappop(q2)
+            suf[i] = s
+
+        return min(pre[i] - suf[i + 1] for i in range(n, n * 2 + 1))
 ```
 
 ### **Java**
@@ -77,13 +113,180 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public long minimumDifference(int[] nums) {
+        int m = nums.length;
+        int n = m / 3;
+        long s = 0;
+        long[] pre = new long[m + 1];
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b - a);
+        for (int i = 1; i <= n * 2; ++i) {
+            int x = nums[i - 1];
+            s += x;
+            pq.offer(x);
+            if (pq.size() > n) {
+                s -= pq.poll();
+            }
+            pre[i] = s;
+        }
+        s = 0;
+        long[] suf = new long[m + 1];
+        pq = new PriorityQueue<>();
+        for (int i = m; i > n; --i) {
+            int x = nums[i - 1];
+            s += x;
+            pq.offer(x);
+            if (pq.size() > n) {
+                s -= pq.poll();
+            }
+            suf[i] = s;
+        }
+        long ans = 1L << 60;
+        for (int i = n; i <= n * 2; ++i) {
+            ans = Math.min(ans, pre[i] - suf[i + 1]);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    long long minimumDifference(vector<int>& nums) {
+        int m = nums.size();
+        int n = m / 3;
+
+        using ll = long long;
+        ll s = 0;
+        ll pre[m + 1];
+        priority_queue<int> q1;
+        for (int i = 1; i <= n * 2; ++i) {
+            int x = nums[i - 1];
+            s += x;
+            q1.push(x);
+            if (q1.size() > n) {
+                s -= q1.top();
+                q1.pop();
+            }
+            pre[i] = s;
+        }
+        s = 0;
+        ll suf[m + 1];
+        priority_queue<int, vector<int>, greater<int>> q2;
+        for (int i = m; i > n; --i) {
+            int x = nums[i - 1];
+            s += x;
+            q2.push(x);
+            if (q2.size() > n) {
+                s -= q2.top();
+                q2.pop();
+            }
+            suf[i] = s;
+        }
+        ll ans = 1e18;
+        for (int i = n; i <= n * 2; ++i) {
+            ans = min(ans, pre[i] - suf[i + 1]);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumDifference(nums []int) int64 {
+	m := len(nums)
+	n := m / 3
+	s := 0
+	pre := make([]int, m+1)
+	q1 := hp{}
+	for i := 1; i <= n*2; i++ {
+		x := nums[i-1]
+		s += x
+		heap.Push(&q1, -x)
+		if q1.Len() > n {
+			s -= -heap.Pop(&q1).(int)
+		}
+		pre[i] = s
+	}
+	s = 0
+	suf := make([]int, m+1)
+	q2 := hp{}
+	for i := m; i > n; i-- {
+		x := nums[i-1]
+		s += x
+		heap.Push(&q2, x)
+		if q2.Len() > n {
+			s -= heap.Pop(&q2).(int)
+		}
+		suf[i] = s
+	}
+	ans := int64(1e18)
+	for i := n; i <= n*2; i++ {
+		ans = min(ans, int64(pre[i]-suf[i+1]))
+	}
+	return ans
+}
+
+func min(a, b int64) int64 {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+type hp struct{ sort.IntSlice }
+
+func (h hp) Less(i, j int) bool  { return h.IntSlice[i] < h.IntSlice[j] }
+func (h *hp) Push(v interface{}) { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() interface{} {
+	a := h.IntSlice
+	v := a[len(a)-1]
+	h.IntSlice = a[:len(a)-1]
+	return v
+}
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function minimumDifference(nums: number[]): number {
+    const m = nums.length;
+    const n = Math.floor(m / 3);
+    let s = 0;
+    const pre: number[] = Array(m + 1);
+    const q1 = new MaxPriorityQueue();
+    for (let i = 1; i <= n * 2; ++i) {
+        const x = nums[i - 1];
+        s += x;
+        q1.enqueue(x, x);
+        if (q1.size() > n) {
+            s -= q1.dequeue().element;
+        }
+        pre[i] = s;
+    }
+    s = 0;
+    const suf: number[] = Array(m + 1);
+    const q2 = new MinPriorityQueue();
+    for (let i = m; i > n; --i) {
+        const x = nums[i - 1];
+        s += x;
+        q2.enqueue(x, x);
+        if (q2.size() > n) {
+            s -= q2.dequeue().element;
+        }
+        suf[i] = s;
+    }
+    let ans = Number.MAX_SAFE_INTEGER;
+    for (let i = n; i <= n * 2; ++i) {
+        ans = Math.min(ans, pre[i] - suf[i + 1]);
+    }
+    return ans;
+}
 ```
 
 ### **...**

@@ -1,15 +1,15 @@
 class Solution:
     def shortestToChar(self, s: str, c: str) -> List[int]:
         n = len(s)
-        ans = [0] * n
-        j = inf
+        ans = [n] * n
+        pre = -inf
         for i, ch in enumerate(s):
             if ch == c:
-                j = i
-            ans[i] = abs(i - j)
-        j = inf
+                pre = i
+            ans[i] = min(ans[i], i - pre)
+        suf = inf
         for i in range(n - 1, -1, -1):
             if s[i] == c:
-                j = i
-            ans[i] = min(ans[i], abs(i - j))
+                suf = i
+            ans[i] = min(ans[i], suf - i)
         return ans

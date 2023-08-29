@@ -24,7 +24,7 @@
 <pre>
 <strong>输入：</strong>intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [4,8]
 <strong>输出：</strong>[[1,2],[3,10],[12,16]]
-<strong>解释：</strong>这是因为新的区间 <code>[4,8]</code> 与 <code>[3,5],[6,7],[8,10]</code> 重叠。</pre>
+<strong>解释：</strong>这是因为新的区间 [4,8] 与 [3,5],[6,7],[8,10] 重叠。</pre>
 
 <p><strong>示例 3：</strong></p>
 
@@ -80,7 +80,7 @@
 
 遍历结束，如果新区间还没有被加入，那么将新区间加入到答案中。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是区间的数量。
+时间复杂度 $O(n)$，其中 $n$ 是区间的数量。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -93,17 +93,14 @@ class Solution:
     def insert(
         self, intervals: List[List[int]], newInterval: List[int]
     ) -> List[List[int]]:
-        def merge(intervals):
+        def merge(intervals: List[List[int]]) -> List[List[int]]:
             intervals.sort()
-            ans = []
-            st, ed = intervals[0]
+            ans = [intervals[0]]
             for s, e in intervals[1:]:
-                if ed < s:
-                    ans.append([st, ed])
-                    st, ed = s, e
+                if ans[-1][1] < s:
+                    ans.append([s, e])
                 else:
-                    ed = max(ed, e)
-            ans.append([st, ed])
+                    ans[-1][1] = max(ans[-1][1], e)
             return ans
 
         intervals.append(newInterval)
@@ -141,6 +138,34 @@ class Solution:
 ```java
 class Solution {
     public int[][] insert(int[][] intervals, int[] newInterval) {
+        int[][] newIntervals = new int[intervals.length + 1][2];
+        for (int i = 0; i < intervals.length; ++i) {
+            newIntervals[i] = intervals[i];
+        }
+        newIntervals[intervals.length] = newInterval;
+        return merge(newIntervals);
+    }
+
+    private int[][] merge(int[][] intervals) {
+        Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
+        List<int[]> ans = new ArrayList<>();
+        ans.add(intervals[0]);
+        for (int i = 1; i < intervals.length; ++i) {
+            int s = intervals[i][0], e = intervals[i][1];
+            if (ans.get(ans.size() - 1)[1] < s) {
+                ans.add(intervals[i]);
+            } else {
+                ans.get(ans.size() - 1)[1] = Math.max(ans.get(ans.size() - 1)[1], e);
+            }
+        }
+        return ans.toArray(new int[ans.size()][]);
+    }
+}
+```
+
+```java
+class Solution {
+    public int[][] insert(int[][] intervals, int[] newInterval) {
         List<int[]> ans = new ArrayList<>();
         int st = newInterval[0], ed = newInterval[1];
         boolean insert = false;
@@ -173,24 +198,21 @@ class Solution {
 class Solution {
 public:
     vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
-        intervals.push_back(newInterval);
+        intervals.emplace_back(newInterval);
         return merge(intervals);
     }
 
     vector<vector<int>> merge(vector<vector<int>>& intervals) {
         sort(intervals.begin(), intervals.end());
-        int st = intervals[0][0], ed = intervals[0][1];
         vector<vector<int>> ans;
+        ans.emplace_back(intervals[0]);
         for (int i = 1; i < intervals.size(); ++i) {
-            if (ed < intervals[i][0]) {
-                ans.push_back({st, ed});
-                st = intervals[i][0];
-                ed = intervals[i][1];
+            if (ans.back()[1] < intervals[i][0]) {
+                ans.emplace_back(intervals[i]);
             } else {
-                ed = max(ed, intervals[i][1]);
+                ans.back()[1] = max(ans.back()[1], intervals[i][1]);
             }
         }
-        ans.push_back({st, ed});
         return ans;
     }
 };
@@ -230,26 +252,27 @@ public:
 
 ```go
 func insert(intervals [][]int, newInterval []int) [][]int {
+	merge := func(intervals [][]int) (ans [][]int) {
+		sort.Slice(intervals, func(i, j int) bool { return intervals[i][0] < intervals[j][0] })
+		ans = append(ans, intervals[0])
+		for _, e := range intervals[1:] {
+			if ans[len(ans)-1][1] < e[0] {
+				ans = append(ans, e)
+			} else {
+				ans[len(ans)-1][1] = max(ans[len(ans)-1][1], e[1])
+			}
+		}
+		return
+	}
 	intervals = append(intervals, newInterval)
 	return merge(intervals)
 }
 
-func merge(intervals [][]int) [][]int {
-	sort.Slice(intervals, func(i, j int) bool {
-		return intervals[i][0] < intervals[j][0]
-	})
-	st, ed := intervals[0][0], intervals[0][1]
-	var ans [][]int
-	for _, e := range intervals[1:] {
-		if ed < e[0] {
-			ans = append(ans, []int{st, ed})
-			st, ed = e[0], e[1]
-		} else if ed < e[1] {
-			ed = e[1]
-		}
+func max(a, b int) int {
+	if a > b {
+		return a
 	}
-	ans = append(ans, []int{st, ed})
-	return ans
+	return b
 }
 ```
 
@@ -293,7 +316,82 @@ func min(a, b int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function insert(intervals: number[][], newInterval: number[]): number[][] {
+    const merge = (intervals: number[][]): number[][] => {
+        intervals.sort((a, b) => a[0] - b[0]);
+        const ans: number[][] = [intervals[0]];
+        for (let i = 1; i < intervals.length; ++i) {
+            if (ans.at(-1)[1] < intervals[i][0]) {
+                ans.push(intervals[i]);
+            } else {
+                ans.at(-1)[1] = Math.max(ans.at(-1)[1], intervals[i][1]);
+            }
+        }
+        return ans;
+    };
+
+    intervals.push(newInterval);
+    return merge(intervals);
+}
+```
+
+```ts
+function insert(intervals: number[][], newInterval: number[]): number[][] {
+    let [st, ed] = newInterval;
+    const ans: number[][] = [];
+    let insert = false;
+    for (const [s, e] of intervals) {
+        if (ed < s) {
+            if (!insert) {
+                ans.push([st, ed]);
+                insert = true;
+            }
+            ans.push([s, e]);
+        } else if (e < st) {
+            ans.push([s, e]);
+        } else {
+            st = Math.min(st, s);
+            ed = Math.max(ed, e);
+        }
+    }
+    if (!insert) {
+        ans.push([st, ed]);
+    }
+    return ans;
+}
+```
+
 ### **C#**
+
+```cs
+public class Solution {
+    public int[][] Insert(int[][] intervals, int[] newInterval) {
+        int[][] newIntervals = new int[intervals.Length + 1][];
+        for (int i = 0; i < intervals.Length; ++i) {
+            newIntervals[i] = intervals[i];
+        }
+        newIntervals[intervals.Length] = newInterval;
+        return Merge(newIntervals);
+    }
+
+    public int[][] Merge(int[][] intervals) {
+        intervals = intervals.OrderBy(a => a[0]).ToArray();
+        var ans = new List<int[]>();
+        ans.Add(intervals[0]);
+        for (int i = 1; i < intervals.Length; ++i) {
+            if (ans[ans.Count - 1][1] < intervals[i][0]) {
+                ans.Add(intervals[i]);
+            } else {
+                ans[ans.Count - 1][1] = Math.Max(ans[ans.Count - 1][1], intervals[i][1]);
+            }
+        }
+        return ans.ToArray();
+    }
+}
+```
 
 ```cs
 public class Solution {
