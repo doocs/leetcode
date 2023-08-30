@@ -8,8 +8,7 @@ public:
         bool vis[n][2];
         memset(vis, false, sizeof(vis));
         vis[0][1] = true;
-        int ans = 0;
-        while (!q.empty()) {
+        for (int ans = 0; q.size(); ++ans) {
             for (int t = q.size(); t; --t) {
                 auto [i, k] = q.front();
                 q.pop();
@@ -27,7 +26,6 @@ public:
                     }
                 }
             }
-            ++ans;
         }
         return -1;
     }
