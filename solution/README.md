@@ -2842,7 +2842,12 @@
 |  2829  |  [k-avoiding 数组的最小总和](/solution/2800-2899/2829.Determine%20the%20Minimum%20Sum%20of%20a%20k-avoiding%20Array/README.md)  |  `贪心`,`数学`  |  中等  |  第 359 场周赛  |
 |  2830  |  [销售利润最大化](/solution/2800-2899/2830.Maximize%20the%20Profit%20as%20the%20Salesman/README.md)  |  `数组`,`二分查找`,`动态规划`,`排序`  |  中等  |  第 359 场周赛  |
 |  2831  |  [找出最长等值子数组](/solution/2800-2899/2831.Find%20the%20Longest%20Equal%20Subarray/README.md)  |  `数组`,`哈希表`,`二分查找`,`滑动窗口`  |  中等  |  第 359 场周赛  |
-|  2832  |  [Maximal Range That Each Element Is Maximum in It](/solution/2800-2899/2832.Maximal%20Range%20That%20Each%20Element%20Is%20Maximum%20in%20It/README.md)  |    |  中等  |  🔒  |
+|  2832  |  [每个元素为最大值的最大范围](/solution/2800-2899/2832.Maximal%20Range%20That%20Each%20Element%20Is%20Maximum%20in%20It/README.md)  |    |  中等  |  🔒  |
+|  2833  |  [距离原点最远的点](/solution/2800-2899/2833.Furthest%20Point%20From%20Origin/README.md)  |    |  简单  |  第 360 场周赛  |
+|  2834  |  [找出美丽数组的最小和](/solution/2800-2899/2834.Find%20the%20Minimum%20Possible%20Sum%20of%20a%20Beautiful%20Array/README.md)  |    |  中等  |  第 360 场周赛  |
+|  2835  |  [使子序列的和等于目标的最少操作次数](/solution/2800-2899/2835.Minimum%20Operations%20to%20Form%20Subsequence%20With%20Target%20Sum/README.md)  |    |  困难  |  第 360 场周赛  |
+|  2836  |  [在传球游戏中最大化函数值](/solution/2800-2899/2836.Maximize%20Value%20of%20Function%20in%20a%20Ball%20Passing%20Game/README.md)  |    |  困难  |  第 360 场周赛  |
+|  2837  |  [Total Traveled Distance](/solution/2800-2899/2837.Total%20Traveled%20Distance/README.md)  |    |  简单  |  🔒  |
 
 ## 版权
 

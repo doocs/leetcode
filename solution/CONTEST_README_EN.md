@@ -25,6 +25,13 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 360
+
+- [2833. Furthest Point From Origin](/solution/2800-2899/2833.Furthest%20Point%20From%20Origin/README_EN.md)
+- [2834. Find the Minimum Possible Sum of a Beautiful Array](/solution/2800-2899/2834.Find%20the%20Minimum%20Possible%20Sum%20of%20a%20Beautiful%20Array/README_EN.md)
+- [2835. Minimum Operations to Form Subsequence With Target Sum](/solution/2800-2899/2835.Minimum%20Operations%20to%20Form%20Subsequence%20With%20Target%20Sum/README_EN.md)
+- [2836. Maximize Value of Function in a Ball Passing Game](/solution/2800-2899/2836.Maximize%20Value%20of%20Function%20in%20a%20Ball%20Passing%20Game/README_EN.md)
+
 #### Weekly Contest 359
 
 - [2828. Check if a String Is an Acronym of Words](/solution/2800-2899/2828.Check%20if%20a%20String%20Is%20an%20Acronym%20of%20Words/README_EN.md)

@@ -67,7 +67,9 @@ curriedLife() === 42
 	<li><code>0 &lt;= inputs[i][j] &lt;= 10<sup>5</sup></code></li>
 	<li><code>0 &lt;= fn.length &lt;= 1000</code></li>
 	<li><code>inputs.flat().length == fn.length</code></li>
-	<li><code>function parameters explicitly defined</code></li>
+	<li>function parameters explicitly defined</li>
+	<li>If <code>fn.length &gt; 0</code>&nbsp;then the last array in <code>inputs</code> is not empty</li>
+	<li>If&nbsp;<code>fn.length === 0</code> then <code>inputs.length === 1</code>&nbsp;</li>
 </ul>
 
 ## Solutions
