@@ -7,9 +7,7 @@ function minimumJumps(
     const s: Set<number> = new Set(forbidden);
     const q: [number, number][] = [[0, 1]];
     const n = 6000;
-    const vis: boolean[][] = Array(n)
-        .fill(0)
-        .map(() => Array(2).fill(false));
+    const vis: boolean[][] = Array.from({ length: n }, () => [false, false]);
     vis[0][1] = true;
     for (let ans = 0; q.length; ++ans) {
         for (let t = q.length; t; --t) {
