@@ -9,8 +9,7 @@ class Solution {
         final int n = 6000;
         boolean[][] vis = new boolean[n][2];
         vis[0][1] = true;
-        int ans = 0;
-        while (!q.isEmpty()) {
+        for (int ans = 0; !q.isEmpty(); ++ans) {
             for (int t = q.size(); t > 0; --t) {
                 var p = q.poll();
                 int i = p[0], k = p[1];
@@ -31,7 +30,6 @@ class Solution {
                     }
                 }
             }
-            ++ans;
         }
         return -1;
     }
