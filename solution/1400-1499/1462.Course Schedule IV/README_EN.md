@@ -61,68 +61,107 @@ Course 0 is not a prerequisite of course 1, but the opposite is true.
 
 <!-- tabs:start -->
 
-DFS.
-
 ### **Python3**
 
 ```python
 class Solution:
     def checkIfPrerequisite(
-        self, numCourses: int, prerequisites: List[List[int]], queries: List[List[int]]
+        self, n: int, prerequisites: List[List[int]], queries: List[List[int]]
     ) -> List[bool]:
-        @cache
-        def dfs(a, b):
-            if b in g[a] or a == b:
-                return True
-            for c in g[a]:
-                if dfs(c, b):
-                    return True
-            return False
-
-        g = defaultdict(set)
+        f = [[False] * n for _ in range(n)]
         for a, b in prerequisites:
-            g[a].add(b)
-        return [dfs(a, b) for a, b in queries]
+            f[a][b] = True
+        for k in range(n):
+            for i in range(n):
+                for j in range(n):
+                    if f[i][k] and f[k][j]:
+                        f[i][j] = True
+        return [f[a][b] for a, b in queries]
+```
+
+```python
+class Solution:
+    def checkIfPrerequisite(
+        self, n: int, prerequisites: List[List[int]], queries: List[List[int]]
+    ) -> List[bool]:
+        f = [[False] * n for _ in range(n)]
+        g = [[] for _ in range(n)]
+        indeg = [0] * n
+        for a, b in prerequisites:
+            g[a].append(b)
+            indeg[b] += 1
+        q = deque(i for i, x in enumerate(indeg) if x == 0)
+        while q:
+            i = q.popleft()
+            for j in g[i]:
+                f[i][j] = True
+                for h in range(n):
+                    f[h][j] = f[h][j] or f[h][i]
+                indeg[j] -= 1
+                if indeg[j] == 0:
+                    q.append(j)
+        return [f[a][b] for a, b in queries]
 ```
 
 ### **Java**
 
 ```java
 class Solution {
-    public List<Boolean> checkIfPrerequisite(
-        int numCourses, int[][] prerequisites, int[][] queries) {
-        int[][] g = new int[numCourses][numCourses];
-        for (int i = 0; i < numCourses; ++i) {
-            Arrays.fill(g[i], -1);
+    public List<Boolean> checkIfPrerequisite(int n, int[][] prerequisites, int[][] queries) {
+        boolean[][] f = new boolean[n][n];
+        for (var p : prerequisites) {
+            f[p[0]][p[1]] = true;
         }
-        for (int[] e : prerequisites) {
-            int a = e[0], b = e[1];
-            g[a][b] = 1;
+        for (int k = 0; k < n; ++k) {
+            for (int i = 0; i < n; ++i) {
+                for (int j = 0; j < n; ++j) {
+                    f[i][j] |= f[i][k] && f[k][j];
+                }
+            }
         }
         List<Boolean> ans = new ArrayList<>();
-        for (int[] e : queries) {
-            int a = e[0], b = e[1];
-            ans.add(dfs(a, b, g));
+        for (var q : queries) {
+            ans.add(f[q[0]][q[1]]);
         }
         return ans;
     }
+}
+```
 
-    private boolean dfs(int a, int b, int[][] g) {
-        if (g[a][b] != -1) {
-            return g[a][b] == 1;
+```java
+class Solution {
+    public List<Boolean> checkIfPrerequisite(int n, int[][] prerequisites, int[][] queries) {
+        boolean[][] f = new boolean[n][n];
+        List<Integer>[] g = new List[n];
+        int[] indeg = new int[n];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (var p : prerequisites) {
+            g[p[0]].add(p[1]);
+            ++indeg[p[1]];
         }
-        if (a == b) {
-            g[a][b] = 1;
-            return true;
-        }
-        for (int i = 0; i < g[a].length; ++i) {
-            if (g[a][i] == 1 && dfs(i, b, g)) {
-                g[a][b] = 1;
-                return true;
+        Deque<Integer> q = new ArrayDeque<>();
+        for (int i = 0; i < n; ++i) {
+            if (indeg[i] == 0) {
+                q.offer(i);
             }
         }
-        g[a][b] = 0;
-        return false;
+        while (!q.isEmpty()) {
+            int i = q.poll();
+            for (int j : g[i]) {
+                f[i][j] = true;
+                for (int h = 0; h < n; ++h) {
+                    f[h][j] |= f[h][i];
+                }
+                if (--indeg[j] == 0) {
+                    q.offer(j);
+                }
+            }
+        }
+        List<Boolean> ans = new ArrayList<>();
+        for (var qry : queries) {
+            ans.add(f[qry[0]][qry[1]]);
+        }
+        return ans;
     }
 }
 ```
@@ -132,34 +171,64 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<bool> checkIfPrerequisite(int numCourses, vector<vector<int>>& prerequisites, vector<vector<int>>& queries) {
-        vector<vector<int>> g(numCourses, vector<int>(numCourses, -1));
-        for (auto& e : prerequisites) {
-            int a = e[0], b = e[1];
-            g[a][b] = 1;
+    vector<bool> checkIfPrerequisite(int n, vector<vector<int>>& prerequisites, vector<vector<int>>& queries) {
+        bool f[n][n];
+        memset(f, false, sizeof(f));
+        for (auto& p : prerequisites) {
+            f[p[0]][p[1]] = true;
+        }
+        for (int k = 0; k < n; ++k) {
+            for (int i = 0; i < n; ++ i) {
+                for (int j = 0; j < n; ++ j) {
+                    f[i][j] |= (f[i][k] && f[k][j]);
+                }
+            }
         }
         vector<bool> ans;
-        for (auto& e : queries) {
-            int a = e[0], b = e[1];
-            ans.push_back(dfs(a, b, g));
+        for (auto& q : queries) {
+            ans.push_back(f[q[0]][q[1]]);
         }
         return ans;
     }
+};
+```
 
-    bool dfs(int a, int b, vector<vector<int>>& g) {
-        if (g[a][b] != -1) return g[a][b] == 1;
-        if (a == b) {
-            g[a][b] = 1;
-            return true;
+```cpp
+class Solution {
+public:
+    vector<bool> checkIfPrerequisite(int n, vector<vector<int>>& prerequisites, vector<vector<int>>& queries) {
+        bool f[n][n];
+        memset(f, false, sizeof(f));
+        vector<int> g[n];
+        vector<int> indeg(n);
+        for (auto& p : prerequisites) {
+            g[p[0]].push_back(p[1]);
+            ++indeg[p[1]];
         }
-        for (int i = 0; i < g[a].size(); ++i) {
-            if (g[a][i] == 1 && dfs(i, b, g)) {
-                g[a][b] = 1;
-                return true;
+        queue<int> q;
+        for (int i = 0; i < n; ++i) {
+            if (indeg[i] == 0) {
+                q.push(i);
             }
         }
-        g[a][b] = 0;
-        return false;
+        while (!q.empty()) {
+            int i = q.front();
+            q.pop();
+            for (int j : g[i]) {
+                f[i][j] = true;
+                for (int h = 0; h < n; ++h) {
+                    f[h][j] |= f[h][i];
+                }
+                if (--indeg[j] == 0) {
+                    q.push(j);
+                }
+            }
+        }
+        vector<bool> ans;
+        for (auto& qry : queries) {
+            ans.push_back(f[qry[0]][qry[1]]);
+        }
+        return ans;
     }
 };
 ```
@@ -167,42 +236,127 @@ public:
 ### **Go**
 
 ```go
-func checkIfPrerequisite(numCourses int, prerequisites [][]int, queries [][]int) []bool {
-	g := make([][]int, numCourses)
-	for i := range g {
-		g[i] = make([]int, numCourses)
-		for j := range g[i] {
-			g[i][j] = -1
-		}
+func checkIfPrerequisite(n int, prerequisites [][]int, queries [][]int) (ans []bool) {
+	f := make([][]bool, n)
+	for i := range f {
+		f[i] = make([]bool, n)
 	}
-	for _, e := range prerequisites {
-		a, b := e[0], e[1]
-		g[a][b] = 1
+	for _, p := range prerequisites {
+		f[p[0]][p[1]] = true
 	}
-	var ans []bool
-	var dfs func(a, b int) bool
-	dfs = func(a, b int) bool {
-		if g[a][b] != -1 {
-			return g[a][b] == 1
-		}
-		if a == b {
-			g[a][b] = 1
-			return true
-		}
-		for i, c := range g[a] {
-			if c == 1 && dfs(i, b) {
-				g[a][b] = 1
-				return true
+	for k := 0; k < n; k++ {
+		for i := 0; i < n; i++ {
+			for j := 0; j < n; j++ {
+				f[i][j] = f[i][j] || (f[i][k] && f[k][j])
 			}
 		}
-		g[a][b] = 0
-		return false
 	}
-	for _, e := range queries {
-		a, b := e[0], e[1]
-		ans = append(ans, dfs(a, b))
+	for _, q := range queries {
+		ans = append(ans, f[q[0]][q[1]])
 	}
-	return ans
+	return
+}
+```
+
+```go
+func checkIfPrerequisite(n int, prerequisites [][]int, queries [][]int) (ans []bool) {
+	f := make([][]bool, n)
+	for i := range f {
+		f[i] = make([]bool, n)
+	}
+	g := make([][]int, n)
+	indeg := make([]int, n)
+	for _, p := range prerequisites {
+		a, b := p[0], p[1]
+		g[a] = append(g[a], b)
+		indeg[b]++
+	}
+	q := []int{}
+	for i, x := range indeg {
+		if x == 0 {
+			q = append(q, i)
+		}
+	}
+	for len(q) > 0 {
+		i := q[0]
+		q = q[1:]
+		for _, j := range g[i] {
+			f[i][j] = true
+			for h := 0; h < n; h++ {
+				f[h][j] = f[h][j] || f[h][i]
+			}
+			indeg[j]--
+			if indeg[j] == 0 {
+				q = append(q, j)
+			}
+		}
+	}
+	for _, q := range queries {
+		ans = append(ans, f[q[0]][q[1]])
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function checkIfPrerequisite(
+    n: number,
+    prerequisites: number[][],
+    queries: number[][],
+): boolean[] {
+    const f: boolean[][] = Array.from({ length: n }, () =>
+        Array(n).fill(false),
+    );
+    for (const [a, b] of prerequisites) {
+        f[a][b] = true;
+    }
+    for (let k = 0; k < n; ++k) {
+        for (let i = 0; i < n; ++i) {
+            for (let j = 0; j < n; ++j) {
+                f[i][j] ||= f[i][k] && f[k][j];
+            }
+        }
+    }
+    return queries.map(([a, b]) => f[a][b]);
+}
+```
+
+```ts
+function checkIfPrerequisite(
+    n: number,
+    prerequisites: number[][],
+    queries: number[][],
+): boolean[] {
+    const f: boolean[][] = Array.from({ length: n }, () =>
+        Array(n).fill(false),
+    );
+    const g: number[][] = Array.from({ length: n }, () => []);
+    const indeg: number[] = Array(n).fill(0);
+    for (const [a, b] of prerequisites) {
+        g[a].push(b);
+        ++indeg[b];
+    }
+    const q: number[] = [];
+    for (let i = 0; i < n; ++i) {
+        if (indeg[i] === 0) {
+            q.push(i);
+        }
+    }
+    while (q.length) {
+        const i = q.shift()!;
+        for (const j of g[i]) {
+            f[i][j] = true;
+            for (let h = 0; h < n; ++h) {
+                f[h][j] ||= f[h][i];
+            }
+            if (--indeg[j] === 0) {
+                q.push(j);
+            }
+        }
+    }
+    return queries.map(([a, b]) => f[a][b]);
 }
 ```
 
