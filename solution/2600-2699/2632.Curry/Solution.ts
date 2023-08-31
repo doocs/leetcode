@@ -1,13 +1,9 @@
 function curry(fn: Function): Function {
-    const n = fn.length;
-    const allArgs: any[] = [];
-
-    return function curried(...args: any[]) {
-        allArgs.push(...args);
-        if (allArgs.length < n) {
-            return curried;
+    return function curried(...args) {
+        if (args.length >= fn.length) {
+            return fn(...args);
         }
-        return fn(...allArgs);
+        return (...nextArgs) => curried(...args, ...nextArgs);
     };
 }
 
