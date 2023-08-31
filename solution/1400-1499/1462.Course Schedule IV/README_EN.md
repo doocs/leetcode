@@ -306,12 +306,8 @@ function checkIfPrerequisite(
     prerequisites: number[][],
     queries: number[][],
 ): boolean[] {
-    const f: boolean[][] = Array.from({ length: n }, () =>
-        Array(n).fill(false),
-    );
-    for (const [a, b] of prerequisites) {
-        f[a][b] = true;
-    }
+    const f = Array.from({ length: n }, () => Array(n).fill(false));
+    prerequisites.forEach(([a, b]) => (f[a][b] = true));
     for (let k = 0; k < n; ++k) {
         for (let i = 0; i < n; ++i) {
             for (let j = 0; j < n; ++j) {
@@ -329,9 +325,7 @@ function checkIfPrerequisite(
     prerequisites: number[][],
     queries: number[][],
 ): boolean[] {
-    const f: boolean[][] = Array.from({ length: n }, () =>
-        Array(n).fill(false),
-    );
+    const f = Array.from({ length: n }, () => Array(n).fill(false));
     const g: number[][] = Array.from({ length: n }, () => []);
     const indeg: number[] = Array(n).fill(0);
     for (const [a, b] of prerequisites) {
