@@ -65,10 +65,7 @@ fn = (x) =&gt; Array.isArray(x)
 ### **TypeScript**
 
 ```ts
-function deepFilter(
-    obj: Record<string, any>,
-    fn: Function,
-): Record<string, any> | undefined {
+function deepFilter(obj: Record<string, any>, fn: Function): Record<string, any> | undefined {
     const dfs = (data: any): any => {
         if (Array.isArray(data)) {
             const res = data.map(dfs).filter((item: any) => item !== undefined);

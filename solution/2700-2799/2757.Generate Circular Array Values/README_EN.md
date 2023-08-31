@@ -71,10 +71,7 @@
 ### **TypeScript**
 
 ```ts
-function* cycleGenerator(
-    arr: number[],
-    startIndex: number,
-): Generator<number, void, number> {
+function* cycleGenerator(arr: number[], startIndex: number): Generator<number, void, number> {
     let i = startIndex;
     let x = yield arr[i];
     while (true) {

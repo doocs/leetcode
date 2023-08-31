@@ -112,11 +112,7 @@ func waysToBuyPensPencils(total int, cost1 int, cost2 int) (ans int64) {
 ### **TypeScript**
 
 ```ts
-function waysToBuyPensPencils(
-    total: number,
-    cost1: number,
-    cost2: number,
-): number {
+function waysToBuyPensPencils(total: number, cost1: number, cost2: number): number {
     let ans = 0;
     for (let x = 0; x <= Math.floor(total / cost1); ++x) {
         const y = Math.floor((total - x * cost1) / cost2) + 1;

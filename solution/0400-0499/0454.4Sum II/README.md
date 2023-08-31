@@ -142,12 +142,7 @@ func fourSumCount(nums1 []int, nums2 []int, nums3 []int, nums4 []int) (ans int) 
 ### **TypeScript**
 
 ```ts
-function fourSumCount(
-    nums1: number[],
-    nums2: number[],
-    nums3: number[],
-    nums4: number[],
-): number {
+function fourSumCount(nums1: number[], nums2: number[], nums3: number[], nums4: number[]): number {
     const cnt: Map<number, number> = new Map();
     for (const a of nums1) {
         for (const b of nums2) {

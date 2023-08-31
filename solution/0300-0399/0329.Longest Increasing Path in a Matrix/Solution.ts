@@ -12,13 +12,7 @@ function longestIncreasingPath(matrix: number[][]): number {
         for (let k = 0; k < 4; ++k) {
             const x = i + dirs[k];
             const y = j + dirs[k + 1];
-            if (
-                x >= 0 &&
-                x < m &&
-                y >= 0 &&
-                y < n &&
-                matrix[x][y] > matrix[i][j]
-            ) {
+            if (x >= 0 && x < m && y >= 0 && y < n && matrix[x][y] > matrix[i][j]) {
                 f[i][j] = Math.max(f[i][j], dfs(x, y));
             }
         }

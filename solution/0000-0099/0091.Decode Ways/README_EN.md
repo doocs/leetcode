@@ -221,10 +221,7 @@ function numDecodings(s: string): number {
         if (s[i - 1] !== '0') {
             f[i] = f[i - 1];
         }
-        if (
-            i > 1 &&
-            (s[i - 2] === '1' || (s[i - 2] === '2' && s[i - 1] <= '6'))
-        ) {
+        if (i > 1 && (s[i - 2] === '1' || (s[i - 2] === '2' && s[i - 1] <= '6'))) {
             f[i] += f[i - 2];
         }
     }
@@ -238,10 +235,7 @@ function numDecodings(s: string): number {
     let [f, g] = [0, 1];
     for (let i = 1; i <= n; ++i) {
         let h = s[i - 1] !== '0' ? g : 0;
-        if (
-            i > 1 &&
-            (s[i - 2] === '1' || (s[i - 2] === '2' && s[i - 1] <= '6'))
-        ) {
+        if (i > 1 && (s[i - 2] === '1' || (s[i - 2] === '2' && s[i - 1] <= '6'))) {
             h += f;
         }
         [f, g] = [g, h];

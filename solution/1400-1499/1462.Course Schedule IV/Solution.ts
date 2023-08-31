@@ -1,8 +1,4 @@
-function checkIfPrerequisite(
-    n: number,
-    prerequisites: number[][],
-    queries: number[][],
-): boolean[] {
+function checkIfPrerequisite(n: number, prerequisites: number[][], queries: number[][]): boolean[] {
     const f = Array.from({ length: n }, () => Array(n).fill(false));
     const g: number[][] = Array.from({ length: n }, () => []);
     const indeg: number[] = Array(n).fill(0);

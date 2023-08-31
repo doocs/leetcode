@@ -399,9 +399,7 @@ function canCross(stones: number[]): boolean {
 ```ts
 function canCross(stones: number[]): boolean {
     const n = stones.length;
-    const f: boolean[][] = new Array(n)
-        .fill(0)
-        .map(() => new Array(n).fill(false));
+    const f: boolean[][] = new Array(n).fill(0).map(() => new Array(n).fill(false));
     f[0][0] = true;
     for (let i = 1; i < n; ++i) {
         for (let j = i - 1; j >= 0; --j) {

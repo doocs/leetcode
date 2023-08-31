@@ -301,11 +301,7 @@ func checkIfPrerequisite(n int, prerequisites [][]int, queries [][]int) (ans []b
 ### **TypeScript**
 
 ```ts
-function checkIfPrerequisite(
-    n: number,
-    prerequisites: number[][],
-    queries: number[][],
-): boolean[] {
+function checkIfPrerequisite(n: number, prerequisites: number[][], queries: number[][]): boolean[] {
     const f = Array.from({ length: n }, () => Array(n).fill(false));
     prerequisites.forEach(([a, b]) => (f[a][b] = true));
     for (let k = 0; k < n; ++k) {
@@ -320,11 +316,7 @@ function checkIfPrerequisite(
 ```
 
 ```ts
-function checkIfPrerequisite(
-    n: number,
-    prerequisites: number[][],
-    queries: number[][],
-): boolean[] {
+function checkIfPrerequisite(n: number, prerequisites: number[][], queries: number[][]): boolean[] {
     const f = Array.from({ length: n }, () => Array(n).fill(false));
     const g: number[][] = Array.from({ length: n }, () => []);
     const indeg: number[] = Array(n).fill(0);

@@ -140,10 +140,7 @@ var masterMind = function (solution, guess) {
             counts2[s2] += 1;
         }
     }
-    let res2 = ['R', 'G', 'B', 'Y'].reduce(
-        (a, c) => a + Math.min(counts1[c], counts2[c]),
-        0,
-    );
+    let res2 = ['R', 'G', 'B', 'Y'].reduce((a, c) => a + Math.min(counts1[c], counts2[c]), 0);
     return [res1, res2];
 };
 ```

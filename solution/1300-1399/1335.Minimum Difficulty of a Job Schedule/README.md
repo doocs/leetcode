@@ -204,9 +204,7 @@ func min(a, b int) int {
 function minDifficulty(jobDifficulty: number[], d: number): number {
     const n = jobDifficulty.length;
     const inf = 1 << 30;
-    const f: number[][] = new Array(n + 1)
-        .fill(0)
-        .map(() => new Array(d + 1).fill(inf));
+    const f: number[][] = new Array(n + 1).fill(0).map(() => new Array(d + 1).fill(inf));
     f[0][0] = 0;
     for (let i = 1; i <= n; ++i) {
         for (let j = 1; j <= Math.min(d, i); ++j) {

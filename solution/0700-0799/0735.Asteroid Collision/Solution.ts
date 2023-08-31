@@ -4,11 +4,7 @@ function asteroidCollision(asteroids: number[]): number[] {
         if (a > 0) {
             ans.push(a);
         } else {
-            while (
-                ans.length &&
-                0 < ans[ans.length - 1] &&
-                ans[ans.length - 1] < -a
-            ) {
+            while (ans.length && 0 < ans[ans.length - 1] && ans[ans.length - 1] < -a) {
                 ans.pop();
             }
             if (ans.length && ans[ans.length - 1] === -a) {

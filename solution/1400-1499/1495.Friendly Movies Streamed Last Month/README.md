@@ -113,9 +113,7 @@ SELECT DISTINCT
 FROM
     Content
     INNER JOIN TVProgram ON Content.content_id = TVProgram.content_id
-WHERE
-    kids_content = 'Y'
-    AND (MONTH(program_date), YEAR(program_date)) = (6, 2020);
+WHERE kids_content = 'Y' AND (MONTH(program_date), YEAR(program_date)) = (6, 2020);
 ```
 
 <!-- tabs:end -->

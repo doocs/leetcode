@@ -85,9 +85,7 @@ WITH
     )
 SELECT *
 FROM Orders AS o
-WHERE
-    order_type = 0
-    OR NOT EXISTS (SELECT 1 FROM T AS t WHERE t.customer_id = o.customer_id);
+WHERE order_type = 0 OR NOT EXISTS (SELECT 1 FROM T AS t WHERE t.customer_id = o.customer_id);
 ```
 
 <!-- tabs:end -->

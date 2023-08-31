@@ -478,9 +478,7 @@ function isInterleave(s1: string, s2: string, s3: string): boolean {
     if (m + n !== s3.length) {
         return false;
     }
-    const f: number[][] = new Array(m + 1)
-        .fill(0)
-        .map(() => new Array(n + 1).fill(0));
+    const f: number[][] = new Array(m + 1).fill(0).map(() => new Array(n + 1).fill(0));
     const dfs = (i: number, j: number): boolean => {
         if (i >= m && j >= n) {
             return true;
@@ -508,9 +506,7 @@ function isInterleave(s1: string, s2: string, s3: string): boolean {
     if (m + n !== s3.length) {
         return false;
     }
-    const f: boolean[][] = new Array(m + 1)
-        .fill(0)
-        .map(() => new Array(n + 1).fill(false));
+    const f: boolean[][] = new Array(m + 1).fill(0).map(() => new Array(n + 1).fill(false));
     f[0][0] = true;
     for (let i = 0; i <= m; ++i) {
         for (let j = 0; j <= n; ++j) {
