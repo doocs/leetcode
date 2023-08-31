@@ -1,9 +1,4 @@
-function colorBorder(
-    grid: number[][],
-    row: number,
-    col: number,
-    color: number,
-): number[][] {
+function colorBorder(grid: number[][], row: number, col: number, color: number): number[][] {
     const m = grid.length;
     const n = grid[0].length;
     const vis = new Array(m).fill(0).map(() => new Array(n).fill(false));

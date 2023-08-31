@@ -177,10 +177,7 @@ func removeLeafNodes(root *TreeNode, target int) *TreeNode {
  * }
  */
 
-function removeLeafNodes(
-    root: TreeNode | null,
-    target: number,
-): TreeNode | null {
+function removeLeafNodes(root: TreeNode | null, target: number): TreeNode | null {
     if (!root) {
         return null;
     }

@@ -219,11 +219,7 @@ func countShips(sea Sea, topRight, bottomLeft []int) int {
  * }
  */
 
-function countShips(
-    sea: Sea,
-    topRight: number[],
-    bottomLeft: number[],
-): number {
+function countShips(sea: Sea, topRight: number[], bottomLeft: number[]): number {
     const [x1, y1] = bottomLeft;
     const [x2, y2] = topRight;
     if (x1 > x2 || y1 > y2 || !sea.hasShips(topRight, bottomLeft)) {

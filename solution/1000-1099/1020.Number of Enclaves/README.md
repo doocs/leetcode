@@ -590,10 +590,7 @@ function numEnclaves(grid: number[][]): number {
     };
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
-            if (
-                grid[i][j] === 1 &&
-                (i === 0 || i === m - 1 || j === 0 || j === n - 1)
-            ) {
+            if (grid[i][j] === 1 && (i === 0 || i === m - 1 || j === 0 || j === n - 1)) {
                 dfs(i, j);
             }
         }
@@ -616,10 +613,7 @@ function numEnclaves(grid: number[][]): number {
     const q: number[][] = [];
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
-            if (
-                grid[i][j] === 1 &&
-                (i === 0 || i === m - 1 || j === 0 || j === n - 1)
-            ) {
+            if (grid[i][j] === 1 && (i === 0 || i === m - 1 || j === 0 || j === n - 1)) {
                 q.push([i, j]);
                 grid[i][j] = 0;
             }

@@ -245,9 +245,7 @@ func numDistinct(s string, t string) int {
 function numDistinct(s: string, t: string): number {
     const m = s.length;
     const n = t.length;
-    const f: number[][] = new Array(m + 1)
-        .fill(0)
-        .map(() => new Array(n + 1).fill(0));
+    const f: number[][] = new Array(m + 1).fill(0).map(() => new Array(n + 1).fill(0));
     for (let i = 0; i <= m; ++i) {
         f[i][0] = 1;
     }

@@ -194,10 +194,7 @@ function getTargetCopy(
     cloned: TreeNode | null,
     target: TreeNode | null,
 ): TreeNode | null {
-    const dfs = (
-        root1: TreeNode | null,
-        root2: TreeNode | null,
-    ): TreeNode | null => {
+    const dfs = (root1: TreeNode | null, root2: TreeNode | null): TreeNode | null => {
         if (!root1) {
             return null;
         }

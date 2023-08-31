@@ -1,9 +1,4 @@
-function sortItems(
-    n: number,
-    m: number,
-    group: number[],
-    beforeItems: number[][],
-): number[] {
+function sortItems(n: number, m: number, group: number[], beforeItems: number[][]): number[] {
     let idx = m;
     const groupItems: number[][] = new Array(n + m).fill(0).map(() => []);
     const itemDegree: number[] = new Array(n).fill(0);
@@ -28,11 +23,7 @@ function sortItems(
         }
     }
     let items = new Array(n + m).fill(0).map((_, i) => i);
-    const topoSort = (
-        graph: number[][],
-        degree: number[],
-        items: number[],
-    ): number[] => {
+    const topoSort = (graph: number[][], degree: number[], items: number[]): number[] => {
         const q: number[] = [];
         for (const i of items) {
             if (degree[i] === 0) {

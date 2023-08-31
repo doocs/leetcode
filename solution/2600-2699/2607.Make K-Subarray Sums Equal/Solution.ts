@@ -1,8 +1,4 @@
-function maximumCostSubstring(
-    s: string,
-    chars: string,
-    vals: number[],
-): number {
+function maximumCostSubstring(s: string, chars: string, vals: number[]): number {
     const d: number[] = Array.from({ length: 26 }, (_, i) => i + 1);
     for (let i = 0; i < chars.length; ++i) {
         d[chars.charCodeAt(i) - 97] = vals[i];

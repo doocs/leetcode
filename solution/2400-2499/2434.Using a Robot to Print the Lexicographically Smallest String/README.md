@@ -253,10 +253,7 @@ function robotWithString(s: string): string {
             min_index += 1;
         }
         stack.push(c);
-        while (
-            stack.length > 0 &&
-            stack[stack.length - 1].charCodeAt(0) <= min_index
-        ) {
+        while (stack.length > 0 && stack[stack.length - 1].charCodeAt(0) <= min_index) {
             ans.push(stack.pop());
         }
     }

@@ -168,8 +168,7 @@ WITH RECURSIVE
             sum(ifnull(ride_duration, 0)) AS ride_duration
         FROM
             Months AS m
-            LEFT JOIN Rides AS r
-                ON month = month(requested_at) AND year(requested_at) = 2020
+            LEFT JOIN Rides AS r ON month = month(requested_at) AND year(requested_at) = 2020
             LEFT JOIN AcceptedRides AS a ON r.ride_id = a.ride_id
         GROUP BY month
     )

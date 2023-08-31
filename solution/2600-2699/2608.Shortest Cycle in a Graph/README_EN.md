@@ -402,11 +402,7 @@ function findShortestCycle(n: number, edges: number[][]): number {
         while (q.length) {
             const i = q.shift()!;
             for (const j of g[i]) {
-                if (
-                    (i == u && j == v) ||
-                    (i == v && j == u) ||
-                    dist[j] != inf
-                ) {
+                if ((i == u && j == v) || (i == v && j == u) || dist[j] != inf) {
                     continue;
                 }
                 dist[j] = dist[i] + 1;

@@ -20,10 +20,7 @@ function minimumTime(hens: number[], grains: number[]): number {
                 while (j < m && grains[j] <= x) {
                     ++j;
                 }
-                while (
-                    j < m &&
-                    Math.min(d, grains[j] - x) + grains[j] - y <= t
-                ) {
+                while (j < m && Math.min(d, grains[j] - x) + grains[j] - y <= t) {
                     ++j;
                 }
             } else {

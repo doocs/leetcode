@@ -1,7 +1,4 @@
-function shortestDistanceColor(
-    colors: number[],
-    queries: number[][],
-): number[] {
+function shortestDistanceColor(colors: number[], queries: number[][]): number[] {
     const n = colors.length;
     const inf = 1 << 30;
     const right: number[][] = Array(n + 1)

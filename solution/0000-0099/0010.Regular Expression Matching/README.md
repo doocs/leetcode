@@ -364,17 +364,10 @@ var isMatch = function (s, p) {
         }
         let res = -1;
         if (j + 1 < n && p[j + 1] === '*') {
-            if (
-                dfs(i, j + 2) ||
-                (i < m && (s[i] === p[j] || p[j] === '.') && dfs(i + 1, j))
-            ) {
+            if (dfs(i, j + 2) || (i < m && (s[i] === p[j] || p[j] === '.') && dfs(i + 1, j))) {
                 res = 1;
             }
-        } else if (
-            i < m &&
-            (s[i] === p[j] || p[j] === '.') &&
-            dfs(i + 1, j + 1)
-        ) {
+        } else if (i < m && (s[i] === p[j] || p[j] === '.') && dfs(i + 1, j + 1)) {
             res = 1;
         }
         f[i][j] = res;

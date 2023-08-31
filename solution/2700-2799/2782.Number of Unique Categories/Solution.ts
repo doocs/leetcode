@@ -5,10 +5,7 @@
  *     public haveSameCategory(a: number, b: number): boolean;
  * }
  */
-function numberOfCategories(
-    n: number,
-    categoryHandler: CategoryHandler,
-): number {
+function numberOfCategories(n: number, categoryHandler: CategoryHandler): number {
     const p: number[] = new Array(n).fill(0).map((_, i) => i);
     const find = (x: number): number => {
         if (p[x] !== x) {

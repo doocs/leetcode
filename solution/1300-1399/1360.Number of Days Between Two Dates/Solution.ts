@@ -7,20 +7,7 @@ function isLeapYear(year: number): boolean {
 }
 
 function daysOfMonth(year: number, month: number): number {
-    const days = [
-        31,
-        isLeapYear(year) ? 29 : 28,
-        31,
-        30,
-        31,
-        30,
-        31,
-        31,
-        30,
-        31,
-        30,
-        31,
-    ];
+    const days = [31, isLeapYear(year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     return days[month - 1];
 }
 

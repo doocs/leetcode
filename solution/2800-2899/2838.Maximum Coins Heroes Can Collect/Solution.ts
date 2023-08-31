@@ -1,8 +1,4 @@
-function maximumCoins(
-    heroes: number[],
-    monsters: number[],
-    coins: number[],
-): number[] {
+function maximumCoins(heroes: number[], monsters: number[], coins: number[]): number[] {
     const m = monsters.length;
     const idx: number[] = Array.from({ length: m }, (_, i) => i);
     idx.sort((i, j) => monsters[i] - monsters[j]);

@@ -1,9 +1,4 @@
-function minimumJumps(
-    forbidden: number[],
-    a: number,
-    b: number,
-    x: number,
-): number {
+function minimumJumps(forbidden: number[], a: number, b: number, x: number): number {
     const s: Set<number> = new Set(forbidden);
     const q: [number, number][] = [[0, 1]];
     const n = 6000;

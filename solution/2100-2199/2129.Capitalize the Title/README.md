@@ -140,9 +140,7 @@ function capitalizeTitle(title: string): string {
         if (s.length < 3) {
             ans.push(s.toLowerCase());
         } else {
-            ans.push(
-                s.substring(0, 1).toUpperCase() + s.substring(1).toLowerCase(),
-            );
+            ans.push(s.substring(0, 1).toUpperCase() + s.substring(1).toLowerCase());
         }
     }
     return ans.join(' ');
@@ -156,8 +154,7 @@ function capitalizeTitle(title: string): string {
         .map(s =>
             s.length < 3
                 ? s.toLowerCase()
-                : s.substring(0, 1).toUpperCase() +
-                  s.substring(1).toLowerCase(),
+                : s.substring(0, 1).toUpperCase() + s.substring(1).toLowerCase(),
         )
         .join(' ');
 }
