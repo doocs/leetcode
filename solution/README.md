@@ -2848,6 +2848,7 @@
 |  2835  |  [使子序列的和等于目标的最少操作次数](/solution/2800-2899/2835.Minimum%20Operations%20to%20Form%20Subsequence%20With%20Target%20Sum/README.md)  |    |  困难  |  第 360 场周赛  |
 |  2836  |  [在传球游戏中最大化函数值](/solution/2800-2899/2836.Maximize%20Value%20of%20Function%20in%20a%20Ball%20Passing%20Game/README.md)  |    |  困难  |  第 360 场周赛  |
 |  2837  |  [Total Traveled Distance](/solution/2800-2899/2837.Total%20Traveled%20Distance/README.md)  |    |  简单  |  🔒  |
+|  2838  |  [Maximum Coins Heroes Can Collect](/solution/2800-2899/2838.Maximum%20Coins%20Heroes%20Can%20Collect/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
