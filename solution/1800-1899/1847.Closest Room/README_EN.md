@@ -57,13 +57,177 @@ Query = [2,5]: Room number 3 is the only room with a size of at least 5. The ans
 ### **Python3**
 
 ```python
+from sortedcontainers import SortedList
 
+
+class Solution:
+    def closestRoom(
+        self, rooms: List[List[int]], queries: List[List[int]]
+    ) -> List[int]:
+        rooms.sort(key=lambda x: x[1])
+        k = len(queries)
+        idx = sorted(range(k), key=lambda i: queries[i][1])
+        ans = [-1] * k
+        i, n = 0, len(rooms)
+        sl = SortedList(x[0] for x in rooms)
+        for j in idx:
+            prefer, minSize = queries[j]
+            while i < n and rooms[i][1] < minSize:
+                sl.remove(rooms[i][0])
+                i += 1
+            if i == n:
+                break
+            p = sl.bisect_left(prefer)
+            if p < len(sl):
+                ans[j] = sl[p]
+            if p and (ans[j] == -1 or ans[j] - prefer >= prefer - sl[p - 1]):
+                ans[j] = sl[p - 1]
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] closestRoom(int[][] rooms, int[][] queries) {
+        int n = rooms.length;
+        int k = queries.length;
+        Arrays.sort(rooms, (a, b) -> a[1] - b[1]);
+        Integer[] idx = new Integer[k];
+        for (int i = 0; i < k; i++) {
+            idx[i] = i;
+        }
+        Arrays.sort(idx, (i, j) -> queries[i][1] - queries[j][1]);
+        int i = 0;
+        TreeMap<Integer, Integer> tm = new TreeMap<>();
+        for (int[] room : rooms) {
+            tm.merge(room[0], 1, Integer::sum);
+        }
+        int[] ans = new int[k];
+        Arrays.fill(ans, -1);
+        for (int j : idx) {
+            int prefer = queries[j][0], minSize = queries[j][1];
+            while (i < n && rooms[i][1] < minSize) {
+                if (tm.merge(rooms[i][0], -1, Integer::sum) == 0) {
+                    tm.remove(rooms[i][0]);
+                }
+                ++i;
+            }
+            if (i == n) {
+                break;
+            }
+            Integer p = tm.ceilingKey(prefer);
+            if (p != null) {
+                ans[j] = p;
+            }
+            p = tm.floorKey(prefer);
+            if (p != null && (ans[j] == -1 || ans[j] - prefer >= prefer - p)) {
+                ans[j] = p;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> closestRoom(vector<vector<int>>& rooms, vector<vector<int>>& queries) {
+        int n = rooms.size();
+        int k = queries.size();
+        sort(rooms.begin(), rooms.end(), [](const vector<int>& a, const vector<int>& b) {
+            return a[1] < b[1];
+        });
+        vector<int> idx(k);
+        iota(idx.begin(), idx.end(), 0);
+        sort(idx.begin(), idx.end(), [&](int i, int j) {
+            return queries[i][1] < queries[j][1];
+        });
+        vector<int> ans(k, -1);
+        int i = 0;
+        multiset<int> s;
+        for (auto& room : rooms) {
+            s.insert(room[0]);
+        }
+        for (int j : idx) {
+            int prefer = queries[j][0], minSize = queries[j][1];
+            while (i < n && rooms[i][1] < minSize) {
+                s.erase(s.find(rooms[i][0]));
+                ++i;
+            }
+            if (i == n) {
+                break;
+            }
+            auto it = s.lower_bound(prefer);
+            if (it != s.end()) {
+                ans[j] = *it;
+            }
+            if (it != s.begin()) {
+                --it;
+                if (ans[j] == -1 || abs(*it - prefer) <= abs(ans[j] - prefer)) {
+                    ans[j] = *it;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func closestRoom(rooms [][]int, queries [][]int) []int {
+	n, k := len(rooms), len(queries)
+	sort.Slice(rooms, func(i, j int) bool { return rooms[i][1] < rooms[j][1] })
+	idx := make([]int, k)
+	ans := make([]int, k)
+	for i := range idx {
+		idx[i] = i
+		ans[i] = -1
+	}
+	sort.Slice(idx, func(i, j int) bool { return queries[idx[i]][1] < queries[idx[j]][1] })
+	rbt := redblacktree.NewWithIntComparator()
+	merge := func(rbt *redblacktree.Tree, key, value int) {
+		if v, ok := rbt.Get(key); ok {
+			nxt := v.(int) + value
+			if nxt == 0 {
+				rbt.Remove(key)
+			} else {
+				rbt.Put(key, nxt)
+			}
+		} else {
+			rbt.Put(key, value)
+		}
+	}
+	for _, room := range rooms {
+		merge(rbt, room[0], 1)
+	}
+	i := 0
+
+	for _, j := range idx {
+		prefer, minSize := queries[j][0], queries[j][1]
+		for i < n && rooms[i][1] < minSize {
+			merge(rbt, rooms[i][0], -1)
+			i++
+		}
+		if i == n {
+			break
+		}
+		c, _ := rbt.Ceiling(prefer)
+		f, _ := rbt.Floor(prefer)
+		if c != nil {
+			ans[j] = c.Key.(int)
+		}
+		if f != nil && (ans[j] == -1 || ans[j]-prefer >= prefer-f.Key.(int)) {
+			ans[j] = f.Key.(int)
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
