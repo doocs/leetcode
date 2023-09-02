@@ -331,16 +331,10 @@ function maximumScore(nums: number[], multipliers: number[]): number {
         for (let j = 0; j <= m - i; ++j) {
             const k = i + j - 1;
             if (i > 0) {
-                f[i][j] = Math.max(
-                    f[i][j],
-                    f[i - 1][j] + nums[i - 1] * multipliers[k],
-                );
+                f[i][j] = Math.max(f[i][j], f[i - 1][j] + nums[i - 1] * multipliers[k]);
             }
             if (j > 0) {
-                f[i][j] = Math.max(
-                    f[i][j],
-                    f[i][j - 1] + nums[n - j] * multipliers[k],
-                );
+                f[i][j] = Math.max(f[i][j], f[i][j - 1] + nums[n - j] * multipliers[k]);
             }
             if (i + j === m) {
                 ans = Math.max(ans, f[i][j]);

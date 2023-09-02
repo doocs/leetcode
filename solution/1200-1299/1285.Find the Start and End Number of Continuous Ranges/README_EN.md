@@ -12,17 +12,17 @@
 +---------------+---------+
 | log_id        | int     |
 +---------------+---------+
-log_id is the primary key for this table.
+log_id is the column of unique values for this table.
 Each row of this table contains the ID in a log Table.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find the start and end number of continuous ranges in the table <code>Logs</code>.</p>
+<p>Write a solution to find the start and end number of continuous ranges in the table <code>Logs</code>.</p>
 
 <p>Return the result table ordered by <code>start_id</code>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

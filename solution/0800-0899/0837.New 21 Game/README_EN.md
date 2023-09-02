@@ -245,8 +245,7 @@ function new21Game(n: number, k: number, maxPts: number): number {
         if (f[i] !== 0) {
             return f[i];
         }
-        return (f[i] =
-            dfs(i + 1) + (dfs(i + 1) - dfs(i + maxPts + 1)) / maxPts);
+        return (f[i] = dfs(i + 1) + (dfs(i + 1) - dfs(i + maxPts + 1)) / maxPts);
     };
     return dfs(0);
 }

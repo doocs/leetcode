@@ -184,11 +184,7 @@ function smallestSubsequence(s: string): string {
         if ((mask >> x) & 1) {
             continue;
         }
-        while (
-            stk.length &&
-            stk[stk.length - 1] > c &&
-            last[f(stk[stk.length - 1])] > i
-        ) {
+        while (stk.length && stk[stk.length - 1] > c && last[f(stk[stk.length - 1])] > i) {
             mask ^= 1 << f(stk.pop()!);
         }
         stk.push(c);

@@ -307,16 +307,7 @@ function minimumMoves(grid: number[][]): number {
     vis[0][0] = true;
 
     const move = (i1: number, j1: number, i2: number, j2: number) => {
-        if (
-            i1 >= 0 &&
-            i1 < n &&
-            j1 >= 0 &&
-            j1 < n &&
-            i2 >= 0 &&
-            i2 < n &&
-            j2 >= 0 &&
-            j2 < n
-        ) {
+        if (i1 >= 0 && i1 < n && j1 >= 0 && j1 < n && i2 >= 0 && i2 < n && j2 >= 0 && j2 < n) {
             const a = i1 * n + j1;
             const b = i2 * n + j2;
             const status = i1 === i2 ? 0 : 1;
@@ -370,16 +361,7 @@ var minimumMoves = function (grid) {
     vis[0][0] = true;
 
     const move = (i1, j1, i2, j2) => {
-        if (
-            i1 >= 0 &&
-            i1 < n &&
-            j1 >= 0 &&
-            j1 < n &&
-            i2 >= 0 &&
-            i2 < n &&
-            j2 >= 0 &&
-            j2 < n
-        ) {
+        if (i1 >= 0 && i1 < n && j1 >= 0 && j1 < n && i2 >= 0 && i2 < n && j2 >= 0 && j2 < n) {
             const a = i1 * n + j1;
             const b = i2 * n + j2;
             const status = i1 === i2 ? 0 : 1;

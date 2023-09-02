@@ -10,9 +10,7 @@
  * }
  */
 
-function splitCircularLinkedList(
-    list: ListNode | null,
-): Array<ListNode | null> {
+function splitCircularLinkedList(list: ListNode | null): Array<ListNode | null> {
     let a = list;
     let b = list;
     while (b.next !== list && b.next.next !== list) {

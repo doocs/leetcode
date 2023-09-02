@@ -65,11 +65,7 @@ g.next().value // '2023-04-10'
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
-function* dateRangeGenerator(
-    start: string,
-    end: string,
-    step: number,
-): Generator<string> {
+function* dateRangeGenerator(start: string, end: string, step: number): Generator<string> {
     const startDate = new Date(start);
     const endDate = new Date(end);
     let currentDate = startDate;

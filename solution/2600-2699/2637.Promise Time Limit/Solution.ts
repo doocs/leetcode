@@ -4,9 +4,7 @@ function timeLimit(fn: Fn, t: number): Fn {
     return async function (...args) {
         return Promise.race([
             fn(...args),
-            new Promise((_, reject) =>
-                setTimeout(() => reject('Time Limit Exceeded'), t),
-            ),
+            new Promise((_, reject) => setTimeout(() => reject('Time Limit Exceeded'), t)),
         ]);
     };
 }

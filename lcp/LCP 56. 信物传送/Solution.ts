@@ -1,8 +1,4 @@
-function conveyorBelt(
-    matrix: string[],
-    start: number[],
-    end: number[],
-): number {
+function conveyorBelt(matrix: string[], start: number[], end: number[]): number {
     const dirs = [-1, 0, 1, 0, -1];
     const d: Map<string, number> = new Map();
     d.set('^', 0);
