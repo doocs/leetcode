@@ -39,7 +39,7 @@ async function sum(a, b) {
 <pre>
 <strong>Input:</strong> 
 fn = (callback, a, b, c) =&gt; {
-  return callback(a * b * c);
+    callback(a * b * c);
 }
 args = [1, 2, 3]
 <strong>Output:</strong> {&quot;resolved&quot;: 6}
@@ -55,7 +55,7 @@ fn is called with a callback as the first argument and args as the rest. The pro
 <pre>
 <strong>Input:</strong> 
 fn = (callback, a, b, c) =&gt; {
-&nbsp; callback(a * b * c, &quot;Promise Rejected&quot;);
+    callback(a * b * c, &quot;Promise Rejected&quot;);
 }
 args = [4, 5, 6]
 <strong>Output:</strong> {&quot;rejected&quot;: &quot;Promise Rejected&quot;}

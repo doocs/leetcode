@@ -163,7 +163,7 @@ function maximumElementAfterDecrementingAndRearranging(arr: number[]): number {
         ans = Math.max(ans, arr[i]);
     }
     return ans;
-};
+}
 ```
 
 ### **...**
