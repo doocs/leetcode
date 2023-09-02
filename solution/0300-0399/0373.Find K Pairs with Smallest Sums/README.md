@@ -48,7 +48,7 @@
 	<li><code>1 &lt;= nums1.length, nums2.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>-10<sup>9</sup> &lt;= nums1[i], nums2[i] &lt;= 10<sup>9</sup></code></li>
 	<li><code>nums1</code> 和 <code>nums2</code> 均为升序排列</li>
-	<li><code>1 &lt;= k &lt;= 1000</code></li>
+	<li><code>1 &lt;= k &lt;= 10<sup>4</sup></code></li>
 </ul>
 
 ## 解法

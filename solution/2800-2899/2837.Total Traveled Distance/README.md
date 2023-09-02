@@ -15,7 +15,7 @@
 | user_id     | int     |
 | name        | varchar |
 +-------------+---------+
-<code>user_id</code> is the primary key for this table.
+<code>user_id</code> is the column with unique values for this table.
 Each row of this table contains user id and name.
 </pre>
 
@@ -29,15 +29,15 @@ Each row of this table contains user id and name.
 | user_id      | int  | 
 | distance     | int  |
 +--------------+------+
-ride_id is the primary key for this table.
+ride_id is the column of unique values for this table.
 Each row of this table contains ride id, user id, and traveled distance.
 </pre>
 
-<p>Write an SQL query to calculate the <code>distance</code> traveled by <strong>each user</strong>. If there is a user&nbsp;who hasn&#39;t completed any rides, then their <code>distance</code> should be considered&nbsp;as <code>0</code>. Output the <code>user_id</code>, <code>name</code> and total traveled <code>distance</code>.</p>
+<p>Write a solution to calculate the <code>distance</code> traveled by <strong>each user</strong>. If there is a user&nbsp;who hasn&#39;t completed any rides, then their <code>distance</code> should be considered&nbsp;as <code>0</code>. Output the <code>user_id</code>, <code>name</code> and total traveled <code>distance</code>.</p>
 
 <p>Return<em> the result table ordered by </em><code>user_id</code><em> in <strong>ascending</strong> order.</em></p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
