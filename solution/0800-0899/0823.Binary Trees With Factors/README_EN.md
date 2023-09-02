@@ -60,9 +60,8 @@ class Solution:
 
 ```java
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
     public int numFactoredBinaryTrees(int[] arr) {
+        final int mod = (int) 1e9 + 7;
         Arrays.sort(arr);
         int n = arr.length;
         long[] f = new long[n];
@@ -79,14 +78,14 @@ class Solution {
                     int c = a / b;
                     if (idx.containsKey(c)) {
                         int k = idx.get(c);
-                        f[i] = (f[i] + f[j] * f[k]) % MOD;
+                        f[i] = (f[i] + f[j] * f[k]) % mod;
                     }
                 }
             }
         }
         long ans = 0;
         for (long v : f) {
-            ans = (ans + v) % MOD;
+            ans = (ans + v) % mod;
         }
         return (int) ans;
     }
@@ -98,9 +97,8 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    const int mod = 1e9 + 7;
-
     int numFactoredBinaryTrees(vector<int>& arr) {
+        const int mod = 1e9 + 7;
         sort(arr.begin(), arr.end());
         unordered_map<int, int> idx;
         int n = arr.size();
@@ -137,18 +135,15 @@ func numFactoredBinaryTrees(arr []int) int {
 	const mod int = 1e9 + 7
 	sort.Ints(arr)
 	f := make([]int, len(arr))
-	for i := range f {
-		f[i] = 1
-	}
 	idx := map[int]int{}
 	for i, v := range arr {
+		f[i] = 1
 		idx[v] = i
 	}
 	for i, a := range arr {
 		for j := 0; j < i; j++ {
 			b := arr[j]
-			if a%b == 0 {
-				c := a / b
+			if c := a / b; a%b == 0 {
 				if k, ok := idx[c]; ok {
 					f[i] = (f[i] + f[j]*f[k]) % mod
 				}
@@ -160,6 +155,35 @@ func numFactoredBinaryTrees(arr []int) int {
 		ans = (ans + v) % mod
 	}
 	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function numFactoredBinaryTrees(arr: number[]): number {
+    const mod = 10 ** 9 + 7;
+    arr.sort((a, b) => a - b);
+    const idx: Map<number, number> = new Map();
+    const n = arr.length;
+    for (let i = 0; i < n; ++i) {
+        idx.set(arr[i], i);
+    }
+    const f: number[] = new Array(n).fill(1);
+    for (let i = 0; i < n; ++i) {
+        const a = arr[i];
+        for (let j = 0; j < i; ++j) {
+            const b = arr[j];
+            if (a % b === 0) {
+                const c = a / b;
+                if (idx.has(c)) {
+                    const k = idx.get(c)!;
+                    f[i] = (f[i] + f[j] * f[k]) % mod;
+                }
+            }
+        }
+    }
+    return f.reduce((a, b) => a + b) % mod;
 }
 ```
 

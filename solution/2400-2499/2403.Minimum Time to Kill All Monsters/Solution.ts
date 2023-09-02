@@ -14,10 +14,7 @@ function minimumTime(power: number[]): number {
             if ((mask >> i) & 1) {
                 continue;
             }
-            ans = Math.min(
-                ans,
-                dfs(mask | (1 << i)) + Math.ceil(power[i] / (cnt + 1)),
-            );
+            ans = Math.min(ans, dfs(mask | (1 << i)) + Math.ceil(power[i] / (cnt + 1)));
         }
         f[mask] = ans;
         return ans;

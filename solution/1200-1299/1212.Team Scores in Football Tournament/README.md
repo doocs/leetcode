@@ -116,8 +116,7 @@ SELECT
     ) AS num_points
 FROM
     Teams AS t
-    LEFT JOIN Matches AS m
-        ON t.team_id = m.host_team OR t.team_id = m.guest_team
+    LEFT JOIN Matches AS m ON t.team_id = m.host_team OR t.team_id = m.guest_team
 GROUP BY t.team_id
 ORDER BY num_points DESC, team_id;
 ```

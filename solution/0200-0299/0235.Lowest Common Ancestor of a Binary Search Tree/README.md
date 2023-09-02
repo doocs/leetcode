@@ -20,14 +20,14 @@
 
 <pre><strong>输入:</strong> root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8
 <strong>输出:</strong> 6 
-<strong>解释: </strong>节点 <code>2 </code>和节点 <code>8 </code>的最近公共祖先是 <code>6。</code>
+<strong>解释: </strong>节点 2 和节点 8 的最近公共祖先是 6。
 </pre>
 
 <p><strong>示例 2:</strong></p>
 
 <pre><strong>输入:</strong> root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 4
 <strong>输出:</strong> 2
-<strong>解释: </strong>节点 <code>2</code> 和节点 <code>4</code> 的最近公共祖先是 <code>2</code>, 因为根据定义最近公共祖先节点可以为节点本身。</pre>
+<strong>解释: </strong>节点 2 和节点 4 的最近公共祖先是 2, 因为根据定义最近公共祖先节点可以为节点本身。</pre>
 
 <p>&nbsp;</p>
 
@@ -328,10 +328,8 @@ function lowestCommonAncestor(
     p: TreeNode | null,
     q: TreeNode | null,
 ): TreeNode | null {
-    if (root.val > p.val && root.val > q.val)
-        return lowestCommonAncestor(root.left, p, q);
-    if (root.val < p.val && root.val < q.val)
-        return lowestCommonAncestor(root.right, p, q);
+    if (root.val > p.val && root.val > q.val) return lowestCommonAncestor(root.left, p, q);
+    if (root.val < p.val && root.val < q.val) return lowestCommonAncestor(root.right, p, q);
     return root;
 }
 ```

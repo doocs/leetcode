@@ -17,8 +17,8 @@
 <p><strong>示例 1:</strong></p>
 
 <pre>
-<strong>输入:</strong> nums = <code>[1,2,3,4]</code>
-<strong>输出:</strong> <code>[24,12,8,6]</code>
+<strong>输入:</strong> nums = [1,2,3,4]
+<strong>输出:</strong> [24,12,8,6]
 </pre>
 
 <p><strong>示例 2:</strong></p>
@@ -183,9 +183,7 @@ function productExceptSelf(nums: number[]): number[] {
 
 ```ts
 function productExceptSelf(nums: number[]): number[] {
-    return nums.map((_, i) =>
-        nums.reduce((pre, val, j) => pre * (i === j ? 1 : val), 1),
-    );
+    return nums.map((_, i) => nums.reduce((pre, val, j) => pre * (i === j ? 1 : val), 1));
 }
 ```
 

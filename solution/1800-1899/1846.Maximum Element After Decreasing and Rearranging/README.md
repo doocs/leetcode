@@ -30,7 +30,7 @@
 <b>输入：</b>arr = [2,2,1,2,1]
 <b>输出：</b>2
 <b>解释：</b>
-我们可以重新排列 arr 得到 <code>[1,2,2,2,1] ，该数组满足所有条件。</code>
+我们可以重新排列 arr 得到 [1,2,2,2,1] ，该数组满足所有条件。
 arr 中最大元素为 2 。
 </pre>
 
@@ -41,10 +41,10 @@ arr 中最大元素为 2 。
 <b>输出：</b>3
 <b>解释：</b>
 一个可行的方案如下：
-1. 重新排列 <code>arr</code> 得到 <code>[1,100,1000] 。</code>
+1. 重新排列 arr< 得到 [1,100,1000] 。
 2. 将第二个元素减小为 2 。
 3. 将第三个元素减小为 3 。
-现在 <code>arr = [1,2,3] ，满足所有条件。</code>
+现在 arr = [1,2,3] ，满足所有条件。
 arr 中最大元素为 3 。
 </pre>
 
@@ -147,6 +147,22 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maximumElementAfterDecrementingAndRearranging(arr: number[]): number {
+    arr.sort((a, b) => a - b);
+    arr[0] = 1;
+    let ans = 1;
+    for (let i = 1; i < arr.length; ++i) {
+        const d = Math.max(0, arr[i] - arr[i - 1] - 1);
+        arr[i] -= d;
+        ans = Math.max(ans, arr[i]);
+    }
+    return ans;
 }
 ```
 

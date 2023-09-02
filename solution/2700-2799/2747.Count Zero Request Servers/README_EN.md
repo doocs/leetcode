@@ -185,12 +185,7 @@ func countServers(n int, logs [][]int, x int, queries []int) []int {
 ### **TypeScript**
 
 ```ts
-function countServers(
-    n: number,
-    logs: number[][],
-    x: number,
-    queries: number[],
-): number[] {
+function countServers(n: number, logs: number[][], x: number, queries: number[]): number[] {
     logs.sort((a, b) => a[1] - b[1]);
     const m = queries.length;
     const qs: number[][] = [];

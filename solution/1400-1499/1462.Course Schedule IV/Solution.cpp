@@ -1,32 +1,37 @@
 class Solution {
 public:
-    vector<bool> checkIfPrerequisite(int numCourses, vector<vector<int>>& prerequisites, vector<vector<int>>& queries) {
-        vector<vector<int>> g(numCourses, vector<int>(numCourses, -1));
-        for (auto& e : prerequisites) {
-            int a = e[0], b = e[1];
-            g[a][b] = 1;
+    vector<bool> checkIfPrerequisite(int n, vector<vector<int>>& prerequisites, vector<vector<int>>& queries) {
+        bool f[n][n];
+        memset(f, false, sizeof(f));
+        vector<int> g[n];
+        vector<int> indeg(n);
+        for (auto& p : prerequisites) {
+            g[p[0]].push_back(p[1]);
+            ++indeg[p[1]];
         }
-        vector<bool> ans;
-        for (auto& e : queries) {
-            int a = e[0], b = e[1];
-            ans.push_back(dfs(a, b, g));
-        }
-        return ans;
-    }
-
-    bool dfs(int a, int b, vector<vector<int>>& g) {
-        if (g[a][b] != -1) return g[a][b] == 1;
-        if (a == b) {
-            g[a][b] = 1;
-            return true;
-        }
-        for (int i = 0; i < g[a].size(); ++i) {
-            if (g[a][i] == 1 && dfs(i, b, g)) {
-                g[a][b] = 1;
-                return true;
+        queue<int> q;
+        for (int i = 0; i < n; ++i) {
+            if (indeg[i] == 0) {
+                q.push(i);
             }
         }
-        g[a][b] = 0;
-        return false;
+        while (!q.empty()) {
+            int i = q.front();
+            q.pop();
+            for (int j : g[i]) {
+                f[i][j] = true;
+                for (int h = 0; h < n; ++h) {
+                    f[h][j] |= f[h][i];
+                }
+                if (--indeg[j] == 0) {
+                    q.push(j);
+                }
+            }
+        }
+        vector<bool> ans;
+        for (auto& qry : queries) {
+            ans.push_back(f[qry[0]][qry[1]]);
+        }
+        return ans;
     }
 };

@@ -181,10 +181,7 @@ WITH RECURSIVE
 SELECT
     month,
     ifnull(
-        round(
-            count(DISTINCT t.driver_id) * 100 / count(DISTINCT s.driver_id),
-            2
-        ),
+        round(count(DISTINCT t.driver_id) * 100 / count(DISTINCT s.driver_id), 2),
         0
     ) AS working_percentage
 FROM

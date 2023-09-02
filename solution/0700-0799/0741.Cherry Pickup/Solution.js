@@ -34,10 +34,7 @@ var cherryPickup = function (grid) {
                 for (let x1 = i1 - 1; x1 <= i1; ++x1) {
                     for (let x2 = i2 - 1; x2 <= i2; ++x2) {
                         if (x1 >= 0 && x2 >= 0) {
-                            dp[k][i1][i2] = Math.max(
-                                dp[k][i1][i2],
-                                dp[k - 1][x1][x2] + t,
-                            );
+                            dp[k][i1][i2] = Math.max(dp[k][i1][i2], dp[k - 1][x1][x2] + t);
                         }
                     }
                 }

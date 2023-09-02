@@ -27,8 +27,8 @@
 <strong>Input:</strong> arr = [2,2,1,2,1]
 <strong>Output:</strong> 2
 <strong>Explanation:</strong> 
-We can satisfy the conditions by rearranging <code>arr</code> so it becomes <code>[1,2,2,2,1]</code>.
-The largest element in <code>arr</code> is 2.
+We can satisfy the conditions by rearranging arr so it becomes [1,2,2,2,1].
+The largest element in arr is 2.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -38,11 +38,11 @@ The largest element in <code>arr</code> is 2.
 <strong>Output:</strong> 3
 <strong>Explanation:</strong> 
 One possible way to satisfy the conditions is by doing the following:
-1. Rearrange <code>arr</code> so it becomes <code>[1,100,1000]</code>.
+1. Rearrange arr so it becomes [1,100,1000].
 2. Decrease the value of the second element to 2.
 3. Decrease the value of the third element to 3.
-Now <code>arr = [1,2,3], which </code>satisfies the conditions.
-The largest element in <code>arr is 3.</code>
+Now arr = [1,2,3], which satisfies the conditions.
+The largest element in arr is 3.
 </pre>
 
 <p><strong class="example">Example 3:</strong></p>
@@ -135,6 +135,22 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maximumElementAfterDecrementingAndRearranging(arr: number[]): number {
+    arr.sort((a, b) => a - b);
+    arr[0] = 1;
+    let ans = 1;
+    for (let i = 1; i < arr.length; ++i) {
+        const d = Math.max(0, arr[i] - arr[i - 1] - 1);
+        arr[i] -= d;
+        ans = Math.max(ans, arr[i]);
+    }
+    return ans;
 }
 ```
 

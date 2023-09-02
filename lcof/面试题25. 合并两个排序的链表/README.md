@@ -337,10 +337,7 @@ var mergeTwoLists = function (l1, l2) {
  * }
  */
 
-function mergeTwoLists(
-    l1: ListNode | null,
-    l2: ListNode | null,
-): ListNode | null {
+function mergeTwoLists(l1: ListNode | null, l2: ListNode | null): ListNode | null {
     const dummy = new ListNode(0);
     let cur = dummy;
     while (l1 && l2) {
@@ -371,10 +368,7 @@ function mergeTwoLists(
  * }
  */
 
-function mergeTwoLists(
-    l1: ListNode | null,
-    l2: ListNode | null,
-): ListNode | null {
+function mergeTwoLists(l1: ListNode | null, l2: ListNode | null): ListNode | null {
     if (l1 == null || l2 == null) {
         return l1 || l2;
     }
