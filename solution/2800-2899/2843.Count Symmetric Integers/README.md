@@ -49,7 +49,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def countSymmetricIntegers(self, low: int, high: int) -> int:
+        def f(x: int) -> bool:
+            s = str(x)
+            if len(s) & 1:
+                return False
+            n = len(s) // 2
+            return sum(map(int, s[:n])) == sum(map(int, s[n:]))
 
+        return sum(f(x) for x in range(low, high + 1))
 ```
 
 ### **Java**
@@ -57,19 +66,112 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int countSymmetricIntegers(int low, int high) {
+        int ans = 0;
+        for (int x = low; x <= high; ++x) {
+            ans += f(x);
+        }
+        return ans;
+    }
 
+    private int f(int x) {
+        String s = "" + x;
+        int n = s.length();
+        if (n % 2 == 1) {
+            return 0;
+        }
+        int a = 0, b = 0;
+        for (int i = 0; i < n / 2; ++i) {
+            a += s.charAt(i) - '0';
+        }
+        for (int i = n / 2; i < n; ++i) {
+            b += s.charAt(i) - '0';
+        }
+        return a == b ? 1 : 0;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int countSymmetricIntegers(int low, int high) {
+        int ans = 0;
+        auto f = [](int x) {
+            string s = to_string(x);
+            int n = s.size();
+            if (n & 1) {
+                return 0;
+            }
+            int a = 0, b = 0;
+            for (int i = 0; i < n / 2; ++i) {
+                a += s[i] - '0';
+                b += s[n / 2 + i] - '0';
+            }
+            return a == b ? 1 : 0;
+        };
+        for (int x = low; x <= high; ++x) {
+            ans += f(x);
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func countSymmetricIntegers(low int, high int) (ans int) {
+	f := func(x int) int {
+		s := strconv.Itoa(x)
+		n := len(s)
+		if n&1 == 1 {
+			return 0
+		}
+		a, b := 0, 0
+		for i := 0; i < n/2; i++ {
+			a += int(s[i] - '0')
+			b += int(s[n/2+i] - '0')
+		}
+		if a == b {
+			return 1
+		}
+		return 0
+	}
+	for x := low; x <= high; x++ {
+		ans += f(x)
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function countSymmetricIntegers(low: number, high: number): number {
+    let ans = 0;
+    const f = (x: number): number => {
+        const s = x.toString();
+        const n = s.length;
+        if (n & 1) {
+            return 0;
+        }
+        let a = 0;
+        let b = 0;
+        for (let i = 0; i < n >> 1; ++i) {
+            a += Number(s[i]);
+            b += Number(s[(n >> 1) + i]);
+        }
+        return a === b ? 1 : 0;
+    };
+    for (let x = low; x <= high; ++x) {
+        ans += f(x);
+    }
+    return ans;
+}
 ```
 
 ### **...**

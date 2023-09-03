@@ -64,7 +64,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def minimumOperations(self, num: str) -> int:
+        @cache
+        def dfs(i: int, k: int) -> int:
+            if i == n:
+                return 0 if k == 0 else n
+            ans = dfs(i + 1, k) + 1
+            ans = min(ans, dfs(i + 1, (k * 10 + int(num[i])) % 25))
+            return ans
 
+        n = len(num)
+        return dfs(0, 0)
 ```
 
 ### **Java**
@@ -72,19 +83,113 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private Integer[][] f;
+    private String num;
+    private int n;
 
+    public int minimumOperations(String num) {
+        n = num.length();
+        this.num = num;
+        f = new Integer[n][25];
+        return dfs(0, 0);
+    }
+
+    private int dfs(int i, int k) {
+        if (i == n) {
+            return k == 0 ? 0 : n;
+        }
+        if (f[i][k] != null) {
+            return f[i][k];
+        }
+        f[i][k] = dfs(i + 1, k) + 1;
+        f[i][k] = Math.min(f[i][k], dfs(i + 1, (k * 10 + num.charAt(i) - '0') % 25));
+        return f[i][k];
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int minimumOperations(string num) {
+        int n = num.size();
+        int f[n][25];
+        memset(f, -1, sizeof(f));
+        function<int(int, int)> dfs = [&](int i, int k) -> int {
+            if (i == n) {
+                return k == 0 ? 0 : n;
+            }
+            if (f[i][k] != -1) {
+                return f[i][k];
+            }
+            f[i][k] = dfs(i + 1, k) + 1;
+            f[i][k] = min(f[i][k], dfs(i + 1, (k * 10 + num[i] - '0') % 25));
+            return f[i][k];
+        };
+        return dfs(0, 0);
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minimumOperations(num string) int {
+	n := len(num)
+	f := make([][25]int, n)
+	for i := range f {
+		for j := range f[i] {
+			f[i][j] = -1
+		}
+	}
+	var dfs func(i, k int) int
+	dfs = func(i, k int) int {
+		if i == n {
+			if k == 0 {
+				return 0
+			}
+			return n
+		}
+		if f[i][k] != -1 {
+			return f[i][k]
+		}
+		f[i][k] = dfs(i+1, k) + 1
+		f[i][k] = min(f[i][k], dfs(i+1, (k*10+int(num[i]-'0'))%25))
+		return f[i][k]
+	}
+	return dfs(0, 0)
+}
 
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function minimumOperations(num: string): number {
+    const n = num.length;
+    const f: number[][] = Array.from({ length: n }, () => Array.from({ length: 25 }, () => -1));
+    const dfs = (i: number, k: number): number => {
+        if (i === n) {
+            return k === 0 ? 0 : n;
+        }
+        if (f[i][k] !== -1) {
+            return f[i][k];
+        }
+        f[i][k] = dfs(i + 1, k) + 1;
+        f[i][k] = Math.min(f[i][k], dfs(i + 1, (k * 10 + Number(num[i])) % 25));
+        return f[i][k];
+    };
+    return dfs(0, 0);
+}
 ```
 
 ### **...**
