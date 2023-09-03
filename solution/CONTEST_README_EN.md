@@ -25,6 +25,20 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 361
+
+- [2843. Count Symmetric Integers](/solution/2800-2899/2843.Count%20Symmetric%20Integers/README_EN.md)
+- [2844. Minimum Operations to Make a Special Number](/solution/2800-2899/2844.Minimum%20Operations%20to%20Make%20a%20Special%20Number/README_EN.md)
+- [2845. Count of Interesting Subarrays](/solution/2800-2899/2845.Count%20of%20Interesting%20Subarrays/README_EN.md)
+- [2846. Minimum Edge Weight Equilibrium Queries in a Tree](/solution/2800-2899/2846.Minimum%20Edge%20Weight%20Equilibrium%20Queries%20in%20a%20Tree/README_EN.md)
+
+#### Biweekly Contest 112
+
+- [2839. Check if Strings Can be Made Equal With Operations I](/solution/2800-2899/2839.Check%20if%20Strings%20Can%20be%20Made%20Equal%20With%20Operations%20I/README_EN.md)
+- [2840. Check if Strings Can be Made Equal With Operations II](/solution/2800-2899/2840.Check%20if%20Strings%20Can%20be%20Made%20Equal%20With%20Operations%20II/README_EN.md)
+- [2841. Maximum Sum of Almost Unique Subarray](/solution/2800-2899/2841.Maximum%20Sum%20of%20Almost%20Unique%20Subarray/README_EN.md)
+- [2842. Count K-Subsequences of a String With Maximum Beauty](/solution/2800-2899/2842.Count%20K-Subsequences%20of%20a%20String%20With%20Maximum%20Beauty/README_EN.md)
+
 #### Weekly Contest 360
 
 - [2833. Furthest Point From Origin](/solution/2800-2899/2833.Furthest%20Point%20From%20Origin/README_EN.md)

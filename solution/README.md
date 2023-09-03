@@ -2848,6 +2848,14 @@
 |  2836  |  [在传球游戏中最大化函数值](/solution/2800-2899/2836.Maximize%20Value%20of%20Function%20in%20a%20Ball%20Passing%20Game/README.md)  |  `位运算`,`数组`,`动态规划`  |  困难  |  第 360 场周赛  |
 |  2837  |  [Total Traveled Distance](/solution/2800-2899/2837.Total%20Traveled%20Distance/README.md)  |  `数据库`  |  简单  |  🔒  |
 |  2838  |  [Maximum Coins Heroes Can Collect](/solution/2800-2899/2838.Maximum%20Coins%20Heroes%20Can%20Collect/README.md)  |    |  中等  |  🔒  |
+|  2839  |  [判断通过操作能否让字符串相等 I](/solution/2800-2899/2839.Check%20if%20Strings%20Can%20be%20Made%20Equal%20With%20Operations%20I/README.md)  |    |  简单  |  第 112 场双周赛  |
+|  2840  |  [判断通过操作能否让字符串相等 II](/solution/2800-2899/2840.Check%20if%20Strings%20Can%20be%20Made%20Equal%20With%20Operations%20II/README.md)  |    |  中等  |  第 112 场双周赛  |
+|  2841  |  [几乎唯一子数组的最大和](/solution/2800-2899/2841.Maximum%20Sum%20of%20Almost%20Unique%20Subarray/README.md)  |    |  中等  |  第 112 场双周赛  |
+|  2842  |  [统计一个字符串的 k 子序列美丽值最大的数目](/solution/2800-2899/2842.Count%20K-Subsequences%20of%20a%20String%20With%20Maximum%20Beauty/README.md)  |    |  困难  |  第 112 场双周赛  |
+|  2843  |  [统计对称整数的数目](/solution/2800-2899/2843.Count%20Symmetric%20Integers/README.md)  |    |  简单  |  第 361 场周赛  |
+|  2844  |  [生成特殊数字的最少操作](/solution/2800-2899/2844.Minimum%20Operations%20to%20Make%20a%20Special%20Number/README.md)  |    |  中等  |  第 361 场周赛  |
+|  2845  |  [统计趣味子数组的数目](/solution/2800-2899/2845.Count%20of%20Interesting%20Subarrays/README.md)  |    |  中等  |  第 361 场周赛  |
+|  2846  |  [边权重均等查询](/solution/2800-2899/2846.Minimum%20Edge%20Weight%20Equilibrium%20Queries%20in%20a%20Tree/README.md)  |    |  困难  |  第 361 场周赛  |
 
 ## 版权
 

@@ -2846,6 +2846,14 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2836  |  [Maximize Value of Function in a Ball Passing Game](/solution/2800-2899/2836.Maximize%20Value%20of%20Function%20in%20a%20Ball%20Passing%20Game/README_EN.md)  |  `Bit Manipulation`,`Array`,`Dynamic Programming`  |  Hard  |  Weekly Contest 360  |
 |  2837  |  [Total Traveled Distance](/solution/2800-2899/2837.Total%20Traveled%20Distance/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
 |  2838  |  [Maximum Coins Heroes Can Collect](/solution/2800-2899/2838.Maximum%20Coins%20Heroes%20Can%20Collect/README_EN.md)  |    |  Medium  |  🔒  |
+|  2839  |  [Check if Strings Can be Made Equal With Operations I](/solution/2800-2899/2839.Check%20if%20Strings%20Can%20be%20Made%20Equal%20With%20Operations%20I/README_EN.md)  |    |  Easy  |  Biweekly Contest 112  |
+|  2840  |  [Check if Strings Can be Made Equal With Operations II](/solution/2800-2899/2840.Check%20if%20Strings%20Can%20be%20Made%20Equal%20With%20Operations%20II/README_EN.md)  |    |  Medium  |  Biweekly Contest 112  |
+|  2841  |  [Maximum Sum of Almost Unique Subarray](/solution/2800-2899/2841.Maximum%20Sum%20of%20Almost%20Unique%20Subarray/README_EN.md)  |    |  Medium  |  Biweekly Contest 112  |
+|  2842  |  [Count K-Subsequences of a String With Maximum Beauty](/solution/2800-2899/2842.Count%20K-Subsequences%20of%20a%20String%20With%20Maximum%20Beauty/README_EN.md)  |    |  Hard  |  Biweekly Contest 112  |
+|  2843  |  [Count Symmetric Integers](/solution/2800-2899/2843.Count%20Symmetric%20Integers/README_EN.md)  |    |  Easy  |  Weekly Contest 361  |
+|  2844  |  [Minimum Operations to Make a Special Number](/solution/2800-2899/2844.Minimum%20Operations%20to%20Make%20a%20Special%20Number/README_EN.md)  |    |  Medium  |  Weekly Contest 361  |
+|  2845  |  [Count of Interesting Subarrays](/solution/2800-2899/2845.Count%20of%20Interesting%20Subarrays/README_EN.md)  |    |  Medium  |  Weekly Contest 361  |
+|  2846  |  [Minimum Edge Weight Equilibrium Queries in a Tree](/solution/2800-2899/2846.Minimum%20Edge%20Weight%20Equilibrium%20Queries%20in%20a%20Tree/README_EN.md)  |    |  Hard  |  Weekly Contest 361  |
 
 ## Copyright
 
