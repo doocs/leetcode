@@ -22,6 +22,20 @@
 
 ## 往期竞赛
 
+#### 第 361 场周赛(2023-09-03 10:30, 90 分钟) 参赛人数 4170
+
+- [2843. 统计对称整数的数目](/solution/2800-2899/2843.Count%20Symmetric%20Integers/README.md)
+- [2844. 生成特殊数字的最少操作](/solution/2800-2899/2844.Minimum%20Operations%20to%20Make%20a%20Special%20Number/README.md)
+- [2845. 统计趣味子数组的数目](/solution/2800-2899/2845.Count%20of%20Interesting%20Subarrays/README.md)
+- [2846. 边权重均等查询](/solution/2800-2899/2846.Minimum%20Edge%20Weight%20Equilibrium%20Queries%20in%20a%20Tree/README.md)
+
+#### 第 112 场双周赛(2023-09-02 22:30, 90 分钟) 参赛人数 2900
+
+- [2839. 判断通过操作能否让字符串相等 I](/solution/2800-2899/2839.Check%20if%20Strings%20Can%20be%20Made%20Equal%20With%20Operations%20I/README.md)
+- [2840. 判断通过操作能否让字符串相等 II](/solution/2800-2899/2840.Check%20if%20Strings%20Can%20be%20Made%20Equal%20With%20Operations%20II/README.md)
+- [2841. 几乎唯一子数组的最大和](/solution/2800-2899/2841.Maximum%20Sum%20of%20Almost%20Unique%20Subarray/README.md)
+- [2842. 统计一个字符串的 k 子序列美丽值最大的数目](/solution/2800-2899/2842.Count%20K-Subsequences%20of%20a%20String%20With%20Maximum%20Beauty/README.md)
+
 #### 第 360 场周赛(2023-08-27 10:30, 90 分钟) 参赛人数 4496
 
 - [2833. 距离原点最远的点](/solution/2800-2899/2833.Furthest%20Point%20From%20Origin/README.md)
