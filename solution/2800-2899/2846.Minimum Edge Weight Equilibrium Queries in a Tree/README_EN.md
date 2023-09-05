@@ -64,25 +64,271 @@ For each queries[i], it can be shown that answer[i] is the minimum number of ope
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minOperationsQueries(
+        self, n: int, edges: List[List[int]], queries: List[List[int]]
+    ) -> List[int]:
+        m = n.bit_length()
+        g = [[] for _ in range(n)]
+        f = [[0] * m for _ in range(n)]
+        p = [0] * n
+        cnt = [None] * n
+        depth = [0] * n
+        for u, v, w in edges:
+            g[u].append((v, w - 1))
+            g[v].append((u, w - 1))
+        cnt[0] = [0] * 26
+        q = deque([0])
+        while q:
+            i = q.popleft()
+            f[i][0] = p[i]
+            for j in range(1, m):
+                f[i][j] = f[f[i][j - 1]][j - 1]
+            for j, w in g[i]:
+                if j != p[i]:
+                    p[j] = i
+                    cnt[j] = cnt[i][:]
+                    cnt[j][w] += 1
+                    depth[j] = depth[i] + 1
+                    q.append(j)
+        ans = []
+        for u, v in queries:
+            x, y = u, v
+            if depth[x] < depth[y]:
+                x, y = y, x
+            for j in reversed(range(m)):
+                if depth[x] - depth[y] >= (1 << j):
+                    x = f[x][j]
+            for j in reversed(range(m)):
+                if f[x][j] != f[y][j]:
+                    x, y = f[x][j], f[y][j]
+            if x != y:
+                x = p[x]
+            mx = max(cnt[u][j] + cnt[v][j] - 2 * cnt[x][j] for j in range(26))
+            ans.append(depth[u] + depth[v] - 2 * depth[x] - mx)
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int[] minOperationsQueries(int n, int[][] edges, int[][] queries) {
+        int m = 32 - Integer.numberOfLeadingZeros(n);
+        List<int[]>[] g = new List[n];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        int[][] f = new int[n][m];
+        int[] p = new int[n];
+        int[][] cnt = new int[n][0];
+        int[] depth = new int[n];
+        for (var e : edges) {
+            int u = e[0], v = e[1], w = e[2] - 1;
+            g[u].add(new int[] {v, w});
+            g[v].add(new int[] {u, w});
+        }
+        cnt[0] = new int[26];
+        Deque<Integer> q = new ArrayDeque<>();
+        q.offer(0);
+        while (!q.isEmpty()) {
+            int i = q.poll();
+            f[i][0] = p[i];
+            for (int j = 1; j < m; ++j) {
+                f[i][j] = f[f[i][j - 1]][j - 1];
+            }
+            for (var nxt : g[i]) {
+                int j = nxt[0], w = nxt[1];
+                if (j != p[i]) {
+                    p[j] = i;
+                    cnt[j] = cnt[i].clone();
+                    cnt[j][w]++;
+                    depth[j] = depth[i] + 1;
+                    q.offer(j);
+                }
+            }
+        }
+        int k = queries.length;
+        int[] ans = new int[k];
+        for (int i = 0; i < k; ++i) {
+            int u = queries[i][0], v = queries[i][1];
+            int x = u, y = v;
+            if (depth[x] < depth[y]) {
+                int t = x;
+                x = y;
+                y = t;
+            }
+            for (int j = m - 1; j >= 0; --j) {
+                if (depth[x] - depth[y] >= (1 << j)) {
+                    x = f[x][j];
+                }
+            }
+            for (int j = m - 1; j >= 0; --j) {
+                if (f[x][j] != f[y][j]) {
+                    x = f[x][j];
+                    y = f[y][j];
+                }
+            }
+            if (x != y) {
+                x = p[x];
+            }
+            int mx = 0;
+            for (int j = 0; j < 26; ++j) {
+                mx = Math.max(mx, cnt[u][j] + cnt[v][j] - 2 * cnt[x][j]);
+            }
+            ans[i] = depth[u] + depth[v] - 2 * depth[x] - mx;
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> minOperationsQueries(int n, vector<vector<int>>& edges, vector<vector<int>>& queries) {
+        int m = 32 - __builtin_clz(n);
+        vector<pair<int, int>> g[n];
+        int f[n][m];
+        int p[n];
+        int cnt[n][26];
+        int depth[n];
+        memset(f, 0, sizeof(f));
+        memset(cnt, 0, sizeof(cnt));
+        memset(depth, 0, sizeof(depth));
+        memset(p, 0, sizeof(p));
+        for (auto& e : edges) {
+            int u = e[0], v = e[1], w = e[2] - 1;
+            g[u].emplace_back(v, w);
+            g[v].emplace_back(u, w);
+        }
+        queue<int> q;
+        q.push(0);
+        while (!q.empty()) {
+            int i = q.front();
+            q.pop();
+            f[i][0] = p[i];
+            for (int j = 1; j < m; ++j) {
+                f[i][j] = f[f[i][j - 1]][j - 1];
+            }
+            for (auto& [j, w] : g[i]) {
+                if (j != p[i]) {
+                    p[j] = i;
+                    memcpy(cnt[j], cnt[i], sizeof(cnt[i]));
+                    cnt[j][w]++;
+                    depth[j] = depth[i] + 1;
+                    q.push(j);
+                }
+            }
+        }
+        vector<int> ans;
+        for (auto& qq : queries) {
+            int u = qq[0], v = qq[1];
+            int x = u, y = v;
+            if (depth[x] < depth[y]) {
+                swap(x, y);
+            }
+            for (int j = m - 1; ~j; --j) {
+                if (depth[x] - depth[y] >= (1 << j)) {
+                    x = f[x][j];
+                }
+            }
+            for (int j = m - 1; ~j; --j) {
+                if (f[x][j] != f[y][j]) {
+                    x = f[x][j];
+                    y = f[y][j];
+                }
+            }
+            if (x != y) {
+                x = p[x];
+            }
+            int mx = 0;
+            for (int j = 0; j < 26; ++j) {
+                mx = max(mx, cnt[u][j] + cnt[v][j] - 2 * cnt[x][j]);
+            }
+            ans.push_back(depth[u] + depth[v] - 2 * depth[x] - mx);
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minOperationsQueries(n int, edges [][]int, queries [][]int) []int {
+	m := bits.Len(uint(n))
+	g := make([][][2]int, n)
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, m)
+	}
+	p := make([]int, n)
+	cnt := make([][26]int, n)
+	cnt[0] = [26]int{}
+	depth := make([]int, n)
+	for _, e := range edges {
+		u, v, w := e[0], e[1], e[2]-1
+		g[u] = append(g[u], [2]int{v, w})
+		g[v] = append(g[v], [2]int{u, w})
+	}
+	q := []int{0}
+	for len(q) > 0 {
+		i := q[0]
+		q = q[1:]
+		f[i][0] = p[i]
+		for j := 1; j < m; j++ {
+			f[i][j] = f[f[i][j-1]][j-1]
+		}
+		for _, nxt := range g[i] {
+			j, w := nxt[0], nxt[1]
+			if j != p[i] {
+				p[j] = i
+				cnt[j] = [26]int{}
+				for k := 0; k < 26; k++ {
+					cnt[j][k] = cnt[i][k]
+				}
+				cnt[j][w]++
+				depth[j] = depth[i] + 1
+				q = append(q, j)
+			}
+		}
+	}
+	ans := make([]int, len(queries))
+	for i, qq := range queries {
+		u, v := qq[0], qq[1]
+		x, y := u, v
+		if depth[x] < depth[y] {
+			x, y = y, x
+		}
+		for j := m - 1; j >= 0; j-- {
+			if depth[x]-depth[y] >= (1 << j) {
+				x = f[x][j]
+			}
+		}
+		for j := m - 1; j >= 0; j-- {
+			if f[x][j] != f[y][j] {
+				x, y = f[x][j], f[y][j]
+			}
+		}
+		if x != y {
+			x = p[x]
+		}
+		mx := 0
+		for j := 0; j < 26; j++ {
+			mx = max(mx, cnt[u][j]+cnt[v][j]-2*cnt[x][j])
+		}
+		ans[i] = depth[u] + depth[v] - 2*depth[x] - mx
+	}
+	return ans
+}
 
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
