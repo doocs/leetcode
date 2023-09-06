@@ -34,7 +34,7 @@ jobs:
         id: calibre
         uses: calibreapp/image-actions@main
         with:
-          githubToken: ${{ secrets.ACTION_TOKEN }}
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
           # For non-Pull Requests, run in compressOnly mode and we'll PR after.
           compressOnly: ${{ github.event_name != 'pull_request' }}
       - name: Create Pull Request
@@ -44,7 +44,7 @@ jobs:
           steps.calibre.outputs.markdown != ''
         uses: peter-evans/create-pull-request@v4
         with:
-          title: Auto Compress Images
+          title: 'chore: auto compress images'
           branch-suffix: timestamp
-          commit-message: Compress Images
+          commit-message: 'chore: auto compress images'
           body: ${{ steps.calibre.outputs.markdown }}
