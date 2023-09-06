@@ -12,27 +12,29 @@
 class Solution {
 public:
     bool twoSumBSTs(TreeNode* root1, TreeNode* root2, int target) {
-        vector<int> vals1, vals2;
-        inorder(root1, vals1);
-        inorder(root2, vals2);
-        int i = 0, j = vals2.size() - 1;
-        while (i < vals1.size() && j >= 0) {
-            int s = vals1[i] + vals2[j];
-            if (s == target)
+        vector<int> nums[2];
+        function<void(TreeNode*, int)> dfs = [&](TreeNode* root, int i) {
+            if (!root) {
+                return;
+            }
+            dfs(root->left, i);
+            nums[i].push_back(root->val);
+            dfs(root->right, i);
+        };
+        dfs(root1, 0);
+        dfs(root2, 1);
+        int i = 0, j = nums[1].size() - 1;
+        while (i < nums[0].size() && j >= 0) {
+            int x = nums[0][i] + nums[1][j];
+            if (x == target) {
                 return true;
-            if (s < target)
+            }
+            if (x < target) {
                 ++i;
-            else
+            } else {
                 --j;
+            }
         }
         return false;
-    }
-
-    void inorder(TreeNode* root, vector<int>& vals) {
-        if (root) {
-            inorder(root->left, vals);
-            vals.push_back(root->val);
-            inorder(root->right, vals);
-        }
     }
 };
