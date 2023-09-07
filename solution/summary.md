@@ -2902,3 +2902,4 @@
   - [2844.生成特殊数字的最少操作](/solution/2800-2899/2844.Minimum%20Operations%20to%20Make%20a%20Special%20Number/README.md)
   - [2845.统计趣味子数组的数目](/solution/2800-2899/2845.Count%20of%20Interesting%20Subarrays/README.md)
   - [2846.边权重均等查询](/solution/2800-2899/2846.Minimum%20Edge%20Weight%20Equilibrium%20Queries%20in%20a%20Tree/README.md)
+  - [2847.Smallest Number With Given Digit Product](/solution/2800-2899/2847.Smallest%20Number%20With%20Given%20Digit%20Product/README.md)

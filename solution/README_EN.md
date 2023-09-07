@@ -2854,6 +2854,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2844  |  [Minimum Operations to Make a Special Number](/solution/2800-2899/2844.Minimum%20Operations%20to%20Make%20a%20Special%20Number/README_EN.md)  |    |  Medium  |  Weekly Contest 361  |
 |  2845  |  [Count of Interesting Subarrays](/solution/2800-2899/2845.Count%20of%20Interesting%20Subarrays/README_EN.md)  |    |  Medium  |  Weekly Contest 361  |
 |  2846  |  [Minimum Edge Weight Equilibrium Queries in a Tree](/solution/2800-2899/2846.Minimum%20Edge%20Weight%20Equilibrium%20Queries%20in%20a%20Tree/README_EN.md)  |    |  Hard  |  Weekly Contest 361  |
+|  2847  |  [Smallest Number With Given Digit Product](/solution/2800-2899/2847.Smallest%20Number%20With%20Given%20Digit%20Product/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
