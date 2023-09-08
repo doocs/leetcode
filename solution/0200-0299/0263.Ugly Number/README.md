@@ -31,7 +31,7 @@
 <pre>
 <strong>输入：</strong>n = 14
 <strong>输出：</strong>false
-<strong>解释：</strong>14 不是丑数，因为它包含了另外一个质因数&nbsp;7 。
+<strong>解释：</strong>14 不是丑数，因为它包含了另外一个质因数&nbsp;<code>7 </code>。
 </pre>
 
 <p>&nbsp;</p>

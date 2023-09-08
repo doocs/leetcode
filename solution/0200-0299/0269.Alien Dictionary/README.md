@@ -35,7 +35,7 @@
 <pre>
 <strong>输入：</strong>words = ["z","x","z"]
 <strong>输出：</strong>""
-<strong>解释：</strong>不存在合法字母顺序，因此返回 "" 。
+<strong>解释：</strong>不存在合法字母顺序，因此返回 <code>"" 。</code>
 </pre>
 
 <p>&nbsp;</p>

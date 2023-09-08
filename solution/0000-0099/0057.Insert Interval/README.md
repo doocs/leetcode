@@ -24,7 +24,7 @@
 <pre>
 <strong>输入：</strong>intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [4,8]
 <strong>输出：</strong>[[1,2],[3,10],[12,16]]
-<strong>解释：</strong>这是因为新的区间 [4,8] 与 [3,5],[6,7],[8,10] 重叠。</pre>
+<strong>解释：</strong>这是因为新的区间 <code>[4,8]</code> 与 <code>[3,5],[6,7],[8,10]</code> 重叠。</pre>
 
 <p><strong>示例 3：</strong></p>
 

@@ -17,14 +17,14 @@
 <p><strong>示例&nbsp;1：</strong></p>
 
 <pre>
-<strong>输入：</strong>coins = [1, 2, 5], amount = 11
-<strong>输出：</strong>3
+<strong>输入：</strong>coins = <code>[1, 2, 5]</code>, amount = <code>11</code>
+<strong>输出：</strong><code>3</code> 
 <strong>解释：</strong>11 = 5 + 5 + 1</pre>
 
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>输入：</strong>coins = [2], amount = 3
+<strong>输入：</strong>coins = <code>[2]</code>, amount = <code>3</code>
 <strong>输出：</strong>-1</pre>
 
 <p><strong>示例 3：</strong></p>

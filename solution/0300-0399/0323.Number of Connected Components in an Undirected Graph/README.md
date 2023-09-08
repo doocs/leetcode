@@ -17,7 +17,7 @@
 <p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0323.Number%20of%20Connected%20Components%20in%20an%20Undirected%20Graph/images/conn1-graph.jpg" /></p>
 
 <pre>
-<strong>输入: </strong>n = 5, edges = [[0, 1], [1, 2], [3, 4]]
+<strong>输入: </strong><code>n = 5</code>, <code>edges = [[0, 1], [1, 2], [3, 4]]</code>
 <strong>输出: </strong>2
 </pre>
 
@@ -26,7 +26,7 @@
 <p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0323.Number%20of%20Connected%20Components%20in%20an%20Undirected%20Graph/images/conn2-graph.jpg" /></p>
 
 <pre>
-<strong>输入: </strong>n = 5, edges = [[0,1], [1,2], [2,3], [3,4]]
+<strong>输入: </strong><code>n = 5,</code> <code>edges = [[0,1], [1,2], [2,3], [3,4]]</code>
 <strong>输出:&nbsp;&nbsp;</strong>1</pre>
 
 <p>&nbsp;</p>

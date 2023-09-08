@@ -15,16 +15,16 @@
 <p><strong>示例&nbsp;1：</strong></p>
 
 <pre>
-<strong>输入：</strong>n = 12
+<strong>输入：</strong>n = <code>12</code>
 <strong>输出：</strong>3 
-<strong>解释：</strong>12 = 4 + 4 + 4</pre>
+<strong>解释：</strong><code>12 = 4 + 4 + 4</code></pre>
 
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>输入：</strong>n = 13
+<strong>输入：</strong>n = <code>13</code>
 <strong>输出：</strong>2
-<strong>解释：</strong>13 = 4 + 9</pre>
+<strong>解释：</strong><code>13 = 4 + 9</code></pre>
 
 &nbsp;
 

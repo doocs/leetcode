@@ -413,9 +413,7 @@ def run():
     # 生成周赛题目列表
     generate_contest_readme(cls)
 
-    # 刷新题目文件
-    if refresh_all:
-        refresh(ls)
+    refresh(ls)
 
 
 if __name__ == "__main__":

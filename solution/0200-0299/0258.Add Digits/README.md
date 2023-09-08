@@ -13,12 +13,12 @@
 <p><strong>示例 1:</strong></p>
 
 <pre>
-<strong>输入:</strong> num =<strong> </strong>38
+<strong>输入:</strong> num =<strong> </strong><code>38</code>
 <strong>输出:</strong> 2 
 <strong>解释: </strong>各位相加的过程为<strong>：
 </strong>38 --&gt; 3 + 8 --&gt; 11
 11 --&gt; 1 + 1 --&gt; 2
-由于&nbsp;2 是一位数，所以返回 2。
+由于&nbsp;<code>2</code> 是一位数，所以返回 2。
 </pre>
 
 <p><strong>示例 2:</strong></p>
