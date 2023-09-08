@@ -15,14 +15,14 @@
 <p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入: </strong>s = "aabb"
-<strong>输出: </strong>["abba", "baab"]></pre>
+<strong>输入: </strong>s = <code>"aabb"</code>
+<strong>输出: </strong><code>["abba", "baab"]</code></pre>
 
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>输入: </strong>s = "abc"
-<strong>输出: </strong>[]
+<strong>输入: </strong>s = <code>"abc"</code>
+<strong>输出: </strong><code>[]</code>
 </pre>
 
 <p>&nbsp;</p>

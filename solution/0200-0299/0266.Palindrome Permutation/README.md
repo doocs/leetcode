@@ -10,17 +10,17 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入:</strong> &quot;code&quot;
+<pre><strong>输入:</strong> <code>&quot;code&quot;</code>
 <strong>输出:</strong> false</pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入:</strong> &quot;aab&quot;
+<pre><strong>输入:</strong> <code>&quot;aab&quot;</code>
 <strong>输出:</strong> true</pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入:</strong> &quot;carerac&quot;
+<pre><strong>输入:</strong> <code>&quot;carerac&quot;</code>
 <strong>输出:</strong> true</pre>
 
 ## 解法

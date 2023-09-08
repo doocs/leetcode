@@ -17,7 +17,7 @@
 <pre>
 <strong>输入：</strong>root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
 <strong>输出：</strong>3
-<strong>解释：</strong>节点 5 和节点 1 的最近公共祖先是节点 3 。
+<strong>解释：</strong>节点 <code>5 </code>和节点 <code>1 </code>的最近公共祖先是节点 <code>3 。</code>
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -25,7 +25,7 @@
 <pre>
 <strong>输入：</strong>root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4
 <strong>输出：</strong>5
-<strong>解释：</strong>节点 5 和节点 4 的最近公共祖先是节点 5 。因为根据定义最近公共祖先节点可以为节点本身。
+<strong>解释：</strong>节点 <code>5 </code>和节点 <code>4 </code>的最近公共祖先是节点 <code>5 。</code>因为根据定义最近公共祖先节点可以为节点本身。
 </pre>
 
 <p><strong>示例 3：</strong></p>

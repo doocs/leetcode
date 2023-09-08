@@ -16,14 +16,14 @@
 <pre>
 <strong>Input:</strong> arr = [2,4]
 <strong>Output:</strong> 3
-<strong>Explanation:</strong> We can make these trees: [2], [4], [4, 2, 2]</pre>
+<strong>Explanation:</strong> We can make these trees: <code>[2], [4], [4, 2, 2]</code></pre>
 
 <p><strong class="example">Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [2,4,5,10]
 <strong>Output:</strong> 7
-<strong>Explanation:</strong> We can make these trees: [2], [4], [5], [10], [4, 2, 2], [10, 2, 5], [10, 5, 2].</pre>
+<strong>Explanation:</strong> We can make these trees: <code>[2], [4], [5], [10], [4, 2, 2], [10, 2, 5], [10, 5, 2]</code>.</pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>

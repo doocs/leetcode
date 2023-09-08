@@ -17,16 +17,16 @@
 <p><strong>示例 1:</strong></p>
 
 <pre>
-<strong>输入:</strong> arr = [2, 4]
+<strong>输入:</strong> <code>arr = [2, 4]</code>
 <strong>输出:</strong> 3
-<strong>解释:</strong> 可以得到这些二叉树: [2], [4], [4, 2, 2]</pre>
+<strong>解释:</strong> 可以得到这些二叉树: <code>[2], [4], [4, 2, 2]</code></pre>
 
 <p><strong>示例 2:</strong></p>
 
 <pre>
-<strong>输入:</strong> arr = [2, 4, 5, 10]
-<strong>输出:</strong> 7
-<strong>解释:</strong> 可以得到这些二叉树: [2], [4], [5], [10], [4, 2, 2], [10, 2, 5], [10, 5, 2].</pre>
+<strong>输入:</strong> <code>arr = [2, 4, 5, 10]</code>
+<strong>输出:</strong> <code>7</code>
+<strong>解释:</strong> 可以得到这些二叉树: <code>[2], [4], [5], [10], [4, 2, 2], [10, 2, 5], [10, 5, 2]</code>.</pre>
 
 <p>&nbsp;</p>
 

@@ -23,13 +23,13 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><span style=""><b>输入：</b></span>a = "abc", b = "bca", c = "aaa"
+<pre><code><span style=""><b>输入：</b></span>a</code> = "abc", <code>b</code> = "bca", <code>c</code> = "aaa"
 <b>输出：</b>"aaabca"
 <b>解释：</b>字符串 "aaabca" 包含所有三个字符串：a = ans[2...4] ，b = ans[3..5] ，c = ans[0..2] 。结果字符串的长度至少为 6 ，且"aaabca" 是字典序最小的一个。</pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><span style=""><b>输入：</b></span>a = "ab", b = "ba", c = "aba"
+<pre><code><span style=""><b>输入：</b></span>a</code> = "ab", <code>b</code> = "ba", <code>c</code> = "aba"
 <b>输出：</b>"aba"
 <strong>解释：</strong>字符串 "aba" 包含所有三个字符串：a = ans[0..1] ，b = ans[1..2] ，c = ans[0..2] 。由于 c 的长度为 3 ，结果字符串的长度至少为 3 。"aba" 是字典序最小的一个。
 </pre>

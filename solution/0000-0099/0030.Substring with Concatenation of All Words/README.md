@@ -14,7 +14,7 @@
 	<li>例如，如果&nbsp;<code>words = ["ab","cd","ef"]</code>， 那么&nbsp;<code>"abcdef"</code>，&nbsp;<code>"abefcd"</code>，<code>"cdabef"</code>，&nbsp;<code>"cdefab"</code>，<code>"efabcd"</code>， 和&nbsp;<code>"efcdab"</code> 都是串联子串。&nbsp;<code>"acdbef"</code> 不是串联子串，因为他不是任何&nbsp;<code>words</code>&nbsp;排列的连接。</li>
 </ul>
 
-<p>返回所有串联字串在&nbsp;<code>s</code><strong>&nbsp;</strong>中的开始索引。你可以以 <strong>任意顺序</strong> 返回答案。</p>
+<p>返回所有串联子串在&nbsp;<code>s</code><strong>&nbsp;</strong>中的开始索引。你可以以 <strong>任意顺序</strong> 返回答案。</p>
 
 <p>&nbsp;</p>
 
@@ -22,7 +22,7 @@
 
 <pre>
 <strong>输入：</strong>s = "barfoothefoobarman", words = ["foo","bar"]
-<strong>输出：</strong>[0,9]
+<strong>输出：</strong><code>[0,9]</code>
 <strong>解释：</strong>因为 words.length == 2 同时 words[i].length == 3，连接的子字符串的长度必须为 6。
 子串 "barfoo" 开始位置是 0。它是 words 中以 ["bar","foo"] 顺序排列的连接。
 子串 "foobar" 开始位置是 9。它是 words 中以 ["foo","bar"] 顺序排列的连接。
@@ -33,7 +33,7 @@
 
 <pre>
 <strong>输入：</strong>s = "wordgoodgoodgoodbestword", words = ["word","good","best","word"]
-<strong>输出：</strong>[]
+<code><strong>输出：</strong>[]</code>
 <strong>解释：</strong>因为<strong> </strong>words.length == 4 并且 words[i].length == 4，所以串联子串的长度必须为 16。
 s 中没有子串长度为 16 并且等于 words 的任何顺序排列的连接。
 所以我们返回一个空数组。

@@ -14,7 +14,7 @@
 | user_name    | varchar |
 | credit       | int     |
 +--------------+---------+
-user_id is the primary key for this table.
+user_id is the primary key (column with unique values) for this table.
 Each row of this table contains the current credit information for each user.
 </pre>
 
@@ -32,7 +32,7 @@ Each row of this table contains the current credit information for each user.
 | amount        | int     |
 | transacted_on | date    |
 +---------------+---------+
-trans_id is the primary key for this table.
+trans_id is the primary key (column with unique values) for this table.
 Each row of this table contains information about the transaction in the bank.
 User with id (paid_by) transfer money to user with id (paid_to).
 </pre>
@@ -41,7 +41,7 @@ User with id (paid_by) transfer money to user with id (paid_to).
 
 <p>Leetcode Bank (LCB) helps its coders in making virtual payments. Our bank records all transactions in the table <em>Transaction</em>, we want to find out the current balance of all users and check whether they have breached their credit limit (If their current credit is less than <code>0</code>).</p>
 
-<p>Write an SQL query to report.</p>
+<p>Write a solution&nbsp;to report.</p>
 
 <ul>
 	<li><code>user_id</code>,</li>
@@ -52,7 +52,7 @@ User with id (paid_by) transfer money to user with id (paid_to).
 
 <p>Return the result table in <strong>any</strong> order.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

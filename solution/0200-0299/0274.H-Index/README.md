@@ -15,10 +15,10 @@
 <p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入：</strong>citations = [3,0,6,1,5]
+<strong>输入：</strong><code>citations = [3,0,6,1,5]</code>
 <strong>输出：</strong>3 
-<strong>解释：</strong>给定数组表示研究者总共有 5 篇论文，每篇论文相应的被引用了 3, 0, 6, 1, 5 次。
-&nbsp;    由于研究者有 3 篇论文每篇 <strong>至少 </strong>被引用了 3 次，其余两篇论文每篇被引用 <strong>不多于</strong> 3 次，所以她的 <em>h </em>指数是 3。</pre>
+<strong>解释：</strong>给定数组表示研究者总共有 <code>5</code> 篇论文，每篇论文相应的被引用了 <code>3, 0, 6, 1, 5</code> 次。
+&nbsp;    由于研究者有 <code>3 </code>篇论文每篇 <strong>至少 </strong>被引用了 <code>3</code> 次，其余两篇论文每篇被引用 <strong>不多于</strong> <code>3</code> 次，所以她的 <em>h </em>指数是 <code>3</code>。</pre>
 
 <p><strong>示例 2：</strong></p>
 

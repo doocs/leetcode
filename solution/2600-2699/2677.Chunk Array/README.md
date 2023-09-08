@@ -19,7 +19,7 @@
 <pre>
 <b>输入：</b>arr = [1,2,3,4,5], size = 1
 <b>输出：</b>[[1],[2],[3],[4],[5]]
-<b>解释：</b>数组 arr 被分割成了每个只有一个元素的子数组。
+<b>解释：</b>数组 <code>arr </code>被分割成了每个只有一个元素的子数组。
 </pre>
 
 <p><strong class="example">示例 2：</strong></p>
@@ -27,7 +27,7 @@
 <pre>
 <b>输入：</b>arr = [1,9,6,3,2], size = 3
 <b>输出：</b>[[1,9,6],[3,2]]
-<b>解释：</b>数组 arr 被分割成了每个有三个元素的子数组。然而，第二个子数组只有两个元素。
+<b>解释：</b>数组 <code>arr </code>被分割成了每个有三个元素的子数组。然而，第二个子数组只有两个元素。
 </pre>
 
 <p><strong class="example">示例 3：</strong></p>
@@ -35,7 +35,7 @@
 <pre>
 <b>输入：</b>arr = [8,5,3,2,6], size = 6
 <b>输出：</b>[[8,5,3,2,6]]
-<b>解释：</b>size 大于 arr.length ，因此所有元素都在第一个子数组中。
+<b>解释：</b><code>size </code>大于 <code>arr.length </code>，因此所有元素都在第一个子数组中。
 </pre>
 
 <p><strong class="example">示例 4：</strong></p>
