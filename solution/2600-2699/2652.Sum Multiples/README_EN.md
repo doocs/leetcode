@@ -14,7 +14,7 @@
 <pre>
 <strong>Input:</strong> n = 7
 <strong>Output:</strong> 21
-<strong>Explanation:</strong> Numbers in the range <code>[1, 7]</code> that are divisible by <code>3</code>, <code>5,</code> or <code>7 </code>are <code>3, 5, 6, 7</code>. The sum of these numbers is <code>21</code>.
+<strong>Explanation:</strong> Numbers in the range [1, 7] that are divisible by , 5, or 7 are 3, 5, 6, 7. The sum of these numbers is 21.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -22,7 +22,7 @@
 <pre>
 <strong>Input:</strong> n = 10
 <strong>Output:</strong> 40
-<strong>Explanation:</strong> Numbers in the range <code>[1, 10] that are</code> divisible by <code>3</code>, <code>5,</code> or <code>7</code> are <code>3, 5, 6, 7, 9, 10</code>. The sum of these numbers is 40.
+<strong>Explanation:</strong> Numbers in the range [1, 10] that are< divisible by 3, 5, or 7 are 3, 5, 6, 7, 9, 10. The sum of these numbers is 40.
 </pre>
 
 <p><strong class="example">Example 3:</strong></p>
@@ -30,7 +30,7 @@
 <pre>
 <strong>Input:</strong> n = 9
 <strong>Output:</strong> 30
-<strong>Explanation:</strong> Numbers in the range <code>[1, 9]</code> that are divisible by <code>3</code>, <code>5</code>, or <code>7</code> are <code>3, 5, 6, 7, 9</code>. The sum of these numbers is <code>30</code>.
+<strong>Explanation:</strong> Numbers in the range [1, 9] that are divisible by 3, 5, or 7 are 3, 5, 6, 7, 9. The sum of these numbers is 30.
 </pre>
 
 <p>&nbsp;</p>

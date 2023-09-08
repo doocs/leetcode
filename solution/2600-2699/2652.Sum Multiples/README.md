@@ -16,21 +16,21 @@
 
 <pre><strong>输入：</strong>n = 7
 <strong>输出：</strong>21
-<strong>解释：</strong>在 <code>[1, 7]</code> 范围内能被 3、<code>5、</code><code>7 整除的所有整数分别是</code><code> 3、5、6、7</code> 。数字之和为 <code>21</code> 。
+<strong>解释：</strong>在 [1, 7] 范围内能被 3、5、7 整除的所有整数分别是 3、5、6、7 。数字之和为 21 。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
 <pre><strong>输入：</strong>n = 10
 <strong>输出：</strong>40
-<strong>解释：</strong>在 <code>[1, 10]</code> 范围内能被 3、<code>5、</code><code>7 整除的所有整数分别是</code><code> 3、5、6、7、9、10</code> 。数字之和为 <code>40</code> 。
+<strong>解释：</strong>在 [1, 10 范围内能被 5、7 整除的所有整数分别是 3、5、6、7、9、10 。数字之和为 40 。
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
 <pre><strong>输入：</strong>n = 9
 <strong>输出：</strong>30
-<strong>解释：</strong>在 <code>[1, 9]</code> 范围内能被 3、<code>5、</code><code>7 整除的所有整数分别是</code><code> 3、5、6、7、9</code> 。数字之和为 <code>30</code> 。
+<strong>解释：</strong>在 [1, 9] 范围内能被 3、5、7 整除的所有整数分别是 3、5、6、7、9 。数字之和为 30 。
 </pre>
 
 <p>&nbsp;</p>
