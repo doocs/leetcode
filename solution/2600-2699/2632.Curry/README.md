@@ -72,6 +72,8 @@ curriedLife() === 42
 	<li><code>0 &lt;= fn.length &lt;= 1000</code></li>
 	<li><code>inputs.flat().length == fn.length</code></li>
 	<li><code>函数参数需要被显式定义</code></li>
+	<li>如果&nbsp;<code>fn.length &gt; 0</code>&nbsp;则最后一个数组&nbsp;<code>inputs</code>&nbsp;不为空</li>
+	<li>如果&nbsp;<code>fn.length === 0</code>&nbsp;则&nbsp;<code>inputs.length === 1</code>&nbsp;</li>
 </ul>
 
 ## 解法

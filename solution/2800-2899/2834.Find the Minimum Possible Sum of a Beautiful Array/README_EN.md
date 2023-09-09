@@ -14,7 +14,7 @@
 	<li>There doesn&#39;t exist two <strong>distinct</strong> indices, <code>i</code> and <code>j</code>, in the range <code>[0, n - 1]</code>, such that <code>nums[i] + nums[j] == target</code>.</li>
 </ul>
 
-<p>Return <em>the <strong>minimum</strong> possible sum that a beautiful array could have</em>.</p>
+<p>Return <em>the <strong>minimum</strong> possible sum that a beautiful array could have modulo </em><code>10<sup>9</sup> + 7</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -53,8 +53,8 @@ It can be proven that 8 is the minimum possible sum that a beautiful array could
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
-	<li><code>1 &lt;= target &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
+	<li><code>1 &lt;= target &lt;= 10<sup>9</sup></code></li>
 </ul>
 
 ## Solutions

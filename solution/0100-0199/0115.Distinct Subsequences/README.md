@@ -6,9 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你两个字符串 <code>s</code><strong> </strong>和 <code>t</code> ，统计并返回在 <code>s</code> 的 <strong>子序列</strong> 中 <code>t</code> 出现的个数。</p>
-
-<p>题目数据保证答案符合 32 位带符号整数范围。</p>
+<p>给你两个字符串 <code>s</code><strong> </strong>和 <code>t</code> ，统计并返回在 <code>s</code> 的 <strong>子序列</strong> 中 <code>t</code> 出现的个数，结果需要对&nbsp;10<sup>9</sup> + 7 取模。</p>
 
 <p>&nbsp;</p>
 

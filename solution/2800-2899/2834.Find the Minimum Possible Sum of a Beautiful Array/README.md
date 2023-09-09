@@ -16,7 +16,7 @@
 	<li>在范围 <code>[0, n-1]</code> 内，<strong>不存在 </strong>两个 <strong>不同</strong> 下标 <code>i</code> 和 <code>j</code> ，使得 <code>nums[i] + nums[j] == target</code> 。</li>
 </ul>
 
-<p>返回符合条件的美丽数组所可能具备的 <strong>最小</strong> 和。</p>
+<p>返回符合条件的美丽数组所可能具备的 <strong>最小</strong> 和，并对结果进行取模 <code>10<sup>9</sup>&nbsp;+ 7</code>。</p>
 
 <p>&nbsp;</p>
 
@@ -56,8 +56,8 @@ nums = [1,3,4] 是美丽数组。
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
-	<li><code>1 &lt;= target &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
+	<li><code>1 &lt;= target &lt;= 10<sup>9</sup></code></li>
 </ul>
 
 ## 解法

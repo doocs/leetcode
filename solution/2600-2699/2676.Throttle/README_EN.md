@@ -50,7 +50,7 @@ The 5th is called at 300ms, but it is after 260ms, so it should be called immedi
 	<li><code>0 &lt;= t &lt;= 1000</code></li>
 	<li><code>1 &lt;= calls.length &lt;= 10</code></li>
 	<li><code>0 &lt;= calls[i].t &lt;= 1000</code></li>
-	<li><code>0 &lt;= calls[i].inputs[i], calls[i].inputs.length &lt;= 10</code></li>
+	<li><code>0 &lt;= calls[i].inputs[j], calls[i].inputs.length &lt;= 10</code></li>
 </ul>
 
 ## Solutions
