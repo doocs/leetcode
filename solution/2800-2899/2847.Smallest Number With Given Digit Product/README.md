@@ -1,4 +1,4 @@
-# [2847. Smallest Number With Given Digit Product](https://leetcode.cn/problems/smallest-number-with-given-digit-product)
+# [2847. 给定数字乘积的最小数字](https://leetcode.cn/problems/smallest-number-with-given-digit-product)
 
 [English Version](/solution/2800-2899/2847.Smallest%20Number%20With%20Given%20Digit%20Product/README_EN.md)
 
@@ -6,35 +6,37 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Given a <strong>positive</strong> integer <code>n</code>, return <em>a string representing the <strong>smallest positive</strong> integer such that the product of its digits is equal to</em> <code>n</code><em>, or </em><code>&quot;-1&quot;</code><em> if no such number exists</em>.</p>
+<p>给定一个 <strong>正</strong> 整数 <code>n</code>，返回一个字符串，表示 <strong>最小的正整数</strong>，使其各位数字的乘积等于 <code>n</code>&nbsp;，如果不存在这样的数字，则返回 <code>"-1"</code>&nbsp;。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><b>示例 1：</b></p>
 
 <pre>
-<strong>Input:</strong> n = 105
-<strong>Output:</strong> &quot;357&quot;
-<strong>Explanation:</strong> 3 * 5 * 7 = 105. It can be shown that 357 is the smallest number with a product of digits equal to 105. So the answer would be &quot;105&quot;.
+<strong>输入：</strong>n = 105
+<b>输出：</b>"357"
+<b>解释：</b>3 * 5 * 7 = 105。可以证明，357 是乘积等于 105 的最小数字。因此答案为 "105"。
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<strong>Input:</strong> n = 7
-<strong>Output:</strong> &quot;7&quot;
-<strong>Explanation:</strong> Since 7 has only one digit, its product of digits would be 7. We will show that 7 is the smallest number with a product of digits equal to 7. Since the product of numbers 1 to 6 is 1 to 6 respectively, so &quot;7&quot; would be the answer.
+<b>输入：</b>n = 7
+<b>输出：</b>"7"
+<b>解释：</b>由于 7 只有一位数字，其各位数字的乘积为 7。由于数字 1 到 6 的乘积分别为 1 到 6，所以答案为 "7"。可以证明 7 是乘积等于 7 的最小数字。
 </pre>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <pre>
-<strong>Input:</strong> n = 44
-<strong>Output:</strong> &quot;-1&quot;
-<strong>Explanation:</strong> It can be shown that there is no number such that its product of digits is equal to 44. So the answer would be &quot;-1&quot;.
+<b>输入：</b>n = 44
+<b>输出：</b>"-1"
+<b>解释：</b>可以证明，没有数字的各位数字乘积等于 44。因此答案为 "-1"。
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= n &lt;= 10<sup>18</sup></code></li>

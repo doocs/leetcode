@@ -15,17 +15,17 @@
 | quantity      | int  |
 | purchase_date | date |
 +---------------+------+
-order_id is the primary key for this table.
+order_id contains unique values.
 Each row in this table contains the ID of an order, the id of the product purchased, the quantity, and the purchase date.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the IDs of all the products that were ordered three or more times in two consecutive years.</p>
+<p>Write a solution to report the IDs of all the products that were ordered three or more times in two consecutive years.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is shown in the following example.</p>
+<p>The&nbsp;result format is shown in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

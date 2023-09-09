@@ -15,7 +15,7 @@
 | team_id       | int      |
 | team_name     | varchar  |
 +---------------+----------+
-此表的主键是 team_id。
+team_id 是该表具有唯一值的列。
 表中的每一行都代表一支独立足球队。
 </pre>
 
@@ -33,14 +33,14 @@
 | host_goals    | int     |
 | guest_goals   | int     |
 +---------------+---------+
-此表的主键是 match_id。
+match_id 是该表具有唯一值的列。
 表中的每一行都代表一场已结束的比赛。
 比赛的主客队分别由它们自己的 id 表示，他们的进球由 host_goals 和 guest_goals 分别表示。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>您希望在所有比赛之后计算所有球队的比分。积分奖励方式如下:</p>
+<p>你希望在所有比赛之后计算所有球队的比分。积分奖励方式如下:</p>
 
 <ul>
 	<li>如果球队赢了比赛(即比对手进更多的球)，就得 <strong>3</strong> 分。</li>
@@ -48,11 +48,11 @@
 	<li>如果球队输掉了比赛(例如，比对手少进球)，就 <strong>不得分</strong> 。</li>
 </ul>
 
-<p>写出一条SQL语句以查询每个队的&nbsp;<code>team_id</code>，<code>team_name</code> 和 <code>num_points</code>。</p>
+<p>编写解决方案，以找出每个队的&nbsp;<code>team_id</code>，<code>team_name</code> 和 <code>num_points</code>。</p>
 
 <p>返回的结果根据&nbsp;<code>num_points</code><strong> 降序排序</strong>，如果有两队积分相同，那么这两队按&nbsp;<code>team_id</code>&nbsp; <strong>升序排序</strong>。</p>
 
-<p>查询结果格式如下。</p>
+<p>返回结果格式如下。</p>
 
 <p>&nbsp;</p>
 
