@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 362 场周赛(2023-09-10 10:30, 90 分钟) 参赛人数 4800
+
+- [2848. 与车相交的点](/solution/2800-2899/2848.Points%20That%20Intersect%20With%20Cars/README.md)
+- [2849. 判断能否在给定时间到达单元格](/solution/2800-2899/2849.Determine%20if%20a%20Cell%20Is%20Reachable%20at%20a%20Given%20Time/README.md)
+- [2850. 将石头分散到网格图的最少移动次数](/solution/2800-2899/2850.Minimum%20Moves%20to%20Spread%20Stones%20Over%20Grid/README.md)
+- [2851. 字符串转换](/solution/2800-2899/2851.String%20Transformation/README.md)
+
 #### 第 361 场周赛(2023-09-03 10:30, 90 分钟) 参赛人数 4170
 
 - [2843. 统计对称整数的数目](/solution/2800-2899/2843.Count%20Symmetric%20Integers/README.md)

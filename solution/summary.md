@@ -2903,3 +2903,7 @@
   - [2845.统计趣味子数组的数目](/solution/2800-2899/2845.Count%20of%20Interesting%20Subarrays/README.md)
   - [2846.边权重均等查询](/solution/2800-2899/2846.Minimum%20Edge%20Weight%20Equilibrium%20Queries%20in%20a%20Tree/README.md)
   - [2847.给定数字乘积的最小数字](/solution/2800-2899/2847.Smallest%20Number%20With%20Given%20Digit%20Product/README.md)
+  - [2848.与车相交的点](/solution/2800-2899/2848.Points%20That%20Intersect%20With%20Cars/README.md)
+  - [2849.判断能否在给定时间到达单元格](/solution/2800-2899/2849.Determine%20if%20a%20Cell%20Is%20Reachable%20at%20a%20Given%20Time/README.md)
+  - [2850.将石头分散到网格图的最少移动次数](/solution/2800-2899/2850.Minimum%20Moves%20to%20Spread%20Stones%20Over%20Grid/README.md)
+  - [2851.字符串转换](/solution/2800-2899/2851.String%20Transformation/README.md)

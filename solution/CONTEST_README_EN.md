@@ -25,6 +25,13 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 362
+
+- [2848. Points That Intersect With Cars](/solution/2800-2899/2848.Points%20That%20Intersect%20With%20Cars/README_EN.md)
+- [2849. Determine if a Cell Is Reachable at a Given Time](/solution/2800-2899/2849.Determine%20if%20a%20Cell%20Is%20Reachable%20at%20a%20Given%20Time/README_EN.md)
+- [2850. Minimum Moves to Spread Stones Over Grid](/solution/2800-2899/2850.Minimum%20Moves%20to%20Spread%20Stones%20Over%20Grid/README_EN.md)
+- [2851. String Transformation](/solution/2800-2899/2851.String%20Transformation/README_EN.md)
+
 #### Weekly Contest 361
 
 - [2843. Count Symmetric Integers](/solution/2800-2899/2843.Count%20Symmetric%20Integers/README_EN.md)
