@@ -206,7 +206,7 @@ func findOrder(numCourses int, prerequisites [][]int) []int {
 
 ```ts
 function findOrder(numCourses: number, prerequisites: number[][]): number[] {
-    const g: number[][] = new Array(numCourses).fill(0).map(() => []);
+    const g: number[][] = Array.from({ length: numCourses }, () => []);
     const indeg: number[] = new Array(numCourses).fill(0);
     for (const [a, b] of prerequisites) {
         g[b].push(a);
@@ -214,7 +214,7 @@ function findOrder(numCourses: number, prerequisites: number[][]): number[] {
     }
     const q: number[] = [];
     for (let i = 0; i < numCourses; ++i) {
-        if (indeg[i] == 0) {
+        if (indeg[i] === 0) {
             q.push(i);
         }
     }
@@ -223,7 +223,7 @@ function findOrder(numCourses: number, prerequisites: number[][]): number[] {
         const i = q.shift()!;
         ans.push(i);
         for (const j of g[i]) {
-            if (--indeg[j] == 0) {
+            if (--indeg[j] === 0) {
                 q.push(j);
             }
         }
