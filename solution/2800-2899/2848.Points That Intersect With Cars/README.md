@@ -42,6 +42,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：差分数组**
+
+我们创建一个长度为 $110$ 的差分数组 $d$，然后遍历给定的数组，对于每个区间 $[a, b]$，我们令 $d[a]$ 增加 $1$，$d[b + 1]$ 减少 $1$。最后我们遍历差分数组 $d$，求每个位置的前缀和 $s$，如果 $s > 0$，则说明该位置被覆盖，我们将答案增加 $1$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(M)$。其中 $n$ 是给定数组的长度，而 $M$ 是数组中元素的最大值。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -120,6 +126,27 @@ func numberOfPoints(nums [][]int) (ans int) {
 		}
 	}
 	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function numberOfPoints(nums: number[][]): number {
+    const d: number[] = Array(110).fill(0);
+    for (const [a, b] of nums) {
+        d[a]++;
+        d[b + 1]--;
+    }
+    let ans = 0;
+    let s = 0;
+    for (const x of d) {
+        s += x;
+        if (s > 0) {
+            ans++;
+        }
+    }
+    return ans;
 }
 ```
 
