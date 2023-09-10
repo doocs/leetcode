@@ -59,6 +59,26 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：单调栈**
+
+我们观察发现，对于第 $i$ 个人来说，他能看到的人一定是按从左到右（或者从上到下）高度严格单调递增的。
+
+因此，对于每一行，我们可以用单调栈来求出每个人能看到的人数。
+
+具体地，我们可以倒序遍历数组，用一个从栈顶到栈底单调递增的栈 $stk$ 记录已经遍历过的人的高度。
+
+对于第 $i$ 个人，如果栈不为空并且栈顶元素小于 $heights[i]$，累加当前第 $i$ 个人能看到的人数，然后将栈顶元素出栈，直到栈为空或者栈顶元素大于等于 $heights[i]$。如果此时栈不为空，说明栈顶元素大于等于 $heights[i]$，那么第 $i$ 个人能看到的人数还要再加 $1$。接下来，如果栈不为空并且栈顶元素等于 $heights[i]$，那么栈顶元素出栈。最后，将 $heights[i]$ 入栈，继续遍历下一个人。
+
+这样处理过后，我们就可以得到每一行每个人能看到的人数。
+
+同理，我们可以对每一列进行处理，得到每一列每个人能看到的人数。最后，我们将每一行和每一列的答案相加，就可以得到最终的答案。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(\max(m, n))$。其中 $m$ 和 $n$ 分别是数组 $heights$ 的行数和列数。
+
+相似题目：
+
+-   [1944. 队列中可以看到的人数](/solution/1900-1999/1944.Number%20of%20Visible%20People%20in%20a%20Queue/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -66,7 +86,30 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def seePeople(self, heights: List[List[int]]) -> List[List[int]]:
+        def f(nums: List[int]) -> List[int]:
+            n = len(nums)
+            stk = []
+            ans = [0] * n
+            for i in range(n - 1, -1, -1):
+                while stk and stk[-1] < nums[i]:
+                    ans[i] += 1
+                    stk.pop()
+                if stk:
+                    ans[i] += 1
+                while stk and stk[-1] == nums[i]:
+                    stk.pop()
+                stk.append(nums[i])
+            return ans
 
+        ans = [f(row) for row in heights]
+        m, n = len(heights), len(heights[0])
+        for j in range(n):
+            add = f([heights[i][j] for i in range(m)])
+            for i in range(m):
+                ans[i][j] += add[i]
+        return ans
 ```
 
 ### **Java**
@@ -74,13 +117,173 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[][] seePeople(int[][] heights) {
+        int m = heights.length, n = heights[0].length;
+        int[][] ans = new int[m][0];
+        for (int i = 0; i < m; ++i) {
+            ans[i] = f(heights[i]);
+        }
+        for (int j = 0; j < n; ++j) {
+            int[] nums = new int[m];
+            for (int i = 0; i < m; ++i) {
+                nums[i] = heights[i][j];
+            }
+            int[] add = f(nums);
+            for (int i = 0; i < m; ++i) {
+                ans[i][j] += add[i];
+            }
+        }
+        return ans;
+    }
 
+    private int[] f(int[] nums) {
+        int n = nums.length;
+        int[] ans = new int[n];
+        Deque<Integer> stk = new ArrayDeque<>();
+        for (int i = n - 1; i >= 0; --i) {
+            while (!stk.isEmpty() && stk.peek() < nums[i]) {
+                stk.pop();
+                ++ans[i];
+            }
+            if (!stk.isEmpty()) {
+                ++ans[i];
+            }
+            while (!stk.isEmpty() && stk.peek() == nums[i]) {
+                stk.pop();
+            }
+            stk.push(nums[i]);
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> seePeople(vector<vector<int>>& heights) {
+        int m = heights.size(), n = heights[0].size();
+        auto f = [](vector<int>& nums) {
+            int n = nums.size();
+            vector<int> ans(n);
+            stack<int> stk;
+            for (int i = n - 1; ~i; --i) {
+                while (stk.size() && stk.top() < nums[i]) {
+                    ++ans[i];
+                    stk.pop();
+                }
+                if (stk.size()) {
+                    ++ans[i];
+                }
+                while (stk.size() && stk.top() == nums[i]) {
+                    stk.pop();
+                }
+                stk.push(nums[i]);
+            }
+            return ans;
+        };
+        vector<vector<int>> ans;
+        for (auto& row : heights) {
+            ans.push_back(f(row));
+        }
+        for (int j = 0; j < n; ++j) {
+            vector<int> col;
+            for (int i = 0; i < m; ++i) {
+                col.push_back(heights[i][j]);
+            }
+            vector<int> add = f(col);
+            for (int i = 0; i < m; ++i) {
+                ans[i][j] += add[i];
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func seePeople(heights [][]int) (ans [][]int) {
+	f := func(nums []int) []int {
+		n := len(nums)
+		ans := make([]int, n)
+		stk := []int{}
+		for i := n - 1; i >= 0; i-- {
+			for len(stk) > 0 && stk[len(stk)-1] < nums[i] {
+				ans[i]++
+				stk = stk[:len(stk)-1]
+			}
+			if len(stk) > 0 {
+				ans[i]++
+			}
+			for len(stk) > 0 && stk[len(stk)-1] == nums[i] {
+				stk = stk[:len(stk)-1]
+			}
+			stk = append(stk, nums[i])
+		}
+		return ans
+	}
+	for _, row := range heights {
+		ans = append(ans, f(row))
+	}
+	n := len(heights[0])
+	for j := 0; j < n; j++ {
+		col := make([]int, len(heights))
+		for i := range heights {
+			col[i] = heights[i][j]
+		}
+		for i, v := range f(col) {
+			ans[i][j] += v
+		}
+	}
+	return
+}
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function seePeople(heights: number[][]): number[][] {
+    const f = (nums: number[]): number[] => {
+        const n = nums.length;
+        const ans: number[] = new Array(n).fill(0);
+        const stk: number[] = [];
+        for (let i = n - 1; ~i; --i) {
+            while (stk.length && stk.at(-1) < nums[i]) {
+                stk.pop();
+                ++ans[i];
+            }
+            if (stk.length) {
+                ++ans[i];
+            }
+            while (stk.length && stk.at(-1) === nums[i]) {
+                stk.pop();
+            }
+            stk.push(nums[i]);
+        }
+        return ans;
+    };
+    const ans: number[][] = [];
+    for (const row of heights) {
+        ans.push(f(row));
+    }
+    const n = heights[0].length;
+    for (let j = 0; j < n; ++j) {
+        const col: number[] = [];
+        for (const row of heights) {
+            col.push(row[j]);
+        }
+        const add = f(col);
+        for (let i = 0; i < ans.length; ++i) {
+            ans[i][j] += add[i];
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**

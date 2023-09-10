@@ -18,12 +18,12 @@
 | recordDate    | date    |
 | temperature   | int     |
 +---------------+---------+
-在 SQL 中，id 是该表的主键。
+id 是该表具有唯一值的列。
 该表包含特定日期的温度信息</pre>
 
 <p>&nbsp;</p>
 
-<p>找出与之前（昨天的）日期相比温度更高的所有日期的 <code>id</code> 。</p>
+<p>编写解决方案，找出与之前（昨天的）日期相比温度更高的所有日期的 <code>id</code> 。</p>
 
 <p>返回结果 <strong>无顺序要求</strong> 。</p>
 
@@ -71,8 +71,7 @@ SELECT w1.id
 FROM
     Weather AS w1
     JOIN Weather AS w2
-        ON datediff(w1.recordDate, w2.recordDate) = 1
-        AND w1.temperature > w2.temperature;
+        ON datediff(w1.recordDate, w2.recordDate) = 1 AND w1.temperature > w2.temperature;
 ```
 
 ```sql

@@ -6,7 +6,7 @@
 
 <p>A frog is crossing a river. The river is divided into some number of units, and at each unit, there may or may not exist a stone. The frog can jump on a stone, but it must not jump into the water.</p>
 
-<p>Given a list of <code>stones</code>&#39; positions (in units) in sorted <strong>ascending order</strong>, determine if the frog can cross the river by landing on the last stone. Initially, the frog is on the first stone and assumes the first jump must be <code>1</code> unit.</p>
+<p>Given a list of <code>stones</code>&nbsp;positions (in units) in sorted <strong>ascending order</strong>, determine if the frog can cross the river by landing on the last stone. Initially, the frog is on the first stone and assumes the first jump must be <code>1</code> unit.</p>
 
 <p>If the frog&#39;s last jump was <code>k</code> units, its next jump must be either <code>k - 1</code>, <code>k</code>, or <code>k + 1</code> units. The frog can only jump in the forward direction.</p>
 
@@ -222,6 +222,77 @@ public:
 };
 ```
 
+### **Rust**
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    #[allow(dead_code)]
+    pub fn can_cross(stones: Vec<i32>) -> bool {
+        let n = stones.len();
+        let mut record = vec![vec![-1; n]; n];
+        let mut pos = HashMap::new();
+        for (i, &s) in stones.iter().enumerate() {
+            pos.insert(s, i);
+        }
+
+        Self::dfs(&mut record, 0, 0, n, &pos, &stones)
+    }
+
+    #[allow(dead_code)]
+    fn dfs(record: &mut Vec<Vec<i32>>, i: usize, k: usize, n: usize, pos: &HashMap<i32, usize>, stones: &Vec<i32>) -> bool {
+        if i == n - 1 {
+            return true;
+        }
+
+        if record[i][k] != -1 {
+            return record[i][k] == 1;
+        }
+
+        let k = k as i32;
+        for j in k - 1..=k + 1 {
+            if j > 0 && pos.contains_key(&(stones[i] + j)) && Self::dfs(record, pos[&(stones[i] + j)], j as usize, n, pos, stones) {
+                record[i][k as usize] = 1;
+                return true;
+            }
+        }
+
+        record[i][k as usize] = 0;
+        false
+    }
+}
+```
+
+```rust
+impl Solution {
+    #[allow(dead_code)]
+    pub fn can_cross(stones: Vec<i32>) -> bool {
+        let n = stones.len();
+        let mut dp = vec![vec![false; n]; n];
+
+        // Initialize the dp vector
+        dp[0][0] = true;
+
+        // Begin the actual dp process
+        for i in 1..n {
+            for j in (0..=i - 1).rev() {
+                let k = (stones[i] - stones[j]) as usize;
+                if k - 1 > j {
+                    break;
+                }
+                dp[i][k] = dp[j][k - 1] || dp[j][k] || dp[j][k + 1];
+                if i == n - 1 && dp[i][k] {
+                    return true;
+                }
+            }
+        }
+
+        false
+    }
+}
+```
+
 ### **Go**
 
 ```go
@@ -320,9 +391,7 @@ function canCross(stones: number[]): boolean {
 ```ts
 function canCross(stones: number[]): boolean {
     const n = stones.length;
-    const f: boolean[][] = new Array(n)
-        .fill(0)
-        .map(() => new Array(n).fill(false));
+    const f: boolean[][] = new Array(n).fill(0).map(() => new Array(n).fill(false));
     f[0][0] = true;
     for (let i = 1; i < n; ++i) {
         for (let j = i - 1; j >= 0; --j) {

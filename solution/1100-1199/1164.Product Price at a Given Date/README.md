@@ -86,8 +86,7 @@ FROM
                 WHERE change_date <= '2019-08-16'
                 GROUP BY product_id
             ) AS t2
-                ON t1.product_id = t2.product_id
-                AND t1.change_date = t2.change_date
+                ON t1.product_id = t2.product_id AND t1.change_date = t2.change_date
     ) AS p2
         ON p1.product_id = p2.product_id;
 ```
@@ -103,8 +102,7 @@ WITH
                 FROM Products
             ) AS p1
             LEFT JOIN Products AS p2
-                ON p1.product_id = p2.product_id
-                AND p2.change_date <= '2019-08-16'
+                ON p1.product_id = p2.product_id AND p2.change_date <= '2019-08-16'
     ),
     T AS (
         SELECT

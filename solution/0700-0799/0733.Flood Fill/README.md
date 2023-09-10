@@ -286,12 +286,7 @@ func floodFill(image [][]int, sr int, sc int, color int) [][]int {
 ### **TypeScript**
 
 ```ts
-function floodFill(
-    image: number[][],
-    sr: number,
-    sc: number,
-    newColor: number,
-): number[][] {
+function floodFill(image: number[][], sr: number, sc: number, newColor: number): number[][] {
     const m = image.length;
     const n = image[0].length;
     const target = image[sr][sc];

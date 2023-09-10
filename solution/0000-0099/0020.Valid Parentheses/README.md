@@ -175,11 +175,7 @@ var isValid = function (s) {
 };
 
 function match(l, r) {
-    return (
-        (l == '(' && r == ')') ||
-        (l == '[' && r == ']') ||
-        (l == '{' && r == '}')
-    );
+    return (l == '(' && r == ')') || (l == '[' && r == ']') || (l == '{' && r == '}');
 }
 ```
 

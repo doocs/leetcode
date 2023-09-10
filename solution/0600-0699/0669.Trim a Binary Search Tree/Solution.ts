@@ -12,11 +12,7 @@
  * }
  */
 
-function trimBST(
-    root: TreeNode | null,
-    low: number,
-    high: number,
-): TreeNode | null {
+function trimBST(root: TreeNode | null, low: number, high: number): TreeNode | null {
     const dfs = (root: TreeNode | null) => {
         if (root == null) {
             return root;

@@ -1,8 +1,4 @@
-function isSumEqual(
-    firstWord: string,
-    secondWord: string,
-    targetWord: string,
-): boolean {
+function isSumEqual(firstWord: string, secondWord: string, targetWord: string): boolean {
     const calc = (s: string) => {
         let res = 0;
         for (const c of s) {

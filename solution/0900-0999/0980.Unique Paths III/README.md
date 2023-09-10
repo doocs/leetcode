@@ -270,14 +270,7 @@ function uniquePathsIII(grid: number[][]): number {
         let ans = 0;
         for (let d = 0; d < 4; ++d) {
             const [x, y] = [i + dirs[d], j + dirs[d + 1]];
-            if (
-                x >= 0 &&
-                x < m &&
-                y >= 0 &&
-                y < n &&
-                !vis[x][y] &&
-                grid[x][y] !== -1
-            ) {
+            if (x >= 0 && x < m && y >= 0 && y < n && !vis[x][y] && grid[x][y] !== -1) {
                 vis[x][y] = true;
                 ans += dfs(x, y, k + 1);
                 vis[x][y] = false;

@@ -363,11 +363,7 @@ func addOneRow(root *TreeNode, val int, depth int) *TreeNode {
  * }
  */
 
-function addOneRow(
-    root: TreeNode | null,
-    val: number,
-    depth: number,
-): TreeNode | null {
+function addOneRow(root: TreeNode | null, val: number, depth: number): TreeNode | null {
     function dfs(root, d) {
         if (!root) {
             return;
@@ -403,11 +399,7 @@ function addOneRow(
  * }
  */
 
-function addOneRow(
-    root: TreeNode | null,
-    val: number,
-    depth: number,
-): TreeNode | null {
+function addOneRow(root: TreeNode | null, val: number, depth: number): TreeNode | null {
     if (depth === 1) {
         return new TreeNode(val, root);
     }

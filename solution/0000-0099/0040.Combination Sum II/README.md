@@ -17,7 +17,7 @@
 <p><strong>示例&nbsp;1:</strong></p>
 
 <pre>
-<strong>输入:</strong> candidates =&nbsp;[10,1,2,7,6,1,5], target =&nbsp;8,
+<strong>输入:</strong> candidates =&nbsp;<code>[10,1,2,7,6,1,5]</code>, target =&nbsp;<code>8</code>,
 <strong>输出:</strong>
 [
 [1,1,6],

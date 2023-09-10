@@ -1,8 +1,4 @@
-function countBlackBlocks(
-    m: number,
-    n: number,
-    coordinates: number[][],
-): number[] {
+function countBlackBlocks(m: number, n: number, coordinates: number[][]): number[] {
     const cnt: Map<number, number> = new Map();
     const dirs: number[] = [0, 0, -1, -1, 0];
     for (const [x, y] of coordinates) {

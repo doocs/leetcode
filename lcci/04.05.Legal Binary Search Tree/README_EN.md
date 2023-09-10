@@ -258,10 +258,7 @@ function isValidBST(root: TreeNode | null): boolean {
         if (val <= min || val >= max) {
             return false;
         }
-        return (
-            dfs(left, min, Math.min(val, max)) &&
-            dfs(right, Math.max(val, min), max)
-        );
+        return dfs(left, min, Math.min(val, max)) && dfs(right, Math.max(val, min), max);
     };
     return dfs(left, -Infinity, val) && dfs(right, val, Infinity);
 }
