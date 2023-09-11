@@ -9,13 +9,10 @@ function minimizeResult(expression: string): string {
     while (arr2.length) {
         (arr3 = n2.split('')), (arr4 = []);
         while (arr3.length) {
-            let cur =
-                (getNum(arr2) + getNum(arr3)) * getNum(arr1) * getNum(arr4);
+            let cur = (getNum(arr2) + getNum(arr3)) * getNum(arr1) * getNum(arr4);
             if (cur < minSum) {
                 minSum = cur;
-                ans = `${arr1.join('')}(${arr2.join('')}+${arr3.join(
-                    '',
-                )})${arr4.join('')}`;
+                ans = `${arr1.join('')}(${arr2.join('')}+${arr3.join('')})${arr4.join('')}`;
             }
             arr4.unshift(arr3.pop());
         }

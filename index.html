@@ -28,6 +28,11 @@
     const isEn = () => location.hash.includes('README_EN');
     const isRoot = () => ['', '#/', '#/README', '#/README_EN'].includes(location.hash);
     const sidebar = () => isRoot() ? false : (isEn() ? 'summary_en.md' : 'summary.md');
+    const cleanedHtml = (html) => {
+      return html.replace(/<pre>([\s\S]*?)<\/pre>/g, function (match, group) {
+        return "<pre>" + group.replace(/<code>([\s\S]*?)<\/code>/g, "$1") + "</pre>";
+      });
+    };
 
     window.addEventListener('hashchange', () => {
       window.$docsify.loadSidebar = sidebar();
@@ -111,6 +116,7 @@
 
             const github = `[GitHub](${url})`
             const gitee = `[Gitee](${url.replace("github", "gitee")})`
+            html = cleanedHtml(html);
             const editHtml = isEn() ? `:memo: Edit on ${github} / ${gitee}\n` : `:memo: 在 ${github} / ${gitee} 编辑\n`
             return editHtml + html
           })

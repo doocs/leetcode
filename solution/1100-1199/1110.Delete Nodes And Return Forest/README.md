@@ -254,10 +254,7 @@ func delNodes(root *TreeNode, to_delete []int) (ans []*TreeNode) {
  * }
  */
 
-function delNodes(
-    root: TreeNode | null,
-    to_delete: number[],
-): Array<TreeNode | null> {
+function delNodes(root: TreeNode | null, to_delete: number[]): Array<TreeNode | null> {
     const s: boolean[] = Array(1001).fill(false);
     for (const x of to_delete) {
         s[x] = true;

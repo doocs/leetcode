@@ -58,10 +58,10 @@ class Solution:
         courses.sort(key=lambda x: x[1])
         pq = []
         s = 0
-        for d, e in courses:
-            heappush(pq, -d)
-            s += d
-            if s > e:
+        for duration, last in courses:
+            heappush(pq, -duration)
+            s += duration
+            while s > last:
                 s += heappop(pq)
         return len(pq)
 ```
@@ -71,14 +71,14 @@ class Solution:
 ```java
 class Solution {
     public int scheduleCourse(int[][] courses) {
-        Arrays.sort(courses, Comparator.comparingInt(a -> a[1]));
+        Arrays.sort(courses, (a, b) -> a[1] - b[1]);
         PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b - a);
         int s = 0;
-        for (int[] course : courses) {
-            int duration = course[0], lastDay = course[1];
+        for (var e : courses) {
+            int duration = e[0], last = e[1];
             pq.offer(duration);
             s += duration;
-            if (s > lastDay) {
+            while (s > last) {
                 s -= pq.poll();
             }
         }
@@ -93,16 +93,16 @@ class Solution {
 class Solution {
 public:
     int scheduleCourse(vector<vector<int>>& courses) {
-        sort(courses.begin(), courses.end(), [](const auto& c0, const auto& c1) {
-            return c0[1] < c1[1];
+        sort(courses.begin(), courses.end(), [](const vector<int>& a, const vector<int>& b) {
+            return a[1] < b[1];
         });
-        int s = 0;
         priority_queue<int> pq;
-        for (auto& course : courses) {
-            int d = course[0], e = course[1];
-            pq.push(d);
-            s += d;
-            if (s > e) {
+        int s = 0;
+        for (auto& e : courses) {
+            int duration = e[0], last = e[1];
+            pq.push(duration);
+            s += duration;
+            while (s > last) {
                 s -= pq.top();
                 pq.pop();
             }
@@ -116,42 +116,49 @@ public:
 
 ```go
 func scheduleCourse(courses [][]int) int {
-	sort.Slice(courses, func(i, j int) bool {
-		return courses[i][1] < courses[j][1]
-	})
-
-	h := &Heap{}
+	sort.Slice(courses, func(i, j int) bool { return courses[i][1] < courses[j][1] })
+	pq := &hp{}
 	s := 0
-	for _, course := range courses {
-		if d := course[0]; s+d <= course[1] {
-			s += d
-			heap.Push(h, d)
-		} else if h.Len() > 0 && d < h.IntSlice[0] {
-			s += d - h.IntSlice[0]
-			h.IntSlice[0] = d
-			heap.Fix(h, 0)
+	for _, e := range courses {
+		duration, last := e[0], e[1]
+		s += duration
+		pq.push(duration)
+		for s > last {
+			s -= pq.pop()
 		}
 	}
-	return h.Len()
+	return pq.Len()
 }
 
-type Heap struct {
-	sort.IntSlice
-}
+type hp struct{ sort.IntSlice }
 
-func (h Heap) Less(i, j int) bool {
-	return h.IntSlice[i] > h.IntSlice[j]
-}
-
-func (h *Heap) Push(x interface{}) {
-	h.IntSlice = append(h.IntSlice, x.(int))
-}
-
-func (h *Heap) Pop() interface{} {
+func (h hp) Less(i, j int) bool { return h.IntSlice[i] > h.IntSlice[j] }
+func (h *hp) Push(v any)        { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() any {
 	a := h.IntSlice
-	x := a[len(a)-1]
+	v := a[len(a)-1]
 	h.IntSlice = a[:len(a)-1]
-	return x
+	return v
+}
+func (h *hp) push(v int) { heap.Push(h, v) }
+func (h *hp) pop() int   { return heap.Pop(h).(int) }
+```
+
+### **TypeScript**
+
+```ts
+function scheduleCourse(courses: number[][]): number {
+    courses.sort((a, b) => a[1] - b[1]);
+    const pq = new MaxPriorityQueue();
+    let s = 0;
+    for (const [duration, last] of courses) {
+        pq.enqueue(duration);
+        s += duration;
+        while (s > last) {
+            s -= pq.dequeue().element;
+        }
+    }
+    return pq.size();
 }
 ```
 

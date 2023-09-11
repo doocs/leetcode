@@ -16,6 +16,8 @@
 
 <p>Return <em>an array of all the <strong>palindrome pairs</strong> of </em><code>words</code>.</p>
 
+<p>You must write an algorithm with&nbsp;<code>O(sum of words[i].length)</code>&nbsp;runtime complexity.</p>
+
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 

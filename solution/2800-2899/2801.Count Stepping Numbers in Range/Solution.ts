@@ -5,12 +5,7 @@ function countSteppingNumbers(low: string, high: string): number {
         .fill(0)
         .map(() => Array(10).fill(-1));
     let num = high;
-    const dfs = (
-        pos: number,
-        pre: number,
-        lead: boolean,
-        limit: boolean,
-    ): number => {
+    const dfs = (pos: number, pre: number, lead: boolean, limit: boolean): number => {
         if (pos >= num.length) {
             return lead ? 0 : 1;
         }

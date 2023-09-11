@@ -16,7 +16,7 @@ var closestValue = function (root, target) {
     let mi = Number.MAX_VALUE;
     while (root) {
         const t = Math.abs(root.val - target);
-        if (t < mi) {
+        if (t < mi || (t === mi && root.val < ans)) {
             mi = t;
             ans = root.val;
         }

@@ -365,9 +365,7 @@ function minPushBox(grid: string[][]): number {
         i >= 0 && i < m && j >= 0 && j < n && grid[i][j] !== '#';
 
     const q: Deque<[number, number, number]> = new Deque();
-    const vis: boolean[][] = new Array(m * n)
-        .fill(0)
-        .map(() => new Array(m * n).fill(false));
+    const vis: boolean[][] = new Array(m * n).fill(0).map(() => new Array(m * n).fill(false));
     q.push([f(si, sj), f(bi, bj), 0]);
     vis[f(si, sj)][f(bi, bj)] = true;
     const dirs: number[] = [-1, 0, 1, 0, -1];

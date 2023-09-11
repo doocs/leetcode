@@ -76,10 +76,7 @@ function jsonStringify(object: any): string {
     }
     if (typeof object === 'object') {
         return `{${Object.entries(object)
-            .map(
-                ([key, value]) =>
-                    `${jsonStringify(key)}:${jsonStringify(value)}`,
-            )
+            .map(([key, value]) => `${jsonStringify(key)}:${jsonStringify(value)}`)
             .join(',')}}`;
     }
     return '';

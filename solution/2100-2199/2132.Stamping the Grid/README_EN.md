@@ -314,11 +314,7 @@ var possibleToStamp = function (grid, stampHeight, stampWidth) {
         for (let j = 0; j < n; ++j) {
             if (grid[i][j] == 0) {
                 let [x, y] = [i + stampHeight, j + stampWidth];
-                if (
-                    x <= m &&
-                    y <= n &&
-                    s[x][y] - s[i][y] - s[x][j] + s[i][j] == 0
-                ) {
+                if (x <= m && y <= n && s[x][y] - s[i][y] - s[x][j] + s[i][j] == 0) {
                     d[i][j]++;
                     d[i][y]--;
                     d[x][j]--;
@@ -329,8 +325,7 @@ var possibleToStamp = function (grid, stampHeight, stampWidth) {
     }
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
-            cnt[i + 1][j + 1] =
-                cnt[i + 1][j] + cnt[i][j + 1] - cnt[i][j] + d[i][j];
+            cnt[i + 1][j + 1] = cnt[i + 1][j] + cnt[i][j + 1] - cnt[i][j] + d[i][j];
             if (grid[i][j] == 0 && cnt[i + 1][j + 1] == 0) {
                 return false;
             }

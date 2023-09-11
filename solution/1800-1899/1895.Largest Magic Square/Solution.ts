@@ -2,9 +2,7 @@ function largestMagicSquare(grid: number[][]): number {
     let m = grid.length,
         n = grid[0].length;
     // 前缀和
-    let rowSum = Array.from({ length: m + 1 }, (v, i) =>
-            new Array(n + 1).fill(0),
-        ),
+    let rowSum = Array.from({ length: m + 1 }, (v, i) => new Array(n + 1).fill(0)),
         colSum = Array.from({ length: m + 1 }, v => new Array(n + 1).fill(0));
     for (let i = 0; i < m; i++) {
         rowSum[i + 1][1] = grid[i][0];

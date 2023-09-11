@@ -1,9 +1,4 @@
-function frogPosition(
-    n: number,
-    edges: number[][],
-    t: number,
-    target: number,
-): number {
+function frogPosition(n: number, edges: number[][], t: number, target: number): number {
     const g: number[][] = Array.from({ length: n + 1 }, () => []);
     for (const [u, v] of edges) {
         g[u].push(v);

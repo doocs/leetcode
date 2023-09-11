@@ -1,8 +1,4 @@
-function* dateRangeGenerator(
-    start: string,
-    end: string,
-    step: number,
-): Generator<string> {
+function* dateRangeGenerator(start: string, end: string, step: number): Generator<string> {
     const startDate = new Date(start);
     const endDate = new Date(end);
     let currentDate = startDate;

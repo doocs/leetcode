@@ -7,44 +7,37 @@
 
 
 class Codec:
-    def serialize(self, root: TreeNode) -> str:
+    def serialize(self, root: Optional[TreeNode]) -> str:
         """Encodes a tree to a single string."""
 
-        def dfs(root):
+        def dfs(root: Optional[TreeNode]):
             if root is None:
                 return
-            nonlocal t
-            t.append(str(root.val))
-            t.append(',')
+            nums.append(root.val)
             dfs(root.left)
             dfs(root.right)
 
-        if root is None:
-            return ''
-        t = []
+        nums = []
         dfs(root)
-        return ''.join(t[:-1])
+        return " ".join(map(str, nums))
 
-    def deserialize(self, data: str) -> TreeNode:
+    def deserialize(self, data: str) -> Optional[TreeNode]:
         """Decodes your encoded data to tree."""
 
-        def build(s, l, r):
-            if l > r:
+        def dfs(mi: int, mx: int) -> Optional[TreeNode]:
+            nonlocal i
+            if i == len(nums) or not mi <= nums[i] <= mx:
                 return None
-            root = TreeNode(int(s[l]))
-            idx = r + 1
-            for i in range(l + 1, r + 1):
-                if int(s[i]) > root.val:
-                    idx = i
-                    break
-            root.left = build(s, l + 1, idx - 1)
-            root.right = build(s, idx, r)
+            x = nums[i]
+            root = TreeNode(x)
+            i += 1
+            root.left = dfs(mi, x)
+            root.right = dfs(x, mx)
             return root
 
-        if not data:
-            return None
-        s = data.split(',')
-        return build(s, 0, len(s) - 1)
+        nums = list(map(int, data.split()))
+        i = 0
+        return dfs(-inf, inf)
 
 
 # Your Codec object will be instantiated and called as such:

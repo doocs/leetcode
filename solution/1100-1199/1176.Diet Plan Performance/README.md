@@ -265,12 +265,7 @@ func dietPlanPerformance(calories []int, k int, lower int, upper int) (ans int) 
 ### **TypeScript**
 
 ```ts
-function dietPlanPerformance(
-    calories: number[],
-    k: number,
-    lower: number,
-    upper: number,
-): number {
+function dietPlanPerformance(calories: number[], k: number, lower: number, upper: number): number {
     const n = calories.length;
     const s: number[] = new Array(n + 1).fill(0);
     for (let i = 0; i < n; ++i) {
@@ -290,12 +285,7 @@ function dietPlanPerformance(
 ```
 
 ```ts
-function dietPlanPerformance(
-    calories: number[],
-    k: number,
-    lower: number,
-    upper: number,
-): number {
+function dietPlanPerformance(calories: number[], k: number, lower: number, upper: number): number {
     const n = calories.length;
     let s = calories.slice(0, k).reduce((a, b) => a + b);
     let ans = 0;

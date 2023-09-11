@@ -1,28 +1,20 @@
 impl Solution {
     pub fn longest_palindrome(s: String) -> String {
-        let n = s.len();
-        let s = s.as_bytes();
-        let is_pass = |mut l, mut r| {
-            while l < r {
-                if s[l] != s[r] {
-                    return false;
-                }
-                l += 1;
-                r -= 1;
-            }
-            true
-        };
-        let mut res = &s[0..1];
-        for i in 0..n - 1 {
-            for j in (i + 1..n).rev() {
-                if res.len() > j - i {
-                    break;
-                }
-                if is_pass(i, j) {
-                    res = &s[i..=j];
+        let (n, mut ans) = (s.len(), &s[..1]);
+        let mut dp = vec![vec![false; n]; n];
+        let data: Vec<char> = s.chars().collect();
+
+        for end in 1..n {
+            for start in 0..=end {
+                if data[start] == data[end] {
+                    dp[start][end] = end - start < 2 || dp[start + 1][end - 1];
+                    if dp[start][end] && (end - start + 1) > ans.len() {
+                        ans = &s[start..=end];
+                    }
                 }
             }
         }
-        res.into_iter().map(|c| char::from(*c)).collect()
+        ans.to_string()
     }
 }
+

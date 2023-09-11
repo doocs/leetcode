@@ -1,8 +1,4 @@
-function maximumProfit(
-    present: number[],
-    future: number[],
-    budget: number,
-): number {
+function maximumProfit(present: number[], future: number[], budget: number): number {
     const f = new Array(budget + 1).fill(0);
     for (let i = 0; i < present.length; ++i) {
         const [a, b] = [present[i], future[i]];

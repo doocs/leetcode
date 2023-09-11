@@ -47,34 +47,17 @@ The closest occurrence of &#39;e&#39; for index 8 is at index 6, so the distance
 class Solution:
     def shortestToChar(self, s: str, c: str) -> List[int]:
         n = len(s)
-        ans = [0] * n
-        j = inf
+        ans = [n] * n
+        pre = -inf
         for i, ch in enumerate(s):
             if ch == c:
-                j = i
-            ans[i] = abs(i - j)
-        j = inf
+                pre = i
+            ans[i] = min(ans[i], i - pre)
+        suf = inf
         for i in range(n - 1, -1, -1):
             if s[i] == c:
-                j = i
-            ans[i] = min(ans[i], abs(i - j))
-        return ans
-```
-
-```python
-class Solution:
-    def shortestToChar(self, s: str, c: str) -> List[int]:
-        q = deque([i for i, ch in enumerate(s) if ch == c])
-        ans = [0 if ch == c else -1 for ch in s]
-        d = 0
-        while q:
-            d += 1
-            for _ in range(len(q)):
-                i = q.popleft()
-                for j in (i - 1, i + 1):
-                    if 0 <= j < len(s) and ans[j] == -1:
-                        ans[j] = d
-                        q.append(j)
+                suf = i
+            ans[i] = min(ans[i], suf - i)
         return ans
 ```
 
@@ -85,51 +68,80 @@ class Solution {
     public int[] shortestToChar(String s, char c) {
         int n = s.length();
         int[] ans = new int[n];
-        for (int i = 0, j = Integer.MAX_VALUE; i < n; ++i) {
+        final int inf = 1 << 30;
+        Arrays.fill(ans, inf);
+        for (int i = 0, pre = -inf; i < n; ++i) {
             if (s.charAt(i) == c) {
-                j = i;
+                pre = i;
             }
-            ans[i] = Math.abs(i - j);
+            ans[i] = Math.min(ans[i], i - pre);
         }
-        for (int i = n - 1, j = Integer.MAX_VALUE; i >= 0; --i) {
+        for (int i = n - 1, suf = inf; i >= 0; --i) {
             if (s.charAt(i) == c) {
-                j = i;
+                suf = i;
             }
-            ans[i] = Math.min(ans[i], Math.abs(i - j));
+            ans[i] = Math.min(ans[i], suf - i);
         }
         return ans;
     }
 }
 ```
 
-```java
+### **C++**
+
+```cpp
 class Solution {
-    public int[] shortestToChar(String s, char c) {
-        Deque<Integer> q = new ArrayDeque<>();
-        int n = s.length();
-        int[] ans = new int[n];
-        Arrays.fill(ans, -1);
-        for (int i = 0; i < n; ++i) {
-            if (s.charAt(i) == c) {
-                q.offer(i);
-                ans[i] = 0;
+public:
+    vector<int> shortestToChar(string s, char c) {
+        int n = s.size();
+        const int inf = 1 << 30;
+        vector<int> ans(n, inf);
+        for (int i = 0, pre = -inf; i < n; ++i) {
+            if (s[i] == c) {
+                pre = i;
             }
+            ans[i] = min(ans[i], i - pre);
         }
-        int d = 0;
-        while (!q.isEmpty()) {
-            ++d;
-            for (int t = q.size(); t > 0; --t) {
-                int i = q.poll();
-                for (int j : Arrays.asList(i - 1, i + 1)) {
-                    if (j >= 0 && j < n && ans[j] == -1) {
-                        ans[j] = d;
-                        q.offer(j);
-                    }
-                }
+        for (int i = n - 1, suf = inf; ~i; --i) {
+            if (s[i] == c) {
+                suf = i;
             }
+            ans[i] = min(ans[i], suf - i);
         }
         return ans;
     }
+};
+```
+
+### **Go**
+
+```go
+func shortestToChar(s string, c byte) []int {
+	n := len(s)
+	ans := make([]int, n)
+	const inf int = 1 << 30
+	pre := -inf
+	for i := range s {
+		if s[i] == c {
+			pre = i
+		}
+		ans[i] = i - pre
+	}
+	suf := inf
+	for i := n - 1; i >= 0; i-- {
+		if s[i] == c {
+			suf = i
+		}
+		ans[i] = min(ans[i], suf-i)
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
 ```
 
@@ -138,41 +150,21 @@ class Solution {
 ```ts
 function shortestToChar(s: string, c: string): number[] {
     const n = s.length;
-    let ans = [];
-    let pre = Infinity;
-    for (let i = 0; i < n; i++) {
-        if (s.charAt(i) == c) pre = i;
-        ans[i] = Math.abs(pre - i);
+    const inf = 1 << 30;
+    const ans: number[] = new Array(n).fill(inf);
+    for (let i = 0, pre = -inf; i < n; ++i) {
+        if (s[i] === c) {
+            pre = i;
+        }
+        ans[i] = i - pre;
     }
-    pre = Infinity;
-    for (let i = n - 1; i > -1; i--) {
-        if (s.charAt(i) == c) pre = i;
-        ans[i] = Math.min(Math.abs(pre - i), ans[i]);
+    for (let i = n - 1, suf = inf; i >= 0; --i) {
+        if (s[i] === c) {
+            suf = i;
+        }
+        ans[i] = Math.min(ans[i], suf - i);
     }
     return ans;
-}
-```
-
-```ts
-function shortestToChar(s: string, c: string): number[] {
-    const n = s.length;
-    const idxs = [];
-    for (let i = 0; i < n; i++) {
-        if (s[i] === c) {
-            idxs.push(i);
-        }
-    }
-    idxs.push(Infinity);
-
-    const res = new Array(n);
-    let i = 0;
-    for (let j = 0; j < n; j++) {
-        if (Math.abs(idxs[i] - j) > Math.abs(idxs[i + 1] - j)) {
-            i++;
-        }
-        res[j] = Math.abs(idxs[i] - j);
-    }
-    return res;
 }
 ```
 
@@ -201,115 +193,6 @@ impl Solution {
         }
         res
     }
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> shortestToChar(string s, char c) {
-        int n = s.size();
-        vector<int> ans(n);
-        for (int i = 0, j = INT_MAX; i < n; ++i) {
-            if (s[i] == c) j = i;
-            ans[i] = abs(i - j);
-        }
-        for (int i = n - 1, j = INT_MAX; i >= 0; --i) {
-            if (s[i] == c) j = i;
-            ans[i] = min(ans[i], abs(i - j));
-        }
-        return ans;
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    vector<int> shortestToChar(string s, char c) {
-        int n = s.size();
-        vector<int> ans(n, -1);
-        queue<int> q;
-        for (int i = 0; i < n; ++i) {
-            if (s[i] == c) {
-                q.push(i);
-                ans[i] = 0;
-            }
-        }
-        int d = 0;
-        while (!q.empty()) {
-            ++d;
-            for (int t = q.size(); t > 0; --t) {
-                int i = q.front();
-                q.pop();
-                vector<int> dirs{i - 1, i + 1};
-                for (int& j : dirs) {
-                    if (j >= 0 && j < n && ans[j] == -1) {
-                        ans[j] = d;
-                        q.push(j);
-                    }
-                }
-            }
-        }
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func shortestToChar(s string, c byte) []int {
-	n := len(s)
-	ans := make([]int, n)
-	for i, j := 0, -10000; i < n; i++ {
-		if s[i] == c {
-			j = i
-		}
-		ans[i] = i - j
-	}
-	for i, j := n-1, 10000; i >= 0; i-- {
-		if s[i] == c {
-			j = i
-		}
-		if j-i < ans[i] {
-			ans[i] = j - i
-		}
-	}
-	return ans
-}
-```
-
-```go
-func shortestToChar(s string, c byte) []int {
-	n := len(s)
-	var q []int
-	ans := make([]int, n)
-	for i := range s {
-		ans[i] = -1
-		if s[i] == c {
-			q = append(q, i)
-			ans[i] = 0
-		}
-	}
-
-	d := 0
-	for len(q) > 0 {
-		d++
-		for t := len(q); t > 0; t-- {
-			i := q[0]
-			q = q[1:]
-			for _, j := range []int{i - 1, i + 1} {
-				if j >= 0 && j < n && ans[j] == -1 {
-					ans[j] = d
-					q = append(q, j)
-				}
-			}
-		}
-	}
-	return ans
 }
 ```
 

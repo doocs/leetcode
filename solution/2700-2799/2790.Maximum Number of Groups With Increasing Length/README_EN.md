@@ -19,7 +19,7 @@
 <p><strong class="example">Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> usageLimits = [1,2,5]
+<strong>Input:</strong> <code>usageLimits</code> = [1,2,5]
 <strong>Output:</strong> 3
 <strong>Explanation:</strong> In this example, we can use 0 at most once, 1 at most twice, and 2 at most five times.
 One way of creating the maximum number of groups while satisfying the conditions is: 
@@ -32,7 +32,7 @@ So, the output is 3. </pre>
 <p><strong class="example">Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> usageLimits = [2,1,2]
+<strong>Input:</strong> <code>usageLimits</code> = [2,1,2]
 <strong>Output:</strong> 2
 <strong>Explanation:</strong> In this example, we can use 0 at most twice, 1 at most once, and 2 at most twice.
 One way of creating the maximum number of groups while satisfying the conditions is:
@@ -45,7 +45,7 @@ So, the output is 2.
 <p><strong class="example">Example 3:</strong></p>
 
 <pre>
-<strong>Input:</strong> usageLimits = [1,1]
+<strong>Input:</strong> <code>usageLimits</code> = [1,1]
 <strong>Output:</strong> 1
 <strong>Explanation:</strong> In this example, we can use both 0 and 1 at most once.
 One way of creating the maximum number of groups while satisfying the conditions is:

@@ -319,9 +319,7 @@ function fullBloomFlowers(flowers: number[][], people: number[]): number[] {
     let s = 0;
     let i = 0;
     const m = people.length;
-    const idx: number[] = [...Array(m)]
-        .map((_, i) => i)
-        .sort((a, b) => people[a] - people[b]);
+    const idx: number[] = [...Array(m)].map((_, i) => i).sort((a, b) => people[a] - people[b]);
     const ans = Array(m).fill(0);
     for (const j of idx) {
         const t = people[j];

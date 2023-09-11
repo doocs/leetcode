@@ -280,10 +280,7 @@ function minCost(n: number, cuts: number[]): number {
         for (let j = i + 2; j < m; ++j) {
             f[i][j] = 1 << 30;
             for (let k = i + 1; k < j; ++k) {
-                f[i][j] = Math.min(
-                    f[i][j],
-                    f[i][k] + f[k][j] + cuts[j] - cuts[i],
-                );
+                f[i][j] = Math.min(f[i][j], f[i][k] + f[k][j] + cuts[j] - cuts[i]);
             }
         }
     }

@@ -66,12 +66,11 @@ You can only eliminate 1 monster.
 ```python
 class Solution:
     def eliminateMaximum(self, dist: List[int], speed: List[int]) -> int:
-        times = [(d - 1) // s for d, s in zip(dist, speed)]
-        times.sort()
+        times = sorted((d - 1) // s for d, s in zip(dist, speed))
         for i, t in enumerate(times):
             if t < i:
                 return i
-        return len(dist)
+        return len(times)
 ```
 
 ### **Java**
@@ -93,29 +92,6 @@ class Solution {
         return n;
     }
 }
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} dist
- * @param {number[]} speed
- * @return {number}
- */
-var eliminateMaximum = function (dist, speed) {
-    let arr = [];
-    for (let i = 0; i < dist.length; i++) {
-        arr[i] = dist[i] / speed[i];
-    }
-    arr.sort((a, b) => a - b);
-    let ans = 0;
-    while (arr[0] > ans) {
-        arr.shift();
-        ++ans;
-    }
-    return ans;
-};
 ```
 
 ### **C++**
@@ -176,6 +152,29 @@ function eliminateMaximum(dist: number[], speed: number[]): number {
     }
     return n;
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} dist
+ * @param {number[]} speed
+ * @return {number}
+ */
+var eliminateMaximum = function (dist, speed) {
+    let arr = [];
+    for (let i = 0; i < dist.length; i++) {
+        arr[i] = dist[i] / speed[i];
+    }
+    arr.sort((a, b) => a - b);
+    let ans = 0;
+    while (arr[0] > ans) {
+        arr.shift();
+        ++ans;
+    }
+    return ans;
+};
 ```
 
 ### **...**

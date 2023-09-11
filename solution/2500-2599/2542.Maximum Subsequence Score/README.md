@@ -12,7 +12,7 @@
 
 <ul>
 	<li><code>nums1</code>&nbsp;中下标对应元素求和，乘以&nbsp;<code>nums2</code>&nbsp;中下标对应元素的&nbsp;<strong>最小值</strong>&nbsp;。</li>
-	<li>用公示表示：&nbsp;<code>(nums1[i<sub>0</sub>] + nums1[i<sub>1</sub>] +...+ nums1[i<sub>k - 1</sub>]) * min(nums2[i<sub>0</sub>] , nums2[i<sub>1</sub>], ... ,nums2[i<sub>k - 1</sub>])</code>&nbsp;。</li>
+	<li>用公式表示：&nbsp;<code>(nums1[i<sub>0</sub>] + nums1[i<sub>1</sub>] +...+ nums1[i<sub>k - 1</sub>]) * min(nums2[i<sub>0</sub>] , nums2[i<sub>1</sub>], ... ,nums2[i<sub>k - 1</sub>])</code>&nbsp;。</li>
 </ul>
 
 <p>请你返回 <strong>最大</strong>&nbsp;可能的分数。</p>
@@ -23,7 +23,8 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><b>输入：</b>nums1 = [1,3,3,2], nums2 = [2,1,3,4], k = 3
+<pre>
+<b>输入：</b>nums1 = [1,3,3,2], nums2 = [2,1,3,4], k = 3
 <b>输出：</b>12
 <b>解释：</b>
 四个可能的子序列分数为：
@@ -36,7 +37,8 @@
 
 <p><strong>示例 2：</strong></p>
 
-<pre><b>输入：</b>nums1 = [4,2,3,1,1], nums2 = [7,5,10,9,6], k = 1
+<pre>
+<b>输入：</b>nums1 = [4,2,3,1,1], nums2 = [7,5,10,9,6], k = 1
 <b>输出：</b>30
 <b>解释：</b>
 选择下标 2 最优：nums1[2] * nums2[2] = 3 * 10 = 30 是最大可能分数。

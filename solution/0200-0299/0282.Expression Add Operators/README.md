@@ -15,7 +15,7 @@
 <p><strong>示例 1:</strong></p>
 
 <pre>
-<strong>输入:</strong> num = "123", target = 6
+<strong>输入:</strong> <code>num = </code>"123", target = 6
 <strong>输出: </strong>["1+2+3", "1*2*3"] 
 <strong>解释: </strong>“1*2*3” 和 “1+2+3” 的值都是6。
 </pre>
@@ -23,7 +23,7 @@
 <p><strong>示例&nbsp;2:</strong></p>
 
 <pre>
-<strong>输入:</strong> num = "232", target = 8
+<strong>输入:</strong> <code>num = </code>"232", target = 8
 <strong>输出: </strong>["2*3+2", "2+3*2"]
 <strong>解释:</strong> “2*3+2” 和 “2+3*2” 的值都是8。
 </pre>
@@ -31,7 +31,7 @@
 <p><strong>示例 3:</strong></p>
 
 <pre>
-<strong>输入:</strong> num = "3456237490", target = 9191
+<strong>输入:</strong> <code>num = </code>"3456237490", target = 9191
 <strong>输出: </strong>[]
 <strong>解释: </strong>表达式 “3456237490” 无法得到 9191 。
 </pre>

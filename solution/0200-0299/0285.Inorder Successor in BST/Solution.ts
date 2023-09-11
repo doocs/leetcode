@@ -12,10 +12,7 @@
  * }
  */
 
-function inorderSuccessor(
-    root: TreeNode | null,
-    p: TreeNode | null,
-): TreeNode | null {
+function inorderSuccessor(root: TreeNode | null, p: TreeNode | null): TreeNode | null {
     let ans: TreeNode | null = null;
     while (root) {
         if (root.val > p.val) {

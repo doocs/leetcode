@@ -324,10 +324,7 @@ function mctFromLeafValues(arr: number[]): number {
         }
         let ans = 1 << 30;
         for (let k = i; k < j; ++k) {
-            ans = Math.min(
-                ans,
-                dfs(i, k) + dfs(k + 1, j) + g[i][k] * g[k + 1][j],
-            );
+            ans = Math.min(ans, dfs(i, k) + dfs(k + 1, j) + g[i][k] * g[k + 1][j]);
         }
         return (f[i][j] = ans);
     };
@@ -346,10 +343,7 @@ function mctFromLeafValues(arr: number[]): number {
             g[i][j] = Math.max(g[i][j - 1], arr[j]);
             f[i][j] = 1 << 30;
             for (let k = i; k < j; ++k) {
-                f[i][j] = Math.min(
-                    f[i][j],
-                    f[i][k] + f[k + 1][j] + g[i][k] * g[k + 1][j],
-                );
+                f[i][j] = Math.min(f[i][j], f[i][k] + f[k + 1][j] + g[i][k] * g[k + 1][j]);
             }
         }
     }

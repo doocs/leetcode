@@ -347,30 +347,51 @@ function longestPalindrome(s: string): string {
 ```rust
 impl Solution {
     pub fn longest_palindrome(s: String) -> String {
-        let n = s.len();
-        let s = s.as_bytes();
-        let is_pass = |mut l, mut r| {
-            while l < r {
-                if s[l] != s[r] {
-                    return false;
-                }
-                l += 1;
-                r -= 1;
-            }
-            true
-        };
-        let mut res = &s[0..1];
-        for i in 0..n - 1 {
-            for j in (i + 1..n).rev() {
-                if res.len() > j - i {
-                    break;
-                }
-                if is_pass(i, j) {
-                    res = &s[i..=j];
+        let (n, mut ans) = (s.len(), &s[..1]);
+        let mut dp = vec![vec![false; n]; n];
+        let data: Vec<char> = s.chars().collect();
+
+        for end in 1..n {
+            for start in 0..=end {
+                if data[start] == data[end] {
+                    dp[start][end] = end - start < 2 || dp[start + 1][end - 1];
+                    if dp[start][end] && (end - start + 1) > ans.len() {
+                        ans = &s[start..=end];
+                    }
                 }
             }
         }
-        res.into_iter().map(|c| char::from(*c)).collect()
+        ans.to_string()
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn is_palindrome(s: &str) -> bool {
+        let mut chars = s.chars();
+        while let (Some(c1), Some(c2)) = (chars.next(), chars.next_back()) {
+            if c1 != c2 {
+                return false;
+            }
+        }
+        true
+    }
+
+    pub fn longest_palindrome(s: String) -> String {
+        let size = s.len();
+        let mut ans = &s[..1];
+        for i in 0..size - 1 {
+            for j in (i + 1..size).rev() {
+                if ans.len() > j - i + 1 {
+                    break;
+                }
+                if Solution::is_palindrome(&s[i..=j]) {
+                    ans = &s[i..=j];
+                }
+            }
+        }
+        return ans.to_string();
     }
 }
 ```

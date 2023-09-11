@@ -355,9 +355,7 @@ function isScramble(s1: string, s2: string): boolean {
     const n = s1.length;
     const f = new Array(n)
         .fill(0)
-        .map(() =>
-            new Array(n).fill(0).map(() => new Array(n + 1).fill(false)),
-        );
+        .map(() => new Array(n).fill(0).map(() => new Array(n + 1).fill(false)));
     for (let i = 0; i < n; ++i) {
         for (let j = 0; j < n; ++j) {
             f[i][j][1] = s1[i] === s2[j];

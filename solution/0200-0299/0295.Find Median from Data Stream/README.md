@@ -257,9 +257,7 @@ MedianFinder.prototype.addNum = function (num) {
  */
 MedianFinder.prototype.findMedian = function () {
     let mid = ~~(this.val.length / 2);
-    return this.val.length % 2
-        ? this.val[mid]
-        : (this.val[mid - 1] + this.val[mid]) / 2;
+    return this.val.length % 2 ? this.val[mid] : (this.val[mid - 1] + this.val[mid]) / 2;
 };
 ```
 

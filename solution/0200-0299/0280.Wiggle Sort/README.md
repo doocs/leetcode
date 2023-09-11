@@ -15,7 +15,7 @@
 <p><strong>示例 1:</strong></p>
 
 <pre>
-<strong>输入：</strong>nums = [3,5,2,1,6,4]
+<strong>输入：</strong><code>nums = [3,5,2,1,6,4]</code>
 <strong>输出：</strong>[3,5,1,6,2,4]
 <strong>解释：</strong>[1,6,2,5,3,4]也是有效的答案</pre>
 

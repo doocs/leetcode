@@ -61,13 +61,102 @@ Therefore, it is NOT a valid word square.
 ### **Python3**
 
 ```python
+class Solution:
+    def validWordSquare(self, words: List[str]) -> bool:
+        m = len(words)
+        n = max(len(w) for w in words)
+        if m != n:
+            return False
+        for j in range(n):
+            if words[j] != "".join(w[j] for w in words if j < len(w)):
+                return False
+        return True
+```
 
+```python
+class Solution:
+    def validWordSquare(self, words: List[str]) -> bool:
+        m = len(words)
+        for i, w in enumerate(words):
+            for j, c in enumerate(w):
+                if j >= m or i >= len(words[j]) or c != words[j][i]:
+                    return False
+        return True
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean validWordSquare(List<String> words) {
+        int m = words.size();
+        for (int i = 0; i < m; ++i) {
+            int n = words.get(i).length();
+            for (int j = 0; j < n; ++j) {
+                if (j >= m || i >= words.get(j).length()) {
+                    return false;
+                }
+                if (words.get(i).charAt(j) != words.get(j).charAt(i)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool validWordSquare(vector<string>& words) {
+        int m = words.size();
+        for (int i = 0; i < m; ++i) {
+            int n = words[i].size();
+            for (int j = 0; j < n; ++j) {
+                if (j >= m || i >= words[j].size() || words[i][j] != words[j][i]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func validWordSquare(words []string) bool {
+	m := len(words)
+	for i, w := range words {
+		for j := range w {
+			if j >= m || i >= len(words[j]) || w[j] != words[j][i] {
+				return false
+			}
+		}
+	}
+	return true
+}
+```
+
+### **TypeScript**
+
+```ts
+function validWordSquare(words: string[]): boolean {
+    const m = words.length;
+    for (let i = 0; i < m; ++i) {
+        const n = words[i].length;
+        for (let j = 0; j < n; ++j) {
+            if (j >= m || i >= words[j].length || words[i][j] !== words[j][i]) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
 ```
 
 ### **...**

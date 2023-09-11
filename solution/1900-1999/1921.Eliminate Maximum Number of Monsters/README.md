@@ -68,15 +68,17 @@
 
 **方法一：排序 + 贪心**
 
-用 $times$ 数组记录每个怪物最晚可被消灭的时间。对于第 $i$ 个怪物，最晚可被消灭的时间满足：
+我们用 $times$ 数组记录每个怪物最晚可被消灭的时间。对于第 $i$ 个怪物，最晚可被消灭的时间满足：
 
 $$times[i] = \lfloor \frac{dist[i]-1}{speed[i]} \rfloor$$
 
-我们对 $times$ 数组升序排列，然后遍历 $times$ 数组。对于第 $i$ 个怪物，如果 $times[i] \geq i$，说明第 $i$ 个怪物可以被消灭，否则说明第 $i$ 个怪物无法被消灭，直接返回 $i$ 即可。
+接下来，我们对 $times$ 数组升序排列。
+
+然后遍历 $times$ 数组，对于第 $i$ 个怪物，如果 $times[i] \geq i$，说明第 $i$ 个怪物可以被消灭，否则说明第 $i$ 个怪物无法被消灭，直接返回 $i$ 即可。
 
 若所有怪物都可以被消灭，则返回 $n$。
 
-时间复杂度 $O(nlogn)$。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
 
@@ -87,12 +89,11 @@ $$times[i] = \lfloor \frac{dist[i]-1}{speed[i]} \rfloor$$
 ```python
 class Solution:
     def eliminateMaximum(self, dist: List[int], speed: List[int]) -> int:
-        times = [(d - 1) // s for d, s in zip(dist, speed)]
-        times.sort()
+        times = sorted((d - 1) // s for d, s in zip(dist, speed))
         for i, t in enumerate(times):
             if t < i:
                 return i
-        return len(dist)
+        return len(times)
 ```
 
 ### **Java**
@@ -116,29 +117,6 @@ class Solution {
         return n;
     }
 }
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number[]} dist
- * @param {number[]} speed
- * @return {number}
- */
-var eliminateMaximum = function (dist, speed) {
-    let arr = [];
-    for (let i = 0; i < dist.length; i++) {
-        arr[i] = dist[i] / speed[i];
-    }
-    arr.sort((a, b) => a - b);
-    let ans = 0;
-    while (arr[0] > ans) {
-        arr.shift();
-        ++ans;
-    }
-    return ans;
-};
 ```
 
 ### **C++**
@@ -199,6 +177,29 @@ function eliminateMaximum(dist: number[], speed: number[]): number {
     }
     return n;
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} dist
+ * @param {number[]} speed
+ * @return {number}
+ */
+var eliminateMaximum = function (dist, speed) {
+    let arr = [];
+    for (let i = 0; i < dist.length; i++) {
+        arr[i] = dist[i] / speed[i];
+    }
+    arr.sort((a, b) => a - b);
+    let ans = 0;
+    while (arr[0] > ans) {
+        arr.shift();
+        ++ans;
+    }
+    return ans;
+};
 ```
 
 ### **...**
