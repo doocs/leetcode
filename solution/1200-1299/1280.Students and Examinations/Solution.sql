@@ -7,7 +7,6 @@ SELECT
 FROM
     Students AS a
     CROSS JOIN Subjects AS b
-    LEFT JOIN Examinations AS c
-        ON a.student_id = c.student_id AND b.subject_name = c.subject_name
+    LEFT JOIN Examinations AS c ON a.student_id = c.student_id AND b.subject_name = c.subject_name
 GROUP BY a.student_id, b.subject_name
 ORDER BY a.student_id, b.subject_name;

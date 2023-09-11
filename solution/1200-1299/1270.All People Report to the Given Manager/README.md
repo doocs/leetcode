@@ -16,22 +16,27 @@
 | employee_name | varchar |
 | manager_id    | int     |
 +---------------+---------+
-employee_id 是这个表的主键。
+employee_id 是这个表具有唯一值的列。
 这个表中每一行中，employee_id 表示职工的 ID，employee_name 表示职工的名字，manager_id 表示该职工汇报工作的直线经理。
 这个公司 CEO 是 employee_id = 1 的人。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>用 SQL 查询出所有直接或间接向公司 CEO 汇报工作的职工的 <code>employee_id</code> 。</p>
+<p>编写解决方案，找出所有直接或间接向公司 CEO 汇报工作的职工的 <code>employee_id</code> 。</p>
 
-<p>由于公司规模较小，经理之间的间接关系不超过 3 个经理。</p>
+<p>由于公司规模较小，经理之间的间接关系 <strong>不超过 3 个经理</strong> 。</p>
 
-<p>可以以任何顺序返回无重复项的结果。</p>
+<p>可以以 <strong>任何顺序</strong> 返回无重复项的结果。</p>
 
-<p>查询结果示例如下：</p>
+<p>返回结果示例如下。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1：</strong></p>
 
 <pre>
+<strong>输入：</strong>
 <code>Employees </code>table:
 +-------------+---------------+------------+
 | employee_id | employee_name | manager_id |
@@ -45,8 +50,7 @@ employee_id 是这个表的主键。
 | 9           | Angela        | 8          |
 | 77          | Robert        | 1          |
 +-------------+---------------+------------+
-
-<code>Result </code>table:
+<strong>输出：</strong>
 +-------------+
 | employee_id |
 +-------------+
@@ -55,7 +59,7 @@ employee_id 是这个表的主键。
 | 4           |
 | 7           |
 +-------------+
-
+<strong>解释：</strong>
 公司 CEO 的 employee_id 是 1.
 employee_id 是 2 和 77 的职员直接汇报给公司 CEO。
 employee_id 是 4 的职员间接汇报给公司 CEO 4 --&gt; 2 --&gt; 1 。

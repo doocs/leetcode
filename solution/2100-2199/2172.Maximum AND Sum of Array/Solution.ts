@@ -12,10 +12,7 @@ function maximumANDSum(nums: number[], numSlots: number): number {
         }
         for (let j = 0; j < m; ++j) {
             if (((i >> j) & 1) === 1) {
-                f[i] = Math.max(
-                    f[i],
-                    f[i ^ (1 << j)] + (nums[cnt - 1] & ((j >> 1) + 1)),
-                );
+                f[i] = Math.max(f[i], f[i ^ (1 << j)] + (nums[cnt - 1] & ((j >> 1) + 1)));
             }
         }
     }

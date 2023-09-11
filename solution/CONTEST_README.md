@@ -22,6 +22,34 @@
 
 ## 往期竞赛
 
+#### 第 362 场周赛(2023-09-10 10:30, 90 分钟) 参赛人数 4800
+
+- [2848. 与车相交的点](/solution/2800-2899/2848.Points%20That%20Intersect%20With%20Cars/README.md)
+- [2849. 判断能否在给定时间到达单元格](/solution/2800-2899/2849.Determine%20if%20a%20Cell%20Is%20Reachable%20at%20a%20Given%20Time/README.md)
+- [2850. 将石头分散到网格图的最少移动次数](/solution/2800-2899/2850.Minimum%20Moves%20to%20Spread%20Stones%20Over%20Grid/README.md)
+- [2851. 字符串转换](/solution/2800-2899/2851.String%20Transformation/README.md)
+
+#### 第 361 场周赛(2023-09-03 10:30, 90 分钟) 参赛人数 4170
+
+- [2843. 统计对称整数的数目](/solution/2800-2899/2843.Count%20Symmetric%20Integers/README.md)
+- [2844. 生成特殊数字的最少操作](/solution/2800-2899/2844.Minimum%20Operations%20to%20Make%20a%20Special%20Number/README.md)
+- [2845. 统计趣味子数组的数目](/solution/2800-2899/2845.Count%20of%20Interesting%20Subarrays/README.md)
+- [2846. 边权重均等查询](/solution/2800-2899/2846.Minimum%20Edge%20Weight%20Equilibrium%20Queries%20in%20a%20Tree/README.md)
+
+#### 第 112 场双周赛(2023-09-02 22:30, 90 分钟) 参赛人数 2900
+
+- [2839. 判断通过操作能否让字符串相等 I](/solution/2800-2899/2839.Check%20if%20Strings%20Can%20be%20Made%20Equal%20With%20Operations%20I/README.md)
+- [2840. 判断通过操作能否让字符串相等 II](/solution/2800-2899/2840.Check%20if%20Strings%20Can%20be%20Made%20Equal%20With%20Operations%20II/README.md)
+- [2841. 几乎唯一子数组的最大和](/solution/2800-2899/2841.Maximum%20Sum%20of%20Almost%20Unique%20Subarray/README.md)
+- [2842. 统计一个字符串的 k 子序列美丽值最大的数目](/solution/2800-2899/2842.Count%20K-Subsequences%20of%20a%20String%20With%20Maximum%20Beauty/README.md)
+
+#### 第 360 场周赛(2023-08-27 10:30, 90 分钟) 参赛人数 4496
+
+- [2833. 距离原点最远的点](/solution/2800-2899/2833.Furthest%20Point%20From%20Origin/README.md)
+- [2834. 找出美丽数组的最小和](/solution/2800-2899/2834.Find%20the%20Minimum%20Possible%20Sum%20of%20a%20Beautiful%20Array/README.md)
+- [2835. 使子序列的和等于目标的最少操作次数](/solution/2800-2899/2835.Minimum%20Operations%20to%20Form%20Subsequence%20With%20Target%20Sum/README.md)
+- [2836. 在传球游戏中最大化函数值](/solution/2800-2899/2836.Maximize%20Value%20of%20Function%20in%20a%20Ball%20Passing%20Game/README.md)
+
 #### 第 359 场周赛(2023-08-20 10:30, 90 分钟) 参赛人数 4101
 
 - [2828. 判别首字母缩略词](/solution/2800-2899/2828.Check%20if%20a%20String%20Is%20an%20Acronym%20of%20Words/README.md)

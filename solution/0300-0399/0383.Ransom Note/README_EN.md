@@ -160,10 +160,7 @@ class Solution {
             $hashtable[$arrM[$i]] += 1;
         }
         for ($j = 0; $j < strlen($ransomNote); $j++) {
-            if (
-                !isset($hashtable[$ransomNote[$j]]) ||
-                $hashtable[$ransomNote[$j]] == 0
-            ) {
+            if (!isset($hashtable[$ransomNote[$j]]) || $hashtable[$ransomNote[$j]] == 0) {
                 return false;
             } else {
                 $hashtable[$ransomNote[$j]] -= 1;

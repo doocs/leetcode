@@ -1,7 +1,4 @@
-function smallestSufficientTeam(
-    req_skills: string[],
-    people: string[][],
-): number[] {
+function smallestSufficientTeam(req_skills: string[], people: string[][]): number[] {
     const d: Map<string, number> = new Map();
     const m = req_skills.length;
     const n = people.length;

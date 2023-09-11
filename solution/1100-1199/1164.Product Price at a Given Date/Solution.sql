@@ -8,8 +8,7 @@ WITH
                 FROM Products
             ) AS p1
             LEFT JOIN Products AS p2
-                ON p1.product_id = p2.product_id
-                AND p2.change_date <= '2019-08-16'
+                ON p1.product_id = p2.product_id AND p2.change_date <= '2019-08-16'
     ),
     T AS (
         SELECT

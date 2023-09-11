@@ -19,14 +19,14 @@
 <p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入：</strong>nums = [4,5,6,7,0,1,2], target = 0
+<strong>输入：</strong>nums = [<code>4,5,6,7,0,1,2]</code>, target = 0
 <strong>输出：</strong>4
 </pre>
 
 <p><strong>示例&nbsp;2：</strong></p>
 
 <pre>
-<strong>输入：</strong>nums = [4,5,6,7,0,1,2], target = 3
+<strong>输入：</strong>nums = [<code>4,5,6,7,0,1,2]</code>, target = 3
 <strong>输出：</strong>-1</pre>
 
 <p><strong>示例 3：</strong></p>

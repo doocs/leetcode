@@ -1,8 +1,7 @@
 class Solution {
 public:
-    const int mod = 1e9 + 7;
-
     int numFactoredBinaryTrees(vector<int>& arr) {
+        const int mod = 1e9 + 7;
         sort(arr.begin(), arr.end());
         unordered_map<int, int> idx;
         int n = arr.size();

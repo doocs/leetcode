@@ -62,7 +62,7 @@
 	<li><code>0 &lt;= key &lt;= 10<sup>9</sup></code></li>
 	<li><code>0 &lt;= value &lt;= 10<sup>9</sup></code></li>
 	<li><code>0 &lt;= duration &lt;= 1000</code></li>
-	<li><code>方法调用总数不会超过100</code></li>
+	<li>方法调用总数不会超过 100</li>
 </ul>
 
 ## 解法

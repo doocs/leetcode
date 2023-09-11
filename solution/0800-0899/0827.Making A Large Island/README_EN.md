@@ -515,14 +515,7 @@ function largestIsland(grid: number[][]): number {
     const vis = Array.from({ length: n }, () => new Array(n).fill(false));
     const group = Array.from({ length: n }, () => new Array(n).fill(0));
     const dfs = (i: number, j: number, paths: [number, number][]) => {
-        if (
-            i < 0 ||
-            j < 0 ||
-            i === n ||
-            j === n ||
-            vis[i][j] ||
-            grid[i][j] !== 1
-        ) {
+        if (i < 0 || j < 0 || i === n || j === n || vis[i][j] || grid[i][j] !== 1) {
             return;
         }
         vis[i][j] = true;

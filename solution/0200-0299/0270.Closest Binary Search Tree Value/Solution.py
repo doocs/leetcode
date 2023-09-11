@@ -9,7 +9,7 @@ class Solution:
         ans, mi = root.val, inf
         while root:
             t = abs(root.val - target)
-            if t < mi:
+            if t < mi or (t == mi and root.val < ans):
                 mi = t
                 ans = root.val
             if root.val > target:

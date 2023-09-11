@@ -206,11 +206,7 @@ func reconstructMatrix(upper int, lower int, colsum []int) [][]int {
 ### **TypeScript**
 
 ```ts
-function reconstructMatrix(
-    upper: number,
-    lower: number,
-    colsum: number[],
-): number[][] {
+function reconstructMatrix(upper: number, lower: number, colsum: number[]): number[][] {
     const n = colsum.length;
     const ans: number[][] = Array(2)
         .fill(0)

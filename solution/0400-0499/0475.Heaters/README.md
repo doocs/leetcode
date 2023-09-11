@@ -128,8 +128,7 @@ function findRadius(houses: number[], heaters: number[]): number {
         let cur = Math.abs(houses[i] - heaters[j]);
         while (
             j + 1 < n &&
-            Math.abs(houses[i] - heaters[j]) >=
-                Math.abs(houses[i] - heaters[j + 1])
+            Math.abs(houses[i] - heaters[j]) >= Math.abs(houses[i] - heaters[j + 1])
         ) {
             cur = Math.min(Math.abs(houses[i] - heaters[++j]), cur);
         }

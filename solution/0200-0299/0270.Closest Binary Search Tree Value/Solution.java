@@ -19,7 +19,7 @@ class Solution {
         double mi = Double.MAX_VALUE;
         while (root != null) {
             double t = Math.abs(root.val - target);
-            if (t < mi) {
+            if (t < mi || (t == mi && root.val < ans)) {
                 mi = t;
                 ans = root.val;
             }

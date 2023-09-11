@@ -31,7 +31,7 @@
 
 创建一个长度为 $26$ 的数组，统计每个字母出现的频率，至多有一个字符出现奇数次数即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(26)$。其中 $n$ 是字符串的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 是字符串的长度，而 $|\Sigma|$ 是字符集的大小，本题中字符集为小写字母，因此 $|\Sigma|=26$。
 
 **方法二：哈希表**
 
@@ -39,7 +39,7 @@
 
 遍历结束，若哈希表中元素个数不超过 $1$，则返回 $true$，否则返回 $false$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(26)$。其中 $n$ 是字符串的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 是字符串的长度，而 $|\Sigma|$ 是字符集的大小，本题中字符集为小写字母，因此 $|\Sigma|=26$。
 
 <!-- tabs:start -->
 
@@ -50,7 +50,7 @@
 ```python
 class Solution:
     def canPermutePalindrome(self, s: str) -> bool:
-        return sum(v % 2 for v in Counter(s).values()) <= 1
+        return sum(v & 1 for v in Counter(s).values()) < 2
 ```
 
 ### **Java**
@@ -64,11 +64,11 @@ class Solution {
         for (char c : s.toCharArray()) {
             ++cnt[c - 'a'];
         }
-        int n = 0;
-        for (int v : cnt) {
-            n += v % 2;
+        int odd = 0;
+        for (int x : cnt) {
+            odd += x & 1;
         }
-        return n < 2;
+        return odd < 2;
     }
 }
 ```
@@ -80,10 +80,14 @@ class Solution {
 public:
     bool canPermutePalindrome(string s) {
         vector<int> cnt(26);
-        for (char& c : s) ++cnt[c - 'a'];
-        int n = 0;
-        for (int& v : cnt) n += v & 1;
-        return n < 2;
+        for (char& c : s) {
+            ++cnt[c - 'a'];
+        }
+        int odd = 0;
+        for (int x : cnt) {
+            odd += x & 1;
+        }
+        return odd < 2;
     }
 };
 ```
@@ -92,15 +96,27 @@ public:
 
 ```go
 func canPermutePalindrome(s string) bool {
-	cnt := make([]int, 26)
+	cnt := [26]int{}
 	for _, c := range s {
 		cnt[c-'a']++
 	}
-	n := 0
-	for _, v := range cnt {
-		n += v & 1
+	odd := 0
+	for _, x := range cnt {
+		odd += x & 1
 	}
-	return n < 2
+	return odd < 2
+}
+```
+
+### **TypeScript**
+
+```ts
+function canPermutePalindrome(s: string): boolean {
+    const cnt: number[] = new Array(26).fill(0);
+    for (const c of s) {
+        ++cnt[c.charCodeAt(0) - 97];
+    }
+    return cnt.filter(c => c % 2 === 1).length < 2;
 }
 ```
 
@@ -112,15 +128,11 @@ func canPermutePalindrome(s string) bool {
  * @return {boolean}
  */
 var canPermutePalindrome = function (s) {
-    let ss = new Set();
-    for (let c of s) {
-        if (ss.has(c)) {
-            ss.delete(c);
-        } else {
-            ss.add(c);
-        }
+    const cnt = new Array(26).fill(0);
+    for (const c of s) {
+        ++cnt[c.charCodeAt() - 'a'.charCodeAt()];
     }
-    return ss.size < 2;
+    return cnt.filter(c => c % 2 === 1).length < 2;
 };
 ```
 

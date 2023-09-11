@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>总计有 <code>n</code> 个环，环的颜色可以是红、绿、蓝中的一种。这些环分布穿在 10 根编号为 <code>0</code> 到 <code>9</code> 的杆上。</p>
+<p>总计有 <code>n</code> 个环，环的颜色可以是红、绿、蓝中的一种。这些环分别穿在 10 根编号为 <code>0</code> 到 <code>9</code> 的杆上。</p>
 
 <p>给你一个长度为 <code>2n</code> 的字符串 <code>rings</code> ，表示这 <code>n</code> 个环在杆上的分布。<code>rings</code> 中每两个字符形成一个 <strong>颜色位置对</strong> ，用于描述每个环：</p>
 
@@ -22,8 +22,9 @@
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2103.Rings%20and%20Rods/images/ex1final.png" style="width: 258px; height: 130px;">
-<pre><strong>输入：</strong>rings = "B0B6G0R6R0R6G9"
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2103.Rings%20and%20Rods/images/ex1final.png" style="width: 258px; height: 130px;" />
+<pre>
+<strong>输入：</strong>rings = "B0B6G0R6R0R6G9"
 <strong>输出：</strong>1
 <strong>解释：</strong>
 - 编号 0 的杆上有 3 个环，集齐全部颜色：红、绿、蓝。
@@ -33,8 +34,9 @@
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2103.Rings%20and%20Rods/images/ex2final.png" style="width: 266px; height: 130px;">
-<pre><strong>输入：</strong>rings = "B0R0G0R9R0B0G0"
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2103.Rings%20and%20Rods/images/ex2final.png" style="width: 266px; height: 130px;" />
+<pre>
+<strong>输入：</strong>rings = "B0R0G0R9R0B0G0"
 <strong>输出：</strong>1
 <strong>解释：</strong>
 - 编号 0 的杆上有 6 个环，集齐全部颜色：红、绿、蓝。
@@ -44,7 +46,8 @@
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>rings = "G4"
+<pre>
+<strong>输入：</strong>rings = "G4"
 <strong>输出：</strong>0
 <strong>解释：</strong>
 只给了一个环，因此，不存在集齐全部三种颜色环的杆。

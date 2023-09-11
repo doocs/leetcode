@@ -206,16 +206,10 @@ var isSubtree = function (root, subRoot) {
             return false;
         }
         return (
-            root1.val == root2.val &&
-            dfs(root1.left, root2.left) &&
-            dfs(root1.right, root2.right)
+            root1.val == root2.val && dfs(root1.left, root2.left) && dfs(root1.right, root2.right)
         );
     };
-    return (
-        dfs(root, subRoot) ||
-        isSubtree(root.left, subRoot) ||
-        isSubtree(root.right, subRoot)
-    );
+    return dfs(root, subRoot) || isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
 };
 ```
 
@@ -250,11 +244,7 @@ function isSubtree(root: TreeNode | null, subRoot: TreeNode | null): boolean {
     if (root == null) {
         return false;
     }
-    return (
-        dfs(root, subRoot) ||
-        isSubtree(root.left, subRoot) ||
-        isSubtree(root.right, subRoot)
-    );
+    return dfs(root, subRoot) || isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
 }
 ```
 

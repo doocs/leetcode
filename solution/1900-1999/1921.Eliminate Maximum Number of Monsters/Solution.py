@@ -1,9 +1,7 @@
 class Solution:
     def eliminateMaximum(self, dist: List[int], speed: List[int]) -> int:
-        n = len(dist)
-        times = [(dist[i] - 1) // speed[i] for i in range(n)]
-        times.sort()
-        for i in range(n):
-            if times[i] < i:
+        times = sorted((d - 1) // s for d, s in zip(dist, speed))
+        for i, t in enumerate(times):
+            if t < i:
                 return i
-        return n
+        return len(times)

@@ -113,8 +113,7 @@ SELECT
     ifnull(group_concat(DISTINCT topic_id), 'Ambiguous!') AS topic
 FROM
     Posts
-    LEFT JOIN Keywords
-        ON instr(concat(' ', content, ' '), concat(' ', word, ' ')) > 0
+    LEFT JOIN Keywords ON instr(concat(' ', content, ' '), concat(' ', word, ' ')) > 0
 GROUP BY post_id;
 ```
 
