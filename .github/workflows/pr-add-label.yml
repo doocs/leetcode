@@ -14,7 +14,7 @@ jobs:
         run: echo "PR_NUMBER=${{ github.event.pull_request.number }}" >> $GITHUB_ENV
 
       - name: Run Custom Action
-        uses: thinkasany/pr-label-action@dev
+        uses: thinkasany/pr-label-action@master
         with:
           github_token: ${{ secrets.DOOCS_BOT_ACTION_TOKEN }}
           pr_number: ${{ env.PR_NUMBER }}
