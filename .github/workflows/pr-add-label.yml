@@ -6,14 +6,14 @@ on:
       - opened
       - synchronize
 jobs:
-  checkin:
+  add-label:
     runs-on: ubuntu-latest
     steps:
       - name: Check PR number
         id: pr_number
         run: echo "PR_NUMBER=${{ github.event.pull_request.number }}" >> $GITHUB_ENV
 
-      - name: Run Custom Action
+      - name: Run add-label Action
         uses: thinkasany/pr-label-action@master
         with:
           github_token: ${{ secrets.DOOCS_BOT_ACTION_TOKEN }}
