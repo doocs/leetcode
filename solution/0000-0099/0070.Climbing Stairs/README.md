@@ -327,6 +327,19 @@ function pow(a, n) {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function climbStairs(n: number): number {
+    let p = 1;
+    let q = 1;
+    for (let i = 1; i < n; i++) {
+        [p, q] = [q, p + q];
+    }
+    return q;
+}
+```
+
 ```ts
 function climbStairs(n: number): number {
     const a = [
@@ -364,19 +377,6 @@ function pow(a: number[][], n: number): number[][] {
         n >>= 1;
     }
     return res;
-}
-```
-
-### **TypeScript**
-
-```ts
-function climbStairs(n: number): number {
-    let p = 1;
-    let q = 1;
-    for (let i = 1; i < n; i++) {
-        [p, q] = [q, p + q];
-    }
-    return q;
 }
 ```
 
