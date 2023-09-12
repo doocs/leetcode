@@ -81,6 +81,32 @@ class Solution:
             ans += 1
 ```
 
+```python
+class Solution:
+    def minimumMoves(self, grid: List[List[int]]) -> int:
+        def cal(a: tuple, b: tuple) -> int:
+            return abs(a[0] - b[0]) + abs(a[1] - b[1])
+
+        left, right = [], []
+        for i in range(3):
+            for j in range(3):
+                if grid[i][j] == 0:
+                    left.append((i, j))
+                else:
+                    for _ in range(grid[i][j] - 1):
+                        right.append((i, j))
+
+        n = len(left)
+        f = [inf] * (1 << n)
+        f[0] = 0
+        for i in range(1, 1 << n):
+            k = i.bit_count()
+            for j in range(n):
+                if i >> j & 1:
+                    f[i] = min(f[i], f[i ^ (1 << j)] + cal(left[k - 1], right[j]))
+        return f[-1]
+```
+
 ### **Java**
 
 ```java
@@ -149,22 +175,170 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int minimumMoves(int[][] grid) {
+        List<int[]> left = new ArrayList<>();
+        List<int[]> right = new ArrayList<>();
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 3; ++j) {
+                if (grid[i][j] == 0) {
+                    left.add(new int[] {i, j});
+                } else {
+                    for (int k = 1; k < grid[i][j]; ++k) {
+                        right.add(new int[] {i, j});
+                    }
+                }
+            }
+        }
+        int n = left.size();
+        int[] f = new int[1 << n];
+        Arrays.fill(f, 1 << 30);
+        f[0] = 0;
+        for (int i = 1; i < 1 << n; ++i) {
+            int k = Integer.bitCount(i);
+            for (int j = 0; j < n; ++j) {
+                if ((i >> j & 1) == 1) {
+                    f[i] = Math.min(f[i], f[i ^ (1 << j)] + cal(left.get(k - 1), right.get(j)));
+                }
+            }
+        }
+        return f[(1 << n) - 1];
+    }
+
+    private int cal(int[] a, int[] b) {
+        return Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]);
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int minimumMoves(vector<vector<int>>& grid) {
+        using pii = pair<int, int>;
+        vector<pii> left, right;
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 3; ++j) {
+                if (grid[i][j] == 0) {
+                    left.emplace_back(i, j);
+                } else {
+                    for (int k = 1; k < grid[i][j]; ++k) {
+                        right.emplace_back(i, j);
+                    }
+                }
+            }
+        }
+        auto cal = [](pii a, pii b) {
+            return abs(a.first - b.first) + abs(a.second - b.second);
+        };
+        int n = left.size();
+        int f[1 << n];
+        memset(f, 0x3f, sizeof(f));
+        f[0] = 0;
+        for (int i = 1; i < 1 << n; ++i) {
+            int k = __builtin_popcount(i);
+            for (int j = 0; j < n; ++j) {
+                if (i >> j & 1) {
+                    f[i] = min(f[i], f[i ^ (1 << j)] + cal(left[k - 1], right[j]));
+                }
+            }
+        }
+        return f[(1 << n) - 1];
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minimumMoves(grid [][]int) int {
+	left := [][2]int{}
+	right := [][2]int{}
+	for i := 0; i < 3; i++ {
+		for j := 0; j < 3; j++ {
+			if grid[i][j] == 0 {
+				left = append(left, [2]int{i, j})
+			} else {
+				for k := 1; k < grid[i][j]; k++ {
+					right = append(right, [2]int{i, j})
+				}
+			}
+		}
+	}
+	cal := func(a, b [2]int) int {
+		return abs(a[0]-b[0]) + abs(a[1]-b[1])
+	}
+	n := len(left)
+	f := make([]int, 1<<n)
+	f[0] = 0
+	for i := 1; i < 1<<n; i++ {
+		f[i] = 1 << 30
+		k := bits.OnesCount(uint(i))
+		for j := 0; j < n; j++ {
+			if i>>j&1 == 1 {
+				f[i] = min(f[i], f[i^(1<<j)]+cal(left[k-1], right[j]))
+			}
+		}
+	}
+	return f[(1<<n)-1]
+}
 
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function minimumMoves(grid: number[][]): number {
+    const left: number[][] = [];
+    const right: number[][] = [];
+    for (let i = 0; i < 3; ++i) {
+        for (let j = 0; j < 3; ++j) {
+            if (grid[i][j] === 0) {
+                left.push([i, j]);
+            } else {
+                for (let k = 1; k < grid[i][j]; ++k) {
+                    right.push([i, j]);
+                }
+            }
+        }
+    }
+    const cal = (a: number[], b: number[]) => {
+        return Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]);
+    };
+    const n = left.length;
+    const f: number[] = Array(1 << n).fill(1 << 30);
+    f[0] = 0;
+    for (let i = 0; i < 1 << n; ++i) {
+        let k = 0;
+        for (let j = 0; j < n; ++j) {
+            if ((i >> j) & 1) {
+                ++k;
+            }
+        }
+        for (let j = 0; j < n; ++j) {
+            if ((i >> j) & 1) {
+                f[i] = Math.min(f[i], f[i ^ (1 << j)] + cal(left[k - 1], right[j]));
+            }
+        }
+    }
+    return f[(1 << n) - 1];
+}
 ```
 
 ### **...**

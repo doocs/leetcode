@@ -59,6 +59,20 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：朴素 BFS**
+
+题目实际上是求一个状态图中从初始状态到目标状态的最短路径，因此可以使用 BFS 求解。初始状态为 `grid`，目标状态为 `[[1, 1, 1], [1, 1, 1], [1, 1, 1]]`，在每次操作中，我们可以将一个单元格大于 $1$ 的石头移动到相邻的一个不超过 $1$ 的单元格。如果找到了目标状态，那么就可以返回当前的层数，即为最少移动次数。
+
+**方法二：状态压缩动态规划**
+
+我们可以把所有值为 $0$ 的单元格坐标 $(i, j)$ 放入数组 $left$ 中，如果单元格的值 $v$ 大于 $1$，那么我们把 $v-1$ 个坐标 $(i, j)$ 放入数组 $right$ 中。那么问题就转化为，每个 $right$ 中的坐标 $(i, j)$ 都要移动到 $left$ 中的一个坐标 $(x, y)$，求最少的移动次数。
+
+我们记 $left$ 的长度为 $n$，那么我们可以使用 $n$ 位二进制数来表示 $left$ 中的每个坐标是否被 $right$ 中的坐标填充，其中 $1$ 表示被填充，而 $0$ 表示未被填充。初始时 $f[i] = \infty$，其余 $f[0]=0$。
+
+考虑 $f[i]$，记当前 $i$ 的二进制表示中 $1$ 的个数为 $k$，我们在 $[0..n)$ 的范围内枚举 $j$，如果 $i$ 的第 $j$ 位为 $1$，那么 $f[i]$ 可以由 $f[i \oplus (1 << j)]$ 转移而来，转移的代价为 $cal(left[k-1], right[j])$，其中 $cal$ 表示两个坐标之间的曼哈顿距离。最终答案为 $f[(1 << n) - 1]$。
+
+时间复杂度 $O(n \times 2^n)$，空间复杂度 $O(2^n)$。其中 $n$ 表示 $left$ 的长度，本题中 $n \le 9$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -91,6 +105,32 @@ class Solution:
                                         vis.add(nxt)
                                         q.append(nxt)
             ans += 1
+```
+
+```python
+class Solution:
+    def minimumMoves(self, grid: List[List[int]]) -> int:
+        def cal(a: tuple, b: tuple) -> int:
+            return abs(a[0] - b[0]) + abs(a[1] - b[1])
+
+        left, right = [], []
+        for i in range(3):
+            for j in range(3):
+                if grid[i][j] == 0:
+                    left.append((i, j))
+                else:
+                    for _ in range(grid[i][j] - 1):
+                        right.append((i, j))
+
+        n = len(left)
+        f = [inf] * (1 << n)
+        f[0] = 0
+        for i in range(1, 1 << n):
+            k = i.bit_count()
+            for j in range(n):
+                if i >> j & 1:
+                    f[i] = min(f[i], f[i ^ (1 << j)] + cal(left[k - 1], right[j]))
+        return f[-1]
 ```
 
 ### **Java**
@@ -163,22 +203,170 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int minimumMoves(int[][] grid) {
+        List<int[]> left = new ArrayList<>();
+        List<int[]> right = new ArrayList<>();
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 3; ++j) {
+                if (grid[i][j] == 0) {
+                    left.add(new int[] {i, j});
+                } else {
+                    for (int k = 1; k < grid[i][j]; ++k) {
+                        right.add(new int[] {i, j});
+                    }
+                }
+            }
+        }
+        int n = left.size();
+        int[] f = new int[1 << n];
+        Arrays.fill(f, 1 << 30);
+        f[0] = 0;
+        for (int i = 1; i < 1 << n; ++i) {
+            int k = Integer.bitCount(i);
+            for (int j = 0; j < n; ++j) {
+                if ((i >> j & 1) == 1) {
+                    f[i] = Math.min(f[i], f[i ^ (1 << j)] + cal(left.get(k - 1), right.get(j)));
+                }
+            }
+        }
+        return f[(1 << n) - 1];
+    }
+
+    private int cal(int[] a, int[] b) {
+        return Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]);
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int minimumMoves(vector<vector<int>>& grid) {
+        using pii = pair<int, int>;
+        vector<pii> left, right;
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 3; ++j) {
+                if (grid[i][j] == 0) {
+                    left.emplace_back(i, j);
+                } else {
+                    for (int k = 1; k < grid[i][j]; ++k) {
+                        right.emplace_back(i, j);
+                    }
+                }
+            }
+        }
+        auto cal = [](pii a, pii b) {
+            return abs(a.first - b.first) + abs(a.second - b.second);
+        };
+        int n = left.size();
+        int f[1 << n];
+        memset(f, 0x3f, sizeof(f));
+        f[0] = 0;
+        for (int i = 1; i < 1 << n; ++i) {
+            int k = __builtin_popcount(i);
+            for (int j = 0; j < n; ++j) {
+                if (i >> j & 1) {
+                    f[i] = min(f[i], f[i ^ (1 << j)] + cal(left[k - 1], right[j]));
+                }
+            }
+        }
+        return f[(1 << n) - 1];
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minimumMoves(grid [][]int) int {
+	left := [][2]int{}
+	right := [][2]int{}
+	for i := 0; i < 3; i++ {
+		for j := 0; j < 3; j++ {
+			if grid[i][j] == 0 {
+				left = append(left, [2]int{i, j})
+			} else {
+				for k := 1; k < grid[i][j]; k++ {
+					right = append(right, [2]int{i, j})
+				}
+			}
+		}
+	}
+	cal := func(a, b [2]int) int {
+		return abs(a[0]-b[0]) + abs(a[1]-b[1])
+	}
+	n := len(left)
+	f := make([]int, 1<<n)
+	f[0] = 0
+	for i := 1; i < 1<<n; i++ {
+		f[i] = 1 << 30
+		k := bits.OnesCount(uint(i))
+		for j := 0; j < n; j++ {
+			if i>>j&1 == 1 {
+				f[i] = min(f[i], f[i^(1<<j)]+cal(left[k-1], right[j]))
+			}
+		}
+	}
+	return f[(1<<n)-1]
+}
 
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function minimumMoves(grid: number[][]): number {
+    const left: number[][] = [];
+    const right: number[][] = [];
+    for (let i = 0; i < 3; ++i) {
+        for (let j = 0; j < 3; ++j) {
+            if (grid[i][j] === 0) {
+                left.push([i, j]);
+            } else {
+                for (let k = 1; k < grid[i][j]; ++k) {
+                    right.push([i, j]);
+                }
+            }
+        }
+    }
+    const cal = (a: number[], b: number[]) => {
+        return Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]);
+    };
+    const n = left.length;
+    const f: number[] = Array(1 << n).fill(1 << 30);
+    f[0] = 0;
+    for (let i = 0; i < 1 << n; ++i) {
+        let k = 0;
+        for (let j = 0; j < n; ++j) {
+            if ((i >> j) & 1) {
+                ++k;
+            }
+        }
+        for (let j = 0; j < n; ++j) {
+            if ((i >> j) & 1) {
+                f[i] = Math.min(f[i], f[i ^ (1 << j)] + cal(left[k - 1], right[j]));
+            }
+        }
+    }
+    return f[(1 << n) - 1];
+}
 ```
 
 ### **...**
