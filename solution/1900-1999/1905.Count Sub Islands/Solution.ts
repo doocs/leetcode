@@ -12,12 +12,7 @@ function countSubIslands(grid1: number[][], grid2: number[][]): number {
     return ans;
 }
 
-function dfs(
-    grid1: number[][],
-    grid2: number[][],
-    i: number,
-    j: number,
-): boolean {
+function dfs(grid1: number[][], grid2: number[][], i: number, j: number): boolean {
     let m = grid1.length,
         n = grid1[0].length;
     let ans = true;

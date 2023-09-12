@@ -252,10 +252,7 @@ function vowelStrings(words: string[], queries: number[][]): number[] {
     const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
     const nums: number[] = [];
     for (let i = 0; i < words.length; ++i) {
-        if (
-            vowels.has(words[i][0]) &&
-            vowels.has(words[i][words[i].length - 1])
-        ) {
+        if (vowels.has(words[i][0]) && vowels.has(words[i][words[i].length - 1])) {
             nums.push(i);
         }
     }
@@ -282,10 +279,7 @@ function vowelStrings(words: string[], queries: number[][]): number[] {
     const n = words.length;
     const s: number[] = new Array(n + 1).fill(0);
     for (let i = 0; i < n; ++i) {
-        if (
-            vowels.has(words[i][0]) &&
-            vowels.has(words[i][words[i].length - 1])
-        ) {
+        if (vowels.has(words[i][0]) && vowels.has(words[i][words[i].length - 1])) {
             s[i + 1] = s[i] + 1;
         } else {
             s[i + 1] = s[i];

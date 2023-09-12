@@ -16,7 +16,7 @@
 <pre>
 <strong>输入：</strong>root = [1,null,3,2,4,null,null,null,5]
 <strong>输出：</strong>3
-<strong>解释：</strong>当中，最长连续序列是 3-4-5 ，所以返回结果为 3 。
+<strong>解释：</strong>当中，最长连续序列是 <code>3-4-5 ，所以</code>返回结果为 <code>3 。</code>
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -24,7 +24,7 @@
 <pre>
 <strong>输入：</strong>root = [2,null,3,2,null,1]
 <strong>输出：</strong>2
-<strong>解释：</strong>当中，最长连续序列是 2-3 。注意，不是 3-2-1，所以返回 2 。
+<strong>解释：</strong>当中，最长连续序列是 <code>2-3 。注意，不是</code> <code>3-2-1，所以</code>返回 <code>2 。</code>
 </pre>
 
 <p>&nbsp;</p>

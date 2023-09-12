@@ -18,8 +18,7 @@ var minDistance = function (word1, word2) {
             if (word1[i - 1] === word2[j - 1]) {
                 f[i][j] = f[i - 1][j - 1];
             } else {
-                f[i][j] =
-                    Math.min(f[i - 1][j], f[i][j - 1], f[i - 1][j - 1]) + 1;
+                f[i][j] = Math.min(f[i - 1][j], f[i][j - 1], f[i - 1][j - 1]) + 1;
             }
         }
     }

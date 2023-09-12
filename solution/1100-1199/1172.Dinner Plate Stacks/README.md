@@ -365,22 +365,12 @@ class DinnerPlates {
     }
 
     popAtStack(index: number): number {
-        if (
-            index < 0 ||
-            index >= this.stacks.length ||
-            this.stacks[index].length === 0
-        ) {
+        if (index < 0 || index >= this.stacks.length || this.stacks[index].length === 0) {
             return -1;
         }
         const val = this.stacks[index].pop()!;
-        if (
-            index === this.stacks.length - 1 &&
-            this.stacks[index].length === 0
-        ) {
-            while (
-                this.stacks.length > 0 &&
-                this.stacks[this.stacks.length - 1].length === 0
-            ) {
+        if (index === this.stacks.length - 1 && this.stacks[index].length === 0) {
+            while (this.stacks.length > 0 && this.stacks[this.stacks.length - 1].length === 0) {
                 this.notFull.delete(this.stacks.length - 1);
                 this.stacks.pop();
             }
@@ -427,9 +417,7 @@ class RBTreeNode<T = number> {
 class RBTree<T> {
     root: RBTreeNode<T> | null;
     lt: (l: T, r: T) => boolean;
-    constructor(
-        compare: Compare<T> = (l: T, r: T) => (l < r ? -1 : l > r ? 1 : 0),
-    ) {
+    constructor(compare: Compare<T> = (l: T, r: T) => (l < r ? -1 : l > r ? 1 : 0)) {
         this.root = null;
         this.lt = (l: T, r: T) => compare(l, r) < 0;
     }
@@ -737,9 +725,7 @@ class RBTree<T> {
         for (const v of this.inOrder(root.right!)) yield v;
     }
 
-    *reverseInOrder(
-        root: RBTreeNode<T> = this.root!,
-    ): Generator<T, undefined, void> {
+    *reverseInOrder(root: RBTreeNode<T> = this.root!): Generator<T, undefined, void> {
         if (!root) return;
         for (const v of this.reverseInOrder(root.right!)) yield v;
         yield root.data;

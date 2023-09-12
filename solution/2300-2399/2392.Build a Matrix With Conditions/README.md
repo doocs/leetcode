@@ -291,11 +291,7 @@ func buildMatrix(k int, rowConditions [][]int, colConditions [][]int) [][]int {
 ### **TypeScript**
 
 ```ts
-function buildMatrix(
-    k: number,
-    rowConditions: number[][],
-    colConditions: number[][],
-): number[][] {
+function buildMatrix(k: number, rowConditions: number[][], colConditions: number[][]): number[][] {
     function f(cond) {
         const g = Array.from({ length: k + 1 }, () => []);
         const indeg = new Array(k + 1).fill(0);

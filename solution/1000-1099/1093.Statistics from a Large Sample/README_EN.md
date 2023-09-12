@@ -241,9 +241,7 @@ function sampleStats(count: number[]): number[] {
         }
     }
     const median =
-        cnt % 2 === 1
-            ? find((cnt >> 1) + 1)
-            : (find(cnt >> 1) + find((cnt >> 1) + 1)) / 2;
+        cnt % 2 === 1 ? find((cnt >> 1) + 1) : (find(cnt >> 1) + find((cnt >> 1) + 1)) / 2;
     return [mi, mx, s / cnt, median, mode];
 }
 ```

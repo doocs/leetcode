@@ -7,7 +7,7 @@ func minimumJumps(forbidden []int, a int, b int, x int) (ans int) {
 	const n = 6000
 	vis := make([][2]bool, n)
 	vis[0][1] = true
-	for len(q) > 0 {
+	for ; len(q) > 0; ans++ {
 		for t := len(q); t > 0; t-- {
 			p := q[0]
 			q = q[1:]
@@ -27,7 +27,6 @@ func minimumJumps(forbidden []int, a int, b int, x int) (ans int) {
 				}
 			}
 		}
-		ans++
 	}
 	return -1
 }

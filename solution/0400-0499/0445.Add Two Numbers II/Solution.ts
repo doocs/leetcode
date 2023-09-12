@@ -10,10 +10,7 @@
  * }
  */
 
-function addTwoNumbers(
-    l1: ListNode | null,
-    l2: ListNode | null,
-): ListNode | null {
+function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | null {
     const s1: number[] = [];
     const s2: number[] = [];
     for (; l1; l1 = l1.next) {

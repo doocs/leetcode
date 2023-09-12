@@ -105,6 +105,14 @@ func xorBeauty(nums []int) (ans int) {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function xorBeauty(nums: number[]): number {
+    return nums.reduce((acc, cur) => acc ^ cur, 0);
+}
+```
+
 ### **...**
 
 ```

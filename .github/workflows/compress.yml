@@ -1,36 +1,50 @@
 name: compress-images
 
 on:
-  schedule:
-    - cron: "0 0 * * 3"
+  pull_request:
+    paths:
+      - '**.jpg'
+      - '**.jpeg'
+      - '**.png'
+      - '**.webp'
+  push:
+    branches:
+      - main
+    paths:
+      - '**.jpg'
+      - '**.jpeg'
+      - '**.png'
+      - '**.webp'
   workflow_dispatch:
-
+  schedule:
+    - cron: '00 23 * * 0'
 jobs:
-  compress:
+  build:
+    name: calibreapp/image-actions
     runs-on: ubuntu-latest
-    if: github.repository == 'doocs/leetcode'
+    # Only run on main repo on and PRs that match the main repo.
+    if: |
+      github.repository == 'doocs/leetcode' &&
+      (github.event_name != 'pull_request' ||
+       github.event.pull_request.head.repo.full_name == github.repository)
     steps:
       - name: Checkout Branch
-        uses: actions/checkout@v2
-
+        uses: actions/checkout@v4
       - name: Compress Images
         id: calibre
         uses: calibreapp/image-actions@main
         with:
-          githubToken: ${{ secrets.ACTION_TOKEN }}
-          compressOnly: true
-
-      - name: Commit Files
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          # For non-Pull Requests, run in compressOnly mode and we'll PR after.
+          compressOnly: ${{ github.event_name != 'pull_request' }}
+      - name: Create Pull Request
+        # If it's not a Pull Request then commit any changes as a new PR.
         if: |
+          github.event_name != 'pull_request' &&
           steps.calibre.outputs.markdown != ''
-        run: |
-          git config --local user.email "szuyanglb@outlook.com"
-          git config --local user.name "yanglbme"
-          git commit -m "chore: auto compress images" -a
-
-      - name: Push Changes
-        if: |
-          steps.calibre.outputs.markdown != ''
-        uses: ad-m/github-push-action@master
+        uses: peter-evans/create-pull-request@v4
         with:
-          github_token: ${{ secrets.ACTION_TOKEN }}
+          title: 'chore: auto compress images'
+          branch-suffix: timestamp
+          commit-message: 'chore: auto compress images'
+          body: ${{ steps.calibre.outputs.markdown }}

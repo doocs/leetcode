@@ -1,11 +1,11 @@
 func canPermutePalindrome(s string) bool {
-	cnt := make([]int, 26)
+	cnt := [26]int{}
 	for _, c := range s {
 		cnt[c-'a']++
 	}
-	n := 0
-	for _, v := range cnt {
-		n += v & 1
+	odd := 0
+	for _, x := range cnt {
+		odd += x & 1
 	}
-	return n < 2
+	return odd < 2
 }

@@ -64,16 +64,10 @@ The cancellation was scheduled to occur after a delay of cancelT (100ms), which 
 
 ```ts
 function cancellable(fn: Function, args: any[], t: number): Function {
-    let cancelled = false;
-    const cancel = () => {
-        cancelled = true;
+    const timer = setTimeout(() => fn(...args), t);
+    return () => {
+        clearTimeout(timer);
     };
-    setTimeout(() => {
-        if (!cancelled) {
-            fn(...args);
-        }
-    }, t);
-    return cancel;
 }
 
 /**
@@ -113,14 +107,10 @@ function cancellable(fn: Function, args: any[], t: number): Function {
  * @return {Function}
  */
 var cancellable = function (fn, args, t) {
-    let cancelled = false;
-    const calcel = () => (cancelled = true);
-    setTimeout(() => {
-        if (!cancelled) {
-            fn(...args);
-        }
-    }, t);
-    return calcel;
+    const timer = setTimeout(() => fn(...args), t);
+    return () => {
+        clearTimeout(timer);
+    };
 };
 
 /**

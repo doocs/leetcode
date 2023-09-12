@@ -238,11 +238,7 @@ func gridIllumination(n int, lamps [][]int, queries [][]int) []int {
 ### **TypeScript**
 
 ```ts
-function gridIllumination(
-    n: number,
-    lamps: number[][],
-    queries: number[][],
-): number[] {
+function gridIllumination(n: number, lamps: number[][], queries: number[][]): number[] {
     const row = new Map<number, number>();
     const col = new Map<number, number>();
     const diag1 = new Map<number, number>();
@@ -260,12 +256,7 @@ function gridIllumination(
     }
     const ans: number[] = [];
     for (const [i, j] of queries) {
-        if (
-            row.get(i)! > 0 ||
-            col.get(j)! > 0 ||
-            diag1.get(i - j)! > 0 ||
-            diag2.get(i + j)! > 0
-        ) {
+        if (row.get(i)! > 0 || col.get(j)! > 0 || diag1.get(i - j)! > 0 || diag2.get(i + j)! > 0) {
             ans.push(1);
         } else {
             ans.push(0);

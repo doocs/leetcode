@@ -176,12 +176,7 @@ func max(a, b int) int {
 ### **TypeScript**
 
 ```ts
-function numOfMinutes(
-    n: number,
-    headID: number,
-    manager: number[],
-    informTime: number[],
-): number {
+function numOfMinutes(n: number, headID: number, manager: number[], informTime: number[]): number {
     const g: number[][] = new Array(n).fill(0).map(() => []);
     for (let i = 0; i < n; ++i) {
         if (manager[i] !== -1) {

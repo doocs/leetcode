@@ -184,8 +184,7 @@ class Heap<T = number> {
     constructor(data: T[] | Compare<T>, compare?: (lhs: T, rhs: T) => number);
     constructor(
         data: T[] | Compare<T> = [],
-        compare: Compare<T> = (lhs: T, rhs: T) =>
-            lhs < rhs ? -1 : lhs > rhs ? 1 : 0,
+        compare: Compare<T> = (lhs: T, rhs: T) => (lhs < rhs ? -1 : lhs > rhs ? 1 : 0),
     ) {
         if (typeof data === 'function') {
             compare = data;

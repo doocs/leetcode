@@ -15,7 +15,7 @@
 | weight      | int     |
 | turn        | int     |
 +-------------+---------+
-person_id is the primary key column for this table.
+person_id column contains unique values.
 This table has the information about all people waiting for a bus.
 The person_id and turn columns will contain all numbers from 1 to n, where n is the number of rows in the table.
 turn determines the order of which the people will board the bus, where turn=1 denotes the first person to board and turn=n denotes the last person to board.
@@ -26,9 +26,9 @@ weight is the weight of the person in kilograms.
 
 <p>There is a queue of people waiting to board a bus. However, the bus has a weight limit of <code>1000</code><strong> kilograms</strong>, so there may be some people who cannot board.</p>
 
-<p>Write an SQL query to find the <code>person_name</code> of the <strong>last person</strong> that can fit on the bus without exceeding the weight limit. The test cases are generated such that the first person does not exceed the weight limit.</p>
+<p>Write a solution to find the <code>person_name</code> of the <strong>last person</strong> that can fit on the bus without exceeding the weight limit. The test cases are generated such that the first person does not exceed the weight limit.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

@@ -14,8 +14,8 @@
 | experience  | enum |
 | salary      | int  |
 +-------------+------+
-employee_id is the primary key column for this table.
-experience is an enum with one of the values (&#39;Senior&#39;, &#39;Junior&#39;).
+employee_id is the column with unique values for this table.
+experience is an ENUM (category) of types (&#39;Senior&#39;, &#39;Junior&#39;).
 Each row of this table indicates the id of a candidate, their monthly salary, and their experience.
 The salary of each candidate is guaranteed to be <strong>unique</strong>.</pre>
 
@@ -29,11 +29,11 @@ The salary of each candidate is guaranteed to be <strong>unique</strong>.</pre>
 	<li>Keep hiring the junior with the smallest salary until you cannot hire any more juniors.</li>
 </ol>
 
-<p>Write an SQL query to find the ids of seniors and juniors hired under the mentioned criteria.</p>
+<p>Write a solution to find the ids of seniors and juniors hired under the mentioned criteria.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -61,8 +61,8 @@ Candidates table:
 | 9           |
 +-------------+
 <strong>Explanation:</strong> 
-We can hire 2 seniors with IDs (11, 2). Since the budget is 70000 and the sum of their salaries is 36000, we still have 34000 but they are not enough to hire the senior candidate with ID 13.
-We can hire 2 juniors with IDs (1, 9). Since the remaining budget is 34000 and the sum of their salaries is 25000, we still have 9000 but they are not enough to hire the junior candidate with ID 4.
+We can hire 2 seniors with IDs (11, 2). Since the budget is $70000 and the sum of their salaries is $36000, we still have $34000 but they are not enough to hire the senior candidate with ID 13.
+We can hire 2 juniors with IDs (1, 9). Since the remaining budget is $34000 and the sum of their salaries is $25000, we still have $9000 but they are not enough to hire the junior candidate with ID 4.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -89,7 +89,7 @@ Candidates table:
 | 4           |
 +-------------+
 <strong>Explanation:</strong> 
-We cannot hire any seniors with the current budget as we need at least 80000 to hire one senior.
+We cannot hire any seniors with the current budget as we need at least $80000 to hire one senior.
 We can hire all three juniors with the remaining budget.
 </pre>
 

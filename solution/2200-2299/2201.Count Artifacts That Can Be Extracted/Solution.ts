@@ -1,8 +1,4 @@
-function digArtifacts(
-    n: number,
-    artifacts: number[][],
-    dig: number[][],
-): number {
+function digArtifacts(n: number, artifacts: number[][], dig: number[][]): number {
     let visited = Array.from({ length: n }, v => new Array(n).fill(false));
     for (let [i, j] of dig) {
         visited[i][j] = true;

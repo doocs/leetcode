@@ -1,7 +1,6 @@
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
     public int numFactoredBinaryTrees(int[] arr) {
+        final int mod = (int) 1e9 + 7;
         Arrays.sort(arr);
         int n = arr.length;
         long[] f = new long[n];
@@ -18,14 +17,14 @@ class Solution {
                     int c = a / b;
                     if (idx.containsKey(c)) {
                         int k = idx.get(c);
-                        f[i] = (f[i] + f[j] * f[k]) % MOD;
+                        f[i] = (f[i] + f[j] * f[k]) % mod;
                     }
                 }
             }
         }
         long ans = 0;
         for (long v : f) {
-            ans = (ans + v) % MOD;
+            ans = (ans + v) % mod;
         }
         return (int) ans;
     }

@@ -173,9 +173,7 @@ func min(a, b int) int {
 ```ts
 function strangePrinter(s: string): number {
     const n = s.length;
-    const f: number[][] = new Array(n)
-        .fill(0)
-        .map(() => new Array(n).fill(1 << 30));
+    const f: number[][] = new Array(n).fill(0).map(() => new Array(n).fill(1 << 30));
     for (let i = n - 1; i >= 0; --i) {
         f[i][i] = 1;
         for (let j = i + 1; j < n; ++j) {

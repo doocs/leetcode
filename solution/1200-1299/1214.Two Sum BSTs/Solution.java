@@ -14,18 +14,19 @@
  * }
  */
 class Solution {
+    private List<Integer>[] nums = new List[2];
+
     public boolean twoSumBSTs(TreeNode root1, TreeNode root2, int target) {
-        List<Integer> vals1 = new ArrayList<>();
-        List<Integer> vals2 = new ArrayList<>();
-        inorder(root1, vals1);
-        inorder(root2, vals2);
-        int i = 0, j = vals2.size() - 1;
-        while (i < vals1.size() && j >= 0) {
-            int s = vals1.get(i) + vals2.get(j);
-            if (s == target) {
+        Arrays.setAll(nums, k -> new ArrayList<>());
+        dfs(root1, 0);
+        dfs(root2, 1);
+        int i = 0, j = nums[1].size() - 1;
+        while (i < nums[0].size() && j >= 0) {
+            int x = nums[0].get(i) + nums[1].get(j);
+            if (x == target) {
                 return true;
             }
-            if (s < target) {
+            if (x < target) {
                 ++i;
             } else {
                 --j;
@@ -34,11 +35,12 @@ class Solution {
         return false;
     }
 
-    private void inorder(TreeNode root, List<Integer> vals) {
-        if (root != null) {
-            inorder(root.left, vals);
-            vals.add(root.val);
-            inorder(root.right, vals);
+    private void dfs(TreeNode root, int i) {
+        if (root == null) {
+            return;
         }
+        dfs(root.left, i);
+        nums[i].add(root.val);
+        dfs(root.right, i);
     }
 }
