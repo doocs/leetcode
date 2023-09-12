@@ -439,12 +439,7 @@ function f(n: number): number {
         nums[++i] = n % 10;
     }
     const dp = Array.from({ length: 11 }, () => Array(1 << 11).fill(-1));
-    const dfs = (
-        pos: number,
-        mask: number,
-        lead: boolean,
-        limit: boolean,
-    ): number => {
+    const dfs = (pos: number, mask: number, lead: boolean, limit: boolean): number => {
         if (pos < 0) {
             return lead ? 0 : 1;
         }

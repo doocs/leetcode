@@ -316,9 +316,7 @@ func min(a, b int) int {
 ```ts
 function minScoreTriangulation(values: number[]): number {
     const n = values.length;
-    const f: number[][] = Array.from({ length: n }, () =>
-        Array.from({ length: n }, () => 0),
-    );
+    const f: number[][] = Array.from({ length: n }, () => Array.from({ length: n }, () => 0));
     const dfs = (i: number, j: number): number => {
         if (i + 1 === j) {
             return 0;
@@ -328,10 +326,7 @@ function minScoreTriangulation(values: number[]): number {
         }
         let ans = 1 << 30;
         for (let k = i + 1; k < j; ++k) {
-            ans = Math.min(
-                ans,
-                dfs(i, k) + dfs(k, j) + values[i] * values[k] * values[j],
-            );
+            ans = Math.min(ans, dfs(i, k) + dfs(k, j) + values[i] * values[k] * values[j]);
         }
         f[i][j] = ans;
         return ans;
@@ -343,17 +338,12 @@ function minScoreTriangulation(values: number[]): number {
 ```ts
 function minScoreTriangulation(values: number[]): number {
     const n = values.length;
-    const f: number[][] = Array.from({ length: n }, () =>
-        Array.from({ length: n }, () => 0),
-    );
+    const f: number[][] = Array.from({ length: n }, () => Array.from({ length: n }, () => 0));
     for (let i = n - 3; i >= 0; --i) {
         for (let j = i + 2; j < n; ++j) {
             f[i][j] = 1 << 30;
             for (let k = i + 1; k < j; ++k) {
-                f[i][j] = Math.min(
-                    f[i][j],
-                    f[i][k] + f[k][j] + values[i] * values[k] * values[j],
-                );
+                f[i][j] = Math.min(f[i][j], f[i][k] + f[k][j] + values[i] * values[k] * values[j]);
             }
         }
     }
@@ -364,18 +354,13 @@ function minScoreTriangulation(values: number[]): number {
 ```ts
 function minScoreTriangulation(values: number[]): number {
     const n = values.length;
-    const f: number[][] = Array.from({ length: n }, () =>
-        Array.from({ length: n }, () => 0),
-    );
+    const f: number[][] = Array.from({ length: n }, () => Array.from({ length: n }, () => 0));
     for (let l = 3; l <= n; ++l) {
         for (let i = 0; i + l - 1 < n; ++i) {
             const j = i + l - 1;
             f[i][j] = 1 << 30;
             for (let k = i + 1; k < j; ++k) {
-                f[i][j] = Math.min(
-                    f[i][j],
-                    f[i][k] + f[k][j] + values[i] * values[k] * values[j],
-                );
+                f[i][j] = Math.min(f[i][j], f[i][k] + f[k][j] + values[i] * values[k] * values[j]);
             }
         }
     }

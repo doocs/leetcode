@@ -38,9 +38,19 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-将链表右半部分的 k 的节点拼接到 head 即可。
+**方法一：快慢指针 + 链表拼接**
 
-注：k 对链表长度 n 取余，即 `k %= n`。
+我们先判断链表节点数是否小于 $2$，如果是，直接返回 $head$ 即可。
+
+否则，我们先统计链表节点数 $n$，然后将 $k$ 对 $n$ 取模，得到 $k$ 的有效值。
+
+如果 $k$ 的有效值为 $0$，说明链表不需要旋转，直接返回 $head$ 即可。
+
+否则，我们用快慢指针，让快指针先走 $k$ 步，然后快慢指针同时走，直到快指针走到链表尾部，此时慢指针的下一个节点就是新的链表头节点。
+
+最后，我们将链表拼接起来即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是链表节点数，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -55,26 +65,26 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def rotateRight(self, head: ListNode, k: int) -> ListNode:
-        if k == 0 or head is None or head.next is None:
+    def rotateRight(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
+        if head is None or head.next is None:
             return head
-        n, cur = 0, head
+        cur, n = head, 0
         while cur:
-            n, cur = n + 1, cur.next
+            n += 1
+            cur = cur.next
         k %= n
         if k == 0:
             return head
-
-        slow = fast = head
+        fast = slow = head
         for _ in range(k):
             fast = fast.next
         while fast.next:
-            slow, fast = slow.next, fast.next
+            fast, slow = fast.next, slow.next
 
-        start = slow.next
+        ans = slow.next
         slow.next = None
         fast.next = head
-        return start
+        return ans
 ```
 
 ### **Java**
@@ -94,119 +104,32 @@ class Solution:
  */
 class Solution {
     public ListNode rotateRight(ListNode head, int k) {
-        if (k == 0 || head == null || head.next == null) {
+        if (head == null || head.next == null) {
             return head;
         }
+        ListNode cur = head;
         int n = 0;
-        for (ListNode cur = head; cur != null; cur = cur.next) {
-            ++n;
+        for (; cur != null; cur = cur.next) {
+            n++;
         }
         k %= n;
         if (k == 0) {
             return head;
         }
-        ListNode slow = head, fast = head;
+        ListNode fast = head;
+        ListNode slow = head;
         while (k-- > 0) {
             fast = fast.next;
         }
         while (fast.next != null) {
-            slow = slow.next;
             fast = fast.next;
+            slow = slow.next;
         }
-
-        ListNode start = slow.next;
+        ListNode ans = slow.next;
         slow.next = null;
         fast.next = head;
-        return start;
+        return ans;
     }
-}
-```
-
-### **TypeScript**
-
-```ts
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
- * }
- */
-
-function rotateRight(head: ListNode | null, k: number): ListNode | null {
-    if (k == 0 || head == null || head.next == null) return head;
-    // mod n
-    let n = 0;
-    let p = head;
-    while (p != null) {
-        ++n;
-        p = p.next;
-    }
-    k %= n;
-    if (k == 0) return head;
-
-    let fast = head,
-        slow = head;
-    for (let i = 0; i < k; ++i) {
-        fast = fast.next;
-    }
-    while (fast.next != null) {
-        slow = slow.next;
-        fast = fast.next;
-    }
-    let start = slow.next;
-    slow.next = null;
-    fast.next = head;
-    return start;
-}
-```
-
-```ts
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
- * }
- */
-
-function rotateRight(head: ListNode | null, k: number): ListNode | null {
-    if (head == null || k === 0) {
-        return head;
-    }
-
-    let n = 0;
-    let cur = head;
-    while (cur != null) {
-        cur = cur.next;
-        n++;
-    }
-    k = k % n;
-    if (k === 0) {
-        return head;
-    }
-
-    cur = head;
-    for (let i = 0; i < n - k - 1; i++) {
-        cur = cur.next;
-    }
-
-    const res = cur.next;
-    cur.next = null;
-    cur = res;
-    while (cur.next != null) {
-        cur = cur.next;
-    }
-    cur.next = head;
-    return res;
 }
 ```
 
@@ -226,32 +149,118 @@ function rotateRight(head: ListNode | null, k: number): ListNode | null {
 class Solution {
 public:
     ListNode* rotateRight(ListNode* head, int k) {
-        if (k == 0 || !head || !head->next) {
+        if (!head || !head->next) {
             return head;
         }
+        ListNode* cur = head;
         int n = 0;
-        for (ListNode* cur = head; !!cur; cur = cur->next) {
+        while (cur) {
             ++n;
+            cur = cur->next;
         }
         k %= n;
         if (k == 0) {
             return head;
         }
-        ListNode *slow = head, *fast = head;
-        while (k-- > 0) {
+        ListNode* fast = head;
+        ListNode* slow = head;
+        while (k--) {
             fast = fast->next;
         }
         while (fast->next) {
-            slow = slow->next;
             fast = fast->next;
+            slow = slow->next;
         }
-
-        ListNode* start = slow->next;
+        ListNode* ans = slow->next;
         slow->next = nullptr;
         fast->next = head;
-        return start;
+        return ans;
     }
 };
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func rotateRight(head *ListNode, k int) *ListNode {
+	if head == nil || head.Next == nil {
+		return head
+	}
+	cur := head
+	n := 0
+	for cur != nil {
+		cur = cur.Next
+		n++
+	}
+	k %= n
+	if k == 0 {
+		return head
+	}
+	fast, slow := head, head
+	for i := 0; i < k; i++ {
+		fast = fast.Next
+	}
+	for fast.Next != nil {
+		fast = fast.Next
+		slow = slow.Next
+	}
+	ans := slow.Next
+	slow.Next = nil
+	fast.Next = head
+	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function rotateRight(head: ListNode | null, k: number): ListNode | null {
+    if (!head || !head.next) {
+        return head;
+    }
+    let cur = head;
+    let n = 0;
+    while (cur) {
+        cur = cur.next;
+        ++n;
+    }
+    k %= n;
+    if (k === 0) {
+        return head;
+    }
+    let fast = head;
+    let slow = head;
+    while (k--) {
+        fast = fast.next;
+    }
+    while (fast.next) {
+        fast = fast.next;
+        slow = slow.next;
+    }
+    const ans = slow.next;
+    slow.next = null;
+    fast.next = head;
+    return ans;
+}
 ```
 
 ### **C#**
@@ -270,35 +279,32 @@ public:
  */
 public class Solution {
     public ListNode RotateRight(ListNode head, int k) {
-        if (k == 0 || head == null || head.next == null)
-        {
+        if (head == null || head.next == null) {
             return head;
         }
-        var n = 0;
-        for (ListNode cur = head; cur != null; cur = cur.next)
-        {
+        var cur = head;
+        int n = 0;
+        while (cur != null) {
+            cur = cur.next;
             ++n;
         }
         k %= n;
-        if (k == 0)
-        {
+        if (k == 0) {
             return head;
         }
-        ListNode slow = head, fast = head;
-        while (k-- > 0)
-        {
+        var fast = head;
+        var slow = head;
+        while (k-- > 0) {
             fast = fast.next;
         }
-        while (fast.next != null)
-        {
+        while (fast.next != null) {
+            fast = fast.next;
             slow = slow.next;
-            fast = fast.next;
         }
-
-        ListNode start = slow.next;
+        var ans = slow.next;
         slow.next = null;
         fast.next = head;
-        return start;
+        return ans;
     }
 }
 ```

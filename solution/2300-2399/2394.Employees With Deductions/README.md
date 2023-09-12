@@ -112,9 +112,7 @@ WITH
     T AS (
         SELECT
             employee_id,
-            sum(
-                ceiling(timestampdiff(second, in_time, out_time) / 60)
-            ) / 60 AS tot
+            sum(ceiling(timestampdiff(second, in_time, out_time) / 60)) / 60 AS tot
         FROM Logs
         GROUP BY employee_id
     )

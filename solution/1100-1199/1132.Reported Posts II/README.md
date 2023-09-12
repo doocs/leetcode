@@ -99,9 +99,7 @@ Removals table:
 WITH
     T AS (
         SELECT
-            count(DISTINCT t2.post_id) / count(
-                DISTINCT t1.post_id
-            ) * 100 AS percent
+            count(DISTINCT t2.post_id) / count(DISTINCT t1.post_id) * 100 AS percent
         FROM
             Actions AS t1
             LEFT JOIN Removals AS t2 ON t1.post_id = t2.post_id

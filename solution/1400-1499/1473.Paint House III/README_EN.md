@@ -280,19 +280,11 @@ func min(a, b int) int {
 ### **TypeScript**
 
 ```ts
-function minCost(
-    houses: number[],
-    cost: number[][],
-    m: number,
-    n: number,
-    target: number,
-): number {
+function minCost(houses: number[], cost: number[][], m: number, n: number, target: number): number {
     const inf = 1 << 30;
     const f: number[][][] = new Array(m)
         .fill(0)
-        .map(() =>
-            new Array(n + 1).fill(0).map(() => new Array(target + 1).fill(inf)),
-        );
+        .map(() => new Array(n + 1).fill(0).map(() => new Array(target + 1).fill(inf)));
     if (houses[0] === 0) {
         for (let j = 1; j <= n; ++j) {
             f[0][j][1] = cost[0][j - 1];
@@ -306,15 +298,9 @@ function minCost(
                 for (let k = 1; k <= Math.min(target, i + 1); ++k) {
                     for (let j0 = 1; j0 <= n; ++j0) {
                         if (j0 === j) {
-                            f[i][j][k] = Math.min(
-                                f[i][j][k],
-                                f[i - 1][j][k] + cost[i][j - 1],
-                            );
+                            f[i][j][k] = Math.min(f[i][j][k], f[i - 1][j][k] + cost[i][j - 1]);
                         } else {
-                            f[i][j][k] = Math.min(
-                                f[i][j][k],
-                                f[i - 1][j0][k - 1] + cost[i][j - 1],
-                            );
+                            f[i][j][k] = Math.min(f[i][j][k], f[i - 1][j0][k - 1] + cost[i][j - 1]);
                         }
                     }
                 }

@@ -185,11 +185,7 @@ class Solution {
      * @return Integer
      */
     function isVowel($c) {
-        return $c === 'a' ||
-            $c === 'e' ||
-            $c === 'i' ||
-            $c === 'o' ||
-            $c === 'u';
+        return $c === 'a' || $c === 'e' || $c === 'i' || $c === 'o' || $c === 'u';
     }
     function maxVowels($s, $k) {
         $cnt = 0;

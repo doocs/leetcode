@@ -119,26 +119,23 @@ class Solution:
         :rtype: None
         """
 
-        def back():
-            robot.turnRight()
-            robot.turnRight()
-            robot.move()
-            robot.turnRight()
-            robot.turnRight()
-
         def dfs(i, j, d):
             vis.add((i, j))
             robot.clean()
             for k in range(4):
                 nd = (d + k) % 4
-                x, y = i + dirs[nd][0], j + dirs[nd][1]
+                x, y = i + dirs[nd], j + dirs[nd + 1]
                 if (x, y) not in vis and robot.move():
                     dfs(x, y, nd)
-                    back()
+                    robot.turnRight()
+                    robot.turnRight()
+                    robot.move()
+                    robot.turnRight()
+                    robot.turnRight()
                 robot.turnRight()
 
+        dirs = (-1, 0, 1, 0, -1)
         vis = set()
-        dirs = [(-1, 0), (0, 1), (1, 0), (0, -1)]
         dfs(0, 0, 0)
 ```
 
@@ -164,35 +161,31 @@ class Solution:
  */
 
 class Solution {
-    private Set<String> vis;
-    private int[][] dirs = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+    private int[] dirs = {-1, 0, 1, 0, -1};
+    private Set<List<Integer>> vis = new HashSet<>();
+    private Robot robot;
 
     public void cleanRoom(Robot robot) {
-        vis = new HashSet<>();
-        dfs(0, 0, 0, robot);
+        this.robot = robot;
+        dfs(0, 0, 0);
     }
 
-    private void dfs(int i, int j, int d, Robot robot) {
-        vis.add(i + "," + j);
+    private void dfs(int i, int j, int d) {
         robot.clean();
+        vis.add(List.of(i, j));
         for (int k = 0; k < 4; ++k) {
             int nd = (d + k) % 4;
-            int x = i + dirs[nd][0];
-            int y = j + dirs[nd][1];
-            if (!vis.contains(x + "," + y) && robot.move()) {
-                dfs(x, y, nd, robot);
-                back(robot);
+            int x = i + dirs[nd], y = j + dirs[nd + 1];
+            if (!vis.contains(List.of(x, y)) && robot.move()) {
+                dfs(x, y, nd);
+                robot.turnRight();
+                robot.turnRight();
+                robot.move();
+                robot.turnRight();
+                robot.turnRight();
             }
             robot.turnRight();
         }
-    }
-
-    private void back(Robot robot) {
-        robot.turnRight();
-        robot.turnRight();
-        robot.move();
-        robot.turnRight();
-        robot.turnRight();
     }
 }
 ```
@@ -221,34 +214,27 @@ class Solution {
 
 class Solution {
 public:
-    vector<vector<int>> dirs = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
-
     void cleanRoom(Robot& robot) {
-        unordered_set<string> vis;
-        dfs(0, 0, 0, vis, robot);
-    }
-
-    void dfs(int i, int j, int d, unordered_set<string>& vis, Robot& robot) {
-        vis.insert(to_string(i) + "," + to_string(j));
-        robot.clean();
-        for (int k = 0; k < 4; ++k) {
-            int nd = (d + k) % 4;
-            int x = i + dirs[nd][0];
-            int y = j + dirs[nd][1];
-            if (!vis.count(to_string(x) + "," + to_string(y)) && robot.move()) {
-                dfs(x, y, nd, vis, robot);
-                back(robot);
+        int dirs[5] = {-1, 0, 1, 0, -1};
+        set<pair<int, int>> vis;
+        function<void(int, int, int)> dfs = [&](int i, int j, int d) {
+            robot.clean();
+            vis.insert({i, j});
+            for (int k = 0; k < 4; ++k) {
+                int nd = (d + k) % 4;
+                int x = i + dirs[nd], y = j + dirs[nd + 1];
+                if (!vis.count({x, y}) && robot.move()) {
+                    dfs(x, y, nd);
+                    robot.turnRight();
+                    robot.turnRight();
+                    robot.move();
+                    robot.turnRight();
+                    robot.turnRight();
+                }
+                robot.turnRight();
             }
-            robot.turnRight();
-        }
-    }
-
-    void back(Robot& robot) {
-        robot.turnRight();
-        robot.turnRight();
-        robot.move();
-        robot.turnRight();
-        robot.turnRight();
+        };
+        dfs(0, 0, 0);
     }
 };
 ```
@@ -276,30 +262,73 @@ public:
  */
 
 func cleanRoom(robot *Robot) {
-	vis := make(map[string]bool)
-	dirs := [][]int{{-1, 0}, {0, 1}, {1, 0}, {0, -1}}
-	back := func() {
-		robot.TurnRight()
-		robot.TurnRight()
-		robot.Move()
-		robot.TurnRight()
-		robot.TurnRight()
-	}
-	var dfs func(i, j, d int)
+	vis := map[[2]int]bool{}
+	dirs := [5]int{-1, 0, 1, 0, -1}
+	var dfs func(int, int, int)
 	dfs = func(i, j, d int) {
-		vis[strconv.Itoa(i)+","+strconv.Itoa(j)] = true
+		vis[[2]int{i, j}] = true
 		robot.Clean()
 		for k := 0; k < 4; k++ {
 			nd := (d + k) % 4
-			x, y := i+dirs[nd][0], j+dirs[nd][1]
-			if !vis[strconv.Itoa(x)+","+strconv.Itoa(y)] && robot.Move() {
+			x, y := i+dirs[nd], j+dirs[nd+1]
+			if !vis[[2]int{x, y}] && robot.Move() {
 				dfs(x, y, nd)
-				back()
+				robot.TurnRight()
+				robot.TurnRight()
+				robot.Move()
+				robot.TurnRight()
+				robot.TurnRight()
 			}
 			robot.TurnRight()
 		}
 	}
 	dfs(0, 0, 0)
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * class Robot {
+ *      // Returns true if the cell in front is open and robot moves into the cell.
+ *      // Returns false if the cell in front is blocked and robot stays in the current cell.
+ * 		move(): boolean {}
+ *
+ *      // Robot will stay in the same cell after calling turnLeft/turnRight.
+ *      // Each turn will be 90 degrees.
+ * 		turnRight() {}
+ *
+ *      // Robot will stay in the same cell after calling turnLeft/turnRight.
+ *      // Each turn will be 90 degrees.
+ * 		turnLeft() {}
+ *
+ * 		// Clean the current cell.
+ * 		clean(): {}
+ * }
+ */
+
+function cleanRoom(robot: Robot) {
+    const dirs = [-1, 0, 1, 0, -1];
+    const vis = new Set<string>();
+    const dfs = (i: number, j: number, d: number) => {
+        vis.add(`${i}-${j}`);
+        robot.clean();
+        for (let k = 0; k < 4; ++k) {
+            const nd = (d + k) % 4;
+            const [x, y] = [i + dirs[nd], j + dirs[nd + 1]];
+            if (!vis.has(`${x}-${y}`) && robot.move()) {
+                dfs(x, y, nd);
+                robot.turnRight();
+                robot.turnRight();
+                robot.move();
+                robot.turnRight();
+                robot.turnRight();
+            }
+            robot.turnRight();
+        }
+    };
+    dfs(0, 0, 0);
 }
 ```
 

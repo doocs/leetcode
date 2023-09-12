@@ -1,26 +1,26 @@
 func numDistinctIslands(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
-	paths := make(map[string]bool)
-	path := ""
-	var dfs func(i, j, direction int)
-	dfs = func(i, j, direction int) {
+	paths := map[string]bool{}
+	path := []byte{}
+	dirs := [5]int{-1, 0, 1, 0, -1}
+	var dfs func(i, j, k int)
+	dfs = func(i, j, k int) {
 		grid[i][j] = 0
-		path += strconv.Itoa(direction)
-		dirs := []int{-1, 0, 1, 0, -1}
-		for k := 1; k < 5; k++ {
-			x, y := i+dirs[k-1], j+dirs[k]
+		path = append(path, byte(k))
+		for h := 1; h < 5; h++ {
+			x, y := i+dirs[h-1], j+dirs[h]
 			if x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1 {
-				dfs(x, y, k)
+				dfs(x, y, h)
 			}
 		}
-		path += strconv.Itoa(direction)
+		path = append(path, byte(k))
 	}
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			if grid[i][j] == 1 {
-				path = ""
+	for i, row := range grid {
+		for j, x := range row {
+			if x == 1 {
 				dfs(i, j, 0)
-				paths[path] = true
+				paths[string(path)] = true
+				path = path[:0]
 			}
 		}
 	}

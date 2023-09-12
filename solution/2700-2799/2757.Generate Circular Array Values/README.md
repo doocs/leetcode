@@ -79,15 +79,11 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
-function* cycleGenerator(
-    arr: number[],
-    startIndex: number,
-): Generator<number, void, number> {
-    let i = startIndex;
-    let x = yield arr[i];
+function* cycleGenerator(arr: number[], startIndex: number): Generator<number, void, number> {
+    const n = arr.length;
     while (true) {
-        i = (i + x + 10000 * arr.length) % arr.length;
-        x = yield arr[i];
+        const jump = yield arr[startIndex];
+        startIndex = (((startIndex + jump) % n) + n) % n;
     }
 }
 /**

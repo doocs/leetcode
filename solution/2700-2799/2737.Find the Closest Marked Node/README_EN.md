@@ -219,12 +219,7 @@ func min(a, b int) int {
 ### **TypeScript**
 
 ```ts
-function minimumDistance(
-    n: number,
-    edges: number[][],
-    s: number,
-    marked: number[],
-): number {
+function minimumDistance(n: number, edges: number[][], s: number, marked: number[]): number {
     const inf = 1 << 29;
     const g: number[][] = Array(n)
         .fill(0)

@@ -66,18 +66,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-动态规划法。
+**方法一：动态规划**
 
-假设 `dp[i]` 表示字符串 s 的前 i 个字符 `s[1..i]` 的解码方法数。
+我们定义 $f[i]$ 表示字符串的前 $i$ 个字符的解码方法数，初始时 $f[0]=1$，其余 $f[i]=0$。
 
-考虑最后一次解码中使用了 s 中的哪些字符：
+考虑 $f[i]$ 如何进行状态转移。
 
--   第一种情况是我们使用了一个字符，即 `s[i]` 进行解码，那么只要 `s[i]≠0`，它就可以被解码成 `A∼I` 中的某个字母。由于剩余的前 `i-1` 个字符的解码方法数为 `dp[i-1]`，所以 `dp[i] = dp[i-1]`。
--   第二种情况是我们使用了两个字符，即 `s[i-1]` 和 `s[i]` 进行编码。与第一种情况类似，`s[i-1]` 不能等于 0，并且 `s[i-1]` 和 `s[i]` 组成的整数必须小于等于 26，这样它们就可以被解码成 `J∼Z` 中的某个字母。由于剩余的前 `i-2` 个字符的解码方法数为 `dp[i-2]`，所以 `dp[i] = dp[i-2]`。
+-   如果第 $i$ 个字符（即 $s[i-1]$）单独形成编码，那么它对应一种解码方式，即 $f[i]=f[i-1]$。前提是 $s[i-1] \neq 0$。
+-   如果第 $i-1$ 个字符和第 $i$ 个字符组成的字符串在 $[1,26]$ 范围内，那么它们可以作为一个整体，对应一种解码方式，即 $f[i] = f[i] + f[i-2]$。前提是 $s[i-2] \neq 0$，且 $s[i-2]s[i-1]$ 在 $[1,26]$ 范围内。
 
-将上面的两种状态转移方程在对应的条件满足时进行累加，即可得到 `dp[i]`的值。在动态规划完成后，最终的答案即为 `dp[n]`。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串的长度。
 
-由于 `dp[i]` 的值仅与 `dp[i-1]` 和 `dp[i-2]` 有关，因此可以不定义 dp 数组，可以仅使用三个变量进行状态转移。
+我们注意到，状态 $f[i]$ 仅与状态 $f[i-1]$ 和状态 $f[i-2]$ 有关，而与其他状态无关，因此我们可以使用两个变量代替这两个状态，使得原来的空间复杂度 $O(n)$ 降低至 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -89,31 +89,25 @@
 class Solution:
     def numDecodings(self, s: str) -> int:
         n = len(s)
-        dp = [0] * (n + 1)
-        dp[0] = 1
-        for i in range(1, n + 1):
-            if s[i - 1] != '0':
-                dp[i] += dp[i - 1]
-            if i > 1 and s[i - 2] != '0' and (int(s[i - 2]) * 10 + int(s[i - 1]) <= 26):
-                dp[i] += dp[i - 2]
-        return dp[n]
+        f = [1] + [0] * n
+        for i, c in enumerate(s, 1):
+            if c != "0":
+                f[i] = f[i - 1]
+            if i > 1 and s[i - 2] != "0" and int(s[i - 2 : i]) <= 26:
+                f[i] += f[i - 2]
+        return f[n]
 ```
-
-优化空间：
 
 ```python
 class Solution:
     def numDecodings(self, s: str) -> int:
-        n = len(s)
-        a, b, c = 0, 1, 0
-        for i in range(1, n + 1):
-            c = 0
-            if s[i - 1] != '0':
-                c += b
-            if i > 1 and s[i - 2] != '0' and (int(s[i - 2]) * 10 + int(s[i - 1]) <= 26):
-                c += a
-            a, b = b, c
-        return c
+        f, g = 0, 1
+        for i, c in enumerate(s, 1):
+            h = g if c != "0" else 0
+            if i > 1 and s[i - 2] != "0" and int(s[i - 2 : i]) <= 26:
+                h += f
+            f, g = g, h
+        return g
 ```
 
 ### **Java**
@@ -124,42 +118,35 @@ class Solution:
 class Solution {
     public int numDecodings(String s) {
         int n = s.length();
-        int[] dp = new int[n + 1];
-        dp[0] = 1;
+        int[] f = new int[n + 1];
+        f[0] = 1;
         for (int i = 1; i <= n; ++i) {
             if (s.charAt(i - 1) != '0') {
-                dp[i] += dp[i - 1];
+                f[i] = f[i - 1];
             }
-            if (i > 1 && s.charAt(i - 2) != '0'
-                && ((s.charAt(i - 2) - '0') * 10 + s.charAt(i - 1) - '0') <= 26) {
-                dp[i] += dp[i - 2];
+            if (i > 1 && s.charAt(i - 2) != '0' && Integer.valueOf(s.substring(i - 2, i)) <= 26) {
+                f[i] += f[i - 2];
             }
         }
-        return dp[n];
+        return f[n];
     }
 }
 ```
-
-优化空间：
 
 ```java
 class Solution {
     public int numDecodings(String s) {
         int n = s.length();
-        int a = 0, b = 1, c = 0;
+        int f = 0, g = 1;
         for (int i = 1; i <= n; ++i) {
-            c = 0;
-            if (s.charAt(i - 1) != '0') {
-                c += b;
+            int h = s.charAt(i - 1) != '0' ? g : 0;
+            if (i > 1 && s.charAt(i - 2) != '0' && Integer.valueOf(s.substring(i - 2, i)) <= 26) {
+                h += f;
             }
-            if (i > 1 && s.charAt(i - 2) != '0'
-                && ((s.charAt(i - 2) - '0') * 10 + s.charAt(i - 1) - '0') <= 26) {
-                c += a;
-            }
-            a = b;
-            b = c;
+            f = g;
+            g = h;
         }
-        return c;
+        return g;
     }
 }
 ```
@@ -171,19 +158,37 @@ class Solution {
 public:
     int numDecodings(string s) {
         int n = s.size();
-        vector<int> dp(n + 1);
-        dp[0] = 1;
+        int f[n + 1];
+        memset(f, 0, sizeof(f));
+        f[0] = 1;
         for (int i = 1; i <= n; ++i) {
             if (s[i - 1] != '0') {
-                dp[i] += dp[i - 1];
+                f[i] = f[i - 1];
             }
-            if (i > 1 && s[i - 2] != '0') {
-                if ((s[i - 2] - '0') * 10 + s[i - 1] - '0' <= 26) {
-                    dp[i] += dp[i - 2];
-                }
+            if (i > 1 && (s[i - 2] == '1' || s[i - 2] == '2' && s[i - 1] <= '6')) {
+                f[i] += f[i - 2];
             }
         }
-        return dp[n];
+        return f[n];
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int numDecodings(string s) {
+        int n = s.size();
+        int f = 0, g = 1;
+        for (int i = 1; i <= n; ++i) {
+            int h = s[i - 1] != '0' ? g : 0;
+            if (i > 1 && (s[i - 2] == '1' || (s[i - 2] == '2' && s[i - 1] <= '6'))) {
+                h += f;
+            }
+            f = g;
+            g = h;
+        }
+        return g;
     }
 };
 ```
@@ -193,19 +198,69 @@ public:
 ```go
 func numDecodings(s string) int {
 	n := len(s)
-	dp := make([]int, n+1)
-	dp[0] = 1
+	f := make([]int, n+1)
+	f[0] = 1
 	for i := 1; i <= n; i++ {
 		if s[i-1] != '0' {
-			dp[i] += dp[i-1]
+			f[i] = f[i-1]
 		}
-		if i > 1 && s[i-2] != '0' {
-			if (s[i-2]-'0')*10+(s[i-1]-'0') <= 26 {
-				dp[i] += dp[i-2]
-			}
+		if i > 1 && (s[i-2] == '1' || (s[i-2] == '2' && s[i-1] <= '6')) {
+			f[i] += f[i-2]
 		}
 	}
-	return dp[n]
+	return f[n]
+}
+```
+
+```go
+func numDecodings(s string) int {
+	n := len(s)
+	f, g := 0, 1
+	for i := 1; i <= n; i++ {
+		h := 0
+		if s[i-1] != '0' {
+			h = g
+		}
+		if i > 1 && (s[i-2] == '1' || (s[i-2] == '2' && s[i-1] <= '6')) {
+			h += f
+		}
+		f, g = g, h
+	}
+	return g
+}
+```
+
+### **TypeScript**
+
+```ts
+function numDecodings(s: string): number {
+    const n = s.length;
+    const f: number[] = new Array(n + 1).fill(0);
+    f[0] = 1;
+    for (let i = 1; i <= n; ++i) {
+        if (s[i - 1] !== '0') {
+            f[i] = f[i - 1];
+        }
+        if (i > 1 && (s[i - 2] === '1' || (s[i - 2] === '2' && s[i - 1] <= '6'))) {
+            f[i] += f[i - 2];
+        }
+    }
+    return f[n];
+}
+```
+
+```ts
+function numDecodings(s: string): number {
+    const n = s.length;
+    let [f, g] = [0, 1];
+    for (let i = 1; i <= n; ++i) {
+        let h = s[i - 1] !== '0' ? g : 0;
+        if (i > 1 && (s[i - 2] === '1' || (s[i - 2] === '2' && s[i - 1] <= '6'))) {
+            h += f;
+        }
+        [f, g] = [g, h];
+    }
+    return g;
 }
 ```
 
@@ -214,27 +269,36 @@ func numDecodings(s string) int {
 ```cs
 public class Solution {
     public int NumDecodings(string s) {
-        if (s.Length == 0) return 0;
-
-        var f0 = 1;
-        var f1 = 1;
-        var f2 = 1;
-        for (var i = 0; i < s.Length; ++i)
-        {
-            f0 = f1;
-            f1 = f2;
-            f2 = 0;
-            var two = i > 0 ? int.Parse(string.Format("{0}{1}", s[i - 1], s[i])) : 0;
-            if (two >= 10 && two <= 26)
-            {
-               f2 += f0;
+        int n = s.Length;
+        int[] f = new int[n + 1];
+        f[0] = 1;
+        for (int i = 1; i <= n; ++i) {
+            if (s[i - 1] != '0') {
+                f[i] = f[i - 1];
             }
-            if (s[i] != '0')
-            {
-                f2 += f1;
+            if (i > 1 && (s[i - 2] == '1' || (s[i - 2] == '2' && s[i - 1] <= '6'))) {
+                f[i] += f[i - 2];
             }
         }
-        return f2;
+        return f[n];
+    }
+}
+```
+
+```cs
+public class Solution {
+    public int NumDecodings(string s) {
+        int n = s.Length;
+        int f = 0, g = 1;
+        for (int i = 1; i <= n; ++i) {
+            int h = s[i - 1] != '0' ? g : 0;
+            if (i > 1 && (s[i - 2] == '1' || (s[i - 2] == '2' && s[i - 1] <= '6'))) {
+                h += f;
+            }
+            f = g;
+            g = h;
+        }
+        return g;
     }
 }
 ```

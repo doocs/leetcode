@@ -52,6 +52,31 @@ class Solution:
         return b
 ```
 
+```python
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        def mul(a: List[List[int]], b: List[List[int]]) -> List[List[int]]:
+            m, n = len(a), len(b[0])
+            c = [[0] * n for _ in range(m)]
+            for i in range(m):
+                for j in range(n):
+                    for k in range(len(a[0])):
+                        c[i][j] = c[i][j] + a[i][k] * b[k][j]
+            return c
+
+        def pow(a: List[List[int]], n: int) -> List[List[int]]:
+            res = [[1, 1], [0, 0]]
+            while n:
+                if n & 1:
+                    res = mul(res, a)
+                n >>= 1
+                a = mul(a, a)
+            return res
+
+        a = [[1, 1], [1, 0]]
+        return pow(a, n - 1)[0][0]
+```
+
 ### **Java**
 
 ```java
@@ -64,6 +89,40 @@ class Solution {
             b = c;
         }
         return b;
+    }
+}
+```
+
+```java
+class Solution {
+    public int climbStairs(int n) {
+        int[][] a = {{1, 1,}, {1, 0}};
+        return pow(a, n - 1)[0][0];
+    }
+
+    private int[][] mul(int[][] a, int[][] b) {
+        int m = a.length, n = b[0].length;
+        int[][] c = new int[m][n];
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                for (int k = 0; k < a[0].length; ++k) {
+                    c[i][j] += a[i][k] * b[k][j];
+                }
+            }
+        }
+        return c;
+    }
+
+    private int[][] pow(int[][] a, int n) {
+        int[][] res = {{1, 1}, {0, 0}};
+        while (n > 0) {
+            if ((n & 1) == 1) {
+                res = mul(res, a);
+            }
+            n >>= 1;
+            a = mul(a, a);
+        }
+        return res;
     }
 }
 ```
@@ -85,6 +144,87 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int climbStairs(int n) {
+        vector<vector<long long>> a = {{1, 1}, {1, 0}};
+        return pow(a, n - 1)[0][0];
+    }
+
+private:
+    vector<vector<long long>> mul(vector<vector<long long>>& a, vector<vector<long long>>& b) {
+        int m = a.size(), n = b[0].size();
+        vector<vector<long long>> res(m, vector<long long>(n));
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                for (int k = 0; k < a[0].size(); ++k) {
+                    res[i][j] += a[i][k] * b[k][j];
+                }
+            }
+        }
+        return res;
+    }
+
+    vector<vector<long long>> pow(vector<vector<long long>>& a, int n) {
+        vector<vector<long long>> res = {{1, 1}, {0, 0}};
+        while (n) {
+            if (n & 1) {
+                res = mul(res, a);
+            }
+            a = mul(a, a);
+            n >>= 1;
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func climbStairs(n int) int {
+	a, b := 0, 1
+	for i := 0; i < n; i++ {
+		a, b = b, a+b
+	}
+	return b
+}
+```
+
+```go
+type matrix [2][2]int
+
+func climbStairs(n int) int {
+	a := matrix{{1, 1}, {1, 0}}
+	return pow(a, n-1)[0][0]
+}
+
+func mul(a, b matrix) (c matrix) {
+	m, n := len(a), len(b[0])
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			for k := 0; k < len(a[0]); k++ {
+				c[i][j] += a[i][k] * b[k][j]
+			}
+		}
+	}
+	return
+}
+
+func pow(a matrix, n int) matrix {
+	res := matrix{{1, 1}, {0, 0}}
+	for n > 0 {
+		if n&1 == 1 {
+			res = mul(res, a)
+		}
+		a = mul(a, a)
+		n >>= 1
+	}
+	return res
+}
+```
+
 ### **JavaScript**
 
 ```js
@@ -104,15 +244,47 @@ var climbStairs = function (n) {
 };
 ```
 
-### **Go**
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var climbStairs = function (n) {
+    const a = [
+        [1, 1],
+        [1, 0],
+    ];
+    return pow(a, n - 1)[0][0];
+};
 
-```go
-func climbStairs(n int) int {
-	a, b := 0, 1
-	for i := 0; i < n; i++ {
-		a, b = b, a+b
-	}
-	return b
+function mul(a, b) {
+    const [m, n] = [a.length, b[0].length];
+    const c = Array(m)
+        .fill(0)
+        .map(() => Array(n).fill(0));
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            for (let k = 0; k < a[0].length; ++k) {
+                c[i][j] += a[i][k] * b[k][j];
+            }
+        }
+    }
+    return c;
+}
+
+function pow(a, n) {
+    let res = [
+        [1, 1],
+        [0, 0],
+    ];
+    while (n) {
+        if (n & 1) {
+            res = mul(res, a);
+        }
+        a = mul(a, a);
+        n >>= 1;
+    }
+    return res;
 }
 ```
 
@@ -126,6 +298,46 @@ function climbStairs(n: number): number {
         [p, q] = [q, p + q];
     }
     return q;
+}
+```
+
+```ts
+function climbStairs(n: number): number {
+    const a = [
+        [1, 1],
+        [1, 0],
+    ];
+    return pow(a, n - 1)[0][0];
+}
+
+function mul(a: number[][], b: number[][]): number[][] {
+    const [m, n] = [a.length, b[0].length];
+    const c = Array(m)
+        .fill(0)
+        .map(() => Array(n).fill(0));
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            for (let k = 0; k < a[0].length; ++k) {
+                c[i][j] += a[i][k] * b[k][j];
+            }
+        }
+    }
+    return c;
+}
+
+function pow(a: number[][], n: number): number[][] {
+    let res = [
+        [1, 1],
+        [0, 0],
+    ];
+    while (n) {
+        if (n & 1) {
+            res = mul(res, a);
+        }
+        a = mul(a, a);
+        n >>= 1;
+    }
+    return res;
 }
 ```
 

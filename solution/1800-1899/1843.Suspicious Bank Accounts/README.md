@@ -126,9 +126,7 @@ WITH
 SELECT DISTINCT s1.account_id
 FROM
     S AS s1
-    LEFT JOIN S AS s2
-        ON s1.account_id = s2.account_id
-        AND timestampdiff(Month, s1.day, s2.day) = 1
+    LEFT JOIN S AS s2 ON s1.account_id = s2.account_id AND timestampdiff(Month, s1.day, s2.day) = 1
 WHERE s1.marked = 1 AND s2.marked = 1
 ORDER BY s1.tx;
 ```
@@ -150,10 +148,7 @@ WITH
     )
 SELECT DISTINCT account_id
 FROM S
-WHERE
-    (account_id, period_add(yearmonth, 1)) IN (
-        SELECT account_id, yearmonth FROM S
-    )
+WHERE (account_id, period_add(yearmonth, 1)) IN (SELECT account_id, yearmonth FROM S)
 ORDER BY tx;
 ```
 

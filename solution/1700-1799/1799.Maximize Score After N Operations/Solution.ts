@@ -14,9 +14,7 @@ function maxScore(nums: number[]): number {
                 if ((k >> i) & 1) {
                     for (let j = i + 1; j < m; ++j) {
                         if ((k >> j) & 1) {
-                            const t =
-                                f[k ^ (1 << i) ^ (1 << j)] +
-                                ~~(cnt / 2) * g[i][j];
+                            const t = f[k ^ (1 << i) ^ (1 << j)] + ~~(cnt / 2) * g[i][j];
                             f[k] = Math.max(f[k], t);
                         }
                     }

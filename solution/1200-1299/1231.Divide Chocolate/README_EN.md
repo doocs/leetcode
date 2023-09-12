@@ -52,13 +52,151 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def maximizeSweetness(self, sweetness: List[int], k: int) -> int:
+        def check(x: int) -> bool:
+            s = cnt = 0
+            for v in sweetness:
+                s += v
+                if s >= x:
+                    s = 0
+                    cnt += 1
+            return cnt > k
 
+        l, r = 0, sum(sweetness)
+        while l < r:
+            mid = (l + r + 1) >> 1
+            if check(mid):
+                l = mid
+            else:
+                r = mid - 1
+        return l
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maximizeSweetness(int[] sweetness, int k) {
+        int l = 0, r = 0;
+        for (int v : sweetness) {
+            r += v;
+        }
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            if (check(sweetness, mid, k)) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return l;
+    }
 
+    private boolean check(int[] nums, int x, int k) {
+        int s = 0, cnt = 0;
+        for (int v : nums) {
+            s += v;
+            if (s >= x) {
+                s = 0;
+                ++cnt;
+            }
+        }
+        return cnt > k;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maximizeSweetness(vector<int>& sweetness, int k) {
+        int l = 0, r = accumulate(sweetness.begin(), sweetness.end(), 0);
+        auto check = [&](int x) {
+            int s = 0, cnt = 0;
+            for (int v : sweetness) {
+                s += v;
+                if (s >= x) {
+                    s = 0;
+                    ++cnt;
+                }
+            }
+            return cnt > k;
+        };
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            if (check(mid)) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return l;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximizeSweetness(sweetness []int, k int) int {
+	l, r := 0, 0
+	for _, v := range sweetness {
+		r += v
+	}
+	check := func(x int) bool {
+		s, cnt := 0, 0
+		for _, v := range sweetness {
+			s += v
+			if s >= x {
+				s = 0
+				cnt++
+			}
+		}
+		return cnt > k
+	}
+	for l < r {
+		mid := (l + r + 1) >> 1
+		if check(mid) {
+			l = mid
+		} else {
+			r = mid - 1
+		}
+	}
+	return l
+}
+```
+
+### **TypeScript**
+
+```ts
+function maximizeSweetness(sweetness: number[], k: number): number {
+    let l = 0;
+    let r = sweetness.reduce((a, b) => a + b);
+    const check = (x: number): boolean => {
+        let s = 0;
+        let cnt = 0;
+        for (const v of sweetness) {
+            s += v;
+            if (s >= x) {
+                s = 0;
+                ++cnt;
+            }
+        }
+        return cnt > k;
+    };
+    while (l < r) {
+        const mid = (l + r + 1) >> 1;
+        if (check(mid)) {
+            l = mid;
+        } else {
+            r = mid - 1;
+        }
+    }
+    return l;
+}
 ```
 
 ### **...**

@@ -17,7 +17,7 @@
 <pre>
 <strong>输入：</strong>nums = [100,4,200,1,3,2]
 <strong>输出：</strong>4
-<strong>解释：</strong>最长数字连续序列是 [1, 2, 3, 4]。它的长度为 4。</pre>
+<strong>解释：</strong>最长数字连续序列是 <code>[1, 2, 3, 4]。它的长度为 4。</code></pre>
 
 <p><strong>示例 2：</strong></p>
 

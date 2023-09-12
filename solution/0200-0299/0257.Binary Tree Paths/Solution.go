@@ -6,10 +6,9 @@
  *     Right *TreeNode
  * }
  */
-func binaryTreePaths(root *TreeNode) []string {
-	var ans []string
-	var t []string
-	var dfs func(root *TreeNode)
+func binaryTreePaths(root *TreeNode) (ans []string) {
+	t := []string{}
+	var dfs func(*TreeNode)
 	dfs = func(root *TreeNode) {
 		if root == nil {
 			return
@@ -17,11 +16,12 @@ func binaryTreePaths(root *TreeNode) []string {
 		t = append(t, strconv.Itoa(root.Val))
 		if root.Left == nil && root.Right == nil {
 			ans = append(ans, strings.Join(t, "->"))
+		} else {
+			dfs(root.Left)
+			dfs(root.Right)
 		}
-		dfs(root.Left)
-		dfs(root.Right)
 		t = t[:len(t)-1]
 	}
 	dfs(root)
-	return ans
+	return
 }

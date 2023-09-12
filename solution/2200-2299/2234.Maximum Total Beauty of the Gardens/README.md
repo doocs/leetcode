@@ -69,6 +69,20 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：枚举 + 二分查找**
+
+我们注意到，如果一个花园中种的花的数目已经大于等于 $target$，那么这个花园就已经是完善的花园，不能再改变。而不完善的花园中，可以通过种更多的花来使得这个花园变成完善的花园。
+
+我们不妨枚举有多少个花园最终成为完善的花园，假设初始时有 $x$ 个完善的花园，那么我们可以在 $[x, n]$ 范围内枚举。我们应该选择哪些不完善花园变成完善花园呢？实际上，我们应该选择那么花的数目较多的花园，这样才能使得最终剩下的可额外种植的花更多，将这些花用于提升不完善花园的最小值。因此，我们对数组 $flowers$ 进行排序。
+
+接下来，我们枚举完善花园的数目 $x$，那么当前要变成完善花园的是 $target[n-x]$，需要种植的花的数量为 $\max(0, target - flowers[n - x])$。
+
+我们更新剩余可种植的花 $newFlowers$，如果小于 $0$，说明已经不能将更多的花园变成完善花园了，直接退出枚举。
+
+否则，我们在 $[0,..n-x-1]$ 范围内，二分查找可以把不完善花园变成完善花园的最大下标。记下标为 $l$，那么所需要种植的花的数量为 $cost = flowers[l] * (l + 1) - s[l + 1]$，其中 $s[i]$ 是 $flowers$ 数组中前 $i$ 个数之和。如果此时还能提升最小值的大小，我们算出能提升的幅度 $\frac{newFlowers - cost}{l + 1}$，并且保证最终的最小值不超过 $target-1$。即最小值 $y = \min(flowers[l] + \frac{newFlowers - cost}{l + 1}, target - 1)$。那么此时花园的美丽值为 $x \times full + y \times partial$。答案为所有美丽值的最大值。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $flowers$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -76,7 +90,31 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maximumBeauty(
+        self, flowers: List[int], newFlowers: int, target: int, full: int, partial: int
+    ) -> int:
+        flowers.sort()
+        n = len(flowers)
+        s = list(accumulate(flowers, initial=0))
+        ans, i = 0, n - bisect_left(flowers, target)
+        for x in range(i, n + 1):
+            newFlowers -= 0 if x == 0 else max(target - flowers[n - x], 0)
+            if newFlowers < 0:
+                break
+            l, r = 0, n - x - 1
+            while l < r:
+                mid = (l + r + 1) >> 1
+                if flowers[mid] * (mid + 1) - s[mid + 1] <= newFlowers:
+                    l = mid
+                else:
+                    r = mid - 1
+            y = 0
+            if r != -1:
+                cost = flowers[l] * (l + 1) - s[l + 1]
+                y = min(flowers[l] + (newFlowers - cost) // (l + 1), target - 1)
+            ans = max(ans, x * full + y * partial)
+        return ans
 ```
 
 ### **Java**
@@ -84,13 +122,185 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public long maximumBeauty(int[] flowers, long newFlowers, int target, int full, int partial) {
+        Arrays.sort(flowers);
+        int n = flowers.length;
+        long[] s = new long[n + 1];
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + flowers[i];
+        }
+        long ans = 0;
+        int x = 0;
+        for (int v : flowers) {
+            if (v >= target) {
+                ++x;
+            }
+        }
+        for (; x <= n; ++x) {
+            newFlowers -= (x == 0 ? 0 : Math.max(target - flowers[n - x], 0));
+            if (newFlowers < 0) {
+                break;
+            }
+            int l = 0, r = n - x - 1;
+            while (l < r) {
+                int mid = (l + r + 1) >> 1;
+                if ((long) flowers[mid] * (mid + 1) - s[mid + 1] <= newFlowers) {
+                    l = mid;
+                } else {
+                    r = mid - 1;
+                }
+            }
+            long y = 0;
+            if (r != -1) {
+                long cost = (long) flowers[l] * (l + 1) - s[l + 1];
+                y = Math.min(flowers[l] + (newFlowers - cost) / (l + 1), target - 1);
+            }
+            ans = Math.max(ans, (long) x * full + y * partial);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    long long maximumBeauty(vector<int>& flowers, long long newFlowers, int target, int full, int partial) {
+        sort(flowers.begin(), flowers.end());
+        int n = flowers.size();
+        long long s[n + 1];
+        s[0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            s[i] = s[i - 1] + flowers[i - 1];
+        }
+        long long ans = 0;
+        int i = flowers.end() - lower_bound(flowers.begin(), flowers.end(), target);
+        for (int x = i; x <= n; ++x) {
+            newFlowers -= (x == 0 ? 0 : max(target - flowers[n - x], 0));
+            if (newFlowers < 0) {
+                break;
+            }
+            int l = 0, r = n - x - 1;
+            while (l < r) {
+                int mid = (l + r + 1) >> 1;
+                if (1LL * flowers[mid] * (mid + 1) - s[mid + 1] <= newFlowers) {
+                    l = mid;
+                } else {
+                    r = mid - 1;
+                }
+            }
+            int y = 0;
+            if (r != -1) {
+                long long cost = 1LL * flowers[l] * (l + 1) - s[l + 1];
+                long long mx = flowers[l] + (newFlowers - cost) / (l + 1);
+                long long threshold = target - 1;
+                y = min(mx, threshold);
+            }
+            ans = max(ans, 1LL * x * full + 1LL * y * partial);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximumBeauty(flowers []int, newFlowers int64, target int, full int, partial int) int64 {
+	sort.Ints(flowers)
+	n := len(flowers)
+	s := make([]int, n+1)
+	for i, x := range flowers {
+		s[i+1] = s[i] + x
+	}
+	ans := 0
+	i := n - sort.SearchInts(flowers, target)
+	for x := i; x <= n; x++ {
+		if x > 0 {
+			newFlowers -= int64(max(target-flowers[n-x], 0))
+		}
+		if newFlowers < 0 {
+			break
+		}
+		l, r := 0, n-x-1
+		for l < r {
+			mid := (l + r + 1) >> 1
+			if int64(flowers[mid]*(mid+1)-s[mid+1]) <= newFlowers {
+				l = mid
+			} else {
+				r = mid - 1
+			}
+		}
+		y := 0
+		if r != -1 {
+			cost := flowers[l]*(l+1) - s[l+1]
+			y = min(flowers[l]+int((newFlowers-int64(cost))/int64(l+1)), target-1)
+		}
+		ans = max(ans, x*full+y*partial)
+	}
+	return int64(ans)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function maximumBeauty(
+    flowers: number[],
+    newFlowers: number,
+    target: number,
+    full: number,
+    partial: number,
+): number {
+    flowers.sort((a, b) => a - b);
+    const n = flowers.length;
+    const s: number[] = Array(n + 1).fill(0);
+    for (let i = 1; i <= n; i++) {
+        s[i] = s[i - 1] + flowers[i - 1];
+    }
+    let x = flowers.filter(f => f >= target).length;
+    let ans = 0;
+    for (; x <= n; ++x) {
+        newFlowers -= x === 0 ? 0 : Math.max(target - flowers[n - x], 0);
+        if (newFlowers < 0) {
+            break;
+        }
+        let l = 0;
+        let r = n - x - 1;
+        while (l < r) {
+            const mid = (l + r + 1) >> 1;
+            if (flowers[mid] * (mid + 1) - s[mid + 1] <= newFlowers) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+        let y = 0;
+        if (r !== -1) {
+            const cost = flowers[l] * (l + 1) - s[l + 1];
+            y = Math.min(flowers[l] + Math.floor((newFlowers - cost) / (l + 1)), target - 1);
+        }
+        ans = Math.max(ans, x * full + y * partial);
+    }
+    return ans;
+}
 ```
 
 ### **...**

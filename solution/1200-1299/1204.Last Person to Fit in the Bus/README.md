@@ -17,7 +17,7 @@
 | weight      | int     |
 | turn        | int     |
 +-------------+---------+
-person_id 是这个表的主键。
+person_id 是这个表具有唯一值的列。
 该表展示了所有候车乘客的信息。
 表中 person_id 和 turn 列将包含从 1 到 n 的所有数字，其中 n 是表中的行数。
 turn 决定了候车乘客上巴士的顺序，其中 turn=1 表示第一个上巴士，turn=n 表示最后一个上巴士。
@@ -28,13 +28,13 @@ weight 表示候车乘客的体重，以千克为单位。
 
 <p>有一队乘客在等着上巴士。然而，巴士有<code>1000</code>&nbsp; <strong>千克</strong> 的重量限制，所以其中一部分乘客可能无法上巴士。</p>
 
-<p>写一条 SQL 查询语句找出 <strong>最后一个</strong> 上巴士且不超过重量限制的乘客，并报告 <code>person_name</code> 。题目测试用例确保顺位第一的人可以上巴士且不会超重。</p>
+<p>编写解决方案找出 <strong>最后一个</strong> 上巴士且不超过重量限制的乘客，并报告 <code>person_name</code> 。题目测试用例确保顺位第一的人可以上巴士且不会超重。</p>
 
-<p>查询结果格式如下所示。</p>
+<p>返回结果格式如下所示。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例：</strong></p>
+<p><strong>示例 1：</strong></p>
 
 <pre>
 <strong>输入：</strong>

@@ -277,9 +277,7 @@ func allPossibleFBT(n int) []*TreeNode {
  */
 
 function allPossibleFBT(n: number): Array<TreeNode | null> {
-    const f: Array<Array<TreeNode | null>> = new Array(n + 1)
-        .fill(0)
-        .map(() => []);
+    const f: Array<Array<TreeNode | null>> = new Array(n + 1).fill(0).map(() => []);
     const dfs = (n: number): Array<TreeNode | null> => {
         if (f[n].length) {
             return f[n];
