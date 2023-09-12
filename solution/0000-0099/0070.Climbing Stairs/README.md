@@ -62,33 +62,41 @@ $$
 
 **方法二：矩阵快速幂**
 
-我们设 $Fib(n)$ 表示一个 $1 \times 2$ 的矩阵 $\left [F_n, F_{n - 1} \right ]$，其中 $F_n$ 和 $F_{n - 1}$ 分别是第 $n$ 个和第 $n - 1$ 个斐波那契数。
+我们设 $Fib(n)$ 表示一个 $1 \times 2$ 的矩阵 $\begin{bmatrix} F_n & F_{n - 1} \end{bmatrix}$，其中 $F_n$ 和 $F_{n - 1}$ 分别是第 $n$ 个和第 $n - 1$ 个斐波那契数。
 
-我们希望根据 $Fib(n-1) = \left [F_{n - 1}, F_{n - 2} \right ]$ 推出 $Fib(n)$。也即是说，我们需要一个矩阵 $base$，使得 $Fib(n - 1) \times base = Fib(n)$，即：
+我们希望根据 $Fib(n-1) = \begin{bmatrix} F_{n - 1} & F_{n - 2} \end{bmatrix}$ 推出 $Fib(n)$。也即是说，我们需要一个矩阵 $base$，使得 $Fib(n - 1) \times base = Fib(n)$，即：
 
 $$
-\left [F_{n - 1}, F_{n - 2} \right ] \times base = \left [F_n, F_{n - 1} \right ]
+\begin{bmatrix}
+F_{n - 1} & F_{n - 2}
+\end{bmatrix} \times base = \begin{bmatrix} F_n & F_{n - 1} \end{bmatrix}
 $$
 
 由于 $F_n = F_{n - 1} + F_{n - 2}$，所以矩阵 $base$ 的第一列为：
 
 $$
-\begin{bmatrix}1 \\ 1\end{bmatrix}
+\begin{bmatrix}
+1 \\
+1
+\end{bmatrix}
 $$
 
 第二列为：
 
 $$
-\begin{bmatrix}1 \\ 0\end{bmatrix}
+\begin{bmatrix}
+1 \\
+0
+\end{bmatrix}
 $$
 
 因此有：
 
 $$
-\left [F_{n - 1}, F_{n - 2} \right ] \times \begin{bmatrix}1 & 1 \\ 1 & 0\end{bmatrix} = \left [F_n, F_{n - 1} \right ]
+\begin{bmatrix} F_{n - 1} & F_{n - 2} \end{bmatrix} \times \begin{bmatrix}1 & 1 \\ 1 & 0\end{bmatrix} = \begin{bmatrix} F_n & F_{n - 1} \end{bmatrix}
 $$
 
-我们定义初始矩阵 $res = [1, 1]$，那么 $F_n$ 等于 $res$ 乘以 $base^{n - 1}$ 的结果矩阵中第一行第一列元素。使用矩阵快速幂求解即可。
+我们定义初始矩阵 $res = \begin{bmatrix} 1 & 1 \end{bmatrix}$，那么 $F_n$ 等于 $res$ 乘以 $base^{n - 1}$ 的结果矩阵中第一行的第一个元素。使用矩阵快速幂求解即可。
 
 时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。
 
