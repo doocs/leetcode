@@ -1,18 +1,20 @@
-func countVowelPermutation(n int) int {
+func countVowelPermutation(n int) (ans int) {
 	const mod int = 1e9 + 7
-	dp := [5]int{1, 1, 1, 1, 1}
-	for i := 0; i < n-1; i++ {
-		dp = [5]int{
-			(dp[1] + dp[2] + dp[4]) % mod,
-			(dp[0] + dp[2]) % mod,
-			(dp[1] + dp[3]) % mod,
-			dp[2],
-			(dp[2] + dp[3]) % mod,
-		}
+	f := make([]int, 5)
+	for i := range f {
+		f[i] = 1
 	}
-	ans := 0
-	for _, v := range dp {
-		ans = (ans + v) % mod
+	for i := 1; i < n; i++ {
+		g := make([]int, 5)
+		g[0] = (f[1] + f[2] + f[4]) % mod
+		g[1] = (f[0] + f[2]) % mod
+		g[2] = (f[1] + f[3]) % mod
+		g[3] = f[2] % mod
+		g[4] = (f[2] + f[3]) % mod
+		f = g
 	}
-	return ans
+	for _, x := range f {
+		ans = (ans + x) % mod
+	}
+	return
 }

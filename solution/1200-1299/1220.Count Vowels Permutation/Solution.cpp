@@ -2,17 +2,17 @@ class Solution {
 public:
     int countVowelPermutation(int n) {
         using ll = long long;
-        const ll mod = 1e9 + 7;
-        vector<ll> dp(5, 1);
-        vector<ll> t(5);
-        for (int i = 0; i < n - 1; ++i) {
-            t[0] = (dp[1] + dp[2] + dp[4]) % mod;
-            t[1] = (dp[0] + dp[2]) % mod;
-            t[2] = (dp[1] + dp[3]) % mod;
-            t[3] = dp[2];
-            t[4] = (dp[2] + dp[3]) % mod;
-            dp = t;
+        vector<ll> f(5, 1);
+        const int mod = 1e9 + 7;
+        for (int i = 1; i < n; ++i) {
+            vector<ll> g(5);
+            g[0] = (f[1] + f[2] + f[4]) % mod;
+            g[1] = (f[0] + f[2]) % mod;
+            g[2] = (f[1] + f[3]) % mod;
+            g[3] = f[2];
+            g[4] = (f[2] + f[3]) % mod;
+            f = move(g);
         }
-        return accumulate(dp.begin(), dp.end(), 0LL) % mod;
+        return accumulate(f.begin(), f.end(), 0LL) % mod;
     }
 };
