@@ -1,8 +1,4 @@
-/**
- * @param {number} n
- * @return {number}
- */
-var tribonacci = function (n) {
+function tribonacci(n: number): number {
     if (n === 0) {
         return 0;
     }
@@ -15,9 +11,9 @@ var tribonacci = function (n) {
         [1, 0, 0],
     ];
     return pow(a, n - 3)[0].reduce((a, b) => a + b);
-};
+}
 
-function mul(a, b) {
+function mul(a: number[][], b: number[][]): number[][] {
     const [m, n] = [a.length, b[0].length];
     const c = Array.from({ length: m }, () => Array.from({ length: n }, () => 0));
     for (let i = 0; i < m; ++i) {
@@ -30,7 +26,7 @@ function mul(a, b) {
     return c;
 }
 
-function pow(a, n) {
+function pow(a: number[][], n: number): number[][] {
     let res = [[1, 1, 0]];
     while (n) {
         if (n & 1) {
