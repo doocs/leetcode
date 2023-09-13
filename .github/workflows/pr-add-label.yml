@@ -2,15 +2,13 @@ name: pr-add-label
 
 on:
   pull_request_target:
-    types:
-      - opened
-      - edited
-      - synchronize
-    branches:
-      - main
+    types: [opened, edited, reopened, synchronize]
 
 jobs:
   add-label:
+    permissions:
+      contents: read
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - name: Check PR number
