@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: MaoLongLong/actions-starcharts@main
         with:
-          github_token: ${{ secrets.ACTION_TOKEN }}
+          github_token: ${{ secrets.DOOCS_BOT_ACTION_TOKEN }}
           svg_path: images/starcharts.svg
           commit_message: "chore: auto update starcharts"
           stars_change: ${{ secrets.STARS_CHANGE }}

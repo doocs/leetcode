@@ -1,10 +1,9 @@
 name: pr-add-label
 
 on:
-  pull_request:
-    types:
-      - opened
-      - synchronize
+  pull_request_target:
+    types: [opened]
+ 
 jobs:
   add-label:
     runs-on: ubuntu-latest
@@ -16,7 +15,7 @@ jobs:
       - name: Run add-label Action
         uses: thinkasany/pr-label-action@master
         with:
-          github_token: ${{ secrets.ACTION_TOKEN }}
+          github_token: ${{ secrets.DOOCS_BOT_ACTION_TOKEN }}
           pr_number: ${{ env.PR_NUMBER }}
           organize_name: "doocs"
           team_name: "leetcode-algorithm"
