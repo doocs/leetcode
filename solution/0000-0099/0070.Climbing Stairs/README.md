@@ -60,7 +60,7 @@ $$
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。
 
-**方法二：矩阵快速幂**
+**方法二：矩阵快速幂加速递推**
 
 我们设 $Fib(n)$ 表示一个 $1 \times 2$ 的矩阵 $\begin{bmatrix} F_n & F_{n - 1} \end{bmatrix}$，其中 $F_n$ 和 $F_{n - 1}$ 分别是第 $n$ 个和第 $n - 1$ 个斐波那契数。
 
@@ -128,7 +128,7 @@ class Solution:
             return c
 
         def pow(a: List[List[int]], n: int) -> List[List[int]]:
-            res = [[1, 1], [0, 0]]
+            res = [[1, 1]]
             while n:
                 if n & 1:
                     res = mul(res, a)
@@ -138,6 +138,23 @@ class Solution:
 
         a = [[1, 1], [1, 0]]
         return pow(a, n - 1)[0][0]
+```
+
+```python
+import numpy as np
+
+
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        res = np.mat([(1, 1)], np.dtype("O"))
+        factor = np.mat([(1, 1), (1, 0)], np.dtype("O"))
+        n -= 1
+        while n:
+            if n & 1:
+                res *= factor
+            factor *= factor
+            n >>= 1
+        return res[0, 0]
 ```
 
 ### **Java**
