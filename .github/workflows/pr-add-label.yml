@@ -1,11 +1,17 @@
 name: pr-add-label
 
 on:
-  pull_request_target:
+  pull_request:
     types: [opened]
+
+permissions:
+  contents: read
  
 jobs:
   add-label:
+    permissions:
+      contents: read
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - name: Check PR number
