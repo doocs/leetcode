@@ -1,17 +1,16 @@
 name: pr-add-label
 
 on:
-  pull_request:
-    types: [opened]
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - synchronize
+    branches:
+      - main
 
-permissions:
-  contents: read
- 
 jobs:
   add-label:
-    permissions:
-      contents: read
-      pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - name: Check PR number
@@ -25,4 +24,3 @@ jobs:
           pr_number: ${{ env.PR_NUMBER }}
           organize_name: "doocs"
           team_name: "leetcode-algorithm"
-          team_label: "core team"
