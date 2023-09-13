@@ -91,7 +91,7 @@ $$
 
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 是字符串的长度，而 $C$ 是元音字母的个数。本题中 $C=5$。
 
-**方法二：矩阵快速幂**
+**方法二：矩阵快速幂加速递推**
 
 时间复杂度 $O(C^3 \times \log n)$，空间复杂度 $O(C^2)$，其中 $C$ 是元音字母的个数，本题中 $C=5$。
 
@@ -149,6 +149,33 @@ class Solution:
         ]
         res = pow(a, n - 1)
         return sum(map(sum, res)) % mod
+```
+
+```python
+import numpy as np
+
+
+class Solution:
+    def countVowelPermutation(self, n: int) -> int:
+        mod = 10**9 + 7
+        factor = np.mat(
+            [
+                (0, 1, 0, 0, 0),
+                (1, 0, 1, 0, 0),
+                (1, 1, 0, 1, 1),
+                (0, 0, 1, 0, 1),
+                (1, 0, 0, 0, 0),
+            ],
+            np.dtype("O"),
+        )
+        res = np.mat([(1, 1, 1, 1, 1)], np.dtype("O"))
+        n -= 1
+        while n:
+            if n & 1:
+                res = res * factor % mod
+            factor = factor * factor % mod
+            n >>= 1
+        return res.sum() % mod
 ```
 
 ### **Java**
