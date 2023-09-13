@@ -32,7 +32,41 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-递推法。`f(n)=f(n-1)+f(n-2)+f(n-3)`
+**方法一：递推**
+
+我们定义 $f[i]$ 表示上第 $i$ 阶台阶的方法数，初始时 $f[1]=1$, $f[2]=2$, $f[3]=4$。答案为 $f[n]$。
+
+递推公式为 $f[i] = f[i-1] + f[i-2] + f[i-3]$。
+
+由于 $f[i]$ 只与 $f[i-1]$, $f[i-2]$, $f[i-3]$ 有关，因此我们可以使用三个变量 $a$, $b$, $c$ 来存储 $f[i-1]$, $f[i-2]$, $f[i-3]$ 的值，使得空间复杂度降低到 $O(1)$。
+
+时间复杂度 $O(n)$，其中 $n$ 为给定的整数。空间复杂度 $O(1)$。
+
+**方法二：矩阵快速幂加速递推**
+
+我们设 $F(n)$ 表示一个 $1 \times 3$ 的矩阵 $\begin{bmatrix} F_{n - 1} & F_{n - 2} & F_{n - 3} \end{bmatrix}$，其中 $F_{n - 1}$, $F_{n - 2}$ 和 $F_{n - 3}$ 分别表示上第 $n - 1$ 阶、第 $n - 2$ 阶和第 $n - 3$ 阶台阶的方法数。
+
+我们希望根据 $F(n-1) = \begin{bmatrix} F_{n - 2} & F_{n - 3} & F_{n - 4} \end{bmatrix}$ 推出 $F(n)$。也即是说，我们需要一个矩阵 $base$，使得 $F(n - 1) \times base = F(n)$，即：
+
+$$
+\begin{bmatrix}
+F_{n - 2} & T_{n - 3} & T_{n - 4}
+\end{bmatrix} \times base = \begin{bmatrix} F_{n - 1} & F_{n - 2} & F_{n - 3} \end{bmatrix}
+$$
+
+由于 $F_n = F_{n - 1} + F_{n - 2} + F_{n - 3}$，所以矩阵 $base$ 为：
+
+$$
+\begin{bmatrix}
+ 1 & 1 & 0 \\
+ 1 & 0 & 1 \\
+ 1 & 0 & 0
+\end{bmatrix}
+$$
+
+我们定义初始矩阵 $res = \begin{bmatrix} 1 & 1  & 0 \end{bmatrix}$，那么 $F_n$ 等于 $res$ 乘以 $base^{n - 4}$ 的结果矩阵中所有元素之和。使用矩阵快速幂求解即可。
+
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -43,12 +77,40 @@
 ```python
 class Solution:
     def waysToStep(self, n: int) -> int:
-        if n < 3:
-            return n
         a, b, c = 1, 2, 4
-        for _ in range(4, n + 1):
-            a, b, c = b, c, (a + b + c) % 1000000007
-        return c
+        mod = 10**9 + 7
+        for _ in range(n - 1):
+            a, b, c = b, c, (a + b + c) % mod
+        return a
+```
+
+```python
+class Solution:
+    def waysToStep(self, n: int) -> int:
+        mod = 10**9 + 7
+
+        def mul(a: List[List[int]], b: List[List[int]]) -> List[List[int]]:
+            m, n = len(a), len(b[0])
+            c = [[0] * n for _ in range(m)]
+            for i in range(m):
+                for j in range(n):
+                    for k in range(len(a[0])):
+                        c[i][j] = (c[i][j] + a[i][k] * b[k][j] % mod) % mod
+            return c
+
+        def pow(a: List[List[int]], n: int) -> List[List[int]]:
+            res = [[4, 2, 1]]
+            while n:
+                if n & 1:
+                    res = mul(res, a)
+                n >>= 1
+                a = mul(a, a)
+            return res
+
+        if n < 4:
+            return 2 ** (n - 1)
+        a = [[1, 1, 0], [1, 0, 1], [1, 0, 0]]
+        return sum(pow(a, n - 4)[0]) % mod
 ```
 
 ### **Java**
@@ -58,18 +120,182 @@ class Solution:
 ```java
 class Solution {
     public int waysToStep(int n) {
-        if (n < 3) {
-            return n;
-        }
+        final int mod = (int) 1e9 + 7;
         int a = 1, b = 2, c = 4;
-        for (int i = 4; i <= n; ++i) {
+        for (int i = 1; i < n; ++i) {
             int t = a;
             a = b;
             b = c;
-            c = ((a + b) % 1000000007 + t) % 1000000007;
+            c = (((a + b) % mod) + t) % mod;
+        }
+        return a;
+    }
+}
+```
+
+```java
+class Solution {
+    private final int mod = (int) 1e9 + 7;
+
+    public int waysToStep(int n) {
+        if (n < 4) {
+            return (int) Math.pow(2, n - 1);
+        }
+        long[][] a = {{1, 1, 0}, {1, 0, 1}, {1, 0, 0}};
+        long[][] res = pow(a, n - 4);
+        long ans = 0;
+        for (long x : res[0]) {
+            ans = (ans + x) % mod;
+        }
+        return (int) ans;
+    }
+
+    private long[][] mul(long[][] a, long[][] b) {
+        int m = a.length, n = b[0].length;
+        long[][] c = new long[m][n];
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                for (int k = 0; k < b.length; ++k) {
+                    c[i][j] = (c[i][j] + a[i][k] * b[k][j] % mod) % mod;
+                }
+            }
         }
         return c;
     }
+
+    private long[][] pow(long[][] a, int n) {
+        long[][] res = {{4, 2, 1}};
+        while (n > 0) {
+            if ((n & 1) == 1) {
+                res = mul(res, a);
+            }
+            a = mul(a, a);
+            n >>= 1;
+        }
+        return res;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int waysToStep(int n) {
+        const int mod = 1e9 + 7;
+        int a = 1, b = 2, c = 4;
+        for (int i = 1; i < n; ++i) {
+            int t = a;
+            a = b;
+            b = c;
+            c = (((a + b) % mod) + t) % mod;
+        }
+        return a;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int waysToStep(int n) {
+        if (n < 4) {
+            return pow(2, n - 1);
+        }
+        vector<vector<ll>> a = {{1, 1, 0}, {1, 0, 1}, {1, 0, 0}};
+        vector<vector<ll>> res = qpow(a, n - 4);
+        ll ans = 0;
+        for (ll x : res[0]) {
+            ans = (ans + x) % mod;
+        }
+        return ans;
+    }
+
+private:
+    using ll = long long;
+    const int mod = 1e9 + 7;
+    vector<vector<ll>> mul(vector<vector<ll>>& a, vector<vector<ll>>& b) {
+        int m = a.size(), n = b[0].size();
+        vector<vector<ll>> c(m, vector<ll>(n));
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                for (int k = 0; k < b.size(); ++k) {
+                    c[i][j] = (c[i][j] + a[i][k] * b[k][j] % mod) % mod;
+                }
+            }
+        }
+        return c;
+    }
+
+    vector<vector<ll>> qpow(vector<vector<ll>>& a, int n) {
+        vector<vector<ll>> res = {{4, 2, 1}};
+        while (n) {
+            if (n & 1) {
+                res = mul(res, a);
+            }
+            a = mul(a, a);
+            n >>= 1;
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func waysToStep(n int) int {
+	const mod int = 1e9 + 7
+	a, b, c := 1, 2, 4
+	for i := 1; i < n; i++ {
+		a, b, c = b, c, (a+b+c)%mod
+	}
+	return a
+}
+```
+
+```go
+const mod = 1e9 + 7
+
+func waysToStep(n int) (ans int) {
+	if n < 4 {
+		return int(math.Pow(2, float64(n-1)))
+	}
+	a := [][]int{{1, 1, 0}, {1, 0, 1}, {1, 0, 0}}
+	res := pow(a, n-4)
+	for _, x := range res[0] {
+		ans = (ans + x) % mod
+	}
+	return
+}
+
+func mul(a, b [][]int) [][]int {
+	m, n := len(a), len(b[0])
+	c := make([][]int, m)
+	for i := range c {
+		c[i] = make([]int, n)
+	}
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			for k := 0; k < len(b); k++ {
+				c[i][j] = (c[i][j] + a[i][k]*b[k][j]%mod) % mod
+			}
+		}
+	}
+	return c
+}
+
+func pow(a [][]int, n int) [][]int {
+	res := [][]int{{4, 2, 1}}
+	for n > 0 {
+		if n&1 == 1 {
+			res = mul(res, a)
+		}
+		a = mul(a, a)
+		n >>= 1
+	}
+	return res
 }
 ```
 
@@ -81,54 +307,81 @@ class Solution {
  * @return {number}
  */
 var waysToStep = function (n) {
-    if (n < 3) return n;
-    let a = 1,
-        b = 2,
-        c = 4;
-    for (let i = 3; i < n; i++) {
-        [a, b, c] = [b, c, (a + b + c) % 1000000007];
+    let [a, b, c] = [1, 2, 4];
+    const mod = 1e9 + 7;
+    for (let i = 1; i < n; ++i) {
+        [a, b, c] = [b, c, (a + b + c) % mod];
+    }
+    return a;
+};
+```
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+
+const mod = 1e9 + 7;
+
+var waysToStep = function (n) {
+    if (n < 4) {
+        return Math.pow(2, n - 1);
+    }
+    const a = [
+        [1, 1, 0],
+        [1, 0, 1],
+        [1, 0, 0],
+    ];
+    let ans = 0;
+    const res = pow(a, n - 4);
+    for (const x of res[0]) {
+        ans = (ans + x) % mod;
+    }
+    return ans;
+};
+
+function mul(a, b) {
+    const [m, n] = [a.length, b[0].length];
+    const c = Array.from({ length: m }, () => Array.from({ length: n }, () => 0));
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            for (let k = 0; k < b.length; ++k) {
+                c[i][j] =
+                    (c[i][j] + Number((BigInt(a[i][k]) * BigInt(b[k][j])) % BigInt(mod))) % mod;
+            }
+        }
     }
     return c;
-};
+}
+
+function pow(a, n) {
+    let res = [[4, 2, 1]];
+    while (n) {
+        if (n & 1) {
+            res = mul(res, a);
+        }
+        a = mul(a, a);
+        n >>= 1;
+    }
+    return res;
+}
 ```
 
 ### **C**
 
 ```c
 int waysToStep(int n) {
-    if (n < 3) {
-        return n;
-    }
-    int a = 1, b = 2, c = 4, i = 4;
-    while (i++ <= n) {
-        int t = ((a + b) % 1000000007 + c) % 1000000007;
+    const int mod = 1e9 + 7;
+    int a = 1, b = 2, c = 4;
+    for (int i = 1; i < n; ++i) {
+        int t = a;
         a = b;
         b = c;
-        c = t;
+        c = (((a + b) % mod) + t) % mod;
     }
-    return c;
+    return a;
 }
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int waysToStep(int n) {
-        if (n < 3) {
-            return n;
-        }
-        int a = 1, b = 2, c = 4, i = 4;
-        while (i++ <= n) {
-            int t = ((a + b) % 1000000007 + c) % 1000000007;
-            a = b;
-            b = c;
-            c = t;
-        }
-        return c;
-    }
-};
 ```
 
 ### **Rust**
@@ -136,19 +389,15 @@ public:
 ```rust
 impl Solution {
     pub fn ways_to_step(n: i32) -> i32 {
-        let mut dp = [1, 2, 4];
-        let n = n as usize;
-        if n <= 3 {
-            return dp[n - 1];
+        let (mut a, mut b, mut c) = (1, 2, 4);
+        let m = 1000000007;
+        for _ in 1..n {
+            let t = a;
+            a = b;
+            b = c;
+            c = ((a + b) % m + t) % m;
         }
-        for _ in 3..n {
-            dp = [
-                dp[1],
-                dp[2],
-                (((dp[0] + dp[1]) % 1000000007) + dp[2]) % 1000000007,
-            ];
-        }
-        dp[2]
+        a
     }
 }
 ```
