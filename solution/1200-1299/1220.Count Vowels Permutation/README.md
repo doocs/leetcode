@@ -89,9 +89,11 @@ $$
 
 最终答案为 $\sum_{i=0}^{4}f[i]$。注意由于答案可能会很大，所以需要对 $10^9+7$ 取模。
 
-时间复杂度 $O(n)$，其中 $n$ 是字符串的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 是字符串的长度，而 $C$ 是元音字母的个数。本题中 $C=5$。
 
 **方法二：矩阵快速幂**
+
+时间复杂度 $O(C^3 \times \log n)$，空间复杂度 $O(C^2)$，其中 $C$ 是元音字母的个数，本题中 $C=5$。
 
 <!-- tabs:start -->
 
@@ -177,6 +179,49 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    private final int mod = (int) 1e9 + 7;
+
+    public int countVowelPermutation(int n) {
+        long[][] a
+            = {{0, 1, 0, 0, 0}, {1, 0, 1, 0, 0}, {1, 1, 0, 1, 1}, {0, 0, 1, 0, 1}, {1, 0, 0, 0, 0}};
+        long[][] res = pow(a, n - 1);
+        long ans = 0;
+        for (long x : res[0]) {
+            ans = (ans + x) % mod;
+        }
+        return (int) ans;
+    }
+
+    private long[][] mul(long[][] a, long[][] b) {
+        int m = a.length, n = b[0].length;
+        long[][] c = new long[m][n];
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                for (int k = 0; k < b.length; ++k) {
+                    c[i][j] = (c[i][j] + a[i][k] * b[k][j]) % mod;
+                }
+            }
+        }
+        return c;
+    }
+
+    private long[][] pow(long[][] a, int n) {
+        long[][] res = new long[1][a.length];
+        Arrays.fill(res[0], 1);
+        while (n > 0) {
+            if ((n & 1) == 1) {
+                res = mul(res, a);
+            }
+            a = mul(a, a);
+            n >>= 1;
+        }
+        return res;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -196,6 +241,52 @@ public:
             f = move(g);
         }
         return accumulate(f.begin(), f.end(), 0LL) % mod;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int countVowelPermutation(int n) {
+        vector<vector<ll>> a = {
+            {0, 1, 0, 0, 0},
+            {1, 0, 1, 0, 0},
+            {1, 1, 0, 1, 1},
+            {0, 0, 1, 0, 1},
+            {1, 0, 0, 0, 0}};
+        vector<vector<ll>> res = pow(a, n - 1);
+        return accumulate(res[0].begin(), res[0].end(), 0LL) % mod;
+    }
+
+private:
+    using ll = long long;
+    const int mod = 1e9 + 7;
+
+    vector<vector<ll>> mul(vector<vector<ll>>& a, vector<vector<ll>>& b) {
+        int m = a.size(), n = b[0].size();
+        vector<vector<ll>> c(m, vector<ll>(n));
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                for (int k = 0; k < b.size(); ++k) {
+                    c[i][j] = (c[i][j] + a[i][k] * b[k][j]) % mod;
+                }
+            }
+        }
+        return c;
+    }
+
+    vector<vector<ll>> pow(vector<vector<ll>>& a, int n) {
+        vector<vector<ll>> res;
+        res.push_back({1, 1, 1, 1, 1});
+        while (n) {
+            if (n & 1) {
+                res = mul(res, a);
+            }
+            a = mul(a, a);
+            n >>= 1;
+        }
+        return res;
     }
 };
 ```
@@ -225,6 +316,52 @@ func countVowelPermutation(n int) (ans int) {
 }
 ```
 
+```go
+const mod = 1e9 + 7
+
+func countVowelPermutation(n int) (ans int) {
+	a := [][]int{
+		{0, 1, 0, 0, 0},
+		{1, 0, 1, 0, 0},
+		{1, 1, 0, 1, 1},
+		{0, 0, 1, 0, 1},
+		{1, 0, 0, 0, 0}}
+	res := pow(a, n-1)
+	for _, x := range res[0] {
+		ans = (ans + x) % mod
+	}
+	return
+}
+
+func mul(a, b [][]int) [][]int {
+	m, n := len(a), len(b[0])
+	c := make([][]int, m)
+	for i := range c {
+		c[i] = make([]int, n)
+	}
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			for k := 0; k < len(b); k++ {
+				c[i][j] = (c[i][j] + a[i][k]*b[k][j]) % mod
+			}
+		}
+	}
+	return c
+}
+
+func pow(a [][]int, n int) [][]int {
+	res := [][]int{{1, 1, 1, 1, 1}}
+	for n > 0 {
+		if n&1 == 1 {
+			res = mul(res, a)
+		}
+		a = mul(a, a)
+		n >>= 1
+	}
+	return res
+}
+```
+
 ### **TypeScript**
 
 ```ts
@@ -241,6 +378,48 @@ function countVowelPermutation(n: number): number {
         f.splice(0, 5, ...g);
     }
     return f.reduce((a, b) => (a + b) % mod);
+}
+```
+
+```ts
+const mod = 1e9 + 7;
+
+function countVowelPermutation(n: number): number {
+    const a: number[][] = [
+        [0, 1, 0, 0, 0],
+        [1, 0, 1, 0, 0],
+        [1, 1, 0, 1, 1],
+        [0, 0, 1, 0, 1],
+        [1, 0, 0, 0, 0],
+    ];
+    const res = pow(a, n - 1);
+    return res[0].reduce((a, b) => (a + b) % mod);
+}
+
+function mul(a: number[][], b: number[][]): number[][] {
+    const [m, n] = [a.length, b[0].length];
+    const c = Array.from({ length: m }, () => Array.from({ length: n }, () => 0));
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            for (let k = 0; k < b.length; ++k) {
+                c[i][j] =
+                    (c[i][j] + Number((BigInt(a[i][k]) * BigInt(b[k][j])) % BigInt(mod))) % mod;
+            }
+        }
+    }
+    return c;
+}
+
+function pow(a: number[][], n: number): number[][] {
+    let res: number[][] = [[1, 1, 1, 1, 1]];
+    while (n) {
+        if (n & 1) {
+            res = mul(res, a);
+        }
+        a = mul(a, a);
+        n >>>= 1;
+    }
+    return res;
 }
 ```
 
@@ -265,6 +444,53 @@ var countVowelPermutation = function (n) {
     }
     return f.reduce((a, b) => (a + b) % mod);
 };
+```
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+
+const mod = 1e9 + 7;
+
+var countVowelPermutation = function (n) {
+    const a = [
+        [0, 1, 0, 0, 0],
+        [1, 0, 1, 0, 0],
+        [1, 1, 0, 1, 1],
+        [0, 0, 1, 0, 1],
+        [1, 0, 0, 0, 0],
+    ];
+    const res = pow(a, n - 1);
+    return res[0].reduce((a, b) => (a + b) % mod);
+};
+
+function mul(a, b) {
+    const [m, n] = [a.length, b[0].length];
+    const c = Array.from({ length: m }, () => Array.from({ length: n }, () => 0));
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            for (let k = 0; k < b.length; ++k) {
+                c[i][j] =
+                    (c[i][j] + Number((BigInt(a[i][k]) * BigInt(b[k][j])) % BigInt(mod))) % mod;
+            }
+        }
+    }
+    return c;
+}
+
+function pow(a, n) {
+    let res = [[1, 1, 1, 1, 1]];
+    while (n) {
+        if (n & 1) {
+            res = mul(res, a);
+        }
+        a = mul(a, a);
+        n >>>= 1;
+    }
+    return res;
+}
 ```
 
 ### **...**
