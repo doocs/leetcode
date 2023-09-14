@@ -66,8 +66,7 @@
 
 ```java
 class Solution {
-    void dfs(Map<String, Queue<String>> adjLists,
-            List<String> ans, String curr) {
+    void dfs(Map<String, Queue<String>> adjLists, List<String> ans, String curr) {
         Queue<String> neighbors = adjLists.get(curr);
         if (neighbors == null) {
             ans.add(curr);
