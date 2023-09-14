@@ -68,9 +68,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-BFS。
+**方法一：BFS**
 
-注意在一般的广度优先搜索中，我们不会经过同一个节点超过一次，但在这道题目中，只要从起始位置到当前节点的步数 step 小于之前记录的最小步数 `dist[i, j]`，我们就会把 `(i, j)` 再次加入队列中。
+我们定义一个二维数组 $dist$，其中 $dist[i][j]$ 表示从起始位置到达 $(i,j)$ 的最短路径长度。初始时，$dist$ 中的所有元素都被初始化为一个很大的数，除了起始位置，因为起始位置到自身的距离是 $0$。
+
+然后，我们定义一个队列 $q$，将起始位置加入队列。随后不断进行以下操作：弹出队列中的首元素，将其四个方向上可以到达的位置加入队列中，并且在 $dist$ 中记录这些位置的距离，直到队列为空。
+
+最后，如果终点位置的距离仍然是一个很大的数，说明从起始位置无法到达终点位置，返回 $-1$，否则返回终点位置的距离。
+
+时间复杂度 $O(m \times n \times \max(m, n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是迷宫的行数和列数。
 
 <!-- tabs:start -->
 
@@ -84,21 +90,22 @@ class Solution:
         self, maze: List[List[int]], start: List[int], destination: List[int]
     ) -> int:
         m, n = len(maze), len(maze[0])
-        rs, cs = start
-        rd, cd = destination
+        dirs = (-1, 0, 1, 0, -1)
+        si, sj = start
+        di, dj = destination
+        q = deque([(si, sj)])
         dist = [[inf] * n for _ in range(m)]
-        dist[rs][cs] = 0
-        q = deque([(rs, cs)])
+        dist[si][sj] = 0
         while q:
             i, j = q.popleft()
-            for a, b in [[0, -1], [0, 1], [1, 0], [-1, 0]]:
-                x, y, step = i, j, dist[i][j]
+            for a, b in pairwise(dirs):
+                x, y, k = i, j, dist[i][j]
                 while 0 <= x + a < m and 0 <= y + b < n and maze[x + a][y + b] == 0:
-                    x, y, step = x + a, y + b, step + 1
-                if step < dist[x][y]:
-                    dist[x][y] = step
+                    x, y, k = x + a, y + b, k + 1
+                if k < dist[x][y]:
+                    dist[x][y] = k
                     q.append((x, y))
-        return -1 if dist[rd][cd] == inf else dist[rd][cd]
+        return -1 if dist[di][dj] == inf else dist[di][dj]
 ```
 
 ### **Java**
@@ -108,37 +115,37 @@ class Solution:
 ```java
 class Solution {
     public int shortestDistance(int[][] maze, int[] start, int[] destination) {
-        int m = maze.length;
-        int n = maze[0].length;
+        int m = maze.length, n = maze[0].length;
+        final int inf = 1 << 30;
         int[][] dist = new int[m][n];
-        for (int i = 0; i < m; ++i) {
-            Arrays.fill(dist[i], Integer.MAX_VALUE);
+        for (var row : dist) {
+            Arrays.fill(row, inf);
         }
-        dist[start[0]][start[1]] = 0;
-        Deque<int[]> q = new LinkedList<>();
-        q.offer(start);
+        int si = start[0], sj = start[1];
+        int di = destination[0], dj = destination[1];
+        dist[si][sj] = 0;
+        Deque<int[]> q = new ArrayDeque<>();
+        q.offer(new int[] {si, sj});
         int[] dirs = {-1, 0, 1, 0, -1};
         while (!q.isEmpty()) {
-            int[] p = q.poll();
+            var p = q.poll();
             int i = p[0], j = p[1];
-            for (int k = 0; k < 4; ++k) {
-                int x = i, y = j, step = dist[i][j];
-                int a = dirs[k], b = dirs[k + 1];
+            for (int d = 0; d < 4; ++d) {
+                int x = i, y = j, k = dist[i][j];
+                int a = dirs[d], b = dirs[d + 1];
                 while (
                     x + a >= 0 && x + a < m && y + b >= 0 && y + b < n && maze[x + a][y + b] == 0) {
                     x += a;
                     y += b;
-                    ++step;
+                    ++k;
                 }
-                if (step < dist[x][y]) {
-                    dist[x][y] = step;
+                if (k < dist[x][y]) {
+                    dist[x][y] = k;
                     q.offer(new int[] {x, y});
                 }
             }
         }
-        return dist[destination[0]][destination[1]] == Integer.MAX_VALUE
-            ? -1
-            : dist[destination[0]][destination[1]];
+        return dist[di][dj] == inf ? -1 : dist[di][dj];
     }
 }
 ```
@@ -149,31 +156,33 @@ class Solution {
 class Solution {
 public:
     int shortestDistance(vector<vector<int>>& maze, vector<int>& start, vector<int>& destination) {
-        int m = maze.size();
-        int n = maze[0].size();
-        vector<vector<int>> dist(m, vector<int>(n, INT_MAX));
-        dist[start[0]][start[1]] = 0;
-        queue<vector<int>> q{{start}};
-        vector<int> dirs = {-1, 0, 1, 0, -1};
+        int m = maze.size(), n = maze[0].size();
+        int dist[m][n];
+        memset(dist, 0x3f, sizeof(dist));
+        int si = start[0], sj = start[1];
+        int di = destination[0], dj = destination[1];
+        dist[si][sj] = 0;
+        queue<pair<int, int>> q;
+        q.emplace(si, sj);
+        int dirs[5] = {-1, 0, 1, 0, -1};
         while (!q.empty()) {
-            auto p = q.front();
+            auto [i, j] = q.front();
             q.pop();
-            int i = p[0], j = p[1];
-            for (int k = 0; k < 4; ++k) {
-                int x = i, y = j, step = dist[i][j];
-                int a = dirs[k], b = dirs[k + 1];
+            for (int d = 0; d < 4; ++d) {
+                int x = i, y = j, k = dist[i][j];
+                int a = dirs[d], b = dirs[d + 1];
                 while (x + a >= 0 && x + a < m && y + b >= 0 && y + b < n && maze[x + a][y + b] == 0) {
                     x += a;
                     y += b;
-                    ++step;
+                    ++k;
                 }
-                if (step < dist[x][y]) {
-                    dist[x][y] = step;
-                    q.push({x, y});
+                if (k < dist[x][y]) {
+                    dist[x][y] = k;
+                    q.emplace(x, y);
                 }
             }
         }
-        return dist[destination[0]][destination[1]] == INT_MAX ? -1 : dist[destination[0]][destination[1]];
+        return dist[di][dj] == 0x3f3f3f3f ? -1 : dist[di][dj];
     }
 };
 ```
@@ -184,34 +193,71 @@ public:
 func shortestDistance(maze [][]int, start []int, destination []int) int {
 	m, n := len(maze), len(maze[0])
 	dist := make([][]int, m)
+	const inf = 1 << 30
 	for i := range dist {
 		dist[i] = make([]int, n)
 		for j := range dist[i] {
-			dist[i][j] = math.MaxInt32
+			dist[i][j] = inf
 		}
 	}
 	dist[start[0]][start[1]] = 0
 	q := [][]int{start}
-	dirs := []int{-1, 0, 1, 0, -1}
+	dirs := [5]int{-1, 0, 1, 0, -1}
 	for len(q) > 0 {
-		i, j := q[0][0], q[0][1]
+		p := q[0]
 		q = q[1:]
-		for k := 0; k < 4; k++ {
-			x, y, step := i, j, dist[i][j]
-			a, b := dirs[k], dirs[k+1]
+		i, j := p[0], p[1]
+		for d := 0; d < 4; d++ {
+			x, y, k := i, j, dist[i][j]
+			a, b := dirs[d], dirs[d+1]
 			for x+a >= 0 && x+a < m && y+b >= 0 && y+b < n && maze[x+a][y+b] == 0 {
-				x, y, step = x+a, y+b, step+1
+				x, y, k = x+a, y+b, k+1
 			}
-			if step < dist[x][y] {
-				dist[x][y] = step
+			if k < dist[x][y] {
+				dist[x][y] = k
 				q = append(q, []int{x, y})
 			}
 		}
 	}
-	if dist[destination[0]][destination[1]] == math.MaxInt32 {
+	di, dj := destination[0], destination[1]
+	if dist[di][dj] == inf {
 		return -1
 	}
-	return dist[destination[0]][destination[1]]
+	return dist[di][dj]
+}
+```
+
+### **TypeScript**
+
+```ts
+function shortestDistance(maze: number[][], start: number[], destination: number[]): number {
+    const m = maze.length;
+    const n = maze[0].length;
+    const dist: number[][] = Array.from({ length: m }, () =>
+        Array.from({ length: n }, () => Infinity),
+    );
+    const [si, sj] = start;
+    const [di, dj] = destination;
+    dist[si][sj] = 0;
+    const q: number[][] = [[si, sj]];
+    const dirs = [-1, 0, 1, 0, -1];
+    while (q.length) {
+        const [i, j] = q.shift()!;
+        for (let d = 0; d < 4; ++d) {
+            let [x, y, k] = [i, j, dist[i][j]];
+            const [a, b] = [dirs[d], dirs[d + 1]];
+            while (x + a >= 0 && x + a < m && y + b >= 0 && y + b < n && maze[x + a][y + b] === 0) {
+                x += a;
+                y += b;
+                ++k;
+            }
+            if (k < dist[x][y]) {
+                dist[x][y] = k;
+                q.push([x, y]);
+            }
+        }
+    }
+    return dist[di][dj] === Infinity ? -1 : dist[di][dj];
 }
 ```
 
