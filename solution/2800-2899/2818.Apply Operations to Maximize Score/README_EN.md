@@ -132,7 +132,7 @@ class Solution {
         int n = nums.size();
         int[][] arr = new int[n][0];
         for (int i = 0; i < n; ++i) {
-            arr[i] = new int[]{i, primeFactors(nums.get(i)), nums.get(i)};
+            arr[i] = new int[] {i, primeFactors(nums.get(i)), nums.get(i)};
         }
         int[] left = new int[n];
         int[] right = new int[n];
@@ -167,10 +167,10 @@ class Solution {
             int l = left[i], r = right[i];
             long cnt = (long) (i - l) * (r - i);
             if (cnt <= k) {
-                ans = ans * qmi(x, cnt, mod) % mod;
+                ans = ans * qpow(x, cnt) % mod;
                 k -= cnt;
             } else {
-                ans = ans * qmi(x, k, mod) % mod;
+                ans = ans * qpow(x, k) % mod;
                 break;
             }
         }
@@ -193,16 +193,15 @@ class Solution {
         return ans.size();
     }
 
-    private int qmi(long a, long k, int p) {
-        long res = 1;
-        while (k != 0) {
-            if ((k & 1) == 1) {
-                res = res * a % p;
+    private int qpow(long a, long n) {
+        long ans = 1;
+        for (; n > 0; n >>= 1) {
+            if ((n & 1) == 1) {
+                ans = ans * a % mod;
             }
-            k >>= 1;
-            a = a * a % p;
+            a = a * a % mod;
         }
-        return (int) res;
+        return (int) ans;
     }
 }
 ```
@@ -246,14 +245,24 @@ public:
             return get<2>(rhs) < get<2>(lhs);
         });
         long long ans = 1;
+        auto qpow = [&](long long a, int n) {
+            long long ans = 1;
+            for (; n; n >>= 1) {
+                if (n & 1) {
+                    ans = ans * a % mod;
+                }
+                a = a * a % mod;
+            }
+            return ans;
+        };
         for (auto [i, _, x] : arr) {
             int l = left[i], r = right[i];
             long long cnt = 1LL * (i - l) * (r - i);
             if (cnt <= k) {
-                ans = ans * qmi(x, cnt, mod) % mod;
+                ans = ans * qpow(x, cnt) % mod;
                 k -= cnt;
             } else {
-                ans = ans * qmi(x, k, mod) % mod;
+                ans = ans * qpow(x, k) % mod;
                 break;
             }
         }
@@ -275,18 +284,6 @@ public:
         }
         return ans.size();
     }
-
-    long qmi(long a, long k, long p) {
-        long res = 1;
-        while (k != 0) {
-            if ((k & 1) == 1) {
-                res = res * a % p;
-            }
-            k >>= 1;
-            a = a * a % p;
-        }
-        return res;
-    }
 };
 ```
 
@@ -296,6 +293,16 @@ public:
 func maximumScore(nums []int, k int) int {
 	n := len(nums)
 	const mod = 1e9 + 7
+	qpow := func(a, n int) int {
+		ans := 1
+		for ; n > 0; n >>= 1 {
+			if n&1 == 1 {
+				ans = ans * a % mod
+			}
+			a = a * a % mod
+		}
+		return ans
+	}
 	arr := make([][3]int, n)
 	left := make([]int, n)
 	right := make([]int, n)
@@ -333,10 +340,10 @@ func maximumScore(nums []int, k int) int {
 		l, r := left[i], right[i]
 		cnt := (i - l) * (r - i)
 		if cnt <= k {
-			ans = ans * qmi(x, cnt, mod) % mod
+			ans = ans * qpow(x, cnt) % mod
 			k -= cnt
 		} else {
-			ans = ans * qmi(x, k, mod) % mod
+			ans = ans * qpow(x, k) % mod
 			break
 		}
 	}
@@ -357,18 +364,6 @@ func primeFactors(n int) int {
 		ans[n] = true
 	}
 	return len(ans)
-}
-
-func qmi(a, k, p int) int {
-	res := 1
-	for k != 0 {
-		if k&1 == 1 {
-			res = res * a % p
-		}
-		k >>= 1
-		a = a * a % p
-	}
-	return res
 }
 ```
 
@@ -414,10 +409,10 @@ function maximumScore(nums: number[], k: number): number {
         const r = right[i];
         const cnt = (i - l) * (r - i);
         if (cnt <= k) {
-            ans = (ans * qmi(BigInt(x), cnt, BigInt(mod))) % BigInt(mod);
+            ans = (ans * qpow(BigInt(x), cnt, mod)) % BigInt(mod);
             k -= cnt;
         } else {
-            ans = (ans * qmi(BigInt(x), k, BigInt(mod))) % BigInt(mod);
+            ans = (ans * qpow(BigInt(x), k, mod)) % BigInt(mod);
             break;
         }
     }
@@ -440,16 +435,15 @@ function primeFactors(n: number): number {
     return s.size;
 }
 
-function qmi(a: bigint, k: number, p: bigint): bigint {
-    let res = 1n;
-    while (k) {
-        if ((k & 1) === 1) {
-            res = (res * a) % p;
+function qpow(a: bigint, n: number, mod: number): bigint {
+    let ans = 1n;
+    for (; n; n >>>= 1) {
+        if (n & 1) {
+            ans = (ans * a) % BigInt(mod);
         }
-        k >>= 1;
-        a = (a * a) % p;
+        a = (a * a) % BigInt(mod);
     }
-    return res;
+    return ans;
 }
 ```
 

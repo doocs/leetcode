@@ -77,20 +77,19 @@ class Solution {
     public int minNonZeroProduct(int p) {
         final int mod = (int) 1e9 + 7;
         long a = ((1L << p) - 1) % mod;
-        long b = qmi(((1L << p) - 2) % mod, (1L << (p - 1)) - 1, mod);
+        long b = qpow(((1L << p) - 2) % mod, (1L << (p - 1)) - 1, mod);
         return (int) (a * b % mod);
     }
 
-    long qmi(long a, long k, long p) {
-        long res = 1;
-        while (k != 0) {
-            if ((k & 1) == 1) {
-                res = res * a % p;
+    private long qpow(long a, long n, int mod) {
+        long ans = 1;
+        for (; n > 0; n >>= 1) {
+            if ((n & 1) == 1) {
+                ans = ans * a % mod;
             }
-            k >>= 1;
-            a = a * a % p;
+            a = a * a % mod;
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -101,22 +100,21 @@ class Solution {
 class Solution {
 public:
     int minNonZeroProduct(int p) {
+        using ll = long long;
         const int mod = 1e9 + 7;
-        long long a = ((1LL << p) - 1) % mod;
-        long long b = qmi(((1LL << p) - 2) % mod, (1L << (p - 1)) - 1, mod);
-        return a * b % mod;
-    }
-
-    long long qmi(long long a, long long k, int p) {
-        long long res = 1;
-        while (k != 0) {
-            if ((k & 1) == 1) {
-                res = res * a % p;
+        auto qpow = [](ll a, ll n) {
+            ll ans = 1;
+            for (; n; n >>= 1) {
+                if (n & 1) {
+                    ans = ans * a % mod;
+                }
+                a = a * a % mod;
             }
-            k >>= 1;
-            a = a * a % p;
-        }
-        return res;
+            return ans;
+        };
+        ll a = ((1LL << p) - 1) % mod;
+        ll b = qpow(((1LL << p) - 2) % mod, (1L << (p - 1)) - 1);
+        return a * b % mod;
     }
 };
 ```
@@ -126,21 +124,41 @@ public:
 ```go
 func minNonZeroProduct(p int) int {
 	const mod int = 1e9 + 7
+	qpow := func(a, n int) int {
+		ans := 1
+		for ; n > 0; n >>= 1 {
+			if n&1 == 1 {
+				ans = ans * a % mod
+			}
+			a = a * a % mod
+		}
+		return ans
+	}
 	a := ((1 << p) - 1) % mod
-	b := qmi(((1<<p)-2)%mod, (1<<(p-1))-1, mod)
+	b := qpow(((1<<p)-2)%mod, (1<<(p-1))-1)
 	return a * b % mod
 }
+```
 
-func qmi(a, k, p int) int {
-	res := 1
-	for k != 0 {
-		if k&1 == 1 {
-			res = res * a % p
-		}
-		k >>= 1
-		a = a * a % p
-	}
-	return res
+### **TypeScript**
+
+```ts
+function minNonZeroProduct(p: number): number {
+    const mod = BigInt(1e9 + 7);
+
+    const qpow = (a: bigint, n: bigint): bigint => {
+        let ans = BigInt(1);
+        for (; n; n >>= BigInt(1)) {
+            if (n & BigInt(1)) {
+                ans = (ans * a) % mod;
+            }
+            a = (a * a) % mod;
+        }
+        return ans;
+    };
+    const a = (2n ** BigInt(p) - 1n) % mod;
+    const b = qpow((2n ** BigInt(p) - 2n) % mod, 2n ** (BigInt(p) - 1n) - 1n);
+    return Number((a * b) % mod);
 }
 ```
 

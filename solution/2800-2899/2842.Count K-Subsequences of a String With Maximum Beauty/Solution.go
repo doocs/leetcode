@@ -43,18 +43,16 @@ func countKSubsequencesWithMaxBeauty(s string, k int) int {
 			c[i][j] = (c[i-1][j-1] + c[i-1][j]) % mod
 		}
 	}
-	ans = (ans * c[x][k] % mod) * qmi(val, k, mod) % mod
-	return ans
-}
-
-func qmi(a, k, p int) int {
-	res := 1
-	for k != 0 {
-		if k&1 == 1 {
-			res = res * a % p
+	qpow := func(a, n int) int {
+		ans := 1
+		for ; n > 0; n >>= 1 {
+			if n&1 == 1 {
+				ans = ans * a % mod
+			}
+			a = a * a % mod
 		}
-		k >>= 1
-		a = a * a % p
+		return ans
 	}
-	return res
+	ans = (ans * c[x][k] % mod) * qpow(val, k) % mod
+	return ans
 }

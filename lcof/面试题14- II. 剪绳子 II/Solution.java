@@ -1,27 +1,27 @@
 class Solution {
+    private final int mod = (int) 1e9 + 7;
+
     public int cuttingRope(int n) {
         if (n < 4) {
             return n - 1;
         }
-        final int mod = (int) 1e9 + 7;
         if (n % 3 == 0) {
-            return (int) qmi(3, n / 3, mod);
+            return qpow(3, n / 3);
         }
         if (n % 3 == 1) {
-            return (int) (qmi(3, n / 3 - 1, mod) * 4 % mod);
+            return (int) (4L * qpow(3, n / 3 - 1) % mod);
         }
-        return (int) (qmi(3, n / 3, mod) * 2 % mod);
+        return 2 * qpow(3, n / 3) % mod;
     }
 
-    long qmi(long a, long k, long p) {
-        long res = 1;
-        while (k != 0) {
-            if ((k & 1) == 1) {
-                res = res * a % p;
+    private int qpow(long a, long n) {
+        long ans = 1;
+        for (; n > 0; n >>= 1) {
+            if ((n & 1) == 1) {
+                ans = ans * a % mod;
             }
-            k >>= 1;
-            a = a * a % p;
+            a = a * a % mod;
         }
-        return res;
+        return (int) ans;
     }
 }
