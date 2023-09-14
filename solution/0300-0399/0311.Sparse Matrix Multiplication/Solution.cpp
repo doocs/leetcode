@@ -1,19 +1,29 @@
 class Solution {
 public:
     vector<vector<int>> multiply(vector<vector<int>>& mat1, vector<vector<int>>& mat2) {
-        int r1 = mat1.size(), c1 = mat1[0].size(), c2 = mat2[0].size();
-        vector<vector<int>> res(r1, vector<int>(c2));
-        unordered_map<int, vector<int>> mp;
-        for (int i = 0; i < r1; ++i) {
-            for (int j = 0; j < c1; ++j) {
-                if (mat1[i][j] != 0) mp[i].push_back(j);
+        int m = mat1.size(), n = mat2[0].size();
+        vector<vector<int>> ans(m, vector<int>(n));
+        auto g1 = f(mat1), g2 = f(mat2);
+        for (int i = 0; i < m; ++i) {
+            for (auto& [k, x] : g1[i]) {
+                for (auto& [j, y] : g2[k]) {
+                    ans[i][j] += x * y;
+                }
             }
         }
-        for (int i = 0; i < r1; ++i) {
-            for (int j = 0; j < c2; ++j) {
-                for (int k : mp[i]) res[i][j] += mat1[i][k] * mat2[k][j];
+        return ans;
+    }
+
+    vector<vector<pair<int, int>>> f(vector<vector<int>>& mat) {
+        int m = mat.size(), n = mat[0].size();
+        vector<vector<pair<int, int>>> g(m);
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (mat[i][j]) {
+                    g[i].emplace_back(j, mat[i][j]);
+                }
             }
         }
-        return res;
+        return g;
     }
 };
