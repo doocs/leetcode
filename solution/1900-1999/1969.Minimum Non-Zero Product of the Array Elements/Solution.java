@@ -2,19 +2,18 @@ class Solution {
     public int minNonZeroProduct(int p) {
         final int mod = (int) 1e9 + 7;
         long a = ((1L << p) - 1) % mod;
-        long b = qmi(((1L << p) - 2) % mod, (1L << (p - 1)) - 1, mod);
+        long b = qpow(((1L << p) - 2) % mod, (1L << (p - 1)) - 1, mod);
         return (int) (a * b % mod);
     }
 
-    long qmi(long a, long k, long p) {
-        long res = 1;
-        while (k != 0) {
-            if ((k & 1) == 1) {
-                res = res * a % p;
+    private long qpow(long a, long n, int mod) {
+        long ans = 1;
+        for (; n > 0; n >>= 1) {
+            if ((n & 1) == 1) {
+                ans = ans * a % mod;
             }
-            k >>= 1;
-            a = a * a % p;
+            a = a * a % mod;
         }
-        return res;
+        return ans;
     }
 }

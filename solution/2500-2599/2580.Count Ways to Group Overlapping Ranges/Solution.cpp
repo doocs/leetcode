@@ -7,18 +7,17 @@ public:
             cnt += e[0] > mx;
             mx = max(mx, e[1]);
         }
-        return qmi(2, cnt, 1e9 + 7);
-    }
-
-    int qmi(long a, long k, int p) {
-        long res = 1;
-        while (k != 0) {
-            if ((k & 1) == 1) {
-                res = res * a % p;
+        using ll = long long;
+        auto qpow = [&](ll a, int n, int mod) {
+            ll ans = 1;
+            for (; n; n >>= 1) {
+                if (n & 1) {
+                    ans = ans * a % mod;
+                }
+                a = a * a % mod;
             }
-            k >>= 1;
-            a = a * a % p;
-        }
-        return res;
+            return ans;
+        };
+        return qpow(2, cnt, 1e9 + 7);
     }
 };

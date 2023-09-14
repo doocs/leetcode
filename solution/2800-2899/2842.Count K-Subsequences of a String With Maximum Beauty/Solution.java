@@ -1,4 +1,6 @@
 class Solution {
+    private final int mod = (int) 1e9 + 7;
+
     public int countKSubsequencesWithMaxBeauty(String s, int k) {
         int[] f = new int[26];
         int n = s.length();
@@ -18,7 +20,6 @@ class Solution {
             }
         }
         Arrays.sort(vs, (a, b) -> b - a);
-        final int mod = (int) 1e9 + 7;
         long ans = 1;
         int val = vs[k - 1];
         int x = 0;
@@ -41,19 +42,18 @@ class Solution {
                 c[i][j] = (c[i - 1][j - 1] + c[i - 1][j]) % mod;
             }
         }
-        ans = ((ans * c[x][k]) % mod) * qmi(val, k, mod) % mod;
+        ans = ((ans * c[x][k]) % mod) * qpow(val, k) % mod;
         return (int) ans;
     }
 
-    long qmi(long a, long k, long p) {
-        long res = 1;
-        while (k != 0) {
-            if ((k & 1) == 1) {
-                res = res * a % p;
+    private long qpow(long a, int n) {
+        long ans = 1;
+        for (; n > 0; n >>= 1) {
+            if ((n & 1) == 1) {
+                ans = ans * a % mod;
             }
-            k >>= 1;
-            a = a * a % p;
+            a = a * a % mod;
         }
-        return res;
+        return ans;
     }
 }

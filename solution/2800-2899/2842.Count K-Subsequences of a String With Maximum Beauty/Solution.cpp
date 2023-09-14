@@ -40,19 +40,17 @@ public:
                 c[i][j] = (c[i - 1][j] + c[i - 1][j - 1]) % mod;
             }
         }
-        ans = (ans * c[x][k] % mod) * qmi(val, k, mod) % mod;
-        return ans;
-    }
-
-    long qmi(long a, long k, long p) {
-        long res = 1;
-        while (k != 0) {
-            if ((k & 1) == 1) {
-                res = res * a % p;
+        auto qpow = [&](long long a, int n) {
+            long long ans = 1;
+            for (; n; n >>= 1) {
+                if (n & 1) {
+                    ans = ans * a % mod;
+                }
+                a = a * a % mod;
             }
-            k >>= 1;
-            a = a * a % p;
-        }
-        return res;
+            return ans;
+        };
+        ans = (ans * c[x][k] % mod) * qpow(val, k) % mod;
+        return ans;
     }
 };

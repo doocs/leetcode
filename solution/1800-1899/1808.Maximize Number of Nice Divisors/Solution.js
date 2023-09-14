@@ -1,10 +1,10 @@
 /**
- * @param {number} n
+ * @param {number} primeFactors
  * @return {number}
  */
-var cuttingRope = function (n) {
-    if (n < 4) {
-        return n - 1;
+var maxNiceDivisors = function (primeFactors) {
+    if (primeFactors < 4) {
+        return primeFactors;
     }
     const mod = 1e9 + 7;
     const qpow = (a, n) => {
@@ -17,11 +17,11 @@ var cuttingRope = function (n) {
         }
         return ans;
     };
-    const k = Math.floor(n / 3);
-    if (n % 3 === 0) {
+    const k = Math.floor(primeFactors / 3);
+    if (primeFactors % 3 === 0) {
         return qpow(3, k);
     }
-    if (n % 3 === 1) {
+    if (primeFactors % 3 === 1) {
         return (4 * qpow(3, k - 1)) % mod;
     }
     return (2 * qpow(3, k)) % mod;

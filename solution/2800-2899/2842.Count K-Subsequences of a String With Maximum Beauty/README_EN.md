@@ -105,6 +105,8 @@ class Solution:
 
 ```java
 class Solution {
+    private final int mod = (int) 1e9 + 7;
+
     public int countKSubsequencesWithMaxBeauty(String s, int k) {
         int[] f = new int[26];
         int n = s.length();
@@ -124,7 +126,6 @@ class Solution {
             }
         }
         Arrays.sort(vs, (a, b) -> b - a);
-        final int mod = (int) 1e9 + 7;
         long ans = 1;
         int val = vs[k - 1];
         int x = 0;
@@ -147,20 +148,19 @@ class Solution {
                 c[i][j] = (c[i - 1][j - 1] + c[i - 1][j]) % mod;
             }
         }
-        ans = ((ans * c[x][k]) % mod) * qmi(val, k, mod) % mod;
+        ans = ((ans * c[x][k]) % mod) * qpow(val, k) % mod;
         return (int) ans;
     }
 
-    long qmi(long a, long k, long p) {
-        long res = 1;
-        while (k != 0) {
-            if ((k & 1) == 1) {
-                res = res * a % p;
+    private long qpow(long a, int n) {
+        long ans = 1;
+        for (; n > 0; n >>= 1) {
+            if ((n & 1) == 1) {
+                ans = ans * a % mod;
             }
-            k >>= 1;
-            a = a * a % p;
+            a = a * a % mod;
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -210,20 +210,18 @@ public:
                 c[i][j] = (c[i - 1][j] + c[i - 1][j - 1]) % mod;
             }
         }
-        ans = (ans * c[x][k] % mod) * qmi(val, k, mod) % mod;
-        return ans;
-    }
-
-    long qmi(long a, long k, long p) {
-        long res = 1;
-        while (k != 0) {
-            if ((k & 1) == 1) {
-                res = res * a % p;
+        auto qpow = [&](long long a, int n) {
+            long long ans = 1;
+            for (; n; n >>= 1) {
+                if (n & 1) {
+                    ans = ans * a % mod;
+                }
+                a = a * a % mod;
             }
-            k >>= 1;
-            a = a * a % p;
-        }
-        return res;
+            return ans;
+        };
+        ans = (ans * c[x][k] % mod) * qpow(val, k) % mod;
+        return ans;
     }
 };
 ```
@@ -276,20 +274,18 @@ func countKSubsequencesWithMaxBeauty(s string, k int) int {
 			c[i][j] = (c[i-1][j-1] + c[i-1][j]) % mod
 		}
 	}
-	ans = (ans * c[x][k] % mod) * qmi(val, k, mod) % mod
-	return ans
-}
-
-func qmi(a, k, p int) int {
-	res := 1
-	for k != 0 {
-		if k&1 == 1 {
-			res = res * a % p
+	qpow := func(a, n int) int {
+		ans := 1
+		for ; n > 0; n >>= 1 {
+			if n&1 == 1 {
+				ans = ans * a % mod
+			}
+			a = a * a % mod
 		}
-		k >>= 1
-		a = a * a % p
+		return ans
 	}
-	return res
+	ans = (ans * c[x][k] % mod) * qpow(val, k) % mod
+	return ans
 }
 ```
 
@@ -308,39 +304,37 @@ function countKSubsequencesWithMaxBeauty(s: string, k: number): number {
     if (cnt < k) {
         return 0;
     }
-    const mod = 1e9 + 7;
+    const mod = BigInt(10 ** 9 + 7);
     const vs: number[] = f.filter(v => v > 0).sort((a, b) => b - a);
     const val = vs[k - 1];
     const x = vs.filter(v => v === val).length;
-    let ans = 1;
+    let ans = 1n;
     for (const v of vs) {
         if (v === val) {
             break;
         }
         --k;
-        ans = (ans * v) % mod;
+        ans = (ans * BigInt(v)) % mod;
     }
     const c: number[][] = new Array(x + 1).fill(0).map(() => new Array(k + 1).fill(0));
     for (let i = 0; i <= x; ++i) {
         c[i][0] = 1;
         for (let j = 1; j <= Math.min(i, k); ++j) {
-            c[i][j] = (c[i - 1][j] + c[i - 1][j - 1]) % mod;
+            c[i][j] = (c[i - 1][j] + c[i - 1][j - 1]) % Number(mod);
         }
     }
-    ans = (((ans * c[x][k]) % mod) * Number(qmi(BigInt(val), k, BigInt(mod)))) % mod;
-    return ans;
-}
-
-function qmi(a: bigint, k: number, p: bigint): bigint {
-    let res = 1n;
-    while (k) {
-        if ((k & 1) === 1) {
-            res = (res * a) % p;
+    const qpow = (a: bigint, n: number): bigint => {
+        let ans = 1n;
+        for (; n; n >>>= 1) {
+            if (n & 1) {
+                ans = (ans * a) % BigInt(mod);
+            }
+            a = (a * a) % BigInt(mod);
         }
-        k >>= 1;
-        a = (a * a) % p;
-    }
-    return res;
+        return ans;
+    };
+    ans = (((ans * BigInt(c[x][k])) % mod) * qpow(BigInt(val), k)) % mod;
+    return Number(ans);
 }
 ```
 
