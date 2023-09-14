@@ -2860,6 +2860,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2849  |  [Determine if a Cell Is Reachable at a Given Time](/solution/2800-2899/2849.Determine%20if%20a%20Cell%20Is%20Reachable%20at%20a%20Given%20Time/README_EN.md)  |    |  Medium  |  Weekly Contest 362  |
 |  2850  |  [Minimum Moves to Spread Stones Over Grid](/solution/2800-2899/2850.Minimum%20Moves%20to%20Spread%20Stones%20Over%20Grid/README_EN.md)  |    |  Medium  |  Weekly Contest 362  |
 |  2851  |  [String Transformation](/solution/2800-2899/2851.String%20Transformation/README_EN.md)  |    |  Hard  |  Weekly Contest 362  |
+|  2852  |  [Sum of Remoteness of All Cells](/solution/2800-2899/2852.Sum%20of%20Remoteness%20of%20All%20Cells/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 

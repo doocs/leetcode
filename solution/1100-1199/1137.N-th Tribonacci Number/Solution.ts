@@ -1,43 +1,33 @@
-/**
- * @param {number} n
- * @return {number}
- */
-
-const mod = 1e9 + 7;
-
-var waysToStep = function (n) {
-    if (n < 4) {
-        return Math.pow(2, n - 1);
+function tribonacci(n: number): number {
+    if (n === 0) {
+        return 0;
+    }
+    if (n < 3) {
+        return 1;
     }
     const a = [
         [1, 1, 0],
         [1, 0, 1],
         [1, 0, 0],
     ];
-    let ans = 0;
-    const res = pow(a, n - 4);
-    for (const x of res[0]) {
-        ans = (ans + x) % mod;
-    }
-    return ans;
-};
+    return pow(a, n - 3)[0].reduce((a, b) => a + b);
+}
 
-function mul(a, b) {
+function mul(a: number[][], b: number[][]): number[][] {
     const [m, n] = [a.length, b[0].length];
     const c = Array.from({ length: m }, () => Array.from({ length: n }, () => 0));
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
             for (let k = 0; k < b.length; ++k) {
-                c[i][j] =
-                    (c[i][j] + Number((BigInt(a[i][k]) * BigInt(b[k][j])) % BigInt(mod))) % mod;
+                c[i][j] += a[i][k] * b[k][j];
             }
         }
     }
     return c;
 }
 
-function pow(a, n) {
-    let res = [[4, 2, 1]];
+function pow(a: number[][], n: number): number[][] {
+    let res = [[1, 1, 0]];
     while (n) {
         if (n & 1) {
             res = mul(res, a);
