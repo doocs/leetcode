@@ -67,6 +67,12 @@
 
 **方法一：BFS**
 
+我们先根据二维数组 $edges$ 构建邻接表 $g$，其中 $g[i]$ 表示节点 $i$ 的所有后继节点。
+
+然后我们从小到大枚举节点 $i$ 作为祖先节点，使用 BFS 搜索节点 $i$ 的所有后继节点，把节点 $i$ 加入这些后继节点的祖先列表中。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是节点数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -76,27 +82,23 @@
 ```python
 class Solution:
     def getAncestors(self, n: int, edges: List[List[int]]) -> List[List[int]]:
+        def bfs(s: int):
+            q = deque([s])
+            vis = {s}
+            while q:
+                i = q.popleft()
+                for j in g[i]:
+                    if j not in vis:
+                        vis.add(j)
+                        q.append(j)
+                        ans[j].append(s)
+
         g = defaultdict(list)
         for u, v in edges:
-            g[v].append(u)
-        ans = []
+            g[u].append(v)
+        ans = [[] for _ in range(n)]
         for i in range(n):
-            if not g[i]:
-                ans.append([])
-                continue
-            q = deque([i])
-            vis = [False] * n
-            vis[i] = True
-            t = []
-            while q:
-                for _ in range(len(q)):
-                    v = q.popleft()
-                    for u in g[v]:
-                        if not vis[u]:
-                            vis[u] = True
-                            q.append(u)
-                            t.append(u)
-            ans.append(sorted(t))
+            bfs(i)
         return ans
 ```
 
@@ -106,39 +108,42 @@ class Solution:
 
 ```java
 class Solution {
+    private int n;
+    private List<Integer>[] g;
+    private List<List<Integer>> ans;
+
     public List<List<Integer>> getAncestors(int n, int[][] edges) {
-        List<Integer>[] g = new List[n];
-        Arrays.setAll(g, k -> new ArrayList<>());
-        for (int[] e : edges) {
-            g[e[1]].add(e[0]);
+        g = new List[n];
+        this.n = n;
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (var e : edges) {
+            g[e[0]].add(e[1]);
         }
-        List<List<Integer>> ans = new ArrayList<>();
+        ans = new ArrayList<>();
         for (int i = 0; i < n; ++i) {
-            List<Integer> t = new ArrayList<>();
-            if (g[i].isEmpty()) {
-                ans.add(t);
-                continue;
-            }
-            Deque<Integer> q = new ArrayDeque<>();
-            q.offer(i);
-            boolean[] vis = new boolean[n];
-            vis[i] = true;
-            while (!q.isEmpty()) {
-                for (int j = q.size(); j > 0; --j) {
-                    int v = q.poll();
-                    for (int u : g[v]) {
-                        if (!vis[u]) {
-                            vis[u] = true;
-                            q.offer(u);
-                            t.add(u);
-                        }
-                    }
-                }
-            }
-            Collections.sort(t);
-            ans.add(t);
+            ans.add(new ArrayList<>());
+        }
+        for (int i = 0; i < n; ++i) {
+            bfs(i);
         }
         return ans;
+    }
+
+    private void bfs(int s) {
+        Deque<Integer> q = new ArrayDeque<>();
+        q.offer(s);
+        boolean[] vis = new boolean[n];
+        vis[s] = true;
+        while (!q.isEmpty()) {
+            int i = q.poll();
+            for (int j : g[i]) {
+                if (!vis[j]) {
+                    vis[j] = true;
+                    q.offer(j);
+                    ans.get(j).add(s);
+                }
+            }
+        }
     }
 }
 ```
@@ -149,32 +154,31 @@ class Solution {
 class Solution {
 public:
     vector<vector<int>> getAncestors(int n, vector<vector<int>>& edges) {
-        vector<vector<int>> g(n);
-        for (auto& e : edges) g[e[1]].push_back(e[0]);
-        vector<vector<int>> ans;
-        for (int i = 0; i < n; ++i) {
-            vector<int> t;
-            if (g[i].empty()) {
-                ans.push_back(t);
-                continue;
-            }
-            queue<int> q{{i}};
-            vector<bool> vis(n);
-            vis[i] = true;
-            while (!q.empty()) {
-                for (int j = q.size(); j > 0; --j) {
-                    int v = q.front();
-                    q.pop();
-                    for (int u : g[v]) {
-                        if (vis[u]) continue;
-                        vis[u] = true;
-                        q.push(u);
-                        t.push_back(u);
+        vector<int> g[n];
+        for (auto& e : edges) {
+            g[e[0]].push_back(e[1]);
+        }
+        vector<vector<int>> ans(n);
+        auto bfs = [&](int s) {
+            queue<int> q;
+            q.push(s);
+            bool vis[n];
+            memset(vis, 0, sizeof(vis));
+            vis[s] = true;
+            while (q.size()) {
+                int i = q.front();
+                q.pop();
+                for (int j : g[i]) {
+                    if (!vis[j]) {
+                        vis[j] = true;
+                        ans[j].push_back(s);
+                        q.push(j);
                     }
                 }
             }
-            sort(t.begin(), t.end());
-            ans.push_back(t);
+        };
+        for (int i = 0; i < n; ++i) {
+            bfs(i);
         }
         return ans;
     }
@@ -187,33 +191,27 @@ public:
 func getAncestors(n int, edges [][]int) [][]int {
 	g := make([][]int, n)
 	for _, e := range edges {
-		g[e[1]] = append(g[e[1]], e[0])
+		g[e[0]] = append(g[e[0]], e[1])
 	}
-	var ans [][]int
-	for i := 0; i < n; i++ {
-		var t []int
-		if len(g[i]) == 0 {
-			ans = append(ans, t)
-			continue
-		}
-		q := []int{i}
+	ans := make([][]int, n)
+	bfs := func(s int) {
+		q := []int{s}
 		vis := make([]bool, n)
-		vis[i] = true
+		vis[s] = true
 		for len(q) > 0 {
-			for j := len(q); j > 0; j-- {
-				v := q[0]
-				q = q[1:]
-				for _, u := range g[v] {
-					if !vis[u] {
-						vis[u] = true
-						q = append(q, u)
-						t = append(t, u)
-					}
+			i := q[0]
+			q = q[1:]
+			for _, j := range g[i] {
+				if !vis[j] {
+					vis[j] = true
+					q = append(q, j)
+					ans[j] = append(ans[j], s)
 				}
 			}
 		}
-		sort.Ints(t)
-		ans = append(ans, t)
+	}
+	for i := 0; i < n; i++ {
+		bfs(i)
 	}
 	return ans
 }
@@ -222,7 +220,32 @@ func getAncestors(n int, edges [][]int) [][]int {
 ### **TypeScript**
 
 ```ts
-
+function getAncestors(n: number, edges: number[][]): number[][] {
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [u, v] of edges) {
+        g[u].push(v);
+    }
+    const ans: number[][] = Array.from({ length: n }, () => []);
+    const bfs = (s: number) => {
+        const q: number[] = [s];
+        const vis: boolean[] = Array.from({ length: n }, () => false);
+        vis[s] = true;
+        while (q.length) {
+            const i = q.shift()!;
+            for (const j of g[i]) {
+                if (!vis[j]) {
+                    vis[j] = true;
+                    ans[j].push(s);
+                    q.push(j);
+                }
+            }
+        }
+    };
+    for (let i = 0; i < n; ++i) {
+        bfs(i);
+    }
+    return ans;
+}
 ```
 
 ### **...**
