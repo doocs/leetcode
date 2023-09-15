@@ -192,8 +192,7 @@ func min(a, b int) int {
 
 ```ts
 function minimumFinishTime(tires: number[][], changeTime: number, numLaps: number): number {
-    const inf = 1 << 30;
-    const cost: number[] = Array(18).fill(inf);
+    const cost: number[] = Array(18).fill(Infinity);
     for (const [f, r] of tires) {
         let s = 0;
         let t = f;
@@ -203,7 +202,7 @@ function minimumFinishTime(tires: number[][], changeTime: number, numLaps: numbe
             t *= r;
         }
     }
-    const f: number[] = Array(numLaps + 1).fill(inf);
+    const f: number[] = Array(numLaps + 1).fill(Infinity);
     f[0] = -changeTime;
     for (let i = 1; i <= numLaps; ++i) {
         for (let j = 1; j < Math.min(18, i + 1); ++j) {
