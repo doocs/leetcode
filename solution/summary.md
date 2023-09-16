@@ -2908,3 +2908,5 @@
   - [2850.将石头分散到网格图的最少移动次数](/solution/2800-2899/2850.Minimum%20Moves%20to%20Spread%20Stones%20Over%20Grid/README.md)
   - [2851.字符串转换](/solution/2800-2899/2851.String%20Transformation/README.md)
   - [2852.Sum of Remoteness of All Cells](/solution/2800-2899/2852.Sum%20of%20Remoteness%20of%20All%20Cells/README.md)
+  - [2853.Highest Salaries Difference](/solution/2800-2899/2853.Highest%20Salaries%20Difference/README.md)
+  - [2854.Rolling Average Steps](/solution/2800-2899/2854.Rolling%20Average%20Steps/README.md)
