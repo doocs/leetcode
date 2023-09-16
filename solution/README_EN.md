@@ -2861,6 +2861,8 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2850  |  [Minimum Moves to Spread Stones Over Grid](/solution/2800-2899/2850.Minimum%20Moves%20to%20Spread%20Stones%20Over%20Grid/README_EN.md)  |    |  Medium  |  Weekly Contest 362  |
 |  2851  |  [String Transformation](/solution/2800-2899/2851.String%20Transformation/README_EN.md)  |    |  Hard  |  Weekly Contest 362  |
 |  2852  |  [Sum of Remoteness of All Cells](/solution/2800-2899/2852.Sum%20of%20Remoteness%20of%20All%20Cells/README_EN.md)  |    |  Medium  |  🔒  |
+|  2853  |  [Highest Salaries Difference](/solution/2800-2899/2853.Highest%20Salaries%20Difference/README_EN.md)  |    |  Easy  |  🔒  |
+|  2854  |  [Rolling Average Steps](/solution/2800-2899/2854.Rolling%20Average%20Steps/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
