@@ -1,8 +1,4 @@
-function successfulPairs(
-    spells: number[],
-    potions: number[],
-    success: number,
-): number[] {
+function successfulPairs(spells: number[], potions: number[], success: number): number[] {
     potions.sort((a, b) => a - b);
     const m = potions.length;
     const ans: number[] = [];

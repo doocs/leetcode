@@ -121,7 +121,7 @@ function minLength(s: string): number {
     for (const c of s) {
         if (c === 'B' && stk[stk.length - 1] === 'A') {
             stk.pop();
-        } else if (c == 'D' && stk[stk.length - 1] === 'C') {
+        } else if (c === 'D' && stk[stk.length - 1] === 'C') {
             stk.pop();
         } else {
             stk.push(c);

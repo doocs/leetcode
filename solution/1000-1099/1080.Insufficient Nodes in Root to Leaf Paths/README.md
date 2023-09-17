@@ -210,10 +210,7 @@ func sufficientSubset(root *TreeNode, limit int) *TreeNode {
  * }
  */
 
-function sufficientSubset(
-    root: TreeNode | null,
-    limit: number,
-): TreeNode | null {
+function sufficientSubset(root: TreeNode | null, limit: number): TreeNode | null {
     if (root === null) {
         return null;
     }

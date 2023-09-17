@@ -6,10 +6,7 @@ function maxCoins(nums: number[]): number {
     for (let i = n - 1; i >= 0; --i) {
         for (let j = i + 2; j < n + 2; ++j) {
             for (let k = i + 1; k < j; ++k) {
-                dp[i][j] = Math.max(
-                    nums[i] * nums[k] * nums[j] + dp[i][k] + dp[k][j],
-                    dp[i][j],
-                );
+                dp[i][j] = Math.max(nums[i] * nums[k] * nums[j] + dp[i][k] + dp[k][j], dp[i][j]);
             }
         }
     }

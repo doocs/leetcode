@@ -209,10 +209,7 @@ function bstFromPreorder(preorder: number[]): TreeNode | null {
     const next = new Array(n);
     const stack = [];
     for (let i = n - 1; i >= 0; i--) {
-        while (
-            stack.length !== 0 &&
-            preorder[stack[stack.length - 1]] < preorder[i]
-        ) {
+        while (stack.length !== 0 && preorder[stack[stack.length - 1]] < preorder[i]) {
             stack.pop();
         }
         next[i] = stack[stack.length - 1] ?? n;
@@ -223,11 +220,7 @@ function bstFromPreorder(preorder: number[]): TreeNode | null {
         if (left >= right) {
             return null;
         }
-        return new TreeNode(
-            preorder[left],
-            dfs(left + 1, next[left]),
-            dfs(next[left], right),
-        );
+        return new TreeNode(preorder[left], dfs(left + 1, next[left]), dfs(next[left], right));
     };
     return dfs(0, n);
 }

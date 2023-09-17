@@ -331,11 +331,7 @@ func isSameTree(p *TreeNode, q *TreeNode) bool {
 var isSameTree = function (p, q) {
     if (!p && !q) return true;
     if (p && q) {
-        return (
-            p.val === q.val &&
-            isSameTree(p.left, q.left) &&
-            isSameTree(p.right, q.right)
-        );
+        return p.val === q.val && isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
     }
     return false;
 };
@@ -567,8 +563,7 @@ class Solution {
         if ($p->val != $q->val) {
             return false;
         }
-        return $this->isSameTree($p->left, $q->left) &&
-            $this->isSameTree($p->right, $q->right);
+        return $this->isSameTree($p->left, $q->left) && $this->isSameTree($p->right, $q->right);
     }
 }
 ```

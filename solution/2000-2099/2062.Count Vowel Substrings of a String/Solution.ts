@@ -5,9 +5,7 @@ function countVowelSubstrings(word: string): number {
         const t = new Set<string>();
         for (let j = i; j < n; ++j) {
             const c = word[j];
-            if (
-                !(c === 'a' || c === 'e' || c === 'i' || c === 'o' || c === 'u')
-            ) {
+            if (!(c === 'a' || c === 'e' || c === 'i' || c === 'o' || c === 'u')) {
                 break;
             }
             t.add(c);

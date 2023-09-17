@@ -13,7 +13,7 @@
 <p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入: </strong><em>nums</em> = [-2,0,1,3], <em>target</em> = 2
+<strong>输入: </strong><em>nums</em> = <code>[-2,0,1,3]</code>, <em>target</em> = 2
 <strong>输出: </strong>2 
 <strong>解释: </strong>因为一共有两个三元组满足累加和小于 2:
 &nbsp;    [-2,0,1]
@@ -23,13 +23,13 @@
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>输入: </strong><em>nums</em> = [], <em>target</em> = 0
+<strong>输入: </strong><em>nums</em> = <code>[]</code>, <em>target</em> = 0
 <strong>输出: </strong>0 </pre>
 
 <p><strong>示例 3：</strong></p>
 
 <pre>
-<strong>输入: </strong><em>nums</em> = [0], <em>target</em> = 0
+<strong>输入: </strong><em>nums</em> = <code>[0]</code>, <em>target</em> = 0
 <strong>输出: </strong>0 </pre>
 
 <p>&nbsp;</p>

@@ -63,7 +63,7 @@
 
 最终，我们返回左边界即可。
 
-时间复杂度 $(n \times \log n)$，空间复杂度 $O(1)$。其中 $n$ 为机械工的数量。
+时间复杂度 $(n \times \log M)$，空间复杂度 $O(1)$。其中 $n$ 为机械工的数量，而 $M$ 为二分查找的上界。
 
 <!-- tabs:start -->
 
@@ -74,7 +74,7 @@
 ```python
 class Solution:
     def repairCars(self, ranks: List[int], cars: int) -> int:
-        def check(t):
+        def check(t: int) -> bool:
             return sum(int(sqrt(t // r)) for r in ranks) >= cars
 
         return bisect_left(range(ranks[0] * cars * cars), True, key=check)

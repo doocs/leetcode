@@ -228,11 +228,7 @@ func minCostToSupplyWater(n int, wells []int, pipes [][]int) (ans int) {
 ### **TypeScript**
 
 ```ts
-function minCostToSupplyWater(
-    n: number,
-    wells: number[],
-    pipes: number[][],
-): number {
+function minCostToSupplyWater(n: number, wells: number[], pipes: number[][]): number {
     for (let i = 0; i < n; ++i) {
         pipes.push([0, i + 1, wells[i]]);
     }

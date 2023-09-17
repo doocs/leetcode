@@ -23,7 +23,7 @@
 <p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<b>输入：</b>n = 6, catagoryHandler = [1,1,2,2,3,3]
+<b>输入：</b>n = 6, categoryHandler = [1,1,2,2,3,3]
 <strong>输出：</strong>3
 <b>解释：</b>这个示例中有 6 个元素。前两个元素属于类别 1，接下来两个属于类别 2，最后两个元素属于类别 3。所以有 3 个唯一类别。
 </pre>
@@ -31,7 +31,7 @@
 <p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<b>输入：</b>n = 5, catagoryHandler = [1,2,3,4,5]
+<b>输入：</b>n = 5, categoryHandler = [1,2,3,4,5]
 <b>输出：</b>5
 <b>解释：</b>这个示例中有 5 个元素。每个元素属于一个唯一的类别。所以有 5 个唯一类别。
 </pre>
@@ -39,7 +39,7 @@
 <p><strong class="example">示例 3：</strong></p>
 
 <pre>
-<b>输入：</b>n = 3, catagoryHandler = [1,1,1]
+<b>输入：</b>n = 3, categoryHandler = [1,1,1]
 <b>输出：</b>1
 <b>解释：</b>这个示例中有 3 个元素。它们全部属于同一个类别。所以只有 1 个唯一类别。
 </pre>
@@ -220,10 +220,7 @@ func numberOfCategories(n int, categoryHandler CategoryHandler) (ans int) {
  *     public haveSameCategory(a: number, b: number): boolean;
  * }
  */
-function numberOfCategories(
-    n: number,
-    categoryHandler: CategoryHandler,
-): number {
+function numberOfCategories(n: number, categoryHandler: CategoryHandler): number {
     const p: number[] = new Array(n).fill(0).map((_, i) => i);
     const find = (x: number): number => {
         if (p[x] !== x) {

@@ -165,9 +165,7 @@ function productExceptSelf(nums: number[]): number[] {
 
 ```ts
 function productExceptSelf(nums: number[]): number[] {
-    return nums.map((_, i) =>
-        nums.reduce((pre, val, j) => pre * (i === j ? 1 : val), 1),
-    );
+    return nums.map((_, i) => nums.reduce((pre, val, j) => pre * (i === j ? 1 : val), 1));
 }
 ```
 

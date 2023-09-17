@@ -141,9 +141,7 @@ SELECT
     name,
     CASE
         WHEN count(v.visit_id) = 0 THEN 'Bronze'
-        WHEN 100 * count(charged_amount) / count(
-            v.visit_id
-        ) >= 80 THEN 'Diamond'
+        WHEN 100 * count(charged_amount) / count(v.visit_id) >= 80 THEN 'Diamond'
         WHEN 100 * count(charged_amount) / count(v.visit_id) >= 50 THEN 'Gold'
         ELSE 'Silver'
     END AS category

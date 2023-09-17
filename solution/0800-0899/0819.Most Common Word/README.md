@@ -114,10 +114,7 @@ function mostCommonWord(paragraph: string, banned: string[]): string {
         }
         map.set(word, (map.get(word) ?? 0) + 1);
     }
-    return [...map.entries()].reduce(
-        (r, v) => (v[1] > r[1] ? v : r),
-        ['', 0],
-    )[0];
+    return [...map.entries()].reduce((r, v) => (v[1] > r[1] ? v : r), ['', 0])[0];
 }
 ```
 

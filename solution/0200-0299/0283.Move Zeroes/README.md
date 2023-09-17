@@ -15,15 +15,15 @@
 <p><strong>示例 1:</strong></p>
 
 <pre>
-<strong>输入:</strong> nums = [0,1,0,3,12]
-<strong>输出:</strong> [1,3,12,0,0]
+<strong>输入:</strong> nums = <code>[0,1,0,3,12]</code>
+<strong>输出:</strong> <code>[1,3,12,0,0]</code>
 </pre>
 
 <p><strong>示例 2:</strong></p>
 
 <pre>
-<strong>输入:</strong> nums = [0]
-<strong>输出:</strong> [0]</pre>
+<strong>输入:</strong> nums = <code>[0]</code>
+<strong>输出:</strong> <code>[0]</code></pre>
 
 <p>&nbsp;</p>
 

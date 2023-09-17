@@ -14,10 +14,10 @@
 v1 = [1,2]
 v2 = [3,4,5,6] 
 
-<strong>输出:</strong> [1,3,2,4,5,6]
+<strong>输出:</strong> <code>[1,3,2,4,5,6]
 
-<strong>解析:</strong>&nbsp;通过连续调用 <em>next</em> 函数直到 <em>hasNext</em> 函数返回 false，
-&nbsp;    <em>next</em> 函数返回值的次序应依次为: [1,3,2,4,5,6]。</pre>
+<strong>解析:</strong></code>&nbsp;通过连续调用 <em>next</em> 函数直到 <em>hasNext</em> 函数返回 <code>false，</code>
+&nbsp;    <em>next</em> 函数返回值的次序应依次为: <code>[1,3,2,4,5,6]。</code></pre>
 
 <p><strong>拓展：</strong>假如给你&nbsp;<code>k</code>&nbsp;个一维向量呢？你的代码在这种情况下的扩展性又会如何呢?</p>
 
@@ -29,7 +29,7 @@ v2 = [3,4,5,6]
 [4,5,6,7]
 [8,9]
 
-<strong>输出: </strong>[1,4,8,2,5,9,3,6,7].
+<strong>输出: </strong><code>[1,4,8,2,5,9,3,6,7]</code>.
 </pre>
 
 ## 解法

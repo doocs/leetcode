@@ -3,20 +3,26 @@
  * @return {number}
  */
 var cuttingRope = function (n) {
-    if (n <= 3) return n - 1;
-    let a = ~~(n / 3);
-    let b = n % 3;
-    const MOD = 1e9 + 7;
-    function myPow(x) {
-        let r = 1;
-        for (let i = 0; i < x; i++) {
-            r = (r * 3) % MOD;
+    if (n < 4) {
+        return n - 1;
+    }
+    const mod = 1e9 + 7;
+    const qpow = (a, n) => {
+        let ans = 1;
+        for (; n; n >>= 1) {
+            if (n & 1) {
+                ans = Number((BigInt(ans) * BigInt(a)) % BigInt(mod));
+            }
+            a = Number((BigInt(a) * BigInt(a)) % BigInt(mod));
         }
-        return r;
+        return ans;
+    };
+    const k = Math.floor(n / 3);
+    if (n % 3 === 0) {
+        return qpow(3, k);
     }
-    if (b === 1) {
-        return (myPow(a - 1) * 4) % MOD;
+    if (n % 3 === 1) {
+        return (4 * qpow(3, k - 1)) % mod;
     }
-    if (b === 0) return myPow(a) % MOD;
-    return (myPow(a) * 2) % MOD;
+    return (2 * qpow(3, k)) % mod;
 };

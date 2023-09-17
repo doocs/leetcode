@@ -110,10 +110,7 @@ class EventEmitter {
     private d: Map<string, Set<Callback>> = new Map();
 
     subscribe(eventName: string, callback: Callback): Subscription {
-        this.d.set(
-            eventName,
-            (this.d.get(eventName) || new Set()).add(callback),
-        );
+        this.d.set(eventName, (this.d.get(eventName) || new Set()).add(callback));
         return {
             unsubscribe: () => {
                 this.d.get(eventName)?.delete(callback);

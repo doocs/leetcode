@@ -13,19 +13,19 @@
 | first_col   | int  |
 | second_col  | int  |
 +-------------+------+
-There is no primary key for this table and it may contain duplicates.
+This table may contain duplicate rows.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to independently:</p>
+<p>Write a solution to independently:</p>
 
 <ul>
 	<li>order <code>first_col</code> in <strong>ascending order</strong>.</li>
 	<li>order <code>second_col</code> in <strong>descending order</strong>.</li>
 </ul>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
