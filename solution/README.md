@@ -2865,6 +2865,10 @@
 |  2852  |  [Sum of Remoteness of All Cells](/solution/2800-2899/2852.Sum%20of%20Remoteness%20of%20All%20Cells/README.md)  |    |  中等  |  🔒  |
 |  2853  |  [Highest Salaries Difference](/solution/2800-2899/2853.Highest%20Salaries%20Difference/README.md)  |    |  简单  |  🔒  |
 |  2854  |  [Rolling Average Steps](/solution/2800-2899/2854.Rolling%20Average%20Steps/README.md)  |    |  中等  |  🔒  |
+|  2855  |  [使数组成为递增数组的最少右移次数](/solution/2800-2899/2855.Minimum%20Right%20Shifts%20to%20Sort%20the%20Array/README.md)  |    |  简单  |  第 113 场双周赛  |
+|  2856  |  [删除数对后的最小数组长度](/solution/2800-2899/2856.Minimum%20Array%20Length%20After%20Pair%20Removals/README.md)  |    |  中等  |  第 113 场双周赛  |
+|  2857  |  [统计距离为 k 的点对](/solution/2800-2899/2857.Count%20Pairs%20of%20Points%20With%20Distance%20k/README.md)  |    |  中等  |  第 113 场双周赛  |
+|  2858  |  [可以到达每一个节点的最少边反转次数](/solution/2800-2899/2858.Minimum%20Edge%20Reversals%20So%20Every%20Node%20Is%20Reachable/README.md)  |    |  困难  |  第 113 场双周赛  |
 
 ## 版权
 

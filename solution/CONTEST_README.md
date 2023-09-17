@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 113 场双周赛(2023-09-16 22:30, 90 分钟) 参赛人数 3028
+
+- [2855. 使数组成为递增数组的最少右移次数](/solution/2800-2899/2855.Minimum%20Right%20Shifts%20to%20Sort%20the%20Array/README.md)
+- [2856. 删除数对后的最小数组长度](/solution/2800-2899/2856.Minimum%20Array%20Length%20After%20Pair%20Removals/README.md)
+- [2857. 统计距离为 k 的点对](/solution/2800-2899/2857.Count%20Pairs%20of%20Points%20With%20Distance%20k/README.md)
+- [2858. 可以到达每一个节点的最少边反转次数](/solution/2800-2899/2858.Minimum%20Edge%20Reversals%20So%20Every%20Node%20Is%20Reachable/README.md)
+
 #### 第 362 场周赛(2023-09-10 10:30, 90 分钟) 参赛人数 4800
 
 - [2848. 与车相交的点](/solution/2800-2899/2848.Points%20That%20Intersect%20With%20Cars/README.md)
