@@ -71,25 +71,157 @@ Hence, the minimum achievable length is 1.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minLengthAfterRemovals(self, nums: List[int]) -> int:
+        cnt = Counter(nums)
+        pq = [-x for x in cnt.values()]
+        heapify(pq)
+        ans = len(nums)
+        while len(pq) > 1:
+            x, y = -heappop(pq), -heappop(pq)
+            x -= 1
+            y -= 1
+            if x > 0:
+                heappush(pq, -x)
+            if y > 0:
+                heappush(pq, -y)
+            ans -= 2
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int minLengthAfterRemovals(List<Integer> nums) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int x : nums) {
+            cnt.merge(x, 1, Integer::sum);
+        }
+        PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.reverseOrder());
+        for (int x : cnt.values()) {
+            pq.offer(x);
+        }
+        int ans = nums.size();
+        while (pq.size() > 1) {
+            int x = pq.poll();
+            int y = pq.poll();
+            x--;
+            y--;
+            if (x > 0) {
+                pq.offer(x);
+            }
+            if (y > 0) {
+                pq.offer(y);
+            }
+            ans -= 2;
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int minLengthAfterRemovals(vector<int>& nums) {
+        unordered_map<int, int> cnt;
+        for (int x : nums) {
+            ++cnt[x];
+        }
+        priority_queue<int> pq;
+        for (auto& [_, v] : cnt) {
+            pq.push(v);
+        }
+        int ans = nums.size();
+        while (pq.size() > 1) {
+            int x = pq.top();
+            pq.pop();
+            int y = pq.top();
+            pq.pop();
+            x--;
+            y--;
+            if (x > 0) {
+                pq.push(x);
+            }
+            if (y > 0) {
+                pq.push(y);
+            }
+            ans -= 2;
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minLengthAfterRemovals(nums []int) int {
+	cnt := map[int]int{}
+	for _, x := range nums {
+		cnt[x]++
+	}
+	h := &hp{}
+	for _, x := range cnt {
+		h.push(x)
+	}
+	ans := len(nums)
+	for h.Len() > 1 {
+		x, y := h.pop(), h.pop()
+		if x > 1 {
+			h.push(x - 1)
+		}
+		if y > 1 {
+			h.push(y - 1)
+		}
+		ans -= 2
+	}
+	return ans
+}
 
+type hp struct{ sort.IntSlice }
+
+func (h hp) Less(i, j int) bool { return h.IntSlice[i] > h.IntSlice[j] }
+func (h *hp) Push(v any)        { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() any {
+	a := h.IntSlice
+	v := a[len(a)-1]
+	h.IntSlice = a[:len(a)-1]
+	return v
+}
+func (h *hp) push(v int) { heap.Push(h, v) }
+func (h *hp) pop() int   { return heap.Pop(h).(int) }
+```
+
+### **TypeScript**
+
+```ts
+function minLengthAfterRemovals(nums: number[]): number {
+    const cnt: Map<number, number> = new Map();
+    for (const x of nums) {
+        cnt.set(x, (cnt.get(x) ?? 0) + 1);
+    }
+    const pq = new MaxPriorityQueue();
+    for (const [_, v] of cnt) {
+        pq.enqueue(v);
+    }
+    let ans = nums.length;
+    while (pq.size() > 1) {
+        let x = pq.dequeue().element;
+        let y = pq.dequeue().element;
+        if (--x > 0) {
+            pq.enqueue(x);
+        }
+        if (--y > 0) {
+            pq.enqueue(y);
+        }
+        ans -= 2;
+    }
+    return ans;
+}
 ```
 
 ### **...**

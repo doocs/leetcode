@@ -46,6 +46,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表 + 枚举**
+
+我们可以用一个哈希表 $cnt$ 统计数组 $coordinates$ 中每个点出现的次数。
+
+接下来，我们枚举数组 $coordinates$ 中的每个点 $(x_2, y_2)$，由于 $k$ 的取值范围为 $[0, 100]$，而 $x_1 \oplus x_2$ 或 $y_1 \oplus y_2$ 的结果一定大于等于 $0$，因此我们可以在 $[0,..k]$ 范围内枚举 $x_1 \oplus x_2$ 的结果 $a$，那么 $y_1 \oplus y_2$ 的结果就是 $b = k - a$。这样一来，我们就可以计算出 $x_1$ 和 $y_1$ 的值，将 $(x_1, y_1)$ 出现的次数累加到答案中。
+
+时间复杂度 $O(n \times k)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $coordinates$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -53,7 +61,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countPairs(self, coordinates: List[List[int]], k: int) -> int:
+        cnt = Counter()
+        ans = 0
+        for x2, y2 in coordinates:
+            for a in range(k + 1):
+                b = k - a
+                x1, y1 = a ^ x2, b ^ y2
+                ans += cnt[(x1, y1)]
+            cnt[(x2, y2)] += 1
+        return ans
 ```
 
 ### **Java**
@@ -61,19 +79,104 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int countPairs(List<List<Integer>> coordinates, int k) {
+        Map<List<Integer>, Integer> cnt = new HashMap<>();
+        int ans = 0;
+        for (var c : coordinates) {
+            int x2 = c.get(0), y2 = c.get(1);
+            for (int a = 0; a <= k; ++a) {
+                int b = k - a;
+                int x1 = a ^ x2, y1 = b ^ y2;
+                ans += cnt.getOrDefault(List.of(x1, y1), 0);
+            }
+            cnt.merge(c, 1, Integer::sum);
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
+class Solution {
+public:
+    int countPairs(vector<vector<int>>& coordinates, int k) {
+        map<pair<int, int>, int> cnt;
+        int ans = 0;
+        for (auto& c : coordinates) {
+            int x2 = c[0], y2 = c[1];
+            for (int a = 0; a <= k; ++a) {
+                int b = k - a;
+                int x1 = a ^ x2, y1 = b ^ y2;
+                ans += cnt[{x1, y1}];
+            }
+            ++cnt[{x2, y2}];
+        }
+        return ans;
+    }
+};
+```
 
+```cpp
+class Solution {
+public:
+    int countPairs(vector<vector<int>>& coordinates, int k) {
+        unordered_map<long long, int> cnt;
+        auto f = [](int x, int y) {
+            return x * 1000000L + y;
+        };
+        int ans = 0;
+        for (auto& c : coordinates) {
+            int x2 = c[0], y2 = c[1];
+            for (int a = 0; a <= k; ++a) {
+                int b = k - a;
+                int x1 = a ^ x2, y1 = b ^ y2;
+                ans += cnt[f(x1, y1)];
+            }
+            ++cnt[f(x2, y2)];
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func countPairs(coordinates [][]int, k int) (ans int) {
+	cnt := map[[2]int]int{}
+	for _, c := range coordinates {
+		x2, y2 := c[0], c[1]
+		for a := 0; a <= k; a++ {
+			b := k - a
+			x1, y1 := a^x2, b^y2
+			ans += cnt[[2]int{x1, y1}]
+		}
+		cnt[[2]int{x2, y2}]++
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function countPairs(coordinates: number[][], k: number): number {
+    const cnt: Map<number, number> = new Map();
+    const f = (x: number, y: number): number => x * 1000000 + y;
+    let ans = 0;
+    for (const [x2, y2] of coordinates) {
+        for (let a = 0; a <= k; ++a) {
+            const b = k - a;
+            const [x1, y1] = [a ^ x2, b ^ y2];
+            ans += cnt.get(f(x1, y1)) ?? 0;
+        }
+        cnt.set(f(x2, y2), (cnt.get(f(x2, y2)) ?? 0) + 1);
+    }
+    return ans;
+}
 ```
 
 ### **...**

@@ -51,25 +51,92 @@ Now nums is sorted; therefore the answer is 2.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minimumRightShifts(self, nums: List[int]) -> int:
+        n = len(nums)
+        i = 1
+        while i < n and nums[i - 1] < nums[i]:
+            i += 1
+        k = i + 1
+        while k < n and nums[k - 1] < nums[k] < nums[0]:
+            k += 1
+        return -1 if k < n else n - i
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int minimumRightShifts(List<Integer> nums) {
+        int n = nums.size();
+        int i = 1;
+        while (i < n && nums.get(i - 1) < nums.get(i)) {
+            ++i;
+        }
+        int k = i + 1;
+        while (k < n && nums.get(k - 1) < nums.get(k) && nums.get(k) < nums.get(0)) {
+            ++k;
+        }
+        return k < n ? -1 : n - i;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int minimumRightShifts(vector<int>& nums) {
+        int n = nums.size();
+        int i = 1;
+        while (i < n && nums[i - 1] < nums[i]) {
+            ++i;
+        }
+        int k = i + 1;
+        while (k < n && nums[k - 1] < nums[k] && nums[k] < nums[0]) {
+            ++k;
+        }
+        return k < n ? -1 : n - i;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minimumRightShifts(nums []int) int {
+	n := len(nums)
+	i := 1
+	for i < n && nums[i-1] < nums[i] {
+		i++
+	}
+	k := i + 1
+	for k < n && nums[k-1] < nums[k] && nums[k] < nums[0] {
+		k++
+	}
+	if k < n {
+		return -1
+	}
+	return n - i
+}
+```
 
+### **TypeScript**
+
+```ts
+function minimumRightShifts(nums: number[]): number {
+    const n = nums.length;
+    let i = 1;
+    while (i < n && nums[i - 1] < nums[i]) {
+        ++i;
+    }
+    let k = i + 1;
+    while (k < n && nums[k - 1] < nums[k] && nums[k] < nums[0]) {
+        ++k;
+    }
+    return k < n ? -1 : n - i;
+}
 ```
 
 ### **...**

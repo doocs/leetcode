@@ -45,25 +45,120 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def countPairs(self, coordinates: List[List[int]], k: int) -> int:
+        cnt = Counter()
+        ans = 0
+        for x2, y2 in coordinates:
+            for a in range(k + 1):
+                b = k - a
+                x1, y1 = a ^ x2, b ^ y2
+                ans += cnt[(x1, y1)]
+            cnt[(x2, y2)] += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int countPairs(List<List<Integer>> coordinates, int k) {
+        Map<List<Integer>, Integer> cnt = new HashMap<>();
+        int ans = 0;
+        for (var c : coordinates) {
+            int x2 = c.get(0), y2 = c.get(1);
+            for (int a = 0; a <= k; ++a) {
+                int b = k - a;
+                int x1 = a ^ x2, y1 = b ^ y2;
+                ans += cnt.getOrDefault(List.of(x1, y1), 0);
+            }
+            cnt.merge(c, 1, Integer::sum);
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
+class Solution {
+public:
+    int countPairs(vector<vector<int>>& coordinates, int k) {
+        map<pair<int, int>, int> cnt;
+        int ans = 0;
+        for (auto& c : coordinates) {
+            int x2 = c[0], y2 = c[1];
+            for (int a = 0; a <= k; ++a) {
+                int b = k - a;
+                int x1 = a ^ x2, y1 = b ^ y2;
+                ans += cnt[{x1, y1}];
+            }
+            ++cnt[{x2, y2}];
+        }
+        return ans;
+    }
+};
+```
 
+```cpp
+class Solution {
+public:
+    int countPairs(vector<vector<int>>& coordinates, int k) {
+        unordered_map<long long, int> cnt;
+        auto f = [](int x, int y) {
+            return x * 1000000L + y;
+        };
+        int ans = 0;
+        for (auto& c : coordinates) {
+            int x2 = c[0], y2 = c[1];
+            for (int a = 0; a <= k; ++a) {
+                int b = k - a;
+                int x1 = a ^ x2, y1 = b ^ y2;
+                ans += cnt[f(x1, y1)];
+            }
+            ++cnt[f(x2, y2)];
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func countPairs(coordinates [][]int, k int) (ans int) {
+	cnt := map[[2]int]int{}
+	for _, c := range coordinates {
+		x2, y2 := c[0], c[1]
+		for a := 0; a <= k; a++ {
+			b := k - a
+			x1, y1 := a^x2, b^y2
+			ans += cnt[[2]int{x1, y1}]
+		}
+		cnt[[2]int{x2, y2}]++
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function countPairs(coordinates: number[][], k: number): number {
+    const cnt: Map<number, number> = new Map();
+    const f = (x: number, y: number): number => x * 1000000 + y;
+    let ans = 0;
+    for (const [x2, y2] of coordinates) {
+        for (let a = 0; a <= k; ++a) {
+            const b = k - a;
+            const [x1, y1] = [a ^ x2, b ^ y2];
+            ans += cnt.get(f(x1, y1)) ?? 0;
+        }
+        cnt.set(f(x2, y2), (cnt.get(f(x2, y2)) ?? 0) + 1);
+    }
+    return ans;
+}
 ```
 
 ### **...**
