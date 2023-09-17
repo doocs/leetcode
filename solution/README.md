@@ -2869,6 +2869,10 @@
 |  2856  |  [删除数对后的最小数组长度](/solution/2800-2899/2856.Minimum%20Array%20Length%20After%20Pair%20Removals/README.md)  |    |  中等  |  第 113 场双周赛  |
 |  2857  |  [统计距离为 k 的点对](/solution/2800-2899/2857.Count%20Pairs%20of%20Points%20With%20Distance%20k/README.md)  |    |  中等  |  第 113 场双周赛  |
 |  2858  |  [可以到达每一个节点的最少边反转次数](/solution/2800-2899/2858.Minimum%20Edge%20Reversals%20So%20Every%20Node%20Is%20Reachable/README.md)  |    |  困难  |  第 113 场双周赛  |
+|  2859  |  [计算 K 置位下标对应元素的和](/solution/2800-2899/2859.Sum%20of%20Values%20at%20Indices%20With%20K%20Set%20Bits/README.md)  |    |  简单  |  第 363 场周赛  |
+|  2860  |  [让所有学生保持开心的分组方法数](/solution/2800-2899/2860.Happy%20Students/README.md)  |    |  中等  |  第 363 场周赛  |
+|  2861  |  [最大合金数](/solution/2800-2899/2861.Maximum%20Number%20of%20Alloys/README.md)  |    |  中等  |  第 363 场周赛  |
+|  2862  |  [完全子集的最大元素和](/solution/2800-2899/2862.Maximum%20Element-Sum%20of%20a%20Complete%20Subset%20of%20Indices/README.md)  |    |  困难  |  第 363 场周赛  |
 
 ## 版权
 

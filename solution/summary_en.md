@@ -2914,3 +2914,7 @@
   - [2856.Minimum Array Length After Pair Removals](/solution/2800-2899/2856.Minimum%20Array%20Length%20After%20Pair%20Removals/README_EN.md)
   - [2857.Count Pairs of Points With Distance k](/solution/2800-2899/2857.Count%20Pairs%20of%20Points%20With%20Distance%20k/README_EN.md)
   - [2858.Minimum Edge Reversals So Every Node Is Reachable](/solution/2800-2899/2858.Minimum%20Edge%20Reversals%20So%20Every%20Node%20Is%20Reachable/README_EN.md)
+  - [2859.Sum of Values at Indices With K Set Bits](/solution/2800-2899/2859.Sum%20of%20Values%20at%20Indices%20With%20K%20Set%20Bits/README_EN.md)
+  - [2860.Happy Students](/solution/2800-2899/2860.Happy%20Students/README_EN.md)
+  - [2861.Maximum Number of Alloys](/solution/2800-2899/2861.Maximum%20Number%20of%20Alloys/README_EN.md)
+  - [2862.Maximum Element-Sum of a Complete Subset of Indices](/solution/2800-2899/2862.Maximum%20Element-Sum%20of%20a%20Complete%20Subset%20of%20Indices/README_EN.md)
