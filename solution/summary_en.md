@@ -2910,3 +2910,7 @@
   - [2852.Sum of Remoteness of All Cells](/solution/2800-2899/2852.Sum%20of%20Remoteness%20of%20All%20Cells/README_EN.md)
   - [2853.Highest Salaries Difference](/solution/2800-2899/2853.Highest%20Salaries%20Difference/README_EN.md)
   - [2854.Rolling Average Steps](/solution/2800-2899/2854.Rolling%20Average%20Steps/README_EN.md)
+  - [2855.Minimum Right Shifts to Sort the Array](/solution/2800-2899/2855.Minimum%20Right%20Shifts%20to%20Sort%20the%20Array/README_EN.md)
+  - [2856.Minimum Array Length After Pair Removals](/solution/2800-2899/2856.Minimum%20Array%20Length%20After%20Pair%20Removals/README_EN.md)
+  - [2857.Count Pairs of Points With Distance k](/solution/2800-2899/2857.Count%20Pairs%20of%20Points%20With%20Distance%20k/README_EN.md)
+  - [2858.Minimum Edge Reversals So Every Node Is Reachable](/solution/2800-2899/2858.Minimum%20Edge%20Reversals%20So%20Every%20Node%20Is%20Reachable/README_EN.md)
