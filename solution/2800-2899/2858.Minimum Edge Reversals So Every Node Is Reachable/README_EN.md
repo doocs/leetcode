@@ -69,25 +69,180 @@ So, answer[2] = 1.
 ### **Python3**
 
 ```python
+class Solution:
+    def minEdgeReversals(self, n: int, edges: List[List[int]]) -> List[int]:
+        ans = [0] * n
+        g = [[] for _ in range(n)]
+        for x, y in edges:
+            g[x].append((y, 1))
+            g[y].append((x, -1))
 
+        def dfs(i: int, fa: int):
+            for j, k in g[i]:
+                if j != fa:
+                    ans[0] += int(k < 0)
+                    dfs(j, i)
+
+        dfs(0, -1)
+
+        def dfs2(i: int, fa: int):
+            for j, k in g[i]:
+                if j != fa:
+                    ans[j] = ans[i] + k
+                    dfs2(j, i)
+
+        dfs2(0, -1)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private List<int[]>[] g;
+    private int[] ans;
 
+    public int[] minEdgeReversals(int n, int[][] edges) {
+        ans = new int[n];
+        g = new List[n];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (var e : edges) {
+            int x = e[0], y = e[1];
+            g[x].add(new int[] {y, 1});
+            g[y].add(new int[] {x, -1});
+        }
+        dfs(0, -1);
+        dfs2(0, -1);
+        return ans;
+    }
+
+    private void dfs(int i, int fa) {
+        for (var ne : g[i]) {
+            int j = ne[0], k = ne[1];
+            if (j != fa) {
+                ans[0] += k < 0 ? 1 : 0;
+                dfs(j, i);
+            }
+        }
+    }
+
+    private void dfs2(int i, int fa) {
+        for (var ne : g[i]) {
+            int j = ne[0], k = ne[1];
+            if (j != fa) {
+                ans[j] = ans[i] + k;
+                dfs2(j, i);
+            }
+        }
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> minEdgeReversals(int n, vector<vector<int>>& edges) {
+        vector<pair<int, int>> g[n];
+        vector<int> ans(n);
+        for (auto& e : edges) {
+            int x = e[0], y = e[1];
+            g[x].emplace_back(y, 1);
+            g[y].emplace_back(x, -1);
+        }
+        function<void(int, int)> dfs = [&](int i, int fa) {
+            for (auto& [j, k] : g[i]) {
+                if (j != fa) {
+                    ans[0] += k < 0;
+                    dfs(j, i);
+                }
+            }
+        };
+        function<void(int, int)> dfs2 = [&](int i, int fa) {
+            for (auto& [j, k] : g[i]) {
+                if (j != fa) {
+                    ans[j] = ans[i] + k;
+                    dfs2(j, i);
+                }
+            }
+        };
+        dfs(0, -1);
+        dfs2(0, -1);
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minEdgeReversals(n int, edges [][]int) []int {
+	g := make([][][2]int, n)
+	for _, e := range edges {
+		x, y := e[0], e[1]
+		g[x] = append(g[x], [2]int{y, 1})
+		g[y] = append(g[y], [2]int{x, -1})
+	}
+	ans := make([]int, n)
+	var dfs func(int, int)
+	var dfs2 func(int, int)
+	dfs = func(i, fa int) {
+		for _, ne := range g[i] {
+			j, k := ne[0], ne[1]
+			if j != fa {
+				if k < 0 {
+					ans[0]++
+				}
+				dfs(j, i)
+			}
+		}
+	}
+	dfs2 = func(i, fa int) {
+		for _, ne := range g[i] {
+			j, k := ne[0], ne[1]
+			if j != fa {
+				ans[j] = ans[i] + k
+				dfs2(j, i)
+			}
+		}
+	}
+	dfs(0, -1)
+	dfs2(0, -1)
+	return ans
+}
+```
 
+### **TypeScript**
+
+```ts
+function minEdgeReversals(n: number, edges: number[][]): number[] {
+    const g: number[][][] = Array.from({ length: n }, () => []);
+    for (const [x, y] of edges) {
+        g[x].push([y, 1]);
+        g[y].push([x, -1]);
+    }
+    const ans: number[] = Array(n).fill(0);
+    const dfs = (i: number, fa: number) => {
+        for (const [j, k] of g[i]) {
+            if (j !== fa) {
+                ans[0] += k < 0 ? 1 : 0;
+                dfs(j, i);
+            }
+        }
+    };
+    const dfs2 = (i: number, fa: number) => {
+        for (const [j, k] of g[i]) {
+            if (j !== fa) {
+                ans[j] = ans[i] + k;
+                dfs2(j, i);
+            }
+        }
+    };
+    dfs(0, -1);
+    dfs2(0, -1);
+    return ans;
+}
 ```
 
 ### **...**
