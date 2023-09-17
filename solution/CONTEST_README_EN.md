@@ -25,6 +25,13 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 363
+
+- [2859. Sum of Values at Indices With K Set Bits](/solution/2800-2899/2859.Sum%20of%20Values%20at%20Indices%20With%20K%20Set%20Bits/README_EN.md)
+- [2860. Happy Students](/solution/2800-2899/2860.Happy%20Students/README_EN.md)
+- [2861. Maximum Number of Alloys](/solution/2800-2899/2861.Maximum%20Number%20of%20Alloys/README_EN.md)
+- [2862. Maximum Element-Sum of a Complete Subset of Indices](/solution/2800-2899/2862.Maximum%20Element-Sum%20of%20a%20Complete%20Subset%20of%20Indices/README_EN.md)
+
 #### Biweekly Contest 113
 
 - [2855. Minimum Right Shifts to Sort the Array](/solution/2800-2899/2855.Minimum%20Right%20Shifts%20to%20Sort%20the%20Array/README_EN.md)
