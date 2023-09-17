@@ -1,36 +1,39 @@
 class Solution {
+    private int n;
+    private List<Integer>[] g;
+    private List<List<Integer>> ans;
+
     public List<List<Integer>> getAncestors(int n, int[][] edges) {
-        List<Integer>[] g = new List[n];
-        Arrays.setAll(g, k -> new ArrayList<>());
-        for (int[] e : edges) {
-            g[e[1]].add(e[0]);
+        g = new List[n];
+        this.n = n;
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (var e : edges) {
+            g[e[0]].add(e[1]);
         }
-        List<List<Integer>> ans = new ArrayList<>();
+        ans = new ArrayList<>();
         for (int i = 0; i < n; ++i) {
-            List<Integer> t = new ArrayList<>();
-            if (g[i].isEmpty()) {
-                ans.add(t);
-                continue;
-            }
-            Deque<Integer> q = new ArrayDeque<>();
-            q.offer(i);
-            boolean[] vis = new boolean[n];
-            vis[i] = true;
-            while (!q.isEmpty()) {
-                for (int j = q.size(); j > 0; --j) {
-                    int v = q.poll();
-                    for (int u : g[v]) {
-                        if (!vis[u]) {
-                            vis[u] = true;
-                            q.offer(u);
-                            t.add(u);
-                        }
-                    }
-                }
-            }
-            Collections.sort(t);
-            ans.add(t);
+            ans.add(new ArrayList<>());
+        }
+        for (int i = 0; i < n; ++i) {
+            bfs(i);
         }
         return ans;
+    }
+
+    private void bfs(int s) {
+        Deque<Integer> q = new ArrayDeque<>();
+        q.offer(s);
+        boolean[] vis = new boolean[n];
+        vis[s] = true;
+        while (!q.isEmpty()) {
+            int i = q.poll();
+            for (int j : g[i]) {
+                if (!vis[j]) {
+                    vis[j] = true;
+                    q.offer(j);
+                    ans.get(j).add(s);
+                }
+            }
+        }
     }
 }

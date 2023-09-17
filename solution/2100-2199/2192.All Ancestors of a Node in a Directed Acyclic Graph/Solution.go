@@ -1,33 +1,27 @@
 func getAncestors(n int, edges [][]int) [][]int {
 	g := make([][]int, n)
 	for _, e := range edges {
-		g[e[1]] = append(g[e[1]], e[0])
+		g[e[0]] = append(g[e[0]], e[1])
 	}
-	var ans [][]int
-	for i := 0; i < n; i++ {
-		var t []int
-		if len(g[i]) == 0 {
-			ans = append(ans, t)
-			continue
-		}
-		q := []int{i}
+	ans := make([][]int, n)
+	bfs := func(s int) {
+		q := []int{s}
 		vis := make([]bool, n)
-		vis[i] = true
+		vis[s] = true
 		for len(q) > 0 {
-			for j := len(q); j > 0; j-- {
-				v := q[0]
-				q = q[1:]
-				for _, u := range g[v] {
-					if !vis[u] {
-						vis[u] = true
-						q = append(q, u)
-						t = append(t, u)
-					}
+			i := q[0]
+			q = q[1:]
+			for _, j := range g[i] {
+				if !vis[j] {
+					vis[j] = true
+					q = append(q, j)
+					ans[j] = append(ans[j], s)
 				}
 			}
 		}
-		sort.Ints(t)
-		ans = append(ans, t)
+	}
+	for i := 0; i < n; i++ {
+		bfs(i)
 	}
 	return ans
 }

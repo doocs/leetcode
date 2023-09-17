@@ -253,6 +253,54 @@ function maxOperations(nums: number[], k: number): number {
 }
 ```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn max_operations(nums: Vec<i32>, k: i32) -> i32 {
+        let mut nums = nums.clone();
+        nums.sort();
+        let (mut l, mut r, mut ans) = (0, nums.len() - 1, 0);
+        while l < r {
+            match nums[l] + nums[r] {
+                sum if sum == k => {
+                    ans += 1;
+                    l += 1;
+                    r -= 1;
+                }
+                sum if sum > k => r -= 1,
+                _ => l += 1,
+            }
+        }
+        ans
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn max_operations(nums: Vec<i32>, k: i32) -> i32 {
+        let mut cnt = std::collections::HashMap::new();
+        let mut ans = 0;
+        for x in nums {
+            let m = k - x;
+            if let Some(v) = cnt.get_mut(&m) {
+                ans += 1;
+                *v -= 1;
+                if *v == 0 {
+                    cnt.remove(&m);
+                }
+            } else if let Some(v) = cnt.get_mut(&x) {
+                *v += 1;
+            } else {
+                cnt.insert(x, 1);
+            }
+        }
+        ans
+    }
+}
+```
+
 ### **...**
 
 ```

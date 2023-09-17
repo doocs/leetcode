@@ -1,6 +1,16 @@
 func maximumScore(nums []int, k int) int {
 	n := len(nums)
 	const mod = 1e9 + 7
+	qpow := func(a, n int) int {
+		ans := 1
+		for ; n > 0; n >>= 1 {
+			if n&1 == 1 {
+				ans = ans * a % mod
+			}
+			a = a * a % mod
+		}
+		return ans
+	}
 	arr := make([][3]int, n)
 	left := make([]int, n)
 	right := make([]int, n)
@@ -38,10 +48,10 @@ func maximumScore(nums []int, k int) int {
 		l, r := left[i], right[i]
 		cnt := (i - l) * (r - i)
 		if cnt <= k {
-			ans = ans * qmi(x, cnt, mod) % mod
+			ans = ans * qpow(x, cnt) % mod
 			k -= cnt
 		} else {
-			ans = ans * qmi(x, k, mod) % mod
+			ans = ans * qpow(x, k) % mod
 			break
 		}
 	}
@@ -62,16 +72,4 @@ func primeFactors(n int) int {
 		ans[n] = true
 	}
 	return len(ans)
-}
-
-func qmi(a, k, p int) int {
-	res := 1
-	for k != 0 {
-		if k&1 == 1 {
-			res = res * a % p
-		}
-		k >>= 1
-		a = a * a % p
-	}
-	return res
 }

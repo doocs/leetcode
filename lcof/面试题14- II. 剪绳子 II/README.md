@@ -1,4 +1,4 @@
-# [面试题 14- II. 剪绳子 II](这里是题目链接，如：https://leetcode.cn/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)
+# [面试题 14- II. 剪绳子 II](https://leetcode.cn/problems/jian-sheng-zi-ii-lcof/)
 
 ## 题目描述
 
@@ -36,7 +36,7 @@
 
 当 $n \lt 4$，此时 $n$ 不能拆分成至少两个正整数的和，因此 $n - 1$ 是最大乘积。当 $n \ge 4$ 时，我们尽可能多地拆分 $3$，当剩下的最后一段为 $4$ 时，我们将其拆分为 $2 + 2$，这样乘积最大。
 
-时间复杂度 $O(1)$，空间复杂度 $O(1)$。
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -59,30 +59,30 @@ class Solution:
 
 ```java
 class Solution {
+    private final int mod = (int) 1e9 + 7;
+
     public int cuttingRope(int n) {
         if (n < 4) {
             return n - 1;
         }
-        final int mod = (int) 1e9 + 7;
         if (n % 3 == 0) {
-            return (int) qmi(3, n / 3, mod);
+            return qpow(3, n / 3);
         }
         if (n % 3 == 1) {
-            return (int) (qmi(3, n / 3 - 1, mod) * 4 % mod);
+            return (int) (4L * qpow(3, n / 3 - 1) % mod);
         }
-        return (int) (qmi(3, n / 3, mod) * 2 % mod);
+        return 2 * qpow(3, n / 3) % mod;
     }
 
-    long qmi(long a, long k, long p) {
-        long res = 1;
-        while (k != 0) {
-            if ((k & 1) == 1) {
-                res = res * a % p;
+    private int qpow(long a, long n) {
+        long ans = 1;
+        for (; n > 0; n >>= 1) {
+            if ((n & 1) == 1) {
+                ans = ans * a % mod;
             }
-            k >>= 1;
-            a = a * a % p;
+            a = a * a % mod;
         }
-        return res;
+        return (int) ans;
     }
 }
 ```
@@ -97,53 +97,24 @@ public:
             return n - 1;
         }
         const int mod = 1e9 + 7;
+        auto qpow = [&](long long a, long long n) {
+            long long ans = 1;
+            for (; n; n >>= 1) {
+                if (n & 1) {
+                    ans = ans * a % mod;
+                }
+                a = a * a % mod;
+            }
+            return (int) ans;
+        };
         if (n % 3 == 0) {
-            return qmi(3, n / 3, mod);
+            return qpow(3, n / 3);
         }
         if (n % 3 == 1) {
-            return qmi(3, n / 3 - 1, mod) * 4 % mod;
+            return qpow(3, n / 3 - 1) * 4L % mod;
         }
-        return qmi(3, n / 3, mod) * 2 % mod;
+        return qpow(3, n / 3) * 2 % mod;
     }
-
-    long qmi(long a, long k, long p) {
-        long res = 1;
-        while (k != 0) {
-            if ((k & 1) == 1) {
-                res = res * a % p;
-            }
-            k >>= 1;
-            a = a * a % p;
-        }
-        return res;
-    }
-};
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {number} n
- * @return {number}
- */
-var cuttingRope = function (n) {
-    if (n <= 3) return n - 1;
-    let a = ~~(n / 3);
-    let b = n % 3;
-    const MOD = 1e9 + 7;
-    function myPow(x) {
-        let r = 1;
-        for (let i = 0; i < x; i++) {
-            r = (r * 3) % MOD;
-        }
-        return r;
-    }
-    if (b === 1) {
-        return (myPow(a - 1) * 4) % MOD;
-    }
-    if (b === 0) return myPow(a) % MOD;
-    return (myPow(a) * 2) % MOD;
 };
 ```
 
@@ -155,26 +126,57 @@ func cuttingRope(n int) int {
 		return n - 1
 	}
 	const mod = 1e9 + 7
+	qpow := func(a, n int) int {
+		ans := 1
+		for ; n > 0; n >>= 1 {
+			if n&1 == 1 {
+				ans = ans * a % mod
+			}
+			a = a * a % mod
+		}
+		return ans
+	}
 	if n%3 == 0 {
-		return qmi(3, n/3, mod)
+		return qpow(3, n/3)
 	}
 	if n%3 == 1 {
-		return qmi(3, n/3-1, mod) * 4 % mod
+		return qpow(3, n/3-1) * 4 % mod
 	}
-	return qmi(3, n/3, mod) * 2 % mod
+	return qpow(3, n/3) * 2 % mod
 }
+```
 
-func qmi(a, k, p int) int {
-	res := 1
-	for k != 0 {
-		if k&1 == 1 {
-			res = res * a % p
-		}
-		k >>= 1
-		a = a * a % p
-	}
-	return res
-}
+### **JavaScript**
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var cuttingRope = function (n) {
+    if (n < 4) {
+        return n - 1;
+    }
+    const mod = 1e9 + 7;
+    const qpow = (a, n) => {
+        let ans = 1;
+        for (; n; n >>= 1) {
+            if (n & 1) {
+                ans = Number((BigInt(ans) * BigInt(a)) % BigInt(mod));
+            }
+            a = Number((BigInt(a) * BigInt(a)) % BigInt(mod));
+        }
+        return ans;
+    };
+    const k = Math.floor(n / 3);
+    if (n % 3 === 0) {
+        return qpow(3, k);
+    }
+    if (n % 3 === 1) {
+        return (4 * qpow(3, k - 1)) % mod;
+    }
+    return (2 * qpow(3, k)) % mod;
+};
 ```
 
 ### **Rust**
