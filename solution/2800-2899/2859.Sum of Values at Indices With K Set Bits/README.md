@@ -73,7 +73,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int sumIndicesWithKSetBits(List<Integer> nums, int k) {
+        int ans = 0;
+        for (int i = 0; i < nums.size(); i++) {
+            if (Integer.bitCount(i) == k) {
+                ans += nums.get(i);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
