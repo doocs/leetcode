@@ -55,7 +55,17 @@ The class teacher selects all the students to form the group.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def countWays(self, nums: List[int]) -> int:
+        nums.sort()
+        n = len(nums)
+        ans = 0
+        for i in range(n + 1):
+            if i and nums[i - 1] >= i:
+                continue
+            if i < n and nums[i] <= i:
+                continue
+        return ans
 ```
 
 ### **Java**
@@ -79,13 +89,54 @@ class Solution {
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int countWays(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int ans = 0;
+        int n = nums.size();
+        for (int i = 0; i <= n; ++i) {
+            if ((i && nums[i - 1] >= i) || (i < n && nums[i] <= i)) {
+                continue;
+            }
+            ++ans;
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func countWays(nums []int) (ans int) {
+	sort.Ints(nums)
+	n := len(nums)
+	for i := 0; i <= n; i++ {
+		if (i > 0 && nums[i-1] >= i) || (i < n && nums[i] <= i) {
+			continue
+		}
+		ans++
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function countWays(nums: number[]): number {
+    nums.sort((a, b) => a - b);
+    let ans = 0;
+    const n = nums.length;
+    for (let i = 0; i <= n; ++i) {
+        if ((i && nums[i - 1] >= i) || (i < n && nums[i] <= i)) {
+            continue;
+        }
+        ++ans;
+    }
+    return ans;
+}
 ```
 
 ### **...**
