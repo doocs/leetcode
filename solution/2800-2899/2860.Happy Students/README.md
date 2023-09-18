@@ -56,6 +56,22 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：排序 + 枚举**
+
+假设选出了 $k$ 个学生，那么以下情况成立：
+
+-   如果 $nums[i] = k$，那么不存在分组方法；
+-   如果 $nums[i] \gt k$，那么学生 $i$ 不被选中；
+-   如果 $nums[i] \lt k$，那么学生 $i$ 被选中。
+
+因此，被选中的学生一定是排序后的 $nums$ 数组中的前 $k$ 个元素。
+
+我们在 $[0,..n]$ 范围内枚举 $k$，对于当前选出的学生人数 $i$，我们可以得到组内最大的学生编号 $i-1$，数字为 $nums[i-1]$。如果 $i \gt 0$ 并且 $nums[i-1] \ge i$，那么不存在分组方法；如果 $i \lt n$ 并且 $nums[i] \le i$，那么不存在分组方法。否则，存在分组方法，答案加一。
+
+枚举结束后，返回答案即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,7 +79,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countWays(self, nums: List[int]) -> int:
+        nums.sort()
+        n = len(nums)
+        ans = 0
+        for i in range(n + 1):
+            if i and nums[i - 1] >= i:
+                continue
+            if i < n and nums[i] <= i:
+                continue
+        return ans
 ```
 
 ### **Java**
@@ -89,13 +115,54 @@ class Solution {
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int countWays(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int ans = 0;
+        int n = nums.size();
+        for (int i = 0; i <= n; ++i) {
+            if ((i && nums[i - 1] >= i) || (i < n && nums[i] <= i)) {
+                continue;
+            }
+            ++ans;
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func countWays(nums []int) (ans int) {
+	sort.Ints(nums)
+	n := len(nums)
+	for i := 0; i <= n; i++ {
+		if (i > 0 && nums[i-1] >= i) || (i < n && nums[i] <= i) {
+			continue
+		}
+		ans++
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function countWays(nums: number[]): number {
+    nums.sort((a, b) => a - b);
+    let ans = 0;
+    const n = nums.length;
+    for (let i = 0; i <= n; ++i) {
+        if ((i && nums[i - 1] >= i) || (i < n && nums[i] <= i)) {
+            continue;
+        }
+        ++ans;
+    }
+    return ans;
+}
 ```
 
 ### **...**

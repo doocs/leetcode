@@ -58,6 +58,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+我们直接遍历每个下标 $i$，判断其二进制表示中 $1$ 的个数是否等于 $k$，如果等于则将其对应的元素累加到答案 $ans$ 中。
+
+遍历结束后，返回答案即可。
+
+时间复杂度 $O(n \times \log n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -65,7 +73,9 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def sumIndicesWithKSetBits(self, nums: List[int], k: int) -> int:
+        return sum(x for i, x in enumerate(nums) if i.bit_count() == k)
 ```
 
 ### **Java**
@@ -89,13 +99,54 @@ class Solution {
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int sumIndicesWithKSetBits(vector<int>& nums, int k) {
+        int ans = 0;
+        for (int i = 0; i < nums.size(); ++i) {
+            if (__builtin_popcount(i) == k) {
+                ans += nums[i];
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func sumIndicesWithKSetBits(nums []int, k int) (ans int) {
+	for i, x := range nums {
+		if bits.OnesCount(uint(i)) == k {
+			ans += x
+		}
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function sumIndicesWithKSetBits(nums: number[], k: number): number {
+    let ans = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        if (bitCount(i) === k) {
+            ans += nums[i];
+        }
+    }
+    return ans;
+}
+
+function bitCount(n: number): number {
+    let count = 0;
+    while (n) {
+        n &= n - 1;
+        count++;
+    }
+    return count;
+}
 ```
 
 ### **...**

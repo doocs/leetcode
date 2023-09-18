@@ -1,15 +1,13 @@
 class Solution {
     int n;
-    int k;
     int budget;
     List<List<Integer>> composition;
     List<Integer> stock;
     List<Integer> cost;
 
     boolean isValid(long target) {
-        for (int i = 0; i < k; i++) {
+        for (List<Integer> currMachine : composition) {
             long remain = budget;
-            List<Integer> currMachine = composition.get(i);
             for (int j = 0; j < n && remain >= 0; j++) {
                 long need = Math.max(0, currMachine.get(j) * target - stock.get(j));
                 remain -= need * cost.get(j);
@@ -24,7 +22,6 @@ class Solution {
     public int maxNumberOfAlloys(int n, int k, int budget, List<List<Integer>> composition,
         List<Integer> stock, List<Integer> cost) {
         this.n = n;
-        this.k = k;
         this.budget = budget;
         this.composition = composition;
         this.stock = stock;
