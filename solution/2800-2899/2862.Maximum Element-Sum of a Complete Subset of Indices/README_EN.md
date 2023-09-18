@@ -55,7 +55,18 @@ Hence, the maximum element-sum of a complete subset of indices is 19.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maximumSum(self, nums: List[int]) -> int:
+        n = len(nums)
+        ans = 0
+        for k in range(1, n + 1):
+            t = 0
+            j = 1
+            while k * j * j <= n:
+                t += nums[k * j * j - 1]
+                j += 1
+            ans = max(ans, t)
+        return ans
 ```
 
 ### **Java**
@@ -84,19 +95,83 @@ class Solution {
         return ans;
     }
 }
+```
 
+```java
+class Solution {
+    public long maximumSum(List<Integer> nums) {
+        long ans = 0;
+        int n = nums.size();
+        for (int k = 1; k <= n; ++k) {
+            long t = 0;
+            for (int j = 1; k * j * j <= n; ++j) {
+                t += nums.get(k * j * j - 1);
+            }
+            ans = Math.max(ans, t);
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    long long maximumSum(vector<int>& nums) {
+        long long ans = 0;
+        int n = nums.size();
+        for (int k = 1; k <= n; ++k) {
+            long long t = 0;
+            for (int j = 1; k * j * j <= n; ++j) {
+                t += nums[k * j * j - 1];
+            }
+            ans = max(ans, t);
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func maximumSum(nums []int) (ans int64) {
+	n := len(nums)
+	for k := 1; k <= n; k++ {
+		var t int64
+		for j := 1; k*j*j <= n; j++ {
+			t += int64(nums[k*j*j-1])
+		}
+		ans = max(ans, t)
+	}
+	return
+}
 
+func max(a, b int64) int64 {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maximumSum(nums: number[]): number {
+    let ans = 0;
+    const n = nums.length;
+    for (let k = 1; k <= n; ++k) {
+        let t = 0;
+        for (let j = 1; k * j * j <= n; ++j) {
+            t += nums[k * j * j - 1];
+        }
+        ans = Math.max(ans, t);
+    }
+    return ans;
+}
 ```
 
 ### **...**
