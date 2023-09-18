@@ -56,6 +56,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：枚举**
+
+我们注意到，如果一个数字可以表示成 $k \times j^2$ 的形式，那么所有该形式的数字的 $k$ 是相同的。
+
+因此，我们可以在 $[1,..n]$ 范围内枚举 $k$，然后从 $1$ 开始枚举 $j$，每一次累加 $nums[k \times j^2 - 1]$ 的值到 $t$ 中，直到 $k \times j^2 > n$。此时更新答案为 $ans = \max(ans, t)$。
+
+最后返回答案 $ans$ 即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,7 +73,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maximumSum(self, nums: List[int]) -> int:
+        n = len(nums)
+        ans = 0
+        for k in range(1, n + 1):
+            t = 0
+            j = 1
+            while k * j * j <= n:
+                t += nums[k * j * j - 1]
+                j += 1
+            ans = max(ans, t)
+        return ans
 ```
 
 ### **Java**
@@ -94,19 +115,83 @@ class Solution {
         return ans;
     }
 }
+```
 
+```java
+class Solution {
+    public long maximumSum(List<Integer> nums) {
+        long ans = 0;
+        int n = nums.size();
+        for (int k = 1; k <= n; ++k) {
+            long t = 0;
+            for (int j = 1; k * j * j <= n; ++j) {
+                t += nums.get(k * j * j - 1);
+            }
+            ans = Math.max(ans, t);
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    long long maximumSum(vector<int>& nums) {
+        long long ans = 0;
+        int n = nums.size();
+        for (int k = 1; k <= n; ++k) {
+            long long t = 0;
+            for (int j = 1; k * j * j <= n; ++j) {
+                t += nums[k * j * j - 1];
+            }
+            ans = max(ans, t);
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func maximumSum(nums []int) (ans int64) {
+	n := len(nums)
+	for k := 1; k <= n; k++ {
+		var t int64
+		for j := 1; k*j*j <= n; j++ {
+			t += int64(nums[k*j*j-1])
+		}
+		ans = max(ans, t)
+	}
+	return
+}
 
+func max(a, b int64) int64 {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maximumSum(nums: number[]): number {
+    let ans = 0;
+    const n = nums.length;
+    for (let k = 1; k <= n; ++k) {
+        let t = 0;
+        for (let j = 1; k * j * j <= n; ++j) {
+            t += nums[k * j * j - 1];
+        }
+        ans = Math.max(ans, t);
+    }
+    return ans;
+}
 ```
 
 ### **...**
