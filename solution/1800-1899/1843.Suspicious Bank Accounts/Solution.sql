@@ -14,8 +14,5 @@ WITH
     )
 SELECT DISTINCT account_id
 FROM S
-WHERE
-    (account_id, period_add(yearmonth, 1)) IN (
-        SELECT account_id, yearmonth FROM S
-    )
+WHERE (account_id, period_add(yearmonth, 1)) IN (SELECT account_id, yearmonth FROM S)
 ORDER BY tx;

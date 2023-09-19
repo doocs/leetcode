@@ -64,19 +64,154 @@ The minimum time to complete the race is 25 seconds.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minimumFinishTime(
+        self, tires: List[List[int]], changeTime: int, numLaps: int
+    ) -> int:
+        cost = [inf] * 18
+        for f, r in tires:
+            i, s, t = 1, 0, f
+            while t <= changeTime + f:
+                s += t
+                cost[i] = min(cost[i], s)
+                t *= r
+                i += 1
+        f = [inf] * (numLaps + 1)
+        f[0] = -changeTime
+        for i in range(1, numLaps + 1):
+            for j in range(1, min(18, i + 1)):
+                f[i] = min(f[i], f[i - j] + cost[j])
+            f[i] += changeTime
+        return f[numLaps]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minimumFinishTime(int[][] tires, int changeTime, int numLaps) {
+        final int inf = 1 << 30;
+        int[] cost = new int[18];
+        Arrays.fill(cost, inf);
+        for (int[] e : tires) {
+            int f = e[0], r = e[1];
+            int s = 0, t = f;
+            for (int i = 1; t <= changeTime + f; ++i) {
+                s += t;
+                cost[i] = Math.min(cost[i], s);
+                t *= r;
+            }
+        }
+        int[] f = new int[numLaps + 1];
+        Arrays.fill(f, inf);
+        f[0] = -changeTime;
+        for (int i = 1; i <= numLaps; ++i) {
+            for (int j = 1; j < Math.min(18, i + 1); ++j) {
+                f[i] = Math.min(f[i], f[i - j] + cost[j]);
+            }
+            f[i] += changeTime;
+        }
+        return f[numLaps];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimumFinishTime(vector<vector<int>>& tires, int changeTime, int numLaps) {
+        int cost[18];
+        memset(cost, 0x3f, sizeof(cost));
+        for (auto& e : tires) {
+            int f = e[0], r = e[1];
+            int s = 0;
+            long long t = f;
+            for (int i = 1; t <= changeTime + f; ++i) {
+                s += t;
+                cost[i] = min(cost[i], s);
+                t *= r;
+            }
+        }
+        int f[numLaps + 1];
+        memset(f, 0x3f, sizeof(f));
+        f[0] = -changeTime;
+        for (int i = 1; i <= numLaps; ++i) {
+            for (int j = 1; j < min(18, i + 1); ++j) {
+                f[i] = min(f[i], f[i - j] + cost[j]);
+            }
+            f[i] += changeTime;
+        }
+        return f[numLaps];
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumFinishTime(tires [][]int, changeTime int, numLaps int) int {
+	const inf = 1 << 30
+	cost := [18]int{}
+	for i := range cost {
+		cost[i] = inf
+	}
+	for _, e := range tires {
+		f, r := e[0], e[1]
+		s, t := 0, f
+		for i := 1; t <= changeTime+f; i++ {
+			s += t
+			cost[i] = min(cost[i], s)
+			t *= r
+		}
+	}
+	f := make([]int, numLaps+1)
+	for i := range f {
+		f[i] = inf
+	}
+	f[0] = -changeTime
+	for i := 1; i <= numLaps; i++ {
+		for j := 1; j < min(18, i+1); j++ {
+			f[i] = min(f[i], f[i-j]+cost[j])
+		}
+		f[i] += changeTime
+	}
+	return f[numLaps]
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function minimumFinishTime(tires: number[][], changeTime: number, numLaps: number): number {
+    const cost: number[] = Array(18).fill(Infinity);
+    for (const [f, r] of tires) {
+        let s = 0;
+        let t = f;
+        for (let i = 1; t <= changeTime + f; ++i) {
+            s += t;
+            cost[i] = Math.min(cost[i], s);
+            t *= r;
+        }
+    }
+    const f: number[] = Array(numLaps + 1).fill(Infinity);
+    f[0] = -changeTime;
+    for (let i = 1; i <= numLaps; ++i) {
+        for (let j = 1; j < Math.min(18, i + 1); ++j) {
+            f[i] = Math.min(f[i], f[i - j] + cost[j]);
+        }
+        f[i] += changeTime;
+    }
+    return f[numLaps];
+}
 ```
 
 ### **...**

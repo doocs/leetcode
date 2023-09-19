@@ -51,22 +51,15 @@ class Solution:
         n = 8
         s = {(i, j) for i, j in queens}
         ans = []
-        for a, b in [
-            [-1, 0],
-            [1, 0],
-            [0, -1],
-            [0, 1],
-            [1, 1],
-            [1, -1],
-            [-1, 1],
-            [-1, -1],
-        ]:
-            x, y = king
-            while 0 <= x + a < n and 0 <= y + b < n:
-                x, y = x + a, y + b
-                if (x, y) in s:
-                    ans.append([x, y])
-                    break
+        for a in range(-1, 2):
+            for b in range(-1, 2):
+                if a or b:
+                    x, y = king
+                    while 0 <= x + a < n and 0 <= y + b < n:
+                        x, y = x + a, y + b
+                        if (x, y) in s:
+                            ans.append([x, y])
+                            break
         return ans
 ```
 
@@ -74,32 +67,27 @@ class Solution:
 
 ```java
 class Solution {
-    private static final int N = 8;
-    private int[][] dirs
-        = new int[][] {{0, -1}, {0, 1}, {1, 0}, {-1, 0}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
-
     public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
-        Set<Integer> s = get(queens);
+        final int n = 8;
+        var s = new boolean[n][n];
+        for (var q : queens) {
+            s[q[0]][q[1]] = true;
+        }
         List<List<Integer>> ans = new ArrayList<>();
-        for (int[] dir : dirs) {
-            int x = king[0], y = king[1];
-            int a = dir[0], b = dir[1];
-            while (x + a >= 0 && x + a < N && y + b >= 0 && y + b < N) {
-                x += a;
-                y += b;
-                if (s.contains(x * N + y)) {
-                    ans.add(Arrays.asList(x, y));
-                    break;
+        for (int a = -1; a <= 1; ++a) {
+            for (int b = -1; b <= 1; ++b) {
+                if (a != 0 || b != 0) {
+                    int x = king[0] + a, y = king[1] + b;
+                    while (x >= 0 && x < n && y >= 0 && y < n) {
+                        if (s[x][y]) {
+                            ans.add(List.of(x, y));
+                            break;
+                        }
+                        x += a;
+                        y += b;
+                    }
                 }
             }
-        }
-        return ans;
-    }
-
-    private Set<Integer> get(int[][] queens) {
-        Set<Integer> ans = new HashSet<>();
-        for (int[] queen : queens) {
-            ans.add(queen[0] * N + queen[1]);
         }
         return ans;
     }
@@ -112,20 +100,24 @@ class Solution {
 class Solution {
 public:
     vector<vector<int>> queensAttacktheKing(vector<vector<int>>& queens, vector<int>& king) {
-        unordered_set<int> s;
         int n = 8;
-        for (auto& queen : queens) s.insert(queen[0] * n + queen[1]);
-        vector<vector<int>> dirs = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
+        bool s[8][8]{};
+        for (auto& q : queens) {
+            s[q[0]][q[1]] = true;
+        }
         vector<vector<int>> ans;
-        for (auto& dir : dirs) {
-            int x = king[0], y = king[1];
-            int a = dir[0], b = dir[1];
-            while (x + a >= 0 && x + a < n && y + b >= 0 && y + b < n) {
-                x += a;
-                y += b;
-                if (s.count(x * n + y)) {
-                    ans.push_back({x, y});
-                    break;
+        for (int a = -1; a <= 1; ++a) {
+            for (int b = -1; b <= 1; ++b) {
+                if (a || b) {
+                    int x = king[0] + a, y = king[1] + b;
+                    while (x >= 0 && x < n && y >= 0 && y < n) {
+                        if (s[x][y]) {
+                            ans.push_back({x, y});
+                            break;
+                        }
+                        x += a;
+                        y += b;
+                    }
                 }
             }
         }
@@ -137,26 +129,55 @@ public:
 ### **Go**
 
 ```go
-func queensAttacktheKing(queens [][]int, king []int) [][]int {
-	s := make(map[int]bool)
+func queensAttacktheKing(queens [][]int, king []int) (ans [][]int) {
 	n := 8
-	for _, queen := range queens {
-		s[queen[0]*n+queen[1]] = true
+	s := [8][8]bool{}
+	for _, q := range queens {
+		s[q[0]][q[1]] = true
 	}
-	dirs := [8][2]int{{0, -1}, {0, 1}, {1, 0}, {-1, 0}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}}
-	var ans [][]int
-	for _, dir := range dirs {
-		x, y := king[0], king[1]
-		a, b := dir[0], dir[1]
-		for x+a >= 0 && x+a < n && y+b >= 0 && y+b < n {
-			x, y = x+a, y+b
-			if s[x*n+y] {
-				ans = append(ans, []int{x, y})
-				break
+	for a := -1; a <= 1; a++ {
+		for b := -1; b <= 1; b++ {
+			if a != 0 || b != 0 {
+				x, y := king[0]+a, king[1]+b
+				for 0 <= x && x < n && 0 <= y && y < n {
+					if s[x][y] {
+						ans = append(ans, []int{x, y})
+						break
+					}
+					x += a
+					y += b
+				}
 			}
 		}
 	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function queensAttacktheKing(queens: number[][], king: number[]): number[][] {
+    const n = 8;
+    const s: boolean[][] = Array.from({ length: n }, () => Array.from({ length: n }, () => false));
+    queens.forEach(([x, y]) => (s[x][y] = true));
+    const ans: number[][] = [];
+    for (let a = -1; a <= 1; ++a) {
+        for (let b = -1; b <= 1; ++b) {
+            if (a || b) {
+                let [x, y] = [king[0] + a, king[1] + b];
+                while (x >= 0 && x < n && y >= 0 && y < n) {
+                    if (s[x][y]) {
+                        ans.push([x, y]);
+                        break;
+                    }
+                    x += a;
+                    y += b;
+                }
+            }
+        }
+    }
+    return ans;
 }
 ```
 

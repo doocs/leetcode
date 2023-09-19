@@ -238,11 +238,7 @@ func g(m, n, k int) [][][]int {
 ### **TypeScript**
 
 ```ts
-function numberOfBeautifulIntegers(
-    low: number,
-    high: number,
-    k: number,
-): number {
+function numberOfBeautifulIntegers(low: number, high: number, k: number): number {
     let s = String(high);
     let f: number[][][] = Array(11)
         .fill(0)
@@ -251,13 +247,7 @@ function numberOfBeautifulIntegers(
                 .fill(0)
                 .map(() => Array(21).fill(-1)),
         );
-    const dfs = (
-        pos: number,
-        mod: number,
-        diff: number,
-        lead: boolean,
-        limit: boolean,
-    ): number => {
+    const dfs = (pos: number, mod: number, diff: number, lead: boolean, limit: boolean): number => {
         if (pos >= s.length) {
             return mod == 0 && diff == 10 ? 1 : 0;
         }
@@ -271,13 +261,7 @@ function numberOfBeautifulIntegers(
                 ans += dfs(pos + 1, mod, diff, true, limit && i === up);
             } else {
                 const nxt = diff + (i % 2 ? 1 : -1);
-                ans += dfs(
-                    pos + 1,
-                    (mod * 10 + i) % k,
-                    nxt,
-                    false,
-                    limit && i === up,
-                );
+                ans += dfs(pos + 1, (mod * 10 + i) % k, nxt, false, limit && i === up);
             }
         }
         if (!lead && !limit) {

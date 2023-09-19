@@ -12,10 +12,7 @@
  * }
  */
 
-function insertIntoMaxTree(
-    root: TreeNode | null,
-    val: number,
-): TreeNode | null {
+function insertIntoMaxTree(root: TreeNode | null, val: number): TreeNode | null {
     if (!root || root.val < val) {
         return new TreeNode(val, root);
     }

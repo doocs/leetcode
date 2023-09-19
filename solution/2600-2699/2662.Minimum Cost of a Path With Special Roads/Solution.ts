@@ -1,8 +1,4 @@
-function minimumCost(
-    start: number[],
-    target: number[],
-    specialRoads: number[][],
-): number {
+function minimumCost(start: number[], target: number[], specialRoads: number[][]): number {
     const dist = (x1: number, y1: number, x2: number, y2: number): number => {
         return Math.abs(x1 - x2) + Math.abs(y1 - y2);
     };
@@ -38,8 +34,7 @@ class Heap<T = number> {
     constructor(data: T[] | Compare<T>, compare?: (lhs: T, rhs: T) => number);
     constructor(
         data: T[] | Compare<T> = [],
-        compare: Compare<T> = (lhs: T, rhs: T) =>
-            lhs < rhs ? -1 : lhs > rhs ? 1 : 0,
+        compare: Compare<T> = (lhs: T, rhs: T) => (lhs < rhs ? -1 : lhs > rhs ? 1 : 0),
     ) {
         if (typeof data === 'function') {
             compare = data;

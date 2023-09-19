@@ -37,10 +37,10 @@ function maximumScore(nums: number[], k: number): number {
         const r = right[i];
         const cnt = (i - l) * (r - i);
         if (cnt <= k) {
-            ans = (ans * qmi(BigInt(x), cnt, BigInt(mod))) % BigInt(mod);
+            ans = (ans * qpow(BigInt(x), cnt, mod)) % BigInt(mod);
             k -= cnt;
         } else {
-            ans = (ans * qmi(BigInt(x), k, BigInt(mod))) % BigInt(mod);
+            ans = (ans * qpow(BigInt(x), k, mod)) % BigInt(mod);
             break;
         }
     }
@@ -63,14 +63,13 @@ function primeFactors(n: number): number {
     return s.size;
 }
 
-function qmi(a: bigint, k: number, p: bigint): bigint {
-    let res = 1n;
-    while (k) {
-        if ((k & 1) === 1) {
-            res = (res * a) % p;
+function qpow(a: bigint, n: number, mod: number): bigint {
+    let ans = 1n;
+    for (; n; n >>>= 1) {
+        if (n & 1) {
+            ans = (ans * a) % BigInt(mod);
         }
-        k >>= 1;
-        a = (a * a) % p;
+        a = (a * a) % BigInt(mod);
     }
-    return res;
+    return ans;
 }

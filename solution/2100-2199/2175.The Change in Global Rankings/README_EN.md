@@ -14,7 +14,7 @@
 | name        | varchar |
 | points      | int     |
 +-------------+---------+
-team_id is the primary key for this table.
+team_id contains unique values.
 Each row of this table contains the ID of a national team, the name of the country it represents, and the points it has in the global rankings. No two teams will represent the same country.
 </pre>
 
@@ -29,7 +29,7 @@ Each row of this table contains the ID of a national team, the name of the count
 | team_id       | int  |
 | points_change | int  |
 +---------------+------+
-team_id is the primary key for this table.
+team_id contains unique values.
 Each row of this table contains the ID of a national team and the change in its points in the global rankings.
 points_change can be:
 - 0: indicates no change in points.
@@ -44,11 +44,11 @@ Each team_id that appears in TeamPoints will also appear in this table.
 
 <p>The points of each national team should be updated based on its corresponding <code>points_change</code> value.</p>
 
-<p>Write an SQL query to calculate the change in the global rankings after updating each team&#39;s points.</p>
+<p>Write a solution to calculate the change in the global rankings after updating each team&#39;s points.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

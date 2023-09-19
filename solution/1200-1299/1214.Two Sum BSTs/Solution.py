@@ -5,23 +5,25 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def twoSumBSTs(self, root1: TreeNode, root2: TreeNode, target: int) -> bool:
-        vals1, vals2 = [], []
+    def twoSumBSTs(
+        self, root1: Optional[TreeNode], root2: Optional[TreeNode], target: int
+    ) -> bool:
+        def dfs(root: Optional[TreeNode], i: int):
+            if root is None:
+                return
+            dfs(root.left, i)
+            nums[i].append(root.val)
+            dfs(root.right, i)
 
-        def inorder(root, vals):
-            if root:
-                inorder(root.left, vals)
-                vals.append(root.val)
-                inorder(root.right, vals)
-
-        inorder(root1, vals1)
-        inorder(root2, vals2)
-
-        i, j = 0, len(vals2) - 1
-        while i < len(vals1) and j >= 0:
-            if vals1[i] + vals2[j] == target:
+        nums = [[], []]
+        dfs(root1, 0)
+        dfs(root2, 1)
+        i, j = 0, len(nums[1]) - 1
+        while i < len(nums[0]) and ~j:
+            x = nums[0][i] + nums[1][j]
+            if x == target:
                 return True
-            if vals1[i] + vals2[j] < target:
+            if x < target:
                 i += 1
             else:
                 j -= 1

@@ -130,11 +130,7 @@ func twoOutOfThree(nums1 []int, nums2 []int, nums3 []int) (ans []int) {
 ### **TypeScript**
 
 ```ts
-function twoOutOfThree(
-    nums1: number[],
-    nums2: number[],
-    nums3: number[],
-): number[] {
+function twoOutOfThree(nums1: number[], nums2: number[], nums3: number[]): number[] {
     const count = new Array(101).fill(0);
     new Set(nums1).forEach(v => count[v]++);
     new Set(nums2).forEach(v => count[v]++);

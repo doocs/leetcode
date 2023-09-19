@@ -263,11 +263,7 @@ func findAllPeople(n int, meetings [][]int, firstPerson int) []int {
 ### **TypeScript**
 
 ```ts
-function findAllPeople(
-    n: number,
-    meetings: number[][],
-    firstPerson: number,
-): number[] {
+function findAllPeople(n: number, meetings: number[][], firstPerson: number): number[] {
     let parent: Array<number> = Array.from({ length: n + 1 }, (v, i) => i);
     parent[firstPerson] = 0;
 

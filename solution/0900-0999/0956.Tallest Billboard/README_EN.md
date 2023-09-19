@@ -322,10 +322,7 @@ function tallestBillboard(rods: number[]): number {
             return f[i][j];
         }
         let ans = Math.max(dfs(i + 1, j), dfs(i + 1, j + rods[i]));
-        ans = Math.max(
-            ans,
-            dfs(i + 1, Math.abs(j - rods[i])) + Math.min(j, rods[i]),
-        );
+        ans = Math.max(ans, dfs(i + 1, Math.abs(j - rods[i])) + Math.min(j, rods[i]));
         return (f[i][j] = ans);
     };
     return dfs(0, 0);

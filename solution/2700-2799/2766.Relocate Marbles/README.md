@@ -149,11 +149,7 @@ func relocateMarbles(nums []int, moveFrom []int, moveTo []int) (ans []int) {
 ### **TypeScript**
 
 ```ts
-function relocateMarbles(
-    nums: number[],
-    moveFrom: number[],
-    moveTo: number[],
-): number[] {
+function relocateMarbles(nums: number[], moveFrom: number[], moveTo: number[]): number[] {
     const pos: Set<number> = new Set(nums);
     for (let i = 0; i < moveFrom.length; i++) {
         pos.delete(moveFrom[i]);

@@ -1,37 +1,35 @@
 class Solution {
-    public List<Boolean> checkIfPrerequisite(
-        int numCourses, int[][] prerequisites, int[][] queries) {
-        int[][] g = new int[numCourses][numCourses];
-        for (int i = 0; i < numCourses; ++i) {
-            Arrays.fill(g[i], -1);
+    public List<Boolean> checkIfPrerequisite(int n, int[][] prerequisites, int[][] queries) {
+        boolean[][] f = new boolean[n][n];
+        List<Integer>[] g = new List[n];
+        int[] indeg = new int[n];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (var p : prerequisites) {
+            g[p[0]].add(p[1]);
+            ++indeg[p[1]];
         }
-        for (int[] e : prerequisites) {
-            int a = e[0], b = e[1];
-            g[a][b] = 1;
-        }
-        List<Boolean> ans = new ArrayList<>();
-        for (int[] e : queries) {
-            int a = e[0], b = e[1];
-            ans.add(dfs(a, b, g));
-        }
-        return ans;
-    }
-
-    private boolean dfs(int a, int b, int[][] g) {
-        if (g[a][b] != -1) {
-            return g[a][b] == 1;
-        }
-        if (a == b) {
-            g[a][b] = 1;
-            return true;
-        }
-        for (int i = 0; i < g[a].length; ++i) {
-            if (g[a][i] == 1 && dfs(i, b, g)) {
-                g[a][b] = 1;
-                return true;
+        Deque<Integer> q = new ArrayDeque<>();
+        for (int i = 0; i < n; ++i) {
+            if (indeg[i] == 0) {
+                q.offer(i);
             }
         }
-        g[a][b] = 0;
-        return false;
+        while (!q.isEmpty()) {
+            int i = q.poll();
+            for (int j : g[i]) {
+                f[i][j] = true;
+                for (int h = 0; h < n; ++h) {
+                    f[h][j] |= f[h][i];
+                }
+                if (--indeg[j] == 0) {
+                    q.offer(j);
+                }
+            }
+        }
+        List<Boolean> ans = new ArrayList<>();
+        for (var qry : queries) {
+            ans.add(f[qry[0]][qry[1]]);
+        }
+        return ans;
     }
 }

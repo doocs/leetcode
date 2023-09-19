@@ -1,24 +1,22 @@
 class Solution {
-    const int MOD = 1337;
-
 public:
     int superPow(int a, vector<int>& b) {
-        int ans = 1;
-        for (int i = b.size() - 1; i >= 0; --i) {
-            ans = (long) ans * quickPowAndMod(a, b[i]) % MOD;
-            a = quickPowAndMod(a, 10);
-        }
-        return ans;
-    }
-
-    int quickPowAndMod(int a, int b) {
-        int ans = 1;
-        while (b) {
-            if (b & 1) {
-                ans = (ans * (a % MOD)) % MOD;
+        using ll = long long;
+        const int mod = 1337;
+        ll ans = 1;
+        auto qpow = [&](ll a, int n) {
+            ll ans = 1;
+            for (; n; n >>= 1) {
+                if (n & 1) {
+                    ans = ans * a % mod;
+                }
+                a = a * a % mod;
             }
-            b >>= 1;
-            a = ((a % MOD) * (a % MOD)) % MOD;
+            return (int) ans;
+        };
+        for (int i = b.size() - 1; ~i; --i) {
+            ans = ans * qpow(a, b[i]) % mod;
+            a = qpow(a, 10);
         }
         return ans;
     }

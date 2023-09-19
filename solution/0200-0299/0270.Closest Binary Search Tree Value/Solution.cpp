@@ -16,14 +16,15 @@ public:
         double mi = INT_MAX;
         while (root) {
             double t = abs(root->val - target);
-            if (t < mi) {
+            if (t < mi || (t == mi && root->val < ans)) {
                 mi = t;
                 ans = root->val;
             }
-            if (root->val > target)
+            if (root->val > target) {
                 root = root->left;
-            else
+            } else {
                 root = root->right;
+            }
         }
         return ans;
     }

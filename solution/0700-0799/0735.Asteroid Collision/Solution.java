@@ -1,20 +1,20 @@
 class Solution {
     public int[] asteroidCollision(int[] asteroids) {
-        Deque<Integer> d = new ArrayDeque<>();
-        for (int a : asteroids) {
-            if (a > 0) {
-                d.offerLast(a);
+        Deque<Integer> stk = new ArrayDeque<>();
+        for (int x : asteroids) {
+            if (x > 0) {
+                stk.offerLast(x);
             } else {
-                while (!d.isEmpty() && d.peekLast() > 0 && d.peekLast() < -a) {
-                    d.pollLast();
+                while (!stk.isEmpty() && stk.peekLast() > 0 && stk.peekLast() < -x) {
+                    stk.pollLast();
                 }
-                if (!d.isEmpty() && d.peekLast() == -a) {
-                    d.pollLast();
-                } else if (d.isEmpty() || d.peekLast() < -a) {
-                    d.offerLast(a);
+                if (!stk.isEmpty() && stk.peekLast() == -x) {
+                    stk.pollLast();
+                } else if (stk.isEmpty() || stk.peekLast() < 0) {
+                    stk.offerLast(x);
                 }
             }
         }
-        return d.stream().mapToInt(Integer::valueOf).toArray();
+        return stk.stream().mapToInt(Integer::valueOf).toArray();
     }
 }

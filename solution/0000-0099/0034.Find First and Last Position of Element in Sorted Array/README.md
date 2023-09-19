@@ -17,13 +17,13 @@
 <p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入：</strong>nums = [5,7,7,8,8,10], target = 8
+<strong>输入：</strong>nums = [<code>5,7,7,8,8,10]</code>, target = 8
 <strong>输出：</strong>[3,4]</pre>
 
 <p><strong>示例&nbsp;2：</strong></p>
 
 <pre>
-<strong>输入：</strong>nums = [5,7,7,8,8,10], target = 6
+<strong>输入：</strong>nums = [<code>5,7,7,8,8,10]</code>, target = 6
 <strong>输出：</strong>[-1,-1]</pre>
 
 <p><strong>示例 3：</strong></p>

@@ -1,9 +1,4 @@
-function countRoutes(
-    locations: number[],
-    start: number,
-    finish: number,
-    fuel: number,
-): number {
+function countRoutes(locations: number[], start: number, finish: number, fuel: number): number {
     const n = locations.length;
     const f = Array.from({ length: n }, () => Array(fuel + 1).fill(-1));
     const mod = 1e9 + 7;

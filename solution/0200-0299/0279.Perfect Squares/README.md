@@ -15,16 +15,16 @@
 <p><strong>示例&nbsp;1：</strong></p>
 
 <pre>
-<strong>输入：</strong>n = 12
+<strong>输入：</strong>n = <code>12</code>
 <strong>输出：</strong>3 
-<strong>解释：</strong>12 = 4 + 4 + 4</pre>
+<strong>解释：</strong><code>12 = 4 + 4 + 4</code></pre>
 
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>输入：</strong>n = 13
+<strong>输入：</strong>n = <code>13</code>
 <strong>输出：</strong>2
-<strong>解释：</strong>13 = 4 + 9</pre>
+<strong>解释：</strong><code>13 = 4 + 9</code></pre>
 
 &nbsp;
 
@@ -276,6 +276,43 @@ function numSquares(n: number): number {
         }
     }
     return f[n];
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn num_squares(n: i32) -> i32 {
+        let (row, col) = ((n as f32).sqrt().floor() as usize, n as usize);
+        let mut dp = vec![vec![i32::MAX; col + 1]; row + 1];
+        dp[0][0] = 0;
+        for i in 1..=row {
+            for j in 0..=col {
+                dp[i][j] = dp[i - 1][j];
+                if j >= i * i {
+                    dp[i][j] = std::cmp::min(dp[i][j], dp[i][j - i * i] + 1);
+                }
+            }
+        }
+        dp[row][col]
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn num_squares(n: i32) -> i32 {
+        let (row, col) = ((n as f32).sqrt().floor() as usize, n as usize);
+        let mut dp = vec![i32::MAX; col + 1];
+        dp[0] = 0;
+        for i in 1..=row {
+            for j in i * i..=col {
+                dp[j] = std::cmp::min(dp[j], dp[j - i * i] + 1);
+            }
+        }
+        dp[col]
+    }
 }
 ```
 

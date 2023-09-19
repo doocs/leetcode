@@ -1,15 +1,13 @@
 function myPow(x: number, n: number): number {
-    return n >= 0 ? qmi(x, n) : 1 / qmi(x, -n);
-}
-
-function qmi(a: number, k: number): number {
-    let res = 1;
-    while (k) {
-        if (k & 1) {
-            res *= a;
+    const qpow = (a: number, n: number): number => {
+        let ans = 1;
+        for (; n; n >>>= 1) {
+            if (n & 1) {
+                ans *= a;
+            }
+            a *= a;
         }
-        a *= a;
-        k >>>= 1;
-    }
-    return res;
+        return ans;
+    };
+    return n >= 0 ? qpow(x, n) : 1 / qpow(x, -n);
 }

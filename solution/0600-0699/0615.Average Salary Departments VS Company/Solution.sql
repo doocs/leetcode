@@ -10,9 +10,7 @@ WITH
         SELECT
             date_format(pay_date, '%Y-%m') AS pay_month,
             department_id,
-            avg(amount) OVER (
-                PARTITION BY pay_date, department_id
-            ) AS department_avg,
+            avg(amount) OVER (PARTITION BY pay_date, department_id) AS department_avg,
             avg(amount) OVER (PARTITION BY pay_date) AS company_avg
         FROM S
     )

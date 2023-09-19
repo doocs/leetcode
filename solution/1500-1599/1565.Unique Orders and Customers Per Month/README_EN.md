@@ -21,7 +21,7 @@ This table contains information about the orders made by customer_id.
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find the number of <strong>unique orders</strong> and the number of <strong>unique customers</strong> with invoices <strong>&gt; 20</strong> for each <strong>different month</strong>.</p>
+<p>Write an SQL query to find the number of <strong>unique orders</strong> and the number of <strong>unique customers</strong> with invoices <strong>&gt; $20</strong> for each <strong>different month</strong>.</p>
 
 <p>Return the result table sorted in <strong>any order</strong>.</p>
 

@@ -27,11 +27,7 @@ function minimumString(a: string, b: string, c: string): string {
     let ans = '';
     for (const [i, j, k] of perm) {
         const t = f(f(s[i], s[j]), s[k]);
-        if (
-            ans === '' ||
-            t.length < ans.length ||
-            (t.length === ans.length && t < ans)
-        ) {
+        if (ans === '' || t.length < ans.length || (t.length === ans.length && t < ans)) {
             ans = t;
         }
     }

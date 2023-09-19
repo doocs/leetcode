@@ -58,6 +58,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：DFS**
+
+我们可以通过深度优先搜索的方式遍历整棵树，用一个下标 $i$ 记录当前遍历到的节点在数组 $voyage$ 中的下标，如果当前遍历到的节点的值不等于 $voyage[i]$，那么说明翻转后无法匹配，我们标记 $ok$ 为 `false`，并直接返回。否则，我们将 $i$ 的值加 $1$，然后判断当前节点是否有左子节点，如果没有，或者左子节点的值等于 $voyage[i]$，那么我们递归遍历当前的左右子节点；否则，我们需要翻转当前节点，然后再递归遍历当前的右子节点和左子节点。
+
+搜索结束后，如果 $ok$ 为 `true`，那么说明翻转后可以匹配，我们返回答案数组 $ans$，否则返回 $[-1]$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是树中的节点数目。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -65,7 +73,35 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def flipMatchVoyage(self, root: Optional[TreeNode], voyage: List[int]) -> List[int]:
+        def dfs(root):
+            nonlocal i, ok
+            if root is None or not ok:
+                return
+            if root.val != voyage[i]:
+                ok = False
+                return
+            i += 1
+            if root.left is None or root.left.val == voyage[i]:
+                dfs(root.left)
+                dfs(root.right)
+            else:
+                ans.append(root.val)
+                dfs(root.right)
+                dfs(root.left)
 
+        ans = []
+        i = 0
+        ok = True
+        dfs(root)
+        return ans if ok else [-1]
 ```
 
 ### **Java**
@@ -73,7 +109,182 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private int i;
+    private boolean ok;
+    private int[] voyage;
+    private List<Integer> ans = new ArrayList<>();
 
+    public List<Integer> flipMatchVoyage(TreeNode root, int[] voyage) {
+        this.voyage = voyage;
+        ok = true;
+        dfs(root);
+        return ok ? ans : List.of(-1);
+    }
+
+    private void dfs(TreeNode root) {
+        if (root == null || !ok) {
+            return;
+        }
+        if (root.val != voyage[i]) {
+            ok = false;
+            return;
+        }
+        ++i;
+        if (root.left == null || root.left.val == voyage[i]) {
+            dfs(root.left);
+            dfs(root.right);
+        } else {
+            ans.add(root.val);
+            dfs(root.right);
+            dfs(root.left);
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> flipMatchVoyage(TreeNode* root, vector<int>& voyage) {
+        bool ok = true;
+        int i = 0;
+        vector<int> ans;
+        function<void(TreeNode*)> dfs = [&](TreeNode* root) {
+            if (!root || !ok) {
+                return;
+            }
+            if (root->val != voyage[i]) {
+                ok = false;
+                return;
+            }
+            ++i;
+            if (!root->left || root->left->val == voyage[i]) {
+                dfs(root->left);
+                dfs(root->right);
+            } else {
+                ans.push_back(root->val);
+                dfs(root->right);
+                dfs(root->left);
+            }
+        };
+        dfs(root);
+        return ok ? ans : vector<int>{-1};
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func flipMatchVoyage(root *TreeNode, voyage []int) []int {
+	i := 0
+	ok := true
+	ans := []int{}
+	var dfs func(*TreeNode)
+	dfs = func(root *TreeNode) {
+		if root == nil || !ok {
+			return
+		}
+		if root.Val != voyage[i] {
+			ok = false
+			return
+		}
+		i++
+		if root.Left == nil || root.Left.Val == voyage[i] {
+			dfs(root.Left)
+			dfs(root.Right)
+		} else {
+			ans = append(ans, root.Val)
+			dfs(root.Right)
+			dfs(root.Left)
+		}
+	}
+	dfs(root)
+	if !ok {
+		return []int{-1}
+	}
+	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function flipMatchVoyage(root: TreeNode | null, voyage: number[]): number[] {
+    let ok = true;
+    let i = 0;
+    const ans: number[] = [];
+    const dfs = (root: TreeNode | null): void => {
+        if (!root || !ok) {
+            return;
+        }
+        if (root.val !== voyage[i++]) {
+            ok = false;
+            return;
+        }
+        if (!root.left || root.left.val === voyage[i]) {
+            dfs(root.left);
+            dfs(root.right);
+        } else {
+            ans.push(root.val);
+            dfs(root.right);
+            dfs(root.left);
+        }
+    };
+    dfs(root);
+    return ok ? ans : [-1];
+}
 ```
 
 ### **...**

@@ -26,9 +26,5 @@ function isSubtree(root: TreeNode | null, subRoot: TreeNode | null): boolean {
     if (root == null) {
         return false;
     }
-    return (
-        dfs(root, subRoot) ||
-        isSubtree(root.left, subRoot) ||
-        isSubtree(root.right, subRoot)
-    );
+    return dfs(root, subRoot) || isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
 }

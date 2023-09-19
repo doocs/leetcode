@@ -5,19 +5,12 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def rob(self, root: TreeNode) -> int:
-        @cache
-        def dfs(root):
+    def rob(self, root: Optional[TreeNode]) -> int:
+        def dfs(root: Optional[TreeNode]) -> (int, int):
             if root is None:
-                return 0
-            if root.left is None and root.right is None:
-                return root.val
-            a = dfs(root.left) + dfs(root.right)
-            b = root.val
-            if root.left:
-                b += dfs(root.left.left) + dfs(root.left.right)
-            if root.right:
-                b += dfs(root.right.left) + dfs(root.right.right)
-            return max(a, b)
+                return 0, 0
+            la, lb = dfs(root.left)
+            ra, rb = dfs(root.right)
+            return root.val + lb + rb, max(la, lb) + max(ra, rb)
 
-        return dfs(root)
+        return max(dfs(root))

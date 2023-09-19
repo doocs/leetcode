@@ -285,8 +285,7 @@ func canChange(start string, target string) bool {
 ```ts
 function canChange(start: string, target: string): boolean {
     if (
-        [...start].filter(c => c !== '_').join('') !==
-        [...target].filter(c => c !== '_').join('')
+        [...start].filter(c => c !== '_').join('') !== [...target].filter(c => c !== '_').join('')
     ) {
         return false;
     }

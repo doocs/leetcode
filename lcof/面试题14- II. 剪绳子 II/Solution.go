@@ -3,23 +3,21 @@ func cuttingRope(n int) int {
 		return n - 1
 	}
 	const mod = 1e9 + 7
+	qpow := func(a, n int) int {
+		ans := 1
+		for ; n > 0; n >>= 1 {
+			if n&1 == 1 {
+				ans = ans * a % mod
+			}
+			a = a * a % mod
+		}
+		return ans
+	}
 	if n%3 == 0 {
-		return qmi(3, n/3, mod)
+		return qpow(3, n/3)
 	}
 	if n%3 == 1 {
-		return qmi(3, n/3-1, mod) * 4 % mod
+		return qpow(3, n/3-1) * 4 % mod
 	}
-	return qmi(3, n/3, mod) * 2 % mod
-}
-
-func qmi(a, k, p int) int {
-	res := 1
-	for k != 0 {
-		if k&1 == 1 {
-			res = res * a % p
-		}
-		k >>= 1
-		a = a * a % p
-	}
-	return res
+	return qpow(3, n/3) * 2 % mod
 }

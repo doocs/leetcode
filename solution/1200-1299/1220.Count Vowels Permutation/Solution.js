@@ -2,21 +2,43 @@
  * @param {number} n
  * @return {number}
  */
+
+const mod = 1e9 + 7;
+
 var countVowelPermutation = function (n) {
-    const mod = 1000000007;
-    const dp = new Array(5).fill(1);
-    const t = new Array(5).fill(0);
-    for (let i = 0; i < n - 1; ++i) {
-        t[0] = (dp[1] + dp[2] + dp[4]) % mod;
-        t[1] = (dp[0] + dp[2]) % mod;
-        t[2] = (dp[1] + dp[3]) % mod;
-        t[3] = dp[2];
-        t[4] = (dp[2] + dp[3]) % mod;
-        dp.splice(0, 5, ...t);
-    }
-    let ans = 0;
-    for (let i = 0; i < 5; ++i) {
-        ans = (ans + dp[i]) % mod;
-    }
-    return ans;
+    const a = [
+        [0, 1, 0, 0, 0],
+        [1, 0, 1, 0, 0],
+        [1, 1, 0, 1, 1],
+        [0, 0, 1, 0, 1],
+        [1, 0, 0, 0, 0],
+    ];
+    const res = pow(a, n - 1);
+    return res[0].reduce((a, b) => (a + b) % mod);
 };
+
+function mul(a, b) {
+    const [m, n] = [a.length, b[0].length];
+    const c = Array.from({ length: m }, () => Array.from({ length: n }, () => 0));
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            for (let k = 0; k < b.length; ++k) {
+                c[i][j] =
+                    (c[i][j] + Number((BigInt(a[i][k]) * BigInt(b[k][j])) % BigInt(mod))) % mod;
+            }
+        }
+    }
+    return c;
+}
+
+function pow(a, n) {
+    let res = [[1, 1, 1, 1, 1]];
+    while (n) {
+        if (n & 1) {
+            res = mul(res, a);
+        }
+        a = mul(a, a);
+        n >>>= 1;
+    }
+    return res;
+}
