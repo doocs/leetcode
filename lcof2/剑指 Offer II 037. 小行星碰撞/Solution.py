@@ -1,14 +1,14 @@
 class Solution:
     def asteroidCollision(self, asteroids: List[int]) -> List[int]:
-        ans = []
-        for a in asteroids:
-            if a > 0:
-                ans.append(a)
+        stk = []
+        for x in asteroids:
+            if x > 0:
+                stk.append(x)
             else:
-                while len(ans) > 0 and ans[-1] > 0 and ans[-1] < -a:
-                    ans.pop()
-                if len(ans) > 0 and ans[-1] == -a:
-                    ans.pop()
-                elif len(ans) == 0 or ans[-1] < -a:
-                    ans.append(a)
-        return ans
+                while stk and stk[-1] > 0 and stk[-1] < -x:
+                    stk.pop()
+                if stk and stk[-1] == -x:
+                    stk.pop()
+                elif not stk or stk[-1] < 0:
+                    stk.append(x)
+        return stk
