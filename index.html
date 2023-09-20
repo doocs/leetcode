@@ -12,7 +12,7 @@
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/docsify@4.13.0/lib/themes/vue.css">
   <link rel="stylesheet" href="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/docsify-darklight-theme@latest/dist/style.min.css">
-  <link rel="stylesheet" href="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/katex@latest/dist/katex.min.css"/>
+  <link rel="stylesheet" href="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/katex@latest/dist/katex.min.css">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
   <style>
@@ -26,7 +26,7 @@
   <div id="app">LeetCode & Coding Interview Guide @Doocs</div>
   <script>
     const isEn = () => location.hash.includes('README_EN');
-    const isRoot = () => ['', '#/', '#/README', '#/README_EN'].includes(location.hash); 
+    const isRoot = () => ['', '#/', '#/README', '#/README_EN'].includes(location.hash);
     const sidebar = () => isRoot() ? false : (isEn() ? 'summary_en.md' : 'summary.md');
     const cleanedHtml = (html) => {
       return html.replace(/<pre>([\s\S]*?)<\/pre>/g, function (match, group) {
@@ -130,21 +130,21 @@
         },
         (hook, vm) => {
           hook.beforeEach((html) => {
-              function formatDateTime(dateTimeString) {
-                const date = new Date(dateTimeString);
-                const year = date.getFullYear();
-                const month = String(date.getMonth() + 1).padStart(2, '0');
-                const day = String(date.getDate()).padStart(2, '0');
-                const hours = String(date.getHours()).padStart(2, '0');
-                const minutes = String(date.getMinutes()).padStart(2, '0');
-                const seconds = String(date.getSeconds()).padStart(2, '0');
-                return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-              }
-              const file = vm.route.file
-              const lastIndex = file.lastIndexOf("/");
-              const filePath = vm.route.path === '/' ? '/README.md' : file.substring(0, lastIndex);
-              const apiUrl = `https://api.github.com/repos/${$docsify.repo}/commits?path=${filePath}`;
-              fetch(apiUrl, {method: 'GET'}).then(response => response.json())
+            function formatDateTime(dateTimeString) {
+              const date = new Date(dateTimeString);
+              const year = date.getFullYear();
+              const month = String(date.getMonth() + 1).padStart(2, '0');
+              const day = String(date.getDate()).padStart(2, '0');
+              const hours = String(date.getHours()).padStart(2, '0');
+              const minutes = String(date.getMinutes()).padStart(2, '0');
+              const seconds = String(date.getSeconds()).padStart(2, '0');
+              return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+            }
+            const file = vm.route.file
+            const lastIndex = file.lastIndexOf("/");
+            const filePath = vm.route.path === '/' ? '/README.md' : file.substring(0, lastIndex);
+            const apiUrl = `https://api.github.com/repos/${$docsify.repo}/commits?path=${filePath}`;
+            fetch(apiUrl, { method: 'GET' }).then(response => response.json())
               .then(data => {
                 const date = data[0].commit.committer.date
                 const commitUrl = `https://github.com/${$docsify.repo}/commits/main/${file}`
@@ -155,14 +155,13 @@
                  <a href="${commitUrl}" target="_blank" style="color: #858585">${prompt + lastModified}</a>
                  </blockquote>
                 `
-                document.getElementById('last-modified').innerHTML  = lastModifiedContent
+                document.getElementById('last-modified').innerHTML = lastModifiedContent
               })
             return (
               html + '<span id="last-modified"></span>'
             );
           });
         },
-       
       ]
     }
   </script>
