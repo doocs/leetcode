@@ -26,7 +26,7 @@
   <div id="app">LeetCode & Coding Interview Guide @Doocs</div>
   <script>
     const isEn = () => location.hash.includes('README_EN');
-    const isRoot = () => ['', '#/', '#/README', '#/README_EN'].includes(location.hash);
+    const isRoot = () => ['', '#/', '#/README', '#/README_EN'].includes(location.hash); 
     const sidebar = () => isRoot() ? false : (isEn() ? 'summary_en.md' : 'summary.md');
     const cleanedHtml = (html) => {
       return html.replace(/<pre>([\s\S]*?)<\/pre>/g, function (match, group) {
@@ -128,6 +128,41 @@
             return html + footer
           })
         },
+        (hook, vm) => {
+          hook.beforeEach((html) => {
+              function formatDateTime(dateTimeString) {
+                const date = new Date(dateTimeString);
+                const year = date.getFullYear();
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const day = String(date.getDate()).padStart(2, '0');
+                const hours = String(date.getHours()).padStart(2, '0');
+                const minutes = String(date.getMinutes()).padStart(2, '0');
+                const seconds = String(date.getSeconds()).padStart(2, '0');
+                return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+              }
+              const file = vm.route.file
+              const lastIndex = file.lastIndexOf("/");
+              const filePath = vm.route.path === '/' ? '/README.md' : file.substring(0, lastIndex);
+              const apiUrl = `https://api.github.com/repos/${$docsify.repo}/commits?path=${filePath}`;
+              fetch(apiUrl, {method: 'GET'}).then(response => response.json())
+              .then(data => {
+                const date = data[0].commit.committer.date
+                const commitUrl = `https://github.com/${$docsify.repo}/commits/main/${file}`
+                const lastModified = formatDateTime(date)
+                const prompt = isEn() ? 'Last updated: ' : '最近更新时间：'
+                const lastModifiedContent = `
+                <blockquote>
+                 <a href="${commitUrl}" target="_blank" style="color: #858585">${prompt + lastModified}</a>
+                 </blockquote>
+                `
+                document.getElementById('last-modified').innerHTML  = lastModifiedContent
+              })
+            return (
+              html + '<span id="last-modified"></span>'
+            );
+          });
+        },
+       
       ]
     }
   </script>
