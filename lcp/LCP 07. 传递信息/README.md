@@ -49,6 +49,16 @@
 
 **方法一：动态规划**
 
+我们定义 $f[i][j]$ 表示经过 $i$ 轮传递到编号 $j$ 的方案数，那么最终答案即为 $f[k][n-1]$。初始时 $f[0][0]=1$，其余均为 $0$。
+
+当 $i \gt 0$ 时，对于每个玩家 $b$，考虑所有传递到他的玩家 $a$，有 $f[i][b]=\sum_{a \to b} f[i-1][a]$，其中 $a \to b$ 表示所有满足 $a$ 可以传递到 $b$ 的玩家 $a$。
+
+最终答案即为 $f[k][n-1]$。
+
+我们注意到 $f[i][b]$ 只与 $f[i-1][a]$ 有关，根据状态转移方程，我们可以使用滚动数组的方式，将空间复杂度优化到 $O(n)$。
+
+时间复杂度 $O(k \times m)$，空间复杂度 $O(n)$，其中 $m$ 为 $relation$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -58,12 +68,24 @@
 ```python
 class Solution:
     def numWays(self, n: int, relation: List[List[int]], k: int) -> int:
-        dp = [[0] * n for _ in range(k + 1)]
-        dp[0][0] = 1
+        f = [[0] * n for _ in range(k + 1)]
+        f[0][0] = 1
         for i in range(1, k + 1):
             for a, b in relation:
-                dp[i][b] += dp[i - 1][a]
-        return dp[-1][-1]
+                f[i][b] += f[i - 1][a]
+        return f[-1][-1]
+```
+
+```python
+class Solution:
+    def numWays(self, n: int, relation: List[List[int]], k: int) -> int:
+        f = [1] + [0] * (n - 1)
+        for _ in range(k):
+            g = [0] * n
+            for a, b in relation:
+                g[b] += f[a]
+            f = g
+        return f[-1]
 ```
 
 ### **Java**
@@ -73,15 +95,138 @@ class Solution:
 ```java
 class Solution {
     public int numWays(int n, int[][] relation, int k) {
-        int[][] dp = new int[k + 1][n];
-        dp[0][0] = 1;
-        for (int i = 1; i <= k; i++) {
+        int[][] f = new int[k + 1][n];
+        f[0][0] = 1;
+        for (int i = 1; i <= k; ++i) {
             for (int[] r : relation) {
-                dp[i][r[1]] += dp[i - 1][r[0]];
+                int a = r[0], b = r[1];
+                f[i][b] += f[i - 1][a];
             }
         }
-        return dp[k][n - 1];
+        return f[k][n - 1];
     }
+}
+```
+
+```java
+class Solution {
+    public int numWays(int n, int[][] relation, int k) {
+        int[] f = new int[n];
+        f[0] = 1;
+        while (k-- > 0) {
+            int[] g = new int[n];
+            for (int[] r : relation) {
+                int a = r[0], b = r[1];
+                g[b] += f[a];
+            }
+            f = g;
+        }
+        return f[n - 1];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numWays(int n, vector<vector<int>>& relation, int k) {
+        int f[k + 1][n];
+        memset(f, 0, sizeof(f));
+        f[0][0] = 1;
+        for (int i = 1; i <= k; ++i) {
+            for (auto& r : relation) {
+                int a = r[0], b = r[1];
+                f[i][b] += f[i - 1][a];
+            }
+        }
+        return f[k][n - 1];
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int numWays(int n, vector<vector<int>>& relation, int k) {
+        vector<int> f(n);
+        f[0] = 1;
+        while (k--) {
+            vector<int> g(n);
+            for (auto& r : relation) {
+                int a = r[0], b = r[1];
+                g[b] += f[a];
+            }
+            f = move(g);
+        }
+        return f[n - 1];
+    }
+};
+```
+
+### **Go**
+
+```go
+func numWays(n int, relation [][]int, k int) int {
+	f := make([][]int, k+1)
+	for i := range f {
+		f[i] = make([]int, n)
+	}
+	f[0][0] = 1
+	for i := 1; i <= k; i++ {
+		for _, r := range relation {
+			a, b := r[0], r[1]
+			f[i][b] += f[i-1][a]
+		}
+	}
+	return f[k][n-1]
+}
+```
+
+```go
+func numWays(n int, relation [][]int, k int) int {
+	f := make([]int, n)
+	f[0] = 1
+	for ; k > 0; k-- {
+		g := make([]int, n)
+		for _, r := range relation {
+			a, b := r[0], r[1]
+			g[b] += f[a]
+		}
+		f = g
+	}
+	return f[n-1]
+}
+```
+
+### **TypeScript**
+
+```ts
+function numWays(n: number, relation: number[][], k: number): number {
+    const f: number[][] = new Array(k + 1).fill(0).map(() => new Array(n).fill(0));
+    f[0][0] = 1;
+    for (let i = 1; i <= k; ++i) {
+        for (const [a, b] of relation) {
+            f[i][b] += f[i - 1][a];
+        }
+    }
+    return f[k][n - 1];
+}
+```
+
+```ts
+function numWays(n: number, relation: number[][], k: number): number {
+    let f: number[] = new Array(n).fill(0);
+    f[0] = 1;
+    while (k--) {
+        const g: number[] = new Array(n).fill(0);
+        for (const [a, b] of relation) {
+            g[b] += f[a];
+        }
+        f = g;
+    }
+    return f[n - 1];
 }
 ```
 
