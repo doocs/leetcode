@@ -26,7 +26,7 @@
   <div id="app">LeetCode & Coding Interview Guide @Doocs</div>
   <script>
     const isEn = () => location.hash.includes('README_EN');
-    const isRoot = () => ['', '#/', '#/README', '#/README_EN'].includes(location.hash) || /\?id=/.test(location.hash); 
+    const isRoot = () => ['', '#/', '#/README', '#/README_EN'].includes(location.hash); 
     const sidebar = () => isRoot() ? false : (isEn() ? 'summary_en.md' : 'summary.md');
     const cleanedHtml = (html) => {
       return html.replace(/<pre>([\s\S]*?)<\/pre>/g, function (match, group) {
@@ -142,7 +142,7 @@
               }
               const file = vm.route.file
               const lastIndex = file.lastIndexOf("/");
-              const filePath = isRoot() ? '/README.md' : file.substring(0, lastIndex);
+              const filePath = vm.route.path === '/' ? '/README.md' : file.substring(0, lastIndex);
               const apiUrl = `https://api.github.com/repos/${$docsify.repo}/commits?path=${filePath}`;
               fetch(apiUrl, {method: 'GET'}).then(response => response.json())
               .then(data => {
