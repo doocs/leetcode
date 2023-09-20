@@ -147,7 +147,7 @@
               fetch(apiUrl, {method: 'GET'}).then(response => response.json())
               .then(data => {
                 const date = data[0].commit.committer.date
-                const commitUrl = data[0].html_url
+                const commitUrl = `https://github.com/${$docsify.repo}/commits/main/${file}`
                 const lastModified = formatDateTime(date)
                 const lastModifiedContent = `
                  <a href="${commitUrl}" target="_blank" >${lastModified}</a>
