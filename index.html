@@ -149,8 +149,11 @@
                 const date = data[0].commit.committer.date
                 const commitUrl = `https://github.com/${$docsify.repo}/commits/main/${file}`
                 const lastModified = formatDateTime(date)
+                const prompt = isEn() ? 'Last updated: ' : '最近更新时间：'
                 const lastModifiedContent = `
-                 <a href="${commitUrl}" target="_blank" >${lastModified}</a>
+                <blockquote>
+                 <a href="${commitUrl}" target="_blank" style="color: #858585">${prompt + lastModified}</a>
+                 </blockquote>
                 `
                 document.getElementById('last-modified').innerHTML  = lastModifiedContent
               })
