@@ -10,7 +10,6 @@
 
 <ul>
 	<li><code>&lt;IntegerPart&gt;</code>
-
     <ul>
     	<li>For example, <code>12</code>, <code>0</code>, and <code>123</code>.</li>
     </ul>
@@ -25,7 +24,6 @@
     	<li>For example, <code>0.1(6)</code>, <code>1.(9)</code>, <code>123.00(1212)</code>.</li>
     </ul>
     </li>
-
 </ul>
 
 <p>The repeating portion of a decimal expansion is conventionally denoted within a pair of round brackets. For example:</p>
