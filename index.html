@@ -140,10 +140,8 @@
               const seconds = String(date.getSeconds()).padStart(2, '0');
               return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
             }
-            const file = vm.route.file
-            const lastIndex = file.lastIndexOf("/");
-            const filePath = vm.route.path === '/' ? '/README.md' : file.substring(0, lastIndex);
-            const apiUrl = `https://api.github.com/repos/${$docsify.repo}/commits?path=${filePath}`;
+            const { file } = vm.route
+            const apiUrl = `https://api.github.com/repos/${$docsify.repo}/commits?path=${file}`;
             fetch(apiUrl, { method: 'GET' }).then(response => response.json())
               .then(data => {
                 const date = data[0].commit.committer.date
