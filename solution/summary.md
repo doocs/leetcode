@@ -2918,3 +2918,4 @@
   - [2860.让所有学生保持开心的分组方法数](/solution/2800-2899/2860.Happy%20Students/README.md)
   - [2861.最大合金数](/solution/2800-2899/2861.Maximum%20Number%20of%20Alloys/README.md)
   - [2862.完全子集的最大元素和](/solution/2800-2899/2862.Maximum%20Element-Sum%20of%20a%20Complete%20Subset%20of%20Indices/README.md)
+  - [2863.Maximum Length of Semi-Decreasing Subarrays](/solution/2800-2899/2863.Maximum%20Length%20of%20Semi-Decreasing%20Subarrays/README.md)

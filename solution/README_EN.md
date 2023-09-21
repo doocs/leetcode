@@ -2871,6 +2871,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  2860  |  [Happy Students](/solution/2800-2899/2860.Happy%20Students/README_EN.md)  |    |  Medium  |  Weekly Contest 363  |
 |  2861  |  [Maximum Number of Alloys](/solution/2800-2899/2861.Maximum%20Number%20of%20Alloys/README_EN.md)  |    |  Medium  |  Weekly Contest 363  |
 |  2862  |  [Maximum Element-Sum of a Complete Subset of Indices](/solution/2800-2899/2862.Maximum%20Element-Sum%20of%20a%20Complete%20Subset%20of%20Indices/README_EN.md)  |    |  Hard  |  Weekly Contest 363  |
+|  2863  |  [Maximum Length of Semi-Decreasing Subarrays](/solution/2800-2899/2863.Maximum%20Length%20of%20Semi-Decreasing%20Subarrays/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
