@@ -269,7 +269,7 @@ public class ParkingSystem {
     }
     
     public bool AddCar(int carType) {
-        if(cnt[carType] == 0){
+        if (cnt[carType] == 0) {
             return false;
         }
         --cnt[carType];
