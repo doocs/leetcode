@@ -43,6 +43,7 @@
     window.$docsify = {
       name: 'leetcode',
       repo: 'doocs/leetcode',
+      lastModifiedText: isEn() ? 'Last updated: ' : '最近更新时间：',
       logo: '/images/doocs-leetcode.png',
       search: {
         depth: 2,
@@ -128,42 +129,11 @@
             return html + footer
           })
         },
-        (hook, vm) => {
-          hook.beforeEach((html) => {
-            function formatDateTime(dateTimeString) {
-              const date = new Date(dateTimeString);
-              const year = date.getFullYear();
-              const month = String(date.getMonth() + 1).padStart(2, '0');
-              const day = String(date.getDate()).padStart(2, '0');
-              const hours = String(date.getHours()).padStart(2, '0');
-              const minutes = String(date.getMinutes()).padStart(2, '0');
-              const seconds = String(date.getSeconds()).padStart(2, '0');
-              return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-            }
-            const { file } = vm.route
-            const apiUrl = `https://api.github.com/repos/${$docsify.repo}/commits?path=${file}`;
-            fetch(apiUrl, { method: 'GET' }).then(response => response.json())
-              .then(data => {
-                const date = data[0].commit.committer.date
-                const commitUrl = `https://github.com/${$docsify.repo}/commits/main/${file}`
-                const lastModified = formatDateTime(date)
-                const prompt = isEn() ? 'Last updated: ' : '最近更新时间：'
-                const lastModifiedContent = `
-                <blockquote>
-                 <a href="${commitUrl}" target="_blank" style="color: #858585">${prompt + lastModified}</a>
-                 </blockquote>
-                `
-                document.getElementById('last-modified').innerHTML = lastModifiedContent
-              })
-            return (
-              html + '<span id="last-modified"></span>'
-            );
-          });
-        },
       ]
     }
   </script>
   <script src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/docsify@4.13.0/lib/docsify.min.js"></script>
+  <!--  components  -->
   <script src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/prismjs/components/prism-c.min.js"></script>
   <script src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/prismjs/components/prism-go.min.js"></script>
   <script src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/prismjs/components/prism-sql.min.js"></script>
@@ -180,8 +150,10 @@
   <script src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/prismjs/components/prism-ruby.min.js"></script>
   <script src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/prismjs/components/prism-rust.min.js"></script>
   <script src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/docsify-copy-code@2.1.1/dist/docsify-copy-code.min.js"></script>
+  <!--  plugins  -->
   <script src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/docsify/lib/plugins/search.min.js"></script>
   <script src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  <script src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/docsify-lastmodified/index.min.js"></script>
   <script src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/docsify-tabs@1/dist/docsify-tabs@1.js"></script>
   <script src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
   <script src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/docsify-darklight-theme@latest/dist/index.min.js"></script>
