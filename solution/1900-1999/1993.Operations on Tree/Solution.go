@@ -1,59 +1,61 @@
 type LockingTree struct {
-	nums     map[int]int
+	locked   []int
 	parent   []int
 	children [][]int
 }
 
 func Constructor(parent []int) LockingTree {
 	n := len(parent)
-	nums := make(map[int]int)
-	children := make([][]int, n)
-	for i, p := range parent {
-		if p != -1 {
-			children[p] = append(children[p], i)
-		}
+	locked := make([]int, n)
+	for i := range locked {
+		locked[i] = -1
 	}
-	return LockingTree{nums, parent, children}
+	children := make([][]int, n)
+	for i := 1; i < n; i++ {
+		children[parent[i]] = append(children[parent[i]], i)
+	}
+	return LockingTree{locked, parent, children}
 }
 
 func (this *LockingTree) Lock(num int, user int) bool {
-	if _, ok := this.nums[num]; ok {
-		return false
+	if this.locked[num] == -1 {
+		this.locked[num] = user
+		return true
 	}
-	this.nums[num] = user
-	return true
+	return false
 }
 
 func (this *LockingTree) Unlock(num int, user int) bool {
-	if this.nums[num] != user {
-		return false
+	if this.locked[num] == user {
+		this.locked[num] = -1
+		return true
 	}
-	delete(this.nums, num)
-	return true
+	return false
 }
 
 func (this *LockingTree) Upgrade(num int, user int) bool {
-	for t := num; t != -1; t = this.parent[t] {
-		if _, ok := this.nums[t]; ok {
+	x := num
+	for ; x != -1; x = this.parent[x] {
+		if this.locked[x] != -1 {
 			return false
 		}
 	}
 	find := false
 	var dfs func(int)
-	dfs = func(num int) {
-		for _, child := range this.children[num] {
-			if _, ok := this.nums[child]; ok {
-				delete(this.nums, child)
+	dfs = func(x int) {
+		for _, y := range this.children[x] {
+			if this.locked[y] != -1 {
 				find = true
+				this.locked[y] = -1
 			}
-			dfs(child)
+			dfs(y)
 		}
 	}
 	dfs(num)
 	if !find {
 		return false
 	}
-	this.nums[num] = user
+	this.locked[num] = user
 	return true
 }
 
