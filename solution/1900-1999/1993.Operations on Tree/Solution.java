@@ -14,7 +14,7 @@ class LockingTree {
             children[parent[i]].add(i);
         }
     }
-    
+
     public boolean lock(int num, int user) {
         if (locked[num] == -1) {
             locked[num] = user;
@@ -22,7 +22,7 @@ class LockingTree {
         }
         return false;
     }
-    
+
     public boolean unlock(int num, int user) {
         if (locked[num] == user) {
             locked[num] = -1;
@@ -30,7 +30,7 @@ class LockingTree {
         }
         return false;
     }
-    
+
     public boolean upgrade(int num, int user) {
         int x = num;
         while (x != -1) {

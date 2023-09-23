@@ -9,7 +9,7 @@ public:
             children[parent[i]].push_back(i);
         }
     }
-    
+
     bool lock(int num, int user) {
         if (locked[num] == -1) {
             locked[num] = user;
@@ -17,7 +17,7 @@ public:
         }
         return false;
     }
-    
+
     bool unlock(int num, int user) {
         if (locked[num] == user) {
             locked[num] = -1;
@@ -25,7 +25,7 @@ public:
         }
         return false;
     }
-    
+
     bool upgrade(int num, int user) {
         int x = num;
         while (x != -1) {
