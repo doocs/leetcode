@@ -77,8 +77,15 @@ window.$docsify = {
         },
     },
     pagination: {
-        previousText: isEn() ? 'PREVIOUS' : '上一题',
-        nextText: isEn() ? 'NEXT' : '下一题',
+        reg: /README_EN$/,
+        previousText: {
+            en: 'PREVIOUS',
+            zh: '上一题',
+        },
+        nextText: {
+            en: 'NEXT',
+            zh: '下一题',
+        },
         crossChapter: true,
         crossChapterText: true,
     },
