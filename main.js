@@ -9,17 +9,14 @@ const cleanedHtml = html => {
 
 window.addEventListener('hashchange', () => {
     window.$docsify.loadSidebar = sidebar();
-    window.$docsify.pagination.previousText = isEn() ? 'PREVIOUS' : '上一题';
-    window.$docsify.pagination.nextText = isEn() ? 'NEXT' : '下一题';
 });
 
 window.$docsify = {
     name: 'leetcode',
     repo: 'doocs/leetcode',
-    lastModifiedConfig: {
-        reg: /README_EN$/,
-        en: 'Last updated: ',
-        zh: '最近更新时间：',
+    lastModifiedText: {
+        '/README_EN': 'Last updated: ',
+        '/': '最近更新时间：',
     },
     logo: '/images/doocs-leetcode.png',
     search: {
