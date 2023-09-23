@@ -16,7 +16,11 @@ window.addEventListener('hashchange', () => {
 window.$docsify = {
     name: 'leetcode',
     repo: 'doocs/leetcode',
-    lastModifiedText: isEn() ? 'Last updated: ' : '最近更新时间：',
+    lastModifiedConfig: {
+        reg: /README_EN$/,
+        en: 'Last updated: ',
+        zh: '最近更新时间：',
+    },
     logo: '/images/doocs-leetcode.png',
     search: {
         depth: 2,
