@@ -77,14 +77,13 @@ window.$docsify = {
         },
     },
     pagination: {
-        reg: /README_EN$/,
         previousText: {
-            en: 'PREVIOUS',
-            zh: '上一题',
+            '/README_EN': 'PREVIOUS',
+            '/': '上一题',
         },
         nextText: {
-            en: 'NEXT',
-            zh: '下一题',
+            '/README_EN': 'NEXT',
+            '/': '下一题',
         },
         crossChapter: true,
         crossChapterText: true,
