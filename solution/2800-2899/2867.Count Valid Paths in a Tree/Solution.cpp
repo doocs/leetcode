@@ -2,8 +2,8 @@ class Solution {
     long long mul(long long x, long long y) {
         return x * y;
     }
-    
-    pair<int, int> dfs(int x, int f, const vector<vector<int>> &con, const vector<bool> &prime, long long &r) {
+
+    pair<int, int> dfs(int x, int f, const vector<vector<int>>& con, const vector<bool>& prime, long long& r) {
         pair<int, int> v = {!prime[x], prime[x]};
         for (int y : con[x]) {
             if (y == f) continue;
@@ -15,11 +15,10 @@ class Solution {
                 v.first += p.first;
                 v.second += p.second;
             }
-            
         }
         return v;
     }
-    
+
 public:
     long long countPaths(int n, vector<vector<int>>& edges) {
         vector<bool> prime(n + 1, true);
@@ -37,7 +36,7 @@ public:
                 prime[temp] = false;
                 if (i % x == 0) {
                     break;
-                }        
+                }
             }
         }
         vector<vector<int>> con(n + 1);
@@ -48,6 +47,5 @@ public:
         long long r = 0;
         dfs(1, 0, con, prime, r);
         return r;
-        
     }
 };
