@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 364 场周赛(2023-09-24 10:30, 90 分钟) 参赛人数 4304
+
+- [2864. 最大二进制奇数](/solution/2800-2899/2864.Maximum%20Odd%20Binary%20Number/README.md)
+- [2865. 美丽塔 I](/solution/2800-2899/2865.Beautiful%20Towers%20I/README.md)
+- [2866. 美丽塔 II](/solution/2800-2899/2866.Beautiful%20Towers%20II/README.md)
+- [2867. 统计树中的合法路径数目](/solution/2800-2899/2867.Count%20Valid%20Paths%20in%20a%20Tree/README.md)
+
 #### 第 363 场周赛(2023-09-17 10:30, 90 分钟) 参赛人数 4768
 
 - [2859. 计算 K 置位下标对应元素的和](/solution/2800-2899/2859.Sum%20of%20Values%20at%20Indices%20With%20K%20Set%20Bits/README.md)

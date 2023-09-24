@@ -2874,6 +2874,10 @@
 |  2861  |  [最大合金数](/solution/2800-2899/2861.Maximum%20Number%20of%20Alloys/README.md)  |    |  中等  |  第 363 场周赛  |
 |  2862  |  [完全子集的最大元素和](/solution/2800-2899/2862.Maximum%20Element-Sum%20of%20a%20Complete%20Subset%20of%20Indices/README.md)  |    |  困难  |  第 363 场周赛  |
 |  2863  |  [Maximum Length of Semi-Decreasing Subarrays](/solution/2800-2899/2863.Maximum%20Length%20of%20Semi-Decreasing%20Subarrays/README.md)  |    |  中等  |  🔒  |
+|  2864  |  [最大二进制奇数](/solution/2800-2899/2864.Maximum%20Odd%20Binary%20Number/README.md)  |    |  简单  |  第 364 场周赛  |
+|  2865  |  [美丽塔 I](/solution/2800-2899/2865.Beautiful%20Towers%20I/README.md)  |    |  中等  |  第 364 场周赛  |
+|  2866  |  [美丽塔 II](/solution/2800-2899/2866.Beautiful%20Towers%20II/README.md)  |    |  中等  |  第 364 场周赛  |
+|  2867  |  [统计树中的合法路径数目](/solution/2800-2899/2867.Count%20Valid%20Paths%20in%20a%20Tree/README.md)  |    |  困难  |  第 364 场周赛  |
 
 ## 版权
 
