@@ -25,6 +25,13 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 364
+
+- [2864. Maximum Odd Binary Number](/solution/2800-2899/2864.Maximum%20Odd%20Binary%20Number/README_EN.md)
+- [2865. Beautiful Towers I](/solution/2800-2899/2865.Beautiful%20Towers%20I/README_EN.md)
+- [2866. Beautiful Towers II](/solution/2800-2899/2866.Beautiful%20Towers%20II/README_EN.md)
+- [2867. Count Valid Paths in a Tree](/solution/2800-2899/2867.Count%20Valid%20Paths%20in%20a%20Tree/README_EN.md)
+
 #### Weekly Contest 363
 
 - [2859. Sum of Values at Indices With K Set Bits](/solution/2800-2899/2859.Sum%20of%20Values%20at%20Indices%20With%20K%20Set%20Bits/README_EN.md)

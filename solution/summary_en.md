@@ -2919,3 +2919,7 @@
   - [2861.Maximum Number of Alloys](/solution/2800-2899/2861.Maximum%20Number%20of%20Alloys/README_EN.md)
   - [2862.Maximum Element-Sum of a Complete Subset of Indices](/solution/2800-2899/2862.Maximum%20Element-Sum%20of%20a%20Complete%20Subset%20of%20Indices/README_EN.md)
   - [2863.Maximum Length of Semi-Decreasing Subarrays](/solution/2800-2899/2863.Maximum%20Length%20of%20Semi-Decreasing%20Subarrays/README_EN.md)
+  - [2864.Maximum Odd Binary Number](/solution/2800-2899/2864.Maximum%20Odd%20Binary%20Number/README_EN.md)
+  - [2865.Beautiful Towers I](/solution/2800-2899/2865.Beautiful%20Towers%20I/README_EN.md)
+  - [2866.Beautiful Towers II](/solution/2800-2899/2866.Beautiful%20Towers%20II/README_EN.md)
+  - [2867.Count Valid Paths in a Tree](/solution/2800-2899/2867.Count%20Valid%20Paths%20in%20a%20Tree/README_EN.md)
