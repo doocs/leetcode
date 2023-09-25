@@ -68,7 +68,7 @@ class Solution {
 
     public int numberOfWays(String s, String t, long k) {
         int n = s.length();
-        int[] dp = matrixPower(new int[][]{{0, 1}, {n - 1, n - 2}}, k)[0];
+        int[] dp = matrixPower(new int[][] {{0, 1}, {n - 1, n - 2}}, k)[0];
         s += t + t;
         int[] z = getZ(s);
         int m = n + n;
