@@ -1,54 +1,37 @@
-'''
+"""
 DP, Z-algorithm, Fast mod.
-
 Approach
 How to represent a string?
 Each operation is just a rotation. Each result string can be represented by an integer from 0 to n - 1. Namely, it's just the new index of s[0].
-
 How to find the integer(s) that can represent string t?
 Create a new string s + t + t (length = 3 * n).
 Use Z-algorithm (or KMP), for each n <= index < 2 * n, calculate the maximum prefix length that each substring starts from index can match, if the length >= n, then (index - n) is a valid integer representation.
-
 How to get the result?
 It's a very obvious DP.
 If we use an integer to represent a string, we only need to consider the transition from zero to non-zero and from non-zero to zero. In other words, all the non-zero strings should have the same result.
-
 So let dp[t][i = 0/1] be the number of ways to get the zero/nonzero string
 after excatly t steps.
 Then
 dp[t][0] = dp[t - 1][1] * (n - 1).
 All the non zero strings can make it.
-
 dp[t][1] = dp[t - 1][0] + dp[t - 1] * (n - 2).
 For a particular non zero string, all the other non zero strings and zero string can make it.
-
 We have dp[0][0] = 1 and dp[0][1] = 0
-
 Use matrix multiplication.
 How to calculate dp[k][x = 0, 1] faster?
-
 Use matrix multiplication
-
 vector (dp[t - 1][0], dp[t - 1][1])
-
 multiplies matrix
-
 [0 1]
 [n - 1 n - 2]
-
 == vector (dp[t][0], dp[t - 1][1]).
-
 So we just need to calculate the kth power of the matrix which can be done by fast power algorith.
-
 Complexity
 Time complexity:
 O(n + logk)
-
 Space complexity:
 O(n)
-
-'''
-
+"""
 
 
 class Solution:
