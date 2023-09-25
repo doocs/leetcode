@@ -8,7 +8,7 @@ const cleanedHtml = html => {
 };
 const giscusTheme = () =>
     localStorage.getItem('DARK_LIGHT_THEME') === 'light' ? 'light' : 'noborder_dark';
-
+const term = () => location.hash.slice(0, location.hash.lastIndexOf('/')) ?? '/index';
 window.addEventListener('hashchange', () => {
     window.$docsify.loadSidebar = sidebar();
 });
@@ -134,7 +134,6 @@ window.$docsify = {
                 return html + footer;
             });
             hook.doneEach(() => {
-                const path = isRoot() ? 'index' : vm.route.path;
                 var giscusScript = document.createElement('script');
                 const {
                     repo,
@@ -145,7 +144,6 @@ window.$docsify = {
                     emitMetadata,
                     inputPosition,
                     theme,
-                    lang,
                 } = $docsify.giscus;
                 giscusScript.type = 'text/javascript';
                 giscusScript.async = true;
@@ -155,12 +153,12 @@ window.$docsify = {
                 giscusScript.setAttribute('data-category', category);
                 giscusScript.setAttribute('data-category-id', categoryId);
                 giscusScript.setAttribute('data-mapping', 'specific');
-                giscusScript.setAttribute('data-term', path);
+                giscusScript.setAttribute('data-term', term());
                 giscusScript.setAttribute('data-reactions-enabled', reactionsEnabled);
                 giscusScript.setAttribute('data-emit-metadata', emitMetadata);
                 giscusScript.setAttribute('data-input-position', inputPosition);
                 giscusScript.setAttribute('data-theme', theme);
-                giscusScript.setAttribute('data-lang', lang);
+                giscusScript.setAttribute('data-lang', isEn() ? 'en' : 'zh-CN');
                 giscusScript.setAttribute('data-loading', 'lazy');
                 giscusScript.setAttribute('crossorigin', 'anonymous');
                 document
