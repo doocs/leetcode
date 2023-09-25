@@ -24,7 +24,7 @@ window.$docsify = {
         repo: 'doocs/leetcode',
         repoId: 'MDEwOlJlcG9zaXRvcnkxNDkwMDEzNjU',
         category: 'Announcements',
-        categoryId: 'MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDAxMjk0',
+        categoryId: 'DIC_kwDOCOGUlc4CZmhe',
         mapping: 'pathname',
         reactionsEnabled: '0',
         strict: '1',
