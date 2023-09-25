@@ -6,7 +6,8 @@ const cleanedHtml = html => {
         return '<pre>' + group.replace(/<code>([\s\S]*?)<\/code>/g, '$1') + '</pre>';
     });
 };
-
+const giscusTheme =
+    localStorage.getItem('DARK_LIGHT_THEME') === 'light' ? 'light' : 'noborder_dark';
 window.addEventListener('hashchange', () => {
     window.$docsify.loadSidebar = sidebar();
 });
@@ -17,6 +18,20 @@ window.$docsify = {
     lastModifiedText: {
         '/README_EN': 'Last updated: ',
         '/': '最近更新时间：',
+    },
+    giscus: {
+        repo: 'doocs/leetcode',
+        repoId: 'MDEwOlJlcG9zaXRvcnkxNDkwMDEzNjU',
+        category: 'Q&A',
+        categoryId: 'MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDAxMjk0',
+        mapping: 'url',
+        reactionsEnabled: '0',
+        strict: '1',
+        emitMetadata: '0',
+        inputPosition: 'bottom',
+        theme: giscusTheme,
+        lang: 'zh-CN',
+        loading: 'lazy',
     },
     logo: '/images/doocs-leetcode.png',
     search: {
@@ -117,6 +132,19 @@ window.$docsify = {
                 const currentYear = new Date().getFullYear();
                 const footer = `<footer>Copyright © 2018-${currentYear} <a href="https://github.com/doocs" target="_blank">Doocs</a>${copyright}</footer>`;
                 return html + footer;
+            });
+            hook.doneEach(() => {
+                document.getElementById('docsify-darklight-theme').addEventListener('click', () => {
+                    const theme =
+                        localStorage.getItem('DARK_LIGHT_THEME') === 'light'
+                            ? 'light'
+                            : 'noborder_dark';
+                    const frame = document.querySelector('.giscus-frame');
+                    frame.contentWindow.postMessage(
+                        { giscus: { setConfig: { theme } } },
+                        'https://giscus.app',
+                    );
+                });
             });
         },
     ],
