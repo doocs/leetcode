@@ -6,8 +6,9 @@ const cleanedHtml = html => {
         return '<pre>' + group.replace(/<code>([\s\S]*?)<\/code>/g, '$1') + '</pre>';
     });
 };
-const giscusTheme =
+const giscusTheme = () =>
     localStorage.getItem('DARK_LIGHT_THEME') === 'light' ? 'light' : 'noborder_dark';
+
 window.addEventListener('hashchange', () => {
     window.$docsify.loadSidebar = sidebar();
 });
@@ -29,7 +30,7 @@ window.$docsify = {
         strict: '1',
         emitMetadata: '0',
         inputPosition: 'bottom',
-        theme: giscusTheme,
+        theme: giscusTheme(),
         lang: 'zh-CN',
         loading: 'lazy',
     },
@@ -135,10 +136,7 @@ window.$docsify = {
             });
             hook.doneEach(() => {
                 document.getElementById('docsify-darklight-theme').addEventListener('click', () => {
-                    const theme =
-                        localStorage.getItem('DARK_LIGHT_THEME') === 'light'
-                            ? 'light'
-                            : 'noborder_dark';
+                    const theme = giscusTheme();
                     const frame = document.querySelector('.giscus-frame');
                     frame.contentWindow.postMessage(
                         { giscus: { setConfig: { theme } } },
