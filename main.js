@@ -134,8 +134,40 @@ window.$docsify = {
                 return html + footer;
             });
             hook.doneEach(() => {
+                const path = isRoot() ? 'index' : vm.route.path;
+                var giscusScript = document.createElement('script');
+                const {
+                    repo,
+                    repoId,
+                    category,
+                    categoryId,
+                    reactionsEnabled,
+                    emitMetadata,
+                    inputPosition,
+                    theme,
+                    lang,
+                } = $docsify.giscus;
+                giscusScript.type = 'text/javascript';
+                giscusScript.async = true;
+                giscusScript.setAttribute('src', 'https://giscus.app/client.js');
+                giscusScript.setAttribute('data-repo', repo);
+                giscusScript.setAttribute('data-repo-id', repoId);
+                giscusScript.setAttribute('data-category', category);
+                giscusScript.setAttribute('data-category-id', categoryId);
+                giscusScript.setAttribute('data-mapping', 'specific');
+                giscusScript.setAttribute('data-term', path);
+                giscusScript.setAttribute('data-reactions-enabled', reactionsEnabled);
+                giscusScript.setAttribute('data-emit-metadata', emitMetadata);
+                giscusScript.setAttribute('data-input-position', inputPosition);
+                giscusScript.setAttribute('data-theme', theme);
+                giscusScript.setAttribute('data-lang', lang);
+                giscusScript.setAttribute('data-loading', 'lazy');
+                giscusScript.setAttribute('crossorigin', 'anonymous');
+                document
+                    .getElementById('main')
+                    .insertBefore(giscusScript, document.getElementById('main').lastChild);
+
                 document.getElementById('docsify-darklight-theme').addEventListener('click', () => {
-                    const theme = giscusTheme();
                     const frame = document.querySelector('.giscus-frame');
                     frame.contentWindow.postMessage(
                         { giscus: { setConfig: { theme } } },
