@@ -60,13 +60,11 @@ window.$docsify = {
         category: 'Announcements',
         categoryId: 'DIC_kwDOCOGUlc4CZmhe',
         mapping: 'specific',
-        term: getTerm(),
         reactionsEnabled: '0',
         strict: '1',
         emitMetadata: '0',
         inputPosition: 'top',
         crossorigin: 'anonymous',
-        lang: getLang(),
     },
     contributors: {
         repo: 'doocs/leetcode',
@@ -143,9 +141,6 @@ window.$docsify = {
                 return html + footer;
             });
             hook.doneEach(() => {
-                const term = getTerm();
-                const lang = getLang();
-
                 const giscusScript = document.createElement('script');
                 const {
                     repo,
@@ -174,8 +169,8 @@ window.$docsify = {
                 giscusScript.setAttribute('crossorigin', crossorigin);
                 giscusScript.setAttribute('data-theme', giscusTheme());
 
-                giscusScript.setAttribute('data-term', term);
-                giscusScript.setAttribute('data-lang', lang);
+                giscusScript.setAttribute('data-term', getTerm());
+                giscusScript.setAttribute('data-lang', getLang());
 
                 document
                     .getElementById('main')
@@ -183,9 +178,8 @@ window.$docsify = {
 
                 document.getElementById('docsify-darklight-theme').addEventListener('click', () => {
                     const frame = document.querySelector('.giscus-frame');
-                    const theme = giscusTheme();
                     frame.contentWindow.postMessage(
-                        { giscus: { setConfig: { theme } } },
+                        { giscus: { setConfig: { theme: giscusTheme() } } },
                         'https://giscus.app',
                     );
                 });
