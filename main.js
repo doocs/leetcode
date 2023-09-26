@@ -40,8 +40,6 @@ window.$docsify = {
         emitMetadata: '0',
         inputPosition: 'top',
         crossorigin: 'anonymous',
-        loading: 'lazy',
-        theme: giscusTheme(),
         lang: getLang(),
     },
     logo: '/images/doocs-leetcode.png',
@@ -147,6 +145,7 @@ window.$docsify = {
             hook.doneEach(() => {
                 const term = getTerm();
                 const lang = getLang();
+
                 var giscusScript = document.createElement('script');
                 const {
                     repo,
@@ -159,8 +158,6 @@ window.$docsify = {
                     emitMetadata,
                     inputPosition,
                     crossorigin,
-                    loading,
-                    theme,
                 } = $docsify.giscus;
                 giscusScript.type = 'text/javascript';
                 giscusScript.async = true;
@@ -175,8 +172,7 @@ window.$docsify = {
                 giscusScript.setAttribute('data-emit-metadata', emitMetadata);
                 giscusScript.setAttribute('data-input-position', inputPosition);
                 giscusScript.setAttribute('crossorigin', crossorigin);
-                giscusScript.setAttribute('data-loading', loading);
-                giscusScript.setAttribute('data-theme', theme);
+                giscusScript.setAttribute('data-theme', giscusTheme());
 
                 giscusScript.setAttribute('data-term', term);
                 giscusScript.setAttribute('data-lang', lang);
@@ -187,6 +183,7 @@ window.$docsify = {
 
                 document.getElementById('docsify-darklight-theme').addEventListener('click', () => {
                     const frame = document.querySelector('.giscus-frame');
+                    const theme = giscusTheme();
                     frame.contentWindow.postMessage(
                         { giscus: { setConfig: { theme } } },
                         'https://giscus.app',
