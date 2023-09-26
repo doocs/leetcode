@@ -3,12 +3,9 @@ const isEn = () => location.hash.includes('README_EN');
 const isRoot = () => ['', '#/', '#/README', '#/README_EN'].includes(location.hash);
 
 const getSolutionPrefix = url => {
-    ['javascript_', 'database_', 'shell_'].forEach(prefix => {
-        if (url.includes(prefix + 'solution')) {
-            return prefix;
-        }
-    });
-    return '';
+    const categories = ['javascript', 'shell', 'database'];
+    const res = categories.find(category => url.includes(category + '_solution'));
+    return res ? res + '_' : '';
 };
 
 const sidebar = () => {
