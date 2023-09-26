@@ -24,26 +24,6 @@ window.addEventListener('hashchange', () => {
 window.$docsify = {
     name: 'leetcode',
     repo: 'doocs/leetcode',
-    lastModifiedText: {
-        '/README_EN': 'Last updated: ',
-        '/': '最近更新时间：',
-    },
-    giscus: {
-        repo: 'doocs/leetcode',
-        repoId: 'MDEwOlJlcG9zaXRvcnkxNDkwMDEzNjU',
-        category: 'Announcements',
-        categoryId: 'DIC_kwDOCOGUlc4CZmhe',
-        mapping: 'specific',
-        term: getTerm(),
-        reactionsEnabled: '0',
-        strict: '1',
-        emitMetadata: '0',
-        inputPosition: 'top',
-        crossorigin: 'anonymous',
-        loading: 'lazy',
-        theme: giscusTheme(),
-        lang: getLang(),
-    },
     logo: '/images/doocs-leetcode.png',
     search: {
         depth: 2,
@@ -69,6 +49,22 @@ window.$docsify = {
         '/lcof2/.*/summary_en.md': '/lcof2/summary_en.md',
         '/solution/.*/summary_en.md': '/solution/summary_en.md',
         '/basic/.*/summary_en.md': '/basic/summary_en.md',
+    },
+    lastModifiedText: {
+        '/README_EN': 'Last updated: ',
+        '/': '最近更新时间：',
+    },
+    giscus: {
+        repo: 'doocs/leetcode',
+        repoId: 'MDEwOlJlcG9zaXRvcnkxNDkwMDEzNjU',
+        category: 'Announcements',
+        categoryId: 'DIC_kwDOCOGUlc4CZmhe',
+        mapping: 'specific',
+        reactionsEnabled: '0',
+        strict: '1',
+        emitMetadata: '0',
+        inputPosition: 'top',
+        crossorigin: 'anonymous',
     },
     contributors: {
         repo: 'doocs/leetcode',
@@ -145,9 +141,7 @@ window.$docsify = {
                 return html + footer;
             });
             hook.doneEach(() => {
-                const term = getTerm();
-                const lang = getLang();
-                var giscusScript = document.createElement('script');
+                const giscusScript = document.createElement('script');
                 const {
                     repo,
                     repoId,
@@ -159,8 +153,6 @@ window.$docsify = {
                     emitMetadata,
                     inputPosition,
                     crossorigin,
-                    loading,
-                    theme,
                 } = $docsify.giscus;
                 giscusScript.type = 'text/javascript';
                 giscusScript.async = true;
@@ -175,11 +167,10 @@ window.$docsify = {
                 giscusScript.setAttribute('data-emit-metadata', emitMetadata);
                 giscusScript.setAttribute('data-input-position', inputPosition);
                 giscusScript.setAttribute('crossorigin', crossorigin);
-                giscusScript.setAttribute('data-loading', loading);
-                giscusScript.setAttribute('data-theme', theme);
+                giscusScript.setAttribute('data-theme', giscusTheme());
 
-                giscusScript.setAttribute('data-term', term);
-                giscusScript.setAttribute('data-lang', lang);
+                giscusScript.setAttribute('data-term', getTerm());
+                giscusScript.setAttribute('data-lang', getLang());
 
                 document
                     .getElementById('main')
@@ -188,7 +179,7 @@ window.$docsify = {
                 document.getElementById('docsify-darklight-theme').addEventListener('click', () => {
                     const frame = document.querySelector('.giscus-frame');
                     frame.contentWindow.postMessage(
-                        { giscus: { setConfig: { theme } } },
+                        { giscus: { setConfig: { theme: giscusTheme() } } },
                         'https://giscus.app',
                     );
                 });
