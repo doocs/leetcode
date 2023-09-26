@@ -2,8 +2,9 @@ const isEn = () => location.hash.includes('README_EN');
 
 const isRoot = () => ['', '#/', '#/README', '#/README_EN'].includes(location.hash);
 
+const categories = ['javascript', 'database'];
+
 const getSolutionPrefix = url => {
-    const categories = ['javascript', 'database'];
     const res = categories.find(
         category =>
             url.includes(category + '-solution') ||
@@ -39,9 +40,10 @@ const giscusTheme = () =>
 const getTerm = () => {
     let path = decodeURI(location.hash.slice(1, location.hash.lastIndexOf('/'))) || '/index';
     // restore original path
-    for (const prefix of ['javascript', 'database']) {
-        if (path.includes(prefix + '-solution')) {
-            path = path.replace(prefix + '-solution', 'solution');
+    for (const prefix of categories) {
+        const s = `${prefix}-solution`;
+        if (path.includes(s)) {
+            path = path.replace(s, 'solution');
         }
     }
     return path;

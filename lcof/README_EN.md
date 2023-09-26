@@ -12,7 +12,7 @@ Readers will improve their interview performance after reading this book. It wil
 
 English Solutions is not available for the book. Please switch to Chinese version.
 
-Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the Mac) to search anything you want.
+Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on the Mac) to search anything you want.
 
 ## Copyright
 
