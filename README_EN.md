@@ -172,6 +172,11 @@ The repository is maintained by the Doocs community, and please give us a [star]
 ### 7. Mathematical Knowledge
  -->
 
+## Other categories
+
+-   [JavaScript Practice](/solution/JAVASCRIPT_README_EN.md)
+-   [Database Practice](/solution/DATABASE_README_EN.md)
+
 ## Contributions
 
 I'm looking for long-term contributors/partners to this repo! Send me [PRs](https://github.com/doocs/leetcode/pulls) if you're interested! See the following:

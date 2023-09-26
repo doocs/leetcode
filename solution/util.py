@@ -28,6 +28,8 @@ ts_readme_cn = load_template("ts_problem_readme_template")
 ts_readme_en = load_template("ts_problem_readme_template_en")
 contest_readme_cn = load_template("contest_readme_template")
 contest_readme_en = load_template("contest_readme_template_en")
+category_readme_cn = load_template("category_readme_template")
+category_readme_en = load_template("category_readme_template_en")
 
 
 def load_cookies() -> Tuple[str, str]:
@@ -237,6 +239,39 @@ def generate_category_summary(result, category=""):
     # generate summary_en.md
     with open(f"./{sub_category}summary_en.md", "w", encoding="utf-8") as f:
         f.write(summary_en)
+
+
+def generate_category_readme(result, category=""):
+    md_table_cn = [item["md_table_row_cn"] for item in result]
+    md_table_en = [item["md_table_row_en"] for item in result]
+    m = {int(item["frontend_question_id"]): item for item in result}
+
+    # generate README.md
+    items = []
+    table_cn = "\n|  题号  |  题解  |  标签  |  难度  | 备注 |\n| --- | --- | --- | --- | --- |"
+    for item in sorted(md_table_cn, key=lambda x: x[0]):
+        if category and m[int(item[0])]["category"] != category:
+            continue
+        items.append(
+            f"\n|  {item[0]}  |  {item[1]}  |  {item[2]}  |  {item[3]}  |  {item[4]}  |"
+        )
+    table_cn += "".join(items)
+
+    # generate README_EN.md
+    items = []
+    table_en = "\n|  #  |  Solution  |  Tags  |  Difficulty  |  Remark |\n| --- | --- | --- | --- | --- |"
+    for item in sorted(md_table_en, key=lambda x: x[0]):
+        if category and m[int(item[0])]["category"] != category:
+            continue
+        items.append(
+            f"\n|  {item[0]}  |  {item[1]}  |  {item[2]}  |  {item[3]}  |  {item[4]}  |"
+        )
+    table_en += "".join(items)
+    path_prefix = category.upper() + "_" if category else ""
+    with open(f"./{path_prefix}README.md", "w", encoding="utf-8") as f:
+        f.write(category_readme_cn.format(category, category.upper(), table_cn))
+    with open(f"./{path_prefix}README_EN.md", "w", encoding="utf-8") as f:
+        f.write(category_readme_en.format(category, category.upper(), table_en))
 
 
 def refresh(result):

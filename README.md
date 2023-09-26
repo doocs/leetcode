@@ -176,6 +176,11 @@
 ### 7. 数学知识
  -->
 
+## 其他专题
+
+-   [JavaScript 专项练习](/solution/JAVASCRIPT_README.md)
+-   [Database 专项练习](/solution/DATABASE_README.md)
+
 ## 加入我们
 
 刷编程题的最大好处就是可以锻炼解决问题的思维能力。相信我，「如何去思考」​ 本身也是一项需要不断学习和练习的技能。非常感谢前微软工程师、现蚂蚁金服技术专家 [@kfstorm](https://github.com/kfstorm) 贡献了本项目的所有 [C# 题解](https://github.com/doocs/leetcode/pull/245)。

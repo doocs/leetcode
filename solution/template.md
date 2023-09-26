@@ -1,3 +1,45 @@
+<!-- 这里是category_readme_template开始位置 -->
+
+# {} 专项练习
+
+[English Version](/solution/{}_README_EN.md)
+
+## 题解
+
+列表所有题解均由 [开源社区 Doocs](https://github.com/doocs) 贡献者提供，正在完善中，欢迎贡献你的题解！
+
+快速搜索题号、题解、标签等，请善用 <kbd>Control</kbd>+<kbd>F</kbd>（或者 <kbd>Command</kbd>+<kbd>F</kbd>）。
+
+{}
+
+## 版权
+
+著作权归 [GitHub 开源社区 Doocs](https://github.com/doocs) 所有，商业转载请联系 [@yanglbme](mailto:contact@yanglibin.info) 获得授权，非商业转载请注明出处。
+
+<!-- 这里是category_readme_template结束位置 -->
+
+---
+
+<!-- 这里是category_readme_template_en开始位置 -->
+
+# {} Practice
+
+[中文文档](/solution/{}_README.md)
+
+## Solutions
+
+Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the Mac) to search anything you want.
+
+{}
+
+## Copyright
+
+[@Doocs](https://github.com/doocs)
+
+<!-- 这里是category_readme_template_en结束位置 -->
+
+---
+
 <!-- 这里是readme_template开始位置 -->
 
 # LeetCode
