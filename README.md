@@ -31,6 +31,11 @@
 -   [剑指 Offer（专项突击版）](/lcof2/README.md)
 -   [程序员面试金典（第 6 版）](/lcci/README.md)
 
+## 专项突破
+
+-   [JavaScript 专项练习](/solution/JAVASCRIPT_README.md)
+-   [数据库专项练习](/solution/DATABASE_README.md)
+
 ## 算法提升专题
 
 ### 1. 基础算法

@@ -2,7 +2,24 @@ const isEn = () => location.hash.includes('README_EN');
 
 const isRoot = () => ['', '#/', '#/README', '#/README_EN'].includes(location.hash);
 
-const sidebar = () => (isRoot() ? false : isEn() ? 'summary_en.md' : 'summary.md');
+const categories = ['javascript', 'database'];
+
+const getSolutionPrefix = url => {
+    const res = categories.find(
+        category =>
+            url.includes(category + '-solution') ||
+            url.includes(category.toUpperCase() + '_README'),
+    );
+    return res ? res + '-' : '';
+};
+
+const sidebar = () => {
+    if (isRoot()) {
+        return false;
+    }
+    const prefix = getSolutionPrefix(location.hash);
+    return isEn() ? `${prefix}summary_en.md` : `${prefix}summary.md`;
+};
 
 const cleanedHtml = html => {
     return html.replace(/<pre>([\s\S]*?)<\/pre>/g, (_, group) => {
@@ -10,12 +27,27 @@ const cleanedHtml = html => {
     });
 };
 
+const replaceHref = html => {
+    const prefix = getSolutionPrefix(location.hash);
+    return prefix ? html.replaceAll('(/solution/', '(/' + prefix + 'solution/') : html;
+};
+
 const getLang = () => (isEn() ? 'en' : 'zh-CN');
 
 const giscusTheme = () =>
     localStorage.getItem('DARK_LIGHT_THEME') === 'light' ? 'light' : 'noborder_dark';
 
-const getTerm = () => decodeURI(location.hash.slice(1, location.hash.lastIndexOf('/')) || '/index');
+const getTerm = () => {
+    let path = decodeURI(location.hash.slice(1, location.hash.lastIndexOf('/'))) || '/index';
+    // restore original path
+    for (const prefix of categories) {
+        const s = `${prefix}-solution`;
+        if (path.includes(s)) {
+            path = path.replace(s, 'solution');
+        }
+    }
+    return path;
+};
 
 window.addEventListener('hashchange', () => {
     window.$docsify.loadSidebar = sidebar();
@@ -34,6 +66,9 @@ window.$docsify = {
     auto2top: true,
     subMaxLevel: 2,
     alias: {
+        '^/javascript-solution/(.*)': '/solution/$1',
+        '^/shell-solution/(.*)': '/solution/$1',
+        '^/database-solution/(.*)': '/solution/$1',
         '/lcs/.*/summary.md': '/lcs/summary.md',
         '/lcp/.*/summary.md': '/lcp/summary.md',
         '/lcci/.*/summary.md': '/lcci/summary.md',
@@ -128,6 +163,7 @@ window.$docsify = {
                 const github = `[GitHub](${url})`;
                 const gitee = `[Gitee](${url.replace('github', 'gitee')})`;
                 html = cleanedHtml(html);
+                html = replaceHref(html);
                 const editHtml = isEn()
                     ? `:memo: Edit on ${github} / ${gitee}\n`
                     : `:memo: 在 ${github} / ${gitee} 编辑\n`;

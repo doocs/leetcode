@@ -32,6 +32,11 @@ The repository is maintained by the Doocs community, and please give us a [star]
 -   [LCOF: Coding Interviews, 2nd Edition](/lcof/README_EN.md)
 -   [LCCI: Cracking the Coding Interview, 6th Edition](/lcci/README_EN.md)
 
+## JavaScript & Database Practice
+
+-   [JavaScript Practice](/solution/JAVASCRIPT_README_EN.md)
+-   [Database Practice](/solution/DATABASE_README_EN.md)
+
 ## Topics
 
 ### 1. Basic Algorithms
