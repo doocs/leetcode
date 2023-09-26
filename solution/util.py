@@ -204,9 +204,10 @@ def generate_summary(result):
 
 def generate_category_summary(result, category=""):
     """generate category summary files"""
-    summary_cn = summary_en = ""
+    summary_cn = '- ' + category + ' 专项练习\n\n' if category else ''
+    summary_en = '- ' + category + ' Practice\n\n' if category else ''
     category = category.lower() if category else ""
-    sub_category = category + "_" if category else ""
+    sub_category = category + "-" if category else ""
     m = {int(item["frontend_question_id"]): item for item in result}
     for file in sorted(os.listdir("./"), key=lambda x: x.lower()):
         if os.path.isdir("./" + file) and file != "__pycache__":

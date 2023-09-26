@@ -4,8 +4,8 @@ const isRoot = () => ['', '#/', '#/README', '#/README_EN'].includes(location.has
 
 const getSolutionPrefix = url => {
     const categories = ['javascript', 'shell', 'database'];
-    const res = categories.find(category => url.includes(category + '_solution'));
-    return res ? res + '_' : '';
+    const res = categories.find(category => url.includes(category + '-solution'));
+    return res ? res + '-' : '';
 };
 
 const sidebar = () => {
@@ -51,9 +51,9 @@ window.$docsify = {
     auto2top: true,
     subMaxLevel: 2,
     alias: {
-        '^/javascript_solution/(.*)': '/solution/$1',
-        '^/shell_solution/(.*)': '/solution/$1',
-        '^/database_solution/(.*)': '/solution/$1',
+        '^/javascript-solution/(.*)': '/solution/$1',
+        '^/shell-solution/(.*)': '/solution/$1',
+        '^/database-solution/(.*)': '/solution/$1',
         '/lcs/.*/summary.md': '/lcs/summary.md',
         '/lcp/.*/summary.md': '/lcp/summary.md',
         '/lcci/.*/summary.md': '/lcci/summary.md',
