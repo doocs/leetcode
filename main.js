@@ -24,24 +24,6 @@ window.addEventListener('hashchange', () => {
 window.$docsify = {
     name: 'leetcode',
     repo: 'doocs/leetcode',
-    lastModifiedText: {
-        '/README_EN': 'Last updated: ',
-        '/': '最近更新时间：',
-    },
-    giscus: {
-        repo: 'doocs/leetcode',
-        repoId: 'MDEwOlJlcG9zaXRvcnkxNDkwMDEzNjU',
-        category: 'Announcements',
-        categoryId: 'DIC_kwDOCOGUlc4CZmhe',
-        mapping: 'specific',
-        term: getTerm(),
-        reactionsEnabled: '0',
-        strict: '1',
-        emitMetadata: '0',
-        inputPosition: 'top',
-        crossorigin: 'anonymous',
-        lang: getLang(),
-    },
     logo: '/images/doocs-leetcode.png',
     search: {
         depth: 2,
@@ -67,6 +49,24 @@ window.$docsify = {
         '/lcof2/.*/summary_en.md': '/lcof2/summary_en.md',
         '/solution/.*/summary_en.md': '/solution/summary_en.md',
         '/basic/.*/summary_en.md': '/basic/summary_en.md',
+    },
+    lastModifiedText: {
+        '/README_EN': 'Last updated: ',
+        '/': '最近更新时间：',
+    },
+    giscus: {
+        repo: 'doocs/leetcode',
+        repoId: 'MDEwOlJlcG9zaXRvcnkxNDkwMDEzNjU',
+        category: 'Announcements',
+        categoryId: 'DIC_kwDOCOGUlc4CZmhe',
+        mapping: 'specific',
+        term: getTerm(),
+        reactionsEnabled: '0',
+        strict: '1',
+        emitMetadata: '0',
+        inputPosition: 'top',
+        crossorigin: 'anonymous',
+        lang: getLang(),
     },
     contributors: {
         repo: 'doocs/leetcode',
@@ -146,7 +146,7 @@ window.$docsify = {
                 const term = getTerm();
                 const lang = getLang();
 
-                var giscusScript = document.createElement('script');
+                const giscusScript = document.createElement('script');
                 const {
                     repo,
                     repoId,
