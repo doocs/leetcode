@@ -252,7 +252,6 @@ def generate_category_readme(result, category=""):
     for item in sorted(md_table_cn, key=lambda x: x[0]):
         if category and m[int(item[0])]["category"] != category:
             continue
-        item[1] = item[1].replace('/solution/', '/' + category.lower() + '-solution/')
         items.append(
             f"\n|  {item[0]}  |  {item[1]}  |  {item[2]}  |  {item[3]}  |  {item[4]}  |"
         )
@@ -264,7 +263,6 @@ def generate_category_readme(result, category=""):
     for item in sorted(md_table_en, key=lambda x: x[0]):
         if category and m[int(item[0])]["category"] != category:
             continue
-        item[1] = item[1].replace('/solution/', '/' + category.lower() + '-solution/')
         items.append(
             f"\n|  {item[0]}  |  {item[1]}  |  {item[2]}  |  {item[3]}  |  {item[4]}  |"
         )
