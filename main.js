@@ -1,14 +1,22 @@
 const isEn = () => location.hash.includes('README_EN');
+
 const isRoot = () => ['', '#/', '#/README', '#/README_EN'].includes(location.hash);
+
 const sidebar = () => (isRoot() ? false : isEn() ? 'summary_en.md' : 'summary.md');
+
 const cleanedHtml = html => {
     return html.replace(/<pre>([\s\S]*?)<\/pre>/g, (_, group) => {
         return '<pre>' + group.replace(/<code>([\s\S]*?)<\/code>/g, '$1') + '</pre>';
     });
 };
+
+const getLang = () => (isEn() ? 'en' : 'zh-CN');
+
 const giscusTheme = () =>
     localStorage.getItem('DARK_LIGHT_THEME') === 'light' ? 'light' : 'noborder_dark';
-const term = () => location.hash.slice(0, location.hash.lastIndexOf('/')) ?? '/index';
+
+const term = () => decodeURI(location.hash.slice(1, location.hash.lastIndexOf('/')) || '/index');
+
 window.addEventListener('hashchange', () => {
     window.$docsify.loadSidebar = sidebar();
 });
@@ -25,13 +33,16 @@ window.$docsify = {
         repoId: 'MDEwOlJlcG9zaXRvcnkxNDkwMDEzNjU',
         category: 'Announcements',
         categoryId: 'DIC_kwDOCOGUlc4CZmhe',
-        mapping: 'pathname',
+        mapping: 'specific',
+        term: term(),
         reactionsEnabled: '0',
         strict: '1',
         emitMetadata: '0',
         inputPosition: 'top',
+        crossorigin: 'anonymous',
+        loading: 'lazy',
         theme: giscusTheme(),
-        lang: isEn() ? 'en' : 'zh-CN',
+        lang: getLang(),
     },
     logo: '/images/doocs-leetcode.png',
     search: {
@@ -140,9 +151,13 @@ window.$docsify = {
                     repoId,
                     category,
                     categoryId,
+                    mapping,
                     reactionsEnabled,
+                    strict,
                     emitMetadata,
                     inputPosition,
+                    crossorigin,
+                    loading,
                     theme,
                 } = $docsify.giscus;
                 giscusScript.type = 'text/javascript';
@@ -152,15 +167,18 @@ window.$docsify = {
                 giscusScript.setAttribute('data-repo-id', repoId);
                 giscusScript.setAttribute('data-category', category);
                 giscusScript.setAttribute('data-category-id', categoryId);
-                giscusScript.setAttribute('data-mapping', 'specific');
-                giscusScript.setAttribute('data-term', term());
+                giscusScript.setAttribute('data-mapping', mapping);
                 giscusScript.setAttribute('data-reactions-enabled', reactionsEnabled);
+                giscusScript.setAttribute('data-strict', strict);
                 giscusScript.setAttribute('data-emit-metadata', emitMetadata);
                 giscusScript.setAttribute('data-input-position', inputPosition);
+                giscusScript.setAttribute('crossorigin', crossorigin);
+                giscusScript.setAttribute('data-loading', loading);
                 giscusScript.setAttribute('data-theme', theme);
-                giscusScript.setAttribute('data-lang', isEn() ? 'en' : 'zh-CN');
-                giscusScript.setAttribute('data-loading', 'lazy');
-                giscusScript.setAttribute('crossorigin', 'anonymous');
+
+                giscusScript.setAttribute('data-term', term());
+                giscusScript.setAttribute('data-lang', getLang());
+
                 document
                     .getElementById('main')
                     .insertBefore(giscusScript, document.getElementById('main').lastChild);
