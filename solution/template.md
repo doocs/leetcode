@@ -8,7 +8,7 @@
 
 列表所有题解均由 [开源社区 Doocs](https://github.com/doocs) 贡献者提供，正在完善中，欢迎贡献你的题解！
 
-快速搜索题号、题解、标签等，请善用 <kbd>Control</kbd>+<kbd>F</kbd>（或者 <kbd>Command</kbd> + <kbd>F</kbd>）。
+快速搜索题号、题解、标签等，请善用 <kbd>Control</kbd> + <kbd>F</kbd>（或者 <kbd>Command</kbd> + <kbd>F</kbd>）。
 
 {}
 
@@ -28,7 +28,7 @@
 
 ## Solutions
 
-Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on the Mac) to search anything you want.
+Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on the Mac) to search anything you want.
 
 {}
 
@@ -50,7 +50,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on th
 
 列表所有题解均由 [开源社区 Doocs](https://github.com/doocs) 贡献者提供，正在完善中，欢迎贡献你的题解！
 
-快速搜索题号、题解、标签等，请善用 <kbd>Control</kbd>+<kbd>F</kbd>（或者 <kbd>Command</kbd> + <kbd>F</kbd>）。
+快速搜索题号、题解、标签等，请善用 <kbd>Control</kbd> + <kbd>F</kbd>（或者 <kbd>Command</kbd> + <kbd>F</kbd>）。
 
 {}
 
@@ -70,7 +70,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on th
 
 ## Solutions
 
-Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on the Mac) to search anything you want.
+Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on the Mac) to search anything you want.
 
 {}
 
