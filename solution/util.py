@@ -155,7 +155,7 @@ def generate_question_readme(result):
                     item["title_cn"],
                     item["url_cn"],
                     item["relative_path_en"],
-                    item["content_cn"].replace('leetcode-cn.com', 'leetcode.cn'),
+                    item["content_cn"].replace("leetcode-cn.com", "leetcode.cn"),
                 )
             )
 
@@ -199,6 +199,42 @@ def generate_summary(result):
 
     # generate summary_en.md
     with open("./summary_en.md", "w", encoding="utf-8") as f:
+        f.write(summary_en)
+
+
+def generate_category_summary(result, category=""):
+    """generate category summary files"""
+    summary_cn = summary_en = ""
+    category = category.lower() if category else ""
+    sub_category = category + "_" if category else ""
+    m = {int(item["frontend_question_id"]): item for item in result}
+    for file in sorted(os.listdir("./"), key=lambda x: x.lower()):
+        if os.path.isdir("./" + file) and file != "__pycache__":
+            for sub in sorted(os.listdir("./" + file), key=lambda x: x.lower()):
+                sub = sub.replace("`", " ")
+                enc = quote(sub)
+                if not sub[:4].isdigit():
+                    continue
+                data = m.get(int(sub[:4]))
+                if not data or (category and data["category"].lower() != category):
+                    continue
+                sub_cn = sub
+                if data:
+                    sub_cn = sub[:5] + data["title_cn"]
+
+                summary_cn += (
+                    f"  - [{sub_cn}](/{sub_category}solution/{file}/{enc}/README.md)\n"
+                )
+                summary_en += (
+                    f"  - [{sub}](/{sub_category}solution/{file}/{enc}/README_EN.md)\n"
+                )
+
+    # generate summary.md
+    with open(f"./{sub_category}summary.md", "w", encoding="utf-8") as f:
+        f.write(summary_cn)
+
+    # generate summary_en.md
+    with open(f"./{sub_category}summary_en.md", "w", encoding="utf-8") as f:
         f.write(summary_en)
 
 
@@ -248,7 +284,7 @@ def refresh(result):
             )
             cn_content = cn_content.replace(url, new_url)
 
-        cn_content = cn_content.replace('leetcode-cn.com', 'leetcode.cn')
+        cn_content = cn_content.replace("leetcode-cn.com", "leetcode.cn")
         with open(path_cn, "w", encoding="utf-8") as f1:
             f1.write(cn_content)
 
