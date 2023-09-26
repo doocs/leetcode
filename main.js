@@ -2,24 +2,21 @@ const isEn = () => location.hash.includes('README_EN');
 
 const isRoot = () => ['', '#/', '#/README', '#/README_EN'].includes(location.hash);
 
-const isJavascript = () => /^#\/javascript_solution\/.*$/.test(location.hash);
-
-const isDatabase = () => /^#\/database_solution\/.*$/.test(location.hash);
-
-const isShell = () => /^#\/shell_solution\/.*$/.test(location.hash);
+const getSolutionPrefix = url => {
+    ['javascript_', 'database_', 'shell_'].forEach(prefix => {
+        if (url.includes(prefix + 'solution')) {
+            return prefix;
+        }
+    });
+    return '';
+};
 
 const sidebar = () => {
     if (isRoot()) {
         return false;
     }
-    if (isJavascript()) {
-        return isEn() ? 'javascript_summary_en.md' : 'javascript_summary.md';
-    } else if (isDatabase()) {
-        return isEn() ? 'javascript_summary_en.md' : 'javascript_summary.md';
-    } else if (isShell()) {
-        return isEn() ? 'javascript_summary_en.md' : 'javascript_summary.md';
-    }
-    return isEn() ? 'summary_en.md' : 'summary.md';
+    const prefix = getSolutionPrefix(location.hash);
+    return isEn() ? `${prefix}summary_en.md` : `${prefix}summary.md`;
 };
 
 const cleanedHtml = html => {
@@ -29,15 +26,8 @@ const cleanedHtml = html => {
 };
 
 const replaceHref = html => {
-    let res;
-    if (isJavascript()) {
-        res = 'javascript_solution';
-    } else if (isDatabase()) {
-        res = 'database_solution';
-    } else if (isShell()) {
-        res = 'shell_solution';
-    }
-    return res ? html.replace(/\/solution\//g, `/${res}/`) : html;
+    const replacement = getSolutionPrefix(location.hash) + 'solution';
+    return replacement ? html.replace(/\/solution\//g, `/${replacement}/`) : html;
 };
 
 const getLang = () => (isEn() ? 'en' : 'zh-CN');
