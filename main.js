@@ -4,7 +4,11 @@ const isRoot = () => ['', '#/', '#/README', '#/README_EN'].includes(location.has
 
 const getSolutionPrefix = url => {
     const categories = ['javascript', 'shell', 'database'];
-    const res = categories.find(category => url.includes(category + '-solution'));
+    const res = categories.find(
+        category =>
+            url.includes(category + '-solution') ||
+            url.includes(category.toUpperCase() + '_README'),
+    );
     return res ? res + '-' : '';
 };
 
@@ -24,7 +28,7 @@ const cleanedHtml = html => {
 
 const replaceHref = html => {
     const replacement = getSolutionPrefix(location.hash) + 'solution';
-    return replacement ? html.replace(/\/solution\//g, `/${replacement}/`) : html;
+    return replacement ? html.replace(/\(\/solution\//, `(${replacement}/`) : html;
 };
 
 const getLang = () => (isEn() ? 'en' : 'zh-CN');
