@@ -36,7 +36,16 @@ const getLang = () => (isEn() ? 'en' : 'zh-CN');
 const giscusTheme = () =>
     localStorage.getItem('DARK_LIGHT_THEME') === 'light' ? 'light' : 'noborder_dark';
 
-const getTerm = () => decodeURI(location.hash.slice(1, location.hash.lastIndexOf('/')) || '/index');
+const getTerm = () => {
+    let path = decodeURI(location.hash.slice(1, location.hash.lastIndexOf('/'))) || '/index';
+    // restore original path
+    for (const prefix of ['javascript', 'database']) {
+        if (path.includes(prefix + '-solution')) {
+            path = path.replace(prefix + '-solution', 'solution');
+        }
+    }
+    return path;
+};
 
 window.addEventListener('hashchange', () => {
     window.$docsify.loadSidebar = sidebar();
