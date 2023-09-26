@@ -15,7 +15,7 @@ const getLang = () => (isEn() ? 'en' : 'zh-CN');
 const giscusTheme = () =>
     localStorage.getItem('DARK_LIGHT_THEME') === 'light' ? 'light' : 'noborder_dark';
 
-const term = () => decodeURI(location.hash.slice(1, location.hash.lastIndexOf('/')) || '/index');
+const getTerm = () => decodeURI(location.hash.slice(1, location.hash.lastIndexOf('/')) || '/index');
 
 window.addEventListener('hashchange', () => {
     window.$docsify.loadSidebar = sidebar();
@@ -34,7 +34,7 @@ window.$docsify = {
         category: 'Announcements',
         categoryId: 'DIC_kwDOCOGUlc4CZmhe',
         mapping: 'specific',
-        term: term(),
+        term: getTerm(),
         reactionsEnabled: '0',
         strict: '1',
         emitMetadata: '0',
@@ -145,6 +145,8 @@ window.$docsify = {
                 return html + footer;
             });
             hook.doneEach(() => {
+                const term = getTerm();
+                const lang = getLang();
                 var giscusScript = document.createElement('script');
                 const {
                     repo,
@@ -176,8 +178,8 @@ window.$docsify = {
                 giscusScript.setAttribute('data-loading', loading);
                 giscusScript.setAttribute('data-theme', theme);
 
-                giscusScript.setAttribute('data-term', term());
-                giscusScript.setAttribute('data-lang', getLang());
+                giscusScript.setAttribute('data-term', term);
+                giscusScript.setAttribute('data-lang', lang);
 
                 document
                     .getElementById('main')
