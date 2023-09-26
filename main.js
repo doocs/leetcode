@@ -1,11 +1,21 @@
 const isEn = () => location.hash.includes('README_EN');
+
 const isRoot = () => ['', '#/', '#/README', '#/README_EN'].includes(location.hash);
+
 const sidebar = () => (isRoot() ? false : isEn() ? 'summary_en.md' : 'summary.md');
+
 const cleanedHtml = html => {
     return html.replace(/<pre>([\s\S]*?)<\/pre>/g, (_, group) => {
         return '<pre>' + group.replace(/<code>([\s\S]*?)<\/code>/g, '$1') + '</pre>';
     });
 };
+
+const getLang = () => (isEn() ? 'en' : 'zh-CN');
+
+const giscusTheme = () =>
+    localStorage.getItem('DARK_LIGHT_THEME') === 'light' ? 'light' : 'noborder_dark';
+
+const term = () => decodeURI(location.hash.slice(1, location.hash.lastIndexOf('/')) || '/index');
 
 window.addEventListener('hashchange', () => {
     window.$docsify.loadSidebar = sidebar();
@@ -17,6 +27,22 @@ window.$docsify = {
     lastModifiedText: {
         '/README_EN': 'Last updated: ',
         '/': '最近更新时间：',
+    },
+    giscus: {
+        repo: 'doocs/leetcode',
+        repoId: 'MDEwOlJlcG9zaXRvcnkxNDkwMDEzNjU',
+        category: 'Announcements',
+        categoryId: 'DIC_kwDOCOGUlc4CZmhe',
+        mapping: 'specific',
+        term: term(),
+        reactionsEnabled: '0',
+        strict: '1',
+        emitMetadata: '0',
+        inputPosition: 'top',
+        crossorigin: 'anonymous',
+        loading: 'lazy',
+        theme: giscusTheme(),
+        lang: getLang(),
     },
     logo: '/images/doocs-leetcode.png',
     search: {
@@ -117,6 +143,53 @@ window.$docsify = {
                 const currentYear = new Date().getFullYear();
                 const footer = `<footer>Copyright © 2018-${currentYear} <a href="https://github.com/doocs" target="_blank">Doocs</a>${copyright}</footer>`;
                 return html + footer;
+            });
+            hook.doneEach(() => {
+                var giscusScript = document.createElement('script');
+                const {
+                    repo,
+                    repoId,
+                    category,
+                    categoryId,
+                    mapping,
+                    reactionsEnabled,
+                    strict,
+                    emitMetadata,
+                    inputPosition,
+                    crossorigin,
+                    loading,
+                    theme,
+                } = $docsify.giscus;
+                giscusScript.type = 'text/javascript';
+                giscusScript.async = true;
+                giscusScript.setAttribute('src', 'https://giscus.app/client.js');
+                giscusScript.setAttribute('data-repo', repo);
+                giscusScript.setAttribute('data-repo-id', repoId);
+                giscusScript.setAttribute('data-category', category);
+                giscusScript.setAttribute('data-category-id', categoryId);
+                giscusScript.setAttribute('data-mapping', mapping);
+                giscusScript.setAttribute('data-reactions-enabled', reactionsEnabled);
+                giscusScript.setAttribute('data-strict', strict);
+                giscusScript.setAttribute('data-emit-metadata', emitMetadata);
+                giscusScript.setAttribute('data-input-position', inputPosition);
+                giscusScript.setAttribute('crossorigin', crossorigin);
+                giscusScript.setAttribute('data-loading', loading);
+                giscusScript.setAttribute('data-theme', theme);
+
+                giscusScript.setAttribute('data-term', term());
+                giscusScript.setAttribute('data-lang', getLang());
+
+                document
+                    .getElementById('main')
+                    .insertBefore(giscusScript, document.getElementById('main').lastChild);
+
+                document.getElementById('docsify-darklight-theme').addEventListener('click', () => {
+                    const frame = document.querySelector('.giscus-frame');
+                    frame.contentWindow.postMessage(
+                        { giscus: { setConfig: { theme } } },
+                        'https://giscus.app',
+                    );
+                });
             });
         },
     ],
