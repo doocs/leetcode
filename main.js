@@ -2,12 +2,42 @@ const isEn = () => location.hash.includes('README_EN');
 
 const isRoot = () => ['', '#/', '#/README', '#/README_EN'].includes(location.hash);
 
-const sidebar = () => (isRoot() ? false : isEn() ? 'summary_en.md' : 'summary.md');
+const isJavascript = () => /^#\/javascript_solution\/.*$/.test(location.hash);
+
+const isDatabase = () => /^#\/database_solution\/.*$/.test(location.hash);
+
+const isShell = () => /^#\/shell_solution\/.*$/.test(location.hash);
+
+const sidebar = () => {
+    if (isRoot()) {
+        return false;
+    }
+    if (isJavascript()) {
+        return isEn() ? 'javascript_summary_en.md' : 'javascript_summary.md';
+    } else if (isDatabase()) {
+        return isEn() ? 'javascript_summary_en.md' : 'javascript_summary.md';
+    } else if (isShell()) {
+        return isEn() ? 'javascript_summary_en.md' : 'javascript_summary.md';
+    }
+    return isEn() ? 'summary_en.md' : 'summary.md';
+};
 
 const cleanedHtml = html => {
     return html.replace(/<pre>([\s\S]*?)<\/pre>/g, (_, group) => {
         return '<pre>' + group.replace(/<code>([\s\S]*?)<\/code>/g, '$1') + '</pre>';
     });
+};
+
+const replaceHref = html => {
+    let res;
+    if (isJavascript()) {
+        res = 'javascript_solution';
+    } else if (isDatabase()) {
+        res = 'database_solution';
+    } else if (isShell()) {
+        res = 'shell_solution';
+    }
+    return res ? html.replace(/\/solution\//g, `/${res}/`) : html;
 };
 
 const getLang = () => (isEn() ? 'en' : 'zh-CN');
@@ -34,6 +64,9 @@ window.$docsify = {
     auto2top: true,
     subMaxLevel: 2,
     alias: {
+        '^/javascript_solution/(.*)': '/solution/$1',
+        '^/shell_solution/(.*)': '/solution/$1',
+        '^/database_solution/(.*)': '/solution/$1',
         '/lcs/.*/summary.md': '/lcs/summary.md',
         '/lcp/.*/summary.md': '/lcp/summary.md',
         '/lcci/.*/summary.md': '/lcci/summary.md',
@@ -128,6 +161,7 @@ window.$docsify = {
                 const github = `[GitHub](${url})`;
                 const gitee = `[Gitee](${url.replace('github', 'gitee')})`;
                 html = cleanedHtml(html);
+                html = replaceHref(html);
                 const editHtml = isEn()
                     ? `:memo: Edit on ${github} / ${gitee}\n`
                     : `:memo: 在 ${github} / ${gitee} 编辑\n`;
