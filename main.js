@@ -3,7 +3,7 @@ const isEn = () => location.hash.includes('README_EN');
 const isRoot = () => ['', '#/', '#/README', '#/README_EN'].includes(location.hash);
 
 const getSolutionPrefix = url => {
-    const categories = ['javascript', 'shell', 'database'];
+    const categories = ['javascript', 'database'];
     const res = categories.find(
         category =>
             url.includes(category + '-solution') ||
@@ -27,8 +27,8 @@ const cleanedHtml = html => {
 };
 
 const replaceHref = html => {
-    const replacement = getSolutionPrefix(location.hash) + 'solution';
-    return replacement ? html.replace(/\(\/solution\//, `(${replacement}/`) : html;
+    const prefix = getSolutionPrefix(location.hash);
+    return prefix ? html.replaceAll('(/solution/', '(/' + prefix + 'solution/') : html;
 };
 
 const getLang = () => (isEn() ? 'en' : 'zh-CN');
