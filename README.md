@@ -34,7 +34,7 @@
 ## 专项突破
 
 -   [JavaScript 专项练习](/solution/JAVASCRIPT_README.md)
--   [Database 专项练习](/solution/DATABASE_README.md)
+-   [数据库专项练习](/solution/DATABASE_README.md)
 
 ## 算法提升专题
 
