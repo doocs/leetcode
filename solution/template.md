@@ -1,6 +1,6 @@
 <!-- 这里是category_readme_template开始位置 -->
 
-# {} 专项练习
+# {}专项练习
 
 [English Version](/solution/{}_README_EN.md)
 

@@ -1,4 +1,4 @@
-# Database 专项练习
+# 数据库专项练习
 
 [English Version](/solution/DATABASE_README_EN.md)
 

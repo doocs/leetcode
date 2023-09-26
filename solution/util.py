@@ -31,6 +31,10 @@ contest_readme_en = load_template("contest_readme_template_en")
 category_readme_cn = load_template("category_readme_template")
 category_readme_en = load_template("category_readme_template_en")
 
+category_dict = {
+    'Database': '数据库',
+}
+
 
 def load_cookies() -> Tuple[str, str]:
     cookie_cn, cookie_en = "", ""
@@ -206,7 +210,9 @@ def generate_summary(result):
 
 def generate_category_summary(result, category=""):
     """generate category summary files"""
-    summary_cn = "- " + category + " 专项练习\n\n" if category else ""
+    summary_cn = (
+        "- " + category_dict.get(category, category) + "专项练习\n\n" if category else ""
+    )
     summary_en = "- " + category + " Practice\n\n" if category else ""
     category = category.lower() if category else ""
     sub_category = category + "-" if category else ""
@@ -269,7 +275,11 @@ def generate_category_readme(result, category=""):
     table_en += "".join(items)
     path_prefix = category.upper() + "_" if category else ""
     with open(f"./{path_prefix}README.md", "w", encoding="utf-8") as f:
-        f.write(category_readme_cn.format(category, category.upper(), table_cn))
+        f.write(
+            category_readme_cn.format(
+                category_dict.get(category, category), category.upper(), table_cn
+            )
+        )
     with open(f"./{path_prefix}README_EN.md", "w", encoding="utf-8") as f:
         f.write(category_readme_en.format(category, category.upper(), table_en))
 

@@ -1,4 +1,4 @@
--   Database 专项练习
+-   数据库专项练习
 
     -   [0175.组合两个表](/database-solution/0100-0199/0175.Combine%20Two%20Tables/README.md)
     -   [0176.第二高的薪水](/database-solution/0100-0199/0176.Second%20Highest%20Salary/README.md)
