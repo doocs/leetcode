@@ -7,9 +7,8 @@ public:
         sort(idx.begin(), idx.end(), [&](int i, int j) { return growTime[j] < growTime[i]; });
         int ans = 0, t = 0;
         for (int i : idx) {
-            int pt = plantTime[i], gt = growTime[i];
-            t += pt;
-            ans = max(ans, t + gt);
+            t += plantTime[i];
+            ans = max(ans, t + growTime[i]);
         }
         return ans;
     }

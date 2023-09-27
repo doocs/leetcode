@@ -103,9 +103,8 @@ class Solution {
         Arrays.sort(idx, (i, j) -> growTime[j] - growTime[i]);
         int ans = 0, t = 0;
         for (int i : idx) {
-            int pt = plantTime[i], gt = growTime[i];
-            t += pt;
-            ans = Math.max(ans, t + gt);
+            t += plantTime[i];
+            ans = Math.max(ans, t + growTime[i]);
         }
         return ans;
     }
@@ -124,9 +123,8 @@ public:
         sort(idx.begin(), idx.end(), [&](int i, int j) { return growTime[j] < growTime[i]; });
         int ans = 0, t = 0;
         for (int i : idx) {
-            int pt = plantTime[i], gt = growTime[i];
-            t += pt;
-            ans = max(ans, t + gt);
+            t += plantTime[i];
+            ans = max(ans, t + growTime[i]);
         }
         return ans;
     }
@@ -145,9 +143,8 @@ func earliestFullBloom(plantTime []int, growTime []int) (ans int) {
 	sort.Slice(idx, func(i, j int) bool { return growTime[idx[j]] < growTime[idx[i]] })
 	t := 0
 	for _, i := range idx {
-		pt, gt := plantTime[i], growTime[i]
-		t += pt
-		ans = max(ans, t+gt)
+		t += plantTime[i]
+		ans = max(ans, t+growTime[i])
 	}
 	return
 }
@@ -169,9 +166,8 @@ function earliestFullBloom(plantTime: number[], growTime: number[]): number {
     idx.sort((i, j) => growTime[j] - growTime[i]);
     let [ans, t] = [0, 0];
     for (const i of idx) {
-        const [pt, gt] = [plantTime[i], growTime[i]];
-        t += pt;
-        ans = Math.max(ans, t + gt);
+        t += plantTime[i];
+        ans = Math.max(ans, t + growTime[i]);
     }
     return ans;
 }

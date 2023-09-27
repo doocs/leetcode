@@ -7,9 +7,8 @@ func earliestFullBloom(plantTime []int, growTime []int) (ans int) {
 	sort.Slice(idx, func(i, j int) bool { return growTime[idx[j]] < growTime[idx[i]] })
 	t := 0
 	for _, i := range idx {
-		pt, gt := plantTime[i], growTime[i]
-		t += pt
-		ans = max(ans, t+gt)
+		t += plantTime[i]
+		ans = max(ans, t+growTime[i])
 	}
 	return
 }

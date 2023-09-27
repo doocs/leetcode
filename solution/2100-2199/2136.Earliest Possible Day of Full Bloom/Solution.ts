@@ -4,9 +4,8 @@ function earliestFullBloom(plantTime: number[], growTime: number[]): number {
     idx.sort((i, j) => growTime[j] - growTime[i]);
     let [ans, t] = [0, 0];
     for (const i of idx) {
-        const [pt, gt] = [plantTime[i], growTime[i]];
-        t += pt;
-        ans = Math.max(ans, t + gt);
+        t += plantTime[i];
+        ans = Math.max(ans, t + growTime[i]);
     }
     return ans;
 }
