@@ -71,9 +71,9 @@ Thus, on day 2, all the seeds are blooming.
 class Solution:
     def earliestFullBloom(self, plantTime: List[int], growTime: List[int]) -> int:
         ans = t = 0
-        for a, b in sorted(zip(plantTime, growTime), key=lambda x: -x[1]):
-            t += a
-            ans = max(ans, t + b)
+        for pt, gt in sorted(zip(plantTime, growTime), key=lambda x: -x[1]):
+            t += pt
+            ans = max(ans, t + gt)
         return ans
 ```
 
@@ -83,16 +83,16 @@ class Solution:
 class Solution {
     public int earliestFullBloom(int[] plantTime, int[] growTime) {
         int n = plantTime.length;
-        int[][] arr = new int[n][2];
-        for (int i = 0; i < n; ++i) {
-            arr[i] = new int[] {plantTime[i], growTime[i]};
+        Integer[] idx = new Integer[n];
+        for (int i = 0; i < n; i++) {
+            idx[i] = i;
         }
-        Arrays.sort(arr, (a, b) -> b[1] - a[1]);
-        int ans = 0;
-        int t = 0;
-        for (int[] e : arr) {
-            t += e[0];
-            ans = Math.max(ans, t + e[1]);
+        Arrays.sort(idx, (i, j) -> growTime[j] - growTime[i]);
+        int ans = 0, t = 0;
+        for (int i : idx) {
+            int pt = plantTime[i], gt = growTime[i];
+            t += pt;
+            ans = Math.max(ans, t + gt);
         }
         return ans;
     }
@@ -106,13 +106,14 @@ class Solution {
 public:
     int earliestFullBloom(vector<int>& plantTime, vector<int>& growTime) {
         int n = plantTime.size();
-        vector<pair<int, int>> arr;
-        for (int i = 0; i < n; ++i) arr.push_back({-growTime[i], plantTime[i]});
-        sort(arr.begin(), arr.end());
+        vector<int> idx(n);
+        iota(idx.begin(), idx.end(), 0);
+        sort(idx.begin(), idx.end(), [&](int i, int j) { return growTime[j] < growTime[i]; });
         int ans = 0, t = 0;
-        for (auto [a, b] : arr) {
-            t += b;
-            ans = max(ans, t - a);
+        for (int i : idx) {
+            int pt = plantTime[i], gt = growTime[i];
+            t += pt;
+            ans = max(ans, t + gt);
         }
         return ans;
     }
@@ -122,20 +123,20 @@ public:
 ### **Go**
 
 ```go
-func earliestFullBloom(plantTime []int, growTime []int) int {
-	arr := [][]int{}
-	for i, a := range plantTime {
-		arr = append(arr, []int{a, growTime[i]})
+func earliestFullBloom(plantTime []int, growTime []int) (ans int) {
+	n := len(plantTime)
+	idx := make([]int, n)
+	for i := range idx {
+		idx[i] = i
 	}
-	sort.Slice(arr, func(i, j int) bool {
-		return arr[i][1] > arr[j][1]
-	})
-	ans, t := 0, 0
-	for _, e := range arr {
-		t += e[0]
-		ans = max(ans, t+e[1])
+	sort.Slice(idx, func(i, j int) bool { return growTime[idx[j]] < growTime[idx[i]] })
+	t := 0
+	for _, i := range idx {
+		pt, gt := plantTime[i], growTime[i]
+		t += pt
+		ans = max(ans, t+gt)
 	}
-	return ans
+	return
 }
 
 func max(a, b int) int {
@@ -149,7 +150,36 @@ func max(a, b int) int {
 ### **TypeScript**
 
 ```ts
+function earliestFullBloom(plantTime: number[], growTime: number[]): number {
+    const n = plantTime.length;
+    const idx: number[] = Array.from({ length: n }, (_, i) => i);
+    idx.sort((i, j) => growTime[j] - growTime[i]);
+    let [ans, t] = [0, 0];
+    for (const i of idx) {
+        const [pt, gt] = [plantTime[i], growTime[i]];
+        t += pt;
+        ans = Math.max(ans, t + gt);
+    }
+    return ans;
+}
+```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn earliest_full_bloom(plant_time: Vec<i32>, grow_time: Vec<i32>) -> i32 {
+        let mut idx: Vec<usize> = (0..plant_time.len()).collect();
+        idx.sort_by_key(|&i| -&grow_time[i]);
+        let mut ans = 0;
+        let mut t = 0;
+        for &i in &idx {
+            t += plant_time[i];
+            ans = ans.max(t + grow_time[i]);
+        }
+        ans
+    }
+}
 ```
 
 ### **...**
