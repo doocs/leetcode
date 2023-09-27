@@ -85,7 +85,7 @@ The selector function splits the array by whether each number is greater than 5.
 
 <ul>
 	<li><code>0 &lt;= array.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>fn returns a string</code></li>
+	<li><code>fn</code> returns a string</li>
 </ul>
 
 ## Solutions

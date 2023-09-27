@@ -52,7 +52,7 @@ The composition of zero functions is the identity function</pre>
 <ul>
 	<li><code><font face="monospace">-1000 &lt;= x &lt;= 1000</font></code></li>
 	<li><code><font face="monospace">0 &lt;= functions.length &lt;= 1000</font></code></li>
-	<li><font face="monospace"><code>all functions accept and return a single integer</code></font></li>
+	<li>all functions accept and return a single integer</li>
 </ul>
 
 ## Solutions

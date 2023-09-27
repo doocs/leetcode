@@ -14,7 +14,7 @@
 | song_id     | int     |
 | day         | date    |
 +-------------+---------+
-There is no primary key for this table. It may contain duplicates.
+This table may contain duplicate rows.
 Each row of this table indicates that the user user_id listened to the song song_id on the day day.
 </pre>
 
@@ -29,14 +29,14 @@ Each row of this table indicates that the user user_id listened to the song song
 | user1_id      | int     |
 | user2_id      | int     |
 +---------------+---------+
-(user1_id, user2_id) is the primary key for this table.
+(user1_id, user2_id) is the primary key (combination of columns with unique values) for this table.
 Each row of this table indicates that the users user1_id and user2_id are friends.
 Note that user1_id &lt; user2_id.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the similar friends of Leetcodify users. A user <code>x</code> and user <code>y</code> are&nbsp;similar friends if:</p>
+<p>Write a solution to report the similar friends of Leetcodify users. A user <code>x</code> and user <code>y</code> are&nbsp;similar friends if:</p>
 
 <ul>
 	<li>Users <code>x</code> and <code>y</code> are friends, and</li>
@@ -45,7 +45,7 @@ Note that user1_id &lt; user2_id.
 
 <p>Return the result table in <strong>any order</strong>. Note that you must return the similar pairs of friends the same way they were represented in the input (i.e., always <code>user1_id &lt; user2_id</code>).</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

@@ -26,16 +26,32 @@
    {"time": 175, "returned": 8}
 ]
 <strong>解释：</strong> 
-const cancel = cancellable(x =&gt; x * 2, [4], 35);
+const result = []
+const fn = (x) =&gt; x * 2
+const args = [4], t = 35, cancelT = 190
+
+const start = performance.now()
+
+const log = (...argsArr) =&gt; {
+    const diff = Math.floor(performance.now() - start)
+    result.push({"time": diff, "returned": fn(...argsArr)})
+}
+
+const cancel = cancellable(log, [4], 35);
 setTimeout(cancel, 190);
-每隔 35ms，调用 fn(4)。
+
+setTimeout(() =&gt; {
+    console.log(result) // Output
+ }, cancelT + t + 15) 
+
+每隔 35ms，调用 fn(4)。直到 t=190ms，然后取消。
 第一次调用 fn 是在 0ms。fn(4) 返回 8。
 第二次调用 fn 是在 35ms。fn(4) 返回 8。
 第三次调用 fn 是在 70ms。fn(4) 返回 8。
 第四次调用 fn 是在&nbsp;105ms。fn(4) 返回 8。
 第五次调用 fn 是在 140ms。fn(4) 返回 8。
 第六次调用 fn 是在 175ms。fn(4) 返回 8。
-在 t=190ms 时取消。
+在 t=190ms 时取消
 </pre>
 
 <p><strong class="example">示例 2：</strong></p>

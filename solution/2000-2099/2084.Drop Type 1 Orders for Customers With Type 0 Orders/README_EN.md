@@ -14,14 +14,14 @@
 | customer_id | int  |
 | order_type  | int  | 
 +-------------+------+
-order_id is the primary key column for this table.
+order_id is the column with unique values for this table.
 Each row of this table indicates the ID of an order, the ID of the customer who ordered it, and the order type.
 The orders could be of type 0 or type 1.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report all the orders based on the following criteria:</p>
+<p>Write a solution to report all the orders based on the following criteria:</p>
 
 <ul>
 	<li>If a customer has <strong>at least one</strong> order of type <code>0</code>, do <strong>not</strong> report any order of type <code>1</code> from that customer.</li>
@@ -30,7 +30,7 @@ The orders could be of type 0 or type 1.
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

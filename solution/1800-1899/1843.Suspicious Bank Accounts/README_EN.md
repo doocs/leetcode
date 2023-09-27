@@ -13,7 +13,7 @@
 | account_id     | int  |
 | max_income     | int  |
 +----------------+------+
-account_id is the primary key for this table.
+account_id is the column with unique values for this table.
 Each row contains information about the maximum monthly income for one bank account.
 </pre>
 
@@ -31,9 +31,9 @@ Each row contains information about the maximum monthly income for one bank acco
 | amount         | int      |
 | day            | datetime |
 +----------------+----------+
-transaction_id is the primary key for this table.
+transaction_id is the column with unique values for this table.
 Each row contains information about one transaction.
-type is ENUM (&#39;Creditor&#39;,&#39;Debtor&#39;) where &#39;Creditor&#39; means the user deposited money into their account and &#39;Debtor&#39; means the user withdrew money from their account.
+type is ENUM (category) type of (&#39;Creditor&#39;,&#39;Debtor&#39;) where &#39;Creditor&#39; means the user deposited money into their account and &#39;Debtor&#39; means the user withdrew money from their account.
 amount is the amount of money deposited/withdrawn during the transaction.
 </pre>
 
@@ -41,11 +41,11 @@ amount is the amount of money deposited/withdrawn during the transaction.
 
 <p>A bank account is <strong>suspicious</strong> if the <strong>total income</strong> exceeds the <code>max_income</code> for this account for <strong>two or more consecutive</strong> months. The <strong>total income</strong> of an account in some month is the sum of all its deposits in that month (i.e., transactions of the type <code>&#39;Creditor&#39;</code>).</p>
 
-<p>Write an SQL query to report the IDs of all <strong>suspicious</strong> bank accounts.</p>
+<p>Write a solution to report the IDs of all <strong>suspicious</strong> bank accounts.</p>
 
 <p>Return the result table <strong>in any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

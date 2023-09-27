@@ -1005,7 +1005,7 @@
 #### 第 67 场双周赛(2021-12-11 22:30, 90 分钟) 参赛人数 2923
 
 - [2099. 找到和最大的长度为 K 的子序列](/solution/2000-2099/2099.Find%20Subsequence%20of%20Length%20K%20With%20the%20Largest%20Sum/README.md)
-- [2100. 适合打劫银行的日子](/solution/2100-2199/2100.Find%20Good%20Days%20to%20Rob%20the%20Bank/README.md)
+- [2100. 适合野炊的日子](/solution/2100-2199/2100.Find%20Good%20Days%20to%20Rob%20the%20Bank/README.md)
 - [2101. 引爆最多的炸弹](/solution/2100-2199/2101.Detonate%20the%20Maximum%20Bombs/README.md)
 - [2102. 序列顺序查询](/solution/2100-2199/2102.Sequentially%20Ordinal%20Rank%20Tracker/README.md)
 

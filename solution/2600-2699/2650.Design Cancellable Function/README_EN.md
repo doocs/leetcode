@@ -137,7 +137,7 @@ The first yielded promise immediately rejects. This error is caught. Because the
 
 <ul>
 	<li><code>cancelledAt == null or 0 &lt;= cancelledAt &lt;= 1000</code></li>
-	<li><code>generatorFunction returns a generator object</code></li>
+	<li><code>generatorFunction</code> returns a generator object</li>
 </ul>
 
 ## Solutions

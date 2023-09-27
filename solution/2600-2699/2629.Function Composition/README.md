@@ -56,7 +56,7 @@ Starting with x = 4.
 <ul>
 	<li><code><font face="monospace">-1000 &lt;= x &lt;= 1000</font></code></li>
 	<li><code><font face="monospace">0 &lt;= functions.length &lt;= 1000</font></code></li>
-	<li><font face="monospace"><code>所有函数都接受并返回一个整型</code></font></li>
+	<li><font face="monospace">所有函数都接受并返回一个整型</font></li>
 </ul>
 
 ## 解法

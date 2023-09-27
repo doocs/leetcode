@@ -34,7 +34,7 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>str is a valid JSON string</code></li>
+	<li><code>str</code> is a valid JSON string</li>
 	<li><code>1 &lt;= str.length &lt;= 10<sup>5</sup></code></li>
 </ul>
 

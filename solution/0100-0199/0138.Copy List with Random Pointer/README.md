@@ -1,4 +1,4 @@
-# [138. 复制带随机指针的链表](https://leetcode.cn/problems/copy-list-with-random-pointer)
+# [138. 随机链表的复制](https://leetcode.cn/problems/copy-list-with-random-pointer)
 
 [English Version](/solution/0100-0199/0138.Copy%20List%20with%20Random%20Pointer/README_EN.md)
 
@@ -61,6 +61,10 @@
 	<li><code>-10<sup>4</sup>&nbsp;&lt;= Node.val &lt;= 10<sup>4</sup></code></li>
 	<li><code>Node.random</code>&nbsp;为&nbsp;<code>null</code> 或指向链表中的节点。</li>
 </ul>
+
+<p>注意：本题与主站 138 题相同：<a href="https://leetcode.cn/problems/copy-list-with-random-pointer/" rel="noopener noreferrer" target="_blank">https://leetcode.cn/problems/copy-list-with-random-pointer/</a></p>
+
+<p>&nbsp;</p>
 
 ## 解法
 

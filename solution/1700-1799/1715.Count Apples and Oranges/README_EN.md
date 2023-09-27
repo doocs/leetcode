@@ -15,8 +15,8 @@
 | apple_count  | int  |
 | orange_count | int  |
 +--------------+------+
-box_id is the primary key for this table.
-chest_id is a foreign key of the chests table.
+box_id is the column with unique values for this table.
+chest_id is a foreign key (reference column) of the chests table.
 This table contains information about the boxes and the number of oranges and apples they have. Each box may include a chest, which also can contain oranges and apples.
 </pre>
 
@@ -32,15 +32,15 @@ This table contains information about the boxes and the number of oranges and ap
 | apple_count  | int  |
 | orange_count | int  |
 +--------------+------+
-chest_id is the primary key for this table.
+chest_id is the column with unique values for this table.
 This table contains information about the chests and the corresponding number of oranges and apples they have.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to count the number of apples and oranges in all the boxes. If a box contains a chest, you should also include the number of apples and oranges it has.</p>
+<p>Write a solution to count the number of apples and oranges in all the boxes. If a box contains a chest, you should also include the number of apples and oranges it has.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

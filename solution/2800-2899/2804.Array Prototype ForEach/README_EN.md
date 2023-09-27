@@ -9,7 +9,7 @@
 <p><code>callback</code> accepts the following arguments:</p>
 
 <ul>
-	<li><code>value</code> -&nbsp;represents the current element being processed in the array. It is the value of the element in the current iteration.</li>
+	<li><code>currentValue</code> -&nbsp;represents the current element being processed in the array. It is the value of the element in the current iteration.</li>
 	<li><code>index</code> -&nbsp;represents the index of the current element being processed in the array.</li>
 	<li><code>array</code> -&nbsp;represents the array itself, allowing access to the entire array within the callback function.</li>
 </ul>

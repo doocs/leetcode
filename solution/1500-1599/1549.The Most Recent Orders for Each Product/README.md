@@ -54,7 +54,7 @@ product_id 是该表主键.
 
 <p>&nbsp;</p>
 
-<p>写一个SQL 语句,&nbsp;找到每件商品的最新订单(可能有多个).</p>
+<p>写一个解决方案,&nbsp;找到每件商品的最新订单(可能有多个).</p>
 
 <p>返回的结果以&nbsp;<code>product_name</code> <strong>升序排列</strong>,&nbsp;如果有排序相同,&nbsp;再以&nbsp;<code>product_id</code> <strong>升序</strong>排列.&nbsp;如果还有排序相同,&nbsp;再以&nbsp;<code>order_id</code> <strong>升序</strong>排列.</p>
 
@@ -65,8 +65,8 @@ product_id 是该表主键.
 <p><strong>示例 1：</strong></p>
 
 <pre>
-<code><strong>输入:</strong>
-Customers表：</code>
+<strong>输入:</strong>
+<code>Customers表：</code>
 +-------------+-----------+
 | customer_id | name      |
 +-------------+-----------+

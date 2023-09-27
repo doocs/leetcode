@@ -19,9 +19,9 @@
 
 <pre>
 <strong>Input:</strong> 
-[&quot;TimeLimitedCache&quot;, &quot;set&quot;, &quot;get&quot;, &quot;count&quot;, &quot;get&quot;]
-[[], [1, 42, 100], [1], [], [1]]
-[0, 0, 50, 50, 150]
+actions = [&quot;TimeLimitedCache&quot;, &quot;set&quot;, &quot;get&quot;, &quot;count&quot;, &quot;get&quot;]
+values = [[], [1, 42, 100], [1], [], [1]]
+timeDelays = [0, 0, 50, 50, 150]
 <strong>Output:</strong> [null, false, 42, 1, -1]
 <strong>Explanation:</strong>
 At t=0, the cache is constructed.
@@ -36,9 +36,9 @@ At t=150, get(1) is called but -1 is returned because the cache is empty.
 
 <pre>
 <strong>Input:</strong> 
-[&quot;TimeLimitedCache&quot;, &quot;set&quot;, &quot;set&quot;, &quot;get&quot;, &quot;get&quot;, &quot;get&quot;, &quot;count&quot;]
-[[], [1, 42, 50], [1, 50, 100], [1], [1], [1], []]
-[0, 0, 40, 50, 120, 200, 250]
+actions = [&quot;TimeLimitedCache&quot;, &quot;set&quot;, &quot;set&quot;, &quot;get&quot;, &quot;get&quot;, &quot;get&quot;, &quot;count&quot;]
+values = [[], [1, 42, 50], [1, 50, 100], [1], [1], [1], []]
+timeDelays = [0, 0, 40, 50, 120, 200, 250]
 <strong>Output:</strong> [null, false, true, 50, 50, -1, 0]
 <strong>Explanation:</strong>
 At t=0, the cache is constructed.
@@ -55,10 +55,14 @@ At t=250, count() returns 0 because the cache is empty.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>0 &lt;= key &lt;= 10<sup>9</sup></code></li>
-	<li><code>0 &lt;= value &lt;= 10<sup>9</sup></code></li>
+	<li><code>0 &lt;= key, value &lt;= 10<sup>9</sup></code></li>
 	<li><code>0 &lt;= duration &lt;= 1000</code></li>
-	<li>total method calls will not exceed 100</li>
+	<li><code>1 &lt;= actions.length &lt;= 100</code></li>
+	<li><code>actions.length === values.length</code></li>
+	<li><code>actions.length === timeDelays.length</code></li>
+	<li><code>0 &lt;= timeDelays[i] &lt;= 1450</code></li>
+	<li><code>actions[i]</code>&nbsp;is one of &quot;TimeLimitedCache&quot;, &quot;set&quot;, &quot;get&quot; and&nbsp;&quot;count&quot;</li>
+	<li>First action is always &quot;TimeLimitedCache&quot; and must be executed immediately, with a 0-millisecond delay</li>
 </ul>
 
 ## Solutions

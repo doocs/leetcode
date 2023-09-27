@@ -31,31 +31,31 @@ Each row in this table shows the order id and the name of the drink ordered. Som
 <pre>
 <strong>Input:</strong> 
 CoffeeShop table:
-+----+------------------+
-| id | drink            |
-+----+------------------+
-| 9  | Mezcal Margarita |
-| 6  | null             |
-| 7  | null             |
-| 3  | Americano        |
-| 1  | Daiquiri         |
-| 2  | null             |
-+----+------------------+
++----+-------------------+
+| id | drink             |
++----+-------------------+
+| 9  | Rum and Coke      |
+| 6  | null              |
+| 7  | null              |
+| 3  | St Germain Spritz |
+| 1  | Orange Margarita  |
+| 2  | null              |
++----+-------------------+
 <strong>Output:</strong> 
-+----+------------------+
-| id | drink            |
-+----+------------------+
-| 9  | Mezcal Margarita |
-| 6  | Mezcal Margarita |
-| 7  | Mezcal Margarita |
-| 3  | Americano        |
-| 1  | Daiquiri         |
-| 2  | Daiquiri         |
-+----+------------------+
++----+-------------------+
+| id | drink             |
++----+-------------------+
+| 9  | Rum and Coke      |
+| 6  | Rum and Coke      |
+| 7  | Rum and Coke      |
+| 3  | St Germain Spritz |
+| 1  | Orange Margarita  |
+| 2  | Orange Margarita  |
++----+-------------------+
 <strong>Explanation:</strong> 
-For ID 6, the previous value that is not null is from ID 9. We replace the null with &quot;Mezcal Margarita&quot;.
-For ID 7, the previous value that is not null is from ID 9. We replace the null with &quot;Mezcal Margarita&quot;.
-For ID 2, the previous value that is not null is from ID 1. We replace the null with &quot;Daiquiri&quot;.
+For ID 6, the previous value that is not null is from ID 9. We replace the null with &quot;Rum and Coke&quot;.
+For ID 7, the previous value that is not null is from ID 9. We replace the null with &quot;Rum and Coke;.
+For ID 2, the previous value that is not null is from ID 1. We replace the null with &quot;Orange Margarita&quot;.
 Note that the rows in the output are the same as in the input.
 </pre>
 

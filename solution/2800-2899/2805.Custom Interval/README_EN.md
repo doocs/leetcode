@@ -16,7 +16,7 @@
 <p><strong class="example">Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> delay = 50, period = 20, stopTime = 225
+<strong>Input:</strong> delay = 50, period = 20, cancelTime = 225
 <strong>Output:</strong> [50,120,210]
 <strong>Explanation:</strong> 
 const t = performance.now()&nbsp;&nbsp;
@@ -39,7 +39,7 @@ setTimeout(() =&gt; {
 <p><strong class="example">Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> delay = 20, period = 20, stopTime = 150
+<strong>Input:</strong> delay = 20, period = 20, cancelTime = 150
 <strong>Output:</strong> [20,60,120]
 <strong>Explanation:</strong> 
 20 + 20 * 0 = 20 // 20ms - 1st function call
@@ -50,7 +50,7 @@ setTimeout(() =&gt; {
 <p><strong class="example">Example 3:</strong></p>
 
 <pre>
-<strong>Input:</strong> delay = 100, period = 200, stopTime = 500
+<strong>Input:</strong> delay = 100, period = 200, cancelTime = 500
 <strong>Output:</strong> [100,400]
 <strong>Explanation:</strong> 
 100 + 200 * 0 = 100 // 100ms - 1st function call
@@ -62,7 +62,7 @@ setTimeout(() =&gt; {
 
 <ul>
 	<li><code>20 &lt;= delay, period &lt;= 250</code></li>
-	<li><code>20 &lt;= stopTime &lt;= 1000</code></li>
+	<li><code>20 &lt;= cancelTime &lt;= 1000</code></li>
 </ul>
 
 ## Solutions

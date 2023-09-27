@@ -17,14 +17,16 @@
 
 <p>请你返回一个整数，表示执行以上操作任意次后（可以执行 <strong>0</strong> 次），<code>nums</code>&nbsp;数组的 <strong>最小</strong>&nbsp;数组长度。</p>
 
+<p>请注意，<code>nums</code> 数组是按&nbsp;<strong>非降序&nbsp;</strong>排序的。</p>
+
 <p>&nbsp;</p>
 
 <p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<b>输入：</b>nums = [1,3,4,9]
-<b>输出：</b>0
-<b>解释：</b>一开始，nums = [1, 3, 4, 9] 。
+<strong>输入：</strong>nums = [1,3,4,9]
+<strong>输出：</strong>0
+<strong>解释：</strong>一开始，nums = [1, 3, 4, 9] 。
 第一次操作，我们选择下标 0 和 1 ，满足 nums[0] &lt; nums[1] &lt;=&gt; 1 &lt; 3 。
 删除下标 0 和 1 处的元素，nums 变成 [4, 9] 。
 下一次操作，我们选择下标 0 和 1 ，满足 nums[0] &lt; nums[1] &lt;=&gt; 4 &lt; 9 。
@@ -34,9 +36,9 @@
 <p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<b>输入：</b>nums = [2,3,6,9]
-<b>输出：</b>0
-<b>解释：</b>一开始，nums = [2, 3, 6, 9] 。
+<strong>输入：</strong>nums = [2,3,6,9]
+<strong>输出：</strong>0
+<strong>解释：</strong>一开始，nums = [2, 3, 6, 9] 。
 第一次操作，我们选择下标 0 和 2 ，满足 nums[0] &lt; nums[2] &lt;=&gt; 2 &lt; 6 。
 删除下标 0 和 2 处的元素，nums 变成 [3, 9] 。
 下一次操作，我们选择下标 0 和 1 ，满足 nums[0] &lt; nums[1] &lt;=&gt; 3 &lt; 9 。
@@ -47,9 +49,9 @@
 <p><strong class="example">示例 3：</strong></p>
 
 <pre>
-<b>输入：</b>nums = [1,1,2]
-<b>输出：</b>1
-<b>解释：</b>一开始，nums = [1, 1, 2] 。
+<strong>输入：</strong>nums = [1,1,2]
+<strong>输出：</strong>1
+<strong>解释：</strong>一开始，nums = [1, 1, 2] 。
 第一次操作，我们选择下标 0 和 2 ，满足 nums[0] &lt; nums[2] &lt;=&gt; 1 &lt; 2 。
 删除下标 0 和 2 处的元素，nums 变成 [1] 。
 无法对数组再执行操作。
