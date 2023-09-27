@@ -13,7 +13,7 @@
 | session_id          | int     |
 | duration            | int     |
 +---------------------+---------+
-session_id is the primary key for this table.
+session_id is the column of unique values for this table.
 duration is the time in seconds that a user has visited the application.
 </pre>
 
@@ -21,11 +21,11 @@ duration is the time in seconds that a user has visited the application.
 
 <p>You want to know how long a user visits your application. You decided to create bins of <code>&quot;[0-5&gt;&quot;</code>, <code>&quot;[5-10&gt;&quot;</code>, &quot;[10-15&gt;&quot;, and <code>&quot;15 minutes or more&quot;</code> and count the number of sessions on it.</p>
 
-<p>Write an SQL query to report the <code>(bin, total)</code>.</p>
+<p>Write a solution to report the <code>(bin, total)</code>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

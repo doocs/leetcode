@@ -126,6 +126,7 @@ There are no keys so every row is an empty array.</pre>
 <p><strong>Constraints:</strong></p>
 
 <ul>
+	<li><code>arr</code> is a valid JSON array</li>
 	<li><code>1 &lt;= arr.length &lt;= 1000</code></li>
 	<li><code>unique keys &lt;= 1000</code></li>
 </ul>

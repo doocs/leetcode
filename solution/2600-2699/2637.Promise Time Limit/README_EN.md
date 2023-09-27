@@ -89,7 +89,7 @@ The function immediately throws an error.</pre>
 <ul>
 	<li><code>0 &lt;= inputs.length &lt;= 10</code></li>
 	<li><code>0 &lt;= t &lt;= 1000</code></li>
-	<li><code>fn returns a promise</code></li>
+	<li><code>fn</code> returns a promise</li>
 </ul>
 
 ## Solutions

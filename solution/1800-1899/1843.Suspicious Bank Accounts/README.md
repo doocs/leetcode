@@ -15,7 +15,7 @@
 | account_id     | int  |
 | max_income     | int  |
 +----------------+------+
-account_id 是表主键。
+account_id 是这张表具有唯一值的列。
 每行包含一个银行账户每月最大收入的信息。
 </pre>
 
@@ -33,23 +33,21 @@ account_id 是表主键。
 | amount         | int      |
 | day            | datetime |
 +----------------+----------+
-transaction_id 是表的主键。
-每行包含转账信息。
-type 是枚举类型（包含'Creditor','Debtor'），其中'Creditor'表示用户向其账户存入资金，'Debtor'表示用户从其账户取出资金。
-amount 是转账的存取金额。
+transaction_id 是这张表具有唯一值的列。
+每行包含一条转账信息。
+type 是枚举类型（包含'Creditor','Debtor'），其中 'Creditor' 表示用户向其账户存入资金，'Debtor' 表示用户从其账户取出资金。
+amount 是交易过程中的存入/取出的金额。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>&nbsp;</p>
+<p>如果一个账户在&nbsp;<strong>连续两个及以上&nbsp;</strong>月份的&nbsp;<strong>总收入&nbsp;</strong>超过最大收入（<code>max_income</code>），那么认为这个账户&nbsp;<strong>可疑</strong>。&nbsp; 账户当月&nbsp;<strong>总收入&nbsp;</strong>是当月存入资金总数（即 transactions 表中 type 字段的&nbsp;<code>'Creditor'</code>）。</p>
 
-<p>写一个SQL查询语句列示所有的<strong>可疑</strong>账户。</p>
+<p>编写一个解决方案，报告所有的&nbsp;<strong>可疑&nbsp;</strong>账户。</p>
 
-<p>如果一个账户在<strong>连续两个及以上</strong>月份中<strong>总收入</strong>超过最大收入（<code>max_income</code>&nbsp;），那么这个账户<strong>可疑</strong>。&nbsp; 账户当月<strong>总收入</strong>是当月存入资金总数（即transactions 表中type字段的<code>'Creditor'</code>）。</p>
+<p>以 <strong>任意顺序</strong> 返回结果表</p>
 
-<p>返回的结果表以<code>transaction_id</code>&nbsp;排序。&nbsp;</p>
-
-<p>查询结果格式如下。</p>
+<p>返回结果格式如下示例所示。</p>
 
 <p>&nbsp;</p>
 

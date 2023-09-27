@@ -1,4 +1,4 @@
-# [2852. Sum of Remoteness of All Cells](https://leetcode.cn/problems/sum-of-remoteness-of-all-cells)
+# [2852. 所有单元格的远离程度之和](https://leetcode.cn/problems/sum-of-remoteness-of-all-cells)
 
 [English Version](/solution/2800-2899/2852.Sum%20of%20Remoteness%20of%20All%20Cells/README_EN.md)
 
@@ -6,58 +6,60 @@
 
 <!-- 这里写题目描述 -->
 
-<p>You are given a <strong>0-indexed</strong> matrix <code>grid</code> of order <code>n * n</code>. Each cell in this matrix has a value <code>grid[i][j]</code>, which is either a <strong>positive</strong> integer or <code>-1</code> representing a blocked cell.</p>
+<p>给定一个下标从 <strong>0</strong> 开始的大小为 <code>n * n</code> 的矩阵 <code>grid</code>，其中每个单元格的值 <code>grid[i][j]</code> 要么是 <strong>正整数</strong>，要么是表示阻塞单元格的值 <code>-1</code> 。</p>
 
-<p>You can move from a non-blocked cell to any non-blocked cell that shares an edge.</p>
+<p>你可以从一个非阻塞单元格移动到与其共享边的任何非阻塞单元格。</p>
 
-<p>For any cell <code>(i, j)</code>, we represent its <strong>remoteness</strong> as <code>R[i][j]</code> which is defined as the following:</p>
+<p>对于任何单元格 <code>(i, j)</code>，我们定义其 <strong>远离程度</strong> <code>R[i][j]</code> 如下：</p>
 
 <ul>
-	<li>If the cell <code>(i, j)</code> is a <strong>non-blocked</strong> cell, <code>R[i][j]</code> is the sum of the values <code>grid[x][y]</code> such that there is <strong>no path</strong> from the <strong>non-blocked</strong> cell <code>(x, y)</code> to the cell <code>(i, j)</code>.</li>
-	<li>For blocked cells, <code>R[i][j] == 0</code>.</li>
+	<li>如果单元格 <code>(i, j)</code> 是 <strong>非阻塞</strong> 单元格，则 <code>R[i][j]</code> 是值 <code>grid[x][y]</code> 的总和，其中 <strong>没有</strong> 从 <strong>非阻塞</strong> 单元格 <code>(x, y)</code> 到单元格 <code>(i, j)</code> 的路径。</li>
+	<li>对于阻塞单元格，<code>R[i][j] == 0</code>。</li>
 </ul>
 
-<p>Return<em> the sum of </em><code>R[i][j]</code><em> over all cells.</em></p>
+<p>返回所有单元格的 <code>R[i][j]</code> 之和。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2800-2899/2852.Sum%20of%20Remoteness%20of%20All%20Cells/images/1-new.png" style="padding: 10px; background: rgb(255, 255, 255); border-radius: 0.5rem; width: 400px; height: 304px;" /></p>
 
 <pre>
-<strong>Input:</strong> grid = [[-1,1,-1],[5,-1,4],[-1,3,-1]]
-<strong>Output:</strong> 39
-<strong>Explanation:</strong> In the picture above, there are four grids. The top-left grid contains the initial values in the grid. Blocked cells are colored black, and other cells get their values as it is in the input. In the top-right grid, you can see the value of R[i][j] for all cells. So the answer would be the sum of them. That is: 0 + 12 + 0 + 8 + 0 + 9 + 0 + 10 + 0 = 39.
-Let&#39;s jump on the bottom-left grid in the above picture and calculate R[0][1] (the target cell is colored green). We should sum up the value of cells that can&#39;t be reached by the cell (0, 1). These cells are colored yellow in this grid. So R[0][1] = 5 + 4 + 3 = 12.
-Now let&#39;s jump on the bottom-right grid in the above picture and calculate R[1][2] (the target cell is colored green). We should sum up the value of cells that can&#39;t be reached by the cell (1, 2). These cells are colored yellow in this grid. So R[1][2] = 1 + 5 + 3 = 9.
+<b>输入：</b>grid = [[-1,1,-1],[5,-1,4],[-1,3,-1]]
+<b>输出：</b>39
+<b>解释：</b>在上面的图片中，有四个矩阵。左上角的矩阵是题目给定矩阵的初始值。被阻塞的单元格是黑色的，其他单元格的值与输入相同。在右上方的网格中，可以看到所有单元格的值也就是 R[i][j] 的值。答案是它们的和。即:0 + 12 + 0 + 8 + 0 + 9 + 0 + 10 + 0 = 39。
+在上图左下角的矩阵，计算 R[0][1] (目标单元格为绿色)。我们应该将单元格 (0,1) 无法到达的单元格的值相加。这些单元格在这个矩阵中是黄色的。所以 R[0][1] = 5 + 4 + 3 = 12。
+在上图右下角的矩阵，计算 R[1][2] (目标单元格为绿色)。我们应该把单元格 (1,2) 无法到达的单元格的值相加。这些单元格在这个矩阵中是黄色的。所以 R[1][2] = 1 + 5 + 3 = 9。
 </pre>
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2800-2899/2852.Sum%20of%20Remoteness%20of%20All%20Cells/images/2.png" style="width: 400px; height: 302px; background: #fff; border-radius: .5rem;" /></p>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<strong>Input:</strong> grid = [[-1,3,4],[-1,-1,-1],[3,-1,-1]]
-<strong>Output:</strong> 13
-<strong>Explanation:</strong> In the picture above, there are four grids. The top-left grid contains the initial values in the grid. Blocked cells are colored black, and other cells get their values as it is in the input. In the top-right grid, you can see the value of R[i][j] for all cells. So the answer would be the sum of them. That is: 3 + 3 + 0 + 0 + 0 + 0 + 7 + 0 + 0 = 13.
-Let&#39;s jump on the bottom-left grid in the above picture and calculate R[0][2] (the target cell is colored green). We should sum up the value of cells that can&#39;t be reached by the cell (0, 2). This cell is colored yellow in this grid. So R[0][2] = 3.
-Now let&#39;s jump on the bottom-right grid in the above picture and calculate R[2][0] (the target cell is colored green). We should sum up the value of cells that can&#39;t be reached by the cell (2, 0). These cells are colored yellow in this grid. So R[2][0] = 3 + 4 = 7.
+<b>输入：</b>grid = [[-1,3,4],[-1,-1,-1],[3,-1,-1]]
+<b>输出：</b>13
+<b>解释：</b>在上面的图片中，有四个矩阵。左上角的矩阵是给定矩阵的初始值。被阻塞的单元格是黑色的，其他单元格的值与输入相同。在右上方的网格中，可以看到所有单元格的值也就是 R[i][j] 的值。答案是它们的和。即:3 + 3 + 0 + 0 + 0 + 0 + 7 + 0 + 0 = 13。
+在上图左下角的矩阵上，计算 R[0][2] (目标单元格为绿色)。将单元格 (0,2) 无法到达的单元格的值相加。这个单元格在这个矩阵中是黄色的。所以 R[0][2] = 3。
+在上图右下角的矩阵上，计算 R[2][0] (目标单元格为绿色)。将单元格 (2,0) 无法到达的单元格的值相加，这些单元格在这个矩阵中是黄色的。所以 R[2][0] = 3 + 4 = 7。
 </pre>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <pre>
-<strong>Input:</strong> grid = [[1]]
-<strong>Output:</strong> 0
-<strong>Explanation:</strong> Since there are no other cells than (0, 0), R[0][0] is equal to 0. So the sum of R[i][j] over all cells would be 0.
+<b>输入：</b>grid = [[1]]
+<b>输出：</b>0
+<b>解释：</b>因为除了 (0,0) 没有其他单元格，所以 R[0][0] 等于 0。所以所有单元格的和是 0。
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= n &lt;= 300</code></li>
-	<li><code>1 &lt;= grid[i][j] &lt;= 10<sup>6</sup></code> or <code>grid[i][j] == -1</code></li>
+	<li><code>1 &lt;= grid[i][j] &lt;= 10<sup>6</sup></code> 或&nbsp;<code>grid[i][j] == -1</code></li>
 </ul>
 
 ## 解法

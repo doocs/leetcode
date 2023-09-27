@@ -26,7 +26,7 @@
 <pre>
 <strong>Input:</strong> houses = [1,2,3,4], heaters = [1,4]
 <strong>Output:</strong> 1
-<strong>Explanation:</strong> The two heater was placed in the position 1 and 4. We need to use radius 1 standard, then all the houses can be warmed.
+<strong>Explanation:</strong> The two heaters were placed at positions 1 and 4. We need to use a radius 1 standard, then all the houses can be warmed.
 </pre>
 
 <p><strong class="example">Example 3:</strong></p>

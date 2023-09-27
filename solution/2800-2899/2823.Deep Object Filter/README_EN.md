@@ -4,9 +4,9 @@
 
 ## Description
 
-<p>Given an object <code>obj</code> and a function <code>fn</code>, return a filtered object <code>filteredObject</code>.&nbsp;</p>
+<p>Given an object or an array&nbsp;<code>obj</code> and a function <code>fn</code>, return a filtered object or array&nbsp;<code>filteredObject</code>.&nbsp;</p>
 
-<p>Function <code>deepFilter</code>&nbsp;should perform a deep filter operation on the object <code>obj</code>. The deep filter operation should remove properties for which the output of the filter function <code>fn</code> is <code>false</code>, as well as any empty objects or arrays that remain after the keys have been removed.</p>
+<p>Function <code>deepFilter</code>&nbsp;should perform a deep filter operation on the&nbsp;<code>obj</code>. The deep filter operation should remove properties for which the output of the filter function <code>fn</code> is <code>false</code>, as well as any empty objects or arrays that remain after the keys have been removed.</p>
 
 <p>If the deep filter operation results in an empty object or array, with no remaining properties, <code>deepFilter</code> should return <code>undefined</code> to indicate that there is no valid data left in the <code>filteredObject</code>.</p>
 
@@ -54,7 +54,7 @@ fn = (x) =&gt; Array.isArray(x)
 
 <ul>
 	<li><code>fn</code> is a function that returns a boolean value</li>
-	<li><code>obj</code> is a valid JSON object</li>
+	<li><code>obj</code> is a valid JSON object or array</li>
 	<li><code>2 &lt;= JSON.stringify(obj).length &lt;= 10<sup>5</sup></code></li>
 </ul>
 

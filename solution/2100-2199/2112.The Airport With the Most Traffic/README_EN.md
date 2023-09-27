@@ -14,17 +14,17 @@
 | arrival_airport   | int  |
 | flights_count     | int  |
 +-------------------+------+
-(departure_airport, arrival_airport) is the primary key column for this table.
+(departure_airport, arrival_airport) is the primary key column (combination of columns with unique values) for this table.
 Each row of this table indicates that there were flights_count flights that departed from departure_airport and arrived at arrival_airport.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the ID of the airport with the <strong>most traffic</strong>. The airport with the most traffic is the airport that has the largest total number of flights that either departed from or arrived at the airport. If there is more than one airport with the most traffic, report them all.</p>
+<p>Write a solution to report the ID of the airport with the <strong>most traffic</strong>. The airport with the most traffic is the airport that has the largest total number of flights that either departed from or arrived at the airport. If there is more than one airport with the most traffic, report them all.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

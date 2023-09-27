@@ -17,7 +17,7 @@
 
 <p><code>filteredArr</code> 应该只包含使表达式 <code>fn(arr[i], i)</code> 的值为 <strong>真值</strong> 的 <code>arr</code> 中的元素。<strong>真值</strong> 是指 <code>Boolean(value)</code>&nbsp;返回参数为&nbsp;<code>true</code> 的值。</p>
 
-<p>请在不使用内置的 Array.filter 方法的情况下解决该问题。</p>
+<p>请在不使用内置的 <code>Array.filter</code> 方法的情况下解决该问题。</p>
 
 <p>&nbsp;</p>
 

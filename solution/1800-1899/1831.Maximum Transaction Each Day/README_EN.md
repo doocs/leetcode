@@ -14,17 +14,17 @@
 | day            | datetime |
 | amount         | int      |
 +----------------+----------+
-transaction_id is the primary key for this table.
+transaction_id is the column with unique values for this table.
 Each row contains information about one transaction.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the IDs of the transactions with the <strong>maximum</strong> <code>amount</code> on their respective day. If in one day there are multiple such transactions, return all of them.</p>
+<p>Write a solution&nbsp;to report the IDs of the transactions with the <strong>maximum</strong> <code>amount</code> on their respective day. If in one day there are multiple such transactions, return all of them.</p>
 
 <p>Return the result table <strong>ordered by</strong> <code>transaction_id</code> <strong> in ascending order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

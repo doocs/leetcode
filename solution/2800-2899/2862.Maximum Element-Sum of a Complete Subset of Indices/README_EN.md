@@ -32,11 +32,11 @@ Hence, the maximum element-sum of a complete subset of indices is 16.
 <strong>Input:</strong> nums = [5,10,3,10,1,13,7,9,4]
 <strong>Output:</strong> 19
 <strong>Explanation:</strong> Apart from the subsets consisting of a single index, there are four other complete subsets of indices: {1,4}, {1,9}, {2,8}, {4,9}, and {1,4,9}.
-The sum of the elements conrresponding to indices 1 and 4 is equal to nums[1] + nums[4] = 5 + 10 = 15.
-The sum of the elements conrresponding to indices 1 and 9 is equal to nums[1] + nums[9] = 5 + 4 = 9.
-The sum of the elements conrresponding to indices 2 and 8 is equal to nums[2] + nums[8] = 10 + 9 = 19.
-The sum of the elements conrresponding to indices 4 and 9 is equal to nums[4] + nums[9] = 10 + 4 = 14.
-The sum of the elements conrresponding to indices 1, 4, and 9 is equal to nums[1] + nums[4] + nums[9] = 5 + 10 + 4 = 19.
+The sum of the elements corresponding to indices 1 and 4 is equal to nums[1] + nums[4] = 5 + 10 = 15.
+The sum of the elements corresponding to indices 1 and 9 is equal to nums[1] + nums[9] = 5 + 4 = 9.
+The sum of the elements corresponding to indices 2 and 8 is equal to nums[2] + nums[8] = 10 + 9 = 19.
+The sum of the elements corresponding to indices 4 and 9 is equal to nums[4] + nums[9] = 10 + 4 = 14.
+The sum of the elements corresponding to indices 1, 4, and 9 is equal to nums[1] + nums[4] + nums[9] = 5 + 10 + 4 = 19.
 Hence, the maximum element-sum of a complete subset of indices is 19.
 </pre>
 

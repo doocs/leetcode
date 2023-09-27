@@ -33,7 +33,7 @@ date.nextDay(); // "2014-06-21"
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>new Date(date) 是一个有效的日期对象</code></li>
+	<li><code>new Date(date)</code> 是一个有效的日期对象</li>
 </ul>
 
 ## 解法

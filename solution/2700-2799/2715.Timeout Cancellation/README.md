@@ -50,8 +50,8 @@ setTimeout(cancel, 100);
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>fn 是一个函数</code></li>
-	<li><code>args 是一个有效的 JSON 数组</code></li>
+	<li><code>fn</code> 是一个函数</li>
+	<li><code>args</code> 是一个有效的 JSON 数组</li>
 	<li><code>1 &lt;= args.length &lt;= 10</code></li>
 	<li><code><font face="monospace">20 &lt;= t &lt;= 1000</font></code></li>
 	<li><code><font face="monospace">10 &lt;= cancelT &lt;= 1000</font></code></li>

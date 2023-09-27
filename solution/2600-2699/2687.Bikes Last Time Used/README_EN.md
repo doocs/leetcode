@@ -15,15 +15,15 @@
 | start_time  | datetime |
 | end_time    | datetime |
 +-------------+----------+
-ride_id is the primary key for this table.
+ride_id column contains unique values.
 Each row contains a ride information that includes ride_id, bike number, start and end time of the ride.
 </pre>
 
-<p>Write an SQL query to find the <strong>last</strong> <strong>time</strong> when each bike was used.</p>
+<p>Write a solution to find the <strong>last</strong> <strong>time</strong> when each bike was used.</p>
 
-<p>Return<em> the result table ordered by the bikes that were <strong>most recently used</strong>.&nbsp;</em></p>
+<p>Return the result table ordered by the bikes that were <strong>most recently used</strong>.&nbsp;</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

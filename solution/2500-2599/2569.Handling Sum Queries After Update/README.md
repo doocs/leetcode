@@ -14,7 +14,7 @@
 	<li>操作类型 3 为&nbsp;<code>queries[i]&nbsp;= [3, 0, 0]</code>&nbsp;。求&nbsp;<code>nums2</code>&nbsp;中所有元素的和。</li>
 </ol>
 
-<p>请你返回一个数组，包含所有第三种操作类型的答案。</p>
+<p>请你返回一个&nbsp;<em>数组</em>，包含&nbsp;<em>所有第三种操作类型&nbsp;</em>的答案。</p>
 
 <p>&nbsp;</p>
 

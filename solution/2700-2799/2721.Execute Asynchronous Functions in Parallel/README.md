@@ -6,12 +6,12 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个异步函数数组 <code>functions</code>，返回一个新的 promise 对象&nbsp;<code>promise</code>。数组中的每个函数都不接受参数并返回一个 promise。</p>
+<p>给定一个异步函数数组 <code>functions</code>，返回一个新的 promise 对象&nbsp;<code>promise</code>。数组中的每个函数都不接受参数并返回一个 promise。所有的 promise 都应该并行执行。</p>
 
 <p><code>promise</code> resolve 条件：</p>
 
 <ul>
-	<li>当所有从 <code>functions</code> 返回的 promise 都成功解析时。<code>promise</code> 的解析值应该是一个按照它们在 <code>functions</code> 中的顺序排列的 promise 的解析值数组。</li>
+	<li>当所有从 <code>functions</code> 返回的 promise 都成功的并行解析时。<code>promise</code> 的解析值应该是一个按照它们在 <code>functions</code> 中的顺序排列的 promise 的解析值数组。<code>promise</code> 应该在数组中的所有异步函数并行执行完成时解析。</li>
 </ul>
 
 <p><code>promise</code>&nbsp;reject 条件：</p>
@@ -65,7 +65,7 @@ promiseAll(functions).then(console.log); // [5]
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>函数 functions 是一个返回 Promise 的函数数组</code></li>
+	<li>函数 <code>functions</code> 是一个返回 promise 的函数数组</li>
 	<li><code>1 &lt;= functions.length &lt;= 10</code></li>
 </ul>
 
