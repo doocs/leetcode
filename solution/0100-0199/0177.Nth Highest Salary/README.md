@@ -70,6 +70,10 @@ n = 2
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：排序 + LIMIT**
+
+我们可以先对 `salary` 进行降序排序，然后使用 `LIMIT` 语句获取第 $n$ 高的工资。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -81,9 +85,9 @@ BEGIN
   RETURN (
       # Write your MySQL query statement below.
       SELECT (
-          SELECT DISTINCT Salary
+          SELECT DISTINCT salary
           FROM Employee
-          ORDER BY Salary DESC
+          ORDER BY salary DESC
           LIMIT 1 OFFSET N
       )
   );

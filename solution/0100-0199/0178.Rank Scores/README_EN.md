@@ -64,7 +64,7 @@ Scores table:
 
 <!-- tabs:start -->
 
-### **MySQL8**
+**Solution 1: Use `DENSE_RANK()`**
 
 Use `DENSE_RANK()` to solve this problem.
 
@@ -75,19 +75,21 @@ DENSE_RANK() OVER (
 )
 ```
 
-Solution:
+**Solution 2: Use variables**
+
+MySQL only provides [window function](https://dev.mysql.com/doc/refman/8.0/en/window-function-descriptions.html) after version 8. In previous versions, variables can be used to achieve similar functions.
+
+<!-- tabs:start -->
+
+### **SQL**
 
 ```sql
 # Write your MySQL query statement below
 SELECT
-    Score,
-    DENSE_RANK() OVER (ORDER BY Score DESC) AS 'Rank'
+    score,
+    dense_rank() OVER (ORDER BY score DESC) AS 'rank'
 FROM Scores;
 ```
-
-### **MySQL5**
-
-MySQL only provides [window function](https://dev.mysql.com/doc/refman/8.0/en/window-function-descriptions.html) after version 8. In previous versions, variables can be used to achieve similar functions:
 
 ```sql
 SELECT
