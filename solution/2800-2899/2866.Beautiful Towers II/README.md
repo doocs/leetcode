@@ -73,6 +73,24 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划 + 单调栈**
+
+我们定义 $f[i]$ 表示前 $i+1$ 座塔中，以最后一座塔作为最高塔的美丽塔方案的高度和。我们可以得到如下的状态转移方程：
+
+$$
+f[i]=
+\begin{cases}
+f[i-1]+heights[i],&\text{if } heights[i]\geq heights[i-1]\\
+heights[i]\times(i-j)+f[j],&\text{if } heights[i]<heights[i-1]
+\end{cases}
+$$
+
+其中 $j$ 是最后一座塔左边第一个高度小于等于 $heights[i]$ 的塔的下标。我们可以使用单调栈来维护这个下标。
+
+我们可以使用类似的方法求出 $g[i]$，表示从右往左，以第 $i$ 座塔作为最高塔的美丽塔方案的高度和。最终答案即为 $f[i]+g[i]-heights[i]$ 的最大值。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $maxHeights$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**

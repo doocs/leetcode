@@ -73,6 +73,32 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：枚举**
+
+我们可以枚举每一座塔作为最高塔，每一次向左右两边扩展，算出其他每个位置的高度，然后累加得到高度和 $t$。求出所有高度和的最大值即可。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $maxHeights$ 的长度。
+
+**方法二：动态规划 + 单调栈**
+
+方法一的做法足以通过本题，但是时间复杂度较高。我们可以使用“动态规划 + 单调栈”来优化枚举的过程。
+
+我们定义 $f[i]$ 表示前 $i+1$ 座塔中，以最后一座塔作为最高塔的美丽塔方案的高度和。我们可以得到如下的状态转移方程：
+
+$$
+f[i]=
+\begin{cases}
+f[i-1]+heights[i],&\text{if } heights[i]\geq heights[i-1]\\
+heights[i]\times(i-j)+f[j],&\text{if } heights[i]<heights[i-1]
+\end{cases}
+$$
+
+其中 $j$ 是最后一座塔左边第一个高度小于等于 $heights[i]$ 的塔的下标。我们可以使用单调栈来维护这个下标。
+
+我们可以使用类似的方法求出 $g[i]$，表示从右往左，以第 $i$ 座塔作为最高塔的美丽塔方案的高度和。最终答案即为 $f[i]+g[i]-heights[i]$ 的最大值。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $maxHeights$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -94,6 +120,44 @@ class Solution:
                 t += y
             ans = max(ans, t)
         return ans
+```
+
+```python
+class Solution:
+    def maximumSumOfHeights(self, maxHeights: List[int]) -> int:
+        n = len(maxHeights)
+        stk = []
+        left = [-1] * n
+        for i, x in enumerate(maxHeights):
+            while stk and maxHeights[stk[-1]] > x:
+                stk.pop()
+            if stk:
+                left[i] = stk[-1]
+            stk.append(i)
+        stk = []
+        right = [n] * n
+        for i in range(n - 1, -1, -1):
+            x = maxHeights[i]
+            while stk and maxHeights[stk[-1]] >= x:
+                stk.pop()
+            if stk:
+                right[i] = stk[-1]
+            stk.append(i)
+        f = [0] * n
+        for i, x in enumerate(maxHeights):
+            if i and x >= maxHeights[i - 1]:
+                f[i] = f[i - 1] + x
+            else:
+                j = left[i]
+                f[i] = x * (i - j) + (f[j] if j != -1 else 0)
+        g = [0] * n
+        for i in range(n - 1, -1, -1):
+            if i < n - 1 and maxHeights[i] >= maxHeights[i + 1]:
+                g[i] = g[i + 1] + maxHeights[i]
+            else:
+                j = right[i]
+                g[i] = maxHeights[i] * (j - i) + (g[j] if j != n else 0)
+        return max(a + b - c for a, b, c in zip(f, g, maxHeights))
 ```
 
 ### **Java**
@@ -124,6 +188,65 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public long maximumSumOfHeights(List<Integer> maxHeights) {
+        int n = maxHeights.size();
+        Deque<Integer> stk = new ArrayDeque<>();
+        int[] left = new int[n];
+        int[] right = new int[n];
+        Arrays.fill(left, -1);
+        Arrays.fill(right, n);
+        for (int i = 0; i < n; ++i) {
+            int x = maxHeights.get(i);
+            while (!stk.isEmpty() && maxHeights.get(stk.peek()) > x) {
+                stk.pop();
+            }
+            if (!stk.isEmpty()) {
+                left[i] = stk.peek();
+            }
+            stk.push(i);
+        }
+        stk.clear();
+        for (int i = n - 1; i >= 0; --i) {
+            int x = maxHeights.get(i);
+            while (!stk.isEmpty() && maxHeights.get(stk.peek()) >= x) {
+                stk.pop();
+            }
+            if (!stk.isEmpty()) {
+                right[i] = stk.peek();
+            }
+            stk.push(i);
+        }
+        long[] f = new long[n];
+        long[] g = new long[n];
+        for (int i = 0; i < n; ++i) {
+            int x = maxHeights.get(i);
+            if (i > 0 && x >= maxHeights.get(i - 1)) {
+                f[i] = f[i - 1] + x;
+            } else {
+                int j = left[i];
+                f[i] = 1L * x * (i - j) + (j >= 0 ? f[j] : 0);
+            }
+        }
+        for (int i = n - 1; i >= 0; --i) {
+            int x = maxHeights.get(i);
+            if (i < n - 1 && x >= maxHeights.get(i + 1)) {
+                g[i] = g[i + 1] + x;
+            } else {
+                int j = right[i];
+                g[i] = 1L * x * (j - i) + (j < n ? g[j] : 0);
+            }
+        }
+        long ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans = Math.max(ans, f[i] + g[i] - maxHeights.get(i));
+        }
+        return ans;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -145,6 +268,63 @@ public:
                 t += y;
             }
             ans = max(ans, t);
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    long long maximumSumOfHeights(vector<int>& maxHeights) {
+        int n = maxHeights.size();
+        stack<int> stk;
+        vector<int> left(n, -1);
+        vector<int> right(n, n);
+        for (int i = 0; i < n; ++i) {
+            int x = maxHeights[i];
+            while (!stk.empty() && maxHeights[stk.top()] > x) {
+                stk.pop();
+            }
+            if (!stk.empty()) {
+                left[i] = stk.top();
+            }
+            stk.push(i);
+        }
+        stk = stack<int>();
+        for (int i = n - 1; ~i; --i) {
+            int x = maxHeights[i];
+            while (!stk.empty() && maxHeights[stk.top()] >= x) {
+                stk.pop();
+            }
+            if (!stk.empty()) {
+                right[i] = stk.top();
+            }
+            stk.push(i);
+        }
+        long long f[n], g[n];
+        for (int i = 0; i < n; ++i) {
+            int x = maxHeights[i];
+            if (i && x >= maxHeights[i - 1]) {
+                f[i] = f[i - 1] + x;
+            } else {
+                int j = left[i];
+                f[i] = 1LL * x * (i - j) + (j != -1 ? f[j] : 0);
+            }
+        }
+        for (int i = n - 1; ~i; --i) {
+            int x = maxHeights[i];
+            if (i < n - 1 && x >= maxHeights[i + 1]) {
+                g[i] = g[i + 1] + x;
+            } else {
+                int j = right[i];
+                g[i] = 1LL * x * (j - i) + (j != n ? g[j] : 0);
+            }
+        }
+        long long ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans = max(ans, f[i] + g[i] - maxHeights[i]);
         }
         return ans;
     }
@@ -187,6 +367,75 @@ func max(a, b int64) int64 {
 }
 ```
 
+```go
+func maximumSumOfHeights(maxHeights []int) (ans int64) {
+	n := len(maxHeights)
+	stk := []int{}
+	left := make([]int, n)
+	right := make([]int, n)
+	for i := range left {
+		left[i] = -1
+		right[i] = n
+	}
+	for i, x := range maxHeights {
+		for len(stk) > 0 && maxHeights[stk[len(stk)-1]] > x {
+			stk = stk[:len(stk)-1]
+		}
+		if len(stk) > 0 {
+			left[i] = stk[len(stk)-1]
+		}
+		stk = append(stk, i)
+	}
+	stk = []int{}
+	for i := n - 1; i >= 0; i-- {
+		x := maxHeights[i]
+		for len(stk) > 0 && maxHeights[stk[len(stk)-1]] >= x {
+			stk = stk[:len(stk)-1]
+		}
+		if len(stk) > 0 {
+			right[i] = stk[len(stk)-1]
+		}
+		stk = append(stk, i)
+	}
+	f := make([]int64, n)
+	g := make([]int64, n)
+	for i, x := range maxHeights {
+		if i > 0 && x >= maxHeights[i-1] {
+			f[i] = f[i-1] + int64(x)
+		} else {
+			j := left[i]
+			f[i] = int64(x) * int64(i-j)
+			if j != -1 {
+				f[i] += f[j]
+			}
+		}
+	}
+	for i := n - 1; i >= 0; i-- {
+		x := maxHeights[i]
+		if i < n-1 && x >= maxHeights[i+1] {
+			g[i] = g[i+1] + int64(x)
+		} else {
+			j := right[i]
+			g[i] = int64(x) * int64(j-i)
+			if j != n {
+				g[i] += g[j]
+			}
+		}
+	}
+	for i, x := range maxHeights {
+		ans = max(ans, f[i]+g[i]-int64(x))
+	}
+	return
+}
+
+func max(a, b int64) int64 {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
 ### **TypeScript**
 
 ```ts
@@ -206,6 +455,61 @@ function maximumSumOfHeights(maxHeights: number[]): number {
             t += y;
         }
         ans = Math.max(ans, t);
+    }
+    return ans;
+}
+```
+
+```ts
+function maximumSumOfHeights(maxHeights: number[]): number {
+    const n = maxHeights.length;
+    const stk: number[] = [];
+    const left: number[] = Array(n).fill(-1);
+    const right: number[] = Array(n).fill(n);
+    for (let i = 0; i < n; ++i) {
+        const x = maxHeights[i];
+        while (stk.length && maxHeights[stk.at(-1)] > x) {
+            stk.pop();
+        }
+        if (stk.length) {
+            left[i] = stk.at(-1);
+        }
+        stk.push(i);
+    }
+    stk.length = 0;
+    for (let i = n - 1; ~i; --i) {
+        const x = maxHeights[i];
+        while (stk.length && maxHeights[stk.at(-1)] >= x) {
+            stk.pop();
+        }
+        if (stk.length) {
+            right[i] = stk.at(-1);
+        }
+        stk.push(i);
+    }
+    const f: number[] = Array(n).fill(0);
+    const g: number[] = Array(n).fill(0);
+    for (let i = 0; i < n; ++i) {
+        const x = maxHeights[i];
+        if (i && x >= maxHeights[i - 1]) {
+            f[i] = f[i - 1] + x;
+        } else {
+            const j = left[i];
+            f[i] = x * (i - j) + (j >= 0 ? f[j] : 0);
+        }
+    }
+    for (let i = n - 1; ~i; --i) {
+        const x = maxHeights[i];
+        if (i + 1 < n && x >= maxHeights[i + 1]) {
+            g[i] = g[i + 1] + x;
+        } else {
+            const j = right[i];
+            g[i] = x * (j - i) + (j < n ? g[j] : 0);
+        }
+    }
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        ans = Math.max(ans, f[i] + g[i] - maxHeights[i]);
     }
     return ans;
 }
