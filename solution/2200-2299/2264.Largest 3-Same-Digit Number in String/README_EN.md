@@ -56,6 +56,14 @@
 
 ## Solutions
 
+**Solution 1: Enumeration**
+
+We can enumerate each digit $i$ from large to small, where $0 \le i \le 9$, and then check whether the string $s$ consisting of three consecutive $i$ is a substring of $num$. If it is, we directly return $s$.
+
+If we have enumerated all the possible values of $i$ and still haven't found a substring that satisfies the condition, we return an empty string.
+
+The time complexity is $O(10 \times n)$, where $n$ is the length of the string $num$. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
