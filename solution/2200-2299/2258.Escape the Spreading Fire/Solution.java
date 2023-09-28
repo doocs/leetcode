@@ -1,49 +1,55 @@
 class Solution {
-    private static int[] dirs = {-1, 0, 1, 0, -1};
     private int[][] grid;
+    private boolean[][] fire;
+    private boolean[][] vis;
+    private final int[] dirs = {-1, 0, 1, 0, -1};
     private int m;
     private int n;
 
     public int maximumMinutes(int[][] grid) {
-        this.grid = grid;
         m = grid.length;
         n = grid[0].length;
-        int left = -1, right = m * n;
-        while (left < right) {
-            int mid = (left + right + 1) >> 1;
+        this.grid = grid;
+        fire = new boolean[m][n];
+        vis = new boolean[m][n];
+        int l = -1, r = m * n;
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
             if (check(mid)) {
-                left = mid;
+                l = mid;
             } else {
-                right = mid - 1;
+                r = mid - 1;
             }
         }
-        return left == m * n ? (int) 1e9 : left;
+        return l == m * n ? 1000000000 : l;
     }
 
     private boolean check(int t) {
-        boolean[][] fire = new boolean[m][n];
-        Deque<int[]> f = new ArrayDeque<>();
+        for (int i = 0; i < m; ++i) {
+            Arrays.fill(fire[i], false);
+            Arrays.fill(vis[i], false);
+        }
+        Deque<int[]> q1 = new ArrayDeque<>();
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (grid[i][j] == 1) {
+                    q1.offer(new int[] {i, j});
                     fire[i][j] = true;
-                    f.offer(new int[] {i, j});
                 }
             }
         }
-        while (t-- > 0 && !f.isEmpty()) {
-            f = spread(fire, f);
+        for (; t > 0 && !q1.isEmpty(); --t) {
+            q1 = spread(q1);
         }
         if (fire[0][0]) {
             return false;
         }
-        Deque<int[]> q = new ArrayDeque<>();
-        boolean[][] vis = new boolean[m][n];
-        q.offer(new int[] {0, 0});
+        Deque<int[]> q2 = new ArrayDeque<>();
+        q2.offer(new int[] {0, 0});
         vis[0][0] = true;
-        while (!q.isEmpty()) {
-            for (int i = q.size(); i > 0; --i) {
-                int[] p = q.poll();
+        for (; !q2.isEmpty(); q1 = spread(q1)) {
+            for (int d = q2.size(); d > 0; --d) {
+                int[] p = q2.poll();
                 if (fire[p[0]][p[1]]) {
                     continue;
                 }
@@ -55,27 +61,26 @@ class Solution {
                             return true;
                         }
                         vis[x][y] = true;
-                        q.offer(new int[] {x, y});
+                        q2.offer(new int[] {x, y});
                     }
                 }
             }
-            f = spread(fire, f);
         }
         return false;
     }
 
-    private Deque<int[]> spread(boolean[][] fire, Deque<int[]> q) {
-        Deque<int[]> nf = new ArrayDeque<>();
+    private Deque<int[]> spread(Deque<int[]> q) {
+        Deque<int[]> nq = new ArrayDeque<>();
         while (!q.isEmpty()) {
             int[] p = q.poll();
             for (int k = 0; k < 4; ++k) {
                 int x = p[0] + dirs[k], y = p[1] + dirs[k + 1];
                 if (x >= 0 && x < m && y >= 0 && y < n && !fire[x][y] && grid[x][y] == 0) {
                     fire[x][y] = true;
-                    nf.offer(new int[] {x, y});
+                    nq.offer(new int[] {x, y});
                 }
             }
         }
-        return nf;
+        return nq;
     }
 }
