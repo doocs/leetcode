@@ -46,28 +46,30 @@ For each person, we return the number of flowers in full bloom during their arri
 
 We sort the flowers by their start and end time respectively, and then for each person, we can use binary search to find the number of flowers they bloom during the flowering period. That is, find the number of flowers that have bloomed when each person arrives, minus the number of flowers that have withered when each person arrives, to get the answer.
 
-The time complexity is $O((m + n) \times \log n)$, and the space complexity is $O(n)$. Where $n$ and $m$ are the lengths of arrays $flowers$ and $persons$ respectively.
+The time complexity is $O((m + n) \times \log n)$, and the space complexity is $O(n)$. Where $n$ and $m$ are the lengths of arrays $flowers$ and $people$ respectively.
 
 **Solution 2: Difference + Sort + Offline Query**
 
-We can use the difference to maintain the number of flowers at each time point. Next, we sort $persons$ in ascending order of arrival time, and at each person's arrival, we perform a prefix sum operation on the difference array to get the answer.
+We can use the difference to maintain the number of flowers at each time point. Next, we sort $people$ in ascending order of arrival time, and at each person's arrival, we perform a prefix sum operation on the difference array to get the answer.
 
-The time complexity is $O(m \times \log m + n \times \log n)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the lengths of arrays $flowers$ and $persons$ respectively.
+The time complexity is $O(m \times \log m + n \times \log n)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the lengths of arrays $flowers$ and $people$ respectively.
 
 ### **Python3**
 
 ```python
 class Solution:
     def fullBloomFlowers(
-        self, flowers: List[List[int]], persons: List[int]
+        self, flowers: List[List[int]], people: List[int]
     ) -> List[int]:
         start, end = sorted(a for a, _ in flowers), sorted(b for _, b in flowers)
-        return [bisect_right(start, p) - bisect_left(end, p) for p in persons]
+        return [bisect_right(start, p) - bisect_left(end, p) for p in people]
 ```
 
 ```python
 class Solution:
-    def fullBloomFlowers(self, flowers: List[List[int]], people: List[int]) -> List[int]:
+    def fullBloomFlowers(
+        self, flowers: List[List[int]], people: List[int]
+    ) -> List[int]:
         d = defaultdict(int)
         for st, ed in flowers:
             d[st] += 1

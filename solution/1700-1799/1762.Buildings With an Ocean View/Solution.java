@@ -1,14 +1,15 @@
 class Solution {
     public int[] findBuildings(int[] heights) {
+        int n = heights.length;
+        List<Integer> ans = new ArrayList<>();
         int mx = 0;
-        LinkedList<Integer> ans = new LinkedList<>();
         for (int i = heights.length - 1; i >= 0; --i) {
-            int v = heights[i];
-            if (mx < v) {
-                ans.addFirst(i);
-                mx = v;
+            if (heights[i] > mx) {
+                ans.add(i);
+                mx = heights[i];
             }
         }
-        return ans.stream().mapToInt(i -> i).toArray();
+        Collections.reverse(ans);
+        return ans.stream().mapToInt(Integer::intValue).toArray();
     }
 }

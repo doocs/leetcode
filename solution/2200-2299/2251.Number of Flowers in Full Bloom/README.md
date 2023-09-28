@@ -54,13 +54,13 @@
 
 我们将花按照开始时间和结束时间分别排序，然后对于每个人，我们可以使用二分查找来找到他们到达时在花期内花的数目。就是说，找出在每个人到达时，已经开花的花的数目，减去在每个人到达时，已经凋谢的花的数目，即可得到答案。
 
-时间复杂度 $O((m + n) \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是数组 $flowers$ 和 $persons$ 的长度。
+时间复杂度 $O((m + n) \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是数组 $flowers$ 和 $people$ 的长度。
 
 **方法二：差分 + 排序 + 离线查询**
 
-我们可以利用差分来维护每个时间点的花的数目。接下来，我们将 $persons$ 按照到达时间从小到大排序，在每个人到达时，我们对差分数组进行前缀和运算，就可以得到答案。
+我们可以利用差分来维护每个时间点的花的数目。接下来，我们将 $people$ 按照到达时间从小到大排序，在每个人到达时，我们对差分数组进行前缀和运算，就可以得到答案。
 
-时间复杂度 $O(m \times \log m + n \times \log n)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是数组 $flowers$ 和 $persons$ 的长度。
+时间复杂度 $O(m \times \log m + n \times \log n)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是数组 $flowers$ 和 $people$ 的长度。
 
 <!-- tabs:start -->
 
@@ -71,15 +71,17 @@
 ```python
 class Solution:
     def fullBloomFlowers(
-        self, flowers: List[List[int]], persons: List[int]
+        self, flowers: List[List[int]], people: List[int]
     ) -> List[int]:
         start, end = sorted(a for a, _ in flowers), sorted(b for _, b in flowers)
-        return [bisect_right(start, p) - bisect_left(end, p) for p in persons]
+        return [bisect_right(start, p) - bisect_left(end, p) for p in people]
 ```
 
 ```python
 class Solution:
-    def fullBloomFlowers(self, flowers: List[List[int]], people: List[int]) -> List[int]:
+    def fullBloomFlowers(
+        self, flowers: List[List[int]], people: List[int]
+    ) -> List[int]:
         d = defaultdict(int)
         for st, ed in flowers:
             d[st] += 1
