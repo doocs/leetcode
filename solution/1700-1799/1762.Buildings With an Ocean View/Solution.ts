@@ -1,9 +1,5 @@
-/**
- * @param {number[]} heights
- * @return {number[]}
- */
-var findBuildings = function (heights) {
-    const ans = [];
+function findBuildings(heights: number[]): number[] {
+    const ans: number[] = [];
     let mx = 0;
     for (let i = heights.length - 1; ~i; --i) {
         if (heights[i] > mx) {
@@ -12,4 +8,4 @@ var findBuildings = function (heights) {
         }
     }
     return ans.reverse();
-};
+}
