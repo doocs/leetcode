@@ -18,25 +18,22 @@
  */
 
 func cleanRoom(robot *Robot) {
-	vis := make(map[string]bool)
-	dirs := [][]int{{-1, 0}, {0, 1}, {1, 0}, {0, -1}}
-	back := func() {
-		robot.TurnRight()
-		robot.TurnRight()
-		robot.Move()
-		robot.TurnRight()
-		robot.TurnRight()
-	}
-	var dfs func(i, j, d int)
+	vis := map[[2]int]bool{}
+	dirs := [5]int{-1, 0, 1, 0, -1}
+	var dfs func(int, int, int)
 	dfs = func(i, j, d int) {
-		vis[strconv.Itoa(i)+","+strconv.Itoa(j)] = true
+		vis[[2]int{i, j}] = true
 		robot.Clean()
 		for k := 0; k < 4; k++ {
 			nd := (d + k) % 4
-			x, y := i+dirs[nd][0], j+dirs[nd][1]
-			if !vis[strconv.Itoa(x)+","+strconv.Itoa(y)] && robot.Move() {
+			x, y := i+dirs[nd], j+dirs[nd+1]
+			if !vis[[2]int{x, y}] && robot.Move() {
 				dfs(x, y, nd)
-				back()
+				robot.TurnRight()
+				robot.TurnRight()
+				robot.Move()
+				robot.TurnRight()
+				robot.TurnRight()
 			}
 			robot.TurnRight()
 		}

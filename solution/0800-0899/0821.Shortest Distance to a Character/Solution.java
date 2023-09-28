@@ -2,17 +2,19 @@ class Solution {
     public int[] shortestToChar(String s, char c) {
         int n = s.length();
         int[] ans = new int[n];
-        for (int i = 0, j = Integer.MAX_VALUE; i < n; ++i) {
+        final int inf = 1 << 30;
+        Arrays.fill(ans, inf);
+        for (int i = 0, pre = -inf; i < n; ++i) {
             if (s.charAt(i) == c) {
-                j = i;
+                pre = i;
             }
-            ans[i] = Math.abs(i - j);
+            ans[i] = Math.min(ans[i], i - pre);
         }
-        for (int i = n - 1, j = Integer.MAX_VALUE; i >= 0; --i) {
+        for (int i = n - 1, suf = inf; i >= 0; --i) {
             if (s.charAt(i) == c) {
-                j = i;
+                suf = i;
             }
-            ans[i] = Math.min(ans[i], Math.abs(i - j));
+            ans[i] = Math.min(ans[i], suf - i);
         }
         return ans;
     }

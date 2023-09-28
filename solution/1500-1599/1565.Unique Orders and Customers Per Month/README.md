@@ -23,7 +23,7 @@ order_id 是 <strong>Orders </strong>表的主键<sub>。</sub>
 
 <p>&nbsp;</p>
 
-<p>写一个查询语句来 <strong>按月 </strong>统计金额（invoice）<strong>大于 20 </strong>的唯一 <strong>订单数</strong> 和唯一 <strong>顾客数 。</strong></p>
+<p>写一个查询语句来 <strong>按月 </strong>统计金额（invoice）<strong>大于 $20 </strong>的唯一 <strong>订单数</strong> 和唯一 <strong>顾客数 。</strong></p>
 
 <p>查询结果无排序要求。</p>
 

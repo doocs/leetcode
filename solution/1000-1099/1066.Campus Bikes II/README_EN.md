@@ -180,9 +180,7 @@ function assignBikes(workers: number[][], bikes: number[][]): number {
     const n = workers.length;
     const m = bikes.length;
     const inf = 1 << 30;
-    const f: number[][] = new Array(n + 1)
-        .fill(0)
-        .map(() => new Array(1 << m).fill(inf));
+    const f: number[][] = new Array(n + 1).fill(0).map(() => new Array(1 << m).fill(inf));
     f[0][0] = 0;
     for (let i = 1; i <= n; ++i) {
         for (let j = 0; j < 1 << m; ++j) {

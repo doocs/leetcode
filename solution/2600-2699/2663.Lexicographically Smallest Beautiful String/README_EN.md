@@ -202,10 +202,7 @@ function smallestBeautifulString(s: string, k: number): string {
             for (let l = i + 1; l < n; ++l) {
                 for (let m = 0; m < k; ++m) {
                     c = String.fromCharCode(m + 97);
-                    if (
-                        (l > 0 && cs[l - 1] === c) ||
-                        (l > 1 && cs[l - 2] === c)
-                    ) {
+                    if ((l > 0 && cs[l - 1] === c) || (l > 1 && cs[l - 2] === c)) {
                         continue;
                     }
                     cs[l] = c;

@@ -148,11 +148,7 @@ func containsNearbyAlmostDuplicate(nums []int, k int, t int) bool {
 ### **TypeScript**
 
 ```ts
-function containsNearbyAlmostDuplicate(
-    nums: number[],
-    k: number,
-    t: number,
-): boolean {
+function containsNearbyAlmostDuplicate(nums: number[], k: number, t: number): boolean {
     const ts = new TreeSet<number>();
     for (let i = 0; i < nums.length; ++i) {
         const x = ts.ceil(nums[i] - t);
@@ -203,9 +199,7 @@ class RBTreeNode<T = number> {
 class RBTree<T> {
     root: RBTreeNode<T> | null;
     lt: (l: T, r: T) => boolean;
-    constructor(
-        compare: Compare<T> = (l: T, r: T) => (l < r ? -1 : l > r ? 1 : 0),
-    ) {
+    constructor(compare: Compare<T> = (l: T, r: T) => (l < r ? -1 : l > r ? 1 : 0)) {
         this.root = null;
         this.lt = (l: T, r: T) => compare(l, r) < 0;
     }
@@ -513,9 +507,7 @@ class RBTree<T> {
         for (const v of this.inOrder(root.right!)) yield v;
     }
 
-    *reverseInOrder(
-        root: RBTreeNode<T> = this.root!,
-    ): Generator<T, undefined, void> {
+    *reverseInOrder(root: RBTreeNode<T> = this.root!): Generator<T, undefined, void> {
         if (!root) return;
         for (const v of this.reverseInOrder(root.right!)) yield v;
         yield root.data;

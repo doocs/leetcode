@@ -20,13 +20,7 @@ function orangesRotting(grid: number[][]): number {
             for (let j = 0; j < 4; j++) {
                 const newX = x + dris[j];
                 const newY = y + dris[j + 1];
-                if (
-                    newX >= 0 &&
-                    newX < m &&
-                    newY >= 0 &&
-                    newY <= n &&
-                    grid[newX][newY] === 1
-                ) {
+                if (newX >= 0 && newX < m && newY >= 0 && newY <= n && grid[newX][newY] === 1) {
                     grid[newX][newY] = 2;
                     queue.push([newX, newY]);
                     count--;

@@ -97,6 +97,7 @@ mutators = [
 
 <ul>
 	<li><code>2 &lt;= JSON.stringify(obj).length &lt;= 4 * 10<sup>5</sup></code></li>
+	<li><code>mutators</code> is an array of functions</li>
 	<li><code><font face="monospace">total calls to produce() &lt; 10<sup>5</sup></font></code></li>
 </ul>
 

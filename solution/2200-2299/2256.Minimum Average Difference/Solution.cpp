@@ -1,19 +1,19 @@
-typedef long long ll;
-
 class Solution {
 public:
     int minimumAverageDifference(vector<int>& nums) {
         int n = nums.size();
-        vector<ll> s(n);
-        s[0] = nums[0];
-        for (int i = 1; i < n; ++i) s[i] = s[i - 1] + nums[i];
+        using ll = long long;
+        ll pre = 0;
+        ll suf = accumulate(nums.begin(), nums.end(), 0LL);
         int ans = 0;
-        ll mi = LONG_MAX;
+        ll mi = suf;
         for (int i = 0; i < n; ++i) {
-            ll a = s[i] / (i + 1);
-            ll b = i == n - 1 ? 0 : (s[n - 1] - s[i]) / (n - i - 1);
+            pre += nums[i];
+            suf -= nums[i];
+            ll a = pre / (i + 1);
+            ll b = n - i - 1 == 0 ? 0 : suf / (n - i - 1);
             ll t = abs(a - b);
-            if (mi > t) {
+            if (t < mi) {
                 ans = i;
                 mi = t;
             }

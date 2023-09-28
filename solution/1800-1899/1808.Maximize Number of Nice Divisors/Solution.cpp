@@ -5,24 +5,22 @@ public:
             return primeFactors;
         }
         const int mod = 1e9 + 7;
+        auto qpow = [&](long long a, long long n) {
+            long long ans = 1;
+            for (; n; n >>= 1) {
+                if (n & 1) {
+                    ans = ans * a % mod;
+                }
+                a = a * a % mod;
+            }
+            return (int) ans;
+        };
         if (primeFactors % 3 == 0) {
-            return qmi(3, primeFactors / 3, mod);
+            return qpow(3, primeFactors / 3);
         }
         if (primeFactors % 3 == 1) {
-            return 4 * qmi(3, primeFactors / 3 - 1, mod) % mod;
+            return qpow(3, primeFactors / 3 - 1) * 4L % mod;
         }
-        return 2 * qmi(3, primeFactors / 3, mod) % mod;
-    }
-
-    long qmi(long a, long k, long p) {
-        long res = 1;
-        while (k != 0) {
-            if ((k & 1) == 1) {
-                res = res * a % p;
-            }
-            k >>= 1;
-            a = a * a % p;
-        }
-        return res;
+        return qpow(3, primeFactors / 3) * 2 % mod;
     }
 };

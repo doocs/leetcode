@@ -59,9 +59,8 @@ class Solution:
 class Solution {
     public int numWaterBottles(int numBottles, int numExchange) {
         int ans = numBottles;
-        while (numBottles >= numExchange) {
+        for (; numBottles >= numExchange; ++ans) {
             numBottles -= (numExchange - 1);
-            ++ans;
         }
         return ans;
     }
@@ -75,9 +74,8 @@ class Solution {
 public:
     int numWaterBottles(int numBottles, int numExchange) {
         int ans = numBottles;
-        while (numBottles >= numExchange) {
+        for (; numBottles >= numExchange; ++ans) {
             numBottles -= (numExchange - 1);
-            ++ans;
         }
         return ans;
     }
@@ -89,11 +87,22 @@ public:
 ```go
 func numWaterBottles(numBottles int, numExchange int) int {
 	ans := numBottles
-	for numBottles >= numExchange {
+	for ; numBottles >= numExchange; ans++ {
 		numBottles -= (numExchange - 1)
-		ans++
 	}
 	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function numWaterBottles(numBottles: number, numExchange: number): number {
+    let ans = numBottles;
+    for (; numBottles >= numExchange; ++ans) {
+        numBottles -= numExchange - 1;
+    }
+    return ans;
 }
 ```
 
@@ -107,12 +116,12 @@ class Solution {
      * @return Integer
      */
     function numWaterBottles($numBottles, $numExchange) {
-        $sum = $numBottles;
+        $ans = $numBottles;
         while ($numBottles >= $numExchange) {
             $numBottles = $numBottles - $numExchange + 1;
-            $sum++;
+            $ans++;
         }
-        return $sum;
+        return $ans;
     }
 }
 ```
@@ -126,12 +135,11 @@ class Solution {
  * @return {number}
  */
 var numWaterBottles = function (numBottles, numExchange) {
-    let sum = numBottles;
-    while (numBottles >= numExchange) {
-        numBottles = numBottles - numExchange + 1;
-        sum++;
+    let ans = numBottles;
+    for (; numBottles >= numExchange; ++ans) {
+        numBottles -= numExchange - 1;
     }
-    return sum;
+    return ans;
 };
 ```
 

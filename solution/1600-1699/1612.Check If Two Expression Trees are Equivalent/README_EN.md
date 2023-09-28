@@ -25,7 +25,7 @@
 <pre>
 <strong>Input:</strong> root1 = [+,a,+,null,null,b,c], root2 = [+,+,a,b,c]
 <strong>Output:</strong> true
-<strong>Explaination:</strong> <code>a + (b + c) == (b + c) + a</code></pre>
+<strong>Explanation</strong><strong>:</strong> <code>a + (b + c) == (b + c) + a</code></pre>
 
 <p><strong class="example">Example 3:</strong></p>
 
@@ -34,7 +34,7 @@
 <pre>
 <strong>Input:</strong> root1 = [+,a,+,null,null,b,c], root2 = [+,+,a,b,d]
 <strong>Output:</strong> false
-<strong>Explaination:</strong> <code>a + (b + c) != (b + d) + a</code>
+<strong>Explanation</strong><strong>:</strong> <code>a + (b + c) != (b + d) + a</code>
 </pre>
 
 <p>&nbsp;</p>

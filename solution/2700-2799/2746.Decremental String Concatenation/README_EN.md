@@ -206,20 +206,14 @@ function minimizeConcatenatedLength(words: string[]): number {
         const s = words[i];
         const m = s.length;
         const x =
-            dfs(i + 1, a, s[m - 1].charCodeAt(0) - 97) -
-            (s[0].charCodeAt(0) - 97 === b ? 1 : 0);
+            dfs(i + 1, a, s[m - 1].charCodeAt(0) - 97) - (s[0].charCodeAt(0) - 97 === b ? 1 : 0);
         const y =
-            dfs(i + 1, s[0].charCodeAt(0) - 97, b) -
-            (s[m - 1].charCodeAt(0) - 97 === a ? 1 : 0);
+            dfs(i + 1, s[0].charCodeAt(0) - 97, b) - (s[m - 1].charCodeAt(0) - 97 === a ? 1 : 0);
         return (f[i][a][b] = Math.min(x + m, y + m));
     };
     return (
         words[0].length +
-        dfs(
-            1,
-            words[0][0].charCodeAt(0) - 97,
-            words[0][words[0].length - 1].charCodeAt(0) - 97,
-        )
+        dfs(1, words[0][0].charCodeAt(0) - 97, words[0][words[0].length - 1].charCodeAt(0) - 97)
     );
 }
 ```

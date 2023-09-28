@@ -198,9 +198,7 @@ var longestCommonSubsequence = function (text1, text2) {
 function longestCommonSubsequence(text1: string, text2: string): number {
     const m = text1.length;
     const n = text2.length;
-    const f: number[][] = new Array(m + 1)
-        .fill(0)
-        .map(() => new Array(n + 1).fill(0));
+    const f: number[][] = new Array(m + 1).fill(0).map(() => new Array(n + 1).fill(0));
     for (let i = 1; i <= m; ++i) {
         for (let j = 1; j <= n; ++j) {
             if (text1[i - 1] == text2[j - 1]) {

@@ -1,25 +1,24 @@
-func minimumAverageDifference(nums []int) int {
+func minimumAverageDifference(nums []int) (ans int) {
 	n := len(nums)
-	s := make([]int, n)
-	s[0] = nums[0]
-	for i := 1; i < n; i++ {
-		s[i] = s[i-1] + nums[i]
+	pre, suf := 0, 0
+	for _, x := range nums {
+		suf += x
 	}
-	ans := 0
-	mi := math.MaxInt32
-	for i := 0; i < n; i++ {
-		a := s[i] / (i + 1)
+	mi := suf
+	for i, x := range nums {
+		pre += x
+		suf -= x
+		a := pre / (i + 1)
 		b := 0
-		if i != n-1 {
-			b = (s[n-1] - s[i]) / (n - i - 1)
+		if n-i-1 != 0 {
+			b = suf / (n - i - 1)
 		}
-		t := abs(a - b)
-		if mi > t {
+		if t := abs(a - b); t < mi {
 			ans = i
 			mi = t
 		}
 	}
-	return ans
+	return
 }
 
 func abs(x int) int {

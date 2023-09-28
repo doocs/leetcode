@@ -14,7 +14,7 @@
 | name           | varchar |
 | phone_number   | varchar |
 +----------------+---------+
-id is the primary key for this table.
+id is the column of unique values for this table.
 Each row of this table contains the name of a person and their phone number.
 Phone number will be in the form &#39;xxx-yyyyyyy&#39; where xxx is the country code (3 characters) and yyyyyyy is the phone number (7 characters) where x and y are digits. Both can contain leading zeros.
 </pre>
@@ -30,7 +30,7 @@ Phone number will be in the form &#39;xxx-yyyyyyy&#39; where xxx is the country 
 | name           | varchar |
 | country_code   | varchar |
 +----------------+---------+
-country_code is the primary key for this table.
+country_code is the column of unique values for this table.
 Each row of this table contains the country name and its code. country_code will be in the form &#39;xxx&#39; where x is digits.
 </pre>
 
@@ -46,7 +46,7 @@ Each row of this table contains the country name and its code. country_code will
 | callee_id   | int  |
 | duration    | int  |
 +-------------+------+
-There is no primary key for this table, it may contain duplicates.
+This table may contain duplicate rows.
 Each row of this table contains the caller id, callee id and the duration of the call in minutes. caller_id != callee_id
 </pre>
 
@@ -54,11 +54,11 @@ Each row of this table contains the caller id, callee id and the duration of the
 
 <p>A telecommunications company wants to invest in new countries. The company intends to invest in the countries where the average call duration of the calls in this country is strictly greater than the global average call duration.</p>
 
-<p>Write an SQL query to find the countries where this company can invest.</p>
+<p>Write a solution to find the countries where this company can invest.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

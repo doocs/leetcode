@@ -22,7 +22,7 @@
 <p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入：</strong>usageLimits = [1,2,5]
+<code><strong>输入：</strong>usageLimits</code> = [1,2,5]
 <strong>输出：</strong>3
 <strong>解释：</strong>在这个示例中，我们可以使用 0 至多一次，使用 1 至多 2 次，使用 2 至多 5 次。
 一种既能满足所有条件，又能创建最多组的方式是： 
@@ -35,7 +35,7 @@
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>输入：</strong>usageLimits = [2,1,2]
+<code><strong>输入：</strong></code><code>usageLimits</code> = [2,1,2]
 <strong>输出：</strong>2
 <strong>解释：</strong>在这个示例中，我们可以使用 0 至多 2 次，使用 1 至多 1 次，使用 2 至多 2 次。
 一种既能满足所有条件，又能创建最多组的方式是： 
@@ -48,7 +48,7 @@
 <p><strong>示例 3：</strong></p>
 
 <pre>
-<strong>输入：</strong>usageLimits = [1,1]
+<code><strong>输入：</strong></code><code>usageLimits</code> = [1,1]
 <strong>输出：</strong>1
 <strong>解释：</strong>在这个示例中，我们可以使用 0 和 1 至多 1 次。 
 一种既能满足所有条件，又能创建最多组的方式是：

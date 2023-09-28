@@ -8,13 +8,14 @@
 
 <p>表：&nbsp;<code>Schools</code></p>
 
-<pre>+-------------+------+
+<pre>
++-------------+------+
 | Column Name | Type |
 +-------------+------+
 | school_id   | int  |
 | capacity    | int  |
 +-------------+------+
-school_id 是该表的主键。
+school_id 是该表具有唯一值的列。
 此表包含了一些学校的容纳能力。容纳能力指的是学校能够接纳学生的最大数量。
 </pre>
 
@@ -22,37 +23,38 @@ school_id 是该表的主键。
 
 <p>表：&nbsp;<code>Exam</code></p>
 
-<pre>+---------------+------+
+<pre>
++---------------+------+
 | Column Name   | Type |
 +---------------+------+
 | score         | int  |
 | student_count | int  |
 +---------------+------+
-score 是该表的主键。
+score 是该表具有唯一值的列。
 表中每一行表示有 student_count 名学生在考试中至少获得了 score 分。
-表中的数据在逻辑上是正确的，即记录了高score的行相比记录了低score的行拥有相同或更少的student_count。
-也就是说，对于表中的i行与j行，如果score<sub>i</sub> &gt; score<sub>j，那么</sub>student_count<sub>i</sub> &lt;= student_count<sub>j</sub>
+表中的数据在逻辑上是正确的，即记录了高 score 的行相比记录了低 score 的行拥有相同或更少的 student_count。也就是说，对于表中的 i 行与 j 行，如果 score<sub>i</sub> &gt; score<sub>j，那么 </sub>student_count<sub>i</sub> &lt;= student_count<sub>j</sub>
 </pre>
 
 <p>每年，学校会公布学生申请所需的<strong>最低分数要求</strong>。学校根据所有学生的考试成绩来决定其最低分数要求。</p>
 
 <ol>
-	<li>学校希望确保即使每一个满足分数要求的学生都申请该学校，学校也有足够的能力接纳每一个学生。</li>
-	<li>学校也希望<strong>尽可能多</strong>的学生能申请该学校。</li>
-	<li>学校<strong>必须</strong>使用在&nbsp;<code>Exam</code> 表中的 score 来作为最低分数要求。</li>
+	<li>学校希望确保即使 <strong>每</strong> 一个满足分数要求的学生都申请该学校，学校也有足够的能力接纳每一个学生。</li>
+	<li>学校也希望&nbsp;<strong>尽可能多&nbsp;</strong>的学生能申请该学校。</li>
+	<li>学校&nbsp;<strong>必须&nbsp;</strong>使用在&nbsp;<code>Exam</code> 表中的 score 来作为最低分数要求。</li>
 </ol>
 
-<p>编写一个SQL查询来查询每所学校的<strong>最低分数要求</strong>。如果同时有多个score值满足上述要求，则选择其中<strong>最小的</strong>一个。如果数据不足以决定<strong>最低分数要求</strong>，那么输出&nbsp;<code>-1</code>。</p>
+<p>编写一个解决方案，报告每所学校的&nbsp;<strong>最低分数要求</strong>。如果同时有多个 score 值满足上述要求，则选择其中&nbsp;<strong>最小的</strong>一个。如果数据不足以决定&nbsp;<strong>最低分数要求</strong>，那么输出&nbsp;<code>-1</code>。</p>
 
-<p>返回的结果表可以按<strong>任意顺序</strong>排序。</p>
+<p>返回的结果表可以按&nbsp;<strong>任意顺序&nbsp;</strong>排序。</p>
 
-<p>查询结果格式如下例所示：</p>
+<p>结果格式如下例所示：</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例：</strong></p>
+<p><strong>示例 1：</strong></p>
 
-<pre><strong>输入:</strong>
+<pre>
+<strong>输入:</strong>
 Schools 表:
 +-----------+----------+
 | school_id | capacity |

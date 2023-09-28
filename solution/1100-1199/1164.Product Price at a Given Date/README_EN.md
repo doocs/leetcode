@@ -14,16 +14,16 @@
 | new_price     | int     |
 | change_date   | date    |
 +---------------+---------+
-(product_id, change_date) is the primary key of this table.
+(product_id, change_date) is the primary key (combination of columns with unique values) of this table.
 Each row of this table indicates that the price of some product was changed to a new price at some date.</pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find the prices of all products on <code>2019-08-16</code>. Assume the price of all products before any change is <code>10</code>.</p>
+<p>Write a solution to find the prices of all products on <code>2019-08-16</code>. Assume the price of all products before any change is <code>10</code>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -82,8 +82,7 @@ FROM
                 WHERE change_date <= '2019-08-16'
                 GROUP BY product_id
             ) AS t2
-                ON t1.product_id = t2.product_id
-                AND t1.change_date = t2.change_date
+                ON t1.product_id = t2.product_id AND t1.change_date = t2.change_date
     ) AS p2
         ON p1.product_id = p2.product_id;
 ```
@@ -99,8 +98,7 @@ WITH
                 FROM Products
             ) AS p1
             LEFT JOIN Products AS p2
-                ON p1.product_id = p2.product_id
-                AND p2.change_date <= '2019-08-16'
+                ON p1.product_id = p2.product_id AND p2.change_date <= '2019-08-16'
     ),
     T AS (
         SELECT

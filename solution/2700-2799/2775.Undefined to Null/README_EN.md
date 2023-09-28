@@ -29,6 +29,7 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
+	<li><code>obj</code> is a valid JSON object or array</li>
 	<li><code>2 &lt;= JSON.stringify(obj).length &lt;= 10<sup>5</sup></code></li>
 </ul>
 

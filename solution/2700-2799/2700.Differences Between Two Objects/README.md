@@ -122,6 +122,7 @@ obj2 = { &nbsp;
 <p><strong>提示：</strong></p>
 
 <ul>
+	<li><code>obj1</code> 和 <code>obj2</code> 都是有效的 JSON 对象或数组</li>
 	<li><code>2 &lt;= JSON.stringify(obj1).length &lt;= 10<sup>4</sup></code></li>
 	<li><code>2 &lt;= JSON.stringify(obj2).length &lt;= 10<sup>4</sup></code></li>
 </ul>

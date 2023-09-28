@@ -57,6 +57,23 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：记忆化搜索**
+
+我们定义一个函数 $dfs(v)$，表示用 $x$ 凑成数字 $v$ 所需要的最少运算符数量。那么答案就是 $dfs(target)$。
+
+函数 $dfs(v)$ 的执行逻辑如下：
+
+如果 $x \geq v$，那么此时可以用 $v$ 个 $x / x$ 相加来得到 $v$，运算符数量为 $v \times 2 - 1$；也可以用 $x$ 减去 $(x - v)$ 个 $x / x$ 来得到 $v$，运算符数量为 $(x - v) \times 2$。取两者的最小值。
+
+否则，我们从 $k=2$ 开始枚举 $x^k$，找到第一个 $x^k \geq v$ 的 $k$：
+
+-   如果此时 $x^k - v \geq v$，那么只能先得到 $x^{k-1}$，然后再递归计算 $dfs(v - x^{k-1})$，此时运算符数量为 $k - 1 + dfs(v - x^{k-1})$；
+-   如果此时 $x^k - v < v$，那么可以按照上面的方式得到 $v$，此时运算符数量为 $k - 1 + dfs(v - x^{k-1})$；也可以先得到 $x^k$，再递归计算 $dfs(x^k - v)$，此时运算符数量为 $k + dfs(x^k - v)$。取两者的最小值。
+
+为了避免重复计算，我们使用记忆化搜索的方式实现 $dfs$ 函数。
+
+时间复杂度 $O(\log_{x}{target})$，空间复杂度 $O(\log_{x}{target})$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -64,7 +81,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def leastOpsExpressTarget(self, x: int, target: int) -> int:
+        @cache
+        def dfs(v: int) -> int:
+            if x >= v:
+                return min(v * 2 - 1, 2 * (x - v))
+            k = 2
+            while x**k < v:
+                k += 1
+            if x**k - v < v:
+                return min(k + dfs(x**k - v), k - 1 + dfs(v - x ** (k - 1)))
+            return k - 1 + dfs(v - x ** (k - 1))
 
+        return dfs(target)
 ```
 
 ### **Java**
@@ -72,7 +102,134 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int x;
+    private Map<Integer, Integer> f = new HashMap<>();
 
+    public int leastOpsExpressTarget(int x, int target) {
+        this.x = x;
+        return dfs(target);
+    }
+
+    private int dfs(int v) {
+        if (x >= v) {
+            return Math.min(v * 2 - 1, 2 * (x - v));
+        }
+        if (f.containsKey(v)) {
+            return f.get(v);
+        }
+        int k = 2;
+        long y = (long) x * x;
+        while (y < v) {
+            y *= x;
+            ++k;
+        }
+        int ans = k - 1 + dfs(v - (int) (y / x));
+        if (y - v < v) {
+            ans = Math.min(ans, k + dfs((int) y - v));
+        }
+        f.put(v, ans);
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int leastOpsExpressTarget(int x, int target) {
+        unordered_map<int, int> f;
+        function<int(int)> dfs = [&](int v) -> int {
+            if (x >= v) {
+                return min(v * 2 - 1, 2 * (x - v));
+            }
+            if (f.count(v)) {
+                return f[v];
+            }
+            int k = 2;
+            long long y = x * x;
+            while (y < v) {
+                y *= x;
+                ++k;
+            }
+            int ans = k - 1 + dfs(v - y / x);
+            if (y - v < v) {
+                ans = min(ans, k + dfs(y - v));
+            }
+            f[v] = ans;
+            return ans;
+        };
+        return dfs(target);
+    }
+};
+```
+
+### **Go**
+
+```go
+func leastOpsExpressTarget(x int, target int) int {
+	f := map[int]int{}
+	var dfs func(int) int
+	dfs = func(v int) int {
+		if x > v {
+			return min(v*2-1, 2*(x-v))
+		}
+		if val, ok := f[v]; ok {
+			return val
+		}
+		k := 2
+		y := x * x
+		for y < v {
+			y *= x
+			k++
+		}
+		ans := k - 1 + dfs(v-y/x)
+		if y-v < v {
+			ans = min(ans, k+dfs(y-v))
+		}
+		f[v] = ans
+		return ans
+	}
+	return dfs(target)
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function leastOpsExpressTarget(x: number, target: number): number {
+    const f: Map<number, number> = new Map();
+    const dfs = (v: number): number => {
+        if (x > v) {
+            return Math.min(v * 2 - 1, 2 * (x - v));
+        }
+        if (f.has(v)) {
+            return f.get(v)!;
+        }
+        let k = 2;
+        let y = x * x;
+        while (y < v) {
+            y *= x;
+            ++k;
+        }
+        let ans = k - 1 + dfs(v - Math.floor(y / x));
+        if (y - v < v) {
+            ans = Math.min(ans, k + dfs(y - v));
+        }
+        f.set(v, ans);
+        return ans;
+    };
+    return dfs(target);
+}
 ```
 
 ### **...**

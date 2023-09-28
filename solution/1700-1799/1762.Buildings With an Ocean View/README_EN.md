@@ -52,13 +52,12 @@
 ```python
 class Solution:
     def findBuildings(self, heights: List[int]) -> List[int]:
-        mx = 0
         ans = []
+        mx = 0
         for i in range(len(heights) - 1, -1, -1):
-            v = heights[i]
-            if mx < v:
+            if heights[i] > mx:
                 ans.append(i)
-                mx = v
+                mx = heights[i]
         return ans[::-1]
 ```
 
@@ -67,16 +66,17 @@ class Solution:
 ```java
 class Solution {
     public int[] findBuildings(int[] heights) {
+        int n = heights.length;
+        List<Integer> ans = new ArrayList<>();
         int mx = 0;
-        LinkedList<Integer> ans = new LinkedList<>();
         for (int i = heights.length - 1; i >= 0; --i) {
-            int v = heights[i];
-            if (mx < v) {
-                ans.addFirst(i);
-                mx = v;
+            if (heights[i] > mx) {
+                ans.add(i);
+                mx = heights[i];
             }
         }
-        return ans.stream().mapToInt(i -> i).toArray();
+        Collections.reverse(ans);
+        return ans.stream().mapToInt(Integer::intValue).toArray();
     }
 }
 ```
@@ -87,13 +87,12 @@ class Solution {
 class Solution {
 public:
     vector<int> findBuildings(vector<int>& heights) {
-        int mx = 0;
         vector<int> ans;
+        int mx = 0;
         for (int i = heights.size() - 1; ~i; --i) {
-            int v = heights[i];
-            if (mx < v) {
+            if (heights[i] > mx) {
                 ans.push_back(i);
-                mx = v;
+                mx = heights[i];
             }
         }
         reverse(ans.begin(), ans.end());
@@ -105,12 +104,10 @@ public:
 ### **Go**
 
 ```go
-func findBuildings(heights []int) []int {
+func findBuildings(heights []int) (ans []int) {
 	mx := 0
-	ans := []int{}
 	for i := len(heights) - 1; i >= 0; i-- {
-		v := heights[i]
-		if mx < v {
+		if v := heights[i]; v > mx {
 			ans = append(ans, i)
 			mx = v
 		}
@@ -118,7 +115,23 @@ func findBuildings(heights []int) []int {
 	for i, j := 0, len(ans)-1; i < j; i, j = i+1, j-1 {
 		ans[i], ans[j] = ans[j], ans[i]
 	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function findBuildings(heights: number[]): number[] {
+    const ans: number[] = [];
+    let mx = 0;
+    for (let i = heights.length - 1; ~i; --i) {
+        if (heights[i] > mx) {
+            ans.push(i);
+            mx = heights[i];
+        }
+    }
+    return ans.reverse();
 }
 ```
 
@@ -130,13 +143,12 @@ func findBuildings(heights []int) []int {
  * @return {number[]}
  */
 var findBuildings = function (heights) {
+    const ans = [];
     let mx = 0;
-    let ans = [];
-    for (let i = heights.length - 1; i >= 0; --i) {
-        const v = heights[i];
-        if (mx < v) {
+    for (let i = heights.length - 1; ~i; --i) {
+        if (heights[i] > mx) {
             ans.push(i);
-            mx = v;
+            mx = heights[i];
         }
     }
     return ans.reverse();

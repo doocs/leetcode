@@ -5,24 +5,22 @@ public:
             return n - 1;
         }
         const int mod = 1e9 + 7;
+        auto qpow = [&](long long a, long long n) {
+            long long ans = 1;
+            for (; n; n >>= 1) {
+                if (n & 1) {
+                    ans = ans * a % mod;
+                }
+                a = a * a % mod;
+            }
+            return (int) ans;
+        };
         if (n % 3 == 0) {
-            return qmi(3, n / 3, mod);
+            return qpow(3, n / 3);
         }
         if (n % 3 == 1) {
-            return qmi(3, n / 3 - 1, mod) * 4 % mod;
+            return qpow(3, n / 3 - 1) * 4L % mod;
         }
-        return qmi(3, n / 3, mod) * 2 % mod;
-    }
-
-    long qmi(long a, long k, long p) {
-        long res = 1;
-        while (k != 0) {
-            if ((k & 1) == 1) {
-                res = res * a % p;
-            }
-            k >>= 1;
-            a = a * a % p;
-        }
-        return res;
+        return qpow(3, n / 3) * 2 % mod;
     }
 };

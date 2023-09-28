@@ -17,7 +17,7 @@
 <p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0261.Graph%20Valid%20Tree/images/tree1-graph.jpg" /></p>
 
 <pre>
-<strong>输入:</strong> n = 5, edges = [[0,1],[0,2],[0,3],[1,4]]
+<strong>输入:</strong> <code>n = 5</code>, edges<code> = [[0,1],[0,2],[0,3],[1,4]]</code>
 <strong>输出:</strong> true</pre>
 
 <p><strong>示例 2:</strong></p>
@@ -25,7 +25,7 @@
 <p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0261.Graph%20Valid%20Tree/images/tree2-graph.jpg" /></p>
 
 <pre>
-<strong>输入:</strong> n = 5, edges = [[0,1],[1,2],[2,3],[1,3],[1,4]]
+<strong>输入:</strong> <code>n = 5, </code>edges<code> = [[0,1],[1,2],[2,3],[1,3],[1,4]]</code>
 <strong>输出:</strong> false</pre>
 
 <p>&nbsp;</p>

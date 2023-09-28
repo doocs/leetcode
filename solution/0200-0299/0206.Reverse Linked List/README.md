@@ -394,20 +394,14 @@ function reverseList(head: ListNode | null): ListNode | null {
 // }
 impl Solution {
     pub fn reverse_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-        match head {
-            None => None,
-            Some(mut head) => {
-                let mut cur = head.next.take();
-                let mut pre = Some(head);
-                while let Some(mut node) = cur {
-                    let next = node.next.take();
-                    node.next = pre;
-                    pre = Some(node);
-                    cur = next;
-                }
-                pre
-            }
+        let mut head = head;
+        let mut pre = None;
+        while let Some(mut node) = head {
+            head = node.next.take();
+            node.next = pre.take();
+            pre = Some(node);
         }
+        pre
     }
 }
 ```

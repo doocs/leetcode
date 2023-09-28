@@ -320,12 +320,7 @@ func abs(x int) int {
 ### **TypeScript**
 
 ```ts
-function countRoutes(
-    locations: number[],
-    start: number,
-    finish: number,
-    fuel: number,
-): number {
+function countRoutes(locations: number[], start: number, finish: number, fuel: number): number {
     const n = locations.length;
     const f = Array.from({ length: n }, () => Array(fuel + 1).fill(-1));
     const mod = 1e9 + 7;
@@ -350,12 +345,7 @@ function countRoutes(
 ```
 
 ```ts
-function countRoutes(
-    locations: number[],
-    start: number,
-    finish: number,
-    fuel: number,
-): number {
+function countRoutes(locations: number[], start: number, finish: number, fuel: number): number {
     const n = locations.length;
     const f = Array.from({ length: n }, () => Array(fuel + 1).fill(0));
     for (let k = 0; k <= fuel; ++k) {
@@ -366,10 +356,7 @@ function countRoutes(
         for (let i = 0; i < n; ++i) {
             for (let j = 0; j < n; ++j) {
                 if (j !== i && Math.abs(locations[i] - locations[j]) <= k) {
-                    f[i][k] =
-                        (f[i][k] +
-                            f[j][k - Math.abs(locations[i] - locations[j])]) %
-                        mod;
+                    f[i][k] = (f[i][k] + f[j][k - Math.abs(locations[i] - locations[j])]) % mod;
                 }
             }
         }

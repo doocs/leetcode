@@ -57,13 +57,126 @@ It&#39;s impossible to make all three washing machines have the same number of d
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findMinMoves(self, machines: List[int]) -> int:
+        n = len(machines)
+        k, mod = divmod(sum(machines), n)
+        if mod:
+            return -1
+        ans = s = 0
+        for x in machines:
+            x -= k
+            s += x
+            ans = max(ans, abs(s), x)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int findMinMoves(int[] machines) {
+        int n = machines.length;
+        int s = 0;
+        for (int x : machines) {
+            s += x;
+        }
+        if (s % n != 0) {
+            return -1;
+        }
+        int k = s / n;
+        s = 0;
+        int ans = 0;
+        for (int x : machines) {
+            x -= k;
+            s += x;
+            ans = Math.max(ans, Math.max(Math.abs(s), x));
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findMinMoves(vector<int>& machines) {
+        int n = machines.size();
+        int s = accumulate(machines.begin(), machines.end(), 0);
+        if (s % n) {
+            return -1;
+        }
+        int k = s / n;
+        s = 0;
+        int ans = 0;
+        for (int x : machines) {
+            x -= k;
+            s += x;
+            ans = max({ans, abs(s), x});
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findMinMoves(machines []int) (ans int) {
+	n := len(machines)
+	s := 0
+	for _, x := range machines {
+		s += x
+	}
+	if s%n != 0 {
+		return -1
+	}
+	k := s / n
+	s = 0
+	for _, x := range machines {
+		x -= k
+		s += x
+		ans = max(ans, max(abs(s), x))
+	}
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+### **TypeScript**
+
+```ts
+function findMinMoves(machines: number[]): number {
+    const n = machines.length;
+    let s = machines.reduce((a, b) => a + b);
+    if (s % n !== 0) {
+        return -1;
+    }
+    const k = Math.floor(s / n);
+    s = 0;
+    let ans = 0;
+    for (let x of machines) {
+        x -= k;
+        s += x;
+        ans = Math.max(ans, Math.abs(s), x);
+    }
+    return ans;
+}
 ```
 
 ### **...**

@@ -103,10 +103,7 @@ func numberOfEmployeesWhoMetTarget(hours []int, target int) (ans int) {
 ### **TypeScript**
 
 ```ts
-function numberOfEmployeesWhoMetTarget(
-    hours: number[],
-    target: number,
-): number {
+function numberOfEmployeesWhoMetTarget(hours: number[], target: number): number {
     let ans = 0;
     for (const x of hours) {
         if (x >= target) {
@@ -114,6 +111,22 @@ function numberOfEmployeesWhoMetTarget(
         }
     }
     return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn number_of_employees_who_met_target(hours: Vec<i32>, target: i32) -> i32 {
+        let mut ans = 0;
+        for &v in hours.iter() {
+            if v >= target {
+                ans += 1;
+            }
+        }
+        ans
+    }
 }
 ```
 

@@ -118,6 +118,7 @@ obj2 = { &nbsp;
 <p><strong>Constraints:</strong></p>
 
 <ul>
+	<li><code>obj1</code> and <code>obj2</code> are valid JSON objects or arrays</li>
 	<li><code>2 &lt;= JSON.stringify(obj1).length &lt;= 10<sup>4</sup></code></li>
 	<li><code>2 &lt;= JSON.stringify(obj2).length &lt;= 10<sup>4</sup></code></li>
 </ul>

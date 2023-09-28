@@ -25,18 +25,9 @@ function maxTrailingZeros(grid: number[][]): number {
     let ans = 0;
     for (let i = 1; i <= m; ++i) {
         for (let j = 1; j <= n; ++j) {
-            const a = Math.min(
-                r2[i][j] + c2[i - 1][j],
-                r5[i][j] + c5[i - 1][j],
-            );
-            const b = Math.min(
-                r2[i][j] + c2[m][j] - c2[i][j],
-                r5[i][j] + c5[m][j] - c5[i][j],
-            );
-            const c = Math.min(
-                r2[i][n] - r2[i][j] + c2[i][j],
-                r5[i][n] - r5[i][j] + c5[i][j],
-            );
+            const a = Math.min(r2[i][j] + c2[i - 1][j], r5[i][j] + c5[i - 1][j]);
+            const b = Math.min(r2[i][j] + c2[m][j] - c2[i][j], r5[i][j] + c5[m][j] - c5[i][j]);
+            const c = Math.min(r2[i][n] - r2[i][j] + c2[i][j], r5[i][n] - r5[i][j] + c5[i][j]);
             const d = Math.min(
                 r2[i][n] - r2[i][j - 1] + c2[m][j] - c2[i][j],
                 r5[i][n] - r5[i][j - 1] + c5[m][j] - c5[i][j],

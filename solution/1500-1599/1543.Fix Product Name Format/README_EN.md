@@ -14,7 +14,7 @@
 | product_name | varchar |
 | sale_date    | date    |
 +--------------+---------+
-sale_id is the primary key for this table.
+sale_id is the column with unique values for this table.
 Each row of this table contains the product name and the date it was sold.
 </pre>
 
@@ -22,7 +22,7 @@ Each row of this table contains the product name and the date it was sold.
 
 <p>Since table Sales was filled manually in the year <code>2000</code>, <code>product_name</code> may contain leading and/or trailing white spaces, also they are case-insensitive.</p>
 
-<p>Write an SQL query to report</p>
+<p>Write a solution to report</p>
 
 <ul>
 	<li><code>product_name</code> in lowercase without leading or trailing white spaces.</li>
@@ -32,7 +32,7 @@ Each row of this table contains the product name and the date it was sold.
 
 <p>Return the result table ordered by <code>product_name</code> in <strong>ascending order</strong>. In case of a tie, order it by <code>sale_date</code> in <strong>ascending order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

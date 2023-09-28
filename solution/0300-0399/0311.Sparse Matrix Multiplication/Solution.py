@@ -1,14 +1,19 @@
 class Solution:
     def multiply(self, mat1: List[List[int]], mat2: List[List[int]]) -> List[List[int]]:
-        r1, c1, c2 = len(mat1), len(mat1[0]), len(mat2[0])
-        res = [[0] * c2 for _ in range(r1)]
-        mp = defaultdict(list)
-        for i in range(r1):
-            for j in range(c1):
-                if mat1[i][j] != 0:
-                    mp[i].append(j)
-        for i in range(r1):
-            for j in range(c2):
-                for k in mp[i]:
-                    res[i][j] += mat1[i][k] * mat2[k][j]
-        return res
+        def f(mat: List[List[int]]) -> List[List[int]]:
+            g = [[] for _ in range(len(mat))]
+            for i, row in enumerate(mat):
+                for j, x in enumerate(row):
+                    if x:
+                        g[i].append((j, x))
+            return g
+
+        g1 = f(mat1)
+        g2 = f(mat2)
+        m, n = len(mat1), len(mat2[0])
+        ans = [[0] * n for _ in range(m)]
+        for i in range(m):
+            for k, x in g1[i]:
+                for j, y in g2[k]:
+                    ans[i][j] += x * y
+        return ans

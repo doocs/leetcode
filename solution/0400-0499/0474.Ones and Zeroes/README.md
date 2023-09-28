@@ -48,7 +48,22 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-题目可以转换为 `0-1` 背包问题，在 k 个字符串中选出一些字符串（每个字符串只能使用一次），并且满足字符串最多包含 m 个 0 和 n 个 1，求满足此条件的字符串的最大长度（字符串个数）。
+**方法一：动态规划**
+
+我们定义 $f[i][j][k]$ 表示在前 $i$ 个字符串中，使用 $j$ 个 0 和 $k$ 个 1 的情况下最多可以得到的字符串数量。初始时 $f[i][j][k]=0$，答案为 $f[sz][m][n]$，其中 $sz$ 是数组 $strs$ 的长度。
+
+对于 $f[i][j][k]$，我们有两种决策：
+
+-   不选第 $i$ 个字符串，此时 $f[i][j][k]=f[i-1][j][k]$；
+-   选第 $i$ 个字符串，此时 $f[i][j][k]=f[i-1][j-a][k-b]+1$，其中 $a$ 和 $b$ 分别是第 $i$ 个字符串中 $0$ 和 $1$ 的数量。
+
+我们取两种决策中的最大值，即可得到 $f[i][j][k]$ 的值。
+
+最终的答案即为 $f[sz][m][n]$。
+
+时间复杂度 $O(sz \times m \times n)$，空间复杂度 $O(sz \times m \times n)$。其中 $sz$ 是数组 $strs$ 的长度；而 $m$ 和 $n$ 分别是字符串中 $0$ 和 $1$ 的数量上限。
+
+我们注意到 $f[i][j][k]$ 的计算只和 $f[i-1][j][k]$ 以及 $f[i-1][j-a][k-b]$ 有关，因此我们可以去掉第一维，将空间复杂度优化到 $O(m \times n)$。
 
 <!-- tabs:start -->
 
@@ -59,39 +74,28 @@
 ```python
 class Solution:
     def findMaxForm(self, strs: List[str], m: int, n: int) -> int:
-        l = len(strs)
-        dp = [[[0] * (n + 1) for i in range(m + 1)] for j in range(l)]
-        t = [(s.count('0'), s.count('1')) for s in strs]
-        n0, n1 = t[0]
-        for j in range(m + 1):
-            for k in range(n + 1):
-                if n0 <= j and n1 <= k:
-                    dp[0][j][k] = 1
-
-        for i in range(1, l):
-            n0, n1 = t[i]
+        sz = len(strs)
+        f = [[[0] * (n + 1) for _ in range(m + 1)] for _ in range(sz + 1)]
+        for i, s in enumerate(strs, 1):
+            a, b = s.count("0"), s.count("1")
             for j in range(m + 1):
                 for k in range(n + 1):
-                    dp[i][j][k] = dp[i - 1][j][k]
-                    if n0 <= j and n1 <= k:
-                        dp[i][j][k] = max(dp[i][j][k], dp[i - 1][j - n0][k - n1] + 1)
-
-        return dp[-1][-1][-1]
+                    f[i][j][k] = f[i - 1][j][k]
+                    if j >= a and k >= b:
+                        f[i][j][k] = max(f[i][j][k], f[i - 1][j - a][k - b] + 1)
+        return f[sz][m][n]
 ```
-
-空间优化：
 
 ```python
 class Solution:
     def findMaxForm(self, strs: List[str], m: int, n: int) -> int:
-        dp = [[0] * (n + 1) for _ in range(m + 1)]
-        t = [(s.count('0'), s.count('1')) for s in strs]
-        for k in range(len(strs)):
-            n0, n1 = t[k]
-            for i in range(m, n0 - 1, -1):
-                for j in range(n, n1 - 1, -1):
-                    dp[i][j] = max(dp[i][j], dp[i - n0][j - n1] + 1)
-        return dp[-1][-1]
+        f = [[0] * (n + 1) for _ in range(m + 1)]
+        for s in strs:
+            a, b = s.count("0"), s.count("1")
+            for i in range(m, a - 1, -1):
+                for j in range(n, b - 1, -1):
+                    f[i][j] = max(f[i][j], f[i - a][j - b] + 1)
+        return f[m][n]
 ```
 
 ### **Java**
@@ -100,24 +104,56 @@ class Solution:
 
 ```java
 class Solution {
-    public : int findMaxForm(vector<string>& strs, int m, int n) {
-        vector<vector<int>> dp(m + 1, vector<int>(n + 1));
-        for (auto s : strs) {
-            vector<int> t = count(s);
-            for (int i = m; i >= t[0]; --i)
-                for (int j = n; j >= t[1]; --j)
-                    dp[i][j] = max(dp[i][j], dp[i - t[0]][j - t[1]] + 1);
+    public int findMaxForm(String[] strs, int m, int n) {
+        int sz = strs.length;
+        int[][][] f = new int[sz + 1][m + 1][n + 1];
+        for (int i = 1; i <= sz; ++i) {
+            int[] cnt = count(strs[i - 1]);
+            for (int j = 0; j <= m; ++j) {
+                for (int k = 0; k <= n; ++k) {
+                    f[i][j][k] = f[i - 1][j][k];
+                    if (j >= cnt[0] && k >= cnt[1]) {
+                        f[i][j][k] = Math.max(f[i][j][k], f[i - 1][j - cnt[0]][k - cnt[1]] + 1);
+                    }
+                }
+            }
         }
-        return dp[m][n];
+        return f[sz][m][n];
     }
 
-    vector<int> count(string s) {
-        int n0 = 0;
-        for (char c : s)
-            if (c == '0') ++n0;
-        return {n0, (int) s.size() - n0};
+    private int[] count(String s) {
+        int[] cnt = new int[2];
+        for (int i = 0; i < s.length(); ++i) {
+            ++cnt[s.charAt(i) - '0'];
+        }
+        return cnt;
     }
-};
+}
+```
+
+```java
+class Solution {
+    public int findMaxForm(String[] strs, int m, int n) {
+        int[][] f = new int[m + 1][n + 1];
+        for (String s : strs) {
+            int[] cnt = count(s);
+            for (int i = m; i >= cnt[0]; --i) {
+                for (int j = n; j >= cnt[1]; --j) {
+                    f[i][j] = Math.max(f[i][j], f[i - cnt[0]][j - cnt[1]] + 1);
+                }
+            }
+        }
+        return f[m][n];
+    }
+
+    private int[] count(String s) {
+        int[] cnt = new int[2];
+        for (int i = 0; i < s.length(); ++i) {
+            ++cnt[s.charAt(i) - '0'];
+        }
+        return cnt;
+    }
+}
 ```
 
 ### **C++**
@@ -126,21 +162,50 @@ class Solution {
 class Solution {
 public:
     int findMaxForm(vector<string>& strs, int m, int n) {
-        vector<vector<int>> dp(m + 1, vector<int>(n + 1));
-        for (int k = 0; k < strs.size(); ++k) {
-            vector<int> t = count(strs[k]);
-            for (int i = m; i >= t[0]; --i)
-                for (int j = n; j >= t[1]; --j)
-                    dp[i][j] = max(dp[i][j], dp[i - t[0]][j - t[1]] + 1);
+        int sz = strs.size();
+        int f[sz + 1][m + 1][n + 1];
+        memset(f, 0, sizeof(f));
+        for (int i = 1; i <= sz; ++i) {
+            auto [a, b] = count(strs[i - 1]);
+            for (int j = 0; j <= m; ++j) {
+                for (int k = 0; k <= n; ++k) {
+                    f[i][j][k] = f[i - 1][j][k];
+                    if (j >= a && k >= b) {
+                        f[i][j][k] = max(f[i][j][k], f[i - 1][j - a][k - b] + 1);
+                    }
+                }
+            }
         }
-        return dp[m][n];
+        return f[sz][m][n];
     }
 
-    vector<int> count(string s) {
-        int n0 = 0;
-        for (char c : s)
-            if (c == '0') ++n0;
-        return {n0, (int) s.size() - n0};
+    pair<int, int> count(string& s) {
+        int a = count_if(s.begin(), s.end(), [](char c) { return c == '0'; });
+        return {a, s.size() - a};
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int findMaxForm(vector<string>& strs, int m, int n) {
+        int f[m + 1][n + 1];
+        memset(f, 0, sizeof(f));
+        for (auto& s : strs) {
+            auto [a, b] = count(s);
+            for (int i = m; i >= a; --i) {
+                for (int j = n; j >= b; --j) {
+                    f[i][j] = max(f[i][j], f[i - a][j - b] + 1);
+                }
+            }
+        }
+        return f[m][n];
+    }
+
+    pair<int, int> count(string& s) {
+        int a = count_if(s.begin(), s.end(), [](char c) { return c == '0'; });
+        return {a, s.size() - a};
     }
 };
 ```
@@ -149,29 +214,31 @@ public:
 
 ```go
 func findMaxForm(strs []string, m int, n int) int {
-	dp := make([][]int, m+1)
-	for i := 0; i < m+1; i++ {
-		dp[i] = make([]int, n+1)
+	sz := len(strs)
+	f := make([][][]int, sz+1)
+	for i := range f {
+		f[i] = make([][]int, m+1)
+		for j := range f[i] {
+			f[i][j] = make([]int, n+1)
+		}
 	}
-	for _, s := range strs {
-		t := count(s)
-		for i := m; i >= t[0]; i-- {
-			for j := n; j >= t[1]; j-- {
-				dp[i][j] = max(dp[i][j], dp[i-t[0]][j-t[1]]+1)
+	for i := 1; i <= sz; i++ {
+		a, b := count(strs[i-1])
+		for j := 0; j <= m; j++ {
+			for k := 0; k <= n; k++ {
+				f[i][j][k] = f[i-1][j][k]
+				if j >= a && k >= b {
+					f[i][j][k] = max(f[i][j][k], f[i-1][j-a][k-b]+1)
+				}
 			}
 		}
 	}
-	return dp[m][n]
+	return f[sz][m][n]
 }
 
-func count(s string) []int {
-	n0 := 0
-	for i := 0; i < len(s); i++ {
-		if s[i] == '0' {
-			n0++
-		}
-	}
-	return []int{n0, len(s) - n0}
+func count(s string) (int, int) {
+	a := strings.Count(s, "0")
+	return a, len(s) - a
 }
 
 func max(a, b int) int {
@@ -179,6 +246,88 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+```go
+func findMaxForm(strs []string, m int, n int) int {
+	f := make([][]int, m+1)
+	for i := range f {
+		f[i] = make([]int, n+1)
+	}
+	for _, s := range strs {
+		a, b := count(s)
+		for j := m; j >= a; j-- {
+			for k := n; k >= b; k-- {
+				f[j][k] = max(f[j][k], f[j-a][k-b]+1)
+			}
+		}
+	}
+	return f[m][n]
+}
+
+func count(s string) (int, int) {
+	a := strings.Count(s, "0")
+	return a, len(s) - a
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function findMaxForm(strs: string[], m: number, n: number): number {
+    const sz = strs.length;
+    const f = Array.from({ length: sz + 1 }, () =>
+        Array.from({ length: m + 1 }, () => Array.from({ length: n + 1 }, () => 0)),
+    );
+    const count = (s: string): [number, number] => {
+        let a = 0;
+        for (const c of s) {
+            a += c === '0' ? 1 : 0;
+        }
+        return [a, s.length - a];
+    };
+    for (let i = 1; i <= sz; ++i) {
+        const [a, b] = count(strs[i - 1]);
+        for (let j = 0; j <= m; ++j) {
+            for (let k = 0; k <= n; ++k) {
+                f[i][j][k] = f[i - 1][j][k];
+                if (j >= a && k >= b) {
+                    f[i][j][k] = Math.max(f[i][j][k], f[i - 1][j - a][k - b] + 1);
+                }
+            }
+        }
+    }
+    return f[sz][m][n];
+}
+```
+
+```ts
+function findMaxForm(strs: string[], m: number, n: number): number {
+    const f = Array.from({ length: m + 1 }, () => Array.from({ length: n + 1 }, () => 0));
+    const count = (s: string): [number, number] => {
+        let a = 0;
+        for (const c of s) {
+            a += c === '0' ? 1 : 0;
+        }
+        return [a, s.length - a];
+    };
+    for (const s of strs) {
+        const [a, b] = count(s);
+        for (let i = m; i >= a; --i) {
+            for (let j = n; j >= b; --j) {
+                f[i][j] = Math.max(f[i][j], f[i - a][j - b] + 1);
+            }
+        }
+    }
+    return f[m][n];
 }
 ```
 

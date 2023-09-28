@@ -231,10 +231,7 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
  * }
  */
 
-function getIntersectionNode(
-    headA: ListNode | null,
-    headB: ListNode | null,
-): ListNode | null {
+function getIntersectionNode(headA: ListNode | null, headB: ListNode | null): ListNode | null {
     let p1: ListNode | null = headA;
     let p2: ListNode | null = headB;
     while (p1 != p2) {

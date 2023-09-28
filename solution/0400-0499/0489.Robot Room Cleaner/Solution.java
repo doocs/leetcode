@@ -17,34 +17,30 @@
  */
 
 class Solution {
-    private Set<String> vis;
-    private int[][] dirs = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+    private int[] dirs = {-1, 0, 1, 0, -1};
+    private Set<List<Integer>> vis = new HashSet<>();
+    private Robot robot;
 
     public void cleanRoom(Robot robot) {
-        vis = new HashSet<>();
-        dfs(0, 0, 0, robot);
+        this.robot = robot;
+        dfs(0, 0, 0);
     }
 
-    private void dfs(int i, int j, int d, Robot robot) {
-        vis.add(i + "," + j);
+    private void dfs(int i, int j, int d) {
         robot.clean();
+        vis.add(List.of(i, j));
         for (int k = 0; k < 4; ++k) {
             int nd = (d + k) % 4;
-            int x = i + dirs[nd][0];
-            int y = j + dirs[nd][1];
-            if (!vis.contains(x + "," + y) && robot.move()) {
-                dfs(x, y, nd, robot);
-                back(robot);
+            int x = i + dirs[nd], y = j + dirs[nd + 1];
+            if (!vis.contains(List.of(x, y)) && robot.move()) {
+                dfs(x, y, nd);
+                robot.turnRight();
+                robot.turnRight();
+                robot.move();
+                robot.turnRight();
+                robot.turnRight();
             }
             robot.turnRight();
         }
-    }
-
-    private void back(Robot robot) {
-        robot.turnRight();
-        robot.turnRight();
-        robot.move();
-        robot.turnRight();
-        robot.turnRight();
     }
 }

@@ -4,9 +4,9 @@ BEGIN
   RETURN (
       # Write your MySQL query statement below.
       SELECT (
-          SELECT DISTINCT Salary
+          SELECT DISTINCT salary
           FROM Employee
-          ORDER BY Salary DESC
+          ORDER BY salary DESC
           LIMIT 1 OFFSET N
       )
   );

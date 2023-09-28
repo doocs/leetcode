@@ -5,11 +5,11 @@ class Solution {
      * @return Integer
      */
     function numWaterBottles($numBottles, $numExchange) {
-        $sum = $numBottles;
+        $ans = $numBottles;
         while ($numBottles >= $numExchange) {
             $numBottles = $numBottles - $numExchange + 1;
-            $sum++;
+            $ans++;
         }
-        return $sum;
+        return $ans;
     }
 }

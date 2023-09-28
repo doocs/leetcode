@@ -15,8 +15,26 @@
 <strong>Input:</strong> fn = (x) =&gt; x * 5, args = [2], t = 20, cancelT = 50
 <strong>Output:</strong> [{&quot;time&quot;: 20, &quot;returned&quot;: 10}]
 <strong>Explanation:</strong> 
-const cancel = cancellable((x) =&gt; x * 5, [2], 20); // fn(2) called at t=20ms
-setTimeout(cancel, 50);
+const result = []
+
+const fn = (x) =&gt; x * 5
+
+const start = performance.now()&nbsp;
+
+const log = (...argsArr) =&gt; {
+    const diff = Math.floor(performance.now() - start);
+    result.push({&quot;time&quot;: diff, &quot;returned&quot;: fn(...argsArr)})
+}
+ &nbsp; &nbsp;&nbsp;
+const cancel = cancellable(log, [2], 20);
+
+const maxT = Math.max(t, 50)
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+setTimeout(cancel, cancelT)
+
+setTimeout(() =&gt; {
+ &nbsp; &nbsp; console.log(result) // [{&quot;time&quot;:20,&quot;returned&quot;:10}]
+}, 65)
 
 The cancellation was scheduled to occur after a delay of cancelT (50ms), which happened after the execution of fn(2) at 20ms.
 </pre>
@@ -26,11 +44,7 @@ The cancellation was scheduled to occur after a delay of cancelT (50ms), which h
 <pre>
 <strong>Input:</strong> fn = (x) =&gt; x**2, args = [2], t = 100, cancelT = 50 
 <strong>Output:</strong> []
-<strong>Explanation:</strong> 
-const cancel = cancellable((x) =&gt; x**2, [2], 100); // fn(2) not called
-setTimeout(cancel, 50);
-
-The cancellation was scheduled to occur after a delay of cancelT (50ms), which happened before the execution of fn(2) at 100ms, resulting in fn(2) never being called.
+<strong>Explanation:</strong> The cancellation was scheduled to occur after a delay of cancelT (50ms), which happened before the execution of fn(2) at 100ms, resulting in fn(2) never being called.
 </pre>
 
 <p><strong class="example">Example 3:</strong></p>
@@ -38,19 +52,15 @@ The cancellation was scheduled to occur after a delay of cancelT (50ms), which h
 <pre>
 <strong>Input:</strong> fn = (x1, x2) =&gt; x1 * x2, args = [2,4], t = 30, cancelT = 100
 <strong>Output:</strong> [{&quot;time&quot;: 30, &quot;returned&quot;: 8}]
-<strong>Explanation:</strong>
-const cancel = cancellable((x1, x2) =&gt; x1 * x2, [2,4], 30); // fn(2,4) called at t=30ms
-setTimeout(cancel, 100);
-
-The cancellation was scheduled to occur after a delay of cancelT (100ms), which happened after the execution of fn(2,4) at 30ms.
+<strong>Explanation: </strong>The cancellation was scheduled to occur after a delay of cancelT (100ms), which happened after the execution of fn(2,4) at 30ms.
 </pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>fn is a function</code></li>
-	<li><code>args is a valid JSON array</code></li>
+	<li><code>fn</code> is a function</li>
+	<li><code>args</code> is a valid JSON array</li>
 	<li><code>1 &lt;= args.length &lt;= 10</code></li>
 	<li><code><font face="monospace">20 &lt;= t &lt;= 1000</font></code></li>
 	<li><code><font face="monospace">10 &lt;= cancelT &lt;= 1000</font></code></li>
@@ -64,16 +74,10 @@ The cancellation was scheduled to occur after a delay of cancelT (100ms), which 
 
 ```ts
 function cancellable(fn: Function, args: any[], t: number): Function {
-    let cancelled = false;
-    const cancel = () => {
-        cancelled = true;
+    const timer = setTimeout(() => fn(...args), t);
+    return () => {
+        clearTimeout(timer);
     };
-    setTimeout(() => {
-        if (!cancelled) {
-            fn(...args);
-        }
-    }, t);
-    return cancel;
 }
 
 /**
@@ -113,14 +117,10 @@ function cancellable(fn: Function, args: any[], t: number): Function {
  * @return {Function}
  */
 var cancellable = function (fn, args, t) {
-    let cancelled = false;
-    const calcel = () => (cancelled = true);
-    setTimeout(() => {
-        if (!cancelled) {
-            fn(...args);
-        }
-    }, t);
-    return calcel;
+    const timer = setTimeout(() => fn(...args), t);
+    return () => {
+        clearTimeout(timer);
+    };
 };
 
 /**

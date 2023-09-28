@@ -33,6 +33,7 @@
 <p><strong>提示：</strong></p>
 
 <ul>
+	<li><code>obj</code> 是一个有效的 JSON 对象或数组</li>
 	<li><code>2 &lt;= JSON.stringify(obj).length &lt;= 10<sup>5</sup></code></li>
 </ul>
 

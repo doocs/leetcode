@@ -50,6 +50,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：二分查找 + 贪心**
+
+我们注意到，如果我们能吃到一块甜度为 $x$ 的巧克力，那么甜度小于等于 $x$ 的巧克力也都能吃到。这存在着单调性，因此，我们可以使用二分查找，找到最大的满足条件的 $x$。
+
+我们定义二分查找的左边界 $l=0$，右边界 $r=\sum_{i=0}^{n-1} sweetness[i]$。每一次，我们取 $l$ 和 $r$ 的中间值 $mid$，然后判断能否吃到一块甜度为 $mid$ 的巧克力。如果能吃到，那么我们就尝试吃掉甜度更大的巧克力，即令 $l=mid$；否则，我们就尝试吃掉甜度更小的巧克力，即令 $r=mid-1$。在二分查找结束后，我们返回 $l$ 即可。
+
+问题的关键在于，我们如何判断能否吃到一块甜度为 $x$ 的巧克力。我们可以使用贪心的思想，从左到右遍历数组，每次累加当前的甜度，当累加的甜度大于等于 $x$ 时，那么巧克力数 $cnt$ 加 $1$，并将累加的甜度清零。最后判断 $cnt$ 是否大于 $k$ 即可。
+
+时间复杂度 $O(n \times \log \sum_{i=0}^{n-1} sweetness[i])$，空间复杂度 $O(1)$。其中 $n$ 是数组的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -57,7 +67,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def maximizeSweetness(self, sweetness: List[int], k: int) -> int:
+        def check(x: int) -> bool:
+            s = cnt = 0
+            for v in sweetness:
+                s += v
+                if s >= x:
+                    s = 0
+                    cnt += 1
+            return cnt > k
 
+        l, r = 0, sum(sweetness)
+        while l < r:
+            mid = (l + r + 1) >> 1
+            if check(mid):
+                l = mid
+            else:
+                r = mid - 1
+        return l
 ```
 
 ### **Java**
@@ -65,7 +93,127 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maximizeSweetness(int[] sweetness, int k) {
+        int l = 0, r = 0;
+        for (int v : sweetness) {
+            r += v;
+        }
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            if (check(sweetness, mid, k)) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return l;
+    }
 
+    private boolean check(int[] nums, int x, int k) {
+        int s = 0, cnt = 0;
+        for (int v : nums) {
+            s += v;
+            if (s >= x) {
+                s = 0;
+                ++cnt;
+            }
+        }
+        return cnt > k;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maximizeSweetness(vector<int>& sweetness, int k) {
+        int l = 0, r = accumulate(sweetness.begin(), sweetness.end(), 0);
+        auto check = [&](int x) {
+            int s = 0, cnt = 0;
+            for (int v : sweetness) {
+                s += v;
+                if (s >= x) {
+                    s = 0;
+                    ++cnt;
+                }
+            }
+            return cnt > k;
+        };
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            if (check(mid)) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return l;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximizeSweetness(sweetness []int, k int) int {
+	l, r := 0, 0
+	for _, v := range sweetness {
+		r += v
+	}
+	check := func(x int) bool {
+		s, cnt := 0, 0
+		for _, v := range sweetness {
+			s += v
+			if s >= x {
+				s = 0
+				cnt++
+			}
+		}
+		return cnt > k
+	}
+	for l < r {
+		mid := (l + r + 1) >> 1
+		if check(mid) {
+			l = mid
+		} else {
+			r = mid - 1
+		}
+	}
+	return l
+}
+```
+
+### **TypeScript**
+
+```ts
+function maximizeSweetness(sweetness: number[], k: number): number {
+    let l = 0;
+    let r = sweetness.reduce((a, b) => a + b);
+    const check = (x: number): boolean => {
+        let s = 0;
+        let cnt = 0;
+        for (const v of sweetness) {
+            s += v;
+            if (s >= x) {
+                s = 0;
+                ++cnt;
+            }
+        }
+        return cnt > k;
+    };
+    while (l < r) {
+        const mid = (l + r + 1) >> 1;
+        if (check(mid)) {
+            l = mid;
+        } else {
+            r = mid - 1;
+        }
+    }
+    return l;
+}
 ```
 
 ### **...**

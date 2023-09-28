@@ -266,8 +266,7 @@ class Heap<T = number> {
     constructor(data: T[] | Compare<T>, compare?: (lhs: T, rhs: T) => number);
     constructor(
         data: T[] | Compare<T> = [],
-        compare: Compare<T> = (lhs: T, rhs: T) =>
-            lhs < rhs ? -1 : lhs > rhs ? 1 : 0,
+        compare: Compare<T> = (lhs: T, rhs: T) => (lhs < rhs ? -1 : lhs > rhs ? 1 : 0),
     ) {
         if (typeof data === 'function') {
             compare = data;
@@ -333,10 +332,7 @@ function findMaxValueOfEquation(points: number[][], k: number): number {
         if (q.length > 0) {
             ans = Math.max(ans, x + y + q[0][1] - q[0][0]);
         }
-        while (
-            q.length > 0 &&
-            y - x > q[q.length - 1][1] - q[q.length - 1][0]
-        ) {
+        while (q.length > 0 && y - x > q[q.length - 1][1] - q[q.length - 1][0]) {
             q.pop();
         }
         q.push([x, y]);

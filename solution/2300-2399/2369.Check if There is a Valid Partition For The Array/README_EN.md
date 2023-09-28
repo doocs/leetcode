@@ -279,8 +279,7 @@ function validPartition(nums: number[]): boolean {
             !vis[i + 3] &&
             i + 3 <= n &&
             ((nums[i] === nums[i + 1] && nums[i + 1] === nums[i + 2]) ||
-                (nums[i] === nums[i + 1] - 1 &&
-                    nums[i + 1] === nums[i + 2] - 1))
+                (nums[i] === nums[i + 1] - 1 && nums[i + 1] === nums[i + 2] - 1))
         ) {
             queue.push(i + 3);
             vis[i + 3] = true;
@@ -302,11 +301,7 @@ function validPartition(nums: number[]): boolean {
         if (i > 2 && nums[i - 1] == nums[i - 2] && nums[i - 2] == nums[i - 3]) {
             dp[i] = dp[i] || dp[i - 3];
         }
-        if (
-            i > 2 &&
-            nums[i - 1] - nums[i - 2] == 1 &&
-            nums[i - 2] - nums[i - 3] == 1
-        ) {
+        if (i > 2 && nums[i - 1] - nums[i - 2] == 1 && nums[i - 2] - nums[i - 3] == 1) {
             dp[i] = dp[i] || dp[i - 3];
         }
     }

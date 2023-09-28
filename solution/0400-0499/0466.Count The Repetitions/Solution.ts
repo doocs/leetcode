@@ -1,9 +1,4 @@
-function getMaxRepetitions(
-    s1: string,
-    n1: number,
-    s2: string,
-    n2: number,
-): number {
+function getMaxRepetitions(s1: string, n1: number, s2: string, n2: number): number {
     const n = s2.length;
     const d: number[][] = new Array(n).fill(0).map(() => new Array(2).fill(0));
     for (let i = 0; i < n; ++i) {

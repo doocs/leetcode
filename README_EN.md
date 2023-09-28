@@ -3,8 +3,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="https://img.shields.io/badge/langs-Java%20%7C%20Python%20%7C%20C%2B%2B%20%7C%20Go%20%7C%20TypeScript%20%7C%20...-red?style=flat-square&color=42b883" alt="languages"></a>
   <a href="https://doocs.github.io/#/?id=how-to-join"><img src="https://img.shields.io/badge/organization-join%20us-42b883?style=flat-square" alt="open-source-organization"></a>
+  <a href="https://github.com/doocs/leetcode"><img src="https://img.shields.io/badge/langs-Python%20%7C%20Java%20%7C%20C++%20%7C%20Go%20%7C%20TypeScript%20%7C%20Rust%20%7C%20...-red?style=flat-square&color=42b883" alt="languages"></a>
   <a href="https://github.com/doocs/leetcode/blob/main/LICENSE"><img src="https://img.shields.io/github/license/doocs/leetcode?color=42b883&style=flat-square" alt="LICENSE"></a><br>
   <a href="https://opencollective.com/doocs-leetcode/backers/badge.svg" alt="backers on Open Collective"><img src="https://img.shields.io/opencollective/backers/doocs-leetcode?color=42b883&style=flat-square&logo=open%20collective&logoColor=ffffff" /></a>
   <a href="https://github.com/doocs/leetcode/stargazers"><img src="https://img.shields.io/github/stars/doocs/leetcode?color=42b883&logo=github&style=flat-square" alt="stars"></a>
@@ -31,6 +31,11 @@ The repository is maintained by the Doocs community, and please give us a [star]
 -   [Past Contests](/solution/CONTEST_README_EN.md)
 -   [LCOF: Coding Interviews, 2nd Edition](/lcof/README_EN.md)
 -   [LCCI: Cracking the Coding Interview, 6th Edition](/lcci/README_EN.md)
+
+## JavaScript & Database Practice
+
+-   [JavaScript Practice](/solution/JAVASCRIPT_README_EN.md)
+-   [Database Practice](/solution/DATABASE_README_EN.md)
 
 ## Topics
 

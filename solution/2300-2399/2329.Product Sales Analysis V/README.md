@@ -17,7 +17,7 @@
 | user_id     | int   |
 | quantity    | int   |
 +-------------+-------+
-sale_id 是这张表的主键。
+sale_id 包含唯一值。
 product_id 是 Product 表的外键。
 这个表中的每一行展示了产品的 ID 以及某个用户购买的数量。 
 </pre>
@@ -31,17 +31,17 @@ product_id 是 Product 表的外键。
 | product_id  | int  |
 | price       | int  |
 +-------------+------+
-product_id 是这张表的主键。
+product_id 包含唯一值。
 这张表中的每一行均表示了某个产品的价格。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>编写一条 SQL 查询获取每个用户的消费额。</p>
+<p>编写解决方案，获取每个用户的消费额。</p>
 
 <p>按用户消费额 <code>spending</code> <strong>递减</strong>的顺序返回结果。在消费额相等的情况下，以 <code>user_id</code> 递增的顺序将其排序。</p>
 
-<p>查询结果的格式如下面例子所示：</p>
+<p>结果的格式如下面例子所示：</p>
 
 <p>&nbsp;</p>
 

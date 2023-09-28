@@ -209,12 +209,7 @@ func min(a, b int) int {
 ### **TypeScript**
 
 ```ts
-function robot(
-    command: string,
-    obstacles: number[][],
-    x: number,
-    y: number,
-): boolean {
+function robot(command: string, obstacles: number[][], x: number, y: number): boolean {
     const f = (i: number, j: number): number => {
         return i * (10 ** 9 + 1) + j;
     };
