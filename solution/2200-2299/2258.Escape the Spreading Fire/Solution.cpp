@@ -1,70 +1,76 @@
 class Solution {
 public:
-    vector<int> dirs = {-1, 0, 1, 0, -1};
-
     int maximumMinutes(vector<vector<int>>& grid) {
         int m = grid.size(), n = grid[0].size();
-        int left = -1, right = m * n;
-        while (left < right) {
-            int mid = (left + right + 1) >> 1;
-            if (check(mid, grid))
-                left = mid;
-            else
-                right = mid - 1;
-        }
-        return left == m * n ? 1e9 : left;
-    }
-
-    bool check(int t, vector<vector<int>>& grid) {
-        int m = grid.size(), n = grid[0].size();
-        vector<vector<bool>> fire(m, vector<bool>(n));
-        queue<vector<int>> f;
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (grid[i][j] == 1) {
-                    fire[i][j] = true;
-                    f.push({i, j});
-                }
-            }
-        }
-        while (t-- && f.size()) f = spread(fire, f, grid);
-        queue<vector<int>> q;
-        vector<vector<bool>> vis(m, vector<bool>(n));
-        q.push({0, 0});
-        vis[0][0] = true;
-        while (!q.empty()) {
-            for (int i = q.size(); i > 0; --i) {
-                auto p = q.front();
+        bool vis[m][n];
+        bool fire[m][n];
+        int dirs[5] = {-1, 0, 1, 0, -1};
+        auto spread = [&](queue<pair<int, int>>& q) {
+            queue<pair<int, int>> nq;
+            while (q.size()) {
+                auto [i, j] = q.front();
                 q.pop();
-                if (fire[p[0]][p[1]]) continue;
                 for (int k = 0; k < 4; ++k) {
-                    int x = p[0] + dirs[k], y = p[1] + dirs[k + 1];
-                    if (x >= 0 && x < m && y >= 0 && y < n && !fire[x][y] && !vis[x][y] && grid[x][y] == 0) {
-                        if (x == m - 1 && y == n - 1) return true;
-                        vis[x][y] = true;
-                        q.push({x, y});
+                    int x = i + dirs[k], y = j + dirs[k + 1];
+                    if (x >= 0 && x < m && y >= 0 && y < n && !fire[x][y] && grid[x][y] == 0) {
+                        fire[x][y] = true;
+                        nq.emplace(x, y);
                     }
                 }
             }
-            f = spread(fire, f, grid);
-        }
-        return false;
-    }
-
-    queue<vector<int>> spread(vector<vector<bool>>& fire, queue<vector<int>>& f, vector<vector<int>>& grid) {
-        queue<vector<int>> nf;
-        int m = grid.size(), n = grid[0].size();
-        while (!f.empty()) {
-            auto p = f.front();
-            f.pop();
-            for (int k = 0; k < 4; ++k) {
-                int x = p[0] + dirs[k], y = p[1] + dirs[k + 1];
-                if (x >= 0 && x < m && y >= 0 && y < n && !fire[x][y] && grid[x][y] == 0) {
-                    fire[x][y] = true;
-                    nf.push({x, y});
+            return nq;
+        };
+        auto check = [&](int t) {
+            memset(vis, false, sizeof(vis));
+            memset(fire, false, sizeof(fire));
+            queue<pair<int, int>> q1;
+            for (int i = 0; i < m; ++i) {
+                for (int j = 0; j < n; ++j) {
+                    if (grid[i][j] == 1) {
+                        q1.emplace(i, j);
+                        fire[i][j] = true;
+                    }
                 }
             }
+            for (; t && q1.size(); --t) {
+                q1 = spread(q1);
+            }
+            if (fire[0][0]) {
+                return false;
+            }
+            queue<pair<int, int>> q2;
+            q2.emplace(0, 0);
+            vis[0][0] = true;
+            for (; q2.size(); q1 = spread(q1)) {
+                for (int d = q2.size(); d; --d) {
+                    auto [i, j] = q2.front();
+                    q2.pop();
+                    if (fire[i][j]) {
+                        continue;
+                    }
+                    for (int k = 0; k < 4; ++k) {
+                        int x = i + dirs[k], y = j + dirs[k + 1];
+                        if (x >= 0 && x < m && y >= 0 && y < n && !vis[x][y] && !fire[x][y] && grid[x][y] == 0) {
+                            if (x == m - 1 && y == n - 1) {
+                                return true;
+                            }
+                            vis[x][y] = true;
+                            q2.emplace(x, y);
+                        }
+                    }
+                }
+            }
+            return false;
+        };
+        int l = -1, r = m * n;
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            if (check(mid)) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
         }
-        return nf;
+        return l == m * n ? 1e9 : l;
     }
 };
