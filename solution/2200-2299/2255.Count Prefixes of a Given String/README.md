@@ -45,6 +45,14 @@ words 中是 s = "abc" 前缀的字符串为：
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：遍历计数**
+
+我们直接遍历数组 $words$，对于每个字符串 $w$，判断 $s$ 是否以 $w$ 为前缀，如果是则答案加一。
+
+遍历结束后，返回答案即可。
+
+时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别是数组 $words$ 的长度和字符串 $s$ 的长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -54,7 +62,7 @@ words 中是 s = "abc" 前缀的字符串为：
 ```python
 class Solution:
     def countPrefixes(self, words: List[str], s: str) -> int:
-        return sum(word == s[: len(word)] for word in words)
+        return sum(s.startswith(w) for w in words)
 ```
 
 ### **Java**
@@ -65,8 +73,8 @@ class Solution:
 class Solution {
     public int countPrefixes(String[] words, String s) {
         int ans = 0;
-        for (String word : words) {
-            if (word.equals(s.substring(0, Math.min(s.length(), word.length())))) {
+        for (String w : words) {
+            if (s.startsWith(w)) {
                 ++ans;
             }
         }
@@ -82,9 +90,9 @@ class Solution {
 public:
     int countPrefixes(vector<string>& words, string s) {
         int ans = 0;
-        for (auto& word : words)
-            if (s.substr(0, word.size()) == word)
-                ++ans;
+        for (auto& w : words) {
+            ans += s.starts_with(w);
+        }
         return ans;
     }
 };
@@ -93,21 +101,22 @@ public:
 ### **Go**
 
 ```go
-func countPrefixes(words []string, s string) int {
-	ans := 0
-	for _, word := range words {
-		if strings.HasPrefix(s, word) {
+func countPrefixes(words []string, s string) (ans int) {
+	for _, w := range words {
+		if strings.HasPrefix(s, w) {
 			ans++
 		}
 	}
-	return ans
+	return
 }
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function countPrefixes(words: string[], s: string): number {
+    return words.filter(w => s.startsWith(w)).length;
+}
 ```
 
 ### **...**
