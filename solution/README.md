@@ -2878,6 +2878,7 @@
 |  2865  |  [美丽塔 I](/solution/2800-2899/2865.Beautiful%20Towers%20I/README.md)  |  `栈`,`数组`,`单调栈`  |  中等  |  第 364 场周赛  |
 |  2866  |  [美丽塔 II](/solution/2800-2899/2866.Beautiful%20Towers%20II/README.md)  |  `栈`,`数组`,`单调栈`  |  中等  |  第 364 场周赛  |
 |  2867  |  [统计树中的合法路径数目](/solution/2800-2899/2867.Count%20Valid%20Paths%20in%20a%20Tree/README.md)  |  `树`,`深度优先搜索`,`数学`,`动态规划`,`数论`  |  困难  |  第 364 场周赛  |
+|  2868  |  [单词游戏](/solution/2800-2899/2868.The%20Wording%20Game/README.md)  |    |  困难  |  🔒  |
 
 ## 版权
 
