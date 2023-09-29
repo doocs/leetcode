@@ -2923,3 +2923,4 @@
   - [2865.Beautiful Towers I](/solution/2800-2899/2865.Beautiful%20Towers%20I/README_EN.md)
   - [2866.Beautiful Towers II](/solution/2800-2899/2866.Beautiful%20Towers%20II/README_EN.md)
   - [2867.Count Valid Paths in a Tree](/solution/2800-2899/2867.Count%20Valid%20Paths%20in%20a%20Tree/README_EN.md)
+  - [2868.The Wording Game](/solution/2800-2899/2868.The%20Wording%20Game/README_EN.md)
