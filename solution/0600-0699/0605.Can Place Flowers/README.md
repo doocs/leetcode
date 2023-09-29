@@ -43,6 +43,10 @@
 
 **方法一：贪心**
 
+我们直接遍历数组 $flowerbed$，对于每个位置 $i$，如果 $flowerbed[i]=0$，并且其左右相邻位置都为 $0$，则我们可以在该位置种花，否则不能。最后我们统计可以种下的花的数量，如果其不小于 $n$，则返回 $true$，否则返回 $false$。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $flowerbed$ 的长度。我们只需要遍历数组一次。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -120,6 +124,23 @@ func canPlaceFlowers(flowerbed []int, n int) bool {
 		}
 	}
 	return n <= 0
+}
+```
+
+### **TypeScript**
+
+```ts
+function canPlaceFlowers(flowerbed: number[], n: number): boolean {
+    const m = flowerbed.length;
+    for (let i = 0; i < m; ++i) {
+        const l = i === 0 ? 0 : flowerbed[i - 1];
+        const r = i === m - 1 ? 0 : flowerbed[i + 1];
+        if (l + flowerbed[i] + r === 0) {
+            flowerbed[i] = 1;
+            --n;
+        }
+    }
+    return n <= 0;
 }
 ```
 
