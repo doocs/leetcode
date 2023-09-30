@@ -56,6 +56,12 @@
 ```python
 class Solution:
     def countBits(self, n: int) -> List[int]:
+        return [i.bit_count() for i in range(n + 1)]
+```
+
+```python
+class Solution:
+    def countBits(self, n: int) -> List[int]:
         ans = [0] * (n + 1)
         for i in range(1, n + 1):
             ans[i] = ans[i & (i - 1)] + 1
@@ -63,6 +69,18 @@ class Solution:
 ```
 
 ### **Java**
+
+```java
+class Solution {
+    public int[] countBits(int n) {
+        int[] ans = new int[n + 1];
+        for (int i = 0; i <= n; ++i) {
+            ans[i] = Integer.bitCount(i);
+        }
+        return ans;
+    }
+}
+```
 
 ```java
 class Solution {
@@ -83,7 +101,22 @@ class Solution {
 public:
     vector<int> countBits(int n) {
         vector<int> ans(n + 1);
-        for (int i = 1; i <= n; ++i) ans[i] = ans[i & (i - 1)] + 1;
+        for (int i = 0; i <= n; ++i) {
+            ans[i] = __builtin_popcount(i);
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> countBits(int n) {
+        vector<int> ans(n + 1);
+        for (int i = 1; i <= n; ++i) {
+            ans[i] = ans[i & (i - 1)] + 1;
+        }
         return ans;
     }
 };
@@ -94,10 +127,51 @@ public:
 ```go
 func countBits(n int) []int {
 	ans := make([]int, n+1)
+	for i := 0; i <= n; i++ {
+		ans[i] = bits.OnesCount(uint(i))
+	}
+	return ans
+}
+```
+
+```go
+func countBits(n int) []int {
+	ans := make([]int, n+1)
 	for i := 1; i <= n; i++ {
 		ans[i] = ans[i&(i-1)] + 1
 	}
 	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function countBits(n: number): number[] {
+    const ans: number[] = Array(n + 1).fill(0);
+    for (let i = 0; i <= n; ++i) {
+        ans[i] = bitCount(i);
+    }
+    return ans;
+}
+
+function bitCount(n: number): number {
+    let count = 0;
+    while (n) {
+        n &= n - 1;
+        ++count;
+    }
+    return count;
+}
+```
+
+```ts
+function countBits(n: number): number[] {
+    const ans: number[] = Array(n + 1).fill(0);
+    for (let i = 1; i <= n; ++i) {
+        ans[i] = ans[i & (i - 1)] + 1;
+    }
+    return ans;
 }
 ```
 

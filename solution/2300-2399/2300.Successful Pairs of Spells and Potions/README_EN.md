@@ -122,11 +122,7 @@ func successfulPairs(spells []int, potions []int, success int64) (ans []int) {
 ### **TypeScript**
 
 ```ts
-function successfulPairs(
-    spells: number[],
-    potions: number[],
-    success: number,
-): number[] {
+function successfulPairs(spells: number[], potions: number[], success: number): number[] {
     potions.sort((a, b) => a - b);
     const m = potions.length;
     const ans: number[] = [];

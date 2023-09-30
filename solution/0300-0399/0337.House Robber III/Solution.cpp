@@ -11,21 +11,16 @@
  */
 class Solution {
 public:
-    unordered_map<TreeNode*, int> memo;
-
     int rob(TreeNode* root) {
-        return dfs(root);
-    }
-
-    int dfs(TreeNode* root) {
-        if (!root) return 0;
-        if (memo.count(root)) return memo[root];
-        int a = dfs(root->left) + dfs(root->right);
-        int b = root->val;
-        if (root->left) b += dfs(root->left->left) + dfs(root->left->right);
-        if (root->right) b += dfs(root->right->left) + dfs(root->right->right);
-        int res = max(a, b);
-        memo[root] = res;
-        return res;
+        function<pair<int, int>(TreeNode*)> dfs = [&](TreeNode* root) -> pair<int, int> {
+            if (!root) {
+                return make_pair(0, 0);
+            }
+            auto [la, lb] = dfs(root->left);
+            auto [ra, rb] = dfs(root->right);
+            return make_pair(root->val + lb + rb, max(la, lb) + max(ra, rb));
+        };
+        auto [a, b] = dfs(root);
+        return max(a, b);
     }
 };

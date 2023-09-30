@@ -58,12 +58,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-可以类比成左右括号匹配：
+**方法一：栈**
 
--   向右移动的小行星（左括号）：不会引发碰撞，直接入栈
--   向左移动的小行星（右括号）：可能会和之前向右移动的小行星发生碰撞，特殊处理
+我们从左到右遍历每个小行星 $x$，由于每个小行星可能与之前的多个小行星发生碰撞，考虑用栈来存储。
 
-因为答案需要碰撞后剩下的所有小行星，相当于栈里最后剩下的元素，所以可以直接用数组表示栈
+-   对于当前小行星，如果 $x \gt 0$，那么它一定不会跟前面的小行星发生碰撞，我们可以直接将 $x$ 入栈。
+-   否则，如果栈不为空并且栈顶元素大于 $0$，且栈顶元素小于 $-x$，那么栈顶元素对应的小行星会发生爆炸，我们循环将栈顶元素出栈，直到不满足条件。此时如果栈顶元素等于 $-x$，那么两个小行星会发生爆炸，只需要将栈顶元素出栈即可；如果栈为空，或者栈顶元素小于 $0$，那么当前小行星不会发生碰撞，我们将 $x$ 入栈。
+
+最后我们返回栈中的元素即为答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $asteroids$ 的长度。
 
 <!-- tabs:start -->
 
@@ -74,18 +78,18 @@
 ```python
 class Solution:
     def asteroidCollision(self, asteroids: List[int]) -> List[int]:
-        ans = []
-        for a in asteroids:
-            if a > 0:
-                ans.append(a)
+        stk = []
+        for x in asteroids:
+            if x > 0:
+                stk.append(x)
             else:
-                while len(ans) > 0 and ans[-1] > 0 and ans[-1] < -a:
-                    ans.pop()
-                if len(ans) > 0 and ans[-1] == -a:
-                    ans.pop()
-                elif len(ans) == 0 or ans[-1] < -a:
-                    ans.append(a)
-        return ans
+                while stk and stk[-1] > 0 and stk[-1] < -x:
+                    stk.pop()
+                if stk and stk[-1] == -x:
+                    stk.pop()
+                elif not stk or stk[-1] < 0:
+                    stk.append(x)
+        return stk
 ```
 
 ### **Java**
@@ -95,22 +99,22 @@ class Solution:
 ```java
 class Solution {
     public int[] asteroidCollision(int[] asteroids) {
-        Deque<Integer> d = new ArrayDeque<>();
-        for (int a : asteroids) {
-            if (a > 0) {
-                d.offerLast(a);
+        Deque<Integer> stk = new ArrayDeque<>();
+        for (int x : asteroids) {
+            if (x > 0) {
+                stk.offerLast(x);
             } else {
-                while (!d.isEmpty() && d.peekLast() > 0 && d.peekLast() < -a) {
-                    d.pollLast();
+                while (!stk.isEmpty() && stk.peekLast() > 0 && stk.peekLast() < -x) {
+                    stk.pollLast();
                 }
-                if (!d.isEmpty() && d.peekLast() == -a) {
-                    d.pollLast();
-                } else if (d.isEmpty() || d.peekLast() < -a) {
-                    d.offerLast(a);
+                if (!stk.isEmpty() && stk.peekLast() == -x) {
+                    stk.pollLast();
+                } else if (stk.isEmpty() || stk.peekLast() < 0) {
+                    stk.offerLast(x);
                 }
             }
         }
-        return d.stream().mapToInt(Integer::valueOf).toArray();
+        return stk.stream().mapToInt(Integer::valueOf).toArray();
     }
 }
 ```
@@ -121,22 +125,22 @@ class Solution {
 class Solution {
 public:
     vector<int> asteroidCollision(vector<int>& asteroids) {
-        vector<int> ans;
-        for (int a : asteroids) {
-            if (a > 0) {
-                ans.push_back(a);
+        vector<int> stk;
+        for (int x : asteroids) {
+            if (x > 0) {
+                stk.push_back(x);
             } else {
-                while (!ans.empty() && ans.back() > 0 && ans.back() < -a) {
-                    ans.pop_back();
+                while (stk.size() && stk.back() > 0 && stk.back() < -x) {
+                    stk.pop_back();
                 }
-                if (!ans.empty() && ans.back() == -a) {
-                    ans.pop_back();
-                } else if (ans.empty() || ans.back() < -a) {
-                    ans.push_back(a);
+                if (stk.size() && stk.back() == -x) {
+                    stk.pop_back();
+                } else if (stk.empty() || stk.back() < 0) {
+                    stk.push_back(x);
                 }
             }
         }
-        return ans;
+        return stk;
     }
 };
 ```
@@ -144,23 +148,71 @@ public:
 ### **Go**
 
 ```go
-func asteroidCollision(asteroids []int) []int {
-	var ans []int
-	for _, a := range asteroids {
-		if a > 0 {
-			ans = append(ans, a)
+func asteroidCollision(asteroids []int) (stk []int) {
+	for _, x := range asteroids {
+		if x > 0 {
+			stk = append(stk, x)
 		} else {
-			for len(ans) > 0 && ans[len(ans)-1] > 0 && ans[len(ans)-1] < -a {
-				ans = ans[:len(ans)-1]
+			for len(stk) > 0 && stk[len(stk)-1] > 0 && stk[len(stk)-1] < -x {
+				stk = stk[:len(stk)-1]
 			}
-			if len(ans) > 0 && ans[len(ans)-1] == -a {
-				ans = ans[:len(ans)-1]
-			} else if len(ans) == 0 || ans[len(ans)-1] < -a {
-				ans = append(ans, a)
+			if len(stk) > 0 && stk[len(stk)-1] == -x {
+				stk = stk[:len(stk)-1]
+			} else if len(stk) == 0 || stk[len(stk)-1] < 0 {
+				stk = append(stk, x)
 			}
 		}
 	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function asteroidCollision(asteroids: number[]): number[] {
+    const stk: number[] = [];
+    for (const x of asteroids) {
+        if (x > 0) {
+            stk.push(x);
+        } else {
+            while (stk.length && stk.at(-1) > 0 && stk.at(-1) < -x) {
+                stk.pop();
+            }
+            if (stk.length && stk.at(-1) === -x) {
+                stk.pop();
+            } else if (!stk.length || stk.at(-1) < 0) {
+                stk.push(x);
+            }
+        }
+    }
+    return stk;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    #[allow(dead_code)]
+    pub fn asteroid_collision(asteroids: Vec<i32>) -> Vec<i32> {
+        let mut stk = Vec::new();
+        for &x in &asteroids {
+            if x > 0 {
+                stk.push(x);
+            } else {
+                while !stk.is_empty() && *stk.last().unwrap() > 0 && *stk.last().unwrap() < -x {
+                    stk.pop();
+                }
+                if !stk.is_empty() && *stk.last().unwrap() == -x {
+                    stk.pop();
+                } else if stk.is_empty() || *stk.last().unwrap() < 0 {
+                    stk.push(x);
+                }
+            }
+        }
+        stk
+    }
 }
 ```
 

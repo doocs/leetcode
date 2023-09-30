@@ -13,16 +13,21 @@
  */
 
 function binaryTreePaths(root: TreeNode | null): string[] {
-    let ans = [];
-    let t = [];
-    function dfs(root) {
-        if (!root) return;
-        t.push(String(root.val));
-        if (!root.left && !root.right) ans.push(t.join('->'));
-        dfs(root.left);
-        dfs(root.right);
+    const ans: string[] = [];
+    const t: number[] = [];
+    const dfs = (root: TreeNode | null) => {
+        if (!root) {
+            return;
+        }
+        t.push(root.val);
+        if (!root.left && !root.right) {
+            ans.push(t.join('->'));
+        } else {
+            dfs(root.left);
+            dfs(root.right);
+        }
         t.pop();
-    }
+    };
     dfs(root);
     return ans;
 }

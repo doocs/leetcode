@@ -14,13 +14,13 @@
 | recordDate    | date    |
 | temperature   | int     |
 +---------------+---------+
-In SQL, id is the primary key for this table.
+id is the column with unique values for this table.
 This table contains information about the temperature on a certain day.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Find all dates&#39; <code>Id</code> with higher temperatures compared to its previous dates (yesterday).</p>
+<p>Write a solution to find all dates&#39; <code>Id</code> with higher temperatures compared to its previous dates (yesterday).</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
@@ -64,8 +64,7 @@ SELECT w1.id
 FROM
     Weather AS w1
     JOIN Weather AS w2
-        ON datediff(w1.recordDate, w2.recordDate) = 1
-        AND w1.temperature > w2.temperature;
+        ON datediff(w1.recordDate, w2.recordDate) = 1 AND w1.temperature > w2.temperature;
 ```
 
 ```sql

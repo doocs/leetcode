@@ -13,19 +13,19 @@
 | user_id     | int  |
 | follower_id | int  |
 +-------------+------+
-(user_id, follower_id) is the primary key for this table.
+(user_id, follower_id) is the primary key (combination of columns with unique values) for this table.
 Each row of this table indicates that the user with ID follower_id is following the user with ID user_id.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find all the pairs of users with the maximum number of common followers. In other words, if the maximum number of common followers between any two users is <code>maxCommon</code>, then you have to return all pairs of users that have <code>maxCommon</code> common followers.</p>
+<p>Write a solution to find all the pairs of users with the maximum number of common followers. In other words, if the maximum number of common followers between any two users is <code>maxCommon</code>, then you have to return all pairs of users that have <code>maxCommon</code> common followers.</p>
 
 <p>The result table should contain the pairs <code>user1_id</code> and <code>user2_id</code> where <code>user1_id &lt; user2_id</code>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -76,8 +76,7 @@ WITH
             rank() OVER (ORDER BY count(1) DESC) AS rk
         FROM
             Relations AS r1
-            JOIN Relations AS r2
-                ON r1.follower_id = r2.follower_id AND r1.user_id < r2.user_id
+            JOIN Relations AS r2 ON r1.follower_id = r2.follower_id AND r1.user_id < r2.user_id
         GROUP BY r1.user_id, r2.user_id
     )
 SELECT

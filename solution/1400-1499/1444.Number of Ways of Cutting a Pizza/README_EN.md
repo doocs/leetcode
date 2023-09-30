@@ -229,9 +229,7 @@ function ways(pizza: string[], k: number): number {
     const mod = 1e9 + 7;
     const m = pizza.length;
     const n = pizza[0].length;
-    const f = new Array(m)
-        .fill(0)
-        .map(() => new Array(n).fill(0).map(() => new Array(k).fill(-1)));
+    const f = new Array(m).fill(0).map(() => new Array(n).fill(0).map(() => new Array(k).fill(-1)));
     const s = new Array(m + 1).fill(0).map(() => new Array(n + 1).fill(0));
     for (let i = 1; i <= m; ++i) {
         for (let j = 1; j <= n; ++j) {

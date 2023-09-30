@@ -11,7 +11,7 @@ jobs:
       - name: Pull request
         uses: actions-cool/maintain-one-comment@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.DOOCS_BOT_ACTION_TOKEN }}
           body: |
             🤭 感谢你的提交，请检查你的改动是否符合以下项目规范。
 

@@ -1,25 +1,15 @@
 public class Solution {
     public int NumDecodings(string s) {
-        if (s.Length == 0) return 0;
-        
-        var f0 = 1;
-        var f1 = 1;
-        var f2 = 1;
-        for (var i = 0; i < s.Length; ++i)
-        {
-            f0 = f1;
-            f1 = f2;
-            f2 = 0;
-            var two = i > 0 ? int.Parse(string.Format("{0}{1}", s[i - 1], s[i])) : 0;
-            if (two >= 10 && two <= 26)
-            {
-               f2 += f0;  
+        int n = s.Length;
+        int f = 0, g = 1;
+        for (int i = 1; i <= n; ++i) {
+            int h = s[i - 1] != '0' ? g : 0;
+            if (i > 1 && (s[i - 2] == '1' || (s[i - 2] == '2' && s[i - 1] <= '6'))) {
+                h += f;
             }
-            if (s[i] != '0')
-            {
-                f2 += f1;
-            }
+            f = g;
+            g = h;
         }
-        return f2;
+        return g;
     }
 }

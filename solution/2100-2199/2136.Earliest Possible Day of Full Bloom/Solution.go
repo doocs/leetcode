@@ -1,17 +1,16 @@
-func earliestFullBloom(plantTime []int, growTime []int) int {
-	arr := [][]int{}
-	for i, a := range plantTime {
-		arr = append(arr, []int{a, growTime[i]})
+func earliestFullBloom(plantTime []int, growTime []int) (ans int) {
+	n := len(plantTime)
+	idx := make([]int, n)
+	for i := range idx {
+		idx[i] = i
 	}
-	sort.Slice(arr, func(i, j int) bool {
-		return arr[i][1] > arr[j][1]
-	})
-	ans, t := 0, 0
-	for _, e := range arr {
-		t += e[0]
-		ans = max(ans, t+e[1])
+	sort.Slice(idx, func(i, j int) bool { return growTime[idx[j]] < growTime[idx[i]] })
+	t := 0
+	for _, i := range idx {
+		t += plantTime[i]
+		ans = max(ans, t+growTime[i])
 	}
-	return ans
+	return
 }
 
 func max(a, b int) int {

@@ -14,7 +14,7 @@
 
 <p>当生成器完成时，您的函数返回的 promise 应该解析为生成器返回的值。但是，如果生成器抛出错误，则返回的 promise 应该拒绝并抛出该错误。</p>
 
-<p>下面是您的代码应如何使用的示例：</p>
+<p>下面的示例展示了你的代码会如何被使用：</p>
 
 <pre>
 function* tasks() {
@@ -27,19 +27,19 @@ setTimeout(cancel, 50);
 promise.catch(console.log); // logs "Cancelled" at t=50ms
 </pre>
 
-<p>如果相反， <code>cancel()</code> 没有被调用或者在 <code>t=100ms</code> 之后才被调用，那么 Promise 应被解析为 <code>5</code> 。</p>
+<p>相反，如果 <code>cancel()</code> 没有被调用或者在 <code>t=100ms</code> 之后才被调用，那么 promise 应被解析为 <code>5</code> 。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
 <pre>
-<b>输入：</b>
+<strong>输入：</strong>
 generatorFunction = function*() { 
 &nbsp; return 42; 
 }
 cancelledAt = 100
-<b>输出：</b>{"resolved": 42}
+<strong>输出：</strong>{"resolved": 42}
 <strong>解释：</strong>
 const generator = generatorFunction();
 const [cancel, promise] = cancellable(generator);
@@ -58,7 +58,7 @@ generatorFunction = function*() {
 &nbsp; throw `Error: ${msg}`; 
 }
 cancelledAt = null
-<b>输出：</b>{"rejected": "Error: Hello"}
+<strong>输出：</strong>{"rejected": "Error: Hello"}
 <strong>解释：</strong>
 一个 Promise 被生成。该函数通过等待 promise 解析并将解析后的值传回生成器来处理它。然后抛出一个错误，这会导致 promise 被同样抛出的错误拒绝。
 </pre>
@@ -66,13 +66,13 @@ cancelledAt = null
 <p><strong>示例 3：</strong></p>
 
 <pre>
-<b>输入：</b>
+<strong>输入：</strong>
 generatorFunction = function*() { 
 &nbsp; yield new Promise(res =&gt; setTimeout(res, 200)); 
 &nbsp; return "Success"; 
 }
 cancelledAt = 100
-<b>输出：</b>{"rejected": "Cancelled"}
+<strong>输出：</strong>{"rejected": "Cancelled"}
 <strong>解释：</strong>
 当函数等待被生成的 promise 解析时，cancel() 被调用。这会导致一个错误消息被发送回生成器。由于这个错误没有被捕获，返回的 promise 会因为这个错误而被拒绝。
 </pre>
@@ -90,7 +90,7 @@ generatorFunction = function*() {
 &nbsp; return result;
 }
 cancelledAt = null
-<b>输出：</b>{"resolved": 2}
+<strong>输出：</strong>{"resolved": 2}
 <strong>解释：</strong>
 生成器生成了 4 个 promise 。其中两个 promise 的值被添加到结果中。200ms 后，生成器以值 2 完成，该值被返回的 promise 解析。
 </pre>
@@ -98,7 +98,7 @@ cancelledAt = null
 <p><strong>示例 5：</strong></p>
 
 <pre>
-<b>输入：</b>
+<strong>输入：</strong>
 generatorFunction = function*() { 
 &nbsp; let result = 0; 
 &nbsp; try { 
@@ -112,7 +112,7 @@ generatorFunction = function*() {
 &nbsp; return result; 
 }
 cancelledAt = 150
-<b>输出：</b>{"resolved": 1}
+<strong>输出：</strong>{"resolved": 1}
 <strong>解释：</strong>
 前两个生成的 promise 解析并导致结果递增。然而，在 t=150ms 时，生成器被取消了。发送给生成器的错误被捕获，结果被返回并最终由返回的 promise 解析。
 </pre>
@@ -120,7 +120,7 @@ cancelledAt = 150
 <p><strong>示例 6：</strong></p>
 
 <pre>
-<b>输入：</b>
+<strong>输入：</strong>
 generatorFunction = function*() { 
 &nbsp; try { 
 &nbsp;   yield new Promise((resolve, reject) =&gt; reject("Promise Rejected")); 
@@ -131,7 +131,7 @@ generatorFunction = function*() {
 &nbsp; }; 
 }
 cancelledAt = null
-<b>输出：</b>{"resolved": 4}
+<strong>输出：</strong>{"resolved": 4}
 <strong>解释：</strong>
 第一个生成的 promise 立即被拒绝。该错误被捕获。因为生成器没有被取消，执行继续像往常一样。最终解析为 2 + 2 = 4。</pre>
 
@@ -141,7 +141,7 @@ cancelledAt = null
 
 <ul>
 	<li><code>cancelledAt == null or 0 &lt;= cancelledAt &lt;= 1000</code></li>
-	<li><code>generatorFunction 返回一个生成器对象</code></li>
+	<li><code>generatorFunction</code> 返回一个生成器对象</li>
 </ul>
 
 ## 解法
@@ -153,9 +153,7 @@ cancelledAt = null
 ### **TypeScript**
 
 ```ts
-function cancellable<T>(
-    generator: Generator<Promise<any>, T, unknown>,
-): [() => void, Promise<T>] {
+function cancellable<T>(generator: Generator<Promise<any>, T, unknown>): [() => void, Promise<T>] {
     let cancel: () => void = () => {};
     const cancelPromise = new Promise((resolve, reject) => {
         cancel = () => reject('Cancelled');
@@ -166,9 +164,7 @@ function cancellable<T>(
         let next = generator.next();
         while (!next.done) {
             try {
-                next = generator.next(
-                    await Promise.race([next.value, cancelPromise]),
-                );
+                next = generator.next(await Promise.race([next.value, cancelPromise]));
             } catch (e) {
                 next = generator.throw(e);
             }

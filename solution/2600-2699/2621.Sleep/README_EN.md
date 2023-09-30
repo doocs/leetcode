@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>Given&nbsp;a positive integer <code>millis</code>, write an asynchronous function that sleeps for <code>millis</code>&nbsp;milliseconds. It can resolve&nbsp;any value.</p>
+<p>Given&nbsp;a positive integer <code>millis</code>, write an asynchronous function that sleeps for <code>millis</code>&nbsp;milliseconds. It can resolve any value.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

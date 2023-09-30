@@ -47,6 +47,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：组合计数**
+
+我们可以选择涂黑 $n$ 行中的任意 $i$ 行，涂黑 $n$ 列中的任意 $j$ 列。那么涂黑的格子数为 $n \times (i + j) - i \times j$。如果满足 $n \times (i + j) - i \times j = k$，则方案数为 $\binom{n}{i} \times \binom{n}{j}$。累加所有满足条件的方案数即可。
+
+注意，如果 $k = n \times n$，则只有一种方案，直接返回 $1$ 即可。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是网格的边长。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -54,7 +62,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def paintingPlan(self, n: int, k: int) -> int:
+        if k == n * n:
+            return 1
+        ans = 0
+        for i in range(n + 1):
+            for j in range(n + 1):
+                if n * (i + j) - i * j == k:
+                    ans += comb(n, i) * comb(n, j)
+        return ans
 ```
 
 ### **Java**
@@ -62,7 +79,115 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int paintingPlan(int n, int k) {
+        if (k == n * n) {
+            return 1;
+        }
+        int[][] c = new int[n + 1][n + 1];
+        for (int i = 0; i <= n; ++i) {
+            c[i][0] = 1;
+            for (int j = 1; j <= i; ++j) {
+                c[i][j] = c[i - 1][j - 1] + c[i - 1][j];
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i <= n; ++i) {
+            for (int j = 0; j <= n; ++j) {
+                if (n * (i + j) - i * j == k) {
+                    ans += c[n][i] * c[n][j];
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int paintingPlan(int n, int k) {
+        if (k == n * n) {
+            return 1;
+        }
+        int c[n + 1][n + 1];
+        memset(c, 0, sizeof(c));
+        for (int i = 0; i <= n; ++i) {
+            c[i][0] = 1;
+            for (int j = 1; j <= i; ++j) {
+                c[i][j] = c[i - 1][j - 1] + c[i - 1][j];
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i <= n; ++i) {
+            for (int j = 0; j <= n; ++j) {
+                if (n * (i + j) - i * j == k) {
+                    ans += c[n][i] * c[n][j];
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func paintingPlan(n int, k int) (ans int) {
+	if k == n*n {
+		return 1
+	}
+	c := make([][]int, n+1)
+	for i := range c {
+		c[i] = make([]int, n+1)
+	}
+	for i := 0; i <= n; i++ {
+		c[i][0] = 1
+		for j := 1; j <= i; j++ {
+			c[i][j] = c[i-1][j] + c[i-1][j-1]
+		}
+	}
+	for i := 0; i <= n; i++ {
+		for j := 0; j <= n; j++ {
+			if n*(i+j)-i*j == k {
+				ans += c[n][i] * c[n][j]
+			}
+		}
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function paintingPlan(n: number, k: number): number {
+    if (k === n * n) {
+        return 1;
+    }
+    const c: number[][] = Array(n + 1)
+        .fill(0)
+        .map(() => Array(n + 1).fill(0));
+    for (let i = 0; i <= n; ++i) {
+        c[i][0] = 1;
+        for (let j = 1; j <= i; ++j) {
+            c[i][j] = c[i - 1][j - 1] + c[i - 1][j];
+        }
+    }
+    let ans = 0;
+    for (let i = 0; i <= n; ++i) {
+        for (let j = 0; j <= n; ++j) {
+            if (n * (i + j) - i * j === k) {
+                ans += c[n][i] * c[n][j];
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**

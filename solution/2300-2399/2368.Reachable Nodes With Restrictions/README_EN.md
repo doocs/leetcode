@@ -295,11 +295,7 @@ func reachableNodes(n int, edges [][]int, restricted []int) int {
 ### **TypeScript**
 
 ```ts
-function reachableNodes(
-    n: number,
-    edges: number[][],
-    restricted: number[],
-): number {
+function reachableNodes(n: number, edges: number[][], restricted: number[]): number {
     let res = 0;
     const vis = new Array(n).fill(false);
     const map = new Map<number, number[]>();
@@ -324,11 +320,7 @@ function reachableNodes(
 ```
 
 ```ts
-function reachableNodes(
-    n: number,
-    edges: number[][],
-    restricted: number[],
-): number {
+function reachableNodes(n: number, edges: number[][], restricted: number[]): number {
     const g = Array.from({ length: n }, () => []);
     const vis = new Array(n).fill(false);
     for (const [a, b] of edges) {

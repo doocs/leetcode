@@ -23,13 +23,13 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><span style=""><b>输入：</b></span>a = "abc", b = "bca", c = "aaa"
+<pre><code><span style=""><b>输入：</b></span>a</code> = "abc", <code>b</code> = "bca", <code>c</code> = "aaa"
 <b>输出：</b>"aaabca"
 <b>解释：</b>字符串 "aaabca" 包含所有三个字符串：a = ans[2...4] ，b = ans[3..5] ，c = ans[0..2] 。结果字符串的长度至少为 6 ，且"aaabca" 是字典序最小的一个。</pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><span style=""><b>输入：</b></span>a = "ab", b = "ba", c = "aba"
+<pre><code><span style=""><b>输入：</b></span>a</code> = "ab", <code>b</code> = "ba", <code>c</code> = "aba"
 <b>输出：</b>"aba"
 <strong>解释：</strong>字符串 "aba" 包含所有三个字符串：a = ans[0..1] ，b = ans[1..2] ，c = ans[0..2] 。由于 c 的长度为 3 ，结果字符串的长度至少为 3 。"aba" 是字典序最小的一个。
 </pre>
@@ -193,6 +193,89 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function minimumString(a: string, b: string, c: string): string {
+    const f = (s: string, t: string): string => {
+        if (s.includes(t)) {
+            return s;
+        }
+        if (t.includes(s)) {
+            return t;
+        }
+        const m = s.length;
+        const n = t.length;
+        for (let i = Math.min(m, n); i > 0; --i) {
+            if (s.slice(-i) === t.slice(0, i)) {
+                return s + t.slice(i);
+            }
+        }
+        return s + t;
+    };
+    const s: string[] = [a, b, c];
+    const perm: number[][] = [
+        [0, 1, 2],
+        [0, 2, 1],
+        [1, 0, 2],
+        [1, 2, 0],
+        [2, 0, 1],
+        [2, 1, 0],
+    ];
+    let ans = '';
+    for (const [i, j, k] of perm) {
+        const t = f(f(s[i], s[j]), s[k]);
+        if (ans === '' || t.length < ans.length || (t.length === ans.length && t < ans)) {
+            ans = t;
+        }
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    fn f(s1: String, s2: String) -> String {
+        if s1.contains(&s2) {
+            return s1;
+        }
+        if s2.contains(&s1) {
+            return s2;
+        }
+        for i in 0..s1.len() {
+            let s = &s1[i..];
+            if s2.starts_with(s) {
+                let n = s.len();
+                return s1 + &s2[n..];
+            }
+        }
+        s1 + s2.as_str()
+    }
+
+    pub fn minimum_string(a: String, b: String, c: String) -> String {
+        let s = [&a, &b, &c];
+        let perm = [
+            [0, 1, 2],
+            [0, 2, 1],
+            [1, 0, 2],
+            [1, 2, 0],
+            [2, 0, 1],
+            [2, 1, 0],
+        ];
+        let mut ans = String::new();
+        for [i, j, k] in perm.iter() {
+            let r = Self::f(Self::f(s[*i].clone(), s[*j].clone()), s[*k].clone());
+            if ans == "" || r.len() < ans.len() || (r.len() == ans.len() && r < ans) {
+                ans = r;
+            }
+        }
+        ans
+    }
 }
 ```
 

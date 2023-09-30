@@ -186,11 +186,7 @@ func executeInstructions(n int, startPos []int, s string) []int {
 ### **TypeScript**
 
 ```ts
-function executeInstructions(
-    n: number,
-    startPos: number[],
-    s: string,
-): number[] {
+function executeInstructions(n: number, startPos: number[], s: string): number[] {
     const m = s.length;
     const ans = new Array(m);
     for (let i = 0; i < m; i++) {

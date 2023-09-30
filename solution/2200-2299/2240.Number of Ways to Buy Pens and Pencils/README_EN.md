@@ -98,17 +98,27 @@ func waysToBuyPensPencils(total int, cost1 int, cost2 int) (ans int64) {
 ### **TypeScript**
 
 ```ts
-function waysToBuyPensPencils(
-    total: number,
-    cost1: number,
-    cost2: number,
-): number {
+function waysToBuyPensPencils(total: number, cost1: number, cost2: number): number {
     let ans = 0;
     for (let x = 0; x <= Math.floor(total / cost1); ++x) {
         const y = Math.floor((total - x * cost1) / cost2) + 1;
         ans += y;
     }
     return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn ways_to_buy_pens_pencils(total: i32, cost1: i32, cost2: i32) -> i64 {
+        let mut ans: i64 = 0;
+        for pen in 0..=total / cost1 {
+            ans += ((total - pen * cost1) / cost2) as i64 + 1;
+        }
+        ans
+    }
 }
 ```
 

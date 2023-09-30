@@ -52,7 +52,23 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-单调栈。
+**方法一：单调栈**
+
+我们观察发现，对于第 $i$ 个人来说，他能看到的人一定是按从左到右高度严格单调递增的。
+
+因此，我们可以倒序遍历数组 $heights$，用一个从栈顶到栈底单调递增的栈 $stk$ 记录已经遍历过的人的高度。
+
+对于第 $i$ 个人，如果栈不为空并且栈顶元素小于 $heights[i]$，累加当前第 $i$ 个人能看到的人数，然后将栈顶元素出栈，直到栈为空或者栈顶元素大于等于 $heights[i]$。如果此时栈不为空，说明栈顶元素大于等于 $heights[i]$，那么第 $i$ 个人能看到的人数还要再加 $1$。
+
+接下来，我们将 $heights[i]$ 入栈，继续遍历下一个人。
+
+遍历结束后，返回答案数组 $ans$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $heights$ 的长度。
+
+相似题目：
+
+-   [2282. 在一个网格中可以看到的人数](/solution/2200-2299/2282.Number%20of%20People%20That%20Can%20Be%20Seen%20in%20a%20Grid/README.md)
 
 <!-- tabs:start -->
 
@@ -65,17 +81,14 @@ class Solution:
     def canSeePersonsCount(self, heights: List[int]) -> List[int]:
         n = len(heights)
         ans = [0] * n
-        stack = list()
-
+        stk = []
         for i in range(n - 1, -1, -1):
-            while stack:
+            while stk and stk[-1] < heights[i]:
                 ans[i] += 1
-                if heights[i] > stack[-1]:
-                    stack.pop()
-                else:
-                    break
-            stack.append(heights[i])
-
+                stk.pop()
+            if stk:
+                ans[i] += 1
+            stk.append(heights[i])
         return ans
 ```
 
@@ -84,7 +97,24 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int[] canSeePersonsCount(int[] heights) {
+        int n = heights.length;
+        int[] ans = new int[n];
+        Deque<Integer> stk = new ArrayDeque<>();
+        for (int i = n - 1; i >= 0; --i) {
+            while (!stk.isEmpty() && stk.peek() < heights[i]) {
+                stk.pop();
+                ++ans[i];
+            }
+            if (!stk.isEmpty()) {
+                ++ans[i];
+            }
+            stk.push(heights[i]);
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
@@ -96,11 +126,13 @@ public:
         int n = heights.size();
         vector<int> ans(n);
         stack<int> stk;
-        for (int i = n - 1; i >= 0; --i) {
-            while (!stk.empty()) {
-                ans[i]++;
-                if (heights[i] <= stk.top()) break;
+        for (int i = n - 1; ~i; --i) {
+            while (stk.size() && stk.top() < heights[i]) {
+                ++ans[i];
                 stk.pop();
+            }
+            if (stk.size()) {
+                ++ans[i];
             }
             stk.push(heights[i]);
         }
@@ -109,22 +141,43 @@ public:
 };
 ```
 
+### **Go**
+
+```go
+func canSeePersonsCount(heights []int) []int {
+	n := len(heights)
+	ans := make([]int, n)
+	stk := []int{}
+	for i := n - 1; i >= 0; i-- {
+		for len(stk) > 0 && stk[len(stk)-1] < heights[i] {
+			ans[i]++
+			stk = stk[:len(stk)-1]
+		}
+		if len(stk) > 0 {
+			ans[i]++
+		}
+		stk = append(stk, heights[i])
+	}
+	return ans
+}
+```
+
 ### **TypeScript**
 
 ```ts
 function canSeePersonsCount(heights: number[]): number[] {
     const n = heights.length;
-    const ans = new Array(n).fill(0);
-    const stack = [];
-    for (let i = n - 1; i >= 0; i--) {
-        while (stack.length !== 0) {
-            ans[i]++;
-            if (heights[i] <= heights[stack[stack.length - 1]]) {
-                break;
-            }
-            stack.pop();
+    const ans: number[] = new Array(n).fill(0);
+    const stk: number[] = [];
+    for (let i = n - 1; ~i; --i) {
+        while (stk.length && stk.at(-1) < heights[i]) {
+            ++ans[i];
+            stk.pop();
         }
-        stack.push(i);
+        if (stk.length) {
+            ++ans[i];
+        }
+        stk.push(heights[i]);
     }
     return ans;
 }

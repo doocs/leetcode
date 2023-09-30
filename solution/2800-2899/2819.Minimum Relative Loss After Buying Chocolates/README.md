@@ -249,10 +249,7 @@ func minimumRelativeLosses(prices []int, queries [][]int) []int64 {
 ### **TypeScript**
 
 ```ts
-function minimumRelativeLosses(
-    prices: number[],
-    queries: number[][],
-): number[] {
+function minimumRelativeLosses(prices: number[], queries: number[][]): number[] {
     const n = prices.length;
     prices.sort((a, b) => a - b);
     const s: number[] = Array(n).fill(0);

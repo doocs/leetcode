@@ -62,13 +62,138 @@ Your final score is 12 - 1 = 11.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxPoints(self, points: List[List[int]]) -> int:
+        n = len(points[0])
+        f = points[0][:]
+        for p in points[1:]:
+            g = [0] * n
+            lmx = -inf
+            for j in range(n):
+                lmx = max(lmx, f[j] + j)
+                g[j] = max(g[j], p[j] + lmx - j)
+            rmx = -inf
+            for j in range(n - 1, -1, -1):
+                rmx = max(rmx, f[j] - j)
+                g[j] = max(g[j], p[j] + rmx + j)
+            f = g
+        return max(f)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public long maxPoints(int[][] points) {
+        int n = points[0].length;
+        long[] f = new long[n];
+        final long inf = 1L << 60;
+        for (int[] p : points) {
+            long[] g = new long[n];
+            long lmx = -inf, rmx = -inf;
+            for (int j = 0; j < n; ++j) {
+                lmx = Math.max(lmx, f[j] + j);
+                g[j] = Math.max(g[j], p[j] + lmx - j);
+            }
+            for (int j = n - 1; j >= 0; --j) {
+                rmx = Math.max(rmx, f[j] - j);
+                g[j] = Math.max(g[j], p[j] + rmx + j);
+            }
+            f = g;
+        }
+        long ans = 0;
+        for (long x : f) {
+            ans = Math.max(ans, x);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    long long maxPoints(vector<vector<int>>& points) {
+        using ll = long long;
+        int n = points[0].size();
+        vector<ll> f(n);
+        const ll inf = 1e18;
+        for (auto& p : points) {
+            vector<ll> g(n);
+            ll lmx = -inf, rmx = -inf;
+            for (int j = 0; j < n; ++j) {
+                lmx = max(lmx, f[j] + j);
+                g[j] = max(g[j], p[j] + lmx - j);
+            }
+            for (int j = n - 1; ~j; --j) {
+                rmx = max(rmx, f[j] - j);
+                g[j] = max(g[j], p[j] + rmx + j);
+            }
+            f = move(g);
+        }
+        return *max_element(f.begin(), f.end());
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxPoints(points [][]int) (ans int64) {
+	n := len(points[0])
+	const inf int64 = 1e18
+	f := make([]int64, n)
+	for _, p := range points {
+		g := make([]int64, n)
+		lmx, rmx := -inf, -inf
+		for j := range p {
+			lmx = max(lmx, f[j]+int64(j))
+			g[j] = max(g[j], int64(p[j])+lmx-int64(j))
+		}
+		for j := n - 1; j >= 0; j-- {
+			rmx = max(rmx, f[j]-int64(j))
+			g[j] = max(g[j], int64(p[j])+rmx+int64(j))
+		}
+		f = g
+	}
+	for _, x := range f {
+		ans = max(ans, x)
+	}
+	return
+}
+
+func max(a, b int64) int64 {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxPoints(points: number[][]): number {
+    const n = points[0].length;
+    const f: number[] = new Array(n).fill(0);
+    for (const p of points) {
+        const g: number[] = new Array(n).fill(0);
+        let lmx = -Infinity;
+        let rmx = -Infinity;
+        for (let j = 0; j < n; ++j) {
+            lmx = Math.max(lmx, f[j] + j);
+            g[j] = Math.max(g[j], p[j] + lmx - j);
+        }
+        for (let j = n - 1; ~j; --j) {
+            rmx = Math.max(rmx, f[j] - j);
+            g[j] = Math.max(g[j], p[j] + rmx + j);
+        }
+        f.splice(0, n, ...g);
+    }
+    return Math.max(...f);
+}
 ```
 
 ### **...**

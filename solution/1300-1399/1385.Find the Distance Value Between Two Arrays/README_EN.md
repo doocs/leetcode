@@ -140,11 +140,7 @@ func findTheDistanceValue(arr1 []int, arr2 []int, d int) (ans int) {
 ### **TypeScript**
 
 ```ts
-function findTheDistanceValue(
-    arr1: number[],
-    arr2: number[],
-    d: number,
-): number {
+function findTheDistanceValue(arr1: number[], arr2: number[], d: number): number {
     const check = (a: number) => {
         let l = 0;
         let r = arr2.length;

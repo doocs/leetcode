@@ -364,8 +364,7 @@ function beautifulPair(nums1: number[], nums2: number[]): number[] {
         let t2 = dfs(m + 1, r);
         if (
             t1[0] > t2[0] ||
-            (t1[0] == t2[0] &&
-                (t1[1] > t2[1] || (t1[1] == t2[1] && t1[2] > t2[2])))
+            (t1[0] == t2[0] && (t1[1] > t2[1] || (t1[1] == t2[1] && t1[2] > t2[2])))
         ) {
             t1 = t2;
         }
@@ -384,10 +383,7 @@ function beautifulPair(nums1: number[], nums2: number[]): number[] {
                 const pi = Math.min(t[i][2], t[j][2]);
                 const pj = Math.max(t[i][2], t[j][2]);
                 const d = dist(t[i][0], t[i][1], t[j][0], t[j][1]);
-                if (
-                    d < t1[0] ||
-                    (d == t1[0] && (pi < t1[1] || (pi == t1[1] && pj < t1[2])))
-                ) {
+                if (d < t1[0] || (d == t1[0] && (pi < t1[1] || (pi == t1[1] && pj < t1[2])))) {
                     t1 = [d, pi, pj];
                 }
             }

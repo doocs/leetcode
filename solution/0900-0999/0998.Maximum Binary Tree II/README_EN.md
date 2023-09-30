@@ -183,10 +183,7 @@ class Solution {
  * }
  */
 
-function insertIntoMaxTree(
-    root: TreeNode | null,
-    val: number,
-): TreeNode | null {
+function insertIntoMaxTree(root: TreeNode | null, val: number): TreeNode | null {
     if (!root || root.val < val) {
         return new TreeNode(val, root);
     }
@@ -210,10 +207,7 @@ function insertIntoMaxTree(
  * }
  */
 
-function insertIntoMaxTree(
-    root: TreeNode | null,
-    val: number,
-): TreeNode | null {
+function insertIntoMaxTree(root: TreeNode | null, val: number): TreeNode | null {
     if (root.val < val) {
         return new TreeNode(val, root);
     }

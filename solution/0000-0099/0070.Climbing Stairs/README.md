@@ -60,6 +60,46 @@ $$
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。
 
+**方法二：矩阵快速幂加速递推**
+
+我们设 $Fib(n)$ 表示一个 $1 \times 2$ 的矩阵 $\begin{bmatrix} F_n & F_{n - 1} \end{bmatrix}$，其中 $F_n$ 和 $F_{n - 1}$ 分别是第 $n$ 个和第 $n - 1$ 个斐波那契数。
+
+我们希望根据 $Fib(n-1) = \begin{bmatrix} F_{n - 1} & F_{n - 2} \end{bmatrix}$ 推出 $Fib(n)$。也即是说，我们需要一个矩阵 $base$，使得 $Fib(n - 1) \times base = Fib(n)$，即：
+
+$$
+\begin{bmatrix}
+F_{n - 1} & F_{n - 2}
+\end{bmatrix} \times base = \begin{bmatrix} F_n & F_{n - 1} \end{bmatrix}
+$$
+
+由于 $F_n = F_{n - 1} + F_{n - 2}$，所以矩阵 $base$ 的第一列为：
+
+$$
+\begin{bmatrix}
+1 \\
+1
+\end{bmatrix}
+$$
+
+第二列为：
+
+$$
+\begin{bmatrix}
+1 \\
+0
+\end{bmatrix}
+$$
+
+因此有：
+
+$$
+\begin{bmatrix} F_{n - 1} & F_{n - 2} \end{bmatrix} \times \begin{bmatrix}1 & 1 \\ 1 & 0\end{bmatrix} = \begin{bmatrix} F_n & F_{n - 1} \end{bmatrix}
+$$
+
+我们定义初始矩阵 $res = \begin{bmatrix} 1 & 1 \end{bmatrix}$，那么 $F_n$ 等于 $res$ 乘以 $base^{n - 1}$ 的结果矩阵中第一行的第一个元素。使用矩阵快速幂求解即可。
+
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -73,6 +113,48 @@ class Solution:
         for _ in range(n):
             a, b = b, a + b
         return b
+```
+
+```python
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        def mul(a: List[List[int]], b: List[List[int]]) -> List[List[int]]:
+            m, n = len(a), len(b[0])
+            c = [[0] * n for _ in range(m)]
+            for i in range(m):
+                for j in range(n):
+                    for k in range(len(a[0])):
+                        c[i][j] = c[i][j] + a[i][k] * b[k][j]
+            return c
+
+        def pow(a: List[List[int]], n: int) -> List[List[int]]:
+            res = [[1, 1]]
+            while n:
+                if n & 1:
+                    res = mul(res, a)
+                n >>= 1
+                a = mul(a, a)
+            return res
+
+        a = [[1, 1], [1, 0]]
+        return pow(a, n - 1)[0][0]
+```
+
+```python
+import numpy as np
+
+
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        res = np.mat([(1, 1)], np.dtype("O"))
+        factor = np.mat([(1, 1), (1, 0)], np.dtype("O"))
+        n -= 1
+        while n:
+            if n & 1:
+                res *= factor
+            factor *= factor
+            n >>= 1
+        return res[0, 0]
 ```
 
 ### **Java**
@@ -89,6 +171,40 @@ class Solution {
             b = c;
         }
         return b;
+    }
+}
+```
+
+```java
+class Solution {
+    public int climbStairs(int n) {
+        int[][] a = {{1, 1,}, {1, 0}};
+        return pow(a, n - 1)[0][0];
+    }
+
+    private int[][] mul(int[][] a, int[][] b) {
+        int m = a.length, n = b[0].length;
+        int[][] c = new int[m][n];
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                for (int k = 0; k < a[0].length; ++k) {
+                    c[i][j] += a[i][k] * b[k][j];
+                }
+            }
+        }
+        return c;
+    }
+
+    private int[][] pow(int[][] a, int n) {
+        int[][] res = {{1, 1}, {0, 0}};
+        while (n > 0) {
+            if ((n & 1) == 1) {
+                res = mul(res, a);
+            }
+            n >>= 1;
+            a = mul(a, a);
+        }
+        return res;
     }
 }
 ```
@@ -110,6 +226,87 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int climbStairs(int n) {
+        vector<vector<long long>> a = {{1, 1}, {1, 0}};
+        return pow(a, n - 1)[0][0];
+    }
+
+private:
+    vector<vector<long long>> mul(vector<vector<long long>>& a, vector<vector<long long>>& b) {
+        int m = a.size(), n = b[0].size();
+        vector<vector<long long>> res(m, vector<long long>(n));
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                for (int k = 0; k < a[0].size(); ++k) {
+                    res[i][j] += a[i][k] * b[k][j];
+                }
+            }
+        }
+        return res;
+    }
+
+    vector<vector<long long>> pow(vector<vector<long long>>& a, int n) {
+        vector<vector<long long>> res = {{1, 1}, {0, 0}};
+        while (n) {
+            if (n & 1) {
+                res = mul(res, a);
+            }
+            a = mul(a, a);
+            n >>= 1;
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func climbStairs(n int) int {
+	a, b := 0, 1
+	for i := 0; i < n; i++ {
+		a, b = b, a+b
+	}
+	return b
+}
+```
+
+```go
+type matrix [2][2]int
+
+func climbStairs(n int) int {
+	a := matrix{{1, 1}, {1, 0}}
+	return pow(a, n-1)[0][0]
+}
+
+func mul(a, b matrix) (c matrix) {
+	m, n := len(a), len(b[0])
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			for k := 0; k < len(a[0]); k++ {
+				c[i][j] += a[i][k] * b[k][j]
+			}
+		}
+	}
+	return
+}
+
+func pow(a matrix, n int) matrix {
+	res := matrix{{1, 1}, {0, 0}}
+	for n > 0 {
+		if n&1 == 1 {
+			res = mul(res, a)
+		}
+		a = mul(a, a)
+		n >>= 1
+	}
+	return res
+}
+```
+
 ### **JavaScript**
 
 ```js
@@ -129,15 +326,47 @@ var climbStairs = function (n) {
 };
 ```
 
-### **Go**
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var climbStairs = function (n) {
+    const a = [
+        [1, 1],
+        [1, 0],
+    ];
+    return pow(a, n - 1)[0][0];
+};
 
-```go
-func climbStairs(n int) int {
-	a, b := 0, 1
-	for i := 0; i < n; i++ {
-		a, b = b, a+b
-	}
-	return b
+function mul(a, b) {
+    const [m, n] = [a.length, b[0].length];
+    const c = Array(m)
+        .fill(0)
+        .map(() => Array(n).fill(0));
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            for (let k = 0; k < a[0].length; ++k) {
+                c[i][j] += a[i][k] * b[k][j];
+            }
+        }
+    }
+    return c;
+}
+
+function pow(a, n) {
+    let res = [
+        [1, 1],
+        [0, 0],
+    ];
+    while (n) {
+        if (n & 1) {
+            res = mul(res, a);
+        }
+        a = mul(a, a);
+        n >>= 1;
+    }
+    return res;
 }
 ```
 
@@ -151,6 +380,46 @@ function climbStairs(n: number): number {
         [p, q] = [q, p + q];
     }
     return q;
+}
+```
+
+```ts
+function climbStairs(n: number): number {
+    const a = [
+        [1, 1],
+        [1, 0],
+    ];
+    return pow(a, n - 1)[0][0];
+}
+
+function mul(a: number[][], b: number[][]): number[][] {
+    const [m, n] = [a.length, b[0].length];
+    const c = Array(m)
+        .fill(0)
+        .map(() => Array(n).fill(0));
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            for (let k = 0; k < a[0].length; ++k) {
+                c[i][j] += a[i][k] * b[k][j];
+            }
+        }
+    }
+    return c;
+}
+
+function pow(a: number[][], n: number): number[][] {
+    let res = [
+        [1, 1],
+        [0, 0],
+    ];
+    while (n) {
+        if (n & 1) {
+            res = mul(res, a);
+        }
+        a = mul(a, a);
+        n >>= 1;
+    }
+    return res;
 }
 ```
 

@@ -40,7 +40,7 @@
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>obj 是一个有效的 JSON 对象</code></li>
+	<li><code>obj</code> 是一个有效的 JSON 对象</li>
 	<li><code>2 &lt;= JSON.stringify(obj).length &lt;= 10<sup>6</sup></code></li>
 </ul>
 

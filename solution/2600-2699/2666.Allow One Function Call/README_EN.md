@@ -39,6 +39,7 @@ onceFn(4, 6, 8); // undefined, fn was not called
 <p><strong>Constraints:</strong></p>
 
 <ul>
+	<li><code>calls</code> is a valid JSON array</li>
 	<li><code>1 &lt;= calls.length &lt;= 10</code></li>
 	<li><code>1 &lt;= calls[i].length &lt;= 100</code></li>
 	<li><code>2 &lt;= JSON.stringify(calls).length &lt;= 1000</code></li>

@@ -1,32 +1,31 @@
 class Solution {
 public:
     vector<vector<int>> getAncestors(int n, vector<vector<int>>& edges) {
-        vector<vector<int>> g(n);
-        for (auto& e : edges) g[e[1]].push_back(e[0]);
-        vector<vector<int>> ans;
-        for (int i = 0; i < n; ++i) {
-            vector<int> t;
-            if (g[i].empty()) {
-                ans.push_back(t);
-                continue;
-            }
-            queue<int> q{{i}};
-            vector<bool> vis(n);
-            vis[i] = true;
-            while (!q.empty()) {
-                for (int j = q.size(); j > 0; --j) {
-                    int v = q.front();
-                    q.pop();
-                    for (int u : g[v]) {
-                        if (vis[u]) continue;
-                        vis[u] = true;
-                        q.push(u);
-                        t.push_back(u);
+        vector<int> g[n];
+        for (auto& e : edges) {
+            g[e[0]].push_back(e[1]);
+        }
+        vector<vector<int>> ans(n);
+        auto bfs = [&](int s) {
+            queue<int> q;
+            q.push(s);
+            bool vis[n];
+            memset(vis, 0, sizeof(vis));
+            vis[s] = true;
+            while (q.size()) {
+                int i = q.front();
+                q.pop();
+                for (int j : g[i]) {
+                    if (!vis[j]) {
+                        vis[j] = true;
+                        ans[j].push_back(s);
+                        q.push(j);
                     }
                 }
             }
-            sort(t.begin(), t.end());
-            ans.push_back(t);
+        };
+        for (int i = 0; i < n; ++i) {
+            bfs(i);
         }
         return ans;
     }

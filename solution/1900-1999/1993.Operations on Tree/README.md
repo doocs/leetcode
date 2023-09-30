@@ -76,7 +76,21 @@ lockingTree.lock(0, 1);    // 返回 false ，因为节点 0 已经被上锁了�
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：哈希表 + DFS**
+**方法一：DFS**
+
+我们定义以下几个变量：
+
+-   $locked$：记录每个节点的锁定状态，其中 $locked[i]$ 表示节点 $i$ 的锁定状态，如果节点 $i$ 未被上锁，则 $locked[i] = -1$，否则 $locked[i]$ 为锁定节点 $i$ 的用户编号。
+-   $parent$：记录每个节点的父节点。
+-   $children$：记录每个节点的子节点。
+
+调用 $lock$ 函数时，如果节点 $num$ 未被上锁，则将节点 $num$ 上锁，返回 `true`，否则返回 `false`。
+
+调用 $unlock$ 函数时，如果节点 $num$ 被上锁且上锁的用户编号为 $user$，则将节点 $num$ 解锁，返回 `true`，否则返回 `false`。
+
+调用 $upgrade$ 函数时，我们首先判断节点 $num$ 及其祖先节点是否被上锁，如果是，则返回 $false$。否则，我们判断节点 $num$ 的子孙节点是否有被上锁的，如果没有，则返回 `false`。否则，我们将节点 $num$ 及其子孙节点解锁，然后将节点 $num$ 上锁，返回 `true`。
+
+时间复杂度方面，初始化和 $upgrade$ 函数的时间复杂度均为 $O(n)$，而 $lock$ 和 $unlock$ 函数的时间复杂度均为 $O(1)$。空间复杂度 $O(n)$。其中 $n$ 是节点的数量。
 
 <!-- tabs:start -->
 
@@ -87,43 +101,45 @@ lockingTree.lock(0, 1);    // 返回 false ，因为节点 0 已经被上锁了�
 ```python
 class LockingTree:
     def __init__(self, parent: List[int]):
-        self.nums = {}
+        n = len(parent)
+        self.locked = [-1] * n
         self.parent = parent
-        self.children = defaultdict(list)
-        for i, p in enumerate(parent):
-            self.children[p].append(i)
+        self.children = [[] for _ in range(n)]
+        for son, fa in enumerate(parent[1:], 1):
+            self.children[fa].append(son)
 
     def lock(self, num: int, user: int) -> bool:
-        if num in self.nums:
-            return False
-        self.nums[num] = user
-        return True
+        if self.locked[num] == -1:
+            self.locked[num] = user
+            return True
+        return False
 
     def unlock(self, num: int, user: int) -> bool:
-        if num not in self.nums or self.nums[num] != user:
-            return False
-        self.nums.pop(num)
-        return True
+        if self.locked[num] == user:
+            self.locked[num] = -1
+            return True
+        return False
 
     def upgrade(self, num: int, user: int) -> bool:
-        def dfs(num):
+        def dfs(x: int):
             nonlocal find
-            for child in self.children[num]:
-                if child in self.nums:
-                    self.nums.pop(child)
+            for y in self.children[x]:
+                if self.locked[y] != -1:
+                    self.locked[y] = -1
                     find = True
-                dfs(child)
+                dfs(y)
 
-        t = num
-        while t != -1:
-            if t in self.nums:
+        x = num
+        while x != -1:
+            if self.locked[x] != -1:
                 return False
-            t = self.parent[t]
+            x = self.parent[x]
+
         find = False
         dfs(num)
         if not find:
             return False
-        self.nums[num] = user
+        self.locked[num] = user
         return True
 
 
@@ -140,63 +156,62 @@ class LockingTree:
 
 ```java
 class LockingTree {
-    private Map<Integer, Integer> nums;
+    private int[] locked;
     private int[] parent;
     private List<Integer>[] children;
 
     public LockingTree(int[] parent) {
-        nums = new HashMap<>();
-        this.parent = parent;
         int n = parent.length;
+        locked = new int[n];
+        this.parent = parent;
         children = new List[n];
-        Arrays.setAll(children, k -> new ArrayList<>());
-        for (int i = 0; i < n; ++i) {
-            if (parent[i] != -1) {
-                children[parent[i]].add(i);
-            }
+        Arrays.fill(locked, -1);
+        Arrays.setAll(children, i -> new ArrayList<>());
+        for (int i = 1; i < n; i++) {
+            children[parent[i]].add(i);
         }
     }
 
     public boolean lock(int num, int user) {
-        if (nums.containsKey(num)) {
-            return false;
+        if (locked[num] == -1) {
+            locked[num] = user;
+            return true;
         }
-        nums.put(num, user);
-        return true;
+        return false;
     }
 
     public boolean unlock(int num, int user) {
-        if (!nums.containsKey(num) || nums.get(num) != user) {
-            return false;
+        if (locked[num] == user) {
+            locked[num] = -1;
+            return true;
         }
-        nums.remove(num);
-        return true;
+        return false;
     }
 
     public boolean upgrade(int num, int user) {
-        int t = num;
-        while (t != -1) {
-            if (nums.containsKey(t)) {
+        int x = num;
+        while (x != -1) {
+            if (locked[x] != -1) {
                 return false;
             }
-            t = parent[t];
+            x = parent[x];
         }
         boolean[] find = new boolean[1];
         dfs(num, find);
         if (!find[0]) {
             return false;
         }
-        nums.put(num, user);
+        locked[num] = user;
         return true;
     }
 
-    private void dfs(int num, boolean[] find) {
-        for (int child : children[num]) {
-            if (nums.containsKey(child)) {
-                nums.remove(child);
+    private void dfs(int x, boolean[] find) {
+        for (int y : children[x]) {
+            if (locked[y] != -1) {
+                locked[y] = -1;
                 find[0] = true;
             }
-            dfs(child, find);
+            dfs(y, find);
         }
     }
 }
@@ -215,51 +230,62 @@ class LockingTree {
 ```cpp
 class LockingTree {
 public:
-    unordered_map<int, int> nums;
-    vector<int> parent;
-    vector<vector<int>> children;
-
     LockingTree(vector<int>& parent) {
-        this->parent = parent;
         int n = parent.size();
+        locked = vector<int>(n, -1);
+        this->parent = parent;
         children.resize(n);
-        for (int i = 0; i < n; ++i)
-            if (parent[i] != -1)
-                children[parent[i]].push_back(i);
+        for (int i = 1; i < n; ++i) {
+            children[parent[i]].push_back(i);
+        }
     }
 
     bool lock(int num, int user) {
-        if (nums.count(num)) return false;
-        nums[num] = user;
-        return true;
+        if (locked[num] == -1) {
+            locked[num] = user;
+            return true;
+        }
+        return false;
     }
 
     bool unlock(int num, int user) {
-        if (!nums.count(num) || nums[num] != user) return false;
-        nums.erase(num);
-        return true;
+        if (locked[num] == user) {
+            locked[num] = -1;
+            return true;
+        }
+        return false;
     }
 
     bool upgrade(int num, int user) {
-        for (int t = num; t != -1; t = parent[t])
-            if (nums.count(t))
+        int x = num;
+        while (x != -1) {
+            if (locked[x] != -1) {
                 return false;
+            }
+            x = parent[x];
+        }
         bool find = false;
-        dfs(num, find);
-        if (!find) return false;
-        nums[num] = user;
+        function<void(int)> dfs = [&](int x) {
+            for (int y : children[x]) {
+                if (locked[y] != -1) {
+                    find = true;
+                    locked[y] = -1;
+                }
+                dfs(y);
+            }
+        };
+        dfs(num);
+        if (!find) {
+            return false;
+        }
+        locked[num] = user;
         return true;
     }
 
-    void dfs(int num, bool& find) {
-        for (int child : children[num]) {
-            if (nums.count(child)) {
-                nums.erase(child);
-                find = true;
-            }
-            dfs(child, find);
-        }
-    }
+private:
+    vector<int> locked;
+    vector<int> parent;
+    vector<vector<int>> children;
 };
 
 /**
@@ -275,61 +301,63 @@ public:
 
 ```go
 type LockingTree struct {
-	nums     map[int]int
+	locked   []int
 	parent   []int
 	children [][]int
 }
 
 func Constructor(parent []int) LockingTree {
 	n := len(parent)
-	nums := make(map[int]int)
-	children := make([][]int, n)
-	for i, p := range parent {
-		if p != -1 {
-			children[p] = append(children[p], i)
-		}
+	locked := make([]int, n)
+	for i := range locked {
+		locked[i] = -1
 	}
-	return LockingTree{nums, parent, children}
+	children := make([][]int, n)
+	for i := 1; i < n; i++ {
+		children[parent[i]] = append(children[parent[i]], i)
+	}
+	return LockingTree{locked, parent, children}
 }
 
 func (this *LockingTree) Lock(num int, user int) bool {
-	if _, ok := this.nums[num]; ok {
-		return false
+	if this.locked[num] == -1 {
+		this.locked[num] = user
+		return true
 	}
-	this.nums[num] = user
-	return true
+	return false
 }
 
 func (this *LockingTree) Unlock(num int, user int) bool {
-	if this.nums[num] != user {
-		return false
+	if this.locked[num] == user {
+		this.locked[num] = -1
+		return true
 	}
-	delete(this.nums, num)
-	return true
+	return false
 }
 
 func (this *LockingTree) Upgrade(num int, user int) bool {
-	for t := num; t != -1; t = this.parent[t] {
-		if _, ok := this.nums[t]; ok {
+	x := num
+	for ; x != -1; x = this.parent[x] {
+		if this.locked[x] != -1 {
 			return false
 		}
 	}
 	find := false
 	var dfs func(int)
-	dfs = func(num int) {
-		for _, child := range this.children[num] {
-			if _, ok := this.nums[child]; ok {
-				delete(this.nums, child)
+	dfs = func(x int) {
+		for _, y := range this.children[x] {
+			if this.locked[y] != -1 {
 				find = true
+				this.locked[y] = -1
 			}
-			dfs(child)
+			dfs(y)
 		}
 	}
 	dfs(num)
 	if !find {
 		return false
 	}
-	this.nums[num] = user
+	this.locked[num] = user
 	return true
 }
 
@@ -339,6 +367,77 @@ func (this *LockingTree) Upgrade(num int, user int) bool {
  * param_1 := obj.Lock(num,user);
  * param_2 := obj.Unlock(num,user);
  * param_3 := obj.Upgrade(num,user);
+ */
+```
+
+### **TypeScript**
+
+```ts
+class LockingTree {
+    private locked: number[];
+    private parent: number[];
+    private children: number[][];
+
+    constructor(parent: number[]) {
+        const n = parent.length;
+        this.locked = Array(n).fill(-1);
+        this.parent = parent;
+        this.children = Array(n)
+            .fill(0)
+            .map(() => []);
+        for (let i = 1; i < n; i++) {
+            this.children[parent[i]].push(i);
+        }
+    }
+
+    lock(num: number, user: number): boolean {
+        if (this.locked[num] === -1) {
+            this.locked[num] = user;
+            return true;
+        }
+        return false;
+    }
+
+    unlock(num: number, user: number): boolean {
+        if (this.locked[num] === user) {
+            this.locked[num] = -1;
+            return true;
+        }
+        return false;
+    }
+
+    upgrade(num: number, user: number): boolean {
+        let x = num;
+        for (; x !== -1; x = this.parent[x]) {
+            if (this.locked[x] !== -1) {
+                return false;
+            }
+        }
+        let find = false;
+        const dfs = (x: number) => {
+            for (const y of this.children[x]) {
+                if (this.locked[y] !== -1) {
+                    this.locked[y] = -1;
+                    find = true;
+                }
+                dfs(y);
+            }
+        };
+        dfs(num);
+        if (!find) {
+            return false;
+        }
+        this.locked[num] = user;
+        return true;
+    }
+}
+
+/**
+ * Your LockingTree object will be instantiated and called as such:
+ * var obj = new LockingTree(parent)
+ * var param_1 = obj.lock(num,user)
+ * var param_2 = obj.unlock(num,user)
+ * var param_3 = obj.upgrade(num,user)
  */
 ```
 

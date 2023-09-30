@@ -52,6 +52,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：梯度下降法**
+
+我们可以先设定一个初始的服务中心位置为所有客户坐标的几何中心 $(x, y)$。接下来，使用梯度下降法不断迭代，设定一个学习率 $\alpha=0.5$，衰减率 $decay=0.999$。每次一次迭代，计算当前位置到所有客户的距离之和，然后计算当前位置的梯度，最后更新当前位置。当梯度的绝对值都小于 $10^{-6}$ 时，停止迭代，返回当前位置到所有客户的距离之和。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -59,7 +63,34 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def getMinDistSum(self, positions: List[List[int]]) -> float:
+        n = len(positions)
+        x = y = 0
+        for x1, y1 in positions:
+            x += x1
+            y += y1
+        x, y = x / n, y / n
+        decay = 0.999
+        eps = 1e-6
+        alpha = 0.5
+        while 1:
+            grad_x = grad_y = 0
+            dist = 0
+            for x1, y1 in positions:
+                a = x - x1
+                b = y - y1
+                c = sqrt(a * a + b * b)
+                grad_x += a / (c + 1e-8)
+                grad_y += b / (c + 1e-8)
+                dist += c
+            dx = grad_x * alpha
+            dy = grad_y * alpha
+            x -= dx
+            y -= dy
+            alpha *= decay
+            if abs(dx) <= eps and abs(dy) <= eps:
+                return dist
 ```
 
 ### **Java**
@@ -67,7 +98,154 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public double getMinDistSum(int[][] positions) {
+        int n = positions.length;
+        double x = 0, y = 0;
+        for (int[] p : positions) {
+            x += p[0];
+            y += p[1];
+        }
+        x /= n;
+        y /= n;
+        double decay = 0.999;
+        double eps = 1e-6;
+        double alpha = 0.5;
+        while (true) {
+            double gradX = 0, gradY = 0;
+            double dist = 0;
+            for (int[] p : positions) {
+                double a = x - p[0], b = y - p[1];
+                double c = Math.sqrt(a * a + b * b);
+                gradX += a / (c + 1e-8);
+                gradY += b / (c + 1e-8);
+                dist += c;
+            }
+            double dx = gradX * alpha, dy = gradY * alpha;
+            if (Math.abs(dx) <= eps && Math.abs(dy) <= eps) {
+                return dist;
+            }
+            x -= dx;
+            y -= dy;
+            alpha *= decay;
+        }
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    double getMinDistSum(vector<vector<int>>& positions) {
+        int n = positions.size();
+        double x = 0, y = 0;
+        for (auto& p : positions) {
+            x += p[0];
+            y += p[1];
+        }
+        x /= n;
+        y /= n;
+        double decay = 0.999;
+        double eps = 1e-6;
+        double alpha = 0.5;
+        while (true) {
+            double gradX = 0, gradY = 0;
+            double dist = 0;
+            for (auto& p : positions) {
+                double a = x - p[0], b = y - p[1];
+                double c = sqrt(a * a + b * b);
+                gradX += a / (c + 1e-8);
+                gradY += b / (c + 1e-8);
+                dist += c;
+            }
+            double dx = gradX * alpha, dy = gradY * alpha;
+            if (abs(dx) <= eps && abs(dy) <= eps) {
+                return dist;
+            }
+            x -= dx;
+            y -= dy;
+            alpha *= decay;
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+func getMinDistSum(positions [][]int) float64 {
+	n := len(positions)
+	var x, y float64
+	for _, p := range positions {
+		x += float64(p[0])
+		y += float64(p[1])
+	}
+	x /= float64(n)
+	y /= float64(n)
+	const decay float64 = 0.999
+	const eps float64 = 1e-6
+	var alpha float64 = 0.5
+	for {
+		var gradX, gradY float64
+		var dist float64
+		for _, p := range positions {
+			a := x - float64(p[0])
+			b := y - float64(p[1])
+			c := math.Sqrt(a*a + b*b)
+			gradX += a / (c + 1e-8)
+			gradY += b / (c + 1e-8)
+			dist += c
+		}
+		dx := gradX * alpha
+		dy := gradY * alpha
+		if math.Abs(dx) <= eps && math.Abs(dy) <= eps {
+			return dist
+		}
+		x -= dx
+		y -= dy
+		alpha *= decay
+	}
+}
+```
+
+### **TypeScript**
+
+```ts
+function getMinDistSum(positions: number[][]): number {
+    const n = positions.length;
+    let [x, y] = [0, 0];
+    for (const [px, py] of positions) {
+        x += px;
+        y += py;
+    }
+    x /= n;
+    y /= n;
+    const decay = 0.999;
+    const eps = 1e-6;
+    let alpha = 0.5;
+    while (true) {
+        let [gradX, gradY] = [0, 0];
+        let dist = 0;
+        for (const [px, py] of positions) {
+            const a = x - px;
+            const b = y - py;
+            const c = Math.sqrt(a * a + b * b);
+            gradX += a / (c + 1e-8);
+            gradY += b / (c + 1e-8);
+            dist += c;
+        }
+        const dx = gradX * alpha;
+        const dy = gradY * alpha;
+        if (Math.abs(dx) <= eps && Math.abs(dy) <= eps) {
+            return dist;
+        }
+        x -= dx;
+        y -= dy;
+        alpha *= decay;
+    }
+}
 ```
 
 ### **...**

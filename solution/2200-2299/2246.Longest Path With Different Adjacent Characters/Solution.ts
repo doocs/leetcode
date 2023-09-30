@@ -1,21 +1,21 @@
 function longestPath(parent: number[], s: string): number {
     const n = parent.length;
-    let graph = Array.from({ length: n }, v => []);
-    for (let i = 1; i < n; i++) {
-        graph[parent[i]].push(i);
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (let i = 1; i < n; ++i) {
+        g[parent[i]].push(i);
     }
     let ans = 0;
-    function dfs(x: number): number {
-        let maxLen = 0;
-        for (let y of graph[x]) {
-            let len = dfs(y) + 1;
-            if (s.charAt(x) !== s.charAt(y)) {
-                ans = Math.max(maxLen + len, ans);
-                maxLen = Math.max(len, maxLen);
+    const dfs = (i: number): number => {
+        let mx = 0;
+        for (const j of g[i]) {
+            const x = dfs(j) + 1;
+            if (s[i] !== s[j]) {
+                ans = Math.max(ans, mx + x);
+                mx = Math.max(mx, x);
             }
         }
-        return maxLen;
-    }
+        return mx;
+    };
     dfs(0);
     return ans + 1;
 }

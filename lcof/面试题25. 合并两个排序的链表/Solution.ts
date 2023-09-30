@@ -10,10 +10,7 @@
  * }
  */
 
-function mergeTwoLists(
-    l1: ListNode | null,
-    l2: ListNode | null,
-): ListNode | null {
+function mergeTwoLists(l1: ListNode | null, l2: ListNode | null): ListNode | null {
     const dummy = new ListNode(0);
     let cur = dummy;
     while (l1 && l2) {

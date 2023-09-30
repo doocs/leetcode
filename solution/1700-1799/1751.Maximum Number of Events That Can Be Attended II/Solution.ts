@@ -1,9 +1,7 @@
 function maxValue(events: number[][], k: number): number {
     events.sort((a, b) => a[1] - b[1]);
     const n = events.length;
-    const f: number[][] = new Array(n + 1)
-        .fill(0)
-        .map(() => new Array(k + 1).fill(0));
+    const f: number[][] = new Array(n + 1).fill(0).map(() => new Array(k + 1).fill(0));
     const search = (x: number, hi: number): number => {
         let l = 0;
         let r = hi;

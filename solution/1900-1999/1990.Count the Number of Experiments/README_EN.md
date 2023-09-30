@@ -14,19 +14,19 @@
 | platform        | enum |
 | experiment_name | enum |
 +-----------------+------+
-experiment_id is the primary key for this table.
-platform is an enum with one of the values (&#39;Android&#39;, &#39;IOS&#39;, &#39;Web&#39;).
-experiment_name is an enum with one of the values (&#39;Reading&#39;, &#39;Sports&#39;, &#39;Programming&#39;).
+experiment_id is the column with unique values for this table.
+platform is an enum (category) type of values (&#39;Android&#39;, &#39;IOS&#39;, &#39;Web&#39;).
+experiment_name is an enum (category) type of values (&#39;Reading&#39;, &#39;Sports&#39;, &#39;Programming&#39;).
 This table contains information about the ID of an experiment done with a random person, the platform used to do the experiment, and the name of the experiment.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the <strong>number of experiments</strong> done on each of the three platforms for each of the three given experiments. Notice that all the pairs of (platform, experiment) should be included in the output <strong>including</strong> the pairs with <strong>zero experiments</strong>.</p>
+<p>Write a solution to report the <strong>number of experiments</strong> done on each of the three platforms for each of the three given experiments. Notice that all the pairs of (platform, experiment) should be included in the output <strong>including</strong> the pairs with <strong>zero experiments</strong>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

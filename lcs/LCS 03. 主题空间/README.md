@@ -319,13 +319,7 @@ var largestArea = function (grid) {
     }
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
-            if (
-                i == 0 ||
-                i == m - 1 ||
-                j == 0 ||
-                j == n - 1 ||
-                grid[i][j] == '0'
-            ) {
+            if (i == 0 || i == m - 1 || j == 0 || j == n - 1 || grid[i][j] == '0') {
                 p[find(i * n + j)] = find(m * n);
             } else {
                 for (let k = 0; k < 4; ++k) {

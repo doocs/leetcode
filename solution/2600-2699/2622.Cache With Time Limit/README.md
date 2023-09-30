@@ -22,9 +22,9 @@
 
 <pre>
 <strong>输入：</strong> 
-["TimeLimitedCache", "set", "get", "count", "get"]
-[[], [1, 42, 100], [1], [], [1]]
-[0, 0, 50, 50, 150]
+actions = ["TimeLimitedCache", "set", "get", "count", "get"]
+values = [[], [1, 42, 100], [1], [], [1]]
+timeDeays = [0, 0, 50, 50, 150]
 <strong>输出：</strong> [null, false, 42, 1, -1]
 <strong>解释：</strong>
 在 t=0 时，缓存被构造。
@@ -39,9 +39,9 @@
 
 <pre>
 <strong>输入：</strong>
-["TimeLimitedCache", "set", "set", "get", "get", "get", "count"]
-[[], [1, 42, 50], [1, 50, 100], [1], [1], [1], []]
-[0, 0, 40, 50, 120, 200, 250]
+actions = ["TimeLimitedCache", "set", "set", "get", "get", "get", "count"]
+values = [[], [1, 42, 50], [1, 50, 100], [1], [1], [1], []]
+timeDelays = [0, 0, 40, 50, 120, 200, 250]
 <strong>输出：</strong> [null, false, true, 50, 50, -1]
 <strong>解释：</strong>
 在 t=0 时，缓存被构造。
@@ -59,10 +59,14 @@
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>0 &lt;= key &lt;= 10<sup>9</sup></code></li>
-	<li><code>0 &lt;= value &lt;= 10<sup>9</sup></code></li>
+	<li><code>0 &lt;= key, value &lt;= 10<sup>9</sup></code></li>
 	<li><code>0 &lt;= duration &lt;= 1000</code></li>
-	<li><code>方法调用总数不会超过100</code></li>
+	<li><code>1 &lt;= actions.length &lt;= 100</code></li>
+	<li><code>actions.length === values.length</code></li>
+	<li><code>actions.length === timeDelays.length</code></li>
+	<li><code>0 &lt;= timeDelays[i] &lt;= 1450</code></li>
+	<li><code>actions[i]</code> 是 "TimeLimitedCache"、"set"、"get" 和 "count" 中的一个。</li>
+	<li>第一个操作始终是 "TimeLimitedCache" 而且一定会以 0 毫秒的延迟立即执行</li>
 </ul>
 
 ## 解法

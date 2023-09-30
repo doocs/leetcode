@@ -14,7 +14,7 @@
 | name        | varchar |
 | salary      | int     |
 +-------------+---------+
-employee_id is the primary key for this table.
+employee_id is the column with unique values for this table.
 Each row of this table indicates the employee ID, employee name, and salary.
 </pre>
 
@@ -30,11 +30,11 @@ Each row of this table indicates the employee ID, employee name, and salary.
 	<li>A team&#39;s ID is assigned based on the <strong>rank of the team&#39;s salary</strong> relative to the other teams&#39; salaries, where the team with the <strong>lowest</strong> salary has <code>team_id = 1</code>. Note that the salaries for employees not on a team are <strong>not included</strong> in this ranking.</li>
 </ul>
 
-<p>Write an SQL query to get the <code>team_id</code> of each employee that is in a team.</p>
+<p>Write a solution to get the <code>team_id</code> of each employee that is in a team.</p>
 
 <p>Return the result table ordered by <code>team_id</code> <strong>in ascending order</strong>. In case of a tie, order it by <code>employee_id</code> in <strong>ascending order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

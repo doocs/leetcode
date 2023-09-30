@@ -1,8 +1,4 @@
-function miceAndCheese(
-    reward1: number[],
-    reward2: number[],
-    k: number,
-): number {
+function miceAndCheese(reward1: number[], reward2: number[], k: number): number {
     const n = reward1.length;
     const idx = Array.from({ length: n }, (_, i) => i);
     idx.sort((i, j) => reward1[j] - reward2[j] - (reward1[i] - reward2[i]));

@@ -69,10 +69,7 @@ The maximum depth of any subarray is 1. Thus, all of them are flattened.</pre>
 ```ts
 type MultiDimensionalArray = (number | MultiDimensionalArray)[];
 
-var flat = function (
-    arr: MultiDimensionalArray,
-    n: number,
-): MultiDimensionalArray {
+var flat = function (arr: MultiDimensionalArray, n: number): MultiDimensionalArray {
     if (n <= 0) {
         return arr;
     }

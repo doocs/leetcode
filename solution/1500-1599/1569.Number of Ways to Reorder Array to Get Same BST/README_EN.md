@@ -251,9 +251,7 @@ function numOfWays(nums: number[]): number {
         const n = right.length;
         const a = dfs(left);
         const b = dfs(right);
-        return Number(
-            (BigInt(c[m + n][m]) * BigInt(a) * BigInt(b)) % BigInt(mod),
-        );
+        return Number((BigInt(c[m + n][m]) * BigInt(a) * BigInt(b)) % BigInt(mod));
     };
     return (dfs(nums) - 1 + mod) % mod;
 }

@@ -1,9 +1,4 @@
-function dietPlanPerformance(
-    calories: number[],
-    k: number,
-    lower: number,
-    upper: number,
-): number {
+function dietPlanPerformance(calories: number[], k: number, lower: number, upper: number): number {
     const n = calories.length;
     let s = calories.slice(0, k).reduce((a, b) => a + b);
     let ans = 0;
