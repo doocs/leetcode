@@ -64,7 +64,28 @@ It can be shown that there are no ordered triplets of indices with a value great
 ### **C++**
 
 ```cpp
-
+         int n = nums.size();            
+        
+        
+        vector<int>s(n),l(n);
+        l[0]=nums[0];
+        for(int i=1;i<n;i++){
+            l[i]=max(nums[i],l[i-1]);
+        }
+        s[n-1]=nums[n-1];
+        for(int i=n-2;i>=0;i--){
+            s[i]=max(s[i+1],nums[i]);
+        }
+           
+        long long ans=0;
+        for(int i=1;i<n-1;i++){
+            long long temp=(long long)(l[i-1]-(long long)nums[i]) * (long long)s[i+1];
+            ans=max(ans,temp);
+        }
+        return ans <= 0 ? 0 : ans;   
+        
+                 
+        return 0;
 ```
 
 ### **Go**
