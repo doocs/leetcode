@@ -47,12 +47,29 @@
 
 ## Solutions
 
+**Solution 1: Traverse in Reverse Order**
+
+We can traverse the array in reverse order. For each element encountered during the traversal that is less than or equal to $k$ and has not been added to the set yet, we add it to the set until the set contains elements from $1$ to $k$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(k)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minOperations(self, nums: List[int], k: int) -> int:
+        is_added = [False] * k
+        count = 0
+        n = len(nums)
+        for i in range(n - 1, -1, -1):
+            if nums[i] > k or is_added[nums[i] - 1]:
+                continue
+            is_added[nums[i] - 1] = True
+            count += 1
+            if count == k:
+                return n - i
 ```
 
 ### **Java**
@@ -63,7 +80,7 @@ class Solution {
         boolean[] isAdded = new boolean[k];
         int n = nums.size();
         int count = 0;
-        for (int i = n - 1; i >= 0; i--) {
+        for (int i = n - 1;; i--) {
             if (nums.get(i) > k || isAdded[nums.get(i) - 1]) {
                 continue;
             }
@@ -73,28 +90,70 @@ class Solution {
                 return n - i;
             }
         }
-        return n;
     }
 }
-
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int minOperations(vector<int>& nums, int k) {
+        int n = nums.size();
+        vector<bool> isAdded(n);
+        int count = 0;
+        for (int i = n - 1;; --i) {
+            if (nums[i] > k || isAdded[nums[i] - 1]) {
+                continue;
+            }
+            isAdded[nums[i] - 1] = true;
+            if (++count == k) {
+                return n - i;
+            }
+        }
+    }
+};
 ```
 
 ### **Go**
 
 ```go
-
+func minOperations(nums []int, k int) int {
+	isAdded := make([]bool, k)
+	count := 0
+	n := len(nums)
+	for i := n - 1; ; i-- {
+		if nums[i] > k || isAdded[nums[i]-1] {
+			continue
+		}
+		isAdded[nums[i]-1] = true
+		count++
+		if count == k {
+			return n - i
+		}
+	}
+}
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function minOperations(nums: number[], k: number): number {
+    const n = nums.length;
+    const isAdded = Array(k).fill(false);
+    let count = 0;
+    for (let i = n - 1; ; --i) {
+        if (nums[i] > k || isAdded[nums[i] - 1]) {
+            continue;
+        }
+        isAdded[nums[i] - 1] = true;
+        ++count;
+        if (count === k) {
+            return n - i;
+        }
+    }
+}
 ```
 
 ### **...**
