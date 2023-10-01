@@ -53,6 +53,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表 + 贪心**
+
+我们用一个哈希表 $count$ 统计数组中每个元素出现的次数，然后遍历哈希表，对于每个元素 $x$，如果 $x$ 出现的次数为 $c$，那么我们可以进行 $\lfloor \frac{c+2}{3} \rfloor$ 次操作，将 $x$ 删除，最后我们返回所有元素的操作次数之和即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,7 +66,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minOperations(self, nums: List[int]) -> int:
+        count = Counter(nums)
+        ans = 0
+        for c in count.values():
+            if c == 1:
+                return -1
+            ans += (c + 2) // 3
+        return ans
 ```
 
 ### **Java**
@@ -76,7 +90,7 @@ class Solution {
             count.merge(num, 1, Integer::sum);
         }
         int ans = 0;
-        for (Integer c : count.values()) {
+        for (int c : count.values()) {
             if (c < 2) {
                 return -1;
             }
@@ -99,19 +113,60 @@ class Solution {
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int minOperations(vector<int>& nums) {
+        unordered_map<int, int> count;
+        for (int num : nums) {
+            ++count[num];
+        }
+        int ans = 0;
+        for (auto& [_, c] : count) {
+            if (c < 2) {
+                return -1;
+            }
+            ans += (c + 2) / 3;
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
-
+func minOperations(nums []int) (ans int) {
+	count := map[int]int{}
+	for _, num := range nums {
+		count[num]++
+	}
+	for _, c := range count {
+		if c < 2 {
+			return -1
+		}
+		ans += (c + 2) / 3
+	}
+	return
+}
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function minOperations(nums: number[]): number {
+    const count: Map<number, number> = new Map();
+    for (const num of nums) {
+        count.set(num, (count.get(num) ?? 0) + 1);
+    }
+    let ans = 0;
+    for (const [_, c] of count) {
+        if (c < 2) {
+            return -1;
+        }
+        ans += ((c + 2) / 3) | 0;
+    }
+    return ans;
+}
 ```
 
 ### **...**

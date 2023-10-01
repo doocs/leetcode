@@ -6,7 +6,7 @@ class Solution {
             count.merge(num, 1, Integer::sum);
         }
         int ans = 0;
-        for (Integer c : count.values()) {
+        for (int c : count.values()) {
             if (c < 2) {
                 return -1;
             }
