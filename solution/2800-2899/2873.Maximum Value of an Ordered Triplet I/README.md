@@ -1,6 +1,6 @@
-# [2874. 有序三元组中的最大值 II](https://leetcode.cn/problems/maximum-value-of-an-ordered-triplet-ii)
+# [2873. 有序三元组中的最大值 I](https://leetcode.cn/problems/maximum-value-of-an-ordered-triplet-i)
 
-[English Version](/solution/2800-2899/2874.Maximum%20Value%20of%20an%20Ordered%20Triplet%20II/README_EN.md)
+[English Version](/solution/2800-2899/2873.Maximum%20Value%20of%20an%20Ordered%20Triplet%20I/README_EN.md)
 
 ## 题目描述
 
@@ -45,7 +45,7 @@
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>3 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>3 &lt;= nums.length &lt;= 100</code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
