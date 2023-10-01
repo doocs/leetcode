@@ -1,7 +1,6 @@
 class Solution {
     public int shortestSubarray(int[] nums, int k) {
         int n = nums.length;
-        
         int minLength = n * 2 + 1;
         int l = 0;
         int sum = 0;
@@ -24,13 +23,14 @@ class Solution {
                 l++;
             }
         }
-        
+
         return minLength == n * 2 + 1 ? -1 : minLength;
     }
+
     public int minSizeSubarray(int[] nums, int target) {
         int n = nums.length;
         int sum = 0;
-        
+
         for (int num : nums) {
             sum += num;
         }
