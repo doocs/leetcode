@@ -1,10 +1,12 @@
-# [2871. Split Array Into Maximum Number of Subarrays](https://leetcode.cn/problems/split-array-into-maximum-number-of-subarrays/)
+# [2871. 将数组分割成最多数目的子数组](https://leetcode.cn/problems/split-array-into-maximum-number-of-subarrays/)
 
 [English Version](/solution/2800-2899/2871.Split%20Array%20Into%20Maximum%20Number%20of%20Subarrays/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
+<p>给你一个只包含 <strong>非负</strong>&nbsp;整数的数组&nbsp;<code>nums</code>&nbsp;。</p>
 
 <p>我们定义满足 <code>l &lt;= r</code>&nbsp;的子数组&nbsp;<code>nums[l..r]</code>&nbsp;的分数为&nbsp;<code>nums[l] AND nums[l + 1] AND ... AND nums[r]</code>&nbsp;，其中&nbsp;<strong>AND</strong>&nbsp;是按位与运算。</p>
 
@@ -23,7 +25,8 @@
 
 <p><strong class="example">示例 1：</strong></p>
 
-<pre><b>输入：</b>nums = [1,0,2,0,1,2]
+<pre>
+<b>输入：</b>nums = [1,0,2,0,1,2]
 <b>输出：</b>3
 <strong>解释：</strong>我们可以将数组分割成以下子数组：
 - [1,0] 。子数组分数为 1 AND 0 = 0 。
@@ -35,7 +38,8 @@
 
 <p><strong class="example">示例 2：</strong></p>
 
-<pre><b>输入：</b>nums = [5,7,1,3]
+<pre>
+<b>输入：</b>nums = [5,7,1,3]
 <b>输出：</b>1
 <b>解释：</b>我们可以将数组分割成一个子数组：[5,7,1,3] ，分数为 1 ，这是可以得到的最小总分数。
 在总分数为 1 的前提下，最多可以将数组分割成 1 个子数组。所以返回 1 。

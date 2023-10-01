@@ -1,4 +1,4 @@
-# [2872. Maximum Number of K-Divisible Components](https://leetcode.com/problems/maximum-number-of-k-divisible-components/)
+# [2872. 可以被 K 整除连通块的最大数目](https://leetcode.com/problems/maximum-number-of-k-divisible-components/)
 
 [English Version](/solution/2800-2899/2872.Maximum%20Number%20of%20K-Divisible%20Components/README_EN.md)
 
@@ -18,9 +18,10 @@
 
 <p><strong class="example">示例 1：</strong></p>
 
-<p><img alt="" src="./images/example1.jpg" style="width: 1024px; height: 453px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2800-2899/2872.Maximum%20Number%20of%20K-Divisible%20Components/images/example12-cropped2svg.jpg" style="width: 1024px; height: 453px;" /></p>
 
-<pre><b>输入：</b>n = 5, edges = [[0,2],[1,2],[1,3],[2,4]], values = [1,8,1,4,4], k = 6
+<pre>
+<b>输入：</b>n = 5, edges = [[0,2],[1,2],[1,3],[2,4]], values = [1,8,1,4,4], k = 6
 <b>输出：</b>2
 <b>解释：</b>我们删除节点 1 和 2 之间的边。这是一个合法分割，因为：
 - 节点 1 和 3 所在连通块的值为 values[1] + values[3] = 12 。
@@ -29,9 +30,10 @@
 
 <p><strong class="example">示例 2：</strong></p>
 
-<p><img alt="" src="./images/example2.jpg" style="width: 999px; height: 338px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2800-2899/2872.Maximum%20Number%20of%20K-Divisible%20Components/images/example21svg-1.jpg" style="width: 999px; height: 338px;" /></p>
 
-<pre><b>输入：</b>n = 7, edges = [[0,1],[0,2],[1,3],[1,4],[2,5],[2,6]], values = [3,0,6,1,5,2,1], k = 3
+<pre>
+<b>输入：</b>n = 7, edges = [[0,1],[0,2],[1,3],[1,4],[2,5],[2,6]], values = [3,0,6,1,5,2,1], k = 3
 <b>输出：</b>3
 <b>解释：</b>我们删除节点 0 和 2 ，以及节点 0 和 1 之间的边。这是一个合法分割，因为：
 - 节点 0 的连通块的值为 values[0] = 3 。
