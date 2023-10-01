@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 365 场周赛(2023-10-01 10:30, 90 分钟) 参赛人数 2909
+
+- [2873. 有序三元组中的最大值 I](/solution/2800-2899/2873.Maximum%20Value%20of%20an%20Ordered%20Triplet%20I/README.md)
+- [2874. 有序三元组中的最大值 II](/solution/2800-2899/2874.Maximum%20Value%20of%20an%20Ordered%20Triplet%20II/README.md)
+- [2875. 无限数组的最短子数组](/solution/2800-2899/2875.Minimum%20Size%20Subarray%20in%20Infinite%20Array/README.md)
+- [2876. 有向图访问计数](/solution/2800-2899/2876.Count%20Visited%20Nodes%20in%20a%20Directed%20Graph/README.md)
+
 #### 第 114 场双周赛(2023-09-30 22:30, 90 分钟) 参赛人数 2406
 
 - [2869. 收集元素的最少操作次数](/solution/2800-2899/2869.Minimum%20Operations%20to%20Collect%20Elements/README.md)
