@@ -53,6 +53,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：逆序遍历**
+
+我们可以逆序遍历数组，每次遍历到的元素如果小于等于 $k$，且没有被添加过，就将其添加到集合中，直到集合中包含了元素 $1$ 到 $k$ 为止。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(k)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,7 +66,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minOperations(self, nums: List[int], k: int) -> int:
+        is_added = [False] * k
+        count = 0
+        n = len(nums)
+        for i in range(n - 1, -1, -1):
+            if nums[i] > k or is_added[nums[i] - 1]:
+                continue
+            is_added[nums[i] - 1] = True
+            count += 1
+            if count == k:
+                return n - i
 ```
 
 ### **Java**
@@ -73,7 +90,7 @@ class Solution {
         boolean[] isAdded = new boolean[k];
         int n = nums.size();
         int count = 0;
-        for (int i = n - 1; i >= 0; i--) {
+        for (int i = n - 1;; i--) {
             if (nums.get(i) > k || isAdded[nums.get(i) - 1]) {
                 continue;
             }
@@ -83,28 +100,70 @@ class Solution {
                 return n - i;
             }
         }
-        return n;
     }
 }
-
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int minOperations(vector<int>& nums, int k) {
+        int n = nums.size();
+        vector<bool> isAdded(n);
+        int count = 0;
+        for (int i = n - 1;; --i) {
+            if (nums[i] > k || isAdded[nums[i] - 1]) {
+                continue;
+            }
+            isAdded[nums[i] - 1] = true;
+            if (++count == k) {
+                return n - i;
+            }
+        }
+    }
+};
 ```
 
 ### **Go**
 
 ```go
-
+func minOperations(nums []int, k int) int {
+	isAdded := make([]bool, k)
+	count := 0
+	n := len(nums)
+	for i := n - 1; ; i-- {
+		if nums[i] > k || isAdded[nums[i]-1] {
+			continue
+		}
+		isAdded[nums[i]-1] = true
+		count++
+		if count == k {
+			return n - i
+		}
+	}
+}
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function minOperations(nums: number[], k: number): number {
+    const n = nums.length;
+    const isAdded = Array(k).fill(false);
+    let count = 0;
+    for (let i = n - 1; ; --i) {
+        if (nums[i] > k || isAdded[nums[i] - 1]) {
+            continue;
+        }
+        isAdded[nums[i] - 1] = true;
+        ++count;
+        if (count === k) {
+            return n - i;
+        }
+    }
+}
 ```
 
 ### **...**
