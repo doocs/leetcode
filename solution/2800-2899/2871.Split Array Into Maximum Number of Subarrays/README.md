@@ -58,6 +58,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 位运算**
+
+我们初始化一个变量 $score$，用来记录当前子数组的分数，初始时 $score = -1$。然后我们遍历数组，对于每个元素 $num$，我们将 $score$ 与 $num$ 进行按位与运算，然后将结果赋值给 $score$。如果 $score = 0$，说明当前子数组的分数为 $0$，我们就可以将当前子数组分割出来，然后将 $score$ 重置为 $-1$。最后我们返回分割出的子数组的个数。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -65,7 +71,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxSubarrays(self, nums: List[int]) -> int:
+        score, ans = -1, 1
+        for num in nums:
+            score &= num
+            if score == 0:
+                score = -1
+                ans += 1
+        return 1 if ans == 1 else ans - 1
 ```
 
 ### **Java**
@@ -92,19 +106,54 @@ class Solution {
 ### **C++**
 
 ```cpp
-
+class Solution {
+    public int maxSubarrays(int[] nums) {
+        int score = -1, ans = 1;
+        for (int num : nums) {
+            score &= num;
+            if (score == 0) {
+                --score;
+                ++ans;
+            }
+        }
+        return ans == 1 ? 1 : ans - 1;
+    }
+}
 ```
 
 ### **Go**
 
 ```go
-
+func maxSubarrays(nums []int) int {
+	ans, score := 1, -1
+	for _, num := range nums {
+		score &= num
+		if score == 0 {
+			score--
+			ans++
+		}
+	}
+	if ans == 1 {
+		return 1
+	}
+	return ans - 1
+}
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function maxSubarrays(nums: number[]): number {
+    let [ans, score] = [1, -1];
+    for (const num of nums) {
+        score &= num;
+        if (score === 0) {
+            --score;
+            ++ans;
+        }
+    }
+    return ans == 1 ? 1 : ans - 1;
+}
 ```
 
 ### **...**

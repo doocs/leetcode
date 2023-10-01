@@ -52,12 +52,26 @@ It can be shown that we cannot split the array into more than 1 subarray with a 
 
 ## Solutions
 
+**Solution 1: Greedy + Bitwise Operation**
+
+We initialize a variable $score$ to record the score of the current subarray, and set $score=-1$ initially. Then we traverse the array, for each element $num$, we perform a bitwise AND operation between $score$ and $num$, and assign the result to $score$. If $score=0$, it means the score of the current subarray is 0, so we can split the current subarray and reset $score$ to $-1$. Finally, we return the number of split subarrays.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxSubarrays(self, nums: List[int]) -> int:
+        score, ans = -1, 1
+        for num in nums:
+            score &= num
+            if score == 0:
+                score = -1
+                ans += 1
+        return 1 if ans == 1 else ans - 1
 ```
 
 ### **Java**
@@ -82,19 +96,54 @@ class Solution {
 ### **C++**
 
 ```cpp
-
+class Solution {
+    public int maxSubarrays(int[] nums) {
+        int score = -1, ans = 1;
+        for (int num : nums) {
+            score &= num;
+            if (score == 0) {
+                --score;
+                ++ans;
+            }
+        }
+        return ans == 1 ? 1 : ans - 1;
+    }
+}
 ```
 
 ### **Go**
 
 ```go
-
+func maxSubarrays(nums []int) int {
+	ans, score := 1, -1
+	for _, num := range nums {
+		score &= num
+		if score == 0 {
+			score--
+			ans++
+		}
+	}
+	if ans == 1 {
+		return 1
+	}
+	return ans - 1
+}
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function maxSubarrays(nums: number[]): number {
+    let [ans, score] = [1, -1];
+    for (const num of nums) {
+        score &= num;
+        if (score === 0) {
+            --score;
+            ++ans;
+        }
+    }
+    return ans == 1 ? 1 : ans - 1;
+}
 ```
 
 ### **...**
