@@ -4,6 +4,8 @@
 
 ## Description
 
+<p>You are given a <strong>0-indexed</strong> array <code>nums</code> consisting of positive integers.</p>
+
 <p>There are two types of operations that you can apply on the array <strong>any</strong> number of times:</p>
 
 <ul>
@@ -16,7 +18,8 @@
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre><strong>Input:</strong> nums = [2,3,3,2,2,4,2,3,4]
+<pre>
+<strong>Input:</strong> nums = [2,3,3,2,2,4,2,3,4]
 <strong>Output:</strong> 4
 <strong>Explanation:</strong> We can apply the following operations to make the array empty:
 - Apply the first operation on the elements at indices 0 and 3. The resulting array is nums = [3,3,2,4,2,3,4].
@@ -28,7 +31,8 @@ It can be shown that we cannot make the array empty in less than 4 operations.
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre><strong>Input:</strong> nums = [2,1,2,2,3,3]
+<pre>
+<strong>Input:</strong> nums = [2,1,2,2,3,3]
 <strong>Output:</strong> -1
 <strong>Explanation:</strong> It is impossible to empty the array.
 </pre>

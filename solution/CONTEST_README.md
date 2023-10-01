@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 114 场双周赛(2023-09-30 22:30, 90 分钟) 参赛人数 2406
+
+- [2869. 收集元素的最少操作次数](/solution/2800-2899/2869.Minimum%20Operations%20to%20Collect%20Elements/README.md)
+- [2870. 使数组为空的最少操作次数](/solution/2800-2899/2870.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20Empty/README.md)
+- [2871. 将数组分割成最多数目的子数组](/solution/2800-2899/2871.Split%20Array%20Into%20Maximum%20Number%20of%20Subarrays/README.md)
+- [2872. 可以被 K 整除连通块的最大数目](/solution/2800-2899/2872.Maximum%20Number%20of%20K-Divisible%20Components/README.md)
+
 #### 第 364 场周赛(2023-09-24 10:30, 90 分钟) 参赛人数 4304
 
 - [2864. 最大二进制奇数](/solution/2800-2899/2864.Maximum%20Odd%20Binary%20Number/README.md)

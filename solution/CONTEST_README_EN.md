@@ -25,6 +25,13 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Biweekly Contest 114
+
+- [2869. Minimum Operations to Collect Elements](/solution/2800-2899/2869.Minimum%20Operations%20to%20Collect%20Elements/README_EN.md)
+- [2870. Minimum Number of Operations to Make Array Empty](/solution/2800-2899/2870.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20Empty/README_EN.md)
+- [2871. Split Array Into Maximum Number of Subarrays](/solution/2800-2899/2871.Split%20Array%20Into%20Maximum%20Number%20of%20Subarrays/README_EN.md)
+- [2872. Maximum Number of K-Divisible Components](/solution/2800-2899/2872.Maximum%20Number%20of%20K-Divisible%20Components/README_EN.md)
+
 #### Weekly Contest 364
 
 - [2864. Maximum Odd Binary Number](/solution/2800-2899/2864.Maximum%20Odd%20Binary%20Number/README_EN.md)

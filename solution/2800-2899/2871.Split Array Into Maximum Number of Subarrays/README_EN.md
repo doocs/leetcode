@@ -4,6 +4,8 @@
 
 ## Description
 
+<p>You are given an array <code>nums</code> consisting of <strong>non-negative</strong> integers.</p>
+
 <p>We define the score of subarray <code>nums[l..r]</code> such that <code>l &lt;= r</code> as <code>nums[l] AND nums[l + 1] AND ... AND nums[r]</code> where <strong>AND</strong> is the bitwise <code>AND</code> operation.</p>
 
 <p>Consider splitting the array into one or more subarrays such that the following conditions are satisfied:</p>
@@ -20,7 +22,8 @@
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre><strong>Input:</strong> nums = [1,0,2,0,1,2]
+<pre>
+<strong>Input:</strong> nums = [1,0,2,0,1,2]
 <strong>Output:</strong> 3
 <strong>Explanation:</strong> We can split the array into the following subarrays:
 - [1,0]. The score of this subarray is 1 AND 0 = 0.
@@ -32,7 +35,8 @@ It can be shown that we cannot split the array into more than 3 subarrays with a
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre><strong>Input:</strong> nums = [5,7,1,3]
+<pre>
+<strong>Input:</strong> nums = [5,7,1,3]
 <strong>Output:</strong> 1
 <strong>Explanation:</strong> We can split the array into one subarray: [5,7,1,3] with a score of 1, which is the minimum possible score that we can obtain.
 It can be shown that we cannot split the array into more than 1 subarray with a total score of 1. So we return 1.

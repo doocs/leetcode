@@ -1,10 +1,12 @@
-# [2870. Minimum Number of Operations to Make Array Empty](https://leetcode.cn/problems/minimum-number-of-operations-to-make-array-empty/)
+# [2870. 使数组为空的最少操作次数](https://leetcode.cn/problems/minimum-number-of-operations-to-make-array-empty/)
 
 [English Version](/solution/2800-2899/2870.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20Empty/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
+<p>给你一个下标从 <strong>0</strong>&nbsp;开始的正整数数组&nbsp;<code>nums</code>&nbsp;。</p>
 
 <p>你可以对数组执行以下两种操作 <strong>任意次</strong>&nbsp;：</p>
 
@@ -19,7 +21,8 @@
 
 <p><strong class="example">示例 1：</strong></p>
 
-<pre><strong>输入：</strong>nums = [2,3,3,2,2,4,2,3,4]
+<pre>
+<strong>输入：</strong>nums = [2,3,3,2,2,4,2,3,4]
 <b>输出：</b>4
 <b>解释：</b>我们可以执行以下操作使数组为空：
 - 对下标为 0 和 3 的元素执行第一种操作，得到 nums = [3,3,2,4,2,3,4] 。
@@ -31,7 +34,8 @@
 
 <p><strong class="example">示例 2：</strong></p>
 
-<pre><b>输入：</b>nums = [2,1,2,2,3,3]
+<pre>
+<b>输入：</b>nums = [2,1,2,2,3,3]
 <b>输出：</b>-1
 <b>解释：</b>无法使数组为空。
 </pre>
