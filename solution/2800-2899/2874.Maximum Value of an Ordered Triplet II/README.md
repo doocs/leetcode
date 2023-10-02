@@ -53,6 +53,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：维护前缀最大值和最大差值**
+
+我们可以用两个变量 $mx$ 和 $mx\_diff$ 分别维护前缀最大值和最大差值。遍历数组时，更新这两个变量，答案为所有 $mx\_diff \times nums[i]$ 的最大值。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,7 +66,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maximumTripletValue(self, nums: List[int]) -> int:
+        ans = mx = mx_diff = 0
+        for num in nums:
+            ans = max(ans, mx_diff * num)
+            mx = max(mx, num)
+            mx_diff = max(mx_diff, mx - num)
+        return ans
 ```
 
 ### **Java**
@@ -88,13 +101,54 @@ class Solution {
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    long long maximumTripletValue(vector<int>& nums) {
+        long long ans = 0;
+        int mx = 0, mx_diff = 0;
+        for (int num : nums) {
+            ans = max(ans, 1LL * mx_diff * num);
+            mx = max(mx, num);
+            mx_diff = max(mx_diff, mx - num);
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func maximumTripletValue(nums []int) int64 {
+	ans, mx, mx_diff := 0, 0, 0
+	for _, num := range nums {
+		ans = max(ans, mx_diff*num)
+		mx = max(mx, num)
+		mx_diff = max(mx_diff, mx-num)
+	}
+	return int64(ans)
+}
 
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maximumTripletValue(nums: number[]): number {
+    let [ans, mx, mx_diff] = [0, 0, 0];
+    for (const num of nums) {
+        ans = Math.max(ans, mx_diff * num);
+        mx = Math.max(mx, num);
+        mx_diff = Math.max(mx_diff, mx - num);
+    }
+    return ans;
+}
 ```
 
 ### **...**
