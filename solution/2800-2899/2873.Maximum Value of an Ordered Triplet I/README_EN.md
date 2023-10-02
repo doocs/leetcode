@@ -47,12 +47,25 @@ It can be shown that there are no ordered triplets of indices with a value great
 
 ## Solutions
 
+**Solution 1: Maintain Maximum Prefix Value and Maximum Difference**
+
+We can use two variables $mx$ and $mx\_diff$ to maintain the maximum prefix value and maximum difference, respectively. When traversing the array, we update these two variables, and the answer is the maximum value of all $mx\_diff \times nums[i]$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maximumTripletValue(self, nums: List[int]) -> int:
+        ans = mx = mx_diff = 0
+        for num in nums:
+            ans = max(ans, mx_diff * num)
+            mx = max(mx, num)
+            mx_diff = max(mx_diff, mx - num)
+        return ans
 ```
 
 ### **Java**
@@ -78,13 +91,54 @@ class Solution {
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    long long maximumTripletValue(vector<int>& nums) {
+        long long ans = 0;
+        int mx = 0, mx_diff = 0;
+        for (int num : nums) {
+            ans = max(ans, 1LL * mx_diff * num);
+            mx = max(mx, num);
+            mx_diff = max(mx_diff, mx - num);
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func maximumTripletValue(nums []int) int64 {
+	ans, mx, mx_diff := 0, 0, 0
+	for _, num := range nums {
+		ans = max(ans, mx_diff*num)
+		mx = max(mx, num)
+		mx_diff = max(mx_diff, mx-num)
+	}
+	return int64(ans)
+}
 
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maximumTripletValue(nums: number[]): number {
+    let [ans, mx, mx_diff] = [0, 0, 0];
+    for (const num of nums) {
+        ans = Math.max(ans, mx_diff * num);
+        mx = Math.max(mx, num);
+        mx_diff = Math.max(mx_diff, mx - num);
+    }
+    return ans;
+}
 ```
 
 ### **...**
