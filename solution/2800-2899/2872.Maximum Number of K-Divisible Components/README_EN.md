@@ -52,15 +52,76 @@ It can be shown that no other valid split has more than 3 connected components.
 
 ## Solutions
 
+**Solution 1: DFS**
+
+We notice that the problem guarantees that the sum of the node values in the entire tree can be divided by $k$, so if we remove an edge whose weight is divisible by $k$, then the sum of the node values in each connected component that remains can also be divided by $k$.
+
+Therefore, we can use depth-first search to traverse the entire tree starting from the root node. For each node, we calculate the sum of all node values in its subtree. If this sum can be divided by k, then we increment the answer by one.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where n is the number of nodes in the tree.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
+class Solution:
+    def maxKDivisibleComponents(
+        self, n: int, edges: List[List[int]], values: List[int], k: int
+    ) -> int:
+        def dfs(i: int, fa: int) -> int:
+            s = values[i]
+            for j in g[i]:
+                if j != fa:
+                    s += dfs(j, i)
+            nonlocal ans
+            ans += s % k == 0
+            return s
 
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        ans = 0
+        dfs(0, -1)
+        return ans
 ```
 
 ### **Java**
+
+```java
+class Solution {
+    private int ans;
+    private List<Integer>[] g;
+    private int[] values;
+    private int k;
+
+    public int maxKDivisibleComponents(int n, int[][] edges, int[] values, int k) {
+        g = new List[n];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (int[] e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        this.values = values;
+        this.k = k;
+        dfs(0, -1);
+        return ans;
+    }
+
+    private long dfs(int i, int fa) {
+        long s = values[i];
+        for (int j : g[i]) {
+            if (j != fa) {
+                s += dfs(j, i);
+            }
+        }
+        ans += s % k == 0 ? 1 : 0;
+        return s;
+    }
+}
+```
 
 ```java
 class Solution {
@@ -102,19 +163,90 @@ class Solution {
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int maxKDivisibleComponents(int n, vector<vector<int>>& edges, vector<int>& values, int k) {
+        int ans = 0;
+        vector<int> g[n];
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        function<long long(int, int)> dfs = [&](int i, int fa) {
+            long long s = values[i];
+            for (int j : g[i]) {
+                if (j != fa) {
+                    s += dfs(j, i);
+                }
+            }
+            ans += s % k == 0;
+            return s;
+        };
+        dfs(0, -1);
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
-
+func maxKDivisibleComponents(n int, edges [][]int, values []int, k int) (ans int) {
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	var dfs func(int, int) int
+	dfs = func(i, fa int) int {
+		s := values[i]
+		for _, j := range g[i] {
+			if j != fa {
+				s += dfs(j, i)
+			}
+		}
+		if s%k == 0 {
+			ans++
+		}
+		return s
+	}
+	dfs(0, -1)
+	return
+}
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function maxKDivisibleComponents(
+    n: number,
+    edges: number[][],
+    values: number[],
+    k: number,
+): number {
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    let ans = 0;
+    const dfs = (i: number, fa: number): number => {
+        let s = values[i];
+        for (const j of g[i]) {
+            if (j !== fa) {
+                s += dfs(j, i);
+            }
+        }
+        if (s % k === 0) {
+            ++ans;
+        }
+        return s;
+    };
+    dfs(0, -1);
+    return ans;
+}
 ```
 
 ### **...**
