@@ -1,45 +1,29 @@
 class Solution {
-    public int shortestSubarray(int[] nums, int k) {
-        int n = nums.length;
-        int minLength = n * 2 + 1;
-        int l = 0;
-        int sum = 0;
-
-        for (int r = 0; r < n * 2; r++) {
-            int start = l % n;
-            int end = r % n;
-            sum += nums[end];
-
-            while (sum > k && l <= r) {
-                start = l % n;
-                sum -= nums[start];
-                l++;
-            }
-
-            if (sum == k) {
-                minLength = Math.min(minLength, r - l + 1);
-                start = l % n;
-                sum -= nums[start];
-                l++;
-            }
-        }
-
-        return minLength == n * 2 + 1 ? -1 : minLength;
-    }
-
     public int minSizeSubarray(int[] nums, int target) {
+        long s = Arrays.stream(nums).sum();
         int n = nums.length;
-        int sum = 0;
-
-        for (int num : nums) {
-            sum += num;
+        int a = 0;
+        if (target > s) {
+            a = n * (target / (int) s);
+            target -= target / s * s;
         }
-        int k = target % sum;
-        int ans = target / sum * n;
-        if (k == 0) {
-            return ans;
+        if (target == s) {
+            return n;
         }
-        int res = shortestSubarray(nums, k);
-        return res == -1 ? -1 : ans + res;
+        Map<Long, Integer> pos = new HashMap<>();
+        pos.put(0L, -1);
+        long pre = 0;
+        int b = 1 << 30;
+        for (int i = 0; i < n; ++i) {
+            pre += nums[i];
+            if (pos.containsKey(pre - target)) {
+                b = Math.min(b, i - pos.get(pre - target));
+            }
+            if (pos.containsKey(pre - (s - target))) {
+                b = Math.min(b, n - (i - pos.get(pre - (s - target))));
+            }
+            pos.put(pre, i);
+        }
+        return b == 1 << 30 ? -1 : a + b;
     }
 }
