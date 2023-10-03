@@ -174,7 +174,7 @@
 |  0161  |  [相隔为 1 的编辑距离](/solution/0100-0199/0161.One%20Edit%20Distance/README.md)  |  `双指针`,`字符串`  |  中等  |  🔒  |
 |  0162  |  [寻找峰值](/solution/0100-0199/0162.Find%20Peak%20Element/README.md)  |  `数组`,`二分查找`  |  中等  |    |
 |  0163  |  [缺失的区间](/solution/0100-0199/0163.Missing%20Ranges/README.md)  |  `数组`  |  简单  |  🔒  |
-|  0164  |  [最大间距](/solution/0100-0199/0164.Maximum%20Gap/README.md)  |  `数组`,`桶排序`,`基数排序`,`排序`  |  困难  |    |
+|  0164  |  [最大间距](/solution/0100-0199/0164.Maximum%20Gap/README.md)  |  `数组`,`桶排序`,`基数排序`,`排序`  |  中等  |    |
 |  0165  |  [比较版本号](/solution/0100-0199/0165.Compare%20Version%20Numbers/README.md)  |  `双指针`,`字符串`  |  中等  |    |
 |  0166  |  [分数到小数](/solution/0100-0199/0166.Fraction%20to%20Recurring%20Decimal/README.md)  |  `哈希表`,`数学`,`字符串`  |  中等  |    |
 |  0167  |  [两数之和 II - 输入有序数组](/solution/0100-0199/0167.Two%20Sum%20II%20-%20Input%20Array%20Is%20Sorted/README.md)  |  `数组`,`双指针`,`二分查找`  |  中等  |    |
@@ -2642,7 +2642,7 @@
 |  2629  |  [复合函数](/solution/2600-2699/2629.Function%20Composition/README.md)  |    |  简单  |    |
 |  2630  |  [记忆函数 II](/solution/2600-2699/2630.Memoize%20II/README.md)  |    |  困难  |    |
 |  2631  |  [分组](/solution/2600-2699/2631.Group%20By/README.md)  |    |  中等  |    |
-|  2632  |  [柯里化](/solution/2600-2699/2632.Curry/README.md)  |    |  中等  |  🔒  |
+|  2632  |  [柯里化](/solution/2600-2699/2632.Curry/README.md)  |    |  困难  |  🔒  |
 |  2633  |  [将对象转换为 JSON 字符串](/solution/2600-2699/2633.Convert%20Object%20to%20JSON%20String/README.md)  |    |  中等  |  🔒  |
 |  2634  |  [过滤数组中的元素](/solution/2600-2699/2634.Filter%20Elements%20from%20Array/README.md)  |    |  简单  |    |
 |  2635  |  [转换数组中的每个元素](/solution/2600-2699/2635.Apply%20Transform%20Over%20Each%20Element%20in%20Array/README.md)  |    |  简单  |    |
@@ -2807,7 +2807,7 @@
 |  2794  |  [从两个数组中创建对象](/solution/2700-2799/2794.Create%20Object%20from%20Two%20Arrays/README.md)  |    |  简单  |  🔒  |
 |  2795  |  [并行执行 Promise 以获取独有的结果](/solution/2700-2799/2795.Parallel%20Execution%20of%20Promises%20for%20Individual%20Results%20Retrieval/README.md)  |    |  中等  |  🔒  |
 |  2796  |  [重复字符串](/solution/2700-2799/2796.Repeat%20String/README.md)  |    |  简单  |  🔒  |
-|  2797  |  [带有占位符的部分函数](/solution/2700-2799/2797.Partial%20Function%20with%20Placeholders/README.md)  |    |  简单  |  🔒  |
+|  2797  |  [带有占位符的部分函数](/solution/2700-2799/2797.Partial%20Function%20with%20Placeholders/README.md)  |    |  中等  |  🔒  |
 |  2798  |  [满足目标工作时长的员工数目](/solution/2700-2799/2798.Number%20of%20Employees%20Who%20Met%20the%20Target/README.md)  |  `数组`,`枚举`  |  简单  |  第 356 场周赛  |
 |  2799  |  [统计完全子数组的数目](/solution/2700-2799/2799.Count%20Complete%20Subarrays%20in%20an%20Array/README.md)  |  `数组`,`哈希表`,`滑动窗口`  |  中等  |  第 356 场周赛  |
 |  2800  |  [包含三个字符串的最短字符串](/solution/2800-2899/2800.Shortest%20String%20That%20Contains%20Three%20Strings/README.md)  |  `贪心`,`字符串`,`枚举`  |  中等  |  第 356 场周赛  |

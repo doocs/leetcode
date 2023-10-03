@@ -172,7 +172,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  0161  |  [One Edit Distance](/solution/0100-0199/0161.One%20Edit%20Distance/README_EN.md)  |  `Two Pointers`,`String`  |  Medium  |  🔒  |
 |  0162  |  [Find Peak Element](/solution/0100-0199/0162.Find%20Peak%20Element/README_EN.md)  |  `Array`,`Binary Search`  |  Medium  |    |
 |  0163  |  [Missing Ranges](/solution/0100-0199/0163.Missing%20Ranges/README_EN.md)  |  `Array`  |  Easy  |  🔒  |
-|  0164  |  [Maximum Gap](/solution/0100-0199/0164.Maximum%20Gap/README_EN.md)  |  `Array`,`Bucket Sort`,`Radix Sort`,`Sorting`  |  Hard  |    |
+|  0164  |  [Maximum Gap](/solution/0100-0199/0164.Maximum%20Gap/README_EN.md)  |  `Array`,`Bucket Sort`,`Radix Sort`,`Sorting`  |  Medium  |    |
 |  0165  |  [Compare Version Numbers](/solution/0100-0199/0165.Compare%20Version%20Numbers/README_EN.md)  |  `Two Pointers`,`String`  |  Medium  |    |
 |  0166  |  [Fraction to Recurring Decimal](/solution/0100-0199/0166.Fraction%20to%20Recurring%20Decimal/README_EN.md)  |  `Hash Table`,`Math`,`String`  |  Medium  |    |
 |  0167  |  [Two Sum II - Input Array Is Sorted](/solution/0100-0199/0167.Two%20Sum%20II%20-%20Input%20Array%20Is%20Sorted/README_EN.md)  |  `Array`,`Two Pointers`,`Binary Search`  |  Medium  |    |
@@ -2640,7 +2640,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2629  |  [Function Composition](/solution/2600-2699/2629.Function%20Composition/README_EN.md)  |    |  Easy  |    |
 |  2630  |  [Memoize II](/solution/2600-2699/2630.Memoize%20II/README_EN.md)  |    |  Hard  |    |
 |  2631  |  [Group By](/solution/2600-2699/2631.Group%20By/README_EN.md)  |    |  Medium  |    |
-|  2632  |  [Curry](/solution/2600-2699/2632.Curry/README_EN.md)  |    |  Medium  |  🔒  |
+|  2632  |  [Curry](/solution/2600-2699/2632.Curry/README_EN.md)  |    |  Hard  |  🔒  |
 |  2633  |  [Convert Object to JSON String](/solution/2600-2699/2633.Convert%20Object%20to%20JSON%20String/README_EN.md)  |    |  Medium  |  🔒  |
 |  2634  |  [Filter Elements from Array](/solution/2600-2699/2634.Filter%20Elements%20from%20Array/README_EN.md)  |    |  Easy  |    |
 |  2635  |  [Apply Transform Over Each Element in Array](/solution/2600-2699/2635.Apply%20Transform%20Over%20Each%20Element%20in%20Array/README_EN.md)  |    |  Easy  |    |
@@ -2805,7 +2805,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2794  |  [Create Object from Two Arrays](/solution/2700-2799/2794.Create%20Object%20from%20Two%20Arrays/README_EN.md)  |    |  Easy  |  🔒  |
 |  2795  |  [Parallel Execution of Promises for Individual Results Retrieval](/solution/2700-2799/2795.Parallel%20Execution%20of%20Promises%20for%20Individual%20Results%20Retrieval/README_EN.md)  |    |  Medium  |  🔒  |
 |  2796  |  [Repeat String](/solution/2700-2799/2796.Repeat%20String/README_EN.md)  |    |  Easy  |  🔒  |
-|  2797  |  [Partial Function with Placeholders](/solution/2700-2799/2797.Partial%20Function%20with%20Placeholders/README_EN.md)  |    |  Easy  |  🔒  |
+|  2797  |  [Partial Function with Placeholders](/solution/2700-2799/2797.Partial%20Function%20with%20Placeholders/README_EN.md)  |    |  Medium  |  🔒  |
 |  2798  |  [Number of Employees Who Met the Target](/solution/2700-2799/2798.Number%20of%20Employees%20Who%20Met%20the%20Target/README_EN.md)  |  `Array`,`Enumeration`  |  Easy  |  Weekly Contest 356  |
 |  2799  |  [Count Complete Subarrays in an Array](/solution/2700-2799/2799.Count%20Complete%20Subarrays%20in%20an%20Array/README_EN.md)  |  `Array`,`Hash Table`,`Sliding Window`  |  Medium  |  Weekly Contest 356  |
 |  2800  |  [Shortest String That Contains Three Strings](/solution/2800-2899/2800.Shortest%20String%20That%20Contains%20Three%20Strings/README_EN.md)  |  `Greedy`,`String`,`Enumeration`  |  Medium  |  Weekly Contest 356  |

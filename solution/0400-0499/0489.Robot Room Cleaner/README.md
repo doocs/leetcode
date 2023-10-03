@@ -14,7 +14,8 @@
 
 <p>请利用提供的4个API编写让机器人清理整个房间的算法。</p>
 
-<pre>interface Robot {
+<pre>
+interface Robot {
 &nbsp; // 若下一个方格为空，则返回true，并移动至该方格
 &nbsp; // 若下一个方格为障碍物，则返回false，并停留在原地
 &nbsp; boolean move();
@@ -31,7 +32,10 @@
 
 <p><strong>示例:</strong></p>
 
-<pre><strong>输入:</strong>
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0489.Robot%20Room%20Cleaner/images/1695782910-iCEGqJ-image.png" style="width: 644px; height: 405px;" /></strong></p>
+
+<pre>
+<strong>输入:</strong>
 room = [
   [1,1,1,1,1,0,1,1],
   [1,1,1,1,1,0,1,1],
@@ -50,7 +54,7 @@ col = 3
 <p><strong>注意:</strong></p>
 
 <ol>
-	<li>输入只用于初始化房间和机器人的位置。你需要&ldquo;盲解&rdquo;这个问题。换而言之，你必须在对房间和机器人位置一无所知的情况下，只使用4个给出的API解决问题。&nbsp;</li>
+	<li>输入只用于初始化房间和机器人的位置。你需要“盲解”这个问题。换而言之，你必须在对房间和机器人位置一无所知的情况下，只使用4个给出的API解决问题。&nbsp;</li>
 	<li>扫地机器人的初始位置一定是空地。</li>
 	<li>扫地机器人的初始方向向上。</li>
 	<li>所有可抵达的格子都是相连的，亦即所有标记为1的格子机器人都可以抵达。</li>

@@ -8,7 +8,7 @@
 
 <p>现给定一个整数 <code>n</code> 和一个 <code>CategoryHandler</code> 类的对象 <code>categoryHandler</code> 。</p>
 
-<p>有 <code>n</code> 个元素，编号从 <code>0</code> 到 <code>n - 1</code>。每个元素都有一个类别，你的任务是找出唯一类别的数量。</p>
+<p>有 <code>n&nbsp;</code> 个元素，编号从 <code>0</code> 到 <code>n - 1</code>。每个元素都有一个类别，你的任务是找出唯一类别的数量。</p>
 
 <p><code>CategoryHandler</code> 类包含以下方法，可能对你有帮助：</p>
 
@@ -16,7 +16,7 @@
 	<li><code>boolean haveSameCategory(integer a, integer b)</code>：如果 <code>a</code> 和 <code>b</code> 属于相同的类别，则返回 <code>true</code>，否则返回 <code>false</code>。同时，如果 <code>a</code> 或 <code>b</code> 不是有效的数字（即大于等于 <code>n</code> 或小于 <code>0</code>），它也会返回 <code>false</code>。</li>
 </ul>
 
-<p>返回唯一类别的数量。</p>
+<p>返回&nbsp;<em>唯一类别的数量</em>。</p>
 
 <p>&nbsp;</p>
 
