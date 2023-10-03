@@ -47,47 +47,99 @@
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        f1, f2, f3 = -prices[0], 0, 0
-        for price in prices[1:]:
-            pf1, pf2, pf3 = f1, f2, f3
-            f1 = max(pf1, pf3 - price)
-            f2 = max(pf2, pf1 + price)
-            f3 = max(pf3, pf2)
-        return f2
+        @cache
+        def dfs(i: int, j: int) -> int:
+            if i >= len(prices):
+                return 0
+            ans = dfs(i + 1, j)
+            if j:
+                ans = max(ans, prices[i] + dfs(i + 2, 0))
+            else:
+                ans = max(ans, -prices[i] + dfs(i + 1, 1))
+            return ans
+
+        return dfs(0, 0)
+```
+
+```python
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        n = len(prices)
+        f = [[0] * 2 for _ in range(n)]
+        f[0][1] = -prices[0]
+        for i in range(1, n):
+            f[i][0] = max(f[i - 1][0], f[i - 1][1] + prices[i])
+            f[i][1] = max(f[i - 1][1], f[i - 2][0] - prices[i])
+        return f[n - 1][0]
+```
+
+```python
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        f, f0, f1 = 0, 0, -prices[0]
+        for x in prices[1:]:
+            f, f0, f1 = f0, max(f0, f1 + x), max(f1, f - x)
+        return f0
 ```
 
 ### **Java**
 
 ```java
 class Solution {
+    private int[] prices;
+    private Integer[][] f;
+
     public int maxProfit(int[] prices) {
-        int f1 = -prices[0], f2 = 0, f3 = 0;
-        for (int i = 1; i < prices.length; ++i) {
-            int pf1 = f1, pf2 = f2, pf3 = f3;
-            f1 = Math.max(pf1, pf3 - prices[i]);
-            f2 = Math.max(pf2, pf1 + prices[i]);
-            f3 = Math.max(pf3, pf2);
+        this.prices = prices;
+        f = new Integer[prices.length][2];
+        return dfs(0, 0);
+    }
+
+    private int dfs(int i, int j) {
+        if (i >= prices.length) {
+            return 0;
         }
-        return f2;
+        if (f[i][j] != null) {
+            return f[i][j];
+        }
+        int ans = dfs(i + 1, j);
+        if (j > 0) {
+            ans = Math.max(ans, prices[i] + dfs(i + 2, 0));
+        } else {
+            ans = Math.max(ans, -prices[i] + dfs(i + 1, 1));
+        }
+        return f[i][j] = ans;
     }
 }
 ```
 
-### **TypeScript**
-
-```ts
-function maxProfit(prices: number[]): number {
-    const n = prices.length;
-    let dp = Array.from({ length: n }, v => new Array(3).fill(0));
-    dp[0] = [0, -prices[0], Number.MIN_SAFE_INTEGER];
-    for (let i = 1; i < n; i++) {
-        dp[i] = [
-            Math.max(dp[i - 1][0], dp[i - 1][2]),
-            Math.max(dp[i - 1][1], dp[i - 1][0] - prices[i]),
-            dp[i - 1][1] + prices[i],
-        ];
+```java
+class Solution {
+    public int maxProfit(int[] prices) {
+        int n = prices.length;
+        int[][] f = new int[n][2];
+        f[0][1] = -prices[0];
+        for (int i = 1; i < n; i++) {
+            f[i][0] = Math.max(f[i - 1][0], f[i - 1][1] + prices[i]);
+            f[i][1] = Math.max(f[i - 1][1], (i > 1 ? f[i - 2][0] : 0) - prices[i]);
+        }
+        return f[n - 1][0];
     }
-    return Math.max(dp[n - 1][0], dp[n - 1][2]);
+}
+```
+
+```java
+class Solution {
+    public int maxProfit(int[] prices) {
+        int f = 0, f0 = 0, f1 = -prices[0];
+        for (int i = 1; i < prices.length; ++i) {
+            int g0 = Math.max(f0, f1 + prices[i]);
+            f1 = Math.max(f1, f - prices[i]);
+            f = f0;
+            f0 = g0;
+        }
+        return f0;
+    }
 }
 ```
 
@@ -97,14 +149,58 @@ function maxProfit(prices: number[]): number {
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
-        int f1 = -prices[0], f2 = 0, f3 = 0;
-        for (int i = 1; i < prices.size(); ++i) {
-            int pf1 = f1, pf2 = f2, pf3 = f3;
-            f1 = max(pf1, pf3 - prices[i]);
-            f2 = max(pf2, pf1 + prices[i]);
-            f3 = max(pf3, pf2);
+        int n = prices.size();
+        int f[n][2];
+        memset(f, -1, sizeof(f));
+        function<int(int, int)> dfs = [&](int i, int j) {
+            if (i >= n) {
+                return 0;
+            }
+            if (f[i][j] != -1) {
+                return f[i][j];
+            }
+            int ans = dfs(i + 1, j);
+            if (j) {
+                ans = max(ans, prices[i] + dfs(i + 2, 0));
+            } else {
+                ans = max(ans, -prices[i] + dfs(i + 1, 1));
+            }
+            return f[i][j] = ans;
+        };
+        return dfs(0, 0);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int n = prices.size();
+        int f[n][2];
+        memset(f, 0, sizeof(f));
+        f[0][1] = -prices[0];
+        for (int i = 1; i < n; ++i) {
+            f[i][0] = max(f[i - 1][0], f[i - 1][1] + prices[i]);
+            f[i][1] = max(f[i - 1][1], (i > 1 ? f[i - 2][0] : 0) - prices[i]);
         }
-        return f2;
+        return f[n - 1][0];
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int f = 0, f0 = 0, f1 = -prices[0];
+        for (int i = 1; i < prices.size(); ++i) {
+            int g0 = max(f0, f1 + prices[i]);
+            f1 = max(f1, f - prices[i]);
+            f = f0;
+            f0 = g0;
+        }
+        return f0;
     }
 };
 ```
@@ -113,14 +209,29 @@ public:
 
 ```go
 func maxProfit(prices []int) int {
-	f1, f2, f3 := -prices[0], 0, 0
-	for i := 1; i < len(prices); i++ {
-		pf1, pf2, pf3 := f1, f2, f3
-		f1 = max(pf1, pf3-prices[i])
-		f2 = max(pf2, pf1+prices[i])
-		f3 = max(pf3, pf2)
+	n := len(prices)
+	f := make([][2]int, n)
+	for i := range f {
+		f[i] = [2]int{-1, -1}
 	}
-	return f2
+	var dfs func(i, j int) int
+	dfs = func(i, j int) int {
+		if i >= n {
+			return 0
+		}
+		if f[i][j] != -1 {
+			return f[i][j]
+		}
+		ans := dfs(i+1, j)
+		if j > 0 {
+			ans = max(ans, prices[i]+dfs(i+2, 0))
+		} else {
+			ans = max(ans, -prices[i]+dfs(i+1, 1))
+		}
+		f[i][j] = ans
+		return ans
+	}
+	return dfs(0, 0)
 }
 
 func max(a, b int) int {
@@ -128,6 +239,95 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+```go
+func maxProfit(prices []int) int {
+	n := len(prices)
+	f := make([][2]int, n)
+	f[0][1] = -prices[0]
+	for i := 1; i < n; i++ {
+		f[i][0] = max(f[i-1][0], f[i-1][1]+prices[i])
+		if i > 1 {
+			f[i][1] = max(f[i-1][1], f[i-2][0]-prices[i])
+		} else {
+			f[i][1] = max(f[i-1][1], -prices[i])
+		}
+	}
+	return f[n-1][0]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func maxProfit(prices []int) int {
+	f, f0, f1 := 0, 0, -prices[0]
+	for _, x := range prices[1:] {
+		f, f0, f1 = f0, max(f0, f1+x), max(f1, f-x)
+	}
+	return f0
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxProfit(prices: number[]): number {
+    const n = prices.length;
+    const f: number[][] = Array.from({ length: n }, () => Array.from({ length: 2 }, () => -1));
+    const dfs = (i: number, j: number): number => {
+        if (i >= n) {
+            return 0;
+        }
+        if (f[i][j] !== -1) {
+            return f[i][j];
+        }
+        let ans = dfs(i + 1, j);
+        if (j) {
+            ans = Math.max(ans, prices[i] + dfs(i + 2, 0));
+        } else {
+            ans = Math.max(ans, -prices[i] + dfs(i + 1, 1));
+        }
+        return (f[i][j] = ans);
+    };
+    return dfs(0, 0);
+}
+```
+
+```ts
+function maxProfit(prices: number[]): number {
+    const n = prices.length;
+    const f: number[][] = Array.from({ length: n }, () => Array.from({ length: 2 }, () => 0));
+    f[0][1] = -prices[0];
+    for (let i = 1; i < n; ++i) {
+        f[i][0] = Math.max(f[i - 1][0], f[i - 1][1] + prices[i]);
+        f[i][1] = Math.max(f[i - 1][1], (i > 1 ? f[i - 2][0] : 0) - prices[i]);
+    }
+    return f[n - 1][0];
+}
+```
+
+```ts
+function maxProfit(prices: number[]): number {
+    let [f, f0, f1] = [0, 0, -prices[0]];
+    for (const x of prices.slice(1)) {
+        [f, f0, f1] = [f0, Math.max(f0, f1 + x), Math.max(f1, f - x)];
+    }
+    return f0;
 }
 ```
 
