@@ -1,14 +1,14 @@
 class Solution {
-    public int[] countVisitedNodes(List<Integer> edges) {
+public:
+    vector<int> countVisitedNodes(vector<int>& edges) {
         int n = edges.size();
-        int[] ans = new int[n];
-        int[] vis = new int[n];
+        vector<int> ans(n), vis(n);
         for (int i = 0; i < n; ++i) {
-            if (ans[i] == 0) {
+            if (!ans[i]) {
                 int cnt = 0, j = i;
                 while (vis[j] == 0) {
                     vis[j] = ++cnt;
-                    j = edges.get(j);
+                    j = edges[j];
                 }
                 int cycle = 0, total = cnt + ans[j];
                 if (ans[j] == 0) {
@@ -16,11 +16,11 @@ class Solution {
                 }
                 j = i;
                 while (ans[j] == 0) {
-                    ans[j] = Math.max(total--, cycle);
-                    j = edges.get(j);
+                    ans[j] = max(total--, cycle);
+                    j = edges[j];
                 }
             }
         }
         return ans;
     }
-}
+};
