@@ -1,8 +1,5 @@
 function maxProfit(prices: number[]): number {
-    let f1 = -prices[0],
-        f2 = 0,
-        f3 = -prices[0],
-        f4 = 0;
+    let [f1, f2, f3, f4] = [-prices[0], 0, -prices[0], 0];
     for (let i = 1; i < prices.length; ++i) {
         f1 = Math.max(f1, -prices[i]);
         f2 = Math.max(f2, f1 + prices[i]);
