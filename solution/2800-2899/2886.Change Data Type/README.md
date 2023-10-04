@@ -56,7 +56,12 @@ The data types of the column grade is converted to int.</pre>
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+import pandas as pd
 
+
+def changeDatatype(students: pd.DataFrame) -> pd.DataFrame:
+    students['grade'] = students['grade'].astype(int)
+    return students
 ```
 
 ### **...**

@@ -63,7 +63,11 @@ This DataFrame contains 10 rows and 5 columns.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+import pandas as pd
 
+
+def getDataframeSize(players: pd.DataFrame) -> List[int]:
+    return list(players.shape)
 ```
 
 ### **...**

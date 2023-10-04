@@ -58,7 +58,11 @@ Only the first 3 rows are displayed.</pre>
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+import pandas as pd
 
+
+def selectFirstRows(employees: pd.DataFrame) -> pd.DataFrame:
+    return employees.head(3)
 ```
 
 ### **...**

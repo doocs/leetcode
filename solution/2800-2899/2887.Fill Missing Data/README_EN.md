@@ -49,7 +49,12 @@ The quantity for Toaster and Headphones are filled by 0.</pre>
 ### **Pandas**
 
 ```python
+import pandas as pd
 
+
+def fillMissingValues(products: pd.DataFrame) -> pd.DataFrame:
+    products['quantity'] = products['quantity'].fillna(0)
+    return products
 ```
 
 ### **...**

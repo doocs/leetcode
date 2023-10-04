@@ -54,7 +54,11 @@ Input:</strong>
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+import pandas as pd
 
+
+def selectData(students: pd.DataFrame) -> pd.DataFrame:
+    return students[students['student_id'] == 101][['name', 'age']]
 ```
 
 ### **Java**

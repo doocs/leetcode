@@ -66,7 +66,13 @@ The column names are changed accordingly.</pre>
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+import pandas as pd
 
+
+def renameColumns(students: pd.DataFrame) -> pd.DataFrame:
+    students.rename(columns={'id': 'student_id', 'first': 'first_name', 'last': 'last_name', 'age': 'age_in_years'},
+                    inplace=True)
+    return students
 ```
 
 ### **...**

@@ -56,7 +56,11 @@ The DataFrame is reshaped from wide to long format. Each row represents the sale
 ### **Pandas**
 
 ```python
+import pandas as pd
 
+
+def meltTable(report: pd.DataFrame) -> pd.DataFrame:
+    return pd.melt(report, id_vars=['product'], var_name='quarter', value_name='sales')
 ```
 
 ### **...**
