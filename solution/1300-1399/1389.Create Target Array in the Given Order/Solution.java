@@ -5,10 +5,11 @@ class Solution {
         for (int i = 0; i < n; ++i) {
             target.add(index[i], nums[i]);
         }
-        int[] res = new int[n];
+        // return target.stream().mapToInt(i -> i).toArray();
+        int[] ans = new int[n];
         for (int i = 0; i < n; ++i) {
-            res[i] = target.get(i);
+            ans[i] = target.get(i);
         }
-        return res;
+        return ans;
     }
 }
