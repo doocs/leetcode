@@ -1,13 +1,8 @@
 name: black-linter
 
 on:
-  pull_request_target:
-    types:
-      - opened
-      - edited
-      - synchronize
-    branches:
-      - main
+  push: {}
+  pull_request: {}
 
 jobs:
   build:
