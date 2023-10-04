@@ -62,7 +62,11 @@ Alic (customer_id = 4) and Finn (customer_id = 5) both use john@example.com, so 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+import pandas as pd
 
+
+def dropDuplicateEmails(customers: pd.DataFrame) -> pd.DataFrame:
+    return customers.drop_duplicates(subset=['email'])
 ```
 
 ### **...**

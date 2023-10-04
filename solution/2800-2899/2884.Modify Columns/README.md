@@ -54,32 +54,17 @@ DataFrame <code>employees</code>
 
 <!-- tabs:start -->
 
-### **Python3**
+### **Pandas**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+import pandas as pd
 
-```
 
-### **Java**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-
-```
-
-### **C++**
-
-```cpp
-
-```
-
-### **Go**
-
-```go
-
+def modifySalaryColumn(employees: pd.DataFrame) -> pd.DataFrame:
+    employees['salary'] *= 2
+    return employees
 ```
 
 ### **...**

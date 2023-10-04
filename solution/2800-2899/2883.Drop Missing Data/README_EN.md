@@ -51,7 +51,11 @@ Students with ids 779 and 849 have empty values in the name column, so they will
 ### **Pandas**
 
 ```python
+import pandas as pd
 
+
+def dropMissingData(students: pd.DataFrame) -> pd.DataFrame:
+    return students[students['name'].notnull()]
 ```
 
 ### **...**

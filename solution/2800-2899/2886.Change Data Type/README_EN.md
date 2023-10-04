@@ -50,7 +50,12 @@ The data types of the column grade is converted to int.</pre>
 ### **Pandas**
 
 ```python
+import pandas as pd
 
+
+def changeDatatype(students: pd.DataFrame) -> pd.DataFrame:
+    students['grade'] = students['grade'].astype(int)
+    return students
 ```
 
 ### **...**

@@ -70,7 +70,11 @@ The results should be sorted in descending order of weight.</pre>
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+import pandas as pd
 
+
+def findHeavyAnimals(animals: pd.DataFrame) -> pd.DataFrame:
+    return animals[animals['weight'] > 100].sort_values('weight', ascending=False)[['name']]
 ```
 
 ### **...**

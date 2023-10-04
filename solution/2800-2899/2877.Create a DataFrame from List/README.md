@@ -48,7 +48,11 @@ A DataFrame was created on top of student_data, with two columns named <code>stu
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+import pandas as pd
 
+
+def createDataframe(student_data: List[List[int]]) -> pd.DataFrame:
+    return pd.DataFrame(student_data, columns=['student_id', 'age'])
 ```
 
 ### **...**
