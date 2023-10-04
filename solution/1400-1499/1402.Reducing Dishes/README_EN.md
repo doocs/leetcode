@@ -56,14 +56,14 @@ Each dish is prepared in one unit of time.</pre>
 class Solution:
     def maxSatisfaction(self, satisfaction: List[int]) -> int:
         satisfaction.sort(reverse=True)
-        ans = presum = 0
-        for v in satisfaction:
-            presum += v
-            if presum > 0:
-                ans += presum
-            else:
+        ans = s = 0
+        for x in satisfaction:
+            s += x
+            if s <= 0:
                 break
+            ans += s
         return ans
+
 ```
 
 ### **Java**
@@ -72,14 +72,13 @@ class Solution:
 class Solution {
     public int maxSatisfaction(int[] satisfaction) {
         Arrays.sort(satisfaction);
-        int ans = 0, presum = 0;
+        int ans = 0, s = 0;
         for (int i = satisfaction.length - 1; i >= 0; --i) {
-            presum += satisfaction[i];
-            if (presum > 0) {
-                ans += presum;
-            } else {
+            s += satisfaction[i];
+            if (s <= 0) {
                 break;
             }
+            ans += s;
         }
         return ans;
     }
@@ -93,13 +92,13 @@ class Solution {
 public:
     int maxSatisfaction(vector<int>& satisfaction) {
         sort(rbegin(satisfaction), rend(satisfaction));
-        int ans = 0, presum = 0;
-        for (int v : satisfaction) {
-            presum += v;
-            if (presum > 0)
-                ans += presum;
-            else
+        int ans = 0, s = 0;
+        for (int x : satisfaction) {
+            s += x;
+            if (s <= 0) {
                 break;
+            }
+            ans += s;
         }
         return ans;
     }
@@ -109,18 +108,34 @@ public:
 ### **Go**
 
 ```go
-func maxSatisfaction(satisfaction []int) int {
-	sort.Ints(satisfaction)
-	ans, presum := 0, 0
-	for i := len(satisfaction) - 1; i >= 0; i-- {
-		presum += satisfaction[i]
-		if presum > 0 {
-			ans += presum
-		} else {
+func maxSatisfaction(satisfaction []int) (ans int) {
+	sort.Slice(satisfaction, func(i, j int) bool { return satisfaction[i] > satisfaction[j] })
+	s := 0
+	for _, x := range satisfaction {
+		s += x
+		if s <= 0 {
 			break
 		}
+		ans += s
 	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxSatisfaction(satisfaction: number[]): number {
+    satisfaction.sort((a, b) => b - a);
+    let [ans, s] = [0, 0];
+    for (const x of satisfaction) {
+        s += x;
+        if (s <= 0) {
+            break;
+        }
+        ans += s;
+    }
+    return ans;
 }
 ```
 

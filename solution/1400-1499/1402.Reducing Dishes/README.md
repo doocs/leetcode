@@ -53,7 +53,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：排序 + 贪心**
+**方法一：贪心 + 排序**
+
+假如我们只选择一道菜，那么我们应该选择满意度最大的那道菜 $s_0$，并且判断 $s_0$ 是否大于 0，如果 $s_0 \leq 0$，那么我们就不做菜了，否则我们做这道菜，得到的总满意度为 $s_0$。
+
+假如我们选择两道菜，那么我们应该选择满足度最大的两道菜 $s_0$ 和 $s_1$，满意度为 $s_1 + 2 \times s_0$，此时要保证选择之后的满意度大于选择之前的满意度，即 $s_1 + 2 \times s_0 > s_0$，即 只要满足 $s_1 + s_0 > 0$，我们就可以选择这两道菜。
+
+依此类推，我们可以得到一个规律，即我们应该选择满意度最大的 $k$ 道菜，并且保证前 $k$ 道菜的满意度之和大于 $0$。
+
+在实现上，我们可以先对所有菜的满意度进行排序，然后从满意度最大的菜开始选择，每次累加当前这道菜的满意度，如果累加的结果小于等于 $0$，那么我们就不再选择后面的菜了，否则我们就选择这道菜。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
 
@@ -65,13 +75,12 @@
 class Solution:
     def maxSatisfaction(self, satisfaction: List[int]) -> int:
         satisfaction.sort(reverse=True)
-        ans = presum = 0
-        for v in satisfaction:
-            presum += v
-            if presum > 0:
-                ans += presum
-            else:
+        ans = s = 0
+        for x in satisfaction:
+            s += x
+            if s <= 0:
                 break
+            ans += s
         return ans
 ```
 
@@ -83,14 +92,13 @@ class Solution:
 class Solution {
     public int maxSatisfaction(int[] satisfaction) {
         Arrays.sort(satisfaction);
-        int ans = 0, presum = 0;
+        int ans = 0, s = 0;
         for (int i = satisfaction.length - 1; i >= 0; --i) {
-            presum += satisfaction[i];
-            if (presum > 0) {
-                ans += presum;
-            } else {
+            s += satisfaction[i];
+            if (s <= 0) {
                 break;
             }
+            ans += s;
         }
         return ans;
     }
@@ -104,13 +112,13 @@ class Solution {
 public:
     int maxSatisfaction(vector<int>& satisfaction) {
         sort(rbegin(satisfaction), rend(satisfaction));
-        int ans = 0, presum = 0;
-        for (int v : satisfaction) {
-            presum += v;
-            if (presum > 0)
-                ans += presum;
-            else
+        int ans = 0, s = 0;
+        for (int x : satisfaction) {
+            s += x;
+            if (s <= 0) {
                 break;
+            }
+            ans += s;
         }
         return ans;
     }
@@ -120,18 +128,34 @@ public:
 ### **Go**
 
 ```go
-func maxSatisfaction(satisfaction []int) int {
-	sort.Ints(satisfaction)
-	ans, presum := 0, 0
-	for i := len(satisfaction) - 1; i >= 0; i-- {
-		presum += satisfaction[i]
-		if presum > 0 {
-			ans += presum
-		} else {
+func maxSatisfaction(satisfaction []int) (ans int) {
+	sort.Slice(satisfaction, func(i, j int) bool { return satisfaction[i] > satisfaction[j] })
+	s := 0
+	for _, x := range satisfaction {
+		s += x
+		if s <= 0 {
 			break
 		}
+		ans += s
 	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxSatisfaction(satisfaction: number[]): number {
+    satisfaction.sort((a, b) => b - a);
+    let [ans, s] = [0, 0];
+    for (const x of satisfaction) {
+        s += x;
+        if (s <= 0) {
+            break;
+        }
+        ans += s;
+    }
+    return ans;
 }
 ```
 
