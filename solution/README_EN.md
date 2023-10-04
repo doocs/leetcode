@@ -2885,6 +2885,21 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2874  |  [Maximum Value of an Ordered Triplet II](/solution/2800-2899/2874.Maximum%20Value%20of%20an%20Ordered%20Triplet%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 365  |
 |  2875  |  [Minimum Size Subarray in Infinite Array](/solution/2800-2899/2875.Minimum%20Size%20Subarray%20in%20Infinite%20Array/README_EN.md)  |    |  Medium  |  Weekly Contest 365  |
 |  2876  |  [Count Visited Nodes in a Directed Graph](/solution/2800-2899/2876.Count%20Visited%20Nodes%20in%20a%20Directed%20Graph/README_EN.md)  |    |  Hard  |  Weekly Contest 365  |
+|  2877  |  [Create a DataFrame from List](/solution/2800-2899/2877.Create%20a%20DataFrame%20from%20List/README_EN.md)  |    |  Easy  |    |
+|  2878  |  [Get the Size of a DataFrame](/solution/2800-2899/2878.Get%20the%20Size%20of%20a%20DataFrame/README_EN.md)  |    |  Easy  |    |
+|  2879  |  [Display the First Three Rows](/solution/2800-2899/2879.Display%20the%20First%20Three%20Rows/README_EN.md)  |    |  Easy  |    |
+|  2880  |  [Select Data](/solution/2800-2899/2880.Select%20Data/README_EN.md)  |    |  Easy  |    |
+|  2881  |  [Create a New Column](/solution/2800-2899/2881.Create%20a%20New%20Column/README_EN.md)  |    |  Easy  |    |
+|  2882  |  [Drop Duplicate Rows](/solution/2800-2899/2882.Drop%20Duplicate%20Rows/README_EN.md)  |    |  Easy  |    |
+|  2883  |  [Drop Missing Data](/solution/2800-2899/2883.Drop%20Missing%20Data/README_EN.md)  |    |  Easy  |    |
+|  2884  |  [Modify Columns](/solution/2800-2899/2884.Modify%20Columns/README_EN.md)  |    |  Easy  |    |
+|  2885  |  [Rename Columns](/solution/2800-2899/2885.Rename%20Columns/README_EN.md)  |    |  Easy  |    |
+|  2886  |  [Change Data Type](/solution/2800-2899/2886.Change%20Data%20Type/README_EN.md)  |    |  Easy  |    |
+|  2887  |  [Fill Missing Data](/solution/2800-2899/2887.Fill%20Missing%20Data/README_EN.md)  |    |  Easy  |    |
+|  2888  |  [Reshape Data Concatenate](/solution/2800-2899/2888.Reshape%20Data%20Concatenate/README_EN.md)  |    |  Easy  |    |
+|  2889  |  [Reshape Data Pivot](/solution/2800-2899/2889.Reshape%20Data%20Pivot/README_EN.md)  |    |  Easy  |    |
+|  2890  |  [Reshape Data Melt](/solution/2800-2899/2890.Reshape%20Data%20Melt/README_EN.md)  |    |  Easy  |    |
+|  2891  |  [Method Chaining](/solution/2800-2899/2891.Method%20Chaining/README_EN.md)  |    |  Easy  |    |
 
 ## Copyright
 
