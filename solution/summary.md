@@ -2947,3 +2947,4 @@
   - [2889.Reshape Data Pivot](/solution/2800-2899/2889.Reshape%20Data%20Pivot/README.md)
   - [2890.Reshape Data Melt](/solution/2800-2899/2890.Reshape%20Data%20Melt/README.md)
   - [2891.Method Chaining](/solution/2800-2899/2891.Method%20Chaining/README.md)
+  - [2893.Calculate Orders Within Each Interval](/solution/2800-2899/2893.Calculate%20Orders%20Within%20Each%20Interval/README.md)

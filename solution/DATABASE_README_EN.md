@@ -241,8 +241,9 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 2793 | [Status of Flight Tickets](/solution/2700-2799/2793.Status%20of%20Flight%20Tickets/README_EN.md)                                                                                             |            | Hard       | 🔒     |
 | 2820 | [Election Results](/solution/2800-2899/2820.Election%20Results/README_EN.md)                                                                                                                 |            | Medium     | 🔒     |
 | 2837 | [Total Traveled Distance](/solution/2800-2899/2837.Total%20Traveled%20Distance/README_EN.md)                                                                                                 | `Database` | Easy       | 🔒     |
-| 2853 | [Highest Salaries Difference](/solution/2800-2899/2853.Highest%20Salaries%20Difference/README_EN.md)                                                                                         |            | Easy       | 🔒     |
-| 2854 | [Rolling Average Steps](/solution/2800-2899/2854.Rolling%20Average%20Steps/README_EN.md)                                                                                                     |            | Medium     | 🔒     |
+| 2853 | [Highest Salaries Difference](/solution/2800-2899/2853.Highest%20Salaries%20Difference/README_EN.md)                                                                                         | `Database` | Easy       | 🔒     |
+| 2854 | [Rolling Average Steps](/solution/2800-2899/2854.Rolling%20Average%20Steps/README_EN.md)                                                                                                     | `Database` | Medium     | 🔒     |
+| 2893 | [Calculate Orders Within Each Interval](/solution/2800-2899/2893.Calculate%20Orders%20Within%20Each%20Interval/README_EN.md)                                                                 |            | Medium     | 🔒     |
 
 ## Copyright
 
