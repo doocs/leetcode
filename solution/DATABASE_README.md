@@ -144,7 +144,7 @@
 | 1623 | [三人国家代表队](/solution/1600-1699/1623.All%20Valid%20Triplets%20That%20Can%20Represent%20a%20Country/README.md)                                           | `数据库` | 简单 | 🔒   |
 | 1633 | [各赛事的用户注册率](/solution/1600-1699/1633.Percentage%20of%20Users%20Attended%20a%20Contest/README.md)                                                    | `数据库` | 简单 |      |
 | 1635 | [Hopper 公司查询 I](/solution/1600-1699/1635.Hopper%20Company%20Queries%20I/README.md)                                                                       | `数据库` | 困难 | 🔒   |
-| 1645 | [1645.Hopper 公司查询 II](/solution/1600-1699/1645.Hopper%20Company%20Queries%20II/README.md)                                                                | `数据库` | 困难 | 🔒   |
+| 1645 | [Hopper 公司查询 II](/solution/1600-1699/1645.Hopper%20Company%20Queries%20II/README.md)                                                                     | `数据库` | 困难 | 🔒   |
 | 1651 | [Hopper 公司查询 III](/solution/1600-1699/1651.Hopper%20Company%20Queries%20III/README.md)                                                                   | `数据库` | 困难 | 🔒   |
 | 1661 | [每台机器的进程平均运行时间](/solution/1600-1699/1661.Average%20Time%20of%20Process%20per%20Machine/README.md)                                               | `数据库` | 简单 |      |
 | 1667 | [修复表中的名字](/solution/1600-1699/1667.Fix%20Names%20in%20a%20Table/README.md)                                                                            | `数据库` | 简单 |      |
@@ -243,8 +243,9 @@
 | 2793 | [航班机票状态](/solution/2700-2799/2793.Status%20of%20Flight%20Tickets/README.md)                                                                            |          | 困难 | 🔒   |
 | 2820 | [选举结果](/solution/2800-2899/2820.Election%20Results/README.md)                                                                                            |          | 中等 | 🔒   |
 | 2837 | [总旅行距离](/solution/2800-2899/2837.Total%20Traveled%20Distance/README.md)                                                                                 | `数据库` | 简单 | 🔒   |
-| 2853 | [Highest Salaries Difference](/solution/2800-2899/2853.Highest%20Salaries%20Difference/README.md)                                                            |          | 简单 | 🔒   |
-| 2854 | [Rolling Average Steps](/solution/2800-2899/2854.Rolling%20Average%20Steps/README.md)                                                                        |          | 中等 | 🔒   |
+| 2853 | [最高薪水差异](/solution/2800-2899/2853.Highest%20Salaries%20Difference/README.md)                                                                           | `数据库` | 简单 | 🔒   |
+| 2854 | [滚动平均步数](/solution/2800-2899/2854.Rolling%20Average%20Steps/README.md)                                                                                 | `数据库` | 中等 | 🔒   |
+| 2893 | [Calculate Orders Within Each Interval](/solution/2800-2899/2893.Calculate%20Orders%20Within%20Each%20Interval/README.md)                                    |          | 中等 | 🔒   |
 
 ## 版权
 
