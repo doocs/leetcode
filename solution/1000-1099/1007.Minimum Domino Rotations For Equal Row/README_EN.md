@@ -43,18 +43,154 @@ In this case, it is not possible to rotate the dominoes to make one row of value
 
 ## Solutions
 
+**Solution 1: Greedy**
+
+According to the problem description, we know that in order to make all values in $tops$ or all values in $bottoms$ the same, the value must be one of $tops[0]$ or $bottoms[0]$.
+
+Therefore, we design a function $f(x)$ to represent the minimum number of rotations required to make all values equal to $x$. Then the answer is $\min\{f(\textit{tops}[0]), f(\textit{bottoms}[0])\}$.
+
+The calculation method of function $f(x)$ is as follows:
+
+We use two variables $cnt1$ and $cnt2$ to count the number of occurrences of $x$ in $tops$ and $bottoms$, respectively. We subtract the maximum value of $cnt1$ and $cnt2$ from $n$, which is the minimum number of rotations required to make all values equal to $x$. Note that if there are no values equal to $x$ in $tops$ and $bottoms$, the value of $f(x)$ is a very large number, which we represent as $n+1$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
+class Solution:
+    def minDominoRotations(self, tops: List[int], bottoms: List[int]) -> int:
+        def f(x: int) -> int:
+            cnt1 = cnt2 = 0
+            for a, b in zip(tops, bottoms):
+                if x not in (a, b):
+                    return inf
+                cnt1 += a == x
+                cnt2 += b == x
+            return len(tops) - max(cnt1, cnt2)
 
+        ans = min(f(tops[0]), f(bottoms[0]))
+        return -1 if ans == inf else ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int n;
+    private int[] tops;
+    private int[] bottoms;
 
+    public int minDominoRotations(int[] tops, int[] bottoms) {
+        n = tops.length;
+        this.tops = tops;
+        this.bottoms = bottoms;
+        int ans = Math.min(f(tops[0]), f(bottoms[0]));
+        return ans > n ? -1 : ans;
+    }
+
+    private int f(int x) {
+        int cnt1 = 0, cnt2 = 0;
+        for (int i = 0; i < n; ++i) {
+            if (tops[i] != x && bottoms[i] != x) {
+                return n + 1;
+            }
+            cnt1 += tops[i] == x ? 1 : 0;
+            cnt2 += bottoms[i] == x ? 1 : 0;
+        }
+        return n - Math.max(cnt1, cnt2);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minDominoRotations(vector<int>& tops, vector<int>& bottoms) {
+        int n = tops.size();
+        auto f = [&](int x) {
+            int cnt1 = 0, cnt2 = 0;
+            for (int i = 0; i < n; ++i) {
+                if (tops[i] != x && bottoms[i] != x) {
+                    return n + 1;
+                }
+                cnt1 += tops[i] == x;
+                cnt2 += bottoms[i] == x;
+            }
+            return n - max(cnt1, cnt2);
+        };
+        int ans = min(f(tops[0]), f(bottoms[0]));
+        return ans > n ? -1 : ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minDominoRotations(tops []int, bottoms []int) int {
+	n := len(tops)
+	f := func(x int) int {
+		cnt1, cnt2 := 0, 0
+		for i, a := range tops {
+			b := bottoms[i]
+			if a != x && b != x {
+				return n + 1
+			}
+			if a == x {
+				cnt1++
+			}
+			if b == x {
+				cnt2++
+			}
+		}
+		return n - max(cnt1, cnt2)
+	}
+	ans := min(f(tops[0]), f(bottoms[0]))
+	if ans > n {
+		return -1
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function minDominoRotations(tops: number[], bottoms: number[]): number {
+    const n = tops.length;
+    const f = (x: number): number => {
+        let [cnt1, cnt2] = [0, 0];
+        for (let i = 0; i < n; ++i) {
+            if (tops[i] !== x && bottoms[i] !== x) {
+                return n + 1;
+            }
+            cnt1 += tops[i] === x ? 1 : 0;
+            cnt2 += bottoms[i] === x ? 1 : 0;
+        }
+        return n - Math.max(cnt1, cnt2);
+    };
+    const ans = Math.min(f(tops[0]), f(bottoms[0]));
+    return ans > n ? -1 : ans;
+}
 ```
 
 ### **...**
