@@ -2900,6 +2900,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2889  |  [Reshape Data Pivot](/solution/2800-2899/2889.Reshape%20Data%20Pivot/README_EN.md)  |    |  Easy  |    |
 |  2890  |  [Reshape Data Melt](/solution/2800-2899/2890.Reshape%20Data%20Melt/README_EN.md)  |    |  Easy  |    |
 |  2891  |  [Method Chaining](/solution/2800-2899/2891.Method%20Chaining/README_EN.md)  |    |  Easy  |    |
+|  2892  |  [Minimizing Array After Replacing Pairs With Their Product](/solution/2800-2899/2892.Minimizing%20Array%20After%20Replacing%20Pairs%20With%20Their%20Product/README_EN.md)  |    |  Medium  |  🔒  |
 |  2893  |  [Calculate Orders Within Each Interval](/solution/2800-2899/2893.Calculate%20Orders%20Within%20Each%20Interval/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
