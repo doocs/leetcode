@@ -50,6 +50,12 @@ Hence, answer[1] = 1, answer[2] = 1, and the remaining values are 0.
 
 ## Solutions
 
+**Solution 1: Hash Table**
+
+We use a hash table $d$ to record all the unique operation times of each user, and then traverse the hash table to count the number of active minutes for each user. Finally, we count the distribution of the number of active minutes for each user.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the $logs$ array.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -122,6 +128,25 @@ func findingUsersActiveMinutes(logs [][]int, k int) []int {
 		ans[len(ts)-1]++
 	}
 	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function findingUsersActiveMinutes(logs: number[][], k: number): number[] {
+    const d: Map<number, Set<number>> = new Map();
+    for (const [i, t] of logs) {
+        if (!d.has(i)) {
+            d.set(i, new Set<number>());
+        }
+        d.get(i)!.add(t);
+    }
+    const ans: number[] = Array(k).fill(0);
+    for (const [_, ts] of d) {
+        ++ans[ts.size - 1];
+    }
+    return ans;
 }
 ```
 
