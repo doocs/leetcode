@@ -54,6 +54,14 @@ Hence, you should return &quot;What is the solution&quot;.</pre>
 
 ## Solutions
 
+**Method 1: Simulation**
+
+We traverse the string $s$ from the beginning. For the current character $s[i]$, if it is a space, we decrement $k$. When $k$ becomes $0$, it means that we have extracted $k$ words, so we return the substring $s[0..i)$.
+
+After the traversal, we return $s$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. Ignoring the space complexity of the answer, the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -121,6 +129,19 @@ func truncateSentence(s string, k int) string {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function truncateSentence(s: string, k: number): string {
+    for (let i = 0; i < s.length; ++i) {
+        if (s[i] === ' ' && --k === 0) {
+            return s.slice(0, i);
+        }
+    }
+    return s;
+}
+```
+
 ### **JavaScript**
 
 ```js
@@ -131,7 +152,7 @@ func truncateSentence(s string, k int) string {
  */
 var truncateSentence = function (s, k) {
     for (let i = 0; i < s.length; ++i) {
-        if (s[i] == ' ' && --k == 0) {
+        if (s[i] === ' ' && --k === 0) {
             return s.slice(0, i);
         }
     }

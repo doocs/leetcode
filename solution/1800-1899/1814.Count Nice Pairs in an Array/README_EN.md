@@ -41,6 +41,16 @@
 
 ## Solutions
 
+**Method 1: Equation Transformation + Hash Table**
+
+For the index pair $(i, j)$, if it satisfies the condition, then we have $nums[i] + rev(nums[j]) = nums[j] + rev(nums[i])$, which means $nums[i] - nums[j] = rev(nums[j]) - rev(nums[i])$.
+
+Therefore, we can use $nums[i] - rev(nums[i])$ as the key of a hash table and count the number of occurrences of each key. Finally, we calculate the combination of values corresponding to each key, add them up, and get the final answer.
+
+Note that we need to perform modulo operation on the answer.
+
+The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length of the $nums$ array and the maximum value in the $nums$ array, respectively. The space complexity is $O(n)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -278,6 +288,30 @@ var countNicePairs = function (nums) {
     }
     return ans;
 };
+```
+
+### **TypeScript**
+
+```ts
+function countNicePairs(nums: number[]): number {
+    const rev = (x: number): number => {
+        let y = 0;
+        while (x) {
+            y = y * 10 + (x % 10);
+            x = Math.floor(x / 10);
+        }
+        return y;
+    };
+    const mod = 10 ** 9 + 7;
+    const cnt = new Map<number, number>();
+    let ans = 0;
+    for (const x of nums) {
+        const y = x - rev(x);
+        ans = (ans + (cnt.get(y) ?? 0)) % mod;
+        cnt.set(y, (cnt.get(y) ?? 0) + 1);
+    }
+    return ans;
+}
 ```
 
 ### **...**
