@@ -1,6 +1,6 @@
 use std::collections::VecDeque;
 struct StockSpanner {
-    stack: VecDeque<(i32, i32)>,
+    stk: VecDeque<(i32, i32)>,
 }
 
 
@@ -11,17 +11,17 @@ struct StockSpanner {
 impl StockSpanner {
     fn new() -> Self {
         Self {
-            stack: vec![(i32::MAX, -1)].into_iter().collect()
+            stk: vec![(i32::MAX, -1)].into_iter().collect()
         }
     }
 
     fn next(&mut self, price: i32) -> i32 {
-        let mut res = 1;
-        while self.stack.back().unwrap().0 <= price {
-            res += self.stack.pop_back().unwrap().1;
+        let mut cnt = 1;
+        while self.stk.back().unwrap().0 <= price {
+            cnt += self.stk.pop_back().unwrap().1;
         }
-        self.stack.push_back((price, res));
-        res
+        self.stk.push_back((price, cnt));
+        cnt
     }
 }
 
