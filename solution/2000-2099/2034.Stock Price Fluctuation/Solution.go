@@ -1,50 +1,55 @@
 type StockPrice struct {
-	lastTs  int
-	mp      map[int]int
-	counter *redblacktree.Tree
+	d    map[int]int
+	ls   *redblacktree.Tree
+	last int
 }
 
 func Constructor() StockPrice {
 	return StockPrice{
-		mp:      make(map[int]int),
-		counter: redblacktree.NewWithIntComparator(),
+		d:    make(map[int]int),
+		ls:   redblacktree.NewWithIntComparator(),
+		last: 0,
 	}
 }
 
 func (this *StockPrice) Update(timestamp int, price int) {
-	if timestamp > this.lastTs {
-		this.lastTs = timestamp
-	}
-	if old, ok := this.mp[timestamp]; ok {
-		cnt := getInt(this.counter, old)
-		if cnt == 1 {
-			this.counter.Remove(old)
+	merge := func(rbt *redblacktree.Tree, key, value int) {
+		if v, ok := rbt.Get(key); ok {
+			nxt := v.(int) + value
+			if nxt == 0 {
+				rbt.Remove(key)
+			} else {
+				rbt.Put(key, nxt)
+			}
 		} else {
-			this.counter.Put(old, cnt-1)
+			rbt.Put(key, value)
 		}
 	}
-	this.mp[timestamp] = price
-	this.counter.Put(price, getInt(this.counter, price)+1)
+	if v, ok := this.d[timestamp]; ok {
+		merge(this.ls, v, -1)
+	}
+	this.d[timestamp] = price
+	merge(this.ls, price, 1)
+	this.last = max(this.last, timestamp)
 }
 
 func (this *StockPrice) Current() int {
-	return this.mp[this.lastTs]
+	return this.d[this.last]
 }
 
 func (this *StockPrice) Maximum() int {
-	return this.counter.Right().Key.(int)
+	return this.ls.Right().Key.(int)
 }
 
 func (this *StockPrice) Minimum() int {
-	return this.counter.Left().Key.(int)
+	return this.ls.Left().Key.(int)
 }
 
-func getInt(rbt *redblacktree.Tree, key int) int {
-	val, found := rbt.Get(key)
-	if !found {
-		return 0
+func max(a, b int) int {
+	if a > b {
+		return a
 	}
-	return val.(int)
+	return b
 }
 
 /**
