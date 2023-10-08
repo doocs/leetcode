@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>设计一个算法，判断玩家是否赢了井字游戏。输入是一个 N x N 的数组棋盘，由字符&quot; &quot;，&quot;X&quot;和&quot;O&quot;组成，其中字符&quot; &quot;代表一个空位。</p>
 <p>以下是井字游戏的规则：</p>
 <ul>
@@ -39,6 +40,17 @@
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+**方法一：计数**
+
+对于每个格子，如果是 `X`，我们不妨将计数加 $1$，如果是 `O`，我们不妨将计数减 $1$。那么当某个格子所在的行、列或者对角线的计数的绝对值等于 $n$ 时，说明当前玩家在该行、列或者对角线上放置了 $n$ 个相同字符，游戏结束，返回对应的字符即可。
+
+具体地，我们用一个长度为 $n$ 的一维数组 $rows$ 和 $cols$ 分别表示每一行和每一列的计数，用 $dg$ 和 $udg$ 分别表示两个对角线的计数。当玩家放置一个字符到 $(i, j)$ 时，根据字符是 `X` 还是 `O`，更新数组 $rows$，$cols$，$dg$ 以及 $udg$ 中对应元素的值。每次更新后，我们判断对应的元素的值的绝对值是否等于 $n$，如果等于 $n$，则说明当前玩家在行、列或者对角线上放置了 $n$ 个相同字符，游戏结束，返回对应的字符即可。
+
+最后，我们遍历整个棋盘，如果棋盘中存在字符 ` `，说明游戏还未结束，返回 `Pending`，否则返回 `Draw`。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是棋盘的边长。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -46,7 +58,28 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def tictactoe(self, board: List[str]) -> str:
+        n = len(board)
+        rows = [0] * n
+        cols = [0] * n
+        dg = udg = 0
+        has_empty_grid = False
+        for i, row in enumerate(board):
+            for j, c in enumerate(row):
+                v = 1 if c == 'X' else -1
+                if c == ' ':
+                    has_empty_grid = True
+                    v = 0
+                rows[i] += v
+                cols[j] += v
+                if i == j:
+                    dg += v
+                if i + j + 1 == n:
+                    udg += v
+                if abs(rows[i]) == n or abs(cols[j]) == n or abs(dg) == n or abs(udg) == n:
+                    return c
+        return 'Pending' if has_empty_grid else 'Draw'
 ```
 
 ### **Java**
@@ -54,7 +87,159 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String tictactoe(String[] board) {
+        int n = board.length;
+        int[] rows = new int[n];
+        int[] cols = new int[n];
+        int dg = 0, udg = 0;
+        boolean hasEmptyGrid = false;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                char c = board[i].charAt(j);
+                if (c == ' ') {
+                    hasEmptyGrid = true;
+                    continue;
+                }
+                int v = c == 'X' ? 1 : -1;
+                rows[i] += v;
+                cols[j] += v;
+                if (i == j) {
+                    dg += v;
+                }
+                if (i + j + 1 == n) {
+                    udg += v;
+                }
+                if (Math.abs(rows[i]) == n || Math.abs(cols[j]) == n || Math.abs(dg) == n
+                    || Math.abs(udg) == n) {
+                    return String.valueOf(c);
+                }
+            }
+        }
+        return hasEmptyGrid ? "Pending" : "Draw";
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string tictactoe(vector<string>& board) {
+        int n = board.size();
+        vector<int> rows(n), cols(n);
+        int dg = 0, udg = 0;
+        bool hasEmptyGrid = false;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                char c = board[i][j];
+                if (c == ' ') {
+                    hasEmptyGrid = true;
+                    continue;
+                }
+                int v = c == 'X' ? 1 : -1;
+                rows[i] += v;
+                cols[j] += v;
+                if (i == j) {
+                    dg += v;
+                }
+                if (i + j + 1 == n) {
+                    udg += v;
+                }
+                if (abs(rows[i]) == n || abs(cols[j]) == n || abs(dg) == n || abs(udg) == n) {
+                    return string(1, c);
+                }
+            }
+        }
+        return hasEmptyGrid ? "Pending" : "Draw";
+    }
+};
+```
+
+### **Go**
+
+```go
+func tictactoe(board []string) string {
+	n := len(board)
+	rows := make([]int, n)
+	cols := make([]int, n)
+	dg, udg := 0, 0
+	hasEmptyGrid := false
+	for i, row := range board {
+		for j, c := range row {
+			if c == ' ' {
+				hasEmptyGrid = true
+				continue
+			}
+			v := 1
+			if c == 'O' {
+				v = -1
+			}
+			rows[i] += v
+			cols[j] += v
+			if i == j {
+				dg += v
+			}
+			if i+j == n-1 {
+				udg += v
+			}
+			if abs(rows[i]) == n || abs(cols[j]) == n || abs(dg) == n || abs(udg) == n {
+				return string(c)
+			}
+		}
+	}
+	if hasEmptyGrid {
+		return "Pending"
+	}
+	return "Draw"
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+### **TypeScript**
+
+```ts
+function tictactoe(board: string[]): string {
+    const n = board.length;
+    const rows = Array(n).fill(0);
+    const cols = Array(n).fill(0);
+    let [dg, udg] = [0, 0];
+    let hasEmptyGrid = false;
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < n; ++j) {
+            const c = board[i][j];
+            if (c === ' ') {
+                hasEmptyGrid = true;
+                continue;
+            }
+            const v = c === 'X' ? 1 : -1;
+            rows[i] += v;
+            cols[j] += v;
+            if (i === j) {
+                dg += v;
+            }
+            if (i + j === n - 1) {
+                udg += v;
+            }
+            if (
+                Math.abs(rows[i]) === n ||
+                Math.abs(cols[j]) === n ||
+                Math.abs(dg) === n ||
+                Math.abs(udg) === n
+            ) {
+                return c;
+            }
+        }
+    }
+    return hasEmptyGrid ? 'Pending' : 'Draw';
+}
 ```
 
 ### **...**
