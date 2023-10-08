@@ -1,9 +1,8 @@
 class StockPrice {
 public:
     StockPrice() {
-
     }
-    
+
     void update(int timestamp, int price) {
         if (d.count(timestamp)) {
             ls.erase(ls.find(d[timestamp]));
@@ -12,15 +11,15 @@ public:
         ls.insert(price);
         last = max(last, timestamp);
     }
-    
+
     int current() {
         return d[last];
     }
-    
+
     int maximum() {
         return *ls.rbegin();
     }
-    
+
     int minimum() {
         return *ls.begin();
     }

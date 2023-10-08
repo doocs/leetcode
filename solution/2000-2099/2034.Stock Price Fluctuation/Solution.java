@@ -4,7 +4,6 @@ class StockPrice {
     private int last;
 
     public StockPrice() {
-
     }
 
     public void update(int timestamp, int price) {

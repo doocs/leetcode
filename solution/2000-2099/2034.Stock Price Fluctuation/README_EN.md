@@ -126,7 +126,6 @@ class StockPrice {
     private int last;
 
     public StockPrice() {
-
     }
 
     public void update(int timestamp, int price) {
@@ -170,7 +169,6 @@ class StockPrice {
 class StockPrice {
 public:
     StockPrice() {
-
     }
 
     void update(int timestamp, int price) {
