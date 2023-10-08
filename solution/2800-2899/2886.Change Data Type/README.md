@@ -1,4 +1,4 @@
-# [2886. Change Data Type](https://leetcode.cn/problems/change-data-type)
+# [2886. 改变数据类型](https://leetcode.cn/problems/change-data-type)
 
 [English Version](/solution/2800-2899/2886.Change%20Data%20Type/README_EN.md)
 
@@ -18,16 +18,18 @@ DataFrame <code>students</code>
 +-------------+--------+
 </pre>
 
-<p>Write a solution to correct the errors:</p>
+<p>编写一个解决方案来纠正以下错误：</p>
 
-<p>The <code>grade</code> column is stored as floats,&nbsp;convert it to integers.</p>
+<p>&nbsp;<code>grade</code>&nbsp;列被存储为浮点数，将它转换为整数。</p>
 
-<p>The result format is in the following example.</p>
+<p>返回结果格式如下示例所示。</p>
 
 <p>&nbsp;</p>
+
+<p><strong>示例 1:</strong></p>
+
 <pre>
-<strong class="example">Example 1:</strong>
-<strong>Input:
+<strong>输入：
 </strong>DataFrame students:
 +------------+------+-----+-------+
 | student_id | name | age | grade |
@@ -35,15 +37,15 @@ DataFrame <code>students</code>
 | 1          | Ava  | 6   | 73.0  |
 | 2          | Kate | 15  | 87.0  |
 +------------+------+-----+-------+
-<strong>Output:
+<strong>输出：
 </strong>+------------+------+-----+-------+
 | student_id | name | age | grade |
 +------------+------+-----+-------+
 | 1          | Ava  | 6   | 73    |
 | 2          | Kate | 15  | 87    |
 +------------+------+-----+-------+
-<strong>Explanation:</strong> 
-The data types of the column grade is converted to int.</pre>
+<b>解释：</b>
+grade 列的数据类型已转换为整数。</pre>
 
 ## 解法
 

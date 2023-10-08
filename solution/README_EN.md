@@ -2876,15 +2876,15 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2865  |  [Beautiful Towers I](/solution/2800-2899/2865.Beautiful%20Towers%20I/README_EN.md)  |  `Stack`,`Array`,`Monotonic Stack`  |  Medium  |  Weekly Contest 364  |
 |  2866  |  [Beautiful Towers II](/solution/2800-2899/2866.Beautiful%20Towers%20II/README_EN.md)  |  `Stack`,`Array`,`Monotonic Stack`  |  Medium  |  Weekly Contest 364  |
 |  2867  |  [Count Valid Paths in a Tree](/solution/2800-2899/2867.Count%20Valid%20Paths%20in%20a%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Math`,`Dynamic Programming`,`Number Theory`  |  Hard  |  Weekly Contest 364  |
-|  2868  |  [The Wording Game](/solution/2800-2899/2868.The%20Wording%20Game/README_EN.md)  |    |  Hard  |  🔒  |
-|  2869  |  [Minimum Operations to Collect Elements](/solution/2800-2899/2869.Minimum%20Operations%20to%20Collect%20Elements/README_EN.md)  |    |  Easy  |  Biweekly Contest 114  |
-|  2870  |  [Minimum Number of Operations to Make Array Empty](/solution/2800-2899/2870.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20Empty/README_EN.md)  |    |  Medium  |  Biweekly Contest 114  |
-|  2871  |  [Split Array Into Maximum Number of Subarrays](/solution/2800-2899/2871.Split%20Array%20Into%20Maximum%20Number%20of%20Subarrays/README_EN.md)  |    |  Medium  |  Biweekly Contest 114  |
-|  2872  |  [Maximum Number of K-Divisible Components](/solution/2800-2899/2872.Maximum%20Number%20of%20K-Divisible%20Components/README_EN.md)  |    |  Hard  |  Biweekly Contest 114  |
-|  2873  |  [Maximum Value of an Ordered Triplet I](/solution/2800-2899/2873.Maximum%20Value%20of%20an%20Ordered%20Triplet%20I/README_EN.md)  |    |  Easy  |  Weekly Contest 365  |
-|  2874  |  [Maximum Value of an Ordered Triplet II](/solution/2800-2899/2874.Maximum%20Value%20of%20an%20Ordered%20Triplet%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 365  |
-|  2875  |  [Minimum Size Subarray in Infinite Array](/solution/2800-2899/2875.Minimum%20Size%20Subarray%20in%20Infinite%20Array/README_EN.md)  |    |  Medium  |  Weekly Contest 365  |
-|  2876  |  [Count Visited Nodes in a Directed Graph](/solution/2800-2899/2876.Count%20Visited%20Nodes%20in%20a%20Directed%20Graph/README_EN.md)  |    |  Hard  |  Weekly Contest 365  |
+|  2868  |  [The Wording Game](/solution/2800-2899/2868.The%20Wording%20Game/README_EN.md)  |  `Array`,`Math`,`Two Pointers`,`String`,`Game Theory`  |  Hard  |  🔒  |
+|  2869  |  [Minimum Operations to Collect Elements](/solution/2800-2899/2869.Minimum%20Operations%20to%20Collect%20Elements/README_EN.md)  |  `Array`,`Hash Table`  |  Easy  |  Biweekly Contest 114  |
+|  2870  |  [Minimum Number of Operations to Make Array Empty](/solution/2800-2899/2870.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20Empty/README_EN.md)  |  `Greedy`,`Array`,`Hash Table`,`Counting`  |  Medium  |  Biweekly Contest 114  |
+|  2871  |  [Split Array Into Maximum Number of Subarrays](/solution/2800-2899/2871.Split%20Array%20Into%20Maximum%20Number%20of%20Subarrays/README_EN.md)  |  `Greedy`,`Bit Manipulation`,`Array`  |  Medium  |  Biweekly Contest 114  |
+|  2872  |  [Maximum Number of K-Divisible Components](/solution/2800-2899/2872.Maximum%20Number%20of%20K-Divisible%20Components/README_EN.md)  |  `Tree`,`Depth-First Search`,`Dynamic Programming`  |  Hard  |  Biweekly Contest 114  |
+|  2873  |  [Maximum Value of an Ordered Triplet I](/solution/2800-2899/2873.Maximum%20Value%20of%20an%20Ordered%20Triplet%20I/README_EN.md)  |  `Array`  |  Easy  |  Weekly Contest 365  |
+|  2874  |  [Maximum Value of an Ordered Triplet II](/solution/2800-2899/2874.Maximum%20Value%20of%20an%20Ordered%20Triplet%20II/README_EN.md)  |  `Array`  |  Medium  |  Weekly Contest 365  |
+|  2875  |  [Minimum Size Subarray in Infinite Array](/solution/2800-2899/2875.Minimum%20Size%20Subarray%20in%20Infinite%20Array/README_EN.md)  |  `Array`,`Hash Table`,`Prefix Sum`,`Sliding Window`  |  Medium  |  Weekly Contest 365  |
+|  2876  |  [Count Visited Nodes in a Directed Graph](/solution/2800-2899/2876.Count%20Visited%20Nodes%20in%20a%20Directed%20Graph/README_EN.md)  |  `Graph`,`Memoization`,`Dynamic Programming`  |  Hard  |  Weekly Contest 365  |
 |  2877  |  [Create a DataFrame from List](/solution/2800-2899/2877.Create%20a%20DataFrame%20from%20List/README_EN.md)  |    |  Easy  |    |
 |  2878  |  [Get the Size of a DataFrame](/solution/2800-2899/2878.Get%20the%20Size%20of%20a%20DataFrame/README_EN.md)  |    |  Easy  |    |
 |  2879  |  [Display the First Three Rows](/solution/2800-2899/2879.Display%20the%20First%20Three%20Rows/README_EN.md)  |    |  Easy  |    |

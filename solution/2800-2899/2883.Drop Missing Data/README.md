@@ -1,4 +1,4 @@
-# [2883. Drop Missing Data](https://leetcode.cn/problems/drop-missing-data)
+# [2883. 删去丢失的数据](https://leetcode.cn/problems/drop-missing-data)
 
 [English Version](/solution/2800-2899/2883.Drop%20Missing%20Data/README_EN.md)
 
@@ -17,17 +17,18 @@ DataFrame students
 +-------------+--------+
 </pre>
 
-<p>There are some rows having missing values in the <code>name</code> column.</p>
+<p>在 <code>name</code> 列里有一些具有缺失值的行。</p>
 
-<p>Write a solution to remove the rows with missing values.</p>
+<p>编写一个解决方案，删除具有缺失值的行。</p>
 
-<p>The result format is in the following example.</p>
+<p>返回结果格式如下示例所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><b>示例 1:</b></p>
 
 <pre>
-<strong>Input:
+<strong>输入：
 </strong>+------------+-------+-----+
 | student_id | name  | age |
 +------------+-------+-----+
@@ -36,15 +37,15 @@ DataFrame students
 | 779        | None  | 20  |
 | 849        | None  | 14  |
 +------------+-------+-----+
-<strong>Output:
+<strong>输出：
 </strong>+------------+-------+-----+
 | student_id | name  | age |
 +------------+-------+-----+
 | 32         | Piper | 5   |
 | 217        | Grace | 19  |
 +------------+-------+-----+
-<strong>Explanation:</strong> 
-Students with ids 779 and 849 have empty values in the name column, so they will be removed.</pre>
+<b>解释：
+</b>学号为 779 和 849 的学生所在行在 name 列中有空值，因此它们将被删除。</pre>
 
 ## 解法
 

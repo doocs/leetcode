@@ -1,4 +1,4 @@
-# [2892. Minimizing Array After Replacing Pairs With Their Product](https://leetcode.cn/problems/minimizing-array-after-replacing-pairs-with-their-product)
+# [2892. 将相邻元素相乘后得到最小化数组](https://leetcode.cn/problems/minimizing-array-after-replacing-pairs-with-their-product)
 
 [English Version](/solution/2800-2899/2892.Minimizing%20Array%20After%20Replacing%20Pairs%20With%20Their%20Product/README_EN.md)
 
@@ -6,37 +6,37 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Given an integer array <code>nums</code> and an integer <code>k</code>, you can perform the following operation on the array any number of times:</p>
+<p>给定一个整数数组&nbsp;<code>nums</code>&nbsp;和一个整数&nbsp;<code>k</code>，你可以对数组执行以下操作任意次数：</p>
 
 <ul>
-	<li>Select two <strong>adjacent</strong> elements of the array like <code>x</code> and <code>y</code>, such that <code>x * y &lt;= k</code>, and replace both of them with a <strong>single element</strong> with value <code>x * y</code> (e.g. in one operation the array <code>[1, 2, 2, 3]</code> with <code>k = 5</code> can become <code>[1, 4, 3]</code> or <code>[2, 2, 3]</code>, but can&#39;t become <code>[1, 2, 6]</code>).</li>
+	<li>选择数组中的两个 <b>相邻</b>&nbsp;元素，例如&nbsp;<code>x</code>&nbsp;和&nbsp;<code>y</code>，使得&nbsp;<code>x * y &lt;= k</code>&nbsp;，并用一个值为&nbsp;<code>x * y</code>&nbsp;的 <b>单个元素</b>&nbsp;替换它们（例如，在一次操作中，数组&nbsp;<code>[1, 2, 2, 3]</code>，其中&nbsp;<code>k = 5</code> 可以变为&nbsp;<code>[1, 4, 3]</code>&nbsp;或&nbsp;<code>[2, 2, 3]</code>，但不能变为&nbsp;<code>[1, 2, 6]</code>）。</li>
 </ul>
 
-<p>Return <em>the <strong>minimum</strong> possible length of </em><code>nums</code><em> after any number of operations</em>.</p>
+<p>返回 <em>经过任意次数的操作后，&nbsp;</em><code>nums</code><em>&nbsp;的 <strong>最小</strong> 可能长度。</em></p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [2,3,3,7,3,5], k = 20
-<strong>Output:</strong> 3
-<strong>Explanation:</strong> We perform these operations:
+<strong>输入：</strong>nums = [2,3,3,7,3,5], k = 20
+<strong>输出：</strong>3
+<strong>解释：</strong>我们执行以下操作：
 1. [<u>2,3</u>,3,7,3,5] -&gt; [<u>6</u>,3,7,3,5]
 2. [<u>6,3</u>,7,3,5] -&gt; [<u>18</u>,7,3,5]
 3. [18,7,<u>3,5</u>] -&gt; [18,7,<u>15</u>]
-It can be shown that 3 is the minimum length possible to achieve with the given operation.
-</pre>
+可以证明，在执行给定操作后，最小可能长度为3.</pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [3,3,3,3], k = 6
-<strong>Output:</strong> 4
-<strong>Explanation:</strong> We can&#39;t perform any operations since the product of every two adjacent elements is greater than 6.
-Hence, the answer is 4.</pre>
+<strong>输入：</strong>nums = [3,3,3,3], k = 6
+<strong>输出：</strong>4
+<strong>解释：</strong>由于每两个相邻元素的乘积都大于 6，所以无法执行任何操作。因此，答案为 4。</pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>约束条件：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>

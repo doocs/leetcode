@@ -2878,31 +2878,31 @@
 |  2865  |  [美丽塔 I](/solution/2800-2899/2865.Beautiful%20Towers%20I/README.md)  |  `栈`,`数组`,`单调栈`  |  中等  |  第 364 场周赛  |
 |  2866  |  [美丽塔 II](/solution/2800-2899/2866.Beautiful%20Towers%20II/README.md)  |  `栈`,`数组`,`单调栈`  |  中等  |  第 364 场周赛  |
 |  2867  |  [统计树中的合法路径数目](/solution/2800-2899/2867.Count%20Valid%20Paths%20in%20a%20Tree/README.md)  |  `树`,`深度优先搜索`,`数学`,`动态规划`,`数论`  |  困难  |  第 364 场周赛  |
-|  2868  |  [单词游戏](/solution/2800-2899/2868.The%20Wording%20Game/README.md)  |    |  困难  |  🔒  |
-|  2869  |  [收集元素的最少操作次数](/solution/2800-2899/2869.Minimum%20Operations%20to%20Collect%20Elements/README.md)  |    |  简单  |  第 114 场双周赛  |
-|  2870  |  [使数组为空的最少操作次数](/solution/2800-2899/2870.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20Empty/README.md)  |    |  中等  |  第 114 场双周赛  |
-|  2871  |  [将数组分割成最多数目的子数组](/solution/2800-2899/2871.Split%20Array%20Into%20Maximum%20Number%20of%20Subarrays/README.md)  |    |  中等  |  第 114 场双周赛  |
-|  2872  |  [可以被 K 整除连通块的最大数目](/solution/2800-2899/2872.Maximum%20Number%20of%20K-Divisible%20Components/README.md)  |    |  困难  |  第 114 场双周赛  |
-|  2873  |  [有序三元组中的最大值 I](/solution/2800-2899/2873.Maximum%20Value%20of%20an%20Ordered%20Triplet%20I/README.md)  |    |  简单  |  第 365 场周赛  |
-|  2874  |  [有序三元组中的最大值 II](/solution/2800-2899/2874.Maximum%20Value%20of%20an%20Ordered%20Triplet%20II/README.md)  |    |  中等  |  第 365 场周赛  |
-|  2875  |  [无限数组的最短子数组](/solution/2800-2899/2875.Minimum%20Size%20Subarray%20in%20Infinite%20Array/README.md)  |    |  中等  |  第 365 场周赛  |
-|  2876  |  [有向图访问计数](/solution/2800-2899/2876.Count%20Visited%20Nodes%20in%20a%20Directed%20Graph/README.md)  |    |  困难  |  第 365 场周赛  |
-|  2877  |  [Create a DataFrame from List](/solution/2800-2899/2877.Create%20a%20DataFrame%20from%20List/README.md)  |    |  简单  |    |
+|  2868  |  [单词游戏](/solution/2800-2899/2868.The%20Wording%20Game/README.md)  |  `数组`,`数学`,`双指针`,`字符串`,`博弈`  |  困难  |  🔒  |
+|  2869  |  [收集元素的最少操作次数](/solution/2800-2899/2869.Minimum%20Operations%20to%20Collect%20Elements/README.md)  |  `数组`,`哈希表`  |  简单  |  第 114 场双周赛  |
+|  2870  |  [使数组为空的最少操作次数](/solution/2800-2899/2870.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20Empty/README.md)  |  `贪心`,`数组`,`哈希表`,`计数`  |  中等  |  第 114 场双周赛  |
+|  2871  |  [将数组分割成最多数目的子数组](/solution/2800-2899/2871.Split%20Array%20Into%20Maximum%20Number%20of%20Subarrays/README.md)  |  `贪心`,`位运算`,`数组`  |  中等  |  第 114 场双周赛  |
+|  2872  |  [可以被 K 整除连通块的最大数目](/solution/2800-2899/2872.Maximum%20Number%20of%20K-Divisible%20Components/README.md)  |  `树`,`深度优先搜索`,`动态规划`  |  困难  |  第 114 场双周赛  |
+|  2873  |  [有序三元组中的最大值 I](/solution/2800-2899/2873.Maximum%20Value%20of%20an%20Ordered%20Triplet%20I/README.md)  |  `数组`  |  简单  |  第 365 场周赛  |
+|  2874  |  [有序三元组中的最大值 II](/solution/2800-2899/2874.Maximum%20Value%20of%20an%20Ordered%20Triplet%20II/README.md)  |  `数组`  |  中等  |  第 365 场周赛  |
+|  2875  |  [无限数组的最短子数组](/solution/2800-2899/2875.Minimum%20Size%20Subarray%20in%20Infinite%20Array/README.md)  |  `数组`,`哈希表`,`前缀和`,`滑动窗口`  |  中等  |  第 365 场周赛  |
+|  2876  |  [有向图访问计数](/solution/2800-2899/2876.Count%20Visited%20Nodes%20in%20a%20Directed%20Graph/README.md)  |  `图`,`记忆化搜索`,`动态规划`  |  困难  |  第 365 场周赛  |
+|  2877  |  [从表中创建 DataFrame](/solution/2800-2899/2877.Create%20a%20DataFrame%20from%20List/README.md)  |    |  简单  |    |
 |  2878  |  [Get the Size of a DataFrame](/solution/2800-2899/2878.Get%20the%20Size%20of%20a%20DataFrame/README.md)  |    |  简单  |    |
 |  2879  |  [Display the First Three Rows](/solution/2800-2899/2879.Display%20the%20First%20Three%20Rows/README.md)  |    |  简单  |    |
 |  2880  |  [Select Data](/solution/2800-2899/2880.Select%20Data/README.md)  |    |  简单  |    |
-|  2881  |  [Create a New Column](/solution/2800-2899/2881.Create%20a%20New%20Column/README.md)  |    |  简单  |    |
-|  2882  |  [Drop Duplicate Rows](/solution/2800-2899/2882.Drop%20Duplicate%20Rows/README.md)  |    |  简单  |    |
-|  2883  |  [Drop Missing Data](/solution/2800-2899/2883.Drop%20Missing%20Data/README.md)  |    |  简单  |    |
-|  2884  |  [Modify Columns](/solution/2800-2899/2884.Modify%20Columns/README.md)  |    |  简单  |    |
-|  2885  |  [Rename Columns](/solution/2800-2899/2885.Rename%20Columns/README.md)  |    |  简单  |    |
-|  2886  |  [Change Data Type](/solution/2800-2899/2886.Change%20Data%20Type/README.md)  |    |  简单  |    |
-|  2887  |  [Fill Missing Data](/solution/2800-2899/2887.Fill%20Missing%20Data/README.md)  |    |  简单  |    |
-|  2888  |  [Reshape Data Concatenate](/solution/2800-2899/2888.Reshape%20Data%20Concatenate/README.md)  |    |  简单  |    |
+|  2881  |  [创建新列](/solution/2800-2899/2881.Create%20a%20New%20Column/README.md)  |    |  简单  |    |
+|  2882  |  [删去重复的行](/solution/2800-2899/2882.Drop%20Duplicate%20Rows/README.md)  |    |  简单  |    |
+|  2883  |  [删去丢失的数据](/solution/2800-2899/2883.Drop%20Missing%20Data/README.md)  |    |  简单  |    |
+|  2884  |  [修改列](/solution/2800-2899/2884.Modify%20Columns/README.md)  |    |  简单  |    |
+|  2885  |  [重命名列](/solution/2800-2899/2885.Rename%20Columns/README.md)  |    |  简单  |    |
+|  2886  |  [改变数据类型](/solution/2800-2899/2886.Change%20Data%20Type/README.md)  |    |  简单  |    |
+|  2887  |  [填充缺失值](/solution/2800-2899/2887.Fill%20Missing%20Data/README.md)  |    |  简单  |    |
+|  2888  |  [重塑数据：连结](/solution/2800-2899/2888.Reshape%20Data%20Concatenate/README.md)  |    |  简单  |    |
 |  2889  |  [Reshape Data Pivot](/solution/2800-2899/2889.Reshape%20Data%20Pivot/README.md)  |    |  简单  |    |
-|  2890  |  [Reshape Data Melt](/solution/2800-2899/2890.Reshape%20Data%20Melt/README.md)  |    |  简单  |    |
+|  2890  |  [重塑数据：融合](/solution/2800-2899/2890.Reshape%20Data%20Melt/README.md)  |    |  简单  |    |
 |  2891  |  [Method Chaining](/solution/2800-2899/2891.Method%20Chaining/README.md)  |    |  简单  |    |
-|  2892  |  [Minimizing Array After Replacing Pairs With Their Product](/solution/2800-2899/2892.Minimizing%20Array%20After%20Replacing%20Pairs%20With%20Their%20Product/README.md)  |    |  中等  |  🔒  |
+|  2892  |  [将相邻元素相乘后得到最小化数组](/solution/2800-2899/2892.Minimizing%20Array%20After%20Replacing%20Pairs%20With%20Their%20Product/README.md)  |    |  中等  |  🔒  |
 |  2893  |  [Calculate Orders Within Each Interval](/solution/2800-2899/2893.Calculate%20Orders%20Within%20Each%20Interval/README.md)  |    |  中等  |  🔒  |
 |  2894  |  [分类求和并作差](/solution/2800-2899/2894.Divisible%20and%20Non-divisible%20Sums%20Difference/README.md)  |    |  简单  |  第 366 场周赛  |
 |  2895  |  [最小处理时间](/solution/2800-2899/2895.Minimum%20Processing%20Time/README.md)  |    |  中等  |  第 366 场周赛  |

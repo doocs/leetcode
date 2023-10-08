@@ -1,4 +1,4 @@
-# [2890. Reshape Data Melt](https://leetcode.cn/problems/reshape-data-melt)
+# [2890. 重塑数据：融合](https://leetcode.cn/problems/reshape-data-melt)
 
 [English Version](/solution/2800-2899/2890.Reshape%20Data%20Melt/README_EN.md)
 
@@ -19,22 +19,23 @@ DataFrame <code>report</code>
 +-------------+--------+
 </pre>
 
-<p>Write a solution to <strong>reshape</strong> the data so that each row represents sales data for a product in a specific quarter.</p>
+<p>编写一个解决方案，将数据 <strong>重塑</strong> 成每一行表示特定季度产品销售数据的形式。</p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下例所示：</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>Input:
+<strong>输入：
 </strong>+-------------+-----------+-----------+-----------+-----------+
 | product     | quarter_1 | quarter_2 | quarter_3 | quarter_4 |
 +-------------+-----------+-----------+-----------+-----------+
 | Umbrella    | 417       | 224       | 379       | 611       |
 | SleepingBag | 800       | 936       | 93        | 875       |
 +-------------+-----------+-----------+-----------+-----------+
-<strong>Output:</strong>
+<b>输出：</b>
 +-------------+-----------+-------+
 | product     | quarter   | sales |
 +-------------+-----------+-------+
@@ -47,8 +48,8 @@ DataFrame <code>report</code>
 | Umbrella    | quarter_4 | 611   |
 | SleepingBag | quarter_4 | 875   |
 +-------------+-----------+-------+
-<strong>Explanation:</strong>
-The DataFrame is reshaped from wide to long format. Each row represents the sales of a product in a quarter.
+<b>解释：</b>
+DataFrame 已从宽格式重塑为长格式。每一行表示一个季度内产品的销售情况。
 </pre>
 
 ## 解法
