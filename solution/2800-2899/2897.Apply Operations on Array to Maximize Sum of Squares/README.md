@@ -57,6 +57,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：位运算 + 贪心**
+
+根据题目描述，对于一个操作，我们可以将 $nums[i]$ 变为 $nums[i] \text{ AND } nums[j]$，将 $nums[j]$ 变为 $nums[i] \text{ OR } nums[j]$。我们不妨按位考虑，两个 $1$ 或两个 $0$ 进行这样的操作，结果都不会改变，如果是 $1$ 和 $0$ 进行这样的操作，结果会变成 $0$ 和 $1$，也即是说，我们可以将 $1$ 转移到 $0$ 上，而 $0$ 不会转移到 $1$ 上。
+
+因此，我们可以用一个数组 $cnt$ 统计每个位置上 $1$ 的个数，然后从中选择 $k$ 个数。由于要使得平方和最大，每次选择的数要尽可能大。这是因为，假设两个数的平方和为 $a^2 + b^2$（其中 $a \gt b$），将两个数平方和变成 $(a + c)^2 + (b - c)^2 = a^2 + b^2 + 2c(a - b) + 2c^2 \gt a^2 + b^2$。因此，为了最大化平方和，我们应该让一个数字尽可能大。
+
+时间复杂度 $O(n \times \log M)$，空间复杂度 $O(\log M)$，其中 $M$ 是数组中的最大值。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -64,7 +72,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxSum(self, nums: List[int], k: int) -> int:
+        mod = 10**9 + 7
+        cnt = [0] * 31
+        for x in nums:
+            for i in range(31):
+                if x >> i & 1:
+                    cnt[i] += 1
+        ans = 0
+        for _ in range(k):
+            x = 0
+            for i in range(31):
+                if cnt[i]:
+                    x |= 1 << i
+                    cnt[i] -= 1
+            ans = (ans + x * x) % mod
+        return ans
 ```
 
 ### **Java**
@@ -72,19 +96,117 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int maxSum(List<Integer> nums, int k) {
+        final int mod = (int) 1e9 + 7;
+        int[] cnt = new int[31];
+        for (int x : nums) {
+            for (int i = 0; i < 31; ++i) {
+                if ((x >> i & 1) == 1) {
+                    ++cnt[i];
+                }
+            }
+        }
+        long ans = 0;
+        while (k-- > 0) {
+            int x = 0;
+            for (int i = 0; i < 31; ++i) {
+                if (cnt[i] > 0) {
+                    x |= 1 << i;
+                    --cnt[i];
+                }
+            }
+            ans = (ans + 1L * x * x) % mod;
+        }
+        return (int) ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int maxSum(vector<int>& nums, int k) {
+        int cnt[31]{}；
+        for (int x : nums) {
+            for (int i = 0; i < 31; ++i) {
+                if (x >> i & 1) {
+                    ++cnt[i];
+                }
+            }
+        }
+        long long ans = 0;
+        const int mod = 1e9 + 7;
+        while (k--) {
+            int x = 0;
+            for (int i = 0; i < 31; ++i) {
+                if (cnt[i]) {
+                    x |= 1 << i;
+                    --cnt[i];
+                }
+            }
+            ans = (ans + 1LL * x * x) % mod;
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func maxSum(nums []int, k int) (ans int) {
+	cnt := [31]int{}
+	for _, x := range nums {
+		for i := 0; i < 31; i++ {
+			if x>>i&1 == 1 {
+				cnt[i]++
+			}
+		}
+	}
+	const mod int = 1e9 + 7
+	for ; k > 0; k-- {
+		x := 0
+		for i := 0; i < 31; i++ {
+			if cnt[i] > 0 {
+				x |= 1 << i
+				cnt[i]--
+			}
+		}
+		ans = (ans + x*x) % mod
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function maxSum(nums: number[], k: number): number {
+    const cnt: number[] = Array(31).fill(0);
+    for (const x of nums) {
+        for (let i = 0; i < 31; ++i) {
+            if ((x >> i) & 1) {
+                ++cnt[i];
+            }
+        }
+    }
+    let ans = 0n;
+    const mod = 1e9 + 7;
+    while (k-- > 0) {
+        let x = 0;
+        for (let i = 0; i < 31; ++i) {
+            if (cnt[i] > 0) {
+                x |= 1 << i;
+                --cnt[i];
+            }
+        }
+        ans = (ans + BigInt(x) * BigInt(x)) % BigInt(mod);
+    }
+    return Number(ans);
+}
 ```
 
 ### **...**

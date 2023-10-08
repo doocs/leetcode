@@ -51,30 +51,152 @@ It can be shown that this is the maximum value we can get.
 
 ## Solutions
 
+**Solution 1: Bitwise Operation + Greedy**
+
+According to the problem description, for an operation, we can change $nums[i]$ to $nums[i] \text{ AND } nums[j]$, and change $nums[j]$ to $nums[i] \text{ OR } nums[j]$. Let's consider the bits of the numbers. If two bits are both $1$ or both $0$, the result of the operation will not change the bits. If two bits are different, the result of the operation will change the bits to $0$ and $1$, respectively. Therefore, we can move $1$ bits to $0$ bits, but not vice versa.
+
+We can use an array $cnt$ to count the number of $1$ bits in each position, and then select $k$ numbers from them. To maximize the sum of squares, we should choose the largest numbers as much as possible. This is because, assuming the sum of squares of two numbers is $a^2 + b^2$ (where $a \gt b$), changing them to $(a + c)^2 + (b - c)^2 = a^2 + b^2 + 2c(a - b) + 2c^2 \gt a^2 + b^2$ will increase the sum of squares. Therefore, to maximize the sum of squares, we should choose the largest number.
+
+The time complexity is $O(n \times \log M)$, and the space complexity is $O(\log M)$. Here, $M$ is the maximum value in the array.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxSum(self, nums: List[int], k: int) -> int:
+        mod = 10**9 + 7
+        cnt = [0] * 31
+        for x in nums:
+            for i in range(31):
+                if x >> i & 1:
+                    cnt[i] += 1
+        ans = 0
+        for _ in range(k):
+            x = 0
+            for i in range(31):
+                if cnt[i]:
+                    x |= 1 << i
+                    cnt[i] -= 1
+            ans = (ans + x * x) % mod
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int maxSum(List<Integer> nums, int k) {
+        final int mod = (int) 1e9 + 7;
+        int[] cnt = new int[31];
+        for (int x : nums) {
+            for (int i = 0; i < 31; ++i) {
+                if ((x >> i & 1) == 1) {
+                    ++cnt[i];
+                }
+            }
+        }
+        long ans = 0;
+        while (k-- > 0) {
+            int x = 0;
+            for (int i = 0; i < 31; ++i) {
+                if (cnt[i] > 0) {
+                    x |= 1 << i;
+                    --cnt[i];
+                }
+            }
+            ans = (ans + 1L * x * x) % mod;
+        }
+        return (int) ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int maxSum(vector<int>& nums, int k) {
+        int cnt[31]{}；
+        for (int x : nums) {
+            for (int i = 0; i < 31; ++i) {
+                if (x >> i & 1) {
+                    ++cnt[i];
+                }
+            }
+        }
+        long long ans = 0;
+        const int mod = 1e9 + 7;
+        while (k--) {
+            int x = 0;
+            for (int i = 0; i < 31; ++i) {
+                if (cnt[i]) {
+                    x |= 1 << i;
+                    --cnt[i];
+                }
+            }
+            ans = (ans + 1LL * x * x) % mod;
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func maxSum(nums []int, k int) (ans int) {
+	cnt := [31]int{}
+	for _, x := range nums {
+		for i := 0; i < 31; i++ {
+			if x>>i&1 == 1 {
+				cnt[i]++
+			}
+		}
+	}
+	const mod int = 1e9 + 7
+	for ; k > 0; k-- {
+		x := 0
+		for i := 0; i < 31; i++ {
+			if cnt[i] > 0 {
+				x |= 1 << i
+				cnt[i]--
+			}
+		}
+		ans = (ans + x*x) % mod
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function maxSum(nums: number[], k: number): number {
+    const cnt: number[] = Array(31).fill(0);
+    for (const x of nums) {
+        for (let i = 0; i < 31; ++i) {
+            if ((x >> i) & 1) {
+                ++cnt[i];
+            }
+        }
+    }
+    let ans = 0n;
+    const mod = 1e9 + 7;
+    while (k-- > 0) {
+        let x = 0;
+        for (let i = 0; i < 31; ++i) {
+            if (cnt[i] > 0) {
+                x |= 1 << i;
+                --cnt[i];
+            }
+        }
+        ans = (ans + BigInt(x) * BigInt(x)) % BigInt(mod);
+    }
+    return Number(ans);
+}
 ```
 
 ### **...**

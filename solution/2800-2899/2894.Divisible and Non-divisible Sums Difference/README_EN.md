@@ -58,30 +58,78 @@ We return 0 - 15 = -15 as the answer.
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+We traverse every number in the range $[1, n]$. If it is divisible by $m$, we subtract it from the answer. Otherwise, we add it to the answer.
+
+After the traversal, we return the answer.
+
+The time complexity is $O(n)$, where $n$ is the given integer. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def differenceOfSums(self, n: int, m: int) -> int:
+        return sum(i if i % m else -i for i in range(1, n + 1))
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int differenceOfSums(int n, int m) {
+        int ans = 0;
+        for (int i = 1; i <= n; ++i) {
+            ans += i % m == 0 ? -i : i;
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int differenceOfSums(int n, int m) {
+        int ans = 0;
+        for (int i = 1; i <= n; ++i) {
+            ans += i % m ? i : -i;
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func differenceOfSums(n int, m int) (ans int) {
+	for i := 1; i <= n; i++ {
+		if i%m == 0 {
+			ans -= i
+		} else {
+			ans += i
+		}
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function differenceOfSums(n: number, m: number): number {
+    let ans = 0;
+    for (let i = 1; i <= n; ++i) {
+        ans += i % m ? i : -i;
+    }
+    return ans;
+}
 ```
 
 ### **...**
