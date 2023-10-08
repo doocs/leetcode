@@ -119,7 +119,7 @@ class Solution {
 class Solution {
 public:
     int maxSum(vector<int>& nums, int k) {
-        int cnt[31]{}；
+        int cnt[31]{};
         for (int x : nums) {
             for (int i = 0; i < 31; ++i) {
                 if (x >> i & 1) {
