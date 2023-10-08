@@ -2949,3 +2949,7 @@
   - [2891.Method Chaining](/solution/2800-2899/2891.Method%20Chaining/README.md)
   - [2892.Minimizing Array After Replacing Pairs With Their Product](/solution/2800-2899/2892.Minimizing%20Array%20After%20Replacing%20Pairs%20With%20Their%20Product/README.md)
   - [2893.Calculate Orders Within Each Interval](/solution/2800-2899/2893.Calculate%20Orders%20Within%20Each%20Interval/README.md)
+  - [2894.分类求和并作差](/solution/2800-2899/2894.Divisible%20and%20Non-divisible%20Sums%20Difference/README.md)
+  - [2895.最小处理时间](/solution/2800-2899/2895.Minimum%20Processing%20Time/README.md)
+  - [2896.执行操作使两个字符串相等](/solution/2800-2899/2896.Apply%20Operations%20to%20Make%20Two%20Strings%20Equal/README.md)
+  - [2897.对数组执行操作使平方和最大](/solution/2800-2899/2897.Apply%20Operations%20on%20Array%20to%20Maximize%20Sum%20of%20Squares/README.md)
