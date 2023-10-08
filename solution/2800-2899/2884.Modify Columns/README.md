@@ -1,4 +1,4 @@
-# [2884. Modify Columns](https://leetcode.cn/problems/modify-columns)
+# [2884. 修改列](https://leetcode.cn/problems/modify-columns)
 
 [English Version](/solution/2800-2899/2884.Modify%20Columns/README_EN.md)
 
@@ -16,17 +16,18 @@ DataFrame <code>employees</code>
 +-------------+--------+
 </pre>
 
-<p>A company intends to give its employees a pay rise.</p>
+<p>一家公司决定增加员工的薪水。</p>
 
-<p>Write a solution to <strong>modify</strong> the <code>salary</code> column by multiplying each salary by 2.</p>
+<p>编写一个解决方案，将每个员工的薪水乘以2来 <strong>修改</strong>&nbsp;<code>salary</code>&nbsp;列。</p>
 
-<p>The result format is in the following example.</p>
+<p>返回结果格式如下示例所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><b>示例 1:</b></p>
 
 <pre>
-<strong>Input:
+<strong>输入：
 </strong>DataFrame employees
 +---------+--------+
 | name    | salary |
@@ -36,7 +37,7 @@ DataFrame <code>employees</code>
 | Mia     | 62509  |
 | Ulysses | 54866  |
 +---------+--------+
-<strong>Output:
+<strong>输出：
 </strong>+---------+--------+
 | name    | salary |
 +---------+--------+
@@ -45,8 +46,8 @@ DataFrame <code>employees</code>
 | Mia     | 125018 |
 | Ulysses | 109732 |
 +---------+--------+
-<strong>Explanation:
-</strong>Every salary has been doubled.</pre>
+<strong>解释：
+</strong>每个人的薪水都被加倍。</pre>
 
 ## 解法
 

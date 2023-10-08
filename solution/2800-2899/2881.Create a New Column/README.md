@@ -1,4 +1,4 @@
-# [2881. Create a New Column](https://leetcode.cn/problems/create-a-new-column)
+# [2881. 创建新列](https://leetcode.cn/problems/create-a-new-column)
 
 [English Version](/solution/2800-2899/2881.Create%20a%20New%20Column/README_EN.md)
 
@@ -16,17 +16,18 @@ DataFrame <code>employees</code>
 +-------------+--------+
 </pre>
 
-<p>A&nbsp;company plans to provide its employees with a bonus.</p>
+<p>一家公司计划为员工提供奖金。</p>
 
-<p>Write a solution to create a new column name <code>bonus</code> that contains the <strong>doubled values</strong> of the <code>salary</code> column.</p>
+<p>编写一个解决方案，创建一个名为&nbsp;<code>bonus</code>&nbsp;的新列，其中包含&nbsp;<code>salary</code>&nbsp;值的&nbsp;<strong>两倍</strong>。</p>
 
-<p>The result format is in the following example.</p>
+<p>返回结果格式如下示例所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><b>示例 1:</b></p>
 
 <pre>
-<strong>Input:</strong>
+<b>输入：</b>
 DataFrame employees
 +---------+--------+
 | name    | salary |
@@ -38,7 +39,7 @@ DataFrame employees
 | Finn    | 74576  |
 | Thomas  | 24433  |
 +---------+--------+
-<strong>Output:</strong>
+<b>输出：</b>
 +---------+--------+--------+
 | name    | salary | bonus  |
 +---------+--------+--------+
@@ -49,8 +50,8 @@ DataFrame employees
 | Finn    | 74576  | 149152 |
 | Thomas  | 24433  | 48866  |
 +---------+--------+--------+
-<strong>Explanation:</strong> 
-A new column bonus is created by doubling the value in the column salary.</pre>
+<b>解释：</b>
+通过将salary列中的值加倍创建了一个新的bonus列。</pre>
 
 ## 解法
 

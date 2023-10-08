@@ -1,4 +1,4 @@
-# [2888. Reshape Data Concatenate](https://leetcode.cn/problems/reshape-data-concatenate)
+# [2888. 重塑数据：连结](https://leetcode.cn/problems/reshape-data-concatenate)
 
 [English Version](/solution/2800-2899/2888.Reshape%20Data%20Concatenate/README_EN.md)
 
@@ -27,15 +27,16 @@ DataFrame <code>df2</code>
 
 </pre>
 
-<p>Write a solution to concatenate these two DataFrames <strong>vertically</strong> into one DataFrame.</p>
+<p>编写一个解决方案，将两个&nbsp;DataFrames <b>垂直 </b>连接成一个&nbsp;DataFrame。</p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下示例所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>Input:
+<strong>输入：
 df1</strong>
 +------------+---------+-----+
 | student_id | name    | age |
@@ -52,7 +53,7 @@ df1</strong>
 | 5          | Leo  | 7   |
 | 6          | Alex | 7   |
 +------------+------+-----+
-<strong>Output:</strong>
+<b>输出：</b>
 +------------+---------+-----+
 | student_id | name    | age |
 +------------+---------+-----+
@@ -63,8 +64,8 @@ df1</strong>
 | 5          | Leo     | 7   |
 | 6          | Alex    | 7   |
 +------------+---------+-----+
-<strong>Explanation:
-</strong>The two DataFramess are stacked vertically, and their rows are combined.</pre>
+<strong>解释：
+</strong>两个 DataFrame 被垂直堆叠，它们的行被合并。</pre>
 
 ## 解法
 

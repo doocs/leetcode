@@ -1,4 +1,4 @@
-# [2887. Fill Missing Data](https://leetcode.cn/problems/fill-missing-data)
+# [2887. 填充缺失值](https://leetcode.cn/problems/fill-missing-data)
 
 [English Version](/solution/2800-2899/2887.Fill%20Missing%20Data/README_EN.md)
 
@@ -17,14 +17,16 @@ DataFrame <code>products</code>
 +-------------+--------+
 </pre>
 
-<p>Write a solution to fill in the missing value as <code><strong>0</strong></code> in the <code>quantity</code> column.</p>
+<p>编写一个解决方案，在 <code>quantity</code> 列中将缺失的值填充为&nbsp;<code><strong>0</strong></code>。</p>
 
-<p>The result format is in the following example.</p>
+<p>返回结果如下示例所示。</p>
 
 <p>&nbsp;</p>
+<strong class="example">示例 1：</strong>
+
 <pre>
-<strong class="example">Example 1:</strong>
-<strong>Input:</strong>+-----------------+----------+-------+
+<strong>输入：
+</strong>+-----------------+----------+-------+
 | name            | quantity | price |
 +-----------------+----------+-------+
 | Wristwatch      | 32       | 135   |
@@ -32,7 +34,7 @@ DataFrame <code>products</code>
 | GolfClubs       | None     | 9319  |
 | Printer         | 849      | 3051  |
 +-----------------+----------+-------+
-<strong>Output:
+<strong>输出：
 </strong>+-----------------+----------+-------+
 | name            | quantity | price |
 +-----------------+----------+-------+
@@ -41,8 +43,8 @@ DataFrame <code>products</code>
 | GolfClubs       | 0        | 9319  |
 | Printer         | 849      | 3051  |
 +-----------------+----------+-------+
-<strong>Explanation:</strong> 
-The quantity for Toaster and Headphones are filled by 0.</pre>
+<b>解释：</b>
+Toaster 和 Headphones 的数量被填充为 0。</pre>
 
 ## 解法
 

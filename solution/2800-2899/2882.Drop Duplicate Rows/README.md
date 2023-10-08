@@ -1,4 +1,4 @@
-# [2882. Drop Duplicate Rows](https://leetcode.cn/problems/drop-duplicate-rows)
+# [2882. 删去重复的行](https://leetcode.cn/problems/drop-duplicate-rows)
 
 [English Version](/solution/2800-2899/2882.Drop%20Duplicate%20Rows/README_EN.md)
 
@@ -17,16 +17,18 @@ DataFrame customers
 +-------------+--------+
 </pre>
 
-<p>There are some duplicate rows in the DataFrame based on the <code>email</code> column.</p>
+<p>在 DataFrame 中基于&nbsp;<code>email</code>&nbsp;列存在一些重复行。</p>
 
-<p>Write a solution to remove these duplicate rows and keep only the <strong>first</strong> occurrence.</p>
+<p>编写一个解决方案，删除这些重复行，仅保留第一次出现的行。</p>
 
-<p>The result format is in the following example.</p>
+<p>返回结果格式如下例所示。</p>
 
 <p>&nbsp;</p>
+
+<p><strong>示例 1:</strong></p>
+
 <pre>
-<strong class="example">Example 1:</strong>
-<strong>Input:</strong>
+<b>输入：</b>
 +-------------+---------+---------------------+
 | customer_id | name    | email               |
 +-------------+---------+---------------------+
@@ -37,7 +39,7 @@ DataFrame customers
 | 5           | Finn    | john@example.com    |
 | 6           | Violet  | alice@example.com   |
 +-------------+---------+---------------------+
-<strong>Output: </strong> 
+<b>输出：</b>
 +-------------+---------+---------------------+
 | customer_id | name    | email               |
 +-------------+---------+---------------------+
@@ -47,8 +49,8 @@ DataFrame customers
 | 4           | Alice   | john@example.com    |
 | 6           | Violet  | alice@example.com   |
 +-------------+---------+---------------------+
-<strong>Explanation:</strong>
-Alic (customer_id = 4) and Finn (customer_id = 5) both use john@example.com, so only the first occurrence of this email is retained.
+<b>解释：</b>
+Alice (customer_id = 4) 和 Finn (customer_id = 5) 都使用 john@example.com，因此只保留该邮箱地址的第一次出现。
 </pre>
 
 ## 解法
