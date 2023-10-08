@@ -53,6 +53,14 @@ The alternating subarray sum is 1.
 
 ## Solutions
 
+**Solution 1: Dynamic Programming**
+
+We define $f$ as the maximum alternating subarray sum ending with $nums[i]$, and $g$ as the maximum alternating subarray sum ending with $-nums[i]$. Initially, $f$ and $g$ are both $-\infty$.
+
+Next, we traverse the array $nums$. For each position $i$, we need to maintain the values of $f$ and $g$, which are $f = \max(g, 0) + nums[i]$ and $g = f - nums[i]$, respectively. The answer is the maximum value among all $f$ and $g$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,11 +68,10 @@ The alternating subarray sum is 1.
 ```python
 class Solution:
     def maximumAlternatingSubarraySum(self, nums: List[int]) -> int:
-        ans = nums[0]
-        a, b = nums[0], -inf
-        for v in nums[1:]:
-            a, b = max(v, b + v), a - v
-            ans = max(ans, a, b)
+        ans = f = g = -inf
+        for x in nums:
+            f, g = max(g, 0) + x, f - x
+            ans = max(ans, f, g)
         return ans
 ```
 
@@ -73,13 +80,13 @@ class Solution:
 ```java
 class Solution {
     public long maximumAlternatingSubarraySum(int[] nums) {
-        long ans = nums[0];
-        long a = nums[0], b = -(1 << 30);
-        for (int i = 1; i < nums.length; ++i) {
-            long c = a, d = b;
-            a = Math.max(nums[i], d + nums[i]);
-            b = c - nums[i];
-            ans = Math.max(ans, Math.max(a, b));
+        final long inf = 1L << 60;
+        long ans = -inf, f = -inf, g = -inf;
+        for (int x : nums) {
+            long ff = Math.max(g, 0) + x;
+            g = f - x;
+            f = ff;
+            ans = Math.max(ans, Math.max(f, g));
         }
         return ans;
     }
@@ -89,18 +96,17 @@ class Solution {
 ### **C++**
 
 ```cpp
-using ll = long long;
-
 class Solution {
 public:
     long long maximumAlternatingSubarraySum(vector<int>& nums) {
-        ll ans = nums[0];
-        ll a = nums[0], b = -(1 << 30);
-        for (int i = 1; i < nums.size(); ++i) {
-            ll c = a, d = b;
-            a = max(1ll * nums[i], d + nums[i]);
-            b = c - nums[i];
-            ans = max(ans, max(a, b));
+        using ll = long long;
+        const ll inf = 1LL << 60;
+        ll ans = -inf, f = -inf, g = -inf;
+        for (int x : nums) {
+            ll ff = max(g, 0LL) + x;
+            g = f - x;
+            f = ff;
+            ans = max({ans, f, g});
         }
         return ans;
     }
@@ -111,13 +117,11 @@ public:
 
 ```go
 func maximumAlternatingSubarraySum(nums []int) int64 {
-	ans := nums[0]
-	a, b := nums[0], -(1 << 30)
-	for _, v := range nums[1:] {
-		c, d := a, b
-		a = max(v, d+v)
-		b = c - v
-		ans = max(ans, max(a, b))
+	const inf = 1 << 60
+	ans, f, g := -inf, -inf, -inf
+	for _, x := range nums {
+		f, g = max(g, 0)+x, f-x
+		ans = max(ans, max(f, g))
 	}
 	return int64(ans)
 }
@@ -127,6 +131,19 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maximumAlternatingSubarraySum(nums: number[]): number {
+    let [ans, f, g] = [-Infinity, -Infinity, -Infinity];
+    for (const x of nums) {
+        [f, g] = [Math.max(g, 0) + x, f - x];
+        ans = Math.max(ans, f, g);
+    }
+    return ans;
 }
 ```
 
