@@ -64,6 +64,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+我们遍历区间 $[1, n]$ 中的每一个数，如果它能被 $m$ 整除，那么答案就减去这个数，否则答案就加上这个数。
+
+遍历结束后，返回答案即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是题目给定的整数。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -71,7 +79,9 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def differenceOfSums(self, n: int, m: int) -> int:
+        return sum(i if i % m else -i for i in range(1, n + 1))
 ```
 
 ### **Java**
@@ -79,19 +89,57 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int differenceOfSums(int n, int m) {
+        int ans = 0;
+        for (int i = 1; i <= n; ++i) {
+            ans += i % m == 0 ? -i : i;
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int differenceOfSums(int n, int m) {
+        int ans = 0;
+        for (int i = 1; i <= n; ++i) {
+            ans += i % m ? i : -i;
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func differenceOfSums(n int, m int) (ans int) {
+	for i := 1; i <= n; i++ {
+		if i%m == 0 {
+			ans -= i
+		} else {
+			ans += i
+		}
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function differenceOfSums(n: number, m: number): number {
+    let ans = 0;
+    for (let i = 1; i <= n; ++i) {
+        ans += i % m ? i : -i;
+    }
+    return ans;
+}
 ```
 
 ### **...**

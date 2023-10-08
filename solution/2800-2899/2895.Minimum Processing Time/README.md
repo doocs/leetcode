@@ -53,6 +53,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 排序**
+
+要使得处理完所有任务的时间最小，那么越早处于空闲状态的处理器应该处理耗时最长的 $4$ 个任务。
+
+因此，我们对处理器的空闲时间和任务的耗时分别进行排序，然后依次将耗时最长的 $4$ 个任务分配给空闲时间最早的处理器，计算最大的结束时间即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为任务的数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,7 +68,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minProcessingTime(self, processorTime: List[int], tasks: List[int]) -> int:
+        processorTime.sort()
+        tasks.sort()
+        ans = 0
+        i = len(tasks) - 1
+        for t in processorTime:
+            ans = max(ans, t + tasks[i])
+            i -= 4
+        return ans
 ```
 
 ### **Java**
@@ -68,19 +85,73 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int minProcessingTime(List<Integer> processorTime, List<Integer> tasks) {
+        processorTime.sort((a, b) -> a - b);
+        tasks.sort((a, b) -> a - b);
+        int ans = 0, i = tasks.size() - 1;
+        for (int t : processorTime) {
+            ans = Math.max(ans, t + tasks.get(i));
+            i -= 4;
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int minProcessingTime(vector<int>& processorTime, vector<int>& tasks) {
+        sort(processorTime.begin(), processorTime.end());
+        sort(tasks.begin(), tasks.end());
+        int ans = 0, i = tasks.size() - 1;
+        for (int t : processorTime) {
+            ans = max(ans, t + tasks[i]);
+            i -= 4;
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minProcessingTime(processorTime []int, tasks []int) (ans int) {
+	sort.Ints(processorTime)
+	sort.Ints(tasks)
+	i := len(tasks) - 1
+	for _, t := range processorTime {
+		ans = max(ans, t+tasks[i])
+		i -= 4
+	}
+	return
+}
 
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function minProcessingTime(processorTime: number[], tasks: number[]): number {
+    processorTime.sort((a, b) => a - b);
+    tasks.sort((a, b) => a - b);
+    let [ans, i] = [0, tasks.length - 1];
+    for (const t of processorTime) {
+        ans = Math.max(ans, t + tasks[i]);
+        i -= 4;
+    }
+    return ans;
+}
 ```
 
 ### **...**

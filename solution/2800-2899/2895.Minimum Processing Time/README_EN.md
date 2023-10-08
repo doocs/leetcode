@@ -47,30 +47,101 @@ Hence, it can be shown that the minimum time taken to execute all the tasks is 2
 
 ## Solutions
 
+**Solution 1: Greedy + Sorting**
+
+To minimize the time required to process all tasks, the four tasks with the longest processing time should be assigned to the processors that become idle earliest.
+
+Therefore, we sort the processors by their idle time and sort the tasks by their processing time. Then, we assign the four tasks with the longest processing time to the processor that becomes idle earliest, and calculate the maximum end time.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of tasks.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minProcessingTime(self, processorTime: List[int], tasks: List[int]) -> int:
+        processorTime.sort()
+        tasks.sort()
+        ans = 0
+        i = len(tasks) - 1
+        for t in processorTime:
+            ans = max(ans, t + tasks[i])
+            i -= 4
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int minProcessingTime(List<Integer> processorTime, List<Integer> tasks) {
+        processorTime.sort((a, b) -> a - b);
+        tasks.sort((a, b) -> a - b);
+        int ans = 0, i = tasks.size() - 1;
+        for (int t : processorTime) {
+            ans = Math.max(ans, t + tasks.get(i));
+            i -= 4;
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int minProcessingTime(vector<int>& processorTime, vector<int>& tasks) {
+        sort(processorTime.begin(), processorTime.end());
+        sort(tasks.begin(), tasks.end());
+        int ans = 0, i = tasks.size() - 1;
+        for (int t : processorTime) {
+            ans = max(ans, t + tasks[i]);
+            i -= 4;
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minProcessingTime(processorTime []int, tasks []int) (ans int) {
+	sort.Ints(processorTime)
+	sort.Ints(tasks)
+	i := len(tasks) - 1
+	for _, t := range processorTime {
+		ans = max(ans, t+tasks[i])
+		i -= 4
+	}
+	return
+}
 
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function minProcessingTime(processorTime: number[], tasks: number[]): number {
+    processorTime.sort((a, b) => a - b);
+    tasks.sort((a, b) => a - b);
+    let [ans, i] = [0, tasks.length - 1];
+    for (const t of processorTime) {
+        ans = Math.max(ans, t + tasks[i]);
+        i -= 4;
+    }
+    return ans;
+}
 ```
 
 ### **...**
