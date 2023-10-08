@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 366 场周赛(2023-10-08 10:30, 90 分钟) 参赛人数 2790
+
+- [2894. 分类求和并作差](/solution/2800-2899/2894.Divisible%20and%20Non-divisible%20Sums%20Difference/README.md)
+- [2895. 最小处理时间](/solution/2800-2899/2895.Minimum%20Processing%20Time/README.md)
+- [2896. 执行操作使两个字符串相等](/solution/2800-2899/2896.Apply%20Operations%20to%20Make%20Two%20Strings%20Equal/README.md)
+- [2897. 对数组执行操作使平方和最大](/solution/2800-2899/2897.Apply%20Operations%20on%20Array%20to%20Maximize%20Sum%20of%20Squares/README.md)
+
 #### 第 365 场周赛(2023-10-01 10:30, 90 分钟) 参赛人数 2909
 
 - [2873. 有序三元组中的最大值 I](/solution/2800-2899/2873.Maximum%20Value%20of%20an%20Ordered%20Triplet%20I/README.md)
