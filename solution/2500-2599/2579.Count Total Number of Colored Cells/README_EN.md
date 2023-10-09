@@ -45,7 +45,7 @@
 
 We find that after the $n$th minute, there are a total of $2 \times n - 1$ columns in the grid, and the numbers on each column are respectively $1, 3, 5, \cdots, 2 \times n - 1, 2 \times n - 3, \cdots, 3, 1$. The left and right parts are both arithmetic progressions, and the sum can be obtained by $2 \times n \times (n - 1) + 1$.
 
-Time complexity $O(1)$, space complexity $O(1)$.
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -91,6 +91,16 @@ func coloredCells(n int) int64 {
 ```ts
 function coloredCells(n: number): number {
     return 2 * n * (n - 1) + 1;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn colored_cells(n: i32) -> i64 {
+        2 * (n as i64) * (n as i64 - 1) + 1
+    }
 }
 ```
 
