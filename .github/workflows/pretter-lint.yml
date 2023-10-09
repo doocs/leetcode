@@ -1,8 +1,8 @@
 name: prettier-linter
 
 on:
-    push: {}
-    pull_request: {}
+  push: {}
+  pull_request: {}
 
 jobs:
   prettier:
