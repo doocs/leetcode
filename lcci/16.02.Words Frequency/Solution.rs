@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 struct WordsFrequency {
-    counter: HashMap<String, i32>
+    cnt: HashMap<String, i32>
 }
 
 
@@ -11,15 +11,15 @@ struct WordsFrequency {
 impl WordsFrequency {
 
     fn new(book: Vec<String>) -> Self {
-        let mut counter = HashMap::new();
+        let mut cnt = HashMap::new();
         for word in book.into_iter() {
-            *counter.entry(word).or_insert(0) += 1;
+            *cnt.entry(word).or_insert(0) += 1;
         }
-        Self { counter }
+        Self { cnt }
     }
 
     fn get(&self, word: String) -> i32 {
-        *self.counter.get(&word).unwrap_or(&0)
+        *self.cnt.get(&word).unwrap_or(&0)
     }
 }
 

@@ -48,6 +48,18 @@
 
 ## Solutions
 
+**Solution 1: Enumeration**
+
+We first count the number of characters `'a'` and `'b'` in the pattern string $pattern$, denoted as $cnt[0]$ and $cnt[1]$, respectively. Let the length of the string $value$ be $n$.
+
+If $cnt[0]=0$, it means that the pattern string only contains the character `'b'`. We need to check whether $n$ is a multiple of $cnt[1]$, and whether $value$ can be divided into $cnt[1]$ substrings of length $n/cnt[1]$, and all these substrings are the same. If not, return $false$ directly.
+
+If $cnt[1]=0$, it means that the pattern string only contains the character `'a'`. We need to check whether $n$ is a multiple of $cnt[0]$, and whether $value$ can be divided into $cnt[0]$ substrings of length $n/cnt[0]$, and all these substrings are the same. If not, return $false$ directly.
+
+Next, we denote the length of the string matched by the character `'a'` as $la$, and the length of the string matched by the character `'b'` as $lb$. Then we have $la \times cnt[0] + lb \times cnt[1] = n$. If we enumerate $la$, we can determine the value of $lb$. Therefore, we can enumerate $la$ and check whether there exists an integer $lb$ that satisfies the above equation.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $value$.
+
 <!-- tabs:start -->
 
 ### **Python3**

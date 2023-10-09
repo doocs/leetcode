@@ -24,6 +24,16 @@
 
 ## Solutions
 
+**Solution 1: Hash Table**
+
+We can use a hash table to store the elements in the array, with the keys being the elements in the array and the values being the number of times the element appears.
+
+We traverse the array, and for each element $x$, we calculate $y = target - x$. If $y$ exists in the hash table, it means that there is a pair of numbers $(x, y)$ that add up to the target, and we add it to the answer and reduce the count of $y$ by $1$. If $y$ does not exist in the hash table, it means that there is no such pair of numbers, and we increase the count of $x$ by $1$.
+
+After the traversal, we can obtain the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+
 <!-- tabs:start -->
 
 ### **Python3**

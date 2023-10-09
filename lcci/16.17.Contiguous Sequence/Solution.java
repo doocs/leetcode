@@ -1,10 +1,9 @@
 class Solution {
     public int maxSubArray(int[] nums) {
-        int inf = Integer.MIN_VALUE;
-        int ans = inf, s = inf;
-        for (int v : nums) {
-            s = Math.max(s, 0) + v;
-            ans = Math.max(ans, s);
+        int ans = Integer.MIN_VALUE, f = Integer.MIN_VALUE;
+        for (int x : nums) {
+            f = Math.max(f, 0) + x;
+            ans = Math.max(ans, f);
         }
         return ans;
     }
