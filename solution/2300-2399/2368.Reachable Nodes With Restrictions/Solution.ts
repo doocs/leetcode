@@ -1,8 +1,4 @@
-function reachableNodes(
-    n: number,
-    edges: number[][],
-    restricted: number[],
-): number {
+function reachableNodes(n: number, edges: number[][], restricted: number[]): number {
     let res = 0;
     const vis = new Array(n).fill(false);
     const map = new Map<number, number[]>();

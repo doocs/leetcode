@@ -60,6 +60,7 @@ obj2 = {"a": 1, "b": {"c": [6, [6], [9]], "e": 3}}
 <p><strong>解释：</strong></p>
 
 <ul>
+	<li><code>obj1</code> 和 <code>obj2</code> 都是有效的 JSON 值</li>
 	<li><code>1 &lt;= JSON.stringify(obj1).length &lt;= 5&nbsp;* 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= JSON.stringify(obj2).length &lt;= 5&nbsp;* 10<sup>5</sup></code></li>
 </ul>

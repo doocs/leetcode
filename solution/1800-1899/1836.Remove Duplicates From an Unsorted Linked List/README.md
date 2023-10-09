@@ -48,7 +48,7 @@
 
 **方法一：哈希表**
 
-我们可以用哈希表 `cnt` 统计链表中每个元素出现的次数，然后遍历链表，删除出现次数大于 1 的元素。
+我们可以用哈希表 $cnt$ 统计链表中每个元素出现的次数，然后遍历链表，删除出现次数大于 1 的元素。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为链表的长度。
 
@@ -173,6 +173,39 @@ func deleteDuplicatesUnsorted(head *ListNode) *ListNode {
 		}
 	}
 	return dummy.Next
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function deleteDuplicatesUnsorted(head: ListNode | null): ListNode | null {
+    const cnt: Map<number, number> = new Map();
+    for (let cur = head; cur; cur = cur.next) {
+        const x = cur.val;
+        cnt.set(x, (cnt.get(x) ?? 0) + 1);
+    }
+    const dummy = new ListNode(0, head);
+    for (let pre = dummy, cur = head; cur; cur = cur.next) {
+        if (cnt.get(cur.val)! > 1) {
+            pre.next = cur.next;
+        } else {
+            pre = cur;
+        }
+    }
+    return dummy.next;
 }
 ```
 

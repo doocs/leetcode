@@ -167,11 +167,7 @@ func abs(x int) int {
 ### **TypeScript**
 
 ```ts
-function maxTotalFruits(
-    fruits: number[][],
-    startPos: number,
-    k: number,
-): number {
+function maxTotalFruits(fruits: number[][], startPos: number, k: number): number {
     let ans = 0;
     let s = 0;
     for (let i = 0, j = 0; j < fruits.length; ++j) {
@@ -181,10 +177,7 @@ function maxTotalFruits(
             i <= j &&
             pj -
                 fruits[i][0] +
-                Math.min(
-                    Math.abs(startPos - fruits[i][0]),
-                    Math.abs(startPos - pj),
-                ) >
+                Math.min(Math.abs(startPos - fruits[i][0]), Math.abs(startPos - pj)) >
                 k
         ) {
             s -= fruits[i++][1];

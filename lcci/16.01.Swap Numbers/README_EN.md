@@ -24,6 +24,26 @@
 
 ## Solutions
 
+**Solution 1: Bitwise Operation**
+
+We can use the XOR operation $\oplus$ to implement the swap of two numbers.
+
+The XOR operation has the following three properties:
+
+-   Any number XORed with $0$ remains unchanged, i.e., $a \oplus 0=a$.
+-   Any number XORed with itself results in $0$, i.e., $a \oplus a=0$.
+-   The XOR operation satisfies the commutative and associative laws, i.e., $a \oplus b \oplus a=b \oplus a \oplus a=b \oplus (a \oplus a)=b \oplus 0=b$.
+
+Therefore, we can perform the following operations on two numbers $a$ and $b$ in the array $numbers$:
+
+-   $a=a \oplus b$, now $a$ stores the XOR result of the two numbers;
+-   $b=a \oplus b$, now $b$ stores the original value of $a$;
+-   $a=a \oplus b$, now $a$ stores the original value of $b$;
+
+In this way, we can swap two numbers without using a temporary variable.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

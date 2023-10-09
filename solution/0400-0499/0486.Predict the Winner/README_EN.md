@@ -253,10 +253,7 @@ function PredictTheWinner(nums: number[]): boolean {
             return 0;
         }
         if (f[i][j] === 0) {
-            f[i][j] = Math.max(
-                nums[i] - dfs(i + 1, j),
-                nums[j] - dfs(i, j - 1),
-            );
+            f[i][j] = Math.max(nums[i] - dfs(i + 1, j), nums[j] - dfs(i, j - 1));
         }
         return f[i][j];
     };

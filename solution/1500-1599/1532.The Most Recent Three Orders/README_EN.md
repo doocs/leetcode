@@ -13,7 +13,7 @@
 | customer_id   | int     |
 | name          | varchar |
 +---------------+---------+
-customer_id is the primary key for this table.
+customer_id is the column with unique values for this table.
 This table contains information about customers.
 </pre>
 
@@ -30,18 +30,18 @@ This table contains information about customers.
 | customer_id   | int     |
 | cost          | int     |
 +---------------+---------+
-order_id is the primary key for this table.
+order_id is the column with unique values for this table.
 This table contains information about the orders made by customer_id.
 Each customer has <strong>one order per day</strong>.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find the most recent three orders of each user. If a user ordered less than three orders, return all of their orders.</p>
+<p>Write a solution to find the most recent three orders of each user. If a user ordered less than three orders, return all of their orders.</p>
 
 <p>Return the result table ordered by <code>customer_name</code> in <strong>ascending order</strong> and in case of a tie by the <code>customer_id</code> in <strong>ascending order</strong>. If there is still a tie, order them by <code>order_date</code> in <strong>descending order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

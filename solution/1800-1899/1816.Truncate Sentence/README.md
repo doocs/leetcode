@@ -59,7 +59,7 @@ s 中的单词为 ["What", "is" "the", "solution", "to", "this", "problem"]
 
 **方法一：模拟**
 
-我们从前往后遍历字符串 $s$，对于当前遍历到的字符 $s[i]$，如果 $s[i]$ 是空格，那么 $k$ 自减 1，当 $k$ 为 0 时，说明已经截取了 $k$ 个单词，截取字符串 $s[0:i]$ 返回即可。
+我们从前往后遍历字符串 $s$，对于当前遍历到的字符 $s[i]$，如果 $s[i]$ 是空格，那么 $k$ 自减 $1$，当 $k$ 为 $0$ 时，说明已经截取了 $k$ 个单词，截取字符串 $s[0..i)$ 返回即可。
 
 遍历结束，返回 $s$ 即可。
 
@@ -136,6 +136,19 @@ func truncateSentence(s string, k int) string {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function truncateSentence(s: string, k: number): string {
+    for (let i = 0; i < s.length; ++i) {
+        if (s[i] === ' ' && --k === 0) {
+            return s.slice(0, i);
+        }
+    }
+    return s;
+}
+```
+
 ### **JavaScript**
 
 ```js
@@ -146,7 +159,7 @@ func truncateSentence(s string, k int) string {
  */
 var truncateSentence = function (s, k) {
     for (let i = 0; i < s.length; ++i) {
-        if (s[i] == ' ' && --k == 0) {
+        if (s[i] === ' ' && --k === 0) {
             return s.slice(0, i);
         }
     }

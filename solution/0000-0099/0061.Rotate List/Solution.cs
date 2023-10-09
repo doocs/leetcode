@@ -11,34 +11,31 @@
  */
 public class Solution {
     public ListNode RotateRight(ListNode head, int k) {
-        if (k == 0 || head == null || head.next == null)
-        {
+        if (head == null || head.next == null) {
             return head;
         }
-        var n = 0;
-        for (ListNode cur = head; cur != null; cur = cur.next)
-        {
+        var cur = head;
+        int n = 0;
+        while (cur != null) {
+            cur = cur.next;
             ++n;
         }
         k %= n;
-        if (k == 0)
-        {
+        if (k == 0) {
             return head;
         }
-        ListNode slow = head, fast = head;
-        while (k-- > 0)
-        {
+        var fast = head;
+        var slow = head;
+        while (k-- > 0) {
             fast = fast.next;
         }
-        while (fast.next != null)
-        {
+        while (fast.next != null) {
+            fast = fast.next;
             slow = slow.next;
-            fast = fast.next;
         }
-
-        ListNode start = slow.next;
+        var ans = slow.next;
         slow.next = null;
         fast.next = head;
-        return start;
+        return ans;
     }
 }

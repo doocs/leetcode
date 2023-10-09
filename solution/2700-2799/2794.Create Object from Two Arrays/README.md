@@ -43,7 +43,7 @@
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>keysArr 和 valuesArr 都是有效的 JSON 数组</code></li>
+	<li><code>keysArr</code> 和 <code>valuesArr</code> 都是有效的 JSON 数组</li>
 	<li><code>2 &lt;= JSON.stringify(keysArr).length,&nbsp;JSON.stringify(valuesArr).length &lt;= 5 * 10<sup>5</sup></code></li>
 	<li><code>keysArr.length === valuesArr.length</code></li>
 </ul>

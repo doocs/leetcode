@@ -44,7 +44,7 @@
 
 **方法一：枚举**
 
-我们可以枚举购买钢笔的数量 $x$，那么对于每个 $x$，我们最多可以购买铅笔的数量为 $\frac{total - x \times cost1}{cost2}$，那么方案数为 $y + 1$。我们累加所有的 $x$ 的方案数，即为答案。
+我们可以枚举购买钢笔的数量 $x$，对于每个 $x$，我们最多可以购买铅笔的数量为 $\frac{total - x \times cost1}{cost2}$，那么数量加 $1$ 即为 $x$ 的方案数。我们累加所有的 $x$ 的方案数，即为答案。
 
 时间复杂度 $O(\frac{total}{cost1})$，空间复杂度 $O(1)$。
 
@@ -112,17 +112,27 @@ func waysToBuyPensPencils(total int, cost1 int, cost2 int) (ans int64) {
 ### **TypeScript**
 
 ```ts
-function waysToBuyPensPencils(
-    total: number,
-    cost1: number,
-    cost2: number,
-): number {
+function waysToBuyPensPencils(total: number, cost1: number, cost2: number): number {
     let ans = 0;
     for (let x = 0; x <= Math.floor(total / cost1); ++x) {
         const y = Math.floor((total - x * cost1) / cost2) + 1;
         ans += y;
     }
     return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn ways_to_buy_pens_pencils(total: i32, cost1: i32, cost2: i32) -> i64 {
+        let mut ans: i64 = 0;
+        for pen in 0..=total / cost1 {
+            ans += ((total - pen * cost1) / cost2) as i64 + 1;
+        }
+        ans
+    }
 }
 ```
 

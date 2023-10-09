@@ -16,7 +16,7 @@
 | user_name    | varchar |
 | credit       | int     |
 +--------------+---------+
-user_id 是这个表的主键。
+user_id 是这个表的主键（具有唯一值的列）。
 表中的每一列包含每一个用户当前的额度信息。</pre>
 
 <p>&nbsp;</p>
@@ -33,7 +33,7 @@ user_id 是这个表的主键。
 | amount        | int     |
 | transacted_on | date    |
 +---------------+---------+
-trans_id 是这个表的主键。
+trans_id 是这个表的主键（具有唯一值的列）。
 表中的每一列包含银行的交易信息。
 ID 为 paid_by 的用户给 ID 为 paid_to 的用户转账。
 </pre>
@@ -42,7 +42,7 @@ ID 为 paid_by 的用户给 ID 为 paid_to 的用户转账。
 
 <p>力扣银行 (LCB) 帮助程序员们完成虚拟支付。我们的银行在表&nbsp;<em>Transaction</em>&nbsp;中记录每条交易信息，我们要查询每个用户的当前余额，并检查他们是否已透支（当前额度小于 0）。</p>
 
-<p>写一条 SQL 语句，查询：</p>
+<p>编写解决方案报告：</p>
 
 <ul>
 	<li><code>user_id</code>&nbsp;用户 ID</li>
@@ -53,7 +53,7 @@ ID 为 paid_by 的用户给 ID 为 paid_to 的用户转账。
 
 <p>以<strong>任意</strong>顺序返回结果表。</p>
 
-<p>查询格式见如下所示。</p>
+<p>结果格式见如下所示。</p>
 
 <p>&nbsp;</p>
 

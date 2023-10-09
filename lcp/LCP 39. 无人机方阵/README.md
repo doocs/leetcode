@@ -46,6 +46,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表计数**
+
+我们可以用哈希表 $cnt$ 统计 $source$ 和 $target$ 中每个数字出现的次数之差。对于 $cnt$ 中的每个数字 $x$，如果 $x$ 的出现次数为正数，那么说明 $x$ 在 $target$ 中出现的次数多，我们需要将 $x$ 出现的次数减少到 $0$。因此，我们只需要累加所有出现次数为正数的数字的出现次数之和，即为答案。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是 $source$ 和 $target$ 的行数和列数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -53,7 +59,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minimumSwitchingTimes(
+        self, source: List[List[int]], target: List[List[int]]
+    ) -> int:
+        cnt = Counter()
+        for row in source:
+            for x in row:
+                cnt[x] += 1
+        for row in target:
+            for x in row:
+                cnt[x] -= 1
+        return sum(abs(x) for x in cnt.values()) // 2
 ```
 
 ### **Java**
@@ -61,7 +78,99 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minimumSwitchingTimes(int[][] source, int[][] target) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int[] row : source) {
+            for (int x : row) {
+                cnt.merge(x, 1, Integer::sum);
+            }
+        }
+        for (int[] row : target) {
+            for (int x : row) {
+                cnt.merge(x, -1, Integer::sum);
+            }
+        }
+        int ans = 0;
+        for (int v : cnt.values()) {
+            ans += Math.abs(v);
+        }
+        return ans / 2;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimumSwitchingTimes(vector<vector<int>>& source, vector<vector<int>>& target) {
+        unordered_map<int, int> cnt;
+        for (auto& row : source) {
+            for (int& x : row) {
+                ++cnt[x];
+            }
+        }
+        for (auto& row : target) {
+            for (int& x : row) {
+                --cnt[x];
+            }
+        }
+        int ans = 0;
+        for (auto& [_, v] : cnt) {
+            ans += abs(v);
+        }
+        return ans / 2;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumSwitchingTimes(source [][]int, target [][]int) (ans int) {
+	cnt := map[int]int{}
+	for _, row := range source {
+		for _, x := range row {
+			cnt[x]++
+		}
+	}
+	for _, row := range target {
+		for _, x := range row {
+			cnt[x]--
+		}
+	}
+	for _, v := range cnt {
+		if v > 0 {
+			ans += v
+		}
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function minimumSwitchingTimes(source: number[][], target: number[][]): number {
+    const cnt: Map<number, number> = new Map();
+    for (const row of source) {
+        for (const x of row) {
+            cnt.set(x, (cnt.get(x) || 0) + 1);
+        }
+    }
+    for (const row of target) {
+        for (const x of row) {
+            cnt.set(x, (cnt.get(x) || 0) - 1);
+        }
+    }
+    let ans = 0;
+    for (const [_, v] of cnt) {
+        ans += Math.abs(v);
+    }
+    return Math.floor(ans / 2);
+}
 ```
 
 ### **...**

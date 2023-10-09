@@ -6,16 +6,15 @@ class Solution:
             g[v].append(u)
         q = deque([0])
         vis = {0}
-        ans = step = 0
+        ans = d = 0
         while q:
-            step += 1
+            d += 1
+            t = d * 2
             for _ in range(len(q)):
                 u = q.popleft()
                 for v in g[u]:
-                    if v in vis:
-                        continue
-                    vis.add(v)
-                    q.append(v)
-                    d, t = step * 2, patience[v]
-                    ans = max(ans, (d - 1) // t * t + d + 1)
+                    if v not in vis:
+                        vis.add(v)
+                        q.append(v)
+                        ans = max(ans, (t - 1) // patience[v] * patience[v] + t + 1)
         return ans

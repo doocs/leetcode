@@ -233,12 +233,7 @@ func knightProbability(n int, k int, row int, column int) float64 {
 ### **TypeScript**
 
 ```ts
-function knightProbability(
-    n: number,
-    k: number,
-    row: number,
-    column: number,
-): number {
+function knightProbability(n: number, k: number, row: number, column: number): number {
     const f = new Array(k + 1)
         .fill(0)
         .map(() => new Array(n).fill(0).map(() => new Array(n).fill(0)));

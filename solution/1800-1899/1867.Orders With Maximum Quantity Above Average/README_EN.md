@@ -14,7 +14,7 @@
 | product_id  | int  |
 | quantity    | int  |
 +-------------+------+
-(order_id, product_id) is the primary key for this table.
+(order_id, product_id) is the primary key (combination of columns with unique values) for this table.
 A single order is represented as multiple rows, one row for each product in the order.
 Each row of this table contains the quantity ordered of the product product_id in the order order_id.
 </pre>
@@ -25,11 +25,11 @@ Each row of this table contains the quantity ordered of the product product_id i
 
 <p>The <strong>average </strong>quantity of an order is calculated as <code>(total quantity of all products in the order) / (number of different products in the order)</code>. The <strong>maximum</strong> quantity of an order is the highest <code>quantity</code> of any single product in the order.</p>
 
-<p>Write an SQL query to find the <code>order_id</code> of all <strong>imbalanced orders</strong>.</p>
+<p>Write a solution to find the <code>order_id</code> of all <strong>imbalanced orders</strong>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

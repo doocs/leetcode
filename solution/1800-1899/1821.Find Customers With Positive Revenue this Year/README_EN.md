@@ -14,18 +14,18 @@
 | year         | int  |
 | revenue      | int  |
 +--------------+------+
-(customer_id, year) is the primary key for this table.
+(customer_id, year) is the primary key (combination of columns with unique values) for this table.
 This table contains the customer ID and the revenue of customers in different years.
 Note that this revenue can be negative.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the customers with <strong>postive revenue</strong> in the year 2021.</p>
+<p>Write a solution to report the customers with <strong>postive revenue</strong> in the year 2021.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

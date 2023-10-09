@@ -10,10 +10,7 @@
  * }
  */
 
-function addTwoNumbers(
-    l1: ListNode | null,
-    l2: ListNode | null,
-): ListNode | null {
+function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | null {
     const dummy = new ListNode();
     let cur = dummy;
     let sum = 0;

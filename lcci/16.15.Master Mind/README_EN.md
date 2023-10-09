@@ -28,6 +28,14 @@
 
 ## Solutions
 
+**Solution 1: Hash Table**
+
+We simultaneously traverse both strings, count the number of corresponding characters that are the same, and accumulate them in $x$. Then we record the characters and their frequencies in both strings in hash tables $cnt1$ and $cnt2$, respectively.
+
+Next, we traverse both hash tables, count the number of common characters, and accumulate them in $y$. The answer is then $[x, y - x]$.
+
+The time complexity is $O(C)$, and the space complexity is $O(C)$. Here, $C=4$ for this problem.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -133,10 +141,7 @@ var masterMind = function (solution, guess) {
             counts2[s2] += 1;
         }
     }
-    let res2 = ['R', 'G', 'B', 'Y'].reduce(
-        (a, c) => a + Math.min(counts1[c], counts2[c]),
-        0,
-    );
+    let res2 = ['R', 'G', 'B', 'Y'].reduce((a, c) => a + Math.min(counts1[c], counts2[c]), 0);
     return [res1, res2];
 };
 ```

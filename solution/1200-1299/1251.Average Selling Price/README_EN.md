@@ -15,7 +15,7 @@
 | end_date      | date    |
 | price         | int     |
 +---------------+---------+
-(product_id, start_date, end_date) is the primary key for this table.
+(product_id, start_date, end_date) is the primary key (combination of columns with unique values) for this table.
 Each row of this table indicates the price of the product_id in the period from start_date to end_date.
 For each product_id there will be no two overlapping periods. That means there will be no two intersecting periods for the same product_id.
 </pre>
@@ -32,17 +32,17 @@ For each product_id there will be no two overlapping periods. That means there w
 | purchase_date | date    |
 | units         | int     |
 +---------------+---------+
-There is no primary key for this table, it may contain duplicates.
+This table may contain duplicate rows.
 Each row of this table indicates the date, units, and product_id of each product sold. 
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find the average selling price for each product. <code>average_price</code> should be <strong>rounded to 2 decimal places</strong>.</p>
+<p>Write a solution to find the average selling price for each product. <code>average_price</code> should be <strong>rounded to 2 decimal places</strong>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -89,10 +89,7 @@ Average selling price for product 2 = ((200 * 15) + (30 * 30)) / 230 = 16.96
 ```sql
 SELECT
     p.product_id,
-    Round(
-        (Sum(u.units * p.price) + 0.0) / (Sum(units) + 0.0),
-        2
-    ) AS average_price
+    Round((Sum(u.units * p.price) + 0.0) / (Sum(units) + 0.0), 2) AS average_price
 FROM
     Prices AS p
     INNER JOIN UnitsSold AS u ON p.product_id = u.product_id

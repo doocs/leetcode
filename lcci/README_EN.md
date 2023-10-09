@@ -6,7 +6,7 @@ _Cracking the Coding Interview, 6th Edition_ is here to help you through this pr
 
 ## Solutions
 
-Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the Mac) to search anything you want.
+Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on the Mac) to search anything you want.
 
 | #                                                                           | Solution                                                                                              | Tag                                                          | Difficulty |
 | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ---------- |

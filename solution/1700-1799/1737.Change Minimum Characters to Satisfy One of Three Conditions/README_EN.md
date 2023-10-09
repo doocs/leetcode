@@ -211,12 +211,7 @@ function minCharacters(a: string, b: string): number {
         pre1 += count1[i];
         pre2 += count2[i];
         // case1， case2， case3
-        ans = Math.min(
-            ans,
-            m - pre1 + pre2,
-            pre1 + n - pre2,
-            m + n - count1[i] - count2[i],
-        );
+        ans = Math.min(ans, m - pre1 + pre2, pre1 + n - pre2, m + n - count1[i] - count2[i]);
     }
     ans = Math.min(ans, m + n - count1[25] - count2[25]);
 

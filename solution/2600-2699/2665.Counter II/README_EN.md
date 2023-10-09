@@ -46,7 +46,8 @@ counter.reset(); // 0
 
 <ul>
 	<li><code>-1000 &lt;= init &lt;= 1000</code></li>
-	<li><code>total calls not to exceed 1000</code></li>
+	<li><code>0 &lt;= calls.length &lt;= 1000</code></li>
+	<li><code>calls[i]</code> is one of &quot;increment&quot;, &quot;decrement&quot; and&nbsp;&quot;reset&quot;</li>
 </ul>
 
 ## Solutions

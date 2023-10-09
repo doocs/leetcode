@@ -10,12 +10,7 @@ function exist(board: string[][], word: string): boolean {
         }
         const temp = board[i][j];
         board[i][j] = ' ';
-        if (
-            dfs(i + 1, j, k) ||
-            dfs(i, j + 1, k) ||
-            dfs(i - 1, j, k) ||
-            dfs(i, j - 1, k)
-        ) {
+        if (dfs(i + 1, j, k) || dfs(i, j + 1, k) || dfs(i - 1, j, k) || dfs(i, j - 1, k)) {
             return true;
         }
         board[i][j] = temp;

@@ -77,11 +77,11 @@ ABBBB<strong><em>B</em></strong>BBAA -&gt; ABBBBBBAA
 
 **方法一：计数**
 
-统计字符串 `colors` 中连续出现 $3$ 个 `'A'` 或 $3$ 个 `'B'` 的个数，分别记为 $a$ 和 $b$。
+我们统计字符串 `colors` 中连续出现 $3$ 个 `'A'` 或 $3$ 个 `'B'` 的个数，分别记为 $a$ 和 $b$。
 
 最后判断 $a$ 是否大于 $b$，是则返回 `true`，否则返回 `false`。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 `colors` 的长度。
+时间复杂度 $O(n)$，其中 $n$ 为字符串 `colors` 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -175,6 +175,29 @@ func winnerOfGame(colors string) bool {
 		}
 	}
 	return a > b
+}
+```
+
+### **TypeScript**
+
+```ts
+function winnerOfGame(colors: string): boolean {
+    const n = colors.length;
+    let [a, b] = [0, 0];
+    for (let i = 0, j = 0; i < n; i = j) {
+        while (j < n && colors[j] === colors[i]) {
+            ++j;
+        }
+        const m = j - i - 2;
+        if (m > 0) {
+            if (colors[i] === 'A') {
+                a += m;
+            } else {
+                b += m;
+            }
+        }
+    }
+    return a > b;
 }
 ```
 

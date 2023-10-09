@@ -11,28 +11,30 @@
  */
 
 function rotateRight(head: ListNode | null, k: number): ListNode | null {
-    if (k == 0 || head == null || head.next == null) return head;
-    // mod n
+    if (!head || !head.next) {
+        return head;
+    }
+    let cur = head;
     let n = 0;
-    let p = head;
-    while (p != null) {
+    while (cur) {
+        cur = cur.next;
         ++n;
-        p = p.next;
     }
     k %= n;
-    if (k == 0) return head;
-
-    let fast = head,
-        slow = head;
-    for (let i = 0; i < k; ++i) {
+    if (k === 0) {
+        return head;
+    }
+    let fast = head;
+    let slow = head;
+    while (k--) {
         fast = fast.next;
     }
-    while (fast.next != null) {
+    while (fast.next) {
+        fast = fast.next;
         slow = slow.next;
-        fast = fast.next;
     }
-    let start = slow.next;
+    const ans = slow.next;
     slow.next = null;
     fast.next = head;
-    return start;
+    return ans;
 }

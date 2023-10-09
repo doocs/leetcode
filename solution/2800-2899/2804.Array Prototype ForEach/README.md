@@ -16,7 +16,7 @@
 	<li><code>array</code> - 表示数组本身，在回调函数内部可以访问整个数组。</li>
 </ul>
 
-<p>上下文 <code>context</code> 应该是作为函数上下文参数传递给回调函数的对象，确保回调函数内部的 <code>this</code> 关键字引用此上下文对象。</p>
+<p>上下文 <code>context</code> 应该是作为函数上下文参数传递给回调函数 <code>callback</code> 的对象，确保回调函数 <code>callback</code> 内部的 <code>this</code> 关键字引用此上下文对象。</p>
 
 <p>尝试在不使用内置数组方法的情况下实现这个方法。</p>
 
@@ -25,12 +25,12 @@
 <p><b>示例 1：</b></p>
 
 <pre>
-<b>输入：</b>
+<strong>输入：</strong>
 arr = [1,2,3], 
 callback = (val, i, arr) =&gt; arr[i] = val * 2, 
 context = {"context":true}
-<b>输出：</b>[2,4,6]
-<b>解释：</b>
+<strong>输出：</strong>[2,4,6]
+<strong>解释：</strong>
 arr.forEach(callback, context)&nbsp; 
 console.log(arr) // [2,4,6]
 
@@ -40,12 +40,12 @@ console.log(arr) // [2,4,6]
 <p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<b>输入：</b>
+<strong>输入：</strong>
 arr = [true, true, false, false], 
 callback = (val, i, arr) =&gt; arr[i] = this, 
 context = {"context": false}
-<b>输出：</b>[{"context":false},{"context":false},{"context":false},{"context":false}]
-<b>解释：</b>
+<strong>输出：</strong>[{"context":false},{"context":false},{"context":false},{"context":false}]
+<strong>解释：</strong>
 arr.forEach(callback, context)&nbsp;
 console.log(arr) // [{"context":false},{"context":false},{"context":false},{"context":false}]
 
@@ -55,11 +55,11 @@ console.log(arr) // [{"context":false},{"context":false},{"context":false},{"con
 <p><strong class="example">示例 3：</strong></p>
 
 <pre>
-<b>输入：</b>
+<strong>输入：</strong>
 arr = [true, true, false, false], 
 callback = (val, i, arr) =&gt; arr[i] = !val, 
 context = {"context": 5}
-<b>输出：</b>[false,false,true,true]
+<strong>输出：</strong>[false,false,true,true]
 </pre>
 
 <p>&nbsp;</p>

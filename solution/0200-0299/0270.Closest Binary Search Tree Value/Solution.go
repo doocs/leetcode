@@ -11,7 +11,7 @@ func closestValue(root *TreeNode, target float64) int {
 	mi := math.MaxFloat64
 	for root != nil {
 		t := math.Abs(float64(root.Val) - target)
-		if t < mi {
+		if t < mi || (t == mi && root.Val < ans) {
 			mi = t
 			ans = root.Val
 		}

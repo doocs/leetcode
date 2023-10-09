@@ -225,10 +225,7 @@ var dailyTemperatures = function (temperatures) {
     const ans = new Array(n).fill(0);
     const stk = [];
     for (let i = n - 1; i >= 0; --i) {
-        while (
-            stk.length &&
-            temperatures[stk[stk.length - 1]] <= temperatures[i]
-        ) {
+        while (stk.length && temperatures[stk[stk.length - 1]] <= temperatures[i]) {
             stk.pop();
         }
         if (stk.length) {
@@ -268,10 +265,7 @@ function dailyTemperatures(temperatures: number[]): number[] {
     const ans = new Array(n).fill(0);
     const stk: number[] = [];
     for (let i = n - 1; i >= 0; --i) {
-        while (
-            stk.length &&
-            temperatures[stk[stk.length - 1]] <= temperatures[i]
-        ) {
+        while (stk.length && temperatures[stk[stk.length - 1]] <= temperatures[i]) {
             stk.pop();
         }
         if (stk.length) {

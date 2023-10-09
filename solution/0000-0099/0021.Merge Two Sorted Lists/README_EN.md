@@ -418,10 +418,7 @@ public class Solution {
  * }
  */
 
-function mergeTwoLists(
-    list1: ListNode | null,
-    list2: ListNode | null,
-): ListNode | null {
+function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode | null {
     if (list1 == null || list2 == null) {
         return list1 || list2;
     }
@@ -448,10 +445,7 @@ function mergeTwoLists(
  * }
  */
 
-function mergeTwoLists(
-    list1: ListNode | null,
-    list2: ListNode | null,
-): ListNode | null {
+function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode | null {
     const dummy = new ListNode(0);
     let cur = dummy;
     while (list1 != null && list2 != null) {

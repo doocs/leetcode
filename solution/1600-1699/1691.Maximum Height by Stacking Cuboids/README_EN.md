@@ -178,9 +178,7 @@ var maxHeight = function (cuboids) {
     const f = new Array(n).fill(0);
     for (let i = 0; i < n; ++i) {
         for (let j = 0; j < i; ++j) {
-            const ok =
-                cuboids[j][1] <= cuboids[i][1] &&
-                cuboids[j][2] <= cuboids[i][2];
+            const ok = cuboids[j][1] <= cuboids[i][1] && cuboids[j][2] <= cuboids[i][2];
             if (ok) f[i] = Math.max(f[i], f[j]);
         }
         f[i] += cuboids[i][2];

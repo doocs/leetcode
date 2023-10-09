@@ -9,7 +9,7 @@
 <p>给你一个仅由小写英文字母组成的字符串 <code>s</code> 。在一步操作中，你可以完成以下行为：</p>
 
 <ul>
-	<li>选则 <code>s</code> 的任一非空子字符串，可能是整个字符串，接着将字符串中的每一个字符替换为英文字母表中的前一个字符。例如，'b' 用 'a' 替换，'a' 用 'z' 替换。</li>
+	<li>选择&nbsp;<code>s</code> 的任一非空子字符串，可能是整个字符串，接着将字符串中的每一个字符替换为英文字母表中的前一个字符。例如，'b' 用 'a' 替换，'a' 用 'z' 替换。</li>
 </ul>
 
 <p>返回执行上述操作 <strong>恰好一次</strong> 后可以获得的 <strong>字典序最小</strong> 的字符串。</p>
@@ -21,7 +21,8 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>s = "cbabc"
+<pre>
+<strong>输入：</strong>s = "cbabc"
 <strong>输出：</strong>"baabc"
 <strong>解释：</strong>我们选择从下标 0 开始、到下标 1 结束的子字符串执行操作。 
 可以证明最终得到的字符串是字典序最小的。
@@ -29,7 +30,8 @@
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>s = "acbbc"
+<pre>
+<strong>输入：</strong>s = "acbbc"
 <strong>输出：</strong>"abaab"
 <strong>解释：</strong>我们选择从下标 1 开始、到下标 4 结束的子字符串执行操作。
 可以证明最终得到的字符串是字典序最小的。
@@ -37,7 +39,8 @@
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>s = "leetcode"
+<pre>
+<strong>输入：</strong>s = "leetcode"
 <strong>输出：</strong>"kddsbncd"
 <strong>解释：</strong>我们选择整个字符串执行操作。
 可以证明最终得到的字符串是字典序最小的。

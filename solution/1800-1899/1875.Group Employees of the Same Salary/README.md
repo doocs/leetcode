@@ -16,27 +16,27 @@
 | name        | varchar |
 | salary      | int     |
 +-------------+---------+
-employee_id 是这个表的主键.
-这个表格的每一行包含雇员ID(employee_id), 雇员姓名(name)和雇员工资(salary)信息.
+employee_id 是这张表具有唯一值的列.
+这个表格的每一行包含雇员 ID, 姓名和工资信息.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>这家公司想要将<strong>工资相同</strong>的雇员划分到同一个队伍中。每个队伍需要满足如下要求：</p>
+<p>这家公司想要将&nbsp;<strong>工资相同&nbsp;</strong>的雇员划分到同一个组中。每个组需要满足如下要求：</p>
 
 <ul>
-	<li>每个队伍需要由<strong>至少两个</strong>雇员组成。</li>
-	<li>同一个队伍中的所有雇员的<strong>工资相同</strong>。</li>
-	<li>工资相同的所有雇员必须被分到同一个队伍中。</li>
-	<li>如果某位雇员的工资是独一无二的，那么它<strong>不</strong>被分配到任何一个队伍中。</li>
-	<li>队伍ID的设定基于这支队伍的工资相对于其他队伍的<strong>工资的排名</strong>，即工资<strong>最低</strong>的队伍满足&nbsp;<code>team_id = 1</code>&nbsp;。注意，排名时<strong>不需要考虑</strong>没有队伍的雇员的工资。</li>
+	<li>每个组需要由&nbsp;<strong>至少两个&nbsp;</strong>雇员组成。</li>
+	<li>同一个组中的所有雇员的&nbsp;<strong>工资相同</strong>。</li>
+	<li>工资相同的所有雇员必须被分到同一个组中。</li>
+	<li>如果某位雇员的工资是独一无二的，那么它&nbsp;<strong>不&nbsp;</strong>被分配到任何一个组中。</li>
+	<li>组ID的设定基于这个组的工资相对于其他组的&nbsp;<strong>工资的排名</strong>，即工资&nbsp;<strong>最低&nbsp;</strong>的组满足&nbsp;<code>team_id = 1</code>&nbsp;。注意，排名时&nbsp;<strong>不需要考虑&nbsp;</strong>没有组的雇员的工资。</li>
 </ul>
 
-<p>编写一个 SQL&nbsp;查询来获取每一个被分配到队伍中的雇员的&nbsp;<code>team_id</code> 。</p>
+<p>编写一个解决方案来获取每一个被分配到组中的雇员的&nbsp;<code>team_id</code> 。</p>
 
 <p>返回的结果表按照&nbsp;<code>team_id</code>&nbsp;<b>升序排列。</b>如果相同，则按照&nbsp;<code>employee_id</code>&nbsp;<strong>升序排列</strong>。</p>
 
-<p>查询结果格式如下例。</p>
+<p>返回结果格式如下示例所示。</p>
 
 <p>&nbsp;</p>
 
@@ -64,13 +64,13 @@ Employees 表:
 | 9           | Kannon  | 7400   | 2       |
 +-------------+---------+--------+---------+
 <strong>解释：</strong>
-Meir (employee_id=2) 和 Michael (employee_id=3) 在同一个队伍中，因为他们的工资都是3000。
-Addilyn (employee_id=7) 和 Kannon (employee_id=9) 在同一个队伍中，因为他们的工资都是7400。
-Juan (employee_id=8) 不在任何一个队伍中，因为他的工资为6100，是独一无二的（即：没有人和他的工资相同）。
-队伍ID按照如下方式分配（基于工资排名，较低的排在前面）:
+Meir (employee_id=2) 和 Michael (employee_id=3) 在同一个组中，因为他们的工资都是3000。
+Addilyn (employee_id=7) 和 Kannon (employee_id=9) 在同一个组中，因为他们的工资都是7400。
+Juan (employee_id=8) 不在任何一个组中，因为他的工资为6100，是独一无二的（即：没有人和他的工资相同）。
+组ID按照如下方式分配（基于工资排名，较低的排在前面）:
 - team_id=1: Meir 和 Michael, 工资是3000
 - team_id=2: Addilyn 和 Kannon, 工资是7400
-Juan的工资(6100)没有被计算在排名中，因为他不属于任何一个队伍。</pre>
+Juan的工资(6100)没有被计算在排名中，因为他不属于任何一个组。</pre>
 
 ## 解法
 

@@ -29,7 +29,8 @@
 
 <p><strong>示例 1:</strong></p>
 
-<pre><strong>输入:</strong> nums1 = [1,2,5], nums2 = [2,6,3]
+<pre>
+<strong>输入:</strong> nums1 = [1,2,5], nums2 = [2,6,3]
 <strong>输出:</strong> 3
 <strong>解释:</strong> 平衡的区间有:
 - [0, 1], 我们选取 nums2[0] 和 nums2[1]。
@@ -38,13 +39,14 @@
   从 <code>nums1</code> 中选取的数字和与从 <code>nums2</code> 中选取的数字和相等: 1 + 5 = 6。
 - [0, 2], 我们选取 nums1[0], nums1[1] 和 nums2[2]。
   从 <code>nums1</code> 中选取的数字和与从 <code>nums2</code> 中选取的数字和相等: 1 + 2 = 3。
-注意第二个区间和第三个区间时不同的。
+注意第二个区间和第三个区间是不同的。
 因为在第二个平衡的区间中，我们选取了 nums2[1]，但是在第三个平衡的区间中，我们选取了 nums1[1]。
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong>示例 2：</strong></p>
 
-<pre><strong>输入:</strong> nums1 = [0,1], nums2 = [1,0]
+<pre>
+<strong>输入:</strong> nums1 = [0,1], nums2 = [1,0]
 <strong>输出:</strong> 4
 <strong>解释:</strong> 平衡的区间有:
 - [0, 0], 我们选取 nums1[0]。

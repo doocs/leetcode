@@ -63,6 +63,19 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：Dijkstra 算法**
+
+我们先根据给定的边构造出图 $g$，其中 $g[u]$ 表示节点 $u$ 的所有邻居节点以及对应的边权重。
+
+然后我们使用 Dijkstra 算法求出从节点 $s$ 到节点 $d$ 的最短路径，但是在这里我们需要对 Dijkstra 算法进行一些修改：
+
+-   我们需要记录每个节点 $u$ 到节点 $d$ 的最短路径长度，但是由于我们可以最多跨越 $k$ 条边，所以我们需要记录每个节点 $u$ 到节点 $d$ 的最短路径长度，以及跨越的边数 $t$，即 $dist[u][t]$ 表示从节点 $u$ 到节点 $d$ 的最短路径长度，且跨越的边数为 $t$。
+-   我们需要使用优先队列来维护当前的最短路径，但是由于我们需要记录跨越的边数，所以我们需要使用三元组 $(dis, u, t)$ 来表示当前的最短路径，其中 $dis$ 表示当前的最短路径长度，而 $u$ 和 $t$ 分别表示当前的节点和跨越的边数。
+
+最后我们只需要返回 $dist[d][0..k]$ 中的最小值即可。
+
+时间复杂度 $O(n^2 \times \log n)$，空间复杂度 $O(n \times k)$。其中 $n$ 表示节点数，而 $k$ 表示最多跨越的边数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -70,7 +83,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def shortestPathWithHops(self, n: int, edges: List[List[int]], s: int, d: int, k: int) -> int:
+        g = [[] for _ in range(n)]
+        for u, v, w in edges:
+            g[u].append((v, w))
+            g[v].append((u, w))
+        dist = [[inf] * (k + 1) for _ in range(n)]
+        dist[s][0] = 0
+        pq = [(0, s, 0)]
+        while pq:
+            dis, u, t = heappop(pq)
+            for v, w in g[u]:
+                if t + 1 <= k and dist[v][t + 1] > dis:
+                    dist[v][t + 1] = dis
+                    heappush(pq, (dis, v, t + 1))
+                if dist[v][t] > dis + w:
+                    dist[v][t] = dis + w
+                    heappush(pq, (dis + w, v, t))
+        return int(min(dist[d]))
 ```
 
 ### **Java**
@@ -78,19 +109,139 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int shortestPathWithHops(int n, int[][] edges, int s, int d, int k) {
+        List<int[]>[] g = new List[n];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (int[] e : edges) {
+            int u = e[0], v = e[1], w = e[2];
+            g[u].add(new int[] {v, w});
+            g[v].add(new int[] {u, w});
+        }
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+        pq.offer(new int[] {0, s, 0});
+        int[][] dist = new int[n][k + 1];
+        final int inf = 1 << 30;
+        for (int[] e : dist) {
+            Arrays.fill(e, inf);
+        }
+        dist[s][0] = 0;
+        while (!pq.isEmpty()) {
+            int[] p = pq.poll();
+            int dis = p[0], u = p[1], t = p[2];
+            for (int[] e : g[u]) {
+                int v = e[0], w = e[1];
+                if (t + 1 <= k && dist[v][t + 1] > dis) {
+                    dist[v][t + 1] = dis;
+                    pq.offer(new int[] {dis, v, t + 1});
+                }
+                if (dist[v][t] > dis + w) {
+                    dist[v][t] = dis + w;
+                    pq.offer(new int[] {dis + w, v, t});
+                }
+            }
+        }
+        int ans = inf;
+        for (int i = 0; i <= k; ++i) {
+            ans = Math.min(ans, dist[d][i]);
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int shortestPathWithHops(int n, vector<vector<int>>& edges, int s, int d, int k) {
+        vector<pair<int, int>> g[n];
+        for (auto& e : edges) {
+            int u = e[0], v = e[1], w = e[2];
+            g[u].emplace_back(v, w);
+            g[v].emplace_back(u, w);
+        }
+        priority_queue<tuple<int, int, int>, vector<tuple<int, int, int>>, greater<tuple<int, int, int>>> pq;
+        pq.emplace(0, s, 0);
+        int dist[n][k + 1];
+        memset(dist, 0x3f, sizeof(dist));
+        dist[s][0] = 0;
+        while (!pq.empty()) {
+            auto [dis, u, t] = pq.top();
+            pq.pop();
+            for (auto [v, w] : g[u]) {
+                if (t + 1 <= k && dist[v][t + 1] > dis) {
+                    dist[v][t + 1] = dis;
+                    pq.emplace(dis, v, t + 1);
+                }
+                if (dist[v][t] > dis + w) {
+                    dist[v][t] = dis + w;
+                    pq.emplace(dis + w, v, t);
+                }
+            }
+        }
+        return *min_element(dist[d], dist[d] + k + 1);
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func shortestPathWithHops(n int, edges [][]int, s int, d int, k int) int {
+	g := make([][][2]int, n)
+	for _, e := range edges {
+		u, v, w := e[0], e[1], e[2]
+		g[u] = append(g[u], [2]int{v, w})
+		g[v] = append(g[v], [2]int{u, w})
+	}
+	pq := hp{{0, s, 0}}
+	dist := make([][]int, n)
+	for i := range dist {
+		dist[i] = make([]int, k+1)
+		for j := range dist[i] {
+			dist[i][j] = math.MaxInt32
+		}
+	}
+	dist[s][0] = 0
+	for len(pq) > 0 {
+		p := heap.Pop(&pq).(tuple)
+		dis, u, t := p.dis, p.u, p.t
+		for _, e := range g[u] {
+			v, w := e[0], e[1]
+			if t+1 <= k && dist[v][t+1] > dis {
+				dist[v][t+1] = dis
+				heap.Push(&pq, tuple{dis, v, t + 1})
+			}
+			if dist[v][t] > dis+w {
+				dist[v][t] = dis + w
+				heap.Push(&pq, tuple{dis + w, v, t})
+			}
+		}
+	}
+	ans := math.MaxInt32
+	for i := 0; i <= k; i++ {
+		ans = min(ans, dist[d][i])
+	}
+	return ans
+}
 
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+type tuple struct{ dis, u, t int }
+type hp []tuple
+
+func (h hp) Len() int           { return len(h) }
+func (h hp) Less(i, j int) bool { return h[i].dis < h[j].dis }
+func (h hp) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
+func (h *hp) Push(v any)        { *h = append(*h, v.(tuple)) }
+func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
 ### **...**

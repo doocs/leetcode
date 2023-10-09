@@ -1,16 +1,19 @@
 func merge(intervals [][]int) (ans [][]int) {
-	sort.Slice(intervals, func(i, j int) bool {
-		return intervals[i][0] < intervals[j][0]
-	})
-	st, ed := intervals[0][0], intervals[0][1]
+	sort.Slice(intervals, func(i, j int) bool { return intervals[i][0] < intervals[j][0] })
+	ans = append(ans, intervals[0])
 	for _, e := range intervals[1:] {
-		if ed < e[0] {
-			ans = append(ans, []int{st, ed})
-			st, ed = e[0], e[1]
-		} else if ed < e[1] {
-			ed = e[1]
+		if ans[len(ans)-1][1] < e[0] {
+			ans = append(ans, e)
+		} else {
+			ans[len(ans)-1][1] = max(ans[len(ans)-1][1], e[1])
 		}
 	}
-	ans = append(ans, []int{st, ed})
-	return ans
+	return
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }

@@ -48,9 +48,9 @@
 
 **方法一：模拟**
 
-按照题意模拟即可。
+我们直接按照题意模拟即可。
 
-时间复杂度 $O(n)$，忽略答案的空间消耗，空间复杂度 $O(1)$。其中 $n$ 为数组 `nums` 的长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组 $nums$ 的长度。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -60,21 +60,20 @@
 
 ```python
 class Solution:
-    def findMissingRanges(self, nums: List[int], lower: int, upper: int) -> List[str]:
-        def f(a, b):
-            return str(a) if a == b else f'{a}->{b}'
-
+    def findMissingRanges(
+        self, nums: List[int], lower: int, upper: int
+    ) -> List[List[int]]:
         n = len(nums)
         if n == 0:
-            return [f(lower, upper)]
+            return [[lower, upper]]
         ans = []
         if nums[0] > lower:
-            ans.append(f(lower, nums[0] - 1))
+            ans.append([lower, nums[0] - 1])
         for a, b in pairwise(nums):
             if b - a > 1:
-                ans.append(f(a + 1, b - 1))
+                ans.append([a + 1, b - 1])
         if nums[-1] < upper:
-            ans.append(f(nums[-1] + 1, upper))
+            ans.append([nums[-1] + 1, upper])
         return ans
 ```
 
@@ -84,30 +83,24 @@ class Solution:
 
 ```java
 class Solution {
-    public List<String> findMissingRanges(int[] nums, int lower, int upper) {
+    public List<List<Integer>> findMissingRanges(int[] nums, int lower, int upper) {
         int n = nums.length;
-        List<String> ans = new ArrayList<>();
         if (n == 0) {
-            ans.add(f(lower, upper));
-            return ans;
+            return List.of(List.of(lower, upper));
         }
+        List<List<Integer>> ans = new ArrayList<>();
         if (nums[0] > lower) {
-            ans.add(f(lower, nums[0] - 1));
+            ans.add(List.of(lower, nums[0] - 1));
         }
         for (int i = 1; i < n; ++i) {
-            int a = nums[i - 1], b = nums[i];
-            if (b - a > 1) {
-                ans.add(f(a + 1, b - 1));
+            if (nums[i] - nums[i - 1] > 1) {
+                ans.add(List.of(nums[i - 1] + 1, nums[i] - 1));
             }
         }
         if (nums[n - 1] < upper) {
-            ans.add(f(nums[n - 1] + 1, upper));
+            ans.add(List.of(nums[n - 1] + 1, upper));
         }
         return ans;
-    }
-
-    private String f(int a, int b) {
-        return a == b ? a + "" : a + "->" + b;
     }
 }
 ```
@@ -117,27 +110,22 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<string> findMissingRanges(vector<int>& nums, int lower, int upper) {
-        auto f = [](int a, int b) {
-            return a == b ? to_string(a) : to_string(a) + "->" + to_string(b);
-        };
+    vector<vector<int>> findMissingRanges(vector<int>& nums, int lower, int upper) {
         int n = nums.size();
-        vector<string> ans;
         if (n == 0) {
-            ans.emplace_back(f(lower, upper));
-            return ans;
+            return {{lower, upper}};
         }
+        vector<vector<int>> ans;
         if (nums[0] > lower) {
-            ans.emplace_back(f(lower, nums[0] - 1));
+            ans.push_back({lower, nums[0] - 1});
         }
-        for (int i = 1; i < n; ++i) {
-            int a = nums[i - 1], b = nums[i];
-            if (b - a > 1) {
-                ans.emplace_back(f(a + 1, b - 1));
+        for (int i = 1; i < nums.size(); ++i) {
+            if (nums[i] - nums[i - 1] > 1) {
+                ans.push_back({nums[i - 1] + 1, nums[i] - 1});
             }
         }
         if (nums[n - 1] < upper) {
-            ans.emplace_back(f(nums[n - 1] + 1, upper));
+            ans.push_back({nums[n - 1] + 1, upper});
         }
         return ans;
     }
@@ -147,31 +135,47 @@ public:
 ### **Go**
 
 ```go
-func findMissingRanges(nums []int, lower int, upper int) (ans []string) {
-	f := func(a, b int) string {
-		if a == b {
-			return strconv.Itoa(a)
-		}
-		return strconv.Itoa(a) + "->" + strconv.Itoa(b)
-	}
+func findMissingRanges(nums []int, lower int, upper int) (ans [][]int) {
 	n := len(nums)
 	if n == 0 {
-		ans = append(ans, f(lower, upper))
-		return
+		return [][]int{{lower, upper}}
 	}
 	if nums[0] > lower {
-		ans = append(ans, f(lower, nums[0]-1))
+		ans = append(ans, []int{lower, nums[0] - 1})
 	}
-	for i := 1; i < n; i++ {
-		a, b := nums[i-1], nums[i]
-		if b-a > 1 {
-			ans = append(ans, f(a+1, b-1))
+	for i, b := range nums[1:] {
+		if a := nums[i]; b-a > 1 {
+			ans = append(ans, []int{a + 1, b - 1})
 		}
 	}
 	if nums[n-1] < upper {
-		ans = append(ans, f(nums[n-1]+1, upper))
+		ans = append(ans, []int{nums[n-1] + 1, upper})
 	}
 	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function findMissingRanges(nums: number[], lower: number, upper: number): number[][] {
+    const n = nums.length;
+    if (n === 0) {
+        return [[lower, upper]];
+    }
+    const ans: number[][] = [];
+    if (nums[0] > lower) {
+        ans.push([lower, nums[0] - 1]);
+    }
+    for (let i = 1; i < n; ++i) {
+        if (nums[i] - nums[i - 1] > 1) {
+            ans.push([nums[i - 1] + 1, nums[i] - 1]);
+        }
+    }
+    if (nums[n - 1] < upper) {
+        ans.push([nums[n - 1] + 1, upper]);
+    }
+    return ans;
 }
 ```
 

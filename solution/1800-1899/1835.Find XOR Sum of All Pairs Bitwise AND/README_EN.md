@@ -44,6 +44,29 @@ The XOR sum = 0 XOR 1 XOR 2 XOR 0 XOR 2 XOR 1 = 0.
 
 ## Solutions
 
+**Solution 1: Bitwise Operation**
+
+Assume that the elements of array $arr1$ are $a_1, a_2, ..., a_n$, and the elements of array $arr2$ are $b_1, b_2, ..., b_m$. Then, the answer to the problem is:
+
+$$
+\begin{aligned}
+\text{ans} &= (a_1 \wedge b_1) \oplus (a_1 \wedge b_2) ... (a_1 \wedge b_m) \\
+&\quad \oplus (a_2 \wedge b_1) \oplus (a_2 \wedge b_2) ... (a_2 \wedge b_m) \\
+&\quad \oplus \cdots \\
+&\quad \oplus (a_n \wedge b_1) \oplus (a_n \wedge b_2) ... (a_n \wedge b_m) \\
+\end{aligned}
+$$
+
+Since in Boolean algebra, the XOR operation is addition without carry, and the AND operation is multiplication, the above formula can be simplified as:
+
+$$
+\text{ans} = (a_1 \oplus a_2 \oplus \cdots \oplus a_n) \wedge (b_1 \oplus b_2 \oplus \cdots \oplus b_m)
+$$
+
+That is, the bitwise AND of the XOR sum of array $arr1$ and the XOR sum of array $arr2$.
+
+The time complexity is $O(n + m)$, where $n$ and $m$ are the lengths of arrays $arr1$ and $arr2$, respectively. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -98,6 +121,16 @@ func getXORSum(arr1 []int, arr2 []int) int {
 		b ^= v
 	}
 	return a & b
+}
+```
+
+### **TypeScript**
+
+```ts
+function getXORSum(arr1: number[], arr2: number[]): number {
+    const a = arr1.reduce((acc, x) => acc ^ x);
+    const b = arr2.reduce((acc, x) => acc ^ x);
+    return a & b;
 }
 ```
 

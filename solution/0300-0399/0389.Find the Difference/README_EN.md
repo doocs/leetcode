@@ -130,9 +130,7 @@ function findTheDifference(s: string, t: string): string {
         count[t.charCodeAt(i) - 'a'.charCodeAt(0)]--;
     }
     count[t.charCodeAt(n) - 'a'.charCodeAt(0)]--;
-    return String.fromCharCode(
-        'a'.charCodeAt(0) + count.findIndex(v => v !== 0),
-    );
+    return String.fromCharCode('a'.charCodeAt(0) + count.findIndex(v => v !== 0));
 }
 ```
 

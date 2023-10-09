@@ -71,20 +71,36 @@ You can skip the first and third rest to arrive in ((7/2 + <u>0</u>) + (3/2 + 0)
 class Solution:
     def minSkips(self, dist: List[int], speed: int, hoursBefore: int) -> int:
         n = len(dist)
-        dp = [[inf] * (n + 1) for _ in range(n + 1)]
-        dp[0][0] = 0
-        for i in range(1, n + 1):
+        f = [[inf] * (n + 1) for _ in range(n + 1)]
+        f[0][0] = 0
+        eps = 1e-8
+        for i, x in enumerate(dist, 1):
             for j in range(i + 1):
-                if i != j:
-                    dp[i][j] = min(
-                        dp[i][j],
-                        ((dp[i - 1][j] + dist[i - 1] - 1) // speed + 1) * speed,
-                    )
-                if j > 0:
-                    dp[i][j] = min(dp[i][j], dp[i - 1][j - 1] + dist[i - 1])
-        for i in range(n + 1):
-            if dp[n][i] <= hoursBefore * speed:
-                return i
+                if j < i:
+                    f[i][j] = min(f[i][j], ceil(f[i - 1][j] + x / speed - eps))
+                if j:
+                    f[i][j] = min(f[i][j], f[i - 1][j - 1] + x / speed)
+        for j in range(n + 1):
+            if f[n][j] <= hoursBefore + eps:
+                return j
+        return -1
+```
+
+```python
+class Solution:
+    def minSkips(self, dist: List[int], speed: int, hoursBefore: int) -> int:
+        n = len(dist)
+        f = [[inf] * (n + 1) for _ in range(n + 1)]
+        f[0][0] = 0
+        for i, x in enumerate(dist, 1):
+            for j in range(i + 1):
+                if j < i:
+                    f[i][j] = min(f[i][j], ((f[i - 1][j] + x - 1) // speed + 1) * speed)
+                if j:
+                    f[i][j] = min(f[i][j], f[i - 1][j - 1] + x)
+        for j in range(n + 1):
+            if f[n][j] <= hoursBefore * speed:
+                return j
         return -1
 ```
 
@@ -94,33 +110,120 @@ class Solution:
 class Solution {
     public int minSkips(int[] dist, int speed, int hoursBefore) {
         int n = dist.length;
-        int[][] dp = new int[n + 1][n + 1];
-        for (int i = 0; i <= n; ++i) {
-            for (int j = 0; j <= n; ++j) {
-                dp[i][j] = Integer.MAX_VALUE;
-            }
+        double[][] f = new double[n + 1][n + 1];
+        for (int i = 0; i <= n; i++) {
+            Arrays.fill(f[i], 1e20);
         }
-        dp[0][0] = 0;
+        f[0][0] = 0;
+        double eps = 1e-8;
         for (int i = 1; i <= n; ++i) {
             for (int j = 0; j <= i; ++j) {
-                if (i != j) {
-                    // 没有跳过
-                    dp[i][j] = Math.min(
-                        dp[i][j], ((dp[i - 1][j] + dist[i - 1] - 1) / speed + 1) * speed);
+                if (j < i) {
+                    f[i][j] = Math.min(
+                        f[i][j], Math.ceil(f[i - 1][j]) + 1.0 * dist[i - 1] / speed - eps);
                 }
                 if (j > 0) {
-                    // 跳过
-                    dp[i][j] = Math.min(dp[i][j], dp[i - 1][j - 1] + dist[i - 1]);
+                    f[i][j] = Math.min(f[i][j], f[i - 1][j - 1] + 1.0 * dist[i - 1] / speed);
                 }
             }
         }
-        for (int i = 0; i <= n; ++i) {
-            if (dp[n][i] <= hoursBefore * speed) {
-                return i;
+        for (int j = 0; j <= n; ++j) {
+            if (f[n][j] <= hoursBefore + eps) {
+                return j;
             }
         }
         return -1;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minSkips(vector<int>& dist, int speed, int hoursBefore) {
+        int n = dist.size();
+        vector<vector<double>> f(n + 1, vector<double>(n + 1, 1e20));
+        f[0][0] = 0;
+        double eps = 1e-8;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 0; j <= i; ++j) {
+                if (j < i) {
+                    f[i][j] = min(f[i][j], ceil(f[i - 1][j] + dist[i - 1] * 1.0 / speed - eps));
+                }
+                if (j) {
+                    f[i][j] = min(f[i][j], f[i - 1][j - 1] + dist[i - 1] * 1.0 / speed);
+                }
+            }
+        }
+        for (int j = 0; j <= n; ++j) {
+            if (f[n][j] <= hoursBefore + eps) {
+                return j;
+            }
+        }
+        return -1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minSkips(dist []int, speed int, hoursBefore int) int {
+	n := len(dist)
+	f := make([][]float64, n+1)
+	for i := range f {
+		f[i] = make([]float64, n+1)
+		for j := range f[i] {
+			f[i][j] = 1e20
+		}
+	}
+	f[0][0] = 0
+	eps := 1e-8
+	for i := 1; i <= n; i++ {
+		for j := 0; j <= i; j++ {
+			if j < i {
+				f[i][j] = math.Min(f[i][j], math.Ceil(f[i-1][j]+float64(dist[i-1])/float64(speed)-eps))
+			}
+			if j > 0 {
+				f[i][j] = math.Min(f[i][j], f[i-1][j-1]+float64(dist[i-1])/float64(speed))
+			}
+		}
+	}
+	for j := 0; j <= n; j++ {
+		if f[n][j] <= float64(hoursBefore) {
+			return j
+		}
+	}
+	return -1
+}
+```
+
+### **TypeScript**
+
+```ts
+function minSkips(dist: number[], speed: number, hoursBefore: number): number {
+    const n = dist.length;
+    const f = Array.from({ length: n + 1 }, () => Array.from({ length: n + 1 }, () => Infinity));
+    f[0][0] = 0;
+    const eps = 1e-8;
+    for (let i = 1; i <= n; ++i) {
+        for (let j = 0; j <= i; ++j) {
+            if (j < i) {
+                f[i][j] = Math.min(f[i][j], Math.ceil(f[i - 1][j] + dist[i - 1] / speed - eps));
+            }
+            if (j) {
+                f[i][j] = Math.min(f[i][j], f[i - 1][j - 1] + dist[i - 1] / speed);
+            }
+        }
+    }
+    for (let j = 0; j <= n; ++j) {
+        if (f[n][j] <= hoursBefore + eps) {
+            return j;
+        }
+    }
+    return -1;
 }
 ```
 

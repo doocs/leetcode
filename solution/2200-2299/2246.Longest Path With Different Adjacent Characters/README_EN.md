@@ -47,36 +47,145 @@ It can be proven that there is no longer path that satisfies the conditions.
 ### **Python3**
 
 ```python
+class Solution:
+    def longestPath(self, parent: List[int], s: str) -> int:
+        def dfs(i: int) -> int:
+            mx = 0
+            nonlocal ans
+            for j in g[i]:
+                x = dfs(j) + 1
+                if s[i] != s[j]:
+                    ans = max(ans, mx + x)
+                    mx = max(mx, x)
+            return mx
 
+        g = defaultdict(list)
+        for i in range(1, len(parent)):
+            g[parent[i]].append(i)
+        ans = 0
+        dfs(0)
+        return ans + 1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private List<Integer>[] g;
+    private String s;
+    private int ans;
 
+    public int longestPath(int[] parent, String s) {
+        int n = parent.length;
+        g = new List[n];
+        this.s = s;
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int i = 1; i < n; ++i) {
+            g[parent[i]].add(i);
+        }
+        dfs(0);
+        return ans + 1;
+    }
+
+    private int dfs(int i) {
+        int mx = 0;
+        for (int j : g[i]) {
+            int x = dfs(j) + 1;
+            if (s.charAt(i) != s.charAt(j)) {
+                ans = Math.max(ans, mx + x);
+                mx = Math.max(mx, x);
+            }
+        }
+        return mx;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int longestPath(vector<int>& parent, string s) {
+        int n = parent.size();
+        vector<int> g[n];
+        for (int i = 1; i < n; ++i) {
+            g[parent[i]].push_back(i);
+        }
+        int ans = 0;
+        function<int(int)> dfs = [&](int i) -> int {
+            int mx = 0;
+            for (int j : g[i]) {
+                int x = dfs(j) + 1;
+                if (s[i] != s[j]) {
+                    ans = max(ans, mx + x);
+                    mx = max(mx, x);
+                }
+            }
+            return mx;
+        };
+        dfs(0);
+        return ans + 1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func longestPath(parent []int, s string) int {
+	n := len(parent)
+	g := make([][]int, n)
+	for i := 1; i < n; i++ {
+		g[parent[i]] = append(g[parent[i]], i)
+	}
+	ans := 0
+	var dfs func(int) int
+	dfs = func(i int) int {
+		mx := 0
+		for _, j := range g[i] {
+			x := dfs(j) + 1
+			if s[i] != s[j] {
+				ans = max(ans, x+mx)
+				mx = max(mx, x)
+			}
+		}
+		return mx
+	}
+	dfs(0)
+	return ans + 1
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
 
 ```ts
 function longestPath(parent: number[], s: string): number {
+function longestPath(parent: number[], s: string): number {
     const n = parent.length;
-    let graph = Array.from({ length: n }, v => []);
-    for (let i = 1; i < n; i++) {
-        graph[parent[i]].push(i);
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (let i = 1; i < n; ++i) {
+        g[parent[i]].push(i);
     }
     let ans = 0;
-    function dfs(x: number): number {
-        let maxLen = 0;
-        for (let y of graph[x]) {
-            let len = dfs(y) + 1;
-            if (s.charAt(x) !== s.charAt(y)) {
-                ans = Math.max(maxLen + len, ans);
-                maxLen = Math.max(len, maxLen);
+    const dfs = (i: number): number => {
+        let mx = 0;
+        for (const j of g[i]) {
+            const x = dfs(j) + 1;
+            if (s[i] !== s[j]) {
+                ans = Math.max(ans, mx + x);
+                mx = Math.max(mx, x);
             }
         }
-        return maxLen;
-    }
+        return mx;
+    };
     dfs(0);
     return ans + 1;
 }

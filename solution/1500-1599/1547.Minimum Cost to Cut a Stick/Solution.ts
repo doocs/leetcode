@@ -9,10 +9,7 @@ function minCost(n: number, cuts: number[]): number {
             const j = i + l;
             f[i][j] = 1 << 30;
             for (let k = i + 1; k < j; ++k) {
-                f[i][j] = Math.min(
-                    f[i][j],
-                    f[i][k] + f[k][j] + cuts[j] - cuts[i],
-                );
+                f[i][j] = Math.min(f[i][j], f[i][k] + f[k][j] + cuts[j] - cuts[i]);
             }
         }
     }

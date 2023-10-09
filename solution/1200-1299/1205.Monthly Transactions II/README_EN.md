@@ -16,9 +16,9 @@
 | amount         | int     |
 | trans_date     | date    |
 +----------------+---------+
-id is the primary key of this table.
+id is the column of unique values of this table.
 The table has information about incoming transactions.
-The state column is an enum of type [&quot;approved&quot;, &quot;declined&quot;].
+The state column is an ENUM (category) of type [&quot;approved&quot;, &quot;declined&quot;].
 </pre>
 
 <p>Table: <code>Chargebacks</code></p>
@@ -31,18 +31,18 @@ The state column is an enum of type [&quot;approved&quot;, &quot;declined&quot;]
 | trans_date     | date    |
 +----------------+---------+
 Chargebacks contains basic information regarding incoming chargebacks from some transactions placed in Transactions table.
-trans_id is a foreign key to the id column of Transactions table.
+trans_id is a foreign key (reference column) to the id column of Transactions table.
 Each chargeback corresponds to a transaction made previously even if they were not approved.</pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find for each month and country: the number of approved transactions and their total amount, the number of chargebacks, and their total amount.</p>
+<p>Write a solution to find for each month and country: the number of approved transactions and their total amount, the number of chargebacks, and their total amount.</p>
 
-<p><strong>Note</strong>: In your query, given the month and country, ignore rows with all zeros.</p>
+<p><strong>Note</strong>: In your solution, given the month and country, ignore rows with all zeros.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

@@ -56,9 +56,7 @@ generator.next().done; // true
 ```ts
 type MultidimensionalArray = (MultidimensionalArray | number)[];
 
-function* inorderTraversal(
-    arr: MultidimensionalArray,
-): Generator<number, void, unknown> {
+function* inorderTraversal(arr: MultidimensionalArray): Generator<number, void, unknown> {
     for (const e of arr) {
         if (Array.isArray(e)) {
             yield* inorderTraversal(e);

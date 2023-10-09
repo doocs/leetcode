@@ -9,7 +9,7 @@ public:
             cnt += stk.top().second;
             stk.pop();
         }
-        stk.push({price, cnt});
+        stk.emplace(price, cnt);
         return cnt;
     }
 

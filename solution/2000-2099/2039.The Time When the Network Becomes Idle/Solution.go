@@ -1,32 +1,29 @@
-func networkBecomesIdle(edges [][]int, patience []int) int {
+func networkBecomesIdle(edges [][]int, patience []int) (ans int) {
 	n := len(patience)
 	g := make([][]int, n)
-	vis := make([]bool, n)
 	for _, e := range edges {
 		u, v := e[0], e[1]
 		g[u] = append(g[u], v)
 		g[v] = append(g[v], u)
 	}
 	q := []int{0}
+	vis := make([]bool, n)
 	vis[0] = true
-	ans, step := 0, 0
-	for len(q) > 0 {
-		step++
+	for d := 1; len(q) > 0; d++ {
+		t := d * 2
 		for i := len(q); i > 0; i-- {
 			u := q[0]
 			q = q[1:]
 			for _, v := range g[u] {
-				if vis[v] {
-					continue
+				if !vis[v] {
+					vis[v] = true
+					q = append(q, v)
+					ans = max(ans, (t-1)/patience[v]*patience[v]+t+1)
 				}
-				vis[v] = true
-				q = append(q, v)
-				d, t := step*2, patience[v]
-				ans = max(ans, (d-1)/t*t+d+1)
 			}
 		}
 	}
-	return ans
+	return
 }
 
 func max(a, b int) int {

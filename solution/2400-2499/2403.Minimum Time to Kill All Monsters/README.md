@@ -322,10 +322,7 @@ function minimumTime(power: number[]): number {
             if ((mask >> i) & 1) {
                 continue;
             }
-            ans = Math.min(
-                ans,
-                dfs(mask | (1 << i)) + Math.ceil(power[i] / (cnt + 1)),
-            );
+            ans = Math.min(ans, dfs(mask | (1 << i)) + Math.ceil(power[i] / (cnt + 1)));
         }
         f[mask] = ans;
         return ans;
@@ -353,10 +350,7 @@ function minimumTime(power: number[]): number {
         const cnt = bitCount(mask);
         for (let i = 0; i < n; ++i) {
             if ((mask >> i) & 1) {
-                dp[mask] = Math.min(
-                    dp[mask],
-                    dp[mask ^ (1 << i)] + Math.ceil(power[i] / cnt),
-                );
+                dp[mask] = Math.min(dp[mask], dp[mask ^ (1 << i)] + Math.ceil(power[i] / cnt));
             }
         }
     }

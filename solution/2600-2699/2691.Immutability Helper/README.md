@@ -40,13 +40,13 @@ console.log(newObj); // {"x": 6}</pre>
 <p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<b>输入：</b>
+<strong>输入：</strong>
 obj = {"val": 10}, 
 mutators = [
 &nbsp; proxy =&gt; { proxy.val += 1; },
 &nbsp; proxy =&gt; { proxy.val -= 1; }
 ]
-<b>输出：</b>
+<strong>输出：</strong>
 [
   {"val": 11},
 &nbsp; {"val": 9}
@@ -60,7 +60,7 @@ helper.produce(proxy =&gt; { proxy.val -= 1; }); // { "val": 9 }
 <p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<b>输入：</b>
+<strong>输入：</strong>
 obj = {"arr": [1, 2, 3]} 
 mutators = [
 &nbsp;proxy =&gt; { 
@@ -68,7 +68,7 @@ mutators = [
 &nbsp;  proxy.newVal = proxy.arr[0] + proxy.arr[1];
  }
 ]
-<b>输出：</b>
+<strong>输出：</strong>
 [
   {"arr": [5, 2, 3], "newVal": 7 } 
 ]
@@ -78,7 +78,7 @@ mutators = [
 <p><strong class="example">示例 3：</strong></p>
 
 <pre>
-<b>输入：</b>
+<strong>输入：</strong>
 obj = {"obj": {"val": {"x": 10, "y": 20}}}
 mutators = [
 &nbsp; proxy =&gt; { 
@@ -88,11 +88,11 @@ mutators = [
 &nbsp;   data.y = temp; 
 &nbsp; }
 ]
-<b>输出：</b>
+<strong>输出：</strong>
 [
   {"obj": {"val": {"x": 20, "y": 10}}}
 ]
-<b>解释：</b>交换了 "x" 和 "y" 的值。
+<strong>解释：</strong>交换了 "x" 和 "y" 的值。
 </pre>
 
 <p>&nbsp;</p>

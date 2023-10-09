@@ -39,7 +39,7 @@
 <pre>
 <strong>输入：</strong>text = "antaprezatepzapreanta"
 <strong>输出：</strong>11
-<strong>解释：</strong>我们可以把字符串拆分成 "(a)(nt)(a)(pre)(za)(tpe)(za)(pre)(a)(nt)(a)"。
+<strong>解释：</strong>我们可以把字符串拆分成 "(a)(nt)(a)(pre)(za)(tep)(za)(pre)(a)(nt)(a)"。
 </pre>
 
 <p>&nbsp;</p>

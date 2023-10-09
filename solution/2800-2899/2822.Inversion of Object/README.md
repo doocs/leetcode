@@ -17,7 +17,7 @@
 <pre>
 <b>输入：</b>obj = {"a": "1", "b": "2", "c": "3", "d": "4"}
 <b>输出：</b>invertedObj = {"1": "a", "2": "b", "3": "c", "4": "d"}
-<b>解释：</b>The keys from obj become the values in invertedObj, and the values from obj become the keys in invertedObj.
+<b>解释：</b>obj 中的键变成 invertedObj 中的值，而 obj 中的值变成 invertedObj 中的键。
 </pre>
 
 <p><strong class="example">示例 2：</strong></p>
@@ -25,14 +25,14 @@
 <pre>
 <b>输入：</b>obj = {"a": "1", "b": "2", "c": "2", "d": "4"}
 <b>输出：</b>invertedObj = {"1": "a", "2": ["b", "c"], "4": "d"}
-<b>解释：</b>There are two keys in&nbsp;obj&nbsp;with the same value, the&nbsp;invertedObj mapped the value to an array containing all corresponding keys.</pre>
+<b>解释：</b>在 obj 中有两个具有相同值的键，invertedObj 将该值映射到一个包含所有对应键的数组中。</pre>
 
 <p><strong class="example">示例 3：</strong></p>
 
 <pre>
 <b>输入：</b>obj = ["1", "2", "3", "4"]
 <b>输出：</b>invertedObj = {"1": "0", "2": "1", "3": "2", "4": "3"}
-<b>解释：</b>Arrays are also objects therefore array has changed to an object and the keys (indices) from obj become the values in invertedObj, and the values from obj become the keys in invertedObj.
+<b>解释：</b>数组也是对象，因此数组已经转换为一个对象，obj 中的键（索引）变成了 invertedObj 中的值，而 obj 中的值变成了 invertedObj 中的键。
 </pre>
 
 <p>&nbsp;</p>

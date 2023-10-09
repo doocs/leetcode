@@ -67,7 +67,9 @@ curriedLife() === 42
 	<li><code>0 &lt;= inputs[i][j] &lt;= 10<sup>5</sup></code></li>
 	<li><code>0 &lt;= fn.length &lt;= 1000</code></li>
 	<li><code>inputs.flat().length == fn.length</code></li>
-	<li><code>function parameters explicitly defined</code></li>
+	<li>function parameters explicitly defined</li>
+	<li>If <code>fn.length &gt; 0</code>&nbsp;then the last array in <code>inputs</code> is not empty</li>
+	<li>If&nbsp;<code>fn.length === 0</code> then <code>inputs.length === 1</code>&nbsp;</li>
 </ul>
 
 ## Solutions
@@ -78,15 +80,11 @@ curriedLife() === 42
 
 ```ts
 function curry(fn: Function): Function {
-    const n = fn.length;
-    const allArgs: any[] = [];
-
-    return function curried(...args: any[]) {
-        allArgs.push(...args);
-        if (allArgs.length < n) {
-            return curried;
+    return function curried(...args) {
+        if (args.length >= fn.length) {
+            return fn(...args);
         }
-        return fn(...allArgs);
+        return (...nextArgs) => curried(...args, ...nextArgs);
     };
 }
 

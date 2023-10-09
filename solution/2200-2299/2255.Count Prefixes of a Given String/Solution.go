@@ -1,9 +1,8 @@
-func countPrefixes(words []string, s string) int {
-	ans := 0
-	for _, word := range words {
-		if strings.HasPrefix(s, word) {
+func countPrefixes(words []string, s string) (ans int) {
+	for _, w := range words {
+		if strings.HasPrefix(s, w) {
 			ans++
 		}
 	}
-	return ans
+	return
 }

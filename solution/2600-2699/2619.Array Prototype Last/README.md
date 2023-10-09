@@ -33,6 +33,7 @@
 <p><b>提示：</b></p>
 
 <ul>
+	<li><code>arr</code> 是一个有效的 JSON 数组</li>
 	<li><code>0 &lt;= arr.length &lt;= 1000</code></li>
 </ul>
 

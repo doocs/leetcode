@@ -389,10 +389,7 @@ FrontMiddleBackQueue.prototype.popFront = function () {
  */
 FrontMiddleBackQueue.prototype.popMiddle = function () {
     if (this.isEmpty()) return -1;
-    let num =
-        this.left.length == this.right.length
-            ? this.left.pop()
-            : this.right.shift();
+    let num = this.left.length == this.right.length ? this.left.pop() : this.right.shift();
     this.rebalance();
     return num;
 };
