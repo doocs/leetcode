@@ -31,6 +31,16 @@ death = {1948, 1951, 2000}
 
 ## Solutions
 
+**Solution 1: Difference Array**
+
+The problem is actually about performing addition and subtraction operations on a continuous interval, and then finding the maximum value. This can be solved using a difference array.
+
+Since the year range in the problem is fixed, we can use an array of length $102$ to represent the population changes from 1900 to 2000. Each element in the array represents the population change in that year, with positive numbers indicating the number of births and negative numbers indicating the number of deaths.
+
+We traverse the birth and death years of each person, and add one and subtract one from the corresponding year's population change, respectively. Then we traverse the difference array, and find the maximum value of the prefix sum of the difference array. The year corresponding to the maximum value is the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is the length of the birth and death years, and $C$ is the range of years.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -38,19 +48,19 @@ death = {1948, 1951, 2000}
 ```python
 class Solution:
     def maxAliveYear(self, birth: List[int], death: List[int]) -> int:
-        years = [0] * 101
-        for i in range(len(birth)):
-            start = birth[i] - 1900
-            end = death[i] - 1900
-            for j in range(start, end + 1):
-                years[j] += 1
-        max_v = years[0]
-        res = 0
-        for i in range(1, 101):
-            if years[i] > max_v:
-                max_v = years[i]
-                res = i
-        return 1900 + res
+        base = 1900
+        d = [0] * 102
+        for a, b in zip(birth, death):
+            d[a - base] += 1
+            d[b + 1 - base] -= 1
+        s = mx = 0
+        ans = 0
+        for i, x in enumerate(d):
+            s += x
+            if mx < s:
+                mx = s
+                ans = base + i
+        return ans
 ```
 
 ### **Java**
@@ -58,25 +68,77 @@ class Solution:
 ```java
 class Solution {
     public int maxAliveYear(int[] birth, int[] death) {
-        int[] years = new int[101];
-        int n = birth.length;
-        for (int i = 0; i < n; ++i) {
-            int start = birth[i] - 1900;
-            int end = death[i] - 1900;
-            for (int j = start; j <= end; ++j) {
-                ++years[j];
+        int base = 1900;
+        int[] d = new int[102];
+        for (int i = 0; i < birth.length; ++i) {
+            int a = birth[i] - base;
+            int b = death[i] - base;
+            ++d[a];
+            --d[b + 1];
+        }
+        int s = 0, mx = 0;
+        int ans = 0;
+        for (int i = 0; i < d.length; ++i) {
+            s += d[i];
+            if (mx < s) {
+                mx = s;
+                ans = base + i;
             }
         }
-        int max = years[0];
-        int res = 0;
-        for (int i = 1; i < 101; ++i) {
-            if (years[i] > max) {
-                max = years[i];
-                res = i;
-            }
-        }
-        return 1900 + res;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxAliveYear(vector<int>& birth, vector<int>& death) {
+        int base = 1900;
+        int d[102]{};
+        for (int i = 0; i < birth.size(); ++i) {
+            int a = birth[i] - base;
+            int b = death[i] - base;
+            ++d[a];
+            --d[b + 1];
+        }
+        int s = 0, mx = 0;
+        int ans = 0;
+        for (int i = 0; i < 102; ++i) {
+            s += d[i];
+            if (mx < s) {
+                mx = s;
+                ans = base + i;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxAliveYear(birth []int, death []int) (ans int) {
+	base := 1900
+	d := [102]int{}
+	for i, a := range birth {
+		a -= base
+		b := death[i] - base
+		d[a]++
+		d[b+1]--
+	}
+	mx, s := 0, 0
+	for i, x := range d {
+		s += x
+		if mx < s {
+			mx = s
+			ans = base + i
+		}
+	}
+	return
 }
 ```
 
@@ -84,32 +146,23 @@ class Solution {
 
 ```ts
 function maxAliveYear(birth: number[], death: number[]): number {
-    const n = birth.length;
-    const counter = new Map<number, number>();
-    for (let i = 0; i < n; i++) {
-        counter.set(birth[i], 0);
-        counter.set(death[i], 0);
+    const base = 1900;
+    const d: number[] = Array(102).fill(0);
+    for (let i = 0; i < birth.length; ++i) {
+        const [a, b] = [birth[i] - base, death[i] - base];
+        ++d[a];
+        --d[b + 1];
     }
-    for (let i = 0; i < n; i++) {
-        const start = birth[i];
-        const end = death[i];
-        for (const key of counter.keys()) {
-            if (key >= start && key <= end) {
-                counter.set(key, (counter.get(key) ?? 0) + 1);
-            }
+    let [s, mx] = [0, 0];
+    let ans = 0;
+    for (let i = 0; i < d.length; ++i) {
+        s += d[i];
+        if (mx < s) {
+            mx = s;
+            ans = base + i;
         }
     }
-    let res = 0;
-    let max = 0;
-    for (const [key, val] of counter) {
-        if (val === max) {
-            res = Math.min(res, key);
-        } else if (val > max) {
-            res = key;
-            max = Math.max(max, val);
-        }
-    }
-    return res;
+    return ans;
 }
 ```
 
@@ -119,22 +172,23 @@ function maxAliveYear(birth: number[], death: number[]): number {
 impl Solution {
     pub fn max_alive_year(birth: Vec<i32>, death: Vec<i32>) -> i32 {
         let n = birth.len();
-        let mut counter = vec![0; 101];
+        let mut d = vec![0; 102];
+        let base = 1900;
         for i in 0..n {
-            let (start, end) = (birth[i] - 1900, death[i] - 1900);
-            for j in start..=end {
-                counter[j as usize] += 1;
+            d[(birth[i] - base) as usize] += 1;
+            d[(death[i] - base + 1) as usize] -= 1;
+        }
+        let mut ans = 0;
+        let mut mx = 0;
+        let mut s = 0;
+        for i in 0..102 {
+            s += d[i];
+            if mx < s {
+                mx = s;
+                ans = base + i as i32;
             }
         }
-        let mut res = 0;
-        let mut max = 0;
-        for (i, count) in counter.iter().enumerate() {
-            if *count > max {
-                res = i;
-                max = *count;
-            }
-        }
-        (res + 1900) as i32
+        ans
     }
 }
 ```
