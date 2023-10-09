@@ -13,7 +13,7 @@
 | power       | int  |
 | factor      | int  |
 +-------------+------+
-power is the primary key column for this table.
+power is the column with unique values for this table.
 Each row of this table contains information about one term of the equation.
 power is an integer in the range [0, 100].
 factor is an integer in the range [-100, 100] and cannot be zero.
@@ -46,9 +46,9 @@ factor is an integer in the range [-100, 100] and cannot be zero.
 	<li>The powers in the LHS should be sorted in <strong>descending order</strong>.</li>
 </ul>
 
-<p>Write an SQL query to build the equation.</p>
+<p>Write a solution to build the equation.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

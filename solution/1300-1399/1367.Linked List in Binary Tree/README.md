@@ -275,11 +275,7 @@ function isSubPath(head: ListNode | null, root: TreeNode | null): boolean {
     if (root == null) {
         return false;
     }
-    return (
-        dfs(head, root) ||
-        isSubPath(head, root.left) ||
-        isSubPath(head, root.right)
-    );
+    return dfs(head, root) || isSubPath(head, root.left) || isSubPath(head, root.right);
 }
 ```
 

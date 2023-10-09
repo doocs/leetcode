@@ -36,7 +36,7 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>obj is a valid JSON object</code></li>
+	<li><code>obj</code> is a valid JSON object</li>
 	<li><code>2 &lt;= JSON.stringify(obj).length &lt;= 10<sup>6</sup></code></li>
 </ul>
 

@@ -202,11 +202,7 @@ func checkArithmeticSubarrays(nums []int, l []int, r []int) (ans []bool) {
 ### **TypeScript**
 
 ```ts
-function checkArithmeticSubarrays(
-    nums: number[],
-    l: number[],
-    r: number[],
-): boolean[] {
+function checkArithmeticSubarrays(nums: number[], l: number[], r: number[]): boolean[] {
     const check = (nums: number[], l: number, r: number): boolean => {
         const s = new Set<number>();
         const n = r - l + 1;

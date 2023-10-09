@@ -69,8 +69,7 @@ FROM
         GROUP BY player_id
     ) AS a
     LEFT JOIN activity AS b
-        ON a.player_id = b.player_id
-        AND DATEDIFF(a.event_date, b.event_date) = -1;
+        ON a.player_id = b.player_id AND DATEDIFF(a.event_date, b.event_date) = -1;
 ```
 
 ```sql

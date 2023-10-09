@@ -1,9 +1,4 @@
-function count(
-    num1: string,
-    num2: string,
-    min_sum: number,
-    max_sum: number,
-): number {
+function count(num1: string, num2: string, min_sum: number, max_sum: number): number {
     const mod = 1e9 + 7;
     let f: number[][] = Array(23)
         .fill(0)

@@ -10,11 +10,7 @@
  * }
  */
 
-function reverseBetween(
-    head: ListNode | null,
-    left: number,
-    right: number,
-): ListNode | null {
+function reverseBetween(head: ListNode | null, left: number, right: number): ListNode | null {
     const n = right - left;
     if (n === 0) {
         return head;

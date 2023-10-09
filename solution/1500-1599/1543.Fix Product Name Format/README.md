@@ -16,7 +16,7 @@
 | product_name | varchar |
 | sale_date    | date    |
 +--------------+---------+
-sale_id 是该表主键
+sale_id 是该表具有唯一值的列
 该表的每一行包含了产品的名称及其销售日期
 </pre>
 
@@ -24,7 +24,7 @@ sale_id 是该表主键
 
 <p>因为在 2000 年该表是手工填写的，<code>product_name</code>&nbsp;可能包含前后空格，而且包含大小写。</p>
 
-<p>写一个 SQL 语句报告每个月的销售情况：</p>
+<p>编写一个解决方案报告每个月的销售情况：</p>
 
 <ul>
 	<li><code>product_name</code>&nbsp;是小写字母且不包含前后空格</li>
@@ -64,7 +64,7 @@ Sales</code> 表：
 +--------------+-----------+-------+
 <strong>解释：</strong>
 一月份售出 2 部 LcPhones。请注意，产品名称不区分大小写，且可能包含空格。 
-二月份售出 2 个 LCKeychains 和 1部 LCPhone。 
+二月份售出 2 个 LCKeychains 和 1 部 LCPhone。 
 三月份售出 1 个 Matryoshka。</pre>
 
 ## 解法

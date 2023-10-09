@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>You are given a <strong>0-indexed</strong> 2D integer array <code>flowers</code>, where <code>flowers[i] = [start<sub>i</sub>, end<sub>i</sub>]</code> means the <code>i<sup>th</sup></code> flower will be in <strong>full bloom</strong> from <code>start<sub>i</sub></code> to <code>end<sub>i</sub></code> (<strong>inclusive</strong>). You are also given a <strong>0-indexed</strong> integer array <code>people</code> of size <code>n</code>, where <code>poeple[i]</code> is the time that the <code>i<sup>th</sup></code> person will arrive to see the flowers.</p>
+<p>You are given a <strong>0-indexed</strong> 2D integer array <code>flowers</code>, where <code>flowers[i] = [start<sub>i</sub>, end<sub>i</sub>]</code> means the <code>i<sup>th</sup></code> flower will be in <strong>full bloom</strong> from <code>start<sub>i</sub></code> to <code>end<sub>i</sub></code> (<strong>inclusive</strong>). You are also given a <strong>0-indexed</strong> integer array <code>people</code> of size <code>n</code>, where <code>people[i]</code> is the time that the <code>i<sup>th</sup></code> person will arrive to see the flowers.</p>
 
 <p>Return <em>an integer array </em><code>answer</code><em> of size </em><code>n</code><em>, where </em><code>answer[i]</code><em> is the <strong>number</strong> of flowers that are in full bloom when the </em><code>i<sup>th</sup></code><em> person arrives.</em></p>
 
@@ -46,28 +46,30 @@ For each person, we return the number of flowers in full bloom during their arri
 
 We sort the flowers by their start and end time respectively, and then for each person, we can use binary search to find the number of flowers they bloom during the flowering period. That is, find the number of flowers that have bloomed when each person arrives, minus the number of flowers that have withered when each person arrives, to get the answer.
 
-The time complexity is $O((m + n) \times \log n)$, and the space complexity is $O(n)$. Where $n$ and $m$ are the lengths of arrays $flowers$ and $persons$ respectively.
+The time complexity is $O((m + n) \times \log n)$, and the space complexity is $O(n)$. Where $n$ and $m$ are the lengths of arrays $flowers$ and $people$ respectively.
 
 **Solution 2: Difference + Sort + Offline Query**
 
-We can use the difference to maintain the number of flowers at each time point. Next, we sort $persons$ in ascending order of arrival time, and at each person's arrival, we perform a prefix sum operation on the difference array to get the answer.
+We can use the difference to maintain the number of flowers at each time point. Next, we sort $people$ in ascending order of arrival time, and at each person's arrival, we perform a prefix sum operation on the difference array to get the answer.
 
-The time complexity is $O(m \times \log m + n \times \log n)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the lengths of arrays $flowers$ and $persons$ respectively.
+The time complexity is $O(m \times \log m + n \times \log n)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the lengths of arrays $flowers$ and $people$ respectively.
 
 ### **Python3**
 
 ```python
 class Solution:
     def fullBloomFlowers(
-        self, flowers: List[List[int]], persons: List[int]
+        self, flowers: List[List[int]], people: List[int]
     ) -> List[int]:
         start, end = sorted(a for a, _ in flowers), sorted(b for _, b in flowers)
-        return [bisect_right(start, p) - bisect_left(end, p) for p in persons]
+        return [bisect_right(start, p) - bisect_left(end, p) for p in people]
 ```
 
 ```python
 class Solution:
-    def fullBloomFlowers(self, flowers: List[List[int]], people: List[int]) -> List[int]:
+    def fullBloomFlowers(
+        self, flowers: List[List[int]], people: List[int]
+    ) -> List[int]:
         d = defaultdict(int)
         for st, ed in flowers:
             d[st] += 1
@@ -205,6 +207,59 @@ public:
 };
 ```
 
+### **Rust**
+
+```rust
+use std::collections::BTreeMap;
+
+impl Solution {
+    #[allow(dead_code)]
+    pub fn full_bloom_flowers(flowers: Vec<Vec<i32>>, people: Vec<i32>) -> Vec<i32> {
+        let n = people.len();
+
+        // First sort the people vector based on the first item
+        let mut people: Vec<(usize, i32)> = people
+            .into_iter()
+            .enumerate()
+            .map(|x| x)
+            .collect();
+
+        people.sort_by(|lhs, rhs| {
+            lhs.1.cmp(&rhs.1)
+        });
+
+        // Initialize the difference vector
+        let mut diff = BTreeMap::new();
+        let mut ret = vec![0; n];
+
+        for f in flowers {
+            let (left, right) = (f[0], f[1]);
+            diff
+                .entry(left)
+                .and_modify(|x| *x += 1)
+                .or_insert(1);
+
+            diff
+                .entry(right + 1)
+                .and_modify(|x| *x -= 1)
+                .or_insert(-1);
+        }
+
+        let mut sum = 0;
+        let mut i = 0;
+        for (k, v) in diff {
+            while i < n && people[i].1 < k {
+                ret[people[i].0] += sum;
+                i += 1;
+            }
+            sum += v;
+        }
+
+        ret
+    }
+}
+```
+
 ### **Go**
 
 ```go
@@ -307,9 +362,7 @@ function fullBloomFlowers(flowers: number[][], people: number[]): number[] {
     let s = 0;
     let i = 0;
     const m = people.length;
-    const idx: number[] = [...Array(m)]
-        .map((_, i) => i)
-        .sort((a, b) => people[a] - people[b]);
+    const idx: number[] = [...Array(m)].map((_, i) => i).sort((a, b) => people[a] - people[b]);
     const ans = Array(m).fill(0);
     for (const j of idx) {
         const t = people[j];

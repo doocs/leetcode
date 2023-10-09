@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>Given an object, return a valid JSON string of that object. You may assume the object only includes strings, integers, arrays, objects, booleans, and null. The returned string should not include extra spaces. The order of keys should be the same as the order returned by&nbsp;<code>Object.keys()</code>.</p>
+<p>Given a value, return a valid JSON string of that value. The value can be a string, number, array, object, boolean, or null.&nbsp;The returned string should not include extra spaces. The order of keys should be the same as the order returned by&nbsp;<code>Object.keys()</code>.</p>
 
 <p>Please solve it without using the built-in <code>JSON.stringify</code> method.</p>
 
@@ -48,10 +48,10 @@ Primitive types are valid inputs.</pre>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>object includes strings, integers, booleans, arrays, objects, and null</code></li>
+	<li><code>value</code> is a valid JSON value</li>
 	<li><code>1 &lt;= JSON.stringify(object).length &lt;= 10<sup>5</sup></code></li>
 	<li><code>maxNestingLevel &lt;= 1000</code></li>
-	<li><code>all strings will only contain alphanumeric characters</code></li>
+	<li>all strings contain only alphanumeric characters</li>
 </ul>
 
 ## Solutions
@@ -76,10 +76,7 @@ function jsonStringify(object: any): string {
     }
     if (typeof object === 'object') {
         return `{${Object.entries(object)
-            .map(
-                ([key, value]) =>
-                    `${jsonStringify(key)}:${jsonStringify(value)}`,
-            )
+            .map(([key, value]) => `${jsonStringify(key)}:${jsonStringify(value)}`)
             .join(',')}}`;
     }
     return '';

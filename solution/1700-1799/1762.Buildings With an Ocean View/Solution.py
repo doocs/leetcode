@@ -1,10 +1,9 @@
 class Solution:
     def findBuildings(self, heights: List[int]) -> List[int]:
-        mx = 0
         ans = []
+        mx = 0
         for i in range(len(heights) - 1, -1, -1):
-            v = heights[i]
-            if mx < v:
+            if heights[i] > mx:
                 ans.append(i)
-                mx = v
+                mx = heights[i]
         return ans[::-1]

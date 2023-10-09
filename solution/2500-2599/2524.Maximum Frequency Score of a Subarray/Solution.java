@@ -1,13 +1,14 @@
 class Solution {
+    private final int mod = (int) 1e9 + 7;
+
     public int maxFrequencyScore(int[] nums, int k) {
-        final int mod = (int) 1e9 + 7;
         Map<Integer, Integer> cnt = new HashMap<>();
         for (int i = 0; i < k; ++i) {
-            cnt.put(nums[i], cnt.getOrDefault(nums[i], 0) + 1);
+            cnt.merge(nums[i], 1, Integer::sum);
         }
         long cur = 0;
         for (var e : cnt.entrySet()) {
-            cur = (cur + qmi(e.getKey(), e.getValue(), mod)) % mod;
+            cur = (cur + qpow(e.getKey(), e.getValue())) % mod;
         }
         long ans = cur;
         for (int i = k; i < nums.length; ++i) {
@@ -15,12 +16,12 @@ class Solution {
             int b = nums[i];
             if (a != b) {
                 if (cnt.getOrDefault(b, 0) > 0) {
-                    cur += (b - 1) * qmi(b, cnt.get(b), mod) % mod;
+                    cur += (b - 1) * qpow(b, cnt.get(b)) % mod;
                 } else {
                     cur += b;
                 }
                 if (cnt.getOrDefault(a, 0) > 1) {
-                    cur -= (a - 1) * qmi(a, cnt.get(a) - 1, mod) % mod;
+                    cur -= (a - 1) * qpow(a, cnt.get(a) - 1) % mod;
                 } else {
                     cur -= a;
                 }
@@ -33,15 +34,14 @@ class Solution {
         return (int) ans;
     }
 
-    long qmi(long a, long k, long p) {
-        long res = 1;
-        while (k != 0) {
-            if ((k & 1) == 1) {
-                res = res * a % p;
+    private long qpow(long a, long n) {
+        long ans = 1;
+        for (; n > 0; n >>= 1) {
+            if ((n & 1) == 1) {
+                ans = ans * a % mod;
             }
-            k >>= 1;
-            a = a * a % p;
+            a = a * a % mod;
         }
-        return res;
+        return ans;
     }
 }

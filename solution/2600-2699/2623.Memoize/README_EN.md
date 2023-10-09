@@ -20,58 +20,51 @@
 <p><strong class="example">Example 1:</strong></p>
 
 <pre>
-<strong>Input</strong>
-&quot;sum&quot;
-[&quot;call&quot;,&quot;call&quot;,&quot;getCallCount&quot;,&quot;call&quot;,&quot;getCallCount&quot;]
-[[2,2],[2,2],[],[1,2],[]]
-<strong>Output</strong>
-[4,4,1,3,2]
-
-<strong>Explanation</strong>
+<strong>Input:</strong>
+fnName = &quot;sum&quot;
+actions = [&quot;call&quot;,&quot;call&quot;,&quot;getCallCount&quot;,&quot;call&quot;,&quot;getCallCount&quot;]
+values = [[2,2],[2,2],[],[1,2],[]]
+<strong>Output:</strong> [4,4,1,3,2]
+<strong>Explanation:</strong>
 const sum = (a, b) =&gt; a + b;
 const memoizedSum = memoize(sum);
-memoizedSum(2, 2); // Returns 4. sum() was called as (2, 2) was not seen before.
-memoizedSum(2, 2); // Returns 4. However sum() was not called because the same inputs were seen before.
-// Total call count: 1
-memoizedSum(1, 2); // Returns 3. sum() was called as (1, 2) was not seen before.
-// Total call count: 2
+memoizedSum(2, 2); // &quot;call&quot; - returns 4. sum() was called as (2, 2) was not seen before.
+memoizedSum(2, 2); // &quot;call&quot; - returns 4. However sum() was not called because the same inputs were seen before.
+// &quot;getCallCount&quot; - total call count: 1
+memoizedSum(1, 2); // &quot;call&quot; - returns 3. sum() was called as (1, 2) was not seen before.
+// &quot;getCallCount&quot; - total call count: 2
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
 
 <pre>
-<strong>Input
-</strong>&quot;factorial&quot;
-[&quot;call&quot;,&quot;call&quot;,&quot;call&quot;,&quot;getCallCount&quot;,&quot;call&quot;,&quot;getCallCount&quot;]
-[[2],[3],[2],[],[3],[]]
-<strong>Output</strong>
-[2,6,2,2,6,2]
-
-<strong>Explanation</strong>
+<strong>Input:
+</strong>fnName = &quot;factorial&quot;
+actions = [&quot;call&quot;,&quot;call&quot;,&quot;call&quot;,&quot;getCallCount&quot;,&quot;call&quot;,&quot;getCallCount&quot;]
+values = [[2],[3],[2],[],[3],[]]
+<strong>Output:</strong> [2,6,2,2,6,2]
+<strong>Explanation:</strong>
 const factorial = (n) =&gt; (n &lt;= 1) ? 1 : (n * factorial(n - 1));
 const memoFactorial = memoize(factorial);
-memoFactorial(2); // Returns 2.
-memoFactorial(3); // Returns 6.
-memoFactorial(2); // Returns 2. However factorial was not called because 2 was seen before.
-// Total call count: 2
-memoFactorial(3); // Returns 6. However factorial was not called because 3 was seen before.
-// Total call count: 2
+memoFactorial(2); // &quot;call&quot; - returns 2.
+memoFactorial(3); // &quot;call&quot; - returns 6.
+memoFactorial(2); // &quot;call&quot; - returns 2. However factorial was not called because 2 was seen before.
+// &quot;getCallCount&quot; - total call count: 2
+memoFactorial(3); // &quot;call&quot; - returns 6. However factorial was not called because 3 was seen before.
+// &quot;getCallCount&quot; - total call count: 2
 </pre>
 
 <p><strong class="example">Example 3:</strong></p>
 
 <pre>
-<strong>Input
-</strong>&quot;fib&quot;
-[&quot;call&quot;,&quot;getCallCount&quot;]
-[[5],[]]
-<strong>Output</strong>
-[8,1]
-
-<strong>Explanation
-</strong>fib(5) = 8
-// Total call count: 1
-
+<strong>Input:
+</strong>fnName = &quot;fib&quot;
+actions = [&quot;call&quot;,&quot;getCallCount&quot;]
+values = [[5],[]]
+<strong>Output:</strong> [8,1]
+<strong>Explanation:
+</strong>fib(5) = 8 // &quot;call&quot;
+// &quot;getCallCount&quot; - total call count: 1
 </pre>
 
 <p>&nbsp;</p>
@@ -80,9 +73,10 @@ memoFactorial(3); // Returns 6. However factorial was not called because 3 was s
 <ul>
 	<li><code>0 &lt;= a, b &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= n &lt;= 10</code></li>
-	<li><code>at most 10<sup>5</sup>&nbsp;function calls</code></li>
-	<li><code>at most 10<sup>5</sup>&nbsp;attempts to access callCount</code></li>
-	<li><code>input function is sum, fib, or factorial</code></li>
+	<li><code>0 &lt;= actions.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>actions.length === values.length</code></li>
+	<li><code>actions[i]</code> is one of &quot;call&quot; and &quot;getCallCount&quot;</li>
+	<li><code>fnName</code> is one of &quot;sum&quot;, &quot;factorial&quot; and&nbsp;&quot;fib&quot;</li>
 </ul>
 
 ## Solutions

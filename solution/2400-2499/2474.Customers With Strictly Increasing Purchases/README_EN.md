@@ -15,13 +15,13 @@
 | order_date   | date |
 | price        | int  |
 +--------------+------+
-order_id is the primary key for this table.
+order_id is the column with unique values for this table.
 Each row contains the id of an order, the id of customer that ordered it, the date of the order, and its price.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the IDs of the customers with the <strong>total purchases</strong> strictly increasing yearly.</p>
+<p>Write a solution to report the IDs of the customers with the <strong>total purchases</strong> strictly increasing yearly.</p>
 
 <ul>
 	<li>The <strong>total purchases</strong> of a customer in one year is the sum of the prices of their orders in that year. If for some year the customer did not make any order, we consider the total purchases <code>0</code>.</li>
@@ -31,7 +31,7 @@ Each row contains the id of an order, the id of customer that ordered it, the da
 
 <p>Return the result table <strong>in any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

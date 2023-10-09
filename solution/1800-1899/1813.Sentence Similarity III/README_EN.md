@@ -46,6 +46,16 @@
 
 ## Solutions
 
+**Solution 1: Two Pointers**
+
+We split the two sentences into two word arrays `words1` and `words2` by spaces. Let the lengths of `words1` and `words2` be $m$ and $n$, respectively, and assume that $m \ge nn.
+
+We use two pointers $i$ and $j$, initially $i = j = 0$. Next, we loop to check whether `words1[i]` is equal to `words2[i]`, and if so, pointer $i$ continues to move right; then we loop to check whether `words1[m - 1 - j]` is equal to `words2[n - 1 - j]`, and if so, pointer $j$ continues to move right.
+
+After the loop, if $i + j \ge n$, it means that the two sentences are similar, and we return `true`; otherwise, we return `false`.
+
+The time complexity is $O(L)$, and the space complexity is $O(L)$, where $L$ is the sum of the lengths of the two sentences.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -142,6 +152,27 @@ func areSentencesSimilar(sentence1 string, sentence2 string) bool {
 		j++
 	}
 	return i+j >= n
+}
+```
+
+### **TypeScript**
+
+```ts
+function areSentencesSimilar(sentence1: string, sentence2: string): boolean {
+    const words1 = sentence1.split(' ');
+    const words2 = sentence2.split(' ');
+    if (words1.length < words2.length) {
+        return areSentencesSimilar(sentence2, sentence1);
+    }
+    const [m, n] = [words1.length, words2.length];
+    let [i, j] = [0, 0];
+    while (i < n && words1[i] === words2[i]) {
+        ++i;
+    }
+    while (j < n && words1[m - 1 - j] === words2[n - 1 - j]) {
+        ++j;
+    }
+    return i + j >= n;
 }
 ```
 

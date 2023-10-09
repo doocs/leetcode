@@ -1,20 +1,15 @@
 name: black-linter
 
 on:
-  pull_request_target:
-    types:
-      - opened
-      - edited
-      - synchronize
-    branches:
-      - main
+  push: {}
+  pull_request: {}
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - uses: jpetrucciani/black-check@master
       with:
         black_flags: '-S'

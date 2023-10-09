@@ -1,32 +1,27 @@
-from sortedcontainers import SortedDict
+from sortedcontainers import SortedList
 
 
 class StockPrice:
     def __init__(self):
-        self.last_ts = 0
-        self.mp = {}
-        self.counter = SortedDict()
+        self.d = {}
+        self.ls = SortedList()
+        self.last = 0
 
     def update(self, timestamp: int, price: int) -> None:
-        if timestamp in self.mp:
-            old_price = self.mp[timestamp]
-            self.counter[old_price] -= 1
-            if self.counter[old_price] == 0:
-                del self.counter[old_price]
-        if price not in self.counter:
-            self.counter[price] = 0
-        self.counter[price] += 1
-        self.mp[timestamp] = price
-        self.last_ts = max(self.last_ts, timestamp)
+        if timestamp in self.d:
+            self.ls.remove(self.d[timestamp])
+        self.d[timestamp] = price
+        self.ls.add(price)
+        self.last = max(self.last, timestamp)
 
     def current(self) -> int:
-        return self.mp[self.last_ts]
+        return self.d[self.last]
 
     def maximum(self) -> int:
-        return self.counter.keys()[-1]
+        return self.ls[-1]
 
     def minimum(self) -> int:
-        return self.counter.keys()[0]
+        return self.ls[0]
 
 
 # Your StockPrice object will be instantiated and called as such:

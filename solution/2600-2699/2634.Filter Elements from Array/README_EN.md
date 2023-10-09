@@ -9,13 +9,13 @@
 <p>The <code>fn</code> function takes one or two arguments:</p>
 
 <ul>
-	<li><code><font face="monospace">arr[i]</font></code> - number&nbsp;from&nbsp;the <code>arr</code></li>
+	<li><code>arr[i]</code> - number&nbsp;from&nbsp;the <code>arr</code></li>
 	<li><code>i</code>&nbsp;- index of <code>arr[i]</code></li>
 </ul>
 
 <p><code>filteredArr</code> should only contain the elements from the&nbsp;<code>arr</code> for which the expression <code>fn(arr[i], i)</code> evaluates to a <strong>truthy</strong> value. A&nbsp;<strong>truthy</strong>&nbsp;value is a value where&nbsp;<code>Boolean(value)</code>&nbsp;returns&nbsp;<code>true</code>.</p>
 
-<p>Please solve it without the built-in Array.filter method.</p>
+<p>Please solve it without the built-in <code>Array.filter</code> method.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -51,7 +51,7 @@ Falsey values such as 0 should be filtered out
 
 <ul>
 	<li><code>0 &lt;= arr.length &lt;= 1000</code></li>
-	<li><code><font face="monospace">-10<sup>9</sup>&nbsp;&lt;= arr[i] &lt;= 10<sup>9</sup></font></code></li>
+	<li><code>-10<sup>9</sup>&nbsp;&lt;= arr[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
 ## Solutions

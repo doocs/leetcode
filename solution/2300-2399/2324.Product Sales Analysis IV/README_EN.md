@@ -15,12 +15,12 @@
 | user_id     | int   |
 | quantity    | int   |
 +-------------+-------+
-sale_id is the primary key of this table.
-product_id is a foreign key to <code>Product</code> table.
+sale_id contains unique values.
+product_id is a foreign key (reference column) to <code>Product</code> table.
 Each row of this table shows the ID of the product and the quantity purchased by a user.
 </pre>
 
-<p></p>
+<p>&nbsp;</p>
 
 <p>Table: <code>Product</code></p>
 
@@ -31,17 +31,17 @@ Each row of this table shows the ID of the product and the quantity purchased by
 | product_id  | int  |
 | price       | int  |
 +-------------+------+
-product_id is the primary key of this table.
+product_id contains unique values.
 Each row of this table indicates the price of each product.
 </pre>
 
-<p></p>
+<p>&nbsp;</p>
 
-<p>Write an SQL query that reports for each user the product id on which the user spent the most money. In case the same user spent the most money on two or more products, report all of them.</p>
+<p>Write a solution that reports for each user the product id on which the user spent the most money. In case the same user spent the most money on two or more products, report all of them.</p>
 
 <p>Return the resulting table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

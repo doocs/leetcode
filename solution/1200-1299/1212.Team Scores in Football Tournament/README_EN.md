@@ -13,7 +13,7 @@
 | team_id       | int      |
 | team_name     | varchar  |
 +---------------+----------+
-team_id is the primary key of this table.
+team_id is the column with unique values of this table.
 Each row of this table represents a single football team.
 </pre>
 
@@ -31,7 +31,7 @@ Each row of this table represents a single football team.
 | host_goals    | int     |
 | guest_goals   | int     |
 +---------------+---------+
-match_id is the primary key of this table.
+match_id is the column of unique values of this table.
 Each row is a record of a finished match between two different teams. 
 Teams host_team and guest_team are represented by their IDs in the Teams table (team_id), and they scored host_goals and guest_goals goals, respectively.
 </pre>
@@ -45,11 +45,11 @@ You would like to compute the scores of all teams after all matches. Points are 
 	<li>A team receives <strong>no points</strong> if they lose a match (i.e., Scored fewer goals than the opponent team).</li>
 </ul>
 
-<p>Write an SQL query that selects the <code>team_id</code>, <code>team_name</code> and <code>num_points</code> of each team in the tournament after all described matches.</p>
+<p>Write a solution that selects the <code>team_id</code>, <code>team_name</code> and <code>num_points</code> of each team in the tournament after all described matches.</p>
 
 <p>Return the result table ordered by <code>num_points</code> <strong>in decreasing order</strong>. In case of a tie, order the records by <code>team_id</code> <strong>in increasing order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -111,8 +111,7 @@ SELECT
     ) AS num_points
 FROM
     Teams AS t
-    LEFT JOIN Matches AS m
-        ON t.team_id = m.host_team OR t.team_id = m.guest_team
+    LEFT JOIN Matches AS m ON t.team_id = m.host_team OR t.team_id = m.guest_team
 GROUP BY t.team_id
 ORDER BY num_points DESC, team_id;
 ```

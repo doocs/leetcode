@@ -1,8 +1,8 @@
 class Solution {
     public int minCount(int[] coins) {
         int ans = 0;
-        for (int coin : coins) {
-            ans += (coin + 1) / 2;
+        for (int x : coins) {
+            ans += (x + 1) >> 1;
         }
         return ans;
     }

@@ -12,11 +12,7 @@
  * }
  */
 
-function addOneRow(
-    root: TreeNode | null,
-    val: number,
-    depth: number,
-): TreeNode | null {
+function addOneRow(root: TreeNode | null, val: number, depth: number): TreeNode | null {
     if (depth === 1) {
         return new TreeNode(val, root);
     }

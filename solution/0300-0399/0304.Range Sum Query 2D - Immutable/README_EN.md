@@ -263,10 +263,7 @@ var NumMatrix = function (matrix) {
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
             this.s[i + 1][j + 1] =
-                this.s[i + 1][j] +
-                this.s[i][j + 1] -
-                this.s[i][j] +
-                matrix[i][j];
+                this.s[i + 1][j] + this.s[i][j + 1] - this.s[i][j] + matrix[i][j];
         }
     }
 };
@@ -307,10 +304,7 @@ class NumMatrix {
         for (let i = 0; i < m; ++i) {
             for (let j = 0; j < n; ++j) {
                 this.s[i + 1][j + 1] =
-                    this.s[i + 1][j] +
-                    this.s[i][j + 1] -
-                    this.s[i][j] +
-                    matrix[i][j];
+                    this.s[i + 1][j] + this.s[i][j + 1] - this.s[i][j] + matrix[i][j];
             }
         }
     }

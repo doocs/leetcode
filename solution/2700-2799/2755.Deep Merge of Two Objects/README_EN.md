@@ -56,6 +56,7 @@ obj2[&quot;b&quot;][&quot;c&quot;] has key &quot;e&quot; that obj1 doesn&#39;t h
 <p><strong>Constraints:</strong></p>
 
 <ul>
+	<li><code>obj1</code> and <code>obj2</code> are valid JSON values</li>
 	<li><code>1 &lt;= JSON.stringify(obj1).length &lt;= 5&nbsp;* 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= JSON.stringify(obj2).length &lt;= 5&nbsp;* 10<sup>5</sup></code></li>
 </ul>

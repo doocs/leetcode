@@ -76,8 +76,8 @@ arr2 = [
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>arr1 and arr2 are valid JSON arrays</code></li>
-	<li><code>Each object in arr1 and arr2 has a unique&nbsp;integer id key</code></li>
+	<li><code>arr1</code> and <code>arr2</code> are valid JSON arrays</li>
+	<li>Each object in <code>arr1</code> and <code>arr2</code> has a unique&nbsp;integer <code>id</code> key</li>
 	<li><code>2 &lt;= JSON.stringify(arr1).length &lt;= 10<sup>6</sup></code></li>
 	<li><code>2 &lt;= JSON.stringify(arr2).length &lt;= 10<sup>6</sup></code></li>
 </ul>

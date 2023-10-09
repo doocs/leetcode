@@ -13,7 +13,7 @@
 | user1_id    | int  |
 | user2_id    | int  |
 +-------------+------+
-(user1_id, user2_id) is the primary key for this table.
+(user1_id, user2_id) is the primary key (combination of columns with unique values) for this table.
 Each row of this table indicates that the users user1_id and user2_id are friends.
 Note that user1_id &lt; user2_id.
 </pre>
@@ -22,13 +22,13 @@ Note that user1_id &lt; user2_id.
 
 <p>A friendship between a pair of friends <code>x</code> and <code>y</code> is <strong>strong</strong> if <code>x</code> and <code>y</code> have <strong>at least three</strong> common friends.</p>
 
-<p>Write an SQL query to find all the <strong>strong friendships</strong>.</p>
+<p>Write a solution to find all the <strong>strong friendships</strong>.</p>
 
 <p>Note that the result table should not contain duplicates with <code>user1_id &lt; user2_id</code>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

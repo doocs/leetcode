@@ -1,30 +1,25 @@
 class Solution {
-    private static final int N = 8;
-    private int[][] dirs
-        = new int[][] {{0, -1}, {0, 1}, {1, 0}, {-1, 0}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
-
     public List<List<Integer>> queensAttacktheKing(int[][] queens, int[] king) {
-        Set<Integer> s = get(queens);
+        final int n = 8;
+        var s = new boolean[n][n];
+        for (var q : queens) {
+            s[q[0]][q[1]] = true;
+        }
         List<List<Integer>> ans = new ArrayList<>();
-        for (int[] dir : dirs) {
-            int x = king[0], y = king[1];
-            int a = dir[0], b = dir[1];
-            while (x + a >= 0 && x + a < N && y + b >= 0 && y + b < N) {
-                x += a;
-                y += b;
-                if (s.contains(x * N + y)) {
-                    ans.add(Arrays.asList(x, y));
-                    break;
+        for (int a = -1; a <= 1; ++a) {
+            for (int b = -1; b <= 1; ++b) {
+                if (a != 0 || b != 0) {
+                    int x = king[0] + a, y = king[1] + b;
+                    while (x >= 0 && x < n && y >= 0 && y < n) {
+                        if (s[x][y]) {
+                            ans.add(List.of(x, y));
+                            break;
+                        }
+                        x += a;
+                        y += b;
+                    }
                 }
             }
-        }
-        return ans;
-    }
-
-    private Set<Integer> get(int[][] queens) {
-        Set<Integer> ans = new HashSet<>();
-        for (int[] queen : queens) {
-            ans.add(queen[0] * N + queen[1]);
         }
         return ans;
     }

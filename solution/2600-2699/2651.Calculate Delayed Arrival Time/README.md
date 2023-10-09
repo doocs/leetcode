@@ -92,10 +92,7 @@ func findDelayedArrivalTime(arrivalTime int, delayedTime int) int {
 ### **TypeScript**
 
 ```ts
-function findDelayedArrivalTime(
-    arrivalTime: number,
-    delayedTime: number,
-): number {
+function findDelayedArrivalTime(arrivalTime: number, delayedTime: number): number {
     return (arrivalTime + delayedTime) % 24;
 }
 ```

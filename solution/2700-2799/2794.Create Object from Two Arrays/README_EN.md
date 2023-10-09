@@ -39,7 +39,7 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>keysArr and valuesArr are valid JSON arrays</code></li>
+	<li><code>keysArr</code> and <code>valuesArr</code> are valid JSON arrays</li>
 	<li><code>2 &lt;= JSON.stringify(keysArr).length,&nbsp;JSON.stringify(valuesArr).length &lt;= 5 * 10<sup>5</sup></code></li>
 	<li><code>keysArr.length === valuesArr.length</code></li>
 </ul>

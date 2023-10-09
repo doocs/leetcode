@@ -48,7 +48,22 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-记忆化搜索。
+**方法一：树形 DP**
+
+我们定义一个函数 $dfs(root)$，表示偷取以 $root$ 为根的二叉树的最大金额。该函数返回一个二元组 $(a, b)$，其中 $a$ 表示偷取 $root$ 节点时能得到的最大金额，而 $b$ 表示不偷取 $root$ 节点时能得到的最大金额。
+
+函数 $dfs(root)$ 的计算过程如下：
+
+如果 $root$ 为空，那么显然有 $dfs(root) = (0, 0)$。
+
+否则，我们首先计算出左右子节点的结果，即 $dfs(root.left)$ 和 $dfs(root.right)$，这样就得到了两对值 $(l_a, l_b)$ 以及 $(r_a, r_b)$。对于 $dfs(root)$ 的结果，我们可以分为两种情况：
+
+-   如果偷取 $root$ 节点，那么不能偷取其左右子节点，结果为 $root.val + l_b + r_b$；
+-   如果不偷取 $root$ 节点，那么可以偷取其左右子节点，结果为 $\max(l_a, l_b) + \max(r_a, r_b)$。
+
+在主函数中，我们可以直接返回 $dfs(root)$ 的较大值，即 $\max(dfs(root))$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 
 <!-- tabs:start -->
 
@@ -64,22 +79,15 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def rob(self, root: TreeNode) -> int:
-        @cache
-        def dfs(root):
+    def rob(self, root: Optional[TreeNode]) -> int:
+        def dfs(root: Optional[TreeNode]) -> (int, int):
             if root is None:
-                return 0
-            if root.left is None and root.right is None:
-                return root.val
-            a = dfs(root.left) + dfs(root.right)
-            b = root.val
-            if root.left:
-                b += dfs(root.left.left) + dfs(root.left.right)
-            if root.right:
-                b += dfs(root.right.left) + dfs(root.right.right)
-            return max(a, b)
+                return 0, 0
+            la, lb = dfs(root.left)
+            ra, rb = dfs(root.right)
+            return root.val + lb + rb, max(la, lb) + max(ra, rb)
 
-        return dfs(root)
+        return max(dfs(root))
 ```
 
 ### **Java**
@@ -103,31 +111,18 @@ class Solution:
  * }
  */
 class Solution {
-    private Map<TreeNode, Integer> memo;
-
     public int rob(TreeNode root) {
-        memo = new HashMap<>();
-        return dfs(root);
+        int[] ans = dfs(root);
+        return Math.max(ans[0], ans[1]);
     }
 
-    private int dfs(TreeNode root) {
+    private int[] dfs(TreeNode root) {
         if (root == null) {
-            return 0;
+            return new int[2];
         }
-        if (memo.containsKey(root)) {
-            return memo.get(root);
-        }
-        int a = dfs(root.left) + dfs(root.right);
-        int b = root.val;
-        if (root.left != null) {
-            b += dfs(root.left.left) + dfs(root.left.right);
-        }
-        if (root.right != null) {
-            b += dfs(root.right.left) + dfs(root.right.right);
-        }
-        int res = Math.max(a, b);
-        memo.put(root, res);
-        return res;
+        int[] l = dfs(root.left);
+        int[] r = dfs(root.right);
+        return new int[] {root.val + l[1] + r[1], Math.max(l[0], l[1]) + Math.max(r[0], r[1])};
     }
 }
 ```
@@ -148,22 +143,17 @@ class Solution {
  */
 class Solution {
 public:
-    unordered_map<TreeNode*, int> memo;
-
     int rob(TreeNode* root) {
-        return dfs(root);
-    }
-
-    int dfs(TreeNode* root) {
-        if (!root) return 0;
-        if (memo.count(root)) return memo[root];
-        int a = dfs(root->left) + dfs(root->right);
-        int b = root->val;
-        if (root->left) b += dfs(root->left->left) + dfs(root->left->right);
-        if (root->right) b += dfs(root->right->left) + dfs(root->right->right);
-        int res = max(a, b);
-        memo[root] = res;
-        return res;
+        function<pair<int, int>(TreeNode*)> dfs = [&](TreeNode* root) -> pair<int, int> {
+            if (!root) {
+                return make_pair(0, 0);
+            }
+            auto [la, lb] = dfs(root->left);
+            auto [ra, rb] = dfs(root->right);
+            return make_pair(root->val + lb + rb, max(la, lb) + max(ra, rb));
+        };
+        auto [a, b] = dfs(root);
+        return max(a, b);
     }
 };
 ```
@@ -180,28 +170,17 @@ public:
  * }
  */
 func rob(root *TreeNode) int {
-	memo := make(map[*TreeNode]int)
-	var dfs func(root *TreeNode) int
-	dfs = func(root *TreeNode) int {
+	var dfs func(*TreeNode) (int, int)
+	dfs = func(root *TreeNode) (int, int) {
 		if root == nil {
-			return 0
+			return 0, 0
 		}
-		if _, ok := memo[root]; ok {
-			return memo[root]
-		}
-		a := dfs(root.Left) + dfs(root.Right)
-		b := root.Val
-		if root.Left != nil {
-			b += dfs(root.Left.Left) + dfs(root.Left.Right)
-		}
-		if root.Right != nil {
-			b += dfs(root.Right.Left) + dfs(root.Right.Right)
-		}
-		res := max(a, b)
-		memo[root] = res
-		return res
+		la, lb := dfs(root.Left)
+		ra, rb := dfs(root.Right)
+		return root.Val + lb + rb, max(la, lb) + max(ra, rb)
 	}
-	return dfs(root)
+	a, b := dfs(root)
+	return max(a, b)
 }
 
 func max(a, b int) int {
@@ -209,6 +188,36 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function rob(root: TreeNode | null): number {
+    const dfs = (root: TreeNode | null): [number, number] => {
+        if (!root) {
+            return [0, 0];
+        }
+        const [la, lb] = dfs(root.left);
+        const [ra, rb] = dfs(root.right);
+        return [root.val + lb + rb, Math.max(la, lb) + Math.max(ra, rb)];
+    };
+    return Math.max(...dfs(root));
 }
 ```
 

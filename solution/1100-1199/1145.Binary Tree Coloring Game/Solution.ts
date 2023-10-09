@@ -12,11 +12,7 @@
  * }
  */
 
-function btreeGameWinningMove(
-    root: TreeNode | null,
-    n: number,
-    x: number,
-): boolean {
+function btreeGameWinningMove(root: TreeNode | null, n: number, x: number): boolean {
     const dfs = (root: TreeNode | null): TreeNode | null => {
         if (!root || root.val === x) {
             return root;

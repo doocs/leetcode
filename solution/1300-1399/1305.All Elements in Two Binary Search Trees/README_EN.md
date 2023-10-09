@@ -312,18 +312,10 @@ impl Solution {
  * }
  */
 
-function getAllElements(
-    root1: TreeNode | null,
-    root2: TreeNode | null,
-): number[] {
+function getAllElements(root1: TreeNode | null, root2: TreeNode | null): number[] {
     const res = [];
     const stacks = [[], []];
-    while (
-        root1 != null ||
-        stacks[0].length !== 0 ||
-        root2 != null ||
-        stacks[1].length !== 0
-    ) {
+    while (root1 != null || stacks[0].length !== 0 || root2 != null || stacks[1].length !== 0) {
         if (root1 != null) {
             stacks[0].push(root1);
             root1 = root1.left;

@@ -13,7 +13,7 @@
 <p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<b>输入：</b>argsArr = [5]
+<b>输入：</b>args = [5]
 <b>输出：</b>1
 <strong>解释：</strong>
 argumentsLength(5); // 1
@@ -24,7 +24,7 @@ argumentsLength(5); // 1
 <p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<b>输入：</b>argsArr = [{}, null, "3"]
+<b>输入：</b>args = [{}, null, "3"]
 <b>输出：</b>3
 <b>解释：</b>
 argumentsLength({}, null, "3"); // 3
@@ -37,8 +37,8 @@ argumentsLength({}, null, "3"); // 3
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>argsArr 是一个有效的 JSON 数组</code></li>
-	<li><code>0 &lt;= argsArr.length &lt;= 100</code></li>
+	<li><code>args</code>&nbsp;是一个有效的 JSON 数组</li>
+	<li><code>0 &lt;= args.length &lt;= 100</code></li>
 </ul>
 
 ## 解法

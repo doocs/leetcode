@@ -25,7 +25,7 @@
 
 **方法一：哈希表**
 
-同时遍历两个字符串，算出对应位置字符相同的个数，累加到 $x$ 中，然后将两个字符串出现的字符以及出现的次数分别记录在哈希表 `cnt1` 和 `cnt2` 中。
+同时遍历两个字符串，算出对应位置字符相同的个数，累加到 $x$ 中，然后将两个字符串出现的字符以及出现的次数分别记录在哈希表 $cnt1$ 和 $cnt2$ 中。
 
 接着遍历两个哈希表，算出有多少共同出现的字符，累加到 $y$ 中。那么答案就是 $[x, y - x]$。
 
@@ -140,10 +140,7 @@ var masterMind = function (solution, guess) {
             counts2[s2] += 1;
         }
     }
-    let res2 = ['R', 'G', 'B', 'Y'].reduce(
-        (a, c) => a + Math.min(counts1[c], counts2[c]),
-        0,
-    );
+    let res2 = ['R', 'G', 'B', 'Y'].reduce((a, c) => a + Math.min(counts1[c], counts2[c]), 0);
     return [res1, res2];
 };
 ```

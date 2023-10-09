@@ -1,13 +1,14 @@
 class Solution:
     def minimumAverageDifference(self, nums: List[int]) -> int:
-        s = list(accumulate(nums))
-        ans, n = 0, len(nums)
-        mi = inf
-        for i in range(n):
-            a = s[i] // (i + 1)
-            b = 0 if i == n - 1 else (s[-1] - s[i]) // (n - i - 1)
-            t = abs(a - b)
-            if mi > t:
+        pre, suf = 0, sum(nums)
+        n = len(nums)
+        ans, mi = 0, inf
+        for i, x in enumerate(nums):
+            pre += x
+            suf -= x
+            a = pre // (i + 1)
+            b = 0 if n - i - 1 == 0 else suf // (n - i - 1)
+            if (t := abs(a - b)) < mi:
                 ans = i
                 mi = t
         return ans

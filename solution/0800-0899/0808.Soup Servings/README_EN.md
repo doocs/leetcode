@@ -173,11 +173,7 @@ function soupServings(n: number): number {
             return f[i][j];
         }
         f[i][j] =
-            0.25 *
-            (dfs(i - 4, j) +
-                dfs(i - 3, j - 1) +
-                dfs(i - 2, j - 2) +
-                dfs(i - 1, j - 3));
+            0.25 * (dfs(i - 4, j) + dfs(i - 3, j - 1) + dfs(i - 2, j - 2) + dfs(i - 1, j - 3));
         return f[i][j];
     };
     return n >= 4800 ? 1 : dfs(Math.ceil(n / 25), Math.ceil(n / 25));

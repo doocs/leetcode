@@ -40,10 +40,10 @@ class Solution {
             int l = left[i], r = right[i];
             long cnt = (long) (i - l) * (r - i);
             if (cnt <= k) {
-                ans = ans * qmi(x, cnt, mod) % mod;
+                ans = ans * qpow(x, cnt) % mod;
                 k -= cnt;
             } else {
-                ans = ans * qmi(x, k, mod) % mod;
+                ans = ans * qpow(x, k) % mod;
                 break;
             }
         }
@@ -66,15 +66,14 @@ class Solution {
         return ans.size();
     }
 
-    private int qmi(long a, long k, int p) {
-        long res = 1;
-        while (k != 0) {
-            if ((k & 1) == 1) {
-                res = res * a % p;
+    private int qpow(long a, long n) {
+        long ans = 1;
+        for (; n > 0; n >>= 1) {
+            if ((n & 1) == 1) {
+                ans = ans * a % mod;
             }
-            k >>= 1;
-            a = a * a % p;
+            a = a * a % mod;
         }
-        return (int) res;
+        return (int) ans;
     }
 }

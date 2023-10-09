@@ -1,11 +1,9 @@
 func maximumAlternatingSubarraySum(nums []int) int64 {
-	ans := nums[0]
-	a, b := nums[0], -(1 << 30)
-	for _, v := range nums[1:] {
-		c, d := a, b
-		a = max(v, d+v)
-		b = c - v
-		ans = max(ans, max(a, b))
+	const inf = 1 << 60
+	ans, f, g := -inf, -inf, -inf
+	for _, x := range nums {
+		f, g = max(g, 0)+x, f-x
+		ans = max(ans, max(f, g))
 	}
 	return int64(ans)
 }

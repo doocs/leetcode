@@ -13,7 +13,7 @@
 | Column Name | Type    |
 +-------------+---------+
 | id          | int     |
-| name        | varchar |
+| student     | varchar |
 +-------------+---------+
 <code>id</code> 是该表的主键（唯一值）列。
 该表的每一行都表示学生的姓名和 ID。

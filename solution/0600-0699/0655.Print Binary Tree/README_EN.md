@@ -467,18 +467,13 @@ function printTree(root: TreeNode | null): string[][] {
         if (root == null) {
             return h - 1;
         }
-        return Math.max(
-            getHeight(root.left, h + 1),
-            getHeight(root.right, h + 1),
-        );
+        return Math.max(getHeight(root.left, h + 1), getHeight(root.right, h + 1));
     };
 
     const height = getHeight(root, 0);
     const m = height + 1;
     const n = 2 ** (height + 1) - 1;
-    const res: string[][] = Array.from({ length: m }, () =>
-        new Array(n).fill(''),
-    );
+    const res: string[][] = Array.from({ length: m }, () => new Array(n).fill(''));
     const dfs = (root: TreeNode | null, i: number, j: number) => {
         if (root === null) {
             return;

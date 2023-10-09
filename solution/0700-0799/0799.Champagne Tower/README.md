@@ -232,11 +232,7 @@ func champagneTower(poured int, query_row int, query_glass int) float64 {
 ### **TypeScipt**
 
 ```ts
-function champagneTower(
-    poured: number,
-    query_row: number,
-    query_glass: number,
-): number {
+function champagneTower(poured: number, query_row: number, query_glass: number): number {
     let row = [poured];
     for (let i = 1; i <= query_row; i++) {
         const nextRow = new Array(i + 1).fill(0);

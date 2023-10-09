@@ -1,7 +1,7 @@
 function minCount(coins: number[]): number {
     let ans = 0;
-    for (const coin of coins) {
-        ans += Math.floor((coin + 1) / 2);
+    for (const x of coins) {
+        ans += (x + 1) >> 1;
     }
     return ans;
 }

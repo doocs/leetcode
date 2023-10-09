@@ -55,10 +55,7 @@ class Solution:
             max_x = max(max_x, x)
             point_set.add((x, y))
         s = min_x + max_x
-        for x, y in points:
-            if (s - x, y) not in point_set:
-                return False
-        return True
+        return all((s - x, y) in point_set for x, y in points)
 ```
 
 ### **Java**
@@ -66,21 +63,83 @@ class Solution:
 ```java
 class Solution {
     public boolean isReflected(int[][] points) {
-        int minX = Integer.MAX_VALUE, maxX = Integer.MIN_VALUE;
-        Set<String> pointSet = new HashSet<>();
-        for (int[] point : points) {
-            minX = Math.min(minX, point[0]);
-            maxX = Math.max(maxX, point[0]);
-            pointSet.add(point[0] + "." + point[1]);
+        final int inf = 1 << 30;
+        int minX = inf, maxX = -inf;
+        Set<List<Integer>> pointSet = new HashSet<>();
+        for (int[] p : points) {
+            minX = Math.min(minX, p[0]);
+            maxX = Math.max(maxX, p[0]);
+            pointSet.add(List.of(p[0], p[1]));
         }
-        long s = minX + maxX;
-        for (int[] point : points) {
-            if (!pointSet.contains((s - point[0]) + "." + point[1])) {
+        int s = minX + maxX;
+        for (int[] p : points) {
+            if (!pointSet.contains(List.of(s - p[0], p[1]))) {
                 return false;
             }
         }
         return true;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isReflected(vector<vector<int>>& points) {
+        const int inf = 1 << 30;
+        int minX = inf, maxX = -inf;
+        set<pair<int, int>> pointSet;
+        for (auto& p : points) {
+            minX = min(minX, p[0]);
+            maxX = max(maxX, p[0]);
+            pointSet.insert({p[0], p[1]});
+        }
+        int s = minX + maxX;
+        for (auto& p : points) {
+            if (!pointSet.count({s - p[0], p[1]})) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func isReflected(points [][]int) bool {
+	const inf = 1 << 30
+	minX, maxX := inf, -inf
+	pointSet := map[[2]int]bool{}
+	for _, p := range points {
+		minX = min(minX, p[0])
+		maxX = max(maxX, p[0])
+		pointSet[[2]int{p[0], p[1]}] = true
+	}
+	s := minX + maxX
+	for _, p := range points {
+		if !pointSet[[2]int{s - p[0], p[1]}] {
+			return false
+		}
+	}
+	return true
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 

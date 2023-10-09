@@ -45,7 +45,10 @@
 
 **方法二：前缀树**
 
-相似题目：[616. 给字符串添加加粗标签](/solution/0600-0699/0616.Add%20Bold%20Tag%20in%20String/README.md)、[758. 字符串中的加粗单词](/solution/0700-0799/0758.Bold%20Words%20in%20String/README.md)
+相似题目：
+
+-   [616. 给字符串添加加粗标签](/solution/0600-0699/0616.Add%20Bold%20Tag%20in%20String/README.md)
+-   [758. 字符串中的加粗单词](/solution/0700-0799/0758.Bold%20Words%20in%20String/README.md)
 
 <!-- tabs:start -->
 

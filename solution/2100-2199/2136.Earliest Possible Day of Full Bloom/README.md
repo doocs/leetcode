@@ -68,7 +68,9 @@
 
 **方法一：贪心 + 排序**
 
-生长时间越长的种子，越先播种，因此将 $growTime$ 降序排列。
+根据题目描述，我们知道，每一天只能为一枚种子进行播种，因此不管什么播种顺序，所有种子的播种时间之和总是等于 $\sum_{i=0}^{n-1} plantTime[i]$。那么，为了让尽快让所有种子开花，我们应该尽快播种生长时间最长的种子。因此，我们可以对所有种子按照生长时间从大到小进行排序，然后依次进行播种。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是种子的数量。
 
 <!-- tabs:start -->
 
@@ -80,9 +82,9 @@
 class Solution:
     def earliestFullBloom(self, plantTime: List[int], growTime: List[int]) -> int:
         ans = t = 0
-        for a, b in sorted(zip(plantTime, growTime), key=lambda x: -x[1]):
-            t += a
-            ans = max(ans, t + b)
+        for pt, gt in sorted(zip(plantTime, growTime), key=lambda x: -x[1]):
+            t += pt
+            ans = max(ans, t + gt)
         return ans
 ```
 
@@ -94,16 +96,15 @@ class Solution:
 class Solution {
     public int earliestFullBloom(int[] plantTime, int[] growTime) {
         int n = plantTime.length;
-        int[][] arr = new int[n][2];
-        for (int i = 0; i < n; ++i) {
-            arr[i] = new int[] {plantTime[i], growTime[i]};
+        Integer[] idx = new Integer[n];
+        for (int i = 0; i < n; i++) {
+            idx[i] = i;
         }
-        Arrays.sort(arr, (a, b) -> b[1] - a[1]);
-        int ans = 0;
-        int t = 0;
-        for (int[] e : arr) {
-            t += e[0];
-            ans = Math.max(ans, t + e[1]);
+        Arrays.sort(idx, (i, j) -> growTime[j] - growTime[i]);
+        int ans = 0, t = 0;
+        for (int i : idx) {
+            t += plantTime[i];
+            ans = Math.max(ans, t + growTime[i]);
         }
         return ans;
     }
@@ -117,13 +118,13 @@ class Solution {
 public:
     int earliestFullBloom(vector<int>& plantTime, vector<int>& growTime) {
         int n = plantTime.size();
-        vector<pair<int, int>> arr;
-        for (int i = 0; i < n; ++i) arr.push_back({-growTime[i], plantTime[i]});
-        sort(arr.begin(), arr.end());
+        vector<int> idx(n);
+        iota(idx.begin(), idx.end(), 0);
+        sort(idx.begin(), idx.end(), [&](int i, int j) { return growTime[j] < growTime[i]; });
         int ans = 0, t = 0;
-        for (auto [a, b] : arr) {
-            t += b;
-            ans = max(ans, t - a);
+        for (int i : idx) {
+            t += plantTime[i];
+            ans = max(ans, t + growTime[i]);
         }
         return ans;
     }
@@ -133,20 +134,19 @@ public:
 ### **Go**
 
 ```go
-func earliestFullBloom(plantTime []int, growTime []int) int {
-	arr := [][]int{}
-	for i, a := range plantTime {
-		arr = append(arr, []int{a, growTime[i]})
+func earliestFullBloom(plantTime []int, growTime []int) (ans int) {
+	n := len(plantTime)
+	idx := make([]int, n)
+	for i := range idx {
+		idx[i] = i
 	}
-	sort.Slice(arr, func(i, j int) bool {
-		return arr[i][1] > arr[j][1]
-	})
-	ans, t := 0, 0
-	for _, e := range arr {
-		t += e[0]
-		ans = max(ans, t+e[1])
+	sort.Slice(idx, func(i, j int) bool { return growTime[idx[j]] < growTime[idx[i]] })
+	t := 0
+	for _, i := range idx {
+		t += plantTime[i]
+		ans = max(ans, t+growTime[i])
 	}
-	return ans
+	return
 }
 
 func max(a, b int) int {
@@ -159,10 +159,36 @@ func max(a, b int) int {
 
 ### **TypeScript**
 
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```ts
+function earliestFullBloom(plantTime: number[], growTime: number[]): number {
+    const n = plantTime.length;
+    const idx: number[] = Array.from({ length: n }, (_, i) => i);
+    idx.sort((i, j) => growTime[j] - growTime[i]);
+    let [ans, t] = [0, 0];
+    for (const i of idx) {
+        t += plantTime[i];
+        ans = Math.max(ans, t + growTime[i]);
+    }
+    return ans;
+}
+```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn earliest_full_bloom(plant_time: Vec<i32>, grow_time: Vec<i32>) -> i32 {
+        let mut idx: Vec<usize> = (0..plant_time.len()).collect();
+        idx.sort_by_key(|&i| -&grow_time[i]);
+        let mut ans = 0;
+        let mut t = 0;
+        for &i in &idx {
+            t += plant_time[i];
+            ans = ans.max(t + grow_time[i]);
+        }
+        ans
+    }
+}
 ```
 
 ### **...**

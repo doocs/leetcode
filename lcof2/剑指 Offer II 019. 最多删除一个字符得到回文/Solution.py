@@ -1,6 +1,6 @@
 class Solution:
     def validPalindrome(self, s: str) -> bool:
-        def check(i, j):
+        def check(i: int, j: int) -> bool:
             while i < j:
                 if s[i] != s[j]:
                     return False
@@ -10,6 +10,6 @@ class Solution:
         i, j = 0, len(s) - 1
         while i < j:
             if s[i] != s[j]:
-                return check(i, j - 1) or check(i + 1, j)
+                return check(i + 1, j) or check(i, j - 1)
             i, j = i + 1, j - 1
         return True

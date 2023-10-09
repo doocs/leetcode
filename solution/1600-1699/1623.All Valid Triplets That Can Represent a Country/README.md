@@ -15,9 +15,9 @@
 | student_id    | int     |
 | student_name  | varchar |
 +---------------+---------+
-student_id 是表的主键
-表中的每一行包含了学校A中每一个学生的名字和ID
-所有student_name在表中都是独一无二的
+student_id 是该表具有唯一值的列
+表中的每一行包含了学校 A 中每一个学生的名字和 ID
+所有 student_name 在表中都是独一无二的
 </pre>
 
 <p>&nbsp;</p>
@@ -31,9 +31,9 @@ student_id 是表的主键
 | student_id    | int     |
 | student_name  | varchar |
 +---------------+---------+
-student_id 是表的主键
-表中的每一行包含了学校B中每一个学生的名字和ID
-所有student_name在表中都是独一无二的
+student_id 是该表具有唯一值的列
+表中的每一行包含了学校 B 中每一个学生的名字和 ID
+所有 student_name 在表中都是独一无二的
 </pre>
 
 <p>&nbsp;</p>
@@ -47,39 +47,37 @@ student_id 是表的主键
 | student_id    | int     |
 | student_name  | varchar |
 +---------------+---------+
-student_id 是表的主键
-表中的每一行包含了学校C中每一个学生的名字和ID
-所有student_name在表中都是独一无二的
+student_id 是该表具有唯一值的列
+表中的每一行包含了学校 C 中每一个学生的名字和 ID
+所有 student_name 在表中都是独一无二的
 </pre>
 
 <p>&nbsp;</p>
 
-<p>有一个国家只有三所学校，这个国家的每一个学生只会注册<strong>一所学校</strong>。</p>
+<p>有一个国家只有三所学校，这个国家的每一个学生只会注册&nbsp;<strong>一所学校</strong>。</p>
 
-<p>这个国家正在参加一个竞赛，他们希望从这三所学校中各选出一个学生来组建一支三人的代表队。</p>
-
-<p>例如：</p>
+<p>这个国家正在参加一个竞赛，他们希望从这三所学校中各选出一个学生来组建一支三人的代表队。例如：</p>
 
 <ul>
-	<li><code>member_A</code>是从 <code>SchoolA</code>中选出的</li>
-	<li><code>member_B</code>是从 <code>SchoolB</code>中选出的</li>
-	<li><code>member_C</code>是从 <code>SchoolC</code>中选出的</li>
-	<li>被选中的学生具有不同的名字和ID（没有任何两个学生拥有相同的名字、没有任何两个学生拥有相同的ID）</li>
+	<li><code>member_A</code>&nbsp;是从 <code>SchoolA</code>&nbsp;中选出的</li>
+	<li><code>member_B</code>&nbsp;是从 <code>SchoolB</code>&nbsp;中选出的</li>
+	<li><code>member_C</code>&nbsp;是从 <code>SchoolC</code>&nbsp;中选出的</li>
+	<li>被选中的学生具有不同的名字和 ID（没有任何两个学生拥有相同的名字、没有任何两个学生拥有相同的 ID）</li>
 </ul>
 
-<p>使用上述条件，编写SQL查询语句来找到所有可能的三人国家代表队组合。</p>
+<p>使用上述条件，编写一个解决方案来找到所有可能的三人国家代表队组合。</p>
 
-<p>查询结果接受<strong>任何顺序。</strong></p>
+<p>返回结果 <strong>无顺序要求</strong>。</p>
 
-<p>查询结果格式如下例。</p>
+<p>结果格式如下示例所示。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1:</strong></p>
 
 <pre>
-<code><strong>输入：</strong>
-SchoolA</code> table:
+<strong>输入：</strong>
+<code>SchoolA</code> table:
 +------------+--------------+
 | student_id | student_name |
 +------------+--------------+

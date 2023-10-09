@@ -8,10 +8,7 @@ function findMaxValueOfEquation(points: number[][], k: number): number {
         if (q.length > 0) {
             ans = Math.max(ans, x + y + q[0][1] - q[0][0]);
         }
-        while (
-            q.length > 0 &&
-            y - x > q[q.length - 1][1] - q[q.length - 1][0]
-        ) {
+        while (q.length > 0 && y - x > q[q.length - 1][1] - q[q.length - 1][0]) {
             q.pop();
         }
         q.push([x, y]);

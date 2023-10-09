@@ -15,23 +15,23 @@
 | first_col   | int  |
 | second_col  | int  |
 +-------------+------+
-该表没有主键且可能包含重复数据。
+该表可能包含重复数据。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>请你编写 SQL 使：</p>
+<p>编写解决方案，使：</p>
 
 <ul>
 	<li><code>first_col</code> 按照<strong> 升序 </strong>排列。</li>
 	<li><code>second_col</code> 按照 <strong>降序 </strong>排列。</li>
 </ul>
 
-<p>查询返回的结果格式如下。</p>
+<p>返回的结果格式如下。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例：</strong></p>
+<p><strong>示例 1：</strong></p>
 
 <pre>
 <strong>输入：</strong>

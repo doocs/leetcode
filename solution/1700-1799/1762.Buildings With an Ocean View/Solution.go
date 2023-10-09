@@ -1,9 +1,7 @@
-func findBuildings(heights []int) []int {
+func findBuildings(heights []int) (ans []int) {
 	mx := 0
-	ans := []int{}
 	for i := len(heights) - 1; i >= 0; i-- {
-		v := heights[i]
-		if mx < v {
+		if v := heights[i]; v > mx {
 			ans = append(ans, i)
 			mx = v
 		}
@@ -11,5 +9,5 @@ func findBuildings(heights []int) []int {
 	for i, j := 0, len(ans)-1; i < j; i, j = i+1, j-1 {
 		ans[i], ans[j] = ans[j], ans[i]
 	}
-	return ans
+	return
 }

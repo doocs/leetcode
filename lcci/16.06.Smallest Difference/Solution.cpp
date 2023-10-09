@@ -4,14 +4,15 @@ public:
         sort(a.begin(), a.end());
         sort(b.begin(), b.end());
         int i = 0, j = 0;
-        long res = LONG_MAX;
+        long long ans = LONG_LONG_MAX;
         while (i < a.size() && j < b.size()) {
-            res = min(res, abs((long) a[i] - (long) b[j]));
-            if (a[i] > b[j])
-                ++j;
-            else
+            ans = min(ans, abs(1LL * a[i] - 1LL * b[j]));
+            if (a[i] < b[j]) {
                 ++i;
+            } else {
+                ++j;
+            }
         }
-        return res;
+        return ans;
     }
 };

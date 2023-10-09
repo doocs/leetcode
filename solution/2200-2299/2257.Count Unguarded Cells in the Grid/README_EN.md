@@ -45,6 +45,18 @@ There are a total of 4 unguarded cells, so we return 4.
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+We create a two-dimensional array $g$ of size $m \times n$, where $g[i][j]$ represents the cell in row $i$ and column $j$. Initially, the value of $g[i][j]$ is $0$, indicating that the cell is not guarded.
+
+Then, we traverse all guards and walls, and set the value of $g[i][j]$ to $2$, indicating that these positions cannot be accessed.
+
+Next, we traverse all guard positions, simulate in four directions from that position until we encounter a wall or guard, or go out of bounds. During the simulation, we set the value of the encountered cell to $1$, indicating that the cell is guarded.
+
+Finally, we traverse $g$ and count the number of cells with a value of $0$, which is the answer.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns in the grid, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -180,7 +192,34 @@ func countUnguarded(m int, n int, guards [][]int, walls [][]int) (ans int) {
 ### **TypeScript**
 
 ```ts
-
+function countUnguarded(m: number, n: number, guards: number[][], walls: number[][]): number {
+    const g: number[][] = Array.from({ length: m }, () => Array.from({ length: n }, () => 0));
+    for (const [i, j] of guards) {
+        g[i][j] = 2;
+    }
+    for (const [i, j] of walls) {
+        g[i][j] = 2;
+    }
+    const dirs: number[] = [-1, 0, 1, 0, -1];
+    for (const [i, j] of guards) {
+        for (let k = 0; k < 4; ++k) {
+            let [x, y] = [i, j];
+            let [a, b] = [dirs[k], dirs[k + 1]];
+            while (x + a >= 0 && x + a < m && y + b >= 0 && y + b < n && g[x + a][y + b] < 2) {
+                x += a;
+                y += b;
+                g[x][y] = 1;
+            }
+        }
+    }
+    let ans = 0;
+    for (const row of g) {
+        for (const v of row) {
+            ans += v === 0 ? 1 : 0;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**

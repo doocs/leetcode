@@ -182,6 +182,89 @@ func min(a, b int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function minimumString(a: string, b: string, c: string): string {
+    const f = (s: string, t: string): string => {
+        if (s.includes(t)) {
+            return s;
+        }
+        if (t.includes(s)) {
+            return t;
+        }
+        const m = s.length;
+        const n = t.length;
+        for (let i = Math.min(m, n); i > 0; --i) {
+            if (s.slice(-i) === t.slice(0, i)) {
+                return s + t.slice(i);
+            }
+        }
+        return s + t;
+    };
+    const s: string[] = [a, b, c];
+    const perm: number[][] = [
+        [0, 1, 2],
+        [0, 2, 1],
+        [1, 0, 2],
+        [1, 2, 0],
+        [2, 0, 1],
+        [2, 1, 0],
+    ];
+    let ans = '';
+    for (const [i, j, k] of perm) {
+        const t = f(f(s[i], s[j]), s[k]);
+        if (ans === '' || t.length < ans.length || (t.length === ans.length && t < ans)) {
+            ans = t;
+        }
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    fn f(s1: String, s2: String) -> String {
+        if s1.contains(&s2) {
+            return s1;
+        }
+        if s2.contains(&s1) {
+            return s2;
+        }
+        for i in 0..s1.len() {
+            let s = &s1[i..];
+            if s2.starts_with(s) {
+                let n = s.len();
+                return s1 + &s2[n..];
+            }
+        }
+        s1 + s2.as_str()
+    }
+
+    pub fn minimum_string(a: String, b: String, c: String) -> String {
+        let s = [&a, &b, &c];
+        let perm = [
+            [0, 1, 2],
+            [0, 2, 1],
+            [1, 0, 2],
+            [1, 2, 0],
+            [2, 0, 1],
+            [2, 1, 0],
+        ];
+        let mut ans = String::new();
+        for [i, j, k] in perm.iter() {
+            let r = Self::f(Self::f(s[*i].clone(), s[*j].clone()), s[*k].clone());
+            if ans == "" || r.len() < ans.len() || (r.len() == ans.len() && r < ans) {
+                ans = r;
+            }
+        }
+        ans
+    }
+}
+```
+
 ### **...**
 
 ```

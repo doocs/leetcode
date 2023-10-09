@@ -38,7 +38,7 @@
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>str 是一个有效的 JSON 字符串</code></li>
+	<li><code>str</code> 是一个有效的 JSON 字符串</li>
 	<li><code>1 &lt;= str.length &lt;= 10<sup>5</sup></code></li>
 </ul>
 

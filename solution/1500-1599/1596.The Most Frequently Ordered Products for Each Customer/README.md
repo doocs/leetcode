@@ -15,7 +15,7 @@
 | customer_id   | int     |
 | name          | varchar |
 +---------------+---------+
-customer_id 是该表主键
+customer_id 是该表具有唯一值的列
 该表包含所有顾客的信息
 </pre>
 
@@ -32,7 +32,7 @@ customer_id 是该表主键
 | customer_id   | int     |
 | product_id    | int     |
 +---------------+---------+
-order_id 是该表主键
+order_id 是该表具有唯一值的列
 该表包含顾客 customer_id 的订单信息
 没有顾客会在一天内订购相同的商品<strong> 多于一次</strong></pre>
 
@@ -48,13 +48,13 @@ order_id 是该表主键
 | product_name  | varchar |
 | price         | int     |
 +---------------+---------+
-product_id 是该表主键
+product_id 是该表具有唯一值的列
 该表包含了所有商品的信息
 </pre>
 
 <p>&nbsp;</p>
 
-<p>写一个 SQL 语句，找到每一个顾客最经常订购的商品。</p>
+<p>写一个解决方案，找到每一个顾客最经常订购的商品。</p>
 
 <p>结果表单应该有每一位至少下过一次单的顾客 <code>customer_id</code>&nbsp;,&nbsp;他最经常订购的商品的&nbsp;<code>product_id</code>&nbsp;和&nbsp;<code>product_name</code>。</p>
 

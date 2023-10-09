@@ -29,6 +29,7 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
+	<li><code>arr</code> is a valid JSON array</li>
 	<li><code>0 &lt;= arr.length &lt;= 1000</code></li>
 </ul>
 

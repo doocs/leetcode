@@ -7,28 +7,17 @@
  * }
  */
 func rob(root *TreeNode) int {
-	memo := make(map[*TreeNode]int)
-	var dfs func(root *TreeNode) int
-	dfs = func(root *TreeNode) int {
+	var dfs func(*TreeNode) (int, int)
+	dfs = func(root *TreeNode) (int, int) {
 		if root == nil {
-			return 0
+			return 0, 0
 		}
-		if _, ok := memo[root]; ok {
-			return memo[root]
-		}
-		a := dfs(root.Left) + dfs(root.Right)
-		b := root.Val
-		if root.Left != nil {
-			b += dfs(root.Left.Left) + dfs(root.Left.Right)
-		}
-		if root.Right != nil {
-			b += dfs(root.Right.Left) + dfs(root.Right.Right)
-		}
-		res := max(a, b)
-		memo[root] = res
-		return res
+		la, lb := dfs(root.Left)
+		ra, rb := dfs(root.Right)
+		return root.Val + lb + rb, max(la, lb) + max(ra, rb)
 	}
-	return dfs(root)
+	a, b := dfs(root)
+	return max(a, b)
 }
 
 func max(a, b int) int {

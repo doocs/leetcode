@@ -24,69 +24,63 @@
 
 <pre>
 <strong>输入：</strong>
-"sum"
-["call","call","getCallCount","call","getCallCount"]
-[[2,2],[2,2],[],[1,2],[]]
-<strong>输出：</strong>
-[4,4,1,3,2]
-
+fnName = "sum"
+actions = ["call","call","getCallCount","call","getCallCount"]
+values = [[2,2],[2,2],[],[1,2],[]]
+<strong>输出：</strong>[4,4,1,3,2]
 <strong>解释：</strong>
 const sum = (a, b) =&gt; a + b;
 const memoizedSum = memoize(sum);
-memoizedSum (2, 2);// 返回 4。sum() 被调用，因为之前没有使用参数 (2, 2) 调用过。
-memoizedSum (2, 2);// 返回 4。没有调用 sum()，因为前面有相同的输入。
-//总调用数： 1
-memoizedSum(1、2);// 返回 3。sum() 被调用，因为之前没有使用参数 (1, 2) 调用过。
-//总调用数： 2
+memoizedSum (2, 2);// "call" - 返回 4。sum() 被调用，因为之前没有使用参数 (2, 2) 调用过。
+memoizedSum (2, 2);// "call" - 返回 4。没有调用 sum()，因为前面有相同的输入。
+// "getCallCount" - 总调用数： 1
+memoizedSum(1、2);// "call" - 返回 3。sum() 被调用，因为之前没有使用参数 (1, 2) 调用过。
+// "getCallCount" - 总调用数： 2
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
 <pre>
 <strong>输入：
-</strong>"factorial"
-["call","call","call","getCallCount","call","getCallCount"]
-[[2],[3],[2],[],[3],[]]
-<strong>输出：</strong>
-[2,6,2,2,6,2]
-
+</strong>fnName = "factorial"
+actions = ["call","call","call","getCallCount","call","getCallCount"]
+values = [[2],[3],[2],[],[3],[]]
+<strong>输出：</strong>[2,6,2,2,6,2]
 <strong>解释：</strong>
 const factorial = (n) =&gt; (n &lt;= 1) ? 1 : (n * factorial(n - 1));
 const memoFactorial = memoize(factorial);
-memoFactorial(2); // 返回 2。
-memoFactorial(3); // 返回 6。
-memoFactorial(2); // 返回 2。 没有调用 factorial()，因为前面有相同的输入。
-// 总调用数：2
-memoFactorial(3); // 返回 6。 没有调用 factorial()，因为前面有相同的输入。
-// 总调用数：2
+memoFactorial(2); // "call" - 返回 2。
+memoFactorial(3); // "call" - 返回 6。
+memoFactorial(2); // "call" - 返回 2。 没有调用 factorial()，因为前面有相同的输入。
+// "getCallCount" -  总调用数：2
+memoFactorial(3); // "call" - 返回 6。 没有调用 factorial()，因为前面有相同的输入。
+// "getCallCount" -  总调用数：2
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
 <pre>
 <strong>输入：
-</strong>"fib"
-["call","getCallCount"]
-[[5],[]]
-<strong>输出：</strong>
-[8,1]
-
+</strong>fnName = "fib"
+actions = ["call","getCallCount"]
+values = [[5],[]]
+<strong>输出：</strong>[8,1]
 <strong>解释：
-</strong>fib(5) = 8
-// 总调用数：1
+</strong>fib(5) = 8 // "call"
+// "getCallCount" -&nbsp;总调用数：1
 
 </pre>
 
 <p>&nbsp;</p>
 
-<p><strong>Constraints:</strong></p>
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>0 &lt;= a, b &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= n &lt;= 10</code></li>
-	<li><code>at most 10<sup>5</sup>&nbsp;function calls</code></li>
-	<li><code>at most 10<sup>5</sup>&nbsp;attempts to access callCount</code></li>
-	<li><code>input function is sum, fib, or factorial</code></li>
+	<li><code>actions.length === values.length</code></li>
+	<li><code>actions[i]</code> 为&nbsp;"call" 和 "getCallCount" 中的一个</li>
+	<li><code>fnName </code>为 "sum", "factorial" 和 "fib" 中的一个</li>
 </ul>
 
 ## 解法
