@@ -21,6 +21,16 @@
 
 ## Solutions
 
+**Solution 1: Two Passes**
+
+We first traverse the array $array$ from left to right, and use $mx$ to record the maximum value encountered so far. If the current value $x$ is less than $mx$, it means that $x$ needs to be sorted, and we record the index $i$ of $x$ as $right$; otherwise, update $mx$.
+
+Similarly, we traverse the array $array$ from right to left, and use $mi$ to record the minimum value encountered so far. If the current value $x$ is greater than $mi$, it means that $x$ needs to be sorted, and we record the index $i$ of $x$ as $left$; otherwise, update $mi$.
+
+Finally, return $[left, right]$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $array$. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

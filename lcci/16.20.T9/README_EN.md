@@ -31,6 +31,14 @@
 
 ## Solutions
 
+**Solution 1: Reverse Thinking**
+
+We consider a forward solution, which traverses each digit in the string $num$, maps it to the corresponding letter, combines all the letters to obtain all possible words, and then compares them with the given word list. If the word is in the list, it is added to the answer. The time complexity of this solution is $O(4^n)$, where $n$ is the length of the string $num$, which will obviously time out.
+
+Instead, we can consider a reverse solution, which traverses the given word list, and for each word $w$, determines whether it can be composed of the digits in the string $num$. If it can be composed, it is added to the answer. The key to the problem is how to determine whether a word can be composed of the digits in the string $num$. We only need to traverse each letter in the word $w$, restore it to the corresponding digit, and compare it with each digit in the string $num$ one by one. If they are the same, it means that the word $w$ can be composed of the digits in the string $num$.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(C)$. Here, $m$ and $n$ are the length of the word list and the string $num$, respectively, and $C$ is the size of the character set, which is $26$ in this problem.
+
 <!-- tabs:start -->
 
 ### **Python3**

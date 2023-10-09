@@ -1,10 +1,10 @@
 class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
-        int s = INT_MIN, ans = INT_MIN;
-        for (int v : nums) {
-            s = max(s, 0) + v;
-            ans = max(ans, s);
+        int ans = INT_MIN, f = INT_MIN;
+        for (int x : nums) {
+            f = max(f, 0) + x;
+            ans = max(ans, f);
         }
         return ans;
     }
