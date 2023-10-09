@@ -29,8 +29,6 @@ square2 = {0, -1, 2}
 
 ## Solutions
 
-GitHub Copilot: Translation:
-
 **Solution 1: Geometric Mathematics**
 
 We know that if a line can bisect two squares, then the line must pass through the centers of the two squares. Therefore, we can first calculate the centers of the two squares, denoted as $(x_1, y_1)$ and $(x_2, y_2)$, respectively.
