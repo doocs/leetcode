@@ -51,7 +51,7 @@ DataFrame employees
 | Thomas  | 24433  | 48866  |
 +---------+--------+--------+
 <b>解释：</b>
-通过将salary列中的值加倍创建了一个新的bonus列。</pre>
+通过将 salary 列中的值加倍创建了一个新的 bonus 列。</pre>
 
 ## 解法
 

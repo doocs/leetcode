@@ -1,4 +1,4 @@
-# [2880. Select Data](https://leetcode.cn/problems/select-data)
+# [2880. 数据选取](https://leetcode.cn/problems/select-data)
 
 [English Version](/solution/2800-2899/2880.Select%20Data/README_EN.md)
 
@@ -18,14 +18,16 @@ DataFrame students
 
 </pre>
 
-<p>Write a solution to select the name and age of the student with <code>student_id = 101</code>.</p>
+<p>编写一个解决方案，选择&nbsp;<code>student_id = 101</code>&nbsp;的学生的 name 和 age 并输出。</p>
 
-<p>The result format is in the following example.</p>
+<p>返回结果格式如下示例所示。</p>
 
 <p>&nbsp;</p>
+
+<p><strong>示例 1:</strong></p>
+
 <pre>
-<strong>Example 1:
-Input:</strong>
+<b>输入：</b>
 +------------+---------+-----+
 | student_id | name    | age |
 +------------+---------+-----+
@@ -34,14 +36,14 @@ Input:</strong>
 | 128        | Henry   | 6   |
 | 3          | Henry   | 11  |
 +------------+---------+-----+
-<strong>Output:</strong>
+<b>输出：</b>
 +---------+-----+
 | name    | age | 
 +---------+-----+
 | Ulysses | 13  |
 +---------+-----+
-<strong>Explanation:
-</strong>Student Ulysses has student_id = 101, we select the name and age.</pre>
+<strong>解释：
+</strong>学生 Ulysses 的 student_id = 101，所以我们输出了他的 name 和 age。</pre>
 
 ## 解法
 
