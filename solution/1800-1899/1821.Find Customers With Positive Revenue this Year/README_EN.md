@@ -61,6 +61,10 @@ Thus only customers 1 and 4 have positive revenue in the year 2021.
 
 ## Solutions
 
+**Solution 1: WHERE Clause**
+
+We can directly use the `WHERE` clause to filter out the customers whose `year` is `2021` and `revenue` is greater than $0$.
+
 <!-- tabs:start -->
 
 ### **SQL**
