@@ -87,7 +87,7 @@ Orders table:
 
 **方法一：LEFT JOIN + GROUP BY + HAVING**
 
-我们可以用 `LEFT JOIN` 将 `Customers` 表和 `Orders` 表连接起来，然后按照 `customer_id` 进行分组，最后筛选出购买了产品 A 和产品 B 却没有购买产品C 的顾客。
+我们可以用 `LEFT JOIN` 将 `Customers` 表和 `Orders` 表连接起来，然后按照 `customer_id` 进行分组，最后筛选出购买了产品 A 和产品 B 却没有购买产品 C 的顾客。
 
 <!-- tabs:start -->
 
