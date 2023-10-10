@@ -1,0 +1,33 @@
+name: prettier
+
+on:
+  push:
+    branches:
+      - main
+  pull_request_target:
+
+jobs:
+  format:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.head_ref }}
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install Dependencies
+        run: npm install
+      - name: Run prettier
+        run: npx prettier --write "**/*.{md,js,ts,php,sql}"
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "style: format code and docs with prettier"
+          commit_user_name: idoocs
+          commit_user_email: doocs-bot@outlook.com
