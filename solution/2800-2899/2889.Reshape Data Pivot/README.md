@@ -1,4 +1,4 @@
-# [2889. Reshape Data Pivot](https://leetcode.cn/problems/reshape-data-pivot)
+# [2889. 数据重塑：透视](https://leetcode.cn/problems/reshape-data-pivot)
 
 [English Version](/solution/2800-2899/2889.Reshape%20Data%20Pivot/README_EN.md)
 
@@ -17,14 +17,15 @@ DataFrame <code>weather</code>
 +-------------+--------+
 </pre>
 
-<p>Write a solution to <strong>pivot</strong> the data so that each row represents temperatures for a specific month, and each city is a separate column.</p>
+<p>编写一个解决方案，以便将数据&nbsp;<strong>旋转</strong>，使得每一行代表特定月份的温度，而每个城市都是一个单独的列。</p>
 
-<p>The result format is in the following example.</p>
+<p>输出结果格式如下示例所示。</p>
 
 <p>&nbsp;</p>
+<b>示例 1:</b>
+
 <pre>
-<strong class="example">Example 1:</strong>
-<strong>Input:</strong>
+<b>输入：</b>
 +--------------+----------+-------------+
 | city         | month    | temperature |
 +--------------+----------+-------------+
@@ -39,7 +40,7 @@ DataFrame <code>weather</code>
 | ElPaso       | April    | 2           |
 | ElPaso       | May      | 43          |
 +--------------+----------+-------------+
-<strong>Output:</strong><code>
+<code><b>输出：</b>
 +----------+--------+--------------+
 | month    | ElPaso | Jacksonville |
 +----------+--------+--------------+
@@ -49,8 +50,8 @@ DataFrame <code>weather</code>
 | March    | 26     | 38           |
 | May      | 43     | 34           |
 +----------+--------+--------------+</code>
-<strong>Explanation:
-</strong>The table is pivoted, each column represents a city, and each row represents a specific month.</pre>
+<strong>解释：
+</strong>表格被旋转，每一列代表一个城市，每一行代表特定的月份。</pre>
 
 ## 解法
 

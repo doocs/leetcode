@@ -1,4 +1,4 @@
-# [2891. Method Chaining](https://leetcode.cn/problems/method-chaining)
+# [2891. 方法链](https://leetcode.cn/problems/method-chaining)
 
 [English Version](/solution/2800-2899/2891.Method%20Chaining/README_EN.md)
 
@@ -18,17 +18,18 @@ DataFrame <code>animals</code>
 +-------------+--------+
 </pre>
 
-<p>Write a solution to list the names of animals that weigh <strong>strictly more than</strong> <code>100</code> kilograms.</p>
+<p>编写一个解决方案来列出体重 <strong>严格超过&nbsp;</strong>&nbsp;<code>100</code>&nbsp; 千克的动物的名称。</p>
 
-<p>Return the&nbsp;animals sorted by weight in <strong>descending order</strong>.</p>
+<p>按体重 <strong>降序</strong> 返回动物。</p>
 
-<p>The result format is in the following example.</p>
+<p>返回结果格式如下示例所示。</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+
+<p><b>示例 1:</b></p>
 
 <pre>
-<strong>Input:</strong> 
+<b>输入：</b>
 DataFrame animals:
 +----------+---------+-----+--------+
 | name     | species | age | weight |
@@ -40,7 +41,7 @@ DataFrame animals:
 | Stefan   | Bear    | 100 | 50     |
 | Tommy    | Panda   | 26  | 349    |
 +----------+---------+-----+--------+
-<strong>Output:</strong> 
+<b>输出：</b>
 +----------+
 | name     |
 +----------+
@@ -49,15 +50,16 @@ DataFrame animals:
 | Tommy    |
 | Alex     |
 +----------+
-<strong>Explanation:</strong> 
-All animals weighing more than 100 should be included in the results table.
-Tatiana&#39;s weight is 464, Jonathan&#39;s weight is 463, Tommy&#39;s weight is 349, and Alex&#39;s weight is 328.
-The results should be sorted in descending order of weight.</pre>
+<b>解释：</b>
+所有体重超过 100 的动物都应包含在结果表中。
+Tatiana 的体重为 464，Jonathan 的体重为 463，Tommy 的体重为 349，Alex 的体重为 328。
+结果应按体重降序排序。</pre>
 
 <p>&nbsp;</p>
-<p>In Pandas, <strong>method chaining</strong> enables us to&nbsp;perform operations on a DataFrame without breaking up each operation into a separate line or creating multiple temporary variables.&nbsp;</p>
 
-<p>Can you complete this&nbsp;task in just <strong>one line </strong>of code using method chaining?</p>
+<p>在 Pandas 中，<strong>方法链</strong> 允许我们在 DataFrame 上执行操作，而无需将每个操作拆分成单独的行或创建多个临时变量。</p>
+
+<p>你能用 <strong>一行</strong> 代码的方法链完成这个任务吗？</p>
 
 ## 解法
 
