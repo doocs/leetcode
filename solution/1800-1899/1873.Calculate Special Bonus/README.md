@@ -63,6 +63,10 @@ Employees 表:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：IF 语句 + ORDER BY 子句**
+
+我们可以使用 `IF` 语句来判断奖金的计算方式，然后使用 `ORDER BY` 将结果按照 `employee_id` 排序。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -70,20 +74,7 @@ Employees 表:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-SELECT
-    employee_id,
-    CASE
-        WHEN employee_id % 2 = 0
-        OR LEFT(name, 1) = 'M' THEN 0
-        ELSE salary
-    END AS bonus
-FROM
-    employees;
-```
-
-MySQL
-
-```sql
+# Write your MySQL query statement below
 SELECT
     employee_id,
     IF(
@@ -93,19 +84,8 @@ SELECT
         salary
     ) AS bonus
 FROM
-    employees;
-```
-
-```sql
-# Write your MySQL query statement below
-SELECT
-    employee_id,
-    CASE
-        WHEN (employee_id % 2 = 1 AND NAME NOT LIKE "M%") THEN salary
-        ELSE 0
-    END AS bonus
-FROM Employees
-ORDER BY employee_id;
+    employees
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->
