@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>编写一个解决方案，从名为 &nbsp;<code>student_data</code>&nbsp;的二维列表&nbsp;<b>创建 </b>一个 DataFrame 。这个二维列表包含一些学生的 ID 和年龄信息。</p>
+<p>编写一个解决方案，基于名为&nbsp;&nbsp;<code>student_data</code>&nbsp;的二维列表&nbsp;<b>创建 </b>一个 DataFrame 。这个二维列表包含一些学生的 ID 和年龄信息。</p>
 
 <p>DataFrame 应该有两列，&nbsp;<code>student_id</code>&nbsp;和&nbsp;<code>age</code>，并且与原始二维列表的顺序相同。</p>
 
@@ -35,7 +35,7 @@
 | 4          | 20  |
 +------------+-----+
 <b>解释：</b>
-在 student_data 上创建了一个 DataFrame，包含 student_id 和 age 两列。
+基于 student_data 创建了一个 DataFrame，包含 student_id 和 age 两列。
 </pre>
 
 ## 解法

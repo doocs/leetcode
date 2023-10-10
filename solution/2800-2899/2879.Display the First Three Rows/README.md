@@ -1,4 +1,4 @@
-# [2879. Display the First Three Rows](https://leetcode.cn/problems/display-the-first-three-rows)
+# [2879. 显示前三行](https://leetcode.cn/problems/display-the-first-three-rows)
 
 [English Version](/solution/2800-2899/2879.Display%20the%20First%20Three%20Rows/README_EN.md)
 
@@ -18,13 +18,14 @@ DataFrame: <code>employees</code>
 +-------------+--------+
 </pre>
 
-<p>Write a solution to display the <strong>first <code>3</code> </strong>rows<strong> </strong>of this DataFrame.</p>
+<p>编写一个解决方案，显示这个 DataFrame 的<strong> 前&nbsp;&nbsp;<code>3</code>&nbsp;</strong>行。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><b>示例 1:</b></p>
 
 <pre>
-<strong>Input:
+<strong>输入：
 </strong>DataFrame employees
 +-------------+-----------+-----------------------+--------+
 | employee_id | name      | department            | salary |
@@ -36,7 +37,7 @@ DataFrame: <code>employees</code>
 | 49          | Jonathan  | HumanResources        | 23793  |
 | 43          | Khaled    | Administration        | 40454  |
 +-------------+-----------+-----------------------+--------+
-<strong>Output:</strong>
+<b>输出：</b>
 +-------------+---------+-------------+--------+
 | employee_id | name    | department  | salary |
 +-------------+---------+-------------+--------+
@@ -44,8 +45,8 @@ DataFrame: <code>employees</code>
 | 90          | Alice   | Sales       | 11096  |
 | 9           | Tatiana | Engineering | 33805  |
 +-------------+---------+-------------+--------+
-<strong>Explanation:</strong> 
-Only the first 3 rows are displayed.</pre>
+<b>解释：</b>
+只有前 3 行被显示。</pre>
 
 ## 解法
 

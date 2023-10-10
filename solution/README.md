@@ -2888,9 +2888,9 @@
 |  2875  |  [无限数组的最短子数组](/solution/2800-2899/2875.Minimum%20Size%20Subarray%20in%20Infinite%20Array/README.md)  |  `数组`,`哈希表`,`前缀和`,`滑动窗口`  |  中等  |  第 365 场周赛  |
 |  2876  |  [有向图访问计数](/solution/2800-2899/2876.Count%20Visited%20Nodes%20in%20a%20Directed%20Graph/README.md)  |  `图`,`记忆化搜索`,`动态规划`  |  困难  |  第 365 场周赛  |
 |  2877  |  [从表中创建 DataFrame](/solution/2800-2899/2877.Create%20a%20DataFrame%20from%20List/README.md)  |    |  简单  |    |
-|  2878  |  [Get the Size of a DataFrame](/solution/2800-2899/2878.Get%20the%20Size%20of%20a%20DataFrame/README.md)  |    |  简单  |    |
-|  2879  |  [Display the First Three Rows](/solution/2800-2899/2879.Display%20the%20First%20Three%20Rows/README.md)  |    |  简单  |    |
-|  2880  |  [Select Data](/solution/2800-2899/2880.Select%20Data/README.md)  |    |  简单  |    |
+|  2878  |  [获取 DataFrame 的大小](/solution/2800-2899/2878.Get%20the%20Size%20of%20a%20DataFrame/README.md)  |    |  简单  |    |
+|  2879  |  [显示前三行](/solution/2800-2899/2879.Display%20the%20First%20Three%20Rows/README.md)  |    |  简单  |    |
+|  2880  |  [数据选取](/solution/2800-2899/2880.Select%20Data/README.md)  |    |  简单  |    |
 |  2881  |  [创建新列](/solution/2800-2899/2881.Create%20a%20New%20Column/README.md)  |    |  简单  |    |
 |  2882  |  [删去重复的行](/solution/2800-2899/2882.Drop%20Duplicate%20Rows/README.md)  |    |  简单  |    |
 |  2883  |  [删去丢失的数据](/solution/2800-2899/2883.Drop%20Missing%20Data/README.md)  |    |  简单  |    |
@@ -2899,9 +2899,9 @@
 |  2886  |  [改变数据类型](/solution/2800-2899/2886.Change%20Data%20Type/README.md)  |    |  简单  |    |
 |  2887  |  [填充缺失值](/solution/2800-2899/2887.Fill%20Missing%20Data/README.md)  |    |  简单  |    |
 |  2888  |  [重塑数据：连结](/solution/2800-2899/2888.Reshape%20Data%20Concatenate/README.md)  |    |  简单  |    |
-|  2889  |  [Reshape Data Pivot](/solution/2800-2899/2889.Reshape%20Data%20Pivot/README.md)  |    |  简单  |    |
+|  2889  |  [数据重塑：透视](/solution/2800-2899/2889.Reshape%20Data%20Pivot/README.md)  |    |  简单  |    |
 |  2890  |  [重塑数据：融合](/solution/2800-2899/2890.Reshape%20Data%20Melt/README.md)  |    |  简单  |    |
-|  2891  |  [Method Chaining](/solution/2800-2899/2891.Method%20Chaining/README.md)  |    |  简单  |    |
+|  2891  |  [方法链](/solution/2800-2899/2891.Method%20Chaining/README.md)  |    |  简单  |    |
 |  2892  |  [将相邻元素相乘后得到最小化数组](/solution/2800-2899/2892.Minimizing%20Array%20After%20Replacing%20Pairs%20With%20Their%20Product/README.md)  |    |  中等  |  🔒  |
 |  2893  |  [Calculate Orders Within Each Interval](/solution/2800-2899/2893.Calculate%20Orders%20Within%20Each%20Interval/README.md)  |    |  中等  |  🔒  |
 |  2894  |  [分类求和并作差](/solution/2800-2899/2894.Divisible%20and%20Non-divisible%20Sums%20Difference/README.md)  |    |  简单  |  第 366 场周赛  |
