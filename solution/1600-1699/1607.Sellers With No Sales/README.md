@@ -108,19 +108,23 @@ Frank 在 2019 年卖出 1 次, 在 2020 年没有卖出。</pre>
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：左连接 + 分组 + 筛选**
+
+我们可以使用左连接，将 `Seller` 表与 `Orders` 表按照字段 `seller_id` 连接，然后按照 `seller_id` 分组，统计每个卖家在 $2020$ 年的卖出次数，最后筛选出卖出次数为 $0$ 的卖家。
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    seller_name
+SELECT seller_name
 FROM
-    seller AS s
-    LEFT JOIN orders AS o ON s.seller_id = o.seller_id AND year(sale_date) = '2020'
-WHERE o.seller_id IS NULL
-ORDER BY seller_name;
+    Seller
+    LEFT JOIN Orders USING (seller_id)
+GROUP BY seller_id
+HAVING ifnull(sum(year(sale_date) = 2020), 0) = 0
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->

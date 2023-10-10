@@ -92,6 +92,10 @@ Donald did not have any rides, the distance traveled by him is 0.
 
 ## Solutions
 
+**Solution 1: LEFT JOIN + GROUP BY**
+
+We can use a left join to join the `Users` table with the `Rides` table on the condition of user id, and then group by user id to calculate the travel distance for each user. Note that if a user has no travel records, the travel distance is $0$.
+
 <!-- tabs:start -->
 
 ### **SQL**

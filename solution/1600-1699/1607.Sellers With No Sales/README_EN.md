@@ -104,19 +104,23 @@ Frank made 1 sale in 2019 but no sales in 2020.
 
 ## Solutions
 
+**Solution 1: LEFT JOIN + GROUP BY + FILTER**
+
+We can use a left join to join the `Seller` table with the `Orders` table on the condition `seller_id`, and then group by `seller_id` to count the number of sales for each seller in the year $2020$. Finally, we can filter out the sellers with zero sales.
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    seller_name
+SELECT seller_name
 FROM
-    seller AS s
-    LEFT JOIN orders AS o ON s.seller_id = o.seller_id AND year(sale_date) = '2020'
-WHERE o.seller_id IS NULL
-ORDER BY seller_name;
+    Seller
+    LEFT JOIN Orders USING (seller_id)
+GROUP BY seller_id
+HAVING ifnull(sum(year(sale_date) = 2020), 0) = 0
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->
