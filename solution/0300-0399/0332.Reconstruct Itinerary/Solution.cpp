@@ -1,8 +1,8 @@
 class Solution {
 public:
-    std::vector<std::string> findItinerary(std::vector<std::vector<std::string>>& tickets) {
-        std::unordered_map<std::string, std::priority_queue<std::string, std::vector<std::string>, std::greater<std::string>>> g;
-        std::vector<std::string> ret;
+    vector<string> findItinerary(vector<vector<string>>& tickets) {
+        unordered_map<string, priority_queue<string, vector<string>, greater<string>>> g;
+        vector<string> ret;
 
         // Initialize the graph
         for (const auto& t : tickets) {
@@ -16,7 +16,7 @@ public:
         return ret;
     }
 
-    void findItineraryInner(std::unordered_map<std::string, std::priority_queue<std::string, std::vector<std::string>, std::greater<std::string>>>& g, std::vector<std::string>& ret, std::string cur) {
+    void findItineraryInner(unordered_map<string, priority_queue<string, vector<string>, greater<string>>>& g, vector<string>& ret, string cur) {
         if (g.count(cur) == 0) {
             // This is the end point
             ret.push_back(cur);
