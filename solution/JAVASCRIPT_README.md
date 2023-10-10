@@ -24,7 +24,7 @@
 | 2629 | [复合函数](/solution/2600-2699/2629.Function%20Composition/README.md)                                                                                 |      | 简单 |      |
 | 2630 | [记忆函数 II](/solution/2600-2699/2630.Memoize%20II/README.md)                                                                                        |      | 困难 |      |
 | 2631 | [分组](/solution/2600-2699/2631.Group%20By/README.md)                                                                                                 |      | 中等 |      |
-| 2632 | [柯里化](/solution/2600-2699/2632.Curry/README.md)                                                                                                    |      | 中等 | 🔒   |
+| 2632 | [柯里化](/solution/2600-2699/2632.Curry/README.md)                                                                                                    |      | 困难 | 🔒   |
 | 2633 | [将对象转换为 JSON 字符串](/solution/2600-2699/2633.Convert%20Object%20to%20JSON%20String/README.md)                                                  |      | 中等 | 🔒   |
 | 2634 | [过滤数组中的元素](/solution/2600-2699/2634.Filter%20Elements%20from%20Array/README.md)                                                               |      | 简单 |      |
 | 2635 | [转换数组中的每个元素](/solution/2600-2699/2635.Apply%20Transform%20Over%20Each%20Element%20in%20Array/README.md)                                     |      | 简单 |      |
@@ -34,9 +34,9 @@
 | 2649 | [嵌套数组生成器](/solution/2600-2699/2649.Nested%20Array%20Generator/README.md)                                                                       |      | 中等 |      |
 | 2650 | [设计可取消函数](/solution/2600-2699/2650.Design%20Cancellable%20Function/README.md)                                                                  |      | 困难 |      |
 | 2665 | [计数器 II](/solution/2600-2699/2665.Counter%20II/README.md)                                                                                          |      | 简单 |      |
-| 2666 | [只允许一次函数调用](/solution/2600-2699/2666.Allow%20One%20Function%20Call/README.md)                                                                |      | 简单 |      |
+| 2666 | [只允许一次函数调用 44](/solution/2600-2699/2666.Allow%20One%20Function%20Call/README.md)                                                             |      | 简单 |      |
 | 2667 | [创建 Hello World 函数](/solution/2600-2699/2667.Create%20Hello%20World%20Function/README.md)                                                         |      | 简单 |      |
-| 2675 | [将对象数组转换为矩阵](/solution/2600-2699/2675.Array%20of%20Objects%20to%20Matrix/README.md)                                                         |      | 中等 | 🔒   |
+| 2675 | [将对象数组转换为矩阵](/solution/2600-2699/2675.Array%20of%20Objects%20to%20Matrix/README.md)                                                         |      | 困难 | 🔒   |
 | 2676 | [节流](/solution/2600-2699/2676.Throttle/README.md)                                                                                                   |      | 中等 | 🔒   |
 | 2677 | [分块数组](/solution/2600-2699/2677.Chunk%20Array/README.md)                                                                                          |      | 简单 |      |
 | 2690 | [无穷方法对象](/solution/2600-2699/2690.Infinite%20Method%20Object/README.md)                                                                         |      | 简单 | 🔒   |
@@ -52,7 +52,7 @@
 | 2715 | [执行可取消的延迟函数](/solution/2700-2799/2715.Timeout%20Cancellation/README.md)                                                                     |      | 简单 |      |
 | 2721 | [并行执行异步函数](/solution/2700-2799/2721.Execute%20Asynchronous%20Functions%20in%20Parallel/README.md)                                             |      | 中等 |      |
 | 2722 | [根据 ID 合并两个数组](/solution/2700-2799/2722.Join%20Two%20Arrays%20by%20ID/README.md)                                                              |      | 中等 |      |
-| 2723 | [添加两个 Promise 对象](/solution/2700-2799/2723.Add%20Two%20Promises/README.md)                                                                      |      | 简单 |      |
+| 2723 | [两个 Promise 对象相加](/solution/2700-2799/2723.Add%20Two%20Promises/README.md)                                                                      |      | 简单 |      |
 | 2724 | [排序方式](/solution/2700-2799/2724.Sort%20By/README.md)                                                                                              |      | 简单 |      |
 | 2725 | [间隔取消](/solution/2700-2799/2725.Interval%20Cancellation/README.md)                                                                                |      | 简单 |      |
 | 2726 | [使用方法链的计算器](/solution/2700-2799/2726.Calculator%20with%20Method%20Chaining/README.md)                                                        |      | 简单 |      |
