@@ -79,20 +79,23 @@ Orders table:
 
 ## Solutions
 
+**Solution 1: LEFT JOIN + GROUP BY + HAVING**
+
+We can use `LEFT JOIN` to join the `Customers` table and the `Orders` table, then group them by `customer_id`, and finally filter out the customers who have purchased products A and B but not product C.
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    customer_id,
-    customer_name
+SELECT customer_id, customer_name
 FROM
-    Orders
-    JOIN Customers USING (customer_id)
+    Customers
+    LEFT JOIN Orders USING (customer_id)
 GROUP BY 1
-HAVING sum(product_name = 'A') > 0 AND sum(product_name = 'B') > 0 AND sum(product_name = 'C') = 0;
+HAVING sum(product_name = 'A') > 0 AND sum(product_name = 'B') > 0 AND sum(product_name = 'C') = 0
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->
