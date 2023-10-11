@@ -24,7 +24,7 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Run prettier
-        run: npx prettier --write "**/*.{md,js,ts,php,sql}"
+        run: git diff --name-only  ${{ github.event.pull_request.base.sha }} | grep -E '\.md$|\.js$|\.ts$|\.php|\.sql$' | xargs npx prettier --write
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
