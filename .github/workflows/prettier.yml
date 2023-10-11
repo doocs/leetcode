@@ -15,6 +15,7 @@ jobs:
         with:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.head_ref }}
+          fetch-depth: 0
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -22,7 +23,15 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Run prettier
-        run: git diff --name-only  ${{ github.event.pull_request.base.sha }} | grep -E '\.md$|\.js$|\.ts$|\.php|\.sql$' | xargs npx prettier --write
+        run: |
+          changed_files=$(git diff --name-only "${{ github.event.pull_request.base.sha }}" | grep -E '\.md$|\.js$|\.ts$|\.php|\.sql$' || true)
+          if [ -n "$changed_files" ]; then
+            echo "$changed_files"
+            echo "Running prettier on the changed files"
+            echo "$changed_files" | xargs -d '\n' npx prettier --write
+          else
+            echo "No matching files to run prettier on."
+          fi
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
