@@ -90,6 +90,18 @@ Matches table:
 
 ## Solutions
 
+**Solution 1: Left Join + Group By + Case Expression**
+
+We can join the `Teams` table and the `Matches` table using a left join, where the join condition is `team_id = host_team OR team_id = guest_team`, to obtain all the match information for each team.
+
+Next, we group by `team_id` and use a `CASE` expression to calculate the points for each team according to the following rules:
+
+-   If the team is the host team and has more goals than the guest team, add $3$ points to the team's score.
+-   If the team is the guest team and has more goals than the host team, add $3$ points to the team's score.
+-   If the host team and the guest team have the same number of goals, add $1$ point to the team's score.
+
+Finally, we sort the result by points in descending order, and if the points are the same, we sort by `team_id` in ascending order.
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -97,23 +109,23 @@ Matches table:
 ```sql
 # Write your MySQL query statement below
 SELECT
-    t.team_id,
-    t.team_name,
-    SUM(
+    team_id,
+    team_name,
+    sum(
         CASE
-            WHEN t.team_id = m.host_team
-            AND m.host_goals > m.guest_goals THEN 3
-            WHEN m.host_goals = m.guest_goals THEN 1
-            WHEN t.team_id = m.guest_team
-            AND m.guest_goals > m.host_goals THEN 3
+            WHEN team_id = host_team
+            AND host_goals > guest_goals THEN 3
+            WHEN team_id = guest_team
+            AND guest_goals > host_goals THEN 3
+            WHEN host_goals = guest_goals THEN 1
             ELSE 0
         END
     ) AS num_points
 FROM
-    Teams AS t
-    LEFT JOIN Matches AS m ON t.team_id = m.host_team OR t.team_id = m.guest_team
-GROUP BY t.team_id
-ORDER BY num_points DESC, team_id;
+    Teams
+    LEFT JOIN Matches ON team_id = host_team OR team_id = guest_team
+GROUP BY 1
+ORDER BY 3 DESC, 1;
 ```
 
 <!-- tabs:end -->

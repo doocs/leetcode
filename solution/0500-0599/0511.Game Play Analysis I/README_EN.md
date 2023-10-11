@@ -55,6 +55,10 @@ Activity table:
 
 ## Solutions
 
+**Solution 1: Group By + Min Function**
+
+We can use `GROUP BY` to group the `player_id` and then take the minimum `event_date` in each group as the date when the player first logged into the platform.
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -63,7 +67,7 @@ Activity table:
 # Write your MySQL query statement below
 SELECT player_id, min(event_date) AS first_login
 FROM Activity
-GROUP BY player_id;
+GROUP BY 1;
 ```
 
 <!-- tabs:end -->

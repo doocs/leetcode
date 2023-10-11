@@ -65,6 +65,10 @@ Logins 表:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：分组求最大值**
+
+我们可以先筛选出 2020 年的登录记录，并且按照 `user_id` 分组，然后利用 `max` 函数求出每个用户的最大登录时间。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -72,12 +76,11 @@ Logins 表:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-SELECT
-    user_id,
-    MAX(time_stamp) AS last_stamp
+# Write your MySQL query statement below
+SELECT user_id, max(time_stamp) AS last_stamp
 FROM Logins
-WHERE YEAR(time_stamp) = 2020
-GROUP BY user_id;
+WHERE year(time_stamp) = 2020
+GROUP BY 1;
 ```
 
 <!-- tabs:end -->

@@ -57,6 +57,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表 + 排序**
+
+我们可以将正面的单词存入哈希表 $ps$ 中，将负面的单词存入哈希表 $ns$ 中。
+
+然后遍历 $report$，对于每个学生，我们将其得分存入数组 $arr$ 中，数组中的每个元素为一个二元组 $(t, sid)$，其中 $t$ 表示学生的得分，而 $sid$ 表示学生的 ID。
+
+最后我们对数组 $arr$ 按照得分从高到低排序，如果得分相同则按照 ID 从小到大排序，然后取出前 $k$ 个学生的 ID 即可。
+
+时间复杂度 $O(n \times \log n + (|ps| + |ns| + n) \times |s|)$，空间复杂度 $O((|ps|+|ns|) \times |s| + n)$。其中 $n$ 为学生数量，$|ps|$ 和 $|ns|$ 分别为正面和负面单词的数量，$|s|$ 为单词的平均长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -105,7 +115,7 @@ class Solution {
             ns.add(s);
         }
         int n = report.length;
-        int[][] arr = new int[n][2];
+        int[][] arr = new int[n][0];
         for (int i = 0; i < n; ++i) {
             int sid = student_id[i];
             int t = 0;
