@@ -10,7 +10,7 @@ class Solution {
             ns.add(s);
         }
         int n = report.length;
-        int[][] arr = new int[n][2];
+        int[][] arr = new int[n][0];
         for (int i = 0; i < n; ++i) {
             int sid = student_id[i];
             int t = 0;

@@ -61,17 +61,20 @@ User 14 did not login in 2020, so we do not include them in the result table.
 
 ## Solutions
 
+**Solution 1: Group By + Max Function**
+
+We can first filter out the login records in 2020, and then group by `user_id`, and use the `max` function to calculate the maximum login time for each user.
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
-SELECT
-    user_id,
-    MAX(time_stamp) AS last_stamp
+# Write your MySQL query statement below
+SELECT user_id, max(time_stamp) AS last_stamp
 FROM Logins
-WHERE YEAR(time_stamp) = 2020
-GROUP BY user_id;
+WHERE year(time_stamp) = 2020
+GROUP BY 1;
 ```
 
 <!-- tabs:end -->

@@ -55,6 +55,10 @@ So the result is customer_number 3.
 
 ## Solutions
 
+**Solution 1: Group By + Sorting**
+
+We can use `GROUP BY` to group the data by `customer_number`, and then sort the groups in descending order by `count(1)`. Finally, we can take the `customer_number` of the first record as the result.
+
 <!-- tabs:start -->
 
 ### **SQL**

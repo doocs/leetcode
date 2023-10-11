@@ -61,6 +61,10 @@ customer_number 为 '3' 的顾客有两个订单，比顾客 '1' 或者 '2' 都�
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：分组 + 排序**
+
+我们可以使用 `GROUP BY` 将数据按照 `customer_number` 进行分组，然后按照 `count(1)` 进行降序排序，最后取第一条记录的 `customer_number` 即可。
+
 <!-- tabs:start -->
 
 ### **SQL**

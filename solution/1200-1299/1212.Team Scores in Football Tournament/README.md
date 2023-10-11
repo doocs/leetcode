@@ -95,6 +95,18 @@ Teams </code>table:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：左连接 + 分组 + CASE 表达式**
+
+我们可以通过左连接，将 `Teams` 表和 `Matches` 表连接起来，连接的条件为 `team_id = host_team OR team_id = guest_team`，这样就可以得到每个球队的所有比赛信息。
+
+接下来，我们按照 `team_id` 分组，然后使用 `CASE` 表达式计算每个球队的积分，计算规则如下：
+
+-   如果球队是主队，且主队进球数大于客队进球数，则积分加 $3$ 分；
+-   如果球队是客队，且客队进球数大于主队进球数，则积分加 $3$ 分；
+-   如果主队和客队进球数相同，则积分加 $1$ 分；
+
+最后，我们按照积分降序排序，如果积分相同，则按照 `team_id` 升序排序。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -102,23 +114,23 @@ Teams </code>table:
 ```sql
 # Write your MySQL query statement below
 SELECT
-    t.team_id,
-    t.team_name,
-    SUM(
+    team_id,
+    team_name,
+    sum(
         CASE
-            WHEN t.team_id = m.host_team
-            AND m.host_goals > m.guest_goals THEN 3
-            WHEN m.host_goals = m.guest_goals THEN 1
-            WHEN t.team_id = m.guest_team
-            AND m.guest_goals > m.host_goals THEN 3
+            WHEN team_id = host_team
+            AND host_goals > guest_goals THEN 3
+            WHEN team_id = guest_team
+            AND guest_goals > host_goals THEN 3
+            WHEN host_goals = guest_goals THEN 1
             ELSE 0
         END
     ) AS num_points
 FROM
-    Teams AS t
-    LEFT JOIN Matches AS m ON t.team_id = m.host_team OR t.team_id = m.guest_team
-GROUP BY t.team_id
-ORDER BY num_points DESC, team_id;
+    Teams
+    LEFT JOIN Matches ON team_id = host_team OR team_id = guest_team
+GROUP BY 1
+ORDER BY 3 DESC, 1;
 ```
 
 <!-- tabs:end -->
