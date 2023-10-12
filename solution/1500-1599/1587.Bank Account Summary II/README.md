@@ -90,6 +90,10 @@ Charlie 的余额为(6000 + 6000 - 4000) = 8000.
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：等值连接 + 分组求和**
+
+我们可以使用等值连接，将 `Users` 和 `Transactions` 表按照 `account` 列连接起来，然后按照 `account` 列分组求和，最后筛选出余额大于 $10000$ 的用户。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -97,26 +101,15 @@ Charlie 的余额为(6000 + 6000 - 4000) = 8000.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-SELECT
-    u.name,
-    SUM(t.amount) AS balance
-FROM
-    users AS u
-    JOIN transactions AS t ON u.account = t.account
-GROUP BY name
-HAVING SUM(t.amount) > 10000;
-```
-
-```sql
 # Write your MySQL query statement below
 SELECT
     name,
     sum(amount) AS balance
 FROM
-    Users AS u
-    LEFT JOIN Transactions AS t ON u.account = t.account
-GROUP BY u.account
-HAVING sum(amount) > 10000;
+    Users
+    JOIN Transactions USING (account)
+GROUP BY account
+HAVING balance > 10000;
 ```
 
 <!-- tabs:end -->

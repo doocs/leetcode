@@ -54,9 +54,9 @@ ActorDirector 表：
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：使用 `GROUP BY` + `HAVING`**
+**方法一：分组统计**
 
-我们将 `ActorDirector` 表按照 `actor_id` 和 `director_id` 进行分组，然后使用 `HAVING` 过滤出合作次数大于等于 $3$ 次的组。
+我们可以使用 `GROUP BY` 语句，按照 `actor_id` 和 `director_id` 字段进行分组，然后使用 `HAVING` 语句，筛选出现次数大于等于 $3$ 的 `actor_id` 和 `director_id`。
 
 <!-- tabs:start -->
 

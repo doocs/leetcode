@@ -84,20 +84,13 @@ Charlie&#39;s balance is (6000 + 6000 - 4000) = 8000.
 
 ## Solutions
 
+**Solution 1: Equi-Join + Group By + Sum**
+
+We can use an equi-join to join the `Users` table and the `Transactions` table on the condition of `account`, and then group by `account` to calculate the balance for each account using the `SUM` function. Finally, we can filter out the users whose balance is less than or equal to $10000$.
+
 <!-- tabs:start -->
 
 ### **SQL**
-
-```sql
-SELECT
-    u.name,
-    SUM(t.amount) AS balance
-FROM
-    users AS u
-    JOIN transactions AS t ON u.account = t.account
-GROUP BY name
-HAVING SUM(t.amount) > 10000;
-```
 
 ```sql
 # Write your MySQL query statement below
@@ -105,10 +98,10 @@ SELECT
     name,
     sum(amount) AS balance
 FROM
-    Users AS u
-    LEFT JOIN Transactions AS t ON u.account = t.account
-GROUP BY u.account
-HAVING sum(amount) > 10000;
+    Users
+    JOIN Transactions USING (account)
+GROUP BY account
+HAVING balance > 10000;
 ```
 
 <!-- tabs:end -->

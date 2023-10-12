@@ -1,16 +1,9 @@
-SELECT DISTINCT
-    title
+# Write your MySQL query statement below
+SELECT DISTINCT title
 FROM
-    Content
-    INNER JOIN TVProgram ON Content.content_id = TVProgram.content_id
+    TVProgram
+    JOIN Content USING (content_id)
 WHERE
-    content_type = 'Movies'
+    date_format(program_date, '%Y%m') = '202006'
     AND kids_content = 'Y'
-    AND program_date BETWEEN '2020-06-01' AND '2020-06-30';
-
-SELECT DISTINCT
-    title
-FROM
-    Content
-    INNER JOIN TVProgram ON Content.content_id = TVProgram.content_id
-WHERE kids_content = 'Y' AND (MONTH(program_date), YEAR(program_date)) = (6, 2020);
+    AND content_type = 'Movies';
