@@ -60,6 +60,10 @@ Users 3 and 4 had 4 calls and the total duration is 999 (100 + 200 + 200 + 499).
 
 ## Solutions
 
+**Solution 1: Grouping and Summing**
+
+We can use the `if` function or the `least` and `greatest` functions to convert `from_id` and `to_id` into `person1` and `person2`, and then group by `person1` and `person2` and sum the values.
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -67,12 +71,23 @@ Users 3 and 4 had 4 calls and the total duration is 999 (100 + 200 + 200 + 499).
 ```sql
 # Write your MySQL query statement below
 SELECT
-    from_id AS person1,
-    to_id AS person2,
-    COUNT(1) AS call_count,
-    SUM(duration) AS total_duration
+    if(from_id < to_id, from_id, to_id) AS person1,
+    if(from_id < to_id, to_id, from_id) AS person2,
+    count(1) AS call_count,
+    sum(duration) AS total_duration
 FROM Calls
-GROUP BY LEAST(from_id, to_id), GREATEST(from_id, to_id);
+GROUP BY 1, 2;
+```
+
+```sql
+# Write your MySQL query statement below
+SELECT
+    least(from_id, to_id) AS person1,
+    greatest(from_id, to_id) AS person2,
+    count(1) AS call_count,
+    sum(duration) AS total_duration
+FROM Calls
+GROUP BY 1, 2;
 ```
 
 <!-- tabs:end -->

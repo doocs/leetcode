@@ -55,15 +55,24 @@ Person 表:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：分组统计**
+
+我们可以使用 `GROUP BY` 语句，按照 `email` 字段进行分组，然后使用 `HAVING` 语句，筛选出现次数大于 $1$ 的 `email`。
+
+**方法二：自连接**
+
+我们可以使用自连接的方法，将 `Person` 表自身连接一次，然后筛选出 `id` 不同，但 `email` 相同的记录。
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
-SELECT Email
+# Write your MySQL query statement below
+SELECT email
 FROM Person
-GROUP BY Email
-HAVING count(Email) > 1;
+GROUP BY 1
+HAVING count(1) > 1;
 ```
 
 ```sql

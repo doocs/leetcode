@@ -78,6 +78,12 @@ Since the concatenation value is 673 so the answer is 673.
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+Starting from both ends of the array, we take out one element at a time, concatenate it with another element, and then add the concatenated result to the answer. We repeat this process until the array is empty.
+
+The time complexity is $O(n \times \log M)$, and the space complexity is $O(\log M)$. Here, $n$ and $M$ are the length of the array and the maximum value in the array, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -64,18 +64,23 @@ For 2020-12-7, toyota gets leads = [0] and partners = [1, 2] while honda gets le
 
 ## Solutions
 
+**Solution 1: Group By + Count Distinct**
+
+We can use the `GROUP BY` statement to group the data by the `date_id` and `make_name` fields, and then use the `COUNT(DISTINCT)` function to count the number of distinct values for `lead_id` and `partner_id`.
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
+# Write your MySQL query statement below
 SELECT
     date_id,
     make_name,
-    COUNT(DISTINCT lead_id) AS unique_leads,
-    COUNT(DISTINCT partner_id) AS unique_partners
+    count(DISTINCT lead_id) AS unique_leads,
+    count(DISTINCT partner_id) AS unique_partners
 FROM DailySales
-GROUP BY date_id, make_name;
+GROUP BY 1, 2;
 ```
 
 <!-- tabs:end -->
