@@ -83,9 +83,36 @@ Player 3 (Novak)  没有赢得，因此不包含在结果集中。</pre>
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：合并 + 等值连接 + 分组**
+
+我们可以使用 `UNION ALL`，将所有赢得大满贯比赛的球员 ID 合并到一张表 `T` 中，然后使用等值连接 `JOIN`，将 `T` 表与 `Players` 表按照 `player_id` 进行连接，最后使用 `GROUP BY` 和 `COUNT` 统计每个球员赢得大满贯比赛的次数。
+
 <!-- tabs:start -->
 
 ### **SQL**
+
+```sql
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT Wimbledon AS player_id
+        FROM Championships
+        UNION ALL
+        SELECT Fr_open AS player_id
+        FROM Championships
+        UNION ALL
+        SELECT US_open AS player_id
+        FROM Championships
+        UNION ALL
+        SELECT Au_open AS player_id
+        FROM Championships
+    )
+SELECT player_id, player_name, count(1) AS grand_slams_count
+FROM
+    T
+    JOIN Players USING (player_id)
+GROUP BY 1;
+```
 
 ```sql
 # Write your MySQL query statement below

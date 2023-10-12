@@ -55,6 +55,14 @@ Activity table:
 
 ## Solutions
 
+**Solution 1: Subquery**
+
+We can use `GROUP BY` and `MIN` functions to find the first login date for each player, and then use a subquery with a composite key to find the first login device for each player.
+
+**Solution 2: Window Function**
+
+We can use the window function `rank()`, which assigns a rank to each login date for each player, and then select the rows with a rank of $1$.
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -71,7 +79,7 @@ WHERE
             player_id,
             min(event_date) AS event_date
         FROM Activity
-        GROUP BY player_id
+        GROUP BY 1
     );
 ```
 

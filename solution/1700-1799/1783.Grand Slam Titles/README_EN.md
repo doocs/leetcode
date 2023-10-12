@@ -79,9 +79,36 @@ Player 3 (Novak) did not win anything, we did not include them in the result tab
 
 ## Solutions
 
+**Solution 1: Union All + Equi-Join + Group By**
+
+We can use `UNION ALL` to merge all player IDs who won Grand Slam titles into a table `T`, then use an equi-join `JOIN` to join `T` table with `Players` table on `player_id`, and finally use `GROUP BY` and `COUNT` to count the number of Grand Slam titles won by each player.
+
 <!-- tabs:start -->
 
 ### **SQL**
+
+```sql
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT Wimbledon AS player_id
+        FROM Championships
+        UNION ALL
+        SELECT Fr_open AS player_id
+        FROM Championships
+        UNION ALL
+        SELECT US_open AS player_id
+        FROM Championships
+        UNION ALL
+        SELECT Au_open AS player_id
+        FROM Championships
+    )
+SELECT player_id, player_name, count(1) AS grand_slams_count
+FROM
+    T
+    JOIN Players USING (player_id)
+GROUP BY 1;
+```
 
 ```sql
 # Write your MySQL query statement below
