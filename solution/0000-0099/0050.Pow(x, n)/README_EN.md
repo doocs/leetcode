@@ -49,16 +49,16 @@
 ```python
 class Solution:
     def myPow(self, x: float, n: int) -> float:
-        def qmi(a, k):
-            res = 1
-            while k:
-                if k & 1:
-                    res *= a
+        def qpow(a: float, n: int) -> float:
+            ans = 1
+            while n:
+                if n & 1:
+                    ans *= a
                 a *= a
-                k >>= 1
-            return res
+                n >>= 1
+            return ans
 
-        return qmi(x, n) if n >= 0 else 1 / qmi(x, -n)
+        return qpow(x, n) if n >= 0 else 1 / qpow(x, -n)
 ```
 
 ### **Java**
@@ -66,20 +66,18 @@ class Solution:
 ```java
 class Solution {
     public double myPow(double x, int n) {
-        long N = n;
-        return n >= 0 ? qmi(x, N) : 1.0 / qmi(x, -N);
+        return n >= 0 ? qpow(x, n) : 1 / qpow(x, -(long) n);
     }
 
-    private double qmi(double a, long k) {
-        double res = 1;
-        while (k != 0) {
-            if ((k & 1) != 0) {
-                res *= a;
+    private double qpow(double a, long n) {
+        double ans = 1;
+        for (; n > 0; n >>= 1) {
+            if ((n & 1) == 1) {
+                ans = ans * a;
             }
-            a *= a;
-            k >>= 1;
+            a = a * a;
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -90,20 +88,17 @@ class Solution {
 class Solution {
 public:
     double myPow(double x, int n) {
-        long long N = n;
-        return N >= 0 ? qmi(x, N) : 1.0 / qmi(x, -N);
-    }
-
-    double qmi(double a, long long k) {
-        double res = 1;
-        while (k) {
-            if (k & 1) {
-                res *= a;
+        auto qpow = [](double a, long long n) {
+            double ans = 1;
+            for (; n; n >>= 1) {
+                if (n & 1) {
+                    ans *= a;
+                }
+                a *= a;
             }
-            a *= a;
-            k >>= 1;
-        }
-        return res;
+            return ans;
+        };
+        return n >= 0 ? qpow(x, n) : 1 / qpow(x, -(long long) n);
     }
 };
 ```
@@ -143,22 +138,20 @@ impl Solution {
 
 ```go
 func myPow(x float64, n int) float64 {
-	if n >= 0 {
-		return qmi(x, n)
-	}
-	return 1.0 / qmi(x, -n)
-}
-
-func qmi(a float64, k int) float64 {
-	var res float64 = 1
-	for k != 0 {
-		if k&1 == 1 {
-			res *= a
+	qpow := func(a float64, n int) float64 {
+		ans := 1.0
+		for ; n > 0; n >>= 1 {
+			if n&1 == 1 {
+				ans *= a
+			}
+			a *= a
 		}
-		a *= a
-		k >>= 1
+		return ans
 	}
-	return res
+	if n >= 0 {
+		return qpow(x, n)
+	}
+	return 1 / qpow(x, -n)
 }
 ```
 
@@ -171,39 +164,35 @@ func qmi(a float64, k int) float64 {
  * @return {number}
  */
 var myPow = function (x, n) {
-    return n >= 0 ? qmi(x, n) : 1 / qmi(x, -n);
-};
-
-function qmi(a, k) {
-    let res = 1;
-    while (k) {
-        if (k & 1) {
-            res *= a;
+    const qpow = (a, n) => {
+        let ans = 1;
+        for (; n; n >>>= 1) {
+            if (n & 1) {
+                ans *= a;
+            }
+            a *= a;
         }
-        a *= a;
-        k >>>= 1;
-    }
-    return res;
-}
+        return ans;
+    };
+    return n >= 0 ? qpow(x, n) : 1 / qpow(x, -n);
+};
 ```
 
 ### **TypeScript**
 
 ```ts
 function myPow(x: number, n: number): number {
-    return n >= 0 ? qmi(x, n) : 1 / qmi(x, -n);
-}
-
-function qmi(a: number, k: number): number {
-    let res = 1;
-    while (k) {
-        if (k & 1) {
-            res *= a;
+    const qpow = (a: number, n: number): number => {
+        let ans = 1;
+        for (; n; n >>>= 1) {
+            if (n & 1) {
+                ans *= a;
+            }
+            a *= a;
         }
-        a *= a;
-        k >>>= 1;
-    }
-    return res;
+        return ans;
+    };
+    return n >= 0 ? qpow(x, n) : 1 / qpow(x, -n);
 }
 ```
 
@@ -212,20 +201,18 @@ function qmi(a: number, k: number): number {
 ```cs
 public class Solution {
     public double MyPow(double x, int n) {
-        long N = n;
-        return n >= 0 ? qmi(x, N) : 1.0 / qmi(x, -N);
+        return n >= 0 ? qpow(x, n) : 1.0 / qpow(x, -(long)n);
     }
 
-    private double qmi(double a, long k) {
-        double res = 1;
-        while (k != 0) {
-            if ((k & 1) != 0) {
-                res *= a;
+    private double qpow(double a, long n) {
+        double ans = 1;
+        for (; n > 0; n >>= 1) {
+            if ((n & 1) == 1) {
+                ans *= a;
             }
             a *= a;
-            k >>= 1;
         }
-        return res;
+        return ans;
     }
 }
 ```

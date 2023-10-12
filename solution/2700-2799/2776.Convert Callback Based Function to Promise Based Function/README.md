@@ -89,10 +89,7 @@ fn 以回调函数作为第一个参数和 args 作为其余参数进行调用�
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
-type CallbackFn = (
-    next: (data: number, error: string) => void,
-    ...args: number[]
-) => void;
+type CallbackFn = (next: (data: number, error: string) => void, ...args: number[]) => void;
 type Promisified = (...args: number[]) => Promise<number>;
 
 function promisify(fn: CallbackFn): Promisified {

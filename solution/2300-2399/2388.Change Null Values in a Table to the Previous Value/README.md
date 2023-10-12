@@ -34,31 +34,31 @@ id 是该表的主键（具有唯一值的列）。
 <pre>
 <strong>输入:</strong> 
 CoffeeShop 表:
-+----+------------------+
-| id | drink            |
-+----+------------------+
-| 9  | Mezcal Margarita |
-| 6  | null             |
-| 7  | null             |
-| 3  | Americano        |
-| 1  | Daiquiri         |
-| 2  | null             |
-+----+------------------+
++----+-------------------+
+| id | drink             |
++----+-------------------+
+| 9  | Rum and Coke      |
+| 6  | null              |
+| 7  | null              |
+| 3  | St Germain Spritz |
+| 1  | Orange Margarita  |
+| 2  | null              |
++----+-------------------+
 <strong>输出:</strong> 
-+----+------------------+
-| id | drink            |
-+----+------------------+
-| 9  | Mezcal Margarita |
-| 6  | Mezcal Margarita |
-| 7  | Mezcal Margarita |
-| 3  | Americano        |
-| 1  | Daiquiri         |
-| 2  | Daiquiri         |
-+----+------------------+
++----+-------------------+
+| id | drink             |
++----+-------------------+
+| 9  | Rum and Coke      |
+| 6  | Rum and Coke      |
+| 7  | Rum and Coke      |
+| 3  | St Germain Spritz |
+| 1  | Orange Margarita  |
+| 2  | Orange Margarita  |
++----+-------------------+
 <strong>解释:</strong> 
-对于 ID 6，之前不为空的值来自 ID 9。我们将 null 替换为 “Mezcal Margarita”。
-对于 ID 7，之前不为空的值来自 ID 9。我们将 null 替换为 “Mezcal Margarita”。
-对于 ID 2，之前不为空的值来自 ID 1。我们将 null 替换为 “Daiquiri”。
+对于 ID 6，之前不为空的值来自 ID 9。我们将 null 替换为 "Rum and Coke"。
+对于 ID 7，之前不为空的值来自 ID 9。我们将 null 替换为 "Rum and Coke"。
+对于 ID 2，之前不为空的值来自 ID 1。我们将 null 替换为 "Orange Margarita"。
 请注意，输出中的行与输入中的行相同。
 </pre>
 

@@ -61,6 +61,14 @@ Note that for each player we only care about the days when the player logged in.
 
 ## Solutions
 
+**Solution 1: Window Function**
+
+We can use the window function `SUM() OVER()` to group by `player_id`, sort by `event_date`, and calculate the total number of games played by each user up to the current date.
+
+**Solution 2: Self-Join + Group By**
+
+We can also use a self-join to join the `Activity` table with itself on the condition of `t1.player_id = t2.player_id AND t1.event_date >= t2.event_date`, and then group by `t1.player_id` and `t1.event_date`, and calculate the cumulative sum of `t2.games_played`. This will give us the total number of games played by each user up to the current date.
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -75,6 +83,31 @@ SELECT
         ORDER BY event_date
     ) AS games_played_so_far
 FROM Activity;
+```
+
+```sql
+# Write your MySQL query statement below
+SELECT
+    t1.player_id,
+    t1.event_date,
+    sum(t2.games_played) AS games_played_so_far
+FROM
+    Activity AS t1,
+    Activity AS t2
+WHERE t1.player_id = t2.player_id AND t1.event_date >= t2.event_date
+GROUP BY 1, 2;
+```
+
+```sql
+# Write your MySQL query statement below
+SELECT
+    t1.player_id,
+    t1.event_date,
+    sum(t2.games_played) AS games_played_so_far
+FROM
+    Activity AS t1
+    CROSS JOIN Activity AS t2 ON t1.player_id = t2.player_id AND t1.event_date >= t2.event_date
+GROUP BY 1, 2;
 ```
 
 <!-- tabs:end -->

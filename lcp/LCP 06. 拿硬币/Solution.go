@@ -1,7 +1,6 @@
-func minCount(coins []int) int {
-	ans := 0
-	for _, coin := range coins {
-		ans += (coin + 1) / 2
+func minCount(coins []int) (ans int) {
+	for _, x := range coins {
+		ans += (x + 1) >> 1
 	}
-	return ans
+	return
 }

@@ -78,38 +78,24 @@ Employee table:
 # Write your MySQL query statement below
 SELECT
     (
-        SELECT DISTINCT Salary
+        SELECT DISTINCT salary
         FROM Employee
-        ORDER BY Salary DESC
-        LIMIT 1 OFFSET 1
+        ORDER BY salary DESC
+        LIMIT 1, 1
     ) AS SecondHighestSalary;
 ```
 
 ```sql
 # Write your MySQL query statement below
-SELECT MAX(Salary) AS SecondHighestSalary
+SELECT MAX(salary) AS SecondHighestSalary
 FROM Employee
-WHERE
-    Salary < (
-        SELECT MAX(Salary)
-        FROM Employee
-    );
+WHERE salary < (SELECT MAX(salary) FROM Employee);
 ```
 
 ```sql
 # Write your MySQL query statement below
-WITH
-    S AS (
-        SELECT salary, dense_rank() OVER (ORDER BY salary DESC) AS rk
-        FROM Employee
-    )
-SELECT
-    ifnull(
-        SELECT salary
-        FROM S
-        WHERE rk = 2
-        LIMIT 1, NULL
-    ) AS SecondHighestSalary;
+WITH T AS (SELECT salary, DENSE_RANK() OVER (ORDER BY salary DESC) AS rk FROM Employee)
+SELECT (SELECT DISTINCT salary FROM T WHERE rk = 2) AS SecondHighestSalary;
 ```
 
 <!-- tabs:end -->

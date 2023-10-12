@@ -13,7 +13,7 @@
 | user1_id      | int     |
 | user2_id      | int     |
 +---------------+---------+
-(user1_id, user2_id) is the primary key for this table.
+(user1_id, user2_id) is the primary key (combination of columns with unique values) for this table.
 Each row of this table indicates that there is a friendship relation between user1_id and user2_id.
 </pre>
 
@@ -28,17 +28,17 @@ Each row of this table indicates that there is a friendship relation between use
 | user_id     | int     |
 | page_id     | int     |
 +-------------+---------+
-(user_id, page_id) is the primary key for this table.
+(user_id, page_id) is the primary key (combination of columns with unique values) for this table.
 Each row of this table indicates that user_id likes page_id.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to recommend pages to the user with <code>user_id = 1</code> using the pages that your friends liked. It should not recommend pages you already liked.</p>
+<p>Write a solution&nbsp;to recommend pages to the user with <code>user_id = 1</code> using the pages that your friends liked. It should not recommend pages you already liked.</p>
 
 <p>Return result table in <strong>any order</strong> without duplicates.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -90,9 +90,28 @@ Page 88 is not suggested because user 1 already likes it.
 
 ## Solutions
 
+**Solution 1: Union + Equi-Join + Subquery**
+
+First, we query all users who are friends with `user_id = 1` and record them in the `T` table. Then, we query all pages that users in the `T` table like, and finally exclude the pages that `user_id = 1` likes.
+
 <!-- tabs:start -->
 
 ### **SQL**
+
+```sql
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT user1_id AS user_id FROM Friendship WHERE user2_id = 1
+        UNION
+        SELECT user2_id AS user_id FROM Friendship WHERE user1_id = 1
+    )
+SELECT DISTINCT page_id AS recommended_page
+FROM
+    T
+    JOIN Likes USING (user_id)
+WHERE page_id NOT IN (SELECT page_id FROM Likes WHERE user_id = 1);
+```
 
 ```sql
 # Write your MySQL query statement below

@@ -62,6 +62,10 @@ Day 2020-05-04, 15 apples and 16 oranges were sold (Difference 15 - 16 = -1).
 
 ## Solutions
 
+**Solution 1: Group By + Sum**
+
+We can group the data by date, and then use the `sum` function to calculate the difference in sales between apples and oranges for each day. If it is an apple, we represent it with a positive number, and if it is an orange, we represent it with a negative number. Finally, we sort the data by date.
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -69,16 +73,11 @@ Day 2020-05-04, 15 apples and 16 oranges were sold (Difference 15 - 16 = -1).
 ```sql
 # Write your MySQL query statement below
 SELECT
-    sale_date AS SALE_DATE,
-    sum(
-        CASE
-            WHEN fruit = 'oranges' THEN -sold_num
-            ELSE sold_num
-        END
-    ) AS DIFF
+    sale_date,
+    sum(if(fruit = 'apples', sold_num, -sold_num)) AS diff
 FROM Sales
-GROUP BY sale_date
-ORDER BY sale_date;
+GROUP BY 1
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->

@@ -83,6 +83,10 @@ As shown, you need to find the value of each boolean expression in the table usi
 
 ## Solutions
 
+**Solution 1: Equi-Join + CASE Expression**
+
+We can associate each row in the `Expressions` table with two rows in the `Variables` table using an equi-join, where the conditions for the association are `left_operand = name` and `right_operand = name`. Then, we can use a `CASE` expression to determine the value of the boolean expression. If the `operator` is `=`, we check if the two values are equal. If the `operator` is `>`, we check if the left value is greater than the right value. If the `operator` is `<`, we check if the left value is less than the right value. If the condition is true, the boolean expression evaluates to `true`, otherwise it evaluates to `false`.
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -95,16 +99,16 @@ SELECT
     right_operand,
     CASE
         WHEN (
-            (e.operator = '=' AND v1.value = v2.value)
-            OR (e.operator = '>' AND v1.value > v2.value)
-            OR (e.operator = '<' AND v1.value < v2.value)
+            (operator = '=' AND v1.value = v2.value)
+            OR (operator = '>' AND v1.value > v2.value)
+            OR (operator = '<' AND v1.value < v2.value)
         ) THEN 'true'
         ELSE 'false'
     END AS value
 FROM
     Expressions AS e
-    LEFT JOIN Variables AS v1 ON e.left_operand = v1.name
-    LEFT JOIN Variables AS v2 ON e.right_operand = v2.name;
+    JOIN Variables AS v1 ON e.left_operand = v1.name
+    JOIN Variables AS v2 ON e.right_operand = v2.name;
 ```
 
 <!-- tabs:end -->

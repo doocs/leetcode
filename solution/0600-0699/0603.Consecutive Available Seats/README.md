@@ -57,6 +57,14 @@ Cinema 表:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：自连接**
+
+我们可以使用自连接的方式，将相邻的两个座位连接起来，然后筛选出连续空余的座位并去重排序即可。
+
+**方法二：窗口函数**
+
+我们也可以使用 `LAG` 和 `LEAD` 函数（或者 `SUM() OVER(ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING)`）来获取相邻的座位信息，然后筛选出连续空余的座位并去重排序即可。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -83,6 +91,24 @@ WITH
 SELECT seat_id
 FROM T
 WHERE a = 2 OR b = 2;
+```
+
+```sql
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT
+            *,
+            sum(free = 1) OVER (
+                ORDER BY seat_id
+                ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING
+            ) AS cnt
+        FROM Cinema
+    )
+SELECT seat_id
+FROM T
+WHERE free = 1 AND cnt > 1
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->

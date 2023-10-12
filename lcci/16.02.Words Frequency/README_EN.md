@@ -42,6 +42,14 @@ wordsFrequency.get(&quot;pen&quot;); //returns 1
 
 ## Solutions
 
+**Solution 1: Hash Table**
+
+We use a hash table $cnt$ to count the number of occurrences of each word in $book$.
+
+When calling the `get` function, we only need to return the number of occurrences of the corresponding word in $cnt$.
+
+In terms of time complexity, the time complexity of initializing the hash table $cnt$ is $O(n)$, where $n$ is the length of $book$. The time complexity of the `get` function is $O(1)$. The space complexity is $O(n)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -195,7 +203,7 @@ class WordsFrequency {
 ```rust
 use std::collections::HashMap;
 struct WordsFrequency {
-    counter: HashMap<String, i32>
+    cnt: HashMap<String, i32>
 }
 
 
@@ -206,15 +214,15 @@ struct WordsFrequency {
 impl WordsFrequency {
 
     fn new(book: Vec<String>) -> Self {
-        let mut counter = HashMap::new();
+        let mut cnt = HashMap::new();
         for word in book.into_iter() {
-            *counter.entry(word).or_insert(0) += 1;
+            *cnt.entry(word).or_insert(0) += 1;
         }
-        Self { counter }
+        Self { cnt }
     }
 
     fn get(&self, word: String) -> i32 {
-        *self.counter.get(&word).unwrap_or(&0)
+        *self.cnt.get(&word).unwrap_or(&0)
     }
 }
 

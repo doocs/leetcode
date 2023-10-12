@@ -42,24 +42,23 @@
 ```python
 class Solution:
     def search(self, nums: List[int], target: int) -> bool:
-        l, r = 0, len(nums) - 1
-        while l <= r:
+        n = len(nums)
+        l, r = 0, n - 1
+        while l < r:
             mid = (l + r) >> 1
-            if nums[mid] == target:
-                return True
-            if nums[mid] < nums[r] or nums[mid] < nums[l]:
-                if target > nums[mid] and target <= nums[r]:
-                    l = mid + 1
-                else:
-                    r = mid - 1
-            elif nums[mid] > nums[l] or nums[mid] > nums[r]:
-                if target < nums[mid] and target >= nums[l]:
-                    r = mid - 1
+            if nums[mid] > nums[r]:
+                if nums[l] <= target <= nums[mid]:
+                    r = mid
                 else:
                     l = mid + 1
+            elif nums[mid] < nums[r]:
+                if nums[mid] < target <= nums[r]:
+                    l = mid + 1
+                else:
+                    r = mid
             else:
                 r -= 1
-        return False
+        return nums[l] == target
 ```
 
 ### **Java**
@@ -68,55 +67,111 @@ class Solution:
 class Solution {
     public boolean search(int[] nums, int target) {
         int l = 0, r = nums.length - 1;
-        while (l <= r) {
-            int mid = (l + r) >>> 1;
-            if (nums[mid] == target) return true;
-            if (nums[mid] < nums[r] || nums[mid] < nums[l]) {
-                if (target > nums[mid] && target <= nums[r])
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (nums[mid] > nums[r]) {
+                if (nums[l] <= target && target <= nums[mid]) {
+                    r = mid;
+                } else {
                     l = mid + 1;
-                else
-                    r = mid - 1;
-            } else if (nums[mid] > nums[l] || nums[mid] > nums[r]) {
-                if (target < nums[mid] && target >= nums[l])
-                    r = mid - 1;
-                else
+                }
+            } else if (nums[mid] < nums[r]) {
+                if (nums[mid] < target && target <= nums[r]) {
                     l = mid + 1;
-            } else
-                r--;
+                } else {
+                    r = mid;
+                }
+            } else {
+                --r;
+            }
         }
-        return false;
+        return nums[l] == target;
     }
 }
 ```
 
 ### **C++**
 
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```cpp
 class Solution {
 public:
     bool search(vector<int>& nums, int target) {
         int l = 0, r = nums.size() - 1;
-        while (l <= r) {
+        while (l < r) {
             int mid = (l + r) >> 1;
-            if (nums[mid] == target) return true;
-            if (nums[mid] < nums[r] || nums[mid] < nums[l]) {
-                if (target > nums[mid] && target <= nums[r])
+            if (nums[mid] > nums[r]) {
+                if (nums[l] <= target && target <= nums[mid]) {
+                    r = mid;
+                } else {
                     l = mid + 1;
-                else
-                    r = mid - 1;
-            } else if (nums[mid] > nums[l] || nums[mid] > nums[r]) {
-                if (target < nums[mid] && target >= nums[l])
-                    r = mid - 1;
-                else
+                }
+            } else if (nums[mid] < nums[r]) {
+                if (nums[mid] < target && target <= nums[r]) {
                     l = mid + 1;
-            } else
-                r--;
+                } else {
+                    r = mid;
+                }
+            } else {
+                --r;
+            }
         }
-        return false;
+        return nums[l] == target;
     }
 };
+```
+
+### **Go**
+
+```go
+func search(nums []int, target int) bool {
+	l, r := 0, len(nums)-1
+	for l < r {
+		mid := (l + r) >> 1
+		if nums[mid] > nums[r] {
+			if nums[l] <= target && target <= nums[mid] {
+				r = mid
+			} else {
+				l = mid + 1
+			}
+		} else if nums[mid] < nums[r] {
+			if nums[mid] < target && target <= nums[r] {
+				l = mid + 1
+			} else {
+				r = mid
+			}
+		} else {
+			r--
+		}
+	}
+	return nums[l] == target
+}
+```
+
+### **TypeScript**
+
+```ts
+function search(nums: number[], target: number): boolean {
+    let [l, r] = [0, nums.length - 1];
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (nums[mid] > nums[r]) {
+            if (nums[l] <= target && target <= nums[mid]) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        } else if (nums[mid] < nums[r]) {
+            if (nums[mid] < target && target <= nums[r]) {
+                l = mid + 1;
+            } else {
+                r = mid;
+            }
+        } else {
+            --r;
+        }
+    }
+    return nums[l] === target;
+}
 ```
 
 ### **...**

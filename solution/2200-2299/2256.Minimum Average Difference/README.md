@@ -58,6 +58,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：遍历**
+
+我们直接遍历数组 $nums$，对于每个下标 $i$，维护前 $i + 1$ 个元素的和 $pre$ 和后 $n - i - 1$ 个元素的和 $suf$，计算平均差的绝对值 $t$，如果 $t$ 小于当前最小值 $mi$，则更新答案 $ans = i$ 和最小值 $mi = t$。
+
+遍历结束后，返回答案即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -67,14 +75,15 @@
 ```python
 class Solution:
     def minimumAverageDifference(self, nums: List[int]) -> int:
-        s = list(accumulate(nums))
-        ans, n = 0, len(nums)
-        mi = inf
-        for i in range(n):
-            a = s[i] // (i + 1)
-            b = 0 if i == n - 1 else (s[-1] - s[i]) // (n - i - 1)
-            t = abs(a - b)
-            if mi > t:
+        pre, suf = 0, sum(nums)
+        n = len(nums)
+        ans, mi = 0, inf
+        for i, x in enumerate(nums):
+            pre += x
+            suf -= x
+            a = pre // (i + 1)
+            b = 0 if n - i - 1 == 0 else suf // (n - i - 1)
+            if (t := abs(a - b)) < mi:
                 ans = i
                 mi = t
         return ans
@@ -88,18 +97,19 @@ class Solution:
 class Solution {
     public int minimumAverageDifference(int[] nums) {
         int n = nums.length;
-        long[] s = new long[n];
-        s[0] = nums[0];
-        for (int i = 1; i < n; ++i) {
-            s[i] = s[i - 1] + nums[i];
+        long pre = 0, suf = 0;
+        for (int x : nums) {
+            suf += x;
         }
         int ans = 0;
         long mi = Long.MAX_VALUE;
         for (int i = 0; i < n; ++i) {
-            long a = s[i] / (i + 1);
-            long b = i == n - 1 ? 0 : (s[n - 1] - s[i]) / (n - i - 1);
+            pre += nums[i];
+            suf -= nums[i];
+            long a = pre / (i + 1);
+            long b = n - i - 1 == 0 ? 0 : suf / (n - i - 1);
             long t = Math.abs(a - b);
-            if (mi > t) {
+            if (t < mi) {
                 ans = i;
                 mi = t;
             }
@@ -112,22 +122,22 @@ class Solution {
 ### **C++**
 
 ```cpp
-typedef long long ll;
-
 class Solution {
 public:
     int minimumAverageDifference(vector<int>& nums) {
         int n = nums.size();
-        vector<ll> s(n);
-        s[0] = nums[0];
-        for (int i = 1; i < n; ++i) s[i] = s[i - 1] + nums[i];
+        using ll = long long;
+        ll pre = 0;
+        ll suf = accumulate(nums.begin(), nums.end(), 0LL);
         int ans = 0;
-        ll mi = LONG_MAX;
+        ll mi = suf;
         for (int i = 0; i < n; ++i) {
-            ll a = s[i] / (i + 1);
-            ll b = i == n - 1 ? 0 : (s[n - 1] - s[i]) / (n - i - 1);
+            pre += nums[i];
+            suf -= nums[i];
+            ll a = pre / (i + 1);
+            ll b = n - i - 1 == 0 ? 0 : suf / (n - i - 1);
             ll t = abs(a - b);
-            if (mi > t) {
+            if (t < mi) {
                 ans = i;
                 mi = t;
             }
@@ -140,28 +150,27 @@ public:
 ### **Go**
 
 ```go
-func minimumAverageDifference(nums []int) int {
+func minimumAverageDifference(nums []int) (ans int) {
 	n := len(nums)
-	s := make([]int, n)
-	s[0] = nums[0]
-	for i := 1; i < n; i++ {
-		s[i] = s[i-1] + nums[i]
+	pre, suf := 0, 0
+	for _, x := range nums {
+		suf += x
 	}
-	ans := 0
-	mi := math.MaxInt32
-	for i := 0; i < n; i++ {
-		a := s[i] / (i + 1)
+	mi := suf
+	for i, x := range nums {
+		pre += x
+		suf -= x
+		a := pre / (i + 1)
 		b := 0
-		if i != n-1 {
-			b = (s[n-1] - s[i]) / (n - i - 1)
+		if n-i-1 != 0 {
+			b = suf / (n - i - 1)
 		}
-		t := abs(a - b)
-		if mi > t {
+		if t := abs(a - b); t < mi {
 			ans = i
 			mi = t
 		}
 	}
-	return ans
+	return
 }
 
 func abs(x int) int {
@@ -175,7 +184,25 @@ func abs(x int) int {
 ### **TypeScript**
 
 ```ts
-
+function minimumAverageDifference(nums: number[]): number {
+    const n = nums.length;
+    let pre = 0;
+    let suf = nums.reduce((a, b) => a + b);
+    let ans = 0;
+    let mi = suf;
+    for (let i = 0; i < n; ++i) {
+        pre += nums[i];
+        suf -= nums[i];
+        const a = Math.floor(pre / (i + 1));
+        const b = n - i - 1 === 0 ? 0 : Math.floor(suf / (n - i - 1));
+        const t = Math.abs(a - b);
+        if (t < mi) {
+            ans = i;
+            mi = t;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**

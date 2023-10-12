@@ -1,12 +1,7 @@
 # Write your MySQL query statement below
 SELECT
-    sale_date AS SALE_DATE,
-    sum(
-        CASE
-            WHEN fruit = 'oranges' THEN -sold_num
-            ELSE sold_num
-        END
-    ) AS DIFF
+    sale_date,
+    sum(if(fruit = 'apples', sold_num, -sold_num)) AS diff
 FROM Sales
-GROUP BY sale_date
-ORDER BY sale_date;
+GROUP BY 1
+ORDER BY 1;

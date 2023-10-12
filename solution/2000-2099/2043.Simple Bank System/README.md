@@ -190,10 +190,7 @@ class Bank {
     }
 
     withdraw(account: number, money: number): boolean {
-        if (
-            account > this.balance.length ||
-            money > this.balance[account - 1]
-        ) {
+        if (account > this.balance.length || money > this.balance[account - 1]) {
             return false;
         }
         this.balance[account - 1] -= money;

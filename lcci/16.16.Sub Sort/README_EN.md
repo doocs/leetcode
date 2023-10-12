@@ -18,16 +18,146 @@
 <ul>
 	<li><code>0 &lt;= len(array) &lt;= 1000000</code></li>
 </ul>
+
 ## Solutions
+
+**Solution 1: Two Passes**
+
+We first traverse the array $array$ from left to right, and use $mx$ to record the maximum value encountered so far. If the current value $x$ is less than $mx$, it means that $x$ needs to be sorted, and we record the index $i$ of $x$ as $right$; otherwise, update $mx$.
+
+Similarly, we traverse the array $array$ from right to left, and use $mi$ to record the minimum value encountered so far. If the current value $x$ is greater than $mi$, it means that $x$ needs to be sorted, and we record the index $i$ of $x$ as $left$; otherwise, update $mi$.
+
+Finally, return $[left, right]$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $array$. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
+
 ### **Python3**
+
 ```python
+class Solution:
+    def subSort(self, array: List[int]) -> List[int]:
+        n = len(array)
+        mi, mx = inf, -inf
+        left = right = -1
+        for i, x in enumerate(array):
+            if x < mx:
+                right = i
+            else:
+                mx = x
+        for i in range(n - 1, -1, -1):
+            if array[i] > mi:
+                left = i
+            else:
+                mi = array[i]
+        return [left, right]
+```
 
-````
 ### **Java**
-```java
 
-````
+```java
+class Solution {
+    public int[] subSort(int[] array) {
+        int n = array.length;
+        int mi = Integer.MAX_VALUE, mx = Integer.MIN_VALUE;
+        int left = -1, right = -1;
+        for (int i = 0; i < n; ++i) {
+            if (array[i] < mx) {
+                right = i;
+            } else {
+                mx = array[i];
+            }
+        }
+        for (int i = n - 1; i >= 0; --i) {
+            if (array[i] > mi) {
+                left = i;
+            } else {
+                mi = array[i];
+            }
+        }
+        return new int[] {left, right};
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> subSort(vector<int>& array) {
+        int n = array.size();
+        int mi = INT_MAX, mx = INT_MIN;
+        int left = -1, right = -1;
+        for (int i = 0; i < n; ++i) {
+            if (array[i] < mx) {
+                right = i;
+            } else {
+                mx = array[i];
+            }
+        }
+        for (int i = n - 1; ~i; --i) {
+            if (array[i] > mi) {
+                left = i;
+            } else {
+                mi = array[i];
+            }
+        }
+        return {left, right};
+    }
+};
+```
+
+### **Go**
+
+```go
+func subSort(array []int) []int {
+	n := len(array)
+	mi, mx := math.MaxInt32, math.MinInt32
+	left, right := -1, -1
+	for i, x := range array {
+		if x < mx {
+			right = i
+		} else {
+			mx = x
+		}
+	}
+	for i := n - 1; i >= 0; i-- {
+		if array[i] > mi {
+			left = i
+		} else {
+			mi = array[i]
+		}
+	}
+	return []int{left, right}
+}
+```
+
+### **TypeScript**
+
+```ts
+function subSort(array: number[]): number[] {
+    const n = array.length;
+    let [mi, mx] = [Infinity, -Infinity];
+    let [left, right] = [-1, -1];
+    for (let i = 0; i < n; ++i) {
+        if (array[i] < mx) {
+            right = i;
+        } else {
+            mx = array[i];
+        }
+    }
+    for (let i = n - 1; ~i; --i) {
+        if (array[i] > mi) {
+            left = i;
+        } else {
+            mi = array[i];
+        }
+    }
+    return [left, right];
+}
+```
 
 ### **...**
 

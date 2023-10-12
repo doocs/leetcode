@@ -1,42 +1,44 @@
 class LockingTree:
     def __init__(self, parent: List[int]):
-        self.nums = {}
+        n = len(parent)
+        self.locked = [-1] * n
         self.parent = parent
-        self.children = defaultdict(list)
-        for i, p in enumerate(parent):
-            self.children[p].append(i)
+        self.children = [[] for _ in range(n)]
+        for son, fa in enumerate(parent[1:], 1):
+            self.children[fa].append(son)
 
     def lock(self, num: int, user: int) -> bool:
-        if num in self.nums:
-            return False
-        self.nums[num] = user
-        return True
+        if self.locked[num] == -1:
+            self.locked[num] = user
+            return True
+        return False
 
     def unlock(self, num: int, user: int) -> bool:
-        if num not in self.nums or self.nums[num] != user:
-            return False
-        self.nums.pop(num)
-        return True
+        if self.locked[num] == user:
+            self.locked[num] = -1
+            return True
+        return False
 
     def upgrade(self, num: int, user: int) -> bool:
-        def dfs(num):
+        def dfs(x: int):
             nonlocal find
-            for child in self.children[num]:
-                if child in self.nums:
-                    self.nums.pop(child)
+            for y in self.children[x]:
+                if self.locked[y] != -1:
+                    self.locked[y] = -1
                     find = True
-                dfs(child)
+                dfs(y)
 
-        t = num
-        while t != -1:
-            if t in self.nums:
+        x = num
+        while x != -1:
+            if self.locked[x] != -1:
                 return False
-            t = self.parent[t]
+            x = self.parent[x]
+
         find = False
         dfs(num)
         if not find:
             return False
-        self.nums[num] = user
+        self.locked[num] = user
         return True
 
 

@@ -37,6 +37,16 @@
 
 ## Solutions
 
+**Solution 1: DFS**
+
+We can traverse each point $(i, j)$ in the integer matrix $land$. If the value of the point is $0$, we start a depth-first search from this point until we reach a point with a non-zero value. The number of points searched during this process is the size of the pond, which is added to the answer array.
+
+> Note: To avoid duplicate searches, we set the value of the searched points to $1$.
+
+Finally, we sort the answer array to obtain the final answer.
+
+The time complexity is $O(m \times n \times \log (m \times n))$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns in the matrix $land$, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**

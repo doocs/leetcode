@@ -5,14 +5,13 @@
   <meta charset="UTF-8">
   <title>LeetCode & Coding Interview Guide - Doocs Open Source Organization</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="keywords"
-    content="doc,docs,doocs,documentation,github,gitee,coding,pages,leetcode,lcof,lcci,lcof2,coding-interview,coding-interview-guide,cracking-the-coding-interview,yanglbme">
+  <meta name="keywords" content="doc,docs,doocs,documentation,github,gitee,coding,pages,leetcode,lcof,lcci,lcof2,coding-interview,coding-interview-guide,cracking-the-coding-interview,yanglbme">
   <meta name="description" content="LeetCode、剑指Offer、程序员面试金典题解">
-  <meta name="viewport"
-    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/docsify@4.13.0/lib/themes/vue.css">
   <link rel="stylesheet" href="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/docsify-darklight-theme@latest/dist/style.min.css">
-  <link rel="stylesheet" href="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/katex@latest/dist/katex.min.css"/>
+  <link rel="stylesheet" href="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/katex@latest/dist/katex.min.css">
+  <link rel="stylesheet" href="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/docsify-giscus@1.0.0/dist/giscus.css">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
   <style>
@@ -24,108 +23,9 @@
 
 <body>
   <div id="app">LeetCode & Coding Interview Guide @Doocs</div>
-  <script>
-    const isEn = () => location.hash.includes('README_EN');
-    const isRoot = () => ['', '#/', '#/README', '#/README_EN'].includes(location.hash);
-    const sidebar = () => isRoot() ? false : (isEn() ? 'summary_en.md' : 'summary.md');
-
-    window.addEventListener('hashchange', () => {
-      window.$docsify.loadSidebar = sidebar();
-      window.$docsify.pagination.previousText = isEn() ? 'PREVIOUS' : '上一题';
-      window.$docsify.pagination.nextText = isEn() ? 'NEXT' : '下一题';
-    });
-
-    window.$docsify = {
-      name: 'leetcode',
-      repo: 'doocs/leetcode',
-      logo: '/images/doocs-leetcode.png',
-      search: {
-        depth: 2,
-        hideOtherSidebarContent: true,
-        pathNamespaces: ['/', '/solution', '/lcof', '/lcof2', '/lcci', '/lcs', '/lcp', '/basic']
-      },
-      loadSidebar: sidebar(),
-      auto2top: true,
-      subMaxLevel: 2,
-      alias: {
-        '/lcs/.*/summary.md': '/lcs/summary.md',
-        '/lcp/.*/summary.md': '/lcp/summary.md',
-        '/lcci/.*/summary.md': '/lcci/summary.md',
-        '/lcof/.*/summary.md': '/lcof/summary.md',
-        '/lcof2/.*/summary.md': '/lcof2/summary.md',
-        '/solution/.*/summary.md': '/solution/summary.md',
-        '/basic/.*/summary.md': '/basic/summary.md',
-
-        '/lcs/.*/summary_en.md': '/lcs/summary_en.md',
-        '/lcp/.*/summary_en.md': '/lcp/summary_en.md',
-        '/lcci/.*/summary_en.md': '/lcci/summary_en.md',
-        '/lcof/.*/summary_en.md': '/lcof/summary_en.md',
-        '/lcof2/.*/summary_en.md': '/lcof2/summary_en.md',
-        '/solution/.*/summary_en.md': '/solution/summary_en.md',
-        '/basic/.*/summary_en.md': '/basic/summary_en.md',
-      },
-      contributors: {
-        repo: 'doocs/leetcode',
-        ignores: ['/README.md', '/README_EN.md', '/solution/README.md', '/solution/README_EN.md', '/summary.md'],
-        image: {
-          margin: '0.2em',
-          isRound: true
-        }
-      },
-      darklightTheme: {
-        defaultTheme: 'light',
-        siteFont: 'Source Sans Pro,Helvetica Neue,Arial,sans-serif',
-        codeFontFamily: 'Roboto Mono, Monaco, courier, monospace',
-        bodyFontSize: '15px',
-        dark: {
-          background: '#191919',
-          highlightColor: '#e96900',
-          codeBackgroundColor: '#202020',
-          codeTextColor: '#b4b4b4',
-        },
-        light: {
-          highlightColor: '#e96900',
-        }
-      },
-      pagination: {
-        previousText: isEn() ? 'PREVIOUS' : '上一题',
-        nextText: isEn() ? 'NEXT' : '下一题',
-        crossChapter: true,
-        crossChapterText: true
-      },
-      tabs: {
-        persist: true,
-        sync: true,
-        theme: 'classic',
-        tabComments: true,
-        tabHeadings: true
-      },
-      plugins: [
-        (hook, vm) => {
-          hook.beforeEach((html) => {
-            const { file } = vm.route
-            const userContent = /githubusercontent\.com/.test(file)
-            const url = userContent ? file
-              .replace('raw.githubusercontent.com', 'github.com')
-              .replace(/\/main/, '/blob/main') : 'https://github.com/doocs/leetcode/blob/main/' + file
-
-            const github = `[GitHub](${url})`
-            const gitee = `[Gitee](${url.replace("github", "gitee")})`
-            const editHtml = isEn() ? `:memo: Edit on ${github} / ${gitee}\n` : `:memo: 在 ${github} / ${gitee} 编辑\n`
-            return editHtml + html
-          })
-
-          hook.afterEach((html) => {
-            const copyright = isEn() ? '. All Rights Reserved' : ' 版权所有'
-            const currentYear = new Date().getFullYear()
-            const footer = `<footer>Copyright © 2018-${currentYear} <a href="https://github.com/doocs" target="_blank">Doocs</a>${copyright}</footer>`
-            return html + footer
-          })
-        },
-      ]
-    }
-  </script>
+  <script src="./main.js"></script>
   <script src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/docsify@4.13.0/lib/docsify.min.js"></script>
+  <!--  components  -->
   <script src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/prismjs/components/prism-c.min.js"></script>
   <script src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/prismjs/components/prism-go.min.js"></script>
   <script src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/prismjs/components/prism-sql.min.js"></script>
@@ -142,8 +42,10 @@
   <script src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/prismjs/components/prism-ruby.min.js"></script>
   <script src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/prismjs/components/prism-rust.min.js"></script>
   <script src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/docsify-copy-code@2.1.1/dist/docsify-copy-code.min.js"></script>
+  <!--  plugins  -->
   <script src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/docsify/lib/plugins/search.min.js"></script>
   <script src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  <script src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/docsify-lastmodified/index.min.js"></script>
   <script src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/docsify-tabs@1/dist/docsify-tabs@1.js"></script>
   <script src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
   <script src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/docsify-darklight-theme@latest/dist/index.min.js"></script>

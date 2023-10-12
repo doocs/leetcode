@@ -244,12 +244,7 @@ func min(a, b int) int {
 ### **TypeScript**
 
 ```ts
-function minReverseOperations(
-    n: number,
-    p: number,
-    banned: number[],
-    k: number,
-): number[] {
+function minReverseOperations(n: number, p: number, banned: number[], k: number): number[] {
     const ans = new Array(n).fill(-1);
     const ts = new Array(2).fill(0).map(() => new TreeSet<number>());
     for (let i = 0; i < n; ++i) {
@@ -316,9 +311,7 @@ class RBTreeNode<T = number> {
 class RBTree<T> {
     root: RBTreeNode<T> | null;
     lt: (l: T, r: T) => boolean;
-    constructor(
-        compare: Compare<T> = (l: T, r: T) => (l < r ? -1 : l > r ? 1 : 0),
-    ) {
+    constructor(compare: Compare<T> = (l: T, r: T) => (l < r ? -1 : l > r ? 1 : 0)) {
         this.root = null;
         this.lt = (l: T, r: T) => compare(l, r) < 0;
     }
@@ -626,9 +619,7 @@ class RBTree<T> {
         for (const v of this.inOrder(root.right!)) yield v;
     }
 
-    *reverseInOrder(
-        root: RBTreeNode<T> = this.root!,
-    ): Generator<T, undefined, void> {
+    *reverseInOrder(root: RBTreeNode<T> = this.root!): Generator<T, undefined, void> {
         if (!root) return;
         for (const v of this.reverseInOrder(root.right!)) yield v;
         yield root.data;
@@ -926,12 +917,7 @@ class TreeMultiSet<T = number> {
 ```
 
 ````ts
-function minReverseOperations(
-    n: number,
-    p: number,
-    banned: number[],
-    k: number,
-): number[] {
+function minReverseOperations(n: number, p: number, banned: number[], k: number): number[] {
     const ans = new Array(n).fill(-1);
     const ts = new Array(2).fill(0).map(() => new TreapMultiSet<number>());
     for (let i = 0; i < n; ++i) {
@@ -1095,11 +1081,7 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
    * ```
    */
     constructor(compareFn?: CompareFunction<T, 'number'>);
-    constructor(
-        compareFn: CompareFunction<T, 'number'>,
-        leftBound: T,
-        rightBound: T,
-    );
+    constructor(compareFn: CompareFunction<T, 'number'>, leftBound: T, rightBound: T);
     constructor(
         compareFn: CompareFunction<T, any> = (a: any, b: any) => a - b,
         leftBound: any = -Infinity,
@@ -1219,24 +1201,13 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
                     // 旋到根节点
                     if (
                         node.right == null ||
-                        TreapNode.getFac(node.left) >
-                            TreapNode.getFac(node.right)
+                        TreapNode.getFac(node.left) > TreapNode.getFac(node.right)
                     ) {
                         parent[direction] = node.rotateRight();
-                        dfs(
-                            parent[direction]?.right ?? null,
-                            value,
-                            parent[direction]!,
-                            'right',
-                        );
+                        dfs(parent[direction]?.right ?? null, value, parent[direction]!, 'right');
                     } else {
                         parent[direction] = node.rotateLeft();
-                        dfs(
-                            parent[direction]?.left ?? null,
-                            value,
-                            parent[direction]!,
-                            'left',
-                        );
+                        dfs(parent[direction]?.left ?? null, value, parent[direction]!, 'left');
                     }
                 }
             } else if (compare(node.value, value) > 0) {
@@ -1267,11 +1238,7 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
             } else if (compare(node.value, value) > 0) {
                 return dfs(node.left, value);
             } else if (compare(node.value, value) < 0) {
-                return (
-                    dfs(node.right, value) +
-                    TreapNode.getSize(node.left) +
-                    node.count
-                );
+                return dfs(node.right, value) + TreapNode.getSize(node.left) + node.count;
             }
 
             return 0;
@@ -1296,11 +1263,7 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
             } else if (compare(node.value, value) > 0) {
                 return dfs(node.left, value);
             } else if (compare(node.value, value) < 0) {
-                return (
-                    dfs(node.right, value) +
-                    TreapNode.getSize(node.left) +
-                    node.count
-                );
+                return dfs(node.right, value) + TreapNode.getSize(node.left) + node.count;
             }
 
             return 0;
@@ -1326,11 +1289,7 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
             } else if (compare(node.value, value) > 0) {
                 return dfs(node.left, value);
             } else if (compare(node.value, value) < 0) {
-                return (
-                    dfs(node.right, value) +
-                    TreapNode.getSize(node.left) +
-                    node.count
-                );
+                return dfs(node.right, value) + TreapNode.getSize(node.left) + node.count;
             }
 
             return 0;
@@ -1357,11 +1316,7 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
             } else if (compare(node.value, value) > 0) {
                 return dfs(node.left, value);
             } else if (compare(node.value, value) < 0) {
-                return (
-                    dfs(node.right, value) +
-                    TreapNode.getSize(node.left) +
-                    node.count
-                );
+                return dfs(node.right, value) + TreapNode.getSize(node.left) + node.count;
             }
 
             return 0;
@@ -1381,10 +1336,7 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
         if (index < 0) index += this.size;
         if (index < 0 || index >= this.size) return undefined;
 
-        const dfs = (
-            node: TreapNode<T> | null,
-            rank: number,
-        ): T | undefined => {
+        const dfs = (node: TreapNode<T> | null, rank: number): T | undefined => {
             if (node == null) return undefined;
 
             if (TreapNode.getSize(node.left) >= rank) {
@@ -1392,17 +1344,12 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
             } else if (TreapNode.getSize(node.left) + node.count >= rank) {
                 return node.value;
             } else {
-                return dfs(
-                    node.right,
-                    rank - TreapNode.getSize(node.left) - node.count,
-                );
+                return dfs(node.right, rank - TreapNode.getSize(node.left) - node.count);
             }
         };
 
         const res = dfs(this.root, index + 2);
-        return ([this.leftBound, this.rightBound] as any[]).includes(res)
-            ? undefined
-            : res;
+        return ([this.leftBound, this.rightBound] as any[]).includes(res) ? undefined : res;
     }
 
     /**
@@ -1629,9 +1576,7 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
         }
     }
 
-    private *inOrder(
-        root: TreapNode<T> | null = this.root,
-    ): Generator<T, any, any> {
+    private *inOrder(root: TreapNode<T> | null = this.root): Generator<T, any, any> {
         if (root == null) return;
         yield* this.inOrder(root.left);
         const count = root.count;
@@ -1641,9 +1586,7 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
         yield* this.inOrder(root.right);
     }
 
-    private *reverseInOrder(
-        root: TreapNode<T> | null = this.root,
-    ): Generator<T, any, any> {
+    private *reverseInOrder(root: TreapNode<T> | null = this.root): Generator<T, any, any> {
         if (root == null) return;
         yield* this.reverseInOrder(root.right);
         const count = root.count;

@@ -92,6 +92,10 @@ LCHouse3: 1 unit of LC-T-Shirt.
 
 ## Solutions
 
+**Solution 1: Inner Join + Group By + Sum Function**
+
+We can use an inner join to join the `Warehouse` table and the `Products` table on the condition of `product_id`, and then group by warehouse name to calculate the inventory of each warehouse using the `SUM` function.
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -100,11 +104,11 @@ LCHouse3: 1 unit of LC-T-Shirt.
 # Write your MySQL query statement below
 SELECT
     name AS warehouse_name,
-    SUM(units * Width * Length * Height) AS volume
+    sum(width * length * height * units) AS volume
 FROM
-    Warehouse AS w
-    JOIN Products AS p ON w.product_id = p.product_id
-GROUP BY name;
+    Warehouse
+    JOIN Products USING (product_id)
+GROUP BY 1;
 ```
 
 <!-- tabs:end -->

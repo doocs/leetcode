@@ -11,7 +11,5 @@ function freqAlphabets(s: string): string {
             i += 1;
         }
     }
-    return ans
-        .map(c => String.fromCharCode('a'.charCodeAt(0) + Number(c) - 1))
-        .join('');
+    return ans.map(c => String.fromCharCode('a'.charCodeAt(0) + Number(c) - 1)).join('');
 }

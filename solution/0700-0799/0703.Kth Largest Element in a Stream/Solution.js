@@ -99,10 +99,7 @@ class MinHeap {
     }
 
     swap(index1, index2) {
-        [this.data[index1], this.data[index2]] = [
-            this.data[index2],
-            this.data[index1],
-        ];
+        [this.data[index1], this.data[index2]] = [this.data[index2], this.data[index1]];
     }
 
     size() {

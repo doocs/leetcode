@@ -53,6 +53,16 @@ Since student 2 has more points, [2,1] is returned.
 
 ## Solutions
 
+**Solution 1: Hash Table + Sorting**
+
+We can store the positive words in a hash table $ps$ and the negative words in a hash table $ns$.
+
+Then, we traverse the $report$ and for each student, we store their score in an array $arr$, where each element is a tuple $(t, sid)$, where $t$ represents the student's score and $sid$ represents the student's ID.
+
+Finally, we sort the array $arr$ in descending order by score, and if the scores are the same, we sort by ID in ascending order. Then, we take the IDs of the top $k$ students.
+
+The time complexity is $O(n \times \log n + (|ps| + |ns| + n) \times |s|)$, and the space complexity is $O((|ps|+|ns|) \times |s| + n)$. Here, $n$ is the number of students, $|ps|$ and $|ns|$ are the number of positive and negative words, respectively, and $|s|$ is the average length of a word.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -97,7 +107,7 @@ class Solution {
             ns.add(s);
         }
         int n = report.length;
-        int[][] arr = new int[n][2];
+        int[][] arr = new int[n][0];
         for (int i = 0; i < n; ++i) {
             int sid = student_id[i];
             int t = 0;

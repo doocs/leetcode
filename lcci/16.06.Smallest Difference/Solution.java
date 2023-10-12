@@ -3,15 +3,15 @@ class Solution {
         Arrays.sort(a);
         Arrays.sort(b);
         int i = 0, j = 0;
-        long res = Long.MAX_VALUE;
+        long ans = Long.MAX_VALUE;
         while (i < a.length && j < b.length) {
-            res = Math.min(res, Math.abs((long) a[i] - (long) b[j]));
-            if (a[i] > b[j]) {
-                ++j;
-            } else {
+            ans = Math.min(ans, Math.abs((long) a[i] - (long) b[j]));
+            if (a[i] < b[j]) {
                 ++i;
+            } else {
+                ++j;
             }
         }
-        return (int) res;
+        return (int) ans;
     }
 }

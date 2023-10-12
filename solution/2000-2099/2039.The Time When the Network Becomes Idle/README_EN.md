@@ -81,7 +81,13 @@ From the beginning of the second 3, the network becomes idle.
 
 ## Solutions
 
-BFS.
+**Solution 1: BFS**
+
+First, we construct an undirected graph $g$ based on the 2D array $edges$, where $g[u]$ represents all neighboring nodes of node $u$.
+
+Then, we can use breadth-first search (BFS) to find the shortest distance $d_i$ from each node $i$ to the main server. The earliest time that node $i$ can receive a reply after sending a message is $2 \times d_i$. Since each data server $i$ resends a message every $patience[i]$ seconds, the last time that each data server sends a message is $(2 \times d_i - 1) / patience[i] \times patience[i]$. Therefore, the latest time that the network becomes idle is $(2 \times d_i - 1) / patience[i] \times patience[i] + 2 \times d_i$, plus 1 second for processing time. We find the latest of these times, which is the earliest time that the computer network becomes idle.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
 
 <!-- tabs:start -->
 
@@ -96,18 +102,17 @@ class Solution:
             g[v].append(u)
         q = deque([0])
         vis = {0}
-        ans = step = 0
+        ans = d = 0
         while q:
-            step += 1
+            d += 1
+            t = d * 2
             for _ in range(len(q)):
                 u = q.popleft()
                 for v in g[u]:
-                    if v in vis:
-                        continue
-                    vis.add(v)
-                    q.append(v)
-                    d, t = step * 2, patience[v]
-                    ans = max(ans, (d - 1) // t * t + d + 1)
+                    if v not in vis:
+                        vis.add(v)
+                        q.append(v)
+                        ans = max(ans, (t - 1) // patience[v] * patience[v] + t + 1)
         return ans
 ```
 
@@ -118,31 +123,28 @@ class Solution {
     public int networkBecomesIdle(int[][] edges, int[] patience) {
         int n = patience.length;
         List<Integer>[] g = new List[n];
-        boolean[] vis = new boolean[n];
         Arrays.setAll(g, k -> new ArrayList<>());
         for (int[] e : edges) {
             int u = e[0], v = e[1];
             g[u].add(v);
             g[v].add(u);
         }
-        int ans = 0;
-        int step = 0;
         Deque<Integer> q = new ArrayDeque<>();
         q.offer(0);
+        boolean[] vis = new boolean[n];
         vis[0] = true;
+        int ans = 0, d = 0;
         while (!q.isEmpty()) {
-            ++step;
+            ++d;
+            int t = d * 2;
             for (int i = q.size(); i > 0; --i) {
                 int u = q.poll();
                 for (int v : g[u]) {
-                    if (vis[v]) {
-                        continue;
+                    if (!vis[v]) {
+                        vis[v] = true;
+                        q.offer(v);
+                        ans = Math.max(ans, (t - 1) / patience[v] * patience[v] + t + 1);
                     }
-                    vis[v] = true;
-                    q.offer(v);
-                    int d = step * 2;
-                    int t = patience[v];
-                    ans = Math.max(ans, (d - 1) / t * t + d + 1);
                 }
             }
         }
@@ -158,27 +160,29 @@ class Solution {
 public:
     int networkBecomesIdle(vector<vector<int>>& edges, vector<int>& patience) {
         int n = patience.size();
-        vector<vector<int>> g(n);
-        vector<bool> vis(n);
+        vector<int> g[n];
         for (auto& e : edges) {
             int u = e[0], v = e[1];
             g[u].push_back(v);
             g[v].push_back(u);
         }
         queue<int> q{{0}};
+        bool vis[n];
+        memset(vis, false, sizeof(vis));
         vis[0] = true;
-        int ans = 0, step = 0;
+        int ans = 0, d = 0;
         while (!q.empty()) {
-            ++step;
-            for (int i = q.size(); i > 0; --i) {
+            ++d;
+            int t = d * 2;
+            for (int i = q.size(); i; --i) {
                 int u = q.front();
                 q.pop();
                 for (int v : g[u]) {
-                    if (vis[v]) continue;
-                    vis[v] = true;
-                    q.push(v);
-                    int d = step * 2, t = patience[v];
-                    ans = max(ans, (d - 1) / t * t + d + 1);
+                    if (!vis[v]) {
+                        vis[v] = true;
+                        q.push(v);
+                        ans = max(ans, (t - 1) / patience[v] * patience[v] + t + 1);
+                    }
                 }
             }
         }
@@ -190,35 +194,32 @@ public:
 ### **Go**
 
 ```go
-func networkBecomesIdle(edges [][]int, patience []int) int {
+func networkBecomesIdle(edges [][]int, patience []int) (ans int) {
 	n := len(patience)
 	g := make([][]int, n)
-	vis := make([]bool, n)
 	for _, e := range edges {
 		u, v := e[0], e[1]
 		g[u] = append(g[u], v)
 		g[v] = append(g[v], u)
 	}
 	q := []int{0}
+	vis := make([]bool, n)
 	vis[0] = true
-	ans, step := 0, 0
-	for len(q) > 0 {
-		step++
+	for d := 1; len(q) > 0; d++ {
+		t := d * 2
 		for i := len(q); i > 0; i-- {
 			u := q[0]
 			q = q[1:]
 			for _, v := range g[u] {
-				if vis[v] {
-					continue
+				if !vis[v] {
+					vis[v] = true
+					q = append(q, v)
+					ans = max(ans, (t-1)/patience[v]*patience[v]+t+1)
 				}
-				vis[v] = true
-				q = append(q, v)
-				d, t := step*2, patience[v]
-				ans = max(ans, (d-1)/t*t+d+1)
 			}
 		}
 	}
-	return ans
+	return
 }
 
 func max(a, b int) int {
@@ -226,6 +227,38 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function networkBecomesIdle(edges: number[][], patience: number[]): number {
+    const n = patience.length;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [u, v] of edges) {
+        g[u].push(v);
+        g[v].push(u);
+    }
+    const vis: boolean[] = Array.from({ length: n }, () => false);
+    vis[0] = true;
+    let q: number[] = [0];
+    let ans = 0;
+    for (let d = 1; q.length > 0; ++d) {
+        const t = d * 2;
+        const nq: number[] = [];
+        for (const u of q) {
+            for (const v of g[u]) {
+                if (!vis[v]) {
+                    vis[v] = true;
+                    nq.push(v);
+                    ans = Math.max(ans, (((t - 1) / patience[v]) | 0) * patience[v] + t + 1);
+                }
+            }
+        }
+        q = nq;
+    }
+    return ans;
 }
 ```
 

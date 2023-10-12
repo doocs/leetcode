@@ -13,10 +13,7 @@ class MaxQueue {
 
     push_back(value: number): void {
         this.queue.push(value);
-        while (
-            this.deque.length !== 0 &&
-            this.deque[this.deque.length - 1] < value
-        ) {
+        while (this.deque.length !== 0 && this.deque[this.deque.length - 1] < value) {
             this.deque.pop();
         }
         this.deque.push(value);

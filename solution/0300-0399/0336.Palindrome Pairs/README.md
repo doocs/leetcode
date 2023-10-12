@@ -6,9 +6,21 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一组<strong> 互不相同</strong> 的单词， 找出所有<strong> 不同<em> </em></strong>的索引对 <code>(i, j)</code>，使得列表中的两个单词， <code>words[i] + words[j]</code> ，可拼接成回文串。</p>
+<p>给定一个由唯一字符串构成的 <strong>0 索引&nbsp;</strong>数组 <code>words</code>&nbsp;。</p>
 
-<p> </p>
+<p><strong>回文对</strong> 是一对整数 <code>(i, j)</code> ，满足以下条件：</p>
+
+<ul>
+	<li><code>0 &lt;= i, j &lt; words.length</code>，</li>
+	<li><code>i != j</code> ，并且</li>
+	<li><code>words[i] + words[j]</code>（两个字符串的连接）是一个回文。</li>
+</ul>
+
+<p>返回一个数组，它包含&nbsp;<code>words</code> 中所有满足 <strong>回文对</strong> 条件的字符串。</p>
+
+<p>你必须设计一个时间复杂度为 <code>O(sum of words[i].length)</code> 的算法。</p>
+
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -32,11 +44,13 @@
 <strong>输出：</strong>[[0,1],[1,0]]
 </pre>
 
+&nbsp;
+
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= words.length <= 5000</code></li>
-	<li><code>0 <= words[i].length <= 300</code></li>
+	<li><code>1 &lt;= words.length &lt;= 5000</code></li>
+	<li><code>0 &lt;= words[i].length &lt;= 300</code></li>
 	<li><code>words[i]</code> 由小写英文字母组成</li>
 </ul>
 

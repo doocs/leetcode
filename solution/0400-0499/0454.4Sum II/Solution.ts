@@ -1,9 +1,4 @@
-function fourSumCount(
-    nums1: number[],
-    nums2: number[],
-    nums3: number[],
-    nums4: number[],
-): number {
+function fourSumCount(nums1: number[], nums2: number[], nums3: number[], nums4: number[]): number {
     const cnt: Map<number, number> = new Map();
     for (const a of nums1) {
         for (const b of nums2) {

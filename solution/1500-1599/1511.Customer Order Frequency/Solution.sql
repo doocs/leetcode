@@ -1,12 +1,11 @@
 # Write your MySQL query statement below
-SELECT
-    c.customer_id AS CUSTOMER_ID,
-    c.name AS NAME
+SELECT customer_id, name
 FROM
-    Customers c, Product p, Orders o
-WHERE
-    c.customer_id = o.customer_id
-AND p.product_id = o.product_id
-GROUP BY c.customer_id
-HAVING sum(if(month(o.order_date)=6, price*quantity, 0)) >= 100
-AND sum(if(month(o.order_date)=7, price*quantity, 0)) >= 100;
+    Orders
+    JOIN Product USING (product_id)
+    JOIN Customers USING (customer_id)
+WHERE year(order_date) = 2020
+GROUP BY 1
+HAVING
+    sum(if(month(order_date) = 6, quantity * price, 0)) >= 100
+    AND sum(if(month(order_date) = 7, quantity * price, 0)) >= 100;

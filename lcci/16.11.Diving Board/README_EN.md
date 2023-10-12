@@ -33,6 +33,16 @@ k = 3
 
 ## Solutions
 
+**Solution 1: Case Analysis**
+
+If $k=0$, there is no solution, and we can directly return an empty list.
+
+If $shorter=longer$, we can only use a board with length $longer \times k$, so we directly return a list with length $longer \times k$.
+
+Otherwise, we can use a board with length $shorter \times (k-i) + longer \times i$, where $0 \leq i \leq k$. We enumerate $i$ in the range $[0, k]$, and calculate the corresponding length. For different values of $i$, we will not get the same length, because if $0 \leq i \lt j \leq k$, then the difference in length is $(i - j) \times (longer - shorter) \lt 0$. Therefore, for different values of $i$, we will get different lengths.
+
+The time complexity is $O(k)$, where $k$ is the number of boards. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -101,6 +111,24 @@ func divingBoard(shorter int, longer int, k int) []int {
 		ans = append(ans, longer*i+shorter*(k-i))
 	}
 	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function divingBoard(shorter: number, longer: number, k: number): number[] {
+    if (k === 0) {
+        return [];
+    }
+    if (longer === shorter) {
+        return [longer * k];
+    }
+    const ans: number[] = [k + 1];
+    for (let i = 0; i <= k; ++i) {
+        ans[i] = longer * i + shorter * (k - i);
+    }
+    return ans;
 }
 ```
 

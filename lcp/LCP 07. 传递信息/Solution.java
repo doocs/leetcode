@@ -1,12 +1,15 @@
 class Solution {
     public int numWays(int n, int[][] relation, int k) {
-        int[][] dp = new int[k + 1][n];
-        dp[0][0] = 1;
-        for (int i = 1; i <= k; i++) {
+        int[] f = new int[n];
+        f[0] = 1;
+        while (k-- > 0) {
+            int[] g = new int[n];
             for (int[] r : relation) {
-                dp[i][r[1]] += dp[i - 1][r[0]];
+                int a = r[0], b = r[1];
+                g[b] += f[a];
             }
+            f = g;
         }
-        return dp[k][n - 1];
+        return f[n - 1];
     }
 }

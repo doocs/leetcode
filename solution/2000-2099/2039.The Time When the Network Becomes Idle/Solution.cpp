@@ -2,27 +2,29 @@ class Solution {
 public:
     int networkBecomesIdle(vector<vector<int>>& edges, vector<int>& patience) {
         int n = patience.size();
-        vector<vector<int>> g(n);
-        vector<bool> vis(n);
+        vector<int> g[n];
         for (auto& e : edges) {
             int u = e[0], v = e[1];
             g[u].push_back(v);
             g[v].push_back(u);
         }
         queue<int> q{{0}};
+        bool vis[n];
+        memset(vis, false, sizeof(vis));
         vis[0] = true;
-        int ans = 0, step = 0;
+        int ans = 0, d = 0;
         while (!q.empty()) {
-            ++step;
-            for (int i = q.size(); i > 0; --i) {
+            ++d;
+            int t = d * 2;
+            for (int i = q.size(); i; --i) {
                 int u = q.front();
                 q.pop();
                 for (int v : g[u]) {
-                    if (vis[v]) continue;
-                    vis[v] = true;
-                    q.push(v);
-                    int d = step * 2, t = patience[v];
-                    ans = max(ans, (d - 1) / t * t + d + 1);
+                    if (!vis[v]) {
+                        vis[v] = true;
+                        q.push(v);
+                        ans = max(ans, (t - 1) / patience[v] * patience[v] + t + 1);
+                    }
                 }
             }
         }

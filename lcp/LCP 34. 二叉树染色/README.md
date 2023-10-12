@@ -220,10 +220,7 @@ var maxValue = function (root, k) {
         ans[0] = Math.max(...l) + Math.max(...r);
         for (let i = 0; i < k; i++) {
             for (let j = 0; j < k - i; ++j) {
-                ans[i + j + 1] = Math.max(
-                    ans[i + j + 1],
-                    l[i] + r[j] + root.val,
-                );
+                ans[i + j + 1] = Math.max(ans[i + j + 1], l[i] + r[j] + root.val);
             }
         }
         return ans;

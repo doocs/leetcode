@@ -54,8 +54,8 @@ Placeholder &quot;_&quot; is replaced with 5 and 20 is added at the end of args.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>fn is a function</code></li>
-	<li><code>args and restArgs are valid JSON arrays</code></li>
+	<li><code>fn</code> is a function</li>
+	<li><code>args</code> and <code>restArgs</code> are valid JSON arrays</li>
 	<li><code>1 &lt;= args.length &lt;= 5 * 10<sup>4</sup></code></li>
 	<li><code>1 &lt;=&nbsp;restArgs.length &lt;= 5 * 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= number of placeholders &lt;= restArgs.length</code></li>

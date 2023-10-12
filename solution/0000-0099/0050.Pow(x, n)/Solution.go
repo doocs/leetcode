@@ -1,18 +1,16 @@
 func myPow(x float64, n int) float64 {
-	if n >= 0 {
-		return qmi(x, n)
-	}
-	return 1.0 / qmi(x, -n)
-}
-
-func qmi(a float64, k int) float64 {
-	var res float64 = 1
-	for k != 0 {
-		if k&1 == 1 {
-			res *= a
+	qpow := func(a float64, n int) float64 {
+		ans := 1.0
+		for ; n > 0; n >>= 1 {
+			if n&1 == 1 {
+				ans *= a
+			}
+			a *= a
 		}
-		a *= a
-		k >>= 1
+		return ans
 	}
-	return res
+	if n >= 0 {
+		return qpow(x, n)
+	}
+	return 1 / qpow(x, -n)
 }

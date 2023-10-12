@@ -49,18 +49,31 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-动态规划法。
+**方法一：记忆化搜索**
 
-设 f1 表示当天持有股票的最大利润，f2 表示当天没持有股票的最大利润。
+我们设计一个函数 $dfs(i, j)$，表示从第 $i$ 天开始，状态为 $j$ 时，能够获得的最大利润。其中 $j$ 的取值为 $0, 1$，分别表示当前不持有股票和持有股票。答案即为 $dfs(0, 0)$。
 
-初始第 1 天结束时，`f1 = -prices[0]`，`f2 = 0`。
+函数 $dfs(i, j)$ 的执行逻辑如下：
 
-从第 2 天开始，当天结束时：
+如果 $i \geq n$，那么没有股票可以交易了，此时返回 $0$；
 
--   若持有，则可能是前一天持有，今天继续持有；也可能前一天没持有，今天买入，`f1 = max(f1, f2 - price)`。
--   若没持有，则可能是前一天持有，今天卖出；也可能是前一天没没有，今天继续没持有，`f2 = max(f2, f1 + price - fee)`。
+否则，我们可以选择不交易，此时 $dfs(i, j) = dfs(i + 1, j)$。我们也可以进行股票交易，如果此时 $j \gt 0$，说明当前持有股票，可以卖出，此时 $dfs(i, j) = prices[i] + dfs(i + 1, 0) - fee$；如果此时 $j = 0$，说明当前不持有股票，可以买入，此时 $dfs(i, j) = -prices[i] + dfs(i + 1, 1)$。取最大值作为函数 $dfs(i, j)$ 的返回值。
 
-最后返回 f2 即可。
+答案为 $dfs(0, 0)$。
+
+为了避免重复计算，我们使用记忆化搜索的方法，用一个数组 $f$ 记录 $dfs(i, j)$ 的返回值，如果 $f[i][j]$ 不为 $-1$，说明已经计算过，直接返回 $f[i][j]$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $prices$ 的长度。
+
+**方法二：动态规划**
+
+我们定义 $f[i][j]$ 表示到第 $i$ 天，且状态为 $j$ 时，能够获得的最大利润。其中 $j$ 的取值为 $0, 1$，分别表示当前不持有股票和持有股票。初始时 $f[0][0] = 0$, $f[0][1] = -prices[0]$。
+
+当 $i \geq 1$ 时，如果当前不持有股票，那么 $f[i][0]$ 可以由 $f[i - 1][0]$ 和 $f[i - 1][1] + prices[i] - fee$ 转移得到，即 $f[i][0] = \max(f[i - 1][0], f[i - 1][1] + prices[i] - fee)$；如果当前持有股票，那么 $f[i][1]$ 可以由 $f[i - 1][1]$ 和 $f[i - 1][0] - prices[i]$ 转移得到，即 $f[i][1] = \max(f[i - 1][1], f[i - 1][0] - prices[i])$。最终答案为 $f[n - 1][0]$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $prices$ 的长度。
+
+我们注意到，状态 $f[i][]$ 的转移只与 $f[i - 1][]$ 和 $f[i - 1][]$ 有关，因此我们可以用两个变量 $f_0, f_1$ 代替数组 $f$，将空间复杂度优化到 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -71,12 +84,39 @@
 ```python
 class Solution:
     def maxProfit(self, prices: List[int], fee: int) -> int:
-        # 持有，没持有
-        f1, f2 = -prices[0], 0
-        for price in prices[1:]:
-            f1 = max(f1, f2 - price)
-            f2 = max(f2, f1 + price - fee)
-        return f2
+        @cache
+        def dfs(i: int, j: int) -> int:
+            if i >= len(prices):
+                return 0
+            ans = dfs(i + 1, j)
+            if j:
+                ans = max(ans, prices[i] + dfs(i + 1, 0) - fee)
+            else:
+                ans = max(ans, -prices[i] + dfs(i + 1, 1))
+            return ans
+
+        return dfs(0, 0)
+```
+
+```python
+class Solution:
+    def maxProfit(self, prices: List[int], fee: int) -> int:
+        n = len(prices)
+        f = [[0] * 2 for _ in range(n)]
+        f[0][1] = -prices[0]
+        for i in range(1, n):
+            f[i][0] = max(f[i - 1][0], f[i - 1][1] + prices[i] - fee)
+            f[i][1] = max(f[i - 1][1], f[i - 1][0] - prices[i])
+        return f[n - 1][0]
+```
+
+```python
+class Solution:
+    def maxProfit(self, prices: List[int], fee: int) -> int:
+        f0, f1 = 0, -prices[0]
+        for x in prices[1:]:
+            f0, f1 = max(f0, f1 + x - fee), max(f1, f0 - x)
+        return f0
 ```
 
 ### **Java**
@@ -85,13 +125,60 @@ class Solution:
 
 ```java
 class Solution {
+    private Integer[][] f;
+    private int[] prices;
+    private int fee;
+
     public int maxProfit(int[] prices, int fee) {
-        int f1 = -prices[0], f2 = 0;
-        for (int i = 1; i < prices.length; ++i) {
-            f1 = Math.max(f1, f2 - prices[i]);
-            f2 = Math.max(f2, f1 + prices[i] - fee);
+        f = new Integer[prices.length][2];
+        this.prices = prices;
+        this.fee = fee;
+        return dfs(0, 0);
+    }
+
+    private int dfs(int i, int j) {
+        if (i >= prices.length) {
+            return 0;
         }
-        return f2;
+        if (f[i][j] != null) {
+            return f[i][j];
+        }
+        int ans = dfs(i + 1, j);
+        if (j > 0) {
+            ans = Math.max(ans, prices[i] + dfs(i + 1, 0) - fee);
+        } else {
+            ans = Math.max(ans, -prices[i] + dfs(i + 1, 1));
+        }
+        return f[i][j] = ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int maxProfit(int[] prices, int fee) {
+        int n = prices.length;
+        int[][] f = new int[n][2];
+        f[0][1] = -prices[0];
+        for (int i = 1; i < n; ++i) {
+            f[i][0] = Math.max(f[i - 1][0], f[i - 1][1] + prices[i] - fee);
+            f[i][1] = Math.max(f[i - 1][1], f[i - 1][0] - prices[i]);
+        }
+        return f[n - 1][0];
+    }
+}
+```
+
+```java
+class Solution {
+    public int maxProfit(int[] prices, int fee) {
+        int f0 = 0, f1 = -prices[0];
+        for (int i = 1; i < prices.length; ++i) {
+            int g0 = Math.max(f0, f1 + prices[i] - fee);
+            f1 = Math.max(f1, f0 - prices[i]);
+            f0 = g0;
+        }
+        return f0;
     }
 }
 ```
@@ -102,12 +189,57 @@ class Solution {
 class Solution {
 public:
     int maxProfit(vector<int>& prices, int fee) {
-        int f1 = -prices[0], f2 = 0;
-        for (int i = 1; i < prices.size(); ++i) {
-            f1 = max(f1, f2 - prices[i]);
-            f2 = max(f2, f1 + prices[i] - fee);
+        int n = prices.size();
+        int f[n][2];
+        memset(f, -1, sizeof(f));
+        function<int(int, int)> dfs = [&](int i, int j) {
+            if (i >= prices.size()) {
+                return 0;
+            }
+            if (f[i][j] != -1) {
+                return f[i][j];
+            }
+            int ans = dfs(i + 1, j);
+            if (j) {
+                ans = max(ans, prices[i] + dfs(i + 1, 0) - fee);
+            } else {
+                ans = max(ans, -prices[i] + dfs(i + 1, 1));
+            }
+            return f[i][j] = ans;
+        };
+        return dfs(0, 0);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices, int fee) {
+        int n = prices.size();
+        int f[n][2];
+        memset(f, 0, sizeof(f));
+        f[0][1] = -prices[0];
+        for (int i = 1; i < n; ++i) {
+            f[i][0] = max(f[i - 1][0], f[i - 1][1] + prices[i] - fee);
+            f[i][1] = max(f[i - 1][1], f[i - 1][0] - prices[i]);
         }
-        return f2;
+        return f[n - 1][0];
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices, int fee) {
+        int f0 = 0, f1 = -prices[0];
+        for (int i = 1; i < prices.size(); ++i) {
+            int g0 = max(f0, f1 + prices[i] - fee);
+            f1 = max(f1, f0 - prices[i]);
+            f0 = g0;
+        }
+        return f0;
     }
 };
 ```
@@ -116,12 +248,29 @@ public:
 
 ```go
 func maxProfit(prices []int, fee int) int {
-	f1, f2 := -prices[0], 0
-	for i := 1; i < len(prices); i++ {
-		f1 = max(f1, f2-prices[i])
-		f2 = max(f2, f1+prices[i]-fee)
+	n := len(prices)
+	f := make([][2]int, n)
+	for i := range f {
+		f[i] = [2]int{-1, -1}
 	}
-	return f2
+	var dfs func(i, j int) int
+	dfs = func(i, j int) int {
+		if i >= n {
+			return 0
+		}
+		if f[i][j] != -1 {
+			return f[i][j]
+		}
+		ans := dfs(i+1, j)
+		if j > 0 {
+			ans = max(ans, prices[i]+dfs(i+1, 0)-fee)
+		} else {
+			ans = max(ans, -prices[i]+dfs(i+1, 1))
+		}
+		f[i][j] = ans
+		return ans
+	}
+	return dfs(0, 0)
 }
 
 func max(a, b int) int {
@@ -129,6 +278,92 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+```go
+func maxProfit(prices []int, fee int) int {
+	n := len(prices)
+	f := make([][2]int, n)
+	f[0][1] = -prices[0]
+	for i := 1; i < n; i++ {
+		f[i][0] = max(f[i-1][0], f[i-1][1]+prices[i]-fee)
+		f[i][1] = max(f[i-1][1], f[i-1][0]-prices[i])
+	}
+	return f[n-1][0]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func maxProfit(prices []int, fee int) int {
+	f0, f1 := 0, -prices[0]
+	for _, x := range prices[1:] {
+		f0, f1 = max(f0, f1+x-fee), max(f1, f0-x)
+	}
+	return f0
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxProfit(prices: number[], fee: number): number {
+    const n = prices.length;
+    const f: number[][] = Array.from({ length: n }, () => [-1, -1]);
+    const dfs = (i: number, j: number): number => {
+        if (i >= n) {
+            return 0;
+        }
+        if (f[i][j] !== -1) {
+            return f[i][j];
+        }
+        let ans = dfs(i + 1, j);
+        if (j) {
+            ans = Math.max(ans, prices[i] + dfs(i + 1, 0) - fee);
+        } else {
+            ans = Math.max(ans, -prices[i] + dfs(i + 1, 1));
+        }
+        return (f[i][j] = ans);
+    };
+    return dfs(0, 0);
+}
+```
+
+```ts
+function maxProfit(prices: number[], fee: number): number {
+    const n = prices.length;
+    const f: number[][] = Array.from({ length: n }, () => [0, 0]);
+    f[0][1] = -prices[0];
+    for (let i = 1; i < n; ++i) {
+        f[i][0] = Math.max(f[i - 1][0], f[i - 1][1] + prices[i] - fee);
+        f[i][1] = Math.max(f[i - 1][1], f[i - 1][0] - prices[i]);
+    }
+    return f[n - 1][0];
+}
+```
+
+```ts
+function maxProfit(prices: number[], fee: number): number {
+    const n = prices.length;
+    let [f0, f1] = [0, -prices[0]];
+    for (const x of prices.slice(1)) {
+        [f0, f1] = [Math.max(f0, f1 + x - fee), Math.max(f1, f0 - x)];
+    }
+    return f0;
 }
 ```
 

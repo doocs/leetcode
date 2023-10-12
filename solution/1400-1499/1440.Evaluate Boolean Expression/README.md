@@ -90,6 +90,10 @@ Expressions 表:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：等值连接 + CASE 表达式**
+
+我们可以通过等值连接，将 `Expressions` 表中的每一行与 `Variables` 表中的两行进行关联，关联的条件是 `left_operand = name` 和 `right_operand = name`，然后通过 `CASE` 表达式来判断布尔表达式的值。如果 `operator` 为 `=`，则判断两个值是否相等；如果 `operator` 为 `>`，则判断左值是否大于右值；如果 `operator` 为 `<`，则判断左值是否小于右值。若是，那么布尔表达式的值为 `true`，否则为 `false`。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -102,16 +106,16 @@ SELECT
     right_operand,
     CASE
         WHEN (
-            (e.operator = '=' AND v1.value = v2.value)
-            OR (e.operator = '>' AND v1.value > v2.value)
-            OR (e.operator = '<' AND v1.value < v2.value)
+            (operator = '=' AND v1.value = v2.value)
+            OR (operator = '>' AND v1.value > v2.value)
+            OR (operator = '<' AND v1.value < v2.value)
         ) THEN 'true'
         ELSE 'false'
     END AS value
 FROM
     Expressions AS e
-    LEFT JOIN Variables AS v1 ON e.left_operand = v1.name
-    LEFT JOIN Variables AS v2 ON e.right_operand = v2.name;
+    JOIN Variables AS v1 ON e.left_operand = v1.name
+    JOIN Variables AS v2 ON e.right_operand = v2.name;
 ```
 
 <!-- tabs:end -->

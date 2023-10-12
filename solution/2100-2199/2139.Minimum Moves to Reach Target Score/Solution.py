@@ -1,9 +1,12 @@
 class Solution:
     def minMoves(self, target: int, maxDoubles: int) -> int:
-        if target == 1:
-            return 0
-        if maxDoubles == 0:
-            return target - 1
-        if target % 2 == 0 and maxDoubles:
-            return 1 + self.minMoves(target >> 1, maxDoubles - 1)
-        return 1 + self.minMoves(target - 1, maxDoubles)
+        ans = 0
+        while maxDoubles and target > 1:
+            ans += 1
+            if target % 2 == 1:
+                target -= 1
+            else:
+                maxDoubles -= 1
+                target >>= 1
+        ans += target - 1
+        return ans

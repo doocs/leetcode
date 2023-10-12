@@ -68,13 +68,10 @@ For 2020-06-02, the Sold item is (Mask), we just return it.
 SELECT
     sell_date,
     COUNT(DISTINCT product) AS num_sold,
-    GROUP_CONCAT(DISTINCT product
-        ORDER BY product ASC
-        SEPARATOR ',') AS products
-FROM
-    Activities
+    GROUP_CONCAT(DISTINCT product) AS products
+FROM Activities
 GROUP BY sell_date
-ORDER BY sell_date ASC;
+ORDER BY sell_date;
 ```
 
 <!-- tabs:end -->

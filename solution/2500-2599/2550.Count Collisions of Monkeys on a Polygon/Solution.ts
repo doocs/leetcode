@@ -1,16 +1,14 @@
 function monkeyMove(n: number): number {
-    const mod = BigInt(10 ** 9 + 7);
-    return Number((qmi(2n, n, mod) - 2n + mod) % mod);
-}
-
-function qmi(a: bigint, k: number, p: bigint): bigint {
-    let res = 1n;
-    while (k) {
-        if ((k & 1) === 1) {
-            res = (res * a) % p;
+    const mod = 10 ** 9 + 7;
+    const qpow = (a: number, n: number): number => {
+        let ans = 1n;
+        for (; n; n >>>= 1) {
+            if (n & 1) {
+                ans = (ans * BigInt(a)) % BigInt(mod);
+            }
+            a = Number((BigInt(a) * BigInt(a)) % BigInt(mod));
         }
-        k >>= 1;
-        a = (a * a) % p;
-    }
-    return res;
+        return Number(ans);
+    };
+    return (qpow(2, n) - 2 + mod) % mod;
 }

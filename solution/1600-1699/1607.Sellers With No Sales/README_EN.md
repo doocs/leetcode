@@ -13,7 +13,7 @@
 | customer_id   | int     |
 | customer_name | varchar |
 +---------------+---------+
-customer_id is the primary key for this table.
+customer_id is the column with unique values for this table.
 Each row of this table contains the information of each customer in the WebStore.
 </pre>
 
@@ -31,7 +31,7 @@ Each row of this table contains the information of each customer in the WebStore
 | customer_id   | int     |
 | seller_id     | int     |
 +---------------+---------+
-order_id is the primary key for this table.
+order_id is the column with unique values for this table.
 Each row of this table contains all orders made in the webstore.
 sale_date is the date when the transaction was made between the customer (customer_id) and the seller (seller_id).
 </pre>
@@ -47,17 +47,17 @@ sale_date is the date when the transaction was made between the customer (custom
 | seller_id     | int     |
 | seller_name   | varchar |
 +---------------+---------+
-seller_id is the primary key for this table.
+seller_id is the column with unique values for this table.
 Each row of this table contains the information of each seller.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the names of all sellers who did not make any sales in <code>2020</code>.</p>
+<p>Write a solution to report the names of all sellers who did not make any sales in <code>2020</code>.</p>
 
 <p>Return the result table ordered by <code>seller_name</code> in <strong>ascending order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -104,20 +104,23 @@ Frank made 1 sale in 2019 but no sales in 2020.
 
 ## Solutions
 
+**Solution 1: LEFT JOIN + GROUP BY + FILTER**
+
+We can use a left join to join the `Seller` table with the `Orders` table on the condition `seller_id`, and then group by `seller_id` to count the number of sales for each seller in the year $2020$. Finally, we can filter out the sellers with zero sales.
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    seller_name
+SELECT seller_name
 FROM
-    seller AS s
-    LEFT JOIN orders AS o
-        ON s.seller_id = o.seller_id AND year(sale_date) = '2020'
-WHERE o.seller_id IS NULL
-ORDER BY seller_name;
+    Seller
+    LEFT JOIN Orders USING (seller_id)
+GROUP BY seller_id
+HAVING ifnull(sum(year(sale_date) = 2020), 0) = 0
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->

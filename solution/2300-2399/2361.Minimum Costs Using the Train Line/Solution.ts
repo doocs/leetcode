@@ -1,8 +1,4 @@
-function minimumCosts(
-    regular: number[],
-    express: number[],
-    expressCost: number,
-): number[] {
+function minimumCosts(regular: number[], express: number[], expressCost: number): number[] {
     const n = regular.length;
     let f = 0;
     let g = 1 << 30;

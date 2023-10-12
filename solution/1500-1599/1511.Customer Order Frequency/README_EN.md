@@ -112,23 +112,26 @@ Moustafa spent 110 (10 * 2 + 45 * 2) in June and 0 in July 2020.
 
 ## Solutions
 
+**Solution 1: Join + Group By + Having**
+
+We can use the `JOIN` statement to join the `Orders` table and the `Product` table, and then join the result with the `Customers` table. We can filter out the records where the `order_date` is not in the year $2020$, and then use the `GROUP BY` statement to group the data by `customer_id`. Finally, we can use the `HAVING` statement to filter out the customers whose spending in June and July is greater than or equal to $100$.
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    c.customer_id AS CUSTOMER_ID,
-    c.name AS NAME
+SELECT customer_id, name
 FROM
-    Customers c, Product p, Orders o
-WHERE
-    c.customer_id = o.customer_id
-AND p.product_id = o.product_id
-GROUP BY c.customer_id
-HAVING sum(if(month(o.order_date)=6, price*quantity, 0)) >= 100
-AND sum(if(month(o.order_date)=7, price*quantity, 0)) >= 100;
+    Orders
+    JOIN Product USING (product_id)
+    JOIN Customers USING (customer_id)
+WHERE year(order_date) = 2020
+GROUP BY 1
+HAVING
+    sum(if(month(order_date) = 6, quantity * price, 0)) >= 100
+    AND sum(if(month(order_date) = 7, quantity * price, 0)) >= 100;
 ```
 
 <!-- tabs:end -->

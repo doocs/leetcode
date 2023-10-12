@@ -187,9 +187,7 @@ function hasPathSum(root: TreeNode | null, targetSum: number): boolean {
     if (left === null && right === null) {
         return targetSum - val === 0;
     }
-    return (
-        hasPathSum(left, targetSum - val) || hasPathSum(right, targetSum - val)
-    );
+    return hasPathSum(left, targetSum - val) || hasPathSum(right, targetSum - val);
 }
 ```
 

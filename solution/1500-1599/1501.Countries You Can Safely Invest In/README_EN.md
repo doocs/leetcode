@@ -14,7 +14,7 @@
 | name           | varchar |
 | phone_number   | varchar |
 +----------------+---------+
-id is the primary key for this table.
+id is the column of unique values for this table.
 Each row of this table contains the name of a person and their phone number.
 Phone number will be in the form &#39;xxx-yyyyyyy&#39; where xxx is the country code (3 characters) and yyyyyyy is the phone number (7 characters) where x and y are digits. Both can contain leading zeros.
 </pre>
@@ -30,7 +30,7 @@ Phone number will be in the form &#39;xxx-yyyyyyy&#39; where xxx is the country 
 | name           | varchar |
 | country_code   | varchar |
 +----------------+---------+
-country_code is the primary key for this table.
+country_code is the column of unique values for this table.
 Each row of this table contains the country name and its code. country_code will be in the form &#39;xxx&#39; where x is digits.
 </pre>
 
@@ -46,7 +46,7 @@ Each row of this table contains the country name and its code. country_code will
 | callee_id   | int  |
 | duration    | int  |
 +-------------+------+
-There is no primary key for this table, it may contain duplicates.
+This table may contain duplicate rows.
 Each row of this table contains the caller id, callee id and the duration of the call in minutes. caller_id != callee_id
 </pre>
 
@@ -54,11 +54,11 @@ Each row of this table contains the caller id, callee id and the duration of the
 
 <p>A telecommunications company wants to invest in new countries. The company intends to invest in the countries where the average call duration of the calls in this country is strictly greater than the global average call duration.</p>
 
-<p>Write an SQL query to find the countries where this company can invest.</p>
+<p>Write a solution to find the countries where this company can invest.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -117,34 +117,43 @@ Since Peru is the only country where the average call duration is greater than t
 
 ## Solutions
 
+**Solution 1: Equi-Join + Group By + Subquery**
+
+We can use an equi-join to join the `Person` table and the `Calls` table on the condition of `Person.id = Calls.caller_id` or `Person.id = Calls.callee_id`, and then join the result with the `Country` table on the condition of `left(phone_number, 3) = country_code`. After that, we can group by country and calculate the average call duration for each country. Finally, we can use a subquery to find the countries whose average call duration is greater than the global average call duration.
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
 # Write your MySQL query statement below
-with t as (
-    select
-        left(phone_number, 3) as country_code,
-        avg(duration) as duration
-    from
-        Person
-        join Calls on id in (caller_id, callee_id)
-    group by
-        country_code
-)
-select
-    c.name country
-from
-    Country c
-    join t on c.country_code = t.country_code
-where
-    t.duration > (
-        select
-            avg(duration)
-        from
-            Calls
+SELECT country
+FROM
+    (
+        SELECT c.name AS country, avg(duration) AS duration
+        FROM
+            Person
+            JOIN Calls ON id IN (caller_id, callee_id)
+            JOIN Country AS c ON left(phone_number, 3) = country_code
+        GROUP BY 1
+    ) AS t
+WHERE duration > (SELECT avg(duration) FROM Calls);
+```
+
+```sql
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT c.name AS country, avg(duration) AS duration
+        FROM
+            Person
+            JOIN Calls ON id IN (caller_id, callee_id)
+            JOIN Country AS c ON left(phone_number, 3) = country_code
+        GROUP BY 1
     )
+SELECT country
+FROM T
+WHERE duration > (SELECT avg(duration) FROM Calls);
 ```
 
 <!-- tabs:end -->

@@ -111,52 +111,23 @@ According to orders 3 and 4 in the Orders table, it is easy to tell that only sa
 
 ## Solutions
 
+**Solution 1: LEFT JOIN + GROUP BY**
+
+We can use a left join to join the `SalesPerson` table with the `Orders` table on the condition of sales id, and then join the result with the `Company` table on the condition of company id. After that, we can group by `sales_id` and count the number of orders with the company name `RED`. Finally, we can filter out the salespersons who do not have any orders with the company name `RED`.
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
-SELECT name
-FROM salesperson
-WHERE
-    sales_id NOT IN (
-        SELECT s.sales_id
-        FROM
-            orders AS o
-            INNER JOIN salesperson AS s ON o.sales_id = s.sales_id
-            INNER JOIN company AS c ON o.com_id = c.com_id
-        WHERE c.name = 'RED'
-    );
-```
-
-```sql
-SELECT
-    name
-FROM SalesPerson AS s
-WHERE
-    0 = (
-        SELECT
-            COUNT(*)
-        FROM
-            Orders AS o
-            JOIN Company AS c ON o.com_id = c.com_id
-        WHERE o.sales_id = s.sales_id AND c.name = 'RED'
-    );
-```
-
-```sql
 # Write your MySQL query statement below
-SELECT name
-FROM SalesPerson
-WHERE
-    sales_id NOT IN (
-        SELECT sales_id
-        FROM
-            Company AS c
-            JOIN Orders AS o USING (com_id)
-        GROUP BY sales_id
-        HAVING sum(name = 'RED') > 0
-    );
+SELECT s.name
+FROM
+    SalesPerson AS s
+    LEFT JOIN Orders USING (sales_id)
+    LEFT JOIN Company AS c USING (com_id)
+GROUP BY sales_id
+HAVING ifnull(sum(c.name = 'RED'), 0) = 0;
 ```
 
 <!-- tabs:end -->

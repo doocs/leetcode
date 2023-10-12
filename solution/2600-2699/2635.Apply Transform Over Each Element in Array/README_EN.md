@@ -43,7 +43,7 @@ The function increases each value in the array by one.
 <ul>
 	<li><code>0 &lt;= arr.length &lt;= 1000</code></li>
 	<li><code><font face="monospace">-10<sup>9</sup>&nbsp;&lt;= arr[i] &lt;= 10<sup>9</sup></font></code></li>
-	<li><font face="monospace"><code>fn returns a number</code></font></li>
+	<li><code>fn</code> returns a number</li>
 </ul>
 
 ## Solutions

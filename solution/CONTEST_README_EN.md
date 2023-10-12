@@ -25,6 +25,76 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 366
+
+- [2894. Divisible and Non-divisible Sums Difference](/solution/2800-2899/2894.Divisible%20and%20Non-divisible%20Sums%20Difference/README_EN.md)
+- [2895. Minimum Processing Time](/solution/2800-2899/2895.Minimum%20Processing%20Time/README_EN.md)
+- [2896. Apply Operations to Make Two Strings Equal](/solution/2800-2899/2896.Apply%20Operations%20to%20Make%20Two%20Strings%20Equal/README_EN.md)
+- [2897. Apply Operations on Array to Maximize Sum of Squares](/solution/2800-2899/2897.Apply%20Operations%20on%20Array%20to%20Maximize%20Sum%20of%20Squares/README_EN.md)
+
+#### Weekly Contest 365
+
+- [2873. Maximum Value of an Ordered Triplet I](/solution/2800-2899/2873.Maximum%20Value%20of%20an%20Ordered%20Triplet%20I/README_EN.md)
+- [2874. Maximum Value of an Ordered Triplet II](/solution/2800-2899/2874.Maximum%20Value%20of%20an%20Ordered%20Triplet%20II/README_EN.md)
+- [2875. Minimum Size Subarray in Infinite Array](/solution/2800-2899/2875.Minimum%20Size%20Subarray%20in%20Infinite%20Array/README_EN.md)
+- [2876. Count Visited Nodes in a Directed Graph](/solution/2800-2899/2876.Count%20Visited%20Nodes%20in%20a%20Directed%20Graph/README_EN.md)
+
+#### Biweekly Contest 114
+
+- [2869. Minimum Operations to Collect Elements](/solution/2800-2899/2869.Minimum%20Operations%20to%20Collect%20Elements/README_EN.md)
+- [2870. Minimum Number of Operations to Make Array Empty](/solution/2800-2899/2870.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20Empty/README_EN.md)
+- [2871. Split Array Into Maximum Number of Subarrays](/solution/2800-2899/2871.Split%20Array%20Into%20Maximum%20Number%20of%20Subarrays/README_EN.md)
+- [2872. Maximum Number of K-Divisible Components](/solution/2800-2899/2872.Maximum%20Number%20of%20K-Divisible%20Components/README_EN.md)
+
+#### Weekly Contest 364
+
+- [2864. Maximum Odd Binary Number](/solution/2800-2899/2864.Maximum%20Odd%20Binary%20Number/README_EN.md)
+- [2865. Beautiful Towers I](/solution/2800-2899/2865.Beautiful%20Towers%20I/README_EN.md)
+- [2866. Beautiful Towers II](/solution/2800-2899/2866.Beautiful%20Towers%20II/README_EN.md)
+- [2867. Count Valid Paths in a Tree](/solution/2800-2899/2867.Count%20Valid%20Paths%20in%20a%20Tree/README_EN.md)
+
+#### Weekly Contest 363
+
+- [2859. Sum of Values at Indices With K Set Bits](/solution/2800-2899/2859.Sum%20of%20Values%20at%20Indices%20With%20K%20Set%20Bits/README_EN.md)
+- [2860. Happy Students](/solution/2800-2899/2860.Happy%20Students/README_EN.md)
+- [2861. Maximum Number of Alloys](/solution/2800-2899/2861.Maximum%20Number%20of%20Alloys/README_EN.md)
+- [2862. Maximum Element-Sum of a Complete Subset of Indices](/solution/2800-2899/2862.Maximum%20Element-Sum%20of%20a%20Complete%20Subset%20of%20Indices/README_EN.md)
+
+#### Biweekly Contest 113
+
+- [2855. Minimum Right Shifts to Sort the Array](/solution/2800-2899/2855.Minimum%20Right%20Shifts%20to%20Sort%20the%20Array/README_EN.md)
+- [2856. Minimum Array Length After Pair Removals](/solution/2800-2899/2856.Minimum%20Array%20Length%20After%20Pair%20Removals/README_EN.md)
+- [2857. Count Pairs of Points With Distance k](/solution/2800-2899/2857.Count%20Pairs%20of%20Points%20With%20Distance%20k/README_EN.md)
+- [2858. Minimum Edge Reversals So Every Node Is Reachable](/solution/2800-2899/2858.Minimum%20Edge%20Reversals%20So%20Every%20Node%20Is%20Reachable/README_EN.md)
+
+#### Weekly Contest 362
+
+- [2848. Points That Intersect With Cars](/solution/2800-2899/2848.Points%20That%20Intersect%20With%20Cars/README_EN.md)
+- [2849. Determine if a Cell Is Reachable at a Given Time](/solution/2800-2899/2849.Determine%20if%20a%20Cell%20Is%20Reachable%20at%20a%20Given%20Time/README_EN.md)
+- [2850. Minimum Moves to Spread Stones Over Grid](/solution/2800-2899/2850.Minimum%20Moves%20to%20Spread%20Stones%20Over%20Grid/README_EN.md)
+- [2851. String Transformation](/solution/2800-2899/2851.String%20Transformation/README_EN.md)
+
+#### Weekly Contest 361
+
+- [2843. Count Symmetric Integers](/solution/2800-2899/2843.Count%20Symmetric%20Integers/README_EN.md)
+- [2844. Minimum Operations to Make a Special Number](/solution/2800-2899/2844.Minimum%20Operations%20to%20Make%20a%20Special%20Number/README_EN.md)
+- [2845. Count of Interesting Subarrays](/solution/2800-2899/2845.Count%20of%20Interesting%20Subarrays/README_EN.md)
+- [2846. Minimum Edge Weight Equilibrium Queries in a Tree](/solution/2800-2899/2846.Minimum%20Edge%20Weight%20Equilibrium%20Queries%20in%20a%20Tree/README_EN.md)
+
+#### Biweekly Contest 112
+
+- [2839. Check if Strings Can be Made Equal With Operations I](/solution/2800-2899/2839.Check%20if%20Strings%20Can%20be%20Made%20Equal%20With%20Operations%20I/README_EN.md)
+- [2840. Check if Strings Can be Made Equal With Operations II](/solution/2800-2899/2840.Check%20if%20Strings%20Can%20be%20Made%20Equal%20With%20Operations%20II/README_EN.md)
+- [2841. Maximum Sum of Almost Unique Subarray](/solution/2800-2899/2841.Maximum%20Sum%20of%20Almost%20Unique%20Subarray/README_EN.md)
+- [2842. Count K-Subsequences of a String With Maximum Beauty](/solution/2800-2899/2842.Count%20K-Subsequences%20of%20a%20String%20With%20Maximum%20Beauty/README_EN.md)
+
+#### Weekly Contest 360
+
+- [2833. Furthest Point From Origin](/solution/2800-2899/2833.Furthest%20Point%20From%20Origin/README_EN.md)
+- [2834. Find the Minimum Possible Sum of a Beautiful Array](/solution/2800-2899/2834.Find%20the%20Minimum%20Possible%20Sum%20of%20a%20Beautiful%20Array/README_EN.md)
+- [2835. Minimum Operations to Form Subsequence With Target Sum](/solution/2800-2899/2835.Minimum%20Operations%20to%20Form%20Subsequence%20With%20Target%20Sum/README_EN.md)
+- [2836. Maximize Value of Function in a Ball Passing Game](/solution/2800-2899/2836.Maximize%20Value%20of%20Function%20in%20a%20Ball%20Passing%20Game/README_EN.md)
+
 #### Weekly Contest 359
 
 - [2828. Check if a String Is an Acronym of Words](/solution/2800-2899/2828.Check%20if%20a%20String%20Is%20an%20Acronym%20of%20Words/README_EN.md)

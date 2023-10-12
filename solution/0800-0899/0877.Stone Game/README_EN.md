@@ -226,10 +226,7 @@ function stoneGame(piles: number[]): boolean {
             return 0;
         }
         if (f[i][j] === 0) {
-            f[i][j] = Math.max(
-                piles[i] - dfs(i + 1, j),
-                piles[j] - dfs(i, j - 1),
-            );
+            f[i][j] = Math.max(piles[i] - dfs(i + 1, j), piles[j] - dfs(i, j - 1));
         }
         return f[i][j];
     };

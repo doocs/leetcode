@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>表 <code>Person</code>:</p>
+<p>表&nbsp;<code>Person</code>:</p>
 
 <pre>
 +----------------+---------+
@@ -16,12 +16,14 @@
 | name           | varchar |
 | phone_number   | varchar |
 +----------------+---------+
-id 是该表主键.
+id 是该表具有唯一值的列.
 该表每一行包含一个人的名字和电话号码.
-电话号码的格式是:'xxx-yyyyyyy', 其中xxx是国家码(3个字符), yyyyyyy是电话号码(7个字符), x和y都表示数字. 同时, 国家码和电话号码都可以包含前导0.
+电话号码的格式是:'xxx-yyyyyyy', 其中 xxx 是国家码(3 个字符), yyyyyyy 是电话号码(7 个字符), x 和 y 都表示数字. 同时, 国家码和电话号码都可以包含前导 0.
 </pre>
 
-<p>表 <code>Country</code>:</p>
+<p>&nbsp;</p>
+
+<p>表&nbsp;<code>Country</code>:</p>
 
 <pre>
 +----------------+---------+
@@ -30,13 +32,13 @@ id 是该表主键.
 | name           | varchar |
 | country_code   | varchar |
 +----------------+---------+
-country_code是该表主键.
-该表每一行包含国家名和国家码. country_code的格式是'xxx', x是数字.
+country_code 是该表具有唯一值的列.
+该表每一行包含国家名和国家码. country_code 的格式是'xxx', x 是数字.
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
-<p>表 <code>Calls</code>:</p>
+<p>表&nbsp;<code>Calls</code>:</p>
 
 <pre>
 +-------------+------+
@@ -47,19 +49,26 @@ country_code是该表主键.
 | duration    | int  |
 +-------------+------+
 该表无主键, 可能包含重复行.
-每一行包含呼叫方id, 被呼叫方id和以分钟为单位的通话时长. caller_id != callee_id
+每一行包含呼叫方 id, 被呼叫方 id 和以分钟为单位的通话时长. caller_id != callee_id
 </pre>
 
-<p>一家电信公司想要投资新的国家. 该公司想要投资的国家是:  该国的平均通话时长要严格地大于全球平均通话时长.</p>
+<p>&nbsp;</p>
 
-<p>写一段 SQL,  找到所有该公司可以投资的国家.</p>
+<p>一家电信公司想要投资新的国家。该公司想要投资的国家是:&nbsp; 该国的平均通话时长要严格地大于全球平均通话时长。</p>
 
-<p>返回的结果表没有顺序要求.</p>
+<p>写一个解决方案,&nbsp;&nbsp;找到所有该公司可以投资的国家。</p>
 
-<p>查询的结果格式如下例所示.</p>
+<p>返回的结果表 <strong>无顺序要求</strong>。</p>
+
+<p>结果格式如下例所示。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1:</strong></p>
 
 <pre>
-<code>Person</code> 表:
+<span style="white-space: pre-wrap;"><strong>输入：</strong>
+Person 表：</span>
 +----+----------+--------------+
 | id | name     | phone_number |
 +----+----------+--------------+
@@ -70,8 +79,7 @@ country_code是该表主键.
 | 7  | Meir     | 972-1234567  |
 | 9  | Rachel   | 972-0011100  |
 +----+----------+--------------+
-
-<code>Country</code> 表:
+Country 表:
 +----------+--------------+
 | name     | country_code |
 +----------+--------------+
@@ -81,7 +89,6 @@ country_code是该表主键.
 | Germany  | 049          |
 | Ethiopia | 251          |
 +----------+--------------+
-
 Calls 表:
 +-----------+-----------+----------+
 | caller_id | callee_id | duration |
@@ -97,23 +104,27 @@ Calls 表:
 | 9         | 7         | 1        |
 | 1         | 7         | 7        |
 +-----------+-----------+----------+
-
-Result 表:
+<b>输出：</b>
 +----------+
 | country  |
 +----------+
 | Peru     |
 +----------+
-国家Peru的平均通话时长是 (102 + 102 + 330 + 330 + 5 + 5) / 6 = 145.666667
-国家Israel的平均通话时长是 (33 + 4 + 13 + 13 + 3 + 1 + 1 + 7) / 8 = 9.37500
-国家Morocco的平均通话时长是 (33 + 4 + 59 + 59 + 3 + 7) / 6 = 27.5000 
+<b>解释：</b>
+国家 Peru 的平均通话时长是 (102 + 102 + 330 + 330 + 5 + 5) / 6 = 145.666667
+国家 Israel 的平均通话时长是 (33 + 4 + 13 + 13 + 3 + 1 + 1 + 7) / 8 = 9.37500
+国家 Morocco 的平均通话时长是 (33 + 4 + 59 + 59 + 3 + 7) / 6 = 27.5000 
 全球平均通话时长 = (2 * (33 + 4 + 59 + 102 + 330 + 5 + 13 + 3 + 1 + 7)) / 20 = 55.70000
-所以, Peru是唯一的平均通话时长大于全球平均通话时长的国家, 也是唯一的推荐投资的国家.
+所以, Peru 是唯一的平均通话时长大于全球平均通话时长的国家, 也是唯一的推荐投资的国家.
 </pre>
 
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+**方法一：等值连接 + 分组 + 子查询**
+
+我们可以使用等值连接，将 `Person` 表和 `Calls` 表连接起来，连接的条件是 `Person.id = Calls.caller_id` 或者 `Person.id = Calls.callee_id`，然后再将连接后的表和 `Country` 表连接起来，连接的条件是 `left(phone_number, 3) = country_code`，最后按照国家分组，计算每个国家的平均通话时长，然后再使用子查询，找出平均通话时长大于全球平均通话时长的国家。
 
 <!-- tabs:start -->
 
@@ -121,28 +132,33 @@ Result 表:
 
 ```sql
 # Write your MySQL query statement below
-with t as (
-    select
-        left(phone_number, 3) as country_code,
-        avg(duration) as duration
-    from
-        Person
-        join Calls on id in (caller_id, callee_id)
-    group by
-        country_code
-)
-select
-    c.name country
-from
-    Country c
-    join t on c.country_code = t.country_code
-where
-    t.duration > (
-        select
-            avg(duration)
-        from
-            Calls
+SELECT country
+FROM
+    (
+        SELECT c.name AS country, avg(duration) AS duration
+        FROM
+            Person
+            JOIN Calls ON id IN (caller_id, callee_id)
+            JOIN Country AS c ON left(phone_number, 3) = country_code
+        GROUP BY 1
+    ) AS t
+WHERE duration > (SELECT avg(duration) FROM Calls);
+```
+
+```sql
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT c.name AS country, avg(duration) AS duration
+        FROM
+            Person
+            JOIN Calls ON id IN (caller_id, callee_id)
+            JOIN Country AS c ON left(phone_number, 3) = country_code
+        GROUP BY 1
     )
+SELECT country
+FROM T
+WHERE duration > (SELECT avg(duration) FROM Calls);
 ```
 
 <!-- tabs:end -->

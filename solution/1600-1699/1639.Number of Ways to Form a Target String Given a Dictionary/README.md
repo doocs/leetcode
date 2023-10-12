@@ -374,9 +374,7 @@ function numWays(words: string[], target: string): number {
     }
     for (let i = 1; i <= m; ++i) {
         for (let j = 1; j <= n; ++j) {
-            f[i][j] =
-                f[i][j - 1] +
-                f[i - 1][j - 1] * cnt[j - 1][target.charCodeAt(i - 1) - 97];
+            f[i][j] = f[i][j - 1] + f[i - 1][j - 1] * cnt[j - 1][target.charCodeAt(i - 1) - 97];
             f[i][j] %= mod;
         }
     }

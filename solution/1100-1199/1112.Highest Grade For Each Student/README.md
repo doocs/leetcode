@@ -58,6 +58,14 @@ Enrollments 表：
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：RANK() OVER() 窗口函数**
+
+我们可以使用 `RANK() OVER()` 窗口函数，按照每个学生的成绩降序排列，如果成绩相同，按照课程号升序排列，然后取每个学生排名为 $1$ 的记录。
+
+**方法二：子查询**
+
+我们可以先查询每个学生的最高成绩，然后再查询每个学生的最高成绩对应的最小课程号。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -78,6 +86,20 @@ SELECT student_id, course_id, grade
 FROM T
 WHERE rk = 1
 ORDER BY student_id;
+```
+
+```sql
+# Write your MySQL query statement below
+SELECT student_id, min(course_id) AS course_id, grade
+FROM Enrollments
+WHERE
+    (student_id, grade) IN (
+        SELECT student_id, max(grade) AS grade
+        FROM Enrollments
+        GROUP BY 1
+    )
+GROUP BY 1
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->

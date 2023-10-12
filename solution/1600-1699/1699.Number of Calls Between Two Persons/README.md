@@ -64,6 +64,10 @@ Calls 表：
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：分组求和统计**
+
+我们可以用 `if` 函数或者 `least` 和 `greatest` 函数来将 `from_id` 和 `to_id` 转换成 `person1` 和 `person2`，然后按照 `person1` 和 `person2` 分组求和统计即可。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -71,12 +75,23 @@ Calls 表：
 ```sql
 # Write your MySQL query statement below
 SELECT
-    from_id AS person1,
-    to_id AS person2,
-    COUNT(1) AS call_count,
-    SUM(duration) AS total_duration
+    if(from_id < to_id, from_id, to_id) AS person1,
+    if(from_id < to_id, to_id, from_id) AS person2,
+    count(1) AS call_count,
+    sum(duration) AS total_duration
 FROM Calls
-GROUP BY LEAST(from_id, to_id), GREATEST(from_id, to_id);
+GROUP BY 1, 2;
+```
+
+```sql
+# Write your MySQL query statement below
+SELECT
+    least(from_id, to_id) AS person1,
+    greatest(from_id, to_id) AS person2,
+    count(1) AS call_count,
+    sum(duration) AS total_duration
+FROM Calls
+GROUP BY 1, 2;
 ```
 
 <!-- tabs:end -->

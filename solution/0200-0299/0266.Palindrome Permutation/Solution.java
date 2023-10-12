@@ -4,10 +4,10 @@ class Solution {
         for (char c : s.toCharArray()) {
             ++cnt[c - 'a'];
         }
-        int n = 0;
-        for (int v : cnt) {
-            n += v % 2;
+        int odd = 0;
+        for (int x : cnt) {
+            odd += x & 1;
         }
-        return n < 2;
+        return odd < 2;
     }
 }

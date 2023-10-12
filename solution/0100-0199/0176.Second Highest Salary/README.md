@@ -79,11 +79,11 @@ Employee 表：
 
 **方法二：使用 MAX() 函数和子查询**
 
-使用 `MAX()` 函数，从小于 `MAX()` 的 Salary 中挑选最大值 `MAX()` 即可。
+我们也可以使用 `MAX()` 函数，从小于 `MAX()` 的薪水中挑选一个最大的薪水即可。
 
-**方法三：使用 IFNULL() 和窗口函数**
+**方法三：使用 DISTINCT 和窗口函数**
 
-我们也可以先通过 `dense_rank()` 函数计算出每个员工的薪水排名，然后再筛选出排名为 $2$ 的员工即可，如果不存在第二高的薪水，那么就返回 `null`。
+我们还可以先通过 `DENSE_RANK()` 函数计算出每个员工的薪水排名，然后再筛选出排名为 $2$ 的员工薪水即可。
 
 <!-- tabs:start -->
 
@@ -93,38 +93,24 @@ Employee 表：
 # Write your MySQL query statement below
 SELECT
     (
-        SELECT DISTINCT Salary
+        SELECT DISTINCT salary
         FROM Employee
-        ORDER BY Salary DESC
-        LIMIT 1 OFFSET 1
+        ORDER BY salary DESC
+        LIMIT 1, 1
     ) AS SecondHighestSalary;
 ```
 
 ```sql
 # Write your MySQL query statement below
-SELECT MAX(Salary) AS SecondHighestSalary
+SELECT MAX(salary) AS SecondHighestSalary
 FROM Employee
-WHERE
-    Salary < (
-        SELECT MAX(Salary)
-        FROM Employee
-    );
+WHERE salary < (SELECT MAX(salary) FROM Employee);
 ```
 
 ```sql
 # Write your MySQL query statement below
-WITH
-    S AS (
-        SELECT salary, dense_rank() OVER (ORDER BY salary DESC) AS rk
-        FROM Employee
-    )
-SELECT
-    ifnull(
-        SELECT salary
-        FROM S
-        WHERE rk = 2
-        LIMIT 1, NULL
-    ) AS SecondHighestSalary;
+WITH T AS (SELECT salary, DENSE_RANK() OVER (ORDER BY salary DESC) AS rk FROM Employee)
+SELECT (SELECT DISTINCT salary FROM T WHERE rk = 2) AS SecondHighestSalary;
 ```
 
 <!-- tabs:end -->

@@ -60,7 +60,7 @@
 
 我们注意到，如果一个水量 $x$ 满足条件，那么所有小于 $x$ 的水量也满足条件。因此我们可以使用二分查找的方法找到最大的满足条件的水量。
 
-我们定义二分查找的左边界 $l=0$，右边界 $r=\max(buckets)$。每次二分查找时，我们取 $l$ 和 $r$ 的中点 $m$，判断 $m$ 是否满足条件。如果满足条件，那么我们将 $l$ 更新为 $m$，否则我们将 $r$ 更新为 $m$。在二分查找结束后，最大的满足条件的水量即为 $l$。
+我们定义二分查找的左边界 $l=0$，右边界 $r=\max(buckets)$。每次二分查找时，我们取 $l$ 和 $r$ 的中点 $mid$，判断 $mid$ 是否满足条件。如果满足条件，那么我们将 $l$ 更新为 $mid$，否则我们将 $r$ 更新为 $m$。在二分查找结束后，最大的满足条件的水量即为 $l$。
 
 问题的关键转换为如果判断一个水量 $v$ 是否满足条件。我们可以遍历所有水桶，对于每个水桶，如果其水量大于 $v$，那么需要倒出 $x-v$ 的水量；如果其水量小于 $v$，那么需要向其中倒入 $(v-x)\times\frac{100}{100-\textit{loss}}$ 的水量。如果倒出的水量大于等于倒入的水量，那么说明 $v$ 满足条件。
 
@@ -195,7 +195,30 @@ func equalizeWater(buckets []int, loss int) float64 {
 ### **TypeScript**
 
 ```ts
-
+function equalizeWater(buckets: number[], loss: number): number {
+    let l = 0;
+    let r = Math.max(...buckets);
+    const check = (v: number): boolean => {
+        let [a, b] = [0, 0];
+        for (const x of buckets) {
+            if (x >= v) {
+                a += x - v;
+            } else {
+                b += ((v - x) * 100) / (100 - loss);
+            }
+        }
+        return a >= b;
+    };
+    while (r - l > 1e-5) {
+        const mid = (l + r) / 2;
+        if (check(mid)) {
+            l = mid;
+        } else {
+            r = mid;
+        }
+    }
+    return l;
+}
 ```
 
 ### **...**

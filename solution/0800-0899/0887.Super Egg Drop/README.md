@@ -348,9 +348,7 @@ func max(a, b int) int {
 
 ```ts
 function superEggDrop(k: number, n: number): number {
-    const f: number[][] = new Array(n + 1)
-        .fill(0)
-        .map(() => new Array(k + 1).fill(0));
+    const f: number[][] = new Array(n + 1).fill(0).map(() => new Array(k + 1).fill(0));
     const dfs = (i: number, j: number): number => {
         if (i < 1) {
             return 0;
@@ -381,9 +379,7 @@ function superEggDrop(k: number, n: number): number {
 
 ```ts
 function superEggDrop(k: number, n: number): number {
-    const f: number[][] = new Array(n + 1)
-        .fill(0)
-        .map(() => new Array(k + 1).fill(0));
+    const f: number[][] = new Array(n + 1).fill(0).map(() => new Array(k + 1).fill(0));
     for (let i = 1; i <= n; ++i) {
         f[i][1] = i;
     }

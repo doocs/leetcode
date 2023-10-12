@@ -66,9 +66,13 @@ Activity table:
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：SUM() OVER() 窗口函数**
+**方法一：使用窗口函数**
 
-我们可以使用 `SUM() OVER()` 窗口函数来计算每个玩家到目前为止玩了多少游戏。在 `OVER()` 子句中，我们使用 `PARTITION BY` 子句将玩家分组，然后使用 `ORDER BY` 子句按日期排序。
+我们可以使用窗口函数 `SUM() OVER()`，按照 `player_id` 分组，按照 `event_date` 排序，计算每个用户截止到当前日期的游戏总数。
+
+**方法二：使用自连接 + 分组**
+
+我们也可以使用自连接，将 `Activity` 表自连接，连接条件为 `t1.player_id = t2.player_id AND t1.event_date >= t2.event_date`，然后按照 `t1.player_id` 和 `t1.event_date` 分组，累计 `t2.games_played`，得到每个用户截止到当前日期的游戏总数。
 
 <!-- tabs:start -->
 
@@ -84,6 +88,31 @@ SELECT
         ORDER BY event_date
     ) AS games_played_so_far
 FROM Activity;
+```
+
+```sql
+# Write your MySQL query statement below
+SELECT
+    t1.player_id,
+    t1.event_date,
+    sum(t2.games_played) AS games_played_so_far
+FROM
+    Activity AS t1,
+    Activity AS t2
+WHERE t1.player_id = t2.player_id AND t1.event_date >= t2.event_date
+GROUP BY 1, 2;
+```
+
+```sql
+# Write your MySQL query statement below
+SELECT
+    t1.player_id,
+    t1.event_date,
+    sum(t2.games_played) AS games_played_so_far
+FROM
+    Activity AS t1
+    CROSS JOIN Activity AS t2 ON t1.player_id = t2.player_id AND t1.event_date >= t2.event_date
+GROUP BY 1, 2;
 ```
 
 <!-- tabs:end -->

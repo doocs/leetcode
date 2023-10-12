@@ -14,30 +14,17 @@
  * }
  */
 class Solution {
-    private Map<TreeNode, Integer> memo;
-
     public int rob(TreeNode root) {
-        memo = new HashMap<>();
-        return dfs(root);
+        int[] ans = dfs(root);
+        return Math.max(ans[0], ans[1]);
     }
 
-    private int dfs(TreeNode root) {
+    private int[] dfs(TreeNode root) {
         if (root == null) {
-            return 0;
+            return new int[2];
         }
-        if (memo.containsKey(root)) {
-            return memo.get(root);
-        }
-        int a = dfs(root.left) + dfs(root.right);
-        int b = root.val;
-        if (root.left != null) {
-            b += dfs(root.left.left) + dfs(root.left.right);
-        }
-        if (root.right != null) {
-            b += dfs(root.right.left) + dfs(root.right.right);
-        }
-        int res = Math.max(a, b);
-        memo.put(root, res);
-        return res;
+        int[] l = dfs(root.left);
+        int[] r = dfs(root.right);
+        return new int[] {root.val + l[1] + r[1], Math.max(l[0], l[1]) + Math.max(r[0], r[1])};
     }
 }

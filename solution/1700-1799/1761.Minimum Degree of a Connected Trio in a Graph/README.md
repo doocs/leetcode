@@ -54,9 +54,11 @@
 
 **方法一：暴力枚举**
 
-我们先将所有边存入邻接矩阵 $g$ 中，再将每个节点的度数存入数组 $deg$ 中。
+我们先将所有边存入邻接矩阵 $g$ 中，再将每个节点的度数存入数组 $deg$ 中。初始化答案 $ans=+\infty$。
 
-然后枚举所有的三元组 $(i, j, k)$，其中 $i \lt j \lt k$，如果 $g[i][j] = g[j][k] = g[i][k] = 1$，则说明这三个节点构成了一个连通三元组，此时更新答案为 $deg[i] + deg[j] + deg[k] - 6$。返回最小的符合条件的答案即可。
+然后枚举所有的三元组 $(i, j, k)$，其中 $i \lt j \lt k$，如果 $g[i][j] = g[j][k] = g[i][k] = 1$，则说明这三个节点构成了一个连通三元组，此时更新答案为 $ans = \min(ans, deg[i] + deg[j] + deg[k] - 6)$。
+
+枚举完所有的三元组后，如果答案仍然为 $+\infty$，说明图中不存在连通三元组，返回 $-1$，否则返回答案。
 
 时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 为节点数。
 
@@ -189,6 +191,35 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function minTrioDegree(n: number, edges: number[][]): number {
+    const g = Array.from({ length: n }, () => Array(n).fill(false));
+    const deg: number[] = Array(n).fill(0);
+    for (let [u, v] of edges) {
+        u--;
+        v--;
+        g[u][v] = g[v][u] = true;
+        ++deg[u];
+        ++deg[v];
+    }
+    let ans = Infinity;
+    for (let i = 0; i < n; ++i) {
+        for (let j = i + 1; j < n; ++j) {
+            if (g[i][j]) {
+                for (let k = j + 1; k < n; ++k) {
+                    if (g[i][k] && g[j][k]) {
+                        ans = Math.min(ans, deg[i] + deg[j] + deg[k] - 6);
+                    }
+                }
+            }
+        }
+    }
+    return ans === Infinity ? -1 : ans;
 }
 ```
 

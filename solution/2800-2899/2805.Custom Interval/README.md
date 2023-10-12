@@ -19,9 +19,9 @@
 <p><b>示例 1：</b></p>
 
 <pre>
-<b>输入：</b>delay = 50, period = 20, stopTime = 225
-<b>输出：</b>[50,120,210]
-<b>解释：</b>
+<strong>输入：</strong>delay = 50, period = 20, stopTime = 225
+<strong>输出：</strong>[50,120,210]
+<strong>解释：</strong>
 const t = performance.now()&nbsp;&nbsp;
 const result = []
 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
@@ -42,9 +42,9 @@ setTimeout(() =&gt; {
 <p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<b>输入：</b>delay = 20, period = 20, stopTime = 150
-<b>输出：</b>[20,60,120]
-<b>解释：</b>
+<strong>输入：</strong>delay = 20, period = 20, stopTime = 150
+<strong>输出：</strong>[20,60,120]
+<strong>解释：</strong>
 20 + 20 * 0 = 20 // 20ms - 第一个函数调用
 20 + 20&nbsp;* 1 = 40 // 20ms + 40ms = 60ms - 第二个函数调用
 20 + 20 * 2 = 60 // 20ms + 40ms + 60ms = 120ms - 第三个函数调用
@@ -53,9 +53,9 @@ setTimeout(() =&gt; {
 <p><strong class="example">示例 3：</strong></p>
 
 <pre>
-<b>输入：</b>delay = 100, period = 200, stopTime = 500
-<b>输出：</b>[100,400]
-<b>解释：</b>
+<strong>输入：</strong>delay = 100, period = 200, stopTime = 500
+<strong>输出：</strong>[100,400]
+<strong>解释：</strong>
 100 + 200 * 0 = 100 // 100ms - 第一个函数调用
 100 + 200&nbsp;* 1 = 300 // 100ms + 300ms = 400ms - 第二个函数调用
 </pre>

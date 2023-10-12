@@ -111,6 +111,15 @@ func expectNumber(scores []int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function expectNumber(scores: number[]): number {
+    const s: Set<number> = new Set<number>(scores);
+    return s.size;
+}
+```
+
 ### **...**
 
 ```

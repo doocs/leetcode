@@ -347,11 +347,7 @@ func max(a, b int) int {
 ### **TypeScript**
 
 ```ts
-function jobScheduling(
-    startTime: number[],
-    endTime: number[],
-    profit: number[],
-): number {
+function jobScheduling(startTime: number[], endTime: number[], profit: number[]): number {
     const n = startTime.length;
     const f = new Array(n).fill(0);
     const idx = new Array(n).fill(0).map((_, i) => i);
