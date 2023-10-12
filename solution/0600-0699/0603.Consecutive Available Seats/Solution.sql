@@ -2,11 +2,14 @@
 WITH
     T AS (
         SELECT
-            seat_id,
-            (free + (lag(free) OVER (ORDER BY seat_id))) AS a,
-            (free + (lead(free) OVER (ORDER BY seat_id))) AS b
+            *,
+            sum(free = 1) OVER (
+                ORDER BY seat_id
+                ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING
+            ) AS cnt
         FROM Cinema
     )
 SELECT seat_id
 FROM T
-WHERE a = 2 OR b = 2;
+WHERE free = 1 AND cnt > 1
+ORDER BY 1;

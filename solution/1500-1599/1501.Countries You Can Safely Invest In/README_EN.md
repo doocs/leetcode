@@ -117,34 +117,43 @@ Since Peru is the only country where the average call duration is greater than t
 
 ## Solutions
 
+**Solution 1: Equi-Join + Group By + Subquery**
+
+We can use an equi-join to join the `Person` table and the `Calls` table on the condition of `Person.id = Calls.caller_id` or `Person.id = Calls.callee_id`, and then join the result with the `Country` table on the condition of `left(phone_number, 3) = country_code`. After that, we can group by country and calculate the average call duration for each country. Finally, we can use a subquery to find the countries whose average call duration is greater than the global average call duration.
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
 # Write your MySQL query statement below
-with t as (
-    select
-        left(phone_number, 3) as country_code,
-        avg(duration) as duration
-    from
-        Person
-        join Calls on id in (caller_id, callee_id)
-    group by
-        country_code
-)
-select
-    c.name country
-from
-    Country c
-    join t on c.country_code = t.country_code
-where
-    t.duration > (
-        select
-            avg(duration)
-        from
-            Calls
+SELECT country
+FROM
+    (
+        SELECT c.name AS country, avg(duration) AS duration
+        FROM
+            Person
+            JOIN Calls ON id IN (caller_id, callee_id)
+            JOIN Country AS c ON left(phone_number, 3) = country_code
+        GROUP BY 1
+    ) AS t
+WHERE duration > (SELECT avg(duration) FROM Calls);
+```
+
+```sql
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT c.name AS country, avg(duration) AS duration
+        FROM
+            Person
+            JOIN Calls ON id IN (caller_id, callee_id)
+            JOIN Country AS c ON left(phone_number, 3) = country_code
+        GROUP BY 1
     )
+SELECT country
+FROM T
+WHERE duration > (SELECT avg(duration) FROM Calls);
 ```
 
 <!-- tabs:end -->
