@@ -9,5 +9,5 @@ WHERE
             player_id,
             min(event_date) AS event_date
         FROM Activity
-        GROUP BY player_id
+        GROUP BY 1
     );

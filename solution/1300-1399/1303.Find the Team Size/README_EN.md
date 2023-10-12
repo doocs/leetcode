@@ -60,40 +60,39 @@ Employees with Id 5,6 are part of a team with team_id = 9.
 
 ## Solutions
 
+**Solution 1: Group By + Equi-Join**
+
+We can first count the number of people in each team and record it in the `T` table. Then, we can use an equi-join to join the `Employee` table and the `T` table based on `team_id`, and obtain the total number of people in each team.
+
+**Solution 2: Left Join**
+
+We can also use a left join to join the `Employee` table with itself based on `team_id`, and then group by `employee_id` to count the total number of people in each team that the employee belongs to.
+
 <!-- tabs:start -->
 
 ### **SQL**
 
-Solution 1:
-
 ```sql
 # Write your MySQL query statement below
-SELECT
-    e.employee_id,
-    t.team_size
-FROM
-    Employee AS e
-    LEFT JOIN (
-        SELECT
-            team_id,
-            count(1) AS team_size
+WITH
+    T AS (
+        SELECT team_id, count(1) AS team_size
         FROM Employee
-        GROUP BY team_id
-    ) AS t
-        ON e.team_id = t.team_id;
+        GROUP BY 1
+    )
+SELECT employee_id, team_size
+FROM
+    Employee
+    JOIN T USING (team_id);
 ```
 
-Solution 2:
-
 ```sql
 # Write your MySQL query statement below
-SELECT
-    e1.employee_id,
-    count(*) AS team_size
+SELECT e1.employee_id, count(1) AS team_size
 FROM
     Employee AS e1
-    LEFT JOIN Employee AS e2 ON e1.team_id = e2.team_id
-GROUP BY e1.employee_id;
+    LEFT JOIN Employee AS e2 USING (team_id)
+GROUP BY 1;
 ```
 
 <!-- tabs:end -->

@@ -88,13 +88,24 @@ John, Daiana, Steve 和 Jasmine 所在的院系分别是 14, 33, 74 和 77， �
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：左连接**
+**方法一：子查询**
 
-我们将 `Students` 表左连接 `Departments` 表，然后筛选出所有 `Departments` 表中 `id` 为 `NULL` 的记录即可。
+我们直接使用子查询的方式，找出所有不在院系表中的学生即可。
+
+**方法二：左连接**
+
+我们也可以使用左连接，将 `Students` 表和 `Departments` 连接，连接条件为 `Students.department_id = Departments.id`，然后筛选出 `Departments.id` 为空的学生即可。
 
 <!-- tabs:start -->
 
 ### **SQL**
+
+```sql
+# Write your MySQL query statement below
+SELECT id, name
+FROM Students
+WHERE department_id NOT IN (SELECT id FROM Departments);
+```
 
 ```sql
 # Write your MySQL query statement below

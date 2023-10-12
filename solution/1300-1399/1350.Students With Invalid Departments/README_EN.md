@@ -84,9 +84,24 @@ John, Daiana, Steve, and Jasmine are enrolled in departments 14, 33, 74, and 77 
 
 ## Solutions
 
+**Solution 1: Subquery**
+
+We can directly use a subquery to find all students who are not in the `Departments` table.
+
+**Solution 2: Left Join**
+
+We can also use a left join to join the `Students` table with the `Departments` table on the condition of `Students.department_id = Departments.id`, and then filter out the students whose `Departments.id` is `NULL`.
+
 <!-- tabs:start -->
 
 ### **SQL**
+
+```sql
+# Write your MySQL query statement below
+SELECT id, name
+FROM Students
+WHERE department_id NOT IN (SELECT id FROM Departments);
+```
 
 ```sql
 # Write your MySQL query statement below

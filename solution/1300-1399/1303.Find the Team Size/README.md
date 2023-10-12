@@ -65,40 +65,39 @@ ID 为 5、6 的员工是 team_id 为 9 的团队的成员。
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：分组统计 + 等值连接**
+
+我们可以先统计出每个团队的人数，记录在 `T` 表中，然后我们将 `Employee` 表与 `T` 表按照 `team_id` 进行等值连接，即可得到每个员工所在团队的总人数。
+
+**方法二：左连接**
+
+我们也可以使用左连接，将 `Employee` 表按照 `team_id` 进行自连接，然后按照 `employee_id` 进行分组，统计每个员工所在团队的总人数。
+
 <!-- tabs:start -->
 
 ### **SQL**
 
-解法 1：
-
 ```sql
 # Write your MySQL query statement below
-SELECT
-    e.employee_id,
-    t.team_size
-FROM
-    Employee AS e
-    LEFT JOIN (
-        SELECT
-            team_id,
-            count(1) AS team_size
+WITH
+    T AS (
+        SELECT team_id, count(1) AS team_size
         FROM Employee
-        GROUP BY team_id
-    ) AS t
-        ON e.team_id = t.team_id;
+        GROUP BY 1
+    )
+SELECT employee_id, team_size
+FROM
+    Employee
+    JOIN T USING (team_id);
 ```
 
-解法 2：
-
 ```sql
 # Write your MySQL query statement below
-SELECT
-    e1.employee_id,
-    count(*) AS team_size
+SELECT e1.employee_id, count(1) AS team_size
 FROM
     Employee AS e1
-    LEFT JOIN Employee AS e2 ON e1.team_id = e2.team_id
-GROUP BY e1.employee_id;
+    LEFT JOIN Employee AS e2 USING (team_id)
+GROUP BY 1;
 ```
 
 <!-- tabs:end -->
