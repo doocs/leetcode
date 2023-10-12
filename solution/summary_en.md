@@ -2953,3 +2953,4 @@
   - [2895.Minimum Processing Time](/solution/2800-2899/2895.Minimum%20Processing%20Time/README_EN.md)
   - [2896.Apply Operations to Make Two Strings Equal](/solution/2800-2899/2896.Apply%20Operations%20to%20Make%20Two%20Strings%20Equal/README_EN.md)
   - [2897.Apply Operations on Array to Maximize Sum of Squares](/solution/2800-2899/2897.Apply%20Operations%20on%20Array%20to%20Maximize%20Sum%20of%20Squares/README_EN.md)
+  - [2898.Maximum Linear Stock Score](/solution/2800-2899/2898.Maximum%20Linear%20Stock%20Score/README_EN.md)

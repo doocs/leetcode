@@ -2908,6 +2908,7 @@
 |  2895  |  [最小处理时间](/solution/2800-2899/2895.Minimum%20Processing%20Time/README.md)  |    |  中等  |  第 366 场周赛  |
 |  2896  |  [执行操作使两个字符串相等](/solution/2800-2899/2896.Apply%20Operations%20to%20Make%20Two%20Strings%20Equal/README.md)  |    |  中等  |  第 366 场周赛  |
 |  2897  |  [对数组执行操作使平方和最大](/solution/2800-2899/2897.Apply%20Operations%20on%20Array%20to%20Maximize%20Sum%20of%20Squares/README.md)  |    |  困难  |  第 366 场周赛  |
+|  2898  |  [Maximum Linear Stock Score](/solution/2800-2899/2898.Maximum%20Linear%20Stock%20Score/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
