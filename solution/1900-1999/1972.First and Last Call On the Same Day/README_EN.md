@@ -14,17 +14,17 @@
 | recipient_id | int      |
 | call_time    | datetime |
 +--------------+----------+
-(caller_id, recipient_id, call_time) is the primary key for this table.
+(caller_id, recipient_id, call_time) is the primary key (combination of columns with unique values) for this table.
 Each row contains information about the time of a phone call between caller_id and recipient_id.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the IDs of the users whose first and last calls on <strong>any day</strong> were with <strong>the same person</strong>. Calls are counted regardless of being the caller or the recipient.</p>
+<p>Write a solution to report the IDs of the users whose first and last calls on <strong>any day</strong> were with <strong>the same person</strong>. Calls are counted regardless of being the caller or the recipient.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

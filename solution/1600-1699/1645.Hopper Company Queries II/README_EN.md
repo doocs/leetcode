@@ -13,7 +13,7 @@
 | driver_id   | int     |
 | join_date   | date    |
 +-------------+---------+
-driver_id is the primary key for this table.
+driver_id is the column with unique values for this table.
 Each row of this table contains the driver&#39;s ID and the date they joined the Hopper company.
 </pre>
 
@@ -29,7 +29,7 @@ Each row of this table contains the driver&#39;s ID and the date they joined the
 | user_id      | int     |
 | requested_at | date    |
 +--------------+---------+
-ride_id is the primary key for this table.
+ride_id is the column with unique values for this table.
 Each row of this table contains the ID of a ride, the user&#39;s ID that requested it, and the day they requested it.
 There may be some ride requests in this table that were not accepted.
 </pre>
@@ -47,20 +47,20 @@ There may be some ride requests in this table that were not accepted.
 | ride_distance | int     |
 | ride_duration | int     |
 +---------------+---------+
-ride_id is the primary key for this table.
+ride_id is the column with unique values for this table.
 Each row of this table contains some information about an accepted ride.
 It is guaranteed that each accepted ride exists in the Rides table.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the <strong>percentage</strong> of working drivers (<code>working_percentage</code>) for each month of <strong>2020</strong> where:</p>
+<p>Write a solution to report the <strong>percentage</strong> of working drivers (<code>working_percentage</code>) for each month of <strong>2020</strong> where:</p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1645.Hopper%20Company%20Queries%20II/images/codecogseqn.png" style="width: 800px; height: 36px;" />
 <p><strong>Note</strong> that if the number of available drivers during a month is zero, we consider the <code>working_percentage</code> to be <code>0</code>.</p>
 
 <p>Return the result table ordered by <code>month</code> in <strong>ascending</strong> order, where <code>month</code> is the month&#39;s number (January is <code>1</code>, February is <code>2</code>, etc.). Round <code>working_percentage</code> to the nearest <strong>2 decimal places</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -181,10 +181,7 @@ WITH RECURSIVE
 SELECT
     month,
     ifnull(
-        round(
-            count(DISTINCT t.driver_id) * 100 / count(DISTINCT s.driver_id),
-            2
-        ),
+        round(count(DISTINCT t.driver_id) * 100 / count(DISTINCT s.driver_id), 2),
         0
     ) AS working_percentage
 FROM

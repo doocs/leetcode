@@ -32,7 +32,7 @@ The output order does not matter. Returning [9,0] is fine too.
 <strong>Input:</strong> s = &quot;wordgoodgoodgoodbestword&quot;, words = [&quot;word&quot;,&quot;good&quot;,&quot;best&quot;,&quot;word&quot;]
 <strong>Output:</strong> []
 <strong>Explanation:</strong> Since words.length == 4 and words[i].length == 4, the concatenated substring has to be of length 16.
-There is no substring of length 16 is s that is equal to the concatenation of any permutation of words.
+There is no substring of length 16 in s that is equal to the concatenation of any permutation of words.
 We return an empty array.
 </pre>
 

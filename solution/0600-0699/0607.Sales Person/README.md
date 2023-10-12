@@ -116,52 +116,23 @@ Orders 表:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：左连接 + 分组统计**
+
+我们可以使用左连接将 `SalesPerson` 表与 `Orders` 表连接起来，再与 `Company` 表连接起来，然后按照 `sales_id` 分组，每组统计有多少个公司的名字为 `RED` 的订单，最后筛选出没有这样的订单的销售人员的姓名。
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
-SELECT name
-FROM salesperson
-WHERE
-    sales_id NOT IN (
-        SELECT s.sales_id
-        FROM
-            orders AS o
-            INNER JOIN salesperson AS s ON o.sales_id = s.sales_id
-            INNER JOIN company AS c ON o.com_id = c.com_id
-        WHERE c.name = 'RED'
-    );
-```
-
-```sql
-SELECT
-    name
-FROM SalesPerson AS s
-WHERE
-    0 = (
-        SELECT
-            COUNT(*)
-        FROM
-            Orders AS o
-            JOIN Company AS c ON o.com_id = c.com_id
-        WHERE o.sales_id = s.sales_id AND c.name = 'RED'
-    );
-```
-
-```sql
 # Write your MySQL query statement below
-SELECT name
-FROM SalesPerson
-WHERE
-    sales_id NOT IN (
-        SELECT sales_id
-        FROM
-            Company AS c
-            JOIN Orders AS o USING (com_id)
-        GROUP BY sales_id
-        HAVING sum(name = 'RED') > 0
-    );
+SELECT s.name
+FROM
+    SalesPerson AS s
+    LEFT JOIN Orders USING (sales_id)
+    LEFT JOIN Company AS c USING (com_id)
+GROUP BY sales_id
+HAVING ifnull(sum(c.name = 'RED'), 0) = 0;
 ```
 
 <!-- tabs:end -->

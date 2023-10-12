@@ -73,6 +73,14 @@ Orders table:
 
 ## Solutions
 
+**Solution 1: NOT IN**
+
+List all customer IDs of existing orders, and use `NOT IN` to find customers who are not in the list.
+
+**Solution 2: LEFT JOIN**
+
+Use `LEFT JOIN` to join the tables and return the data where `CustomerId` is `NULL`.
+
 <!-- tabs:start -->
 
 ### **SQL**

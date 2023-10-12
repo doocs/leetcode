@@ -1,11 +1,13 @@
 function appealSum(s: string): number {
+    const pos: number[] = Array(26).fill(-1);
     const n = s.length;
-    let dp = new Array(n + 1).fill(0);
-    const hashMap = new Map();
-    for (let i = 0; i < n; i++) {
-        const c = s.charAt(i);
-        dp[i + 1] = dp[i] + i + 1 - (hashMap.get(c) || 0);
-        hashMap.set(c, i + 1);
+    let ans = 0;
+    let t = 0;
+    for (let i = 0; i < n; ++i) {
+        const c = s.charCodeAt(i) - 97;
+        t += i - pos[c];
+        ans += t;
+        pos[c] = i;
     }
-    return dp.reduce((a, c) => a + c, 0);
+    return ans;
 }

@@ -43,9 +43,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-先中序遍历二叉搜索树 root1、root2 得到两个有序列表 vals1、vals2。然后利用双指针，i 指向 vals1 头部，j 指向 vals2 尾部，判断双指针指向的两元素和 s 与 target 的大小关系，若相等，直接返回 true，若 `s < target`，i 指针往右移动，否则 j 指针往左移动。
+**方法一：中序遍历 + 双指针**
 
-遍历结束，说明不存在两节点和为 target 的元素，直接返回 false。
+我们分别对两棵树进行中序遍历，得到两个有序数组 $nums[0]$ 和 $nums[1]$，然后使用双指针的方法判断是否存在两个数的和为目标值。双指针判断方法如下：
+
+初始化两个指针 $i$ 和 $j$，分别指向数组 $nums[0]$ 的左边界和数组 $nums[1]$ 的右边界；
+
+每次比较 $x = nums[0][i] + nums[1][j]$ 与目标值的大小。如果 $x = target$，则返回 `true`；否则，如果 $x \lt target$，则 $i$ 右移一位；否则，如果 $x \gt target$，则 $j$ 左移一位。
+
+时间复杂度 $O(m + n)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别为两棵树的节点数。
 
 <!-- tabs:start -->
 
@@ -61,23 +67,25 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def twoSumBSTs(self, root1: TreeNode, root2: TreeNode, target: int) -> bool:
-        vals1, vals2 = [], []
+    def twoSumBSTs(
+        self, root1: Optional[TreeNode], root2: Optional[TreeNode], target: int
+    ) -> bool:
+        def dfs(root: Optional[TreeNode], i: int):
+            if root is None:
+                return
+            dfs(root.left, i)
+            nums[i].append(root.val)
+            dfs(root.right, i)
 
-        def inorder(root, vals):
-            if root:
-                inorder(root.left, vals)
-                vals.append(root.val)
-                inorder(root.right, vals)
-
-        inorder(root1, vals1)
-        inorder(root2, vals2)
-
-        i, j = 0, len(vals2) - 1
-        while i < len(vals1) and j >= 0:
-            if vals1[i] + vals2[j] == target:
+        nums = [[], []]
+        dfs(root1, 0)
+        dfs(root2, 1)
+        i, j = 0, len(nums[1]) - 1
+        while i < len(nums[0]) and ~j:
+            x = nums[0][i] + nums[1][j]
+            if x == target:
                 return True
-            if vals1[i] + vals2[j] < target:
+            if x < target:
                 i += 1
             else:
                 j -= 1
@@ -105,18 +113,19 @@ class Solution:
  * }
  */
 class Solution {
+    private List<Integer>[] nums = new List[2];
+
     public boolean twoSumBSTs(TreeNode root1, TreeNode root2, int target) {
-        List<Integer> vals1 = new ArrayList<>();
-        List<Integer> vals2 = new ArrayList<>();
-        inorder(root1, vals1);
-        inorder(root2, vals2);
-        int i = 0, j = vals2.size() - 1;
-        while (i < vals1.size() && j >= 0) {
-            int s = vals1.get(i) + vals2.get(j);
-            if (s == target) {
+        Arrays.setAll(nums, k -> new ArrayList<>());
+        dfs(root1, 0);
+        dfs(root2, 1);
+        int i = 0, j = nums[1].size() - 1;
+        while (i < nums[0].size() && j >= 0) {
+            int x = nums[0].get(i) + nums[1].get(j);
+            if (x == target) {
                 return true;
             }
-            if (s < target) {
+            if (x < target) {
                 ++i;
             } else {
                 --j;
@@ -125,12 +134,13 @@ class Solution {
         return false;
     }
 
-    private void inorder(TreeNode root, List<Integer> vals) {
-        if (root != null) {
-            inorder(root.left, vals);
-            vals.add(root.val);
-            inorder(root.right, vals);
+    private void dfs(TreeNode root, int i) {
+        if (root == null) {
+            return;
         }
+        dfs(root.left, i);
+        nums[i].add(root.val);
+        dfs(root.right, i);
     }
 }
 ```
@@ -152,28 +162,30 @@ class Solution {
 class Solution {
 public:
     bool twoSumBSTs(TreeNode* root1, TreeNode* root2, int target) {
-        vector<int> vals1, vals2;
-        inorder(root1, vals1);
-        inorder(root2, vals2);
-        int i = 0, j = vals2.size() - 1;
-        while (i < vals1.size() && j >= 0) {
-            int s = vals1[i] + vals2[j];
-            if (s == target)
+        vector<int> nums[2];
+        function<void(TreeNode*, int)> dfs = [&](TreeNode* root, int i) {
+            if (!root) {
+                return;
+            }
+            dfs(root->left, i);
+            nums[i].push_back(root->val);
+            dfs(root->right, i);
+        };
+        dfs(root1, 0);
+        dfs(root2, 1);
+        int i = 0, j = nums[1].size() - 1;
+        while (i < nums[0].size() && j >= 0) {
+            int x = nums[0][i] + nums[1][j];
+            if (x == target) {
                 return true;
-            if (s < target)
+            }
+            if (x < target) {
                 ++i;
-            else
+            } else {
                 --j;
+            }
         }
         return false;
-    }
-
-    void inorder(TreeNode* root, vector<int>& vals) {
-        if (root) {
-            inorder(root->left, vals);
-            vals.push_back(root->val);
-            inorder(root->right, vals);
-        }
     }
 };
 ```
@@ -190,15 +202,25 @@ public:
  * }
  */
 func twoSumBSTs(root1 *TreeNode, root2 *TreeNode, target int) bool {
-	vals1 := inorder(root1)
-	vals2 := inorder(root2)
-	i, j := 0, len(vals2)-1
-	for i < len(vals1) && j >= 0 {
-		s := vals1[i] + vals2[j]
-		if s == target {
+	nums := [2][]int{}
+	var dfs func(*TreeNode, int)
+	dfs = func(root *TreeNode, i int) {
+		if root == nil {
+			return
+		}
+		dfs(root.Left, i)
+		nums[i] = append(nums[i], root.Val)
+		dfs(root.Right, i)
+	}
+	dfs(root1, 0)
+	dfs(root2, 1)
+	i, j := 0, len(nums[1])-1
+	for i < len(nums[0]) && j >= 0 {
+		x := nums[0][i] + nums[1][j]
+		if x == target {
 			return true
 		}
-		if s < target {
+		if x < target {
 			i++
 		} else {
 			j--
@@ -206,14 +228,53 @@ func twoSumBSTs(root1 *TreeNode, root2 *TreeNode, target int) bool {
 	}
 	return false
 }
+```
 
-func inorder(root *TreeNode) []int {
-	if root == nil {
-		return nil
-	}
-	left := inorder(root.Left)
-	right := inorder(root.Right)
-	return append(append(left, root.Val), right...)
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function twoSumBSTs(root1: TreeNode | null, root2: TreeNode | null, target: number): boolean {
+    const nums: number[][] = Array(2)
+        .fill(0)
+        .map(() => []);
+    const dfs = (root: TreeNode | null, i: number) => {
+        if (!root) {
+            return;
+        }
+        dfs(root.left, i);
+        nums[i].push(root.val);
+        dfs(root.right, i);
+    };
+    dfs(root1, 0);
+    dfs(root2, 1);
+    let i = 0;
+    let j = nums[1].length - 1;
+    while (i < nums[0].length && j >= 0) {
+        const x = nums[0][i] + nums[1][j];
+        if (x === target) {
+            return true;
+        }
+        if (x < target) {
+            ++i;
+        } else {
+            --j;
+        }
+    }
+    return false;
 }
 ```
 

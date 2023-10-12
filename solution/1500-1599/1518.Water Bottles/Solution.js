@@ -4,10 +4,9 @@
  * @return {number}
  */
 var numWaterBottles = function (numBottles, numExchange) {
-    let sum = numBottles;
-    while (numBottles >= numExchange) {
-        numBottles = numBottles - numExchange + 1;
-        sum++;
+    let ans = numBottles;
+    for (; numBottles >= numExchange; ++ans) {
+        numBottles -= numExchange - 1;
     }
-    return sum;
+    return ans;
 };

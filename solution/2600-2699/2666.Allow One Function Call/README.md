@@ -1,4 +1,4 @@
-# [2666. 只允许一次函数调用](https://leetcode.cn/problems/allow-one-function-call)
+# [2666. 只允许一次函数调用 44](https://leetcode.cn/problems/allow-one-function-call)
 
 [English Version](/solution/2600-2699/2666.Allow%20One%20Function%20Call/README_EN.md)
 
@@ -43,6 +43,7 @@ onceFn(4, 6, 8); // undefined, fn 没有被调用
 <p><strong>提示：</strong></p>
 
 <ul>
+	<li><code>calls</code> 是一个有效的 JSON 数组</li>
 	<li><code>1 &lt;= calls.length &lt;= 10</code></li>
 	<li><code>1 &lt;= calls[i].length &lt;= 100</code></li>
 	<li><code>2 &lt;= JSON.stringify(calls).length &lt;= 1000</code></li>

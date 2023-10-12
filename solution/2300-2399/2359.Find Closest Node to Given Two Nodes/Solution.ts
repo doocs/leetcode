@@ -1,8 +1,4 @@
-function closestMeetingNode(
-    edges: number[],
-    node1: number,
-    node2: number,
-): number {
+function closestMeetingNode(edges: number[], node1: number, node2: number): number {
     const n = edges.length;
     const g = Array.from({ length: n }, () => []);
     for (let i = 0; i < n; ++i) {

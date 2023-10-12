@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>Given <code>n</code> orders, each order consist in pickup and delivery services.&nbsp;</p>
+<p>Given <code>n</code> orders,each order consists of a pickup and a delivery service.</p>
 
 <p>Count all valid pickup/delivery possible sequences such that delivery(i) is always after of&nbsp;pickup(i).&nbsp;</p>
 
@@ -88,6 +88,23 @@ public:
         return f;
     }
 };
+```
+
+### **Rust**
+
+```rust
+const MOD: i64 = 1e9 as i64 + 7;
+
+impl Solution {
+    #[allow(dead_code)]
+    pub fn count_orders(n: i32) -> i32 {
+        let mut f = 1;
+        for i in 2..=n as i64 {
+            f = (i * (2 * i - 1) * f) % MOD;
+        }
+        f as i32
+    }
+}
 ```
 
 ### **Go**

@@ -8,24 +8,15 @@
  * }
  */
 public class Codec {
+    private int i;
+    private List<String> nums;
+    private final int inf = 1 << 30;
 
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
-        if (root == null) {
-            return "";
-        }
-        StringBuilder sb = new StringBuilder();
-        dfs(root, sb);
-        return sb.substring(0, sb.length() - 1);
-    }
-
-    private void dfs(TreeNode root, StringBuilder sb) {
-        if (root == null) {
-            return;
-        }
-        sb.append(root.val).append(",");
-        dfs(root.left, sb);
-        dfs(root.right, sb);
+        nums = new ArrayList<>();
+        dfs(root);
+        return String.join(" ", nums);
     }
 
     // Decodes your encoded data to tree.
@@ -33,24 +24,32 @@ public class Codec {
         if (data == null || "".equals(data)) {
             return null;
         }
-        String[] s = data.split(",");
-        return build(s, 0, s.length - 1);
+        i = 0;
+        nums = Arrays.asList(data.split(" "));
+        return dfs(-inf, inf);
     }
 
-    private TreeNode build(String[] s, int l, int r) {
-        if (l > r) {
+    private void dfs(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        nums.add(String.valueOf(root.val));
+        dfs(root.left);
+        dfs(root.right);
+    }
+
+    private TreeNode dfs(int mi, int mx) {
+        if (i == nums.size()) {
             return null;
         }
-        int idx = r + 1;
-        TreeNode root = new TreeNode(Integer.valueOf(s[l]));
-        for (int i = l + 1; i <= r; ++i) {
-            if (Integer.valueOf(s[i]) > root.val) {
-                idx = i;
-                break;
-            }
+        int x = Integer.parseInt(nums.get(i));
+        if (x < mi || x > mx) {
+            return null;
         }
-        root.left = build(s, l + 1, idx - 1);
-        root.right = build(s, idx, r);
+        TreeNode root = new TreeNode(x);
+        ++i;
+        root.left = dfs(mi, x);
+        root.right = dfs(x, mx);
         return root;
     }
 }

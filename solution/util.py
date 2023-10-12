@@ -28,6 +28,12 @@ ts_readme_cn = load_template("ts_problem_readme_template")
 ts_readme_en = load_template("ts_problem_readme_template_en")
 contest_readme_cn = load_template("contest_readme_template")
 contest_readme_en = load_template("contest_readme_template_en")
+category_readme_cn = load_template("category_readme_template")
+category_readme_en = load_template("category_readme_template_en")
+
+category_dict = {
+    'Database': '数据库',
+}
 
 
 def load_cookies() -> Tuple[str, str]:
@@ -155,7 +161,7 @@ def generate_question_readme(result):
                     item["title_cn"],
                     item["url_cn"],
                     item["relative_path_en"],
-                    item["content_cn"].replace('leetcode-cn.com', 'leetcode.cn'),
+                    item["content_cn"].replace("leetcode-cn.com", "leetcode.cn"),
                 )
             )
 
@@ -200,6 +206,82 @@ def generate_summary(result):
     # generate summary_en.md
     with open("./summary_en.md", "w", encoding="utf-8") as f:
         f.write(summary_en)
+
+
+def generate_category_summary(result, category=""):
+    """generate category summary files"""
+    summary_cn = (
+        "- " + category_dict.get(category, category) + "专项练习\n\n" if category else ""
+    )
+    summary_en = "- " + category + " Practice\n\n" if category else ""
+    category = category.lower() if category else ""
+    sub_category = category + "-" if category else ""
+    m = {int(item["frontend_question_id"]): item for item in result}
+    for file in sorted(os.listdir("./"), key=lambda x: x.lower()):
+        if os.path.isdir("./" + file) and file != "__pycache__":
+            for sub in sorted(os.listdir("./" + file), key=lambda x: x.lower()):
+                sub = sub.replace("`", " ")
+                enc = quote(sub)
+                if not sub[:4].isdigit():
+                    continue
+                data = m.get(int(sub[:4]))
+                if not data or (category and data["category"].lower() != category):
+                    continue
+                sub_cn = sub
+                if data:
+                    sub_cn = sub[:5] + data["title_cn"]
+
+                summary_cn += (
+                    f"  - [{sub_cn}](/{sub_category}solution/{file}/{enc}/README.md)\n"
+                )
+                summary_en += (
+                    f"  - [{sub}](/{sub_category}solution/{file}/{enc}/README_EN.md)\n"
+                )
+
+    # generate summary.md
+    with open(f"./{sub_category}summary.md", "w", encoding="utf-8") as f:
+        f.write(summary_cn)
+
+    # generate summary_en.md
+    with open(f"./{sub_category}summary_en.md", "w", encoding="utf-8") as f:
+        f.write(summary_en)
+
+
+def generate_category_readme(result, category=""):
+    md_table_cn = [item["md_table_row_cn"] for item in result]
+    md_table_en = [item["md_table_row_en"] for item in result]
+    m = {int(item["frontend_question_id"]): item for item in result}
+
+    # generate README.md
+    items = []
+    table_cn = "\n|  题号  |  题解  |  标签  |  难度  | 备注 |\n| --- | --- | --- | --- | --- |"
+    for item in sorted(md_table_cn, key=lambda x: x[0]):
+        if category and m[int(item[0])]["category"] != category:
+            continue
+        items.append(
+            f"\n|  {item[0]}  |  {item[1]}  |  {item[2]}  |  {item[3]}  |  {item[4]}  |"
+        )
+    table_cn += "".join(items)
+
+    # generate README_EN.md
+    items = []
+    table_en = "\n|  #  |  Solution  |  Tags  |  Difficulty  |  Remark |\n| --- | --- | --- | --- | --- |"
+    for item in sorted(md_table_en, key=lambda x: x[0]):
+        if category and m[int(item[0])]["category"] != category:
+            continue
+        items.append(
+            f"\n|  {item[0]}  |  {item[1]}  |  {item[2]}  |  {item[3]}  |  {item[4]}  |"
+        )
+    table_en += "".join(items)
+    path_prefix = category.upper() + "_" if category else ""
+    with open(f"./{path_prefix}README.md", "w", encoding="utf-8") as f:
+        f.write(
+            category_readme_cn.format(
+                category_dict.get(category, category), category.upper(), table_cn
+            )
+        )
+    with open(f"./{path_prefix}README_EN.md", "w", encoding="utf-8") as f:
+        f.write(category_readme_en.format(category, category.upper(), table_en))
 
 
 def refresh(result):
@@ -248,7 +330,7 @@ def refresh(result):
             )
             cn_content = cn_content.replace(url, new_url)
 
-        cn_content = cn_content.replace('leetcode-cn.com', 'leetcode.cn')
+        cn_content = cn_content.replace("leetcode-cn.com", "leetcode.cn")
         with open(path_cn, "w", encoding="utf-8") as f1:
             f1.write(cn_content)
 

@@ -137,7 +137,7 @@ The first yielded promise immediately rejects. This error is caught. Because the
 
 <ul>
 	<li><code>cancelledAt == null or 0 &lt;= cancelledAt &lt;= 1000</code></li>
-	<li><code>generatorFunction returns a generator object</code></li>
+	<li><code>generatorFunction</code> returns a generator object</li>
 </ul>
 
 ## Solutions
@@ -147,9 +147,7 @@ The first yielded promise immediately rejects. This error is caught. Because the
 ### **TypeScript**
 
 ```ts
-function cancellable<T>(
-    generator: Generator<Promise<any>, T, unknown>,
-): [() => void, Promise<T>] {
+function cancellable<T>(generator: Generator<Promise<any>, T, unknown>): [() => void, Promise<T>] {
     let cancel: () => void = () => {};
     const cancelPromise = new Promise((resolve, reject) => {
         cancel = () => reject('Cancelled');
@@ -160,9 +158,7 @@ function cancellable<T>(
         let next = generator.next();
         while (!next.done) {
             try {
-                next = generator.next(
-                    await Promise.race([next.value, cancelPromise]),
-                );
+                next = generator.next(await Promise.race([next.value, cancelPromise]));
             } catch (e) {
                 next = generator.throw(e);
             }

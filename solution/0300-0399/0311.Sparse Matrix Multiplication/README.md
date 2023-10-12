@@ -42,43 +42,58 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：直接相乘**
+
+我们可以直接按照矩阵乘法的定义，计算出结果矩阵中的每一个元素。
+
+时间复杂度 $O(m \times n \times k)$，空间复杂度 $O(m \times n)$。
+
+**方法二：预处理**
+
+我们可以预处理出两个矩阵的稀疏表示，即 $g1[i]$ 表示矩阵 $mat1$ 第 $i$ 行中所有非零元素的列下标和值，而 $g2[i]$ 表示矩阵 $mat2$ 第 $i$ 行中所有非零元素的列下标和值。
+
+接下来，我们遍历每一行 $i$，遍历 $g1[i]$ 中的每一个元素 $(k, x)$，遍历 $g2[k]$ 中的每一个元素 $(j, y)$，那么最终 $mat1[i][k] \times mat2[k][j]$ 就会对应到结果矩阵中的 $ans[i][j]$，我们将所有的结果累加即可。
+
+时间复杂度 $O(m \times n \times k)$，空间复杂度 $O(m \times n)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-直接模拟。
-
 ```python
 class Solution:
     def multiply(self, mat1: List[List[int]], mat2: List[List[int]]) -> List[List[int]]:
-        r1, c1, c2 = len(mat1), len(mat1[0]), len(mat2[0])
-        res = [[0] * c2 for _ in range(r1)]
-        for i in range(r1):
-            for j in range(c2):
-                for k in range(c1):
-                    res[i][j] += mat1[i][k] * mat2[k][j]
-        return res
+        m, n = len(mat1), len(mat2[0])
+        ans = [[0] * n for _ in range(m)]
+        for i in range(m):
+            for j in range(n):
+                for k in range(len(mat2)):
+                    ans[i][j] += mat1[i][k] * mat2[k][j]
+        return ans
 ```
 
-用哈希表记录稀疏矩阵 mat1 中的非 0 值。
-
 ```python
 class Solution:
     def multiply(self, mat1: List[List[int]], mat2: List[List[int]]) -> List[List[int]]:
-        r1, c1, c2 = len(mat1), len(mat1[0]), len(mat2[0])
-        res = [[0] * c2 for _ in range(r1)]
-        mp = defaultdict(list)
-        for i in range(r1):
-            for j in range(c1):
-                if mat1[i][j] != 0:
-                    mp[i].append(j)
-        for i in range(r1):
-            for j in range(c2):
-                for k in mp[i]:
-                    res[i][j] += mat1[i][k] * mat2[k][j]
-        return res
+        def f(mat: List[List[int]]) -> List[List[int]]:
+            g = [[] for _ in range(len(mat))]
+            for i, row in enumerate(mat):
+                for j, x in enumerate(row):
+                    if x:
+                        g[i].append((j, x))
+            return g
+
+        g1 = f(mat1)
+        g2 = f(mat2)
+        m, n = len(mat1), len(mat2[0])
+        ans = [[0] * n for _ in range(m)]
+        for i in range(m):
+            for k, x in g1[i]:
+                for j, y in g2[k]:
+                    ans[i][j] += x * y
+        return ans
 ```
 
 ### **Java**
@@ -88,26 +103,51 @@ class Solution:
 ```java
 class Solution {
     public int[][] multiply(int[][] mat1, int[][] mat2) {
-        int r1 = mat1.length, c1 = mat1[0].length, c2 = mat2[0].length;
-        int[][] res = new int[r1][c2];
-        Map<Integer, List<Integer>> mp = new HashMap<>();
-        for (int i = 0; i < r1; ++i) {
-            for (int j = 0; j < c1; ++j) {
-                if (mat1[i][j] != 0) {
-                    mp.computeIfAbsent(i, k -> new ArrayList<>()).add(j);
+        int m = mat1.length, n = mat2[0].length;
+        int[][] ans = new int[m][n];
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                for (int k = 0; k < mat2.length; ++k) {
+                    ans[i][j] += mat1[i][k] * mat2[k][j];
                 }
             }
         }
-        for (int i = 0; i < r1; ++i) {
-            for (int j = 0; j < c2; ++j) {
-                if (mp.containsKey(i)) {
-                    for (int k : mp.get(i)) {
-                        res[i][j] += mat1[i][k] * mat2[k][j];
-                    }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int[][] multiply(int[][] mat1, int[][] mat2) {
+        int m = mat1.length, n = mat2[0].length;
+        int[][] ans = new int[m][n];
+        var g1 = f(mat1);
+        var g2 = f(mat2);
+        for (int i = 0; i < m; ++i) {
+            for (int[] p : g1[i]) {
+                int k = p[0], x = p[1];
+                for (int[] q : g2[k]) {
+                    int j = q[0], y = q[1];
+                    ans[i][j] += x * y;
                 }
             }
         }
-        return res;
+        return ans;
+    }
+
+    private List<int[]>[] f(int[][] mat) {
+        int m = mat.length, n = mat[0].length;
+        List<int[]>[] g = new List[m];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (mat[i][j] != 0) {
+                    g[i].add(new int[] {j, mat[i][j]});
+                }
+            }
+        }
+        return g;
     }
 }
 ```
@@ -118,20 +158,48 @@ class Solution {
 class Solution {
 public:
     vector<vector<int>> multiply(vector<vector<int>>& mat1, vector<vector<int>>& mat2) {
-        int r1 = mat1.size(), c1 = mat1[0].size(), c2 = mat2[0].size();
-        vector<vector<int>> res(r1, vector<int>(c2));
-        unordered_map<int, vector<int>> mp;
-        for (int i = 0; i < r1; ++i) {
-            for (int j = 0; j < c1; ++j) {
-                if (mat1[i][j] != 0) mp[i].push_back(j);
+        int m = mat1.size(), n = mat2[0].size();
+        vector<vector<int>> ans(m, vector<int>(n));
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                for (int k = 0; k < mat2.size(); ++k) {
+                    ans[i][j] += mat1[i][k] * mat2[k][j];
+                }
             }
         }
-        for (int i = 0; i < r1; ++i) {
-            for (int j = 0; j < c2; ++j) {
-                for (int k : mp[i]) res[i][j] += mat1[i][k] * mat2[k][j];
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> multiply(vector<vector<int>>& mat1, vector<vector<int>>& mat2) {
+        int m = mat1.size(), n = mat2[0].size();
+        vector<vector<int>> ans(m, vector<int>(n));
+        auto g1 = f(mat1), g2 = f(mat2);
+        for (int i = 0; i < m; ++i) {
+            for (auto& [k, x] : g1[i]) {
+                for (auto& [j, y] : g2[k]) {
+                    ans[i][j] += x * y;
+                }
             }
         }
-        return res;
+        return ans;
+    }
+
+    vector<vector<pair<int, int>>> f(vector<vector<int>>& mat) {
+        int m = mat.size(), n = mat[0].size();
+        vector<vector<pair<int, int>>> g(m);
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (mat[i][j]) {
+                    g[i].emplace_back(j, mat[i][j]);
+                }
+            }
+        }
+        return g;
     }
 };
 ```
@@ -140,27 +208,99 @@ public:
 
 ```go
 func multiply(mat1 [][]int, mat2 [][]int) [][]int {
-	r1, c1, c2 := len(mat1), len(mat1[0]), len(mat2[0])
-	res := make([][]int, r1)
-	for i := range res {
-		res[i] = make([]int, c2)
+	m, n := len(mat1), len(mat2[0])
+	ans := make([][]int, m)
+	for i := range ans {
+		ans[i] = make([]int, n)
 	}
-	mp := make(map[int][]int)
-	for i := 0; i < r1; i++ {
-		for j := 0; j < c1; j++ {
-			if mat1[i][j] != 0 {
-				mp[i] = append(mp[i], j)
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			for k := 0; k < len(mat2); k++ {
+				ans[i][j] += mat1[i][k] * mat2[k][j]
 			}
 		}
 	}
-	for i := 0; i < r1; i++ {
-		for j := 0; j < c2; j++ {
-			for _, k := range mp[i] {
-				res[i][j] += mat1[i][k] * mat2[k][j]
+	return ans
+}
+```
+
+```go
+func multiply(mat1 [][]int, mat2 [][]int) [][]int {
+	m, n := len(mat1), len(mat2[0])
+	ans := make([][]int, m)
+	for i := range ans {
+		ans[i] = make([]int, n)
+	}
+	f := func(mat [][]int) [][][2]int {
+		m, n := len(mat), len(mat[0])
+		g := make([][][2]int, m)
+		for i := range g {
+			g[i] = make([][2]int, 0, n)
+			for j := range mat[i] {
+				if mat[i][j] != 0 {
+					g[i] = append(g[i], [2]int{j, mat[i][j]})
+				}
+			}
+		}
+		return g
+	}
+	g1, g2 := f(mat1), f(mat2)
+	for i := range g1 {
+		for _, p := range g1[i] {
+			k, x := p[0], p[1]
+			for _, q := range g2[k] {
+				j, y := q[0], q[1]
+				ans[i][j] += x * y
 			}
 		}
 	}
-	return res
+	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function multiply(mat1: number[][], mat2: number[][]): number[][] {
+    const [m, n] = [mat1.length, mat2[0].length];
+    const ans: number[][] = Array.from({ length: m }, () => Array.from({ length: n }, () => 0));
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            for (let k = 0; k < mat2.length; ++k) {
+                ans[i][j] += mat1[i][k] * mat2[k][j];
+            }
+        }
+    }
+    return ans;
+}
+```
+
+```ts
+function multiply(mat1: number[][], mat2: number[][]): number[][] {
+    const [m, n] = [mat1.length, mat2[0].length];
+    const ans: number[][] = Array.from({ length: m }, () => Array.from({ length: n }, () => 0));
+    const f = (mat: number[][]): number[][][] => {
+        const [m, n] = [mat.length, mat[0].length];
+        const ans: number[][][] = Array.from({ length: m }, () => []);
+        for (let i = 0; i < m; ++i) {
+            for (let j = 0; j < n; ++j) {
+                if (mat[i][j] !== 0) {
+                    ans[i].push([j, mat[i][j]]);
+                }
+            }
+        }
+        return ans;
+    };
+    const g1 = f(mat1);
+    const g2 = f(mat2);
+    for (let i = 0; i < m; ++i) {
+        for (const [k, x] of g1[i]) {
+            for (const [j, y] of g2[k]) {
+                ans[i][j] += x * y;
+            }
+        }
+    }
+    return ans;
 }
 ```
 

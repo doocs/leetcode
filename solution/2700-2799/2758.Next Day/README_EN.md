@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>Write code that enhances all date objects such that you can call the <code>date.nextDay()</code>&nbsp;method on any date object and it will return&nbsp;the next day in the format <em>YYYY-MM-DD</em>.</p>
+<p>Write code that enhances all date objects such that you can call the <code>date.nextDay()</code>&nbsp;method on any date object and it will return&nbsp;the next day in the format <em>YYYY-MM-DD</em> as a string.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -29,7 +29,7 @@ date.nextDay(); // &quot;2014-06-21&quot;
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>new Date(date) is a valid date object</code></li>
+	<li><code>new Date(date)</code> is a valid date object</li>
 </ul>
 
 ## Solutions

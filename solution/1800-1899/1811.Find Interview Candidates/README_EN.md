@@ -15,7 +15,7 @@
 | silver_medal | int  |
 | bronze_medal | int  |
 +--------------+------+
-contest_id is the primary key for this table.
+contest_id is the column with unique values for this table.
 This table contains the LeetCode contest ID and the user IDs of the gold, silver, and bronze medalists.
 It is guaranteed that any consecutive contests have consecutive IDs and that no ID is skipped.</pre>
 
@@ -31,13 +31,13 @@ It is guaranteed that any consecutive contests have consecutive IDs and that no 
 | mail        | varchar |
 | name        | varchar |
 +-------------+---------+
-user_id is the primary key for this table.
+user_id is the column with unique values for this table.
 This table contains information about the users.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the <code>name</code> and the <code>mail</code> of all <strong>interview candidates</strong>. A user is an <strong>interview candidate</strong> if <strong>at least one</strong> of these two conditions is true:</p>
+<p>Write a solution to report the <code>name</code> and the <code>mail</code> of all <strong>interview candidates</strong>. A user is an <strong>interview candidate</strong> if <strong>at least one</strong> of these two conditions is true:</p>
 
 <ul>
 	<li>The user won <strong>any</strong> medal in <strong>three or more consecutive</strong> contests.</li>
@@ -46,7 +46,7 @@ This table contains information about the users.
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

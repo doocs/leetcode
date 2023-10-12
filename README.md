@@ -1,10 +1,10 @@
 <p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/leetcode@main/images/leetcode-doocs.png" alt="LeetCode-GitHub-Doocs"></a>
+  <a href="https://github.com/doocs/leetcode"><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/leetcode-doocs.png" alt="LeetCode-GitHub-Doocs"></a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="https://img.shields.io/badge/langs-Java%20%7C%20Python%20%7C%20C%2B%2B%20%7C%20Go%20%7C%20TypeScript%20%7C%20...-red?style=flat-square&color=42b883" alt="languages"></a>
   <a href="https://doocs.github.io/#/?id=how-to-join"><img src="https://img.shields.io/badge/organization-join%20us-42b883?style=flat-square" alt="open-source-organization"></a>
+  <a href="https://github.com/doocs/leetcode"><img src="https://img.shields.io/badge/langs-Python%20%7C%20Java%20%7C%20C++%20%7C%20Go%20%7C%20TypeScript%20%7C%20Rust%20%7C%20...-red?style=flat-square&color=42b883" alt="languages"></a>
   <a href="https://github.com/doocs/leetcode/blob/main/LICENSE"><img src="https://img.shields.io/github/license/doocs/leetcode?color=42b883&style=flat-square" alt="LICENSE"></a><br>
   <a href="https://opencollective.com/doocs-leetcode/backers/badge.svg" alt="backers on Open Collective"><img src="https://img.shields.io/opencollective/backers/doocs-leetcode?color=42b883&style=flat-square&logo=open%20collective&logoColor=ffffff" /></a>
   <a href="https://github.com/doocs/leetcode/stargazers"><img src="https://img.shields.io/github/stars/doocs/leetcode?color=42b883&logo=github&style=flat-square" alt="stars"></a>
@@ -30,6 +30,11 @@
 -   [剑指 Offer（第 2 版）](/lcof/README.md)
 -   [剑指 Offer（专项突击版）](/lcof2/README.md)
 -   [程序员面试金典（第 6 版）](/lcci/README.md)
+
+## 专项突破
+
+-   [JavaScript 专项练习](/solution/JAVASCRIPT_README.md)
+-   [数据库专项练习](/solution/DATABASE_README.md)
 
 ## 算法提升专题
 
@@ -225,7 +230,7 @@
 
 知名互联网科技博主 [@爱可可-爱生活](https://weibo.com/fly51fly) 微博推荐。
 
-<a href="https://weibo.com/fly51fly" target="_blank"><img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/leetcode@main/images/recommender-fly51fly.png"></a>
+<a href="https://weibo.com/fly51fly" target="_blank"><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/recommender-fly51fly.png"></a>
 
 ## 许可证
 

@@ -1,32 +1,17 @@
 name: clang-format-linter
 
 on:
-  pull_request_target:
-    types:
-      - opened
-      - edited
-      - synchronize
-    branches:
-      - main
+  push: {}
+  pull_request: {}
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-
-    - uses: DoozyX/clang-format-lint-action@v0.13
+    - uses: actions/checkout@v4
+    - uses: DoozyX/clang-format-lint-action@v0.16.2
       with:
         source: '.'
         extensions: 'c,cpp,java'
-        clangFormatVersion: 12
-        inplace: True
-
-    - uses: EndBug/add-and-commit@v9
-      with:
-        committer_name: yanglbme
-        committer_email: contact@yanglibin.info
-        message: 'chore: format code with clang-format'
-      env:
-        GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
+        clangFormatVersion: 16

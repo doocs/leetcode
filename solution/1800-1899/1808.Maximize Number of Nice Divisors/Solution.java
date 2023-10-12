@@ -1,27 +1,27 @@
 class Solution {
+    private final int mod = (int) 1e9 + 7;
+
     public int maxNiceDivisors(int primeFactors) {
         if (primeFactors < 4) {
             return primeFactors;
         }
-        final int mod = (int) 1e9 + 7;
         if (primeFactors % 3 == 0) {
-            return (int) qmi(3, primeFactors / 3, mod);
+            return qpow(3, primeFactors / 3);
         }
         if (primeFactors % 3 == 1) {
-            return (int) (4 * qmi(3, primeFactors / 3 - 1, mod) % mod);
+            return (int) (4L * qpow(3, primeFactors / 3 - 1) % mod);
         }
-        return (int) (2 * qmi(3, primeFactors / 3, mod) % mod);
+        return 2 * qpow(3, primeFactors / 3) % mod;
     }
 
-    private long qmi(long a, long k, long p) {
-        long res = 1;
-        while (k != 0) {
-            if ((k & 1) == 1) {
-                res = res * a % p;
+    private int qpow(long a, long n) {
+        long ans = 1;
+        for (; n > 0; n >>= 1) {
+            if ((n & 1) == 1) {
+                ans = ans * a % mod;
             }
-            k >>= 1;
-            a = a * a % p;
+            a = a * a % mod;
         }
-        return res;
+        return (int) ans;
     }
 }

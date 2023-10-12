@@ -54,6 +54,10 @@ Delivery table:
 
 ## Solutions
 
+**Solution 1: Sum**
+
+We can use the `sum` function to count the number of instant orders, and then divide it by the total number of orders. Since the problem requires a percentage, we need to multiply by 100. Finally, we can use the `round` function to keep two decimal places.
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -61,10 +65,7 @@ Delivery table:
 ```sql
 # Write your MySQL query statement below
 SELECT
-    round(
-        sum(order_date = customer_pref_delivery_date) * 100 / count(1),
-        2
-    ) AS immediate_percentage
+    round(sum(order_date = customer_pref_delivery_date) / count(1) * 100, 2) AS immediate_percentage
 FROM Delivery;
 ```
 

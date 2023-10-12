@@ -57,20 +57,11 @@
 
 **方法一：动态规划**
 
-定义状态 $a$ 表示以当前元素作为正结尾的最大交替子数组和，状态 $b$ 表示以当前元素作为负结尾的最大交替子数组和。初始时 $a = nums[0]$，$b = -\infty$。
+我们定义 $f$ 表示以 $nums[i]$ 结尾的交替子数组的最大和，定义 $g$ 表示以 $-nums[i]$ 结尾的交替子数组的最大和，初始时 $f$ 和 $g$ 均为 $-\infty$。
 
-遍历数组，对于当前元素 $nums[i]$，有
+接下来，我们遍历数组 $nums$，对于位置 $i$，我们需要维护 $f$ 和 $g$ 的值，即 $f = \max(g, 0) + nums[i]$，而 $g = f - nums[i]$。答案即为所有 $f$ 和 $g$ 中的最大值。
 
-$$
-\begin{aligned}
-a = \max(nums[i], b + nums[i]) \\
-b = a - nums[i]
-\end{aligned}
-$$
-
-求出 $a$ 和 $b$ 后，将 $a$ 和 $b$ 中的最大值与当前最大交替子数组和进行比较，更新最大交替子数组和。
-
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
+时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -81,11 +72,10 @@ $$
 ```python
 class Solution:
     def maximumAlternatingSubarraySum(self, nums: List[int]) -> int:
-        ans = nums[0]
-        a, b = nums[0], -inf
-        for v in nums[1:]:
-            a, b = max(v, b + v), a - v
-            ans = max(ans, a, b)
+        ans = f = g = -inf
+        for x in nums:
+            f, g = max(g, 0) + x, f - x
+            ans = max(ans, f, g)
         return ans
 ```
 
@@ -96,13 +86,13 @@ class Solution:
 ```java
 class Solution {
     public long maximumAlternatingSubarraySum(int[] nums) {
-        long ans = nums[0];
-        long a = nums[0], b = -(1 << 30);
-        for (int i = 1; i < nums.length; ++i) {
-            long c = a, d = b;
-            a = Math.max(nums[i], d + nums[i]);
-            b = c - nums[i];
-            ans = Math.max(ans, Math.max(a, b));
+        final long inf = 1L << 60;
+        long ans = -inf, f = -inf, g = -inf;
+        for (int x : nums) {
+            long ff = Math.max(g, 0) + x;
+            g = f - x;
+            f = ff;
+            ans = Math.max(ans, Math.max(f, g));
         }
         return ans;
     }
@@ -112,18 +102,17 @@ class Solution {
 ### **C++**
 
 ```cpp
-using ll = long long;
-
 class Solution {
 public:
     long long maximumAlternatingSubarraySum(vector<int>& nums) {
-        ll ans = nums[0];
-        ll a = nums[0], b = -(1 << 30);
-        for (int i = 1; i < nums.size(); ++i) {
-            ll c = a, d = b;
-            a = max(1ll * nums[i], d + nums[i]);
-            b = c - nums[i];
-            ans = max(ans, max(a, b));
+        using ll = long long;
+        const ll inf = 1LL << 60;
+        ll ans = -inf, f = -inf, g = -inf;
+        for (int x : nums) {
+            ll ff = max(g, 0LL) + x;
+            g = f - x;
+            f = ff;
+            ans = max({ans, f, g});
         }
         return ans;
     }
@@ -134,13 +123,11 @@ public:
 
 ```go
 func maximumAlternatingSubarraySum(nums []int) int64 {
-	ans := nums[0]
-	a, b := nums[0], -(1 << 30)
-	for _, v := range nums[1:] {
-		c, d := a, b
-		a = max(v, d+v)
-		b = c - v
-		ans = max(ans, max(a, b))
+	const inf = 1 << 60
+	ans, f, g := -inf, -inf, -inf
+	for _, x := range nums {
+		f, g = max(g, 0)+x, f-x
+		ans = max(ans, max(f, g))
 	}
 	return int64(ans)
 }
@@ -150,6 +137,19 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maximumAlternatingSubarraySum(nums: number[]): number {
+    let [ans, f, g] = [-Infinity, -Infinity, -Infinity];
+    for (const x of nums) {
+        [f, g] = [Math.max(g, 0) + x, f - x];
+        ans = Math.max(ans, f, g);
+    }
+    return ans;
 }
 ```
 

@@ -14,7 +14,7 @@
 | time_stamp  | datetime |
 | amount      | int      |
 +-------------+----------+
-(user_id, time_stamp) is the primary key for this table.
+(user_id, time_stamp) is the primary key (combination of columns with unique values) for this table.
 Each row contains information about the purchase time and the amount paid for the user with ID user_id.
 </pre>
 
@@ -22,9 +22,9 @@ Each row contains information about the purchase time and the amount paid for th
 
 <p>A user is eligible for a discount if they had a purchase in the inclusive interval of time <code>[startDate, endDate]</code> with at least <code>minAmount</code> amount. To convert the dates to times, both dates should be considered as the <strong>start</strong> of the day (i.e., <code>endDate = 2022-03-05</code> should be considered as the time <code>2022-03-05 00:00:00</code>).</p>
 
-<p>Write an SQL query to report the number of users that are eligible for a discount.</p>
+<p>Write a solution to report the number of users that are eligible for a discount.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

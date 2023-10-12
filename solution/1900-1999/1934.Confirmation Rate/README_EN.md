@@ -13,7 +13,7 @@
 | user_id        | int      |
 | time_stamp     | datetime |
 +----------------+----------+
-user_id is the primary key for this table.
+user_id is the column of unique values for this table.
 Each row contains information about the signup time for the user with ID user_id.
 </pre>
 
@@ -29,9 +29,9 @@ Each row contains information about the signup time for the user with ID user_id
 | time_stamp     | datetime |
 | action         | ENUM     |
 +----------------+----------+
-(user_id, time_stamp) is the primary key for this table.
-user_id is a foreign key with a reference to the Signups table.
-action is an ENUM of the type (&#39;confirmed&#39;, &#39;timeout&#39;)
+(user_id, time_stamp) is the primary key (combination of columns with unique values) for this table.
+user_id is a foreign key (reference column) to the Signups table.
+action is an ENUM (category) of the type (&#39;confirmed&#39;, &#39;timeout&#39;)
 Each row of this table indicates that the user with ID user_id requested a confirmation message at time_stamp and that confirmation message was either confirmed (&#39;confirmed&#39;) or expired without confirming (&#39;timeout&#39;).
 </pre>
 
@@ -39,11 +39,11 @@ Each row of this table indicates that the user with ID user_id requested a confi
 
 <p>The <strong>confirmation rate</strong> of a user is the number of <code>&#39;confirmed&#39;</code> messages divided by the total number of requested confirmation messages. The confirmation rate of a user that did not request any confirmation messages is <code>0</code>. Round the confirmation rate to <strong>two decimal</strong> places.</p>
 
-<p>Write an SQL query to find the <strong>confirmation rate</strong> of each user.</p>
+<p>Write a solution to find the <strong>confirmation rate</strong> of each user.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

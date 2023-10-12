@@ -59,25 +59,16 @@ The rest of the employees get a 100% bonus.
 
 ## Solutions
 
+**Solution 1: IF Statement + ORDER BY Clause**
+
+We can use the `IF` statement to determine the calculation method of the bonus, and then use `ORDER BY` to sort the results by `employee_id`.
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
-SELECT
-    employee_id,
-    CASE
-        WHEN employee_id % 2 = 0
-        OR LEFT(name, 1) = 'M' THEN 0
-        ELSE salary
-    END AS bonus
-FROM
-    employees;
-```
-
-MySQL
-
-```sql
+# Write your MySQL query statement below
 SELECT
     employee_id,
     IF(
@@ -87,19 +78,8 @@ SELECT
         salary
     ) AS bonus
 FROM
-    employees;
-```
-
-```sql
-# Write your MySQL query statement below
-SELECT
-    employee_id,
-    CASE
-        WHEN (employee_id % 2 = 1 AND NAME NOT LIKE "M%") THEN salary
-        ELSE 0
-    END AS bonus
-FROM Employees
-ORDER BY employee_id;
+    employees
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->

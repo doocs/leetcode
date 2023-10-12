@@ -16,7 +16,11 @@
 <p><strong class="example">Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> t = 100, calls = [{&quot;t&quot;:20,&quot;inputs&quot;:[1]}]
+<strong>Input:</strong> 
+t = 100, 
+calls = [
+  {&quot;t&quot;:20,&quot;inputs&quot;:[1]}
+]
 <strong>Output:</strong> [{&quot;t&quot;:20,&quot;inputs&quot;:[1]}]
 <strong>Explanation:</strong> The 1st call is always called without delay
 </pre>
@@ -24,7 +28,12 @@
 <p><strong class="example">Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> t = 50, calls = [{&quot;t&quot;:50,&quot;inputs&quot;:[1]},{&quot;t&quot;:75,&quot;inputs&quot;:[2]}]
+<strong>Input:</strong> 
+t = 50, 
+calls = [
+  {&quot;t&quot;:50,&quot;inputs&quot;:[1]},
+  {&quot;t&quot;:75,&quot;inputs&quot;:[2]}
+]
 <strong>Output:</strong> [{&quot;t&quot;:50,&quot;inputs&quot;:[1]},{&quot;t&quot;:100,&quot;inputs&quot;:[2]}]
 <strong>Explanation:</strong> 
 The 1st is called a function with arguments (1) without delay.
@@ -34,7 +43,15 @@ The 2nd is called at 75ms, within the delay period because 50ms + 50ms = 100ms, 
 <p><strong class="example">Example 3:</strong></p>
 
 <pre>
-<strong>Input:</strong> t = 70, calls = [{&quot;t&quot;:50,&quot;inputs&quot;:[1]},{&quot;t&quot;:75,&quot;inputs&quot;:[2]},{&quot;t&quot;:90,&quot;inputs&quot;:[8]},{&quot;t&quot;: 140, &quot;inputs&quot;:[5,7]},{&quot;t&quot;: 300, &quot;inputs&quot;: [9,4]}]
+<strong>Input:</strong> 
+t = 70, 
+calls = [
+  {&quot;t&quot;:50,&quot;inputs&quot;:[1]},
+  {&quot;t&quot;:75,&quot;inputs&quot;:[2]},
+  {&quot;t&quot;:90,&quot;inputs&quot;:[8]},
+  {&quot;t&quot;: 140, &quot;inputs&quot;:[5,7]},
+  {&quot;t&quot;: 300, &quot;inputs&quot;: [9,4]}
+]
 <strong>Output:</strong> [{&quot;t&quot;:50,&quot;inputs&quot;:[1]},{&quot;t&quot;:120,&quot;inputs&quot;:[8]},{&quot;t&quot;:190,&quot;inputs&quot;:[5,7]},{&quot;t&quot;:300,&quot;inputs&quot;:[9,4]}]
 <strong>Explanation:</strong> 
 The 1st is called a function with arguments (1) without delay.
@@ -50,7 +67,7 @@ The 5th is called at 300ms, but it is after 260ms, so it should be called immedi
 	<li><code>0 &lt;= t &lt;= 1000</code></li>
 	<li><code>1 &lt;= calls.length &lt;= 10</code></li>
 	<li><code>0 &lt;= calls[i].t &lt;= 1000</code></li>
-	<li><code>0 &lt;= calls[i].inputs[i], calls[i].inputs.length &lt;= 10</code></li>
+	<li><code>0 &lt;= calls[i].inputs[j], calls[i].inputs.length &lt;= 10</code></li>
 </ul>
 
 ## Solutions

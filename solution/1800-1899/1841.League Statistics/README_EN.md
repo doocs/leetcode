@@ -13,7 +13,7 @@
 | team_id        | int     |
 | team_name      | varchar |
 +----------------+---------+
-team_id is the primary key for this table.
+team_id is the column with unique values for this table.
 Each row contains information about one team in the league.
 </pre>
 
@@ -30,7 +30,7 @@ Each row contains information about one team in the league.
 | home_team_goals | int     |
 | away_team_goals | int     |
 +-----------------+---------+
-(home_team_id, away_team_id) is the primary key for this table.
+(home_team_id, away_team_id) is the primary key (combination of columns with unique values) for this table.
 Each row contains information about one match.
 home_team_goals is the number of goals scored by the home team.
 away_team_goals is the number of goals scored by the away team.
@@ -39,7 +39,7 @@ The winner of the match is the team with the higher number of goals.
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the statistics of the league. The statistics should be built using the played matches where the <strong>winning</strong> team gets <strong>three points</strong> and the <strong>losing</strong> team gets <strong>no points</strong>. If a match ends with a <strong>draw</strong>, both teams get <strong>one point</strong>.</p>
+<p>Write a solution to report the statistics of the league. The statistics should be built using the played matches where the <strong>winning</strong> team gets <strong>three points</strong> and the <strong>losing</strong> team gets <strong>no points</strong>. If a match ends with a <strong>draw</strong>, both teams get <strong>one point</strong>.</p>
 
 <p>Each row of the result table should contain:</p>
 
@@ -54,7 +54,7 @@ The winner of the match is the team with the higher number of goals.
 
 <p>Return the result table ordered by <code>points</code> <strong>in descending order</strong>. If two or more teams have the same <code>points</code>, order them by <code>goal_diff</code> <strong>in descending order</strong>. If there is still a tie, order them by <code>team_name</code> in <strong>lexicographical order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

@@ -13,7 +13,7 @@
 | customer_id   | int     |
 | name          | varchar |
 +---------------+---------+
-customer_id is the primary key for this table.
+customer_id is the column with unique values for this table.
 This table contains information about the customers.
 </pre>
 
@@ -30,7 +30,7 @@ This table contains information about the customers.
 | customer_id   | int     |
 | product_id    | int     |
 +---------------+---------+
-order_id is the primary key for this table.
+order_id is the column with unique values for this table.
 This table contains information about the orders made by customer_id.
 There will be no product ordered by the same user <strong>more than once</strong> in one day.</pre>
 
@@ -46,17 +46,17 @@ There will be no product ordered by the same user <strong>more than once</strong
 | product_name  | varchar |
 | price         | int     |
 +---------------+---------+
-product_id is the primary key for this table.
+product_id is the column with unique values for this table.
 This table contains information about the Products.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find the most recent order(s) of each product.</p>
+<p>Write a solution to find the most recent order(s) of each product.</p>
 
 <p>Return the result table ordered by <code>product_name</code> in ascending order and in case of a tie by the <code>product_id</code> in <strong>ascending order</strong>. If there still a tie, order them by <code>order_id</code> in <strong>ascending order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

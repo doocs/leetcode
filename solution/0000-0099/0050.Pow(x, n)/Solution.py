@@ -1,12 +1,12 @@
 class Solution:
     def myPow(self, x: float, n: int) -> float:
-        def qmi(a, k):
-            res = 1
-            while k:
-                if k & 1:
-                    res *= a
+        def qpow(a: float, n: int) -> float:
+            ans = 1
+            while n:
+                if n & 1:
+                    ans *= a
                 a *= a
-                k >>= 1
-            return res
+                n >>= 1
+            return ans
 
-        return qmi(x, n) if n >= 0 else 1 / qmi(x, -n)
+        return qpow(x, n) if n >= 0 else 1 / qpow(x, -n)

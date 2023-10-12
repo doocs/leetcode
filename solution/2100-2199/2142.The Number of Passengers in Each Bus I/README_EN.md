@@ -13,7 +13,7 @@
 | bus_id       | int  |
 | arrival_time | int  |
 +--------------+------+
-bus_id is the primary key column for this table.
+bus_id is the column with unique values for this table.
 Each row of this table contains information about the arrival time of a bus at the LeetCode station.
 No two buses will arrive at the same time.
 </pre>
@@ -29,7 +29,7 @@ No two buses will arrive at the same time.
 | passenger_id | int  |
 | arrival_time | int  |
 +--------------+------+
-passenger_id is the primary key column for this table.
+passenger_id is the column with unique values for this table.
 Each row of this table contains information about the arrival time of a passenger at the LeetCode station.
 </pre>
 
@@ -37,11 +37,11 @@ Each row of this table contains information about the arrival time of a passenge
 
 <p>Buses and passengers arrive at the LeetCode station. If a bus arrives at the station at time <code>t<sub>bus</sub></code> and a passenger arrived at time <code>t<sub>passenger</sub></code> where <code>t<sub>passenger</sub> &lt;= t<sub>bus</sub></code> and the passenger did not catch any bus, the passenger will use that bus.</p>
 
-<p>Write an SQL query to report the number of users that used each bus.</p>
+<p>Write a solution&nbsp;to report the number of users that used each bus.</p>
 
 <p>Return the result table ordered by <code>bus_id</code> in <strong>ascending order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

@@ -61,40 +61,52 @@ stockPrice.minimum();     // return 2, the minimum price is 2 at timestamp 4.
 
 ## Solutions
 
+**Solution 1: Hash Table + Ordered Set**
+
+We define the following data structures or variables:
+
+-   `d`: a hash table that stores the timestamp and the corresponding price;
+-   `ls`: an ordered set that stores all prices;
+-   `last`: the timestamp of the last update.
+
+Then, we can perform the following operations:
+
+-   `update(timestamp, price)`: update the price corresponding to the timestamp `timestamp` to `price`. If `timestamp` already exists, we need to first remove its corresponding price from the ordered set, and then update it to `price`. Otherwise, we directly update it to `price`. Then, we need to update `last` to `max(last, timestamp)`. The time complexity is O(log n).
+-   `current()`: return the price corresponding to `last`. The time complexity is $O(1)$.
+-   `maximum()`: return the maximum value in the ordered set. The time complexity is $O(\log n)$.
+-   `minimum()`: return the minimum value in the ordered set. The time complexity is $O(\log n)$.
+
+The space complexity is $O(n)$, where $n$ is the number of `update` operations.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-from sortedcontainers import SortedDict
+from sortedcontainers import SortedList
 
 
 class StockPrice:
     def __init__(self):
-        self.last_ts = 0
-        self.mp = {}
-        self.counter = SortedDict()
+        self.d = {}
+        self.ls = SortedList()
+        self.last = 0
 
     def update(self, timestamp: int, price: int) -> None:
-        if timestamp in self.mp:
-            old_price = self.mp[timestamp]
-            self.counter[old_price] -= 1
-            if self.counter[old_price] == 0:
-                del self.counter[old_price]
-        if price not in self.counter:
-            self.counter[price] = 0
-        self.counter[price] += 1
-        self.mp[timestamp] = price
-        self.last_ts = max(self.last_ts, timestamp)
+        if timestamp in self.d:
+            self.ls.remove(self.d[timestamp])
+        self.d[timestamp] = price
+        self.ls.add(price)
+        self.last = max(self.last, timestamp)
 
     def current(self) -> int:
-        return self.mp[self.last_ts]
+        return self.d[self.last]
 
     def maximum(self) -> int:
-        return self.counter.keys()[-1]
+        return self.ls[-1]
 
     def minimum(self) -> int:
-        return self.counter.keys()[0]
+        return self.ls[0]
 
 
 # Your StockPrice object will be instantiated and called as such:
@@ -109,36 +121,35 @@ class StockPrice:
 
 ```java
 class StockPrice {
-    private int lastTs;
-    private Map<Integer, Integer> mp = new HashMap<>();
-    private TreeMap<Integer, Integer> counter = new TreeMap<>();
+    private Map<Integer, Integer> d = new HashMap<>();
+    private TreeMap<Integer, Integer> ls = new TreeMap<>();
+    private int last;
 
     public StockPrice() {
     }
 
     public void update(int timestamp, int price) {
-        if (mp.containsKey(timestamp)) {
-            int oldPrice = mp.get(timestamp);
-            counter.put(oldPrice, counter.get(oldPrice) - 1);
-            if (counter.get(oldPrice) == 0) {
-                counter.remove(oldPrice);
+        if (d.containsKey(timestamp)) {
+            int old = d.get(timestamp);
+            if (ls.merge(old, -1, Integer::sum) == 0) {
+                ls.remove(old);
             }
         }
-        mp.put(timestamp, price);
-        counter.put(price, counter.getOrDefault(price, 0) + 1);
-        lastTs = Math.max(lastTs, timestamp);
+        d.put(timestamp, price);
+        ls.merge(price, 1, Integer::sum);
+        last = Math.max(last, timestamp);
     }
 
     public int current() {
-        return mp.get(lastTs);
+        return d.get(last);
     }
 
     public int maximum() {
-        return counter.lastKey();
+        return ls.lastKey();
     }
 
     public int minimum() {
-        return counter.firstKey();
+        return ls.firstKey();
     }
 }
 
@@ -157,35 +168,34 @@ class StockPrice {
 ```cpp
 class StockPrice {
 public:
-    int lastTs;
-    unordered_map<int, int> mp;
-    map<int, int> counter;
-
     StockPrice() {
     }
 
     void update(int timestamp, int price) {
-        if (mp.count(timestamp)) {
-            int oldPrice = mp[timestamp];
-            --counter[oldPrice];
-            if (counter[oldPrice] == 0) counter.erase(oldPrice);
+        if (d.count(timestamp)) {
+            ls.erase(ls.find(d[timestamp]));
         }
-        mp[timestamp] = price;
-        ++counter[price];
-        lastTs = max(lastTs, timestamp);
+        d[timestamp] = price;
+        ls.insert(price);
+        last = max(last, timestamp);
     }
 
     int current() {
-        return mp[lastTs];
+        return d[last];
     }
 
     int maximum() {
-        return counter.rbegin()->first;
+        return *ls.rbegin();
     }
 
     int minimum() {
-        return counter.begin()->first;
+        return *ls.begin();
     }
+
+private:
+    unordered_map<int, int> d;
+    multiset<int> ls;
+    int last = 0;
 };
 
 /**
@@ -202,52 +212,57 @@ public:
 
 ```go
 type StockPrice struct {
-	lastTs  int
-	mp      map[int]int
-	counter *redblacktree.Tree
+	d    map[int]int
+	ls   *redblacktree.Tree
+	last int
 }
 
 func Constructor() StockPrice {
 	return StockPrice{
-		mp:      make(map[int]int),
-		counter: redblacktree.NewWithIntComparator(),
+		d:    make(map[int]int),
+		ls:   redblacktree.NewWithIntComparator(),
+		last: 0,
 	}
 }
 
 func (this *StockPrice) Update(timestamp int, price int) {
-	if timestamp > this.lastTs {
-		this.lastTs = timestamp
-	}
-	if old, ok := this.mp[timestamp]; ok {
-		cnt := getInt(this.counter, old)
-		if cnt == 1 {
-			this.counter.Remove(old)
+	merge := func(rbt *redblacktree.Tree, key, value int) {
+		if v, ok := rbt.Get(key); ok {
+			nxt := v.(int) + value
+			if nxt == 0 {
+				rbt.Remove(key)
+			} else {
+				rbt.Put(key, nxt)
+			}
 		} else {
-			this.counter.Put(old, cnt-1)
+			rbt.Put(key, value)
 		}
 	}
-	this.mp[timestamp] = price
-	this.counter.Put(price, getInt(this.counter, price)+1)
+	if v, ok := this.d[timestamp]; ok {
+		merge(this.ls, v, -1)
+	}
+	this.d[timestamp] = price
+	merge(this.ls, price, 1)
+	this.last = max(this.last, timestamp)
 }
 
 func (this *StockPrice) Current() int {
-	return this.mp[this.lastTs]
+	return this.d[this.last]
 }
 
 func (this *StockPrice) Maximum() int {
-	return this.counter.Right().Key.(int)
+	return this.ls.Right().Key.(int)
 }
 
 func (this *StockPrice) Minimum() int {
-	return this.counter.Left().Key.(int)
+	return this.ls.Left().Key.(int)
 }
 
-func getInt(rbt *redblacktree.Tree, key int) int {
-	val, found := rbt.Get(key)
-	if !found {
-		return 0
+func max(a, b int) int {
+	if a > b {
+		return a
 	}
-	return val.(int)
+	return b
 }
 
 /**

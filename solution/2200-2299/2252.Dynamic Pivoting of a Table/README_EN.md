@@ -14,7 +14,7 @@
 | store       | varchar |
 | price       | int     |
 +-------------+---------+
-(product_id, store) is the primary key for this table.
+(product_id, store) is the primary key (combination of columns with unique values) for this table.
 Each row of this table indicates the price of product_id in store.
 There will be at most 30 different stores in the table.
 price is the price of the product at this store.
@@ -30,7 +30,7 @@ price is the price of the product at this store.
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

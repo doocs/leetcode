@@ -14,19 +14,19 @@
 
 <p>剩余的每一行对应&nbsp;<code>arr</code>&nbsp;中的一个对象。矩阵中的每个值对应对象中的一个值。如果给定对象在给定列中没有值，则应该包含空字符串 <code>""</code> 。</p>
 
-<p>矩阵中的列应按 <strong>字典升序</strong> 排列。</p>
+<p>矩阵中的列应按 <strong>字典序升序</strong> 排列。</p>
 
 <p>&nbsp;</p>
 
 <p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<b>输入：</b>
+<strong>输入：</strong>
 arr = [
 &nbsp; {"b": 1, "a": 2},
 &nbsp; {"b": 3, "a": 4}
 ]
-<b>输出：</b>
+<strong>输出：</strong>
 [
 &nbsp; ["a", "b"],
 &nbsp; [2, 1],
@@ -42,13 +42,13 @@ arr = [
 <p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<b>输入：</b>
+<strong>输入：</strong>
 arr = [
 &nbsp; {"a": 1, "b": 2},
 &nbsp; {"c": 3, "d": 4},
 &nbsp; {}
 ]
-<b>输出：</b>
+<strong>输出：</strong>
 [
 &nbsp; ["a", "b", "c", "d"],
 &nbsp; [1, 2, "", ""],
@@ -66,19 +66,19 @@ arr = [
 <p><strong class="example">示例 3：</strong></p>
 
 <pre>
-<b>输入：</b>
+<strong>输入：</strong>
 arr = [
 &nbsp; {"a": {"b": 1, "c": 2}},
 &nbsp; {"a": {"b": 3, "d": 4}}
 ]
-<b>输出：</b>
+<strong>输出：</strong>
 [
 &nbsp; ["a.b", "a.c", "a.d"],
 &nbsp; [1, 2, ""],
 &nbsp; [3, "", 4]
 ]
 
-<b>解释：</b>
+<strong>解释：</strong>
 在这个例子中，对象是嵌套的。键表示每个值的完整路径，路径之间用句点分隔。 
 有三个路径："a.b"、"a.c"、"a.d"。
 </pre>
@@ -86,13 +86,13 @@ arr = [
 <p><strong class="example">示例 4：</strong></p>
 
 <pre>
-<b>输入：</b>
+<strong>输入：</strong>
 arr = [
 &nbsp; [{"a": null}],
 &nbsp; [{"b": true}],
 &nbsp; [{"c": "x"}]
 ]
-<strong>输出：</strong> 
+<strong>输出： </strong>
 [
 &nbsp; ["0.a", "0.b", "0.c"],
 &nbsp; [null, "", ""],
@@ -108,13 +108,13 @@ arr = [
 <p><strong class="example">示例 5：</strong></p>
 
 <pre>
-<b>输入：</b>
+<strong>输入：</strong>
 arr = [
   {},
 &nbsp; {},
 &nbsp; {},
 ]
-<b>输出：</b>
+<strong>输出：</strong>
 [
 &nbsp; [],
 &nbsp; [],
@@ -130,6 +130,7 @@ arr = [
 <p><strong>提示：</strong></p>
 
 <ul>
+	<li><code>arr</code> 是一个有效的 JSON 数组</li>
 	<li><code>1 &lt;= arr.length &lt;= 1000</code></li>
 	<li><code>unique keys &lt;= 1000</code></li>
 </ul>

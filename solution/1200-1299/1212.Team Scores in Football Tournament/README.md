@@ -15,7 +15,7 @@
 | team_id       | int      |
 | team_name     | varchar  |
 +---------------+----------+
-此表的主键是 team_id。
+team_id 是该表具有唯一值的列。
 表中的每一行都代表一支独立足球队。
 </pre>
 
@@ -33,14 +33,14 @@
 | host_goals    | int     |
 | guest_goals   | int     |
 +---------------+---------+
-此表的主键是 match_id。
+match_id 是该表具有唯一值的列。
 表中的每一行都代表一场已结束的比赛。
 比赛的主客队分别由它们自己的 id 表示，他们的进球由 host_goals 和 guest_goals 分别表示。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>您希望在所有比赛之后计算所有球队的比分。积分奖励方式如下:</p>
+<p>你希望在所有比赛之后计算所有球队的比分。积分奖励方式如下:</p>
 
 <ul>
 	<li>如果球队赢了比赛(即比对手进更多的球)，就得 <strong>3</strong> 分。</li>
@@ -48,11 +48,11 @@
 	<li>如果球队输掉了比赛(例如，比对手少进球)，就 <strong>不得分</strong> 。</li>
 </ul>
 
-<p>写出一条SQL语句以查询每个队的&nbsp;<code>team_id</code>，<code>team_name</code> 和 <code>num_points</code>。</p>
+<p>编写解决方案，以找出每个队的&nbsp;<code>team_id</code>，<code>team_name</code> 和 <code>num_points</code>。</p>
 
 <p>返回的结果根据&nbsp;<code>num_points</code><strong> 降序排序</strong>，如果有两队积分相同，那么这两队按&nbsp;<code>team_id</code>&nbsp; <strong>升序排序</strong>。</p>
 
-<p>查询结果格式如下。</p>
+<p>返回结果格式如下。</p>
 
 <p>&nbsp;</p>
 
@@ -95,6 +95,18 @@ Teams </code>table:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：左连接 + 分组 + CASE 表达式**
+
+我们可以通过左连接，将 `Teams` 表和 `Matches` 表连接起来，连接的条件为 `team_id = host_team OR team_id = guest_team`，这样就可以得到每个球队的所有比赛信息。
+
+接下来，我们按照 `team_id` 分组，然后使用 `CASE` 表达式计算每个球队的积分，计算规则如下：
+
+-   如果球队是主队，且主队进球数大于客队进球数，则积分加 $3$ 分；
+-   如果球队是客队，且客队进球数大于主队进球数，则积分加 $3$ 分；
+-   如果主队和客队进球数相同，则积分加 $1$ 分；
+
+最后，我们按照积分降序排序，如果积分相同，则按照 `team_id` 升序排序。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -102,24 +114,23 @@ Teams </code>table:
 ```sql
 # Write your MySQL query statement below
 SELECT
-    t.team_id,
-    t.team_name,
-    SUM(
+    team_id,
+    team_name,
+    sum(
         CASE
-            WHEN t.team_id = m.host_team
-            AND m.host_goals > m.guest_goals THEN 3
-            WHEN m.host_goals = m.guest_goals THEN 1
-            WHEN t.team_id = m.guest_team
-            AND m.guest_goals > m.host_goals THEN 3
+            WHEN team_id = host_team
+            AND host_goals > guest_goals THEN 3
+            WHEN team_id = guest_team
+            AND guest_goals > host_goals THEN 3
+            WHEN host_goals = guest_goals THEN 1
             ELSE 0
         END
     ) AS num_points
 FROM
-    Teams AS t
-    LEFT JOIN Matches AS m
-        ON t.team_id = m.host_team OR t.team_id = m.guest_team
-GROUP BY t.team_id
-ORDER BY num_points DESC, team_id;
+    Teams
+    LEFT JOIN Matches ON team_id = host_team OR team_id = guest_team
+GROUP BY 1
+ORDER BY 3 DESC, 1;
 ```
 
 <!-- tabs:end -->

@@ -337,10 +337,7 @@ function numberOfPaths(grid: number[][], k: number): number {
             for (let v = 0; v < k; v++) {
                 let key = (grid[i][j] + v) % k;
                 ans[i + 1][j + 1][key] =
-                    (ans[i][j + 1][v] +
-                        ans[i + 1][j][v] +
-                        ans[i + 1][j + 1][key]) %
-                    MOD;
+                    (ans[i][j + 1][v] + ans[i + 1][j][v] + ans[i + 1][j + 1][key]) % MOD;
             }
         }
     }

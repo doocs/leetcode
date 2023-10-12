@@ -52,6 +52,21 @@ The total sum is 4 + 6 + 6 + 4 = 20.
 
 ## Solutions
 
+**Solution 1: Enumeration**
+
+We can enumerate all the substrings that end with each character $s[i]$ and calculate their gravitational value sum $t$. Finally, we add up all the $t$ to get the total gravitational value sum.
+
+When we reach $s[i]$, which is added to the end of the substring that ends with $s[i-1]$, we consider the change of the gravitational value sum $t$:
+
+If $s[i]$ has not appeared before, then the gravitational value of all substrings that end with $s[i-1]$ will increase by $1$, and there are a total of $i$ such substrings. Therefore, $t$ increases by $i$, plus the gravitational value of $s[i]$ itself, which is $1$. Therefore, $t$ increases by a total of $i+1$.
+
+If $s[i]$ has appeared before, let the last appearance position be $j$. Then we add $s[i]$ to the end of the substrings $s[0..i-1]$, $[1..i-1]$, $s[2..i-1]$, $\cdots$, $s[j..i-1]$. The gravitational value of these substrings will not change because $s[i]$ has already appeared in these substrings. The gravitational value of the substrings $s[j+1..i-1]$, $s[j+2..i-1]$, $\cdots$, $s[i-1]$ will increase by $1$, and there are a total of $i-j-1$ such substrings. Therefore, $t$ increases by $i-j-1$, plus the gravitational value of $s[i]$ itself, which is $1$. Therefore, $t$ increases by a total of $i-j$.
+Therefore, we can use an array $pos$ to record the last appearance position of each character. Initially, all positions are set to $-1$.
+
+Next, we traverse the string, and each time we update the gravitational value sum $t$ of the substring that ends with the current character to $t = t + i - pos[c]$, where $c$ is the current character. We add $t$ to the answer. Then we update $pos[c]$ to the current position $i$. We continue to traverse until the end of the string.
+
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $s$, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| = 26$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -131,15 +146,17 @@ func appealSum(s string) int64 {
 
 ```ts
 function appealSum(s: string): number {
+    const pos: number[] = Array(26).fill(-1);
     const n = s.length;
-    let dp = new Array(n + 1).fill(0);
-    const hashMap = new Map();
-    for (let i = 0; i < n; i++) {
-        const c = s.charAt(i);
-        dp[i + 1] = dp[i] + i + 1 - (hashMap.get(c) || 0);
-        hashMap.set(c, i + 1);
+    let ans = 0;
+    let t = 0;
+    for (let i = 0; i < n; ++i) {
+        const c = s.charCodeAt(i) - 97;
+        t += i - pos[c];
+        ans += t;
+        pos[c] = i;
     }
-    return dp.reduce((a, c) => a + c, 0);
+    return ans;
 }
 ```
 

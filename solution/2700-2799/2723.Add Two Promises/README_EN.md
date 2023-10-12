@@ -31,7 +31,7 @@ promise2 = new Promise(resolve =&gt; setTimeout(() =&gt; resolve(-12), 30))
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>promise1 and promise2 are&nbsp;promises that resolve&nbsp;with a number</code></li>
+	<li><code>promise1</code> and <code>promise2</code> are&nbsp;promises that resolve&nbsp;with a number</li>
 </ul>
 
 ## Solutions

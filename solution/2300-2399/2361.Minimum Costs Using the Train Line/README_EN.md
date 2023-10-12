@@ -237,11 +237,7 @@ func min(a, b int) int {
 ### **TypeScript**
 
 ```ts
-function minimumCosts(
-    regular: number[],
-    express: number[],
-    expressCost: number,
-): number[] {
+function minimumCosts(regular: number[], express: number[], expressCost: number): number[] {
     const n = regular.length;
     const f: number[] = new Array(n + 1).fill(0);
     const g: number[] = new Array(n + 1).fill(0);
@@ -258,11 +254,7 @@ function minimumCosts(
 ```
 
 ```ts
-function minimumCosts(
-    regular: number[],
-    express: number[],
-    expressCost: number,
-): number[] {
+function minimumCosts(regular: number[], express: number[], expressCost: number): number[] {
     const n = regular.length;
     let f = 0;
     let g = 1 << 30;

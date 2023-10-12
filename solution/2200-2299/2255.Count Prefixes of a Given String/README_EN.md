@@ -41,6 +41,14 @@ Note that the same string can occur multiple times in words, and it should be co
 
 ## Solutions
 
+**Solution 1: Traversal Counting**
+
+We directly traverse the array words, and for each string w, we check if s starts with w as a prefix. If it does, we increment the answer by one.
+
+After the traversal, we return the answer.
+
+The time complexity is $O(m \times n)$, where $m$ and $n$ are the lengths of the array words and the string s, respectively. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -48,7 +56,7 @@ Note that the same string can occur multiple times in words, and it should be co
 ```python
 class Solution:
     def countPrefixes(self, words: List[str], s: str) -> int:
-        return sum(word == s[: len(word)] for word in words)
+        return sum(s.startswith(w) for w in words)
 ```
 
 ### **Java**
@@ -57,8 +65,8 @@ class Solution:
 class Solution {
     public int countPrefixes(String[] words, String s) {
         int ans = 0;
-        for (String word : words) {
-            if (word.equals(s.substring(0, Math.min(s.length(), word.length())))) {
+        for (String w : words) {
+            if (s.startsWith(w)) {
                 ++ans;
             }
         }
@@ -74,9 +82,9 @@ class Solution {
 public:
     int countPrefixes(vector<string>& words, string s) {
         int ans = 0;
-        for (auto& word : words)
-            if (s.substr(0, word.size()) == word)
-                ++ans;
+        for (auto& w : words) {
+            ans += s.starts_with(w);
+        }
         return ans;
     }
 };
@@ -85,21 +93,22 @@ public:
 ### **Go**
 
 ```go
-func countPrefixes(words []string, s string) int {
-	ans := 0
-	for _, word := range words {
-		if strings.HasPrefix(s, word) {
+func countPrefixes(words []string, s string) (ans int) {
+	for _, w := range words {
+		if strings.HasPrefix(s, w) {
 			ans++
 		}
 	}
-	return ans
+	return
 }
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function countPrefixes(words: string[], s: string): number {
+    return words.filter(w => s.startsWith(w)).length;
+}
 ```
 
 ### **...**

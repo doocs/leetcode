@@ -1,13 +1,12 @@
 class Solution {
 public:
     vector<int> findBuildings(vector<int>& heights) {
-        int mx = 0;
         vector<int> ans;
+        int mx = 0;
         for (int i = heights.size() - 1; ~i; --i) {
-            int v = heights[i];
-            if (mx < v) {
+            if (heights[i] > mx) {
                 ans.push_back(i);
-                mx = v;
+                mx = heights[i];
             }
         }
         reverse(ans.begin(), ans.end());

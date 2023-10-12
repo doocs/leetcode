@@ -14,18 +14,18 @@
 | day         | date |
 | degree      | int  |
 +-------------+------+
-(city_id, day) is the primary key for this table.
+(city_id, day) is the primary key (combination of columns with unique values) for this table.
 Each row in this table contains the degree of the weather of a city on a certain day.
 All the degrees are recorded in the year 2022.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the day that has the maximum recorded degree in each city. If the maximum degree was recorded for the same city multiple times, return the earliest day among them.</p>
+<p>Write a solution to report the day that has the maximum recorded degree in each city. If the maximum degree was recorded for the same city multiple times, return the earliest day among them.</p>
 
 <p>Return the result table ordered by <code>city_id</code> in <strong>ascending order</strong>.</p>
 
-<p>The query result format is shown in the following example.</p>
+<p>The&nbsp;result format is shown in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

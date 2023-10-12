@@ -13,19 +13,19 @@
 | customer_id   | int     |
 | customer_name | varchar |
 +---------------+---------+
-customer_id is the primary key for this table.
+customer_id is the column with unique values for this table.
 Each row of this table contains the name and the id customer.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find the missing customer IDs. The missing IDs are ones that are not in the <code>Customers</code> table but are in the range between <code>1</code> and the <strong>maximum</strong> <code>customer_id</code> present in the table.</p>
+<p>Write a solution to find the missing customer IDs. The missing IDs are ones that are not in the <code>Customers</code> table but are in the range between <code>1</code> and the <strong>maximum</strong> <code>customer_id</code> present in the table.</p>
 
 <p><strong>Notice</strong> that the maximum <code>customer_id</code> will not exceed <code>100</code>.</p>
 
 <p>Return the result table ordered by <code>ids</code> in <strong>ascending order</strong>.</p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

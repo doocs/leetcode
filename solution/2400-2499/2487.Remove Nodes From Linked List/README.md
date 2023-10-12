@@ -8,7 +8,7 @@
 
 <p>给你一个链表的头节点 <code>head</code> 。</p>
 
-<p>对于列表中的每个节点 <code>node</code> ，如果其右侧存在一个具有 <strong>严格更大</strong> 值的节点，则移除 <code>node</code> 。</p>
+<p>移除每个右侧有一个更大数值的节点。</p>
 
 <p>返回修改后链表的头节点<em> </em><code>head</code><em> </em>。</p>
 

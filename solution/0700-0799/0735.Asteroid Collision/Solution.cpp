@@ -1,21 +1,21 @@
 class Solution {
 public:
     vector<int> asteroidCollision(vector<int>& asteroids) {
-        vector<int> ans;
-        for (int a : asteroids) {
-            if (a > 0) {
-                ans.push_back(a);
+        vector<int> stk;
+        for (int x : asteroids) {
+            if (x > 0) {
+                stk.push_back(x);
             } else {
-                while (!ans.empty() && ans.back() > 0 && ans.back() < -a) {
-                    ans.pop_back();
+                while (stk.size() && stk.back() > 0 && stk.back() < -x) {
+                    stk.pop_back();
                 }
-                if (!ans.empty() && ans.back() == -a) {
-                    ans.pop_back();
-                } else if (ans.empty() || ans.back() < -a) {
-                    ans.push_back(a);
+                if (stk.size() && stk.back() == -x) {
+                    stk.pop_back();
+                } else if (stk.empty() || stk.back() < 0) {
+                    stk.push_back(x);
                 }
             }
         }
-        return ans;
+        return stk;
     }
 };

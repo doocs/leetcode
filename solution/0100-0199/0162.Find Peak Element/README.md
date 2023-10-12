@@ -46,7 +46,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-二分查找。
+**方法一：二分查找**
+
+我们定义二分查找的左边界 $left=0$，右边界 $right=n-1$，其中 $n$ 是数组的长度。在每一步二分查找中，我们找到当前区间的中间元素 $mid$，然后比较 $mid$ 与其右边元素 $mid+1$ 的值：
+
+-   如果 $mid$ 的值大于 $mid+1$ 的值，则左侧存在峰值元素，我们将右边界 $right$ 更新为 $mid$；
+-   否则，右侧存在峰值元素，我们将左边界 $left$ 更新为 $mid+1$。
+-   最后，当左边界 $left$ 与右边界 $right$ 相等时，我们就找到了数组的峰值元素。
+
+时间复杂度 $O(\log n)$，其中 $n$ 是数组 $nums$ 的长度。每一步二分查找可以将搜索区间减少一半，因此时间复杂度为 $O(\log n)$。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -88,22 +96,24 @@ class Solution {
 }
 ```
 
-### **TypeScript**
+### **C++**
 
-```ts
-function findPeakElement(nums: number[]): number {
-    let left = 0,
-        right = nums.length - 1;
-    while (left < right) {
-        let mid: number = (left + right) >> 1;
-        if (nums[mid] <= nums[mid + 1]) {
-            left = mid + 1;
-        } else {
-            right = mid;
+```cpp
+class Solution {
+public:
+    int findPeakElement(vector<int>& nums) {
+        int left = 0, right = nums.size() - 1;
+        while (left < right) {
+            int mid = left + right >> 1;
+            if (nums[mid] > nums[mid + 1]) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
         }
+        return left;
     }
-    return left;
-}
+};
 ```
 
 ### **Go**
@@ -123,24 +133,21 @@ func findPeakElement(nums []int) int {
 }
 ```
 
-### **C++**
+### **TypeScript**
 
-```cpp
-class Solution {
-public:
-    int findPeakElement(vector<int>& nums) {
-        int left = 0, right = nums.size() - 1;
-        while (left < right) {
-            int mid = left + right >> 1;
-            if (nums[mid] > nums[mid + 1]) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
+```ts
+function findPeakElement(nums: number[]): number {
+    let [left, right] = [0, nums.length - 1];
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        if (nums[mid] > nums[mid + 1]) {
+            right = mid;
+        } else {
+            left = mid + 1;
         }
-        return left;
     }
-};
+    return left;
+}
 ```
 
 ### **...**

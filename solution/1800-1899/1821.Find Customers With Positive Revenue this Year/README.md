@@ -16,22 +16,25 @@
 | year         | int  |
 | revenue      | int  |
 +--------------+------+
-(customer_id, year) 是这个表的主键。
+(customer_id, year) 是该表的主键（具有唯一值的列的组合）。
 这个表包含客户 ID 和不同年份的客户收入。
 注意，这个收入可能是负数。
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
-<p>写一个 SQL 查询来查询 2021 年具有 <strong>正收入</strong> 的客户。</p>
+<p>编写一个解决方案来报告 2021 年具有 <strong>正收入</strong> 的客户。</p>
 
-<p>可以按 <strong>任意顺序</strong> 返回结果表。</p>
+<p>可以以&nbsp;<strong>任意顺序</strong> 返回结果表。</p>
 
-<p>查询结果格式如下例。</p>
+<p>结果格式如下示例所示。</p>
 
-<p> </p>
+<p>&nbsp;</p>
+
+<p><strong>示例 1:</strong></p>
 
 <pre>
+<strong>Input:</strong>
 Customers
 +-------------+------+---------+
 | customer_id | year | revenue |
@@ -45,7 +48,7 @@ Customers
 | 4           | 2021 | 20      |
 +-------------+------+---------+
 
-Result table:
+<strong>Output:</strong>
 +-------------+
 | customer_id |
 +-------------+
@@ -61,6 +64,10 @@ Result table:
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+**方法一：WHERE 子句**
+
+我们可以直接使用 `WHERE` 子句来筛选出 `year` 为 `2021` 且 `revenue` 大于 $0$ 的客户。
 
 <!-- tabs:start -->
 

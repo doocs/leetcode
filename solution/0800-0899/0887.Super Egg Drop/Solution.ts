@@ -1,7 +1,5 @@
 function superEggDrop(k: number, n: number): number {
-    const f: number[][] = new Array(n + 1)
-        .fill(0)
-        .map(() => new Array(k + 1).fill(0));
+    const f: number[][] = new Array(n + 1).fill(0).map(() => new Array(k + 1).fill(0));
     const dfs = (i: number, j: number): number => {
         if (i < 1) {
             return 0;

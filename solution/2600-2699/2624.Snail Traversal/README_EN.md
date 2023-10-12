@@ -76,16 +76,11 @@ declare global {
     }
 }
 
-Array.prototype.snail = function (
-    rowsCount: number,
-    colsCount: number,
-): number[][] {
+Array.prototype.snail = function (rowsCount: number, colsCount: number): number[][] {
     if (rowsCount * colsCount !== this.length) {
         return [];
     }
-    const ans: number[][] = Array.from({ length: rowsCount }, () =>
-        Array(colsCount),
-    );
+    const ans: number[][] = Array.from({ length: rowsCount }, () => Array(colsCount));
     for (let h = 0, i = 0, j = 0, k = 1; h < this.length; ++h) {
         ans[i][j] = this[h];
         i += k;

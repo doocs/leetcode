@@ -63,41 +63,16 @@ lRUCache.get(4);    // 返回 4
 
 **方法一：哈希表 + 双向链表**
 
-“哈希表 + 双向链表”实现。其中：
+我们可以用“哈希表”和“双向链表”实现一个 LRU 缓存。
 
--   双向链表按照被使用的顺序存储 kv 键值对，靠近头部的 kv 键值对是最近使用的，而靠近尾部的键值对是最久未使用的。
--   哈希表通过缓存的 key 映射到双向链表中的位置。我们可以在 $O(1)$ 时间内定位到缓存的 key 所对应的 value 在链表中的位置。
+-   哈希表：用于存储 key 和对应的节点位置。
+-   双向链表：用于存储节点数据，按照访问时间排序。
 
-对于 `get` 操作，判断 key 是否存在哈希表中：
+当访问一个节点时，如果节点存在，我们将其从原来的位置删除，并重新插入到链表头部。这样就能保证链表尾部存储的就是最近最久未使用的节点，当节点数量大于缓存最大空间时就淘汰链表尾部的节点。
 
--   若不存在，返回 -1
--   若存在，则 key 对应的节点 node 是最近使用的节点。将该节点移动到双向链表的头部，最后返回该节点的值即可。
+当插入一个节点时，如果节点存在，我们将其从原来的位置删除，并重新插入到链表头部。如果不存在，我们首先检查缓存是否已满，如果已满，则删除链表尾部的节点，将新的节点插入链表头部。
 
-对于 `put` 操作，同样先判断 key 是否存在哈希表中：
-
--   若不存在，则创建一个新的 node 节点，放入哈希表中。然后在双向链表的头部添加该节点。接着判断双向链表节点数是否超过 capacity。若超过，则删除双向链表的尾部节点，以及在哈希表中对应的项。
--   若存在，则更新 node 节点的值，然后该节点移动到双向链表的头部。
-
-双向链表节点（哈希表的 value）的结构如下：
-
-```java
-class Node {
-    int key;
-    int value;
-    Node prev;
-    Node next;
-    Node() {
-    }
-    Node(int key, int value) {
-        this.key = key;
-        this.value = value;
-    }
-}
-```
-
-你可能会问，哈希表的 value 为何还要存放 key？
-
-这是因为，双向链表有一个删除尾节点的操作。我们定位到双向链表的尾节点，在链表中删除之后，还要找到该尾节点在哈希表中的位置，因此需要根据 value 中存放的 key，定位到哈希表的数据项，然后将其删除。
+时间复杂度 $O(1)$，空间复杂度 $O(capacity)$。
 
 <!-- tabs:start -->
 
@@ -565,6 +540,125 @@ private:
  * LRUCache* obj = new LRUCache(capacity);
  * int param_1 = obj->get(key);
  * obj->put(key,value);
+ */
+```
+
+### **TypeScript**
+
+```ts
+class LRUCache {
+    capacity: number;
+    map: Map<number, number>;
+    constructor(capacity: number) {
+        this.capacity = capacity;
+        this.map = new Map();
+    }
+
+    get(key: number): number {
+        if (this.map.has(key)) {
+            const val = this.map.get(key)!;
+            this.map.delete(key);
+            this.map.set(key, val);
+            return val;
+        }
+        return -1;
+    }
+
+    put(key: number, value: number): void {
+        this.map.delete(key);
+        this.map.set(key, value);
+        if (this.map.size > this.capacity) {
+            this.map.delete(this.map.keys().next().value);
+        }
+    }
+}
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * var obj = new LRUCache(capacity)
+ * var param_1 = obj.get(key)
+ * obj.put(key,value)
+ */
+```
+
+### **C#**
+
+```cs
+public class LRUCache {
+    class Node {
+        public Node Prev;
+        public Node Next;
+        public int Key;
+        public int Val;
+    }
+
+    private Node head = new Node();
+    private Node tail = new Node();
+    private Dictionary<int, Node> cache = new Dictionary<int, Node>();
+    private readonly int capacity;
+    private int size;
+
+    public LRUCache(int capacity) {
+        this.capacity = capacity;
+        head.Next = tail;
+        tail.Prev = head;
+    }
+
+    public int Get(int key) {
+        Node node;
+        if (cache.TryGetValue(key, out node)) {
+            moveToHead(node);
+            return node.Val;
+        }
+        return -1;
+    }
+
+    public void Put(int key, int Val) {
+        Node node;
+        if (cache.TryGetValue(key, out node)) {
+            moveToHead(node);
+            node.Val = Val;
+        } else {
+            node = new Node() { Key = key, Val = Val };
+            cache.Add(key, node);
+            addToHead(node);
+            if (++size > capacity) {
+                node = removeTail();
+                cache.Remove(node.Key);
+                --size;
+            }
+        }
+    }
+
+    private void moveToHead(Node node) {
+        removeNode(node);
+        addToHead(node);
+    }
+
+    private void removeNode(Node node) {
+        node.Prev.Next = node.Next;
+        node.Next.Prev = node.Prev;
+    }
+
+    private void addToHead(Node node) {
+        node.Next = head.Next;
+        node.Prev = head;
+        head.Next = node;
+        node.Next.Prev = node;
+    }
+
+    private Node removeTail() {
+        Node node = tail.Prev;
+        removeNode(node);
+        return node;
+    }
+}
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * LRUCache obj = new LRUCache(capacity);
+ * int param_1 = obj.Get(key);
+ * obj.Put(key,Val);
  */
 ```
 

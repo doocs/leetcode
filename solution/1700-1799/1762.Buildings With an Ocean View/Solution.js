@@ -3,13 +3,12 @@
  * @return {number[]}
  */
 var findBuildings = function (heights) {
+    const ans = [];
     let mx = 0;
-    let ans = [];
-    for (let i = heights.length - 1; i >= 0; --i) {
-        const v = heights[i];
-        if (mx < v) {
+    for (let i = heights.length - 1; ~i; --i) {
+        if (heights[i] > mx) {
             ans.push(i);
-            mx = v;
+            mx = heights[i];
         }
     }
     return ans.reverse();

@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>设计一个方法，找出任意指定单词在一本书中的出现频率。</p>
 <p>你的实现应该支持如下操作：</p>
 <ul>
@@ -33,9 +34,11 @@ wordsFrequency.get("pen"); //返回1
 
 **方法一：哈希表**
 
-我们用哈希表 `cnt` 统计每个单词出现的次数，`get` 函数直接返回 `cnt[word]` 即可。
+我们用哈希表 $cnt$ 统计 $book$ 中每个单词出现的次数。
 
-初始化哈希表 `cnt` 的时间复杂度为 $O(n)$，其中 $n$ 为 `book` 的长度。`get` 函数的时间复杂度为 $O(1)$。空间复杂度为 $O(n)$。
+调用 `get` 函数时，我们只需要返回 $cnt$ 中对应的单词的出现次数即可。
+
+时间复杂度方面，初始化哈希表 $cnt$ 的时间复杂度为 $O(n)$，其中 $n$ 为 $book$ 的长度。`get` 函数的时间复杂度为 $O(1)$。空间复杂度为 $O(n)$。
 
 <!-- tabs:start -->
 
@@ -194,7 +197,7 @@ class WordsFrequency {
 ```rust
 use std::collections::HashMap;
 struct WordsFrequency {
-    counter: HashMap<String, i32>
+    cnt: HashMap<String, i32>
 }
 
 
@@ -205,15 +208,15 @@ struct WordsFrequency {
 impl WordsFrequency {
 
     fn new(book: Vec<String>) -> Self {
-        let mut counter = HashMap::new();
+        let mut cnt = HashMap::new();
         for word in book.into_iter() {
-            *counter.entry(word).or_insert(0) += 1;
+            *cnt.entry(word).or_insert(0) += 1;
         }
-        Self { counter }
+        Self { cnt }
     }
 
     fn get(&self, word: String) -> i32 {
-        *self.counter.get(&word).unwrap_or(&0)
+        *self.cnt.get(&word).unwrap_or(&0)
     }
 }
 

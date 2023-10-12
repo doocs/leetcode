@@ -1,4 +1,4 @@
-# [2723. 添加两个 Promise 对象](https://leetcode.cn/problems/add-two-promises)
+# [2723. 两个 Promise 对象相加](https://leetcode.cn/problems/add-two-promises)
 
 [English Version](/solution/2700-2799/2723.Add%20Two%20Promises/README_EN.md)
 
@@ -35,7 +35,7 @@ promise2 = new Promise(resolve =&gt; setTimeout(() =&gt; resolve(-12), 30))
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>promise1 和 promise2 都是被解析为一个数字的 promise 对象</code></li>
+	<li><code>promise1 和 promise2</code> 都是被解析为一个数字的 promise 对象</li>
 </ul>
 
 ## 解法
