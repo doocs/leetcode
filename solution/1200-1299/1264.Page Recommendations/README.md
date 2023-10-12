@@ -96,9 +96,28 @@ Likes table:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：合并 + 等值连接 + 子查询**
+
+我们先查出所有与 `user_id = 1` 的用户是朋友的用户，记录在 `T` 表中，然后再查出所有在 `T` 表中的用户喜欢的页面，最后排除掉 `user_id = 1` 喜欢的页面即可。
+
 <!-- tabs:start -->
 
 ### **SQL**
+
+```sql
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT user1_id AS user_id FROM Friendship WHERE user2_id = 1
+        UNION
+        SELECT user2_id AS user_id FROM Friendship WHERE user1_id = 1
+    )
+SELECT DISTINCT page_id AS recommended_page
+FROM
+    T
+    JOIN Likes USING (user_id)
+WHERE page_id NOT IN (SELECT page_id FROM Likes WHERE user_id = 1);
+```
 
 ```sql
 # Write your MySQL query statement below

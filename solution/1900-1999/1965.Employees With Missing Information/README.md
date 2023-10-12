@@ -83,6 +83,10 @@ Salaries table:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：子查询 + 合并**
+
+我们可以先从 `Employees` 表中找出所有不在 `Salaries` 表中的 `employee_id`，再从 `Salaries` 表中找出所有不在 `Employees` 表中的 `employee_id`，最后将两个结果合并，然后按照 `employee_id` 排序即可。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -90,22 +94,15 @@ Salaries table:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
+# Write your MySQL query statement below
 SELECT employee_id
-FROM Employees AS e
-WHERE
-    e.employee_id NOT IN (
-        SELECT employee_id
-        FROM Salaries
-    )
+FROM Employees
+WHERE employee_id NOT IN (SELECT employee_id FROM Salaries)
 UNION
 SELECT employee_id
-FROM Salaries AS s
-WHERE
-    s.employee_id NOT IN (
-        SELECT employee_id
-        FROM Employees
-    )
-ORDER BY employee_id;
+FROM Salaries
+WHERE employee_id NOT IN (SELECT employee_id FROM Employees)
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->
