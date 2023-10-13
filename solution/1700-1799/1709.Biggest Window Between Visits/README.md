@@ -69,28 +69,33 @@ UserVisits 表：
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：窗口函数**
+
+我们可以使用窗口函数 `LEAD` 来获取每个用户每次访问的下一次访问的日期（如果下一次访问的日期不存在，则视为 `2021-1-1`），然后利用 `DATEDIFF` 函数来计算两次访问之间的天数差值，最后对每个用户的天数差值求最大值即可。
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    user_id,
-    max(datediff(nxt_day, visit_date)) AS biggest_window
-FROM
-    (
+WITH
+    T AS (
         SELECT
             user_id,
-            visit_date,
-            lead(visit_date, 1, '2021-1-1') OVER (
-                PARTITION BY user_id
-                ORDER BY visit_date
-            ) AS nxt_day
+            datediff(
+                lead(visit_date, 1, '2021-1-1') OVER (
+                    PARTITION BY user_id
+                    ORDER BY visit_date
+                ),
+                visit_date
+            ) AS diff
         FROM UserVisits
-    ) AS t
-GROUP BY user_id
-ORDER BY user_id;
+    )
+SELECT user_id, max(diff) AS biggest_window
+FROM T
+GROUP BY 1
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->

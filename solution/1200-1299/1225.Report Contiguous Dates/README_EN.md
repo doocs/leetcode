@@ -84,14 +84,28 @@ From 2019-01-06 to 2019-01-06 all tasks succeeded and the system state was &quot
 
 ## Solutions
 
+**Solution 1: Union + Window Function + Group By**
+
+We can merge the two tables into one table with a field `st` representing the status, where `failed` indicates failure and `succeeded` indicates success. Then, we can use a window function to group the records with the same status into one group, and calculate the difference between each date and its rank within the group as `pt`, which serves as the identifier for the same continuous status. Finally, we can group by `st` and `pt`, and calculate the minimum and maximum dates for each group, and sort by the minimum date.
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
 # Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT fail_date AS dt, 'failed' AS st
+        FROM Failed
+        WHERE year(fail_date) = 2019
+        UNION ALL
+        SELECT success_date AS dt, 'succeeded' AS st
+        FROM Succeeded
+        WHERE year(success_date) = 2019
+    )
 SELECT
-    state AS period_state,
+    st AS period_state,
     min(dt) AS start_date,
     max(dt) AS end_date
 FROM
@@ -101,27 +115,14 @@ FROM
             subdate(
                 dt,
                 rank() OVER (
-                    PARTITION BY state
+                    PARTITION BY st
                     ORDER BY dt
                 )
-            ) AS dif
-        FROM
-            (
-                SELECT
-                    'failed' AS state,
-                    fail_date AS dt
-                FROM failed
-                WHERE fail_date BETWEEN '2019-01-01' AND '2019-12-31'
-                UNION ALL
-                SELECT
-                    'succeeded' AS state,
-                    success_date AS dt
-                FROM succeeded
-                WHERE success_date BETWEEN '2019-01-01' AND '2019-12-31'
-            ) AS t1
-    ) AS t2
-GROUP BY state, dif
-ORDER BY dt;
+            ) AS pt
+        FROM T
+    ) AS t
+GROUP BY 1, pt
+ORDER BY 2;
 ```
 
 <!-- tabs:end -->

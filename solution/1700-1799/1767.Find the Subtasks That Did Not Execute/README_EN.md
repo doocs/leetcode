@@ -81,6 +81,10 @@ Task 3 was divided into 4 subtasks (1, 2, 3, 4). All of the subtasks were execut
 
 ## Solutions
 
+**Solution 1: Recursive Table Generation + Left Join**
+
+We can generate a table recursively that contains all pairs of (parent task, child task), and then use a left join to find the pairs that have not been executed.
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -88,7 +92,7 @@ Task 3 was divided into 4 subtasks (1, 2, 3, 4). All of the subtasks were execut
 ```sql
 # Write your MySQL query statement below
 WITH RECURSIVE
-    t(task_id, subtask_id) AS (
+    T(task_id, subtask_id) AS (
         SELECT
             task_id,
             subtasks_count
@@ -98,14 +102,14 @@ WITH RECURSIVE
             task_id,
             subtask_id - 1
         FROM t
-        WHERE subtask_id >= 2
+        WHERE subtask_id > 1
     )
 SELECT
-    t.*
+    T.*
 FROM
-    t
-    LEFT JOIN Executed AS e USING (task_id, subtask_id)
-WHERE e.subtask_id IS NULL;
+    T
+    LEFT JOIN Executed USING (task_id, subtask_id)
+WHERE Executed.subtask_id IS NULL;
 ```
 
 <!-- tabs:end -->

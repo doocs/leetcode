@@ -93,6 +93,12 @@ Exam 表：
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：使用 RANK() 窗口函数 + 分组聚合**
+
+我们可以使用 `RANK()` 窗口函数来计算每个学生在每场考试中的正序排名 $rk1$ 和倒序排序 $rk2$，得到表 $T$。
+
+接下来，我们将表 $T$ 与表 $Student$ 进行内连接，然后按照学生编号进行分组聚合，得到每个学生在所有考试中的正序排名为 $1$ 的次数 $cnt1$ 和倒序排名为 $1$ 的次数 $cnt2$。如果 $cnt1$ 和 $cnt2$ 都为 $0$，则说明该学生在所有考试中都处于中游。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -100,27 +106,26 @@ Exam 表：
 ```sql
 # Write your MySQL query statement below
 WITH
-    t AS (
+    T AS (
         SELECT
-            *,
+            student_id,
             rank() OVER (
                 PARTITION BY exam_id
-                ORDER BY score DESC
+                ORDER BY score
             ) AS rk1,
             rank() OVER (
                 PARTITION BY exam_id
-                ORDER BY score ASC
+                ORDER BY score DESC
             ) AS rk2
         FROM Exam
     )
-SELECT
-    t.student_id,
-    student_name
+SELECT student_id, student_name
 FROM
-    t
-    JOIN Student AS s ON t.student_id = s.student_id
-GROUP BY t.student_id
-HAVING sum(rk1 = 1) = 0 AND sum(rk2 = 1) = 0;
+    T
+    JOIN Student USING (student_id)
+GROUP BY 1
+HAVING sum(rk1 = 1) = 0 AND sum(rk2 = 1) = 0
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->

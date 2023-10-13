@@ -87,14 +87,28 @@ Succeeded table:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：合并 + 窗口函数 + 分组求最大最小值**
+
+我们可以将两个表合并，用一个字段 $st$ 表示状态，其中 `failed` 表示失败，`succeeded` 表示成功。然后我们可以使用窗口函数，将相同状态的记录分到一组，求出每个日期与其所在组排名的差值 $pt$，作为同一个连续状态的标识。最后我们可以按照 $st$ 和 $pt$ 分组，求出每组的最小日期和最大日期，然后按照最小日期排序即可。
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
 # Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT fail_date AS dt, 'failed' AS st
+        FROM Failed
+        WHERE year(fail_date) = 2019
+        UNION ALL
+        SELECT success_date AS dt, 'succeeded' AS st
+        FROM Succeeded
+        WHERE year(success_date) = 2019
+    )
 SELECT
-    state AS period_state,
+    st AS period_state,
     min(dt) AS start_date,
     max(dt) AS end_date
 FROM
@@ -104,27 +118,14 @@ FROM
             subdate(
                 dt,
                 rank() OVER (
-                    PARTITION BY state
+                    PARTITION BY st
                     ORDER BY dt
                 )
-            ) AS dif
-        FROM
-            (
-                SELECT
-                    'failed' AS state,
-                    fail_date AS dt
-                FROM failed
-                WHERE fail_date BETWEEN '2019-01-01' AND '2019-12-31'
-                UNION ALL
-                SELECT
-                    'succeeded' AS state,
-                    success_date AS dt
-                FROM succeeded
-                WHERE success_date BETWEEN '2019-01-01' AND '2019-12-31'
-            ) AS t1
-    ) AS t2
-GROUP BY state, dif
-ORDER BY dt;
+            ) AS pt
+        FROM T
+    ) AS t
+GROUP BY 1, pt
+ORDER BY 2;
 ```
 
 <!-- tabs:end -->
