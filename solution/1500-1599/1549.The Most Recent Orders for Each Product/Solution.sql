@@ -1,18 +1,17 @@
 # Write your MySQL query statement below
-SELECT
-    product_name,
-    o.product_id,
-    o.order_id,
-    o.order_date
-FROM
-    Orders AS o
-    JOIN Products AS p ON o.product_id = p.product_id
-WHERE
-    (o.product_id, order_date) IN (
+WITH
+    T AS (
         SELECT
-            product_id,
-            max(order_date) AS order_date
-        FROM Orders
-        GROUP BY product_id
+            *,
+            rank() OVER (
+                PARTITION BY product_id
+                ORDER BY order_date DESC
+            ) AS rk
+        FROM
+            Orders
+            JOIN Products USING (product_id)
     )
-ORDER BY product_name, o.product_id, o.order_id;
+SELECT product_name, product_id, order_id, order_date
+FROM T
+WHERE rk = 1
+ORDER BY 1, 2, 3;

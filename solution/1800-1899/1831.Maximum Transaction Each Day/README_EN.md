@@ -62,26 +62,30 @@ We order the result table by transaction_id after collecting these IDs.
 
 ## Solutions
 
+**Solution 1: Window Function**
+
+We can use the window function `RANK()`, which assigns a rank to each transaction based on its amount in descending order, and then select the transactions with a rank of $1$.
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    transaction_id
-FROM
-    (
+WITH
+    T AS (
         SELECT
             transaction_id,
             rank() OVER (
-                PARTITION BY date_format(day, '%Y-%m-%d')
+                PARTITION BY day(day)
                 ORDER BY amount DESC
             ) AS rk
         FROM Transactions
-        ORDER BY transaction_id
-    ) AS t
-WHERE rk = 1;
+    )
+SELECT transaction_id
+FROM T
+WHERE rk = 1
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->

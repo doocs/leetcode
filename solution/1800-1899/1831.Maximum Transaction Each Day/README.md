@@ -67,6 +67,10 @@ Transactions table:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：窗口函数**
+
+我们可以使用窗口函数 `RANK`，按照每天的交易金额 `amount` 降序排列，然后选择排名为 $1$ 的交易。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -75,20 +79,20 @@ Transactions table:
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    transaction_id
-FROM
-    (
+WITH
+    T AS (
         SELECT
             transaction_id,
             rank() OVER (
-                PARTITION BY date_format(day, '%Y-%m-%d')
+                PARTITION BY day(day)
                 ORDER BY amount DESC
             ) AS rk
         FROM Transactions
-        ORDER BY transaction_id
-    ) AS t
-WHERE rk = 1;
+    )
+SELECT transaction_id
+FROM T
+WHERE rk = 1
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->

@@ -95,8 +95,7 @@ Employee 表：
 WITH
     T AS (
         SELECT
-            project_id,
-            employee_id,
+            *,
             rank() OVER (
                 PARTITION BY project_id
                 ORDER BY experience_years DESC

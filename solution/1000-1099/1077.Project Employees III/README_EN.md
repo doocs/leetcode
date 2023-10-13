@@ -79,6 +79,10 @@ Employee table:
 
 ## Solutions
 
+**Solution 1: Inner Join + Window Function**
+
+We can first perform an inner join between the `Project` table and the `Employee` table, and then use the window function `rank()` to group the `Project` table, sort it in descending order by `experience_years`, and finally select the most experienced employee for each project.
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -88,8 +92,7 @@ Employee table:
 WITH
     T AS (
         SELECT
-            project_id,
-            employee_id,
+            *,
             rank() OVER (
                 PARTITION BY project_id
                 ORDER BY experience_years DESC

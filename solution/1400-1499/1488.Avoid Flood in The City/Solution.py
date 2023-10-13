@@ -1,18 +1,22 @@
+from sortedcontainers import SortedList
+
+
 class Solution:
     def avoidFlood(self, rains: List[int]) -> List[int]:
         n = len(rains)
         ans = [-1] * n
-        sunny = []
+        sunny = SortedList()
         rainy = {}
         for i, v in enumerate(rains):
             if v:
                 if v in rainy:
-                    idx = bisect_right(sunny, rainy[v])
+                    idx = sunny.bisect_right(rainy[v])
                     if idx == len(sunny):
                         return []
-                    ans[sunny.pop(idx)] = v
+                    ans[sunny[idx]] = v
+                    sunny.discard(sunny[idx])
                 rainy[v] = i
             else:
-                sunny.append(i)
+                sunny.add(i)
                 ans[i] = 1
         return ans

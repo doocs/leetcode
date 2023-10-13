@@ -119,29 +119,32 @@ hard disk 没有被下单, 我们不把它包含在结果表中.</pre>
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：等值连接 + 窗口函数**
+
+我们可以使用等值连接，将 `Orders` 表和 `Products` 表按照 `product_id` 连接起来，然后使用窗口函数 `rank()`，对 `Orders` 表中的每个 `product_id` 进行分组，按照 `order_date` 降序排列，然后取出每个分组中排名第一的记录。
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    product_name,
-    o.product_id,
-    o.order_id,
-    o.order_date
-FROM
-    Orders AS o
-    JOIN Products AS p ON o.product_id = p.product_id
-WHERE
-    (o.product_id, order_date) IN (
+WITH
+    T AS (
         SELECT
-            product_id,
-            max(order_date) AS order_date
-        FROM Orders
-        GROUP BY product_id
+            *,
+            rank() OVER (
+                PARTITION BY product_id
+                ORDER BY order_date DESC
+            ) AS rk
+        FROM
+            Orders
+            JOIN Products USING (product_id)
     )
-ORDER BY product_name, o.product_id, o.order_id;
+SELECT product_name, product_id, order_id, order_date
+FROM T
+WHERE rk = 1
+ORDER BY 1, 2, 3;
 ```
 
 <!-- tabs:end -->
