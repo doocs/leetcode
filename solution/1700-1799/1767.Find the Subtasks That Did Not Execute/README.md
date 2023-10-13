@@ -86,7 +86,9 @@ Task 3 被分成了 4 subtasks (1, 2, 3, 4)。所有的subtask都被成功执行
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：递归生成数据表**
+**方法一：递归生成数据表 + 左连接**
+
+我们可以通过递归生成一个数据表，该数据表包含了所有的（主任务，子任务）对，然后我们通过左连接找到没有被执行的（主任务，子任务）对。
 
 <!-- tabs:start -->
 
@@ -97,7 +99,7 @@ Task 3 被分成了 4 subtasks (1, 2, 3, 4)。所有的subtask都被成功执行
 ```sql
 # Write your MySQL query statement below
 WITH RECURSIVE
-    t(task_id, subtask_id) AS (
+    T(task_id, subtask_id) AS (
         SELECT
             task_id,
             subtasks_count
@@ -107,14 +109,14 @@ WITH RECURSIVE
             task_id,
             subtask_id - 1
         FROM t
-        WHERE subtask_id >= 2
+        WHERE subtask_id > 1
     )
 SELECT
-    t.*
+    T.*
 FROM
-    t
-    LEFT JOIN Executed AS e USING (task_id, subtask_id)
-WHERE e.subtask_id IS NULL;
+    T
+    LEFT JOIN Executed USING (task_id, subtask_id)
+WHERE Executed.subtask_id IS NULL;
 ```
 
 <!-- tabs:end -->

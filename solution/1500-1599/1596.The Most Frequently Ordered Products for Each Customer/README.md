@@ -124,6 +124,10 @@ John (customer 5) 没有订购过商品, 所以我们并没有把 John 包含在
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：分组 + 窗口函数**
+
+我们将 `Orders` 表按照 `customer_id` 和 `product_id` 进行分组，然后利用窗口函数 `rank()`，按照 `customer_id` 分区，并且按照 `count(1)` 降序排列，得到每个 `customer_id` 下对应的 `product_id` 的排名，排名为 $1$ 的就是该 `customer_id` 下最经常订购的商品。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -132,12 +136,8 @@ John (customer 5) 没有订购过商品, 所以我们并没有把 John 包含在
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    customer_id,
-    p.product_id,
-    p.product_name
-FROM
-    (
+WITH
+    T AS (
         SELECT
             customer_id,
             product_id,
@@ -146,9 +146,12 @@ FROM
                 ORDER BY count(1) DESC
             ) AS rk
         FROM Orders
-        GROUP BY customer_id, product_id
-    ) AS o
-    JOIN Products AS p ON o.product_id = p.product_id
+        GROUP BY 1, 2
+    )
+SELECT customer_id, product_id, product_name
+FROM
+    T
+    JOIN Products USING (product_id)
 WHERE rk = 1;
 ```
 

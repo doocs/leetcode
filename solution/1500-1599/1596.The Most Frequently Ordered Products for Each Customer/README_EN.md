@@ -120,18 +120,18 @@ John (customer 5) did not order anything, so we do not include them in the resul
 
 ## Solutions
 
+**Solution 1: Group By + Window Function**
+
+We group the `Orders` table by `customer_id` and `product_id`, and then use the window function `rank()`, which assigns a rank to each `product_id` in each `customer_id` group based on its frequency in descending order. Finally, we select the `product_id` with a rank of $1$ for each `customer_id`, which is the most frequently ordered product for that `customer_id`.
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    customer_id,
-    p.product_id,
-    p.product_name
-FROM
-    (
+WITH
+    T AS (
         SELECT
             customer_id,
             product_id,
@@ -140,9 +140,12 @@ FROM
                 ORDER BY count(1) DESC
             ) AS rk
         FROM Orders
-        GROUP BY customer_id, product_id
-    ) AS o
-    JOIN Products AS p ON o.product_id = p.product_id
+        GROUP BY 1, 2
+    )
+SELECT customer_id, product_id, product_name
+FROM
+    T
+    JOIN Products USING (product_id)
 WHERE rk = 1;
 ```
 

@@ -66,28 +66,33 @@ For the third user, the only window in question is between dates 2020-11-11 and 
 
 ## Solutions
 
+**Solution 1: Window Function**
+
+We can use the window function `LEAD` to obtain the date of the next visit for each user (if the date of the next visit does not exist, it is considered as `2021-1-1`), and then use the `DATEDIFF` function to calculate the number of days between two visits. Finally, we can take the maximum value of the number of days between visits for each user.
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    user_id,
-    max(datediff(nxt_day, visit_date)) AS biggest_window
-FROM
-    (
+WITH
+    T AS (
         SELECT
             user_id,
-            visit_date,
-            lead(visit_date, 1, '2021-1-1') OVER (
-                PARTITION BY user_id
-                ORDER BY visit_date
-            ) AS nxt_day
+            datediff(
+                lead(visit_date, 1, '2021-1-1') OVER (
+                    PARTITION BY user_id
+                    ORDER BY visit_date
+                ),
+                visit_date
+            ) AS diff
         FROM UserVisits
-    ) AS t
-GROUP BY user_id
-ORDER BY user_id;
+    )
+SELECT user_id, max(diff) AS biggest_window
+FROM T
+GROUP BY 1
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->
