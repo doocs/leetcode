@@ -8,35 +8,34 @@ func newBinaryIndexedTree(n int) *BinaryIndexedTree {
 	return &BinaryIndexedTree{n, c}
 }
 
-func (this *BinaryIndexedTree) lowbit(x int) int {
-	return x & -x
-}
-
 func (this *BinaryIndexedTree) update(x, delta int) {
-	for x <= this.n {
+	for ; x <= this.n; x += x & -x {
 		this.c[x] += delta
-		x += this.lowbit(x)
 	}
 }
 
-func (this *BinaryIndexedTree) query(x int) int {
-	s := 0
-	for x > 0 {
+func (this *BinaryIndexedTree) query(x int) (s int) {
+	for ; x > 0; x -= x & -x {
 		s += this.c[x]
-		x -= this.lowbit(x)
 	}
-	return s
+	return
 }
 
 func kEmptySlots(bulbs []int, k int) int {
 	n := len(bulbs)
 	tree := newBinaryIndexedTree(n)
+	vis := make([]bool, n+1)
 	for i, x := range bulbs {
 		tree.update(x, 1)
-		case1 := x-k-1 > 0 && tree.query(x-k-1)-tree.query(x-k-2) == 1 && tree.query(x-1)-tree.query(x-k-1) == 0
-		case2 := x+k+1 <= n && tree.query(x+k+1)-tree.query(x+k) == 1 && tree.query(x+k)-tree.query(x) == 0
-		if case1 || case2 {
-			return i + 1
+		vis[x] = true
+		i++
+		y := x - k - 1
+		if y > 0 && vis[y] && tree.query(x-1)-tree.query(y) == 0 {
+			return i
+		}
+		y = x + k + 1
+		if y <= n && vis[y] && tree.query(y-1)-tree.query(x) == 0 {
+			return i
 		}
 	}
 	return -1
