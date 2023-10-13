@@ -52,12 +52,9 @@ bulbs = [1,3,2]，k = 1
 
 **方法一：树状数组**
 
-树状数组，也称作“二叉索引树”（Binary Indexed Tree）或 Fenwick 树。 它可以高效地实现如下两个操作：
+我们可以使用树状数组来维护区间和，每一次打开灯泡，我们就在树状数组中更新对应位置的值，然后查询当前位置左边 $k$ 个灯泡是否都是关闭的，并且第 $k+1$ 个灯泡是否已经打开；或者查询当前位置右边 $k$ 个灯泡是否都是关闭的，并且第 $k+1$ 个灯泡是否已经打开。如果满足这两个条件之一，那么就说明当前位置是一个符合要求的位置，我们就可以返回当前的天数。
 
-1. **单点更新** `update(x, delta)`： 把序列 x 位置的数加上一个值 delta；
-1. **前缀和查询** `query(x)`：查询序列 `[1,...x]` 区间的区间和，即位置 x 的前缀和。
-
-这两个操作的时间复杂度均为 $O(\log n)$。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是灯泡的数量。
 
 <!-- tabs:start -->
 
@@ -71,20 +68,16 @@ class BinaryIndexedTree:
         self.n = n
         self.c = [0] * (n + 1)
 
-    @staticmethod
-    def lowbit(x):
-        return x & -x
-
     def update(self, x, delta):
         while x <= self.n:
             self.c[x] += delta
-            x += BinaryIndexedTree.lowbit(x)
+            x += x & -x
 
     def query(self, x):
         s = 0
-        while x > 0:
+        while x:
             s += self.c[x]
-            x -= BinaryIndexedTree.lowbit(x)
+            x -= x & -x
         return s
 
 
@@ -92,19 +85,15 @@ class Solution:
     def kEmptySlots(self, bulbs: List[int], k: int) -> int:
         n = len(bulbs)
         tree = BinaryIndexedTree(n)
+        vis = [False] * (n + 1)
         for i, x in enumerate(bulbs, 1):
             tree.update(x, 1)
-            case1 = (
-                x - k - 1 > 0
-                and tree.query(x - k - 1) - tree.query(x - k - 2) == 1
-                and tree.query(x - 1) - tree.query(x - k - 1) == 0
-            )
-            case2 = (
-                x + k + 1 <= n
-                and tree.query(x + k + 1) - tree.query(x + k) == 1
-                and tree.query(x + k) - tree.query(x) == 0
-            )
-            if case1 or case2:
+            vis[x] = True
+            y = x - k - 1
+            if y > 0 and vis[y] and tree.query(x - 1) - tree.query(y) == 0:
+                return i
+            y = x + k + 1
+            if y <= n and vis[y] and tree.query(y - 1) - tree.query(x) == 0:
                 return i
         return -1
 ```
@@ -118,15 +107,18 @@ class Solution {
     public int kEmptySlots(int[] bulbs, int k) {
         int n = bulbs.length;
         BinaryIndexedTree tree = new BinaryIndexedTree(n);
-        for (int i = 0; i < n; ++i) {
-            int x = bulbs[i];
+        boolean[] vis = new boolean[n + 1];
+        for (int i = 1; i <= n; ++i) {
+            int x = bulbs[i - 1];
             tree.update(x, 1);
-            boolean case1 = x - k - 1 > 0 && tree.query(x - k - 1) - tree.query(x - k - 2) == 1
-                && tree.query(x - 1) - tree.query(x - k - 1) == 0;
-            boolean case2 = x + k + 1 <= n && tree.query(x + k + 1) - tree.query(x + k) == 1
-                && tree.query(x + k) - tree.query(x) == 0;
-            if (case1 || case2) {
-                return i + 1;
+            vis[x] = true;
+            int y = x - k - 1;
+            if (y > 0 && vis[y] && tree.query(x - 1) - tree.query(y) == 0) {
+                return i;
+            }
+            y = x + k + 1;
+            if (y <= n && vis[y] && tree.query(y - 1) - tree.query(x) == 0) {
+                return i;
             }
         }
         return -1;
@@ -139,27 +131,21 @@ class BinaryIndexedTree {
 
     public BinaryIndexedTree(int n) {
         this.n = n;
-        c = new int[n + 1];
+        this.c = new int[n + 1];
     }
 
     public void update(int x, int delta) {
-        while (x <= n) {
+        for (; x <= n; x += x & -x) {
             c[x] += delta;
-            x += lowbit(x);
         }
     }
 
     public int query(int x) {
         int s = 0;
-        while (x > 0) {
+        for (; x > 0; x -= x & -x) {
             s += c[x];
-            x -= lowbit(x);
         }
         return s;
-    }
-
-    public static int lowbit(int x) {
-        return x & -x;
     }
 }
 ```
@@ -177,23 +163,17 @@ public:
         , c(_n + 1) {}
 
     void update(int x, int delta) {
-        while (x <= n) {
+        for (; x <= n; x += x & -x) {
             c[x] += delta;
-            x += lowbit(x);
         }
     }
 
     int query(int x) {
         int s = 0;
-        while (x > 0) {
+        for (; x; x -= x & -x) {
             s += c[x];
-            x -= lowbit(x);
         }
         return s;
-    }
-
-    int lowbit(int x) {
-        return x & -x;
     }
 };
 
@@ -202,12 +182,20 @@ public:
     int kEmptySlots(vector<int>& bulbs, int k) {
         int n = bulbs.size();
         BinaryIndexedTree* tree = new BinaryIndexedTree(n);
-        for (int i = 0; i < n; ++i) {
-            int x = bulbs[i];
+        bool vis[n + 1];
+        memset(vis, false, sizeof(vis));
+        for (int i = 1; i <= n; ++i) {
+            int x = bulbs[i - 1];
             tree->update(x, 1);
-            bool case1 = x - k - 1 > 0 && tree->query(x - k - 1) - tree->query(x - k - 2) == 1 && tree->query(x - 1) - tree->query(x - k - 1) == 0;
-            bool case2 = x + k + 1 <= n && tree->query(x + k + 1) - tree->query(x + k) == 1 && tree->query(x + k) - tree->query(x) == 0;
-            if (case1 || case2) return i + 1;
+            vis[x] = true;
+            int y = x - k - 1;
+            if (y > 0 && vis[y] && tree->query(x - 1) - tree->query(y) == 0) {
+                return i;
+            }
+            y = x + k + 1;
+            if (y <= n && vis[y] && tree->query(y - 1) - tree->query(x) == 0) {
+                return i;
+            }
         }
         return -1;
     }
@@ -227,38 +215,85 @@ func newBinaryIndexedTree(n int) *BinaryIndexedTree {
 	return &BinaryIndexedTree{n, c}
 }
 
-func (this *BinaryIndexedTree) lowbit(x int) int {
-	return x & -x
-}
-
 func (this *BinaryIndexedTree) update(x, delta int) {
-	for x <= this.n {
+	for ; x <= this.n; x += x & -x {
 		this.c[x] += delta
-		x += this.lowbit(x)
 	}
 }
 
-func (this *BinaryIndexedTree) query(x int) int {
-	s := 0
-	for x > 0 {
+func (this *BinaryIndexedTree) query(x int) (s int) {
+	for ; x > 0; x -= x & -x {
 		s += this.c[x]
-		x -= this.lowbit(x)
 	}
-	return s
+	return
 }
 
 func kEmptySlots(bulbs []int, k int) int {
 	n := len(bulbs)
 	tree := newBinaryIndexedTree(n)
+	vis := make([]bool, n+1)
 	for i, x := range bulbs {
 		tree.update(x, 1)
-		case1 := x-k-1 > 0 && tree.query(x-k-1)-tree.query(x-k-2) == 1 && tree.query(x-1)-tree.query(x-k-1) == 0
-		case2 := x+k+1 <= n && tree.query(x+k+1)-tree.query(x+k) == 1 && tree.query(x+k)-tree.query(x) == 0
-		if case1 || case2 {
-			return i + 1
+		vis[x] = true
+		i++
+		y := x - k - 1
+		if y > 0 && vis[y] && tree.query(x-1)-tree.query(y) == 0 {
+			return i
+		}
+		y = x + k + 1
+		if y <= n && vis[y] && tree.query(y-1)-tree.query(x) == 0 {
+			return i
 		}
 	}
 	return -1
+}
+```
+
+### **TypeScript**
+
+```ts
+class BinaryIndexedTree {
+    private n: number;
+    private c: number[];
+
+    constructor(n: number) {
+        this.n = n;
+        this.c = Array(n + 1).fill(0);
+    }
+
+    public update(x: number, delta: number) {
+        for (; x <= this.n; x += x & -x) {
+            this.c[x] += delta;
+        }
+    }
+
+    public query(x: number): number {
+        let s = 0;
+        for (; x > 0; x -= x & -x) {
+            s += this.c[x];
+        }
+        return s;
+    }
+}
+
+function kEmptySlots(bulbs: number[], k: number): number {
+    const n = bulbs.length;
+    const tree = new BinaryIndexedTree(n);
+    const vis: boolean[] = Array(n + 1).fill(false);
+    for (let i = 1; i <= n; ++i) {
+        const x = bulbs[i - 1];
+        tree.update(x, 1);
+        vis[x] = true;
+        let y = x - k - 1;
+        if (y > 0 && vis[y] && tree.query(x - 1) - tree.query(y) === 0) {
+            return i;
+        }
+        y = x + k + 1;
+        if (y <= n && vis[y] && tree.query(y - 1) - tree.query(x) === 0) {
+            return i;
+        }
+    }
+    return -1;
 }
 ```
 
