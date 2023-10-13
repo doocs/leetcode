@@ -100,33 +100,32 @@ We sort the result table by customer_name in ascending order, by customer_id in 
 
 ## Solutions
 
+**Solution 1: Equi-Join + Window Function**
+
+We can use an equi-join to join the `Customers` table and the `Orders` table based on `customer_id`, and then use the window function `row_number()` to sort the orders for each customer by `order_date` in descending order and assign a row number to each order. Finally, we can filter out the orders with a row number less than or equal to $3$.
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    name AS customer_name,
-    o.customer_id,
-    order_id,
-    order_date
-FROM
-    Customers AS c
-    JOIN (
+WITH
+    T AS (
         SELECT
-            customer_id,
-            order_date,
-            order_id,
-            rank() OVER (
+            *,
+            row_number() OVER (
                 PARTITION BY customer_id
                 ORDER BY order_date DESC
             ) AS rk
-        FROM orders
-    ) AS o
-        ON c.customer_id = o.customer_id
+        FROM
+            Orders
+            JOIN Customers USING (customer_id)
+    )
+SELECT name AS customer_name, customer_id, order_id, order_date
+FROM T
 WHERE rk <= 3
-ORDER BY name, o.customer_id, order_date DESC;
+ORDER BY 1, 2, 4 DESC;
 ```
 
 <!-- tabs:end -->

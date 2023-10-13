@@ -80,42 +80,29 @@ Department 表:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：等值连接 + 子查询**
+
+我们可以使用等值连接，将 `Employee` 表和 `Department` 表连接起来，连接条件为 `Employee.departmentId = Department.id`，然后使用子查询来找到每个部门的最高工资，最后使用 `WHERE` 子句来筛选出每个部门中薪资最高的员工。
+
+**方法二：等值连接 + 窗口函数**
+
+我们可以使用等值连接，将 `Employee` 表和 `Department` 表连接起来，连接条件为 `Employee.departmentId = Department.id`，然后使用窗口函数 `rank()`，它可以为每个部门的每个员工分配一个排名，然后我们可以选择排名为 $1$ 的行即可。
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
-SELECT
-    Department.NAME AS Department,
-    Employee.NAME AS Employee,
-    Salary
-FROM
-    Employee,
-    Department
-WHERE
-    Employee.DepartmentId = Department.Id
-    AND (Employee.DepartmentId, Salary) IN (
-        SELECT DepartmentId, max(Salary)
-        FROM Employee
-        GROUP BY DepartmentId
-    );
-```
-
-```sql
 # Write your MySQL query statement below
-SELECT
-    d.NAME AS Department,
-    e1.NAME AS Employee,
-    e1.salary AS Salary
+SELECT d.name AS department, e.name AS employee, salary
 FROM
-    Employee AS e1
-    JOIN Department AS d ON e1.departmentId = d.id
+    Employee AS e
+    JOIN Department AS d ON e.departmentId = d.id
 WHERE
-    e1.salary = (
-        SELECT
-            MAX(Salary)
-        FROM Employee AS e2
-        WHERE e2.departmentId = d.id
+    (d.id, salary) IN (
+        SELECT departmentId, max(salary)
+        FROM Employee
+        GROUP BY 1
     );
 ```
 
@@ -124,17 +111,19 @@ WHERE
 WITH
     T AS (
         SELECT
-            *,
+            d.name AS department,
+            e.name AS employee,
+            salary,
             rank() OVER (
-                PARTITION BY departmentId
+                PARTITION BY d.name
                 ORDER BY salary DESC
             ) AS rk
-        FROM Employee
+        FROM
+            Employee AS e
+            JOIN Department AS d ON e.departmentId = d.id
     )
-SELECT d.name AS Department, t.name AS Employee, salary AS Salary
-FROM
-    T AS t
-    JOIN Department AS d ON t.departmentId = d.id
+SELECT department, employee, salary
+FROM T
 WHERE rk = 1;
 ```
 
