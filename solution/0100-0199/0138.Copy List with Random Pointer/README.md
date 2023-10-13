@@ -62,8 +62,6 @@
 	<li><code>Node.random</code>&nbsp;为&nbsp;<code>null</code> 或指向链表中的节点。</li>
 </ul>
 
-<p>注意：本题与主站 138 题相同：<a href="https://leetcode.cn/problems/copy-list-with-random-pointer/" rel="noopener noreferrer" target="_blank">https://leetcode.cn/problems/copy-list-with-random-pointer/</a></p>
-
 <p>&nbsp;</p>
 
 ## 解法
