@@ -30,7 +30,7 @@
 <pre>
 <strong>Input:</strong> n = 5, m = 2, k = 3
 <strong>Output:</strong> 0
-<strong>Explanation:</strong> There are no possible arrays that satisify the mentioned conditions.
+<strong>Explanation:</strong> There are no possible arrays that satisfy the mentioned conditions.
 </pre>
 
 <p><strong class="example">Example 3:</strong></p>

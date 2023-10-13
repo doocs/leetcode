@@ -1,4 +1,4 @@
-# [2893. Calculate Orders Within Each Interval](https://leetcode.cn/problems/calculate-orders-within-each-interval)
+# [2893. 计算每个区间内的订单](https://leetcode.cn/problems/calculate-orders-within-each-interval)
 
 [English Version](/solution/2800-2899/2893.Calculate%20Orders%20Within%20Each%20Interval/README_EN.md)
 
@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code><font face="monospace">Orders</font></code></p>
+<p>表：&nbsp;<code><font face="monospace">Orders</font></code></p>
 
 <pre>
 +-------------+------+ 
@@ -15,25 +15,25 @@
 | minute      | int  | 
 | order_count | int  |
 +-------------+------+
-minute is the primary key for this table.
-Each row of this table contains the minute and number of orders received during that specific minute. The total number of rows will be a multiple of 6.
-</pre>
+minute 是该表的主键。
+该表的每一行包含分钟数以及在特定分钟数内收到的订单数量。总行数将是 6 的倍数。</pre>
 
-<p>Write a query to calculate <strong>total</strong> <strong>orders</strong><b> </b>within each <strong>interval</strong>. Each interval is defined as a combination of <code>6</code> minutes.</p>
+<p>编写一个查询，计算每个&nbsp;<strong>区间</strong><b>&nbsp;</b>内的&nbsp;<b>总订单数量。</b>&nbsp;每个区间被定义为&nbsp;<code>6</code>&nbsp;分钟的组合。</p>
 
 <ul>
-	<li>Minutes <code>1</code> to <code>6</code> fall within interval <code>1</code>, while minutes <code>7</code> to <code>12</code> belong to interval <code>2</code>, and so forth.</li>
+	<li>&nbsp;<code>1</code>&nbsp;到&nbsp;<code>6</code>&nbsp;分钟属于第&nbsp;<code>1</code>&nbsp;个区间，而&nbsp;<code>7</code>&nbsp;到&nbsp;<code>12</code>&nbsp;分钟属于第&nbsp;<code>2</code>&nbsp;个区间，以此类推。</li>
 </ul>
 
-<p>Return<em> the result table ordered by <strong>interval_no</strong> in <strong>ascending</strong> order.</em></p>
+<p>按 <em><strong>升序顺序</strong></em> <em>返回</em><em>结果表，</em>按<em>&nbsp;<strong>interval_no</strong>&nbsp;排序。</em></p>
 
-<p>The result format is in the following example.</p>
+<p>结果表的格式如下示例所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><b>示例 1:</b></p>
 
 <pre>
-<strong>Input:</strong> 
+<b>输入：</b>
 Orders table:
 +--------+-------------+
 | minute | order_count | 
@@ -51,17 +51,17 @@ Orders table:
 | 11     | 4           | 
 | 12     | 6           | 
 +--------+-------------+
-<strong>Output:</strong> 
+<b>输出：</b>
 +-------------+--------------+
 | interval_no | total_orders | 
 +-------------+--------------+
 | 1           | 17           | 
 | 2           | 18           |    
 +-------------+--------------+
-<strong>Explanation:</strong> 
-- Interval number 1 comprises minutes from 1 to 6. The total orders in these six minutes are (0 + 2 + 4 + 6 + 1 + 4) = 17.
-- Interval number 2 comprises minutes from 7 to 12. The total orders in these six minutes are (1 + 2 + 4 + 1 + 4 + 6) = 18.
-Returning table orderd by interval_no in ascending order.</pre>
+<b>解释：</b>
+- 区间号 1 包括从 1 到 6 分钟的时间。这 6 分钟内的总订单数量为 (0 + 2 + 4 + 6 + 1 + 4) = 17。
+- 区间号 2 包括从 7 到 12 分钟的时间。这 6 分钟内的总订单数量为 (1 + 2 + 4 + 1 + 4 + 6) = 18。
+按升序顺序返回结果表，按 interval_no 排序。</pre>
 
 ## 解法
 

@@ -18,7 +18,7 @@
 | salary        | varchar |
 | department_id | varchar |
 +---------------+---------+
-在 SQL 中，(emp_id, salary) 是此表的主键。 
+(emp_id, salary) 是该表的主键(具有唯一值的列的组合)。
 每行包含员工的详细信息和他们每年的薪水，但有些记录是旧的，包含过时的薪资信息。
 </pre>
 
@@ -41,7 +41,7 @@
 | 1      | Todd      | Wilson   | 110000 | D1006         |
 | 1      | Todd      | Wilson   | 106119 | D1006         | 
 | 2      | Justin    | Simon    | 128922 | D1005         | 
-| 2      | Justin    | Simon    | 128922 | D1005         | 
+| 2      | Justin    | Simon    | 130000 | D1005         | 
 | 3      | Kelly     | Rosario  | 42689  | D1002         | 
 | 4      | Patricia  | Powell   | 162825 | D1004         |
 | 4      | Patricia  | Powell   | 170000 | D1004         |
