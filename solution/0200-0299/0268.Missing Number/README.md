@@ -62,7 +62,12 @@
 
 **方法一：位运算**
 
-对于数组中的每个元素，都可以与下标进行异或运算，最终的结果就是缺失的数字。
+异或运算的性质：
+
+-   任何数和 $0$ 做异或运算，结果仍然是原来的数，即 $x \oplus 0 = x$；
+-   任何数和其自身做异或运算，结果是 $0$，即 $x \oplus x = 0$；
+
+因此，我们可以遍历数组，将数字 $[0,..n]$ 与数组中的元素进行异或运算，最后的结果就是缺失的数字。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
 
@@ -70,7 +75,7 @@
 
 我们也可以用数学求解。求出 $[0,..n]$ 的和，减去数组中所有数的和，就得到了缺失的数字。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -168,6 +173,58 @@ func missingNumber(nums []int) (ans int) {
 		ans += i - v
 	}
 	return
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn missing_number(nums: Vec<i32>) -> i32 {
+        let n = nums.len() as i32;
+        let mut ans = n;
+        for (i, v) in nums.iter().enumerate() {
+            ans ^= i as i32 ^ v;
+        }
+        ans
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn missing_number(nums: Vec<i32>) -> i32 {
+        let n = nums.len() as i32;
+        let mut ans = n;
+        for (i, &v) in nums.iter().enumerate() {
+            ans += i as i32 - v;
+        }
+        ans
+    }
+}
+```
+
+### **TypeScript**
+
+```ts
+function missingNumber(nums: number[]): number {
+    const n = nums.length;
+    let ans = n;
+    for (let i = 0; i < n; ++i) {
+        ans ^= i ^ nums[i];
+    }
+    return ans;
+}
+```
+
+```ts
+function missingNumber(nums: number[]): number {
+    const n = nums.length;
+    let ans = n;
+    for (let i = 0; i < n; ++i) {
+        ans += i - nums[i];
+    }
+    return ans;
 }
 ```
 
