@@ -46,7 +46,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 **Solution 3: Bit Operation**
 
-According to the properties of the XOR operation, for integer $x$, we have $x \oplus x = 0$ and $x \oplus 0 = x$. Therefore, if we perform the XOR operation on all elements in the array $nums$ and all numbers $i \in [1, n]$, we can eliminate the numbers that appear twice, leaving only the XOR result of the missing number and the duplicate number, i.e., $eor = a \oplus b$.
+According to the properties of the XOR operation, for integer $x$, we have $x \oplus x = 0$ and $x \oplus 0 = x$. Therefore, if we perform the XOR operation on all elements in the array $nums$ and all numbers $i \in [1, n]$, we can eliminate the numbers that appear twice, leaving only the XOR result of the missing number and the duplicate number, i.e., $xs = a \oplus b$.
 
 Since these two numbers are not equal, there must be at least one bit in the XOR result that is $1$. We find the lowest bit of $1$ in the XOR result through the $lowbit$ operation, and then divide all numbers in the array $nums$ and all numbers $i \in [1, n]$ into two groups according to whether this bit is $1$. In this way, the two numbers are divided into different groups. The XOR result of one group of numbers is $a$, and the XOR result of the other group is $b$. These two numbers are the answers we are looking for.
 
@@ -85,17 +85,17 @@ class Solution:
 ```python
 class Solution:
     def findErrorNums(self, nums: List[int]) -> List[int]:
-        eor = 0
+        xs = 0
         for i, x in enumerate(nums, 1):
-            eor ^= i ^ x
+            xs ^= i ^ x
         a = 0
-        lb = eor & -eor
+        lb = xs & -xs
         for i, x in enumerate(nums, 1):
             if i & lb:
                 a ^= i
             if x & lb:
                 a ^= x
-        b = eor ^ a
+        b = xs ^ a
         for x in nums:
             if x == a:
                 return [a, b]
@@ -149,11 +149,11 @@ class Solution {
 class Solution {
     public int[] findErrorNums(int[] nums) {
         int n = nums.length;
-        int eor = 0;
+        int xs = 0;
         for (int i = 1; i <= n; ++i) {
-            eor ^= i ^ nums[i - 1];
+            xs ^= i ^ nums[i - 1];
         }
-        int lb = eor & -eor;
+        int lb = xs & -xs;
         int a = 0;
         for (int i = 1; i <= n; ++i) {
             if ((i & lb) > 0) {
@@ -163,7 +163,7 @@ class Solution {
                 a ^= nums[i - 1];
             }
         }
-        int b = eor ^ a;
+        int b = xs ^ a;
         for (int i = 0; i < n; ++i) {
             if (nums[i] == a) {
                 return new int[] {a, b};
@@ -220,11 +220,11 @@ class Solution {
 public:
     vector<int> findErrorNums(vector<int>& nums) {
         int n = nums.size();
-        int eor = 0;
+        int xs = 0;
         for (int i = 1; i <= n; ++i) {
-            eor ^= i ^ nums[i - 1];
+            xs ^= i ^ nums[i - 1];
         }
-        int lb = eor & -eor;
+        int lb = xs & -xs;
         int a = 0;
         for (int i = 1; i <= n; ++i) {
             if (i & lb) {
@@ -234,7 +234,7 @@ public:
                 a ^= nums[i - 1];
             }
         }
-        int b = eor ^ a;
+        int b = xs ^ a;
         for (int i = 0; i < n; ++i) {
             if (nums[i] == a) {
                 return {a, b};
@@ -285,11 +285,11 @@ func findErrorNums(nums []int) []int {
 
 ```go
 func findErrorNums(nums []int) []int {
-	eor := 0
+	xs := 0
 	for i, x := range nums {
-		eor ^= x ^ (i + 1)
+		xs ^= x ^ (i + 1)
 	}
-	lb := eor & -eor
+	lb := xs & -xs
 	a := 0
 	for i, x := range nums {
 		if (i+1)&lb != 0 {
@@ -299,13 +299,56 @@ func findErrorNums(nums []int) []int {
 			a ^= x
 		}
 	}
-	b := eor ^ a
+	b := xs ^ a
 	for _, x := range nums {
 		if x == a {
 			return []int{a, b}
 		}
 	}
 	return []int{b, a}
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashSet;
+impl Solution {
+    pub fn find_error_nums(nums: Vec<i32>) -> Vec<i32> {
+        let n = nums.len() as i32;
+        let s1 = (1 + n) * n / 2;
+        let s2 = nums.iter().cloned().collect::<HashSet<i32>>().iter().sum::<i32>();
+        let s: i32 = nums.iter().sum();
+        vec![s - s2, s1 - s2]
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn find_error_nums(nums: Vec<i32>) -> Vec<i32> {
+        let mut xs = 0;
+        for (i, x) in nums.iter().enumerate() {
+            xs ^= (i + 1) as i32 ^ x;
+        }
+        let mut a = 0;
+        let lb = xs & -xs;
+        for (i, x) in nums.iter().enumerate() {
+            if (i + 1) as i32 & lb != 0 {
+                a ^= (i + 1) as i32;
+            }
+            if *x & lb != 0 {
+                a ^= *x;
+            }
+        }
+        let b = xs ^ a;
+        for x in nums.iter() {
+            if *x == a {
+                return vec![a, b];
+            }
+        }
+        vec![b, a]
+    }
 }
 ```
 
@@ -344,11 +387,11 @@ function findErrorNums(nums: number[]): number[] {
 ```ts
 function findErrorNums(nums: number[]): number[] {
     const n = nums.length;
-    let eor = 0;
+    let xs = 0;
     for (let i = 1; i <= n; ++i) {
-        eor ^= i ^ nums[i - 1];
+        xs ^= i ^ nums[i - 1];
     }
-    const lb = eor & -eor;
+    const lb = xs & -xs;
     let a = 0;
     for (let i = 1; i <= n; ++i) {
         if (i & lb) {
@@ -358,7 +401,7 @@ function findErrorNums(nums: number[]): number[] {
             a ^= nums[i - 1];
         }
     }
-    const b = eor ^ a;
+    const b = xs ^ a;
     return nums.includes(a) ? [a, b] : [b, a];
 }
 ```

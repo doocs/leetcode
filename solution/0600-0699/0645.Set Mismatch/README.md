@@ -59,7 +59,7 @@
 
 **方法三：位运算**
 
-根据异或运算的性质，对于整数 $x$，有 $x \oplus x = 0$ 以及 $x \oplus 0 = x$，因此我们对数组 $nums$ 中的所有元素以及 $i \in [1, n]$ 的所有数字进行异或运算，可以消除出现两次的数字，最终只留下缺失的数字和重复的数字的异或结果，即 $eor = a \oplus b$。
+根据异或运算的性质，对于整数 $x$，有 $x \oplus x = 0$ 以及 $x \oplus 0 = x$，因此我们对数组 $nums$ 中的所有元素以及 $i \in [1, n]$ 的所有数字进行异或运算，可以消除出现两次的数字，最终只留下缺失的数字和重复的数字的异或结果，即 $xs = a \oplus b$。
 
 由于这两个数字不相等，因此异或结果中至少存在一位为 $1$。我们通过 $lowbit$ 运算找到异或结果中最低位的 $1$，然后将数组 $nums$ 中所有数字以及 $i \in [1, n]$ 的所有数字按照该位是否为 $1$ 分为两组，这样两个数字就被分到了不同的组中。其中一组数字的异或结果为 $a$，另一组数字的异或结果为 $b$。那么这两个数字就是我们要找的答案。
 
@@ -100,17 +100,17 @@ class Solution:
 ```python
 class Solution:
     def findErrorNums(self, nums: List[int]) -> List[int]:
-        eor = 0
+        xs = 0
         for i, x in enumerate(nums, 1):
-            eor ^= i ^ x
+            xs ^= i ^ x
         a = 0
-        lb = eor & -eor
+        lb = xs & -xs
         for i, x in enumerate(nums, 1):
             if i & lb:
                 a ^= i
             if x & lb:
                 a ^= x
-        b = eor ^ a
+        b = xs ^ a
         for x in nums:
             if x == a:
                 return [a, b]
@@ -166,11 +166,11 @@ class Solution {
 class Solution {
     public int[] findErrorNums(int[] nums) {
         int n = nums.length;
-        int eor = 0;
+        int xs = 0;
         for (int i = 1; i <= n; ++i) {
-            eor ^= i ^ nums[i - 1];
+            xs ^= i ^ nums[i - 1];
         }
-        int lb = eor & -eor;
+        int lb = xs & -xs;
         int a = 0;
         for (int i = 1; i <= n; ++i) {
             if ((i & lb) > 0) {
@@ -180,7 +180,7 @@ class Solution {
                 a ^= nums[i - 1];
             }
         }
-        int b = eor ^ a;
+        int b = xs ^ a;
         for (int i = 0; i < n; ++i) {
             if (nums[i] == a) {
                 return new int[] {a, b};
@@ -237,11 +237,11 @@ class Solution {
 public:
     vector<int> findErrorNums(vector<int>& nums) {
         int n = nums.size();
-        int eor = 0;
+        int xs = 0;
         for (int i = 1; i <= n; ++i) {
-            eor ^= i ^ nums[i - 1];
+            xs ^= i ^ nums[i - 1];
         }
-        int lb = eor & -eor;
+        int lb = xs & -xs;
         int a = 0;
         for (int i = 1; i <= n; ++i) {
             if (i & lb) {
@@ -251,7 +251,7 @@ public:
                 a ^= nums[i - 1];
             }
         }
-        int b = eor ^ a;
+        int b = xs ^ a;
         for (int i = 0; i < n; ++i) {
             if (nums[i] == a) {
                 return {a, b};
@@ -302,11 +302,11 @@ func findErrorNums(nums []int) []int {
 
 ```go
 func findErrorNums(nums []int) []int {
-	eor := 0
+	xs := 0
 	for i, x := range nums {
-		eor ^= x ^ (i + 1)
+		xs ^= x ^ (i + 1)
 	}
-	lb := eor & -eor
+	lb := xs & -xs
 	a := 0
 	for i, x := range nums {
 		if (i+1)&lb != 0 {
@@ -316,13 +316,56 @@ func findErrorNums(nums []int) []int {
 			a ^= x
 		}
 	}
-	b := eor ^ a
+	b := xs ^ a
 	for _, x := range nums {
 		if x == a {
 			return []int{a, b}
 		}
 	}
 	return []int{b, a}
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashSet;
+impl Solution {
+    pub fn find_error_nums(nums: Vec<i32>) -> Vec<i32> {
+        let n = nums.len() as i32;
+        let s1 = (1 + n) * n / 2;
+        let s2 = nums.iter().cloned().collect::<HashSet<i32>>().iter().sum::<i32>();
+        let s: i32 = nums.iter().sum();
+        vec![s - s2, s1 - s2]
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn find_error_nums(nums: Vec<i32>) -> Vec<i32> {
+        let mut xs = 0;
+        for (i, x) in nums.iter().enumerate() {
+            xs ^= (i + 1) as i32 ^ x;
+        }
+        let mut a = 0;
+        let lb = xs & -xs;
+        for (i, x) in nums.iter().enumerate() {
+            if (i + 1) as i32 & lb != 0 {
+                a ^= (i + 1) as i32;
+            }
+            if *x & lb != 0 {
+                a ^= *x;
+            }
+        }
+        let b = xs ^ a;
+        for x in nums.iter() {
+            if *x == a {
+                return vec![a, b];
+            }
+        }
+        vec![b, a]
+    }
 }
 ```
 
@@ -361,11 +404,11 @@ function findErrorNums(nums: number[]): number[] {
 ```ts
 function findErrorNums(nums: number[]): number[] {
     const n = nums.length;
-    let eor = 0;
+    let xs = 0;
     for (let i = 1; i <= n; ++i) {
-        eor ^= i ^ nums[i - 1];
+        xs ^= i ^ nums[i - 1];
     }
-    const lb = eor & -eor;
+    const lb = xs & -xs;
     let a = 0;
     for (let i = 1; i <= n; ++i) {
         if (i & lb) {
@@ -375,7 +418,7 @@ function findErrorNums(nums: number[]): number[] {
             a ^= nums[i - 1];
         }
     }
-    const b = eor ^ a;
+    const b = xs ^ a;
     return nums.includes(a) ? [a, b] : [b, a];
 }
 ```
