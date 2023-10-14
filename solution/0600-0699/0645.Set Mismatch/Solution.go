@@ -1,9 +1,9 @@
 func findErrorNums(nums []int) []int {
-	eor := 0
+	xs := 0
 	for i, x := range nums {
-		eor ^= x ^ (i + 1)
+		xs ^= x ^ (i + 1)
 	}
-	lb := eor & -eor
+	lb := xs & -xs
 	a := 0
 	for i, x := range nums {
 		if (i+1)&lb != 0 {
@@ -13,7 +13,7 @@ func findErrorNums(nums []int) []int {
 			a ^= x
 		}
 	}
-	b := eor ^ a
+	b := xs ^ a
 	for _, x := range nums {
 		if x == a {
 			return []int{a, b}

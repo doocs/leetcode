@@ -45,6 +45,14 @@
 
 ## Solutions
 
+**Solution 1: Binary Search**
+
+We can observe that if the number of elements in $[1,..x]$ is greater than $x$, then the duplicate number must be in $[1,..x]$, otherwise the duplicate number must be in $[x+1,..n]$.
+
+Therefore, we can use binary search to find $x$, and check whether the number of elements in $[1,..x]$ is greater than $x$ at each iteration. This way, we can determine which interval the duplicate number is in, and narrow down the search range until we find the duplicate number.
+
+The time complexity is $O(n \times \log n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

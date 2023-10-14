@@ -46,6 +46,23 @@
 
 ## Solutions
 
+**Solution 1: Bitwise Operation**
+
+The XOR operation has the following properties:
+
+-   Any number XOR 0 is still the original number, i.e., $x \oplus 0 = x$;
+-   Any number XOR itself is 0, i.e., $x \oplus x = 0$;
+
+Therefore, we can traverse the array, perform XOR operation between each element and the numbers $[0,..n]$, and the final result will be the missing number.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+
+**Solution 2: Mathematics**
+
+We can also solve this problem using mathematics. By calculating the sum of $[0,..n]$, subtracting the sum of all numbers in the array, we can obtain the missing number.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -138,6 +155,58 @@ func missingNumber(nums []int) (ans int) {
 		ans += i - v
 	}
 	return
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn missing_number(nums: Vec<i32>) -> i32 {
+        let n = nums.len() as i32;
+        let mut ans = n;
+        for (i, v) in nums.iter().enumerate() {
+            ans ^= i as i32 ^ v;
+        }
+        ans
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn missing_number(nums: Vec<i32>) -> i32 {
+        let n = nums.len() as i32;
+        let mut ans = n;
+        for (i, &v) in nums.iter().enumerate() {
+            ans += i as i32 - v;
+        }
+        ans
+    }
+}
+```
+
+### **TypeScript**
+
+```ts
+function missingNumber(nums: number[]): number {
+    const n = nums.length;
+    let ans = n;
+    for (let i = 0; i < n; ++i) {
+        ans ^= i ^ nums[i];
+    }
+    return ans;
+}
+```
+
+```ts
+function missingNumber(nums: number[]): number {
+    const n = nums.length;
+    let ans = n;
+    for (let i = 0; i < n; ++i) {
+        ans += i - nums[i];
+    }
+    return ans;
 }
 ```
 

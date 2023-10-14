@@ -2,11 +2,11 @@ class Solution {
 public:
     vector<int> findErrorNums(vector<int>& nums) {
         int n = nums.size();
-        int eor = 0;
+        int xs = 0;
         for (int i = 1; i <= n; ++i) {
-            eor ^= i ^ nums[i - 1];
+            xs ^= i ^ nums[i - 1];
         }
-        int lb = eor & -eor;
+        int lb = xs & -xs;
         int a = 0;
         for (int i = 1; i <= n; ++i) {
             if (i & lb) {
@@ -16,7 +16,7 @@ public:
                 a ^= nums[i - 1];
             }
         }
-        int b = eor ^ a;
+        int b = xs ^ a;
         for (int i = 0; i < n; ++i) {
             if (nums[i] == a) {
                 return {a, b};

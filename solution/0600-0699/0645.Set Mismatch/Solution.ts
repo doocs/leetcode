@@ -1,10 +1,10 @@
 function findErrorNums(nums: number[]): number[] {
     const n = nums.length;
-    let eor = 0;
+    let xs = 0;
     for (let i = 1; i <= n; ++i) {
-        eor ^= i ^ nums[i - 1];
+        xs ^= i ^ nums[i - 1];
     }
-    const lb = eor & -eor;
+    const lb = xs & -xs;
     let a = 0;
     for (let i = 1; i <= n; ++i) {
         if (i & lb) {
@@ -14,6 +14,6 @@ function findErrorNums(nums: number[]): number[] {
             a ^= nums[i - 1];
         }
     }
-    const b = eor ^ a;
+    const b = xs ^ a;
     return nums.includes(a) ? [a, b] : [b, a];
 }
