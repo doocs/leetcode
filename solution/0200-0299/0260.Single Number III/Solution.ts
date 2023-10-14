@@ -1,8 +1,4 @@
-/**
- * @param {number[]} nums
- * @return {number[]}
- */
-var singleNumber = function (nums) {
+function singleNumber(nums: number[]): number[] {
     const xs = nums.reduce((a, b) => a ^ b);
     const lb = xs & -xs;
     let a = 0;
@@ -13,4 +9,4 @@ var singleNumber = function (nums) {
     }
     const b = xs ^ a;
     return [a, b];
-};
+}

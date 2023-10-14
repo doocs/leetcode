@@ -48,6 +48,21 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：位运算**
+
+异或运算有以下性质：
+
+-   任何数和 $0$ 做异或运算，结果仍然是原来的数，即 $x \oplus 0 = x$；
+-   任何数和其自身做异或运算，结果是 $0$，即 $x \oplus x = 0$；
+
+由于数组中除了两个数字之外，其他数字都出现了两次，因此我们对数组中的所有数字进行异或运算，得到的结果即为两个只出现一次的数字的异或结果。
+
+而由于这两个数字不相等，因此异或结果中至少存在一位为 $1$。我们可以通过 `lowbit` 运算找到异或结果中最低位的 $1$，并将数组中的所有数字按照该位是否为 $1$ 分为两组，这样两个只出现一次的数字就被分到了不同的组中。
+
+对两个组分别进行异或运算，即可得到两个只出现一次的数字 $a$ 和 $b$。
+
+时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -57,16 +72,14 @@
 ```python
 class Solution:
     def singleNumber(self, nums: List[int]) -> List[int]:
-        eor = 0
+        xs = reduce(xor, nums)
+        a = 0
+        lb = xs & -xs
         for x in nums:
-            eor ^= x
-        lowbit = eor & (-eor)
-        ans = [0, 0]
-        for x in nums:
-            if (x & lowbit) == 0:
-                ans[0] ^= x
-        ans[1] = eor ^ ans[0]
-        return ans
+            if x & lb:
+                a ^= x
+        b = xs ^ a
+        return [a, b]
 ```
 
 ### **Java**
@@ -76,19 +89,117 @@ class Solution:
 ```java
 class Solution {
     public int[] singleNumber(int[] nums) {
-        int eor = 0;
+        int xs = 0;
         for (int x : nums) {
-            eor ^= x;
+            xs ^= x;
         }
-        int lowbit = eor & (-eor);
-        int[] ans = new int[2];
+        int lb = xs & -xs;
+        int a = 0;
         for (int x : nums) {
-            if ((x & lowbit) == 0) {
-                ans[0] ^= x;
+            if ((x & lb) != 0) {
+                a ^= x;
             }
         }
-        ans[1] = eor ^ ans[0];
-        return ans;
+        int b = xs ^ a;
+        return new int[] {a, b};
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> singleNumber(vector<int>& nums) {
+        long long xs = 0;
+        for (int& x : nums) {
+            xs ^= x;
+        }
+        int lb = xs & -xs;
+        int a = 0;
+        for (int& x : nums) {
+            if (x & lb) {
+                a ^= x;
+            }
+        }
+        int b = xs ^ a;
+        return {a, b};
+    }
+};
+```
+
+### **Go**
+
+```go
+func singleNumber(nums []int) []int {
+	xs := 0
+	for _, x := range nums {
+		xs ^= x
+	}
+	lb := xs & -xs
+	a := 0
+	for _, x := range nums {
+		if x&lb != 0 {
+			a ^= x
+		}
+	}
+	b := xs ^ a
+	return []int{a, b}
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn single_number(nums: Vec<i32>) -> Vec<i32> {
+        let xs = nums.iter().fold(0, |r, v| r ^ v);
+        let lb = xs & -xs;
+        let mut a = 0;
+        for x in &nums {
+            if x & lb != 0 {
+                a ^= x;
+            }
+        }
+        let b = xs ^ a;
+        vec![a, b]
+    }
+}
+```
+
+### **TypeScript**
+
+```ts
+function singleNumber(nums: number[]): number[] {
+    const xs = nums.reduce((a, b) => a ^ b);
+    const lb = xs & -xs;
+    let a = 0;
+    for (const x of nums) {
+        if (x & lb) {
+            a ^= x;
+        }
+    }
+    const b = xs ^ a;
+    return [a, b];
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int[] SingleNumber(int[] nums) {
+        int xs = nums.Aggregate(0, (a, b) => a ^ b);
+        int lb = xs & -xs;
+        int a = 0;
+        foreach(int x in nums) {
+            if ((x & lb) != 0) {
+                a ^= x;
+            }
+        }
+        int b = xs ^ a;
+        return new int[] {a, b};
     }
 }
 ```
@@ -101,58 +212,17 @@ class Solution {
  * @return {number[]}
  */
 var singleNumber = function (nums) {
-    let eor = 0;
+    const xs = nums.reduce((a, b) => a ^ b);
+    const lb = xs & -xs;
+    let a = 0;
     for (const x of nums) {
-        eor ^= x;
-    }
-    const lowbit = eor & -eor;
-    let ans = [0];
-    for (const x of nums) {
-        if ((x & lowbit) == 0) {
-            ans[0] ^= x;
+        if (x & lb) {
+            a ^= x;
         }
     }
-    ans.push(eor ^ ans[0]);
-    return ans;
+    const b = xs ^ a;
+    return [a, b];
 };
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> singleNumber(vector<int>& nums) {
-        long long eor = 0;
-        for (int x : nums) eor ^= x;
-        int lowbit = eor & (-eor);
-        vector<int> ans(2);
-        for (int x : nums)
-            if ((x & lowbit) == 0) ans[0] ^= x;
-        ans[1] = eor ^ ans[0];
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func singleNumber(nums []int) []int {
-	eor := 0
-	for _, x := range nums {
-		eor ^= x
-	}
-	lowbit := eor & (-eor)
-	ans := make([]int, 2)
-	for _, x := range nums {
-		if (x & lowbit) == 0 {
-			ans[0] ^= x
-		}
-	}
-	ans[1] = eor ^ ans[0]
-	return ans
-}
 ```
 
 ### **...**

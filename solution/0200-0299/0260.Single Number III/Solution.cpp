@@ -1,13 +1,18 @@
 class Solution {
 public:
     vector<int> singleNumber(vector<int>& nums) {
-        long long eor = 0;
-        for (int x : nums) eor ^= x;
-        int lowbit = eor & (-eor);
-        vector<int> ans(2);
-        for (int x : nums)
-            if ((x & lowbit) == 0) ans[0] ^= x;
-        ans[1] = eor ^ ans[0];
-        return ans;
+        long long xs = 0;
+        for (int& x : nums) {
+            xs ^= x;
+        }
+        int lb = xs & -xs;
+        int a = 0;
+        for (int& x : nums) {
+            if (x & lb) {
+                a ^= x;
+            }
+        }
+        int b = xs ^ a;
+        return {a, b};
     }
 };

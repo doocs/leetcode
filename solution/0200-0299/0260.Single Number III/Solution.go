@@ -1,15 +1,15 @@
 func singleNumber(nums []int) []int {
-	eor := 0
+	xs := 0
 	for _, x := range nums {
-		eor ^= x
+		xs ^= x
 	}
-	lowbit := eor & (-eor)
-	ans := make([]int, 2)
+	lb := xs & -xs
+	a := 0
 	for _, x := range nums {
-		if (x & lowbit) == 0 {
-			ans[0] ^= x
+		if x&lb != 0 {
+			a ^= x
 		}
 	}
-	ans[1] = eor ^ ans[0]
-	return ans
+	b := xs ^ a
+	return []int{a, b}
 }

@@ -42,6 +42,21 @@
 
 ## Solutions
 
+**Solution 1: Bitwise Operation**
+
+The XOR operation has the following properties:
+
+-   Any number XOR 0 is still the original number, i.e., $x \oplus 0 = x$;
+-   Any number XOR itself is 0, i.e., $x \oplus x = 0$;
+
+Since all numbers in the array appear twice except for two numbers, we can perform XOR operation on all numbers in the array to get the XOR result of the two numbers that only appear once.
+
+Since these two numbers are not equal, there is at least one bit that is 1 in the XOR result. We can use the `lowbit` operation to find the lowest bit of 1 in the XOR result, and divide all numbers in the array into two groups based on whether this bit is 1 or not. This way, the two numbers that only appear once are separated into different groups.
+
+Perform XOR operation on each group separately to obtain the two numbers $a$ and $b$ that only appear once.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -49,16 +64,14 @@
 ```python
 class Solution:
     def singleNumber(self, nums: List[int]) -> List[int]:
-        eor = 0
+        xs = reduce(xor, nums)
+        a = 0
+        lb = xs & -xs
         for x in nums:
-            eor ^= x
-        lowbit = eor & (-eor)
-        ans = [0, 0]
-        for x in nums:
-            if (x & lowbit) == 0:
-                ans[0] ^= x
-        ans[1] = eor ^ ans[0]
-        return ans
+            if x & lb:
+                a ^= x
+        b = xs ^ a
+        return [a, b]
 ```
 
 ### **Java**
@@ -66,19 +79,117 @@ class Solution:
 ```java
 class Solution {
     public int[] singleNumber(int[] nums) {
-        int eor = 0;
+        int xs = 0;
         for (int x : nums) {
-            eor ^= x;
+            xs ^= x;
         }
-        int lowbit = eor & (-eor);
-        int[] ans = new int[2];
+        int lb = xs & -xs;
+        int a = 0;
         for (int x : nums) {
-            if ((x & lowbit) == 0) {
-                ans[0] ^= x;
+            if ((x & lb) != 0) {
+                a ^= x;
             }
         }
-        ans[1] = eor ^ ans[0];
-        return ans;
+        int b = xs ^ a;
+        return new int[] {a, b};
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> singleNumber(vector<int>& nums) {
+        long long xs = 0;
+        for (int& x : nums) {
+            xs ^= x;
+        }
+        int lb = xs & -xs;
+        int a = 0;
+        for (int& x : nums) {
+            if (x & lb) {
+                a ^= x;
+            }
+        }
+        int b = xs ^ a;
+        return {a, b};
+    }
+};
+```
+
+### **Go**
+
+```go
+func singleNumber(nums []int) []int {
+	xs := 0
+	for _, x := range nums {
+		xs ^= x
+	}
+	lb := xs & -xs
+	a := 0
+	for _, x := range nums {
+		if x&lb != 0 {
+			a ^= x
+		}
+	}
+	b := xs ^ a
+	return []int{a, b}
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn single_number(nums: Vec<i32>) -> Vec<i32> {
+        let xs = nums.iter().fold(0, |r, v| r ^ v);
+        let lb = xs & -xs;
+        let mut a = 0;
+        for x in &nums {
+            if x & lb != 0 {
+                a ^= x;
+            }
+        }
+        let b = xs ^ a;
+        vec![a, b]
+    }
+}
+```
+
+### **TypeScript**
+
+```ts
+function singleNumber(nums: number[]): number[] {
+    const xs = nums.reduce((a, b) => a ^ b);
+    const lb = xs & -xs;
+    let a = 0;
+    for (const x of nums) {
+        if (x & lb) {
+            a ^= x;
+        }
+    }
+    const b = xs ^ a;
+    return [a, b];
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int[] SingleNumber(int[] nums) {
+        int xs = nums.Aggregate(0, (a, b) => a ^ b);
+        int lb = xs & -xs;
+        int a = 0;
+        foreach(int x in nums) {
+            if ((x & lb) != 0) {
+                a ^= x;
+            }
+        }
+        int b = xs ^ a;
+        return new int[] {a, b};
     }
 }
 ```
@@ -91,58 +202,17 @@ class Solution {
  * @return {number[]}
  */
 var singleNumber = function (nums) {
-    let eor = 0;
+    const xs = nums.reduce((a, b) => a ^ b);
+    const lb = xs & -xs;
+    let a = 0;
     for (const x of nums) {
-        eor ^= x;
-    }
-    const lowbit = eor & -eor;
-    let ans = [0];
-    for (const x of nums) {
-        if ((x & lowbit) == 0) {
-            ans[0] ^= x;
+        if (x & lb) {
+            a ^= x;
         }
     }
-    ans.push(eor ^ ans[0]);
-    return ans;
+    const b = xs ^ a;
+    return [a, b];
 };
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> singleNumber(vector<int>& nums) {
-        long long eor = 0;
-        for (int x : nums) eor ^= x;
-        int lowbit = eor & (-eor);
-        vector<int> ans(2);
-        for (int x : nums)
-            if ((x & lowbit) == 0) ans[0] ^= x;
-        ans[1] = eor ^ ans[0];
-        return ans;
-    }
-};
-```
-
-### **Go**
-
-```go
-func singleNumber(nums []int) []int {
-	eor := 0
-	for _, x := range nums {
-		eor ^= x
-	}
-	lowbit := eor & (-eor)
-	ans := make([]int, 2)
-	for _, x := range nums {
-		if (x & lowbit) == 0 {
-			ans[0] ^= x
-		}
-	}
-	ans[1] = eor ^ ans[0]
-	return ans
-}
 ```
 
 ### **...**
