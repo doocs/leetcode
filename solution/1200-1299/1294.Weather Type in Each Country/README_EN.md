@@ -124,7 +124,7 @@ SELECT
 FROM
     Weather AS w
     JOIN Countries USING (country_id)
-WHERE Date_Format(day, '%Y-%m') = '2019-11'
+WHERE DATE_FORMAT(day, '%Y-%m') = '2019-11'
 GROUP BY 1;
 ```
 
