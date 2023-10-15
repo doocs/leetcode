@@ -48,30 +48,124 @@ For &quot;prev&quot; at index = 4, last visited integer will be 1 as there are a
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+We can directly simulate according to the problem statement. In the implementation, we use an array $nums$ to store the traversed integers, and an integer $k$ to record the current number of consecutive $prev$ strings. If the current string is $prev$, we take out the $|nums| - k-th$ integer from $nums$. If it does not exist, we return $-1$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $words$. The space complexity is $O(n)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def lastVisitedIntegers(self, words: List[str]) -> List[int]:
+        nums = []
+        ans = []
+        k = 0
+        for w in words:
+            if w == "prev":
+                k += 1
+                i = len(nums) - k
+                ans.append(-1 if i < 0 else nums[i])
+            else:
+                k = 0
+                nums.append(int(w))
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public List<Integer> lastVisitedIntegers(List<String> words) {
+        List<Integer> nums = new ArrayList<>();
+        List<Integer> ans = new ArrayList<>();
+        int k = 0;
+        for (var w : words) {
+            if ("prev".equals(w)) {
+                ++k;
+                int i = nums.size() - k;
+                ans.add(i < 0 ? -1 : nums.get(i));
+            } else {
+                k = 0;
+                nums.add(Integer.valueOf(w));
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> lastVisitedIntegers(vector<string>& words) {
+        vector<int> nums;
+        vector<int> ans;
+        int k = 0;
+        for (auto& w : words) {
+            if (w == "prev") {
+                ++k;
+                int i = nums.size() - k;
+                ans.push_back(i < 0 ? -1 : nums[i]);
+            } else {
+                k = 0;
+                nums.push_back(stoi(w));
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func lastVisitedIntegers(words []string) (ans []int) {
+	nums := []int{}
+	k := 0
+	for _, w := range words {
+		if w == "prev" {
+			k++
+			i := len(nums) - k
+			if i < 0 {
+				ans = append(ans, -1)
+			} else {
+				ans = append(ans, nums[i])
+			}
+		} else {
+			k = 0
+			x, _ := strconv.Atoi(w)
+			nums = append(nums, x)
+		}
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function lastVisitedIntegers(words: string[]): number[] {
+    const nums: number[] = [];
+    const ans: number[] = [];
+    let k = 0;
+    for (const w of words) {
+        if (w === 'prev') {
+            ++k;
+            const i = nums.length - k;
+            ans.push(i < 0 ? -1 : nums[i]);
+        } else {
+            k = 0;
+            nums.push(+w);
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
