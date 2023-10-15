@@ -53,30 +53,82 @@ It can be shown that the length of the longest subsequence of indices that satis
 
 ## Solutions
 
+**Solution 1: Greedy**
+
+We can traverse the array $groups$, and for the current index $i$, if $i=0$ or $groups[i] \neq groups[i - 1]$, we add $words[i]$ to the answer array.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $groups$. The space complexity is $O(n)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def getWordsInLongestSubsequence(
+        self, n: int, words: List[str], groups: List[int]
+    ) -> List[str]:
+        return [words[i] for i, x in enumerate(groups) if i == 0 or x != groups[i - 1]]
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public List<String> getWordsInLongestSubsequence(int n, String[] words, int[] groups) {
+        List<String> ans = new ArrayList<>();
+        for (int i = 0; i < n; ++i) {
+            if (i == 0 || groups[i] != groups[i - 1]) {
+                ans.add(words[i]);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    vector<string> getWordsInLongestSubsequence(int n, vector<string>& words, vector<int>& groups) {
+        vector<string> ans;
+        for (int i = 0; i < n; ++i) {
+            if (i == 0 || groups[i] != groups[i - 1]) {
+                ans.emplace_back(words[i]);
+            }
+        }
+        return  ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func getWordsInLongestSubsequence(n int, words []string, groups []int) (ans []string) {
+	for i, x := range groups {
+		if i == 0 || x != groups[i-1] {
+			ans = append(ans, words[i])
+		}
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function getWordsInLongestSubsequence(n: number, words: string[], groups: number[]): string[] {
+    const ans: string[] = [];
+    for (let i = 0; i < n; ++i) {
+        if (i === 0 || groups[i] !== groups[i - 1]) {
+            ans.push(words[i]);
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**

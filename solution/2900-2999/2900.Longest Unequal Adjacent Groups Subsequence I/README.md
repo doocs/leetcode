@@ -58,6 +58,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 一次遍历**
+
+我们可以遍历数组 $groups$，对于当前遍历到的下标 $i$，如果 $i=0$ 或者 $groups[i] \neq groups[i - 1]$，我们就将 $words[i]$ 加入答案数组中。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $groups$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -65,7 +71,11 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def getWordsInLongestSubsequence(
+        self, n: int, words: List[str], groups: List[int]
+    ) -> List[str]:
+        return [words[i] for i, x in enumerate(groups) if i == 0 or x != groups[i - 1]]
 ```
 
 ### **Java**
@@ -73,19 +83,61 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public List<String> getWordsInLongestSubsequence(int n, String[] words, int[] groups) {
+        List<String> ans = new ArrayList<>();
+        for (int i = 0; i < n; ++i) {
+            if (i == 0 || groups[i] != groups[i - 1]) {
+                ans.add(words[i]);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    vector<string> getWordsInLongestSubsequence(int n, vector<string>& words, vector<int>& groups) {
+        vector<string> ans;
+        for (int i = 0; i < n; ++i) {
+            if (i == 0 || groups[i] != groups[i - 1]) {
+                ans.emplace_back(words[i]);
+            }
+        }
+        return  ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func getWordsInLongestSubsequence(n int, words []string, groups []int) (ans []string) {
+	for i, x := range groups {
+		if i == 0 || x != groups[i-1] {
+			ans = append(ans, words[i])
+		}
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function getWordsInLongestSubsequence(n: number, words: string[], groups: number[]): string[] {
+    const ans: string[] = [];
+    for (let i = 0; i < n; ++i) {
+        if (i === 0 || groups[i] !== groups[i - 1]) {
+            ans.push(words[i]);
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
