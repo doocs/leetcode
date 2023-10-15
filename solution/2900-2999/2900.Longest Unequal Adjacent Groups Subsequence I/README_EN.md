@@ -99,7 +99,7 @@ public:
                 ans.emplace_back(words[i]);
             }
         }
-        return  ans;
+        return ans;
     }
 };
 ```
