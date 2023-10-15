@@ -25,6 +25,13 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 367
+
+- [2903. Find Indices With Index and Value Difference I](/solution/2900-2999/2903.Find%20Indices%20With%20Index%20and%20Value%20Difference%20I/README_EN.md)
+- [2904. Shortest and Lexicographically Smallest Beautiful String](/solution/2900-2999/2904.Shortest%20and%20Lexicographically%20Smallest%20Beautiful%20String/README_EN.md)
+- [2905. Find Indices With Index and Value Difference II](/solution/2900-2999/2905.Find%20Indices%20With%20Index%20and%20Value%20Difference%20II/README_EN.md)
+- [2906. Construct Product Matrix](/solution/2900-2999/2906.Construct%20Product%20Matrix/README_EN.md)
+
 #### Biweekly Contest 115
 
 - [2899. Last Visited Integers](/solution/2800-2899/2899.Last%20Visited%20Integers/README_EN.md)
