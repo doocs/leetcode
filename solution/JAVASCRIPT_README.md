@@ -70,7 +70,7 @@
 | 2794 | [从两个数组中创建对象](/solution/2700-2799/2794.Create%20Object%20from%20Two%20Arrays/README.md)                                                      |      | 简单 | 🔒   |
 | 2795 | [并行执行 Promise 以获取独有的结果](/solution/2700-2799/2795.Parallel%20Execution%20of%20Promises%20for%20Individual%20Results%20Retrieval/README.md) |      | 中等 | 🔒   |
 | 2796 | [重复字符串](/solution/2700-2799/2796.Repeat%20String/README.md)                                                                                      |      | 简单 | 🔒   |
-| 2797 | [带有占位符的部分函数](/solution/2700-2799/2797.Partial%20Function%20with%20Placeholders/README.md)                                                   |      | 简单 | 🔒   |
+| 2797 | [带有占位符的部分函数](/solution/2700-2799/2797.Partial%20Function%20with%20Placeholders/README.md)                                                   |      | 中等 | 🔒   |
 | 2803 | [阶乘生成器](/solution/2800-2899/2803.Factorial%20Generator/README.md)                                                                                |      | 简单 | 🔒   |
 | 2804 | [数组原型的 forEach 方法](/solution/2800-2899/2804.Array%20Prototype%20ForEach/README.md)                                                             |      | 简单 | 🔒   |
 | 2805 | [自定义间隔](/solution/2800-2899/2805.Custom%20Interval/README.md)                                                                                    |      | 中等 | 🔒   |

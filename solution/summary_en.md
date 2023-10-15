@@ -2954,3 +2954,9 @@
   - [2896.Apply Operations to Make Two Strings Equal](/solution/2800-2899/2896.Apply%20Operations%20to%20Make%20Two%20Strings%20Equal/README_EN.md)
   - [2897.Apply Operations on Array to Maximize Sum of Squares](/solution/2800-2899/2897.Apply%20Operations%20on%20Array%20to%20Maximize%20Sum%20of%20Squares/README_EN.md)
   - [2898.Maximum Linear Stock Score](/solution/2800-2899/2898.Maximum%20Linear%20Stock%20Score/README_EN.md)
+  - [2899.Last Visited Integers](/solution/2800-2899/2899.Last%20Visited%20Integers/README_EN.md)
+
+- 2900-2999
+  - [2900.Longest Unequal Adjacent Groups Subsequence I](/solution/2900-2999/2900.Longest%20Unequal%20Adjacent%20Groups%20Subsequence%20I/README_EN.md)
+  - [2901.Longest Unequal Adjacent Groups Subsequence II](/solution/2900-2999/2901.Longest%20Unequal%20Adjacent%20Groups%20Subsequence%20II/README_EN.md)
+  - [2902.Count of Sub-Multisets With Bounded Sum](/solution/2900-2999/2902.Count%20of%20Sub-Multisets%20With%20Bounded%20Sum/README_EN.md)

@@ -2948,9 +2948,15 @@
   - [2890.重塑数据：融合](/solution/2800-2899/2890.Reshape%20Data%20Melt/README.md)
   - [2891.方法链](/solution/2800-2899/2891.Method%20Chaining/README.md)
   - [2892.将相邻元素相乘后得到最小化数组](/solution/2800-2899/2892.Minimizing%20Array%20After%20Replacing%20Pairs%20With%20Their%20Product/README.md)
-  - [2893.计算每个区间内的订单](/solution/2800-2899/2893.Calculate%20Orders%20Within%20Each%20Interval/README.md)
+  - [2893.Calculate Orders Within Each Interval](/solution/2800-2899/2893.Calculate%20Orders%20Within%20Each%20Interval/README.md)
   - [2894.分类求和并作差](/solution/2800-2899/2894.Divisible%20and%20Non-divisible%20Sums%20Difference/README.md)
   - [2895.最小处理时间](/solution/2800-2899/2895.Minimum%20Processing%20Time/README.md)
   - [2896.执行操作使两个字符串相等](/solution/2800-2899/2896.Apply%20Operations%20to%20Make%20Two%20Strings%20Equal/README.md)
   - [2897.对数组执行操作使平方和最大](/solution/2800-2899/2897.Apply%20Operations%20on%20Array%20to%20Maximize%20Sum%20of%20Squares/README.md)
   - [2898.Maximum Linear Stock Score](/solution/2800-2899/2898.Maximum%20Linear%20Stock%20Score/README.md)
+  - [2899.上一个遍历的整数](/solution/2800-2899/2899.Last%20Visited%20Integers/README.md)
+
+- 2900-2999
+  - [2900.最长相邻不相等子序列 I](/solution/2900-2999/2900.Longest%20Unequal%20Adjacent%20Groups%20Subsequence%20I/README.md)
+  - [2901.最长相邻不相等子序列 II](/solution/2900-2999/2901.Longest%20Unequal%20Adjacent%20Groups%20Subsequence%20II/README.md)
+  - [2902.和带限制的子多重集合的数目](/solution/2900-2999/2902.Count%20of%20Sub-Multisets%20With%20Bounded%20Sum/README.md)
