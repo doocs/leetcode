@@ -22,6 +22,20 @@
 
 ## 往期竞赛
 
+#### 第 367 场周赛(2023-10-15 10:30, 90 分钟) 参赛人数 4317
+
+- [2903. 找出满足差值条件的下标 I](/solution/2900-2999/2903.Find%20Indices%20With%20Index%20and%20Value%20Difference%20I/README.md)
+- [2904. 最短且字典序最小的美丽子字符串](/solution/2900-2999/2904.Shortest%20and%20Lexicographically%20Smallest%20Beautiful%20String/README.md)
+- [2905. 找出满足差值条件的下标 II](/solution/2900-2999/2905.Find%20Indices%20With%20Index%20and%20Value%20Difference%20II/README.md)
+- [2906. 构造乘积矩阵](/solution/2900-2999/2906.Construct%20Product%20Matrix/README.md)
+
+#### 第 115 场双周赛(2023-10-14 22:30, 90 分钟) 参赛人数 2809
+
+- [2899. 上一个遍历的整数](/solution/2800-2899/2899.Last%20Visited%20Integers/README.md)
+- [2900. 最长相邻不相等子序列 I](/solution/2900-2999/2900.Longest%20Unequal%20Adjacent%20Groups%20Subsequence%20I/README.md)
+- [2901. 最长相邻不相等子序列 II](/solution/2900-2999/2901.Longest%20Unequal%20Adjacent%20Groups%20Subsequence%20II/README.md)
+- [2902. 和带限制的子多重集合的数目](/solution/2900-2999/2902.Count%20of%20Sub-Multisets%20With%20Bounded%20Sum/README.md)
+
 #### 第 366 场周赛(2023-10-08 10:30, 90 分钟) 参赛人数 2790
 
 - [2894. 分类求和并作差](/solution/2800-2899/2894.Divisible%20and%20Non-divisible%20Sums%20Difference/README.md)

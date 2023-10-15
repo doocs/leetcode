@@ -27,6 +27,49 @@
 
 ## Solutions
 
+**Solution 1: Bitwise Operation**
+
+We can enumerate each binary bit $i$, and for each binary bit, we calculate the sum of all numbers on that bit. If the sum of the numbers on that bit can be divided by 3, then the number that only appears once on that bit is 0, otherwise it is 1.
+
+The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length of the array and the range of elements in the array, respectively. The space complexity is $O(1)$.
+
+**Solution 2: Digital Circuit**
+
+We can use a more efficient method that uses digital circuits to simulate the above bitwise operation.
+
+Each binary bit of an integer can only represent 2 states, 0 or 1. However, we need to represent the sum of the $i$-th bit of all integers traversed so far modulo 3. Therefore, we can use two integers $a$ and $b$ to represent it. There are three possible cases:
+
+1. The $i$-th bit of integer $a$ is 0 and the $i$-th bit of integer $b$ is 0, which means the modulo 3 result is 0;
+2. The $i$-th bit of integer $a$ is 0 and the $i$-th bit of integer $b$ is 1, which means the modulo 3 result is 1;
+3. The $i$-th bit of integer $a$ is 1 and the $i$-th bit of integer $b$ is 0, which means the modulo 3 result is 2.
+
+We use integer $c$ to represent the number to be read in, and the truth table is as follows:
+
+| $a_i$ | $b_i$ | $c_i$ | New $a_i$ | New $b_i$ |
+| ----- | ----- | ----- | --------- | --------- |
+| 0     | 0     | 0     | 0         | 0         |
+| 0     | 0     | 1     | 0         | 1         |
+| 0     | 1     | 0     | 0         | 1         |
+| 0     | 1     | 1     | 1         | 0         |
+| 1     | 0     | 0     | 1         | 0         |
+| 1     | 0     | 1     | 0         | 0         |
+
+Based on the truth table, we can write the logical expression:
+
+$$
+a_i = a_i' b_i c_i + a_i b_i' c_i'
+$$
+
+and:
+
+$$
+b_i = a_i' b_i' c_i + a_i' b_i c_i' = a_i' (b_i \oplus c_i)
+$$
+
+The final result is $b$, because when the binary bit of $b$ is 1, it means that the number appears only once.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -193,6 +236,24 @@ impl Solution {
             ans |= count % 3 << i;
         }
         ans
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn single_number(nums: Vec<i32>) -> i32 {
+        let mut a = 0;
+        let mut b = 0;
+
+        for c in nums {
+            let aa = (!a & b & c) | (a & !b & !c);
+            let bb = !a & (b ^ c);
+            a = aa;
+            b = bb;
+        }
+
+        return b;
     }
 }
 ```
