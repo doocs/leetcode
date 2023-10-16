@@ -82,20 +82,6 @@ Ads 表:
 ### **SQL**
 
 ```sql
-SELECT
-  ad_id,
-  IFNULL(ROUND(AVG(CASE
-    WHEN action = 'Clicked' THEN 1
-    WHEN action = 'Viewed' THEN 0
-    ELSE NULL
-  END) * 100, 2), 0) AS ctr
-FROM Ads
-GROUP BY ad_id
-ORDER BY ctr DESC,
-ad_id ASC;
-```
-
-```sql
 SELECT ad_id,
     ROUND(
          IFNULL(
@@ -104,7 +90,7 @@ SELECT ad_id,
          , 2)
         AS ctr
 FROM Ads
-GROUP BY ad_id
+GROUP BY 1
 ORDER BY 2 DESC, 1;
 ```
 
