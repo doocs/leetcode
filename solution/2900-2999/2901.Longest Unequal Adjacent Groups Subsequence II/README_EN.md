@@ -62,30 +62,276 @@ Hence, it is the only answer.
 
 ## Solutions
 
+**Solution 1: Dynamic Programming**
+
+We define $f[i]$ as the length of the longest adjacent non-equal subsequence ending with the $i$-th word, and $g[i]$ as the predecessor index of the longest adjacent non-equal subsequence ending with the $i$-th word. Initially, we set $f[i] = 1$ and $g[i] = -1$.
+
+In addition, we define a variable $mx$ to represent the length of the longest adjacent non-equal subsequence.
+
+We traverse $i$ and $j \in [0, i)$, and if $groups[i] \neq groups[j]$, $f[i] \lt f[j] + 1$, and the Hamming distance between $words[i]$ and $words[j]$ is $1$, we update $f[i] = f[j] + 1$, $g[i] = j$, and update $mx = \max(mx, f[i])$.
+
+Finally, we find the index $i$ corresponding to the maximum value in the $f$ array, and then continuously search backwards from $i$ until we find $g[i] = -1$, which gives us the longest adjacent non-equal subsequence.
+
+The time complexity is $O(n^2 \times L)$, and the space complexity is $O(n)$. Here, $L$ represents the maximum length of a word.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
+class Solution:
+    def getWordsInLongestSubsequence(
+        self, n: int, words: List[str], groups: List[int]
+    ) -> List[str]:
+        def check(s: str, t: str) -> bool:
+            return len(s) == len(t) and sum(a != b for a, b in zip(s, t)) == 1
 
+        f = [1] * n
+        g = [-1] * n
+        mx = 1
+        for i, x in enumerate(groups):
+            for j, y in enumerate(groups[:i]):
+                if x != y and f[i] < f[j] + 1 and check(words[i], words[j]):
+                    f[i] = f[j] + 1
+                    g[i] = j
+                    mx = max(mx, f[i])
+        ans = []
+        for i in range(n):
+            if f[i] == mx:
+                j = i
+                while j >= 0:
+                    ans.append(words[j])
+                    j = g[j]
+                break
+        return ans[::-1]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<String> getWordsInLongestSubsequence(int n, String[] words, int[] groups) {
+        int[] f = new int[n];
+        int[] g = new int[n];
+        Arrays.fill(f, 1);
+        Arrays.fill(g, -1);
+        int mx = 1;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                if (groups[i] != groups[j] && f[i] < f[j] + 1 && check(words[i], words[j])) {
+                    f[i] = f[j] + 1;
+                    g[i] = j;
+                    mx = Math.max(mx, f[i]);
+                }
+            }
+        }
+        List<String> ans = new ArrayList<>();
+        for (int i = 0; i < n; ++i) {
+            if (f[i] == mx) {
+                for (int j = i; j >= 0; j = g[j]) {
+                    ans.add(words[j]);
+                }
+                break;
+            }
+        }
+        Collections.reverse(ans);
+        return ans;
+    }
 
+    private boolean check(String s, String t) {
+        if (s.length() != t.length()) {
+            return false;
+        }
+        int cnt = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            if (s.charAt(i) != t.charAt(i)) {
+                ++cnt;
+            }
+        }
+        return cnt == 1;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    vector<string> getWordsInLongestSubsequence(int n, vector<string>& words, vector<int>& groups) {
+        auto check = [](string& s, string& t) {
+            if (s.size() != t.size()) {
+                return false;
+            }
+            int cnt = 0;
+            for (int i = 0; i < s.size(); ++i) {
+                cnt += s[i] != t[i];
+            }
+            return cnt == 1;
+        };
+        vector<int> f(n, 1);
+        vector<int> g(n, -1);
+        int mx = 1;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                if (groups[i] != groups[j] && f[i] < f[j] + 1 && check(words[i], words[j])) {
+                    f[i] = f[j] + 1;
+                    g[i] = j;
+                    mx = max(mx, f[i]);
+                }
+            }
+        }
+        vector<string> ans;
+        for (int i = 0; i < n; ++i) {
+            if (f[i] == mx) {
+                for (int j = i; ~j; j = g[j]) {
+                    ans.emplace_back(words[j]);
+                }
+                break;
+            }
+        }
+        reverse(ans.begin(), ans.end());
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func getWordsInLongestSubsequence(n int, words []string, groups []int) []string {
+	check := func(s, t string) bool {
+		if len(s) != len(t) {
+			return false
+		}
+		cnt := 0
+		for i := range s {
+			if s[i] != t[i] {
+				cnt++
+			}
+		}
+		return cnt == 1
+	}
+	f := make([]int, n)
+	g := make([]int, n)
+	for i := range f {
+		f[i] = 1
+		g[i] = -1
+	}
+	mx := 1
+	for i, x := range groups {
+		for j, y := range groups[:i] {
+			if x != y && f[i] < f[j]+1 && check(words[i], words[j]) {
+				f[i] = f[j] + 1
+				g[i] = j
+				if mx < f[i] {
+					mx = f[i]
+				}
+			}
+		}
+	}
+	ans := make([]string, 0, mx)
+	for i, x := range f {
+		if x == mx {
+			for j := i; j >= 0; j = g[j] {
+				ans = append(ans, words[j])
+			}
+			break
+		}
+	}
+	for i, j := 0, len(ans)-1; i < j; i, j = i+1, j-1 {
+		ans[i], ans[j] = ans[j], ans[i]
+	}
+	return ans
+}
+```
 
+### **TypeScript**
+
+```ts
+function getWordsInLongestSubsequence(n: number, words: string[], groups: number[]): string[] {
+    const f: number[] = Array(n).fill(1);
+    const g: number[] = Array(n).fill(-1);
+    let mx = 1;
+    const check = (s: string, t: string) => {
+        if (s.length !== t.length) {
+            return false;
+        }
+        let cnt = 0;
+        for (let i = 0; i < s.length; ++i) {
+            if (s[i] !== t[i]) {
+                ++cnt;
+            }
+        }
+        return cnt === 1;
+    };
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < i; ++j) {
+            if (groups[i] !== groups[j] && f[i] < f[j] + 1 && check(words[i], words[j])) {
+                f[i] = f[j] + 1;
+                g[i] = j;
+                mx = Math.max(mx, f[i]);
+            }
+        }
+    }
+    const ans: string[] = [];
+    for (let i = 0; i < n; ++i) {
+        if (f[i] === mx) {
+            for (let j = i; ~j; j = g[j]) {
+                ans.push(words[j]);
+            }
+            break;
+        }
+    }
+    return ans.reverse();
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn get_words_in_longest_subsequence(n: i32, words: Vec<String>, groups: Vec<i32>) -> Vec<String> {
+        fn check(s: &str, t: &str) -> bool {
+            s.len() == t.len() && s.chars().zip(t.chars()).filter(|(a, b)| a != b).count() == 1
+        }
+
+        let n = n as usize;
+
+        let mut f = vec![1; n];
+        let mut g = vec![-1; n];
+
+        let mut mx = 1;
+
+        for i in 0..n {
+            let x = groups[i] as usize;
+            for j in 0..i {
+                let y = groups[j] as usize;
+                if x != y && f[i] < f[j] + 1 && check(&words[i], &words[j]) {
+                    f[i] = f[j] + 1;
+                    g[i] = j as i32;
+                    mx = mx.max(f[i]);
+                }
+            }
+        }
+
+        let mut ans = vec![];
+        let mut i = n - 1;
+
+        while f[i] != mx {
+            i -= 1;
+        }
+
+        let mut j = i as i32;
+        while j >= 0 {
+            ans.push(words[j as usize].clone());
+            j = g[j as usize];
+        }
+
+        ans.reverse();
+        ans
+    }
+}
 ```
 
 ### **...**
