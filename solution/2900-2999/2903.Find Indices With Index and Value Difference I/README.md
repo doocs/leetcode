@@ -67,6 +67,18 @@ abs(0 - 0) &gt;= 0 且 abs(nums[0] - nums[0]) &gt;= 0 。
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：双指针 + 维护最大最小值**
+
+我们用两个指针 $i$ 和 $j$ 来维护一个间隔为 $indexDifference$ 的滑动窗口，其中指针 $j$ 和 $i$ 分别指向窗口的左右边界。初始时 $i$ 指向 $indexDifference$，而 $j$ 指向 $0$。
+
+我们用 $mi$ 和 $mx$ 来维护指针 $j$ 左侧区间的最小值下标和最大值下标。
+
+当指针 $i$ 向右移动时，我们需要更新 $mi$ 和 $mx$。如果 $nums[j] < nums[mi]$，则 $mi$ 更新为 $j$；如果 $nums[j] > nums[mx]$，则 $mx$ 更新为 $j$。更新完 $mi$ 和 $mx$ 后，我们就可以判断是否找到了满足条件的下标对。如果 $nums[i] - nums[mi] \geq valueDifference$，则找到了满足条件的下标对 $[mi, i]$；如果 $nums[mx] - nums[i] \geq valueDifference$，则找到了满足条件的下标对 $[mx, i]$。
+
+如果指针 $i$ 移动到了数组的末尾，说明没有找到满足条件的下标对，返回 $[-1, -1]$。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -74,7 +86,22 @@ abs(0 - 0) &gt;= 0 且 abs(nums[0] - nums[0]) &gt;= 0 。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findIndices(
+        self, nums: List[int], indexDifference: int, valueDifference: int
+    ) -> List[int]:
+        mi = mx = 0
+        for i in range(indexDifference, len(nums)):
+            j = i - indexDifference
+            if nums[j] < nums[mi]:
+                mi = j
+            if nums[j] > nums[mx]:
+                mx = j
+            if nums[i] - nums[mi] >= valueDifference:
+                return [mi, i]
+            if nums[mx] - nums[i] >= valueDifference:
+                return [mx, i]
+        return [-1, -1]
 ```
 
 ### **Java**
@@ -82,19 +109,137 @@ abs(0 - 0) &gt;= 0 且 abs(nums[0] - nums[0]) &gt;= 0 。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int[] findIndices(int[] nums, int indexDifference, int valueDifference) {
+        int mi = 0;
+        int mx = 0;
+        for (int i = indexDifference; i < nums.length; ++i) {
+            int j = i - indexDifference;
+            if (nums[j] < nums[mi]) {
+                mi = j;
+            }
+            if (nums[j] > nums[mx]) {
+                mx = j;
+            }
+            if (nums[i] - nums[mi] >= valueDifference) {
+                return new int[] {mi, i};
+            }
+            if (nums[mx] - nums[i] >= valueDifference) {
+                return new int[] {mx, i};
+            }
+        }
+        return new int[] {-1, -1};
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> findIndices(vector<int>& nums, int indexDifference, int valueDifference) {
+        int mi = 0, mx = 0;
+        for (int i = indexDifference; i < nums.size(); ++i) {
+            int j = i - indexDifference;
+            if (nums[j] < nums[mi]) {
+                mi = j;
+            }
+            if (nums[j] > nums[mx]) {
+                mx = j;
+            }
+            if (nums[i] - nums[mi] >= valueDifference) {
+                return {mi, i};
+            }
+            if (nums[mx] - nums[i] >= valueDifference) {
+                return {mx, i};
+            }
+        }
+        return {-1, -1};
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func findIndices(nums []int, indexDifference int, valueDifference int) []int {
+	mi, mx := 0, 0
+	for i := indexDifference; i < len(nums); i++ {
+		j := i - indexDifference
+		if nums[j] < nums[mi] {
+			mi = j
+		}
+		if nums[j] > nums[mx] {
+			mx = j
+		}
+		if nums[i]-nums[mi] >= valueDifference {
+			return []int{mi, i}
+		}
+		if nums[mx]-nums[i] >= valueDifference {
+			return []int{mx, i}
+		}
+	}
+	return []int{-1, -1}
+}
+```
 
+### **TypeScript**
+
+```ts
+function findIndices(nums: number[], indexDifference: number, valueDifference: number): number[] {
+    let [mi, mx] = [0, 0];
+    for (let i = indexDifference; i < nums.length; ++i) {
+        const j = i - indexDifference;
+        if (nums[j] < nums[mi]) {
+            mi = j;
+        }
+        if (nums[j] > nums[mx]) {
+            mx = j;
+        }
+        if (nums[i] - nums[mi] >= valueDifference) {
+            return [mi, i];
+        }
+        if (nums[mx] - nums[i] >= valueDifference) {
+            return [mx, i];
+        }
+    }
+    return [-1, -1];
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn find_indices(nums: Vec<i32>, index_difference: i32, value_difference: i32) -> Vec<i32> {
+        let index_difference = index_difference as usize;
+        let mut mi = 0;
+        let mut mx = 0;
+
+        for i in index_difference..nums.len() {
+            let j = i - index_difference;
+
+            if nums[j] < nums[mi] {
+                mi = j;
+            }
+
+            if nums[j] > nums[mx] {
+                mx = j;
+            }
+
+            if nums[i] - nums[mi] >= value_difference {
+                return vec![mi as i32, i as i32];
+            }
+
+            if nums[mx] - nums[i] >= value_difference {
+                return vec![mx as i32, i as i32];
+            }
+        }
+
+        vec![-1, -1]
+    }
+}
 ```
 
 ### **...**
