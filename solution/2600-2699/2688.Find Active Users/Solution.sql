@@ -11,7 +11,7 @@ WHERE
                 SELECT
                     user_id,
                     created_at,
-                    lag(created_at, 1) OVER (
+                    LAG(created_at, 1) OVER (
                         PARTITION BY user_id
                         ORDER BY created_at
                     ) AS prev_created_at

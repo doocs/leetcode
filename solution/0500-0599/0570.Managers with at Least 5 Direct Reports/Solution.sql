@@ -3,7 +3,7 @@ WITH
     T AS (
         SELECT
             managerId,
-            count(1) OVER (PARTITION BY managerId) AS cnt
+            COUNT(1) OVER (PARTITION BY managerId) AS cnt
         FROM Employee
     )
 SELECT DISTINCT name

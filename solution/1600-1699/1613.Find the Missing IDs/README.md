@@ -83,7 +83,7 @@ FROM t
 WHERE
     n < (
         SELECT
-            max(customer_id)
+            MAX(customer_id)
         FROM Customers
     )
     AND n NOT IN (

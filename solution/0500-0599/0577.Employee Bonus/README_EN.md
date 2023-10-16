@@ -86,7 +86,7 @@ SELECT name, bonus
 FROM
     Employee
     LEFT JOIN Bonus USING (empId)
-WHERE ifnull(bonus, 0) < 1000;
+WHERE IFNULL(bonus, 0) < 1000;
 ```
 
 <!-- tabs:end -->

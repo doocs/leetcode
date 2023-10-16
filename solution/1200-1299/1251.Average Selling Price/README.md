@@ -91,7 +91,7 @@ UnitsSold table:
 ```sql
 SELECT
     p.product_id,
-    IFNULL(Round(Sum(units * price) / Sum(units), 2), 0) AS average_price
+    IFNULL(ROUND(SUM(units * price) / SUM(units), 2), 0) AS average_price
 FROM
     Prices AS p
     LEFT JOIN UnitsSold AS u

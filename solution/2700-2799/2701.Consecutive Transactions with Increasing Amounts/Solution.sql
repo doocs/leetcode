@@ -3,7 +3,7 @@ WITH
     T AS (
         SELECT
             t1.*,
-            sum(
+            SUM(
                 CASE
                     WHEN t2.customer_id IS NULL THEN 1
                     ELSE 0
@@ -14,13 +14,13 @@ WITH
             LEFT JOIN Transactions AS t2
                 ON t1.customer_id = t2.customer_id
                 AND t1.amount > t2.amount
-                AND datediff(t1.transaction_date, t2.transaction_date) = 1
+                AND DATEDIFF(t1.transaction_date, t2.transaction_date) = 1
     )
 SELECT
     customer_id,
-    min(transaction_date) AS consecutive_start,
-    max(transaction_date) AS consecutive_end
+    MIN(transaction_date) AS consecutive_start,
+    MAX(transaction_date) AS consecutive_end
 FROM T
 GROUP BY customer_id, s
-HAVING count(1) >= 3
+HAVING COUNT(1) >= 3
 ORDER BY customer_id;

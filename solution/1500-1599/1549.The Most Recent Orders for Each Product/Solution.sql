@@ -3,7 +3,7 @@ WITH
     T AS (
         SELECT
             *,
-            rank() OVER (
+            RANK() OVER (
                 PARTITION BY product_id
                 ORDER BY order_date DESC
             ) AS rk

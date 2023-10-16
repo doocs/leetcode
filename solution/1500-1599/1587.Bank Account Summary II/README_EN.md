@@ -96,7 +96,7 @@ We can use an equi-join to join the `Users` table and the `Transactions` table o
 # Write your MySQL query statement below
 SELECT
     name,
-    sum(amount) AS balance
+    SUM(amount) AS balance
 FROM
     Users
     JOIN Transactions USING (account)

@@ -101,17 +101,17 @@ WITH
         SELECT
             user_id,
             steps_date,
-            round(
-                avg(steps_count) OVER (
+            ROUND(
+                AVG(steps_count) OVER (
                     PARTITION BY user_id
                     ORDER BY steps_date
                     ROWS 2 PRECEDING
                 ),
                 2
             ) AS rolling_average,
-            datediff(
+            DATEDIFF(
                 steps_date,
-                lag(steps_date, 2) OVER (
+                LAG(steps_date, 2) OVER (
                     PARTITION BY user_id
                     ORDER BY steps_date
                 )

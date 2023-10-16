@@ -78,16 +78,16 @@ WITH
     T AS (
         SELECT
             log_id,
-            sum(delta) OVER (ORDER BY log_id) AS pid
+            SUM(delta) OVER (ORDER BY log_id) AS pid
         FROM
             (
                 SELECT
                     log_id,
-                    if((log_id - lag(log_id) OVER (ORDER BY log_id)) = 1, 0, 1) AS delta
+                    IF((log_id - LAG(log_id) OVER (ORDER BY log_id)) = 1, 0, 1) AS delta
                 FROM Logs
             ) AS t
     )
-SELECT min(log_id) AS start_id, max(log_id) AS end_id
+SELECT MIN(log_id) AS start_id, MAX(log_id) AS end_id
 FROM T
 GROUP BY pid;
 ```
@@ -98,10 +98,10 @@ WITH
     T AS (
         SELECT
             log_id,
-            log_id - row_number() OVER (ORDER BY log_id) AS pid
+            log_id - ROW_NUMBER() OVER (ORDER BY log_id) AS pid
         FROM Logs
     )
-SELECT min(log_id) AS start_id, max(log_id) AS end_id
+SELECT MIN(log_id) AS start_id, MAX(log_id) AS end_id
 FROM T
 GROUP BY pid;
 ```

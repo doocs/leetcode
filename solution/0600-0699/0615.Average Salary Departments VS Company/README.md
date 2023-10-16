@@ -97,10 +97,10 @@ Employee 表:
 WITH
     t AS (
         SELECT
-            date_format(pay_date, '%Y-%m') AS pay_month,
+            DATE_FORMAT(pay_date, '%Y-%m') AS pay_month,
             department_id,
-            avg(amount) OVER (PARTITION BY pay_date) AS company_avg_amount,
-            avg(amount) OVER (PARTITION BY pay_date, department_id) AS department_avg_amount
+            AVG(amount) OVER (PARTITION BY pay_date) AS company_avg_amount,
+            AVG(amount) OVER (PARTITION BY pay_date, department_id) AS department_avg_amount
         FROM
             Salary AS s
             JOIN Employee AS e ON s.employee_id = e.employee_id
@@ -127,18 +127,18 @@ WITH
     ),
     T AS (
         SELECT
-            date_format(pay_date, '%Y-%m') AS pay_month,
+            DATE_FORMAT(pay_date, '%Y-%m') AS pay_month,
             department_id,
-            avg(amount) OVER (PARTITION BY pay_date, department_id) AS department_avg,
-            avg(amount) OVER (PARTITION BY pay_date) AS company_avg
+            AVG(amount) OVER (PARTITION BY pay_date, department_id) AS department_avg,
+            AVG(amount) OVER (PARTITION BY pay_date) AS company_avg
         FROM S
     )
 SELECT
     pay_month,
     department_id,
     CASE
-        WHEN avg(department_avg) > avg(company_avg) THEN 'higher'
-        WHEN avg(department_avg) < avg(company_avg) THEN 'lower'
+        WHEN AVG(department_avg) > AVG(company_avg) THEN 'higher'
+        WHEN AVG(department_avg) < AVG(company_avg) THEN 'lower'
         ELSE 'same'
     END AS comparison
 FROM T

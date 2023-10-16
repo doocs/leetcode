@@ -67,7 +67,7 @@ ActorDirector 表：
 SELECT actor_id, director_id
 FROM ActorDirector
 GROUP BY 1, 2
-HAVING count(1) >= 3;
+HAVING COUNT(1) >= 3;
 ```
 
 <!-- tabs:end -->

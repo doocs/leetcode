@@ -74,7 +74,7 @@ We can group the data by date, and then use the `sum` function to calculate the 
 # Write your MySQL query statement below
 SELECT
     sale_date,
-    sum(if(fruit = 'apples', sold_num, -sold_num)) AS diff
+    SUM(IF(fruit = 'apples', sold_num, -sold_num)) AS diff
 FROM Sales
 GROUP BY 1
 ORDER BY 1;

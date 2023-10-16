@@ -65,7 +65,7 @@ Product 2 was ordered one time in 2022. We do not include it in the answer.
 # Write your MySQL query statement below
 WITH
     P AS (
-        SELECT product_id, year(purchase_date) AS y, count(1) >= 3 AS mark
+        SELECT product_id, YEAR(purchase_date) AS y, COUNT(1) >= 3 AS mark
         FROM Orders
         GROUP BY 1, 2
     )
@@ -80,10 +80,10 @@ WHERE p1.mark AND p2.mark;
 # Write your MySQL query statement below
 WITH
     P AS (
-        SELECT product_id, year(purchase_date) AS y
+        SELECT product_id, YEAR(purchase_date) AS y
         FROM Orders
         GROUP BY 1, 2
-        HAVING count(1) >= 3
+        HAVING COUNT(1) >= 3
     )
 SELECT DISTINCT p1.product_id
 FROM

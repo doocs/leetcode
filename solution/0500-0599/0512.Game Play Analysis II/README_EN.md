@@ -77,7 +77,7 @@ WHERE
     (player_id, event_date) IN (
         SELECT
             player_id,
-            min(event_date) AS event_date
+            MIN(event_date) AS event_date
         FROM Activity
         GROUP BY 1
     );
@@ -89,7 +89,7 @@ WITH
     T AS (
         SELECT
             *,
-            rank() OVER (
+            RANK() OVER (
                 PARTITION BY player_id
                 ORDER BY event_date
             ) AS rk

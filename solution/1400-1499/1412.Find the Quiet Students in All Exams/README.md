@@ -109,11 +109,11 @@ WITH
     T AS (
         SELECT
             student_id,
-            rank() OVER (
+            RANK() OVER (
                 PARTITION BY exam_id
                 ORDER BY score
             ) AS rk1,
-            rank() OVER (
+            RANK() OVER (
                 PARTITION BY exam_id
                 ORDER BY score DESC
             ) AS rk2
@@ -124,7 +124,7 @@ FROM
     T
     JOIN Student USING (student_id)
 GROUP BY 1
-HAVING sum(rk1 = 1) = 0 AND sum(rk2 = 1) = 0
+HAVING SUM(rk1 = 1) = 0 AND SUM(rk2 = 1) = 0
 ORDER BY 1;
 ```
 

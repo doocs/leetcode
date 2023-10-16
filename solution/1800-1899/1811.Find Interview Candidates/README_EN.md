@@ -123,7 +123,7 @@ WITH
         SELECT
             user_id,
             (
-                contest_id - row_number() OVER (
+                contest_id - ROW_NUMBER() OVER (
                     PARTITION BY user_id
                     ORDER BY contest_id
                 )
@@ -135,12 +135,12 @@ WITH
         FROM S
         WHERE type = 1
         GROUP BY user_id
-        HAVING count(1) >= 3
+        HAVING COUNT(1) >= 3
         UNION
         SELECT DISTINCT user_id
         FROM T
         GROUP BY user_id, diff
-        HAVING count(1) >= 3
+        HAVING COUNT(1) >= 3
     )
 SELECT name, mail
 FROM

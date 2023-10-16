@@ -82,14 +82,14 @@ with s as (
 t as (
     select
         caller_id user_id,
-        first_value(recipient_id) over(
-            partition by date_format(call_time, '%Y-%m-%d'),
+        FIRST_VALUE(recipient_id) over(
+            partition by DATE_FORMAT(call_time, '%Y-%m-%d'),
             caller_id
             order by
                 call_time asc
         ) first,
-        first_value(recipient_id) over(
-            partition by date_format(call_time, '%Y-%m-%d'),
+        FIRST_VALUE(recipient_id) over(
+            partition by DATE_FORMAT(call_time, '%Y-%m-%d'),
             caller_id
             order by
                 call_time desc

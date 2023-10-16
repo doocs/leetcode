@@ -104,7 +104,7 @@ We can use an inner join to join the `Warehouse` table and the `Products` table 
 # Write your MySQL query statement below
 SELECT
     name AS warehouse_name,
-    sum(width * length * height * units) AS volume
+    SUM(width * length * height * units) AS volume
 FROM
     Warehouse
     JOIN Products USING (product_id)

@@ -101,7 +101,7 @@ FROM
     LEFT JOIN Rounds AS r ON c.interview_id = r.interview_id
 WHERE years_of_exp >= 2
 GROUP BY c.interview_id
-HAVING sum(score) > 15;
+HAVING SUM(score) > 15;
 ```
 
 <!-- tabs:end -->

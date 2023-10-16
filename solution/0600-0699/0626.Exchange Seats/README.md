@@ -94,7 +94,7 @@ ORDER BY id;
 ```sql
 # Write your MySQL query statement below
 select
-    rank() over(
+    RANK() over(
         order by
             (id -1) ^ 1
     ) as id,
@@ -108,7 +108,7 @@ from
 SELECT
     CASE
         WHEN id & 1 = 0 THEN id - 1
-        WHEN row_number() OVER (ORDER BY id) != count(id) OVER () THEN id + 1
+        WHEN ROW_NUMBER() OVER (ORDER BY id) != COUNT(id) OVER () THEN id + 1
         ELSE id
     END AS id,
     student

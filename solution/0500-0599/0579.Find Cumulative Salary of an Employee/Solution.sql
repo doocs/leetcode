@@ -4,12 +4,12 @@ WITH
         SELECT
             id,
             month,
-            sum(salary) OVER (
+            SUM(salary) OVER (
                 PARTITION BY id
                 ORDER BY month
                 RANGE 2 PRECEDING
             ) AS salary,
-            rank() OVER (
+            RANK() OVER (
                 PARTITION BY id
                 ORDER BY month DESC
             ) AS rk

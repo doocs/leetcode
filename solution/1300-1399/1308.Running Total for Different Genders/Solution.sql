@@ -2,7 +2,7 @@
 SELECT
     gender,
     day,
-    sum(score_points) OVER (
+    SUM(score_points) OVER (
         PARTITION BY gender
         ORDER BY gender, day
     ) AS total

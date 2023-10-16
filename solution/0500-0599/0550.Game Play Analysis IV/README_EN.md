@@ -59,7 +59,7 @@ Only the player with id 1 logged back in after the first day he had logged in so
 
 ```sql
 # Write your MySQL query statement below
-SELECT round(AVG(b.event_date IS NOT NULL), 2) AS fraction
+SELECT ROUND(AVG(b.event_date IS NOT NULL), 2) AS fraction
 FROM
     (
         SELECT
@@ -78,22 +78,22 @@ WITH
     T AS (
         SELECT
             player_id,
-            datediff(
-                lead(event_date) OVER (
+            DATEDIFF(
+                LEAD(event_date) OVER (
                     PARTITION BY player_id
                     ORDER BY event_date
                 ),
                 event_date
             ) AS diff,
-            row_number() OVER (
+            ROW_NUMBER() OVER (
                 PARTITION BY player_id
                 ORDER BY event_date
             ) AS rk
         FROM Activity
     )
 SELECT
-    round(
-        count(DISTINCT if(diff = 1, player_id, NULL)) / count(
+    ROUND(
+        COUNT(DISTINCT IF(diff = 1, player_id, NULL)) / COUNT(
             DISTINCT player_id
         ),
         2

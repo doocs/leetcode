@@ -83,10 +83,10 @@ WITH
         SELECT salary
         FROM Employees
         GROUP BY salary
-        HAVING count(1) > 1
+        HAVING COUNT(1) > 1
     ),
     T AS (
-        SELECT salary, row_number() OVER (ORDER BY salary) AS team_id
+        SELECT salary, ROW_NUMBER() OVER (ORDER BY salary) AS team_id
         FROM S
     )
 SELECT e.*, t.team_id

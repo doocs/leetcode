@@ -79,7 +79,7 @@ SELECT
     emp_id,
     firstname,
     lastname,
-    max(salary) AS salary,
+    MAX(salary) AS salary,
     department_id
 FROM Salary
 GROUP BY emp_id

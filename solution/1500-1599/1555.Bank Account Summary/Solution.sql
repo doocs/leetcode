@@ -2,8 +2,8 @@
 SELECT
     t.user_id,
     user_name,
-    sum(t.credit) AS credit,
-    if(sum(t.credit) < 0, 'Yes', 'No') AS credit_limit_breached
+    SUM(t.credit) AS credit,
+    IF(SUM(t.credit) < 0, 'Yes', 'No') AS credit_limit_breached
 FROM
     (
         SELECT paid_by AS user_id, -amount AS credit FROM Transactions

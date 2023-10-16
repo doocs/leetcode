@@ -2,4 +2,4 @@
 SELECT class
 FROM Courses
 GROUP BY class
-HAVING count(1) >= 5;
+HAVING COUNT(1) >= 5;

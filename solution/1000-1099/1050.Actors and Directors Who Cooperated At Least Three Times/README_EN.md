@@ -66,7 +66,7 @@ We can use the `GROUP BY` statement to group the data by the `actor_id` and `dir
 SELECT actor_id, director_id
 FROM ActorDirector
 GROUP BY 1, 2
-HAVING count(1) >= 3;
+HAVING COUNT(1) >= 3;
 ```
 
 <!-- tabs:end -->

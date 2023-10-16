@@ -67,9 +67,9 @@ WITH
     t AS (
         SELECT
             user_id,
-            datediff(
+            DATEDIFF(
                 purchase_date,
-                lag(purchase_date, 1) OVER (
+                LAG(purchase_date, 1) OVER (
                     PARTITION BY user_id
                     ORDER BY purchase_date
                 )

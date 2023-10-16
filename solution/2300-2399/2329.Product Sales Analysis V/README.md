@@ -94,7 +94,7 @@ Product 表：
 
 ```sql
 # Write your MySQL query statement below
-SELECT user_id, sum(quantity * price) AS spending
+SELECT user_id, SUM(quantity * price) AS spending
 FROM
     Sales
     JOIN Product USING (product_id)

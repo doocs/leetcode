@@ -80,7 +80,7 @@ WITH
             hall_id,
             start_day,
             end_day,
-            max(end_day) OVER (
+            MAX(end_day) OVER (
                 PARTITION BY hall_id
                 ORDER BY start_day
             ) AS cur_max_end_day
@@ -89,8 +89,8 @@ WITH
     T AS (
         SELECT
             *,
-            if(
-                start_day <= lag(cur_max_end_day) OVER (
+            IF(
+                start_day <= LAG(cur_max_end_day) OVER (
                     PARTITION BY hall_id
                     ORDER BY start_day
                 ),
@@ -102,13 +102,13 @@ WITH
     P AS (
         SELECT
             *,
-            sum(start) OVER (
+            SUM(start) OVER (
                 PARTITION BY hall_id
                 ORDER BY start_day
             ) AS gid
         FROM T
     )
-SELECT hall_id, min(start_day) AS start_day, max(end_day) AS end_day
+SELECT hall_id, MIN(start_day) AS start_day, MAX(end_day) AS end_day
 FROM P
 GROUP BY hall_id, gid;
 ```

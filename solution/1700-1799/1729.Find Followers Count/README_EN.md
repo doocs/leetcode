@@ -61,7 +61,7 @@ The followers of 2 are {0,1}
 ```sql
 SELECT
     user_id,
-    count(1) AS followers_count
+    COUNT(1) AS followers_count
 FROM Followers
 GROUP BY user_id
 ORDER BY user_id;

@@ -4,13 +4,13 @@ WITH
         SELECT
             power,
             CASE power
-                WHEN 0 THEN IF(factor > 0, concat('+', factor), factor)
-                WHEN 1 THEN concat(
-                    IF(factor > 0, concat('+', factor), factor),
+                WHEN 0 THEN IF(factor > 0, CONCAT('+', factor), factor)
+                WHEN 1 THEN CONCAT(
+                    IF(factor > 0, CONCAT('+', factor), factor),
                     'X'
                 )
-                ELSE concat(
-                    IF(factor > 0, concat('+', factor), factor),
+                ELSE CONCAT(
+                    IF(factor > 0, CONCAT('+', factor), factor),
                     'X^',
                     power
                 )
@@ -18,5 +18,5 @@ WITH
         FROM Terms
     )
 SELECT
-    concat(group_concat(it ORDER BY power DESC SEPARATOR ""), '=0') AS equation
+    CONCAT(GROUP_CONCAT(it ORDER BY power DESC SEPARATOR ""), '=0') AS equation
 FROM T;

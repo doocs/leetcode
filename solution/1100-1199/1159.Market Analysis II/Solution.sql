@@ -12,7 +12,7 @@ FROM
             order_date,
             item_id,
             seller_id,
-            rank() OVER (
+            RANK() OVER (
                 PARTITION BY seller_id
                 ORDER BY order_date
             ) AS rk

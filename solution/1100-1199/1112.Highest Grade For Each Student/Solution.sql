@@ -3,7 +3,7 @@ WITH
     T AS (
         SELECT
             *,
-            rank() OVER (
+            RANK() OVER (
                 PARTITION BY student_id
                 ORDER BY grade DESC, course_id
             ) AS rk

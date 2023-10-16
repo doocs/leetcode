@@ -75,7 +75,7 @@ Corona Masks stock was bought at day 1 for 10$ and was sold at day 3 for 1010$. 
 # Write your MySQL query statement below
 SELECT
     stock_name,
-    sum(if(operation = 'Buy', -price, price)) AS capital_gain_loss
+    SUM(IF(operation = 'Buy', -price, price)) AS capital_gain_loss
 FROM Stocks
 GROUP BY 1;
 ```

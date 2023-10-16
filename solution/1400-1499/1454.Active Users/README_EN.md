@@ -92,7 +92,7 @@ User Jonathan with id = 7 logged in 7 times in 6 different days, five of them we
 # Write your MySQL query statement below
 WITH t AS
     (SELECT *,
-		 sum(id) over(partition by id
+		 SUM(id) over(partition by id
     ORDER BY  login_date range interval 4 day preceding)/id cnt
     FROM
         (SELECT DISTINCT *
