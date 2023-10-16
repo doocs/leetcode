@@ -60,30 +60,175 @@ Hence, [-1,-1] is returned.</pre>
 
 ## Solutions
 
+**Solution 1: Two Pointers + Maintaining Maximum and Minimum Values**
+
+We use two pointers $i$ and $j$ to maintain a sliding window with a gap of $indexDifference$, where $j$ and $i$ point to the left and right boundaries of the window, respectively. Initially, $i$ points to $indexDifference$, and $j` points to $0$.
+
+We use $mi$ and $mx$ to maintain the indices of the minimum and maximum values to the left of pointer $j$.
+
+When pointer $i$ moves to the right, we need to update $mi$ and $mx$. If $nums[j] \lt nums[mi]$, then $mi$ is updated to $j$; if $nums[j] \gt nums[mx]$, then $mx$ is updated to $j$. After updating $mi$ and $mx$, we can determine whether we have found a pair of indices that satisfy the condition. If $nums[i] - nums[mi] \ge valueDifference$, then we have found a pair of indices $[mi, i]$ that satisfy the condition; if $nums[mx] - nums[i] >= valueDifference$, then we have found a pair of indices $[mx, i]$ that satisfy the condition.
+
+If pointer $i$ moves to the end of the array and we have not found a pair of indices that satisfy the condition, we return $[-1, -1]$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findIndices(
+        self, nums: List[int], indexDifference: int, valueDifference: int
+    ) -> List[int]:
+        mi = mx = 0
+        for i in range(indexDifference, len(nums)):
+            j = i - indexDifference
+            if nums[j] < nums[mi]:
+                mi = j
+            if nums[j] > nums[mx]:
+                mx = j
+            if nums[i] - nums[mi] >= valueDifference:
+                return [mi, i]
+            if nums[mx] - nums[i] >= valueDifference:
+                return [mx, i]
+        return [-1, -1]
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int[] findIndices(int[] nums, int indexDifference, int valueDifference) {
+        int mi = 0;
+        int mx = 0;
+        for (int i = indexDifference; i < nums.length; ++i) {
+            int j = i - indexDifference;
+            if (nums[j] < nums[mi]) {
+                mi = j;
+            }
+            if (nums[j] > nums[mx]) {
+                mx = j;
+            }
+            if (nums[i] - nums[mi] >= valueDifference) {
+                return new int[] {mi, i};
+            }
+            if (nums[mx] - nums[i] >= valueDifference) {
+                return new int[] {mx, i};
+            }
+        }
+        return new int[] {-1, -1};
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> findIndices(vector<int>& nums, int indexDifference, int valueDifference) {
+        int mi = 0, mx = 0;
+        for (int i = indexDifference; i < nums.size(); ++i) {
+            int j = i - indexDifference;
+            if (nums[j] < nums[mi]) {
+                mi = j;
+            }
+            if (nums[j] > nums[mx]) {
+                mx = j;
+            }
+            if (nums[i] - nums[mi] >= valueDifference) {
+                return {mi, i};
+            }
+            if (nums[mx] - nums[i] >= valueDifference) {
+                return {mx, i};
+            }
+        }
+        return {-1, -1};
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func findIndices(nums []int, indexDifference int, valueDifference int) []int {
+	mi, mx := 0, 0
+	for i := indexDifference; i < len(nums); i++ {
+		j := i - indexDifference
+		if nums[j] < nums[mi] {
+			mi = j
+		}
+		if nums[j] > nums[mx] {
+			mx = j
+		}
+		if nums[i]-nums[mi] >= valueDifference {
+			return []int{mi, i}
+		}
+		if nums[mx]-nums[i] >= valueDifference {
+			return []int{mx, i}
+		}
+	}
+	return []int{-1, -1}
+}
+```
 
+### **TypeScript**
+
+```ts
+function findIndices(nums: number[], indexDifference: number, valueDifference: number): number[] {
+    let [mi, mx] = [0, 0];
+    for (let i = indexDifference; i < nums.length; ++i) {
+        const j = i - indexDifference;
+        if (nums[j] < nums[mi]) {
+            mi = j;
+        }
+        if (nums[j] > nums[mx]) {
+            mx = j;
+        }
+        if (nums[i] - nums[mi] >= valueDifference) {
+            return [mi, i];
+        }
+        if (nums[mx] - nums[i] >= valueDifference) {
+            return [mx, i];
+        }
+    }
+    return [-1, -1];
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn find_indices(nums: Vec<i32>, index_difference: i32, value_difference: i32) -> Vec<i32> {
+        let index_difference = index_difference as usize;
+        let mut mi = 0;
+        let mut mx = 0;
+
+        for i in index_difference..nums.len() {
+            let j = i - index_difference;
+
+            if nums[j] < nums[mi] {
+                mi = j;
+            }
+
+            if nums[j] > nums[mx] {
+                mx = j;
+            }
+
+            if nums[i] - nums[mi] >= value_difference {
+                return vec![mi as i32, i as i32];
+            }
+
+            if nums[mx] - nums[i] >= value_difference {
+                return vec![mx as i32, i as i32];
+            }
+        }
+
+        vec![-1, -1]
+    }
+}
 ```
 
 ### **...**
