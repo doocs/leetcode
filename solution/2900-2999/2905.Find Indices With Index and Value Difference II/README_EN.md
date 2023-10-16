@@ -65,25 +65,124 @@ Hence, [-1,-1] is returned.</pre>
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findIndices(
+        self, nums: List[int], indexDifference: int, valueDifference: int
+    ) -> List[int]:
+        mi = mx = 0
+        for i in range(indexDifference, len(nums)):
+            j = i - indexDifference
+            if nums[j] < nums[mi]:
+                mi = j
+            if nums[j] > nums[mx]:
+                mx = j
+            if nums[i] - nums[mi] >= valueDifference:
+                return [mi, i]
+            if nums[mx] - nums[i] >= valueDifference:
+                return [mx, i]
+        return [-1, -1]
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int[] findIndices(int[] nums, int indexDifference, int valueDifference) {
+        int mi = 0;
+        int mx = 0;
+        for (int i = indexDifference; i < nums.length; ++i) {
+            int j = i - indexDifference;
+            if (nums[j] < nums[mi]) {
+                mi = j;
+            }
+            if (nums[j] > nums[mx]) {
+                mx = j;
+            }
+            if (nums[i] - nums[mi] >= valueDifference) {
+                return new int[] {mi, i};
+            }
+            if (nums[mx] - nums[i] >= valueDifference) {
+                return new int[] {mx, i};
+            }
+        }
+        return new int[] {-1, -1};
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> findIndices(vector<int>& nums, int indexDifference, int valueDifference) {
+        int mi = 0, mx = 0;
+        for (int i = indexDifference; i < nums.size(); ++i) {
+            int j = i - indexDifference;
+            if (nums[j] < nums[mi]) {
+                mi = j;
+            }
+            if (nums[j] > nums[mx]) {
+                mx = j;
+            }
+            if (nums[i] - nums[mi] >= valueDifference) {
+                return {mi, i};
+            }
+            if (nums[mx] - nums[i] >= valueDifference) {
+                return {mx, i};
+            }
+        }
+        return {-1, -1};
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func findIndices(nums []int, indexDifference int, valueDifference int) []int {
+	mi, mx := 0, 0
+	for i := indexDifference; i < len(nums); i++ {
+		j := i - indexDifference
+		if nums[j] < nums[mi] {
+			mi = j
+		}
+		if nums[j] > nums[mx] {
+			mx = j
+		}
+		if nums[i]-nums[mi] >= valueDifference {
+			return []int{mi, i}
+		}
+		if nums[mx]-nums[i] >= valueDifference {
+			return []int{mx, i}
+		}
+	}
+	return []int{-1, -1}
+}
+```
 
+### **TypeScript**
+
+```ts
+function findIndices(nums: number[], indexDifference: number, valueDifference: number): number[] {
+    let [mi, mx] = [0, 0];
+    for (let i = indexDifference; i < nums.length; ++i) {
+        const j = i - indexDifference;
+        if (nums[j] < nums[mi]) {
+            mi = j;
+        }
+        if (nums[j] > nums[mx]) {
+            mx = j;
+        }
+        if (nums[i] - nums[mi] >= valueDifference) {
+            return [mi, i];
+        }
+        if (nums[mx] - nums[i] >= valueDifference) {
+            return [mx, i];
+        }
+    }
+    return [-1, -1];
+}
 ```
 
 ### **...**
