@@ -6,5 +6,5 @@ SELECT
         ELSE 'No Winner'
     END AS winner
 FROM
-    (SELECT count(1) AS cnt FROM NewYork WHERE score >= 90) AS n1,
+    (SELECT COUNT(1) AS cnt FROM NewYork WHERE score >= 90) AS n1,
     (SELECT COUNT(1) AS cnt FROM California WHERE score >= 90) AS n2;
