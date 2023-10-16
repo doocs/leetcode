@@ -91,8 +91,7 @@ User 7 requested two messages within 24 hours and 1 second of each other, so we 
 ### **SQL**
 
 ```sql
-SELECT DISTINCT
-    c1.user_id AS user_id
+SELECT DISTINCT user_id
 FROM
     Confirmations AS c1
     JOIN Confirmations AS c2 USING (user_id)

@@ -1,5 +1,4 @@
-SELECT DISTINCT
-    c1.user_id AS user_id
+SELECT DISTINCT user_id
 FROM
     Confirmations AS c1
     JOIN Confirmations AS c2 USING (user_id)
