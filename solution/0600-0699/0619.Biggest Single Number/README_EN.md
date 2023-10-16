@@ -85,13 +85,13 @@ MyNumbers table:
 
 ```sql
 # Write your MySQL query statement below
-SELECT max(num) AS num
+SELECT MAX(num) AS num
 FROM
     (
         SELECT num
         FROM MyNumbers
         GROUP BY num
-        HAVING count(1) = 1
+        HAVING COUNT(1) = 1
     ) AS t;
 ```
 
@@ -99,7 +99,7 @@ FROM
 # Write your MySQL query statement below
 SELECT
     CASE
-        WHEN count(1) = 1 THEN num
+        WHEN COUNT(1) = 1 THEN num
         ELSE NULL
     END AS num
 FROM MyNumbers

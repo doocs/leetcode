@@ -5,7 +5,7 @@ FROM
     JOIN Department AS d ON e.departmentId = d.id
 WHERE
     (d.id, salary) IN (
-        SELECT departmentId, max(salary)
+        SELECT departmentId, MAX(salary)
         FROM Employee
         GROUP BY 1
     );

@@ -98,7 +98,7 @@ FROM
     JOIN Department AS d ON e.departmentId = d.id
 WHERE
     (d.id, salary) IN (
-        SELECT departmentId, max(salary)
+        SELECT departmentId, MAX(salary)
         FROM Employee
         GROUP BY 1
     );
@@ -112,7 +112,7 @@ WITH
             d.name AS department,
             e.name AS employee,
             salary,
-            rank() OVER (
+            RANK() OVER (
                 PARTITION BY d.name
                 ORDER BY salary DESC
             ) AS rk

@@ -3,23 +3,23 @@ WITH
     T AS (
         SELECT fail_date AS dt, 'failed' AS st
         FROM Failed
-        WHERE year(fail_date) = 2019
+        WHERE YEAR(fail_date) = 2019
         UNION ALL
         SELECT success_date AS dt, 'succeeded' AS st
         FROM Succeeded
-        WHERE year(success_date) = 2019
+        WHERE YEAR(success_date) = 2019
     )
 SELECT
     st AS period_state,
-    min(dt) AS start_date,
-    max(dt) AS end_date
+    MIN(dt) AS start_date,
+    MAX(dt) AS end_date
 FROM
     (
         SELECT
             *,
-            subdate(
+            SUBDATE(
                 dt,
-                rank() OVER (
+                RANK() OVER (
                     PARTITION BY st
                     ORDER BY dt
                 )

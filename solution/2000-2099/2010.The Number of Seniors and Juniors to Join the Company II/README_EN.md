@@ -105,20 +105,20 @@ WITH
     s AS (
         SELECT
             employee_id,
-            sum(salary) OVER (ORDER BY salary) AS cur
+            SUM(salary) OVER (ORDER BY salary) AS cur
         FROM Candidates
         WHERE experience = 'Senior'
     ),
     j AS (
         SELECT
             employee_id,
-            ifnull(
+            IFNULL(
                 SELECT
-                    max(cur)
+                    MAX(cur)
                 FROM s
                 WHERE cur <= 70000,
                 0
-            ) + sum(salary) OVER (ORDER BY salary) AS cur
+            ) + SUM(salary) OVER (ORDER BY salary) AS cur
         FROM Candidates
         WHERE experience = 'Junior'
     )

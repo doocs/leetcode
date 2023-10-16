@@ -14,12 +14,12 @@ WITH
     t AS (
         SELECT
             caller_id AS user_id,
-            first_value(recipient_id) OVER (
-                PARTITION BY date_format(call_time, '%Y-%m-%d'), caller_id
+            FIRST_VALUE(recipient_id) OVER (
+                PARTITION BY DATE_FORMAT(call_time, '%Y-%m-%d'), caller_id
                 ORDER BY call_time ASC
             ) AS first,
-            first_value(recipient_id) OVER (
-                PARTITION BY date_format(call_time, '%Y-%m-%d'), caller_id
+            FIRST_VALUE(recipient_id) OVER (
+                PARTITION BY DATE_FORMAT(call_time, '%Y-%m-%d'), caller_id
                 ORDER BY call_time DESC
             ) AS last
         FROM s

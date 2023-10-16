@@ -63,7 +63,7 @@ We can use a window function to sort the points in the table by their $x$ values
 
 ```sql
 # Write your MySQL query statement below
-SELECT min(p2.x - p1.x) AS shortest
+SELECT MIN(p2.x - p1.x) AS shortest
 FROM
     Point AS p1
     JOIN Point AS p2 ON p1.x < p2.x;
@@ -71,7 +71,7 @@ FROM
 
 ```sql
 # Write your MySQL query statement below
-SELECT x - lag(x) OVER (ORDER BY x) AS shortest
+SELECT x - LAG(x) OVER (ORDER BY x) AS shortest
 FROM Point
 ORDER BY 1
 LIMIT 1, 1;

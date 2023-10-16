@@ -116,7 +116,7 @@ Teams </code>table:
 SELECT
     team_id,
     team_name,
-    sum(
+    SUM(
         CASE
             WHEN team_id = host_team
             AND host_goals > guest_goals THEN 3

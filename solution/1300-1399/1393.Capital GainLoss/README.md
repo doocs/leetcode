@@ -84,7 +84,7 @@ Corona Masks 股票在第1天以10美元的价格买入，在第3天以1010美�
 # Write your MySQL query statement below
 SELECT
     stock_name,
-    sum(if(operation = 'Buy', -price, price)) AS capital_gain_loss
+    SUM(IF(operation = 'Buy', -price, price)) AS capital_gain_loss
 FROM Stocks
 GROUP BY 1;
 ```

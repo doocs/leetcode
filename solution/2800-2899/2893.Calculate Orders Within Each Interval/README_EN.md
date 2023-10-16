@@ -73,7 +73,7 @@ WITH
     T AS (
         SELECT
             minute,
-            sum(order_count) OVER (
+            SUM(order_count) OVER (
                 ORDER BY minute
                 ROWS 5 PRECEDING
             ) AS total_orders

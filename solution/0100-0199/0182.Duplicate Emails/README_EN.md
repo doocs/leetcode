@@ -66,7 +66,7 @@ We can use a self-join to join the `Person` table with itself, and then filter o
 SELECT email
 FROM Person
 GROUP BY 1
-HAVING count(1) > 1;
+HAVING COUNT(1) > 1;
 ```
 
 ```sql

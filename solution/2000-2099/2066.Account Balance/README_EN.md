@@ -76,7 +76,7 @@ Account 2:
 SELECT
     account_id,
     day,
-    sum(if(type = 'Deposit', amount, -amount)) OVER (
+    SUM(IF(type = 'Deposit', amount, -amount)) OVER (
         PARTITION BY account_id
         ORDER BY day
     ) AS balance

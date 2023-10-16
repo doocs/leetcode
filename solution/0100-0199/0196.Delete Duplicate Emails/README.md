@@ -65,7 +65,7 @@ Person 表:
 ```sql
 # Write your MySQL query statement below
 DELETE FROM Person
-WHERE id NOT IN (SELECT min(id) FROM (SELECT * FROM Person) AS p GROUP BY email);
+WHERE id NOT IN (SELECT MIN(id) FROM (SELECT * FROM Person) AS p GROUP BY email);
 ```
 
 ```sql
@@ -78,7 +78,7 @@ WHERE
             (
                 SELECT
                     id,
-                    row_number() OVER (
+                    ROW_NUMBER() OVER (
                         PARTITION BY email
                         ORDER BY id
                     ) AS rk

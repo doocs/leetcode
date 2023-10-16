@@ -4,10 +4,10 @@ SELECT
     p.product_name,
     y.YEAR AS report_year,
     s.average_daily_sales * (
-        IF(YEAR(s.period_end) > y.YEAR, y.days_of_year, dayofyear(s.period_end)) - IF(
+        IF(YEAR(s.period_end) > y.YEAR, y.days_of_year, DAYOFYEAR(s.period_end)) - IF(
             YEAR(s.period_start) < y.YEAR,
             1,
-            dayofyear(s.period_start)
+            DAYOFYEAR(s.period_start)
         ) + 1
     ) AS total_amount
 FROM

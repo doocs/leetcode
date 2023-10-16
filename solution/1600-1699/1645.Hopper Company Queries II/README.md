@@ -188,20 +188,20 @@ WITH RECURSIVE
         FROM
             Month AS m
             LEFT JOIN Drivers AS d
-                ON year(d.join_date) < 2020
-                OR (year(d.join_date) = 2020 AND month(d.join_date) <= month)
+                ON YEAR(d.join_date) < 2020
+                OR (YEAR(d.join_date) = 2020 AND MONTH(d.join_date) <= month)
     ),
     T AS (
         SELECT driver_id, requested_at
         FROM
             Rides
             JOIN AcceptedRides USING (ride_id)
-        WHERE year(requested_at) = 2020
+        WHERE YEAR(requested_at) = 2020
     )
 SELECT
     month,
-    ifnull(
-        round(count(DISTINCT t.driver_id) * 100 / count(DISTINCT s.driver_id), 2),
+    IFNULL(
+        ROUND(COUNT(DISTINCT t.driver_id) * 100 / COUNT(DISTINCT s.driver_id), 2),
         0
     ) AS working_percentage
 FROM
@@ -209,7 +209,7 @@ FROM
     LEFT JOIN T AS t
         ON s.driver_id = t.driver_id
         AND s.join_date <= t.requested_at
-        AND s.month = month(t.requested_at)
+        AND s.month = MONTH(t.requested_at)
 GROUP BY 1;
 ```
 

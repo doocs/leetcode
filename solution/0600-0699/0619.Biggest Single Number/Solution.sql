@@ -1,7 +1,7 @@
 # Write your MySQL query statement below
 SELECT
     CASE
-        WHEN count(1) = 1 THEN num
+        WHEN COUNT(1) = 1 THEN num
         ELSE NULL
     END AS num
 FROM MyNumbers

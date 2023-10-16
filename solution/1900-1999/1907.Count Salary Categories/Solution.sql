@@ -14,11 +14,11 @@ WITH
                 WHEN income > 50000 THEN 'High Salary'
                 ELSE 'Average Salary'
             END AS category,
-            count(1) AS accounts_count
+            COUNT(1) AS accounts_count
         FROM Accounts
         GROUP BY category
     )
-SELECT s.category, ifnull(accounts_count, 0) AS accounts_count
+SELECT s.category, IFNULL(accounts_count, 0) AS accounts_count
 FROM
     S AS s
     LEFT JOIN T AS t ON s.category = t.category;

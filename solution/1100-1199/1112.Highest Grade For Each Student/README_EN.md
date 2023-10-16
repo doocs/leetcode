@@ -73,7 +73,7 @@ WITH
     T AS (
         SELECT
             *,
-            rank() OVER (
+            RANK() OVER (
                 PARTITION BY student_id
                 ORDER BY grade DESC, course_id
             ) AS rk
@@ -87,11 +87,11 @@ ORDER BY student_id;
 
 ```sql
 # Write your MySQL query statement below
-SELECT student_id, min(course_id) AS course_id, grade
+SELECT student_id, MIN(course_id) AS course_id, grade
 FROM Enrollments
 WHERE
     (student_id, grade) IN (
-        SELECT student_id, max(grade) AS grade
+        SELECT student_id, MAX(grade) AS grade
         FROM Enrollments
         GROUP BY 1
     )

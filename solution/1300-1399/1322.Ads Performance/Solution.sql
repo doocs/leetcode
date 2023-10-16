@@ -1,7 +1,7 @@
 # Write your MySQL query statement below
 SELECT
     ad_id,
-    Ifnull(
+    IFNULL(
         ROUND(
             AVG(
                 CASE

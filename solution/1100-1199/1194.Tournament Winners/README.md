@@ -109,7 +109,7 @@ WITH
             JOIN Players AS p ON m.second_player = p.player_id
     ),
     t AS (
-        SELECT group_id, player_id, sum(score) AS scores
+        SELECT group_id, player_id, SUM(score) AS scores
         FROM s
         GROUP BY player_id
     ),
@@ -117,7 +117,7 @@ WITH
         SELECT
             group_id,
             player_id,
-            rank() OVER (
+            RANK() OVER (
                 PARTITION BY group_id
                 ORDER BY scores DESC, player_id
             ) AS rk

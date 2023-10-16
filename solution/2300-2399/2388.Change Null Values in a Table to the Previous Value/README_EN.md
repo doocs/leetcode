@@ -80,13 +80,13 @@ FROM CoffeeShop;
 # Write your MySQL query statement below
 WITH
     S AS (
-        SELECT *, row_number() OVER () AS rk
+        SELECT *, ROW_NUMBER() OVER () AS rk
         FROM CoffeeShop
     ),
     T AS (
         SELECT
             *,
-            sum(
+            SUM(
                 CASE
                     WHEN drink IS NULL THEN 0
                     ELSE 1
@@ -96,7 +96,7 @@ WITH
     )
 SELECT
     id,
-    max(drink) OVER (
+    MAX(drink) OVER (
         PARTITION BY gid
         ORDER BY rk
     ) AS drink

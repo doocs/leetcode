@@ -3,7 +3,7 @@ BEGIN
   RETURN (
       # Write your MySQL query statement below.
       # Write your MySQL query statement below.
-      SELECT count(DISTINCT user_id) AS user_cnt
+      SELECT COUNT(DISTINCT user_id) AS user_cnt
       FROM Purchases
       WHERE time_stamp BETWEEN startDate AND endDate AND amount >= minAmount;
   );

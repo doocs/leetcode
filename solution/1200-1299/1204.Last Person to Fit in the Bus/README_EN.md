@@ -90,7 +90,7 @@ WITH
     T AS (
         SELECT
             person_name,
-            sum(weight) OVER (ORDER BY turn) AS s
+            SUM(weight) OVER (ORDER BY turn) AS s
         FROM Queue
     )
 SELECT person_name

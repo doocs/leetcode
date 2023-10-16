@@ -63,8 +63,8 @@ Employees table:
 SELECT
     e2.employee_id,
     e2.name,
-    count(1) AS reports_count,
-    round(avg(e1.age)) AS average_age
+    COUNT(1) AS reports_count,
+    ROUND(AVG(e1.age)) AS average_age
 FROM
     Employees AS e1
     JOIN Employees AS e2 ON e1.reports_to = e2.employee_id

@@ -100,7 +100,7 @@ FROM
     Sales
     JOIN Product USING (product_id)
 GROUP BY 1
-HAVING count(1) = sum(sale_date BETWEEN '2019-01-01' AND '2019-03-31');
+HAVING COUNT(1) = SUM(sale_date BETWEEN '2019-01-01' AND '2019-03-31');
 ```
 
 <!-- tabs:end -->

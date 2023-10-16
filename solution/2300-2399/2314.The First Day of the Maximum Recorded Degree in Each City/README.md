@@ -77,7 +77,7 @@ WITH
     T AS (
         SELECT
             *,
-            rank() OVER (
+            RANK() OVER (
                 PARTITION BY city_id
                 ORDER BY degree DESC, day
             ) AS rk

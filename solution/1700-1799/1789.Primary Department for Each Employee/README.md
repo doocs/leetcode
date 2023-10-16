@@ -86,7 +86,7 @@ UNION
 SELECT employee_id, department_id
 FROM Employee
 GROUP BY employee_id
-HAVING count(1) = 1;
+HAVING COUNT(1) = 1;
 ```
 
 <!-- tabs:end -->

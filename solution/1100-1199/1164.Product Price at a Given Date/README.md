@@ -65,7 +65,7 @@ Products 表:
 # Write your MySQL query statement below
 SELECT
     p1.product_id AS product_id,
-    ifnull(p2.price, 10) AS price
+    IFNULL(p2.price, 10) AS price
 FROM
     (
         SELECT DISTINCT
@@ -81,7 +81,7 @@ FROM
             JOIN (
                 SELECT
                     product_id,
-                    max(change_date) AS change_date
+                    MAX(change_date) AS change_date
                 FROM Products
                 WHERE change_date <= '2019-08-16'
                 GROUP BY product_id
@@ -107,13 +107,13 @@ WITH
     T AS (
         SELECT
             *,
-            rank() OVER (
+            RANK() OVER (
                 PARTITION BY product_id
                 ORDER BY change_date DESC
             ) AS rk
         FROM P
     )
-SELECT product_id, ifnull(new_price, 10) AS price
+SELECT product_id, IFNULL(new_price, 10) AS price
 FROM T
 WHERE rk = 1;
 ```

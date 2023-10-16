@@ -74,14 +74,14 @@ Delivery 表：
 ```sql
 # Write your MySQL query statement below
 select
-    round(
-        sum(
-            if(
+    ROUND(
+        SUM(
+            IF(
                 t1.order_date = t1.customer_pref_delivery_date,
                 1,
                 0
             )
-        ) / count(1) * 100,
+        ) / COUNT(1) * 100,
         2
     ) as immediate_percentage
 from
@@ -89,7 +89,7 @@ from
     right join (
         select
             customer_id,
-            min(order_date) as order_date
+            MIN(order_date) as order_date
         from
             Delivery
         group by

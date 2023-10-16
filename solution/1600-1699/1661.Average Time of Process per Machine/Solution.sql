@@ -1,8 +1,8 @@
 # Write your MySQL query statement below
 SELECT
     machine_id,
-    round(
-        avg(
+    ROUND(
+        AVG(
             CASE
                 WHEN activity_type = 'start' THEN -timestamp
                 ELSE timestamp

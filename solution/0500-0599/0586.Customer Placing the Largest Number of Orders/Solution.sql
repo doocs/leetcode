@@ -2,5 +2,5 @@
 SELECT customer_number
 FROM Orders
 GROUP BY 1
-ORDER BY count(1) DESC
+ORDER BY COUNT(1) DESC
 LIMIT 1;

@@ -86,11 +86,11 @@ WITH
     t AS (
         SELECT
             *,
-            row_number() OVER (
+            ROW_NUMBER() OVER (
                 PARTITION BY company
                 ORDER BY salary ASC
             ) AS rk,
-            count(id) OVER (PARTITION BY company) AS n
+            COUNT(id) OVER (PARTITION BY company) AS n
         FROM Employee
     )
 SELECT

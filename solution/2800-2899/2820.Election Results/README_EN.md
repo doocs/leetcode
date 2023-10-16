@@ -67,12 +67,12 @@ Since Ryan and Christine received an equal number of votes, we will display thei
 # Write your MySQL query statement below
 WITH
     T AS (
-        SELECT candidate, sum(vote) AS tot
+        SELECT candidate, SUM(vote) AS tot
         FROM
             (
                 SELECT
                     candidate,
-                    1 / (count(candidate) OVER (PARTITION BY voter)) AS vote
+                    1 / (COUNT(candidate) OVER (PARTITION BY voter)) AS vote
                 FROM Votes
                 WHERE candidate IS NOT NULL
             ) AS t
@@ -81,7 +81,7 @@ WITH
     P AS (
         SELECT
             candidate,
-            rank() OVER (ORDER BY tot DESC) AS rk
+            RANK() OVER (ORDER BY tot DESC) AS rk
         FROM T
     )
 SELECT candidate

@@ -80,15 +80,15 @@ WITH
         SELECT
             user_id,
             spend_date,
-            sum(amount) AS amount,
-            if(count(platform) = 1, platform, 'both') AS platform
+            SUM(amount) AS amount,
+            IF(COUNT(platform) = 1, platform, 'both') AS platform
         FROM Spending
         GROUP BY 1, 2
     )
 SELECT
     p.*,
-    ifnull(sum(amount), 0) AS total_amount,
-    count(t.user_id) AS total_users
+    IFNULL(SUM(amount), 0) AS total_amount,
+    COUNT(t.user_id) AS total_users
 FROM
     P AS p
     LEFT JOIN T AS t USING (spend_date, platform)
