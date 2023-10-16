@@ -14,6 +14,6 @@ SELECT
         ),
         0
     ) AS ctr
-FROM ads
+FROM Ads
 GROUP BY ad_id
 ORDER BY ctr DESC, ad_id ASC;
