@@ -72,14 +72,14 @@ For Department 2:
 SELECT
     student_id,
     department_id,
-    ifnull(
-        round(
+    IFNULL(
+        ROUND(
             (
-                rank() OVER (
+                RANK() OVER (
                     PARTITION BY department_id
                     ORDER BY mark DESC
                 ) - 1
-            ) * 100 / (count(1) OVER (PARTITION BY department_id) - 1),
+            ) * 100 / (COUNT(1) OVER (PARTITION BY department_id) - 1),
             2
         ),
         0

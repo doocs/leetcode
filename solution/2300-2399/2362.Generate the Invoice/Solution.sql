@@ -7,7 +7,7 @@ WITH
             JOIN Products USING (product_id)
     ),
     T AS (
-        SELECT invoice_id, sum(price * quantity) AS amount
+        SELECT invoice_id, SUM(price * quantity) AS amount
         FROM P
         GROUP BY invoice_id
         ORDER BY 2 DESC, 1

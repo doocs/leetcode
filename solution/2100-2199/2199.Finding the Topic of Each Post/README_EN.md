@@ -110,10 +110,10 @@ Note that it is okay to have one word that expresses more than one topic.
 # Write your MySQL query statement below
 SELECT
     post_id,
-    ifnull(group_concat(DISTINCT topic_id), 'Ambiguous!') AS topic
+    IFNULL(GROUP_CONCAT(DISTINCT topic_id), 'Ambiguous!') AS topic
 FROM
     Posts
-    LEFT JOIN Keywords ON instr(concat(' ', content, ' '), concat(' ', word, ' ')) > 0
+    LEFT JOIN Keywords ON INSTR(CONCAT(' ', content, ' '), CONCAT(' ', word, ' ')) > 0
 GROUP BY post_id;
 ```
 

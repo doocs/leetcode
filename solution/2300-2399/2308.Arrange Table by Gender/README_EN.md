@@ -80,7 +80,7 @@ WITH
     t AS (
         SELECT
             *,
-            rank() OVER (
+            RANK() OVER (
                 PARTITION BY gender
                 ORDER BY user_id
             ) AS rk1,

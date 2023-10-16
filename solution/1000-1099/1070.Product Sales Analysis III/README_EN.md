@@ -93,7 +93,7 @@ WHERE
     (product_id, year) IN (
         SELECT
             product_id,
-            min(year) AS year
+            MIN(year) AS year
         FROM Sales
         GROUP BY product_id
     );
@@ -105,7 +105,7 @@ WITH
     T AS (
         SELECT
             *,
-            rank() OVER (
+            RANK() OVER (
                 PARTITION BY product_id
                 ORDER BY year
             ) AS rk

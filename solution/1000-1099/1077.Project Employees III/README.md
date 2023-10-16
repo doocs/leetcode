@@ -96,7 +96,7 @@ WITH
     T AS (
         SELECT
             *,
-            rank() OVER (
+            RANK() OVER (
                 PARTITION BY project_id
                 ORDER BY experience_years DESC
             ) AS rk

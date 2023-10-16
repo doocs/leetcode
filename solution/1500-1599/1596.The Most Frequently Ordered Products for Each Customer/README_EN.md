@@ -135,9 +135,9 @@ WITH
         SELECT
             customer_id,
             product_id,
-            rank() OVER (
+            RANK() OVER (
                 PARTITION BY customer_id
-                ORDER BY count(1) DESC
+                ORDER BY COUNT(1) DESC
             ) AS rk
         FROM Orders
         GROUP BY 1, 2

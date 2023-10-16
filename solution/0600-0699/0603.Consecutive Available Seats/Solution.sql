@@ -3,7 +3,7 @@ WITH
     T AS (
         SELECT
             *,
-            sum(free = 1) OVER (
+            SUM(free = 1) OVER (
                 ORDER BY seat_id
                 ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING
             ) AS cnt

@@ -97,17 +97,17 @@ FROM
     (
         SELECT
             customer_id,
-            year(order_date),
-            sum(price) AS total,
-            year(order_date) - rank() OVER (
+            YEAR(order_date),
+            SUM(price) AS total,
+            YEAR(order_date) - RANK() OVER (
                 PARTITION BY customer_id
-                ORDER BY sum(price)
+                ORDER BY SUM(price)
             ) AS rk
         FROM Orders
-        GROUP BY customer_id, year(order_date)
+        GROUP BY customer_id, YEAR(order_date)
     ) AS t
 GROUP BY customer_id
-HAVING count(DISTINCT rk) = 1;
+HAVING COUNT(DISTINCT rk) = 1;
 ```
 
 <!-- tabs:end -->

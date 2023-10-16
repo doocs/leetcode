@@ -70,9 +70,9 @@ WITH
     s AS (
         SELECT
             customer_id,
-            date_sub(
+            DATE_SUB(
                 transaction_date,
-                INTERVAL row_number() OVER (
+                INTERVAL ROW_NUMBER() OVER (
                     PARTITION BY customer_id
                     ORDER BY transaction_date
                 ) DAY
@@ -80,13 +80,13 @@ WITH
         FROM Transactions
     ),
     t AS (
-        SELECT customer_id, transaction_date, count(1) AS cnt
+        SELECT customer_id, transaction_date, COUNT(1) AS cnt
         FROM s
         GROUP BY 1, 2
     )
 SELECT customer_id
 FROM t
-WHERE cnt = (SELECT max(cnt) FROM t)
+WHERE cnt = (SELECT MAX(cnt) FROM t)
 ORDER BY customer_id;
 ```
 

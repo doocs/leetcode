@@ -95,7 +95,7 @@ Passengers table:
 # Write your MySQL query statement below
 SELECT
     bus_id,
-    count(passenger_id) - lag(count(passenger_id), 1, 0) OVER (
+    COUNT(passenger_id) - LAG(COUNT(passenger_id), 1, 0) OVER (
         ORDER BY b.arrival_time
     ) AS passengers_cnt
 FROM

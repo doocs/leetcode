@@ -130,7 +130,7 @@ Frozen 2 和 Joker 在 2 月的评分都是 3.5，但是 Frozen 2 的字典序�
         Users
         JOIN MovieRating USING (user_id)
     GROUP BY user_id
-    ORDER BY count(1) DESC, name
+    ORDER BY COUNT(1) DESC, name
     LIMIT 1
 )
 UNION ALL
@@ -139,9 +139,9 @@ UNION ALL
     FROM
         MovieRating
         JOIN Movies USING (movie_id)
-    WHERE date_format(created_at, '%Y-%m') = '2020-02'
+    WHERE DATE_FORMAT(created_at, '%Y-%m') = '2020-02'
     GROUP BY movie_id
-    ORDER BY avg(rating) DESC, title
+    ORDER BY AVG(rating) DESC, title
     LIMIT 1
 );
 ```

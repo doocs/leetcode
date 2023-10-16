@@ -74,7 +74,7 @@ Cinema 表:
 SELECT DISTINCT a.seat_id
 FROM
     Cinema AS a
-    JOIN Cinema AS b ON abs(a.seat_id - b.seat_id) = 1 AND a.free AND b.free
+    JOIN Cinema AS b ON ABS(a.seat_id - b.seat_id) = 1 AND a.free AND b.free
 ORDER BY 1;
 ```
 
@@ -84,8 +84,8 @@ WITH
     T AS (
         SELECT
             seat_id,
-            (free + (lag(free) OVER (ORDER BY seat_id))) AS a,
-            (free + (lead(free) OVER (ORDER BY seat_id))) AS b
+            (free + (LAG(free) OVER (ORDER BY seat_id))) AS a,
+            (free + (LEAD(free) OVER (ORDER BY seat_id))) AS b
         FROM Cinema
     )
 SELECT seat_id
@@ -99,7 +99,7 @@ WITH
     T AS (
         SELECT
             *,
-            sum(free = 1) OVER (
+            SUM(free = 1) OVER (
                 ORDER BY seat_id
                 ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING
             ) AS cnt

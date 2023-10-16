@@ -93,7 +93,7 @@ WITH
             P,
             Exp
     )
-SELECT platform, experiment_name, count(experiment_id) AS num_experiments
+SELECT platform, experiment_name, COUNT(experiment_id) AS num_experiments
 FROM
     T AS t
     LEFT JOIN Experiments USING (platform, experiment_name)

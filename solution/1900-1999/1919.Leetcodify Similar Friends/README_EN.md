@@ -108,7 +108,7 @@ FROM
     LEFT JOIN Listens AS l2 ON user2_id = l2.user_id
 WHERE l1.song_id = l2.song_id AND l1.day = l2.day
 GROUP BY 1, 2, l1.day
-HAVING count(DISTINCT l1.song_id) >= 3;
+HAVING COUNT(DISTINCT l1.song_id) >= 3;
 ```
 
 <!-- tabs:end -->

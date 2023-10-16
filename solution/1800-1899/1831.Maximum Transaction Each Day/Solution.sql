@@ -3,8 +3,8 @@ WITH
     T AS (
         SELECT
             transaction_id,
-            rank() OVER (
-                PARTITION BY day(day)
+            RANK() OVER (
+                PARTITION BY DAY(day)
                 ORDER BY amount DESC
             ) AS rk
         FROM Transactions

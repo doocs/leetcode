@@ -103,9 +103,9 @@ Passengers 表:
 # Write your MySQL query statement below
 SELECT
     passenger_id,
-    if(
+    IF(
         (
-            rank() OVER (
+            RANK() OVER (
                 PARTITION BY flight_id
                 ORDER BY booking_time
             )

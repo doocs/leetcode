@@ -76,7 +76,7 @@ We can also use a left join to join the `Employee` table with itself based on `t
 # Write your MySQL query statement below
 WITH
     T AS (
-        SELECT team_id, count(1) AS team_size
+        SELECT team_id, COUNT(1) AS team_size
         FROM Employee
         GROUP BY 1
     )
@@ -88,7 +88,7 @@ FROM
 
 ```sql
 # Write your MySQL query statement below
-SELECT e1.employee_id, count(1) AS team_size
+SELECT e1.employee_id, COUNT(1) AS team_size
 FROM
     Employee AS e1
     LEFT JOIN Employee AS e2 USING (team_id)

@@ -68,7 +68,7 @@ We can use `GROUP BY` to group the data by `customer_number`, and then sort the 
 SELECT customer_number
 FROM Orders
 GROUP BY 1
-ORDER BY count(1) DESC
+ORDER BY COUNT(1) DESC
 LIMIT 1;
 ```
 

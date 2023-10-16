@@ -90,7 +90,7 @@ SELECT
     s.company_id,
     employee_id,
     employee_name,
-    round(
+    ROUND(
         CASE
             WHEN top < 1000 THEN salary
             WHEN top >= 1000
@@ -101,7 +101,7 @@ SELECT
 FROM
     Salaries AS s
     JOIN (
-        SELECT company_id, max(salary) AS top
+        SELECT company_id, MAX(salary) AS top
         FROM Salaries
         GROUP BY company_id
     ) AS t

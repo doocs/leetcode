@@ -1,7 +1,7 @@
 # Write your MySQL query statement below
 SELECT
     name,
-    sum(amount) AS balance
+    SUM(amount) AS balance
 FROM
     Users
     JOIN Transactions USING (account)

@@ -25,11 +25,11 @@ WITH
     )
 SELECT
     team_name,
-    count(1) AS matches_played,
-    sum(score) AS points,
-    sum(goals) AS goal_for,
-    sum(away_goals) AS goal_against,
-    (sum(goals) - sum(away_goals)) AS goal_diff
+    COUNT(1) AS matches_played,
+    SUM(score) AS points,
+    SUM(goals) AS goal_for,
+    SUM(away_goals) AS goal_against,
+    (SUM(goals) - SUM(away_goals)) AS goal_diff
 FROM
     Scores AS s
     JOIN Teams AS t ON s.team_id = t.team_id

@@ -104,7 +104,7 @@ Charlie 的余额为(6000 + 6000 - 4000) = 8000.
 # Write your MySQL query statement below
 SELECT
     name,
-    sum(amount) AS balance
+    SUM(amount) AS balance
 FROM
     Users
     JOIN Transactions USING (account)

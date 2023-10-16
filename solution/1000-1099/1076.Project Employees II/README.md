@@ -89,8 +89,8 @@ SELECT project_id
 FROM Project
 GROUP BY 1
 HAVING
-    count(1) >= all(
-        SELECT count(1)
+    COUNT(1) >= all(
+        SELECT COUNT(1)
         FROM Project
         GROUP BY project_id
     );
@@ -102,7 +102,7 @@ WITH
     T AS (
         SELECT
             project_id,
-            rank() OVER (ORDER BY count(employee_id) DESC) AS rk
+            RANK() OVER (ORDER BY COUNT(employee_id) DESC) AS rk
         FROM Project
         GROUP BY 1
     )

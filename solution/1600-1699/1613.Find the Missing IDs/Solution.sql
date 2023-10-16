@@ -15,10 +15,10 @@ FROM t
 WHERE
     n < (
         SELECT
-            max(customer_id)
+            MAX(customer_id)
         FROM Customers
     )
-    AND n NOT IN (
+    AND n NOT IN(
         SELECT
             customer_id
         FROM Customers

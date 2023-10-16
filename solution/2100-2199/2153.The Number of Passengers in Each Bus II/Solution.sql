@@ -3,8 +3,8 @@ WITH
     T AS (
         SELECT
             *,
-            sum(cnt) OVER (ORDER BY dt, bus_id) AS cur,
-            if(@t > 0, @t := cnt, @t := @t + cnt) AS cur_sum
+            SUM(cnt) OVER (ORDER BY dt, bus_id) AS cur,
+            IF(@t > 0, @t := cnt, @t := @t + cnt) AS cur_sum
         FROM
             (
                 SELECT bus_id, arrival_time AS dt, capacity AS cnt FROM Buses
@@ -14,7 +14,7 @@ WITH
     )
 SELECT
     bus_id,
-    if(cur_sum > 0, cnt - cur_sum, cnt) AS passengers_cnt
+    IF(cur_sum > 0, cnt - cur_sum, cnt) AS passengers_cnt
 FROM T
 WHERE bus_id > 0
 ORDER BY bus_id;

@@ -64,13 +64,13 @@ WITH
     S AS (
         SELECT
             first_col,
-            row_number() OVER (ORDER BY first_col) AS rk
+            ROW_NUMBER() OVER (ORDER BY first_col) AS rk
         FROM Data
     ),
     T AS (
         SELECT
             second_col,
-            row_number() OVER (ORDER BY second_col DESC) AS rk
+            ROW_NUMBER() OVER (ORDER BY second_col DESC) AS rk
         FROM Data
     )
 SELECT first_col, second_col

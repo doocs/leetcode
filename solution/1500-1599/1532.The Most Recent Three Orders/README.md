@@ -125,7 +125,7 @@ WITH
     T AS (
         SELECT
             *,
-            row_number() OVER (
+            ROW_NUMBER() OVER (
                 PARTITION BY customer_id
                 ORDER BY order_date DESC
             ) AS rk

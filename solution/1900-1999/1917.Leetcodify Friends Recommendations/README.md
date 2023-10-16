@@ -133,7 +133,7 @@ WHERE
         WHERE l1.user_id = t.user1_id AND l2.user_id = t.user2_id
     )
 GROUP BY l1.day, l1.user_id, l2.user_id
-HAVING count(DISTINCT l1.song_id) >= 3;
+HAVING COUNT(DISTINCT l1.song_id) >= 3;
 ```
 
 <!-- tabs:end -->

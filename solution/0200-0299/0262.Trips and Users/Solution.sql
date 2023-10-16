@@ -1,7 +1,7 @@
 # Write your MySQL query statement below
 SELECT
     request_at AS Day,
-    round(avg(status != 'completed'), 2) AS 'Cancellation Rate'
+    ROUND(AVG(status != 'completed'), 2) AS 'Cancellation Rate'
 FROM
     Trips AS t
     JOIN Users AS u1 ON (t.client_id = u1.users_id AND u1.banned = 'No')

@@ -88,7 +88,7 @@ The fifth day is 2020-01-07, Bajrang scored 7 points and the total score for the
 SELECT
     gender,
     day,
-    sum(score_points) OVER (
+    SUM(score_points) OVER (
         PARTITION BY gender
         ORDER BY gender, day
     ) AS total

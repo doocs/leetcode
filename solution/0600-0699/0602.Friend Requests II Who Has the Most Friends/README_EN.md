@@ -67,7 +67,7 @@ WITH
         UNION
         SELECT accepter_id, requester_id FROM RequestAccepted
     )
-SELECT requester_id AS id, count(accepter_id) AS num
+SELECT requester_id AS id, COUNT(accepter_id) AS num
 FROM T
 GROUP BY 1
 ORDER BY 2 DESC

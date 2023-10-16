@@ -84,7 +84,7 @@ Ads 表:
 ```sql
 SELECT
   ad_id,
-  Ifnull(ROUND(AVG(CASE
+  IFNULL(ROUND(AVG(CASE
     WHEN action = 'Clicked' THEN 1
     WHEN action = 'Viewed' THEN 0
     ELSE NULL

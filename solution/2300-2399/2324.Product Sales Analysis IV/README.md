@@ -108,9 +108,9 @@ WITH
         SELECT
             user_id,
             product_id,
-            rank() OVER (
+            RANK() OVER (
                 PARTITION BY user_id
-                ORDER BY sum(quantity * price) DESC
+                ORDER BY SUM(quantity * price) DESC
             ) AS rk
         FROM
             Sales

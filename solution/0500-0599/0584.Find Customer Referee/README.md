@@ -64,7 +64,7 @@ Customer 表:
 # Write your MySQL query statement below
 SELECT name
 FROM Customer
-WHERE ifnull(referee_id, 0) != 2;
+WHERE IFNULL(referee_id, 0) != 2;
 ```
 
 <!-- tabs:end -->

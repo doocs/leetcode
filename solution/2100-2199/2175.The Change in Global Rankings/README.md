@@ -129,15 +129,15 @@ New Zealand 没有获得或丢失分数，他们的排名也没有发生变化�
 # Write your MySQL query statement below
 WITH
     P AS (
-        SELECT team_id, sum(points_change) AS delta
+        SELECT team_id, SUM(points_change) AS delta
         FROM PointsChange
         GROUP BY team_id
     )
 SELECT
     team_id,
     name,
-    CAST(rank() OVER (ORDER BY points DESC, name) AS SIGNED) - CAST(
-        rank() OVER (ORDER BY (points + delta) DESC, name) AS SIGNED
+    CAST(RANK() OVER (ORDER BY points DESC, name) AS SIGNED) - CAST(
+        RANK() OVER (ORDER BY (points + delta) DESC, name) AS SIGNED
     ) AS 'rank_diff'
 FROM
     TeamPoints

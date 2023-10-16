@@ -1,10 +1,10 @@
 # Write your MySQL query statement below
 WITH
     P AS (
-        SELECT product_id, year(purchase_date) AS y
+        SELECT product_id, YEAR(purchase_date) AS y
         FROM Orders
         GROUP BY 1, 2
-        HAVING count(1) >= 3
+        HAVING COUNT(1) >= 3
     )
 SELECT DISTINCT p1.product_id
 FROM

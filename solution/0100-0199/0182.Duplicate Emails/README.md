@@ -72,7 +72,7 @@ Person 表:
 SELECT email
 FROM Person
 GROUP BY 1
-HAVING count(1) > 1;
+HAVING COUNT(1) > 1;
 ```
 
 ```sql

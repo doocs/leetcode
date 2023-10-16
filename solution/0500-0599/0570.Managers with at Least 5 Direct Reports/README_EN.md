@@ -71,7 +71,7 @@ FROM
         FROM Employee
         WHERE managerId IS NOT NULL
         GROUP BY managerId
-        HAVING count(1) >= 5
+        HAVING COUNT(1) >= 5
     ) AS e2
         ON e1.id = e2.managerId;
 ```
@@ -82,7 +82,7 @@ WITH
     T AS (
         SELECT
             managerId,
-            count(1) OVER (PARTITION BY managerId) AS cnt
+            COUNT(1) OVER (PARTITION BY managerId) AS cnt
         FROM Employee
     )
 SELECT DISTINCT name

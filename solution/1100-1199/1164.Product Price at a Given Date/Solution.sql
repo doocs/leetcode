@@ -13,12 +13,12 @@ WITH
     T AS (
         SELECT
             *,
-            rank() OVER (
+            RANK() OVER (
                 PARTITION BY product_id
                 ORDER BY change_date DESC
             ) AS rk
         FROM P
     )
-SELECT product_id, ifnull(new_price, 10) AS price
+SELECT product_id, IFNULL(new_price, 10) AS price
 FROM T
 WHERE rk = 1;

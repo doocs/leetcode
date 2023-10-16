@@ -130,7 +130,7 @@ SELECT
     a.student_id,
     student_name,
     b.subject_name,
-    count(c.subject_name) AS attended_exams
+    COUNT(c.subject_name) AS attended_exams
 FROM
     Students AS a
     CROSS JOIN Subjects AS b

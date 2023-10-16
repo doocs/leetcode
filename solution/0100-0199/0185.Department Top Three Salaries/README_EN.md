@@ -122,7 +122,7 @@ WITH
     T AS (
         SELECT
             *,
-            dense_rank() OVER (
+            DENSE_RANK() OVER (
                 PARTITION BY departmentId
                 ORDER BY salary DESC
             ) AS rk

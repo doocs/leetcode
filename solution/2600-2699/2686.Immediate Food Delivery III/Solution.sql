@@ -1,7 +1,7 @@
 # Write your MySQL query statement below
 SELECT
     order_date,
-    round(
+    ROUND(
         100 * SUM(IF(customer_pref_delivery_date = order_date, 1, 0)) / COUNT(*),
         2
     ) AS immediate_percentage
