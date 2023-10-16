@@ -11,7 +11,9 @@ class Solution {
             }
             ++j;
             String t = s.substring(i, j);
-            if (cnt == k && ("".equals(ans) || j - i < ans.length() || (j - i == ans.length() && t.compareTo(ans) < 0))) {
+            if (cnt == k
+                && ("".equals(ans) || j - i < ans.length()
+                    || (j - i == ans.length() && t.compareTo(ans) < 0))) {
                 ans = t;
             }
         }
