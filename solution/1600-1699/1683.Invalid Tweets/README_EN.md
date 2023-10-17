@@ -50,6 +50,14 @@ Tweet 2 has length = 32. It is an invalid tweet.
 
 ## Solutions
 
+**Solution 1: Using `CHAR_LENGTH` Function**
+
+The `CHAR_LENGTH()` function returns the length of a string, where Chinese characters, numbers, and letters are all counted as $1$ byte.
+
+The `LENGTH()` function returns the length of a string, where under utf8 encoding, Chinese characters are counted as $3$ bytes, while numbers and letters are counted as $1$ byte; under gbk encoding, Chinese characters are counted as $2$ bytes, while numbers and letters are counted as $1$ byte.
+
+For this problem, we can directly use the `CHAR_LENGTH` function to get the length of the string, and filter out the tweet IDs with a length greater than $15$.
+
 <!-- tabs:start -->
 
 ### **SQL**
