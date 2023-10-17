@@ -44,6 +44,12 @@
 
 ## Solutions
 
+**Solution 1: DFS**
+
+We first construct a graph $g$ based on $pid$ and $ppid$, where $g[i]$ represents all child processes of process $i$. Then, starting from the process $kill$, we perform depth-first search to obtain all killed processes.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of processes.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -51,15 +57,14 @@
 ```python
 class Solution:
     def killProcess(self, pid: List[int], ppid: List[int], kill: int) -> List[int]:
-        def dfs(u):
-            ans.append(u)
-            for v in g[u]:
-                dfs(v)
+        def dfs(i: int):
+            ans.append(i)
+            for j in g[i]:
+                dfs(j)
 
         g = defaultdict(list)
-        n = len(pid)
-        for c, p in zip(pid, ppid):
-            g[p].append(c)
+        for i, p in zip(pid, ppid):
+            g[p].append(i)
         ans = []
         dfs(kill)
         return ans
@@ -69,24 +74,22 @@ class Solution:
 
 ```java
 class Solution {
-    private Map<Integer, List<Integer>> g;
-    private List<Integer> ans;
+    private Map<Integer, List<Integer>> g = new HashMap<>();
+    private List<Integer> ans = new ArrayList<>();
 
     public List<Integer> killProcess(List<Integer> pid, List<Integer> ppid, int kill) {
-        g = new HashMap<>();
-        for (int i = 0, n = pid.size(); i < n; ++i) {
-            int c = pid.get(i), p = ppid.get(i);
-            g.computeIfAbsent(p, k -> new ArrayList<>()).add(c);
+        int n = pid.size();
+        for (int i = 0; i < n; ++i) {
+            g.computeIfAbsent(ppid.get(i), k -> new ArrayList<>()).add(pid.get(i));
         }
-        ans = new ArrayList<>();
         dfs(kill);
         return ans;
     }
 
-    private void dfs(int u) {
-        ans.add(u);
-        for (int v : g.getOrDefault(u, new ArrayList<>())) {
-            dfs(v);
+    private void dfs(int i) {
+        ans.add(i);
+        for (int j : g.getOrDefault(i, Collections.emptyList())) {
+            dfs(j);
         }
     }
 }
@@ -99,19 +102,19 @@ class Solution {
 public:
     vector<int> killProcess(vector<int>& pid, vector<int>& ppid, int kill) {
         unordered_map<int, vector<int>> g;
-        vector<int> ans;
         int n = pid.size();
         for (int i = 0; i < n; ++i) {
-            int c = pid[i], p = ppid[i];
-            g[p].push_back(c);
+            g[ppid[i]].push_back(pid[i]);
         }
-        dfs(kill, g, ans);
+        vector<int> ans;
+        function<void(int)> dfs = [&](int i) {
+            ans.push_back(i);
+            for (int j : g[i]) {
+                dfs(j);
+            }
+        };
+        dfs(kill);
         return ans;
-    }
-
-    void dfs(int u, unordered_map<int, vector<int>>& g, vector<int>& ans) {
-        ans.push_back(u);
-        for (int v : g[u]) dfs(v, g, ans);
     }
 };
 ```
@@ -119,22 +122,73 @@ public:
 ### **Go**
 
 ```go
-func killProcess(pid []int, ppid []int, kill int) []int {
-	g := make(map[int][]int)
-	for i, c := range pid {
-		p := ppid[i]
-		g[p] = append(g[p], c)
+func killProcess(pid []int, ppid []int, kill int) (ans []int) {
+	g := map[int][]int{}
+	for i, p := range ppid {
+		g[p] = append(g[p], pid[i])
 	}
-	var ans []int
-	var dfs func(u int)
-	dfs = func(u int) {
-		ans = append(ans, u)
-		for _, v := range g[u] {
-			dfs(v)
+	var dfs func(int)
+	dfs = func(i int) {
+		ans = append(ans, i)
+		for _, j := range g[i] {
+			dfs(j)
 		}
 	}
 	dfs(kill)
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function killProcess(pid: number[], ppid: number[], kill: number): number[] {
+    const g: Map<number, number[]> = new Map();
+    for (let i = 0; i < pid.length; ++i) {
+        if (!g.has(ppid[i])) {
+            g.set(ppid[i], []);
+        }
+        g.get(ppid[i])?.push(pid[i]);
+    }
+    const ans: number[] = [];
+    const dfs = (i: number) => {
+        ans.push(i);
+        for (const j of g.get(i) ?? []) {
+            dfs(j);
+        }
+    };
+    dfs(kill);
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn kill_process(pid: Vec<i32>, ppid: Vec<i32>, kill: i32) -> Vec<i32> {
+        let mut g: HashMap<i32, Vec<i32>> = HashMap::new();
+        let mut ans: Vec<i32> = Vec::new();
+
+        let n = pid.len();
+        for i in 0..n {
+            g.entry(ppid[i]).or_insert(Vec::new()).push(pid[i]);
+        }
+
+        Self::dfs(&mut ans, &g, kill);
+        ans
+    }
+
+    fn dfs(ans: &mut Vec<i32>, g: &HashMap<i32, Vec<i32>>, i: i32) {
+        ans.push(i);
+        if let Some(children) = g.get(&i) {
+            for &j in children {
+                Self::dfs(ans, g, j);
+            }
+        }
+    }
 }
 ```
 
