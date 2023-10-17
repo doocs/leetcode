@@ -46,30 +46,179 @@ So the answer is [[2],[0],[0]].</pre>
 
 ## Solutions
 
+**Solution 1: Prefix and Suffix Decomposition**
+
+We can preprocess the suffix product (excluding itself) of each element, and then traverse the matrix to calculate the prefix product (excluding itself) of each element. The product of the two gives us the result for each position.
+
+Specifically, we use $p[i][j]$ to represent the result of the element in the $i$-th row and $j$-th column of the matrix. We define a variable $suf$ to represent the product of all elements below and to the right of the current position. Initially, $suf$ is set to $1$. We start traversing from the bottom right corner of the matrix. For each position $(i, j)$, we assign $suf$ to $p[i][j]$, and then update $suf$ to $suf \times grid[i][j] \bmod 12345$. This way, we can obtain the suffix product of each position.
+
+Next, we start traversing from the top left corner of the matrix. For each position $(i, j)$, we multiply $p[i][j]$ by $pre$, take the result modulo $12345$, and then update $pre$ to $pre \times grid[i][j] \bmod 12345$. This way, we can obtain the prefix product of each position.
+
+After the traversal, we return the result matrix $p$.
+
+The time complexity is $O(n \times m)$, where $n$ and $m$ are the number of rows and columns in the matrix, respectively. Ignoring the space occupied by the result matrix, the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def constructProductMatrix(self, grid: List[List[int]]) -> List[List[int]]:
+        n, m = len(grid), len(grid[0])
+        p = [[0] * m for _ in range(n)]
+        mod = 12345
+        suf = 1
+        for i in range(n - 1, -1, -1):
+            for j in range(m - 1, -1, -1):
+                p[i][j] = suf
+                suf = suf * grid[i][j] % mod
+        pre = 1
+        for i in range(n):
+            for j in range(m):
+                p[i][j] = p[i][j] * pre % mod
+                pre = pre * grid[i][j] % mod
+        return p
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int[][] constructProductMatrix(int[][] grid) {
+        final int mod = 12345;
+        int n = grid.length, m = grid[0].length;
+        int[][] p = new int[n][m];
+        long suf = 1;
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = m - 1; j >= 0; --j) {
+                p[i][j] = (int) suf;
+                suf = suf * grid[i][j] % mod;
+            }
+        }
+        long pre = 1;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < m; ++j) {
+                p[i][j] = (int) (p[i][j] * pre % mod);
+                pre = pre * grid[i][j] % mod;
+            }
+        }
+        return p;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    vector<vector<int>> constructProductMatrix(vector<vector<int>>& grid) {
+        const int mod = 12345;
+        int n = grid.size(), m = grid[0].size();
+        vector<vector<int>> p(n, vector<int>(m));
+        long long suf = 1;
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = m - 1; j >= 0; --j) {
+                p[i][j] = suf;
+                suf = suf * grid[i][j] % mod;
+            }
+        }
+        long long pre = 1;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < m; ++j) {
+                p[i][j] = p[i][j] * pre % mod;
+                pre = pre * grid[i][j] % mod;
+            }
+        }
+        return p;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func constructProductMatrix(grid [][]int) [][]int {
+	const mod int = 12345
+	n, m := len(grid), len(grid[0])
+	p := make([][]int, n)
+	for i := range p {
+		p[i] = make([]int, m)
+	}
+	suf := 1
+	for i := n - 1; i >= 0; i-- {
+		for j := m - 1; j >= 0; j-- {
+			p[i][j] = suf
+			suf = suf * grid[i][j] % mod
+		}
+	}
+	pre := 1
+	for i := 0; i < n; i++ {
+		for j := 0; j < m; j++ {
+			p[i][j] = p[i][j] * pre % mod
+			pre = pre * grid[i][j] % mod
+		}
+	}
+	return p
+}
+```
 
+### **TypeScript**
+
+```ts
+function constructProductMatrix(grid: number[][]): number[][] {
+    const mod = 12345;
+    const [n, m] = [grid.length, grid[0].length];
+    const p: number[][] = Array.from({ length: n }, () => Array.from({ length: m }, () => 0));
+    let suf = 1;
+    for (let i = n - 1; ~i; --i) {
+        for (let j = m - 1; ~j; --j) {
+            p[i][j] = suf;
+            suf = (suf * grid[i][j]) % mod;
+        }
+    }
+    let pre = 1;
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < m; ++j) {
+            p[i][j] = (p[i][j] * pre) % mod;
+            pre = (pre * grid[i][j]) % mod;
+        }
+    }
+    return p;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn construct_product_matrix(grid: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
+        let modulo: i32 = 12345;
+        let n = grid.len();
+        let m = grid[0].len();
+        let mut p: Vec<Vec<i32>> = vec![vec![0; m]; n];
+        let mut suf = 1;
+
+        for i in (0..n).rev() {
+            for j in (0..m).rev() {
+                p[i][j] = suf;
+                suf = (suf as i64 * grid[i][j] as i64 % modulo as i64) as i32;
+            }
+        }
+
+        let mut pre = 1;
+
+        for i in 0..n {
+            for j in 0..m {
+                p[i][j] = (p[i][j] as i64 * pre as i64 % modulo as i64) as i32;
+                pre = (pre as i64 * grid[i][j] as i64 % modulo as i64) as i32;
+            }
+        }
+
+        p
+    }
+}
 ```
 
 ### **...**
