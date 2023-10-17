@@ -1,17 +1,15 @@
-func killProcess(pid []int, ppid []int, kill int) []int {
-	g := make(map[int][]int)
-	for i, c := range pid {
-		p := ppid[i]
-		g[p] = append(g[p], c)
+func killProcess(pid []int, ppid []int, kill int) (ans []int) {
+	g := map[int][]int{}
+	for i, p := range ppid {
+		g[p] = append(g[p], pid[i])
 	}
-	var ans []int
-	var dfs func(u int)
-	dfs = func(u int) {
-		ans = append(ans, u)
-		for _, v := range g[u] {
-			dfs(v)
+	var dfs func(int)
+	dfs = func(i int) {
+		ans = append(ans, i)
+		for _, j := range g[i] {
+			dfs(j)
 		}
 	}
 	dfs(kill)
-	return ans
+	return
 }
