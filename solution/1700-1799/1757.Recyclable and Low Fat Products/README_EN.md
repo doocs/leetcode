@@ -53,6 +53,10 @@ Products table:
 
 ## Solutions
 
+**Solution 1: Conditional Filtering**
+
+We can directly filter the product IDs where `low_fats` is `Y` and `recyclable` is `Y`.
+
 <!-- tabs:start -->
 
 ### **SQL**

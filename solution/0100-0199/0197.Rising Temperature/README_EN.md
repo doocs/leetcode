@@ -54,6 +54,10 @@ In 2015-01-04, the temperature was higher than the previous day (20 -&gt; 30).
 
 ## Solutions
 
+**Solution 1: Self-Join + DATEDIFF/SUBDATE Function**
+
+We can use self-join to compare each row in the `Weather` table with its previous row. If the temperature is higher and the date difference is one day, then it is the result we are looking for.
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -68,13 +72,12 @@ FROM
 ```
 
 ```sql
-SELECT
-	w2.id AS Id
+# Write your MySQL query statement below
+SELECT w1.id
 FROM
-	weather AS w1
-	JOIN weather AS w2 ON DATE_ADD( w1.recordDate, INTERVAL 1 DAY) = w2.recordDate
-WHERE
-	w1.temperature < w2.temperature
+    Weather AS w1
+    JOIN Weather AS w2
+        ON SUBDATE(w1.recordDate, 1) = w2.recordDate AND w1.temperature > w2.temperature;
 ```
 
 <!-- tabs:end -->
