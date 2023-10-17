@@ -12,6 +12,8 @@
   <a href="https://opencollective.com/doocs-leetcode/sponsors/badge.svg" alt="Sponsors on Open Collective"><img src="https://img.shields.io/opencollective/sponsors/doocs-leetcode?color=42b883&style=flat-square&logo=open%20collective&logoColor=ffffff" /></a>
 </p>
 
+<a href="https://trendshift.io/repositories/801" target="_blank"><img src="https://trendshift.io/api/badge/repositories/801" alt="doocs%2Fleetcode | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
+
 ## Introduction
 
 The Doocs LeetCode repository is a comprehensive collection of solutions to LeetCode questions in multiple programming languages. The repository contains solutions to LeetCode, LCOF, LCCI questions, and more in multiple programming languages.

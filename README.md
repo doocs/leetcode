@@ -12,6 +12,8 @@
   <a href="https://opencollective.com/doocs-leetcode/sponsors/badge.svg" alt="Sponsors on Open Collective"><img src="https://img.shields.io/opencollective/sponsors/doocs-leetcode?color=42b883&style=flat-square&logo=open%20collective&logoColor=ffffff" /></a>
 </p>
 
+<a href="https://trendshift.io/repositories/801" target="_blank"><img src="https://trendshift.io/api/badge/repositories/801" alt="doocs%2Fleetcode | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
+
 ## 介绍
 
 本项目包含 LeetCode、《剑指 Offer（第 2 版）》、《剑指 Offer（专项突击版）》、《程序员面试金典（第 6 版）》等题目的相关题解。所有题解均由多种编程语言实现，包括但不限于：Java、Python、C++、Go、TypeScript、Rust，日常更新。欢迎 Star 🌟 关注[本项目](https://github.com/doocs/leetcode)，获取项目最新动态。
