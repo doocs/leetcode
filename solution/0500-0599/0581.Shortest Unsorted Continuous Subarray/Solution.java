@@ -1,14 +1,21 @@
 class Solution {
     public int findUnsortedSubarray(int[] nums) {
-        int[] arr = nums.clone();
-        Arrays.sort(arr);
-        int left = 0, right = nums.length - 1;
-        while (left <= right && nums[left] == arr[left]) {
-            ++left;
+        final int inf = 1 << 30;
+        int n = nums.length;
+        int l = -1, r = -1;
+        int mi = inf, mx = -inf;
+        for (int i = 0; i < n; ++i) {
+            if (mx > nums[i]) {
+                r = i;
+            } else {
+                mx = nums[i];
+            }
+            if (mi < nums[n - i - 1]) {
+                l = n - i - 1;
+            } else {
+                mi = nums[n - i - 1];
+            }
         }
-        while (left <= right && nums[right] == arr[right]) {
-            --right;
-        }
-        return right - left + 1;
+        return r == -1 ? 0 : r - l + 1;
     }
 }
