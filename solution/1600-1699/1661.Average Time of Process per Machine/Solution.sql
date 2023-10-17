@@ -11,4 +11,4 @@ SELECT
         3
     ) AS processing_time
 FROM Activity
-GROUP BY machine_id;
+GROUP BY 1;
