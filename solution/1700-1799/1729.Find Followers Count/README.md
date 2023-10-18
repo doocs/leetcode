@@ -58,19 +58,20 @@ Followers 表：
 
 <!-- 这里可写通用的实现逻辑 -->
 
-`GROUP BY` 实现。
+**方法一：分组统计**
+
+我们可以直接对 `Followers` 表按照 `user_id` 进行分组，然后使用 `COUNT` 函数统计每个用户的关注者数量即可。
 
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
-SELECT
-    user_id,
-    COUNT(1) AS followers_count
+# Write your MySQL query statement below
+SELECT user_id, COUNT(1) AS followers_count
 FROM Followers
-GROUP BY user_id
-ORDER BY user_id;
+GROUP BY 1
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->
