@@ -5,5 +5,5 @@ WHERE primary_flag = 'Y'
 UNION
 SELECT employee_id, department_id
 FROM Employee
-GROUP BY employee_id
+GROUP BY 1
 HAVING COUNT(1) = 1;

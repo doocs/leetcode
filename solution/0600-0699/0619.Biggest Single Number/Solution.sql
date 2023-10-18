@@ -1,10 +1,9 @@
 # Write your MySQL query statement below
-SELECT
-    CASE
-        WHEN COUNT(1) = 1 THEN num
-        ELSE NULL
-    END AS num
-FROM MyNumbers
-GROUP BY num
-ORDER BY 1 DESC
-LIMIT 1;
+SELECT MAX(num) AS num
+FROM
+    (
+        SELECT num
+        FROM MyNumbers
+        GROUP BY 1
+        HAVING COUNT(1) = 1
+    ) AS t;
