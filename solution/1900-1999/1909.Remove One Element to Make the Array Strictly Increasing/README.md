@@ -168,21 +168,23 @@ func check(nums []int, i int) bool {
 ```rust
 impl Solution {
     pub fn can_be_increasing(nums: Vec<i32>) -> bool {
-        fn check(nums: &Vec<i32>, i: usize) -> bool {
-            let mut prev= i32::MIN;
+        let check = |p: usize| -> bool {
+            let mut prev = None;
             for j in 0..nums.len() {
-                if i != j {
-                    if prev >= nums[j] {
-                        return false
+                if p != j {
+                    if let Some(value) = prev {
+                        if value >= nums[j] {
+                            return false;
+                        }
                     }
-                    prev = nums[j];
+                    prev = Some(nums[j]);
                 }
             }
             true
-        }
+        };
         for i in 1..nums.len() {
             if nums[i-1] >= nums[i] {
-                return check(&nums, i-1) || check(&nums, i)
+                return check(i-1) || check(i)
             }
         }
         true
