@@ -44,6 +44,18 @@
 
 ## Solutions
 
+**Solution 1: Sorting**
+
+We can first sort the array, and then compare the sorted array with the original array to find the leftmost and rightmost positions where they differ. The length between them is the length of the shortest unsorted continuous subarray.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+
+**Solution 2: Maintaining the Maximum Value on the Left and the Minimum Value on the Right**
+
+We can traverse the array from left to right and maintain a maximum value $mx$. If the current value is less than $mx$, it means that the current value is not in the correct position, and we update the right boundary $r$ to the current position. Similarly, we can traverse the array from right to left and maintain a minimum value $mi$. If the current value is greater than $mi$, it means that the current value is not in the correct position, and we update the left boundary $l$ to the current position. At initialization, we set $l$ and $r$ to $-1$. If $l$ and $r$ are not updated, it means that the array is already sorted, and we return $0$. Otherwise, we return $r - l + 1$.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -52,12 +64,30 @@
 class Solution:
     def findUnsortedSubarray(self, nums: List[int]) -> int:
         arr = sorted(nums)
-        left, right = 0, len(nums) - 1
-        while left <= right and nums[left] == arr[left]:
-            left += 1
-        while left <= right and nums[right] == arr[right]:
-            right -= 1
-        return right - left + 1
+        l, r = 0, len(nums) - 1
+        while l <= r and nums[l] == arr[l]:
+            l += 1
+        while l <= r and nums[r] == arr[r]:
+            r -= 1
+        return r - l + 1
+```
+
+```python
+class Solution:
+    def findUnsortedSubarray(self, nums: List[int]) -> int:
+        mi, mx = inf, -inf
+        l = r = -1
+        n = len(nums)
+        for i, x in enumerate(nums):
+            if mx > x:
+                r = i
+            else:
+                mx = x
+            if mi < nums[n - i - 1]:
+                l = n - i - 1
+            else:
+                mi = nums[n - i - 1]
+        return 0 if r == -1 else r - l + 1
 ```
 
 ### **Java**
@@ -67,14 +97,38 @@ class Solution {
     public int findUnsortedSubarray(int[] nums) {
         int[] arr = nums.clone();
         Arrays.sort(arr);
-        int left = 0, right = nums.length - 1;
-        while (left <= right && nums[left] == arr[left]) {
-            ++left;
+        int l = 0, r = arr.length - 1;
+        while (l <= r && nums[l] == arr[l]) {
+            l++;
         }
-        while (left <= right && nums[right] == arr[right]) {
-            --right;
+        while (l <= r && nums[r] == arr[r]) {
+            r--;
         }
-        return right - left + 1;
+        return r - l + 1;
+    }
+}
+```
+
+```java
+class Solution {
+    public int findUnsortedSubarray(int[] nums) {
+        final int inf = 1 << 30;
+        int n = nums.length;
+        int l = -1, r = -1;
+        int mi = inf, mx = -inf;
+        for (int i = 0; i < n; ++i) {
+            if (mx > nums[i]) {
+                r = i;
+            } else {
+                mx = nums[i];
+            }
+            if (mi < nums[n - i - 1]) {
+                l = n - i - 1;
+            } else {
+                mi = nums[n - i - 1];
+            }
+        }
+        return r == -1 ? 0 : r - l + 1;
     }
 }
 ```
@@ -87,10 +141,39 @@ public:
     int findUnsortedSubarray(vector<int>& nums) {
         vector<int> arr = nums;
         sort(arr.begin(), arr.end());
-        int left = 0, right = arr.size() - 1;
-        while (left <= right && nums[left] == arr[left]) ++left;
-        while (left <= right && nums[right] == arr[right]) --right;
-        return right - left + 1;
+        int l = 0, r = arr.size() - 1;
+        while (l <= r && arr[l] == nums[l]) {
+            l++;
+        }
+        while (l <= r && arr[r] == nums[r]) {
+            r--;
+        }
+        return r - l + 1;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int findUnsortedSubarray(vector<int>& nums) {
+        const int inf = 1e9;
+        int n = nums.size();
+        int l = -1, r = -1;
+        int mi = inf, mx = -inf;
+        for (int i = 0; i < n; ++i) {
+            if (mx > nums[i]) {
+                r = i;
+            } else {
+                mx = nums[i];
+            }
+            if (mi < nums[n - i - 1]) {
+                l = n - i - 1;
+            } else {
+                mi = nums[n - i - 1];
+            }
+        }
+        return r == -1 ? 0 : r - l + 1;
     }
 };
 ```
@@ -99,42 +182,137 @@ public:
 
 ```go
 func findUnsortedSubarray(nums []int) int {
-	n := len(nums)
-	arr := make([]int, n)
+	arr := make([]int, len(nums))
 	copy(arr, nums)
 	sort.Ints(arr)
-	left, right := 0, n-1
-	for left <= right && nums[left] == arr[left] {
-		left++
+	l, r := 0, len(arr)-1
+	for l <= r && nums[l] == arr[l] {
+		l++
 	}
-	for left <= right && nums[right] == arr[right] {
-		right--
+	for l <= r && nums[r] == arr[r] {
+		r--
 	}
-	return right - left + 1
+	return r - l + 1
 }
 ```
 
 ```go
 func findUnsortedSubarray(nums []int) int {
+	const inf = 1 << 30
 	n := len(nums)
-	maxn, minn := math.MinInt32, math.MaxInt32
-	left, right := -1, -1
-	for i := 0; i < n; i++ {
-		if maxn > nums[i] {
-			right = i
+	l, r := -1, -1
+	mi, mx := inf, -inf
+	for i, x := range nums {
+		if mx > x {
+			r = i
 		} else {
-			maxn = nums[i]
+			mx = x
 		}
-		if minn < nums[n-i-1] {
-			left = n - i - 1
+		if mi < nums[n-i-1] {
+			l = n - i - 1
 		} else {
-			minn = nums[n-i-1]
+			mi = nums[n-i-1]
 		}
 	}
-	if right == -1 {
+	if r == -1 {
 		return 0
 	}
-	return right - left + 1
+	return r - l + 1
+}
+```
+
+### **TypeScript**
+
+```ts
+function findUnsortedSubarray(nums: number[]): number {
+    const arr = [...nums];
+    arr.sort((a, b) => a - b);
+    let [l, r] = [0, arr.length - 1];
+    while (l <= r && arr[l] === nums[l]) {
+        ++l;
+    }
+    while (l <= r && arr[r] === nums[r]) {
+        --r;
+    }
+    return r - l + 1;
+}
+```
+
+```ts
+function findUnsortedSubarray(nums: number[]): number {
+    let [l, r] = [-1, -1];
+    let [mi, mx] = [Infinity, -Infinity];
+    const n = nums.length;
+    for (let i = 0; i < n; ++i) {
+        if (mx > nums[i]) {
+            r = i;
+        } else {
+            mx = nums[i];
+        }
+        if (mi < nums[n - i - 1]) {
+            l = n - i - 1;
+        } else {
+            mi = nums[n - i - 1];
+        }
+    }
+    return r === -1 ? 0 : r - l + 1;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn find_unsorted_subarray(nums: Vec<i32>) -> i32 {
+        let mut arr = nums.clone();
+        arr.sort();
+
+        let mut l = 0;
+        let mut r = arr.len() as i32 - 1;
+
+        while l <= r && nums[l as usize] == arr[l as usize] {
+            l += 1;
+        }
+
+        while l <= r && nums[r as usize] == arr[r as usize] {
+            r -= 1;
+        }
+
+        r - l + 1
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn find_unsorted_subarray(nums: Vec<i32>) -> i32 {
+        let inf = 1 << 30;
+        let n = nums.len();
+        let mut l = -1;
+        let mut r = -1;
+        let mut mi = inf;
+        let mut mx = -inf;
+
+        for i in 0..n {
+            if mx > nums[i] {
+                r = i as i32;
+            } else {
+                mx = nums[i];
+            }
+
+            if mi < nums[n - i - 1] {
+                l = (n - i - 1) as i32;
+            } else {
+                mi = nums[n - i - 1];
+            }
+        }
+
+        if r == -1 {
+            0
+        } else {
+            r - l + 1
+        }
+    }
 }
 ```
 

@@ -61,6 +61,10 @@ Weather 表：</code>
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：自连接 + DATEDIFF/SUBDATE 函数**
+
+我们可以通过自连接的方式，将 `Weather` 表中的每一行与它的前一行进行比较，如果温度更高，并且日期相差一天，那么就是我们要找的结果。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -75,13 +79,12 @@ FROM
 ```
 
 ```sql
-SELECT
-	w2.id AS Id
+# Write your MySQL query statement below
+SELECT w1.id
 FROM
-	weather AS w1
-	JOIN weather AS w2 ON DATE_ADD( w1.recordDate, INTERVAL 1 DAY) = w2.recordDate
-WHERE
-	w1.temperature < w2.temperature
+    Weather AS w1
+    JOIN Weather AS w2
+        ON SUBDATE(w1.recordDate, 1) = w2.recordDate AND w1.temperature > w2.temperature;
 ```
 
 <!-- tabs:end -->

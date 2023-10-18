@@ -79,22 +79,21 @@ Department 表:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：左连接 + 分组统计**
+
+我们可以使用左连接，将 `Department` 表与 `Student` 表按照 `dept_id` 进行连接，然后按照 `dept_id` 分组统计学生人数，最后按照 `student_number` 降序、`dept_name` 升序排序即可。
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
 # Write your MySQL query statement below
-WITH
-    S AS (
-        SELECT dept_id, COUNT(1) AS cnt
-        FROM Student
-        GROUP BY dept_id
-    )
-SELECT dept_name, IFNULL(cnt, 0) AS student_number
+SELECT dept_name, COUNT(student_id) AS student_number
 FROM
-    S
-    RIGHT JOIN Department USING (dept_id)
+    Department
+    LEFT JOIN Student USING (dept_id)
+GROUP BY dept_id
 ORDER BY 2 DESC, 1;
 ```
 

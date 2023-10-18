@@ -47,11 +47,23 @@
 
 **方法一：枚举**
 
-我们直接枚举 $[1,..n]$ 中的每一个数 $x$，如果 $x$ 能被 $3$、$5$、$7$ 整除，那么就将 $x$ 累加到答案中。
+我们直接枚举 $[1,..n]$ 中的每一个数 $x$，如果 $x$ 能被 $3$, $5$, $7$ 整除，那么就将 $x$ 累加到答案中。
 
 枚举结束后，返回答案即可。
 
 时间复杂度 $O(n)$，其中 $n$ 为题目给定的整数。空间复杂度 $O(1)$。
+
+**方法二：数学（容斥原理）**
+
+我们定义函数 $f(x)$ 表示 $[1,..n]$ 中能被 $x$ 整除的数之和，那么一共有 $m = \left\lfloor \frac{n}{x} \right\rfloor$ 个数能被 $x$ 整除，这些数字分别为 $x$, $2x$, $3x$, $\cdots$, $mx$，构成一个等差数列，首项为 $x$，末项为 $mx$，项数为 $m$，因此 $f(x) = \frac{(x + mx) \times m}{2}$。
+
+根据容斥原理，我们可以得到答案为：
+
+$$
+f(3) + f(5) + f(7) - f(3 \times 5) - f(3 \times 7) - f(5 \times 7) + f(3 \times 5 \times 7)
+$$
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -63,6 +75,16 @@
 class Solution:
     def sumOfMultiples(self, n: int) -> int:
         return sum(x for x in range(1, n + 1) if x % 3 == 0 or x % 5 == 0 or x % 7 == 0)
+```
+
+```python
+class Solution:
+    def sumOfMultiples(self, n: int) -> int:
+        def f(x: int) -> int:
+            m = n // x
+            return (x + m * x) * m // 2
+
+        return f(3) + f(5) + f(7) - f(3 * 5) - f(3 * 7) - f(5 * 7) + f(3 * 5 * 7)
 ```
 
 ### **Java**
@@ -79,6 +101,22 @@ class Solution {
             }
         }
         return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    private int n;
+
+    public int sumOfMultiples(int n) {
+        this.n = n;
+        return f(3) + f(5) + f(7) - f(3 * 5) - f(3 * 7) - f(5 * 7) + f(3 * 5 * 7);
+    }
+
+    private int f(int x) {
+        int m = n / x;
+        return (x + m * x) * m / 2;
     }
 }
 ```
@@ -100,6 +138,19 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int sumOfMultiples(int n) {
+        auto f = [&](int x) {
+            int m = n / x;
+            return (x + m * x) * m / 2;
+        };
+        return f(3) + f(5) + f(7) - f(3 * 5) - f(3 * 7) - f(5 * 7) + f(3 * 5 * 7);
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -110,6 +161,16 @@ func sumOfMultiples(n int) (ans int) {
 		}
 	}
 	return
+}
+```
+
+```go
+func sumOfMultiples(n int) int {
+	f := func(x int) int {
+		m := n / x
+		return (x + m*x) * m / 2
+	}
+	return f(3) + f(5) + f(7) - f(3*5) - f(3*7) - f(5*7) + f(3*5*7)
 }
 ```
 
@@ -127,6 +188,16 @@ function sumOfMultiples(n: number): number {
 }
 ```
 
+```ts
+function sumOfMultiples(n: number): number {
+    const f = (x: number): number => {
+        const m = Math.floor(n / x);
+        return ((x + m * x) * m) >> 1;
+    };
+    return f(3) + f(5) + f(7) - f(3 * 5) - f(3 * 7) - f(5 * 7) + f(3 * 5 * 7);
+}
+```
+
 ### **Rust**
 
 ```rust
@@ -134,9 +205,9 @@ impl Solution {
     pub fn sum_of_multiples(n: i32) -> i32 {
         let mut ans = 0;
 
-        for i in 1..=n {
-            if i % 3 == 0 || i % 5 == 0 || i % 7 == 0 {
-                ans += i;
+        for x in 1..=n {
+            if x % 3 == 0 || x % 5 == 0 || x % 7 == 0 {
+                ans += x;
             }
         }
 
@@ -149,8 +220,21 @@ impl Solution {
 impl Solution {
     pub fn sum_of_multiples(n: i32) -> i32 {
         (1..=n)
-            .filter(|&i| i % 3 == 0 || i % 5 == 0 || i % 7 == 0)
+            .filter(|&x| x % 3 == 0 || x % 5 == 0 || x % 7 == 0)
             .sum()
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn sum_of_multiples(n: i32) -> i32 {
+        fn f(x: i32, n: i32) -> i32 {
+            let m = n / x;
+            (x + m * x) * m / 2
+        }
+
+        f(3, n) + f(5, n) + f(7, n) - f(3 * 5, n) - f(3 * 7, n) - f(5 * 7, n) + f(3 * 5 * 7, n)
     }
 }
 ```

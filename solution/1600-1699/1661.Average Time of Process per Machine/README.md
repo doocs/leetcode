@@ -79,6 +79,12 @@ Activity table:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：分组统计**
+
+我们可以根据 `machine_id` 分组，然后利用 `AVG` 函数计算每台机器上所有进程任务的平均耗时。由于机器上的每个进程任务都有一对开始时间戳和结束时间戳，完成一个进程任务的时间指进程的 `end` 时间戳 减去 `start` 时间戳，因此我们可以利用 `CASE WHEN` 或者 `IF` 函数来计算每个进程任务的耗时，最后再利用 `AVG` 函数计算每台机器上所有进程任务的平均耗时。
+
+注意，每台机器有 $2$ 个进程任务，因此我们需要将计算出的平均耗时乘以 $2$。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -97,7 +103,16 @@ SELECT
         3
     ) AS processing_time
 FROM Activity
-GROUP BY machine_id;
+GROUP BY 1;
+```
+
+```sql
+# Write your MySQL query statement below
+SELECT
+    machine_id,
+    ROUND(AVG(IF(activity_type = 'start', -1, 1) * timestamp) * 2, 3) AS processing_time
+FROM Activity
+GROUP BY 1;
 ```
 
 <!-- tabs:end -->

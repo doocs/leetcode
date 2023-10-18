@@ -55,6 +55,10 @@ Customer table:
 
 ## Solutions
 
+**Solution 1: Conditional Filtering**
+
+We can directly filter out the customer names whose `referee_id` is not `2`. Note that the customers whose `referee_id` is `NULL` should also be filtered out.
+
 <!-- tabs:start -->
 
 ### **SQL**
