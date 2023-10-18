@@ -91,6 +91,10 @@ Bob 注册了 207 赛事，注册率为 ((1/3) * 100) = 33.33%</pre>
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：分组统计 + 子查询**
+
+我们可以将 `Register` 表按照 `contest_id` 分组，统计每个赛事的注册人数，每个赛事的注册人数除以总注册人数即为该赛事的注册率。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -101,8 +105,8 @@ SELECT
     contest_id,
     ROUND(COUNT(1) * 100 / (SELECT COUNT(1) FROM Users), 2) AS percentage
 FROM Register
-GROUP BY contest_id
-ORDER BY percentage DESC, contest_id;
+GROUP BY 1
+ORDER BY 2 DESC, 1;
 ```
 
 <!-- tabs:end -->
