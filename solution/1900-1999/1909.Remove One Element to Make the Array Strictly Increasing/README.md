@@ -210,7 +210,7 @@ function canBeIncreasing(nums: number[]): boolean {
     };
     for (let i = 0; i < nums.length; i++) {
         if (nums[i - 1] >= nums[i]) {
-            return check(i - 1) || check(i)
+            return check(i - 1) || check(i);
         }
     }
     return true;
