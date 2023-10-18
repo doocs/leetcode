@@ -84,19 +84,24 @@ UnitsSold table:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：左连接 + 分组统计**
+
+我们可以使用左连接，将 `Prices` 表和 `UnitsSold` 表连接起来，连接条件为 `product_id` 相等，并且 `purchase_date` 在 `start_date` 和 `end_date` 之间。然后使用 `GROUP BY` 子句对 `product_id` 进行分组，使用 `AVG` 函数计算平均价格。注意，如果某个产品没有销售记录，那么 `AVG` 函数会返回 `NULL`，因此我们可以使用 `IFNULL` 函数将其转换为 $0$。
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
+# Write your MySQL query statement below
 SELECT
     p.product_id,
-    IFNULL(ROUND(SUM(units * price) / SUM(units), 2), 0) AS average_price
+    IFNULL(ROUND(SUM(price * units) / SUM(units), 2), 0) AS average_price
 FROM
     Prices AS p
     LEFT JOIN UnitsSold AS u
         ON p.product_id = u.product_id AND purchase_date BETWEEN start_date AND end_date
-GROUP BY product_id;
+GROUP BY 1;
 ```
 
 <!-- tabs:end -->
