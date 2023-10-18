@@ -76,6 +76,10 @@ Cat queries poor_ query_percentage is (1 / 3) * 100 = 33.33
 
 ## Solutions
 
+**Solution 1: Grouping and Aggregation**
+
+We can group the query results by `query_name`, and then use the `AVG` and `ROUND` functions to calculate `quality` and `poor_query_percentage`.
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -85,9 +89,9 @@ Cat queries poor_ query_percentage is (1 / 3) * 100 = 33.33
 SELECT
     query_name,
     ROUND(AVG(rating / position), 2) AS quality,
-    ROUND(100 * AVG(rating < 3), 2) AS poor_query_percentage
+    ROUND(AVG(rating < 3) * 100, 2) AS poor_query_percentage
 FROM Queries
-GROUP BY query_name;
+GROUP BY 1;
 ```
 
 <!-- tabs:end -->
