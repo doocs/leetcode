@@ -59,41 +59,26 @@ Employee 表:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：分组统计 + 连接**
+
+我们可以先统计每个经理的直接下属人数，然后再连接 `Employee` 表，找出直接下属人数大于等于 $5$ 的经理。
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    name
+SELECT name
 FROM
-    Employee AS e1
+    Employee
     JOIN (
-        SELECT
-            managerId
+        SELECT managerId AS id, COUNT(1) AS cnt
         FROM Employee
-        WHERE managerId IS NOT NULL
-        GROUP BY managerId
-        HAVING COUNT(1) >= 5
-    ) AS e2
-        ON e1.id = e2.managerId;
-```
-
-```sql
-# Write your MySQL query statement below
-WITH
-    T AS (
-        SELECT
-            managerId,
-            COUNT(1) OVER (PARTITION BY managerId) AS cnt
-        FROM Employee
-    )
-SELECT DISTINCT name
-FROM
-    Employee AS e
-    JOIN T AS t ON e.id = t.managerId
-WHERE cnt >= 5;
+        GROUP BY 1
+        HAVING cnt >= 5
+    ) AS t
+        USING (id);
 ```
 
 <!-- tabs:end -->

@@ -91,6 +91,10 @@ Confirmations 表:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：左连接 + 分组统计**
+
+我们可以使用左连接，将 `Signups` 表和 `Confirmations` 表按照 `user_id` 进行连接，然后使用 `GROUP BY` 对 `user_id` 进行分组统计。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -101,14 +105,11 @@ Confirmations 表:
 # Write your MySQL query statement below
 SELECT
     user_id,
-    ROUND(
-        SUM(IF(action = 'confirmed', 1, 0)) / COUNT(1),
-        2
-    ) AS confirmation_rate
+    ROUND(IFNULL(SUM(action = 'confirmed') / COUNT(1), 0), 2) AS confirmation_rate
 FROM
-    Signups
+    SignUps
     LEFT JOIN Confirmations USING (user_id)
-GROUP BY user_id;
+GROUP BY 1;
 ```
 
 <!-- tabs:end -->

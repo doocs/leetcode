@@ -60,6 +60,10 @@ id 是该表的主键(具有唯一值的列)。
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：条件筛选 + 排序**
+
+我们可以使用 `WHERE` 子句筛选出 `description` 不为 `boring`，并且 `id` 为奇数的记录，然后使用 `ORDER BY` 子句对结果按照 `rating` 降序排序。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -68,8 +72,8 @@ id 是该表的主键(具有唯一值的列)。
 # Write your MySQL query statement below
 SELECT *
 FROM Cinema
-WHERE description != 'boring' AND id % 2 = 1
-ORDER BY rating DESC;
+WHERE description != 'boring' AND id & 1 = 1
+ORDER BY 4 DESC;
 ```
 
 <!-- tabs:end -->

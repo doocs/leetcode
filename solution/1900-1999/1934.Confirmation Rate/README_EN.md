@@ -89,6 +89,10 @@ User 2 made 2 requests where one was confirmed and the other timed out. The conf
 
 ## Solutions
 
+**Solution 1: Left Join + Grouping**
+
+We can use a left join to join the `Signups` table and the `Confirmations` table on `user_id`, and then use `GROUP BY` to group by `user_id` for aggregation.
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -97,14 +101,11 @@ User 2 made 2 requests where one was confirmed and the other timed out. The conf
 # Write your MySQL query statement below
 SELECT
     user_id,
-    ROUND(
-        SUM(IF(action = 'confirmed', 1, 0)) / COUNT(1),
-        2
-    ) AS confirmation_rate
+    ROUND(IFNULL(SUM(action = 'confirmed') / COUNT(1), 0), 2) AS confirmation_rate
 FROM
-    Signups
+    SignUps
     LEFT JOIN Confirmations USING (user_id)
-GROUP BY user_id;
+GROUP BY 1;
 ```
 
 <!-- tabs:end -->
