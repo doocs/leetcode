@@ -77,7 +77,7 @@ Product 表：
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：GROUP BY + HAVING**
+**方法一：分组统计 + 子查询**
 
 我们将 `Customer` 表按照 `customer_id` 进行分组，然后使用 `HAVING` 子句筛选出购买了所有产品的客户。
 

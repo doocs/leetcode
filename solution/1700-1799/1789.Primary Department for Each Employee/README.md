@@ -71,6 +71,10 @@ Employee table:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：合并**
+
+我们可以查出所有已经有直属部门的员工，然后再查出所有只属于一个部门的员工，最后我们可以使用 `UNION` 合并两个结果集。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -85,7 +89,7 @@ WHERE primary_flag = 'Y'
 UNION
 SELECT employee_id, department_id
 FROM Employee
-GROUP BY employee_id
+GROUP BY 1
 HAVING COUNT(1) = 1;
 ```
 

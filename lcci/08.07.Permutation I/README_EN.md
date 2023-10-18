@@ -29,7 +29,7 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-	<li>All charaters are English letters.</li>
+	<li>All characters are English letters.</li>
 	<li><code>1 &lt;= S.length &lt;= 9</code></li>
 </ol>
 
@@ -95,7 +95,7 @@ class Solution {
 }
 ```
 
-### **JavaSript**
+### **JavaScript**
 
 ```js
 /**
