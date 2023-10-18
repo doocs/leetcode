@@ -43,6 +43,18 @@
 
 ## Solutions
 
+**Solution 1: Prefix Sum + Hash Table**
+
+If two prefix sums of the linked list are equal, it means that the sum of the continuous node sequence between the two prefix sums is $0$, so we can remove this part of the continuous nodes.
+
+We first traverse the linked list and use a hash table $last$ to record the prefix sum and the corresponding linked list node. For the same prefix sum $s$, the later node overwrites the previous node.
+
+Next, we traverse the linked list again. If the current node $cur$ has a prefix sum $s$ that appears in $last$, it means that the sum of all nodes between $cur$ and $last[s]$ is $0$, so we directly modify the pointer of $cur$ to $last[s].next$, which removes this part of the continuous nodes with a sum of $0$. We continue to traverse and delete all continuous nodes with a sum of $0$.
+
+Finally, we return the head node of the linked list $dummy.next$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the linked list.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -208,7 +220,7 @@ function removeZeroSumSublists(head: ListNode | null): ListNode | null {
 
 ### **Rust**
 
-```
+```rust
 // Definition for singly-linked list.
 // #[derive(PartialEq, Eq, Clone, Debug)]
 // pub struct ListNode {
