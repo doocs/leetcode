@@ -55,6 +55,10 @@ Hercy 有两个需要向他汇报的员工, 他们是 Alice and Bob. 他们的�
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：自连接 + 分组统计**
+
+我们可以通过自连接的方式，将每个员工的上级经理信息连接到每个员工的信息上，然后再通过分组统计的方式，统计每个经理的下属员工数量和平均年龄。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -69,8 +73,8 @@ SELECT
 FROM
     Employees AS e1
     JOIN Employees AS e2 ON e1.reports_to = e2.employee_id
-GROUP BY e2.employee_id
-ORDER BY e2.employee_id;
+GROUP BY 1
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->

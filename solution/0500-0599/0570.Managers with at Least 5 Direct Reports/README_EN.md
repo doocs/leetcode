@@ -55,41 +55,26 @@ Employee table:
 
 ## Solutions
 
+**Solution 1: Grouping and Joining**
+
+We can first count the number of direct subordinates for each manager, and then join the `Employee` table to find the managers whose number of direct subordinates is greater than or equal to $5$.
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    name
+SELECT name
 FROM
-    Employee AS e1
+    Employee
     JOIN (
-        SELECT
-            managerId
+        SELECT managerId AS id, COUNT(1) AS cnt
         FROM Employee
-        WHERE managerId IS NOT NULL
-        GROUP BY managerId
-        HAVING COUNT(1) >= 5
-    ) AS e2
-        ON e1.id = e2.managerId;
-```
-
-```sql
-# Write your MySQL query statement below
-WITH
-    T AS (
-        SELECT
-            managerId,
-            COUNT(1) OVER (PARTITION BY managerId) AS cnt
-        FROM Employee
-    )
-SELECT DISTINCT name
-FROM
-    Employee AS e
-    JOIN T AS t ON e.id = t.managerId
-WHERE cnt >= 5;
+        GROUP BY 1
+        HAVING cnt >= 5
+    ) AS t
+        USING (id);
 ```
 
 <!-- tabs:end -->

@@ -74,6 +74,10 @@ The customers who bought all the products (5 and 6) are customers with IDs 1 and
 
 ## Solutions
 
+**Solution 1: Grouping and Subquery**
+
+We can group the `Customer` table by `customer_id`, and then use the `HAVING` clause to filter out the customers who have not purchased all products. To do this, we can use a subquery to find the total number of distinct products, and then compare it with the number of distinct products purchased by each customer.
+
 <!-- tabs:start -->
 
 ### **SQL**

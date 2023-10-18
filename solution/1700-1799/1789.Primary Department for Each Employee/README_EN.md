@@ -65,6 +65,10 @@ Employee table:
 
 ## Solutions
 
+**Solution 1: Merging**
+
+We can first query all employees who already have a direct department, and then query all employees who belong to only one department. Finally, we can merge the two results using `UNION`.
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -77,7 +81,7 @@ WHERE primary_flag = 'Y'
 UNION
 SELECT employee_id, department_id
 FROM Employee
-GROUP BY employee_id
+GROUP BY 1
 HAVING COUNT(1) = 1;
 ```
 

@@ -58,6 +58,14 @@ Activity table:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：分组取最小值 + 左连接**
+
+我们可以先找到每个玩家的首次登录日期，然后与原表进行左连接，连接条件为玩家 ID 相同且日期差为 $-1$，即第二天登录。那么，我们只需要统计出第二天登录的玩家数量中，玩家不为空的比率即可。
+
+**方法二：窗口函数**
+
+我们也可以使用窗口函数 `LEAD` 获取每个玩家的下一次登录日期，如果下一次登录日期与当前登录日期相差 $1$ 天，则说明该玩家在第二天登录，我们用一个字段 $st$ 记录该信息。然后，我们用窗口函数 `RANK` 对玩家 ID 按照日期升序排列，得到每个玩家的登录排名。最后，我们只需要统计出排名为 $1$ 的玩家中，字段 $st$ 不为空的比率即可。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -67,13 +75,11 @@ Activity table:
 SELECT ROUND(AVG(b.event_date IS NOT NULL), 2) AS fraction
 FROM
     (
-        SELECT
-            player_id,
-            MIN(event_date) AS event_date
-        FROM activity
-        GROUP BY player_id
+        SELECT player_id, MIN(event_date) AS event_date
+        FROM Activity
+        GROUP BY 1
     ) AS a
-    LEFT JOIN activity AS b
+    LEFT JOIN Activity AS b
         ON a.player_id = b.player_id AND DATEDIFF(a.event_date, b.event_date) = -1;
 ```
 
@@ -89,20 +95,14 @@ WITH
                     ORDER BY event_date
                 ),
                 event_date
-            ) AS diff,
-            ROW_NUMBER() OVER (
+            ) = 1 AS st,
+            RANK() OVER (
                 PARTITION BY player_id
                 ORDER BY event_date
             ) AS rk
         FROM Activity
     )
-SELECT
-    ROUND(
-        COUNT(DISTINCT IF(diff = 1, player_id, NULL)) / COUNT(
-            DISTINCT player_id
-        ),
-        2
-    ) AS fraction
+SELECT ROUND(COUNT(IF(st = 1, player_id, NULL)) / COUNT(DISTINCT player_id), 2) AS fraction
 FROM T
 WHERE rk = 1;
 ```
