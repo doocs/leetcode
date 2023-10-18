@@ -65,6 +65,16 @@ Now you have 4 ribbons of length 4.
 
 ## Solutions
 
+**Solution 1: Binary Search**
+
+We observe that if we can obtain $k$ ropes of length $x$, then we can also obtain $k$ ropes of length $x-1$. This implies that there is a monotonicity property, and we can use binary search to find the maximum length $x$ such that we can obtain $k$ ropes of length $x$.
+
+We define the left boundary of the binary search as $left=0$, the right boundary as $right=\max(ribbons)$, and the middle value as $mid=(left+right+1)/2$. We then calculate the number of ropes we can obtain with length $mid$, denoted as $cnt$. If $cnt \geq k$, it means we can obtain $k$ ropes of length $mid$, so we update $left$ to $mid$. Otherwise, we update $right$ to $mid-1$.
+
+Finally, we return $left$ as the maximum length of the ropes we can obtain.
+
+The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the number of ropes and the maximum length of the ropes, respectively. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -217,7 +227,7 @@ function maxLength(ribbons: number[], k: number): number {
 
 ```rust
 impl Solution {
-    fn max_length(ribbons: Vec<i32>, k: i32) -> i32 {
+    pub fn max_length(ribbons: Vec<i32>, k: i32) -> i32 {
         let mut left = 0i32;
         let mut right = *ribbons.iter().max().unwrap();
         while left < right {

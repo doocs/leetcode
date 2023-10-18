@@ -1,5 +1,5 @@
 impl Solution {
-    fn max_length(ribbons: Vec<i32>, k: i32) -> i32 {
+    pub fn max_length(ribbons: Vec<i32>, k: i32) -> i32 {
         let mut left = 0i32;
         let mut right = *ribbons.iter().max().unwrap();
         while left < right {
