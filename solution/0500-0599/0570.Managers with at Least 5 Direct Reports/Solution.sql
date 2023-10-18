@@ -1,13 +1,11 @@
 # Write your MySQL query statement below
-WITH
-    T AS (
-        SELECT
-            managerId,
-            COUNT(1) OVER (PARTITION BY managerId) AS cnt
-        FROM Employee
-    )
-SELECT DISTINCT name
+SELECT name
 FROM
-    Employee AS e
-    JOIN T AS t ON e.id = t.managerId
-WHERE cnt >= 5;
+    Employee
+    JOIN (
+        SELECT managerId AS id, COUNT(1) AS cnt
+        FROM Employee
+        GROUP BY 1
+        HAVING cnt >= 5
+    ) AS t
+        USING (id);

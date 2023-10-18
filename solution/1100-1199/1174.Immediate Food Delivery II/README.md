@@ -67,35 +67,47 @@ Delivery 表：
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：子查询**
+
+我们可以使用子查询，先找到每个用户的首次订单，然后再计算即时订单的比例。
+
+**方法二：窗口函数**
+
+我们可以使用 `RANK()` 窗口函数，按照每个用户的订单日期升序排列，获取到每个用户的订单排名，然后我们筛选出排名为 $1$ 的订单，即为首次订单，再计算即时订单的比例。
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
 # Write your MySQL query statement below
-select
-    ROUND(
-        SUM(
-            IF(
-                t1.order_date = t1.customer_pref_delivery_date,
-                1,
-                0
-            )
-        ) / COUNT(1) * 100,
-        2
-    ) as immediate_percentage
-from
-    Delivery t1
-    right join (
-        select
-            customer_id,
-            MIN(order_date) as order_date
-        from
-            Delivery
-        group by
-            customer_id
-    ) t2 on t1.customer_id = t2.customer_id
-    and t1.order_date = t2.order_date
+SELECT
+    ROUND(SUM(order_date = customer_pref_delivery_date) / COUNT(1) * 100, 2) AS immediate_percentage
+FROM Delivery
+WHERE
+    (customer_id, order_date) IN (
+        SELECT customer_id, MIN(order_date)
+        FROM Delivery
+        GROUP BY 1
+    );
+```
+
+```sql
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT
+            *,
+            RANK() OVER (
+                PARTITION BY customer_id
+                ORDER BY order_date
+            ) AS rk
+        FROM Delivery
+    )
+SELECT
+    ROUND(SUM(order_date = customer_pref_delivery_date) / COUNT(1) * 100, 2) AS immediate_percentage
+FROM T
+WHERE rk = 1;
 ```
 
 <!-- tabs:end -->

@@ -49,6 +49,14 @@ The final score is 10 + 4 + 3 = 17.
 
 ## Solutions
 
+**Solution 1: Priority Queue (Max Heap)**
+
+To maximize the sum of scores, we need to select the element with the maximum value at each step. Therefore, we can use a priority queue (max heap) to maintain the element with the maximum value.
+
+At each step, we take out the element with the maximum value $v$ from the priority queue, add $v$ to the answer, and replace $v$ with $\lceil \frac{v}{3} \rceil$, and then add it to the priority queue. After repeating this process $k$ times, we return the answer.
+
+The time complexity is $O(n + k \times \log n)$, and the space complexity is $O(n)$ or $O(1)$. Here, $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -151,9 +159,9 @@ func maxKelements(nums []int, k int) (ans int64) {
 
 type hp struct{ sort.IntSlice }
 
-func (h hp) Less(i, j int) bool  { return h.IntSlice[i] > h.IntSlice[j] }
-func (h *hp) Push(v interface{}) { h.IntSlice = append(h.IntSlice, v.(int)) }
-func (h *hp) Pop() interface{} {
+func (h hp) Less(i, j int) bool { return h.IntSlice[i] > h.IntSlice[j] }
+func (h *hp) Push(v any)        { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() any {
 	a := h.IntSlice
 	v := a[len(a)-1]
 	h.IntSlice = a[:len(a)-1]
@@ -178,8 +186,47 @@ func maxKelements(nums []int, k int) (ans int64) {
 type hp struct{ sort.IntSlice }
 
 func (h hp) Less(i, j int) bool { return h.IntSlice[i] > h.IntSlice[j] }
-func (hp) Push(interface{})     {}
-func (hp) Pop() (_ interface{}) { return }
+func (hp) Push(any)             {}
+func (hp) Pop() (_ any)         { return }
+```
+
+### **Rust**
+
+```rust
+use std::collections::BinaryHeap;
+
+impl Solution {
+    pub fn max_kelements(nums: Vec<i32>, k: i32) -> i64 {
+        let mut pq = BinaryHeap::from(nums);
+        let mut ans = 0;
+        let mut k = k;
+        while k > 0 {
+            if let Some(v) = pq.pop() {
+                ans += v as i64;
+                pq.push((v + 2) / 3);
+                k -= 1;
+            }
+        }
+        ans
+    }
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxKelements(nums: number[], k: number): number {
+    const pq = new MaxPriorityQueue();
+    nums.forEach(num => pq.enqueue(num));
+    let ans = 0;
+    while (k > 0) {
+        const v = pq.dequeue()!.element;
+        ans += v;
+        pq.enqueue(Math.floor((v + 2) / 3));
+        k--;
+    }
+    return ans;
+}
 ```
 
 ### **...**

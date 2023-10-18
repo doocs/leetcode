@@ -81,6 +81,10 @@ Cat 查询结果的劣质查询百分比为 (1 / 3) * 100 = 33.33
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：分组统计**
+
+我们将查询结果按照 `query_name` 进行分组，然后利用 `AVG` 和 `ROUND` 函数计算 `quality` 和 `poor_query_percentage`。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -90,9 +94,9 @@ Cat 查询结果的劣质查询百分比为 (1 / 3) * 100 = 33.33
 SELECT
     query_name,
     ROUND(AVG(rating / position), 2) AS quality,
-    ROUND(100 * AVG(rating < 3), 2) AS poor_query_percentage
+    ROUND(AVG(rating < 3) * 100, 2) AS poor_query_percentage
 FROM Queries
-GROUP BY query_name;
+GROUP BY 1;
 ```
 
 <!-- tabs:end -->

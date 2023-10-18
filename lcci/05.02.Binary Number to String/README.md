@@ -1,6 +1,6 @@
-# [面试题 05.02. 二进制数转字符串](https://leetcode.cn/problems/bianry-number-to-string-lcci)
+# [面试题 05.02. 二进制数转字符串](https://leetcode.cn/problems/binary-number-to-string-lcci)
 
-[English Version](/lcci/05.02.Bianry%20Number%20to%20String/README_EN.md)
+[English Version](/lcci/05.02.Binary%20Number%20to%20String/README_EN.md)
 
 ## 题目描述
 
