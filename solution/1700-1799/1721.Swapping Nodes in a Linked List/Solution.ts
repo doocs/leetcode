@@ -11,17 +11,16 @@
  */
 
 function swapNodes(head: ListNode | null, k: number): ListNode | null {
-    let fast = head;
+    let [fast, slow] = [head, head];
     while (--k) {
         fast = fast.next;
     }
-    let p = fast;
-    let slow = head;
+    const p = fast;
     while (fast.next) {
-        slow = slow.next;
         fast = fast.next;
+        slow = slow.next;
     }
-    let q = slow;
+    const q = slow;
     [p.val, q.val] = [q.val, p.val];
     return head;
 }

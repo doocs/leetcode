@@ -1,4 +1,4 @@
-func tupleSameProduct(nums []int) int {
+func tupleSameProduct(nums []int) (ans int) {
 	cnt := map[int]int{}
 	for i := 1; i < len(nums); i++ {
 		for j := 0; j < i; j++ {
@@ -6,7 +6,6 @@ func tupleSameProduct(nums []int) int {
 			cnt[x]++
 		}
 	}
-	ans := 0
 	for _, v := range cnt {
 		ans += v * (v - 1) / 2
 	}

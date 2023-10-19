@@ -1,7 +1,4 @@
 class Solution:
     def addRungs(self, rungs: List[int], dist: int) -> int:
-        prev = res = 0
-        for rung in rungs:
-            res += (rung - prev - 1) // dist
-            prev = rung
-        return res
+        rungs = [0] + rungs
+        return sum((b - a - 1) // dist for a, b in pairwise(rungs))

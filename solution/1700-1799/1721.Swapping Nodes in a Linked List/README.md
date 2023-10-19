@@ -61,6 +61,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：快慢指针**
+
+我们可以先用快指针 $fast$ 找到链表的第 $k$ 个节点，用指针 $p$ 指向它。然后我们再用慢指针 $slow$ 从链表的头节点出发，快慢指针同时向后移动，当快指针到达链表的最后一个节点时，慢指针 $slow$ 恰好指向倒数第 $k$ 个节点，用指针 $q$ 指向它。此时，我们只需要交换 $p$ 和 $q$ 的值即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是链表的长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -74,14 +80,13 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def swapNodes(self, head: ListNode, k: int) -> ListNode:
-        fast = head
+    def swapNodes(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
+        fast = slow = head
         for _ in range(k - 1):
             fast = fast.next
         p = fast
-        slow = head
         while fast.next:
-            slow, fast = slow.next, fast.next
+            fast, slow = fast.next, slow.next
         q = slow
         p.val, q.val = q.val, p.val
         return head
@@ -111,8 +116,8 @@ class Solution {
         ListNode p = fast;
         ListNode slow = head;
         while (fast.next != null) {
-            slow = slow.next;
             fast = fast.next;
+            slow = slow.next;
         }
         ListNode q = slow;
         int t = p.val;
@@ -139,16 +144,18 @@ class Solution {
 class Solution {
 public:
     ListNode* swapNodes(ListNode* head, int k) {
-        ListNode* p1 = head;
-        for (int i = 1; i < k; i++)
-            p1 = p1->next;
-        ListNode *slow = head, *fast = p1->next;
-
-        while (fast) {
+        ListNode* fast = head;
+        while (--k) {
+            fast = fast->next;
+        }
+        ListNode* slow = head;
+        ListNode* p = fast;
+        while (fast->next) {
             fast = fast->next;
             slow = slow->next;
         }
-        swap(slow->val, p1->val);
+        ListNode* q = slow;
+        swap(p->val, q->val);
         return head;
     }
 };
@@ -166,14 +173,13 @@ public:
  */
 func swapNodes(head *ListNode, k int) *ListNode {
 	fast := head
-	for k > 1 {
+	for ; k > 1; k-- {
 		fast = fast.Next
-		k--
 	}
 	p := fast
 	slow := head
 	for fast.Next != nil {
-		slow, fast = slow.Next, fast.Next
+		fast, slow = fast.Next, slow.Next
 	}
 	q := slow
 	p.Val, q.Val = q.Val, p.Val
@@ -197,19 +203,53 @@ func swapNodes(head *ListNode, k int) *ListNode {
  */
 
 function swapNodes(head: ListNode | null, k: number): ListNode | null {
-    let fast = head;
+    let [fast, slow] = [head, head];
     while (--k) {
         fast = fast.next;
     }
-    let p = fast;
-    let slow = head;
+    const p = fast;
     while (fast.next) {
-        slow = slow.next;
         fast = fast.next;
+        slow = slow.next;
     }
-    let q = slow;
+    const q = slow;
     [p.val, q.val] = [q.val, p.val];
     return head;
+}
+```
+
+### **C#**
+
+```cs
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode SwapNodes(ListNode head, int k) {
+        ListNode fast = head;
+        while (--k > 0) {
+            fast = fast.next;
+        }
+        ListNode p = fast;
+        ListNode slow = head;
+        while (fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        ListNode q = slow;
+        int t = p.val;
+        p.val = q.val;
+        q.val = t;
+        return head;
+    }
 }
 ```
 

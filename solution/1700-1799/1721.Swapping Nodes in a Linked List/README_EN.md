@@ -34,6 +34,12 @@
 
 ## Solutions
 
+**Solution 1: Two Pointers**
+
+We can first use a fast pointer `fast` to find the $k$th node of the linked list, and use a pointer `p` to point to it. Then, we use a slow pointer `slow` to start from the head node of the linked list, and move both pointers forward at the same time. When the fast pointer reaches the last node of the linked list, the slow pointer `slow` points to the $k$th node from the end of the linked list, and we use a pointer `q` to point to it. At this point, we only need to swap the values of `p` and `q`.
+
+The time complexity is $O(n)$, where $n$ is the length of the linked list. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -45,14 +51,13 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def swapNodes(self, head: ListNode, k: int) -> ListNode:
-        fast = head
+    def swapNodes(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
+        fast = slow = head
         for _ in range(k - 1):
             fast = fast.next
         p = fast
-        slow = head
         while fast.next:
-            slow, fast = slow.next, fast.next
+            fast, slow = fast.next, slow.next
         q = slow
         p.val, q.val = q.val, p.val
         return head
@@ -80,8 +85,8 @@ class Solution {
         ListNode p = fast;
         ListNode slow = head;
         while (fast.next != null) {
-            slow = slow.next;
             fast = fast.next;
+            slow = slow.next;
         }
         ListNode q = slow;
         int t = p.val;
@@ -108,16 +113,18 @@ class Solution {
 class Solution {
 public:
     ListNode* swapNodes(ListNode* head, int k) {
-        ListNode* p1 = head;
-        for (int i = 1; i < k; i++)
-            p1 = p1->next;
-        ListNode *slow = head, *fast = p1->next;
-
-        while (fast) {
+        ListNode* fast = head;
+        while (--k) {
+            fast = fast->next;
+        }
+        ListNode* slow = head;
+        ListNode* p = fast;
+        while (fast->next) {
             fast = fast->next;
             slow = slow->next;
         }
-        swap(slow->val, p1->val);
+        ListNode* q = slow;
+        swap(p->val, q->val);
         return head;
     }
 };
@@ -135,14 +142,13 @@ public:
  */
 func swapNodes(head *ListNode, k int) *ListNode {
 	fast := head
-	for k > 1 {
+	for ; k > 1; k-- {
 		fast = fast.Next
-		k--
 	}
 	p := fast
 	slow := head
 	for fast.Next != nil {
-		slow, fast = slow.Next, fast.Next
+		fast, slow = fast.Next, slow.Next
 	}
 	q := slow
 	p.Val, q.Val = q.Val, p.Val
@@ -166,19 +172,53 @@ func swapNodes(head *ListNode, k int) *ListNode {
  */
 
 function swapNodes(head: ListNode | null, k: number): ListNode | null {
-    let fast = head;
+    let [fast, slow] = [head, head];
     while (--k) {
         fast = fast.next;
     }
-    let p = fast;
-    let slow = head;
+    const p = fast;
     while (fast.next) {
-        slow = slow.next;
         fast = fast.next;
+        slow = slow.next;
     }
-    let q = slow;
+    const q = slow;
     [p.val, q.val] = [q.val, p.val];
     return head;
+}
+```
+
+### **C#**
+
+```cs
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode SwapNodes(ListNode head, int k) {
+        ListNode fast = head;
+        while (--k > 0) {
+            fast = fast.next;
+        }
+        ListNode p = fast;
+        ListNode slow = head;
+        while (fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        ListNode q = slow;
+        int t = p.val;
+        p.val = q.val;
+        q.val = t;
+        return head;
+    }
 }
 ```
 

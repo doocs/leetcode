@@ -163,6 +163,60 @@ func check(nums []int, i int) bool {
 }
 ```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn can_be_increasing(nums: Vec<i32>) -> bool {
+        let check = |p: usize| -> bool {
+            let mut prev = None;
+            for j in 0..nums.len() {
+                if p != j {
+                    if let Some(value) = prev {
+                        if value >= nums[j] {
+                            return false;
+                        }
+                    }
+                    prev = Some(nums[j]);
+                }
+            }
+            true
+        };
+        for i in 1..nums.len() {
+            if nums[i-1] >= nums[i] {
+                return check(i-1) || check(i)
+            }
+        }
+        true
+    }
+}
+```
+
+### **TypeScript**
+
+```ts
+function canBeIncreasing(nums: number[]): boolean {
+    const check = (p: number) => {
+        let prev = undefined;
+        for (let j = 0; j < nums.length; j++) {
+            if (p != j) {
+                if (prev !== undefined && prev >= nums[j]) {
+                    return false;
+                }
+                prev = nums[j];
+            }
+        }
+        return true;
+    };
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i - 1] >= nums[i]) {
+            return check(i - 1) || check(i);
+        }
+    }
+    return true;
+}
+```
+
 ### **...**
 
 ```

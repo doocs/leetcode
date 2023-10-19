@@ -54,6 +54,12 @@ The ladder will now have rungs at [<u>1</u>,3,4,6,7].
 
 ## Solutions
 
+**Solution 1: Greedy + Simulation**
+
+According to the problem description, we know that every time we plan to climb a new rung, we need to ensure that the height difference between the new rung and the current position does not exceed `dist`. Otherwise, we need to greedily insert a new rung at a distance of $dist$ from the current position, climb a new rung, and the total number of rungs to be inserted is $\lfloor \frac{b - a - 1}{dist} \rfloor$, where $a$ and $b$ are the current position and the height of the new rung, respectively. The answer is the sum of all inserted rungs.
+
+The time complexity is $O(n)$, where $n$ is the length of `rungs`. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -61,11 +67,8 @@ The ladder will now have rungs at [<u>1</u>,3,4,6,7].
 ```python
 class Solution:
     def addRungs(self, rungs: List[int], dist: int) -> int:
-        prev = res = 0
-        for rung in rungs:
-            res += (rung - prev - 1) // dist
-            prev = rung
-        return res
+        rungs = [0] + rungs
+        return sum((b - a - 1) // dist for a, b in pairwise(rungs))
 ```
 
 ### **Java**
@@ -73,12 +76,73 @@ class Solution:
 ```java
 class Solution {
     public int addRungs(int[] rungs, int dist) {
-        int res = 0;
-        for (int i = 0, prev = 0; i < rungs.length; ++i) {
-            res += (rungs[i] - prev - 1) / dist;
-            prev = rungs[i];
+        int ans = 0, prev = 0;
+        for (int x : rungs) {
+            ans += (x - prev - 1) / dist;
+            prev = x;
         }
-        return res;
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int addRungs(vector<int>& rungs, int dist) {
+        int ans = 0, prev = 0;
+        for (int& x : rungs) {
+            ans += (x - prev - 1) / dist;
+            prev = x;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func addRungs(rungs []int, dist int) (ans int) {
+	prev := 0
+	for _, x := range rungs {
+		ans += (x - prev - 1) / dist
+		prev = x
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function addRungs(rungs: number[], dist: number): number {
+    let ans = 0;
+    let prev = 0;
+    for (const x of rungs) {
+        ans += ((x - prev - 1) / dist) | 0;
+        prev = x;
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn add_rungs(rungs: Vec<i32>, dist: i32) -> i32 {
+        let mut ans = 0;
+        let mut prev = 0;
+
+        for &x in rungs.iter() {
+            ans += (x - prev - 1) / dist;
+            prev = x;
+        }
+
+        ans
     }
 }
 ```
