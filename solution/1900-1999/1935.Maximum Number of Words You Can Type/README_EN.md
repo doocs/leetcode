@@ -46,6 +46,16 @@
 
 ## Solutions
 
+**Method 1: Array or Hash Table**
+
+We can use a hash table or an array $s$ of length $26$ to record all the broken letter keys.
+
+Then, we traverse each word $w$ in the string $text$, and if any letter $c$ in $w$ appears in $s$, it means that the word cannot be typed, and we do not need to add one to the answer. Otherwise, we need to add one to the answer.
+
+After the traversal, we return the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $text$, and $|\Sigma|$ is the size of the alphabet. In this problem, $|\Sigma|=26$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -53,17 +63,8 @@
 ```python
 class Solution:
     def canBeTypedWords(self, text: str, brokenLetters: str) -> int:
-        letters = set(brokenLetters)
-        res = 0
-        for word in text.split():
-            find = False
-            for letter in letters:
-                if letter in word:
-                    find = True
-                    break
-            if not find:
-                res += 1
-        return res
+        s = set(brokenLetters)
+        return sum(all(c not in s for c in w) for w in text.split())
 ```
 
 ### **Java**
@@ -71,24 +72,129 @@ class Solution:
 ```java
 class Solution {
     public int canBeTypedWords(String text, String brokenLetters) {
-        Set<Character> letters = new HashSet<>();
+        boolean[] s = new boolean[26];
         for (char c : brokenLetters.toCharArray()) {
-            letters.add(c);
+            s[c - 'a'] = true;
         }
-        int res = 0;
-        for (String word : text.split(" ")) {
-            boolean find = false;
-            for (char c : letters) {
-                if (word.indexOf(c) > -1) {
-                    find = true;
+        int ans = 0;
+        for (String w : text.split(" ")) {
+            for (char c : w.toCharArray()) {
+                if (s[c - 'a']) {
+                    --ans;
                     break;
                 }
             }
-            if (!find) {
-                ++res;
+            ++ans;
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int canBeTypedWords(string text, string brokenLetters) {
+        bool s[26]{};
+        for (char& c : brokenLetters) {
+            s[c - 'a'] = true;
+        }
+        int ans = 0;
+        for (auto& w : split(text, ' ')) {
+            for (char& c : w) {
+                if (s[c - 'a']) {
+                    --ans;
+                    break;
+                }
+            }
+            ++ans;
+        }
+        return ans;
+    }
+
+    vector<string> split(const string& s, char c) {
+        vector<string> ans;
+        string t;
+        for (char d : s) {
+            if (d == c) {
+                ans.push_back(t);
+                t.clear();
+            } else {
+                t.push_back(d);
             }
         }
-        return res;
+        ans.push_back(t);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func canBeTypedWords(text string, brokenLetters string) (ans int) {
+	s := [26]bool{}
+	for _, c := range brokenLetters {
+		s[c-'a'] = true
+	}
+	for _, w := range strings.Split(text, " ") {
+		for _, c := range w {
+			if s[c-'a'] {
+				ans--
+				break
+			}
+		}
+		ans++
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function canBeTypedWords(text: string, brokenLetters: string): number {
+    const s: boolean[] = Array(26).fill(false);
+    for (const c of brokenLetters) {
+        s[c.charCodeAt(0) - 'a'.charCodeAt(0)] = true;
+    }
+    let ans = 0;
+    for (const w of text.split(' ')) {
+        for (const c of w) {
+            if (s[c.charCodeAt(0) - 'a'.charCodeAt(0)]) {
+                --ans;
+                break;
+            }
+        }
+        ++ans;
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn can_be_typed_words(text: String, broken_letters: String) -> i32 {
+        let mut s = vec![false; 26];
+        for c in broken_letters.chars() {
+            s[c as usize - 'a' as usize] = true;
+        }
+        let mut ans = 0;
+        let words = text.split_whitespace();
+        for w in words {
+            for c in w.chars() {
+                if s[c as usize - 'a' as usize] {
+                    ans -= 1;
+                    break;
+                }
+            }
+            ans += 1;
+        }
+        ans
     }
 }
 ```

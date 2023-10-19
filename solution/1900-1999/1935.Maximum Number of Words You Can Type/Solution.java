@@ -1,22 +1,19 @@
 class Solution {
     public int canBeTypedWords(String text, String brokenLetters) {
-        Set<Character> letters = new HashSet<>();
+        boolean[] s = new boolean[26];
         for (char c : brokenLetters.toCharArray()) {
-            letters.add(c);
+            s[c - 'a'] = true;
         }
-        int res = 0;
-        for (String word : text.split(" ")) {
-            boolean find = false;
-            for (char c : letters) {
-                if (word.indexOf(c) > -1) {
-                    find = true;
+        int ans = 0;
+        for (String w : text.split(" ")) {
+            for (char c : w.toCharArray()) {
+                if (s[c - 'a']) {
+                    --ans;
                     break;
                 }
             }
-            if (!find) {
-                ++res;
-            }
+            ++ans;
         }
-        return res;
+        return ans;
     }
 }
