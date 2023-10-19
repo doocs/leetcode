@@ -7,14 +7,13 @@
  */
 func swapNodes(head *ListNode, k int) *ListNode {
 	fast := head
-	for k > 1 {
+	for ; k > 1; k-- {
 		fast = fast.Next
-		k--
 	}
 	p := fast
 	slow := head
 	for fast.Next != nil {
-		slow, fast = slow.Next, fast.Next
+		fast, slow = fast.Next, slow.Next
 	}
 	q := slow
 	p.Val, q.Val = q.Val, p.Val
