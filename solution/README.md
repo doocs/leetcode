@@ -2917,6 +2917,7 @@
 |  2904  |  [最短且字典序最小的美丽子字符串](/solution/2900-2999/2904.Shortest%20and%20Lexicographically%20Smallest%20Beautiful%20String/README.md)  |    |  中等  |  第 367 场周赛  |
 |  2905  |  [找出满足差值条件的下标 II](/solution/2900-2999/2905.Find%20Indices%20With%20Index%20and%20Value%20Difference%20II/README.md)  |    |  中等  |  第 367 场周赛  |
 |  2906  |  [构造乘积矩阵](/solution/2900-2999/2906.Construct%20Product%20Matrix/README.md)  |    |  中等  |  第 367 场周赛  |
+|  2907  |  [Maximum Profitable Triplets With Increasing Prices I](/solution/2900-2999/2907.Maximum%20Profitable%20Triplets%20With%20Increasing%20Prices%20I/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
