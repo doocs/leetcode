@@ -68,6 +68,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心 + 模拟**
+
+根据题目描述，我们知道，每一次计划爬上一个新的台阶，都需要满足新的台阶的高度与当前所在位置的高度之差不超过 `dist`，否则，我们需要贪心地在距离当前位置 $dist$ 的地方插入一个新的台阶，爬上一个新的台阶，一共需要插入的台阶数为 $\lfloor \frac{b - a - 1}{dist} \rfloor$，其中 $a$ 和 $b$ 分别为当前位置和新台阶的高度。那么答案即为所有插入的台阶数之和。
+
+时间复杂度 $O(n)$，其中 $n$ 为 `rungs` 的长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -77,11 +83,8 @@
 ```python
 class Solution:
     def addRungs(self, rungs: List[int], dist: int) -> int:
-        prev = res = 0
-        for rung in rungs:
-            res += (rung - prev - 1) // dist
-            prev = rung
-        return res
+        rungs = [0] + rungs
+        return sum((b - a - 1) // dist for a, b in pairwise(rungs))
 ```
 
 ### **Java**
@@ -91,12 +94,73 @@ class Solution:
 ```java
 class Solution {
     public int addRungs(int[] rungs, int dist) {
-        int res = 0;
-        for (int i = 0, prev = 0; i < rungs.length; ++i) {
-            res += (rungs[i] - prev - 1) / dist;
-            prev = rungs[i];
+        int ans = 0, prev = 0;
+        for (int x : rungs) {
+            ans += (x - prev - 1) / dist;
+            prev = x;
         }
-        return res;
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int addRungs(vector<int>& rungs, int dist) {
+        int ans = 0, prev = 0;
+        for (int& x : rungs) {
+            ans += (x - prev - 1) / dist;
+            prev = x;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func addRungs(rungs []int, dist int) (ans int) {
+	prev := 0
+	for _, x := range rungs {
+		ans += (x - prev - 1) / dist
+		prev = x
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function addRungs(rungs: number[], dist: number): number {
+    let ans = 0;
+    let prev = 0;
+    for (const x of rungs) {
+        ans += ((x - prev - 1) / dist) | 0;
+        prev = x;
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn add_rungs(rungs: Vec<i32>, dist: i32) -> i32 {
+        let mut ans = 0;
+        let mut prev = 0;
+
+        for &x in rungs.iter() {
+            ans += (x - prev - 1) / dist;
+            prev = x;
+        }
+
+        ans
     }
 }
 ```
