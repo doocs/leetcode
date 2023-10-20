@@ -136,4 +136,5 @@ def second_highest_salary(employee: pd.DataFrame) -> pd.DataFrame:
     return result_df
 
 ```
+
 <!-- tabs:end -->
