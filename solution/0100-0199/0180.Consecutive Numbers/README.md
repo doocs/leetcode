@@ -57,6 +57,14 @@ Result 表：
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：窗口函数**
+
+我们可以使用窗口函数 `LAG` 和 `LEAD` 来判断当前行的前一行和后一行是否与当前行的 `num` 相等，如果当前行与前一行的 `num` 相等，则记字段 $a$ 为 $1$，否则记为 $0$；如果当前行与后一行的 `num` 相等，则记字段 $b$ 为 $1$，否则记为 $0$。
+
+最后，我们只需要筛选出 $a = 1$ 且 $b = 1$ 的行，即为连续出现至少三次的数字。注意，我们需要使用 `DISTINCT` 关键字来对结果去重。
+
+我们也可以对数字进行分组，具体做法是使用 `IF` 函数来判断当前行与前一行的 `num` 是否相等，如果相等则记为 $0$，否则记为 $1$，然后使用窗口函数 `SUM` 来计算前缀和，这样计算出的前缀和就是分组的标识。最后，我们只需要按照分组标识进行分组，然后筛选出每组中的行数大于等于 $3$ 的数字即可。同样，我们需要使用 `DISTINCT` 关键字来对结果去重。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -64,19 +72,34 @@ Result 表：
 ```sql
 # Write your MySQL query statement below
 WITH
-    t AS (
+    T AS (
         SELECT
             *,
-            CASE
-                WHEN (LAG(num) OVER (ORDER BY id)) = num THEN 0
-                ELSE 1
-            END AS mark
+            num = (LAG(num) OVER (ORDER BY id)) AS a,
+            num = (LEAD(num) OVER (ORDER BY id)) AS b
+        FROM Logs
+    )
+SELECT DISTINCT num AS ConsecutiveNums
+FROM T
+WHERE a = 1 AND b = 1;
+```
+
+```sql
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT
+            *,
+            IF(num = (LAG(num) OVER (ORDER BY id)), 0, 1) AS st
         FROM Logs
     ),
-    p AS (SELECT num, SUM(mark) OVER (ORDER BY id) AS gid FROM t)
+    S AS (
+        SELECT *, SUM(st) OVER (ORDER BY id) AS p
+        FROM T
+    )
 SELECT DISTINCT num AS ConsecutiveNums
-FROM p
-GROUP BY gid
+FROM S
+GROUP BY p
 HAVING COUNT(1) >= 3;
 ```
 

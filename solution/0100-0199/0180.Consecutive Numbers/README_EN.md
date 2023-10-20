@@ -53,6 +53,14 @@ Logs table:
 
 ## Solutions
 
+**Solution 1: Window Function**
+
+We can use the window functions `LAG` and `LEAD` to determine whether the previous row and the next row of the current row are equal to the `num` of the current row. If the `num` of the current row is equal to the `num` of the previous row, we set the field $a$ to $1$, otherwise we set it to $0$; if the `num` of the current row is equal to the `num` of the next row, we set the field $b$ to $1$, otherwise we set it to $0$.
+
+Finally, we only need to filter out the rows where $a = 1$ and $b = 1$, which are the numbers that appear at least three times in a row. Note that we need to use the `DISTINCT` keyword to remove duplicates from the results.
+
+We can also group the numbers by using the `IF` function to determine whether the `num` of the current row is equal to the `num` of the previous row. If they are equal, we set it to $0$, otherwise we set it to $1$. Then, we use the window function `SUM` to calculate the prefix sum, which is the grouping identifier. Finally, we only need to group by the grouping identifier and filter out the numbers with a row count greater than or equal to $3$ in each group. Similarly, we need to use the `DISTINCT` keyword to remove duplicates from the results.
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -60,19 +68,34 @@ Logs table:
 ```sql
 # Write your MySQL query statement below
 WITH
-    t AS (
+    T AS (
         SELECT
             *,
-            CASE
-                WHEN (LAG(num) OVER (ORDER BY id)) = num THEN 0
-                ELSE 1
-            END AS mark
+            num = (LAG(num) OVER (ORDER BY id)) AS a,
+            num = (LEAD(num) OVER (ORDER BY id)) AS b
+        FROM Logs
+    )
+SELECT DISTINCT num AS ConsecutiveNums
+FROM T
+WHERE a = 1 AND b = 1;
+```
+
+```sql
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT
+            *,
+            IF(num = (LAG(num) OVER (ORDER BY id)), 0, 1) AS st
         FROM Logs
     ),
-    p AS (SELECT num, SUM(mark) OVER (ORDER BY id) AS gid FROM t)
+    S AS (
+        SELECT *, SUM(st) OVER (ORDER BY id) AS p
+        FROM T
+    )
 SELECT DISTINCT num AS ConsecutiveNums
-FROM p
-GROUP BY gid
+FROM S
+GROUP BY p
 HAVING COUNT(1) >= 3;
 ```
 

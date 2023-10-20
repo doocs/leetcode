@@ -1,16 +1,16 @@
 # Write your MySQL query statement below
 WITH
-    t AS (
+    T AS (
         SELECT
             *,
-            CASE
-                WHEN (LAG(num) OVER (ORDER BY id)) = num THEN 0
-                ELSE 1
-            END AS mark
+            IF(num = (LAG(num) OVER (ORDER BY id)), 0, 1) AS st
         FROM Logs
     ),
-    p AS (SELECT num, SUM(mark) OVER (ORDER BY id) AS gid FROM t)
+    S AS (
+        SELECT *, SUM(st) OVER (ORDER BY id) AS p
+        FROM T
+    )
 SELECT DISTINCT num AS ConsecutiveNums
-FROM p
-GROUP BY gid
+FROM S
+GROUP BY p
 HAVING COUNT(1) >= 3;
