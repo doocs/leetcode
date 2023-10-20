@@ -8,7 +8,7 @@
 
 <p><strong>Like-time coefficient</strong> of a dish is defined as the time taken to cook that dish including previous dishes multiplied by its satisfaction level i.e. <code>time[i] * satisfaction[i]</code>.</p>
 
-<p>Return <em>the maximum sum of <strong>like-time coefficient</strong> that the chef can obtain after dishes preparation</em>.</p>
+<p>Return the maximum sum of <strong>like-time coefficient </strong>that the chef can obtain after preparing some amount of dishes.</p>
 
 <p>Dishes can be prepared in <strong>any </strong>order and the chef can discard some dishes to get this maximum value.</p>
 

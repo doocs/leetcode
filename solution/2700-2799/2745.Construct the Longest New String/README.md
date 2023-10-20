@@ -10,7 +10,7 @@
 
 <p>这三个整数表示你有&nbsp;<code>x</code>&nbsp;个&nbsp;<code>"AA"</code>&nbsp;字符串，<code>y</code>&nbsp;个&nbsp;<code>"BB"</code>&nbsp;字符串，和&nbsp;<code>z</code>&nbsp;个&nbsp;<code>"AB"</code>&nbsp;字符串。你需要选择这些字符串中的部分字符串（可以全部选择也可以一个都不选择），将它们按顺序连接得到一个新的字符串。新字符串不能包含子字符串&nbsp;<code>"AAA"</code>&nbsp;或者&nbsp;<code>"BBB"</code>&nbsp;。</p>
 
-<p>请你返回新字符串的最大可能长度。</p>
+<p>请你返回 <em>新字符串的最大可能长度。</em></p>
 
 <p><strong>子字符串</strong>&nbsp;是一个字符串中一段连续 <strong>非空</strong>&nbsp;的字符序列。</p>
 

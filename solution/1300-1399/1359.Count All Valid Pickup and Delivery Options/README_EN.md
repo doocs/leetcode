@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>Given <code>n</code> orders,each order consists of a pickup and a delivery service.</p>
+<p>Given <code>n</code> orders, each order consists of a pickup and a delivery service.</p>
 
 <p>Count all valid pickup/delivery possible sequences such that delivery(i) is always after of&nbsp;pickup(i).&nbsp;</p>
 

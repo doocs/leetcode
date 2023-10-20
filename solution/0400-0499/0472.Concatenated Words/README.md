@@ -35,8 +35,8 @@
 <ul>
 	<li><code>1 &lt;= words.length &lt;= 10<sup>4</sup></code></li>
 	<li><code>1 &lt;= words[i].length &lt;= 30</code></li>
-	<li><code>words[i]</code>&nbsp;仅由小写英文字母组成。</li>
-	<li>&nbsp;<code>words</code>&nbsp;中的所有字符串都是 <strong>唯一</strong> 的。</li>
+	<li><code>words[i]</code>&nbsp;仅由小写英文字母组成。&nbsp;</li>
+	<li><code>words</code>&nbsp;中的所有字符串都是 <strong>唯一</strong> 的。</li>
 	<li><code>1 &lt;= sum(words[i].length) &lt;= 10<sup>5</sup></code></li>
 </ul>
 

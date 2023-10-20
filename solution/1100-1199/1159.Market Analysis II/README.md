@@ -16,7 +16,7 @@
 | join_date      | date    |
 | favorite_brand | varchar |
 +----------------+---------+
-user_id 是该表的主键(具有唯一值的列)
+user_id 是该表的主键(具有唯一值的列)。
 表中包含一位在线购物网站用户的个人信息，用户可以在该网站出售和购买商品。
 </pre>
 
@@ -32,9 +32,9 @@ user_id 是该表的主键(具有唯一值的列)
 | buyer_id      | int     |
 | seller_id     | int     |
 +---------------+---------+
-order_id 是该表的主键(具有唯一值的列)
-item_id 是 Items 表的外键(reference 列)
-buyer_id 和 seller_id 是 Users 表的外键
+order_id 是该表的主键(具有唯一值的列)。
+item_id 是 Items 表的外键(reference 列)。
+buyer_id 和 seller_id 是 Users 表的外键。
 </pre>
 
 <p>表: <code>Items</code></p>
@@ -46,16 +46,16 @@ buyer_id 和 seller_id 是 Users 表的外键
 | item_id       | int     |
 | item_brand    | varchar |
 +---------------+---------+
-item_id 是该表的主键(具有唯一值的列)
+item_id 是该表的主键(具有唯一值的列)。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>编写解决方案找出每一个用户按日期顺序卖出的第二件商品的品牌是否是他们最喜爱的品牌。如果一个用户卖出少于两件商品，查询的结果是 <code>no</code> 。题目保证没有一个用户在一天中卖出超过一件商品。</p>
+<p>编写一个解决方案，查找每个用户的加入日期和作为买家在 <code>2019</code> 年下的订单数。</p>
 
-<p>以 <strong>任意顺序</strong> 返回结果表</p>
+<p>以 <strong>任意顺序</strong> 返回结果表。</p>
 
-<p>返回结果格式的例子如下所示：</p>
+<p>返回结果格式如下例所示：</p>
 
 <p>&nbsp;</p>
 
@@ -103,7 +103,7 @@ Items table:
 +-----------+--------------------+
 <strong>解释：</strong>
 id 为 1 的用户的查询结果是 no，因为他什么也没有卖出
-id为 2 和 3 的用户的查询结果是 yes，因为他们卖出的第二件商品的品牌是他们自己最喜爱的品牌
+id为 2 和 3 的用户的查询结果是 yes，因为他们卖出的第二件商品的品牌是他们最喜爱的品牌
 id为 4 的用户的查询结果是 no，因为他卖出的第二件商品的品牌不是他最喜爱的品牌
 </pre>
 

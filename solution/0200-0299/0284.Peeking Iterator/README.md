@@ -1,4 +1,4 @@
-# [284. 顶端迭代器](https://leetcode.cn/problems/peeking-iterator)
+# [284. 窥视迭代器](https://leetcode.cn/problems/peeking-iterator)
 
 [English Version](/solution/0200-0299/0284.Peeking%20Iterator/README_EN.md)
 

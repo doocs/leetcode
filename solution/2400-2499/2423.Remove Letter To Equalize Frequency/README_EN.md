@@ -12,7 +12,7 @@
 
 <ul>
 	<li>The <b>frequency</b> of a letter <code>x</code> is the number of times it occurs in the string.</li>
-	<li>You <strong>must</strong> remove exactly one letter and cannot chose to do nothing.</li>
+	<li>You <strong>must</strong> remove exactly one letter and cannot choose to do nothing.</li>
 </ul>
 
 <p>&nbsp;</p>

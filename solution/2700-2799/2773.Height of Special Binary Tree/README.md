@@ -11,8 +11,8 @@
 <p>这棵树的叶子节点有一个 <strong>特殊</strong> 属性 ！对于每个叶子节点 <code>b<sub>i</sub></code> ，满足以下条件：</p>
 
 <ul>
-	<li>如果 <code>i &lt; k</code> ，则 <code>b<sub>i</sub></code> 的右子节点为 <code>b<sub>i</sub> + 1</code> ；否则为 <code>b<sub>1</sub></code> 。</li>
-	<li>如果 <code>i &gt; 1</code> ，则 <code>b<sub>i</sub></code> 的左子节点为 <code>b<sub>i</sub> - 1</code> ；否则为 <code>b<sub>k</sub></code> 。</li>
+	<li>如果 <code>i &lt; k</code> ，则 <code>b<sub>i</sub></code> 的右子节点为 <code>b<sub>i&nbsp;</sub><sub>+ 1</sub></code> ；否则为 <code>b<sub>1</sub></code> 。</li>
+	<li>如果 <code>i &gt; 1</code> ，则 <code>b<sub>i</sub></code> 的左子节点为 <code>b<sub>i&nbsp;</sub><sub>- 1</sub></code> ；否则为 <code>b<sub>k</sub></code> 。</li>
 </ul>
 
 <p>返回给定树的高度。</p>
