@@ -1,4 +1,4 @@
-# [2898. Maximum Linear Stock Score](https://leetcode.cn/problems/maximum-linear-stock-score)
+# [2898. 最大线性股票得分](https://leetcode.cn/problems/maximum-linear-stock-score)
 
 [English Version](/solution/2800-2899/2898.Maximum%20Linear%20Stock%20Score/README_EN.md)
 
@@ -6,47 +6,49 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Given a <strong>1-indexed</strong> integer array <code>prices</code>, where <code>prices[i]</code> is the price of a particular stock on the <code>i<sup>th</sup></code> day, your task is to select some of the elements of <code>prices</code> such that your selection is <strong>linear</strong>.</p>
+<p>给定一个 <strong>1-indexed</strong> 整数数组 <code>prices</code>，其中 <code>prices[i]</code> 是第 <code>i</code> 天某只股票的价格。你的任务是&nbsp;<strong>线性</strong>&nbsp;地选择 <code>prices</code>&nbsp;中的一些元素。</p>
 
-<p>A selection <code>indexes</code>, where <code>indexes</code> is a <strong>1-indexed</strong> integer array of length <code>k</code> which is a subsequence of the array <code>[1, 2, ..., n]</code>, is <strong>linear</strong> if:</p>
+<p>一个选择 <code>indexes</code>，其中 <code>indexes</code> 是一个 <strong>1-indexed</strong> 整数数组，长度为 <code>k</code>，是数组 <code>[1, 2, ..., n]</code> 的子序列，如果以下条件成立，那么它是 <strong>线性</strong> 的：</p>
 
 <ul>
-	<li>For every <code>1 &lt; j &lt;= k</code>, <code>prices[indexes[j]] - prices[indexes[j - 1]] == indexes[j] - indexes[j - 1]</code>.</li>
+	<li>对于每个 <code>1 &lt; j &lt;= k，prices[indexes[j]] - prices[indexes[j - 1]] == indexes[j] - indexes[j - 1]</code>。</li>
 </ul>
 
-<p>A <b>subsequence</b> is an array that can be derived from another array by deleting some or no elements without changing the order of the remaining elements.</p>
+<p>数组的 <strong>子序列</strong> 是经由原数组删除一些元素（可能不删除）而产生的新数组，且删除不改变其余元素相对顺序。</p>
 
-<p>The <strong>score</strong> of a selection <code>indexes</code>, is equal to the sum of the following array: <code>[prices[indexes[1]], prices[indexes[2]], ..., prices[indexes[k]]</code>.</p>
+<p>选择 <code>indexes</code> 的 <strong>得分</strong> 等于以下数组的总和：<code>[prices[indexes[1]], prices[indexes[2]], ..., prices[indexes[k]]</code>。</p>
 
-<p>Return <em>the <strong>maximum</strong> <strong>score</strong> that a linear selection can have</em>.</p>
+<p>返回 <em>线性选择的&nbsp;<strong>最大得分</strong>。</em></p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>Input:</strong> prices = [1,5,3,7,8]
-<strong>Output:</strong> 20
-<strong>Explanation:</strong> We can select the indexes [2,4,5]. We show that our selection is linear:
-For j = 2, we have:
-indexes[2] - indexes[1] = 4 - 2 = 2.
-prices[4] - prices[2] = 7 - 5 = 2.
-For j = 3, we have:
-indexes[3] - indexes[2] = 5 - 4 = 1.
-prices[5] - prices[4] = 8 - 7 = 1.
-The sum of the elements is: prices[2] + prices[4] + prices[5] = 20.
-It can be shown that the maximum sum a linear selection can have is 20.
+<strong>输入：</strong> prices = [1,5,3,7,8]
+<strong>输出：</strong> 20
+<strong>解释：</strong> 我们可以选择索引[2,4,5]。我们可以证明我们的选择是线性的：
+对于j = 2，我们有：
+indexes[2] - indexes[1] = 4 - 2 = 2。
+prices[4] - prices[2] = 7 - 5 = 2。
+对于j = 3，我们有：
+indexes[3] - indexes[2] = 5 - 4 = 1。
+prices[5] - prices[4] = 8 - 7 = 1。
+元素的总和是：prices[2] + prices[4] + prices[5] = 20。 
+可以证明线性选择的最大和是20。
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<strong>Input:</strong> prices = [5,6,7,8,9]
-<strong>Output:</strong> 35
-<strong>Explanation:</strong> We can select all of the indexes [1,2,3,4,5]. Since each element has a difference of exactly 1 from its previous element, our selection is linear.
-The sum of all the elements is 35 which is the maximum possible some out of every selection.</pre>
+<b>输入：</b> prices = [5,6,7,8,9]
+<b>输出：</b> 35
+<b>解释：</b> 我们可以选择所有索引[1,2,3,4,5]。因为每个元素与前一个元素的差异恰好为1，所以我们的选择是线性的。
+所有元素的总和是35，这是每个选择的最大可能总和。</pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><b>提示：</b></p>
 
 <ul>
 	<li><code>1 &lt;= prices.length &lt;= 10<sup>5</sup></code></li>

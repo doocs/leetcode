@@ -26,23 +26,24 @@ DataFrame students
 
 <pre>
 <strong>Input:
-</strong>+------------+-------+-----+
-| student_id | name  | age |
-+------------+-------+-----+
-| 32         | Piper | 5   |
-| 217        | Grace | 19  |
-| 779        | None  | 20  |
-| 849        | None  | 14  |
-+------------+-------+-----+
+</strong>+------------+---------+-----+
+| student_id | name    | age |
++------------+---------+-----+
+| 32         | Piper   | 5   |
+| 217        | None    | 19  |
+| 779        | Georgia | 20  |
+| 849        | Willow  | 14  |
++------------+---------+-----+
 <strong>Output:
-</strong>+------------+-------+-----+
-| student_id | name  | age |
-+------------+-------+-----+
-| 32         | Piper | 5   |
-| 217        | Grace | 19  |
-+------------+-------+-----+
+</strong>+------------+---------+-----+
+| student_id | name    | age |
++------------+---------+-----+
+| 32         | Piper   | 5   |
+| 779        | Georgia | 20  | 
+| 849        | Willow  | 14  | 
++------------+---------+-----+
 <strong>Explanation:</strong> 
-Students with ids 779 and 849 have empty values in the name column, so they will be removed.</pre>
+Student with id 217 havs empty value in the name column, so it will be removed.</pre>
 
 ## Solutions
 

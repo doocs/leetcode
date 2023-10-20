@@ -35,7 +35,7 @@ DataFrame <code>report</code>
 | Umbrella    | 417       | 224       | 379       | 611       |
 | SleepingBag | 800       | 936       | 93        | 875       |
 +-------------+-----------+-----------+-----------+-----------+
-<b>输出：</b>
+<strong>输出：</strong>
 +-------------+-----------+-------+
 | product     | quarter   | sales |
 +-------------+-----------+-------+
@@ -48,7 +48,7 @@ DataFrame <code>report</code>
 | Umbrella    | quarter_4 | 611   |
 | SleepingBag | quarter_4 | 875   |
 +-------------+-----------+-------+
-<b>解释：</b>
+<strong>解释：</strong>
 DataFrame 已从宽格式重塑为长格式。每一行表示一个季度内产品的销售情况。
 </pre>
 

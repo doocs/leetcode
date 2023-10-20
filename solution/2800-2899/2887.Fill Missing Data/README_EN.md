@@ -25,22 +25,22 @@ DataFrame <code>products</code>
 <strong>Input:</strong>+-----------------+----------+-------+
 | name            | quantity | price |
 +-----------------+----------+-------+
-| Wristwatch      | 32       | 135   |
+| Wristwatch      | None     | 135   |
 | WirelessEarbuds | None     | 821   |
-| GolfClubs       | None     | 9319  |
+| GolfClubs       | 779      | 9319  |
 | Printer         | 849      | 3051  |
 +-----------------+----------+-------+
 <strong>Output:
 </strong>+-----------------+----------+-------+
 | name            | quantity | price |
 +-----------------+----------+-------+
-| Wristwatch      | 32       | 135   |
+| Wristwatch      | 0        | 135   |
 | WirelessEarbuds | 0        | 821   |
-| GolfClubs       | 0        | 9319  |
+| GolfClubs       | 779      | 9319  |
 | Printer         | 849      | 3051  |
 +-----------------+----------+-------+
 <strong>Explanation:</strong> 
-The quantity for Toaster and Headphones are filled by 0.</pre>
+The quantity for Wristwatch and WirelessEarbuds are filled by 0.</pre>
 
 ## Solutions
 
