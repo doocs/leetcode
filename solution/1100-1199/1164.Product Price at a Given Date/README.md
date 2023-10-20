@@ -57,38 +57,33 @@ Products 表:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：子查询 + 连接**
+
+我们可以使用子查询，找出每个产品在给定日期之前最后一次价格变更的价格，记录在 `P` 表中。然后，我们再找出所有产品的 `product_id`，记录在 `T` 表中。最后，我们将 `T` 表和 `P` 表按照 `product_id` 进行左连接，即可得到最终结果。
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    p1.product_id AS product_id,
-    IFNULL(p2.price, 10) AS price
-FROM
-    (
-        SELECT DISTINCT
-            (product_id) AS product_id
+WITH
+    T AS (SELECT DISTINCT product_id FROM Products),
+    P AS (
+        SELECT product_id, new_price AS price
         FROM Products
-    ) AS p1
-    LEFT JOIN (
-        SELECT
-            t1.product_id,
-            t1.new_price AS price
-        FROM
-            Products AS t1
-            JOIN (
-                SELECT
-                    product_id,
-                    MAX(change_date) AS change_date
+        WHERE
+            (product_id, change_date) IN (
+                SELECT product_id, MAX(change_date) AS change_date
                 FROM Products
                 WHERE change_date <= '2019-08-16'
-                GROUP BY product_id
-            ) AS t2
-                ON t1.product_id = t2.product_id AND t1.change_date = t2.change_date
-    ) AS p2
-        ON p1.product_id = p2.product_id;
+                GROUP BY 1
+            )
+    )
+SELECT product_id, IFNULL(price, 10) AS price
+FROM
+    T
+    LEFT JOIN P USING (product_id);
 ```
 
 ```sql
