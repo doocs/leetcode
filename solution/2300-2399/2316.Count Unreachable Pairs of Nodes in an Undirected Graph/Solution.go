@@ -8,22 +8,21 @@ func countPairs(n int, edges [][]int) (ans int64) {
 	vis := make([]bool, n)
 	var dfs func(int) int
 	dfs = func(i int) int {
+		if vis[i] {
+			return 0
+		}
 		vis[i] = true
 		cnt := 1
 		for _, j := range g[i] {
-			if !vis[j] {
-				cnt += dfs(j)
-			}
+			cnt += dfs(j)
 		}
 		return cnt
 	}
 	var s int64
 	for i := 0; i < n; i++ {
-		if !vis[i] {
-			t := int64(dfs(i))
-			ans += s * t
-			s += t
-		}
+		t := int64(dfs(i))
+		ans += s * t
+		s += t
 	}
 	return
 }
