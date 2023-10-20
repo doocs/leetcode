@@ -84,6 +84,23 @@ class Solution:
         return d[i]
 ```
 
+```python
+class Solution:
+    def categorizeBox(self, length: int, width: int, height: int, mass: int) -> str:
+        v = length * width * height
+        bulky = any(x >= 10000 for x in (length, width, height)) or v >= 10**9
+        heavy = mass >= 100
+
+        if bulky and heavy:
+            return "Both"
+        if bulky:
+            return "Bulky"
+        if heavy:
+            return "Heavy"
+
+        return "Neither"
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
@@ -101,6 +118,28 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public String categorizeBox(int length, int width, int height, int mass) {
+        long v = (long) length * width * height;
+        boolean bulky = length >= 1e4 || width >= 1e4 || height >= 1e4 || v >= 1e9;
+        boolean heavy = mass >= 100;
+
+        if (bulky && heavy) {
+            return "Both";
+        }
+        if (bulky) {
+            return "Bulky";
+        }
+        if (heavy) {
+            return "Heavy";
+        }
+
+        return "Neither";
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -113,6 +152,29 @@ public:
         string d[4] = {"Neither", "Bulky", "Heavy", "Both"};
         int i = heavy << 1 | bulky;
         return d[i];
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    string categorizeBox(int length, int width, int height, int mass) {
+        long v = (long) length * width * height;
+        bool bulky = length >= 1e4 || width >= 1e4 || height >= 1e4 || v >= 1e9;
+        bool heavy = mass >= 100;
+
+        if (bulky && heavy) {
+            return "Both";
+        }
+        if (bulky) {
+            return "Bulky";
+        }
+        if (heavy) {
+            return "Heavy";
+        }
+
+        return "Neither";
     }
 };
 ```
@@ -134,6 +196,24 @@ func categorizeBox(length int, width int, height int, mass int) string {
 }
 ```
 
+```go
+func categorizeBox(length int, width int, height int, mass int) string {
+	v := length * width * height
+	bulky := length >= 1e4 || width >= 1e4 || height >= 1e4 || v >= 1e9
+	heavy := mass >= 100
+	if bulky && heavy {
+		return "Both"
+	}
+	if bulky {
+		return "Bulky"
+	}
+	if heavy {
+		return "Heavy"
+	}
+	return "Neither"
+}
+```
+
 ### **TypeScript**
 
 ```ts
@@ -147,6 +227,24 @@ function categorizeBox(length: number, width: number, height: number, mass: numb
         i |= 2;
     }
     return ['Neither', 'Bulky', 'Heavy', 'Both'][i];
+}
+```
+
+```ts
+function categorizeBox(length: number, width: number, height: number, mass: number): string {
+    const v = length * width * height;
+    const bulky = length >= 1e4 || width >= 1e4 || height >= 1e4 || v >= 1e9;
+    const heavy = mass >= 100;
+    if (bulky && heavy) {
+        return 'Both';
+    }
+    if (bulky) {
+        return 'Bulky';
+    }
+    if (heavy) {
+        return 'Heavy';
+    }
+    return 'Neither';
 }
 ```
 
@@ -168,6 +266,29 @@ impl Solution {
 
         let d = vec!["Neither", "Bulky", "Heavy", "Both"];
         d[i].to_string()
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn categorize_box(length: i32, width: i32, height: i32, mass: i32) -> String {
+        let v = length * width * height;
+        let bulky = length >= 10000 || width >= 10000 || height >= 10000 || length as i64 * width as i64 * height as i64 >= 1000000000;
+
+        let heavy = mass >= 100;
+
+        if bulky && heavy {
+            return "Both".to_string();
+        }
+        if bulky {
+            return "Bulky".to_string();
+        }
+        if heavy {
+            return "Heavy".to_string();
+        }
+
+        "Neither".to_string()
     }
 }
 ```
