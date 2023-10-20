@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>You are given two <strong>sorted</strong> arrays of distinct integers <code>nums1</code> and <code>nums2.</code></p>
+<p>You are given two <strong>sorted</strong> arrays of distinct integers <code>nums1</code> and <code>nums2</code>.</p>
 
 <p>A <strong>valid<strong><em> </em></strong>path</strong> is defined as follows:</p>
 
@@ -14,7 +14,7 @@
 	<li>If you are reading any value that is present in <code>nums1</code> and <code>nums2</code> you are allowed to change your path to the other array. (Only one repeated value is considered in the valid path).</li>
 </ul>
 
-<p>The <strong>score</strong> is defined as the sum of uniques values in a valid path.</p>
+<p>The <strong>score</strong> is defined as the sum of unique values in a valid path.</p>
 
 <p>Return <em>the maximum score you can obtain of all possible <strong>valid paths</strong></em>. Since the answer may be too large, return it modulo <code>10<sup>9</sup> + 7</code>.</p>
 

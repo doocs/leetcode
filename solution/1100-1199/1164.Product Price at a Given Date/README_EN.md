@@ -53,38 +53,33 @@ Products table:
 
 ## Solutions
 
+**Solution 1: Subquery + Join**
+
+We can use a subquery to find the price of the last price change for each product before the given date, and record it in the `P` table. Then, we can find all `product_id`s in the `T` table. Finally, we can left join the `T` table with the `P` table on `product_id` to get the final result.
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    p1.product_id AS product_id,
-    IFNULL(p2.price, 10) AS price
-FROM
-    (
-        SELECT DISTINCT
-            (product_id) AS product_id
+WITH
+    T AS (SELECT DISTINCT product_id FROM Products),
+    P AS (
+        SELECT product_id, new_price AS price
         FROM Products
-    ) AS p1
-    LEFT JOIN (
-        SELECT
-            t1.product_id,
-            t1.new_price AS price
-        FROM
-            Products AS t1
-            JOIN (
-                SELECT
-                    product_id,
-                    MAX(change_date) AS change_date
+        WHERE
+            (product_id, change_date) IN (
+                SELECT product_id, MAX(change_date) AS change_date
                 FROM Products
                 WHERE change_date <= '2019-08-16'
-                GROUP BY product_id
-            ) AS t2
-                ON t1.product_id = t2.product_id AND t1.change_date = t2.change_date
-    ) AS p2
-        ON p1.product_id = p2.product_id;
+                GROUP BY 1
+            )
+    )
+SELECT product_id, IFNULL(price, 10) AS price
+FROM
+    T
+    LEFT JOIN P USING (product_id);
 ```
 
 ```sql

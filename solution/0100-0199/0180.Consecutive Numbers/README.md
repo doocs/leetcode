@@ -57,26 +57,62 @@ Result 表：
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：两次连接**
+
+我们可以使用两次连接来解决这个问题。
+
+我们首先进行一次自连接，连接条件是 `l1.num = l2.num` 并且 `l1.id = l2.id - 1`，这样我们就可以找出所有至少连续出现两次的数字。然后，我们再进行一次自连接，连接条件是 `l2.num = l3.num` 并且 `l2.id = l3.id - 1`，这样我们就可以找出所有至少连续出现三次的数字。最后，我们只需要筛选出去重的 `l2.num` 即可。
+
+**方法二：窗口函数**
+
+我们可以使用窗口函数 `LAG` 和 `LEAD` 来获取上一行的 `num` 和下一行的 `num`，记录在字段 $a$ 和 $b$ 中。最后，我们只需要筛选出 $a =num$ 并且 $b = num$ 的行，这些行就是至少连续出现三次的数字。注意，我们需要使用 `DISTINCT` 关键字来对结果去重。
+
+我们也可以对数字进行分组，具体做法是使用 `IF` 函数来判断当前行与前一行的 `num` 是否相等，如果相等则记为 $0$，否则记为 $1$，然后使用窗口函数 `SUM` 来计算前缀和，这样计算出的前缀和就是分组的标识。最后，我们只需要按照分组标识进行分组，然后筛选出每组中的行数大于等于 $3$ 的数字即可。同样，我们需要使用 `DISTINCT` 关键字来对结果去重。
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
 # Write your MySQL query statement below
+SELECT DISTINCT l2.num AS ConsecutiveNums
+FROM
+    Logs AS l1
+    JOIN Logs AS l2 ON l1.id = l2.id - 1 AND l1.num = l2.num
+    JOIN Logs AS l3 ON l2.id = l3.id - 1 AND l2.num = l3.num;
+```
+
+```sql
+# Write your MySQL query statement below
 WITH
-    t AS (
+    T AS (
         SELECT
             *,
-            CASE
-                WHEN (LAG(num) OVER (ORDER BY id)) = num THEN 0
-                ELSE 1
-            END AS mark
+            LAG(num) OVER () AS a,
+            LEAD(num) OVER () AS b
+        FROM Logs
+    )
+SELECT DISTINCT num AS ConsecutiveNums
+FROM T
+WHERE a = num AND b = num;
+```
+
+```sql
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT
+            *,
+            IF(num = (LAG(num) OVER ()), 0, 1) AS st
         FROM Logs
     ),
-    p AS (SELECT num, SUM(mark) OVER (ORDER BY id) AS gid FROM t)
+    S AS (
+        SELECT *, SUM(st) OVER (ORDER BY id) AS p
+        FROM T
+    )
 SELECT DISTINCT num AS ConsecutiveNums
-FROM p
-GROUP BY gid
+FROM S
+GROUP BY p
 HAVING COUNT(1) >= 3;
 ```
 
