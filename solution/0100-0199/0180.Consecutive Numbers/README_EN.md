@@ -53,11 +53,15 @@ Logs table:
 
 ## Solutions
 
-**Solution 1: Window Function**
+**Solution 1: Two Joins**
 
-We can use the window functions `LAG` and `LEAD` to determine whether the previous row and the next row of the current row are equal to the `num` of the current row. If the `num` of the current row is equal to the `num` of the previous row, we set the field $a$ to $1$, otherwise we set it to $0$; if the `num` of the current row is equal to the `num` of the next row, we set the field $b$ to $1$, otherwise we set it to $0$.
+We can use two joins to solve this problem.
 
-Finally, we only need to filter out the rows where $a = 1$ and $b = 1$, which are the numbers that appear at least three times in a row. Note that we need to use the `DISTINCT` keyword to remove duplicates from the results.
+First, we perform a self-join with the condition `l1.num = l2.num` and `l1.id = l2.id - 1`, so that we can find all numbers that appear at least twice in a row. Then, we perform another self-join with the condition `l2.num = l3.num` and `l2.id = l3.id - 1`, so that we can find all numbers that appear at least three times in a row. Finally, we only need to select the distinct `l2.num`.
+
+**Solution 2: Window Function**
+
+We can use the window functions `LAG` and `LEAD` to obtain the `num` of the previous row and the next row of the current row, and record them in the fields $a$ and $b$, respectively. Finally, we only need to filter out the rows where $a = num$ and $b = num$, which are the numbers that appear at least three times in a row. Note that we need to use the `DISTINCT` keyword to remove duplicates from the results.
 
 We can also group the numbers by using the `IF` function to determine whether the `num` of the current row is equal to the `num` of the previous row. If they are equal, we set it to $0$, otherwise we set it to $1$. Then, we use the window function `SUM` to calculate the prefix sum, which is the grouping identifier. Finally, we only need to group by the grouping identifier and filter out the numbers with a row count greater than or equal to $3$ in each group. Similarly, we need to use the `DISTINCT` keyword to remove duplicates from the results.
 
@@ -67,17 +71,26 @@ We can also group the numbers by using the `IF` function to determine whether th
 
 ```sql
 # Write your MySQL query statement below
+SELECT DISTINCT l2.num AS ConsecutiveNums
+FROM
+    Logs AS l1
+    JOIN Logs AS l2 ON l1.id = l2.id - 1 AND l1.num = l2.num
+    JOIN Logs AS l3 ON l2.id = l3.id - 1 AND l2.num = l3.num;
+```
+
+```sql
+# Write your MySQL query statement below
 WITH
     T AS (
         SELECT
             *,
-            num = (LAG(num) OVER (ORDER BY id)) AS a,
-            num = (LEAD(num) OVER (ORDER BY id)) AS b
+            LAG(num) OVER (ORDER BY id) AS a,
+            LEAD(num) OVER (ORDER BY id) AS b
         FROM Logs
     )
 SELECT DISTINCT num AS ConsecutiveNums
 FROM T
-WHERE a = 1 AND b = 1;
+WHERE a = num AND b = num;
 ```
 
 ```sql
