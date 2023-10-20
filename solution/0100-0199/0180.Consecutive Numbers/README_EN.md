@@ -84,8 +84,8 @@ WITH
     T AS (
         SELECT
             *,
-            LAG(num) OVER (ORDER BY id) AS a,
-            LEAD(num) OVER (ORDER BY id) AS b
+            LAG(num) OVER () AS a,
+            LEAD(num) OVER () AS b
         FROM Logs
     )
 SELECT DISTINCT num AS ConsecutiveNums
@@ -99,7 +99,7 @@ WITH
     T AS (
         SELECT
             *,
-            IF(num = (LAG(num) OVER (ORDER BY id)), 0, 1) AS st
+            IF(num = (LAG(num) OVER ()), 0, 1) AS st
         FROM Logs
     ),
     S AS (

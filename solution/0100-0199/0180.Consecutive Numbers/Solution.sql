@@ -3,7 +3,7 @@ WITH
     T AS (
         SELECT
             *,
-            IF(num = (LAG(num) OVER (ORDER BY id)), 0, 1) AS st
+            IF(num = (LAG(num) OVER ()), 0, 1) AS st
         FROM Logs
     ),
     S AS (
