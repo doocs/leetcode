@@ -113,4 +113,14 @@ WITH T AS (SELECT salary, DENSE_RANK() OVER (ORDER BY salary DESC) AS rk FROM Em
 SELECT (SELECT DISTINCT salary FROM T WHERE rk = 2) AS SecondHighestSalary;
 ```
 
+```pandas
+import pandas as pd
+
+
+def combine_two_tables(person: pd.DataFrame, address: pd.DataFrame) -> pd.DataFrame:
+    return pd.merge(left=person, right=address, how="left", on="personId")[
+        ["firstName", "lastName", "city", "state"]
+    ]
+
+```
 <!-- tabs:end -->
