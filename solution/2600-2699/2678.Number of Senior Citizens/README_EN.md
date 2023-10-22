@@ -45,6 +45,14 @@
 
 ## Solutions
 
+**Solution 1: Traversal and Counting**
+
+We can traverse each string $x$ in `details` and convert the $12$th and $13$th characters (indexed at $11$ and $12$) of $x$ to integers, and check if they are greater than $60$. If so, we add one to the answer.
+
+After the traversal, we return the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of `details`. The space complexity is $O(1)`.
+
 <!-- tabs:start -->
 
 ### **Python3**
