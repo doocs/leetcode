@@ -25,6 +25,13 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 368
+
+- [2908. Minimum Sum of Mountain Triplets I](/solution/2900-2999/2908.Minimum%20Sum%20of%20Mountain%20Triplets%20I/README_EN.md)
+- [2909. Minimum Sum of Mountain Triplets II](/solution/2900-2999/2909.Minimum%20Sum%20of%20Mountain%20Triplets%20II/README_EN.md)
+- [2910. Minimum Number of Groups to Create a Valid Assignment](/solution/2900-2999/2910.Minimum%20Number%20of%20Groups%20to%20Create%20a%20Valid%20Assignment/README_EN.md)
+- [2911. Minimum Changes to Make K Semi-palindromes](/solution/2900-2999/2911.Minimum%20Changes%20to%20Make%20K%20Semi-palindromes/README_EN.md)
+
 #### Weekly Contest 367
 
 - [2903. Find Indices With Index and Value Difference I](/solution/2900-2999/2903.Find%20Indices%20With%20Index%20and%20Value%20Difference%20I/README_EN.md)
