@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 368 场周赛(2023-10-22 10:30, 90 分钟) 参赛人数 5002
+
+- [2908. 元素和最小的山形三元组 I](/solution/2900-2999/2908.Minimum%20Sum%20of%20Mountain%20Triplets%20I/README.md)
+- [2909. 元素和最小的山形三元组 II](/solution/2900-2999/2909.Minimum%20Sum%20of%20Mountain%20Triplets%20II/README.md)
+- [2910. 合法分组的最少组数](/solution/2900-2999/2910.Minimum%20Number%20of%20Groups%20to%20Create%20a%20Valid%20Assignment/README.md)
+- [2911. 得到 K 个半回文串的最少修改次数](/solution/2900-2999/2911.Minimum%20Changes%20to%20Make%20K%20Semi-palindromes/README.md)
+
 #### 第 367 场周赛(2023-10-15 10:30, 90 分钟) 参赛人数 4317
 
 - [2903. 找出满足差值条件的下标 I](/solution/2900-2999/2903.Find%20Indices%20With%20Index%20and%20Value%20Difference%20I/README.md)

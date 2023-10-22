@@ -2965,3 +2965,7 @@
   - [2905.Find Indices With Index and Value Difference II](/solution/2900-2999/2905.Find%20Indices%20With%20Index%20and%20Value%20Difference%20II/README_EN.md)
   - [2906.Construct Product Matrix](/solution/2900-2999/2906.Construct%20Product%20Matrix/README_EN.md)
   - [2907.Maximum Profitable Triplets With Increasing Prices I](/solution/2900-2999/2907.Maximum%20Profitable%20Triplets%20With%20Increasing%20Prices%20I/README_EN.md)
+  - [2908.Minimum Sum of Mountain Triplets I](/solution/2900-2999/2908.Minimum%20Sum%20of%20Mountain%20Triplets%20I/README_EN.md)
+  - [2909.Minimum Sum of Mountain Triplets II](/solution/2900-2999/2909.Minimum%20Sum%20of%20Mountain%20Triplets%20II/README_EN.md)
+  - [2910.Minimum Number of Groups to Create a Valid Assignment](/solution/2900-2999/2910.Minimum%20Number%20of%20Groups%20to%20Create%20a%20Valid%20Assignment/README_EN.md)
+  - [2911.Minimum Changes to Make K Semi-palindromes](/solution/2900-2999/2911.Minimum%20Changes%20to%20Make%20K%20Semi-palindromes/README_EN.md)
