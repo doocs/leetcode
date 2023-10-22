@@ -56,30 +56,134 @@ And the sum of this triplet is nums[1] + nums[3] + nums[5] = 13. It can be shown
 
 ## Solutions
 
+**Solution 1: Preprocessing + Enumeration**
+
+We can preprocess the minimum value on the right side of each position and record it in the array $right[i]$, where $right[i]$ represents the minimum value in $nums[i+1..n-1]$.
+
+Next, we enumerate the middle element $nums[i]$ of the mountain triplet from left to right, and use a variable $left$ to represent the minimum value in $ums[0..i-1]$, and a variable $ans$ to represent the current minimum element sum found. For each $i$, we need to find the element $nums[i]$ that satisfies $left < nums[i]$ and $right[i+1] < nums[i]$, and update $ans$.
+
+Finally, if $ans$ is still the initial value, it means that there is no mountain triplet, and we return $-1$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minimumSum(self, nums: List[int]) -> int:
+        n = len(nums)
+        right = [inf] * (n + 1)
+        for i in range(n - 1, -1, -1):
+            right[i] = min(right[i + 1], nums[i])
+        ans = left = inf
+        for i, x in enumerate(nums):
+            if left < x and right[i + 1] < x:
+                ans = min(ans, left + x + right[i + 1])
+            left = min(left, x)
+        return -1 if ans == inf else ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int minimumSum(int[] nums) {
+        int n = nums.length;
+        int[] right = new int[n + 1];
+        final int inf = 1 << 30;
+        right[n] = inf;
+        for (int i = n - 1; i >= 0; --i) {
+            right[i] = Math.min(right[i + 1], nums[i]);
+        }
+        int ans = inf, left = inf;
+        for (int i = 0; i < n; ++i) {
+            if (left < nums[i] && right[i + 1] < nums[i]) {
+                ans = Math.min(ans, left + nums[i] + right[i + 1]);
+            }
+            left = Math.min(left, nums[i]);
+        }
+        return ans == inf ? -1 : ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int minimumSum(vector<int>& nums) {
+        int n = nums.size();
+        const int inf = 1 << 30;
+        int right[n + 1];
+        right[n] = inf;
+        for (int i = n - 1; ~i; --i) {
+            right[i] = min(right[i + 1], nums[i]);
+        }
+        int ans = inf, left = inf;
+        for (int i = 0; i < n; ++i) {
+            if (left < nums[i] && right[i + 1] < nums[i]) {
+                ans = min(ans, left + nums[i] + right[i + 1]);
+            }
+            left = min(left, nums[i]);
+        }
+        return ans == inf ? -1 : ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minimumSum(nums []int) int {
+	n := len(nums)
+	const inf = 1 << 30
+	right := make([]int, n+1)
+	right[n] = inf
+	for i := n - 1; i >= 0; i-- {
+		right[i] = min(right[i+1], nums[i])
+	}
+	ans, left := inf, inf
+	for i, x := range nums {
+		if left < x && right[i+1] < x {
+			ans = min(ans, left+x+right[i+1])
+		}
+		left = min(left, x)
+	}
+	if ans == inf {
+		return -1
+	}
+	return ans
+}
 
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function minimumSum(nums: number[]): number {
+    const n = nums.length;
+    const right: number[] = Array(n + 1).fill(Infinity);
+    for (let i = n - 1; ~i; --i) {
+        right[i] = Math.min(right[i + 1], nums[i]);
+    }
+    let [ans, left] = [Infinity, Infinity];
+    for (let i = 0; i < n; ++i) {
+        if (left < nums[i] && right[i + 1] < nums[i]) {
+            ans = Math.min(ans, left + nums[i] + right[i + 1]);
+        }
+        left = Math.min(left, nums[i]);
+    }
+    return ans === Infinity ? -1 : ans;
+}
 ```
 
 ### **...**

@@ -62,6 +62,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：预处理 + 枚举**
+
+我们可以预处理出每个位置右侧的最小值，记录在数组 $right[i]$ 中，即 $right[i]$ 表示 $nums[i+1..n-1]$ 中的最小值。
+
+接下来，我们从左到右枚举山形三元组的中间元素 $nums[i]$，用一个变量 $left$ 表示 $nums[0..i-1]$ 中的最小值，用一个变量 $ans$ 表示当前找到的最小元素和。对于每个 $i$，我们需要找到满足 $left < nums[i]$ 且 $right[i+1] < nums[i]$ 的元素 $nums[i]$，并更新 $ans$。
+
+最后，如果 $ans$ 仍然为初始值，则说明不存在山形三元组，返回 $-1$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -69,7 +79,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minimumSum(self, nums: List[int]) -> int:
+        n = len(nums)
+        right = [inf] * (n + 1)
+        for i in range(n - 1, -1, -1):
+            right[i] = min(right[i + 1], nums[i])
+        ans = left = inf
+        for i, x in enumerate(nums):
+            if left < x and right[i + 1] < x:
+                ans = min(ans, left + x + right[i + 1])
+            left = min(left, x)
+        return -1 if ans == inf else ans
 ```
 
 ### **Java**
@@ -77,19 +98,102 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int minimumSum(int[] nums) {
+        int n = nums.length;
+        int[] right = new int[n + 1];
+        final int inf = 1 << 30;
+        right[n] = inf;
+        for (int i = n - 1; i >= 0; --i) {
+            right[i] = Math.min(right[i + 1], nums[i]);
+        }
+        int ans = inf, left = inf;
+        for (int i = 0; i < n; ++i) {
+            if (left < nums[i] && right[i + 1] < nums[i]) {
+                ans = Math.min(ans, left + nums[i] + right[i + 1]);
+            }
+            left = Math.min(left, nums[i]);
+        }
+        return ans == inf ? -1 : ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int minimumSum(vector<int>& nums) {
+        int n = nums.size();
+        const int inf = 1 << 30;
+        int right[n + 1];
+        right[n] = inf;
+        for (int i = n - 1; ~i; --i) {
+            right[i] = min(right[i + 1], nums[i]);
+        }
+        int ans = inf, left = inf;
+        for (int i = 0; i < n; ++i) {
+            if (left < nums[i] && right[i + 1] < nums[i]) {
+                ans = min(ans, left + nums[i] + right[i + 1]);
+            }
+            left = min(left, nums[i]);
+        }
+        return ans == inf ? -1 : ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minimumSum(nums []int) int {
+	n := len(nums)
+	const inf = 1 << 30
+	right := make([]int, n+1)
+	right[n] = inf
+	for i := n - 1; i >= 0; i-- {
+		right[i] = min(right[i+1], nums[i])
+	}
+	ans, left := inf, inf
+	for i, x := range nums {
+		if left < x && right[i+1] < x {
+			ans = min(ans, left+x+right[i+1])
+		}
+		left = min(left, x)
+	}
+	if ans == inf {
+		return -1
+	}
+	return ans
+}
 
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function minimumSum(nums: number[]): number {
+    const n = nums.length;
+    const right: number[] = Array(n + 1).fill(Infinity);
+    for (let i = n - 1; ~i; --i) {
+        right[i] = Math.min(right[i + 1], nums[i]);
+    }
+    let [ans, left] = [Infinity, Infinity];
+    for (let i = 0; i < n; ++i) {
+        if (left < nums[i] && right[i + 1] < nums[i]) {
+            ans = Math.min(ans, left + nums[i] + right[i + 1]);
+        }
+        left = Math.min(left, nums[i]);
+    }
+    return ans === Infinity ? -1 : ans;
+}
 ```
 
 ### **...**
