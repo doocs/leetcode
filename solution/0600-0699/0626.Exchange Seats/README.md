@@ -66,17 +66,16 @@ Seat 表:
 ### **SQL**
 
 ```sql
-SELECT
-	s1.id,
-	COALESCE ( s2.student, s1.student ) AS student
+# Write your MySQL query statement below
+SELECT s1.id, COALESCE(s2.student, s1.student) AS student
 FROM
-	Seat s1
-	LEFT JOIN Seat s2 ON ( s1.id + 1 ) ^ 1 - 1 = s2.id
-ORDER BY
-	s1.id;
+    Seat AS s1
+    LEFT JOIN Seat AS s2 ON (s1.id + 1) ^ 1 - 1 = s2.id
+ORDER BY 1;
 ```
 
 ```sql
+# Write your MySQL query statement below
 SELECT
     id + (
         CASE
@@ -88,19 +87,15 @@ SELECT
     ) AS id,
     student
 FROM Seat
-ORDER BY id;
+ORDER BY 1;
 ```
 
 ```sql
 # Write your MySQL query statement below
 SELECT
-    RANK() OVER(
-        ORDER BY
-            (id - 1) ^ 1
-    ) AS id,
+    RANK() OVER (ORDER BY (id - 1) ^ 1) AS id,
     student
-FROM
-    Seat
+FROM Seat;
 ```
 
 ```sql
