@@ -92,7 +92,7 @@ ORDER BY id;
 SELECT
     RANK() OVER(
         ORDER BY
-            (id -1) ^ 1
+            (id - 1) ^ 1
     ) AS id,
     student
 FROM
