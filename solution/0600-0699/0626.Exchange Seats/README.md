@@ -70,8 +70,8 @@ SELECT
 	s1.id,
 	COALESCE ( s2.student, s1.student ) AS student
 FROM
-	seat s1
-	LEFT JOIN seat s2 ON ( s1.id + 1 ) ^ 1 - 1 = s2.id
+	Seat s1
+	LEFT JOIN Seat s2 ON ( s1.id + 1 ) ^ 1 - 1 = s2.id
 ORDER BY
 	s1.id;
 ```
@@ -81,26 +81,26 @@ SELECT
     id + (
         CASE
             WHEN id % 2 = 1
-            AND id != (SELECT MAX(id) FROM seat) THEN 1
+            AND id != (SELECT MAX(id) FROM Seat) THEN 1
             WHEN id % 2 = 0 THEN -1
             ELSE 0
         END
     ) AS id,
     student
-FROM seat
+FROM Seat
 ORDER BY id;
 ```
 
 ```sql
 # Write your MySQL query statement below
-select
-    RANK() over(
-        order by
+SELECT
+    RANK() OVER(
+        ORDER BY
             (id -1) ^ 1
-    ) as id,
+    ) AS id,
     student
-from
-    seat
+FROM
+    Seat
 ```
 
 ```sql
