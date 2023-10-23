@@ -116,6 +116,8 @@ GROUP BY p
 HAVING COUNT(1) >= 3;
 ```
 
+### **Pandas**
+
 ```python
 import pandas as pd
 
@@ -130,7 +132,6 @@ def consecutive_numbers(logs: pd.DataFrame) -> pd.DataFrame:
         .drop_duplicates()
         .rename(columns={"num": "ConsecutiveNums"})
     )
-
 ```
 
 <!-- tabs:end -->

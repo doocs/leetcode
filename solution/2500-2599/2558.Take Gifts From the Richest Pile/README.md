@@ -59,11 +59,11 @@
 
 **方法一：优先队列（大根堆）**
 
-我们将数组 `gifts` 转存到大根堆中，然后循环 $k$ 次，每次取出堆顶元素，将堆顶元素开根号的结果再放入堆中。
+我们将数组 $gifts$ 转存到大根堆中，然后循环 $k$ 次，每次取出堆顶元素，将堆顶元素开根号的结果再放入堆中。
 
 最后累加堆中所有元素之和作为答案。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `gifts` 的长度。
+时间复杂度 $O(n + k \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $gifts$ 的长度。
 
 <!-- tabs:start -->
 
@@ -140,8 +140,8 @@ func pickGifts(gifts []int, k int) (ans int64) {
 type hp struct{ sort.IntSlice }
 
 func (h hp) Less(i, j int) bool { return h.IntSlice[i] > h.IntSlice[j] }
-func (hp) Pop() (_ interface{}) { return }
-func (hp) Push(interface{})     {}
+func (hp) Pop() (_ any)         { return }
+func (hp) Push(any)             {}
 ```
 
 ### **TypeScript**
@@ -149,13 +149,11 @@ func (hp) Push(interface{})     {}
 ```ts
 function pickGifts(gifts: number[], k: number): number {
     const pq = new MaxPriorityQueue();
-    for (const v of gifts) {
-        pq.enqueue(v, v);
-    }
+    gifts.forEach(v => pq.enqueue(v));
     while (k--) {
         let v = pq.dequeue().element;
         v = Math.floor(Math.sqrt(v));
-        pq.enqueue(v, v);
+        pq.enqueue(v);
     }
     let ans = 0;
     while (!pq.isEmpty()) {

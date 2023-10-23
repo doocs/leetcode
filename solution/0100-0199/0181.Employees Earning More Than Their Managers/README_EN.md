@@ -77,6 +77,8 @@ FROM
 WHERE e1.salary > e2.salary;
 ```
 
+### **Pandas**
+
 ```python
 import pandas as pd
 

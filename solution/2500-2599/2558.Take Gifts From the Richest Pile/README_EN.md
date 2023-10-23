@@ -51,6 +51,14 @@ So, the total gifts remaining are 4.
 
 ## Solutions
 
+**Solution 1: Priority Queue (Max Heap)**
+
+We can store the array $gifts$ in a max heap, and then loop $k$ times, each time taking out the top element of the heap, taking the square root of it, and putting the result back into the heap.
+
+Finally, we add up all the elements in the heap as the answer.
+
+The time complexity is $O(n + k \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $gifts$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -122,8 +130,8 @@ func pickGifts(gifts []int, k int) (ans int64) {
 type hp struct{ sort.IntSlice }
 
 func (h hp) Less(i, j int) bool { return h.IntSlice[i] > h.IntSlice[j] }
-func (hp) Pop() (_ interface{}) { return }
-func (hp) Push(interface{})     {}
+func (hp) Pop() (_ any)         { return }
+func (hp) Push(any)             {}
 ```
 
 ### **TypeScript**
@@ -131,13 +139,11 @@ func (hp) Push(interface{})     {}
 ```ts
 function pickGifts(gifts: number[], k: number): number {
     const pq = new MaxPriorityQueue();
-    for (const v of gifts) {
-        pq.enqueue(v, v);
-    }
+    gifts.forEach(v => pq.enqueue(v));
     while (k--) {
         let v = pq.dequeue().element;
         v = Math.floor(Math.sqrt(v));
-        pq.enqueue(v, v);
+        pq.enqueue(v);
     }
     let ans = 0;
     while (!pq.isEmpty()) {

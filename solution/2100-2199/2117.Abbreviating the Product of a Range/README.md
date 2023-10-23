@@ -82,7 +82,72 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+import numpy
 
+
+class Solution:
+    def abbreviateProduct(self, left: int, right: int) -> str:
+        cnt2 = cnt5 = 0
+        z = numpy.float128(0)
+        for x in range(left, right + 1):
+            z += numpy.log10(x)
+            while x % 2 == 0:
+                x //= 2
+                cnt2 += 1
+            while x % 5 == 0:
+                x //= 5
+                cnt5 += 1
+        c = cnt2 = cnt5 = min(cnt2, cnt5)
+        suf = y = 1
+        gt = False
+        for x in range(left, right + 1):
+            while cnt2 and x % 2 == 0:
+                x //= 2
+                cnt2 -= 1
+            while cnt5 and x % 5 == 0:
+                x //= 5
+                cnt5 -= 1
+            suf = suf * x % 100000
+            if not gt:
+                y *= x
+                gt = y >= 1e10
+        if not gt:
+            return str(y) + "e" + str(c)
+        pre = int(pow(10, z - int(z) + 4))
+        return str(pre) + "..." + str(suf).zfill(5) + "e" + str(c)
+```
+
+```python
+class Solution:
+    def abbreviateProduct(self, left: int, right: int) -> str:
+        cnt2 = cnt5 = 0
+        for x in range(left, right + 1):
+            while x % 2 == 0:
+                cnt2 += 1
+                x //= 2
+            while x % 5 == 0:
+                cnt5 += 1
+                x //= 5
+        c = cnt2 = cnt5 = min(cnt2, cnt5)
+        pre = suf = 1
+        gt = False
+        for x in range(left, right + 1):
+            suf *= x
+            while cnt2 and suf % 2 == 0:
+                suf //= 2
+                cnt2 -= 1
+            while cnt5 and suf % 5 == 0:
+                suf //= 5
+                cnt5 -= 1
+            if suf >= 1e10:
+                gt = True
+                suf %= int(1e10)
+            pre *= x
+            while pre > 1e5:
+                pre /= 10
+        if gt:
+            return str(int(pre)) + "..." + str(suf % int(1e5)).zfill(5) + 'e' + str(c)
+        return str(suf) + "e" + str(c)
 ```
 
 ### **Java**
@@ -90,12 +155,138 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
 
+    public String abbreviateProduct(int left, int right) {
+        int cnt2 = 0, cnt5 = 0;
+        for (int i = left; i <= right; ++i) {
+            int x = i;
+            for (; x % 2 == 0; x /= 2) {
+                ++cnt2;
+            }
+            for (; x % 5 == 0; x /= 5) {
+                ++cnt5;
+            }
+        }
+        int c = Math.min(cnt2, cnt5);
+        cnt2 = cnt5 = c;
+        long suf = 1;
+        double pre = 1;
+        boolean gt = false;
+        for (int i = left; i <= right; ++i) {
+            for (suf *= i; cnt2 > 0 && suf % 2 == 0; suf /= 2) {
+                --cnt2;
+            }
+            for (; cnt5 > 0 && suf % 5 == 0; suf /= 5) {
+                --cnt5;
+            }
+            if (suf >= (long) 1e10) {
+                gt = true;
+                suf %= (long) 1e10;
+            }
+            for (pre *= i; pre > 1e5; pre /= 10) {
+            }
+        }
+        if (gt) {
+            return (int) pre + "..." + String.format("%05d", suf % (int) 1e5) + "e" + c;
+        }
+        return suf + "e" + c;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string abbreviateProduct(int left, int right) {
+        int cnt2 = 0, cnt5 = 0;
+        for (int i = left; i <= right; ++i) {
+            int x = i;
+            for (; x % 2 == 0; x /= 2) {
+                ++cnt2;
+            }
+            for (; x % 5 == 0; x /= 5) {
+                ++cnt5;
+            }
+        }
+        int c = min(cnt2, cnt5);
+        cnt2 = cnt5 = c;
+        long long suf = 1;
+        long double pre = 1;
+        bool gt = false;
+        for (int i = left; i <= right; ++i) {
+            for (suf *= i; cnt2 && suf % 2 == 0; suf /= 2) {
+                --cnt2;
+            }
+            for (; cnt5 && suf % 5 == 0; suf /= 5) {
+                --cnt5;
+            }
+            if (suf >= 1e10) {
+                gt = true;
+                suf %= (long long) 1e10;
+            }
+            for (pre *= i; pre > 1e5; pre /= 10) {
+            }
+        }
+        if (gt) {
+            char buf[10];
+            snprintf(buf, sizeof(buf), "%0*lld", 5, suf % (int) 1e5);
+            return to_string((int) pre) + "..." + string(buf) + "e" + to_string(c);
+        }
+        return to_string(suf) + "e" + to_string(c);
+    }
+};
+```
+
+### **Go**
+
+```go
+func abbreviateProduct(left int, right int) string {
+	cnt2, cnt5 := 0, 0
+	for i := left; i <= right; i++ {
+		x := i
+		for x%2 == 0 {
+			cnt2++
+			x /= 2
+		}
+		for x%5 == 0 {
+			cnt5++
+			x /= 5
+		}
+	}
+	c := int(math.Min(float64(cnt2), float64(cnt5)))
+	cnt2 = c
+	cnt5 = c
+	suf := int64(1)
+	pre := float64(1)
+	gt := false
+	for i := left; i <= right; i++ {
+		for suf *= int64(i); cnt2 > 0 && suf%2 == 0; {
+			cnt2--
+			suf /= int64(2)
+		}
+		for cnt5 > 0 && suf%5 == 0 {
+			cnt5--
+			suf /= int64(5)
+		}
+		if float64(suf) >= 1e10 {
+			gt = true
+			suf %= int64(1e10)
+		}
+		for pre *= float64(i); pre > 1e5; {
+			pre /= 10
+		}
+	}
+	if gt {
+		return fmt.Sprintf("%05d...%05de%d", int(pre), int(suf)%int(1e5), c)
+	}
+	return fmt.Sprintf("%de%d", suf, c)
+}
 ```
 
 ### **TypeScript**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
 

@@ -105,6 +105,8 @@ FROM
 WHERE o.id IS NULL;
 ```
 
+### **Pandas**
+
 ```python
 import pandas as pd
 
@@ -117,7 +119,6 @@ def find_customers(customers: pd.DataFrame, orders: pd.DataFrame) -> pd.DataFram
     df = df[["name"]].rename(columns={"name": "Customers"})
 
     return df
-
 ```
 
 <!-- tabs:end -->
