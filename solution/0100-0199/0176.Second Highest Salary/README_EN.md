@@ -98,6 +98,8 @@ WITH T AS (SELECT salary, DENSE_RANK() OVER (ORDER BY salary DESC) AS rk FROM Em
 SELECT (SELECT DISTINCT salary FROM T WHERE rk = 2) AS SecondHighestSalary;
 ```
 
+### **Pandas**
+
 ```python
 import pandas as pd
 
@@ -119,7 +121,6 @@ def second_highest_salary(employee: pd.DataFrame) -> pd.DataFrame:
     result_df = pd.DataFrame({"SecondHighestSalary": [second_highest]})
 
     return result_df
-
 ```
 
 <!-- tabs:end -->

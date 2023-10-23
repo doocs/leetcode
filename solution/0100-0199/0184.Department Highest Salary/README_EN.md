@@ -125,4 +125,22 @@ FROM T
 WHERE rk = 1;
 ```
 
+### **Pandas**
+
+```python
+import pandas as pd
+
+
+def duplicate_emails(person: pd.DataFrame) -> pd.DataFrame:
+    results = pd.DataFrame()
+
+    results = person.loc[person.duplicated(subset=["email"]), ["email"]]
+
+    return results.drop_duplicates()
+<<<<<<< HEAD
+
+=======
+
+```
+
 <!-- tabs:end -->

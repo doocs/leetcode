@@ -92,7 +92,9 @@ FROM
     LEFT JOIN Address USING (personId);
 ```
 
-```pandas
+### **Pandas**
+
+```python
 import pandas as pd
 
 

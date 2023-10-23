@@ -57,7 +57,7 @@
 
 遍历结束后，返回答案即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是 `details` 的长度。
+时间复杂度 $O(n)$，其中 $n$ 是 `details` 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -149,6 +149,27 @@ impl Solution {
             .filter(|&age| age > 60)
             .count() as i32
     }
+}
+```
+
+### **TypeScript**
+
+```ts
+function countSeniors(details: string[]): number {
+    let ans = 0;
+    for (const x of details) {
+        const age = parseInt(x.slice(11, 13));
+        if (age > 60) {
+            ++ans;
+        }
+    }
+    return ans;
+}
+```
+
+```ts
+function countSeniors(details: string[]): number {
+    return details.filter(v => parseInt(v.slice(11, 13)) > 60).length;
 }
 ```
 

@@ -14,5 +14,5 @@ func pickGifts(gifts []int, k int) (ans int64) {
 type hp struct{ sort.IntSlice }
 
 func (h hp) Less(i, j int) bool { return h.IntSlice[i] > h.IntSlice[j] }
-func (hp) Pop() (_ interface{}) { return }
-func (hp) Push(interface{})     {}
+func (hp) Pop() (_ any)         { return }
+func (hp) Push(any)             {}

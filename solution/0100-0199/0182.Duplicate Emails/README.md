@@ -83,6 +83,11 @@ FROM
 WHERE p1.id != p2.id AND p1.email = p2.email;
 ```
 
+<<<<<<< HEAD
+=======
+### **Pandas**
+
+>>>>>>> 11f9d06d29b32c52f279c579df6b2a1bafcc8e39
 ```python
 import pandas as pd
 
@@ -93,7 +98,10 @@ def duplicate_emails(person: pd.DataFrame) -> pd.DataFrame:
     results = person.loc[person.duplicated(subset=["email"]), ["email"]]
 
     return results.drop_duplicates()
+<<<<<<< HEAD
 
+=======
+>>>>>>> 11f9d06d29b32c52f279c579df6b2a1bafcc8e39
 ```
 
 <!-- tabs:end -->

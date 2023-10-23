@@ -94,6 +94,8 @@ BEGIN
 END
 ```
 
+### **Pandas**
+
 ```python
 import pandas as pd
 
@@ -105,7 +107,6 @@ def nth_highest_salary(employee: pd.DataFrame, N: int) -> pd.DataFrame:
     else:
         salary = sorted(unique_salaries, reverse=True)[N - 1]
         return pd.DataFrame([salary], columns=[f"getNthHighestSalary({N})"])
-
 ```
 
 <!-- tabs:end -->
