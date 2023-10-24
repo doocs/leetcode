@@ -81,11 +81,12 @@ FROM
 WHERE e1.salary > e2.salary;
 ```
 
-<<<<<<< HEAD
-=======
+# <<<<<<< HEAD
+
 ### **Pandas**
 
->>>>>>> 11f9d06d29b32c52f279c579df6b2a1bafcc8e39
+> > > > > > > 11f9d06d29b32c52f279c579df6b2a1bafcc8e39
+
 ```python
 import pandas as pd
 

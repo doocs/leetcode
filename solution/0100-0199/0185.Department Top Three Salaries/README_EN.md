@@ -134,11 +134,13 @@ FROM
     JOIN Department AS d ON t.departmentId = d.id
 WHERE rk <= 3;
 ```
-<<<<<<< HEAD
-=======
+
+# <<<<<<< HEAD
+
 ### **Pandas**
 
->>>>>>> 11f9d06d29b32c52f279c579df6b2a1bafcc8e39
+> > > > > > > 11f9d06d29b32c52f279c579df6b2a1bafcc8e39
+
 ```python
 import pandas as pd
 
@@ -164,4 +166,3 @@ def top_three_salaries(
 ```
 
 <!-- tabs:end -->
-

@@ -77,11 +77,12 @@ FROM
 WHERE p1.id != p2.id AND p1.email = p2.email;
 ```
 
-<<<<<<< HEAD
-=======
+# <<<<<<< HEAD
+
 ### **Pandas**
 
->>>>>>> 11f9d06d29b32c52f279c579df6b2a1bafcc8e39
+> > > > > > > 11f9d06d29b32c52f279c579df6b2a1bafcc8e39
+
 ```python
 import pandas as pd
 
