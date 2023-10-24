@@ -58,6 +58,14 @@ Hence, the answer is 4.</pre>
 
 ## Solutions
 
+**Solution 1: Hash Table + Enumeration**
+
+We use a hash table $cnt$ to count the number of occurrences of each number in the array $nums$. Let $k$ be the minimum value of the number of occurrences, and then we can enumerate the size of the groups in the range $[k,..1]$. Since the difference in size between each group is not more than $1$, the group size can be either $k$ or $k+1$.
+
+For the current group size $k$ being enumerated, we traverse each occurrence $v$ in the hash table. If $\lfloor \frac{v}{k} \rfloor < v \bmod k$, it means that we cannot divide the occurrence $v$ into $k$ or $k+1$ groups with the same value, so we can skip this group size $k$ directly. Otherwise, it means that we can form groups, and we only need to form as many groups of size $k+1$ as possible to ensure the minimum number of groups. Therefore, we can divide $v$ numbers into $\lceil \frac{v}{k+1} \rceil$ groups and add them to the current enumerated answer. Since we enumerate $k$ from large to small, as long as we find a valid grouping scheme, it must be optimal.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**
