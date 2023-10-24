@@ -63,25 +63,180 @@ Hence, the answer is 4.</pre>
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minGroupsForValidAssignment(self, nums: List[int]) -> int:
+        cnt = Counter(nums)
+        for k in range(min(cnt.values()), 0, -1):
+            ans = 0
+            for v in cnt.values():
+                if v // k < v % k:
+                    ans = 0
+                    break
+                ans += (v + k) // (k + 1)
+            if ans:
+                return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int minGroupsForValidAssignment(int[] nums) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int x : nums) {
+            cnt.merge(x, 1, Integer::sum);
+        }
+        int k = nums.length;
+        for (int v : cnt.values()) {
+            k = Math.min(k, v);
+        }
+        for (;; --k) {
+            int ans = 0;
+            for (int v : cnt.values()) {
+                if (v / k < v % k) {
+                    ans = 0;
+                    break;
+                }
+                ans += (v + k) / (k + 1);
+            }
+            if (ans > 0) {
+                return ans;
+            }
+        }
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int minGroupsForValidAssignment(vector<int>& nums) {
+        unordered_map<int, int> cnt;
+        for (int x : nums) {
+            cnt[x]++;
+        }
+        int k = 1e9;
+        for (auto& [_, v] : cnt) {
+            ans = min(ans, v);
+        }
+        for (;; --k) {
+            int ans = 0;
+            for (auto& [_, v] : cnt) {
+                if (v / k < v % k) {
+                    ans = 0;
+                    break;
+                }
+                ans += (v + k) / (k + 1);
+            }
+            if (ans) {
+                return ans;
+            }
+        }
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minGroupsForValidAssignment(nums []int) int {
+	cnt := map[int]int{}
+	for _, x := range nums {
+		cnt[x]++
+	}
+	k := len(nums)
+	for _, v := range cnt {
+		k = min(k, v)
+	}
+	for ; ; k-- {
+		ans := 0
+		for _, v := range cnt {
+			if v/k < v%k {
+				ans = 0
+				break
+			}
+			ans += (v + k) / (k + 1)
+		}
+		if ans > 0 {
+			return ans
+		}
+	}
+}
 
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function minGroupsForValidAssignment(nums: number[]): number {
+    const cnt: Map<number, number> = new Map();
+    for (const x of nums) {
+        cnt.set(x, (cnt.get(x) || 0) + 1);
+    }
+    for (let k = Math.min(...cnt.values()); ; --k) {
+        let ans = 0;
+        for (const [_, v] of cnt) {
+            if (((v / k) | 0) < v % k) {
+                ans = 0;
+                break;
+            }
+            ans += Math.ceil(v / (k + 1));
+        }
+        if (ans) {
+            return ans;
+        }
+    }
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn min_groups_for_valid_assignment(nums: Vec<i32>) -> i32 {
+        let mut cnt: HashMap<i32, i32> = HashMap::new();
+
+        for x in nums.iter() {
+            let count = cnt.entry(*x).or_insert(0);
+            *count += 1;
+        }
+
+        let mut k = i32::MAX;
+
+        for &v in cnt.values() {
+            k = k.min(v);
+        }
+
+        for k in (1..=k).rev() {
+            let mut ans = 0;
+
+            for &v in cnt.values() {
+                if v / k < v % k {
+                    ans = 0;
+                    break;
+                }
+
+                ans += (v + k) / (k + 1);
+            }
+
+            if ans > 0 {
+                return ans;
+            }
+        }
+
+        0
+    }
+}
 ```
 
 ### **...**
