@@ -160,4 +160,5 @@ def top_three_salaries(
     )[["Department", "Employee", "Salary"]]
 
 ```
+
 <!-- tabs:end -->
