@@ -16,9 +16,9 @@ WITH
             END AS category,
             COUNT(1) AS accounts_count
         FROM Accounts
-        GROUP BY category
+        GROUP BY 1
     )
-SELECT s.category, IFNULL(accounts_count, 0) AS accounts_count
+SELECT category, IFNULL(accounts_count, 0) AS accounts_count
 FROM
-    S AS s
-    LEFT JOIN T AS t ON s.category = t.category;
+    S
+    LEFT JOIN T USING (category);
