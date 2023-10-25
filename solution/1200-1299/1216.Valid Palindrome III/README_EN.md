@@ -35,6 +35,20 @@
 
 ## Solutions
 
+**Solution 1: Dynamic Programming**
+
+The problem requires us to remove at most $k$ characters to make the remaining string a palindrome. This can be transformed into finding the longest palindromic subsequence.
+
+We define $f[i][j]$ as the length of the longest palindromic subsequence in the substring $s[i..j]$. Initially, we have $f[i][i] = 1$ for all $i$, since each single character is a palindrome.
+
+If $s[i] = s[j]$, then we have $f[i][j] = f[i+1][j-1] + 2$, since we can add both $s[i]$ and $s[j]$ to the longest palindromic subsequence of $s[i+1..j-1]$.
+
+If $s[i] \neq s[j]$, then we have $f[i][j] = \max(f[i+1][j], f[i][j-1])$, since we need to remove either $s[i]$ or $s[j]$ to make the remaining substring a palindrome.
+
+Finally, we check whether there exists $f[i][j] + k \geq n$, where $n$ is the length of the string $s$. If so, it means that we can remove at most $k$ characters to make the remaining string a palindrome.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the string $s$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -143,6 +157,63 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function isValidPalindrome(s: string, k: number): boolean {
+    const n = s.length;
+    const f: number[][] = Array.from({ length: n }, () => Array.from({ length: n }, () => 0));
+    for (let i = 0; i < n; ++i) {
+        f[i][i] = 1;
+    }
+    for (let i = n - 2; ~i; --i) {
+        for (let j = i + 1; j < n; ++j) {
+            if (s[i] === s[j]) {
+                f[i][j] = f[i + 1][j - 1] + 2;
+            } else {
+                f[i][j] = Math.max(f[i + 1][j], f[i][j - 1]);
+            }
+            if (f[i][j] + k >= n) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn is_valid_palindrome(s: String, k: i32) -> bool {
+        let s = s.as_bytes();
+        let n = s.len();
+        let mut f = vec![vec![0; n]; n];
+
+        for i in 0..n {
+            f[i][i] = 1;
+        }
+
+        for i in (0..n - 2).rev() {
+            for j in (i + 1)..n {
+                if s[i] == s[j] {
+                    f[i][j] = f[i + 1][j - 1] + 2;
+                } else {
+                    f[i][j] = std::cmp::max(f[i + 1][j], f[i][j - 1]);
+                }
+
+                if f[i][j] + k >= n as i32 {
+                    return true;
+                }
+            }
+        }
+
+        false
+    }
 }
 ```
 
