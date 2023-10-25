@@ -63,6 +63,9 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def bulbSwitch(self, n: int) -> int:
+        return int(n ** (1 / 2))
 
 ```
 

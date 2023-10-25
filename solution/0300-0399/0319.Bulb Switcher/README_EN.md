@@ -50,6 +50,9 @@ So you should return 1 because there is only one bulb is on.</pre>
 ### **Python3**
 
 ```python
+class Solution:
+    def bulbSwitch(self, n: int) -> int:
+        return int(n ** (1 / 2))
 
 ```
 
