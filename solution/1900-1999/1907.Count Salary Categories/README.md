@@ -69,6 +69,14 @@ Accounts 表:
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：构建临时表 + 分组统计 + 左连接**
+
+我们可以先构建一个临时表，包含所有工资类别，然后再统计每个工资类别的银行账户数量。最后我们使用左连接，将临时表和统计结果表连接起来，这样就可以保证结果表中包含所有工资类别。
+
+**方法二：筛选 + 合并**
+
+我们可以分别筛选出每个工资类别的银行账户数量，然后再将结果合并起来。这里我们使用 `UNION` 来合并结果。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -94,12 +102,24 @@ WITH
             END AS category,
             COUNT(1) AS accounts_count
         FROM Accounts
-        GROUP BY category
+        GROUP BY 1
     )
-SELECT s.category, IFNULL(accounts_count, 0) AS accounts_count
+SELECT category, IFNULL(accounts_count, 0) AS accounts_count
 FROM
-    S AS s
-    LEFT JOIN T AS t ON s.category = t.category;
+    S
+    LEFT JOIN T USING (category);
+```
+
+```sql
+# Write your MySQL query statement below
+SELECT 'Low Salary' AS category, IFNULL(SUM(income < 20000), 0) AS accounts_count FROM Accounts
+UNION
+SELECT
+    'Average Salary' AS category,
+    IFNULL(SUM(income BETWEEN 20000 AND 50000), 0) AS accounts_count
+FROM Accounts
+UNION
+SELECT 'High Salary' AS category, IFNULL(SUM(income > 50000), 0) AS accounts_count FROM Accounts;
 ```
 
 <!-- tabs:end -->
