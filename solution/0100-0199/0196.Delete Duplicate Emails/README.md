@@ -97,7 +97,7 @@ WHERE
     p1.id < p2.id;
 ```
 
-### **Python**
+### **Pandas**
 
 ```python
 import pandas as pd
