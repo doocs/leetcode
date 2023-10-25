@@ -79,6 +79,7 @@ FROM
     JOIN Weather AS w2
         ON SUBDATE(w1.recordDate, 1) = w2.recordDate AND w1.temperature > w2.temperature;
 ```
+
 ### **Pandas**
 
 ```python
