@@ -69,7 +69,7 @@ FROM Activity
 GROUP BY 1;
 ```
 
-### **pandas**
+### **Pandas**
 
 ```python
 import pandas as pd
