@@ -43,6 +43,14 @@
 
 ## Solutions
 
+**Solution 1: Enumeration**
+
+We directly enumerate each digit $val$ of the integer $num$, and if $val$ can divide $num$, we add one to the answer.
+
+After the enumeration, we return the answer.
+
+The time complexity is $O(\log num)$, and the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -108,12 +116,10 @@ func countDigits(num int) (ans int) {
 ```ts
 function countDigits(num: number): number {
     let ans = 0;
-    let cur = num;
-    while (cur !== 0) {
-        if (num % (cur % 10) === 0) {
-            ans++;
+    for (let x = num; x; x = (x / 10) | 0) {
+        if (num % (x % 10) === 0) {
+            ++ans;
         }
-        cur = Math.floor(cur / 10);
     }
     return ans;
 }
