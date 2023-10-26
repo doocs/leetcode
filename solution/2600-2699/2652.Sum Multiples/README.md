@@ -14,31 +14,32 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>n = 7
+<pre>
+<strong>输入：</strong>n = 7
 <strong>输出：</strong>21
-<strong>解释：</strong>在 <code>[1, 7]</code> 范围内能被 3、<code>5、</code><code>7 整除的所有整数分别是</code><code> 3、5、6、7</code> 。数字之和为 <code>21</code> 。
+<strong>解释：</strong>在 <code>[1, 7]</code> 范围内能被 <code>3</code>、<code>5</code>、<code>7</code> 整除的所有整数分别是 <code>3</code>、<code>5</code>、<code>6</code>、<code>7</code> 。数字之和为 <code>21</code>。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>n = 10
+<pre>
+<strong>输入：</strong>n = 10
 <strong>输出：</strong>40
-<strong>解释：</strong>在 <code>[1, 10]</code> 范围内能被 3、<code>5、</code><code>7 整除的所有整数分别是</code><code> 3、5、6、7、9、10</code> 。数字之和为 <code>40</code> 。
+<strong>解释：</strong>在 <code>[1, 10]</code> 范围内能被 <code>3</code>、<code>5</code>、<code>7</code> 整除的所有整数分别是 <code>3</code>、<code>5</code>、<code>6</code>、<code>7</code>、<code>9</code>、<code>10</code> 。数字之和为 <code>40</code>。
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>n = 9
+<pre>
+<strong>输入：</strong>n = 9
 <strong>输出：</strong>30
-<strong>解释：</strong>在 <code>[1, 9]</code> 范围内能被 3、<code>5、</code><code>7 整除的所有整数分别是</code><code> 3、5、6、7、9</code> 。数字之和为 <code>30</code> 。
+<strong>解释：</strong>在 <code>[1, 9]</code> 范围内能被 <code>3</code>、<code>5</code>、<code>7</code> 整除的所有整数分别是 <code>3</code>、<code>5</code>、<code>6</code>、<code>7</code>、<code>9</code> 。数字之和为 <code>30</code>。
 </pre>
-
-<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n &lt;= 10<sup>3</sup></code></li>
+	<li>1 &lt;= n &lt;= 10<sup>3</sup></li>
 </ul>
 
 ## 解法
