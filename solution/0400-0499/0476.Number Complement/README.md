@@ -72,6 +72,13 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def findComplement(self, num: int) -> int:
+        return num ^ (2 ** (len(bin(num)[2:])) - 1)
+
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
