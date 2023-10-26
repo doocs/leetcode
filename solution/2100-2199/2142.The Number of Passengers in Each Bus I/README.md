@@ -38,7 +38,7 @@ passenger_id 是该表的主键。
 
 <p>公交车和乘客到达 LeetCode 站。如果一辆公交车在时间 <code>t<sub>bus</sub></code> 到站，乘客在时间 <code>t<sub>passenger</sub></code> 到站，其中 <code>t<sub>passenger</sub> &lt;= t<sub>bus</sub></code>，该乘客之前没有赶上任何公交车，则该乘客将搭乘该公交车。</p>
 
-<p>编写一个 SQL 来查询使用每条总线的用户数量。</p>
+<p>编写一个 SQL 来查询使用每辆公交车的用户数量。</p>
 
 <p>返回按 <code>bus_id</code> <strong>升序排序&nbsp;</strong>的结果表。</p>
 

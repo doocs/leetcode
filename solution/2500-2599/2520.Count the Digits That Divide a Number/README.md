@@ -48,7 +48,9 @@
 
 **方法一：枚举**
 
-我们直接枚举整数 `num` 的每一位上的数 `val`，若 `val` 能够整除 `num`，那么答案加一。
+我们直接枚举整数 $num$ 的每一位上的数 $val$，若 $val$ 能够整除 $num$，那么答案加一。
+
+枚举结束后，返回答案即可。
 
 时间复杂度 $O(\log num)$，空间复杂度 $O(1)$。
 
@@ -121,12 +123,10 @@ func countDigits(num int) (ans int) {
 ```ts
 function countDigits(num: number): number {
     let ans = 0;
-    let cur = num;
-    while (cur !== 0) {
-        if (num % (cur % 10) === 0) {
-            ans++;
+    for (let x = num; x; x = (x / 10) | 0) {
+        if (num % (x % 10) === 0) {
+            ++ans;
         }
-        cur = Math.floor(cur / 10);
     }
     return ans;
 }

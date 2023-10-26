@@ -11,14 +11,14 @@
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0101.Symmetric%20Tree/images/symtree1.jpg" style="width: 354px; height: 291px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0101.Symmetric%20Tree/images/1698026966-JDYPDU-image.png" style="width: 354px; height: 291px;" />
 <pre>
 <strong>输入：</strong>root = [1,2,2,3,4,4,3]
 <strong>输出：</strong>true
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0101.Symmetric%20Tree/images/symtree2.jpg" style="width: 308px; height: 258px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0101.Symmetric%20Tree/images/1698027008-nPFLbM-image.png" style="width: 308px; height: 258px;" />
 <pre>
 <strong>输入：</strong>root = [1,2,2,null,3,null,3]
 <strong>输出：</strong>false
