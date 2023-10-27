@@ -1,7 +1,6 @@
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
     public int maxArea(int h, int w, int[] horizontalCuts, int[] verticalCuts) {
+        final int mod = (int) 1e9 + 7;
         Arrays.sort(horizontalCuts);
         Arrays.sort(verticalCuts);
         int m = horizontalCuts.length;
@@ -14,6 +13,6 @@ class Solution {
         for (int i = 1; i < n; ++i) {
             y = Math.max(y, verticalCuts[i] - verticalCuts[i - 1]);
         }
-        return (int) ((x * y) % MOD);
+        return (int) ((x * y) % mod);
     }
 }
