@@ -23,13 +23,14 @@ class Solution {
             int c = e.getValue();
             sum = Math.min(sum + c * num, r);
             // prefix part
-            // dp[i] = dp[i] + dp[i - num] + ... + dp[i - c*num] + dp[i-(c+1)*num] + ... + dp[i % num]
+            // dp[i] = dp[i] + dp[i - num] + ... + dp[i - c*num] + dp[i-(c+1)*num] + ... + dp[i %
+            // num]
             for (int i = num; i <= sum; i++) {
                 dp[i] = (dp[i] + dp[i - num]) % MOD;
             }
             int temp = (c + 1) * num;
-            // correction part 
-            // subtract dp[i - (freq + 1) * num] to the end part. 
+            // correction part
+            // subtract dp[i - (freq + 1) * num] to the end part.
             // leves dp[i] = dp[i] + dp[i-num] +...+ dp[i - c*num];
             for (int i = sum; i >= temp; i--) {
                 dp[i] = (dp[i] - dp[i - temp] + MOD) % MOD;
