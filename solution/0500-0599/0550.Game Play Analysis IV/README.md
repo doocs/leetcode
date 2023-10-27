@@ -107,7 +107,7 @@ FROM T
 WHERE rk = 1;
 ```
 
-### **Pandas**
+### **pandas**
 
 ```python
 import pandas as pd
