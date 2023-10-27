@@ -14,7 +14,7 @@ public:
         for (int i = 1; i < verticalCuts.size(); ++i) {
             y = max(y, verticalCuts[i] - verticalCuts[i - 1]);
         }
-        int mod = 1e9 + 7;
-        return (int) ((1ll * x * y) % mod);
+        const int mod = 1e9 + 7;
+        return (1ll * x * y) % mod;
     }
 };

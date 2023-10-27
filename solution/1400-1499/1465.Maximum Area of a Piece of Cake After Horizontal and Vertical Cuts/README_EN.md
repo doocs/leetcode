@@ -52,6 +52,14 @@
 
 ## Solutions
 
+**Solution 1: Sorting**
+
+We first sort `horizontalCuts` and `verticalCuts` separately, and then traverse both arrays to calculate the maximum difference between adjacent elements. We denote these maximum differences as $x$ and $y$, respectively. Finally, we return $x \times y$.
+
+Note that we need to consider the boundary cases, i.e., the first and last elements of `horizontalCuts` and `verticalCuts`.
+
+The time complexity is $O(m\log m + n\log n)$, where $m$ and $n$ are the lengths of `horizontalCuts` and `verticalCuts`, respectively. The space complexity is $O(\log m + \log n)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -74,9 +82,8 @@ class Solution:
 
 ```java
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
     public int maxArea(int h, int w, int[] horizontalCuts, int[] verticalCuts) {
+        final int mod = (int) 1e9 + 7;
         Arrays.sort(horizontalCuts);
         Arrays.sort(verticalCuts);
         int m = horizontalCuts.length;
@@ -89,7 +96,7 @@ class Solution {
         for (int i = 1; i < n; ++i) {
             y = Math.max(y, verticalCuts[i] - verticalCuts[i - 1]);
         }
-        return (int) ((x * y) % MOD);
+        return (int) ((x * y) % mod);
     }
 }
 ```
@@ -113,8 +120,8 @@ public:
         for (int i = 1; i < verticalCuts.size(); ++i) {
             y = max(y, verticalCuts[i] - verticalCuts[i - 1]);
         }
-        int mod = 1e9 + 7;
-        return (int) ((1ll * x * y) % mod);
+        const int mod = 1e9 + 7;
+        return (1ll * x * y) % mod;
     }
 };
 ```
@@ -128,7 +135,7 @@ func maxArea(h int, w int, horizontalCuts []int, verticalCuts []int) int {
 	sort.Ints(horizontalCuts)
 	sort.Ints(verticalCuts)
 	x, y := 0, 0
-	mod := int(1e9) + 7
+	const mod int = 1e9 + 7
 	for i := 1; i < len(horizontalCuts); i++ {
 		x = max(x, horizontalCuts[i]-horizontalCuts[i-1])
 	}
@@ -143,6 +150,55 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxArea(h: number, w: number, horizontalCuts: number[], verticalCuts: number[]): number {
+    const mod = 1e9 + 7;
+    horizontalCuts.push(0, h);
+    verticalCuts.push(0, w);
+    horizontalCuts.sort((a, b) => a - b);
+    verticalCuts.sort((a, b) => a - b);
+    let [x, y] = [0, 0];
+    for (let i = 1; i < horizontalCuts.length; i++) {
+        x = Math.max(x, horizontalCuts[i] - horizontalCuts[i - 1]);
+    }
+    for (let i = 1; i < verticalCuts.length; i++) {
+        y = Math.max(y, verticalCuts[i] - verticalCuts[i - 1]);
+    }
+    return Number((BigInt(x) * BigInt(y)) % BigInt(mod));
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn max_area(h: i32, w: i32, mut horizontal_cuts: Vec<i32>, mut vertical_cuts: Vec<i32>) -> i32 {
+        const MOD: i64 = 1_000_000_007;
+
+        horizontal_cuts.sort();
+        vertical_cuts.sort();
+
+        let m = horizontal_cuts.len();
+        let n = vertical_cuts.len();
+
+        let mut x = i64::max(horizontal_cuts[0] as i64, h as i64 - horizontal_cuts[m - 1] as i64);
+        let mut y = i64::max(vertical_cuts[0] as i64, w as i64 - vertical_cuts[n - 1] as i64);
+
+        for i in 1..m {
+            x = i64::max(x, horizontal_cuts[i] as i64 - horizontal_cuts[i - 1] as i64);
+        }
+
+        for i in 1..n {
+            y = i64::max(y, vertical_cuts[i] as i64 - vertical_cuts[i - 1] as i64);
+        }
+
+        ((x * y) % MOD) as i32
+    }
 }
 ```
 

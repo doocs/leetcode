@@ -4,7 +4,7 @@ func maxArea(h int, w int, horizontalCuts []int, verticalCuts []int) int {
 	sort.Ints(horizontalCuts)
 	sort.Ints(verticalCuts)
 	x, y := 0, 0
-	mod := int(1e9) + 7
+	const mod int = 1e9 + 7
 	for i := 1; i < len(horizontalCuts); i++ {
 		x = max(x, horizontalCuts[i]-horizontalCuts[i-1])
 	}
