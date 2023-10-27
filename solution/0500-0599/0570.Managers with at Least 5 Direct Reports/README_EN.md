@@ -76,6 +76,7 @@ FROM
     ) AS t
         USING (id);
 ```
+
 ### **Pandas**
 
 ```python
@@ -102,7 +103,5 @@ def find_managers(employee: pd.DataFrame) -> pd.DataFrame:
     return result
 
 ```
-
-
 
 <!-- tabs:end -->
