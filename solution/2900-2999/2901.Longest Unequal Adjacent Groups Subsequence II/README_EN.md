@@ -74,6 +74,10 @@ Finally, we find the index $i$ corresponding to the maximum value in the $f$ arr
 
 The time complexity is $O(n^2 \times L)$, and the space complexity is $O(n)$. Here, $L$ represents the maximum length of a word.
 
+**Optimization: Space for Time**
+
+In **Solution 1**, we need to enumerate all $i$ and $j$ combinations, a step that can be optimized by maintaining a wildcard hash table. For each string $word[i]$, we enumerate each character, replace it with a wildcard, and then use the replaced string as the key and add its subscript to the list which is the value in the hash table. This allows us to find all $word[j]$ with a Hamming distance of 1 from $word[i]$ in $O(L)$ time. Although the time complexity is still $O(n^2 \times L)$, the average complexity is reduced.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -149,6 +153,54 @@ class Solution {
             }
         }
         return cnt == 1;
+    }
+}
+```
+
+```java
+class Solution {
+    public List<String> getWordsInLongestSubsequence(int n, String[] words, int[] groups) {
+        int[] dp = new int[n];
+        int[] next = new int[n];
+        Map<String, List<Integer>> strToIdxMap = new HashMap<>();
+        int maxIdx = n;
+        for (int i = n - 1; i >= 0; i--) {
+            int prevIdx = n;
+            char[] word = words[i].toCharArray();
+            for (int j = 0; j < word.length; j++) {
+                // convert word to pattern with '*'.
+                char temp = word[j];
+                word[j] = '*';
+                String curr = new String(word);
+
+                // search matches and update dp.
+                List<Integer> prevList = strToIdxMap.getOrDefault(curr, List.of());
+                for (int prev : prevList) {
+                    if (groups[prev] == groups[i] || dp[prev] < dp[i]) {
+                        continue;
+                    }
+                    dp[i] = dp[prev] + 1;
+                    prevIdx = prev;
+                }
+
+                // append current pattern to dictionary.
+                strToIdxMap.computeIfAbsent(curr, k -> new ArrayList<>()).add(i);
+
+                // restore pattern to orignal word.
+                word[j] = temp;
+            }
+            if (maxIdx >= n || dp[i] > dp[maxIdx]) {
+                maxIdx = i;
+            }
+            next[i] = prevIdx;
+        }
+        int curr = maxIdx;
+        List<String> ans = new ArrayList<>();
+        while (curr < n) {
+            ans.add(words[curr]);
+            curr = next[curr];
+        }
+        return ans;
     }
 }
 ```
