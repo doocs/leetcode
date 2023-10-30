@@ -96,4 +96,19 @@ FROM t
 ORDER BY rk1, rk2;
 ```
 
+```sql
+SELECT
+    user_id,
+    gender
+FROM Genders
+ORDER BY
+    (
+        RANK() OVER (
+            PARTITION BY gender
+            ORDER BY user_id
+        )
+    ),
+    2;
+```
+
 <!-- tabs:end -->
