@@ -56,30 +56,103 @@ Only bits 0 and 3 are set in at least k elements of the array, and bits i &gt;= 
 
 ## Solutions
 
+**Solution 1: Enumeration**
+
+We can enumerate each bit $i$ in the range $[0, 32)$, and count the number of numbers in the array $nums$ whose $i$-th bit is $1$, denoted as $cnt$. If $cnt \ge k$, we add $2^i$ to the answer.
+
+After the enumeration, we return the answer.
+
+The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length of the array $nums$ and the maximum value in $nums$, respectively. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findKOr(self, nums: List[int], k: int) -> int:
+        ans = 0
+        for i in range(32):
+            cnt = sum(x >> i & 1 for x in nums)
+            if cnt >= k:
+                ans |= 1 << i
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int findKOr(int[] nums, int k) {
+        int ans = 0;
+        for (int i = 0; i < 32; ++i) {
+            int cnt = 0;
+            for (int x : nums) {
+                cnt += (x >> i & 1);
+            }
+            if (cnt >= k) {
+                ans |= 1 << i;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int findKOr(vector<int>& nums, int k) {
+        int ans = 0;
+        for (int i = 0; i < 32; ++i) {
+            int cnt = 0;
+            for (int x : nums) {
+                cnt += (x >> i & 1);
+            }
+            if (cnt >= k) {
+                ans |= 1 << i;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func findKOr(nums []int, k int) (ans int) {
+	for i := 0; i < 32; i++ {
+		cnt := 0
+		for _, x := range nums {
+			cnt += (x >> i & 1)
+		}
+		if cnt >= k {
+			ans |= 1 << i
+		}
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function findKOr(nums: number[], k: number): number {
+    let ans = 0;
+    for (let i = 0; i < 32; ++i) {
+        let cnt = 0;
+        for (const x of nums) {
+            cnt += (x >> i) & 1;
+        }
+        if (cnt >= k) {
+            ans |= 1 << i;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**

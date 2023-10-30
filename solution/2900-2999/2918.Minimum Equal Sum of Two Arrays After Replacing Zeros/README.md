@@ -46,6 +46,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：分情况讨论**
+
+我们记把数组中的 $0$ 视为 $1$，统计两个数组的和，分别记为 $s_1$ 和 $s_2$。不妨设 $s_1 \le s_2$。
+
+-   如果 $s_1 = s_2$，那么答案就是 $s_1$。
+-   如果 $s_1 \lt s_2$，那么 $nums1$ 中必须存在 $0$，才能使得两个数组的和相等，此时的答案就是 $s_2$。否则，说明无法使两个数组的和相等，返回 $-1$。
+
+时间复杂度 $O(n + m)$，其中 $n$ 和 $m$ 分别是数组 $nums1$ 和 $nums2$ 的长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -53,7 +62,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minSum(self, nums1: List[int], nums2: List[int]) -> int:
+        s1 = sum(nums1) + nums1.count(0)
+        s2 = sum(nums2) + nums2.count(0)
+        if s1 > s2:
+            return self.minSum(nums2, nums1)
+        if s1 == s2:
+            return s1
+        return -1 if nums1.count(0) == 0 else s2
 ```
 
 ### **Java**
@@ -61,19 +78,112 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public long minSum(int[] nums1, int[] nums2) {
+        long s1 = 0, s2 = 0;
+        boolean hasZero = false;
+        for (int x: nums1) {
+            hasZero |= x == 0;
+            s1 += Math.max(x, 1);
+        }
+        for (int x : nums2) {
+            s2 += Math.max(x, 1);
+        }
+        if (s1 > s2) {
+            return minSum(nums2, nums1);
+        }
+        if (s1 == s2) {
+            return s1;
+        }
+        return hasZero ? s2 : -1;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    long long minSum(vector<int>& nums1, vector<int>& nums2) {
+        long long s1 = 0, s2 = 0;
+        bool hasZero = false;
+        for (int x : nums1) {
+            hasZero |= x == 0;
+            s1 += max(x, 1);
+        }
+        for (int x : nums2) {
+            s2 += max(x, 1);
+        }
+        if (s1 > s2) {
+            return minSum(nums2, nums1);
+        }
+        if (s1 == s2) {
+            return s1;
+        }
+        return hasZero ? s2 : -1;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minSum(nums1 []int, nums2 []int) int64 {
+	s1, s2 := 0, 0
+	hasZero := false
+	for _, x := range nums1 {
+		if x == 0 {
+			hasZero = true
+		}
+		s1 += max(x, 1)
+	}
+	for _, x := range nums2 {
+		s2 += max(x, 1)
+	}
+	if s1 > s2 {
+		return minSum(nums2, nums1)
+	}
+	if s1 == s2 {
+		return int64(s1)
+	}
+	if hasZero {
+		return int64(s2)
+	}
+	return -1
+}
 
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function minSum(nums1: number[], nums2: number[]): number {
+    let [s1, s2] = [0, 0];
+    let hasZero = false;
+    for (const x of nums1) {
+        if (x === 0) {
+            hasZero = true;
+        }
+        s1 += Math.max(x, 1);
+    }
+    for (const x of nums2) {
+        s2 += Math.max(x, 1);
+    }
+    if (s1 > s2) {
+        return minSum(nums2, nums1);
+    }
+    if (s1 === s2) {
+        return s1;
+    }
+    return hasZero ? s2 : -1;
+}
 ```
 
 ### **...**

@@ -61,6 +61,14 @@ nums[1]、nums[2]、nums[3]、nums[4] 和 nums[5] 的第 3 位的值为 1 。
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：枚举**
+
+我们可以在 $[0, 32)$ 范围内枚举每一位 $i$，统计数组 $nums$ 有多少个数的第 $i$ 位为 $1$，记为 $cnt$。如果 $cnt \ge k$，那么我们就将 $2^i$ 次方加到答案中。
+
+枚举结束后，返回答案即可。
+
+时间复杂度 $O(n \times \log M)$，其中 $n$ 和 $M$ 分别是数组 $nums$ 的长度以及 $nums$ 的最大值。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -68,7 +76,14 @@ nums[1]、nums[2]、nums[3]、nums[4] 和 nums[5] 的第 3 位的值为 1 。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findKOr(self, nums: List[int], k: int) -> int:
+        ans = 0
+        for i in range(32):
+            cnt = sum(x >> i & 1 for x in nums)
+            if cnt >= k:
+                ans |= 1 << i
+        return ans
 ```
 
 ### **Java**
@@ -76,19 +91,77 @@ nums[1]、nums[2]、nums[3]、nums[4] 和 nums[5] 的第 3 位的值为 1 。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int findKOr(int[] nums, int k) {
+        int ans = 0;
+        for (int i = 0; i < 32; ++i) {
+            int cnt = 0;
+            for (int x : nums) {
+                cnt += (x >> i & 1);
+            }
+            if (cnt >= k) {
+                ans |= 1 << i;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int findKOr(vector<int>& nums, int k) {
+        int ans = 0;
+        for (int i = 0; i < 32; ++i) {
+            int cnt = 0;
+            for (int x : nums) {
+                cnt += (x >> i & 1);
+            }
+            if (cnt >= k) {
+                ans |= 1 << i;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func findKOr(nums []int, k int) (ans int) {
+	for i := 0; i < 32; i++ {
+		cnt := 0
+		for _, x := range nums {
+			cnt += (x >> i & 1)
+		}
+		if cnt >= k {
+			ans |= 1 << i
+		}
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function findKOr(nums: number[], k: number): number {
+    let ans = 0;
+    for (let i = 0; i < 32; ++i) {
+        let cnt = 0;
+        for (const x of nums) {
+            cnt += (x >> i) & 1;
+        }
+        if (cnt >= k) {
+            ans |= 1 << i;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
