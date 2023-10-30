@@ -39,7 +39,13 @@ Since the researcher has 3 papers with at least 3 citations each and the remaini
 
 ## Solutions
 
-Binary search.
+**Solution 1: Binary Search**
+
+We notice that if there are at least $x$ papers with citation counts greater than or equal to $x$, then for any $y \lt x$, its citation count must also be greater than or equal to $y$. This exhibits monotonicity.
+
+Therefore, we use binary search to enumerate $h$ and obtain the maximum $h$ that satisfies the condition. Since we need to satisfy that $h$ papers are cited at least $h$ times, we have $citations[n - mid] \ge mid$.
+
+The time complexity is $O(\log n)$, where $n$ is the length of the array $citations$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -117,6 +123,26 @@ func hIndex(citations []int) int {
 }
 ```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn h_index(citations: Vec<i32>) -> i32 {
+        let n = citations.len();
+        let (mut left, mut right) = (0, n);
+        while left < right {
+            let mid = ((left + right + 1) >> 1) as usize;
+            if citations[n - mid] >= mid as i32 {
+                left = mid;
+            } else {
+                right = mid - 1;
+            }
+        }
+        left as i32
+    }
+}
+```
+
 ### **TypeScript**
 
 ```ts
@@ -133,6 +159,26 @@ function hIndex(citations: number[]): number {
         }
     }
     return left;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int HIndex(int[] citations) {
+        int n = citations.Length;
+        int left = 0, right = n;
+        while (left < right) {
+            int mid = (left + right + 1) >> 1;
+            if (citations[n - mid] >= mid) {
+                left = mid;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return left;
+    }
 }
 ```
 
