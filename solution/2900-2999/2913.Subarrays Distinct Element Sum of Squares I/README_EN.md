@@ -53,30 +53,112 @@ The sum of the squares of the distinct counts in all subarrays is equal to 1<sup
 
 ## Solutions
 
+**Solution 1: Enumeration**
+
+We can enumerate the left endpoint index $i$ of the subarray, and for each $i$, we enumerate the right endpoint index $j$ in the range $[i, n)$, and calculate the distinct count of $nums[i..j]$ by adding the count of $nums[j]$ to a set $s$, and then taking the square of the size of $s$ as the contribution of $nums[i..j]$ to the answer.
+
+After the enumeration, we return the answer.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def sumCounts(self, nums: List[int]) -> int:
+        ans, n = 0, len(nums)
+        for i in range(n):
+            s = set()
+            for j in range(i, n):
+                s.add(nums[j])
+                ans += len(s) * len(s)
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int sumCounts(List<Integer> nums) {
+        int ans = 0;
+        int n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            int[] s = new int[101];
+            int cnt = 0;
+            for (int j = i; j < n; ++j) {
+                if (++s[nums.get(j)] == 1) {
+                    ++cnt;
+                }
+                ans += cnt * cnt;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int sumCounts(vector<int>& nums) {
+        int ans = 0;
+        int n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            int s[101]{};
+            int cnt = 0;
+            for (int j = i; j < n; ++j) {
+                if (++s[nums[j]] == 1) {
+                    ++cnt;
+                }
+                ans += cnt * cnt;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func sumCounts(nums []int) (ans int) {
+	for i := range nums {
+		s := [101]int{}
+		cnt := 0
+		for _, x := range nums[i:] {
+			s[x]++
+			if s[x] == 1 {
+				cnt++
+			}
+			ans += cnt * cnt
+		}
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function sumCounts(nums: number[]): number {
+    let ans = 0;
+    const n = nums.length;
+    for (let i = 0; i < n; ++i) {
+        const s: number[] = Array(101).fill(0);
+        let cnt = 0;
+        for (const x of nums.slice(i)) {
+            if (++s[x] === 1) {
+                ++cnt;
+            }
+            ans += cnt * cnt;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**

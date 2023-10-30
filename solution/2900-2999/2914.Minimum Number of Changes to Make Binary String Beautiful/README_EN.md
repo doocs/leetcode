@@ -57,30 +57,81 @@ It can be proven that 1 is the minimum number of changes needed to make the stri
 
 ## Solutions
 
+**Solution 1: Counting**
+
+We only need to traverse all odd indices $1, 3, 5, \cdots$ of the string $s$. If the current odd index is different from the previous index, i.e., $s[i] \ne s[i - 1]$, we need to modify the current character so that $s[i] = s[i - 1]$. Therefore, the answer needs to be incremented by $1$.
+
+After the traversal, we return the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minChanges(self, s: str) -> int:
+        return sum(s[i] != s[i - 1] for i in range(1, len(s), 2))
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int minChanges(String s) {
+        int ans = 0;
+        for (int i = 1; i < s.length(); i += 2) {
+            if (s.charAt(i) != s.charAt(i - 1)) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int minChanges(string s) {
+        int ans = 0;
+        int n = s.size();
+        for (int i = 1; i < n; i += 2) {
+            ans += s[i] != s[i - 1];
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minChanges(s string) (ans int) {
+	for i := 1; i < len(s); i += 2 {
+		if s[i] != s[i-1] {
+			ans++
+		}
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function minChanges(s: string): number {
+    let ans = 0;
+    for (let i = 1; i < s.length; i += 2) {
+        if (s[i] !== s[i - 1]) {
+            ++ans;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
