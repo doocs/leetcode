@@ -62,6 +62,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：枚举**
+
+我们可以枚举子数组的左端点下标 $i$，对于每个 $i$，我们在 $[i, n)$ 的范围内枚举子数组的右端点下标 $j$，并统计 $nums[j]$ 的值，将其加入到集合 $s$ 中，记 $s$ 的大小为 $cnt$，那么 $nums[i..j]$ 的不同计数为 $cnt$，将其平方后加入到答案中。
+
+枚举结束后，返回答案即可。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -69,7 +77,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def sumCounts(self, nums: List[int]) -> int:
+        ans, n = 0, len(nums)
+        for i in range(n):
+            s = set()
+            for j in range(i, n):
+                s.add(nums[j])
+                ans += len(s) * len(s)
+        return ans
 ```
 
 ### **Java**
@@ -77,19 +93,85 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int sumCounts(List<Integer> nums) {
+        int ans = 0;
+        int n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            int[] s = new int[101];
+            int cnt = 0;
+            for (int j = i; j < n; ++j) {
+                if (++s[nums.get(j)] == 1) {
+                    ++cnt;
+                }
+                ans += cnt * cnt;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int sumCounts(vector<int>& nums) {
+        int ans = 0;
+        int n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            int s[101]{};
+            int cnt = 0;
+            for (int j = i; j < n; ++j) {
+                if (++s[nums[j]] == 1) {
+                    ++cnt;
+                }
+                ans += cnt * cnt;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func sumCounts(nums []int) (ans int) {
+	for i := range nums {
+		s := [101]int{}
+		cnt := 0
+		for _, x := range nums[i:] {
+			s[x]++
+			if s[x] == 1 {
+				cnt++
+			}
+			ans += cnt * cnt
+		}
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function sumCounts(nums: number[]): number {
+    let ans = 0;
+    const n = nums.length;
+    for (let i = 0; i < n; ++i) {
+        const s: number[] = Array(101).fill(0);
+        let cnt = 0;
+        for (const x of nums.slice(i)) {
+            if (++s[x] === 1) {
+                ++cnt;
+            }
+            ans += cnt * cnt;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**

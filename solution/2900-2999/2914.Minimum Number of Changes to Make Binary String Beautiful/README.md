@@ -63,6 +63,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：计数**
+
+我们只需要遍历字符串 $s$ 的所有奇数下标 $1, 3, 5, \cdots$，如果当前奇数下标与前一个下标的字符不同，即 $s[i] \ne s[i - 1]$，那么就需要修改当前字符，使得 $s[i] = s[i - 1]$。因此，此时答案需要加 $1$。
+
+遍历结束后，返回答案即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是字符串 $s$ 的长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -70,7 +78,9 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minChanges(self, s: str) -> int:
+        return sum(s[i] != s[i - 1] for i in range(1, len(s), 2))
 ```
 
 ### **Java**
@@ -78,19 +88,60 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int minChanges(String s) {
+        int ans = 0;
+        for (int i = 1; i < s.length(); i += 2) {
+            if (s.charAt(i) != s.charAt(i - 1)) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int minChanges(string s) {
+        int ans = 0;
+        int n = s.size();
+        for (int i = 1; i < n; i += 2) {
+            ans += s[i] != s[i - 1];
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minChanges(s string) (ans int) {
+	for i := 1; i < len(s); i += 2 {
+		if s[i] != s[i-1] {
+			ans++
+		}
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function minChanges(s: string): number {
+    let ans = 0;
+    for (let i = 1; i < s.length; i += 2) {
+        if (s[i] !== s[i - 1]) {
+            ++ans;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
