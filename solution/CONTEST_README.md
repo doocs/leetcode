@@ -22,6 +22,20 @@
 
 ## 往期竞赛
 
+#### 第 369 场周赛(2023-10-29 10:30, 90 分钟) 参赛人数 4121
+
+- [2917. 找出数组中的 K-or 值](/solution/2900-2999/2917.Find%20the%20K-or%20of%20an%20Array/README.md)
+- [2918. 数组的最小相等和](/solution/2900-2999/2918.Minimum%20Equal%20Sum%20of%20Two%20Arrays%20After%20Replacing%20Zeros/README.md)
+- [2919. 使数组变美的最小增量运算数](/solution/2900-2999/2919.Minimum%20Increment%20Operations%20to%20Make%20Array%20Beautiful/README.md)
+- [2920. 收集所有金币可获得的最大积分](/solution/2900-2999/2920.Maximum%20Points%20After%20Collecting%20Coins%20From%20All%20Nodes/README.md)
+
+#### 第 116 场双周赛(2023-10-28 22:30, 90 分钟) 参赛人数 2904
+
+- [2913. 子数组不同元素数目的平方和 I](/solution/2900-2999/2913.Subarrays%20Distinct%20Element%20Sum%20of%20Squares%20I/README.md)
+- [2914. 使二进制字符串变美丽的最少修改次数](/solution/2900-2999/2914.Minimum%20Number%20of%20Changes%20to%20Make%20Binary%20String%20Beautiful/README.md)
+- [2915. 和为目标值的最长子序列的长度](/solution/2900-2999/2915.Length%20of%20the%20Longest%20Subsequence%20That%20Sums%20to%20Target/README.md)
+- [2916. 子数组不同元素数目的平方和 II](/solution/2900-2999/2916.Subarrays%20Distinct%20Element%20Sum%20of%20Squares%20II/README.md)
+
 #### 第 368 场周赛(2023-10-22 10:30, 90 分钟) 参赛人数 5002
 
 - [2908. 元素和最小的山形三元组 I](/solution/2900-2999/2908.Minimum%20Sum%20of%20Mountain%20Triplets%20I/README.md)
