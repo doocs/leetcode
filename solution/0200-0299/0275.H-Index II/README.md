@@ -46,9 +46,11 @@
 
 **方法一：二分查找**
 
-二分枚举 h，获取满足条件的最大 h。由于要满足 h 篇论文至少被引用 h 次，因此 `citations[n - mid] >= mid`。
+我们注意到，如果有至少 $x$ 篇论文的引用次数大于等于 $x$，那么对于任意 $y \lt x$，其引用次数也一定大于等于 $y$。这存在着单调性。
 
-时间复杂度 O(logn)。
+因此，我们二分枚举 $h$，获取满足条件的最大 $h$。由于要满足 $h$ 篇论文至少被引用 $h$ 次，因此 $citations[n - mid] \ge mid$。
+
+时间复杂度 $O(\log n)$，其中 $n$ 是数组 $citations$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -130,6 +132,26 @@ func hIndex(citations []int) int {
 }
 ```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn h_index(citations: Vec<i32>) -> i32 {
+        let n = citations.len();
+        let (mut left, mut right) = (0, n);
+        while left < right {
+            let mid = ((left + right + 1) >> 1) as usize;
+            if citations[n - mid] >= mid as i32 {
+                left = mid;
+            } else {
+                right = mid - 1;
+            }
+        }
+        left as i32
+    }
+}
+```
+
 ### **TypeScript**
 
 ```ts
@@ -146,6 +168,26 @@ function hIndex(citations: number[]): number {
         }
     }
     return left;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int HIndex(int[] citations) {
+        int n = citations.Length;
+        int left = 0, right = n;
+        while (left < right) {
+            int mid = (left + right + 1) >> 1;
+            if (citations[n - mid] >= mid) {
+                left = mid;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return left;
+    }
 }
 ```
 
