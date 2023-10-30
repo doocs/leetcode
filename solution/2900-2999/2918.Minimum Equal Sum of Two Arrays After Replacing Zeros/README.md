@@ -82,7 +82,7 @@ class Solution {
     public long minSum(int[] nums1, int[] nums2) {
         long s1 = 0, s2 = 0;
         boolean hasZero = false;
-        for (int x: nums1) {
+        for (int x : nums1) {
             hasZero |= x == 0;
             s1 += Math.max(x, 1);
         }
