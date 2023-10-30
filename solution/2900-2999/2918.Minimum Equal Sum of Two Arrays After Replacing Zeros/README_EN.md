@@ -40,30 +40,140 @@ Both arrays have an equal sum of 12. It can be shown that it is the minimum sum 
 
 ## Solutions
 
+**Solution 1: Case Analysis**
+
+We consider the case where we treat all $0$s in the array as $1$s, and calculate the sum of the two arrays separately, denoted as $s_1$ and $s_2$. Without loss of generality, we assume that $s_1 \le s_2$.
+
+-   If $s_1 = s_2$, then the answer is $s_1$.
+-   If $s_1 \lt s_2$, then there must exist a $0$ in $nums1$ to make the sum of the two arrays equal. In this case, the answer is $s_2$. Otherwise, it means that it is impossible to make the sum of the two arrays equal, and we return $-1$.
+
+The time complexity is $O(n + m)$, where $n$ and $m$ are the lengths of the arrays $nums1$ and $nums2$, respectively. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minSum(self, nums1: List[int], nums2: List[int]) -> int:
+        s1 = sum(nums1) + nums1.count(0)
+        s2 = sum(nums2) + nums2.count(0)
+        if s1 > s2:
+            return self.minSum(nums2, nums1)
+        if s1 == s2:
+            return s1
+        return -1 if nums1.count(0) == 0 else s2
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public long minSum(int[] nums1, int[] nums2) {
+        long s1 = 0, s2 = 0;
+        boolean hasZero = false;
+        for (int x : nums1) {
+            hasZero |= x == 0;
+            s1 += Math.max(x, 1);
+        }
+        for (int x : nums2) {
+            s2 += Math.max(x, 1);
+        }
+        if (s1 > s2) {
+            return minSum(nums2, nums1);
+        }
+        if (s1 == s2) {
+            return s1;
+        }
+        return hasZero ? s2 : -1;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    long long minSum(vector<int>& nums1, vector<int>& nums2) {
+        long long s1 = 0, s2 = 0;
+        bool hasZero = false;
+        for (int x : nums1) {
+            hasZero |= x == 0;
+            s1 += max(x, 1);
+        }
+        for (int x : nums2) {
+            s2 += max(x, 1);
+        }
+        if (s1 > s2) {
+            return minSum(nums2, nums1);
+        }
+        if (s1 == s2) {
+            return s1;
+        }
+        return hasZero ? s2 : -1;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minSum(nums1 []int, nums2 []int) int64 {
+	s1, s2 := 0, 0
+	hasZero := false
+	for _, x := range nums1 {
+		if x == 0 {
+			hasZero = true
+		}
+		s1 += max(x, 1)
+	}
+	for _, x := range nums2 {
+		s2 += max(x, 1)
+	}
+	if s1 > s2 {
+		return minSum(nums2, nums1)
+	}
+	if s1 == s2 {
+		return int64(s1)
+	}
+	if hasZero {
+		return int64(s2)
+	}
+	return -1
+}
 
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function minSum(nums1: number[], nums2: number[]): number {
+    let [s1, s2] = [0, 0];
+    let hasZero = false;
+    for (const x of nums1) {
+        if (x === 0) {
+            hasZero = true;
+        }
+        s1 += Math.max(x, 1);
+    }
+    for (const x of nums2) {
+        s2 += Math.max(x, 1);
+    }
+    if (s1 > s2) {
+        return minSum(nums2, nums1);
+    }
+    if (s1 === s2) {
+        return s1;
+    }
+    return hasZero ? s2 : -1;
+}
 ```
 
 ### **...**
