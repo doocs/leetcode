@@ -92,7 +92,6 @@ class Solution:
                 continue
             vis.add((x, y))
             ans = min(ans, d + dist(x, y, *target))
-            vis.add((x, y))
             for x1, y1, x2, y2, cost in specialRoads:
                 heappush(q, (d + dist(x, y, x1, y1) + cost, x2, y2))
         return ans
