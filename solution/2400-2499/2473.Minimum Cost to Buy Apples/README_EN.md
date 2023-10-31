@@ -224,13 +224,6 @@ func minCost(n int, roads [][]int, appleCost []int, k int) []int64 {
 	return ans
 }
 
-func min(a, b int64) int64 {
-	if a < b {
-		return a
-	}
-	return b
-}
-
 type pair struct{ first, second int }
 
 var _ heap.Interface = (*pairs)(nil)

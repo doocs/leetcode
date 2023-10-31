@@ -18,10 +18,3 @@ func getKthMagicNumber(k int) int {
 	}
 	return dp[k]
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

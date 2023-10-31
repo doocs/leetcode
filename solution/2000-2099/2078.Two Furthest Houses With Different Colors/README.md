@@ -184,13 +184,6 @@ func maxDistance(colors []int) int {
 	return ans
 }
 
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
 func abs(x int) int {
 	if x >= 0 {
 		return x
@@ -213,13 +206,6 @@ func maxDistance(colors []int) int {
 		j--
 	}
 	return max(n-i-1, j)
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

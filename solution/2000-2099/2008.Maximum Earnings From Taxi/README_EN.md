@@ -223,13 +223,6 @@ func maxTaxiEarnings(n int, rides [][]int) int64 {
 	}
 	return dfs(0)
 }
-
-func max(a, b int64) int64 {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -243,13 +236,6 @@ func maxTaxiEarnings(n int, rides [][]int) int64 {
 		dp[i+1] = max(dp[i], dp[j]+int64(e-s+t))
 	}
 	return dp[m]
-}
-
-func max(a, b int64) int64 {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

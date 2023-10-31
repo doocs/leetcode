@@ -3,10 +3,3 @@ func maximumCount(nums []int) int {
 	b := sort.SearchInts(nums, 0)
 	return max(a, b)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

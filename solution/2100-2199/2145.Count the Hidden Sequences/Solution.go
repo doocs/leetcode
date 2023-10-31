@@ -7,17 +7,3 @@ func numberOfArrays(differences []int, lower int, upper int) int {
 	}
 	return max(0, upper-lower-(mx-mi)+1)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

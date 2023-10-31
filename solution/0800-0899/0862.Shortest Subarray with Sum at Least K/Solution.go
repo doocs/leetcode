@@ -21,10 +21,3 @@ func shortestSubarray(nums []int, k int) int {
 	}
 	return ans
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

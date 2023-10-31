@@ -205,13 +205,6 @@ func numRollsToTarget(n int, k int, target int) int {
 	}
 	return f[n][target]
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -229,13 +222,6 @@ func numRollsToTarget(n int, k int, target int) int {
 		f = g
 	}
 	return f[target]
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
 ```
 

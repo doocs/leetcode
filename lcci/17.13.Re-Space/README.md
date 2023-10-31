@@ -120,13 +120,6 @@ func respace(dictionary []string, sentence string) int {
 	}
 	return dp[n]
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

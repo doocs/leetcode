@@ -12,10 +12,3 @@ func kthSmallest(mat [][]int, k int) int {
 	}
 	return pre[k-1]
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

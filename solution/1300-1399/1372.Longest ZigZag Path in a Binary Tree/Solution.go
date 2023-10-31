@@ -20,10 +20,3 @@ func longestZigZag(root *TreeNode) int {
 	dfs(root, 0, 0)
 	return ans
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

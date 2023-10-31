@@ -171,13 +171,6 @@ func numSquares(n int) int {
 	}
 	return f[m][n]
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -194,13 +187,6 @@ func numSquares(n int) int {
 		}
 	}
 	return f[n]
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
 ```
 

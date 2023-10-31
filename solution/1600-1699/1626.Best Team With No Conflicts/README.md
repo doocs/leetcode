@@ -296,13 +296,6 @@ func bestTeamScore(scores []int, ages []int) (ans int) {
 	}
 	return
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -349,13 +342,6 @@ func bestTeamScore(scores []int, ages []int) int {
 		tree.update(x[1], x[0]+tree.query(x[1]))
 	}
 	return tree.query(m)
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

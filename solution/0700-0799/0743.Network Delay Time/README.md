@@ -366,20 +366,6 @@ func networkDelayTime(times [][]int, n int, k int) int {
 	}
 	return ans
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 堆优化 Dijkstra 算法：
@@ -444,13 +430,6 @@ func networkDelayTime(times [][]int, n int, k int) int {
 	}
 	return ans
 }
-
-func max(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
-}
 ```
 
 Bellman Ford 算法：
@@ -479,20 +458,6 @@ func networkDelayTime(times [][]int, n int, k int) int {
 		return -1
 	}
 	return ans
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
 ```
 
@@ -538,13 +503,6 @@ func networkDelayTime(times [][]int, n int, k int) int {
 		return -1
 	}
 	return ans
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

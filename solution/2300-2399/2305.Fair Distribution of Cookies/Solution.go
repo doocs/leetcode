@@ -23,10 +23,3 @@ func distributeCookies(cookies []int, k int) int {
 	dfs(0)
 	return ans
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

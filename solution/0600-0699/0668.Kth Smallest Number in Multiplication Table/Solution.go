@@ -14,10 +14,3 @@ func findKthNumber(m int, n int, k int) int {
 	}
 	return left
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

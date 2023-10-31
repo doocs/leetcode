@@ -189,13 +189,6 @@ func (this *WordDistance) Shortest(word1 string, word2 string) int {
 	return ans
 }
 
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
 func abs(x int) int {
 	if x < 0 {
 		return -x

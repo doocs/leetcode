@@ -321,13 +321,6 @@ func minScoreTriangulation(values []int) int {
 	}
 	return dfs(0, n-1)
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -343,13 +336,6 @@ func minScoreTriangulation(values []int) int {
 		}
 	}
 	return f[0][n-1]
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
 ```
 
@@ -367,13 +353,6 @@ func minScoreTriangulation(values []int) int {
 		}
 	}
 	return f[0][n-1]
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
 ```
 

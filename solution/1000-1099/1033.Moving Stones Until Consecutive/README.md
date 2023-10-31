@@ -133,20 +133,6 @@ func numMovesStones(a int, b int, c int) []int {
 	}
 	return []int{mi, mx}
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

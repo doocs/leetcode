@@ -123,13 +123,6 @@ func commonChars(words []string) (ans []string) {
 	}
 	return
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

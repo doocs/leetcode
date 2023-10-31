@@ -52,10 +52,3 @@ func minCost(houses []int, cost [][]int, m int, n int, target int) int {
 	}
 	return ans
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

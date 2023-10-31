@@ -222,13 +222,6 @@ func longestConsecutive(nums []int) int {
 	}
 	return ans
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -247,13 +240,6 @@ func longestConsecutive(nums []int) (ans int) {
 		}
 	}
 	return
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

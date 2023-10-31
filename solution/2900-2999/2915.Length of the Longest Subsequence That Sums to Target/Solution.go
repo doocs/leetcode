@@ -14,10 +14,3 @@ func lengthOfLongestSubsequence(nums []int, target int) int {
 	}
 	return f[target]
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

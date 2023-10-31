@@ -240,13 +240,6 @@ func count(s string) (int, int) {
 	a := strings.Count(s, "0")
 	return a, len(s) - a
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -269,13 +262,6 @@ func findMaxForm(strs []string, m int, n int) int {
 func count(s string) (int, int) {
 	a := strings.Count(s, "0")
 	return a, len(s) - a
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

@@ -11,10 +11,3 @@ func maxValue(grid [][]int) int {
 	}
 	return f[m&1][n]
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

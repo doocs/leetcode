@@ -286,13 +286,6 @@ func minCost(nums []int, cost []int) int64 {
 	}
 	return ans
 }
-
-func min(a, b int64) int64 {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go

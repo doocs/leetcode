@@ -148,13 +148,6 @@ func maxMatrixSum(matrix [][]int) int64 {
 	return int64(s)
 }
 
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
 func abs(x int) int {
 	if x < 0 {
 		return -x

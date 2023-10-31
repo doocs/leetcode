@@ -18,10 +18,3 @@ func maxTaxiEarnings(n int, rides [][]int) int64 {
 	}
 	return dfs(0)
 }
-
-func max(a, b int64) int64 {
-	if a > b {
-		return a
-	}
-	return b
-}

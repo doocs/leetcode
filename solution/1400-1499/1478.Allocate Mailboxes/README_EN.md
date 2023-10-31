@@ -154,13 +154,6 @@ func minDistance(houses []int, k int) int {
 	}
 	return f[n-1][k]
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

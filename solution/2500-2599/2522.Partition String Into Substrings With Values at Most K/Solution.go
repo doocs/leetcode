@@ -27,10 +27,3 @@ func minimumPartition(s string, k int) int {
 	}
 	return -1
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

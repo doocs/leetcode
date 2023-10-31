@@ -45,13 +45,6 @@ func (this *StockPrice) Minimum() int {
 	return this.ls.Left().Key.(int)
 }
 
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
 /**
  * Your StockPrice object will be instantiated and called as such:
  * obj := Constructor();

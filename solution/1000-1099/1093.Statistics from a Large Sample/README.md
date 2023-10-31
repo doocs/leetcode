@@ -233,20 +233,6 @@ func sampleStats(count []int) []float64 {
 	}
 	return []float64{float64(mi), float64(mx), float64(s) / float64(cnt), median, float64(mode)}
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

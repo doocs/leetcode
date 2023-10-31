@@ -31,10 +31,3 @@ func minimumTeachings(n int, languages [][]int, friendships [][]int) int {
 	}
 	return len(s) - mx
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

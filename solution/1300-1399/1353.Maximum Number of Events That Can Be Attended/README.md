@@ -183,20 +183,6 @@ func maxEvents(events [][]int) int {
 	return ans
 }
 
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
 type hp struct{ sort.IntSlice }
 
 func (h *hp) Push(v interface{}) { h.IntSlice = append(h.IntSlice, v.(int)) }

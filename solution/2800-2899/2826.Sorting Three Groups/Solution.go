@@ -19,10 +19,3 @@ func minimumOperations(nums []int) int {
 	}
 	return min(f[0], min(f[1], f[2]))
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

@@ -24,10 +24,3 @@ func profitableSchemes(n int, minProfit int, group []int, profit []int) int {
 	}
 	return f[m][n][minProfit]
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

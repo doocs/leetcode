@@ -12,10 +12,3 @@ func minimumSize(nums []int, maxOperations int) int {
 		return cnt <= maxOperations
 	})
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

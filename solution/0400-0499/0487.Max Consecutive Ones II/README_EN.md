@@ -289,13 +289,6 @@ func findMaxConsecutiveOnes(nums []int) int {
 	}
 	return ans
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -315,13 +308,6 @@ func findMaxConsecutiveOnes(nums []int) int {
 		ans = max(ans, i-j+1)
 	}
 	return ans
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

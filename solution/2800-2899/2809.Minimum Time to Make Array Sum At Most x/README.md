@@ -296,13 +296,6 @@ func minimumTime(nums1 []int, nums2 []int, x int) int {
 	}
 	return -1
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -330,13 +323,6 @@ func minimumTime(nums1 []int, nums2 []int, x int) int {
 		}
 	}
 	return -1
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

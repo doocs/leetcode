@@ -225,13 +225,6 @@ func mostPoints(questions [][]int) int64 {
 	}
 	return dfs(0)
 }
-
-func max(a, b int64) int64 {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -246,13 +239,6 @@ func mostPoints(questions [][]int) int64 {
 		f[i] = max(f[i+1], p)
 	}
 	return f[0]
-}
-
-func max(a, b int64) int64 {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

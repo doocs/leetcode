@@ -342,13 +342,6 @@ func canTraverseAllPairs(nums []int) bool {
 	}
 	return len(s) == 1
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

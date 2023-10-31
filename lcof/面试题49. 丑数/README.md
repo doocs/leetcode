@@ -234,13 +234,6 @@ func nthUglyNumber(n int) int {
 	}
 	return dp[n-1]
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **JavaScript**

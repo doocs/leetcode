@@ -71,10 +71,3 @@ func boldWords(words []string, s string) string {
 	}
 	return ans.String()
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

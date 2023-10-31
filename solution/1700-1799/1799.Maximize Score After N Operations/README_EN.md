@@ -183,13 +183,6 @@ func maxScore(nums []int) int {
 	return f[1<<m-1]
 }
 
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
 func gcd(a, b int) int {
 	if b == 0 {
 		return a

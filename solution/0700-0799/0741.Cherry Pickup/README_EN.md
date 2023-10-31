@@ -190,13 +190,6 @@ func cherryPickup(grid [][]int) int {
 	}
 	return max(0, dp[n*2-2][n-1][n-1])
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **JavaScript**

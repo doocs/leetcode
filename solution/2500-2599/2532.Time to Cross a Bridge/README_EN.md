@@ -340,13 +340,6 @@ func (h hp2) Less(i, j int) bool  { return h[i].t < h[j].t }
 func (h hp2) Swap(i, j int)       { h[i], h[j] = h[j], h[i] }
 func (h *hp2) Push(v interface{}) { *h = append(*h, v.(pair)) }
 func (h *hp2) Pop() interface{}   { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

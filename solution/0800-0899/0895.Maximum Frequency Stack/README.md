@@ -339,13 +339,6 @@ func (this *FreqStack) Pop() int {
 	return val
 }
 
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
 /**
  * Your FreqStack object will be instantiated and called as such:
  * obj := Constructor();

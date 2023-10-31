@@ -17,10 +17,3 @@ func stoneGameIX(stones []int) bool {
 	}
 	return check(c) || check([3]int{c[0], c[2], c[1]})
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

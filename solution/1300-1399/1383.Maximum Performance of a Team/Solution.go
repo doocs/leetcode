@@ -19,13 +19,6 @@ func maxPerformance(n int, speed []int, efficiency []int, k int) int {
 	return ans % mod
 }
 
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
 type hp struct{ sort.IntSlice }
 
 func (h *hp) Push(v interface{}) { h.IntSlice = append(h.IntSlice, v.(int)) }

@@ -11,10 +11,3 @@ func maxPrice(items [][]int, capacity int) (ans float64) {
 	}
 	return
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

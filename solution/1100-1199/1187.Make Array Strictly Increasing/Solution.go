@@ -33,10 +33,3 @@ func makeArrayIncreasing(arr1 []int, arr2 []int) int {
 	}
 	return f[n-1]
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

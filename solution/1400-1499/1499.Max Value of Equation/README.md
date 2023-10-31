@@ -226,13 +226,6 @@ func findMaxValueOfEquation(points [][]int, k int) int {
 	return ans
 }
 
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
 type pair struct{ v, x int }
 
 type hp []pair
@@ -265,13 +258,6 @@ func findMaxValueOfEquation(points [][]int, k int) int {
 		q = append(q, [2]int{x, y})
 	}
 	return ans
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

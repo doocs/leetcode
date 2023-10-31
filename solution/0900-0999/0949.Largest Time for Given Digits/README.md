@@ -178,13 +178,6 @@ func largestTimeFromDigits(arr []int) string {
 	}
 	return fmt.Sprintf("%02d:%02d", ans/60, ans%60)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

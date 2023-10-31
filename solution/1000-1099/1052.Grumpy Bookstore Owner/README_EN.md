@@ -134,13 +134,6 @@ func maxSatisfied(customers []int, grumpy []int, minutes int) int {
 	}
 	return ans
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **Rust**

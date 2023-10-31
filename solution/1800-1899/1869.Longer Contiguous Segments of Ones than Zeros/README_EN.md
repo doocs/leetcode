@@ -170,13 +170,6 @@ func checkZeroOnes(s string) bool {
 	}
 	return n1 > n0
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

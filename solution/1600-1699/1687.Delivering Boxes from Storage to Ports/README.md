@@ -223,20 +223,6 @@ func boxDelivering(boxes [][]int, portsCount int, maxBoxes int, maxWeight int) i
 	}
 	return f[n]
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 本题数据规模达到 $10^5$，而以上代码的时间复杂度为 $O(n^2)$，会超出时间限制。我们仔细观察：

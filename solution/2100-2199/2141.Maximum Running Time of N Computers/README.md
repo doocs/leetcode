@@ -162,13 +162,6 @@ func maxRunTime(n int, batteries []int) int64 {
 	}
 	return int64(l)
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

@@ -346,13 +346,6 @@ func addBoldTag(s string, words []string) string {
 	}
 	return ans.String()
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

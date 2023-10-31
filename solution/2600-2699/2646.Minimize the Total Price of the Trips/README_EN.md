@@ -261,13 +261,6 @@ func minimumTotalPrice(n int, edges [][]int, price []int, trips [][]int) int {
 	a, b := dfs2(0, -1)
 	return min(a, b)
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

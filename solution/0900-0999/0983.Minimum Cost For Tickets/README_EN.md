@@ -204,13 +204,6 @@ func lowerBound(arr []int, x int) int {
 	}
 	return left
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

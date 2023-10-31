@@ -14,10 +14,3 @@ func insert(intervals [][]int, newInterval []int) [][]int {
 	intervals = append(intervals, newInterval)
 	return merge(intervals)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

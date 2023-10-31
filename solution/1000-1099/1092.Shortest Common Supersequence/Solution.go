@@ -40,10 +40,3 @@ func shortestCommonSupersequence(str1 string, str2 string) string {
 	}
 	return string(ans)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

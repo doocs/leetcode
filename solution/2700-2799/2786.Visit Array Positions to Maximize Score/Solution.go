@@ -7,10 +7,3 @@ func maxScore(nums []int, x int) int64 {
 	}
 	return int64(max(f[0], f[1]))
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

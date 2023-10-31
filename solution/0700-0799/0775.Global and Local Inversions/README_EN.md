@@ -231,13 +231,6 @@ func isIdealPermutation(nums []int) bool {
 	}
 	return true
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go

@@ -163,13 +163,6 @@ func wiggleMaxLength(nums []int) int {
 	}
 	return max(up, down)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

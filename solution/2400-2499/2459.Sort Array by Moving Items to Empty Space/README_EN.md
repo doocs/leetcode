@@ -194,13 +194,6 @@ func sortArray(nums []int) int {
 	b := f(arr, n-1)
 	return min(a, b)
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

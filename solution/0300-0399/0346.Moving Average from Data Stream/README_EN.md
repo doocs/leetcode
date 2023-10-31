@@ -223,13 +223,6 @@ func (this *MovingAverage) Next(val int) float64 {
 	return float64(this.s) / float64(min(this.cnt, len(this.arr)))
 }
 
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
 /**
  * Your MovingAverage object will be instantiated and called as such:
  * obj := Constructor(size);

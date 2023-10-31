@@ -22,10 +22,3 @@ func maxSum(nums []int, m int, k int) int64 {
 	}
 	return ans
 }
-
-func max(a, b int64) int64 {
-	if a > b {
-		return a
-	}
-	return b
-}

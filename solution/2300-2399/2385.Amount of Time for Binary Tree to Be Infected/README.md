@@ -453,13 +453,6 @@ func amountOfTime(root *TreeNode, start int) int {
 	dfs(root)
 	return dfs2(start, -1)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

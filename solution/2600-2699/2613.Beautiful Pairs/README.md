@@ -317,20 +317,6 @@ func dist(x1, y1, x2, y2 int) int {
 	return abs(x1-x2) + abs(y1-y2)
 }
 
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
 func abs(x int) int {
 	if x < 0 {
 		return -x

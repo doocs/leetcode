@@ -148,13 +148,6 @@ func minimumDeleteSum(s1 string, s2 string) int {
 	}
 	return f[m][n]
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

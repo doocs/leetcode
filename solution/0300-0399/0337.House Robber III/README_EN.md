@@ -150,13 +150,6 @@ func rob(root *TreeNode) int {
 	a, b := dfs(root)
 	return max(a, b)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

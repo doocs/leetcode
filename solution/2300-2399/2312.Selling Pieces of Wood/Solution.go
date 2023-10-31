@@ -28,10 +28,3 @@ func sellingWood(m int, n int, prices [][]int) int64 {
 	}
 	return int64(dfs(m, n))
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

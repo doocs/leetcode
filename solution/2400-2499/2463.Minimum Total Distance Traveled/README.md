@@ -224,13 +224,6 @@ func minimumTotalDistance(robot []int, factory [][]int) int64 {
 	return int64(dfs(0, 0))
 }
 
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
 func abs(x int) int {
 	if x < 0 {
 		return -x

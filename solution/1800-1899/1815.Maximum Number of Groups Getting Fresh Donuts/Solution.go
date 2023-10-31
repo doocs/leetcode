@@ -31,10 +31,3 @@ func maxHappyGroups(batchSize int, groups []int) (ans int) {
 	ans += dfs(state, 0)
 	return
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

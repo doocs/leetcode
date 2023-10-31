@@ -163,13 +163,6 @@ func maxConsecutiveAnswers(answerKey string, k int) int {
 	}
 	return max(get('T', k), get('F', k))
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

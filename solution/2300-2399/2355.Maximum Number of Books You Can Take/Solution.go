@@ -32,17 +32,3 @@ func maximumBooks(books []int) int64 {
 	}
 	return int64(ans)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

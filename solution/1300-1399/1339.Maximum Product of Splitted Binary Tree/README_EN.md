@@ -203,13 +203,6 @@ func maxProduct(root *TreeNode) (ans int) {
 	ans %= mod
 	return
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

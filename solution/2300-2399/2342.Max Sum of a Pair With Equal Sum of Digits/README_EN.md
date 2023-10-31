@@ -192,13 +192,6 @@ func maximumSum(nums []int) int {
 	}
 	return ans
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -216,13 +209,6 @@ func maximumSum(nums []int) int {
 		d[y] = max(d[y], v)
 	}
 	return ans
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

@@ -5,10 +5,3 @@ func maxCount(m int, n int, ops [][]int) int {
 	}
 	return m * n
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

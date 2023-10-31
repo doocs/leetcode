@@ -316,20 +316,6 @@ func networkDelayTime(times [][]int, n int, k int) int {
 	}
 	return ans
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -392,13 +378,6 @@ func networkDelayTime(times [][]int, n int, k int) int {
 	}
 	return ans
 }
-
-func max(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
-}
 ```
 
 ```go
@@ -425,20 +404,6 @@ func networkDelayTime(times [][]int, n int, k int) int {
 		return -1
 	}
 	return ans
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
 ```
 
@@ -482,13 +447,6 @@ func networkDelayTime(times [][]int, n int, k int) int {
 		return -1
 	}
 	return ans
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

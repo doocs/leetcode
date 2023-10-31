@@ -50,13 +50,6 @@ func (this *Graph) ShortestPath(node1 int, node2 int) int {
 	return dist[node2]
 }
 
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
 /**
  * Your Graph object will be instantiated and called as such:
  * obj := Constructor(n, edges);

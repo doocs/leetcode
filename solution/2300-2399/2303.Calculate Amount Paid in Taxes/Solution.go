@@ -7,17 +7,3 @@ func calculateTax(brackets [][]int, income int) float64 {
 	}
 	return float64(ans) / 100.0
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

@@ -27,10 +27,3 @@ func shortestDistanceColor(colors []int, queries [][]int) (ans []int) {
 	}
 	return
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

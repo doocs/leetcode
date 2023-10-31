@@ -10,10 +10,3 @@ func findMaxConsecutiveOnes(nums []int) int {
 	}
 	return max(ans, cnt)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

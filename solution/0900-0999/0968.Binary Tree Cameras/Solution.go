@@ -22,10 +22,3 @@ func minCameraCover(root *TreeNode) int {
 	a, b, _ := dfs(root)
 	return min(a, b)
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

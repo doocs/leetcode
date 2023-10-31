@@ -149,13 +149,6 @@ func maxScore(cardPoints []int, k int) int {
 	}
 	return s[n] - mi
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

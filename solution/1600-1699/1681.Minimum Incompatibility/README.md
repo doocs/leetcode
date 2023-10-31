@@ -323,20 +323,6 @@ func minimumIncompatibility(nums []int, k int) int {
 	}
 	return f[1<<n-1]
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

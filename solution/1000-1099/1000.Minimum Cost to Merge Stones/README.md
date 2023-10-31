@@ -223,13 +223,6 @@ func mergeStones(stones []int, K int) int {
 	}
 	return f[1][n][1]
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

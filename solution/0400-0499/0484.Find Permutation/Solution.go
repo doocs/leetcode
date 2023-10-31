@@ -20,10 +20,3 @@ func reverse(arr []int, i, j int) {
 		arr[i], arr[j] = arr[j], arr[i]
 	}
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

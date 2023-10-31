@@ -203,13 +203,6 @@ func minCost(n int, cuts []int) int {
 	}
 	return f[0][m-1]
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -230,13 +223,6 @@ func minCost(n int, cuts []int) int {
 		}
 	}
 	return f[0][m-1]
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
 ```
 

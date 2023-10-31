@@ -175,13 +175,6 @@ func lengthOfLongestSubstring(s string) (ans int) {
 	}
 	return
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -197,13 +190,6 @@ func lengthOfLongestSubstring(s string) (ans int) {
 		ans = max(ans, i-j+1)
 	}
 	return
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

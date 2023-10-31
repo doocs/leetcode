@@ -161,13 +161,6 @@ func maxSumDivThree(nums []int) int {
 	}
 	return f[n][0]
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -182,13 +175,6 @@ func maxSumDivThree(nums []int) int {
 		f = g
 	}
 	return f[0]
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

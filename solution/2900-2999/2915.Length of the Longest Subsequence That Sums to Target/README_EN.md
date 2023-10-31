@@ -201,13 +201,6 @@ func lengthOfLongestSubsequence(nums []int, target int) int {
 	}
 	return f[n][target]
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -226,13 +219,6 @@ func lengthOfLongestSubsequence(nums []int, target int) int {
 		return -1
 	}
 	return f[target]
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

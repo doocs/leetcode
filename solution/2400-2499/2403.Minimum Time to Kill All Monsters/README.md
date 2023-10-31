@@ -267,13 +267,6 @@ func minimumTime(power []int) int64 {
 	}
 	return dfs(0)
 }
-
-func min(a, b int64) int64 {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -293,13 +286,6 @@ func minimumTime(power []int) int64 {
 		}
 	}
 	return dp[len(dp)-1]
-}
-
-func min(a, b int64) int64 {
-	if a < b {
-		return a
-	}
-	return b
 }
 ```
 

@@ -148,13 +148,6 @@ func minimumLength(s string) int {
 	}
 	return max(0, j-i+1)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

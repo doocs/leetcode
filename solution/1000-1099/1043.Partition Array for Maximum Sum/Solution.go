@@ -10,10 +10,3 @@ func maxSumAfterPartitioning(arr []int, k int) int {
 	}
 	return f[n]
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

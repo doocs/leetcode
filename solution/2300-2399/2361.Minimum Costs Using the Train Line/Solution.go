@@ -10,10 +10,3 @@ func minimumCosts(regular []int, express []int, expressCost int) []int64 {
 	}
 	return cost
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

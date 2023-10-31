@@ -207,13 +207,6 @@ func maxTastiness(price []int, tastiness []int, maxAmount int, maxCoupons int) i
 	}
 	return dfs(0, maxAmount, maxCoupons)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

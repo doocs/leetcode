@@ -23,10 +23,3 @@ func getMaximumGold(grid [][]int) int {
 	}
 	return ans
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

@@ -16,10 +16,3 @@ func maxDotProduct(nums1 []int, nums2 []int) int {
 	}
 	return dp[m][n]
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

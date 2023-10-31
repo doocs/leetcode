@@ -202,13 +202,6 @@ func isBalanced(root *TreeNode) bool {
 	return dfs(root) != -1
 }
 
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
 func abs(x int) int {
 	if x < 0 {
 		return -x

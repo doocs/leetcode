@@ -25,10 +25,3 @@ func maxSum(nums1 []int, nums2 []int) int {
 	}
 	return max(f, g) % mod
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

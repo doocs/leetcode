@@ -18,10 +18,3 @@ func findCheapestPrice(n int, flights [][]int, src int, dst int, k int) int {
 	}
 	return dist[dst]
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

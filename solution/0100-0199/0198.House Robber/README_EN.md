@@ -136,13 +136,6 @@ func rob(nums []int) int {
 	}
 	return f[n]
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -152,13 +145,6 @@ func rob(nums []int) int {
 		f, g = max(f, g), f+x
 	}
 	return max(f, g)
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

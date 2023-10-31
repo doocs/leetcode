@@ -15,17 +15,3 @@ func getMoneyAmount(n int) int {
 	}
 	return dp[1][n]
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

@@ -262,13 +262,6 @@ func longestPalindrome(s string) string {
 	}
 	return s[start : start+mx]
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **C#**

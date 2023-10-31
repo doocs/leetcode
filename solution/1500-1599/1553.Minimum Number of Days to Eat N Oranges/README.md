@@ -150,13 +150,6 @@ func minDays(n int) int {
 	}
 	return dfs(n)
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

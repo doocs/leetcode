@@ -178,13 +178,6 @@ func minCharacters(a string, b string) int {
 	f(cnt2, cnt1)
 	return ans
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

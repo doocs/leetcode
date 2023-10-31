@@ -608,13 +608,6 @@ func (t *segmentTree) pushup(u int) {
 	t.tr[u].mx = max(t.tr[u<<1].mx, t.tr[u<<1|1].mx)
 }
 
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
 /**
  * Your BookMyShow object will be instantiated and called as such:
  * obj := Constructor(n, m);

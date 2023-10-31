@@ -449,13 +449,6 @@ func tilingRectangle(n int, m int) int {
 	dfs(0, 0, 0)
 	return ans
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -507,13 +500,6 @@ func tilingRectangle(n int, m int) int {
 	}
 	dfs(0, 0, 0)
 	return ans
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
 ```
 

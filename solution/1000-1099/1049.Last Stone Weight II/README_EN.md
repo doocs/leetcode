@@ -219,13 +219,6 @@ func lastStoneWeightII(stones []int) int {
 	}
 	return s - dp[m][n]*2
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -242,13 +235,6 @@ func lastStoneWeightII(stones []int) int {
 		}
 	}
 	return s - dp[n]*2
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

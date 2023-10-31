@@ -32,17 +32,3 @@ func maximumBeauty(flowers []int, newFlowers int64, target int, full int, partia
 	}
 	return int64(ans)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

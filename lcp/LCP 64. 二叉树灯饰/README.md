@@ -246,19 +246,6 @@ func closeLampInTree(root *TreeNode) (ans int) {
 	ans, _, _, _ = dfs(root)
 	return
 }
-
-func min(a, b, c, d int) int {
-	if b < a {
-		a = b
-	}
-	if c < a {
-		a = c
-	}
-	if d < a {
-		a = d
-	}
-	return a
-}
 ```
 
 ### **...**

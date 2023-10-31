@@ -20,10 +20,3 @@ func minimizeArrayValue(nums []int) int {
 	}
 	return left
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

@@ -31,17 +31,3 @@ func minSpaceWastedKResizing(nums []int, k int) int {
 	}
 	return f[n][k]
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

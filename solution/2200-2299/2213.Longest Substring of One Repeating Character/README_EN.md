@@ -431,13 +431,6 @@ func (t *segmentTree) update(x, l, r, pos int, val byte) {
 	t.pushup(x, l, m, r)
 }
 
-func max(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
-}
-
 func longestRepeating(s string, queryCharacters string, queryIndices []int) []int {
 	ans := make([]int, len(queryCharacters))
 	t := newSegmentTree(s)

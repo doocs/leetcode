@@ -10,10 +10,3 @@ func distanceBetweenBusStops(distance []int, start int, destination int) int {
 	}
 	return min(a, s-a)
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

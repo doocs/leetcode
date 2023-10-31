@@ -279,13 +279,6 @@ func minimumXORSum(nums1 []int, nums2 []int) int {
 	}
 	return f[n][(1<<n)-1]
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -307,13 +300,6 @@ func minimumXORSum(nums1 []int, nums2 []int) int {
 	}
 	return f[(1<<n)-1]
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -333,13 +319,6 @@ func minimumXORSum(nums1 []int, nums2 []int) int {
 		}
 	}
 	return f[(1<<n)-1]
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
 ```
 

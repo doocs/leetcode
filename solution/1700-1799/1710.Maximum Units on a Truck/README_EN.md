@@ -177,13 +177,6 @@ func maximumUnits(boxTypes [][]int, truckSize int) (ans int) {
 	}
 	return
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -201,13 +194,6 @@ func maximumUnits(boxTypes [][]int, truckSize int) (ans int) {
 		}
 	}
 	return
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
 ```
 

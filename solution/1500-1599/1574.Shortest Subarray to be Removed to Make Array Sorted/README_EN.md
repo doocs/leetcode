@@ -229,13 +229,6 @@ func findLengthOfShortestSubarray(arr []int) int {
 	}
 	return ans
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -260,13 +253,6 @@ func findLengthOfShortestSubarray(arr []int) int {
 		ans = min(ans, r-l-1)
 	}
 	return ans
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
 ```
 

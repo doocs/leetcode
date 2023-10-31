@@ -219,13 +219,6 @@ func minWastedSpace(packages []int, boxes [][]int) int {
 	const mod = 1e9 + 7
 	return (ans - s) % mod
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

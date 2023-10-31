@@ -240,13 +240,6 @@ func maxProfit(prices []int) int {
 	}
 	return f[n-1][1]
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -260,13 +253,6 @@ func maxProfit(prices []int) int {
 		f = g
 	}
 	return f[1]
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

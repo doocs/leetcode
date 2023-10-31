@@ -186,13 +186,6 @@ func longestPalindromeSubseq(s string) int {
 	}
 	return dfs(0, n-1, 26)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

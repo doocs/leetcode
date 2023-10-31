@@ -203,13 +203,6 @@ func minimumCosts(regular []int, express []int, expressCost int) []int64 {
 	}
 	return cost
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -224,13 +217,6 @@ func minimumCosts(regular []int, express []int, expressCost int) []int64 {
 		cost[i] = int64(min(f, g))
 	}
 	return cost
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
 ```
 
