@@ -75,6 +75,24 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+我们定义 $f$, $g$, $h$ 表示前 $i$ 项中，分别以最后三项作为子数组的最大值所需要的最小增量运算数，初始时 $f = 0$, $g = 0$, $h = 0$。
+
+接下来，我们遍历数组 $nums$，对于每个 $x$，我们需要更新 $f$, $g$, $h$ 的值，使其满足题目要求，即：
+
+$$
+\begin{aligned}
+f' &= g \\
+g' &= h \\
+h' &= \min(f, g, h) + \max(k - x, 0)
+\end{aligned}
+$$
+
+最后，我们只需要返回 $f$, $g$, $h$ 中的最小值即可。
+
+时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -82,7 +100,12 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minIncrementOperations(self, nums: List[int], k: int) -> int:
+        f = g = h = 0
+        for x in nums:
+            f, g, h = g, h, min(f, g, h) + max(k - x, 0)
+        return min(f, g, h)
 ```
 
 ### **Java**
@@ -90,19 +113,60 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public long minIncrementOperations(int[] nums, int k) {
+        long f = 0, g = 0, h = 0;
+        for (int x : nums) {
+            long hh = Math.min(Math.min(f, g), h) + Math.max(k - x, 0);
+            f = g;
+            g = h;
+            h = hh;
+        }
+        return Math.min(Math.min(f, g), h);
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    long long minIncrementOperations(vector<int>& nums, int k) {
+        long long f = 0, g = 0, h = 0;
+        for (int x : nums) {
+            long long hh = min({f, g, h}) + max(k - x, 0);
+            f = g;
+            g = h;
+            h = hh;
+        }
+        return min({f, g, h});
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minIncrementOperations(nums []int, k int) int64 {
+	var f, g, h int
+	for _, x := range nums {
+		f, g, h = g, h, min(min(f, g), h)+max(k-x, 0)
+	}
+	return int64(min(min(f, g), h))
+}
+```
 
+### **TypeScript**
+
+```ts
+function minIncrementOperations(nums: number[], k: number): number {
+    let [f, g, h] = [0, 0, 0];
+    for (const x of nums) {
+        [f, g, h] = [g, h, Math.min(f, g, h) + Math.max(k - x, 0)];
+    }
+    return Math.min(f, g, h);
+}
 ```
 
 ### **...**
