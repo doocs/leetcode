@@ -69,30 +69,94 @@ Hence, the answer is 0.
 
 ## Solutions
 
+**Solution 1: Dynamic Programming**
+
+We define $f$, $g$, and $h$ as the minimum number of increment operations needed to get the maximum value from the last three items in the first $i$ items, initially $f = 0$, $g = 0$, $h = 0$.
+
+Next, we traverse the array $nums$. For each $x$, we need to update the values of $f$, $g$, and $h$ to meet the requirements of the problem, that is:
+
+$$
+\begin{aligned}
+f' &= g \\
+g' &= h \\
+h' &= \min(f, g, h) + \max(k - x, 0)
+\end{aligned}
+$$
+
+Finally, we only need to return the minimum value among $f$, $g$, and $h$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minIncrementOperations(self, nums: List[int], k: int) -> int:
+        f = g = h = 0
+        for x in nums:
+            f, g, h = g, h, min(f, g, h) + max(k - x, 0)
+        return min(f, g, h)
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public long minIncrementOperations(int[] nums, int k) {
+        long f = 0, g = 0, h = 0;
+        for (int x : nums) {
+            long hh = Math.min(Math.min(f, g), h) + Math.max(k - x, 0);
+            f = g;
+            g = h;
+            h = hh;
+        }
+        return Math.min(Math.min(f, g), h);
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    long long minIncrementOperations(vector<int>& nums, int k) {
+        long long f = 0, g = 0, h = 0;
+        for (int x : nums) {
+            long long hh = min({f, g, h}) + max(k - x, 0);
+            f = g;
+            g = h;
+            h = hh;
+        }
+        return min({f, g, h});
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minIncrementOperations(nums []int, k int) int64 {
+	var f, g, h int
+	for _, x := range nums {
+		f, g, h = g, h, min(min(f, g), h)+max(k-x, 0)
+	}
+	return int64(min(min(f, g), h))
+}
+```
 
+### **TypeScript**
+
+```ts
+function minIncrementOperations(nums: number[], k: number): number {
+    let [f, g, h] = [0, 0, 0];
+    for (const x of nums) {
+        [f, g, h] = [g, h, Math.min(f, g, h) + Math.max(k - x, 0)];
+    }
+    return Math.min(f, g, h);
+}
 ```
 
 ### **...**
