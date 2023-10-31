@@ -197,13 +197,6 @@ func robot(command string, obstacles [][]int, x int, y int) bool {
 	}
 	return true
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

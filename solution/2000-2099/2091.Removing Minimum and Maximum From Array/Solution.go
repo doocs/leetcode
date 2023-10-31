@@ -13,10 +13,3 @@ func minimumDeletions(nums []int) int {
 	}
 	return min(min(mx+1, n-mi), mi+1+n-mx)
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

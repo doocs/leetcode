@@ -30,10 +30,3 @@ func numberWays(hats [][]int) int {
 	}
 	return f[m][(1<<n)-1]
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

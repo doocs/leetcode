@@ -42,10 +42,3 @@ func bestTeamScore(scores []int, ages []int) int {
 	}
 	return tree.query(m)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

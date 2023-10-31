@@ -193,13 +193,6 @@ func abs(x int) int {
 	}
 	return x
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

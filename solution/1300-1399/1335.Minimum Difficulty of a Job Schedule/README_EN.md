@@ -161,20 +161,6 @@ func minDifficulty(jobDifficulty []int, d int) int {
 	}
 	return f[n][d]
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

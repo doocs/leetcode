@@ -246,13 +246,6 @@ func minOperations(s1 string, s2 string, x int) int {
 	}
 	return dfs(0, m-1)
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

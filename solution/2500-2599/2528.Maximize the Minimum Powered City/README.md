@@ -281,20 +281,6 @@ func maxPower(stations []int, r int, k int) int64 {
 	}
 	return int64(left)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

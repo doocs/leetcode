@@ -187,13 +187,6 @@ func smallestDifference(a []int, b []int) int {
 	}
 	return ans
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -218,13 +211,6 @@ func abs(a int) int {
 		return -a
 	}
 	return a
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
 ```
 

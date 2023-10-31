@@ -233,13 +233,6 @@ func minOperations(nums []int, x int) int {
 	}
 	return ans
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -265,13 +258,6 @@ func minOperations(nums []int, x int) int {
 		return -1
 	}
 	return ans
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
 ```
 

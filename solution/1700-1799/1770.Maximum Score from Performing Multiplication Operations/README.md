@@ -270,13 +270,6 @@ func maximumScore(nums []int, multipliers []int) int {
 	}
 	return dfs(0, 0)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -307,13 +300,6 @@ func maximumScore(nums []int, multipliers []int) int {
 		}
 	}
 	return ans
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

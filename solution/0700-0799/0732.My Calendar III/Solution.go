@@ -13,13 +13,6 @@ func newNode(l, r int) *node {
 	}
 }
 
-func max(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
-}
-
 type segmentTree struct {
 	root *node
 }

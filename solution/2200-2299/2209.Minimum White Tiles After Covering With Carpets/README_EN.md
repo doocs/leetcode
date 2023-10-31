@@ -179,13 +179,6 @@ func minimumWhiteTiles(floor string, numCarpets int, carpetLen int) int {
 	}
 	return dfs(0, numCarpets)
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

@@ -153,13 +153,6 @@ func mincostToHireWorkers(quality []int, wage []int, k int) float64 {
 	return ans
 }
 
-func min(a, b float64) float64 {
-	if a < b {
-		return a
-	}
-	return b
-}
-
 type pair struct {
 	x float64
 	q int

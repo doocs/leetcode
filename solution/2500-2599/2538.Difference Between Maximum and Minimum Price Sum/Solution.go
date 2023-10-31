@@ -24,10 +24,3 @@ func maxOutput(n int, edges [][]int, price []int) int64 {
 	dfs(0, -1)
 	return int64(ans)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

@@ -324,13 +324,6 @@ func findShortestCycle(n int, edges [][]int) int {
 	}
 	return -1
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -374,13 +367,6 @@ func findShortestCycle(n int, edges [][]int) int {
 		return ans
 	}
 	return -1
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
 ```
 

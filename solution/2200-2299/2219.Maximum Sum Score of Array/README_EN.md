@@ -129,13 +129,6 @@ func maximumSumScore(nums []int) int64 {
 	}
 	return ans
 }
-
-func max(a, b int64) int64 {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **JavaScript**

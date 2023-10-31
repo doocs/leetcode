@@ -194,13 +194,6 @@ func criticalConnections(n int, connections [][]int) (ans [][]int) {
 	tarjan(0, -1)
 	return
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

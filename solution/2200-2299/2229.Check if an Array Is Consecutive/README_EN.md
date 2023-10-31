@@ -111,20 +111,6 @@ func isConsecutive(nums []int) bool {
 	}
 	return len(s) == len(nums) && mx == mi+len(nums)-1
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

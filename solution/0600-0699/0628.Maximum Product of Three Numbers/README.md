@@ -212,13 +212,6 @@ func maximumProduct(nums []int) int {
 	}
 	return max(mi1*mi2*mx1, mx1*mx2*mx3)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

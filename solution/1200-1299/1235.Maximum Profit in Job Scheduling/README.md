@@ -310,13 +310,6 @@ func jobScheduling(startTime []int, endTime []int, profit []int) int {
 	}
 	return dfs(0)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -334,13 +327,6 @@ func jobScheduling(startTime []int, endTime []int, profit []int) int {
 		dp[i+1] = max(dp[i], dp[j]+job.p)
 	}
 	return dp[n]
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

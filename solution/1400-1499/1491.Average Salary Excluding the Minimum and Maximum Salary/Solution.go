@@ -9,17 +9,3 @@ func average(salary []int) float64 {
 	s -= (mi + mx)
 	return float64(s) / float64(len(salary)-2)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

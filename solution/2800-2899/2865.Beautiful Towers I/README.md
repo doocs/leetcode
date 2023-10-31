@@ -351,20 +351,6 @@ func maximumSumOfHeights(maxHeights []int) (ans int64) {
 	}
 	return
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
-func max(a, b int64) int64 {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -426,13 +412,6 @@ func maximumSumOfHeights(maxHeights []int) (ans int64) {
 		ans = max(ans, f[i]+g[i]-int64(x))
 	}
 	return
-}
-
-func max(a, b int64) int64 {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

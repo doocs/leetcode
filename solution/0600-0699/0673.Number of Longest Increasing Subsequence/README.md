@@ -426,13 +426,6 @@ func findNumberOfLIS(nums []int) int {
 	}
 	return tree.query(n)[1]
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **Rust**

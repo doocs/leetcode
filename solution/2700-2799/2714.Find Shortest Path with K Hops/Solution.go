@@ -36,13 +36,6 @@ func shortestPathWithHops(n int, edges [][]int, s int, d int, k int) int {
 	return ans
 }
 
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
 type tuple struct{ dis, u, t int }
 type hp []tuple
 

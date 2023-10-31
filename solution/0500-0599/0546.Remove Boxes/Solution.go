@@ -29,10 +29,3 @@ func removeBoxes(boxes []int) int {
 	}
 	return dfs(0, n-1, 0)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

@@ -248,13 +248,6 @@ func (this *CustomStack) Increment(k int, val int) {
 	}
 }
 
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
 /**
  * Your CustomStack object will be instantiated and called as such:
  * obj := Constructor(maxSize);

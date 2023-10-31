@@ -315,13 +315,6 @@ func minInsertions(s string) int {
 	}
 	return dfs(0, n-1)
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -341,13 +334,6 @@ func minInsertions(s string) int {
 		}
 	}
 	return f[0][n-1]
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
 ```
 
@@ -369,13 +355,6 @@ func minInsertions(s string) int {
 		}
 	}
 	return f[0][n-1]
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
 ```
 

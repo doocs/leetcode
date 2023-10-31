@@ -21,10 +21,3 @@ func minSum(nums1 []int, nums2 []int) int64 {
 	}
 	return -1
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

@@ -8,10 +8,3 @@ func minCost(costs [][]int) int {
 	}
 	return min(r, min(g, b))
 }
-
-func min(x, y int) int {
-	if x < y {
-		return x
-	}
-	return y
-}

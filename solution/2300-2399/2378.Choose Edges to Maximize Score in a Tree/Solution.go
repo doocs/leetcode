@@ -20,10 +20,3 @@ func maxScore(edges [][]int) int64 {
 	}
 	return int64(dfs(0)[1])
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

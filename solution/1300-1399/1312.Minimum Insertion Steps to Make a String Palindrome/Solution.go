@@ -15,10 +15,3 @@ func minInsertions(s string) int {
 	}
 	return f[0][n-1]
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

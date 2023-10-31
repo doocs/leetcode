@@ -279,13 +279,6 @@ func maxTaskAssign(tasks []int, workers []int, pills int, strength int) int {
 	}
 	return left
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

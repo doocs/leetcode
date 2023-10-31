@@ -20,10 +20,3 @@ func maxUniqueSplit(s string) int {
 	dfs(0, 0)
 	return ans
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

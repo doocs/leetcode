@@ -12,10 +12,3 @@ func maximumSubsequenceCount(text string, pattern string) int64 {
 	ans += max(cnt[a-'a'], cnt[b-'a'])
 	return int64(ans)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

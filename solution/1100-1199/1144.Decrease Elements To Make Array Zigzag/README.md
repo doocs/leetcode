@@ -140,20 +140,6 @@ func movesToMakeZigzag(nums []int) int {
 	}
 	return min(ans[0], ans[1])
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **C#**

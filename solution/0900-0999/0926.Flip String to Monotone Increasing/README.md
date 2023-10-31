@@ -192,13 +192,6 @@ func minFlipsMonoIncr(s string) int {
 	}
 	return ans
 }
-
-func min(x, y int) int {
-	if x < y {
-		return x
-	}
-	return y
-}
 ```
 
 ```go
@@ -213,13 +206,6 @@ func minFlipsMonoIncr(s string) int {
 		ans = min(ans, presum[i]+n-i-(presum[n]-presum[i]))
 	}
 	return ans
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
 ```
 

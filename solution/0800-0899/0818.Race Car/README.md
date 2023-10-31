@@ -158,13 +158,6 @@ func racecar(target int) int {
 	}
 	return dp[target]
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

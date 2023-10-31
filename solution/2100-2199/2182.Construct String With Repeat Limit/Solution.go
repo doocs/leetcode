@@ -26,10 +26,3 @@ func repeatLimitedString(s string, repeatLimit int) string {
 	}
 	return string(ans)
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

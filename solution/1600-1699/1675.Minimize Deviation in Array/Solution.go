@@ -18,13 +18,6 @@ func minimumDeviation(nums []int) int {
 	return ans
 }
 
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
 type hp struct{ sort.IntSlice }
 
 func (h *hp) Push(v interface{}) { h.IntSlice = append(h.IntSlice, v.(int)) }

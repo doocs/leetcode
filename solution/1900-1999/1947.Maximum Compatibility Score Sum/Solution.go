@@ -29,10 +29,3 @@ func maxCompatibilitySum(students [][]int, mentors [][]int) (ans int) {
 	dfs(0, 0)
 	return
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

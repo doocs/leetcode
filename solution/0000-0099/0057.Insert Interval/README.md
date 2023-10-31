@@ -267,13 +267,6 @@ func insert(intervals [][]int, newInterval []int) [][]int {
 	intervals = append(intervals, newInterval)
 	return merge(intervals)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -299,20 +292,6 @@ func insert(intervals [][]int, newInterval []int) (ans [][]int) {
 		ans = append(ans, []int{st, ed})
 	}
 	return
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
 ```
 

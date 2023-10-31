@@ -175,13 +175,6 @@ func maxScore(s string) int {
 	}
 	return ans
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -206,13 +199,6 @@ func maxScore(s string) int {
 		ans = max(ans, t)
 	}
 	return ans
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

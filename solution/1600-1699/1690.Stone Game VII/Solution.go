@@ -21,10 +21,3 @@ func stoneGameVII(stones []int) int {
 	}
 	return dfs(0, n-1)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

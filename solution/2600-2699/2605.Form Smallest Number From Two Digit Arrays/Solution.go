@@ -12,10 +12,3 @@ func minNumber(nums1 []int, nums2 []int) int {
 	a, b := bits.TrailingZeros(mask1), bits.TrailingZeros(mask2)
 	return min(a*10+b, b*10+a)
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

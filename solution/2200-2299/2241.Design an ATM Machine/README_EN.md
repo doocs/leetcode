@@ -208,13 +208,6 @@ func (this *ATM) Withdraw(amount int) []int {
 	return ans
 }
 
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
 /**
  * Your ATM object will be instantiated and called as such:
  * obj := Constructor();

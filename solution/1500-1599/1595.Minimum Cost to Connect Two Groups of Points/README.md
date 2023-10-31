@@ -270,13 +270,6 @@ func connectTwoGroups(cost [][]int) int {
 	}
 	return f[m][(1<<n)-1]
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -304,13 +297,6 @@ func connectTwoGroups(cost [][]int) int {
 		copy(f, g)
 	}
 	return f[1<<n-1]
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
 ```
 

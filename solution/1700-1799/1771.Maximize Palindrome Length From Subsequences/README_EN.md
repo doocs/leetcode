@@ -157,13 +157,6 @@ func longestPalindrome(word1 string, word2 string) (ans int) {
 	}
 	return ans
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

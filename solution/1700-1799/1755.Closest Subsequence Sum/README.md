@@ -268,13 +268,6 @@ func dfs(nums []int, sum *[]int, i, cur int) {
 	dfs(nums, sum, i+1, cur+nums[i])
 }
 
-func min(x, y int) int {
-	if x < y {
-		return x
-	}
-	return y
-}
-
 func abs(x int) int {
 	if x < 0 {
 		return -x
@@ -327,13 +320,6 @@ func abs(x int) int {
 		return -x
 	}
 	return x
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
 ```
 

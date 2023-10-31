@@ -383,13 +383,6 @@ func (t *segmentTree) query(u, l, r int) int {
 func (t *segmentTree) pushup(u int) {
 	t.tr[u].v = max(t.tr[u<<1].v, t.tr[u<<1|1].v)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

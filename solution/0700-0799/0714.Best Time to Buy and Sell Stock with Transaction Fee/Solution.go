@@ -5,10 +5,3 @@ func maxProfit(prices []int, fee int) int {
 	}
 	return f0
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

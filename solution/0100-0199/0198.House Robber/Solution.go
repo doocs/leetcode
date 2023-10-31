@@ -5,10 +5,3 @@ func rob(nums []int) int {
 	}
 	return max(f, g)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

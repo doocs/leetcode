@@ -220,13 +220,6 @@ func findDistance(root *TreeNode, p int, q int) int {
 	g := lca(root, p, q)
 	return dfs(g, p) + dfs(g, q)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

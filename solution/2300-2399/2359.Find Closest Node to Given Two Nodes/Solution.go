@@ -40,13 +40,6 @@ func closestMeetingNode(edges []int, node1 int, node2 int) int {
 	return ans
 }
 
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
 type pair struct{ d, i int }
 type hp []pair
 

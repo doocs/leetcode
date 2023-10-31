@@ -18,10 +18,3 @@ func longestAwesome(s string) int {
 	}
 	return ans
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

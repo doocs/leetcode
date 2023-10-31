@@ -25,17 +25,3 @@ func maxmiumScore(cards []int, cnt int) int {
 	}
 	return max(0, max(ans-a+c, ans-b+d))
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

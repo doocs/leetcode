@@ -374,13 +374,6 @@ func printTree(root *TreeNode) [][]string {
 	dfs(root, 0, (n-1)/2)
 	return ans
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go

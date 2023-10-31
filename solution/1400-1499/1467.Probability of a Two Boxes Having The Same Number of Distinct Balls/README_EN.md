@@ -236,13 +236,6 @@ func getProbability(balls []int) float64 {
 	}
 	return float64(dfs(0, n, k)) / float64(c[n<<1][n])
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

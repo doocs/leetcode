@@ -196,20 +196,6 @@ func minimumTimeRequired(jobs []int, k int) int {
 	dfs(0)
 	return ans
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

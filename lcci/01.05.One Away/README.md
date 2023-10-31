@@ -180,19 +180,6 @@ func oneEditAway(first string, second string) bool {
 	}
 	return dp[m][n] == 1
 }
-
-func min(x, y, z int) int {
-	if x < y {
-		if x < z {
-			return x
-		}
-		return z
-	}
-	if y < z {
-		return y
-	}
-	return z
-}
 ```
 
 ### **TypeScript**

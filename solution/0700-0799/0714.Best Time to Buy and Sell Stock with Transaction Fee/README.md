@@ -272,13 +272,6 @@ func maxProfit(prices []int, fee int) int {
 	}
 	return dfs(0, 0)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -292,13 +285,6 @@ func maxProfit(prices []int, fee int) int {
 	}
 	return f[n-1][0]
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -308,13 +294,6 @@ func maxProfit(prices []int, fee int) int {
 		f0, f1 = max(f0, f1+x-fee), max(f1, f0-x)
 	}
 	return f0
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

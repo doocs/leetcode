@@ -257,13 +257,6 @@ func minimumDeletions(s string) int {
 	}
 	return f[n]
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -277,13 +270,6 @@ func minimumDeletions(s string) int {
 		}
 	}
 	return ans
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
 ```
 

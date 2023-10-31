@@ -16,17 +16,3 @@ func minAvailableDuration(slots1 [][]int, slots2 [][]int, duration int) []int {
 	}
 	return []int{}
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

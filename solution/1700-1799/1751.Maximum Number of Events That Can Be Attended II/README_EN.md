@@ -234,13 +234,6 @@ func maxValue(events [][]int, k int) int {
 	}
 	return dfs(0, k)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -259,13 +252,6 @@ func maxValue(events [][]int, k int) int {
 		}
 	}
 	return f[n][k]
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

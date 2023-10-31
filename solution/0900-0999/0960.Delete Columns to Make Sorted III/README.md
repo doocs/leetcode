@@ -168,13 +168,6 @@ func minDeletionSize(strs []string) int {
 	}
 	return n - mx
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

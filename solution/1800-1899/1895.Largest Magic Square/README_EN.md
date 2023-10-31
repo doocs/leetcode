@@ -337,13 +337,6 @@ func check(grid, rowsum, colsum [][]int, x1, y1, x2, y2 int) bool {
 	}
 	return true
 }
-
-func min(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

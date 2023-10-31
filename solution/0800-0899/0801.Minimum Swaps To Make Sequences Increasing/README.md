@@ -161,13 +161,6 @@ func minSwap(nums1 []int, nums2 []int) int {
 	}
 	return min(a, b)
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

@@ -27,10 +27,3 @@ func wordSubsets(words1 []string, words2 []string) (ans []string) {
 	}
 	return
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

@@ -174,13 +174,6 @@ func visiblePoints(points [][]int, angle int, location []int) int {
 	}
 	return same + mx
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

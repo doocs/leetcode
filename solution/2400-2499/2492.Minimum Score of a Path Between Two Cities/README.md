@@ -282,13 +282,6 @@ func minScore(n int, roads [][]int) int {
 	dfs(0)
 	return ans
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -319,13 +312,6 @@ func minScore(n int, roads [][]int) int {
 		}
 	}
 	return ans
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
 ```
 

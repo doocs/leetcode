@@ -158,13 +158,6 @@ func longestCommonSubsequence(text1 string, text2 string) int {
 	}
 	return f[m][n]
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **JavaScript**

@@ -307,20 +307,6 @@ func mostProfitablePath(edges [][]int, bob int, amount []int) int {
 	dfs2(0, -1, 0, 0)
 	return ans
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

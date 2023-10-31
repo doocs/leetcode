@@ -118,13 +118,6 @@ func findPoisonedDuration(timeSeries []int, duration int) (ans int) {
 	}
 	return
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **C#**

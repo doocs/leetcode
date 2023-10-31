@@ -261,13 +261,6 @@ func superEggDrop(k int, n int) int {
 	}
 	return dfs(n, k)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -295,13 +288,6 @@ func superEggDrop(k int, n int) int {
 		}
 	}
 	return f[n][k]
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

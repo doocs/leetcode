@@ -247,13 +247,6 @@ func minimumTime(hens []int, grains []int) int {
 	return l
 }
 
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
 func abs(x int) int {
 	if x < 0 {
 		return -x

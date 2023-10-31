@@ -29,10 +29,3 @@ func minTransfers(transactions [][]int) int {
 	}
 	return f[1<<m-1]
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

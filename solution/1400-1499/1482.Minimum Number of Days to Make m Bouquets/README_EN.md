@@ -208,20 +208,6 @@ func check(bloomDay []int, m, k, day int) bool {
 	}
 	return cnt >= m
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

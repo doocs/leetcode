@@ -167,20 +167,6 @@ func maxSubarraySumCircular(nums []int) int {
 	}
 	return max(s1, total-s2)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -196,20 +182,6 @@ func maxSubarraySumCircular(nums []int) int {
 		pmx = max(pmx, s)
 	}
 	return max(ans, s-smi)
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
 ```
 

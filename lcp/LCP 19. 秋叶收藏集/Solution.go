@@ -23,10 +23,3 @@ func minimumOperations(leaves string) int {
 	}
 	return f[n-1][2]
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

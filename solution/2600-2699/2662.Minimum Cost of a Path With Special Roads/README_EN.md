@@ -195,13 +195,6 @@ func abs(x int) int {
 	return x
 }
 
-func min(a, b int) int {
-	if a > b {
-		return b
-	}
-	return a
-}
-
 type tuple struct {
 	d, x, y int
 }

@@ -190,13 +190,6 @@ func maxSizeSlices(slices []int) int {
 	a, b := g(slices[:len(slices)-1]), g(slices[1:])
 	return max(a, b)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

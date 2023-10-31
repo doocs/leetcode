@@ -176,13 +176,6 @@ func maxValueOfCoins(piles [][]int, k int) int {
 	}
 	return dp[k]
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

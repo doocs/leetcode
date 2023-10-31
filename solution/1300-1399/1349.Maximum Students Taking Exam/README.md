@@ -257,13 +257,6 @@ func maxStudents(seats [][]byte) int {
 	}
 	return dfs(ss[0], 0)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

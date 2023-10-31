@@ -20,10 +20,3 @@ func longestPath(parent []int, s string) int {
 	dfs(0)
 	return ans + 1
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

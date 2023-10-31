@@ -264,13 +264,6 @@ func profitableSchemes(n int, minProfit int, group []int, profit []int) int {
 	}
 	return dfs(0, 0, 0)
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -299,13 +292,6 @@ func profitableSchemes(n int, minProfit int, group []int, profit []int) int {
 		}
 	}
 	return f[m][n][minProfit]
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

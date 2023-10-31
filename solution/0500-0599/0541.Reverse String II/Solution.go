@@ -7,10 +7,3 @@ func reverseStr(s string, k int) string {
 	}
 	return string(t)
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

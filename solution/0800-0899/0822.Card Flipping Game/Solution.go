@@ -18,10 +18,3 @@ func flipgame(fronts []int, backs []int) int {
 	}
 	return ans % 9999
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

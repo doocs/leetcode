@@ -265,13 +265,6 @@ func deleteString(s string) int {
 	}
 	return dfs(0)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -298,13 +291,6 @@ func deleteString(s string) int {
 		}
 	}
 	return f[0]
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

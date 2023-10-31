@@ -5,10 +5,3 @@ func maxAlternatingSum(nums []int) int64 {
 	}
 	return int64(max(f, g))
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

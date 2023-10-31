@@ -214,13 +214,6 @@ func minimumDifference(nums []int) int64 {
 	return ans
 }
 
-func min(a, b int64) int64 {
-	if a < b {
-		return a
-	}
-	return b
-}
-
 type hp struct{ sort.IntSlice }
 
 func (h hp) Less(i, j int) bool  { return h.IntSlice[i] < h.IntSlice[j] }

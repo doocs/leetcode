@@ -19,10 +19,3 @@ func isValidPalindrome(s string, k int) bool {
 	}
 	return false
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

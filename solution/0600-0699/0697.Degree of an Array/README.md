@@ -229,20 +229,6 @@ func getMaxDegreeElem(maxDegree int, numsMap map[int]int) []int {
 	}
 	return ans
 }
-
-func min(a, b int) int {
-	if a > b {
-		return b
-	}
-	return a
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

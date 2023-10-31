@@ -208,13 +208,6 @@ func minimumCost(sentence string, k int) int {
 	}
 	return dfs(0)
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

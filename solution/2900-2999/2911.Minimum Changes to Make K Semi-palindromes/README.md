@@ -320,13 +320,6 @@ func minimumChanges(s string, k int) int {
 	}
 	return f[n][k]
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

@@ -38,20 +38,6 @@ func (this *TextEditor) CursorRight(k int) string {
 	return string(this.left[max(len(this.left)-10, 0):])
 }
 
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
 /**
  * Your TextEditor object will be instantiated and called as such:
  * obj := Constructor();

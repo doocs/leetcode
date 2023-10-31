@@ -127,13 +127,6 @@ func longestArithSeqLength(nums []int) int {
 	}
 	return ans + 1
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

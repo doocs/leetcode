@@ -253,13 +253,6 @@ func findCheapestPrice(n int, flights [][]int, src int, dst int, k int) int {
 	}
 	return dist[dst]
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -304,13 +297,6 @@ func findCheapestPrice(n int, flights [][]int, src int, dst int, k int) int {
 		return -1
 	}
 	return ans
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
 ```
 

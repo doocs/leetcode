@@ -35,17 +35,3 @@ func maxProductPath(grid [][]int) int {
 	var mod int = 1e9 + 7
 	return ans % mod
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

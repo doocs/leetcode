@@ -152,13 +152,6 @@ func maxProfitAssignment(difficulty []int, profit []int, worker []int) int {
 	}
 	return res
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

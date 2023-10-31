@@ -21,10 +21,3 @@ func minCostSetTime(startAt int, moveCost int, pushCost int, targetSeconds int) 
 	}
 	return min(f(m, s), f(m-1, s+60))
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

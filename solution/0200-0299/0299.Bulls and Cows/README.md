@@ -154,13 +154,6 @@ func getHint(secret string, guess string) string {
 	}
 	return fmt.Sprintf("%dA%dB", x, y)
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **PHP**

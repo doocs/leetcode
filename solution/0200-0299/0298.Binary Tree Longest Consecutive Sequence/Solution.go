@@ -27,10 +27,3 @@ func longestConsecutive(root *TreeNode) (ans int) {
 	dfs(root)
 	return
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

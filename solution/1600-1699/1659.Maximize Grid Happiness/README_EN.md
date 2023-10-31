@@ -425,13 +425,6 @@ func getMaxGridHappiness(m int, n int, introvertsCount int, extrovertsCount int)
 	}
 	return dfs(0, 0, introvertsCount, extrovertsCount)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -487,13 +480,6 @@ func getMaxGridHappiness(m int, n int, introvertsCount int, extrovertsCount int)
 		return ans
 	}
 	return dfs(0, 0, introvertsCount, extrovertsCount)
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

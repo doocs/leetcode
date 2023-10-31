@@ -19,10 +19,3 @@ func new21Game(n int, k int, maxPts int) float64 {
 	}
 	return dfs(0)
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

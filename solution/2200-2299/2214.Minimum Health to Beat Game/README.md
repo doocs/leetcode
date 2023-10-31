@@ -133,20 +133,6 @@ func minimumHealth(damage []int, armor int) int64 {
 	}
 	return s - int64(min(mx, armor)) + 1
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

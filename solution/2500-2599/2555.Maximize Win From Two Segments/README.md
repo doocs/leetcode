@@ -145,13 +145,6 @@ func maximizeWin(prizePositions []int, k int) (ans int) {
 	}
 	return
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

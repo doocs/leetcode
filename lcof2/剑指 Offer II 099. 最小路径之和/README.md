@@ -169,13 +169,6 @@ func minPathSum(grid [][]int) int {
 	}
 	return dp[m-1][n-1]
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **C#**

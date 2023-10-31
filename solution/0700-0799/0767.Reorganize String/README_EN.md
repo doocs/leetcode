@@ -307,13 +307,6 @@ func reorganizeString(s string) string {
 	}
 	return string(ans)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go

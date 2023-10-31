@@ -175,13 +175,6 @@ func maximumProfit(present []int, future []int, budget int) int {
 	}
 	return f[n][budget]
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -193,13 +186,6 @@ func maximumProfit(present []int, future []int, budget int) int {
 		}
 	}
 	return f[budget]
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

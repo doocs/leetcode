@@ -25,10 +25,3 @@ func minimumString(a string, b string, c string) string {
 	}
 	return ans
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

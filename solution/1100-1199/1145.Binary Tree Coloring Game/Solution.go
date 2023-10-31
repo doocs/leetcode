@@ -31,10 +31,3 @@ func btreeGameWinningMove(root *TreeNode, n int, x int) bool {
 	l, r := count(node.Left), count(node.Right)
 	return max(max(l, r), n-l-r-1) > n/2
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

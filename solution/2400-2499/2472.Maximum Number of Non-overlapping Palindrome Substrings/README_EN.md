@@ -188,13 +188,6 @@ func maxPalindromes(s string, k int) int {
 	}
 	return dfs(0)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

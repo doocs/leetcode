@@ -124,13 +124,6 @@ func kSmallestPairs(nums1 []int, nums2 []int, k int) [][]int {
 	}
 	return hp
 }
-
-func min(x, y int) int {
-	if x < y {
-		return x
-	}
-	return y
-}
 ```
 
 ### **C++**

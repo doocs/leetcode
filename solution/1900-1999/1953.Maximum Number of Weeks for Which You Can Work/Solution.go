@@ -10,10 +10,3 @@ func numberOfWeeks(milestones []int) int64 {
 	}
 	return int64(s)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

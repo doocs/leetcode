@@ -126,13 +126,6 @@ func longestContinuousSubstring(s string) int {
 	ans = max(ans, j-i)
 	return ans
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **C**

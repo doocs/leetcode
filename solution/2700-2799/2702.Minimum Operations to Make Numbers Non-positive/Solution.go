@@ -22,10 +22,3 @@ func minOperations(nums []int, x int, y int) int {
 	}
 	return l
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

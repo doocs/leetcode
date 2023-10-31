@@ -218,13 +218,6 @@ func minCost(nums []int, costs []int) int64 {
 	}
 	return f[n-1]
 }
-
-func min(a, b int64) int64 {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

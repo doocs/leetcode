@@ -11,10 +11,3 @@ func hIndex(citations []int) int {
 		}
 	}
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

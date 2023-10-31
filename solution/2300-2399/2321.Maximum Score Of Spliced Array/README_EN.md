@@ -166,13 +166,6 @@ func maximumsSplicedArray(nums1 []int, nums2 []int) int {
 	}
 	return max(s2+f(nums1, nums2), s1+f(nums2, nums1))
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

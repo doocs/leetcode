@@ -18,10 +18,3 @@ func largestOverlap(img1 [][]int, img2 [][]int) (ans int) {
 	}
 	return
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

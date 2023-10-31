@@ -272,13 +272,6 @@ func largestValues(root *TreeNode) []int {
 	}
 	return ans
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -307,13 +300,6 @@ func largestValues(root *TreeNode) []int {
 	}
 	dfs(root, 0)
 	return ans
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

@@ -347,13 +347,6 @@ func maxXor(n int, edges [][]int, values []int) int64 {
 	dfs2(0, -1)
 	return int64(ans)
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

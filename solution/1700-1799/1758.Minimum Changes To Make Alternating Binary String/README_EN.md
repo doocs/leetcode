@@ -95,13 +95,6 @@ func minOperations(s string) int {
 	}
 	return min(cnt, len(s)-cnt)
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

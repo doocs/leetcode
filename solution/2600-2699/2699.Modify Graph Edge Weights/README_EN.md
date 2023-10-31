@@ -305,13 +305,6 @@ func modifiedGraphEdges(n int, edges [][]int, source int, destination int, targe
 	}
 	return [][]int{}
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

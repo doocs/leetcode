@@ -188,13 +188,6 @@ func maxWidthOfVerticalArea(points [][]int) (ans int) {
 	}
 	return
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ```go
@@ -230,20 +223,6 @@ func maxWidthOfVerticalArea(points [][]int) (ans int) {
 		prev = bucket[1]
 	}
 	return ans
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }
 ```
 

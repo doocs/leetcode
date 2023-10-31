@@ -27,10 +27,3 @@ func minCut(s string) int {
 	}
 	return f[n-1]
 }
-
-func min(x, y int) int {
-	if x < y {
-		return x
-	}
-	return y
-}

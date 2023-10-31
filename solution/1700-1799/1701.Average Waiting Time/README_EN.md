@@ -113,13 +113,6 @@ func averageWaitingTime(customers [][]int) float64 {
 	}
 	return float64(tot) / float64(len(customers))
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **...**

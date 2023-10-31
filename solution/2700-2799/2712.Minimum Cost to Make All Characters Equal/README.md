@@ -117,13 +117,6 @@ func minimumCost(s string) (ans int64) {
 	}
 	return
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

@@ -229,13 +229,6 @@ func maxNumberOfAlloys(n int, k int, budget int, composition [][]int, stock []in
 	}
 	return l
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
 ```
 
 ### **TypeScript**

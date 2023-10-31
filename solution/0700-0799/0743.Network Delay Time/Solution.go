@@ -57,10 +57,3 @@ func networkDelayTime(times [][]int, n int, k int) int {
 	}
 	return ans
 }
-
-func max(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
-}
