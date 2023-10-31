@@ -52,6 +52,22 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：动态规划**
+
+我们定义 $f[i][j]$ 表示前 $i$ 个数中选取若干个数，使得这若干个数的和恰好为 $j$ 的最长子序列的长度。初始时 $f[0][0]=0$，其余位置均为 $-\infty$。
+
+对于 $f[i][j]$，我们考虑第 $i$ 个数 $x$，如果不选取 $x$，那么 $f[i][j]=f[i-1][j]$；如果选取 $x$，那么 $f[i][j]=f[i-1][j-x]+1$，其中 $j\ge x$。因此我们有状态转移方程：
+
+$$
+f[i][j]=\max\{f[i-1][j],f[i-1][j-x]+1\}
+$$
+
+最终答案为 $f[n][target]$，如果 $f[n][target]\le0$，则不存在和为 $target$ 的子序列，返回 $-1$。
+
+时间复杂度 $O(n\times target)$，空间复杂度 $O(n\times target)$。其中 $n$ 为数组长度，而 $target$ 为目标值。
+
+我们注意到 $f[i][j]$ 的状态只与 $f[i-1][\cdot]$ 有关，因此我们可以优化掉第一维，将空间复杂度优化到 $O(target)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -59,7 +75,27 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def lengthOfLongestSubsequence(self, nums: List[int], target: int) -> int:
+        n = len(nums)
+        f = [[-inf] * (target + 1) for _ in range(n + 1)]
+        f[0][0] = 0
+        for i, x in enumerate(nums, 1):
+            for j in range(target + 1):
+                f[i][j] = f[i - 1][j]
+                if j >= x:
+                    f[i][j] = max(f[i][j], f[i - 1][j - x] + 1)
+        return -1 if f[n][target] <= 0 else f[n][target]
+```
 
+```python
+class Solution:
+    def lengthOfLongestSubsequence(self, nums: List[int], target: int) -> int:
+        f = [0] + [-inf] * target
+        for x in nums:
+            for j in range(target, x - 1, -1):
+                f[j] = max(f[j], f[j - x] + 1)
+        return -1 if f[-1] <= 0 else f[-1]
 ```
 
 ### **Java**
@@ -67,19 +103,180 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int lengthOfLongestSubsequence(List<Integer> nums, int target) {
+        int n = nums.size();
+        int[][] f = new int[n + 1][target + 1];
+        final int inf = 1 << 30;
+        for (int[] g : f) {
+            Arrays.fill(g, -inf);
+        }
+        f[0][0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            int x = nums.get(i - 1);
+            for (int j = 0; j <= target; ++j) {
+                f[i][j] = f[i - 1][j];
+                if (j >= x) {
+                    f[i][j] = Math.max(f[i][j], f[i - 1][j - x] + 1);
+                }
+            }
+        }
+        return f[n][target] <= 0 ? -1 : f[n][target];
+    }
+}
+```
 
+```java
+class Solution {
+    public int lengthOfLongestSubsequence(List<Integer> nums, int target) {
+        int[] f = new int[target + 1];
+        final int inf = 1 << 30;
+        Arrays.fill(f, -inf);
+        f[0] = 0;
+        for (int x : nums) {
+            for (int j = target; j >= x; --j) {
+                f[j] = Math.max(f[j], f[j - x] + 1);
+            }
+        }
+        return f[target] <= 0 ? -1 : f[target];
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
+class Solution {
+public:
+    int lengthOfLongestSubsequence(vector<int>& nums, int target) {
+        int n = nums.size();
+        int f[n + 1][target + 1];
+        memset(f, -0x3f, sizeof(f));
+        f[0][0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            int x = nums[i - 1];
+            for (int j = 0; j <= target; ++j) {
+                f[i][j] = f[i - 1][j];
+                if (j >= x) {
+                    f[i][j] = max(f[i][j], f[i - 1][j - x] + 1);
+                }
+            }
+        }
+        return f[n][target] <= 0 ? -1 : f[n][target];
+    }
+};
+```
 
+```cpp
+class Solution {
+public:
+    int lengthOfLongestSubsequence(vector<int>& nums, int target) {
+        int f[target + 1];
+        memset(f, -0x3f, sizeof(f));
+        f[0] = 0;
+        for (int x : nums) {
+            for (int j = target; j >= x; --j) {
+                f[j] = max(f[j], f[j - x] + 1);
+            }
+        }
+        return f[target] <= 0 ? -1 : f[target];
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func lengthOfLongestSubsequence(nums []int, target int) int {
+	n := len(nums)
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, target+1)
+		for j := range f[i] {
+			f[i][j] = -(1 << 30)
+		}
+	}
+	f[0][0] = 0
+	for i := 1; i <= n; i++ {
+		x := nums[i-1]
+		for j := 0; j <= target; j++ {
+			f[i][j] = f[i-1][j]
+			if j >= x {
+				f[i][j] = max(f[i][j], f[i-1][j-x]+1)
+			}
+		}
+	}
+	if f[n][target] <= 0 {
+		return -1
+	}
+	return f[n][target]
+}
 
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func lengthOfLongestSubsequence(nums []int, target int) int {
+	f := make([]int, target+1)
+	for i := range f {
+		f[i] = -(1 << 30)
+	}
+	f[0] = 0
+	for _, x := range nums {
+		for j := target; j >= x; j-- {
+			f[j] = max(f[j], f[j-x]+1)
+		}
+	}
+	if f[target] <= 0 {
+		return -1
+	}
+	return f[target]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function lengthOfLongestSubsequence(nums: number[], target: number): number {
+    const n = nums.length;
+    const f: number[][] = Array.from({ length: n + 1 }, () => Array(target + 1).fill(-Infinity));
+    f[0][0] = 0;
+    for (let i = 1; i <= n; ++i) {
+        const x = nums[i - 1];
+        for (let j = 0; j <= target; ++j) {
+            f[i][j] = f[i - 1][j];
+            if (j >= x) {
+                f[i][j] = Math.max(f[i][j], f[i - 1][j - x] + 1);
+            }
+        }
+    }
+    return f[n][target] <= 0 ? -1 : f[n][target];
+}
+```
+
+```ts
+function lengthOfLongestSubsequence(nums: number[], target: number): number {
+    const f: number[] = Array(target + 1).fill(-Infinity);
+    f[0] = 0;
+    for (const x of nums) {
+        for (let j = target; j >= x; --j) {
+            f[j] = Math.max(f[j], f[j - x] + 1);
+        }
+    }
+    return f[target] <= 0 ? -1 : f[target];
+}
 ```
 
 ### **...**
