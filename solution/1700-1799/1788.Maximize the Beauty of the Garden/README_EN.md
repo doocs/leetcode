@@ -52,6 +52,14 @@
 
 ## Solutions
 
+**Solution 1: Hash Table + Prefix Sum**
+
+We use a hash table $d$ to record the first occurrence of each aesthetic value, and a prefix sum array $s$ to record the sum of the aesthetic values before the current position. If an aesthetic value $v$ appears at positions $i$ and $j$ (where $i \lt j$), then we can get a valid garden $[i+1,j]$, whose aesthetic value is $s[i] - s[j + 1] + v \times 2$. We use this value to update the answer. Otherwise, we record the current position $i$ of the aesthetic value in the hash table $d$. Next, we update the prefix sum. If the aesthetic value $v$ is negative, we treat it as $0$.
+
+After traversing all the aesthetic values, we can get the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of flowers.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -76,10 +84,11 @@ class Solution:
 ```java
 class Solution {
     public int maximumBeauty(int[] flowers) {
-        int[] s = new int[flowers.length + 1];
+        int n = flowers.length;
+        int[] s = new int[n + 1];
         Map<Integer, Integer> d = new HashMap<>();
         int ans = Integer.MIN_VALUE;
-        for (int i = 0; i < flowers.length; ++i) {
+        for (int i = 0; i < n; ++i) {
             int v = flowers[i];
             if (d.containsKey(v)) {
                 ans = Math.max(ans, s[i] - s[d.get(v) + 1] + v * 2);
@@ -134,6 +143,52 @@ func maximumBeauty(flowers []int) int {
 		s[i+1] = s[i] + max(v, 0)
 	}
 	return ans
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn maximum_beauty(flowers: Vec<i32>) -> i32 {
+        let mut s = vec![0; flowers.len() + 1];
+        let mut d = HashMap::new();
+        let mut ans = i32::MIN;
+
+        for (i, &v) in flowers.iter().enumerate() {
+            if let Some(&j) = d.get(&v) {
+                ans = ans.max(s[i] - s[j + 1] + v * 2);
+            } else {
+                d.insert(v, i);
+            }
+            s[i + 1] = s[i] + v.max(0);
+        }
+
+        ans
+    }
+}
+```
+
+### **TypeScript**
+
+```ts
+function maximumBeauty(flowers: number[]): number {
+    const n = flowers.length;
+    const s: number[] = Array(n + 1).fill(0);
+    const d: Map<number, number> = new Map();
+    let ans = -Infinity;
+    for (let i = 0; i < n; ++i) {
+        const v = flowers[i];
+        if (d.has(v)) {
+            ans = Math.max(ans, s[i] - s[d.get(v)! + 1] + v * 2);
+        } else {
+            d.set(v, i);
+        }
+        s[i + 1] = s[i] + Math.max(v, 0);
+    }
+    return ans;
 }
 ```
 

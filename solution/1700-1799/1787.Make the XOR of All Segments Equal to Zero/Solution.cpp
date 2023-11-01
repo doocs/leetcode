@@ -2,13 +2,13 @@ class Solution {
 public:
     int minChanges(vector<int>& nums, int k) {
         int n = 1 << 10;
-        vector<unordered_map<int, int>> cnt(k);
+        unordered_map<int, int> cnt[k];
         vector<int> size(k);
         for (int i = 0; i < nums.size(); ++i) {
             cnt[i % k][nums[i]]++;
             size[i % k]++;
         }
-        vector<int> f(n, 0x3f3f3f3f);
+        vector<int> f(n, 1 << 30);
         f[0] = 0;
         for (int i = 0; i < k; ++i) {
             int mi = *min_element(f.begin(), f.end());

@@ -55,6 +55,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表 + 前缀和**
+
+我们用哈希表 $d$ 记录每个美观度第一次出现的位置，用前缀和数组 $s$ 记录当前位置之前的美观度之和。如果一个美观度 $v$ 在位置 $i$ 和 $j$ 出现过（其中 $i \lt j$），那么我们可以得到一个有效的花园 $[i+1,j]$，其美观度为 $s[i] - s[j + 1] + v \times 2$，我们用这个值更新答案。否则，我们将当前美观度所在的位置 $i$ 记录到哈希表 $d$ 中。接下来，我们更新前缀和，如果美观度 $v$ 为负数，我们将其视为 $0$。
+
+遍历完所有的美观度之后，我们就可以得到答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为花朵的数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -83,10 +91,11 @@ class Solution:
 ```java
 class Solution {
     public int maximumBeauty(int[] flowers) {
-        int[] s = new int[flowers.length + 1];
+        int n = flowers.length;
+        int[] s = new int[n + 1];
         Map<Integer, Integer> d = new HashMap<>();
         int ans = Integer.MIN_VALUE;
-        for (int i = 0; i < flowers.length; ++i) {
+        for (int i = 0; i < n; ++i) {
             int v = flowers[i];
             if (d.containsKey(v)) {
                 ans = Math.max(ans, s[i] - s[d.get(v) + 1] + v * 2);
@@ -141,6 +150,52 @@ func maximumBeauty(flowers []int) int {
 		s[i+1] = s[i] + max(v, 0)
 	}
 	return ans
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn maximum_beauty(flowers: Vec<i32>) -> i32 {
+        let mut s = vec![0; flowers.len() + 1];
+        let mut d = HashMap::new();
+        let mut ans = i32::MIN;
+
+        for (i, &v) in flowers.iter().enumerate() {
+            if let Some(&j) = d.get(&v) {
+                ans = ans.max(s[i] - s[j + 1] + v * 2);
+            } else {
+                d.insert(v, i);
+            }
+            s[i + 1] = s[i] + v.max(0);
+        }
+
+        ans
+    }
+}
+```
+
+### **TypeScript**
+
+```ts
+function maximumBeauty(flowers: number[]): number {
+    const n = flowers.length;
+    const s: number[] = Array(n + 1).fill(0);
+    const d: Map<number, number> = new Map();
+    let ans = -Infinity;
+    for (let i = 0; i < n; ++i) {
+        const v = flowers[i];
+        if (d.has(v)) {
+            ans = Math.max(ans, s[i] - s[d.get(v)! + 1] + v * 2);
+        } else {
+            d.set(v, i);
+        }
+        s[i + 1] = s[i] + Math.max(v, 0);
+    }
+    return ans;
 }
 ```
 
