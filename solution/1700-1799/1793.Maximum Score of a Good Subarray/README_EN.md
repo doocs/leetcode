@@ -38,6 +38,14 @@
 
 ## Solutions
 
+**Solution 1: Monotonic Stack**
+
+We can enumerate each element $nums[i]$ in $nums$ as the minimum value of the subarray, and use a monotonic stack to find the first position $left[i]$ on the left that is less than $nums[i]$ and the first position $right[i]$ on the right that is less than or equal to $nums[i]$. Then, the score of the subarray with $nums[i]$ as the minimum value is $nums[i] \times (right[i] - left[i] - 1)$.
+
+It should be noted that the answer can only be updated when the left and right boundaries $left[i]$ and $right[i]$ satisfy $left[i]+1 \leq k \leq right[i]-1$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -193,6 +201,43 @@ func maximumScore(nums []int, k int) (ans int) {
 		}
 	}
 	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function maximumScore(nums: number[], k: number): number {
+    const n = nums.length;
+    const left: number[] = Array(n).fill(-1);
+    const right: number[] = Array(n).fill(n);
+    const stk: number[] = [];
+    for (let i = 0; i < n; ++i) {
+        while (stk.length && nums[stk.at(-1)] >= nums[i]) {
+            stk.pop();
+        }
+        if (stk.length) {
+            left[i] = stk.at(-1);
+        }
+        stk.push(i);
+    }
+    stk.length = 0;
+    for (let i = n - 1; ~i; --i) {
+        while (stk.length && nums[stk.at(-1)] > nums[i]) {
+            stk.pop();
+        }
+        if (stk.length) {
+            right[i] = stk.at(-1);
+        }
+        stk.push(i);
+    }
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        if (left[i] + 1 <= k && k <= right[i] - 1) {
+            ans = Math.max(ans, nums[i] * (right[i] - left[i] - 1));
+        }
+    }
+    return ans;
 }
 ```
 
