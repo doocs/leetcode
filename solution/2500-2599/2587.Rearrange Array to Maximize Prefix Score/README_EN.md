@@ -39,6 +39,14 @@ It can be shown that 6 is the maximum score we can obtain.
 
 ## Solutions
 
+**Solution 1: Greedy + Sorting**
+
+To maximize the number of positive integers in the prefix sum array, we need to make the elements in the prefix sum array as large as possible, that is, to add as many positive integers as possible. Therefore, we can sort the array $nums$ in descending order, then traverse the array, maintaining the prefix sum $s$. If $s \leq 0$, it means that there can be no more positive integers in the current position and the positions after it, so we can directly return the current position.
+
+Otherwise, after the traversal, we return the length of the array.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -108,6 +116,24 @@ func maxScore(nums []int) int {
 		}
 	}
 	return n
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn max_score(mut nums: Vec<i32>) -> i32 {
+        nums.sort_by(|a, b| b.cmp(a));
+        let mut s: i64 = 0;
+        for (i, &x) in nums.iter().enumerate() {
+            s += x as i64;
+            if s <= 0 {
+                return i as i32;
+            }
+        }
+        nums.len() as i32
+    }
 }
 ```
 

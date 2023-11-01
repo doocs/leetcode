@@ -141,8 +141,8 @@ function vowelStrings(words: string[], left: number, right: number): number {
     let ans = 0;
     const check: string[] = ['a', 'e', 'i', 'o', 'u'];
     for (let i = left; i <= right; ++i) {
-        var w = words[i];
-        if (check.includes(w[0]) && check.includes(w[w.length - 1])) {
+        const w = words[i];
+        if (check.includes(w[0]) && check.includes(w.at(-1))) {
             ++ans;
         }
     }
@@ -161,10 +161,8 @@ impl Solution {
 
         let mut ans = 0;
         for i in left..=right {
-            let words_bytes = words[i as usize].as_bytes();
-            let first_char = words_bytes[0];
-            let last_char = words_bytes[words_bytes.len() - 1];
-            if check(first_char) && check(last_char) {
+            let w = words[i as usize].as_bytes();
+            if check(w[0]) && check(w[w.len() - 1]) {
                 ans += 1;
             }
         }
