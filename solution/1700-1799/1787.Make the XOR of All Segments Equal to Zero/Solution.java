@@ -7,7 +7,7 @@ class Solution {
         for (int i = 0; i < nums.length; ++i) {
             int j = i % k;
             cnt[j].merge(nums[i], 1, Integer::sum);
-            size[i % k]++;
+            size[j]++;
         }
         int[] f = new int[n];
         final int inf = 1 << 30;
