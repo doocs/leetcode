@@ -1,6 +1,6 @@
 class Solution:
     def maximumInvitations(self, favorite: List[int]) -> int:
-        def max_cycle(fa):
+        def max_cycle(fa: List[int]) -> int:
             n = len(fa)
             vis = [False] * n
             ans = 0
@@ -19,13 +19,13 @@ class Solution:
                         break
             return ans
 
-        def topological_sort(fa):
+        def topological_sort(fa: List[int]) -> int:
             n = len(fa)
             indeg = [0] * n
             dist = [1] * n
             for v in fa:
                 indeg[v] += 1
-            q = deque([i for i, v in enumerate(indeg) if v == 0])
+            q = deque(i for i, v in enumerate(indeg) if v == 0)
             while q:
                 i = q.popleft()
                 dist[fa[i]] = max(dist[fa[i]], dist[i] + 1)
