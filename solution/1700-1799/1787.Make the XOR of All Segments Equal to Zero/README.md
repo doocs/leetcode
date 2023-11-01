@@ -111,16 +111,16 @@ class Solution {
     public int minChanges(int[] nums, int k) {
         int n = 1 << 10;
         Map<Integer, Integer>[] cnt = new Map[k];
+        Arrays.setAll(cnt, i -> new HashMap<>());
         int[] size = new int[k];
-        for (int i = 0; i < k; ++i) {
-            cnt[i] = new HashMap<>();
-        }
         for (int i = 0; i < nums.length; ++i) {
-            cnt[i % k].put(nums[i], cnt[i % k].getOrDefault(nums[i], 0) + 1);
-            size[i % k]++;
+            int j = i % k;
+            cnt[j].merge(nums[i], 1, Integer::sum);
+            size[j]++;
         }
         int[] f = new int[n];
-        Arrays.fill(f, 0x3f3f3f3f);
+        final int inf = 1 << 30;
+        Arrays.fill(f, inf);
         f[0] = 0;
         for (int i = 0; i < k; ++i) {
             int[] g = new int[n];
@@ -153,13 +153,13 @@ class Solution {
 public:
     int minChanges(vector<int>& nums, int k) {
         int n = 1 << 10;
-        vector<unordered_map<int, int>> cnt(k);
+        unordered_map<int, int> cnt[k];
         vector<int> size(k);
         for (int i = 0; i < nums.size(); ++i) {
             cnt[i % k][nums[i]]++;
             size[i % k]++;
         }
-        vector<int> f(n, 0x3f3f3f3f);
+        vector<int> f(n, 1 << 30);
         f[0] = 0;
         for (int i = 0; i < k; ++i) {
             int mi = *min_element(f.begin(), f.end());
