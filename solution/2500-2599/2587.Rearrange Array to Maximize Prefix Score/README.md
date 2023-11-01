@@ -45,11 +45,11 @@ prefix = [2,5,6,5,2,2,-1] ，分数为 6 。
 
 **方法一：贪心 + 排序**
 
-要使得前缀和数组中正整数的个数最多，就要使得前缀和数组中的元素尽可能大，即尽可能多的正整数相加。因此，我们可以将数组 `nums` 降序排序，然后遍历数组，维护前缀和 $s$，如果 $s \leq 0$，则说明当前位置以及之后的位置都不可能再有正整数，因此直接返回当前位置即可。
+要使得前缀和数组中正整数的个数最多，就要使得前缀和数组中的元素尽可能大，即尽可能多的正整数相加。因此，我们可以将数组 $nums$ 降序排序，然后遍历数组，维护前缀和 $s$，如果 $s \leq 0$，则说明当前位置以及之后的位置都不可能再有正整数，因此直接返回当前位置即可。
 
 否则，遍历结束后，返回数组长度。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 `nums` 的长度。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
 
@@ -124,6 +124,24 @@ func maxScore(nums []int) int {
 		}
 	}
 	return n
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn max_score(mut nums: Vec<i32>) -> i32 {
+        nums.sort_by(|a, b| b.cmp(a));
+        let mut s: i64 = 0;
+        for (i, &x) in nums.iter().enumerate() {
+            s += x as i64;
+            if s <= 0 {
+                return i as i32;
+            }
+        }
+        nums.len() as i32
+    }
 }
 ```
 
