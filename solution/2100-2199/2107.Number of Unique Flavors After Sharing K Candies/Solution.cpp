@@ -7,11 +7,11 @@ public:
             ++cnt[candies[i]];
         }
         int ans = cnt.size();
-        for (int i = k; i < candies.size(); ++i) {
+        for (int i = k; i < n; ++i) {
+            ++cnt[candies[i - k]];
             if (--cnt[candies[i]] == 0) {
                 cnt.erase(candies[i]);
             }
-            ++cnt[candies[i - k]];
             ans = max(ans, (int) cnt.size());
         }
         return ans;
