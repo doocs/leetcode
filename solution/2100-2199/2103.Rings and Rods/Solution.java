@@ -1,13 +1,18 @@
 class Solution {
     public int countPoints(String rings) {
-        Map<Integer, Set<Character>> mp = new HashMap<>();
-        for (int i = 1; i < rings.length(); i += 2) {
-            int c = rings.charAt(i) - '0';
-            mp.computeIfAbsent(c, k -> new HashSet<>()).add(rings.charAt(i - 1));
+        int[] d = new int['Z'];
+        d['R'] = 1;
+        d['G'] = 2;
+        d['B'] = 4;
+        int[] mask = new int[10];
+        for (int i = 0, n = rings.length(); i < n; i += 2) {
+            int c = rings.charAt(i);
+            int j = rings.charAt(i + 1) - '0';
+            mask[j] |= d[c];
         }
         int ans = 0;
-        for (Set<Character> e : mp.values()) {
-            if (e.size() == 3) {
+        for (int x : mask) {
+            if (x == 7) {
                 ++ans;
             }
         }

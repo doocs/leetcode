@@ -1,10 +1,14 @@
 function countPoints(rings: string): number {
-    const helper = (c: string) => c.charCodeAt(0) - 'A'.charCodeAt(0);
-    const n = rings.length;
-    const target = (1 << helper('R')) + (1 << helper('G')) + (1 << helper('B'));
-    const count = new Array(10).fill(0);
-    for (let i = 0; i < n; i += 2) {
-        count[rings[i + 1]] |= 1 << helper(rings[i]);
+    const idx = (c: string) => c.charCodeAt(0) - 'A'.charCodeAt(0);
+    const d: number[] = Array(26).fill(0);
+    d[idx('R')] = 1;
+    d[idx('G')] = 2;
+    d[idx('B')] = 4;
+    const mask: number[] = Array(10).fill(0);
+    for (let i = 0; i < rings.length; i += 2) {
+        const c = rings[i];
+        const j = rings[i + 1].charCodeAt(0) - '0'.charCodeAt(0);
+        mask[j] |= d[idx(c)];
     }
-    return count.reduce((r, v) => (r += v === target ? 1 : 0), 0);
+    return mask.filter(x => x === 7).length;
 }

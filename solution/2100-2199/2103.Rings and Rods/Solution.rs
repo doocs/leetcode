@@ -1,14 +1,20 @@
 impl Solution {
     pub fn count_points(rings: String) -> i32 {
-        let rings = rings.as_bytes();
-        let target = (1 << b'R' - b'A') + (1 << b'G' - b'A') + (1 << b'B' - b'A');
-        let n = rings.len();
-        let mut count = [0; 10];
-        let mut i = 0;
-        while i < n {
-            count[(rings[i + 1] - b'0') as usize] |= 1 << rings[i] - b'A';
-            i += 2;
+        let mut d: [i32; 90] = [0; 90];
+        d['R' as usize] = 1;
+        d['G' as usize] = 2;
+        d['B' as usize] = 4;
+
+        let mut mask: [i32; 10] = [0; 10];
+
+        let cs: Vec<char> = rings.chars().collect();
+
+        for i in (0..cs.len()).step_by(2) {
+            let c = cs[i] as usize;
+            let j = cs[i + 1] as usize - '0' as usize;
+            mask[j] |= d[c];
         }
-        count.iter().filter(|&v| *v == target).count() as i32
+
+        mask.iter().filter(|&&x| x == 7).count() as i32
     }
 }

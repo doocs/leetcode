@@ -1,7 +1,9 @@
 class Solution:
     def countPoints(self, rings: str) -> int:
-        mp = defaultdict(set)
-        for i in range(1, len(rings), 2):
-            c = int(rings[i])
-            mp[c].add(rings[i - 1])
-        return sum(len(v) == 3 for v in mp.values())
+        mask = [0] * 10
+        d = {"R": 1, "G": 2, "B": 4}
+        for i in range(0, len(rings), 2):
+            c = rings[i]
+            j = int(rings[i + 1])
+            mask[j] |= d[c]
+        return mask.count(7)
