@@ -6,11 +6,11 @@ class Solution {
             cnt.merge(candies[i], 1, Integer::sum);
         }
         int ans = cnt.size();
-        for (int i = k; i < candies.length; ++i) {
+        for (int i = k; i < n; ++i) {
+            cnt.merge(candies[i - k], 1, Integer::sum);
             if (cnt.merge(candies[i], -1, Integer::sum) == 0) {
                 cnt.remove(candies[i]);
             }
-            cnt.merge(candies[i - k], 1, Integer::sum);
             ans = Math.max(ans, cnt.size());
         }
         return ans;
