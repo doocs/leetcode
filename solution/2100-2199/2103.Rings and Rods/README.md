@@ -209,7 +209,7 @@ impl Solution {
 ### **C**
 
 ```c
-int countPoints(char * rings) {
+int countPoints(char* rings) {
     int d['Z'];
     memset(d, 0, sizeof(d));
     d['R'] = 1;
