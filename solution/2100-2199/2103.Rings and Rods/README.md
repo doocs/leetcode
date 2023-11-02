@@ -68,7 +68,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-哈希表实现。
+**方法一：位运算**
+
+我们可以用一个长度为 $10$ 的数组 $mask$ 来表示每根杆上的环的颜色情况，其中 $mask[i]$ 表示第 $i$ 根杆上的环的颜色情况，如果第 $i$ 根杆上有红色、绿色、蓝色的环，那么 $mask[i]$ 的二进制表示为 $111$，即 $mask[i] = 7$。
+
+我们遍历字符串 $rings$，对于每个颜色位置对 $(c, j)$，其中 $c$ 表示环的颜色，$j$ 表示环所在的杆的编号，我们将 $mask[j]$ 对应的二进制位进行置位，即 $mask[j] |= d[c]$，其中 $d[c]$ 表示颜色 $c$ 对应的二进制位。
+
+最后我们统计 $mask$ 中值为 $7$ 的元素的个数，即为集齐全部三种颜色环的杆的数目。
+
+时间复杂度 $O(n)$，空间复杂度 $O(|\Sigma|)$，其中 $n$ 表示字符串 $rings$ 的长度，而 $|\Sigma|$ 表示字符集的大小。
 
 <!-- tabs:start -->
 
@@ -79,11 +87,13 @@
 ```python
 class Solution:
     def countPoints(self, rings: str) -> int:
-        mp = defaultdict(set)
-        for i in range(1, len(rings), 2):
-            c = int(rings[i])
-            mp[c].add(rings[i - 1])
-        return sum(len(v) == 3 for v in mp.values())
+        mask = [0] * 10
+        d = {"R": 1, "G": 2, "B": 4}
+        for i in range(0, len(rings), 2):
+            c = rings[i]
+            j = int(rings[i + 1])
+            mask[j] |= d[c]
+        return mask.count(7)
 ```
 
 ### **Java**
@@ -93,14 +103,19 @@ class Solution:
 ```java
 class Solution {
     public int countPoints(String rings) {
-        Map<Integer, Set<Character>> mp = new HashMap<>();
-        for (int i = 1; i < rings.length(); i += 2) {
-            int c = rings.charAt(i) - '0';
-            mp.computeIfAbsent(c, k -> new HashSet<>()).add(rings.charAt(i - 1));
+        int[] d = new int['Z'];
+        d['R'] = 1;
+        d['G'] = 2;
+        d['B'] = 4;
+        int[] mask = new int[10];
+        for (int i = 0, n = rings.length(); i < n; i += 2) {
+            int c = rings.charAt(i);
+            int j = rings.charAt(i + 1) - '0';
+            mask[j] |= d[c];
         }
         int ans = 0;
-        for (Set<Character> e : mp.values()) {
-            if (e.size() == 3) {
+        for (int x : mask) {
+            if (x == 7) {
                 ++ans;
             }
         }
@@ -115,16 +130,14 @@ class Solution {
 class Solution {
 public:
     int countPoints(string rings) {
-        unordered_map<int, unordered_set<char>> mp;
-        for (int i = 1; i < rings.size(); i += 2) {
-            int c = rings[i] - '0';
-            mp[c].insert(rings[i - 1]);
+        int d['Z']{['R'] = 1, ['G'] = 2, ['B'] = 4};
+        int mask[10]{};
+        for (int i = 0, n = rings.size(); i < n; i += 2) {
+            int c = rings[i];
+            int j = rings[i + 1] - '0';
+            mask[j] |= d[c];
         }
-        int ans = 0;
-        for (int i = 0; i < 10; ++i)
-            if (mp[i].size() == 3)
-                ++ans;
-        return ans;
+        return count(mask, mask + 10, 7);
     }
 };
 ```
@@ -132,22 +145,20 @@ public:
 ### **Go**
 
 ```go
-func countPoints(rings string) int {
-	mp := make(map[byte]map[byte]bool)
-	for i := 1; i < len(rings); i += 2 {
+func countPoints(rings string) (ans int) {
+	d := ['Z']int{'R': 1, 'G': 2, 'B': 4}
+	mask := [10]int{}
+	for i, n := 0, len(rings); i < n; i += 2 {
 		c := rings[i]
-		if len(mp[c]) == 0 {
-			mp[c] = make(map[byte]bool)
-		}
-		mp[c][rings[i-1]] = true
+		j := int(rings[i+1] - '0')
+		mask[j] |= d[c]
 	}
-	ans := 0
-	for _, v := range mp {
-		if len(v) == 3 {
+	for _, x := range mask {
+		if x == 7 {
 			ans++
 		}
 	}
-	return ans
+	return
 }
 ```
 
@@ -155,14 +166,18 @@ func countPoints(rings string) int {
 
 ```ts
 function countPoints(rings: string): number {
-    const helper = (c: string) => c.charCodeAt(0) - 'A'.charCodeAt(0);
-    const n = rings.length;
-    const target = (1 << helper('R')) + (1 << helper('G')) + (1 << helper('B'));
-    const count = new Array(10).fill(0);
-    for (let i = 0; i < n; i += 2) {
-        count[rings[i + 1]] |= 1 << helper(rings[i]);
+    const idx = (c: string) => c.charCodeAt(0) - 'A'.charCodeAt(0);
+    const d: number[] = Array(26).fill(0);
+    d[idx('R')] = 1;
+    d[idx('G')] = 2;
+    d[idx('B')] = 4;
+    const mask: number[] = Array(10).fill(0);
+    for (let i = 0; i < rings.length; i += 2) {
+        const c = rings[i];
+        const j = rings[i + 1].charCodeAt(0) - '0'.charCodeAt(0);
+        mask[j] |= d[idx(c)];
     }
-    return count.reduce((r, v) => (r += v === target ? 1 : 0), 0);
+    return mask.filter(x => x === 7).length;
 }
 ```
 
@@ -171,16 +186,22 @@ function countPoints(rings: string): number {
 ```rust
 impl Solution {
     pub fn count_points(rings: String) -> i32 {
-        let rings = rings.as_bytes();
-        let target = (1 << b'R' - b'A') + (1 << b'G' - b'A') + (1 << b'B' - b'A');
-        let n = rings.len();
-        let mut count = [0; 10];
-        let mut i = 0;
-        while i < n {
-            count[(rings[i + 1] - b'0') as usize] |= 1 << rings[i] - b'A';
-            i += 2;
+        let mut d: [i32; 90] = [0; 90];
+        d['R' as usize] = 1;
+        d['G' as usize] = 2;
+        d['B' as usize] = 4;
+
+        let mut mask: [i32; 10] = [0; 10];
+
+        let cs: Vec<char> = rings.chars().collect();
+
+        for i in (0..cs.len()).step_by(2) {
+            let c = cs[i] as usize;
+            let j = cs[i + 1] as usize - '0' as usize;
+            mask[j] |= d[c];
         }
-        count.iter().filter(|&v| *v == target).count() as i32
+
+        mask.iter().filter(|&&x| x == 7).count() as i32
     }
 }
 ```
@@ -189,17 +210,28 @@ impl Solution {
 
 ```c
 int countPoints(char* rings) {
-    int target = (1 << ('R' - 'A')) + (1 << ('G' - 'A')) + (1 << ('B' - 'A'));
-    int count[10] = {0};
-    for (int i = 0; rings[i]; i += 2) {
-        count[rings[i + 1] - '0'] |= 1 << (rings[i] - 'A');
+    int d['Z'];
+    memset(d, 0, sizeof(d));
+    d['R'] = 1;
+    d['G'] = 2;
+    d['B'] = 4;
+
+    int mask[10];
+    memset(mask, 0, sizeof(mask));
+
+    for (int i = 0, n = strlen(rings); i < n; i += 2) {
+        int c = rings[i];
+        int j = rings[i + 1] - '0';
+        mask[j] |= d[c];
     }
+
     int ans = 0;
     for (int i = 0; i < 10; i++) {
-        if (count[i] == target) {
+        if (mask[i] == 7) {
             ans++;
         }
     }
+
     return ans;
 }
 ```

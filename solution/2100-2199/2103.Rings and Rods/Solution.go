@@ -1,17 +1,15 @@
-func countPoints(rings string) int {
-	mp := make(map[byte]map[byte]bool)
-	for i := 1; i < len(rings); i += 2 {
+func countPoints(rings string) (ans int) {
+	d := ['Z']int{'R': 1, 'G': 2, 'B': 4}
+	mask := [10]int{}
+	for i, n := 0, len(rings); i < n; i += 2 {
 		c := rings[i]
-		if len(mp[c]) == 0 {
-			mp[c] = make(map[byte]bool)
-		}
-		mp[c][rings[i-1]] = true
+		j := int(rings[i+1] - '0')
+		mask[j] |= d[c]
 	}
-	ans := 0
-	for _, v := range mp {
-		if len(v) == 3 {
+	for _, x := range mask {
+		if x == 7 {
 			ans++
 		}
 	}
-	return ans
+	return
 }

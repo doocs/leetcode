@@ -1,14 +1,25 @@
 int countPoints(char* rings) {
-    int target = (1 << ('R' - 'A')) + (1 << ('G' - 'A')) + (1 << ('B' - 'A'));
-    int count[10] = {0};
-    for (int i = 0; rings[i]; i += 2) {
-        count[rings[i + 1] - '0'] |= 1 << (rings[i] - 'A');
+    int d['Z'];
+    memset(d, 0, sizeof(d));
+    d['R'] = 1;
+    d['G'] = 2;
+    d['B'] = 4;
+
+    int mask[10];
+    memset(mask, 0, sizeof(mask));
+
+    for (int i = 0, n = strlen(rings); i < n; i += 2) {
+        int c = rings[i];
+        int j = rings[i + 1] - '0';
+        mask[j] |= d[c];
     }
+
     int ans = 0;
     for (int i = 0; i < 10; i++) {
-        if (count[i] == target) {
+        if (mask[i] == 7) {
             ans++;
         }
     }
+
     return ans;
 }

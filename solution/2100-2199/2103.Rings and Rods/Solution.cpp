@@ -1,15 +1,13 @@
 class Solution {
 public:
     int countPoints(string rings) {
-        unordered_map<int, unordered_set<char>> mp;
-        for (int i = 1; i < rings.size(); i += 2) {
-            int c = rings[i] - '0';
-            mp[c].insert(rings[i - 1]);
+        int d['Z']{['R'] = 1, ['G'] = 2, ['B'] = 4};
+        int mask[10]{};
+        for (int i = 0, n = rings.size(); i < n; i += 2) {
+            int c = rings[i];
+            int j = rings[i + 1] - '0';
+            mask[j] |= d[c];
         }
-        int ans = 0;
-        for (int i = 0; i < 10; ++i)
-            if (mp[i].size() == 3)
-                ++ans;
-        return ans;
+        return count(mask, mask + 10, 7);
     }
 };
