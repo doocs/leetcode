@@ -414,8 +414,6 @@ func connect(root *Node) *Node {
 
 ### **TypeScript**
 
-BFS:
-
 ```ts
 /**
  * Definition for Node.
@@ -434,28 +432,28 @@ BFS:
  */
 
 function connect(root: Node | null): Node | null {
-    if (root == null) {
-        return root;
+    if (!root) {
+        return null;
     }
-    const queue = [root];
-    while (queue.length !== 0) {
-        const n = queue.length;
-        let pre = null;
-        for (let i = 0; i < n; i++) {
-            const node = queue.shift();
-            node.next = pre;
-            pre = node;
+    const q: Node[] = [root];
+    while (q.length) {
+        const nq: Node[] = [];
+        let p: Node | null = null;
+        for (const node of q) {
+            if (p) {
+                p.next = node;
+            }
+            p = node;
             const { left, right } = node;
-            right && queue.push(right);
-            left && queue.push(left);
+            left && nq.push(left);
+            right && nq.push(right);
         }
+        q.splice(0, q.length, ...nq);
     }
     return root;
 }
 ```
 
-DFS:
-
 ```ts
 /**
  * Definition for Node.
@@ -473,32 +471,140 @@ DFS:
  * }
  */
 
-const find = (root: Node | null): Node | null => {
-    if (root == null) {
-        return root;
-    }
-    const { left, right, next } = root;
-    return left || right || find(next);
-};
-
 function connect(root: Node | null): Node | null {
-    if (root == null) {
+    const modify = (curr: Node | null): void => {
+        if (!curr) {
+            return;
+        }
+        next = next || curr;
+        if (prev) {
+            prev.next = curr;
+        }
+        prev = curr;
+    };
+    let node = root;
+    let [prev, next] = [null, null];
+    while (node) {
+        while (node) {
+            modify(node.left);
+            modify(node.right);
+            node = node.next;
+        }
+        node = next;
+        [prev, next] = [null, null];
+    }
+    return root;
+}
+```
+
+### **C#**
+
+```cs
+/*
+// Definition for a Node.
+public class Node {
+    public int val;
+    public Node left;
+    public Node right;
+    public Node next;
+
+    public Node() {}
+
+    public Node(int _val) {
+        val = _val;
+    }
+
+    public Node(int _val, Node _left, Node _right, Node _next) {
+        val = _val;
+        left = _left;
+        right = _right;
+        next = _next;
+    }
+}
+*/
+
+public class Solution {
+    public Node Connect(Node root) {
+        if (root == null) {
+            return null;
+        }
+        var q = new Queue<Node>();
+        q.Enqueue(root);
+        while (q.Count > 0) {
+            Node p = null;
+            for (int i = q.Count; i > 0; --i) {
+                var node = q.Dequeue();
+                if (p != null) {
+                    p.next = node;
+                }
+                p = node;
+                if (node.left != null) {
+                    q.Enqueue(node.left);
+                }
+                if (node.right != null) {
+                    q.Enqueue(node.right);
+                }
+            }
+        }
         return root;
     }
-    const { left, right, next } = root;
-    if (left != null) {
-        if (right != null) {
-            left.next = right;
-        } else {
-            left.next = find(next);
+}
+```
+
+```cs
+/*
+// Definition for a Node.
+public class Node {
+    public int val;
+    public Node left;
+    public Node right;
+    public Node next;
+
+    public Node() {}
+
+    public Node(int _val) {
+        val = _val;
+    }
+
+    public Node(int _val, Node _left, Node _right, Node _next) {
+        val = _val;
+        left = _left;
+        right = _right;
+        next = _next;
+    }
+}
+*/
+
+public class Solution {
+    private Node prev, next;
+
+    public Node Connect(Node root) {
+        Node node = root;
+        while (node != null) {
+            prev = null;
+            next = null;
+            while (node != null) {
+                modify(node.left);
+                modify(node.right);
+                node = node.next;
+            }
+            node = next;
         }
+        return root;
     }
-    if (right != null) {
-        right.next = find(next);
+
+    private void modify(Node curr) {
+        if (curr == null) {
+            return;
+        }
+        if (next == null) {
+            next = curr;
+        }
+        if (prev != null) {
+            prev.next = curr;
+        }
+        prev = curr;
     }
-    connect(right);
-    connect(left);
-    return root;
 }
 ```
 
