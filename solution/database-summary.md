@@ -236,3 +236,4 @@
     -   [2853.最高薪水差异](/database-solution/2800-2899/2853.Highest%20Salaries%20Difference/README.md)
     -   [2854.滚动平均步数](/database-solution/2800-2899/2854.Rolling%20Average%20Steps/README.md)
     -   [2893.计算每个区间内的订单](/database-solution/2800-2899/2893.Calculate%20Orders%20Within%20Each%20Interval/README.md)
+    -   [2922.Market Analysis III](/database-solution/2900-2999/2922.Market%20Analysis%20III/README.md)
