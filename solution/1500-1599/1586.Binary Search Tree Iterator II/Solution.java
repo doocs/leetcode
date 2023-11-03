@@ -20,19 +20,19 @@ class BSTIterator {
     public BSTIterator(TreeNode root) {
         dfs(root);
     }
-    
+
     public boolean hasNext() {
         return i < nums.size() - 1;
     }
-    
+
     public int next() {
         return nums.get(++i);
     }
-    
+
     public boolean hasPrev() {
         return i > 0;
     }
-    
+
     public int prev() {
         return nums.get(--i);
     }

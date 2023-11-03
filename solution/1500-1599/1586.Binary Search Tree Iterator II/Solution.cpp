@@ -15,19 +15,19 @@ public:
         dfs(root);
         n = nums.size();
     }
-    
+
     bool hasNext() {
         return i < n - 1;
     }
-    
+
     int next() {
         return nums[++i];
     }
-    
+
     bool hasPrev() {
         return i > 0;
     }
-    
+
     int prev() {
         return nums[--i];
     }
