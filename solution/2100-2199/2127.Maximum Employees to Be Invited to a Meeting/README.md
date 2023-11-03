@@ -16,9 +16,10 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2127.Maximum%20Employees%20to%20Be%20Invited%20to%20a%20Meeting/images/ex1.png" style="width: 236px; height: 195px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2127.Maximum%20Employees%20to%20Be%20Invited%20to%20a%20Meeting/images/ex1.png" style="width: 236px; height: 195px;" /></p>
 
-<pre><b>输入：</b>favorite = [2,2,1,2]
+<pre>
+<b>输入：</b>favorite = [2,2,1,2]
 <b>输出：</b>3
 <strong>解释：</strong>
 上图展示了公司邀请员工 0，1 和 2 参加会议以及他们在圆桌上的座位。
@@ -29,7 +30,8 @@
 
 <p><strong>示例 2：</strong></p>
 
-<pre><b>输入：</b>favorite = [1,2,0]
+<pre>
+<b>输入：</b>favorite = [1,2,0]
 <b>输出：</b>3
 <b>解释：</b>
 每个员工都至少是另一个员工喜欢的员工。所以公司邀请他们所有人参加会议的前提是所有人都参加了会议。
@@ -42,13 +44,14 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2127.Maximum%20Employees%20to%20Be%20Invited%20to%20a%20Meeting/images/ex2.png" style="width: 219px; height: 220px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2127.Maximum%20Employees%20to%20Be%20Invited%20to%20a%20Meeting/images/ex2.png" style="width: 219px; height: 220px;" /></p>
 
-<pre><b>输入：</b>favorite = [3,0,1,4,1]
+<pre>
+<b>输入：</b>favorite = [3,0,1,4,1]
 <b>输出：</b>4
 <b>解释：</b>
 上图展示了公司可以邀请员工 0，1，3 和 4 参加会议以及他们在圆桌上的座位。
-员工 2 无法参加，因为他喜欢的员工 0 旁边的座位已经被占领了。
+员工 2 无法参加，因为他喜欢的员工 1 旁边的座位已经被占领了。
 所以公司只能不邀请员工 2 。
 参加会议的最多员工数目为 4 。
 </pre>

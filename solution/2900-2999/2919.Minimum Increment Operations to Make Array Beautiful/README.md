@@ -11,7 +11,7 @@
 <p>你可以执行下述 <strong>递增</strong> 运算 <strong>任意</strong> 次（可以是 <strong>0</strong> 次）：</p>
 
 <ul>
-	<li>从范围&nbsp;<code>[0, n - 1]</code> 中选则一个下标 <code>i</code> ，并将 <code>nums[i]</code> 的值加 <code>1</code> 。</li>
+	<li>从范围&nbsp;<code>[0, n - 1]</code> 中选择一个下标 <code>i</code> ，并将 <code>nums[i]</code> 的值加 <code>1</code> 。</li>
 </ul>
 
 <p>如果数组中任何长度 <strong>大于或等于 3</strong> 的子数组，其 <strong>最大</strong> 元素都大于或等于 <code>k</code> ，则认为数组是一个 <strong>美丽数组</strong> 。</p>
