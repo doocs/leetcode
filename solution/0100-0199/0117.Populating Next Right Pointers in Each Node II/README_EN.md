@@ -53,6 +53,20 @@ struct Node {
 
 ## Solutions
 
+**Solution 1: BFS**
+
+We use a queue $q$ for level order traversal. Each time we traverse a level, we connect the nodes of the current level in order.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+
+**Solution 2: Space Optimization**
+
+The space complexity of Method 1 is relatively high because it requires a queue to store the nodes of each level. We can implement it with constant space.
+
+We define two pointers $prev$ and $next$, which point to the previous node and the first node of the next level, respectively. When traversing the nodes of the current level, we string the nodes of the next level together and find the first node of the next level. After the current level is traversed, we assign the first node $next$ of the next level to $node$ and continue to traverse.
+
+The time complexity is $O(n)$, where $n$ is the number of nodes in the binary tree. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
