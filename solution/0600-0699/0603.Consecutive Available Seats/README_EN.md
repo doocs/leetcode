@@ -13,7 +13,7 @@
 | seat_id     | int  |
 | free        | bool |
 +-------------+------+
-In SQL, seat_id is an auto-increment primary key column for this table.
+seat_id is an auto-increment column for this table.
 Each row of this table indicates whether the i<sup>th</sup> seat is free or not. 1 means free while 0 means occupied.
 </pre>
 

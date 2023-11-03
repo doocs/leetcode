@@ -36,7 +36,7 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>basket1.length == </code>basket2<code>.length</code></li>
+	<li><code>basket1.length == basket2.length</code></li>
 	<li><code>1 &lt;= basket1.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= basket1[i],basket2[i]&nbsp;&lt;= 10<sup>9</sup></code></li>
 </ul>

@@ -9,7 +9,7 @@
 <p>由范围 <code>[1,n]</code> 内所有整数组成的 <code>n</code> 个整数的排列&nbsp;<code>perm</code>&nbsp;可以表示为长度为 <code>n - 1</code> 的字符串 <code>s</code> ，其中:</p>
 
 <ul>
-	<li>如果 <code>perm[i] &lt; perm[i + 1]</code> ，那么 <code>s[i] == ' i '</code></li>
+	<li>如果 <code>perm[i] &lt; perm[i + 1]</code> ，那么 <code>s[i] == 'I'</code></li>
 	<li>如果&nbsp;<code>perm[i] &gt; perm[i + 1]</code>&nbsp;，那么 <code>s[i] == 'D'</code>&nbsp;。</li>
 </ul>
 

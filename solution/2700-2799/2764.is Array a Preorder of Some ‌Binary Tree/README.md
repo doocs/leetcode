@@ -22,7 +22,7 @@
 <b>输入：</b>nodes = [[0,-1],[1,0],[2,0],[3,2],[4,2]]
 <b>输出：</b>true
 <b>解释：</b>给定的 nodes 数组可以构成下面图片中的树。 
-我们可以验证这是树的前序遍历，首先访问节点 0，然后对右子节点进行前序遍历，即 [1] ，然后对左子节点进行前序遍历，即 [2,3,4] 。
+我们可以验证这是树的前序遍历，首先访问节点 0，然后对左子节点进行前序遍历，即 [1] ，然后对右子节点进行前序遍历，即 [2,3,4] 。
 </pre>
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2700-2799/2764.is%20Array%20a%20Preorder%20of%20Some%20%E2%80%8CBinary%20Tree/images/1.png" style="padding: 10px; background: #fff; border-radius: .5rem; width: 250px; height: 251px;" /></p>
@@ -33,7 +33,7 @@
 <b>输入：</b>nodes = [[0,-1],[1,0],[2,0],[3,1],[4,1]]
 <b>输出：</b>false
 <b>解释：</b>给定的 nodes 数组可以构成下面图片中的树。 
-对于前序遍历，首先访问节点 0，然后对右子节点进行前序遍历，即 [1,3,4]，但是我们可以看到在给定的顺序中，2 位于 1 和 3 之间，因此它不是树的前序遍历。
+对于前序遍历，首先访问节点 0，然后对左子节点进行前序遍历，即 [1,3,4]，但是我们可以看到在给定的顺序中，2 位于 1 和 3 之间，因此它不是树的前序遍历。
 </pre>
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2700-2799/2764.is%20Array%20a%20Preorder%20of%20Some%20%E2%80%8CBinary%20Tree/images/2.png" style="padding: 10px; background: #fff; border-radius: .5rem; width: 250px; height: 251px;" /></p>

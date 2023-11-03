@@ -16,7 +16,7 @@
 | name        | varchar |
 +-------------+---------+
 employee_id 是该表中具有唯一值的列。
-每一行表示雇员的id 和他的姓名。
+每一行表示雇员的 id 和他的姓名。
 </pre>
 
 <p>表: <code>Salaries</code></p>
@@ -28,8 +28,8 @@ employee_id 是该表中具有唯一值的列。
 | employee_id | int     |
 | salary      | int     |
 +-------------+---------+
-employee_id is 是该表中具有唯一值的列。
-每一行表示雇员的id 和他的薪水。
+employee_id 是该表中具有唯一值的列。
+每一行表示雇员的 id 和他的薪水。
 </pre>
 
 <p>&nbsp;</p>
@@ -38,10 +38,10 @@ employee_id is 是该表中具有唯一值的列。
 
 <ul>
 	<li>雇员的 <strong>姓名</strong> 丢失了，或者</li>
-	<li>雇员的 <strong>薪水信息</strong> 丢失了，或者</li>
+	<li>雇员的 <strong>薪水信息</strong> 丢失了</li>
 </ul>
 
-<p>返回这些雇员的id &nbsp;<code>employee_id</code>&nbsp;，&nbsp;<strong>从小到大排序&nbsp;</strong>。</p>
+<p>返回这些雇员的 id &nbsp;<code>employee_id</code>&nbsp;，&nbsp;<strong>从小到大排序&nbsp;</strong>。</p>
 
 <p>查询结果格式如下面的例子所示。</p>
 
@@ -75,9 +75,9 @@ Salaries table:
 | 2           |
 +-------------+
 <strong>解释：</strong>
-雇员1，2，4，5 都工作在这个公司。
-1号雇员的姓名丢失了。
-2号雇员的薪水信息丢失了。</pre>
+雇员 1，2，4，5 都在这个公司工作。
+1 号雇员的姓名丢失了。
+2 号雇员的薪水信息丢失了。</pre>
 
 ## 解法
 

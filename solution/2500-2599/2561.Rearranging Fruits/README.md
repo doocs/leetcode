@@ -6,9 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>你有两个果篮，每个果篮中有 <code>n</code> 个水果。给你两个下标从 <strong>0</strong> 开始的整数数组 <code>basket1</code> 和 <code>basket2</code> ，用以表示两个果篮中每个水果的成本。</p>
-
-<p>你希望两个果篮相等。为此，可以根据需要多次执行下述操作：</p>
+<p>你有两个果篮，每个果篮中有 <code>n</code> 个水果。给你两个下标从 <strong>0</strong> 开始的整数数组 <code>basket1</code> 和 <code>basket2</code> ，用以表示两个果篮中每个水果的交换成本。为了让两个果篮中水果的数量相等。为此，可以根据需要多次执行下述操作：</p>
 
 <ul>
 	<li>选中两个下标 <code>i</code> 和 <code>j</code> ，并交换 <code>basket1</code> 中的第 <code>i</code> 个水果和 <code>basket2</code> 中的第 <code>j</code> 个水果。</li>

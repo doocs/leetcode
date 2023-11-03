@@ -15,7 +15,8 @@
 | seat_id     | int  |
 | free        | bool |
 +-------------+------+
-在 SQL 中，Seat_id 是该表的自动递增主键列。
+Seat_id 是该表的自动递增主键列。
+在 PostgreSQL 中，<code>free</code> 存储为整数。请使用 <code>::boolean</code> 将其转换为布尔格式。
 该表的每一行表示第 i 个座位是否空闲。1 表示空闲，0 表示被占用。</pre>
 
 <p>&nbsp;</p>

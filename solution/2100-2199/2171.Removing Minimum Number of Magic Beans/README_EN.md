@@ -14,15 +14,15 @@
 <p><strong class="example">Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> beans = [4,<u><strong>1</strong></u>,6,5]
+<strong>Input:</strong> beans = [4,1,6,5]
 <strong>Output:</strong> 4
 <strong>Explanation:</strong> 
 - We remove 1 bean from the bag with only 1 bean.
-  This results in the remaining bags: [4,<b><u>0</u></b>,6,5]
+  This results in the remaining bags: [4,<strong><u>0</u></strong>,6,5]
 - Then we remove 2 beans from the bag with 6 beans.
   This results in the remaining bags: [4,0,<strong><u>4</u></strong>,5]
 - Then we remove 1 bean from the bag with 5 beans.
-  This results in the remaining bags: [4,0,4,<b><u>4</u></b>]
+  This results in the remaining bags: [4,0,4,<strong><u>4</u></strong>]
 We removed a total of 1 + 2 + 1 = 4 beans to make the remaining non-empty bags have an equal number of beans.
 There are no other solutions that remove 4 beans or fewer.
 </pre>
@@ -30,7 +30,7 @@ There are no other solutions that remove 4 beans or fewer.
 <p><strong class="example">Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> beans = [<strong><u>2</u></strong>,10,<u><strong>3</strong></u>,<strong><u>2</u></strong>]
+<strong>Input:</strong> beans = [2,10,3,2]
 <strong>Output:</strong> 7
 <strong>Explanation:</strong>
 - We remove 2 beans from one of the bags with 2 beans.
