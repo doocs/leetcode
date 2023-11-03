@@ -2931,6 +2931,8 @@
 |  2918  |  [数组的最小相等和](/solution/2900-2999/2918.Minimum%20Equal%20Sum%20of%20Two%20Arrays%20After%20Replacing%20Zeros/README.md)  |    |  中等  |  第 369 场周赛  |
 |  2919  |  [使数组变美的最小增量运算数](/solution/2900-2999/2919.Minimum%20Increment%20Operations%20to%20Make%20Array%20Beautiful/README.md)  |    |  中等  |  第 369 场周赛  |
 |  2920  |  [收集所有金币可获得的最大积分](/solution/2900-2999/2920.Maximum%20Points%20After%20Collecting%20Coins%20From%20All%20Nodes/README.md)  |    |  困难  |  第 369 场周赛  |
+|  2921  |  [Maximum Profitable Triplets With Increasing Prices II](/solution/2900-2999/2921.Maximum%20Profitable%20Triplets%20With%20Increasing%20Prices%20II/README.md)  |    |  困难  |  🔒  |
+|  2922  |  [Market Analysis III](/solution/2900-2999/2922.Market%20Analysis%20III/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

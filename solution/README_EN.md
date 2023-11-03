@@ -2929,6 +2929,8 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2918  |  [Minimum Equal Sum of Two Arrays After Replacing Zeros](/solution/2900-2999/2918.Minimum%20Equal%20Sum%20of%20Two%20Arrays%20After%20Replacing%20Zeros/README_EN.md)  |    |  Medium  |  Weekly Contest 369  |
 |  2919  |  [Minimum Increment Operations to Make Array Beautiful](/solution/2900-2999/2919.Minimum%20Increment%20Operations%20to%20Make%20Array%20Beautiful/README_EN.md)  |    |  Medium  |  Weekly Contest 369  |
 |  2920  |  [Maximum Points After Collecting Coins From All Nodes](/solution/2900-2999/2920.Maximum%20Points%20After%20Collecting%20Coins%20From%20All%20Nodes/README_EN.md)  |    |  Hard  |  Weekly Contest 369  |
+|  2921  |  [Maximum Profitable Triplets With Increasing Prices II](/solution/2900-2999/2921.Maximum%20Profitable%20Triplets%20With%20Increasing%20Prices%20II/README_EN.md)  |    |  Hard  |  🔒  |
+|  2922  |  [Market Analysis III](/solution/2900-2999/2922.Market%20Analysis%20III/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
