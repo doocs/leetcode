@@ -65,6 +65,12 @@ bSTIterator.prev(); // 状态变为 [3, 7, &lt;u&gt;9&lt;/u&gt;, 15, 20], 返回
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：中序遍历 + 数组**
+
+我们可以使用中序遍历将二叉搜索树的所有节点的值存储到数组 $nums$ 中，然后使用数组实现迭代器。我们定义一个指针 $i$，初始时 $i = -1$，表示指向数组 $nums$ 中的一个元素。每次调用 $next()$ 时，我们将 $i$ 的值加 $1$，并返回 $nums[i]$；每次调用 $prev()$ 时，我们将 $i$ 的值减 $1$，并返回 $nums[i]$。
+
+时间复杂度方面，初始化迭代器需要 $O(n)$ 的时间，其中 $n$ 是二叉搜索树的节点数。每次调用 $next()$ 和 $prev()$ 都需要 $O(1)$ 的时间。空间复杂度方面，我们需要 $O(n)$ 的空间存储二叉搜索树的所有节点的值。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -72,7 +78,47 @@ bSTIterator.prev(); // 状态变为 [3, 7, &lt;u&gt;9&lt;/u&gt;, 15, 20], 返回
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class BSTIterator:
+    def __init__(self, root: Optional[TreeNode]):
+        self.nums = []
 
+        def dfs(root):
+            if root is None:
+                return
+            dfs(root.left)
+            self.nums.append(root.val)
+            dfs(root.right)
+
+        dfs(root)
+        self.i = -1
+
+    def hasNext(self) -> bool:
+        return self.i < len(self.nums) - 1
+
+    def next(self) -> int:
+        self.i += 1
+        return self.nums[self.i]
+
+    def hasPrev(self) -> bool:
+        return self.i > 0
+
+    def prev(self) -> int:
+        self.i -= 1
+        return self.nums[self.i]
+
+
+# Your BSTIterator object will be instantiated and called as such:
+# obj = BSTIterator(root)
+# param_1 = obj.hasNext()
+# param_2 = obj.next()
+# param_3 = obj.hasPrev()
+# param_4 = obj.prev()
 ```
 
 ### **Java**
@@ -80,7 +126,248 @@ bSTIterator.prev(); // 状态变为 [3, 7, &lt;u&gt;9&lt;/u&gt;, 15, 20], 返回
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class BSTIterator {
+    private List<Integer> nums = new ArrayList<>();
+    private int i = -1;
 
+    public BSTIterator(TreeNode root) {
+        dfs(root);
+    }
+
+    public boolean hasNext() {
+        return i < nums.size() - 1;
+    }
+
+    public int next() {
+        return nums.get(++i);
+    }
+
+    public boolean hasPrev() {
+        return i > 0;
+    }
+
+    public int prev() {
+        return nums.get(--i);
+    }
+
+    private void dfs(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        dfs(root.left);
+        nums.add(root.val);
+        dfs(root.right);
+    }
+}
+
+/**
+ * Your BSTIterator object will be instantiated and called as such:
+ * BSTIterator obj = new BSTIterator(root);
+ * boolean param_1 = obj.hasNext();
+ * int param_2 = obj.next();
+ * boolean param_3 = obj.hasPrev();
+ * int param_4 = obj.prev();
+ */
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class BSTIterator {
+public:
+    BSTIterator(TreeNode* root) {
+        dfs(root);
+        n = nums.size();
+    }
+
+    bool hasNext() {
+        return i < n - 1;
+    }
+
+    int next() {
+        return nums[++i];
+    }
+
+    bool hasPrev() {
+        return i > 0;
+    }
+
+    int prev() {
+        return nums[--i];
+    }
+
+private:
+    vector<int> nums;
+    int i = -1;
+    int n;
+
+    void dfs(TreeNode* root) {
+        if (!root) {
+            return;
+        }
+        dfs(root->left);
+        nums.push_back(root->val);
+        dfs(root->right);
+    }
+};
+
+/**
+ * Your BSTIterator object will be instantiated and called as such:
+ * BSTIterator* obj = new BSTIterator(root);
+ * bool param_1 = obj->hasNext();
+ * int param_2 = obj->next();
+ * bool param_3 = obj->hasPrev();
+ * int param_4 = obj->prev();
+ */
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+type BSTIterator struct {
+	nums []int
+	i, n int
+}
+
+func Constructor(root *TreeNode) BSTIterator {
+	nums := []int{}
+	var dfs func(*TreeNode)
+	dfs = func(root *TreeNode) {
+		if root == nil {
+			return
+		}
+		dfs(root.Left)
+		nums = append(nums, root.Val)
+		dfs(root.Right)
+	}
+	dfs(root)
+	return BSTIterator{nums, -1, len(nums)}
+}
+
+func (this *BSTIterator) HasNext() bool {
+	return this.i < this.n-1
+}
+
+func (this *BSTIterator) Next() int {
+	this.i++
+	return this.nums[this.i]
+}
+
+func (this *BSTIterator) HasPrev() bool {
+	return this.i > 0
+}
+
+func (this *BSTIterator) Prev() int {
+	this.i--
+	return this.nums[this.i]
+}
+
+/**
+ * Your BSTIterator object will be instantiated and called as such:
+ * obj := Constructor(root);
+ * param_1 := obj.HasNext();
+ * param_2 := obj.Next();
+ * param_3 := obj.HasPrev();
+ * param_4 := obj.Prev();
+ */
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+class BSTIterator {
+    private nums: number[];
+    private n: number;
+    private i: number;
+
+    constructor(root: TreeNode | null) {
+        this.nums = [];
+        const dfs = (root: TreeNode | null) => {
+            if (!root) {
+                return;
+            }
+            dfs(root.left);
+            this.nums.push(root.val);
+            dfs(root.right);
+        };
+        dfs(root);
+        this.n = this.nums.length;
+        this.i = -1;
+    }
+
+    hasNext(): boolean {
+        return this.i < this.n - 1;
+    }
+
+    next(): number {
+        return this.nums[++this.i];
+    }
+
+    hasPrev(): boolean {
+        return this.i > 0;
+    }
+
+    prev(): number {
+        return this.nums[--this.i];
+    }
+}
+
+/**
+ * Your BSTIterator object will be instantiated and called as such:
+ * var obj = new BSTIterator(root)
+ * var param_1 = obj.hasNext()
+ * var param_2 = obj.next()
+ * var param_3 = obj.hasPrev()
+ * var param_4 = obj.prev()
+ */
 ```
 
 ### **...**
