@@ -44,6 +44,32 @@ As shown below, there are 5 ways you can generate &quot;bag&quot; from s.
 
 ## Solutions
 
+**Solution 1: Dynamic Programming**
+
+We define $f[i][j]$ as the number of schemes where the first $i$ characters of string $s$ form the first $j$ characters of string $t$. Initially, $f[i][0]=1$ for all $i \in [0,m]$.
+
+When $i > 0$, we consider the calculation of $f[i][j]$:
+
+-   When $s[i-1] \ne t[j-1]$, we cannot select $s[i-1]$, so $f[i][j]=f[i-1][j]$;
+-   Otherwise, we can select $s[i-1]$, so $f[i][j]=f[i-1][j-1]$.
+
+Therefore, we have the following state transition equation:
+
+$$
+f[i][j]=\left\{
+\begin{aligned}
+&f[i-1][j], &s[i-1] \ne t[j-1] \\
+&f[i-1][j-1]+f[i-1][j], &s[i-1]=t[j-1]
+\end{aligned}
+\right.
+$$
+
+The final answer is $f[m][n]$, where $m$ and $n$ are the lengths of strings $s$ and $t$ respectively.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$.
+
+We notice that the calculation of $f[i][j]$ is only related to $f[i-1][..]$. Therefore, we can optimize the first dimension, reducing the space complexity to $O(n)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -58,6 +58,12 @@ The answer would be sum of their profits which is 5 + 4 + 6 = 15.</pre>
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：树状数组**
+
+我们可以用两个树状数组分别维护每个价格左边以及右边的最大利润，然后枚举中间的价格，通过树状数组查询左右两边的最大利润，最后取最大值即可。
+
+时间复杂度 $O(n \times \log M)$，空间复杂度 $O(M)$。其中 $n$ 是数组 $prices$ 的长度，而 $M$ 是数组 $prices$ 中的最大值，本题中 $M \le 5000$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -65,7 +71,45 @@ The answer would be sum of their profits which is 5 + 4 + 6 = 15.</pre>
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class BinaryIndexedTree:
+    def __init__(self, n: int):
+        self.n = n
+        self.c = [0] * (n + 1)
 
+    def update(self, x: int, v: int):
+        while x <= self.n:
+            self.c[x] = max(self.c[x], v)
+            x += x & -x
+
+    def query(self, x: int) -> int:
+        mx = 0
+        while x:
+            mx = max(mx, self.c[x])
+            x -= x & -x
+        return mx
+
+
+class Solution:
+    def maxProfit(self, prices: List[int], profits: List[int]) -> int:
+        n = len(prices)
+        left = [0] * n
+        right = [0] * n
+
+        m = max(prices)
+        tree1 = BinaryIndexedTree(m + 1)
+        tree2 = BinaryIndexedTree(m + 1)
+
+        for i, x in enumerate(prices):
+            left[i] = tree1.query(x - 1)
+            tree1.update(x, profits[i])
+        for i in range(n - 1, -1, -1):
+            x = m + 1 - prices[i]
+            right[i] = tree2.query(x - 1)
+            tree2.update(x, profits[i])
+
+        return max(
+            (l + x + r for l, x, r in zip(left, profits, right) if l and r), default=-1
+        )
 ```
 
 ### **Java**
@@ -73,19 +117,319 @@ The answer would be sum of their profits which is 5 + 4 + 6 = 15.</pre>
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class BinaryIndexedTree {
+    private int n;
+    private int[] c;
 
+    public BinaryIndexedTree(int n) {
+        this.n = n;
+        c = new int[n + 1];
+    }
+
+    public void update(int x, int v) {
+        while (x <= n) {
+            c[x] = Math.max(c[x], v);
+            x += x & -x;
+        }
+    }
+
+    public int query(int x) {
+        int mx = 0;
+        while (x > 0) {
+            mx = Math.max(mx, c[x]);
+            x -= x & -x;
+        }
+        return mx;
+    }
+}
+
+class Solution {
+    public int maxProfit(int[] prices, int[] profits) {
+        int n = prices.length;
+        int[] left = new int[n];
+        int[] right = new int[n];
+        int m = 0;
+        for (int x : prices) {
+            m = Math.max(m, x);
+        }
+        BinaryIndexedTree tree1 = new BinaryIndexedTree(m + 1);
+        BinaryIndexedTree tree2 = new BinaryIndexedTree(m + 1);
+        for (int i = 0; i < n; ++i) {
+            int x = prices[i];
+            left[i] = tree1.query(x - 1);
+            tree1.update(x, profits[i]);
+        }
+        for (int i = n - 1; i >= 0; --i) {
+            int x = m + 1 - prices[i];
+            right[i] = tree2.query(x - 1);
+            tree2.update(x, profits[i]);
+        }
+        int ans = -1;
+        for (int i = 0; i < n; ++i) {
+            if (left[i] > 0 && right[i] > 0) {
+                ans = Math.max(ans, left[i] + profits[i] + right[i]);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
+class BinaryIndexedTree {
+private:
+    int n;
+    vector<int> c;
 
+public:
+    BinaryIndexedTree(int n) {
+        this->n = n;
+        c.resize(n + 1, 0);
+    }
+
+    void update(int x, int v) {
+        while (x <= n) {
+            c[x] = max(c[x], v);
+            x += x & -x;
+        }
+    }
+
+    int query(int x) {
+        int mx = 0;
+        while (x > 0) {
+            mx = max(mx, c[x]);
+            x -= x & -x;
+        }
+        return mx;
+    }
+};
+
+class Solution {
+public:
+    int maxProfit(vector<int>& prices, vector<int>& profits) {
+        int n = prices.size();
+        vector<int> left(n, 0);
+        vector<int> right(n, 0);
+        int m = *max_element(prices.begin(), prices.end());
+        BinaryIndexedTree tree1(m + 1);
+        BinaryIndexedTree tree2(m + 1);
+        for (int i = 0; i < n; ++i) {
+            int x = prices[i];
+            left[i] = tree1.query(x - 1);
+            tree1.update(x, profits[i]);
+        }
+        for (int i = n - 1; i >= 0; --i) {
+            int x = m + 1 - prices[i];
+            right[i] = tree2.query(x - 1);
+            tree2.update(x, profits[i]);
+        }
+        int ans = -1;
+        for (int i = 0; i < n; ++i) {
+            if (left[i] > 0 && right[i] > 0) {
+                ans = max(ans, left[i] + profits[i] + right[i]);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+type BinaryIndexedTree struct {
+	n int
+	c []int
+}
 
+func NewBinaryIndexedTree(n int) BinaryIndexedTree {
+	c := make([]int, n+1)
+	return BinaryIndexedTree{n: n, c: c}
+}
+
+func (bit *BinaryIndexedTree) update(x, v int) {
+	for x <= bit.n {
+		bit.c[x] = max(bit.c[x], v)
+		x += x & -x
+	}
+}
+
+func (bit *BinaryIndexedTree) query(x int) int {
+	mx := 0
+	for x > 0 {
+		mx = max(mx, bit.c[x])
+		x -= x & -x
+	}
+	return mx
+}
+
+func maxProfit(prices []int, profits []int) int {
+	n := len(prices)
+	left := make([]int, n)
+	right := make([]int, n)
+	m := 0
+
+	for _, x := range prices {
+		m = max(m, x)
+	}
+
+	tree1 := NewBinaryIndexedTree(m + 1)
+	tree2 := NewBinaryIndexedTree(m + 1)
+
+	for i, x := range prices {
+		left[i] = tree1.query(x - 1)
+		tree1.update(x, profits[i])
+	}
+
+	for i := n - 1; i >= 0; i-- {
+		x := m + 1 - prices[i]
+		right[i] = tree2.query(x - 1)
+		tree2.update(x, profits[i])
+	}
+
+	ans := -1
+
+	for i := 0; i < n; i++ {
+		if left[i] > 0 && right[i] > 0 {
+			ans = max(ans, left[i]+profits[i]+right[i])
+		}
+	}
+
+	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+class BinaryIndexedTree {
+    private n: number;
+    private c: number[];
+
+    constructor(n: number) {
+        this.n = n;
+        this.c = Array(n + 1).fill(0);
+    }
+
+    update(x: number, v: number): void {
+        while (x <= this.n) {
+            this.c[x] = Math.max(this.c[x], v);
+            x += x & -x;
+        }
+    }
+
+    query(x: number): number {
+        let mx = 0;
+        while (x > 0) {
+            mx = Math.max(mx, this.c[x]);
+            x -= x & -x;
+        }
+        return mx;
+    }
+}
+
+function maxProfit(prices: number[], profits: number[]): number {
+    const n: number = prices.length;
+    const left: number[] = Array(n).fill(0);
+    const right: number[] = Array(n).fill(0);
+    const m = Math.max(...prices);
+
+    const tree1: BinaryIndexedTree = new BinaryIndexedTree(m + 1);
+    const tree2: BinaryIndexedTree = new BinaryIndexedTree(m + 1);
+
+    for (let i = 0; i < n; i++) {
+        const x: number = prices[i];
+        left[i] = tree1.query(x - 1);
+        tree1.update(x, profits[i]);
+    }
+
+    for (let i = n - 1; i >= 0; i--) {
+        const x: number = m + 1 - prices[i];
+        right[i] = tree2.query(x - 1);
+        tree2.update(x, profits[i]);
+    }
+
+    let ans: number = -1;
+
+    for (let i = 0; i < n; i++) {
+        if (left[i] > 0 && right[i] > 0) {
+            ans = Math.max(ans, left[i] + profits[i] + right[i]);
+        }
+    }
+
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+struct BinaryIndexedTree {
+    n: usize,
+    c: Vec<i32>,
+}
+
+impl BinaryIndexedTree {
+    fn new(n: usize) -> BinaryIndexedTree {
+        BinaryIndexedTree {
+            n,
+            c: vec![0; n + 1],
+        }
+    }
+
+    fn update(&mut self, x: usize, v: i32) {
+        let mut x = x;
+        while x <= self.n {
+            self.c[x] = self.c[x].max(v);
+            x += x & x.wrapping_neg();
+        }
+    }
+
+    fn query(&self, x: usize) -> i32 {
+        let mut x = x;
+        let mut mx = 0;
+        while x > 0 {
+            mx = mx.max(self.c[x]);
+            x -= x & x.wrapping_neg();
+        }
+        mx
+    }
+}
+
+impl Solution {
+    pub fn max_profit(prices: Vec<i32>, profits: Vec<i32>) -> i32 {
+        let n = prices.len();
+        let mut left = vec![0; n];
+        let mut right = vec![0; n];
+        let m = prices.iter().cloned().max().unwrap_or(0);
+
+        let mut tree1 = BinaryIndexedTree::new(m as usize + 1);
+        let mut tree2 = BinaryIndexedTree::new(m as usize + 1);
+
+        for i in 0..n {
+            let x = prices[i] as usize;
+            left[i] = tree1.query(x - 1);
+            tree1.update(x, profits[i]);
+        }
+
+        for i in (0..n).rev() {
+            let x = (m + 1 - prices[i]) as usize;
+            right[i] = tree2.query(x - 1);
+            tree2.update(x, profits[i]);
+        }
+
+        let mut ans = -1;
+        for i in 0..n {
+            if left[i] > 0 && right[i] > 0 {
+                ans = ans.max(left[i] + profits[i] + right[i]);
+            }
+        }
+
+        ans
+    }
+}
 ```
 
 ### **...**
