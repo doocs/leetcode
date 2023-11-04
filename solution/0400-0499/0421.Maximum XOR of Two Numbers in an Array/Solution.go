@@ -1,15 +1,15 @@
 type Trie struct {
-	children [26]*Trie
+	children [2]*Trie
 }
 
 func newTrie() *Trie {
 	return &Trie{}
 }
 
-func (this *Trie) insert(x int) {
-	node := this
+func (t *Trie) insert(x int) {
+	node := t
 	for i := 30; i >= 0; i-- {
-		v := (x >> i) & 1
+		v := x >> i & 1
 		if node.children[v] == nil {
 			node.children[v] = newTrie()
 		}
@@ -17,28 +17,26 @@ func (this *Trie) insert(x int) {
 	}
 }
 
-func (this *Trie) search(x int) int {
-	node := this
-	res := 0
+func (t *Trie) search(x int) int {
+	node := t
+	ans := 0
 	for i := 30; i >= 0; i-- {
-		v := (x >> i) & 1
+		v := x >> i & 1
 		if node.children[v^1] != nil {
-			res = res<<1 | 1
+			ans |= 1 << i
 			node = node.children[v^1]
 		} else {
-			res <<= 1
 			node = node.children[v]
 		}
 	}
-	return res
+	return ans
 }
 
-func findMaximumXOR(nums []int) int {
+func findMaximumXOR(nums []int) (ans int) {
 	trie := newTrie()
-	ans := 0
-	for _, v := range nums {
-		trie.insert(v)
-		ans = max(ans, trie.search(v))
+	for _, x := range nums {
+		trie.insert(x)
+		ans = max(ans, trie.search(x))
 	}
 	return ans
 }

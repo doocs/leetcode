@@ -41,15 +41,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：哈希表**
-
-**方法二：前缀树**
+**方法一：前缀树**
 
 题目是求两个元素的异或最大值，可以从最高位开始考虑。
 
 我们把数组中的每个元素 $x$ 看作一个 $32$ 位的 $01$ 串，按二进制从高位到低位的顺序，插入前缀树（最低位为叶子节点）。
 
-搜索 $x$ 时，尽量走相反的 $01$ 字符指针的策略，因为异或运算的法则是相同得 $0$，不同得 $1$，所以我们尽可能往与 $x$ 当前位相反的字符方向走，才能得到能和 $x$ 产生最大值的结果。
+搜索 $x$ 时，尽量走相反的 $01$ 字符指针的策略，因为异或运算的法则是相同得 $0$，不同得 $1$，所以我们尽可能往与 $x$ 当前位相反的字符方向走，才能得到能和 $x$ 产生最大异或值的结果。
+
+时间复杂度 $O(n \times \log M)$，空间复杂度 $O(n \times \log M)$，其中 $n$ 是数组 $nums$ 的长度，而 $M$ 是数组中元素的最大值。
 
 <!-- tabs:start -->
 
@@ -58,60 +58,39 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-class Solution:
-    def findMaximumXOR(self, nums: List[int]) -> int:
-        max = 0
-        mask = 0
-        for i in range(30, -1, -1):
-            current = 1 << i
-            # 期望的二进制前缀
-            mask = mask ^ current
-            # 在当前前缀下, 数组内的前缀位数所有情况集合
-            s = set()
-            for num in nums:
-                s.add(num & mask)
-            # 期望最终异或值的从右数第i位为1, 再根据异或运算的特性推算假设是否成立
-            flag = max | current
-            for prefix in s:
-                if prefix ^ flag in s:
-                    max = flag
-                    break
-        return max
-```
-
-```python
 class Trie:
-    def __init__(self):
-        self.children = [None] * 2
+    __slots__ = ("children",)
 
-    def insert(self, x):
+    def __init__(self):
+        self.children: List[Trie | None] = [None, None]
+
+    def insert(self, x: int):
         node = self
         for i in range(30, -1, -1):
-            v = (x >> i) & 1
+            v = x >> i & 1
             if node.children[v] is None:
                 node.children[v] = Trie()
             node = node.children[v]
 
-    def search(self, x):
+    def search(self, x: int) -> int:
         node = self
-        res = 0
+        ans = 0
         for i in range(30, -1, -1):
-            v = (x >> i) & 1
+            v = x >> i & 1
             if node.children[v ^ 1]:
-                res = res << 1 | 1
+                ans |= 1 << i
                 node = node.children[v ^ 1]
             else:
-                res <<= 1
                 node = node.children[v]
-        return res
+        return ans
 
 
 class Solution:
     def findMaximumXOR(self, nums: List[int]) -> int:
         trie = Trie()
-        for v in nums:
-            trie.insert(v)
-        return max(trie.search(v) for v in nums)
+        for x in nums:
+            trie.insert(x)
+        return max(trie.search(x) for x in nums)
 ```
 
 ### **Java**
@@ -119,44 +98,17 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-class Solution {
-
-    public int findMaximumXOR(int[] numbers) {
-        int max = 0;
-        int mask = 0;
-        for (int i = 30; i >= 0; i--) {
-            int current = 1 << i;
-            // 期望的二进制前缀
-            mask = mask ^ current;
-            // 在当前前缀下, 数组内的前缀位数所有情况集合
-            Set<Integer> set = new HashSet<>();
-            for (int j = 0, k = numbers.length; j < k; j++) {
-                set.add(mask & numbers[j]);
-            }
-            // 期望最终异或值的从右数第i位为1, 再根据异或运算的特性推算假设是否成立
-            int flag = max | current;
-            for (Integer prefix : set) {
-                if (set.contains(prefix ^ flag)) {
-                    max = flag;
-                    break;
-                }
-            }
-        }
-        return max;
-    }
-}
-```
-
-前缀树：
-
-```java
 class Trie {
-    Trie[] children = new Trie[2];
+    private Trie[] children = new Trie[2];
 
-    void insert(int x) {
+    public Trie() {
+
+    }
+
+    public void insert(int x) {
         Trie node = this;
         for (int i = 30; i >= 0; --i) {
-            int v = (x >> i) & 1;
+            int v = x >> i & 1;
             if (node.children[v] == null) {
                 node.children[v] = new Trie();
             }
@@ -164,20 +116,19 @@ class Trie {
         }
     }
 
-    int search(int x) {
+    public int search(int x) {
         Trie node = this;
-        int res = 0;
+        int ans = 0;
         for (int i = 30; i >= 0; --i) {
-            int v = (x >> i) & 1;
+            int v = x >> i & 1;
             if (node.children[v ^ 1] != null) {
-                res = res << 1 | 1;
+                ans |= 1 << i;
                 node = node.children[v ^ 1];
             } else {
-                res <<= 1;
                 node = node.children[v];
             }
         }
-        return res;
+        return ans;
     }
 }
 
@@ -185,9 +136,9 @@ class Solution {
     public int findMaximumXOR(int[] nums) {
         Trie trie = new Trie();
         int ans = 0;
-        for (int v : nums) {
-            trie.insert(v);
-            ans = Math.max(ans, trie.search(v));
+        for (int x : nums) {
+            trie.insert(x);
+            ans = Math.max(ans, trie.search(x));
         }
         return ans;
     }
@@ -199,34 +150,35 @@ class Solution {
 ```cpp
 class Trie {
 public:
-    vector<Trie*> children;
-    string v;
+    Trie* children[2];
+
     Trie()
-        : children(2) {}
+        : children{nullptr, nullptr} {}
 
     void insert(int x) {
         Trie* node = this;
         for (int i = 30; ~i; --i) {
-            int v = (x >> i) & 1;
-            if (!node->children[v]) node->children[v] = new Trie();
+            int v = x >> i & 1;
+            if (!node->children[v]) {
+                node->children[v] = new Trie();
+            }
             node = node->children[v];
         }
     }
 
     int search(int x) {
         Trie* node = this;
-        int res = 0;
+        int ans = 0;
         for (int i = 30; ~i; --i) {
-            int v = (x >> i) & 1;
+            int v = x >> i & 1;
             if (node->children[v ^ 1]) {
-                res = res << 1 | 1;
+                ans |= 1 << i;
                 node = node->children[v ^ 1];
             } else {
-                res <<= 1;
                 node = node->children[v];
             }
         }
-        return res;
+        return ans;
     }
 };
 
@@ -235,9 +187,9 @@ public:
     int findMaximumXOR(vector<int>& nums) {
         Trie* trie = new Trie();
         int ans = 0;
-        for (int v : nums) {
-            trie->insert(v);
-            ans = max(ans, trie->search(v));
+        for (int x : nums) {
+            trie->insert(x);
+            ans = max(ans, trie->search(x));
         }
         return ans;
     }
@@ -248,17 +200,17 @@ public:
 
 ```go
 type Trie struct {
-	children [26]*Trie
+	children [2]*Trie
 }
 
 func newTrie() *Trie {
 	return &Trie{}
 }
 
-func (this *Trie) insert(x int) {
-	node := this
+func (t *Trie) insert(x int) {
+	node := t
 	for i := 30; i >= 0; i-- {
-		v := (x >> i) & 1
+		v := x >> i & 1
 		if node.children[v] == nil {
 			node.children[v] = newTrie()
 		}
@@ -266,30 +218,82 @@ func (this *Trie) insert(x int) {
 	}
 }
 
-func (this *Trie) search(x int) int {
-	node := this
-	res := 0
+func (t *Trie) search(x int) int {
+	node := t
+	ans := 0
 	for i := 30; i >= 0; i-- {
-		v := (x >> i) & 1
+		v := x >> i & 1
 		if node.children[v^1] != nil {
-			res = res<<1 | 1
+			ans |= 1 << i
 			node = node.children[v^1]
 		} else {
-			res <<= 1
 			node = node.children[v]
 		}
 	}
-	return res
+	return ans
 }
 
-func findMaximumXOR(nums []int) int {
+func findMaximumXOR(nums []int) (ans int) {
 	trie := newTrie()
-	ans := 0
-	for _, v := range nums {
-		trie.insert(v)
-		ans = max(ans, trie.search(v))
+	for _, x := range nums {
+		trie.insert(x)
+		ans = max(ans, trie.search(x))
 	}
 	return ans
+}
+```
+
+### **Rust**
+
+```rust
+struct Trie {
+    children: [Option<Box<Trie>>; 2],
+}
+
+impl Trie {
+    fn new() -> Trie {
+        Trie {
+            children: [None, None],
+        }
+    }
+
+    fn insert(&mut self, x: i32) {
+        let mut node = self;
+        for i in (0..=30).rev() {
+            let v = (x >> i & 1)  as usize;
+            if node.children[v].is_none() {
+                node.children[v] = Some(Box::new(Trie::new()));
+            }
+            node = node.children[v].as_mut().unwrap();
+        }
+    }
+
+    fn search(&self, x: i32) -> i32 {
+        let mut node = self;
+        let mut ans = 0;
+        for i in (0..=30).rev() {
+            let v = (x >> i & 1) as usize;
+            if let Some(child) = &node.children[v ^ 1] {
+                ans |= 1 << i;
+                node = child.as_ref();
+            } else {
+                node = node.children[v].as_ref().unwrap();
+            }
+        }
+        ans
+    }
+}
+
+impl Solution {
+    pub fn find_maximum_xor(nums: Vec<i32>) -> i32 {
+        let mut trie = Trie::new();
+        let mut ans = 0;
+        for &x in nums.iter() {
+            trie.insert(x);
+            ans = ans.max(trie.search(x));
+        }
+        ans
+    }
 }
 ```
 

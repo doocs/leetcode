@@ -1,23 +1,44 @@
-class Solution {
+class Trie {
+    private Trie[] children = new Trie[2];
 
-    public int findMaximumXOR(int[] numbers) {
-        int max = 0;
-        int mask = 0;
-        for (int i = 30; i >= 0; i--) {
-            int current = 1 << i;
-            mask = mask ^ current;
-            Set<Integer> set = new HashSet<>();
-            for (int j = 0, k = numbers.length; j < k; j++) {
-                set.add(mask & numbers[j]);
+    public Trie() {
+    }
+
+    public void insert(int x) {
+        Trie node = this;
+        for (int i = 30; i >= 0; --i) {
+            int v = x >> i & 1;
+            if (node.children[v] == null) {
+                node.children[v] = new Trie();
             }
-            int flag = max | current;
-            for (Integer prefix : set) {
-                if (set.contains(prefix ^ flag)) {
-                    max = flag;
-                    break;
-                }
+            node = node.children[v];
+        }
+    }
+
+    public int search(int x) {
+        Trie node = this;
+        int ans = 0;
+        for (int i = 30; i >= 0; --i) {
+            int v = x >> i & 1;
+            if (node.children[v ^ 1] != null) {
+                ans |= 1 << i;
+                node = node.children[v ^ 1];
+            } else {
+                node = node.children[v];
             }
         }
-        return max;
+        return ans;
+    }
+}
+
+class Solution {
+    public int findMaximumXOR(int[] nums) {
+        Trie trie = new Trie();
+        int ans = 0;
+        for (int x : nums) {
+            trie.insert(x);
+            ans = Math.max(ans, trie.search(x));
+        }
+        return ans;
     }
 }
