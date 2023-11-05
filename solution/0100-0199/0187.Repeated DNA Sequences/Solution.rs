@@ -2,19 +2,19 @@ use std::collections::HashMap;
 
 impl Solution {
     pub fn find_repeated_dna_sequences(s: String) -> Vec<String> {
-        let n = s.len();
-        let mut res = vec![];
-        if n < 10 {
-            return res;
+        if s.len() < 10 {
+            return vec![]
         }
-        let mut map = HashMap::new();
-        for i in 0..=n - 10 {
-            let key = &s[i..i + 10];
-            if map.contains_key(&key) && *map.get(&key).unwrap() {
-                res.push(key.to_string());
+        let mut cnt = HashMap::new();
+        let mut ans = Vec::new();
+        for i in 0..s.len() - 9 {
+            let t = &s[i..i + 10];
+            let count = cnt.entry(t).or_insert(0);
+            *count += 1;
+            if *count == 2 {
+                ans.push(t.to_string());
             }
-            map.insert(key, !map.contains_key(&key));
         }
-        res
+        ans
     }
 }

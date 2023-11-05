@@ -32,13 +32,21 @@
 
 ## Solutions
 
-**Solution 1: HashTable**
+**Solution 1: Hash Table**
 
-Time complexity $O(n \times 10)$, Space complexity $O(n)$.
+We define a hash table $cnt$ to store the occurrence count of all substrings of length $10$.
 
-**Solution 2: Rabin-Karp**
+We iterate through all substrings of length $10$ in the string $s$. For the current substring $t$, we update its count in the hash table. If the count of $t$ is $2$, we add it to the answer.
 
-Time complexity $O(n)$, Space complexity $O(n)$.
+After the iteration, we return the answer array.
+
+The time complexity is $O(n \times 10)$, and the space complexity is $O(n \times 10)$. Here, $n$ is the length of the string $s$.
+
+**Solution 2: Rabin-Karp String Matching Algorithm**
+
+This method essentially combines sliding window and hash. Similar to 0028. Find the Index of the First Occurrence in a String, this problem can use a hash function to reduce the time complexity of counting subsequences to $O(1)$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
@@ -47,14 +55,13 @@ Time complexity $O(n)$, Space complexity $O(n)$.
 ```python
 class Solution:
     def findRepeatedDnaSequences(self, s: str) -> List[str]:
-        n = len(s) - 10
         cnt = Counter()
         ans = []
-        for i in range(n + 1):
-            sub = s[i : i + 10]
-            cnt[sub] += 1
-            if cnt[sub] == 2:
-                ans.append(sub)
+        for i in range(len(s) - 10 + 1):
+            t = s[i : i + 10]
+            cnt[t] += 1
+            if cnt[t] == 2:
+                ans.append(t)
         return ans
 ```
 
@@ -63,14 +70,12 @@ class Solution:
 ```java
 class Solution {
     public List<String> findRepeatedDnaSequences(String s) {
-        int n = s.length() - 10;
         Map<String, Integer> cnt = new HashMap<>();
         List<String> ans = new ArrayList<>();
-        for (int i = 0; i <= n; ++i) {
-            String sub = s.substring(i, i + 10);
-            cnt.put(sub, cnt.getOrDefault(sub, 0) + 1);
-            if (cnt.get(sub) == 2) {
-                ans.add(sub);
+        for (int i = 0; i < s.length() - 10 + 1; ++i) {
+            String t = s.substring(i, i + 10);
+            if (cnt.merge(t, 1, Integer::sum) == 2) {
+                ans.add(t);
             }
         }
         return ans;
@@ -78,31 +83,26 @@ class Solution {
 }
 ```
 
-### **JavaScript**
+### **C++**
 
-```js
-/**
- * @param {string} s
- * @return {string[]}
- */
-var findRepeatedDnaSequences = function (s) {
-    const n = s.length - 10;
-    let cnt = new Map();
-    let ans = [];
-    for (let i = 0; i <= n; ++i) {
-        let sub = s.slice(i, i + 10);
-        cnt[sub] = (cnt[sub] || 0) + 1;
-        if (cnt[sub] == 2) {
-            ans.push(sub);
+```cpp
+class Solution {
+public:
+    vector<string> findRepeatedDnaSequences(string s) {
+        unordered_map<string, int> cnt;
+        vector<string> ans;
+        for (int i = 0, n = s.size() - 10 + 1; i < n; ++i) {
+            auto t = s.substr(i, 10);
+            if (++cnt[t] == 2) {
+                ans.emplace_back(t);
+            }
         }
+        return ans;
     }
-    return ans;
 };
 ```
 
 ### **Go**
-
-HashTable:
 
 ```go
 func findRepeatedDnaSequences(s string) []string {
@@ -117,8 +117,6 @@ func findRepeatedDnaSequences(s string) []string {
 	return ans
 }
 ```
-
-Rabin-Karp:
 
 ```go
 func findRepeatedDnaSequences(s string) []string {
@@ -141,90 +139,44 @@ func findRepeatedDnaSequences(s string) []string {
 }
 ```
 
-### **C++**
+### **JavaScript**
 
-```cpp
-class Solution {
-public:
-    vector<string> findRepeatedDnaSequences(string s) {
-        map<string, int> cnt;
-        int n = s.size() - 10;
-        vector<string> ans;
-        for (int i = 0; i <= n; ++i) {
-            string sub = s.substr(i, 10);
-            if (++cnt[sub] == 2) {
-                ans.push_back(sub);
-            }
+```js
+/**
+ * @param {string} s
+ * @return {string[]}
+ */
+var findRepeatedDnaSequences = function (s) {
+    const cnt = new Map();
+    const ans = [];
+    for (let i = 0; i < s.length - 10 + 1; ++i) {
+        const t = s.slice(i, i + 10);
+        cnt.set(t, (cnt.get(t) || 0) + 1);
+        if (cnt.get(t) === 2) {
+            ans.push(t);
         }
-        return ans;
     }
+    return ans;
 };
 ```
 
 ### **C#**
 
 ```cs
-using System.Collections.Generic;
-
 public class Solution {
     public IList<string> FindRepeatedDnaSequences(string s) {
-        var once = new HashSet<int>();
-        var moreThanOnce = new HashSet<int>();
-        int bits = 0;
-        for (var i = 0; i < s.Length; ++i)
-        {
-            bits <<= 2;
-            switch (s[i])
-            {
-                case 'A':
-                    break;
-                case 'C':
-                    bits |= 1;
-                    break;
-                case 'G':
-                    bits |= 2;
-                    break;
-                case 'T':
-                    bits |= 3;
-                    break;
+        var cnt = new Dictionary<string, int>();
+        var ans = new List<string>();
+        for (int i = 0; i < s.Length - 10 + 1; ++i) {
+            var t = s.Substring(i, 10);
+            if (!cnt.ContainsKey(t)) {
+                cnt[t] = 0;
             }
-            if (i >= 10)
-            {
-                bits &= 0xFFFFF;
-            }
-            if (i >= 9 && !once.Add(bits))
-            {
-                moreThanOnce.Add(bits);
+            if (++cnt[t] == 2) {
+                ans.Add(t);
             }
         }
-
-        var results = new List<string>();
-        foreach (var item in moreThanOnce)
-        {
-            var itemCopy = item;
-            var charArray = new char[10];
-            for (var i = 9; i >= 0; --i)
-            {
-                switch (itemCopy & 3)
-                {
-                    case 0:
-                        charArray[i] = 'A';
-                        break;
-                    case 1:
-                        charArray[i] = 'C';
-                        break;
-                    case 2:
-                        charArray[i] = 'G';
-                        break;
-                    case 3:
-                        charArray[i] = 'T';
-                        break;
-                }
-                itemCopy >>= 2;
-            }
-            results.Add(new string(charArray));
-        }
-        return results;
+        return ans;
     }
 }
 ```
@@ -234,16 +186,16 @@ public class Solution {
 ```ts
 function findRepeatedDnaSequences(s: string): string[] {
     const n = s.length;
-    const map = new Map<string, boolean>();
-    const res = [];
-    for (let i = 0; i <= n - 10; i++) {
-        const key = s.slice(i, i + 10);
-        if (map.has(key) && map.get(key)) {
-            res.push(key);
+    const cnt: Map<string, number> = new Map();
+    const ans: string[] = [];
+    for (let i = 0; i <= n - 10; ++i) {
+        const t = s.slice(i, i + 10);
+        cnt.set(t, (cnt.get(t) ?? 0) + 1);
+        if (cnt.get(t) === 2) {
+            ans.push(t);
         }
-        map.set(key, !map.has(key));
     }
-    return res;
+    return ans;
 }
 ```
 
@@ -254,20 +206,20 @@ use std::collections::HashMap;
 
 impl Solution {
     pub fn find_repeated_dna_sequences(s: String) -> Vec<String> {
-        let n = s.len();
-        let mut res = vec![];
-        if n < 10 {
-            return res;
+        if s.len() < 10 {
+            return vec![]
         }
-        let mut map = HashMap::new();
-        for i in 0..=n - 10 {
-            let key = &s[i..i + 10];
-            if map.contains_key(&key) && *map.get(&key).unwrap() {
-                res.push(key.to_string());
+        let mut cnt = HashMap::new();
+        let mut ans = Vec::new();
+        for i in 0..s.len() - 9 {
+            let t = &s[i..i + 10];
+            let count = cnt.entry(t).or_insert(0);
+            *count += 1;
+            if *count == 2 {
+                ans.push(t.to_string());
             }
-            map.insert(key, !map.contains_key(&key));
         }
-        res
+        ans
     }
 }
 ```
