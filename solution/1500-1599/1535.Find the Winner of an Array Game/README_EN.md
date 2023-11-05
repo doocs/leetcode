@@ -152,6 +152,7 @@ function getWinner(arr: number[], k: number): number {
     return mx;
 }
 ```
+
 ### **C#**
 
 ```c#
