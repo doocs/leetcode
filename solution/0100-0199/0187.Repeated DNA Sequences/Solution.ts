@@ -1,13 +1,13 @@
 function findRepeatedDnaSequences(s: string): string[] {
     const n = s.length;
-    const map = new Map<string, boolean>();
-    const res = [];
-    for (let i = 0; i <= n - 10; i++) {
-        const key = s.slice(i, i + 10);
-        if (map.has(key) && map.get(key)) {
-            res.push(key);
+    const cnt: Map<string, number> = new Map();
+    const ans: string[] = [];
+    for (let i = 0; i <= n - 10; ++i) {
+        const t = s.slice(i, i + 10);
+        cnt.set(t, (cnt.get(t) ?? 0) + 1);
+        if (cnt.get(t) === 2) {
+            ans.push(t);
         }
-        map.set(key, !map.has(key));
     }
-    return res;
+    return ans;
 }

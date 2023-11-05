@@ -1,13 +1,12 @@
 class Solution {
 public:
     vector<string> findRepeatedDnaSequences(string s) {
-        map<string, int> cnt;
-        int n = s.size() - 10;
+        unordered_map<string, int> cnt;
         vector<string> ans;
-        for (int i = 0; i <= n; ++i) {
-            string sub = s.substr(i, 10);
-            if (++cnt[sub] == 2) {
-                ans.push_back(sub);
+        for (int i = 0, n = s.size() - 10 + 1; i < n; ++i) {
+            auto t = s.substr(i, 10);
+            if (++cnt[t] == 2) {
+                ans.emplace_back(t);
             }
         }
         return ans;
