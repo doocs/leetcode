@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 370 场周赛(2023-11-05 10:30, 90 分钟) 参赛人数 3983
+
+- [2923. 找到冠军 I](/solution/2900-2999/2923.Find%20Champion%20I/README.md)
+- [2924. 找到冠军 II](/solution/2900-2999/2924.Find%20Champion%20II/README.md)
+- [2925. 在树上执行操作以后得到的最大分数](/solution/2900-2999/2925.Maximum%20Score%20After%20Applying%20Operations%20on%20a%20Tree/README.md)
+- [2926. 平衡子序列的最大和](/solution/2900-2999/2926.Maximum%20Balanced%20Subsequence%20Sum/README.md)
+
 #### 第 369 场周赛(2023-10-29 10:30, 90 分钟) 参赛人数 4121
 
 - [2917. 找出数组中的 K-or 值](/solution/2900-2999/2917.Find%20the%20K-or%20of%20an%20Array/README.md)

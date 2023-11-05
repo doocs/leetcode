@@ -2980,3 +2980,7 @@
   - [2920.收集所有金币可获得的最大积分](/solution/2900-2999/2920.Maximum%20Points%20After%20Collecting%20Coins%20From%20All%20Nodes/README.md)
   - [2921.Maximum Profitable Triplets With Increasing Prices II](/solution/2900-2999/2921.Maximum%20Profitable%20Triplets%20With%20Increasing%20Prices%20II/README.md)
   - [2922.Market Analysis III](/solution/2900-2999/2922.Market%20Analysis%20III/README.md)
+  - [2923.找到冠军 I](/solution/2900-2999/2923.Find%20Champion%20I/README.md)
+  - [2924.找到冠军 II](/solution/2900-2999/2924.Find%20Champion%20II/README.md)
+  - [2925.在树上执行操作以后得到的最大分数](/solution/2900-2999/2925.Maximum%20Score%20After%20Applying%20Operations%20on%20a%20Tree/README.md)
+  - [2926.平衡子序列的最大和](/solution/2900-2999/2926.Maximum%20Balanced%20Subsequence%20Sum/README.md)

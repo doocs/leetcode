@@ -2980,3 +2980,7 @@
   - [2920.Maximum Points After Collecting Coins From All Nodes](/solution/2900-2999/2920.Maximum%20Points%20After%20Collecting%20Coins%20From%20All%20Nodes/README_EN.md)
   - [2921.Maximum Profitable Triplets With Increasing Prices II](/solution/2900-2999/2921.Maximum%20Profitable%20Triplets%20With%20Increasing%20Prices%20II/README_EN.md)
   - [2922.Market Analysis III](/solution/2900-2999/2922.Market%20Analysis%20III/README_EN.md)
+  - [2923.Find Champion I](/solution/2900-2999/2923.Find%20Champion%20I/README_EN.md)
+  - [2924.Find Champion II](/solution/2900-2999/2924.Find%20Champion%20II/README_EN.md)
+  - [2925.Maximum Score After Applying Operations on a Tree](/solution/2900-2999/2925.Maximum%20Score%20After%20Applying%20Operations%20on%20a%20Tree/README_EN.md)
+  - [2926.Maximum Balanced Subsequence Sum](/solution/2900-2999/2926.Maximum%20Balanced%20Subsequence%20Sum/README_EN.md)
