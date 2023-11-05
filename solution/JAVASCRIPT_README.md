@@ -24,7 +24,7 @@
 | 2629 | [复合函数](/solution/2600-2699/2629.Function%20Composition/README.md)                                                                                 |      | 简单 |      |
 | 2630 | [记忆函数 II](/solution/2600-2699/2630.Memoize%20II/README.md)                                                                                        |      | 困难 |      |
 | 2631 | [分组](/solution/2600-2699/2631.Group%20By/README.md)                                                                                                 |      | 中等 |      |
-| 2632 | [柯里化](/solution/2600-2699/2632.Curry/README.md)                                                                                                    |      | 中等 | 🔒   |
+| 2632 | [柯里化](/solution/2600-2699/2632.Curry/README.md)                                                                                                    |      | 困难 | 🔒   |
 | 2633 | [将对象转换为 JSON 字符串](/solution/2600-2699/2633.Convert%20Object%20to%20JSON%20String/README.md)                                                  |      | 中等 | 🔒   |
 | 2634 | [过滤数组中的元素](/solution/2600-2699/2634.Filter%20Elements%20from%20Array/README.md)                                                               |      | 简单 |      |
 | 2635 | [转换数组中的每个元素](/solution/2600-2699/2635.Apply%20Transform%20Over%20Each%20Element%20in%20Array/README.md)                                     |      | 简单 |      |

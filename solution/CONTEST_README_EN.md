@@ -25,6 +25,13 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 370
+
+- [2923. Find Champion I](/solution/2900-2999/2923.Find%20Champion%20I/README_EN.md)
+- [2924. Find Champion II](/solution/2900-2999/2924.Find%20Champion%20II/README_EN.md)
+- [2925. Maximum Score After Applying Operations on a Tree](/solution/2900-2999/2925.Maximum%20Score%20After%20Applying%20Operations%20on%20a%20Tree/README_EN.md)
+- [2926. Maximum Balanced Subsequence Sum](/solution/2900-2999/2926.Maximum%20Balanced%20Subsequence%20Sum/README_EN.md)
+
 #### Weekly Contest 369
 
 - [2917. Find the K-or of an Array](/solution/2900-2999/2917.Find%20the%20K-or%20of%20an%20Array/README_EN.md)
