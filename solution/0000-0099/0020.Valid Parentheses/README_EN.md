@@ -232,21 +232,22 @@ impl Solution {
 
 ### **C#**
 
-```C#
+```cs
 public class Solution {
     public bool IsValid(string s) {
-        Stack<char> ch = new Stack<char>();
-            foreach (var item in s.ToCharArray())
-                if (item == '(')
-                    ch.Push(')');
-                else if (item == '[')
-                    ch.Push(']');
-                else if (item == '{')
-                    ch.Push('}');
-                else if (ch.Count == 0 || ch.Pop() != item)
-                    return false;
-
-            return ch.Count == 0;
+        Stack<char> stk = new Stack<char>();
+        foreach (var c in s.ToCharArray()) {
+            if (c == '(') {
+                stk.Push(')');
+            } else if (c == '[') {
+                stk.Push(']');
+            } else if (c == '{') {
+                stk.Push('}');
+            } else if (stk.Count == 0 || stk.Pop() != c) {
+                return false;
+            }
+        }
+        return stk.Count == 0;
     }
 }
 ```
