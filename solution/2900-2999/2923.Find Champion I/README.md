@@ -53,6 +53,12 @@ grid[1][2] == 1 表示 1 队比 2 队强。
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：枚举**
+
+我们可以枚举每一支队伍 $i$，如果 $i$ 队的每一场比赛都赢了，那么 $i$ 队就是冠军，直接返回 $i$ 即可。
+
+时间复杂度 $O(n^2)$，其中 $n$ 是队伍数量。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,7 +66,11 @@ grid[1][2] == 1 表示 1 队比 2 队强。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findChampion(self, grid: List[List[int]]) -> int:
+        for i, row in enumerate(grid):
+            if all(x == 1 for j, x in enumerate(row) if i != j):
+                return i
 ```
 
 ### **Java**
@@ -68,19 +78,81 @@ grid[1][2] == 1 表示 1 队比 2 队强。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int findChampion(int[][] grid) {
+        int n = grid.length;
+        for (int i = 0;; ++i) {
+            int cnt = 0;
+            for (int j = 0; j < n; ++j) {
+                if (i != j && grid[i][j] == 1) {
+                    ++cnt;
+                }
+            }
+            if (cnt == n - 1) {
+                return i;
+            }
+        }
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int findChampion(vector<vector<int>>& grid) {
+        int n = grid.size();
+        for (int i = 0;; ++i) {
+            int cnt = 0;
+            for (int j = 0; j < n; ++j) {
+                if (i != j && grid[i][j] == 1) {
+                    ++cnt;
+                }
+            }
+            if (cnt == n - 1) {
+                return i;
+            }
+        }
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func findChampion(grid [][]int) int {
+	n := len(grid)
+	for i := 0; ; i++ {
+		cnt := 0
+		for j, x := range grid[i] {
+			if i != j && x == 1 {
+				cnt++
+			}
+		}
+		if cnt == n-1 {
+			return i
+		}
+	}
+}
+```
 
+### **TypeScript**
+
+```ts
+function findChampion(grid: number[][]): number {
+    for (let i = 0, n = grid.length; ; ++i) {
+        let cnt = 0;
+        for (let j = 0; j < n; ++j) {
+            if (i !== j && grid[i][j] === 1) {
+                ++cnt;
+            }
+        }
+        if (cnt === n - 1) {
+            return i;
+        }
+    }
+}
 ```
 
 ### **...**

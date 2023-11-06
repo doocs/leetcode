@@ -64,6 +64,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：统计入度**
+
+根据题目描述，我们只需要统计每个节点的入度，记录在数组 $indeg$ 中。如果只有一个节点的入度为 $0$，那么这个节点就是冠军，否则不存在唯一的冠军。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是节点的数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -71,7 +77,12 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findChampion(self, n: int, edges: List[List[int]]) -> int:
+        indeg = [0] * n
+        for _, v in edges:
+            indeg[v] += 1
+        return -1 if indeg.count(0) != 1 else indeg.index(0)
 ```
 
 ### **Java**
@@ -79,19 +90,86 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int findChampion(int n, int[][] edges) {
+        int[] indeg = new int[n];
+        for (var e : edges) {
+            ++indeg[e[1]];
+        }
+        int ans = -1, cnt = 0;
+        for (int i = 0; i < n; ++i) {
+            if (indeg[i] == 0) {
+                ++cnt;
+                ans = i;
+            }
+        }
+        return cnt == 1 ? ans : -1;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int findChampion(int n, vector<vector<int>>& edges) {
+        int indeg[n];
+        memset(indeg, 0, sizeof(indeg));
+        for (auto& e : edges) {
+            ++indeg[e[1]];
+        }
+        int ans = -1, cnt = 0;
+        for (int i = 0; i < n; ++i) {
+            if (indeg[i] == 0) {
+                ++cnt;
+                ans = i;
+            }
+        }
+        return cnt == 1 ? ans : -1;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func findChampion(n int, edges [][]int) int {
+	indeg := make([]int, n)
+	for _, e := range edges {
+		indeg[e[1]]++
+	}
+	ans, cnt := -1, 0
+	for i, x := range indeg {
+		if x == 0 {
+			cnt++
+			ans = i
+		}
+	}
+	if cnt == 1 {
+		return ans
+	}
+	return -1
+}
+```
 
+### **TypeScript**
+
+```ts
+function findChampion(n: number, edges: number[][]): number {
+    const indeg: number[] = Array(n).fill(0);
+    for (const [_, v] of edges) {
+        ++indeg[v];
+    }
+    let [ans, cnt] = [-1, 0];
+    for (let i = 0; i < n; ++i) {
+        if (indeg[i] === 0) {
+            ++cnt;
+            ans = i;
+        }
+    }
+    return cnt === 1 ? ans : -1;
+}
 ```
 
 ### **...**
