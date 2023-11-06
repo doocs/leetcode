@@ -58,30 +58,108 @@
 
 ## Solutions
 
+**Solution 1: Counting In-degrees**
+
+Based on the problem description, we only need to count the in-degrees of each node and record them in an array $indeg$. If only one node has an in-degree of $0$, then this node is the champion; otherwise, there is no unique champion.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findChampion(self, n: int, edges: List[List[int]]) -> int:
+        indeg = [0] * n
+        for _, v in edges:
+            indeg[v] += 1
+        return -1 if indeg.count(0) != 1 else indeg.index(0)
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int findChampion(int n, int[][] edges) {
+        int[] indeg = new int[n];
+        for (var e : edges) {
+            ++indeg[e[1]];
+        }
+        int ans = -1, cnt = 0;
+        for (int i = 0; i < n; ++i) {
+            if (indeg[i] == 0) {
+                ++cnt;
+                ans = i;
+            }
+        }
+        return cnt == 1 ? ans : -1;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int findChampion(int n, vector<vector<int>>& edges) {
+        int indeg[n];
+        memset(indeg, 0, sizeof(indeg));
+        for (auto& e : edges) {
+            ++indeg[e[1]];
+        }
+        int ans = -1, cnt = 0;
+        for (int i = 0; i < n; ++i) {
+            if (indeg[i] == 0) {
+                ++cnt;
+                ans = i;
+            }
+        }
+        return cnt == 1 ? ans : -1;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func findChampion(n int, edges [][]int) int {
+	indeg := make([]int, n)
+	for _, e := range edges {
+		indeg[e[1]]++
+	}
+	ans, cnt := -1, 0
+	for i, x := range indeg {
+		if x == 0 {
+			cnt++
+			ans = i
+		}
+	}
+	if cnt == 1 {
+		return ans
+	}
+	return -1
+}
+```
 
+### **TypeScript**
+
+```ts
+function findChampion(n: number, edges: number[][]): number {
+    const indeg: number[] = Array(n).fill(0);
+    for (const [_, v] of edges) {
+        ++indeg[v];
+    }
+    let [ans, cnt] = [-1, 0];
+    for (let i = 0; i < n; ++i) {
+        if (indeg[i] === 0) {
+            ++cnt;
+            ans = i;
+        }
+    }
+    return cnt === 1 ? ans : -1;
+}
 ```
 
 ### **...**
