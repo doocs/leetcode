@@ -1,9 +1,9 @@
 public class SeatManager {
     private SortedSet<int> availableSeats;
+
     public SeatManager(int n) {
         availableSeats = new SortedSet<int>();
-        for (int i = 1; i <= n; i++)
-        {
+        for (int i = 1; i <= n; i++) {
             availableSeats.Add(i);
         }
     }
@@ -18,3 +18,10 @@ public class SeatManager {
         availableSeats.Add(seatNumber);
     }
 }
+
+/**
+ * Your SeatManager object will be instantiated and called as such:
+ * SeatManager obj = new SeatManager(n);
+ * int param_1 = obj.Reserve();
+ * obj.Unreserve(seatNumber);
+ */
