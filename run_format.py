@@ -4,9 +4,21 @@ import os.path
 import re
 import black
 
-suffixes = ["md", "go"]
+suffixes = ["md", "py", "java", "c", "cpp", "go", "php", "cs", "rs", "js", "ts", "sql"]
 
-code_blocks = ["go"]
+code_blocks = [
+    "python",
+    "java",
+    "cpp",
+    "c",
+    "go",
+    "ts",
+    "js",
+    "php",
+    "cs",
+    "rust",
+    "sql",
+]
 
 functions_to_replace = [
     "ABS",

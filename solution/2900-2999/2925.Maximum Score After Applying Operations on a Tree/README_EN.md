@@ -59,30 +59,185 @@ It can be shown that 40 is the maximum score obtainable after any number of oper
 
 ## Solutions
 
+**Solution 1: Tree DP**
+
+The problem is actually asking us to select some nodes from all nodes of the tree so that the sum of these nodes' values is maximized, and there is one node on each path from the root node to the leaf node that is not selected.
+
+We can use the method of tree DP to solve this problem.
+
+We design a function $dfs(i, fa)$, where $i$ represents the current node with node $i$ as the root of the subtree, and $fa$ represents the parent node of $i$. The function returns an array of length $2$, where $[0]$ represents the sum of the values of all nodes in the subtree, and $[1]$ represents the maximum value of the subtree satisfying that there is one node not selected on each path.
+
+The value of $[0]$ can be obtained directly by DFS accumulating the values of each node, while the value of $[1]$ needs to consider two situations, namely whether node $i$ is selected. If it is selected, then each subtree of node $i$ must satisfy that there is one node not selected on each path; if it is not selected, then all nodes of each subtree of node $i$ can be selected. We take the maximum of these two situations.
+
+It should be noted that the value of $[1]$ of the leaf node is $0$, because the leaf node has no subtree, so there is no need to consider the situation where there is one node not selected on each path.
+
+The answer is $dfs(0, -1)[1]$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
+class Solution:
+    def maximumScoreAfterOperations(
+        self, edges: List[List[int]], values: List[int]
+    ) -> int:
+        def dfs(i: int, fa: int = -1) -> (int, int):
+            a = b = 0
+            leaf = True
+            for j in g[i]:
+                if j != fa:
+                    leaf = False
+                    aa, bb = dfs(j, i)
+                    a += aa
+                    b += bb
+            if leaf:
+                return values[i], 0
+            return values[i] + a, max(values[i] + b, a)
 
+        g = [[] for _ in range(len(values))]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        return dfs(0)[1]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private List<Integer>[] g;
+    private int[] values;
 
+    public long maximumScoreAfterOperations(int[][] edges, int[] values) {
+        int n = values.length;
+        g = new List[n];
+        this.values = values;
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        return dfs(0, -1)[1];
+    }
+
+    private long[] dfs(int i, int fa) {
+        long a = 0, b = 0;
+        boolean leaf = true;
+        for (int j : g[i]) {
+            if (j != fa) {
+                leaf = false;
+                var t = dfs(j, i);
+                a += t[0];
+                b += t[1];
+            }
+        }
+        if (leaf) {
+            return new long[] {values[i], 0};
+        }
+        return new long[] {values[i] + a, Math.max(values[i] + b, a)};
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    long long maximumScoreAfterOperations(vector<vector<int>>& edges, vector<int>& values) {
+        int n = values.size();
+        vector<int> g[n];
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].emplace_back(b);
+            g[b].emplace_back(a);
+        }
+        using ll = long long;
+        function<pair<ll, ll>(int, int)> dfs = [&](int i, int fa) -> pair<ll, ll> {
+            ll a = 0, b = 0;
+            bool leaf = true;
+            for (int j : g[i]) {
+                if (j != fa) {
+                    auto [aa, bb] = dfs(j, i);
+                    a += aa;
+                    b += bb;
+                    leaf = false;
+                }
+            }
+            if (leaf) {
+                return {values[i], 0LL};
+            }
+            return {values[i] + a, max(values[i] + b, a)};
+        };
+        auto [_, b] = dfs(0, -1);
+        return b;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func maximumScoreAfterOperations(edges [][]int, values []int) int64 {
+	g := make([][]int, len(values))
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	var dfs func(int, int) (int64, int64)
+	dfs = func(i, fa int) (int64, int64) {
+		a, b := int64(0), int64(0)
+		leaf := true
+		for _, j := range g[i] {
+			if j != fa {
+				leaf = false
+				aa, bb := dfs(j, i)
+				a += aa
+				b += bb
+			}
+		}
+		if leaf {
+			return int64(values[i]), int64(0)
+		}
+		return int64(values[i]) + a, max(int64(values[i])+b, a)
+	}
+	_, b := dfs(0, -1)
+	return b
+}
+```
 
+### **TypeScript**
+
+```ts
+function maximumScoreAfterOperations(edges: number[][], values: number[]): number {
+    const g: number[][] = Array.from({ length: values.length }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    const dfs = (i: number, fa: number): [number, number] => {
+        let [a, b] = [0, 0];
+        let leaf = true;
+        for (const j of g[i]) {
+            if (j !== fa) {
+                const [aa, bb] = dfs(j, i);
+                a += aa;
+                b += bb;
+                leaf = false;
+            }
+        }
+        if (leaf) {
+            return [values[i], 0];
+        }
+        return [values[i] + a, Math.max(values[i] + b, a)];
+    };
+    return dfs(0, -1)[1];
+}
 ```
 
 ### **...**
