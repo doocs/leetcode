@@ -204,7 +204,7 @@ var eliminateMaximum = function (dist, speed) {
 
 ### **C#**
 
-```C#
+```cs
 public class Solution {
     public int EliminateMaximum(int[] dist, int[] speed) {
         int n = dist.Length;
