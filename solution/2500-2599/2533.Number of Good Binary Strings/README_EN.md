@@ -55,6 +55,21 @@ It can be proven that there is only 1 good string satisfying all conditions.
 
 ## Solutions
 
+**Solution 1: Dynamic Programming**
+
+We define $f[i]$ as the number of strings of length $i$ that meet the condition. The state transition equation is:
+
+$$
+f[i] = \begin{cases}
+1 & i = 0 \\
+f[i - oneGroup] + f[i - zeroGroup] & i \geq 1
+\end{cases}
+$$
+
+The final answer is $f[minLength] + f[minLength + 1] + \cdots + f[maxLength]$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n=maxLength$.
+
 <!-- tabs:start -->
 
 ### **Python3**
