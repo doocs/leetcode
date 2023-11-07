@@ -45,6 +45,16 @@ One can prove that it is impossible to make arrays equal in fewer operations.</p
 
 ## Solutions
 
+**Solution 1: Single Pass**
+
+We use a variable $x$ to record the difference in the number of additions and subtractions, and a variable $ans$ to record the number of operations.
+
+We traverse the array, and for each position $i$, if $k=0$ and $a_i \neq b_i$, then it is impossible to make the two arrays equal, so we return $-1$. Otherwise, if $k \neq 0$, then $a_i - b_i$ must be a multiple of $k$, otherwise it is impossible to make the two arrays equal, so we return $-1$. Next, we update $x$ and $ans$.
+
+Finally, if $x \neq 0$, then it is impossible to make the two arrays equal, so we return $-1$. Otherwise, we return $\frac{ans}{2}$.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
+
 <!-- tabs:start -->
 
 ### **Python3**

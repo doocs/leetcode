@@ -48,6 +48,12 @@ The absolute difference between the element sum and digit sum is |10 - 10| = 0.
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+We traverse the array $nums$, calculate the sum of elements $a$ and the sum of digits $b$, and finally return $|a - b|$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
