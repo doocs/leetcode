@@ -349,11 +349,11 @@ func closestMeetingNode(edges []int, node1 int, node2 int) int {
 type pair struct{ d, i int }
 type hp []pair
 
-func (h hp) Len() int            { return len(h) }
-func (h hp) Less(i, j int) bool  { return h[i].d < h[j].d }
-func (h hp) Swap(i, j int)       { h[i], h[j] = h[j], h[i] }
-func (h *hp) Push(v interface{}) { *h = append(*h, v.(pair)) }
-func (h *hp) Pop() interface{}   { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
+func (h hp) Len() int           { return len(h) }
+func (h hp) Less(i, j int) bool { return h[i].d < h[j].d }
+func (h hp) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
+func (h *hp) Push(v any)        { *h = append(*h, v.(pair)) }
+func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
 ```go

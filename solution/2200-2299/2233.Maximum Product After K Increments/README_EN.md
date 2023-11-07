@@ -119,8 +119,8 @@ func maximumProduct(nums []int, k int) int {
 
 type hp struct{ sort.IntSlice }
 
-func (hp) Push(interface{})     {}
-func (hp) Pop() (_ interface{}) { return }
+func (hp) Push(any)     {}
+func (hp) Pop() (_ any) { return }
 ```
 
 ### **JavaScript**

@@ -167,9 +167,9 @@ func findMaximizedCapital(k int, w int, profits []int, capital []int) int {
 
 type hp struct{ sort.IntSlice }
 
-func (h hp) Less(i, j int) bool  { return h.IntSlice[i] > h.IntSlice[j] }
-func (h *hp) Push(v interface{}) { h.IntSlice = append(h.IntSlice, v.(int)) }
-func (h *hp) Pop() interface{} {
+func (h hp) Less(i, j int) bool { return h.IntSlice[i] > h.IntSlice[j] }
+func (h *hp) Push(v any)        { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() any {
 	a := h.IntSlice
 	v := a[len(a)-1]
 	h.IntSlice = a[:len(a)-1]
@@ -179,11 +179,11 @@ func (h *hp) Pop() interface{} {
 type pair struct{ c, p int }
 type hp2 []pair
 
-func (h hp2) Len() int            { return len(h) }
-func (h hp2) Less(i, j int) bool  { return h[i].c < h[j].c }
-func (h hp2) Swap(i, j int)       { h[i], h[j] = h[j], h[i] }
-func (h *hp2) Push(v interface{}) { *h = append(*h, v.(pair)) }
-func (h *hp2) Pop() interface{}   { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
+func (h hp2) Len() int           { return len(h) }
+func (h hp2) Less(i, j int) bool { return h[i].c < h[j].c }
+func (h hp2) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
+func (h *hp2) Push(v any)        { *h = append(*h, v.(pair)) }
+func (h *hp2) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
 ### **...**

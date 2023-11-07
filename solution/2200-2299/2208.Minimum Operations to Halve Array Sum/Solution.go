@@ -17,9 +17,9 @@ func halveArray(nums []int) (ans int) {
 
 type hp struct{ sort.Float64Slice }
 
-func (h hp) Less(i, j int) bool  { return h.Float64Slice[i] > h.Float64Slice[j] }
-func (h *hp) Push(v interface{}) { h.Float64Slice = append(h.Float64Slice, v.(float64)) }
-func (h *hp) Pop() interface{} {
+func (h hp) Less(i, j int) bool { return h.Float64Slice[i] > h.Float64Slice[j] }
+func (h *hp) Push(v any)        { h.Float64Slice = append(h.Float64Slice, v.(float64)) }
+func (h *hp) Pop() any {
 	a := h.Float64Slice
 	v := a[len(a)-1]
 	h.Float64Slice = a[:len(a)-1]

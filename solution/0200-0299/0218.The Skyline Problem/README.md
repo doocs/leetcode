@@ -99,12 +99,12 @@ class Solution:
 type Matrix struct{ left, right, height int }
 type Queue []Matrix
 
-func (q Queue) Len() int            { return len(q) }
-func (q Queue) Top() Matrix         { return q[0] }
-func (q Queue) Swap(i, j int)       { q[i], q[j] = q[j], q[i] }
-func (q Queue) Less(i, j int) bool  { return q[i].height > q[j].height }
-func (q *Queue) Push(x interface{}) { *q = append(*q, x.(Matrix)) }
-func (q *Queue) Pop() interface{} {
+func (q Queue) Len() int           { return len(q) }
+func (q Queue) Top() Matrix        { return q[0] }
+func (q Queue) Swap(i, j int)      { q[i], q[j] = q[j], q[i] }
+func (q Queue) Less(i, j int) bool { return q[i].height > q[j].height }
+func (q *Queue) Push(x any)        { *q = append(*q, x.(Matrix)) }
+func (q *Queue) Pop() any {
 	old, x := *q, (*q)[len(*q)-1]
 	*q = old[:len(old)-1]
 	return x
