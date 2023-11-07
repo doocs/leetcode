@@ -69,6 +69,22 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：树形 DP**
+
+题目实际上是让我们从树的所有节点中选出一些节点，使得这些节点的值之和最大，并且每条从根节点到叶子节点的路径上都有一个点没有被选中。
+
+我们可以使用树形 DP 的方法解决这个问题。
+
+我们设计一个函数 $dfs(i, fa)$，其中 $i$ 表示当前以节点 $i$ 作为子树的根节点，且 $fa$ 表示 $i$ 的父节点，函数返回一个长度为 $2$ 的数组，其中 $[0]$ 表示该子树中所有节点的值之和，而 $[1]$ 表示该子树满足每条路径上都有一个点没有被选中的最大值。
+
+其中 $[0]$ 的值可以直接通过 DFS 累加每个节点的值得到，而 $[1]$ 的值，则需要考虑两种情况，即节点 $i$ 是否被选中。如果被选中，那么节点 $i$ 的每个子树得必须满足每条路径上都有一个点没有被选中；如果没有被选中，那么节点 $i$ 的每个子树可以选取所有节点。我们取这两种情况中的最大值即可。
+
+需要注意的是，叶子节点的 $[1]$ 的值为 $0$，因为叶子节点没有子树，所以不需要考虑每条路径上都有一个点没有被选中的情况。
+
+答案为 $dfs(0, -1)[1]$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -76,7 +92,28 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def maximumScoreAfterOperations(
+        self, edges: List[List[int]], values: List[int]
+    ) -> int:
+        def dfs(i: int, fa: int = -1) -> (int, int):
+            a = b = 0
+            leaf = True
+            for j in g[i]:
+                if j != fa:
+                    leaf = False
+                    aa, bb = dfs(j, i)
+                    a += aa
+                    b += bb
+            if leaf:
+                return values[i], 0
+            return values[i] + a, max(values[i] + b, a)
 
+        g = [[] for _ in range(len(values))]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        return dfs(0)[1]
 ```
 
 ### **Java**
@@ -84,19 +121,137 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private List<Integer>[] g;
+    private int[] values;
 
+    public long maximumScoreAfterOperations(int[][] edges, int[] values) {
+        int n = values.length;
+        g = new List[n];
+        this.values = values;
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        return dfs(0, -1)[1];
+    }
+
+    private long[] dfs(int i, int fa) {
+        long a = 0, b = 0;
+        boolean leaf = true;
+        for (int j : g[i]) {
+            if (j != fa) {
+                leaf = false;
+                var t = dfs(j, i);
+                a += t[0];
+                b += t[1];
+            }
+        }
+        if (leaf) {
+            return new long[] {values[i], 0};
+        }
+        return new long[] {values[i] + a, Math.max(values[i] + b, a)};
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    long long maximumScoreAfterOperations(vector<vector<int>>& edges, vector<int>& values) {
+        int n = values.size();
+        vector<int> g[n];
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].emplace_back(b);
+            g[b].emplace_back(a);
+        }
+        using ll = long long;
+        function<pair<ll, ll>(int, int)> dfs = [&](int i, int fa) -> pair<ll, ll> {
+            ll a = 0, b = 0;
+            bool leaf = true;
+            for (int j : g[i]) {
+                if (j != fa) {
+                    auto [aa, bb] = dfs(j, i);
+                    a += aa;
+                    b += bb;
+                    leaf = false;
+                }
+            }
+            if (leaf) {
+                return {values[i], 0LL};
+            }
+            return {values[i] + a, max(values[i] + b, a)};
+        };
+        auto [_, b] = dfs(0, -1);
+        return b;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func maximumScoreAfterOperations(edges [][]int, values []int) int64 {
+	g := make([][]int, len(values))
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	var dfs func(int, int) (int64, int64)
+	dfs = func(i, fa int) (int64, int64) {
+		a, b := int64(0), int64(0)
+		leaf := true
+		for _, j := range g[i] {
+			if j != fa {
+				leaf = false
+				aa, bb := dfs(j, i)
+				a += aa
+				b += bb
+			}
+		}
+		if leaf {
+			return int64(values[i]), int64(0)
+		}
+		return int64(values[i]) + a, max(int64(values[i])+b, a)
+	}
+	_, b := dfs(0, -1)
+	return b
+}
+```
 
+### **TypeScript**
+
+```ts
+function maximumScoreAfterOperations(edges: number[][], values: number[]): number {
+    const g: number[][] = Array.from({ length: values.length }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    const dfs = (i: number, fa: number): [number, number] => {
+        let [a, b] = [0, 0];
+        let leaf = true;
+        for (const j of g[i]) {
+            if (j !== fa) {
+                const [aa, bb] = dfs(j, i);
+                a += aa;
+                b += bb;
+                leaf = false;
+            }
+        }
+        if (leaf) {
+            return [values[i], 0];
+        }
+        return [values[i] + a, Math.max(values[i] + b, a)];
+    };
+    return dfs(0, -1)[1];
+}
 ```
 
 ### **...**
