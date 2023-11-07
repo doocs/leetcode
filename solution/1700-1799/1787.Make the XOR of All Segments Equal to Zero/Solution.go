@@ -15,7 +15,7 @@ func minChanges(nums []int, k int) int {
 	}
 	for i, sz := range size {
 		g := make([]int, n)
-		x := min(f...) + sz
+		x := slices.Min(f) + sz
 		for i := range g {
 			g[i] = x
 		}
@@ -27,14 +27,4 @@ func minChanges(nums []int, k int) int {
 		f = g
 	}
 	return f[0]
-}
-
-func min(a ...int) int {
-	mi := a[0]
-	for _, v := range a {
-		if mi > v {
-			mi = v
-		}
-	}
-	return mi
 }
