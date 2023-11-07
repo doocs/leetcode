@@ -160,8 +160,8 @@ func nthSuperUglyNumber(n int, primes []int) (x int) {
 
 type hp struct{ sort.IntSlice }
 
-func (h *hp) Push(v interface{}) { h.IntSlice = append(h.IntSlice, v.(int)) }
-func (h *hp) Pop() interface{} {
+func (h *hp) Push(v any) { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() any {
 	a := h.IntSlice
 	v := a[len(a)-1]
 	h.IntSlice = a[:len(a)-1]
@@ -173,11 +173,11 @@ func (h *hp) Pop() interface{} {
 type Ugly struct{ value, prime, index int }
 type Queue []Ugly
 
-func (u Queue) Len() int            { return len(u) }
-func (u Queue) Swap(i, j int)       { u[i], u[j] = u[j], u[i] }
-func (u Queue) Less(i, j int) bool  { return u[i].value < u[j].value }
-func (u *Queue) Push(v interface{}) { *u = append(*u, v.(Ugly)) }
-func (u *Queue) Pop() interface{} {
+func (u Queue) Len() int           { return len(u) }
+func (u Queue) Swap(i, j int)      { u[i], u[j] = u[j], u[i] }
+func (u Queue) Less(i, j int) bool { return u[i].value < u[j].value }
+func (u *Queue) Push(v any)        { *u = append(*u, v.(Ugly)) }
+func (u *Queue) Pop() any {
 	old, x := *u, (*u)[len(*u)-1]
 	*u = old[:len(old)-1]
 	return x

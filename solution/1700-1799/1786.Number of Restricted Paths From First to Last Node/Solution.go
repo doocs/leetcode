@@ -14,9 +14,9 @@ func (a pairs) Len() int { return len(a) }
 func (a pairs) Less(i int, j int) bool {
 	return a[i].first < a[j].first || a[i].first == a[j].first && a[i].second < a[j].second
 }
-func (a pairs) Swap(i int, j int)   { a[i], a[j] = a[j], a[i] }
-func (a *pairs) Push(x interface{}) { *a = append(*a, x.(pair)) }
-func (a *pairs) Pop() interface{}   { l := len(*a); t := (*a)[l-1]; *a = (*a)[:l-1]; return t }
+func (a pairs) Swap(i int, j int) { a[i], a[j] = a[j], a[i] }
+func (a *pairs) Push(x any)       { *a = append(*a, x.(pair)) }
+func (a *pairs) Pop() any         { l := len(*a); t := (*a)[l-1]; *a = (*a)[:l-1]; return t }
 
 func countRestrictedPaths(n int, edges [][]int) int {
 	g := make([]pairs, n+1)

@@ -291,14 +291,14 @@ func (this *SmallestInfiniteSet) AddBack(num int) {
 
 type hp []int
 
-func (h hp) Len() int              { return len(h) }
-func (h hp) Less(i, j int) bool    { return h[i] < h[j] }
-func (h hp) Swap(i, j int)         { h[i], h[j] = h[j], h[i] }
-func (h *hp) Push(v interface{})   { *h = append(*h, v.(int)) }
-func (h *hp) Pop() (v interface{}) { a := *h; *h, v = a[:len(a)-1], a[len(a)-1]; return }
-func (h *hp) push(v int)           { heap.Push(h, v) }
-func (h *hp) pop() int             { return heap.Pop(h).(int) }
-func (h *hp) top() int             { a := *h; return a[0] }
+func (h hp) Len() int           { return len(h) }
+func (h hp) Less(i, j int) bool { return h[i] < h[j] }
+func (h hp) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
+func (h *hp) Push(v any)        { *h = append(*h, v.(int)) }
+func (h *hp) Pop() (v any)      { a := *h; *h, v = a[:len(a)-1], a[len(a)-1]; return }
+func (h *hp) push(v int)        { heap.Push(h, v) }
+func (h *hp) pop() int          { return heap.Pop(h).(int) }
+func (h *hp) top() int          { a := *h; return a[0] }
 
 /**
  * Your SmallestInfiniteSet object will be instantiated and called as such:

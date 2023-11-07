@@ -1,11 +1,11 @@
 type frac struct{ x, y, i, j int }
 type hp []frac
 
-func (a hp) Len() int            { return len(a) }
-func (a hp) Swap(i, j int)       { a[i], a[j] = a[j], a[i] }
-func (a hp) Less(i, j int) bool  { return a[i].x*a[j].y < a[j].x*a[i].y }
-func (a *hp) Push(x interface{}) { *a = append(*a, x.(frac)) }
-func (a *hp) Pop() interface{}   { l := len(*a); tmp := (*a)[l-1]; *a = (*a)[:l-1]; return tmp }
+func (a hp) Len() int           { return len(a) }
+func (a hp) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
+func (a hp) Less(i, j int) bool { return a[i].x*a[j].y < a[j].x*a[i].y }
+func (a *hp) Push(x any)        { *a = append(*a, x.(frac)) }
+func (a *hp) Pop() any          { l := len(*a); tmp := (*a)[l-1]; *a = (*a)[:l-1]; return tmp }
 
 func kthSmallestPrimeFraction(arr []int, k int) []int {
 	n := len(arr)

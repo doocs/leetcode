@@ -260,7 +260,7 @@ func Constructor(n int) ExamRoom {
 		}
 		return (s[1] - s[0]) >> 1
 	}
-	cmp := func(a, b interface{}) int {
+	cmp := func(a, b any) int {
 		x, y := a.([]int), b.([]int)
 		d1, d2 := dist(x), dist(y)
 		if d1 == d2 {

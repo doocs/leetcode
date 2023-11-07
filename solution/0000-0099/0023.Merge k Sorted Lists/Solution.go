@@ -5,7 +5,7 @@
  *     Next *ListNode
  * }
  */
- func mergeKLists(lists []*ListNode) *ListNode {
+func mergeKLists(lists []*ListNode) *ListNode {
 	pq := hp{}
 	for _, head := range lists {
 		if head != nil {

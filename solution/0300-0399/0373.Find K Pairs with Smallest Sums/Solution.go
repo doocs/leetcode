@@ -26,6 +26,6 @@ func (h hp) Less(i, j int) bool {
 	a, b := h.data[i], h.data[j]
 	return h.nums1[a.i]+h.nums2[a.j] < h.nums1[b.i]+h.nums2[b.j]
 }
-func (h hp) Swap(i, j int)       { h.data[i], h.data[j] = h.data[j], h.data[i] }
-func (h *hp) Push(v interface{}) { h.data = append(h.data, v.(pair)) }
-func (h *hp) Pop() interface{}   { a := h.data; v := a[len(a)-1]; h.data = a[:len(a)-1]; return v }
+func (h hp) Swap(i, j int) { h.data[i], h.data[j] = h.data[j], h.data[i] }
+func (h *hp) Push(v any)   { h.data = append(h.data, v.(pair)) }
+func (h *hp) Pop() any     { a := h.data; v := a[len(a)-1]; h.data = a[:len(a)-1]; return v }

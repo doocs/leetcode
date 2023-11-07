@@ -239,8 +239,8 @@ func mostBooked(n int, meetings [][]int) int {
 
 type hp struct{ sort.IntSlice }
 
-func (h *hp) Push(v interface{}) { h.IntSlice = append(h.IntSlice, v.(int)) }
-func (h *hp) Pop() interface{} {
+func (h *hp) Push(v any) { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() any {
 	a := h.IntSlice
 	v := a[len(a)-1]
 	h.IntSlice = a[:len(a)-1]
@@ -255,9 +255,9 @@ func (h hp2) Less(i, j int) bool {
 	a, b := h[i], h[j]
 	return a.end < b.end || a.end == b.end && a.i < b.i
 }
-func (h hp2) Swap(i, j int)       { h[i], h[j] = h[j], h[i] }
-func (h *hp2) Push(v interface{}) { *h = append(*h, v.(pair)) }
-func (h *hp2) Pop() interface{}   { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
+func (h hp2) Swap(i, j int) { h[i], h[j] = h[j], h[i] }
+func (h *hp2) Push(v any)   { *h = append(*h, v.(pair)) }
+func (h *hp2) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
 ### **TypeScript**
