@@ -232,7 +232,7 @@ public class Solution {
     private int cnt;
     private TreeNode prev;
     private List<int> res;
-    
+
     public int[] FindMode(TreeNode root) {
         res = new List<int>();
         Dfs(root);
@@ -242,7 +242,7 @@ public class Solution {
         }
         return ans;
     }
-    
+
     private void Dfs(TreeNode root) {
         if (root == null) {
             return;
