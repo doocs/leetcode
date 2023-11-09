@@ -158,7 +158,7 @@ impl Solution {
         let lb = xs & -xs;
         let mut a = 0;
         for x in &nums {
-            if x & lb != 0 {
+            if (x & lb) != 0 {
                 a ^= x;
             }
         }

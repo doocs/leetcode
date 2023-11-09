@@ -144,11 +144,7 @@ impl Solution {
 
         // Let's dp
         for i in 1..n {
-            dp[i] = if nums[i] > nums[i - 1] {
-                dp[i - 1] + 1
-            } else {
-                1
-            };
+            dp[i] = if nums[i] > nums[i - 1] { dp[i - 1] + 1 } else { 1 };
             ret = std::cmp::max(ret, dp[i]);
         }
 

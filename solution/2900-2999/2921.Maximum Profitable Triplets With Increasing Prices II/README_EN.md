@@ -397,8 +397,8 @@ impl Solution {
         let mut right = vec![0; n];
         let m = prices.iter().cloned().max().unwrap_or(0);
 
-        let mut tree1 = BinaryIndexedTree::new(m as usize + 1);
-        let mut tree2 = BinaryIndexedTree::new(m as usize + 1);
+        let mut tree1 = BinaryIndexedTree::new((m as usize) + 1);
+        let mut tree2 = BinaryIndexedTree::new((m as usize) + 1);
 
         for i in 0..n {
             let x = prices[i] as usize;

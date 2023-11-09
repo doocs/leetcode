@@ -104,7 +104,7 @@ fn shell_sort(nums: &mut Vec<i32>) {
         for i in gap..n {
             let mut j = i - gap;
             let temp = nums[i];
-            while j >= 0 as usize && nums[j] > temp {
+            while j >= (0 as usize) && nums[j] > temp {
                 nums[j + gap] = nums[j];
                 j -= gap;
             }

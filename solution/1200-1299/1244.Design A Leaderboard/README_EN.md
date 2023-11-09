@@ -216,10 +216,11 @@ impl Leaderboard {
 
     #[allow(dead_code)]
     fn top(&self, k: i32) -> i32 {
-        let mut cur_vec: Vec<(i32, i32)> = self.record_map.iter().map(|(k, v)| (*k, *v)).collect();
-        cur_vec.sort_by(|lhs, rhs| {
-            rhs.1.cmp(&lhs.1)
-        });
+        let mut cur_vec: Vec<(i32, i32)> = self.record_map
+            .iter()
+            .map(|(k, v)| (*k, *v))
+            .collect();
+        cur_vec.sort_by(|lhs, rhs| { rhs.1.cmp(&lhs.1) });
         // Iterate reversely for K
         let mut sum = 0;
         let mut i = 0;

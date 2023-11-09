@@ -440,7 +440,7 @@ impl Solution {
                     *res += node.val;
                 } else if depth > *max_depth {
                     *max_depth = depth;
-                    *res = node.val
+                    *res = node.val;
                 }
                 return;
             }

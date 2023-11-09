@@ -13,7 +13,7 @@ impl Solution {
         }
 
         for v in cnt.values() {
-            ans += v * (v - 1) / 2;
+            ans += (v * (v - 1)) / 2;
         }
 
         ans << 3

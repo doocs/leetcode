@@ -325,7 +325,7 @@ impl Solution {
                         }
                         node.val
                     })
-                    .collect(),
+                    .collect()
             );
         }
         res

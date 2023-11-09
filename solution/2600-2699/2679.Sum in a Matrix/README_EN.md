@@ -140,11 +140,18 @@ impl Solution {
         for row in nums.iter_mut() {
             row.sort();
         }
-        let transposed: Vec<Vec<i32>> = (0..nums[0].len()).map(|i| {
-            nums.iter().map(|row| row[i]).collect()
-        }).collect();
+        let transposed: Vec<Vec<i32>> = (0..nums[0].len())
+            .map(|i| {
+                nums.iter()
+                    .map(|row| row[i])
+                    .collect()
+            })
+            .collect();
 
-        transposed.iter().map(|row| row.iter().max().unwrap()).sum()
+        transposed
+            .iter()
+            .map(|row| row.iter().max().unwrap())
+            .sum()
     }
 }
 ```

@@ -260,7 +260,7 @@ impl Solution {
             let mut j = 0;
             while j < m || sum != 0 {
                 if i + j == res.len() {
-                    res.push(0)
+                    res.push(0);
                 }
                 let b = num2.get(m - j - 1).unwrap_or(&b'0') - b'0';
                 sum += a * b + res[i + j];

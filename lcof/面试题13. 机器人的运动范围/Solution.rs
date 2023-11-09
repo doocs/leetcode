@@ -1,9 +1,10 @@
 impl Solution {
     fn dfs(sign: &mut Vec<Vec<bool>>, k: usize, i: usize, j: usize) -> i32 {
-        if i == sign.len()
-            || j == sign[0].len()
-            || sign[i][j]
-            || j % 10 + j / 10 % 10 + i % 10 + i / 10 % 10 > k
+        if
+            i == sign.len() ||
+            j == sign[0].len() ||
+            sign[i][j] ||
+            (j % 10) + ((j / 10) % 10) + (i % 10) + ((i / 10) % 10) > k
         {
             return 0;
         }

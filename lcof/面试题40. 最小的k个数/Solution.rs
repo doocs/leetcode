@@ -6,7 +6,7 @@ impl Solution {
         while start < end && end > k {
             let num = arr[start];
             let mut mark = start;
-            for i in (start + 1)..end {
+            for i in start + 1..end {
                 if arr[i] < num {
                     mark += 1;
                     arr.swap(i, mark);
@@ -17,7 +17,7 @@ impl Solution {
             if mark <= k {
                 start = mark + 1;
             } else {
-                end = mark
+                end = mark;
             }
         }
         arr[0..k].to_vec()

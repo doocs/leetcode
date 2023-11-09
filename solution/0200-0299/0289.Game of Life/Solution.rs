@@ -1,4 +1,13 @@
-const DIR: [(i32, i32); 8] = [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1)];
+const DIR: [(i32, i32); 8] = [
+    (-1, 0),
+    (1, 0),
+    (0, -1),
+    (0, 1),
+    (-1, -1),
+    (-1, 1),
+    (1, -1),
+    (1, 1),
+];
 
 impl Solution {
     #[allow(dead_code)]
@@ -14,8 +23,8 @@ impl Solution {
                     continue;
                 }
                 for (dx, dy) in DIR {
-                    let x = i as i32 + dx;
-                    let y = j as i32 + dy;
+                    let x = (i as i32) + dx;
+                    let y = (j as i32) + dy;
                     if Self::check_bounds(x, y, n as i32, m as i32) {
                         weight_vec[x as usize][y as usize] += 1;
                     }

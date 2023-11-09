@@ -281,12 +281,12 @@ impl AuthenticationManager {
     }
 
     fn count_unexpired_tokens(&self, current_time: i32) -> i32 {
-        self.map.values().filter(|&time| *time > current_time).count() as i32
+        self.map
+            .values()
+            .filter(|&time| *time > current_time)
+            .count() as i32
     }
-}
-
-
-/**
+}/**
  * Your AuthenticationManager object will be instantiated and called as such:
  * let obj = AuthenticationManager::new(timeToLive);
  * obj.generate(tokenId, currentTime);

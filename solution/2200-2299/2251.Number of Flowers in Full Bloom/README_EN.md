@@ -224,9 +224,7 @@ impl Solution {
             .map(|x| x)
             .collect();
 
-        people.sort_by(|lhs, rhs| {
-            lhs.1.cmp(&rhs.1)
-        });
+        people.sort_by(|lhs, rhs| { lhs.1.cmp(&rhs.1) });
 
         // Initialize the difference vector
         let mut diff = BTreeMap::new();
@@ -234,14 +232,16 @@ impl Solution {
 
         for f in flowers {
             let (left, right) = (f[0], f[1]);
-            diff
-                .entry(left)
-                .and_modify(|x| *x += 1)
+            diff.entry(left)
+                .and_modify(|x| {
+                    *x += 1;
+                })
                 .or_insert(1);
 
-            diff
-                .entry(right + 1)
-                .and_modify(|x| *x -= 1)
+            diff.entry(right + 1)
+                .and_modify(|x| {
+                    *x -= 1;
+                })
                 .or_insert(-1);
         }
 

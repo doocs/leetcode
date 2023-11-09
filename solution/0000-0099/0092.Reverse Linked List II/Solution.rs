@@ -15,7 +15,11 @@
 //   }
 // }
 impl Solution {
-    pub fn reverse_between(head: Option<Box<ListNode>>, left: i32, right: i32) -> Option<Box<ListNode>> {
+    pub fn reverse_between(
+        head: Option<Box<ListNode>>,
+        left: i32,
+        right: i32
+    ) -> Option<Box<ListNode>> {
         let mut dummy = Some(Box::new(ListNode { val: 0, next: head }));
         let mut pre = &mut dummy;
         for _ in 1..left {

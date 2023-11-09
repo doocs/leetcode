@@ -287,19 +287,17 @@ use std::collections::HashSet;
 use rand::Rng;
 
 struct RandomizedSet {
-    list: HashSet<i32>
+    list: HashSet<i32>,
 }
-
 
 /**
  * `&self` means the method takes an immutable reference.
  * If you need a mutable reference, change it to `&mut self` instead.
  */
 impl RandomizedSet {
-
     fn new() -> Self {
         Self {
-            list: HashSet::new()
+            list: HashSet::new(),
         }
     }
 
@@ -315,9 +313,7 @@ impl RandomizedSet {
         let i = rand::thread_rng().gen_range(0, self.list.len());
         *self.list.iter().collect::<Vec<&i32>>()[i]
     }
-}
-
-/**
+}/**
  * Your RandomizedSet object will be instantiated and called as such:
  * let obj = RandomizedSet::new();
  * let ret_1: bool = obj.insert(val);

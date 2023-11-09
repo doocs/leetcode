@@ -113,10 +113,11 @@ impl Solution {
             return num;
         }
         Self::add_digits(
-            num.to_string()
+            num
+                .to_string()
                 .chars()
                 .map(|c| c.to_string().parse::<i32>().unwrap())
-                .sum::<i32>(),
+                .sum::<i32>()
         )
     }
 }
@@ -125,7 +126,7 @@ impl Solution {
 ```rust
 impl Solution {
     pub fn add_digits(mut num: i32) -> i32 {
-        (num - 1) % 9 + 1
+        ((num - 1) % 9) + 1
     }
 }
 ```

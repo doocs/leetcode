@@ -204,7 +204,12 @@ impl Solution {
         let k = k as i64;
         let n = nums1.len();
         if k == 0 {
-            return if nums1.iter().enumerate().all(|(i, &v)| v == nums2[i]) {
+            return if
+                nums1
+                    .iter()
+                    .enumerate()
+                    .all(|(i, &v)| v == nums2[i])
+            {
                 0
             } else {
                 -1

@@ -163,7 +163,7 @@ impl Solution {
         let mut suf = vec![0; n + 1];
 
         for i in (0..n).rev() {
-            suf[i] = suf[i + 1] | nums[i] as i64;
+            suf[i] = suf[i + 1] | (nums[i] as i64);
         }
 
         let mut ans = 0i64;

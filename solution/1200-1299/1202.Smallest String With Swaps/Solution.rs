@@ -41,7 +41,7 @@ impl Solution {
 
     #[allow(dead_code)]
     fn find(x: usize, d_set: &mut Vec<usize>) -> usize {
-        if d_set[x]  != x {
+        if d_set[x] != x {
             d_set[x] = Self::find(d_set[x], d_set);
         }
         d_set[x]

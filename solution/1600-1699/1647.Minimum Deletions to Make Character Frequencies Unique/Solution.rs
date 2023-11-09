@@ -5,12 +5,10 @@ impl Solution {
         let mut ans = 0;
 
         for c in s.chars() {
-            cnt[(c as u8 - 'a' as u8) as usize] += 1;
+            cnt[((c as u8) - ('a' as u8)) as usize] += 1;
         }
 
-        cnt.sort_by(|&lhs, &rhs| {
-            rhs.cmp(&lhs)
-        });
+        cnt.sort_by(|&lhs, &rhs| { rhs.cmp(&lhs) });
 
         for i in 1..26 {
             while cnt[i] >= cnt[i - 1] && cnt[i] > 0 {

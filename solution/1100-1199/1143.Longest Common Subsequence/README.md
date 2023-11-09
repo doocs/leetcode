@@ -218,7 +218,7 @@ impl Solution {
                     f[i - 1][j - 1] + 1
                 } else {
                     f[i - 1][j].max(f[i][j - 1])
-                }
+                };
             }
         }
         f[m][n]

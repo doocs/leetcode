@@ -224,8 +224,8 @@ impl Solution {
         let mut k = time / (n - 1);
         let mut _mod = time % (n - 1);
 
-        if k & 1 == 1 {
-            return n - _mod
+        if (k & 1) == 1 {
+            return n - _mod;
         }
 
         _mod + 1

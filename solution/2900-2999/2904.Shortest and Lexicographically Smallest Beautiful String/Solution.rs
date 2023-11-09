@@ -21,7 +21,10 @@ impl Solution {
 
             j += 1;
 
-            if cnt == k && (ans.is_empty() || j - i < ans.len() || (j - i == ans.len() && &s[i..j] < &ans)) {
+            if
+                cnt == k &&
+                (ans.is_empty() || j - i < ans.len() || (j - i == ans.len() && &s[i..j] < &ans))
+            {
                 ans = s_chars[i..j].iter().collect();
             }
         }

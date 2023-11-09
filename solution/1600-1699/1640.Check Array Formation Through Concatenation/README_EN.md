@@ -284,7 +284,9 @@ impl Solution {
         let mut i = 0;
         while i < n {
             match map.get(&arr[i]) {
-                None => return false,
+                None => {
+                    return false;
+                }
                 Some(&j) => {
                     for &item in pieces[j].iter() {
                         if item != arr[i] {

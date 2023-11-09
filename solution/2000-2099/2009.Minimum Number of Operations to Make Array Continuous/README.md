@@ -225,11 +225,11 @@ impl Solution {
         let mut ans = n;
 
         for i in 0..m {
-            let j = match nums.binary_search(&(nums[i] + n as i32)) {
+            let j = match nums.binary_search(&(nums[i] + (n as i32))) {
                 Ok(idx) => idx,
                 Err(idx) => idx,
             };
-            ans = std::cmp::min(ans, n - (j - i))
+            ans = std::cmp::min(ans, n - (j - i));
         }
 
         ans as i32

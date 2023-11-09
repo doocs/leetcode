@@ -14,7 +14,7 @@ impl Solution {
             }
             q.push_back(i);
             if i >= k - 1 {
-                ans[i - k + 1] = nums[q[0]]
+                ans[i - k + 1] = nums[q[0]];
             }
         }
         ans

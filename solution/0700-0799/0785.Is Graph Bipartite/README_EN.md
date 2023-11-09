@@ -240,7 +240,12 @@ impl Solution {
     }
 
     #[allow(dead_code)]
-    fn traverse(v: usize, color: usize, color_vec: &mut Vec<usize>, graph: &mut Vec<Vec<i32>>) -> bool {
+    fn traverse(
+        v: usize,
+        color: usize,
+        color_vec: &mut Vec<usize>,
+        graph: &mut Vec<Vec<i32>>
+    ) -> bool {
         color_vec[v] = color;
         for n in graph[v].clone() {
             if color_vec[n as usize] == 0 {

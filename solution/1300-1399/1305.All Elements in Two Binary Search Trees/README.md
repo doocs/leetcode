@@ -271,7 +271,7 @@ use std::rc::Rc;
 impl Solution {
     pub fn get_all_elements(
         root1: Option<Rc<RefCell<TreeNode>>>,
-        root2: Option<Rc<RefCell<TreeNode>>>,
+        root2: Option<Rc<RefCell<TreeNode>>>
     ) -> Vec<i32> {
         fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, t: &mut Vec<i32>) {
             if let Some(root) = root {

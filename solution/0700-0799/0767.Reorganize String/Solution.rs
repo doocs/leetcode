@@ -1,4 +1,4 @@
-use std::collections::{HashMap, BinaryHeap, VecDeque};
+use std::collections::{ HashMap, BinaryHeap, VecDeque };
 
 impl Solution {
     #[allow(dead_code)]
@@ -11,15 +11,16 @@ impl Solution {
 
         // Initialize the HashMap
         for c in s.chars() {
-            map
-                .entry(c)
-                .and_modify(|e| *e += 1)
+            map.entry(c)
+                .and_modify(|e| {
+                    *e += 1;
+                })
                 .or_insert(1);
         }
 
         // Initialize the binary heap
         for (k, v) in map.iter() {
-            if 2 * *v  - 1 > n {
+            if 2 * *v - 1 > n {
                 return "".to_string();
             } else {
                 pq.push((*v, *k));
@@ -38,6 +39,10 @@ impl Solution {
             }
         }
 
-        if ret.len() == n { ret } else { "".to_string() }
+        if ret.len() == n {
+            ret
+        } else {
+            "".to_string()
+        }
     }
 }

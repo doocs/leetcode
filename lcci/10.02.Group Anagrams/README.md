@@ -143,7 +143,9 @@ impl Solution {
                 cs.sort();
                 cs.iter().collect::<String>()
             };
-            map.entry(key).or_insert(vec![]).push(s);
+            map.entry(key)
+                .or_insert(vec![])
+                .push(s);
         }
         map.into_values().collect()
     }

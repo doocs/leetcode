@@ -188,7 +188,7 @@ impl Solution {
 
         for i in 0..n {
             g[group_sizes[i] as usize].push(i as i32);
-            if g[group_sizes[i] as usize].len() == group_sizes[i] as usize {
+            if g[group_sizes[i] as usize].len() == (group_sizes[i] as usize) {
                 ret.push(g[group_sizes[i] as usize].clone());
                 g[group_sizes[i] as usize].clear();
             }

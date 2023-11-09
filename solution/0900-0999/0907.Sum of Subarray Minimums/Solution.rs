@@ -1,4 +1,4 @@
-const MOD: i64 = 1e9 as i64 + 7;
+const MOD: i64 = (1e9 as i64) + 7;
 
 impl Solution {
     pub fn sum_subarray_mins(arr: Vec<i32>) -> i32 {
@@ -37,10 +37,12 @@ impl Solution {
 
         // Traverse the array, to find the sum
         for i in 0..n {
-            ret += ((right[i] - i as i32) * (i as i32 - left[i])) as i64 * arr[i] as i64 % MOD;
+            ret +=
+                ((((right[i] - (i as i32)) * ((i as i32) - left[i])) as i64) * (arr[i] as i64)) %
+                MOD;
             ret %= MOD;
         }
 
-        (ret % MOD as i64) as i32
+        (ret % (MOD as i64)) as i32
     }
 }

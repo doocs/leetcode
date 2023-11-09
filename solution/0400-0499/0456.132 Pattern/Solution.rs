@@ -10,7 +10,7 @@ impl Solution {
             while !stk.is_empty() && stk.last().unwrap() < &nums[i] {
                 vk = stk.pop().unwrap();
             }
-            stk.push(nums[i])
+            stk.push(nums[i]);
         }
         false
     }

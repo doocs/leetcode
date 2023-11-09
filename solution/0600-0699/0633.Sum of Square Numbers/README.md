@@ -159,9 +159,15 @@ impl Solution {
         while left <= right {
             let num = left * left + right * right;
             match num.cmp(&c) {
-                Ordering::Less => left += 1,
-                Ordering::Greater => right -= 1,
-                Ordering::Equal => return true,
+                Ordering::Less => {
+                    left += 1;
+                }
+                Ordering::Greater => {
+                    right -= 1;
+                }
+                Ordering::Equal => {
+                    return true;
+                }
             }
         }
         false

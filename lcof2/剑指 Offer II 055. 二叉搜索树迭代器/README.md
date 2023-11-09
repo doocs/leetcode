@@ -512,9 +512,8 @@ class BSTIterator {
 use std::rc::Rc;
 use std::cell::RefCell;
 struct BSTIterator {
-    stack: Vec<i32>
+    stack: Vec<i32>,
 }
-
 
 /**
  * `&self` means the method takes an immutable reference.
@@ -536,7 +535,7 @@ impl BSTIterator {
         let mut stack = Vec::new();
         Self::dfs(&root, &mut stack);
         Self {
-            stack
+            stack,
         }
     }
 
@@ -547,9 +546,7 @@ impl BSTIterator {
     fn has_next(&self) -> bool {
         !self.stack.is_empty()
     }
-}
-
-/**
+}/**
  * Your BSTIterator object will be instantiated and called as such:
  * let obj = BSTIterator::new(root);
  * let ret_1: i32 = obj.next();

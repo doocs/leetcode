@@ -67,7 +67,7 @@ impl Solution {
             num >>= 1;
             let b = num & 1;
             num >>= 1;
-            res |= a << i + 1;
+            res |= a << (i + 1);
             res |= b << i;
             i += 2;
         }

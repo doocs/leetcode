@@ -129,7 +129,7 @@ impl Solution {
         }
         while n != 0 {
             if (n & 3) != u {
-                return false
+                return false;
             }
             n >>= 2;
         }

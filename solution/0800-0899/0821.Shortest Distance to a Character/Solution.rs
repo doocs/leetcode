@@ -9,14 +9,14 @@ impl Solution {
             if s[i] == c {
                 pre = i as i32;
             }
-            res[i] = i32::abs(i as i32 - pre);
+            res[i] = i32::abs((i as i32) - pre);
         }
         pre = i32::MAX;
         for i in (0..n).rev() {
             if s[i] == c {
                 pre = i as i32;
             }
-            res[i] = res[i].min(i32::abs(i as i32 - pre));
+            res[i] = res[i].min(i32::abs((i as i32) - pre));
         }
         res
     }

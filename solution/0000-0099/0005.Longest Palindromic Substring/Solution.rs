@@ -8,7 +8,7 @@ impl Solution {
             for start in 0..=end {
                 if data[start] == data[end] {
                     dp[start][end] = end - start < 2 || dp[start + 1][end - 1];
-                    if dp[start][end] && (end - start + 1) > ans.len() {
+                    if dp[start][end] && end - start + 1 > ans.len() {
                         ans = &s[start..=end];
                     }
                 }
@@ -17,4 +17,3 @@ impl Solution {
         ans.to_string()
     }
 }
-

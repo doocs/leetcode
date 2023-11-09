@@ -5,11 +5,17 @@ impl Solution {
         let mut l = 0;
         let mut r = nums.len();
         while l < r {
-            let mid = l + r >> 1;
+            let mid = (l + r) >> 1;
             match nums[mid].cmp(&target) {
-                Ordering::Less => l = mid + 1,
-                Ordering::Greater => r = mid,
-                Ordering::Equal => return mid as i32,
+                Ordering::Less => {
+                    l = mid + 1;
+                }
+                Ordering::Greater => {
+                    r = mid;
+                }
+                Ordering::Equal => {
+                    return mid as i32;
+                }
             }
         }
         -1

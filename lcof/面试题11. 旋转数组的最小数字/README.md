@@ -260,11 +260,17 @@ impl Solution {
         let mut l = 0;
         let mut r = numbers.len() - 1;
         while l < r {
-            let mid = l + r >> 1;
+            let mid = (l + r) >> 1;
             match numbers[mid].cmp(&numbers[r]) {
-                std::cmp::Ordering::Less => r = mid,
-                std::cmp::Ordering::Equal => r -= 1,
-                std::cmp::Ordering::Greater => l = mid + 1,
+                std::cmp::Ordering::Less => {
+                    r = mid;
+                }
+                std::cmp::Ordering::Equal => {
+                    r -= 1;
+                }
+                std::cmp::Ordering::Greater => {
+                    l = mid + 1;
+                }
             }
         }
         numbers[l]
@@ -281,11 +287,17 @@ impl Solution {
             if numbers[l] < numbers[r] {
                 break;
             }
-            let mid = l + r >> 1;
+            let mid = (l + r) >> 1;
             match numbers[mid].cmp(&numbers[l]) {
-                std::cmp::Ordering::Less => r = mid,
-                std::cmp::Ordering::Equal => l += 1,
-                std::cmp::Ordering::Greater => l = mid + 1,
+                std::cmp::Ordering::Less => {
+                    r = mid;
+                }
+                std::cmp::Ordering::Equal => {
+                    l += 1;
+                }
+                std::cmp::Ordering::Greater => {
+                    l = mid + 1;
+                }
             }
         }
         numbers[l]

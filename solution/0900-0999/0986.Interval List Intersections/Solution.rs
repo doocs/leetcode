@@ -1,7 +1,7 @@
 impl Solution {
     pub fn interval_intersection(
         first_list: Vec<Vec<i32>>,
-        second_list: Vec<Vec<i32>>,
+        second_list: Vec<Vec<i32>>
     ) -> Vec<Vec<i32>> {
         let n = first_list.len();
         let m = second_list.len();

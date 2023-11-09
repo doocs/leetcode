@@ -210,7 +210,7 @@ impl Solution {
 
     pub fn check_sub_tree(
         t1: Option<Rc<RefCell<TreeNode>>>,
-        t2: Option<Rc<RefCell<TreeNode>>>,
+        t2: Option<Rc<RefCell<TreeNode>>>
     ) -> bool {
         Self::dfs(&t1, &t2)
     }

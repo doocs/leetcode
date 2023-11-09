@@ -605,9 +605,7 @@ impl BSTIterator {
     fn has_next(&self) -> bool {
         self.index != self.vals.len()
     }
-}
-
-/**
+}/**
  * Your BSTIterator object will be instantiated and called as such:
  * let obj = BSTIterator::new(root);
  * let ret_1: i32 = obj.next();
@@ -647,7 +645,7 @@ use std::cell::RefCell;
 impl BSTIterator {
     fn dfs(
         mut root: Option<Rc<RefCell<TreeNode>>>,
-        stack: &mut Vec<Option<Rc<RefCell<TreeNode>>>>,
+        stack: &mut Vec<Option<Rc<RefCell<TreeNode>>>>
     ) {
         if root.is_some() {
             let left = root.as_mut().unwrap().borrow_mut().left.take();
@@ -666,7 +664,7 @@ impl BSTIterator {
         let node = self.stack.pop().unwrap().unwrap();
         let mut node = node.borrow_mut();
         if node.right.is_some() {
-            Self::dfs(node.right.take(), &mut self.stack)
+            Self::dfs(node.right.take(), &mut self.stack);
         }
         node.val
     }
@@ -674,9 +672,7 @@ impl BSTIterator {
     fn has_next(&self) -> bool {
         self.stack.len() != 0
     }
-}
-
-/**
+}/**
  * Your BSTIterator object will be instantiated and called as such:
  * let obj = BSTIterator::new(root);
  * let ret_1: i32 = obj.next();

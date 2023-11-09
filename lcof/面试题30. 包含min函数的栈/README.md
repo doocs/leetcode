@@ -252,13 +252,11 @@ struct MinStack {
     min_stack: VecDeque<i32>,
 }
 
-
 /**
  * `&self` means the method takes an immutable reference.
  * If you need a mutable reference, change it to `&mut self` instead.
  */
 impl MinStack {
-
     /** initialize your data structure here. */
     fn new() -> Self {
         Self { stack: VecDeque::new(), min_stack: VecDeque::new() }
@@ -285,9 +283,7 @@ impl MinStack {
     fn get_min(&self) -> i32 {
         *self.min_stack.back().unwrap()
     }
-}
-
-/**
+}/**
  * Your MinStack object will be instantiated and called as such:
  * let obj = MinStack::new();
  * obj.push(x);

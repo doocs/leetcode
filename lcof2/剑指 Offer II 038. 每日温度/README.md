@@ -262,11 +262,7 @@ impl Solution {
             while !stack.is_empty() && temperatures[*stack.last().unwrap()] <= temperatures[i] {
                 stack.pop();
             }
-            res[i] = if stack.is_empty() {
-                0
-            } else {
-                (stack.last().unwrap() - i) as i32
-            };
+            res[i] = if stack.is_empty() { 0 } else { (stack.last().unwrap() - i) as i32 };
             stack.push(i);
         }
         res

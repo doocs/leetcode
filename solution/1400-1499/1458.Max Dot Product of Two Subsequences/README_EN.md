@@ -120,7 +120,7 @@ impl Solution {
             for j in 1..=m {
                 dp[i][j] = std::cmp::max(
                     std::cmp::max(dp[i - 1][j], dp[i][j - 1]),
-                    std::cmp::max(dp[i - 1][j - 1], 0) + nums1[i - 1] * nums2[j - 1],
+                    std::cmp::max(dp[i - 1][j - 1], 0) + nums1[i - 1] * nums2[j - 1]
                 );
             }
         }

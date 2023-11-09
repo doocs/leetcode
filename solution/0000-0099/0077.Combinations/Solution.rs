@@ -1,6 +1,6 @@
 impl Solution {
     fn dfs(i: i32, n: i32, k: i32, t: &mut Vec<i32>, ans: &mut Vec<Vec<i32>>) {
-        if t.len() == k as usize {
+        if t.len() == (k as usize) {
             ans.push(t.clone());
             return;
         }

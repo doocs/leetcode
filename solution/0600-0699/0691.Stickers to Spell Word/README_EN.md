@@ -206,7 +206,7 @@ func minStickers(stickers []string, target string) int {
 ### **Rust**
 
 ```rust
-use std::collections::{HashSet, VecDeque};
+use std::collections::{ HashSet, VecDeque };
 
 impl Solution {
     pub fn min_stickers(stickers: Vec<String>, target: String) -> i32 {

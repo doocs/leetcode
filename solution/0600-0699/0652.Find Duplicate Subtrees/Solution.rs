@@ -23,7 +23,7 @@ impl Solution {
     fn dfs(
         root: &Option<Rc<RefCell<TreeNode>>>,
         map: &mut HashMap<String, i32>,
-        res: &mut Vec<Option<Rc<RefCell<TreeNode>>>>,
+        res: &mut Vec<Option<Rc<RefCell<TreeNode>>>>
     ) -> String {
         if root.is_none() {
             return String::from('#');
@@ -46,7 +46,7 @@ impl Solution {
     }
 
     pub fn find_duplicate_subtrees(
-        root: Option<Rc<RefCell<TreeNode>>>,
+        root: Option<Rc<RefCell<TreeNode>>>
     ) -> Vec<Option<Rc<RefCell<TreeNode>>>> {
         let mut map = HashMap::new();
         let mut res = Vec::new();

@@ -219,7 +219,7 @@ impl Solution {
                 if c == b'+' {
                     break;
                 }
-                s.push(c as char)
+                s.push(c as char);
             }
             s.push('@');
             s.push_str(res[1]);

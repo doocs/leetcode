@@ -301,7 +301,7 @@ impl Solution {
                     right = mid;
                 }
             }
-            res = res.max((left - i - 1) as i32)
+            res = res.max((left - i - 1) as i32);
         }
         res
     }
@@ -317,9 +317,9 @@ impl Solution {
         let mut j = 0;
         for i in 0..m {
             while j < n && nums1[i] <= nums2[j] {
-                j += 1
+                j += 1;
             }
-            res = res.max((j - i - 1) as i32)
+            res = res.max((j - i - 1) as i32);
         }
         res
     }

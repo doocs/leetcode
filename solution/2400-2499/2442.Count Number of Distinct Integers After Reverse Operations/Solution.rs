@@ -8,7 +8,7 @@ impl Solution {
             set.insert({
                 let mut item = 0;
                 while num > 0 {
-                    item = item * 10 + num % 10;
+                    item = item * 10 + (num % 10);
                     num /= 10;
                 }
                 item

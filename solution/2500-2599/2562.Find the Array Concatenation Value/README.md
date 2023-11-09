@@ -204,7 +204,9 @@ impl Solution {
         let mut n = nums.len();
 
         for i in 0..n / 2 {
-            ans += format!("{}{}", nums[i], nums[n - i - 1]).parse::<i64>().unwrap();
+            ans += format!("{}{}", nums[i], nums[n - i - 1])
+                .parse::<i64>()
+                .unwrap();
         }
 
         if n % 2 != 0 {

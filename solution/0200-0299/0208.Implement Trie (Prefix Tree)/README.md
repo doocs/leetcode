@@ -301,7 +301,7 @@ public:
 ### **Rust**
 
 ```rust
-use std::{rc::Rc, cell::RefCell, collections::HashMap};
+use std::{ rc::Rc, cell::RefCell, collections::HashMap };
 
 struct TrieNode {
     pub val: Option<char>,

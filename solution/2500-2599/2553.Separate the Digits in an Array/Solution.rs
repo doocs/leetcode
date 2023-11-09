@@ -8,7 +8,9 @@ impl Solution {
                 t.push(num % 10);
                 num /= 10;
             }
-            t.into_iter().rev().for_each(|v| ans.push(v));
+            t.into_iter()
+                .rev()
+                .for_each(|v| ans.push(v));
         }
         ans
     }

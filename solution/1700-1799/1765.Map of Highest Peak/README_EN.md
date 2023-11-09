@@ -264,7 +264,7 @@ impl Solution {
         let m = is_water[0].len();
         let mut ret_vec = vec![vec![-1; m]; n];
         let mut q: VecDeque<(usize, usize)> = VecDeque::new();
-        let vis_pair: Vec<(i32, i32)> = vec![(-1, 0), (1, 0), (0, -1), (0 ,1)];
+        let vis_pair: Vec<(i32, i32)> = vec![(-1, 0), (1, 0), (0, -1), (0, 1)];
 
         // Initialize the return vector
         for i in 0..n {
@@ -284,12 +284,13 @@ impl Solution {
             // Traverse through the vis pair
             for d in &vis_pair {
                 let (dx, dy) = *d;
-                if Self::check_bounds(x as i32 + dx, y as i32 + dy, n as i32, m as i32) {
-                    if ret_vec[(x as i32 + dx) as usize][(y as i32 + dy) as usize] == -1 {
+                if Self::check_bounds((x as i32) + dx, (y as i32) + dy, n as i32, m as i32) {
+                    if ret_vec[((x as i32) + dx) as usize][((y as i32) + dy) as usize] == -1 {
                         // This cell hasn't been visited, update its height
-                        ret_vec[(x as i32 + dx) as usize][(y as i32 + dy) as usize] = ret_vec[x][y] + 1;
+                        ret_vec[((x as i32) + dx) as usize][((y as i32) + dy) as usize] =
+                            ret_vec[x][y] + 1;
                         // Enqueue the current cell
-                        q.push_back(((x as i32 + dx) as usize, (y as i32 + dy) as usize));
+                        q.push_back((((x as i32) + dx) as usize, ((y as i32) + dy) as usize));
                     }
                 }
             }

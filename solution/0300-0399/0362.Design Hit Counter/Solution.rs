@@ -1,4 +1,4 @@
-use std::{collections::BinaryHeap, cmp::Reverse};
+use std::{ collections::BinaryHeap, cmp::Reverse };
 
 struct HitCounter {
     /// A min heap

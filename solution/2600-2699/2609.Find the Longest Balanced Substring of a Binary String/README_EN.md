@@ -316,7 +316,7 @@ impl Solution {
                 if s.as_bytes()[k] == b'1' {
                     cnt += 1;
                 } else if cnt > 0 {
-                    return false
+                    return false;
                 }
             }
 
@@ -359,7 +359,7 @@ impl Solution {
                 zero += 1;
             } else {
                 one += 1;
-                ans = std::cmp::max(ans, std::cmp::min(zero, one) * 2)
+                ans = std::cmp::max(ans, std::cmp::min(zero, one) * 2);
             }
         }
 

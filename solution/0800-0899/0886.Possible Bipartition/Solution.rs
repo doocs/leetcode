@@ -2,7 +2,7 @@ impl Solution {
     fn dfs(i: usize, v: usize, color: &mut Vec<usize>, g: &Vec<Vec<usize>>) -> bool {
         color[i] = v;
         for &j in (*g[i]).iter() {
-            if color[j] == color[i] || color[j] == 0 && Self::dfs(j, v ^ 3, color, g) {
+            if color[j] == color[i] || (color[j] == 0 && Self::dfs(j, v ^ 3, color, g)) {
                 return true;
             }
         }

@@ -5,7 +5,7 @@
 //   pub left: Option<Rc<RefCell<TreeNode>>>,
 //   pub right: Option<Rc<RefCell<TreeNode>>>,
 // }
-// 
+//
 // impl TreeNode {
 //   #[inline]
 //   pub fn new(val: i32) -> Self {
@@ -26,7 +26,12 @@ impl Solution {
         return Self::dfs(root, sum, 0, &mut cnt);
     }
 
-    fn dfs(root: Option<Rc<RefCell<TreeNode>>>, sum: i32, s: i32, cnt: &mut HashMap<i32, i32>) -> i32 {
+    fn dfs(
+        root: Option<Rc<RefCell<TreeNode>>>,
+        sum: i32,
+        s: i32,
+        cnt: &mut HashMap<i32, i32>
+    ) -> i32 {
         if let Some(node) = root {
             let node = node.borrow();
             let s = s + node.val;

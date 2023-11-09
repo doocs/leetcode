@@ -13,7 +13,7 @@ impl Solution {
                 zero += 1;
             } else {
                 one += 1;
-                ans = std::cmp::max(ans, std::cmp::min(zero, one) * 2)
+                ans = std::cmp::max(ans, std::cmp::min(zero, one) * 2);
             }
         }
 

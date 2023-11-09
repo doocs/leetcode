@@ -337,11 +337,7 @@ impl Solution {
         }
 
         let mut res = 0;
-        Self::dfs(
-            &root,
-            root.as_ref().unwrap().as_ref().borrow().val,
-            &mut res,
-        );
+        Self::dfs(&root, root.as_ref().unwrap().as_ref().borrow().val, &mut res);
         res
     }
 }

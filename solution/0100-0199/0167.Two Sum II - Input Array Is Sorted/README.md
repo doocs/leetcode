@@ -308,12 +308,18 @@ impl Solution {
         let mut r = n - 1;
         loop {
             match (numbers[l] + numbers[r]).cmp(&target) {
-                Ordering::Less => l += 1,
-                Ordering::Greater => r -= 1,
-                Ordering::Equal => break,
+                Ordering::Less => {
+                    l += 1;
+                }
+                Ordering::Greater => {
+                    r -= 1;
+                }
+                Ordering::Equal => {
+                    break;
+                }
             }
         }
-        vec![l as i32 + 1, r as i32 + 1]
+        vec![(l as i32) + 1, (r as i32) + 1]
     }
 }
 ```

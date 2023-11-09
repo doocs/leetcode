@@ -139,11 +139,11 @@ impl Solution {
             let mid = (left + right) >> 1;
             let cnt = nums
                 .iter()
-                .filter(|x| **x <= mid as i32)
+                .filter(|x| **x <= (mid as i32))
                 .count();
             if cnt > mid {
                 right = mid;
-            } else  {
+            } else {
                 left = mid + 1;
             }
         }

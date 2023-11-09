@@ -211,9 +211,9 @@ use std::cell::RefCell;
 impl Solution {
     fn dfs(
         root: Option<Rc<RefCell<TreeNode>>>,
-        paths: &mut  Vec<i32>,
+        paths: &mut Vec<i32>,
         mut target_sum: i32,
-        res: &mut Vec<Vec<i32>>,
+        res: &mut Vec<Vec<i32>>
     ) {
         if let Some(node) = root {
             let mut node = node.borrow_mut();
@@ -238,7 +238,7 @@ impl Solution {
     pub fn path_sum(root: Option<Rc<RefCell<TreeNode>>>, target_sum: i32) -> Vec<Vec<i32>> {
         let mut res = vec![];
         let mut paths = vec![];
-        Self::dfs(root, &mut paths,  target_sum, &mut res);
+        Self::dfs(root, &mut paths, target_sum, &mut res);
         res
     }
 }

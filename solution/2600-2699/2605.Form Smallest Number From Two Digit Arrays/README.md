@@ -417,7 +417,6 @@ impl Solution {
                 } else {
                     ans = std::cmp::min(ans, std::cmp::min(a * 10 + b, b * 10 + a));
                 }
-
             }
         }
 
@@ -457,7 +456,6 @@ impl Solution {
                 b = i;
             }
         }
-
 
         std::cmp::min(a * 10 + b, b * 10 + a)
     }

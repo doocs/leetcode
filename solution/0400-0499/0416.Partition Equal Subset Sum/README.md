@@ -217,11 +217,11 @@ impl Solution {
         // Begin the actual dp process
         for i in 1..=n {
             for j in 0..=m {
-                dp[i][j] = if nums[i - 1] as usize > j {
+                dp[i][j] = if (nums[i - 1] as usize) > j {
                     dp[i - 1][j]
                 } else {
-                    dp[i - 1][j] || dp[i - 1][j - nums[i - 1] as usize]
-                }
+                    dp[i - 1][j] || dp[i - 1][j - (nums[i - 1] as usize)]
+                };
             }
         }
 
@@ -257,7 +257,7 @@ impl Solution {
             // For every num in nums vector
             for i in (*e as usize..=m).rev() {
                 // Update the current status
-                dp[i] |= dp[i - *e as usize];
+                dp[i] |= dp[i - (*e as usize)];
             }
         }
 

@@ -1,4 +1,9 @@
-const DIR: [(i32, i32); 4] = [(-1, 0), (1, 0), (0, -1), (0, 1)];
+const DIR: [(i32, i32); 4] = [
+    (-1, 0),
+    (1, 0),
+    (0, -1),
+    (0, 1),
+];
 
 impl Solution {
     #[allow(dead_code)]
@@ -36,10 +41,13 @@ impl Solution {
                 }
                 // Otherwise, let's union the square with its neighbors
                 for (dx, dy) in DIR {
-                    let x = dx + i as i32;
-                    let y = dy + j as i32;
-                    if Self::check_bounds(x, y, n as i32, m as i32) && grid[x as usize][y as usize] <= cur_time {
-                        Self::union(i * m + j, x as usize * m + y as usize, d_set);
+                    let x = dx + (i as i32);
+                    let y = dy + (j as i32);
+                    if
+                        Self::check_bounds(x, y, n as i32, m as i32) &&
+                        grid[x as usize][y as usize] <= cur_time
+                    {
+                        Self::union(i * m + j, (x as usize) * m + (y as usize), d_set);
                     }
                 }
             }

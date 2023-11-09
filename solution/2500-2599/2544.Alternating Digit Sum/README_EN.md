@@ -163,7 +163,7 @@ impl Solution {
         let mut sign = 1;
 
         for c in format!("{}", n).chars() {
-            let x = c.to_digit(10).unwrap()as i32;
+            let x = c.to_digit(10).unwrap() as i32;
             ans += x * sign;
             sign *= -1;
         }

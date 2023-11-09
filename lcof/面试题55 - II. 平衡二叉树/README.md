@@ -279,9 +279,9 @@ impl Solution {
             Some(node) => {
                 let mut node = node.borrow_mut();
                 let a = 10;
-                (Self::dfs(&node.left) - Self::dfs(&node.right)).abs() <= 1
-                    && Self::is_balanced(node.left.take())
-                    && Self::is_balanced(node.right.take())
+                (Self::dfs(&node.left) - Self::dfs(&node.right)).abs() <= 1 &&
+                    Self::is_balanced(node.left.take()) &&
+                    Self::is_balanced(node.right.take())
             }
         }
     }

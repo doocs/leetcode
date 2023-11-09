@@ -159,11 +159,7 @@ impl Solution {
         for i in 0..n * 2 {
             let mut j = i;
             while nums[i] > 0 {
-                j = if j < n {
-                    2 * j
-                } else {
-                    2 * (j - n) + 1
-                };
+                j = if j < n { 2 * j } else { 2 * (j - n) + 1 };
                 nums.swap(i, j);
                 nums[j] *= -1;
             }

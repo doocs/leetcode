@@ -426,14 +426,14 @@ impl Solution {
 //   }
 // }
 impl Solution {
-    fn rev (pre: Option<Box<ListNode>>, cur: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+    fn rev(pre: Option<Box<ListNode>>, cur: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
         match cur {
             None => pre,
             Some(mut node) => {
                 let next = node.next;
                 node.next = pre;
                 Self::rev(Some(node), next)
-            },
+            }
         }
     }
 

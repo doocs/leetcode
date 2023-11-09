@@ -155,7 +155,7 @@ impl Solution {
         let s = nums.into_iter().collect::<HashSet<i32>>();
         let mut ans = -1;
         for &x in s.iter() {
-            if s.contains(&(-x)) {
+            if s.contains(&-x) {
                 ans = ans.max(x);
             }
         }

@@ -333,13 +333,11 @@ struct NestedIterator {
     vals: Vec<i32>,
 }
 
-
 /**
  * `&self` means the method takes an immutable reference.
  * If you need a mutable reference, change it to `&mut self` instead.
  */
 impl NestedIterator {
-
     fn dfs(nestedList: &Vec<NestedInteger>, vals: &mut Vec<i32>) {
         for ele in nestedList.iter() {
             match ele {
@@ -367,9 +365,7 @@ impl NestedIterator {
     fn has_next(&self) -> bool {
         self.index < self.vals.len()
     }
-}
-
-/**
+}/**
  * Your NestedIterator object will be instantiated and called as such:
  * let obj = NestedIterator::new(nestedList);
  * let ret_1: i32 = obj.next();

@@ -329,7 +329,7 @@ impl Solution {
 
     pub fn delete_node(
         mut root: Option<Rc<RefCell<TreeNode>>>,
-        key: i32,
+        key: i32
     ) -> Option<Rc<RefCell<TreeNode>>> {
         if root.is_some() {
             let mut node = root.as_mut().unwrap().borrow_mut();
@@ -342,9 +342,15 @@ impl Solution {
                 }
                 std::cmp::Ordering::Equal => {
                     match (node.left.is_some(), node.right.is_some()) {
-                        (false, false) => return None,
-                        (true, false) => return node.left.take(),
-                        (false, true) => return node.right.take(),
+                        (false, false) => {
+                            return None;
+                        }
+                        (true, false) => {
+                            return node.left.take();
+                        }
+                        (false, true) => {
+                            return node.right.take();
+                        }
                         (true, true) => {
                             if node.right.as_ref().unwrap().borrow().left.is_none() {
                                 let mut r = node.right.take();

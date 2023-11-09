@@ -227,10 +227,18 @@ impl Solution {
             let mut j = i;
             while j < m {
                 match s[j] {
-                    b'U' => y -= 1,
-                    b'D' => y += 1,
-                    b'L' => x -= 1,
-                    _ => x += 1,
+                    b'U' => {
+                        y -= 1;
+                    }
+                    b'D' => {
+                        y += 1;
+                    }
+                    b'L' => {
+                        x -= 1;
+                    }
+                    _ => {
+                        x += 1;
+                    }
                 }
                 if y == -1 || y == n || x == -1 || x == n {
                     break;

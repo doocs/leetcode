@@ -172,7 +172,7 @@ impl Solution {
     fn calc(s: &String) -> i32 {
         let mut res = 0;
         for c in s.as_bytes() {
-            res = res * 10 + (c - b'a') as i32;
+            res = res * 10 + ((c - b'a') as i32);
         }
         res
     }

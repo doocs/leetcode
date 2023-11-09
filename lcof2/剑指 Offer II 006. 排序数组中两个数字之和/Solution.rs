@@ -7,9 +7,15 @@ impl Solution {
         let mut r = n - 1;
         loop {
             match target.cmp(&(numbers[l] + numbers[r])) {
-                Ordering::Less => r -= 1,
-                Ordering::Greater => l += 1,
-                Ordering::Equal => break,
+                Ordering::Less => {
+                    r -= 1;
+                }
+                Ordering::Greater => {
+                    l += 1;
+                }
+                Ordering::Equal => {
+                    break;
+                }
             }
         }
         vec![l as i32, r as i32]

@@ -195,7 +195,7 @@ func isEscapePossible(blocked [][]int, source []int, target []int) bool {
 ### **Rust**
 
 ```rust
-use std::collections::{HashSet, VecDeque};
+use std::collections::{ HashSet, VecDeque };
 
 const BOUNDARY: i32 = 1_000_000;
 const MAX: usize = 20000;
@@ -225,12 +225,13 @@ fn bfs(block: &HashSet<(i32, i32)>, source: &Vec<i32>, target: &Vec<i32>) -> boo
         }
         for (dx, dy) in dir.iter() {
             let (nx, ny) = (x + dx, y + dy);
-            if nx < 0
-                || nx >= BOUNDARY
-                || ny < 0
-                || ny >= BOUNDARY
-                || vis.contains(&(nx, ny))
-                || block.contains(&(nx, ny))
+            if
+                nx < 0 ||
+                nx >= BOUNDARY ||
+                ny < 0 ||
+                ny >= BOUNDARY ||
+                vis.contains(&(nx, ny)) ||
+                block.contains(&(nx, ny))
             {
                 continue;
             }

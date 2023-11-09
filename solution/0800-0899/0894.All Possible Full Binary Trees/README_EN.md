@@ -173,7 +173,10 @@ public:
 // }
 
 impl TreeNode {
-    pub fn new_with_node(left: Option<Rc<RefCell<TreeNode>>>, right: Option<Rc<RefCell<TreeNode>>>) -> Self {
+    pub fn new_with_node(
+        left: Option<Rc<RefCell<TreeNode>>>,
+        right: Option<Rc<RefCell<TreeNode>>>
+    ) -> Self {
         Self {
             val: 0,
             left,
@@ -192,7 +195,10 @@ impl Solution {
     }
 
     #[allow(dead_code)]
-    fn dfs(n: i32, record_vec: &mut Vec<Vec<Option<Rc<RefCell<TreeNode>>>>>) -> Vec<Option<Rc<RefCell<TreeNode>>>> {
+    fn dfs(
+        n: i32,
+        record_vec: &mut Vec<Vec<Option<Rc<RefCell<TreeNode>>>>>
+    ) -> Vec<Option<Rc<RefCell<TreeNode>>>> {
         if record_vec[n as usize].len() != 0 {
             return record_vec[n as usize].clone();
         }
@@ -210,7 +216,13 @@ impl Solution {
             for left in Self::dfs(i, record_vec) {
                 for right in Self::dfs(j, record_vec) {
                     // Construct the ret vector
-                    ret_vec.push(Some(Rc::new(RefCell::new(TreeNode::new_with_node(left.clone(), right.clone())))));
+                    ret_vec.push(
+                        Some(
+                            Rc::new(
+                                RefCell::new(TreeNode::new_with_node(left.clone(), right.clone()))
+                            )
+                        )
+                    );
                 }
             }
         }

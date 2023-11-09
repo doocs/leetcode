@@ -280,13 +280,13 @@ impl Solution {
 
             if dp[i] == n2 {
                 p2 += 1;
-            };
+            }
             if dp[i] == n3 {
                 p3 += 1;
-            };
+            }
             if dp[i] == n5 {
                 p5 += 1;
-            };
+            }
         }
         dp[n - 1]
     }

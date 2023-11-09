@@ -183,7 +183,7 @@ impl Solution {
             return n - 1;
         }
         let count = (n - 2) / 3;
-        3i32.pow(count as u32) * (n - count * 3)
+        (3i32).pow(count as u32) * (n - count * 3)
     }
 }
 ```

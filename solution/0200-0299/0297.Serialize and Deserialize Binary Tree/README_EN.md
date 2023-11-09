@@ -391,9 +391,7 @@ function deserialize(data: string): TreeNode | null {
 // }
 use std::rc::Rc;
 use std::cell::RefCell;
-struct Codec {
-
-}
+struct Codec {}
 
 /**
  * `&self` means the method takes an immutable reference.
@@ -411,12 +409,7 @@ impl Codec {
         let mut node = root.as_ref().unwrap().borrow_mut();
         let left = node.left.take();
         let right = node.right.take();
-        format!(
-            "{},{},{}",
-            self.serialize(right),
-            self.serialize(left),
-            node.val
-        )
+        format!("{},{},{}", self.serialize(right), self.serialize(left), node.val)
     }
 
     fn deserialize(&self, data: String) -> Option<Rc<RefCell<TreeNode>>> {
@@ -431,15 +424,17 @@ impl Codec {
         if val == "#" {
             return None;
         }
-        Some(Rc::new(RefCell::new(TreeNode {
-            val: val.parse().unwrap(),
-            left: Self::renew(vals),
-            right: Self::renew(vals),
-        })))
+        Some(
+            Rc::new(
+                RefCell::new(TreeNode {
+                    val: val.parse().unwrap(),
+                    left: Self::renew(vals),
+                    right: Self::renew(vals),
+                })
+            )
+        )
     }
-}
-
-/**
+}/**
  * Your Codec object will be instantiated and called as such:
  * let obj = Codec::new();
  * let data: String = obj.serialize(strs);

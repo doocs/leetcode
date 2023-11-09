@@ -314,8 +314,8 @@ impl Solution {
             return 0;
         }
         let node = root.as_ref().unwrap().borrow();
-        let left = 0.max(Self::dfs(&node.left, res));
-        let right = 0.max(Self::dfs(&node.right, res));
+        let left = (0).max(Self::dfs(&node.left, res));
+        let right = (0).max(Self::dfs(&node.right, res));
         *res = (node.val + left + right).max(*res);
         node.val + left.max(right)
     }

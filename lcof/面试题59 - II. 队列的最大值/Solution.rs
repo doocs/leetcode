@@ -38,9 +38,7 @@ impl MaxQueue {
         }
         res
     }
-}
-
-/**
+}/**
  * Your MaxQueue object will be instantiated and called as such:
  * let obj = MaxQueue::new();
  * let ret_1: i32 = obj.max_value();

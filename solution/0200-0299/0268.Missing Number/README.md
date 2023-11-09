@@ -184,7 +184,7 @@ impl Solution {
         let n = nums.len() as i32;
         let mut ans = n;
         for (i, v) in nums.iter().enumerate() {
-            ans ^= i as i32 ^ v;
+            ans ^= (i as i32) ^ v;
         }
         ans
     }
@@ -197,7 +197,7 @@ impl Solution {
         let n = nums.len() as i32;
         let mut ans = n;
         for (i, &v) in nums.iter().enumerate() {
-            ans += i as i32 - v;
+            ans += (i as i32) - v;
         }
         ans
     }

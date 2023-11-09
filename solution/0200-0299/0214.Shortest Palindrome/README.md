@@ -169,7 +169,7 @@ impl Solution {
         let base = 131;
         let (mut idx, mut prefix, mut suffix, mut mul) = (0, 0, 0, 1);
         for (i, c) in s.chars().enumerate() {
-            let t = c as u64 - '0' as u64 + 1;
+            let t = (c as u64) - ('0' as u64) + 1;
             prefix = prefix * base + t;
             suffix = suffix + t * mul;
             mul *= base;

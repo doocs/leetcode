@@ -6,24 +6,24 @@ impl Solution {
 
         for i in index_difference..nums.len() {
             let j = i - index_difference;
-            
+
             if nums[j] < nums[mi] {
                 mi = j;
             }
-            
+
             if nums[j] > nums[mx] {
                 mx = j;
             }
-            
+
             if nums[i] - nums[mi] >= value_difference {
                 return vec![mi as i32, i as i32];
             }
-            
+
             if nums[mx] - nums[i] >= value_difference {
                 return vec![mx as i32, i as i32];
             }
         }
-        
+
         vec![-1, -1]
     }
 }

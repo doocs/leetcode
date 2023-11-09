@@ -15,6 +15,6 @@ impl Solution {
                 res -= 1;
             }
         }
-        res + if has_odd { 1 } else { 0 }
+        res + (if has_odd { 1 } else { 0 })
     }
 }

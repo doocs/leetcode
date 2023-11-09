@@ -294,9 +294,7 @@ impl Solution {
         }
         res
     }
-}
-
-/**
+}/**
  * Your Solution object will be instantiated and called as such:
  * let obj = Solution::new(nums);
  * let ret_1: Vec<i32> = obj.reset();

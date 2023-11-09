@@ -214,7 +214,7 @@ impl Solution {
         }
         for i in (0..26).rev() {
             if arr[i] == 3 {
-                return char::from(b'A' + i as u8).to_string();
+                return char::from(b'A' + (i as u8)).to_string();
             }
         }
         "".to_string()

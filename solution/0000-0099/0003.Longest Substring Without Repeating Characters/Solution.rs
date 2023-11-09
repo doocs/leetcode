@@ -5,7 +5,8 @@ impl Solution {
         let s = s.as_bytes();
         let mut set = HashSet::new();
         let mut i = 0;
-        s.iter()
+        s
+            .iter()
             .map(|c| {
                 while set.contains(&c) {
                     set.remove(&s[i]);

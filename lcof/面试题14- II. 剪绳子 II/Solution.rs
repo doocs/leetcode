@@ -8,6 +8,6 @@ impl Solution {
             res = (res * 3) % 1000000007;
             n -= 3;
         }
-        ((res * n as i64) % 1000000007) as i32
+        ((res * (n as i64)) % 1000000007) as i32
     }
 }

@@ -325,13 +325,10 @@ impl DisjointSetUnion {
         let mut nodes = HashMap::new();
         for equation in equations.iter() {
             for iter in equation.iter() {
-                nodes.insert(
-                    iter.clone(),
-                    DSUNode {
-                        parent: iter.clone(),
-                        weight: 1.0,
-                    },
-                );
+                nodes.insert(iter.clone(), DSUNode {
+                    parent: iter.clone(),
+                    weight: 1.0,
+                });
             }
         }
         DisjointSetUnion { nodes }
@@ -357,7 +354,7 @@ impl DisjointSetUnion {
         }
         let (wa, wb) = (self.nodes[a].weight, self.nodes[b].weight);
         self.nodes.get_mut(&pa).unwrap().parent = pb;
-        self.nodes.get_mut(&pa).unwrap().weight = wb * v / wa;
+        self.nodes.get_mut(&pa).unwrap().weight = (wb * v) / wa;
     }
 
     pub fn exist(&mut self, k: &String) -> bool {
@@ -379,7 +376,7 @@ impl Solution {
     pub fn calc_equation(
         equations: Vec<Vec<String>>,
         values: Vec<f64>,
-        queries: Vec<Vec<String>>,
+        queries: Vec<Vec<String>>
     ) -> Vec<f64> {
         let mut dsu = DisjointSetUnion::new(&equations);
         for (i, &v) in values.iter().enumerate() {

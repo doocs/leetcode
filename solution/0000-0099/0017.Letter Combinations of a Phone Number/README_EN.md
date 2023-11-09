@@ -262,7 +262,7 @@ impl Solution {
         s: &mut String,
         cs: &Vec<char>,
         map: &HashMap<char, String>,
-        res: &mut Vec<String>,
+        res: &mut Vec<String>
     ) {
         if i == cs.len() {
             res.push(s.clone());
@@ -291,13 +291,7 @@ impl Solution {
         map.insert('8', String::from("tuv"));
         map.insert('9', String::from("wxyz"));
 
-        Self::dfs(
-            0,
-            &mut String::new(),
-            &digits.chars().collect(),
-            &map,
-            &mut res,
-        );
+        Self::dfs(0, &mut String::new(), &digits.chars().collect(), &map, &mut res);
         res
     }
 }
@@ -330,7 +324,7 @@ impl Solution {
             vec!['m', 'n', 'o'],
             vec!['p', 'q', 'r', 's'],
             vec!['t', 'u', 'v'],
-            vec!['w', 'x', 'y', 'z'],
+            vec!['w', 'x', 'y', 'z']
         ];
         let mut res = Vec::new();
         Self::dfs(0, digits, &map, &mut String::new(), &mut res);

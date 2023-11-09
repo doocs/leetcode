@@ -5,7 +5,7 @@
 //   pub left: Option<Rc<RefCell<TreeNode>>>,
 //   pub right: Option<Rc<RefCell<TreeNode>>>,
 // }
-// 
+//
 // impl TreeNode {
 //   #[inline]
 //   pub fn new(val: i32) -> Self {
@@ -36,7 +36,10 @@ impl Solution {
     }
 
     #[allow(dead_code)]
-    fn pre_order_traverse(v: &mut Vec<Option<Rc<RefCell<TreeNode>>>>, root: &Option<Rc<RefCell<TreeNode>>>) {
+    fn pre_order_traverse(
+        v: &mut Vec<Option<Rc<RefCell<TreeNode>>>>,
+        root: &Option<Rc<RefCell<TreeNode>>>
+    ) {
         if root.is_none() {
             return;
         }

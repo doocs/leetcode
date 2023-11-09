@@ -192,17 +192,19 @@ impl Solution {
             sum += *e;
         }
 
-
         let m = (sum / 2) as usize;
         let mut dp: Vec<Vec<i32>> = vec![vec![0; m + 1]; n + 1];
 
         // Begin the actual dp process
         for i in 1..=n {
             for j in 1..=m {
-                dp[i][j] = if stones[i - 1] > j as i32 {
+                dp[i][j] = if stones[i - 1] > (j as i32) {
                     dp[i - 1][j]
                 } else {
-                    std::cmp::max(dp[i - 1][j], dp[i - 1][j - stones[i - 1] as usize] + stones[i - 1])
+                    std::cmp::max(
+                        dp[i - 1][j],
+                        dp[i - 1][j - (stones[i - 1] as usize)] + stones[i - 1]
+                    )
                 };
             }
         }

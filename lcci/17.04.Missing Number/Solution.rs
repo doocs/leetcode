@@ -3,7 +3,7 @@ impl Solution {
         let mut res = 0;
         let n = nums.len();
         for i in 0..n {
-            res ^= nums[i] ^ (i + 1) as i32;
+            res ^= nums[i] ^ ((i + 1) as i32);
         }
         res
     }

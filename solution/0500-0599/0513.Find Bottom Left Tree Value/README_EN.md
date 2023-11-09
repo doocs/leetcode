@@ -442,7 +442,7 @@ impl Solution {
     pub fn find_bottom_left_value(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
         let mut max = 0;
         let mut res = 0;
-        Self::dfs(&root, 1, &mut max,&mut res);
+        Self::dfs(&root, 1, &mut max, &mut res);
         res
     }
 }

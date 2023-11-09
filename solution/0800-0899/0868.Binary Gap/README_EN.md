@@ -111,7 +111,7 @@ impl Solution {
         let mut i = 0;
         let mut j = -1;
         while n != 0 {
-            if n & 1 == 1 {
+            if (n & 1) == 1 {
                 if j != -1 {
                     res = res.max(i - j);
                 }

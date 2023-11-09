@@ -224,7 +224,7 @@ use std::collections::HashMap;
 impl Solution {
     pub fn find_repeated_dna_sequences(s: String) -> Vec<String> {
         if s.len() < 10 {
-            return vec![]
+            return vec![];
         }
         let mut cnt = HashMap::new();
         let mut ans = Vec::new();

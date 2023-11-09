@@ -199,13 +199,13 @@ impl Solution {
             return -1;
         }
         let mid = l + (r - l) / 2;
-        if nums[mid] >= l as i32 {
+        if nums[mid] >= (l as i32) {
             let res = Self::find(nums, l, mid);
             if res != -1 {
                 return res;
             }
         }
-        if nums[mid] == mid as i32 {
+        if nums[mid] == (mid as i32) {
             return mid as i32;
         }
         Self::find(nums, mid + 1, r)

@@ -306,7 +306,7 @@ impl Solution {
         // Begin BFS
         while !q.is_empty() {
             let ((i, st), count) = q.pop_front().unwrap();
-            if st == ((1 << n) - 1) {
+            if st == (1 << n) - 1 {
                 return count;
             }
             // If the path has not been visited

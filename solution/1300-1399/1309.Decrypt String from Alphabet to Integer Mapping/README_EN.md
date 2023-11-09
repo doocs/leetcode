@@ -127,7 +127,7 @@ impl Solution {
                 code = s[i];
                 i += 1;
             }
-            res.push(char::from('a' as u8 + code - b'1'));
+            res.push(char::from(('a' as u8) + code - b'1'));
         }
         res
     }

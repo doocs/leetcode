@@ -235,8 +235,12 @@ impl Solution {
                     l += 1;
                     r -= 1;
                 }
-                sum if sum > k => r -= 1,
-                _ => l += 1,
+                sum if sum > k => {
+                    r -= 1;
+                }
+                _ => {
+                    l += 1;
+                }
             }
         }
         ans

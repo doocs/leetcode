@@ -194,7 +194,7 @@ impl Solution {
         let mut pre = 0;
         for log in logs.iter() {
             let t = log[1] - pre;
-            if t > max || t == max && res > log[0] {
+            if t > max || (t == max && res > log[0]) {
                 res = log[0];
                 max = t;
             }

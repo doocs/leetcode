@@ -3,13 +3,11 @@ struct MyQueue {
     out_stack: Vec<i32>,
 }
 
-
 /**
  * `&self` means the method takes an immutable reference.
  * If you need a mutable reference, change it to `&mut self` instead.
  */
 impl MyQueue {
-
     fn new() -> Self {
         Self {
             in_stack: vec![],
@@ -39,7 +37,7 @@ impl MyQueue {
         self.in_stack.is_empty() && self.out_stack.is_empty()
     }
 
-    fn fill_out(&mut self){
+    fn fill_out(&mut self) {
         let MyQueue { in_stack, out_stack } = self;
         if out_stack.is_empty() {
             while !in_stack.is_empty() {
@@ -47,9 +45,7 @@ impl MyQueue {
             }
         }
     }
-}
-
-/**
+}/**
  * Your MyQueue object will be instantiated and called as such:
  * let obj = MyQueue::new();
  * obj.push(x);

@@ -137,12 +137,12 @@ impl Solution {
         let search = |x| {
             let mut l = 0;
             let mut r = nums.len();
-            while l < r  {
+            while l < r {
                 let mid = l + (r - l) / 2;
                 if nums[mid] >= x {
                     r = mid;
                 } else {
-                    l = mid + 1
+                    l = mid + 1;
                 }
             }
             l as i32

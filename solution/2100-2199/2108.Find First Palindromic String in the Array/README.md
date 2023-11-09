@@ -163,8 +163,8 @@ impl Solution {
             let s = word.as_bytes();
             let mut left = 0;
             let mut right = s.len() - 1;
-            while (left < right) {
-                if (s[left] != s[right]) {
+            while left < right {
+                if s[left] != s[right] {
                     break;
                 }
                 left += 1;

@@ -28,7 +28,13 @@ impl Solution {
         Self::dfs(&preorder, &d, 0, 0, preorder.len())
     }
 
-    pub fn dfs(preorder: &Vec<i32>, d: &HashMap<i32, usize>, i: usize, j: usize, n: usize) -> Option<Rc<RefCell<TreeNode>>> {
+    pub fn dfs(
+        preorder: &Vec<i32>,
+        d: &HashMap<i32, usize>,
+        i: usize,
+        j: usize,
+        n: usize
+    ) -> Option<Rc<RefCell<TreeNode>>> {
         if n <= 0 {
             return None;
         }

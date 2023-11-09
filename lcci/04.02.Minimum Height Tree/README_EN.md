@@ -194,11 +194,15 @@ impl Solution {
             return None;
         }
         let mid = start + (end - start) / 2;
-        Some(Rc::new(RefCell::new(TreeNode {
-            val: nums[mid],
-            left: Self::dfs(nums, start, mid),
-            right: Self::dfs(nums, mid + 1, end),
-        })))
+        Some(
+            Rc::new(
+                RefCell::new(TreeNode {
+                    val: nums[mid],
+                    left: Self::dfs(nums, start, mid),
+                    right: Self::dfs(nums, mid + 1, end),
+                })
+            )
+        )
     }
     pub fn sorted_array_to_bst(nums: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
         let end = nums.len();

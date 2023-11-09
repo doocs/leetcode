@@ -5,7 +5,7 @@ impl Solution {
         j: usize,
         grid: &Vec<Vec<i32>>,
         paths: &mut Vec<(usize, usize)>,
-        vis: &mut Vec<Vec<bool>>,
+        vis: &mut Vec<Vec<bool>>
     ) {
         let n = vis.len();
         if vis[i][j] || grid[i][j] != 1 {

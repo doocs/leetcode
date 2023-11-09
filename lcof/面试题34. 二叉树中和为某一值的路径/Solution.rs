@@ -23,7 +23,7 @@ impl Solution {
         root: &Option<Rc<RefCell<TreeNode>>>,
         mut target: i32,
         paths: &mut Vec<i32>,
-        res: &mut Vec<Vec<i32>>,
+        res: &mut Vec<Vec<i32>>
     ) {
         if let Some(node) = root.as_ref() {
             let node = node.borrow();

@@ -210,10 +210,10 @@ impl Solution {
             if max_idx != n {
                 if max_idx != 0 {
                     arr[..=max_idx].reverse();
-                    res.push(max_idx as i32 + 1);
+                    res.push((max_idx as i32) + 1);
                 }
                 arr[..=n].reverse();
-                res.push(n as i32 + 1);
+                res.push((n as i32) + 1);
             }
         }
         res

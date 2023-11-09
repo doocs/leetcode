@@ -373,7 +373,7 @@ impl Solution {
         let mut a = 0;
         for v in cnt.values() {
             let b = n - a - v;
-            ans += v * a * b;;
+            ans += v * a * b;
             a += v;
         }
         ans as i32
@@ -414,7 +414,6 @@ impl Solution {
         let n = nums.len();
 
         for i in 1..n - 1 {
-
             let mut l = 0;
             let mut r = i;
             while l < r {
@@ -439,7 +438,7 @@ impl Solution {
             }
             let k = r;
 
-            ans += j * (n - k)
+            ans += j * (n - k);
         }
 
         ans as i32

@@ -141,13 +141,13 @@ impl Solution {
 
         // Initialize the vector
         for (i, c) in customers.chars().enumerate() {
-            prefix_sum[i + 1] = prefix_sum[i] + if c == 'Y' { 1 } else { 0 };
+            prefix_sum[i + 1] = prefix_sum[i] + (if c == 'Y' { 1 } else { 0 });
         }
 
         // Calculate the answer
         for i in 0..=n {
-            if penalty > (prefix_sum[n] - prefix_sum[i]) as i32 + (i - prefix_sum[i]) as i32 {
-                penalty = (prefix_sum[n] - prefix_sum[i]) as i32 + (i - prefix_sum[i]) as i32;
+            if penalty > ((prefix_sum[n] - prefix_sum[i]) as i32) + ((i - prefix_sum[i]) as i32) {
+                penalty = ((prefix_sum[n] - prefix_sum[i]) as i32) + ((i - prefix_sum[i]) as i32);
                 ret = i as i32;
             }
         }

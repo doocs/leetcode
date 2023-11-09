@@ -214,7 +214,6 @@ impl Solution {
         (dif + 1) / 2 + amount[2]
     }
 }
-
 ```
 
 ### **...**

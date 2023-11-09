@@ -6,7 +6,7 @@ impl Solution {
         let mut p = 1;
         while !vis[i] {
             vis[i] = true;
-            i = (i + p * k as usize) %  n as usize;
+            i = (i + p * (k as usize)) % (n as usize);
             p += 1;
         }
 

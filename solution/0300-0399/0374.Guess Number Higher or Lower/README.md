@@ -288,9 +288,15 @@ impl Solution {
         loop {
             let mid = l + (r - l) / 2;
             match guess(mid) {
-                -1 => r = mid - 1,
-                1 => l = mid + 1,
-                _ => break mid,
+                -1 => {
+                    r = mid - 1;
+                }
+                1 => {
+                    l = mid + 1;
+                }
+                _ => {
+                    break mid;
+                }
             }
         }
     }

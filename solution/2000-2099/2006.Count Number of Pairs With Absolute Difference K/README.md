@@ -261,7 +261,7 @@ impl Solution {
                 res += arr[(num - k) as usize];
             }
             if num + k <= 100 {
-                res += arr[(num + k) as usize]
+                res += arr[(num + k) as usize];
             }
             arr[num as usize] += 1;
         }

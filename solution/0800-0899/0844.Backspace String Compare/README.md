@@ -285,7 +285,7 @@ impl Solution {
                 } else {
                     break;
                 }
-                i -= 1
+                i -= 1;
             }
             skip = 0;
             while j != 0 {
@@ -296,7 +296,7 @@ impl Solution {
                 } else {
                     break;
                 }
-                j -= 1
+                j -= 1;
             }
             if i == 0 && j == 0 {
                 break;

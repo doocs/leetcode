@@ -13,7 +13,7 @@ impl Solution {
         }
         for i in 0..count.len() {
             for _ in 0..count[i] {
-                ans.push(char::from(b'a' + i as u8));
+                ans.push(char::from(b'a' + (i as u8)));
             }
         }
         ans

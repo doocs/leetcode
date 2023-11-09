@@ -172,7 +172,7 @@ impl Solution {
                 while !stack.is_empty() && num < stack.last().unwrap() {
                     stack.pop();
                 }
-                stack.push(max)
+                stack.push(max);
             } else {
                 stack.push(*num);
             }

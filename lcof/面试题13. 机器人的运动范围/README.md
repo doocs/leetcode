@@ -315,7 +315,7 @@ function movingCount(m: number, n: number, k: number): number {
 循环：
 
 ```rust
-use std::collections::{HashSet, VecDeque};
+use std::collections::{ HashSet, VecDeque };
 impl Solution {
     pub fn moving_count(m: i32, n: i32, k: i32) -> i32 {
         let mut set = HashSet::new();
@@ -323,13 +323,15 @@ impl Solution {
         queue.push_back([0, 0]);
         while let Some([i, j]) = queue.pop_front() {
             let key = format!("{},{}", i, j);
-            if i == m
-                || j == n
-                || set.contains(&key)
-                || k < format!("{}{}", i, j)
-                    .chars()
-                    .map(|c| c.to_string().parse::<i32>().unwrap())
-                    .sum::<i32>()
+            if
+                i == m ||
+                j == n ||
+                set.contains(&key) ||
+                k <
+                    format!("{}{}", i, j)
+                        .chars()
+                        .map(|c| c.to_string().parse::<i32>().unwrap())
+                        .sum::<i32>()
             {
                 continue;
             }
@@ -347,10 +349,11 @@ impl Solution {
 ```rust
 impl Solution {
     fn dfs(sign: &mut Vec<Vec<bool>>, k: usize, i: usize, j: usize) -> i32 {
-        if i == sign.len()
-            || j == sign[0].len()
-            || sign[i][j]
-            || j % 10 + j / 10 % 10 + i % 10 + i / 10 % 10 > k
+        if
+            i == sign.len() ||
+            j == sign[0].len() ||
+            sign[i][j] ||
+            (j % 10) + ((j / 10) % 10) + (i % 10) + ((i / 10) % 10) > k
         {
             return 0;
         }

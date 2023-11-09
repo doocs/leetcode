@@ -337,9 +337,7 @@ impl LRUCache {
             None => None,
         }
     }
-}
-
-/**
+}/**
  * Your LRUCache object will be instantiated and called as such:
  * let obj = LRUCache::new(capacity);
  * let ret_1: i32 = obj.get(key);

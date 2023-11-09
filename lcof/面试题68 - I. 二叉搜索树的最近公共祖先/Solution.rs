@@ -23,18 +23,22 @@ impl Solution {
     pub fn lowest_common_ancestor(
         mut root: Option<Rc<RefCell<TreeNode>>>,
         p: Option<Rc<RefCell<TreeNode>>>,
-        q: Option<Rc<RefCell<TreeNode>>>,
+        q: Option<Rc<RefCell<TreeNode>>>
     ) -> Option<Rc<RefCell<TreeNode>>> {
         let p = p.unwrap().borrow().val;
         let q = q.unwrap().borrow().val;
         loop {
             let mut cur = root.as_ref().unwrap().borrow().val;
             match (cur.cmp(&p), cur.cmp(&q)) {
-                (Ordering::Less, Ordering::Less) => root = root.unwrap().borrow().right.clone(),
-                (Ordering::Greater, Ordering::Greater) => {
-                    root = root.unwrap().borrow().left.clone()
+                (Ordering::Less, Ordering::Less) => {
+                    root = root.unwrap().borrow().right.clone();
                 }
-                (_, _) => break root,
+                (Ordering::Greater, Ordering::Greater) => {
+                    root = root.unwrap().borrow().left.clone();
+                }
+                (_, _) => {
+                    break root;
+                }
             }
         }
     }

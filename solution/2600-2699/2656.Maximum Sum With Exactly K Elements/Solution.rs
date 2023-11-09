@@ -8,6 +8,6 @@ impl Solution {
             }
         }
 
-        (0 + k - 1) * k / 2 + k * mx
+        ((0 + k - 1) * k) / 2 + k * mx
     }
 }

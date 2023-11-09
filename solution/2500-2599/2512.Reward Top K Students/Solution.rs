@@ -1,11 +1,11 @@
-use std::collections::{HashMap, HashSet};
+use std::collections::{ HashMap, HashSet };
 impl Solution {
     pub fn top_students(
         positive_feedback: Vec<String>,
         negative_feedback: Vec<String>,
         report: Vec<String>,
         student_id: Vec<i32>,
-        k: i32,
+        k: i32
     ) -> Vec<i32> {
         let n = student_id.len();
         let ps = positive_feedback.iter().collect::<HashSet<&String>>();
@@ -31,6 +31,9 @@ impl Solution {
             }
             b.1.cmp(&a.1)
         });
-        t.iter().map(|v| v.0).collect::<Vec<i32>>()[0..k as usize].to_vec()
+        t.iter()
+            .map(|v| v.0)
+            .collect::<Vec<i32>>()
+            [0..k as usize].to_vec()
     }
 }

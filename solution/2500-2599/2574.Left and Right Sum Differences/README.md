@@ -202,7 +202,6 @@ impl Solution {
         let mut ans = vec![];
 
         for i in 0..nums.len() {
-
             let mut left = 0;
             for j in 0..i {
                 left += nums[j];

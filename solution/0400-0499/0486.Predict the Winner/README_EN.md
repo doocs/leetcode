@@ -173,12 +173,12 @@ impl Solution {
 
         // Begin the dp process
         for i in (0..n - 1).rev() {
-            for j in (i + 1)..n {
+            for j in i + 1..n {
                 dp[i][j] = std::cmp::max(
                     // Take i-th num
                     nums[i] - dp[i + 1][j],
                     // Take j-th num
-                    nums[j] - dp[i][j - 1],
+                    nums[j] - dp[i][j - 1]
                 );
             }
         }

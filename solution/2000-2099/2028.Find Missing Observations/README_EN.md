@@ -136,7 +136,7 @@ impl Solution {
         let sum = sum as usize;
         let max = n * 6;
         let min = n;
-        if (sum + max) < mean * len || (sum + min) > mean * len {
+        if sum + max < mean * len || sum + min > mean * len {
             return vec![];
         }
 

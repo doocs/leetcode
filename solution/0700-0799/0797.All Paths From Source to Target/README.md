@@ -257,7 +257,7 @@ impl Solution {
             res.push(path.clone());
         }
         for j in graph[i].iter() {
-            Self::dfs(*j as usize, path, res, graph)
+            Self::dfs(*j as usize, path, res, graph);
         }
         path.pop();
     }

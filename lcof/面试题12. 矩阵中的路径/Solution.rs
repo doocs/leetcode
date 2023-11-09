@@ -1,5 +1,11 @@
 impl Solution {
-    fn dfs(board: &mut Vec<Vec<char>>, chars: &Vec<char>, i: usize, j: usize, mut k: usize) -> bool {
+    fn dfs(
+        board: &mut Vec<Vec<char>>,
+        chars: &Vec<char>,
+        i: usize,
+        j: usize,
+        mut k: usize
+    ) -> bool {
         if board[i][j] != chars[k] {
             return false;
         }
@@ -9,10 +15,11 @@ impl Solution {
         }
         let temp = board[i][j];
         board[i][j] = ' ';
-        if i != 0 && Self::dfs(board, chars, i - 1, j, k)
-            || j != 0 && Self::dfs(board, chars, i, j - 1, k)
-            || i != board.len() - 1 && Self::dfs(board, chars, i + 1, j, k)
-            || j != board[0].len() - 1 && Self::dfs(board, chars, i, j + 1, k)
+        if
+            (i != 0 && Self::dfs(board, chars, i - 1, j, k)) ||
+            (j != 0 && Self::dfs(board, chars, i, j - 1, k)) ||
+            (i != board.len() - 1 && Self::dfs(board, chars, i + 1, j, k)) ||
+            (j != board[0].len() - 1 && Self::dfs(board, chars, i, j + 1, k))
         {
             return true;
         }

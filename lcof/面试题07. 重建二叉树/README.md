@@ -318,12 +318,19 @@ impl Solution {
             return None;
         }
         let val = preorder[0];
-        let i = inorder.iter().position(|num| *num == val).unwrap();
-        Some(Rc::new(RefCell::new(TreeNode {
-            val,
-            left: Self::help(&preorder[1..i + 1], &inorder[..i]),
-            right: Self::help(&preorder[i + 1..], &inorder[i + 1..]),
-        })))
+        let i = inorder
+            .iter()
+            .position(|num| *num == val)
+            .unwrap();
+        Some(
+            Rc::new(
+                RefCell::new(TreeNode {
+                    val,
+                    left: Self::help(&preorder[1..i + 1], &inorder[..i]),
+                    right: Self::help(&preorder[i + 1..], &inorder[i + 1..]),
+                })
+            )
+        )
     }
 
     pub fn build_tree(preorder: Vec<i32>, inorder: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {

@@ -176,9 +176,7 @@ impl LFUCache {
             }
         };
     }
-}
-
-/**
+}/**
  * Your LFUCache object will be instantiated and called as such:
  * let obj = LFUCache::new(capacity);
  * let ret_1: i32 = obj.get(key);

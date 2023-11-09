@@ -29,7 +29,6 @@ impl Solution {
             }
         }
 
-
         std::cmp::min(a * 10 + b, b * 10 + a)
     }
 }

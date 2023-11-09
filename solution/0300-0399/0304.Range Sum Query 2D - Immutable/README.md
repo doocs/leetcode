@@ -183,13 +183,11 @@ struct NumMatrix {
     ref_vec: Vec<Vec<i32>>,
 }
 
-
 /**
  * `&self` means the method takes an immutable reference.
  * If you need a mutable reference, change it to `&mut self` instead.
  */
 impl NumMatrix {
-
     fn new(matrix: Vec<Vec<i32>>) -> Self {
         NumMatrix {
             prefix_vec: vec![vec![0; matrix[0].len() + 1]; matrix.len() + 1],
@@ -210,16 +208,21 @@ impl NumMatrix {
         let row2: usize = row2 as usize;
         let col2: usize = col2 as usize;
         // Return the value in O(1)
-        self.prefix_vec[row2 + 1][col2 + 1] - self.prefix_vec[row2 + 1][col1]
-            - self.prefix_vec[row1][col2 + 1] + self.prefix_vec[row1][col1]
+        self.prefix_vec[row2 + 1][col2 + 1] -
+            self.prefix_vec[row2 + 1][col1] -
+            self.prefix_vec[row1][col2 + 1] +
+            self.prefix_vec[row1][col1]
     }
 
     fn initialize_prefix_vec(&mut self) {
         // Initialize the prefix sum vector
         for i in 0..self.n {
             for j in 0..self.m {
-               self.prefix_vec[i + 1][j + 1] =
-                  self.prefix_vec[i][j + 1] + self.prefix_vec[i + 1][j] - self.prefix_vec[i][j] + self.ref_vec[i][j];
+                self.prefix_vec[i + 1][j + 1] =
+                    self.prefix_vec[i][j + 1] +
+                    self.prefix_vec[i + 1][j] -
+                    self.prefix_vec[i][j] +
+                    self.ref_vec[i][j];
             }
         }
         self.is_initialized = true;

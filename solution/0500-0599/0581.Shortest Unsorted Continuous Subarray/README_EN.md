@@ -268,7 +268,7 @@ impl Solution {
         arr.sort();
 
         let mut l = 0;
-        let mut r = arr.len() as i32 - 1;
+        let mut r = (arr.len() as i32) - 1;
 
         while l <= r && nums[l as usize] == arr[l as usize] {
             l += 1;

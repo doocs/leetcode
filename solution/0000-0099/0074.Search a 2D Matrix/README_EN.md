@@ -279,9 +279,15 @@ impl Solution {
         let mut j = n;
         while i < m && j > 0 {
             match matrix[i][j - 1].cmp(&target) {
-                Ordering::Equal => return true,
-                Ordering::Less => i += 1,
-                Ordering::Greater => j -= 1,
+                Ordering::Equal => {
+                    return true;
+                }
+                Ordering::Less => {
+                    i += 1;
+                }
+                Ordering::Greater => {
+                    j -= 1;
+                }
             }
         }
         false
@@ -302,9 +308,15 @@ impl Solution {
             let i = mid / n;
             let j = mid % n;
             match matrix[i][j].cmp(&target) {
-                Ordering::Equal => return true,
-                Ordering::Less => left = mid + 1,
-                Ordering::Greater => right = mid,
+                Ordering::Equal => {
+                    return true;
+                }
+                Ordering::Less => {
+                    left = mid + 1;
+                }
+                Ordering::Greater => {
+                    right = mid;
+                }
             }
         }
         false
