@@ -2937,6 +2937,7 @@
 |  2924  |  [找到冠军 II](/solution/2900-2999/2924.Find%20Champion%20II/README.md)  |    |  中等  |  第 370 场周赛  |
 |  2925  |  [在树上执行操作以后得到的最大分数](/solution/2900-2999/2925.Maximum%20Score%20After%20Applying%20Operations%20on%20a%20Tree/README.md)  |    |  中等  |  第 370 场周赛  |
 |  2926  |  [平衡子序列的最大和](/solution/2900-2999/2926.Maximum%20Balanced%20Subsequence%20Sum/README.md)  |    |  困难  |  第 370 场周赛  |
+|  2927  |  [Distribute Candies Among Children III](/solution/2900-2999/2927.Distribute%20Candies%20Among%20Children%20III/README.md)  |    |  困难  |  🔒  |
 
 ## 版权
 

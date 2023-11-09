@@ -2984,3 +2984,4 @@
   - [2924.Find Champion II](/solution/2900-2999/2924.Find%20Champion%20II/README_EN.md)
   - [2925.Maximum Score After Applying Operations on a Tree](/solution/2900-2999/2925.Maximum%20Score%20After%20Applying%20Operations%20on%20a%20Tree/README_EN.md)
   - [2926.Maximum Balanced Subsequence Sum](/solution/2900-2999/2926.Maximum%20Balanced%20Subsequence%20Sum/README_EN.md)
+  - [2927.Distribute Candies Among Children III](/solution/2900-2999/2927.Distribute%20Candies%20Among%20Children%20III/README_EN.md)
