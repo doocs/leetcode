@@ -16,7 +16,7 @@ impl Solution {
             if num < min_k || num > max_k {
                 k = i;
             }
-            res += 0.max(min_index.min(max_index) - k);
+            res += (0).max(min_index.min(max_index) - k);
         }
         res
     }

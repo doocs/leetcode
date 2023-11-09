@@ -179,7 +179,7 @@ impl Solution {
         if n == 1 {
             return works[0].to_string() + &Self::create_spaces(count);
         }
-        works.join(&Self::create_spaces((count / (n - 1)))) + &Self::create_spaces(count % (n - 1))
+        works.join(&Self::create_spaces(count / (n - 1))) + &Self::create_spaces(count % (n - 1))
     }
 }
 ```

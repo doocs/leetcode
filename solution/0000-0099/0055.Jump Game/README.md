@@ -124,7 +124,7 @@ impl Solution {
             if mx < i {
                 return false;
             }
-            mx = std::cmp::max(mx, i + nums[i] as usize);
+            mx = std::cmp::max(mx, i + (nums[i] as usize));
         }
 
         true

@@ -269,12 +269,12 @@ impl Solution {
         let n = dist.len();
 
         let check = |speed| {
-            let mut cur = 0.;
+            let mut cur = 0.0;
             for (i, &d) in dist.iter().enumerate() {
                 if i == n - 1 {
-                    cur += d as f64 / speed as f64;
+                    cur += (d as f64) / (speed as f64);
                 } else {
-                    cur += (d as f64 / speed as f64).ceil();
+                    cur += ((d as f64) / (speed as f64)).ceil();
                 }
             }
             cur <= hour

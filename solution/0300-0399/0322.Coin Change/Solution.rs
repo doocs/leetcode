@@ -5,7 +5,7 @@ impl Solution {
         f[0] = 0;
         for &x in &coins {
             for j in x as usize..=n {
-                f[j] = f[j].min(f[j - x as usize] + 1);
+                f[j] = f[j].min(f[j - (x as usize)] + 1);
             }
         }
         if f[n] > n {

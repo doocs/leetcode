@@ -173,9 +173,9 @@ impl Solution {
                 let mut sum = 0;
                 let mut count = 0;
                 for [y, x] in locations.iter() {
-                    let i = i as i32 + y;
-                    let j = j as i32 + x;
-                    if i < 0 || i == m as i32 || j < 0 || j == n as i32 {
+                    let i = (i as i32) + y;
+                    let j = (j as i32) + x;
+                    if i < 0 || i == (m as i32) || j < 0 || j == (n as i32) {
                         continue;
                     }
                     count += 1;

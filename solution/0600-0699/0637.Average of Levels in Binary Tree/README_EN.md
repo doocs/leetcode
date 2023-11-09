@@ -447,7 +447,7 @@ impl Solution {
                     q.push_back(Rc::clone(node.borrow().right.as_ref().unwrap()));
                 }
             }
-            ans.push(sum / n as f64);
+            ans.push(sum / (n as f64));
         }
         ans
     }

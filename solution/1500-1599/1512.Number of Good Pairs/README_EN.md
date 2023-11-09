@@ -206,7 +206,7 @@ impl Solution {
         }
         let mut ans = 0;
         for &v in cnt.iter() {
-            ans += v * (v - 1) / 2
+            ans += (v * (v - 1)) / 2;
         }
         ans
     }

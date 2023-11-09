@@ -160,14 +160,16 @@ impl Solution {
         let mut res = 0;
         let mut product = 1;
         let mut i = 0;
-        nums.iter().enumerate().for_each(|(j, v)| {
-            product *= v;
-            while product >= k {
-                product /= nums[i];
-                i += 1;
-            }
-            res += j - i + 1;
-        });
+        nums.iter()
+            .enumerate()
+            .for_each(|(j, v)| {
+                product *= v;
+                while product >= k {
+                    product /= nums[i];
+                    i += 1;
+                }
+                res += j - i + 1;
+            });
         res as i32
     }
 }

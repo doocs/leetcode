@@ -26,7 +26,7 @@ impl Solution {
 
     pub fn add_two_numbers(
         l1: Option<Box<ListNode>>,
-        l2: Option<Box<ListNode>>,
+        l2: Option<Box<ListNode>>
     ) -> Option<Box<ListNode>> {
         let mut s1 = Self::create_stack(l1);
         let mut s2 = Self::create_stack(l2);
@@ -40,10 +40,12 @@ impl Solution {
             if let Some(val) = s2.pop() {
                 carry += val;
             }
-            dummy.next = Some(Box::new(ListNode {
-                val: carry % 10,
-                next: dummy.next.take(),
-            }));
+            dummy.next = Some(
+                Box::new(ListNode {
+                    val: carry % 10,
+                    next: dummy.next.take(),
+                })
+            );
             carry /= 10;
         }
         dummy.next.take()

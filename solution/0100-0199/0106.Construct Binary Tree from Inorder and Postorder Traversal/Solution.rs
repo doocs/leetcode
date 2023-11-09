@@ -25,32 +25,39 @@ impl Solution {
         i_right: usize,
         postorder: &Vec<i32>,
         p_left: usize,
-        p_right: usize,
+        p_right: usize
     ) -> Option<Rc<RefCell<TreeNode>>> {
         if i_left == i_right {
             return None;
         }
         let val = postorder[p_right - 1];
-        let index = inorder.iter().position(|&v| v == val).unwrap();
-        Some(Rc::new(RefCell::new(TreeNode {
-            val,
-            left: Self::reset(
-                inorder,
-                i_left,
-                index,
-                postorder,
-                p_left,
-                p_left + index - i_left,
-            ),
-            right: Self::reset(
-                inorder,
-                index + 1,
-                i_right,
-                postorder,
-                p_left + index - i_left,
-                p_right - 1,
-            ),
-        })))
+        let index = inorder
+            .iter()
+            .position(|&v| v == val)
+            .unwrap();
+        Some(
+            Rc::new(
+                RefCell::new(TreeNode {
+                    val,
+                    left: Self::reset(
+                        inorder,
+                        i_left,
+                        index,
+                        postorder,
+                        p_left,
+                        p_left + index - i_left
+                    ),
+                    right: Self::reset(
+                        inorder,
+                        index + 1,
+                        i_right,
+                        postorder,
+                        p_left + index - i_left,
+                        p_right - 1
+                    ),
+                })
+            )
+        )
     }
 
     pub fn build_tree(inorder: Vec<i32>, postorder: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {

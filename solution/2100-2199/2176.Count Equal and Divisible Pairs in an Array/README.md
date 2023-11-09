@@ -144,7 +144,7 @@ impl Solution {
         let mut ans = 0;
         for i in 0..n - 1 {
             for j in i + 1..n {
-                if nums[i] == nums[j] && i * j % k == 0 {
+                if nums[i] == nums[j] && (i * j) % k == 0 {
                     ans += 1;
                 }
             }

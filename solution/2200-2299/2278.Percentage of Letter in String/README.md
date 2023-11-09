@@ -122,7 +122,7 @@ impl Solution {
                 count += 1;
             }
         }
-        (count * 100 / s.len()) as i32
+        ((count * 100) / s.len()) as i32
     }
 }
 ```

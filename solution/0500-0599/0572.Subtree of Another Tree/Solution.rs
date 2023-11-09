@@ -28,26 +28,26 @@ impl Solution {
         }
         let root = root.as_ref().unwrap().borrow();
         let sub_root = sub_root.as_ref().unwrap().borrow();
-        root.val == sub_root.val
-            && Self::dfs(&root.left, &sub_root.left)
-            && Self::dfs(&root.right, &sub_root.right)
+        root.val == sub_root.val &&
+            Self::dfs(&root.left, &sub_root.left) &&
+            Self::dfs(&root.right, &sub_root.right)
     }
 
     fn help(
         root: &Option<Rc<RefCell<TreeNode>>>,
-        sub_root: &Option<Rc<RefCell<TreeNode>>>,
+        sub_root: &Option<Rc<RefCell<TreeNode>>>
     ) -> bool {
         if root.is_none() {
             return false;
         }
-        Self::dfs(root, sub_root)
-            || Self::help(&root.as_ref().unwrap().borrow().left, sub_root)
-            || Self::help(&root.as_ref().unwrap().borrow().right, sub_root)
+        Self::dfs(root, sub_root) ||
+            Self::help(&root.as_ref().unwrap().borrow().left, sub_root) ||
+            Self::help(&root.as_ref().unwrap().borrow().right, sub_root)
     }
 
     pub fn is_subtree(
         root: Option<Rc<RefCell<TreeNode>>>,
-        sub_root: Option<Rc<RefCell<TreeNode>>>,
+        sub_root: Option<Rc<RefCell<TreeNode>>>
     ) -> bool {
         Self::help(&root, &sub_root)
     }

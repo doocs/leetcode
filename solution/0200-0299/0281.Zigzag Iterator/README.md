@@ -109,7 +109,7 @@ impl ZigzagIterator {
             let ret = self.v1.remove(0);
             self.flag = true;
             return ret;
-        }  else {
+        } else {
             // v2
             if self.v2.is_empty() && !self.v1.is_empty() {
                 self.flag = false;

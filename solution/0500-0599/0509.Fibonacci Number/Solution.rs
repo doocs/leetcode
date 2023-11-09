@@ -5,7 +5,7 @@ impl Solution {
         for _ in 0..n {
             let t = b;
             b = a + b;
-            a = t
+            a = t;
         }
         a
     }

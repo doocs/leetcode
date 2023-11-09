@@ -177,9 +177,12 @@ impl Solution {
             let (x, y) = the_q.front().unwrap().clone();
             the_q.pop_front();
             for pair in &traverse_vec {
-                let cur_x = pair.0 + x as i32;
-                let cur_y = pair.1 + y as i32;
-                if Solution::check_bounds(cur_x, cur_y, n as i32, m as i32) && ret_vec[cur_x as usize][cur_y as usize] == -1 {
+                let cur_x = pair.0 + (x as i32);
+                let cur_y = pair.1 + (y as i32);
+                if
+                    Solution::check_bounds(cur_x, cur_y, n as i32, m as i32) &&
+                    ret_vec[cur_x as usize][cur_y as usize] == -1
+                {
                     // The current cell has not be updated yet, and is also in bound
                     ret_vec[cur_x as usize][cur_y as usize] = ret_vec[x][y] + 1;
                     the_q.push_back((cur_x as usize, cur_y as usize));

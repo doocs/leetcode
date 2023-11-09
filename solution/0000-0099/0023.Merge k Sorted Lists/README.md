@@ -346,7 +346,10 @@ impl Ord for ListNode {
 }
 impl Solution {
     pub fn merge_k_lists(lists: Vec<Option<Box<ListNode>>>) -> Option<Box<ListNode>> {
-        let mut pq = lists.into_iter().filter_map(|head| head).collect::<BinaryHeap<_>>();
+        let mut pq = lists
+            .into_iter()
+            .filter_map(|head| head)
+            .collect::<BinaryHeap<_>>();
         let mut head = None;
         let mut cur = &mut head;
         while let Some(node) = pq.pop() {

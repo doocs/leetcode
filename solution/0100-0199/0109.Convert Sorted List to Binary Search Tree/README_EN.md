@@ -298,15 +298,19 @@ use std::rc::Rc;
 use std::cell::RefCell;
 impl Solution {
     fn build(vals: &Vec<i32>, start: usize, end: usize) -> Option<Rc<RefCell<TreeNode>>> {
-        if (start == end) {
+        if start == end {
             return None;
         }
         let mid = (start + end) >> 1;
-        Some(Rc::new(RefCell::new(TreeNode {
-            val: vals[mid],
-            left: Self::build(vals, start, mid),
-            right: Self::build(vals, mid + 1, end),
-        })))
+        Some(
+            Rc::new(
+                RefCell::new(TreeNode {
+                    val: vals[mid],
+                    left: Self::build(vals, start, mid),
+                    right: Self::build(vals, mid + 1, end),
+                })
+            )
+        )
     }
 
     pub fn sorted_list_to_bst(head: Option<Box<ListNode>>) -> Option<Rc<RefCell<TreeNode>>> {

@@ -283,7 +283,7 @@ impl Solution {
             if n > 0 {
                 a += 1;
             } else if n < 0 {
-                b += 1
+                b += 1;
             }
         }
 

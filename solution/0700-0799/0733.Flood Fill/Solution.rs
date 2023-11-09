@@ -1,6 +1,6 @@
 impl Solution {
     fn dfs(image: &mut Vec<Vec<i32>>, sr: i32, sc: i32, new_color: i32, target: i32) {
-        if sr < 0 || sr == image.len() as i32 || sc < 0 || sc == image[0].len() as i32 {
+        if sr < 0 || sr == (image.len() as i32) || sc < 0 || sc == (image[0].len() as i32) {
             return;
         }
         let sr = sr as usize;

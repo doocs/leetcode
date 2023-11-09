@@ -590,7 +590,7 @@ function inorderTraversal(root: TreeNode | null): number[] {
 use std::rc::Rc;
 use std::cell::RefCell;
 impl Solution {
-    fn dfs (root: &Option<Rc<RefCell<TreeNode>>>, res: &mut Vec<i32>) {
+    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, res: &mut Vec<i32>) {
         if root.is_none() {
             return;
         }

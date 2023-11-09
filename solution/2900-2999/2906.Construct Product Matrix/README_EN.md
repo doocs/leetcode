@@ -203,7 +203,7 @@ impl Solution {
         for i in (0..n).rev() {
             for j in (0..m).rev() {
                 p[i][j] = suf;
-                suf = (suf as i64 * grid[i][j] as i64 % modulo as i64) as i32;
+                suf = (((suf as i64) * (grid[i][j] as i64)) % (modulo as i64)) as i32;
             }
         }
 
@@ -211,8 +211,8 @@ impl Solution {
 
         for i in 0..n {
             for j in 0..m {
-                p[i][j] = (p[i][j] as i64 * pre as i64 % modulo as i64) as i32;
-                pre = (pre as i64 * grid[i][j] as i64 % modulo as i64) as i32;
+                p[i][j] = (((p[i][j] as i64) * (pre as i64)) % (modulo as i64)) as i32;
+                pre = (((pre as i64) * (grid[i][j] as i64)) % (modulo as i64)) as i32;
             }
         }
 

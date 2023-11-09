@@ -6,11 +6,11 @@ impl Solution {
         }
         vis[i][j] = true;
         let n = g.len();
-        i == n - 1 && j == n - 1
-            || i != 0 && Self::dfs(i - 1, j, v, g, vis)
-            || i != n - 1 && Self::dfs(i + 1, j, v, g, vis)
-            || j != 0 && Self::dfs(i, j - 1, v, g, vis)
-            || j != n - 1 && Self::dfs(i, j + 1, v, g, vis)
+        (i == n - 1 && j == n - 1) ||
+            (i != 0 && Self::dfs(i - 1, j, v, g, vis)) ||
+            (i != n - 1 && Self::dfs(i + 1, j, v, g, vis)) ||
+            (j != 0 && Self::dfs(i, j - 1, v, g, vis)) ||
+            (j != n - 1 && Self::dfs(i, j + 1, v, g, vis))
     }
 
     pub fn maximum_safeness_factor(grid: Vec<Vec<i32>>) -> i32 {

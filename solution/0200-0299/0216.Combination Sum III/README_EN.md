@@ -297,12 +297,20 @@ impl Solution {
     }
 
     #[allow(dead_code)]
-    fn dfs(target: i32, length: i32, cur_index: usize, cur_sum: i32, cur_vec: &mut Vec<i32>, candidates: &Vec<i32>, ans: &mut Vec<Vec<i32>>) {
-        if cur_sum > target || cur_vec.len() > length as usize {
+    fn dfs(
+        target: i32,
+        length: i32,
+        cur_index: usize,
+        cur_sum: i32,
+        cur_vec: &mut Vec<i32>,
+        candidates: &Vec<i32>,
+        ans: &mut Vec<Vec<i32>>
+    ) {
+        if cur_sum > target || cur_vec.len() > (length as usize) {
             // No answer for this
             return;
         }
-        if cur_sum == target && cur_vec.len() == length as usize {
+        if cur_sum == target && cur_vec.len() == (length as usize) {
             // We get an answer
             ans.push(cur_vec.clone());
             return;

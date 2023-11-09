@@ -157,7 +157,15 @@ impl Solution {
             count[(t[i] - b'a') as usize] -= 1;
         }
         count[(t[n] - b'a') as usize] -= 1;
-        char::from(b'a' + count.iter().position(|&v| v != 0).unwrap() as u8)
+        char::from(
+            b'a' +
+                (
+                    count
+                        .iter()
+                        .position(|&v| v != 0)
+                        .unwrap() as u8
+                )
+        )
     }
 }
 ```

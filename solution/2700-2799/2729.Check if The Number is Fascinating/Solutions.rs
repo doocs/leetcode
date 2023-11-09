@@ -4,7 +4,7 @@ impl Solution {
 
         let mut cnt = vec![0; 10];
         for c in s.chars() {
-            let t = c as usize - '0' as usize;
+            let t = (c as usize) - ('0' as usize);
             cnt[t] += 1;
             if cnt[t] > 1 {
                 return false;

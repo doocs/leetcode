@@ -17,9 +17,9 @@ impl Solution {
         let p1 = f(&player1);
         let p2 = f(&player2);
         if p1 > p2 {
-            return 1
+            return 1;
         } else if p1 < p2 {
-            return 2
+            return 2;
         } else {
             0
         }

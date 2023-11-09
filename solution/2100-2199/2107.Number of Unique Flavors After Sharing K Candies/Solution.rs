@@ -12,7 +12,7 @@ impl Solution {
         let mut ans = cnt.len() as i32;
 
         for i in k as usize..n {
-            *cnt.entry(candies[i - k as usize]).or_insert(0) += 1;
+            *cnt.entry(candies[i - (k as usize)]).or_insert(0) += 1;
             if let Some(x) = cnt.get_mut(&candies[i]) {
                 *x -= 1;
                 if *x == 0 {

@@ -142,7 +142,7 @@ impl Solution {
             }
             if is_pass {
                 return true;
-            };
+            }
         }
         false
     }

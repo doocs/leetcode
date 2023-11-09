@@ -240,7 +240,7 @@ impl Solution {
                 map2.insert(s, i);
             }
             if map1.get(&c) != map2.get(&s) {
-                return false
+                return false;
             }
         }
         true

@@ -5,7 +5,7 @@
 //   pub left: Option<Rc<RefCell<TreeNode>>>,
 //   pub right: Option<Rc<RefCell<TreeNode>>>,
 // }
-// 
+//
 // impl TreeNode {
 //   #[inline]
 //   pub fn new(val: i32) -> Self {
@@ -16,7 +16,7 @@
 //     }
 //   }
 // }
-use std::{rc::Rc, cell::RefCell, collections::VecDeque};
+use std::{ rc::Rc, cell::RefCell, collections::VecDeque };
 impl Solution {
     #[allow(dead_code)]
     pub fn level_order_bottom(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Vec<i32>> {

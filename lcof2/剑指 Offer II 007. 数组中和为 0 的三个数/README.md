@@ -364,8 +364,12 @@ impl Solution {
             let mut r = n - 1;
             while l < r {
                 match (nums[i] + nums[l] + nums[r]).cmp(&0) {
-                    Ordering::Less => l += 1,
-                    Ordering::Greater => r -= 1,
+                    Ordering::Less => {
+                        l += 1;
+                    }
+                    Ordering::Greater => {
+                        r -= 1;
+                    }
                     Ordering::Equal => {
                         res.push(vec![nums[i], nums[l], nums[r]]);
                         l += 1;

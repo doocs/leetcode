@@ -9,7 +9,7 @@ impl Solution {
             if num == next {
                 continue;
             }
-            if num > prev && num > next || num < prev && num < next {
+            if (num > prev && num > next) || (num < prev && num < next) {
                 res += 1;
             }
             prev = num;

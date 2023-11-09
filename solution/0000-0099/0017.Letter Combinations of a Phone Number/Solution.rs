@@ -24,7 +24,7 @@ impl Solution {
             vec!['m', 'n', 'o'],
             vec!['p', 'q', 'r', 's'],
             vec!['t', 'u', 'v'],
-            vec!['w', 'x', 'y', 'z'],
+            vec!['w', 'x', 'y', 'z']
         ];
         let mut res = Vec::new();
         Self::dfs(0, digits, &map, &mut String::new(), &mut res);

@@ -251,16 +251,14 @@ class CQueue {
 ```rust
 struct CQueue {
     s1: Vec<i32>,
-    s2: Vec<i32>
+    s2: Vec<i32>,
 }
-
 
 /**
  * `&self` means the method takes an immutable reference.
  * If you need a mutable reference, change it to `&mut self` instead.
  */
 impl CQueue {
-
     fn new() -> Self {
         CQueue {
             s1: Vec::new(),
@@ -283,9 +281,7 @@ impl CQueue {
             }
         }
     }
-}
-
-/**
+}/**
  * Your CQueue object will be instantiated and called as such:
  * let obj = CQueue::new();
  * obj.append_tail(value);

@@ -8,7 +8,7 @@ impl Solution {
         while l < r {
             let mid = (l + r + 1) >> 1;
             if x / mid < mid {
-                r = mid - 1
+                r = mid - 1;
             } else {
                 l = mid;
             }

@@ -217,7 +217,7 @@ impl Solution {
             }
             let mut cur_num = num.clone();
             while s.contains(&cur_num) {
-                cur_num  += 1;
+                cur_num += 1;
             }
             // Update the answer
             ret = std::cmp::max(ret, cur_num - num);

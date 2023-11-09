@@ -154,11 +154,21 @@ impl Solution {
         let mut arr = [0; 5];
         for c in text.chars() {
             match c {
-                'b' => arr[0] += 1,
-                'a' => arr[1] += 1,
-                'l' => arr[2] += 1,
-                'o' => arr[3] += 1,
-                'n' => arr[4] += 1,
+                'b' => {
+                    arr[0] += 1;
+                }
+                'a' => {
+                    arr[1] += 1;
+                }
+                'l' => {
+                    arr[2] += 1;
+                }
+                'o' => {
+                    arr[3] += 1;
+                }
+                'n' => {
+                    arr[4] += 1;
+                }
                 _ => {}
             }
         }

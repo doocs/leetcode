@@ -8,9 +8,15 @@ impl Solution {
         let (mut i, mut j) = (0, n);
         while i < m && j > 0 {
             match target.cmp(&matrix[i][j - 1]) {
-                Ordering::Less => j -= 1,
-                Ordering::Greater => i += 1,
-                Ordering::Equal => return true,
+                Ordering::Less => {
+                    j -= 1;
+                }
+                Ordering::Greater => {
+                    i += 1;
+                }
+                Ordering::Equal => {
+                    return true;
+                }
             }
         }
         false

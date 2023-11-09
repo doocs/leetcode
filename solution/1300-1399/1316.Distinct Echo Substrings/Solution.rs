@@ -12,7 +12,7 @@ impl Solution {
 
         // Initialize the base vector & hash vector
         for i in 0..n {
-            let cur_char = (text.chars().nth(i).unwrap() as u8 - 'a' as u8 + 1) as u64;
+            let cur_char = ((text.chars().nth(i).unwrap() as u8) - ('a' as u8) + 1) as u64;
             // Update base vector
             base_vec[i + 1] = base_vec[i] * BASE;
             // Update hash vector

@@ -10,8 +10,12 @@ impl Solution {
             while left < right {
                 let mid = left + (right - left) / 2;
                 match arr[mid].cmp(&target) {
-                    Ordering::Less => left = mid + 1,
-                    Ordering::Greater => right = mid,
+                    Ordering::Less => {
+                        left = mid + 1;
+                    }
+                    Ordering::Greater => {
+                        right = mid;
+                    }
                     Ordering::Equal => {
                         if mid == i {
                             break;

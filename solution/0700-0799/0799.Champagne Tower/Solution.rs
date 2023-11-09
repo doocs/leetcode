@@ -13,6 +13,6 @@ impl Solution {
             }
             row = next_row;
         }
-        1f64.min(row[query_glass])
+        (1f64).min(row[query_glass])
     }
 }

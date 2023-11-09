@@ -6,7 +6,9 @@ impl Solution {
         }
         for s in ss {
             match s.parse::<i32>() {
-                Err(_) => return false,
+                Err(_) => {
+                    return false;
+                }
                 Ok(num) => {
                     if num < 0 || num > 255 || num.to_string() != s.to_string() {
                         return false;
@@ -27,7 +29,11 @@ impl Solution {
                 return false;
             }
             for &c in s.as_bytes() {
-                if c >= b'0' && c <= b'9' || c >= b'a' && c <= b'f' || c >= b'A' && c <= b'F' {
+                if
+                    (c >= b'0' && c <= b'9') ||
+                    (c >= b'a' && c <= b'f') ||
+                    (c >= b'A' && c <= b'F')
+                {
                     continue;
                 }
                 return false;

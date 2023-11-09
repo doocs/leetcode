@@ -223,10 +223,10 @@ impl Solution {
         grid[i][j] = 0;
         let mut res = 1 + Self::dfs(grid, i + 1, j) + Self::dfs(grid, i, j + 1);
         if i != 0 {
-            res += Self::dfs(grid, i - 1, j)
+            res += Self::dfs(grid, i - 1, j);
         }
         if j != 0 {
-            res += Self::dfs(grid, i, j - 1)
+            res += Self::dfs(grid, i, j - 1);
         }
         res
     }
@@ -237,7 +237,7 @@ impl Solution {
         let mut res = 0;
         for i in 0..m {
             for j in 0..n {
-                res = res.max(Self::dfs(&mut grid, i, j))
+                res = res.max(Self::dfs(&mut grid, i, j));
             }
         }
         res

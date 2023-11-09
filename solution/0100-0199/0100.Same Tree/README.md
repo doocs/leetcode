@@ -485,7 +485,7 @@ impl Solution {
 
     pub fn is_same_tree(
         p: Option<Rc<RefCell<TreeNode>>>,
-        q: Option<Rc<RefCell<TreeNode>>>,
+        q: Option<Rc<RefCell<TreeNode>>>
     ) -> bool {
         Self::dfs(&p, &q)
     }
@@ -517,7 +517,7 @@ use std::collections::VecDeque;
 impl Solution {
     pub fn is_same_tree(
         mut p: Option<Rc<RefCell<TreeNode>>>,
-        mut q: Option<Rc<RefCell<TreeNode>>>,
+        mut q: Option<Rc<RefCell<TreeNode>>>
     ) -> bool {
         let mut queue = VecDeque::new();
         if p.is_some() {
@@ -542,7 +542,9 @@ impl Solution {
                         queue.push_back(node1.left.take());
                         queue.push_back(node2.left.take());
                     }
-                    (_, _) => return false,
+                    (_, _) => {
+                        return false;
+                    }
                 }
                 match (node1.right.is_some(), node2.right.is_some()) {
                     (false, false) => {}
@@ -550,7 +552,9 @@ impl Solution {
                         queue.push_back(node1.right.take());
                         queue.push_back(node2.right.take());
                     }
-                    (_, _) => return false,
+                    (_, _) => {
+                        return false;
+                    }
                 }
             }
         }

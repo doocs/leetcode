@@ -399,7 +399,7 @@ impl Solution {
                 cur = &cur.as_ref().unwrap().next;
             }
             let mut cur = &mut head;
-            for _ in 0..(length / 2 - 1) {
+            for _ in 0..length / 2 - 1 {
                 cur = &mut cur.as_mut().unwrap().next;
             }
             let right = cur.as_mut().unwrap().next.take();

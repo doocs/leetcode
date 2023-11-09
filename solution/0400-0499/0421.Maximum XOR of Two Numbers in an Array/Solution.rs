@@ -12,7 +12,7 @@ impl Trie {
     fn insert(&mut self, x: i32) {
         let mut node = self;
         for i in (0..=30).rev() {
-            let v = (x >> i & 1)  as usize;
+            let v = ((x >> i) & 1) as usize;
             if node.children[v].is_none() {
                 node.children[v] = Some(Box::new(Trie::new()));
             }
@@ -24,7 +24,7 @@ impl Trie {
         let mut node = self;
         let mut ans = 0;
         for i in (0..=30).rev() {
-            let v = (x >> i & 1) as usize;
+            let v = ((x >> i) & 1) as usize;
             if let Some(child) = &node.children[v ^ 1] {
                 ans |= 1 << i;
                 node = child.as_ref();

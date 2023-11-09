@@ -21,22 +21,22 @@ use std::cell::RefCell;
 impl Solution {
     pub fn is_sub_structure(
         a: Option<Rc<RefCell<TreeNode>>>,
-        b: Option<Rc<RefCell<TreeNode>>>,
+        b: Option<Rc<RefCell<TreeNode>>>
     ) -> bool {
         Self::is_sub_structure_help(&a, &b)
     }
 
     fn is_sub_structure_help(
         a: &Option<Rc<RefCell<TreeNode>>>,
-        b: &Option<Rc<RefCell<TreeNode>>>,
+        b: &Option<Rc<RefCell<TreeNode>>>
     ) -> bool {
         if a.is_none() || b.is_none() {
             return false;
         }
 
-        Self::dfs(a, b)
-            || Self::is_sub_structure_help(&a.as_ref().unwrap().borrow().left, b)
-            || Self::is_sub_structure_help(&a.as_ref().unwrap().borrow().right, b)
+        Self::dfs(a, b) ||
+            Self::is_sub_structure_help(&a.as_ref().unwrap().borrow().left, b) ||
+            Self::is_sub_structure_help(&a.as_ref().unwrap().borrow().right, b)
     }
 
     fn dfs(a: &Option<Rc<RefCell<TreeNode>>>, b: &Option<Rc<RefCell<TreeNode>>>) -> bool {

@@ -29,8 +29,8 @@ impl Solution {
                     return target_sum - node.val == 0;
                 }
                 let val = node.val;
-                Self::has_path_sum(node.left.take(), target_sum - val)
-                    || Self::has_path_sum(node.right.take(), target_sum - val)
+                Self::has_path_sum(node.left.take(), target_sum - val) ||
+                    Self::has_path_sum(node.right.take(), target_sum - val)
             }
         }
     }

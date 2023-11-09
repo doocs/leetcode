@@ -1,4 +1,13 @@
-const DIR: [(i32, i32); 8] = [(-2, -1), (2, -1), (-1, -2), (1, -2), (2, 1), (-2, 1), (1, 2), (-1, 2)];
+const DIR: [(i32, i32); 8] = [
+    (-2, -1),
+    (2, -1),
+    (-1, -2),
+    (1, -2),
+    (2, 1),
+    (-2, 1),
+    (1, 2),
+    (-1, 2),
+];
 const P: f64 = 1.0 / 8.0;
 
 impl Solution {
@@ -6,7 +15,8 @@ impl Solution {
     pub fn knight_probability(n: i32, k: i32, row: i32, column: i32) -> f64 {
         // Here dp[i][j][k] represents through `i` steps, the probability that the knight stays on the board
         // Starts from row: `j`, column: `k`
-        let mut dp: Vec<Vec<Vec<f64>>> = vec![vec![vec![0 as f64; n as usize]; n as usize]; k as usize + 1];
+        let mut dp: Vec<Vec<Vec<f64>>> =
+            vec![vec![vec![0 as f64; n as usize]; n as usize]; k as usize + 1];
 
         // Initialize the dp vector, since dp[0][j][k] should be 1
         for j in 0..n as usize {
@@ -23,7 +33,8 @@ impl Solution {
                         let x = j + dx;
                         let y = k + dy;
                         if Self::check_bounds(x, y, n, n) {
-                            dp[i as usize][j as usize][k as usize] += P * dp[i as usize - 1][x as usize][y as usize];
+                            dp[i as usize][j as usize][k as usize] +=
+                                P * dp[(i as usize) - 1][x as usize][y as usize];
                         }
                     }
                 }

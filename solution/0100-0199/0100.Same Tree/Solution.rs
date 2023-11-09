@@ -33,7 +33,7 @@ impl Solution {
 
     pub fn is_same_tree(
         p: Option<Rc<RefCell<TreeNode>>>,
-        q: Option<Rc<RefCell<TreeNode>>>,
+        q: Option<Rc<RefCell<TreeNode>>>
     ) -> bool {
         Self::dfs(&p, &q)
     }

@@ -277,7 +277,16 @@ public:
 ```rust
 use std::collections::VecDeque;
 
-const DIR: [(i32, i32); 8] = [(-2, 1), (2, 1), (-1, 2), (1, 2), (2, -1), (-2, -1), (1, -2), (-1, -2)];
+const DIR: [(i32, i32); 8] = [
+    (-2, 1),
+    (2, 1),
+    (-1, 2),
+    (1, 2),
+    (2, -1),
+    (-2, -1),
+    (1, -2),
+    (-1, -2),
+];
 
 impl Solution {
     #[allow(dead_code)]
@@ -307,7 +316,13 @@ impl Solution {
     }
 
     #[allow(dead_code)]
-    fn enqueue(vis: &mut Vec<Vec<bool>>, q: &mut VecDeque<(i32, i32, i32)>, i: i32, j: i32, cur_step: i32) {
+    fn enqueue(
+        vis: &mut Vec<Vec<bool>>,
+        q: &mut VecDeque<(i32, i32, i32)>,
+        i: i32,
+        j: i32,
+        cur_step: i32
+    ) {
         let next_step = cur_step + 1;
         for (dx, dy) in DIR {
             let x = i + dx;
@@ -337,7 +352,16 @@ Two-end BFS:
 use std::collections::VecDeque;
 use std::collections::HashMap;
 
-const DIR: [(i32, i32); 8] = [(-2, 1), (2, 1), (-1, 2), (1, 2), (2, -1), (-2, -1), (1, -2), (-1, -2)];
+const DIR: [(i32, i32); 8] = [
+    (-2, 1),
+    (2, 1),
+    (-1, 2),
+    (1, 2),
+    (2, -1),
+    (-2, -1),
+    (1, -2),
+    (-1, -2),
+];
 
 impl Solution {
     #[allow(dead_code)]
@@ -377,13 +401,20 @@ impl Solution {
     }
 
     #[allow(dead_code)]
-    fn extend(map_to: &mut HashMap<i32, i32>, map_from: &mut HashMap<i32, i32>, cur_q: &mut VecDeque<(i32, i32)>) -> i32 {
+    fn extend(
+        map_to: &mut HashMap<i32, i32>,
+        map_from: &mut HashMap<i32, i32>,
+        cur_q: &mut VecDeque<(i32, i32)>
+    ) -> i32 {
         let n = cur_q.len();
         for _ in 0..n {
             let (i, j) = cur_q.front().unwrap().clone();
             cur_q.pop_front();
             // The cur_step here must exist
-            let cur_step = map_to.get(&(601 * i + j)).unwrap().clone();
+            let cur_step = map_to
+                .get(&(601 * i + j))
+                .unwrap()
+                .clone();
             for (dx, dy) in DIR {
                 let x = i + dx;
                 let y = j + dy;
@@ -395,7 +426,14 @@ impl Solution {
                 // Check if this node has been visited by the other side
                 if map_from.contains_key(&(601 * x + y)) {
                     // We found the node
-                    return cur_step + 1 + map_from.get(&(601 * x + y)).unwrap().clone();
+                    return (
+                        cur_step +
+                        1 +
+                        map_from
+                            .get(&(601 * x + y))
+                            .unwrap()
+                            .clone()
+                    );
                 }
                 // Otherwise, update map_to and push the new node to queue
                 map_to.insert(601 * x + y, cur_step + 1);

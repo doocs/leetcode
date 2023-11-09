@@ -190,7 +190,7 @@ impl Solution {
         for w in words {
             if w == "prev" {
                 k += 1;
-                let i = nums.len() as i32 - k;
+                let i = (nums.len() as i32) - k;
                 ans.push(if i < 0 { -1 } else { nums[i as usize] });
             } else {
                 k = 0;

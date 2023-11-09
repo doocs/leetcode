@@ -123,7 +123,7 @@ impl Solution {
         // `n` should greater or equal to zero
         let mut ret = 1.0;
         while n != 0 {
-            if n & 0x1 == 1 {
+            if (n & 0x1) == 1 {
                 ret *= *x;
             }
             *x *= *x;

@@ -190,7 +190,7 @@ impl Solution {
                         nums2[n]
                     }
                 }
-            }
+            };
         }
     }
 }

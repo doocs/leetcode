@@ -5,7 +5,7 @@ impl Solution {
 
         let mut ans = vec![0; 2];
         for (i, c) in s.iter().enumerate() {
-            ans[i & 1] = ans[i & 1] * 10 + (c - b'0') as i32;
+            ans[i & 1] = ans[i & 1] * 10 + ((c - b'0') as i32);
         }
 
         ans[0] + ans[1]

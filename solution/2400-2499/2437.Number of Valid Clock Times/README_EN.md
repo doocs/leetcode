@@ -277,9 +277,9 @@ impl Solution {
             let second = s.chars().nth(1).unwrap();
 
             for i in 0..m {
-                let a = first == '?' || first.to_digit(10).unwrap() as usize == i / 10;
+                let a = first == '?' || (first.to_digit(10).unwrap() as usize) == i / 10;
 
-                let b = second == '?' || second.to_digit(10).unwrap() as usize == i % 10;
+                let b = second == '?' || (second.to_digit(10).unwrap() as usize) == i % 10;
 
                 if a && b {
                     cnt += 1;

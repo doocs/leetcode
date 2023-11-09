@@ -174,7 +174,9 @@ impl Solution {
         let start_index = start_index as usize;
         let n = words.len();
         for i in 0..=n >> 1 {
-            if words[(start_index - i + n) % n] == target || words[(start_index + i) % n] == target
+            if
+                words[(start_index - i + n) % n] == target ||
+                words[(start_index + i) % n] == target
             {
                 return i as i32;
             }
@@ -193,8 +195,8 @@ impl Solution {
 
         for (i, w) in words.iter().enumerate() {
             if *w == target {
-                let t = (i as i32 - start_index).abs();
-                ans = min(ans, min(t as usize, words.len() - t as usize));
+                let t = ((i as i32) - start_index).abs();
+                ans = min(ans, min(t as usize, words.len() - (t as usize)));
             }
         }
 

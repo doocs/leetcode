@@ -402,11 +402,7 @@ impl Solution {
     }
 
     fn depth(root: &Option<Rc<RefCell<TreeNode>>>) -> i32 {
-        if let Some(node) = root {
-            Self::depth(&node.borrow().left) + 1
-        } else {
-            0
-        }
+        if let Some(node) = root { Self::depth(&node.borrow().left) + 1 } else { 0 }
     }
 }
 ```

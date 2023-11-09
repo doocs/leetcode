@@ -4,9 +4,9 @@ impl Solution {
         let mut ok = 1;
         for &c in s.as_bytes() {
             if c == b'*' {
-                ans += ok
+                ans += ok;
             } else if c == b'|' {
-                ok ^= 1
+                ok ^= 1;
             }
         }
         ans

@@ -304,7 +304,7 @@ impl Bank {
     }
 
     fn deposit(&mut self, account: i32, money: i64) -> bool {
-        let (account,  n) = (account as usize, self.balance.len());
+        let (account, n) = (account as usize, self.balance.len());
         if n < account {
             return false;
         }
@@ -313,7 +313,7 @@ impl Bank {
     }
 
     fn withdraw(&mut self, account: i32, money: i64) -> bool {
-        let (account,  n) = (account as usize, self.balance.len());
+        let (account, n) = (account as usize, self.balance.len());
         if n < account {
             return false;
         }
@@ -323,9 +323,7 @@ impl Bank {
         self.balance[account - 1] -= money;
         true
     }
-}
-
-/**
+}/**
  * Your Bank object will be instantiated and called as such:
  * let obj = Bank::new(balance);
  * let ret_1: bool = obj.transfer(account1, account2, money);

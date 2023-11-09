@@ -224,11 +224,7 @@ impl AnimalShelf {
             (true, false) => self.dequeue_dog(),
             (false, true) => self.dequeue_cat(),
             (false, false) => {
-                if self.dogs[0] < self.cats[0] {
-                    self.dequeue_dog()
-                } else {
-                    self.dequeue_cat()
-                }
+                if self.dogs[0] < self.cats[0] { self.dequeue_dog() } else { self.dequeue_cat() }
             }
         }
     }
@@ -246,9 +242,7 @@ impl AnimalShelf {
         }
         vec![self.cats.pop_front().unwrap(), 0]
     }
-}
-
-/**
+}/**
  * Your AnimalShelf object will be instantiated and called as such:
  * let obj = AnimalShelf::new();
  * obj.enqueue(animal);

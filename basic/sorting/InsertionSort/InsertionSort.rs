@@ -3,7 +3,7 @@ fn insertion_sort(nums: &mut Vec<i32>) {
     for i in 1..n {
         let mut j = i - 1;
         let temp = nums[i];
-        while j >= 0 as usize && nums[j] > temp {
+        while j >= (0 as usize) && nums[j] > temp {
             nums[j + 1] = nums[j];
             j -= 1;
         }

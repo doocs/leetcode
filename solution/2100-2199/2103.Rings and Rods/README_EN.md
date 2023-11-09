@@ -197,11 +197,14 @@ impl Solution {
 
         for i in (0..cs.len()).step_by(2) {
             let c = cs[i] as usize;
-            let j = cs[i + 1] as usize - '0' as usize;
+            let j = (cs[i + 1] as usize) - ('0' as usize);
             mask[j] |= d[c];
         }
 
-        mask.iter().filter(|&&x| x == 7).count() as i32
+        mask
+            .iter()
+            .filter(|&&x| x == 7)
+            .count() as i32
     }
 }
 ```

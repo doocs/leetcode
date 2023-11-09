@@ -281,7 +281,11 @@ public:
 ```rust
 impl Solution {
     #[allow(dead_code)]
-    pub fn distance_limited_paths_exist(n: i32, edge_list: Vec<Vec<i32>>, queries: Vec<Vec<i32>>) -> Vec<bool> {
+    pub fn distance_limited_paths_exist(
+        n: i32,
+        edge_list: Vec<Vec<i32>>,
+        queries: Vec<Vec<i32>>
+    ) -> Vec<bool> {
         let mut disjoint_set: Vec<usize> = vec![0; n as usize];
         let mut ans_vec: Vec<bool> = vec![false; queries.len()];
         let mut q_vec: Vec<usize> = vec![0; queries.len()];

@@ -284,7 +284,7 @@ impl Solution {
         let n = arr.len();
         let mut l = 0;
         let mut r = n;
-        while r - l != k as usize {
+        while r - l != (k as usize) {
             if x - arr[l] <= arr[r - 1] - x {
                 r -= 1;
             } else {

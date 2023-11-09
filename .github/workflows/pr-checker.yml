@@ -19,7 +19,7 @@ jobs:
 
             我们项目中各种编程语言代码（包括文档）所采用的格式化工具不同，提交 pr 之前必须确保代码、文档正确格式化。
 
-            -   .{md,js,ts,php,sql} 采用 prettier
+            -   .{md,js,ts,php,sql,rs} 采用 prettier
             -   .{c,cpp,java} 采用 clang-format
             -   .{py} 采用 black
             -   .{go} 采用 gofmt
@@ -47,7 +47,7 @@ jobs:
 
             We use different formatting tools for various programming languages (including documentation) in our project. You must ensure that the code and documentation are correctly formatted before submitting a pr.
 
-            -   .{md,js,ts,php,sql} use prettier
+            -   .{md,js,ts,php,sql,rs} use prettier
             -   .{c,cpp,java} use clang-format
             -   .{py} use black
             -   .{go} use gofmt

@@ -173,9 +173,10 @@ impl Solution {
         }
         path.push(vec![i as i32, j as i32]);
         grid[i as usize][j as usize] = 1;
-        if (i + 1 == grid.len() && j + 1 == grid[0].len())
-            || Self::dfs(grid, path, i + 1, j)
-            || Self::dfs(grid, path, i, j + 1)
+        if
+            (i + 1 == grid.len() && j + 1 == grid[0].len()) ||
+            Self::dfs(grid, path, i + 1, j) ||
+            Self::dfs(grid, path, i, j + 1)
         {
             return true;
         }

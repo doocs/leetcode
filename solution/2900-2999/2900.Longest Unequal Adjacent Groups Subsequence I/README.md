@@ -144,7 +144,11 @@ function getWordsInLongestSubsequence(n: number, words: string[], groups: number
 
 ```rust
 impl Solution {
-    pub fn get_words_in_longest_subsequence(n: i32, words: Vec<String>, groups: Vec<i32>) -> Vec<String> {
+    pub fn get_words_in_longest_subsequence(
+        n: i32,
+        words: Vec<String>,
+        groups: Vec<i32>
+    ) -> Vec<String> {
         let mut ans = vec![];
 
         for i in 0..n {

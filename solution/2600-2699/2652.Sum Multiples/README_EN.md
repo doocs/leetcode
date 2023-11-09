@@ -212,9 +212,7 @@ impl Solution {
 ```rust
 impl Solution {
     pub fn sum_of_multiples(n: i32) -> i32 {
-        (1..=n)
-            .filter(|&x| x % 3 == 0 || x % 5 == 0 || x % 7 == 0)
-            .sum()
+        (1..=n).filter(|&x| (x % 3 == 0 || x % 5 == 0 || x % 7 == 0)).sum()
     }
 }
 ```
@@ -224,7 +222,7 @@ impl Solution {
     pub fn sum_of_multiples(n: i32) -> i32 {
         fn f(x: i32, n: i32) -> i32 {
             let m = n / x;
-            (x + m * x) * m / 2
+            ((x + m * x) * m) / 2
         }
 
         f(3, n) + f(5, n) + f(7, n) - f(3 * 5, n) - f(3 * 7, n) - f(5 * 7, n) + f(3 * 5 * 7, n)

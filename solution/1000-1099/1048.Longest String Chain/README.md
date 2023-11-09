@@ -197,9 +197,7 @@ impl Solution {
         let mut map: HashMap<String, i32> = HashMap::new();
 
         // Sort the words vector first
-        words.sort_by(|lhs, rhs| {
-            lhs.len().cmp(&rhs.len())
-        });
+        words.sort_by(|lhs, rhs| { lhs.len().cmp(&rhs.len()) });
 
         // Begin the "dp" process
         for w in words.iter() {
@@ -208,9 +206,7 @@ impl Solution {
 
             for i in 0..n {
                 let s = w[..i].to_string() + &w[i + 1..];
-                let v = map
-                    .entry(s.clone())
-                    .or_default();
+                let v = map.entry(s.clone()).or_default();
                 x = std::cmp::max(x, *v + 1);
             }
 

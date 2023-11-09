@@ -93,7 +93,7 @@ public:
 ### **Rust**
 
 ```rust
-const MOD: i64 = 1e9 as i64 + 7;
+const MOD: i64 = (1e9 as i64) + 7;
 
 impl Solution {
     #[allow(dead_code)]

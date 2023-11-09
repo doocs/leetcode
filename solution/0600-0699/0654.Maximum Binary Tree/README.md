@@ -778,11 +778,15 @@ impl Solution {
                 max_val = nums[i];
             }
         }
-        Some(Rc::new(RefCell::new(TreeNode {
-            val: max_val,
-            left: Self::construct(nums, start, idx),
-            right: Self::construct(nums, idx + 1, end),
-        })))
+        Some(
+            Rc::new(
+                RefCell::new(TreeNode {
+                    val: max_val,
+                    left: Self::construct(nums, start, idx),
+                    right: Self::construct(nums, idx + 1, end),
+                })
+            )
+        )
     }
 
     pub fn construct_maximum_binary_tree(nums: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {

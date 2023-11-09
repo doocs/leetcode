@@ -183,7 +183,7 @@ impl Solution {
             s += d[i];
             if mx < s {
                 mx = s;
-                ans = base + i as i32;
+                ans = base + (i as i32);
             }
         }
         ans

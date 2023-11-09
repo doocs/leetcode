@@ -16,7 +16,7 @@ impl MedianFinder {
         let mut l = 0;
         let mut r = self.nums.len();
         while l < r {
-            let mid = l + r >> 1;
+            let mid = (l + r) >> 1;
             if self.nums[mid] < num {
                 l = mid + 1;
             } else {
@@ -33,9 +33,7 @@ impl MedianFinder {
         }
         f64::from(self.nums[n >> 1] + self.nums[(n >> 1) - 1]) / 2.0
     }
-}
-
-/**
+}/**
  * Your MedianFinder object will be instantiated and called as such:
  * let obj = MedianFinder::new();
  * obj.add_num(num);

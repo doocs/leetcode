@@ -483,7 +483,7 @@ impl Solution {
         Self::dfs(i + 1, s - x, candidates, t, ans);
         t.pop();
         while i < candidates.len() && candidates[i] == x {
-            i += 1
+            i += 1;
         }
         Self::dfs(i, s, candidates, t, ans);
     }

@@ -322,7 +322,7 @@ impl Solution {
                 i += 1;
             }
             if sum == target {
-                ans = ans.min((n - 1 - (j - i)) as i32)
+                ans = ans.min((n - 1 - (j - i)) as i32);
             }
         }
         if ans == i32::MAX {

@@ -226,7 +226,7 @@ impl Solution {
         let mut max = 0;
         for i in 0..arr.len() {
             max = max.max(arr[i]);
-            if max == i as i32 {
+            if max == (i as i32) {
                 res += 1;
             }
         }

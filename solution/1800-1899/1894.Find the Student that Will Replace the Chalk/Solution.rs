@@ -9,8 +9,9 @@ impl Solution {
             })
             .collect();
 
-        pre_sum
-            .binary_search(&(k as i64 % pre_sum.last().unwrap()))
-            .map_or_else(|e| e, |v| v + 1) as i32
+        pre_sum.binary_search(&((k as i64) % pre_sum.last().unwrap())).map_or_else(
+            |e| e,
+            |v| v + 1
+        ) as i32
     }
 }

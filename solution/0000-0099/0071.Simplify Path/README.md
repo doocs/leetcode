@@ -171,7 +171,9 @@ impl Solution {
         for p in p_vec {
             match p {
                 // Do nothing for "" or "."
-                "" | "." => continue,
+                "" | "." => {
+                    continue;
+                }
                 ".." => {
                     if !s.is_empty() {
                         s.pop();

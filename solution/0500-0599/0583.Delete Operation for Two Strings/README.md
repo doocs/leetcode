@@ -186,11 +186,11 @@ impl Solution {
                     dp[i - 1][j - 1] + 1
                 } else {
                     dp[i - 1][j].max(dp[i][j - 1])
-                }
+                };
             }
         }
         let max = dp[m][n];
-        ((m - max) + (n - max)) as i32
+        (m - max + (n - max)) as i32
     }
 }
 ```

@@ -284,7 +284,9 @@ impl Solution {
         for i in 0..m {
             for j in 0..n {
                 match grid[i][j] {
-                    1 => count += 1,
+                    1 => {
+                        count += 1;
+                    }
                     2 => queue.push_back([i as i32, j as i32]),
                     _ => (),
                 }
@@ -299,11 +301,12 @@ impl Solution {
                 for i in 0..4 {
                     let new_x = x + dirs[i];
                     let new_y = y + dirs[i + 1];
-                    if new_x >= 0
-                        && new_x < m as i32
-                        && new_y >= 0
-                        && new_y < n as i32
-                        && grid[new_x as usize][new_y as usize] == 1
+                    if
+                        new_x >= 0 &&
+                        new_x < (m as i32) &&
+                        new_y >= 0 &&
+                        new_y < (n as i32) &&
+                        grid[new_x as usize][new_y as usize] == 1
                     {
                         grid[new_x as usize][new_y as usize] = 2;
                         queue.push_back([new_x, new_y]);

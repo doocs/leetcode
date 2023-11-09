@@ -13,7 +13,7 @@ impl Solution {
                 }
             }
 
-            for k in (j + 1)..n {
+            for k in j + 1..n {
                 if prices[j] < prices[k] {
                     right = right.max(profits[k]);
                 }

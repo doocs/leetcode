@@ -258,7 +258,7 @@ Solution.prototype.pickIndex = function () {
 ### **Rust**
 
 ```rust
-use rand::{thread_rng, Rng};
+use rand::{ thread_rng, Rng };
 
 struct Solution {
     sum: Vec<i32>,
@@ -291,9 +291,7 @@ impl Solution {
         }
         (left - 1) as i32
     }
-}
-
-/**
+}/**
  * Your Solution object will be instantiated and called as such:
  * let obj = Solution::new(w);
  * let ret_1: i32 = obj.pick_index();

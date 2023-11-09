@@ -285,12 +285,18 @@ func smallestMissingValueSubtree(parents []int, nums []int) []int {
 ```rust
 impl Solution {
     pub fn smallest_missing_value_subtree(parents: Vec<i32>, nums: Vec<i32>) -> Vec<i32> {
-        fn dfs(i: usize, vis: &mut Vec<bool>, has: &mut Vec<bool>, g: &Vec<Vec<usize>>, nums: &Vec<i32>) {
+        fn dfs(
+            i: usize,
+            vis: &mut Vec<bool>,
+            has: &mut Vec<bool>,
+            g: &Vec<Vec<usize>>,
+            nums: &Vec<i32>
+        ) {
             if vis[i] {
                 return;
             }
             vis[i] = true;
-            if nums[i] < has.len() as i32 {
+            if nums[i] < (has.len() as i32) {
                 has[nums[i] as usize] = true;
             }
             for &j in &g[i] {

@@ -206,9 +206,15 @@ impl Solution {
         while left < right {
             let mid = left + (right - left) / 2;
             match (mid * mid).cmp(&num) {
-                Ordering::Less => left = mid + 1,
-                Ordering::Greater => right = mid - 1,
-                Ordering::Equal => return true,
+                Ordering::Less => {
+                    left = mid + 1;
+                }
+                Ordering::Greater => {
+                    right = mid - 1;
+                }
+                Ordering::Equal => {
+                    return true;
+                }
             }
         }
         left * left == num

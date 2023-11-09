@@ -442,8 +442,7 @@ impl MyCircularQueue {
     fn is_full(&self) -> bool {
         self.right - self.left == self.capacity
     }
-}
-/**
+}/**
  * Your MyCircularQueue object will be instantiated and called as such:
  * let obj = MyCircularQueue::new(k);
  * let ret_1: bool = obj.en_queue(value);
@@ -452,7 +451,6 @@ impl MyCircularQueue {
  * let ret_4: i32 = obj.rear();
  * let ret_5: bool = obj.is_empty();
  * let ret_6: bool = obj.is_full();
- */
  */
 ```
 

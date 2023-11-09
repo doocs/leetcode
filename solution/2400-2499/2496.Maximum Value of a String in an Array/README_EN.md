@@ -202,10 +202,10 @@ impl Solution {
             for c in s.chars() {
                 if c >= 'a' && c <= 'z' {
                     x = s.len();
-                    break
+                    break;
                 }
 
-                x = x * 10 + (c as u8 - b'0') as usize
+                x = x * 10 + (((c as u8) - b'0') as usize);
             }
 
             x as i32
@@ -235,7 +235,7 @@ impl Solution {
             match s.parse::<i32>() {
                 Ok(v) => {
                     ans = max(ans, v);
-                },
+                }
                 Err(_) => {
                     ans = max(ans, s.len() as i32);
                 }

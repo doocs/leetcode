@@ -25,7 +25,7 @@ jobs:
       - name: Run prettier
         run: |
           git config --global core.quotepath off
-          changed_files=$(git diff --name-only "${{ github.event.pull_request.base.sha }}" | grep -E '\.md$|\.js$|\.ts$|\.php|\.sql$' || true)
+          changed_files=$(git diff --name-only "${{ github.event.pull_request.base.sha }}" | grep -E '\.md$|\.js$|\.ts$|\.php$|\.sql$|\.rs$' || true)
           if [ -n "$changed_files" ]; then
             echo "Running prettier on the changed files"
             echo "$changed_files" | xargs -d '\n' npx prettier --write

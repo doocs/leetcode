@@ -1,7 +1,7 @@
 impl Solution {
     pub fn add_binary(a: String, b: String) -> String {
-        let mut i = a.len() as i32 - 1;
-        let mut j = b.len() as i32 - 1;
+        let mut i = (a.len() as i32) - 1;
+        let mut j = (b.len() as i32) - 1;
         let mut carry = 0;
         let mut ans = String::new();
         let a = a.as_bytes();

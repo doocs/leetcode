@@ -220,7 +220,7 @@ impl Solution {
 
         for i in 0..nums.len() {
             // Check the first element of queue, if it's out of bound
-            if !q.is_empty() && (i as i32 - k + 1) > *q.front().unwrap() as i32 {
+            if !q.is_empty() && (i as i32) - k + 1 > (*q.front().unwrap() as i32) {
                 // Pop it out
                 q.pop_front();
             }
@@ -232,7 +232,7 @@ impl Solution {
             // Push the current index in queue
             q.push_back(i);
             // Check if the condition is satisfied
-            if i >= (k - 1) as usize {
+            if i >= ((k - 1) as usize) {
                 ans_vec.push(nums[*q.front().unwrap()]);
             }
         }

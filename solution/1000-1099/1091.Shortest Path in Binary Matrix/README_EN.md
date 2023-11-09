@@ -233,9 +233,9 @@ impl Solution {
                 grid[i][j] = 1;
                 for x in -1..=1 {
                     for y in -1..=1 {
-                        let x = x + i as i32;
-                        let y = y + j as i32;
-                        if x < 0 || x == n as i32 || y < 0 || y == n as i32 {
+                        let x = x + (i as i32);
+                        let y = y + (j as i32);
+                        if x < 0 || x == (n as i32) || y < 0 || y == (n as i32) {
                             continue;
                         }
                         queue.push_back([x as usize, y as usize]);

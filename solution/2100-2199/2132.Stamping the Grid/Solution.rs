@@ -8,9 +8,10 @@ impl Solution {
         // Initialize the prefix vector
         for i in 0..n {
             for j in 0..m {
-                prefix_vec[i + 1][j + 1] = prefix_vec[i][j + 1] + prefix_vec[i + 1][j] - prefix_vec[i][j] + grid[i][j];
+                prefix_vec[i + 1][j + 1] =
+                    prefix_vec[i][j + 1] + prefix_vec[i + 1][j] - prefix_vec[i][j] + grid[i][j];
             }
-        } 
+        }
 
         let mut diff_vec: Vec<Vec<i32>> = vec![vec![0; m + 1]; n + 1];
 
@@ -22,12 +23,15 @@ impl Solution {
                     continue;
                 }
                 // Otherwise, try stick the stamp
-                let x: usize = i + stamp_height as usize;
-                let y: usize = j + stamp_width as usize;
+                let x: usize = i + (stamp_height as usize);
+                let y: usize = j + (stamp_width as usize);
                 // Check the bound
                 if x <= n && y <= m {
                     // If the region can be sticked (All cells are empty, which means the sum will be zero)
-                    if prefix_vec[x][y] - prefix_vec[x][j] - prefix_vec[i][y] + prefix_vec[i][j] == 0 {
+                    if
+                        prefix_vec[x][y] - prefix_vec[x][j] - prefix_vec[i][y] + prefix_vec[i][j] ==
+                        0
+                    {
                         // Update the difference vector
                         diff_vec[i][j] += 1;
                         diff_vec[x][y] += 1;
@@ -49,7 +53,8 @@ impl Solution {
                     continue;
                 }
                 // Otherwise, check if the region is empty, by calculating the prefix sum of difference vector
-                check_vec[i + 1][j + 1] = check_vec[i][j + 1] + check_vec[i + 1][j] - check_vec[i][j] + diff_vec[i][j];
+                check_vec[i + 1][j + 1] =
+                    check_vec[i][j + 1] + check_vec[i + 1][j] - check_vec[i][j] + diff_vec[i][j];
                 if check_vec[i + 1][j + 1] == 0 {
                     return false;
                 }

@@ -158,7 +158,7 @@ impl Solution {
             let mut v = 0;
 
             for c in w.chars() {
-                v |= (1 << (c as u8 - b'a'))
+                v |= 1 << ((c as u8) - b'a');
             }
 
             ans += hash.get(&v).unwrap_or(&0);

@@ -10,8 +10,10 @@ impl Solution {
                 return false;
             }
             if val < root_val {
-                return Self::dfs(start, i, root_val, postorder)
-                    && Self::dfs(i + 1, end - 1, max_val, postorder);
+                return (
+                    Self::dfs(start, i, root_val, postorder) &&
+                    Self::dfs(i + 1, end - 1, max_val, postorder)
+                );
             }
         }
         Self::dfs(start, end - 1, max_val, postorder)

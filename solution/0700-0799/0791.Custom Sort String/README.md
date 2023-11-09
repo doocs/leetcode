@@ -242,7 +242,9 @@ impl Solution {
             d[(c - b'a') as usize] = i;
         }
         let mut ans = s.chars().collect::<Vec<_>>();
-        ans.sort_by(|&a, &b| d[(a as u8 - 'a' as u8) as usize].cmp(&d[(b as u8 - 'a' as u8) as usize]));
+        ans.sort_by(|&a, &b|
+            d[((a as u8) - ('a' as u8)) as usize].cmp(&d[((b as u8) - ('a' as u8)) as usize])
+        );
         ans.into_iter().collect()
     }
 }
@@ -264,7 +266,7 @@ impl Solution {
         }
         for i in 0..count.len() {
             for _ in 0..count[i] {
-                ans.push(char::from(b'a' + i as u8));
+                ans.push(char::from(b'a' + (i as u8)));
             }
         }
         ans

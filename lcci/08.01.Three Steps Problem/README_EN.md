@@ -375,7 +375,7 @@ impl Solution {
             let t = a;
             a = b;
             b = c;
-            c = ((a + b) % m + t) % m;
+            c = (((a + b) % m) + t) % m;
         }
         a
     }

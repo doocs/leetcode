@@ -174,7 +174,10 @@ use std::rc::Rc;
 use std::cell::RefCell;
 impl Solution {
     #[allow(dead_code)]
-    pub fn leaf_similar(root1: Option<Rc<RefCell<TreeNode>>>, root2: Option<Rc<RefCell<TreeNode>>>) -> bool {
+    pub fn leaf_similar(
+        root1: Option<Rc<RefCell<TreeNode>>>,
+        root2: Option<Rc<RefCell<TreeNode>>>
+    ) -> bool {
         let mut one_vec: Vec<i32> = Vec::new();
         let mut two_vec: Vec<i32> = Vec::new();
 
@@ -201,7 +204,8 @@ impl Solution {
 
     #[allow(dead_code)]
     fn is_leaf_node(node: &Option<Rc<RefCell<TreeNode>>>) -> bool {
-        node.as_ref().unwrap().borrow().left.is_none() && node.as_ref().unwrap().borrow().right.is_none()
+        node.as_ref().unwrap().borrow().left.is_none() &&
+            node.as_ref().unwrap().borrow().right.is_none()
     }
 }
 ```

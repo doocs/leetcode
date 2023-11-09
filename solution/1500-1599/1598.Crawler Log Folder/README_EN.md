@@ -174,7 +174,7 @@ impl Solution {
         let mut depth = 0;
         for log in logs.iter() {
             if log == "../" {
-                depth = 0.max(depth - 1);
+                depth = (0).max(depth - 1);
             } else if log != "./" {
                 depth += 1;
             }

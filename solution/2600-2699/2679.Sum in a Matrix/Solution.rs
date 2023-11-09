@@ -4,7 +4,7 @@ impl Solution {
         for row in nums.iter_mut() {
             row.sort();
         }
-        
+
         let mut ans = 0;
         for j in 0..nums[0].len() {
             let mut mx = 0;
@@ -13,7 +13,7 @@ impl Solution {
             }
             ans += mx;
         }
-        
+
         ans
     }
 }

@@ -120,10 +120,7 @@ impl Solution {
     pub fn buy_choco(mut prices: Vec<i32>, money: i32) -> i32 {
         prices.sort();
 
-        let sum = prices
-        .iter()
-        .take(2)
-        .sum::<i32>();
+        let sum = prices.iter().take(2).sum::<i32>();
 
         if sum > money {
             return money;

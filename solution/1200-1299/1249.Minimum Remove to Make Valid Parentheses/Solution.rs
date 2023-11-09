@@ -6,8 +6,12 @@ impl Solution {
             let mut right = 0;
             for c in bs.iter() {
                 match c {
-                    &b'(' => left += 1,
-                    &b')' if right < left => right += 1,
+                    &b'(' => {
+                        left += 1;
+                    }
+                    &b')' if right < left => {
+                        right += 1;
+                    }
                     _ => {}
                 }
             }

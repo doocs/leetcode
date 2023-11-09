@@ -125,13 +125,13 @@ impl Solution {
         let mut ret_vec = vec![i32::MIN];
         let n = nums.len();
 
-        if n == k as usize {
+        if n == (k as usize) {
             return nums;
         }
 
-        for i in 0..=n - k as usize {
+        for i in 0..=n - (k as usize) {
             if nums[i] > ret_vec[0] {
-                ret_vec = nums[i..i + k as usize].to_vec();
+                ret_vec = nums[i..i + (k as usize)].to_vec();
             }
         }
 

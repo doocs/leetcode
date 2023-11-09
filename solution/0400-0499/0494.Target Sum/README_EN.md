@@ -224,9 +224,9 @@ impl Solution {
             for j in 0..=m as usize {
                 // nums[i - 1] is not included
                 dp[i][j] = dp[i - 1][j];
-                if nums[i - 1] <= j as i32 {
+                if nums[i - 1] <= (j as i32) {
                     // nums[i - 1] is included
-                    dp[i][j] += dp[i - 1][j - nums[i - 1] as usize];
+                    dp[i][j] += dp[i - 1][j - (nums[i - 1] as usize)];
                 }
             }
         }
@@ -259,7 +259,7 @@ impl Solution {
         // Begin the actual dp phase
         for e in &nums {
             for i in (*e as usize..=n).rev() {
-                dp[i] += dp[i - *e as usize];
+                dp[i] += dp[i - (*e as usize)];
             }
         }
 

@@ -183,8 +183,8 @@ impl Solution {
             true
         };
         for i in 1..nums.len() {
-            if nums[i-1] >= nums[i] {
-                return check(i-1) || check(i)
+            if nums[i - 1] >= nums[i] {
+                return check(i - 1) || check(i);
             }
         }
         true

@@ -3,7 +3,6 @@ struct StockSpanner {
     stk: VecDeque<(i32, i32)>,
 }
 
-
 /**
  * `&self` means the method takes an immutable reference.
  * If you need a mutable reference, change it to `&mut self` instead.
@@ -11,7 +10,7 @@ struct StockSpanner {
 impl StockSpanner {
     fn new() -> Self {
         Self {
-            stk: vec![(i32::MAX, -1)].into_iter().collect()
+            stk: vec![(i32::MAX, -1)].into_iter().collect(),
         }
     }
 
@@ -23,9 +22,7 @@ impl StockSpanner {
         self.stk.push_back((price, cnt));
         cnt
     }
-}
-
-/**
+}/**
  * Your StockSpanner object will be instantiated and called as such:
  * let obj = StockSpanner::new();
  * let ret_1: i32 = obj.next(price);

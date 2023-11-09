@@ -259,9 +259,15 @@ impl Solution {
         let mut r = n - 1;
         loop {
             match target.cmp(&(numbers[l] + numbers[r])) {
-                Ordering::Less => r -= 1,
-                Ordering::Greater => l += 1,
-                Ordering::Equal => break,
+                Ordering::Less => {
+                    r -= 1;
+                }
+                Ordering::Greater => {
+                    l += 1;
+                }
+                Ordering::Equal => {
+                    break;
+                }
             }
         }
         vec![l as i32, r as i32]
@@ -282,9 +288,15 @@ impl Solution {
             while l <= r {
                 let mid = l + (r - l) / 2;
                 match num.cmp(&numbers[mid]) {
-                    Ordering::Less => r = mid - 1,
-                    Ordering::Greater => l = mid + 1,
-                    Ordering::Equal => return vec![i as i32, mid as i32],
+                    Ordering::Less => {
+                        r = mid - 1;
+                    }
+                    Ordering::Greater => {
+                        l = mid + 1;
+                    }
+                    Ordering::Equal => {
+                        return vec![i as i32, mid as i32];
+                    }
                 }
             }
         }

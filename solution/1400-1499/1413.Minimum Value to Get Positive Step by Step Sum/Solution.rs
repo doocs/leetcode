@@ -6,6 +6,6 @@ impl Solution {
             sum += num;
             min = min.min(sum);
         }
-        1.max(1 - min)
+        (1).max(1 - min)
     }
 }

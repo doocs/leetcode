@@ -30,9 +30,7 @@ impl MyCalendar {
         self.bt.insert(start, end);
         true
     }
-}
-
-/**
+}/**
  * Your MyCalendar object will be instantiated and called as such:
  * let obj = MyCalendar::new();
  * let ret_1: bool = obj.book(start, end);

@@ -9,6 +9,6 @@ impl Solution {
                 num /= 10;
             }
         }
-        ans 
+        ans
     }
 }

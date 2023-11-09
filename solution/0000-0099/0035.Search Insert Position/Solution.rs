@@ -6,9 +6,15 @@ impl Solution {
         while left < right {
             let mid = left + (right - left) / 2;
             match nums[mid].cmp(&target) {
-                Ordering::Less => left = mid + 1,
-                Ordering::Greater => right = mid,
-                Ordering::Equal => return mid as i32,
+                Ordering::Less => {
+                    left = mid + 1;
+                }
+                Ordering::Greater => {
+                    right = mid;
+                }
+                Ordering::Equal => {
+                    return mid as i32;
+                }
             }
         }
         left as i32

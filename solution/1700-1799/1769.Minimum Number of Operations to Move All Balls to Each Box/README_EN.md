@@ -296,7 +296,10 @@ impl Solution {
             }
             right[i] = right[i + 1] + count;
         }
-        (0..n).into_iter().map(|i| left[i] + right[i]).collect()
+        (0..n)
+            .into_iter()
+            .map(|i| left[i] + right[i])
+            .collect()
     }
 }
 ```

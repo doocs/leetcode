@@ -176,11 +176,7 @@ impl Solution {
         for i in 0..=n - m {
             let s = &sequence[i..i + m];
             if s == word {
-                dp[i] = if (i as i32) - (m as i32) < 0 {
-                    0
-                } else {
-                    dp[i - m]
-                } + 1;
+                dp[i] = (if (i as i32) - (m as i32) < 0 { 0 } else { dp[i - m] }) + 1;
             }
         }
         *dp.iter().max().unwrap()

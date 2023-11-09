@@ -513,7 +513,7 @@ impl Solution {
                 let next = root.as_mut().unwrap().borrow_mut().left.take();
                 stack.push(root);
                 root = next;
-            } else  {
+            } else {
                 root = stack.pop().unwrap();
                 let next = root.as_mut().unwrap().borrow_mut().right.take();
                 if next.is_some() {

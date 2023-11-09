@@ -298,9 +298,15 @@ impl Solution {
     }
 
     #[allow(dead_code)]
-    fn dfs(nums: &Vec<i32>, vis: &mut Vec<bool>, index: i32, cur_vec: &mut Vec<i32>, ans: &mut Vec<Vec<i32>>) {
+    fn dfs(
+        nums: &Vec<i32>,
+        vis: &mut Vec<bool>,
+        index: i32,
+        cur_vec: &mut Vec<i32>,
+        ans: &mut Vec<Vec<i32>>
+    ) {
         let n = nums.len();
-        if index as usize == n {
+        if (index as usize) == n {
             ans.push(cur_vec.clone());
             return;
         }

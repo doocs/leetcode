@@ -280,7 +280,10 @@ fn main() -> io::Result<()> {
 
     let mut nums = String::new();
     io::stdin().read_line(&mut nums)?;
-    let mut nums: Vec<i32> = nums.split(' ').map(|s| s.trim().parse().unwrap()).collect();
+    let mut nums: Vec<i32> = nums
+        .split(' ')
+        .map(|s| s.trim().parse().unwrap())
+        .collect();
 
     quick_sort(&mut nums, 0, n - 1);
     for num in nums.iter() {

@@ -570,7 +570,6 @@ use std::cell::RefCell;
 use std::collections::HashMap;
 use std::rc::Rc;
 
-
 struct Node {
     key: i32,
     value: i32,
@@ -578,7 +577,6 @@ struct Node {
     prev: Option<Rc<RefCell<Node>>>,
     next: Option<Rc<RefCell<Node>>>,
 }
-
 
 impl Node {
     fn new(key: i32, value: i32) -> Self {
@@ -592,12 +590,10 @@ impl Node {
     }
 }
 
-
 struct LinkedList {
     head: Option<Rc<RefCell<Node>>>,
     tail: Option<Rc<RefCell<Node>>>,
 }
-
 
 impl LinkedList {
     fn new() -> Self {
@@ -606,7 +602,6 @@ impl LinkedList {
             tail: None,
         }
     }
-
 
     fn push_front(&mut self, node: &Rc<RefCell<Node>>) {
         match self.head.take() {
@@ -624,7 +619,6 @@ impl LinkedList {
             }
         };
     }
-
 
     fn remove(&mut self, node: &Rc<RefCell<Node>>) {
         match (node.borrow().prev.as_ref(), node.borrow().next.as_ref()) {
@@ -647,7 +641,6 @@ impl LinkedList {
         };
     }
 
-
     fn pop_back(&mut self) -> Option<Rc<RefCell<Node>>> {
         match self.tail.take() {
             Some(tail) => {
@@ -658,12 +651,10 @@ impl LinkedList {
         }
     }
 
-
     fn is_empty(&self) -> bool {
         self.head.is_none()
     }
 }
-
 
 struct LFUCache {
     cache: HashMap<i32, Rc<RefCell<Node>>>,
@@ -671,7 +662,6 @@ struct LFUCache {
     min_freq: i32,
     capacity: usize,
 }
-
 
 /**
  * `&self` means the method takes an immutable reference.
@@ -687,12 +677,10 @@ impl LFUCache {
         }
     }
 
-
     fn get(&mut self, key: i32) -> i32 {
         if self.capacity == 0 {
             return -1;
         }
-
 
         match self.cache.get(&key) {
             Some(node) => {
@@ -705,12 +693,10 @@ impl LFUCache {
         }
     }
 
-
     fn put(&mut self, key: i32, value: i32) {
         if self.capacity == 0 {
             return;
         }
-
 
         match self.cache.get(&key) {
             Some(node) => {
@@ -731,7 +717,6 @@ impl LFUCache {
         };
     }
 
-
     fn incr_freq(&mut self, node: &Rc<RefCell<Node>>) {
         let freq = node.borrow().freq;
         let list = self.freq_map.get_mut(&freq).unwrap();
@@ -746,7 +731,6 @@ impl LFUCache {
         self.add_node(node);
     }
 
-
     fn add_node(&mut self, node: &Rc<RefCell<Node>>) {
         let freq = node.borrow().freq;
         match self.freq_map.get_mut(&freq) {
@@ -760,10 +744,7 @@ impl LFUCache {
             }
         };
     }
-}
-
-
-/**
+}/**
  * Your LFUCache object will be instantiated and called as such:
  * let obj = LFUCache::new(capacity);
  * let ret_1: i32 = obj.get(key);

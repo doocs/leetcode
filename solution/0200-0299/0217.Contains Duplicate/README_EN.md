@@ -169,7 +169,7 @@ impl Solution {
         let n = nums.len();
         for i in 1..n {
             if nums[i - 1] == nums[i] {
-                return true
+                return true;
             }
         }
         false

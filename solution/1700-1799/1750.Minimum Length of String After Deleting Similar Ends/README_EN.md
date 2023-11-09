@@ -179,7 +179,7 @@ impl Solution {
             start += 1;
             end -= 1;
         }
-        0.max(end - start + 1) as i32
+        (0).max(end - start + 1) as i32
     }
 }
 ```

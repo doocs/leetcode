@@ -12,7 +12,7 @@ impl Solution {
         let mut res = Vec::new();
         for (k, v) in map {
             if v {
-                res.push(String::from(k))
+                res.push(String::from(k));
             }
         }
         res
