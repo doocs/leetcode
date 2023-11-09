@@ -435,7 +435,6 @@ impl Solution {
  * }
  */
 class Solution {
-
     /**
      * @param ListNode $l1
      * @param ListNode $l2
@@ -447,8 +446,8 @@ class Solution {
         $carry = 0;
 
         while ($l1 !== null || $l2 !== null) {
-            $x = ($l1 !== null) ? $l1->val : 0;
-            $y = ($l2 !== null) ? $l2->val : 0;
+            $x = $l1 !== null ? $l1->val : 0;
+            $y = $l2 !== null ? $l2->val : 0;
 
             $sum = $x + $y + $carry;
             $carry = (int) ($sum / 10);

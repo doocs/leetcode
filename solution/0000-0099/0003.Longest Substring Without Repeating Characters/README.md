@@ -360,7 +360,7 @@ class Solution {
     function lengthOfLongestSubstring($s) {
         $max = 0;
         for ($i = 0; $i < strlen($s); $i++) {
-            $chars = array();
+            $chars = [];
             $sub = '';
             for ($j = $i; $j < strlen($s); $j++) {
                 if (in_array($s[$j], $chars)) {
