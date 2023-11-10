@@ -41,6 +41,7 @@ So team 1 will be the champion.
 	<li><code>n == grid[i].length</code></li>
 	<li><code>2 &lt;= n &lt;= 100</code></li>
 	<li><code>grid[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
+	<li>For all <code>i grid[i][i]</code> is <code>0.</code></li>
 	<li>For all <code>i, j</code> that <code>i != j</code>, <code>grid[i][j] != grid[j][i]</code>.</li>
 	<li>The input is generated such that if team <code>a</code> is stronger than team <code>b</code> and team <code>b</code> is stronger than team <code>c</code>, then team <code>a</code> is stronger than team <code>c</code>.</li>
 </ul>

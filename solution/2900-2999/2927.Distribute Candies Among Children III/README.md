@@ -1,4 +1,4 @@
-# [2927. Distribute Candies Among Children III](https://leetcode.cn/problems/distribute-candies-among-children-iii)
+# [2927. 将糖果分发给孩子 III](https://leetcode.cn/problems/distribute-candies-among-children-iii)
 
 [English Version](/solution/2900-2999/2927.Distribute%20Candies%20Among%20Children%20III/README_EN.md)
 
@@ -6,29 +6,31 @@
 
 <!-- 这里写题目描述 -->
 
-<p>You are given two positive integers <code>n</code> and <code>limit</code>.</p>
+<p>你被给定两个正整数 <code>n</code> 和 <code>limit</code>。</p>
 
-<p>Return <em>the <strong>total number</strong> of ways to distribute </em><code>n</code> <em>candies among </em><code>3</code><em> children such that no child gets more than </em><code>limit</code><em> candies.</em></p>
-
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-
-<pre>
-<strong>Input:</strong> n = 5, limit = 2
-<strong>Output:</strong> 3
-<strong>Explanation:</strong> There are 3 ways to distribute 5 candies such that no child gets more than 2 candies: (1, 2, 2), (2, 1, 2) and (2, 2, 1).
-</pre>
-
-<p><strong class="example">Example 2:</strong></p>
-
-<pre>
-<strong>Input:</strong> n = 3, limit = 3
-<strong>Output:</strong> 10
-<strong>Explanation:</strong> There are 10 ways to distribute 3 candies such that no child gets more than 3 candies: (0, 0, 3), (0, 1, 2), (0, 2, 1), (0, 3, 0), (1, 0, 2), (1, 1, 1), (1, 2, 0), (2, 0, 1), (2, 1, 0) and (3, 0, 0).
-</pre>
+<p>返回 <em>在每个孩子得到不超过&nbsp;</em><code>limit</code><em> 个糖果的情况下，将</em> <code>n</code> <em>个糖果分发给</em>&nbsp;<code>3</code> <em>个孩子的&nbsp;<strong>总方法数</strong>。</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><b>示例 1:</b></p>
+
+<pre>
+<b>输入：</b>n = 5, limit = 2
+<b>输出：</b>3
+<b>解释：</b>有 3 种方式将 5 个糖果分发给 3 个孩子，使得每个孩子得到不超过 2 个糖果：(1, 2, 2), (2, 1, 2) 和 (2, 2, 1)。
+</pre>
+
+<p><b>示例 2:</b></p>
+
+<pre>
+<b>输入：</b>n = 3, limit = 3
+<b>输出：</b>10
+<b>解释：</b>有 10 种方式将 3 个糖果分发给 3 个孩子，使得每个孩子得到不超过 3 个糖果：(0, 0, 3), (0, 1, 2), (0, 2, 1), (0, 3, 0), (1, 0, 2), (1, 1, 1), (1, 2, 0), (2, 0, 1), (2, 1, 0) 和 (3, 0, 0)。
+</pre>
+
+<p>&nbsp;</p>
+
+<p><b>提示：</b></p>
 
 <ul>
 	<li><code>1 &lt;= n &lt;= 10<sup>8</sup></code></li>

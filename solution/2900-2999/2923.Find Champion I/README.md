@@ -44,9 +44,10 @@ grid[1][2] == 1 表示 1 队比 2 队强。
 	<li><code>n == grid.length</code></li>
 	<li><code>n == grid[i].length</code></li>
 	<li><code>2 &lt;= n &lt;= 100</code></li>
-	<li><code>grid[i][j]</code> 的值为 <code>0</code> 或 <code>1</code></li>
+	<li><code>grid[i][j]</code> 的值为 <code>0</code> 或 <code>1</code><meta charset="UTF-8" /></li>
+	<li>对于所有&nbsp;<code>i</code>，<code> grid[i][i]</code>&nbsp;等于&nbsp;<code>0.</code></li>
 	<li>对于满足&nbsp;<code>i != j</code> 的所有 <code>i, j</code> ，<code>grid[i][j] != grid[j][i]</code> 均成立</li>
-	<li>生成的输出满足：如果 <code>a</code> 队比 <code>b</code> 队强，<code>b</code> 队比 <code>c</code> 队强，那么 <code>a</code> 队比 <code>c</code> 队强</li>
+	<li>生成的输入满足：如果 <code>a</code> 队比 <code>b</code> 队强，<code>b</code> 队比 <code>c</code> 队强，那么 <code>a</code> 队比 <code>c</code> 队强</li>
 </ul>
 
 ## 解法
