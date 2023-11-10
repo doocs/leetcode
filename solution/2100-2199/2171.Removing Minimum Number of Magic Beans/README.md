@@ -17,7 +17,7 @@
 <p><strong>示例 1：</strong></p>
 
 <pre>
-<b>输入：</b>beans = [4,<u><strong>1</strong></u>,6,5]
+<b>输入：</b>beans = [4,1,6,5]
 <b>输出：</b>4
 <b>解释：</b>
 - 我们从有 1 个魔法豆的袋子中拿出 1 颗魔法豆。
@@ -33,7 +33,7 @@
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<b>输入：</b>beans = [<u><strong>2</strong></u>,10,<u><strong>3</strong></u>,<u><strong>2</strong></u>]
+<b>输入：</b>beans = [2,10,3,2]
 <b>输出：</b>7
 <strong>解释：</strong>
 - 我们从有 2 个魔法豆的其中一个袋子中拿出 2 个魔法豆。
