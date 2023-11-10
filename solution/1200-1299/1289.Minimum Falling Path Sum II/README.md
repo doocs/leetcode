@@ -240,11 +240,7 @@ func minFallingPathSum(grid [][]int) int {
 			f[i][j] = v + x
 		}
 	}
-	ans := inf
-	for _, x := range f[n] {
-		ans = min(ans, x)
-	}
-	return ans
+	return slices.Min(f[n])
 }
 ```
 

@@ -1,8 +1,5 @@
 func minSetSize(arr []int) (ans int) {
-	mx := 0
-	for _, x := range arr {
-		mx = max(mx, x)
-	}
+	mx := slices.Max(arr)
 	cnt := make([]int, mx+1)
 	for _, x := range arr {
 		cnt[x]++

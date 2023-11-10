@@ -120,7 +120,7 @@ public:
 ### **Go**
 
 ```go
-func minCostII(costs [][]int) (ans int) {
+func minCostII(costs [][]int) int {
 	n, k := len(costs), len(costs[0])
 	f := cp(costs[0])
 	for i := 1; i < n; i++ {
@@ -136,13 +136,7 @@ func minCostII(costs [][]int) (ans int) {
 		}
 		f = g
 	}
-	ans = f[0]
-	for _, v := range f {
-		if ans > v {
-			ans = v
-		}
-	}
-	return
+	return slices.Min(f)
 }
 
 func cp(arr []int) []int {

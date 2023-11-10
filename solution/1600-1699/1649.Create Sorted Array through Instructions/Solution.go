@@ -25,10 +25,7 @@ func (this *BinaryIndexedTree) query(x int) int {
 }
 
 func createSortedArray(instructions []int) (ans int) {
-	m := 0
-	for _, x := range instructions {
-		m = max(m, x)
-	}
+	m := slices.Max(instructions)
 	tree := newBinaryIndexedTree(m)
 	const mod = 1e9 + 7
 	for i, x := range instructions {

@@ -1,8 +1,5 @@
 func countTriplets(nums []int) (ans int) {
-	mx := 0
-	for _, x := range nums {
-		mx = max(mx, x)
-	}
+	mx := slices.Max(nums)
 	cnt := make([]int, mx+1)
 	for _, x := range nums {
 		for _, y := range nums {

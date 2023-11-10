@@ -32,13 +32,11 @@ public:
         sort(s.begin(), s.end());
         s.erase(unique(s.begin(), s.end()), s.end());
         BinaryIndexedTree tree(s.size());
-        int ans = 1;
         for (int x : nums) {
             x = lower_bound(s.begin(), s.end(), x) - s.begin() + 1;
             int t = tree.query(x - 1) + 1;
-            ans = max(ans, t);
             tree.update(x, t);
         }
-        return ans;
+        return tree.query(s.size());
     }
 };

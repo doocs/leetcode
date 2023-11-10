@@ -152,10 +152,7 @@ public:
 
 ```go
 func maxLength(ribbons []int, k int) int {
-	left, right := 0, 0
-	for _, x := range ribbons {
-		right = max(right, x)
-	}
+	left, right := 0, slices.Max(ribbons)
 	for left < right {
 		mid := (left + right + 1) >> 1
 		cnt := 0

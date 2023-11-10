@@ -36,12 +36,10 @@ func lengthOfLIS(nums []int) int {
 		}
 	}
 	tree := newBinaryIndexedTree(m)
-	ans := 1
 	for _, x := range nums {
 		x = sort.SearchInts(s[:m], x) + 1
 		t := tree.query(x-1) + 1
-		ans = max(ans, t)
 		tree.update(x, t)
 	}
-	return ans
+	return tree.query(m)
 }

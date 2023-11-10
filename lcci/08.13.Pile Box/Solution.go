@@ -1,4 +1,4 @@
-func pileBox(box [][]int) (ans int) {
+func pileBox(box [][]int) int {
 	sort.Slice(box, func(i, j int) bool {
 		a, b := box[i], box[j]
 		return a[0] < b[0] || (a[0] == b[0] && b[1] < a[1])
@@ -12,7 +12,6 @@ func pileBox(box [][]int) (ans int) {
 			}
 		}
 		f[i] += box[i][2]
-		ans = max(ans, f[i])
 	}
-	return
+	return slices.Max(f)
 }

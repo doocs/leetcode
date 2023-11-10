@@ -158,11 +158,7 @@ func minFallingPathSum(matrix [][]int) int {
 		}
 		f = g
 	}
-	ans := 1 << 30
-	for _, x := range f {
-		ans = min(ans, x)
-	}
-	return ans
+	return slices.Min(f)
 }
 ```
 

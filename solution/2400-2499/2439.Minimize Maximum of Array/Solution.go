@@ -1,8 +1,4 @@
 func minimizeArrayValue(nums []int) int {
-	left, right := 0, 0
-	for _, x := range nums {
-		right = max(right, x)
-	}
 	check := func(mx int) bool {
 		d := 0
 		for i := len(nums) - 1; i > 0; i-- {
@@ -10,6 +6,8 @@ func minimizeArrayValue(nums []int) int {
 		}
 		return nums[0]+d <= mx
 	}
+
+	left, right := 0, slices.Max(nums)
 	for left < right {
 		mid := (left + right) >> 1
 		if check(mid) {

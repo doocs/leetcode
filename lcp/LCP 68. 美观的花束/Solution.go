@@ -1,8 +1,5 @@
 func beautifulBouquet(flowers []int, cnt int) (ans int) {
-	mx := 0
-	for _, x := range flowers {
-		mx = max(mx, x)
-	}
+	mx := slices.Max(flowers)
 	d := make([]int, mx+1)
 	j := 0
 	const mod = 1e9 + 7

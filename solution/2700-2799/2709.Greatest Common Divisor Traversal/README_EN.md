@@ -325,10 +325,7 @@ func (uf *unionFind) union(a, b int) bool {
 }
 
 func canTraverseAllPairs(nums []int) bool {
-	m := 0
-	for _, x := range nums {
-		m = max(m, x)
-	}
+	m := slices.Max(nums)
 	n := len(nums)
 	uf := newUnionFind(m + n + 1)
 	for i, x := range nums {

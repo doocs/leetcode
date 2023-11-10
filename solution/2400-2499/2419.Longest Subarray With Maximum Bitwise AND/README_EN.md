@@ -115,10 +115,7 @@ public:
 
 ```go
 func longestSubarray(nums []int) int {
-	mx := 0
-	for _, v := range nums {
-		mx = max(mx, v)
-	}
+	mx := slices.Max(nums)
 	ans, cnt := 0, 0
 	for _, v := range nums {
 		if v == mx {

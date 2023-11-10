@@ -131,12 +131,7 @@ func giveGem(gem []int, operations [][]int) int {
 		gem[y] += v
 		gem[x] -= v
 	}
-	mx, mi := 0, 1<<30
-	for _, x := range gem {
-		mx = max(mx, x)
-		mi = min(mi, x)
-	}
-	return mx - mi
+	return slices.Max(gem) - slices.Min(gem)
 }
 ```
 

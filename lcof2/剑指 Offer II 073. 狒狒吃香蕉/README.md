@@ -132,11 +132,7 @@ public:
 
 ```go
 func minEatingSpeed(piles []int, h int) int {
-	mx := 0
-	for _, pile := range piles {
-		mx = max(mx, pile)
-	}
-	left, right := 1, mx
+	left, right := 1, slices.Max(piles)
 	for left < right {
 		mid := (left + right) >> 1
 		s := 0
