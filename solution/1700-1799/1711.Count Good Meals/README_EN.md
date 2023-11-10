@@ -170,11 +170,7 @@ public:
 
 ```go
 func countPairs(deliciousness []int) (ans int) {
-	mx := 0
-	for _, d := range deliciousness {
-		mx = max(mx, d)
-	}
-	mx <<= 1
+	mx := slices.Max(deliciousness) << 1
 	const mod int = 1e9 + 7
 	cnt := map[int]int{}
 	for _, d := range deliciousness {

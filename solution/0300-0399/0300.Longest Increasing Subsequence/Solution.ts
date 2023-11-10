@@ -28,14 +28,12 @@ function lengthOfLIS(nums: number[]): number {
     const s = [...new Set(nums)].sort((a, b) => a - b);
     const m = s.length;
     const tree = new BinaryIndexedTree(m);
-    let ans = 1;
     for (let x of nums) {
         x = search(s, x);
         const t = tree.query(x - 1) + 1;
-        ans = Math.max(ans, t);
         tree.update(x, t);
     }
-    return ans;
+    return tree.query(m);
 }
 
 function search(nums: number[], x: number): number {

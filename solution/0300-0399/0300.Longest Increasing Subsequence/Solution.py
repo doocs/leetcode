@@ -19,11 +19,10 @@ class BinaryIndexedTree:
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
         s = sorted(set(nums))
-        tree = BinaryIndexedTree(len(s))
-        ans = 1
+        m = len(s)
+        tree = BinaryIndexedTree(m)
         for x in nums:
             x = bisect_left(s, x) + 1
             t = tree.query(x - 1) + 1
-            ans = max(ans, t)
             tree.update(x, t)
-        return ans
+        return tree.query(m)

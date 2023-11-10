@@ -113,15 +113,7 @@ public:
 
 ```go
 func findNonMinOrMax(nums []int) int {
-	mi, mx := 100, 0
-	for _, x := range nums {
-		if x < mi {
-			mi = x
-		}
-		if x > mx {
-			mx = x
-		}
-	}
+	mi, mx := slices.Min(nums), slices.Max(nums)
 	for _, x := range nums {
 		if x != mi && x != mx {
 			return x

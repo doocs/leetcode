@@ -151,11 +151,7 @@ func assignBikes(workers [][]int, bikes [][]int) int {
 			}
 		}
 	}
-	ans := inf
-	for _, x := range f[n] {
-		ans = min(ans, x)
-	}
-	return ans
+	return slices.Min(f[n])
 }
 
 func abs(x int) int {

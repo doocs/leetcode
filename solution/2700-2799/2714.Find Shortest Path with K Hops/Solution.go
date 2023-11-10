@@ -29,11 +29,7 @@ func shortestPathWithHops(n int, edges [][]int, s int, d int, k int) int {
 			}
 		}
 	}
-	ans := math.MaxInt32
-	for i := 0; i <= k; i++ {
-		ans = min(ans, dist[d][i])
-	}
-	return ans
+	return slices.Min(dist[d])
 }
 
 type tuple struct{ dis, u, t int }

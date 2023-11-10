@@ -1,7 +1,7 @@
 function maximumSum(arr: number[]): number {
     const n = arr.length;
-    const left: number[] = new Array(n);
-    const right: number[] = new Array(n);
+    const left: number[] = Array(n).fill(0);
+    const right: number[] = Array(n).fill(0);
     for (let i = 0, s = 0; i < n; ++i) {
         s = Math.max(s, 0) + arr[i];
         left[i] = s;

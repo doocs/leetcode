@@ -5,10 +5,8 @@ func minMeetingRooms(intervals [][]int) int {
 		delta[e[0]]++
 		delta[e[1]]--
 	}
-	res := delta[0]
 	for i := 1; i < n; i++ {
 		delta[i] += delta[i-1]
-		res = max(res, delta[i])
 	}
-	return res
+	return slices.Max(delta)
 }

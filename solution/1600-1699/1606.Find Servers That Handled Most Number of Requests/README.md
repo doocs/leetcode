@@ -178,7 +178,7 @@ class Solution {
 ### **Go**
 
 ```go
-func busiestServers(k int, arrival, load []int) []int {
+func busiestServers(k int, arrival, load []int) (ans []int) {
 	free := redblacktree.NewWithIntComparator()
 	for i := 0; i < k; i++ {
 		free.Put(i, nil)
@@ -202,19 +202,13 @@ func busiestServers(k int, arrival, load []int) []int {
 		heap.Push(&busy, pair{t + load[i], server})
 		free.Remove(server)
 	}
-	mx := 0
-	for _, v := range cnt {
-		if v > mx {
-			mx = v
-		}
-	}
-	var ans []int
+	mx := slices.Max(cnt)
 	for i, v := range cnt {
 		if v == mx {
 			ans = append(ans, i)
 		}
 	}
-	return ans
+	return
 }
 
 type pair struct{ end, server int }

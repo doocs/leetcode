@@ -141,10 +141,6 @@ public:
 
 ```go
 func minOperations(nums []int, x int, y int) int {
-	var l, r int
-	for _, v := range nums {
-		r = max(r, v)
-	}
 	check := func(t int) bool {
 		cnt := 0
 		for _, v := range nums {
@@ -154,6 +150,8 @@ func minOperations(nums []int, x int, y int) int {
 		}
 		return cnt <= t
 	}
+
+	l, r := 0, slices.Max(nums)
 	for l < r {
 		mid := (l + r) >> 1
 		if check(mid) {

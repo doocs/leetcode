@@ -163,11 +163,6 @@ public:
 
 ```go
 func equalizeWater(buckets []int, loss int) float64 {
-	var l, r float64
-	for _, x := range buckets {
-		r = math.Max(r, float64(x))
-	}
-
 	check := func(v float64) bool {
 		var a, b float64
 		for _, x := range buckets {
@@ -180,6 +175,7 @@ func equalizeWater(buckets []int, loss int) float64 {
 		return a >= b
 	}
 
+	l, r := float64(0), float64(slices.Max(buckets))
 	for r-l > 1e-5 {
 		mid := (l + r) / 2
 		if check(mid) {

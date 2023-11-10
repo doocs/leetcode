@@ -28,11 +28,7 @@ func maxProfit(prices []int, profits []int) int {
 	n := len(prices)
 	left := make([]int, n)
 	right := make([]int, n)
-	m := 0
-
-	for _, x := range prices {
-		m = max(m, x)
-	}
+	m := slices.Max(prices)
 
 	tree1 := NewBinaryIndexedTree(m + 1)
 	tree2 := NewBinaryIndexedTree(m + 1)

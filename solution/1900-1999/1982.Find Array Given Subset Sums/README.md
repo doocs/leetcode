@@ -306,11 +306,7 @@ public:
 
 ```go
 func recoverArray(n int, sums []int) []int {
-	m := 0
-	for _, x := range sums {
-		m = min(m, x)
-	}
-	m = -m
+	m := -slices.Min(sums)
 	rbt := redblacktree.NewWithIntComparator()
 	merge := func(key int, value int) {
 		if v, ok := rbt.Get(key); ok {

@@ -209,11 +209,8 @@ public:
 ```go
 func findMaxAverage(nums []int, k int) float64 {
 	eps := 1e-5
-	l, r := 1e9, -1e9
-	for _, x := range nums {
-		l = math.Min(l, float64(x))
-		r = math.Max(r, float64(x))
-	}
+	l := float64(slices.Min(nums))
+	r := float64(slices.Max(nums))
 	check := func(v float64) bool {
 		s := 0.0
 		for _, x := range nums[:k] {
