@@ -1,4 +1,4 @@
-# [2922. Market Analysis III](https://leetcode.cn/problems/market-analysis-iii)
+# [2922. 市场分析 III](https://leetcode.cn/problems/market-analysis-iii)
 
 [English Version](/solution/2900-2999/2922.Market%20Analysis%20III/README_EN.md)
 
@@ -16,8 +16,8 @@
 | join_date      | date    |
 | favorite_brand | varchar |
 +----------------+---------+
-seller_id is the primary key for this table.
-This table contains seller id, join date, and favorite brand of sellers.
+seller_id 是该表的主键。
+该表包含销售者的 ID, 加入日期以及最喜欢的品牌。
 </pre>
 
 <p>Table: <code>Items</code></p>
@@ -29,8 +29,8 @@ This table contains seller id, join date, and favorite brand of sellers.
 | item_id       | int     |
 | item_brand    | varchar |
 +---------------+---------+
-item_id is the primary key for this table.
-This table contains item id and item brand.</pre>
+item_id 是该表的主键。
+该表包含商品 ID 和商品品牌。</pre>
 
 <p>Table: <code>Orders</code></p>
 
@@ -43,22 +43,23 @@ This table contains item id and item brand.</pre>
 | item_id       | int     |
 | seller_id     | int     |
 +---------------+---------+
-order_id is the primary key for this table.
-item_id is a foreign key to the Items table.
-seller_id is a foreign key to the Users table.
-This table contains order id, order date, item id and seller id.</pre>
+order_id 是该表的主键。
+item_id 是指向 Items 表的外键。
+seller_id 是指向 Users 表的外键。
+该表包含订单 ID、下单日期、商品 ID 和卖家 ID。</pre>
 
-<p>Write a solution to find the <strong>top seller</strong> who has sold the highest number of<strong> unique</strong> items with a <strong>different</strong> brand than their favorite brand. If there are multiple sellers with the same highest count, return all of them.</p>
+<p>编写一个解决方案，找到销售最多与其最喜欢的品牌 <strong>不同</strong> 的 <strong>独特</strong> 商品的&nbsp;<strong>顶级卖家</strong>。如果有多个卖家销售同样数量的商品，则返回所有这些卖家。&nbsp;</p>
 
-<p>Return <em>the result table ordered by</em> <code>seller_id</code> <em>in <strong>ascending</strong> order.</em></p>
+<p>返回按&nbsp;<code>seller_id</code><em>&nbsp;<strong>升序排序</strong>&nbsp;的结果表。</em></p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下示例所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><b>示例 1:</b></p>
 
 <pre>
-<strong>Input:</strong> 
+<b>输入：</b>
 Users table:
 +-----------+------------+----------------+
 | seller_id | join_date  | favorite_brand |
@@ -86,17 +87,18 @@ Items table:
 | 3       | LG         |
 | 4       | HP         |
 +---------+------------+
-<strong>Output:</strong> 
+<b>输出：</b>
 +-----------+-----------+
 | seller_id | num_items |
 +-----------+-----------+
 | 2         | 1         |
 | 3         | 1         |
 +-----------+-----------+
-<strong>Explanation:</strong> 
-- The user with seller_id 2 has sold three items, but only two of them are not marked as a favorite. We will include a unique count of 1 because both of these items are identical.
-- The user with seller_id 3 has sold two items, but only one of them is not marked as a favorite. We will include just that non-favorite item in our count.
-Since seller_ids 2 and 3 have the same count of one item each, they both will be displayed in the output.</pre>
+<b>解释：</b>
+- 卖家 ID 为 2 的用户销售了三件商品，但只有两件不被标记为最喜欢的商品。我们将只列入独特计数为 1，因为这两件商品都是相同的。 
+- 卖家 ID 为 3 的用户销售了两件商品，但只有一件不被标记为最喜欢的商品。我们将只包括那个不被标记为最喜欢的商品列入计数中。
+因为卖家 ID 为 2 和 3 的卖家都有一件商品列入计数，所以他们都将显示在输出中。
+</pre>
 
 ## 解法
 
