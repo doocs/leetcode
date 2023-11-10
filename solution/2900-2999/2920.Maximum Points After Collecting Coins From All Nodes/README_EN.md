@@ -55,30 +55,200 @@ Coins will be collected from all the nodes using the first way. Therefore, total
 
 ## Solutions
 
+**Solution 1: Memoization Search**
+
+First, we construct a graph $g$ based on the edges given in the problem, where $g[i]$ represents all adjacent nodes of node $i$. Then we can use the method of memoization search to solve this problem.
+
+We design a function $dfs(i, fa, j)$, which represents that the current node is $i$, the parent node is $fa$, the number of gold coins of the current node needs to be shifted to the right by $j$ bits, and the maximum score that can be obtained.
+
+The execution process of the function $dfs(i, fa, j)$ is as follows:
+
+If we use the first method to collect the gold coins of the current node, then the score of the current node is $(coins[i] >> j) - k$. Then we traverse all the adjacent nodes $c$ of the current node. If $c$ is not equal to $fa$, then we add the result of $dfs(c, i, j)$ to the score of the current node.
+
+If we use the second method to collect the gold coins of the current node, then the score of the current node is $coins[i] >> (j + 1)$. Then we traverse all the adjacent nodes $c$ of the current node. If $c$ is not equal to $fa$, then we add the result of $dfs(c, i, j + 1)$ to the score of the current node. Note that since the maximum value of $coins[i]$ given in the problem is $10^4$, we can only shift to the right by at most $14$ bits, so that the value of $coins[i] >> (j + 1)$ is $0$.
+
+Finally, we return the maximum score that can be obtained by using the two methods at the current node.
+
+In order to avoid repeated calculations, we use the method of memoization search and store the result of $dfs(i, fa, j)$ in $f[i][j]$, where $f[i][j]$ represents that the current node is $i$, the parent node is $fa$, the number of gold coins of the current node needs to be shifted to the right by $j$ bits, and the maximum score that can be obtained.
+
+The time complexity is $O(n \times \log M)$, and the space complexity is $O(n \times \log M)$. Where $M$ represents the maximum value of $coins[i]$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
+class Solution:
+    def maximumPoints(self, edges: List[List[int]], coins: List[int], k: int) -> int:
+        @cache
+        def dfs(i: int, fa: int, j: int) -> int:
+            a = (coins[i] >> j) - k
+            b = coins[i] >> (j + 1)
+            for c in g[i]:
+                if c != fa:
+                    a += dfs(c, i, j)
+                    if j < 14:
+                        b += dfs(c, i, j + 1)
+            return max(a, b)
 
+        n = len(coins)
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        ans = dfs(0, -1, 0)
+        dfs.cache_clear()
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int k;
+    private int[] coins;
+    private Integer[][] f;
+    private List<Integer>[] g;
 
+    public int maximumPoints(int[][] edges, int[] coins, int k) {
+        this.k = k;
+        this.coins = coins;
+        int n = coins.length;
+        f = new Integer[n][15];
+        g = new List[n];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        return dfs(0, -1, 0);
+    }
+
+    private int dfs(int i, int fa, int j) {
+        if (f[i][j] != null) {
+            return f[i][j];
+        }
+        int a = (coins[i] >> j) - k;
+        int b = coins[i] >> (j + 1);
+        for (int c : g[i]) {
+            if (c != fa) {
+                a += dfs(c, i, j);
+                if (j < 14) {
+                    b += dfs(c, i, j + 1);
+                }
+            }
+        }
+        return f[i][j] = Math.max(a, b);
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int maximumPoints(vector<vector<int>>& edges, vector<int>& coins, int k) {
+        int n = coins.size();
+        int f[n][15];
+        memset(f, -1, sizeof(f));
+        vector<int> g[n];
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].emplace_back(b);
+            g[b].emplace_back(a);
+        }
+        function<int(int, int, int)> dfs = [&](int i, int fa, int j) {
+            if (f[i][j] != -1) {
+                return f[i][j];
+            }
+            int a = (coins[i] >> j) - k;
+            int b = coins[i] >> (j + 1);
+            for (int c : g[i]) {
+                if (c != fa) {
+                    a += dfs(c, i, j);
+                    if (j < 14) {
+                        b += dfs(c, i, j + 1);
+                    }
+                }
+            }
+            return f[i][j] = max(a, b);
+        };
+        return dfs(0, -1, 0);
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func maximumPoints(edges [][]int, coins []int, k int) int {
+	n := len(coins)
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, 15)
+		for j := range f[i] {
+			f[i][j] = -1
+		}
+	}
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	var dfs func(int, int, int) int
+	dfs = func(i, fa, j int) int {
+		if f[i][j] != -1 {
+			return f[i][j]
+		}
+		a := (coins[i] >> j) - k
+		b := coins[i] >> (j + 1)
+		for _, c := range g[i] {
+			if c != fa {
+				a += dfs(c, i, j)
+				if j < 14 {
+					b += dfs(c, i, j+1)
+				}
+			}
+		}
+		f[i][j] = max(a, b)
+		return f[i][j]
+	}
+	return dfs(0, -1, 0)
+}
+```
 
+### **TypeScript**
+
+```ts
+function maximumPoints(edges: number[][], coins: number[], k: number): number {
+    const n = coins.length;
+    const f: number[][] = Array.from({ length: n }, () => Array(15).fill(-1));
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    const dfs = (i: number, fa: number, j: number): number => {
+        if (f[i][j] !== -1) {
+            return f[i][j];
+        }
+        let a = (coins[i] >> j) - k;
+        let b = coins[i] >> (j + 1);
+        for (const c of g[i]) {
+            if (c !== fa) {
+                a += dfs(c, i, j);
+                if (j < 14) {
+                    b += dfs(c, i, j + 1);
+                }
+            }
+        }
+        return (f[i][j] = Math.max(a, b));
+    };
+    return dfs(0, -1, 0);
+}
 ```
 
 ### **...**
