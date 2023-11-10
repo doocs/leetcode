@@ -25,9 +25,5 @@ func minimumTeachings(n int, languages [][]int, friendships [][]int) int {
 			cnt[l]++
 		}
 	}
-	mx := 0
-	for _, v := range cnt {
-		mx = max(mx, v)
-	}
-	return len(s) - mx
+	return len(s) - slices.Max(cnt)
 }
