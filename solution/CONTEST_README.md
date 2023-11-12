@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 117 场双周赛(2023-11-11 22:30, 90 分钟) 参赛人数 2629
+
+- [2928. 给小朋友们分糖果 I](/solution/2900-2999/2928.Distribute%20Candies%20Among%20Children%20I/README.md)
+- [2929. 给小朋友们分糖果 II](/solution/2900-2999/2929.Distribute%20Candies%20Among%20Children%20II/README.md)
+- [2930. 重新排列后包含指定子字符串的字符串数目](/solution/2900-2999/2930.Number%20of%20Strings%20Which%20Can%20Be%20Rearranged%20to%20Contain%20Substring/README.md)
+- [2931. 购买物品的最大开销](/solution/2900-2999/2931.Maximum%20Spending%20After%20Buying%20Items/README.md)
+
 #### 第 370 场周赛(2023-11-05 10:30, 90 分钟) 参赛人数 3983
 
 - [2923. 找到冠军 I](/solution/2900-2999/2923.Find%20Champion%20I/README.md)
