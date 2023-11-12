@@ -46,7 +46,20 @@ rangeModule.queryRange(16, 17); // return True, (The number 16 in [16, 17) is st
 
 ## Solutions
 
-Segment Tree.
+**Solution 1: Segment Tree**
+
+According to the problem description, we need to maintain a set of intervals, supporting operations of interval addition, deletion, and query. For the addition and deletion of intervals, we can use a segment tree to maintain the set of intervals.
+
+The segment tree divides the entire interval into multiple non-continuous sub-intervals, the number of which does not exceed $\log(width)$. To update the value of an element, only $\log(width)$ intervals need to be updated, and these intervals are all included in a large interval containing the element. When modifying the interval, we need to use **lazy propagation** to ensure efficiency.
+
+-   Each node of the segment tree represents an interval;
+-   The segment tree has a unique root node, representing the entire statistical range, such as $[1,N]$;
+-   Each leaf node of the segment tree represents an elementary interval of length $1$, $[x,x]$;
+-   For each internal node $[l,r]$, its left child is $[l,mid]$, and the right child is $[mid+1,r]$, where $mid=⌊(l+r)/2⌋$ (rounded down).
+
+Due to the large data range of the problem, we can implement it with a dynamically allocated segment tree. A dynamically allocated segment tree means that we only allocate nodes when needed, instead of allocating all nodes at the beginning. This can save space, but it requires **lazy propagation** to maintain interval modification.
+
+In terms of time complexity, the time complexity of each operation is $O(\log n)$. The space complexity is $O(m \times \log n)$. Here, $m$ is the number of operations, and $n$ is the data range.
 
 <!-- tabs:start -->
 
@@ -54,6 +67,8 @@ Segment Tree.
 
 ```python
 class Node:
+    __slots__ = ['left', 'right', 'add', 'v']
+
     def __init__(self):
         self.left = None
         self.right = None
@@ -62,6 +77,8 @@ class Node:
 
 
 class SegmentTree:
+    __slots__ = ['root']
+
     def __init__(self):
         self.root = Node()
 
@@ -125,7 +142,6 @@ class RangeModule:
 
     def removeRange(self, left: int, right: int) -> None:
         self.tree.modify(left, right - 1, -1)
-
 
 # Your RangeModule object will be instantiated and called as such:
 # obj = RangeModule()
@@ -472,6 +488,146 @@ func (this *RangeModule) RemoveRange(left int, right int) {
  * obj.AddRange(left,right);
  * param_2 := obj.QueryRange(left,right);
  * obj.RemoveRange(left,right);
+ */
+```
+
+### **TypeScript**
+
+```ts
+class Node {
+    left: Node | null;
+    right: Node | null;
+    add: number;
+    v: boolean;
+
+    constructor() {
+        this.left = null;
+        this.right = null;
+        this.add = 0;
+        this.v = false;
+    }
+}
+
+class SegmentTree {
+    private root: Node;
+
+    constructor() {
+        this.root = new Node();
+    }
+
+    modify(
+        left: number,
+        right: number,
+        v: number,
+        l: number = 1,
+        r: number = 1e9,
+        node: Node | null = null,
+    ): void {
+        if (node === null) {
+            node = this.root;
+        }
+
+        if (l >= left && r <= right) {
+            node.v = v === 1;
+            node.add = v;
+            return;
+        }
+
+        this.pushdown(node);
+
+        const mid = (l + r) >> 1;
+
+        if (left <= mid) {
+            this.modify(left, right, v, l, mid, node.left);
+        }
+
+        if (right > mid) {
+            this.modify(left, right, v, mid + 1, r, node.right);
+        }
+
+        this.pushup(node);
+    }
+
+    query(
+        left: number,
+        right: number,
+        l: number = 1,
+        r: number = 1e9,
+        node: Node | null = null,
+    ): boolean {
+        if (node === null) {
+            node = this.root;
+        }
+
+        if (l >= left && r <= right) {
+            return node.v;
+        }
+
+        this.pushdown(node);
+
+        const mid = (l + r) >> 1;
+        let result = true;
+
+        if (left <= mid) {
+            result = result && this.query(left, right, l, mid, node.left);
+        }
+
+        if (right > mid) {
+            result = result && this.query(left, right, mid + 1, r, node.right);
+        }
+
+        return result;
+    }
+
+    pushup(node: Node): void {
+        node.v = !!(node.left && node.left.v && node.right && node.right.v);
+    }
+
+    pushdown(node: Node): void {
+        if (node.left === null) {
+            node.left = new Node();
+        }
+
+        if (node.right === null) {
+            node.right = new Node();
+        }
+
+        if (node.add !== 0) {
+            node.left.add = node.add;
+            node.right.add = node.add;
+            node.left.v = node.add === 1;
+            node.right.v = node.add === 1;
+            node.add = 0;
+        }
+    }
+}
+
+class RangeModule {
+    private tree: SegmentTree;
+
+    constructor() {
+        this.tree = new SegmentTree();
+    }
+
+    addRange(left: number, right: number): void {
+        this.tree.modify(left, right - 1, 1);
+    }
+
+    queryRange(left: number, right: number): boolean {
+        return this.tree.query(left, right - 1);
+    }
+
+    removeRange(left: number, right: number): void {
+        this.tree.modify(left, right - 1, -1);
+    }
+}
+
+/**
+ * Your RangeModule object will be instantiated and called as such:
+ * var obj = new RangeModule()
+ * obj.addRange(left,right)
+ * var param_2 = obj.queryRange(left,right)
+ * obj.removeRange(left,right)
  */
 ```
 
