@@ -2985,3 +2985,7 @@
   - [2925.在树上执行操作以后得到的最大分数](/solution/2900-2999/2925.Maximum%20Score%20After%20Applying%20Operations%20on%20a%20Tree/README.md)
   - [2926.平衡子序列的最大和](/solution/2900-2999/2926.Maximum%20Balanced%20Subsequence%20Sum/README.md)
   - [2927.将糖果分发给孩子 III](/solution/2900-2999/2927.Distribute%20Candies%20Among%20Children%20III/README.md)
+  - [2928.给小朋友们分糖果 I](/solution/2900-2999/2928.Distribute%20Candies%20Among%20Children%20I/README.md)
+  - [2929.给小朋友们分糖果 II](/solution/2900-2999/2929.Distribute%20Candies%20Among%20Children%20II/README.md)
+  - [2930.重新排列后包含指定子字符串的字符串数目](/solution/2900-2999/2930.Number%20of%20Strings%20Which%20Can%20Be%20Rearranged%20to%20Contain%20Substring/README.md)
+  - [2931.购买物品的最大开销](/solution/2900-2999/2931.Maximum%20Spending%20After%20Buying%20Items/README.md)
