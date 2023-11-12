@@ -264,10 +264,10 @@ public class Solution {
         if (source == target) {
             return 0;
         }
-        
+
         Dictionary<int, HashSet<int>> stopToRoutes = new Dictionary<int, HashSet<int>>();
         List<HashSet<int>> routeToStops = new List<HashSet<int>>();
-        
+
         for (int i = 0; i < routes.Length; i++) {
             routeToStops.Add(new HashSet<int>());
             foreach (int stop in routes[i]) {
@@ -278,7 +278,7 @@ public class Solution {
                 stopToRoutes[stop].Add(i);
             }
         }
-        
+
         Queue<int> queue = new Queue<int>();
         HashSet<int> visited = new HashSet<int>();
         int ans = 0;
