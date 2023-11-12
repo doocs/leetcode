@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 371 场周赛(2023-11-12 10:30, 90 分钟) 参赛人数 3637
+
+- [2932. 找出强数对的最大异或值 I](/solution/2900-2999/2932.Maximum%20Strong%20Pair%20XOR%20I/README.md)
+- [2933. 高访问员工](/solution/2900-2999/2933.High-Access%20Employees/README.md)
+- [2934. 最大化数组末位元素的最少操作次数](/solution/2900-2999/2934.Minimum%20Operations%20to%20Maximize%20Last%20Elements%20in%20Arrays/README.md)
+- [2935. 找出强数对的最大异或值 II](/solution/2900-2999/2935.Maximum%20Strong%20Pair%20XOR%20II/README.md)
+
 #### 第 117 场双周赛(2023-11-11 22:30, 90 分钟) 参赛人数 2629
 
 - [2928. 给小朋友们分糖果 I](/solution/2900-2999/2928.Distribute%20Candies%20Among%20Children%20I/README.md)

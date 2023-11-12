@@ -2942,6 +2942,10 @@
 |  2929  |  [给小朋友们分糖果 II](/solution/2900-2999/2929.Distribute%20Candies%20Among%20Children%20II/README.md)  |    |  中等  |  第 117 场双周赛  |
 |  2930  |  [重新排列后包含指定子字符串的字符串数目](/solution/2900-2999/2930.Number%20of%20Strings%20Which%20Can%20Be%20Rearranged%20to%20Contain%20Substring/README.md)  |    |  中等  |  第 117 场双周赛  |
 |  2931  |  [购买物品的最大开销](/solution/2900-2999/2931.Maximum%20Spending%20After%20Buying%20Items/README.md)  |    |  困难  |  第 117 场双周赛  |
+|  2932  |  [找出强数对的最大异或值 I](/solution/2900-2999/2932.Maximum%20Strong%20Pair%20XOR%20I/README.md)  |    |  简单  |  第 371 场周赛  |
+|  2933  |  [高访问员工](/solution/2900-2999/2933.High-Access%20Employees/README.md)  |    |  中等  |  第 371 场周赛  |
+|  2934  |  [最大化数组末位元素的最少操作次数](/solution/2900-2999/2934.Minimum%20Operations%20to%20Maximize%20Last%20Elements%20in%20Arrays/README.md)  |    |  中等  |  第 371 场周赛  |
+|  2935  |  [找出强数对的最大异或值 II](/solution/2900-2999/2935.Maximum%20Strong%20Pair%20XOR%20II/README.md)  |    |  困难  |  第 371 场周赛  |
 
 ## 版权
 
