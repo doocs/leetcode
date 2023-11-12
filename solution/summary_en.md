@@ -2989,3 +2989,7 @@
   - [2929.Distribute Candies Among Children II](/solution/2900-2999/2929.Distribute%20Candies%20Among%20Children%20II/README_EN.md)
   - [2930.Number of Strings Which Can Be Rearranged to Contain Substring](/solution/2900-2999/2930.Number%20of%20Strings%20Which%20Can%20Be%20Rearranged%20to%20Contain%20Substring/README_EN.md)
   - [2931.Maximum Spending After Buying Items](/solution/2900-2999/2931.Maximum%20Spending%20After%20Buying%20Items/README_EN.md)
+  - [2932.Maximum Strong Pair XOR I](/solution/2900-2999/2932.Maximum%20Strong%20Pair%20XOR%20I/README_EN.md)
+  - [2933.High-Access Employees](/solution/2900-2999/2933.High-Access%20Employees/README_EN.md)
+  - [2934.Minimum Operations to Maximize Last Elements in Arrays](/solution/2900-2999/2934.Minimum%20Operations%20to%20Maximize%20Last%20Elements%20in%20Arrays/README_EN.md)
+  - [2935.Maximum Strong Pair XOR II](/solution/2900-2999/2935.Maximum%20Strong%20Pair%20XOR%20II/README_EN.md)
