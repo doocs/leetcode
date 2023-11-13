@@ -54,30 +54,333 @@ The maximum XOR possible from these pairs is 500 XOR 520 = 1020 since the only o
 
 ## Solutions
 
+**Solution 1: Sorting + Binary Trie**
+
+Observing the inequality $|x - y| \leq \min(x, y)$, which involves absolute value and minimum value, we can assume $x \leq y$, then we have $y - x \leq x$, that is, $y \leq 2x$. We can enumerate $y$ from small to large, then $x$ must satisfy the inequality $y \leq 2x$.
+
+Therefore, we sort the array $nums$, and then enumerate $y$ from small to large. We use two pointers to maintain a window so that the elements $x$ in the window satisfy the inequality $y \leq 2x$. We can use a binary trie to maintain the elements in the window, so we can find the maximum XOR value in the window in $O(1)$ time. Each time we add $y$ to the trie, and remove the elements at the left end of the window that do not satisfy the inequality, this can ensure that the elements in the window satisfy the inequality $y \leq 2x$. Then query the maximum XOR value from the trie and update the answer.
+
+The time complexity is $O(n \times \log M)$, and the space complexity is $O(n \times \log M)$. Here, $n$ is the length of the array $nums$, and $M$ is the maximum value in the array $nums$. In this problem, $M = 2^{20}$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
+class Trie:
+    __slots__ = ("children", "cnt")
 
+    def __init__(self):
+        self.children: List[Trie | None] = [None, None]
+        self.cnt = 0
+
+    def insert(self, x: int):
+        node = self
+        for i in range(20, -1, -1):
+            v = x >> i & 1
+            if node.children[v] is None:
+                node.children[v] = Trie()
+            node = node.children[v]
+            node.cnt += 1
+
+    def search(self, x: int) -> int:
+        node = self
+        ans = 0
+        for i in range(20, -1, -1):
+            v = x >> i & 1
+            if node.children[v ^ 1] and node.children[v ^ 1].cnt:
+                ans |= 1 << i
+                node = node.children[v ^ 1]
+            else:
+                node = node.children[v]
+        return ans
+
+    def remove(self, x: int):
+        node = self
+        for i in range(20, -1, -1):
+            v = x >> i & 1
+            node = node.children[v]
+            node.cnt -= 1
+
+
+class Solution:
+    def maximumStrongPairXor(self, nums: List[int]) -> int:
+        nums.sort()
+        tree = Trie()
+        ans = i = 0
+        for y in nums:
+            tree.insert(y)
+            while y > nums[i] * 2:
+                tree.remove(nums[i])
+                i += 1
+            ans = max(ans, tree.search(y))
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Trie {
+    private Trie[] children = new Trie[2];
+    private int cnt = 0;
 
+    public Trie() {
+
+    }
+
+    public void insert(int x) {
+        Trie node = this;
+        for (int i = 20; i >= 0; --i) {
+            int v = x >> i & 1;
+            if (node.children[v] == null) {
+                node.children[v] = new Trie();
+            }
+            node = node.children[v];
+            ++node.cnt;
+        }
+    }
+
+    public int search(int x) {
+        Trie node = this;
+        int ans = 0;
+        for (int i = 20; i >= 0; --i) {
+            int v = x >> i & 1;
+            if (node.children[v ^ 1] != null && node.children[v ^ 1].cnt > 0) {
+                ans |= 1 << i;
+                node = node.children[v ^ 1];
+            } else {
+                node = node.children[v];
+            }
+        }
+        return ans;
+    }
+
+    public void remove(int x) {
+        Trie node = this;
+        for (int i = 20; i >= 0; --i) {
+            int v = x >> i & 1;
+            node = node.children[v];
+            --node.cnt;
+        }
+    }
+}
+
+class Solution {
+    public int maximumStrongPairXor(int[] nums) {
+        Arrays.sort(nums);
+        Trie tree = new Trie();
+        int ans = 0, i = 0;
+        for (int y : nums) {
+            tree.insert(y);
+            while (y > nums[i] * 2) {
+                tree.remove(nums[i++]);
+            }
+            ans = Math.max(ans, tree.search(y));
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
+class Trie {
+public:
+    Trie* children[2];
+    int cnt;
 
+    Trie()
+        : cnt(0) {
+        children[0] = nullptr;
+        children[1] = nullptr;
+    }
+
+    void insert(int x) {
+        Trie* node = this;
+        for (int i = 20; ~i; --i) {
+            int v = (x >> i) & 1;
+            if (node->children[v] == nullptr) {
+                node->children[v] = new Trie();
+            }
+            node = node->children[v];
+            ++node->cnt;
+        }
+    }
+
+    int search(int x) {
+        Trie* node = this;
+        int ans = 0;
+        for (int i = 20; ~i; --i) {
+            int v = (x >> i) & 1;
+            if (node->children[v ^ 1] != nullptr && node->children[v ^ 1]->cnt > 0) {
+                ans |= 1 << i;
+                node = node->children[v ^ 1];
+            } else {
+                node = node->children[v];
+            }
+        }
+        return ans;
+    }
+
+    void remove(int x) {
+        Trie* node = this;
+        for (int i = 20; ~i; --i) {
+            int v = (x >> i) & 1;
+            node = node->children[v];
+            --node->cnt;
+        }
+    }
+};
+
+class Solution {
+public:
+    int maximumStrongPairXor(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        Trie* tree = new Trie();
+        int ans = 0, i = 0;
+        for (int y : nums) {
+            tree->insert(y);
+            while (y > nums[i] * 2) {
+                tree->remove(nums[i++]);
+            }
+            ans = max(ans, tree->search(y));
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+type Trie struct {
+	children [2]*Trie
+	cnt      int
+}
 
+func newTrie() *Trie {
+	return &Trie{}
+}
+
+func (t *Trie) insert(x int) {
+	node := t
+	for i := 20; i >= 0; i-- {
+		v := (x >> uint(i)) & 1
+		if node.children[v] == nil {
+			node.children[v] = newTrie()
+		}
+		node = node.children[v]
+		node.cnt++
+	}
+}
+
+func (t *Trie) search(x int) int {
+	node := t
+	ans := 0
+	for i := 20; i >= 0; i-- {
+		v := (x >> uint(i)) & 1
+		if node.children[v^1] != nil && node.children[v^1].cnt > 0 {
+			ans |= 1 << uint(i)
+			node = node.children[v^1]
+		} else {
+			node = node.children[v]
+		}
+	}
+	return ans
+}
+
+func (t *Trie) remove(x int) {
+	node := t
+	for i := 20; i >= 0; i-- {
+		v := (x >> uint(i)) & 1
+		node = node.children[v]
+		node.cnt--
+	}
+}
+
+func maximumStrongPairXor(nums []int) (ans int) {
+	sort.Ints(nums)
+	tree := newTrie()
+	i := 0
+	for _, y := range nums {
+		tree.insert(y)
+		for ; y > nums[i]*2; i++ {
+			tree.remove(nums[i])
+		}
+		ans = max(ans, tree.search(y))
+	}
+	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+class Trie {
+    children: (Trie | null)[];
+    cnt: number;
+
+    constructor() {
+        this.children = [null, null];
+        this.cnt = 0;
+    }
+
+    insert(x: number): void {
+        let node: Trie | null = this;
+        for (let i = 20; i >= 0; i--) {
+            const v = (x >> i) & 1;
+            if (node.children[v] === null) {
+                node.children[v] = new Trie();
+            }
+            node = node.children[v] as Trie;
+            node.cnt++;
+        }
+    }
+
+    search(x: number): number {
+        let node: Trie | null = this;
+        let ans = 0;
+        for (let i = 20; i >= 0; i--) {
+            const v = (x >> i) & 1;
+            if (node.children[v ^ 1] !== null && (node.children[v ^ 1] as Trie).cnt > 0) {
+                ans |= 1 << i;
+                node = node.children[v ^ 1] as Trie;
+            } else {
+                node = node.children[v] as Trie;
+            }
+        }
+        return ans;
+    }
+
+    remove(x: number): void {
+        let node: Trie | null = this;
+        for (let i = 20; i >= 0; i--) {
+            const v = (x >> i) & 1;
+            node = node.children[v] as Trie;
+            node.cnt--;
+        }
+    }
+}
+
+function maximumStrongPairXor(nums: number[]): number {
+    nums.sort((a, b) => a - b);
+    const tree = new Trie();
+    let ans = 0;
+    let i = 0;
+
+    for (const y of nums) {
+        tree.insert(y);
+
+        while (y > nums[i] * 2) {
+            tree.remove(nums[i++]);
+        }
+
+        ans = Math.max(ans, tree.search(y));
+    }
+
+    return ans;
+}
 ```
 
 ### **...**
