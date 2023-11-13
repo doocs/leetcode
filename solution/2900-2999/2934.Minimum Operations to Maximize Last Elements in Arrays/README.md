@@ -73,6 +73,19 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：分情况讨论 + 贪心**
+
+我们可以分成两种情况讨论：
+
+1. 不交换 $nums1[n - 1]$ 和 $nums2[n - 1]$ 的值
+1. 交换 $nums1[n - 1]$ 和 $nums2[n - 1]$ 的值
+
+对于每一种情况，我们记数组 $nums1$ 和 $nums2$ 的最后一个值分别为 $x$ 和 $y$。然后遍历数组 $nums1$ 和 $nums2$ 的前 $n - 1$ 个值，用一个变量 $cnt$ 记录交换次数。如果 $nums1[i] \leq x$ 且 $nums2[i] \leq y$，则不需要交换，否则如果 $nums1[i] \leq y$ 且 $nums2[i] \leq x$，则需要交换，否则无法同时满足两个条件，返回 $-1$。最后返回 $cnt$ 即可。
+
+我们记两种情况的交换次数分别为 $a$ 和 $b$，如果 $a + b = -2$，则无法同时满足两个条件，返回 $-1$，否则返回 $\min(a, b + 1)$。
+
+时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -80,7 +93,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def minOperations(self, nums1: List[int], nums2: List[int]) -> int:
+        def f(x: int, y: int) -> int:
+            cnt = 0
+            for a, b in zip(nums1[:-1], nums2[:-1]):
+                if a <= x and b <= y:
+                    continue
+                if not (a <= y and b <= x):
+                    return -1
+                cnt += 1
+            return cnt
 
+        a, b = f(nums1[-1], nums2[-1]), f(nums2[-1], nums1[-1])
+        return -1 if a + b == -2 else min(a, b + 1)
 ```
 
 ### **Java**
@@ -88,19 +114,107 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int n;
 
+    public int minOperations(int[] nums1, int[] nums2) {
+        n = nums1.length;
+        int a = f(nums1, nums2, nums1[n - 1], nums2[n - 1]);
+        int b = f(nums1, nums2, nums2[n - 1], nums1[n - 1]);
+        return a + b == -2 ? -1 : Math.min(a, b + 1);
+    }
+
+    private int f(int[] nums1, int[] nums2, int x, int y) {
+        int cnt = 0;
+        for (int i = 0; i < n - 1; ++i) {
+            if (nums1[i] <= x && nums2[i] <= y) {
+                continue;
+            }
+            if (!(nums1[i] <= y && nums2[i] <= x)) {
+                return -1;
+            }
+            ++cnt;
+        }
+        return cnt;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int minOperations(vector<int>& nums1, vector<int>& nums2) {
+        int n = nums1.size();
+        auto f = [&](int x, int y) {
+            int cnt = 0;
+            for (int i = 0; i < n - 1; ++i) {
+                if (nums1[i] <= x && nums2[i] <= y) {
+                    continue;
+                }
+                if (!(nums1[i] <= y && nums2[i] <= x)) {
+                    return -1;
+                }
+                ++cnt;
+            }
+            return cnt;
+        };
+        int a = f(nums1.back(), nums2.back());
+        int b = f(nums2.back(), nums1.back());
+        return a + b == -2 ? -1 : min(a, b + 1);
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minOperations(nums1 []int, nums2 []int) int {
+	n := len(nums1)
+	f := func(x, y int) (cnt int) {
+		for i, a := range nums1[:n-1] {
+			b := nums2[i]
+			if a <= x && b <= y {
+				continue
+			}
+			if !(a <= y && b <= x) {
+				return -1
+			}
+			cnt++
+		}
+		return
+	}
+	a, b := f(nums1[n-1], nums2[n-1]), f(nums2[n-1], nums1[n-1])
+	if a+b == -2 {
+		return -1
+	}
+	return min(a, b+1)
+}
+```
 
+### **TypeScript**
+
+```ts
+function minOperations(nums1: number[], nums2: number[]): number {
+    const n = nums1.length;
+    const f = (x: number, y: number): number => {
+        let cnt = 0;
+        for (let i = 0; i < n - 1; ++i) {
+            if (nums1[i] <= x && nums2[i] <= y) {
+                continue;
+            }
+            if (!(nums1[i] <= y && nums2[i] <= x)) {
+                return -1;
+            }
+            ++cnt;
+        }
+        return cnt;
+    };
+    const a = f(nums1.at(-1), nums2.at(-1));
+    const b = f(nums2.at(-1), nums1.at(-1));
+    return a + b === -2 ? -1 : Math.min(a, b + 1);
+}
 ```
 
 ### **...**
