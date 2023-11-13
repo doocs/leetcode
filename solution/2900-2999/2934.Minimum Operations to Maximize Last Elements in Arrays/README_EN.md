@@ -67,30 +67,144 @@ So, the answer is -1.
 
 ## Solutions
 
+**Solution 1: Case Discussion + Greedy**
+
+We can discuss two cases:
+
+1. Do not swap the values of $nums1[n - 1]$ and $nums2[n - 1]$
+2. Swap the values of $nums1[n - 1]$ and $nums2[n - 1]$
+
+For each case, we denote the last values of the arrays $nums1$ and $nums2$ as $x$ and $y$, respectively. Then we traverse the first $n - 1$ values of the arrays $nums1$ and $nums2$, and use a variable $cnt$ to record the number of swaps. If $nums1[i] \leq x$ and $nums2[i] \leq y$, then no swap is needed. Otherwise, if $nums1[i] \leq y$ and $nums2[i] \leq x$, then a swap is needed. If neither condition is met, return $-1$. Finally, return $cnt$.
+
+We denote the number of swaps in the two cases as $a$ and $b$, respectively. If $a + b = -2$, then it is impossible to satisfy both conditions, so return $-1$. Otherwise, return $\min(a, b + 1)$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
+class Solution:
+    def minOperations(self, nums1: List[int], nums2: List[int]) -> int:
+        def f(x: int, y: int) -> int:
+            cnt = 0
+            for a, b in zip(nums1[:-1], nums2[:-1]):
+                if a <= x and b <= y:
+                    continue
+                if not (a <= y and b <= x):
+                    return -1
+                cnt += 1
+            return cnt
 
+        a, b = f(nums1[-1], nums2[-1]), f(nums2[-1], nums1[-1])
+        return -1 if a + b == -2 else min(a, b + 1)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int n;
 
+    public int minOperations(int[] nums1, int[] nums2) {
+        n = nums1.length;
+        int a = f(nums1, nums2, nums1[n - 1], nums2[n - 1]);
+        int b = f(nums1, nums2, nums2[n - 1], nums1[n - 1]);
+        return a + b == -2 ? -1 : Math.min(a, b + 1);
+    }
+
+    private int f(int[] nums1, int[] nums2, int x, int y) {
+        int cnt = 0;
+        for (int i = 0; i < n - 1; ++i) {
+            if (nums1[i] <= x && nums2[i] <= y) {
+                continue;
+            }
+            if (!(nums1[i] <= y && nums2[i] <= x)) {
+                return -1;
+            }
+            ++cnt;
+        }
+        return cnt;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int minOperations(vector<int>& nums1, vector<int>& nums2) {
+        int n = nums1.size();
+        auto f = [&](int x, int y) {
+            int cnt = 0;
+            for (int i = 0; i < n - 1; ++i) {
+                if (nums1[i] <= x && nums2[i] <= y) {
+                    continue;
+                }
+                if (!(nums1[i] <= y && nums2[i] <= x)) {
+                    return -1;
+                }
+                ++cnt;
+            }
+            return cnt;
+        };
+        int a = f(nums1.back(), nums2.back());
+        int b = f(nums2.back(), nums1.back());
+        return a + b == -2 ? -1 : min(a, b + 1);
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minOperations(nums1 []int, nums2 []int) int {
+	n := len(nums1)
+	f := func(x, y int) (cnt int) {
+		for i, a := range nums1[:n-1] {
+			b := nums2[i]
+			if a <= x && b <= y {
+				continue
+			}
+			if !(a <= y && b <= x) {
+				return -1
+			}
+			cnt++
+		}
+		return
+	}
+	a, b := f(nums1[n-1], nums2[n-1]), f(nums2[n-1], nums1[n-1])
+	if a+b == -2 {
+		return -1
+	}
+	return min(a, b+1)
+}
+```
 
+### **TypeScript**
+
+```ts
+function minOperations(nums1: number[], nums2: number[]): number {
+    const n = nums1.length;
+    const f = (x: number, y: number): number => {
+        let cnt = 0;
+        for (let i = 0; i < n - 1; ++i) {
+            if (nums1[i] <= x && nums2[i] <= y) {
+                continue;
+            }
+            if (!(nums1[i] <= y && nums2[i] <= x)) {
+                return -1;
+            }
+            ++cnt;
+        }
+        return cnt;
+    };
+    const a = f(nums1.at(-1), nums2.at(-1));
+    const b = f(nums2.at(-1), nums1.at(-1));
+    return a + b === -2 ? -1 : Math.min(a, b + 1);
+}
 ```
 
 ### **...**
