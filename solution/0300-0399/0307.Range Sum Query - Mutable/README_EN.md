@@ -56,32 +56,30 @@ Binary Indexed Tree or Segment Tree.
 
 ### **Python3**
 
-Binary Indexed Tree:
-
 ```python
 class BinaryIndexedTree:
+    __slots__ = ["n", "c"]
+
     def __init__(self, n):
         self.n = n
         self.c = [0] * (n + 1)
 
-    @staticmethod
-    def lowbit(x):
-        return x & -x
-
-    def update(self, x, delta):
+    def update(self, x: int, delta: int):
         while x <= self.n:
             self.c[x] += delta
-            x += BinaryIndexedTree.lowbit(x)
+            x += x & -x
 
-    def query(self, x):
+    def query(self, x: int) -> int:
         s = 0
         while x > 0:
             s += self.c[x]
-            x -= BinaryIndexedTree.lowbit(x)
+            x -= x & -x
         return s
 
 
 class NumArray:
+    __slots__ = ["tree"]
+
     def __init__(self, nums: List[int]):
         self.tree = BinaryIndexedTree(len(nums))
         for i, v in enumerate(nums, 1):
@@ -101,17 +99,17 @@ class NumArray:
 # param_2 = obj.sumRange(left,right)
 ```
 
-Segment Tree:
-
 ```python
 class Node:
+    __slots__ = ["l", "r", "v"]
+
     def __init__(self):
-        self.l = 0
-        self.r = 0
-        self.v = 0
+        self.l = self.r = self.v = 0
 
 
 class SegmentTree:
+    __slots__ = ["nums", "tr"]
+
     def __init__(self, nums):
         self.nums = nums
         n = len(nums)
@@ -143,18 +141,20 @@ class SegmentTree:
         if self.tr[u].l >= l and self.tr[u].r <= r:
             return self.tr[u].v
         mid = (self.tr[u].l + self.tr[u].r) >> 1
-        v = 0
+        result = 0
         if l <= mid:
-            v += self.query(u << 1, l, r)
+            result += self.query(u << 1, l, r)
         if r > mid:
-            v += self.query(u << 1 | 1, l, r)
-        return v
+            result += self.query(u << 1 | 1, l, r)
+        return result
 
     def pushup(self, u):
         self.tr[u].v = self.tr[u << 1].v + self.tr[u << 1 | 1].v
 
 
 class NumArray:
+    __slots__ = ["tree"]
+
     def __init__(self, nums: List[int]):
         self.tree = SegmentTree(nums)
 
@@ -173,8 +173,6 @@ class NumArray:
 
 ### **Java**
 
-Binary Indexed Tree:
-
 ```java
 class BinaryIndexedTree {
     private int n;
@@ -188,7 +186,7 @@ class BinaryIndexedTree {
     public void update(int x, int delta) {
         while (x <= n) {
             c[x] += delta;
-            x += lowbit(x);
+            x += x & -x;
         }
     }
 
@@ -196,13 +194,9 @@ class BinaryIndexedTree {
         int s = 0;
         while (x > 0) {
             s += c[x];
-            x -= lowbit(x);
+            x -= x & -x;
         }
         return s;
-    }
-
-    public static int lowbit(int x) {
-        return x & -x;
     }
 }
 
@@ -234,8 +228,6 @@ class NumArray {
  * int param_2 = obj.sumRange(left,right);
  */
 ```
-
-Segment Tree:
 
 ```java
 class Node {
@@ -331,8 +323,6 @@ class NumArray {
 
 ### **C++**
 
-Binary Indexed Tree:
-
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -346,7 +336,7 @@ public:
     void update(int x, int delta) {
         while (x <= n) {
             c[x] += delta;
-            x += lowbit(x);
+            x += x & -x;
         }
     }
 
@@ -354,13 +344,9 @@ public:
         int s = 0;
         while (x > 0) {
             s += c[x];
-            x -= lowbit(x);
+            x -= x & -x;
         }
         return s;
-    }
-
-    int lowbit(int x) {
-        return x & -x;
     }
 };
 
@@ -391,8 +377,6 @@ public:
  * int param_2 = obj->sumRange(left,right);
  */
 ```
-
-Segment Tree:
 
 ```cpp
 class Node {
@@ -482,8 +466,6 @@ public:
 
 ### **Go**
 
-Binary Indexed Tree:
-
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -495,22 +477,15 @@ func newBinaryIndexedTree(n int) *BinaryIndexedTree {
 	return &BinaryIndexedTree{n, c}
 }
 
-func (this *BinaryIndexedTree) lowbit(x int) int {
-	return x & -x
-}
-
-func (this *BinaryIndexedTree) update(x, delta int) {
-	for x <= this.n {
-		this.c[x] += delta
-		x += this.lowbit(x)
+func (t *BinaryIndexedTree) update(x, delta int) {
+	for ; x <= t.n; x += x & -x {
+		t.c[x] += delta
 	}
 }
 
-func (this *BinaryIndexedTree) query(x int) int {
-	s := 0
-	for x > 0 {
-		s += this.c[x]
-		x -= this.lowbit(x)
+func (t *BinaryIndexedTree) query(x int) (s int) {
+	for ; x > 0; x -= x & -x {
+		s += t.c[x]
 	}
 	return s
 }
@@ -527,13 +502,13 @@ func Constructor(nums []int) NumArray {
 	return NumArray{tree}
 }
 
-func (this *NumArray) Update(index int, val int) {
-	prev := this.SumRange(index, index)
-	this.tree.update(index+1, val-prev)
+func (t *NumArray) Update(index int, val int) {
+	prev := t.SumRange(index, index)
+	t.tree.update(index+1, val-prev)
 }
 
-func (this *NumArray) SumRange(left int, right int) int {
-	return this.tree.query(right+1) - this.tree.query(left)
+func (t *NumArray) SumRange(left int, right int) int {
+	return t.tree.query(right+1) - t.tree.query(left)
 }
 
 /**
@@ -541,6 +516,401 @@ func (this *NumArray) SumRange(left int, right int) int {
  * obj := Constructor(nums);
  * obj.Update(index,val);
  * param_2 := obj.SumRange(left,right);
+ */
+```
+
+```go
+type Node struct {
+    l, r, v int
+}
+
+type SegmentTree struct {
+    tr   []Node
+    nums []int
+}
+
+func newSegmentTree(nums []int) *SegmentTree {
+    n := len(nums)
+    tr := make([]Node, n<<2)
+    for i := range tr {
+        tr[i] = Node{}
+    }
+    tree := &SegmentTree{
+        tr:   tr,
+        nums: nums,
+    }
+    tree.build(1, 1, n)
+    return tree
+}
+
+func (tree *SegmentTree) build(u, l, r int) {
+    tree.tr[u].l, tree.tr[u].r = l, r
+    if l == r {
+        tree.tr[u].v = tree.nums[l-1]
+        return
+    }
+    mid := (l + r) >> 1
+    tree.build(u<<1, l, mid)
+    tree.build(u<<1|1, mid+1, r)
+    tree.pushup(u)
+}
+
+func (tree *SegmentTree) modify(u, x, v int) {
+    if tree.tr[u].l == x && tree.tr[u].r == x {
+        tree.tr[u].v = v
+        return
+    }
+    mid := (tree.tr[u].l + tree.tr[u].r) >> 1
+    if x <= mid {
+        tree.modify(u<<1, x, v)
+    } else {
+        tree.modify(u<<1|1, x, v)
+    }
+    tree.pushup(u)
+}
+
+func (tree *SegmentTree) query(u, l, r int) (v int) {
+    if tree.tr[u].l >= l && tree.tr[u].r <= r {
+        return tree.tr[u].v
+    }
+    mid := (tree.tr[u].l + tree.tr[u].r) >> 1
+    if l <= mid {
+        v += tree.query(u<<1, l, r)
+    }
+    if r > mid {
+        v += tree.query(u<<1|1, l, r)
+    }
+    return v
+}
+
+func (tree *SegmentTree) pushup(u int) {
+    tree.tr[u].v = tree.tr[u<<1].v + tree.tr[u<<1|1].v
+}
+
+type NumArray struct {
+    tree *SegmentTree
+}
+
+func Constructor(nums []int) NumArray {
+    return NumArray{
+        tree: newSegmentTree(nums),
+    }
+}
+
+func (this *NumArray) Update(index int, val int) {
+    this.tree.modify(1, index+1, val)
+}
+
+func (this *NumArray) SumRange(left int, right int) int {
+    return this.tree.query(1, left+1, right+1)
+}
+
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * obj := Constructor(nums);
+ * obj.Update(index,val);
+ * param_2 := obj.SumRange(left,right);
+ */
+```
+
+### **TypeScript**
+
+```ts
+class BinaryIndexedTree {
+    private n: number;
+    private c: number[];
+
+    constructor(n: number) {
+        this.n = n;
+        this.c = Array(n + 1).fill(0);
+    }
+
+    update(x: number, delta: number): void {
+        while (x <= this.n) {
+            this.c[x] += delta;
+            x += x & -x;
+        }
+    }
+
+    query(x: number): number {
+        let s = 0;
+        while (x > 0) {
+            s += this.c[x];
+            x -= x & -x;
+        }
+        return s;
+    }
+}
+
+class NumArray {
+    private tree: BinaryIndexedTree;
+
+    constructor(nums: number[]) {
+        const n = nums.length;
+        this.tree = new BinaryIndexedTree(n);
+        for (let i = 0; i < n; ++i) {
+            this.tree.update(i + 1, nums[i]);
+        }
+    }
+
+    update(index: number, val: number): void {
+        const prev = this.sumRange(index, index);
+        this.tree.update(index + 1, val - prev);
+    }
+
+    sumRange(left: number, right: number): number {
+        return this.tree.query(right + 1) - this.tree.query(left);
+    }
+}
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * var obj = new NumArray(nums)
+ * obj.update(index,val)
+ * var param_2 = obj.sumRange(left,right)
+ */
+```
+
+```ts
+class Node {
+    l: number;
+    r: number;
+    v: number;
+}
+
+class SegmentTree {
+    private tr: Node[];
+    private nums: number[];
+
+    constructor(nums: number[]) {
+        this.nums = nums;
+        const n = nums.length;
+        this.tr = new Array<Node>(n << 2);
+        for (let i = 0; i < this.tr.length; ++i) {
+            this.tr[i] = { l: 0, r: 0, v: 0 };
+        }
+        this.build(1, 1, n);
+    }
+
+    build(u: number, l: number, r: number): void {
+        this.tr[u].l = l;
+        this.tr[u].r = r;
+        if (l == r) {
+            this.tr[u].v = this.nums[l - 1];
+            return;
+        }
+        const mid = (l + r) >> 1;
+        this.build(u << 1, l, mid);
+        this.build((u << 1) | 1, mid + 1, r);
+        this.pushup(u);
+    }
+
+    modify(u: number, x: number, v: number): void {
+        if (this.tr[u].l == x && this.tr[u].r == x) {
+            this.tr[u].v = v;
+            return;
+        }
+        const mid = (this.tr[u].l + this.tr[u].r) >> 1;
+        if (x <= mid) {
+            this.modify(u << 1, x, v);
+        } else {
+            this.modify((u << 1) | 1, x, v);
+        }
+        this.pushup(u);
+    }
+
+    query(u: number, l: number, r: number): number {
+        if (this.tr[u].l >= l && this.tr[u].r <= r) {
+            return this.tr[u].v;
+        }
+        const mid = (this.tr[u].l + this.tr[u].r) >> 1;
+        let v = 0;
+        if (l <= mid) {
+            v += this.query(u << 1, l, r);
+        }
+        if (r > mid) {
+            v += this.query((u << 1) | 1, l, r);
+        }
+        return v;
+    }
+
+    pushup(u: number): void {
+        this.tr[u].v = this.tr[u << 1].v + this.tr[(u << 1) | 1].v;
+    }
+}
+
+class NumArray {
+    private tree: SegmentTree;
+
+    constructor(nums: number[]) {
+        this.tree = new SegmentTree(nums);
+    }
+
+    update(index: number, val: number): void {
+        this.tree.modify(1, index + 1, val);
+    }
+
+    sumRange(left: number, right: number): number {
+        return this.tree.query(1, left + 1, right + 1);
+    }
+}
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * var obj = new NumArray(nums)
+ * obj.update(index,val)
+ * var param_2 = obj.sumRange(left,right)
+ */
+```
+
+### **C#**
+
+```cs
+class BinaryIndexedTree {
+    private int n;
+    private int[] c;
+
+    public BinaryIndexedTree(int n) {
+        this.n = n;
+        c = new int[n + 1];
+    }
+
+    public void Update(int x, int delta) {
+        while (x <= n) {
+            c[x] += delta;
+            x += x & -x;
+        }
+    }
+
+    public int Query(int x) {
+        int s = 0;
+        while (x > 0) {
+            s += c[x];
+            x -= x & -x;
+        }
+        return s;
+    }
+}
+
+public class NumArray {
+    private BinaryIndexedTree tree;
+
+    public NumArray(int[] nums) {
+        int n = nums.Length;
+        tree = new BinaryIndexedTree(n);
+        for (int i = 0; i < n; ++i) {
+            tree.Update(i + 1, nums[i]);
+        }
+    }
+
+    public void Update(int index, int val) {
+        int prev = SumRange(index, index);
+        tree.Update(index + 1, val - prev);
+    }
+
+    public int SumRange(int left, int right) {
+        return tree.Query(right + 1) - tree.Query(left);
+    }
+}
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * NumArray obj = new NumArray(nums);
+ * obj.Update(index,val);
+ * int param_2 = obj.SumRange(left,right);
+ */
+```
+
+```cs
+public class Node {
+    public int l;
+    public int r;
+    public int v;
+}
+
+public class SegmentTree {
+    private Node[] tr;
+    private int[] nums;
+
+    public SegmentTree(int[] nums) {
+        this.nums = nums;
+        int n = nums.Length;
+        tr = new Node[n << 2];
+        for (int i = 0; i < tr.Length; ++i) {
+            tr[i] = new Node();
+        }
+        Build(1, 1, n);
+    }
+
+    public void Build(int u, int l, int r) {
+        tr[u].l = l;
+        tr[u].r = r;
+        if (l == r) {
+            tr[u].v = nums[l - 1];
+            return;
+        }
+        int mid = (l + r) >> 1;
+        Build(u << 1, l, mid);
+        Build(u << 1 | 1, mid + 1, r);
+        Pushup(u);
+    }
+
+    public void Modify(int u, int x, int v) {
+        if (tr[u].l == x && tr[u].r == x) {
+            tr[u].v = v;
+            return;
+        }
+        int mid = (tr[u].l + tr[u].r) >> 1;
+        if (x <= mid) {
+            Modify(u << 1, x, v);
+        } else {
+            Modify(u << 1 | 1, x, v);
+        }
+        Pushup(u);
+    }
+
+    public int Query(int u, int l, int r) {
+        if (tr[u].l >= l && tr[u].r <= r) {
+            return tr[u].v;
+        }
+        int mid = (tr[u].l + tr[u].r) >> 1;
+        int v = 0;
+        if (l <= mid) {
+            v += Query(u << 1, l, r);
+        }
+        if (r > mid) {
+            v += Query(u << 1 | 1, l, r);
+        }
+        return v;
+    }
+
+    public void Pushup(int u) {
+        tr[u].v = tr[u << 1].v + tr[u << 1 | 1].v;
+    }
+}
+
+public class NumArray {
+    private SegmentTree tree;
+
+    public NumArray(int[] nums) {
+        tree = new SegmentTree(nums);
+    }
+
+    public void Update(int index, int val) {
+        tree.Modify(1, index + 1, val);
+    }
+
+    public int SumRange(int left, int right) {
+        return tree.Query(1, left + 1, right + 1);
+    }
+}
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * NumArray obj = new NumArray(nums);
+ * obj.Update(index,val);
+ * int param_2 = obj.SumRange(left,right);
  */
 ```
 
