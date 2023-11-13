@@ -8,22 +8,15 @@ func newBinaryIndexedTree(n int) *BinaryIndexedTree {
 	return &BinaryIndexedTree{n, c}
 }
 
-func (this *BinaryIndexedTree) lowbit(x int) int {
-	return x & -x
-}
-
-func (this *BinaryIndexedTree) update(x, delta int) {
-	for x <= this.n {
-		this.c[x] += delta
-		x += this.lowbit(x)
+func (t *BinaryIndexedTree) update(x, delta int) {
+	for ; x <= t.n; x += x & -x {
+		t.c[x] += delta
 	}
 }
 
-func (this *BinaryIndexedTree) query(x int) int {
-	s := 0
-	for x > 0 {
-		s += this.c[x]
-		x -= this.lowbit(x)
+func (t *BinaryIndexedTree) query(x int) (s int) {
+	for ; x > 0; x -= x & -x {
+		s += t.c[x]
 	}
 	return s
 }
@@ -40,13 +33,13 @@ func Constructor(nums []int) NumArray {
 	return NumArray{tree}
 }
 
-func (this *NumArray) Update(index int, val int) {
-	prev := this.SumRange(index, index)
-	this.tree.update(index+1, val-prev)
+func (t *NumArray) Update(index int, val int) {
+	prev := t.SumRange(index, index)
+	t.tree.update(index+1, val-prev)
 }
 
-func (this *NumArray) SumRange(left int, right int) int {
-	return this.tree.query(right+1) - this.tree.query(left)
+func (t *NumArray) SumRange(left int, right int) int {
+	return t.tree.query(right+1) - t.tree.query(left)
 }
 
 /**
