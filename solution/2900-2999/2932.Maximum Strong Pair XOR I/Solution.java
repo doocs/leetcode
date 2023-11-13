@@ -3,7 +3,6 @@ class Trie {
     private int cnt = 0;
 
     public Trie() {
-
     }
 
     public void insert(int x) {
