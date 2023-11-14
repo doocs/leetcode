@@ -59,15 +59,132 @@ Therefore, we return&nbsp;<code node="[object Object]">[6,10,7]</code>.
 
 ## Solutions
 
+**Solution 1: Binary Indexed Tree**
+
+This problem belongs to the category of two-dimensional partial order problems.
+
+A two-dimensional partial order problem is defined as follows: given several pairs of points $(a_1, b_1)$, $(a_2, b_2)$, ..., $(a_n, b_n)$, and a defined partial order relation, now given a point $(a_i, b_i)$, we need to find the number/maximum value of point pairs $(a_j, b_j)$ that satisfy the partial order relation. That is:
+
+$$
+\left(a_{j}, b_{j}\right) \prec\left(a_{i}, b_{i}\right) \stackrel{\text { def }}{=} a_{j} \lesseqgtr a_{i} \text { and } b_{j} \lesseqgtr b_{i}
+$$
+
+The general solution to two-dimensional partial order problems is to sort one dimension and use a data structure to handle the second dimension (this data structure is generally a binary indexed tree).
+
+For this problem, we can create an array $nums$, where $nums[i]=(nums_1[i], nums_2[i])$, and then sort $nums$ in descending order according to $nums_1$. We also sort the queries $queries$ in descending order according to $x$.
+
+Next, we iterate through each query $queries[i] = (x, y)$. For the current query, we loop to insert the value of $nums_2$ for all elements in $nums$ that are greater than or equal to $x$ into the binary indexed tree. The binary indexed tree maintains the maximum value of $nums_1 + nums_2$ in the discretized $nums_2$ interval. Therefore, we only need to query the maximum value corresponding to the interval greater than or equal to the discretized $y$ in the binary indexed tree. Note that since the binary indexed tree maintains the prefix maximum value, we can insert $nums_2$ in reverse order into the binary indexed tree in the implementation.
+
+The time complexity is $O((n + m) \times \log n + m \times \log m)$, and the space complexity is $O(n + m)$. Here, $n$ is the length of the array $nums$, and $m$ is the length of the array $queries$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
+class BinaryIndexedTree:
+    __slots__ = ["n", "c"]
 
+    def __init__(self, n: int):
+        self.n = n
+        self.c = [-1] * (n + 1)
+
+    def update(self, x: int, v: int):
+        while x <= self.n:
+            self.c[x] = max(self.c[x], v)
+            x += x & -x
+
+    def query(self, x: int) -> int:
+        mx = -1
+        while x:
+            mx = max(mx, self.c[x])
+            x -= x & -x
+        return mx
+
+
+class Solution:
+    def maximumSumQueries(
+        self, nums1: List[int], nums2: List[int], queries: List[List[int]]
+    ) -> List[int]:
+        nums = sorted(zip(nums1, nums2), key=lambda x: -x[0])
+        nums2.sort()
+        n, m = len(nums1), len(queries)
+        ans = [-1] * m
+        j = 0
+        tree = BinaryIndexedTree(n)
+        for i in sorted(range(m), key=lambda i: -queries[i][0]):
+            x, y = queries[i]
+            while j < n and nums[j][0] >= x:
+                k = n - bisect_left(nums2, nums[j][1])
+                tree.update(k, nums[j][0] + nums[j][1])
+                j += 1
+            k = n - bisect_left(nums2, y)
+            ans[i] = tree.query(k)
+        return ans
 ```
 
 ### **Java**
+
+```java
+class BinaryIndexedTree {
+    private int n;
+    private int[] c;
+
+    public BinaryIndexedTree(int n) {
+        this.n = n;
+        c = new int[n + 1];
+        Arrays.fill(c, -1);
+    }
+
+    public void update(int x, int v) {
+        while (x <= n) {
+            c[x] = Math.max(c[x], v);
+            x += x & -x;
+        }
+    }
+
+    public int query(int x) {
+        int mx = -1;
+        while (x > 0) {
+            mx = Math.max(mx, c[x]);
+            x -= x & -x;
+        }
+        return mx;
+    }
+}
+
+class Solution {
+    public int[] maximumSumQueries(int[] nums1, int[] nums2, int[][] queries) {
+        int n = nums1.length;
+        int[][] nums = new int[n][0];
+        for (int i = 0; i < n; ++i) {
+            nums[i] = new int[] {nums1[i], nums2[i]};
+        }
+        Arrays.sort(nums, (a, b) -> b[0] - a[0]);
+        Arrays.sort(nums2);
+        int m = queries.length;
+        Integer[] idx = new Integer[m];
+        for (int i = 0; i < m; ++i) {
+            idx[i] = i;
+        }
+        Arrays.sort(idx, (i, j) -> queries[j][0] - queries[i][0]);
+        int[] ans = new int[m];
+        int j = 0;
+        BinaryIndexedTree tree = new BinaryIndexedTree(n);
+        for (int i : idx) {
+            int x = queries[i][0], y = queries[i][1];
+            for (; j < n && nums[j][0] >= x; ++j) {
+                int k = n - Arrays.binarySearch(nums2, nums[j][1]);
+                tree.update(k, nums[j][0] + nums[j][1]);
+            }
+            int p = Arrays.binarySearch(nums2, y);
+            int k = p >= 0 ? n - p : n + p + 1;
+            ans[i] = tree.query(k);
+        }
+        return ans;
+    }
+}
+```
 
 ```java
 class Solution {
@@ -117,13 +234,193 @@ class Solution {
 ### **C++**
 
 ```cpp
+class BinaryIndexedTree {
+private:
+    int n;
+    vector<int> c;
 
+public:
+    BinaryIndexedTree(int n) {
+        this->n = n;
+        c.resize(n + 1, -1);
+    }
+
+    void update(int x, int v) {
+        while (x <= n) {
+            c[x] = max(c[x], v);
+            x += x & -x;
+        }
+    }
+
+    int query(int x) {
+        int mx = -1;
+        while (x > 0) {
+            mx = max(mx, c[x]);
+            x -= x & -x;
+        }
+        return mx;
+    }
+};
+
+class Solution {
+public:
+    vector<int> maximumSumQueries(vector<int>& nums1, vector<int>& nums2, vector<vector<int>>& queries) {
+        vector<pair<int, int>> nums;
+        int n = nums1.size(), m = queries.size();
+        for (int i = 0; i < n; ++i) {
+            nums.emplace_back(-nums1[i], nums2[i]);
+        }
+        sort(nums.begin(), nums.end());
+        sort(nums2.begin(), nums2.end());
+        vector<int> idx(m);
+        iota(idx.begin(), idx.end(), 0);
+        sort(idx.begin(), idx.end(), [&](int i, int j) { return queries[j][0] < queries[i][0]; });
+        vector<int> ans(m);
+        int j = 0;
+        BinaryIndexedTree tree(n);
+        for (int i : idx) {
+            int x = queries[i][0], y = queries[i][1];
+            for (; j < n && -nums[j].first >= x; ++j) {
+                int k = nums2.end() - lower_bound(nums2.begin(), nums2.end(), nums[j].second);
+                tree.update(k, -nums[j].first + nums[j].second);
+            }
+            int k = nums2.end() - lower_bound(nums2.begin(), nums2.end(), y);
+            ans[i] = tree.query(k);
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+type BinaryIndexedTree struct {
+	n int
+	c []int
+}
 
+func NewBinaryIndexedTree(n int) BinaryIndexedTree {
+	c := make([]int, n+1)
+	for i := range c {
+		c[i] = -1
+	}
+	return BinaryIndexedTree{n: n, c: c}
+}
+
+func (bit *BinaryIndexedTree) update(x, v int) {
+	for x <= bit.n {
+		bit.c[x] = max(bit.c[x], v)
+		x += x & -x
+	}
+}
+
+func (bit *BinaryIndexedTree) query(x int) int {
+	mx := -1
+	for x > 0 {
+		mx = max(mx, bit.c[x])
+		x -= x & -x
+	}
+	return mx
+}
+
+func maximumSumQueries(nums1 []int, nums2 []int, queries [][]int) []int {
+	n, m := len(nums1), len(queries)
+	nums := make([][2]int, n)
+	for i := range nums {
+		nums[i] = [2]int{nums1[i], nums2[i]}
+	}
+	sort.Slice(nums, func(i, j int) bool { return nums[j][0] < nums[i][0] })
+	sort.Ints(nums2)
+	idx := make([]int, m)
+	for i := range idx {
+		idx[i] = i
+	}
+	sort.Slice(idx, func(i, j int) bool { return queries[idx[j]][0] < queries[idx[i]][0] })
+	tree := NewBinaryIndexedTree(n)
+	ans := make([]int, m)
+	j := 0
+	for _, i := range idx {
+		x, y := queries[i][0], queries[i][1]
+		for ; j < n && nums[j][0] >= x; j++ {
+			k := n - sort.SearchInts(nums2, nums[j][1])
+			tree.update(k, nums[j][0]+nums[j][1])
+		}
+		k := n - sort.SearchInts(nums2, y)
+		ans[i] = tree.query(k)
+	}
+	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+class BinaryIndexedTree {
+    private n: number;
+    private c: number[];
+
+    constructor(n: number) {
+        this.n = n;
+        this.c = Array(n + 1).fill(-1);
+    }
+
+    update(x: number, v: number): void {
+        while (x <= this.n) {
+            this.c[x] = Math.max(this.c[x], v);
+            x += x & -x;
+        }
+    }
+
+    query(x: number): number {
+        let mx = -1;
+        while (x > 0) {
+            mx = Math.max(mx, this.c[x]);
+            x -= x & -x;
+        }
+        return mx;
+    }
+}
+
+function maximumSumQueries(nums1: number[], nums2: number[], queries: number[][]): number[] {
+    const n = nums1.length;
+    const m = queries.length;
+    const nums: [number, number][] = [];
+    for (let i = 0; i < n; ++i) {
+        nums.push([nums1[i], nums2[i]]);
+    }
+    nums.sort((a, b) => b[0] - a[0]);
+    nums2.sort((a, b) => a - b);
+    const idx: number[] = Array(m)
+        .fill(0)
+        .map((_, i) => i);
+    idx.sort((i, j) => queries[j][0] - queries[i][0]);
+    const ans: number[] = Array(m).fill(0);
+    let j = 0;
+    const search = (x: number) => {
+        let [l, r] = [0, n];
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (nums2[mid] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    };
+    const tree = new BinaryIndexedTree(n);
+    for (const i of idx) {
+        const [x, y] = queries[i];
+        for (; j < n && nums[j][0] >= x; ++j) {
+            const k = n - search(nums[j][1]);
+            tree.update(k, nums[j][0] + nums[j][1]);
+        }
+        const k = n - search(y);
+        ans[i] = tree.query(k);
+    }
+    return ans;
+}
 ```
 
 ### **...**
