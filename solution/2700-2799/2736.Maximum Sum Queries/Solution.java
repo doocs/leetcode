@@ -1,42 +1,58 @@
+class BinaryIndexedTree {
+    private int n;
+    private int[] c;
+
+    public BinaryIndexedTree(int n) {
+        this.n = n;
+        c = new int[n + 1];
+        Arrays.fill(c, -1);
+    }
+
+    public void update(int x, int v) {
+        while (x <= n) {
+            c[x] = Math.max(c[x], v);
+            x += x & -x;
+        }
+    }
+
+    public int query(int x) {
+        int mx = -1;
+        while (x > 0) {
+            mx = Math.max(mx, c[x]);
+            x -= x & -x;
+        }
+        return mx;
+    }
+}
+
 class Solution {
-    public int[] maximumSumQueries(int[] nums1, int[] nums2, int[][] q) {
-        int n = nums1.length, m = q.length;
-        int[][] a = new int[n][2];
-        for (int i = 0; i < n; i++) {
-            a[i][0] = nums1[i];
-            a[i][1] = nums2[i];
+    public int[] maximumSumQueries(int[] nums1, int[] nums2, int[][] queries) {
+        int n = nums1.length;
+        int[][] nums = new int[n][0];
+        for (int i = 0; i < n; ++i) {
+            nums[i] = new int[] {nums1[i], nums2[i]};
         }
-        int[][] b = new int[m][3];
-        for (int i = 0; i < m; i++) {
-            b[i][0] = q[i][0];
-            b[i][1] = q[i][1];
-            b[i][2] = i;
+        Arrays.sort(nums, (a, b) -> b[0] - a[0]);
+        Arrays.sort(nums2);
+        int m = queries.length;
+        Integer[] idx = new Integer[m];
+        for (int i = 0; i < m; ++i) {
+            idx[i] = i;
         }
-        Arrays.sort(a, (o1, o2) -> o1[0] - o2[0]);
-        Arrays.sort(b, (o1, o2) -> o1[0] - o2[0]);
-        TreeMap<Integer, Integer> map = new TreeMap<>();
-        int[] res = new int[m];
-        int max = -1;
-        for (int i = m - 1, j = n - 1; i >= 0; i--) {
-            int x = b[i][0], y = b[i][1], idx = b[i][2];
-            while (j >= 0 && a[j][0] >= x) {
-                if (max < a[j][1]) {
-                    max = a[j][1];
-                    Integer key = map.floorKey(a[j][1]);
-                    while (key != null && map.get(key) <= a[j][0] + a[j][1]) {
-                        map.remove(key);
-                        key = map.floorKey(key);
-                    }
-                    map.put(max, a[j][0] + a[j][1]);
-                }
-                j--;
+        Arrays.sort(idx, (i, j) -> queries[j][0] - queries[i][0]);
+        int[] ans = new int[m];
+        int j = 0;
+        BinaryIndexedTree tree = new BinaryIndexedTree(n);
+        for (int i : idx) {
+            int x = queries[i][0], y = queries[i][1];
+            for (; j < n && nums[j][0] >= x; ++j) {
+                int k = n - Arrays.binarySearch(nums2, nums[j][1]);
+                tree.update(k, nums[j][0] + nums[j][1]);
             }
-            Integer key = map.ceilingKey(y);
-            if (key == null)
-                res[idx] = -1;
-            else
-                res[idx] = map.get(key);
+            int p = Arrays.binarySearch(nums2, y);
+            int k = p >= 0 ? n - p : n + p + 1;
+            ans[i] = tree.query(k);
         }
-        return res;
+        return ans;
     }
 }
