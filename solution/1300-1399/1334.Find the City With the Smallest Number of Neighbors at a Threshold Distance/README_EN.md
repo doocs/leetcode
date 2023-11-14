@@ -63,7 +63,7 @@ class Solution:
     def findTheCity(
         self, n: int, edges: List[List[int]], distanceThreshold: int
     ) -> int:
-        def dijkstra(u):
+        def dijkstra(u: int) -> int:
             dist = [inf] * n
             dist[u] = 0
             vis = [False] * n
@@ -74,19 +74,43 @@ class Solution:
                         k = j
                 vis[k] = True
                 for j in range(n):
-                    dist[j] = min(dist[j], dist[k] + g[k][j])
+                    # dist[j] = min(dist[j], dist[k] + g[k][j])
+                    if dist[k] + g[k][j] < dist[j]:
+                        dist[j] = dist[k] + g[k][j]
             return sum(d <= distanceThreshold for d in dist)
 
         g = [[inf] * n for _ in range(n)]
         for f, t, w in edges:
             g[f][t] = g[t][f] = w
-
-        ans = n
-        t = inf
+        ans, cnt = n, inf
         for i in range(n - 1, -1, -1):
-            if (cnt := dijkstra(i)) < t:
-                t = cnt
-                ans = i
+            if (t := dijkstra(i)) < cnt:
+                cnt, ans = t, i
+        return ans
+```
+
+```python
+class Solution:
+    def findTheCity(
+        self, n: int, edges: List[List[int]], distanceThreshold: int
+    ) -> int:
+        g = [[inf] * n for _ in range(n)]
+        for f, t, w in edges:
+            g[f][t] = g[t][f] = w
+
+        for k in range(n):
+            g[k][k] = 0
+            for i in range(n):
+                for j in range(n):
+                    # g[i][j] = min(g[i][j], g[i][k] + g[k][j])
+                    if g[i][k] + g[k][j] < g[i][j]:
+                        g[i][j] = g[i][k] + g[k][j]
+
+        ans, cnt = n, inf
+        for i in range(n - 1, -1, -1):
+            t = sum(d <= distanceThreshold for d in g[i])
+            if t < cnt:
+                cnt, ans = t, i
         return ans
 ```
 
@@ -98,7 +122,7 @@ class Solution {
     private int[][] g;
     private int[] dist;
     private boolean[] vis;
-    private int inf = 1 << 30;
+    private final int inf = 1 << 30;
     private int distanceThreshold;
 
     public int findTheCity(int n, int[][] edges, int distanceThreshold) {
@@ -115,11 +139,11 @@ class Solution {
             g[f][t] = w;
             g[t][f] = w;
         }
-        int ans = n, t = inf;
+        int ans = n, cnt = inf;
         for (int i = n - 1; i >= 0; --i) {
-            int cnt = dijkstra(i);
-            if (t > cnt) {
-                t = cnt;
+            int t = dijkstra(i);
+            if (t < cnt) {
+                cnt = t;
                 ans = i;
             }
         }
@@ -153,23 +177,62 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int findTheCity(int n, int[][] edges, int distanceThreshold) {
+        final int inf = 1 << 29;
+        int[][] g = new int[n][n];
+        for (var e : g) {
+            Arrays.fill(e, inf);
+        }
+        for (var e : edges) {
+            int f = e[0], t = e[1], w = e[2];
+            g[f][t] = w;
+            g[t][f] = w;
+        }
+        for (int k = 0; k < n; ++k) {
+            g[k][k] = 0;
+            for (int i = 0; i < n; ++i) {
+                for (int j = 0; j < n; ++j) {
+                    g[i][j] = Math.min(g[i][j], g[i][k] + g[k][j]);
+                }
+            }
+        }
+        int ans = n, cnt = inf;
+        for (int i = n - 1; i >= 0; --i) {
+            int t = 0;
+            for (int d : g[i]) {
+                if (d <= distanceThreshold) {
+                    ++t;
+                }
+            }
+            if (t < cnt) {
+                cnt = t;
+                ans = i;
+            }
+        }
+        return ans;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
 class Solution {
 public:
     int findTheCity(int n, vector<vector<int>>& edges, int distanceThreshold) {
-        const int inf = 1e7;
-        vector<vector<int>> g(n, vector<int>(n, inf));
-        vector<int> dist(n, inf);
-        vector<bool> vis(n);
+        int g[n][n];
+        int dist[n];
+        bool vis[n];
+        memset(g, 0x3f, sizeof(g));
         for (auto& e : edges) {
             int f = e[0], t = e[1], w = e[2];
             g[f][t] = g[t][f] = w;
         }
         auto dijkstra = [&](int u) {
-            dist.assign(n, inf);
-            vis.assign(n, false);
+            memset(dist, 0x3f, sizeof(dist));
+            memset(vis, 0, sizeof(vis));
             dist[u] = 0;
             for (int i = 0; i < n; ++i) {
                 int k = -1;
@@ -183,17 +246,44 @@ public:
                     dist[j] = min(dist[j], dist[k] + g[k][j]);
                 }
             }
-            int cnt = 0;
-            for (int& d : dist) {
-                cnt += d <= distanceThreshold;
-            }
-            return cnt;
+            return count_if(dist, dist + n, [&](int d) { return d <= distanceThreshold; });
         };
-        int ans = n, t = inf;
+        int ans = n, cnt = n + 1;
         for (int i = n - 1; ~i; --i) {
-            int cnt = dijkstra(i);
-            if (t > cnt) {
-                t = cnt;
+            int t = dijkstra(i);
+            if (t < cnt) {
+                cnt = t;
+                ans = i;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int findTheCity(int n, vector<vector<int>>& edges, int distanceThreshold) {
+        int g[n][n];
+        memset(g, 0x3f, sizeof(g));
+        for (auto& e : edges) {
+            int f = e[0], t = e[1], w = e[2];
+            g[f][t] = g[t][f] = w;
+        }
+        for (int k = 0; k < n; ++k) {
+            g[k][k] = 0;
+            for (int i = 0; i < n; ++i) {
+                for (int j = 0; j < n; ++j) {
+                    g[i][j] = min(g[i][j], g[i][k] + g[k][j]);
+                }
+            }
+        }
+        int ans = n, cnt = n + 1;
+        for (int i = n - 1; ~i; --i) {
+            int t = count_if(g[i], g[i] + n, [&](int x) { return x <= distanceThreshold; });
+            if (t < cnt) {
+                cnt = t;
                 ans = i;
             }
         }
@@ -221,7 +311,6 @@ func findTheCity(n int, edges [][]int, distanceThreshold int) int {
 		g[f][t], g[t][f] = w, w
 	}
 
-	ans, t := n, inf
 	dijkstra := func(u int) (cnt int) {
 		for i := range vis {
 			vis[i] = false
@@ -247,14 +336,129 @@ func findTheCity(n int, edges [][]int, distanceThreshold int) int {
 		}
 		return
 	}
+
+	ans, cnt := n, inf
 	for i := n - 1; i >= 0; i-- {
-		cnt := dijkstra(i)
-		if t > cnt {
-			t = cnt
+		if t := dijkstra(i); t < cnt {
+			cnt = t
 			ans = i
 		}
 	}
 	return ans
+}
+```
+
+```go
+func findTheCity(n int, edges [][]int, distanceThreshold int) int {
+	g := make([][]int, n)
+	const inf int = 1e7
+	for i := range g {
+		g[i] = make([]int, n)
+		for j := range g[i] {
+			g[i][j] = inf
+		}
+	}
+
+	for _, e := range edges {
+		f, t, w := e[0], e[1], e[2]
+		g[f][t], g[t][f] = w, w
+	}
+
+	for k := 0; k < n; k++ {
+		g[k][k] = 0
+		for i := 0; i < n; i++ {
+			for j := 0; j < n; j++ {
+				g[i][j] = min(g[i][j], g[i][k]+g[k][j])
+			}
+		}
+	}
+
+	ans, cnt := n, n+1
+	for i := n - 1; i >= 0; i-- {
+		t := 0
+		for _, x := range g[i] {
+			if x <= distanceThreshold {
+				t++
+			}
+		}
+		if t < cnt {
+			cnt, ans = t, i
+		}
+	}
+
+	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function findTheCity(n: number, edges: number[][], distanceThreshold: number): number {
+    const g: number[][] = Array.from({ length: n }, () => Array(n).fill(Infinity));
+    const dist: number[] = Array(n).fill(Infinity);
+    const vis: boolean[] = Array(n).fill(false);
+    for (const [f, t, w] of edges) {
+        g[f][t] = g[t][f] = w;
+    }
+
+    const dijkstra = (u: number): number => {
+        dist.fill(Infinity);
+        vis.fill(false);
+        dist[u] = 0;
+        for (let i = 0; i < n; ++i) {
+            let k = -1;
+            for (let j = 0; j < n; ++j) {
+                if (!vis[j] && (k === -1 || dist[j] < dist[k])) {
+                    k = j;
+                }
+            }
+            vis[k] = true;
+            for (let j = 0; j < n; ++j) {
+                dist[j] = Math.min(dist[j], dist[k] + g[k][j]);
+            }
+        }
+        return dist.filter(d => d <= distanceThreshold).length;
+    };
+
+    let ans = n;
+    let cnt = Infinity;
+    for (let i = n - 1; i >= 0; --i) {
+        const t = dijkstra(i);
+        if (t < cnt) {
+            cnt = t;
+            ans = i;
+        }
+    }
+
+    return ans;
+}
+```
+
+```ts
+function findTheCity(n: number, edges: number[][], distanceThreshold: number): number {
+    const g: number[][] = Array.from({ length: n }, () => Array(n).fill(Infinity));
+    for (const [f, t, w] of edges) {
+        g[f][t] = g[t][f] = w;
+    }
+    for (let k = 0; k < n; ++k) {
+        g[k][k] = 0;
+        for (let i = 0; i < n; ++i) {
+            for (let j = 0; j < n; ++j) {
+                g[i][j] = Math.min(g[i][j], g[i][k] + g[k][j]);
+            }
+        }
+    }
+
+    let ans = n,
+        cnt = n + 1;
+    for (let i = n - 1; i >= 0; --i) {
+        const t = g[i].filter(x => x <= distanceThreshold).length;
+        if (t < cnt) {
+            cnt = t;
+            ans = i;
+        }
+    }
+    return ans;
 }
 ```
 
