@@ -67,30 +67,133 @@ It can be shown that 386 is the maximum amount of money that can be spent buying
 
 ## Solutions
 
+**Solution 1: Greedy + Priority Queue**
+
+According to the problem description, we should prioritize purchasing items with smaller values and leave items with larger values to be purchased later in order to maximize the total cost. Therefore, we use a priority queue (min-heap) to store the smallest value item that has not been purchased in each store. Initially, we add the rightmost item in each store to the priority queue.
+
+Each day, we take out the item with the smallest value from the priority queue, add it to the answer, and add the previous item in the store where the item is located to the priority queue. We repeat the above operation until the priority queue is empty.
+
+The time complexity is $O(m \times n \times \log m)$, and the space complexity is $O(m)$. Here, $m$ and $n$ are the number of rows and columns of the array $values$, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxSpending(self, values: List[List[int]]) -> int:
+        n = len(values[0])
+        pq = [(row[-1], i, n - 1) for i, row in enumerate(values)]
+        heapify(pq)
+        ans = d = 0
+        while pq:
+            d += 1
+            v, i, j = heappop(pq)
+            ans += v * d
+            if j:
+                heappush(pq, (values[i][j - 1], i, j - 1))
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public long maxSpending(int[][] values) {
+        int m = values.length, n = values[0].length;
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+        for (int i = 0; i < m; ++i) {
+            pq.offer(new int[] {values[i][n - 1], i, n - 1});
+        }
+        long ans = 0;
+        for (int d = 1; !pq.isEmpty(); ++d) {
+            var p = pq.poll();
+            int v = p[0], i = p[1], j = p[2];
+            ans += (long) v * d;
+            if (j > 0) {
+                pq.offer(new int[] {values[i][j - 1], i, j - 1});
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    long long maxSpending(vector<vector<int>>& values) {
+        priority_queue<tuple<int, int, int>, vector<tuple<int, int, int>>, greater<tuple<int, int, int>>> pq;
+        int m = values.size(), n = values[0].size();
+        for (int i = 0; i < m; ++i) {
+            pq.emplace(values[i][n - 1], i, n - 1);
+        }
+        long long ans = 0;
+        for (int d = 1; pq.size(); ++d) {
+            auto [v, i, j] = pq.top();
+            pq.pop();
+            ans += 1LL * v * d;
+            if (j) {
+                pq.emplace(values[i][j - 1], i, j - 1);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func maxSpending(values [][]int) (ans int64) {
+	pq := hp{}
+	n := len(values[0])
+	for i, row := range values {
+		heap.Push(&pq, tuple{row[n-1], i, n - 1})
+	}
+	for d := 1; len(pq) > 0; d++ {
+		p := heap.Pop(&pq).(tuple)
+		ans += int64(p.v * d)
+		if p.j > 0 {
+			heap.Push(&pq, tuple{values[p.i][p.j-1], p.i, p.j - 1})
+		}
+	}
+	return
+}
 
+type tuple struct{ v, i, j int }
+type hp []tuple
+
+func (h hp) Len() int           { return len(h) }
+func (h hp) Less(i, j int) bool { return h[i].v < h[j].v }
+func (h hp) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
+func (h *hp) Push(v any)        { *h = append(*h, v.(tuple)) }
+func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
+```
+
+### **TypeScript**
+
+```ts
+function maxSpending(values: number[][]): number {
+    const m = values.length;
+    const n = values[0].length;
+    const pq = new PriorityQueue({ compare: (a, b) => a[0] - b[0] });
+    for (let i = 0; i < m; ++i) {
+        pq.enqueue([values[i][n - 1], i, n - 1]);
+    }
+
+    let ans = 0;
+    for (let d = 1; !pq.isEmpty(); ++d) {
+        const [v, i, j] = pq.dequeue()!;
+        ans += v * d;
+        if (j > 0) {
+            pq.enqueue([values[i][j - 1], i, j - 1]);
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
