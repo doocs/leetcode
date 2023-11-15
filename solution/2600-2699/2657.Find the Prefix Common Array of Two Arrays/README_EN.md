@@ -45,15 +45,27 @@ At i = 2: 1, 2, and 3 are common in A and B, so C[2] = 3.
 
 ## Solutions
 
-**Solution 1: Count + Enumeration**
+**Solution 1: Counting**
 
-We can use two arrays $cnt1$ and $cnt2$ to record the number of occurrences of each element in arrays $A$ and $B$, and use array $ans$ to record the answer.
+We can use two arrays $cnt1$ and $cnt2$ to record the occurrence times of each element in arrays $A$ and $B$ respectively, and use an array $ans$ to record the answer.
 
-Traverse arrays $A$ and $B$, add the number of occurrences of $A[i]$ in $cnt1$ by one, and add the number of occurrences of $B[i]$ in $cnt2$ by one. Then enumerate $j \in [1,n]$, calculate the minimum value of the number of occurrences of each element $j$ in $cnt1$ and $cnt2$, and add it to $ans[i]$.
+Traverse arrays $A$ and $B$, increment the occurrence times of $A[i]$ in $cnt1$, and increment the occurrence times of $B[i]$ in $cnt2$. Then enumerate $j \in [1,n]$, calculate the minimum occurrence times of each element $j$ in $cnt1$ and $cnt2$, and accumulate them into $ans[i]$.
 
-After the traversal is over, return the answer array $ans$.
+After the traversal, return the answer array $ans$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the length of arrays $A$ and $B$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of arrays $A$ and $B$.
+
+**Solution 2: Bit Operation (XOR Operation)**
+
+We can use an array $vis$ of length $n+1$ to record the occurrence situation of each element in arrays $A$ and $B$, the initial value of array $vis$ is $1$. In addition, we use a variable $s$ to record the current number of common elements.
+
+Next, we traverse arrays $A$ and $B$, update $vis[A[i]] = vis[A[i]] \oplus 1$, and update $vis[B[i]] = vis[B[i]] \oplus 1$, where $\oplus$ represents XOR operation.
+
+If at the current position, the element $A[i]$ has appeared twice (i.e., it has appeared in both arrays $A$ and $B$), then the value of $vis[A[i]]$ will be $1$, and we increment $s$. Similarly, if the element $B[i]$ has appeared twice, then the value of $vis[B[i]]$ will be $1$, and we increment $s$. Then add the value of $s$ to the answer array $ans$.
+
+After the traversal, return the answer array $ans$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of arrays $A$ and $B$.
 
 <!-- tabs:start -->
 
@@ -73,6 +85,21 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def findThePrefixCommonArray(self, A: List[int], B: List[int]) -> List[int]:
+        ans = []
+        vis = [1] * (len(A) + 1)
+        s = 0
+        for a, b in zip(A, B):
+            vis[a] ^= 1
+            s += vis[a]
+            vis[b] ^= 1
+            s += vis[b]
+            ans.append(s)
+        return ans
+```
+
 ### **Java**
 
 ```java
@@ -88,6 +115,26 @@ class Solution {
             for (int j = 1; j <= n; ++j) {
                 ans[i] += Math.min(cnt1[j], cnt2[j]);
             }
+        }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int[] findThePrefixCommonArray(int[] A, int[] B) {
+        int n = A.length;
+        int[] ans = new int[n];
+        int[] vis = new int[n + 1];
+        Arrays.fill(vis, 1);
+        int s = 0;
+        for (int i = 0; i < n; ++i) {
+            vis[A[i]] ^= 1;
+            s += vis[A[i]];
+            vis[B[i]] ^= 1;
+            s += vis[B[i]];
+            ans[i] = s;
         }
         return ans;
     }
@@ -115,6 +162,26 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    vector<int> findThePrefixCommonArray(vector<int>& A, vector<int>& B) {
+        int n = A.size();
+        vector<int> ans;
+        vector<int> vis(n + 1, 1);
+        int s = 0;
+        for (int i = 0; i < n; ++i) {
+            vis[A[i]] ^= 1;
+            s += vis[A[i]];
+            vis[B[i]] ^= 1;
+            s += vis[B[i]];
+            ans.push_back(s);
+        }
+        return ans;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -135,20 +202,57 @@ func findThePrefixCommonArray(A []int, B []int) []int {
 }
 ```
 
+```go
+func findThePrefixCommonArray(A []int, B []int) (ans []int) {
+	vis := make([]int, len(A)+1)
+	for i := range vis {
+		vis[i] = 1
+	}
+	s := 0
+	for i, a := range A {
+		b := B[i]
+		vis[a] ^= 1
+		s += vis[a]
+		vis[b] ^= 1
+		s += vis[b]
+		ans = append(ans, s)
+	}
+	return
+}
+```
+
 ### **TypeScript**
 
 ```ts
 function findThePrefixCommonArray(A: number[], B: number[]): number[] {
     const n = A.length;
-    const cnt1: number[] = new Array(n + 1).fill(0);
-    const cnt2: number[] = new Array(n + 1).fill(0);
-    const ans: number[] = new Array(n).fill(0);
+    const cnt1: number[] = Array(n + 1).fill(0);
+    const cnt2: number[] = Array(n + 1).fill(0);
+    const ans: number[] = Array(n).fill(0);
     for (let i = 0; i < n; ++i) {
         ++cnt1[A[i]];
         ++cnt2[B[i]];
         for (let j = 1; j <= n; ++j) {
             ans[i] += Math.min(cnt1[j], cnt2[j]);
         }
+    }
+    return ans;
+}
+```
+
+```ts
+function findThePrefixCommonArray(A: number[], B: number[]): number[] {
+    const n = A.length;
+    const vis: number[] = Array(n + 1).fill(1);
+    const ans: number[] = [];
+    let s = 0;
+    for (let i = 0; i < n; ++i) {
+        const [a, b] = [A[i], B[i]];
+        vis[a] ^= 1;
+        s += vis[a];
+        vis[b] ^= 1;
+        s += vis[b];
+        ans.push(s);
     }
     return ans;
 }
