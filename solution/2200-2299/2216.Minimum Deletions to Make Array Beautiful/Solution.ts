@@ -1,17 +1,13 @@
 function minDeletion(nums: number[]): number {
     const n = nums.length;
-    let res = 0;
-    let i = 0;
-    while (i < n - 1) {
+    let ans = 0;
+    for (let i = 0; i < n - 1; ++i) {
         if (nums[i] === nums[i + 1]) {
-            i++;
-            res++;
+            ++ans;
         } else {
-            i += 2;
+            ++i;
         }
     }
-    if ((n - res) % 2 === 1) {
-        res++;
-    }
-    return res;
+    ans += (n - ans) % 2;
+    return ans;
 }
