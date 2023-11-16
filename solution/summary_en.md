@@ -2993,3 +2993,4 @@
   - [2933.High-Access Employees](/solution/2900-2999/2933.High-Access%20Employees/README_EN.md)
   - [2934.Minimum Operations to Maximize Last Elements in Arrays](/solution/2900-2999/2934.Minimum%20Operations%20to%20Maximize%20Last%20Elements%20in%20Arrays/README_EN.md)
   - [2935.Maximum Strong Pair XOR II](/solution/2900-2999/2935.Maximum%20Strong%20Pair%20XOR%20II/README_EN.md)
+  - [2936.Number of Equal Numbers Blocks](/solution/2900-2999/2936.Number%20of%20Equal%20Numbers%20Blocks/README_EN.md)
