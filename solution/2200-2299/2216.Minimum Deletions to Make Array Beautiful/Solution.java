@@ -9,9 +9,7 @@ class Solution {
                 ++i;
             }
         }
-        if ((n - ans) % 2 == 1) {
-            ++ans;
-        }
+        ans += (n - ans) % 2;
         return ans;
     }
 }

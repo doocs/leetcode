@@ -47,23 +47,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-不需要修改数组，只统计不符合规则的元素数量即可。
+**方法一：贪心**
 
-```txt
-COUNT(A){
-	n = A.length
-	i = 0
-	r = 0
-	while i < n - 1
-		if nums[i] == nums[i + 1]
-			r += 1
-			i += 1
-		else
-			i += 2
-	return r
-```
+根据题目描述，我们知道，一个美丽数组有偶数个元素，且如果我们把这个数组中每相邻两个元素划分为一组，那么每一组中的两个元素都不相等。这意味着，组内的元素不能重复，但组与组之间的元素可以重复。
 
-完成统计后，计算删除元素之后的数组长度是否为奇数，若为奇数，还需要进行一次删除（返回值 + 1）。
+因此，我们考虑从左到右遍历数组，只要遇到相邻两个元素相等，我们就将其中的一个元素删除，即删除数加一；否则，我们可以保留这两个元素。
+
+最后，我们判断删除后的数组长度是否为偶数，如果不是，则说明我们需要再删除一个元素，使得最终的数组长度为偶数。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组的长度。我们只需要遍历数组一次。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -82,8 +74,22 @@ class Solution:
                 i += 1
             else:
                 i += 2
-        if (n - ans) % 2:
-            ans += 1
+        ans += (n - ans) % 2
+        return ans
+```
+
+```python
+class Solution:
+    def minDeletion(self, nums: List[int]) -> int:
+        n = len(nums)
+        ans = i = 0
+        while i < n:
+            j = i + 1
+            while j < n and nums[j] == nums[i]:
+                j += 1
+                ans += 1
+            i = j + 1
+        ans += (n - ans) % 2
         return ans
 ```
 
@@ -103,56 +109,27 @@ class Solution {
                 ++i;
             }
         }
-        if ((n - ans) % 2 == 1) {
-            ++ans;
-        }
+        ans += (n - ans) % 2;
         return ans;
     }
 }
 ```
 
-### **TypeScript**
-
-```ts
-function minDeletion(nums: number[]): number {
-    const n = nums.length;
-    let res = 0;
-    let i = 0;
-    while (i < n - 1) {
-        if (nums[i] === nums[i + 1]) {
-            i++;
-            res++;
-        } else {
-            i += 2;
-        }
-    }
-    if ((n - res) % 2 === 1) {
-        res++;
-    }
-    return res;
-}
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    pub fn min_deletion(nums: Vec<i32>) -> i32 {
-        let n = nums.len();
-        let mut res = 0;
-        let mut i = 0;
-        while i < n - 1 {
-            if nums[i] == nums[i + 1] {
-                res += 1;
-                i += 1;
-            } else {
-                i += 2;
+```java
+class Solution {
+    public int minDeletion(int[] nums) {
+        int n = nums.length;
+        int ans = 0;
+        for (int i = 0; i < n;) {
+            int j = i + 1;
+            while (j < n && nums[j] == nums[i]) {
+                ++j;
+                ++ans;
             }
+            i = j + 1;
         }
-        if (n - res) % 2 == 1 {
-            res += 1;
-        }
-        res as i32
+        ans += (n - ans) % 2;
+        return ans;
     }
 }
 ```
@@ -172,7 +149,27 @@ public:
                 ++i;
             }
         }
-        if ((n - ans) % 2) ++ans;
+        ans += (n - ans) % 2;
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int minDeletion(vector<int>& nums) {
+        int n = nums.size();
+        int ans = 0;
+        for (int i = 0; i < n;) {
+            int j = i + 1;
+            while (j < n && nums[j] == nums[i]) {
+                ++j;
+                ++ans;
+            }
+            i = j + 1;
+        }
+        ans += (n - ans) % 2;
         return ans;
     }
 };
@@ -181,9 +178,8 @@ public:
 ### **Go**
 
 ```go
-func minDeletion(nums []int) int {
+func minDeletion(nums []int) (ans int) {
 	n := len(nums)
-	ans := 0
 	for i := 0; i < n-1; i++ {
 		if nums[i] == nums[i+1] {
 			ans++
@@ -191,10 +187,99 @@ func minDeletion(nums []int) int {
 			i++
 		}
 	}
-	if (n-ans)%2 == 1 {
-		ans++
+	ans += (n - ans) % 2
+	return
+}
+```
+
+```go
+func minDeletion(nums []int) (ans int) {
+	n := len(nums)
+	for i := 0; i < n; {
+		j := i + 1
+		for ; j < n && nums[j] == nums[i]; j++ {
+			ans++
+		}
+		i = j + 1
 	}
-	return ans
+	ans += (n - ans) % 2
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function minDeletion(nums: number[]): number {
+    const n = nums.length;
+    let ans = 0;
+    for (let i = 0; i < n - 1; ++i) {
+        if (nums[i] === nums[i + 1]) {
+            ++ans;
+        } else {
+            ++i;
+        }
+    }
+    ans += (n - ans) % 2;
+    return ans;
+}
+```
+
+```ts
+function minDeletion(nums: number[]): number {
+    const n = nums.length;
+    let ans = 0;
+    for (let i = 0; i < n; ) {
+        let j = i + 1;
+        for (; j < n && nums[j] === nums[i]; ++j) {
+            ++ans;
+        }
+        i = j + 1;
+    }
+    ans += (n - ans) % 2;
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn min_deletion(nums: Vec<i32>) -> i32 {
+        let n = nums.len();
+        let mut ans = 0;
+        let mut i = 0;
+        while i < n - 1 {
+            if nums[i] == nums[i + 1] {
+                ans += 1;
+                i += 1;
+            } else {
+                i += 2;
+            }
+        }
+        ans += (n - ans) % 2;
+        ans as i32
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn min_deletion(nums: Vec<i32>) -> i32 {
+        let n = nums.len();
+        let mut ans = 0;
+        let mut i = 0;
+        while i < n {
+            let mut j = i + 1;
+            while j < n && nums[j] == nums[i] {
+                ans += 1;
+                j += 1;
+            }
+            i = j + 1;
+        }
+        ans += (n - ans) % 2;
+        ans as i32
+    }
 }
 ```
 

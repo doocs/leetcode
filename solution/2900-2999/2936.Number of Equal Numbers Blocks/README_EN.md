@@ -63,24 +63,228 @@ So the answer would be 5.</pre>
 
 ## Solutions
 
+**Solution 1: Binary Search**
+
+We can use binary search to find the right boundary of each block. Specifically, we traverse the array from left to right. For each index $i$, we use binary search to find the smallest index $j$ such that all elements between $[i,j)$ are equal to $nums[i]$. Then we update $i$ to $j$ and continue to traverse the array until $i$ is greater than or equal to the length of the array.
+
+The time complexity is $O(m \times \log n)$, where $m$ is the number of different elements in the array $num$, and $n$ is the length of the array $num$. The space complexity is $O(1)$.
+
+**Solution 2: Divide and Conquer**
+
+We can use the divide and conquer method to calculate the answer. Specifically, we divide the array into two subarrays, recursively calculate the answer for each subarray, and then merge the answers. If the last element of the first subarray is equal to the first element of the second subarray, then we need to subtract one from the answer.
+
+The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $num$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+# Definition for BigArray.
+# class BigArray:
+#     def at(self, index: long) -> int:
+#         pass
+#     def size(self) -> long:
+#         pass
+class Solution(object):
+    def countBlocks(self, nums: Optional["BigArray"]) -> int:
+        i, n = 0, nums.size()
+        ans = 0
+        while i < n:
+            ans += 1
+            x = nums.at(i)
+            if i + 1 < n and nums.at(i + 1) != x:
+                i += 1
+            else:
+                i += bisect_left(range(i, n), True, key=lambda j: nums.at(j) != x)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+/**
+ * Definition for BigArray.
+ * class BigArray {
+ *     public BigArray(int[] elements);
+ *     public int at(long index);
+ *     public long size();
+ * }
+ */
+class Solution {
+    public int countBlocks(BigArray nums) {
+        int ans = 0;
+        for (long i = 0, n = nums.size(); i < n; ++ans) {
+            i = search(nums, i, n);
+        }
+        return ans;
+    }
 
+    private long search(BigArray nums, long l, long n) {
+        long r = n;
+        int x = nums.at(l);
+        while (l < r) {
+            long mid = (l + r) >> 1;
+            if (nums.at(mid) != x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    }
+}
+```
+
+```java
+/**
+ * Definition for BigArray.
+ * class BigArray {
+ *     public BigArray(int[] elements);
+ *     public int at(long index);
+ *     public long size();
+ * }
+ */
+class Solution {
+    public int countBlocks(BigArray nums) {
+        return f(nums, 0, nums.size() - 1);
+    }
+
+    private int f(BigArray nums, long l, long r) {
+        if (nums.at(l) == nums.at(r)) {
+            return 1;
+        }
+        long mid = (l + r) >> 1;
+        int a = f(nums, l, mid);
+        int b = f(nums, mid + 1, r);
+        return a + b - (nums.at(mid) == nums.at(mid + 1) ? 1 : 0);
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
+/**
+ * Definition for BigArray.
+ * class BigArray {
+ * public:
+ *     BigArray(vector<int> elements);
+ *     int at(long long index);
+ *     long long size();
+ * };
+ */
+class Solution {
+public:
+    int countBlocks(BigArray* nums) {
+        int ans = 0;
+        using ll = long long;
+        ll n = nums->size();
+        auto search = [&](ll l) {
+            ll r = n;
+            int x = nums->at(l);
+            while (l < r) {
+                ll mid = (l + r) >> 1;
+                if (nums->at(mid) != x) {
+                    r = mid;
+                } else {
+                    l = mid + 1;
+                }
+            }
+            return l;
+        };
+        for (long long i = 0; i < n; ++ans) {
+            i = search(i);
+        }
+        return ans;
+    }
+};
+```
 
+```cpp
+/**
+ * Definition for BigArray.
+ * class BigArray {
+ * public:
+ *     BigArray(vector<int> elements);
+ *     int at(long long index);
+ *     long long size();
+ * };
+ */
+class Solution {
+public:
+    int countBlocks(BigArray* nums) {
+        using ll = long long;
+        function<int(ll, ll)> f = [&](ll l, ll r) {
+            if (nums->at(l) == nums->at(r)) {
+                return 1;
+            }
+            ll mid = (l + r) >> 1;
+            int a = f(l, mid);
+            int b = f(mid + 1, r);
+            return a + b - (nums->at(mid) == nums->at(mid + 1));
+        };
+        return f(0, nums->size() - 1);
+    }
+};
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for BigArray.
+ * class BigArray {
+ *     constructor(elements: number[]);
+ *     public at(index: number): number;
+ *     public size(): number;
+ * }
+ */
+function countBlocks(nums: BigArray | null): number {
+    const n = nums.size();
+    const search = (l: number): number => {
+        let r = n;
+        const x = nums.at(l);
+        while (l < r) {
+            const mid = l + Math.floor((r - l) / 2);
+            if (nums.at(mid) !== x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    };
+
+    let ans = 0;
+    for (let i = 0; i < n; ++ans) {
+        i = search(i);
+    }
+    return ans;
+}
+```
+
+```ts
+/**
+ * Definition for BigArray.
+ * class BigArray {
+ *     constructor(elements: number[]);
+ *     public at(index: number): number;
+ *     public size(): number;
+ * }
+ */
+function countBlocks(nums: BigArray | null): number {
+    const f = (l: number, r: number): number => {
+        if (nums.at(l) === nums.at(r)) {
+            return 1;
+        }
+        const mid = l + Math.floor((r - l) / 2);
+        const a = f(l, mid);
+        const b = f(mid + 1, r);
+        return a + b - (nums.at(mid) === nums.at(mid + 1) ? 1 : 0);
+    };
+    return f(0, nums.size() - 1);
+}
 ```
 
 ### **Go**
