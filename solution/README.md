@@ -2946,6 +2946,7 @@
 |  2933  |  [高访问员工](/solution/2900-2999/2933.High-Access%20Employees/README.md)  |    |  中等  |  第 371 场周赛  |
 |  2934  |  [最大化数组末位元素的最少操作次数](/solution/2900-2999/2934.Minimum%20Operations%20to%20Maximize%20Last%20Elements%20in%20Arrays/README.md)  |    |  中等  |  第 371 场周赛  |
 |  2935  |  [找出强数对的最大异或值 II](/solution/2900-2999/2935.Maximum%20Strong%20Pair%20XOR%20II/README.md)  |    |  困难  |  第 371 场周赛  |
+|  2936  |  [Number of Equal Numbers Blocks](/solution/2900-2999/2936.Number%20of%20Equal%20Numbers%20Blocks/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
