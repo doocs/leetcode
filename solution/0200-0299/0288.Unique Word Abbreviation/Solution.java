@@ -1,23 +1,20 @@
 class ValidWordAbbr {
-    private Map<String, Set<String>> words;
+    private Map<String, Set<String>> d = new HashMap<>();
 
     public ValidWordAbbr(String[] dictionary) {
-        words = new HashMap<>();
-        for (String word : dictionary) {
-            String abbr = abbr(word);
-            words.computeIfAbsent(abbr, k -> new HashSet<>()).add(word);
+        for (var s : dictionary) {
+            d.computeIfAbsent(abbr(s), k -> new HashSet<>()).add(s);
         }
     }
 
     public boolean isUnique(String word) {
-        String abbr = abbr(word);
-        Set<String> vals = words.get(abbr);
-        return vals == null || (vals.size() == 1 && vals.contains(word));
+        var ws = d.get(abbr(word));
+        return ws == null || (ws.size() == 1 && ws.contains(word));
     }
 
     private String abbr(String s) {
         int n = s.length();
-        return n < 3 ? s : s.charAt(0) + Integer.toString(n - 2) + s.charAt(n - 1);
+        return n < 3 ? s : s.substring(0, 1) + (n - 2) + s.substring(n - 1);
     }
 }
 

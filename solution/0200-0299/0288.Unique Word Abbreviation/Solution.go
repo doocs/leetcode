@@ -1,31 +1,30 @@
 type ValidWordAbbr struct {
-	words map[string]map[string]bool
+	d map[string]map[string]bool
 }
 
 func Constructor(dictionary []string) ValidWordAbbr {
-	words := make(map[string]map[string]bool)
-	for _, word := range dictionary {
-		abbr := wordAbbr(word)
-		if words[abbr] == nil {
-			words[abbr] = make(map[string]bool)
+	d := make(map[string]map[string]bool)
+	for _, s := range dictionary {
+		abbr := abbr(s)
+		if _, ok := d[abbr]; !ok {
+			d[abbr] = make(map[string]bool)
 		}
-		words[abbr][word] = true
+		d[abbr][s] = true
 	}
-	return ValidWordAbbr{words}
+	return ValidWordAbbr{d}
 }
 
 func (this *ValidWordAbbr) IsUnique(word string) bool {
-	abbr := wordAbbr(word)
-	words := this.words[abbr]
-	return words == nil || (len(words) == 1 && words[word])
+	ws := this.d[abbr(word)]
+	return ws == nil || (len(ws) == 1 && ws[word])
 }
 
-func wordAbbr(s string) string {
+func abbr(s string) string {
 	n := len(s)
-	if n <= 2 {
+	if n < 3 {
 		return s
 	}
-	return s[0:1] + strconv.Itoa(n-2) + s[n-1:]
+	return fmt.Sprintf("%c%d%c", s[0], n-2, s[n-1])
 }
 
 /**
