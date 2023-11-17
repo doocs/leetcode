@@ -13,7 +13,7 @@
 <ul>
 	<li><code>0 &lt;= i, j &lt; nums.length</code></li>
 	<li><code>i != j</code></li>
-	<li><code>nums[i] - nums[j] == k</code></li>
+	<li><code>|nums[i] - nums[j]| == k</code></li>
 </ul>
 
 <p><strong>注意</strong>，<code>|val|</code> 表示 <code>val</code> 的绝对值。</p>
