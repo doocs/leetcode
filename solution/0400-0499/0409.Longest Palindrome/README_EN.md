@@ -35,6 +35,18 @@
 
 ## Solutions
 
+**Solution 1: Counting**
+
+A valid palindrome string can have at most one character that appears an odd number of times, and the rest of the characters appear an even number of times.
+
+Therefore, we can first traverse the string $s$, count the number of times each character appears, and record it in an array or hash table $cnt$.
+
+Then, we traverse $cnt$, for each character $c$, if $cnt[c]$ is even, then directly add $cnt[c]$ to the answer $ans$; if $cnt[c]$ is odd, then add $cnt[c] - 1$ to $ans$, if $ans$ is even, then increase $ans$ by $1$.
+
+Finally, we return $ans$.
+
+The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is the length of the string $s$; and $C$ is the size of the character set, in this problem $C = 128$.
+
 <!-- tabs:start -->
 
 ### **Python3**
