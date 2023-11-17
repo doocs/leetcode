@@ -1,27 +1,23 @@
 class Solution {
     public boolean validWordAbbreviation(String word, String abbr) {
         int m = word.length(), n = abbr.length();
-        int i = 0, j = 0;
-        while (i < m) {
-            if (j >= n) {
-                return false;
-            }
-            if (word.charAt(i) == abbr.charAt(j)) {
+        int i = 0, j = 0, x = 0;
+        for (; i < m && j < n; ++j) {
+            char c = abbr.charAt(j);
+            if (Character.isDigit(c)) {
+                if (c == '0' && x == 0) {
+                    return false;
+                }
+                x = x * 10 + (c - '0');
+            } else {
+                i += x;
+                x = 0;
+                if (i >= m || word.charAt(i) != c) {
+                    return false;
+                }
                 ++i;
-                ++j;
-                continue;
             }
-            int k = j;
-            while (k < n && Character.isDigit(abbr.charAt(k))) {
-                ++k;
-            }
-            String t = abbr.substring(j, k);
-            if (j == k || t.charAt(0) == '0' || Integer.parseInt(t) == 0) {
-                return false;
-            }
-            i += Integer.parseInt(t);
-            j = k;
         }
-        return i == m && j == n;
+        return i + x == m && j == n;
     }
 }

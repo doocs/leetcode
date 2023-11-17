@@ -1,28 +1,20 @@
 func validWordAbbreviation(word string, abbr string) bool {
-	i, j := 0, 0
 	m, n := len(word), len(abbr)
-	for i < m {
-		if j >= n {
-			return false
-		}
-		if word[i] == abbr[j] {
+	i, j, x := 0, 0, 0
+	for ; i < m && j < n; j++ {
+		if abbr[j] >= '0' && abbr[j] <= '9' {
+			if x == 0 && abbr[j] == '0' {
+				return false
+			}
+			x = x*10 + int(abbr[j]-'0')
+		} else {
+			i += x
+			x = 0
+			if i >= m || word[i] != abbr[j] {
+				return false
+			}
 			i++
-			j++
-			continue
 		}
-		k := j
-		for k < n && abbr[k] >= '0' && abbr[k] <= '9' {
-			k++
-		}
-		if k == j || abbr[j] == '0' {
-			return false
-		}
-		x, _ := strconv.Atoi(abbr[j:k])
-		if x == 0 {
-			return false
-		}
-		i += x
-		j = k
 	}
-	return i == m && j == n
+	return i+x == m && j == n
 }
