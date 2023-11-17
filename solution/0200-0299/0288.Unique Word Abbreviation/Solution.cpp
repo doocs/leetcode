@@ -1,22 +1,20 @@
 class ValidWordAbbr {
 public:
-    unordered_map<string, unordered_set<string>> words;
-
     ValidWordAbbr(vector<string>& dictionary) {
-        for (auto word : dictionary) {
-            auto abbr = wordAbbr(word);
-            words[abbr].insert(word);
+        for (auto& s : dictionary) {
+            d[abbr(s)].insert(s);
         }
     }
 
     bool isUnique(string word) {
-        auto abbr = wordAbbr(word);
-        if (!words.count(abbr)) return true;
-        auto vals = words[abbr];
-        return vals.size() == 1 && vals.count(word);
+        string s = abbr(word);
+        return !d.count(s) || (d[s].size() == 1 && d[s].count(word));
     }
 
-    string wordAbbr(string s) {
+private:
+    unordered_map<string, unordered_set<string>> d;
+
+    string abbr(string& s) {
         int n = s.size();
         return n < 3 ? s : s.substr(0, 1) + to_string(n - 2) + s.substr(n - 1, 1);
     }
