@@ -54,9 +54,29 @@
 
 ## 解法
 
-回溯法。
-
 <!-- 这里可写通用的实现逻辑 -->
+
+**方法一：DFS**
+
+我们设计一个函数 $dfs(i)$，表示对于字符串 $word[i:]$，返回其所有可能的缩写。
+
+函数 $dfs(i)$ 的执行逻辑如下：
+
+如果 $i \geq n$，说明已经处理完了字符串 $word$，直接返回一个空字符串组成的列表。
+
+否则，我们可以选择保留 $word[i]$，然后对 $dfs(i + 1)$ 返回的列表中的每个字符串前面添加 $word[i]$，将得到的结果添加到答案中。
+
+我们也可以选择删除 $word[i]$ 及其后面的若干个字符，假设我们删除了 $word[i..j)$，那么第 $j$ 个字符不删除，然后对 $dfs(j + 1)$ 返回的列表中的每个字符串前面添加 $j - i$，将得到的结果添加到答案中。
+
+最后，我们在主函数中调用 $dfs(0)$ 即可。
+
+时间复杂度 $O(n \times 2^n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $word$ 的长度。
+
+**方法二：二进制枚举**
+
+由于字符串 $word$ 的长度不超过 $15$，因此我们可以使用二进制枚举的方法枚举所有的缩写。我们用一个长度为 $n$ 的二进制数 $i$ 表示一种缩写方式，其中 $0$ 表示保留对应的字符，而 $1$ 表示删除对应的字符。我们在 $[0, 2^n)$ 的范围内枚举所有 $i$，并将其转换成对应的缩写，添加到答案列表中即可。
+
+时间复杂度 $O(n \times 2^n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $word$ 的长度。
 
 <!-- tabs:start -->
 
@@ -67,26 +87,38 @@
 ```python
 class Solution:
     def generateAbbreviations(self, word: str) -> List[str]:
-        def dfs(s, t):
-            if not s:
-                ans.append(''.join(t))
-                return
-            for i in range(1, len(s) + 1):
-                t.append(str(i))
-                if i < len(s):
-                    t.append(s[i])
-                    dfs(s[i + 1 :], t)
-                    t.pop()
-                else:
-                    dfs(s[i:], t)
-                t.pop()
+        def dfs(i: int) -> List[str]:
+            if i >= n:
+                return [""]
+            ans = [word[i] + s for s in dfs(i + 1)]
+            for j in range(i + 1, n + 1):
+                for s in dfs(j + 1):
+                    ans.append(str(j - i) + (word[j] if j < n else "") + s)
+            return ans
 
-            t.append(s[0])
-            dfs(s[1:], t)
-            t.pop()
+        n = len(word)
+        return dfs(0)
+```
 
+```python
+class Solution:
+    def generateAbbreviations(self, word: str) -> List[str]:
+        n = len(word)
         ans = []
-        dfs(word, [])
+        for i in range(1 << n):
+            cnt = 0
+            s = []
+            for j in range(n):
+                if i >> j & 1:
+                    cnt += 1
+                else:
+                    if cnt:
+                        s.append(str(cnt))
+                        cnt = 0
+                    s.append(word[j])
+            if cnt:
+                s.append(str(cnt))
+            ans.append("".join(s))
         return ans
 ```
 
@@ -96,35 +128,197 @@ class Solution:
 
 ```java
 class Solution {
-    private List<String> ans;
+    private String word;
+    private int n;
 
     public List<String> generateAbbreviations(String word) {
-        ans = new ArrayList<>();
-        List<String> t = new ArrayList<>();
-        dfs(word, t);
-        return ans;
+        this.word = word;
+        n = word.length();
+        return dfs(0);
     }
 
-    private void dfs(String s, List<String> t) {
-        if ("".equals(s)) {
-            ans.add(String.join("", t));
-            return;
+    private List<String> dfs(int i) {
+        if (i >= n) {
+            return List.of("");
         }
-        for (int i = 1; i < s.length() + 1; ++i) {
-            t.add(i + "");
-            if (i < s.length()) {
-                t.add(String.valueOf(s.charAt(i)));
-                dfs(s.substring(i + 1), t);
-                t.remove(t.size() - 1);
-            } else {
-                dfs(s.substring(i), t);
+        List<String> ans = new ArrayList<>();
+        for (String s : dfs(i + 1)) {
+            ans.add(String.valueOf(word.charAt(i)) + s);
+        }
+        for (int j = i + 1; j <= n; ++j) {
+            for (String s : dfs(j + 1)) {
+                ans.add((j - i) + "" + (j < n ? String.valueOf(word.charAt(j)) : "") + s);
             }
-            t.remove(t.size() - 1);
         }
-        t.add(String.valueOf(s.charAt(0)));
-        dfs(s.substring(1), t);
-        t.remove(t.size() - 1);
+        return ans;
     }
+}
+```
+
+```java
+class Solution {
+    public List<String> generateAbbreviations(String word) {
+        int n = word.length();
+        List<String> ans = new ArrayList<>();
+        for (int i = 0; i < 1 << n; ++i) {
+            StringBuilder s = new StringBuilder();
+            int cnt = 0;
+            for (int j = 0; j < n; ++j) {
+                if ((i >> j & 1) == 1) {
+                    ++cnt;
+                } else {
+                    if (cnt > 0) {
+                        s.append(cnt);
+                        cnt = 0;
+                    }
+                    s.append(word.charAt(j));
+                }
+            }
+            if (cnt > 0) {
+                s.append(cnt);
+            }
+            ans.add(s.toString());
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> generateAbbreviations(string word) {
+        int n = word.size();
+        function<vector<string>(int)> dfs = [&](int i) -> vector<string> {
+            if (i >= n) {
+                return {""};
+            }
+            vector<string> ans;
+            for (auto& s : dfs(i + 1)) {
+                string p(1, word[i]);
+                ans.emplace_back(p + s);
+            }
+            for (int j = i + 1; j <= n; ++j) {
+                for (auto& s : dfs(j + 1)) {
+                    string p = j < n ? string(1, word[j]) : "";
+                    ans.emplace_back(to_string(j - i) + p + s);
+                }
+            }
+            return ans;
+        };
+        return dfs(0);
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<string> generateAbbreviations(string word) {
+        int n = word.size();
+        vector<string> ans;
+        for (int i = 0; i < 1 << n; ++i) {
+            string s;
+            int cnt = 0;
+            for (int j = 0; j < n; ++j) {
+                if (i >> j & 1) {
+                    ++cnt;
+                } else {
+                    if (cnt) {
+                        s += to_string(cnt);
+                        cnt = 0;
+                    }
+                    s.push_back(word[j]);
+                }
+            }
+            if (cnt) {
+                s += to_string(cnt);
+            }
+            ans.push_back(s);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func generateAbbreviations(word string) []string {
+	n := len(word)
+	var dfs func(int) []string
+	dfs = func(i int) []string {
+		if i >= n {
+			return []string{""}
+		}
+		ans := []string{}
+		for _, s := range dfs(i + 1) {
+			ans = append(ans, word[i:i+1]+s)
+		}
+		for j := i + 1; j <= n; j++ {
+			for _, s := range dfs(j + 1) {
+				p := ""
+				if j < n {
+					p = word[j : j+1]
+				}
+				ans = append(ans, strconv.Itoa(j-i)+p+s)
+			}
+		}
+		return ans
+	}
+	return dfs(0)
+}
+```
+
+```go
+func generateAbbreviations(word string) (ans []string) {
+	n := len(word)
+	for i := 0; i < 1<<n; i++ {
+		s := &strings.Builder{}
+		cnt := 0
+		for j := 0; j < n; j++ {
+			if i>>j&1 == 1 {
+				cnt++
+			} else {
+				if cnt > 0 {
+					s.WriteString(strconv.Itoa(cnt))
+					cnt = 0
+				}
+				s.WriteByte(word[j])
+			}
+		}
+		if cnt > 0 {
+			s.WriteString(strconv.Itoa(cnt))
+		}
+		ans = append(ans, s.String())
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function generateAbbreviations(word: string): string[] {
+    const n = word.length;
+    const dfs = (i: number): string[] => {
+        if (i >= n) {
+            return [''];
+        }
+        const ans: string[] = [];
+        for (const s of dfs(i + 1)) {
+            ans.push(word[i] + s);
+        }
+        for (let j = i + 1; j <= n; ++j) {
+            for (const s of dfs(j + 1)) {
+                ans.push((j - i).toString() + (j < n ? word[j] : '') + s);
+            }
+        }
+        return ans;
+    };
+    return dfs(0);
 }
 ```
 
