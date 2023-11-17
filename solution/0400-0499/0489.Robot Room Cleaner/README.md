@@ -6,59 +6,78 @@
 
 <!-- 这里写题目描述 -->
 
-<p>房间（用格栅表示）中有一个扫地机器人。格栅中的每一个格子有空和障碍物两种可能。</p>
+<p>房间中的某个位置上有一个机器人，你需要控制它清扫房间。房间被建模为一个 <code>m x n</code> 的二进制网格，其中 <code>0</code> 表示单元格中有障碍物，<code>1</code> 表示空单元格。</p>
 
-<p>扫地机器人提供4个API，可以向前进，向左转或者向右转。每次转弯90度。</p>
+<p>机器人从一个未知的空单元格开始出发，并且你无法访问网格，但你可以使用给定的 API <code>Robot</code> 控制机器人。</p>
 
-<p>当扫地机器人试图进入障碍物格子时，它的碰撞传感器会探测出障碍物，使它停留在原地。</p>
+<p>你的任务是使用机器人清扫整个房间（即清理房间中的每个空单元格）。机器人具有四个给定的API，可以前进、向左转或向右转。每次转弯 90 度。</p>
 
-<p>请利用提供的4个API编写让机器人清理整个房间的算法。</p>
+<p>当机器人试图移动到一个存在障碍物的单元格时，它的碰撞传感器会检测到障碍物，并停留在当前单元格。</p>
+
+<p>设计一个算法，使用下述 API 清扫整个房间：</p>
 
 <pre>
 interface Robot {
-&nbsp; // 若下一个方格为空，则返回true，并移动至该方格
-&nbsp; // 若下一个方格为障碍物，则返回false，并停留在原地
+&nbsp; // 若下一个单元格为空，则返回 true ，并移动至该单元格。
+&nbsp; // 若下一个单元格为障碍物，则返回 false ，并停留在当前单元格。
 &nbsp; boolean move();
 
-  // 在调用turnLeft/turnRight后机器人会停留在原位置
-&nbsp; // 每次转弯90度
+  // 在调用 turnLeft/turnRight 后机器人会停留在当前单元格。
+&nbsp; // 每次转弯 90 度。
 &nbsp; void turnLeft();
 &nbsp; void turnRight();
 
-  // 清理所在方格
+  // 清理当前单元格。
   void clean();
 }
 </pre>
 
-<p><strong>示例:</strong></p>
+<p><strong>注意</strong> 扫地机器人的初始方向向上。你可以假定网格的四周都被墙包围。</p>
 
-<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0489.Robot%20Room%20Cleaner/images/1695782910-iCEGqJ-image.png" style="width: 644px; height: 405px;" /></strong></p>
+<p>&nbsp;</p>
 
+<p><strong>自定义测试：</strong></p>
+
+<p>输入只用于初始化房间和机器人的位置。你需要「盲解」这个问题。换而言之，你必须在对房间和机器人位置一无所知的情况下，只使用 4 个给出的 API 解决问题。&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1：</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0489.Robot%20Room%20Cleaner/images/lc-grid.jpg" style="width: 500px; height: 314px;" />
 <pre>
-<strong>输入:</strong>
-room = [
-  [1,1,1,1,1,0,1,1],
-  [1,1,1,1,1,0,1,1],
-  [1,0,1,1,1,1,1,1],
-  [0,0,0,1,0,0,0,0],
-  [1,1,1,1,1,1,1,1]
-],
-row = 1,
-col = 3
-
-<strong>解析:</strong>
-房间格栅用0或1填充。0表示障碍物，1表示可以通过。
-机器人从row=1，col=3的初始位置出发。在左上角的一行以下，三列以右。
+<strong>输入：</strong>room = [[1,1,1,1,1,0,1,1],[1,1,1,1,1,0,1,1],[1,0,1,1,1,1,1,1],[0,0,0,1,0,0,0,0],[1,1,1,1,1,1,1,1]], row = 1, col = 3
+<strong>输出：</strong>Robot cleaned all rooms.
+<strong>解释：</strong>
+房间内的所有单元格用 0 或 1 填充。
+0 表示障碍物，1 表示可以通过。 
+机器人从 row=1, col=3 的初始位置出发。
+在左上角的一行以下，三列以右。
 </pre>
 
-<p><strong>注意:</strong></p>
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>room = [[1]], row = 0, col = 0
+<strong>输出：</strong>Robot cleaned all rooms.
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>m == room.length</code></li>
+	<li><code>n == room[i].length</code></li>
+	<li><code>1 &lt;= m &lt;= 100</code></li>
+	<li><code>1 &lt;= n &lt;= 200</code></li>
+	<li><code>room[i][j]</code> 为 <code>0</code> 或 <code>1</code>.</li>
+	<li><code>0 &lt;= row &lt;&nbsp;m</code></li>
+	<li><code>0 &lt;= col &lt; n</code></li>
+	<li><code>room[row][col] == 1</code></li>
+	<li>所有空单元格都可以从起始位置出发访问到。</li>
+</ul>
 
 <ol>
-	<li>输入只用于初始化房间和机器人的位置。你需要“盲解”这个问题。换而言之，你必须在对房间和机器人位置一无所知的情况下，只使用4个给出的API解决问题。&nbsp;</li>
-	<li>扫地机器人的初始位置一定是空地。</li>
-	<li>扫地机器人的初始方向向上。</li>
-	<li>所有可抵达的格子都是相连的，亦即所有标记为1的格子机器人都可以抵达。</li>
-	<li>可以假定格栅的四周都被墙包围。</li>
 </ol>
 
 ## 解法

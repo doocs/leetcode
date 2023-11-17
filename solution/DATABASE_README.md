@@ -246,7 +246,7 @@
 | 2853 | [最高薪水差异](/solution/2800-2899/2853.Highest%20Salaries%20Difference/README.md)                                                                           | `数据库` | 简单 | 🔒   |
 | 2854 | [滚动平均步数](/solution/2800-2899/2854.Rolling%20Average%20Steps/README.md)                                                                                 | `数据库` | 中等 | 🔒   |
 | 2893 | [计算每个区间内的订单](/solution/2800-2899/2893.Calculate%20Orders%20Within%20Each%20Interval/README.md)                                                     | `数据库` | 中等 | 🔒   |
-| 2922 | [市场分析 III](/solution/2900-2999/2922.Market%20Analysis%20III/README.md)                                                                                   |          | 中等 | 🔒   |
+| 2922 | [市场分析 III](/solution/2900-2999/2922.Market%20Analysis%20III/README.md)                                                                                   | `数据库` | 中等 | 🔒   |
 
 ## 版权
 
