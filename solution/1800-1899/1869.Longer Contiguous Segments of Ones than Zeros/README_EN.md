@@ -56,6 +56,12 @@ The segment of 1s is not longer, so return false.
 
 ## Solutions
 
+**Solution 1: Two Passes**
+
+We design a function $f(x)$, which represents the length of the longest consecutive substring in string $s$ composed of $x$. If $f(1) > f(0)$, then return `true`, otherwise return `false`.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)`.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,18 +69,17 @@ The segment of 1s is not longer, so return false.
 ```python
 class Solution:
     def checkZeroOnes(self, s: str) -> bool:
-        n0 = n1 = 0
-        t0 = t1 = 0
-        for c in s:
-            if c == '0':
-                t0 += 1
-                t1 = 0
-            else:
-                t0 = 0
-                t1 += 1
-            n0 = max(n0, t0)
-            n1 = max(n1, t1)
-        return n1 > n0
+        def f(x: str) -> int:
+            cnt = mx = 0
+            for c in s:
+                if c == x:
+                    cnt += 1
+                    mx = max(mx, cnt)
+                else:
+                    cnt = 0
+            return mx
+
+        return f("1") > f("0")
 ```
 
 ### **Java**
@@ -82,21 +87,81 @@ class Solution:
 ```java
 class Solution {
     public boolean checkZeroOnes(String s) {
-        int n0 = 0, n1 = 0;
-        int t0 = 0, t1 = 0;
-        for (int i = 0; i < s.length(); ++i) {
-            if (s.charAt(i) == '0') {
-                ++t0;
-                t1 = 0;
-            } else {
-                ++t1;
-                t0 = 0;
-            }
-            n0 = Math.max(n0, t0);
-            n1 = Math.max(n1, t1);
-        }
-        return n1 > n0;
+        return f(s, '1') > f(s, '0');
     }
+
+    private int f(String s, char x) {
+        int cnt = 0, mx = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            if (s.charAt(i) == x) {
+                mx = Math.max(mx, ++cnt);
+            } else {
+                cnt = 0;
+            }
+        }
+        return mx;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool checkZeroOnes(string s) {
+        auto f = [&](char x) {
+            int cnt = 0, mx = 0;
+            for (char& c : s) {
+                if (c == x) {
+                    mx = max(mx, ++cnt);
+                } else {
+                    cnt = 0;
+                }
+            }
+            return mx;
+        };
+        return f('1') > f('0');
+    }
+};
+```
+
+### **Go**
+
+```go
+func checkZeroOnes(s string) bool {
+	f := func(x rune) int {
+		cnt, mx := 0, 0
+		for _, c := range s {
+			if c == x {
+				cnt++
+				mx = max(mx, cnt)
+			} else {
+				cnt = 0
+			}
+		}
+		return mx
+	}
+	return f('1') > f('0')
+}
+```
+
+### **TypeScript**
+
+```ts
+function checkZeroOnes(s: string): boolean {
+    const f = (x: string): number => {
+        let [mx, cnt] = [0, 0];
+        for (const c of s) {
+            if (c === x) {
+                mx = Math.max(mx, ++cnt);
+            } else {
+                cnt = 0;
+            }
+        }
+        return mx;
+    };
+    return f('1') > f('0');
 }
 ```
 
@@ -108,68 +173,19 @@ class Solution {
  * @return {boolean}
  */
 var checkZeroOnes = function (s) {
-    let max0 = 0,
-        max1 = 0;
-    let t0 = 0,
-        t1 = 0;
-    for (let char of s) {
-        if (char == '0') {
-            t0++;
-            t1 = 0;
-        } else {
-            t1++;
-            t0 = 0;
-        }
-        max0 = Math.max(max0, t0);
-        max1 = Math.max(max1, t1);
-    }
-    return max1 > max0;
-};
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool checkZeroOnes(string s) {
-        int n0 = 0, n1 = 0;
-        int t0 = 0, t1 = 0;
-        for (auto c : s) {
-            if (c == '0') {
-                ++t0;
-                t1 = 0;
+    const f = x => {
+        let [mx, cnt] = [0, 0];
+        for (const c of s) {
+            if (c === x) {
+                mx = Math.max(mx, ++cnt);
             } else {
-                ++t1;
-                t0 = 0;
+                cnt = 0;
             }
-            n0 = max(n0, t0);
-            n1 = max(n1, t1);
         }
-        return n1 > n0;
-    }
+        return mx;
+    };
+    return f('1') > f('0');
 };
-```
-
-### **Go**
-
-```go
-func checkZeroOnes(s string) bool {
-	n0, n1 := 0, 0
-	t0, t1 := 0, 0
-	for _, c := range s {
-		if c == '0' {
-			t0++
-			t1 = 0
-		} else {
-			t1++
-			t0 = 0
-		}
-		n0 = max(n0, t0)
-		n1 = max(n1, t1)
-	}
-	return n1 > n0
-}
 ```
 
 ### **...**

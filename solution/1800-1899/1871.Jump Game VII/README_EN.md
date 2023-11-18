@@ -43,6 +43,16 @@ In the second step, move from index 3 to index 5.
 
 ## Solutions
 
+**Solution 1: Prefix Sum + Dynamic Programming**
+
+We define a prefix sum array $pre$ of length $n+1$, where $pre[i]$ represents the number of reachable positions in the first $i$ positions of $s$. We define a boolean array $f$ of length $n$, where $f[i]$ indicates whether $s[i]$ is reachable. Initially, $pre[1] = 1$ and $f[0] = true$.
+
+Consider $i \in [1, n)$, if $s[i] = 0$, then we need to determine whether there exists a position $j$ in the first $i$ positions of $s$, such that $j$ is reachable and the distance from $j$ to $i$ is within $[minJump, maxJump]$. If such a position $j$ exists, then we have $f[i] = true$, otherwise $f[i] = false$. When determining whether $j$ exists, we can use the prefix sum array $pre$ to determine whether such a position $j$ exists in $O(1)$ time.
+
+The final answer is $f[n-1]$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -51,18 +61,15 @@ In the second step, move from index 3 to index 5.
 class Solution:
     def canReach(self, s: str, minJump: int, maxJump: int) -> bool:
         n = len(s)
-        dp = [False] * n
-        dp[0] = True
-        pre_sum = [0] * (n + 1)
-        pre_sum[1] = 1
+        pre = [0] * (n + 1)
+        pre[1] = 1
+        f = [True] + [False] * (n - 1)
         for i in range(1, n):
-            if s[i] == '0':
-                l = max(0, i - maxJump)
-                r = i - minJump
-                if r >= l and pre_sum[r + 1] - pre_sum[l] > 0:
-                    dp[i] = True
-            pre_sum[i + 1] = pre_sum[i] + dp[i]
-        return dp[n - 1]
+            if s[i] == "0":
+                l, r = max(0, i - maxJump), i - minJump
+                f[i] = l <= r and pre[r + 1] - pre[l] > 0
+            pre[i + 1] = pre[i] + f[i]
+        return f[-1]
 ```
 
 ### **Java**
@@ -71,22 +78,89 @@ class Solution:
 class Solution {
     public boolean canReach(String s, int minJump, int maxJump) {
         int n = s.length();
-        boolean[] dp = new boolean[n];
-        dp[0] = true;
-        int[] preSum = new int[n + 1];
-        preSum[1] = 1;
+        int[] pre = new int[n + 1];
+        pre[1] = 1;
+        boolean[] f = new boolean[n];
+        f[0] = true;
         for (int i = 1; i < n; ++i) {
             if (s.charAt(i) == '0') {
                 int l = Math.max(0, i - maxJump);
                 int r = i - minJump;
-                if (r >= l && preSum[r + 1] - preSum[l] > 0) {
-                    dp[i] = true;
-                }
+                f[i] = l <= r && pre[r + 1] - pre[l] > 0;
             }
-            preSum[i + 1] = preSum[i] + (dp[i] ? 1 : 0);
+            pre[i + 1] = pre[i] + (f[i] ? 1 : 0);
         }
-        return dp[n - 1];
+        return f[n - 1];
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool canReach(string s, int minJump, int maxJump) {
+        int n = s.size();
+        int pre[n + 1];
+        memset(pre, 0, sizeof(pre));
+        pre[1] = 1;
+        bool f[n];
+        memset(f, 0, sizeof(f));
+        f[0] = true;
+        for (int i = 1; i < n; ++i) {
+            if (s[i] == '0') {
+                int l = max(0, i - maxJump);
+                int r = i - minJump;
+                f[i] = l <= r && pre[r + 1] - pre[l];
+            }
+            pre[i + 1] = pre[i] + f[i];
+        }
+        return f[n - 1];
+    }
+};
+```
+
+### **Go**
+
+```go
+func canReach(s string, minJump int, maxJump int) bool {
+	n := len(s)
+	pre := make([]int, n+1)
+	pre[1] = 1
+	f := make([]bool, n)
+	f[0] = true
+	for i := 1; i < n; i++ {
+		if s[i] == '0' {
+			l, r := max(0, i-maxJump), i-minJump
+			f[i] = l <= r && pre[r+1]-pre[l] > 0
+		}
+		pre[i+1] = pre[i]
+		if f[i] {
+			pre[i+1]++
+		}
+	}
+	return f[n-1]
+}
+```
+
+### **TypeScript**
+
+```ts
+function canReach(s: string, minJump: number, maxJump: number): boolean {
+    const n = s.length;
+    const pre: number[] = Array(n + 1).fill(0);
+    pre[1] = 1;
+    const f: boolean[] = Array(n).fill(false);
+    f[0] = true;
+    for (let i = 1; i < n; ++i) {
+        if (s[i] === '0') {
+            const [l, r] = [Math.max(0, i - maxJump), i - minJump];
+            f[i] = l <= r && pre[r + 1] - pre[l] > 0;
+        }
+        pre[i + 1] = pre[i] + (f[i] ? 1 : 0);
+    }
+    return f[n - 1];
 }
 ```
 
@@ -100,22 +174,19 @@ class Solution {
  * @return {boolean}
  */
 var canReach = function (s, minJump, maxJump) {
-    let n = s.length;
-    let dp = new Array(n).fill(0);
-    let sum = new Array(n + 1).fill(0);
-    dp[0] = 1;
-    sum[1] = 1;
-    for (let i = 1; i < n; i++) {
-        if (s.charAt(i) == '0') {
-            let left = Math.max(0, i - maxJump);
-            let right = i - minJump;
-            if (left <= right && sum[right + 1] - sum[left] > 0) {
-                dp[i] = 1;
-            }
+    const n = s.length;
+    const pre = Array(n + 1).fill(0);
+    pre[1] = 1;
+    const f = Array(n).fill(false);
+    f[0] = true;
+    for (let i = 1; i < n; ++i) {
+        if (s[i] === '0') {
+            const [l, r] = [Math.max(0, i - maxJump), i - minJump];
+            f[i] = l <= r && pre[r + 1] - pre[l] > 0;
         }
-        sum[i + 1] = sum[i] + dp[i];
+        pre[i + 1] = pre[i] + (f[i] ? 1 : 0);
     }
-    return dp.pop();
+    return f[n - 1];
 };
 ```
 

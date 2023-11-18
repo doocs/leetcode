@@ -49,7 +49,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-“动态规划 + 前缀和”实现。
+**方法一：前缀和 + 动态规划**
+
+我们定义一个长度为 $n+1$ 的前缀和数组 $pre$，其中 $pre[i]$ 表示 $s$ 的前 $i$ 个位置中能够到达的个数。定义一个长度为 $n$ 的布尔数组 $f$，其中 $f[i]$ 表示 $s[i]$ 是否能够到达。初始时 $pre[1] = 1$，而 $f[0] = true$。
+
+考虑 $i \in [1, n)$，如果 $s[i] = 0$，那么我们需要判断 $s$ 的前 $i$ 个位置中是否存在一个位置 $j$，满足 $j$ 能够到达且 $j$ 到 $i$ 的距离在 $[minJump, maxJump]$ 之间。如果存在这样的位置 $j$，那么我们就有 $f[i] = true$，否则 $f[i] = false$。在判断 $j$ 是否存在时，我们可以通过前缀和数组 $pre$ 在 $O(1)$ 的时间内判断是否存在这样的位置 $j$。
+
+最终答案即为 $f[n-1]$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 
@@ -61,18 +69,15 @@
 class Solution:
     def canReach(self, s: str, minJump: int, maxJump: int) -> bool:
         n = len(s)
-        dp = [False] * n
-        dp[0] = True
-        pre_sum = [0] * (n + 1)
-        pre_sum[1] = 1
+        pre = [0] * (n + 1)
+        pre[1] = 1
+        f = [True] + [False] * (n - 1)
         for i in range(1, n):
-            if s[i] == '0':
-                l = max(0, i - maxJump)
-                r = i - minJump
-                if r >= l and pre_sum[r + 1] - pre_sum[l] > 0:
-                    dp[i] = True
-            pre_sum[i + 1] = pre_sum[i] + dp[i]
-        return dp[n - 1]
+            if s[i] == "0":
+                l, r = max(0, i - maxJump), i - minJump
+                f[i] = l <= r and pre[r + 1] - pre[l] > 0
+            pre[i + 1] = pre[i] + f[i]
+        return f[-1]
 ```
 
 ### **Java**
@@ -83,22 +88,89 @@ class Solution:
 class Solution {
     public boolean canReach(String s, int minJump, int maxJump) {
         int n = s.length();
-        boolean[] dp = new boolean[n];
-        dp[0] = true;
-        int[] preSum = new int[n + 1];
-        preSum[1] = 1;
+        int[] pre = new int[n + 1];
+        pre[1] = 1;
+        boolean[] f = new boolean[n];
+        f[0] = true;
         for (int i = 1; i < n; ++i) {
             if (s.charAt(i) == '0') {
                 int l = Math.max(0, i - maxJump);
                 int r = i - minJump;
-                if (r >= l && preSum[r + 1] - preSum[l] > 0) {
-                    dp[i] = true;
-                }
+                f[i] = l <= r && pre[r + 1] - pre[l] > 0;
             }
-            preSum[i + 1] = preSum[i] + (dp[i] ? 1 : 0);
+            pre[i + 1] = pre[i] + (f[i] ? 1 : 0);
         }
-        return dp[n - 1];
+        return f[n - 1];
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool canReach(string s, int minJump, int maxJump) {
+        int n = s.size();
+        int pre[n + 1];
+        memset(pre, 0, sizeof(pre));
+        pre[1] = 1;
+        bool f[n];
+        memset(f, 0, sizeof(f));
+        f[0] = true;
+        for (int i = 1; i < n; ++i) {
+            if (s[i] == '0') {
+                int l = max(0, i - maxJump);
+                int r = i - minJump;
+                f[i] = l <= r && pre[r + 1] - pre[l];
+            }
+            pre[i + 1] = pre[i] + f[i];
+        }
+        return f[n - 1];
+    }
+};
+```
+
+### **Go**
+
+```go
+func canReach(s string, minJump int, maxJump int) bool {
+	n := len(s)
+	pre := make([]int, n+1)
+	pre[1] = 1
+	f := make([]bool, n)
+	f[0] = true
+	for i := 1; i < n; i++ {
+		if s[i] == '0' {
+			l, r := max(0, i-maxJump), i-minJump
+			f[i] = l <= r && pre[r+1]-pre[l] > 0
+		}
+		pre[i+1] = pre[i]
+		if f[i] {
+			pre[i+1]++
+		}
+	}
+	return f[n-1]
+}
+```
+
+### **TypeScript**
+
+```ts
+function canReach(s: string, minJump: number, maxJump: number): boolean {
+    const n = s.length;
+    const pre: number[] = Array(n + 1).fill(0);
+    pre[1] = 1;
+    const f: boolean[] = Array(n).fill(false);
+    f[0] = true;
+    for (let i = 1; i < n; ++i) {
+        if (s[i] === '0') {
+            const [l, r] = [Math.max(0, i - maxJump), i - minJump];
+            f[i] = l <= r && pre[r + 1] - pre[l] > 0;
+        }
+        pre[i + 1] = pre[i] + (f[i] ? 1 : 0);
+    }
+    return f[n - 1];
 }
 ```
 
@@ -112,22 +184,19 @@ class Solution {
  * @return {boolean}
  */
 var canReach = function (s, minJump, maxJump) {
-    let n = s.length;
-    let dp = new Array(n).fill(0);
-    let sum = new Array(n + 1).fill(0);
-    dp[0] = 1;
-    sum[1] = 1;
-    for (let i = 1; i < n; i++) {
-        if (s.charAt(i) == '0') {
-            let left = Math.max(0, i - maxJump);
-            let right = i - minJump;
-            if (left <= right && sum[right + 1] - sum[left] > 0) {
-                dp[i] = 1;
-            }
+    const n = s.length;
+    const pre = Array(n + 1).fill(0);
+    pre[1] = 1;
+    const f = Array(n).fill(false);
+    f[0] = true;
+    for (let i = 1; i < n; ++i) {
+        if (s[i] === '0') {
+            const [l, r] = [Math.max(0, i - maxJump), i - minJump];
+            f[i] = l <= r && pre[r + 1] - pre[l] > 0;
         }
-        sum[i + 1] = sum[i] + dp[i];
+        pre[i + 1] = pre[i] + (f[i] ? 1 : 0);
     }
-    return dp.pop();
+    return f[n - 1];
 };
 ```
 
