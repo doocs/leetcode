@@ -38,6 +38,18 @@ So the maximum sum that we can obtain is 54.
 
 ## Solutions
 
+**Solution 1: Hash Table**
+
+We can use a hash table $d$ to record the maximum value corresponding to each digit sum, and initialize an answer variable $ans = -1$.
+
+Next, we traverse the array $nums$. For each number $v$, we calculate its digit sum $x$. If $x$ exists in the hash table $d$, then we update the answer $ans = \max(ans, d[x] + v)$. Then update the hash table $d[x] = \max(d[x], v)$.
+
+Finally, return the answer $ans$.
+
+Since the maximum element in $nums$ is $10^9$, the maximum digit sum is $9 \times 9 = 81$. We can directly define an array $d$ of length $100$ to replace the hash table.
+
+The time complexity is $O(n \times \log M)$, and the space complexity is $O(D)$. Here, $n$ is the length of the array $nums$, and $M$ and $D$ are the maximum value of the elements in the array $nums$ and the maximum value of the digit sum, respectively. In this problem, $M \leq 10^9$, $D \leq 81$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -45,34 +57,16 @@ So the maximum sum that we can obtain is 54.
 ```python
 class Solution:
     def maximumSum(self, nums: List[int]) -> int:
-        d = defaultdict(list)
-        for v in nums:
-            x, y = v, 0
-            while x:
-                y += x % 10
-                x //= 10
-            d[y].append(v)
-        ans = -1
-        for vs in d.values():
-            if len(vs) > 1:
-                vs.sort(reverse=True)
-                ans = max(ans, vs[0] + vs[1])
-        return ans
-```
-
-```python
-class Solution:
-    def maximumSum(self, nums: List[int]) -> int:
-        ans = -1
         d = defaultdict(int)
+        ans = -1
         for v in nums:
-            x, y = v, 0
-            while x:
-                y += x % 10
-                x //= 10
-            if y in d:
-                ans = max(ans, d[y] + v)
-            d[y] = max(d[y], v)
+            x, y = 0, v
+            while y:
+                x += y % 10
+                y //= 10
+            if x in d:
+                ans = max(ans, d[x] + v)
+            d[x] = max(d[x], v)
         return ans
 ```
 
@@ -81,42 +75,17 @@ class Solution:
 ```java
 class Solution {
     public int maximumSum(int[] nums) {
-        List<Integer>[] d = new List[100];
-        Arrays.setAll(d, k -> new ArrayList<>());
-        for (int v : nums) {
-            int y = 0;
-            for (int x = v; x > 0; x /= 10) {
-                y += x % 10;
-            }
-            d[y].add(v);
-        }
-        int ans = -1;
-        for (var vs : d) {
-            int m = vs.size();
-            if (m > 1) {
-                Collections.sort(vs);
-                ans = Math.max(ans, vs.get(m - 1) + vs.get(m - 2));
-            }
-        }
-        return ans;
-    }
-}
-```
-
-```java
-class Solution {
-    public int maximumSum(int[] nums) {
-        int ans = -1;
         int[] d = new int[100];
+        int ans = -1;
         for (int v : nums) {
-            int y = 0;
-            for (int x = v; x > 0; x /= 10) {
-                y += x % 10;
+            int x = 0;
+            for (int y = v; y > 0; y /= 10) {
+                x += y % 10;
             }
-            if (d[y] > 0) {
-                ans = Math.max(ans, d[y] + v);
+            if (d[x] > 0) {
+                ans = Math.max(ans, d[x] + v);
             }
-            d[y] = Math.max(d[y], v);
+            d[x] = Math.max(d[x], v);
         }
         return ans;
     }
@@ -129,41 +98,17 @@ class Solution {
 class Solution {
 public:
     int maximumSum(vector<int>& nums) {
-        vector<vector<int>> d(100);
-        for (int& v : nums) {
-            int y = 0;
-            for (int x = v; x > 0; x /= 10) {
-                y += x % 10;
-            }
-            d[y].emplace_back(v);
-        }
-        int ans = -1;
-        for (auto& vs : d) {
-            if (vs.size() > 1) {
-                sort(vs.rbegin(), vs.rend());
-                ans = max(ans, vs[0] + vs[1]);
-            }
-        }
-        return ans;
-    }
-};
-```
-
-```cpp
-class Solution {
-public:
-    int maximumSum(vector<int>& nums) {
-        int ans = -1;
         int d[100]{};
-        for (int& v : nums) {
-            int y = 0;
-            for (int x = v; x; x /= 10) {
-                y += x % 10;
+        int ans = -1;
+        for (int v : nums) {
+            int x = 0;
+            for (int y = v; y; y /= 10) {
+                x += y % 10;
             }
-            if (d[y]) {
-                ans = max(ans, d[y] + v);
+            if (d[x]) {
+                ans = max(ans, d[x] + v);
             }
-            d[y] = max(d[y], v);
+            d[x] = max(d[x], v);
         }
         return ans;
     }
@@ -174,39 +119,17 @@ public:
 
 ```go
 func maximumSum(nums []int) int {
-	d := [100][]int{}
-	for _, v := range nums {
-		y := 0
-		for x := v; x > 0; x /= 10 {
-			y += x % 10
-		}
-		d[y] = append(d[y], v)
-	}
-	ans := -1
-	for _, vs := range d {
-		m := len(vs)
-		if m > 1 {
-			sort.Ints(vs)
-			ans = max(ans, vs[m-1]+vs[m-2])
-		}
-	}
-	return ans
-}
-```
-
-```go
-func maximumSum(nums []int) int {
-	ans := -1
 	d := [100]int{}
+	ans := -1
 	for _, v := range nums {
-		y := 0
-		for x := v; x > 0; x /= 10 {
-			y += x % 10
+		x := 0
+		for y := v; y > 0; y /= 10 {
+			x += y % 10
 		}
-		if d[y] > 0 {
-			ans = max(ans, d[y]+v)
+		if d[x] > 0 {
+			ans = max(ans, d[x]+v)
 		}
-		d[y] = max(d[y], v)
+		d[x] = max(d[x], v)
 	}
 	return ans
 }
@@ -215,7 +138,47 @@ func maximumSum(nums []int) int {
 ### **TypeScript**
 
 ```ts
+function maximumSum(nums: number[]): number {
+    const d: number[] = Array(100).fill(0);
+    let ans = -1;
+    for (const v of nums) {
+        let x = 0;
+        for (let y = v; y; y = (y / 10) | 0) {
+            x += y % 10;
+        }
+        if (d[x]) {
+            ans = Math.max(ans, d[x] + v);
+        }
+        d[x] = Math.max(d[x], v);
+    }
+    return ans;
+}
+```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn maximum_sum(nums: Vec<i32>) -> i32 {
+        let mut d = vec![0; 100];
+        let mut ans = -1;
+
+        for &v in nums.iter() {
+            let mut x: usize = 0;
+            let mut y = v;
+            while y > 0 {
+                x += (y % 10) as usize;
+                y /= 10;
+            }
+            if d[x] > 0 {
+                ans = ans.max(d[x] + v);
+            }
+            d[x] = d[x].max(v);
+        }
+
+        ans
+    }
+}
 ```
 
 ### **...**
