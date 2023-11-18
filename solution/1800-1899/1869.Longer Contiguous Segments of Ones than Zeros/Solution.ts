@@ -1,9 +1,5 @@
-/**
- * @param {string} s
- * @return {boolean}
- */
-var checkZeroOnes = function (s) {
-    const f = x => {
+function checkZeroOnes(s: string): boolean {
+    const f = (x: string): number => {
         let [mx, cnt] = [0, 0];
         for (const c of s) {
             if (c === x) {
@@ -15,4 +11,4 @@ var checkZeroOnes = function (s) {
         return mx;
     };
     return f('1') > f('0');
-};
+}

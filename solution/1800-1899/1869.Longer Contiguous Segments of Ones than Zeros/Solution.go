@@ -1,16 +1,15 @@
 func checkZeroOnes(s string) bool {
-	n0, n1 := 0, 0
-	t0, t1 := 0, 0
-	for _, c := range s {
-		if c == '0' {
-			t0++
-			t1 = 0
-		} else {
-			t1++
-			t0 = 0
+	f := func(x rune) int {
+		cnt, mx := 0, 0
+		for _, c := range s {
+			if c == x {
+				cnt++
+				mx = max(mx, cnt)
+			} else {
+				cnt = 0
+			}
 		}
-		n0 = max(n0, t0)
-		n1 = max(n1, t1)
+		return mx
 	}
-	return n1 > n0
+	return f('1') > f('0')
 }

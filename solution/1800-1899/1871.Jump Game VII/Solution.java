@@ -1,20 +1,18 @@
 class Solution {
     public boolean canReach(String s, int minJump, int maxJump) {
         int n = s.length();
-        boolean[] dp = new boolean[n];
-        dp[0] = true;
-        int[] preSum = new int[n + 1];
-        preSum[1] = 1;
+        int[] pre = new int[n + 1];
+        pre[1] = 1;
+        boolean[] f = new boolean[n];
+        f[0] = true;
         for (int i = 1; i < n; ++i) {
             if (s.charAt(i) == '0') {
                 int l = Math.max(0, i - maxJump);
                 int r = i - minJump;
-                if (r >= l && preSum[r + 1] - preSum[l] > 0) {
-                    dp[i] = true;
-                }
+                f[i] = l <= r && pre[r + 1] - pre[l] > 0;
             }
-            preSum[i + 1] = preSum[i] + (dp[i] ? 1 : 0);
+            pre[i + 1] = pre[i] + (f[i] ? 1 : 0);
         }
-        return dp[n - 1];
+        return f[n - 1];
     }
 }
