@@ -2947,6 +2947,10 @@
 |  2934  |  [最大化数组末位元素的最少操作次数](/solution/2900-2999/2934.Minimum%20Operations%20to%20Maximize%20Last%20Elements%20in%20Arrays/README.md)  |  `贪心`,`数组`  |  中等  |  第 371 场周赛  |
 |  2935  |  [找出强数对的最大异或值 II](/solution/2900-2999/2935.Maximum%20Strong%20Pair%20XOR%20II/README.md)  |  `位运算`,`字典树`,`数组`,`哈希表`,`滑动窗口`  |  困难  |  第 371 场周赛  |
 |  2936  |  [Number of Equal Numbers Blocks](/solution/2900-2999/2936.Number%20of%20Equal%20Numbers%20Blocks/README.md)  |    |  中等  |  🔒  |
+|  2937  |  [使三个字符串相等](/solution/2900-2999/2937.Make%20Three%20Strings%20Equal/README.md)  |    |  简单  |  第 372 场周赛  |
+|  2938  |  [区分黑球与白球](/solution/2900-2999/2938.Separate%20Black%20and%20White%20Balls/README.md)  |    |  中等  |  第 372 场周赛  |
+|  2939  |  [最大异或乘积](/solution/2900-2999/2939.Maximum%20Xor%20Product/README.md)  |    |  中等  |  第 372 场周赛  |
+|  2940  |  [找到 Alice 和 Bob 可以相遇的建筑](/solution/2900-2999/2940.Find%20Building%20Where%20Alice%20and%20Bob%20Can%20Meet/README.md)  |    |  困难  |  第 372 场周赛  |
 
 ## 版权
 

@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 372 场周赛(2023-11-19 10:30, 90 分钟) 参赛人数 3920
+
+- [2937. 使三个字符串相等](/solution/2900-2999/2937.Make%20Three%20Strings%20Equal/README.md)
+- [2938. 区分黑球与白球](/solution/2900-2999/2938.Separate%20Black%20and%20White%20Balls/README.md)
+- [2939. 最大异或乘积](/solution/2900-2999/2939.Maximum%20Xor%20Product/README.md)
+- [2940. 找到 Alice 和 Bob 可以相遇的建筑](/solution/2900-2999/2940.Find%20Building%20Where%20Alice%20and%20Bob%20Can%20Meet/README.md)
+
 #### 第 371 场周赛(2023-11-12 10:30, 90 分钟) 参赛人数 3637
 
 - [2932. 找出强数对的最大异或值 I](/solution/2900-2999/2932.Maximum%20Strong%20Pair%20XOR%20I/README.md)
