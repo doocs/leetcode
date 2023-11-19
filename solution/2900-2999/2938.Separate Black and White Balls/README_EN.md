@@ -51,30 +51,99 @@ It can be proven that the minimum number of steps needed is 2.
 
 ## Solutions
 
+**Solution 1: Counting Simulation**
+
+We consider moving all the '1's to the rightmost side. We use a variable $cnt$ to record the current number of '1's that have been moved to the rightmost side, and a variable $ans$ to record the number of moves.
+
+We traverse the string from right to left. If the current position is '1', then we increment $cnt$ by one, and add $n - i - cnt$ to $ans$, where $n$ is the length of the string. Finally, we return $ans$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minimumSteps(self, s: str) -> int:
+        n = len(s)
+        ans = cnt = 0
+        for i in range(n - 1, -1, -1):
+            if s[i] == '1':
+                cnt += 1
+                ans += n - i - cnt
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public long minimumSteps(String s) {
+        long ans = 0;
+        int cnt = 0;
+        int n = s.length();
+        for (int i = n - 1; i >= 0; --i) {
+            if (s.charAt(i) == '1') {
+                ++cnt;
+                ans += n - i - cnt;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    long long minimumSteps(string s) {
+        long long ans = 0;
+        int cnt = 0;
+        int n = s.size();
+        for (int i = n - 1; i >= 0; --i) {
+            if (s[i] == '1') {
+                ++cnt;
+                ans += n - i - cnt;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minimumSteps(s string) (ans int64) {
+	n := len(s)
+	cnt := 0
+	for i := n - 1; i >= 0; i-- {
+		if s[i] == '1' {
+			cnt++
+			ans += int64(n - i - cnt)
+		}
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function minimumSteps(s: string): number {
+    const n = s.length;
+    let [ans, cnt] = [0, 0];
+    for (let i = n - 1; ~i; --i) {
+        if (s[i] === '1') {
+            ++cnt;
+            ans += n - i - cnt;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
