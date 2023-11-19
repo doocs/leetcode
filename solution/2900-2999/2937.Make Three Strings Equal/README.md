@@ -42,6 +42,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：枚举**
+
+根据题目描述，我们知道，如果删除字符后的三个字符串相等，那么它们存在一个长度大于 $1$ 的公共前缀。因此，我们可以枚举公共前缀的位置 $i$，如果当前下标 $i$ 对应的三个字符不完全相等，那么公共前缀长度为 $i$，此时，我们判断 $i$ 是否为 $0$，若是，返回 $-1$，否则返回 $s - 3 \times i$，其中 $s$ 为三个字符串的长度和。
+
+时间复杂度 $O(n)$，其中 $n$ 为三个字符串的最小长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -49,7 +55,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findMinimumOperations(self, s1: str, s2: str, s3: str) -> int:
+        s = len(s1) + len(s2) + len(s3)
+        n = min(len(s1), len(s2), len(s3))
+        for i in range(n):
+            if not s1[i] == s2[i] == s3[i]:
+                return -1 if i == 0 else s - 3 * i
+        return s - 3 * n
 ```
 
 ### **Java**
@@ -57,19 +70,69 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int findMinimumOperations(String s1, String s2, String s3) {
+        int s = s1.length() + s2.length() + s3.length();
+        int n = Math.min(Math.min(s1.length(), s2.length()), s3.length());
+        for (int i = 0; i < n; ++i) {
+            if (!(s1.charAt(i) == s2.charAt(i) && s2.charAt(i) == s3.charAt(i))) {
+                return i == 0 ? -1 : s - 3 * i;
+            }
+        }
+        return s - 3 * n;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int findMinimumOperations(string s1, string s2, string s3) {
+        int s = s1.size() + s2.size() + s3.size();
+        int n = min({s1.size(), s2.size(), s3.size()});
+        for (int i = 0; i < n; ++i) {
+            if (!(s1[i] == s2[i] && s2[i] == s3[i])) {
+                return i == 0 ? -1 : s - 3 * i;
+            }
+        }
+        return s - 3 * n;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func findMinimumOperations(s1 string, s2 string, s3 string) int {
+	s := len(s1) + len(s2) + len(s3)
+	n := min(len(s1), len(s2), len(s3))
+	for i := range s1[:n] {
+		if !(s1[i] == s2[i] && s2[i] == s3[i]) {
+			if i == 0 {
+				return -1
+			}
+			return s - 3*i
+		}
+	}
+	return s - 3*n
+}
+```
 
+### **TypeScript**
+
+```ts
+function findMinimumOperations(s1: string, s2: string, s3: string): number {
+    const s = s1.length + s2.length + s3.length;
+    const n = Math.min(s1.length, s2.length, s3.length);
+    for (let i = 0; i < n; ++i) {
+        if (!(s1[i] === s2[i] && s2[i] === s3[i])) {
+            return i === 0 ? -1 : s - 3 * i;
+        }
+    }
+    return s - 3 * n;
+}
 ```
 
 ### **...**

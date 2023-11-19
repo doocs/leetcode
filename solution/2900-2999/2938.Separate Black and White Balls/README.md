@@ -57,6 +57,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：计数模拟**
+
+我们考虑将所有的 $1$ 移到最右边，用一个变量 $cnt$ 记录当前已经移动到最右边的 $1$ 的个数，用一个变量 $ans$ 记录移动的次数。
+
+我们从右往左遍历字符串，如果当前位置是 $1$，那么我们将 $cnt$ 加一，同时将 $n - i - cnt$ 加到 $ans$ 中，其中 $n$ 是字符串的长度。最后返回 $ans$ 即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是字符串的长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -64,7 +72,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minimumSteps(self, s: str) -> int:
+        n = len(s)
+        ans = cnt = 0
+        for i in range(n - 1, -1, -1):
+            if s[i] == '1':
+                cnt += 1
+                ans += n - i - cnt
+        return ans
 ```
 
 ### **Java**
@@ -72,19 +88,72 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public long minimumSteps(String s) {
+        long ans = 0;
+        int cnt = 0;
+        int n = s.length();
+        for (int i = n - 1; i >= 0; --i) {
+            if (s.charAt(i) == '1') {
+                ++cnt;
+                ans += n - i - cnt;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    long long minimumSteps(string s) {
+        long long ans = 0;
+        int cnt = 0;
+        int n = s.size();
+        for (int i = n - 1; i >= 0; --i) {
+            if (s[i] == '1') {
+                ++cnt;
+                ans += n - i - cnt;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minimumSteps(s string) (ans int64) {
+	n := len(s)
+	cnt := 0
+	for i := n - 1; i >= 0; i-- {
+		if s[i] == '1' {
+			cnt++
+			ans += int64(n - i - cnt)
+		}
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function minimumSteps(s: string): number {
+    const n = s.length;
+    let [ans, cnt] = [0, 0];
+    for (let i = n - 1; ~i; --i) {
+        if (s[i] === '1') {
+            ++cnt;
+            ans += n - i - cnt;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
