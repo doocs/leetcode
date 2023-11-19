@@ -402,7 +402,7 @@
   - [0394.字符串解码](/solution/0300-0399/0394.Decode%20String/README.md)
   - [0395.至少有 K 个重复字符的最长子串](/solution/0300-0399/0395.Longest%20Substring%20with%20At%20Least%20K%20Repeating%20Characters/README.md)
   - [0396.旋转函数](/solution/0300-0399/0396.Rotate%20Function/README.md)
-  - [0397.Integer Replacement](/solution/0300-0399/0397.Integer%20Replacement/README.md)
+  - [0397.整数替换](/solution/0300-0399/0397.Integer%20Replacement/README.md)
   - [0398.随机数索引](/solution/0300-0399/0398.Random%20Pick%20Index/README.md)
   - [0399.除法求值](/solution/0300-0399/0399.Evaluate%20Division/README.md)
 
@@ -2994,3 +2994,7 @@
   - [2934.最大化数组末位元素的最少操作次数](/solution/2900-2999/2934.Minimum%20Operations%20to%20Maximize%20Last%20Elements%20in%20Arrays/README.md)
   - [2935.找出强数对的最大异或值 II](/solution/2900-2999/2935.Maximum%20Strong%20Pair%20XOR%20II/README.md)
   - [2936.Number of Equal Numbers Blocks](/solution/2900-2999/2936.Number%20of%20Equal%20Numbers%20Blocks/README.md)
+  - [2937.使三个字符串相等](/solution/2900-2999/2937.Make%20Three%20Strings%20Equal/README.md)
+  - [2938.区分黑球与白球](/solution/2900-2999/2938.Separate%20Black%20and%20White%20Balls/README.md)
+  - [2939.最大异或乘积](/solution/2900-2999/2939.Maximum%20Xor%20Product/README.md)
+  - [2940.找到 Alice 和 Bob 可以相遇的建筑](/solution/2900-2999/2940.Find%20Building%20Where%20Alice%20and%20Bob%20Can%20Meet/README.md)
