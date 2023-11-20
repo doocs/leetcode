@@ -77,6 +77,10 @@ $$
 
 时间复杂度 $O((n + m) \times \log n + m \times \log m)$，空间复杂度 $O(n + m)$。其中 $n$ 是数组 $nums$ 的长度，而 $m$ 是数组 $queries$ 的长度。
 
+相似题目：
+
+-   [2940. 找到 Alice 和 Bob 可以相遇的建筑](/solution/2900-2999/2940.Find%20Building%20Where%20Alice%20and%20Bob%20Can%20Meet/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
