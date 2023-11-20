@@ -1,55 +1,48 @@
 class Trie {
-    Trie[] children = new Trie[26];
-    int[] v = new int[26];
+    private final Trie[] children = new Trie[26];
+    private int cnt;
 
-    void insert(String w) {
+    public void insert(String w) {
         Trie node = this;
-        int t = w.charAt(w.length() - 1) - 'a';
         for (char c : w.toCharArray()) {
-            c -= 'a';
-            if (node.children[c] == null) {
-                node.children[c] = new Trie();
+            int idx = c - 'a';
+            if (node.children[idx] == null) {
+                node.children[idx] = new Trie();
             }
-            node = node.children[c];
-            node.v[t]++;
+            node = node.children[idx];
+            ++node.cnt;
         }
     }
 
-    String search(String w) {
+    public int search(String w) {
         Trie node = this;
-        StringBuilder res = new StringBuilder();
-        int t = w.charAt(w.length() - 1) - 'a';
-        for (int i = 0; i < w.length() - 1; ++i) {
-            char c = w.charAt(i);
-            node = node.children[c - 'a'];
-            res.append(c);
-            if (node.v[t] == 1) {
-                break;
+        int ans = 0;
+        for (char c : w.toCharArray()) {
+            ++ans;
+            int idx = c - 'a';
+            node = node.children[idx];
+            if (node.cnt == 1) {
+                return ans;
             }
         }
-        int n = w.length() - res.length() - 1;
-        if (n > 0) {
-            res.append(n);
-        }
-        res.append(w.charAt(w.length() - 1));
-        return res.length() < w.length() ? res.toString() : w;
+        return w.length();
     }
 }
 
 class Solution {
     public List<String> wordsAbbreviation(List<String> words) {
-        Map<Integer, Trie> trees = new HashMap<>();
-        for (String w : words) {
-            if (!trees.containsKey(w.length())) {
-                trees.put(w.length(), new Trie());
-            }
-        }
-        for (String w : words) {
-            trees.get(w.length()).insert(w);
+        Map<List<Integer>, Trie> tries = new HashMap<>();
+        for (var w : words) {
+            var key = List.of(w.length(), w.charAt(w.length() - 1) - 'a');
+            tries.putIfAbsent(key, new Trie());
+            tries.get(key).insert(w);
         }
         List<String> ans = new ArrayList<>();
-        for (String w : words) {
-            ans.add(trees.get(w.length()).search(w));
+        for (var w : words) {
+            int m = w.length();
+            var key = List.of(m, w.charAt(m - 1) - 'a');
+            int cnt = tries.get(key).search(w);
+            ans.add(cnt + 2 >= m ? w : w.substring(0, cnt) + (m - cnt - 1) + w.substring(m - 1));
         }
         return ans;
     }
