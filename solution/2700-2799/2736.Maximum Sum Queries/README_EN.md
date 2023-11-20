@@ -77,6 +77,10 @@ Next, we iterate through each query $queries[i] = (x, y)$. For the current query
 
 The time complexity is $O((n + m) \times \log n + m \times \log m)$, and the space complexity is $O(n + m)$. Here, $n$ is the length of the array $nums$, and $m$ is the length of the array $queries$.
 
+Similar problems:
+
+-   [2940. Find Building Where Alice and Bob Can Meet](/solution/2900-2999/2940.Find%20Building%20Where%20Alice%20and%20Bob%20Can%20Meet/README_EN.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
