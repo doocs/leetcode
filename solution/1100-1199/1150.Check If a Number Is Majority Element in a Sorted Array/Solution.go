@@ -1,6 +1,5 @@
 func isMajorityElement(nums []int, target int) bool {
-	n := len(nums)
-	left := sort.Search(n, func(i int) bool { return nums[i] >= target })
-	right := sort.Search(n, func(i int) bool { return nums[i] > target })
-	return right-left > n/2
+	left := sort.SearchInts(nums, target)
+	right := sort.SearchInts(nums, target+1)
+	return right-left > len(nums)/2
 }
