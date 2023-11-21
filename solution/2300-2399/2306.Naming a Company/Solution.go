@@ -1,12 +1,9 @@
-func distinctNames(ideas []string) int64 {
+func distinctNames(ideas []string) (ans int64) {
 	s := map[string]bool{}
 	for _, v := range ideas {
 		s[v] = true
 	}
-	f := make([][]int, 26)
-	for i := range f {
-		f[i] = make([]int, 26)
-	}
+	f := [26][26]int{}
 	for _, v := range ideas {
 		i := int(v[0] - 'a')
 		t := []byte(v)
@@ -17,7 +14,7 @@ func distinctNames(ideas []string) int64 {
 			}
 		}
 	}
-	var ans int64
+
 	for _, v := range ideas {
 		i := int(v[0] - 'a')
 		t := []byte(v)
@@ -28,5 +25,5 @@ func distinctNames(ideas []string) int64 {
 			}
 		}
 	}
-	return ans
+	return
 }
