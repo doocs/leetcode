@@ -53,24 +53,242 @@ Since the third equation is code / et = 0.5, we get a contradiction.
 
 ## Solutions
 
+**Solution 1: Weighted Union-Find**
+
+First, we convert the strings into integers starting from $0$. Then, we traverse all the equations, map the two strings in each equation to the corresponding integers $a$ and $b$. If these two integers are not in the same set, we merge them into the same set and record the weights of the two integers, which is the ratio of $a$ to $b$. If these two integers are in the same set, we check whether their weights satisfy the equation. If not, we return `true`.
+
+The time complexity is $O(n \times \log n)$ or $O(n \times \alpha(n))$, and the space complexity is $O(n)$. Here, $n$ is the number of equations.
+
+Similar problems:
+
+-   [399. Evaluate Division](/solution/0300-0399/0399.Evaluate%20Division/README_EN.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
+class Solution:
+    def checkContradictions(
+        self, equations: List[List[str]], values: List[float]
+    ) -> bool:
+        def find(x: int) -> int:
+            if p[x] != x:
+                root = find(p[x])
+                w[x] *= w[p[x]]
+                p[x] = root
+            return p[x]
 
+        d = defaultdict(int)
+        n = 0
+        for e in equations:
+            for s in e:
+                if s not in d:
+                    d[s] = n
+                    n += 1
+        p = list(range(n))
+        w = [1.0] * n
+        eps = 1e-5
+        for (a, b), v in zip(equations, values):
+            a, b = d[a], d[b]
+            pa, pb = find(a), find(b)
+            if pa != pb:
+                p[pb] = pa
+                w[pb] = v * w[a] / w[b]
+            elif abs(v * w[a] - w[b]) >= eps:
+                return True
+        return False
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[] p;
+    private double[] w;
 
+    public boolean checkContradictions(List<List<String>> equations, double[] values) {
+        Map<String, Integer> d = new HashMap<>();
+        int n = 0;
+        for (var e : equations) {
+            for (var s : e) {
+                if (!d.containsKey(s)) {
+                    d.put(s, n++);
+                }
+            }
+        }
+        p = new int[n];
+        w = new double[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+            w[i] = 1.0;
+        }
+        final double eps = 1e-5;
+        for (int i = 0; i < equations.size(); ++i) {
+            int a = d.get(equations.get(i).get(0)), b = d.get(equations.get(i).get(1));
+            int pa = find(a), pb = find(b);
+            double v = values[i];
+            if (pa != pb) {
+                p[pb] = pa;
+                w[pb] = v * w[a] / w[b];
+            } else if (Math.abs(v * w[a] - w[b]) >= eps) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            int root = find(p[x]);
+            w[x] *= w[p[x]];
+            p[x] = root;
+        }
+        return p[x];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool checkContradictions(vector<vector<string>>& equations, vector<double>& values) {
+        unordered_map<string, int> d;
+        int n = 0;
+        for (auto& e : equations) {
+            for (auto& s : e) {
+                if (!d.count(s)) {
+                    d[s] = n++;
+                }
+            }
+        }
+        vector<int> p(n);
+        iota(p.begin(), p.end(), 0);
+        vector<double> w(n, 1.0);
+        function<int(int)> find = [&](int x) -> int {
+            if (p[x] != x) {
+                int root = find(p[x]);
+                w[x] *= w[p[x]];
+                p[x] = root;
+            }
+            return p[x];
+        };
+        for (int i = 0; i < equations.size(); ++i) {
+            int a = d[equations[i][0]], b = d[equations[i][1]];
+            double v = values[i];
+            int pa = find(a), pb = find(b);
+            if (pa != pb) {
+                p[pb] = pa;
+                w[pb] = v * w[a] / w[b];
+            } else if (fabs(v * w[a] - w[b]) >= 1e-5) {
+                return true;
+            }
+        }
+        return false;
+    }
+};
+```
+
+### **Go**
+
+```go
+func checkContradictions(equations [][]string, values []float64) bool {
+	d := make(map[string]int)
+	n := 0
+
+	for _, e := range equations {
+		for _, s := range e {
+			if _, ok := d[s]; !ok {
+				d[s] = n
+				n++
+			}
+		}
+	}
+
+	p := make([]int, n)
+	for i := range p {
+		p[i] = i
+	}
+
+	w := make([]float64, n)
+	for i := range w {
+		w[i] = 1.0
+	}
+
+	var find func(int) int
+	find = func(x int) int {
+		if p[x] != x {
+			root := find(p[x])
+			w[x] *= w[p[x]]
+			p[x] = root
+		}
+		return p[x]
+	}
+	for i, e := range equations {
+		a, b := d[e[0]], d[e[1]]
+		v := values[i]
+
+		pa, pb := find(a), find(b)
+		if pa != pb {
+			p[pb] = pa
+			w[pb] = v * w[a] / w[b]
+		} else if v*w[a]-w[b] >= 1e-5 || w[b]-v*w[a] >= 1e-5 {
+			return true
+		}
+	}
+
+	return false
+}
 ```
 
 ### **TypeScript**
 
 ```ts
+function checkContradictions(equations: string[][], values: number[]): boolean {
+    const d: { [key: string]: number } = {};
+    let n = 0;
 
+    for (const e of equations) {
+        for (const s of e) {
+            if (!(s in d)) {
+                d[s] = n;
+                n++;
+            }
+        }
+    }
+
+    const p: number[] = Array.from({ length: n }, (_, i) => i);
+    const w: number[] = Array.from({ length: n }, () => 1.0);
+
+    const find = (x: number): number => {
+        if (p[x] !== x) {
+            const root = find(p[x]);
+            w[x] *= w[p[x]];
+            p[x] = root;
+        }
+        return p[x];
+    };
+
+    for (let i = 0; i < equations.length; i++) {
+        const a = d[equations[i][0]];
+        const b = d[equations[i][1]];
+        const v = values[i];
+
+        const pa = find(a);
+        const pb = find(b);
+
+        if (pa !== pb) {
+            p[pb] = pa;
+            w[pb] = (v * w[a]) / w[b];
+        } else if (Math.abs(v * w[a] - w[b]) >= 1e-5) {
+            return true;
+        }
+    }
+
+    return false;
+}
 ```
 
 ### **...**
