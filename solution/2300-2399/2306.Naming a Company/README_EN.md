@@ -56,6 +56,18 @@ The following are some examples of invalid selections:
 
 ## Solutions
 
+**Solution 1: Enumeration Counting**
+
+We define $f[i][j]$ to represent the number of strings in $ideas$ that start with the $i$th letter and are not in $ideas$ after being replaced with the $j$th letter. Initially, $f[i][j] = 0$. Additionally, we use a hash table $s$ to record the strings in $ideas$, which allows us to quickly determine whether a string is in $ideas$.
+
+Next, we traverse the strings in $ideas$. For the current string $v$, we enumerate the first letter $j$ after replacement. If the string after $v$ is replaced is not in $ideas$, then we update $f[i][j] = f[i][j] + 1$.
+
+Finally, we traverse the strings in $ideas$ again. For the current string $v$, we enumerate the first letter $j$ after replacement. If the string after $v$ is replaced is not in $ideas$, then we update the answer $ans = ans + f[j][i]$.
+
+The final answer is $ans$.
+
+The time complexity is $O(n \times m \times |\Sigma|)$, and the space complexity is $O(|\Sigma|^2)$. Here, $n$ and $m$ are the number of strings in $ideas$ and the maximum length of the strings, respectively, and $|\Sigma|$ is the character set that appears in the string. In this problem, $|\Sigma| \leq 26$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -126,7 +138,7 @@ class Solution {
 public:
     long long distinctNames(vector<string>& ideas) {
         unordered_set<string> s(ideas.begin(), ideas.end());
-        vector<vector<int>> f(26, vector<int>(26));
+        int f[26][26]{};
         for (auto v : ideas) {
             int i = v[0] - 'a';
             for (int j = 0; j < 26; ++j) {
@@ -137,7 +149,7 @@ public:
             }
         }
         long long ans = 0;
-        for (auto v : ideas) {
+        for (auto& v : ideas) {
             int i = v[0] - 'a';
             for (int j = 0; j < 26; ++j) {
                 v[0] = j + 'a';
@@ -154,15 +166,12 @@ public:
 ### **Go**
 
 ```go
-func distinctNames(ideas []string) int64 {
+func distinctNames(ideas []string) (ans int64) {
 	s := map[string]bool{}
 	for _, v := range ideas {
 		s[v] = true
 	}
-	f := make([][]int, 26)
-	for i := range f {
-		f[i] = make([]int, 26)
-	}
+	f := [26][26]int{}
 	for _, v := range ideas {
 		i := int(v[0] - 'a')
 		t := []byte(v)
@@ -173,7 +182,7 @@ func distinctNames(ideas []string) int64 {
 			}
 		}
 	}
-	var ans int64
+
 	for _, v := range ideas {
 		i := int(v[0] - 'a')
 		t := []byte(v)
@@ -184,14 +193,41 @@ func distinctNames(ideas []string) int64 {
 			}
 		}
 	}
-	return ans
+	return
 }
 ```
 
 ### **TypeScript**
 
 ```ts
-
+function distinctNames(ideas: string[]): number {
+    const s = new Set(ideas);
+    const f: number[][] = Array(26)
+        .fill(0)
+        .map(() => Array(26).fill(0));
+    for (const v of s) {
+        const i = v.charCodeAt(0) - 'a'.charCodeAt(0);
+        const t = [...v];
+        for (let j = 0; j < 26; ++j) {
+            t[0] = String.fromCharCode('a'.charCodeAt(0) + j);
+            if (!s.has(t.join(''))) {
+                f[i][j]++;
+            }
+        }
+    }
+    let ans = 0;
+    for (const v of s) {
+        const i = v.charCodeAt(0) - 'a'.charCodeAt(0);
+        const t = [...v];
+        for (let j = 0; j < 26; ++j) {
+            t[0] = String.fromCharCode('a'.charCodeAt(0) + j);
+            if (!s.has(t.join(''))) {
+                ans += f[j][i];
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
