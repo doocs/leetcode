@@ -62,7 +62,11 @@ After the above operation, we get a new tree, and the leaf nodes of the tree are
 
 Then, we delete the remaining two layers of leaf nodes, and finally get a tree where all nodes need to be visited. We only need to count the number of edges and multiply it by $2$ to get the answer.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of nodes
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of nodes.
+
+Similar problems:
+
+-   [2204. Distance to a Cycle in Undirected Graph](/solution/2200-2299/2204.Distance%20to%20a%20Cycle%20in%20Undirected%20Graph/README_EN.md)
 
 <!-- tabs:start -->
 
