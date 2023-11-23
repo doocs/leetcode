@@ -54,7 +54,25 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-先序遍历，统计每条路径上数字出现的次数，要满足伪回文路径，当且仅当路径上最多有一个数字的出现次数为奇数。
+**方法一：DFS + 位运算**
+
+一条路径是伪回文路径，当且仅当该路径经过的节点值的出现次数为奇数的数字为 $0$ 个或 $1$ 个。
+
+由于二叉树节点值的范围为 $1$ 到 $9$，因此对于每一条从根到叶子的路径，我们可以用一个长度为 $10$ 的二进制数 $mask$ 表示当前路径经过的节点值的出现状态，其中 $mask$ 的第 $i$ 位为 $1$，表示当前路径上节点值 $i$ 的出现次数为奇数，否则表示其出现次数为偶数。那么，如果一条路径是伪回文路径，需要满足 $mask \&(mask - 1) = 0$，其中 $\&$ 表示按位与运算。
+
+基于以上分析，我们可以使用深度优先搜索的方法计算路径数。我们定义一个函数 $dfs(root, mask)$，表示从当前 $root$ 节点开始，且当前节点的状态为 $mask$ 的所有伪回文路径的个数。那么答案就是 $dfs(root, 0)$。
+
+函数 $dfs(root, mask)$ 的执行逻辑如下：
+
+如果 $root$ 为空，则返回 $0$；
+
+否则，令 $mask = mask \oplus 2^{root.val}$，其中 $\oplus$ 表示按位异或运算。
+
+如果 $root$ 是叶子节点，那么如果 $mask \&(mask - 1) = 0$，返回 $1$，否则返回 $0$；
+
+如果 $root$ 不是叶子节点，返回 $dfs(root.left, mask) + dfs(root.right, mask)$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 
 <!-- tabs:start -->
 
@@ -70,24 +88,16 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def pseudoPalindromicPaths(self, root: TreeNode) -> int:
-        def dfs(root):
+    def pseudoPalindromicPaths(self, root: Optional[TreeNode]) -> int:
+        def dfs(root: Optional[TreeNode], mask: int):
             if root is None:
-                return
-            nonlocal ans, counter
-            counter[root.val] += 1
+                return 0
+            mask ^= 1 << root.val
             if root.left is None and root.right is None:
-                if sum(1 for i in range(1, 10) if counter[i] % 2 == 1) < 2:
-                    ans += 1
-            else:
-                dfs(root.left)
-                dfs(root.right)
-            counter[root.val] -= 1
+                return int((mask & (mask - 1)) == 0)
+            return dfs(root.left, mask) + dfs(root.right, mask)
 
-        ans = 0
-        counter = [0] * 10
-        dfs(root)
-        return ans
+        return dfs(root, 0)
 ```
 
 ### **Java**
@@ -111,40 +121,19 @@ class Solution:
  * }
  */
 class Solution {
-    private int ans;
-    private int[] counter;
-
     public int pseudoPalindromicPaths(TreeNode root) {
-        ans = 0;
-        counter = new int[10];
-        dfs(root);
-        return ans;
+        return dfs(root, 0);
     }
 
-    private void dfs(TreeNode root) {
+    private int dfs(TreeNode root, int mask) {
         if (root == null) {
-            return;
+            return 0;
         }
-        ++counter[root.val];
+        mask ^= 1 << root.val;
         if (root.left == null && root.right == null) {
-            if (check(counter)) {
-                ++ans;
-            }
-        } else {
-            dfs(root.left);
-            dfs(root.right);
+            return (mask & (mask - 1)) == 0 ? 1 : 0;
         }
-        --counter[root.val];
-    }
-
-    private boolean check(int[] counter) {
-        int n = 0;
-        for (int i = 1; i < 10; ++i) {
-            if (counter[i] % 2 == 1) {
-                ++n;
-            }
-        }
-        return n < 2;
+        return dfs(root.left, mask) + dfs(root.right, mask);
     }
 }
 ```
@@ -165,30 +154,18 @@ class Solution {
  */
 class Solution {
 public:
-    int ans;
-    vector<int> counter;
-
     int pseudoPalindromicPaths(TreeNode* root) {
-        ans = 0;
-        counter.resize(10);
-        dfs(root);
-        return ans;
-    }
-
-    void dfs(TreeNode* root) {
-        if (!root) return;
-        ++counter[root->val];
-        if (!root->left && !root->right) {
-            int n = 0;
-            for (int i = 1; i < 10; ++i)
-                if (counter[i] % 2 == 1)
-                    ++n;
-            if (n < 2) ++ans;
-        } else {
-            dfs(root->left);
-            dfs(root->right);
-        }
-        --counter[root->val];
+        function<int(TreeNode*, int)> dfs = [&](TreeNode* root, int mask) {
+            if (!root) {
+                return 0;
+            }
+            mask ^= 1 << root->val;
+            if (!root->left && !root->right) {
+                return (mask & (mask - 1)) == 0 ? 1 : 0;
+            }
+            return dfs(root->left, mask) + dfs(root->right, mask);
+        };
+        return dfs(root, 0);
     }
 };
 ```
@@ -205,32 +182,101 @@ public:
  * }
  */
 func pseudoPalindromicPaths(root *TreeNode) int {
-	ans := 0
-	counter := make([]int, 10)
-	var dfs func(root *TreeNode)
-	dfs = func(root *TreeNode) {
+	var dfs func(*TreeNode, int) int
+	dfs = func(root *TreeNode, mask int) int {
 		if root == nil {
-			return
+			return 0
 		}
-		counter[root.Val]++
+		mask ^= 1 << root.Val
 		if root.Left == nil && root.Right == nil {
-			n := 0
-			for i := 1; i < 10; i++ {
-				if counter[i]%2 == 1 {
-					n++
-				}
+			if mask&(mask-1) == 0 {
+				return 1
 			}
-			if n < 2 {
-				ans++
-			}
-		} else {
-			dfs(root.Left)
-			dfs(root.Right)
+			return 0
 		}
-		counter[root.Val]--
+		return dfs(root.Left, mask) + dfs(root.Right, mask)
 	}
-	dfs(root)
-	return ans
+	return dfs(root, 0)
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function pseudoPalindromicPaths(root: TreeNode | null): number {
+    const dfs = (root: TreeNode | null, mask: number): number => {
+        if (!root) {
+            return 0;
+        }
+        mask ^= 1 << root.val;
+        if (!root.left && !root.right) {
+            return (mask & (mask - 1)) === 0 ? 1 : 0;
+        }
+        return dfs(root.left, mask) + dfs(root.right, mask);
+    };
+    return dfs(root, 0);
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+
+impl Solution {
+    pub fn pseudo_palindromic_paths(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+        fn dfs(root: Option<Rc<RefCell<TreeNode>>>, mask: i32) -> i32 {
+            if let Some(node) = root {
+                let mut mask = mask;
+                let val = node.borrow().val;
+                mask ^= 1 << val;
+
+                if node.borrow().left.is_none() && node.borrow().right.is_none() {
+                    return if (mask & (mask - 1)) == 0 { 1 } else { 0 };
+                }
+
+                return (
+                    dfs(node.borrow().left.clone(), mask) + dfs(node.borrow().right.clone(), mask)
+                );
+            }
+            0
+        }
+
+        dfs(root, 0)
+    }
 }
 ```
 

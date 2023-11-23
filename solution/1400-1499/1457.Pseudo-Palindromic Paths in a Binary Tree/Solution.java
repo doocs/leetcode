@@ -14,39 +14,18 @@
  * }
  */
 class Solution {
-    private int ans;
-    private int[] counter;
-
     public int pseudoPalindromicPaths(TreeNode root) {
-        ans = 0;
-        counter = new int[10];
-        dfs(root);
-        return ans;
+        return dfs(root, 0);
     }
 
-    private void dfs(TreeNode root) {
+    private int dfs(TreeNode root, int mask) {
         if (root == null) {
-            return;
+            return 0;
         }
-        ++counter[root.val];
+        mask ^= 1 << root.val;
         if (root.left == null && root.right == null) {
-            if (check(counter)) {
-                ++ans;
-            }
-        } else {
-            dfs(root.left);
-            dfs(root.right);
+            return (mask & (mask - 1)) == 0 ? 1 : 0;
         }
-        --counter[root.val];
-    }
-
-    private boolean check(int[] counter) {
-        int n = 0;
-        for (int i = 1; i < 10; ++i) {
-            if (counter[i] % 2 == 1) {
-                ++n;
-            }
-        }
-        return n < 2;
+        return dfs(root.left, mask) + dfs(root.right, mask);
     }
 }
