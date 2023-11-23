@@ -2717,7 +2717,7 @@
   - [2663.字典序最小的美丽字符串](/solution/2600-2699/2663.Lexicographically%20Smallest%20Beautiful%20String/README.md)
   - [2664.巡逻的骑士](/solution/2600-2699/2664.The%20Knight%E2%80%99s%20Tour/README.md)
   - [2665.计数器 II](/solution/2600-2699/2665.Counter%20II/README.md)
-  - [2666.只允许一次函数调用](/solution/2600-2699/2666.Allow%20One%20Function%20Call/README.md)
+  - [2666.只允许一次函数调用44](/solution/2600-2699/2666.Allow%20One%20Function%20Call/README.md)
   - [2667.创建 Hello World 函数](/solution/2600-2699/2667.Create%20Hello%20World%20Function/README.md)
   - [2668.查询员工当前薪水](/solution/2600-2699/2668.Find%20Latest%20Salaries/README.md)
   - [2669.统计 Spotify 排行榜上艺术家出现次数](/solution/2600-2699/2669.Count%20Artist%20Occurrences%20On%20Spotify%20Ranking%20List/README.md)
@@ -2998,3 +2998,4 @@
   - [2938.区分黑球与白球](/solution/2900-2999/2938.Separate%20Black%20and%20White%20Balls/README.md)
   - [2939.最大异或乘积](/solution/2900-2999/2939.Maximum%20Xor%20Product/README.md)
   - [2940.找到 Alice 和 Bob 可以相遇的建筑](/solution/2900-2999/2940.Find%20Building%20Where%20Alice%20and%20Bob%20Can%20Meet/README.md)
+  - [2941.Maximum GCD-Sum of a Subarray](/solution/2900-2999/2941.Maximum%20GCD-Sum%20of%20a%20Subarray/README.md)
