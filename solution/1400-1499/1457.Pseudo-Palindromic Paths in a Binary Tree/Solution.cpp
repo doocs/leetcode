@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    int pseudoPalindromicPaths (TreeNode* root) {
+    int pseudoPalindromicPaths(TreeNode* root) {
         function<int(TreeNode*, int)> dfs = [&](TreeNode* root, int mask) {
             if (!root) {
                 return 0;

@@ -14,7 +14,7 @@
  * }
  */
 class Solution {
-    public int pseudoPalindromicPaths (TreeNode root) {
+    public int pseudoPalindromicPaths(TreeNode root) {
         return dfs(root, 0);
     }
 
