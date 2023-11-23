@@ -22,9 +22,11 @@ func colorTheGrid(m int, n int) (ans int) {
 	}
 	mx := int(math.Pow(3, float64(m)))
 	valid := map[int]bool{}
+	f := make([]int, mx)
 	for i := 0; i < mx; i++ {
 		if f1(i) {
 			valid[i] = true
+			f[i] = 1
 		}
 	}
 	d := map[int][]int{}
@@ -33,12 +35,6 @@ func colorTheGrid(m int, n int) (ans int) {
 			if f2(i, j) {
 				d[i] = append(d[i], j)
 			}
-		}
-	}
-	f := make([]int, mx)
-	for i := 0; i < mx; i++ {
-		if valid[i] {
-			f[i] = 1
 		}
 	}
 	const mod int = 1e9 + 7

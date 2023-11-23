@@ -22,9 +22,11 @@ function colorTheGrid(m: number, n: number): number {
     };
     const mx = 3 ** m;
     const valid = new Set<number>();
+    const f: number[] = Array(mx).fill(0);
     for (let i = 0; i < mx; ++i) {
         if (f1(i)) {
             valid.add(i);
+            f[i] = 1;
         }
     }
     const d: Map<number, number[]> = new Map();
@@ -33,12 +35,6 @@ function colorTheGrid(m: number, n: number): number {
             if (f2(i, j)) {
                 d.set(i, (d.get(i) || []).concat(j));
             }
-        }
-    }
-    const f: number[] = Array(mx).fill(0);
-    for (let i = 0; i < mx; ++i) {
-        if (valid.has(i)) {
-            f[i] = 1;
         }
     }
     const mod = 10 ** 9 + 7;
