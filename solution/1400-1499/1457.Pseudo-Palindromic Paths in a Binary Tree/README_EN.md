@@ -46,6 +46,26 @@
 
 ## Solutions
 
+**Solution 1: DFS + Bit Manipulation**
+
+A path is a pseudo-palindromic path if and only if the number of nodes with odd occurrences in the path is $0$ or $1$.
+
+Since the range of the binary tree node values is from $1$ to $9$, for each path from root to leaf, we can use a $10$-bit binary number $mask$ to represent the occurrence status of the node values in the current path. The $i$th bit of $mask$ is $1$ if the node value $i$ appears an odd number of times in the current path, and $0$ if it appears an even number of times. Therefore, a path is a pseudo-palindromic path if and only if $mask \&(mask - 1) = 0$, where $\&$ represents the bitwise AND operation.
+
+Based on the above analysis, we can use the depth-first search method to calculate the number of paths. We define a function $dfs(root, mask)$, which represents the number of pseudo-palindromic paths starting from the current $root$ node and with the current state $mask$. The answer is $dfs(root, 0)$.
+
+The execution logic of the function $dfs(root, mask)$ is as follows:
+
+If $root$ is null, return $0$;
+
+Otherwise, let $mask = mask \oplus 2^{root.val}$, where $\oplus$ represents the bitwise XOR operation.
+
+If $root$ is a leaf node, return $1$ if $mask \&(mask - 1) = 0$, otherwise return $0$;
+
+If $root$ is not a leaf node, return $dfs(root.left, mask) + dfs(root.right, mask)$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -58,24 +78,16 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def pseudoPalindromicPaths(self, root: TreeNode) -> int:
-        def dfs(root):
+    def pseudoPalindromicPaths(self, root: Optional[TreeNode]) -> int:
+        def dfs(root: Optional[TreeNode], mask: int):
             if root is None:
-                return
-            nonlocal ans, counter
-            counter[root.val] += 1
+                return 0
+            mask ^= 1 << root.val
             if root.left is None and root.right is None:
-                if sum(1 for i in range(1, 10) if counter[i] % 2 == 1) < 2:
-                    ans += 1
-            else:
-                dfs(root.left)
-                dfs(root.right)
-            counter[root.val] -= 1
+                return int((mask & (mask - 1)) == 0)
+            return dfs(root.left, mask) + dfs(root.right, mask)
 
-        ans = 0
-        counter = [0] * 10
-        dfs(root)
-        return ans
+        return dfs(root, 0)
 ```
 
 ### **Java**
@@ -97,40 +109,19 @@ class Solution:
  * }
  */
 class Solution {
-    private int ans;
-    private int[] counter;
-
-    public int pseudoPalindromicPaths(TreeNode root) {
-        ans = 0;
-        counter = new int[10];
-        dfs(root);
-        return ans;
+    public int pseudoPalindromicPaths (TreeNode root) {
+        return dfs(root, 0);
     }
 
-    private void dfs(TreeNode root) {
+    private int dfs(TreeNode root, int mask) {
         if (root == null) {
-            return;
+            return 0;
         }
-        ++counter[root.val];
+        mask ^= 1 << root.val;
         if (root.left == null && root.right == null) {
-            if (check(counter)) {
-                ++ans;
-            }
-        } else {
-            dfs(root.left);
-            dfs(root.right);
+            return (mask & (mask - 1)) == 0 ? 1 : 0;
         }
-        --counter[root.val];
-    }
-
-    private boolean check(int[] counter) {
-        int n = 0;
-        for (int i = 1; i < 10; ++i) {
-            if (counter[i] % 2 == 1) {
-                ++n;
-            }
-        }
-        return n < 2;
+        return dfs(root.left, mask) + dfs(root.right, mask);
     }
 }
 ```
@@ -151,30 +142,18 @@ class Solution {
  */
 class Solution {
 public:
-    int ans;
-    vector<int> counter;
-
-    int pseudoPalindromicPaths(TreeNode* root) {
-        ans = 0;
-        counter.resize(10);
-        dfs(root);
-        return ans;
-    }
-
-    void dfs(TreeNode* root) {
-        if (!root) return;
-        ++counter[root->val];
-        if (!root->left && !root->right) {
-            int n = 0;
-            for (int i = 1; i < 10; ++i)
-                if (counter[i] % 2 == 1)
-                    ++n;
-            if (n < 2) ++ans;
-        } else {
-            dfs(root->left);
-            dfs(root->right);
-        }
-        --counter[root->val];
+    int pseudoPalindromicPaths (TreeNode* root) {
+        function<int(TreeNode*, int)> dfs = [&](TreeNode* root, int mask) {
+            if (!root) {
+                return 0;
+            }
+            mask ^= 1 << root->val;
+            if (!root->left && !root->right) {
+                return (mask & (mask - 1)) == 0 ? 1 : 0;
+            }
+            return dfs(root->left, mask) + dfs(root->right, mask);
+        };
+        return dfs(root, 0);
     }
 };
 ```
@@ -191,32 +170,101 @@ public:
  * }
  */
 func pseudoPalindromicPaths(root *TreeNode) int {
-	ans := 0
-	counter := make([]int, 10)
-	var dfs func(root *TreeNode)
-	dfs = func(root *TreeNode) {
+	var dfs func(*TreeNode, int) int
+	dfs = func(root *TreeNode, mask int) int {
 		if root == nil {
-			return
+			return 0
 		}
-		counter[root.Val]++
+		mask ^= 1 << root.Val
 		if root.Left == nil && root.Right == nil {
-			n := 0
-			for i := 1; i < 10; i++ {
-				if counter[i]%2 == 1 {
-					n++
-				}
+			if mask&(mask-1) == 0 {
+				return 1
 			}
-			if n < 2 {
-				ans++
-			}
-		} else {
-			dfs(root.Left)
-			dfs(root.Right)
+			return 0
 		}
-		counter[root.Val]--
+		return dfs(root.Left, mask) + dfs(root.Right, mask)
 	}
-	dfs(root)
-	return ans
+	return dfs(root, 0)
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function pseudoPalindromicPaths(root: TreeNode | null): number {
+    const dfs = (root: TreeNode | null, mask: number): number => {
+        if (!root) {
+            return 0;
+        }
+        mask ^= 1 << root.val;
+        if (!root.left && !root.right) {
+            return (mask & (mask - 1)) === 0 ? 1 : 0;
+        }
+        return dfs(root.left, mask) + dfs(root.right, mask);
+    };
+    return dfs(root, 0);
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+
+impl Solution {
+    pub fn pseudo_palindromic_paths(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+        fn dfs(root: Option<Rc<RefCell<TreeNode>>>, mask: i32) -> i32 {
+            if let Some(node) = root {
+                let mut mask = mask;
+                let val = node.borrow().val;
+                mask ^= 1 << val;
+
+                if node.borrow().left.is_none() && node.borrow().right.is_none() {
+                    return if (mask & (mask - 1)) == 0 { 1 } else { 0 };
+                }
+
+                return (
+                    dfs(node.borrow().left.clone(), mask) + dfs(node.borrow().right.clone(), mask)
+                );
+            }
+            0
+        }
+
+        dfs(root, 0)
+    }
 }
 ```
 

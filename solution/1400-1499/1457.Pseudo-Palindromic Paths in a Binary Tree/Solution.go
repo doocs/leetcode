@@ -7,30 +7,19 @@
  * }
  */
 func pseudoPalindromicPaths(root *TreeNode) int {
-	ans := 0
-	counter := make([]int, 10)
-	var dfs func(root *TreeNode)
-	dfs = func(root *TreeNode) {
+	var dfs func(*TreeNode, int) int
+	dfs = func(root *TreeNode, mask int) int {
 		if root == nil {
-			return
+			return 0
 		}
-		counter[root.Val]++
+		mask ^= 1 << root.Val
 		if root.Left == nil && root.Right == nil {
-			n := 0
-			for i := 1; i < 10; i++ {
-				if counter[i]%2 == 1 {
-					n++
-				}
+			if mask&(mask-1) == 0 {
+				return 1
 			}
-			if n < 2 {
-				ans++
-			}
-		} else {
-			dfs(root.Left)
-			dfs(root.Right)
+			return 0
 		}
-		counter[root.Val]--
+		return dfs(root.Left, mask) + dfs(root.Right, mask)
 	}
-	dfs(root)
-	return ans
+	return dfs(root, 0)
 }
