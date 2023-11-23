@@ -2676,7 +2676,7 @@
 |  2663  |  [字典序最小的美丽字符串](/solution/2600-2699/2663.Lexicographically%20Smallest%20Beautiful%20String/README.md)  |  `贪心`,`字符串`  |  困难  |  第 343 场周赛  |
 |  2664  |  [巡逻的骑士](/solution/2600-2699/2664.The%20Knight%E2%80%99s%20Tour/README.md)  |  `数组`,`回溯`,`矩阵`  |  中等  |  🔒  |
 |  2665  |  [计数器 II](/solution/2600-2699/2665.Counter%20II/README.md)  |    |  简单  |    |
-|  2666  |  [只允许一次函数调用44](/solution/2600-2699/2666.Allow%20One%20Function%20Call/README.md)  |    |  简单  |    |
+|  2666  |  [只允许一次函数调用](/solution/2600-2699/2666.Allow%20One%20Function%20Call/README.md)  |    |  简单  |    |
 |  2667  |  [创建 Hello World 函数](/solution/2600-2699/2667.Create%20Hello%20World%20Function/README.md)  |    |  简单  |    |
 |  2668  |  [查询员工当前薪水](/solution/2600-2699/2668.Find%20Latest%20Salaries/README.md)  |  `数据库`  |  简单  |  🔒  |
 |  2669  |  [统计 Spotify 排行榜上艺术家出现次数](/solution/2600-2699/2669.Count%20Artist%20Occurrences%20On%20Spotify%20Ranking%20List/README.md)  |  `数据库`  |  简单  |  🔒  |
