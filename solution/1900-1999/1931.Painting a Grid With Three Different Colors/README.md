@@ -122,9 +122,11 @@ class Solution {
         final int mod = (int) 1e9 + 7;
         int mx = (int) Math.pow(3, m);
         Set<Integer> valid = new HashSet<>();
+        int[] f = new int[mx];
         for (int i = 0; i < mx; ++i) {
             if (f1(i)) {
                 valid.add(i);
+                f[i] = 1;
             }
         }
         Map<Integer, List<Integer>> d = new HashMap<>();
@@ -134,10 +136,6 @@ class Solution {
                     d.computeIfAbsent(i, k -> new ArrayList<>()).add(j);
                 }
             }
-        }
-        int[] f = new int[mx];
-        for (int i = 0; i < mx; ++i) {
-            f[i] = valid.contains(i) ? 1 : 0;
         }
         for (int k = 1; k < n; ++k) {
             int[] g = new int[mx];
@@ -211,9 +209,11 @@ public:
         const int mod = 1e9 + 7;
         int mx = pow(3, m);
         unordered_set<int> valid;
+        vector<int> f(mx);
         for (int i = 0; i < mx; ++i) {
             if (f1(i)) {
                 valid.insert(i);
+                f[i] = 1;
             }
         }
         unordered_map<int, vector<int>> d;
@@ -223,10 +223,6 @@ public:
                     d[i].push_back(j);
                 }
             }
-        }
-        vector<int> f(mx);
-        for (int i = 0; i < mx; ++i) {
-            f[i] = valid.count(i);
         }
         for (int k = 1; k < n; ++k) {
             vector<int> g(mx);
@@ -273,9 +269,11 @@ func colorTheGrid(m int, n int) (ans int) {
 	}
 	mx := int(math.Pow(3, float64(m)))
 	valid := map[int]bool{}
+	f := make([]int, mx)
 	for i := 0; i < mx; i++ {
 		if f1(i) {
 			valid[i] = true
+			f[i] = 1
 		}
 	}
 	d := map[int][]int{}
@@ -284,12 +282,6 @@ func colorTheGrid(m int, n int) (ans int) {
 			if f2(i, j) {
 				d[i] = append(d[i], j)
 			}
-		}
-	}
-	f := make([]int, mx)
-	for i := 0; i < mx; i++ {
-		if valid[i] {
-			f[i] = 1
 		}
 	}
 	const mod int = 1e9 + 7
@@ -336,9 +328,11 @@ function colorTheGrid(m: number, n: number): number {
     };
     const mx = 3 ** m;
     const valid = new Set<number>();
+    const f: number[] = Array(mx).fill(0);
     for (let i = 0; i < mx; ++i) {
         if (f1(i)) {
             valid.add(i);
+            f[i] = 1;
         }
     }
     const d: Map<number, number[]> = new Map();
@@ -347,12 +341,6 @@ function colorTheGrid(m: number, n: number): number {
             if (f2(i, j)) {
                 d.set(i, (d.get(i) || []).concat(j));
             }
-        }
-    }
-    const f: number[] = Array(mx).fill(0);
-    for (let i = 0; i < mx; ++i) {
-        if (valid.has(i)) {
-            f[i] = 1;
         }
     }
     const mod = 10 ** 9 + 7;

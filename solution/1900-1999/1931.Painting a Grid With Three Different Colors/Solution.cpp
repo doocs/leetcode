@@ -26,9 +26,11 @@ public:
         const int mod = 1e9 + 7;
         int mx = pow(3, m);
         unordered_set<int> valid;
+        vector<int> f(mx);
         for (int i = 0; i < mx; ++i) {
             if (f1(i)) {
                 valid.insert(i);
+                f[i] = 1;
             }
         }
         unordered_map<int, vector<int>> d;
@@ -38,10 +40,6 @@ public:
                     d[i].push_back(j);
                 }
             }
-        }
-        vector<int> f(mx);
-        for (int i = 0; i < mx; ++i) {
-            f[i] = valid.count(i);
         }
         for (int k = 1; k < n; ++k) {
             vector<int> g(mx);

@@ -6,9 +6,11 @@ class Solution {
         final int mod = (int) 1e9 + 7;
         int mx = (int) Math.pow(3, m);
         Set<Integer> valid = new HashSet<>();
+        int[] f = new int[mx];
         for (int i = 0; i < mx; ++i) {
             if (f1(i)) {
                 valid.add(i);
+                f[i] = 1;
             }
         }
         Map<Integer, List<Integer>> d = new HashMap<>();
@@ -18,10 +20,6 @@ class Solution {
                     d.computeIfAbsent(i, k -> new ArrayList<>()).add(j);
                 }
             }
-        }
-        int[] f = new int[mx];
-        for (int i = 0; i < mx; ++i) {
-            f[i] = valid.contains(i) ? 1 : 0;
         }
         for (int k = 1; k < n; ++k) {
             int[] g = new int[mx];
