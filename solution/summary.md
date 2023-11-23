@@ -2998,3 +2998,4 @@
   - [2938.区分黑球与白球](/solution/2900-2999/2938.Separate%20Black%20and%20White%20Balls/README.md)
   - [2939.最大异或乘积](/solution/2900-2999/2939.Maximum%20Xor%20Product/README.md)
   - [2940.找到 Alice 和 Bob 可以相遇的建筑](/solution/2900-2999/2940.Find%20Building%20Where%20Alice%20and%20Bob%20Can%20Meet/README.md)
+  - [2941.Maximum GCD-Sum of a Subarray](/solution/2900-2999/2941.Maximum%20GCD-Sum%20of%20a%20Subarray/README.md)

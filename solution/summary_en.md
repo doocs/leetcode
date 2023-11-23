@@ -2998,3 +2998,4 @@
   - [2938.Separate Black and White Balls](/solution/2900-2999/2938.Separate%20Black%20and%20White%20Balls/README_EN.md)
   - [2939.Maximum Xor Product](/solution/2900-2999/2939.Maximum%20Xor%20Product/README_EN.md)
   - [2940.Find Building Where Alice and Bob Can Meet](/solution/2900-2999/2940.Find%20Building%20Where%20Alice%20and%20Bob%20Can%20Meet/README_EN.md)
+  - [2941.Maximum GCD-Sum of a Subarray](/solution/2900-2999/2941.Maximum%20GCD-Sum%20of%20a%20Subarray/README_EN.md)
