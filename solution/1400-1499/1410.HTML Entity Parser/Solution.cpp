@@ -1,17 +1,18 @@
 class Solution {
 public:
     string entityParser(string text) {
-        unordered_map<string, string> d;
-        d["&quot;"] = "\"";
-        d["&apos;"] = "'";
-        d["&amp;"] = "&";
-        d["&gt;"] = ">";
-        d["&lt;"] = "<";
-        d["&frasl;"] = "/";
+        unordered_map<string, string> d = {
+            {"&quot;", "\""},
+            {"&apos;", "'"},
+            {"&amp;", "&"},
+            {"&gt;", ">"},
+            {"&lt;", "<"},
+            {"&frasl;", "/"},
+        };
         string ans = "";
         int i = 0, n = text.size();
         while (i < n) {
-            bool find = false;
+            bool found = false;
             for (int l = 1; l < 8; ++l) {
                 int j = i + l;
                 if (j <= n) {
@@ -19,12 +20,12 @@ public:
                     if (d.count(t)) {
                         ans += d[t];
                         i = j;
-                        find = true;
+                        found = true;
                         break;
                     }
                 }
             }
-            if (!find) ans += text[i++];
+            if (!found) ans += text[i++];
         }
         return ans;
     }
