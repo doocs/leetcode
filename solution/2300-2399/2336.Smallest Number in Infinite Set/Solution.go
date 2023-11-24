@@ -1,22 +1,23 @@
 type SmallestInfiniteSet struct {
-	black map[int]bool
+	s *treemap.Map
 }
 
 func Constructor() SmallestInfiniteSet {
-	s := map[int]bool{}
+	s := treemap.NewWithIntComparator()
+	for i := 1; i <= 1000; i++ {
+		s.Put(i, nil)
+	}
 	return SmallestInfiniteSet{s}
 }
 
 func (this *SmallestInfiniteSet) PopSmallest() int {
-	i := 1
-	for ; this.black[i]; i++ {
-	}
-	this.black[i] = true
-	return i
+	x, _ := this.s.Min()
+	this.s.Remove(x.(int))
+	return x.(int)
 }
 
 func (this *SmallestInfiniteSet) AddBack(num int) {
-	this.black[num] = false
+	this.s.Put(num, nil)
 }
 
 /**

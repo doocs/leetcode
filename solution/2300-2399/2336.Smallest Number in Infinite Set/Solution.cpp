@@ -1,21 +1,23 @@
 class SmallestInfiniteSet {
 public:
-    unordered_set<int> black;
-
     SmallestInfiniteSet() {
+        for (int i = 1; i <= 1000; ++i) {
+            s.insert(i);
+        }
     }
-
+    
     int popSmallest() {
-        int i = 1;
-        for (; black.count(i); ++i)
-            ;
-        black.insert(i);
-        return i;
+        int x = *s.begin();
+        s.erase(s.begin());
+        return x;
+    }
+    
+    void addBack(int num) {
+        s.insert(num);
     }
 
-    void addBack(int num) {
-        black.erase(num);
-    }
+private:
+    set<int> s;
 };
 
 /**
