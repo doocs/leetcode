@@ -46,6 +46,18 @@ It can be proven that no longer equal subarrays can be created.
 
 ## Solutions
 
+**Solution 1: Hash Table + Two Pointers**
+
+We use two pointers to maintain a monotonically variable length window, and a hash table to maintain the number of occurrences of each element in the window.
+
+The number of all elements in the window minus the number of the most frequently occurring element in the window is the number of elements that need to be deleted from the window.
+
+Each time, we add the element pointed to by the right pointer to the window, then update the hash table, and also update the number of the most frequently occurring element in the window. When the number of elements that need to be deleted from the window exceeds $k$, we move the left pointer once, and then update the hash table.
+
+After the traversal, return the number of the most frequently occurring element.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+
 <!-- tabs:start -->
 
 ### **Python3**

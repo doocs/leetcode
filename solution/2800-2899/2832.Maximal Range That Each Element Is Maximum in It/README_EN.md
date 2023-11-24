@@ -48,6 +48,12 @@ For nums[4] the longest subarray in which 6 is the maximum is nums[0..4] so ans[
 
 ## Solutions
 
+**Solution 1: Monotonic Stack**
+
+This problem is a template for monotonic stack. We only need to use the monotonic stack to find the position of the first element larger than $nums[i]$ on the left and right, denoted as $left[i]$ and $right[i]$. Then, the interval length with $nums[i]$ as the maximum value is $right[i] - left[i] - 1$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+
 <!-- tabs:start -->
 
 ### **Python3**

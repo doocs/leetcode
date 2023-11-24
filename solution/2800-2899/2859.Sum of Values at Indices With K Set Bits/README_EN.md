@@ -54,6 +54,14 @@ Hence, the answer is nums[3] = 1.
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+We directly traverse each index $i$, and check whether the number of $1$s in its binary representation is equal to $k$. If it is, we add the corresponding element to the answer $ans$.
+
+After the traversal ends, we return the answer.
+
+The time complexity is $O(n \times \log n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

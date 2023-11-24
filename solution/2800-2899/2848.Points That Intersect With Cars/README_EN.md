@@ -36,6 +36,12 @@
 
 ## Solutions
 
+**Solution 1: Difference Array**
+
+We create a difference array $d$ of length $110$, then traverse the given array. For each interval $[a, b]$, we increase $d[a]$ by $1$ and decrease $d[b + 1]$ by $1$. Finally, we traverse the difference array $d$, calculate the prefix sum $s$ at each position. If $s > 0$, it means that the position is covered, and we increase the answer by $1$.
+
+The time complexity is $O(n)$, and the space complexity is $O(M)$. Here, $n$ is the length of the given array, and $M$ is the maximum value in the array.
+
 <!-- tabs:start -->
 
 ### **Python3**

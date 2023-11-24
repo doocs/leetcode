@@ -73,6 +73,14 @@ It can be proven that we can create at most 2 alloys.
 
 ## Solutions
 
+**Solution 1: Binary Search**
+
+We note that all alloys need to be made by the same machine, so we can enumerate which machine to use to make the alloy.
+
+For each machine, we can use binary search to find the maximum integer $x$ such that we can use this machine to make $x$ alloys. The maximum of all $x$ is the answer.
+
+The time complexity is $O(n \times k \times \log M)$, where $M$ is the upper bound of the binary search, and in this problem, $M \leq 2 \times 10^8$. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

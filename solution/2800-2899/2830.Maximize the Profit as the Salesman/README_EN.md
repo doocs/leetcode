@@ -48,6 +48,16 @@ It can be proven that 10 is the maximum amount of gold we can achieve.
 
 ## Solutions
 
+**Solution 1: Sorting + Binary Search + Dynamic Programming**
+
+We sort all the purchase offers by $end$ in ascending order, and then use dynamic programming to solve the problem.
+
+Define $f[i]$ to represent the maximum amount of gold we can get from the first $i$ purchase offers. The answer is $f[n]$.
+
+For $f[i]$, we can choose not to sell the $i$th purchase offer, in which case $f[i] = f[i - 1]$; or we can choose to sell the $i$th purchase offer, in which case $f[i] = f[j] + gold_i$, where $j$ is the largest index that satisfies $end_j \leq start_i$.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of purchase offers.
+
 <!-- tabs:start -->
 
 ### **Python3**

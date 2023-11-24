@@ -50,6 +50,16 @@ Hence, the maximum element-sum of a complete subset of indices is 19.
 
 ## Solutions
 
+**Solution 1: Enumeration**
+
+We note that if a number can be expressed in the form of $k \times j^2$, then all numbers of this form have the same $k$.
+
+Therefore, we can enumerate $k$ in the range $[1,..n]$, and then start enumerating $j$ from $1$, each time adding the value of $nums[k \times j^2 - 1]$ to $t$, until $k \times j^2 > n$. At this point, update the answer to $ans = \max(ans, t)$.
+
+Finally, return the answer $ans$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -50,6 +50,22 @@ The class teacher selects all the students to form the group.
 
 ## Solutions
 
+**Solution 1: Sorting + Enumeration**
+
+Assume that $k$ students are selected, then the following conditions hold:
+
+-   If $nums[i] = k$, then there is no grouping method;
+-   If $nums[i] > k$, then student $i$ is not selected;
+-   If $nums[i] < k$, then student $i$ is selected.
+
+Therefore, the selected students must be the first $k$ elements in the sorted $nums$ array.
+
+We enumerate $k$ in the range $[0,..n]$. For the current number of selected students $i$, we can get the maximum student number in the group $i-1$, which is $nums[i-1]$. If $i > 0$ and $nums[i-1] \ge i$, then there is no grouping method; if $i < n$ and $nums[i] \le i$, then there is no grouping method. Otherwise, there is a grouping method, and the answer is increased by one.
+
+After the enumeration ends, return the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array.
+
 <!-- tabs:start -->
 
 ### **Python3**

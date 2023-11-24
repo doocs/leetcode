@@ -50,6 +50,12 @@ Hence, s = &quot;ngguoy&quot; is the acronym.
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+We can traverse each string in the array $words$, concatenate their first letters to form a new string $t$, and then check if $t$ is equal to $s$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $words$.
+
 <!-- tabs:start -->
 
 ### **Python3**

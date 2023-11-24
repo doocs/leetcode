@@ -47,6 +47,14 @@ Note that (0, 3) is not counted since nums[0] + nums[3] is not strictly less tha
 
 ## Solutions
 
+**Solution 1: Sorting + Binary Search**
+
+First, we sort the array $nums$. Then, for each $j$, we use binary search in the range $[0, j)$ to find the first index $i$ that is greater than or equal to $target - nums[j]$. All indices $k$ in the range $[0, i)$ meet the condition, so the answer increases by $i$.
+
+After the traversal, we return the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**
