@@ -33,7 +33,7 @@
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li>数中节点数在&nbsp;<code>[1, 5000]</code>&nbsp;范围内</li>
+	<li>树中节点数在&nbsp;<code>[1, 5000]</code>&nbsp;范围内</li>
 	<li><code>1 &lt;= Node.val &lt;= 10<sup>7</sup></code></li>
 	<li><code>root</code>&nbsp;是二叉搜索树</li>
 	<li><code>1 &lt;= val &lt;= 10<sup>7</sup></code></li>

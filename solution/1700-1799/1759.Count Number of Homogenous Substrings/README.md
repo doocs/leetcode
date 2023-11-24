@@ -49,7 +49,7 @@
 
 <ul>
 	<li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>s</code> 由小写字符串组成</li>
+	<li><code>s</code> 由小写字符串组成。</li>
 </ul>
 
 ## 解法
