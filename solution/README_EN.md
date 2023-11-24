@@ -2944,11 +2944,11 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2933  |  [High-Access Employees](/solution/2900-2999/2933.High-Access%20Employees/README_EN.md)  |  `Array`,`Hash Table`,`String`,`Sorting`  |  Medium  |  Weekly Contest 371  |
 |  2934  |  [Minimum Operations to Maximize Last Elements in Arrays](/solution/2900-2999/2934.Minimum%20Operations%20to%20Maximize%20Last%20Elements%20in%20Arrays/README_EN.md)  |  `Greedy`,`Array`  |  Medium  |  Weekly Contest 371  |
 |  2935  |  [Maximum Strong Pair XOR II](/solution/2900-2999/2935.Maximum%20Strong%20Pair%20XOR%20II/README_EN.md)  |  `Bit Manipulation`,`Trie`,`Array`,`Hash Table`,`Sliding Window`  |  Hard  |  Weekly Contest 371  |
-|  2936  |  [Number of Equal Numbers Blocks](/solution/2900-2999/2936.Number%20of%20Equal%20Numbers%20Blocks/README_EN.md)  |    |  Medium  |  🔒  |
-|  2937  |  [Make Three Strings Equal](/solution/2900-2999/2937.Make%20Three%20Strings%20Equal/README_EN.md)  |    |  Easy  |  Weekly Contest 372  |
-|  2938  |  [Separate Black and White Balls](/solution/2900-2999/2938.Separate%20Black%20and%20White%20Balls/README_EN.md)  |    |  Medium  |  Weekly Contest 372  |
-|  2939  |  [Maximum Xor Product](/solution/2900-2999/2939.Maximum%20Xor%20Product/README_EN.md)  |    |  Medium  |  Weekly Contest 372  |
-|  2940  |  [Find Building Where Alice and Bob Can Meet](/solution/2900-2999/2940.Find%20Building%20Where%20Alice%20and%20Bob%20Can%20Meet/README_EN.md)  |    |  Hard  |  Weekly Contest 372  |
+|  2936  |  [Number of Equal Numbers Blocks](/solution/2900-2999/2936.Number%20of%20Equal%20Numbers%20Blocks/README_EN.md)  |  `Array`,`Binary Search`,`Divide and Conquer`  |  Medium  |  🔒  |
+|  2937  |  [Make Three Strings Equal](/solution/2900-2999/2937.Make%20Three%20Strings%20Equal/README_EN.md)  |  `String`  |  Easy  |  Weekly Contest 372  |
+|  2938  |  [Separate Black and White Balls](/solution/2900-2999/2938.Separate%20Black%20and%20White%20Balls/README_EN.md)  |  `Greedy`,`Two Pointers`,`String`  |  Medium  |  Weekly Contest 372  |
+|  2939  |  [Maximum Xor Product](/solution/2900-2999/2939.Maximum%20Xor%20Product/README_EN.md)  |  `Greedy`,`Bit Manipulation`,`Math`  |  Medium  |  Weekly Contest 372  |
+|  2940  |  [Find Building Where Alice and Bob Can Meet](/solution/2900-2999/2940.Find%20Building%20Where%20Alice%20and%20Bob%20Can%20Meet/README_EN.md)  |  `Stack`,`Binary Indexed Tree`,`Segment Tree`,`Array`,`Binary Search`,`Monotonic Stack`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 372  |
 |  2941  |  [Maximum GCD-Sum of a Subarray](/solution/2900-2999/2941.Maximum%20GCD-Sum%20of%20a%20Subarray/README_EN.md)  |    |  Hard  |  🔒  |
 
 ## Copyright

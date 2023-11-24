@@ -41,7 +41,7 @@ One possible way to satisfy the conditions is by doing the following:
 1. Rearrange <code>arr</code> so it becomes <code>[1,100,1000]</code>.
 2. Decrease the value of the second element to 2.
 3. Decrease the value of the third element to 3.
-Now <code>arr = [1,2,3], which </code>satisfies the conditions.
+Now <code>arr = [1,2,3]</code>, which<code> </code>satisfies the conditions.
 The largest element in <code>arr is 3.</code>
 </pre>
 

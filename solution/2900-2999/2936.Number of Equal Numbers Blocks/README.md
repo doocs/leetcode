@@ -1,4 +1,4 @@
-# [2936. Number of Equal Numbers Blocks](https://leetcode.cn/problems/number-of-equal-numbers-blocks)
+# [2936. 包含相等值数字块的数量](https://leetcode.cn/problems/number-of-equal-numbers-blocks)
 
 [English Version](/solution/2900-2999/2936.Number%20of%20Equal%20Numbers%20Blocks/README_EN.md)
 
@@ -6,61 +6,63 @@
 
 <!-- 这里写题目描述 -->
 
-<p>You are given a <strong>0-indexed</strong> array of integers, <code>nums</code>. The following property holds for <code>nums</code>:</p>
+<p>给定一个整数数组 <code>nums</code>，其&nbsp;<strong>下标从 0 开始</strong>。对于 <code>nums</code>，有以下性质：</p>
 
 <ul>
-	<li>All occurrences of a value are adjacent. In other words, if there are two indices <code>i &lt; j</code> such that <code>nums[i] == nums[j]</code>, then for every index <code>k</code> that <code>i &lt; k &lt; j</code>, <code>nums[k] == nums[i]</code>.</li>
+	<li>所有相同值的元素都是相邻的。换句话说，如果存在两个下标 <code>i &lt; j</code>，使得 <code>nums[i] == nums[j]</code>，那么对于所有下标 <code>k</code>，满足 <code>i &lt; k &lt; j</code>，都有 <code>nums[k] == nums[i]</code>。</li>
 </ul>
 
-<p>Since <code>nums</code> is a very large array, you are given an instance of the class <code>BigArray</code> which has the following functions:</p>
+<p>由于 <code>nums</code> 是一个非常大的数组，这里提供了一个 <code>BigArray</code> 类的实例，该实例具有以下函数：</p>
 
 <ul>
-	<li><code>int at(long long index)</code>: Returns the value of <code>nums[i]</code>.</li>
-	<li><code>void size()</code>: Returns <code>nums.length</code>.</li>
+	<li><code>int at(long long index)</code>: 返回 <code>nums[i]</code> 的值。</li>
+	<li><code>void size()</code>: 返回 <code>nums.length</code>。</li>
 </ul>
 
-<p>Let&#39;s partition the array into <strong>maximal</strong> blocks such that each block contains <strong>equal values</strong>. Return<em> the number of these blocks.</em></p>
+<p>让我们把数组分成 <strong>最大</strong>&nbsp;的块，使得每个块包含 <strong>相等的值</strong>。返回这些块的数量。</p>
 
-<p><strong>Note</strong> that if you want to test your solution using a custom test, behavior for tests with <code>nums.length &gt; 10</code> is undefined.</p>
-
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [3,3,3,3,3]
-<strong>Output:</strong> 1
-<strong>Explanation:</strong> There is only one block here which is the whole array (because all numbers are equal) and that is: [<u>3,3,3,3,3</u>]. So the answer would be 1. 
-</pre>
-
-<p><strong class="example">Example 2:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [1,1,1,3,9,9,9,2,10,10]
-<strong>Output:</strong> 5
-<strong>Explanation:</strong> There are 5 blocks here:
-Block number 1: [<u>1,1,1</u>,3,9,9,9,2,10,10]
-Block number 2: [1,1,1,<u>3</u>,9,9,9,2,10,10]
-Block number 3: [1,1,1,3,<u>9,9,9</u>,2,10,10]
-Block number 4: [1,1,1,3,9,9,9,<u>2</u>,10,10]
-Block number 5: [1,1,1,3,9,9,9,2,<u>10,10</u>]
-So the answer would be 5.</pre>
-
-<p><strong class="example">Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [1,2,3,4,5,6,7]
-<strong>Output:</strong> 7
-<strong>Explanation:</strong> Since all numbers are distinct, there are 7 blocks here and each element representing one block. So the answer would be 7. 
-</pre>
+<p><strong>请注意</strong>，如果要使用自定义测试测试解决方案，对于 <code>nums.length &gt; 10</code> 的测试行为是未定义的。</p>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<b>输入：</b>nums = [3,3,3,3,3]
+<b>输出：</b>1
+<b>解释：</b>这里只有一个块，即整个数组（因为所有数字都相等），即：[3,3,3,3,3]。因此答案是 1。 
+</pre>
+
+<p><b>示例 2：</b></p>
+
+<pre>
+<b>输入：</b>nums = [1,1,1,3,9,9,9,2,10,10]
+<b>输出：</b>5
+<b>解释：</b>这里有 5 个块：
+块号 1: [<u>1,1,1</u>,3,9,9,9,2,10,10]
+块号 2: [1,1,1,<u>3</u>,9,9,9,2,10,10]
+块号 3: [1,1,1,3,<u>9,9,9</u>,2,10,10]
+块号 4: [1,1,1,3,9,9,9,<u>2</u>,10,10]
+块号 5: [1,1,1,3,9,9,9,2,<u>10,10</u>]
+因此答案是 5。</pre>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<pre>
+<b>输入：</b>nums = [1,2,3,4,5,6,7]
+<b>输出：</b>7
+<b>解释：</b>由于所有数字都是不同的，这里有 7 个块，每个元素代表一个块。因此答案是 7。 
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>15</sup></code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
-	<li>The input is generated such that all equal values are adjacent.</li>
-	<li>The sum of the elements of&nbsp;<code>nums</code>&nbsp;is at most&nbsp;<code>10<sup>15</sup></code>.</li>
+	<li>在生成的输入中所有相同值的元素是相邻的。</li>
+	<li><code>nums</code> 的所有元素之和最多为<meta charset="UTF-8" />&nbsp;<code>10<sup>15</sup></code>。</li>
 </ul>
 
 ## 解法

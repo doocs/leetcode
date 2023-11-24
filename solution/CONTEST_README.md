@@ -218,7 +218,7 @@
 - [2780. 合法分割的最小下标](/solution/2700-2799/2780.Minimum%20Index%20of%20a%20Valid%20Split/README.md)
 - [2781. 最长合法子字符串的长度](/solution/2700-2799/2781.Length%20of%20the%20Longest%20Valid%20Substring/README.md)
 
-#### 第 353 场周赛(2023-07-09 10:30, 90 分钟) 参赛人数 4112
+#### 第 353 场周赛(2023-07-09 10:30, 90 分钟) 参赛人数 4113
 
 - [2769. 找出最大的可达成数字](/solution/2700-2799/2769.Find%20the%20Maximum%20Achievable%20Number/README.md)
 - [2770. 达到末尾下标所需的最大跳跃次数](/solution/2700-2799/2770.Maximum%20Number%20of%20Jumps%20to%20Reach%20the%20Last%20Index/README.md)
