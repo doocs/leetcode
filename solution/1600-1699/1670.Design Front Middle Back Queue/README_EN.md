@@ -58,6 +58,20 @@ q.popFront();     // return -1 -&gt; [] (The queue is empty)
 
 ## Solutions
 
+**Solution 1: Two Deques**
+
+We use two deques, where $q_1$ stores the first half, and $q_2$ stores the second half. The `rebalance` function is used to maintain the balance between the two queues, i.e., keeping the length of $q_2$ greater than or equal to the length of $q_1$, and the difference in length does not exceed $1$.
+
+In the `pushFront`, `pushMiddle`, and `pushBack` functions, we only need to add elements to $q_1$ or $q_2$, and call the `rebalance` function.
+
+For the `popFront` function, we need to check whether $q_1$ and $q_2$ are empty. If both are empty, return $-1$. Otherwise, we need to check whether $q_1$ is empty. If not, pop the front element of $q_1$, otherwise pop the front element of $q_2$, and call the `rebalance` function.
+
+For the `popMiddle` function, we need to check whether $q_1$ and $q_2$ are empty. If both are empty, return $-1$. Otherwise, we need to check whether the lengths of $q_1$ and $q_2$ are equal. If they are equal, pop the last element of $q_1$, otherwise pop the front element of $q_2$, and call the `rebalance` function.
+
+For the `popBack` function, we only need to check whether $q_2$ is empty. If it is empty, return $-1$. Otherwise, pop the last element of $q_2$, and call the `rebalance` function.
+
+The time complexity of the above operations is $O(1)$, and the space complexity is $O(n)$, where $n$ is the number of elements in the queue.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -288,134 +302,467 @@ private:
 ### **Go**
 
 ```go
-type FrontMiddleBackQueue struct{}
-
-var a []int
-
-func Constructor() (_ FrontMiddleBackQueue) {
-	a = nil
-	return
+type FrontMiddleBackQueue struct {
+	q1, q2 Deque
 }
 
-func (FrontMiddleBackQueue) PushFront(v int) {
-	a = append([]int{v}, a...)
+func Constructor() FrontMiddleBackQueue {
+	return FrontMiddleBackQueue{}
 }
 
-func (FrontMiddleBackQueue) PushMiddle(v int) {
-	p := len(a) / 2
-	a = append(a[:p], append([]int{v}, a[p:]...)...)
+func (this *FrontMiddleBackQueue) PushFront(val int) {
+	this.q1.PushFront(val)
+	this.rebalance()
 }
 
-func (FrontMiddleBackQueue) PushBack(v int) {
-	a = append(a, v)
+func (this *FrontMiddleBackQueue) PushMiddle(val int) {
+	this.q1.PushBack(val)
+	this.rebalance()
 }
 
-func (FrontMiddleBackQueue) PopFront() (ans int) {
-	if len(a) == 0 {
+func (this *FrontMiddleBackQueue) PushBack(val int) {
+	this.q2.PushBack(val)
+	this.rebalance()
+}
+
+func (this *FrontMiddleBackQueue) PopFront() int {
+	if this.q1.Empty() && this.q2.Empty() {
 		return -1
 	}
-	ans = a[0]
-	a = a[1:]
+	var val int
+	if !this.q1.Empty() {
+		val = this.q1.PopFront()
+	} else {
+		val = this.q2.PopFront()
+	}
+	this.rebalance()
+	return val
+}
+
+func (this *FrontMiddleBackQueue) PopMiddle() int {
+	if this.q1.Empty() && this.q2.Empty() {
+		return -1
+	}
+	var val int
+	if this.q1.Size() == this.q2.Size() {
+		val = this.q1.PopBack()
+	} else {
+		val = this.q2.PopFront()
+	}
+	this.rebalance()
+	return val
+}
+
+func (this *FrontMiddleBackQueue) PopBack() int {
+	if this.q2.Empty() {
+		return -1
+	}
+	val := this.q2.PopBack()
+	this.rebalance()
+	return val
+}
+
+func (this *FrontMiddleBackQueue) rebalance() {
+	if this.q1.Size() > this.q2.Size() {
+		this.q2.PushFront(this.q1.PopBack())
+	}
+	if this.q2.Size() > this.q1.Size()+1 {
+		this.q1.PushBack(this.q2.PopFront())
+	}
+}
+
+// template
+type Deque struct{ l, r []int }
+
+func (q Deque) Empty() bool {
+	return len(q.l) == 0 && len(q.r) == 0
+}
+
+func (q Deque) Size() int {
+	return len(q.l) + len(q.r)
+}
+
+func (q *Deque) PushFront(v int) {
+	q.l = append(q.l, v)
+}
+
+func (q *Deque) PushBack(v int) {
+	q.r = append(q.r, v)
+}
+
+func (q *Deque) PopFront() (v int) {
+	if len(q.l) > 0 {
+		q.l, v = q.l[:len(q.l)-1], q.l[len(q.l)-1]
+	} else {
+		v, q.r = q.r[0], q.r[1:]
+	}
 	return
 }
 
-func (FrontMiddleBackQueue) PopMiddle() (ans int) {
-	if len(a) == 0 {
-		return -1
+func (q *Deque) PopBack() (v int) {
+	if len(q.r) > 0 {
+		q.r, v = q.r[:len(q.r)-1], q.r[len(q.r)-1]
+	} else {
+		v, q.l = q.l[0], q.l[1:]
 	}
-	p := (len(a) - 1) / 2
-	ans = a[p]
-	a = append(a[:p], a[p+1:]...)
 	return
 }
 
-func (FrontMiddleBackQueue) PopBack() (ans int) {
-	if len(a) == 0 {
-		return -1
+func (q Deque) Front() int {
+	if len(q.l) > 0 {
+		return q.l[len(q.l)-1]
 	}
-	ans = a[len(a)-1]
-	a = a[:len(a)-1]
-	return
+	return q.r[0]
 }
+
+func (q Deque) Back() int {
+	if len(q.r) > 0 {
+		return q.r[len(q.r)-1]
+	}
+	return q.l[0]
+}
+
+func (q Deque) Get(i int) int {
+	if i < len(q.l) {
+		return q.l[len(q.l)-1-i]
+	}
+	return q.r[i-len(q.l)]
+}
+
+/**
+ * Your FrontMiddleBackQueue object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.PushFront(val);
+ * obj.PushMiddle(val);
+ * obj.PushBack(val);
+ * param_4 := obj.PopFront();
+ * param_5 := obj.PopMiddle();
+ * param_6 := obj.PopBack();
+ */
+```
+
+### **TypeScript**
+
+```ts
+class FrontMiddleBackQueue {
+    private q1: Deque<number>;
+    private q2: Deque<number>;
+
+    constructor() {
+        this.q1 = new Deque<number>();
+        this.q2 = new Deque<number>();
+    }
+
+    pushFront(val: number): void {
+        this.q1.pushFront(val);
+        this.rebalance();
+    }
+
+    pushMiddle(val: number): void {
+        this.q1.pushBack(val);
+        this.rebalance();
+    }
+
+    pushBack(val: number): void {
+        this.q2.pushBack(val);
+        this.rebalance();
+    }
+
+    popFront(): number {
+        if (this.q1.isEmpty() && this.q2.isEmpty()) {
+            return -1;
+        }
+        const val = this.q1.isEmpty() ? this.q2.popFront() : this.q1.popFront();
+        this.rebalance();
+        return val!;
+    }
+
+    popMiddle(): number {
+        if (this.q1.isEmpty() && this.q2.isEmpty()) {
+            return -1;
+        }
+        const val =
+            this.q1.getSize() === this.q2.getSize() ? this.q1.popBack() : this.q2.popFront();
+        this.rebalance();
+        return val!;
+    }
+
+    popBack(): number {
+        if (this.q2.isEmpty()) {
+            return -1;
+        }
+        const val = this.q2.popBack();
+        this.rebalance();
+        return val!;
+    }
+
+    private rebalance(): void {
+        if (this.q1.getSize() > this.q2.getSize()) {
+            this.q2.pushFront(this.q1.popBack()!);
+        }
+        if (this.q2.getSize() > this.q1.getSize() + 1) {
+            this.q1.pushBack(this.q2.popFront()!);
+        }
+    }
+}
+
+class Node<T> {
+    value: T;
+    next: Node<T> | null;
+    prev: Node<T> | null;
+
+    constructor(value: T) {
+        this.value = value;
+        this.next = null;
+        this.prev = null;
+    }
+}
+
+class Deque<T> {
+    private front: Node<T> | null;
+    private back: Node<T> | null;
+    private size: number;
+
+    constructor() {
+        this.front = null;
+        this.back = null;
+        this.size = 0;
+    }
+
+    pushFront(val: T): void {
+        const newNode = new Node(val);
+        if (this.isEmpty()) {
+            this.front = newNode;
+            this.back = newNode;
+        } else {
+            newNode.next = this.front;
+            this.front!.prev = newNode;
+            this.front = newNode;
+        }
+        this.size++;
+    }
+
+    pushBack(val: T): void {
+        const newNode = new Node(val);
+        if (this.isEmpty()) {
+            this.front = newNode;
+            this.back = newNode;
+        } else {
+            newNode.prev = this.back;
+            this.back!.next = newNode;
+            this.back = newNode;
+        }
+        this.size++;
+    }
+
+    popFront(): T | undefined {
+        if (this.isEmpty()) {
+            return undefined;
+        }
+        const value = this.front!.value;
+        this.front = this.front!.next;
+        if (this.front !== null) {
+            this.front.prev = null;
+        } else {
+            this.back = null;
+        }
+        this.size--;
+        return value;
+    }
+
+    popBack(): T | undefined {
+        if (this.isEmpty()) {
+            return undefined;
+        }
+        const value = this.back!.value;
+        this.back = this.back!.prev;
+        if (this.back !== null) {
+            this.back.next = null;
+        } else {
+            this.front = null;
+        }
+        this.size--;
+        return value;
+    }
+
+    frontValue(): T | undefined {
+        return this.front?.value;
+    }
+
+    backValue(): T | undefined {
+        return this.back?.value;
+    }
+
+    getSize(): number {
+        return this.size;
+    }
+
+    isEmpty(): boolean {
+        return this.size === 0;
+    }
+}
+
+/**
+ * Your FrontMiddleBackQueue object will be instantiated and called as such:
+ * var obj = new FrontMiddleBackQueue()
+ * obj.pushFront(val)
+ * obj.pushMiddle(val)
+ * obj.pushBack(val)
+ * var param_4 = obj.popFront()
+ * var param_5 = obj.popMiddle()
+ * var param_6 = obj.popBack()
+ */
 ```
 
 ### **JavaScript**
 
 ```js
-var FrontMiddleBackQueue = function () {
-    this.left = [];
-    this.right = [];
-};
-
-/**
- * @param {number} val
- * @return {void}
- */
-FrontMiddleBackQueue.prototype.pushFront = function (val) {
-    this.left.unshift(val);
-    this.rebalance();
-};
-
-/**
- * @param {number} val
- * @return {void}
- */
-FrontMiddleBackQueue.prototype.pushMiddle = function (val) {
-    this.left.push(val);
-    this.rebalance();
-};
-
-/**
- * @param {number} val
- * @return {void}
- */
-FrontMiddleBackQueue.prototype.pushBack = function (val) {
-    this.right.push(val);
-    this.rebalance();
-};
-
-/**
- * @return {number}
- */
-FrontMiddleBackQueue.prototype.popFront = function () {
-    if (this.isEmpty()) return -1;
-    let num = this.left.length == 0 ? this.right.shift() : this.left.shift();
-    this.rebalance();
-    return num;
-};
-
-/**
- * @return {number}
- */
-FrontMiddleBackQueue.prototype.popMiddle = function () {
-    if (this.isEmpty()) return -1;
-    let num = this.left.length == this.right.length ? this.left.pop() : this.right.shift();
-    this.rebalance();
-    return num;
-};
-
-/**
- * @return {number}
- */
-FrontMiddleBackQueue.prototype.popBack = function () {
-    if (this.isEmpty()) return -1;
-    let num = this.right.pop();
-    this.rebalance();
-    return num;
-};
-
-FrontMiddleBackQueue.prototype.rebalance = function () {
-    while (this.left.length > this.right.length) {
-        this.right.unshift(this.left.pop());
+class FrontMiddleBackQueue {
+    constructor() {
+        this.q1 = new Deque();
+        this.q2 = new Deque();
     }
-    while (this.right.length > this.left.length + 1) {
-        this.left.push(this.right.shift());
-    }
-};
 
-FrontMiddleBackQueue.prototype.isEmpty = function () {
-    return this.left.length == 0 && this.right.length == 0;
-};
+    pushFront(val) {
+        this.q1.pushFront(val);
+        this.rebalance();
+    }
+
+    pushMiddle(val) {
+        this.q1.pushBack(val);
+        this.rebalance();
+    }
+
+    pushBack(val) {
+        this.q2.pushBack(val);
+        this.rebalance();
+    }
+
+    popFront() {
+        if (this.q1.isEmpty() && this.q2.isEmpty()) {
+            return -1;
+        }
+        const val = this.q1.isEmpty() ? this.q2.popFront() : this.q1.popFront();
+        this.rebalance();
+        return val !== undefined ? val : -1;
+    }
+
+    popMiddle() {
+        if (this.q1.isEmpty() && this.q2.isEmpty()) {
+            return -1;
+        }
+        const val =
+            this.q1.getSize() === this.q2.getSize() ? this.q1.popBack() : this.q2.popFront();
+        this.rebalance();
+        return val !== undefined ? val : -1;
+    }
+
+    popBack() {
+        if (this.q2.isEmpty()) {
+            return -1;
+        }
+        const val = this.q2.popBack();
+        this.rebalance();
+        return val !== undefined ? val : -1;
+    }
+
+    rebalance() {
+        if (this.q1.getSize() > this.q2.getSize()) {
+            this.q2.pushFront(this.q1.popBack());
+        }
+        if (this.q2.getSize() > this.q1.getSize() + 1) {
+            this.q1.pushBack(this.q2.popFront());
+        }
+    }
+}
+
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.next = null;
+        this.prev = null;
+    }
+}
+
+class Deque {
+    constructor() {
+        this.front = null;
+        this.back = null;
+        this.size = 0;
+    }
+
+    pushFront(val) {
+        const newNode = new Node(val);
+        if (this.isEmpty()) {
+            this.front = newNode;
+            this.back = newNode;
+        } else {
+            newNode.next = this.front;
+            this.front.prev = newNode;
+            this.front = newNode;
+        }
+        this.size++;
+    }
+
+    pushBack(val) {
+        const newNode = new Node(val);
+        if (this.isEmpty()) {
+            this.front = newNode;
+            this.back = newNode;
+        } else {
+            newNode.prev = this.back;
+            this.back.next = newNode;
+            this.back = newNode;
+        }
+        this.size++;
+    }
+
+    popFront() {
+        if (this.isEmpty()) {
+            return undefined;
+        }
+        const value = this.front.value;
+        this.front = this.front.next;
+        if (this.front !== null) {
+            this.front.prev = null;
+        } else {
+            this.back = null;
+        }
+        this.size--;
+        return value;
+    }
+
+    popBack() {
+        if (this.isEmpty()) {
+            return undefined;
+        }
+        const value = this.back.value;
+        this.back = this.back.prev;
+        if (this.back !== null) {
+            this.back.next = null;
+        } else {
+            this.front = null;
+        }
+        this.size--;
+        return value;
+    }
+
+    frontValue() {
+        return this.front?.value;
+    }
+
+    backValue() {
+        return this.back?.value;
+    }
+
+    getSize() {
+        return this.size;
+    }
+
+    isEmpty() {
+        return this.size === 0;
+    }
+}
 
 /**
  * Your FrontMiddleBackQueue object will be instantiated and called as such:
