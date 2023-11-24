@@ -1,109 +1,120 @@
 class FrontMiddleBackQueue {
+    private q1: Deque<number>;
+    private q2: Deque<number>;
+
     constructor() {
-        this.q1 = new Deque();
-        this.q2 = new Deque();
+        this.q1 = new Deque<number>();
+        this.q2 = new Deque<number>();
     }
 
-    pushFront(val) {
+    pushFront(val: number): void {
         this.q1.pushFront(val);
         this.rebalance();
     }
 
-    pushMiddle(val) {
+    pushMiddle(val: number): void {
         this.q1.pushBack(val);
         this.rebalance();
     }
 
-    pushBack(val) {
+    pushBack(val: number): void {
         this.q2.pushBack(val);
         this.rebalance();
     }
 
-    popFront() {
+    popFront(): number {
         if (this.q1.isEmpty() && this.q2.isEmpty()) {
             return -1;
         }
         const val = this.q1.isEmpty() ? this.q2.popFront() : this.q1.popFront();
         this.rebalance();
-        return val !== undefined ? val : -1;
+        return val!;
     }
 
-    popMiddle() {
+    popMiddle(): number {
         if (this.q1.isEmpty() && this.q2.isEmpty()) {
             return -1;
         }
         const val =
             this.q1.getSize() === this.q2.getSize() ? this.q1.popBack() : this.q2.popFront();
         this.rebalance();
-        return val !== undefined ? val : -1;
+        return val!;
     }
 
-    popBack() {
+    popBack(): number {
         if (this.q2.isEmpty()) {
             return -1;
         }
         const val = this.q2.popBack();
         this.rebalance();
-        return val !== undefined ? val : -1;
+        return val!;
     }
 
-    rebalance() {
+    private rebalance(): void {
         if (this.q1.getSize() > this.q2.getSize()) {
-            this.q2.pushFront(this.q1.popBack());
+            this.q2.pushFront(this.q1.popBack()!);
         }
         if (this.q2.getSize() > this.q1.getSize() + 1) {
-            this.q1.pushBack(this.q2.popFront());
+            this.q1.pushBack(this.q2.popFront()!);
         }
     }
 }
 
-class Node {
-    constructor(value) {
+class Node<T> {
+    value: T;
+    next: Node<T> | null;
+    prev: Node<T> | null;
+
+    constructor(value: T) {
         this.value = value;
         this.next = null;
         this.prev = null;
     }
 }
 
-class Deque {
+class Deque<T> {
+    private front: Node<T> | null;
+    private back: Node<T> | null;
+    private size: number;
+
     constructor() {
         this.front = null;
         this.back = null;
         this.size = 0;
     }
 
-    pushFront(val) {
+    pushFront(val: T): void {
         const newNode = new Node(val);
         if (this.isEmpty()) {
             this.front = newNode;
             this.back = newNode;
         } else {
             newNode.next = this.front;
-            this.front.prev = newNode;
+            this.front!.prev = newNode;
             this.front = newNode;
         }
         this.size++;
     }
 
-    pushBack(val) {
+    pushBack(val: T): void {
         const newNode = new Node(val);
         if (this.isEmpty()) {
             this.front = newNode;
             this.back = newNode;
         } else {
             newNode.prev = this.back;
-            this.back.next = newNode;
+            this.back!.next = newNode;
             this.back = newNode;
         }
         this.size++;
     }
 
-    popFront() {
+    popFront(): T | undefined {
         if (this.isEmpty()) {
             return undefined;
         }
-        const value = this.front.value;
-        this.front = this.front.next;
+        const value = this.front!.value;
+        this.front = this.front!.next;
         if (this.front !== null) {
             this.front.prev = null;
         } else {
@@ -113,12 +124,12 @@ class Deque {
         return value;
     }
 
-    popBack() {
+    popBack(): T | undefined {
         if (this.isEmpty()) {
             return undefined;
         }
-        const value = this.back.value;
-        this.back = this.back.prev;
+        const value = this.back!.value;
+        this.back = this.back!.prev;
         if (this.back !== null) {
             this.back.next = null;
         } else {
@@ -128,19 +139,19 @@ class Deque {
         return value;
     }
 
-    frontValue() {
+    frontValue(): T | undefined {
         return this.front?.value;
     }
 
-    backValue() {
+    backValue(): T | undefined {
         return this.back?.value;
     }
 
-    getSize() {
+    getSize(): number {
         return this.size;
     }
 
-    isEmpty() {
+    isEmpty(): boolean {
         return this.size === 0;
     }
 }
