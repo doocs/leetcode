@@ -1,23 +1,26 @@
 class SmallestInfiniteSet {
-    private hashMap: boolean[];
+    private pq: typeof MinPriorityQueue;
+    private s: Set<number>;
 
     constructor() {
-        this.hashMap = new Array(1001).fill(true);
+        this.pq = new MinPriorityQueue();
+        this.s = new Set();
+        for (let i = 1; i <= 1000; i++) {
+            this.pq.enqueue(i, i);
+            this.s.add(i);
+        }
     }
 
     popSmallest(): number {
-        for (let i = 1; i <= 1001; i++) {
-            if (this.hashMap[i]) {
-                this.hashMap[i] = false;
-                return i;
-            }
-        }
-        return -1;
+        const x = this.pq.dequeue()?.element;
+        this.s.delete(x);
+        return x;
     }
 
     addBack(num: number): void {
-        if (!this.hashMap[num]) {
-            this.hashMap[num] = true;
+        if (!this.s.has(num)) {
+            this.pq.enqueue(num, num);
+            this.s.add(num);
         }
     }
 }
