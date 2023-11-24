@@ -59,6 +59,18 @@ It can be shown that there is no shorter sequence of operations that results in 
 
 ## Solutions
 
+**Solution 1: Greedy + Bit Manipulation**
+
+Observing the operation in the problem, we find that each operation actually splits a number greater than $1$ into two equal numbers, which means that the sum of the elements in the array will not change after the operation. Therefore, if the sum of the elements in the array $s$ is less than $target$, it is impossible to obtain a subsequence with a sum of $target$ through the operation described in the problem, and we can directly return $-1$. Otherwise, we can definitely make the sum of some subsequences in the array equal to $target$ through the split operation.
+
+In addition, the split operation will actually set the binary high bit of the number to $0$ and add $2$ to the lower bit. Therefore, we first use an array of length $32$ to record the number of times $1$ appears on each binary bit in the binary representation of all elements in the array $nums$.
+
+Next, starting from the low bit of $target$, for the $i$th bit of $target$, if the current bit number is $0$, skip it directly, that is, $i = i + 1$. If the current bit number is $1$, we need to find the smallest number $j$ (where $j \ge i$) in the array $cnt$ such that $cnt[j] > 0$, and then we split the number $1$ at this bit to the lower bit $i$, that is, subtract $1$ from $cnt[j]$, and set each bit from $i$ to $j-1$ in $cnt$ to $1$, and the number of operations is $j-i$. Next, we let $j = i$, and then $i = i + 1$. Repeat the above operation until $i$ exceeds the index range of the array $cnt$, and return the number of operations at this time.
+
+Note that if $j < i$, actually two lower bits of $1$ can be combined into a higher bit of $1$. Therefore, if $j < i$, we add $\frac{cnt[j]}{2}$ to $cnt[j+1]$, and take $cnt[j]$ modulo $2$, then let $j = j + 1$, and continue the above operation.
+
+The time complexity is $O(n \times \log M)$, and the space complexity is $O(\log M)$. Here, $n$ is the length of the array $nums$, and $M$ is the maximum value in the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -49,6 +49,20 @@ It can be shown that 4 is the minimum number of moves required to place one ston
 
 ## Solutions
 
+**Solution 1: Naive BFS**
+
+The problem is essentially finding the shortest path from the initial state to the target state in a state graph, so we can use BFS to solve it. The initial state is `grid`, and the target state is `[[1, 1, 1], [1, 1, 1], [1, 1, 1]]`. In each operation, we can move a stone greater than $1$ from a cell to an adjacent cell that does not exceed $1$. If the target state is found, we can return the current layer number, which is the minimum number of moves.
+
+**Solution 2: State Compression Dynamic Programming**
+
+We can put all the coordinates $(i, j)$ of cells with a value of $0$ into an array $left$. If the value $v$ of a cell is greater than $1$, we put $v-1$ coordinates $(i, j)$ into an array $right$. The problem then becomes that each coordinate $(i, j)$ in $right$ needs to be moved to a coordinate $(x, y)$ in $left$, and we need to find the minimum number of moves.
+
+Let's denote the length of $left$ as $n$. We can use an $n$-bit binary number to represent whether each coordinate in $left$ is filled by a coordinate in $right$, where $1$ represents being filled, and $0$ represents not being filled. Initially, $f[i] = \infty$, and the rest $f[0]=0$.
+
+Consider $f[i]$, let the number of $1$s in the binary representation of $i$ be $k$. We enumerate $j$ in the range $[0..n)$, if the $j$th bit of $i$ is $1$, then $f[i]$ can be transferred from $f[i \oplus (1 << j)]$, and the cost of the transfer is $cal(left[k-1], right[j])$, where $cal$ represents the Manhattan distance between two coordinates. The final answer is $f[(1 << n) - 1]$.
+
+The time complexity is $O(n \times 2^n)$, and the space complexity is $O(2^n)$. Here, $n$ is the length of $left$, and in this problem, $n \le 9$.
+
 <!-- tabs:start -->
 
 ### **Python3**

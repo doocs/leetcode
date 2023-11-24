@@ -60,6 +60,12 @@ Now let&#39;s jump on the bottom-right grid in the above picture and calculate R
 
 ## Solutions
 
+**Solution 1: DFS**
+
+First, we count the number of non-blocking cells in the matrix, denoted as $cnt$. Then, starting from each non-blocking cell, we use DFS to calculate the sum $s$ of the cells in each connected block and the number of cells $t$. Then, all $(cnt - t)$ cells in other connected blocks can be added with $s$. We sum up the results of all connected blocks.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the side length of the matrix.
+
 <!-- tabs:start -->
 
 ### **Python3**

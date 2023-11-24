@@ -40,6 +40,14 @@
 
 ## Solutions
 
+**Solution 1: Prime Factorization + Greedy**
+
+We consider prime factorizing the number $n$. If there are prime factors greater than $9$ in $n$, then it is impossible to find a number that meets the conditions, because prime factors greater than $9$ cannot be obtained by multiplying numbers from $1$ to $9$. For example, $11$ cannot be obtained by multiplying numbers from $1$ to $9$. Therefore, we only need to consider whether there are prime factors greater than $9$ in $n$. If there are, return $-1$ directly.
+
+Otherwise, if the prime factors include $7$ and $5$, then the number $n$ can first be decomposed into several $7$s and $5$s. Two $3$s can be combined into a $9$, three $2$s can be combined into an $8$, and a $2$ and a $3$ can be combined into a $6$. Therefore, we only need to decompose the number into numbers from $2$ to $9$. We can use a greedy method, preferentially decomposing into $9$, then decomposing into $8$, and so on.
+
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -59,6 +59,26 @@ For each queries[i], it can be shown that answer[i] is the minimum number of ope
 
 ## Solutions
 
+**Solution 1: Binary Lifting for LCA**
+
+The problem asks for the minimum number of operations to make all edge weights the same on the path between any two points. This is essentially the length of the path between these two points, minus the number of times the most frequently occurring edge appears on the path.
+
+The length of the path between two points can be obtained by finding the LCA (Lowest Common Ancestor) using binary lifting. Let's denote the two points as $u$ and $v$, and their LCA as $x$. Then, the path length from $u$ to $v$ is $depth(u) + depth(v) - 2 \times depth(x)$.
+
+Additionally, we can use an array $cnt[n][26]$ to record the number of occurrences of each edge weight from the root node to each node. Then, the number of times the most frequently occurring edge appears on the path from $u$ to $v$ is $\max_{0 \leq j < 26} cnt[u][j] + cnt[v][j] - 2 \times cnt[x][j]$, where $x$ is the LCA of $u$ and $v$.
+
+The process of finding the LCA using binary lifting is as follows:
+
+We denote the depth of each node as $depth$, its parent node as $p$, and $f[i][j]$ as the $2^j$th ancestor of node $i$. Then, for any two points $x$ and $y$, we can find their LCA as follows:
+
+1. If $depth(x) < depth(y)$, then swap $x$ and $y$, i.e., ensure that the depth of $x$ is not less than the depth of $y$;
+2. Next, we continuously raise the depth of $x$ until the depths of $x$ and $y$ are the same, at which point the depths of $x$ and $y$ are both $depth(x)$;
+3. Then, we raise the depths of $x$ and $y$ simultaneously until the parents of $x$ and $y$ are the same, at which point the parents of $x$ and $y$ are both $f[x][0]$, which is the LCA of $x$ and $y$.
+
+Finally, the minimum number of operations from node $u$ to node $v$ is $depth(u) + depth(v) - 2 \times depth(x) - \max_{0 \leq j < 26} cnt[u][j] + cnt[v][j] - 2 \times cnt[x][j]$.
+
+The time complexity is $O((n + q) \times C \times \log n)$, and the space complexity is $O(n \times C \times \log n)$. Here, $C$ is the maximum value of the edge weight.
+
 <!-- tabs:start -->
 
 ### **Python3**

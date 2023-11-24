@@ -70,6 +70,14 @@ After sorting the numbers in each group, group 1 becomes empty, group 2 becomes 
 
 ## Solutions
 
+**Solution 1: Dynamic Programming**
+
+We define $f[i][j]$ as the minimum number of operations to turn the first $i$ numbers into a beautiful array, and the $i$th number is changed to $j+1$. The answer is $\min(f[n][0], f[n][1], f[n][2])$.
+
+We can enumerate all cases where the $i$th number is changed to $j+1$, and then take the minimum value. Here, we can use a rolling array to optimize the space complexity.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

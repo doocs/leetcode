@@ -67,6 +67,32 @@ It can be shown that there exists no other beautiful configuration with a sum of
 
 ## Solutions
 
+**Solution 1: Enumeration**
+
+We can enumerate each tower as the tallest tower, each time expanding to the left and right, calculating the height of each other position, and then accumulating to get the height sum $t$. The maximum of all height sums is the answer.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $maxHeights$.
+
+**Solution 2: Dynamic Programming + Monotonic Stack**
+
+Solution 1 is sufficient to pass this problem, but the time complexity is relatively high. We can use "Dynamic Programming + Monotonic Stack" to optimize the enumeration process.
+
+We define $f[i]$ to represent the height sum of the beautiful tower scheme with the last tower as the tallest tower among the first $i+1$ towers. We can get the following state transition equation:
+
+$$
+f[i]=
+\begin{cases}
+f[i-1]+heights[i],&\text{if } heights[i]\geq heights[i-1]\\
+heights[i]\times(i-j)+f[j],&\text{if } heights[i]<heights[i-1]
+\end{cases}
+$$
+
+Where $j$ is the index of the first tower to the left of the last tower with a height less than or equal to $heights[i]$. We can use a monotonic stack to maintain this index.
+
+We can use a similar method to find $g[i]$, which represents the height sum of the beautiful tower scheme from right to left with the $i$th tower as the tallest tower. The final answer is the maximum value of $f[i]+g[i]-heights[i]$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $maxHeights$.
+
 <!-- tabs:start -->
 
 ### **Python3**

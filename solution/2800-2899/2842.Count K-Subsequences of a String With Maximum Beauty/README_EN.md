@@ -77,6 +77,22 @@ Hence, the answer is 2.
 
 ## Solutions
 
+**Solution 1: Greedy + Combinatorial Mathematics**
+
+First, we use a hash table $f$ to count the occurrence of each character in the string $s$, i.e., $f[c]$ represents the number of times character $c$ appears in the string $s$.
+
+Since a $k$-subsequence is a subsequence of length $k$ in the string $s$ with unique characters, if the number of different characters in $f$ is less than $k$, then there is no $k$-subsequence, and we can directly return $0$.
+
+Otherwise, to maximize the beauty value of the $k$-subsequence, we need to make characters with high beauty values appear as much as possible in the $k$-subsequence. Therefore, we can sort the values in $f$ in reverse order to get an array $vs$.
+
+We denote the occurrence of the $k$th character in the array $vs$ as $val$, and there are $x$ characters with an occurrence of $val$.
+
+Then we first find out the characters with occurrences greater than $val$, multiply the occurrences of each character to get the initial answer $ans$, and update the remaining number of characters to be selected to $k$. We need to select $k$ characters from $x$ characters, so the answer needs to be multiplied by the combination number $C_x^k$, and finally multiplied by $val^k$, i.e., $ans = ans \times C_x^k \times val^k$.
+
+Note that we need to use fast power and modulo operations here.
+
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$. Here, $n$ is the length of the string, and $\Sigma$ is the character set. In this problem, the character set is lowercase letters, so $|\Sigma| = 26$.
+
 <!-- tabs:start -->
 
 ### **Python3**
