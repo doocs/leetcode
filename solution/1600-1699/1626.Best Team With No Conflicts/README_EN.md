@@ -246,7 +246,7 @@ public:
 ### **Go**
 
 ```go
-func bestTeamScore(scores []int, ages []int) (ans int) {
+func bestTeamScore(scores []int, ages []int) int {
 	n := len(ages)
 	arr := make([][2]int, n)
 	for i := range ages {
@@ -264,9 +264,8 @@ func bestTeamScore(scores []int, ages []int) (ans int) {
 			}
 		}
 		f[i] += arr[i][0]
-		ans = max(ans, f[i])
 	}
-	return
+	return slices.Max(f)
 }
 ```
 

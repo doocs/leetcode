@@ -1,19 +1,18 @@
 class SmallestInfiniteSet {
-    private Set<Integer> black = new HashSet<>();
+    private TreeSet<Integer> s = new TreeSet<>();
 
     public SmallestInfiniteSet() {
+        for (int i = 1; i <= 1000; ++i) {
+            s.add(i);
+        }
     }
 
     public int popSmallest() {
-        int i = 1;
-        for (; black.contains(i); ++i)
-            ;
-        black.add(i);
-        return i;
+        return s.pollFirst();
     }
 
     public void addBack(int num) {
-        black.remove(num);
+        s.add(num);
     }
 }
 

@@ -210,10 +210,9 @@ public:
 
 ```go
 func componentValue(nums []int, edges [][]int) int {
-	s, mx := 0, 0
+	s, mx := 0, slices.Max(nums)
 	for _, x := range nums {
 		s += x
-		mx = max(mx, x)
 	}
 	n := len(nums)
 	g := make([][]int, n)

@@ -72,6 +72,10 @@
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点数。
 
+相似题目：
+
+-   [2204. 无向图中到环的距离](/solution/2200-2299/2204.Distance%20to%20a%20Cycle%20in%20Undirected%20Graph/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**

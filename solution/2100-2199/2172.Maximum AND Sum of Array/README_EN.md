@@ -121,7 +121,7 @@ public:
 ### **Go**
 
 ```go
-func maximumANDSum(nums []int, numSlots int) (ans int) {
+func maximumANDSum(nums []int, numSlots int) int {
 	n := len(nums)
 	m := numSlots << 1
 	f := make([]int, 1<<m)
@@ -135,9 +135,8 @@ func maximumANDSum(nums []int, numSlots int) (ans int) {
 				f[i] = max(f[i], f[i^(1<<j)]+(nums[cnt-1]&(j/2+1)))
 			}
 		}
-		ans = max(ans, f[i])
 	}
-	return
+	return slices.Max(f)
 }
 ```
 

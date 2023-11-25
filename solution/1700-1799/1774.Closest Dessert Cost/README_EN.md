@@ -215,7 +215,7 @@ func closestCost(baseCosts []int, toppingCosts []int, target int) int {
 	ans, d := inf, inf
 	for _, x := range baseCosts {
 		for _, y := range arr {
-			i := sort.Search(len(arr), func(i int) bool { return arr[i] >= target-x-y })
+			i := sort.SearchInts(arr, target-x-y)
 			for j := i - 1; j < i+1; j++ {
 				if j >= 0 && j < len(arr) {
 					t := abs(x + y + arr[j] - target)

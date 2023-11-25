@@ -271,7 +271,7 @@ func maxJumps(arr []int, d int) (ans int) {
 ```
 
 ```go
-func maxJumps(arr []int, d int) (ans int) {
+func maxJumps(arr []int, d int) int {
 	n := len(arr)
 	idx := make([]int, n)
 	f := make([]int, n)
@@ -293,9 +293,8 @@ func maxJumps(arr []int, d int) (ans int) {
 			}
 			f[i] = max(f[i], 1+f[j])
 		}
-		ans = max(ans, f[i])
 	}
-	return
+	return slices.Max(f)
 }
 ```
 

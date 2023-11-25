@@ -1,11 +1,7 @@
-func kidsWithCandies(candies []int, extraCandies int) []bool {
-	mx := 0
+func kidsWithCandies(candies []int, extraCandies int) (ans []bool) {
+	mx := slices.Max(candies)
 	for _, candy := range candies {
-		mx = max(mx, candy)
+		ans = append(ans, candy+extraCandies >= mx)
 	}
-	var res []bool
-	for _, candy := range candies {
-		res = append(res, candy+extraCandies >= mx)
-	}
-	return res
+	return
 }

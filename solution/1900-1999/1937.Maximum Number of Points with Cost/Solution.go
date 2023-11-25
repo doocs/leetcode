@@ -1,4 +1,4 @@
-func maxPoints(points [][]int) (ans int64) {
+func maxPoints(points [][]int) int64 {
 	n := len(points[0])
 	const inf int64 = 1e18
 	f := make([]int64, n)
@@ -15,8 +15,5 @@ func maxPoints(points [][]int) (ans int64) {
 		}
 		f = g
 	}
-	for _, x := range f {
-		ans = max(ans, x)
-	}
-	return
+	return slices.Max(f)
 }

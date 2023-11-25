@@ -173,10 +173,7 @@ func distributeCookies(cookies []int, k int) int {
 	var dfs func(int)
 	dfs = func(i int) {
 		if i >= len(cookies) {
-			ans = 0
-			for _, v := range cnt {
-				ans = max(ans, v)
-			}
+			ans = slices.Max(cnt)
 			return
 		}
 		for j := 0; j < k; j++ {

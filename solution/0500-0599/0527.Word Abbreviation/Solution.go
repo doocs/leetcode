@@ -1,59 +1,55 @@
 type Trie struct {
 	children [26]*Trie
-	v        [26]int
+	cnt      int
 }
 
-func newTrie() *Trie {
-	return &Trie{}
-}
-func (this *Trie) insert(w string) {
-	node := this
-	t := w[len(w)-1] - 'a'
+func (t *Trie) insert(w string) {
+	node := t
 	for _, c := range w {
-		c -= 'a'
-		if node.children[c] == nil {
-			node.children[c] = newTrie()
+		idx := c - 'a'
+		if node.children[idx] == nil {
+			node.children[idx] = &Trie{}
 		}
-		node = node.children[c]
-		node.v[t]++
+		node = node.children[idx]
+		node.cnt++
 	}
-}
-func (this *Trie) search(w string) string {
-	node := this
-	t := w[len(w)-1] - 'a'
-	res := &strings.Builder{}
-	for _, c := range w[:len(w)-1] {
-		res.WriteRune(c)
-		c -= 'a'
-		node = node.children[c]
-		if node.v[t] == 1 {
-			break
-		}
-	}
-	n := len(w) - res.Len() - 1
-	if n > 0 {
-		res.WriteString(strconv.Itoa(n))
-	}
-	res.WriteByte(w[len(w)-1])
-	if res.Len() < len(w) {
-		return res.String()
-	}
-	return w
 }
 
-func wordsAbbreviation(words []string) []string {
-	trees := map[int]*Trie{}
-	for _, w := range words {
-		if _, ok := trees[len(w)]; !ok {
-			trees[len(w)] = newTrie()
+func (t *Trie) search(w string) int {
+	node := t
+	ans := 0
+	for _, c := range w {
+		ans++
+		idx := c - 'a'
+		node = node.children[idx]
+		if node.cnt == 1 {
+			return ans
 		}
 	}
+	return len(w)
+}
+
+func wordsAbbreviation(words []string) (ans []string) {
+	tries := make(map[[2]int]*Trie)
 	for _, w := range words {
-		trees[len(w)].insert(w)
+		key := [2]int{len(w), int(w[len(w)-1] - 'a')}
+		_, exists := tries[key]
+		if !exists {
+			tries[key] = &Trie{}
+		}
+		tries[key].insert(w)
 	}
-	ans := []string{}
+
 	for _, w := range words {
-		ans = append(ans, trees[len(w)].search(w))
+		m := len(w)
+		key := [2]int{m, int(w[m-1] - 'a')}
+		cnt := tries[key].search(w)
+		if cnt+2 >= m {
+			ans = append(ans, w)
+		} else {
+			abbr := w[:cnt] + fmt.Sprintf("%d", m-cnt-1) + w[m-1:]
+			ans = append(ans, abbr)
+		}
 	}
-	return ans
+	return
 }

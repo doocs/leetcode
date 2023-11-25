@@ -84,6 +84,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：并查集**
+
+我们可以枚举 $z$ 以及 $z$ 的倍数，用并查集将它们连通起来。这样，对于每个查询 $[a, b]$，我们只需要判断 $a$ 和 $b$ 是否在同一个连通块中即可。
+
+时间复杂度 $O(n \times \log n \time (\alpha(n) + q))$，空间复杂度 $O(n)$。其中 $n$ 和 $q$ 分别是节点数和查询数，而 $\alpha$ 是阿克曼函数的反函数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -91,7 +97,38 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class UnionFind:
+    def __init__(self, n):
+        self.p = list(range(n))
+        self.size = [1] * n
 
+    def find(self, x):
+        if self.p[x] != x:
+            self.p[x] = self.find(self.p[x])
+        return self.p[x]
+
+    def union(self, a, b):
+        pa, pb = self.find(a), self.find(b)
+        if pa == pb:
+            return False
+        if self.size[pa] > self.size[pb]:
+            self.p[pb] = pa
+            self.size[pa] += self.size[pb]
+        else:
+            self.p[pa] = pb
+            self.size[pb] += self.size[pa]
+        return True
+
+
+class Solution:
+    def areConnected(
+        self, n: int, threshold: int, queries: List[List[int]]
+    ) -> List[bool]:
+        uf = UnionFind(n + 1)
+        for a in range(threshold + 1, n + 1):
+            for b in range(a + a, n + 1, a):
+                uf.union(a, b)
+        return [uf.find(a) == uf.find(b) for a, b in queries]
 ```
 
 ### **Java**
@@ -99,7 +136,213 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class UnionFind {
+    private int[] p;
+    private int[] size;
 
+    public UnionFind(int n) {
+        p = new int[n];
+        size = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+            size[i] = 1;
+        }
+    }
+
+    public int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+
+    public boolean union(int a, int b) {
+        int pa = find(a), pb = find(b);
+        if (pa == pb) {
+            return false;
+        }
+        if (size[pa] > size[pb]) {
+            p[pb] = pa;
+            size[pa] += size[pb];
+        } else {
+            p[pa] = pb;
+            size[pb] += size[pa];
+        }
+        return true;
+    }
+}
+
+class Solution {
+    public List<Boolean> areConnected(int n, int threshold, int[][] queries) {
+        UnionFind uf = new UnionFind(n + 1);
+        for (int a = threshold + 1; a <= n; ++a) {
+            for (int b = a + a; b <= n; b += a) {
+                uf.union(a, b);
+            }
+        }
+        List<Boolean> ans = new ArrayList<>();
+        for (var q : queries) {
+            ans.add(uf.find(q[0]) == uf.find(q[1]));
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class UnionFind {
+public:
+    UnionFind(int n) {
+        p = vector<int>(n);
+        size = vector<int>(n, 1);
+        iota(p.begin(), p.end(), 0);
+    }
+
+    bool unite(int a, int b) {
+        int pa = find(a), pb = find(b);
+        if (pa == pb) {
+            return false;
+        }
+        if (size[pa] > size[pb]) {
+            p[pb] = pa;
+            size[pa] += size[pb];
+        } else {
+            p[pa] = pb;
+            size[pb] += size[pa];
+        }
+        return true;
+    }
+
+    int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+
+private:
+    vector<int> p, size;
+};
+
+class Solution {
+public:
+    vector<bool> areConnected(int n, int threshold, vector<vector<int>>& queries) {
+        UnionFind uf(n + 1);
+        for (int a = threshold + 1; a <= n; ++a) {
+            for (int b = a + a; b <= n; b += a) {
+                uf.unite(a, b);
+            }
+        }
+        vector<bool> ans;
+        for (auto& q : queries) {
+            ans.push_back(uf.find(q[0]) == uf.find(q[1]));
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+type unionFind struct {
+	p, size []int
+}
+
+func newUnionFind(n int) *unionFind {
+	p := make([]int, n)
+	size := make([]int, n)
+	for i := range p {
+		p[i] = i
+		size[i] = 1
+	}
+	return &unionFind{p, size}
+}
+
+func (uf *unionFind) find(x int) int {
+	if uf.p[x] != x {
+		uf.p[x] = uf.find(uf.p[x])
+	}
+	return uf.p[x]
+}
+
+func (uf *unionFind) union(a, b int) bool {
+	pa, pb := uf.find(a), uf.find(b)
+	if pa == pb {
+		return false
+	}
+	if uf.size[pa] > uf.size[pb] {
+		uf.p[pb] = pa
+		uf.size[pa] += uf.size[pb]
+	} else {
+		uf.p[pa] = pb
+		uf.size[pb] += uf.size[pa]
+	}
+	return true
+}
+
+func areConnected(n int, threshold int, queries [][]int) []bool {
+	uf := newUnionFind(n + 1)
+	for a := threshold + 1; a <= n; a++ {
+		for b := a + a; b <= n; b += a {
+			uf.union(a, b)
+		}
+	}
+	ans := make([]bool, len(queries))
+	for i, q := range queries {
+		ans[i] = uf.find(q[0]) == uf.find(q[1])
+	}
+	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+class UnionFind {
+    p: number[];
+    size: number[];
+    constructor(n: number) {
+        this.p = Array(n)
+            .fill(0)
+            .map((_, i) => i);
+        this.size = Array(n).fill(1);
+    }
+
+    find(x: number): number {
+        if (this.p[x] !== x) {
+            this.p[x] = this.find(this.p[x]);
+        }
+        return this.p[x];
+    }
+
+    union(a: number, b: number): boolean {
+        const [pa, pb] = [this.find(a), this.find(b)];
+        if (pa === pb) {
+            return false;
+        }
+        if (this.size[pa] > this.size[pb]) {
+            this.p[pb] = pa;
+            this.size[pa] += this.size[pb];
+        } else {
+            this.p[pa] = pb;
+            this.size[pb] += this.size[pa];
+        }
+        return true;
+    }
+}
+
+function areConnected(n: number, threshold: number, queries: number[][]): boolean[] {
+    const uf = new UnionFind(n + 1);
+    for (let a = threshold + 1; a <= n; ++a) {
+        for (let b = a * 2; b <= n; b += a) {
+            uf.union(a, b);
+        }
+    }
+    return queries.map(([a, b]) => uf.find(a) === uf.find(b));
+}
 ```
 
 ### **...**

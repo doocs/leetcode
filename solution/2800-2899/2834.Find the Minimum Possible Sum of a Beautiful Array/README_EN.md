@@ -59,6 +59,12 @@ It can be proven that 8 is the minimum possible sum that a beautiful array could
 
 ## Solutions
 
+**Solution 1: Greedy + Hash Table**
+
+We start from the positive integer $i=1$, and judge whether $i$ can be added to the array in turn. If it can be added, we add $i$ to the array, accumulate it to the answer, and then mark $target-i$ as visited, indicating that $target-i$ cannot be added to the array. The loop continues until the length of the array is $n$.
+
+The time complexity is $O(n + target)$, and the space complexity is $O(n + target)$. Here, $n$ is the length of the array.
+
 <!-- tabs:start -->
 
 ### **Python3**

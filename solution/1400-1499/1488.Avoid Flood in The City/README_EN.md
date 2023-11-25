@@ -188,7 +188,7 @@ func avoidFlood(rains []int) []int {
 	for i, v := range rains {
 		if v > 0 {
 			if j, ok := rainy[v]; ok {
-				idx := sort.Search(len(sunny), func(i int) bool { return sunny[i] > j })
+				idx := sort.SearchInts(sunny, j+1)
 				if idx == len(sunny) {
 					return []int{}
 				}

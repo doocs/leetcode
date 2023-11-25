@@ -139,12 +139,7 @@ public:
 
 ```go
 func maximumBeauty(nums []int, k int) (ans int) {
-	m := 0
-	for _, x := range nums {
-		if m < x {
-			m = x
-		}
-	}
+	m := slices.Max(nums)
 	m += k*2 + 2
 	d := make([]int, m)
 	for _, x := range nums {

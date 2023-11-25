@@ -22,6 +22,27 @@
 
 ## 往期竞赛
 
+#### 第 372 场周赛(2023-11-19 10:30, 90 分钟) 参赛人数 3920
+
+- [2937. 使三个字符串相等](/solution/2900-2999/2937.Make%20Three%20Strings%20Equal/README.md)
+- [2938. 区分黑球与白球](/solution/2900-2999/2938.Separate%20Black%20and%20White%20Balls/README.md)
+- [2939. 最大异或乘积](/solution/2900-2999/2939.Maximum%20Xor%20Product/README.md)
+- [2940. 找到 Alice 和 Bob 可以相遇的建筑](/solution/2900-2999/2940.Find%20Building%20Where%20Alice%20and%20Bob%20Can%20Meet/README.md)
+
+#### 第 371 场周赛(2023-11-12 10:30, 90 分钟) 参赛人数 3637
+
+- [2932. 找出强数对的最大异或值 I](/solution/2900-2999/2932.Maximum%20Strong%20Pair%20XOR%20I/README.md)
+- [2933. 高访问员工](/solution/2900-2999/2933.High-Access%20Employees/README.md)
+- [2934. 最大化数组末位元素的最少操作次数](/solution/2900-2999/2934.Minimum%20Operations%20to%20Maximize%20Last%20Elements%20in%20Arrays/README.md)
+- [2935. 找出强数对的最大异或值 II](/solution/2900-2999/2935.Maximum%20Strong%20Pair%20XOR%20II/README.md)
+
+#### 第 117 场双周赛(2023-11-11 22:30, 90 分钟) 参赛人数 2629
+
+- [2928. 给小朋友们分糖果 I](/solution/2900-2999/2928.Distribute%20Candies%20Among%20Children%20I/README.md)
+- [2929. 给小朋友们分糖果 II](/solution/2900-2999/2929.Distribute%20Candies%20Among%20Children%20II/README.md)
+- [2930. 重新排列后包含指定子字符串的字符串数目](/solution/2900-2999/2930.Number%20of%20Strings%20Which%20Can%20Be%20Rearranged%20to%20Contain%20Substring/README.md)
+- [2931. 购买物品的最大开销](/solution/2900-2999/2931.Maximum%20Spending%20After%20Buying%20Items/README.md)
+
 #### 第 370 场周赛(2023-11-05 10:30, 90 分钟) 参赛人数 3983
 
 - [2923. 找到冠军 I](/solution/2900-2999/2923.Find%20Champion%20I/README.md)
@@ -197,7 +218,7 @@
 - [2780. 合法分割的最小下标](/solution/2700-2799/2780.Minimum%20Index%20of%20a%20Valid%20Split/README.md)
 - [2781. 最长合法子字符串的长度](/solution/2700-2799/2781.Length%20of%20the%20Longest%20Valid%20Substring/README.md)
 
-#### 第 353 场周赛(2023-07-09 10:30, 90 分钟) 参赛人数 4112
+#### 第 353 场周赛(2023-07-09 10:30, 90 分钟) 参赛人数 4113
 
 - [2769. 找出最大的可达成数字](/solution/2700-2799/2769.Find%20the%20Maximum%20Achievable%20Number/README.md)
 - [2770. 达到末尾下标所需的最大跳跃次数](/solution/2700-2799/2770.Maximum%20Number%20of%20Jumps%20to%20Reach%20the%20Last%20Index/README.md)

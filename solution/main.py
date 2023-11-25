@@ -360,14 +360,14 @@ def run():
             if slug:
                 question_details[slug] = item
 
-    for q in spider.get_all_questions(retry=4):
+    for q in spider.get_all_questions(retry=6):
         slug = q["stat"]["question__title_slug"]
         qid = q["stat"]["frontend_question_id"]
         if slug in question_details:
             continue
         detail = spider.get_question_detail(
             slug, retry=4
-        ) or spider.get_question_detail_en(slug, retry=4)
+        ) or spider.get_question_detail_en(slug, retry=8)
         if not detail:
             continue
         time.sleep(0.3)

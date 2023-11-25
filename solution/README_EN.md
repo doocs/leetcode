@@ -2930,12 +2930,26 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2919  |  [Minimum Increment Operations to Make Array Beautiful](/solution/2900-2999/2919.Minimum%20Increment%20Operations%20to%20Make%20Array%20Beautiful/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |  Weekly Contest 369  |
 |  2920  |  [Maximum Points After Collecting Coins From All Nodes](/solution/2900-2999/2920.Maximum%20Points%20After%20Collecting%20Coins%20From%20All%20Nodes/README_EN.md)  |  `Bit Manipulation`,`Tree`,`Depth-First Search`,`Array`,`Dynamic Programming`  |  Hard  |  Weekly Contest 369  |
 |  2921  |  [Maximum Profitable Triplets With Increasing Prices II](/solution/2900-2999/2921.Maximum%20Profitable%20Triplets%20With%20Increasing%20Prices%20II/README_EN.md)  |  `Binary Indexed Tree`,`Array`  |  Hard  |  🔒  |
-|  2922  |  [Market Analysis III](/solution/2900-2999/2922.Market%20Analysis%20III/README_EN.md)  |    |  Medium  |  🔒  |
-|  2923  |  [Find Champion I](/solution/2900-2999/2923.Find%20Champion%20I/README_EN.md)  |    |  Easy  |  Weekly Contest 370  |
-|  2924  |  [Find Champion II](/solution/2900-2999/2924.Find%20Champion%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 370  |
-|  2925  |  [Maximum Score After Applying Operations on a Tree](/solution/2900-2999/2925.Maximum%20Score%20After%20Applying%20Operations%20on%20a%20Tree/README_EN.md)  |    |  Medium  |  Weekly Contest 370  |
-|  2926  |  [Maximum Balanced Subsequence Sum](/solution/2900-2999/2926.Maximum%20Balanced%20Subsequence%20Sum/README_EN.md)  |    |  Hard  |  Weekly Contest 370  |
-|  2927  |  [Distribute Candies Among Children III](/solution/2900-2999/2927.Distribute%20Candies%20Among%20Children%20III/README_EN.md)  |    |  Hard  |  🔒  |
+|  2922  |  [Market Analysis III](/solution/2900-2999/2922.Market%20Analysis%20III/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
+|  2923  |  [Find Champion I](/solution/2900-2999/2923.Find%20Champion%20I/README_EN.md)  |  `Array`,`Matrix`  |  Easy  |  Weekly Contest 370  |
+|  2924  |  [Find Champion II](/solution/2900-2999/2924.Find%20Champion%20II/README_EN.md)  |  `Graph`  |  Medium  |  Weekly Contest 370  |
+|  2925  |  [Maximum Score After Applying Operations on a Tree](/solution/2900-2999/2925.Maximum%20Score%20After%20Applying%20Operations%20on%20a%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Dynamic Programming`  |  Medium  |  Weekly Contest 370  |
+|  2926  |  [Maximum Balanced Subsequence Sum](/solution/2900-2999/2926.Maximum%20Balanced%20Subsequence%20Sum/README_EN.md)  |  `Binary Indexed Tree`,`Segment Tree`,`Array`,`Binary Search`,`Dynamic Programming`  |  Hard  |  Weekly Contest 370  |
+|  2927  |  [Distribute Candies Among Children III](/solution/2900-2999/2927.Distribute%20Candies%20Among%20Children%20III/README_EN.md)  |  `Math`,`Combinatorics`  |  Hard  |  🔒  |
+|  2928  |  [Distribute Candies Among Children I](/solution/2900-2999/2928.Distribute%20Candies%20Among%20Children%20I/README_EN.md)  |  `Math`,`Combinatorics`,`Enumeration`  |  Easy  |  Biweekly Contest 117  |
+|  2929  |  [Distribute Candies Among Children II](/solution/2900-2999/2929.Distribute%20Candies%20Among%20Children%20II/README_EN.md)  |  `Math`,`Combinatorics`,`Enumeration`  |  Medium  |  Biweekly Contest 117  |
+|  2930  |  [Number of Strings Which Can Be Rearranged to Contain Substring](/solution/2900-2999/2930.Number%20of%20Strings%20Which%20Can%20Be%20Rearranged%20to%20Contain%20Substring/README_EN.md)  |  `Math`,`Dynamic Programming`,`Combinatorics`  |  Medium  |  Biweekly Contest 117  |
+|  2931  |  [Maximum Spending After Buying Items](/solution/2900-2999/2931.Maximum%20Spending%20After%20Buying%20Items/README_EN.md)  |  `Greedy`,`Array`,`Sorting`,`Heap (Priority Queue)`  |  Hard  |  Biweekly Contest 117  |
+|  2932  |  [Maximum Strong Pair XOR I](/solution/2900-2999/2932.Maximum%20Strong%20Pair%20XOR%20I/README_EN.md)  |  `Bit Manipulation`,`Trie`,`Array`,`Hash Table`,`Sliding Window`  |  Easy  |  Weekly Contest 371  |
+|  2933  |  [High-Access Employees](/solution/2900-2999/2933.High-Access%20Employees/README_EN.md)  |  `Array`,`Hash Table`,`String`,`Sorting`  |  Medium  |  Weekly Contest 371  |
+|  2934  |  [Minimum Operations to Maximize Last Elements in Arrays](/solution/2900-2999/2934.Minimum%20Operations%20to%20Maximize%20Last%20Elements%20in%20Arrays/README_EN.md)  |  `Greedy`,`Array`  |  Medium  |  Weekly Contest 371  |
+|  2935  |  [Maximum Strong Pair XOR II](/solution/2900-2999/2935.Maximum%20Strong%20Pair%20XOR%20II/README_EN.md)  |  `Bit Manipulation`,`Trie`,`Array`,`Hash Table`,`Sliding Window`  |  Hard  |  Weekly Contest 371  |
+|  2936  |  [Number of Equal Numbers Blocks](/solution/2900-2999/2936.Number%20of%20Equal%20Numbers%20Blocks/README_EN.md)  |  `Array`,`Binary Search`,`Divide and Conquer`  |  Medium  |  🔒  |
+|  2937  |  [Make Three Strings Equal](/solution/2900-2999/2937.Make%20Three%20Strings%20Equal/README_EN.md)  |  `String`  |  Easy  |  Weekly Contest 372  |
+|  2938  |  [Separate Black and White Balls](/solution/2900-2999/2938.Separate%20Black%20and%20White%20Balls/README_EN.md)  |  `Greedy`,`Two Pointers`,`String`  |  Medium  |  Weekly Contest 372  |
+|  2939  |  [Maximum Xor Product](/solution/2900-2999/2939.Maximum%20Xor%20Product/README_EN.md)  |  `Greedy`,`Bit Manipulation`,`Math`  |  Medium  |  Weekly Contest 372  |
+|  2940  |  [Find Building Where Alice and Bob Can Meet](/solution/2900-2999/2940.Find%20Building%20Where%20Alice%20and%20Bob%20Can%20Meet/README_EN.md)  |  `Stack`,`Binary Indexed Tree`,`Segment Tree`,`Array`,`Binary Search`,`Monotonic Stack`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 372  |
+|  2941  |  [Maximum GCD-Sum of a Subarray](/solution/2900-2999/2941.Maximum%20GCD-Sum%20of%20a%20Subarray/README_EN.md)  |    |  Hard  |  🔒  |
 
 ## Copyright
 

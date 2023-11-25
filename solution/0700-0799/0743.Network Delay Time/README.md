@@ -357,10 +357,7 @@ func networkDelayTime(times [][]int, n int, k int) int {
 			dist[j] = min(dist[j], dist[t]+g[t][j])
 		}
 	}
-	ans := 0
-	for _, v := range dist {
-		ans = max(ans, v)
-	}
+	ans := slices.Max(dist)
 	if ans == inf {
 		return -1
 	}
@@ -420,11 +417,7 @@ func networkDelayTime(times [][]int, n int, k int) int {
 			}
 		}
 	}
-
-	ans := math.MinInt32
-	for _, d := range dis {
-		ans = max(ans, d)
-	}
+	ans := slices.Max(dis)
 	if ans == Inf {
 		return -1
 	}
@@ -450,10 +443,7 @@ func networkDelayTime(times [][]int, n int, k int) int {
 			dist[v] = min(dist[v], backup[u]+w)
 		}
 	}
-	ans := 0
-	for _, v := range dist {
-		ans = max(ans, v)
-	}
+	ans := slices.Max(dist)
 	if ans == inf {
 		return -1
 	}
@@ -495,10 +485,7 @@ func networkDelayTime(times [][]int, n int, k int) int {
 			}
 		}
 	}
-	ans := 0
-	for _, v := range dist {
-		ans = max(ans, v)
-	}
+	ans := slices.Max(dist)
 	if ans == inf {
 		return -1
 	}

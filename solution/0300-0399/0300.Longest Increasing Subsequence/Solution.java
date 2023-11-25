@@ -10,14 +10,12 @@ class Solution {
             }
         }
         BinaryIndexedTree tree = new BinaryIndexedTree(m);
-        int ans = 1;
         for (int x : nums) {
             x = search(s, x, m);
             int t = tree.query(x - 1) + 1;
-            ans = Math.max(ans, t);
             tree.update(x, t);
         }
-        return ans;
+        return tree.query(m);
     }
 
     private int search(int[] nums, int x, int r) {

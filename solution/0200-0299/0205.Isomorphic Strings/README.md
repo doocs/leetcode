@@ -17,20 +17,20 @@
 <p><strong>示例 1:</strong></p>
 
 <pre>
-<strong>输入：</strong>s = <code>"egg", </code>t = <code>"add"</code>
+<strong>输入：</strong>s = <code>"egg"</code>, t = <code>"add"</code>
 <strong>输出：</strong>true
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>输入：</strong>s = <code>"foo", </code>t = <code>"bar"</code>
+<strong>输入：</strong>s = <code>"foo"</code>, t = <code>"bar"</code>
 <strong>输出：</strong>false</pre>
 
 <p><strong>示例 3：</strong></p>
 
 <pre>
-<strong>输入：</strong>s = <code>"paper", </code>t = <code>"title"</code>
+<strong>输入：</strong>s = <code>"paper"</code>, t = <code>"title"</code>
 <strong>输出：</strong>true</pre>
 
 <p>&nbsp;</p>

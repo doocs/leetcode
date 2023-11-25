@@ -58,6 +58,24 @@
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+We can directly simulate character matching and replacement.
+
+Assume the lengths of the string $word$ and the string $abbr$ are $m$ and $n$ respectively. We use two pointers $i$ and $j$ to point to the initial positions of the string $word$ and the string $abbr$ respectively, and use an integer variable $x$ to record the current matched number in $abbr$.
+
+Loop to match each character of the string $word$ and the string $abbr$:
+
+If the character $abbr[j]$ pointed by the pointer $j$ is a number, if $abbr[j]$ is `'0'` and $x$ is $0$, it means that the number in $abbr$ has leading zeros, so it is not a valid abbreviation, return `false`; otherwise, update $x$ to $x \times 10 + abbr[j] - '0'$.
+
+If the character $abbr[j]$ pointed by the pointer $j$ is not a number, then we move the pointer $i$ forward by $x$ positions at this time, and then reset $x$ to $0$. If $i \geq m$ or $word[i] \neq abbr[j]$ at this time, it means that the two strings cannot match, return `false`; otherwise, move the pointer $i$ forward by $1$ position.
+
+Then we move the pointer $j$ forward by $1$ position, repeat the above process, until $i$ exceeds the length of the string $word$ or $j$ exceeds the length of the string $abbr$.
+
+Finally, if $i + x$ equals $m$ and $j$ equals $n$, it means that the string $word$ can be abbreviated as the string $abbr$, return `true`; otherwise return `false`.
+
+The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the string $word$ and the string $abbr$ respectively. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -65,23 +83,21 @@
 ```python
 class Solution:
     def validWordAbbreviation(self, word: str, abbr: str) -> bool:
-        i = j = 0
         m, n = len(word), len(abbr)
-        while i < m:
-            if j >= n:
-                return False
-            if word[i] == abbr[j]:
-                i, j = i + 1, j + 1
-                continue
-            k = j
-            while k < n and abbr[k].isdigit():
-                k += 1
-            t = abbr[j:k]
-            if not t.isdigit() or t[0] == '0' or int(t) == 0:
-                return False
-            i += int(t)
-            j = k
-        return i == m and j == n
+        i = j = x = 0
+        while i < m and j < n:
+            if abbr[j].isdigit():
+                if abbr[j] == "0" and x == 0:
+                    return False
+                x = x * 10 + int(abbr[j])
+            else:
+                i += x
+                x = 0
+                if i >= m or word[i] != abbr[j]:
+                    return False
+                i += 1
+            j += 1
+        return i + x == m and j == n
 ```
 
 ### **Java**
@@ -90,28 +106,24 @@ class Solution:
 class Solution {
     public boolean validWordAbbreviation(String word, String abbr) {
         int m = word.length(), n = abbr.length();
-        int i = 0, j = 0;
-        while (i < m) {
-            if (j >= n) {
-                return false;
-            }
-            if (word.charAt(i) == abbr.charAt(j)) {
+        int i = 0, j = 0, x = 0;
+        for (; i < m && j < n; ++j) {
+            char c = abbr.charAt(j);
+            if (Character.isDigit(c)) {
+                if (c == '0' && x == 0) {
+                    return false;
+                }
+                x = x * 10 + (c - '0');
+            } else {
+                i += x;
+                x = 0;
+                if (i >= m || word.charAt(i) != c) {
+                    return false;
+                }
                 ++i;
-                ++j;
-                continue;
             }
-            int k = j;
-            while (k < n && Character.isDigit(abbr.charAt(k))) {
-                ++k;
-            }
-            String t = abbr.substring(j, k);
-            if (j == k || t.charAt(0) == '0' || Integer.parseInt(t) == 0) {
-                return false;
-            }
-            i += Integer.parseInt(t);
-            j = k;
         }
-        return i == m && j == n;
+        return i + x == m && j == n;
     }
 }
 ```
@@ -122,33 +134,24 @@ class Solution {
 class Solution {
 public:
     bool validWordAbbreviation(string word, string abbr) {
-        int i = 0, j = 0;
         int m = word.size(), n = abbr.size();
-        while (i < m) {
-            if (j >= n) {
-                return false;
-            }
-            if (word[i] == abbr[j]) {
+        int i = 0, j = 0, x = 0;
+        for (; i < m && j < n; ++j) {
+            if (isdigit(abbr[j])) {
+                if (abbr[j] == '0' && x == 0) {
+                    return false;
+                }
+                x = x * 10 + (abbr[j] - '0');
+            } else {
+                i += x;
+                x = 0;
+                if (i >= m || word[i] != abbr[j]) {
+                    return false;
+                }
                 ++i;
-                ++j;
-                continue;
             }
-            int k = j;
-            while (k < n && isdigit(abbr[k])) {
-                ++k;
-            }
-            string t = abbr.substr(j, k - j);
-            if (k == j || t[0] == '0') {
-                return false;
-            }
-            int x = stoi(t);
-            if (x == 0) {
-                return false;
-            }
-            i += x;
-            j = k;
         }
-        return i == m && j == n;
+        return i + x == m && j == n;
     }
 };
 ```
@@ -157,32 +160,48 @@ public:
 
 ```go
 func validWordAbbreviation(word string, abbr string) bool {
-	i, j := 0, 0
 	m, n := len(word), len(abbr)
-	for i < m {
-		if j >= n {
-			return false
-		}
-		if word[i] == abbr[j] {
+	i, j, x := 0, 0, 0
+	for ; i < m && j < n; j++ {
+		if abbr[j] >= '0' && abbr[j] <= '9' {
+			if x == 0 && abbr[j] == '0' {
+				return false
+			}
+			x = x*10 + int(abbr[j]-'0')
+		} else {
+			i += x
+			x = 0
+			if i >= m || word[i] != abbr[j] {
+				return false
+			}
 			i++
-			j++
-			continue
 		}
-		k := j
-		for k < n && abbr[k] >= '0' && abbr[k] <= '9' {
-			k++
-		}
-		if k == j || abbr[j] == '0' {
-			return false
-		}
-		x, _ := strconv.Atoi(abbr[j:k])
-		if x == 0 {
-			return false
-		}
-		i += x
-		j = k
 	}
-	return i == m && j == n
+	return i+x == m && j == n
+}
+```
+
+### **TypeScript**
+
+```ts
+function validWordAbbreviation(word: string, abbr: string): boolean {
+    const [m, n] = [word.length, abbr.length];
+    let [i, j, x] = [0, 0, 0];
+    for (; i < m && j < n; ++j) {
+        if (abbr[j] >= '0' && abbr[j] <= '9') {
+            if (abbr[j] === '0' && x === 0) {
+                return false;
+            }
+            x = x * 10 + Number(abbr[j]);
+        } else {
+            i += x;
+            x = 0;
+            if (i >= m || word[i++] !== abbr[j]) {
+                return false;
+            }
+        }
+    }
+    return i + x === m && j === n;
 }
 ```
 

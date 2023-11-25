@@ -10,7 +10,7 @@ public:
     void update(int x, int delta) {
         while (x <= n) {
             c[x] += delta;
-            x += lowbit(x);
+            x += x & -x;
         }
     }
 
@@ -18,13 +18,9 @@ public:
         int s = 0;
         while (x > 0) {
             s += c[x];
-            x -= lowbit(x);
+            x -= x & -x;
         }
         return s;
-    }
-
-    int lowbit(int x) {
-        return x & -x;
     }
 };
 

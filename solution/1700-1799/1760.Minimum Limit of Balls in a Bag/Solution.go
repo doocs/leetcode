@@ -1,8 +1,5 @@
 func minimumSize(nums []int, maxOperations int) int {
-	r := 0
-	for _, x := range nums {
-		r = max(r, x)
-	}
+	r := slices.Max(nums)
 	return 1 + sort.Search(r, func(mx int) bool {
 		mx++
 		cnt := 0

@@ -43,152 +43,189 @@
 
 ## Solutions
 
+**Solution 1: Grouped Trie**
+
+We notice that if two words have the same abbreviation, their first and last letters must be the same, and their lengths must be the same. Therefore, we can group all words by length and last letter, and use a trie to store the information of each group of words.
+
+The structure of each node in the trie is as follows:
+
+-   `children`: An array of length $26$, representing all child nodes of this node.
+-   `cnt`: The number of words passing through this node.
+
+For each word, we insert it into the trie and record the `cnt` value of each node.
+
+When querying, we start from the root node. For the current letter, if the `cnt` value of its corresponding child node is $1$, then we have found the unique abbreviation, and we return the length of the current prefix. Otherwise, we continue to traverse downwards. After the traversal, if we have not found a unique abbreviation, then we return the length of the original word. After getting the prefix lengths of all words, we check whether the abbreviation of the word is shorter than the original word. If it is, then we add it to the answer, otherwise we add the original word to the answer.
+
+The time complexity is $O(L)$, and the space complexity is $O(L)$. Here, $L$ is the sum of the lengths of all words.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
 class Trie:
+    __slots__ = ["children", "cnt"]
+
     def __init__(self):
         self.children = [None] * 26
-        self.v = defaultdict(int)
+        self.cnt = 0
 
-    def insert(self, w):
+    def insert(self, w: str):
         node = self
         for c in w:
-            idx = ord(c) - ord('a')
-            if node.children[idx] is None:
+            idx = ord(c) - ord("a")
+            if not node.children[idx]:
                 node.children[idx] = Trie()
             node = node.children[idx]
-            node.v[(w[-1], len(w))] += 1
+            node.cnt += 1
 
-    def search(self, w):
+    def search(self, w: str) -> int:
         node = self
-        res = []
-        for c in w[:-1]:
-            idx = ord(c) - ord('a')
+        cnt = 0
+        for c in w:
+            cnt += 1
+            idx = ord(c) - ord("a")
             node = node.children[idx]
-            res.append(c)
-            if node.v[(w[-1], len(w))] == 1:
-                break
-        n = len(w) - len(res) - 1
-        if n:
-            res.append(str(n))
-        res.append(w[-1])
-        t = ''.join(res)
-        return t if len(t) < len(w) else w
+            if node.cnt == 1:
+                return cnt
+        return len(w)
 
 
 class Solution:
     def wordsAbbreviation(self, words: List[str]) -> List[str]:
-        trie = Trie()
+        tries = {}
         for w in words:
-            trie.insert(w)
-        return [trie.search(w) for w in words]
-```
-
-```python
-class Trie:
-    def __init__(self):
-        self.children = [None] * 26
-        self.v = Counter()
-
-    def insert(self, w):
-        node = self
-        for c in w:
-            idx = ord(c) - ord('a')
-            if node.children[idx] is None:
-                node.children[idx] = Trie()
-            node = node.children[idx]
-            node.v[w[-1]] += 1
-
-    def search(self, w):
-        node = self
-        res = []
-        for c in w[:-1]:
-            idx = ord(c) - ord('a')
-            node = node.children[idx]
-            res.append(c)
-            if node.v[w[-1]] == 1:
-                break
-        n = len(w) - len(res) - 1
-        if n:
-            res.append(str(n))
-        res.append(w[-1])
-        t = ''.join(res)
-        return t if len(t) < len(w) else w
-
-
-class Solution:
-    def wordsAbbreviation(self, words: List[str]) -> List[str]:
-        trees = {}
+            m = len(w)
+            if (m, w[-1]) not in tries:
+                tries[(m, w[-1])] = Trie()
+            tries[(m, w[-1])].insert(w)
+        ans = []
         for w in words:
-            if len(w) not in trees:
-                trees[len(w)] = Trie()
-        for w in words:
-            trees[len(w)].insert(w)
-        return [trees[len(w)].search(w) for w in words]
+            cnt = tries[(len(w), w[-1])].search(w)
+            ans.append(
+                w if cnt + 2 >= len(w) else w[:cnt] + str(len(w) - cnt - 1) + w[-1]
+            )
+        return ans
 ```
 
 ### **Java**
 
 ```java
 class Trie {
-    Trie[] children = new Trie[26];
-    int[] v = new int[26];
+    private final Trie[] children = new Trie[26];
+    private int cnt;
 
-    void insert(String w) {
+    public void insert(String w) {
         Trie node = this;
-        int t = w.charAt(w.length() - 1) - 'a';
         for (char c : w.toCharArray()) {
-            c -= 'a';
-            if (node.children[c] == null) {
-                node.children[c] = new Trie();
+            int idx = c - 'a';
+            if (node.children[idx] == null) {
+                node.children[idx] = new Trie();
             }
-            node = node.children[c];
-            node.v[t]++;
+            node = node.children[idx];
+            ++node.cnt;
         }
     }
 
-    String search(String w) {
+    public int search(String w) {
         Trie node = this;
-        StringBuilder res = new StringBuilder();
-        int t = w.charAt(w.length() - 1) - 'a';
-        for (int i = 0; i < w.length() - 1; ++i) {
-            char c = w.charAt(i);
-            node = node.children[c - 'a'];
-            res.append(c);
-            if (node.v[t] == 1) {
-                break;
+        int ans = 0;
+        for (char c : w.toCharArray()) {
+            ++ans;
+            int idx = c - 'a';
+            node = node.children[idx];
+            if (node.cnt == 1) {
+                return ans;
             }
         }
-        int n = w.length() - res.length() - 1;
-        if (n > 0) {
-            res.append(n);
-        }
-        res.append(w.charAt(w.length() - 1));
-        return res.length() < w.length() ? res.toString() : w;
+        return w.length();
     }
 }
 
 class Solution {
     public List<String> wordsAbbreviation(List<String> words) {
-        Map<Integer, Trie> trees = new HashMap<>();
-        for (String w : words) {
-            if (!trees.containsKey(w.length())) {
-                trees.put(w.length(), new Trie());
-            }
-        }
-        for (String w : words) {
-            trees.get(w.length()).insert(w);
+        Map<List<Integer>, Trie> tries = new HashMap<>();
+        for (var w : words) {
+            var key = List.of(w.length(), w.charAt(w.length() - 1) - 'a');
+            tries.putIfAbsent(key, new Trie());
+            tries.get(key).insert(w);
         }
         List<String> ans = new ArrayList<>();
-        for (String w : words) {
-            ans.add(trees.get(w.length()).search(w));
+        for (var w : words) {
+            int m = w.length();
+            var key = List.of(m, w.charAt(m - 1) - 'a');
+            int cnt = tries.get(key).search(w);
+            ans.add(cnt + 2 >= m ? w : w.substring(0, cnt) + (m - cnt - 1) + w.substring(m - 1));
         }
         return ans;
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Trie {
+public:
+    Trie()
+        : cnt(0) {
+        fill(children.begin(), children.end(), nullptr);
+    }
+
+    void insert(const string& w) {
+        Trie* node = this;
+        for (char c : w) {
+            int idx = c - 'a';
+            if (node->children[idx] == nullptr) {
+                node->children[idx] = new Trie();
+            }
+            node = node->children[idx];
+            ++node->cnt;
+        }
+    }
+
+    int search(const string& w) {
+        Trie* node = this;
+        int ans = 0;
+        for (char c : w) {
+            ++ans;
+            int idx = c - 'a';
+            node = node->children[idx];
+            if (node->cnt == 1) {
+                return ans;
+            }
+        }
+        return w.size();
+    }
+
+private:
+    array<Trie*, 26> children;
+    int cnt;
+};
+
+class Solution {
+public:
+    vector<string> wordsAbbreviation(vector<string>& words) {
+        map<pair<int, int>, Trie*> tries;
+        for (const auto& w : words) {
+            pair<int, int> key = {static_cast<int>(w.size()), w.back() - 'a'};
+            if (tries.find(key) == tries.end()) {
+                tries[key] = new Trie();
+            }
+            tries[key]->insert(w);
+        }
+
+        vector<string> ans;
+        for (const auto& w : words) {
+            int m = w.size();
+            pair<int, int> key = {m, w.back() - 'a'};
+            int cnt = tries[key]->search(w);
+            ans.push_back((cnt + 2 >= m) ? w : w.substr(0, cnt) + to_string(m - cnt - 1) + w.back());
+        }
+
+        return ans;
+    }
+};
 ```
 
 ### **Go**
@@ -196,62 +233,114 @@ class Solution {
 ```go
 type Trie struct {
 	children [26]*Trie
-	v        [26]int
+	cnt      int
 }
 
-func newTrie() *Trie {
-	return &Trie{}
-}
-func (this *Trie) insert(w string) {
-	node := this
-	t := w[len(w)-1] - 'a'
+func (t *Trie) insert(w string) {
+	node := t
 	for _, c := range w {
-		c -= 'a'
-		if node.children[c] == nil {
-			node.children[c] = newTrie()
+		idx := c - 'a'
+		if node.children[idx] == nil {
+			node.children[idx] = &Trie{}
 		}
-		node = node.children[c]
-		node.v[t]++
+		node = node.children[idx]
+		node.cnt++
 	}
-}
-func (this *Trie) search(w string) string {
-	node := this
-	t := w[len(w)-1] - 'a'
-	res := &strings.Builder{}
-	for _, c := range w[:len(w)-1] {
-		res.WriteRune(c)
-		c -= 'a'
-		node = node.children[c]
-		if node.v[t] == 1 {
-			break
-		}
-	}
-	n := len(w) - res.Len() - 1
-	if n > 0 {
-		res.WriteString(strconv.Itoa(n))
-	}
-	res.WriteByte(w[len(w)-1])
-	if res.Len() < len(w) {
-		return res.String()
-	}
-	return w
 }
 
-func wordsAbbreviation(words []string) []string {
-	trees := map[int]*Trie{}
-	for _, w := range words {
-		if _, ok := trees[len(w)]; !ok {
-			trees[len(w)] = newTrie()
+func (t *Trie) search(w string) int {
+	node := t
+	ans := 0
+	for _, c := range w {
+		ans++
+		idx := c - 'a'
+		node = node.children[idx]
+		if node.cnt == 1 {
+			return ans
 		}
 	}
+	return len(w)
+}
+
+func wordsAbbreviation(words []string) (ans []string) {
+	tries := make(map[[2]int]*Trie)
 	for _, w := range words {
-		trees[len(w)].insert(w)
+		key := [2]int{len(w), int(w[len(w)-1] - 'a')}
+		_, exists := tries[key]
+		if !exists {
+			tries[key] = &Trie{}
+		}
+		tries[key].insert(w)
 	}
-	ans := []string{}
+
 	for _, w := range words {
-		ans = append(ans, trees[len(w)].search(w))
+		m := len(w)
+		key := [2]int{m, int(w[m-1] - 'a')}
+		cnt := tries[key].search(w)
+		if cnt+2 >= m {
+			ans = append(ans, w)
+		} else {
+			abbr := w[:cnt] + fmt.Sprintf("%d", m-cnt-1) + w[m-1:]
+			ans = append(ans, abbr)
+		}
 	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+class Trie {
+    private children: Trie[] = Array(26);
+    private cnt: number = 0;
+
+    insert(w: string): void {
+        let node: Trie = this;
+        for (const c of w) {
+            const idx: number = c.charCodeAt(0) - 'a'.charCodeAt(0);
+            if (!node.children[idx]) {
+                node.children[idx] = new Trie();
+            }
+            node = node.children[idx];
+            node.cnt++;
+        }
+    }
+
+    search(w: string): number {
+        let node: Trie = this;
+        let ans: number = 0;
+        for (const c of w) {
+            ans++;
+            const idx: number = c.charCodeAt(0) - 'a'.charCodeAt(0);
+            node = node.children[idx];
+            if (node.cnt === 1) {
+                return ans;
+            }
+        }
+        return w.length;
+    }
+}
+
+function wordsAbbreviation(words: string[]): string[] {
+    const tries: Map<string, Trie> = new Map();
+    for (const w of words) {
+        const key: string = `${w.length}-${w.charCodeAt(w.length - 1) - 'a'.charCodeAt(0)}`;
+        if (!tries.get(key)) {
+            tries.set(key, new Trie());
+        }
+        tries.get(key)!.insert(w);
+    }
+
+    const ans: string[] = [];
+    for (const w of words) {
+        const m: number = w.length;
+        const key: string = `${m}-${w.charCodeAt(m - 1) - 'a'.charCodeAt(0)}`;
+        const cnt: number = tries.get(key)!.search(w);
+        ans.push(cnt + 2 >= m ? w : w.substring(0, cnt) + (m - cnt - 1) + w.substring(m - 1));
+    }
+
+    return ans;
 }
 ```
 

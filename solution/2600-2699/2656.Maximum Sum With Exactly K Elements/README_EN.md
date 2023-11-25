@@ -108,10 +108,7 @@ public:
 
 ```go
 func maximizeSum(nums []int, k int) int {
-	x := 0
-	for _, v := range nums {
-		x = max(x, v)
-	}
+	x := slices.Max(nums)
 	return k*x + k*(k-1)/2
 }
 ```

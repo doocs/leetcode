@@ -8,6 +8,5 @@ class Solution:
                 i += 1
             else:
                 i += 2
-        if (n - ans) % 2:
-            ans += 1
+        ans += (n - ans) % 2
         return ans

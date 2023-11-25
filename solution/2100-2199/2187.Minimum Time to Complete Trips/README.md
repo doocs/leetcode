@@ -120,7 +120,7 @@ public:
 
 ```go
 func minimumTime(time []int, totalTrips int) int64 {
-	left, right := 1, 10000000*totalTrips
+	left, right := 1, slices.Min(time)*totalTrips
 	for left < right {
 		mid := (left + right) >> 1
 		cnt := 0

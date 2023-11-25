@@ -38,6 +38,12 @@ It can be proven that there is no k-avoiding array with a sum less than 3.
 
 ## Solutions
 
+**Solution 1: Greedy + Simulation**
+
+We start from the positive integer $i=1$, and judge whether $i$ can be added to the array in turn. If it can be added, we add $i$ to the array, accumulate it to the answer, and then mark $k-i$ as visited, indicating that $k-i$ cannot be added to the array. The loop continues until the length of the array is $n$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the array.
+
 <!-- tabs:start -->
 
 ### **Python3**

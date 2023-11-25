@@ -1,15 +1,15 @@
 func maximumSum(nums []int) int {
-	ans := -1
 	d := [100]int{}
+	ans := -1
 	for _, v := range nums {
-		y := 0
-		for x := v; x > 0; x /= 10 {
-			y += x % 10
+		x := 0
+		for y := v; y > 0; y /= 10 {
+			x += y % 10
 		}
-		if d[y] > 0 {
-			ans = max(ans, d[y]+v)
+		if d[x] > 0 {
+			ans = max(ans, d[x]+v)
 		}
-		d[y] = max(d[y], v)
+		d[x] = max(d[x], v)
 	}
 	return ans
 }

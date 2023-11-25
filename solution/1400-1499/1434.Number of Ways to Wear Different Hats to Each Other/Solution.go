@@ -2,9 +2,7 @@ func numberWays(hats [][]int) int {
 	n := len(hats)
 	m := 0
 	for _, h := range hats {
-		for _, v := range h {
-			m = max(m, v)
-		}
+		m = max(m, slices.Max(h))
 	}
 	g := make([][]int, m+1)
 	for i, h := range hats {

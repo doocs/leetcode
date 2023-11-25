@@ -115,7 +115,7 @@ public:
 ### **Go**
 
 ```go
-func getMaximumGenerated(n int) (ans int) {
+func getMaximumGenerated(n int) int {
 	if n < 2 {
 		return n
 	}
@@ -127,9 +127,8 @@ func getMaximumGenerated(n int) (ans int) {
 		} else {
 			nums[i] = nums[i/2] + nums[i/2+1]
 		}
-		ans = max(ans, nums[i])
 	}
-	return
+	return slices.Max(nums)
 }
 ```
 

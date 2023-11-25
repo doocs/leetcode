@@ -114,14 +114,13 @@ class BinaryIndexedTree:
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
         s = sorted(set(nums))
-        tree = BinaryIndexedTree(len(s))
-        ans = 1
+        m = len(s)
+        tree = BinaryIndexedTree(m)
         for x in nums:
             x = bisect_left(s, x) + 1
             t = tree.query(x - 1) + 1
-            ans = max(ans, t)
             tree.update(x, t)
-        return ans
+        return tree.query(m)
 ```
 
 ### **Java**
@@ -161,14 +160,12 @@ class Solution {
             }
         }
         BinaryIndexedTree tree = new BinaryIndexedTree(m);
-        int ans = 1;
         for (int x : nums) {
             x = search(s, x, m);
             int t = tree.query(x - 1) + 1;
-            ans = Math.max(ans, t);
             tree.update(x, t);
         }
-        return ans;
+        return tree.query(m);
     }
 
     private int search(int[] nums, int x, int r) {
@@ -267,14 +264,12 @@ public:
         sort(s.begin(), s.end());
         s.erase(unique(s.begin(), s.end()), s.end());
         BinaryIndexedTree tree(s.size());
-        int ans = 1;
         for (int x : nums) {
             x = lower_bound(s.begin(), s.end(), x) - s.begin() + 1;
             int t = tree.query(x - 1) + 1;
-            ans = max(ans, t);
             tree.update(x, t);
         }
-        return ans;
+        return tree.query(s.size());
     }
 };
 ```
@@ -340,14 +335,12 @@ func lengthOfLIS(nums []int) int {
 		}
 	}
 	tree := newBinaryIndexedTree(m)
-	ans := 1
 	for _, x := range nums {
 		x = sort.SearchInts(s[:m], x) + 1
 		t := tree.query(x-1) + 1
-		ans = max(ans, t)
 		tree.update(x, t)
 	}
-	return ans
+	return tree.query(m)
 }
 ```
 
@@ -399,14 +392,12 @@ function lengthOfLIS(nums: number[]): number {
     const s = [...new Set(nums)].sort((a, b) => a - b);
     const m = s.length;
     const tree = new BinaryIndexedTree(m);
-    let ans = 1;
     for (let x of nums) {
         x = search(s, x);
         const t = tree.query(x - 1) + 1;
-        ans = Math.max(ans, t);
         tree.update(x, t);
     }
-    return ans;
+    return tree.query(m);
 }
 
 function search(nums: number[], x: number): number {

@@ -57,6 +57,18 @@ Hence, the answer is the length of the subarray, 3. We can show that 3 is the ma
 
 ## Solutions
 
+**Solution 1: Enumeration**
+
+We enumerate all $l$ in the range $[0,..n-1]$. If $nums[l]$ satisfies $nums[l] \bmod 2 = 0$ and $nums[l] \leq threshold$, then we start from $l+1$ to find the largest $r$ that meets the condition. At this time, the length of the longest odd-even subarray with $nums[l]$ as the left endpoint is $r - l$. We take the maximum of all $r - l$ as the answer.
+
+The time complexity is $O(n^2)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+
+**Solution 2: Optimized Enumeration**
+
+We notice that the problem actually divides the array into several disjoint subarrays that meet the condition. We only need to find the longest one among these subarrays. Therefore, when enumerating $l$ and $r$, we don't need to backtrack, we just need to traverse from left to right once.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -74,6 +86,22 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def longestAlternatingSubarray(self, nums: List[int], threshold: int) -> int:
+        ans, l, n = 0, 0, len(nums)
+        while l < n:
+            if nums[l] % 2 == 0 and nums[l] <= threshold:
+                r = l + 1
+                while r < n and nums[r] % 2 != nums[r - 1] % 2 and nums[r] <= threshold:
+                    r += 1
+                ans = max(ans, r - l)
+                l = r
+            else:
+                l += 1
+        return ans
+```
+
 ### **Java**
 
 ```java
@@ -87,6 +115,27 @@ class Solution {
                     ++r;
                 }
                 ans = Math.max(ans, r - l);
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int longestAlternatingSubarray(int[] nums, int threshold) {
+        int ans = 0;
+        for (int l = 0, n = nums.length; l < n;) {
+            if (nums[l] % 2 == 0 && nums[l] <= threshold) {
+                int r = l + 1;
+                while (r < n && nums[r] % 2 != nums[r - 1] % 2 && nums[r] <= threshold) {
+                    ++r;
+                }
+                ans = Math.max(ans, r - l);
+                l = r;
+            } else {
+                ++l;
             }
         }
         return ans;
@@ -115,11 +164,33 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int longestAlternatingSubarray(vector<int>& nums, int threshold) {
+        int ans = 0;
+        for (int l = 0, n = nums.size(); l < n;) {
+            if (nums[l] % 2 == 0 && nums[l] <= threshold) {
+                int r = l + 1;
+                while (r < n && nums[r] % 2 != nums[r - 1] % 2 && nums[r] <= threshold) {
+                    ++r;
+                }
+                ans = max(ans, r - l);
+                l = r;
+            } else {
+                ++l;
+            }
+        }
+        return ans;
+    }
+};
+```
+
 ### **Go**
 
 ```go
-func longestAlternatingSubarray(nums []int, threshold int) int {
-	ans, n := 0, len(nums)
+func longestAlternatingSubarray(nums []int, threshold int) (ans int) {
+	n := len(nums)
 	for l := range nums {
 		if nums[l]%2 == 0 && nums[l] <= threshold {
 			r := l + 1
@@ -129,7 +200,25 @@ func longestAlternatingSubarray(nums []int, threshold int) int {
 			ans = max(ans, r-l)
 		}
 	}
-	return ans
+	return
+}
+```
+
+```go
+func longestAlternatingSubarray(nums []int, threshold int) (ans int) {
+	for l, n := 0, len(nums); l < n; {
+		if nums[l]%2 == 0 && nums[l] <= threshold {
+			r := l + 1
+			for r < n && nums[r]%2 != nums[r-1]%2 && nums[r] <= threshold {
+				r++
+			}
+			ans = max(ans, r-l)
+			l = r
+		} else {
+			l++
+		}
+	}
+	return
 }
 ```
 
@@ -146,6 +235,26 @@ function longestAlternatingSubarray(nums: number[], threshold: number): number {
                 ++r;
             }
             ans = Math.max(ans, r - l);
+        }
+    }
+    return ans;
+}
+```
+
+```ts
+function longestAlternatingSubarray(nums: number[], threshold: number): number {
+    const n = nums.length;
+    let ans = 0;
+    for (let l = 0; l < n; ) {
+        if (nums[l] % 2 === 0 && nums[l] <= threshold) {
+            let r = l + 1;
+            while (r < n && nums[r] % 2 !== nums[r - 1] % 2 && nums[r] <= threshold) {
+                ++r;
+            }
+            ans = Math.max(ans, r - l);
+            l = r;
+        } else {
+            ++l;
         }
     }
     return ans;

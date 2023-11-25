@@ -47,11 +47,7 @@ func networkDelayTime(times [][]int, n int, k int) int {
 			}
 		}
 	}
-
-	ans := math.MinInt32
-	for _, d := range dis {
-		ans = max(ans, d)
-	}
+	ans := slices.Max(dis)
 	if ans == Inf {
 		return -1
 	}

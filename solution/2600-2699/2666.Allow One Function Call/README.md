@@ -1,4 +1,4 @@
-# [2666. 只允许一次函数调用 44](https://leetcode.cn/problems/allow-one-function-call)
+# [2666. 只允许一次函数调用](https://leetcode.cn/problems/allow-one-function-call)
 
 [English Version](/solution/2600-2699/2666.Allow%20One%20Function%20Call/README_EN.md)
 

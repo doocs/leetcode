@@ -59,6 +59,14 @@ So the answer would be [5,16,10].</pre>
 
 ## Solutions
 
+**Solution 1: Sorting + Prefix Sum + Binary Search**
+
+We can sort the monsters and coins in ascending order of the monsters' combat power, and then use prefix sum to calculate the total number of coins each hero can get by defeating the first $i$ monsters.
+
+Next, for each hero, we can use binary search to find the strongest monster he can defeat, and then use prefix sum to calculate the total number of coins he can get.
+
+The time complexity is $O((m + n) \times \log n)$, and the space complexity is $O(m)$. Here, $m$ and $n$ are the number of monsters and heroes, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -111,15 +111,7 @@ public:
 
 ```go
 func findGCD(nums []int) int {
-	a, b := 1, 1000
-	for _, x := range nums {
-		if a < x {
-			a = x
-		}
-		if b > x {
-			b = x
-		}
-	}
+	a, b := slices.Max(nums), slices.Min(nums)
 	return gcd(a, b)
 }
 

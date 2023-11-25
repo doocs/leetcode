@@ -1,8 +1,5 @@
 func largestComponentSize(nums []int) int {
-	m := 0
-	for _, v := range nums {
-		m = max(m, v)
-	}
+	m := slices.Max(nums)
 	p := make([]int, m+1)
 	for i := range p {
 		p[i] = i
@@ -30,12 +27,10 @@ func largestComponentSize(nums []int) int {
 			i++
 		}
 	}
-	ans := 0
 	cnt := make([]int, m+1)
 	for _, v := range nums {
 		t := find(v)
 		cnt[t]++
-		ans = max(ans, cnt[t])
 	}
-	return ans
+	return slices.Max(cnt)
 }

@@ -51,6 +51,12 @@ Therefore, false is returned.</pre>
 
 ## Solutions
 
+**Solution 1: Two Pointers**
+
+This problem actually requires us to determine whether a string $s$ is a subsequence of another string $t$. However, the characters do not have to match exactly. If two characters are the same, or one character is the next character of the other, they can match.
+
+The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the strings $str1$ and $str2$ respectively. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

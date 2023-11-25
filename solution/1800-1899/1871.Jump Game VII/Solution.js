@@ -5,20 +5,17 @@
  * @return {boolean}
  */
 var canReach = function (s, minJump, maxJump) {
-    let n = s.length;
-    let dp = new Array(n).fill(0);
-    let sum = new Array(n + 1).fill(0);
-    dp[0] = 1;
-    sum[1] = 1;
-    for (let i = 1; i < n; i++) {
-        if (s.charAt(i) == '0') {
-            let left = Math.max(0, i - maxJump);
-            let right = i - minJump;
-            if (left <= right && sum[right + 1] - sum[left] > 0) {
-                dp[i] = 1;
-            }
+    const n = s.length;
+    const pre = Array(n + 1).fill(0);
+    pre[1] = 1;
+    const f = Array(n).fill(false);
+    f[0] = true;
+    for (let i = 1; i < n; ++i) {
+        if (s[i] === '0') {
+            const [l, r] = [Math.max(0, i - maxJump), i - minJump];
+            f[i] = l <= r && pre[r + 1] - pre[l] > 0;
         }
-        sum[i + 1] = sum[i] + dp[i];
+        pre[i + 1] = pre[i] + (f[i] ? 1 : 0);
     }
-    return dp.pop();
+    return f[n - 1];
 };

@@ -193,7 +193,7 @@ func minAbsoluteSumDiff(nums1 []int, nums2 []int) int {
 	for i, a := range nums1 {
 		b := nums2[i]
 		d1, d2 := abs(a-b), 1<<30
-		j := sort.Search(n, func(k int) bool { return nums[k] >= b })
+		j := sort.SearchInts(nums, b)
 		if j < n {
 			d2 = min(d2, abs(nums[j]-b))
 		}

@@ -1,19 +1,17 @@
 class Solution {
 public:
     bool checkZeroOnes(string s) {
-        int n0 = 0, n1 = 0;
-        int t0 = 0, t1 = 0;
-        for (auto c : s) {
-            if (c == '0') {
-                ++t0;
-                t1 = 0;
-            } else {
-                ++t1;
-                t0 = 0;
+        auto f = [&](char x) {
+            int cnt = 0, mx = 0;
+            for (char& c : s) {
+                if (c == x) {
+                    mx = max(mx, ++cnt);
+                } else {
+                    cnt = 0;
+                }
             }
-            n0 = max(n0, t0);
-            n1 = max(n1, t1);
-        }
-        return n1 > n0;
+            return mx;
+        };
+        return f('1') > f('0');
     }
 };

@@ -118,10 +118,10 @@ public:
 
 ```go
 func numberOfWeeks(milestones []int) int64 {
-	mx, s := 0, 0
-	for _, e := range milestones {
-		mx = max(mx, e)
-		s += e
+	mx := slices.Max(milestones)
+	s := 0
+	for _, x := range milestones {
+		s += x
 	}
 	rest := s - mx
 	if mx > rest+1 {

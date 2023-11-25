@@ -6,86 +6,90 @@
 
 <!-- 这里写题目描述 -->
 
-<p>你的任务是实现 Excel 的求和功能，具体的操作如下：</p>
+<p>请你设计 <strong>Excel</strong> 中的基本功能，并实现求和公式。</p>
 
-<p><code>Excel(int H, char W):</code> 这是一个构造函数，输入表明了 Excel 的高度和宽度。H 是一个正整数，范围从 1 到 26，代表高度。W 是一个字符，范围从 'A' 到 'Z'，宽度等于从 'A' 到 W 的字母个数。Excel 表格是一个高度 * 宽度的二维整数数组，数组中元素初始化为 0。第一行下标从 1 开始，第一列下标从 'A' 开始。</p>
+<p>实现 <code>Excel</code> 类：</p>
 
-<p> </p>
+<ul>
+	<li><code>Excel(int height, char width)</code>：用高度&nbsp;<code>height</code> 和宽度&nbsp;<code>width</code> 初始化对象。该表格是一个大小为 <code>height x width</code> 的整数矩阵 <code>mat</code>，其中行下标范围是 <code>[1, height]</code> ，列下标范围是 <code>['A', width]</code> 。初始情况下，所有的值都应该为 <strong>零</strong> 。</li>
+	<li><code>void set(int row, char column, int val)</code>：将 <code>mat[row][column]</code> 的值更改为 <code>val</code> 。</li>
+	<li><code>int get(int row, char column)</code>：返回 <code>mat[row][column]</code> 的值。</li>
+	<li><code>int sum(int row, char column, List&lt;String&gt; numbers)</code>：将 <code>mat[row][column]</code> 的值设为由 <code>numbers</code> 表示的单元格的和，并返回 <code>mat[row][column]</code> 的值。此求和公式应该 <strong>长期作用于</strong> 该单元格，直到该单元格被另一个值或另一个求和公式覆盖。其中，<code>numbers[i]</code> 的格式可以为：
+	<ul>
+		<li><code>"ColRow"</code>：表示某个单元格。
+		<ul>
+			<li>例如，<code>"F7"</code> 表示单元格 <code>mat[7]['F']</code> 。</li>
+		</ul>
+		</li>
+		<li><code>"ColRow1:ColRow2"</code>：表示一组单元格。该范围将始终为一个矩形，其中 <code>"ColRow1"</code> 表示左上角单元格的位置，<code>"ColRow2"</code> 表示右下角单元格的位置。
+		<ul>
+			<li>例如，<code>"B3:F7"</code> 表示 <code>3 &lt;= i &lt;= 7</code> 和 <code>'B' &lt;= j &lt;= 'F'</code> 的单元格 <code>mat[i][j]</code> 。</li>
+		</ul>
+		</li>
+	</ul>
+	</li>
+</ul>
 
-<p><code>void Set(int row, char column, int val):</code> 设置 <code>C(row, column)</code> 中的值为 val。</p>
+<p><strong>注意：</strong>可以假设不会出现循环求和引用。</p>
 
-<p> </p>
+<ul>
+	<li>例如，<code>mat[1]['A'] == sum(1, "B")</code>，且 <code>mat[1]['B'] == sum(1, "A")</code> 。</li>
+</ul>
 
-<p><code>int Get(int row, char column):</code> 返回 <code>C(row, column)</code> 中的值。</p>
+<p>&nbsp;</p>
 
-<p> </p>
-
-<p><code>int Sum(int row, char column, List of Strings : numbers):</code> 这个函数会将计算的结果放入 <code>C(row, column)</code> 中，计算的结果等于在 <code>numbers</code> 中代表的所有元素之和，这个函数同时也会将这个结果返回。求和公式会一直计算更新结果直到这个公式被其他的值或者公式覆盖。</p>
-
-<p><code>numbers</code> 是若干字符串的集合，每个字符串代表单个位置或一个区间。如果这个字符串表示单个位置，它的格式如下：<code>ColRow</code>，例如 "F7" 表示位置 (7, F) 。如果这个字符串表示一个区间，它的格式如下：<code>ColRow1:ColRow2</code>。区间就是左上角为 ColRow1 右下角为 ColRow2 的长方形。</p>
-
-<p> </p>
-
-<p><strong>注意: </strong>你可以认为不会出现循环求和的定义，比如说：<code>mat[1]['A'] == sum(1, "B")</code> 和 <code>mat[1]['B'] == sum(1, "A")</code>.</p>
-
-<p> </p>
-
-<p><strong>示例 1:</strong></p>
+<p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入:</strong>
-["Excel", "set", "sum", "set", "get"]
+<strong>输入：
+</strong>["Excel", "set", "sum", "set", "get"]
 [[3, "C"], [1, "A", 2], [3, "C", ["A1", "A1:B2"]], [2, "B", 2], [3, "C"]]
-<b>输出:</b>
+<strong>输出：</strong>
 [null, null, 4, null, 6]
 
-<b>解释:</b>
+<strong>解释：</strong>
+执行以下操作：
 Excel excel = new Excel(3, "C");
- // 构造一个 3*3 的二维数组，初始化全是 0。
+ // 构造一个 3 * 3 的二维数组，所有值初始化为零。
  //   A B C
  // 1 0 0 0
  // 2 0 0 0
  // 3 0 0 0
 excel.set(1, "A", 2);
- // 设置 C(1,"A") 为 2。
+ // 将 mat[1]["A"] 设置为 2 。
  //   A B C
  // 1 2 0 0
  // 2 0 0 0
  // 3 0 0 0
-excel.sum(3, "C", ["A1", "A1:B2"]); // return 4
- // 将 C(3,"C") 的值设为 C(1,"A") 单点以及左上角为 C(1,"A") 右下角为 C(2,"B") 的长方形两者之和。返回值 4。 
+excel.sum(3, "C", ["A1", "A1:B2"]); // 返回 4
+ // 将 mat[3]["C"] 设置为 mat[1]["A"] 的值与矩形范围的单元格和的和，该范围的左上角单元格位置为 mat[1]["A"] ，右下角单元格位置为 mat[2]["B"] 。
+ //   A B C
  // 1 2 0 0
  // 2 0 0 0
  // 3 0 0 4
 excel.set(2, "B", 2);
-// 将 C(2,"B") 设为 2。 注意 C(3, "C") 的值也同时改变。
+ // 将 mat[2]["B"] 设置为 2 。注意 mat[3]["C"] 也应该更改。
  //   A B C
  // 1 2 0 0
  // 2 0 2 0
  // 3 0 0 6
-excel.get(3, "C"); // 返回 6</pre>
+excel.get(3, "C"); // 返回 6
+</pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
-<p><strong>提示:</strong></p>
+<p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= height <= 26</code></li>
-	<li><code>'A' <= width <= 'Z'</code></li>
-	<li><code>1 <= row <= height</code></li>
-	<li><code>'A' <= column <= width</code></li>
-	<li><code>-100 <= val <= 100</code></li>
-	<li><code>1 <= numbers.length <= 5</code></li>
-	<li><code>numbers[i]</code> 的格式为 <code>"ColRow"</code> 或 <code>"ColRow1:ColRow2"</code>.</li>
-	<li><code>set</code>, <code>get</code>, and <code>sum</code> 操作数不超过 100 次</li>
+	<li><code>1 &lt;= height &lt;= 26</code></li>
+	<li><code>'A' &lt;= width &lt;= 'Z'</code></li>
+	<li><code>1 &lt;= row &lt;= height</code></li>
+	<li><code>'A' &lt;= column &lt;= width</code></li>
+	<li><code>-100 &lt;= val &lt;= 100</code></li>
+	<li><code>1 &lt;= numbers.length &lt;= 5</code></li>
+	<li><code>numbers[i]</code> 的格式为 <code>"ColRow"</code> 或 <code>"ColRow1:ColRow2"</code> 。</li>
+	<li>最多会对 <code>set</code> 、<code>get</code> 和 <code>sum</code> 进行 <code>100</code> 次调用。</li>
 </ul>
-
-<p> </p>
-
-<ol>
-</ol>
-
-<p> </p>
 
 ## 解法
 

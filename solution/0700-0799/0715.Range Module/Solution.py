@@ -1,4 +1,6 @@
 class Node:
+    __slots__ = ['left', 'right', 'add', 'v']
+
     def __init__(self):
         self.left = None
         self.right = None
@@ -7,6 +9,8 @@ class Node:
 
 
 class SegmentTree:
+    __slots__ = ['root']
+
     def __init__(self):
         self.root = Node()
 

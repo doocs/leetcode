@@ -59,6 +59,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：逆向思维**
+
+我们可以先计算出解码字符串的总长度 $m$，然后从后向前遍历字符串，每次更新 $k$ 为 $k \bmod m$，直到 $k$ 为 $0$ 且当前字符为字母，返回当前字符。否则，如果当前字符为数字，则将 $m$ 除以该数字。如果当前字符为字母，则将 $m$ 减 $1$。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串的长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -66,7 +72,22 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def decodeAtIndex(self, s: str, k: int) -> str:
+        m = 0
+        for c in s:
+            if c.isdigit():
+                m *= int(c)
+            else:
+                m += 1
+        for c in s[::-1]:
+            k %= m
+            if k == 0 and c.isalpha():
+                return c
+            if c.isdigit():
+                m //= int(c)
+            else:
+                m -= 1
 ```
 
 ### **Java**
@@ -74,7 +95,112 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String decodeAtIndex(String s, int k) {
+        long m = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            if (Character.isDigit(s.charAt(i))) {
+                m *= (s.charAt(i) - '0');
+            } else {
+                ++m;
+            }
+        }
+        for (int i = s.length() - 1;; --i) {
+            k %= m;
+            if (k == 0 && !Character.isDigit(s.charAt(i))) {
+                return String.valueOf(s.charAt(i));
+            }
+            if (Character.isDigit(s.charAt(i))) {
+                m /= (s.charAt(i) - '0');
+            } else {
+                --m;
+            }
+        }
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string decodeAtIndex(string s, int k) {
+        long long m = 0;
+        for (char& c : s) {
+            if (isdigit(c)) {
+                m *= (c - '0');
+            } else {
+                ++m;
+            }
+        }
+        for (int i = s.size() - 1;; --i) {
+            k %= m;
+            if (k == 0 && isalpha(s[i])) {
+                return string(1, s[i]);
+            }
+            if (isdigit(s[i])) {
+                m /= (s[i] - '0');
+            } else {
+                --m;
+            }
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+func decodeAtIndex(s string, k int) string {
+	m := 0
+	for _, c := range s {
+		if c >= '0' && c <= '9' {
+			m *= int(c - '0')
+		} else {
+			m++
+		}
+	}
+	for i := len(s) - 1; ; i-- {
+		k %= m
+		if k == 0 && s[i] >= 'a' && s[i] <= 'z' {
+			return string(s[i])
+		}
+		if s[i] >= '0' && s[i] <= '9' {
+			m /= int(s[i] - '0')
+		} else {
+			m--
+		}
+	}
+}
+```
+
+### **TypeScript**
+
+```ts
+function decodeAtIndex(s: string, k: number): string {
+    let m = 0n;
+    for (const c of s) {
+        if (c >= '1' && c <= '9') {
+            m *= BigInt(c);
+        } else {
+            ++m;
+        }
+    }
+    for (let i = s.length - 1; ; --i) {
+        if (k >= m) {
+            k %= Number(m);
+        }
+        if (k === 0 && s[i] >= 'a' && s[i] <= 'z') {
+            return s[i];
+        }
+        if (s[i] >= '1' && s[i] <= '9') {
+            m = (m / BigInt(s[i])) | 0n;
+        } else {
+            --m;
+        }
+    }
+}
 ```
 
 ### **...**

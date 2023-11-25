@@ -1,4 +1,4 @@
-# [2927. 将糖果分发给孩子 III](https://leetcode.cn/problems/distribute-candies-among-children-iii)
+# [2927. 给小朋友们分糖果 III](https://leetcode.cn/problems/distribute-candies-among-children-iii)
 
 [English Version](/solution/2900-2999/2927.Distribute%20Candies%20Among%20Children%20III/README_EN.md)
 

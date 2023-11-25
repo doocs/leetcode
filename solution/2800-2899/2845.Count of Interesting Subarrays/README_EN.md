@@ -62,6 +62,20 @@ It can be shown that there are no other interesting subarrays. So, the answer is
 
 ## Solutions
 
+**Solution 1: Hash Table + Prefix Sum**
+
+The problem requires the number of indices $i$ in an interval that satisfy $nums[i] \bmod modulo = k$. We can transform the array $nums$ into a $0-1$ array $arr$, where $arr[i] = 1$ indicates $nums[i] \bmod modulo = k$, otherwise $arr[i] = 0$.
+
+For an interval $[l, r]$, we can calculate the number of $1$s in $arr[l..r]$ through the prefix sum array $s$, i.e., $s[r] - s[l - 1]$, where $s[0] = 0$.
+
+We use a hash table $cnt$ to record the number of occurrences of the prefix sum $s \bmod modulo$, initially $cnt[0]=1$.
+
+Next, we traverse the array $arr$, calculate the prefix sum $s$, add the number of occurrences of $(s-k) \bmod modulo$ to the answer, and then add $1$ to the number of occurrences of $s \bmod modulo$.
+
+After the traversal ends, return the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**

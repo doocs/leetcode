@@ -54,12 +54,18 @@ rangeModule.queryRange(16, 17); 返回 true （尽管执行了删除操作，区
 
 **方法一：线段树**
 
-线段树将整个区间分割为多个不连续的子区间，子区间的数量不超过 $log(width)$。更新某个元素的值，只需要更新 $log(width)$ 个区间，并且这些区间都包含在一个包含该元素的大区间内。区间修改时，需要使用**懒标记**保证效率。
+根据题目描述，我们需要维护一个区间集合，支持区间的添加、删除和查询操作。对于区间的添加和删除操作，我们可以使用线段树来维护区间集合。
+
+线段树将整个区间分割为多个不连续的子区间，子区间的数量不超过 $\log(width)$。更新某个元素的值，只需要更新 $\log(width)$ 个区间，并且这些区间都包含在一个包含该元素的大区间内。区间修改时，需要使用**懒标记**保证效率。
 
 -   线段树的每个节点代表一个区间；
 -   线段树具有唯一的根节点，代表的区间是整个统计范围，如 $[1,N]$；
 -   线段树的每个叶子节点代表一个长度为 $1$ 的元区间 $[x,x]$；
 -   对于每个内部节点 $[l,r]$，它的左儿子是 $[l,mid]$，右儿子是 $[mid+1,r]$, 其中 $mid=⌊(l+r)/2⌋$ (即向下取整)。
+
+由于题目数据范围较大，我们可以使用动态开点的线段树来实现。动态开点的线段树是指，我们只在需要的时候才开点，而不是一开始就开好所有的点。这样可以节省空间，但是需要使用**懒标记**来维护区间修改。
+
+时间复杂度方面，每次操作的时间复杂度为 $O(\log n)$。空间复杂度为 $O(m \times \log n)$。其中 $m$ 为操作次数，而 $n$ 为数据范围。
 
 <!-- tabs:start -->
 
@@ -69,6 +75,8 @@ rangeModule.queryRange(16, 17); 返回 true （尽管执行了删除操作，区
 
 ```python
 class Node:
+    __slots__ = ['left', 'right', 'add', 'v']
+
     def __init__(self):
         self.left = None
         self.right = None
@@ -77,6 +85,8 @@ class Node:
 
 
 class SegmentTree:
+    __slots__ = ['root']
+
     def __init__(self):
         self.root = Node()
 
@@ -140,7 +150,6 @@ class RangeModule:
 
     def removeRange(self, left: int, right: int) -> None:
         self.tree.modify(left, right - 1, -1)
-
 
 # Your RangeModule object will be instantiated and called as such:
 # obj = RangeModule()
@@ -489,6 +498,146 @@ func (this *RangeModule) RemoveRange(left int, right int) {
  * obj.AddRange(left,right);
  * param_2 := obj.QueryRange(left,right);
  * obj.RemoveRange(left,right);
+ */
+```
+
+### **TypeScript**
+
+```ts
+class Node {
+    left: Node | null;
+    right: Node | null;
+    add: number;
+    v: boolean;
+
+    constructor() {
+        this.left = null;
+        this.right = null;
+        this.add = 0;
+        this.v = false;
+    }
+}
+
+class SegmentTree {
+    private root: Node;
+
+    constructor() {
+        this.root = new Node();
+    }
+
+    modify(
+        left: number,
+        right: number,
+        v: number,
+        l: number = 1,
+        r: number = 1e9,
+        node: Node | null = null,
+    ): void {
+        if (node === null) {
+            node = this.root;
+        }
+
+        if (l >= left && r <= right) {
+            node.v = v === 1;
+            node.add = v;
+            return;
+        }
+
+        this.pushdown(node);
+
+        const mid = (l + r) >> 1;
+
+        if (left <= mid) {
+            this.modify(left, right, v, l, mid, node.left);
+        }
+
+        if (right > mid) {
+            this.modify(left, right, v, mid + 1, r, node.right);
+        }
+
+        this.pushup(node);
+    }
+
+    query(
+        left: number,
+        right: number,
+        l: number = 1,
+        r: number = 1e9,
+        node: Node | null = null,
+    ): boolean {
+        if (node === null) {
+            node = this.root;
+        }
+
+        if (l >= left && r <= right) {
+            return node.v;
+        }
+
+        this.pushdown(node);
+
+        const mid = (l + r) >> 1;
+        let result = true;
+
+        if (left <= mid) {
+            result = result && this.query(left, right, l, mid, node.left);
+        }
+
+        if (right > mid) {
+            result = result && this.query(left, right, mid + 1, r, node.right);
+        }
+
+        return result;
+    }
+
+    pushup(node: Node): void {
+        node.v = !!(node.left && node.left.v && node.right && node.right.v);
+    }
+
+    pushdown(node: Node): void {
+        if (node.left === null) {
+            node.left = new Node();
+        }
+
+        if (node.right === null) {
+            node.right = new Node();
+        }
+
+        if (node.add !== 0) {
+            node.left.add = node.add;
+            node.right.add = node.add;
+            node.left.v = node.add === 1;
+            node.right.v = node.add === 1;
+            node.add = 0;
+        }
+    }
+}
+
+class RangeModule {
+    private tree: SegmentTree;
+
+    constructor() {
+        this.tree = new SegmentTree();
+    }
+
+    addRange(left: number, right: number): void {
+        this.tree.modify(left, right - 1, 1);
+    }
+
+    queryRange(left: number, right: number): boolean {
+        return this.tree.query(left, right - 1);
+    }
+
+    removeRange(left: number, right: number): void {
+        this.tree.modify(left, right - 1, -1);
+    }
+}
+
+/**
+ * Your RangeModule object will be instantiated and called as such:
+ * var obj = new RangeModule()
+ * obj.addRange(left,right)
+ * var param_2 = obj.queryRange(left,right)
+ * obj.removeRange(left,right)
  */
 ```
 

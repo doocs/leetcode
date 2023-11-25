@@ -32,9 +32,7 @@ func orderOfLargestPlusSign(n int, mines [][]int) (ans int) {
 		}
 	}
 	for _, e := range dp {
-		for _, v := range e {
-			ans = max(ans, v)
-		}
+		ans = max(ans, slices.Max(e))
 	}
 	return
 }

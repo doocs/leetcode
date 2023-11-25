@@ -1,26 +1,26 @@
 class BinaryIndexedTree:
+    __slots__ = ["n", "c"]
+
     def __init__(self, n):
         self.n = n
         self.c = [0] * (n + 1)
 
-    @staticmethod
-    def lowbit(x):
-        return x & -x
-
-    def update(self, x, delta):
+    def update(self, x: int, delta: int):
         while x <= self.n:
             self.c[x] += delta
-            x += BinaryIndexedTree.lowbit(x)
+            x += x & -x
 
-    def query(self, x):
+    def query(self, x: int) -> int:
         s = 0
         while x > 0:
             s += self.c[x]
-            x -= BinaryIndexedTree.lowbit(x)
+            x -= x & -x
         return s
 
 
 class NumArray:
+    __slots__ = ["tree"]
+
     def __init__(self, nums: List[int]):
         self.tree = BinaryIndexedTree(len(nums))
         for i, v in enumerate(nums, 1):

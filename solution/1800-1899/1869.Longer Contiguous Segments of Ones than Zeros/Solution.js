@@ -3,20 +3,16 @@
  * @return {boolean}
  */
 var checkZeroOnes = function (s) {
-    let max0 = 0,
-        max1 = 0;
-    let t0 = 0,
-        t1 = 0;
-    for (let char of s) {
-        if (char == '0') {
-            t0++;
-            t1 = 0;
-        } else {
-            t1++;
-            t0 = 0;
+    const f = x => {
+        let [mx, cnt] = [0, 0];
+        for (const c of s) {
+            if (c === x) {
+                mx = Math.max(mx, ++cnt);
+            } else {
+                cnt = 0;
+            }
         }
-        max0 = Math.max(max0, t0);
-        max1 = Math.max(max1, t1);
-    }
-    return max1 > max0;
+        return mx;
+    };
+    return f('1') > f('0');
 };

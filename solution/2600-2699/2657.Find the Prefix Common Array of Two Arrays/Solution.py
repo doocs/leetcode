@@ -1,11 +1,12 @@
 class Solution:
     def findThePrefixCommonArray(self, A: List[int], B: List[int]) -> List[int]:
         ans = []
-        cnt1 = Counter()
-        cnt2 = Counter()
+        vis = [1] * (len(A) + 1)
+        s = 0
         for a, b in zip(A, B):
-            cnt1[a] += 1
-            cnt2[b] += 1
-            t = sum(min(v, cnt2[x]) for x, v in cnt1.items())
-            ans.append(t)
+            vis[a] ^= 1
+            s += vis[a]
+            vis[b] ^= 1
+            s += vis[b]
+            ans.append(s)
         return ans

@@ -7,10 +7,7 @@ func minimumTimeRequired(jobs []int, k int) int {
 	var dfs func(int)
 	dfs = func(i int) {
 		if i == len(jobs) {
-			mx := 0
-			for _, v := range cnt {
-				mx = max(mx, v)
-			}
+			mx := slices.Max(cnt)
 			ans = min(ans, mx)
 			return
 		}
