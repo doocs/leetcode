@@ -55,18 +55,144 @@ The 1<sup>st</sup> letter is &quot;a&quot;.
 
 ## Solutions
 
+**Solution 1: Reverse Thinking**
+
+We can first calculate the total length $m$ of the decoded string, then traverse the string from back to front. Each time, we update $k$ to be $k \bmod m$, until $k$ is $0$ and the current character is a letter, then we return the current character. Otherwise, if the current character is a number, we divide $m$ by this number. If the current character is a letter, we subtract $1$ from $m$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def decodeAtIndex(self, s: str, k: int) -> str:
+        m = 0
+        for c in s:
+            if c.isdigit():
+                m *= int(c)
+            else:
+                m += 1
+        for c in s[::-1]:
+            k %= m
+            if k == 0 and c.isalpha():
+                return c
+            if c.isdigit():
+                m //= int(c)
+            else:
+                m -= 1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String decodeAtIndex(String s, int k) {
+        long m = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            if (Character.isDigit(s.charAt(i))) {
+                m *= (s.charAt(i) - '0');
+            } else {
+                ++m;
+            }
+        }
+        for (int i = s.length() - 1;; --i) {
+            k %= m;
+            if (k == 0 && !Character.isDigit(s.charAt(i))) {
+                return String.valueOf(s.charAt(i));
+            }
+            if (Character.isDigit(s.charAt(i))) {
+                m /= (s.charAt(i) - '0');
+            } else {
+                --m;
+            }
+        }
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string decodeAtIndex(string s, int k) {
+        long long m = 0;
+        for (char& c : s) {
+            if (isdigit(c)) {
+                m *= (c - '0');
+            } else {
+                ++m;
+            }
+        }
+        for (int i = s.size() - 1;; --i) {
+            k %= m;
+            if (k == 0 && isalpha(s[i])) {
+                return string(1, s[i]);
+            }
+            if (isdigit(s[i])) {
+                m /= (s[i] - '0');
+            } else {
+                --m;
+            }
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+func decodeAtIndex(s string, k int) string {
+	m := 0
+	for _, c := range s {
+		if c >= '0' && c <= '9' {
+			m *= int(c - '0')
+		} else {
+			m++
+		}
+	}
+	for i := len(s) - 1; ; i-- {
+		k %= m
+		if k == 0 && s[i] >= 'a' && s[i] <= 'z' {
+			return string(s[i])
+		}
+		if s[i] >= '0' && s[i] <= '9' {
+			m /= int(s[i] - '0')
+		} else {
+			m--
+		}
+	}
+}
+```
+
+### **TypeScript**
+
+```ts
+function decodeAtIndex(s: string, k: number): string {
+    let m = 0n;
+    for (const c of s) {
+        if (c >= '1' && c <= '9') {
+            m *= BigInt(c);
+        } else {
+            ++m;
+        }
+    }
+    for (let i = s.length - 1; ; --i) {
+        if (k >= m) {
+            k %= Number(m);
+        }
+        if (k === 0 && s[i] >= 'a' && s[i] <= 'z') {
+            return s[i];
+        }
+        if (s[i] >= '1' && s[i] <= '9') {
+            m = (m / BigInt(s[i])) | 0n;
+        } else {
+            --m;
+        }
+    }
+}
 ```
 
 ### **...**
