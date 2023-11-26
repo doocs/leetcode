@@ -25,6 +25,13 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Biweekly Contest 118
+
+- [2942. Find Words Containing Character](/solution/2900-2999/2942.Find%20Words%20Containing%20Character/README_EN.md)
+- [2943. Maximize Area of Square Hole in Grid](/solution/2900-2999/2943.Maximize%20Area%20of%20Square%20Hole%20in%20Grid/README_EN.md)
+- [2944. Minimum Number of Coins for Fruits](/solution/2900-2999/2944.Minimum%20Number%20of%20Coins%20for%20Fruits/README_EN.md)
+- [2945. Find Maximum Non-decreasing Array Length](/solution/2900-2999/2945.Find%20Maximum%20Non-decreasing%20Array%20Length/README_EN.md)
+
 #### Weekly Contest 372
 
 - [2937. Make Three Strings Equal](/solution/2900-2999/2937.Make%20Three%20Strings%20Equal/README_EN.md)

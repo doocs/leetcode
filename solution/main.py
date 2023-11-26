@@ -422,9 +422,8 @@ def run():
     # 刷新题目文件
     if refresh_all:
         refresh(ls)
-
-    # 格式化
-    os.system('cd .. && npx prettier --write "**/*.{md,js,ts,php,sql}"')
+        # 格式化
+        os.system('cd .. && npx prettier --write "**/*.{md,js,ts,php,sql}"')
 
 
 if __name__ == "__main__":

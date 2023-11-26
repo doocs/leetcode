@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 118 场双周赛(2023-11-25 22:30, 90 分钟) 参赛人数 2425
+
+- [2942. 查找包含给定字符的单词](/solution/2900-2999/2942.Find%20Words%20Containing%20Character/README.md)
+- [2943. 最大化网格图中正方形空洞的面积](/solution/2900-2999/2943.Maximize%20Area%20of%20Square%20Hole%20in%20Grid/README.md)
+- [2944. 购买水果需要的最少金币数](/solution/2900-2999/2944.Minimum%20Number%20of%20Coins%20for%20Fruits/README.md)
+- [2945. 找到最大非递减数组的长度](/solution/2900-2999/2945.Find%20Maximum%20Non-decreasing%20Array%20Length/README.md)
+
 #### 第 372 场周赛(2023-11-19 10:30, 90 分钟) 参赛人数 3920
 
 - [2937. 使三个字符串相等](/solution/2900-2999/2937.Make%20Three%20Strings%20Equal/README.md)

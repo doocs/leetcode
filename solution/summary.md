@@ -2999,3 +2999,7 @@
   - [2939.最大异或乘积](/solution/2900-2999/2939.Maximum%20Xor%20Product/README.md)
   - [2940.找到 Alice 和 Bob 可以相遇的建筑](/solution/2900-2999/2940.Find%20Building%20Where%20Alice%20and%20Bob%20Can%20Meet/README.md)
   - [2941.Maximum GCD-Sum of a Subarray](/solution/2900-2999/2941.Maximum%20GCD-Sum%20of%20a%20Subarray/README.md)
+  - [2942.查找包含给定字符的单词](/solution/2900-2999/2942.Find%20Words%20Containing%20Character/README.md)
+  - [2943.最大化网格图中正方形空洞的面积](/solution/2900-2999/2943.Maximize%20Area%20of%20Square%20Hole%20in%20Grid/README.md)
+  - [2944.购买水果需要的最少金币数](/solution/2900-2999/2944.Minimum%20Number%20of%20Coins%20for%20Fruits/README.md)
+  - [2945.找到最大非递减数组的长度](/solution/2900-2999/2945.Find%20Maximum%20Non-decreasing%20Array%20Length/README.md)
