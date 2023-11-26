@@ -3,12 +3,12 @@ function largestSubmatrix(matrix: number[][]): number {
         for (let row = 0; row < matrix.length; row++) {
             let tempRow = row;
             let count = 0;
-            
+
             while (tempRow < matrix.length && matrix[tempRow][column] === 1) {
                 count++;
                 tempRow++;
             }
-            
+
             while (count !== 0) {
                 matrix[row][column] = count;
                 count--;
@@ -25,7 +25,10 @@ function largestSubmatrix(matrix: number[][]): number {
 
     for (let row = 0; row < matrix.length; row++) {
         for (let col = matrix[row].length - 1; col >= 0; col--) {
-            maxSubmatrixArea = Math.max(maxSubmatrixArea, matrix[row][col] * (matrix[row].length - col));
+            maxSubmatrixArea = Math.max(
+                maxSubmatrixArea,
+                matrix[row][col] * (matrix[row].length - col),
+            );
         }
     }
 
