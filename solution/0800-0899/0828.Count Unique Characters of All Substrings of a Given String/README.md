@@ -56,9 +56,11 @@
 
 **方法一：计算每个字符的贡献**
 
-对于字符串 `s` 的每个字符 $c_i$，当它在某个子字符串中仅出现一次时，它会对这个子字符串统计唯一字符时有贡献。只需对每个字符 $c_i$，计算有多少子字符串仅包含该字符一次即可。
+对于字符串 $s$ 的每个字符 $c_i$，当它在某个子字符串中仅出现一次时，它会对这个子字符串统计唯一字符时有贡献。
 
-时间复杂度 $O(n)$，其中 $n$ 为字符串 `s` 的长度。
+因此，我们只需要对每个字符 $c_i$，计算有多少子字符串仅包含该字符一次即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 
@@ -132,7 +134,7 @@ public:
 ### **Go**
 
 ```go
-func uniqueLetterString(s string) int {
+func uniqueLetterString(s string) (ans int) {
 	d := make([][]int, 26)
 	for i := range d {
 		d[i] = []int{-1}
@@ -140,14 +142,54 @@ func uniqueLetterString(s string) int {
 	for i, c := range s {
 		d[c-'A'] = append(d[c-'A'], i)
 	}
-	ans := 0
 	for _, v := range d {
 		v = append(v, len(s))
 		for i := 1; i < len(v)-1; i++ {
 			ans += (v[i] - v[i-1]) * (v[i+1] - v[i])
 		}
 	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function uniqueLetterString(s: string): number {
+    const d: number[][] = Array.from({ length: 26 }, () => [-1]);
+    for (let i = 0; i < s.length; ++i) {
+        d[s.charCodeAt(i) - 'A'.charCodeAt(0)].push(i);
+    }
+    let ans = 0;
+    for (const v of d) {
+        v.push(s.length);
+
+        for (let i = 1; i < v.length - 1; ++i) {
+            ans += (v[i] - v[i - 1]) * (v[i + 1] - v[i]);
+        }
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn unique_letter_string(s: String) -> i32 {
+        let mut d: Vec<Vec<i32>> = vec![vec![-1; 1]; 26];
+        for (i, c) in s.chars().enumerate() {
+            d[(c as usize) - ('A' as usize)].push(i as i32);
+        }
+        let mut ans = 0;
+        for v in d.iter_mut() {
+            v.push(s.len() as i32);
+            for i in 1..v.len() - 1 {
+                ans += (v[i] - v[i - 1]) * (v[i + 1] - v[i]);
+            }
+        }
+        ans as i32
+    }
 }
 ```
 
