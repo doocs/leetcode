@@ -56,6 +56,10 @@ For each character $c_i$ in the string $s$, when it appears only once in a subst
 
 Therefore, we only need to calculate for each character $c_i$, how many substrings contain this character only once.
 
+We use a hash table or an array $d$ of length $26$, to store the positions of each character in $s$ in order of index.
+
+For each character $c_i$, we iterate through each position $p$ in $d[c_i]$, find the adjacent positions $l$ on the left and $r$ on the right, then the number of substrings that meet the requirements by expanding from position $p$ to both sides is $(p - l) \times (r - p)$. We perform this operation for each character, add up the contributions of all characters, and get the answer.
+
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
