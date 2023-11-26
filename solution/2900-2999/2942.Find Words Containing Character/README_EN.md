@@ -47,30 +47,85 @@
 
 ## Solutions
 
+**Solution 1: Traversal**
+
+We directly traverse each string `words[i]` in the string array `words`. If `x` appears in `words[i]`, we add `i` to the answer array.
+
+After the traversal, we return the answer array.
+
+The time complexity is $O(L)$, where $L$ is the sum of the lengths of all strings in the array `words`. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findWordsContaining(self, words: List[str], x: str) -> List[int]:
+        return [i for i, w in enumerate(words) if x in w]
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public List<Integer> findWordsContaining(String[] words, char x) {
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0; i < words.length; ++i) {
+            if (words[i].indexOf(x) != -1) {
+                ans.add(i);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> findWordsContaining(vector<string>& words, char x) {
+        vector<int> ans;
+        for (int i = 0; i < words.size(); ++i) {
+            if (words[i].find(x) != string::npos) {
+                ans.push_back(i);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func findWordsContaining(words []string, x byte) (ans []int) {
+	for i, w := range words {
+		for _, c := range w {
+			if byte(c) == x {
+				ans = append(ans, i)
+				break
+			}
+		}
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function findWordsContaining(words: string[], x: string): number[] {
+    const ans: number[] = [];
+    for (let i = 0; i < words.length; ++i) {
+        if (words[i].includes(x)) {
+            ans.push(i);
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**

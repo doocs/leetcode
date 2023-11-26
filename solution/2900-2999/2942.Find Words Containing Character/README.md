@@ -53,6 +53,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：遍历**
+
+我们直接遍历字符串数组 $words$ 中的每一个字符串 $words[i]$，如果 $x$ 在 $words[i]$ 中出现，就将 $i$ 加入答案数组中。
+
+遍历结束后，返回答案数组即可。
+
+时间复杂度 $O(L)$，其中 $L$ 为字符串数组 $words$ 中所有字符串的长度和。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,7 +68,9 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findWordsContaining(self, words: List[str], x: str) -> List[int]:
+        return [i for i, w in enumerate(words) if x in w]
 ```
 
 ### **Java**
@@ -68,19 +78,64 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public List<Integer> findWordsContaining(String[] words, char x) {
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0; i < words.length; ++i) {
+            if (words[i].indexOf(x) != -1) {
+                ans.add(i);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> findWordsContaining(vector<string>& words, char x) {
+        vector<int> ans;
+        for (int i = 0; i < words.size(); ++i) {
+            if (words[i].find(x) != string::npos) {
+                ans.push_back(i);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func findWordsContaining(words []string, x byte) (ans []int) {
+	for i, w := range words {
+		for _, c := range w {
+			if byte(c) == x {
+				ans = append(ans, i)
+				break
+			}
+		}
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function findWordsContaining(words: string[], x: string): number[] {
+    const ans: number[] = [];
+    for (let i = 0; i < words.length; ++i) {
+        if (words[i].includes(x)) {
+            ans.push(i);
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
