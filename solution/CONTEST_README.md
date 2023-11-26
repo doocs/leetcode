@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 373 场周赛(2023-11-26 10:30, 90 分钟) 参赛人数 3577
+
+- [2946. 循环移位后的矩阵相似检查](/solution/2900-2999/2946.Matrix%20Similarity%20After%20Cyclic%20Shifts/README.md)
+- [2947. 统计美丽子字符串 I](/solution/2900-2999/2947.Count%20Beautiful%20Substrings%20I/README.md)
+- [2948. 交换得到字典序最小的数组](/solution/2900-2999/2948.Make%20Lexicographically%20Smallest%20Array%20by%20Swapping%20Elements/README.md)
+- [2949. 统计美丽子字符串 II](/solution/2900-2999/2949.Count%20Beautiful%20Substrings%20II/README.md)
+
 #### 第 118 场双周赛(2023-11-25 22:30, 90 分钟) 参赛人数 2425
 
 - [2942. 查找包含给定字符的单词](/solution/2900-2999/2942.Find%20Words%20Containing%20Character/README.md)
