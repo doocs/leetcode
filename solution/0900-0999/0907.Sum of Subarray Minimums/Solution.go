@@ -1,5 +1,4 @@
-func sumSubarrayMins(arr []int) int {
-	mod := int(1e9) + 7
+func sumSubarrayMins(arr []int) (ans int) {
 	n := len(arr)
 	left := make([]int, n)
 	right := make([]int, n)
@@ -27,10 +26,10 @@ func sumSubarrayMins(arr []int) int {
 		}
 		stk = append(stk, i)
 	}
-	ans := 0
+	const mod int = 1e9 + 7
 	for i, v := range arr {
 		ans += (i - left[i]) * (right[i] - i) * v % mod
 		ans %= mod
 	}
-	return ans
+	return
 }

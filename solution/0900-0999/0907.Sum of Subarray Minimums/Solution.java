@@ -25,7 +25,7 @@ class Solution {
             }
             stk.push(i);
         }
-        int mod = (int) 1e9 + 7;
+        final int mod = (int) 1e9 + 7;
         long ans = 0;
         for (int i = 0; i < n; ++i) {
             ans += (long) (i - left[i]) * (right[i] - i) % mod * arr[i] % mod;

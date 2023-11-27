@@ -1,48 +1,41 @@
-const MOD: i64 = (1e9 as i64) + 7;
+use std::collections::VecDeque;
 
 impl Solution {
     pub fn sum_subarray_mins(arr: Vec<i32>) -> i32 {
-        let n: usize = arr.len();
-        let mut ret: i64 = 0;
-        let mut left: Vec<i32> = vec![-1; n];
-        let mut right: Vec<i32> = vec![n as i32; n];
-        // Index stack, store the index of the value in the given array
-        let mut stack: Vec<i32> = Vec::new();
+        let n = arr.len();
+        let mut left = vec![-1; n];
+        let mut right = vec![n as i32; n];
+        let mut stk: VecDeque<usize> = VecDeque::new();
 
-        // Find the first element that's less than the current value for the left side
-        // The default value of which is -1
         for i in 0..n {
-            while !stack.is_empty() && arr[*stack.last().unwrap() as usize] >= arr[i] {
-                stack.pop();
+            while !stk.is_empty() && arr[*stk.back().unwrap()] >= arr[i] {
+                stk.pop_back();
             }
-            if !stack.is_empty() {
-                left[i] = *stack.last().unwrap();
+            if let Some(&top) = stk.back() {
+                left[i] = top as i32;
             }
-            stack.push(i as i32);
+            stk.push_back(i);
         }
 
-        stack.clear();
-
-        // Find the first element that's less or equal than the current value for the right side
-        // The default value of which is n
+        stk.clear();
         for i in (0..n).rev() {
-            while !stack.is_empty() && arr[*stack.last().unwrap() as usize] > arr[i] {
-                stack.pop();
+            while !stk.is_empty() && arr[*stk.back().unwrap()] > arr[i] {
+                stk.pop_back();
             }
-            if !stack.is_empty() {
-                right[i] = *stack.last().unwrap();
+            if let Some(&top) = stk.back() {
+                right[i] = top as i32;
             }
-            stack.push(i as i32);
+            stk.push_back(i);
         }
 
-        // Traverse the array, to find the sum
+        let MOD = 1_000_000_007;
+        let mut ans: i64 = 0;
         for i in 0..n {
-            ret +=
+            ans +=
                 ((((right[i] - (i as i32)) * ((i as i32) - left[i])) as i64) * (arr[i] as i64)) %
                 MOD;
-            ret %= MOD;
+            ans %= MOD;
         }
-
-        (ret % (MOD as i64)) as i32
+        ans as i32
     }
 }
