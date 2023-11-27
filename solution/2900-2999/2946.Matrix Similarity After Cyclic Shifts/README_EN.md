@@ -56,25 +56,102 @@ Therefore, return true.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def areSimilar(self, mat: List[List[int]], k: int) -> bool:
+        n = len(mat[0])
+        for i, row in enumerate(mat):
+            for j, x in enumerate(row):
+                if i % 2 == 1 and x != mat[i][(j + k) % n]:
+                    return False
+                if i % 2 == 0 and x != mat[i][(j - k + n) % n]:
+                    return False
+        return True
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public boolean areSimilar(int[][] mat, int k) {
+        int m = mat.length, n = mat[0].length;
+        k %= n;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (i % 2 == 1 && mat[i][j] != mat[i][(j + k) % n]) {
+                    return false;
+                }
+                if (i % 2 == 0 && mat[i][j] != mat[i][(j - k + n) % n]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    bool areSimilar(vector<vector<int>>& mat, int k) {
+        int m = mat.size(), n = mat[0].size();
+        k %= n;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (i % 2 == 1 && mat[i][j] != mat[i][(j + k) % n]) {
+                    return false;
+                }
+                if (i % 2 == 0 && mat[i][j] != mat[i][(j - k + n) % n]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func areSimilar(mat [][]int, k int) bool {
+	n := len(mat[0])
+	k %= n
+	for i, row := range mat {
+		for j, x := range row {
+			if i%2 == 1 && x != mat[i][(j+k)%n] {
+				return false
+			}
+			if i%2 == 0 && x != mat[i][(j-k+n)%n] {
+				return false
+			}
+		}
+	}
+	return true
+}
+```
 
+### **TypeScript**
+
+```ts
+function areSimilar(mat: number[][], k: number): boolean {
+    const m = mat.length;
+    const n = mat[0].length;
+    k %= n;
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (i % 2 === 1 && mat[i][j] !== mat[i][(j + k) % n]) {
+                return false;
+            }
+            if (i % 2 === 0 && mat[i][j] !== mat[i][(j - k + n) % n]) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
 ```
 
 ### **...**
