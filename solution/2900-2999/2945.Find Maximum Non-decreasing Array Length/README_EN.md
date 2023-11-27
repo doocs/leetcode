@@ -58,25 +58,121 @@ Because the given array is not non-decreasing, the maximum<!-- notionvc: 3447a50
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findMaximumLength(self, nums: List[int]) -> int:
+        n = len(nums)
+        s = list(accumulate(nums, initial=0))
+        f = [0] * (n + 1)
+        pre = [0] * (n + 2)
+        for i in range(1, n + 1):
+            pre[i] = max(pre[i], pre[i - 1])
+            f[i] = f[pre[i]] + 1
+            j = bisect_left(s, s[i] * 2 - s[pre[i]])
+            pre[j] = i
+        return f[n]
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int findMaximumLength(int[] nums) {
+        int n = nums.length;
+        long[] s = new long[n + 1];
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + nums[i];
+        }
+        int[] f = new int[n + 1];
+        int[] pre = new int[n + 2];
+        for (int i = 1; i <= n; ++i) {
+            pre[i] = Math.max(pre[i], pre[i - 1]);
+            f[i] = f[pre[i]] + 1;
+            int j = Arrays.binarySearch(s, s[i] * 2 - s[pre[i]]);
+            pre[j < 0 ? -j - 1 : j] = i;
+        }
+        return f[n];
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int findMaximumLength(vector<int>& nums) {
+        int n = nums.size();
+        int f[n + 1];
+        int pre[n + 2];
+        long long s[n + 1];
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + nums[i];
+        }
+        memset(f, 0, sizeof(f));
+        memset(pre, 0, sizeof(pre));
+        for (int i = 1; i <= n; ++i) {
+            pre[i] = max(pre[i], pre[i - 1]);
+            f[i] = f[pre[i]] + 1;
+            int j = lower_bound(s, s + n + 1, s[i] * 2 - s[pre[i]]) - s;
+            pre[j] = i;
+        }
+        return f[n];
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func findMaximumLength(nums []int) int {
+	n := len(nums)
+	f := make([]int, n+1)
+	pre := make([]int, n+2)
+	s := make([]int, n+1)
+	for i, x := range nums {
+		s[i+1] = s[i] + x
+	}
+	for i := 1; i <= n; i++ {
+		pre[i] = max(pre[i], pre[i-1])
+		f[i] = f[pre[i]] + 1
+		j := sort.SearchInts(s, s[i]*2-s[pre[i]])
+		pre[j] = max(pre[j], i)
+	}
+	return f[n]
+}
+```
 
+### **TypeScript**
+
+```ts
+function findMaximumLength(nums: number[]): number {
+    const n = nums.length;
+    const f: number[] = Array(n + 1).fill(0);
+    const pre: number[] = Array(n + 2).fill(0);
+    const s: number[] = Array(n + 1).fill(0);
+    for (let i = 1; i <= n; ++i) {
+        s[i] = s[i - 1] + nums[i - 1];
+    }
+    const search = (nums: number[], x: number): number => {
+        let [l, r] = [0, nums.length];
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (nums[mid] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    };
+    for (let i = 1; i <= n; ++i) {
+        pre[i] = Math.max(pre[i], pre[i - 1]);
+        f[i] = f[pre[i]] + 1;
+        const j = search(s, s[i] * 2 - s[pre[i]]);
+        pre[j] = i;
+    }
+    return f[n];
+}
 ```
 
 ### **...**
