@@ -5,10 +5,10 @@ function knightDialer(n: number): number {
         return 10;
     }
 
-    let f: number[] = new Array(10).fill(1);
+    const f: number[] = new Array(10).fill(1);
 
     while (--n > 0) {
-        let t: number[] = new Array(10).fill(0);
+        const t: number[] = new Array(10).fill(0);
 
         t[0] = f[4] + f[6];
         t[1] = f[6] + f[8];
@@ -26,7 +26,7 @@ function knightDialer(n: number): number {
     }
 
     let ans: number = 0;
-    for (let v of f) {
+    for (const v of f) {
         ans = (ans + v) % MOD;
     }
 
