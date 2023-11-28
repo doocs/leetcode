@@ -37,11 +37,11 @@
 
 **Solution 1: Character Comparison**
 
-We take the first string $strs[0]$ as the benchmark, and compare the $i$th character of the string after it with the $i$th character of $strs[0]$. If it is the same, continue to compare the next character, otherwise return the first $i$ characters of $strs[0]$.
+We use the first string $strs[0]$ as a benchmark, and compare whether the $i$-th character of the subsequent strings is the same as the $i$-th character of $strs[0]$. If they are the same, we continue to compare the next character. Otherwise, we return the first $i$ characters of $strs[0]$.
 
-After the traversal is over, it means that the first $i$ characters of all strings are the same, and $strs[0]$ is returned.
+If the traversal ends, it means that the first $i$ characters of all strings are the same, and we return $strs[0]$.
 
-Time complexity $(n \times m)$, where $n$ and $m$ are the length of the string array and the minimum length of the string respectively. The space complexity is $O(1)$.
+The time complexity is $O(n \times m)$, where $n$ and $m$ are the length of the string array and the minimum length of the strings, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

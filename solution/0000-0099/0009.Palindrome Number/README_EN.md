@@ -43,6 +43,30 @@
 
 ## Solutions
 
+**Solution 1: Reverse Half of the Number**
+
+First, we determine special cases:
+
+-   If $x < 0$, then $x$ is not a palindrome, directly return `false`;
+-   If $x > 0$ and the last digit of $x$ is $0$, then $x$ is not a palindrome, directly return `false`;
+-   If the last digit of $x$ is not $0$, then $x$ might be a palindrome, continue the following steps.
+
+We reverse the second half of $x$ and compare it with the first half. If they are equal, then $x$ is a palindrome, otherwise, $x$ is not a palindrome.
+
+For example, for $x = 1221$, we can reverse the second half from "21" to "12" and compare it with the first half "12". Since they are equal, we know that $x$ is a palindrome.
+
+Let's see how to reverse the second half.
+
+For the number $1221$, if we perform $1221 \bmod 10$, we will get the last digit $1$. To get the second last digit, we can first remove the last digit from $1221$ by dividing by $10$, $1221 / 10 = 122$, then get the remainder of the previous result divided by $10$, $122 \bmod 10 = 2$, to get the second last digit.
+
+If we continue this process, we will get more reversed digits.
+
+By continuously multiplying the last digit to the variable $y$, we can get the number in reverse order.
+
+In the code implementation, we can repeatedly "take out" the last digit of $x$ and "add" it to the end of $y$, loop until $y \ge x$. If at this time $x = y$, or $x = y / 10$, then $x$ is a palindrome.
+
+The time complexity is $O(\log_{10}(n))$, where $n$ is $x$. For each iteration, we will divide the input by $10$, so the time complexity is $O(\log_{10}(n))$. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

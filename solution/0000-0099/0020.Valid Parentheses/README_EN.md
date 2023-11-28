@@ -46,6 +46,18 @@
 
 ## Solutions
 
+**Solution 1: Stack**
+
+Traverse the bracket string $s$. When encountering a left bracket, push the current left bracket into the stack; when encountering a right bracket, pop the top element of the stack (if the stack is empty, directly return `false`), and judge whether it matches. If it does not match, directly return `false`.
+
+Alternatively, when encountering a left bracket, you can push the corresponding right bracket into the stack; when encountering a right bracket, pop the top element of the stack (if the stack is empty, directly return `false`), and judge whether they are equal. If they do not match, directly return `false`.
+
+> The difference between the two methods is only the timing of bracket conversion, one is when pushing into the stack, and the other is when popping out of the stack.
+
+At the end of the traversal, if the stack is empty, it means the bracket string is valid, return `true`; otherwise, return `false`.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the bracket string $s$.
+
 <!-- tabs:start -->
 
 ### **Python3**

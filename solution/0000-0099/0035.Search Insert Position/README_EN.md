@@ -42,7 +42,11 @@
 
 ## Solutions
 
-Binary search.
+**Solution 1: Binary Search**
+
+Since the array $nums$ is already sorted, we can use the binary search method to find the insertion position of the target value $target$.
+
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

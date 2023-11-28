@@ -60,11 +60,11 @@ P     I
 
 **Solution 1: Simulation**
 
-We use a 2D array $g$ to simulate the process of the $Z$-shaped arrangement, where $g[i][j]$ represents the character in the $i$th row and the $j$th column. Initially, $i=0$, and we also define a direction variable $k$, initially $k=-1$, which means up.
+We use a two-dimensional array $g$ to simulate the process of the $Z$-shape arrangement, where $g[i][j]$ represents the character at the $i$-th row and the $j$-th column. Initially, $i=0$, and we define a direction variable $k$, initially $k=-1$, indicating moving upwards.
 
-We traverse the string $s$ from left to right. Each time we traverse a character $c$, we append it to $g[i]$. If at this time $i=0$ or $i=numRows-1$, it means that the current character is at the turning point of the $Z$-shaped arrangement. We reverse the value of $k$, that is, $k=-k$. Next, we update the value of $i$ to $i+k$, that is, move up or down one row. Continue to traverse the next character until the string $s$ is traversed. We return the string that all rows in $g$ are concatenated.
+We traverse the string $s$ from left to right. Each time we traverse to a character $c$, we append it to $g[i]$. If $i=0$ or $i=numRows-1$ at this time, it means that the current character is at the turning point of the $Z$-shape arrangement, and we reverse the value of $k$, i.e., $k=-k$. Next, we update the value of $i$ to $i+k$, i.e., move up or down one row. Continue to traverse the next character until we have traversed the string $s$, and we return the string concatenated by all rows in $g$.
 
-Time complexity $O(n)$, space complexity $O(n)$, where $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

@@ -40,6 +40,18 @@
 
 ## Solutions
 
+**Solution 1: Traversal**
+
+First, we use an array or hash table to store the letters corresponding to each digit. Then we traverse each digit, combine its corresponding letters with the previous results to get the new results.
+
+The time complexity is $O(4^n)$, and the space complexity is $O(4^n)$. Here, $n$ is the length of the input digits.
+
+**Solution 2: DFS**
+
+We can use the method of depth-first search to enumerate all possible letter combinations. Suppose that a part of the letter combination has been generated, but some digits have not been exhausted. At this time, we take out the letters corresponding to the next digit, and then enumerate each letter corresponding to this digit one by one, add them to the letter combination that has been generated before, to form all possible combinations.
+
+The time complexity is $O(4^n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the input digits.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -49,11 +61,32 @@ class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
         if not digits:
             return []
-        d = ['abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz']
-        ans = ['']
+        d = ["abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"]
+        ans = [""]
         for i in digits:
             s = d[int(i) - 2]
             ans = [a + b for a in ans for b in s]
+        return ans
+```
+
+```python
+class Solution:
+    def letterCombinations(self, digits: str) -> List[str]:
+        def dfs(i: int):
+            if i >= len(digits):
+                ans.append("".join(t))
+                return
+            for c in d[int(digits[i]) - 2]:
+                t.append(c)
+                dfs(i + 1)
+                t.pop()
+
+        if not digits:
+            return []
+        d = ["abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"]
+        ans = []
+        t = []
+        dfs(0)
         return ans
 ```
 
@@ -83,16 +116,49 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    private final String[] d = {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+    private String digits;
+    private List<String> ans = new ArrayList<>();
+    private StringBuilder t = new StringBuilder();
+
+    public List<String> letterCombinations(String digits) {
+        if (digits.length() == 0) {
+            return ans;
+        }
+        this.digits = digits;
+        dfs(0);
+        return ans;
+    }
+
+    private void dfs(int i) {
+        if (i >= digits.length()) {
+            ans.add(t.toString());
+            return;
+        }
+        String s = d[digits.charAt(i) - '2'];
+        for (char c : s.toCharArray()) {
+            t.append(c);
+            dfs(i + 1);
+            t.deleteCharAt(t.length() - 1);
+        }
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
 class Solution {
 public:
     vector<string> letterCombinations(string digits) {
-        if (digits.empty()) return {};
+        if (digits.empty()) {
+            return {};
+        }
         vector<string> d = {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
         vector<string> ans = {""};
-        for (auto i : digits) {
+        for (auto& i : digits) {
             string s = d[i - '2'];
             vector<string> t;
             for (auto& a : ans) {
@@ -102,6 +168,33 @@ public:
             }
             ans = move(t);
         }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<string> letterCombinations(string digits) {
+        if (digits.empty()) {
+            return {};
+        }
+        vector<string> d = {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        vector<string> ans;
+        string t;
+        function<void(int)> dfs = [&](int i) {
+            if (i >= digits.size()) {
+                ans.push_back(t);
+                return;
+            }
+            for (auto& c : d[digits[i] - '2']) {
+                t.push_back(c);
+                dfs(i + 1);
+                t.pop_back();
+            }
+        };
+        dfs(0);
         return ans;
     }
 };
@@ -131,6 +224,30 @@ func letterCombinations(digits string) []string {
 }
 ```
 
+```go
+func letterCombinations(digits string) (ans []string) {
+	d := []string{"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"}
+	t := []rune{}
+	var dfs func(int)
+	dfs = func(i int) {
+		if i >= len(digits) {
+			ans = append(ans, string(t))
+			return
+		}
+		for _, c := range d[digits[i]-'2'] {
+			t = append(t, c)
+			dfs(i + 1)
+			t = t[:len(t)-1]
+		}
+	}
+	if len(digits) == 0 {
+		return
+	}
+	dfs(0)
+	return
+}
+```
+
 ### **JavaScript**
 
 ```js
@@ -142,7 +259,7 @@ var letterCombinations = function (digits) {
     if (digits.length == 0) {
         return [];
     }
-    let ans = [''];
+    const ans = [''];
     const d = ['abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz'];
     for (const i of digits) {
         const s = d[parseInt(i) - 2];
@@ -152,8 +269,37 @@ var letterCombinations = function (digits) {
                 t.push(a + b);
             }
         }
-        ans = t;
+        ans.splice(0, ans.length, ...t);
     }
+    return ans;
+};
+```
+
+```js
+/**
+ * @param {string} digits
+ * @return {string[]}
+ */
+var letterCombinations = function (digits) {
+    if (digits.length == 0) {
+        return [];
+    }
+    const ans = [];
+    const t = [];
+    const d = ['abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz'];
+    const dfs = i => {
+        if (i >= digits.length) {
+            ans.push(t.join(''));
+            return;
+        }
+        const s = d[parseInt(digits[i]) - 2];
+        for (const c of s) {
+            t.push(c);
+            dfs(i + 1);
+            t.pop();
+        }
+    };
+    dfs(0);
     return ans;
 };
 ```
@@ -184,151 +330,135 @@ public class Solution {
 }
 ```
 
+```cs
+public class Solution {
+    private readonly string[] d = {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+    private string digits;
+    private List<string> ans = new List<string>();
+    private System.Text.StringBuilder t = new System.Text.StringBuilder();
+
+    public IList<string> LetterCombinations(string digits) {
+        if (digits.Length == 0) {
+            return ans;
+        }
+        this.digits = digits;
+        Dfs(0);
+        return ans;
+    }
+
+    private void Dfs(int i) {
+        if (i >= digits.Length) {
+            ans.Add(t.ToString());
+            return;
+        }
+        string s = d[digits[i] - '2'];
+        foreach (char c in s) {
+            t.Append(c);
+            Dfs(i + 1);
+            t.Remove(t.Length - 1, 1);
+        }
+    }
+}
+```
+
 ### **TypeScript**
 
 ```ts
-const map = {
-    '2': ['a', 'b', 'c'],
-    '3': ['d', 'e', 'f'],
-    '4': ['g', 'h', 'i'],
-    '5': ['j', 'k', 'l'],
-    '6': ['m', 'n', 'o'],
-    '7': ['p', 'q', 'r', 's'],
-    '8': ['t', 'u', 'v'],
-    '9': ['w', 'x', 'y', 'z'],
-};
-
 function letterCombinations(digits: string): string[] {
-    const n = digits.length;
-    if (n === 0) {
+    if (digits.length == 0) {
         return [];
     }
-    const res = [];
-    const dfs = (i: number, str: string) => {
-        if (i === n) {
-            res.push(str);
-            return;
+    const ans: string[] = [''];
+    const d = ['abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz'];
+    for (const i of digits) {
+        const s = d[parseInt(i) - 2];
+        const t: string[] = [];
+        for (const a of ans) {
+            for (const b of s) {
+                t.push(a + b);
+            }
         }
-        for (const c of map[digits[i]]) {
-            dfs(i + 1, str + c);
-        }
-    };
-    dfs(0, '');
-    return res;
+        ans.splice(0, ans.length, ...t);
+    }
+    return ans;
 }
 ```
 
 ```ts
-const map = {
-    '2': ['a', 'b', 'c'],
-    '3': ['d', 'e', 'f'],
-    '4': ['g', 'h', 'i'],
-    '5': ['j', 'k', 'l'],
-    '6': ['m', 'n', 'o'],
-    '7': ['p', 'q', 'r', 's'],
-    '8': ['t', 'u', 'v'],
-    '9': ['w', 'x', 'y', 'z'],
-};
-
 function letterCombinations(digits: string): string[] {
-    const n = digits.length;
-    if (n === 0) {
+    if (digits.length == 0) {
         return [];
     }
-    const dfs = (i: number, ss: string[]) => {
-        if (i === n) {
-            return ss;
+    const ans: string[] = [];
+    const t: string[] = [];
+    const d = ['abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz'];
+    const dfs = (i: number) => {
+        if (i >= digits.length) {
+            ans.push(t.join(''));
+            return;
         }
-        const t = [];
-        for (const c of map[digits[i]]) {
-            for (const s of ss) {
-                t.push(s + c);
-            }
+        const s = d[parseInt(digits[i]) - 2];
+        for (const c of s) {
+            t.push(c);
+            dfs(i + 1);
+            t.pop();
         }
-        return dfs(i + 1, t);
     };
-    return dfs(1, map[digits[0]]);
+    dfs(0);
+    return ans;
 }
 ```
 
 ### **Rust**
 
 ```rust
-use std::collections::HashMap;
-
 impl Solution {
-    fn dfs(
-        i: usize,
-        s: &mut String,
-        cs: &Vec<char>,
-        map: &HashMap<char, String>,
-        res: &mut Vec<String>
-    ) {
-        if i == cs.len() {
-            res.push(s.clone());
-            return;
-        }
-        for c in map.get(&cs[i]).unwrap().chars() {
-            s.push(c);
-            Self::dfs(i + 1, s, cs, map, res);
-            s.pop();
-        }
-    }
-
     pub fn letter_combinations(digits: String) -> Vec<String> {
-        let mut res = vec![];
+        let mut ans: Vec<String> = Vec::new();
         if digits.is_empty() {
-            return res;
+            return ans;
         }
-
-        let mut map = HashMap::new();
-        map.insert('2', String::from("abc"));
-        map.insert('3', String::from("def"));
-        map.insert('4', String::from("ghi"));
-        map.insert('5', String::from("jkl"));
-        map.insert('6', String::from("mno"));
-        map.insert('7', String::from("pqrs"));
-        map.insert('8', String::from("tuv"));
-        map.insert('9', String::from("wxyz"));
-
-        Self::dfs(0, &mut String::new(), &digits.chars().collect(), &map, &mut res);
-        res
+        ans.push("".to_string());
+        let d = ["abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"];
+        for i in digits.chars() {
+            let s = &d[((i as u8) - b'2') as usize];
+            let mut t: Vec<String> = Vec::new();
+            for a in &ans {
+                for b in s.chars() {
+                    t.push(format!("{}{}", a, b));
+                }
+            }
+            ans = t;
+        }
+        ans
     }
 }
 ```
 
 ```rust
 impl Solution {
-    fn dfs(i: usize, digits: &[u8], map: &Vec<Vec<char>>, s: &mut String, res: &mut Vec<String>) {
-        if i == digits.len() {
-            res.push(s.clone());
-            return;
+    pub fn letter_combinations(digits: String) -> Vec<String> {
+        let d = ["abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"];
+        let mut ans = Vec::new();
+        let mut t = String::new();
+        if digits.is_empty() {
+            return ans;
         }
-        for c in map[(digits[i] - b'2') as usize].iter() {
-            s.push(*c);
-            Self::dfs(i + 1, digits, map, s, res);
-            s.pop();
-        }
+        Solution::dfs(&digits, &d, &mut t, &mut ans, 0);
+        ans
     }
 
-    pub fn letter_combinations(digits: String) -> Vec<String> {
-        if digits.is_empty() {
-            return Vec::new();
+    fn dfs(digits: &String, d: &[&str; 8], t: &mut String, ans: &mut Vec<String>, i: usize) {
+        if i >= digits.len() {
+            ans.push(t.clone());
+            return;
         }
-        let digits = digits.as_bytes();
-        let map = vec![
-            vec!['a', 'b', 'c'],
-            vec!['d', 'e', 'f'],
-            vec!['g', 'h', 'i'],
-            vec!['j', 'k', 'l'],
-            vec!['m', 'n', 'o'],
-            vec!['p', 'q', 'r', 's'],
-            vec!['t', 'u', 'v'],
-            vec!['w', 'x', 'y', 'z']
-        ];
-        let mut res = Vec::new();
-        Self::dfs(0, digits, &map, &mut String::new(), &mut res);
-        res
+        let s = d[((digits.chars().nth(i).unwrap() as u8) - b'2') as usize];
+        for c in s.chars() {
+            t.push(c);
+            Solution::dfs(digits, d, t, ans, i + 1);
+            t.pop();
+        }
     }
 }
 ```

@@ -64,11 +64,11 @@ M             1000</pre>
 
 ## Solutions
 
-**Solution 1: Hash table + simulation**
+**Solution 1: Hash Table + Simulation**
 
-We first use a hash table $d$ to record the numerical value corresponding to each character, and then traverse the string $s$ from left to right. If the numerical value corresponding to the current character is less than the numerical value corresponding to the right character, subtract the numerical value corresponding to the current character, otherwise add the numerical value corresponding to the current character.
+First, we use a hash table $d$ to record the numerical value corresponding to each character. Then, we traverse the string $s$ from left to right. If the numerical value corresponding to the current character is less than the numerical value corresponding to the character on the right, we subtract the numerical value corresponding to the current character. Otherwise, we add the numerical value corresponding to the current character.
 
-The time complexity is $O(n)$ and the space complexity is $O(m)$. Where $n$ and $m$ are the lengths of the string $s$ and the size of the character set, respectively.
+The time complexity is $O(n)$, and the space complexity is $O(m)$. Here, $n$ and $m$ are the length of the string $s$ and the size of the character set, respectively.
 
 <!-- tabs:start -->
 

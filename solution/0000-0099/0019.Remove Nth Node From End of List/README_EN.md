@@ -43,6 +43,14 @@
 
 ## Solutions
 
+**Solution 1: Fast and Slow Pointers**
+
+We define two pointers `fast` and `slow`, both initially pointing to the dummy head node of the linked list.
+
+Next, the `fast` pointer moves forward $n$ steps first, then `fast` and `slow` pointers move forward together until the `fast` pointer reaches the end of the linked list. At this point, the node pointed to by `slow.next` is the predecessor of the $n$-th node from the end, and we can delete it.
+
+The time complexity is $O(n)$, where $n$ is the length of the linked list. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
