@@ -38,6 +38,18 @@ Thus, 101 is not a majority element because 2 &gt; 4/2 is false.
 
 ## Solutions
 
+**Solution 1: Binary Search**
+
+We notice that the elements in the array $nums$ are non-decreasing, that is, the elements in the array $nums$ are monotonically increasing. Therefore, we can use the method of binary search to find the index $left$ of the first element in the array $nums$ that is greater than or equal to $target$, and the index $right$ of the first element in the array $nums$ that is greater than $target$. If $right - left > \frac{n}{2}$, it means that the number of occurrences of the element $target$ in the array $nums$ exceeds half of the length of the array, so return $true$, otherwise return $false$.
+
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $nums$.
+
+**Solution 2: Binary Search (Optimized)**
+
+In Solution 1, we used binary search twice to find the index $left$ of the first element in the array $nums$ that is greater than or equal to $target$, and the index $right$ of the first element in the array $nums$ that is greater than $target$. However, we can use binary search once to find the index $left$ of the first element in the array $nums$ that is greater than or equal to $target$, and then judge whether $nums[left + \frac{n}{2}]$ is equal to $target$. If they are equal, it means that the number of occurrences of the element $target$ in the array $nums$ exceeds half of the length of the array, so return $true$, otherwise return $false$.
+
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**

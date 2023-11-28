@@ -32,6 +32,16 @@
 
 ## Solutions
 
+**Solution 1: In-order Traversal + Two Pointers**
+
+We perform in-order traversals on the two trees separately, obtaining two sorted arrays $nums[0]$ and $nums[1]$. Then we use a two-pointer method to determine whether there exist two numbers whose sum equals the target value. The two-pointer method is as follows:
+
+Initialize two pointers $i$ and $j$, pointing to the left boundary of array $nums[0]$ and the right boundary of array $nums[1]$ respectively;
+
+Each time, compare the sum $x = nums[0][i] + nums[1][j]$ with the target value. If $x = target$, return `true`; otherwise, if $x \lt target$, move $i$ one step to the right; otherwise, if $x \gt target$, move $j$ one step to the left.
+
+The time complexity is $O(m + n)$, and the space complexity is $O(m + n)$. Here, $m$ and $n$ are the number of nodes in the two trees respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -33,6 +33,20 @@
 
 ## Solutions
 
+**Solution 1: Direct Calculation**
+
+According to the problem, the given date is in the Gregorian calendar, so we can directly calculate which day of the year it is.
+
+First, calculate the year, month, and day from the given date, denoted as $y$, $m$, $d$.
+
+Then, calculate the number of days in February of that year according to the leap year rules of the Gregorian calendar. There are $29$ days in February of a leap year and $28$ days in a non-leap year.
+
+> The leap year calculation rule is: the year can be divided by $400$, or the year can be divided by $4$ but not by $100$.
+
+Finally, calculate which day of the year it is according to the given date, that is, add up the number of days in each previous month, and then add the number of days in the current month.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

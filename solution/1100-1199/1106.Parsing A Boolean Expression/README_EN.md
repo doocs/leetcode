@@ -58,6 +58,19 @@ Then, evaluate !(f) --&gt; NOT false --&gt; true. We return true.
 
 ## Solutions
 
+**Solution 1: Stack**
+
+For this type of expression parsing problem, we can use a stack to assist.
+
+We traverse the expression `expression` from left to right. For each character $c$ we encounter:
+
+-   If $c$ is one of `"tf!&|"`, we push it directly onto the stack;
+-   If $c$ is a right parenthesis `')'`, we pop elements from the stack until we encounter an operator `'!'`, `'&'`, or `'|'`. During this process, we use variables $t$ and $f$ to record the number of `'t'` and `'f'` characters popped from the stack. Finally, based on the number of characters popped and the operator, we calculate a new character `'t'` or `'f'` and push it onto the stack.
+
+After traversing the expression `expression`, there is only one character left in the stack. If it is `'t'`, return `true`, otherwise return `false`.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the expression `expression`.
+
 <!-- tabs:start -->
 
 ### **Python3**

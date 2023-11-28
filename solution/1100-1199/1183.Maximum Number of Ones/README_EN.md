@@ -44,6 +44,14 @@ The best solution that has 4 ones is:
 
 ## Solutions
 
+**Solution 1: Count Equivalent Positions**
+
+For convenience, let's denote $x = sideLength$.
+
+Consider a $x \times x$ square, we need to select at most $maxOnes$ points inside the square and set them to 1. Note that when the point at coordinate $(i, j)$ is selected, all points at coordinates $(i\pm k_1 \times x, j\pm k_2 \times x)$ can be equivalently set to 1. Therefore, we calculate the number of equivalent positions of the coordinate $(i, j)$ in the matrix, and select the top $maxOnes$ with the most quantities.
+
+The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**

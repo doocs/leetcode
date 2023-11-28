@@ -44,7 +44,7 @@ Hence, the answer is 4.</pre>
 
 ## Solutions
 
-**Method 1: Greedy**
+**Solution 1: Greedy**
 
 We use a variable $ans$ to record the current length of the array, and a variable $y$ to record the current product of the array. Initially, $ans = 1$ and $y = nums[0]$.
 

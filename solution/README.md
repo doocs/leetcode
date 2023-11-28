@@ -2952,6 +2952,14 @@
 |  2939  |  [最大异或乘积](/solution/2900-2999/2939.Maximum%20Xor%20Product/README.md)  |  `贪心`,`位运算`,`数学`  |  中等  |  第 372 场周赛  |
 |  2940  |  [找到 Alice 和 Bob 可以相遇的建筑](/solution/2900-2999/2940.Find%20Building%20Where%20Alice%20and%20Bob%20Can%20Meet/README.md)  |  `栈`,`树状数组`,`线段树`,`数组`,`二分查找`,`单调栈`,`堆（优先队列）`  |  困难  |  第 372 场周赛  |
 |  2941  |  [Maximum GCD-Sum of a Subarray](/solution/2900-2999/2941.Maximum%20GCD-Sum%20of%20a%20Subarray/README.md)  |    |  困难  |  🔒  |
+|  2942  |  [查找包含给定字符的单词](/solution/2900-2999/2942.Find%20Words%20Containing%20Character/README.md)  |    |  简单  |  第 118 场双周赛  |
+|  2943  |  [最大化网格图中正方形空洞的面积](/solution/2900-2999/2943.Maximize%20Area%20of%20Square%20Hole%20in%20Grid/README.md)  |    |  中等  |  第 118 场双周赛  |
+|  2944  |  [购买水果需要的最少金币数](/solution/2900-2999/2944.Minimum%20Number%20of%20Coins%20for%20Fruits/README.md)  |    |  中等  |  第 118 场双周赛  |
+|  2945  |  [找到最大非递减数组的长度](/solution/2900-2999/2945.Find%20Maximum%20Non-decreasing%20Array%20Length/README.md)  |    |  困难  |  第 118 场双周赛  |
+|  2946  |  [循环移位后的矩阵相似检查](/solution/2900-2999/2946.Matrix%20Similarity%20After%20Cyclic%20Shifts/README.md)  |    |  简单  |  第 373 场周赛  |
+|  2947  |  [统计美丽子字符串 I](/solution/2900-2999/2947.Count%20Beautiful%20Substrings%20I/README.md)  |    |  中等  |  第 373 场周赛  |
+|  2948  |  [交换得到字典序最小的数组](/solution/2900-2999/2948.Make%20Lexicographically%20Smallest%20Array%20by%20Swapping%20Elements/README.md)  |    |  中等  |  第 373 场周赛  |
+|  2949  |  [统计美丽子字符串 II](/solution/2900-2999/2949.Count%20Beautiful%20Substrings%20II/README.md)  |    |  困难  |  第 373 场周赛  |
 
 ## 版权
 

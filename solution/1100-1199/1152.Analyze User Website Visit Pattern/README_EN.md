@@ -62,6 +62,12 @@ The pattern (&quot;home&quot;, &quot;home&quot;, &quot;home&quot;) has score 0 (
 
 ## Solutions
 
+**Solution 1: Hash Table + Sorting**
+
+First, we use a hash table $d$ to record the websites each user visits. Then we traverse $d$. For each user, we enumerate all the triplets they visited, count the occurrence of distinct triplets, and finally traverse all triplets, returning the one with the highest occurrence and the smallest lexicographic order.
+
+The time complexity is $O(n^3)$, and the space complexity is $O(n^3)$. Here, $n$ is the length of `username`.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -83,6 +83,8 @@ majorityChecker.query(2,3,2); // 返回 2
 
 ```python
 class Node:
+    __slots__ = ("l", "r", "x", "cnt")
+
     def __init__(self):
         self.l = self.r = 0
         self.x = self.cnt = 0

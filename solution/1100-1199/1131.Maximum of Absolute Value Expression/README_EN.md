@@ -35,6 +35,23 @@
 
 ## Solutions
 
+**Solution 1: Mathematics + Enumeration**
+
+Let's denote $x_i = arr1[i]$, $y_i = arr2[i]$. Since the size relationship between $i$ and $j$ does not affect the value of the expression, we can assume $i \ge j$. Then the expression can be transformed into:
+
+$$
+| x_i - x_j | + | y_i - y_j | + i - j = \max \begin{cases} (x_i + y_i) - (x_j + y_j) \\ (x_i - y_i) - (x_j - y_j) \\ (-x_i + y_i) - (-x_j + y_j) \\ (-x_i - y_i) - (-x_j - y_j) \end{cases} + i - j\\
+= \max \begin{cases} (x_i + y_i + i) - (x_j + y_j + j) \\ (x_i - y_i + i) - (x_j - y_j + j) \\ (-x_i + y_i + i) - (-x_j + y_j + j) \\ (-x_i - y_i + i) - (-x_j - y_j + j) \end{cases}
+$$
+
+Therefore, we just need to find the maximum value $mx$ and the minimum value $mi$ of $a \times x_i + b \times y_i + i$, where $a, b \in \{-1, 1\}$. The answer is the maximum value among all $mx - mi$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+
+Similar problems:
+
+-   [1330. Reverse Subarray To Maximize Array Value](/solution/1300-1399/1330.Reverse%20Subarray%20To%20Maximize%20Array%20Value/README_EN.md)
+
 <!-- tabs:start -->
 
 ### **Python3**

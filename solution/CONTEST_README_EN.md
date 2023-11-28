@@ -25,6 +25,20 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 373
+
+- [2946. Matrix Similarity After Cyclic Shifts](/solution/2900-2999/2946.Matrix%20Similarity%20After%20Cyclic%20Shifts/README_EN.md)
+- [2947. Count Beautiful Substrings I](/solution/2900-2999/2947.Count%20Beautiful%20Substrings%20I/README_EN.md)
+- [2948. Make Lexicographically Smallest Array by Swapping Elements](/solution/2900-2999/2948.Make%20Lexicographically%20Smallest%20Array%20by%20Swapping%20Elements/README_EN.md)
+- [2949. Count Beautiful Substrings II](/solution/2900-2999/2949.Count%20Beautiful%20Substrings%20II/README_EN.md)
+
+#### Biweekly Contest 118
+
+- [2942. Find Words Containing Character](/solution/2900-2999/2942.Find%20Words%20Containing%20Character/README_EN.md)
+- [2943. Maximize Area of Square Hole in Grid](/solution/2900-2999/2943.Maximize%20Area%20of%20Square%20Hole%20in%20Grid/README_EN.md)
+- [2944. Minimum Number of Coins for Fruits](/solution/2900-2999/2944.Minimum%20Number%20of%20Coins%20for%20Fruits/README_EN.md)
+- [2945. Find Maximum Non-decreasing Array Length](/solution/2900-2999/2945.Find%20Maximum%20Non-decreasing%20Array%20Length/README_EN.md)
+
 #### Weekly Contest 372
 
 - [2937. Make Three Strings Equal](/solution/2900-2999/2937.Make%20Three%20Strings%20Equal/README_EN.md)

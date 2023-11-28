@@ -32,6 +32,14 @@
 
 ## Solutions
 
+**Solution 1: Prefix Sum + Enumeration**
+
+We can use the prefix sum method to preprocess the number of consecutive 1s down and to the right of each position, denoted as `down[i][j]` and `right[i][j]`.
+
+Then we enumerate the side length $k$ of the square, starting from the largest side length. Then we enumerate the upper left corner position $(i, j)$ of the square. If it meets the condition, we can return $k^2$.
+
+The time complexity is $O(m \times n \times \min(m, n))$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -45,7 +45,21 @@
 
 ## Solutions
 
-Use deque or stack to simulate the reversal process.
+**Solution 1: Simulation**
+
+We can use a double-ended queue or stack to simulate the reversal process.
+
+The time complexity is $O(n^2)$, where $n$ is the length of the string $s$.
+
+**Solution 2: Quick Thinking**
+
+We observe that during the traversal of the string, each time we encounter '(' or ')', we jump to the corresponding ')' or '(', then reverse the traversal direction and continue.
+
+Therefore, we can use an array $d$ to record the position of the other bracket corresponding to each '(' or ')', i.e., $d[i]$ represents the position of the other bracket corresponding to the bracket at position $i$. We can directly use a stack to calculate the array $d$.
+
+Then, we traverse the string from left to right. When we encounter '(' or ')', we jump to the corresponding position according to the array $d$, then reverse the direction and continue to traverse until the entire string is traversed.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

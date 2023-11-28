@@ -41,7 +41,7 @@
 
 ## Solutions
 
-**Method 1: Equation Transformation + Hash Table**
+**Solution 1: Equation Transformation + Hash Table**
 
 For the index pair $(i, j)$, if it satisfies the condition, then we have $nums[i] + rev(nums[j]) = nums[j] + rev(nums[i])$, which means $nums[i] - nums[j] = rev(nums[j]) - rev(nums[i])$.
 

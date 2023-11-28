@@ -1,18 +1,34 @@
 function sumSubarrayMins(arr: number[]): number {
-    const n = arr.length;
-    function getEle(i: number): number {
-        if (i == -1 || i == n) return Number.MIN_SAFE_INTEGER;
-        return arr[i];
-    }
-    let ans = 0;
-    const mod = 10 ** 9 + 7;
-    let stack = [];
-    for (let i = -1; i <= n; i++) {
-        while (stack.length && getEle(stack[0]) > getEle(i)) {
-            const idx = stack.shift();
-            ans = (ans + arr[idx] * (idx - stack[0]) * (i - idx)) % mod;
+    const n: number = arr.length;
+    const left: number[] = Array(n).fill(-1);
+    const right: number[] = Array(n).fill(n);
+    const stk: number[] = [];
+    for (let i = 0; i < n; ++i) {
+        while (stk.length > 0 && arr[stk.at(-1)] >= arr[i]) {
+            stk.pop();
         }
-        stack.unshift(i);
+        if (stk.length > 0) {
+            left[i] = stk.at(-1);
+        }
+        stk.push(i);
+    }
+
+    stk.length = 0;
+    for (let i = n - 1; ~i; --i) {
+        while (stk.length > 0 && arr[stk.at(-1)] > arr[i]) {
+            stk.pop();
+        }
+        if (stk.length > 0) {
+            right[i] = stk.at(-1);
+        }
+        stk.push(i);
+    }
+
+    const mod: number = 1e9 + 7;
+    let ans: number = 0;
+    for (let i = 0; i < n; ++i) {
+        ans += ((((i - left[i]) * (right[i] - i)) % mod) * arr[i]) % mod;
+        ans %= mod;
     }
     return ans;
 }

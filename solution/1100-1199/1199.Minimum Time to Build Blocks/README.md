@@ -60,17 +60,17 @@
 
 **方法一：贪心 + 优先队列（小根堆）**
 
-先考虑只有一个街区的情况，此时不需要分裂工人，直接让他去建造街区，时间花费为 `block[0]`。
+先考虑只有一个街区的情况，此时不需要分裂工人，直接让他去建造街区，时间花费为 $block[0]$。
 
-如果有两个街区，此时需要把工人分裂为两个，然后让他们分别去建造街区，时间花费为 `split + max(block[0], block[1])`。
+如果有两个街区，此时需要把工人分裂为两个，然后让他们分别去建造街区，时间花费为 $split + \max(block[0], block[1])$。
 
 如果有超过两个街区，此时每一步都需要考虑将几个工人进行分裂，正向思维不好处理。
 
-我们不妨采用逆向思维，不分裂工人，而是将街区进行合并。我们选取任意两个街区 $i$, $j$ 进行合并，建造一个新的街区的时间为 `split + max(block[i], block[j])`。
+我们不妨采用逆向思维，不分裂工人，而是将街区进行合并。我们选取任意两个街区 $i$, $j$ 进行合并，建造一个新的街区的时间为 $split + \max(block[i], block[j])$。
 
 为了让耗时长的街区尽可能少参与到合并中，我们可以每次贪心地选取耗时最小的两个街区进行合并。因此，我们可以维护一个小根堆，每次取出最小的两个街区进行合并，直到只剩下一个街区。最后剩下的这个街区的建造时间就是答案。
 
-时间复杂度 $O(n\log n)$。其中 $n$ 是街区数量。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为街区的数量。
 
 <!-- tabs:start -->
 
@@ -150,6 +150,47 @@ func (h *hp) Pop() any {
 	v := a[len(a)-1]
 	h.IntSlice = a[:len(a)-1]
 	return v
+}
+```
+
+### **TypeScript**
+
+```ts
+function minBuildTime(blocks: number[], split: number): number {
+    const pq = new MinPriorityQueue();
+    for (const x of blocks) {
+        pq.enqueue(x);
+    }
+    while (pq.size() > 1) {
+        pq.dequeue()!;
+        pq.enqueue(pq.dequeue()!.element + split);
+    }
+    return pq.dequeue()!.element;
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::BinaryHeap;
+use std::cmp::Reverse;
+
+impl Solution {
+    pub fn min_build_time(blocks: Vec<i32>, split: i32) -> i32 {
+        let mut pq = BinaryHeap::new();
+
+        for x in blocks {
+            pq.push(Reverse(x));
+        }
+
+        while pq.len() > 1 {
+            pq.pop();
+            let new_element = pq.pop().unwrap().0 + split;
+            pq.push(Reverse(new_element));
+        }
+
+        pq.pop().unwrap().0
+    }
 }
 ```
 

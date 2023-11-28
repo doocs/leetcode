@@ -56,7 +56,11 @@ Path to get the maximum gold, 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; 6 -&gt; 7.
 
 ## Solutions
 
-DFS.
+**Solution 1: DFS**
+
+We can enumerate each cell as the starting point, and then start a depth-first search from the starting point. During the search process, whenever we encounter a non-zero cell, we turn it into zero and continue the search. When we can no longer continue the search, we calculate the total amount of gold in the current path, then turn the current cell back into a non-zero cell, thus performing backtracking.
+
+The time complexity is $O(m \times n \times 3^k)$, where $k$ is the maximum length of each path. Since each cell can only be visited once at most, the time complexity will not exceed $O(m \times n \times 3^k)$. The space complexity is $O(m \times n)$.
 
 <!-- tabs:start -->
 
@@ -65,18 +69,17 @@ DFS.
 ```python
 class Solution:
     def getMaximumGold(self, grid: List[List[int]]) -> int:
-        def dfs(i, j):
+        def dfs(i: int, j: int) -> int:
             if not (0 <= i < m and 0 <= j < n and grid[i][j]):
                 return 0
-            t = grid[i][j]
+            v = grid[i][j]
             grid[i][j] = 0
-            ans = t + max(
-                dfs(i + a, j + b) for a, b in [[0, 1], [0, -1], [-1, 0], [1, 0]]
-            )
-            grid[i][j] = t
+            ans = max(dfs(i + a, j + b) for a, b in pairwise(dirs)) + v
+            grid[i][j] = v
             return ans
 
         m, n = len(grid), len(grid[0])
+        dirs = (-1, 0, 1, 0, -1)
         return max(dfs(i, j) for i in range(m) for j in range(n))
 ```
 
@@ -84,6 +87,7 @@ class Solution:
 
 ```java
 class Solution {
+    private final int[] dirs = {-1, 0, 1, 0, -1};
     private int[][] grid;
     private int m;
     private int n;
@@ -105,14 +109,13 @@ class Solution {
         if (i < 0 || i >= m || j < 0 || j >= n || grid[i][j] == 0) {
             return 0;
         }
-        int t = grid[i][j];
+        int v = grid[i][j];
         grid[i][j] = 0;
-        int[] dirs = {-1, 0, 1, 0, -1};
         int ans = 0;
         for (int k = 0; k < 4; ++k) {
-            ans = Math.max(ans, t + dfs(i + dirs[k], j + dirs[k + 1]));
+            ans = Math.max(ans, v + dfs(i + dirs[k], j + dirs[k + 1]));
         }
-        grid[i][j] = t;
+        grid[i][j] = v;
         return ans;
     }
 }
@@ -123,23 +126,24 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> dirs = {-1, 0, 1, 0, -1};
-
     int getMaximumGold(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        function<int(int, int)> dfs = [&](int i, int j) {
+            if (i < 0 || i >= m || j < 0 || j >= n || !grid[i][j]) {
+                return 0;
+            }
+            int v = grid[i][j];
+            grid[i][j] = 0;
+            int ans = v + max({dfs(i - 1, j), dfs(i + 1, j), dfs(i, j - 1), dfs(i, j + 1)});
+            grid[i][j] = v;
+            return ans;
+        };
         int ans = 0;
-        for (int i = 0; i < grid.size(); ++i)
-            for (int j = 0; j < grid[0].size(); ++j)
-                ans = max(ans, dfs(i, j, grid));
-        return ans;
-    }
-
-    int dfs(int i, int j, vector<vector<int>>& grid) {
-        if (i < 0 || i >= grid.size() || j < 0 || j >= grid[0].size() || grid[i][j] == 0) return 0;
-        int t = grid[i][j];
-        grid[i][j] = 0;
-        int ans = 0;
-        for (int k = 0; k < 4; ++k) ans = max(ans, t + dfs(i + dirs[k], j + dirs[k + 1], grid));
-        grid[i][j] = t;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                ans = max(ans, dfs(i, j));
+            }
+        }
         return ans;
     }
 };
@@ -148,30 +152,55 @@ public:
 ### **Go**
 
 ```go
-func getMaximumGold(grid [][]int) int {
+func getMaximumGold(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
 	var dfs func(i, j int) int
 	dfs = func(i, j int) int {
 		if i < 0 || i >= m || j < 0 || j >= n || grid[i][j] == 0 {
 			return 0
 		}
-		t := grid[i][j]
+		v := grid[i][j]
 		grid[i][j] = 0
 		ans := 0
 		dirs := []int{-1, 0, 1, 0, -1}
 		for k := 0; k < 4; k++ {
-			ans = max(ans, t+dfs(i+dirs[k], j+dirs[k+1]))
+			ans = max(ans, v+dfs(i+dirs[k], j+dirs[k+1]))
 		}
-		grid[i][j] = t
+		grid[i][j] = v
 		return ans
 	}
-	ans := 0
 	for i := 0; i < m; i++ {
 		for j := 0; j < n; j++ {
 			ans = max(ans, dfs(i, j))
 		}
 	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function getMaximumGold(grid: number[][]): number {
+    const m = grid.length;
+    const n = grid[0].length;
+    const dfs = (i: number, j: number): number => {
+        if (i < 0 || i >= m || j < 0 || j >= n || !grid[i][j]) {
+            return 0;
+        }
+        const v = grid[i][j];
+        grid[i][j] = 0;
+        let ans = v + Math.max(dfs(i - 1, j), dfs(i + 1, j), dfs(i, j - 1), dfs(i, j + 1));
+        grid[i][j] = v;
+        return ans;
+    };
+    let ans = 0;
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            ans = Math.max(ans, dfs(i, j));
+        }
+    }
+    return ans;
 }
 ```
 
@@ -185,23 +214,19 @@ func getMaximumGold(grid [][]int) int {
 var getMaximumGold = function (grid) {
     const m = grid.length;
     const n = grid[0].length;
-    function dfs(i, j) {
-        if (i < 0 || i >= m || j < 0 || j >= n || grid[i][j] == 0) {
+    const dfs = (i, j) => {
+        if (i < 0 || i >= m || j < 0 || j >= n || !grid[i][j]) {
             return 0;
         }
-        const t = grid[i][j];
+        const v = grid[i][j];
         grid[i][j] = 0;
-        let ans = 0;
-        const dirs = [-1, 0, 1, 0, -1];
-        for (let k = 0; k < 4; ++k) {
-            ans = Math.max(ans, t + dfs(i + dirs[k], j + dirs[k + 1]));
-        }
-        grid[i][j] = t;
+        let ans = v + Math.max(dfs(i - 1, j), dfs(i + 1, j), dfs(i, j - 1), dfs(i, j + 1));
+        grid[i][j] = v;
         return ans;
-    }
+    };
     let ans = 0;
-    for (let i = 0; i < m; ++i) {
-        for (let j = 0; j < n; ++j) {
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
             ans = Math.max(ans, dfs(i, j));
         }
     }

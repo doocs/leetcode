@@ -56,7 +56,7 @@
 
 我们记数组 $arr$ 所有元素之和为 $s$，最大前缀和为 $mxPre$，最小前缀和为 $miPre$，最大子数组和为 $mxSub$。
 
-遍历数组 $arr$，对于每个元素 $x$，我们更新 $s = s + x$, $mxPre = max(mxPre, s)$, $miPre = min(miPre, s)$, $mxSub = max(mxSub, s - miPre)$。
+遍历数组 $arr$，对于每个元素 $x$，我们更新 $s = s + x$, $mxPre = \max(mxPre, s)$, $miPre = \min(miPre, s)$, $mxSub = \max(mxSub, s - miPre)$。
 
 接下来，我们考虑 $k$ 的取值情况：
 

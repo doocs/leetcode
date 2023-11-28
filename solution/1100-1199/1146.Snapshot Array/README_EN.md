@@ -40,6 +40,16 @@ snapshotArr.get(0,0);  // Get the value of array[0] with snap_id = 0, return 5</
 
 ## Solutions
 
+**Solution 1: Array + Binary Search**
+
+Maintain an array, each element of which is a list storing the values set each time and their corresponding snapshot IDs.
+
+Each time a value is set, add the value and snapshot ID to the list at the corresponding index.
+
+Each time a value is retrieved, use binary search to find the first value in the corresponding position that is greater than the snapshot ID `snap_id`, and then return the previous value.
+
+In terms of time complexity, the time complexity of setting a value is $O(1)$, the time complexity of a snapshot is $O(1)$, and the time complexity of getting a value is $O(\log n)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

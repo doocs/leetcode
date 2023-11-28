@@ -41,6 +41,16 @@
 
 ## Solutions
 
+**Solution 1: Kruskal's Algorithm**
+
+Kruskal's algorithm is a greedy algorithm used to compute the minimum spanning tree.
+
+The basic idea of Kruskal's algorithm is to select the smallest edge from the edge set each time. If the two vertices connected by this edge are not in the same connected component, then add this edge to the minimum spanning tree, otherwise discard this edge.
+
+For this problem, we can sort the edges in ascending order of connection cost, use a union-find set to maintain connected components, select the smallest edge each time, and if the two vertices connected by this edge are not in the same connected component, then merge these two vertices and accumulate the connection cost. If a situation occurs where the number of connected components is $1$, it means that all vertices are connected, and we return the accumulated connection cost, otherwise, we return $-1$.
+
+The time complexity is $O(m \times \log m)$, and the space complexity is $O(n)$. Here, $m$ and $n$ are the number of edges and vertices, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**

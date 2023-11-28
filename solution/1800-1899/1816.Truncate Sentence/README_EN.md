@@ -54,7 +54,7 @@ Hence, you should return &quot;What is the solution&quot;.</pre>
 
 ## Solutions
 
-**Method 1: Simulation**
+**Solution 1: Simulation**
 
 We traverse the string $s$ from the beginning. For the current character $s[i]$, if it is a space, we decrement $k$. When $k$ becomes $0$, it means that we have extracted $k$ words, so we return the substring $s[0..i)$.
 

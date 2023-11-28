@@ -43,6 +43,16 @@
 
 ## Solutions
 
+**Solution 1: Two Pointers**
+
+First, we use a hash table or array $cnt$ to count the occurrence of each character in the string $text$.
+
+Next, we define a pointer $i$, initially $i = 0$. Each time, we set the pointer $j$ to $i$, and continuously move $j$ to the right until the character pointed by $j$ is different from the character pointed by $i$. At this time, we get a substring $text[i..j-1]$ of length $l = j - i$, where all characters are the same.
+
+Then we skip the character pointed by the pointer $j$, and continue to move the pointer $k$ to the right until the character pointed by $k$ is different from the character pointed by $i$. At this time, we get a substring $text[j+1..k-1]$ of length $r = k - j - 1$, where all characters are the same. So the longest single-character repeated substring we can get by at most one swap operation is $\min(l + r + 1, cnt[text[i]])$. Next, we move the pointer $i$ to $j$ and continue to find the next substring. We take the maximum length of all substrings that meet the conditions.
+
+The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is the length of the string, and $C$ is the size of the character set. In this problem, $C = 26$.
+
 <!-- tabs:start -->
 
 ### **Python3**
