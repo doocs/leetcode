@@ -39,6 +39,16 @@
 
 ## Solutions
 
+**Solution 1: Direct Search**
+
+First, we store all the positions of the queens in a hash table or a two-dimensional array $s$.
+
+Next, starting from the position of the king, we search in the eight directions: up, down, left, right, upper left, upper right, lower left, and lower right. If there is a queen in a certain direction, we add its position to the answer and stop continuing to search in that direction.
+
+After the search is over, we return the answer.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. In this problem, $n = 8$.
+
 <!-- tabs:start -->
 
 ### **Python3**

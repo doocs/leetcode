@@ -34,6 +34,18 @@
 
 ## Solutions
 
+**Solution 1: Array or Hash Table**
+
+We use $cnt$ to record the number of times each element $v$ appears in $nums$, and $ccnt$ to record the number of times each count appears. The maximum number of times an element appears is represented by $mx$.
+
+While traversing $nums$:
+
+-   If the maximum count $mx=1$, it means that each number in the current prefix appears $1$ time. If we delete any one of them, the remaining numbers will all have the same count.
+-   If all numbers appear $mx$ and $mx-1$ times, and only one number appears $mx$ times, then we can delete one occurrence of the number that appears $mx$ times. The remaining numbers will all have a count of $mx-1$, which meets the condition.
+-   If, except for one number, all other numbers appear $mx$ times, then we can delete the number that appears once. The remaining numbers will all have a count of $mx$, which meets the condition.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the $nums$ array.
+
 <!-- tabs:start -->
 
 ### **Python3**

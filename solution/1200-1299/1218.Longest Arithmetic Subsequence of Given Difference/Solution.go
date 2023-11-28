@@ -1,8 +1,8 @@
-func longestSubsequence(arr []int, difference int) int {
-	dp, ans := make(map[int]int), 1
-	for _, num := range arr {
-		dp[num] = dp[num-difference] + 1
-		ans = max(ans, dp[num])
+func longestSubsequence(arr []int, difference int) (ans int) {
+	f := map[int]int{}
+	for _, x := range arr {
+		f[x] = f[x-difference] + 1
+		ans = max(ans, f[x])
 	}
-	return ans
+	return
 }

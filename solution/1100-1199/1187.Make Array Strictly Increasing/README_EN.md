@@ -46,6 +46,18 @@
 
 ## Solutions
 
+**Solution 1: Dynamic Programming**
+
+We define $f[i]$ as the minimum number of operations to convert $arr1[0,..,i]$ into a strictly increasing array, and $arr1[i]$ is not replaced. Therefore, we set two sentinels $-\infty$ and $\infty$ at the beginning and end of $arr1$. The last number is definitely not replaced, so $f[n-1]$ is the answer. We initialize $f[0]=0$, and the rest $f[i]=\infty$.
+
+Next, we sort the array $arr2$ and remove duplicates for easy binary search.
+
+For $i=1,..,n-1$, we consider whether $arr1[i-1]$ is replaced. If $arr1[i-1] \lt arr1[i]$, then $f[i]$ can be transferred from $f[i-1]$, that is, $f[i] = f[i-1]$. Then, we consider the case where $arr[i-1]$ is replaced. Obviously, $arr[i-1]$ should be replaced with a number as large as possible and less than $arr[i]$. We perform a binary search in the array $arr2$ and find the first index $j$ that is greater than or equal to $arr[i]$. Then we enumerate the number of replacements in the range $k \in [1, min(i-1, j)]$. If $arr[i-k-1] \lt arr2[j-k]$, then $f[i]$ can be transferred from $f[i-k-1]$, that is, $f[i] = \min(f[i], f[i-k-1] + k)$.
+
+Finally, if $f[n-1] \geq \infty$, it means that it cannot be converted into a strictly increasing array, return $-1$, otherwise return $f[n-1]$.
+
+The time complexity is $(n \times (\log m + \min(m, n)))$, and the space complexity is $O(n)$. Here, $n$ is the length of $arr1$.
+
 <!-- tabs:start -->
 
 ### **Python3**

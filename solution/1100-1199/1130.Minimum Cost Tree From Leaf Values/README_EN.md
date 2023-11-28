@@ -44,6 +44,56 @@ The first has a non-leaf node sum 36, and the second has non-leaf node sum 32.
 
 ## Solutions
 
+**Solution 1: Memoization Search**
+
+According to the problem description, the values in the array $arr$ correspond one-to-one with the values in the inorder traversal of each leaf node of the tree. We can divide the array into two non-empty sub-arrays, corresponding to the left and right subtrees of the tree, and recursively solve for the minimum possible sum of all non-leaf node values in each subtree.
+
+We design a function $dfs(i, j)$, which represents the minimum possible sum of all non-leaf node values in the index range $[i, j]$ of the array $arr$. The answer is $dfs(0, n - 1)$, where $n$ is the length of the array $arr$.
+
+The calculation process of the function $dfs(i, j)$ is as follows:
+
+-   If $i = j$, it means that there is only one element in the array $arr[i..j]$, and there are no non-leaf nodes, so $dfs(i, j) = 0$.
+-   Otherwise, we enumerate $k \in [i, j - 1]$, divide the array $arr$ into two sub-arrays $arr[i..k]$ and $arr[k + 1..j]$. For each $k$, we recursively calculate $dfs(i, k)$ and $dfs(k + 1, j)$. Here, $dfs(i, k)$ represents the minimum possible sum of all non-leaf node values in the index range $[i, k]$ of the array $arr$, and $dfs(k + 1, j)$ represents the minimum possible sum of all non-leaf node values in the index range $[k + 1, j]$ of the array $arr$. So $dfs(i, j) = \min_{i \leq k < j} \{dfs(i, k) + dfs(k + 1, j) + \max_{i \leq t \leq k} \{arr[t]\} \max_{k < t \leq j} \{arr[t]\}\}$.
+
+In summary, we can get:
+
+$$
+dfs(i, j) = \begin{cases}
+0, & \text{if } i = j \\
+\min_{i \leq k < j} \{dfs(i, k) + dfs(k + 1, j) + \max_{i \leq t \leq k} \{arr[t]\} \max_{k < t \leq j} \{arr[t]\}\}, & \text{if } i < j
+\end{cases}
+$$
+
+In the above recursive process, we can use the method of memoization search to avoid repeated calculations. Additionally, we can use an array $g$ to record the maximum value of all leaf nodes in the index range $[i, j]$ of the array $arr$. This allows us to optimize the calculation process of $dfs(i, j)$:
+
+$$
+dfs(i, j) = \begin{cases}
+0, & \text{if } i = j \\
+\min_{i \leq k < j} \{dfs(i, k) + dfs(k + 1, j) + g[i][k] \cdot g[k + 1][j]\}, & \text{if } i < j
+\end{cases}
+$$
+
+Finally, we return $dfs(0, n - 1)$.
+
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the array $arr$.
+
+**Solution 2: Dynamic Programming**
+
+We can change the memoization search in Solution 1 to dynamic programming.
+
+Define $f[i][j]$ to represent the minimum possible sum of all non-leaf node values in the index range $[i, j]$ of the array $arr$, and $g[i][j]$ to represent the maximum value of all leaf nodes in the index range $[i, j]$ of the array $arr$. Then, the state transition equation is:
+
+$$
+f[i][j] = \begin{cases}
+0, & \text{if } i = j \\
+\min_{i \leq k < j} \{f[i][k] + f[k + 1][j] + g[i][k] \cdot g[k + 1][j]\}, & \text{if } i < j
+\end{cases}
+$$
+
+Finally, we return $f[0][n - 1]$.
+
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the array $arr$.
+
 <!-- tabs:start -->
 
 ### **Python3**

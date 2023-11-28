@@ -54,6 +54,14 @@ Swap s[0] and s[1], s = &quot;abc&quot;
 
 ## Solutions
 
+**Solution 1: Union-Find**
+
+We notice that the index pairs have transitivity, i.e., if $a$ and $b$ can be swapped, and $b$ and $c$ can be swapped, then $a$ and $c$ can also be swapped. Therefore, we can consider using a union-find data structure to maintain the connectivity of these index pairs, and sort the characters belonging to the same connected component in lexicographical order.
+
+Finally, we traverse the string. For the character at the current position, we replace it with the smallest character in the connected component, then remove this character from the connected component, and continue to traverse the string.
+
+The time complexity is $O(n \times \log n + m \times \alpha(m))$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the length of the string and the number of index pairs, respectively, and $\alpha$ is the inverse Ackermann function.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -41,6 +41,12 @@
 
 ## Solutions
 
+**Solution 1: Enumeration + Greedy**
+
+We can separately enumerate the even and odd positions as the elements "smaller than adjacent elements", and then calculate the required number of operations. The minimum of the two is taken.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
