@@ -44,17 +44,17 @@
 
 以字符串 `haystack` 的每一个字符为起点与字符串 `needle` 进行比较，若发现能够匹配的索引，直接返回即可。
 
-假设字符串 `haystack` 长度为 `n`，字符串 `needle` 长度为 `m`，则时间复杂度为 $O((n-m) \times m)$，空间复杂度 $O(1)$。
+假设字符串 `haystack` 长度为 $n$，字符串 `needle` 长度为 $m$，则时间复杂度为 $O((n-m) \times m)$，空间复杂度 $O(1)$。
 
 **方法二：Rabin-Karp 字符串匹配算法**
 
 [Rabin-Karp 算法](https://zh.wikipedia.org/zh-hans/%E6%8B%89%E5%AE%BE-%E5%8D%A1%E6%99%AE%E7%AE%97%E6%B3%95)本质上是利用滑动窗口配合哈希函数对固定长度的字符串哈希之后进行比较，可以将比较两个字符串是否相同的时间复杂度降为 $O(1)$。
 
-假设字符串 `haystack` 长度为 `n`，字符串 `needle` 长度为 `m`，则时间复杂度为 $O(n+m)$，空间复杂度 $O(1)$。
+假设字符串 `haystack` 长度为 $n$，字符串 `needle` 长度为 $m$，则时间复杂度为 $O(n+m)$，空间复杂度 $O(1)$。
 
 **方法三：KMP 字符串匹配算法**
 
-假设字符串 `haystack` 长度为 `n`，字符串 `needle` 长度为 `m`，则时间复杂度为 $O(n+m)$，空间复杂度 $O(m)$。
+假设字符串 `haystack` 长度为 $n$，字符串 `needle` 长度为 $m$，则时间复杂度为 $O(n+m)$，空间复杂度 $O(m)$。
 
 <!-- tabs:start -->
 

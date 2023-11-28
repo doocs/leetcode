@@ -39,7 +39,24 @@
 
 ## Solutions
 
-Binary search.
+**Solution 1: Divide and Conquer**
+
+The problem requires the time complexity of the algorithm to be $O(\log (m + n))$, so we cannot directly traverse the two arrays, but need to use the binary search method.
+
+If $m + n$ is odd, then the median is the $\left\lfloor\frac{m + n + 1}{2}\right\rfloor$-th number; if $m + n$ is even, then the median is the average of the $\left\lfloor\frac{m + n + 1}{2}\right\rfloor$-th and the $\left\lfloor\frac{m + n + 2}{2}\right\rfloor$-th numbers. In fact, we can unify it as the average of the $\left\lfloor\frac{m + n + 1}{2}\right\rfloor$-th and the $\left\lfloor\frac{m + n + 2}{2}\right\rfloor$-th numbers.
+
+Therefore, we can design a function $f(i, j, k)$, which represents the $k$-th smallest number in the interval $[i, m)$ of array $nums1$ and the interval $[j, n)$ of array $nums2$. The median is the average of $f(0, 0, \left\lfloor\frac{m + n + 1}{2}\right\rfloor)$ and $f(0, 0, \left\lfloor\frac{m + n + 2}{2}\right\rfloor)$.
+
+The implementation idea of the function $f(i, j, k)$ is as follows:
+
+-   If $i \geq m$, it means that the interval $[i, m)$ of array $nums1$ is empty, so directly return $nums2[j + k - 1]$;
+-   If $j \geq n$, it means that the interval $[j, n)$ of array $nums2$ is empty, so directly return $nums1[i + k - 1]$;
+-   If $k = 1$, it means to find the first number, so just return the minimum of $nums1[i]$ and $nums2[j]$;
+-   Otherwise, we find the $\left\lfloor\frac{k}{2}\right\rfloor$-th number in the two arrays, denoted as $x$ and $y$. (Note, if a certain array does not have the $\left\lfloor\frac{k}{2}\right\rfloor$-th number, then we regard the $\left\lfloor\frac{k}{2}\right\rfloor$-th number as $+\infty$.) Compare the size of $x$ and $y$:
+    -   If $x \leq y$, it means that the $\left\lfloor\frac{k}{2}\right\rfloor$-th number of array $nums1$ cannot be the $k$-th smallest number, so we can exclude the interval $[i, i + \left\lfloor\frac{k}{2}\right\rfloor)$ of array $nums1$, and recursively call $f(i + \left\lfloor\frac{k}{2}\right\rfloor, j, k - \left\lfloor\frac{k}{2}\right\rfloor)$.
+    -   If $x > y$, it means that the $\left\lfloor\frac{k}{2}\right\rfloor$-th number of array $nums2$ cannot be the $k$-th smallest number, so we can exclude the interval $[j, j + \left\lfloor\frac{k}{2}\right\rfloor)$ of array $nums2$, and recursively call $f(i, j + \left\lfloor\frac{k}{2}\right\rfloor, k - \left\lfloor\frac{k}{2}\right\rfloor)$.
+
+The time complexity is $O(\log(m + n))$, and the space complexity is $O(\log(m + n))$. Here, $m$ and $n$ are the lengths of arrays $nums1$ and $nums2$ respectively.
 
 <!-- tabs:start -->
 

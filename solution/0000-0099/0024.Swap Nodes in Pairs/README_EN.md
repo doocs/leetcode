@@ -40,21 +40,21 @@
 
 **Solution 1: Recursion**
 
-We can swap the two nodes in the linked list in a recursive way.
+We can implement swapping two nodes in the linked list through recursion.
 
-The termination condition of the recursion is that there is no node in the linked list, or there is only one node in the linked list, and the swap cannot be performed, so return the node directly.
+The termination condition of recursion is that there are no nodes in the linked list, or there is only one node in the linked list. At this time, swapping cannot be performed, so we directly return this node.
 
-Otherwise, we recursively swap the linked list $head.next.next$, and the head node of the swap is $t$. Then we set the next node of $head$ to $p$, then set $p$ to point to $head$, and finally return $p$.
+Otherwise, we recursively swap the linked list $head.next.next$, and let the swapped head node be $t$. Then we let $p$ be the next node of $head$, and let $p$ point to $head$, and $head$ point to $t$, finally return $p$.
 
-The time complexity is $O(n)$, the space complexity is $O(n)$, where $n$ is the length of the linked list.
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the linked list.
 
 **Solution 2: Iteration**
 
-We set a virtual head node $dummy$, which initially points to $head$, and then set two pointers $pre$ and $cur$, $pre$ initially points to $dummy$, and $cur$ points to $head$.
+We set a dummy head node $dummy$, initially pointing to $head$, and then set two pointers $pre$ and $cur$, initially $pre$ points to $dummy$, and $cur$ points to $head$.
 
-Next, we traverse the linked list. Each time we need to swap the two nodes after $pre$, so we first determine whether $cur$ and $cur.next$ are empty. If they are not empty, swap them, otherwise terminate the loop.
+Next, we traverse the linked list. Each time we need to swap the two nodes after $pre$, so we first judge whether $cur$ and $cur.next$ are empty. If they are not empty, we perform the swap, otherwise we terminate the loop.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the linked list.
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the linked list.
 
 <!-- tabs:start -->
 

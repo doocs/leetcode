@@ -61,6 +61,27 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 ## Solutions
 
+**Solution 1: Single Pass**
+
+We use a variable $k$ to record the current length of the processed array. Initially, $k=0$ represents an empty array.
+
+Then we traverse the array from left to right. For each element $x$ we encounter, if $k=0$ or $x \neq nums[k-1]$, we place $x$ in the position of $nums[k]$, and then increment $k$ by $1$. Otherwise, $x$ is the same as $nums[k-1]$, so we skip this element. Continue to traverse until the entire array is traversed.
+
+In this way, when the traversal ends, the first $k$ elements in $nums$ are the answer we are looking for, and $k$ is the length of the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array.
+
+Supplement:
+
+The original problem requires that the same number appear at most once. We can extend it to keep at most $k$ identical numbers.
+
+-   Since the same number can be kept at most $k$ times, we can directly keep the first $k$ elements of the original array;
+-   For the following numbers, the premise of being able to keep them is: the current number $x$ is compared with the last $k$th element of the previously retained numbers. If they are different, keep them, otherwise skip them.
+
+Similar problems:
+
+-   [80. Remove Duplicates from Sorted Array II](/solution/0000-0099/0080.Remove%20Duplicates%20from%20Sorted%20Array%20II/README_EN.md)
+
 <!-- tabs:start -->
 
 ### **Python3**

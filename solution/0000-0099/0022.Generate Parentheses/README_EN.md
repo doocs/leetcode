@@ -23,7 +23,18 @@
 
 ## Solutions
 
-DFS.
+**Solution 1: DFS + Pruning**
+
+The range of $n$ in the problem is $[1, 8]$, so we can directly solve this problem through "brute force search + pruning".
+
+We design a function $dfs(l, r, t)$, where $l$ and $r$ represent the number of left and right brackets respectively, and $t$ represents the current bracket sequence. Then we can get the following recursive structure:
+
+-   If $l \gt n$ or $r \gt n$ or $l \lt r$, then the current bracket combination $t$ is invalid, return directly;
+-   If $l = n$ and $r = n$, then the current bracket combination $t$ is valid, add it to the answer array `ans`, and return directly;
+-   We can choose to add a left bracket, and recursively execute `dfs(l + 1, r, t + "(")`;
+-   We can also choose to add a right bracket, and recursively execute `dfs(l, r + 1, t + ")")`.
+
+The time complexity is $O(2^{n\times 2} \times n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 

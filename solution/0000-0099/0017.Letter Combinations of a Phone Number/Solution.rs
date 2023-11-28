@@ -1,33 +1,21 @@
 impl Solution {
-    fn dfs(i: usize, digits: &[u8], map: &Vec<Vec<char>>, s: &mut String, res: &mut Vec<String>) {
-        if i == digits.len() {
-            res.push(s.clone());
-            return;
-        }
-        for c in map[(digits[i] - b'2') as usize].iter() {
-            s.push(*c);
-            Self::dfs(i + 1, digits, map, s, res);
-            s.pop();
-        }
-    }
-
     pub fn letter_combinations(digits: String) -> Vec<String> {
+        let mut ans: Vec<String> = Vec::new();
         if digits.is_empty() {
-            return Vec::new();
+            return ans;
         }
-        let digits = digits.as_bytes();
-        let map = vec![
-            vec!['a', 'b', 'c'],
-            vec!['d', 'e', 'f'],
-            vec!['g', 'h', 'i'],
-            vec!['j', 'k', 'l'],
-            vec!['m', 'n', 'o'],
-            vec!['p', 'q', 'r', 's'],
-            vec!['t', 'u', 'v'],
-            vec!['w', 'x', 'y', 'z']
-        ];
-        let mut res = Vec::new();
-        Self::dfs(0, digits, &map, &mut String::new(), &mut res);
-        res
+        ans.push("".to_string());
+        let d = ["abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"];
+        for i in digits.chars() {
+            let s = &d[((i as u8) - b'2') as usize];
+            let mut t: Vec<String> = Vec::new();
+            for a in &ans {
+                for b in s.chars() {
+                    t.push(format!("{}{}", a, b));
+                }
+            }
+            ans = t;
+        }
+        ans
     }
 }
