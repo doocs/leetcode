@@ -35,6 +35,20 @@
 
 ## Solutions
 
+**Solution 1: Mathematics**
+
+First, count the number of prime numbers within the range $[1,n]$, which we denote as $cnt$. Then, calculate the product of the factorial of $cnt$ and $n-cnt$ to get the answer, remember to perform the modulo operation.
+
+Here, we use the "Sieve of Eratosthenes" to count prime numbers.
+
+If $x$ is a prime number, then multiples of $x$ greater than $x$, such as $2x$, $3x$, ... are definitely not prime numbers, so we can start from here.
+
+Let $primes[i]$ indicate whether the number $i$ is a prime number. If it is a prime number, it is $true$, otherwise it is $false$.
+
+We sequentially traverse each number $i$ in the range $[2,n]$. If this number is a prime number, the number of prime numbers increases by $1$, and then all its multiples $j$ are marked as composite numbers (except for the prime number itself), that is, $primes[j]=false$. In this way, at the end of the run, we can know the number of prime numbers.
+
+The time complexity is $O(n \times \log \log n)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

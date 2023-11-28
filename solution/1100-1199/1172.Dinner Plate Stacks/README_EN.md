@@ -72,6 +72,31 @@ D.pop()            // Returns -1.  There are still no stacks.
 
 ## Solutions
 
+**Solution 1: Stack Array + Ordered Set**
+
+We define the following data structures or variables:
+
+-   `capacity`: The capacity of each stack;
+-   `stacks`: Stack array, used to store all stacks, each with a maximum capacity of `capacity`;
+-   `not_full`: Ordered set, used to store the indices of all non-full stacks in the stack array.
+
+For the `push(val)` operation:
+
+-   We first check if `not_full` is empty. If it is, it means there are no non-full stacks, so we need to create a new stack and push `val` into it. At this point, we check if the capacity `capacity` is greater than $1$. If it is, we add the index of this stack to `not_full`.
+-   If `not_full` is not empty, it means there are non-full stacks. We take out the smallest index `index` from `not_full`, and push `val` into `stacks[index]`. At this point, if the capacity of `stacks[index]` equals `capacity`, we remove `index` from `not_full`.
+
+For the `popAtStack(index)` operation:
+
+-   We first check if `index` is within the index range of `stacks`. If it is not, we directly return $-1$. If `stacks[index]` is empty, we also directly return $-1$.
+-   If `stacks[index]` is not empty, we pop the top element `val` from `stacks[index]`. If `index` equals the length of `stacks` minus $1$, it means `stacks[index]` is the last stack. If it is empty, we loop to remove the index of the last stack from `not_full`, and remove the last stack from the stack array `stacks`, until the last stack is not empty, or the stack array `stacks` is empty. Otherwise, if `stacks[index]` is not the last stack, we add `index` to `not_full`.
+-   Finally, return `val`.
+
+For the `pop()` operation:
+
+-   We directly call `popAtStack(stacks.length - 1)`.
+
+The time complexity is $(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of operations.
+
 <!-- tabs:start -->
 
 ### **Python3**

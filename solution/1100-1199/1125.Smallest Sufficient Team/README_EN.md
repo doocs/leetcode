@@ -43,6 +43,26 @@
 
 ## Solutions
 
+**Solution 1: State Compression Dynamic Programming**
+
+We notice that the length of `req_skills` does not exceed $16$, so we can use a binary number of length no more than $16$ to represent whether each skill is mastered. Let's denote the length of `req_skills` as $m$ and the length of `people` as $n$.
+
+First, we map each skill in `req_skills` to a number, i.e., $d[s]$ represents the number of skill $s$. Then, we traverse each person in `people` and represent the skills they master with a binary number, i.e., $p[i]$ represents the skills mastered by the person with number $i$.
+
+Next, we define the following three arrays:
+
+-   Array $f[i]$ represents the minimum number of people to master the skill set $i$, where each bit of the binary representation of $i$ is $1$, indicating that the corresponding skill is mastered. Initially, $f[0] = 0$, and all other positions are infinity.
+-   Array $g[i]$ represents the number of the last person when the skill set $i$ is mastered by the minimum number of people.
+-   Array $h[i]$ represents the previous skill set state when the skill set $i$ is mastered by the minimum number of people.
+
+We enumerate each skill set in the range of $[0,..2^m-1]$, for each skill set $i$:
+
+We enumerate each person $j$ in `people`. If $f[i] + 1 \lt f[i | p[j]]$, it means that $f[i | p[j]]$ can be transferred from $f[i]$. At this time, we update $f[i | p[j]]$ to $f[i] + 1$, and update $g[i | p[j]]$ to $j$, and update $h[i | p[j]]$ to $i$. That is, when the current skill set state is $i | p[j]$, the number of the last person is $j$, and the previous skill set state is $i$. Here, the symbol $|$ represents bitwise OR operation.
+
+Finally, we start from the skill set $i=2^m-1$, find the number of the last person at this time $g[i]$, add it to the answer, then update $i$ to $h[i]$, and keep backtracking until $i=0$, to get the personnel numbers in the smallest necessary team.
+
+The time complexity is $O(2^m \times n)$, and the space complexity is $O(2^m)$. Here, $m$ and $n$ are the lengths of `req_skills` and `people`, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**

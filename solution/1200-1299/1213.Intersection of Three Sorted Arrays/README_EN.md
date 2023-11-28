@@ -32,7 +32,17 @@
 
 ## Solutions
 
-Binary search.
+**Solution 1: Counting**
+
+Traverse the three arrays, count the occurrence of each number, then traverse any one of the arrays. If the count of a number is $3$, add it to the result array.
+
+The time complexity is $O(n)$, and the space complexity is $O(m)$. Here, $n$ and $m$ are the length of the array and the range of numbers in the array, respectively.
+
+**Solution 2: Binary Search**
+
+Traverse the first array. For each number, use binary search to find this number in the second and third arrays. If found in both, add this number to the result array.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
 

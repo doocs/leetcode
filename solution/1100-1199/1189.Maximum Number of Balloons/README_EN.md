@@ -44,6 +44,14 @@
 
 ## Solutions
 
+**Solution 1: Counting**
+
+We count the frequency of each letter in the string `text`, and then divide the frequency of the letters 'o' and 'l' by 2, because the word `balloon` contains the letters 'o' and 'l' twice.
+
+Next, we traverse each letter in the word `balon`, and find the minimum frequency of each letter in the string `text`. This minimum frequency is the maximum number of times the word `balloon` can appear in the string `text`.
+
+The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is the length of the string `text`, and $C$ is the size of the character set. In this problem, $C = 26$.
+
 <!-- tabs:start -->
 
 ### **Python3**

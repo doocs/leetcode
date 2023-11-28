@@ -37,7 +37,17 @@
 
 ## Solutions
 
-BFS.
+**Solution 1: BFS**
+
+We can add all land cells to the queue $q$. If the queue is empty, or the number of elements in the queue equals the number of cells in the grid, it means that the grid contains only land or ocean, so return $-1$.
+
+Otherwise, we start BFS from the land cells. Define the initial step count $ans=-1$.
+
+In each round of search, we spread all cells in the queue in four directions. If a cell is an ocean cell, we mark it as a land cell and add it to the queue. After a round of spreading, we increase the step count by $1$. Repeat this process until the queue is empty.
+
+Finally, we return the step count $ans$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the side length of the grid.
 
 <!-- tabs:start -->
 

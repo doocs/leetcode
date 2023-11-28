@@ -33,9 +33,9 @@
 
 ## Solutions
 
-**Method 1: Sort**
+**Solution 1: Sort**
 
-**Method 2: Binary search**
+**Solution 2: Binary search**
 
 <!-- tabs:start -->
 

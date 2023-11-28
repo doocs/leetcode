@@ -49,21 +49,50 @@
 
 ## Solutions
 
+**Solution 1: Dynamic Programming**
+
+Based on the problem description, we can list the possible subsequent vowels for each vowel:
+
 ```bash
 a [e]
 e [a|i]
 i [a|e|o|u]
 o [i|u]
 u [a]
+```
 
-=>
+From this, we can deduce the possible preceding vowels for each vowel:
 
+```bash
 [e|i|u]	a
 [a|i]	e
 [e|o]	i
 [i]	o
 [i|o]	u
 ```
+
+We define $f[i]$ as the number of strings of the current length ending with the $i$-th vowel. If the length is $1$, then $f[i]=1$.
+
+When the length is greater than $1$, we define $g[i]$ as the number of strings of the current length ending with the $i$-th vowel. Then $g[i]$ can be derived from $f$, that is:
+
+$$
+g[i]=
+\begin{cases}
+f[1]+f[2]+f[4] & i=0 \\
+f[0]+f[2] & i=1 \\
+f[1]+f[3] & i=2 \\
+f[2] & i=3 \\
+f[2]+f[3] & i=4
+\end{cases}
+$$
+
+The final answer is $\sum_{i=0}^{4}f[i]$. Note that the answer may be very large, so we need to take the modulus of $10^9+7$.
+
+The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is the length of the string, and $C$ is the number of vowels. In this problem, $C=5$.
+
+**Solution 2: Matrix Exponentiation to Accelerate Recursion**
+
+The time complexity is $O(C^3 \times \log n)$, and the space complexity is $O(C^2)$. Here, $C$ is the number of vowels. In this problem, $C=5$.
 
 <!-- tabs:start -->
 

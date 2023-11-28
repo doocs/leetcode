@@ -38,6 +38,12 @@
 
 ## Solutions
 
+**Solution 1: Hash Table**
+
+We use a hash table $cnt$ to count the frequency of each number in the array $arr$, and then use another hash table $vis$ to count the types of frequencies. Finally, we check whether the sizes of $cnt$ and $vis$ are equal.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $arr$.
+
 <!-- tabs:start -->
 
 ### **Python3**

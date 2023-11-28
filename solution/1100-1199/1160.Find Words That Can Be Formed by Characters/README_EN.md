@@ -38,6 +38,16 @@
 
 ## Solutions
 
+**Solution 1: Counting**
+
+We can use an array $cnt$ of length $26$ to count the occurrence of each letter in the string $chars$.
+
+Then we traverse the string array $words$. For each string $w$, we use an array $wc$ of length $26$ to count the occurrence of each letter in the string $w$. If for each letter $c$, $wc[c] \leq cnt[c]$, then we can spell the string $w$ with the letters in $chars$, otherwise we cannot spell the string $w$. If we can spell the string $w$, then we add the length of the string $w$ to the answer.
+
+After the traversal, we can get the answer.
+
+The time complexity is $O(L)$, and the space complexity is $O(C)$. Here, $L$ is the sum of the lengths of all strings in the problem, and $C$ is the size of the character set. In this problem, $C = 26$.
+
 <!-- tabs:start -->
 
 ### **Python3**

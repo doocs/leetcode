@@ -1,11 +1,7 @@
-/**
- * @param {number[][]} grid
- * @return {number}
- */
-var getMaximumGold = function (grid) {
+function getMaximumGold(grid: number[][]): number {
     const m = grid.length;
     const n = grid[0].length;
-    const dfs = (i, j) => {
+    const dfs = (i: number, j: number): number => {
         if (i < 0 || i >= m || j < 0 || j >= n || !grid[i][j]) {
             return 0;
         }
@@ -22,4 +18,4 @@ var getMaximumGold = function (grid) {
         }
     }
     return ans;
-};
+}

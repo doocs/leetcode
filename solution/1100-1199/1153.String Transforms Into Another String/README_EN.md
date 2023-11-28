@@ -37,6 +37,18 @@
 
 ## Solutions
 
+**Solution 1: Hash Table**
+
+First, we can check if `str1` and `str2` are equal. If they are, return `true` directly.
+
+Then we count the occurrence of each letter in `str2`. If the occurrence equals $26$, it means `str2` contains all lowercase letters. In this case, no matter how `str1` is transformed, it cannot become `str2`, so return `false` directly.
+
+Otherwise, we use an array or hash table `d` to record the letter each letter in `str1` is transformed to. We traverse the strings `str1` and `str2`. If a letter in `str1` has been transformed, the transformed letter must be the same as the corresponding letter in `str2`, otherwise return `false`.
+
+After the traversal, return `true`.
+
+The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is the length of the string `str1`, and $C$ is the size of the character set. In this problem, $C = 26$.
+
 <!-- tabs:start -->
 
 ### **Python3**

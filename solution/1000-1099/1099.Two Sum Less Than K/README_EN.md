@@ -46,7 +46,7 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 **Solution 2: Sorting + Two Pointers**
 
-Similar to Method 1, we can first sort the array $nums$, and initialize the answer as $-1$.
+Similar to Solution 1, we can first sort the array $nums$, and initialize the answer as $-1$.
 
 Next, we use two pointers $i$ and $j$ to point to the left and right ends of the array, respectively. Each time we judge whether $s = nums[i] + nums[j]$ is less than $k$. If it is less than $k$, then we can update the answer, i.e., $ans = \max(ans, s)$, and move $i$ one step to the right, otherwise move $j$ one step to the left.
 

@@ -51,6 +51,12 @@ Total cost is 1.
 
 ## Solutions
 
+**Solution 1: Quick Thinking**
+
+Move all chips at even indices to position 0, and all chips at odd indices to position 1, all at a cost of 0. Then, choose the position (either 0 or 1) with fewer chips and move these chips to the other position. The minimum cost required is the smaller quantity of chips.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the number of chips.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -38,6 +38,42 @@ T_4 = 1 + 1 + 2 = 4
 
 ## Solutions
 
+**Solution 1: Dynamic Programming**
+
+According to the recurrence relation given in the problem, we can use dynamic programming to solve it.
+
+We define three variables $a$, $b$, $c$ to represent $T_{n-3}$, $T_{n-2}$, $T_{n-1}$, respectively, with initial values of $0$, $1$, $1$.
+
+Then we decrease $n$ to $0$, updating the values of $a$, $b$, $c$ each time, until $n$ is $0$, at which point the answer is $a$.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the given integer.
+
+**Solution 2: Matrix Exponentiation to Accelerate Recurrence**
+
+We define $Tib(n)$ as a $1 \times 3$ matrix $\begin{bmatrix} T_n & T_{n - 1} & T_{n - 2} \end{bmatrix}$, where $T_n$, $T_{n - 1}$ and $T_{n - 2}$ represent the $n$th, $(n - 1)$th and $(n - 2)$th Tribonacci numbers, respectively.
+
+We hope to derive $Tib(n)$ from $Tib(n-1) = \begin{bmatrix} T_{n - 1} & T_{n - 2} & T_{n - 3} \end{bmatrix}$. That is, we need a matrix $base$ such that $Tib(n - 1) \times base = Tib(n)$, i.e.,
+
+$$
+\begin{bmatrix}
+T_{n - 1} & T_{n - 2} & T_{n - 3}
+\end{bmatrix} \times base = \begin{bmatrix} T_n & T_{n - 1} & T_{n - 2} \end{bmatrix}
+$$
+
+Since $T_n = T_{n - 1} + T_{n - 2} + T_{n - 3}$, the matrix $base$ is:
+
+$$
+\begin{bmatrix}
+ 1 & 1 & 0 \\
+ 1 & 0 & 1 \\
+ 1 & 0 & 0
+\end{bmatrix}
+$$
+
+We define the initial matrix $res = \begin{bmatrix} 1 & 1  & 0 \end{bmatrix}$, then $T_n$ is equal to the sum of all elements in the result matrix of $res$ multiplied by $base^{n - 3}$. This can be solved using matrix exponentiation.
+
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
