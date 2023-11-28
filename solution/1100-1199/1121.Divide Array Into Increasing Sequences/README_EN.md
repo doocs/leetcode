@@ -34,6 +34,12 @@
 
 ## Solutions
 
+**Solution 1: Quick Thinking**
+
+We assume that the array can be divided into $m$ strictly increasing subsequences of length at least $k$. If the number of the most frequent number in the array is $cnt$, then these $cnt$ numbers must be in different subsequences, so $m \geq cnt$. Also, since the length of $m$ subsequences is at least $k$, the fewer the number of subsequences, the better, so $m = cnt$. Therefore, $cnt \times k \leq n$ must be satisfied. Hence, we only need to count the number of the most frequent number $cnt$ in the array, and then judge whether $cnt \times k \leq n$. If it is, return `true`, otherwise return `false`.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**

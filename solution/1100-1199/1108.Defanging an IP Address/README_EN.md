@@ -25,6 +25,12 @@
 
 ## Solutions
 
+**Solution 1: Direct Replacement**
+
+We can directly replace the `'.'` in the string with `'[.]'`.
+
+The time complexity is $O(n)$, where $n$ is the length of the string. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -46,6 +46,18 @@ public class Foo {
 
 ## Solutions
 
+**Solution 1: Multithreading + Lock or Semaphore**
+
+We can use three semaphores $a$, $b$, and $c$ to control the execution order of the three threads. Initially, the count of semaphore $a$ is $1$, and the counts of $b$ and $c$ are $0$.
+
+When thread $A$ executes the `first()` method, it first needs to acquire semaphore $a$. After acquiring successfully, it executes the `first()` method, and then releases semaphore $b$. This allows thread $B$ to acquire semaphore $b$ and execute the `second()` method.
+
+When thread $B$ executes the `second()` method, it first needs to acquire semaphore $b$. After acquiring successfully, it executes the `second()` method, and then releases semaphore $c$. This allows thread $C$ to acquire semaphore $c$ and execute the `third()` method.
+
+When thread $C$ executes the `third()` method, it first needs to acquire semaphore $c$. After acquiring successfully, it executes the `third()` method, and then releases semaphore $a$. This allows thread $A$ to acquire semaphore $a$ and execute the `first()` method.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

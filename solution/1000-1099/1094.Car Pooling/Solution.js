@@ -4,7 +4,8 @@
  * @return {boolean}
  */
 var carPooling = function (trips, capacity) {
-    const d = new Array(1001).fill(0);
+    const mx = Math.max(...trips.map(([, , t]) => t));
+    const d = Array(mx + 1).fill(0);
     for (const [x, f, t] of trips) {
         d[f] += x;
         d[t] -= x;

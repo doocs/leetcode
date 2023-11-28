@@ -49,7 +49,13 @@ The sixth event occurs at timestamp = 20190301, and after 0 and 3 become friends
 
 ## Solutions
 
-Union find.
+**Solution 1: Sorting + Union-Find**
+
+We sort all the logs in ascending order by timestamp, then traverse the sorted logs. Using a union-find set, we check whether the two people in the current log are already friends. If they are not friends, we merge them into one friend circle, until everyone is in one friend circle, then return the timestamp of the current log.
+
+If we have traversed all the logs and not everyone is in one friend circle, then return $-1$.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of logs.
 
 <!-- tabs:start -->
 
