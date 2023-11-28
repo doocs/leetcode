@@ -54,6 +54,14 @@
 
 ## Solutions
 
+**Solution 1: Greedy**
+
+We use a variable $x$ to maintain the current balance of parentheses, which is the number of left parentheses minus the number of right parentheses.
+
+We traverse the string $seq$, updating the value of $x$. If $x$ is odd, we assign the current left parenthesis to $A$, otherwise we assign it to $B$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $seq$. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

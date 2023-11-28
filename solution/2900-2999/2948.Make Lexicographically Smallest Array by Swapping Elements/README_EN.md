@@ -61,25 +61,130 @@ We cannot obtain a lexicographically smaller array by applying any more operatio
 ### **Python3**
 
 ```python
-
+class Solution:
+    def lexicographicallySmallestArray(self, nums: List[int], limit: int) -> List[int]:
+        n = len(nums)
+        arr = sorted(zip(nums, range(n)))
+        ans = [0] * n
+        i = 0
+        while i < n:
+            j = i + 1
+            while j < n and arr[j][0] - arr[j - 1][0] <= limit:
+                j += 1
+            idx = sorted(k for _, k in arr[i:j])
+            for k, (x, _) in zip(idx, arr[i:j]):
+                ans[k] = x
+            i = j
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int[] lexicographicallySmallestArray(int[] nums, int limit) {
+        int n = nums.length;
+        Integer[] idx = new Integer[n];
+        for (int i = 0; i < n; ++i) {
+            idx[i] = i;
+        }
+        Arrays.sort(idx, (i, j) -> nums[i] - nums[j]);
+        int[] ans = new int[n];
+        for (int i = 0; i < n;) {
+            int j = i + 1;
+            while (j < n && nums[idx[j]] - nums[idx[j - 1]] <= limit) {
+                ++j;
+            }
+            Integer[] t = Arrays.copyOfRange(idx, i, j);
+            Arrays.sort(t, (x, y) -> x - y);
+            for (int k = i; k < j; ++k) {
+                ans[t[k - i]] = nums[idx[k]];
+            }
+            i = j;
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> lexicographicallySmallestArray(vector<int>& nums, int limit) {
+        int n = nums.size();
+        vector<int> idx(n);
+        iota(idx.begin(), idx.end(), 0);
+        sort(idx.begin(), idx.end(), [&](int i, int j) {
+            return nums[i] < nums[j];
+        });
+        vector<int> ans(n);
+        for (int i = 0; i < n;) {
+            int j = i + 1;
+            while (j < n && nums[idx[j]] - nums[idx[j - 1]] <= limit) {
+                ++j;
+            }
+            vector<int> t(idx.begin() + i, idx.begin() + j);
+            sort(t.begin(), t.end());
+            for (int k = i; k < j; ++k) {
+                ans[t[k - i]] = nums[idx[k]];
+            }
+            i = j;
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func lexicographicallySmallestArray(nums []int, limit int) []int {
+	n := len(nums)
+	idx := make([]int, n)
+	for i := range idx {
+		idx[i] = i
+	}
+	slices.SortFunc(idx, func(i, j int) int { return nums[i] - nums[j] })
+	ans := make([]int, n)
+	for i := 0; i < n; {
+		j := i + 1
+		for j < n && nums[idx[j]]-nums[idx[j-1]] <= limit {
+			j++
+		}
+		t := slices.Clone(idx[i:j])
+		slices.Sort(t)
+		for k := i; k < j; k++ {
+			ans[t[k-i]] = nums[idx[k]]
+		}
+		i = j
+	}
+	return ans
+}
+```
 
+### **TypeScript**
+
+```ts
+function lexicographicallySmallestArray(nums: number[], limit: number): number[] {
+    const n: number = nums.length;
+    const idx: number[] = Array.from({ length: n }, (_, i) => i);
+    idx.sort((i, j) => nums[i] - nums[j]);
+    const ans: number[] = Array(n).fill(0);
+    for (let i = 0; i < n; ) {
+        let j = i + 1;
+        while (j < n && nums[idx[j]] - nums[idx[j - 1]] <= limit) {
+            j++;
+        }
+        const t: number[] = idx.slice(i, j).sort((a, b) => a - b);
+        for (let k: number = i; k < j; k++) {
+            ans[t[k - i]] = nums[idx[k]];
+        }
+        i = j;
+    }
+    return ans;
+}
 ```
 
 ### **...**

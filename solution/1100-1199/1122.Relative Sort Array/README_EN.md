@@ -35,6 +35,12 @@
 
 ## Solutions
 
+**Solution 1: Custom Sorting**
+
+First, we use a hash table $pos$ to record the position of each element in array $arr2$. Then, we map each element in array $arr1$ to a tuple $(pos.get(x, 1000 + x), x)$, and sort these tuples. Finally, we take out the second element of all tuples and return it.
+
+The time complexity is $O(n \times \log n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the lengths of arrays $arr1$ and $arr2$, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**

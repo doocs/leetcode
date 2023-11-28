@@ -52,6 +52,27 @@ Hence, answer = [10,25]
 
 ## Solutions
 
+**Solution 1: Difference Array**
+
+We notice that each booking is for `seats` seats on all flights within a certain interval `[first, last]`. Therefore, we can use the idea of a difference array. For each booking, we add `seats` to the number at the `first` position and subtract `seats` from the number at the `last + 1` position. Finally, we calculate the prefix sum of the difference array to get the total number of seats booked for each flight.
+
+The time complexity is $O(n)$, where $n$ is the number of flights. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+
+**Solution 2: Binary Indexed Tree + Difference Idea**
+
+We can also use a binary indexed tree, combined with the idea of difference, to implement the above operations. We can consider each booking as booking `seats` seats on all flights within a certain interval `[first, last]`. Therefore, for each booking, we add `seats` to the `first` position of the binary indexed tree and subtract `seats` from the `last + 1` position of the binary indexed tree. Finally, we calculate the prefix sum for each position in the binary indexed tree to get the total number of seats booked for each flight.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of flights.
+
+Here is a basic introduction to the binary indexed tree:
+
+A binary indexed tree, also known as a "Binary Indexed Tree" or Fenwick tree. It can efficiently implement the following two operations:
+
+1. **Single Point Update** `update(x, delta)`: Add a value delta to the number at position x in the sequence;
+1. **Prefix Sum Query** `query(x)`: Query the interval sum of the sequence `[1,...x]`, that is, the prefix sum of position x.
+
+The time complexity of these two operations is $O(\log n)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

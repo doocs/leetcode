@@ -37,6 +37,19 @@
 
 ## Solutions
 
+**Solution 1: DFS**
+
+First, we use a hash table or an array of length 1001, `s`, to record all nodes that need to be deleted.
+
+Next, we design a function `dfs(root)` that returns the root of the subtree with `root` as the root after deleting all nodes that need to be deleted. The execution logic of the function `dfs(root)` is as follows:
+
+-   If `root` is null, we return null;
+-   Otherwise, we recursively execute `dfs(root.left)` and `dfs(root.right)`, and assign the return values to `root.left` and `root.right` respectively. If `root` does not need to be deleted, we return `root`; if `root` needs to be deleted, we check whether `root.left` and `root.right` are null. If they are not null, we add them to the answer array; finally, we return null.
+
+In the main function, we call `dfs(root)`. If the result is not null, it means that the root node does not need to be deleted, and we add the root node to the answer array. Finally, we return the answer array.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the tree.
+
 <!-- tabs:start -->
 
 ### **Python3**

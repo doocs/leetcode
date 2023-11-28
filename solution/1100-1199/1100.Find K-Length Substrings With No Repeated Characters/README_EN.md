@@ -34,6 +34,18 @@
 
 ## Solutions
 
+**Solution 1: Two Pointers + Counter**
+
+We observe that all characters are lowercase letters, so there are at most $26$ different characters. Therefore, if $k > 26$ or $k > n$, it is impossible to find any substring of length $k$ without repeated characters, and we can directly return $0$.
+
+Next, we use two pointers $j$ and $i$ to maintain a sliding window, where $j$ is the left endpoint of the sliding window, $i$ is the right endpoint of the sliding window, and a counter $cnt$ is used to count the number of occurrences of each character in the sliding window.
+
+We traverse the string $s$, each time adding $s[i]$ to the sliding window, i.e., $cnt[s[i]]++$. If at this time $cnt[s[i]] > 1$ or $i - j + 1 > k$, then we loop to remove $s[j]$ from the sliding window, i.e., $cnt[s[j]]--$, and move $j$ to the right. If after moving $j$ to the right, the window size $i - j + 1$ is exactly equal to $k$, it means that the string in the sliding window is a substring that meets the requirements of the problem, and we increment the result by one.
+
+After the traversal ends, we can get the number of all substrings that meet the requirements of the problem.
+
+The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is the length of the string $s$, and $C$ is the size of the character set. In this problem, $C = 26$.
+
 <!-- tabs:start -->
 
 ### **Python3**
