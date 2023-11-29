@@ -6,7 +6,7 @@ var letterCombinations = function (digits) {
     if (digits.length == 0) {
         return [];
     }
-    let ans = [''];
+    const ans = [''];
     const d = ['abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz'];
     for (const i of digits) {
         const s = d[parseInt(i) - 2];
@@ -16,7 +16,7 @@ var letterCombinations = function (digits) {
                 t.push(a + b);
             }
         }
-        ans = t;
+        ans.splice(0, ans.length, ...t);
     }
     return ans;
 };

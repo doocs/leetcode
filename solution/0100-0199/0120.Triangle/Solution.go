@@ -1,10 +1,8 @@
 func minimumTotal(triangle [][]int) int {
-	n := len(triangle)
-	dp := make([]int, n+1)
-	for i := n - 1; i >= 0; i-- {
+	for i := len(triangle) - 2; i >= 0; i-- {
 		for j := 0; j <= i; j++ {
-			dp[j] = min(dp[j], dp[j+1]) + triangle[i][j]
+			triangle[i][j] += min(triangle[i+1][j], triangle[i+1][j+1])
 		}
 	}
-	return dp[0]
+	return triangle[0][0]
 }

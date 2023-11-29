@@ -33,7 +33,13 @@
 
 ## Solutions
 
-Binary search.
+**Solution 1: Binary Search**
+
+We can perform binary search twice to find the left and right boundaries respectively.
+
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $nums$.
+
+Below are two general templates for binary search:
 
 Template 1:
 

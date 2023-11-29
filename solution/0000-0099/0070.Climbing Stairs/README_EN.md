@@ -39,6 +39,62 @@
 
 ## Solutions
 
+**Solution 1: Recursion**
+
+We define $f[i]$ to represent the number of ways to climb to the $i$-th step, then $f[i]$ can be transferred from $f[i - 1]$ and $f[i - 2]$, that is:
+
+$$
+f[i] = f[i - 1] + f[i - 2]
+$$
+
+The initial conditions are $f[0] = 1$ and $f[1] = 1$, that is, the number of ways to climb to the 0th step is 1, and the number of ways to climb to the 1st step is also 1.
+
+The answer is $f[n]$.
+
+Since $f[i]$ is only related to $f[i - 1]$ and $f[i - 2]$, we can use two variables $a$ and $b$ to maintain the current number of ways, reducing the space complexity to $O(1)$.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$.
+
+**Solution 2: Matrix Quick Power to Accelerate Recursion**
+
+We set $Fib(n)$ to represent a $1 \times 2$ matrix $\begin{bmatrix} F_n & F_{n - 1} \end{bmatrix}$, where $F_n$ and $F_{n - 1}$ are the $n$-th and $(n - 1)$-th Fibonacci numbers respectively.
+
+We hope to derive $Fib(n)$ based on $Fib(n-1) = \begin{bmatrix} F_{n - 1} & F_{n - 2} \end{bmatrix}$. That is to say, we need a matrix $base$, so that $Fib(n - 1) \times base = Fib(n)$, that is:
+
+$$
+\begin{bmatrix}
+F_{n - 1} & F_{n - 2}
+\end{bmatrix} \times base = \begin{bmatrix} F_n & F_{n - 1} \end{bmatrix}
+$$
+
+Since $F_n = F_{n - 1} + F_{n - 2}$, the first column of the matrix $base$ is:
+
+$$
+\begin{bmatrix}
+1 \\
+1
+\end{bmatrix}
+$$
+
+The second column is:
+
+$$
+\begin{bmatrix}
+1 \\
+0
+\end{bmatrix}
+$$
+
+Therefore:
+
+$$
+\begin{bmatrix} F_{n - 1} & F_{n - 2} \end{bmatrix} \times \begin{bmatrix}1 & 1 \\ 1 & 0\end{bmatrix} = \begin{bmatrix} F_n & F_{n - 1} \end{bmatrix}
+$$
+
+We define the initial matrix $res = \begin{bmatrix} 1 & 1 \end{bmatrix}$, then $F_n$ is equal to the first element of the first row of the result matrix of $res$ multiplied by $base^{n - 1}$. We can solve it using matrix quick power.
+
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

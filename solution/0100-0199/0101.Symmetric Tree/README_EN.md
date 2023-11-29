@@ -34,6 +34,18 @@
 
 ## Solutions
 
+**Solution 1: Recursion**
+
+We design a function $dfs(root1, root2)$ to determine whether two binary trees are symmetric. The answer is $dfs(root, root)$.
+
+The logic of the function $dfs(root1, root2)$ is as follows:
+
+-   If both $root1$ and $root2$ are null, then the two binary trees are symmetric, return `true`.
+-   If only one of $root1$ and $root2$ is null, or if $root1.val \neq root2.val$, then the two binary trees are not symmetric, return `false`.
+-   Otherwise, determine whether the left subtree of $root1$ is symmetric to the right subtree of $root2$, and whether the right subtree of $root1$ is symmetric to the left subtree of $root2$. Here we use recursion.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+
 <!-- tabs:start -->
 
 ### **Python3**

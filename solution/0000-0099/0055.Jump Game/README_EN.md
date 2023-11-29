@@ -37,13 +37,19 @@
 
 **Solution 1: Greedy**
 
-We use a variable $mx$ to maintain the farthest index that can be reached, initially $mx = 0$.
+We use a variable $mx$ to maintain the farthest index that can currently be reached, initially $mx = 0$.
 
-We traverse the array from left to right, for each position $i$ we are currently traversing, if $mx \lt i$, it means that the current position cannot be reached, directly return `false`. Otherwise, the farthest position that can be reached from position $i$ by jumping is $i+nums[i]$, we use $i+nums[i]$ to update the value of $mx$, that is $mx = \max(mx, i + nums[i])$.
+We traverse the array from left to right. For each position $i$ we traverse, if $mx < i$, it means that the current position cannot be reached, so we directly return `false`. Otherwise, the farthest position that we can reach by jumping from position $i$ is $i+nums[i]$, we use $i+nums[i]$ to update the value of $mx$, that is, $mx = \max(mx, i + nums[i])$.
 
-When the traversal ends, return `true` directly.
+At the end of the traversal, we directly return `true`.
 
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+
+Similar problems:
+
+-   [45. Jump Game II](/solution/0000-0099/0045.Jump%20Game%20II/README_EN.md)
+-   [1024. Video Stitching](/solution/1000-1099/1024.Video%20Stitching/README_EN.md)
+-   [1326. Minimum Number of Taps to Open to Water a Garden](/solution/1300-1399/1326.Minimum%20Number%20of%20Taps%20to%20Open%20to%20Water%20a%20Garden/README_EN.md)
 
 <!-- tabs:start -->
 

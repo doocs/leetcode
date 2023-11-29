@@ -39,6 +39,14 @@
 
 ## Solutions
 
+**Solution 1: Backtracking**
+
+We use arrays `row`, `col`, and `box` to record whether a number has appeared in each row, each column, and each 3x3 grid respectively. If the number `i` has appeared in the `r`th row, the `c`th column, and the `b`th 3x3 grid, then `row[r][i]`, `col[c][i]`, and `box[b][i]` are all `true`.
+
+We traverse each empty space in `board`, enumerate the numbers `v` that it can fill in. If `v` has not appeared in the current row, the current column, and the current 3x3 grid, then we can try to fill in the number `v` and continue to search for the next empty space. If we search to the end and all spaces are filled, it means that a feasible solution has been found.
+
+The time complexity is $O(9^{81})$, and the space complexity is $O(9^2)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

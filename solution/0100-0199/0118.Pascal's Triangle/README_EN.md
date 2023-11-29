@@ -25,6 +25,12 @@
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+First, we create an answer array $f$, and then set the first row of $f$ to $[1]$. Next, starting from the second row, the first and last elements of each row are $1$, and the other elements are calculated by $f[i][j] = f[i - 1][j - 1] + f[i - 1][j]$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the number of rows.
+
 <!-- tabs:start -->
 
 ### **Python3**

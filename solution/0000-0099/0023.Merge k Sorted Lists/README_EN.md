@@ -52,6 +52,12 @@ merging them into one sorted list:
 
 ## Solutions
 
+**Solution 1: Priority Queue (Min Heap)**
+
+We can create a min heap $pq$ to maintain the head nodes of all linked lists. Each time, we take out the node with the smallest value from the min heap, add it to the end of the result linked list, and then add the next node of this node to the heap. Repeat the above steps until the heap is empty.
+
+The time complexity is $O(n \times \log k)$, and the space complexity is $O(k)$. Here, $n$ is the total number of all linked list nodes, and $k$ is the number of linked lists given in the problem.
+
 <!-- tabs:start -->
 
 ### **Python3**

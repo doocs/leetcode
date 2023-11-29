@@ -30,6 +30,16 @@
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+Directly simulate the generation process of the spiral matrix.
+
+Define a two-dimensional array `ans` to store the spiral matrix. Use `i` and `j` to represent the row number and column number of the current position, use `k` to represent the current direction number, and `dirs` to represent the correspondence between the direction number and the direction.
+
+Starting from `1`, fill in each position of the matrix in turn. After filling in a position each time, calculate the row number and column number of the next position. If the next position is not in the matrix or has been filled, change the direction, and then calculate the row number and column number of the next position.
+
+The time complexity is $O(n^2)$, where $n$ is the side length of the matrix. Ignoring the output array, the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

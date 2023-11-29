@@ -30,6 +30,30 @@
 
 ## Solutions
 
+**Solution 1: Hash Table**
+
+1. Traverse the string array, sort each string in **character dictionary order** to get a new string.
+2. Use the new string as `key` and `[str]` as `value`, and store them in the hash table (`HashMap<String, List<String>>`).
+3. When encountering the same `key` during subsequent traversal, add it to the corresponding `value`.
+
+Take `strs = ["eat", "tea", "tan", "ate", "nat", "bat"]` as an example. At the end of the traversal, the state of the hash table is:
+
+| key     | value                   |
+| ------- | ----------------------- |
+| `"aet"` | `["eat", "tea", "ate"]` |
+| `"ant"` | `["tan", "nat"] `       |
+| `"abt"` | `["bat"] `              |
+
+Finally, return the `value` list of the hash table.
+
+The time complexity is $O(n\times k\times \log k)$, where $n$ and $k$ are the lengths of the string array and the maximum length of the string, respectively.
+
+**Solution 2: Counting**
+
+We can also change the sorting part in Method 1 to counting, that is, use the characters in each string $s$ and their occurrence times as `key`, and use the string $s$ as `value` to store in the hash table.
+
+The time complexity is $O(n\times (k + C))$, where $n$ and $k$ are the lengths of the string array and the maximum length of the string, respectively, and $C$ is the size of the character set. In this problem, $C = 26$.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -41,11 +41,11 @@
 
 **Solution 1: Iteration**
 
-Time complexity $O(n)$, Space complexity $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the linked list.
 
 **Solution 2: Recursion**
 
-Time complexity $O(n)$, Space complexity $O(\log _k n)$.
+The time complexity is $O(n)$, and the space complexity is $O(\log_k n)$. Here, $n$ is the length of the linked list.
 
 <!-- tabs:start -->
 

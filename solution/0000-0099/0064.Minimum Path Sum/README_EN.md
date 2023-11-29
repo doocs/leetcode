@@ -36,7 +36,19 @@
 
 ## Solutions
 
-Dynamic programming.
+**Solution 1: Dynamic Programming**
+
+We define $f[i][j]$ to represent the minimum path sum from the top left corner to $(i, j)$. Initially, $f[0][0] = grid[0][0]$, and the answer is $f[m - 1][n - 1]$.
+
+Consider $f[i][j]$:
+
+-   If $j = 0$, then $f[i][j] = f[i - 1][j] + grid[i][j]$;
+-   If $i = 0$, then $f[i][j] = f[i][j - 1] + grid[i][j]$;
+-   If $i > 0$ and $j > 0$, then $f[i][j] = \min(f[i - 1][j], f[i][j - 1]) + grid[i][j]$.
+
+Finally, return $f[m - 1][n - 1]$.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
 

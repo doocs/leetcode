@@ -40,6 +40,14 @@
 
 ## Solutions
 
+**Solution 1: Recursion**
+
+In-order traversal. If it is a valid binary search tree, then the sequence traversed should be monotonically increasing. So, we only need to compare and judge whether the current number traversed is greater than the previous number.
+
+Alternatively, consider the subtree with `root` as the root, whether all node values are within the valid range, and judge recursively.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the tree.
+
 <!-- tabs:start -->
 
 ### **Python3**
