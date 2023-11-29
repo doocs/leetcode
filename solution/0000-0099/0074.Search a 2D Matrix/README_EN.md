@@ -42,6 +42,24 @@
 
 ## Solutions
 
+**Solution 1: Binary Search**
+
+We can logically unfold the two-dimensional matrix and then perform binary search.
+
+The time complexity is $O(\log(m \times n))$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
+
+**Solution 2: Search from the Bottom Left or Top Right**
+
+Here, we start searching from the bottom left corner and move towards the top right direction. We compare the current element $matrix[i][j]$ with $target$:
+
+-   If $matrix[i][j] = target$, we have found the target value and return `true`.
+-   If $matrix[i][j] > target$, all elements to the right of the current position in this row are greater than target, so we should move the pointer $i$ upwards, i.e., $i = i - 1$.
+-   If $matrix[i][j] < target$, all elements above the current position in this column are less than target, so we should move the pointer $j$ to the right, i.e., $j = j + 1$.
+
+If we still can't find $target$ after the search, return `false`.
+
+The time complexity is $O(m + n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

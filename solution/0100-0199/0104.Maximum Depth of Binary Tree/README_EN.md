@@ -33,6 +33,12 @@
 
 ## Solutions
 
+**Solution 1: Recursion**
+
+Recursively traverse the left and right subtrees, calculate the maximum depth of the left and right subtrees, and then take the maximum value plus $1$.
+
+The time complexity is $O(n)$, where $n$ is the number of nodes in the binary tree. Each node is traversed only once in the recursion.
+
 <!-- tabs:start -->
 
 ### **Python3**

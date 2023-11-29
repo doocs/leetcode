@@ -25,6 +25,12 @@
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+We use a variable $carry$ to record the current carry, and two pointers $i$ and $j$ to point to the end of $a$ and $b$ respectively, and add them bit by bit from the end to the beginning.
+
+The time complexity is $O(\max(m, n))$, where $m$ and $n$ are the lengths of strings $a$ and $b$ respectively. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

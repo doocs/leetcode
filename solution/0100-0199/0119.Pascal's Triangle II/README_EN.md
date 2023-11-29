@@ -31,6 +31,16 @@
 
 ## Solutions
 
+**Solution 1: Recursion**
+
+We create an array $f$ of length $rowIndex + 1$, initially all elements are $1$.
+
+Next, starting from the second row, we calculate the value of the $j$th element in the current row from back to front, $f[j] = f[j] + f[j - 1]$, where $j \in [1, i - 1]$.
+
+Finally, return $f$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the given number of rows.
+
 <!-- tabs:start -->
 
 ### **Python3**

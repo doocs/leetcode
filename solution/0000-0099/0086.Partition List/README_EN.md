@@ -34,6 +34,12 @@
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+We create two linked lists, one to store nodes less than $x$, and the other to store nodes greater than or equal to $x$. Then we concatenate them.
+
+The time complexity is $O(n)$, where $n$ is the length of the original linked list. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

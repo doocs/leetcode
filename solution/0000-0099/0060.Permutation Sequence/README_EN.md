@@ -40,6 +40,16 @@
 
 ## Solutions
 
+**Solution 1: Enumeration**
+
+We know that the set $[1,2,..n]$ has a total of $n!$ permutations. If we determine the first digit, the number of permutations that the remaining digits can form is $(n-1)!$.
+
+Therefore, we enumerate each digit $i$. If $k$ is greater than the number of permutations after the current position is determined, then we can directly subtract this number; otherwise, it means that we have found the number at the current position.
+
+For each digit $i$, where $0 \leq i < n$, the number of permutations that the remaining digits can form is $(n-i-1)!$, which we denote as $fact$. The numbers used in the process are recorded in `vis`.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

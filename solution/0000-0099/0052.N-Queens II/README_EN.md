@@ -33,6 +33,20 @@
 
 ## Solutions
 
+**Solution 1: Backtracking**
+
+We design a function $dfs(i)$, which represents starting the search from the $i$th row, and the results of the search are added to the answer.
+
+In the $i$th row, we enumerate each column of the $i$th row. If the current column does not conflict with the queens placed before, then we can place a queen, and then continue to search the next row, that is, call $dfs(i + 1)$.
+
+If a conflict occurs, then we skip the current column and continue to enumerate the next column.
+
+To determine whether a conflict occurs, we need to use three arrays to record whether a queen has been placed in each column, each positive diagonal, and each negative diagonal, respectively.
+
+Specifically, we use the $cols$ array to record whether a queen has been placed in each column, the $dg$ array to record whether a queen has been placed in each positive diagonal, and the $udg$ array to record whether a queen has been placed in each negative diagonal.
+
+The time complexity is $O(n!)$, and the space complexity is $O(n)$. Here, $n$ is the number of queens.
+
 <!-- tabs:start -->
 
 ### **Python3**

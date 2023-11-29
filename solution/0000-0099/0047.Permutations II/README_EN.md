@@ -34,7 +34,22 @@
 
 ## Solutions
 
-Sort & DFS.
+**Solution 1: Sorting + Backtracking**
+
+We can first sort the array, which allows us to place duplicate numbers together, making it easier for us to remove duplicates.
+
+Next, we design a function $dfs(i)$, indicating that we need to fill in the number at the $i$th position. The specific implementation of the function is as follows:
+
+-   If $i = n$, it means we have finished filling in, add the current permutation to the answer array, and then return.
+-   Otherwise, we enumerate the number $nums[j]$ at the $i$th position, where the range of $j$ is $[0, n - 1]$. We need to ensure that $nums[j]$ has not been used and is different from the number enumerated before, so as to ensure that the current permutation is not repeated. If the conditions are met, we can fill in $nums[j]$, and continue to recursively fill in the next position, that is, call $dfs(i + 1)$. After the recursive call ends, we need to mark $nums[j]$ as unused for later enumeration.
+
+In the main function, we first sort the array, then call $dfs(0)$, that is, start filling from the 0th position, and finally return the answer array.
+
+The time complexity is $O(n \times n!)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array. We need to enumerate $n!$ times, and each enumeration takes $O(n)$ time to judge whether it is repeated. In addition, we need a marker array to mark whether each position has been used, so the space complexity is $O(n)$.
+
+Similar problems:
+
+-   [46. Permutations](/solution/0000-0099/0046.Permutations/README_EN.md)
 
 <!-- tabs:start -->
 

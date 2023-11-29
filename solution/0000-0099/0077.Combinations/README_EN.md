@@ -36,7 +36,27 @@ Note that combinations are unordered, i.e., [1,2] and [2,1] are considered to be
 
 ## Solutions
 
-DFS.
+**Solution 1: Backtracking (Two Ways)**
+
+We design a function $dfs(i)$, which represents starting the search from number $i$, with the current search path as $t$, and the answer as $ans$.
+
+The execution logic of the function $dfs(i)$ is as follows:
+
+-   If the length of the current search path $t$ equals $k$, then add the current search path to the answer and return.
+-   If $i \gt n$, it means the search has ended, return.
+-   Otherwise, we can choose to add the number $i$ to the search path $t$, and then continue the search, i.e., execute $dfs(i + 1)$, and then remove the number $i$ from the search path $t$; or we do not add the number $i$ to the search path $t$, and directly execute $dfs(i + 1)$.
+
+The above method is actually enumerating whether to select the current number or not, and then recursively searching the next number. We can also enumerate the next number $j$ to be selected, where $i \leq j \leq n$. If the next number to be selected is $j$, then we add the number $j$ to the search path $t$, and then continue the search, i.e., execute $dfs(j + 1)$, and then remove the number $j$ from the search path $t$.
+
+In the main function, we start the search from number $1$, i.e., execute $dfs(1)$.
+
+The time complexity is $(C_n^k \times k)$, and the space complexity is $O(k)$. Here, $C_n^k$ represents the combination number.
+
+Similar problems:
+
+-   [39. Combination Sum](/solution/0000-0099/0039.Combination%20Sum/README_EN.md)
+-   [40. Combination Sum II](/solution/0000-0099/0040.Combination%20Sum%20II/README_EN.md)
+-   [216. Combination Sum III](/solution/0200-0299/0216.Combination%20Sum%20III/README_EN.md)
 
 <!-- tabs:start -->
 

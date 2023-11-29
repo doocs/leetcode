@@ -36,6 +36,20 @@
 
 ## Solutions
 
+**Solution 1: Recursion**
+
+The first node $preorder[0]$ in the preorder sequence is the root node. We find the position $i$ of the root node in the inorder sequence, which divides the inorder sequence into the left subtree $inorder[0..i]$ and the right subtree $inorder[i+1..]$.
+
+Through the intervals of the left and right subtrees, we can calculate the number of nodes in the left and right subtrees, assumed to be $m$ and $n$ respectively. Then in the preorder nodes, the $m$ nodes following the root node are the left subtree, and the $n$ nodes after that are the right subtree.
+
+We can solve this recursively.
+
+> Preorder traversal: traverse the root node first, then traverse the left and right subtrees; Inorder traversal: traverse the left subtree first, then traverse the root node, and finally traverse the right subtree.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+
+If the node values given in the problem have duplicates, then we only need to record all the positions where each node value appears, and then recursively construct the tree.
+
 <!-- tabs:start -->
 
 ### **Python3**

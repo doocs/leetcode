@@ -27,6 +27,23 @@
 
 ## Solutions
 
+**Solution 1: Simulating Mathematical Multiplication**
+
+Assume the lengths of $num1$ and $num2$ are $m$ and $n$ respectively, then the length of their product can be at most $m + n$.
+
+The proof is as follows:
+
+-   If $num1$ and $num2$ both take the minimum value, then their product is ${10}^{m - 1} \times {10}^{n - 1} = {10}^{m + n - 2}$, with a length of $m + n - 1$.
+-   If $num1$ and $num2$ both take the maximum value, then their product is $({10}^m - 1) \times ({10}^n - 1) = {10}^{m + n} - {10}^m - {10}^n + 1$, with a length of $m + n$.
+
+Therefore, we can apply for an array of length $m + n$ to store each digit of the product.
+
+From the least significant digit to the most significant digit, we calculate each digit of the product in turn, and finally convert the array into a string.
+
+Note to check whether the most significant digit is $0$, if it is, remove it.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m + n)$. Here, $m$ and $n$ are the lengths of $num1$ and $num2$ respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**
