@@ -42,6 +42,14 @@
 
 ## Solutions
 
+**Solution 1: Preprocessing + Enumeration**
+
+We can first preprocess the array $arr$ to find the maximum subarray sum ending at and starting from each element, and store them in the arrays $left$ and $right$ respectively.
+
+If we do not delete any element, then the maximum subarray sum is the maximum value in $left[i]$ or $right[i]$. If we delete one element, we can enumerate each position $i$ in $[1..n-2]$, calculate the value of $left[i-1] + right[i+1]$, and take the maximum value.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $arr$.
+
 <!-- tabs:start -->
 
 ### **Python3**

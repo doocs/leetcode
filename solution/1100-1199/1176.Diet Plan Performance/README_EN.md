@@ -60,6 +60,20 @@ calories[2] + calories[3] &lt; lower so 1 point is lost.
 
 ## Solutions
 
+**Solution 1: Prefix Sum**
+
+First, we preprocess a prefix sum array $s$ of length $n+1$, where $s[i]$ represents the total calories of the first $i$ days.
+
+Then we traverse the prefix sum array $s$. For each position $i$, we calculate $s[i+k]-s[i]$, which is the total calories for the consecutive $k$ days starting from the $i$th day. According to the problem description, for each $s[i+k]-s[i]$, we judge its value with $lower$ and $upper$, and update the answer accordingly.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the `calories` array.
+
+**Solution 2: Sliding Window**
+
+We maintain a sliding window of length $k$, and the sum of the elements in the window is denoted as $s$. If $s \lt lower$, the score decreases by $1$; if $s > upper$, the score increases by $1$.
+
+The time complexity is $O(n)$, where $n$ is the length of the `calories` array. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

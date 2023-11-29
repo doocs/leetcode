@@ -36,7 +36,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-假设 n 个节点存在二叉搜索树的个数是 `G(n)`，1 为根节点，2 为根节点，...，n 为根节点，当 1 为根节点时，其左子树节点个数为 0，右子树节点个数为 n-1，同理当 2 为根节点时，其左子树节点个数为 1，右子树节点为 n-2，所以可得 `G(n) = G(0) * G(n-1) + G(1) * (n-2) + ... + G(n-1) * G(0)`。
+**方法一：动态规划**
+
+我们定义 $f[i]$ 表示 $[1, i]$ 能产生的二叉搜索树的个数，初始时 $f[0] = 1$，答案为 $f[n]$。
+
+我们可以枚举节点数 $i$，那么左子树节点数 $j \in [0, i - 1]$，右子树节点数 $k = i - j - 1$，左子树节点数和右子树节点数的组合数为 $f[j] \times f[k]$，因此 $f[i] = \sum_{j = 0}^{i - 1} f[j] \times f[i - j - 1]$。
+
+最后返回 $f[n]$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点数。
 
 <!-- tabs:start -->
 
@@ -47,12 +55,11 @@
 ```python
 class Solution:
     def numTrees(self, n: int) -> int:
-        dp = [0] * (n + 1)
-        dp[0] = 1
-        for i in range(1, n + 1):
+        f = [1] + [0] * n
+        for i in range(n + 1):
             for j in range(i):
-                dp[i] += dp[j] * dp[i - j - 1]
-        return dp[-1]
+                f[i] += f[j] * f[i - j - 1]
+        return f[n]
 ```
 
 ### **Java**
@@ -62,14 +69,14 @@ class Solution:
 ```java
 class Solution {
     public int numTrees(int n) {
-        int[] dp = new int[n + 1];
-        dp[0] = 1;
+        int[] f = new int[n + 1];
+        f[0] = 1;
         for (int i = 1; i <= n; ++i) {
             for (int j = 0; j < i; ++j) {
-                dp[i] += dp[j] * dp[i - j - 1];
+                f[i] += f[j] * f[i - j - 1];
             }
         }
-        return dp[n];
+        return f[n];
     }
 }
 ```
@@ -80,14 +87,14 @@ class Solution {
 class Solution {
 public:
     int numTrees(int n) {
-        vector<int> dp(n + 1);
-        dp[0] = 1;
+        vector<int> f(n + 1);
+        f[0] = 1;
         for (int i = 1; i <= n; ++i) {
             for (int j = 0; j < i; ++j) {
-                dp[i] += dp[j] * dp[i - j - 1];
+                f[i] += f[j] * f[i - j - 1];
             }
         }
-        return dp[n];
+        return f[n];
     }
 };
 ```
@@ -96,14 +103,14 @@ public:
 
 ```go
 func numTrees(n int) int {
-	dp := make([]int, n+1)
-	dp[0] = 1
+	f := make([]int, n+1)
+	f[0] = 1
 	for i := 1; i <= n; i++ {
 		for j := 0; j < i; j++ {
-			dp[i] += dp[j] * dp[i-j-1]
+			f[i] += f[j] * f[i-j-1]
 		}
 	}
-	return dp[n]
+	return f[n]
 }
 ```
 
@@ -113,14 +120,46 @@ func numTrees(n int) int {
 impl Solution {
     pub fn num_trees(n: i32) -> i32 {
         let n = n as usize;
-        let mut dp = vec![0; n + 1];
-        dp[0] = 1;
+        let mut f = vec![0; n + 1];
+        f[0] = 1;
         for i in 1..=n {
             for j in 0..i {
-                dp[i] += dp[j] * dp[i - j - 1];
+                f[i] += f[j] * f[i - j - 1];
             }
         }
-        dp[n] as i32
+        f[n] as i32
+    }
+}
+```
+
+### **TypeScript**
+
+```ts
+function numTrees(n: number): number {
+    const f: number[] = Array(n + 1).fill(0);
+    f[0] = 1;
+    for (let i = 1; i <= n; ++i) {
+        for (let j = 0; j < i; ++j) {
+            f[i] += f[j] * f[i - j - 1];
+        }
+    }
+    return f[n];
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int NumTrees(int n) {
+        int[] f = new int[n + 1];
+        f[0] = 1;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                f[i] += f[j] * f[i - j - 1];
+            }
+        }
+        return f[n];
     }
 }
 ```

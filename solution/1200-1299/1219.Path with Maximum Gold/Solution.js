@@ -5,23 +5,19 @@
 var getMaximumGold = function (grid) {
     const m = grid.length;
     const n = grid[0].length;
-    function dfs(i, j) {
-        if (i < 0 || i >= m || j < 0 || j >= n || grid[i][j] == 0) {
+    const dfs = (i, j) => {
+        if (i < 0 || i >= m || j < 0 || j >= n || !grid[i][j]) {
             return 0;
         }
-        const t = grid[i][j];
+        const v = grid[i][j];
         grid[i][j] = 0;
-        let ans = 0;
-        const dirs = [-1, 0, 1, 0, -1];
-        for (let k = 0; k < 4; ++k) {
-            ans = Math.max(ans, t + dfs(i + dirs[k], j + dirs[k + 1]));
-        }
-        grid[i][j] = t;
+        let ans = v + Math.max(dfs(i - 1, j), dfs(i + 1, j), dfs(i, j - 1), dfs(i, j + 1));
+        grid[i][j] = v;
         return ans;
-    }
+    };
     let ans = 0;
-    for (let i = 0; i < m; ++i) {
-        for (let j = 0; j < n; ++j) {
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
             ans = Math.max(ans, dfs(i, j));
         }
     }

@@ -49,6 +49,23 @@
 
 ## Solutions
 
+**Solution 1: Dynamic Programming**
+
+We define the state $dp[i][j]$ to represent whether the first $i$ characters of $s$ match the first $j$ characters of $p$.
+
+The state transition equation is as follows:
+
+$$
+dp[i][j]=
+\begin{cases}
+dp[i-1][j-1] & \text{if } s[i-1]=p[j-1] \text{ or } p[j-1]=\text{?} \\
+dp[i-1][j-1] \lor dp[i-1][j] \lor dp[i][j-1] & \text{if } p[j-1]=\text{*} \\
+\text{false} & \text{otherwise}
+\end{cases}
+$$
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the lengths of $s$ and $p$ respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**

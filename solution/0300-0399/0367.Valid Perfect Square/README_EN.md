@@ -36,9 +36,9 @@
 
 ## Solutions
 
-**Method 1: Binary search**
+**Solution 1: Binary search**
 
-**Method 2: Math trick**
+**Solution 2: Math trick**
 
 This is a math problem：
 

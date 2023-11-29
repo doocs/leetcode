@@ -83,6 +83,18 @@ Since 4193 is in the range [-2<sup>31</sup>, 2<sup>31</sup> - 1], the final resu
 
 ## Solutions
 
+**Solution 1: Traverse the String**
+
+First, we determine whether the string is empty. If it is, we directly return $0$.
+
+Otherwise, we need to traverse the string, skip the leading spaces, and determine whether the first non-space character is a positive or negative sign.
+
+Then we traverse the following characters. If it is a digit, we judge whether adding this digit will cause integer overflow. If it does, we return the result according to the positive or negative sign. Otherwise, we add the digit to the result. We continue to traverse the following characters until we encounter a non-digit character or the traversal ends.
+
+After the traversal ends, we return the result according to the positive or negative sign.
+
+The time complexity is $O(n)$, where $n$ is the length of the string. We only need to process all characters in turn. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

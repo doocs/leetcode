@@ -1,29 +1,18 @@
-const map = {
-    '2': ['a', 'b', 'c'],
-    '3': ['d', 'e', 'f'],
-    '4': ['g', 'h', 'i'],
-    '5': ['j', 'k', 'l'],
-    '6': ['m', 'n', 'o'],
-    '7': ['p', 'q', 'r', 's'],
-    '8': ['t', 'u', 'v'],
-    '9': ['w', 'x', 'y', 'z'],
-};
-
 function letterCombinations(digits: string): string[] {
-    const n = digits.length;
-    if (n === 0) {
+    if (digits.length == 0) {
         return [];
     }
-    const res = [];
-    const dfs = (i: number, str: string) => {
-        if (i === n) {
-            res.push(str);
-            return;
+    const ans: string[] = [''];
+    const d = ['abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz'];
+    for (const i of digits) {
+        const s = d[parseInt(i) - 2];
+        const t: string[] = [];
+        for (const a of ans) {
+            for (const b of s) {
+                t.push(a + b);
+            }
         }
-        for (const c of map[digits[i]]) {
-            dfs(i + 1, str + c);
-        }
-    };
-    dfs(0, '');
-    return res;
+        ans.splice(0, ans.length, ...t);
+    }
+    return ans;
 }

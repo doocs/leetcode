@@ -39,27 +39,27 @@
 
 ## Solutions
 
-**Solution 1: Mathematical**
+**Solution 1: Mathematics**
 
-Let $mi$ and $mx$ be $-2^{31}$ and $2^{31} - 1$ respectively. The reversed result $ans$ needs to satisfy $mi \le ans \le mx$.
+Let's denote $mi$ and $mx$ as $-2^{31}$ and $2^{31} - 1$ respectively, then the reverse result of $x$, $ans$, needs to satisfy $mi \le ans \le mx$.
 
-We can get the last digit $y$ of $x$ by repeatedly taking the remainder of $x$ by $10$, and then add $y$ to the end of $ans$. Before adding $y$, we need to determine whether $ans$ will overflow. That is, whether $ans \times 10 + y$ is within the range $[mi, mx]$.
+We can continuously take the remainder of $x$ to get the last digit $y$ of $x$, and add $y$ to the end of $ans$. Before adding $y$, we need to check if $ans$ overflows. That is, check whether $ans \times 10 + y$ is within the range $[mi, mx]$.
 
-If $x \gt 0$, then $ans \times 10 + y \leq mx$ should be satisfied. That is, $ans \times 10 + y \leq \left \lfloor \frac{mx}{10} \right \rfloor \times 10 + 7$. Rearrange to get $(ans - \left \lfloor \frac{mx}{10} \right \rfloor) \times 10 \leq 7 - y$.
+If $x \gt 0$, it needs to satisfy $ans \times 10 + y \leq mx$, that is, $ans \times 10 + y \leq \left \lfloor \frac{mx}{10} \right \rfloor \times 10 + 7$. Rearranging gives $(ans - \left \lfloor \frac{mx}{10} \right \rfloor) \times 10 \leq 7 - y$.
 
-The following conditions need to be satisfied for the above inequality to hold:
+Next, we discuss the conditions for the inequality to hold:
 
 -   When $ans \lt \left \lfloor \frac{mx}{10} \right \rfloor$, the inequality obviously holds;
--   When $ans = \left \lfloor \frac{mx}{10} \right \rfloor$, the necessary and sufficient conditions for the above inequality to hold are $y \leq 7$. If $ans = \left \lfloor \frac{mx}{10} \right \rfloor$ and can still continue to add digits, it means that the current digit is the most significant digit. Therefore, $y$ must be less than or equal to $2$, so the inequality must hold;
+-   When $ans = \left \lfloor \frac{mx}{10} \right \rfloor$, the necessary and sufficient condition for the inequality to hold is $y \leq 7$. If $ans = \left \lfloor \frac{mx}{10} \right \rfloor$ and we can still add numbers, it means that the number is at the highest digit, that is, $y$ must not exceed $2$, therefore, the inequality must hold;
 -   When $ans \gt \left \lfloor \frac{mx}{10} \right \rfloor$, the inequality obviously does not hold.
 
-Therefore, when $x \gt 0$, the necessary and sufficient conditions for the inequality to hold are $ans \leq \left \lfloor \frac{mx}{10} \right \rfloor$.
+In summary, when $x \gt 0$, the necessary and sufficient condition for the inequality to hold is $ans \leq \left \lfloor \frac{mx}{10} \right \rfloor$.
 
-Similarly, when $x \lt 0$, the necessary and sufficient conditions for the inequality to hold are $ans \geq \left \lfloor \frac{mi}{10} \right \rfloor$.
+Similarly, when $x \lt 0$, the necessary and sufficient condition for the inequality to hold is $ans \geq \left \lfloor \frac{mi}{10} \right \rfloor$.
 
-Therefore, we can determine whether $ans$ will overflow by determining whether $ans$ is within the range $[\left \lfloor \frac{mi}{10} \right \rfloor, \left \lfloor \frac{mx}{10} \right \rfloor]$. If so, return $0$. Otherwise, add $y$ to the end of $ans$, and then remove the last digit of $x$, that is, $x \gets \left \lfloor \frac{x}{10} \right \rfloor$.
+Therefore, we can check whether $ans$ overflows by checking whether $ans$ is within the range $[\left \lfloor \frac{mi}{10} \right \rfloor, \left \lfloor \frac{mx}{10} \right \rfloor]$. If it overflows, return $0$. Otherwise, add $y$ to the end of $ans$, and then remove the last digit of $x$, that is, $x \gets \left \lfloor \frac{x}{10} \right \rfloor$.
 
-Time complexity $O(\log |x|)$, where $|x|$ is the absolute value of $x$. Space complexity $O(1)$.
+The time complexity is $O(\log |x|)$, where $|x|$ is the absolute value of $x$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

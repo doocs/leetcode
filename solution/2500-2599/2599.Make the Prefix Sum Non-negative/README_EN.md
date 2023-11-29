@@ -43,7 +43,7 @@ The array after the operation is [3,-2,6,-5]. The prefix sum array is [3, 1, 7, 
 
 ## Solutions
 
-**Method 1: Greedy + Priority Queue (Min Heap)**
+**Solution 1: Greedy + Priority Queue (Min Heap)**
 
 We use a variable $s$ to record the prefix sum of the current array.
 

@@ -38,6 +38,18 @@ So we return the level with the maximum sum which is level 2.
 
 ## Solutions
 
+**Solution 1: BFS**
+
+We can use BFS to traverse the tree level by level, calculate the sum of nodes at each level, and find the level with the maximum sum. If there are multiple levels with the maximum sum, return the smallest level.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+
+**Solution 2: DFS**
+
+We can also use DFS to solve this problem. We use an array $s$ to store the sum of nodes at each level. The index of the array represents the level, and the value of the array represents the sum of nodes. We use DFS to traverse the binary tree, adding the value of each node to the sum of nodes at the corresponding level. Finally, we return the index corresponding to the maximum value in $s$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+
 <!-- tabs:start -->
 
 ### **Python3**

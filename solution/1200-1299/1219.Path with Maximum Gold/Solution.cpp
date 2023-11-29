@@ -1,22 +1,23 @@
 class Solution {
 public:
-    vector<int> dirs = {-1, 0, 1, 0, -1};
-
     int getMaximumGold(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        function<int(int, int)> dfs = [&](int i, int j) {
+            if (i < 0 || i >= m || j < 0 || j >= n || !grid[i][j]) {
+                return 0;
+            }
+            int v = grid[i][j];
+            grid[i][j] = 0;
+            int ans = v + max({dfs(i - 1, j), dfs(i + 1, j), dfs(i, j - 1), dfs(i, j + 1)});
+            grid[i][j] = v;
+            return ans;
+        };
         int ans = 0;
-        for (int i = 0; i < grid.size(); ++i)
-            for (int j = 0; j < grid[0].size(); ++j)
-                ans = max(ans, dfs(i, j, grid));
-        return ans;
-    }
-
-    int dfs(int i, int j, vector<vector<int>>& grid) {
-        if (i < 0 || i >= grid.size() || j < 0 || j >= grid[0].size() || grid[i][j] == 0) return 0;
-        int t = grid[i][j];
-        grid[i][j] = 0;
-        int ans = 0;
-        for (int k = 0; k < 4; ++k) ans = max(ans, t + dfs(i + dirs[k], j + dirs[k + 1], grid));
-        grid[i][j] = t;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                ans = max(ans, dfs(i, j));
+            }
+        }
         return ans;
     }
 };

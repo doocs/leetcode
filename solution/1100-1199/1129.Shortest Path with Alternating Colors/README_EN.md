@@ -42,7 +42,26 @@
 
 ## Solutions
 
-BFS.
+**Solution 1: BFS**
+
+The problem is essentially a shortest path problem, which we can consider solving using BFS.
+
+First, we preprocess all the edges, categorizing all the edges by color and storing them in a multi-dimensional array $g$. Where $g[0]$ stores all red edges, and $g[1]$ stores all blue edges.
+
+Next, we define the following data structures or variables:
+
+-   Queue $q$: used to store the currently searched node and the color of the current edge;
+-   Set $vis$: used to store the nodes that have been searched and the color of the current edge;
+-   Variable $d$: used to represent the current search level, i.e., the distance from the currently searched node to the starting point;
+-   Array $ans$: used to store the shortest distance from each node to the starting point. Initially, we initialize all elements in the $ans$ array to $-1$, indicating that the distance from all nodes to the starting point is unknown.
+
+We first enqueue the starting point $0$ and the color of the starting edge $0$ or $1$, indicating that we start from the starting point and the current edge is red or blue.
+
+Next, we start the BFS search. Each time we take out a node $(i, c)$ from the queue, if the answer of the current node has not been updated, then we update the answer of the current node to the current level $d$, i.e., $ans[i] = d$. Then, we flip the color of the current edge $c$, i.e., if the current edge is red, we change it to blue, and vice versa. We take out all edges corresponding to the color, if the other end node $j$ of the edge has not been searched, then we enqueue it.
+
+After the search is over, return the answer array.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 

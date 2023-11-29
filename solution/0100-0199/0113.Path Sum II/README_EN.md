@@ -44,6 +44,12 @@
 
 ## Solutions
 
+**Solution 1: DFS**
+
+We start from the root node, recursively traverse all paths from the root node to the leaf nodes, and record the path sum. When we traverse to a leaf node, if the current path sum equals `targetSum`, then we add this path to the answer.
+
+The time complexity is $O(n^2)$, where $n$ is the number of nodes in the binary tree. The space complexity is $O(n)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

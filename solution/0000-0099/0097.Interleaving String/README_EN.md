@@ -58,6 +58,48 @@ Since s3 can be obtained by interleaving s1 and s2, we return true.
 
 ## Solutions
 
+**Solution 1: Memoization Search**
+
+Let's denote the length of string $s_1$ as $m$ and the length of string $s_2$ as $n$. If $m + n \neq |s_3|$, then $s_3$ is definitely not an interleaving string of $s_1$ and $s_2$, so we return `false`.
+
+Next, we design a function $dfs(i, j)$, which represents whether the remaining part of $s_3$ can be interleaved from the $i$th character of $s_1$ and the $j$th character of $s_2$. The answer is $dfs(0, 0)$.
+
+The calculation process of function $dfs(i, j)$ is as follows:
+
+If $i \geq m$ and $j \geq n$, it means that both $s_1$ and $s_2$ have been traversed, so we return `true`.
+
+If $i < m$ and $s_1[i] = s_3[i + j]$, it means that the character $s_1[i]$ is part of $s_3[i + j]$. Therefore, we recursively call $dfs(i + 1, j)$ to check whether the next character of $s_1$ can match the current character of $s_2$. If it can match, we return `true`.
+
+Similarly, if $j < n$ and $s_2[j] = s_3[i + j]$, it means that the character $s_2[j]$ is part of $s_3[i + j]$. Therefore, we recursively call $dfs(i, j + 1)$ to check whether the next character of $s_2$ can match the current character of $s_1$. If it can match, we return `true`.
+
+Otherwise, we return `false`.
+
+To avoid repeated calculations, we can use memoization search.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the lengths of strings $s_1$ and $s_2$ respectively.
+
+**Solution 2: Dynamic Programming**
+
+We can convert the memoization search in Solution 1 into dynamic programming.
+
+We define $f[i][j]$ to represent whether the first $i$ characters of string $s_1$ and the first $j$ characters of string $s_2$ can interleave to form the first $i + j$ characters of string $s_3$. When transitioning states, we can consider whether the current character is obtained from the last character of $s_1$ or the last character of $s_2$. Therefore, we have the state transition equation:
+
+$$
+f[i][j] = \begin{cases}
+f[i - 1][j] & \text{if } s_1[i - 1] = s_3[i + j - 1] \\
+\text{or } f[i][j - 1] & \text{if } s_2[j - 1] = s_3[i + j - 1] \\
+\text{false} & \text{otherwise}
+\end{cases}
+$$
+
+where $f[0][0] = \text{true}$ indicates that an empty string is an interleaving string of two empty strings.
+
+The answer is $f[m][n]$.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the lengths of strings $s_1$ and $s_2$ respectively.
+
+We notice that the state $f[i][j]$ is only related to the states $f[i - 1][j]$, $f[i][j - 1]$, and $f[i - 1][j - 1]$. Therefore, we can use a rolling array to optimize the space complexity, reducing the original space complexity from $O(m \times n)$ to $O(n)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -48,7 +48,25 @@ These are the only two combinations.
 
 ## Solutions
 
-DFS.
+**Solution 1: Sorting + Pruning + Backtracking (Two Implementations)**
+
+We can first sort the array to facilitate pruning.
+
+Next, we design a function $dfs(i, s)$, which means starting the search from index $i$ with a remaining target value of $s$. Here, $i$ and $s$ are both non-negative integers, the current search path is $t$, and the answer is $ans$.
+
+In the function $dfs(i, s)$, we first check whether $s$ is $0$. If it is, we add the current search path $t$ to the answer $ans$, and then return. If $s \lt candidates[i]$, it means that the elements of the current index and the following indices are all greater than the remaining target value $s$, and the path is invalid, so we return directly. Otherwise, we start the search from index $i$, and the search index range is $j \in [i, n)$, where $n$ is the length of the array $candidates$. During the search, we add the element of the current index to the search path $t$, recursively call the function $dfs(j, s - candidates[j])$, and after the recursion ends, we remove the element of the current index from the search path $t$.
+
+We can also change the implementation logic of the function $dfs(i, s)$ to another form. In the function $dfs(i, s)$, we first check whether $s$ is $0$. If it is, we add the current search path $t$ to the answer $ans$, and then return. If $i \geq n$ or $s \lt candidates[i]$, the path is invalid, so we return directly. Otherwise, we consider two situations, one is not selecting the element of the current index, that is, recursively calling the function $dfs(i + 1, s)$, and the other is selecting the element of the current index, that is, recursively calling the function $dfs(i, s - candidates[i])$.
+
+In the main function, we just need to call the function $dfs(0, target)$ to get the answer.
+
+The time complexity is $O(2^n \times n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $candidates$. Due to pruning, the actual time complexity is much less than $O(2^n \times n)$.
+
+Similar problems:
+
+-   [40. Combination Sum II](/solution/0000-0099/0040.Combination%20Sum%20II/README_EN.md)
+-   [77. Combinations](/solution/0000-0099/0077.Combinations/README_EN.md)
+-   [216. Combination Sum III](/solution/0200-0299/0216.Combination%20Sum%20III/README_EN.md)
 
 <!-- tabs:start -->
 

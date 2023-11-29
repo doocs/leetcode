@@ -56,6 +56,12 @@
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+First, we can calculate the total distance $s$ that the bus travels. Then, we simulate the bus's journey, starting from the departure point, moving one stop to the right each time, until we reach the destination. During the simulation, we can record the distance $a$ from the departure point to the destination. Therefore, the shortest distance from the destination to the departure point is $\min(a, s - a)$.
+
+The time complexity is $O(n)$, where $n$ is the number of bus stops. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

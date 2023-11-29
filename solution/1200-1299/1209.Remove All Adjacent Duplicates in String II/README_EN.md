@@ -46,6 +46,14 @@ Finally delete &quot;ddd&quot;, get &quot;aa&quot;</pre>
 
 ## Solutions
 
+**Solution 1: Stack**
+
+We can traverse the string $s$, maintaining a stack that stores the characters and their occurrence counts. When traversing to character $c$, if the character at the top of the stack is the same as $c$, we increment the count of the top element by one; otherwise, we push the character $c$ and count $1$ into the stack. When the count of the top element equals $k$, we pop the top element from the stack.
+
+After traversing the string $s$, the elements remaining in the stack form the final result. We can pop the elements from the stack one by one, concatenate them into a string, and that's our answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
+
 <!-- tabs:start -->
 
 ### **Python3**

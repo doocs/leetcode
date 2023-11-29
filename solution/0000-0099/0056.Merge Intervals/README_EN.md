@@ -34,6 +34,21 @@
 
 ## Solutions
 
+**Solution 1: Sorting + One-pass Traversal**
+
+We can sort the intervals in ascending order by the left endpoint, and then traverse the intervals for merging operations.
+
+The specific merging operation is as follows.
+
+First, we add the first interval to the answer. Then, we consider each subsequent interval in turn:
+
+-   If the right endpoint of the last interval in the answer array is less than the left endpoint of the current interval, it means that the two intervals will not overlap, so we can directly add the current interval to the end of the answer array;
+-   Otherwise, it means that the two intervals overlap. We need to use the right endpoint of the current interval to update the right endpoint of the last interval in the answer array, setting it to the larger of the two.
+
+Finally, we return the answer array.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of intervals.
+
 <!-- tabs:start -->
 
 ### **Python3**

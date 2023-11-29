@@ -51,7 +51,25 @@ The binary representation of [0,1,3,2] is [00,01,11,10].
 
 ## Solutions
 
-`G(i) = i ^ (i/2)`.
+**Solution 1: Binary to Gray Code Conversion**
+
+Gray code is a type of encoding method that we often encounter in engineering. Its basic feature is that only one bit of binary number is different between any two adjacent codes.
+
+The rule for converting binary code to binary Gray code is to keep the highest bit of the binary code as the highest bit of the Gray code, and the second highest bit of the Gray code is the XOR of the highest bit and the second highest bit of the binary code. The calculation of the remaining bits of the Gray code is similar to the second highest bit.
+
+Assume that a binary number is represented as $B_{n-1}B_{n-2}...B_2B_1B_0$, and its Gray code is represented as $G_{n-1}G_{n-2}...G_2G_1G_0$. The highest bit is retained, so $G_{n-1} = B_{n-1}$; and the other bits $G_i = B_{i+1} \oplus B_{i}$, where $i=0,1,2..,n-2$.
+
+Therefore, for an integer $x$, we can use the function $gray(x)$ to get its Gray code:
+
+```java
+int gray(x) {
+    return x ^ (x >> 1);
+}
+```
+
+We directly map the integers $[0,..2^n - 1]$ to the corresponding Gray codes to get the answer array.
+
+The time complexity is $O(2^n)$, where $n$ is the integer given in the problem. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

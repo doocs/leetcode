@@ -39,6 +39,18 @@
 
 ## Solutions
 
+**Solution 1: Tarjan Algorithm**
+
+The "critical connections" in this problem can be considered as "bridges".
+
+"Bridges": In a connected undirected graph, if removing a certain edge makes the graph disconnected, then this edge can be considered as a "bridge".
+
+Correspondingly, there is also the concept of "articulation points".
+
+"Articulation Points": In a connected undirected graph, if removing a certain point and all edges connected to it makes the graph disconnected, then this point can be considered as an "articulation point".
+
+There is an algorithm called the Tarjan algorithm for finding "bridges" and "articulation points" in a graph. This algorithm uses a depth-first search (DFS) method that first recursively visits adjacent nodes and then visits the node itself. By recording the "order of visit: DFN" and updating the "earliest backtrackable node: low" when visiting the node itself after recursion ends, it can find the "bridges" and "articulation points" of the graph in $O(n)$ time. Also, this algorithm can be used to find strongly connected components in directed graphs.
+
 <!-- tabs:start -->
 
 ### **Python3**

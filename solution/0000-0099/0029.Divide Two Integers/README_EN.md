@@ -39,9 +39,13 @@
 
 ## Solutions
 
-**Solution 1: Quick Power**
+**Solution 1: Simulation + Fast Power**
 
-Time complexity $O(\log a \times \log b)$, Space complexity $O(1)$.
+Division is essentially subtraction. The problem requires us to calculate the integer result after dividing two numbers, which is actually calculating how many divisors and a number less than the divisor constitute the dividend. However, only one subtraction can be done in one loop, which is too inefficient and will lead to timeout. This can be optimized by using the idea of fast power.
+
+It should be noted that since the problem explicitly requires that only 32-bit signed integers can be used at most, the divisor and dividend need to be converted to negative numbers for calculation. Because converting to positive numbers may cause overflow, such as when the dividend is `INT32_MIN`, it will be greater than `INT32_MAX` when converted to a positive number.
+
+Assuming the dividend is `a` and the divisor is `b`, the time complexity is $O(\log a \times \log b)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

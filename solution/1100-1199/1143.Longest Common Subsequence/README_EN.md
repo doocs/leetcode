@@ -51,19 +51,19 @@
 
 **Solution 1: Dynamic Programming**
 
-Let $f[i][j]$ be the length of the longest common subsequence of $text1$ and $text2$ with length $i$ and $j$, respectively. The answer is $f[m][n]$, where $m$ and $n$ are the lengths of $text1$ and $text2$, respectively.
+We define $f[i][j]$ as the length of the longest common subsequence of the first $i$ characters of $text1$ and the first $j$ characters of $text2$. Therefore, the answer is $f[m][n]$, where $m$ and $n$ are the lengths of $text1$ and $text2$, respectively.
 
-If the $i$-th character of $text1$ and the $j$-th character of $text2$ are the same, then $f[i][j] = f[i - 1][j - 1] + 1$; if the $i$-th character of $text1$ and the $j$-th character of $text2$ are different, then $f[i][j] = max(f[i - 1][j], f[i][j - 1])$. That is, the state transition equation is:
+If the $i$th character of $text1$ and the $j$th character of $text2$ are the same, then $f[i][j] = f[i - 1][j - 1] + 1$; if the $i$th character of $text1$ and the $j$th character of $text2$ are different, then $f[i][j] = max(f[i - 1][j], f[i][j - 1])$. The state transition equation is:
 
 $$
 f[i][j] =
 \begin{cases}
-f[i - 1][j - 1] + 1, & text1[i - 1] = text2[j - 1] \\
-\max(f[i - 1][j], f[i][j - 1]), & text1[i - 1] \neq text2[j - 1]
+f[i - 1][j - 1] + 1, & \text{if } text1[i - 1] = text2[j - 1] \\
+\max(f[i - 1][j], f[i][j - 1]), & \text{if } text1[i - 1] \neq text2[j - 1]
 \end{cases}
 $$
 
-Time complexity $O(m \times n)$, space complexity $O(m \times n)$. Where $m$ and $n$ are the lengths of $text1$ and $text2$, respectively.
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the lengths of $text1$ and $text2$, respectively.
 
 <!-- tabs:start -->
 

@@ -32,6 +32,20 @@
 
 ## Solutions
 
+**Solution 1: Fast and Slow Pointers + Link List Concatenation**
+
+First, we check whether the number of nodes in the linked list is less than $2$. If so, we directly return $head$.
+
+Otherwise, we first count the number of nodes $n$ in the linked list, and then take the modulus of $k$ by $n$ to get the effective value of $k$.
+
+If the effective value of $k$ is $0$, it means that the linked list does not need to be rotated, and we can directly return $head$.
+
+Otherwise, we use fast and slow pointers, let the fast pointer move $k$ steps first, and then let the fast and slow pointers move together until the fast pointer moves to the end of the linked list. At this time, the next node of the slow pointer is the new head node of the linked list.
+
+Finally, we concatenate the linked list.
+
+The time complexity is $O(n)$, where $n$ is the number of nodes in the linked list. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

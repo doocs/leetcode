@@ -35,6 +35,14 @@
 
 ## Solutions
 
+**Solution 1: Greedy Algorithm**
+
+To maximize the number of apples, we should try to minimize the weight of the apples. Therefore, we can sort the weights of the apples, and then put them into the basket in ascending order until the weight of the basket exceeds $5000$. We then return the number of apples in the basket at this point.
+
+If all the apples can be put into the basket, then we return the total number of apples.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of apples.
+
 <!-- tabs:start -->
 
 ### **Python3**

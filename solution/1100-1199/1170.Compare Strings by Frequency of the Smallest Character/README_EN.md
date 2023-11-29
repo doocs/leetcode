@@ -39,6 +39,16 @@
 
 ## Solutions
 
+**Solution 1: Sorting + Binary Search**
+
+First, according to the problem description, we implement a function $f(s)$, which returns the frequency of the smallest letter in the string $s$ in lexicographical order.
+
+Next, we calculate $f(w)$ for each string $w$ in $words$, sort them, and store them in an array $nums$.
+
+Then, we traverse each string $q$ in $queries$, and binary search in $nums$ for the first position $i$ that is greater than $f(q)$. Then, the elements at index $i$ and after in $nums$ all satisfy $f(q) < f(W)$, so the answer to the current query is $n - i$.
+
+The time complexity is $O((n + q) \times M)$, and the space complexity is $O(n)$. Here, $n$ and $q$ are the lengths of the arrays $words$ and $queries$ respectively, and $M$ is the maximum length of the strings.
+
 <!-- tabs:start -->
 
 ### **Python3**

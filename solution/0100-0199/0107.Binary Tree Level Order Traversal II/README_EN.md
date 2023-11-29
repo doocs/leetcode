@@ -38,6 +38,12 @@
 
 ## Solutions
 
+**Solution 1: BFS**
+
+The approach is the same as in [102. Binary Tree Level Order Traversal](/solution/0100-0199/0102.Binary%20Tree%20Level%20Order%20Traversal/README_EN.md), just reverse the result in the end.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+
 <!-- tabs:start -->
 
 ### **Python3**

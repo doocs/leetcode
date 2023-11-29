@@ -52,7 +52,13 @@ There is only one stick left, so you are done. The total cost is 4 + 9 + 17 = 30
 
 ## Solutions
 
-Priority queue.
+**Solution 1: Greedy + Priority Queue (Min Heap)**
+
+We can use a greedy approach, each time choosing the shortest two sticks to connect, which ensures the minimum cost of connection.
+
+Therefore, we can use a priority queue (min heap) to maintain the current stick lengths. Each time, we take out two sticks from the priority queue to connect, then put the connected stick back into the priority queue, until there is only one stick left in the priority queue.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array `sticks`.
 
 <!-- tabs:start -->
 

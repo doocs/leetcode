@@ -42,6 +42,12 @@
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+Starting from the origin point $(0, 0)$, simulate each step of the movement, appending the result of each step to the answer. Note that the direction of movement follows the order "left, up, right, down".
+
+The time complexity is $O(n)$, where $n$ is the length of the string target, as each character in the string target needs to be traversed. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

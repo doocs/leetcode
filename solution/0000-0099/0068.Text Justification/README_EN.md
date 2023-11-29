@@ -72,6 +72,12 @@ Note that the second line is also left-justified because it contains only one wo
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+We can simulate the process according to the problem's requirements. Note that if it is the last line, or if there is only one word in the line, then we should align to the left. Otherwise, we should distribute the spaces evenly.
+
+The time complexity is $O(L)$, and the space complexity is $O(L)$. Here, $L$ is the sum of the lengths of all words.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -44,6 +44,16 @@ To take course 1 you should have finished course 0, and to take course 0 you sho
 
 ## Solutions
 
+**Solution 1: Topological Sorting**
+
+For this problem, we can consider the courses as nodes in a graph, and prerequisites as edges in the graph. Thus, we can transform this problem into determining whether there is a cycle in the directed graph.
+
+Specifically, we can use the idea of topological sorting. For each node with an in-degree of $0$, we reduce the in-degree of its out-degree nodes by $1$, until all nodes have been traversed.
+
+If all nodes have been traversed, it means there is no cycle in the graph, and we can complete all courses; otherwise, we cannot complete all courses.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the number of courses and prerequisites respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**

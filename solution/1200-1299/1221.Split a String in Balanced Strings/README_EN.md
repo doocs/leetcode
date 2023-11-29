@@ -50,6 +50,14 @@ Note that s cannot be split into &quot;RL&quot;, &quot;RR&quot;, &quot;RL&quot;,
 
 ## Solutions
 
+**Solution 1: Greedy**
+
+We use a variable $l$ to maintain the current balance of the string, i.e., the value of $l$ is the number of 'L's minus the number of 'R's in the current string. When the value of $l$ is 0, we have found a balanced string.
+
+We traverse the string $s$. When we traverse to the $i$-th character, if $s[i] = L$, then the value of $l$ is increased by 1, otherwise, the value of $l$ is decreased by 1. When the value of $l$ is 0, we increase the answer by 1.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the string $s$.
+
 <!-- tabs:start -->
 
 ### **Python3**

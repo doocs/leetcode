@@ -1,4 +1,5 @@
 class Solution {
+    private final int[] dirs = {-1, 0, 1, 0, -1};
     private int[][] grid;
     private int m;
     private int n;
@@ -20,14 +21,13 @@ class Solution {
         if (i < 0 || i >= m || j < 0 || j >= n || grid[i][j] == 0) {
             return 0;
         }
-        int t = grid[i][j];
+        int v = grid[i][j];
         grid[i][j] = 0;
-        int[] dirs = {-1, 0, 1, 0, -1};
         int ans = 0;
         for (int k = 0; k < 4; ++k) {
-            ans = Math.max(ans, t + dfs(i + dirs[k], j + dirs[k + 1]));
+            ans = Math.max(ans, v + dfs(i + dirs[k], j + dirs[k + 1]));
         }
-        grid[i][j] = t;
+        grid[i][j] = v;
         return ans;
     }
 }

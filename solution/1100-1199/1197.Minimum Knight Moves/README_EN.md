@@ -37,7 +37,16 @@
 
 ## Solutions
 
-BFS.
+**Solution 1: BFS**
+
+This problem can be solved using the BFS shortest path model. The search space for this problem is not large, so we can directly use the naive BFS. The solution below also provides the code for bidirectional BFS for reference.
+
+Bidirectional BFS is a common optimization method for BFS. The main implementation ideas are as follows:
+
+1. Create two queues, q1 and q2, for "start -> end" and "end -> start" search directions, respectively.
+2. Create two hash maps, m1 and m2, to record the visited nodes and their corresponding expansion times (steps).
+3. During each search, prioritize the queue with fewer elements for search expansion. If a node visited from the other direction is found during the expansion, it means the shortest path has been found.
+4. If one of the queues is empty, it means that the search in the current direction cannot continue, indicating that the start and end points are not connected, and there is no need to continue the search.
 
 <!-- tabs:start -->
 

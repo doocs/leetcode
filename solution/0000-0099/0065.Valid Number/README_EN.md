@@ -67,6 +67,24 @@
 
 ## Solutions
 
+**Solution 1: Case Discussion**
+
+First, we check if the string starts with a positive or negative sign. If it does, we move the pointer $i$ one step forward. If the pointer $i$ has reached the end of the string at this point, it means the string only contains a positive or negative sign, so we return `false`.
+
+If the character pointed to by the current pointer $i$ is a decimal point, and there is no number after the decimal point, or if there is an `e` or `E` after the decimal point, we return `false`.
+
+Next, we use two variables $dot$ and $e$ to record the number of decimal points and `e` or `E` respectively.
+
+We use pointer $j$ to point to the current character:
+
+-   If the current character is a decimal point, and a decimal point or `e` or `E` has appeared before, return `false`. Otherwise, we increment $dot$ by one;
+-   If the current character is `e` or `E`, and `e` or `E` has appeared before, or if the current character is at the beginning or end of the string, return `false`. Otherwise, we increment $e$ by one; then check if the next character is a positive or negative sign, if it is, move the pointer $j$ one step forward. If the pointer $j$ has reached the end of the string at this point, return `false`;
+-   If the current character is not a number, return `false`.
+
+After traversing the string, return `true`.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the string.
+
 <!-- tabs:start -->
 
 ### **Python3**

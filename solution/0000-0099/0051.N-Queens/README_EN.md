@@ -35,7 +35,19 @@
 
 ## Solutions
 
-DFS.
+**Solution 1: DFS (Backtracking)**
+
+We define three arrays $col$, $dg$, and $udg$ to represent whether there is a queen in the column, the main diagonal, and the anti-diagonal, respectively. If there is a queen at position $(i, j)$, then $col[j]$, $dg[i + j]$, and $udg[n - i + j]$ are all $1$. In addition, we use an array $g$ to record the current state of the chessboard, where all elements in $g$ are initially `'.'`.
+
+Next, we define a function $dfs(i)$, which represents placing queens starting from the $i$th row.
+
+In $dfs(i)$, if $i = n$, it means that we have completed the placement of all queens. We put the current $g$ into the answer array and end the recursion.
+
+Otherwise, we enumerate each column $j$ of the current row. If there is no queen at position $(i, j)$, that is, $col[j]$, $dg[i + j]$, and $udg[n - i + j]$ are all $0$, then we can place a queen, that is, change $g[i][j]$ to `'Q'`, and set $col[j]$, $dg[i + j]$, and $udg[n - i + j]$ to $1$. Then we continue to search the next row, that is, call $dfs(i + 1)$. After the recursion ends, we need to change $g[i][j]$ back to `'.'` and set $col[j]$, $dg[i + j]$, and $udg[n - i + j]$ to $0$.
+
+In the main function, we call $dfs(0)$ to start recursion, and finally return the answer array.
+
+The time complexity is $O(n^2 \times n!)$, and the space complexity is $O(n)$. Here, $n$ is the integer given in the problem.
 
 <!-- tabs:start -->
 

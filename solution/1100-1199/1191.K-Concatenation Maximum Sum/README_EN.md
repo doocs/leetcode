@@ -45,6 +45,22 @@
 
 ## Solutions
 
+**Solution 1: Prefix Sum + Case Discussion**
+
+We denote the sum of all elements in the array $arr$ as $s$, the maximum prefix sum as $mxPre$, the minimum prefix sum as $miPre$, and the maximum subarray sum as $mxSub$.
+
+We traverse the array $arr$. For each element $x$, we update $s = s + x$, $mxPre = \max(mxPre, s)$, $miPre = \min(miPre, s)$, $mxSub = \max(mxSub, s - miPre)$.
+
+Next, we consider the value of $k$:
+
+-   When $k = 1$, the answer is $mxSub$.
+-   When $k \ge 2$, if the maximum subarray spans two $arr$, then the answer is $mxPre + mxSuf$, where $mxSuf = s - miPre$.
+-   When $k \ge 2$ and $s > 0$, if the maximum subarray spans three $arr$, then the answer is $(k - 2) \times s + mxPre + mxSuf$.
+
+Finally, we return the result of the answer modulo $10^9 + 7$.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $arr$.
+
 <!-- tabs:start -->
 
 ### **Python3**

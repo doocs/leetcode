@@ -46,7 +46,7 @@
 
 ## Solutions
 
-**Method 1: Array or Hash Table**
+**Solution 1: Array or Hash Table**
 
 We can use a hash table or an array $s$ of length $26$ to record all the broken letter keys.
 
