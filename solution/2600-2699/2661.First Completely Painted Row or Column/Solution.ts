@@ -7,8 +7,8 @@ function firstCompleteIndex(arr: number[], mat: number[][]): number {
             idx.set(mat[i][j], [i, j]);
         }
     }
-    const row: number[] = new Array(m).fill(0);
-    const col: number[] = new Array(n).fill(0);
+    const row: number[] = Array(m).fill(0);
+    const col: number[] = Array(n).fill(0);
     for (let k = 0; ; ++k) {
         const [i, j] = idx.get(arr[k])!;
         ++row[i];

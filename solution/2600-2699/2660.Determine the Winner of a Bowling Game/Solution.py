@@ -8,8 +8,4 @@ class Solution:
             return s
 
         a, b = f(player1), f(player2)
-        if a > b:
-            return 1
-        if b > a:
-            return 2
-        return 0
+        return 1 if a > b else (2 if b > a else 0)
