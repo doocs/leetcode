@@ -41,11 +41,36 @@
 
 ## Solutions
 
-**1. Recusive Traversal**
+**Solution 1: Recursive Traversal**
 
-**2. Non-recursive using Stack**
+We first recursively traverse the left subtree, then visit the root node, and finally recursively traverse the right subtree.
 
-**3. Morris Traversal**
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree, and the space complexity mainly depends on the stack space of the recursive call.
+
+**Solution 2: Stack Implementation for Non-recursive Traversal**
+
+The non-recursive approach is as follows:
+
+1. Define a stack `stk`.
+2. Push the left nodes of the tree into the stack in sequence.
+3. When the left node is null, pop and process the top element of the stack.
+4. Repeat steps 2-3.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree, and the space complexity mainly depends on the stack space.
+
+**Solution 3: Morris Implementation for In-order Traversal**
+
+Morris traversal does not require a stack, so the space complexity is $O(1)$. The core idea is:
+
+Traverse the binary tree nodes,
+
+1. If the left subtree of the current node `root` is null, **add the current node value to the result list `ans`**, and update the current node to `root.right`.
+2. If the left subtree of the current node `root` is not null, find the rightmost node `prev` of the left subtree (which is the predecessor node of the `root` node in in-order traversal):
+    - If the right subtree of the predecessor node `prev` is null, point the right subtree of the predecessor node to the current node `root`, and update the current node to `root.left`.
+    - If the right subtree of the predecessor node `prev` is not null, **add the current node value to the result list `ans`**, then point the right subtree of the predecessor node to null (i.e., disconnect `prev` and `root`), and update the current node to `root.right`.
+3. Repeat the above steps until the binary tree node is null, and the traversal ends.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

@@ -35,6 +35,18 @@
 
 ## Solutions
 
+**Solution 1: Recursion**
+
+The termination condition for recursion is when the current node is null, at which point return $0$. If one of the left or right subtrees of the current node is null, return the minimum depth of the non-null subtree plus $1$. If neither the left nor right subtree of the current node is null, return the smaller value of the minimum depths of the left and right subtrees plus $1$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+
+**Solution 2: BFS**
+
+Use a queue to implement breadth-first search, initially adding the root node to the queue. Each time, take a node from the queue. If this node is a leaf node, directly return the current depth. If this node is not a leaf node, add all non-null child nodes of this node to the queue. Continue to search the next layer of nodes until a leaf node is found.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+
 <!-- tabs:start -->
 
 ### **Python3**

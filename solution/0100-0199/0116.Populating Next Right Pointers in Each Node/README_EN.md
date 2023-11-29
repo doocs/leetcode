@@ -53,6 +53,20 @@ struct Node {
 
 ## Solutions
 
+**Solution 1: BFS**
+
+Use a queue for level order traversal, and each time you traverse a level, connect the nodes of the current level in order.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+
+**Solution 2: DFS**
+
+Use recursion for preorder traversal, and each time you traverse to a node, connect its left and right child nodes in order.
+
+Specifically, we design a function $dfs(left, right)$, which points the $next$ pointer of the $left$ node to the $right$ node. In the function, we first check whether $left$ and $right$ are null. If both are not null, point $left.next$ to $right$, and then recursively call $dfs(left.left, left.right)$, $dfs(left.right, right.left)$, $dfs(right.left, right.right)$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+
 <!-- tabs:start -->
 
 ### **Python3**

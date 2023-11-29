@@ -39,6 +39,20 @@
 
 ## Solutions
 
+**Solution 1: Three Pointers**
+
+We define three pointers $i$, $j$, and $k$. Pointer $i$ is used to point to the rightmost boundary of the elements with a value of $0$ in the array, and pointer $j$ is used to point to the leftmost boundary of the elements with a value of $2$ in the array. Initially, $i=-1$, $j=n$. Pointer $k$ is used to point to the current element being traversed, initially $k=0$.
+
+When $k < j$, we perform the following operations:
+
+-   If $nums[k] = 0$, then swap it with $nums[i+1]$, then increment both $i$ and $k$ by $1$;
+-   If $nums[k] = 2$, then swap it with $nums[j-1]$, then decrement $j$ by $1$;
+-   If $nums[k] = 1$, then increment $k$ by $1$.
+
+After the traversal, the elements in the array are divided into three parts: $[0,i]$, $[i+1,j-1]$ and $[j,n-1]$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. Only one traversal of the array is needed. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

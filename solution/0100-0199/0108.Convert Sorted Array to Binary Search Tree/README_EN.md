@@ -35,6 +35,22 @@
 
 ## Solutions
 
+**Solution 1: Binary Search + Recursion**
+
+We design a recursive function $dfs(l, r)$, which indicates that the node values of the current binary search tree to be constructed are all within the index range $[l, r]$ of the array `nums`. This function returns the root node of the constructed binary search tree.
+
+The execution process of the function $dfs(l, r)$ is as follows:
+
+1. If $l > r$, it means the current array is empty, return `null`.
+2. If $l \leq r$, take the element with the index $mid = \lfloor \frac{l + r}{2} \rfloor$ in the array as the root node of the current binary search tree, where $\lfloor x \rfloor$ represents rounding down $x$.
+3. Recursively construct the left subtree of the current binary search tree, whose root node value is the element with the index $mid - 1$ in the array, and the node values of the left subtree are all within the index range $[l, mid - 1]$ of the array.
+4. Recursively construct the right subtree of the current binary search tree, whose root node value is the element with the index $mid + 1$ in the array, and the node values of the right subtree are all within the index range $[mid + 1, r]$ of the array.
+5. Return the root node of the current binary search tree.
+
+The answer is the return value of the function $dfs(0, n - 1)$.
+
+The time complexity is $O(n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array `nums`.
+
 <!-- tabs:start -->
 
 ### **Python3**

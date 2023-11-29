@@ -38,7 +38,29 @@
 
 ## Solutions
 
-Dynamic programming.
+**Solution 1: Dynamic Programming**
+
+We define $f[i][j]$ to represent the number of paths from the top left corner to $(i, j)$, initially $f[0][0] = 1$, and the answer is $f[m - 1][n - 1]$.
+
+Consider $f[i][j]$:
+
+-   If $i > 0$, then $f[i][j]$ can be reached by taking one step from $f[i - 1][j]$, so $f[i][j] = f[i][j] + f[i - 1][j]$;
+-   If $j > 0$, then $f[i][j]$ can be reached by taking one step from $f[i][j - 1]$, so $f[i][j] = f[i][j] + f[i][j - 1]$.
+
+Therefore, we have the following state transition equation:
+
+$$
+f[i][j] = \begin{cases}
+1 & i = 0, j = 0 \\
+f[i - 1][j] + f[i][j - 1] & \text{otherwise}
+\end{cases}
+$$
+
+The final answer is $f[m - 1][n - 1]$.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively.
+
+We notice that $f[i][j]$ is only related to $f[i - 1][j]$ and $f[i][j - 1]$, so we can optimize the first dimension space and only keep the second dimension space, resulting in a time complexity of $O(m \times n)$ and a space complexity of $O(n)$.
 
 <!-- tabs:start -->
 

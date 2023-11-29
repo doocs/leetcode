@@ -38,7 +38,16 @@
 
 ## Solutions
 
-BFS.
+**Solution 1: BFS**
+
+We can use the BFS method to solve this problem. First, enqueue the root node, then continuously perform the following operations until the queue is empty:
+
+-   Traverse all nodes in the current queue, store their values in a temporary array $t$, and then enqueue their child nodes.
+-   Store the temporary array $t$ in the answer array.
+
+Finally, return the answer array.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

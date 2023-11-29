@@ -32,6 +32,16 @@
 
 ## Solutions
 
+**Solution 1: Single Pass**
+
+First, we create a dummy head node $dummy$, and set $dummy.next = head$. Then we create a pointer $pre$ pointing to $dummy$, and a pointer $cur$ pointing to $head$, and start traversing the linked list.
+
+When the node value pointed by $cur$ is the same as the node value pointed by $cur.next$, we let $cur$ keep moving forward until the node value pointed by $cur$ is different from the node value pointed by $cur.next$. At this point, we check whether $pre.next$ is equal to $cur$. If they are equal, it means there are no duplicate nodes between $pre$ and $cur$, so we move $pre$ to the position of $cur$; otherwise, it means there are duplicate nodes between $pre$ and $cur$, so we set $pre.next$ to $cur.next$. Then we continue to move $cur$ forward. Continue the above operation until $cur$ is null, and the traversal ends.
+
+Finally, return $dummy.next$.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the linked list.
+
 <!-- tabs:start -->
 
 ### **Python3**

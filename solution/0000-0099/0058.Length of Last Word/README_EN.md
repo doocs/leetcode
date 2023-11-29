@@ -44,11 +44,11 @@
 
 ## Solutions
 
-**Solution 1: Reverse traversal + two pointers**
+**Solution 1: Reverse Traversal + Two Pointers**
 
-We start traversing from the end of the string $s$, finding the last character of the last word, which is not a space, and the subscript is $i$. Then continue to traverse forward to find the first space character, which is the character before the first character of the last word, and mark it as $j$. Then the length of the last word is $i - j$.
+We start traversing from the end of the string $s$, find the first character that is not a space, which is the last character of the last word, and mark the index as $i$. Then continue to traverse forward, find the first character that is a space, which is the character before the first character of the last word, and mark it as $j$. Then the length of the last word is $i - j$.
 
-Time complexity $O(n)$, where $n$ is the length of the string $s$. Space complexity $O(1)$.
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
