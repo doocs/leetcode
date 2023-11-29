@@ -46,6 +46,21 @@ Note that you cannot buy on day 1, buy on day 2 and sell them later, as you are 
 
 ## Solutions
 
+**Solution 1: Dynamic Programming**
+
+We define the following variables:
+
+-   `f1` represents the maximum profit after the first purchase of the stock;
+-   `f2` represents the maximum profit after the first sale of the stock;
+-   `f3` represents the maximum profit after the second purchase of the stock;
+-   `f4` represents the maximum profit after the second sale of the stock.
+
+During the traversal, we directly calculate `f1`, `f2`, `f3`, `f4`. We consider that buying and selling on the same day will result in a profit of $0$, which will not affect the answer.
+
+Finally, return `f4`.
+
+The time complexity is $O(n)$, where $n$ is the length of the `prices` array. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

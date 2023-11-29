@@ -48,21 +48,21 @@ Total profit is 4.
 
 ## Solutions
 
-**Solution 1: Greedy**
+**Solution 1: Greedy Algorithm**
 
-From the second day, if the stock price on that day is greater than the previous day, buy it on the previous day and sell it on that day to get a profit. If the stock price on that day is less than the previous day, do not buy it or sell it. That is to say, all the rising trading days are bought and sold, and all the falling trading days are not bought or sold, and the final profit is the maximum.
+Starting from the second day, if the stock price is higher than the previous day, buy on the previous day and sell on the current day to make a profit. If the stock price is lower than the previous day, do not buy or sell. In other words, buy and sell on all rising trading days, and do not trade on all falling trading days. The final profit will be the maximum.
 
-The time complexity is $O(n)$, where $n$ is the length of the array `prices`. The space complexity is $O(1)$.
+The time complexity is $O(n)$, where $n$ is the length of the `prices` array. The space complexity is $O(1)$.
 
 **Solution 2: Dynamic Programming**
 
-Let $f[i][j]$ represent the maximum profit after the $i$th day of trading, where $j$ represents whether the current stock is held, and $j=0$ when the stock is held, and $j=1$ when the stock is not held. The initial state is $f[0][0]=-prices[0]$, and all other states are $0$.
+We define $f[i][j]$ as the maximum profit after trading on the $i$th day, where $j$ indicates whether we currently hold the stock. When holding the stock, $j=0$, and when not holding the stock, $j=1$. The initial state is $f[0][0]=-prices[0]$, and all other states are $0$.
 
-If the current stock is held, it may be that the stock was held on the previous day and nothing was done today, that is, $f[i][0]=f[i-1][0]$; or the stock was not held the previous day and the stock was bought today, that is, $f[i][0]=f[i-1][1]-prices[i]$.
+If we currently hold the stock, it may be that we held the stock the day before and do nothing today, i.e., $f[i][0]=f[i-1][0]$. Or it may be that we did not hold the stock the day before and bought the stock today, i.e., $f[i][0]=f[i-1][1]-prices[i]$.
 
-If the current stock is not held, it may be that the stock was not held the previous day and nothing was done today, that is, $f[i][1]=f[i-1][1]$; or the stock was held the previous day and the stock was sold today, that is, $f[i][1]=f[i-1][0]+prices[i]$.
+If we currently do not hold the stock, it may be that we did not hold the stock the day before and do nothing today, i.e., $f[i][1]=f[i-1][1]$. Or it may be that we held the stock the day before and sold the stock today, i.e., $f[i][1]=f[i-1][0]+prices[i]$.
 
-Therefore, we can write down the state transition equation:
+Therefore, we can write the state transition equation as:
 
 $$
 \begin{cases}
@@ -71,15 +71,15 @@ f[i][1]=\max(f[i-1][1],f[i-1][0]+prices[i])
 \end{cases}
 $$
 
-The final answer is $f[n-1][1]$, where $n$ is the length of the array `prices`.
+The final answer is $f[n-1][1]$, where $n$ is the length of the `prices` array.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$. $n$ is the length of the array `prices`.
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the `prices` array.
 
-**Solution 3: Dynamic Programming (space optimization)**
+**Solution 3: Dynamic Programming (Space Optimization)**
 
-We can find that in Solution 2, the state of the $i$th day only depends on the state of the $i-1$th day, so we can only use two variables to maintain the state of the $i-1$th day. Therefore, the space complexity can be optimized to $O(1)$.
+We can find that in Solution 2, the state of the $i$th day is only related to the state of the $i-1$th day. Therefore, we can use only two variables to maintain the state of the $i-1$th day, thereby optimizing the space complexity to $O(1)$.
 
-Time complexity $O(n)$, where $n$ is the length of the array `prices`. Space complexity $O(1)$.
+The time complexity is $O(n)$, where $n$ is the length of the `prices` array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

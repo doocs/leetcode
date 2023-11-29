@@ -50,7 +50,7 @@ The time complexity is $O(n\times k\times \log k)$, where $n$ and $k$ are the le
 
 **Solution 2: Counting**
 
-We can also change the sorting part in Method 1 to counting, that is, use the characters in each string $s$ and their occurrence times as `key`, and use the string $s$ as `value` to store in the hash table.
+We can also change the sorting part in Solution 1 to counting, that is, use the characters in each string $s$ and their occurrence times as `key`, and use the string $s$ as `value` to store in the hash table.
 
 The time complexity is $O(n\times (k + C))$, where $n$ and $k$ are the lengths of the string array and the maximum length of the string, respectively, and $C$ is the size of the character set. In this problem, $C = 26$.
 

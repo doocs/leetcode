@@ -36,23 +36,23 @@
 
 **Solution 1: Sorting**
 
-First, we sort the array, and use a variable $t$ to record the length of the current continuous sequence, and use a variable $ans$ to record the length of the longest continuous sequence.
+First, we sort the array, then use a variable $t$ to record the current length of the consecutive sequence, and a variable $ans$ to record the length of the longest consecutive sequence.
 
-Then, we start to traverse the array from index $i=1$, for the current element $nums[i]$:
+Next, we start traversing the array from index $i=1$. For the current element $nums[i]$:
 
--   If $nums[i]=nums[i-1]$ , then the current element is duplicate, and we don't need to consider it;
--   If $nums[i]=nums[i-1]+1$ , then the current element can be connected to the previous continuous sequence to form a longer continuous sequence, so we update $t = t + 1$ and update the answer $ans = \max(ans, t)$;
--   Otherwise, the current element cannot be connected to the previous continuous sequence, so we reset $t$ to $1$.
+-   If $nums[i] = nums[i-1]$, it means the current element is repeated and does not need to be considered.
+-   If $nums[i] = nums[i-1] + 1$, it means the current element can be appended to the previous consecutive sequence to form a longer consecutive sequence. We update $t = t + 1$, and then update the answer $ans = \max(ans, t)$.
+-   Otherwise, it means the current element cannot be appended to the previous consecutive sequence, and we reset $t$ to $1$.
 
 Finally, we return the answer $ans$.
 
-Time complexity $O(n \times \log n)$, space complexity $O(\log n)$, where $n$ is the length of the array.
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array.
 
 **Solution 2: Hash Table**
 
-We use a hash table to store all the elements in the array, and then we traverse the array to find the longest continuous sequence for each element $x$. If the predecessor of the current element $x-1$ is not in the hash table, we use the current element as the starting point, and keep trying to match $x+1, x+2, x+3, \dots$ until we cannot match, the matching length at this time is the length of the longest continuous sequence starting from $x$, so we update the answer.
+We use a hash table to store all elements in the array, and then traverse each element $x$ in the array. If the predecessor $x-1$ of the current element is not in the hash table, then we start with the current element and continuously try to match $x+1, x+2, x+3, \dots$, until no match is found. The length of the match at this time is the longest consecutive sequence length starting with $x$, and we update the answer accordingly.
 
-Time complexity $O(n)$, space complexity $O(n)$, where $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
 
