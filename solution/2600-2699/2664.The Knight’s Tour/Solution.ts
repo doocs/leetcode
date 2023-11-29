@@ -1,5 +1,5 @@
 function tourOfKnight(m: number, n: number, r: number, c: number): number[][] {
-    const g: number[][] = new Array(m).fill(0).map(() => new Array(n).fill(-1));
+    const g: number[][] = Array.from({ length: m }, () => Array(n).fill(-1));
     const dirs = [-2, -1, 2, 1, -2, 1, 2, -1, -2];
     let ok = false;
     const dfs = (i: number, j: number) => {

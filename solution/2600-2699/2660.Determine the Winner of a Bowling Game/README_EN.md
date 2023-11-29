@@ -89,11 +89,7 @@ class Solution:
             return s
 
         a, b = f(player1), f(player2)
-        if a > b:
-            return 1
-        if b > a:
-            return 2
-        return 0
+        return 1 if a > b else (2 if b > a else 0)
 ```
 
 ### **Java**
@@ -122,18 +118,16 @@ class Solution {
 class Solution {
 public:
     int isWinner(vector<int>& player1, vector<int>& player2) {
+        auto f = [](vector<int>& arr) {
+            int s = 0;
+            for (int i = 0, n = arr.size(); i < n; ++i) {
+                int k = (i && arr[i - 1] == 10) || (i > 1 && arr[i - 2] == 10) ? 2 : 1;
+                s += k * arr[i];
+            }
+            return s;
+        };
         int a = f(player1), b = f(player2);
-        return a > b ? 1 : b > a ? 2
-                                 : 0;
-    }
-
-    int f(vector<int>& arr) {
-        int s = 0;
-        for (int i = 0; i < arr.size(); ++i) {
-            int k = (i > 0 && arr[i - 1] == 10) || (i > 1 && arr[i - 2] == 10) ? 2 : 1;
-            s += k * arr[i];
-        }
-        return s;
+        return a > b ? 1 : (b > a ? 2 : 0);
     }
 };
 ```
@@ -191,7 +185,6 @@ impl Solution {
     pub fn is_winner(player1: Vec<i32>, player2: Vec<i32>) -> i32 {
         let f = |arr: &Vec<i32>| -> i32 {
             let mut s = 0;
-
             for i in 0..arr.len() {
                 let mut k = 1;
                 if (i > 0 && arr[i - 1] == 10) || (i > 1 && arr[i - 2] == 10) {
@@ -199,16 +192,15 @@ impl Solution {
                 }
                 s += k * arr[i];
             }
-
             s
         };
 
-        let p1 = f(&player1);
-        let p2 = f(&player2);
-        if p1 > p2 {
-            return 1;
-        } else if p1 < p2 {
-            return 2;
+        let a = f(&player1);
+        let b = f(&player2);
+        if a > b {
+            1
+        } else if a < b {
+            2
         } else {
             0
         }
