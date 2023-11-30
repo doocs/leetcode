@@ -2960,6 +2960,7 @@
 |  2947  |  [统计美丽子字符串 I](/solution/2900-2999/2947.Count%20Beautiful%20Substrings%20I/README.md)  |    |  中等  |  第 373 场周赛  |
 |  2948  |  [交换得到字典序最小的数组](/solution/2900-2999/2948.Make%20Lexicographically%20Smallest%20Array%20by%20Swapping%20Elements/README.md)  |    |  中等  |  第 373 场周赛  |
 |  2949  |  [统计美丽子字符串 II](/solution/2900-2999/2949.Count%20Beautiful%20Substrings%20II/README.md)  |    |  困难  |  第 373 场周赛  |
+|  2950  |  [Number of Divisible Substrings](/solution/2900-2999/2950.Number%20of%20Divisible%20Substrings/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
