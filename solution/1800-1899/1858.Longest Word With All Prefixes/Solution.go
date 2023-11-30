@@ -6,22 +6,24 @@ type Trie struct {
 func newTrie() *Trie {
 	return &Trie{}
 }
-func (this *Trie) insert(word string) {
-	node := this
-	for _, c := range word {
-		c -= 'a'
-		if node.children[c] == nil {
-			node.children[c] = newTrie()
+
+func (t *Trie) insert(w string) {
+	node := t
+	for _, c := range w {
+		idx := c - 'a'
+		if node.children[idx] == nil {
+			node.children[idx] = newTrie()
 		}
-		node = node.children[c]
+		node = node.children[idx]
 	}
 	node.isEnd = true
 }
-func (this *Trie) search(word string) bool {
-	node := this
-	for _, c := range word {
-		c -= 'a'
-		node = node.children[c]
+
+func (t *Trie) search(w string) bool {
+	node := t
+	for _, c := range w {
+		idx := c - 'a'
+		node = node.children[idx]
 		if !node.isEnd {
 			return false
 		}
@@ -36,10 +38,7 @@ func longestWord(words []string) string {
 	}
 	ans := ""
 	for _, w := range words {
-		if ans != "" && (len(ans) > len(w) || (len(ans) == len(w) && ans < w)) {
-			continue
-		}
-		if trie.search(w) {
+		if (len(w) > len(ans) || (len(w) == len(ans) && w < ans)) && trie.search(w) {
 			ans = w
 		}
 	}

@@ -1,13 +1,12 @@
-class Trie {
+public class Trie {
     private Trie[] children = new Trie[26];
-    private boolean isEnd;
+    private bool isEnd;
 
-    public Trie() {
-    }
+    public Trie() { }
 
-    public void insert(String w) {
+    public void Insert(string w) {
         Trie node = this;
-        for (char c : w.toCharArray()) {
+        foreach (char c in w.ToCharArray()) {
             int idx = c - 'a';
             if (node.children[idx] == null) {
                 node.children[idx] = new Trie();
@@ -17,9 +16,9 @@ class Trie {
         node.isEnd = true;
     }
 
-    public boolean search(String w) {
+    public bool Search(string w) {
         Trie node = this;
-        for (char c : w.toCharArray()) {
+        foreach (char c in w.ToCharArray()) {
             int idx = c - 'a';
             node = node.children[idx];
             if (!node.isEnd) {
@@ -30,16 +29,16 @@ class Trie {
     }
 }
 
-class Solution {
-    public String longestWord(String[] words) {
+public class Solution {
+    public string LongestWord(string[] words) {
         Trie trie = new Trie();
-        for (String w : words) {
-            trie.insert(w);
+        foreach (string w in words) {
+            trie.Insert(w);
         }
-        String ans = "";
-        for (String w : words) {
-            if ((w.length() > ans.length() || (w.length() == ans.length() && w.compareTo(ans) < 0))
-                && trie.search(w)) {
+
+        string ans = "";
+        foreach (string w in words) {
+            if ((w.Length > ans.Length || (w.Length == ans.Length && string.Compare(w, ans) < 0)) && trie.Search(w)) {
                 ans = w;
             }
         }
