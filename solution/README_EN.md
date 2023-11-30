@@ -2958,6 +2958,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2947  |  [Count Beautiful Substrings I](/solution/2900-2999/2947.Count%20Beautiful%20Substrings%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 373  |
 |  2948  |  [Make Lexicographically Smallest Array by Swapping Elements](/solution/2900-2999/2948.Make%20Lexicographically%20Smallest%20Array%20by%20Swapping%20Elements/README_EN.md)  |    |  Medium  |  Weekly Contest 373  |
 |  2949  |  [Count Beautiful Substrings II](/solution/2900-2999/2949.Count%20Beautiful%20Substrings%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 373  |
+|  2950  |  [Number of Divisible Substrings](/solution/2900-2999/2950.Number%20of%20Divisible%20Substrings/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
