@@ -7,17 +7,10 @@ func closeStrings(word1 string, word2 string) bool {
 	for _, c := range word2 {
 		cnt2[c-'a']++
 	}
-	for i, v := range cnt1 {
-		if (v > 0 && cnt2[i] == 0) || (v == 0 && cnt2[i] > 0) {
-			return false
-		}
+	if !slices.EqualFunc(cnt1, cnt2, func(v1, v2 int) bool { return (v1 == 0) == (v2 == 0) }) {
+		return false
 	}
 	sort.Ints(cnt1)
 	sort.Ints(cnt2)
-	for i, v := range cnt1 {
-		if v != cnt2[i] {
-			return false
-		}
-	}
-	return true
+	return slices.Equal(cnt1, cnt2)
 }

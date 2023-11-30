@@ -10,17 +10,12 @@ public:
             ++cnt2[c - 'a'];
         }
         for (int i = 0; i < 26; ++i) {
-            if ((cnt1[i] > 0 && cnt2[i] == 0) || (cnt1[i] == 0 && cnt2[i] > 0)) {
+            if ((cnt1[i] == 0) != (cnt2[i] == 0)) {
                 return false;
             }
         }
         sort(cnt1, cnt1 + 26);
         sort(cnt2, cnt2 + 26);
-        for (int i = 0; i < 26; ++i) {
-            if (cnt1[i] != cnt2[i]) {
-                return false;
-            }
-        }
-        return true;
+        return equal(cnt1, cnt1 + 26, cnt2);
     }
 };
