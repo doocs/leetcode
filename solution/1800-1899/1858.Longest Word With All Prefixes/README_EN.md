@@ -48,26 +48,38 @@ However, &quot;apple&quot; is lexicographically smaller, so we return that.
 
 ## Solutions
 
+**Solution 1: Trie**
+
+We define a trie, each node of the trie has two attributes, one is a `children` array of length $26$, and the other is a `isEnd` flag indicating whether it is the end of a word.
+
+We traverse `words`, for each word `w`, we start traversing from the root node. If the current node's `children` array does not contain the first character of `w`, we create a new node, then continue to traverse the next character of `w`, until we finish traversing `w`, we mark the `isEnd` of the current node as `true`.
+
+Next, we traverse `words`, for each word `w`, we start traversing from the root node. If the `isEnd` field of the current node's `children` array is `false`, it means that some prefix of `w` is not in `words`, we return `false`. Otherwise, we continue to traverse the next character of `w`, until we finish traversing `w`, we return `true`.
+
+The time complexity is $O(\sum_{w \in words} |w|)$, and the space complexity is $O(\sum_{w \in words} |w|)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
 class Trie:
-    def __init__(self):
-        self.children = [None] * 26
-        self.is_end = False
+    __slots__ = ["children", "is_end"]
 
-    def insert(self, w):
+    def __init__(self):
+        self.children: List[Trie | None] = [None] * 26
+        self.is_end: bool = False
+
+    def insert(self, w: str) -> None:
         node = self
         for c in w:
             idx = ord(c) - ord("a")
-            if node.children[idx] is None:
+            if not node.children[idx]:
                 node.children[idx] = Trie()
             node = node.children[idx]
         node.is_end = True
 
-    def search(self, w):
+    def search(self, w: str) -> bool:
         node = self
         for c in w:
             idx = ord(c) - ord("a")
@@ -84,9 +96,7 @@ class Solution:
             trie.insert(w)
         ans = ""
         for w in words:
-            if ans and (len(ans) > len(w) or (len(ans) == len(w) and ans < w)):
-                continue
-            if trie.search(w):
+            if (len(w) > len(ans) or len(w) == len(ans) and w < ans) and trie.search(w):
                 ans = w
         return ans
 ```
@@ -95,26 +105,29 @@ class Solution:
 
 ```java
 class Trie {
-    Trie[] children = new Trie[26];
-    boolean isEnd;
+    private Trie[] children = new Trie[26];
+    private boolean isEnd;
 
-    void insert(String w) {
+    public Trie() {
+    }
+
+    public void insert(String w) {
         Trie node = this;
         for (char c : w.toCharArray()) {
-            c -= 'a';
-            if (node.children[c] == null) {
-                node.children[c] = new Trie();
+            int idx = c - 'a';
+            if (node.children[idx] == null) {
+                node.children[idx] = new Trie();
             }
-            node = node.children[c];
+            node = node.children[idx];
         }
         node.isEnd = true;
     }
 
-    boolean search(String w) {
+    public boolean search(String w) {
         Trie node = this;
         for (char c : w.toCharArray()) {
-            c -= 'a';
-            node = node.children[c];
+            int idx = c - 'a';
+            node = node.children[idx];
             if (!node.isEnd) {
                 return false;
             }
@@ -131,12 +144,8 @@ class Solution {
         }
         String ans = "";
         for (String w : words) {
-            if (!"".equals(ans)
-                && (ans.length() > w.length()
-                    || (ans.length() == w.length() && ans.compareTo(w) < 0))) {
-                continue;
-            }
-            if (trie.search(w)) {
+            if ((w.length() > ans.length() || (w.length() == ans.length() && w.compareTo(ans) < 0))
+                && trie.search(w)) {
                 ans = w;
             }
         }
@@ -150,30 +159,34 @@ class Solution {
 ```cpp
 class Trie {
 private:
-    vector<Trie*> children;
-    bool isEnd;
+    Trie* children[26];
+    bool isEnd = false;
 
 public:
-    Trie()
-        : children(26)
-        , isEnd(false) {}
+    Trie() {
+        fill(begin(children), end(children), nullptr);
+    }
 
-    void insert(string word) {
+    void insert(const string& w) {
         Trie* node = this;
-        for (char c : word) {
-            c -= 'a';
-            if (!node->children[c]) node->children[c] = new Trie();
-            node = node->children[c];
+        for (char c : w) {
+            int idx = c - 'a';
+            if (!node->children[idx]) {
+                node->children[idx] = new Trie();
+            }
+            node = node->children[idx];
         }
         node->isEnd = true;
     }
 
-    bool search(string word) {
+    bool search(const string& w) {
         Trie* node = this;
-        for (char c : word) {
-            c -= 'a';
-            node = node->children[c];
-            if (!node->isEnd) return false;
+        for (char c : w) {
+            int idx = c - 'a';
+            node = node->children[idx];
+            if (!node->isEnd) {
+                return false;
+            }
         }
         return true;
     }
@@ -182,12 +195,15 @@ public:
 class Solution {
 public:
     string longestWord(vector<string>& words) {
-        Trie* trie = new Trie();
-        for (auto w : words) trie->insert(w);
+        Trie trie;
+        for (const string& w : words) {
+            trie.insert(w);
+        }
         string ans = "";
-        for (auto w : words) {
-            if (ans != "" && (ans.size() > w.size() || (ans.size() == w.size() && ans < w))) continue;
-            if (trie->search(w)) ans = w;
+        for (const string& w : words) {
+            if ((w.size() > ans.size() || (w.size() == ans.size() && w < ans)) && trie.search(w)) {
+                ans = w;
+            }
         }
         return ans;
     }
@@ -205,22 +221,24 @@ type Trie struct {
 func newTrie() *Trie {
 	return &Trie{}
 }
-func (this *Trie) insert(word string) {
-	node := this
-	for _, c := range word {
-		c -= 'a'
-		if node.children[c] == nil {
-			node.children[c] = newTrie()
+
+func (t *Trie) insert(w string) {
+	node := t
+	for _, c := range w {
+		idx := c - 'a'
+		if node.children[idx] == nil {
+			node.children[idx] = newTrie()
 		}
-		node = node.children[c]
+		node = node.children[idx]
 	}
 	node.isEnd = true
 }
-func (this *Trie) search(word string) bool {
-	node := this
-	for _, c := range word {
-		c -= 'a'
-		node = node.children[c]
+
+func (t *Trie) search(w string) bool {
+	node := t
+	for _, c := range w {
+		idx := c - 'a'
+		node = node.children[idx]
 		if !node.isEnd {
 			return false
 		}
@@ -235,14 +253,167 @@ func longestWord(words []string) string {
 	}
 	ans := ""
 	for _, w := range words {
-		if ans != "" && (len(ans) > len(w) || (len(ans) == len(w) && ans < w)) {
-			continue
-		}
-		if trie.search(w) {
+		if (len(w) > len(ans) || (len(w) == len(ans) && w < ans)) && trie.search(w) {
 			ans = w
 		}
 	}
 	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+class Trie {
+    private children: (Trie | null)[] = Array(26).fill(null);
+    private isEnd: boolean = false;
+
+    insert(w: string): void {
+        let node: Trie = this;
+        for (const c of w) {
+            const idx: number = c.charCodeAt(0) - 'a'.charCodeAt(0);
+            if (!node.children[idx]) {
+                node.children[idx] = new Trie();
+            }
+            node = node.children[idx] as Trie;
+        }
+        node.isEnd = true;
+    }
+
+    search(w: string): boolean {
+        let node: Trie = this;
+        for (const c of w) {
+            const idx: number = c.charCodeAt(0) - 'a'.charCodeAt(0);
+            node = node.children[idx] as Trie;
+            if (!node.isEnd) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+function longestWord(words: string[]): string {
+    const trie: Trie = new Trie();
+    for (const w of words) {
+        trie.insert(w);
+    }
+    let ans: string = '';
+    for (const w of words) {
+        if ((w.length > ans.length || (w.length === ans.length && w < ans)) && trie.search(w)) {
+            ans = w;
+        }
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+struct Trie {
+    children: [Option<Box<Trie>>; 26],
+    is_end: bool,
+}
+
+impl Trie {
+    fn new() -> Self {
+        Trie {
+            children: Default::default(),
+            is_end: false,
+        }
+    }
+
+    fn insert(&mut self, w: &str) {
+        let mut node = self;
+        for c in w.chars() {
+            let idx = (c as usize) - ('a' as usize);
+            node = node.children[idx].get_or_insert_with(|| Box::new(Trie::new()));
+        }
+        node.is_end = true;
+    }
+
+    fn search(&self, w: &str) -> bool {
+        let mut node = self;
+        for c in w.chars() {
+            let idx = (c as usize) - ('a' as usize);
+            if let Some(next_node) = &node.children[idx] {
+                node = next_node.as_ref();
+                if !node.is_end {
+                    return false;
+                }
+            }
+        }
+        true
+    }
+}
+
+impl Solution {
+    pub fn longest_word(words: Vec<String>) -> String {
+        let mut trie = Trie::new();
+        for w in &words {
+            trie.insert(w);
+        }
+        let mut ans = String::new();
+        for w in &words {
+            if (w.len() > ans.len() || (w.len() == ans.len() && w < &ans)) && trie.search(w) {
+                ans = w.clone();
+            }
+        }
+        ans
+    }
+}
+```
+
+### **C#**
+
+```cs
+public class Trie {
+    private Trie[] children = new Trie[26];
+    private bool isEnd;
+
+    public Trie() { }
+
+    public void Insert(string w) {
+        Trie node = this;
+        foreach (char c in w.ToCharArray()) {
+            int idx = c - 'a';
+            if (node.children[idx] == null) {
+                node.children[idx] = new Trie();
+            }
+            node = node.children[idx];
+        }
+        node.isEnd = true;
+    }
+
+    public bool Search(string w) {
+        Trie node = this;
+        foreach (char c in w.ToCharArray()) {
+            int idx = c - 'a';
+            node = node.children[idx];
+            if (!node.isEnd) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+public class Solution {
+    public string LongestWord(string[] words) {
+        Trie trie = new Trie();
+        foreach (string w in words) {
+            trie.Insert(w);
+        }
+
+        string ans = "";
+        foreach (string w in words) {
+            if ((w.Length > ans.Length || (w.Length == ans.Length && string.Compare(w, ans) < 0)) && trie.Search(w)) {
+                ans = w;
+            }
+        }
+        return ans;
+    }
 }
 ```
 
