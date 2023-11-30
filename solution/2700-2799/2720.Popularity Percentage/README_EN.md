@@ -13,15 +13,15 @@
 | user1       | int  |
 | user2       | int  |
 +-------------+------+
-(user1, user2) is the primary key of this table.
+(user1, user2) is the primary key (combination of unique values) of this table.
 Each row contains information about friendship where user1 and user2 are friends.
 </pre>
 
-<p>Write an SQL query to find the popularity percentage for each user on Meta/Facebook. The popularity percentage is defined as the total number of friends the user has divided by the total number of users on the platform, then converted into a percentage by multiplying by 100, <strong>rounded to 2 decimal places</strong>.</p>
+<p>Write a solution to find the popularity percentage for each user on Meta/Facebook. The popularity percentage is defined as the total number of friends the user has divided by the total number of users on the platform, then converted into a percentage by multiplying by 100, <strong>rounded to 2 decimal places</strong>.</p>
 
 <p>Return <em>the result table ordered by</em> <code>user1</code> <em>in <strong>ascending</strong> order.</em></p>
 
-<p>The query result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

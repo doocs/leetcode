@@ -14,7 +14,7 @@
 | join_date      | date    |
 | favorite_brand | varchar |
 +----------------+---------+
-seller_id is the primary key for this table.
+seller_id is column of unique values for this table.
 This table contains seller id, join date, and favorite brand of sellers.
 </pre>
 
@@ -27,7 +27,7 @@ This table contains seller id, join date, and favorite brand of sellers.
 | item_id       | int     |
 | item_brand    | varchar |
 +---------------+---------+
-item_id is the primary key for this table.
+item_id is the column of unique values for this table.
 This table contains item id and item brand.</pre>
 
 <p>Table: <code>Orders</code></p>
@@ -41,7 +41,7 @@ This table contains item id and item brand.</pre>
 | item_id       | int     |
 | seller_id     | int     |
 +---------------+---------+
-order_id is the primary key for this table.
+order_id is the column of unique values for this table.
 item_id is a foreign key to the Items table.
 seller_id is a foreign key to the Users table.
 This table contains order id, order date, item id and seller id.</pre>
