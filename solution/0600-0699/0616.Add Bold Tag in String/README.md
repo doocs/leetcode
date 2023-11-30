@@ -6,19 +6,26 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个字符串 <code>s</code> 和一个字符串列表 <code>words</code> ，你需要将在字符串列表中出现过的 <code>s</code> 的子串添加加粗闭合标签 &lt;b&gt; 和 &lt;/b&gt; 。</p>
+<p>给定字符串 <code>s</code> 和字符串数组 <code>words</code>。</p>
 
-<p>如果两个子串有重叠部分，你需要把它们一起用一对闭合标签包围起来。同理，如果两个子字符串连续被加粗，那么你也需要把它们合起来用一对加粗标签包围。</p>
+<p>对于 <code>s</code> 内部的子字符串，若其存在于 <code>words</code> 数组中， 则通过添加闭合的粗体标签<meta charset="UTF-8" />&nbsp;<code>&lt;b&gt;</code>&nbsp;和&nbsp;<code>&lt;/b&gt;</code>&nbsp;进行加粗标记。</p>
+
+<ul>
+	<li>如果两个这样的子字符串重叠，你应该仅使用一对闭合的粗体标签将它们包围起来。</li>
+	<li>如果被粗体标签包围的两个子字符串是连续的，你应该将它们合并。</li>
+</ul>
 
 <p>返回添加加粗标签后的字符串 <code>s</code> 。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
 <pre>
 <strong>输入：</strong> s = "abcxyz123", words = ["abc","123"]
 <strong>输出：</strong>"&lt;b&gt;abc&lt;/b&gt;xyz&lt;b&gt;123&lt;/b&gt;"
+<strong>解释：</strong>两个单词字符串是 s 的子字符串，如下所示: "abcxyz123"。
+我们在每个子字符串之前添加&lt;b&gt;，在每个子字符串之后添加&lt;/b&gt;。
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -26,25 +33,31 @@
 <pre>
 <strong>输入：</strong>s = "aaabbcc", words = ["aaa","aab","bc"]
 <strong>输出：</strong>"&lt;b&gt;aaabbc&lt;/b&gt;c"
+<strong>解释：</strong>
+"aa"作为子字符串出现了两次: "<u>aa</u>abbb" 和 "a<u>aa</u>bbb"。
+"b"作为子字符串出现了三次: "aaa<u>b</u>bb"、"aaab<u>b</u>b" 和 "aaabb<u>b</u>"。
+我们在每个子字符串之前添加&lt;b&gt;，在每个子字符串之后添加&lt;/b&gt;: "&lt;b&gt;a&lt;b&gt;a&lt;/b&gt;a&lt;/b&gt;&lt;b&gt;b&lt;/b&gt;&lt;b&gt;b&lt;/b&gt;&lt;b&gt;b&lt;/b&gt;"。
+由于前两个&lt;b&gt;重叠，把它们合并得到: "&lt;b&gt;aaa&lt;/b&gt;&lt;b&gt;b&lt;/b&gt;&lt;b&gt;b&lt;/b&gt;&lt;b&gt;b&lt;/b&gt;"。
+由于现在这四个&lt;b&gt;是连续的，把它们合并得到: "&lt;b&gt;aaabbb&lt;/b&gt;"。
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= s.length <= 1000</code></li>
-	<li><code>0 <= words.length <= 100</code></li>
-	<li><code>1 <= words[i].length <= 1000</code></li>
+	<li><code>1 &lt;= s.length &lt;= 1000</code></li>
+	<li><code>0 &lt;= words.length &lt;= 100</code></li>
+	<li><code>1 &lt;= words[i].length &lt;= 1000</code></li>
 	<li><code>s</code> 和 <code>words[i]</code> 由英文字母和数字组成</li>
 	<li><code>words</code> 中的所有值 <strong>互不相同</strong></li>
 </ul>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>注：</strong>此题与「758 - 字符串中的加粗单词」相同 - <a href="https://leetcode.cn/problems/bold-words-in-string">https://leetcode.cn/problems/bold-words-in-string</a></p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 ## 解法
 

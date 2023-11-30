@@ -6,7 +6,7 @@
 
 <p>Each character of the English alphabet has been mapped to a digit as shown below.</p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2023/11/28/old_phone_digits.png" style="padding: 10px; width: 200px; height: 200px;" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2900-2999/2950.Number%20of%20Divisible%20Substrings/images/old_phone_digits.png" style="padding: 10px; width: 200px; height: 200px;" /></p>
 
 <p>A string is <strong>divisible</strong> if the sum of the mapped values of its characters is divisible by its length.</p>
 

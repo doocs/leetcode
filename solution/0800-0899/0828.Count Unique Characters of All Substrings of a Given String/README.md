@@ -31,7 +31,7 @@
 <pre>
 <strong>输入: </strong>s = "ABA"
 <strong>输出: </strong>8
-<strong>解释: </strong>除<code>了 countUniqueChars</code>("ABA") = 1 之外，其余与示例 1 相同。
+<strong>解释: </strong>除了 countUniqueChars("ABA") = 1 之外，其余与示例 1 相同。
 </pre>
 
 <p><strong class="example">示例 3：</strong></p>

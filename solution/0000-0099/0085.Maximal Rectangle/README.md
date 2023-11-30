@@ -21,29 +21,15 @@
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>输入：</strong>matrix = []
+<strong>输入：</strong>matrix = [["0"]]
 <strong>输出：</strong>0
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
 <pre>
-<strong>输入：</strong>matrix = [["0"]]
-<strong>输出：</strong>0
-</pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre>
 <strong>输入：</strong>matrix = [["1"]]
 <strong>输出：</strong>1
-</pre>
-
-<p><strong>示例 5：</strong></p>
-
-<pre>
-<strong>输入：</strong>matrix = [["0","0"]]
-<strong>输出：</strong>0
 </pre>
 
 <p>&nbsp;</p>
