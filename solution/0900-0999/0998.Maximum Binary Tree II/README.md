@@ -77,15 +77,15 @@
 
 如果 $val$ 不是最大数，由于 $val$ 是在最后追加的数，那么一定是在 $root$ 的右边，所以将 $val$ 作为新节点插入 $root$ 的右子树即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是树的节点数。
 
 **方法二：迭代**
 
-搜索右子树，找到 $curr.val > val > curr.right.val$ 的节点，然后创建新的节点 $node$，把 $node.left$ 指向 $curr.right$，然后 $curr.right$ 指向 $node$。
+搜索右子树，找到 $curr.val \gt val \gt curr.right.val$ 的节点，然后创建新的节点 $node$，把 $node.left$ 指向 $curr.right$，然后 $curr.right$ 指向 $node$。
 
 最后返回 $root$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，其中 $n$ 是树的节点数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
