@@ -56,6 +56,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：差分数组**
+
+我们注意到，对于若干个连续的元素进行反转，其结果与对这些元素进行反转的次序无关。因此我们可以贪心地考虑每个位置需要进行反转的次数。
+
+我们不妨从左到右处理数组。
+
+假设当前我们需要处理位置 $i$，而位置 $i$ 左侧的元素已经被处理完毕，如果 $i$ 位置的元素为 $0$，那么我们必须进行反转操作，我们需要将 $[i,..i+k-1]$ 区间内的元素进行反转。这里我们用一个差分数组 $d$ 来维护每个位置的反转次数，那么判断当前位置 $i$ 是否需要反转，只需要看 $s = \sum_{j=0}^{i}d[j]$ 以及 $nums[i]$ 的奇偶性，如果 $s$ 与 $nums[i]$ 奇偶性相同，那么位置 $i$ 的元素仍然为 $0$，需要进行反转。此时我们判断一下 $i+k$ 是否超出了数组的长度，如果超出了数组的长度，那么就无法完成目标，返回 $-1$。否则我们令 $d[i]$ 增加 $1$，同时令 $d[i+k]$ 减少 $1$，然后将答案增加 $1$，并且 $s$ 增加 $1$。
+
+这样当我们处理完数组中的所有元素时，返回答案即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。这里 $n$ 是数组 $nums$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,7 +75,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minKBitFlips(self, nums: List[int], k: int) -> int:
+        n = len(nums)
+        d = [0] * (n + 1)
+        ans = s = 0
+        for i, x in enumerate(nums):
+            s += d[i]
+            if x % 2 == s % 2:
+                if i + k > n:
+                    return -1
+                d[i] += 1
+                d[i + k] -= 1
+                s += 1
+                ans += 1
+        return ans
 ```
 
 ### **Java**
@@ -71,7 +97,125 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minKBitFlips(int[] nums, int k) {
+        int n = nums.length;
+        int[] d = new int[n + 1];
+        int ans = 0, s = 0;
+        for (int i = 0; i < n; ++i) {
+            s += d[i];
+            if (nums[i] % 2 == s % 2) {
+                if (i + k > n) {
+                    return -1;
+                }
+                ++d[i];
+                --d[i + k];
+                ++s;
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minKBitFlips(vector<int>& nums, int k) {
+        int n = nums.size();
+        int d[n + 1];
+        memset(d, 0, sizeof(d));
+        int ans = 0, s = 0;
+        for (int i = 0; i < n; ++i) {
+            s += d[i];
+            if (s % 2 == nums[i] % 2) {
+                if (i + k > n) {
+                    return -1;
+                }
+                ++d[i];
+                --d[i + k];
+                ++s;
+                ++ans;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minKBitFlips(nums []int, k int) int {
+	n := len(nums)
+	d := make([]int, n+1)
+	ans, s := 0, 0
+	for i, x := range nums {
+		s += d[i]
+		if s%2 == x%2 {
+			if i+k > n {
+				return -1
+			}
+			d[i]++
+			d[i+k]--
+			s++
+			ans++
+		}
+	}
+	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function minKBitFlips(nums: number[], k: number): number {
+    const n = nums.length;
+    const d: number[] = Array(n + 1).fill(0);
+    let [ans, s] = [0, 0];
+    for (let i = 0; i < n; ++i) {
+        s += d[i];
+        if (s % 2 === nums[i] % 2) {
+            if (i + k > n) {
+                return -1;
+            }
+            d[i]++;
+            d[i + k]--;
+            s++;
+            ans++;
+        }
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn min_k_bit_flips(nums: Vec<i32>, k: i32) -> i32 {
+        let n = nums.len();
+        let mut d = vec![0; n + 1];
+        let mut ans = 0;
+        let mut s = 0;
+        for i in 0..n {
+            s += d[i];
+            if nums[i] % 2 == s % 2 {
+                if i + (k as usize) > n {
+                    return -1;
+                }
+                d[i] += 1;
+                d[i + (k as usize)] -= 1;
+                s += 1;
+                ans += 1;
+            }
+        }
+        ans
+    }
+}
 ```
 
 ### **...**

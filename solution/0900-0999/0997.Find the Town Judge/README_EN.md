@@ -54,6 +54,16 @@
 
 ## Solutions
 
+**Solution 1: Counting**
+
+We create two arrays $cnt1$ and $cnt2$ of length $n + 1$, representing the number of people each person trusts and the number of people who trust each person, respectively.
+
+Next, we traverse the array $trust$, for each item $[a_i, b_i]$, we increment $cnt1[a_i]$ and $cnt2[b_i]$ by $1$.
+
+Finally, we enumerate each person $i$ in the range $[1,..n]$. If $cnt1[i] = 0$ and $cnt2[i] = n - 1$, it means that $i$ is the town judge, and we return $i$. Otherwise, if no such person is found after the traversal, we return $-1$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $trust$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -153,6 +163,32 @@ function findJudge(n: number, trust: number[][]): number {
         }
     }
     return -1;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn find_judge(n: i32, trust: Vec<Vec<i32>>) -> i32 {
+        let mut cnt1 = vec![0; (n + 1) as usize];
+        let mut cnt2 = vec![0; (n + 1) as usize];
+
+        for t in trust.iter() {
+            let a = t[0] as usize;
+            let b = t[1] as usize;
+            cnt1[a] += 1;
+            cnt2[b] += 1;
+        }
+
+        for i in 1..=n as usize {
+            if cnt1[i] == 0 && cnt2[i] == (n as usize) - 1 {
+                return i as i32;
+            }
+        }
+
+        -1
+    }
 }
 ```
 

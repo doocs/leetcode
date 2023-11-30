@@ -61,6 +61,22 @@
 
 ## Solutions
 
+**Solution 1: Recursion**
+
+If $val$ is the maximum number, then make $val$ the new root node, and $root$ the left subtree of the new root node.
+
+If $val$ is not the maximum number, since $val$ is the last appended number, it must be on the right side of $root$. Therefore, we can insert $val$ as a new node into the right subtree of $root$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the tree.
+
+**Solution 2: Iteration**
+
+Search the right subtree, find the node where $curr.val \gt val \gt curr.right.val$, then create a new node $node$, point $node.left$ to $curr.right$, and then point $curr.right$ to $node$.
+
+Finally, return $root$.
+
+The time complexity is $O(n)$, where $n$ is the number of nodes in the tree. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
