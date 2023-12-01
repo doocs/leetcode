@@ -64,6 +64,15 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def evenOddBit(self, n: int) -> List[int]:
+        mask = 0x5555
+        even = (n & mask).bit_count()
+        odd = (n & ~mask).bit_count()
+        return [even, odd]
+```
+
 ### **Java**
 
 ```java
@@ -74,6 +83,17 @@ class Solution {
             ans[i] += n & 1;
         }
         return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int[] evenOddBit(int n) {
+        int mask = 0x5555;
+        int even = Integer.bitCount(n & mask);
+        int odd = Integer.bitCount(n & ~mask);
+        return new int[] {even, odd};
     }
 }
 ```
@@ -93,6 +113,18 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    vector<int> evenOddBit(int n) {
+        int mask = 0x5555;
+        int even = __builtin_popcount(n & mask);
+        int odd = __builtin_popcount(n & ~mask);
+        return {even, odd};
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -105,6 +137,15 @@ func evenOddBit(n int) []int {
 }
 ```
 
+```go
+func evenOddBit(n int) []int {
+	mask := 0x5555
+	even := bits.OnesCount32(uint32(n & mask))
+	odd := bits.OnesCount32(uint32(n & ^mask))
+	return []int{even, odd}
+}
+```
+
 ### **TypeScript**
 
 ```ts
@@ -114,6 +155,24 @@ function evenOddBit(n: number): number[] {
         ans[i] += n & 1;
     }
     return ans;
+}
+```
+
+```ts
+function evenOddBit(n: number): number[] {
+    const mask = 0x5555;
+    const even = bitCount(n & mask);
+    const odd = bitCount(n & ~mask);
+    return [even, odd];
+}
+
+function bitCount(i: number): number {
+    i = i - ((i >>> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
+    i = (i + (i >>> 4)) & 0x0f0f0f0f;
+    i = i + (i >>> 8);
+    i = i + (i >>> 16);
+    return i & 0x3f;
 }
 ```
 
@@ -133,6 +192,17 @@ impl Solution {
         }
 
         ans
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn even_odd_bit(n: i32) -> Vec<i32> {
+        let mask: i32 = 0x5555;
+        let even = (n & mask).count_ones() as i32;
+        let odd = (n & !mask).count_ones() as i32;
+        vec![even, odd]
     }
 }
 ```

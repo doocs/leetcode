@@ -51,13 +51,13 @@ It can be proved that the cars cannot be repaired in less than 16 minutes.​​
 
 **Solution 1: Binary Search**
 
-We notice that the longer the repair time, the more repaired cars. Therefore, we can use binary search to find the minimum repair time.
+We notice that the longer the repair time, the more cars are repaired. Therefore, we can use the repair time as the target of binary search, and binary search for the minimum repair time.
 
-We define the left and right boundaries of binary search as $left=0$, $right=ranks[0] \times cars \times cars$. Next, we enumerate the repair time $mid$ in binary search. The number of cars that each mechanic can repair is $\lfloor \sqrt{\frac{mid}{r}} \rfloor$, where $\lfloor x \rfloor$ represents the floor function. If the number of cars repaired is greater than or equal to $cars$, then the repair time $mid$ is feasible, and we shrink the right boundary to $mid$, otherwise we increase the left boundary to $mid+1$.
+We define the left and right boundaries of the binary search as $left=0$, $right=ranks[0] \times cars \times cars$. Next, we binary search for the repair time $mid$, and the number of cars each mechanic can repair is $\lfloor \sqrt{\frac{mid}{r}} \rfloor$, where $\lfloor x \rfloor$ represents rounding down. If the number of cars repaired is greater than or equal to $cars$, it means that the repair time $mid$ is feasible, we reduce the right boundary to $mid$, otherwise we increase the left boundary to $mid+1$.
 
 Finally, we return the left boundary.
 
-Time complexity $(n \times \log n)$, space complexity $O(1)$. Where $n$ is the number of mechanics.
+The time complexity is $O(n \times \log M)$, and the space complexity is $O(1)$. Here, $n$ is the number of mechanics, and $M$ is the upper bound of the binary search.
 
 <!-- tabs:start -->
 
