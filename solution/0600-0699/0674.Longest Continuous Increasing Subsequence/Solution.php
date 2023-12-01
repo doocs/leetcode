@@ -4,15 +4,15 @@ class Solution {
      * @return Integer
      */
     function findLengthOfLCIS($nums) {
-        $tmp = $max = 1;
-        for ($i = 0; $i < count($nums) - 1; $i++) {
-            if ($nums[$i] < $nums[$i + 1]) {
-                $tmp++;
-                $max = max($max, $tmp);
+        $ans = 1;
+        $cnt = 1;
+        for ($i = 1; $i < count($nums); ++$i) {
+            if ($nums[$i - 1] < $nums[$i]) {
+                $ans = max($ans, ++$cnt);
             } else {
-                $tmp = 1;
+                $cnt = 1;
             }
         }
-        return $max;
+        return $ans;
     }
 }
