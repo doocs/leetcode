@@ -230,7 +230,7 @@ class Solution {
     public int minCostToSupplyWater(int n, int[] wells, int[][] pipes) {
         int[][] nums = Arrays.copyOf(pipes, pipes.length + n);
         for (int i = 0; i < n; i++) {
-            nums[pipes.length + i] = new int[]{0, i + 1, wells[i]};
+            nums[pipes.length + i] = new int[] {0, i + 1, wells[i]};
         }
         Arrays.sort(nums, (a, b) -> a[2] - b[2]);
         UnionFind uf = new UnionFind(n + 1);
