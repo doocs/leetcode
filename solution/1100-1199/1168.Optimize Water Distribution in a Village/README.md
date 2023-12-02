@@ -332,7 +332,7 @@ public:
         });
         UnionFind uf(n + 1);
         int ans = 0;
-        for (const auto& x: pipes) {
+        for (const auto& x : pipes) {
             if (uf.unite(x[0], x[1])) {
                 ans += x[2];
                 if (--n == 0) {
