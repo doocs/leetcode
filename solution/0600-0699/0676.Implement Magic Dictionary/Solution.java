@@ -45,7 +45,6 @@ class MagicDictionary {
     private Trie trie = new Trie();
 
     public MagicDictionary() {
-
     }
 
     public void buildDict(String[] dictionary) {
