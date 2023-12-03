@@ -3008,3 +3008,7 @@
   - [2948.Make Lexicographically Smallest Array by Swapping Elements](/solution/2900-2999/2948.Make%20Lexicographically%20Smallest%20Array%20by%20Swapping%20Elements/README_EN.md)
   - [2949.Count Beautiful Substrings II](/solution/2900-2999/2949.Count%20Beautiful%20Substrings%20II/README_EN.md)
   - [2950.Number of Divisible Substrings](/solution/2900-2999/2950.Number%20of%20Divisible%20Substrings/README_EN.md)
+  - [2951.Find the Peaks](/solution/2900-2999/2951.Find%20the%20Peaks/README_EN.md)
+  - [2952.Minimum Number of Coins to be Added](/solution/2900-2999/2952.Minimum%20Number%20of%20Coins%20to%20be%20Added/README_EN.md)
+  - [2953.Count Complete Substrings](/solution/2900-2999/2953.Count%20Complete%20Substrings/README_EN.md)
+  - [2954.Count the Number of Infection Sequences](/solution/2900-2999/2954.Count%20the%20Number%20of%20Infection%20Sequences/README_EN.md)

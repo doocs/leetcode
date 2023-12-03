@@ -25,6 +25,13 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 374
+
+- [2951. Find the Peaks](/solution/2900-2999/2951.Find%20the%20Peaks/README_EN.md)
+- [2952. Minimum Number of Coins to be Added](/solution/2900-2999/2952.Minimum%20Number%20of%20Coins%20to%20be%20Added/README_EN.md)
+- [2953. Count Complete Substrings](/solution/2900-2999/2953.Count%20Complete%20Substrings/README_EN.md)
+- [2954. Count the Number of Infection Sequences](/solution/2900-2999/2954.Count%20the%20Number%20of%20Infection%20Sequences/README_EN.md)
+
 #### Weekly Contest 373
 
 - [2946. Matrix Similarity After Cyclic Shifts](/solution/2900-2999/2946.Matrix%20Similarity%20After%20Cyclic%20Shifts/README_EN.md)

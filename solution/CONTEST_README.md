@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 374 场周赛(2023-12-03 10:30, 90 分钟) 参赛人数 4053
+
+- [2951. 找出峰值](/solution/2900-2999/2951.Find%20the%20Peaks/README.md)
+- [2952. 需要添加的硬币的最小数量](/solution/2900-2999/2952.Minimum%20Number%20of%20Coins%20to%20be%20Added/README.md)
+- [2953. 统计完全子字符串](/solution/2900-2999/2953.Count%20Complete%20Substrings/README.md)
+- [2954. 统计感冒序列的数目](/solution/2900-2999/2954.Count%20the%20Number%20of%20Infection%20Sequences/README.md)
+
 #### 第 373 场周赛(2023-11-26 10:30, 90 分钟) 参赛人数 3577
 
 - [2946. 循环移位后的矩阵相似检查](/solution/2900-2999/2946.Matrix%20Similarity%20After%20Cyclic%20Shifts/README.md)

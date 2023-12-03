@@ -2961,6 +2961,10 @@
 |  2948  |  [交换得到字典序最小的数组](/solution/2900-2999/2948.Make%20Lexicographically%20Smallest%20Array%20by%20Swapping%20Elements/README.md)  |  `并查集`,`数组`,`排序`  |  中等  |  第 373 场周赛  |
 |  2949  |  [统计美丽子字符串 II](/solution/2900-2999/2949.Count%20Beautiful%20Substrings%20II/README.md)  |  `哈希表`,`数学`,`字符串`,`数论`,`前缀和`  |  困难  |  第 373 场周赛  |
 |  2950  |  [可整除子串的数量](/solution/2900-2999/2950.Number%20of%20Divisible%20Substrings/README.md)  |    |  中等  |  🔒  |
+|  2951  |  [找出峰值](/solution/2900-2999/2951.Find%20the%20Peaks/README.md)  |    |  简单  |  第 374 场周赛  |
+|  2952  |  [需要添加的硬币的最小数量](/solution/2900-2999/2952.Minimum%20Number%20of%20Coins%20to%20be%20Added/README.md)  |    |  中等  |  第 374 场周赛  |
+|  2953  |  [统计完全子字符串](/solution/2900-2999/2953.Count%20Complete%20Substrings/README.md)  |    |  中等  |  第 374 场周赛  |
+|  2954  |  [统计感冒序列的数目](/solution/2900-2999/2954.Count%20the%20Number%20of%20Infection%20Sequences/README.md)  |    |  困难  |  第 374 场周赛  |
 
 ## 版权
 
