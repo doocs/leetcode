@@ -2949,15 +2949,20 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2938  |  [Separate Black and White Balls](/solution/2900-2999/2938.Separate%20Black%20and%20White%20Balls/README_EN.md)  |  `Greedy`,`Two Pointers`,`String`  |  Medium  |  Weekly Contest 372  |
 |  2939  |  [Maximum Xor Product](/solution/2900-2999/2939.Maximum%20Xor%20Product/README_EN.md)  |  `Greedy`,`Bit Manipulation`,`Math`  |  Medium  |  Weekly Contest 372  |
 |  2940  |  [Find Building Where Alice and Bob Can Meet](/solution/2900-2999/2940.Find%20Building%20Where%20Alice%20and%20Bob%20Can%20Meet/README_EN.md)  |  `Stack`,`Binary Indexed Tree`,`Segment Tree`,`Array`,`Binary Search`,`Monotonic Stack`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 372  |
-|  2941  |  [Maximum GCD-Sum of a Subarray](/solution/2900-2999/2941.Maximum%20GCD-Sum%20of%20a%20Subarray/README_EN.md)  |    |  Hard  |  🔒  |
-|  2942  |  [Find Words Containing Character](/solution/2900-2999/2942.Find%20Words%20Containing%20Character/README_EN.md)  |    |  Easy  |  Biweekly Contest 118  |
-|  2943  |  [Maximize Area of Square Hole in Grid](/solution/2900-2999/2943.Maximize%20Area%20of%20Square%20Hole%20in%20Grid/README_EN.md)  |    |  Medium  |  Biweekly Contest 118  |
-|  2944  |  [Minimum Number of Coins for Fruits](/solution/2900-2999/2944.Minimum%20Number%20of%20Coins%20for%20Fruits/README_EN.md)  |    |  Medium  |  Biweekly Contest 118  |
-|  2945  |  [Find Maximum Non-decreasing Array Length](/solution/2900-2999/2945.Find%20Maximum%20Non-decreasing%20Array%20Length/README_EN.md)  |    |  Hard  |  Biweekly Contest 118  |
-|  2946  |  [Matrix Similarity After Cyclic Shifts](/solution/2900-2999/2946.Matrix%20Similarity%20After%20Cyclic%20Shifts/README_EN.md)  |    |  Easy  |  Weekly Contest 373  |
-|  2947  |  [Count Beautiful Substrings I](/solution/2900-2999/2947.Count%20Beautiful%20Substrings%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 373  |
-|  2948  |  [Make Lexicographically Smallest Array by Swapping Elements](/solution/2900-2999/2948.Make%20Lexicographically%20Smallest%20Array%20by%20Swapping%20Elements/README_EN.md)  |    |  Medium  |  Weekly Contest 373  |
-|  2949  |  [Count Beautiful Substrings II](/solution/2900-2999/2949.Count%20Beautiful%20Substrings%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 373  |
+|  2941  |  [Maximum GCD-Sum of a Subarray](/solution/2900-2999/2941.Maximum%20GCD-Sum%20of%20a%20Subarray/README_EN.md)  |  `Array`,`Math`,`Binary Search`,`Number Theory`  |  Hard  |  🔒  |
+|  2942  |  [Find Words Containing Character](/solution/2900-2999/2942.Find%20Words%20Containing%20Character/README_EN.md)  |  `Array`,`String`  |  Easy  |  Biweekly Contest 118  |
+|  2943  |  [Maximize Area of Square Hole in Grid](/solution/2900-2999/2943.Maximize%20Area%20of%20Square%20Hole%20in%20Grid/README_EN.md)  |  `Array`,`Sorting`  |  Medium  |  Biweekly Contest 118  |
+|  2944  |  [Minimum Number of Coins for Fruits](/solution/2900-2999/2944.Minimum%20Number%20of%20Coins%20for%20Fruits/README_EN.md)  |  `Queue`,`Array`,`Dynamic Programming`,`Monotonic Queue`  |  Medium  |  Biweekly Contest 118  |
+|  2945  |  [Find Maximum Non-decreasing Array Length](/solution/2900-2999/2945.Find%20Maximum%20Non-decreasing%20Array%20Length/README_EN.md)  |  `Stack`,`Queue`,`Array`,`Binary Search`,`Dynamic Programming`,`Monotonic Queue`,`Monotonic Stack`  |  Hard  |  Biweekly Contest 118  |
+|  2946  |  [Matrix Similarity After Cyclic Shifts](/solution/2900-2999/2946.Matrix%20Similarity%20After%20Cyclic%20Shifts/README_EN.md)  |  `Array`,`Math`,`Matrix`,`Simulation`  |  Easy  |  Weekly Contest 373  |
+|  2947  |  [Count Beautiful Substrings I](/solution/2900-2999/2947.Count%20Beautiful%20Substrings%20I/README_EN.md)  |  `String`,`Enumeration`,`Prefix Sum`  |  Medium  |  Weekly Contest 373  |
+|  2948  |  [Make Lexicographically Smallest Array by Swapping Elements](/solution/2900-2999/2948.Make%20Lexicographically%20Smallest%20Array%20by%20Swapping%20Elements/README_EN.md)  |  `Union Find`,`Array`,`Sorting`  |  Medium  |  Weekly Contest 373  |
+|  2949  |  [Count Beautiful Substrings II](/solution/2900-2999/2949.Count%20Beautiful%20Substrings%20II/README_EN.md)  |  `Hash Table`,`Math`,`String`,`Number Theory`,`Prefix Sum`  |  Hard  |  Weekly Contest 373  |
+|  2950  |  [Number of Divisible Substrings](/solution/2900-2999/2950.Number%20of%20Divisible%20Substrings/README_EN.md)  |    |  Medium  |  🔒  |
+|  2951  |  [Find the Peaks](/solution/2900-2999/2951.Find%20the%20Peaks/README_EN.md)  |    |  Easy  |  Weekly Contest 374  |
+|  2952  |  [Minimum Number of Coins to be Added](/solution/2900-2999/2952.Minimum%20Number%20of%20Coins%20to%20be%20Added/README_EN.md)  |    |  Medium  |  Weekly Contest 374  |
+|  2953  |  [Count Complete Substrings](/solution/2900-2999/2953.Count%20Complete%20Substrings/README_EN.md)  |    |  Medium  |  Weekly Contest 374  |
+|  2954  |  [Count the Number of Infection Sequences](/solution/2900-2999/2954.Count%20the%20Number%20of%20Infection%20Sequences/README_EN.md)  |    |  Hard  |  Weekly Contest 374  |
 
 ## Copyright
 

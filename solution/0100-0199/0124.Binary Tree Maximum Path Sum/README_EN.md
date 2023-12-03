@@ -39,25 +39,25 @@
 
 **Solution 1: Recursion**
 
-We think about the classic routine of binary tree recursion problem:
+When thinking about the classic routine of recursion problems in binary trees, we consider:
 
 1. Termination condition (when to terminate recursion)
-2. Recursion processing left and right subtrees
-3. Combine the calculation results of the left and right subtrees
+2. Recursively process the left and right subtrees
+3. Merge the calculation results of the left and right subtrees
 
-For this topic, we design a function $dfs(root)$, which returns the maximum path sum of the binary tree with $root$ as the root node.
+For this problem, we design a function $dfs(root)$, which returns the maximum path sum of the binary tree with $root$ as the root node.
 
 The execution logic of the function $dfs(root)$ is as follows:
 
 If $root$ does not exist, then $dfs(root)$ returns $0$;
 
-Otherwise, we recursively calculate the maximum path sum of the left subtree and the right subtree of $root$, denoted as $left$ and $right$, respectively. If $left$ is less than $0$, then we set it to $0$, similarly, if $right$ is less than $0$, then we set it to $0$.
+Otherwise, we recursively calculate the maximum path sum of the left and right subtrees of $root$, denoted as $left$ and $right$. If $left$ is less than $0$, then we set it to $0$, similarly, if $right$ is less than $0$, then we set it to $0$.
 
 Then, we update the answer with $root.val + left + right$. Finally, the function returns $root.val + \max(left, right)$.
 
-In the main function, we call $dfs(root)$ to get the maximum path sum of each node, and the maximum value in it is the answer.
+In the main function, we call $dfs(root)$ to get the maximum path sum of each node, and the maximum value among them is the answer.
 
-Time complexity $O(n)$, space complexity $O(n)$. Where $n$ is the number of nodes in the binary tree.
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

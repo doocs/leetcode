@@ -1,30 +1,52 @@
+type unionFind struct {
+	p, size []int
+}
+
+func newUnionFind(n int) *unionFind {
+	p := make([]int, n)
+	size := make([]int, n)
+	for i := range p {
+		p[i] = i
+		size[i] = 1
+	}
+	return &unionFind{p, size}
+}
+
+func (uf *unionFind) find(x int) int {
+	if uf.p[x] != x {
+		uf.p[x] = uf.find(uf.p[x])
+	}
+	return uf.p[x]
+}
+
+func (uf *unionFind) union(a, b int) bool {
+	pa, pb := uf.find(a), uf.find(b)
+	if pa == pb {
+		return false
+	}
+	if uf.size[pa] > uf.size[pb] {
+		uf.p[pb] = pa
+		uf.size[pa] += uf.size[pb]
+	} else {
+		uf.p[pa] = pb
+		uf.size[pb] += uf.size[pa]
+	}
+	return true
+}
+
 func minCostToSupplyWater(n int, wells []int, pipes [][]int) (ans int) {
 	for i, w := range wells {
 		pipes = append(pipes, []int{0, i + 1, w})
 	}
 	sort.Slice(pipes, func(i, j int) bool { return pipes[i][2] < pipes[j][2] })
-	p := make([]int, n+1)
-	for i := range p {
-		p[i] = i
-	}
-	var find func(int) int
-	find = func(x int) int {
-		if p[x] != x {
-			p[x] = find(p[x])
-		}
-		return p[x]
-	}
-
+	uf := newUnionFind(n + 1)
 	for _, x := range pipes {
-		pa, pb := find(x[0]), find(x[1])
-		if pa == pb {
-			continue
-		}
-		p[pa] = pb
-		ans += x[2]
-		n--
-		if n == 0 {
-			break
+		if uf.union(x[0], x[1]) {
+			ans += x[2]
+			n--
+			if n == 0 {
+				break
+			}
 		}
 	}
 	return

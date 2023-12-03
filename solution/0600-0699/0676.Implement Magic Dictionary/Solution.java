@@ -1,40 +1,60 @@
-class MagicDictionary {
-    private Set<String> s = new HashSet<>();
-    private Map<String, Integer> cnt = new HashMap<>();
+class Trie {
+    private Trie[] children = new Trie[26];
+    private boolean isEnd;
 
-    /** Initialize your data structure here. */
-    public MagicDictionary() {
+    public void insert(String w) {
+        Trie node = this;
+        for (char c : w.toCharArray()) {
+            int i = c - 'a';
+            if (node.children[i] == null) {
+                node.children[i] = new Trie();
+            }
+            node = node.children[i];
+        }
+        node.isEnd = true;
     }
 
-    public void buildDict(String[] dictionary) {
-        for (String word : dictionary) {
-            s.add(word);
-            for (String p : gen(word)) {
-                cnt.put(p, cnt.getOrDefault(p, 0) + 1);
+    public boolean search(String w) {
+        return dfs(w, 0, this, 0);
+    }
+
+    private boolean dfs(String w, int i, Trie node, int diff) {
+        if (i == w.length()) {
+            return diff == 1 && node.isEnd;
+        }
+        int j = w.charAt(i) - 'a';
+        if (node.children[j] != null) {
+            if (dfs(w, i + 1, node.children[j], diff)) {
+                return true;
             }
         }
-    }
-
-    public boolean search(String searchWord) {
-        for (String p : gen(searchWord)) {
-            int v = cnt.getOrDefault(p, 0);
-            if (v > 1 || (v == 1 && !s.contains(searchWord))) {
-                return true;
+        if (diff == 0) {
+            for (int k = 0; k < 26; k++) {
+                if (k != j && node.children[k] != null) {
+                    if (dfs(w, i + 1, node.children[k], 1)) {
+                        return true;
+                    }
+                }
             }
         }
         return false;
     }
+}
 
-    private List<String> gen(String word) {
-        List<String> res = new ArrayList<>();
-        char[] chars = word.toCharArray();
-        for (int i = 0; i < chars.length; ++i) {
-            char c = chars[i];
-            chars[i] = '*';
-            res.add(new String(chars));
-            chars[i] = c;
+class MagicDictionary {
+    private Trie trie = new Trie();
+
+    public MagicDictionary() {
+    }
+
+    public void buildDict(String[] dictionary) {
+        for (String w : dictionary) {
+            trie.insert(w);
         }
-        return res;
+    }
+
+    public boolean search(String searchWord) {
+        return trie.search(searchWord);
     }
 }
 

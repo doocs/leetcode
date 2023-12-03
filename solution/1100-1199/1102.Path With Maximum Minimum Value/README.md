@@ -76,7 +76,7 @@
 ```python
 class Solution:
     def maximumMinimumPath(self, grid: List[List[int]]) -> int:
-        def find(x):
+        def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
@@ -86,39 +86,43 @@ class Solution:
         q = [(v, i, j) for i, row in enumerate(grid) for j, v in enumerate(row)]
         q.sort()
         ans = 0
-        vis = set()
         dirs = (-1, 0, 1, 0, -1)
+        vis = set()
         while find(0) != find(m * n - 1):
             v, i, j = q.pop()
             ans = v
             vis.add((i, j))
             for a, b in pairwise(dirs):
                 x, y = i + a, j + b
-                if 0 <= x < m and 0 <= y < n and (x, y) in vis:
-                    p[find(x * n + y)] = find(i * n + j)
+                if (x, y) in vis:
+                    p[find(i * n + j)] = find(x * n + y)
         return ans
 ```
 
 ```python
 class UnionFind:
+    __slots__ = ("p", "size")
+
     def __init__(self, n):
         self.p = list(range(n))
         self.size = [1] * n
 
-    def find(self, x):
+    def find(self, x: int) -> int:
         if self.p[x] != x:
             self.p[x] = self.find(self.p[x])
         return self.p[x]
 
-    def union(self, a, b):
+    def union(self, a: int, b: int) -> bool:
         pa, pb = self.find(a), self.find(b)
-        if pa != pb:
-            if self.size[pa] > self.size[pb]:
-                self.p[pb] = pa
-                self.size[pa] += self.size[pb]
-            else:
-                self.p[pa] = pb
-                self.size[pb] += self.size[pa]
+        if pa == pb:
+            return False
+        if self.size[pa] > self.size[pb]:
+            self.p[pb] = pa
+            self.size[pa] += self.size[pb]
+        else:
+            self.p[pa] = pb
+            self.size[pb] += self.size[pa]
+        return True
 
 
 class Solution:
@@ -136,7 +140,7 @@ class Solution:
             vis.add((i, j))
             for a, b in pairwise(dirs):
                 x, y = i + a, j + b
-                if 0 <= x < m and 0 <= y < n and (x, y) in vis:
+                if (x, y) in vis:
                     uf.union(x * n + y, i * n + j)
         return ans
 ```
@@ -464,6 +468,197 @@ func maximumMinimumPath(grid [][]int) (ans int) {
 		}
 	}
 	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function maximumMinimumPath(grid: number[][]): number {
+    const m = grid.length;
+    const n = grid[0].length;
+    const p: number[] = Array(m * n)
+        .fill(0)
+        .map((_, i) => i);
+    const q: number[][] = [];
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            q.push([grid[i][j], i, j]);
+        }
+    }
+    q.sort((a, b) => b[0] - a[0]);
+    const find = (x: number): number => {
+        if (p[x] !== x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    };
+    const dirs: number[] = [-1, 0, 1, 0, -1];
+    const vis: boolean[][] = Array(m)
+        .fill(0)
+        .map(() => Array(n).fill(false));
+    let ans = 0;
+    for (let k = 0; find(0) !== find(m * n - 1); ++k) {
+        const [t, i, j] = q[k];
+        ans = t;
+        vis[i][j] = true;
+        for (let d = 0; d < 4; ++d) {
+            const [x, y] = [i + dirs[d], j + dirs[d + 1]];
+            if (x >= 0 && x < m && y >= 0 && y < n && vis[x][y]) {
+                p[find(i * n + j)] = find(x * n + y);
+            }
+        }
+    }
+    return ans;
+}
+```
+
+```ts
+class UnionFind {
+    private p: number[];
+    private size: number[];
+
+    constructor(n: number) {
+        this.p = Array(n)
+            .fill(0)
+            .map((_, i) => i);
+        this.size = Array(n).fill(1);
+    }
+
+    find(x: number): number {
+        if (this.p[x] !== x) {
+            this.p[x] = this.find(this.p[x]);
+        }
+        return this.p[x];
+    }
+
+    union(a: number, b: number): boolean {
+        const pa = this.find(a);
+        const pb = this.find(b);
+        if (pa === pb) {
+            return false;
+        }
+        if (this.size[pa] > this.size[pb]) {
+            this.p[pb] = pa;
+            this.size[pa] += this.size[pb];
+        } else {
+            this.p[pa] = pb;
+            this.size[pb] += this.size[pa];
+        }
+        return true;
+    }
+}
+
+function maximumMinimumPath(grid: number[][]): number {
+    const m = grid.length;
+    const n = grid[0].length;
+    const q: number[][] = [];
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            q.push([grid[i][j], i, j]);
+        }
+    }
+    q.sort((a, b) => b[0] - a[0]);
+    const dirs: number[] = [-1, 0, 1, 0, -1];
+    const vis: boolean[][] = Array(m)
+        .fill(0)
+        .map(() => Array(n).fill(false));
+    let ans = 0;
+    const uf = new UnionFind(m * n);
+    for (let k = 0; uf.find(0) !== uf.find(m * n - 1); ++k) {
+        const [t, i, j] = q[k];
+        ans = t;
+        vis[i][j] = true;
+        for (let d = 0; d < 4; ++d) {
+            const [x, y] = [i + dirs[d], j + dirs[d + 1]];
+            if (x >= 0 && x < m && y >= 0 && y < n && vis[x][y]) {
+                uf.union(i * n + j, x * n + y);
+            }
+        }
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+struct UnionFind {
+    p: Vec<usize>,
+    size: Vec<usize>,
+}
+
+impl UnionFind {
+    fn new(n: usize) -> Self {
+        let p: Vec<usize> = (0..n).collect();
+        let size = vec![1; n];
+        UnionFind { p, size }
+    }
+
+    fn find(&mut self, x: usize) -> usize {
+        if self.p[x] != x {
+            self.p[x] = self.find(self.p[x]);
+        }
+        self.p[x]
+    }
+
+    fn union(&mut self, a: usize, b: usize) {
+        let pa = self.find(a);
+        let pb = self.find(b);
+        if pa != pb {
+            if self.size[pa] > self.size[pb] {
+                self.p[pb] = pa;
+                self.size[pa] += self.size[pb];
+            } else {
+                self.p[pa] = pb;
+                self.size[pb] += self.size[pa];
+            }
+        }
+    }
+}
+
+impl Solution {
+    pub fn maximum_minimum_path(grid: Vec<Vec<i32>>) -> i32 {
+        let m = grid.len();
+        let n = grid[0].len();
+        let mut uf = UnionFind::new(m * n);
+        let mut q: Vec<Vec<i32>> = Vec::new();
+
+        for i in 0..m {
+            for j in 0..n {
+                q.push(vec![grid[i][j], i as i32, j as i32]);
+            }
+        }
+
+        q.sort_by(|a, b| b[0].cmp(&a[0]));
+
+        let mut vis: Vec<Vec<bool>> = vec![vec![false; n]; m];
+        let dirs: [i32; 5] = [-1, 0, 1, 0, -1];
+        let mut ans = 0;
+        for k in 0..q.len() {
+            if uf.find(0) == uf.find(m * n - 1) {
+                break;
+            }
+            let t = &q[k];
+            let (v, i, j) = (t[0], t[1] as usize, t[2] as usize);
+            ans = v;
+            vis[i][j] = true;
+            for d in 0..4 {
+                let x = (i as i32) + dirs[d];
+                let y = (j as i32) + dirs[d + 1];
+                if
+                    x >= 0 &&
+                    x < (m as i32) &&
+                    y >= 0 &&
+                    y < (n as i32) &&
+                    vis[x as usize][y as usize]
+                {
+                    uf.union((x as usize) * n + (y as usize), i * n + j);
+                }
+            }
+        }
+        ans
+    }
 }
 ```
 

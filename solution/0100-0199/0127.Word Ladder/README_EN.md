@@ -46,7 +46,41 @@
 
 ## Solutions
 
-BFS.
+**Solution 1: BFS**
+
+BFS minimum step model. This problem can be solved with naive BFS, or it can be optimized with bidirectional BFS to reduce the search space and improve efficiency.
+
+Bidirectional BFS is a common optimization method for BFS, with the main implementation ideas as follows:
+
+1. Create two queues, q1 and q2, for "start -> end" and "end -> start" search directions, respectively.
+2. Create two hash maps, m1 and m2, to record the visited nodes and their corresponding expansion times (steps).
+3. During each search, prioritize the queue with fewer elements for search expansion. If a node visited from the other direction is found during the expansion, it means the shortest path has been found.
+4. If one of the queues is empty, it means that the search in the current direction cannot continue, indicating that the start and end points are not connected, and there is no need to continue the search.
+
+```python
+while q1 and q2:
+    if len(q1) <= len(q2):
+        # Prioritize the queue with fewer elements for expansion
+        extend(m1, m2, q1)
+    else:
+        extend(m2, m1, q2)
+
+
+def extend(m1, m2, q):
+    # New round of expansion
+    for _ in range(len(q)):
+        p = q.popleft()
+        step = m1[p]
+        for t in next(p):
+            if t in m1:
+                # Already visited before
+                continue
+            if t in m2:
+                # The other direction has been searched, indicating that a shortest path has been found
+                return step + 1 + m2[t]
+            q.append(t)
+            m1[t] = step + 1
+```
 
 <!-- tabs:start -->
 

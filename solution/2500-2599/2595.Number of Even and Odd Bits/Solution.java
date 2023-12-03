@@ -1,9 +1,8 @@
 class Solution {
     public int[] evenOddBit(int n) {
-        int[] ans = new int[2];
-        for (int i = 0; n > 0; n >>= 1, i ^= 1) {
-            ans[i] += n & 1;
-        }
-        return ans;
+        int mask = 0x5555;
+        int even = Integer.bitCount(n & mask);
+        int odd = Integer.bitCount(n & ~mask);
+        return new int[] {even, odd};
     }
 }

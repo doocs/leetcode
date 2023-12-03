@@ -1,18 +1,20 @@
 class Trie:
-    def __init__(self):
-        self.children = [None] * 26
-        self.is_end = False
+    __slots__ = ["children", "is_end"]
 
-    def insert(self, w):
+    def __init__(self):
+        self.children: List[Trie | None] = [None] * 26
+        self.is_end: bool = False
+
+    def insert(self, w: str) -> None:
         node = self
         for c in w:
             idx = ord(c) - ord("a")
-            if node.children[idx] is None:
+            if not node.children[idx]:
                 node.children[idx] = Trie()
             node = node.children[idx]
         node.is_end = True
 
-    def search(self, w):
+    def search(self, w: str) -> bool:
         node = self
         for c in w:
             idx = ord(c) - ord("a")
@@ -29,8 +31,6 @@ class Solution:
             trie.insert(w)
         ans = ""
         for w in words:
-            if ans and (len(ans) > len(w) or (len(ans) == len(w) and ans < w)):
-                continue
-            if trie.search(w):
+            if (len(w) > len(ans) or len(w) == len(ans) and w < ans) and trie.search(w):
                 ans = w
         return ans

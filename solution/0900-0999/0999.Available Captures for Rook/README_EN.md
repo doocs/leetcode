@@ -47,6 +47,18 @@
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+First, we traverse the chessboard to find the position of the rook $(x, y)$. Then, starting from $(x, y)$, we traverse in four directions: up, down, left, and right:
+
+-   If we encounter a bishop or a boundary, we stop traversing in that direction.
+-   If we encounter a pawn, we increment the answer by one, and then stop traversing in that direction.
+-   Otherwise, we continue traversing.
+
+After traversing in all four directions, we can get the answer.
+
+The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the chessboard, respectively. In this problem, $m = n = 8$. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

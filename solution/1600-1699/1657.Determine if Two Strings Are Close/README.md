@@ -75,7 +75,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：数组或哈希表 + 排序**
+**方法一：计数 + 排序**
 
 根据题目描述，两个字符串接近，需要同时满足以下两个条件：
 
@@ -88,7 +88,7 @@
 
 遍历结束，返回 `true`。
 
-时间复杂度 $O(m + n)$，空间复杂度 $O(C)$。其中 $m$ 和 $n$ 分别为字符串 `word1` 和 `word2` 的长度，而 $C$ 是字母种类。本题中 $C=26$。
+时间复杂度 $O(m + n + C \times \log C)$，空间复杂度 $O(C)$。其中 $m$ 和 $n$ 分别为字符串 `word1` 和 `word2` 的长度，而 $C$ 是字母种类。本题中 $C=26$。
 
 <!-- tabs:start -->
 
@@ -121,18 +121,13 @@ class Solution {
             ++cnt2[word2.charAt(i) - 'a'];
         }
         for (int i = 0; i < 26; ++i) {
-            if ((cnt1[i] > 0 && cnt2[i] == 0) || (cnt2[i] > 0 && cnt1[i] == 0)) {
+            if ((cnt1[i] == 0) != (cnt2[i] == 0)) {
                 return false;
             }
         }
         Arrays.sort(cnt1);
         Arrays.sort(cnt2);
-        for (int i = 0; i < 26; ++i) {
-            if (cnt1[i] != cnt2[i]) {
-                return false;
-            }
-        }
-        return true;
+        return Arrays.equals(cnt1, cnt2);
     }
 }
 ```
@@ -152,18 +147,13 @@ public:
             ++cnt2[c - 'a'];
         }
         for (int i = 0; i < 26; ++i) {
-            if ((cnt1[i] > 0 && cnt2[i] == 0) || (cnt1[i] == 0 && cnt2[i] > 0)) {
+            if ((cnt1[i] == 0) != (cnt2[i] == 0)) {
                 return false;
             }
         }
         sort(cnt1, cnt1 + 26);
         sort(cnt2, cnt2 + 26);
-        for (int i = 0; i < 26; ++i) {
-            if (cnt1[i] != cnt2[i]) {
-                return false;
-            }
-        }
-        return true;
+        return equal(cnt1, cnt1 + 26, cnt2);
     }
 };
 ```
@@ -180,19 +170,60 @@ func closeStrings(word1 string, word2 string) bool {
 	for _, c := range word2 {
 		cnt2[c-'a']++
 	}
-	for i, v := range cnt1 {
-		if (v > 0 && cnt2[i] == 0) || (v == 0 && cnt2[i] > 0) {
-			return false
-		}
+	if !slices.EqualFunc(cnt1, cnt2, func(v1, v2 int) bool { return (v1 == 0) == (v2 == 0) }) {
+		return false
 	}
 	sort.Ints(cnt1)
 	sort.Ints(cnt2)
-	for i, v := range cnt1 {
-		if v != cnt2[i] {
-			return false
-		}
-	}
-	return true
+	return slices.Equal(cnt1, cnt2)
+}
+```
+
+### **TypeScript**
+
+```ts
+function closeStrings(word1: string, word2: string): boolean {
+    const cnt1 = Array(26).fill(0);
+    const cnt2 = Array(26).fill(0);
+    for (const c of word1) {
+        ++cnt1[c.charCodeAt(0) - 'a'.charCodeAt(0)];
+    }
+    for (const c of word2) {
+        ++cnt2[c.charCodeAt(0) - 'a'.charCodeAt(0)];
+    }
+    for (let i = 0; i < 26; ++i) {
+        if ((cnt1[i] === 0) !== (cnt2[i] === 0)) {
+            return false;
+        }
+    }
+    cnt1.sort((a, b) => a - b);
+    cnt2.sort((a, b) => a - b);
+    return cnt1.join('.') === cnt2.join('.');
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn close_strings(word1: String, word2: String) -> bool {
+        let mut cnt1 = vec![0; 26];
+        let mut cnt2 = vec![0; 26];
+        for c in word1.chars() {
+            cnt1[((c as u8) - b'a') as usize] += 1;
+        }
+        for c in word2.chars() {
+            cnt2[((c as u8) - b'a') as usize] += 1;
+        }
+        for i in 0..26 {
+            if (cnt1[i] == 0) != (cnt2[i] == 0) {
+                return false;
+            }
+        }
+        cnt1.sort();
+        cnt2.sort();
+        cnt1 == cnt2
+    }
 }
 ```
 

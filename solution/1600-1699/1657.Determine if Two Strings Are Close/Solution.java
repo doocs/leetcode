@@ -9,17 +9,12 @@ class Solution {
             ++cnt2[word2.charAt(i) - 'a'];
         }
         for (int i = 0; i < 26; ++i) {
-            if ((cnt1[i] > 0 && cnt2[i] == 0) || (cnt2[i] > 0 && cnt1[i] == 0)) {
+            if ((cnt1[i] == 0) != (cnt2[i] == 0)) {
                 return false;
             }
         }
         Arrays.sort(cnt1);
         Arrays.sort(cnt2);
-        for (int i = 0; i < 26; ++i) {
-            if (cnt1[i] != cnt2[i]) {
-                return false;
-            }
-        }
-        return true;
+        return Arrays.equals(cnt1, cnt2);
     }
 }

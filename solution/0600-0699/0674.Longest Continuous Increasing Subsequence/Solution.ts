@@ -1,12 +1,11 @@
 function findLengthOfLCIS(nums: number[]): number {
-    const n = nums.length;
-    let res = 1;
-    let i = 0;
-    for (let j = 1; j < n; j++) {
-        if (nums[j - 1] >= nums[j]) {
-            res = Math.max(res, j - i);
-            i = j;
+    let [ans, cnt] = [1, 1];
+    for (let i = 1; i < nums.length; ++i) {
+        if (nums[i - 1] < nums[i]) {
+            ans = Math.max(ans, ++cnt);
+        } else {
+            cnt = 1;
         }
     }
-    return Math.max(res, n - i);
+    return ans;
 }

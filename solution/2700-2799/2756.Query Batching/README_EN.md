@@ -9,7 +9,7 @@
 <p>The constructor should accept two parameters:</p>
 
 <ul>
-	<li>An asyncronous function&nbsp;<code>queryMultiple</code>&nbsp;which accepts an array of&nbsp;string keys <code>input</code>. It will resolve with an array of values that is the same length as the input array. Each index corresponds to the value associated with&nbsp;<code>input[i]</code>.&nbsp;You can assume the promise will never reject.</li>
+	<li>An asynchronous function&nbsp;<code>queryMultiple</code>&nbsp;which accepts an array of&nbsp;string keys <code>input</code>. It will resolve with an array of values that is the same length as the input array. Each index corresponds to the value associated with&nbsp;<code>input[i]</code>.&nbsp;You can assume the promise will never reject.</li>
 	<li>A throttle time in milliseconds&nbsp;<code>t</code>.</li>
 </ul>
 

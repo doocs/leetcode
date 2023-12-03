@@ -1,24 +1,27 @@
 class Trie {
-    Trie[] children = new Trie[26];
-    boolean isEnd;
+    private Trie[] children = new Trie[26];
+    private boolean isEnd;
 
-    void insert(String w) {
+    public Trie() {
+    }
+
+    public void insert(String w) {
         Trie node = this;
         for (char c : w.toCharArray()) {
-            c -= 'a';
-            if (node.children[c] == null) {
-                node.children[c] = new Trie();
+            int idx = c - 'a';
+            if (node.children[idx] == null) {
+                node.children[idx] = new Trie();
             }
-            node = node.children[c];
+            node = node.children[idx];
         }
         node.isEnd = true;
     }
 
-    boolean search(String w) {
+    public boolean search(String w) {
         Trie node = this;
         for (char c : w.toCharArray()) {
-            c -= 'a';
-            node = node.children[c];
+            int idx = c - 'a';
+            node = node.children[idx];
             if (!node.isEnd) {
                 return false;
             }
@@ -35,12 +38,8 @@ class Solution {
         }
         String ans = "";
         for (String w : words) {
-            if (!"".equals(ans)
-                && (ans.length() > w.length()
-                    || (ans.length() == w.length() && ans.compareTo(w) < 0))) {
-                continue;
-            }
-            if (trie.search(w)) {
+            if ((w.length() > ans.length() || (w.length() == ans.length() && w.compareTo(ans) < 0))
+                && trie.search(w)) {
                 ans = w;
             }
         }

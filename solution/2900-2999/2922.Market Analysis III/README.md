@@ -16,7 +16,7 @@
 | join_date      | date    |
 | favorite_brand | varchar |
 +----------------+---------+
-seller_id 是该表的主键。
+seller_id 是该表具有唯一值的列。
 该表包含卖家的 ID, 加入日期以及最喜欢的品牌。
 </pre>
 
@@ -29,7 +29,7 @@ seller_id 是该表的主键。
 | item_id       | int     |
 | item_brand    | varchar |
 +---------------+---------+
-item_id 是该表的主键。
+item_id 是该表具有唯一值的列。
 该表包含商品 ID 和商品品牌。</pre>
 
 <p>表：&nbsp;<code>Orders</code></p>
@@ -43,7 +43,7 @@ item_id 是该表的主键。
 | item_id       | int     |
 | seller_id     | int     |
 +---------------+---------+
-order_id 是该表的主键。
+order_id 是该表具有唯一值的列。
 item_id 是指向 Items 表的外键。
 seller_id 是指向 Users 表的外键。
 该表包含订单 ID、下单日期、商品 ID 和卖家 ID。</pre>

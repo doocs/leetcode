@@ -1,69 +1,56 @@
 class Solution {
-    public boolean judgePoint24(int[] nums) {
-        return dfs(Arrays.stream(nums).boxed().map(Double::new).collect(Collectors.toList()));
+    private final char[] ops = {'+', '-', '*', '/'};
+
+    public boolean judgePoint24(int[] cards) {
+        List<Double> nums = new ArrayList<>();
+        for (int num : cards) {
+            nums.add((double) num);
+        }
+        return dfs(nums);
     }
 
-    private boolean dfs(List<Double> numList) {
-        if (numList.size() == 0) {
-            return false;
+    private boolean dfs(List<Double> nums) {
+        int n = nums.size();
+        if (n == 1) {
+            return Math.abs(nums.get(0) - 24) < 1e-6;
         }
-        if (numList.size() == 1) {
-            return Math.abs(Math.abs(numList.get(0) - 24.0)) < 0.000001d;
-        }
-        for (int i = 0; i < numList.size(); i++) {
-            for (int j = i + 1; j < numList.size(); j++) {
-                boolean valid = dfs(getList(numList, i, j, 0)) || dfs(getList(numList, i, j, 1))
-                    || dfs(getList(numList, i, j, 2)) || dfs(getList(numList, i, j, 3))
-                    || dfs(getList(numList, i, j, 4)) || dfs(getList(numList, i, j, 5));
-                if (valid) {
-                    return true;
+        boolean ok = false;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (i != j) {
+                    List<Double> nxt = new ArrayList<>();
+                    for (int k = 0; k < n; ++k) {
+                        if (k != i && k != j) {
+                            nxt.add(nums.get(k));
+                        }
+                    }
+                    for (char op : ops) {
+                        switch (op) {
+                            case '/' -> {
+                                if (nums.get(j) == 0) {
+                                    continue;
+                                }
+                                nxt.add(nums.get(i) / nums.get(j));
+                            }
+                            case '*' -> {
+                                nxt.add(nums.get(i) * nums.get(j));
+                            }
+                            case '+' -> {
+                                nxt.add(nums.get(i) + nums.get(j));
+                            }
+                            case '-' -> {
+                                nxt.add(nums.get(i) - nums.get(j));
+                            }
+                        }
+                        ok |= dfs(nxt);
+                        if (ok) {
+                            return true;
+                        }
+                        nxt.remove(nxt.size() - 1);
+                    }
                 }
             }
         }
-        return false;
-    }
-
-    private List<Double> getList(List<Double> numList, int i, int j, int operate) {
-        List<Double> candidate = new ArrayList<>();
-        for (int k = 0; k < numList.size(); k++) {
-            if (k == i || k == j) {
-                continue;
-            }
-            candidate.add(numList.get(k));
-        }
-
-        switch (operate) {
-        // a + b
-        case 0:
-            candidate.add(numList.get(i) + numList.get(j));
-            break;
-        // a - b
-        case 1:
-            candidate.add(numList.get(i) - numList.get(j));
-            break;
-        // b - a
-        case 2:
-            candidate.add(numList.get(j) - numList.get(i));
-            break;
-        // a * b
-        case 3:
-            candidate.add(numList.get(i) * numList.get(j));
-            break;
-        // a / b
-        case 4:
-            if (numList.get(j) == 0) {
-                return Collections.emptyList();
-            }
-            candidate.add(numList.get(i) / numList.get(j));
-            break;
-        // b / a
-        case 5:
-            if (numList.get(i) == 0) {
-                return Collections.emptyList();
-            }
-            candidate.add(numList.get(j) / numList.get(i));
-            break;
-        }
-        return candidate;
+        return ok;
     }
 }

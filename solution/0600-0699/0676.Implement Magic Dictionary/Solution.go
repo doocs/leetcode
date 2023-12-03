@@ -1,37 +1,62 @@
-type MagicDictionary struct {
-	s   map[string]bool
-	cnt map[string]int
+type Trie struct {
+	children [26]*Trie
+	isEnd    bool
 }
 
-/** Initialize your data structure here. */
-func Constructor() MagicDictionary {
-	return MagicDictionary{map[string]bool{}, map[string]int{}}
+func NewTrie() *Trie {
+	return &Trie{}
 }
 
-func (this *MagicDictionary) BuildDict(dictionary []string) {
-	for _, word := range dictionary {
-		this.s[word] = true
-		for _, p := range gen(word) {
-			this.cnt[p]++
+func (t *Trie) Insert(w string) {
+	node := t
+	for _, c := range w {
+		i := c - 'a'
+		if node.children[i] == nil {
+			node.children[i] = NewTrie()
 		}
+		node = node.children[i]
 	}
+	node.isEnd = true
 }
 
-func (this *MagicDictionary) Search(searchWord string) bool {
-	for _, p := range gen(searchWord) {
-		if this.cnt[p] > 1 || (this.cnt[p] == 1 && !this.s[searchWord]) {
+func (t *Trie) Search(w string) bool {
+	var dfs func(int, *Trie, int) bool
+	dfs = func(i int, node *Trie, diff int) bool {
+		if i >= len(w) {
+			return diff == 1 && node.isEnd
+		}
+		j := int(w[i] - 'a')
+		if node.children[j] != nil && dfs(i+1, node.children[j], diff) {
 			return true
 		}
+		if diff == 0 {
+			for k := 0; k < 26; k++ {
+				if k != j && node.children[k] != nil && dfs(i+1, node.children[k], 1) {
+					return true
+				}
+			}
+		}
+		return false
 	}
-	return false
+	return dfs(0, t, 0)
 }
 
-func gen(word string) []string {
-	var res []string
-	for i := 0; i < len(word); i++ {
-		res = append(res, word[:i]+"."+word[i+1:])
+type MagicDictionary struct {
+	trie *Trie
+}
+
+func Constructor() MagicDictionary {
+	return MagicDictionary{trie: NewTrie()}
+}
+
+func (md *MagicDictionary) BuildDict(dictionary []string) {
+	for _, w := range dictionary {
+		md.trie.Insert(w)
 	}
-	return res
+}
+
+func (md *MagicDictionary) Search(searchWord string) bool {
+	return md.trie.Search(searchWord)
 }
 
 /**

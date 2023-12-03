@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 374 场周赛(2023-12-03 10:30, 90 分钟) 参赛人数 4053
+
+- [2951. 找出峰值](/solution/2900-2999/2951.Find%20the%20Peaks/README.md)
+- [2952. 需要添加的硬币的最小数量](/solution/2900-2999/2952.Minimum%20Number%20of%20Coins%20to%20be%20Added/README.md)
+- [2953. 统计完全子字符串](/solution/2900-2999/2953.Count%20Complete%20Substrings/README.md)
+- [2954. 统计感冒序列的数目](/solution/2900-2999/2954.Count%20the%20Number%20of%20Infection%20Sequences/README.md)
+
 #### 第 373 场周赛(2023-11-26 10:30, 90 分钟) 参赛人数 3577
 
 - [2946. 循环移位后的矩阵相似检查](/solution/2900-2999/2946.Matrix%20Similarity%20After%20Cyclic%20Shifts/README.md)
@@ -517,7 +524,7 @@
 - [2525. 根据规则将箱子分类](/solution/2500-2599/2525.Categorize%20Box%20According%20to%20Criteria/README.md)
 - [2526. 找到数据流中的连续整数](/solution/2500-2599/2526.Find%20Consecutive%20Integers%20from%20a%20Data%20Stream/README.md)
 - [2527. 查询数组 Xor 美丽值](/solution/2500-2599/2527.Find%20Xor-Beauty%20of%20Array/README.md)
-- [2528. 最大化城市的最小供电站数目](/solution/2500-2599/2528.Maximize%20the%20Minimum%20Powered%20City/README.md)
+- [2528. 最大化城市的最小电量](/solution/2500-2599/2528.Maximize%20the%20Minimum%20Powered%20City/README.md)
 
 #### 第 326 场周赛(2023-01-01 10:30, 90 分钟) 参赛人数 3873
 
