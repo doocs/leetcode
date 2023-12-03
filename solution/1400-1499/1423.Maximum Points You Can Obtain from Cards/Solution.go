@@ -1,15 +1,13 @@
 func maxScore(cardPoints []int, k int) int {
 	n := len(cardPoints)
-	s := make([]int, n+1)
-	for i := 0; i < n; i++ {
-		s[i+1] = s[i] + cardPoints[i]
+	s := 0
+	for _, x := range cardPoints[n-k:] {
+		s += x
 	}
-	mi := math.MaxInt64
-	for i := 0; i < n; i++ {
-		j := i + (n - k) - 1
-		if j < n {
-			mi = min(mi, s[j+1]-s[i])
-		}
+	ans := s
+	for i := 0; i < k; i++ {
+		s += cardPoints[i] - cardPoints[n-k+i]
+		ans = max(ans, s)
 	}
-	return s[n] - mi
+	return ans
 }

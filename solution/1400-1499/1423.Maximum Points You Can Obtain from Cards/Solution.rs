@@ -1,15 +1,13 @@
 impl Solution {
     pub fn max_score(card_points: Vec<i32>, k: i32) -> i32 {
-        let (k, n) = (k as usize, card_points.len());
-        let mut sum = card_points
-            .iter()
-            .take(n - k)
-            .sum::<i32>();
-        let mut min = sum;
+        let n = card_points.len();
+        let k = k as usize;
+        let mut s: i32 = card_points[n - k..].iter().sum();
+        let mut ans: i32 = s;
         for i in 0..k {
-            sum += card_points[n - k + i] - card_points[i];
-            min = min.min(sum);
+            s += card_points[i] - card_points[n - k + i];
+            ans = ans.max(s);
         }
-        card_points.iter().sum::<i32>() - min
+        ans
     }
 }
