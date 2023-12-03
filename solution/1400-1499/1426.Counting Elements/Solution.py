@@ -1,4 +1,4 @@
 class Solution:
     def countElements(self, arr: List[int]) -> int:
-        s = set(arr)
-        return sum(x + 1 in s for x in arr)
+        cnt = Counter(arr)
+        return sum(v for x, v in cnt.items() if cnt[x + 1])

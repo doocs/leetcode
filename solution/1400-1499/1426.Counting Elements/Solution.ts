@@ -1,8 +1,4 @@
-/**
- * @param {number[]} arr
- * @return {number}
- */
-var countElements = function (arr) {
+function countElements(arr: number[]): number {
     const mx = Math.max(...arr);
     const cnt = Array(mx + 1).fill(0);
     for (const x of arr) {
@@ -15,4 +11,4 @@ var countElements = function (arr) {
         }
     }
     return ans;
-};
+}
