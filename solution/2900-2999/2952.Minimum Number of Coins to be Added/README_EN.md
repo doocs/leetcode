@@ -56,25 +56,96 @@ It can be shown that all integers from 1 to 20 are obtainable from the resulting
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minimumAddedCoins(self, coins: List[int], target: int) -> int:
+        coins.sort()
+        s = 1
+        ans = i = 0
+        while s <= target:
+            if i < len(coins) and coins[i] <= s:
+                s += coins[i]
+                i += 1
+            else:
+                s <<= 1
+                ans += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int minimumAddedCoins(int[] coins, int target) {
+        Arrays.sort(coins);
+        int ans = 0;
+        for (int i = 0, s = 1; s <= target;) {
+            if (i < coins.length && coins[i] <= s) {
+                s += coins[i++];
+            } else {
+                s <<= 1;
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int minimumAddedCoins(vector<int>& coins, int target) {
+        sort(coins.begin(), coins.end());
+        int ans = 0;
+        for (int i = 0, s = 1; s <= target;) {
+            if (i < coins.size() && coins[i] <= s) {
+                s += coins[i++];
+            } else {
+                s <<= 1;
+                ++ans;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minimumAddedCoins(coins []int, target int) (ans int) {
+	slices.Sort(coins)
+	for i, s := 0, 1; s <= target; {
+		if i < len(coins) && coins[i] <= s {
+			s += coins[i]
+			i++
+		} else {
+			s <<= 1
+			ans++
+		}
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function minimumAddedCoins(coins: number[], target: number): number {
+    coins.sort((a, b) => a - b);
+    let ans = 0;
+    for (let i = 0, s = 1; s <= target; ) {
+        if (i < coins.length && coins[i] <= s) {
+            s += coins[i++];
+        } else {
+            s <<= 1;
+            ++ans;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
