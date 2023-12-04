@@ -75,15 +75,15 @@ It can be proven that 7 is the minimum number of liters of fuel needed.
 ```python
 class Solution:
     def minimumFuelCost(self, roads: List[List[int]], seats: int) -> int:
-        def dfs(a, fa):
-            size = 1
+        def dfs(a: int, fa: int) -> int:
+            nonlocal ans
+            sz = 1
             for b in g[a]:
                 if b != fa:
                     t = dfs(b, a)
-                    nonlocal ans
-                    ans += (t + seats - 1) // seats
-                    size += t
-            return size
+                    ans += ceil(t / seats)
+                    sz += t
+            return sz
 
         g = defaultdict(list)
         for a, b in roads:
@@ -99,8 +99,8 @@ class Solution:
 ```java
 class Solution {
     private List<Integer>[] g;
-    private long ans;
     private int seats;
+    private long ans;
 
     public long minimumFuelCost(int[][] roads, int seats) {
         int n = roads.length + 1;
@@ -117,15 +117,15 @@ class Solution {
     }
 
     private int dfs(int a, int fa) {
-        int size = 1;
+        int sz = 1;
         for (int b : g[a]) {
             if (b != fa) {
                 int t = dfs(b, a);
                 ans += (t + seats - 1) / seats;
-                size += t;
+                sz += t;
             }
         }
-        return size;
+        return sz;
     }
 }
 ```
@@ -137,23 +137,23 @@ class Solution {
 public:
     long long minimumFuelCost(vector<vector<int>>& roads, int seats) {
         int n = roads.size() + 1;
-        vector<vector<int>> g(n);
+        vector<int> g[n];
         for (auto& e : roads) {
             int a = e[0], b = e[1];
             g[a].emplace_back(b);
             g[b].emplace_back(a);
         }
         long long ans = 0;
-        function<int(int, int)> dfs = [&](int a, int fa) -> int {
-            int size = 1;
+        function<int(int, int)> dfs = [&](int a, int fa) {
+            int sz = 1;
             for (int b : g[a]) {
                 if (b != fa) {
                     int t = dfs(b, a);
                     ans += (t + seats - 1) / seats;
-                    size += t;
+                    sz += t;
                 }
             }
-            return size;
+            return sz;
         };
         dfs(0, -1);
         return ans;
@@ -164,7 +164,7 @@ public:
 ### **Go**
 
 ```go
-func minimumFuelCost(roads [][]int, seats int) int64 {
+func minimumFuelCost(roads [][]int, seats int) (ans int64) {
 	n := len(roads) + 1
 	g := make([][]int, n)
 	for _, e := range roads {
@@ -172,28 +172,79 @@ func minimumFuelCost(roads [][]int, seats int) int64 {
 		g[a] = append(g[a], b)
 		g[b] = append(g[b], a)
 	}
-	ans := 0
 	var dfs func(int, int) int
 	dfs = func(a, fa int) int {
-		size := 1
+		sz := 1
 		for _, b := range g[a] {
 			if b != fa {
 				t := dfs(b, a)
-				ans += (t + seats - 1) / seats
-				size += t
+				ans += int64((t + seats - 1) / seats)
+				sz += t
 			}
 		}
-		return size
+		return sz
 	}
 	dfs(0, -1)
-	return int64(ans)
+	return
 }
 ```
 
 ### **TypeScript**
 
 ```ts
+function minimumFuelCost(roads: number[][], seats: number): number {
+    const n = roads.length + 1;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of roads) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    let ans = 0;
+    const dfs = (a: number, fa: number): number => {
+        let sz = 1;
+        for (const b of g[a]) {
+            if (b !== fa) {
+                const t = dfs(b, a);
+                ans += Math.ceil(t / seats);
+                sz += t;
+            }
+        }
+        return sz;
+    };
+    dfs(0, -1);
+    return ans;
+}
+```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn minimum_fuel_cost(roads: Vec<Vec<i32>>, seats: i32) -> i64 {
+        let n = roads.len() + 1;
+        let mut g: Vec<Vec<usize>> = vec![vec![]; n];
+        for road in roads.iter() {
+            let a = road[0] as usize;
+            let b = road[1] as usize;
+            g[a].push(b);
+            g[b].push(a);
+        }
+        let mut ans = 0;
+        fn dfs(a: usize, fa: i32, g: &Vec<Vec<usize>>, ans: &mut i64, seats: i32) -> i32 {
+            let mut sz = 1;
+            for &b in g[a].iter() {
+                if (b as i32) != fa {
+                    let t = dfs(b, a as i32, g, ans, seats);
+                    *ans += ((t + seats - 1) / seats) as i64;
+                    sz += t;
+                }
+            }
+            sz
+        }
+        dfs(0, -1, &g, &mut ans, seats);
+        ans
+    }
+}
 ```
 
 ### **...**
