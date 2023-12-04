@@ -45,6 +45,16 @@
 
 ## Solutions
 
+**Solution 1: Enumerate Character Types + Sliding Window**
+
+According to condition 2 in the problem description, we can find that in a complete string, the difference between two adjacent characters does not exceed 2. Therefore, we traverse the string $word$, and we can use two pointers to split $word$ into several substrings. The number of character types in these substrings does not exceed 26, and the difference between adjacent characters does not exceed 2. Next, we only need to count the number of substrings in each substring where each character appears $k$ times.
+
+We define a function $f(s)$, which is used to count the number of substrings in the string $s$ where each character appears $k$ times. Since the number of character types in $s$ does not exceed 26, we can enumerate each character type $i$, where $1 \le i \le 26$, then the length of the substring with character type $i$ is $l = i \times k$.
+
+We can use an array or hash table $cnt$ to maintain the number of times each character appears in a sliding window of length $l$, and use another hash table $freq$ to maintain the number of times each frequency appears. If $freq[k] = i$, that is, there are $i$ characters that appear $k$ times, then we have found a substring that meets the conditions. We can use two pointers to maintain this sliding window. Each time we move the right pointer, we increase the number of times the character pointed to by the right pointer appears and update the $freq$ array; each time we move the left pointer, we decrease the number of times the character pointed to by the left pointer appears and update the $freq$ array. After each pointer movement, we judge whether $freq[k]$ is equal to $i$. If it is equal, it means that we have found a substring that meets the conditions.
+
+The time complexity is $O(n \times |\Sigma|)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string $word$; and $\Sigma$ is the size of the character set. In this problem, the character set is lowercase English letters, so $|\Sigma| = 26$.
+
 <!-- tabs:start -->
 
 ### **Python3**
