@@ -8,12 +8,15 @@ class Solution {
             }
         }
         int ans = 0;
-        int n = word.length();
-        for (int i = 0; i < n; ++i) {
+        char[] cs = word.toCharArray();
+        for (int i = 1; i < 10; ++i) {
+            Map<Integer, Integer> cnt = new HashMap<>();
+            cnt.put(0, 1);
             int s = 0;
-            for (int j = i; j < n; ++j) {
-                s += mp[word.charAt(j) - 'a'];
-                ans += s % (j - i + 1) == 0 ? 1 : 0;
+            for (char c : cs) {
+                s += mp[c - 'a'] - i;
+                ans += cnt.getOrDefault(s, 0);
+                cnt.merge(s, 1, Integer::sum);
             }
         }
         return ans;

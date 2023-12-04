@@ -143,6 +143,16 @@ After the enumeration is over, return the answer.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(C)$. Where $n$ is the length of the string $word$, and $C$ is the size of the character set, in this question $C=26$.
 
+**Solution 2: Hash Table + Prefix Sum + Enumeration**
+
+Similar to Solution 1, we first use a hash table or array $mp$ to record the number corresponding to each letter.
+
+If the sum of the numbers in an integer subarray can be divided by its length, then the average value of this subarray must be an integer. And because the number of each element in the subarray is in the range of $[1, 9]$, the average value of the subarray can only be one of $1, 2, \cdots, 9$.
+
+We can enumerate the average value $i$ of the subarray. If the sum of the elements in a subarray can be divided by $i$, suppose the subarray is $a_1, a_2, \cdots, a_k$, then $a_1 + a_2 + \cdots + a_k = i \times k$, that is, $(a_1 - i) + (a_2 - i) + \cdots + (a_k - i) = 0$. If we regard $a_k - i$ as a new element $b_k$, then the original subarray becomes $b_1, b_2, \cdots, b_k$, where $b_1 + b_2 + \cdots + b_k = 0$. We only need to find out how many subarrays in the new array have an element sum of $0$, which can be implemented with "hash table" combined with "prefix sum".
+
+The time complexity is $O(10 \times n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $word$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -165,6 +175,26 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def countDivisibleSubstrings(self, word: str) -> int:
+        d = ["ab", "cde", "fgh", "ijk", "lmn", "opq", "rst", "uvw", "xyz"]
+        mp = {}
+        for i, s in enumerate(d, 1):
+            for c in s:
+                mp[c] = i
+        ans = 0
+        for i in range(1, 10):
+            cnt = defaultdict(int)
+            cnt[0] = 1
+            s = 0
+            for c in word:
+                s += mp[c] - i
+                ans += cnt[s]
+                cnt[s] += 1
+        return ans
+```
+
 ### **Java**
 
 ```java
@@ -184,6 +214,33 @@ class Solution {
             for (int j = i; j < n; ++j) {
                 s += mp[word.charAt(j) - 'a'];
                 ans += s % (j - i + 1) == 0 ? 1 : 0;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int countDivisibleSubstrings(String word) {
+        String[] d = {"ab", "cde", "fgh", "ijk", "lmn", "opq", "rst", "uvw", "xyz"};
+        int[] mp = new int[26];
+        for (int i = 0; i < d.length; ++i) {
+            for (char c : d[i].toCharArray()) {
+                mp[c - 'a'] = i + 1;
+            }
+        }
+        int ans = 0;
+        char[] cs = word.toCharArray();
+        for (int i = 1; i < 10; ++i) {
+            Map<Integer, Integer> cnt = new HashMap<>();
+            cnt.put(0, 1);
+            int s = 0;
+            for (char c : cs) {
+                s += mp[c - 'a'] - i;
+                ans += cnt.getOrDefault(s, 0);
+                cnt.merge(s, 1, Integer::sum);
             }
         }
         return ans;
@@ -218,6 +275,31 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int countDivisibleSubstrings(string word) {
+        string d[9] = {"ab", "cde", "fgh", "ijk", "lmn", "opq", "rst", "uvw", "xyz"};
+        int mp[26]{};
+        for (int i = 0; i < 9; ++i) {
+            for (char& c : d[i]) {
+                mp[c - 'a'] = i + 1;
+            }
+        }
+        int ans = 0;
+        for (int i = 1; i < 10; ++i) {
+            unordered_map<int, int> cnt{{0, 1}};
+            int s = 0;
+            for (char& c : word) {
+                s += mp[c - 'a'] - i;
+                ans += cnt[s]++;
+            }
+        }
+        return ans;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -237,6 +319,28 @@ func countDivisibleSubstrings(word string) (ans int) {
 			if s%(j-i+1) == 0 {
 				ans++
 			}
+		}
+	}
+	return
+}
+```
+
+```go
+func countDivisibleSubstrings(word string) (ans int) {
+	d := []string{"ab", "cde", "fgh", "ijk", "lmn", "opq", "rst", "uvw", "xyz"}
+	mp := [26]int{}
+	for i, s := range d {
+		for _, c := range s {
+			mp[c-'a'] = i + 1
+		}
+	}
+	for i := 0; i < 10; i++ {
+		cnt := map[int]int{0: 1}
+		s := 0
+		for _, c := range word {
+			s += mp[c-'a'] - i
+			ans += cnt[s]
+			cnt[s]++
 		}
 	}
 	return
@@ -269,6 +373,31 @@ function countDivisibleSubstrings(word: string): number {
 }
 ```
 
+```ts
+function countDivisibleSubstrings(word: string): number {
+    const d = ['ab', 'cde', 'fgh', 'ijk', 'lmn', 'opq', 'rst', 'uvw', 'xyz'];
+    const mp: number[] = Array(26).fill(0);
+
+    d.forEach((s, i) => {
+        for (const c of s) {
+            mp[c.charCodeAt(0) - 'a'.charCodeAt(0)] = i + 1;
+        }
+    });
+
+    let ans = 0;
+    for (let i = 0; i < 10; i++) {
+        const cnt: { [key: number]: number } = { 0: 1 };
+        let s = 0;
+        for (const c of word) {
+            s += mp[c.charCodeAt(0) - 'a'.charCodeAt(0)] - i;
+            ans += cnt[s] || 0;
+            cnt[s] = (cnt[s] || 0) + 1;
+        }
+    }
+    return ans;
+}
+```
+
 ### **Rust**
 
 ```rust
@@ -295,6 +424,34 @@ impl Solution {
             }
         }
 
+        ans
+    }
+}
+```
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn count_divisible_substrings(word: String) -> i32 {
+        let d = vec!["ab", "cde", "fgh", "ijk", "lmn", "opq", "rst", "uvw", "xyz"];
+        let mut mp: Vec<usize> = vec![0; 26];
+        for (i, s) in d.iter().enumerate() {
+            for c in s.chars() {
+                mp[(c as usize) - ('a' as usize)] = i + 1;
+            }
+        }
+        let mut ans = 0;
+        for i in 0..10 {
+            let mut cnt: HashMap<i32, i32> = HashMap::new();
+            cnt.insert(0, 1);
+            let mut s = 0;
+            for c in word.chars() {
+                s += (mp[(c as usize) - ('a' as usize)] - i) as i32;
+                ans += cnt.get(&s).cloned().unwrap_or(0);
+                *cnt.entry(s).or_insert(0) += 1;
+            }
+        }
         ans
     }
 }
