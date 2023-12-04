@@ -54,6 +54,24 @@ Finally, the child at position 2 gets infected because it is adjacent to childre
 
 ## Solutions
 
+**Solution 1: Combinatorial Mathematics + Multiplicative Inverse + Fast Power**
+
+According to the problem description, the children who have a cold have divided the children who have not yet caught a cold into several continuous segments. We can use an array $nums$ to record the number of children who are not cold in each segment, and there are a total of $s = \sum_{i=0}^{k} nums[k]$ children who are not cold. We can find that the number of cold sequences is the number of permutations of $s$ different elements, that is, $s!$.
+
+Assuming that there is only one transmission scheme for each segment of children who are not cold, there are $\frac{s!}{\prod_{i=0}^{k} nums[k]!}$ cold sequences in total.
+
+Next, we consider the transmission scheme of each segment of children who are not cold. Suppose there are $x$ children in a segment who are not cold, then they have $2^{x-1}$ transmission schemes, because each time you can choose one end from the left and right ends of a segment to transmit, that is: two choices, there are a total of $x-1$ transmissions. However, if it is the first segment or the last segment, there is only one choice.
+
+In summary, the total number of cold sequences is:
+
+$$
+\frac{s!}{\prod_{i=0}^{k} nums[k]!} \prod_{i=1}^{k-1} 2^{nums[i]-1}
+$$
+
+Finally, we need to consider that the answer may be very large and need to be modulo $10^9 + 7$. Therefore, we need to preprocess the factorial and multiplicative inverse.
+
+The time complexity is $O(m)$, where $m$ is the length of the array $sick$. Ignoring the space consumption of the preprocessing array, the space complexity is $O(m)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
