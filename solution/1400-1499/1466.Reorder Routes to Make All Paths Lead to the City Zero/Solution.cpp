@@ -1,27 +1,21 @@
 class Solution {
 public:
     int minReorder(int n, vector<vector<int>>& connections) {
-        unordered_map<int, vector<pair<int, bool>>> g;
+        vector<pair<int, int>> g[n];
         for (auto& e : connections) {
-            int u = e[0], v = e[1];
-            g[u].push_back({v, true});
-            g[v].push_back({u, false});
+            int a = e[0], b = e[1];
+            g[a].emplace_back(b, 1);
+            g[b].emplace_back(a, 0);
         }
-        vector<bool> vis(n);
-        return dfs(0, g, vis);
-    }
-
-    int dfs(int u, unordered_map<int, vector<pair<int, bool>>>& g, vector<bool>& vis) {
-        vis[u] = true;
-        int ans = 0;
-        for (auto& p : g[u]) {
-            int v = p.first;
-            bool exist = p.second;
-            if (!vis[v]) {
-                if (exist) ++ans;
-                ans += dfs(v, g, vis);
+        function<int(int, int)> dfs = [&](int a, int fa) {
+            int ans = 0;
+            for (auto& [b, c] : g[a]) {
+                if (b != fa) {
+                    ans += c + dfs(b, a);
+                }
             }
-        }
-        return ans;
+            return ans;
+        };
+        return dfs(0, -1);
     }
 };

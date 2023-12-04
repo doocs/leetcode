@@ -1,7 +1,7 @@
 class Solution {
     private List<Integer>[] g;
-    private long ans;
     private int seats;
+    private long ans;
 
     public long minimumFuelCost(int[][] roads, int seats) {
         int n = roads.length + 1;
@@ -18,14 +18,14 @@ class Solution {
     }
 
     private int dfs(int a, int fa) {
-        int size = 1;
+        int sz = 1;
         for (int b : g[a]) {
             if (b != fa) {
                 int t = dfs(b, a);
                 ans += (t + seats - 1) / seats;
-                size += t;
+                sz += t;
             }
         }
-        return size;
+        return sz;
     }
 }

@@ -1,29 +1,18 @@
 func minReorder(n int, connections [][]int) int {
-	type pib struct {
-		v int
-		b bool
-	}
-	g := map[int][]pib{}
+	g := make([][][2]int, n)
 	for _, e := range connections {
-		u, v := e[0], e[1]
-		g[u] = append(g[u], pib{v, true})
-		g[v] = append(g[v], pib{u, false})
+		a, b := e[0], e[1]
+		g[a] = append(g[a], [2]int{b, 1})
+		g[b] = append(g[b], [2]int{a, 0})
 	}
-	vis := make([]bool, n)
-	var dfs func(int) int
-	dfs = func(u int) int {
-		ans := 0
-		vis[u] = true
-		for _, p := range g[u] {
-			v, exist := p.v, p.b
-			if !vis[v] {
-				if exist {
-					ans++
-				}
-				ans += dfs(v)
+	var dfs func(int, int) int
+	dfs = func(a, fa int) (ans int) {
+		for _, e := range g[a] {
+			if b, c := e[0], e[1]; b != fa {
+				ans += c + dfs(b, a)
 			}
 		}
-		return ans
+		return
 	}
-	return dfs(0)
+	return dfs(0, -1)
 }
