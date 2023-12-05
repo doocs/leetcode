@@ -8,26 +8,23 @@
  */
 
 func leftMostColumnWithOne(binaryMatrix BinaryMatrix) int {
-	scale := binaryMatrix.Dimensions()
-	rows, cols := scale[0], scale[1]
-	res := -1
-	for row := 0; row < rows; row++ {
-		left, right := 0, cols-1
-		for left < right {
-			mid := (left + right) >> 1
-			if binaryMatrix.Get(row, mid) == 1 {
-				right = mid
+	e := binaryMatrix.Dimensions()
+	m, n := e[0], e[1]
+	ans := n
+	for i := 0; i < m; i++ {
+		l, r := 0, n
+		for l < r {
+			mid := (l + r) >> 1
+			if binaryMatrix.Get(i, mid) == 1 {
+				r = mid
 			} else {
-				left = mid + 1
+				l = mid + 1
 			}
 		}
-		if binaryMatrix.Get(row, left) == 1 {
-			if res == -1 {
-				res = left
-			} else {
-				res = min(res, left)
-			}
-		}
+		ans = min(ans, l)
 	}
-	return res
+	if ans >= n {
+		return -1
+	}
+	return ans
 }

@@ -3,7 +3,7 @@ class Solution {
         int x = 0;
         for (var e : shift) {
             if (e[0] == 0) {
-                e[1] = -e[1];
+                e[1] *= -1;
             }
             x += e[1];
         }
