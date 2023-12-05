@@ -159,7 +159,7 @@ class Solution {
 
 class Solution {
 public:
-    int leftMostColumnWithOne(BinaryMatrix &binaryMatrix) {
+    int leftMostColumnWithOne(BinaryMatrix& binaryMatrix) {
         auto e = binaryMatrix.dimensions();
         int m = e[0], n = e[1];
         int ans = n;
@@ -250,7 +250,6 @@ function leftMostColumnWithOne(binaryMatrix: BinaryMatrix) {
 ### **Rust**
 
 ```rust
-
 /**
  * // This is the BinaryMatrix's API interface.
  * // You should not implement it, or speculate about its implementation

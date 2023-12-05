@@ -10,7 +10,7 @@
 
 class Solution {
 public:
-    int leftMostColumnWithOne(BinaryMatrix &binaryMatrix) {
+    int leftMostColumnWithOne(BinaryMatrix& binaryMatrix) {
         auto e = binaryMatrix.dimensions();
         int m = e[0], n = e[1];
         int ans = n;
