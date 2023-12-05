@@ -68,6 +68,16 @@ It can be proven that 7 is the minimum number of liters of fuel needed.
 
 ## Solutions
 
+**Solution 1: Greedy + DFS**
+
+According to the problem description, we can find that all cars will only drive towards the capital (node $0$).
+
+Suppose there is a node $a$, its next node is $b$, and node $a$ needs to pass through node $b$ to reach the capital. In order to make the vehicles (fuel consumption) of node $a$ as small as possible, we should greedily let the vehicles of the child nodes of node $a$ converge to node $a$ first, and then distribute the vehicles according to the number of seats $seats$. The minimum number of vehicles (fuel consumption) needed to reach node $b$ is $\lceil \frac{sz}{seats} \rceil$. Where $sz$ represents the number of nodes in the subtree with node $a$ as the root.
+
+We start a depth-first search from node $0$, using a variable $sz$ to count the number of nodes in the subtree with the current node as the root. Initially, $sz = 1$, representing the current node itself. Then we traverse all the child nodes of the current node. For each child node $b$, we recursively calculate the number of nodes $t$ in the subtree with $b$ as the root, and add $t$ to $sz$, and then we add $\lceil \frac{t}{seats} \rceil$ to the answer. Finally, return $sz$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+
 <!-- tabs:start -->
 
 ### **Python3**
