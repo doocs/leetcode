@@ -22,7 +22,7 @@ class Solution {
         for (int x : queries) {
             int i = Collections.binarySearch(nums, x + 1);
             int j = Collections.binarySearch(nums, x);
-            i = i < 0 ? - i - 2 : i - 1;
+            i = i < 0 ? -i - 2 : i - 1;
             j = j < 0 ? -j - 1 : j;
             int mi = i >= 0 && i < nums.size() ? nums.get(i) : -1;
             int mx = j >= 0 && j < nums.size() ? nums.get(j) : -1;
