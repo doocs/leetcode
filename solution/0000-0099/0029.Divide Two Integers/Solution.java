@@ -1,24 +1,25 @@
 class Solution {
     public int divide(int a, int b) {
-        int sign = 1;
-        if ((a < 0) != (b < 0)) {
-            sign = -1;
+        if (b == 1) {
+            return a;
         }
-        long x = Math.abs((long) a);
-        long y = Math.abs((long) b);
-        long tot = 0;
-        while (x >= y) {
-            int cnt = 0;
-            while (x >= (y << (cnt + 1))) {
-                cnt++;
+        if (a == Integer.MIN_VALUE && b == -1) {
+            return Integer.MAX_VALUE;
+        }
+        boolean sign = (a > 0 && b > 0) || (a < 0 && b < 0);
+        a = a > 0 ? -a : a;
+        b = b > 0 ? -b : b;
+        int ans = 0;
+        while (a <= b) {
+            int x = b;
+            int cnt = 1;
+            while (x >= (Integer.MIN_VALUE >> 1) && a <= (x << 1)) {
+                x <<= 1;
+                cnt <<= 1;
             }
-            tot += 1L << cnt;
-            x -= y << cnt;
+            ans += cnt;
+            a -= x;
         }
-        long ans = sign * tot;
-        if (ans >= Integer.MIN_VALUE && ans <= Integer.MAX_VALUE) {
-            return (int) ans;
-        }
-        return Integer.MAX_VALUE;
+        return sign ? ans : -ans;
     }
 }

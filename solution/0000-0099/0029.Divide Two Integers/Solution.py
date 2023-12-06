@@ -1,15 +1,19 @@
 class Solution:
     def divide(self, a: int, b: int) -> int:
-        INT_MAX = (1 << 31) - 1
-        INT_MIN = -(1 << 31)
-        sign = -1 if a * b < 0 else 1
-        a = abs(a)
-        b = abs(b)
-        tot = 0
-        while a >= b:
-            cnt = 0
-            while a >= (b << (cnt + 1)):
-                cnt += 1
-            tot += 1 << cnt
-            a -= b << cnt
-        return sign * tot if INT_MIN <= sign * tot <= INT_MAX else INT_MAX
+        if b == 1:
+            return a
+        if a == -(2**31) and b == -1:
+            return 2**31 - 1
+        sign = (a > 0 and b > 0) or (a < 0 and b < 0)
+        a = -a if a > 0 else a
+        b = -b if b > 0 else b
+        ans = 0
+        while a <= b:
+            x = b
+            cnt = 1
+            while x >= (-(2**30)) and a <= (x << 1):
+                x <<= 1
+                cnt <<= 1
+            a -= x
+            ans += cnt
+        return ans if sign else -ans
