@@ -53,7 +53,7 @@
 
 **方法一：记忆化搜索 + 二分查找**
 
-我们先将 `rides` 按照 `start` 从小到大排序，然后设计一个函数 $dfs(i)$，表示从第 $i$ 个乘客开始接单，最多能获得的小费。答案即为 $dfs(0)$。
+我们先将$rides$ 按照$start$ 从小到大排序，然后设计一个函数 $dfs(i)$，表示从第 $i$ 个乘客开始接单，最多能获得的小费。答案即为 $dfs(0)$。
 
 函数 $dfs(i)$ 的计算过程如下：
 
@@ -67,23 +67,23 @@ $$
 
 此过程中，我们可以使用记忆化搜索，将每个状态的答案保存下来，避免重复计算。
 
-时间复杂度 $O(m\times \log m)$，其中 $m$ 为 `rides` 的长度。
+时间复杂度 $O(m \times \log m)$，空间复杂度 $O(m)$。其中 $m$ 为$rides$ 的长度。
 
 **方法二：动态规划 + 二分查找**
 
 我们可以将方法一中的记忆化搜索改为动态规划。
 
-先将 `rides` 排序，这次我们按照 `end` 从小到大排序。然后定义 $dp[i]$，表示前 $i$ 个乘客中，最多能获得的小费。答案即为 $dp[m]$。初始化 $dp[0] = 0$。
+先将 $rides$ 排序，这次我们按照 $end$ 从小到大排序。然后定义 $f[i]$，表示前 $i$ 个乘客中，最多能获得的小费。初始时 $f[0] = 0$，答案为 $f[m]$。
 
-对于第 $i$ 个乘客，我们可以选择接单，也可以选择不接单。如果不接单，那么最多能获得的小费为 $dp[i]$；如果接单，我们可以通过二分查找，找到在第 $i$ 个乘客上车地点之前，最后一个下车地点不大于 $start_i$ 的乘客，记为 $j$，那么最多能获得的小费为 $dp[j] + end_i - start_i + tip_i$。取两者的较大值即可。即：
+对于第 $i$ 个乘客，我们可以选择接单，也可以选择不接单。如果不接单，那么最多能获得的小费为 $f[i-1]$；如果接单，我们可以通过二分查找，找到在第 $i$ 个乘客上车地点之前，最后一个下车地点不大于 $start_i$ 的乘客，记为 $j$，那么最多能获得的小费为 $f[j] + end_i - start_i + tip_i$。取两者的较大值即可。即：
 
 $$
-dp[i] = \max(dp[i - 1], dp[j] + end_i - start_i + tip_i)
+f[i] = \max(f[i - 1], f[j] + end_i - start_i + tip_i)
 $$
 
 其中 $j$ 是满足 $end_j \le start_i$ 的最大的下标，可以通过二分查找得到。
 
-时间复杂度 $O(m\times \log m)$，其中 $m$ 为 `rides` 的长度。
+时间复杂度 $O(m \times \log m)$，空间复杂度 $O(m)$。其中 $m$ 为$rides$ 的长度。
 
 相似题目：
 
@@ -100,12 +100,12 @@ $$
 class Solution:
     def maxTaxiEarnings(self, n: int, rides: List[List[int]]) -> int:
         @cache
-        def dfs(i):
+        def dfs(i: int) -> int:
             if i >= len(rides):
                 return 0
-            s, e, t = rides[i]
-            j = bisect_left(rides, e, lo=i + 1, key=lambda x: x[0])
-            return max(dfs(i + 1), dfs(j) + e - s + t)
+            st, ed, tip = rides[i]
+            j = bisect_left(rides, ed, lo=i + 1, key=lambda x: x[0])
+            return max(dfs(i + 1), dfs(j) + ed - st + tip)
 
         rides.sort()
         return dfs(0)
@@ -115,12 +115,11 @@ class Solution:
 class Solution:
     def maxTaxiEarnings(self, n: int, rides: List[List[int]]) -> int:
         rides.sort(key=lambda x: x[1])
-        m = len(rides)
-        dp = [0] * (m + 1)
-        for i, (s, e, t) in enumerate(rides):
-            j = bisect_right(rides, s, hi=i, key=lambda x: x[1])
-            dp[i + 1] = max(dp[i], dp[j] + e - s + t)
-        return dp[m]
+        f = [0] * (len(rides) + 1)
+        for i, (st, ed, tip) in enumerate(rides, 1):
+            j = bisect_left(rides, st + 1, hi=i, key=lambda x: x[1])
+            f[i] = max(f[i - 1], f[j] + ed - st + tip)
+        return f[-1]
 ```
 
 ### **Java**
@@ -129,14 +128,14 @@ class Solution:
 
 ```java
 class Solution {
-    private int[][] rides;
-    private long[] f;
     private int m;
+    private int[][] rides;
+    private Long[] f;
 
     public long maxTaxiEarnings(int n, int[][] rides) {
-        m = rides.length;
-        f = new long[m];
         Arrays.sort(rides, (a, b) -> a[0] - b[0]);
+        m = rides.length;
+        f = new Long[m];
         this.rides = rides;
         return dfs(0);
     }
@@ -145,27 +144,26 @@ class Solution {
         if (i >= m) {
             return 0;
         }
-        if (f[i] != 0) {
+        if (f[i] != null) {
             return f[i];
         }
-        int s = rides[i][0], e = rides[i][1], t = rides[i][2];
-        int j = search(rides, e, i + 1);
-        long ans = Math.max(dfs(i + 1), dfs(j) + e - s + t);
-        f[i] = ans;
-        return ans;
+        int[] r = rides[i];
+        int st = r[0], ed = r[1], tip = r[2];
+        int j = search(ed, i + 1);
+        return f[i] = Math.max(dfs(i + 1), dfs(j) + ed - st + tip);
     }
 
-    private int search(int[][] rides, int x, int i) {
-        int left = i, right = m;
-        while (left < right) {
-            int mid = (left + right) >> 1;
+    private int search(int x, int l) {
+        int r = m;
+        while (l < r) {
+            int mid = (l + r) >> 1;
             if (rides[mid][0] >= x) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return left;
+        return l;
     }
 }
 ```
@@ -175,26 +173,27 @@ class Solution {
     public long maxTaxiEarnings(int n, int[][] rides) {
         Arrays.sort(rides, (a, b) -> a[1] - b[1]);
         int m = rides.length;
-        long[] dp = new long[m + 1];
-        for (int i = 0; i < m; ++i) {
-            int s = rides[i][0], e = rides[i][1], t = rides[i][2];
-            int j = search(rides, s, i);
-            dp[i + 1] = Math.max(dp[i], dp[j] + e - s + t);
+        long[] f = new long[m + 1];
+        for (int i = 1; i <= m; ++i) {
+            int[] r = rides[i - 1];
+            int st = r[0], ed = r[1], tip = r[2];
+            int j = search(rides, st + 1, i);
+            f[i] = Math.max(f[i - 1], f[j] + ed - st + tip);
         }
-        return dp[m];
+        return f[m];
     }
 
-    private int search(int[][] rides, int x, int n) {
-        int left = 0, right = n;
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            if (rides[mid][1] > x) {
-                right = mid;
+    private int search(int[][] nums, int x, int r) {
+        int l = 0;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (nums[mid][1] >= x) {
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return left;
+        return l;
     }
 }
 ```
@@ -202,24 +201,24 @@ class Solution {
 ### **C++**
 
 ```cpp
-using ll = long long;
-
 class Solution {
 public:
     long long maxTaxiEarnings(int n, vector<vector<int>>& rides) {
         sort(rides.begin(), rides.end());
         int m = rides.size();
-        vector<ll> f(m);
-        vector<int> x(3);
-        function<ll(int)> dfs = [&](int i) -> ll {
-            if (i >= m) return 0;
-            if (f[i]) return f[i];
-            int s = rides[i][0], e = rides[i][1], t = rides[i][2];
-            x[0] = e;
-            int j = lower_bound(rides.begin() + i + 1, rides.end(), x, [&](auto& l, auto& r) -> bool { return l[0] < r[0]; }) - rides.begin();
-            ll ans = max(dfs(i + 1), dfs(j) + e - s + t);
-            f[i] = ans;
-            return ans;
+        long long f[m];
+        memset(f, -1, sizeof(f));
+        function<long long(int)> dfs = [&](int i) -> long long {
+            if (i >= m) {
+                return 0;
+            }
+            if (f[i] != -1) {
+                return f[i];
+            }
+            auto& r = rides[i];
+            int st = r[0], ed = r[1], tip = r[2];
+            int j = lower_bound(rides.begin() + i + 1, rides.end(), ed, [](auto& a, int val) { return a[0] < val; }) - rides.begin();
+            return f[i] = max(dfs(i + 1), dfs(j) + ed - st + tip);
         };
         return dfs(0);
     }
@@ -227,22 +226,20 @@ public:
 ```
 
 ```cpp
-using ll = long long;
-
 class Solution {
 public:
     long long maxTaxiEarnings(int n, vector<vector<int>>& rides) {
-        sort(rides.begin(), rides.end(), [&](auto& l, auto& r) -> bool { return l[1] < r[1]; });
+        sort(rides.begin(), rides.end(), [](const vector<int>& a, const vector<int>& b) { return a[1] < b[1]; });
         int m = rides.size();
-        vector<ll> dp(m + 1);
-        vector<int> x(3);
-        for (int i = 0; i < m; ++i) {
-            int s = rides[i][0], e = rides[i][1], t = rides[i][2];
-            x[1] = s;
-            int j = upper_bound(rides.begin(), rides.begin() + i, x, [&](auto& l, auto& r) -> bool { return l[1] < r[1]; }) - rides.begin();
-            dp[i + 1] = max(dp[i], dp[j] + e - s + t);
+        vector<long long> f(m + 1);
+        for (int i = 1; i <= m; ++i) {
+            auto& r = rides[i - 1];
+            int st = r[0], ed = r[1], tip = r[2];
+            auto it = lower_bound(rides.begin(), rides.begin() + i, st + 1, [](auto& a, int val) { return a[1] < val; });
+            int j = distance(rides.begin(), it);
+            f[i] = max(f[i - 1], f[j] + ed - st + tip);
         }
-        return dp[m];
+        return f.back();
     }
 };
 ```
@@ -259,14 +256,12 @@ func maxTaxiEarnings(n int, rides [][]int) int64 {
 		if i >= m {
 			return 0
 		}
-		if f[i] != 0 {
-			return f[i]
+		if f[i] == 0 {
+			st, ed, tip := rides[i][0], rides[i][1], rides[i][2]
+			j := sort.Search(m, func(j int) bool { return rides[j][0] >= ed })
+			f[i] = max(dfs(i+1), int64(ed-st+tip)+dfs(j))
 		}
-		s, e, t := rides[i][0], rides[i][1], rides[i][2]
-		j := sort.Search(m, func(k int) bool { return rides[k][0] >= e })
-		ans := max(dfs(i+1), dfs(j)+int64(e-s+t))
-		f[i] = ans
-		return ans
+		return f[i]
 	}
 	return dfs(0)
 }
@@ -276,13 +271,74 @@ func maxTaxiEarnings(n int, rides [][]int) int64 {
 func maxTaxiEarnings(n int, rides [][]int) int64 {
 	sort.Slice(rides, func(i, j int) bool { return rides[i][1] < rides[j][1] })
 	m := len(rides)
-	dp := make([]int64, m+1)
-	for i, ride := range rides {
-		s, e, t := ride[0], ride[1], ride[2]
-		j := sort.Search(m, func(k int) bool { return rides[k][1] > s })
-		dp[i+1] = max(dp[i], dp[j]+int64(e-s+t))
+	f := make([]int64, m+1)
+	for i := 1; i <= m; i++ {
+		r := rides[i-1]
+		st, ed, tip := r[0], r[1], r[2]
+		j := sort.Search(m, func(j int) bool { return rides[j][1] >= st+1 })
+		f[i] = max(f[i-1], f[j]+int64(ed-st+tip))
 	}
-	return dp[m]
+	return f[m]
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxTaxiEarnings(n: number, rides: number[][]): number {
+    rides.sort((a, b) => a[0] - b[0]);
+    const m = rides.length;
+    const f: number[] = Array(m).fill(-1);
+    const search = (x: number, l: number): number => {
+        let r = m;
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (rides[mid][0] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    };
+    const dfs = (i: number): number => {
+        if (i >= m) {
+            return 0;
+        }
+        if (f[i] === -1) {
+            const [st, ed, tip] = rides[i];
+            const j = search(ed, i + 1);
+            f[i] = Math.max(dfs(i + 1), dfs(j) + ed - st + tip);
+        }
+        return f[i];
+    };
+    return dfs(0);
+}
+```
+
+```ts
+function maxTaxiEarnings(n: number, rides: number[][]): number {
+    rides.sort((a, b) => a[1] - b[1]);
+    const m = rides.length;
+    const f: number[] = Array(m + 1).fill(0);
+    const search = (x: number, r: number): number => {
+        let l = 0;
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (rides[mid][1] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    };
+    for (let i = 1; i <= m; ++i) {
+        const [st, ed, tip] = rides[i - 1];
+        const j = search(st + 1, i);
+        f[i] = Math.max(f[i - 1], f[j] + ed - st + tip);
+    }
+    return f[m];
 }
 ```
 
