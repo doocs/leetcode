@@ -49,7 +49,7 @@
 
 需要注意的是，由于题目明确要求最大只能使用 32 位有符号整数，所以需要将除数和被除数同时转换为负数进行计算。因为转换正数可能会导致溢出，如当被除数为 `INT32_MIN` 时，转换为正数时会大于 `INT32_MAX`。
 
-假设被除数为 `a`，除数为 `b`，则时间复杂度为 $O(\log a \times \log b)$，空间复杂度 $O(1)$。
+假设被除数为 $a$，除数为 $b$，则时间复杂度为 $O(\log a \times \log b)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -60,19 +60,23 @@
 ```python
 class Solution:
     def divide(self, a: int, b: int) -> int:
-        INT_MAX = (1 << 31) - 1
-        INT_MIN = -(1 << 31)
-        sign = -1 if a * b < 0 else 1
-        a = abs(a)
-        b = abs(b)
-        tot = 0
-        while a >= b:
-            cnt = 0
-            while a >= (b << (cnt + 1)):
-                cnt += 1
-            tot += 1 << cnt
-            a -= b << cnt
-        return sign * tot if INT_MIN <= sign * tot <= INT_MAX else INT_MAX
+        if b == 1:
+            return a
+        if a == -(2**31) and b == -1:
+            return 2**31 - 1
+        sign = (a > 0 and b > 0) or (a < 0 and b < 0)
+        a = -a if a > 0 else a
+        b = -b if b > 0 else b
+        ans = 0
+        while a <= b:
+            x = b
+            cnt = 1
+            while x >= (-(2**30)) and a <= (x << 1):
+                x <<= 1
+                cnt <<= 1
+            a -= x
+            ans += cnt
+        return ans if sign else -ans
 ```
 
 ### **Java**
@@ -82,62 +86,28 @@ class Solution:
 ```java
 class Solution {
     public int divide(int a, int b) {
-        int sign = 1;
-        if ((a < 0) != (b < 0)) {
-            sign = -1;
+        if (b == 1) {
+            return a;
         }
-        long x = Math.abs((long) a);
-        long y = Math.abs((long) b);
-        long tot = 0;
-        while (x >= y) {
-            int cnt = 0;
-            while (x >= (y << (cnt + 1))) {
-                cnt++;
+        if (a == Integer.MIN_VALUE && b == -1) {
+            return Integer.MAX_VALUE;
+        }
+        boolean sign = (a > 0 && b > 0) || (a < 0 && b < 0);
+        a = a > 0 ? -a : a;
+        b = b > 0 ? -b : b;
+        int ans = 0;
+        while (a <= b) {
+            int x = b;
+            int cnt = 1;
+            while (x >= (Integer.MIN_VALUE >> 1) && a <= (x << 1)) {
+                x <<= 1;
+                cnt <<= 1;
             }
-            tot += 1L << cnt;
-            x -= y << cnt;
+            ans += cnt;
+            a -= x;
         }
-        long ans = sign * tot;
-        if (ans >= Integer.MIN_VALUE && ans <= Integer.MAX_VALUE) {
-            return (int) ans;
-        }
-        return Integer.MAX_VALUE;
+        return sign ? ans : -ans;
     }
-}
-```
-
-### **Go**
-
-```go
-func divide(a int, b int) int {
-	sign, ans, INT32_MAX, INT32_MIN, LIMIT := false, 0, 1<<31-1, -1<<31, -1<<31/2
-	if (a > 0 && b < 0) || (a < 0 && b > 0) {
-		sign = true
-	}
-	a, b = convert(a), convert(b)
-	for a <= b {
-		cnt := 0
-		// (b<<cnt) >= LIMIT 是为了避免 b<<(cnt+1) 发生溢出
-		for (b<<cnt) >= LIMIT && a <= (b<<(cnt+1)) {
-			cnt++
-		}
-		ans = ans + -1<<cnt
-		a = a - b<<cnt
-	}
-	if sign {
-		return ans
-	}
-	if ans == INT32_MIN {
-		return INT32_MAX
-	}
-	return -ans
-}
-
-func convert(v int) int {
-	if v > 0 {
-		return -v
-	}
-	return v
 }
 ```
 
@@ -147,30 +117,130 @@ func convert(v int) int {
 class Solution {
 public:
     int divide(int a, int b) {
-        int sign = 1;
-        if (a < 0 ^ b < 0) {
-            sign = -1;
+        if (b == 1) {
+            return a;
         }
-
-        auto x = abs(static_cast<long long>(a));
-        auto y = abs(static_cast<long long>(b));
-        auto tot = 0ll;
-        while (x >= y) {
-            int cnt = 0;
-            while (x >= (y << (cnt + 1))) {
-                ++cnt;
+        if (a == INT_MIN && b == -1) {
+            return INT_MAX;
+        }
+        bool sign = (a > 0 && b > 0) || (a < 0 && b < 0);
+        a = a > 0 ? -a : a;
+        b = b > 0 ? -b : b;
+        int ans = 0;
+        while (a <= b) {
+            int x = b;
+            int cnt = 1;
+            while (x >= (INT_MIN >> 1) && a <= (x << 1)) {
+                x <<= 1;
+                cnt <<= 1;
             }
-            tot += 1ll << cnt;
-            x -= y << cnt;
+            ans += cnt;
+            a -= x;
         }
-
-        auto ans = sign * tot;
-        if (ans >= INT32_MIN && ans <= INT32_MAX) {
-            return static_cast<int>(ans);
-        }
-        return INT32_MAX;
+        return sign ? ans : -ans;
     }
 };
+```
+
+### **Go**
+
+```go
+func divide(a int, b int) int {
+	if b == 1 {
+		return a
+	}
+	if a == math.MinInt32 && b == -1 {
+		return math.MaxInt32
+	}
+
+	sign := (a > 0 && b > 0) || (a < 0 && b < 0)
+	if a > 0 {
+		a = -a
+	}
+	if b > 0 {
+		b = -b
+	}
+	ans := 0
+
+	for a <= b {
+		x := b
+		cnt := 1
+		for x >= (math.MinInt32>>1) && a <= (x<<1) {
+			x <<= 1
+			cnt <<= 1
+		}
+		ans += cnt
+		a -= x
+	}
+
+	if sign {
+		return ans
+	}
+	return -ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function divide(a: number, b: number): number {
+    if (b === 1) {
+        return a;
+    }
+    if (a === -(2 ** 31) && b === -1) {
+        return 2 ** 31 - 1;
+    }
+
+    const sign: boolean = (a > 0 && b > 0) || (a < 0 && b < 0);
+    a = a > 0 ? -a : a;
+    b = b > 0 ? -b : b;
+    let ans: number = 0;
+
+    while (a <= b) {
+        let x: number = b;
+        let cnt: number = 1;
+
+        while (x >= -(2 ** 30) && a <= x << 1) {
+            x <<= 1;
+            cnt <<= 1;
+        }
+
+        ans += cnt;
+        a -= x;
+    }
+
+    return sign ? ans : -ans;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int Divide(int a, int b) {
+        if (b == 1) {
+            return a;
+        }
+        if (a == int.MinValue && b == -1) {
+            return int.MaxValue;
+        }
+        bool sign = (a > 0 && b > 0) || (a < 0 && b < 0);
+        a = a > 0 ? -a : a;
+        b = b > 0 ? -b : b;
+        int ans = 0;
+        while (a <= b) {
+            int x = b;
+            int cnt = 1;
+            while (x >= (int.MinValue >> 1) && a <= (x << 1)) {
+                x <<= 1;
+                cnt <<= 1;
+            }
+            ans += cnt;
+            a -= x;
+        }
+        return sign ? ans : -ans;
+    }
+}
 ```
 
 ### **...**

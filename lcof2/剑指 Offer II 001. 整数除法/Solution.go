@@ -1,32 +1,33 @@
 func divide(a int, b int) int {
-	sign := 1
-	if a*b < 0 {
-		sign = -1
+	if b == 1 {
+		return a
+	}
+	if a == math.MinInt32 && b == -1 {
+		return math.MaxInt32
 	}
 
-	a = abs(a)
-	b = abs(b)
+	sign := (a > 0 && b > 0) || (a < 0 && b < 0)
+	if a > 0 {
+		a = -a
+	}
+	if b > 0 {
+		b = -b
+	}
+	ans := 0
 
-	tot := 0
-	for a >= b {
-		cnt := 0
-		for a >= (b << (cnt + 1)) {
-			cnt++
+	for a <= b {
+		x := b
+		cnt := 1
+		for x >= (math.MinInt32>>1) && a <= (x<<1) {
+			x <<= 1
+			cnt <<= 1
 		}
-		tot += 1 << cnt
-		a -= b << cnt
+		ans += cnt
+		a -= x
 	}
 
-	ans := sign * tot
-	if ans >= math.MinInt32 && ans <= math.MaxInt32 {
+	if sign {
 		return ans
 	}
-	return math.MaxInt32
-}
-
-func abs(a int) int {
-	if a < 0 {
-		return -a
-	}
-	return a
+	return -ans
 }
