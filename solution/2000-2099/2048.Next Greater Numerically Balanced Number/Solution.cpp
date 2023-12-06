@@ -1,19 +1,21 @@
 class Solution {
 public:
     int nextBeautifulNumber(int n) {
-        for (int i = n + 1; i < 10000000; ++i) {
-            if (check(i)) return i;
+        for (int x = n + 1;; ++x) {
+            int cnt[10]{};
+            for (int y = x; y > 0; y /= 10) {
+                ++cnt[y % 10];
+            }
+            bool ok = true;
+            for (int y = x; y > 0; y /= 10) {
+                if (y % 10 != cnt[y % 10]) {
+                    ok = false;
+                    break;
+                }
+            }
+            if (ok) {
+                return x;
+            }
         }
-        return -1;
-    }
-
-    bool check(int num) {
-        string s = to_string(num);
-        vector<int> counter(10);
-        for (char c : s) ++counter[c - '0'];
-        for (char c : s) {
-            if (counter[c - '0'] != c - '0') return false;
-        }
-        return true;
     }
 };
