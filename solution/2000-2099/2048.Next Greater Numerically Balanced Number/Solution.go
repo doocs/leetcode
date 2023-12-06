@@ -1,22 +1,18 @@
 func nextBeautifulNumber(n int) int {
-	check := func(num int) bool {
-		s := strconv.Itoa(num)
-		counter := make([]int, 10)
-		for _, c := range s {
-			counter[int(c-'0')]++
+	for x := n + 1; ; x++ {
+		cnt := [10]int{}
+		for y := x; y > 0; y /= 10 {
+			cnt[y%10]++
 		}
-		for _, c := range s {
-			if counter[int(c-'0')] != int(c-'0') {
-				return false
+		ok := true
+		for y := x; y > 0; y /= 10 {
+			if y%10 != cnt[y%10] {
+				ok = false
+				break
 			}
 		}
-		return true
-	}
-
-	for i := n + 1; i <= 10000000; i++ {
-		if check(i) {
-			return i
+		if ok {
+			return x
 		}
 	}
-	return -1
 }

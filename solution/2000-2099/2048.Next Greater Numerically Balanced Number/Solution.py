@@ -1,16 +1,10 @@
 class Solution:
     def nextBeautifulNumber(self, n: int) -> int:
-        def check(num):
-            counter = [0] * 10
-            for c in str(num):
-                counter[int(c)] += 1
-
-            for c in str(num):
-                if counter[int(c)] != int(c):
-                    return False
-            return True
-
-        for i in range(n + 1, 10**7):
-            if check(i):
-                return i
-        return -1
+        for x in count(n + 1):
+            y = x
+            cnt = [0] * 10
+            while y:
+                y, v = divmod(y, 10)
+                cnt[v] += 1
+            if all(v == 0 or i == v for i, v in enumerate(cnt)):
+                return x
