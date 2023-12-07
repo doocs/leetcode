@@ -108,7 +108,6 @@ class Spider:
 
     def get_question_detail(self, question_title_slug: str, retry: int = 3) -> dict:
         """获取题目详情"""
-        print(question_title_slug)
         form1 = {
             "operationName": "globalData",
             "query": "query globalData {\n  feature {\n    questionTranslation\n    subscription\n    signUp\n    "
