@@ -10,7 +10,7 @@
 
 <p>从下标 <code>0</code> 开始遍历 <code>arr</code> 中的每个下标 <code>i</code> ，并将包含整数 <code>arr[i]</code> 的 <code>mat</code> 单元格涂色。</p>
 
-<p>请你找出 <code>arr</code> 中在 <code>mat</code> 的某一行或某一列上都被涂色且下标最小的元素，并返回其下标 <code>i</code> 。</p>
+<p>请你找出 <code>arr</code> 中第一个使得&nbsp;<code>mat</code> 的某一行或某一列都被涂色的元素，并返回其下标 <code>i</code> 。</p>
 
 <p>&nbsp;</p>
 

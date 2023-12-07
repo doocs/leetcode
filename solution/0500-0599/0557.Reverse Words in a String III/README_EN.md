@@ -8,12 +8,19 @@
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-<pre><strong>Input:</strong> s = "Let's take LeetCode contest"
-<strong>Output:</strong> "s'teL ekat edoCteeL tsetnoc"
-</pre><p><strong class="example">Example 2:</strong></p>
-<pre><strong>Input:</strong> s = "God Ding"
-<strong>Output:</strong> "doG gniD"
+
+<pre>
+<strong>Input:</strong> s = &quot;Let&#39;s take LeetCode contest&quot;
+<strong>Output:</strong> &quot;s&#39;teL ekat edoCteeL tsetnoc&quot;
 </pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> s = &quot;Mr Ding&quot;
+<strong>Output:</strong> &quot;rM gniD&quot;
+</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
