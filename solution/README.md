@@ -2965,6 +2965,7 @@
 |  2952  |  [需要添加的硬币的最小数量](/solution/2900-2999/2952.Minimum%20Number%20of%20Coins%20to%20be%20Added/README.md)  |    |  中等  |  第 374 场周赛  |
 |  2953  |  [统计完全子字符串](/solution/2900-2999/2953.Count%20Complete%20Substrings/README.md)  |    |  中等  |  第 374 场周赛  |
 |  2954  |  [统计感冒序列的数目](/solution/2900-2999/2954.Count%20the%20Number%20of%20Infection%20Sequences/README.md)  |    |  困难  |  第 374 场周赛  |
+|  2955  |  [Number of Same-End Substrings](/solution/2900-2999/2955.Number%20of%20Same-End%20Substrings/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

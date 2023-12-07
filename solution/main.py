@@ -50,7 +50,7 @@ class Spider:
             )
             return resp.json()["stat_status_pairs"]
         except Exception as e:
-            print(e)
+            print('get_all_questions', e)
             time.sleep(2)
             return self.get_all_questions(retry - 1) if retry > 0 else []
 
@@ -100,12 +100,15 @@ class Spider:
                 res = resp.json()
                 return res["data"]["question"] or {}
             except Exception as e:
-                print(e)
+                print('get_question_detail_en', e)
+                if 'is not defined' in str(e):
+                    return {}
                 time.sleep(2)
         return {}
 
     def get_question_detail(self, question_title_slug: str, retry: int = 3) -> dict:
         """获取题目详情"""
+        print(question_title_slug)
         form1 = {
             "operationName": "globalData",
             "query": "query globalData {\n  feature {\n    questionTranslation\n    subscription\n    signUp\n    "
@@ -170,7 +173,7 @@ class Spider:
                 res = resp.json()
                 return res["data"]["question"] or {}
             except Exception as e:
-                print(e)
+                print('get_question_detail', e)
                 time.sleep(2)
         return {}
 
