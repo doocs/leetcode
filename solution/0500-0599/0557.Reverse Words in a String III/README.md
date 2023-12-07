@@ -20,8 +20,8 @@
 <p><strong>示例 2:</strong></p>
 
 <pre>
-<strong>输入：</strong> s = "God Ding"
-<strong>输出：</strong>"doG gniD"
+<strong>输入：</strong> s = "Mr Ding"
+<strong>输出：</strong>"rM gniD"
 </pre>
 
 <p>&nbsp;</p>

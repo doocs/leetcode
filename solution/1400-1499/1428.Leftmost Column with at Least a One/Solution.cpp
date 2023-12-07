@@ -11,27 +11,21 @@
 class Solution {
 public:
     int leftMostColumnWithOne(BinaryMatrix& binaryMatrix) {
-        vector<int> scale = binaryMatrix.dimensions();
-        int rows = scale[0], cols = scale[1];
-        int res = -1;
-        for (int row = 0; row < rows; ++row) {
-            int left = 0, right = cols - 1;
-            while (left < right) {
-                int mid = left + right >> 1;
-                if (binaryMatrix.get(row, mid) == 1) {
-                    right = mid;
+        auto e = binaryMatrix.dimensions();
+        int m = e[0], n = e[1];
+        int ans = n;
+        for (int i = 0; i < m; ++i) {
+            int l = 0, r = n;
+            while (l < r) {
+                int mid = (l + r) >> 1;
+                if (binaryMatrix.get(i, mid)) {
+                    r = mid;
                 } else {
-                    left = mid + 1;
+                    l = mid + 1;
                 }
             }
-            if (binaryMatrix.get(row, left) == 1) {
-                if (res == -1) {
-                    res = left;
-                } else {
-                    res = min(res, left);
-                }
-            }
+            ans = min(ans, l);
         }
-        return res;
+        return ans >= n ? -1 : ans;
     }
 };

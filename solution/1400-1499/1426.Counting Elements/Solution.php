@@ -4,12 +4,13 @@ class Solution {
      * @return Integer
      */
     function countElements($arr) {
-        $cnt = 0;
-        for ($i = 0; $i < count($arr); $i++) {
-            if (in_array($arr[$i] + 1, $arr)) {
-                $cnt++;
+        $cnt = array_count_values($arr);
+        $ans = 0;
+        foreach ($cnt as $x => $v) {
+            if (isset($cnt[$x + 1])) {
+                $ans += $v;
             }
         }
-        return $cnt++;
+        return $ans;
     }
 }

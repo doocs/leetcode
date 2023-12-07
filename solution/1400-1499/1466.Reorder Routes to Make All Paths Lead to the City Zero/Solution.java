@@ -1,26 +1,23 @@
 class Solution {
+    private List<int[]>[] g;
+
     public int minReorder(int n, int[][] connections) {
-        Map<Integer, List<Pair<Integer, Boolean>>> g = new HashMap<>();
-        for (int[] e : connections) {
-            int u = e[0], v = e[1];
-            g.computeIfAbsent(u, k -> new ArrayList<>()).add(new Pair<>(v, true));
-            g.computeIfAbsent(v, k -> new ArrayList<>()).add(new Pair<>(u, false));
+        g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : connections) {
+            int a = e[0], b = e[1];
+            g[a].add(new int[] {b, 1});
+            g[b].add(new int[] {a, 0});
         }
-        boolean[] vis = new boolean[n];
-        return dfs(0, g, vis);
+        return dfs(0, -1);
     }
 
-    private int dfs(int u, Map<Integer, List<Pair<Integer, Boolean>>> g, boolean[] vis) {
-        vis[u] = true;
+    private int dfs(int a, int fa) {
         int ans = 0;
-        for (Pair<Integer, Boolean> e : g.getOrDefault(u, Collections.emptyList())) {
-            int v = e.getKey();
-            boolean exist = e.getValue();
-            if (!vis[v]) {
-                if (exist) {
-                    ++ans;
-                }
-                ans += dfs(v, g, vis);
+        for (var e : g[a]) {
+            int b = e[0], c = e[1];
+            if (b != fa) {
+                ans += c + dfs(b, a);
             }
         }
         return ans;

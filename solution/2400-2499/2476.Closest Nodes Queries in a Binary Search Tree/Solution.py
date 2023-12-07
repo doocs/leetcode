@@ -8,7 +8,7 @@ class Solution:
     def closestNodes(
         self, root: Optional[TreeNode], queries: List[int]
     ) -> List[List[int]]:
-        def dfs(root):
+        def dfs(root: Optional[TreeNode]):
             if root is None:
                 return
             dfs(root.left)
@@ -18,9 +18,9 @@ class Solution:
         nums = []
         dfs(root)
         ans = []
-        for v in queries:
-            i = bisect_right(nums, v) - 1
-            j = bisect_left(nums, v)
+        for x in queries:
+            i = bisect_left(nums, x + 1) - 1
+            j = bisect_left(nums, x)
             mi = nums[i] if 0 <= i < len(nums) else -1
             mx = nums[j] if 0 <= j < len(nums) else -1
             ans.append([mi, mx])

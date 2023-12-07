@@ -8,20 +8,10 @@
 
 
 class Solution:
-    def leftMostColumnWithOne(self, binaryMatrix: 'BinaryMatrix') -> int:
-        rows, cols = binaryMatrix.dimensions()
-        res = -1
-        for row in range(rows):
-            left, right = 0, cols - 1
-            while left < right:
-                mid = (left + right) >> 1
-                if binaryMatrix.get(row, mid) == 1:
-                    right = mid
-                else:
-                    left = mid + 1
-            if binaryMatrix.get(row, left) == 1:
-                if res == -1:
-                    res = left
-                else:
-                    res = min(res, left)
-        return res
+    def leftMostColumnWithOne(self, binaryMatrix: "BinaryMatrix") -> int:
+        m, n = binaryMatrix.dimensions()
+        ans = n
+        for i in range(m):
+            j = bisect_left(range(n), 1, key=lambda k: binaryMatrix.get(i, k))
+            ans = min(ans, j)
+        return -1 if ans >= n else ans

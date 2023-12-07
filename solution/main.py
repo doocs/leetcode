@@ -50,7 +50,7 @@ class Spider:
             )
             return resp.json()["stat_status_pairs"]
         except Exception as e:
-            print(e)
+            print('get_all_questions', e)
             time.sleep(2)
             return self.get_all_questions(retry - 1) if retry > 0 else []
 
@@ -100,7 +100,9 @@ class Spider:
                 res = resp.json()
                 return res["data"]["question"] or {}
             except Exception as e:
-                print(e)
+                print('get_question_detail_en', e)
+                if 'is not defined' in str(e):
+                    return {}
                 time.sleep(2)
         return {}
 
@@ -170,7 +172,7 @@ class Spider:
                 res = resp.json()
                 return res["data"]["question"] or {}
             except Exception as e:
-                print(e)
+                print('get_question_detail', e)
                 time.sleep(2)
         return {}
 

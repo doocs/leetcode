@@ -1,14 +1,14 @@
 class Solution:
     def minimumFuelCost(self, roads: List[List[int]], seats: int) -> int:
-        def dfs(a, fa):
-            size = 1
+        def dfs(a: int, fa: int) -> int:
+            nonlocal ans
+            sz = 1
             for b in g[a]:
                 if b != fa:
                     t = dfs(b, a)
-                    nonlocal ans
-                    ans += (t + seats - 1) // seats
-                    size += t
-            return size
+                    ans += ceil(t / seats)
+                    sz += t
+            return sz
 
         g = defaultdict(list)
         for a, b in roads:

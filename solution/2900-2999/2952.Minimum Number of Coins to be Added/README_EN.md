@@ -51,6 +51,19 @@ It can be shown that all integers from 1 to 20 are obtainable from the resulting
 
 ## Solutions
 
+**Solution 1: Greedy + Construction**
+
+Suppose the current amount we need to construct is $s$, and we have already constructed all amounts in $[0,...,s-1]$. If there is a new coin $x$, we add it to the array, which can construct all amounts in $[x, s+x-1]$.
+
+Next, we discuss in two cases:
+
+-   If $x \le s$, then we can merge the two intervals above to get all amounts in $[0, s+x-1]$.
+-   If $x \gt s$, then we need to add a coin with a face value of $s$, so that we can construct all amounts in $[0, 2s-1]$. Then we consider the size relationship between $x$ and $s$ and continue to analyze.
+
+Therefore, we sort the array $coins$ in ascending order, and then traverse the coins in the array from small to large. For each coin $x$, we discuss in the above two cases until $s > target$.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array.
+
 <!-- tabs:start -->
 
 ### **Python3**

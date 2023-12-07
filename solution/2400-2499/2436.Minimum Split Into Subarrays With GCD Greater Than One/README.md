@@ -8,7 +8,7 @@
 
 <p>给定一个由正整数组成的数组 <code>nums</code>。</p>
 
-<p>将数组拆分为&nbsp;<strong>一个或多个&nbsp;</strong>不相连的子数组，如下所示:</p>
+<p>将数组拆分为&nbsp;<strong>一个或多个&nbsp;</strong>互相不覆盖的子数组，如下所示:</p>
 
 <ul>
 	<li>数组中的每个元素都&nbsp;<strong>只属于一个&nbsp;</strong>子数组，并且</li>

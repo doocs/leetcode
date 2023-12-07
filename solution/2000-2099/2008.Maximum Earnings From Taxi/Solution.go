@@ -1,20 +1,12 @@
 func maxTaxiEarnings(n int, rides [][]int) int64 {
-	sort.Slice(rides, func(i, j int) bool { return rides[i][0] < rides[j][0] })
+	sort.Slice(rides, func(i, j int) bool { return rides[i][1] < rides[j][1] })
 	m := len(rides)
-	f := make([]int64, m)
-	var dfs func(int) int64
-	dfs = func(i int) int64 {
-		if i >= m {
-			return 0
-		}
-		if f[i] != 0 {
-			return f[i]
-		}
-		s, e, t := rides[i][0], rides[i][1], rides[i][2]
-		j := sort.Search(m, func(k int) bool { return rides[k][0] >= e })
-		ans := max(dfs(i+1), dfs(j)+int64(e-s+t))
-		f[i] = ans
-		return ans
+	f := make([]int64, m+1)
+	for i := 1; i <= m; i++ {
+		r := rides[i-1]
+		st, ed, tip := r[0], r[1], r[2]
+		j := sort.Search(m, func(j int) bool { return rides[j][1] >= st+1 })
+		f[i] = max(f[i-1], f[j]+int64(ed-st+tip))
 	}
-	return dfs(0)
+	return f[m]
 }

@@ -51,9 +51,15 @@
 
 ## Solutions
 
-DFS.
+**Solution 1: DFS**
 
-Treat the graph as undirected. Start a dfs from the root, if you come across an edge in the forward direction, you need to reverse the edge.
+The route map given in the problem has $n$ nodes and $n-1$ edges. If we ignore the direction of the edges, then these $n$ nodes form a tree. The problem requires us to change the direction of some edges so that each node can reach node $0$.
+
+We might as well consider starting from node $0$ and reaching all other nodes. The direction is opposite to the problem description, which means that when we build the graph, for the directed edge $[a, b]$, we should regard it as the directed edge $[b, a]$. That is to say, if it is from $a$ to $b$, we need to change the direction once; if it is from $b$ to $a$, no direction change is needed.
+
+Next, we only need to start from node $0$, search all other nodes, and during the process, if we encounter an edge that needs to change direction, we accumulate the number of direction changes once.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the problem.
 
 <!-- tabs:start -->
 
@@ -62,52 +68,39 @@ Treat the graph as undirected. Start a dfs from the root, if you come across an 
 ```python
 class Solution:
     def minReorder(self, n: int, connections: List[List[int]]) -> int:
-        def dfs(u):
-            vis[u] = True
-            ans = 0
-            for v in g[u]:
-                if not vis[v]:
-                    if (u, v) in s:
-                        ans += 1
-                    ans += dfs(v)
-            return ans
+        def dfs(a: int, fa: int) -> int:
+            return sum(c + dfs(b, a) for b, c in g[a] if b != fa)
 
-        g = defaultdict(list)
-        s = set()
+        g = [[] for _ in range(n)]
         for a, b in connections:
-            g[a].append(b)
-            g[b].append(a)
-            s.add((a, b))
-        vis = [False] * n
-        return dfs(0)
+            g[a].append((b, 1))
+            g[b].append((a, 0))
+        return dfs(0, -1)
 ```
 
 ### **Java**
 
 ```java
 class Solution {
+    private List<int[]>[] g;
+
     public int minReorder(int n, int[][] connections) {
-        Map<Integer, List<Pair<Integer, Boolean>>> g = new HashMap<>();
-        for (int[] e : connections) {
-            int u = e[0], v = e[1];
-            g.computeIfAbsent(u, k -> new ArrayList<>()).add(new Pair<>(v, true));
-            g.computeIfAbsent(v, k -> new ArrayList<>()).add(new Pair<>(u, false));
+        g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : connections) {
+            int a = e[0], b = e[1];
+            g[a].add(new int[] {b, 1});
+            g[b].add(new int[] {a, 0});
         }
-        boolean[] vis = new boolean[n];
-        return dfs(0, g, vis);
+        return dfs(0, -1);
     }
 
-    private int dfs(int u, Map<Integer, List<Pair<Integer, Boolean>>> g, boolean[] vis) {
-        vis[u] = true;
+    private int dfs(int a, int fa) {
         int ans = 0;
-        for (Pair<Integer, Boolean> e : g.getOrDefault(u, Collections.emptyList())) {
-            int v = e.getKey();
-            boolean exist = e.getValue();
-            if (!vis[v]) {
-                if (exist) {
-                    ++ans;
-                }
-                ans += dfs(v, g, vis);
+        for (var e : g[a]) {
+            int b = e[0], c = e[1];
+            if (b != fa) {
+                ans += c + dfs(b, a);
             }
         }
         return ans;
@@ -121,28 +114,22 @@ class Solution {
 class Solution {
 public:
     int minReorder(int n, vector<vector<int>>& connections) {
-        unordered_map<int, vector<pair<int, bool>>> g;
+        vector<pair<int, int>> g[n];
         for (auto& e : connections) {
-            int u = e[0], v = e[1];
-            g[u].push_back({v, true});
-            g[v].push_back({u, false});
+            int a = e[0], b = e[1];
+            g[a].emplace_back(b, 1);
+            g[b].emplace_back(a, 0);
         }
-        vector<bool> vis(n);
-        return dfs(0, g, vis);
-    }
-
-    int dfs(int u, unordered_map<int, vector<pair<int, bool>>>& g, vector<bool>& vis) {
-        vis[u] = true;
-        int ans = 0;
-        for (auto& p : g[u]) {
-            int v = p.first;
-            bool exist = p.second;
-            if (!vis[v]) {
-                if (exist) ++ans;
-                ans += dfs(v, g, vis);
+        function<int(int, int)> dfs = [&](int a, int fa) {
+            int ans = 0;
+            for (auto& [b, c] : g[a]) {
+                if (b != fa) {
+                    ans += c + dfs(b, a);
+                }
             }
-        }
-        return ans;
+            return ans;
+        };
+        return dfs(0, -1);
     }
 };
 ```
@@ -151,33 +138,70 @@ public:
 
 ```go
 func minReorder(n int, connections [][]int) int {
-	type pib struct {
-		v int
-		b bool
-	}
-	g := map[int][]pib{}
+	g := make([][][2]int, n)
 	for _, e := range connections {
-		u, v := e[0], e[1]
-		g[u] = append(g[u], pib{v, true})
-		g[v] = append(g[v], pib{u, false})
+		a, b := e[0], e[1]
+		g[a] = append(g[a], [2]int{b, 1})
+		g[b] = append(g[b], [2]int{a, 0})
 	}
-	vis := make([]bool, n)
-	var dfs func(int) int
-	dfs = func(u int) int {
-		ans := 0
-		vis[u] = true
-		for _, p := range g[u] {
-			v, exist := p.v, p.b
-			if !vis[v] {
-				if exist {
-					ans++
-				}
-				ans += dfs(v)
+	var dfs func(int, int) int
+	dfs = func(a, fa int) (ans int) {
+		for _, e := range g[a] {
+			if b, c := e[0], e[1]; b != fa {
+				ans += c + dfs(b, a)
 			}
 		}
-		return ans
+		return
 	}
-	return dfs(0)
+	return dfs(0, -1)
+}
+```
+
+### **TypeScript**
+
+```ts
+function minReorder(n: number, connections: number[][]): number {
+    const g: [number, number][][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of connections) {
+        g[a].push([b, 1]);
+        g[b].push([a, 0]);
+    }
+    const dfs = (a: number, fa: number): number => {
+        let ans = 0;
+        for (const [b, c] of g[a]) {
+            if (b !== fa) {
+                ans += c + dfs(b, a);
+            }
+        }
+        return ans;
+    };
+    return dfs(0, -1);
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn min_reorder(n: i32, connections: Vec<Vec<i32>>) -> i32 {
+        let mut g: Vec<Vec<(i32, i32)>> = vec![vec![]; n as usize];
+        for e in connections.iter() {
+            let a = e[0] as usize;
+            let b = e[1] as usize;
+            g[a].push((b as i32, 1));
+            g[b].push((a as i32, 0));
+        }
+        fn dfs(a: usize, fa: i32, g: &Vec<Vec<(i32, i32)>>) -> i32 {
+            let mut ans = 0;
+            for &(b, c) in g[a].iter() {
+                if b != fa {
+                    ans += c + dfs(b as usize, a as i32, g);
+                }
+            }
+            ans
+        }
+        dfs(0, -1, &g)
+    }
 }
 ```
 
