@@ -46,6 +46,20 @@ There are much ordering with total cost &lt;= 25, for example, the order [4, 6, 
 
 ## Solutions
 
+**Solution 1: Dynamic Programming (Interval DP)**
+
+We can add two elements to the cut array $cuts$, which are $0$ and $n$, representing the two ends of the stick. Then we sort the $cuts$ array, so that we can cut the entire stick into several intervals, each interval has two cut points. Suppose the length of the $cuts$ array at this time is $m$.
+
+Next, we define $f[i][j]$ to represent the minimum cost of cutting the interval $[cuts[i],..cuts[j]]$.
+
+If an interval only has two cut points, that is, we do not need to cut this interval, then $f[i][j] = 0$.
+
+Otherwise, we enumerate the length of the interval $l$, where $l$ is the number of cut points minus $1$. Then we enumerate the left endpoint $i$ of the interval, and the right endpoint $j$ can be obtained by $i + l$. For each interval, we enumerate its cut point $k$, where $i \lt k \lt j$, then we can cut the interval $[i, j]$ into $[i, k]$ and $[k, j]$, the cost at this time is $f[i][k] + f[k][j] + cuts[j] - cuts[i]$, we take the minimum value of all possible $k$, which is the value of $f[i][j]$.
+
+Finally, we return $f[0][m - 1]$.
+
+The time complexity is $O(m^3)$, and the space complexity is $O(m^2)$. Here, $m$ is the length of the modified $cuts$ array.
+
 <!-- tabs:start -->
 
 ### **Python3**

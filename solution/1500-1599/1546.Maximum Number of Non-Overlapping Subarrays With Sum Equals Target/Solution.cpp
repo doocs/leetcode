@@ -1,22 +1,19 @@
 class Solution {
 public:
     int maxNonOverlapping(vector<int>& nums, int target) {
-        int i = 0, n = nums.size();
-        int ans = 0;
-        while (i < n) {
+        int ans = 0, n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            unordered_set<int> vis{{0}};
             int s = 0;
-            unordered_set<int> seen;
-            seen.insert(0);
             while (i < n) {
                 s += nums[i];
-                if (seen.count(s - target)) {
+                if (vis.count(s - target)) {
                     ++ans;
                     break;
                 }
                 ++i;
-                seen.insert(s);
+                vis.insert(s);
             }
-            ++i;
         }
         return ans;
     }
