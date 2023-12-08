@@ -67,16 +67,14 @@ Finally, we only need to return $max(f)$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 
-
-
 Solution 2: Using Stack
 
 -   Maintain a stack to store the indices of left parentheses. Initialize the bottom element of the stack with the value -1 to facilitate the calculation of the length of valid parentheses.
 -   Iterate through each element of the string:
     -   If the character is a left parenthesis, push the index of the character onto the stack.
     -   If the character is a right parenthesis, pop an element from the stack to represent that we have found a valid pair of parentheses.
-        - If the stack is empty, it means we couldn't find a left parenthesis to match the right parenthesis. In this case, push the index of the character as a new starting point.
-        - If the stack is not empty, calculate the length of the valid parentheses and update it.
+        -   If the stack is empty, it means we couldn't find a left parenthesis to match the right parenthesis. In this case, push the index of the character as a new starting point.
+        -   If the stack is not empty, calculate the length of the valid parentheses and update it.
 
 Summary:
 The key to this algorithm is to maintain a stack to store the indices of left parentheses and then update the length of the valid substring of parentheses by pushing and popping elements.<!-- tabs:start -->
@@ -201,7 +199,7 @@ func longestValidParentheses(s string) int {
             } else {
                 if ans < i - stack[len(stack) - 1] {
                     ans = i - stack[len(stack) - 1]
-                } 
+                }
             }
         }
     }
@@ -260,7 +258,7 @@ function longestValidParentheses(s: string): number {
 ```ts
 function longestValidParentheses(s: string): number {
     let max_length: number = 0;
-    const stack: number[] = [-1]; 
+    const stack: number[] = [-1];
     for (let i = 0; i < s.length; i++) {
         if (s.charAt(i) == '(') {
             stack.push(i);
@@ -310,7 +308,7 @@ var longestValidParentheses = function (s) {
  * @param {string} s
  * @return {number}
  */
-var longestValidParentheses = function(s) {
+var longestValidParentheses = function (s) {
     let ans = 0;
     let stack = [-1];
     for (i = 0; i < s.length; i++) {
@@ -321,31 +319,45 @@ var longestValidParentheses = function(s) {
             if (stack.length === 0) {
                 stack.push(i);
             } else {
-                ans = Math.max(ans, i - stack[stack.length - 1])
+                ans = Math.max(ans, i - stack[stack.length - 1]);
             }
         }
     }
-    return ans
+    return ans;
 };
 ```
 
-### Rust 
+### Rust
 
 ```rust
 impl Solution {
-    pub fn longest_valid_parentheses(s: String) -> i32  {
+    pub fn longest_valid_parentheses(s: String) -> i32 {
         let mut ans = 0;
         let mut f = vec![0; s.len() + 1];
         for i in 2..=s.len() {
-            if s.chars().nth(i - 1).unwrap() == ')' {
-                if s.chars().nth(i - 2).unwrap() == '(' {
-                    f[i] = f[i - 2] + 2;
-                } else if i as i32 - f[i - 1] - 1 > 0
-                    && s.chars().nth(i - f[i - 1] as usize - 2).unwrap() == '('
+            if
+                s
+                    .chars()
+                    .nth(i - 1)
+                    .unwrap() == ')'
+            {
+                if
+                    s
+                        .chars()
+                        .nth(i - 2)
+                        .unwrap() == '('
                 {
-                    f[i] = f[i - 1] + 2 + f[i - f[i - 1] as usize - 2];
+                    f[i] = f[i - 2] + 2;
+                } else if
+                    (i as i32) - f[i - 1] - 1 > 0 &&
+                    s
+                        .chars()
+                        .nth(i - (f[i - 1] as usize) - 2)
+                        .unwrap() == '('
+                {
+                    f[i] = f[i - 1] + 2 + f[i - (f[i - 1] as usize) - 2];
                 }
-                ans = ans.max(f[i])
+                ans = ans.max(f[i]);
             }
         }
         ans
@@ -366,7 +378,7 @@ impl Solution {
                 if stack.is_empty() {
                     stack.push(i as i32);
                 } else {
-                    res = std::cmp::max(res, i as i32 - stack.last().unwrap())
+                    res = std::cmp::max(res, (i as i32) - stack.last().unwrap());
                 }
             }
         }
