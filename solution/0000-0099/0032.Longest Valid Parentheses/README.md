@@ -73,7 +73,7 @@ $$
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串的长度。
 
-方法二：使用栈
+**方法二：使用栈**
 
 -   使用栈来存储左括号的索引，栈底元素初始化为 `-1`，用于辅助计算有效括号的长度。
 -   遍历字符串，对于每个字符：
@@ -84,6 +84,8 @@ $$
 -   最终返回最大长度。
 
 总结：这个算法的关键在于维护一个线，栈内存放的是左括号的索引，通过弹出和压入的操作来更新有效括号子串的长度。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串的长度。
 
 <!-- tabs:start -->
 
@@ -322,7 +324,7 @@ var longestValidParentheses = function (s) {
  */
 var longestValidParentheses = function (s) {
     let ans = 0;
-    let stack = [-1];
+    const stack = [-1];
     for (i = 0; i < s.length; i++) {
         if (s.charAt(i) === '(') {
             stack.push(i);
