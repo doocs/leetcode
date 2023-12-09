@@ -67,7 +67,7 @@ Finally, we only need to return $max(f)$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 
-Solution 2: Using Stack
+**Solution 2: Using Stack**
 
 -   Maintain a stack to store the indices of left parentheses. Initialize the bottom element of the stack with the value -1 to facilitate the calculation of the length of valid parentheses.
 -   Iterate through each element of the string:
@@ -77,7 +77,12 @@ Solution 2: Using Stack
         -   If the stack is not empty, calculate the length of the valid parentheses and update it.
 
 Summary:
-The key to this algorithm is to maintain a stack to store the indices of left parentheses and then update the length of the valid substring of parentheses by pushing and popping elements.<!-- tabs:start -->
+
+The key to this algorithm is to maintain a stack to store the indices of left parentheses and then update the length of the valid substring of parentheses by pushing and popping elements.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
+
+<!-- tabs:start -->
 
 ### **Python3**
 
@@ -310,7 +315,7 @@ var longestValidParentheses = function (s) {
  */
 var longestValidParentheses = function (s) {
     let ans = 0;
-    let stack = [-1];
+    const stack = [-1];
     for (i = 0; i < s.length; i++) {
         if (s.charAt(i) === '(') {
             stack.push(i);
