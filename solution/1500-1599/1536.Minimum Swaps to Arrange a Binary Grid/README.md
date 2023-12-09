@@ -56,6 +56,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心**
+
+我们逐行处理，对于第 $i$ 行，最后一个 $1$ 所在的位置必须小于等于 $i$，我们在 $[i, n)$ 中找到第一个满足条件的行，记为 $k$。然后从第 $k$ 行开始，依次向上交换相邻的两行，直到第 $i$ 行。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是网格的边长。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,7 +69,29 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minSwaps(self, grid: List[List[int]]) -> int:
+        n = len(grid)
+        pos = [-1] * n
+        for i in range(n):
+            for j in range(n - 1, -1, -1):
+                if grid[i][j] == 1:
+                    pos[i] = j
+                    break
+        ans = 0
+        for i in range(n):
+            k = -1
+            for j in range(i, n):
+                if pos[j] <= i:
+                    ans += j - i
+                    k = j
+                    break
+            if k == -1:
+                return -1
+            while k > i:
+                pos[k], pos[k - 1] = pos[k - 1], pos[k]
+                k -= 1
+        return ans
 ```
 
 ### **Java**
@@ -71,7 +99,151 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minSwaps(int[][] grid) {
+        int n = grid.length;
+        int[] pos = new int[n];
+        Arrays.fill(pos, -1);
+        for (int i = 0; i < n; ++i) {
+            for (int j = n - 1; j >= 0; --j) {
+                if (grid[i][j] == 1) {
+                    pos[i] = j;
+                    break;
+                }
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            int k = -1;
+            for (int j = i; j < n; ++j) {
+                if (pos[j] <= i) {
+                    ans += j - i;
+                    k = j;
+                    break;
+                }
+            }
+            if (k == -1) {
+                return -1;
+            }
+            for (; k > i; --k) {
+                int t = pos[k];
+                pos[k] = pos[k - 1];
+                pos[k - 1] = t;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minSwaps(vector<vector<int>>& grid) {
+        int n = grid.size();
+        vector<int> pos(n, -1);
+        for (int i = 0; i < n; ++i) {
+            for (int j = n - 1; j >= 0; --j) {
+                if (grid[i][j] == 1) {
+                    pos[i] = j;
+                    break;
+                }
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            int k = -1;
+            for (int j = i; j < n; ++j) {
+                if (pos[j] <= i) {
+                    ans += j - i;
+                    k = j;
+                    break;
+                }
+            }
+            if (k == -1) {
+                return -1;
+            }
+            for (; k > i; --k) {
+                swap(pos[k], pos[k - 1]);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minSwaps(grid [][]int) (ans int) {
+	n := len(grid)
+	pos := make([]int, n)
+	for i := range pos {
+		pos[i] = -1
+	}
+	for i := 0; i < n; i++ {
+		for j := n - 1; j >= 0; j-- {
+			if grid[i][j] == 1 {
+				pos[i] = j
+				break
+			}
+		}
+	}
+	for i := 0; i < n; i++ {
+		k := -1
+		for j := i; j < n; j++ {
+			if pos[j] <= i {
+				ans += j - i
+				k = j
+				break
+			}
+		}
+		if k == -1 {
+			return -1
+		}
+		for ; k > i; k-- {
+			pos[k], pos[k-1] = pos[k-1], pos[k]
+		}
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function minSwaps(grid: number[][]): number {
+    const n = grid.length;
+    const pos: number[] = Array(n).fill(-1);
+    for (let i = 0; i < n; ++i) {
+        for (let j = n - 1; ~j; --j) {
+            if (grid[i][j] === 1) {
+                pos[i] = j;
+                break;
+            }
+        }
+    }
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        let k = -1;
+        for (let j = i; j < n; ++j) {
+            if (pos[j] <= i) {
+                ans += j - i;
+                k = j;
+                break;
+            }
+        }
+        if (k === -1) {
+            return -1;
+        }
+        for (; k > i; --k) {
+            [pos[k], pos[k - 1]] = [pos[k - 1], pos[k]];
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
