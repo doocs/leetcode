@@ -55,6 +55,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心**
+
+我们从下标 $1$ 开始遍历字符串 $word$，如果 $word[i]$ 和 $word[i - 1]$ 相邻近似相等，那么我们就贪心地将 $word[i]$ 替换成一个与 $word[i - 1]$ 和 $word[i + 1]$ 都不相等的字符（可以不执行替换操作，记录操作次数即可）。然后，我们跳过 $word[i + 1]$，继续遍历字符串 $word$。
+
+最后，我们返回记录的操作次数。
+
+时间复杂度 $O(n)$，其中 $n$ 是字符串 $word$ 的长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -62,7 +70,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def removeAlmostEqualCharacters(self, word: str) -> int:
+        ans = 0
+        i, n = 1, len(word)
+        while i < n:
+            if abs(ord(word[i]) - ord(word[i - 1])) < 2:
+                ans += 1
+                i += 2
+            else:
+                i += 1
+        return ans
 ```
 
 ### **Java**
@@ -70,19 +88,72 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int removeAlmostEqualCharacters(String word) {
+        int ans = 0, n = word.length();
+        for (int i = 1; i < n; ++i) {
+            if (Math.abs(word.charAt(i) - word.charAt(i - 1)) < 2) {
+                ++ans;
+                ++i;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int removeAlmostEqualCharacters(string word) {
+        int ans = 0, n = word.size();
+        for (int i = 1; i < n; ++i) {
+            if (abs(word[i] - word[i - 1]) < 2) {
+                ++ans;
+                ++i;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func removeAlmostEqualCharacters(word string) (ans int) {
+	for i := 1; i < len(word); i++ {
+		if abs(int(word[i])-int(word[i-1])) < 2 {
+			ans++
+			i++
+		}
+	}
+	return
+}
 
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+### **TypeScript**
+
+```ts
+function removeAlmostEqualCharacters(word: string): number {
+    let ans = 0;
+    for (let i = 1; i < word.length; ++i) {
+        if (Math.abs(word.charCodeAt(i) - word.charCodeAt(i - 1)) < 2) {
+            ++ans;
+            ++i;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
