@@ -57,7 +57,7 @@ Time Complexity:
 2. The inner while loop iterates through each character in the current string s and counts the consecutive occurrences of the same character.
 3. The inner while loop runs in $O(m)$ time, where m is the length of the current string s.
 
-Overall, the time complexity is $O(n * m)$, where n is the input parameter representing the term to generate, and m is the maximum length of the string in the sequence.
+Overall, the time complexity is $O(n \times m)$, where n is the input parameter representing the term to generate, and m is the maximum length of the string in the sequence.
 
 Space Complexity: $O(m)$.
 
