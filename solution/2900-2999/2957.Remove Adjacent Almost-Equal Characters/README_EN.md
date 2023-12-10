@@ -49,30 +49,101 @@ It can be shown that the minimum number of operations needed to remove all adjac
 
 ## Solutions
 
+**Solution 1: Greedy**
+
+We start traversing the string `word` from index $1$. If `word[i]` and `word[i - 1]` are approximately equal, we greedily replace `word[i]` with a character that is not equal to both `word[i - 1]` and `word[i + 1]` (we can choose not to perform the replacement operation, just record the number of operations). Then, we skip `word[i + 1]` and continue to traverse the string `word`.
+
+Finally, we return the recorded number of operations.
+
+The time complexity is $O(n)$, where $n$ is the length of the string `word`. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def removeAlmostEqualCharacters(self, word: str) -> int:
+        ans = 0
+        i, n = 1, len(word)
+        while i < n:
+            if abs(ord(word[i]) - ord(word[i - 1])) < 2:
+                ans += 1
+                i += 2
+            else:
+                i += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int removeAlmostEqualCharacters(String word) {
+        int ans = 0, n = word.length();
+        for (int i = 1; i < n; ++i) {
+            if (Math.abs(word.charAt(i) - word.charAt(i - 1)) < 2) {
+                ++ans;
+                ++i;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int removeAlmostEqualCharacters(string word) {
+        int ans = 0, n = word.size();
+        for (int i = 1; i < n; ++i) {
+            if (abs(word[i] - word[i - 1]) < 2) {
+                ++ans;
+                ++i;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func removeAlmostEqualCharacters(word string) (ans int) {
+	for i := 1; i < len(word); i++ {
+		if abs(int(word[i])-int(word[i-1])) < 2 {
+			ans++
+			i++
+		}
+	}
+	return
+}
 
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+### **TypeScript**
+
+```ts
+function removeAlmostEqualCharacters(word: string): number {
+    let ans = 0;
+    for (let i = 1; i < word.length; ++i) {
+        if (Math.abs(word.charCodeAt(i) - word.charCodeAt(i - 1)) < 2) {
+            ++ans;
+            ++i;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
