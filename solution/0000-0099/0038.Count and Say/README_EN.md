@@ -47,6 +47,20 @@ countAndSay(4) = say &quot;21&quot; = one 2 + one 1 = &quot;12&quot; + &quot;11&
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+The task requires outputting the appearance sequence of the $n$-th item, where the $n$-th item is the description of the $n-1$-th item in the sequence. Therefore, we iterate $n-1$ times. In each iteration, we use fast and slow pointers, denoted as j and i respectively, to record the current character's position and the position of the next character that is not equal to the current character. We then update the sequence of the previous item to be $j-i$ occurrences of the current character.
+
+Time Complexity:
+
+1. The outer loop runs `n - 1` times, iterating to generate the "Count and Say" sequence up to the nth term.
+2. The inner while loop iterates through each character in the current string s and counts the consecutive occurrences of the same character.
+3. The inner while loop runs in $O(m)$ time, where m is the length of the current string s.
+
+Overall, the time complexity is $O(n * m)$, where n is the input parameter representing the term to generate, and m is the maximum length of the string in the sequence.
+
+Space Complexity: $O(m)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -227,6 +241,32 @@ function countAndSay(n: number): string {
         s = t;
     }
     return s;
+}
+```
+
+### **Rust**
+
+```rust
+use std::iter::once;
+
+impl Solution {
+    pub fn count_and_say(n: i32) -> String {
+        (1..n)
+            .fold(vec![1], |curr, _| {
+                let mut next = vec![];
+                let mut slow = 0;
+                for fast in 0..=curr.len() {
+                    if fast == curr.len() || curr[slow] != curr[fast] {
+                        next.extend(once((fast - slow) as u8).chain(once(curr[slow])));
+                        slow = fast;
+                    }
+                }
+                next
+            })
+            .into_iter()
+            .map(|digit| (digit + b'0') as char)
+            .collect()
+    }
 }
 ```
 

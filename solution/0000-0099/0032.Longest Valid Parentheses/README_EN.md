@@ -332,7 +332,7 @@ var longestValidParentheses = function (s) {
 };
 ```
 
-### Rust
+### **Rust**
 
 ```rust
 impl Solution {
