@@ -59,6 +59,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：双指针**
+
+我们可以用两个指针 $j$ 和 $i$ 分别表示子数组的左右端点，初始时两个指针都指向数组的第一个元素。
+
+接下来，我们遍历数组 $nums$ 中的每个元素 $x$，对于每个元素 $x$，我们将 $x$ 的出现次数加一，然后判断当前子数组是否满足要求。如果当前子数组不满足要求，我们就将指针 $j$ 右移一位，并将 $nums[j]$ 的出现次数减一，直到当前子数组满足要求为止。然后我们更新答案 $ans = \max(ans, i - j + 1)$。继续遍历，直到 $i$ 到达数组的末尾。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -66,7 +74,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxSubarrayLength(self, nums: List[int], k: int) -> int:
+        cnt = defaultdict(int)
+        ans = j = 0
+        for i, x in enumerate(nums):
+            cnt[x] += 1
+            while cnt[x] > k:
+                cnt[nums[j]] -= 1
+                j += 1
+            ans = max(ans, i - j + 1)
+        return ans
 ```
 
 ### **Java**
@@ -74,19 +92,73 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int maxSubarrayLength(int[] nums, int k) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        int ans = 0;
+        for (int i = 0, j = 0; i < nums.length; ++i) {
+            cnt.merge(nums[i], 1, Integer::sum);
+            while (cnt.get(nums[i]) > k) {
+                cnt.merge(nums[j++], -1, Integer::sum);
+            }
+            ans = Math.max(ans, i - j + 1);
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int maxSubarrayLength(vector<int>& nums, int k) {
+        unordered_map<int, int> cnt;
+        int ans = 0;
+        for (int i = 0, j = 0; i < nums.size(); ++i) {
+            ++cnt[nums[i]];
+            while (cnt[nums[i]] > k) {
+                --cnt[nums[j++]];
+            }
+            ans = max(ans, i - j + 1);
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func maxSubarrayLength(nums []int, k int) (ans int) {
+	cnt := map[int]int{}
+	for i, j, n := 0, 0, len(nums); i < n; i++ {
+		cnt[nums[i]]++
+		for ; cnt[nums[i]] > k; j++ {
+			cnt[nums[j]]--
+		}
+		ans = max(ans, i-j+1)
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function maxSubarrayLength(nums: number[], k: number): number {
+    const cnt: Map<number, number> = new Map();
+    let ans = 0;
+    for (let i = 0, j = 0; i < nums.length; ++i) {
+        cnt.set(nums[i], (cnt.get(nums[i]) ?? 0) + 1);
+        for (; cnt.get(nums[i])! > k; ++j) {
+            cnt.set(nums[j], cnt.get(nums[j])! - 1);
+        }
+        ans = Math.max(ans, i - j + 1);
+    }
+    return ans;
+}
 ```
 
 ### **...**
