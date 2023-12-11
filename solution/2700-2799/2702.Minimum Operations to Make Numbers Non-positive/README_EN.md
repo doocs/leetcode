@@ -45,6 +45,12 @@ Now, all the numbers in nums are non-positive. Therefore, we return 3.
 
 ## Solutions
 
+**Solution 1: Binary Search**
+
+We notice that if an operation count $t$ can make all numbers less than or equal to $0$, then for any $t' > t$, the operation count $t'$ can also make all numbers less than or equal to $0$. Therefore, we can use binary search to find the minimum operation count.
+
+We define the left boundary of the binary search as $l=0$, and the right boundary as $r=\max(nums)$. Each time we perform a binary search, we find the middle value $mid=\lfloor\frac{l+r}{2}\rfloor$, and then determine whether there exists an operation method that does not exceed $mid$ and makes all numbers less than or equal to $0$. If it exists, we update the right boundary $r = mid$, otherwise, we update the left boundary
+
 <!-- tabs:start -->
 
 ### **Python3**

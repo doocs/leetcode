@@ -54,7 +54,7 @@
 
 **方法一：贪心 + 双指针**
 
-我们用两个指针 $i$ 和 $j$ 分别指向字符串的首尾，初始时 $i=0,j=n-1$，其中 $n$ 是字符串的长度。每次比较 $s[i]$ 和 $s[j]$，如果二者不相同，则将其中较大的字符修改为较小的字符，使得两者相同。这样在修改之后，原字符串 $s$ 就变成了一个回文串。
+我们用两个指针 $i$ 和 $j$ 分别指向字符串的首尾，初始时 $i = 0$, $j = n - 1$。每一次，我们将 $s[i]$ 和 $s[j]$ 都修改为其中较小的那个字符，使得它们相等。修改之后，原字符串 $s$ 变成了一个回文串。
 
 时间复杂度 $O(n)$，其中 $n$ 是字符串的长度。我们只需要遍历一遍字符串即可。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
@@ -67,11 +67,10 @@
 ```python
 class Solution:
     def makeSmallestPalindrome(self, s: str) -> str:
-        i, j = 0, len(s) - 1
         cs = list(s)
+        i, j = 0, len(s) - 1
         while i < j:
-            if s[i] != s[j]:
-                cs[i] = cs[j] = min(s[i], s[j])
+            cs[i] = cs[j] = min(cs[i], cs[j])
             i, j = i + 1, j - 1
         return "".join(cs)
 ```
@@ -85,11 +84,9 @@ class Solution {
     public String makeSmallestPalindrome(String s) {
         char[] cs = s.toCharArray();
         for (int i = 0, j = cs.length - 1; i < j; ++i, --j) {
-            if (cs[i] != cs[j]) {
-                cs[i] = cs[j] = cs[i] < cs[j] ? cs[i] : cs[j];
-            }
+            cs[i] = cs[j] = (char) Math.min(cs[i], cs[j]);
         }
-        return String.valueOf(cs);
+        return new String(cs);
     }
 }
 ```
@@ -101,9 +98,7 @@ class Solution {
 public:
     string makeSmallestPalindrome(string s) {
         for (int i = 0, j = s.size() - 1; i < j; ++i, --j) {
-            if (s[i] != s[j]) {
-                s[i] = s[j] = s[i] < s[j] ? s[i] : s[j];
-            }
+            s[i] = s[j] = min(s[i], s[j]);
         }
         return s;
     }
@@ -116,13 +111,8 @@ public:
 func makeSmallestPalindrome(s string) string {
 	cs := []byte(s)
 	for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
-		if cs[i] != cs[j] {
-			if cs[i] < cs[j] {
-				cs[j] = cs[i]
-			} else {
-				cs[i] = cs[j]
-			}
-		}
+		cs[i] = min(cs[i], cs[j])
+		cs[j] = cs[i]
 	}
 	return string(cs)
 }
@@ -134,9 +124,7 @@ func makeSmallestPalindrome(s string) string {
 function makeSmallestPalindrome(s: string): string {
     const cs = s.split('');
     for (let i = 0, j = s.length - 1; i < j; ++i, --j) {
-        if (s[i] !== s[j]) {
-            cs[i] = cs[j] = s[i] < s[j] ? s[i] : s[j];
-        }
+        cs[i] = cs[j] = String.fromCharCode(Math.min(cs[i].charCodeAt(0), cs[j].charCodeAt(0)));
     }
     return cs.join('');
 }
@@ -147,24 +135,14 @@ function makeSmallestPalindrome(s: string): string {
 ```rust
 impl Solution {
     pub fn make_smallest_palindrome(s: String) -> String {
-        let mut b: Vec<u8> = s.bytes().collect();
-        let mut i = 0;
-        let mut j = b.len() - 1;
-
-        while i < j {
-            if b[i] != b[j] {
-                if b[i] < b[j] {
-                    b[j] = b[i];
-                } else {
-                    b[i] = b[j];
-                }
-            }
-
-            i += 1;
-            j -= 1;
+        let mut cs: Vec<char> = s.chars().collect();
+        let n = cs.len();
+        for i in 0..n / 2 {
+            let j = n - 1 - i;
+            cs[i] = std::cmp::min(cs[i], cs[j]);
+            cs[j] = cs[i];
         }
-
-        String::from_utf8(b).unwrap()
+        cs.into_iter().collect()
     }
 }
 ```

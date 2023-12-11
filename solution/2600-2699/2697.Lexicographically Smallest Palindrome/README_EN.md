@@ -47,6 +47,12 @@
 
 ## Solutions
 
+**Solution 1: Greedy + Two Pointers**
+
+We use two pointers $i$ and $j$ to point to the beginning and end of the string, initially $i=0,j=n-1$, where $n$ is the length of the string. Each time we compare $s[i]$ and $s[j]$, if they are not the same, we modify the larger character to the smaller one to make them the same. After the modification, the original string $s$ becomes a palindrome.
+
+The time complexity is $O(n)$, where $n$ is the length of the string. We only need to traverse the string once. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -54,11 +60,10 @@
 ```python
 class Solution:
     def makeSmallestPalindrome(self, s: str) -> str:
-        i, j = 0, len(s) - 1
         cs = list(s)
+        i, j = 0, len(s) - 1
         while i < j:
-            if s[i] != s[j]:
-                cs[i] = cs[j] = min(s[i], s[j])
+            cs[i] = cs[j] = min(cs[i], cs[j])
             i, j = i + 1, j - 1
         return "".join(cs)
 ```
@@ -70,11 +75,9 @@ class Solution {
     public String makeSmallestPalindrome(String s) {
         char[] cs = s.toCharArray();
         for (int i = 0, j = cs.length - 1; i < j; ++i, --j) {
-            if (cs[i] != cs[j]) {
-                cs[i] = cs[j] = cs[i] < cs[j] ? cs[i] : cs[j];
-            }
+            cs[i] = cs[j] = (char) Math.min(cs[i], cs[j]);
         }
-        return String.valueOf(cs);
+        return new String(cs);
     }
 }
 ```
@@ -86,9 +89,7 @@ class Solution {
 public:
     string makeSmallestPalindrome(string s) {
         for (int i = 0, j = s.size() - 1; i < j; ++i, --j) {
-            if (s[i] != s[j]) {
-                s[i] = s[j] = s[i] < s[j] ? s[i] : s[j];
-            }
+            s[i] = s[j] = min(s[i], s[j]);
         }
         return s;
     }
@@ -101,13 +102,8 @@ public:
 func makeSmallestPalindrome(s string) string {
 	cs := []byte(s)
 	for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
-		if cs[i] != cs[j] {
-			if cs[i] < cs[j] {
-				cs[j] = cs[i]
-			} else {
-				cs[i] = cs[j]
-			}
-		}
+		cs[i] = min(cs[i], cs[j])
+		cs[j] = cs[i]
 	}
 	return string(cs)
 }
@@ -119,9 +115,7 @@ func makeSmallestPalindrome(s string) string {
 function makeSmallestPalindrome(s: string): string {
     const cs = s.split('');
     for (let i = 0, j = s.length - 1; i < j; ++i, --j) {
-        if (s[i] !== s[j]) {
-            cs[i] = cs[j] = s[i] < s[j] ? s[i] : s[j];
-        }
+        cs[i] = cs[j] = String.fromCharCode(Math.min(cs[i].charCodeAt(0), cs[j].charCodeAt(0)));
     }
     return cs.join('');
 }
@@ -132,24 +126,14 @@ function makeSmallestPalindrome(s: string): string {
 ```rust
 impl Solution {
     pub fn make_smallest_palindrome(s: String) -> String {
-        let mut b: Vec<u8> = s.bytes().collect();
-        let mut i = 0;
-        let mut j = b.len() - 1;
-
-        while i < j {
-            if b[i] != b[j] {
-                if b[i] < b[j] {
-                    b[j] = b[i];
-                } else {
-                    b[i] = b[j];
-                }
-            }
-
-            i += 1;
-            j -= 1;
+        let mut cs: Vec<char> = s.chars().collect();
+        let n = cs.len();
+        for i in 0..n / 2 {
+            let j = n - 1 - i;
+            cs[i] = std::cmp::min(cs[i], cs[j]);
+            cs[j] = cs[i];
         }
-
-        String::from_utf8(b).unwrap()
+        cs.into_iter().collect()
     }
 }
 ```
