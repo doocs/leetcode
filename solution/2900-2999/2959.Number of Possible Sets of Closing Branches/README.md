@@ -86,6 +86,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：二进制枚举 + Floyd 算法**
+
+我们注意到 $n \leq 10$，所以我们不妨考虑使用二进制枚举的方法来枚举所有的分部集合。
+
+对于每个分部集合，我们可以使用 Floyd 算法来计算出剩余分部之间的最短距离，然后判断是否满足题目要求即可。具体地，我们先枚举中间点 $k$，再枚举起点 $i$ 和终点 $j$，如果 $g[i][k] + g[k][j] \lt g[i][j]$，那么我们就用更短的距离 $g[i][k] + g[k][j]$ 更新 $g[i][j]$。
+
+时间复杂度 $O(2^n \times (n^3 + m))$，空间复杂度 $O(n^2)$。其中 $n$ 和 $m$ 分别是分部数量和道路数量。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -93,7 +101,31 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numberOfSets(self, n: int, maxDistance: int, roads: List[List[int]]) -> int:
+        ans = 0
+        for mask in range(1 << n):
+            g = [[inf] * n for _ in range(n)]
+            for u, v, w in roads:
+                if mask >> u & 1 and mask > v & 1:
+                    g[u][v] = min(g[u][v], w)
+                    g[v][u] = min(g[v][u], w)
+            for k in range(n):
+                if mask >> k & 1:
+                    g[k][k] = 0
+                    for i in range(n):
+                        for j in range(n):
+                            # g[i][j] = min(g[i][j], g[i][k] + g[k][j])
+                            if g[i][k] + g[k][j] < g[i][j]:
+                                g[i][j] = g[i][k] + g[k][j]
+            if all(
+                g[i][j] <= maxDistance
+                for i in range(n)
+                for j in range(n)
+                if mask >> i & 1 and mask >> j & 1
+            ):
+                ans += 1
+        return ans
 ```
 
 ### **Java**
@@ -101,19 +133,168 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int numberOfSets(int n, int maxDistance, int[][] roads) {
+        int ans = 0;
+        for (int mask = 0; mask < 1 << n; ++mask) {
+            int[][] g = new int[n][n];
+            for (var e : g) {
+                Arrays.fill(e, 1 << 29);
+            }
+            for (var e : roads) {
+                int u = e[0], v = e[1], w = e[2];
+                if ((mask >> u & 1) == 1 && (mask >> v & 1) == 1) {
+                    g[u][v] = Math.min(g[u][v], w);
+                    g[v][u] = Math.min(g[v][u], w);
+                }
+            }
+            for (int k = 0; k < n; ++k) {
+                if ((mask >> k & 1) == 1) {
+                    g[k][k] = 0;
+                    for (int i = 0; i < n; ++i) {
+                        for (int j = 0; j < n; ++j) {
+                            g[i][j] = Math.min(g[i][j], g[i][k] + g[k][j]);
+                        }
+                    }
+                }
+            }
+            int ok = 1;
+            for (int i = 0; i < n && ok == 1; ++i) {
+                for (int j = 0; j < n && ok == 1; ++j) {
+                    if ((mask >> i & 1) == 1 && (mask >> j & 1) == 1) {
+                        if (g[i][j] > maxDistance) {
+                            ok = 0;
+                        }
+                    }
+                }
+            }
+            ans += ok;
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int numberOfSets(int n, int maxDistance, vector<vector<int>>& roads) {
+        int ans = 0;
+        for (int mask = 0; mask < 1 << n; ++mask) {
+            int g[n][n];
+            memset(g, 0x3f, sizeof(g));
+            for (auto& e : roads) {
+                int u = e[0], v = e[1], w = e[2];
+                if ((mask >> u & 1) & (mask >> v & 1)) {
+                    g[u][v] = min(g[u][v], w);
+                    g[v][u] = min(g[v][u], w);
+                }
+            }
+            for (int k = 0; k < n; ++k) {
+                if (mask >> k & 1) {
+                    g[k][k] = 0;
+                    for (int i = 0; i < n; ++i) {
+                        for (int j = 0; j < n; ++j) {
+                            g[i][j] = min(g[i][j], g[i][k] + g[k][j]);
+                        }
+                    }
+                }
+            }
+            int ok = 1;
+            for (int i = 0; i < n && ok == 1; ++i) {
+                for (int j = 0; j < n && ok == 1; ++j) {
+                    if ((mask >> i & 1) & (mask >> j & 1) && g[i][j] > maxDistance) {
+                        ok = 0;
+                    }
+                }
+            }
+            ans += ok;
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func numberOfSets(n int, maxDistance int, roads [][]int) (ans int) {
+	for mask := 0; mask < 1<<n; mask++ {
+		g := make([][]int, n)
+		for i := range g {
+			g[i] = make([]int, n)
+			for j := range g[i] {
+				g[i][j] = 1 << 29
+			}
+		}
+		for _, e := range roads {
+			u, v, w := e[0], e[1], e[2]
+			if mask>>u&1 == 1 && mask>>v&1 == 1 {
+				g[u][v] = min(g[u][v], w)
+				g[v][u] = min(g[v][u], w)
+			}
+		}
+		for k := 0; k < n; k++ {
+			if mask>>k&1 == 1 {
+				g[k][k] = 0
+				for i := 0; i < n; i++ {
+					for j := 0; j < n; j++ {
+						g[i][j] = min(g[i][j], g[i][k]+g[k][j])
+					}
+				}
+			}
+		}
+		ok := 1
+		for i := 0; i < n && ok == 1; i++ {
+			for j := 0; j < n && ok == 1; j++ {
+				if mask>>i&1 == 1 && mask>>j&1 == 1 && g[i][j] > maxDistance {
+					ok = 0
+				}
+			}
+		}
+		ans += ok
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function numberOfSets(n: number, maxDistance: number, roads: number[][]): number {
+    let ans = 0;
+    for (let mask = 0; mask < 1 << n; ++mask) {
+        const g: number[][] = Array.from({ length: n }, () => Array(n).fill(Infinity));
+        for (const [u, v, w] of roads) {
+            if ((mask >> u) & 1 && (mask >> v) & 1) {
+                g[u][v] = Math.min(g[u][v], w);
+                g[v][u] = Math.min(g[v][u], w);
+            }
+        }
+        for (let k = 0; k < n; ++k) {
+            if ((mask >> k) & 1) {
+                g[k][k] = 0;
+                for (let i = 0; i < n; ++i) {
+                    for (let j = 0; j < n; ++j) {
+                        g[i][j] = Math.min(g[i][j], g[i][k] + g[k][j]);
+                    }
+                }
+            }
+        }
+        let ok = 1;
+        for (let i = 0; i < n && ok; ++i) {
+            for (let j = 0; j < n && ok; ++j) {
+                if ((mask >> i) & 1 && (mask >> j) & 1 && g[i][j] > maxDistance) {
+                    ok = 0;
+                }
+            }
+        }
+        ans += ok;
+    }
+    return ans;
+}
 ```
 
 ### **...**
