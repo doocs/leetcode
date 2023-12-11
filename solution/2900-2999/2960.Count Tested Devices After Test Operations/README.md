@@ -12,7 +12,6 @@
 
 <ul>
 	<li>如果 <code>batteryPercentages[i]</code> <strong>大于</strong> <code>0</code>：
-
     <ul>
     	<li><strong>增加</strong> 已测试设备的计数。</li>
     	<li>将下标在 <code>[i + 1, n - 1]</code> 的所有设备的电池百分比减少 <code>1</code>，确保它们的电池百分比<strong> 不会低于</strong> <code>0</code> ，即 <code>batteryPercentages[j] = max(0, batteryPercentages[j] - 1)</code>。</li>
@@ -20,7 +19,6 @@
     </ul>
     </li>
     <li>否则，移动到下一个设备而不执行任何测试。</li>
-
 </ul>
 
 <p>返回一个整数，表示按顺序执行测试操作后 <strong>已测试设备</strong> 的数量。</p>
@@ -66,6 +64,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟**
+
+假设我们当前已测试的设备数量为 $ans$，如果当测试新的一台设备 $i$ 时，它的剩余电量为 $\max(0, batteryPercentages[i] - ans)$，如果剩余电量大于 $0$，则说明这台设备可以进行测试，此时我们需要将 $ans$ 增加 $1$。
+
+最后返回 $ans$ 即可。
+
+时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -73,7 +79,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countTestedDevices(self, batteryPercentages: List[int]) -> int:
+        ans = 0
+        for x in batteryPercentages:
+            x -= ans
+            ans += x > 0
+        return ans
 ```
 
 ### **Java**
@@ -81,19 +93,65 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int countTestedDevices(int[] batteryPercentages) {
+        int ans = 0;
+        for (int x : batteryPercentages) {
+            x -= ans;
+            if (x > 0) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int countTestedDevices(vector<int>& batteryPercentages) {
+        int ans = 0;
+        for (int x : batteryPercentages) {
+            x -= ans;
+            if (x > 0) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func countTestedDevices(batteryPercentages []int) (ans int) {
+	for _, x := range batteryPercentages {
+		x -= ans
+		if x > 0 {
+			ans++
+		}
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function countTestedDevices(batteryPercentages: number[]): number {
+    let ans = 0;
+    for (let x of batteryPercentages) {
+        x -= ans;
+        if (x > 0) {
+            ++ans;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**

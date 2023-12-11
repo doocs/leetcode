@@ -53,6 +53,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表 + 分组 + 快速幂**
+
+根据题目描述，我们可以知道，相同的数字必须在同一个子数组中。因此，我们用一个哈希表 $last$ 记录每个数字最后一次出现的下标。
+
+接下来，我们用一个下标 $j$ 标识已经出现过的元素中最后一个元素的下标，用一个变量 $k$ 记录当前可以划分的子数组的个数。
+
+然后，我们从左到右遍历数组 $nums$，对于当前遍历到的数字 $nums[i]$，我们获取其最后一次出现的下标，更新 $j = \max(j, last[nums[i]])$。如果 $i = j$，那么说明当前位置可以是一个子数组的结尾，我们将 $k$ 增加 $1$。继续遍历，直到遍历完整个数组。
+
+最后，我们考虑 $k$ 个子数组的划分方案数。子数组数量为 $k$，有 $k-1$ 个位置可以划分（拼接），因此方案数为 $2^{k-1}$。由于答案可能很大，我们需要对 $10^9 + 7$ 取模。这里我们可以使用快速幂来加速运算。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,7 +72,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numberOfGoodPartitions(self, nums: List[int]) -> int:
+        last = {x: i for i, x in enumerate(nums)}
+        mod = 10**9 + 7
+        j, k = -1, 0
+        for i, x in enumerate(nums):
+            j = max(j, last[x])
+            k += i == j
+        return pow(2, k - 1, mod)
 ```
 
 ### **Java**
@@ -68,19 +88,127 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int numberOfGoodPartitions(int[] nums) {
+        Map<Integer, Integer> last = new HashMap<>();
+        int n = nums.length;
+        for (int i = 0; i < n; ++i) {
+            last.put(nums[i], i);
+        }
+        final int mod = (int) 1e9 + 7;
+        int j = -1;
+        int k = 0;
+        for (int i = 0; i < n; ++i) {
+            j = Math.max(j, last.get(nums[i]));
+            k += i == j ? 1 : 0;
+        }
+        return qpow(2, k - 1, mod);
+    }
 
+    private int qpow(long a, int n, int mod) {
+        long ans = 1;
+        for (; n > 0; n >>= 1) {
+            if ((n & 1) == 1) {
+                ans = ans * a % mod;
+            }
+            a = a * a % mod;
+        }
+        return (int) ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int numberOfGoodPartitions(vector<int>& nums) {
+        unordered_map<int, int> last;
+        int n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            last[nums[i]] = i;
+        }
+        const int mod = 1e9 + 7;
+        int j = -1, k = 0;
+        for (int i = 0; i < n; ++i) {
+            j = max(j, last[nums[i]]);
+            k += i == j;
+        }
+        auto qpow = [&](long long a, int n, int mod) {
+            long long ans = 1;
+            for (; n; n >>= 1) {
+                if (n & 1) {
+                    ans = ans * a % mod;
+                }
+                a = a * a % mod;
+            }
+            return (int) ans;
+        };
+        return qpow(2, k - 1, mod);
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func numberOfGoodPartitions(nums []int) int {
+	qpow := func(a, n, mod int) int {
+		ans := 1
+		for ; n > 0; n >>= 1 {
+			if n&1 == 1 {
+				ans = ans * a % mod
+			}
+			a = a * a % mod
+		}
+		return ans
+	}
+	last := map[int]int{}
+	for i, x := range nums {
+		last[x] = i
+	}
+	const mod int = 1e9 + 7
+	j, k := -1, 0
+	for i, x := range nums {
+		j = max(j, last[x])
+		if i == j {
+			k++
+		}
+	}
+	return qpow(2, k-1, mod)
+}
+```
 
+### **TypeScript**
+
+```ts
+function numberOfGoodPartitions(nums: number[]): number {
+    const qpow = (a: number, n: number, mod: number) => {
+        let ans = 1;
+        for (; n; n >>= 1) {
+            if (n & 1) {
+                ans = Number((BigInt(ans) * BigInt(a)) % BigInt(mod));
+            }
+            a = Number((BigInt(a) * BigInt(a)) % BigInt(mod));
+        }
+        return ans;
+    };
+    const last: Map<number, number> = new Map();
+    const n = nums.length;
+    for (let i = 0; i < n; ++i) {
+        last.set(nums[i], i);
+    }
+    const mod = 1e9 + 7;
+    let [j, k] = [-1, 0];
+    for (let i = 0; i < n; ++i) {
+        j = Math.max(j, last.get(nums[i])!);
+        if (i === j) {
+            ++k;
+        }
+    }
+    return qpow(2, k - 1, mod);
+}
 ```
 
 ### **...**
