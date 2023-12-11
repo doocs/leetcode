@@ -10,7 +10,6 @@
 
 <ul>
 	<li>If <code>batteryPercentages[i]</code> is <strong>greater</strong> than <code>0</code>:
-
     <ul>
     	<li><strong>Increment</strong> the count of tested devices.</li>
     	<li><strong>Decrease</strong> the battery percentage of all devices with indices <code>j</code> in the range <code>[i + 1, n - 1]</code> by <code>1</code>, ensuring their battery percentage <strong>never goes below</strong> <code>0</code>, i.e, <code>batteryPercentages[j] = max(0, batteryPercentages[j] - 1)</code>.</li>
@@ -18,7 +17,6 @@
     </ul>
     </li>
     <li>Otherwise, move to the next device without performing any test.</li>
-
 </ul>
 
 <p>Return <em>an integer denoting the number of devices that will be tested after performing the test operations in order.</em></p>
@@ -60,30 +58,90 @@ So, the answer is 2.
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+Assume that the current number of devices we have tested is $ans$. When testing a new device $i$, its remaining battery is $\max(0, batteryPercentages[i] - ans)$. If the remaining battery is greater than $0$, it means this device can be tested, and we need to increase $ans$ by $1$.
+
+Finally, return $ans$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def countTestedDevices(self, batteryPercentages: List[int]) -> int:
+        ans = 0
+        for x in batteryPercentages:
+            x -= ans
+            ans += x > 0
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int countTestedDevices(int[] batteryPercentages) {
+        int ans = 0;
+        for (int x : batteryPercentages) {
+            x -= ans;
+            if (x > 0) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int countTestedDevices(vector<int>& batteryPercentages) {
+        int ans = 0;
+        for (int x : batteryPercentages) {
+            x -= ans;
+            if (x > 0) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func countTestedDevices(batteryPercentages []int) (ans int) {
+	for _, x := range batteryPercentages {
+		x -= ans
+		if x > 0 {
+			ans++
+		}
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function countTestedDevices(batteryPercentages: number[]): number {
+    let ans = 0;
+    for (let x of batteryPercentages) {
+        x -= ans;
+        if (x > 0) {
+            ++ans;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**

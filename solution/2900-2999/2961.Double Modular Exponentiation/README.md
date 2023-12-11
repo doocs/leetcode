@@ -56,6 +56,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟 + 快速幂**
+
+我们直接根据题目描述模拟即可。对于幂运算取模，我们可以使用快速幂来加速运算。
+
+时间复杂度 $O(n \times \log M)$，其中 $n$ 为数组 $variables$ 的长度；而 $M$ 为 $b_i$ 和 $c_i$ 中的最大值，本题中 $M \le 10^3$。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,7 +69,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def getGoodIndices(self, variables: List[List[int]], target: int) -> List[int]:
+        return [
+            i
+            for i, (a, b, c, m) in enumerate(variables)
+            if pow(pow(a, b, 10), c, m) == target
+        ]
 ```
 
 ### **Java**
@@ -71,19 +83,108 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public List<Integer> getGoodIndices(int[][] variables, int target) {
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0; i < variables.length; ++i) {
+            var e = variables[i];
+            int a = e[0], b = e[1], c = e[2], m = e[3];
+            if (qpow(qpow(a, b, 10), c, m) == target) {
+                ans.add(i);
+            }
+        }
+        return ans;
+    }
 
+    private int qpow(long a, int n, int mod) {
+        long ans = 1;
+        for (; n > 0; n >>= 1) {
+            if ((n & 1) == 1) {
+                ans = ans * a % mod;
+            }
+            a = a * a % mod;
+        }
+        return (int) ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> getGoodIndices(vector<vector<int>>& variables, int target) {
+        vector<int> ans;
+        auto qpow = [&](long long a, int n, int mod) {
+            long long ans = 1;
+            for (; n; n >>= 1) {
+                if (n & 1) {
+                    ans = ans * a % mod;
+                }
+                a = a * a % mod;
+            }
+            return (int) ans;
+        };
+        for (int i = 0; i < variables.size(); ++i) {
+            auto e = variables[i];
+            int a = e[0], b = e[1], c = e[2], m = e[3];
+            if (qpow(qpow(a, b, 10), c, m) == target) {
+                ans.push_back(i);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func getGoodIndices(variables [][]int, target int) (ans []int) {
+	qpow := func(a, n, mod int) int {
+		ans := 1
+		for ; n > 0; n >>= 1 {
+			if n&1 == 1 {
+				ans = ans * a % mod
+			}
+			a = a * a % mod
+		}
+		return ans
+	}
+	for i, e := range variables {
+		a, b, c, m := e[0], e[1], e[2], e[3]
+		if qpow(qpow(a, b, 10), c, m) == target {
+			ans = append(ans, i)
+		}
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function getGoodIndices(variables: number[][], target: number): number[] {
+    const qpow = (a: number, n: number, mod: number) => {
+        let ans = 1;
+        for (; n; n >>= 1) {
+            if (n & 1) {
+                ans = Number((BigInt(ans) * BigInt(a)) % BigInt(mod));
+            }
+            a = Number((BigInt(a) * BigInt(a)) % BigInt(mod));
+        }
+        return ans;
+    };
+    const ans: number[] = [];
+    for (let i = 0; i < variables.length; ++i) {
+        const [a, b, c, m] = variables[i];
+        if (qpow(qpow(a, b, 10), c, m) === target) {
+            ans.push(i);
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
