@@ -2964,6 +2964,14 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2953  |  [Count Complete Substrings](/solution/2900-2999/2953.Count%20Complete%20Substrings/README_EN.md)  |  `Hash Table`,`String`,`Sliding Window`  |  Medium  |  Weekly Contest 374  |
 |  2954  |  [Count the Number of Infection Sequences](/solution/2900-2999/2954.Count%20the%20Number%20of%20Infection%20Sequences/README_EN.md)  |  `Array`,`Math`,`Combinatorics`  |  Hard  |  Weekly Contest 374  |
 |  2955  |  [Number of Same-End Substrings](/solution/2900-2999/2955.Number%20of%20Same-End%20Substrings/README_EN.md)  |    |  Medium  |  🔒  |
+|  2956  |  [Find Common Elements Between Two Arrays](/solution/2900-2999/2956.Find%20Common%20Elements%20Between%20Two%20Arrays/README_EN.md)  |    |  Easy  |  Biweekly Contest 119  |
+|  2957  |  [Remove Adjacent Almost-Equal Characters](/solution/2900-2999/2957.Remove%20Adjacent%20Almost-Equal%20Characters/README_EN.md)  |    |  Medium  |  Biweekly Contest 119  |
+|  2958  |  [Length of Longest Subarray With at Most K Frequency](/solution/2900-2999/2958.Length%20of%20Longest%20Subarray%20With%20at%20Most%20K%20Frequency/README_EN.md)  |    |  Medium  |  Biweekly Contest 119  |
+|  2959  |  [Number of Possible Sets of Closing Branches](/solution/2900-2999/2959.Number%20of%20Possible%20Sets%20of%20Closing%20Branches/README_EN.md)  |    |  Hard  |  Biweekly Contest 119  |
+|  2960  |  [Count Tested Devices After Test Operations](/solution/2900-2999/2960.Count%20Tested%20Devices%20After%20Test%20Operations/README_EN.md)  |    |  Easy  |  Weekly Contest 375  |
+|  2961  |  [Double Modular Exponentiation](/solution/2900-2999/2961.Double%20Modular%20Exponentiation/README_EN.md)  |    |  Medium  |  Weekly Contest 375  |
+|  2962  |  [Count Subarrays Where Max Element Appears at Least K Times](/solution/2900-2999/2962.Count%20Subarrays%20Where%20Max%20Element%20Appears%20at%20Least%20K%20Times/README_EN.md)  |    |  Medium  |  Weekly Contest 375  |
+|  2963  |  [Count the Number of Good Partitions](/solution/2900-2999/2963.Count%20the%20Number%20of%20Good%20Partitions/README_EN.md)  |    |  Hard  |  Weekly Contest 375  |
 
 ## Copyright
 

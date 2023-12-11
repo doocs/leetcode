@@ -37,6 +37,26 @@ In the second operation choose x = 2 and y = 0 again, thus arr = [3, 3, 3].
 
 ## Solutions
 
+**Solution 1: Mathematics**
+
+According to the problem description, the array $arr$ is an arithmetic sequence with the first term as $1$ and the common difference as $2$. Therefore, the sum of the first $n$ terms of the array is:
+
+$$
+\begin{aligned}
+S_n &= \frac{n}{2} \times (a_1 + a_n) \\
+&= \frac{n}{2} \times (1 + (2n - 1)) \\
+&= n^2
+\end{aligned}
+$$
+
+Since in one operation, one number is decreased by one and another number is increased by one, the sum of all elements in the array remains unchanged. Therefore, when all elements in the array are equal, the value of each element is $S_n / n = n$. Hence, the minimum number of operations required to make all elements in the array equal is:
+
+$$
+\sum_{i=0}^{\frac{n}{2}} (n - (2i + 1))
+$$
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

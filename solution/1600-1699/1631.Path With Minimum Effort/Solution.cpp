@@ -2,22 +2,25 @@ class Solution {
 public:
     int minimumEffortPath(vector<vector<int>>& heights) {
         int m = heights.size(), n = heights[0].size();
-        vector<vector<int>> dist(m, vector<int>(n, 0x3f3f3f3f));
+        int dist[m][n];
+        memset(dist, 0x3f, sizeof(dist));
         dist[0][0] = 0;
-        priority_queue<tuple<int, int, int>, vector<tuple<int, int, int>>, greater<tuple<int, int, int>>> q;
-        q.push({0, 0, 0});
-        vector<int> dirs = {-1, 0, 1, 0, -1};
-        while (!q.empty()) {
-            auto [t, i, j] = q.top();
-            q.pop();
+        int dirs[5] = {0, 1, 0, -1, 0};
+        using T = tuple<int, int, int>;
+        priority_queue<T, vector<T>, greater<T>> pq;
+        pq.emplace(0, 0, 0);
+        while (!pq.empty()) {
+            auto [t, i, j] = pq.top();
+            pq.pop();
             for (int k = 0; k < 4; ++k) {
                 int x = i + dirs[k], y = j + dirs[k + 1];
-                if (x >= 0 && x < m && y >= 0 && y < n) {
-                    int nd = max(t, abs(heights[x][y] - heights[i][j]));
-                    if (nd < dist[x][y]) {
-                        dist[x][y] = nd;
-                        q.push({nd, x, y});
-                    }
+                if (x < 0 || x >= m || y < 0 || y >= n) {
+                    continue;
+                }
+                int d = max(t, abs(heights[x][y] - heights[i][j]));
+                if (d < dist[x][y]) {
+                    dist[x][y] = d;
+                    pq.emplace(d, x, y);
                 }
             }
         }

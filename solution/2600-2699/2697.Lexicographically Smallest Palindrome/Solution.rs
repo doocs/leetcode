@@ -1,22 +1,12 @@
 impl Solution {
     pub fn make_smallest_palindrome(s: String) -> String {
-        let mut b: Vec<u8> = s.bytes().collect();
-        let mut i = 0;
-        let mut j = b.len() - 1;
-
-        while i < j {
-            if b[i] != b[j] {
-                if b[i] < b[j] {
-                    b[j] = b[i];
-                } else {
-                    b[i] = b[j];
-                }
-            }
-
-            i += 1;
-            j -= 1;
+        let mut cs: Vec<char> = s.chars().collect();
+        let n = cs.len();
+        for i in 0..n / 2 {
+            let j = n - 1 - i;
+            cs[i] = std::cmp::min(cs[i], cs[j]);
+            cs[j] = cs[i];
         }
-
-        String::from_utf8(b).unwrap()
+        cs.into_iter().collect()
     }
 }

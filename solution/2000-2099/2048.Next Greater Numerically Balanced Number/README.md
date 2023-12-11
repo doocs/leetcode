@@ -91,26 +91,22 @@ class Solution:
 ```java
 class Solution {
     public int nextBeautifulNumber(int n) {
-        for (int i = n + 1; i < 10000000; ++i) {
-            if (check(i)) {
-                return i;
+        for (int x = n + 1;; ++x) {
+            int[] cnt = new int[10];
+            for (int y = x; y > 0; y /= 10) {
+                ++cnt[y % 10];
+            }
+            boolean ok = true;
+            for (int y = x; y > 0; y /= 10) {
+                if (y % 10 != cnt[y % 10]) {
+                    ok = false;
+                    break;
+                }
+            }
+            if (ok) {
+                return x;
             }
         }
-        return -1;
-    }
-
-    private boolean check(int num) {
-        int[] counter = new int[10];
-        char[] chars = String.valueOf(num).toCharArray();
-        for (char c : chars) {
-            ++counter[c - '0'];
-        }
-        for (char c : chars) {
-            if (counter[c - '0'] != c - '0') {
-                return false;
-            }
-        }
-        return true;
     }
 }
 ```

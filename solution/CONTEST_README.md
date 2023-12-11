@@ -22,6 +22,20 @@
 
 ## 往期竞赛
 
+#### 第 375 场周赛(2023-12-10 10:30, 90 分钟) 参赛人数 3518
+
+- [2960. 统计已测试设备](/solution/2900-2999/2960.Count%20Tested%20Devices%20After%20Test%20Operations/README.md)
+- [2961. 双模幂运算](/solution/2900-2999/2961.Double%20Modular%20Exponentiation/README.md)
+- [2962. 统计最大元素出现至少 K 次的子数组](/solution/2900-2999/2962.Count%20Subarrays%20Where%20Max%20Element%20Appears%20at%20Least%20K%20Times/README.md)
+- [2963. 统计好分割方案的数目](/solution/2900-2999/2963.Count%20the%20Number%20of%20Good%20Partitions/README.md)
+
+#### 第 119 场双周赛(2023-12-09 22:30, 90 分钟) 参赛人数 2472
+
+- [2956. 找到两个数组中的公共元素](/solution/2900-2999/2956.Find%20Common%20Elements%20Between%20Two%20Arrays/README.md)
+- [2957. 消除相邻近似相等字符](/solution/2900-2999/2957.Remove%20Adjacent%20Almost-Equal%20Characters/README.md)
+- [2958. 最多 K 个重复元素的最长子数组](/solution/2900-2999/2958.Length%20of%20Longest%20Subarray%20With%20at%20Most%20K%20Frequency/README.md)
+- [2959. 关闭分部的可行集合数目](/solution/2900-2999/2959.Number%20of%20Possible%20Sets%20of%20Closing%20Branches/README.md)
+
 #### 第 374 场周赛(2023-12-03 10:30, 90 分钟) 参赛人数 4053
 
 - [2951. 找出峰值](/solution/2900-2999/2951.Find%20the%20Peaks/README.md)

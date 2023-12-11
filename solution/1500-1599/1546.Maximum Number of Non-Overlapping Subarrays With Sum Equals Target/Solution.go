@@ -1,18 +1,16 @@
-func maxNonOverlapping(nums []int, target int) int {
-	i, n, ans := 0, len(nums), 0
-	for i < n {
+func maxNonOverlapping(nums []int, target int) (ans int) {
+	n := len(nums)
+	for i := 0; i < n; i++ {
 		s := 0
-		seen := map[int]bool{0: true}
-		for i < n {
+		vis := map[int]bool{0: true}
+		for ; i < n; i++ {
 			s += nums[i]
-			if seen[s-target] {
+			if vis[s-target] {
 				ans++
 				break
 			}
-			seen[s] = true
-			i++
+			vis[s] = true
 		}
-		i++
 	}
-	return ans
+	return
 }

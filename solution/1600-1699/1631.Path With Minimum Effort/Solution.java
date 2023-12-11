@@ -1,25 +1,24 @@
 class Solution {
     public int minimumEffortPath(int[][] heights) {
-        int m = heights.length;
-        int n = heights[0].length;
+        int m = heights.length, n = heights[0].length;
         int[][] dist = new int[m][n];
-        for (int i = 0; i < m; ++i) {
-            Arrays.fill(dist[i], 0x3f3f3f3f);
+        for (var row : dist) {
+            Arrays.fill(row, 1 << 30);
         }
         dist[0][0] = 0;
-        PriorityQueue<int[]> q = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
-        q.offer(new int[] {0, 0, 0});
         int[] dirs = {-1, 0, 1, 0, -1};
-        while (!q.isEmpty()) {
-            int[] p = q.poll();
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+        pq.offer(new int[] {0, 0, 0});
+        while (!pq.isEmpty()) {
+            var p = pq.poll();
             int t = p[0], i = p[1], j = p[2];
             for (int k = 0; k < 4; ++k) {
                 int x = i + dirs[k], y = j + dirs[k + 1];
                 if (x >= 0 && x < m && y >= 0 && y < n) {
-                    int nd = Math.max(t, Math.abs(heights[x][y] - heights[i][j]));
-                    if (nd < dist[x][y]) {
-                        dist[x][y] = nd;
-                        q.offer(new int[] {nd, x, y});
+                    int d = Math.max(t, Math.abs(heights[x][y] - heights[i][j]));
+                    if (d < dist[x][y]) {
+                        dist[x][y] = d;
+                        pq.offer(new int[] {d, x, y});
                     }
                 }
             }
