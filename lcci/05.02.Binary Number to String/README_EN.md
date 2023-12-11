@@ -1,6 +1,6 @@
-# [05.02. Bianry Number to String](https://leetcode.cn/problems/bianry-number-to-string-lcci)
+# [05.02. Binary Number to String](https://leetcode.cn/problems/bianry-number-to-string-lcci)
 
-[中文文档](/lcci/05.02.Bianry%20Number%20to%20String/README.md)
+[中文文档](/lcci/05.02.Binary%20Number%20to%20String/README.md)
 
 ## Description
 
@@ -25,7 +25,7 @@
 </pre>
 <p><strong>Note: </strong></p>
 <ol>
-	<li>This two charaters &quot;0.&quot; should be counted into 32 characters.</li>
+	<li>This two characters &quot;0.&quot; should be counted into 32 characters.</li>
 </ol>
 
 ## Solutions
