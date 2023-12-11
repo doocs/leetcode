@@ -13,11 +13,9 @@ class Solution {
 public:
     TreeNode* reverseOddLevels(TreeNode* root) {
         queue<TreeNode*> q{{root}};
-        int i = 0;
-        vector<TreeNode*> t;
-        while (!q.empty()) {
-            t.clear();
-            for (int n = q.size(); n; --n) {
+        for (int i = 0; q.size(); ++i) {
+            vector<TreeNode*> t;
+            for (int k = q.size(); k; --k) {
                 TreeNode* node = q.front();
                 q.pop();
                 if (i & 1) {
@@ -25,20 +23,12 @@ public:
                 }
                 if (node->left) {
                     q.push(node->left);
-                }
-                if (node->right) {
                     q.push(node->right);
                 }
             }
-            if (t.size()) {
-                int j = 0, k = t.size() - 1;
-                for (; j < k; ++j, --k) {
-                    int v = t[j]->val;
-                    t[j]->val = t[k]->val;
-                    t[k]->val = v;
-                }
+            for (int l = 0, r = t.size() - 1; l < r; ++l, --r) {
+                swap(t[l]->val, t[r]->val);
             }
-            ++i;
         }
         return root;
     }

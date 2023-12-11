@@ -8,10 +8,9 @@
  */
 func reverseOddLevels(root *TreeNode) *TreeNode {
 	q := []*TreeNode{root}
-	i := 0
-	for len(q) > 0 {
+	for i := 0; len(q) > 0; i++ {
 		t := []*TreeNode{}
-		for n := len(q); n > 0; n-- {
+		for k := len(q); k > 0; k-- {
 			node := q[0]
 			q = q[1:]
 			if i%2 == 1 {
@@ -19,20 +18,12 @@ func reverseOddLevels(root *TreeNode) *TreeNode {
 			}
 			if node.Left != nil {
 				q = append(q, node.Left)
-			}
-			if node.Right != nil {
 				q = append(q, node.Right)
 			}
 		}
-		if len(t) > 0 {
-			j, k := 0, len(t)-1
-			for ; j < k; j, k = j+1, k-1 {
-				v := t[j].Val
-				t[j].Val = t[k].Val
-				t[k].Val = v
-			}
+		for l, r := 0, len(t)-1; l < r; l, r = l+1, r-1 {
+			t[l].Val, t[r].Val = t[r].Val, t[l].Val
 		}
-		i++
 	}
 	return root
 }
