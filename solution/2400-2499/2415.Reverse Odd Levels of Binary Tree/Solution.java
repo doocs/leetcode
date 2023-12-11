@@ -17,30 +17,23 @@ class Solution {
     public TreeNode reverseOddLevels(TreeNode root) {
         Deque<TreeNode> q = new ArrayDeque<>();
         q.offer(root);
-        int i = 0;
-        while (!q.isEmpty()) {
+        for (int i = 0; !q.isEmpty(); ++i) {
             List<TreeNode> t = new ArrayList<>();
-            for (int n = q.size(); n > 0; --n) {
-                TreeNode node = q.pollFirst();
+            for (int k = q.size(); k > 0; --k) {
+                var node = q.poll();
                 if (i % 2 == 1) {
                     t.add(node);
                 }
                 if (node.left != null) {
                     q.offer(node.left);
-                }
-                if (node.right != null) {
                     q.offer(node.right);
                 }
             }
-            if (!t.isEmpty()) {
-                int j = 0, k = t.size() - 1;
-                for (; j < k; ++j, --k) {
-                    int v = t.get(j).val;
-                    t.get(j).val = t.get(k).val;
-                    t.get(k).val = v;
-                }
+            for (int l = 0, r = t.size() - 1; l < r; ++l, --r) {
+                var x = t.get(l).val;
+                t.get(l).val = t.get(r).val;
+                t.get(r).val = x;
             }
-            ++i;
         }
         return root;
     }

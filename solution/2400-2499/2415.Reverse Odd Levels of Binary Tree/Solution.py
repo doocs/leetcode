@@ -9,19 +9,15 @@ class Solution:
         q = deque([root])
         i = 0
         while q:
-            t = []
+            if i & 1:
+                l, r = 0, len(q) - 1
+                while l < r:
+                    q[l].val, q[r].val = q[r].val, q[l].val
+                    l, r = l + 1, r - 1
             for _ in range(len(q)):
                 node = q.popleft()
-                if i & 1:
-                    t.append(node)
                 if node.left:
                     q.append(node.left)
-                if node.right:
                     q.append(node.right)
-            if t:
-                j, k = 0, len(t) - 1
-                while j < k:
-                    t[j].val, t[k].val = t[k].val, t[j].val
-                    j, k = j + 1, k - 1
             i += 1
         return root
