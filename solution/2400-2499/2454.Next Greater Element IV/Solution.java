@@ -1,20 +1,21 @@
 class Solution {
     public int[] secondGreaterElement(int[] nums) {
-        Deque<Integer> stk = new ArrayDeque<>();
-        PriorityQueue<int[]> q = new PriorityQueue<>((a, b) -> a[0] - b[0]);
         int n = nums.length;
         int[] ans = new int[n];
         Arrays.fill(ans, -1);
+        int[][] arr = new int[n][0];
         for (int i = 0; i < n; ++i) {
-            int v = nums[i];
-            while (!q.isEmpty() && q.peek()[0] < v) {
-                ans[q.peek()[1]] = v;
-                q.poll();
+            arr[i] = new int[] {nums[i], i};
+        }
+        Arrays.sort(arr, (a, b) -> b[0] - a[0]);
+        TreeSet<Integer> ts = new TreeSet<>();
+        for (int[] pair : arr) {
+            int i = pair[1];
+            Integer j = ts.higher(i);
+            if (j != null && ts.higher(j) != null) {
+                ans[i] = nums[ts.higher(j)];
             }
-            while (!stk.isEmpty() && nums[stk.peek()] < v) {
-                q.offer(new int[] {nums[stk.peek()], stk.pop()});
-            }
-            stk.push(i);
+            ts.add(i);
         }
         return ans;
     }
