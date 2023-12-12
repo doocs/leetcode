@@ -40,7 +40,21 @@
 
 ## Solutions
 
-Backtracking
+**Solution 1: Recursive Enumeration**
+
+We design a recursive function $dfs(u, t)$, where $u$ is the index of the current element being enumerated, and $t$ is the current subset.
+
+For the current element with index $u$, we can choose to add it to the subset $t$, or we can choose not to add it to the subset $t$. Recursively making these two choices will yield all subsets.
+
+The time complexity is $O(n \times 2^n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array. Each element in the array has two states, namely chosen or not chosen, for a total of $2^n$ states. Each state requires $O(n)$ time to construct the subset.
+
+**Solution 2: Binary Enumeration**
+
+We can rewrite the recursive process in Method 1 into an iterative form, that is, using binary enumeration to enumerate all subsets.
+
+We can use $2^n$ binary numbers to represent all subsets of $n$ elements. If the $i$-th bit of a binary number `mask` is $1$, it means that the subset contains the $i$-th element $v$ of the array; if it is $0$, it means that the subset does not contain the $i$-th element $v$ of the array.
+
+The time complexity is $O(n \times 2^n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array. There are a total of $2^n$ subsets, and each subset requires $O(n)$ time to construct.
 
 <!-- tabs:start -->
 

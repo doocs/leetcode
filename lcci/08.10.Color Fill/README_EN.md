@@ -38,9 +38,13 @@ to the starting pixel.</pre>
 
 ## Solutions
 
-DFS or BFS.
+**Solution 1: Flood Fill Algorithm**
 
-> Flood fill, also called seed fill, is a flooding algorithm that determines and alters the area connected to a given node in a multi-dimensional array with some matching attribute. It is used in the "bucket" fill tool of paint programs to fill connected, similarly-colored areas with a different color.
+The Flood Fill algorithm is a classic algorithm used to extract several connected points from a region and distinguish them from other adjacent regions (or color them differently). It is named for its strategy, which is similar to a flood spreading from one area to all reachable areas.
+
+The simplest implementation method is to use the recursive method of DFS, or it can be implemented iteratively using BFS.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the image, respectively.
 
 <!-- tabs:start -->
 

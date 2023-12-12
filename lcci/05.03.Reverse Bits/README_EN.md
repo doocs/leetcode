@@ -24,6 +24,14 @@
 
 ## Solutions
 
+**Solution 1: Two Pointers**
+
+We can use two pointers $i$ and $j$ to maintain a sliding window, where $i$ is the right pointer and $j$ is the left pointer. Each time the right pointer $i$ moves one bit to the right, if the number of $0$s in the window exceeds $1$, then the left pointer $j$ moves one bit to the right, until the number of $0$s in the window does not exceed $1$. Then calculate the length of the window at this time, compare it with the current maximum length, and take the larger value as the current maximum length.
+
+Finally, return the maximum length.
+
+The time complexity is $O(\log M)$, and the space complexity is $O(1)$. Here, $M$ is the maximum value of a 32-bit integer.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -29,6 +29,20 @@
 
 ## Solutions
 
+**Solution 1: Bit Manipulation**
+
+First, let's consider how to find the first number that is larger than $num$ and has the same number of $1$s in its binary representation.
+
+We can traverse the adjacent two binary bits of $num$ from low to high. If the lower bit is $1$ and the adjacent higher bit is $0$, then we have found a position where we can change the $0$ at this position to $1$ and change the $1$ at this position to $0$. Then we move all the remaining lower bits of $1$ to the lowest bit, so we get a number that is larger than $num$ and has the same number of $1$s in its binary representation.
+
+Similarly, we can find the first number that is smaller than $num$ and has the same number of $1$s in its binary representation.
+
+We can traverse the adjacent two binary bits of $num$ from low to high. If the lower bit is $0$ and the adjacent higher bit is $1$, then we have found a position where we can change the $1$ at this position to $0$ and change the $0$ at this position to $1$. Then we move all the remaining lower bits of $0$ to the lowest bit, so we get a number that is smaller than $num$ and has the same number of $1$s in its binary representation.
+
+In implementation, we can use a piece of code to handle the above two situations uniformly.
+
+The time complexity is $O(\log n)$, where $n$ is the size of $num$. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

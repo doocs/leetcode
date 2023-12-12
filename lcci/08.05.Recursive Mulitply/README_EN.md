@@ -28,6 +28,14 @@
 
 ## Solutions
 
+**Solution 1: Recursion + Bit Manipulation**
+
+First, we check if $B$ is $1$. If it is, we directly return $A$.
+
+Otherwise, we check if $B$ is an odd number. If it is, we can right shift $B$ by one bit, then recursively call the function, and finally left shift the result by one bit and add $A$. If not, we can right shift $B$ by one bit, then recursively call the function, and finally left shift the result by one bit.
+
+The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the size of $B$.
+
 <!-- tabs:start -->
 
 ### **Python3**
