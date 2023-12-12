@@ -1,13 +1,12 @@
 function findKDistantIndices(nums: number[], key: number, k: number): number[] {
     const n = nums.length;
-    let ans = [];
-    for (let j = 0; j < n; j++) {
-        if (nums[j] == key) {
-            for (let i = j - k; i <= j + k; i++) {
-                if (i >= 0 && i < n && !ans.includes(i)) {
-                    ans.push(i);
-                }
-            }
+    const ans: number[] = [];
+    for (let i = 0, j = 0; i < n; ++i) {
+        while (j < i - k || (j < n && nums[j] !== key)) {
+            ++j;
+        }
+        if (j < n && j <= i + k) {
+            ans.push(i);
         }
     }
     return ans;
