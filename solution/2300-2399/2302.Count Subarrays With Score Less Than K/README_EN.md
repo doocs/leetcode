@@ -52,6 +52,20 @@ Thus, there are 5 subarrays having scores less than 5.
 
 ## Solutions
 
+**Solution 1: Prefix Sum + Binary Search**
+
+First, we calculate the prefix sum array $s$ of the array $nums$, where $s[i]$ represents the sum of the first $i$ elements of the array $nums$.
+
+Next, we enumerate each element of the array $nums$ as the last element of the subarray. For each element, we can find the maximum length $l$ such that $s[i] - s[i - l] \times l < k$ by binary search. The number of subarrays with this element as the last element is $l$, and we add all $l$ to get the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+
+**Solution 2: Two Pointers**
+
+We can use two pointers to maintain a sliding window, so that the sum of the elements in the window is less than $k$. The number of subarrays with the current element as the last element is the length of the window, and we add all window lengths to get the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

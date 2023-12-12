@@ -64,6 +64,12 @@ You have no income to tax, so you have to pay a total of 0 in taxes.
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+We traverse `brackets`, and for each tax bracket, we calculate the tax amount for that bracket, then accumulate it.
+
+The time complexity is $O(n)$, where $n$ is the length of `brackets`. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

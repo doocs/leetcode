@@ -58,6 +58,22 @@ Now sub = &quot;l33tb&quot; is a substring of s, so we return true.
 
 ## Solutions
 
+**Solution 1: Hash Table + Enumeration**
+
+First, we use a hash table $d$ to record the set of characters that each character can be replaced with.
+
+Then we enumerate all substrings of length $sub$ in $s$, and judge whether the string $sub$ can be obtained by replacement. If it can, return `true`, otherwise enumerate the next substring.
+
+At the end of the enumeration, it means that $sub$ cannot be obtained by replacing any substring in $s$, so return `false`.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(C^2)$. Here, $m$ and $n$ are the lengths of the strings $s$ and $sub$ respectively, and $C$ is the size of the character set.
+
+**Solution 2: Array + Enumeration**
+
+Since the character set only contains uppercase and lowercase English letters and numbers, we can directly use a $128 \times 128$ array $d$ to record the set of characters that each character can be replaced with.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(C^2)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

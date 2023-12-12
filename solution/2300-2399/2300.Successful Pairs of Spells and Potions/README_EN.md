@@ -48,6 +48,12 @@ Thus, [2,0,2] is returned.
 
 ## Solutions
 
+**Solution 1: Sorting + Binary Search**
+
+We can sort the potion array, then traverse the spell array. For each spell $v$, we use binary search to find the first potion that is greater than or equal to $\frac{success}{v}$. We mark its index as $i$. The length of the potion array minus $i$ is the number of potions that can successfully combine with this spell.
+
+The time complexity is $O((m + n) \times \log m)$, and the space complexity is $O(\log n)$. Here, $m$ and $n$ are the lengths of the potion array and the spell array, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**
