@@ -2,13 +2,11 @@ class Solution:
     def digArtifacts(
         self, n: int, artifacts: List[List[int]], dig: List[List[int]]
     ) -> int:
-        def check(artifact):
-            r1, c1, r2, c2 = artifact
-            for x in range(r1, r2 + 1):
-                for y in range(c1, c2 + 1):
-                    if (x, y) not in s:
-                        return False
-            return True
+        def check(a: List[int]) -> bool:
+            x1, y1, x2, y2 = a
+            return all(
+                (x, y) in s for x in range(x1, x2 + 1) for y in range(y1, y2 + 1)
+            )
 
         s = {(i, j) for i, j in dig}
-        return sum(check(v) for v in artifacts)
+        return sum(check(a) for a in artifacts)

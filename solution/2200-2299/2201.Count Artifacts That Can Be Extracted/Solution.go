@@ -1,24 +1,21 @@
-func digArtifacts(n int, artifacts [][]int, dig [][]int) int {
+func digArtifacts(n int, artifacts [][]int, dig [][]int) (ans int) {
 	s := map[int]bool{}
-	for _, d := range dig {
-		s[d[0]*n+d[1]] = true
+	for _, p := range dig {
+		s[p[0]*n+p[1]] = true
 	}
-	check := func(a []int) bool {
-		r1, c1, r2, c2 := a[0], a[1], a[2], a[3]
-		for i := r1; i <= r2; i++ {
-			for j := c1; j <= c2; j++ {
-				if !s[i*n+j] {
-					return false
+	check := func(a []int) int {
+		x1, y1, x2, y2 := a[0], a[1], a[2], a[3]
+		for x := x1; x <= x2; x++ {
+			for y := y1; y <= y2; y++ {
+				if !s[x*n+y] {
+					return 0
 				}
 			}
 		}
-		return true
+		return 1
 	}
-	ans := 0
 	for _, a := range artifacts {
-		if check(a) {
-			ans++
-		}
+		ans += check(a)
 	}
-	return ans
+	return
 }
