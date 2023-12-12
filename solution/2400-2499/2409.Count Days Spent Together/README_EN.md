@@ -40,6 +40,12 @@
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+We convert the dates into days, and then calculate the number of days both people are in Rome.
+
+The time complexity is $O(C)$, and the space complexity is $O(C)$. Here, $C$ is a constant.
+
 <!-- tabs:start -->
 
 ### **Python3**

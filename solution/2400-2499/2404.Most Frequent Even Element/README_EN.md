@@ -44,6 +44,12 @@ We return the smallest one, which is 2.</pre>
 
 ## Solutions
 
+**Solution 1: Hash Table**
+
+We use a hash table $cnt$ to count the occurrence of all even elements, and then find the even element with the highest occurrence and the smallest value.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+
 <!-- tabs:start -->
 
 ### **Python3**

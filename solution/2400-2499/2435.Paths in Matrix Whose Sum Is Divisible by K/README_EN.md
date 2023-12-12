@@ -49,6 +49,36 @@ The second path highlighted in blue has a sum of 5 + 3 + 0 + 5 + 2 = 15 which is
 
 ## Solutions
 
+**Solution 1: Memoization Search**
+
+We design a function `dfs(i, j, s)` to represent the number of paths starting from `(i, j)` with an initial path sum modulo $k$ equal to $s$.
+
+For each position $(i, j)$, we can choose to move right or down, so we have:
+
+$$
+dfs(i, j, s) = dfs(i + 1, j, (s + grid[i][j]) \bmod k) + dfs(i, j + 1, (s + grid[i][j]) \bmod k)
+$$
+
+The answer is `dfs(0, 0, 0)`. We can use memoization search.
+
+The time complexity is $O(m \times n \times k)$, and the space complexity is $O(m \times n \times k)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, and $k$ is the given integer.
+
+**Solution 2: Dynamic Programming**
+
+We can also use dynamic programming to solve this problem.
+
+Define the state $dp[i][j][s]$ to represent the number of paths from the starting point $(0, 0)$ to the position $(i, j)$, where the path sum modulo $k$ equals $s$.
+
+The initial value is $dp[0][0][grid[0][0] \bmod k] = 1$, and the answer is $dp[m - 1][n - 1][0]$.
+
+We can get the state transition equation:
+
+$$
+dp[i][j][s] = dp[i - 1][j][(s - grid[i][j])\bmod k] + dp[i][j - 1][(s - grid[i][j])\bmod k]
+$$
+
+The time complexity is $O(m \times n \times k)$, and the space complexity is $O(m \times n \times k)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, and $k$ is the given integer.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -55,6 +55,18 @@ After that, we shift the 0&#39;s to the end, which gives the array [1,4,2,0,0,0]
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+We can directly simulate according to the problem description.
+
+First, we traverse the array $nums$. For any two adjacent elements $nums[i]$ and $nums[i+1]$, if $nums[i] = nums[i+1]$, then we double the value of $nums[i]$ and change the value of $nums[i+1]$ to $0$.
+
+Then, we create an answer array $ans$ of length $n$, and put all non-zero elements of $nums$ into $ans$ in order.
+
+Finally, we return the answer array $ans$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

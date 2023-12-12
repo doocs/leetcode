@@ -44,6 +44,22 @@ It can be proven that no longer nice subarray can be obtained, so we return 3.</
 
 ## Solutions
 
+**Solution 1: Two Pointers**
+
+We define a variable $mask$ to record the bitwise OR result of the elements in the current subarray, initially $mask = 0$. Also, we use two pointers $j$ and $i$ to point to the left and right endpoints of the current subarray, initially $i = j = 0$.
+
+Next, we traverse the array $nums$ from left to right. For each element $x$ we encounter:
+
+We perform a bitwise AND operation between it and $mask$. If the result is not $0$, it means that $x$ and at least one element in $mask$ have a binary representation where a certain bit is $1$, and the corresponding bit in the other element's binary representation is $0$. Such pairs of elements cannot satisfy the problem's requirements, so we need to move $j$ to the right until the bitwise AND result of $x$ and $mask$ is $0$.
+
+At this point, we have found a subarray that satisfies the problem's requirements. Its length is $i - j + 1$. We compare it with the length of the current longest elegant subarray. If it is longer than the current longest elegant subarray, we update the length of the longest elegant subarray.
+
+Then we perform a bitwise OR operation between $mask$ and $x$, and continue to the next element.
+
+Finally, the length of the longest elegant subarray we obtain is the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**

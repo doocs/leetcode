@@ -44,6 +44,20 @@
 
 ## Solutions
 
+**Solution 1: Enumeration of Right Endpoint**
+
+From the problem description, we know that all elements of the bounded subarray are in the interval `[minK, maxK]`, and the minimum value must be `minK`, and the maximum value must be `maxK`.
+
+We traverse the array $nums$, count the number of bounded subarrays with `nums[i]` as the right endpoint, and then add all the counts.
+
+The specific implementation logic is as follows:
+
+1. Maintain the index $k$ of the most recent element not in the interval `[minK, maxK]`, initially set to $-1$. Therefore, the left endpoint of the current element `nums[i]` must be greater than $k$.
+1. Maintain the index $j_1$ of the most recent element with a value of `minK`, and the index $j_2$ of the most recent element with a value of `maxK`, both initially set to $-1$. Therefore, the left endpoint of the current element `nums[i]` must be less than or equal to $\min(j_1, j_2)$.
+1. In summary, the number of bounded subarrays with the current element as the right endpoint is $\max(0, \min(j_1, j_2) - k)$. Add up all the counts to get the result.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**

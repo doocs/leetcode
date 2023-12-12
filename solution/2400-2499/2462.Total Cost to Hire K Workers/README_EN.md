@@ -58,6 +58,18 @@ The total hiring cost is 4.
 
 ## Solutions
 
+**Solution 1: Priority Queue (Min Heap)**
+
+We maintain a priority queue (min heap) for the current candidate workers, and use variables $i$ and $j$ to mark the minimum index of the frontmost worker and the minimum index of the rearmost worker. Initially, $i = \text{candidates} - 1$ and $j = n - \text{candidates}$.
+
+First, we put the costs of the first $candidates$ workers into the priority queue, then we put the costs of the last $candidates$ workers into the priority queue. Before putting them in, we need to check whether they are already in the priority queue according to $i$ or $j$. If they are, we don't need to put them in again.
+
+We loop $k$ times, each time taking out the worker with the smallest cost from the priority queue and accumulating the cost. If the index $x$ of the current worker is in the index range $[0,..i]$ of the frontmost workers, we move $i$ one step to the right, and then check whether we need to put the cost of the worker corresponding to $i$ into the priority queue; if the index is in the index range $[j,..n-1]$ of the rearmost workers, we move $j$ one step to the left, and then check whether we need to put the cost of the worker corresponding to $j$ into the priority queue.
+
+After the traversal ends, we return the accumulated cost as the answer.
+
+The time complexity is $O(n \times \log n)$, where $n$ is the length of the array $costs$.
+
 <!-- tabs:start -->
 
 ### **Python3**

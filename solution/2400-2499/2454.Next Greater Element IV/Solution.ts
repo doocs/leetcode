@@ -4,7 +4,7 @@ function secondGreaterElement(nums: number[]): number[] {
     for (let i = 0; i < n; ++i) {
         arr.push([nums[i], i]);
     }
-    arr.sort((a, b) => b[0] - a[0]);
+    arr.sort((a, b) => (a[0] == b[0] ? a[1] - b[1] : b[0] - a[0]));
     const ans = Array(n).fill(-1);
     const ts = new TreeSet<number>();
     for (const [_, i] of arr) {

@@ -1,7 +1,11 @@
 func isAcronym(words []string, s string) bool {
-	t := []byte{}
-	for _, w := range words {
-		t = append(t, w[0])
+	if len(words) != len(s) {
+		return false
 	}
-	return string(t) == s
+	for i := range s {
+		if words[i][0] != s[i] {
+			return false
+		}
+	}
+	return true
 }

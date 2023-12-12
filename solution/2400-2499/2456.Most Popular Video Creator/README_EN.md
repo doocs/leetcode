@@ -53,6 +53,14 @@ Since &quot;b&quot; is lexicographically smaller than &quot;c&quot;, it is inclu
 
 ## Solutions
 
+**Solution 1: Hash Table**
+
+We traverse the three arrays, use a hash table $cnt$ to count the total play count for each creator, and use a hash table $d$ to record the index of the video with the highest play count for each creator.
+
+Then, we traverse the hash table $cnt$ to find the maximum play count $mx$; then we traverse the hash table $cnt$ again to find the creators with a play count of $mx$, and add them to the answer array.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of videos.
+
 <!-- tabs:start -->
 
 ### **Python3**

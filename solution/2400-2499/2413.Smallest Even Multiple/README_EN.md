@@ -32,6 +32,12 @@ Given a <strong>positive</strong> integer <code>n</code>, return <em>the smalles
 
 ## Solutions
 
+**Solution 1: Mathematics**
+
+If $n$ is even, then the least common multiple (LCM) of $2$ and $n$ is $n$ itself. Otherwise, the LCM of $2$ and $n$ is $n \times 2$.
+
+The time complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

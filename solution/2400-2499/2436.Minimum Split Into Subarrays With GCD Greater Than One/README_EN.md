@@ -52,6 +52,16 @@ It can be shown that splitting the array into one subarray will make the GCD = 1
 
 ## Solutions
 
+**Solution 1: Greedy + Mathematics**
+
+For each element in the array, if its greatest common divisor (gcd) with the previous element is $1$, then it needs to be the first element of a new subarray. Otherwise, it can be placed in the same subarray with the previous elements.
+
+Therefore, we first initialize a variable $g$, representing the gcd of the current subarray. Initially, $g=0$ and the answer variable $ans=1$.
+
+Next, we traverse the array from front to back, maintaining the gcd $g$ of the current subarray. If the gcd of the current element $x$ and $g$ is $1$, then we need to make the current element the first element of a new subarray. Therefore, the answer increases by $1$, and $g$ is updated to $x$. Otherwise, the current element can be placed in the same subarray with the previous elements. Continue to traverse the array until the traversal ends.
+
+The time complexity is $O(n \times \log m)$, where $n$ and $m$ are the length of the array and the maximum value in the array, respectively. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

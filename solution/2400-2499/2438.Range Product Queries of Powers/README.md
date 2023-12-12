@@ -53,7 +53,7 @@
 
 我们先通过位运算（lowbit）得到 powers 数组，然后通过模拟的方式求出每个查询的答案。
 
-时间复杂度 $O(n\times \log n)$，忽略答案的空间消耗，空间复杂度 $O(\log n)$。其中 $n$ 为 $queries$ 的长度。
+时间复杂度 $O(n \times \log n)$，忽略答案的空间消耗，空间复杂度 $O(\log n)$。其中 $n$ 为 $queries$ 的长度。
 
 <!-- tabs:start -->
 

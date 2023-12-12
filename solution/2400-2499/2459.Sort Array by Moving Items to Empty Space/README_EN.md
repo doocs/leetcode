@@ -63,6 +63,16 @@ It can be proven that 2 is the minimum number of operations needed.
 
 ## Solutions
 
+**Solution 1: Permutation Cycle**
+
+For a permutation cycle of length $m$, if $0$ is in the cycle, the number of swaps is $m-1$; otherwise, the number of swaps is $m+1$.
+
+We find all permutation cycles, first calculate the total number of swaps assuming each cycle requires $m+1$ swaps, then check if $0$ is misplaced. If it is, it means $0$ is in a permutation cycle, so we subtract $2$ from the total number of swaps.
+
+Here, $0$ can be at position $0$ or at position $n-1$. We take the minimum of these two cases.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+
 <!-- tabs:start -->
 
 ### **Python3**

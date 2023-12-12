@@ -58,6 +58,18 @@ It can be shown that 2 is the minimum number of operations needed.
 
 ## Solutions
 
+**Solution 1: Odd-Even Classification + Sorting**
+
+Notice that, because each operation will only increase or decrease the value of an element by $2$, the parity of the element will not change.
+
+Therefore, we can divide the arrays $nums$ and $target$ into two groups according to their parity, denoted as $a_1$ and $a_2$, and $b_1$ and $b_2$ respectively.
+
+Then, we just need to pair the elements in $a_1$ with the elements in $b_1$, and pair the elements in $a_2$ with the elements in $b_2$, and then perform operations. During the pairing process, we can use a greedy strategy, pairing the smaller elements in $a_i$ with the smaller elements in $b_i$ each time, which can ensure the minimum number of operations. This can be directly implemented through sorting.
+
+Since each operation can reduce the difference of the corresponding elements by $4$, we accumulate the difference of each corresponding position, and finally divide by $4$ to get the answer.
+
+The time complexity is $O(n \times \log n)$, where $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -62,6 +62,16 @@
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $words$ 的长度。
 
+**方法二：模拟（空间优化）**
+
+我们首先判断 $words$ 中的字符串个数是否等于 $s$ 的长度，如果不等于，那么 $s$ 一定不是 $words$ 的首字母缩略词，直接返回 $false$。
+
+然后我们遍历 $s$ 的每个字符，判断其是否等于 $words$ 中对应字符串的首字母，如果不等于，那么 $s$ 一定不是 $words$ 的首字母缩略词，直接返回 $false$。
+
+遍历结束后，如果没有返回 $false$，那么 $s$ 就是 $words$ 的首字母缩略词，返回 $true$。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $words$ 的长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -72,6 +82,12 @@
 class Solution:
     def isAcronym(self, words: List[str], s: str) -> bool:
         return "".join(w[0] for w in words) == s
+```
+
+```python
+class Solution:
+    def isAcronym(self, words: List[str], s: str) -> bool:
+        return len(words) == len(s) and all(w[0] == c for w, c in zip(words, s))
 ```
 
 ### **Java**
@@ -86,6 +102,22 @@ class Solution {
             t.append(w.charAt(0));
         }
         return t.toString().equals(s);
+    }
+}
+```
+
+```java
+class Solution {
+    public boolean isAcronym(List<String> words, String s) {
+        if (words.size() != s.length()) {
+            return false;
+        }
+        for (int i = 0; i < s.length(); ++i) {
+            if (words.get(i).charAt(0) != s.charAt(i)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
 ```
@@ -105,6 +137,23 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    bool isAcronym(vector<string>& words, string s) {
+        if (words.size() != s.size()) {
+            return false;
+        }
+        for (int i = 0; i < s.size(); ++i) {
+            if (words[i][0] != s[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -117,11 +166,68 @@ func isAcronym(words []string, s string) bool {
 }
 ```
 
+```go
+func isAcronym(words []string, s string) bool {
+	if len(words) != len(s) {
+		return false
+	}
+	for i := range s {
+		if words[i][0] != s[i] {
+			return false
+		}
+	}
+	return true
+}
+```
+
 ### **TypeScript**
 
 ```ts
 function isAcronym(words: string[], s: string): boolean {
     return words.map(w => w[0]).join('') === s;
+}
+```
+
+```ts
+function isAcronym(words: string[], s: string): boolean {
+    if (words.length !== s.length) {
+        return false;
+    }
+    for (let i = 0; i < words.length; i++) {
+        if (words[i][0] !== s[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn is_acronym(words: Vec<String>, s: String) -> bool {
+        words
+            .iter()
+            .map(|w| w.chars().next().unwrap_or_default())
+            .collect::<String>() == s
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn is_acronym(words: Vec<String>, s: String) -> bool {
+        if words.len() != s.len() {
+            return false;
+        }
+        for (i, w) in words.iter().enumerate() {
+            if w.chars().next().unwrap_or_default() != s.chars().nth(i).unwrap_or_default() {
+                return false;
+            }
+        }
+        true
+    }
 }
 ```
 

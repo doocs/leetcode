@@ -40,6 +40,12 @@
 
 ## Solutions
 
+**Solution 1: Brute Force Enumeration**
+
+Enumerate $k$ in the range $[0,.., num]$, and check whether $k + reverse(k)$ equals $num$.
+
+The time complexity is $O(n \times \log n)$, where $n$ is the size of $num$.
+
 <!-- tabs:start -->
 
 ### **Python3**

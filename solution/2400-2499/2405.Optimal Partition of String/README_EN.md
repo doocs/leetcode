@@ -40,6 +40,14 @@ It can be shown that 4 is the minimum number of substrings needed.
 
 ## Solutions
 
+**Solution 1: Greedy**
+
+According to the problem, each substring should be as long as possible and contain unique characters. We just need to partition greedily.
+
+During the process, we can use a hash table to record all characters in the current substring, with a space complexity of $O(n)$; or we can use a number to record characters using bitwise operations, with a space complexity of $O(1)$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$.
+
 <!-- tabs:start -->
 
 ### **Python3**

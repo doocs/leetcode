@@ -34,6 +34,18 @@
 
 ## Solutions
 
+**Solution 1: Enumeration**
+
+We can first calculate the greatest common divisor $g$ of $a$ and $b$, then enumerate each number in $[1,..g]$, check whether it is a factor of $g$, if it is, then increment the answer by one.
+
+The time complexity is $O(\min(a, b))$, and the space complexity is $O(1)$.
+
+**Solution 2: Optimized Enumeration**
+
+Similar to Solution 1, we can first calculate the greatest common divisor $g$ of $a$ and $b$, then enumerate all factors of the greatest common divisor $g$, and accumulate the answer.
+
+The time complexity is $O(\sqrt{\min(a, b)})$, and the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -52,7 +52,7 @@
 
 在 $[0,.., num]$ 范围内枚举 $k$，判断 $k + reverse(k)$ 是否等于 $num$ 即可。
 
-时间复杂度 $O(n\times \log n)。其中 $n$ 为 `num` 的大小。
+时间复杂度 $O(n \times \log n)。其中 $n$ 为 $num$ 的大小。
 
 <!-- tabs:start -->
 

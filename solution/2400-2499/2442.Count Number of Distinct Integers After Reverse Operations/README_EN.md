@@ -39,6 +39,12 @@ The number of distinct integers in this array is 1 (The number 2).
 
 ## Solutions
 
+**Solution 1: Hash Table**
+
+First, we use a hash table to record all integers in the array. Then, we traverse each integer in the array, reverse it, and add the reversed integer to the hash table. Finally, we return the size of the hash table.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+
 <!-- tabs:start -->
 
 ### **Python3**

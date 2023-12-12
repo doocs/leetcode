@@ -47,6 +47,20 @@
 
 ## Solutions
 
+**Solution 1: Enumeration**
+
+We can directly enumerate all times from $00:00$ to $23:59$, then judge whether each time is valid, if so, increment the answer.
+
+After the enumeration ends, return the answer.
+
+The time complexity is $O(24 \times 60)$, and the space complexity is $O(1)$.
+
+**Solution 2: Optimized Enumeration**
+
+We can separately enumerate hours and minutes, count how many hours and minutes meet the condition, and then multiply them together.
+
+The time complexity is $O(24 + 60)$, and the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

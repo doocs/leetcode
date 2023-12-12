@@ -70,6 +70,16 @@ The tasks with the longest time are tasks 0 and 1. The employees that worked on 
 
 ## Solutions
 
+**Solution 1: Direct Traversal**
+
+We use a variable $last$ to record the end time of the last task, a variable $mx$ to record the longest working time, and a variable $ans$ to record the employee with the longest working time and the smallest $id$. Initially, all three variables are $0$.
+
+Next, we traverse the array $logs$. For each employee, we subtract the end time of the last task from the time the employee completes the task to get the working time $t$ of this employee. If $mx$ is less than $t$, or $mx$ equals $t$ and the $id$ of this employee is less than $ans$, then we update $mx$ and $ans$. Then we update $last$ to be the end time of the last task plus $t$. Continue to traverse until the entire array is traversed.
+
+Finally, return the answer $ans$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $logs$. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -50,6 +50,14 @@ server.longest();                    // The prefix [1,2,3] is the longest upload
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+We use a variable $r$ to record the current longest prefix of uploaded videos, and an array or hash table $s$ to record the videos that have been uploaded.
+
+Each time a video is uploaded, we set `s[video]` to `true`, then loop to check whether `s[r + 1]` is `true`. If it is, we update $r$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the total number of videos.
+
 <!-- tabs:start -->
 
 ### **Python3**
