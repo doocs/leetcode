@@ -45,6 +45,12 @@ The answer to the only query is powers[0] = 2. The answer modulo 10<sup>9</sup> 
 
 ## Solutions
 
+**Solution 1: Bit Manipulation + Simulation**
+
+First, we use bit manipulation (lowbit) to get the powers array, and then simulate to get the answer for each query.
+
+The time complexity is $O(n \times \log n)$, ignoring the space consumption of the answer, the space complexity is $O(\log n)$. Here, $n$ is the length of $queries$.
+
 <!-- tabs:start -->
 
 ### **Python3**

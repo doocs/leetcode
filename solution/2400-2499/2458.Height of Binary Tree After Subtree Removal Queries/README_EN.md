@@ -59,6 +59,30 @@ The height of the tree is 2 (The path 1 -&gt; 3 -&gt; 2).
 
 ## Solutions
 
+**Solution 1: Two DFS Traversals**
+
+First, we perform a DFS traversal to determine the depth of each node, which we store in a hash table $d$, where $d[x]$ represents the depth of node $x$.
+
+Then we design a function $dfs(root, depth, rest)$, where:
+
+-   `root` represents the current node;
+-   `depth` represents the depth of the current node;
+-   `rest` represents the height of the tree after deleting the current node.
+
+The function's computation logic is as follows:
+
+If the node is null, return directly. Otherwise, we increment `depth` by $1$, and then store `rest` in `res`.
+
+Next, we recursively traverse the left and right subtrees.
+
+Before recursing into the left subtree, we calculate the depth from the root node to the deepest node in the current node's right subtree, i.e., $depth+d[root.right]$, and then compare it with `rest`, taking the larger value as the `rest` for the left subtree.
+
+Before recursing into the right subtree, we calculate the depth from the root node to the deepest node in the current node's left subtree, i.e., $depth+d[root.left]$, and then compare it with `rest`, taking the larger value as the `rest` for the right subtree.
+
+Finally, we return the result values corresponding to each query node.
+
+The time complexity is $O(n+m)$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the number of nodes in the tree and the number of queries, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -44,6 +44,17 @@ It can be proven that it is not possible to divide the intervals into fewer than
 
 ## Solutions
 
+**Solution 1: Greedy + Priority Queue (Min Heap)**
+
+First, we sort the intervals by their left endpoints. We use a min heap to maintain the rightmost endpoint of each group (the top of the heap is the minimum of the rightmost endpoints of all groups).
+
+Next, we traverse each interval:
+
+-   If the left endpoint of the current interval is greater than the top element of the heap, it means the current interval can be added to the group where the top element of the heap is located. We directly pop the top element of the heap, and then put the right endpoint of the current interval into the heap.
+-   Otherwise, it means there is currently no group that can accommodate the current interval, so we create a new group and put the right endpoint of the current interval into the heap.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array `intervals`.
+
 <!-- tabs:start -->
 
 ### **Python3**

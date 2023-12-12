@@ -69,6 +69,14 @@ It can be proven that 6 is the minimum number of days needed.
 
 ## Solutions
 
+**Solution 1: State Compression + Memorization Search or Dynamic Programming**
+
+Since defeating monsters can increase the daily magic power gain $gain$, the order of defeating monsters affects the result, so we need to enumerate. Noting that the data range of the problem is small, we consider using state compression dynamic programming to solve it.
+
+We define a state $mask$ to represent the current situation of defeating monsters. In its binary representation, $1$ represents the monsters that have been defeated, and $0$ represents the monsters that have not been defeated.
+
+The time complexity is $O(n \times 2^n)$, and the space complexity is $O(2^n)$. Here, $n$ is the number of monsters.
+
 <!-- tabs:start -->
 
 ### **Python3**

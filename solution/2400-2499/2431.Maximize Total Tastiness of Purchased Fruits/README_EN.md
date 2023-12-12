@@ -63,6 +63,20 @@ It can be proven that 28 is the maximum total tastiness that can be obtained.
 
 ## Solutions
 
+**Solution 1: Memoization Search**
+
+We design a function $dfs(i, j, k)$ to represent the maximum total tastiness starting from the $i$th fruit, with $j$ money left, and $k$ coupons left.
+
+For the $i$th fruit, we can choose to buy or not to buy. If we choose to buy, we can decide whether to use a coupon or not.
+
+If we don't buy, the maximum total tastiness is $dfs(i + 1, j, k)$;
+
+If we buy, and choose not to use a coupon (requires $j\ge price[i]$), the maximum total tastiness is $dfs(i + 1, j - price[i], k) + tastiness[i]$; if we use a coupon (requires $k\gt 0$ and $j\ge \lfloor \frac{price[i]}{2} \rfloor$), the maximum total tastiness is $dfs(i + 1, j - \lfloor \frac{price[i]}{2} \rfloor, k - 1) + tastiness[i]$.
+
+The final answer is $dfs(0, maxAmount, maxCoupons)$.
+
+The time complexity is $O(n \times maxAmount \times maxCoupons)$, where $n$ is the number of fruits.
+
 <!-- tabs:start -->
 
 ### **Python3**

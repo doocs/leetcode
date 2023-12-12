@@ -63,6 +63,12 @@ It can be proved that 2 is the minimum number of subarrays that we can obtain in
 
 ## Solutions
 
+**Solution 1: Memoization Search**
+
+We design a function $dfs(i)$ to represent the minimum number of partitions starting from index $i$. For index $i$, we can enumerate all partition points $j$, i.e., $i \leq j < n$, where $n$ is the length of the array. For each partition point $j$, we need to determine whether the greatest common divisor of $nums[i]$ and $nums[j]$ is greater than $1$. If it is greater than $1$, we can partition, and the number of partitions is $1 + dfs(j + 1)$; otherwise, the number of partitions is $+\infty$. Finally, we take the minimum of all partition numbers.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+
 <!-- tabs:start -->
 
 ### **Python3**

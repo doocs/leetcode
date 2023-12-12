@@ -40,6 +40,12 @@
 
 ## Solutions
 
+**Solution 1: Two Pointers**
+
+We use two pointers $i$ and $j$ to point to the start and end of the current consecutive substring respectively. Traverse the string $s$, if the current character $s[j]$ is greater than $s[j-1]$, then move $j$ one step to the right, otherwise update $i$ to $j$, and update the length of the longest consecutive substring.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

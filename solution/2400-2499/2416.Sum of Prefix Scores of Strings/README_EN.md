@@ -58,6 +58,14 @@ Each prefix has a score of one, so the total is answer[0] = 1 + 1 + 1 + 1 = 4.
 
 ## Solutions
 
+**Solution 1: Trie**
+
+Use a trie to maintain the prefixes of all strings and the occurrence count of each prefix.
+
+Then, traverse each string, accumulating the occurrence count of each prefix.
+
+The time complexity is $O(n \times m)$. Here, $n$ and $m$ are the length of the string array `words` and the maximum length of the strings in it, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -51,6 +51,12 @@ It is optimal to leave nums as is, and since 10 is the maximum value, we return 
 
 ## Solutions
 
+**Solution 1: Binary Search**
+
+To minimize the maximum value of the array, it is intuitive to use binary search. We binary search for the maximum value $mx$ of the array, and find the smallest $mx$ that satisfies the problem requirements.
+
+The time complexity is $O(n \times \log M)$, where $n$ is the length of the array, and $M$ is the maximum value in the array.
+
 <!-- tabs:start -->
 
 ### **Python3**

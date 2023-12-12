@@ -54,11 +54,11 @@
 
 **方法一：树状数组**
 
-我们将题目的不等式转换一下，得到 `nums1[i] - nums2[i] <= nums1[j] - nums2[j] + diff`，因此，如果我们对两个数组对应位置的元素求差值，得到另一个数组 `nums`，那么题目就转换为求 `nums` 中满足 `nums[i] <= nums[j] + diff` 的数对数目。
+我们将题目的不等式转换一下，得到 $nums1[i] - nums2[i] \leq nums1[j] - nums2[j] + diff$，因此，如果我们对两个数组对应位置的元素求差值，得到另一个数组 $nums$，那么题目就转换为求 $nums$ 中满足 $nums[i] \leq nums[j] + diff$ 的数对数目。
 
-我们可以从小到大枚举 $j$，找出前面有多少个数满足 `nums[i] <= nums[j] + diff`，这样就可以求出数对数目。我们可以使用树状数组来维护前缀和，这样就可以在 $O(\log n)$ 的时间内求出前面有多少个数满足 `nums[i] <= nums[j] + diff`。
+我们可以从小到大枚举 $j$，找出前面有多少个数满足 $nums[i] \leq nums[j] + diff$，这样就可以求出数对数目。我们可以使用树状数组来维护前缀和，这样就可以在 $O(\log n)$ 的时间内求出前面有多少个数满足 $nums[i] \leq nums[j] + diff$。
 
-时间复杂度 $O(n\log n)$。
+时间复杂度 $O(n \times \log n)$。
 
 <!-- tabs:start -->
 

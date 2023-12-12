@@ -48,6 +48,14 @@ Since there does not exist any pair that satisfies the conditions, we return 0.
 
 ## Solutions
 
+**Solution 1: Binary Indexed Tree**
+
+We can transform the inequality in the problem to $nums1[i] - nums2[i] \leq nums1[j] - nums2[j] + diff$. Therefore, if we calculate the difference between the corresponding elements of the two arrays and get another array $nums$, the problem is transformed into finding the number of pairs in $nums$ that satisfy $nums[i] \leq nums[j] + diff$.
+
+We can enumerate $j$ from small to large, find out how many numbers before it satisfy $nums[i] \leq nums[j] + diff$, and thus calculate the number of pairs. We can use a binary indexed tree to maintain the prefix sum, so we can find out how many numbers before it satisfy $nums[i] \leq nums[j] + diff$ in $O(\log n)$ time.
+
+The time complexity is $O(n \times \log n)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -57,6 +57,12 @@ There is only one average to be calculated after removing 1 and 100, so we retur
 
 ## Solutions
 
+**Solution 1: Sorting**
+
+The problem requires us to find the minimum and maximum values in the array $nums$ each time, delete them, and then calculate the average of the two deleted numbers. Therefore, we can first sort the array $nums$, then take the first and last elements of the array each time, calculate their sum, use a hash table or array $cnt$ to record the number of times each sum appears, and finally count the number of different sums.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**

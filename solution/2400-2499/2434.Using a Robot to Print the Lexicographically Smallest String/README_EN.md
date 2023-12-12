@@ -58,6 +58,18 @@ Perform second operation four times p=&quot;addb&quot;, s=&quot;&quot;, t=&quot;
 
 ## Solutions
 
+**Solution 1: Greedy + Stack**
+
+The problem can be transformed into, given a string sequence, convert it into the lexicographically smallest string sequence with the help of an auxiliary stack.
+
+We can use an array `cnt` to maintain the occurrence count of each character in string $s$, use a stack `stk` as the auxiliary stack in the problem, and use a variable `mi` to maintain the smallest character in the string that has not been traversed yet.
+
+Traverse the string $s$, for each character $c$, we first decrement the occurrence count of character $c$ in array `cnt`, and update `mi`. Then push character $c$ into the stack. At this point, if the top element of the stack is less than or equal to `mi`, then loop to pop the top element of the stack, and add the popped character to the answer.
+
+After the traversal ends, return the answer.
+
+The time complexity is $O(n+C)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$, and $C$ is the size of the character set, in this problem $C=26$.
+
 <!-- tabs:start -->
 
 ### **Python3**

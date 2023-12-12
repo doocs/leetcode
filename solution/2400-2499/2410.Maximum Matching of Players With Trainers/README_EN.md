@@ -43,6 +43,12 @@ Each player can only be matched with one trainer, so the maximum answer is 1.
 
 ## Solutions
 
+**Solution 1: Greedy + Two Pointers**
+
+Sort the athletes by their abilities in ascending order, and select the trainer with the smallest ability that is greater than or equal to the athlete's ability.
+
+The time complexity is $O(n \times \log n + m \times \log m)$, and the space complexity is $O(\log n + \log m)$. Here, $n$ and $m$ are the number of athletes and trainers, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**

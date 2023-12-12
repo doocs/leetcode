@@ -61,6 +61,12 @@ sql.selectCell(&quot;two&quot;, 2, 2); // return &quot;fifth&quot;, finds the va
 
 ## Solutions
 
+**Solution 1: Hash Table**
+
+Create a hash table `tables` to store the mapping of table names to table data rows. Directly simulate the operations in the problem.
+
+The time complexity of each operation is $O(1)$, and the space complexity is $O(n)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -44,6 +44,18 @@
 
 ## Solutions
 
+**Solution 1: Enumeration of Connected Blocks**
+
+Assume the number of connected blocks is $k$, then the number of edges to be deleted is $k-1$, and the value of each connected block is $\frac{s}{k}$, where $s$ is the sum of the values of all nodes in $nums$.
+
+We enumerate $k$ from large to small. If there exists a $k$ such that $\frac{s}{k}$ is an integer, and the value of each connected block obtained is equal, then directly return $k-1$. The initial value of $k$ is $\min(n, \frac{s}{mx})$, where $mx$ is the maximum value in $nums$.
+
+The key point is to judge whether for a given $\frac{s}{k}$, it is possible to divide several subtrees such that the value of each subtree is $\frac{s}{k}$.
+
+Here we use the `dfs` function to judge. We recursively traverse from top to bottom to calculate the value of each subtree. If the sum of the subtree values is exactly $\frac{s}{k}$, it means that the division is successful at this time. We set the value to $0$ and return it to the upper level, indicating that this subtree can be disconnected from the parent node. If the sum of the subtree values is greater than $\frac{s}{k}$, it means that the division fails at this time. We return $-1$, indicating that it cannot be divided.
+
+The time complexity is $O(n \times \sqrt{s})$, where $n$ and $s$ are the length of $nums$ and the sum of the values of all nodes in $nums$, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -7,7 +7,7 @@ class Solution {
         for (int i = 0; i < n; ++i) {
             arr[i] = new int[] {nums[i], i};
         }
-        Arrays.sort(arr, (a, b) -> b[0] - a[0]);
+        Arrays.sort(arr, (a, b) -> a[0] == b[0] ? a[1] - b[1] : b[0] - a[0]);
         TreeSet<Integer> ts = new TreeSet<>();
         for (int[] pair : arr) {
             int i = pair[1];

@@ -43,6 +43,12 @@ Thus, starting with money = 3, the transactions can be performed in any order.
 
 ## Solutions
 
+**Solution 1: Greedy**
+
+First, we accumulate all the negative profits, denoted as $s$. Then we enumerate each transaction as the last transaction. If `transactions[i].x > transactions[i].y`, it means the current transaction is losing money, and this transaction has been calculated when we previously accumulated negative profits, so we update the answer with `s + transactions[i].y`; otherwise, we update the answer with `s + transactions[i].x`.
+
+The time complexity is $O(n)$, where $n$ is the number of transactions. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

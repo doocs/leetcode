@@ -50,6 +50,12 @@
 
 ## Solutions
 
+**Solution 1: Heap-optimized Dijkstra's Algorithm**
+
+We enumerate the starting point, and for each starting point, we use Dijkstra's algorithm to find the shortest distance to all other points, and update the minimum value accordingly.
+
+The time complexity is $O(n \times m \times \log m)$, where $n$ and $m$ are the number of cities and roads, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**

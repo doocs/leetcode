@@ -99,7 +99,7 @@ class Solution {
         for (int i = 0; i < n; ++i) {
             arr[i] = new int[] {nums[i], i};
         }
-        Arrays.sort(arr, (a, b) -> b[0] - a[0]);
+        Arrays.sort(arr, (a, b) -> a[0] == b[0] ? a[1] - b[1] : b[0] - a[0]);
         TreeSet<Integer> ts = new TreeSet<>();
         for (int[] pair : arr) {
             int i = pair[1];
@@ -149,7 +149,7 @@ function secondGreaterElement(nums: number[]): number[] {
     for (let i = 0; i < n; ++i) {
         arr.push([nums[i], i]);
     }
-    arr.sort((a, b) => b[0] - a[0]);
+    arr.sort((a, b) => (a[0] == b[0] ? a[1] - b[1] : b[0] - a[0]));
     const ans = Array(n).fill(-1);
     const ts = new TreeSet<number>();
     for (const [_, i] of arr) {

@@ -1,3 +1,3 @@
 class Solution:
     def isAcronym(self, words: List[str], s: str) -> bool:
-        return "".join(w[0] for w in words) == s
+        return len(words) == len(s) and all(w[0] == c for w, c in zip(words, s))

@@ -45,6 +45,23 @@ It can be shown that we cannot find a selection with more than two valid substri
 
 ## Solutions
 
+**Solution 1: Preprocessing + Memoization Search**
+
+First, preprocess the string $s$ to get $dp[i][j]$, which represents whether the substring $s[i,..j]$ is a palindrome.
+
+Then, define a function $dfs(i)$ to represent the maximum number of non-overlapping palindrome substrings that can be selected from the substring $s[i,..]$, i.e.,
+
+$$
+\begin{aligned}
+dfs(i) &= \begin{cases}
+0, & i \geq n \\
+\max\{dfs(i + 1), \max_{j \geq i + k - 1} \{dfs(j + 1) + 1\}\}, & i < n
+\end{cases}
+\end{aligned}
+$$
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the string $s$.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -1,10 +1,14 @@
 class Solution {
 public:
     bool isAcronym(vector<string>& words, string s) {
-        string t;
-        for (auto& w : words) {
-            t += w[0];
+        if (words.size() != s.size()) {
+            return false;
         }
-        return t == s;
+        for (int i = 0; i < s.size(); ++i) {
+            if (words[i][0] != s[i]) {
+                return false;
+            }
+        }
+        return true;
     }
 };

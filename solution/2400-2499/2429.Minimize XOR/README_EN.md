@@ -47,6 +47,12 @@ The integer <strong>3</strong> has the same number of set bits as num2, and the 
 
 ## Solutions
 
+**Solution 1: Greedy + Bit Manipulation**
+
+According to the problem description, we first calculate the number of set bits $cnt$ in $num2$, then enumerate each bit of $num1$ from high to low. If the bit is $1$, we set the corresponding bit in $x$ to $1$ and decrement $cnt$ by $1$, until $cnt$ is $0$. If $cnt$ is still not $0$ at this point, we start from the low bit and set each bit of $num1$ that is $0$ to $1$, and decrement $cnt$ by $1$, until $cnt$ is $0$.
+
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$. Here, $n$ is the maximum value of $num1$ and $num2$.
+
 <!-- tabs:start -->
 
 ### **Python3**

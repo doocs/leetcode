@@ -54,6 +54,16 @@ Therefore, we return [2,1].
 
 ## Solutions
 
+**Solution 1: Reverse Traversal**
+
+To find the shortest subarray starting at position $i$ that maximizes the bitwise OR operation, we need to maximize the number of $1$s in the result.
+
+We use an array $f$ of size $32$ to record the earliest position of each bit $1$.
+
+We traverse the array $nums[i]$ in reverse order. For the $j$-th bit of $nums[i]$, if it is $1$, then $f[j]$ is $i$. Otherwise, if $f[j]$ is not $-1$, it means that a number satisfying the $j$-th bit as $1$ is found on the right, so we update the length.
+
+The time complexity is $O(n \times \log m)$, where $n$ is the length of the array $nums$, and $m$ is the maximum value in the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**

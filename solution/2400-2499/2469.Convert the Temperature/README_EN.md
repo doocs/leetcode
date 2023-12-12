@@ -43,6 +43,12 @@
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+We can directly simulate according to the problem description.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

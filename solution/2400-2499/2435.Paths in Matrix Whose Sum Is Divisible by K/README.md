@@ -66,7 +66,7 @@ $$
 
 答案为 `dfs(0, 0, 0)`。记忆化搜索即可。
 
-时间复杂度 $O(m\times n\times k)$，空间复杂度 $O(m\times n\times k)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数，而 $k$ 为给定的整数。
+时间复杂度 $O(m \times n \times k)$，空间复杂度 $O(m \times n \times k)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数，而 $k$ 为给定的整数。
 
 **方法二：动态规划**
 
@@ -82,7 +82,7 @@ $$
 dp[i][j][s] = dp[i - 1][j][(s - grid[i][j])\bmod k] + dp[i][j - 1][(s - grid[i][j])\bmod k]
 $$
 
-时间复杂度 $O(m\times n\times k)$，空间复杂度 $O(m\times n\times k)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数，而 $k$ 为给定的整数。
+时间复杂度 $O(m \times n \times k)$，空间复杂度 $O(m \times n \times k)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数，而 $k$ 为给定的整数。
 
 <!-- tabs:start -->
 
