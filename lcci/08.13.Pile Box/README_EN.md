@@ -29,6 +29,16 @@
 
 ## Solutions
 
+**Solution 1: Sorting + Dynamic Programming**
+
+First, we sort the boxes in ascending order by width and descending order by depth, then use dynamic programming to solve the problem.
+
+We define $f[i]$ as the maximum height with the $i$-th box at the bottom. For $f[i]$, we enumerate $j \in [0, i)$, if $box[j][1] < box[i][1]$ and $box[j][2] < box[i][2]$, then we can put the $j$-th box on top of the $i$-th box, in which case $f[i] = \max\{f[i], f[j]\}$. Finally, we add the height of the $i$-th box to $f[i]$ to get the final value of $f[i]$.
+
+The answer is the maximum value in $f$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the number of boxes.
+
 <!-- tabs:start -->
 
 ### **Python3**

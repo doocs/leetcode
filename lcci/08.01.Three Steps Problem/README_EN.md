@@ -32,6 +32,42 @@
 
 ## Solutions
 
+**Solution 1: Recursion**
+
+We define $f[i]$ as the number of ways to reach the $i$-th step, initially $f[1]=1$, $f[2]=2$, $f[3]=4$. The answer is $f[n]$.
+
+The recursion formula is $f[i] = f[i-1] + f[i-2] + f[i-3]$.
+
+Since $f[i]$ is only related to $f[i-1]$, $f[i-2]$, $f[i-3]$, we can use three variables $a$, $b$, $c$ to store the values of $f[i-1]$, $f[i-2]$, $f[i-3]$, reducing the space complexity to $O(1)$.
+
+The time complexity is $O(n)$, where $n$ is the given integer. The space complexity is $O(1)$.
+
+**Solution 2: Matrix Quick Power to Accelerate Recursion**
+
+We set $F(n)$ to represent a $1 \times 3$ matrix $\begin{bmatrix} F_{n - 1} & F_{n - 2} & F_{n - 3} \end{bmatrix}$, where $F_{n - 1}$, $F_{n - 2}$ and $F_{n - 3}$ respectively represent the number of ways to reach the $n - 1$-th, $n - 2$-th and $n - 3$-th steps.
+
+We hope to derive $F(n)$ based on $F(n-1) = \begin{bmatrix} F_{n - 2} & F_{n - 3} & F_{n - 4} \end{bmatrix}$. That is to say, we need a matrix $base$, so that $F(n - 1) \times base = F(n)$, i.e.:
+
+$$
+\begin{bmatrix}
+F_{n - 2} & F_{n - 3} & F_{n - 4}
+\end{bmatrix} \times base = \begin{bmatrix} F_{n - 1} & F_{n - 2} & F_{n - 3} \end{bmatrix}
+$$
+
+Since $F_n = F_{n - 1} + F_{n - 2} + F_{n - 3}$, the matrix $base$ is:
+
+$$
+\begin{bmatrix}
+ 1 & 1 & 0 \\
+ 1 & 0 & 1 \\
+ 1 & 0 & 0
+\end{bmatrix}
+$$
+
+We define the initial matrix $res = \begin{bmatrix} 1 & 1  & 0 \end{bmatrix}$, then $F_n$ equals the sum of all elements in the result matrix of $res$ multiplied by $base^{n - 4}$. It can be solved using matrix quick power.
+
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

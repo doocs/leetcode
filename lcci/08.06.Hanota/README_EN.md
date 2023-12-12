@@ -32,6 +32,32 @@
 
 ## Solutions
 
+**Solution 1: Recursion**
+
+We design a function $dfs(n, a, b, c)$, which represents moving $n$ disks from $a$ to $c$, with $b$ as the auxiliary rod.
+
+First, we move $n - 1$ disks from $a$ to $b$, then move the $n$-th disk from $a$ to $c$, and finally move $n - 1$ disks from $b$ to $c$.
+
+The time complexity is $O(2^n)$, and the space complexity is $O(n)$. Here, $n$ is the number of disks.
+
+**Solution 2: Iteration (Stack)**
+
+We can use a stack to simulate the recursive process.
+
+We define a struct $Task$, which represents a task, where $n$ represents the number of disks, and $a$, $b$, $c$ represent the three rods.
+
+We push the initial task $Task(len(A), A, B, C)$ into the stack, and then continuously process the task at the top of the stack until the stack is empty.
+
+If $n = 1$, then we directly move the disk from $a$ to $c$.
+
+Otherwise, we push three subtasks into the stack, which are:
+
+1. Move $n - 1$ disks from $b$ to $c$ with the help of $a$;
+2. Move the $n$-th disk from $a$ to $c$;
+3. Move $n - 1$ disks from $a$ to $b$ with the help of $c$.
+
+The time complexity is $O(2^n)$, and the space complexity is $O(n)$. Here, $n$ is the number of disks.
+
 <!-- tabs:start -->
 
 ### **Python3**

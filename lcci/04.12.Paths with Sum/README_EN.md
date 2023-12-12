@@ -44,6 +44,24 @@ Given the following tree and &nbsp;<code>sum = 22,</code></p>
 
 ## Solutions
 
+**Solution 1: Hash Table + Prefix Sum + Recursion**
+
+We can use the idea of prefix sum to recursively traverse the binary tree, and use a hash table $cnt$ to count the occurrence of each prefix sum on the path from the root node to the current node.
+
+We design a recursive function $dfs(node, s)$, where the current node being traversed is $node$, and the prefix sum on the path from the root node to the current node is $s$. The return value of the function is the number of paths with the path sum equal to $sum$ and the path ends at the $node$ node or its subtree nodes. Therefore, the answer is $dfs(root, 0)$.
+
+The recursive process of the function $dfs(node, s)$ is as follows:
+
+-   If the current node $node$ is null, return $0$.
+-   Calculate the prefix sum $s$ on the path from the root node to the current node.
+-   Use $cnt[s - sum]$ to represent the number of paths with the path sum equal to $sum$ and the path ends at the current node, where $cnt[s - sum]$ is the count of the prefix sum equal to $s - sum$ in $cnt$.
+-   Add the count of the prefix sum $s$ by $1$, i.e., $cnt[s] = cnt[s] + 1$.
+-   Recursively traverse the left and right child nodes of the current node, i.e., call the functions $dfs(node.left, s)$ and $dfs(node.right, s)$, and add their return values.
+-   After the return value is calculated, subtract the count of the prefix sum $s$ of the current node by $1$, i.e., execute $cnt[s] = cnt[s] - 1$.
+-   Finally, return the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+
 <!-- tabs:start -->
 
 ### **Python3**

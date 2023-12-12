@@ -45,6 +45,38 @@
 
 ## Solutions
 
+**Solution 1: Dynamic Programming**
+
+We define $f[i][j]$ as the number of ways to make up the total amount $j$ using only the first $i$ types of coins. Initially, $f[0][0]=1$, and the rest of the elements are $0$. The answer is $f[4][n]$.
+
+Considering $f[i][j]$, we can enumerate the number of the $i$-th type of coin used, $k$, where $0 \leq k \leq j / c_i$, then $f[i][j]$ is equal to the sum of all $f[i−1][j−k \times c_i]$. Since the number of coins is infinite, $k$ can start from $0$. That is, the state transition equation is as follows:
+
+$$
+f[i][j] = f[i - 1][j] + f[i - 1][j - c_i] + \cdots + f[i - 1][j - k \times c_i]
+$$
+
+Let $j = j - c_i$, then the above state transition equation can be written as:
+
+$$
+f[i][j - c_i] = f[i - 1][j - c_i] + f[i - 1][j - 2 \times c_i] + \cdots + f[i - 1][j - k \times c_i]
+$$
+
+Substitute the second equation into the first equation to get:
+
+$$
+f[i][j]=
+\begin{cases}
+f[i - 1][j] + f[i][j - c_i], & j \geq c_i \\
+f[i - 1][j], & j < c_i
+\end{cases}
+$$
+
+The final answer is $f[4][n]$.
+
+The time complexity is $O(C \times n)$, and the space complexity is $O(C \times n)$, where $C$ is the number of types of coins.
+
+We notice that the calculation of $f[i][j]$ is only related to $f[i−1][..]$, so we can remove the first dimension and optimize the space complexity to $O(n)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

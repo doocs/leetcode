@@ -32,6 +32,14 @@
 
 ## Solutions
 
+**Solution 1: DFS (Depth-First Search)**
+
+We can use depth-first search to solve this problem. We start from the top left corner and move right or down until we reach the bottom right corner. If at some step, we find that the current position is an obstacle, or the current position is already in the path, then we return. Otherwise, we add the current position to the path and mark the current position as visited, then continue to move right or down.
+
+If we can finally reach the bottom right corner, then we have found a feasible path, otherwise, it means there is no feasible path.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**
