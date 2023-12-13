@@ -4,25 +4,21 @@ class Solution:
     ) -> bool:
         m, n = len(grid), len(grid[0])
         s = [[0] * (n + 1) for _ in range(m + 1)]
-        for i, row in enumerate(grid):
-            for j, v in enumerate(row):
-                s[i + 1][j + 1] = s[i + 1][j] + s[i][j + 1] - s[i][j] + v
-
-        d = [[0] * (n + 1) for _ in range(m + 1)]
-        for i, row in enumerate(grid):
-            for j, v in enumerate(row):
-                if v == 0:
-                    x, y = i + stampHeight, j + stampWidth
-                    if x <= m and y <= n and s[x][y] - s[x][j] - s[i][y] + s[i][j] == 0:
-                        d[i][j] += 1
-                        d[i][y] -= 1
-                        d[x][j] -= 1
-                        d[x][y] += 1
-
-        cnt = [[0] * (n + 1) for _ in range(m + 1)]
-        for i, row in enumerate(grid):
-            for j, v in enumerate(row):
-                cnt[i + 1][j + 1] = cnt[i + 1][j] + cnt[i][j + 1] - cnt[i][j] + d[i][j]
-                if v == 0 and cnt[i + 1][j + 1] == 0:
+        for i, row in enumerate(grid, 1):
+            for j, v in enumerate(row, 1):
+                s[i][j] = s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1] + v
+        d = [[0] * (n + 2) for _ in range(m + 2)]
+        for i in range(1, m - stampHeight + 2):
+            for j in range(1, n - stampWidth + 2):
+                x, y = i + stampHeight - 1, j + stampWidth - 1
+                if s[x][y] - s[x][j - 1] - s[i - 1][y] + s[i - 1][j - 1] == 0:
+                    d[i][j] += 1
+                    d[i][y + 1] -= 1
+                    d[x + 1][j] -= 1
+                    d[x + 1][y + 1] += 1
+        for i, row in enumerate(grid, 1):
+            for j, v in enumerate(row, 1):
+                d[i][j] += d[i - 1][j] + d[i][j - 1] - d[i - 1][j - 1]
+                if v == 0 and d[i][j] == 0:
                     return False
         return True
