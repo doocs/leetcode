@@ -48,6 +48,14 @@ The product of their lengths is: 5 * 5 = 25.
 
 ## Solutions
 
+**Solution 1: Binary Enumeration**
+
+We notice that the length of the string $s$ does not exceed $12$, so we can use the method of binary enumeration to enumerate all subsequences of $s$. Suppose the length of $s$ is $n$, we can use $2^n$ binary numbers of length $n$ to represent all subsequences of $s$. For each binary number, the $i$-th bit being $1$ means the $i$-th character of $s$ is in the subsequence, and $0$ means it is not in the subsequence. For each binary number, we judge whether it is a palindrome subsequence and record it in the array $p$.
+
+Next, we enumerate each number $i$ in $p$. If $i$ is a palindrome subsequence, then we can enumerate a number $j$ from the complement of $i$, $mx = (2^n - 1) \oplus i$. If $j$ is also a palindrome subsequence, then $i$ and $j$ are the two palindrome subsequences we are looking for. Their lengths are the number of $1$s in the binary representation of $i$ and $j$, denoted as $a$ and $b$, respectively. Then their product is $a \times b$. We take the maximum of all possible $a \times b$.
+
+The time complexity is $(2^n \times n + 3^n)$, and the space complexity is $O(2^n)$. Here, $n$ is the length of the string $s$.
+
 <!-- tabs:start -->
 
 ### **Python3**

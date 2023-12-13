@@ -2,7 +2,7 @@ class Solution {
     public int numOfPairs(String[] nums, String target) {
         Map<String, Integer> cnt = new HashMap<>();
         for (String x : nums) {
-            cnt.put(x, cnt.getOrDefault(x, 0) + 1);
+            cnt.merge(x, 1, Integer::sum);
         }
         int ans = 0;
         for (int i = 1; i < target.length(); ++i) {

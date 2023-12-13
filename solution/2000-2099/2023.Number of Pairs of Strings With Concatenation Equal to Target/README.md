@@ -63,7 +63,7 @@
 
 遍历数组 `nums`，对于每个 $i$，枚举所有 $j$，如果 $i \neq j$ 且 $nums[i] + nums[j] = target$，则答案加一。
 
-时间复杂度 $O(n^2 \times m)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别为数组 `nums` 和字符串 `target` 的长度。
+时间复杂度 $O(n^2 \times m)$，其中 $n$ 和 $m$ 分别为数组 `nums` 和字符串 `target` 的长度。空间复杂度 $O(1)$。
 
 **方法二：哈希表**
 
@@ -126,7 +126,7 @@ class Solution {
     public int numOfPairs(String[] nums, String target) {
         Map<String, Integer> cnt = new HashMap<>();
         for (String x : nums) {
-            cnt.put(x, cnt.getOrDefault(x, 0) + 1);
+            cnt.merge(x, 1, Integer::sum);
         }
         int ans = 0;
         for (int i = 1; i < target.length(); ++i) {

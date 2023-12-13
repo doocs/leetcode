@@ -67,6 +67,12 @@ In total, 1 + 3 + 0 + 0 = 4 moves were used.
 
 ## Solutions
 
+**Solution 1: Sorting**
+
+Sort both arrays, then traverse the two arrays, calculate the distance between each student's seat and their actual seat, and add all the distances to get the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the arrays `seats` and `students`.
+
 <!-- tabs:start -->
 
 ### **Python3**

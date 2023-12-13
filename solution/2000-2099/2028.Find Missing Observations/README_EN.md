@@ -50,6 +50,16 @@
 
 ## Solutions
 
+**Solution 1: Construction**
+
+According to the problem description, the sum of all numbers is $(n + m) \times mean$, and the sum of known numbers is `sum(rolls)`. Therefore, the sum of the missing numbers is $s = (n + m) \times mean - sum(rolls)$.
+
+If $s > n \times 6$ or $s < n$, it means there is no answer that satisfies the conditions, so return an empty array.
+
+Otherwise, we can evenly distribute $s$ to $n$ numbers, that is, the value of each number is $s / n$, and the value of $s \bmod n$ numbers is increased by $1$.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(1)$. Here, $n$ and $m$ are the number of missing numbers and known numbers, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -53,6 +53,16 @@
 
 ## Solutions
 
+**Solution 1: Preprocessing Right Minimum + Traversing to Maintain Left Maximum**
+
+We can preprocess the right minimum array $right$, where $right[i]$ represents the minimum value in $nums[i..n-1]$.
+
+Then we traverse the array $nums$ from left to right, while maintaining the maximum value $l$ on the left. For each position $i$, we judge whether $l < nums[i] < right[i + 1]$ holds. If it does, we add $2$ to the answer. Otherwise, we judge whether $nums[i - 1] < nums[i] < nums[i + 1]$ holds. If it does, we add $1$ to the answer.
+
+After the traversal, we can get the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -61,18 +71,18 @@
 class Solution:
     def sumOfBeauties(self, nums: List[int]) -> int:
         n = len(nums)
-        lmx = [0] * n
-        for i in range(1, n):
-            lmx[i] = max(lmx[i - 1], nums[i - 1])
-        rmi = [100001] * n
+        right = [nums[-1]] * n
         for i in range(n - 2, -1, -1):
-            rmi[i] = min(rmi[i + 1], nums[i + 1])
+            right[i] = min(right[i + 1], nums[i])
         ans = 0
+        l = nums[0]
         for i in range(1, n - 1):
-            if lmx[i] < nums[i] < rmi[i]:
+            r = right[i + 1]
+            if l < nums[i] < r:
                 ans += 2
             elif nums[i - 1] < nums[i] < nums[i + 1]:
                 ans += 1
+            l = max(l, nums[i])
         return ans
 ```
 
@@ -82,50 +92,24 @@ class Solution:
 class Solution {
     public int sumOfBeauties(int[] nums) {
         int n = nums.length;
-        int[] lmx = new int[n];
-        int[] rmi = new int[n];
-        rmi[n - 1] = 100001;
-        for (int i = 1; i < n; ++i) {
-            lmx[i] = Math.max(lmx[i - 1], nums[i - 1]);
-        }
-        for (int i = n - 2; i >= 0; --i) {
-            rmi[i] = Math.min(rmi[i + 1], nums[i + 1]);
+        int[] right = new int[n];
+        right[n - 1] = nums[n - 1];
+        for (int i = n - 2; i > 0; --i) {
+            right[i] = Math.min(right[i + 1], nums[i]);
         }
         int ans = 0;
+        int l = nums[0];
         for (int i = 1; i < n - 1; ++i) {
-            if (lmx[i] < nums[i] && nums[i] < rmi[i]) {
+            int r = right[i + 1];
+            if (l < nums[i] && nums[i] < r) {
                 ans += 2;
             } else if (nums[i - 1] < nums[i] && nums[i] < nums[i + 1]) {
                 ans += 1;
             }
+            l = Math.max(l, nums[i]);
         }
         return ans;
     }
-}
-```
-
-### **TypeScript**
-
-```ts
-function sumOfBeauties(nums: number[]): number {
-    let n = nums.length;
-    let prefix = new Array(n),
-        postfix = new Array(n);
-    prefix[0] = nums[0];
-    postfix[n - 1] = nums[n - 1];
-    for (let i = 1, j = n - 2; i < n; ++i, --j) {
-        prefix[i] = Math.max(nums[i], prefix[i - 1]);
-        postfix[j] = Math.min(nums[j], postfix[j + 1]);
-    }
-    let ans = 0;
-    for (let i = 1; i < n - 1; ++i) {
-        if (prefix[i - 1] < nums[i] && nums[i] < postfix[i + 1]) {
-            ans += 2;
-        } else if (nums[i - 1] < nums[i] && nums[i] < nums[i + 1]) {
-            ans += 1;
-        }
-    }
-    return ans;
 }
 ```
 
@@ -136,16 +120,19 @@ class Solution {
 public:
     int sumOfBeauties(vector<int>& nums) {
         int n = nums.size();
-        vector<int> lmx(n);
-        vector<int> rmi(n, 100001);
-        for (int i = 1; i < n; ++i) lmx[i] = max(lmx[i - 1], nums[i - 1]);
-        for (int i = n - 2; i >= 0; --i) rmi[i] = min(rmi[i + 1], nums[i + 1]);
+        vector<int> right(n, nums[n - 1]);
+        for (int i = n - 2; i; --i) {
+            right[i] = min(right[i + 1], nums[i]);
+        }
         int ans = 0;
-        for (int i = 1; i < n - 1; ++i) {
-            if (lmx[i] < nums[i] && nums[i] < rmi[i])
+        for (int i = 1, l = nums[0]; i < n - 1; ++i) {
+            int r = right[i + 1];
+            if (l < nums[i] && nums[i] < r) {
                 ans += 2;
-            else if (nums[i - 1] < nums[i] && nums[i] < nums[i + 1])
+            } else if (nums[i - 1] < nums[i] && nums[i] < nums[i + 1]) {
                 ans += 1;
+            }
+            l = max(l, nums[i]);
         }
         return ans;
     }
@@ -155,26 +142,46 @@ public:
 ### **Go**
 
 ```go
-func sumOfBeauties(nums []int) int {
+func sumOfBeauties(nums []int) (ans int) {
 	n := len(nums)
-	lmx := make([]int, n)
-	rmi := make([]int, n)
-	rmi[n-1] = 100001
-	for i := 1; i < n; i++ {
-		lmx[i] = max(lmx[i-1], nums[i-1])
+	right := make([]int, n)
+	right[n-1] = nums[n-1]
+	for i := n - 2; i > 0; i-- {
+		right[i] = min(right[i+1], nums[i])
 	}
-	for i := n - 2; i >= 0; i-- {
-		rmi[i] = min(rmi[i+1], nums[i+1])
-	}
-	ans := 0
-	for i := 1; i < n-1; i++ {
-		if lmx[i] < nums[i] && nums[i] < rmi[i] {
+	for i, l := 1, nums[0]; i < n-1; i++ {
+		r := right[i+1]
+		if l < nums[i] && nums[i] < r {
 			ans += 2
 		} else if nums[i-1] < nums[i] && nums[i] < nums[i+1] {
-			ans += 1
+			ans++
 		}
+		l = max(l, nums[i])
 	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function sumOfBeauties(nums: number[]): number {
+    const n = nums.length;
+    const right: number[] = Array(n).fill(nums[n - 1]);
+    for (let i = n - 2; i; --i) {
+        right[i] = Math.min(right[i + 1], nums[i]);
+    }
+    let ans = 0;
+    for (let i = 1, l = nums[0]; i < n - 1; ++i) {
+        const r = right[i + 1];
+        if (l < nums[i] && nums[i] < r) {
+            ans += 2;
+        } else if (nums[i - 1] < nums[i] && nums[i] < nums[i + 1]) {
+            ans += 1;
+        }
+        l = Math.max(l, nums[i]);
+    }
+    return ans;
 }
 ```
 

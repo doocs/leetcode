@@ -63,6 +63,12 @@ X--: X is decremented by 1, X = 1 - 1 = 0.
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+Traverse the array `operations`. For each operation $operations[i]$, if it contains `'+'`, then the answer increases by $1$, otherwise the answer decreases by $1$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array `operations`. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
