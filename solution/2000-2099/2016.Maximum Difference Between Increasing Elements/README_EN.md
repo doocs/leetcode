@@ -48,6 +48,16 @@ The maximum difference occurs with i = 0 and j = 3, nums[j] - nums[i] = 10 - 1 =
 
 ## Solutions
 
+**Solution 1: Maintaining Prefix Minimum**
+
+We use the variable $mi$ to represent the minimum value of the elements we have traversed so far, and the variable $ans$ to represent the maximum difference. Initially, $mi$ is set to $+\infty$, and $ans$ is set to $-1$.
+
+We traverse the array. For the current element $x$, if $x > mi$, then we update $ans$ to be $max(ans, x - mi)$, otherwise we update $mi = x$.
+
+After the traversal, we return $ans$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

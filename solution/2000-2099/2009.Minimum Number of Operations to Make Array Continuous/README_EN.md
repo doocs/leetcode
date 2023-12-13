@@ -57,6 +57,26 @@ The resulting array is [1,2,3,4], which is continuous.
 
 ## Solutions
 
+**Solution 1: Sorting + Deduplication + Binary Search**
+
+First, we sort the array and remove duplicates.
+
+Then, we traverse the array, enumerating the current element $nums[i]$ as the minimum value of the consecutive array. We use binary search to find the first position $j$ that is greater than $nums[i] + n - 1$. Then, $j-i$ is the length of the consecutive array when the current element is the minimum value. We update the answer, i.e., $ans = \min(ans, n - (j - i))$.
+
+Finally, we return $ans$.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array.
+
+**Solution 2: Sorting + Deduplication + Two Pointers**
+
+Similar to Solution 1, we first sort the array and remove duplicates.
+
+Then, we traverse the array, enumerating the current element $nums[i]$ as the minimum value of the consecutive array. We use two pointers to find the first position $j$ that is greater than $nums[i] + n - 1$. Then, $j-i$ is the length of the consecutive array when the current element is the minimum value. We update the answer, i.e., $ans = \min(ans, n - (j - i))$.
+
+Finally, we return $ans$.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array.
+
 <!-- tabs:start -->
 
 ### **Python3**

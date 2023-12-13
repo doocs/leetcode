@@ -45,6 +45,12 @@
 
 ## Solutions
 
+**Solution 1: Mathematics + Hash Table**
+
+In order to uniquely represent a rectangle, we need to simplify the width-to-height ratio of the rectangle to a simplest fraction. Therefore, we can find the greatest common divisor of the width-to-height ratio of each rectangle, and then simplify the width-to-height ratio to the simplest fraction. Next, we use a hash table to count the number of rectangles for each simplest fraction, and then calculate the combination of the number of rectangles for each simplest fraction to get the answer.
+
+The time complexity is $O(n \times \log M)$, and the space complexity is $O(n)$. Here, $n$ and $M$ are the number of rectangles and the maximum side length of the rectangles, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**

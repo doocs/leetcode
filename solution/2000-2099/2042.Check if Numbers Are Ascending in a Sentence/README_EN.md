@@ -55,6 +55,14 @@ They are strictly increasing from left to right: 1 &lt; 3 &lt; 4 &lt; 6 &lt; 12.
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+We can split the string $s$ into several words by spaces. Then, for each word, check if it is a number. If it is a number, convert it to an integer, compare it with the previous number. If it is not strictly increasing, return `false`. Otherwise, assign the current number to the previous number and continue the traversal.
+
+If the traversal ends, it means that the numbers in the string are strictly increasing, so return `true`.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
+
 <!-- tabs:start -->
 
 ### **Python3**

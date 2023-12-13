@@ -47,6 +47,12 @@ Then we select the last 3 characters and convert them so that the final string c
 
 ## Solutions
 
+**Solution 1: Greedy Algorithm**
+
+Traverse the string $s$. Whenever you encounter `'X'`, move the pointer $i$ three steps forward and add $1$ to the answer; otherwise, move the pointer $i$ one step forward.
+
+The time complexity is $O(n)$, where $n$ represents the length of the string $s$.
+
 <!-- tabs:start -->
 
 ### **Python3**

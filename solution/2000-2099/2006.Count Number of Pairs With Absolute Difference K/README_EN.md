@@ -56,6 +56,22 @@
 
 ## Solutions
 
+**Solution 1: Brute Force Enumeration**
+
+We notice that the length of the array $nums$ does not exceed $200$, so we can enumerate all pairs $(i, j)$, where $i < j$, and check if $|nums[i] - nums[j]|$ equals $k$. If it does, we increment the answer by one.
+
+Finally, we return the answer.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $nums$.
+
+**Solution 2: Hash Table or Array**
+
+We can use a hash table or array to record the occurrence count of each number in the array $nums$. Then, we enumerate each number $x$ in the array $nums$, and check if $x + k$ and $x - k$ are in the array $nums$. If they are, we increment the answer by the sum of the occurrence counts of $x + k$ and $x - k$.
+
+Finally, we return the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**

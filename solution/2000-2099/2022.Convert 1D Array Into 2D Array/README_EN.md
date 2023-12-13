@@ -50,6 +50,14 @@ It is impossible to fit 2 elements in a 1x1 2D array, so return an empty 2D arra
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+According to the problem description, we know that to construct an $m$-row and $n$-column two-dimensional array, it needs to satisfy that $m \times n$ equals the length of the original array. If it does not satisfy, return an empty array directly.
+
+If it does satisfy, we can follow the process described in the problem, and put the elements from the original array into the two-dimensional array in order.
+
+The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the two-dimensional array, respectively. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

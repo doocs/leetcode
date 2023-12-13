@@ -46,6 +46,12 @@ Given three integer arrays <code>nums1</code>, <code>nums2</code>, and <code>num
 
 ## Solutions
 
+**Solution 1: Array + Enumeration**
+
+We can first put each element of the arrays into an array, then enumerate each number $i$ from $1$ to $100$, and check whether $i$ appears in at least two arrays. If so, add $i$ to the answer array.
+
+The time complexity is $O(n_1 + n_2 + n_3)$, and the space complexity is $O(n_1 + n_2 + n_3)$. Here, $n_1, n_2, n_3$ are the lengths of the arrays `nums1`, `nums2`, and `nums3`, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -1,21 +1,18 @@
-func sumOfBeauties(nums []int) int {
+func sumOfBeauties(nums []int) (ans int) {
 	n := len(nums)
-	lmx := make([]int, n)
-	rmi := make([]int, n)
-	rmi[n-1] = 100001
-	for i := 1; i < n; i++ {
-		lmx[i] = max(lmx[i-1], nums[i-1])
+	right := make([]int, n)
+	right[n-1] = nums[n-1]
+	for i := n - 2; i > 0; i-- {
+		right[i] = min(right[i+1], nums[i])
 	}
-	for i := n - 2; i >= 0; i-- {
-		rmi[i] = min(rmi[i+1], nums[i+1])
-	}
-	ans := 0
-	for i := 1; i < n-1; i++ {
-		if lmx[i] < nums[i] && nums[i] < rmi[i] {
+	for i, l := 1, nums[0]; i < n-1; i++ {
+		r := right[i+1]
+		if l < nums[i] && nums[i] < r {
 			ans += 2
 		} else if nums[i-1] < nums[i] && nums[i] < nums[i+1] {
-			ans += 1
+			ans++
 		}
+		l = max(l, nums[i])
 	}
-	return ans
+	return
 }

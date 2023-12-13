@@ -57,6 +57,16 @@ detectSquares.count([11, 10]); // return 2. You can choose:
 
 ## Solutions
 
+**Solution 1: Hash Table**
+
+We can use a hash table $cnt$ to maintain all the information of the points, where $cnt[x][y]$ represents the count of point $(x, y)$.
+
+When calling the $add(x, y)$ method, we increase the value of $cnt[x][y]$ by $1$.
+
+When calling the $count(x_1, y_1)$ method, we need to get three other points to form an axis-aligned square. We can enumerate the point $(x_2, y_1)$ that is parallel to the $x$-axis and at a distance $d$ from $(x_1, y_1)$. If such a point exists, based on these two points, we can determine the other two points as $(x_1, y_1 + d)$ and $(x_2, y_1 + d)$, or $(x_1, y_1 - d)$ and $(x_2, y_1 - d)$. We can add up the number of schemes for these two situations.
+
+In terms of time complexity, the time complexity of calling the $add(x, y)$ method is $O(1)$, and the time complexity of calling the $count(x_1, y_1)$ method is $O(n)$; the space complexity is $O(n)$. Here, $n$ is the number of points in the data stream.
+
 <!-- tabs:start -->
 
 ### **Python3**

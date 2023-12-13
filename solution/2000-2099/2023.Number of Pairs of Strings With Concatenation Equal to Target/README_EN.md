@@ -56,6 +56,18 @@
 
 ## Solutions
 
+**Solution 1: Enumeration**
+
+Traverse the array `nums`, for each $i$, enumerate all $j$, if $i \neq j$ and $nums[i] + nums[j] = target$, then increment the answer by one.
+
+The time complexity is $O(n^2 \times m)$, where $n$ and $m$ are the lengths of the array `nums` and the string `target`, respectively. The space complexity is $O(1)$.
+
+**Solution 2: Hash Table**
+
+We can use a hash table to count the occurrence of each string in the array `nums`, then traverse all prefixes and suffixes of the string `target`. If both the prefix and suffix are in the hash table, then increment the answer by the product of their occurrences.
+
+The time complexity is $O(n + m^2)$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the lengths of the array `nums` and the string `target`, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -107,7 +119,7 @@ class Solution {
     public int numOfPairs(String[] nums, String target) {
         Map<String, Integer> cnt = new HashMap<>();
         for (String x : nums) {
-            cnt.put(x, cnt.getOrDefault(x, 0) + 1);
+            cnt.merge(x, 1, Integer::sum);
         }
         int ans = 0;
         for (int i = 1; i < target.length(); ++i) {

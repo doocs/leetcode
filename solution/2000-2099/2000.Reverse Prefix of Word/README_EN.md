@@ -51,6 +51,12 @@ You should not do any reverse operation, the resulting string is &quot;abcd&quot
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+First, we find the index $i$ where the character $ch$ first appears. Then, we reverse the characters from index $0$ to index $i$ (including index $i$). Finally, we concatenate the reversed string with the string starting from index $i + 1$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $word$.
+
 <!-- tabs:start -->
 
 ### **Python3**
