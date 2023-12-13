@@ -1,42 +1,39 @@
 class Solution {
-
-    private int n;
-    private long maxScore;
+    private List<Integer>[] g;
     private int ans;
-    private List<List<Integer>> graph;
+    private long mx;
+    private int n;
 
     public int countHighestScoreNodes(int[] parents) {
         n = parents.length;
-        maxScore = 0;
-        ans = 0;
-        graph = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
-            graph.add(new ArrayList<>());
+        g = new List[n];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (int i = 1; i < n; ++i) {
+            g[parents[i]].add(i);
         }
-        for (int i = 1; i < n; i++) {
-            graph.get(parents[i]).add(i);
-        }
-        dfs(0);
+        dfs(0, -1);
         return ans;
     }
 
-    private int dfs(int cur) {
-        int size = 1;
+    private int dfs(int i, int fa) {
+        int cnt = 1;
         long score = 1;
-        for (int child : graph.get(cur)) {
-            int s = dfs(child);
-            size += s;
-            score *= s;
+        for (int j : g[i]) {
+            if (j != fa) {
+                int t = dfs(j, i);
+                cnt += t;
+                score *= t;
+            }
         }
-        if (cur > 0) {
-            score *= n - size;
+        if (n - cnt > 0) {
+            score *= n - cnt;
         }
-        if (score > maxScore) {
-            maxScore = score;
+        if (mx < score) {
+            mx = score;
             ans = 1;
-        } else if (score == maxScore) {
-            ans++;
+        } else if (mx == score) {
+            ++ans;
         }
-        return size;
+        return cnt;
     }
 }
