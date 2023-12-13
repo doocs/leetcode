@@ -1,24 +1,17 @@
 func compressString(S string) string {
 	n := len(S)
-	if n == 0 {
-		return S
-	}
-	var builder strings.Builder
-	pre, cnt := S[0], 1
-	for i := 1; i < n; i++ {
-		if S[i] != pre {
-			builder.WriteByte(pre)
-			builder.WriteString(strconv.Itoa(cnt))
-			cnt = 1
-		} else {
-			cnt++
+	sb := strings.Builder{}
+	for i := 0; i < n; {
+		j := i + 1
+		for j < n && S[j] == S[i] {
+			j++
 		}
-		pre = S[i]
+		sb.WriteByte(S[i])
+		sb.WriteString(strconv.Itoa(j - i))
+		i = j
 	}
-	builder.WriteByte(pre)
-	builder.WriteString(strconv.Itoa(cnt))
-	if builder.Len() >= n {
-		return S
+	if t := sb.String(); len(t) < n {
+		return t
 	}
-	return builder.String()
+	return S
 }

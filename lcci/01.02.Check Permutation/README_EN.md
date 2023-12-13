@@ -34,6 +34,26 @@
 
 ## Solutions
 
+**Solution 1: Array or Hash Table**
+
+First, we check whether the lengths of the two strings are equal. If they are not equal, we directly return `false`.
+
+Then, we use an array or hash table to count the occurrence of each character in string $s1$.
+
+Next, we traverse the other string $s2$. For each character we encounter, we decrement its corresponding count. If the count after decrementing is less than $0$, it means that the occurrence of characters in the two strings is different, so we directly return `false`.
+
+Finally, after traversing string $s2$, we return `true`.
+
+Note: In this problem, all test case strings only contain lowercase letters, so we can directly create an array of length $26$ for counting.
+
+The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is the length of the string, and $C$ is the size of the character set. In this problem, $C=26$.
+
+**Solution 2: Sorting**
+
+We can also sort the two strings in lexicographical order, and then compare whether the two strings are equal.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
+
 <!-- tabs:start -->
 
 ### **Python3**

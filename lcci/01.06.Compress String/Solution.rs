@@ -1,25 +1,24 @@
 impl Solution {
     pub fn compress_string(s: String) -> String {
         let mut cs: Vec<char> = s.chars().collect();
-        cs.push(' ');
-        let mut res = vec![];
-        let mut l = 0;
-        let mut cur = cs[0];
-        for i in 1..cs.len() {
-            if cs[i] != cur {
-                let count = (i - l).to_string();
-                l = i;
-                res.push(cur);
-                cur = cs[i];
-                for c in count.chars() {
-                    res.push(c);
-                }
+        let mut t = Vec::new();
+        let mut i = 0;
+        let n = s.len();
+        while i < n {
+            let mut j = i + 1;
+            while j < n && cs[j] == cs[i] {
+                j += 1;
             }
+            t.push(cs[i]);
+            t.extend((j - i).to_string().chars());
+            i = j;
         }
-        if res.len() >= cs.len() - 1 {
+
+        let t = t.into_iter().collect::<String>();
+        if s.len() <= t.len() {
             s
         } else {
-            res.iter().collect()
+            t
         }
     }
 }

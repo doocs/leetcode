@@ -30,23 +30,17 @@ second = &quot;pal&quot;
 
 <!-- 这里可写通用的实现逻辑 -->
 
-双指针。
+**方法一：分情况讨论 + 双指针**
 
-先判断两字符串长度差 `diff` 是否大于 1，若是直接返回 false。
+我们将字符串 $first$ 和 $second$ 的长度记为 $m$ 和 $n$，不妨设 $m \geq n$。
 
-接着开始遍历两字符串。若两个指针 `i`, `j` 所指向的字符 `first[i]` 与 `second[j]` 不相同：
+接下来分情况讨论：
 
--   若 `diff == 1`，则 `i++`
--   若 `diff == -1`，则 `j++`
--   若 `diff == 0`，则 `i++`, `j++`
+-   当 $m - n \gt 1$ 时，$first$ 和 $second$ 无法通过一次编辑得到，返回 `false`；
+-   当 $m = n$ 时，$first$ 和 $second$ 只有在且仅在有且仅有一个字符不同的情况下才能通过一次编辑得到；
+-   当 $m - n = 1$ 时，$first$ 和 $second$ 只有在且仅在 $second$ 是 $first$ 删除一个字符后得到的情况下才能通过一次编辑得到，我们可以使用双指针来实现。
 
-同时编辑次数 `op` 减 1。
-
-若两个指针 `i`, `j` 所指向的字符相同，则 `i++`, `j++`。
-
-判断剩余编辑次数是否小于 0，若是，说明不满足一次编辑条件，直接返回 false。
-
-遍历结束，直接返回 true。
+时间复杂度 $O(n)$，其中 $n$ 为字符串长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -57,28 +51,21 @@ second = &quot;pal&quot;
 ```python
 class Solution:
     def oneEditAway(self, first: str, second: str) -> bool:
-        n1, n2 = len(first), len(second)
-        diff = n1 - n2
-        if abs(diff) > 1:
+        m, n = len(first), len(second)
+        if m < n:
+            return self.oneEditAway(second, first)
+        if m - n > 1:
             return False
-        i, j, op = 0, 0, 1
-        while i < n1 and j < n2:
-            not_same = first[i] != second[j]
-            if not_same:
-                if diff == 1:
-                    i += 1
-                elif diff == -1:
-                    j += 1
-                else:
-                    i += 1
-                    j += 1
-                op -= 1
+        if m == n:
+            return sum(a != b for a, b in zip(first, second)) < 2
+        i = j = cnt = 0
+        while i < m:
+            if j == n or (j < n and first[i] != second[j]):
+                cnt += 1
             else:
-                i += 1
                 j += 1
-            if op < 0:
-                return False
-        return True
+            i += 1
+        return cnt < 2
 ```
 
 ### **Java**
@@ -88,29 +75,32 @@ class Solution:
 ```java
 class Solution {
     public boolean oneEditAway(String first, String second) {
-        int n1 = first.length(), n2 = second.length();
-        int diff = n1 - n2;
-        if (Math.abs(diff) > 1) {
+        int m = first.length(), n = second.length();
+        if (m < n) {
+            return oneEditAway(second, first);
+        }
+        if (m - n > 1) {
             return false;
         }
-        int op = 1;
-        for (int i = 0, j = 0; i < n1 && j < n2; ++i, ++j) {
-            boolean notSame = first.charAt(i) != second.charAt(j);
-            if (notSame) {
-                if (diff == 1) {
-                    // --j, ++i, ++j => ++i
-                    --j;
-                } else if (diff == -1) {
-                    // --i, ++i, ++j => ++j
-                    --i;
+        int cnt = 0;
+        if (m == n) {
+            for (int i = 0; i < n; ++i) {
+                if (first.charAt(i) != second.charAt(i)) {
+                    if (++cnt > 1) {
+                        return false;
+                    }
                 }
-                --op;
             }
-            if (op < 0) {
-                return false;
+            return true;
+        }
+        for (int i = 0, j = 0; i < m; ++i) {
+            if (j == n || (j < n && first.charAt(i) != second.charAt(j))) {
+                ++cnt;
+            } else {
+                ++j;
             }
         }
-        return true;
+        return cnt < 2;
     }
 }
 ```
@@ -120,65 +110,67 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    bool oneEditAway(string first, string second) {
-        int n1 = first.size(), n2 = second.size();
-        int diff = n1 - n2;
-        if (abs(diff) > 1) {
+    bool oneEditAway(std::string first, std::string second) {
+        int m = first.length(), n = second.length();
+        if (m < n) {
+            return oneEditAway(second, first);
+        }
+        if (m - n > 1) {
             return false;
         }
-        int op = 1;
-        for (int i = 0, j = 0; i < n1 && j < n2; ++i, ++j) {
-            bool notSame = first[i] != second[j];
-            if (notSame) {
-                if (diff == 1) {
-                    --j;
-                } else if (diff == -1) {
-                    --i;
+        int cnt = 0;
+        if (m == n) {
+            for (int i = 0; i < n; ++i) {
+                if (first[i] != second[i]) {
+                    if (++cnt > 1) {
+                        return false;
+                    }
                 }
-                --op;
             }
-            if (op < 0) {
-                return false;
+            return true;
+        }
+        for (int i = 0, j = 0; i < m; ++i) {
+            if (j == n || (j < n && first[i] != second[j])) {
+                ++cnt;
+            } else {
+                ++j;
             }
         }
-        return true;
+        return cnt < 2;
     }
 };
 ```
 
 ### **Go**
 
-可以直接扩展成[编辑距离](https://leetcode.cn/problems/edit-distance/)问题的解法
-
 ```go
 func oneEditAway(first string, second string) bool {
-	if first == second {
-		return true
-	}
 	m, n := len(first), len(second)
-	dp := make([][]int, m+1)
-	for i := 0; i <= m; i++ {
-		dp[i] = make([]int, n+1)
+	if m < n {
+		return oneEditAway(second, first)
 	}
-	for i := 0; i <= m; i++ {
-		dp[i][0] = i
+	if m-n > 1 {
+		return false
 	}
-	for j := 0; j <= n; j++ {
-		dp[0][j] = j
-	}
-	for i := 1; i <= m; i++ {
-		for j := 1; j <= n; j++ {
-			if first[i-1] == second[j-1] {
-				dp[i][j] = dp[i-1][j-1]
-			} else {
-				insert := dp[i][j-1] + 1
-				delete := dp[i-1][j] + 1
-				update := dp[i-1][j-1] + 1
-				dp[i][j] = min(insert, delete, update)
+	cnt := 0
+	if m == n {
+		for i := 0; i < n; i++ {
+			if first[i] != second[i] {
+				if cnt++; cnt > 1 {
+					return false
+				}
 			}
 		}
+		return true
 	}
-	return dp[m][n] == 1
+	for i, j := 0, 0; i < m; i++ {
+		if j == n || (j < n && first[i] != second[j]) {
+			cnt++
+		} else {
+			j++
+		}
+	}
+	return cnt < 2
 }
 ```
 
@@ -186,26 +178,35 @@ func oneEditAway(first string, second string) bool {
 
 ```ts
 function oneEditAway(first: string, second: string): boolean {
-    const n = first.length;
-    const m = second.length;
+    let m: number = first.length;
+    let n: number = second.length;
+    if (m < n) {
+        return oneEditAway(second, first);
+    }
+    if (m - n > 1) {
+        return false;
+    }
 
-    let count = 0;
-    let i = 0;
-    let j = 0;
-    while (i < n || j < m) {
-        if (first[i] !== second[j]) {
-            count++;
-
-            if (i < n && first[i + 1] === second[j]) {
-                i++;
-            } else if (j < m && first[i] === second[j + 1]) {
-                j++;
+    let cnt: number = 0;
+    if (m === n) {
+        for (let i: number = 0; i < n; ++i) {
+            if (first[i] !== second[i]) {
+                if (++cnt > 1) {
+                    return false;
+                }
             }
         }
-        i++;
-        j++;
+        return true;
     }
-    return count <= 1;
+
+    for (let i: number = 0, j: number = 0; i < m; ++i) {
+        if (j === n || (j < n && first[i] !== second[j])) {
+            ++cnt;
+        } else {
+            ++j;
+        }
+    }
+    return cnt < 2;
 }
 ```
 

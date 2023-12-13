@@ -32,7 +32,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-双指针遍历字符串求解。
+**方法一：双指针**
+
+我们可以利用双指针找出每个连续字符的起始位置和结束位置，计算出连续字符的长度，然后将字符和长度拼接到字符串 $t$ 中。
+
+最后，我们比较 $t$ 和 $S$ 的长度，如果 $t$ 的长度小于 $S$，则返回 $t$，否则返回 $S$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串长度。
 
 <!-- tabs:start -->
 
@@ -43,17 +49,22 @@
 ```python
 class Solution:
     def compressString(self, S: str) -> str:
-        if len(S) < 2:
-            return S
-        p, q = 0, 1
-        res = ''
-        while q < len(S):
-            if S[p] != S[q]:
-                res += S[p] + str(q - p)
-                p = q
-            q += 1
-        res += S[p] + str(q - p)
-        return res if len(res) < len(S) else S
+        t = "".join(a + str(len(list(b))) for a, b in groupby(S))
+        return min(S, t, key=len)
+```
+
+```python
+class Solution:
+    def compressString(self, S: str) -> str:
+        t = []
+        i, n = 0, len(S)
+        while i < n:
+            j = i + 1
+            while j < n and S[j] == S[i]:
+                j += 1
+            t.append(S[i] + str(j - i))
+            i = j
+        return min(S, "".join(t), key=len)
 ```
 
 ### **Java**
@@ -63,23 +74,63 @@ class Solution:
 ```java
 class Solution {
     public String compressString(String S) {
-        int n;
-        if (S == null || (n = S.length()) < 2) {
-            return S;
-        }
-        int p = 0, q = 1;
+        int n = S.length();
         StringBuilder sb = new StringBuilder();
-        while (q < n) {
-            if (S.charAt(p) != S.charAt(q)) {
-                sb.append(S.charAt(p)).append(q - p);
-                p = q;
+        for (int i = 0; i < n;) {
+            int j = i + 1;
+            while (j < n && S.charAt(j) == S.charAt(i)) {
+                ++j;
             }
-            ++q;
+            sb.append(S.charAt(i)).append(j - i);
+            i = j;
         }
-        sb.append(S.charAt(p)).append(q - p);
-        String res = sb.toString();
-        return res.length() < n ? res : S;
+        String t = sb.toString();
+        return t.length() < n ? t : S;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string compressString(string S) {
+        int n = S.size();
+        string t;
+        for (int i = 0; i < n;) {
+            int j = i + 1;
+            while (j < n && S[j] == S[i]) {
+                ++j;
+            }
+            t += S[i];
+            t += to_string(j - i);
+            i = j;
+        }
+        return t.size() < n ? t : S;
+    }
+};
+```
+
+### **Go**
+
+```go
+func compressString(S string) string {
+	n := len(S)
+	sb := strings.Builder{}
+	for i := 0; i < n; {
+		j := i + 1
+		for j < n && S[j] == S[i] {
+			j++
+		}
+		sb.WriteByte(S[i])
+		sb.WriteString(strconv.Itoa(j - i))
+		i = j
+	}
+	if t := sb.String(); len(t) < n {
+		return t
+	}
+	return S
 }
 ```
 
@@ -91,49 +142,18 @@ class Solution {
  * @return {string}
  */
 var compressString = function (S) {
-    if (!S) return S;
-    let p = 0,
-        q = 1;
-    let res = '';
-    while (q < S.length) {
-        if (S[p] != S[q]) {
-            res += S[p] + (q - p);
-            p = q;
+    const n = S.length;
+    const t = [];
+    for (let i = 0; i < n; ) {
+        let j = i + 1;
+        while (j < n && S.charAt(j) === S.charAt(i)) {
+            ++j;
         }
-        ++q;
+        t.push(S.charAt(i), j - i);
+        i = j;
     }
-    res += S[p] + (q - p);
-    return res.length < S.length ? res : S;
+    return t.length < n ? t.join('') : S;
 };
-```
-
-### **Go**
-
-```go
-func compressString(S string) string {
-	n := len(S)
-	if n == 0 {
-		return S
-	}
-	var builder strings.Builder
-	pre, cnt := S[0], 1
-	for i := 1; i < n; i++ {
-		if S[i] != pre {
-			builder.WriteByte(pre)
-			builder.WriteString(strconv.Itoa(cnt))
-			cnt = 1
-		} else {
-			cnt++
-		}
-		pre = S[i]
-	}
-	builder.WriteByte(pre)
-	builder.WriteString(strconv.Itoa(cnt))
-	if builder.Len() >= n {
-		return S
-	}
-	return builder.String()
-}
 ```
 
 ### **Rust**
@@ -142,25 +162,24 @@ func compressString(S string) string {
 impl Solution {
     pub fn compress_string(s: String) -> String {
         let mut cs: Vec<char> = s.chars().collect();
-        cs.push(' ');
-        let mut res = vec![];
-        let mut l = 0;
-        let mut cur = cs[0];
-        for i in 1..cs.len() {
-            if cs[i] != cur {
-                let count = (i - l).to_string();
-                l = i;
-                res.push(cur);
-                cur = cs[i];
-                for c in count.chars() {
-                    res.push(c);
-                }
+        let mut t = Vec::new();
+        let mut i = 0;
+        let n = s.len();
+        while i < n {
+            let mut j = i + 1;
+            while j < n && cs[j] == cs[i] {
+                j += 1;
             }
+            t.push(cs[i]);
+            t.extend((j - i).to_string().chars());
+            i = j;
         }
-        if res.len() >= cs.len() - 1 {
+
+        let t = t.into_iter().collect::<String>();
+        if s.len() <= t.len() {
             s
         } else {
-            res.iter().collect()
+            t
         }
     }
 }

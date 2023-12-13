@@ -1,29 +1,28 @@
 func oneEditAway(first string, second string) bool {
-	if first == second {
-		return true
-	}
 	m, n := len(first), len(second)
-	dp := make([][]int, m+1)
-	for i := 0; i <= m; i++ {
-		dp[i] = make([]int, n+1)
+	if m < n {
+		return oneEditAway(second, first)
 	}
-	for i := 0; i <= m; i++ {
-		dp[i][0] = i
+	if m-n > 1 {
+		return false
 	}
-	for j := 0; j <= n; j++ {
-		dp[0][j] = j
-	}
-	for i := 1; i <= m; i++ {
-		for j := 1; j <= n; j++ {
-			if first[i-1] == second[j-1] {
-				dp[i][j] = dp[i-1][j-1]
-			} else {
-				insert := dp[i][j-1] + 1
-				delete := dp[i-1][j] + 1
-				update := dp[i-1][j-1] + 1
-				dp[i][j] = min(insert, delete, update)
+	cnt := 0
+	if m == n {
+		for i := 0; i < n; i++ {
+			if first[i] != second[i] {
+				if cnt++; cnt > 1 {
+					return false
+				}
 			}
 		}
+		return true
 	}
-	return dp[m][n] == 1
+	for i, j := 0, 0; i < m; i++ {
+		if j == n || (j < n && first[i] != second[j]) {
+			cnt++
+		} else {
+			j++
+		}
+	}
+	return cnt < 2
 }
