@@ -1,35 +1,30 @@
 function countHighestScoreNodes(parents: number[]): number {
     const n = parents.length;
-    let edge = Array.from({ length: n }, (v, i) => []);
-    for (let i = 0; i < n; i++) {
-        const parent = parents[i];
-        if (parent != -1) {
-            edge[parent].push(i);
-        }
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (let i = 1; i < n; i++) {
+        g[parents[i]].push(i);
     }
-
-    let ans = 0;
-    let max = 0;
-    function dfs(idx: number): number {
-        let size = 1,
-            score = 1;
-        for (let i = 0; i < edge[idx].length; i++) {
-            const child = edge[idx][i];
-            let childSize = dfs(child);
-            size += childSize;
-            score *= childSize;
+    let [ans, mx] = [0, 0];
+    const dfs = (i: number, fa: number): number => {
+        let [cnt, score] = [1, 1];
+        for (const j of g[i]) {
+            if (j !== fa) {
+                const t = dfs(j, i);
+                cnt += t;
+                score *= t;
+            }
         }
-        if (idx > 0) {
-            score *= n - size;
+        if (n - cnt) {
+            score *= n - cnt;
         }
-        if (score > max) {
-            max = score;
+        if (mx < score) {
+            mx = score;
             ans = 1;
-        } else if (score == max) {
+        } else if (mx === score) {
             ans++;
         }
-        return size;
-    }
-    dfs(0);
+        return cnt;
+    };
+    dfs(0, -1);
     return ans;
 }

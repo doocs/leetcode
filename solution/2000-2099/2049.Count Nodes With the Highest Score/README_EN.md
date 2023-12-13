@@ -50,6 +50,28 @@ The highest score is 2, and two nodes (node 0 and node 1) have the highest score
 
 ## Solutions
 
+**Solution 1: DFS**
+
+First, we construct a graph $g$ based on the given parent array `parents`, where $g[i]$ represents all child nodes of node $i$. We define a variable $ans$ to represent the number of nodes with the highest score, and a variable $mx$ to represent the highest score.
+
+Then, we design a function `dfs(i, fa)` to calculate the score of node $i$ and return the number of nodes in the subtree rooted at node $i$.
+
+The calculation process of the function `dfs(i, fa)` is as follows:
+
+We first initialize a variable $cnt = 1$, representing the number of nodes in the subtree rooted at node $i$; a variable $score = 1$, representing the initial score of node $i$.
+
+Next, we traverse all child nodes $j$ of node $i$. If $j$ is not the parent node $fa$ of node $i$, then we recursively call `dfs(j, i)`, and multiply the return value into $score$, and add the return value to $cnt$.
+
+After traversing the child nodes, if $n - cnt > 0$, then we multiply $n - cnt$ into $score$.
+
+Then, we check whether $mx$ is less than $score$. If it is less, then we update $mx$ to $score$, and update $ans$ to $1$; if it is equal, then we update $ans$ to $ans + 1$.
+
+Finally, we return $cnt$.
+
+In the end, we call `dfs(0, -1)` and return $ans$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -57,28 +79,29 @@ The highest score is 2, and two nodes (node 0 and node 1) have the highest score
 ```python
 class Solution:
     def countHighestScoreNodes(self, parents: List[int]) -> int:
-        n, max_score, ans = len(parents), 0, 0
+        def dfs(i: int, fa: int):
+            cnt = score = 1
+            for j in g[i]:
+                if j != fa:
+                    t = dfs(j, i)
+                    score *= t
+                    cnt += t
+            if n - cnt:
+                score *= n - cnt
+            nonlocal ans, mx
+            if mx < score:
+                mx = score
+                ans = 1
+            elif mx == score:
+                ans += 1
+            return cnt
+
+        n = len(parents)
         g = [[] for _ in range(n)]
         for i in range(1, n):
             g[parents[i]].append(i)
-
-        def dfs(cur: int) -> int:
-            nonlocal max_score, ans
-            size, score = 1, 1
-            for c in g[cur]:
-                s = dfs(c)
-                size += s
-                score *= s
-            if cur > 0:
-                score *= n - size
-            if score > max_score:
-                max_score = score
-                ans = 1
-            elif score == max_score:
-                ans += 1
-            return size
-
-        dfs(0)
+        ans = mx = 0
+        dfs(0, -1)
         return ans
 ```
 
@@ -86,86 +109,43 @@ class Solution:
 
 ```java
 class Solution {
-
-    private int n;
-    private long maxScore;
+    private List<Integer>[] g;
     private int ans;
-    private List<List<Integer>> graph;
+    private long mx;
+    private int n;
 
     public int countHighestScoreNodes(int[] parents) {
         n = parents.length;
-        maxScore = 0;
-        ans = 0;
-        graph = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
-            graph.add(new ArrayList<>());
+        g = new List[n];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (int i = 1; i < n; ++i) {
+            g[parents[i]].add(i);
         }
-        for (int i = 1; i < n; i++) {
-            graph.get(parents[i]).add(i);
-        }
-        dfs(0);
+        dfs(0, -1);
         return ans;
     }
 
-    private int dfs(int cur) {
-        int size = 1;
+    private int dfs(int i, int fa) {
+        int cnt = 1;
         long score = 1;
-        for (int child : graph.get(cur)) {
-            int s = dfs(child);
-            size += s;
-            score *= s;
+        for (int j : g[i]) {
+            if (j != fa) {
+                int t = dfs(j, i);
+                cnt += t;
+                score *= t;
+            }
         }
-        if (cur > 0) {
-            score *= n - size;
+        if (n - cnt > 0) {
+            score *= n - cnt;
         }
-        if (score > maxScore) {
-            maxScore = score;
+        if (mx < score) {
+            mx = score;
             ans = 1;
-        } else if (score == maxScore) {
-            ans++;
+        } else if (mx == score) {
+            ++ans;
         }
-        return size;
+        return cnt;
     }
-}
-```
-
-### **TypeScript**
-
-```ts
-function countHighestScoreNodes(parents: number[]): number {
-    const n = parents.length;
-    let edge = Array.from({ length: n }, (v, i) => []);
-    for (let i = 0; i < n; i++) {
-        const parent = parents[i];
-        if (parent != -1) {
-            edge[parent].push(i);
-        }
-    }
-
-    let ans = 0;
-    let max = 0;
-    function dfs(idx: number): number {
-        let size = 1,
-            score = 1;
-        for (let i = 0; i < edge[idx].length; i++) {
-            const child = edge[idx][i];
-            let childSize = dfs(child);
-            size += childSize;
-            score *= childSize;
-        }
-        if (idx > 0) {
-            score *= n - size;
-        }
-        if (score > max) {
-            max = score;
-            ans = 1;
-        } else if (score == max) {
-            ans++;
-        }
-        return size;
-    }
-    dfs(0);
-    return ans;
 }
 ```
 
@@ -174,35 +154,37 @@ function countHighestScoreNodes(parents: number[]): number {
 ```cpp
 class Solution {
 public:
-    int ans;
-    long long maxScore;
-    int n;
-
     int countHighestScoreNodes(vector<int>& parents) {
-        ans = 0;
-        maxScore = 0;
-        n = parents.size();
-        unordered_map<int, vector<int>> g;
-        for (int i = 1; i < n; ++i) g[parents[i]].push_back(i);
-        dfs(0, g);
-        return ans;
-    }
-
-    int dfs(int u, unordered_map<int, vector<int>>& g) {
-        int size = 1;
-        long long score = 1;
-        for (int v : g[u]) {
-            int t = dfs(v, g);
-            size += t;
-            score *= t;
+        int n = parents.size();
+        vector<int> g[n];
+        for (int i = 1; i < n; ++i) {
+            g[parents[i]].push_back(i);
         }
-        if (u > 0) score *= (n - size);
-        if (score > maxScore) {
-            maxScore = score;
-            ans = 1;
-        } else if (score == maxScore)
-            ++ans;
-        return size;
+        int ans = 0;
+        long long mx = 0;
+        function<int(int, int)> dfs = [&](int i, int fa) {
+            long long score = 1;
+            int cnt = 1;
+            for (int j : g[i]) {
+                if (j != fa) {
+                    int t = dfs(j, i);
+                    cnt += t;
+                    score *= t;
+                }
+            }
+            if (n - cnt) {
+                score *= n - cnt;
+            }
+            if (mx < score) {
+                mx = score;
+                ans = 1;
+            } else if (mx == score) {
+                ++ans;
+            }
+            return cnt;
+        };
+        dfs(0, -1);
+        return ans;
     }
 };
 ```
@@ -210,34 +192,122 @@ public:
 ### **Go**
 
 ```go
-func countHighestScoreNodes(parents []int) int {
+func countHighestScoreNodes(parents []int) (ans int) {
 	n := len(parents)
 	g := make([][]int, n)
 	for i := 1; i < n; i++ {
-		p := parents[i]
-		g[p] = append(g[p], i)
+		g[parents[i]] = append(g[parents[i]], i)
 	}
-	maxScore, ans := 0, 0
-	var dfs func(int) int
-	dfs = func(u int) int {
-		size, score := 1, 1
-		for _, v := range g[u] {
-			t := dfs(v)
-			size += t
-			score *= t
+	mx := 0
+	var dfs func(i, fa int) int
+	dfs = func(i, fa int) int {
+		cnt, score := 1, 1
+		for _, j := range g[i] {
+			if j != fa {
+				t := dfs(j, i)
+				cnt += t
+				score *= t
+			}
 		}
-		if u > 0 {
-			score *= n - size
+		if n-cnt > 0 {
+			score *= n - cnt
 		}
-		if score > maxScore {
-			maxScore, ans = score, 1
-		} else if score == maxScore {
+		if mx < score {
+			mx = score
+			ans = 1
+		} else if mx == score {
 			ans++
 		}
-		return size
+		return cnt
 	}
-	dfs(0)
-	return ans
+	dfs(0, -1)
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function countHighestScoreNodes(parents: number[]): number {
+    const n = parents.length;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (let i = 1; i < n; i++) {
+        g[parents[i]].push(i);
+    }
+    let [ans, mx] = [0, 0];
+    const dfs = (i: number, fa: number): number => {
+        let [cnt, score] = [1, 1];
+        for (const j of g[i]) {
+            if (j !== fa) {
+                const t = dfs(j, i);
+                cnt += t;
+                score *= t;
+            }
+        }
+        if (n - cnt) {
+            score *= n - cnt;
+        }
+        if (mx < score) {
+            mx = score;
+            ans = 1;
+        } else if (mx === score) {
+            ans++;
+        }
+        return cnt;
+    };
+    dfs(0, -1);
+    return ans;
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    private List<int>[] g;
+    private int ans;
+    private long mx;
+    private int n;
+
+    public int CountHighestScoreNodes(int[] parents) {
+        n = parents.Length;
+        g = new List<int>[n];
+        for (int i = 0; i < n; ++i) {
+            g[i] = new List<int>();
+        }
+        for (int i = 1; i < n; ++i) {
+            g[parents[i]].Add(i);
+        }
+
+        Dfs(0, -1);
+        return ans;
+    }
+
+    private int Dfs(int i, int fa) {
+        int cnt = 1;
+        long score = 1;
+
+        foreach (int j in g[i]) {
+            if (j != fa) {
+                int t = Dfs(j, i);
+                cnt += t;
+                score *= t;
+            }
+        }
+
+        if (n - cnt > 0) {
+            score *= n - cnt;
+        }
+
+        if (mx < score) {
+            mx = score;
+            ans = 1;
+        } else if (mx == score) {
+            ++ans;
+        }
+
+        return cnt;
+    }
 }
 ```
 

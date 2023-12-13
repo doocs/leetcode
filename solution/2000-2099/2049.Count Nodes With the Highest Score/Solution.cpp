@@ -1,33 +1,35 @@
 class Solution {
 public:
-    int ans;
-    long long maxScore;
-    int n;
-
     int countHighestScoreNodes(vector<int>& parents) {
-        ans = 0;
-        maxScore = 0;
-        n = parents.size();
-        unordered_map<int, vector<int>> g;
-        for (int i = 1; i < n; ++i) g[parents[i]].push_back(i);
-        dfs(0, g);
-        return ans;
-    }
-
-    int dfs(int u, unordered_map<int, vector<int>>& g) {
-        int size = 1;
-        long long score = 1;
-        for (int v : g[u]) {
-            int t = dfs(v, g);
-            size += t;
-            score *= t;
+        int n = parents.size();
+        vector<int> g[n];
+        for (int i = 1; i < n; ++i) {
+            g[parents[i]].push_back(i);
         }
-        if (u > 0) score *= (n - size);
-        if (score > maxScore) {
-            maxScore = score;
-            ans = 1;
-        } else if (score == maxScore)
-            ++ans;
-        return size;
+        int ans = 0;
+        long long mx = 0;
+        function<int(int, int)> dfs = [&](int i, int fa) {
+            long long score = 1;
+            int cnt = 1;
+            for (int j : g[i]) {
+                if (j != fa) {
+                    int t = dfs(j, i);
+                    cnt += t;
+                    score *= t;
+                }
+            }
+            if (n - cnt) {
+                score *= n - cnt;
+            }
+            if (mx < score) {
+                mx = score;
+                ans = 1;
+            } else if (mx == score) {
+                ++ans;
+            }
+            return cnt;
+        };
+        dfs(0, -1);
+        return ans;
     }
 };
