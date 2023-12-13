@@ -1,6 +1,6 @@
-class Solution {
-    public void rotate(int[][] matrix) {
-        int n = matrix.length;
+public class Solution {
+    public void Rotate(int[][] matrix) {
+        int n = matrix.Length;
         for (int i = 0; i < n >> 1; ++i) {
             for (int j = 0; j < n; ++j) {
                 int t = matrix[i][j];

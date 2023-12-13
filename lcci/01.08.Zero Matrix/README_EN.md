@@ -70,6 +70,22 @@
 
 ## Solutions
 
+**Solution 1: Array Marking**
+
+We use arrays `rows` and `cols` to mark the rows and columns to be zeroed.
+
+Then we traverse the matrix again, zeroing the elements corresponding to the rows and columns marked in `rows` and `cols`.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m + n)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+
+**Solution 2: In-place Marking**
+
+In Solution 1, we used additional arrays to mark the rows and columns to be zeroed. In fact, we can directly use the first row and first column of the matrix for marking, without needing to allocate additional array space.
+
+Since the first row and first column are used for marking, their values may change due to the marking. Therefore, we need additional variables $i0$ and $j0$ to mark whether the first row and first column need to be zeroed.
+
+The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
