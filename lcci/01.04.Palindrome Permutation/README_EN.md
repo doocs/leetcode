@@ -20,6 +20,12 @@
 
 ## Solutions
 
+**Solution 1: Hash Table**
+
+We use a hash table $cnt$ to store the occurrence count of each character. If more than $1$ character has an odd count, then it is not a palindrome permutation.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
+
 <!-- tabs:start -->
 
 ### **Python3**

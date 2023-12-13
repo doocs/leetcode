@@ -40,6 +40,18 @@ The missing numbers are [5,6,8,...], hence the third missing number is 8.
 
 ## Solutions
 
+**Solution 1: Using `replace()` function**
+
+Directly use `replace` to replace all ` ` with `%20`:
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
+
+**Solution 2: Simulation**
+
+Traverse each character $c$ in the string. When encountering a space, add `%20` to the result, otherwise add $c$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
+
 <!-- tabs:start -->
 
 ### **Python3**
