@@ -11,7 +11,7 @@
 <p>他们正在玩一个单词游戏，遵循以下规则：</p>
 
 <ul>
-	<li>每一轮，当前玩家应该从他的列表中选择一个单词，并且选择的单词比上一个单词 <strong>严格大</strong>；然后轮到另一名玩家。</li>
+	<li>每一轮，当前玩家应该从他的列表中选择一个单词，并且选择的单词比上一个单词 <strong>紧邻大</strong>；然后轮到另一名玩家。</li>
 	<li>如果一名玩家在自己的回合中无法选择单词，则输掉比赛。</li>
 </ul>
 
@@ -19,12 +19,12 @@
 
 <p>给定 <code>a</code> 和 <code>b</code>，已知两名玩家都按最佳策略玩游戏，如果 Alice 可以获胜，则返回 <code>true</code>&nbsp;，否则返回 <code>false</code>。</p>
 
-<p>如果满足以下条件，则称一个单词 <code>w</code>&nbsp;比另一个单词 <code>z</code>&nbsp;<strong>严格大</strong>：</p>
+<p>如果满足以下条件，则称一个单词 <code>w</code>&nbsp;比另一个单词 <code>z</code>&nbsp;<strong>紧邻大</strong>：</p>
 
 <ul>
 	<li><code>w</code> 在&nbsp;<strong>字典序上大于</strong> <code>z</code>。</li>
 	<li>如果 <code>w<sub>1</sub></code> 是 <code>w</code> 的第一个字母，<code>z<sub>1</sub></code> 是 <code>z</code> 的第一个字母，那么 <code>w<sub>1</sub></code> 应该 <strong>等于</strong> <code>z<sub>1</sub></code> 或者是字母表中 <code>z<sub>1</sub></code> <strong>后面相邻&nbsp;</strong>的字母。</li>
-	<li>例如，单词 <code>"care"</code>&nbsp;比&nbsp;<code>"book"</code> 和 <code>"car"</code>&nbsp;严格大，但不比&nbsp;<code>"ant"</code> 或 <code>"cook"</code>&nbsp;严格大。</li>
+	<li>例如，单词 <code>"care"</code>&nbsp;比&nbsp;<code>"book"</code> 和 <code>"car"</code>&nbsp;紧邻大，但不比&nbsp;<code>"ant"</code> 或 <code>"cook"</code>&nbsp;紧邻大。</li>
 </ul>
 
 <p>如果在 <code>s</code> 和 <code>t</code> 不同的第一个位置处，字符串 <code>s</code>&nbsp;的字母比字符串 <code>t</code>&nbsp;的字母在字母表中的顺序更靠后，则称为字符串 <code>s</code> 在 <strong>字典序上大于</strong> 字符串 <code>t</code>。如果前 <code>min(s.length, t.length)</code> 个字符没有区别，那么较长的字符串是在字典序上较大的那一个。</p>

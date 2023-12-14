@@ -30,8 +30,8 @@
 <p><strong>示例 2:</strong></p>
 
 <pre>
-<strong>输出:</strong> grid = [[8]]
-<strong>输入:</strong> 0
+<strong>输入:</strong> grid = [[8]]
+<strong>输出:</strong> 0
 </pre>
 
 <p>&nbsp;</p>

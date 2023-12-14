@@ -16,7 +16,7 @@
 
 <ul>
 	<li><code>int at(long long index)</code>: 返回 <code>nums[i]</code> 的值。</li>
-	<li><code>void size()</code>: 返回 <code>nums.length</code>。</li>
+	<li><code>long long size()</code>: 返回 <code>nums.length</code>。</li>
 </ul>
 
 <p>让我们把数组分成 <strong>最大</strong>&nbsp;的块，使得每个块包含 <strong>相等的值</strong>。返回这些块的数量。</p>
