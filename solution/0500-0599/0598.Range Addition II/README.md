@@ -1,4 +1,4 @@
-# [598. 范围求和 II](https://leetcode.cn/problems/range-addition-ii)
+# [598. 区间加法 II](https://leetcode.cn/problems/range-addition-ii)
 
 [English Version](/solution/0500-0599/0598.Range%20Addition%20II/README_EN.md)
 
@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个 <code>m x&nbsp;n</code> 的矩阵&nbsp;<code>M</code><strong>&nbsp;</strong>，初始化时所有的 <code>0</code> 和一个操作数组 <code>op</code> ，其中 <code>ops[i] = [ai, bi]</code> 意味着当所有的 <code>0 &lt;= x &lt; ai</code> 和 <code>0 &lt;= y &lt; bi</code> 时， <code>M[x][y]</code> 应该加 1。</p>
+<p>给你一个 <code>m x&nbsp;n</code> 的矩阵&nbsp;<code>M</code><strong> </strong>和一个操作数组 <code>op</code> 。矩阵初始化时所有的单元格都为 <code>0</code> 。<code>ops[i] = [ai, bi]</code> 意味着当所有的 <code>0 &lt;= x &lt; ai</code> 和 <code>0 &lt;= y &lt; bi</code> 时， <code>M[x][y]</code> 应该加 1。</p>
 
 <p>在&nbsp;<em>执行完所有操作后</em>&nbsp;，计算并返回&nbsp;<em>矩阵中最大整数的个数</em>&nbsp;。</p>
 

@@ -14,10 +14,10 @@
 
 <ol>
 	<li><code>1 &lt;= heights[i] &lt;= maxHeights[i]</code></li>
-	<li><code>heights</code>&nbsp;是一个 <strong>山状</strong>&nbsp;数组。</li>
+	<li><code>heights</code>&nbsp;是一个 <strong>山脉</strong> 数组。</li>
 </ol>
 
-<p>如果存在下标 <code>i</code>&nbsp;满足以下条件，那么我们称数组&nbsp;<code>heights</code>&nbsp;是一个 <strong>山状</strong>&nbsp;数组：</p>
+<p>如果存在下标 <code>i</code>&nbsp;满足以下条件，那么我们称数组&nbsp;<code>heights</code>&nbsp;是一个 <strong>山脉</strong> 数组：</p>
 
 <ul>
 	<li>对于所有&nbsp;<code>0 &lt; j &lt;= i</code>&nbsp;，都有&nbsp;<code>heights[j - 1] &lt;= heights[j]</code></li>
@@ -35,7 +35,7 @@
 <b>输出：</b>13
 <b>解释：</b>和最大的美丽塔方案为 heights = [5,3,3,1,1] ，这是一个美丽塔方案，因为：
 - 1 &lt;= heights[i] &lt;= maxHeights[i]  
-- heights 是个山状数组，峰值在 i = 0 处。
+- heights 是个山脉数组，峰值在 i = 0 处。
 13 是所有美丽塔方案中的最大高度和。</pre>
 
 <p><strong class="example">示例 2：</strong></p>
@@ -45,7 +45,7 @@
 <b>输出：</b>22
 <strong>解释：</strong> 和最大的美丽塔方案为 heights = [3,3,3,9,2,2] ，这是一个美丽塔方案，因为：
 - 1 &lt;= heights[i] &lt;= maxHeights[i]
-- heights 是个山状数组，峰值在 i = 3 处。
+- heights 是个山脉数组，峰值在 i = 3 处。
 22 是所有美丽塔方案中的最大高度和。</pre>
 
 <p><strong class="example">示例 3：</strong></p>
@@ -55,7 +55,7 @@
 <b>输出：</b>18
 <strong>解释：</strong>和最大的美丽塔方案为 heights = [2,2,5,5,2,2] ，这是一个美丽塔方案，因为：
 - 1 &lt;= heights[i] &lt;= maxHeights[i]
-- heights 是个山状数组，最大值在 i = 2 处。
+- heights 是个山脉数组，最大值在 i = 2 处。
 注意，在这个方案中，i = 3 也是一个峰值。
 18 是所有美丽塔方案中的最大高度和。
 </pre>

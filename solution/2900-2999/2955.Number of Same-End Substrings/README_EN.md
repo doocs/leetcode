@@ -40,7 +40,6 @@
 	<li><code>2 &lt;= s.length &lt;= 3 * 10<sup>4</sup></code></li>
 	<li><code>s</code> consists only of lowercase English letters.</li>
 	<li><code>1 &lt;= queries.length &lt;= 3 * 10<sup>4</sup></code></li>
-	<li><code>queries[i].length == 2</code></li>
 	<li><code>queries[i] = [l<sub>i</sub>, r<sub>i</sub>]</code></li>
 	<li><code>0 &lt;= l<sub>i</sub> &lt;= r<sub>i</sub> &lt; s.length</code></li>
 </ul>

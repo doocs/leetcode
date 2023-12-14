@@ -43,6 +43,7 @@
 	<li><code>-10<sup>9</sup> &lt;= nums1[i], nums2[i] &lt;= 10<sup>9</sup></code></li>
 	<li><code>nums1</code> and <code>nums2</code> both are sorted in <strong>non-decreasing order</strong>.</li>
 	<li><code>1 &lt;= k &lt;= 10<sup>4</sup></code></li>
+	<li><code>k &lt;=&nbsp;nums1.length *&nbsp;nums2.length</code></li>
 </ul>
 
 ## Solutions

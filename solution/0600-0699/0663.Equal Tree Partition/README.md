@@ -6,57 +6,33 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一棵有 <code>n</code> 个结点的二叉树，你的任务是检查是否可以通过去掉树上的一条边将树分成两棵，且这两棵树结点之和相等。</p>
+<p>给你一棵二叉树的根节点 <code>root</code>，如果你可以通过去掉原始树上的一条边将树分成两棵节点值之和相等的子树，则返回 <code>true</code>。</p>
 
-<p><strong>样例 1:</strong></p>
+<p>&nbsp;</p>
 
-<pre><strong>输入:</strong>     
-    5
-   / \
-  10 10
-    /  \
-   2   3
+<p><strong class="example">示例 1：</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0663.Equal%20Tree%20Partition/images/split1-tree.jpg" style="width: 500px; height: 204px;" />
+<pre>
+<strong>输入：</strong>root = [5,10,10,null,null,2,3]
+<strong>输出：</strong>true
+</pre>
 
-<strong>输出:</strong> True
-<strong>解释:</strong> 
-    5
-   / 
-  10
-      
-和: 15
-
-   10
-  /  \
- 2    3
-
-和: 15
+<p><strong class="example">示例 2：</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0663.Equal%20Tree%20Partition/images/split2-tree.jpg" style="width: 277px; height: 302px;" />
+<pre>
+<strong>输入：</strong>root = [1,2,10,null,null,2,20]
+<strong>输出：</strong>false
+<strong>解释：</strong>在树上移除一条边无法将树分成两棵节点值之和相等的子树。
 </pre>
 
 <p>&nbsp;</p>
 
-<p><strong>样例 2:</strong></p>
+<p><strong>提示：</strong></p>
 
-<pre><strong>输入:</strong>     
-    1
-   / \
-  2  10
-    /  \
-   2   20
-
-<strong>输出:</strong> False
-<strong>解释:</strong> 无法通过移除一条树边将这棵树划分成结点之和相等的两棵子树。
-</pre>
-
-<p>&nbsp;</p>
-
-<p><strong>注释 :</strong></p>
-
-<ol>
-	<li>树上结点的权值范围 [-100000, 100000]。</li>
-	<li>1 &lt;= n &lt;= 10000</li>
-</ol>
-
-<p>&nbsp;</p>
+<ul>
+	<li>树中节点数目在 <code>[1, 10<sup>4</sup>]</code> 范围内。</li>
+	<li><code>-10<sup>5</sup> &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
+</ul>
 
 ## 解法
 

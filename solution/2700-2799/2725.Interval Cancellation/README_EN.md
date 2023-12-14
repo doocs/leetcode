@@ -6,13 +6,13 @@
 
 <p>Given a function <code>fn</code>, an array of arguments&nbsp;<code>args</code>, and&nbsp;an interval time <code>t</code>, return a cancel function <code>cancelFn</code>.</p>
 
-<p>The function <code>fn</code> should be called with <code>args</code> immediately and then called again every&nbsp;<code>t</code> milliseconds&nbsp;until&nbsp;<code>cancelFn</code>&nbsp;is called at <code>cancelT</code> ms.</p>
+<p>The function <code>fn</code> should be called with <code>args</code> immediately and then called again every&nbsp;<code>t</code> milliseconds&nbsp;until&nbsp;<code>cancelFn</code>&nbsp;is called at <code>cancelTimeMs</code> ms.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> fn = (x) =&gt; x * 2, args = [4], t = 35, cancelT = 190
+<strong>Input:</strong> fn = (x) =&gt; x * 2, args = [4], t = 35
 <strong>Output:</strong> 
 [
    {&quot;time&quot;: 0, &quot;returned&quot;: 8},
@@ -23,23 +23,23 @@
    {&quot;time&quot;: 175, &quot;returned&quot;: 8}
 ]
 <strong>Explanation:</strong> 
-const result = []
-const fn = (x) =&gt; x * 2
-const args = [4], t = 35, cancelT = 190
+const result = [];
+const fn = (x) =&gt; x * 2;
+const cancelTimeMs = 190;
 
-const start = performance.now()
+const start = performance.now();
 
 const log = (...argsArr) =&gt; {
-    const diff = Math.floor(performance.now() - start)
-    result.push({&quot;time&quot;: diff, &quot;returned&quot;: fn(...argsArr)})
+    const diff = Math.floor(performance.now() - start);
+    result.push({&quot;time&quot;: diff, &quot;returned&quot;: fn(...argsArr)});
 }
 
 const cancel = cancellable(log, [4], 35);
-setTimeout(cancel, 190);
+setTimeout(cancel, cancelTimeMs);
 
 setTimeout(() =&gt; {
-    console.log(result) // Output
- }, cancelT + t + 15)  
+    console.log(result); // Output
+ }, cancelTimeMs + 50)  
 
 Every 35ms, fn(4) is called. Until t=190ms, then it is cancelled.
 1st fn call is at 0ms. fn(4) returns 8.
@@ -54,7 +54,7 @@ Cancelled at 190ms
 <p><strong class="example">Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> fn = (x1, x2) =&gt; (x1 * x2), args = [2, 5], t = 30, cancelT = 165
+<strong>Input:</strong> fn = (x1, x2) =&gt; (x1 * x2), args = [2, 5], t = 30
 <strong>Output:</strong> 
 [
    {&quot;time&quot;: 0, &quot;returned&quot;: 10},
@@ -64,7 +64,10 @@ Cancelled at 190ms
    {&quot;time&quot;: 120, &quot;returned&quot;: 10},
    {&quot;time&quot;: 150, &quot;returned&quot;: 10}
 ]
-<strong>Explanation:</strong> Every 30ms, fn(2, 5) is called. Until t=165ms, then it is cancelled.
+<strong>Explanation:</strong> 
+const cancelTimeMs = 165;
+
+Every 30ms, fn(2, 5) is called. Until t=165ms, then it is cancelled.
 1st fn call is at 0ms&nbsp;
 2nd fn call is at 30ms&nbsp;
 3rd fn call is at 60ms&nbsp;
@@ -77,7 +80,7 @@ Cancelled at 165ms
 <p><strong class="example">Example 3:</strong></p>
 
 <pre>
-<strong>Input:</strong> fn = (x1, x2, x3) =&gt; (x1 + x2 + x3), args = [5, 1, 3], t = 50, cancelT = 180
+<strong>Input:</strong> fn = (x1, x2, x3) =&gt; (x1 + x2 + x3), args = [5, 1, 3], t = 50
 <strong>Output:</strong> 
 [
    {&quot;time&quot;: 0, &quot;returned&quot;: 9},
@@ -85,7 +88,10 @@ Cancelled at 165ms
    {&quot;time&quot;: 100, &quot;returned&quot;: 9},
    {&quot;time&quot;: 150, &quot;returned&quot;: 9}
 ]
-<strong>Explanation:</strong> Every 50ms, fn(5, 1, 3) is called. Until t=180ms, then it is cancelled. 
+<strong>Explanation:</strong> 
+const cancelTimeMs = 180;
+
+Every 50ms, fn(5, 1, 3) is called. Until t=180ms, then it is cancelled. 
 1st fn call is at 0ms
 2nd fn call is at 50ms
 3rd fn call is at 100ms
@@ -101,7 +107,7 @@ Cancelled at 180ms
 	<li><code>args</code> is a valid JSON array</li>
 	<li><code>1 &lt;= args.length &lt;= 10</code></li>
 	<li><code><font face="monospace">30 &lt;= t &lt;= 100</font></code></li>
-	<li><code><font face="monospace">10 &lt;= cancelT &lt;= 500</font></code></li>
+	<li><code><font face="monospace">10 &lt;= </font>cancelTimeMs<font face="monospace"> &lt;= 500</font></code></li>
 </ul>
 
 ## Solutions

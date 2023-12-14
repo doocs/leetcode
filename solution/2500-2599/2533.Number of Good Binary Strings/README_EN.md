@@ -17,7 +17,7 @@
 	</li>
 	<li>The size of each block of consecutive <code>0</code>&#39;s is a multiple of <code>zeroGroup</code>.
 	<ul>
-		<li>For example, in a binary string <code><u>00</u>11<u>0</u>1111<u>00</u></code> sizes of each block of consecutive ones are <code>[2,1,2]</code>.</li>
+		<li>For example, in a binary string <code><u>00</u>11<u>0</u>1111<u>00</u></code> sizes of each block of consecutive zeros are <code>[2,1,2]</code>.</li>
 	</ul>
 	</li>
 </ul>
