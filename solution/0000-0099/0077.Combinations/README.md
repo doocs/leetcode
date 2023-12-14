@@ -239,9 +239,7 @@ func combine(n int, k int) (ans [][]int) {
 	var dfs func(int)
 	dfs = func(i int) {
 		if len(t) == k {
-			cp := make([]int, len(t))
-			copy(cp, t)
-			ans = append(ans, cp)
+			ans = append(ans, slices.Clone(t))
 			return
 		}
 		if i > n {
@@ -263,9 +261,7 @@ func combine(n int, k int) (ans [][]int) {
 	var dfs func(int)
 	dfs = func(i int) {
 		if len(t) == k {
-			cp := make([]int, len(t))
-			copy(cp, t)
-			ans = append(ans, cp)
+			ans = append(ans, slices.Clone(t))
 			return
 		}
 		if i > n {

@@ -261,15 +261,13 @@ func buildWall(height int, width int, bricks []int) int {
 	mod := int(1e9) + 7
 	res := [][]int{}
 	t := []int{}
-	var dfs func(v int)
+	var dfs func(int)
 	dfs = func(v int) {
 		if v > width {
 			return
 		}
 		if v == width {
-			cp := make([]int, len(t))
-			copy(cp, t)
-			res = append(res, cp)
+			res = append(res, slices.Clone(t))
 			return
 		}
 		for _, x := range bricks {

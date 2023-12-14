@@ -239,9 +239,7 @@ func combinationSum(candidates []int, target int) (ans [][]int) {
 	var dfs func(i, s int)
 	dfs = func(i, s int) {
 		if s == 0 {
-			cp := make([]int, len(t))
-			copy(cp, t)
-			ans = append(ans, cp)
+			ans = append(ans, slices.Clone(t))
 			return
 		}
 		if s < candidates[i] {
@@ -265,9 +263,7 @@ func combinationSum(candidates []int, target int) (ans [][]int) {
 	var dfs func(i, s int)
 	dfs = func(i, s int) {
 		if s == 0 {
-			cp := make([]int, len(t))
-			copy(cp, t)
-			ans = append(ans, cp)
+			ans = append(ans, slices.Clone(t))
 			return
 		}
 		if i >= len(candidates) || s < candidates[i] {
