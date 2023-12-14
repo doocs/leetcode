@@ -168,9 +168,7 @@ func permuteUnique(nums []int) (ans [][]int) {
 	var dfs func(int)
 	dfs = func(i int) {
 		if i == n {
-			cp := make([]int, n)
-			copy(cp, t)
-			ans = append(ans, cp)
+			ans = append(ans, slices.Clone(t))
 			return
 		}
 		for j := 0; j < n; j++ {

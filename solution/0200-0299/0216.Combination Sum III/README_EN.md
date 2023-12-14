@@ -333,9 +333,7 @@ func combinationSum3(k int, n int) (ans [][]int) {
 	dfs = func(i, s int) {
 		if s == 0 {
 			if len(t) == k {
-				cp := make([]int, len(t))
-				copy(cp, t)
-				ans = append(ans, cp)
+				ans = append(ans, slices.Clone(t))
 			}
 			return
 		}
@@ -359,13 +357,11 @@ func combinationSum3(k int, n int) (ans [][]int) {
 	dfs = func(i, s int) {
 		if s == 0 {
 			if len(t) == k {
-				cp := make([]int, len(t))
-				copy(cp, t)
-				ans = append(ans, cp)
+				ans = append(ans, slices.Clone(t))
 			}
 			return
 		}
-		if i > 9 || i > s || len(t) > k {
+		if i > 9 || i > s || len(t) >= k {
 			return
 		}
 		for j := i; j <= 9; j++ {

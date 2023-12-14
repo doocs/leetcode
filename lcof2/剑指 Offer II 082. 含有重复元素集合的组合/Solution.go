@@ -8,9 +8,7 @@ func combinationSum2(candidates []int, target int) [][]int {
 			return
 		}
 		if s == target {
-			cp := make([]int, len(t))
-			copy(cp, t)
-			ans = append(ans, cp)
+			ans = append(ans, slices.Clone(t))
 			return
 		}
 		for i := u; i < len(candidates); i++ {

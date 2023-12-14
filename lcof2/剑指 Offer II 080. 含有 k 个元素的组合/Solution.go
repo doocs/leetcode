@@ -7,9 +7,7 @@ func combine(n int, k int) [][]int {
 
 func dfs(i, n, k int, t []int, res *[][]int) {
 	if len(t) == k {
-		cp := make([]int, k)
-		copy(cp, t)
-		*res = append(*res, cp)
+		*res = append(*res, slices.Clone(t))
 		return
 	}
 	for j := i; j <= n; j++ {

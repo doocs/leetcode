@@ -124,9 +124,7 @@ func findSubsequences(nums []int) [][]int {
 	dfs = func(u, last int, t []int) {
 		if u == len(nums) {
 			if len(t) > 1 {
-				cp := make([]int, len(t))
-				copy(cp, t)
-				ans = append(ans, cp)
+				ans = append(ans, slices.Clone(t))
 			}
 			return
 		}

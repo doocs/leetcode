@@ -189,9 +189,7 @@ func pathSum(root *TreeNode, targetSum int) (ans [][]int) {
 		s -= root.Val
 		t = append(t, root.Val)
 		if root.Left == nil && root.Right == nil && s == 0 {
-			cp := make([]int, len(t))
-			copy(cp, t)
-			ans = append(ans, cp)
+			ans = append(ans, slices.Clone(t))
 		}
 		dfs(root.Left, s)
 		dfs(root.Right, s)

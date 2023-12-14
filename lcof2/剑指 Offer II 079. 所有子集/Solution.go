@@ -6,9 +6,7 @@ func subsets(nums []int) [][]int {
 }
 
 func dfs(i int, nums, t []int, res *[][]int) {
-	cp := make([]int, len(t))
-	copy(cp, t)
-	*res = append(*res, cp)
+	*res = append(*res, slices.Clone(t))
 	if i == len(nums) {
 		return
 	}
