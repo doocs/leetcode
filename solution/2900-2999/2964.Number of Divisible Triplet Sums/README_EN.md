@@ -43,30 +43,101 @@ It can be shown that no other triplet is divisible by 5. Hence, the answer is 3.
 
 ## Solutions
 
+**Solution 1: Hash Table + Enumeration**
+
+We can use a hash table $cnt$ to record the occurrence times of $nums[i] \bmod d$, then enumerate $j$ and $k$, calculate the value of $nums[i] \bmod d$ that makes the equation $(nums[i] + nums[j] + nums[k]) \bmod d = 0$ hold, which is $(d - (nums[j] + nums[k]) \bmod d) \bmod d$, and accumulate its occurrence times to the answer. Then we increase the occurrence times of $nums[j] \bmod d$ by one. Continue to enumerate $j$ and $k$ until $j$ reaches the end of the array.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def divisibleTripletCount(self, nums: List[int], d: int) -> int:
+        cnt = defaultdict(int)
+        ans, n = 0, len(nums)
+        for j in range(n):
+            for k in range(j + 1, n):
+                x = (d - (nums[j] + nums[k]) % d) % d
+                ans += cnt[x]
+            cnt[nums[j] % d] += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int divisibleTripletCount(int[] nums, int d) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        int ans = 0, n = nums.length;
+        for (int j = 0; j < n; ++j) {
+            for (int k = j + 1; k < n; ++k) {
+                int x = (d - (nums[j] + nums[k]) % d) % d;
+                ans += cnt.getOrDefault(x, 0);
+            }
+            cnt.merge(nums[j] % d, 1, Integer::sum);
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int divisibleTripletCount(vector<int>& nums, int d) {
+        unordered_map<int, int> cnt;
+        int ans = 0, n = nums.size();
+        for (int j = 0; j < n; ++j) {
+            for (int k = j + 1; k < n; ++k) {
+                int x = (d - (nums[j] + nums[k]) % d) % d;
+                ans += cnt[x];
+            }
+            cnt[nums[j] % d]++;
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func divisibleTripletCount(nums []int, d int) (ans int) {
+	n := len(nums)
+	cnt := map[int]int{}
+	for j := 0; j < n; j++ {
+		for k := j + 1; k < n; k++ {
+			x := (d - (nums[j]+nums[k])%d) % d
+			ans += cnt[x]
+		}
+		cnt[nums[j]%d]++
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function divisibleTripletCount(nums: number[], d: number): number {
+    const n = nums.length;
+    const cnt: Map<number, number> = new Map();
+    let ans = 0;
+    for (let j = 0; j < n; ++j) {
+        for (let k = j + 1; k < n; ++k) {
+            const x = (d - ((nums[j] + nums[k]) % d)) % d;
+            ans += cnt.get(x) || 0;
+        }
+        cnt.set(nums[j] % d, (cnt.get(nums[j] % d) || 0) + 1);
+    }
+    return ans;
+}
 ```
 
 ### **...**
