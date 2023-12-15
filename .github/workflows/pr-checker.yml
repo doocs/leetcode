@@ -20,6 +20,7 @@ jobs:
                 const comment = 
                 `🤭 感谢你的提交，请检查你的改动是否符合以下项目规范。
                 ### 1. 格式化
+                
                 我们项目中各种编程语言代码（包括文档）所采用的格式化工具不同，提交 pr 之前必须确保代码、文档正确格式化。
                 -   .{md,js,ts,php,sql,rs} 采用 prettier
                 -   .{c,cpp,java} 采用 clang-format
@@ -27,6 +28,7 @@ jobs:
                 -   .{go} 采用 gofmt
                 -   其它待完善
                 ### 2. Git 提交信息
+
                 我们项目遵循 [AngularJS Git Commit Message Conventions](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#) 规范，我们希望你的提交信息尽可能与项目保持一致。
                 -   新增或修改题解：feat: add/update solution(s) to lc problem(s): No.xxxx
                 -   修复错误：fix: xxxx
