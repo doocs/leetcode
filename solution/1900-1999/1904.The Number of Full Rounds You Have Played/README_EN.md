@@ -55,59 +55,48 @@ You did not play the full round from 10:00 to 10:15 because you logged out at 10
 
 ## Solutions
 
+**Solution 1: Convert to Minutes**
+
+We can convert the input strings to minutes $a$ and $b$. If $a > b$, it means that it crosses midnight, so we need to add one day's minutes $1440$ to $b$.
+
+Then we round $a$ up to the nearest multiple of $15$, and round $b$ down to the nearest multiple of $15$. Finally, we return the difference between $b$ and $a$. Note that we should take the larger value between $0$ and $b - a$.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
 class Solution:
-    def numberOfRounds(self, startTime: str, finishTime: str) -> int:
-        def get(s: str) -> int:
+    def numberOfRounds(self, loginTime: str, logoutTime: str) -> int:
+        def f(s: str) -> int:
             return int(s[:2]) * 60 + int(s[3:])
 
-        start, finish = get(startTime), get(finishTime)
-        if start > finish:
-            finish += 24 * 60
-        start, finish = (start + 14) // 15, finish // 15
-        return max(0, finish - start)
+        a, b = f(loginTime), f(logoutTime)
+        if a > b:
+            b += 1440
+        a, b = (a + 14) // 15, b // 15
+        return max(0, b - a)
 ```
 
 ### **Java**
 
 ```java
 class Solution {
-    public int numberOfRounds(String startTime, String finishTime) {
-        int start = get(startTime), finish = get(finishTime);
-        if (start > finish) {
-            finish += 24 * 60;
+    public int numberOfRounds(String loginTime, String logoutTime) {
+        int a = f(loginTime), b = f(logoutTime);
+        if (a > b) {
+            b += 1440;
         }
-        start = (start + 14) / 15;
-        finish /= 15;
-        return Math.max(0, finish - start);
+        return Math.max(0, b / 15 - (a + 14) / 15);
     }
 
-    private int get(String s) {
-        return Integer.parseInt(s.substring(0, 2)) * 60 + Integer.parseInt(s.substring(3));
+    private int f(String s) {
+        int h = Integer.parseInt(s.substring(0, 2));
+        int m = Integer.parseInt(s.substring(3, 5));
+        return h * 60 + m;
     }
-}
-```
-
-### **TypeScript**
-
-```ts
-function numberOfRounds(startTime: string, finishTime: string): number {
-    let m1 = toMinutes(startTime),
-        m2 = toMinutes(finishTime);
-    if (m1 > m2) {
-        m2 += 24 * 60;
-    }
-    let ans = Math.floor(m2 / 15) - Math.ceil(m1 / 15);
-    return ans > 0 ? ans : 0;
-}
-
-function toMinutes(time: string): number {
-    let [h, m] = time.split(':').map(Number);
-    return h * 60 + m;
 }
 ```
 
@@ -116,21 +105,17 @@ function toMinutes(time: string): number {
 ```cpp
 class Solution {
 public:
-    int numberOfRounds(string startTime, string finishTime) {
-        int start = get(startTime), finish = get(finishTime);
-        if (start > finish) {
-            finish += 24 * 60;
+    int numberOfRounds(string loginTime, string logoutTime) {
+        auto f = [](string& s) {
+            int h, m;
+            sscanf(s.c_str(), "%d:%d", &h, &m);
+            return h * 60 + m;
+        };
+        int a = f(loginTime), b = f(logoutTime);
+        if (a > b) {
+            b += 1440;
         }
-        start = (start + 14) / 15;
-        finish /= 15;
-        return max(0, finish - start);
-    }
-
-private:
-    int get(string s) {
-        int a, b;
-        sscanf(s.c_str(), "%d:%d", &a, &b);
-        return a * 60 + b;
+        return max(0, b / 15 - (a + 14) / 15);
     }
 };
 ```
@@ -138,24 +123,33 @@ private:
 ### **Go**
 
 ```go
-func numberOfRounds(startTime string, finishTime string) int {
-	start, finish := get(startTime), get(finishTime)
-	if start > finish {
-		finish += 24 * 60
+func numberOfRounds(loginTime string, logoutTime string) int {
+	f := func(s string) int {
+		var h, m int
+		fmt.Sscanf(s, "%d:%d", &h, &m)
+		return h*60 + m
 	}
-	start = (start + 14) / 15
-	finish /= 15
-	if start > finish {
-		return 0
+	a, b := f(loginTime), f(logoutTime)
+	if a > b {
+		b += 1440
 	}
-	return finish - start
-
+	return max(0, b/15-(a+14)/15)
 }
+```
 
-func get(s string) int {
-	var a, b int
-	fmt.Sscanf(s, "%d:%d", &a, &b)
-	return a*60 + b
+### **TypeScript**
+
+```ts
+function numberOfRounds(startTime: string, finishTime: string): number {
+    const f = (s: string): number => {
+        const [h, m] = s.split(':').map(Number);
+        return h * 60 + m;
+    };
+    let [a, b] = [f(startTime), f(finishTime)];
+    if (a > b) {
+        b += 1440;
+    }
+    return Math.max(0, Math.floor(b / 15) - Math.ceil(a / 15));
 }
 ```
 

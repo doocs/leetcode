@@ -43,6 +43,12 @@
 
 ## Solutions
 
+**Solution 1: Reverse Traversal**
+
+We can traverse the string from the end to the beginning, find the first odd number, and then return the substring from the beginning to this odd number. If there is no odd number, return an empty string.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $num$. Ignoring the space consumption of the answer string, the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -70,24 +76,6 @@ class Solution {
         return "";
     }
 }
-```
-
-### **JavaScript**
-
-```js
-/**
- * @param {string} num
- * @return {string}
- */
-var largestOddNumber = function (num) {
-    let n = num.length;
-    for (let j = n - 1; j >= 0; j--) {
-        if (num.charAt(j) & (1 == 1)) {
-            return num.slice(0, j + 1);
-        }
-    }
-    return '';
-};
 ```
 
 ### **C++**
@@ -119,6 +107,36 @@ func largestOddNumber(num string) string {
 	}
 	return ""
 }
+```
+
+### **TypeScript**
+
+```ts
+function largestOddNumber(num: string): string {
+    for (let i = num.length - 1; ~i; --i) {
+        if (Number(num[i]) & 1) {
+            return num.slice(0, i + 1);
+        }
+    }
+    return '';
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} num
+ * @return {string}
+ */
+var largestOddNumber = function (num) {
+    for (let i = num.length - 1; ~i; --i) {
+        if (Number(num[i]) & 1) {
+            return num.slice(0, i + 1);
+        }
+    }
+    return '';
+};
 ```
 
 ### **...**

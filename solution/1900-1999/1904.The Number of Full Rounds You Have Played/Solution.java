@@ -1,15 +1,15 @@
 class Solution {
-    public int numberOfRounds(String startTime, String finishTime) {
-        int start = get(startTime), finish = get(finishTime);
-        if (start > finish) {
-            finish += 24 * 60;
+    public int numberOfRounds(String loginTime, String logoutTime) {
+        int a = f(loginTime), b = f(logoutTime);
+        if (a > b) {
+            b += 1440;
         }
-        start = (start + 14) / 15;
-        finish /= 15;
-        return Math.max(0, finish - start);
+        return Math.max(0, b / 15 - (a + 14) / 15);
     }
 
-    private int get(String s) {
-        return Integer.parseInt(s.substring(0, 2)) * 60 + Integer.parseInt(s.substring(3));
+    private int f(String s) {
+        int h = Integer.parseInt(s.substring(0, 2));
+        int m = Integer.parseInt(s.substring(3, 5));
+        return h * 60 + m;
     }
 }
