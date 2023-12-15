@@ -8,65 +8,79 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Pull request
-        uses: actions-cool/maintain-one-comment@v3
+      - name: Check Team Membership
+        id: check_team
+        env:
+          PR_OPENER: ${{ github.actor }}
+        uses: actions/github-script@v5
         with:
-          token: ${{ secrets.DOOCS_BOT_ACTION_TOKEN }}
-          body: |
-            🤭 感谢你的提交，请检查你的改动是否符合以下项目规范。
+            github-token: ${{ secrets.DOOCS_BOT_ACTION_TOKEN }}
+            script: |
+                const PR_OPENER = process.env.PR_OPENER;
+                const comment = 
+                `🤭 感谢你的提交，请检查你的改动是否符合以下项目规范。
+                ### 1. 格式化
+                我们项目中各种编程语言代码（包括文档）所采用的格式化工具不同，提交 pr 之前必须确保代码、文档正确格式化。
+                -   .{md,js,ts,php,sql,rs} 采用 prettier
+                -   .{c,cpp,java} 采用 clang-format
+                -   .{py} 采用 black
+                -   .{go} 采用 gofmt
+                -   其它待完善
+                ### 2. Git 提交信息
+                我们项目遵循 [AngularJS Git Commit Message Conventions](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#) 规范，我们希望你的提交信息尽可能与项目保持一致。
+                -   新增或修改题解：feat: add/update solution(s) to lc problem(s): No.xxxx
+                -   修复错误：fix: xxxx
+                -   日常维护：chore: xxx
+                ### 3. 其它补充
+                
+                新增题解及代码时，需要创建 Solution.xxx 源代码文件（如果已存在，请确认算法是否更优，是则覆盖已有算法代码），同时，需要在 README.md 以及 README_EN.md 中添加对应的代码片段（英文文件中不要出现中文注释）
+                另外，编码风格（比如变量、函数的命名），尽量跟项目已有代码保持一致。 
 
-            ### 1. 格式化
-
-            我们项目中各种编程语言代码（包括文档）所采用的格式化工具不同，提交 pr 之前必须确保代码、文档正确格式化。
-
-            -   .{md,js,ts,php,sql,rs} 采用 prettier
-            -   .{c,cpp,java} 采用 clang-format
-            -   .{py} 采用 black
-            -   .{go} 采用 gofmt
-            -   其它待完善
-
-            ### 2. Git 提交信息
-
-            我们项目遵循 [AngularJS Git Commit Message Conventions](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#) 规范，我们希望你的提交信息尽可能与项目保持一致。
-
-            -   新增或修改题解：feat: add/update solution(s) to lc problem(s): No.xxxx
-            -   修复错误：fix: xxxx
-            -   日常维护：chore: xxx
-
-            ### 3. 其它补充
-
-            新增题解及代码时，需要创建 Solution.xxx 源代码文件（如果已存在，请确认算法是否更优，是则覆盖已有算法代码），同时，需要在 README.md 以及 README_EN.md 中添加对应的代码片段（英文文件中不要出现中文注释）
-
-            另外，编码风格（比如变量、函数的命名），尽量跟项目已有代码保持一致。 
-
-            ---
-
-            🤭 Thank you for your contribution. Please check if your changes comply with the following project specifications. 
-
-            ### 1. Formatting
-
-            We use different formatting tools for various programming languages (including documentation) in our project. You must ensure that the code and documentation are correctly formatted before submitting a pr.
-
-            -   .{md,js,ts,php,sql,rs} use prettier
-            -   .{c,cpp,java} use clang-format
-            -   .{py} use black
-            -   .{go} use gofmt
-            -   Others to be improved
-
-            ### 2. Git Commit Message
-
-            Our project follows the [AngularJS Git Commit Message Conventions](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#). We hope that your submission information is as consistent as possible with the project.
-
-            -   Add or modify solutions: feat: add/update solution(s) to lc problem(s): No.xxxx
-            -   Fix errors: fix: xxxx
-            -   Routine maintenance: chore: xxx
-
-            ### 3. Other notes
-
-            When adding solutions and code, you need to create a Solution.xxx source code file (if it already exists, please confirm whether the algorithm is better, if yes, overwrite the existing algorithm code), and at the same time, you need to add the corresponding code snippets in README.md and README_EN.md (do not have Chinese comments in the English file)
-
-            In addition, the coding style (such as the naming of variables and functions) should be as consistent as possible with the existing code in the project. 
-
-            <!-- Sticky Pull Request Comment -->
-          emojis: '+1, laugh'
-          body-include: '<!-- Sticky Pull Request Comment -->'
+                ---
+                🤭 Thank you for your contribution. Please check if your changes comply with the following project specifications. 
+                ### 1. Formatting
+                We use different formatting tools for various programming languages (including documentation) in our project. You must ensure that the code and documentation are correctly formatted before submitting a pr.
+                -   .{md,js,ts,php,sql,rs} use prettier
+                -   .{c,cpp,java} use clang-format
+                -   .{py} use black
+                -   .{go} use gofmt
+                -   Others to be improved
+                ### 2. Git Commit Message
+                Our project follows the [AngularJS Git Commit Message Conventions](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#). We hope that your submission information is as consistent as possible with the project.
+                -   Add or modify solutions: feat: add/update solution(s) to lc problem(s): No.xxxx
+                -   Fix errors: fix: xxxx
+                -   Routine maintenance: chore: xxx
+                ### 3. Other notes
+                When adding solutions and code, you need to create a Solution.xxx source code file (if it already exists, please confirm whether the algorithm is better, if yes, overwrite the existing algorithm code), and at the same time, you need to add the corresponding code snippets in README.md and README_EN.md (do not have Chinese comments in the English file)
+                In addition, the coding style (such as the naming of variables and functions) should be as consistent as possible with the existing code in the project. 
+                <!-- Sticky Pull Request Comment -->`
+                
+                const checkTeamMembership = async () => {
+                  try {
+                      const response = await github.request('GET /orgs/{org}/teams/{team_slug}/members', {
+                      org: 'doocs',
+                      team_slug: 'leetcode-algorithm',
+                        headers: {
+                          'X-GitHub-Api-Version': '2022-11-28'
+                        }
+                      })
+                    const teamMemberships = response.data;
+                    const isTeamMember = teamMemberships.some(member => member.login === PR_OPENER);
+                    if (isTeamMember) {
+                        console.log(`The user ${PR_OPENER} is a member of the team. Terminating with the workflow.`);
+                        return
+                    } else {
+                      console.log(`The user ${PR_OPENER} is not a member of the team. Proceeding the workflow.`);
+                      github.rest.issues.createComment({
+                        issue_number: context.issue.number,
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                        body: comment
+                      })
+                    }
+                  } catch (error) {
+                    console.log(PR_OPENER)
+                    console.log(error)
+                  }
+                  }
+                  checkTeamMembership();
