@@ -37,6 +37,18 @@
 
 ## Solutions
 
+**Solution 1: Counting**
+
+We can use a hash table or array $cnt$ to count the occurrence of each character in string $s$, then traverse string $t$. For each character, we subtract its occurrence in $cnt$. If the corresponding count is negative, it means that the occurrence of this character in $t$ is greater than in $s$, so this character is the added character.
+
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string, and $\Sigma$ represents the character set. Here the character set is all lowercase letters, so $|\Sigma|=26$.
+
+**Solution 2: Summation**
+
+We can sum the ASCII values of each character in string $t$, then subtract the sum of the ASCII values of each character in string $s$. The final result is the ASCII value of the added character.
+
+The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -98,10 +110,15 @@ class Solution {
 class Solution {
 public:
     char findTheDifference(string s, string t) {
-        int cnt[26] = {0};
-        for (char& c : s) ++cnt[c - 'a'];
-        for (char& c : t)
-            if (--cnt[c - 'a'] < 0) return c;
+        int cnt[26]{};
+        for (char& c : s) {
+            ++cnt[c - 'a'];
+        }
+        for (char& c : t) {
+            if (--cnt[c - 'a'] < 0) {
+                return c;
+            }
+        }
         return ' ';
     }
 };
@@ -112,25 +129,64 @@ class Solution {
 public:
     char findTheDifference(string s, string t) {
         int a = 0, b = 0;
-        for (char& c : s) a += c;
-        for (char& c : t) b += c;
+        for (char& c : s) {
+            a += c;
+        }
+        for (char& c : t) {
+            b += c;
+        }
         return b - a;
     }
 };
+```
+
+### **Go**
+
+```go
+func findTheDifference(s, t string) byte {
+	cnt := [26]int{}
+	for _, ch := range s {
+		cnt[ch-'a']++
+	}
+	for i := 0; ; i++ {
+		ch := t[i]
+		cnt[ch-'a']--
+		if cnt[ch-'a'] < 0 {
+			return ch
+		}
+	}
+}
+```
+
+```go
+func findTheDifference(s string, t string) byte {
+	ss := 0
+	for _, c := range s {
+		ss -= int(c)
+	}
+	for _, c := range t {
+		ss += int(c)
+	}
+	return byte(ss)
+}
 ```
 
 ### **TypeScript**
 
 ```ts
 function findTheDifference(s: string, t: string): string {
-    const n = s.length;
-    const count = new Array(26).fill(0);
-    for (let i = 0; i < n; i++) {
-        count[s.charCodeAt(i) - 'a'.charCodeAt(0)]++;
-        count[t.charCodeAt(i) - 'a'.charCodeAt(0)]--;
+    const cnt: number[] = Array(26).fill(0);
+    for (const c of s) {
+        ++cnt[c.charCodeAt(0) - 'a'.charCodeAt(0)];
     }
-    count[t.charCodeAt(n) - 'a'.charCodeAt(0)]--;
-    return String.fromCharCode('a'.charCodeAt(0) + count.findIndex(v => v !== 0));
+    for (const c of t) {
+        --cnt[c.charCodeAt(0) - 'a'.charCodeAt(0)];
+    }
+    for (let i = 0; ; ++i) {
+        if (cnt[i] < 0) {
+            return String.fromCharCode(i + 'a'.charCodeAt(0));
+        }
+    }
 }
 ```
 
@@ -190,19 +246,17 @@ impl Solution {
 ```c
 char findTheDifference(char* s, char* t) {
     int n = strlen(s);
-    int count[26] = {0};
+    int cnt[26] = {0};
     for (int i = 0; i < n; i++) {
-        count[s[i] - 'a']++;
-        count[t[i] - 'a']--;
+        cnt[s[i] - 'a']++;
+        cnt[t[i] - 'a']--;
     }
-    count[t[n] - 'a']--;
-    int i;
-    for (i = 0; i < 26; i++) {
-        if (count[i]) {
-            break;
+    cnt[t[n] - 'a']--;
+    for (int i = 0;; i++) {
+        if (cnt[i]) {
+            return 'a' + i;
         }
     }
-    return 'a' + i;
 }
 ```
 
@@ -216,37 +270,6 @@ char findTheDifference(char* s, char* t) {
     }
     ans ^= t[n];
     return ans;
-}
-```
-
-### **Go**
-
-```go
-func findTheDifference(s, t string) byte {
-	cnt := [26]int{}
-	for _, ch := range s {
-		cnt[ch-'a']++
-	}
-	for i := 0; ; i++ {
-		ch := t[i]
-		cnt[ch-'a']--
-		if cnt[ch-'a'] < 0 {
-			return ch
-		}
-	}
-}
-```
-
-```go
-func findTheDifference(s string, t string) byte {
-	ss := 0
-	for _, c := range s {
-		ss -= int(c)
-	}
-	for _, c := range t {
-		ss += int(c)
-	}
-	return byte(ss)
 }
 ```
 

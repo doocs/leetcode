@@ -69,6 +69,12 @@ class Solution:
         return True
 ```
 
+```python
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        return Counter(s) == Counter(t)
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->

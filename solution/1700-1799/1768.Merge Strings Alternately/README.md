@@ -60,9 +60,9 @@ word2：    p   q
 
 **方法一：直接模拟**
 
-遍历 `word1`, `word2` 两个字符串，依次取出字符，拼接到结果字符串中。Python 代码可以简化为一行。
+我们遍历 `word1`, `word2` 两个字符串，依次取出字符，拼接到结果字符串中。Python 代码可以简化为一行。
 
-时间复杂度 $O(m + n)$，忽略答案的空间消耗，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别是两个字符串的长度。
+时间复杂度 $O(m + n)$，其中 $m$ 和 $n$ 分别是两个字符串的长度。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -137,13 +137,17 @@ func mergeAlternately(word1 string, word2 string) string {
 
 ```ts
 function mergeAlternately(word1: string, word2: string): string {
-    const res = [];
-    const n = Math.max(word1.length, word2.length);
-    for (let i = 0; i < n; i++) {
-        word1[i] && res.push(word1[i]);
-        word2[i] && res.push(word2[i]);
+    const ans: string[] = [];
+    const [m, n] = [word1.length, word2.length];
+    for (let i = 0; i < m || i < n; ++i) {
+        if (i < m) {
+            ans.push(word1[i]);
+        }
+        if (i < n) {
+            ans.push(word2[i]);
+        }
     }
-    return res.join('');
+    return ans.join('');
 }
 ```
 

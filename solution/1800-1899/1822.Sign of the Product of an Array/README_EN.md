@@ -51,6 +51,18 @@
 
 ## Solutions
 
+**Solution 1: Direct Traversal**
+
+The problem requires us to return the sign of the product of the array elements, i.e., return $1$ for positive numbers, $-1$ for negative numbers, and $0$ if it equals $0$.
+
+We can define an answer variable `ans`, initially set to $1$.
+
+Then we traverse each element $v$ in the array. If $v$ is a negative number, we multiply `ans` by $-1$. If $v$ is $0$, we return $0$ in advance.
+
+After the traversal is over, we return `ans`.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
