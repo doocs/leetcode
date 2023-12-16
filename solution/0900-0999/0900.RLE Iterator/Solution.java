@@ -6,7 +6,7 @@ class RLEIterator {
     public RLEIterator(int[] encoding) {
         this.encoding = encoding;
     }
-    
+
     public int next(int n) {
         while (i < encoding.length) {
             if (encoding[i] - j < n) {
