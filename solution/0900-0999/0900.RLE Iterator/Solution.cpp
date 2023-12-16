@@ -3,7 +3,7 @@ public:
     RLEIterator(vector<int>& encoding) {
         this->encoding = encoding;
     }
-    
+
     int next(int n) {
         while (i < encoding.size()) {
             if (encoding[i] - j < n) {
