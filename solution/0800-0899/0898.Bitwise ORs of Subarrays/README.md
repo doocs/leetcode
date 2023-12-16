@@ -56,6 +56,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：哈希表**
+
+题目求的是子数组按位或操作的结果的数量，如果我们枚举子数组的结束位置 $i$，那么以 $i-1$ 结尾的子数组按位或操作的结果的数量最多不超过 $32$ 个。这是因为，按位或是一个单调递增的操作。
+
+因此，我们用一个哈希表 $ans$ 记录所有子数组按位或操作的结果，用一个哈希表 $s$ 记录以当前元素结尾的子数组按位或操作的结果，初始时 $s$ 只包含一个元素 $0$。
+
+接下来，我们枚举子数组的结束位置 $i$，那么以 $i$ 结尾的子数组按位或操作的结果，是以 $i-1$ 结尾的子数组按位或操作的结果与 $a[i]$ 进行按位或操作的结果的集合，再加上 $a[i]$ 本身。我们用一个哈希表 $t$ 记录以 $i$ 结尾的子数组按位或操作的结果，然后我们更新 $s = t$，并将 $t$ 中的所有元素加入 $ans$。
+
+最终，我们返回哈希表 $ans$ 中元素的数量即可。
+
+时间复杂度 $O(n \times \log M)$，空间复杂度 $O(n \times \log M)$。其中 $n$ 和 $M$ 分别为数组长度和数组中元素的最大值。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -65,17 +77,12 @@
 ```python
 class Solution:
     def subarrayBitwiseORs(self, arr: List[int]) -> int:
-        s = set()
-        prev = 0
-        for i, v in enumerate(arr):
-            prev |= v
-            curr = 0
-            for j in range(i, -1, -1):
-                curr |= arr[j]
-                s.add(curr)
-                if curr == prev:
-                    break
-        return len(s)
+        s = {0}
+        ans = set()
+        for x in arr:
+            s = {x | y for y in s} | {x}
+            ans |= s
+        return len(ans)
 ```
 
 ### **Java**
@@ -86,19 +93,18 @@ class Solution:
 class Solution {
     public int subarrayBitwiseORs(int[] arr) {
         Set<Integer> s = new HashSet<>();
-        int prev = 0;
-        for (int i = 0; i < arr.length; ++i) {
-            prev |= arr[i];
-            int curr = 0;
-            for (int j = i; j >= 0; --j) {
-                curr |= arr[j];
-                s.add(curr);
-                if (curr == prev) {
-                    break;
-                }
+        s.add(0);
+        Set<Integer> ans = new HashSet<>();
+        for (int x : arr) {
+            Set<Integer> t = new HashSet<>();
+            for (int y : s) {
+                t.add(x | y);
             }
+            t.add(x);
+            s = t;
+            ans.addAll(s);
         }
-        return s.size();
+        return ans.size();
     }
 }
 ```
@@ -109,18 +115,17 @@ class Solution {
 class Solution {
 public:
     int subarrayBitwiseORs(vector<int>& arr) {
-        unordered_set<int> s;
-        int prev = 0;
-        for (int i = 0; i < arr.size(); ++i) {
-            prev |= arr[i];
-            int curr = 0;
-            for (int j = i; ~j; --j) {
-                curr |= arr[j];
-                s.insert(curr);
-                if (curr == prev) break;
+        unordered_set<int> s{{0}};
+        unordered_set<int> ans;
+        for (int& x : arr) {
+            unordered_set<int> t{{x}};
+            for (int y : s) {
+                t.insert(x | y);
             }
+            s = move(t);
+            ans.insert(s.begin(), s.end());
         }
-        return s.size();
+        return ans.size();
     }
 };
 ```
@@ -129,20 +134,41 @@ public:
 
 ```go
 func subarrayBitwiseORs(arr []int) int {
-	s := map[int]bool{}
-	prev := 0
-	for i, v := range arr {
-		prev |= v
-		curr := 0
-		for j := i; j >= 0; j-- {
-			curr |= arr[j]
-			s[curr] = true
-			if curr == prev {
-				break
-			}
+	ans := map[int]bool{}
+	s := map[int]bool{0: true}
+	for _, x := range arr {
+		t := map[int]bool{x: true}
+		for y := range s {
+			t[x|y] = true
+		}
+		s = t
+		for y := range s {
+			ans[y] = true
 		}
 	}
-	return len(s)
+	return len(ans)
+}
+```
+
+### **TypeScript**
+
+```ts
+function subarrayBitwiseORs(arr: number[]): number {
+    const s: Set<number> = new Set();
+    const ans: Set<number> = new Set();
+    for (const x of arr) {
+        const t: Set<number> = new Set();
+        for (const y of s) {
+            t.add(x | y);
+        }
+        t.add(x);
+        s.clear();
+        for (const y of t) {
+            s.add(y);
+            ans.add(y);
+        }
+    }
+    return ans.size;
 }
 ```
 
