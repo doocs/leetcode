@@ -138,7 +138,7 @@ public:
     TreeNode* increasingBST(TreeNode* root) {
         TreeNode* dummy = new TreeNode(0, nullptr, root);
         TreeNode* prev = dummy;
-        function<void(TreeNode* root)> dfs = [&](TreeNode* root) {
+        function<void(TreeNode*)> dfs = [&](TreeNode* root) {
             if (!root) {
                 return;
             }
