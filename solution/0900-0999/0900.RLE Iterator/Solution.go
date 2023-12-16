@@ -1,21 +1,20 @@
 type RLEIterator struct {
 	encoding []int
-	curr     int
-	i        int
+	i, j     int
 }
 
 func Constructor(encoding []int) RLEIterator {
-	return RLEIterator{encoding: encoding, curr: 0, i: 0}
+	return RLEIterator{encoding, 0, 0}
 }
 
 func (this *RLEIterator) Next(n int) int {
 	for this.i < len(this.encoding) {
-		if this.curr+n > this.encoding[this.i] {
-			n -= this.encoding[this.i] - this.curr
-			this.curr = 0
+		if this.encoding[this.i]-this.j < n {
+			n -= (this.encoding[this.i] - this.j)
 			this.i += 2
+			this.j = 0
 		} else {
-			this.curr += n
+			this.j += n
 			return this.encoding[this.i+1]
 		}
 	}

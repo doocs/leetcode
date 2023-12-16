@@ -53,17 +53,17 @@ stockSpanner.next(85);  // return 6
 
 **Solution 1: Monotonic Stack**
 
-According to the problem description, we can know that for the price price on a certain day, we need to find the first price that is greater than price when looking back, and the difference between the indices of these two prices is the span of the price on that day.
+Based on the problem description, we know that for the current day's price $price$, we start from this price and look backwards to find the first price that is larger than this price. The difference in indices $cnt$ between these two prices is the span of the current day's price.
 
-This is actually a classic monotonic stack model, which finds the first element on the left that is greater than the current element.
+This is actually a classic monotonic stack model, where we find the first element larger than the current element on the left.
 
-We maintain a stack that is monotonically decreasing from the bottom to the top in terms of prices. Each element in the stack stores a pair of $(price, cnt)$, where $price$ represents the price, and $cnt$ represents the span of the current price.
+We maintain a stack where the prices from the bottom to the top of the stack are monotonically decreasing. Each element in the stack is a $(price, cnt)$ data pair, where $price$ represents the price, and $cnt$ represents the span of the current price.
 
-When encountering a price $price$, we compare it with the top element of the stack. If the price of the top element of the stack is less than or equal to price, we add the span cnt of the current price to the span of the top element of the stack, and then pop the top element of the stack until the price of the top element of the stack is greater than price, or the stack is empty.
+When the price $price$ appears, we compare it with the top element of the stack. If the price of the top element of the stack is less than or equal to $price$, we add the span $cnt$ of the current day's price to the span of the top element of the stack, and then pop the top element of the stack. This continues until the price of the top element of the stack is greater than $price$, or the stack is empty.
 
 Finally, we push $(price, cnt)$ onto the stack and return $cnt$.
 
-The time complexity is $O(n)$, where $n$ is the number of calls to the next function.
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of times `next(price)` is called.
 
 <!-- tabs:start -->
 

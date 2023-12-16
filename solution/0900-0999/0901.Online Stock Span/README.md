@@ -70,7 +70,7 @@ stockSpanner.next(85);  // 返回 6
 
 最后将 $(price, cnt)$ 入栈，返回 $cnt$ 即可。
 
-时间复杂度 $O(n)$，其中 $n$ 为 $next$ 函数的调用次数。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是调用 `next(price)` 的次数。
 
 <!-- tabs:start -->
 
