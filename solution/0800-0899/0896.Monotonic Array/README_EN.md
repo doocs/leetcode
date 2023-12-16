@@ -42,6 +42,14 @@
 
 ## Solutions
 
+**Solution 1: Single Traversal**
+
+We traverse the array, and if an increasing or decreasing situation occurs, we record it. We then check whether both increasing and decreasing situations have occurred. If both have occurred, it means that the array is not monotonic, and we return `false`.
+
+Otherwise, if we reach the end of the traversal, it means that the array is monotonic, and we return `true`.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -49,23 +57,9 @@
 ```python
 class Solution:
     def isMonotonic(self, nums: List[int]) -> bool:
-        isIncr = isDecr = False
-        for i, v in enumerate(nums[1:]):
-            if v < nums[i]:
-                isIncr = True
-            elif v > nums[i]:
-                isDecr = True
-            if isIncr and isDecr:
-                return False
-        return True
-```
-
-```python
-class Solution:
-    def isMonotonic(self, nums: List[int]) -> bool:
-        incr = all(a <= b for a, b in pairwise(nums))
-        decr = all(a >= b for a, b in pairwise(nums))
-        return incr or decr
+        asc = all(a <= b for a, b in pairwise(nums))
+        desc = all(a >= b for a, b in pairwise(nums))
+        return asc or desc
 ```
 
 ### **Java**
@@ -73,14 +67,14 @@ class Solution:
 ```java
 class Solution {
     public boolean isMonotonic(int[] nums) {
-        boolean isIncr = false, isDecr = false;
+        boolean asc = false, desc = false;
         for (int i = 1; i < nums.length; ++i) {
-            if (nums[i] < nums[i - 1]) {
-                isIncr = true;
-            } else if (nums[i] > nums[i - 1]) {
-                isDecr = true;
+            if (nums[i - 1] < nums[i]) {
+                asc = true;
+            } else if (nums[i - 1] > nums[i]) {
+                desc = true;
             }
-            if (isIncr && isDecr) {
+            if (asc && desc) {
                 return false;
             }
         }
@@ -95,12 +89,16 @@ class Solution {
 class Solution {
 public:
     bool isMonotonic(vector<int>& nums) {
-        bool isIncr = false;
-        bool isDecr = false;
+        bool asc = false, desc = false;
         for (int i = 1; i < nums.size(); ++i) {
-            if (nums[i] < nums[i - 1]) isIncr = true;
-            if (nums[i] > nums[i - 1]) isDecr = true;
-            if (isIncr && isDecr) return false;
+            if (nums[i - 1] < nums[i]) {
+                asc = true;
+            } else if (nums[i - 1] > nums[i]) {
+                desc = true;
+            }
+            if (asc && desc) {
+                return false;
+            }
         }
         return true;
     }
@@ -111,14 +109,14 @@ public:
 
 ```go
 func isMonotonic(nums []int) bool {
-	isIncr, isDecr := false, false
-	for i, v := range nums[1:] {
-		if v < nums[i] {
-			isIncr = true
-		} else if v > nums[i] {
-			isDecr = true
+	asc, desc := false, false
+	for i, x := range nums[1:] {
+		if nums[i] < x {
+			asc = true
+		} else if nums[i] > x {
+			desc = true
 		}
-		if isIncr && isDecr {
+		if asc && desc {
 			return false
 		}
 	}
@@ -134,16 +132,14 @@ func isMonotonic(nums []int) bool {
  * @return {boolean}
  */
 var isMonotonic = function (nums) {
-    let isIncr = false;
-    let isDecr = false;
+    let [asc, desc] = [false, false];
     for (let i = 1; i < nums.length; ++i) {
-        if (nums[i] < nums[i - 1]) {
-            isIncr = true;
+        if (nums[i - 1] < nums[i]) {
+            asc = true;
+        } else if (nums[i - 1] > nums[i]) {
+            desc = true;
         }
-        if (nums[i] > nums[i - 1]) {
-            isDecr = true;
-        }
-        if (isIncr && isDecr) {
+        if (asc && desc) {
             return false;
         }
     }
@@ -155,18 +151,14 @@ var isMonotonic = function (nums) {
 
 ```ts
 function isMonotonic(nums: number[]): boolean {
-    const n = nums.length;
-    let isOrder = false;
-    let isDecs = false;
-    for (let i = 1; i < n; i++) {
-        const pre = nums[i - 1];
-        const cur = nums[i];
-        if (pre < cur) {
-            isOrder = true;
-        } else if (pre > cur) {
-            isDecs = true;
+    let [asc, desc] = [false, false];
+    for (let i = 1; i < nums.length; ++i) {
+        if (nums[i - 1] < nums[i]) {
+            asc = true;
+        } else if (nums[i - 1] > nums[i]) {
+            desc = true;
         }
-        if (isOrder && isDecs) {
+        if (asc && desc) {
             return false;
         }
     }
@@ -179,18 +171,15 @@ function isMonotonic(nums: number[]): boolean {
 ```rust
 impl Solution {
     pub fn is_monotonic(nums: Vec<i32>) -> bool {
-        let n = nums.len();
-        let mut is_order = false;
-        let mut is_decs = false;
-        for i in 1..n {
-            let pre = nums[i - 1];
-            let cur = nums[i];
-            if pre < cur {
-                is_order = true;
-            } else if pre > cur {
-                is_decs = true;
+        let mut asc = false;
+        let mut desc = false;
+        for i in 1..nums.len() {
+            if nums[i - 1] < nums[i] {
+                asc = true;
+            } else if nums[i - 1] > nums[i] {
+                desc = true;
             }
-            if is_order && is_decs {
+            if asc && desc {
                 return false;
             }
         }

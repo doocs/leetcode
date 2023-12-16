@@ -1,12 +1,12 @@
 func isMonotonic(nums []int) bool {
-	isIncr, isDecr := false, false
-	for i, v := range nums[1:] {
-		if v < nums[i] {
-			isIncr = true
-		} else if v > nums[i] {
-			isDecr = true
+	asc, desc := false, false
+	for i, x := range nums[1:] {
+		if nums[i] < x {
+			asc = true
+		} else if nums[i] > x {
+			desc = true
 		}
-		if isIncr && isDecr {
+		if asc && desc {
 			return false
 		}
 	}
