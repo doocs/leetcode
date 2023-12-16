@@ -53,6 +53,40 @@ If we had started at the first tree, we would only pick from trees [1,2].
 
 ## Solutions
 
+**Solution 1: Hash Table + Sliding Window**
+
+We use a hash table $cnt$ to maintain the types and corresponding quantities of fruits in the current window, and use two pointers $j$ and $i$ to maintain the left and right boundaries of the window.
+
+We traverse the `fruits` array, add the current fruit $x$ to the window, i.e., $cnt[x]++$, then judge whether the types of fruits in the current window exceed $2$. If it exceeds $2$, we need to move the left boundary $j$ of the window to the right until the types of fruits in the window do not exceed $2$. Then we update the answer, i.e., $ans = \max(ans, i - j + 1)$.
+
+After the traversal ends, we can get the final answer.
+
+```
+1 2 3 2 2 1 4
+^   ^
+j   i
+
+
+1 2 3 2 2 1 4
+  ^ ^
+  j i
+
+
+1 2 3 2 2 1 4
+  ^     ^
+  j     i
+```
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the `fruits` array.
+
+**Solution 2: Sliding Window Optimization**
+
+In Solution 1, we find that the window size sometimes increases and sometimes decreases, which requires us to update the answer each time.
+
+But what this problem actually asks for is the maximum number of fruits, that is, the "largest" window. We don't need to shrink the window, we just need to let the window monotonically increase. So the code omits the operation of updating the answer each time, and only needs to return the size of the window as the answer after the traversal ends.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the `fruits` array.
+
 <!-- tabs:start -->
 
 ### **Python3**

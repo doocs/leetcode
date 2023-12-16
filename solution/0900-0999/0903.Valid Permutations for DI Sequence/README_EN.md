@@ -52,6 +52,22 @@
 
 ## Solutions
 
+**Solution 1: Dynamic Programming**
+
+We define $f[i][j]$ as the number of permutations that satisfy the problem's requirements with the first $i$ characters of the string ending with the number $j$. Initially, $f[0][0]=1$, and the rest $f[0][j]=0$. The answer is $\sum_{j=0}^n f[n][j]$.
+
+Consider $f[i][j]$, where $j \in [0, i]$.
+
+If the $i$th character $s[i-1]$ is `'D'`, then $f[i][j]$ can be transferred from $f[i-1][k]$, where $k \in [j+1, i]$. Since $k-1$ can only be up to $i-1$, we move $k$ one place to the left, so $k \in [j, i-1]$. Therefore, we have $f[i][j] = \sum_{k=j}^{i-1} f[i-1][k]$.
+
+If the $i$th character $s[i-1]$ is `'I'`, then $f[i][j]$ can be transferred from $f[i-1][k]$, where $k \in [0, j-1]$. Therefore, we have $f[i][j] = \sum_{k=0}^{j-1} f[i-1][k]$.
+
+The final answer is $\sum_{j=0}^n f[n][j]$.
+
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the string.
+
+We can optimize the time complexity to $O(n^2)$ using prefix sums. Additionally, we can optimize the space complexity to $O(n)$ using a rolling array.
+
 <!-- tabs:start -->
 
 ### **Python3**
