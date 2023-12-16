@@ -35,6 +35,20 @@
 
 ## Solutions
 
+**Solution 1: Sorting + Traversal**
+
+We can first sort the array `arr`, then traverse the array, and check whether the difference between adjacent items is equal.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array `arr`.
+
+**Solution 2: Hash Table + Mathematics**
+
+We first find the minimum value $a$ and the maximum value $b$ in the array $arr$. If the array $arr$ can be rearranged into an arithmetic sequence, then the common difference $d = \frac{b - a}{n - 1}$ must be an integer.
+
+We can use a hash table to record all elements in the array $arr$, then traverse $i \in [0, n)$, and check whether $a + d \times i$ is in the hash table. If not, it means that the array $arr$ cannot be rearranged into an arithmetic sequence, and we return `false`. Otherwise, after traversing the array, we return `true`.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array `arr`.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -47,6 +61,19 @@ class Solution:
         return all(b - a == d for a, b in pairwise(arr))
 ```
 
+```python
+class Solution:
+    def canMakeArithmeticProgression(self, arr: List[int]) -> bool:
+        a = min(arr)
+        b = max(arr)
+        n = len(arr)
+        if (b - a) % (n - 1):
+            return False
+        d = (b - a) // (n - 1)
+        s = set(arr)
+        return all(a + d * i in s for i in range(n))
+```
+
 ### **Java**
 
 ```java
@@ -56,6 +83,31 @@ class Solution {
         int d = arr[1] - arr[0];
         for (int i = 2; i < arr.length; ++i) {
             if (arr[i] - arr[i - 1] != d) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
+```java
+class Solution {
+    public boolean canMakeArithmeticProgression(int[] arr) {
+        int n = arr.length;
+        int a = arr[0], b = arr[0];
+        Set<Integer> s = new HashSet<>();
+        for (int x : arr) {
+            a = Math.min(a, x);
+            b = Math.max(b, x);
+            s.add(x);
+        }
+        if ((b - a) % (n - 1) != 0) {
+            return false;
+        }
+        int d = (b - a) / (n - 1);
+        for (int i = 0; i < n; ++i) {
+            if (!s.contains(a + d * i)) {
                 return false;
             }
         }
@@ -82,6 +134,27 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    bool canMakeArithmeticProgression(vector<int>& arr) {
+        auto [a, b] = minmax_element(arr.begin(), arr.end());
+        int n = arr.size();
+        if ((*b - *a) % (n - 1) != 0) {
+            return false;
+        }
+        int d = (*b - *a) / (n - 1);
+        unordered_set<int> s(arr.begin(), arr.end());
+        for (int i = 0; i < n; ++i) {
+            if (!s.count(*a + d * i)) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -90,6 +163,27 @@ func canMakeArithmeticProgression(arr []int) bool {
 	d := arr[1] - arr[0]
 	for i := 2; i < len(arr); i++ {
 		if arr[i]-arr[i-1] != d {
+			return false
+		}
+	}
+	return true
+}
+```
+
+```go
+func canMakeArithmeticProgression(arr []int) bool {
+	a, b := slices.Min(arr), slices.Max(arr)
+	n := len(arr)
+	if (b-a)%(n-1) != 0 {
+		return false
+	}
+	d := (b - a) / (n - 1)
+	s := map[int]bool{}
+	for _, x := range arr {
+		s[x] = true
+	}
+	for i := 0; i < n; i++ {
+		if !s[a+i*d] {
 			return false
 		}
 	}
@@ -107,7 +201,9 @@ func canMakeArithmeticProgression(arr []int) bool {
 var canMakeArithmeticProgression = function (arr) {
     arr.sort((a, b) => a - b);
     for (let i = 1; i < arr.length - 1; i++) {
-        if (arr[i] << 1 != arr[i - 1] + arr[i + 1]) return false;
+        if (arr[i] << 1 != arr[i - 1] + arr[i + 1]) {
+            return false;
+        }
     }
     return true;
 };

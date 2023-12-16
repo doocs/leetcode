@@ -45,17 +45,15 @@
 
 **方法一：计数**
 
-使用数组（`cnt`）统计 `s` 与 `t` 当中字符出现的次数：`s[i]` 进行 `cnt[s[i] - 'a']++`，`t[i]` 进行 `cnt[t[i] - 'a']--`。
+我们可以用一个哈希表或数组 $cnt$ 统计字符串 $s$ 中每个字符出现的次数，再遍历字符串 $t$，对于每个字符，我们在 $cnt$ 中减去一次出现的次数，如果对应次数为负数，则说明该字符在 $t$ 中出现的次数大于在 $s$ 中出现的次数，因此该字符为被添加的字符。
 
-完成统计后，找到符合 `cnt[i] == -1` 的 `i`，返回即可（`return 'a' + i`）。
-
-时间复杂度 $O(n)$，空间复杂度 $O(C)$。本题中 $C=26$。
+时间复杂度 $O(n)$，空间复杂度 $O(|\Sigma|)$，其中 $n$ 为字符串的长度，而 $\Sigma$ 表示字符集，这里字符集为所有小写字母，所以 $|\Sigma|=26$。
 
 **方法二：求和**
 
-由于 `s` 与 `t` 只存在一个不同元素，可以统计两者所有字符 ASCII 码之和，再进行相减（`sum(t) - sum(s)`），即可得到 `t` 中那一个额外字符的 ASCII 码。
+我们可以将字符串 $t$ 中每个字符的 ASCII 码的值求和，再减去字符串 $s$ 中每个字符的 ASCII 码的值求和，最后的结果即为被添加的字符的 ASCII 码对应的值。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，其中 $n$ 为字符串的长度，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -122,10 +120,15 @@ class Solution {
 class Solution {
 public:
     char findTheDifference(string s, string t) {
-        int cnt[26] = {0};
-        for (char& c : s) ++cnt[c - 'a'];
-        for (char& c : t)
-            if (--cnt[c - 'a'] < 0) return c;
+        int cnt[26]{};
+        for (char& c : s) {
+            ++cnt[c - 'a'];
+        }
+        for (char& c : t) {
+            if (--cnt[c - 'a'] < 0) {
+                return c;
+            }
+        }
         return ' ';
     }
 };
@@ -136,25 +139,64 @@ class Solution {
 public:
     char findTheDifference(string s, string t) {
         int a = 0, b = 0;
-        for (char& c : s) a += c;
-        for (char& c : t) b += c;
+        for (char& c : s) {
+            a += c;
+        }
+        for (char& c : t) {
+            b += c;
+        }
         return b - a;
     }
 };
+```
+
+### **Go**
+
+```go
+func findTheDifference(s, t string) byte {
+	cnt := [26]int{}
+	for _, ch := range s {
+		cnt[ch-'a']++
+	}
+	for i := 0; ; i++ {
+		ch := t[i]
+		cnt[ch-'a']--
+		if cnt[ch-'a'] < 0 {
+			return ch
+		}
+	}
+}
+```
+
+```go
+func findTheDifference(s string, t string) byte {
+	ss := 0
+	for _, c := range s {
+		ss -= int(c)
+	}
+	for _, c := range t {
+		ss += int(c)
+	}
+	return byte(ss)
+}
 ```
 
 ### **TypeScript**
 
 ```ts
 function findTheDifference(s: string, t: string): string {
-    const n = s.length;
-    const count = new Array(26).fill(0);
-    for (let i = 0; i < n; i++) {
-        count[s.charCodeAt(i) - 'a'.charCodeAt(0)]++;
-        count[t.charCodeAt(i) - 'a'.charCodeAt(0)]--;
+    const cnt: number[] = Array(26).fill(0);
+    for (const c of s) {
+        ++cnt[c.charCodeAt(0) - 'a'.charCodeAt(0)];
     }
-    count[t.charCodeAt(n) - 'a'.charCodeAt(0)]--;
-    return String.fromCharCode('a'.charCodeAt(0) + count.findIndex(v => v !== 0));
+    for (const c of t) {
+        --cnt[c.charCodeAt(0) - 'a'.charCodeAt(0)];
+    }
+    for (let i = 0; ; ++i) {
+        if (cnt[i] < 0) {
+            return String.fromCharCode(i + 'a'.charCodeAt(0));
+        }
+    }
 }
 ```
 
@@ -214,19 +256,17 @@ impl Solution {
 ```c
 char findTheDifference(char* s, char* t) {
     int n = strlen(s);
-    int count[26] = {0};
+    int cnt[26] = {0};
     for (int i = 0; i < n; i++) {
-        count[s[i] - 'a']++;
-        count[t[i] - 'a']--;
+        cnt[s[i] - 'a']++;
+        cnt[t[i] - 'a']--;
     }
-    count[t[n] - 'a']--;
-    int i;
-    for (i = 0; i < 26; i++) {
-        if (count[i]) {
-            break;
+    cnt[t[n] - 'a']--;
+    for (int i = 0;; i++) {
+        if (cnt[i]) {
+            return 'a' + i;
         }
     }
-    return 'a' + i;
 }
 ```
 
@@ -240,37 +280,6 @@ char findTheDifference(char* s, char* t) {
     }
     ans ^= t[n];
     return ans;
-}
-```
-
-### **Go**
-
-```go
-func findTheDifference(s, t string) byte {
-	cnt := [26]int{}
-	for _, ch := range s {
-		cnt[ch-'a']++
-	}
-	for i := 0; ; i++ {
-		ch := t[i]
-		cnt[ch-'a']--
-		if cnt[ch-'a'] < 0 {
-			return ch
-		}
-	}
-}
-```
-
-```go
-func findTheDifference(s string, t string) byte {
-	ss := 0
-	for _, c := range s {
-		ss -= int(c)
-	}
-	for _, c := range t {
-		ss += int(c)
-	}
-	return byte(ss)
 }
 ```
 
