@@ -38,30 +38,131 @@
 
 ## Solutions
 
+**Solution 1: Counting**
+
+We create an array $cnt$ of length $n^2 + 1$ to count the frequency of each number in the matrix.
+
+Next, we traverse $i \in [1, n^2]$. If $cnt[i] = 2$, then $i$ is the duplicated number, and we set the first element of the answer to $i$. If $cnt[i] = 0$, then $i$ is the missing number, and we set the second element of the answer to $i$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the side length of the matrix.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findMissingAndRepeatedValues(self, grid: List[List[int]]) -> List[int]:
+        n = len(grid)
+        cnt = [0] * (n * n + 1)
+        for row in grid:
+            for v in row:
+                cnt[v] += 1
+        ans = [0] * 2
+        for i in range(1, n * n + 1):
+            if cnt[i] == 2:
+                ans[0] = i
+            if cnt[i] == 0:
+                ans[1] = i
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int[] findMissingAndRepeatedValues(int[][] grid) {
+        int n = grid.length;
+        int[] cnt = new int[n * n + 1];
+        int[] ans = new int[2];
+        for (int[] row : grid) {
+            for (int x : row) {
+                if (++cnt[x] == 2) {
+                    ans[0] = x;
+                }
+            }
+        }
+        for (int x = 1;; ++x) {
+            if (cnt[x] == 0) {
+                ans[1] = x;
+                return ans;
+            }
+        }
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> findMissingAndRepeatedValues(vector<vector<int>>& grid) {
+        int n = grid.size();
+        vector<int> cnt(n * n + 1);
+        vector<int> ans(2);
+        for (auto& row : grid) {
+            for (int x : row) {
+                if (++cnt[x] == 2) {
+                    ans[0] = x;
+                }
+            }
+        }
+        for (int x = 1;; ++x) {
+            if (cnt[x] == 0) {
+                ans[1] = x;
+                return ans;
+            }
+        }
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func findMissingAndRepeatedValues(grid [][]int) []int {
+	n := len(grid)
+	ans := make([]int, 2)
+	cnt := make([]int, n*n+1)
+	for _, row := range grid {
+		for _, x := range row {
+			cnt[x]++
+			if cnt[x] == 2 {
+				ans[0] = x
+			}
+		}
+	}
+	for x := 1; ; x++ {
+		if cnt[x] == 0 {
+			ans[1] = x
+			return ans
+		}
+	}
+}
+```
 
+### **TypeScript**
+
+```ts
+function findMissingAndRepeatedValues(grid: number[][]): number[] {
+    const n = grid.length;
+    const cnt: number[] = Array(n * n + 1).fill(0);
+    const ans: number[] = Array(2).fill(0);
+    for (const row of grid) {
+        for (const x of row) {
+            if (++cnt[x] === 2) {
+                ans[0] = x;
+            }
+        }
+    }
+    for (let x = 1; ; ++x) {
+        if (cnt[x] === 0) {
+            ans[1] = x;
+            return ans;
+        }
+    }
+}
 ```
 
 ### **...**

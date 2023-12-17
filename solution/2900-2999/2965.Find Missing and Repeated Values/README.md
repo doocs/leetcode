@@ -46,6 +46,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：计数**
+
+我们创建一个长度为 $n^2 + 1$ 的数组 $cnt$，统计矩阵中每个数字出现的次数。
+
+接下来遍历 $i \in [1, n^2]$，如果 $cnt[i] = 2$，则 $i$ 是重复的数字，我们将答案的第一个元素设为 $i$；如果 $cnt[i] = 0$，则 $i$ 是缺失的数字，我们将答案的第二个元素设为 $i$。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是矩阵的边长。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -53,7 +61,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findMissingAndRepeatedValues(self, grid: List[List[int]]) -> List[int]:
+        n = len(grid)
+        cnt = [0] * (n * n + 1)
+        for row in grid:
+            for v in row:
+                cnt[v] += 1
+        ans = [0] * 2
+        for i in range(1, n * n + 1):
+            if cnt[i] == 2:
+                ans[0] = i
+            if cnt[i] == 0:
+                ans[1] = i
+        return ans
 ```
 
 ### **Java**
@@ -61,19 +82,99 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int[] findMissingAndRepeatedValues(int[][] grid) {
+        int n = grid.length;
+        int[] cnt = new int[n * n + 1];
+        int[] ans = new int[2];
+        for (int[] row : grid) {
+            for (int x : row) {
+                if (++cnt[x] == 2) {
+                    ans[0] = x;
+                }
+            }
+        }
+        for (int x = 1;; ++x) {
+            if (cnt[x] == 0) {
+                ans[1] = x;
+                return ans;
+            }
+        }
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> findMissingAndRepeatedValues(vector<vector<int>>& grid) {
+        int n = grid.size();
+        vector<int> cnt(n * n + 1);
+        vector<int> ans(2);
+        for (auto& row : grid) {
+            for (int x : row) {
+                if (++cnt[x] == 2) {
+                    ans[0] = x;
+                }
+            }
+        }
+        for (int x = 1;; ++x) {
+            if (cnt[x] == 0) {
+                ans[1] = x;
+                return ans;
+            }
+        }
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func findMissingAndRepeatedValues(grid [][]int) []int {
+	n := len(grid)
+	ans := make([]int, 2)
+	cnt := make([]int, n*n+1)
+	for _, row := range grid {
+		for _, x := range row {
+			cnt[x]++
+			if cnt[x] == 2 {
+				ans[0] = x
+			}
+		}
+	}
+	for x := 1; ; x++ {
+		if cnt[x] == 0 {
+			ans[1] = x
+			return ans
+		}
+	}
+}
+```
 
+### **TypeScript**
+
+```ts
+function findMissingAndRepeatedValues(grid: number[][]): number[] {
+    const n = grid.length;
+    const cnt: number[] = Array(n * n + 1).fill(0);
+    const ans: number[] = Array(2).fill(0);
+    for (const row of grid) {
+        for (const x of row) {
+            if (++cnt[x] === 2) {
+                ans[0] = x;
+            }
+        }
+    }
+    for (let x = 1; ; ++x) {
+        if (cnt[x] === 0) {
+            ans[1] = x;
+            return ans;
+        }
+    }
+}
 ```
 
 ### **...**
