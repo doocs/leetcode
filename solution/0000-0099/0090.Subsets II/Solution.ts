@@ -1,21 +1,22 @@
 function subsetsWithDup(nums: number[]): number[][] {
     nums.sort((a, b) => a - b);
     const n = nums.length;
-    const t: number[] = [];
-    const res: number[][] = [];
-    const dfs = (i: number) => {
-        if (i === n) {
-            res.push([...t]);
-            return;
+    const ans: number[][] = [];
+    for (let mask = 0; mask < 1 << n; ++mask) {
+        const t: number[] = [];
+        let ok: boolean = true;
+        for (let i = 0; i < n; ++i) {
+            if (((mask >> i) & 1) === 1) {
+                if (i && ((mask >> (i - 1)) & 1) === 0 && nums[i] === nums[i - 1]) {
+                    ok = false;
+                    break;
+                }
+                t.push(nums[i]);
+            }
         }
-        t.push(nums[i]);
-        dfs(i + 1);
-        const num = t.pop();
-        while (i < n && nums[i] == num) {
-            i++;
+        if (ok) {
+            ans.push(t);
         }
-        dfs(i);
-    };
-    dfs(0);
-    return res;
+    }
+    return ans;
 }

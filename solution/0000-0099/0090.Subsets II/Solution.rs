@@ -1,23 +1,25 @@
 impl Solution {
-    fn dfs(mut i: usize, t: &mut Vec<i32>, res: &mut Vec<Vec<i32>>, nums: &Vec<i32>) {
-        let n = nums.len();
-        if i == n {
-            res.push(t.clone());
-            return;
-        }
-        t.push(nums[i]);
-        Self::dfs(i + 1, t, res, nums);
-        let num = t.pop().unwrap();
-        while i < n && num == nums[i] {
-            i += 1;
-        }
-        Self::dfs(i, t, res, nums);
-    }
-
-    pub fn subsets_with_dup(mut nums: Vec<i32>) -> Vec<Vec<i32>> {
+    pub fn subsets_with_dup(nums: Vec<i32>) -> Vec<Vec<i32>> {
+        let mut nums = nums;
         nums.sort();
-        let mut res = Vec::new();
-        Self::dfs(0, &mut Vec::new(), &mut res, &nums);
-        res
+        let n = nums.len();
+        let mut ans = Vec::new();
+        for mask in 0..1 << n {
+            let mut t = Vec::new();
+            let mut ok = true;
+            for i in 0..n {
+                if ((mask >> i) & 1) == 1 {
+                    if i > 0 && ((mask >> (i - 1)) & 1) == 0 && nums[i] == nums[i - 1] {
+                        ok = false;
+                        break;
+                    }
+                    t.push(nums[i]);
+                }
+            }
+            if ok {
+                ans.push(t);
+            }
+        }
+        ans
     }
 }

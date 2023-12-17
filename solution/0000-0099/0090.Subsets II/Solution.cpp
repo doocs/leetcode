@@ -2,19 +2,24 @@ class Solution {
 public:
     vector<vector<int>> subsetsWithDup(vector<int>& nums) {
         sort(nums.begin(), nums.end());
+        int n = nums.size();
         vector<vector<int>> ans;
-        vector<int> t;
-        dfs(0, t, nums, ans);
-        return ans;
-    }
-
-    void dfs(int u, vector<int>& t, vector<int>& nums, vector<vector<int>>& ans) {
-        ans.push_back(t);
-        for (int i = u; i < nums.size(); ++i) {
-            if (i != u && nums[i] == nums[i - 1]) continue;
-            t.push_back(nums[i]);
-            dfs(i + 1, t, nums, ans);
-            t.pop_back();
+        for (int mask = 0; mask < 1 << n; ++mask) {
+            vector<int> t;
+            bool ok = true;
+            for (int i = 0; i < n; ++i) {
+                if ((mask >> i & 1) == 1) {
+                    if (i > 0 && (mask >> (i - 1) & 1) == 0 && nums[i] == nums[i - 1]) {
+                        ok = false;
+                        break;
+                    }
+                    t.push_back(nums[i]);
+                }
+            }
+            if (ok) {
+                ans.push_back(t);
+            }
         }
+        return ans;
     }
 };
