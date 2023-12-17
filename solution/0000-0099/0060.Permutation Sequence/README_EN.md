@@ -206,7 +206,7 @@ impl Solution {
                     continue;
                 }
                 if k > cnt {
-                    k -= cnt
+                    k -= cnt;
                 } else {
                     ans.push_str(&j.to_string());
                     vis[j as usize] = true;

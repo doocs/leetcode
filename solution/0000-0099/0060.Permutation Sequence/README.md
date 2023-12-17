@@ -216,18 +216,26 @@ impl Solution {
         let mut ans = String::new();
         let mut fact = vec![1; n as usize];
         for i in 1..n as usize {
+<<<<<<< HEAD
             fact[i] = fact[i - 1] * i as i32;
+=======
+            factorial[i] = factorial[i - 1] * (i as i32);
+>>>>>>> 8968b869cdedf3d0c28b89bb4d79627cc80216cf
         }
         let mut vis = vec![false; n as usize + 1];
 
         for i in 0..n as usize {
+<<<<<<< HEAD
             let cnt = fact[n as usize - i - 1];
+=======
+            let cnt = factorial[(n as usize) - i - 1];
+>>>>>>> 8968b869cdedf3d0c28b89bb4d79627cc80216cf
             for j in 1..=n {
                 if vis[j as usize] {
                     continue;
                 }
                 if k > cnt {
-                    k -= cnt
+                    k -= cnt;
                 } else {
                     ans.push_str(&j.to_string());
                     vis[j as usize] = true;
