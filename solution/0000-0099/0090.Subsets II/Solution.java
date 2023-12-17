@@ -1,24 +1,24 @@
 class Solution {
-    private List<List<Integer>> ans;
-    private int[] nums;
-
     public List<List<Integer>> subsetsWithDup(int[] nums) {
-        ans = new ArrayList<>();
         Arrays.sort(nums);
-        this.nums = nums;
-        dfs(0, new ArrayList<>());
-        return ans;
-    }
-
-    private void dfs(int u, List<Integer> t) {
-        ans.add(new ArrayList<>(t));
-        for (int i = u; i < nums.length; ++i) {
-            if (i != u && nums[i] == nums[i - 1]) {
-                continue;
+        int n = nums.length;
+        List<List<Integer>> ans = new ArrayList<>();
+        for (int mask = 0; mask < 1 << n; ++mask) {
+            List<Integer> t = new ArrayList<>();
+            boolean ok = true;
+            for (int i = 0; i < n; ++i) {
+                if ((mask >> i & 1) == 1) {
+                    if (i > 0 && (mask >> (i - 1) & 1) == 0 && nums[i] == nums[i - 1]) {
+                        ok = false;
+                        break;
+                    }
+                    t.add(nums[i]);
+                }
             }
-            t.add(nums[i]);
-            dfs(i + 1, t);
-            t.remove(t.size() - 1);
+            if (ok) {
+                ans.add(t);
+            }
         }
+        return ans;
     }
 }

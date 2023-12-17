@@ -1,19 +1,21 @@
-func subsetsWithDup(nums []int) [][]int {
+func subsetsWithDup(nums []int) (ans [][]int) {
 	sort.Ints(nums)
-	var ans [][]int
-	var dfs func(u int, t []int)
-	dfs = func(u int, t []int) {
-		ans = append(ans, append([]int(nil), t...))
-		for i := u; i < len(nums); i++ {
-			if i != u && nums[i] == nums[i-1] {
-				continue
+	n := len(nums)
+	for mask := 0; mask < 1<<n; mask++ {
+		t := []int{}
+		ok := true
+		for i := 0; i < n; i++ {
+			if mask>>i&1 == 1 {
+				if i > 0 && mask>>(i-1)&1 == 0 && nums[i] == nums[i-1] {
+					ok = false
+					break
+				}
+				t = append(t, nums[i])
 			}
-			t = append(t, nums[i])
-			dfs(i+1, t)
-			t = t[:len(t)-1]
+		}
+		if ok {
+			ans = append(ans, t)
 		}
 	}
-	var t []int
-	dfs(0, t)
-	return ans
+	return
 }
