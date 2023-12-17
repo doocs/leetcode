@@ -262,7 +262,7 @@ public class Solution {
 
 ### **Rust**
 
-```
+```rust
 impl Solution {
     pub fn is_number(s: String) -> bool {
         let mut i = 0;
