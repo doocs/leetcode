@@ -47,30 +47,103 @@ Note that the order of elements is not important.
 
 ## Solutions
 
+**Solution 1: Sorting**
+
+First, we sort the array. Then, we take out three elements each time. If the difference between the maximum and minimum values of these three elements is greater than $k$, then the condition cannot be satisfied, and we return an empty array. Otherwise, we add the array composed of these three elements to the answer array.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def divideArray(self, nums: List[int], k: int) -> List[List[int]]:
+        nums.sort()
+        ans = []
+        n = len(nums)
+        for i in range(0, n, 3):
+            t = nums[i : i + 3]
+            if t[2] - t[0] > k:
+                return []
+            ans.append(t)
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int[][] divideArray(int[] nums, int k) {
+        Arrays.sort(nums);
+        int n = nums.length;
+        int[][] ans = new int[n / 3][];
+        for (int i = 0; i < n; i += 3) {
+            int[] t = Arrays.copyOfRange(nums, i, i + 3);
+            if (t[2] - t[0] > k) {
+                return new int[][] {};
+            }
+            ans[i / 3] = t;
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    vector<vector<int>> divideArray(vector<int>& nums, int k) {
+        sort(nums.begin(), nums.end());
+        vector<vector<int>> ans;
+        int n = nums.size();
+        for (int i = 0; i < n; i += 3) {
+            vector<int> t = {nums[i], nums[i + 1], nums[i + 2]};
+            if (t[2] - t[0] > k) {
+                return {};
+            }
+            ans.emplace_back(t);
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func divideArray(nums []int, k int) [][]int {
+	sort.Ints(nums)
+	ans := [][]int{}
+	for i := 0; i < len(nums); i += 3 {
+		t := slices.Clone(nums[i : i+3])
+		if t[2]-t[0] > k {
+			return [][]int{}
+		}
+		ans = append(ans, t)
+	}
+	return ans
+}
+```
 
+### **TypeScript**
+
+```ts
+function divideArray(nums: number[], k: number): number[][] {
+    nums.sort((a, b) => a - b);
+    const ans: number[][] = [];
+    for (let i = 0; i < nums.length; i += 3) {
+        const t = nums.slice(i, i + 3);
+        if (t[2] - t[0] > k) {
+            return [];
+        }
+        ans.push(t);
+    }
+    return ans;
+}
 ```
 
 ### **...**
