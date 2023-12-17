@@ -1,24 +1,11 @@
 class Solution:
     def shortestCompletingWord(self, licensePlate: str, words: List[str]) -> str:
-        def count(word):
-            counter = [0] * 26
-            for c in word:
-                counter[ord(c) - ord('a')] += 1
-            return counter
-
-        def check(counter1, counter2):
-            for i in range(26):
-                if counter1[i] > counter2[i]:
-                    return False
-            return True
-
-        counter = count(c.lower() for c in licensePlate if c.isalpha())
-        ans, n = None, 16
-        for word in words:
-            if n <= len(word):
+        cnt = Counter(c.lower() for c in licensePlate if c.isalpha())
+        ans = None
+        for w in words:
+            if ans and len(w) >= len(ans):
                 continue
-            t = count(word)
-            if check(counter, t):
-                n = len(word)
-                ans = word
+            t = Counter(w)
+            if all(v <= t[c] for c, v in cnt.items()):
+                ans = w
         return ans
