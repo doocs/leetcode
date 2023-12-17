@@ -12,13 +12,10 @@ impl Solution {
             }
         }
         if let Some(x) = s.chars().nth(i) {
-            if x == '.'
-                && (i + 1 == n
-                    || if let Some(m) = s.chars().nth(i + 1) {
-                        m == 'e' || m == 'E'
-                    } else {
-                        false
-                    })
+            if
+                x == '.' &&
+                (i + 1 == n ||
+                    (if let Some(m) = s.chars().nth(i + 1) { m == 'e' || m == 'E' } else { false }))
             {
                 return false;
             }
@@ -58,4 +55,3 @@ impl Solution {
         true
     }
 }
-
