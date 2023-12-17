@@ -54,19 +54,19 @@
 
 **方法一：动态规划**
 
-定义 `dp[i]` 表示到达第 `i` 个台阶的最小花费。可以得到状态转移方程：
+我们定义 $f[i]$ 表示到达第 $i$ 个阶梯所需要的最小花费，初始时 $f[0] = f[1] = 0$，答案即为 $f[n]$。
+
+当 $i \ge 2$ 时，我们可以从第 $i - 1$ 个阶梯使用 $1$ 步直接到达第 $i$ 个阶梯，或者从第 $i - 2$ 个阶梯使用 $2$ 步到达第 $i$ 个阶梯，因此我们有状态转移方程：
 
 $$
-dp[i] = \min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2])
+f[i] = \min(f[i - 1] + cost[i - 1], f[i - 2] + cost[i - 2])
 $$
 
-最终结果为 `dp[n]`。其中 $n$ 表示 `cost` 数组的长度。
+最终的答案即为 $f[n]$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `cost` 的长度。
 
-由于 `dp[i]` 只跟 `dp[i-1]` 和 `dp[i-2]` 有关，因此我们还可以对空间进行优化，只用两个变量 `a`, `b` 来记录。
-
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。
+我们注意到，状态转移方程中的 $f[i]$ 只和 $f[i - 1]$ 与 $f[i - 2]$ 有关，因此我们可以使用两个变量 $f$ 和 $g$ 交替地记录 $f[i - 2]$ 和 $f[i - 1]$ 的值，这样空间复杂度可以优化到 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -78,19 +78,19 @@ $$
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
         n = len(cost)
-        dp = [0] * (n + 1)
+        f = [0] * (n + 1)
         for i in range(2, n + 1):
-            dp[i] = min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2])
-        return dp[-1]
+            f[i] = min(f[i - 2] + cost[i - 2], f[i - 1] + cost[i - 1])
+        return f[n]
 ```
 
 ```python
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
-        a = b = 0
-        for i in range(1, len(cost)):
-            a, b = b, min(a + cost[i - 1], b + cost[i])
-        return b
+        f = g = 0
+        for i in range(2, len(cost) + 1):
+            f, g = g, min(f + cost[i - 2], g + cost[i - 1])
+        return g
 ```
 
 ### **Java**
@@ -101,11 +101,11 @@ class Solution:
 class Solution {
     public int minCostClimbingStairs(int[] cost) {
         int n = cost.length;
-        int[] dp = new int[n + 1];
+        int[] f = new int[n + 1];
         for (int i = 2; i <= n; ++i) {
-            dp[i] = Math.min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2]);
+            f[i] = Math.min(f[i - 2] + cost[i - 2], f[i - 1] + cost[i - 1]);
         }
-        return dp[n];
+        return f[n];
     }
 }
 ```
@@ -113,14 +113,68 @@ class Solution {
 ```java
 class Solution {
     public int minCostClimbingStairs(int[] cost) {
-        int a = 0, b = 0;
-        for (int i = 1; i < cost.length; ++i) {
-            int c = Math.min(a + cost[i - 1], b + cost[i]);
-            a = b;
-            b = c;
+        int f = 0, g = 0;
+        for (int i = 2; i <= cost.length; ++i) {
+            int gg = Math.min(f + cost[i - 2], g + cost[i - 1]);
+            f = g;
+            g = gg;
         }
-        return b;
+        return g;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minCostClimbingStairs(vector<int>& cost) {
+        int n = cost.size();
+        vector<int> f(n + 1);
+        for (int i = 2; i <= n; ++i) {
+            f[i] = min(f[i - 2] + cost[i - 2], f[i - 1] + cost[i - 1]);
+        }
+        return f[n];
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int minCostClimbingStairs(vector<int>& cost) {
+        int f = 0, g = 0;
+        for (int i = 2; i <= cost.size(); ++i) {
+            int gg = min(f + cost[i - 2], g + cost[i - 1]);
+            f = g;
+            g = gg;
+        }
+        return g;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minCostClimbingStairs(cost []int) int {
+	n := len(cost)
+	f := make([]int, n+1)
+	for i := 2; i <= n; i++ {
+		f[i] = min(f[i-1]+cost[i-1], f[i-2]+cost[i-2])
+	}
+	return f[n]
+}
+```
+
+```go
+func minCostClimbingStairs(cost []int) int {
+	var f, g int
+	for i := 2; i <= n; i++ {
+		f, g = g, min(f+cost[i-2], g+cost[i-1])
+	}
+	return g
 }
 ```
 
@@ -129,11 +183,11 @@ class Solution {
 ```ts
 function minCostClimbingStairs(cost: number[]): number {
     const n = cost.length;
-    const dp = new Array(n + 1).fill(0);
+    const f: number[] = Array(n + 1).fill(0);
     for (let i = 2; i <= n; ++i) {
-        dp[i] = Math.min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2]);
+        f[i] = Math.min(f[i - 1] + cost[i - 1], f[i - 2] + cost[i - 2]);
     }
-    return dp[n];
+    return f[n];
 }
 ```
 
@@ -148,57 +202,32 @@ function minCostClimbingStairs(cost: number[]): number {
 }
 ```
 
-### **C++**
+### **Rust**
 
-```cpp
-class Solution {
-public:
-    int minCostClimbingStairs(vector<int>& cost) {
-        int n = cost.size();
-        vector<int> dp(n + 1);
-        for (int i = 2; i <= n; ++i) {
-            dp[i] = min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2]);
+```rust
+impl Solution {
+    pub fn min_cost_climbing_stairs(cost: Vec<i32>) -> i32 {
+        let n = cost.len();
+        let mut f = vec![0; n + 1];
+        for i in 2..=n {
+            f[i] = std::cmp::min(f[i - 2] + cost[i - 2], f[i - 1] + cost[i - 1]);
         }
-        return dp[n];
+        f[n]
     }
-};
-```
-
-```cpp
-class Solution {
-public:
-    int minCostClimbingStairs(vector<int>& cost) {
-        int a = 0, b = 0;
-        for (int i = 1; i < cost.size(); ++i) {
-            int c = min(a + cost[i - 1], b + cost[i]);
-            a = b;
-            b = c;
-        }
-        return b;
-    }
-};
-```
-
-### **Go**
-
-```go
-func minCostClimbingStairs(cost []int) int {
-	n := len(cost)
-	dp := make([]int, n+1)
-	for i := 2; i <= n; i++ {
-		dp[i] = min(dp[i-1]+cost[i-1], dp[i-2]+cost[i-2])
-	}
-	return dp[n]
 }
 ```
 
-```go
-func minCostClimbingStairs(cost []int) int {
-	a, b := 0, 0
-	for i := 1; i < len(cost); i++ {
-		a, b = b, min(a+cost[i-1], b+cost[i])
-	}
-	return b
+```rust
+impl Solution {
+    pub fn min_cost_climbing_stairs(cost: Vec<i32>) -> i32 {
+        let (mut f, mut g) = (0, 0);
+        for i in 2..=cost.len() {
+            let gg = std::cmp::min(f + cost[i - 2], g + cost[i - 1]);
+            f = g;
+            g = gg;
+        }
+        g
+    }
 }
 ```
 

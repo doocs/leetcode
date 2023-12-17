@@ -38,6 +38,14 @@ The index of value 6 is 1, so we return 1.
 
 ## Solutions
 
+**Solution 1: Traversal**
+
+We can traverse the array $nums$ to find the maximum value $x$ and the second largest value $y$ in the array. If $x \ge 2y$, then return the index of $x$, otherwise return $-1$.
+
+We can also first find the maximum value $x$ in the array and find the index $k$ of the maximum value $x$ at the same time. Then traverse the array again. If we find an element $y$ outside of $k$ that satisfies $x < 2y$, then return $-1$. Otherwise, return $k$ after the traversal ends.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -45,15 +53,8 @@ The index of value 6 is 1, so we return 1.
 ```python
 class Solution:
     def dominantIndex(self, nums: List[int]) -> int:
-        mx = mid = 0
-        ans = -1
-        for i, v in enumerate(nums):
-            if v > mx:
-                mid, mx = mx, v
-                ans = i
-            elif v > mid:
-                mid = v
-        return ans if mx >= 2 * mid else -1
+        x, y = nlargest(2, nums)
+        return nums.index(x) if x >= 2 * y else -1
 ```
 
 ### **Java**
@@ -61,18 +62,19 @@ class Solution:
 ```java
 class Solution {
     public int dominantIndex(int[] nums) {
-        int mx = 0, mid = 0;
-        int ans = -1;
-        for (int i = 0; i < nums.length; ++i) {
-            if (nums[i] > mx) {
-                mid = mx;
-                mx = nums[i];
-                ans = i;
-            } else if (nums[i] > mid) {
-                mid = nums[i];
+        int n = nums.length;
+        int k = 0;
+        for (int i = 0; i < n; ++i) {
+            if (nums[k] < nums[i]) {
+                k = i;
             }
         }
-        return mx >= mid * 2 ? ans : -1;
+        for (int i = 0; i < n; ++i) {
+            if (k != i && nums[k] < nums[i] * 2) {
+                return -1;
+            }
+        }
+        return k;
     }
 }
 ```
@@ -83,17 +85,19 @@ class Solution {
 class Solution {
 public:
     int dominantIndex(vector<int>& nums) {
-        int mx = 0, mid = 0;
-        int ans = 0;
-        for (int i = 0; i < nums.size(); ++i) {
-            if (nums[i] > mx) {
-                mid = mx;
-                mx = nums[i];
-                ans = i;
-            } else if (nums[i] > mid)
-                mid = nums[i];
+        int n = nums.size();
+        int k = 0;
+        for (int i = 0; i < n; ++i) {
+            if (nums[k] < nums[i]) {
+                k = i;
+            }
         }
-        return mx >= mid * 2 ? ans : -1;
+        for (int i = 0; i < n; ++i) {
+            if (k != i && nums[k] < nums[i] * 2) {
+                return -1;
+            }
+        }
+        return k;
     }
 };
 ```
@@ -102,20 +106,37 @@ public:
 
 ```go
 func dominantIndex(nums []int) int {
-	mx, mid := 0, 0
-	ans := 0
-	for i, v := range nums {
-		if v > mx {
-			mid, mx = mx, v
-			ans = i
-		} else if v > mid {
-			mid = v
+	k := 0
+	for i, x := range nums {
+		if nums[k] < x {
+			k = i
 		}
 	}
-	if mx >= mid*2 {
-		return ans
+	for i, x := range nums {
+		if k != i && nums[k] < x*2 {
+			return -1
+		}
 	}
-	return -1
+	return k
+}
+```
+
+### **TypeScript**
+
+```ts
+function dominantIndex(nums: number[]): number {
+    let k = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        if (nums[i] > nums[k]) {
+            k = i;
+        }
+    }
+    for (let i = 0; i < nums.length; ++i) {
+        if (i !== k && nums[k] < nums[i] * 2) {
+            return -1;
+        }
+    }
+    return k;
 }
 ```
 
@@ -127,19 +148,18 @@ func dominantIndex(nums []int) int {
  * @return {number}
  */
 var dominantIndex = function (nums) {
-    let mx = 0,
-        mid = 0;
-    let ans = 0;
+    let k = 0;
     for (let i = 0; i < nums.length; ++i) {
-        if (nums[i] > mx) {
-            mid = mx;
-            mx = nums[i];
-            ans = i;
-        } else if (nums[i] > mid) {
-            mid = nums[i];
+        if (nums[i] > nums[k]) {
+            k = i;
         }
     }
-    return mx >= mid * 2 ? ans : -1;
+    for (let i = 0; i < nums.length; ++i) {
+        if (i !== k && nums[k] < nums[i] * 2) {
+            return -1;
+        }
+    }
+    return k;
 };
 ```
 
