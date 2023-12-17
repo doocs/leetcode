@@ -1,8 +1,4 @@
-/**
- * @param {number[]} nums
- * @return {number}
- */
-var dominantIndex = function (nums) {
+function dominantIndex(nums: number[]): number {
     let k = 0;
     for (let i = 0; i < nums.length; ++i) {
         if (nums[i] > nums[k]) {
@@ -15,4 +11,4 @@ var dominantIndex = function (nums) {
         }
     }
     return k;
-};
+}
