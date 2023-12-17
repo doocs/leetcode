@@ -195,12 +195,12 @@ impl Solution {
         let mut ans = String::new();
         let mut fact = vec![1; n as usize];
         for i in 1..n as usize {
-            fact[i] = fact[i - 1] * i as i32;
+            fact[i] = fact[i - 1] * (i as i32);
         }
         let mut vis = vec![false; n as usize + 1];
 
         for i in 0..n as usize {
-            let cnt = fact[n as usize - i - 1];
+            let cnt = fact[(n as usize) - i - 1];
             for j in 1..=n {
                 if vis[j as usize] {
                     continue;
