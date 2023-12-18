@@ -47,7 +47,17 @@ The best way was done in 2 operations (either condition 1 or condition 3).
 
 ## Solutions
 
-Prefix Sum
+**Solution 1: Counting + Enumeration**
+
+First, we count the number of occurrences of each letter in strings $a$ and $b$, denoted as $cnt_1$ and $cnt_2$.
+
+Then, we consider condition $3$, i.e., every letter in $a$ and $b$ is the same. We just need to enumerate the final letter $c$, and then count the number of letters in $a$ and $b$ that are not $c$. This is the number of characters that need to be changed.
+
+Next, we consider conditions $1$ and $2$, i.e., every letter in $a$ is less than every letter in $b$, or every letter in $b$ is less than every letter in $a$. For condition $1$, we make all characters in string $a$ less than character $c$, and all characters in string $b$ not less than $c$. We enumerate $c$ to find the smallest answer. Condition $2$ is similar.
+
+The final answer is the minimum of the above three cases.
+
+The time complexity is $O(m + n + C^2)$, where $m$ and $n$ are the lengths of strings $a$ and $b$ respectively, and $C$ is the size of the character set. In this problem, $C = 26$.
 
 <!-- tabs:start -->
 
