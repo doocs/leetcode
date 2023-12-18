@@ -191,9 +191,7 @@ I'm looking for long-term contributors/partners to this repo! Send me [PRs](http
   <a href="https://github.com/doocs/leetcode"><img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/leetcode@main/images/how-to-contribute.svg" alt="how-to-contribute"></a>
 </p>
 
-You can also contribute to [doocs/leetcode](https://github.com/doocs/leetcode) using [Gitpod.io](https://www.gitpod.io), a free online dev environment with a single click.
-
-<a href="https://gitpod.io/#https://github.com/doocs/leetcode" target="_blank" alt="Open in Gitpod"><img src="https://gitpod.io/button/open-in-gitpod.svg"></a>
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=149001365&machine=basicLinux32gb&location=EastUs)
 
 ## Stargazers over time
 
