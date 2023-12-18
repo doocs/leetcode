@@ -2774,7 +2774,7 @@
 |  2761  |  [和等于目标值的质数对](/solution/2700-2799/2761.Prime%20Pairs%20With%20Target%20Sum/README.md)  |  `数组`,`数学`,`枚举`,`数论`  |  中等  |  第 352 场周赛  |
 |  2762  |  [不间断子数组](/solution/2700-2799/2762.Continuous%20Subarrays/README.md)  |  `队列`,`数组`,`有序集合`,`滑动窗口`,`单调队列`,`堆（优先队列）`  |  中等  |  第 352 场周赛  |
 |  2763  |  [所有子数组中不平衡数字之和](/solution/2700-2799/2763.Sum%20of%20Imbalance%20Numbers%20of%20All%20Subarrays/README.md)  |  `数组`,`哈希表`,`有序集合`  |  困难  |  第 352 场周赛  |
-|  2764  |  [数组是否表示某二叉树的前序遍历](/solution/2700-2799/2764.is%20Array%20a%20Preorder%20of%20Some%20%E2%80%8CBinary%20Tree/README.md)  |  `栈`,`树`,`深度优先搜索`,`二叉树`  |  中等  |  🔒  |
+|  2764  |  [数组是否表示某二叉树的前序遍历](/solution/2700-2799/2764.Is%20Array%20a%20Preorder%20of%20Some%20%E2%80%8CBinary%20Tree/README.md)  |  `栈`,`树`,`深度优先搜索`,`二叉树`  |  中等  |  🔒  |
 |  2765  |  [最长交替子序列](/solution/2700-2799/2765.Longest%20Alternating%20Subarray/README.md)  |  `数组`,`枚举`  |  简单  |  第 108 场双周赛  |
 |  2766  |  [重新放置石块](/solution/2700-2799/2766.Relocate%20Marbles/README.md)  |  `数组`,`哈希表`,`排序`,`模拟`  |  中等  |  第 108 场双周赛  |
 |  2767  |  [将字符串分割为最少的美丽子字符串](/solution/2700-2799/2767.Partition%20String%20Into%20Minimum%20Beautiful%20Substrings/README.md)  |  `哈希表`,`字符串`,`动态规划`,`回溯`  |  中等  |  第 108 场双周赛  |
@@ -2990,7 +2990,3 @@
 
 | <img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/images/qrcode-for-yanglbme.png" width="260px" align="left"/> |
 | ------------------------------------------------------------------------------------------------------------------------------ |
-
-## 许可证
-
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享 版权归属-相同方式共享 4.0 国际 公共许可证</a>

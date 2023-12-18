@@ -51,7 +51,7 @@ args = [{&quot;item&quot;: &quot;burger&quot;}, 10, 1.1]
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
-<ul style="list-style-type:square;">
+<ul>
 	<li><code><font face="monospace">typeof args[0] == &#39;object&#39; and args[0] != null</font></code></li>
 	<li><code>1 &lt;= args.length &lt;= 100</code></li>
 	<li><code>2 &lt;= JSON.stringify(args[0]).length &lt;= 10<sup>5</sup></code></li>

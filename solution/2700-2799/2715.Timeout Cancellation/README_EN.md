@@ -24,26 +24,8 @@ setTimeout(cancelFn, cancelTimeMs)
 <strong>Output:</strong> [{&quot;time&quot;: 20, &quot;returned&quot;: 10}]
 <strong>Explanation:</strong> 
 const cancelTimeMs = 50;
-const result = [];
-
-const fn = (x) =&gt; x * 5;
-
-const start = performance.now();
-
-const log = (...argsArr) =&gt; {
-    const diff = Math.floor(performance.now() - start);
-    result.push({&quot;time&quot;: diff, &quot;returned&quot;: fn(...argsArr)});
-}
- &nbsp; &nbsp;&nbsp;
-const cancel = cancellable(log, [2], 20);
-
-const maxT = Math.max(t, 50);
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
-setTimeout(cancel, cancelTimeMs);
-
-setTimeout(() =&gt; {
- &nbsp; &nbsp; console.log(result); // [{&quot;time&quot;:20,&quot;returned&quot;:10}]
-}, maxT + 15);
+const cancelFn = cancellable((x) =&gt; x * 5, [2], 20);
+setTimeout(cancelFn, cancelTimeMs);
 
 The cancellation was scheduled to occur after a delay of cancelTimeMs (50ms), which happened after the execution of fn(2) at 20ms.
 </pre>
@@ -55,6 +37,9 @@ The cancellation was scheduled to occur after a delay of cancelTimeMs (50ms), wh
 <strong>Output:</strong> []
 <strong>Explanation:</strong> 
 const cancelTimeMs = 50;
+const cancelFn = cancellable((x) =&gt; x**2, [2], 100);
+setTimeout(cancelFn, cancelTimeMs);
+
 The cancellation was scheduled to occur after a delay of cancelTimeMs (50ms), which happened before the execution of fn(2) at 100ms, resulting in fn(2) never being called.
 </pre>
 
@@ -65,6 +50,9 @@ The cancellation was scheduled to occur after a delay of cancelTimeMs (50ms), wh
 <strong>Output:</strong> [{&quot;time&quot;: 30, &quot;returned&quot;: 8}]
 <strong>Explanation: 
 </strong>const cancelTimeMs = 100;
+const cancelFn = cancellable((x1, x2) =&gt; x1 * x2, [2,4], 30);
+setTimeout(cancelFn, cancelTimeMs);
+
 The cancellation was scheduled to occur after a delay of cancelTimeMs (100ms), which happened after the execution of fn(2,4) at 30ms.
 </pre>
 
