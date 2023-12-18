@@ -54,7 +54,23 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-二维前缀异或，然后求第 k 大的值即可。
+**方法一：二维前缀异或 + 排序或快速选择**
+
+我们定义一个二维前缀异或数组 $s$，其中 $s[i][j]$ 表示矩阵前 $i$ 行和前 $j$ 列的元素异或运算的结果，即：
+
+$$
+s[i][j] = \bigoplus_{0 \leq x \leq i, 0 \leq y \leq j} matrix[x][y]
+$$
+
+而 $s[i][j]$ 可以由 $s[i - 1][j]$, $s[i][j - 1]$ 和 $s[i - 1][j - 1]$ 三个元素计算得到，即：
+
+$$
+s[i][j] = s[i - 1][j] \oplus s[i][j - 1] \oplus s[i - 1][j - 1] \oplus matrix[i - 1][j - 1]
+$$
+
+我们遍历矩阵，计算出所有的 $s[i][j]$，然后将其排序，最后返回第 $k$ 大的元素即可。如果不想使用排序，也可以使用快速选择算法，这样可以优化时间复杂度。
+
+时间复杂度 $O(m \times n \times \log (m \times n))$ 或 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
 
@@ -81,7 +97,6 @@ class Solution:
 
 ```java
 class Solution {
-
     public int kthLargestValue(int[][] matrix, int k) {
         int m = matrix.length, n = matrix[0].length;
         int[][] s = new int[m + 1][n + 1];
@@ -137,6 +152,25 @@ func kthLargestValue(matrix [][]int, k int) int {
 	}
 	sort.Ints(ans)
 	return ans[len(ans)-k]
+}
+```
+
+### **TypeScript**
+
+```ts
+function kthLargestValue(matrix: number[][], k: number): number {
+    const m: number = matrix.length;
+    const n: number = matrix[0].length;
+    const s = Array.from({ length: m + 1 }, () => Array.from({ length: n + 1 }, () => 0));
+    const ans: number[] = [];
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            s[i + 1][j + 1] = s[i + 1][j] ^ s[i][j + 1] ^ s[i][j] ^ matrix[i][j];
+            ans.push(s[i + 1][j + 1]);
+        }
+    }
+    ans.sort((a, b) => b - a);
+    return ans[k - 1];
 }
 ```
 

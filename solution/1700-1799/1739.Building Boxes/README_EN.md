@@ -55,6 +55,16 @@ These boxes are placed in the corner of the room, where the corner is on the bac
 
 ## Solutions
 
+**Solution 1: Mathematical Rule**
+
+According to the problem description, the box with the highest number of layers needs to be placed in the corner of the wall, and the arrangement of the boxes is in a step-like shape, which can minimize the number of boxes touching the ground.
+
+Assume that the boxes are arranged in $k$ layers. From top to bottom, if each layer is filled, then the number of boxes in each layer is $1, 1+2, 1+2+3, \cdots, 1+2+\cdots+k$.
+
+If there are still remaining boxes at this point, they can continue to be placed from the lowest layer. Assume that $i$ boxes are placed, then the cumulative number of boxes that can be placed is $1+2+\cdots+i$.
+
+The time complexity is $O(\sqrt{n})$, where $n$ is the number of boxes given in the problem. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

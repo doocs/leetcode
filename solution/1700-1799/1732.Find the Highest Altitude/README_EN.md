@@ -36,6 +36,26 @@
 
 ## Solutions
 
+**Solution 1: Prefix Sum (Difference Array)**
+
+We assume the altitude of each point is $h_i$. Since $gain[i]$ represents the altitude difference between the $i$th point and the $(i + 1)$th point, we have $gain[i] = h_{i + 1} - h_i$. Therefore:
+
+$$
+\sum_{i = 0}^{n-1} gain[i] = h_1 - h_0 + h_2 - h_1 + \cdots + h_n - h_{n - 1} = h_n - h_0 = h_n
+$$
+
+which implies:
+
+$$
+h_{i+1} = \sum_{j = 0}^{i} gain[j]
+$$
+
+We can see that the altitude of each point can be calculated through the prefix sum. Therefore, we only need to traverse the array once, find the maximum value of the prefix sum, which is the highest altitude.
+
+> In fact, the $gain$ array in the problem is a difference array. The prefix sum of the difference array gives the original altitude array. Then find the maximum value of the original altitude array.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array `gain`.
+
 <!-- tabs:start -->
 
 ### **Python3**
