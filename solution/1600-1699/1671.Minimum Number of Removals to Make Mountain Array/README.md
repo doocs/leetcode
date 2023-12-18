@@ -60,7 +60,7 @@
 
 那么最终答案就是 $n - \max(left[i] + right[i] - 1)$，其中 $1 \leq i \leq n$，并且 $left[i] \gt 1$ 且 $right[i] \gt 1$。
 
-时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `nums` 的长度。
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
 
@@ -193,8 +193,8 @@ func minimumMountainRemovals(nums []int) int {
 ```ts
 function minimumMountainRemovals(nums: number[]): number {
     const n = nums.length;
-    const left = new Array(n).fill(1);
-    const right = new Array(n).fill(1);
+    const left = Array(n).fill(1);
+    const right = Array(n).fill(1);
     for (let i = 1; i < n; ++i) {
         for (let j = 0; j < i; ++j) {
             if (nums[i] > nums[j]) {
@@ -216,6 +216,41 @@ function minimumMountainRemovals(nums: number[]): number {
         }
     }
     return n - ans;
+}
+```
+
+### **TypeScript**
+
+```ts
+impl Solution {
+    pub fn minimum_mountain_removals(nums: Vec<i32>) -> i32 {
+        let n = nums.len();
+        let mut left = vec![1; n];
+        let mut right = vec![1; n];
+        for i in 1..n {
+            for j in 0..i {
+                if nums[i] > nums[j] {
+                    left[i] = left[i].max(left[j] + 1);
+                }
+            }
+        }
+        for i in (0..n - 1).rev() {
+            for j in i + 1..n {
+                if nums[i] > nums[j] {
+                    right[i] = right[i].max(right[j] + 1);
+                }
+            }
+        }
+
+        let mut ans = 0;
+        for i in 0..n {
+            if left[i] > 1 && right[i] > 1 {
+                ans = ans.max(left[i] + right[i] - 1);
+            }
+        }
+
+        (n as i32) - ans
+    }
 }
 ```
 

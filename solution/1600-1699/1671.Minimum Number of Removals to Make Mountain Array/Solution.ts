@@ -1,7 +1,7 @@
 function minimumMountainRemovals(nums: number[]): number {
     const n = nums.length;
-    const left = new Array(n).fill(1);
-    const right = new Array(n).fill(1);
+    const left = Array(n).fill(1);
+    const right = Array(n).fill(1);
     for (let i = 1; i < n; ++i) {
         for (let j = 0; j < i; ++j) {
             if (nums[i] > nums[j]) {
