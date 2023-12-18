@@ -2,13 +2,14 @@ class Solution {
 public:
     int countGoodRectangles(vector<vector<int>>& rectangles) {
         int ans = 0, mx = 0;
-        for (auto& r : rectangles) {
-            int t = min(r[0], r[1]);
-            if (mx < t) {
-                mx = t;
+        for (auto& e : rectangles) {
+            int x = min(e[0], e[1]);
+            if (mx < x) {
+                mx = x;
                 ans = 1;
-            } else if (mx == t)
+            } else if (mx == x) {
                 ++ans;
+            }
         }
         return ans;
     }
