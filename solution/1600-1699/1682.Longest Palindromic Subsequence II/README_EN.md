@@ -44,6 +44,20 @@
 
 ## Solutions
 
+**Solution 1: Memorization Search**
+
+We design a function $dfs(i, j, x)$ to represent the length of the longest "good" palindrome subsequence ending with character $x$ in the index range $[i, j]$ of string $s$. The answer is $dfs(0, n - 1, 26)$.
+
+The calculation process of the function $dfs(i, j, x)$ is as follows:
+
+-   If $i >= j$, then $dfs(i, j, x) = 0$;
+-   If $s[i] = s[j]$ and $s[i] \neq x$, then $dfs(i, j, x) = dfs(i + 1, j - 1, s[i]) + 2$;
+-   If $s[i] \neq s[j]$, then $dfs(i, j, x) = max(dfs(i + 1, j, x), dfs(i, j - 1, x))$.
+
+During the process, we can use memorization search to avoid repeated calculations.
+
+The time complexity is $O(n^2 \times C)$. Where $n$ is the length of the string $s$, and $C$ is the size of the character set. In this problem, $C = 26$.
+
 <!-- tabs:start -->
 
 ### **Python3**

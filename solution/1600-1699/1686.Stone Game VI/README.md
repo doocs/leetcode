@@ -74,7 +74,7 @@ Bob 会获胜。
 
 选取石头的最优化的策略是，让自己得分最高，同时让对手失分最多。因此，我们创建一个数组 `arr`，其中 `arr[i] = aliceValues[i] + bobValues[i]`，然后对 `arr` 进行降序排序。然后，我们从 `arr` 中取出石头，每次取出两个石头，分别给 Alice 和 Bob，直到 `arr` 中没有石头为止。最后，我们比较 Alice 和 Bob 的得分，得分高的人获胜。
 
-时间复杂度 $O(n\log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `aliceValues` 和 `bobValues` 的长度。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `aliceValues` 和 `bobValues` 的长度。
 
 <!-- tabs:start -->
 

@@ -45,6 +45,21 @@ The final concatenated result is &quot;Goal&quot;.
 
 ## Solutions
 
+**Solution 1: String Replacement**
+
+According to the problem, we only need to replace `"()"` with `'o'` and `"(al)"` with `"al"` in the string `command`.
+
+**Solution 2: String Iteration**
+
+We can also iterate over the string `command`. For each character $c$:
+
+-   If it is `'G'`, directly add $c$ to the result string;
+-   If it is `'('`, check if the next character is `')'`. If it is, add `'o'` to the result string. Otherwise, add `"al"` to the result string.
+
+After the iteration, return the result string.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

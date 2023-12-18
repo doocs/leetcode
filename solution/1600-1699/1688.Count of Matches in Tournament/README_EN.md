@@ -48,6 +48,12 @@ Total number of matches = 7 + 3 + 2 + 1 = 13.
 
 ## Solutions
 
+**Solution 1: Quick Thinking**
+
+From the problem description, we know that there are $n$ teams in total. Each pairing will eliminate one team. Therefore, the number of pairings is equal to the number of teams eliminated, which is $n - 1$.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
