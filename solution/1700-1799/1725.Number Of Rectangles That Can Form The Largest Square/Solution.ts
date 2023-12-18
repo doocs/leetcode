@@ -1,13 +1,12 @@
 function countGoodRectangles(rectangles: number[][]): number {
-    let maxLen = 0,
-        ans = 0;
-    for (let [l, w] of rectangles) {
-        let k = Math.min(l, w);
-        if (k == maxLen) {
-            ans++;
-        } else if (k > maxLen) {
-            maxLen = k;
+    let [ans, mx] = [0, 0];
+    for (const [l, w] of rectangles) {
+        const x = Math.min(l, w);
+        if (mx < x) {
+            mx = x;
             ans = 1;
+        } else if (mx === x) {
+            ++ans;
         }
     }
     return ans;

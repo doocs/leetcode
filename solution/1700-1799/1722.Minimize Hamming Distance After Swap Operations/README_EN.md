@@ -53,7 +53,13 @@ The Hamming distance of source and target is 2 as they differ in 2 positions: in
 
 ## Solutions
 
-Union find.
+**Solution 1: Union-Find + Hash Table**
+
+We can consider each index as a node, and the element corresponding to each index as the value of the node. Then each element `[a_i, b_i]` in the given `allowedSwaps` represents an edge between index `a_i` and `b_i`. Therefore, we can use a union-find set to maintain these connected components.
+
+After obtaining each connected component, we use a two-dimensional hash table $cnt$ to count the number of occurrences of each element in each connected component. Finally, for each element in the array `target`, if its occurrence count in the corresponding connected component is greater than 0, we decrease its count by 1, otherwise, we increase the answer by 1.
+
+The time complexity is $O(n \times \log n)$ or $O(n \times \alpha(n))$, and the space complexity is $O(n)$. Here, $n$ is the length of the array, and $\alpha$ is the inverse Ackermann function.
 
 <!-- tabs:start -->
 
@@ -64,27 +70,25 @@ class Solution:
     def minimumHammingDistance(
         self, source: List[int], target: List[int], allowedSwaps: List[List[int]]
     ) -> int:
-        n = len(source)
-        p = list(range(n))
-
-        def find(x):
+        def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
-        for i, j in allowedSwaps:
-            p[find(i)] = find(j)
-
-        mp = defaultdict(Counter)
-        for i in range(n):
-            mp[find(i)][source[i]] += 1
-        res = 0
-        for i in range(n):
-            if mp[find(i)][target[i]] > 0:
-                mp[find(i)][target[i]] -= 1
-            else:
-                res += 1
-        return res
+        n = len(source)
+        p = list(range(n))
+        for a, b in allowedSwaps:
+            p[find(a)] = find(b)
+        cnt = defaultdict(Counter)
+        for i, x in enumerate(source):
+            j = find(i)
+            cnt[j][x] += 1
+        ans = 0
+        for i, x in enumerate(target):
+            j = find(i)
+            cnt[j][x] -= 1
+            ans += cnt[j][x] < 0
+        return ans
 ```
 
 ### **Java**
@@ -96,28 +100,26 @@ class Solution {
     public int minimumHammingDistance(int[] source, int[] target, int[][] allowedSwaps) {
         int n = source.length;
         p = new int[n];
-        for (int i = 0; i < n; ++i) {
+        for (int i = 0; i < n; i++) {
             p[i] = i;
         }
-        for (int[] e : allowedSwaps) {
-            p[find(e[0])] = find(e[1]);
+        for (int[] a : allowedSwaps) {
+            p[find(a[0])] = find(a[1]);
         }
-        Map<Integer, Map<Integer, Integer>> mp = new HashMap<>();
+        Map<Integer, Map<Integer, Integer>> cnt = new HashMap<>();
         for (int i = 0; i < n; ++i) {
-            int root = find(i);
-            mp.computeIfAbsent(root, k -> new HashMap<>())
-                .put(source[i], mp.get(root).getOrDefault(source[i], 0) + 1);
+            int j = find(i);
+            cnt.computeIfAbsent(j, k -> new HashMap<>()).merge(source[i], 1, Integer::sum);
         }
-        int res = 0;
+        int ans = 0;
         for (int i = 0; i < n; ++i) {
-            int root = find(i);
-            if (mp.get(root).getOrDefault(target[i], 0) > 0) {
-                mp.get(root).put(target[i], mp.get(root).get(target[i]) - 1);
-            } else {
-                ++res;
+            int j = find(i);
+            Map<Integer, Integer> t = cnt.get(j);
+            if (t.merge(target[i], -1, Integer::sum) < 0) {
+                ++ans;
             }
         }
-        return res;
+        return ans;
     }
 
     private int find(int x) {
@@ -134,28 +136,27 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> p;
-
     int minimumHammingDistance(vector<int>& source, vector<int>& target, vector<vector<int>>& allowedSwaps) {
         int n = source.size();
-        p.resize(n);
-        for (int i = 0; i < n; ++i) p[i] = i;
-        for (auto e : allowedSwaps) p[find(e[0])] = find(e[1]);
-        unordered_map<int, unordered_map<int, int>> mp;
-        for (int i = 0; i < n; ++i) ++mp[find(i)][source[i]];
-        int res = 0;
-        for (int i = 0; i < n; ++i) {
-            if (mp[find(i)][target[i]] > 0)
-                --mp[find(i)][target[i]];
-            else
-                ++res;
+        vector<int> p(n);
+        iota(p.begin(), p.end(), 0);
+        function<int(int)> find = [&](int x) {
+            return x == p[x] ? x : p[x] = find(p[x]);
+        };
+        for (auto& a : allowedSwaps) {
+            p[find(a[0])] = find(a[1]);
         }
-        return res;
-    }
-
-    int find(int x) {
-        if (p[x] != x) p[x] = find(p[x]);
-        return p[x];
+        unordered_map<int, unordered_map<int, int>> cnt;
+        for (int i = 0; i < n; ++i) {
+            ++cnt[find(i)][source[i]];
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            if (--cnt[find(i)][target[i]] < 0) {
+                ++ans;
+            }
+        }
+        return ans;
     }
 };
 ```
@@ -163,40 +164,79 @@ public:
 ### **Go**
 
 ```go
-var p []int
-
-func minimumHammingDistance(source []int, target []int, allowedSwaps [][]int) int {
+func minimumHammingDistance(source []int, target []int, allowedSwaps [][]int) (ans int) {
 	n := len(source)
-	p = make([]int, n)
-	for i := 0; i < n; i++ {
+	p := make([]int, n)
+	for i := range p {
 		p[i] = i
 	}
-	for _, e := range allowedSwaps {
-		p[find(e[0])] = find(e[1])
-	}
-	mp := make(map[int]map[int]int)
-	for i := 0; i < n; i++ {
-		if mp[find(i)] == nil {
-			mp[find(i)] = make(map[int]int)
+	var find func(int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
 		}
-		mp[find(i)][source[i]]++
+		return p[x]
 	}
-	res := 0
-	for i := 0; i < n; i++ {
-		if mp[find(i)][target[i]] > 0 {
-			mp[find(i)][target[i]]--
-		} else {
-			res++
+	for _, a := range allowedSwaps {
+		p[find(a[0])] = find(a[1])
+	}
+	cnt := map[int]map[int]int{}
+	for i, x := range source {
+		j := find(i)
+		if cnt[j] == nil {
+			cnt[j] = map[int]int{}
+		}
+		cnt[j][x]++
+	}
+	for i, x := range target {
+		j := find(i)
+		cnt[j][x]--
+		if cnt[j][x] < 0 {
+			ans++
 		}
 	}
-	return res
+	return
 }
+```
 
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
+### **TypeScript**
+
+```ts
+function minimumHammingDistance(
+    source: number[],
+    target: number[],
+    allowedSwaps: number[][],
+): number {
+    const n = source.length;
+    const p: number[] = Array.from({ length: n }, (_, i) => i);
+    const find = (x: number): number => {
+        if (p[x] !== x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    };
+    for (const [a, b] of allowedSwaps) {
+        p[find(a)] = find(b);
+    }
+    const cnt: Map<number, Map<number, number>> = new Map();
+    for (let i = 0; i < n; ++i) {
+        const j = find(i);
+        if (!cnt.has(j)) {
+            cnt.set(j, new Map());
+        }
+        const m = cnt.get(j)!;
+        m.set(source[i], (m.get(source[i]) ?? 0) + 1);
+    }
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        const j = find(i);
+        const m = cnt.get(j)!;
+        m.set(target[i], (m.get(target[i]) ?? 0) - 1);
+        if (m.get(target[i])! < 0) {
+            ++ans;
+        }
+    }
+    return ans;
 }
 ```
 
