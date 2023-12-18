@@ -1,35 +1,33 @@
-var p []int
-
-func minimumHammingDistance(source []int, target []int, allowedSwaps [][]int) int {
+func minimumHammingDistance(source []int, target []int, allowedSwaps [][]int) (ans int) {
 	n := len(source)
-	p = make([]int, n)
-	for i := 0; i < n; i++ {
+	p := make([]int, n)
+	for i := range p {
 		p[i] = i
 	}
-	for _, e := range allowedSwaps {
-		p[find(e[0])] = find(e[1])
-	}
-	mp := make(map[int]map[int]int)
-	for i := 0; i < n; i++ {
-		if mp[find(i)] == nil {
-			mp[find(i)] = make(map[int]int)
+	var find func(int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
 		}
-		mp[find(i)][source[i]]++
+		return p[x]
 	}
-	res := 0
-	for i := 0; i < n; i++ {
-		if mp[find(i)][target[i]] > 0 {
-			mp[find(i)][target[i]]--
-		} else {
-			res++
+	for _, a := range allowedSwaps {
+		p[find(a[0])] = find(a[1])
+	}
+	cnt := map[int]map[int]int{}
+	for i, x := range source {
+		j := find(i)
+		if cnt[j] == nil {
+			cnt[j] = map[int]int{}
+		}
+		cnt[j][x]++
+	}
+	for i, x := range target {
+		j := find(i)
+		cnt[j][x]--
+		if cnt[j][x] < 0 {
+			ans++
 		}
 	}
-	return res
-}
-
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
+	return
 }
