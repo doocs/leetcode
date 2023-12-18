@@ -142,3 +142,7 @@
 
 | <img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/images/qrcode-for-yanglbme.png" width="260px" align="left"/> |
 | ------------------------------------------------------------------------------------------------------------------------------ |
+
+## 许可证
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享 版权归属-相同方式共享 4.0 国际 公共许可证</a>
