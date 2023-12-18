@@ -47,6 +47,22 @@ The total number of units will be = (1 * 3) + (2 * 2) + (1 * 1) = 8.
 
 ## Solutions
 
+**Solution 1: Greedy + Sorting**
+
+According to the problem, we should choose as many units as possible. Therefore, we first sort `boxTypes` in descending order of the number of units.
+
+Then we traverse `boxTypes` from front to back, choose up to `truckSize` boxes, and accumulate the number of units.
+
+The time complexity is $O(n \times \log n)$, where $n$ is the length of the two-dimensional array `boxTypes`.
+
+**Solution 2: Counting Sort**
+
+We can also use the idea of counting sort, create an array $cnt$ of length $1001$, where $cnt[b]$ represents the number of boxes with $b$ units.
+
+Then starting from the box with the maximum number of units, choose up to `truckSize` boxes, and accumulate the number of units.
+
+The time complexity is $O(M)$, where $M$ is the maximum number of units. In this problem, $M=1000$.
+
 <!-- tabs:start -->
 
 ### **Python3**

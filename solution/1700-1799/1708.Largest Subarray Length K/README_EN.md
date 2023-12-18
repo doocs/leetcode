@@ -55,6 +55,12 @@ Of these, [4,5,2,3] is the largest.</pre>
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+All integers in the array are distinct, so we can first find the index of the maximum element in the range $[0,..n-k]$, and then take $k$ elements starting from this index.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -62,8 +68,7 @@ Of these, [4,5,2,3] is the largest.</pre>
 ```python
 class Solution:
     def largestSubarray(self, nums: List[int], k: int) -> List[int]:
-        mx = max(nums[: len(nums) - k + 1])
-        i = nums.index(mx)
+        i = nums.index(max(nums[: len(nums) - k + 1]))
         return nums[i : i + k]
 ```
 
@@ -72,18 +77,13 @@ class Solution:
 ```java
 class Solution {
     public int[] largestSubarray(int[] nums, int k) {
-        int i = 0, mx = 0;
-        for (int j = 0; j < nums.length - k + 1; ++j) {
-            if (mx < nums[j]) {
-                mx = nums[j];
-                i = j;
+        int j = 0;
+        for (int i = 1; i < nums.length - k + 1; ++i) {
+            if (nums[j] < nums[i]) {
+                j = i;
             }
         }
-        int[] ans = new int[k];
-        for (int j = 0; j < k; ++j) {
-            ans[j] = nums[i + j];
-        }
-        return ans;
+        return Arrays.copyOfRange(nums, j, j + k);
     }
 }
 ```
@@ -94,48 +94,53 @@ class Solution {
 class Solution {
 public:
     vector<int> largestSubarray(vector<int>& nums, int k) {
-        auto pos = max_element(nums.begin(), nums.begin() + nums.size() - k + 1);
-        return {pos, pos + k};
+        auto i = max_element(nums.begin(), nums.end() - k + 1);
+        return {i, i + k};
     }
 };
-```
-
-### **Rust**
-
-```rust
-impl Solution {
-    #[allow(dead_code)]
-    pub fn largest_subarray(nums: Vec<i32>, k: i32) -> Vec<i32> {
-        let mut ret_vec = vec![i32::MIN];
-        let n = nums.len();
-
-        if n == (k as usize) {
-            return nums;
-        }
-
-        for i in 0..=n - (k as usize) {
-            if nums[i] > ret_vec[0] {
-                ret_vec = nums[i..i + (k as usize)].to_vec();
-            }
-        }
-
-        ret_vec
-    }
-}
 ```
 
 ### **Go**
 
 ```go
 func largestSubarray(nums []int, k int) []int {
-	i, mx := 0, 0
-	for j := 0; j < len(nums)-k+1; j++ {
-		if mx < nums[j] {
-			mx = nums[j]
-			i = j
+	j := 0
+	for i := 1; i < len(nums)-k+1; i++ {
+		if nums[j] < nums[i] {
+			j = i
 		}
 	}
-	return nums[i : i+k]
+	return nums[j : j+k]
+}
+```
+
+### **TypeScript**
+
+```ts
+function largestSubarray(nums: number[], k: number): number[] {
+    let j = 0;
+    for (let i = 1; i < nums.length - k + 1; ++i) {
+        if (nums[j] < nums[i]) {
+            j = i;
+        }
+    }
+    return nums.slice(j, j + k);
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn largest_subarray(nums: Vec<i32>, k: i32) -> Vec<i32> {
+        let mut j = 0;
+        for i in 1..=nums.len() - (k as usize) {
+            if nums[i] > nums[j] {
+                j = i;
+            }
+        }
+        nums[j..j + (k as usize)].to_vec()
+    }
 }
 ```
 

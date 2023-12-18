@@ -39,6 +39,26 @@ Their respective sums are 4, 8, 8, and 16, all of which are powers of 2.
 
 ## Solutions
 
+**Solution 1: Hash Table + Enumeration of Powers of Two**
+
+According to the problem, we need to count the number of combinations in the array where the sum of two numbers is a power of $2$. Directly enumerating all combinations has a time complexity of $O(n^2)$, which will definitely time out.
+
+We can traverse the array and use a hash table $cnt$ to maintain the number of occurrences of each element $d$ in the array.
+
+For each element, we enumerate the powers of two $s$ as the sum of two numbers from small to large, and add the number of occurrences of $s - d$ in the hash table to the answer. Then increase the number of occurrences of the current element $d$ by one.
+
+After the traversal ends, return the answer.
+
+The time complexity is $O(n \times \log M)$, where $n$ is the length of the array `deliciousness`, and $M$ is the upper limit of the elements. For this problem, the upper limit $M=2^{20}$.
+
+We can also use a hash table $cnt$ to count the number of occurrences of each element in the array first.
+
+Then enumerate the powers of two $s$ as the sum of two numbers from small to large. For each $s$, traverse each key-value pair $(a, m)$ in the hash table. If $s - a$ is also in the hash table, and $s - a \neq a$, then add $m \times cnt[s - a]$ to the answer; if $s - a = a$, then add $m \times (m - 1)$ to the answer.
+
+Finally, divide the answer by $2$, modulo $10^9 + 7$, and return.
+
+The time complexity is the same as the method above.
+
 <!-- tabs:start -->
 
 ### **Python3**
