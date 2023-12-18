@@ -39,6 +39,9 @@
 	<li><code>nums</code>&nbsp;is sorted in ascending order.</li>
 </ul>
 
+<p>&nbsp;</p>
+<strong>Follow up: </strong>Can you write an algorithm with&nbsp;O(log n)&nbsp;runtime complexity?
+
 ## Solutions
 
 <!-- tabs:start -->

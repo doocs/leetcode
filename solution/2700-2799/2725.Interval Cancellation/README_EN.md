@@ -23,23 +23,9 @@
    {&quot;time&quot;: 175, &quot;returned&quot;: 8}
 ]
 <strong>Explanation:</strong> 
-const result = [];
-const fn = (x) =&gt; x * 2;
 const cancelTimeMs = 190;
-
-const start = performance.now();
-
-const log = (...argsArr) =&gt; {
-    const diff = Math.floor(performance.now() - start);
-    result.push({&quot;time&quot;: diff, &quot;returned&quot;: fn(...argsArr)});
-}
-
-const cancel = cancellable(log, [4], 35);
-setTimeout(cancel, cancelTimeMs);
-
-setTimeout(() =&gt; {
-    console.log(result); // Output
- }, cancelTimeMs + 50)  
+const cancelFn = cancellable((x) =&gt; x * 2, [4], 35);
+setTimeout(cancelFn, cancelTimeMs);
 
 Every 35ms, fn(4) is called. Until t=190ms, then it is cancelled.
 1st fn call is at 0ms. fn(4) returns 8.
@@ -65,7 +51,9 @@ Cancelled at 190ms
    {&quot;time&quot;: 150, &quot;returned&quot;: 10}
 ]
 <strong>Explanation:</strong> 
-const cancelTimeMs = 165;
+const cancelTimeMs = 165; 
+const cancelFn = cancellable((x1, x2) =&gt; (x1 * x2), [2, 5], 30) 
+setTimeout(cancelFn, cancelTimeMs)
 
 Every 30ms, fn(2, 5) is called. Until t=165ms, then it is cancelled.
 1st fn call is at 0ms&nbsp;
@@ -90,6 +78,8 @@ Cancelled at 165ms
 ]
 <strong>Explanation:</strong> 
 const cancelTimeMs = 180;
+const cancelFn = cancellable((x1, x2, x3) =&gt; (x1 + x2 + x3), [5, 1, 3], 50)
+setTimeout(cancelFn, cancelTimeMs)
 
 Every 50ms, fn(5, 1, 3) is called. Until t=180ms, then it is cancelled. 
 1st fn call is at 0ms

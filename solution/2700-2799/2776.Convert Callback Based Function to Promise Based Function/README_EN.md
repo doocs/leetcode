@@ -6,7 +6,9 @@
 
 <p>Write a function that accepts another function <code>fn</code> and converts the callback-based function&nbsp;into a promise-based function.&nbsp;</p>
 
-<p>The <code>promisify</code>&nbsp;function takes in a function <code>fn</code> that accepts a callback as its first argument and also any additional arguments. It&nbsp;returns a new function that returns a promise instead. The returned promise should resolve with the result of the original function when the callback is called with a successful response, and reject with the error when the callback is called with an error. The returned promise-based function should accept the additional arguments as inputs.</p>
+<p>The function <code>fn</code> takes a callback as its first argument, along with any additional arguments <code>args</code>&nbsp;passed as separate inputs.</p>
+
+<p>The&nbsp;<code>promisify</code>&nbsp;function returns a new function that should return a promise. The promise should resolve with the argument passed as the first parameter of the callback when the callback is invoked without error, and reject with the error when the callback is called with an error as the second argument.</p>
 
 <p>The following is an example of a function that could be passed into&nbsp;<code>promisify</code>.</p>
 

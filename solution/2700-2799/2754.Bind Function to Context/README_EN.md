@@ -68,7 +68,7 @@ boundFunc(); // &quot;My name is Kathy&quot;
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>obj is a non-null object</code></li>
+	<li><code>obj</code> is a non-null object</li>
 	<li><code>0 &lt;= inputs.length &lt;= 100</code></li>
 </ul>
 
