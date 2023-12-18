@@ -42,6 +42,12 @@
 
 ## Solutions
 
+**Solution 1: Quick Thinking**
+
+The problem is equivalent to finding the maximum number in the string.
+
+The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

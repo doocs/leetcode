@@ -46,6 +46,22 @@
 
 ## Solutions
 
+**Solution 1: Hash Table or Array**
+
+A straightforward approach is to use a hash table or array $s$ to record the characters in `allowed`. Then iterate over the `words` array, for each string $w$, determine whether it is composed of characters in `allowed`. If so, increment the answer.
+
+The time complexity is $O(m)$, and the space complexity is $O(C)$. Here, $m$ is the total length of all strings, and $C$ is the size of the character set `allowed`. In this problem, $C \leq 26$.
+
+**Solution 2: Bit Manipulation**
+
+We can also use a single integer to represent the occurrence of characters in each string. In this integer, each bit in the binary representation indicates whether a character appears.
+
+We simply define a function $f(w)$ that can convert a string $w$ into an integer. Each bit in the binary representation of the integer indicates whether a character appears. For example, the string `ab` can be converted into the integer $3$, which is represented in binary as $11$. The string `abd` can be converted into the integer $11$, which is represented in binary as $1011$.
+
+Back to the problem, to determine whether a string $w$ is composed of characters in `allowed`, we can check whether the result of the bitwise OR operation between $f(allowed)$ and $f(w)$ is equal to $f(allowed)$. If so, increment the answer.
+
+The time complexity is $O(m)$, where $m$ is the total length of all strings. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

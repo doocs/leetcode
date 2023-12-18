@@ -39,6 +39,14 @@ result[2] = |5-2| + |5-3| + |5-5| = 3 + 2 + 0 = 5.
 
 ## Solutions
 
+**Solution 1: Summation + Enumeration**
+
+First, we calculate the sum of all elements in the array $nums$, denoted as $s$. We use a variable $t$ to record the sum of the elements that have been enumerated so far.
+
+Next, we enumerate $nums[i]$. Then $ans[i] = nums[i] \times i - t + s - t - nums[i] \times (n - i)$. After that, we update $t$, i.e., $t = t + nums[i]$. We continue to enumerate the next element until all elements are enumerated.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

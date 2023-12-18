@@ -43,6 +43,12 @@ After modulo 10<sup>9</sup> + 7, the result is 505379714.
 
 ## Solutions
 
+**Solution 1: Bit Manipulation**
+
+By observing the pattern of number concatenation, we can find that when concatenating to the $i$-th number, the result $ans$ formed by concatenating the previous $i-1$ numbers is actually shifted to the left by a certain number of bits, and then $i$ is added. The number of bits shifted, $shift$, is the number of binary digits in $i$. Since $i$ is continuously incremented by $1$, the number of bits shifted either remains the same as the last shift or increases by one. When $i$ is a power of $2$, that is, when there is only one bit in the binary number of $i$ that is $1$, the number of bits shifted increases by $1$ compared to the last time.
+
+The time complexity is $O(n)$, where $n$ is the given integer. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

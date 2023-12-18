@@ -228,7 +228,7 @@ func boxDelivering(boxes [][]int, portsCount int, maxBoxes int, maxWeight int) i
 本题数据规模达到 $10^5$，而以上代码的时间复杂度为 $O(n^2)$，会超出时间限制。我们仔细观察：
 
 $$
-f[i] = min(f[i], f[j] + cs[i - 1] - cs[j] + 2)
+f[i] = \min(f[i], f[j] + cs[i - 1] - cs[j] + 2)
 $$
 
 实际上我们是要在 $[i-maxBoxes,..i-1]$ 这个窗口内找到一个 $j$，使得 $f[j] - cs[j]$ 的值最小，求滑动窗口的最小值，一种常用的做法是使用单调队列，可以在 $O(1)$ 时间内获取到满足条件的最小值。

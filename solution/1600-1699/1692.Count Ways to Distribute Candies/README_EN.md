@@ -58,6 +58,20 @@
 
 ## Solutions
 
+**Solution 1: Dynamic Programming**
+
+We define $f[i][j]$ as the number of different ways to distribute $i$ candies to $j$ bags. Initially, $f[0][0]=1$, and the answer is $f[n][k]$.
+
+We consider how to distribute the $i$-th candy. If the $i$-th candy is distributed to a new bag, then $f[i][j]=f[i-1][j-1]$. If the $i$-th candy is distributed to an existing bag, then $f[i][j]=f[i-1][j]\times j$. Therefore, the state transition equation is:
+
+$$
+f[i][j]=f[i-1][j-1]+f[i-1][j]\times j
+$$
+
+The final answer is $f[n][k]$.
+
+The time complexity is $O(n \times k)$, and the space complexity is $O(n \times k)$. Here, $n$ and $k$ are the number of candies and bags, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**

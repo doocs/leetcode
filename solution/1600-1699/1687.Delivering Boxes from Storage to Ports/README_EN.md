@@ -74,6 +74,146 @@ So the total number of trips is 2 + 2 + 2 = 6.
 
 ## Solutions
 
+**Solution 1: Dynamic Programming + Monotonic Queue Optimization**
+
+We define $f[i]$ as the minimum number of trips required to transport the first $i$ boxes from the warehouse to the corresponding docks, so the answer is $f[n]$.
+
+The boxes need to be transported in the order of the array. Each time, the truck will take out several consecutive boxes in order, then deliver them to the corresponding docks one by one. After all are delivered, it returns to the warehouse.
+
+Therefore, we can enumerate the index $j$ of the last box transported in the last trip. Then $f[i]$ can be transferred from $f[j]$. During the transfer, we need to consider the following issues:
+
+-   When transferring from $f[j]$, the number of boxes on the truck cannot exceed $maxBoxes$
+-   When transferring from $f[j]$, the total weight of the boxes on the truck cannot exceed $maxWeight$
+
+The state transition equation is:
+
+$$
+f[i] = \min_{j \in [i - maxBoxes, i - 1]} \left(f[j] + \sum_{k = j + 1}^i \text{cost}(k)\right)
+$$
+
+Where $\sum_{k = j + 1}^i \text{cost}(k)$ represents the number of trips required to deliver the boxes in $[j+1,..i]$ to their corresponding docks in one trip. This part of the trip count can be quickly calculated using prefix sums.
+
+For example, suppose we take out boxes $1, 2, 3$ and need to deliver them to docks $4, 4, 5$. We first go from the warehouse to dock $4$, then from dock $4$ to dock $5$, and finally from dock $5$ back to the warehouse. It can be seen that it takes $2$ trips to go from the warehouse to the dock and from the dock back to the warehouse. The number of trips from dock to dock depends on whether the two adjacent docks are the same. If they are not the same, the number of trips will increase by $1$, otherwise it remains the same. Therefore, we can calculate the number of trips between docks using prefix sums, and add two trips for the start and end, to calculate the number of trips required to deliver the boxes in $[j+1,..i]$ to their corresponding docks.
+
+The code implementation is as follows:
+
+```python
+# 33/39
+class Solution:
+    def boxDelivering(
+        self, boxes: List[List[int]], portsCount: int, maxBoxes: int, maxWeight: int
+    ) -> int:
+        n = len(boxes)
+        ws = list(accumulate((box[1] for box in boxes), initial=0))
+        c = [int(a != b) for a, b in pairwise(box[0] for box in boxes)]
+        cs = list(accumulate(c, initial=0))
+        f = [inf] * (n + 1)
+        f[0] = 0
+        for i in range(1, n + 1):
+            for j in range(max(0, i - maxBoxes), i):
+                if ws[i] - ws[j] <= maxWeight:
+                    f[i] = min(f[i], f[j] + cs[i - 1] - cs[j] + 2)
+        return f[n]
+```
+
+```java
+// 35/39
+class Solution {
+    public int boxDelivering(int[][] boxes, int portsCount, int maxBoxes, int maxWeight) {
+        int n = boxes.length;
+        long[] ws = new long[n + 1];
+        int[] cs = new int[n];
+        for (int i = 0; i < n; ++i) {
+            int p = boxes[i][0], w = boxes[i][1];
+            ws[i + 1] = ws[i] + w;
+            if (i < n - 1) {
+                cs[i + 1] = cs[i] + (p != boxes[i + 1][0] ? 1 : 0);
+            }
+        }
+        int[] f = new int[n + 1];
+        Arrays.fill(f, 1 << 30);
+        f[0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = Math.max(0, i - maxBoxes); j < i; ++j) {
+                if (ws[i] - ws[j] <= maxWeight) {
+                    f[i] = Math.min(f[i], f[j] + cs[i - 1] - cs[j] + 2);
+                }
+            }
+        }
+        return f[n];
+    }
+}
+```
+
+```cpp
+// 35/39
+class Solution {
+public:
+    int boxDelivering(vector<vector<int>>& boxes, int portsCount, int maxBoxes, int maxWeight) {
+        int n = boxes.size();
+        long ws[n + 1];
+        int cs[n];
+        ws[0] = cs[0] = 0;
+        for (int i = 0; i < n; ++i) {
+            int p = boxes[i][0], w = boxes[i][1];
+            ws[i + 1] = ws[i] + w;
+            if (i < n - 1) cs[i + 1] = cs[i] + (p != boxes[i + 1][0]);
+        }
+        int f[n + 1];
+        memset(f, 0x3f, sizeof f);
+        f[0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = max(0, i - maxBoxes); j < i; ++j) {
+                if (ws[i] - ws[j] <= maxWeight) {
+                    f[i] = min(f[i], f[j] + cs[i - 1] - cs[j] + 2);
+                }
+            }
+        }
+        return f[n];
+    }
+};
+```
+
+```go
+// 35/39
+func boxDelivering(boxes [][]int, portsCount int, maxBoxes int, maxWeight int) int {
+	n := len(boxes)
+	ws := make([]int, n+1)
+	cs := make([]int, n)
+	for i, box := range boxes {
+		p, w := box[0], box[1]
+		ws[i+1] = ws[i] + w
+		if i < n-1 {
+			t := 0
+			if p != boxes[i+1][0] {
+				t++
+			}
+			cs[i+1] = cs[i] + t
+		}
+	}
+	f := make([]int, n+1)
+	for i := 1; i <= n; i++ {
+		f[i] = 1 << 30
+		for j := max(0, i-maxBoxes); j < i; j++ {
+			if ws[i]-ws[j] <= maxWeight {
+				f[i] = min(f[i], f[j]+cs[i-1]-cs[j]+2)
+			}
+		}
+	}
+	return f[n]
+}
+```
+
+The data scale of this problem reaches $10^5$, and the time complexity of the above code is $O(n^2)$, which will exceed the time limit. If we observe carefully:
+
+$$
+f[i] = \min(f[i], f[j] + cs[i - 1] - cs[j] + 2)
+$$
+
+In fact, we are looking for a $j$ in the window $[i-maxBoxes,..i-1]$ that minimizes the value of $f[j] - cs[j]$. To find the minimum value in a sliding window, a common method is to use a monotonic queue, which can get the minimum value that meets the condition in $O(1)$ time.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of boxes in the problem.
+
 <!-- tabs:start -->
 
 ### **Python3**

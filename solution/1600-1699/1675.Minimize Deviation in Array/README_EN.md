@@ -60,6 +60,18 @@
 
 ## Solutions
 
+**Solution 1: Greedy + Priority Queue**
+
+Intuitively, to get the minimum offset of the array, we need to decrease the maximum value of the array and increase the minimum value of the array.
+
+Since there are two operations that can be performed each time: multiply an odd number by $2$; divide an even number by $2$, the situation is more complex. We can multiply all odd numbers by $2$ to convert them into even numbers, which is equivalent to having only one division operation. The division operation can only reduce a certain number, and only by reducing the maximum value can the result be more optimal.
+
+Therefore, we use a priority queue (max heap) to maintain the maximum value of the array. Each time we take out the top element of the heap for division operation, put the new value into the heap, and update the minimum value and the minimum value of the difference between the top element of the heap and the minimum value.
+
+When the top element of the heap is an odd number, the operation stops.
+
+The time complexity is $O(n\log n \times \log m)$. Where $n$ and $m$ are the length of the array `nums` and the maximum element of the array, respectively. Since the maximum element in the array is divided by $2$ at most $O(\log m)$ times, all elements are divided by $2$ at most $O(n\log m)$ times. Each time the heap is popped and put into operation, the time complexity is $O(\log n)$. Therefore, the total time complexity is $O(n\log n \times \log m)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
