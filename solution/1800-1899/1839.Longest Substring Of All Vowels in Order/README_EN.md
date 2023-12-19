@@ -51,6 +51,14 @@
 
 ## Solutions
 
+**Solution 1: Two Pointers + Simulation**
+
+We can first transform the string `word`. For example, for `word="aaaeiouu"`, we can transform it into data items `('a', 3)`, `('e', 1)`, `('i', 1)`, `('o', 1)`, `('u', 2)` and store them in an array `arr`. Each data item's first element represents a vowel, and the second element represents the number of times the vowel appears consecutively. This transformation can be implemented using two pointers.
+
+Next, we traverse the array `arr`, each time taking $5$ adjacent data items, and judge whether the vowels in these data items are `'a'`, `'e'`, `'i'`, `'o'`, `'u'` respectively. If so, calculate the total number of times the vowels appear in these $5$ data items, which is the length of the current beautiful substring, and update the maximum value of the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string `word`.
+
 <!-- tabs:start -->
 
 ### **Python3**

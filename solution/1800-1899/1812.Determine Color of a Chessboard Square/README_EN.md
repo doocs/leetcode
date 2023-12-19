@@ -47,6 +47,14 @@
 
 ## Solutions
 
+**Solution 1: Find the Pattern**
+
+By observing the chessboard, we find that two squares $(x_1, y_1)$ and $(x_2, y_2)$ with the same color satisfy that both $x_1 + y_1$ and $x_2 + y_2$ are either odd or even.
+
+Therefore, we can get the corresponding coordinates $(x, y)$ from `coordinates`. If $x + y$ is odd, then the square is white, return `true`, otherwise return `false`.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

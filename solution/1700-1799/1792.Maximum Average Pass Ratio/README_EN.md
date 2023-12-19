@@ -40,6 +40,18 @@
 
 ## Solutions
 
+**Solution 1: Priority Queue (Max-Heap of Increment)**
+
+Suppose a class currently has a pass rate of $\frac{a}{b}$. If we arrange a smart student into this class, then the pass rate of the class will become $\frac{a+1}{b+1}$. We can find that the increment of the pass rate is $\frac{a+1}{b+1} - \frac{a}{b}$.
+
+We maintain a max-heap, which stores the increment of the pass rate for each class.
+
+Perform `extraStudents` operations, each time taking a class from the top of the heap, adding $1$ to both the number of students and the number of passes in this class, then recalculating the increment of the pass rate of this class and putting it back into the heap. Repeat this process until all students are allocated.
+
+Finally, we sum up the pass rates of all classes, and then divide by the number of classes to get the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of classes.
+
 <!-- tabs:start -->
 
 ### **Python3**

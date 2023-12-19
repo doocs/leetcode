@@ -50,6 +50,12 @@ queries[0] is green, queries[1] is red, queries[2] is blue, and queries[3] is pu
 
 ## Solutions
 
+**Solution 1: Enumeration**
+
+Enumerate all the circles $(x, y, r)$. For each circle, calculate the number of points within the circle to get the answer.
+
+The time complexity is $O(m \times n)$, where $m$ and $n$ are the lengths of the arrays `queries` and `points` respectively. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

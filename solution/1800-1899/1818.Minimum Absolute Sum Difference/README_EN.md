@@ -61,7 +61,15 @@ This yields an absolute sum difference of <code>|10-9| + |10-3| + |4-5| + |4-1| 
 
 ## Solutions
 
-Binary search.
+**Solution 1: Sorting + Binary Search**
+
+According to the problem, we can first calculate the absolute difference sum of `nums1` and `nums2` without any replacements, denoted as $s$.
+
+Next, we enumerate each element $nums1[i]$ in `nums1`, replacing it with the element closest to $nums2[i]$ that also exists in `nums1`. Therefore, before the enumeration, we can make a copy of `nums1`, resulting in the array `nums`, and sort `nums`. Then, we perform a binary search in `nums` for the element closest to $nums2[i]$, denoted as $nums[j]$, and calculate $|nums1[i] - nums2[i]| - |nums[j] - nums2[i]|$, updating the maximum value of the difference $mx$.
+
+Finally, we subtract $mx$ from $s$, which is the answer. Note the modulus operation.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array `nums1`.
 
 <!-- tabs:start -->
 

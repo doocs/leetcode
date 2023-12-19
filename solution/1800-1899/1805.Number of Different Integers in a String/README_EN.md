@@ -47,6 +47,16 @@ the leading zeros are ignored when comparing their decimal values.
 
 ## Solutions
 
+**Solution 1: Double Pointers + Simulation**
+
+Traverse the string `word`, find the start and end positions of each integer, cut out this substring, and store it in the hash set $s$.
+
+After the traversal, return the size of the hash set $s$.
+
+> Note, the integer represented by each substring may be very large, we cannot directly convert it to an integer. Therefore, we can remove the leading zeros of each substring before storing it in the hash set.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string `word`.
+
 <!-- tabs:start -->
 
 ### **Python3**
