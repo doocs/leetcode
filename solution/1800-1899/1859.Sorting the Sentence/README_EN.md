@@ -44,6 +44,16 @@
 
 ## Solutions
 
+**Solution 1: String Splitting**
+
+First, we split the string $s$ by spaces to get the string array $words$. Then, we create a string array $ans$ of length $|words|$ to store the answer.
+
+Next, we iterate over each string $w$ in the string array $words$, find the position $i$ represented by the last character of $w$, then take the first $|w|-1$ characters of $w$ as the new string $w'$, and place $w'$ in the $i$th position of the array $ans$.
+
+Finally, we join the array $ans$ into a string by spaces, which is the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -51,11 +61,18 @@
 ```python
 class Solution:
     def sortSentence(self, s: str) -> str:
-        words = s.split()
-        ans = [None] * len(words)
-        for w in words:
-            i = int(w[-1]) - 1
-            ans[i] = w[:-1]
+        ws = [(w[:-1], int(w[-1])) for w in s.split()]
+        ws.sort(key=lambda x: x[1])
+        return ' '.join(w for w, _ in ws)
+```
+
+```python
+class Solution:
+    def sortSentence(self, s: str) -> str:
+        ws = s.split()
+        ans = [None] * len(ws)
+        for w in ws:
+            ans[int(w[-1]) - 1] = w[:-1]
         return ' '.join(ans)
 ```
 
@@ -64,11 +81,12 @@ class Solution:
 ```java
 class Solution {
     public String sortSentence(String s) {
-        String[] words = s.split(" ");
-        String[] ans = new String[words.length];
-        for (String w : words) {
-            int i = w.charAt(w.length() - 1) - '1';
-            ans[i] = w.substring(0, w.length() - 1);
+        String[] ws = s.split(" ");
+        int n = ws.length;
+        String[] ans = new String[n];
+        for (int i = 0; i < n; ++i) {
+            String w = ws[i];
+            ans[w.charAt(w.length() - 1) - '1'] = w.substring(0, w.length() - 1);
         }
         return String.join(" ", ans);
     }
@@ -81,17 +99,18 @@ class Solution {
 class Solution {
 public:
     string sortSentence(string s) {
-        istringstream is(s);
-        string t;
-        vector<string> words;
-        while (is >> t) words.push_back(t);
-        vector<string> res(words.size());
-        for (auto& w : words) {
-            int i = w[w.size() - 1] - '1';
-            res[i] = w.substr(0, w.size() - 1);
+        istringstream iss(s);
+        string w;
+        vector<string> ws;
+        while (iss >> w) {
+            ws.push_back(w);
+        }
+        vector<string> ss(ws.size());
+        for (auto& w : ws) {
+            ss[w.back() - '1'] = w.substr(0, w.size() - 1);
         }
         string ans;
-        for (auto& w : res) {
+        for (auto& w : ss) {
             ans += w + " ";
         }
         ans.pop_back();
@@ -104,11 +123,10 @@ public:
 
 ```go
 func sortSentence(s string) string {
-	words := strings.Split(s, " ")
-	ans := make([]string, len(words))
-	for _, w := range words {
-		i := w[len(w)-1] - '1'
-		ans[i] = w[:len(w)-1]
+	ws := strings.Split(s, " ")
+	ans := make([]string, len(ws))
+	for _, w := range ws {
+		ans[w[len(w)-1]-'1'] = w[:len(w)-1]
 	}
 	return strings.Join(ans, " ")
 }
@@ -122,11 +140,10 @@ func sortSentence(s string) string {
  * @return {string}
  */
 var sortSentence = function (s) {
-    const words = s.split(' ');
-    const ans = new Array(words.length);
-    for (const w of words) {
-        const i = w.charCodeAt(w.length - 1) - '1'.charCodeAt(0);
-        ans[i] = w.slice(0, w.length - 1);
+    const ws = s.split(' ');
+    const ans = Array(ws.length);
+    for (const w of ws) {
+        ans[w.charCodeAt(w.length - 1) - '1'.charCodeAt(0)] = w.slice(0, -1);
     }
     return ans.join(' ');
 };
@@ -136,11 +153,10 @@ var sortSentence = function (s) {
 
 ```ts
 function sortSentence(s: string): string {
-    const words = s.split(' ');
-    const ans = new Array(words.length);
-    for (const w of words) {
-        const i = w.charCodeAt(w.length - 1) - '1'.charCodeAt(0);
-        ans[i] = w.slice(0, w.length - 1);
+    const ws = s.split(' ');
+    const ans = Array(ws.length);
+    for (const w of ws) {
+        ans[w.charCodeAt(w.length - 1) - '1'.charCodeAt(0)] = w.slice(0, -1);
     }
     return ans.join(' ');
 }

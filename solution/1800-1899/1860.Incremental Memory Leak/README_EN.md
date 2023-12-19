@@ -45,6 +45,18 @@
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+We directly simulate the allocation of memory.
+
+Assume $t$ is the moment of unexpected exit, then the two memory sticks can definitely accommodate the memory consumed at the moment $t-1$ and before, so we have:
+
+$$
+\sum_{i=1}^{t-1} i = \frac{t\times (t-1)}{2}  \leq (m_1+m_2)
+$$
+
+The time complexity is $O(\sqrt{m_1+m_2})$, where $m_1$ and $m_2$ are the sizes of the two memory sticks respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**

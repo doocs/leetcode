@@ -68,6 +68,27 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：二进制枚举**
+
+我们可以用二进制枚举的方法，枚举出所有的子集，然后计算每个子集的异或总和。
+
+具体地，我们在 $[0, 2^n)$ 的范围内枚举 $i$，其中 $n$ 是数组 $nums$ 的长度。如果 $i$ 的二进制表示的第 $j$ 位为 $1$，那么代表着 $nums$ 的第 $j$ 个元素在当前枚举的子集中；如果第 $j$ 位为 $0$，那么代表着 $nums$ 的第 $j$ 个元素不在当前枚举的子集中。我们可以根据 $i$ 的二进制表示，得到当前子集对应的异或总和，将其加到答案中即可。
+
+时间复杂度 $O(n \times 2^n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
+
+**方法二：DFS**
+
+我们也可以使用深度优先搜索的方法，枚举出所有的子集，然后计算每个子集的异或总和。
+
+我们设计一个函数 $dfs(i, s)$，其中 $i$ 表示当前搜索到数组 $nums$ 的第 $i$ 个元素，$s$ 表示当前子集的异或总和。初始时，$i=0$, $s=0$。在搜索的过程中，每次我们都有两种选择：
+
+-   将 $nums$ 的第 $i$ 个元素加入当前子集，即 $dfs(i+1, s \oplus nums[i])$；
+-   将 $nums$ 的第 $i$ 个元素不加入当前子集，即 $dfs(i+1, s)$。
+
+当我们搜索完数组 $nums$ 的所有元素时，即 $i=n$ 时，当前子集的异或总和为 $s$，将其加到答案中即可。
+
+时间复杂度 $O(2^n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -77,17 +98,30 @@
 ```python
 class Solution:
     def subsetXORSum(self, nums: List[int]) -> int:
-        def dfs(nums, depth, prev):
-            self.res += prev
-            for num in nums[depth:]:
-                prev ^= num
-                depth += 1
-                dfs(nums, depth, prev)
-                prev ^= num
+        ans, n = 0, len(nums)
+        for i in range(1 << n):
+            s = 0
+            for j in range(n):
+                if i >> j & 1:
+                    s ^= nums[j]
+            ans += s
+        return ans
+```
 
-        self.res = 0
-        dfs(nums, 0, 0)
-        return self.res
+```python
+class Solution:
+    def subsetXORSum(self, nums: List[int]) -> int:
+        def dfs(i: int, s: int):
+            nonlocal ans
+            if i >= len(nums):
+                ans += s
+                return
+            dfs(i + 1, s)
+            dfs(i + 1, s ^ nums[i])
+
+        ans = 0
+        dfs(0, 0)
+        return ans
 ```
 
 ### **Java**
@@ -96,21 +130,155 @@ class Solution:
 
 ```java
 class Solution {
-    private int res;
+    public int subsetXORSum(int[] nums) {
+        int n = nums.length;
+        int ans = 0;
+        for (int i = 0; i < 1 << n; ++i) {
+            int s = 0;
+            for (int j = 0; j < n; ++j) {
+                if ((i >> j & 1) == 1) {
+                    s ^= nums[j];
+                }
+            }
+            ans += s;
+        }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    private int ans;
+    private int[] nums;
 
     public int subsetXORSum(int[] nums) {
-        dfs(nums, 0, 0);
-        return res;
+        this.nums = nums;
+        dfs(0, 0);
+        return ans;
     }
 
-    private void dfs(int[] nums, int depth, int prev) {
-        res += prev;
-        for (int i = depth; i < nums.length; ++i) {
-            prev ^= nums[i];
-            dfs(nums, ++depth, prev);
-            prev ^= nums[i];
+    private void dfs(int i, int s) {
+        if (i >= nums.length) {
+            ans += s;
+            return;
         }
+        dfs(i + 1, s);
+        dfs(i + 1, s ^ nums[i]);
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int subsetXORSum(vector<int>& nums) {
+        int n = nums.size();
+        int ans = 0;
+        for (int i = 0; i < 1 << n; ++i) {
+            int s = 0;
+            for (int j = 0; j < n; ++j) {
+                if (i >> j & 1) {
+                    s ^= nums[j];
+                }
+            }
+            ans += s;
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int subsetXORSum(vector<int>& nums) {
+        int n = nums.size();
+        int ans = 0;
+        function<void(int, int)> dfs = [&](int i, int s) {
+            if (i >= n) {
+                ans += s;
+                return;
+            }
+            dfs(i + 1, s);
+            dfs(i + 1, s ^ nums[i]);
+        };
+        dfs(0, 0);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func subsetXORSum(nums []int) (ans int) {
+	n := len(nums)
+	for i := 0; i < 1<<n; i++ {
+		s := 0
+		for j, x := range nums {
+			if i>>j&1 == 1 {
+				s ^= x
+			}
+		}
+		ans += s
+	}
+	return
+}
+```
+
+```go
+func subsetXORSum(nums []int) (ans int) {
+	n := len(nums)
+	var dfs func(int, int)
+	dfs = func(i, s int) {
+		if i >= n {
+			ans += s
+			return
+		}
+		dfs(i+1, s)
+		dfs(i+1, s^nums[i])
+	}
+	dfs(0, 0)
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function subsetXORSum(nums: number[]): number {
+    let ans = 0;
+    const n = nums.length;
+    for (let i = 0; i < 1 << n; ++i) {
+        let s = 0;
+        for (let j = 0; j < n; ++j) {
+            if ((i >> j) & 1) {
+                s ^= nums[j];
+            }
+        }
+        ans += s;
+    }
+    return ans;
+}
+```
+
+```ts
+function subsetXORSum(nums: number[]): number {
+    let ans = 0;
+    const n = nums.length;
+    const dfs = (i: number, s: number) => {
+        if (i >= n) {
+            ans += s;
+            return;
+        }
+        dfs(i + 1, s);
+        dfs(i + 1, s ^ nums[i]);
+    };
+    dfs(0, 0);
+    return ans;
 }
 ```
 
@@ -122,22 +290,40 @@ class Solution {
  * @return {number}
  */
 var subsetXORSum = function (nums) {
-    let res = [];
-    let prev = 0;
-    dfs(nums, 0, prev, res);
-    return res.reduce((a, c) => a + c, 0);
-};
-
-function dfs(nums, depth, prev, res) {
-    res.push(prev);
-    for (let i = depth; i < nums.length; i++) {
-        prev ^= nums[i];
-        depth++;
-        dfs(nums, depth, prev, res);
-        // bracktrack
-        prev ^= nums[i];
+    let ans = 0;
+    const n = nums.length;
+    for (let i = 0; i < 1 << n; ++i) {
+        let s = 0;
+        for (let j = 0; j < n; ++j) {
+            if ((i >> j) & 1) {
+                s ^= nums[j];
+            }
+        }
+        ans += s;
     }
-}
+    return ans;
+};
+```
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var subsetXORSum = function (nums) {
+    let ans = 0;
+    const n = nums.length;
+    const dfs = (i, s) => {
+        if (i >= n) {
+            ans += s;
+            return;
+        }
+        dfs(i + 1, s);
+        dfs(i + 1, s ^ nums[i]);
+    };
+    dfs(0, 0);
+    return ans;
+};
 ```
 
 ### **...**

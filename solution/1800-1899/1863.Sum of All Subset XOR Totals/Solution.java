@@ -1,17 +1,19 @@
 class Solution {
-    private int res;
+    private int ans;
+    private int[] nums;
 
     public int subsetXORSum(int[] nums) {
-        dfs(nums, 0, 0);
-        return res;
+        this.nums = nums;
+        dfs(0, 0);
+        return ans;
     }
 
-    private void dfs(int[] nums, int depth, int prev) {
-        res += prev;
-        for (int i = depth; i < nums.length; ++i) {
-            prev ^= nums[i];
-            dfs(nums, ++depth, prev);
-            prev ^= nums[i];
+    private void dfs(int i, int s) {
+        if (i >= nums.length) {
+            ans += s;
+            return;
         }
+        dfs(i + 1, s);
+        dfs(i + 1, s ^ nums[i]);
     }
 }
