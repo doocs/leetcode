@@ -38,6 +38,14 @@ The earlier year between them is 1960.</pre>
 
 ## Solutions
 
+**Solution 1: Difference Array**
+
+We notice that the range of years is $[1950,..2050]$. Therefore, we can map these years to an array $d$ of length $101$, where the index of the array represents the value of the year minus $1950$.
+
+Next, we traverse $logs$. For each person, we increment $d[birth_i - 1950]$ by $1$ and decrement $d[death_i - 1950]$ by $1$. Finally, we traverse the array $d$, find the maximum value of the prefix sum, which is the year with the most population, and add $1950$ to get the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(C)$. Where $n$ is the length of the array $logs$, and $C$ is the range size of the years, i.e., $2050 - 1950 + 1 = 101$.
+
 <!-- tabs:start -->
 
 ### **Python3**
