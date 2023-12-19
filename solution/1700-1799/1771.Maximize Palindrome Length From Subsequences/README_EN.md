@@ -50,6 +50,20 @@
 
 ## Solutions
 
+**Solution 1: Dynamic Programming**
+
+First, we concatenate strings `word1` and `word2` to get string $s$. Then we can transform the problem into finding the length of the longest palindromic subsequence in string $s$. However, when calculating the final answer, we need to ensure that at least one character in the palindrome string comes from `word1` and another character comes from `word2`.
+
+We define $f[i][j]$ as the length of the longest palindromic subsequence in the substring of string $s$ with index range $[i, j]$.
+
+If $s[i] = s[j]$, then $s[i]$ and $s[j]$ must be in the longest palindromic subsequence, at this time $f[i][j] = f[i + 1][j - 1] + 2$. At this point, we also need to judge whether $s[i]$ and $s[j]$ come from `word1` and `word2`. If so, we update the maximum value of the answer to $ans=\max(ans, f[i][j])$.
+
+If $s[i] \neq s[j]$, then $s[i]$ and $s[j]$ will definitely not appear in the longest palindromic subsequence at the same time, at this time $f[i][j] = max(f[i + 1][j], f[i][j - 1])$.
+
+Finally, we return the answer.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of string $s$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,11 +77,11 @@ class Solution:
         for i in range(n):
             f[i][i] = 1
         ans = 0
-        for i in range(n - 1, -1, -1):
+        for i in range(n - 2, -1, -1):
             for j in range(i + 1, n):
                 if s[i] == s[j]:
                     f[i][j] = f[i + 1][j - 1] + 2
-                    if i < len(word1) and j >= len(word1):
+                    if i < len(word1) <= j:
                         ans = max(ans, f[i][j])
                 else:
                     f[i][j] = max(f[i + 1][j], f[i][j - 1])
@@ -156,6 +170,62 @@ func longestPalindrome(word1 string, word2 string) (ans int) {
 		}
 	}
 	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function longestPalindrome(word1: string, word2: string): number {
+    const s = word1 + word2;
+    const n = s.length;
+    const f: number[][] = Array.from({ length: n }, () => Array.from({ length: n }, () => 0));
+    for (let i = 0; i < n; ++i) {
+        f[i][i] = 1;
+    }
+    let ans = 0;
+    for (let i = n - 2; ~i; --i) {
+        for (let j = i + 1; j < n; ++j) {
+            if (s[i] === s[j]) {
+                f[i][j] = f[i + 1][j - 1] + 2;
+                if (i < word1.length && j >= word1.length) {
+                    ans = Math.max(ans, f[i][j]);
+                }
+            } else {
+                f[i][j] = Math.max(f[i + 1][j], f[i][j - 1]);
+            }
+        }
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn longest_palindrome(word1: String, word2: String) -> i32 {
+        let s: Vec<char> = format!("{}{}", word1, word2).chars().collect();
+        let n = s.len();
+        let mut f = vec![vec![0; n]; n];
+        for i in 0..n {
+            f[i][i] = 1;
+        }
+        let mut ans = 0;
+        for i in (0..n - 1).rev() {
+            for j in i + 1..n {
+                if s[i] == s[j] {
+                    f[i][j] = f[i + 1][j - 1] + 2;
+                    if i < word1.len() && j >= word1.len() {
+                        ans = ans.max(f[i][j]);
+                    }
+                } else {
+                    f[i][j] = f[i + 1][j].max(f[i][j - 1]);
+                }
+            }
+        }
+        ans
+    }
 }
 ```
 
