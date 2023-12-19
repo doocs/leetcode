@@ -35,6 +35,26 @@
 
 ## Solutions
 
+**Solution 1: One Pass**
+
+We define $a$ and $b$ to represent the largest and second largest numbers in the string, initially $a = b = -1$.
+
+We traverse the string $s$. If the current character is a digit, we convert it to a number $v$. If $v > a$, it means that $v$ is the largest number currently appearing, we update $b$ to $a$, and update $a$ to $v$; if $v < a$, it means that $v$ is the second largest number currently appearing, we update $b$ to $v$.
+
+After the traversal, we return $b$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+
+**Solution 2: Bit Manipulation**
+
+We can use an integer $mask$ to mark the numbers that appear in the string, where the $i$-th bit of $mask$ indicates whether the number $i$ has appeared.
+
+We traverse the string $s$. If the current character is a digit, we convert it to a number $v$, and set the $v$-th bit of $mask$ to $1$.
+
+Finally, we traverse $mask$ from high to low, find the second bit that is $1$, and the corresponding number is the second largest number. If there is no second largest number, return $-1$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -53,6 +53,14 @@ The fourth data point from sensor 1 is dropped, and the last value of sensor 1 i
 
 ## Solutions
 
+**Solution 1: Traversal**
+
+Traverse both arrays, find the first unequal position $i$. If $i \lt n - 1$, loop to compare $sensor1[i + 1]$ and $sensor2[i]$, if they are not equal, it indicates that sensor $1$ is defective, return $1$; otherwise compare $sensor1[i]$ and $sensor2[i + 1]$, if they are not equal, it indicates that sensor $2$ is defective, return $2$.
+
+If the traversal ends, it means that the defective sensor cannot be determined, return $-1$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

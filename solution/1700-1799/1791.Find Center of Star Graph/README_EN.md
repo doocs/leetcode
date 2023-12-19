@@ -38,6 +38,12 @@
 
 ## Solutions
 
+**Solution 1: Directly Compare the Points of the First Two Edges**
+
+The characteristic of the center point is that it is connected to all other points. Therefore, as long as we compare the points of the first two edges, if there are the same points, then this point is the center point.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

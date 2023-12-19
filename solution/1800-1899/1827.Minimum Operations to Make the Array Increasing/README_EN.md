@@ -50,6 +50,14 @@
 
 ## Solutions
 
+**Solution 1: Single Pass**
+
+We use a variable $mx$ to record the maximum value of the current strictly increasing array, initially $mx = 0$.
+
+Traverse the array `nums` from left to right. For the current element $v$, if $v \lt mx + 1$, we need to increase it to $mx + 1$ to ensure the array is strictly increasing. Therefore, the number of operations we need to perform this time is $max(0, mx + 1 - v)$, which is added to the answer, and then we update $mx=max(mx + 1, v)$. Continue to traverse the next element until the entire array is traversed.
+
+The time complexity is $O(n)$, where $n$ is the length of the array `nums`. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

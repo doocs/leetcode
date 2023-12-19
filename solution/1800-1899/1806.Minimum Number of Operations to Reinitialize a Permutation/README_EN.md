@@ -56,6 +56,21 @@ So it takes only 2 operations.
 
 ## Solutions
 
+**Solution 1: Find Pattern + Simulation**
+
+We observe the change pattern of the numbers and find that:
+
+1. The even-indexed numbers of the new array are the numbers in the first half of the original array in order;
+1. The odd-indexed numbers of the new array are the numbers in the second half of the original array in order.
+
+That is, if the index $i$ of a number in the original array is in the range `[0, n >> 1)`, then the new index of this number is `i << 1`; otherwise, the new index is `(i - (n >> 1)) << 1 | 1`.
+
+In addition, the path of number movement is the same in each round of operation. As long as a number (except for numbers $0$ and $n-1$) returns to its original position, the entire sequence will be consistent with the previous one.
+
+Therefore, we choose the number $1$, whose initial index is also $1$. Each time we move the number $1$ to a new position, until the number $1$ returns to its original position, we can get the minimum number of operations.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

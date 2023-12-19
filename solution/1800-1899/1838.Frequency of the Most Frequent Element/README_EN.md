@@ -48,6 +48,24 @@ Explanation:</strong> Increment the first element three times and the second ele
 
 ## Solutions
 
+**Method 1: Sorting + Sliding Window**
+
+We can first sort the array $nums$, then enumerate each number as the most frequent element, and use a sliding window to maintain the number of operations to increase all numbers from index $l$ to $r$ to $nums[r]$. If the number of operations is greater than $k$, the left end of the window moves to the right until the number of operations is less than or equal to $k$. In this way, we can find out the maximum frequency for each number as the most frequent element.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array $nums$.
+
+**Method 2: Sorting + Prefix Sum + Binary Search**
+
+We observe that if a range length $cnt$ meets the condition, then the range length less than $cnt$ must also meet the condition. Therefore, we can use the method of binary search to find the maximum range length that meets the condition.
+
+Before binary search, we need to sort the array $nums[r]$, then calculate the prefix sum array $s$ of the array $nums[r]$, where $s[i]$ represents the sum of the first $i$ numbers in the array $nums[r]$. In this way, we can find the sum of the range $[i, j]$ is $s[j + 1] - s[i]$ in $O(1)$ time.
+
+Next, we define the left boundary of the binary search as $left=1$, $right=n$. Then we binary search the range length $mid$, if the current range length $mid$ meets the condition, then we update the left boundary of the binary search to $mid$, otherwise update the right boundary of the binary search to $mid-1$. Finally, we return the left boundary of the binary search.
+
+The problem is transformed into how to judge whether the range with length $cnt$ meets the condition. We enumerate the left endpoint $i$ in the range $[0,..n-cnt]$, then the right endpoint of the range at this time is $j = i + cnt - 1$. The number of operations required to increase all numbers in the range to $nums[j]$ is $nums[j] \times cnt - (s[j + 1] - s[i])$. If this number of operations is less than or equal to $k$, it means that the range with length $cnt$ meets the condition, return `true`. Otherwise, the enumeration ends, return `false`.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**

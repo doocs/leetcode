@@ -49,6 +49,14 @@ Explanation:</strong> The invitations are sent as follows:
 
 ## Solutions
 
+**Solution 1: Hungarian Algorithm**
+
+This problem belongs to the maximum matching problem of bipartite graphs, which is suitable for solving with the Hungarian algorithm.
+
+The core idea of the Hungarian algorithm is to continuously start from unmatched points, look for augmenting paths, and stop when there are no augmenting paths. This gives the maximum match.
+
+The time complexity is $O(m \times n)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

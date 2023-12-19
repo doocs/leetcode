@@ -60,6 +60,18 @@ Note that the frog can jump over obstacles only when making side jumps (as shown
 
 ## Solutions
 
+**Solution 1: Dynamic Programming**
+
+We define $f[i][j]$ as the minimum number of sidesteps for the frog to reach the $i$-th point and be on the $j$-th lane (index starts from $0$).
+
+Note that the frog starts on the second lane (the problem index starts from $1$), so the value of $f[0][1]$ is $0$, and the values of $f[0][0]$ and $f[0][2]$ are both $1$. The answer is $min(f[n][0], f[n][1], f[n][2])$.
+
+For each position $i$ from $1$ to $n$, we can enumerate the current lane $j$ of the frog. If $obstacles[i] = j + 1$, it means that there is an obstacle on the $j$-th lane, and the value of $f[i][j]$ is infinity. Otherwise, the frog can choose not to jump, in which case the value of $f[i][j]$ is $f[i - 1][j]$, or the frog can sidestep from other lanes, in which case $f[i][j] = min(f[i][j], min(f[i][0], f[i][1], f[i][2]) + 1)$.
+
+In the code implementation, we can optimize the first dimension of space and only use an array $f$ of length $3$ for maintenance.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $obstacles$. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

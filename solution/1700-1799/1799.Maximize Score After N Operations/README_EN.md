@@ -57,6 +57,20 @@
 
 ## Solutions
 
+**Solution 1: State Compression + Dynamic Programming**
+
+We can preprocess to get the greatest common divisor of any two numbers in the array `nums`, stored in the two-dimensional array $g$, where $g[i][j]$ represents the greatest common divisor of $nums[i]$ and $nums[j]$.
+
+Then define $f[k]$ to represent the maximum score that can be obtained when the state after the current operation is $k$. Suppose $m$ is the number of elements in the array `nums`, then there are a total of $2^m$ states, that is, the range of $k$ is $[0, 2^m - 1]$.
+
+Enumerate all states from small to large, for each state $k$, first determine whether the number of $1$s in the binary bits of this state $cnt$ is even, if so, perform the following operations:
+
+Enumerate the positions where the binary bits in $k$ are 1, suppose they are $i$ and $j$, then the elements at positions $i$ and $j$ can perform one operation, and the score that can be obtained at this time is $\frac{cnt}{2} \times g[i][j]$, update the maximum value of $f[k]$.
+
+The final answer is $f[2^m - 1]$.
+
+The time complexity is $O(2^m \times m^2)$, and the space complexity is $O(2^m)$. Here, $m$ is the number of elements in the array `nums`.
+
 <!-- tabs:start -->
 
 ### **Python3**

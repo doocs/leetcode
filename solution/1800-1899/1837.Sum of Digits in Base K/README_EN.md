@@ -35,6 +35,12 @@
 
 ## Solutions
 
+**Solution 1: Mathematics**
+
+We divide $n$ by $k$ and take the remainder until it is $0$. The sum of the remainders gives the result.
+
+The time complexity is $O(\log_{k}n)$, and the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
