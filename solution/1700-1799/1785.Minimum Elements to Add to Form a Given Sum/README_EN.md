@@ -38,6 +38,16 @@
 
 ## Solutions
 
+**Solution 1: Greedy**
+
+First, we calculate the sum of the array elements $s$, and then calculate the difference $d$ between $s$ and $goal$.
+
+The number of elements to be added is the absolute value of $d$ divided by $limit$ and rounded up, that is, $\lceil \frac{|d|}{limit} \rceil$.
+
+Note that in this problem, the data range of array elements is $[-10^6, 10^6]$, the maximum number of elements is $10^5$, the total sum $s$ and the difference $d$ may exceed the range of 32-bit integers, so we need to use 64-bit integers.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**
