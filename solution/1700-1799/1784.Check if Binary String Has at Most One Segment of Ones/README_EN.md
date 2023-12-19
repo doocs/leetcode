@@ -32,6 +32,18 @@
 
 ## Solutions
 
+**Solution 1: No '1' After '0'**
+
+Notice that the string $s$ does not contain leading zeros, which means $s$ starts with '1'.
+
+If the string $s$ contains the substring "01", then $s$ must be a string like "1...01...", in which case $s$ has at least two consecutive '1' segments, which does not satisfy the problem condition, so we return `false`.
+
+If the string $s$ does not contain the substring "01", then $s$ can only be a string like "1..1000...", in which case $s$ has only one consecutive '1' segment, which satisfies the problem condition, so we return `true`.
+
+Therefore, we only need to judge whether the string $s$ contains the substring "01".
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
