@@ -1,11 +1,7 @@
-/**
- * @param {number[]} nums
- * @return {number}
- */
-var subsetXORSum = function (nums) {
+function subsetXORSum(nums: number[]): number {
     let ans = 0;
     const n = nums.length;
-    const dfs = (i, s) => {
+    const dfs = (i: number, s: number) => {
         if (i >= n) {
             ans += s;
             return;
@@ -15,4 +11,4 @@ var subsetXORSum = function (nums) {
     };
     dfs(0, 0);
     return ans;
-};
+}

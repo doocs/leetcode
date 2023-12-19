@@ -3,11 +3,10 @@
  * @return {string}
  */
 var sortSentence = function (s) {
-    const words = s.split(' ');
-    const ans = new Array(words.length);
-    for (const w of words) {
-        const i = w.charCodeAt(w.length - 1) - '1'.charCodeAt(0);
-        ans[i] = w.slice(0, w.length - 1);
+    const ws = s.split(' ');
+    const ans = Array(ws.length);
+    for (const w of ws) {
+        ans[w.charCodeAt(w.length - 1) - '1'.charCodeAt(0)] = w.slice(0, -1);
     }
     return ans.join(' ');
 };
