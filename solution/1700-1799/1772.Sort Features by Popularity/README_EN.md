@@ -43,6 +43,14 @@
 
 ## Solutions
 
+**Solution 1: Hash Table + Custom Sorting**
+
+We traverse `responses`, and for each word in `responses[i]`, we temporarily store it in a hash table `vis`. Next, we record the words in `vis` into the hash table `cnt`, recording the number of times each word appears.
+
+Next, we use custom sorting to sort the words in `features` in descending order of occurrence. If the number of occurrences is the same, we sort them in ascending order of the index where they appear.
+
+The time complexity is $O(n \times \log n)$, where $n$ is the length of `features`.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -51,11 +59,10 @@
 class Solution:
     def sortFeatures(self, features: List[str], responses: List[str]) -> List[str]:
         cnt = Counter()
-        for r in responses:
-            ws = set(r.split())
-            for s in ws:
-                cnt[s] += 1
-        return sorted(features, key=lambda x: -cnt[x])
+        for s in responses:
+            for w in set(s.split()):
+                cnt[w] += 1
+        return sorted(features, key=lambda w: -cnt[w])
 ```
 
 ### **Java**
@@ -64,26 +71,26 @@ class Solution:
 class Solution {
     public String[] sortFeatures(String[] features, String[] responses) {
         Map<String, Integer> cnt = new HashMap<>();
-        for (String r : responses) {
-            Set<String> ws = new HashSet<>();
-            for (String w : r.split(" ")) {
-                ws.add(w);
-            }
-            for (String w : ws) {
-                cnt.put(w, cnt.getOrDefault(w, 0) + 1);
+        for (String s : responses) {
+            Set<String> vis = new HashSet<>();
+            for (String w : s.split(" ")) {
+                if (vis.add(w)) {
+                    cnt.merge(w, 1, Integer::sum);
+                }
             }
         }
         int n = features.length;
         Integer[] idx = new Integer[n];
-        for (int i = 0; i < n; ++i) {
+        for (int i = 0; i < n; i++) {
             idx[i] = i;
         }
         Arrays.sort(idx, (i, j) -> {
-            int d = cnt.getOrDefault(features[j], 0) - cnt.getOrDefault(features[i], 0);
-            return d == 0 ? i - j : d;
+            int x = cnt.getOrDefault(features[i], 0);
+            int y = cnt.getOrDefault(features[j], 0);
+            return x == y ? i - j : y - x;
         });
         String[] ans = new String[n];
-        for (int i = 0; i < n; ++i) {
+        for (int i = 0; i < n; i++) {
             ans[i] = features[idx[i]];
         }
         return ans;
@@ -98,23 +105,23 @@ class Solution {
 public:
     vector<string> sortFeatures(vector<string>& features, vector<string>& responses) {
         unordered_map<string, int> cnt;
-        for (auto& r : responses) {
-            stringstream ss(r);
-            string t;
-            unordered_set<string> ws;
-            while (ss >> t) {
-                ws.insert(t);
+        for (auto& s : responses) {
+            istringstream iss(s);
+            string w;
+            unordered_set<string> st;
+            while (iss >> w) {
+                st.insert(w);
             }
-            for (auto& w : ws) {
-                cnt[w]++;
+            for (auto& w : st) {
+                ++cnt[w];
             }
         }
         int n = features.size();
         vector<int> idx(n);
         iota(idx.begin(), idx.end(), 0);
-        sort(idx.begin(), idx.end(), [&](int i, int j) -> bool {
-            int d = cnt[features[i]] - cnt[features[j]];
-            return d > 0 || (d == 0 && i < j);
+        sort(idx.begin(), idx.end(), [&](int i, int j) {
+            int x = cnt[features[i]], y = cnt[features[j]];
+            return x == y ? i < j : x > y;
         });
         vector<string> ans(n);
         for (int i = 0; i < n; ++i) {
@@ -130,29 +137,43 @@ public:
 ```go
 func sortFeatures(features []string, responses []string) []string {
 	cnt := map[string]int{}
-	for _, r := range responses {
-		ws := map[string]bool{}
-		for _, s := range strings.Split(r, " ") {
-			ws[s] = true
+	for _, s := range responses {
+		vis := map[string]bool{}
+		for _, w := range strings.Split(s, " ") {
+			if !vis[w] {
+				cnt[w]++
+				vis[w] = true
+			}
 		}
-		for w := range ws {
-			cnt[w]++
-		}
 	}
-	n := len(features)
-	idx := make([]int, n)
-	for i := range idx {
-		idx[i] = i
-	}
-	sort.Slice(idx, func(i, j int) bool {
-		d := cnt[features[idx[i]]] - cnt[features[idx[j]]]
-		return d > 0 || (d == 0 && idx[i] < idx[j])
-	})
-	ans := make([]string, n)
-	for i := range ans {
-		ans[i] = features[idx[i]]
-	}
-	return ans
+	sort.SliceStable(features, func(i, j int) bool { return cnt[features[i]] > cnt[features[j]] })
+	return features
+}
+```
+
+### **TypeScript**
+
+```ts
+function sortFeatures(features: string[], responses: string[]): string[] {
+    const cnt: Map<string, number> = new Map();
+    for (const s of responses) {
+        const vis: Set<string> = new Set();
+        for (const w of s.split(' ')) {
+            if (vis.has(w)) {
+                continue;
+            }
+            vis.add(w);
+            cnt.set(w, (cnt.get(w) || 0) + 1);
+        }
+    }
+    const n = features.length;
+    const idx: number[] = Array.from({ length: n }, (_, i) => i);
+    idx.sort((i, j) => {
+        const x = cnt.get(features[i]) || 0;
+        const y = cnt.get(features[j]) || 0;
+        return x === y ? i - j : y - x;
+    });
+    return idx.map(i => features[i]);
 }
 ```
 
