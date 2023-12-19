@@ -44,6 +44,12 @@
 
 ## Solutions
 
+**Solution 1: Sliding Window + Hash Table/Array**
+
+Use an array or hash table to record the occurrence of numbers in each subarray of size $k$. Then traverse the array, update the hash table each time, and record the number of types of numbers in the current window.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
+
 <!-- tabs:start -->
 
 ### **Python3**

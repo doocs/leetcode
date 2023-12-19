@@ -63,6 +63,16 @@ The largest element in <code>arr is 3.</code>
 
 ## Solutions
 
+**Solution 1: Sorting + Greedy Algorithm**
+
+First, we sort the array and then set the first element of the array to $1$.
+
+Next, we start traversing the array from the second element. If the difference between the current element and the previous one is more than $1$, we greedily reduce the current element to the previous element plus $1$.
+
+Finally, we return the maximum element in the array.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -49,6 +49,18 @@ seatManager.unreserve(5); // Unreserve seat 5, so now the available seats are [5
 
 ## Solutions
 
+**Solution 1: Priority Queue (Min Heap)**
+
+We can use a priority queue (min heap) to maintain the smallest number of reservable seats.
+
+Initially, put all seat numbers into the priority queue.
+
+When the `reserve` method is called, take out the smallest number from the priority queue, which is the smallest number of reservable seats.
+
+When the `unreserve` method is called, put the seat number back into the priority queue.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of seats.
+
 <!-- tabs:start -->
 
 ### **Python3**

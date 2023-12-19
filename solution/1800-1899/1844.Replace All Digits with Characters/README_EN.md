@@ -49,6 +49,14 @@
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+Traverse the string, for characters at odd indices, replace them with the character that is a certain number of positions after the previous character.
+
+Finally, return the replaced string.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

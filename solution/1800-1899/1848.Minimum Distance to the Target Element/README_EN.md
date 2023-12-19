@@ -47,6 +47,12 @@
 
 ## Solutions
 
+**Solution 1: Single Pass**
+
+Traverse the array, find all indices equal to $target$, then calculate $|i - start|$, and take the minimum value.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
