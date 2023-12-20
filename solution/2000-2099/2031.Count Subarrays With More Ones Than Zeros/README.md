@@ -101,10 +101,27 @@ class Solution:
         mod = 10**9 + 7
         ans = s = 0
         for x in nums:
-            s += 1 if x else -1
+            s += x or -1
             ans += tree.query(s - 1 + base)
             ans %= mod
             tree.update(s + base, 1)
+        return ans
+```
+
+```python
+from sortedcontainers import SortedList
+
+
+class Solution:
+    def subarraysWithMoreZerosThanOnes(self, nums: List[int]) -> int:
+        sl = SortedList([0])
+        mod = 10**9 + 7
+        ans = s = 0
+        for x in nums:
+            s += x or -1
+            ans += sl.bisect_left(s)
+            ans %= mod
+            sl.add(s)
         return ans
 ```
 
@@ -286,7 +303,7 @@ function subarraysWithMoreZerosThanOnes(nums: number[]): number {
     let ans: number = 0;
     let s: number = 0;
     for (const x of nums) {
-        s += x === 0 ? -1 : 1;
+        s += x || -1;
         ans += tree.query(s - 1 + base);
         ans %= mod;
         tree.update(s + base, 1);

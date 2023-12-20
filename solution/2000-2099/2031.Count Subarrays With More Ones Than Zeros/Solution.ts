@@ -31,7 +31,7 @@ function subarraysWithMoreZerosThanOnes(nums: number[]): number {
     let ans: number = 0;
     let s: number = 0;
     for (const x of nums) {
-        s += x === 0 ? -1 : 1;
+        s += x || -1;
         ans += tree.query(s - 1 + base);
         ans %= mod;
         tree.update(s + base, 1);
