@@ -20,7 +20,6 @@ public:
                 return -1;
             }
             return grid[i][j] == 1 ? dfs(i + 1, j + 1) : dfs(i + 1, j - 1);
-
         };
         for (int j = 0; j < n; ++j) {
             ans[j] = dfs(0, j);
