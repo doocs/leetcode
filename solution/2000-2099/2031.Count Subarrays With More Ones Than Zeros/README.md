@@ -165,7 +165,9 @@ private:
     vector<int> c;
 
 public:
-    BinaryIndexedTree(int n) : n(n), c(n + 1, 0) {}
+    BinaryIndexedTree(int n)
+        : n(n)
+        , c(n + 1, 0) {}
 
     void update(int x, int v) {
         for (; x <= n; x += x & -x) {
