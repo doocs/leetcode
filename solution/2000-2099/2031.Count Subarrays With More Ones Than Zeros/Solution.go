@@ -4,49 +4,38 @@ type BinaryIndexedTree struct {
 }
 
 func newBinaryIndexedTree(n int) *BinaryIndexedTree {
-	n += 1e5 + 1
-	c := make([]int, n+1)
-	return &BinaryIndexedTree{n, c}
+	return &BinaryIndexedTree{n: n, c: make([]int, n+1)}
 }
 
-func (this *BinaryIndexedTree) lowbit(x int) int {
-	x += 1e5 + 1
-	return x & -x
-}
-
-func (this *BinaryIndexedTree) update(x, delta int) {
-	x += 1e5 + 1
-	for x <= this.n {
-		this.c[x] += delta
-		x += this.lowbit(x)
+func (bit *BinaryIndexedTree) update(x, v int) {
+	for ; x <= bit.n; x += x & -x {
+		bit.c[x] += v
 	}
 }
 
-func (this *BinaryIndexedTree) query(x int) int {
-	s := 0
-	x += 1e5 + 1
-	for x > 0 {
-		s += this.c[x]
-		x -= this.lowbit(x)
+func (bit *BinaryIndexedTree) query(x int) (s int) {
+	for ; x > 0; x -= x & -x {
+		s += bit.c[x]
 	}
-	return s
+	return
 }
 
-func subarraysWithMoreZerosThanOnes(nums []int) int {
+func subarraysWithMoreZerosThanOnes(nums []int) (ans int) {
 	n := len(nums)
-	s := make([]int, n+1)
-	for i, v := range nums {
-		if v == 0 {
-			v = -1
+	base := n + 1
+	tree := newBinaryIndexedTree(n + base)
+	tree.update(base, 1)
+	const mod = int(1e9) + 7
+	s := 0
+	for _, x := range nums {
+		if x == 0 {
+			s--
+		} else {
+			s++
 		}
-		s[i+1] = s[i] + v
+		ans += tree.query(s - 1 + base)
+		ans %= mod
+		tree.update(s+base, 1)
 	}
-	tree := newBinaryIndexedTree(n + 1)
-	ans := 0
-	mod := int(1e9 + 7)
-	for _, v := range s {
-		ans = (ans + tree.query(v-1)) % mod
-		tree.update(v, 1)
-	}
-	return ans
+	return
 }
