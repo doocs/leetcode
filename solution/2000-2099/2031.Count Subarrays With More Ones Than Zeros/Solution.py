@@ -27,7 +27,7 @@ class Solution:
         mod = 10**9 + 7
         ans = s = 0
         for x in nums:
-            s += 1 if x else -1
+            s += x or -1
             ans += tree.query(s - 1 + base)
             ans %= mod
             tree.update(s + base, 1)
