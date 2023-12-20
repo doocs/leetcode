@@ -1,39 +1,34 @@
 class BinaryIndexedTree:
-    def __init__(self, n):
-        n += int(1e5 + 1)
+    __slots__ = ["n", "c"]
+
+    def __init__(self, n: int):
         self.n = n
         self.c = [0] * (n + 1)
 
-    @staticmethod
-    def lowbit(x):
-        x += int(1e5 + 1)
-        return x & -x
-
-    def update(self, x, delta):
-        x += int(1e5 + 1)
+    def update(self, x: int, v: int):
         while x <= self.n:
-            self.c[x] += delta
-            x += BinaryIndexedTree.lowbit(x)
+            self.c[x] += v
+            x += x & -x
 
-    def query(self, x):
-        x += int(1e5 + 1)
+    def query(self, x: int) -> int:
         s = 0
-        while x > 0:
+        while x:
             s += self.c[x]
-            x -= BinaryIndexedTree.lowbit(x)
+            x -= x & -x
         return s
 
 
 class Solution:
     def subarraysWithMoreZerosThanOnes(self, nums: List[int]) -> int:
         n = len(nums)
-        s = [0]
-        for v in nums:
-            s.append(s[-1] + (v or -1))
-        tree = BinaryIndexedTree(n + 1)
-        MOD = int(1e9 + 7)
-        ans = 0
-        for v in s:
-            ans = (ans + tree.query(v - 1)) % MOD
-            tree.update(v, 1)
+        base = n + 1
+        tree = BinaryIndexedTree(n + base)
+        tree.update(base, 1)
+        mod = 10**9 + 7
+        ans = s = 0
+        for x in nums:
+            s += 1 if x else -1
+            ans += tree.query(s - 1 + base)
+            ans %= mod
+            tree.update(s + base, 1)
         return ans

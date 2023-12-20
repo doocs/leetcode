@@ -53,14 +53,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：树状数组**
+**方法一：前缀和 + 树状数组**
 
-树状数组，也称作“二叉索引树”（Binary Indexed Tree）或 Fenwick 树。 它可以高效地实现如下两个操作：
+题目需要我们统计所有子数组中 $1$ 的数量大于 $0$ 的数量的子数组的个数，如果我们将数组中的元素 $0$ 看作 $-1$，那么题目就变成了统计所有子数组中元素和大于 $0$ 的子数组的个数。
 
-1. **单点更新** `update(x, delta)`： 把序列 x 位置的数加上一个值 delta；
-1. **前缀和查询** `query(x)`：查询序列 `[1,...x]` 区间的区间和，即位置 x 的前缀和。
+求子数组的元素和，可以使用前缀和来实现。为了统计所有子数组中元素和大于 $0$ 的子数组的个数，我们可以用树状数组维护每个前缀和出现的次数。初始时前缀和为 $0$ 的次数为 $1$。
 
-这两个操作的时间复杂度均为 $O(\log n)$。
+接下来，我们遍历数组 $nums$，用变量 $s$ 记录当前的前缀和，用变量 $ans$ 记录答案。对于每个位置 $i$，更新前缀和 $s$，然后我们在树状数组中查询 $[0, s)$ 范围内的前缀和出现的次数，将其加到 $ans$ 中，然后在树状数组中更新 $s$ 出现的次数。
+
+最后返回 $ans$ 即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
 
@@ -70,43 +73,38 @@
 
 ```python
 class BinaryIndexedTree:
-    def __init__(self, n):
-        n += int(1e5 + 1)
+    __slots__ = ["n", "c"]
+
+    def __init__(self, n: int):
         self.n = n
         self.c = [0] * (n + 1)
 
-    @staticmethod
-    def lowbit(x):
-        x += int(1e5 + 1)
-        return x & -x
-
-    def update(self, x, delta):
-        x += int(1e5 + 1)
+    def update(self, x: int, v: int):
         while x <= self.n:
-            self.c[x] += delta
-            x += BinaryIndexedTree.lowbit(x)
+            self.c[x] += v
+            x += x & -x
 
-    def query(self, x):
-        x += int(1e5 + 1)
+    def query(self, x: int) -> int:
         s = 0
-        while x > 0:
+        while x:
             s += self.c[x]
-            x -= BinaryIndexedTree.lowbit(x)
+            x -= x & -x
         return s
 
 
 class Solution:
     def subarraysWithMoreZerosThanOnes(self, nums: List[int]) -> int:
         n = len(nums)
-        s = [0]
-        for v in nums:
-            s.append(s[-1] + (v or -1))
-        tree = BinaryIndexedTree(n + 1)
-        MOD = int(1e9 + 7)
-        ans = 0
-        for v in s:
-            ans = (ans + tree.query(v - 1)) % MOD
-            tree.update(v, 1)
+        base = n + 1
+        tree = BinaryIndexedTree(n + base)
+        tree.update(base, 1)
+        mod = 10**9 + 7
+        ans = s = 0
+        for x in nums:
+            s += 1 if x else -1
+            ans += tree.query(s - 1 + base)
+            ans %= mod
+            tree.update(s + base, 1)
         return ans
 ```
 
@@ -120,49 +118,38 @@ class BinaryIndexedTree {
     private int[] c;
 
     public BinaryIndexedTree(int n) {
-        n += (int) 1e5 + 1;
         this.n = n;
         c = new int[n + 1];
     }
 
-    public void update(int x, int delta) {
-        x += (int) 1e5 + 1;
-        while (x <= n) {
-            c[x] += delta;
-            x += lowbit(x);
+    public void update(int x, int v) {
+        for (; x <= n; x += x & -x) {
+            c[x] += v;
         }
     }
 
     public int query(int x) {
-        x += (int) 1e5 + 1;
         int s = 0;
-        while (x > 0) {
+        for (; x > 0; x -= x & -x) {
             s += c[x];
-            x -= lowbit(x);
         }
         return s;
-    }
-
-    public static int lowbit(int x) {
-        x += (int) 1e5 + 1;
-        return x & -x;
     }
 }
 
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
     public int subarraysWithMoreZerosThanOnes(int[] nums) {
         int n = nums.length;
-        int[] s = new int[n + 1];
-        for (int i = 0; i < n; ++i) {
-            s[i + 1] = s[i] + (nums[i] == 1 ? 1 : -1);
-        }
-        BinaryIndexedTree tree = new BinaryIndexedTree(n + 1);
-        int ans = 0;
-        for (int v : s) {
-            ans = (ans + tree.query(v - 1)) % MOD;
-            tree.update(v, 1);
+        int base = n + 1;
+        BinaryIndexedTree tree = new BinaryIndexedTree(n + base);
+        tree.update(base, 1);
+        final int mod = (int) 1e9 + 7;
+        int ans = 0, s = 0;
+        for (int x : nums) {
+            s += x == 0 ? -1 : 1;
+            ans += tree.query(s - 1 + base);
+            ans %= mod;
+            tree.update(s + base, 1);
         }
         return ans;
     }
@@ -173,35 +160,27 @@ class Solution {
 
 ```cpp
 class BinaryIndexedTree {
-public:
+private:
     int n;
     vector<int> c;
 
-    BinaryIndexedTree(int _n)
-        : n(_n + 1e5 + 1)
-        , c(_n + 1 + 1e5 + 1) {}
+public:
+    BinaryIndexedTree(int n)
+        : n(n)
+        , c(n + 1, 0) {}
 
-    void update(int x, int delta) {
-        x += 1e5 + 1;
-        while (x <= n) {
-            c[x] += delta;
-            x += lowbit(x);
+    void update(int x, int v) {
+        for (; x <= n; x += x & -x) {
+            c[x] += v;
         }
     }
 
     int query(int x) {
-        x += 1e5 + 1;
         int s = 0;
-        while (x > 0) {
+        for (; x > 0; x -= x & -x) {
             s += c[x];
-            x -= lowbit(x);
         }
         return s;
-    }
-
-    int lowbit(int x) {
-        x += 1e5 + 1;
-        return x & -x;
     }
 };
 
@@ -209,14 +188,16 @@ class Solution {
 public:
     int subarraysWithMoreZerosThanOnes(vector<int>& nums) {
         int n = nums.size();
-        vector<int> s(n + 1);
-        for (int i = 0; i < n; ++i) s[i + 1] = s[i] + (nums[i] == 1 ? 1 : -1);
-        BinaryIndexedTree* tree = new BinaryIndexedTree(n + 1);
-        int ans = 0;
-        const int MOD = 1e9 + 7;
-        for (int v : s) {
-            ans = (ans + tree->query(v - 1)) % MOD;
-            tree->update(v, 1);
+        int base = n + 1;
+        BinaryIndexedTree tree(n + base);
+        tree.update(base, 1);
+        const int mod = 1e9 + 7;
+        int ans = 0, s = 0;
+        for (int x : nums) {
+            s += (x == 0) ? -1 : 1;
+            ans += tree.query(s - 1 + base);
+            ans %= mod;
+            tree.update(s + base, 1);
         }
         return ans;
     }
@@ -232,51 +213,85 @@ type BinaryIndexedTree struct {
 }
 
 func newBinaryIndexedTree(n int) *BinaryIndexedTree {
-	n += 1e5 + 1
-	c := make([]int, n+1)
-	return &BinaryIndexedTree{n, c}
+	return &BinaryIndexedTree{n: n, c: make([]int, n+1)}
 }
 
-func (this *BinaryIndexedTree) lowbit(x int) int {
-	x += 1e5 + 1
-	return x & -x
-}
-
-func (this *BinaryIndexedTree) update(x, delta int) {
-	x += 1e5 + 1
-	for x <= this.n {
-		this.c[x] += delta
-		x += this.lowbit(x)
+func (bit *BinaryIndexedTree) update(x, v int) {
+	for ; x <= bit.n; x += x & -x {
+		bit.c[x] += v
 	}
 }
 
-func (this *BinaryIndexedTree) query(x int) int {
-	s := 0
-	x += 1e5 + 1
-	for x > 0 {
-		s += this.c[x]
-		x -= this.lowbit(x)
+func (bit *BinaryIndexedTree) query(x int) (s int) {
+	for ; x > 0; x -= x & -x {
+		s += bit.c[x]
 	}
-	return s
+	return
 }
 
-func subarraysWithMoreZerosThanOnes(nums []int) int {
+func subarraysWithMoreZerosThanOnes(nums []int) (ans int) {
 	n := len(nums)
-	s := make([]int, n+1)
-	for i, v := range nums {
-		if v == 0 {
-			v = -1
+	base := n + 1
+	tree := newBinaryIndexedTree(n + base)
+	tree.update(base, 1)
+	const mod = int(1e9) + 7
+	s := 0
+	for _, x := range nums {
+		if x == 0 {
+			s--
+		} else {
+			s++
 		}
-		s[i+1] = s[i] + v
+		ans += tree.query(s - 1 + base)
+		ans %= mod
+		tree.update(s+base, 1)
 	}
-	tree := newBinaryIndexedTree(n + 1)
-	ans := 0
-	mod := int(1e9 + 7)
-	for _, v := range s {
-		ans = (ans + tree.query(v-1)) % mod
-		tree.update(v, 1)
-	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+class BinaryIndexedTree {
+    private n: number;
+    private c: number[];
+
+    constructor(n: number) {
+        this.n = n;
+        this.c = Array(n + 1).fill(0);
+    }
+
+    update(x: number, v: number): void {
+        for (; x <= this.n; x += x & -x) {
+            this.c[x] += v;
+        }
+    }
+
+    query(x: number): number {
+        let s = 0;
+        for (; x > 0; x -= x & -x) {
+            s += this.c[x];
+        }
+        return s;
+    }
+}
+
+function subarraysWithMoreZerosThanOnes(nums: number[]): number {
+    const n: number = nums.length;
+    const base: number = n + 1;
+    const tree: BinaryIndexedTree = new BinaryIndexedTree(n + base);
+    tree.update(base, 1);
+    const mod: number = 1e9 + 7;
+    let ans: number = 0;
+    let s: number = 0;
+    for (const x of nums) {
+        s += x === 0 ? -1 : 1;
+        ans += tree.query(s - 1 + base);
+        ans %= mod;
+        tree.update(s + base, 1);
+    }
+    return ans;
 }
 ```
 

@@ -50,7 +50,17 @@ The subarrays of size 1 that have more ones than zeros are: [1]
 
 ## Solutions
 
-Binary Indexed Tree.
+**Solution 1: Prefix Sum + Binary Indexed Tree**
+
+The problem requires us to count the number of subarrays where the count of $1$ is greater than the count of $0$. If we treat $0$ in the array as $-1$, then the problem becomes counting the number of subarrays where the sum of elements is greater than $0$.
+
+To calculate the sum of elements in a subarray, we can use the prefix sum. To count the number of subarrays where the sum of elements is greater than $0$, we can use a binary indexed tree to maintain the occurrence count of each prefix sum. Initially, the occurrence count of the prefix sum $0$ is $1$.
+
+Next, we traverse the array $nums$, use variable $s$ to record the current prefix sum, and use variable $ans$ to record the answer. For each position $i$, we update the prefix sum $s$, then query the occurrence count of the prefix sum in the range $[0, s)$ in the binary indexed tree, add it to $ans$, and then update the occurrence count of $s$ in the binary indexed tree.
+
+Finally, return $ans$.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
@@ -58,43 +68,38 @@ Binary Indexed Tree.
 
 ```python
 class BinaryIndexedTree:
-    def __init__(self, n):
-        n += int(1e5 + 1)
+    __slots__ = ["n", "c"]
+
+    def __init__(self, n: int):
         self.n = n
         self.c = [0] * (n + 1)
 
-    @staticmethod
-    def lowbit(x):
-        x += int(1e5 + 1)
-        return x & -x
-
-    def update(self, x, delta):
-        x += int(1e5 + 1)
+    def update(self, x: int, v: int):
         while x <= self.n:
-            self.c[x] += delta
-            x += BinaryIndexedTree.lowbit(x)
+            self.c[x] += v
+            x += x & -x
 
-    def query(self, x):
-        x += int(1e5 + 1)
+    def query(self, x: int) -> int:
         s = 0
-        while x > 0:
+        while x:
             s += self.c[x]
-            x -= BinaryIndexedTree.lowbit(x)
+            x -= x & -x
         return s
 
 
 class Solution:
     def subarraysWithMoreZerosThanOnes(self, nums: List[int]) -> int:
         n = len(nums)
-        s = [0]
-        for v in nums:
-            s.append(s[-1] + (v or -1))
-        tree = BinaryIndexedTree(n + 1)
-        MOD = int(1e9 + 7)
-        ans = 0
-        for v in s:
-            ans = (ans + tree.query(v - 1)) % MOD
-            tree.update(v, 1)
+        base = n + 1
+        tree = BinaryIndexedTree(n + base)
+        tree.update(base, 1)
+        mod = 10**9 + 7
+        ans = s = 0
+        for x in nums:
+            s += 1 if x else -1
+            ans += tree.query(s - 1 + base)
+            ans %= mod
+            tree.update(s + base, 1)
         return ans
 ```
 
@@ -106,49 +111,38 @@ class BinaryIndexedTree {
     private int[] c;
 
     public BinaryIndexedTree(int n) {
-        n += (int) 1e5 + 1;
         this.n = n;
         c = new int[n + 1];
     }
 
-    public void update(int x, int delta) {
-        x += (int) 1e5 + 1;
-        while (x <= n) {
-            c[x] += delta;
-            x += lowbit(x);
+    public void update(int x, int v) {
+        for (; x <= n; x += x & -x) {
+            c[x] += v;
         }
     }
 
     public int query(int x) {
-        x += (int) 1e5 + 1;
         int s = 0;
-        while (x > 0) {
+        for (; x > 0; x -= x & -x) {
             s += c[x];
-            x -= lowbit(x);
         }
         return s;
-    }
-
-    public static int lowbit(int x) {
-        x += (int) 1e5 + 1;
-        return x & -x;
     }
 }
 
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
     public int subarraysWithMoreZerosThanOnes(int[] nums) {
         int n = nums.length;
-        int[] s = new int[n + 1];
-        for (int i = 0; i < n; ++i) {
-            s[i + 1] = s[i] + (nums[i] == 1 ? 1 : -1);
-        }
-        BinaryIndexedTree tree = new BinaryIndexedTree(n + 1);
-        int ans = 0;
-        for (int v : s) {
-            ans = (ans + tree.query(v - 1)) % MOD;
-            tree.update(v, 1);
+        int base = n + 1;
+        BinaryIndexedTree tree = new BinaryIndexedTree(n + base);
+        tree.update(base, 1);
+        final int mod = (int) 1e9 + 7;
+        int ans = 0, s = 0;
+        for (int x : nums) {
+            s += x == 0 ? -1 : 1;
+            ans += tree.query(s - 1 + base);
+            ans %= mod;
+            tree.update(s + base, 1);
         }
         return ans;
     }
@@ -159,35 +153,27 @@ class Solution {
 
 ```cpp
 class BinaryIndexedTree {
-public:
+private:
     int n;
     vector<int> c;
 
-    BinaryIndexedTree(int _n)
-        : n(_n + 1e5 + 1)
-        , c(_n + 1 + 1e5 + 1) {}
+public:
+    BinaryIndexedTree(int n)
+        : n(n)
+        , c(n + 1, 0) {}
 
-    void update(int x, int delta) {
-        x += 1e5 + 1;
-        while (x <= n) {
-            c[x] += delta;
-            x += lowbit(x);
+    void update(int x, int v) {
+        for (; x <= n; x += x & -x) {
+            c[x] += v;
         }
     }
 
     int query(int x) {
-        x += 1e5 + 1;
         int s = 0;
-        while (x > 0) {
+        for (; x > 0; x -= x & -x) {
             s += c[x];
-            x -= lowbit(x);
         }
         return s;
-    }
-
-    int lowbit(int x) {
-        x += 1e5 + 1;
-        return x & -x;
     }
 };
 
@@ -195,14 +181,16 @@ class Solution {
 public:
     int subarraysWithMoreZerosThanOnes(vector<int>& nums) {
         int n = nums.size();
-        vector<int> s(n + 1);
-        for (int i = 0; i < n; ++i) s[i + 1] = s[i] + (nums[i] == 1 ? 1 : -1);
-        BinaryIndexedTree* tree = new BinaryIndexedTree(n + 1);
-        int ans = 0;
-        const int MOD = 1e9 + 7;
-        for (int v : s) {
-            ans = (ans + tree->query(v - 1)) % MOD;
-            tree->update(v, 1);
+        int base = n + 1;
+        BinaryIndexedTree tree(n + base);
+        tree.update(base, 1);
+        const int mod = 1e9 + 7;
+        int ans = 0, s = 0;
+        for (int x : nums) {
+            s += (x == 0) ? -1 : 1;
+            ans += tree.query(s - 1 + base);
+            ans %= mod;
+            tree.update(s + base, 1);
         }
         return ans;
     }
@@ -218,51 +206,85 @@ type BinaryIndexedTree struct {
 }
 
 func newBinaryIndexedTree(n int) *BinaryIndexedTree {
-	n += 1e5 + 1
-	c := make([]int, n+1)
-	return &BinaryIndexedTree{n, c}
+	return &BinaryIndexedTree{n: n, c: make([]int, n+1)}
 }
 
-func (this *BinaryIndexedTree) lowbit(x int) int {
-	x += 1e5 + 1
-	return x & -x
-}
-
-func (this *BinaryIndexedTree) update(x, delta int) {
-	x += 1e5 + 1
-	for x <= this.n {
-		this.c[x] += delta
-		x += this.lowbit(x)
+func (bit *BinaryIndexedTree) update(x, v int) {
+	for ; x <= bit.n; x += x & -x {
+		bit.c[x] += v
 	}
 }
 
-func (this *BinaryIndexedTree) query(x int) int {
-	s := 0
-	x += 1e5 + 1
-	for x > 0 {
-		s += this.c[x]
-		x -= this.lowbit(x)
+func (bit *BinaryIndexedTree) query(x int) (s int) {
+	for ; x > 0; x -= x & -x {
+		s += bit.c[x]
 	}
-	return s
+	return
 }
 
-func subarraysWithMoreZerosThanOnes(nums []int) int {
+func subarraysWithMoreZerosThanOnes(nums []int) (ans int) {
 	n := len(nums)
-	s := make([]int, n+1)
-	for i, v := range nums {
-		if v == 0 {
-			v = -1
+	base := n + 1
+	tree := newBinaryIndexedTree(n + base)
+	tree.update(base, 1)
+	const mod = int(1e9) + 7
+	s := 0
+	for _, x := range nums {
+		if x == 0 {
+			s--
+		} else {
+			s++
 		}
-		s[i+1] = s[i] + v
+		ans += tree.query(s - 1 + base)
+		ans %= mod
+		tree.update(s+base, 1)
 	}
-	tree := newBinaryIndexedTree(n + 1)
-	ans := 0
-	mod := int(1e9 + 7)
-	for _, v := range s {
-		ans = (ans + tree.query(v-1)) % mod
-		tree.update(v, 1)
-	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+class BinaryIndexedTree {
+    private n: number;
+    private c: number[];
+
+    constructor(n: number) {
+        this.n = n;
+        this.c = Array(n + 1).fill(0);
+    }
+
+    update(x: number, v: number): void {
+        for (; x <= this.n; x += x & -x) {
+            this.c[x] += v;
+        }
+    }
+
+    query(x: number): number {
+        let s = 0;
+        for (; x > 0; x -= x & -x) {
+            s += this.c[x];
+        }
+        return s;
+    }
+}
+
+function subarraysWithMoreZerosThanOnes(nums: number[]): number {
+    const n: number = nums.length;
+    const base: number = n + 1;
+    const tree: BinaryIndexedTree = new BinaryIndexedTree(n + base);
+    tree.update(base, 1);
+    const mod: number = 1e9 + 7;
+    let ans: number = 0;
+    let s: number = 0;
+    for (const x of nums) {
+        s += x === 0 ? -1 : 1;
+        ans += tree.query(s - 1 + base);
+        ans %= mod;
+        tree.update(s + base, 1);
+    }
+    return ans;
 }
 ```
 
