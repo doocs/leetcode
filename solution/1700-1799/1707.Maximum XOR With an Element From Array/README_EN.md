@@ -40,28 +40,38 @@
 
 ## Solutions
 
+**Solution 1: Offline Query + Binary Trie**
+
+From the problem description, we know that each query is independent and the result of the query is irrelevant to the order of elements in $nums$. Therefore, we consider sorting all queries in ascending order of $m_i$, and also sorting $nums$ in ascending order.
+
+Next, we use a binary trie to maintain the elements in $nums$. We use a pointer $j$ to record the current elements in the trie, initially $j=0$. For each query $[x_i, m_i]$, we continuously insert elements from $nums$ into the trie until $nums[j] > m_i$. At this point, we can query all elements not exceeding $m_i$ in the trie, and we take the XOR value of the element with the maximum XOR value with $x_i$ as the answer.
+
+The time complexity is $O(m \times \log m + n \times (\log n + \log M))$, and the space complexity is $O(n \times \log M)$. Where $m$ and $n$ are the lengths of the arrays $nums$ and $queries$ respectively, and $M$ is the maximum value in the array $nums$. In this problem, $M \le 10^9$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
 class Trie:
+    __slots__ = ["children"]
+
     def __init__(self):
         self.children = [None] * 2
 
-    def insert(self, x):
+    def insert(self, x: int):
         node = self
         for i in range(30, -1, -1):
-            v = (x >> i) & 1
+            v = x >> i & 1
             if node.children[v] is None:
                 node.children[v] = Trie()
             node = node.children[v]
 
-    def search(self, x):
+    def search(self, x: int) -> int:
         node = self
         ans = 0
         for i in range(30, -1, -1):
-            v = (x >> i) & 1
+            v = x >> i & 1
             if node.children[v ^ 1]:
                 ans |= 1 << i
                 node = node.children[v ^ 1]
@@ -89,36 +99,13 @@ class Solution:
 ### **Java**
 
 ```java
-class Solution {
-    public int[] maximizeXor(int[] nums, int[][] queries) {
-        Trie trie = new Trie();
-        Arrays.sort(nums);
-        int n = queries.length;
-        int[] ans = new int[n];
-        int[][] qs = new int[n][3];
-        for (int i = 0; i < n; ++i) {
-            qs[i] = new int[] {i, queries[i][0], queries[i][1]};
-        }
-        Arrays.sort(qs, (a, b) -> a[2] - b[2]);
-        int j = 0;
-        for (var q : qs) {
-            int i = q[0], x = q[1], m = q[2];
-            while (j < nums.length && nums[j] <= m) {
-                trie.insert(nums[j++]);
-            }
-            ans[i] = trie.search(x);
-        }
-        return ans;
-    }
-}
-
 class Trie {
-    Trie[] children = new Trie[2];
+    private Trie[] children = new Trie[2];
 
     public void insert(int x) {
         Trie node = this;
         for (int i = 30; i >= 0; --i) {
-            int v = (x >> i) & 1;
+            int v = x >> i & 1;
             if (node.children[v] == null) {
                 node.children[v] = new Trie();
             }
@@ -130,7 +117,7 @@ class Trie {
         Trie node = this;
         int ans = 0;
         for (int i = 30; i >= 0; --i) {
-            int v = (x >> i) & 1;
+            int v = x >> i & 1;
             if (node.children[v ^ 1] != null) {
                 ans |= 1 << i;
                 node = node.children[v ^ 1];
@@ -143,15 +130,42 @@ class Trie {
         return ans;
     }
 }
+
+class Solution {
+    public int[] maximizeXor(int[] nums, int[][] queries) {
+        Arrays.sort(nums);
+        int n = queries.length;
+        Integer[] idx = new Integer[n];
+        for (int i = 0; i < n; ++i) {
+            idx[i] = i;
+        }
+        Arrays.sort(idx, (i, j) -> queries[i][1] - queries[j][1]);
+        int[] ans = new int[n];
+        Trie trie = new Trie();
+        int j = 0;
+        for (int i : idx) {
+            int x = queries[i][0], m = queries[i][1];
+            while (j < nums.length && nums[j] <= m) {
+                trie.insert(nums[j++]);
+            }
+            ans[i] = trie.search(x);
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
 class Trie {
+private:
+    Trie* children[2];
+
 public:
     Trie()
-        : children(2) {}
+        : children{nullptr, nullptr} {}
+
     void insert(int x) {
         Trie* node = this;
         for (int i = 30; ~i; --i) {
@@ -164,13 +178,13 @@ public:
     }
 
     int search(int x) {
-        int ans = 0;
         Trie* node = this;
+        int ans = 0;
         for (int i = 30; ~i; --i) {
             int v = (x >> i) & 1;
             if (node->children[v ^ 1]) {
-                node = node->children[v ^ 1];
                 ans |= 1 << i;
+                node = node->children[v ^ 1];
             } else if (node->children[v]) {
                 node = node->children[v];
             } else {
@@ -179,9 +193,6 @@ public:
         }
         return ans;
     }
-
-private:
-    vector<Trie*> children;
 };
 
 class Solution {
@@ -189,19 +200,18 @@ public:
     vector<int> maximizeXor(vector<int>& nums, vector<vector<int>>& queries) {
         sort(nums.begin(), nums.end());
         int n = queries.size();
-        vector<tuple<int, int, int>> qs;
-        for (int i = 0; i < n; ++i) {
-            qs.push_back({queries[i][1], queries[i][0], i});
-        }
-        sort(qs.begin(), qs.end());
-        Trie* trie = new Trie();
-        int j = 0;
+        vector<int> idx(n);
+        iota(idx.begin(), idx.end(), 0);
+        sort(idx.begin(), idx.end(), [&](int i, int j) { return queries[i][1] < queries[j][1]; });
         vector<int> ans(n);
-        for (auto& [m, x, i] : qs) {
+        Trie trie;
+        int j = 0;
+        for (int i : idx) {
+            int x = queries[i][0], m = queries[i][1];
             while (j < nums.size() && nums[j] <= m) {
-                trie->insert(nums[j++]);
+                trie.insert(nums[j++]);
             }
-            ans[i] = trie->search(x);
+            ans[i] = trie.search(x);
         }
         return ans;
     }
@@ -215,28 +225,29 @@ type Trie struct {
 	children [2]*Trie
 }
 
-func newTrie() *Trie {
+func NewTrie() *Trie {
 	return &Trie{}
 }
-func (this *Trie) insert(x int) {
-	node := this
+
+func (t *Trie) insert(x int) {
+	node := t
 	for i := 30; i >= 0; i-- {
-		v := (x >> i) & 1
+		v := x >> i & 1
 		if node.children[v] == nil {
-			node.children[v] = newTrie()
+			node.children[v] = NewTrie()
 		}
 		node = node.children[v]
 	}
 }
 
-func (this *Trie) search(x int) int {
-	node := this
+func (t *Trie) search(x int) int {
+	node := t
 	ans := 0
 	for i := 30; i >= 0; i-- {
-		v := (x >> i) & 1
+		v := x >> i & 1
 		if node.children[v^1] != nil {
-			node = node.children[v^1]
 			ans |= 1 << i
+			node = node.children[v^1]
 		} else if node.children[v] != nil {
 			node = node.children[v]
 		} else {
@@ -248,18 +259,19 @@ func (this *Trie) search(x int) int {
 
 func maximizeXor(nums []int, queries [][]int) []int {
 	sort.Ints(nums)
-	type tuple struct{ i, x, m int }
 	n := len(queries)
-	qs := make([]tuple, n)
-	for i, q := range queries {
-		qs[i] = tuple{i, q[0], q[1]}
+	idx := make([]int, n)
+	for i := 0; i < n; i++ {
+		idx[i] = i
 	}
-	sort.Slice(qs, func(i, j int) bool { return qs[i].m < qs[j].m })
-	j := 0
+	sort.Slice(idx, func(i, j int) bool {
+		return queries[idx[i]][1] < queries[idx[j]][1]
+	})
 	ans := make([]int, n)
-	trie := newTrie()
-	for _, q := range qs {
-		i, x, m := q.i, q.x, q.m
+	trie := NewTrie()
+	j := 0
+	for _, i := range idx {
+		x, m := queries[i][0], queries[i][1]
 		for j < len(nums) && nums[j] <= m {
 			trie.insert(nums[j])
 			j++
@@ -267,6 +279,65 @@ func maximizeXor(nums []int, queries [][]int) []int {
 		ans[i] = trie.search(x)
 	}
 	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+class Trie {
+    children: (Trie | null)[];
+
+    constructor() {
+        this.children = [null, null];
+    }
+
+    insert(x: number): void {
+        let node: Trie | null = this;
+        for (let i = 30; ~i; i--) {
+            const v = (x >> i) & 1;
+            if (node.children[v] === null) {
+                node.children[v] = new Trie();
+            }
+            node = node.children[v] as Trie;
+        }
+    }
+
+    search(x: number): number {
+        let node: Trie | null = this;
+        let ans = 0;
+        for (let i = 30; ~i; i--) {
+            const v = (x >> i) & 1;
+            if (node.children[v ^ 1] !== null) {
+                ans |= 1 << i;
+                node = node.children[v ^ 1] as Trie;
+            } else if (node.children[v] !== null) {
+                node = node.children[v] as Trie;
+            } else {
+                return -1;
+            }
+        }
+        return ans;
+    }
+}
+
+function maximizeXor(nums: number[], queries: number[][]): number[] {
+    nums.sort((a, b) => a - b);
+    const n = queries.length;
+    const idx = Array.from({ length: n }, (_, i) => i);
+    idx.sort((i, j) => queries[i][1] - queries[j][1]);
+    const ans: number[] = [];
+    const trie = new Trie();
+    let j = 0;
+    for (const i of idx) {
+        const x = queries[i][0];
+        const m = queries[i][1];
+        while (j < nums.length && nums[j] <= m) {
+            trie.insert(nums[j++]);
+        }
+        ans[i] = trie.search(x);
+    }
+    return ans;
 }
 ```
 
