@@ -50,11 +50,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：滑动窗口 + 哈希表/数组**
+**方法一：滑动窗口 + 哈希表或数组**
 
-用数组或哈希表记录每个窗口大小为 $k$ 的子数组中的数字出现的次数，然后遍历数组，每次更新哈希表，并记录当前窗口中数字的种类数。
+我们用一个哈希表或数组 $cnt$ 用户记录每个长度为 $k$ 的子数组中数字的出现次数。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$，其中 $n$ 是数组的长度。
+接下来，我们首先遍历数组前 $k$ 个元素，记录每个元素出现的次数，并且更新数字种类数 $v$，遍历后，我们首先将 $v$ 加入答案数组。
+
+然后，我们从下标 $k$ 继续遍历数组，每次遍历时，我们将当前元素的出现次数加一，并且将当前元素左边的元素的出现次数减一，如果减一后的出现次数为 $0$，则将其从哈希表或数组中删除，然后更新数字种类数 $v$，将其加入答案数组。
+
+遍历结束后，我们返回答案数组。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$ 或 $O(M)$。其中 $n$ 是数组 $nums$ 的长度；而 $M$ 是数组 $nums$ 中的最大值，本题中 $M \le 10^5$。
 
 <!-- tabs:start -->
 
@@ -65,16 +71,13 @@
 ```python
 class Solution:
     def distinctNumbers(self, nums: List[int], k: int) -> List[int]:
-        n = len(nums)
         cnt = Counter(nums[:k])
         ans = [len(cnt)]
-        for i in range(k, n):
-            u = nums[i - k]
-            cnt[u] -= 1
-            if cnt[u] == 0:
-                cnt.pop(u)
-
+        for i in range(k, len(nums)):
             cnt[nums[i]] += 1
+            cnt[nums[i - k]] -= 1
+            if cnt[nums[i - k]] == 0:
+                cnt.pop(nums[i - k])
             ans.append(len(cnt))
         return ans
 ```
@@ -86,24 +89,50 @@ class Solution:
 ```java
 class Solution {
     public int[] distinctNumbers(int[] nums, int k) {
-        int[] cnt = new int[100010];
-        int x = 0;
+        Map<Integer, Integer> cnt = new HashMap<>();
         for (int i = 0; i < k; ++i) {
-            if (cnt[nums[i]]++ == 0) {
-                ++x;
+            cnt.merge(nums[i], 1, Integer::sum);
+        }
+        int n = nums.length;
+        int[] ans = new int[n - k + 1];
+        ans[0] = cnt.size();
+        for (int i = k; i < n; ++i) {
+            cnt.merge(nums[i], 1, Integer::sum);
+            if (cnt.merge(nums[i - k], -1, Integer::sum) == 0) {
+                cnt.remove(nums[i - k]);
+            }
+            ans[i - k + 1] = cnt.size();
+        }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int[] distinctNumbers(int[] nums, int k) {
+        int m = 0;
+        for (int x : nums) {
+            m = Math.max(m, x);
+        }
+        int[] cnt = new int[m + 1];
+        int v = 0;
+        for (int i = 0; i < k; ++i) {
+            if (++cnt[nums[i]] == 1) {
+                ++v;
             }
         }
         int n = nums.length;
         int[] ans = new int[n - k + 1];
-        ans[0] = x;
+        ans[0] = v;
         for (int i = k; i < n; ++i) {
+            if (++cnt[nums[i]] == 1) {
+                ++v;
+            }
             if (--cnt[nums[i - k]] == 0) {
-                --x;
+                --v;
             }
-            if (cnt[nums[i]]++ == 0) {
-                ++x;
-            }
-            ans[i - k + 1] = x;
+            ans[i - k + 1] = v;
         }
         return ans;
     }
@@ -116,24 +145,49 @@ class Solution {
 class Solution {
 public:
     vector<int> distinctNumbers(vector<int>& nums, int k) {
-        int cnt[100010] = {0};
-        int x = 0;
+        unordered_map<int, int> cnt;
         for (int i = 0; i < k; ++i) {
-            if (cnt[nums[i]]++ == 0) {
-                ++x;
-            }
+            ++cnt[nums[i]];
         }
         int n = nums.size();
-        vector<int> ans(n - k + 1);
-        ans[0] = x;
+        vector<int> ans;
+        ans.push_back(cnt.size());
         for (int i = k; i < n; ++i) {
+            ++cnt[nums[i]];
             if (--cnt[nums[i - k]] == 0) {
-                --x;
+                cnt.erase(nums[i - k]);
             }
-            if (cnt[nums[i]]++ == 0) {
-                ++x;
+            ans.push_back(cnt.size());
+        }
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> distinctNumbers(vector<int>& nums, int k) {
+        int m = *max_element(begin(nums), end(nums));
+        int cnt[m + 1];
+        memset(cnt, 0, sizeof(cnt));
+        int n = nums.size();
+        int v = 0;
+        vector<int> ans(n - k + 1);
+        for (int i = 0; i < k; ++i) {
+            if (++cnt[nums[i]] == 1) {
+                ++v;
             }
-            ans[i - k + 1] = x;
+        }
+        ans[0] = v;
+        for (int i = k; i < n; ++i) {
+            if (++cnt[nums[i]] == 1) {
+                ++v;
+            }
+            if (--cnt[nums[i - k]] == 0) {
+                --v;
+            }
+            ans[i - k + 1] = v;
         }
         return ans;
     }
@@ -145,20 +199,91 @@ public:
 ```go
 func distinctNumbers(nums []int, k int) []int {
 	cnt := map[int]int{}
-	for _, v := range nums[:k] {
-		cnt[v]++
+	for _, x := range nums[:k] {
+		cnt[x]++
 	}
 	ans := []int{len(cnt)}
 	for i := k; i < len(nums); i++ {
-		u := nums[i-k]
-		cnt[u]--
-		if cnt[u] == 0 {
-			delete(cnt, u)
-		}
 		cnt[nums[i]]++
+		cnt[nums[i-k]]--
+		if cnt[nums[i-k]] == 0 {
+			delete(cnt, nums[i-k])
+		}
 		ans = append(ans, len(cnt))
 	}
 	return ans
+}
+```
+
+```go
+func distinctNumbers(nums []int, k int) (ans []int) {
+	m := slices.Max(nums)
+	cnt := make([]int, m+1)
+	v := 0
+	for _, x := range nums[:k] {
+		cnt[x]++
+		if cnt[x] == 1 {
+			v++
+		}
+	}
+	ans = append(ans, v)
+	for i := k; i < len(nums); i++ {
+		cnt[nums[i]]++
+		if cnt[nums[i]] == 1 {
+			v++
+		}
+		cnt[nums[i-k]]--
+		if cnt[nums[i-k]] == 0 {
+			v--
+		}
+		ans = append(ans, v)
+	}
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function distinctNumbers(nums: number[], k: number): number[] {
+    const cnt: Map<number, number> = new Map();
+    for (let i = 0; i < k; ++i) {
+        cnt.set(nums[i], (cnt.get(nums[i]) ?? 0) + 1);
+    }
+    const ans: number[] = [cnt.size];
+    for (let i = k; i < nums.length; ++i) {
+        cnt.set(nums[i], (cnt.get(nums[i]) ?? 0) + 1);
+        cnt.set(nums[i - k], cnt.get(nums[i - k])! - 1);
+        if (cnt.get(nums[i - k]) === 0) {
+            cnt.delete(nums[i - k]);
+        }
+        ans.push(cnt.size);
+    }
+    return ans;
+}
+```
+
+```ts
+function distinctNumbers(nums: number[], k: number): number[] {
+    const m = Math.max(...nums);
+    const cnt: number[] = Array(m + 1).fill(0);
+    let v: number = 0;
+    for (let i = 0; i < k; ++i) {
+        if (++cnt[nums[i]] === 1) {
+            v++;
+        }
+    }
+    const ans: number[] = [v];
+    for (let i = k; i < nums.length; ++i) {
+        if (++cnt[nums[i]] === 1) {
+            v++;
+        }
+        if (--cnt[nums[i - k]] === 0) {
+            v--;
+        }
+        ans.push(v);
+    }
+    return ans;
 }
 ```
 
