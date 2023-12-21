@@ -3026,3 +3026,4 @@
   - [2966.划分数组并满足最大差限制](/solution/2900-2999/2966.Divide%20Array%20Into%20Arrays%20With%20Max%20Difference/README.md)
   - [2967.使数组成为等数数组的最小代价](/solution/2900-2999/2967.Minimum%20Cost%20to%20Make%20Array%20Equalindromic/README.md)
   - [2968.执行操作使频率分数最大](/solution/2900-2999/2968.Apply%20Operations%20to%20Maximize%20Frequency%20Score/README.md)
+  - [2969.Minimum Number of Coins for Fruits II](/solution/2900-2999/2969.Minimum%20Number%20of%20Coins%20for%20Fruits%20II/README.md)
