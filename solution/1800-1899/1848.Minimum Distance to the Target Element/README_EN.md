@@ -60,11 +60,7 @@ The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The 
 ```python
 class Solution:
     def getMinDistance(self, nums: List[int], target: int, start: int) -> int:
-        ans = inf
-        for i, x in enumerate(nums):
-            if x == target:
-                ans = min(ans, abs(i - start))
-        return ans
+        return min(abs(i - start) for i, x in enumerate(nums) if x == target)
 ```
 
 ### **Java**
@@ -120,6 +116,35 @@ func abs(x int) int {
 		return -x
 	}
 	return x
+}
+```
+
+### **TypeScript**
+
+```ts
+function getMinDistance(nums: number[], target: number, start: number): number {
+    let ans = Infinity;
+    for (let i = 0; i < nums.length; ++i) {
+        if (nums[i] === target) {
+            ans = Math.min(ans, Math.abs(i - start));
+        }
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn get_min_distance(nums: Vec<i32>, target: i32, start: i32) -> i32 {
+        nums.iter()
+            .enumerate()
+            .filter(|&(_, &x)| x == target)
+            .map(|(i, _)| ((i as i32) - start).abs())
+            .min()
+            .unwrap_or_default()
+    }
 }
 ```
 
