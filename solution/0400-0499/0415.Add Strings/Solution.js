@@ -8,8 +8,8 @@ var addStrings = function (num1, num2) {
     let j = num2.length - 1;
     const ans = [];
     for (let c = 0; i >= 0 || j >= 0 || c; --i, --j) {
-        c += i < 0 ? 0 : parseInt(num1.charAt(i), 10);
-        c += j < 0 ? 0 : parseInt(num2.charAt(j), 10);
+        c += i < 0 ? 0 : +num1[i];
+        c += j < 0 ? 0 : +num2[j];
         ans.push(c % 10);
         c = Math.floor(c / 10);
     }
@@ -34,18 +34,15 @@ var subStrings = function (num1, num2) {
     let j = num2.length - 1;
     const ans = [];
     for (let c = 0; i >= 0; --i, --j) {
-        c = parseInt(num1.charAt(i), 10) - c;
+        c = +num1[i] - c;
         if (j >= 0) {
-            c -= parseInt(num2.charAt(j), 10);
+            c -= +num2[j];
         }
         ans.push((c + 10) % 10);
         c = c < 0 ? 1 : 0;
     }
-    while (ans.length > 1 && ans[ans.length - 1] == '0') {
+    while (ans.length > 1 && ans.at(-1) === 0) {
         ans.pop();
     }
-    if (neg) {
-        ans.push('-');
-    }
-    return ans.reverse().join('');
+    return (neg ? '-' : '') + ans.reverse().join('');
 };
