@@ -1,24 +1,49 @@
-func numIslands2(m int, n int, positions [][]int) []int {
-	p := make([]int, m*n)
-	for i := 0; i < len(p); i++ {
+type unionFind struct {
+	p, size []int
+}
+
+func newUnionFind(n int) *unionFind {
+	p := make([]int, n)
+	size := make([]int, n)
+	for i := range p {
 		p[i] = i
+		size[i] = 1
 	}
+	return &unionFind{p, size}
+}
+
+func (uf *unionFind) find(x int) int {
+	if uf.p[x] != x {
+		uf.p[x] = uf.find(uf.p[x])
+	}
+	return uf.p[x]
+}
+
+func (uf *unionFind) union(a, b int) bool {
+	pa, pb := uf.find(a), uf.find(b)
+	if pa == pb {
+		return false
+	}
+	if uf.size[pa] > uf.size[pb] {
+		uf.p[pb] = pa
+		uf.size[pa] += uf.size[pb]
+	} else {
+		uf.p[pa] = pb
+		uf.size[pb] += uf.size[pa]
+	}
+	return true
+}
+
+func numIslands2(m int, n int, positions [][]int) (ans []int) {
+	uf := newUnionFind(m * n)
 	grid := make([][]int, m)
-	for i := 0; i < m; i++ {
+	for i := range grid {
 		grid[i] = make([]int, n)
 	}
-	var find func(x int) int
-	find = func(x int) int {
-		if p[x] != x {
-			p[x] = find(p[x])
-		}
-		return p[x]
-	}
-	var ans []int
+	dirs := [5]int{-1, 0, 1, 0, -1}
 	cnt := 0
-	dirs := []int{-1, 0, 1, 0, -1}
-	for _, pos := range positions {
-		i, j := pos[0], pos[1]
+	for _, p := range positions {
+		i, j := p[0], p[1]
 		if grid[i][j] == 1 {
 			ans = append(ans, cnt)
 			continue
@@ -27,12 +52,11 @@ func numIslands2(m int, n int, positions [][]int) []int {
 		cnt++
 		for k := 0; k < 4; k++ {
 			x, y := i+dirs[k], j+dirs[k+1]
-			if x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1 && find(x*n+y) != find(i*n+j) {
-				p[find(x*n+y)] = find(i*n + j)
+			if x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1 && uf.union(i*n+j, x*n+y) {
 				cnt--
 			}
 		}
 		ans = append(ans, cnt)
 	}
-	return ans
+	return
 }

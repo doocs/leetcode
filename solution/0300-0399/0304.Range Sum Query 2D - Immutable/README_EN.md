@@ -52,23 +52,23 @@ numMatrix.sumRegion(1, 2, 2, 4); // return 12 (i.e sum of the blue rectangle)
 
 ## Solutions
 
-We use $s[i + 1][j + 1]$ to represent the sum of all elements in the upper-left part up to the $i$-th row and $j$-th column, where the indices $i$ and $j$ both start from $0$.
+**Solution 1: Two-dimensional Prefix Sum**
 
-We can derive the following prefix sum formula:
+We use $s[i + 1][j + 1]$ to represent the sum of all elements in the upper left part of the $i$th row and $j$th column, where indices $i$ and $j$ both start from $0$. We can get the following prefix sum formula:
 
 $$
 s[i + 1][j + 1] = s[i + 1][j] + s[i][j + 1] - s[i][j] + nums[i][j]
 $$
 
-The sum of the elements in the rectangle with $(x_1, y_1)$ and $(x_2, y_2)$ as its upper-left and bottom-right corners respectively, is:
+Then, the sum of the elements of the rectangle with $(x_1, y_1)$ and $(x_2, y_2)$ as the upper left corner and lower right corner respectively is:
 
 $$
 s[x_2 + 1][y_2 + 1] - s[x_2 + 1][y_1] - s[x_1][y_2 + 1] + s[x_1][y_1]
 $$
 
-We preprocess the prefix sum array $s$ in the initialization method, and directly return the result of the above formula in the query method.
+In the initialization method, we preprocess the prefix sum array $s$, and in the query method, we directly return the result of the above formula.
 
-The time complexity for initialization is $O(m \times n)$, and the time complexity for query is $O(1)$.
+The time complexity for initializing is $O(m \times n)$, and the time complexity for querying is $O(1)$. The space complexity is $O(m \times n)$.
 
 <!-- tabs:start -->
 
@@ -159,6 +159,7 @@ public:
 ### **Rust**
 
 ```rust
+
 /**
  * Your NumMatrix object will be instantiated and called as such:
  * let obj = NumMatrix::new(matrix);

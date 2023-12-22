@@ -73,7 +73,7 @@ $$
 
 我们在初始化方法中预处理出前缀和数组 $s$，在查询方法中直接返回上述公式的结果即可。
 
-初始化的时间复杂度为 $O(m\times n)$，查询的时间复杂度为 $O(1)$。
+初始化的时间复杂度为 $O(m \times n)$，查询的时间复杂度为 $O(1)$。空间复杂度为 $O(m \times n)$。
 
 <!-- tabs:start -->
 
@@ -168,6 +168,7 @@ public:
 ### **Rust**
 
 ```rust
+
 /**
  * Your NumMatrix object will be instantiated and called as such:
  * let obj = NumMatrix::new(matrix);
