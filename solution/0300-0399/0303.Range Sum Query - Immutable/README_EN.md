@@ -46,6 +46,12 @@ numArray.sumRange(0, 5); // return (-2) + 0 + 3 + (-5) + 2 + (-1) = -3
 
 ## Solutions
 
+**Solution 1: Prefix Sum**
+
+We create a prefix sum array $s$ of length $n + 1$, where $s[i]$ represents the prefix sum of the first $i$ elements, that is, $s[i] = \sum_{j=0}^{i-1} nums[j]$. Therefore, the sum of the elements between the indices $[left, right]$ can be expressed as $s[right + 1] - s[left]$.
+
+The time complexity for initializing the prefix sum array $s$ is $O(n)$, and the time complexity for querying is $O(1)$. The space complexity is $O(n)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -95,17 +101,20 @@ class NumArray {
 ```cpp
 class NumArray {
 public:
-    vector<int> s;
-
     NumArray(vector<int>& nums) {
         int n = nums.size();
         s.resize(n + 1);
-        for (int i = 0; i < n; ++i) s[i + 1] = s[i] + nums[i];
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + nums[i];
+        }
     }
 
     int sumRange(int left, int right) {
         return s[right + 1] - s[left];
     }
+
+private:
+    vector<int> s;
 };
 
 /**
@@ -150,7 +159,7 @@ func (this *NumArray) SumRange(left int, right int) int {
  */
 var NumArray = function (nums) {
     const n = nums.length;
-    this.s = new Array(n + 1).fill(0);
+    this.s = Array(n + 1).fill(0);
     for (let i = 0; i < n; ++i) {
         this.s[i + 1] = this.s[i] + nums[i];
     }
@@ -180,7 +189,7 @@ class NumArray {
 
     constructor(nums: number[]) {
         const n = nums.length;
-        this.s = new Array(n + 1).fill(0);
+        this.s = Array(n + 1).fill(0);
         for (let i = 0; i < n; ++i) {
             this.s[i + 1] = this.s[i] + nums[i];
         }
@@ -202,34 +211,7 @@ class NumArray {
 
 ```rust
 struct NumArray {
-    nums: Vec<i32>,
-}
-
-/**
- * `&self` means the method takes an immutable reference.
- * If you need a mutable reference, change it to `&mut self` instead.
- */
-impl NumArray {
-    fn new(nums: Vec<i32>) -> Self {
-        Self {
-            nums,
-        }
-    }
-
-    fn sum_range(&self, left: i32, right: i32) -> i32 {
-        let (left, right) = (left as usize, right as usize);
-        self.nums[left..=right].iter().sum::<i32>()
-    }
-}/**
- * Your NumArray object will be instantiated and called as such:
- * let obj = NumArray::new(nums);
- * let ret_1: i32 = obj.sum_range(left, right);
- */
-```
-
-```rust
-struct NumArray {
-    sums: Vec<i32>,
+    s: Vec<i32>,
 }
 
 /**
@@ -239,15 +221,15 @@ struct NumArray {
 impl NumArray {
     fn new(mut nums: Vec<i32>) -> Self {
         let n = nums.len();
-        let mut sums = vec![0; n + 1];
+        let mut s = vec![0; n + 1];
         for i in 0..n {
-            sums[i + 1] = sums[i] + nums[i];
+            s[i + 1] = s[i] + nums[i];
         }
-        Self { sums }
+        Self { s }
     }
 
     fn sum_range(&self, left: i32, right: i32) -> i32 {
-        self.sums[(right + 1) as usize] - self.sums[left as usize]
+        self.s[(right + 1) as usize] - self.s[left as usize]
     }
 }/**
  * Your NumArray object will be instantiated and called as such:
@@ -260,25 +242,26 @@ impl NumArray {
 
 ```c
 typedef struct {
-    int* sums;
+    int* s;
 } NumArray;
 
-NumArray* numArrayCreate(int* nums, int numsSize) {
-    int* sums = malloc(sizeof(int) * (numsSize + 1));
-    memset(sums, 0, numsSize + 1);
-    for (int i = 0; i < numsSize; i++) {
-        sums[i + 1] = sums[i] + nums[i];
+NumArray* numArrayCreate(int* nums, int n) {
+    int* s = malloc(sizeof(int) * (n + 1));
+    s[0] = 0;
+    for (int i = 0; i < n; i++) {
+        s[i + 1] = s[i] + nums[i];
     }
-    NumArray* res = malloc(sizeof(NumArray));
-    res->sums = sums;
-    return res;
+    NumArray* obj = malloc(sizeof(NumArray));
+    obj->s = s;
+    return obj;
 }
 
 int numArraySumRange(NumArray* obj, int left, int right) {
-    return obj->sums[right + 1] - obj->sums[left];
+    return obj->s[right + 1] - obj->s[left];
 }
 
 void numArrayFree(NumArray* obj) {
+    free(obj->s);
     free(obj);
 }
 
@@ -299,20 +282,27 @@ class NumArray {
      * @param Integer[] $nums
      */
     function __construct($nums) {
-        $this->sum = [0];
-        for ($i = 0; $i < count($nums); $i++) {
-            array_push($this->sum, $this->sum[$i] + $nums[$i]);
+        $this->s = [0];
+        foreach ($nums as $x) {
+            $this->s[] = $this->s[count($this->s) - 1] + $x;
         }
     }
+
     /**
      * @param Integer $left
      * @param Integer $right
      * @return Integer
      */
     function sumRange($left, $right) {
-        return $this->sum[$right + 1] - $this->sum[$left];
+        return $this->s[$right + 1] - $this->s[$left];
     }
 }
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * $obj = NumArray($nums);
+ * $ret_1 = $obj->sumRange($left, $right);
+ */
 ```
 
 ### **...**

@@ -3,17 +3,24 @@ class NumArray {
      * @param Integer[] $nums
      */
     function __construct($nums) {
-        $this->sum = [0];
-        for ($i = 0; $i < count($nums); $i++) {
-            array_push($this->sum, $this->sum[$i] + $nums[$i]);
+        $this->s = [0];
+        foreach ($nums as $x) {
+            $this->s[] = $this->s[count($this->s) - 1] + $x;
         }
     }
+
     /**
      * @param Integer $left
      * @param Integer $right
      * @return Integer
      */
     function sumRange($left, $right) {
-        return $this->sum[$right + 1] - $this->sum[$left];
+        return $this->s[$right + 1] - $this->s[$left];
     }
 }
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * $obj = NumArray($nums);
+ * $ret_1 = $obj->sumRange($left, $right);
+ */
