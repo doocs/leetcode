@@ -40,6 +40,18 @@
 
 ## Solutions
 
+**Solution 1: DFS**
+
+DFS traverses the binary tree, recording the value, depth, and horizontal offset of each node. Then sort all nodes by horizontal offset from small to large, then by depth from small to large, and finally group by horizontal offset.
+
+The time complexity is $O(n\log \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree.
+
+**Solution 2: BFS**
+
+A better approach to this problem should be BFS, traversing from top to bottom level by level.
+
+The time complexity is $O(n\log n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree.
+
 <!-- tabs:start -->
 
 ### **Python3**
