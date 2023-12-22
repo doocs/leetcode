@@ -42,7 +42,6 @@
 
 -   [在排序数组中查找元素的第一个和最后一个位置](/solution/0000-0099/0034.Find%20First%20and%20Last%20Position%20of%20Element%20in%20Sorted%20Array/README.md) - `二分查找`
 -   [准时到达的列车最小时速](/solution/1800-1899/1870.Minimum%20Speed%20to%20Arrive%20on%20Time/README.md) - `二分查找`
--   [找到需要补充粉笔的学生编号](/solution/1800-1899/1894.Find%20the%20Student%20that%20Will%20Replace%20the%20Chalk/README.md) - `二分查找`
 -   [可移除字符的最大数目](/solution/1800-1899/1898.Maximum%20Number%20of%20Removable%20Characters/README.md) - `二分查找`
 -   [排序数组](/solution/0900-0999/0912.Sort%20an%20Array/README.md) - `快速排序`、`归并排序`
 -   [字符串相加](/solution/0400-0499/0415.Add%20Strings/README.md) - `高精度加法`

@@ -1,9 +1,13 @@
 func chalkReplacer(chalk []int, k int) int {
-	n := len(chalk)
-	s := make([]int, n+1)
-	for i := 0; i < n; i++ {
-		s[i+1] = s[i] + chalk[i]
+	s := 0
+	for _, x := range chalk {
+		s += x
 	}
-	k %= s[n]
-	return sort.Search(n, func(i int) bool { return s[i+1] > k })
+	k %= s
+	for i := 0; ; i++ {
+		if k < chalk[i] {
+			return i
+		}
+		k -= chalk[i]
+	}
 }
