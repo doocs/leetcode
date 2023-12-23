@@ -60,6 +60,17 @@ The resulting string is &quot;[[][]]&quot;.
 
 ## Solutions
 
+**Solution 1: Greedy**
+
+We use a variable $x$ to record the current number of unmatched left brackets. We traverse the string $s$, for each character $c$:
+
+-   If $c$ is a left bracket, then we increment $x$ by one;
+-   If $c$ is a right bracket, then we need to check whether $x$ is greater than zero. If it is, we match the current right bracket with the nearest unmatched left bracket on the left, i.e., decrement $x$ by one.
+
+After the traversal, we will definitely get a string of the form `"]]]...[[[..."`. We then greedily swap the brackets at both ends each time, which can eliminate $2$ unmatched left brackets at a time. Therefore, the total number of swaps needed is $\left\lfloor \frac{x + 1}{2} \right\rfloor$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -67,13 +78,13 @@ The resulting string is &quot;[[][]]&quot;.
 ```python
 class Solution:
     def minSwaps(self, s: str) -> int:
-        ans = 0
+        x = 0
         for c in s:
-            if c == '[':
-                ans += 1
-            elif ans:
-                ans -= 1
-        return (ans + 1) >> 1
+            if c == "[":
+                x += 1
+            elif x:
+                x -= 1
+        return (x + 1) >> 1
 ```
 
 ### **Java**
@@ -81,15 +92,16 @@ class Solution:
 ```java
 class Solution {
     public int minSwaps(String s) {
-        int ans = 0;
-        for (char c : s.toCharArray()) {
+        int x = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
             if (c == '[') {
-                ++ans;
-            } else if (ans > 0) {
-                --ans;
+                ++x;
+            } else if (x > 0) {
+                --x;
             }
         }
-        return (ans + 1) >> 1;
+        return (x + 1) / 2;
     }
 }
 ```
@@ -100,14 +112,15 @@ class Solution {
 class Solution {
 public:
     int minSwaps(string s) {
-        int ans = 0;
+        int x = 0;
         for (char& c : s) {
-            if (c == '[')
-                ++ans;
-            else if (ans)
-                --ans;
+            if (c == '[') {
+                ++x;
+            } else if (x) {
+                --x;
+            }
         }
-        return (ans + 1) >> 1;
+        return (x + 1) / 2;
     }
 };
 ```
@@ -116,15 +129,31 @@ public:
 
 ```go
 func minSwaps(s string) int {
-	ans := 0
+	x := 0
 	for _, c := range s {
 		if c == '[' {
-			ans++
-		} else if ans > 0 {
-			ans--
+			x++
+		} else if x > 0 {
+			x--
 		}
 	}
-	return (ans + 1) >> 1
+	return (x + 1) / 2
+}
+```
+
+### **TypeScript**
+
+```ts
+function minSwaps(s: string): number {
+    let x = 0;
+    for (const c of s) {
+        if (c === '[') {
+            ++x;
+        } else if (x) {
+            --x;
+        }
+    }
+    return (x + 1) >> 1;
 }
 ```
 

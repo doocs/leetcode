@@ -3,56 +3,34 @@ type BinaryIndexedTree struct {
 	c []int
 }
 
-func newBinaryIndexedTree(n int) *BinaryIndexedTree {
-	c := make([]int, n+1)
-	return &BinaryIndexedTree{n, c}
+func NewBinaryIndexedTree(n int) *BinaryIndexedTree {
+	return &BinaryIndexedTree{n, make([]int, n+1)}
 }
 
-func (this *BinaryIndexedTree) lowbit(x int) int {
-	return x & -x
-}
-
-func (this *BinaryIndexedTree) update(x, val int) {
-	for x <= this.n {
-		if this.c[x] < val {
-			this.c[x] = val
-		}
-		x += this.lowbit(x)
+func (bit *BinaryIndexedTree) update(x, v int) {
+	for x <= bit.n {
+		bit.c[x] = max(bit.c[x], v)
+		x += x & -x
 	}
 }
 
-func (this *BinaryIndexedTree) query(x int) int {
-	s := 0
+func (bit *BinaryIndexedTree) query(x int) (s int) {
 	for x > 0 {
-		if s < this.c[x] {
-			s = this.c[x]
-		}
-		x -= this.lowbit(x)
+		s = max(s, bit.c[x])
+		x -= x & -x
 	}
-	return s
+	return
 }
 
-func longestObstacleCourseAtEachPosition(obstacles []int) []int {
-	s := make(map[int]bool)
-	for _, v := range obstacles {
-		s[v] = true
+func longestObstacleCourseAtEachPosition(obstacles []int) (ans []int) {
+	nums := slices.Clone(obstacles)
+	sort.Ints(nums)
+	n := len(nums)
+	tree := NewBinaryIndexedTree(n)
+	for k, x := range obstacles {
+		i := sort.SearchInts(nums, x) + 1
+		ans = append(ans, tree.query(i)+1)
+		tree.update(i, ans[k])
 	}
-	var t []int
-	for v, _ := range s {
-		t = append(t, v)
-	}
-	sort.Ints(t)
-	m := make(map[int]int)
-	for i, v := range t {
-		m[v] = i + 1
-	}
-	n := len(obstacles)
-	ans := make([]int, n)
-	tree := newBinaryIndexedTree(len(m))
-	for i, v := range obstacles {
-		x := m[v]
-		ans[i] = 1 + tree.query(x)
-		tree.update(x, ans[i])
-	}
-	return ans
+	return
 }
