@@ -51,6 +51,18 @@ The total number of stones in [2,3,3,4] is 12.
 
 ## Solutions
 
+**Solution 1: Greedy + Priority Queue (Max Heap)**
+
+According to the problem description, in order to minimize the total number of remaining stones, we need to remove as many stones as possible from the stone piles. Therefore, we should always choose the pile with the most stones for removal.
+
+We create a priority queue (max heap) $pq$ to store the number of stones in each pile. Initially, we add the number of stones in all piles to the priority queue.
+
+Next, we perform $k$ operations. In each operation, we take out the top element $x$ of the priority queue, halve $x$, and then add it back to the priority queue.
+
+After performing $k$ operations, the sum of all elements in the priority queue is the answer.
+
+The time complexity is $O(n + k \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array `piles`.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -58,13 +70,11 @@ The total number of stones in [2,3,3,4] is 12.
 ```python
 class Solution:
     def minStoneSum(self, piles: List[int], k: int) -> int:
-        h = []
-        for p in piles:
-            heappush(h, -p)
+        pq = [-x for x in piles]
+        heapify(pq)
         for _ in range(k):
-            p = -heappop(h)
-            heappush(h, -((p + 1) >> 1))
-        return -sum(h)
+            heapreplace(pq, pq[0] // 2)
+        return -sum(pq)
 ```
 
 ### **Java**
@@ -72,17 +82,17 @@ class Solution:
 ```java
 class Solution {
     public int minStoneSum(int[] piles, int k) {
-        PriorityQueue<Integer> q = new PriorityQueue<>((a, b) -> (b - a));
-        for (int p : piles) {
-            q.offer(p);
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b - a);
+        for (int x : piles) {
+            pq.offer(x);
         }
         while (k-- > 0) {
-            int p = q.poll();
-            q.offer((p + 1) >> 1);
+            int x = pq.poll();
+            pq.offer(x - x / 2);
         }
         int ans = 0;
-        while (!q.isEmpty()) {
-            ans += q.poll();
+        while (!pq.isEmpty()) {
+            ans += pq.poll();
         }
         return ans;
     }
@@ -95,17 +105,19 @@ class Solution {
 class Solution {
 public:
     int minStoneSum(vector<int>& piles, int k) {
-        priority_queue<int> q;
-        for (int& p : piles) q.push(p);
+        priority_queue<int> pq;
+        for (int x : piles) {
+            pq.push(x);
+        }
         while (k--) {
-            int p = q.top();
-            q.pop();
-            q.push((p + 1) >> 1);
+            int x = pq.top();
+            pq.pop();
+            pq.push(x - x / 2);
         }
         int ans = 0;
-        while (!q.empty()) {
-            ans += q.top();
-            q.pop();
+        while (!pq.empty()) {
+            ans += pq.top();
+            pq.pop();
         }
         return ans;
     }
@@ -115,19 +127,17 @@ public:
 ### **Go**
 
 ```go
-func minStoneSum(piles []int, k int) int {
-	q := &hp{piles}
-	heap.Init(q)
-	for k > 0 {
-		p := q.pop()
-		q.push((p + 1) >> 1)
-		k--
+func minStoneSum(piles []int, k int) (ans int) {
+	pq := &hp{piles}
+	heap.Init(pq)
+	for ; k > 0; k-- {
+		x := pq.pop()
+		pq.push(x - x/2)
 	}
-	ans := 0
-	for q.Len() > 0 {
-		ans += q.pop()
+	for pq.Len() > 0 {
+		ans += pq.pop()
 	}
-	return ans
+	return
 }
 
 type hp struct{ sort.IntSlice }
@@ -142,6 +152,26 @@ func (h *hp) Pop() any {
 }
 func (h *hp) push(v int) { heap.Push(h, v) }
 func (h *hp) pop() int   { return heap.Pop(h).(int) }
+```
+
+### **TypeScript**
+
+```ts
+function minStoneSum(piles: number[], k: number): number {
+    const pq = new MaxPriorityQueue();
+    for (const x of piles) {
+        pq.enqueue(x);
+    }
+    while (k--) {
+        const x = pq.dequeue().element;
+        pq.enqueue(x - ((x / 2) | 0));
+    }
+    let ans = 0;
+    while (pq.size()) {
+        ans += pq.dequeue().element;
+    }
+    return ans;
+}
 ```
 
 ### **...**
