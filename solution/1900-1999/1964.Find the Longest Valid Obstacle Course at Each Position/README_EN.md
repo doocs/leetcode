@@ -66,7 +66,13 @@
 
 ## Solutions
 
-Binary Indexed Tree.
+**Solution 1: Binary Indexed Tree (Fenwick Tree)**
+
+We can use a Binary Indexed Tree to maintain an array of the lengths of the longest increasing subsequences.
+
+Then for each obstacle, we query in the Binary Indexed Tree for the length of the longest increasing subsequence that is less than or equal to the current obstacle, suppose it is $l$. Then the length of the longest increasing subsequence of the current obstacle is $l+1$. We add $l+1$ to the answer array, and update $l+1$ in the Binary Indexed Tree.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of obstacles.
 
 <!-- tabs:start -->
 
