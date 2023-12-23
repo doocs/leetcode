@@ -66,6 +66,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：贪心**
+
+我们用一个变量 $x$ 记录当前未匹配的左括号的数量，遍历字符串 $s$，对于每个字符 $c$：
+
+-   如果 $c$ 是左括号，那么 $x$ 加一；
+-   如果 $c$ 是右括号，那么我们需要判断 $x$ 是否大于零，如果大于零，那么将当前右括号与左侧最近的一个未匹配的左括号匹配，即 $x$ 减一。
+
+遍历结束后，得到的一定是形如 `"]]]...[[[..."`的字符串，我们再贪心地每次将两端的括号交换，这样一次可以消去 $2$ 个不匹配的左括号。因此，一共需要交换的次数为 $\left\lfloor \frac{x + 1}{2} \right\rfloor$。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -75,13 +86,13 @@
 ```python
 class Solution:
     def minSwaps(self, s: str) -> int:
-        ans = 0
+        x = 0
         for c in s:
-            if c == '[':
-                ans += 1
-            elif ans:
-                ans -= 1
-        return (ans + 1) >> 1
+            if c == "[":
+                x += 1
+            elif x:
+                x -= 1
+        return (x + 1) >> 1
 ```
 
 ### **Java**
@@ -91,15 +102,16 @@ class Solution:
 ```java
 class Solution {
     public int minSwaps(String s) {
-        int ans = 0;
-        for (char c : s.toCharArray()) {
+        int x = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
             if (c == '[') {
-                ++ans;
-            } else if (ans > 0) {
-                --ans;
+                ++x;
+            } else if (x > 0) {
+                --x;
             }
         }
-        return (ans + 1) >> 1;
+        return (x + 1) / 2;
     }
 }
 ```
@@ -110,14 +122,15 @@ class Solution {
 class Solution {
 public:
     int minSwaps(string s) {
-        int ans = 0;
+        int x = 0;
         for (char& c : s) {
-            if (c == '[')
-                ++ans;
-            else if (ans)
-                --ans;
+            if (c == '[') {
+                ++x;
+            } else if (x) {
+                --x;
+            }
         }
-        return (ans + 1) >> 1;
+        return (x + 1) / 2;
     }
 };
 ```
@@ -126,15 +139,31 @@ public:
 
 ```go
 func minSwaps(s string) int {
-	ans := 0
+	x := 0
 	for _, c := range s {
 		if c == '[' {
-			ans++
-		} else if ans > 0 {
-			ans--
+			x++
+		} else if x > 0 {
+			x--
 		}
 	}
-	return (ans + 1) >> 1
+	return (x + 1) / 2
+}
+```
+
+### **TypeScript**
+
+```ts
+function minSwaps(s: string): number {
+    let x = 0;
+    for (const c of s) {
+        if (c === '[') {
+            ++x;
+        } else if (x) {
+            --x;
+        }
+    }
+    return (x + 1) >> 1;
 }
 ```
 

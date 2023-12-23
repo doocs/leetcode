@@ -40,6 +40,14 @@ It is impossible to make s using a prefix of arr.</pre>
 
 ## Solutions
 
+**Solution 1: Traversal**
+
+We traverse the array $words$, using a variable $t$ to record the currently concatenated string. If the length of $t$ is greater than the length of $s$, it means that $s$ is not a prefix string of $words$, so we return $false$; if the length of $t$ is equal to the length of $s$, we return whether $t$ is equal to $s$.
+
+At the end of the traversal, if the length of $t$ is less than the length of $s$, it means that $s$ is not a prefix string of $words$, so we return $false$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -47,11 +55,11 @@ It is impossible to make s using a prefix of arr.</pre>
 ```python
 class Solution:
     def isPrefixString(self, s: str, words: List[str]) -> bool:
-        t = 0
+        n, m = len(s), 0
         for i, w in enumerate(words):
-            t += len(w)
-            if len(s) == t:
-                return ''.join(words[: i + 1]) == s
+            m += len(w)
+            if m == n:
+                return "".join(words[: i + 1]) == s
         return False
 ```
 
@@ -61,9 +69,12 @@ class Solution:
 class Solution {
     public boolean isPrefixString(String s, String[] words) {
         StringBuilder t = new StringBuilder();
-        for (String w : words) {
+        for (var w : words) {
             t.append(w);
-            if (s.length() == t.length()) {
+            if (t.length() > s.length()) {
+                return false;
+            }
+            if (t.length() == s.length()) {
                 return s.equals(t.toString());
             }
         }
@@ -78,10 +89,15 @@ class Solution {
 class Solution {
 public:
     bool isPrefixString(string s, vector<string>& words) {
-        string t = "";
-        for (string& w : words) {
+        string t;
+        for (auto& w : words) {
             t += w;
-            if (t.size() == s.size()) return t == s;
+            if (t.size() > s.size()) {
+                return false;
+            }
+            if (t.size() == s.size()) {
+                return t == s;
+            }
         }
         return false;
     }
@@ -92,14 +108,38 @@ public:
 
 ```go
 func isPrefixString(s string, words []string) bool {
-	t := ""
+	t := strings.Builder{}
 	for _, w := range words {
-		t += w
-		if t == s {
-			return true
+		t.WriteString(w)
+		if t.Len() > len(s) {
+			return false
+		}
+		if t.Len() == len(s) {
+			return t.String() == s
 		}
 	}
 	return false
+}
+```
+
+### **TypeScript**
+
+```ts
+function isPrefixString(s: string, words: string[]): boolean {
+    const t: string[] = [];
+    const n = s.length;
+    let m = 0;
+    for (const w of words) {
+        m += w.length;
+        if (m > n) {
+            return false;
+        }
+        t.push(w);
+        if (m === n) {
+            return s === t.join('');
+        }
+    }
+    return false;
 }
 ```
 

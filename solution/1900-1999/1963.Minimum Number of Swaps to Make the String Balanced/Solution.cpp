@@ -1,13 +1,14 @@
 class Solution {
 public:
     int minSwaps(string s) {
-        int ans = 0;
+        int x = 0;
         for (char& c : s) {
-            if (c == '[')
-                ++ans;
-            else if (ans)
-                --ans;
+            if (c == '[') {
+                ++x;
+            } else if (x) {
+                --x;
+            }
         }
-        return (ans + 1) >> 1;
+        return (x + 1) / 2;
     }
 };
