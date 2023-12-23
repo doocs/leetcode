@@ -1,16 +1,14 @@
-func minStoneSum(piles []int, k int) int {
-	q := &hp{piles}
-	heap.Init(q)
-	for k > 0 {
-		p := q.pop()
-		q.push((p + 1) >> 1)
-		k--
+func minStoneSum(piles []int, k int) (ans int) {
+	pq := &hp{piles}
+	heap.Init(pq)
+	for ; k > 0; k-- {
+		x := pq.pop()
+		pq.push(x - x/2)
 	}
-	ans := 0
-	for q.Len() > 0 {
-		ans += q.pop()
+	for pq.Len() > 0 {
+		ans += pq.pop()
 	}
-	return ans
+	return
 }
 
 type hp struct{ sort.IntSlice }
