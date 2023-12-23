@@ -11,7 +11,7 @@ public:
         }
         long long ans = 1LL << 60;
         for (int j = 0; j < n; ++j) {
-            long long cost = 1LL * j * x;
+            long long cost = 1LL * x * j;
             for (int i = 0; i < n; ++i) {
                 cost += f[i][j];
             }

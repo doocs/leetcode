@@ -45,6 +45,30 @@ Thus, the total cost will become (1 + 5 + 1 + 5 + 1) = 13. We can prove that thi
 
 ## Solutions
 
+**Solution 1: Enumeration**
+
+We consider enumerating the number of operations, and define $f[i][j]$ as the minimum cost after performing $j$ operations on the chocolate of type $i$.
+
+For the chocolate of type $i$:
+
+-   If $j = 0$, i.e., no operation is performed, then $f[i][j] = nums[i]$;
+-   If $0 \lt j \leq n-1$, then its minimum cost is the minimum cost of the chocolates with indices in the range $[i,.. (i + j) \bmod n]$, i.e., $f[i][j] = \min\{nums[i], nums[i + 1], \cdots, nums[(i + j) \bmod n]\}$, or it can be written as $f[i][j] = \min\{f[i][j - 1], nums[(i + j) \bmod n]\}$.
+-   If $j \ge n$, since when $j = n - 1$, the minimum cost of all covered chocolates has been obtained. If $j$ continues to increase, the minimum cost will not change, but the increase in the number of operations will lead to an increase in the final cost. Therefore, we do not need to consider the case where $j \ge n$.
+
+In summary, we can get the state transition equation:
+
+$$
+f[i][j] =
+\begin{cases}
+nums[i] ,& j = 0 \\
+\min(f[i][j - 1], nums[(i + j) \bmod n]) ,& 0 \lt j \leq n - 1
+\end{cases}
+$$
+
+Finally, we only need to enumerate the number of operations $j$, calculate the minimum cost under each number of operations, and take the minimum value. That is, the answer is $\min\limits_{0 \leq j \leq n - 1} \sum\limits_{i = 0}^{n - 1} f[i][j] + x \times j$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Where $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -58,11 +82,7 @@ class Solution:
             f[i][0] = v
             for j in range(1, n):
                 f[i][j] = min(f[i][j - 1], nums[(i + j) % n])
-        ans = inf
-        for j in range(n):
-            cost = sum(f[i][j] for i in range(n)) + x * j
-            ans = min(ans, cost)
-        return ans
+        return min(sum(f[i][j] for i in range(n)) + x * j for j in range(n))
 ```
 
 ### **Java**
@@ -80,7 +100,7 @@ class Solution {
         }
         long ans = 1L << 60;
         for (int j = 0; j < n; ++j) {
-            long cost = 1L * j * x;
+            long cost = 1L * x * j;
             for (int i = 0; i < n; ++i) {
                 cost += f[i][j];
             }
@@ -107,7 +127,7 @@ public:
         }
         long long ans = 1LL << 60;
         for (int j = 0; j < n; ++j) {
-            long long cost = 1LL * j * x;
+            long long cost = 1LL * x * j;
             for (int i = 0; i < n; ++i) {
                 cost += f[i][j];
             }
@@ -124,9 +144,9 @@ public:
 func minCost(nums []int, x int) int64 {
 	n := len(nums)
 	f := make([][]int, n)
-	for i := range f {
+	for i, v := range nums {
 		f[i] = make([]int, n)
-		f[i][0] = nums[i]
+		f[i][0] = v
 		for j := 1; j < n; j++ {
 			f[i][j] = min(f[i][j-1], nums[(i+j)%n])
 		}
@@ -134,12 +154,62 @@ func minCost(nums []int, x int) int64 {
 	ans := 1 << 60
 	for j := 0; j < n; j++ {
 		cost := x * j
-		for i := range nums {
+		for i := 0; i < n; i++ {
 			cost += f[i][j]
 		}
 		ans = min(ans, cost)
 	}
 	return int64(ans)
+}
+```
+
+### **TypeScript**
+
+```ts
+function minCost(nums: number[], x: number): number {
+    const n = nums.length;
+    const f: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
+    for (let i = 0; i < n; ++i) {
+        f[i][0] = nums[i];
+        for (let j = 1; j < n; ++j) {
+            f[i][j] = Math.min(f[i][j - 1], nums[(i + j) % n]);
+        }
+    }
+    let ans = Infinity;
+    for (let j = 0; j < n; ++j) {
+        let cost = x * j;
+        for (let i = 0; i < n; ++i) {
+            cost += f[i][j];
+        }
+        ans = Math.min(ans, cost);
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn min_cost(nums: Vec<i32>, x: i32) -> i64 {
+        let n = nums.len();
+        let mut f = vec![vec![0; n]; n];
+        for i in 0..n {
+            f[i][0] = nums[i];
+            for j in 1..n {
+                f[i][j] = f[i][j - 1].min(nums[(i + j) % n]);
+            }
+        }
+        let mut ans = i64::MAX;
+        for j in 0..n {
+            let mut cost = (x as i64) * (j as i64);
+            for i in 0..n {
+                cost += f[i][j] as i64;
+            }
+            ans = ans.min(cost);
+        }
+        ans
+    }
 }
 ```
 

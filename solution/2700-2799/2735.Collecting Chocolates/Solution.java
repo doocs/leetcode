@@ -10,7 +10,7 @@ class Solution {
         }
         long ans = 1L << 60;
         for (int j = 0; j < n; ++j) {
-            long cost = 1L * j * x;
+            long cost = 1L * x * j;
             for (int i = 0; i < n; ++i) {
                 cost += f[i][j];
             }

@@ -53,25 +53,27 @@
 
 **方法一：枚举**
 
-我们考虑枚举操作的次数，定义 $f[i][j]$ 表示类型为 $i$ 的巧克力进行了 $j$ 次操作后的最小成本。那么有：
+我们考虑枚举操作的次数，定义 $f[i][j]$ 表示类型为 $i$ 的巧克力进行了 $j$ 次操作后的最小成本。
+
+对于类型为 $i$ 的巧克力：
+
+-   如果 $j = 0$，即没有进行操作，那么 $f[i][j] = nums[i]$；
+-   如果 $0 \lt j \leq n-1$，那么它的最小成本就是下标范围为 $[i,.. (i + j) \bmod n]$ 的巧克力的最小成本，即 $f[i][j] = \min\{nums[i], nums[i + 1], \cdots, nums[(i + j) \bmod n]\}$，或者可以写成 $f[i][j] = \min\{f[i][j - 1], nums[(i + j) \bmod n]\}$。
+-   如果 $j \ge n$，由于当 $j = n - 1$ 时，已经覆盖了所有巧克力的最小成本，如果 $j$ 继续增大，那么最小成本不会再变化，但是操作次数的增加却会导致最终的成本增加，因此，我们不需要考虑 $j \ge n$ 的情况。
+
+综上，我们可以得到状态转移方程：
 
 $$
 f[i][j] =
 \begin{cases}
 nums[i] ,& j = 0 \\
-\min(f[i][j - 1], nums[(i + j) \bmod n]) ,& j > 0
+\min(f[i][j - 1], nums[(i + j) \bmod n]) ,& 0 \lt j \leq n - 1
 \end{cases}
 $$
 
-接下来，我们枚举操作的次数 $j$，其中 $j \in [0,..n-1]$，那么进行 $j$ 次操作的最小成本为：
+最后，我们只需要枚举操作的次数 $j$，计算出每种操作次数下的最小成本，取最小值即可。即答案为 $\min\limits_{0 \leq j \leq n - 1} \sum\limits_{i = 0}^{n - 1} f[i][j] + x \times j$。
 
-$$
-\sum_{i=0}^{n-1} f[i][j] + j \times x
-$$
-
-我们取所有操作次数中的最小值即可。
-
-时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是数组 $nums$ 的长度。
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
 
@@ -88,11 +90,7 @@ class Solution:
             f[i][0] = v
             for j in range(1, n):
                 f[i][j] = min(f[i][j - 1], nums[(i + j) % n])
-        ans = inf
-        for j in range(n):
-            cost = sum(f[i][j] for i in range(n)) + x * j
-            ans = min(ans, cost)
-        return ans
+        return min(sum(f[i][j] for i in range(n)) + x * j for j in range(n))
 ```
 
 ### **Java**
@@ -112,7 +110,7 @@ class Solution {
         }
         long ans = 1L << 60;
         for (int j = 0; j < n; ++j) {
-            long cost = 1L * j * x;
+            long cost = 1L * x * j;
             for (int i = 0; i < n; ++i) {
                 cost += f[i][j];
             }
@@ -139,7 +137,7 @@ public:
         }
         long long ans = 1LL << 60;
         for (int j = 0; j < n; ++j) {
-            long long cost = 1LL * j * x;
+            long long cost = 1LL * x * j;
             for (int i = 0; i < n; ++i) {
                 cost += f[i][j];
             }
@@ -156,9 +154,9 @@ public:
 func minCost(nums []int, x int) int64 {
 	n := len(nums)
 	f := make([][]int, n)
-	for i := range f {
+	for i, v := range nums {
 		f[i] = make([]int, n)
-		f[i][0] = nums[i]
+		f[i][0] = v
 		for j := 1; j < n; j++ {
 			f[i][j] = min(f[i][j-1], nums[(i+j)%n])
 		}
@@ -166,12 +164,62 @@ func minCost(nums []int, x int) int64 {
 	ans := 1 << 60
 	for j := 0; j < n; j++ {
 		cost := x * j
-		for i := range nums {
+		for i := 0; i < n; i++ {
 			cost += f[i][j]
 		}
 		ans = min(ans, cost)
 	}
 	return int64(ans)
+}
+```
+
+### **TypeScript**
+
+```ts
+function minCost(nums: number[], x: number): number {
+    const n = nums.length;
+    const f: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
+    for (let i = 0; i < n; ++i) {
+        f[i][0] = nums[i];
+        for (let j = 1; j < n; ++j) {
+            f[i][j] = Math.min(f[i][j - 1], nums[(i + j) % n]);
+        }
+    }
+    let ans = Infinity;
+    for (let j = 0; j < n; ++j) {
+        let cost = x * j;
+        for (let i = 0; i < n; ++i) {
+            cost += f[i][j];
+        }
+        ans = Math.min(ans, cost);
+    }
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn min_cost(nums: Vec<i32>, x: i32) -> i64 {
+        let n = nums.len();
+        let mut f = vec![vec![0; n]; n];
+        for i in 0..n {
+            f[i][0] = nums[i];
+            for j in 1..n {
+                f[i][j] = f[i][j - 1].min(nums[(i + j) % n]);
+            }
+        }
+        let mut ans = i64::MAX;
+        for j in 0..n {
+            let mut cost = (x as i64) * (j as i64);
+            for i in 0..n {
+                cost += f[i][j] as i64;
+            }
+            ans = ans.min(cost);
+        }
+        ans
+    }
 }
 ```
 
