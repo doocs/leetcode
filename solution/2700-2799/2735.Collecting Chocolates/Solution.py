@@ -6,8 +6,4 @@ class Solution:
             f[i][0] = v
             for j in range(1, n):
                 f[i][j] = min(f[i][j - 1], nums[(i + j) % n])
-        ans = inf
-        for j in range(n):
-            cost = sum(f[i][j] for i in range(n)) + x * j
-            ans = min(ans, cost)
-        return ans
+        return min(sum(f[i][j] for i in range(n)) + x * j for j in range(n))
