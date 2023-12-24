@@ -1,6 +1,6 @@
-# [10033. 统计移除递增子数组的数目 II](https://leetcode.cn/problems/count-the-number-of-incremovable-subarrays-ii)
+# [2970. 统计移除递增子数组的数目 I](https://leetcode.cn/problems/count-the-number-of-incremovable-subarrays-i)
 
-[English Version](/solution/10000-10099/10033.Count%20the%20Number%20of%20Incremovable%20Subarrays%20II/README_EN.md)
+[English Version](/solution/2900-2999/2970.Count%20the%20Number%20of%20Incremovable%20Subarrays%20I/README_EN.md)
 
 ## 题目描述
 
@@ -48,8 +48,8 @@ nums 中只有这 7 个移除递增子数组。
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
+	<li><code>1 &lt;= nums.length &lt;= 50</code></li>
+	<li><code>1 &lt;= nums[i] &lt;= 50</code></li>
 </ul>
 
 ## 解法

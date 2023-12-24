@@ -1,6 +1,6 @@
-# [10032. Find Polygon With the Largest Perimeter](https://leetcode.com/problems/find-polygon-with-the-largest-perimeter)
+# [2971. Find Polygon With the Largest Perimeter](https://leetcode.com/problems/find-polygon-with-the-largest-perimeter)
 
-[中文文档](/solution/10000-10099/10032.Find%20Polygon%20With%20the%20Largest%20Perimeter/README.md)
+[中文文档](/solution/2900-2999/2971.Find%20Polygon%20With%20the%20Largest%20Perimeter/README.md)
 
 ## Description
 

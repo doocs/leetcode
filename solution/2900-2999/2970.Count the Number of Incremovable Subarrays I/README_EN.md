@@ -1,6 +1,6 @@
-# [10031. Count the Number of Incremovable Subarrays I](https://leetcode.com/problems/count-the-number-of-incremovable-subarrays-i)
+# [2970. Count the Number of Incremovable Subarrays I](https://leetcode.com/problems/count-the-number-of-incremovable-subarrays-i)
 
-[中文文档](/solution/10000-10099/10031.Count%20the%20Number%20of%20Incremovable%20Subarrays%20I/README.md)
+[中文文档](/solution/2900-2999/2970.Count%20the%20Number%20of%20Incremovable%20Subarrays%20I/README.md)
 
 ## Description
 
