@@ -111,10 +111,9 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-import java.util.Arrays;
-
 class Solution {
-    public long minimumCost(String source, String target, char[] original, char[] changed, int[] cost) {
+    public long minimumCost(
+        String source, String target, char[] original, char[] changed, int[] cost) {
         final int inf = 1 << 29;
         int[][] g = new int[26][26];
         for (int i = 0; i < 26; ++i) {
