@@ -25,12 +25,19 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 377
+
+- [2974. Minimum Number Game](/solution/2900-2999/2974.Minimum%20Number%20Game/README_EN.md)
+- [2975. Maximum Square Area by Removing Fences From a Field](/solution/2900-2999/2975.Maximum%20Square%20Area%20by%20Removing%20Fences%20From%20a%20Field/README_EN.md)
+- [2976. Minimum Cost to Convert String I](/solution/2900-2999/2976.Minimum%20Cost%20to%20Convert%20String%20I/README_EN.md)
+- [2977. Minimum Cost to Convert String II](/solution/2900-2999/2977.Minimum%20Cost%20to%20Convert%20String%20II/README_EN.md)
+
 #### Biweekly Contest 120
 
-- [10031. Count the Number of Incremovable Subarrays I](/solution/10000-10099/10031.Count%20the%20Number%20of%20Incremovable%20Subarrays%20I/README_EN.md)
-- [10032. Find Polygon With the Largest Perimeter](/solution/10000-10099/10032.Find%20Polygon%20With%20the%20Largest%20Perimeter/README_EN.md)
-- [10033. Count the Number of Incremovable Subarrays II](/solution/10000-10099/10033.Count%20the%20Number%20of%20Incremovable%20Subarrays%20II/README_EN.md)
-- [10034. Find Number of Coins to Place in Tree Nodes](/solution/10000-10099/10034.Find%20Number%20of%20Coins%20to%20Place%20in%20Tree%20Nodes/README_EN.md)
+- [2970. Count the Number of Incremovable Subarrays I](/solution/2900-2999/2970.Count%20the%20Number%20of%20Incremovable%20Subarrays%20I/README_EN.md)
+- [2971. Find Polygon With the Largest Perimeter](/solution/2900-2999/2971.Find%20Polygon%20With%20the%20Largest%20Perimeter/README_EN.md)
+- [2972. Count the Number of Incremovable Subarrays II](/solution/2900-2999/2972.Count%20the%20Number%20of%20Incremovable%20Subarrays%20II/README_EN.md)
+- [2973. Find Number of Coins to Place in Tree Nodes](/solution/2900-2999/2973.Find%20Number%20of%20Coins%20to%20Place%20in%20Tree%20Nodes/README_EN.md)
 
 #### Weekly Contest 376
 

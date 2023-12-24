@@ -365,7 +365,7 @@ def run():
     for q in spider.get_all_questions(retry=6):
         slug = q["stat"]["question__title_slug"]
         qid = q["stat"]["frontend_question_id"]
-        if slug in question_details:
+        if slug in question_details and qid < 2960:
             continue
         detail = spider.get_question_detail(
             slug, retry=4
