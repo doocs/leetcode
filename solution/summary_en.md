@@ -1120,6 +1120,12 @@
   - [1098.Unpopular Books](/solution/1000-1099/1098.Unpopular%20Books/README_EN.md)
   - [1099.Two Sum Less Than K](/solution/1000-1099/1099.Two%20Sum%20Less%20Than%20K/README_EN.md)
 
+- 10000-10099
+  - [10031.Count the Number of Incremovable Subarrays I](/solution/10000-10099/10031.Count%20the%20Number%20of%20Incremovable%20Subarrays%20I/README_EN.md)
+  - [10032.Find Polygon With the Largest Perimeter](/solution/10000-10099/10032.Find%20Polygon%20With%20the%20Largest%20Perimeter/README_EN.md)
+  - [10033.Count the Number of Incremovable Subarrays II](/solution/10000-10099/10033.Count%20the%20Number%20of%20Incremovable%20Subarrays%20II/README_EN.md)
+  - [10034.Find Number of Coins to Place in Tree Nodes](/solution/10000-10099/10034.Find%20Number%20of%20Coins%20to%20Place%20in%20Tree%20Nodes/README_EN.md)
+
 - 1100-1199
   - [1100.Find K-Length Substrings With No Repeated Characters](/solution/1100-1199/1100.Find%20K-Length%20Substrings%20With%20No%20Repeated%20Characters/README_EN.md)
   - [1101.The Earliest Moment When Everyone Become Friends](/solution/1100-1199/1101.The%20Earliest%20Moment%20When%20Everyone%20Become%20Friends/README_EN.md)
