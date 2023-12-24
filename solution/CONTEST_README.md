@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 120 场双周赛(2023-12-23 22:30, 90 分钟) 参赛人数 2542
+
+- [10031. 统计移除递增子数组的数目 I](/solution/10000-10099/10031.Count%20the%20Number%20of%20Incremovable%20Subarrays%20I/README.md)
+- [10032. 找到最大周长的多边形](/solution/10000-10099/10032.Find%20Polygon%20With%20the%20Largest%20Perimeter/README.md)
+- [10033. 统计移除递增子数组的数目 II](/solution/10000-10099/10033.Count%20the%20Number%20of%20Incremovable%20Subarrays%20II/README.md)
+- [10034. 树中每个节点放置的金币数目](/solution/10000-10099/10034.Find%20Number%20of%20Coins%20to%20Place%20in%20Tree%20Nodes/README.md)
+
 #### 第 376 场周赛(2023-12-17 10:30, 90 分钟) 参赛人数 3409
 
 - [2965. 找出缺失和重复的数字](/solution/2900-2999/2965.Find%20Missing%20and%20Repeated%20Values/README.md)

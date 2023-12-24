@@ -1012,6 +1012,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  1001  |  [Grid Illumination](/solution/1000-1099/1001.Grid%20Illumination/README_EN.md)  |  `Array`,`Hash Table`  |  Hard  |  Weekly Contest 125  |
 |  1002  |  [Find Common Characters](/solution/1000-1099/1002.Find%20Common%20Characters/README_EN.md)  |  `Array`,`Hash Table`,`String`  |  Easy  |  Weekly Contest 126  |
 |  1003  |  [Check If Word Is Valid After Substitutions](/solution/1000-1099/1003.Check%20If%20Word%20Is%20Valid%20After%20Substitutions/README_EN.md)  |  `Stack`,`String`  |  Medium  |  Weekly Contest 126  |
+|  10031  |  [Count the Number of Incremovable Subarrays I](/solution/10000-10099/10031.Count%20the%20Number%20of%20Incremovable%20Subarrays%20I/README_EN.md)  |    |  Easy  |  Biweekly Contest 120  |
+|  10032  |  [Find Polygon With the Largest Perimeter](/solution/10000-10099/10032.Find%20Polygon%20With%20the%20Largest%20Perimeter/README_EN.md)  |    |  Medium  |  Biweekly Contest 120  |
+|  10033  |  [Count the Number of Incremovable Subarrays II](/solution/10000-10099/10033.Count%20the%20Number%20of%20Incremovable%20Subarrays%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 120  |
+|  10034  |  [Find Number of Coins to Place in Tree Nodes](/solution/10000-10099/10034.Find%20Number%20of%20Coins%20to%20Place%20in%20Tree%20Nodes/README_EN.md)  |    |  Hard  |  Biweekly Contest 120  |
 |  1004  |  [Max Consecutive Ones III](/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README_EN.md)  |  `Array`,`Binary Search`,`Prefix Sum`,`Sliding Window`  |  Medium  |  Weekly Contest 126  |
 |  1005  |  [Maximize Sum Of Array After K Negations](/solution/1000-1099/1005.Maximize%20Sum%20Of%20Array%20After%20K%20Negations/README_EN.md)  |  `Greedy`,`Array`,`Sorting`  |  Easy  |  Weekly Contest 127  |
 |  1006  |  [Clumsy Factorial](/solution/1000-1099/1006.Clumsy%20Factorial/README_EN.md)  |  `Stack`,`Math`,`Simulation`  |  Medium  |  Weekly Contest 127  |

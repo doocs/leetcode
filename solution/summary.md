@@ -1120,6 +1120,12 @@
   - [1098.小众书籍](/solution/1000-1099/1098.Unpopular%20Books/README.md)
   - [1099.小于 K 的两数之和](/solution/1000-1099/1099.Two%20Sum%20Less%20Than%20K/README.md)
 
+- 10000-10099
+  - [10031检查替换后的词是否有效](/solution/10000-10099/10031.Count%20the%20Number%20of%20Incremovable%20Subarrays%20I/README.md)
+  - [10032检查替换后的词是否有效](/solution/10000-10099/10032.Find%20Polygon%20With%20the%20Largest%20Perimeter/README.md)
+  - [10033检查替换后的词是否有效](/solution/10000-10099/10033.Count%20the%20Number%20of%20Incremovable%20Subarrays%20II/README.md)
+  - [10034检查替换后的词是否有效](/solution/10000-10099/10034.Find%20Number%20of%20Coins%20to%20Place%20in%20Tree%20Nodes/README.md)
+
 - 1100-1199
   - [1100.长度为 K 的无重复字符子串](/solution/1100-1199/1100.Find%20K-Length%20Substrings%20With%20No%20Repeated%20Characters/README.md)
   - [1101.彼此熟识的最早时间](/solution/1100-1199/1101.The%20Earliest%20Moment%20When%20Everyone%20Become%20Friends/README.md)

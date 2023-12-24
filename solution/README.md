@@ -1014,6 +1014,10 @@
 |  1001  |  [网格照明](/solution/1000-1099/1001.Grid%20Illumination/README.md)  |  `数组`,`哈希表`  |  困难  |  第 125 场周赛  |
 |  1002  |  [查找共用字符](/solution/1000-1099/1002.Find%20Common%20Characters/README.md)  |  `数组`,`哈希表`,`字符串`  |  简单  |  第 126 场周赛  |
 |  1003  |  [检查替换后的词是否有效](/solution/1000-1099/1003.Check%20If%20Word%20Is%20Valid%20After%20Substitutions/README.md)  |  `栈`,`字符串`  |  中等  |  第 126 场周赛  |
+|  10031  |  [统计移除递增子数组的数目 I](/solution/10000-10099/10031.Count%20the%20Number%20of%20Incremovable%20Subarrays%20I/README.md)  |    |  简单  |  第 120 场双周赛  |
+|  10032  |  [找到最大周长的多边形](/solution/10000-10099/10032.Find%20Polygon%20With%20the%20Largest%20Perimeter/README.md)  |    |  中等  |  第 120 场双周赛  |
+|  10033  |  [统计移除递增子数组的数目 II](/solution/10000-10099/10033.Count%20the%20Number%20of%20Incremovable%20Subarrays%20II/README.md)  |    |  困难  |  第 120 场双周赛  |
+|  10034  |  [树中每个节点放置的金币数目](/solution/10000-10099/10034.Find%20Number%20of%20Coins%20to%20Place%20in%20Tree%20Nodes/README.md)  |    |  困难  |  第 120 场双周赛  |
 |  1004  |  [最大连续1的个数 III](/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README.md)  |  `数组`,`二分查找`,`前缀和`,`滑动窗口`  |  中等  |  第 126 场周赛  |
 |  1005  |  [K 次取反后最大化的数组和](/solution/1000-1099/1005.Maximize%20Sum%20Of%20Array%20After%20K%20Negations/README.md)  |  `贪心`,`数组`,`排序`  |  简单  |  第 127 场周赛  |
 |  1006  |  [笨阶乘](/solution/1000-1099/1006.Clumsy%20Factorial/README.md)  |  `栈`,`数学`,`模拟`  |  中等  |  第 127 场周赛  |
