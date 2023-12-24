@@ -43,30 +43,119 @@ At the begining of round two, nums = [5,4]. Now, first Alice removes 4 and then 
 
 ## Solutions
 
+**Solution 1: Simulation + Priority Queue (Min Heap)**
+
+We can put the elements in the array $nums$ into a min heap one by one, and each time take out two elements $a$ and $b$ from the min heap, then put $b$ and $a$ into the answer array in turn, until the min heap is empty.
+
+Time complexity is $O(n \times \log n)$, and space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def numberGame(self, nums: List[int]) -> List[int]:
+        heapify(nums)
+        ans = []
+        while nums:
+            a, b = heappop(nums), heappop(nums)
+            ans.append(b)
+            ans.append(a)
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int[] numberGame(int[] nums) {
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        for (int x : nums) {
+            pq.offer(x);
+        }
+        int[] ans = new int[nums.length];
+        int i = 0;
+        while (!pq.isEmpty()) {
+            int a = pq.poll();
+            ans[i++] = pq.poll();
+            ans[i++] = a;
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> numberGame(vector<int>& nums) {
+        priority_queue<int, vector<int>, greater<int>> pq;
+        for (int x : nums) {
+            pq.push(x);
+        }
+        vector<int> ans;
+        while (pq.size()) {
+            int a = pq.top();
+            pq.pop();
+            int b = pq.top();
+            pq.pop();
+            ans.push_back(b);
+            ans.push_back(a);
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func numberGame(nums []int) (ans []int) {
+	pq := &hp{nums}
+	heap.Init(pq)
+	for pq.Len() > 0 {
+		a := heap.Pop(pq).(int)
+		b := heap.Pop(pq).(int)
+		ans = append(ans, b)
+		ans = append(ans, a)
+	}
+	return
+}
 
+type hp struct{ sort.IntSlice }
+
+func (h *hp) Less(i, j int) bool { return h.IntSlice[i] < h.IntSlice[j] }
+func (h *hp) Pop() interface{} {
+	old := h.IntSlice
+	n := len(old)
+	x := old[n-1]
+	h.IntSlice = old[0 : n-1]
+	return x
+}
+func (h *hp) Push(x interface{}) {
+	h.IntSlice = append(h.IntSlice, x.(int))
+}
+```
+
+### **TypeScript**
+
+```ts
+function numberGame(nums: number[]): number[] {
+    const pq = new MinPriorityQueue();
+    for (const x of nums) {
+        pq.enqueue(x);
+    }
+    const ans: number[] = [];
+    while (pq.size()) {
+        const a = pq.dequeue().element;
+        const b = pq.dequeue().element;
+        ans.push(b, a);
+    }
+    return ans;
+}
 ```
 
 ### **...**

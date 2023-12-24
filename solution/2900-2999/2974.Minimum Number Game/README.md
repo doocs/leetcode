@@ -49,6 +49,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟 + 优先队列（小根堆）**
+
+我们可以将数组 $nums$ 中的元素依次放入一个小根堆中，每次从小根堆中取出两个元素 $a$ 和 $b$，然后依次将 $b$ 和 $a$ 放入答案数组中，直到小根堆为空。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -56,7 +62,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numberGame(self, nums: List[int]) -> List[int]:
+        heapify(nums)
+        ans = []
+        while nums:
+            a, b = heappop(nums), heappop(nums)
+            ans.append(b)
+            ans.append(a)
+        return ans
 ```
 
 ### **Java**
@@ -64,19 +78,94 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int[] numberGame(int[] nums) {
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        for (int x : nums) {
+            pq.offer(x);
+        }
+        int[] ans = new int[nums.length];
+        int i = 0;
+        while (!pq.isEmpty()) {
+            int a = pq.poll();
+            ans[i++] = pq.poll();
+            ans[i++] = a;
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> numberGame(vector<int>& nums) {
+        priority_queue<int, vector<int>, greater<int>> pq;
+        for (int x : nums) {
+            pq.push(x);
+        }
+        vector<int> ans;
+        while (pq.size()) {
+            int a = pq.top();
+            pq.pop();
+            int b = pq.top();
+            pq.pop();
+            ans.push_back(b);
+            ans.push_back(a);
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func numberGame(nums []int) (ans []int) {
+	pq := &hp{nums}
+	heap.Init(pq)
+	for pq.Len() > 0 {
+		a := heap.Pop(pq).(int)
+		b := heap.Pop(pq).(int)
+		ans = append(ans, b)
+		ans = append(ans, a)
+	}
+	return
+}
 
+type hp struct{ sort.IntSlice }
+
+func (h *hp) Less(i, j int) bool { return h.IntSlice[i] < h.IntSlice[j] }
+func (h *hp) Pop() interface{} {
+	old := h.IntSlice
+	n := len(old)
+	x := old[n-1]
+	h.IntSlice = old[0 : n-1]
+	return x
+}
+func (h *hp) Push(x interface{}) {
+	h.IntSlice = append(h.IntSlice, x.(int))
+}
+```
+
+### **TypeScript**
+
+```ts
+function numberGame(nums: number[]): number[] {
+    const pq = new MinPriorityQueue();
+    for (const x of nums) {
+        pq.enqueue(x);
+    }
+    const ans: number[] = [];
+    while (pq.size()) {
+        const a = pq.dequeue().element;
+        const b = pq.dequeue().element;
+        ans.push(b, a);
+    }
+    return ans;
+}
 ```
 
 ### **...**
