@@ -48,6 +48,30 @@ There will be no remaining ingredients.
 
 ## Solutions
 
+**Solution 1: Mathematics**
+
+We set the number of Jumbo Burgers as $x$ and the number of Small Burgers as $y$, then we have:
+
+$$
+\begin{aligned}
+4x + 2y &= tomatoSlices \\
+x + y &= cheeseSlices
+\end{aligned}
+$$
+
+Transforming the above two equations, we can get:
+
+$$
+\begin{aligned}
+y = (4 \times cheeseSlices - tomatoSlices) / 2 \\
+x = cheeseSlices - y
+\end{aligned}
+$$
+
+Where $x$ and $y$ must be non-negative integers.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -69,7 +93,7 @@ class Solution {
         int k = 4 * cheeseSlices - tomatoSlices;
         int y = k / 2;
         int x = cheeseSlices - y;
-        return k % 2 != 0 || y < 0 || x < 0 ? Collections.emptyList() : Arrays.asList(x, y);
+        return k % 2 != 0 || y < 0 || x < 0 ? List.of() : List.of(x, y);
     }
 }
 ```
@@ -99,6 +123,34 @@ func numOfBurgers(tomatoSlices int, cheeseSlices int) []int {
 		return []int{}
 	}
 	return []int{x, y}
+}
+```
+
+### **TypeScript**
+
+```ts
+function numOfBurgers(tomatoSlices: number, cheeseSlices: number): number[] {
+    const k = 4 * cheeseSlices - tomatoSlices;
+    const y = k >> 1;
+    const x = cheeseSlices - y;
+    return k % 2 || y < 0 || x < 0 ? [] : [x, y];
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn num_of_burgers(tomato_slices: i32, cheese_slices: i32) -> Vec<i32> {
+        let k = 4 * cheese_slices - tomato_slices;
+        let y = k / 2;
+        let x = cheese_slices - y;
+        if k % 2 != 0 || y < 0 || x < 0 {
+            Vec::new()
+        } else {
+            vec![x, y]
+        }
+    }
 }
 ```
 
