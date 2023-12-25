@@ -48,6 +48,18 @@ Thus, we return 99.</pre>
 
 ## Solutions
 
+**Solution 1: Greedy**
+
+First, we convert the number to a string $s$.
+
+To get the minimum value, we just need to find the first digit $s[0]$ in the string $s$, and then replace all $s[0]$ in the string with $0$.
+
+To get the maximum value, we need to find the first digit $s[i]$ in the string $s$ that is not $9$, and then replace all $s[i]$ in the string with $9$.
+
+Finally, return the difference between the maximum and minimum values.
+
+The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$. Where $n$ is the size of the number $num$.
+
 <!-- tabs:start -->
 
 ### **Python3**

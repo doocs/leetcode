@@ -47,6 +47,41 @@
 
 ## Solutions
 
+**Solution 1: Segment Tree**
+
+According to the problem description:
+
+-   Operation $1$ is to reverse all numbers in the index range $[l,..r]$ of array `nums1`, that is, change $0$ to $1$ and $1$ to $0$.
+-   Operation $3$ is to sum all numbers in array `nums2`.
+-   Operation $2$ is to add the sum of all numbers in array `nums2` with $p$ times the sum of all numbers in array `nums1`, that is, $sum(nums2) = sum(nums2) + p * sum(nums1)$.
+
+Therefore, we actually only need to maintain the segment sum of array `nums1`, which can be implemented through a segment tree.
+
+We define each node of the segment tree as `Node`, each node contains the following attributes:
+
+-   `l`: The left endpoint of the node, the index starts from $1$.
+-   `r`: The right endpoint of the node, the index starts from $1$.
+-   `s`: The segment sum of the node.
+-   `lazy`: The lazy tag of the node.
+
+The segment tree mainly has the following operations:
+
+-   `build(u, l, r)`: Build the segment tree.
+-   `pushdown(u)`: Propagate the lazy tag.
+-   `pushup(u)`: Update the information of the parent node with the information of the child nodes.
+-   `modify(u, l, r)`: Modify the segment sum. In this problem, it is to reverse each number in the segment, so the segment sum $s = r - l + 1 - s$.
+-   `query(u, l, r)`: Query the segment sum.
+
+First, calculate the sum of all numbers in array `nums2`, denoted as $s$.
+
+When executing operation $1$, we only need to call `modify(1, l + 1, r + 1)`.
+
+When executing operation $2$, we update $s = s + p \times query(1, 1, n)$.
+
+When executing operation $3$, we just need to add $s$ to the answer array.
+
+The time complexity is $O(n + m \times \log n)$, and the space complexity is $O(n)$. Where $n$ and $m$ are the lengths of arrays `nums1` and `queries` respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**

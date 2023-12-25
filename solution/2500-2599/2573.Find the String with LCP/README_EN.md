@@ -49,6 +49,23 @@
 
 ## Solutions
 
+**Solution 1: Greedy + Construction**
+
+Since the constructed string requires the lexicographically smallest order, we can start by filling the string $s$ with the character `'a'`.
+
+If the current position $i$ has not been filled with a character, then we can fill the character `'a'` at position $i$. Then we enumerate all positions $j > i$. If $lcp[i][j] > 0$, then position $j$ should also be filled with the character `'a'`. Then we add one to the ASCII code of the character `'a'` and continue to fill the remaining unfilled positions.
+
+After filling, if there are unfilled positions in the string, it means that the corresponding string cannot be constructed, so we return an empty string.
+
+Next, we can enumerate each position $i$ and $j$ in the string from large to small, and then judge whether $s[i]$ and $s[j]$ are equal:
+
+-   If $s[i] = s[j]$, at this time we need to judge whether $i$ and $j$ are the last positions of the string. If so, then $lcp[i][j]$ should be equal to $1$, otherwise $lcp[i][j]$ should be equal to $0$. If the above conditions are not met, it means that the corresponding string cannot be constructed, so we return an empty string. If $i$ and $j$ are not the last positions of the string, then $lcp[i][j]$ should be equal to $lcp[i + 1][j + 1] + 1$, otherwise it means that the corresponding string cannot be constructed, so we return an empty string.
+-   Otherwise, if $lcp[i][j] > 0$, it means that the corresponding string cannot be constructed, so we return an empty string.
+
+If every position in the string meets the above conditions, then we can construct the corresponding string and return it.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the length of the string.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -53,6 +53,30 @@ They are from the range [1, 7], all did not appear in banned, and their sum is 2
 
 ## Solutions
 
+**Solution 1: Greedy + Enumeration**
+
+We use the variable $s$ to represent the sum of the currently selected integers, and the variable $ans$ to represent the number of currently selected integers. We convert the array `banned` into a hash table for easy determination of whether a certain integer is not selectable.
+
+Next, we start enumerating the integer $i$ from $1$. If $s + i \leq maxSum$ and $i$ is not in `banned`, then we can select the integer $i$, and add $i$ and $1$ to $s$ and $ans$ respectively.
+
+Finally, we return $ans$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the given integer.
+
+**Solution 2: Greedy + Binary Search**
+
+If $n$ is very large, the enumeration in Method One will time out.
+
+We can add $0$ and $n + 1$ to the array `banned`, deduplicate the array `banned`, remove elements greater than $n+1$, and then sort it.
+
+Next, we enumerate every two adjacent elements $i$ and $j$ in the array `banned`. The range of selectable integers is $[i + 1, j - 1]$. We use binary search to enumerate the number of elements we can select in this range, find the maximum number of selectable elements, and then add it to $ans$. At the same time, we subtract the sum of these elements from `maxSum`. If `maxSum` is less than $0$, we break the loop. Return the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array `banned`.
+
+Similar problems:
+
+-   [2557. Maximum Number of Integers to Choose From a Range II](/solution/2500-2599/2557.Maximum%20Number%20of%20Integers%20to%20Choose%20From%20a%20Range%20II/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**

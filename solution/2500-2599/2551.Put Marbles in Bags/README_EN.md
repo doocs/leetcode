@@ -49,6 +49,14 @@ Since both the maximal and minimal score are the same, we return 0.
 
 ## Solutions
 
+**Solution 1: Problem Transformation + Sorting**
+
+We can transform the problem into: dividing the array `weights` into $k$ consecutive subarrays, that is, we need to find $k-1$ splitting points, each splitting point's cost is the sum of the elements on the left and right of the splitting point. The difference between the sum of the costs of the largest $k-1$ splitting points and the smallest $k-1$ splitting points is the answer.
+
+Therefore, we can process the array `weights` and transform it into an array `arr` of length $n-1$, where `arr[i] = weights[i] + weights[i+1]`. Then we sort the array `arr`, and finally calculate the difference between the sum of the costs of the largest $k-1$ splitting points and the smallest $k-1$ splitting points.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array `weights`.
+
 <!-- tabs:start -->
 
 ### **Python3**

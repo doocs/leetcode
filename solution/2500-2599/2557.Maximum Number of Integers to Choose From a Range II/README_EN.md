@@ -45,6 +45,14 @@ All these integers are in the range [1, 7], all do not appear in banned, and the
 
 ## Solutions
 
+**Solution 1: Deduplication + Sorting + Binary Search**
+
+We can add $0$ and $n + 1$ to the array `banned`, then deduplicate and sort the array `banned`.
+
+Next, we enumerate every two adjacent elements $i$ and $j$ in the array `banned`. The range of selectable integers is $[i + 1, j - 1]$. We use binary search to enumerate the number of elements we can select in this range, find the maximum number of selectable elements, and then add it to $ans$. At the same time, we subtract the sum of these elements from `maxSum`. If `maxSum` is less than $0$, we break the loop. Return the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array `banned`.
+
 <!-- tabs:start -->
 
 ### **Python3**

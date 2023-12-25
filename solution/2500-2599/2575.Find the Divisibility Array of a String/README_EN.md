@@ -44,6 +44,12 @@
 
 ## Solutions
 
+**Solution 1: Traversal + Modulo**
+
+We iterate over the string `word`, using a variable $x$ to record the modulo result of the current prefix with $m$. If $x$ is $0$, then the divisible array value at the current position is $1$, otherwise it is $0$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string `word`. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

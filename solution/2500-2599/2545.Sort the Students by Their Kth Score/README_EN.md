@@ -46,6 +46,12 @@
 
 ## Solutions
 
+**Solution 1: Sorting**
+
+We sort score in descending order based on the scores in the $k^{th}$ column, and then return it.
+
+The time complexity is $O(m \times \log m)$, and the space complexity is $O(1)$. Here, $m$ is the number of rows in score.
+
 <!-- tabs:start -->
 
 ### **Python3**
