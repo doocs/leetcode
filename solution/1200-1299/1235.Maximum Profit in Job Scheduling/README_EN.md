@@ -53,6 +53,45 @@ Profit obtained 150 = 20 + 70 + 60.
 
 ## Solutions
 
+**Solution 1: Memoization Search + Binary Search**
+
+First, we sort the jobs by start time in ascending order, then design a function $dfs(i)$ to represent the maximum profit that can be obtained starting from the $i$-th job. The answer is $dfs(0)$.
+
+The calculation process of function $dfs(i)$ is as follows:
+
+For the $i$-th job, we can choose to do it or not. If we don't do it, the maximum profit is $dfs(i + 1)$; if we do it, we can use binary search to find the first job that starts after the end time of the $i$-th job, denoted as $j$, then the maximum profit is $profit[i] + dfs(j)$. We take the larger of the two. That is:
+
+$$
+dfs(i)=\max(dfs(i+1),profit[i]+dfs(j))
+$$
+
+Where $j$ is the smallest index that satisfies $startTime[j] \ge endTime[i]$.
+
+In this process, we can use memoization search to save the answer of each state to avoid repeated calculations.
+
+The time complexity is $O(n \times \log n)$, where $n$ is the number of jobs.
+
+**Solution 2: Dynamic Programming + Binary Search**
+
+We can also change the memoization search in Solution 1 to dynamic programming.
+
+First, sort the jobs, this time we sort by end time in ascending order, then define $dp[i]$, which represents the maximum profit that can be obtained from the first $i$ jobs. The answer is $dp[n]$. Initialize $dp[0]=0$.
+
+For the $i$-th job, we can choose to do it or not. If we don't do it, the maximum profit is $dp[i]$; if we do it, we can use binary search to find the last job that ends before the start time of the $i$-th job, denoted as $j$, then the maximum profit is $profit[i] + dp[j]$. We take the larger of the two. That is:
+
+$$
+dp[i+1] = \max(dp[i], profit[i] + dp[j])
+$$
+
+Where $j$ is the largest index that satisfies $endTime[j] \leq startTime[i]$.
+
+The time complexity is $O(n \times \log n)$, where $n$ is the number of jobs.
+
+Similar problems:
+
+-   [2008. Maximum Earnings From Taxi](/solution/2000-2099/2008.Maximum%20Earnings%20From%20Taxi/README.md)
+-   [1751. Maximum Number of Events That Can Be Attended II](/solution/1700-1799/1751.Maximum%20Number%20of%20Events%20That%20Can%20Be%20Attended%20II/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -41,6 +41,12 @@
 
 ## Solutions
 
+**Solution 1: Sorting + Two Pointers**
+
+We can sort the free time of the two people separately, then use two pointers to traverse the two arrays, find the intersection of the free time periods of the two people, and if the length of the intersection is greater than or equal to `duration`, then return the start time of the intersection and the start time plus `duration`.
+
+The time complexity is $O(m \times \log m + n \times \log n)$, and the space complexity is $O(\log m + \log n)$. Where $m$ and $n$ are the lengths of the two arrays respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**

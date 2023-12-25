@@ -48,6 +48,12 @@ No more operations can be done to this array.
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+Simulate each day. For each element, if it is greater than its left and right neighbors, it decreases by 1, otherwise, it increases by 1. If the array no longer changes on a certain day, return that array.
+
+The time complexity is $O(n \times m)$, and the space complexity is $O(n)$. Where $n$ is the length of the array, and $m$ is the maximum value in the array.
+
 <!-- tabs:start -->
 
 ### **Python3**

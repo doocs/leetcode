@@ -39,6 +39,10 @@
 
 ## Solutions
 
+**Solution 1: Mathematics**
+
+The time complexity is $O(n)$, where $n$ is the length of the `coordinates` array. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

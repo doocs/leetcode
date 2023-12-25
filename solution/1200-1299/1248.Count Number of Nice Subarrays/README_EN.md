@@ -43,6 +43,12 @@
 
 ## Solutions
 
+**Solution 1: Prefix Sum + Array or Hash Table**
+
+The problem asks for the number of subarrays that contain exactly $k$ odd numbers. We can calculate the number of odd numbers $t$ in each prefix array and record it in an array or hash table $cnt$. For each prefix array, we only need to find the number of prefix arrays with $t-k$ odd numbers, which is the number of subarrays ending with the current prefix array.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**

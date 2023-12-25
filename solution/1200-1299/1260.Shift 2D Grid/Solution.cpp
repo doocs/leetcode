@@ -5,8 +5,9 @@ public:
         vector<vector<int>> ans(m, vector<int>(n));
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                int t = (i * n + j + k) % (m * n);
-                ans[t / n][t % n] = grid[i][j];
+                int idx = (i * n + j + k) % (m * n);
+                int x = idx / n, y = idx % n;
+                ans[x][y] = grid[i][j];
             }
         }
         return ans;

@@ -50,6 +50,18 @@ leaderboard.top(3);           // returns 141 = 51 + 51 + 39;
 
 ## Solutions
 
+**Solution 1: Hash Table + Ordered List**
+
+We use a hash table $d$ to record the scores of each player, and an ordered list $rank$ to record the scores of all players.
+
+When the `addScore` function is called, we first check if the player is in the hash table $d$. If not, we add their score to the ordered list $rank$. Otherwise, we first remove their score from the ordered list $rank$, then add their updated score to the ordered list $rank$, and finally update the score in the hash table $d$. The time complexity is $O(\log n)$.
+
+When the `top` function is called, we directly return the sum of the first $K$ elements in the ordered list $rank$. The time complexity is $O(K \times \log n)$.
+
+When the `reset` function is called, we first remove the player from the hash table $d$, then remove their score from the ordered list $rank$. The time complexity is $O(\log n)$.
+
+The space complexity is $O(n)$, where $n$ is the number of players.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -45,6 +45,17 @@
 
 ## Solutions
 
+**Solution 1: Recursive Backtracking + State Compression**
+
+We can perform recursive backtracking by position, during which we use a variable $t$ to record the current number of tiles used.
+
+-   If $j = m$, i.e., the $i$-th row has been completely filled, then we recurse to the next row, i.e., $(i + 1, 0)$.
+-   If $i = n$, it means that all positions have been filled, we update the answer and return.
+-   If the current position $(i, j)$ has been filled, then directly recurse to the next position $(i, j + 1)$.
+-   Otherwise, we enumerate the maximum square side length $w$ that the current position $(i, j)$ can fill, and fill all positions from $(i, j)$ to $(i + w - 1, j + w - 1)$, then recurse to the next position $(i, j + w)$. When backtracking, we need to clear all positions from $(i, j)$ to $(i + w - 1, j + w - 1)$.
+
+Since each position only has two states: filled or not filled, we can use an integer to represent the current state. We use an integer array $filled$ of length $n$, where $filled[i]$ represents the state of the $i$-th row. If the $j$-th bit of $filled[i]$ is $1$, it means that the $i$-th row and the $j$-th column have been filled, otherwise it means not filled.
+
 <!-- tabs:start -->
 
 ### **Python3**

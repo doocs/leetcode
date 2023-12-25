@@ -65,6 +65,12 @@
 
 ## Solutions
 
+**Solution 1: Recursion**
+
+We can use recursion to implement reverse printing of a linked list. In the function, we check whether the current node is null. If it is not null, we get the next node, then recursively call the function itself, and finally print the value of the current node.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the linked list.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -175,6 +181,28 @@ function printLinkedListInReverse(head: ImmutableListNode) {
     if (head) {
         printLinkedListInReverse(head.next);
         head.printValue();
+    }
+}
+```
+
+### **C#**
+
+```cs
+/**
+ * // This is the ImmutableListNode's API interface.
+ * // You should not implement it, or speculate about its implementation.
+ * class ImmutableListNode {
+ *     public void PrintValue(); // print the value of this node.
+ *     public ImmutableListNode GetNext(); // return the next node.
+ * }
+ */
+
+public class Solution {
+    public void PrintLinkedListInReverse(ImmutableListNode head) {
+        if (head != null) {
+            PrintLinkedListInReverse(head.GetNext());
+            head.PrintValue();
+        }
     }
 }
 ```
