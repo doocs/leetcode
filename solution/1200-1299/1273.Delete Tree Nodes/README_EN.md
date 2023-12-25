@@ -46,6 +46,16 @@
 
 ## Solutions
 
+**Solution 1: DFS**
+
+First, we convert the tree into a graph $g$, where $g[i]$ represents all the child nodes of node $i$.
+
+Then we design a function $dfs(i)$, which represents the number of nodes and the sum of the weights in the subtree rooted at node $i$. The answer is $dfs(0)[1]$.
+
+In this function, we recursively calculate the number of nodes and the sum of the weights in the subtree rooted at each child node $j$, and then accumulate these values. If the accumulated value is zero, we set the number of nodes in this subtree to zero. Finally, we return the number of nodes and the sum of the weights in the subtree rooted at node $i$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the tree.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -40,6 +40,27 @@
 
 ## Solutions
 
+**Solution 1: Dynamic Programming**
+
+We define $f[i][j]$ as the maximum sum of several numbers selected from the first $i$ numbers, such that the sum modulo $3$ equals $j$. Initially, $f[0][0]=0$, and the rest are $-\infty$.
+
+For $f[i][j]$, we can consider the state of the $i$th number $x$:
+
+-   If we do not select $x$, then $f[i][j]=f[i-1][j]$;
+-   If we select $x$, then $f[i][j]=f[i-1][(j-x \bmod 3 + 3)\bmod 3]+x$.
+
+Therefore, we can get the state transition equation:
+
+$$
+f[i][j]=\max\{f[i-1][j],f[i-1][(j-x \bmod 3 + 3)\bmod 3]+x\}
+$$
+
+The final answer is $f[n][0]$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
+
+Note that the value of $f[i][j]$ is only related to $f[i-1][j]$ and $f[i-1][(j-x \bmod 3 + 3)\bmod 3]$, so we can use a rolling array to optimize the space complexity, reducing the space complexity to $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

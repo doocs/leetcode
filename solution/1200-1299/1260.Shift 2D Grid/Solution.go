@@ -6,8 +6,9 @@ func shiftGrid(grid [][]int, k int) [][]int {
 	}
 	for i := 0; i < m; i++ {
 		for j := 0; j < n; j++ {
-			t := (i*n + j + k) % (m * n)
-			ans[t/n][t%n] = grid[i][j]
+			idx := (i*n + j + k) % (m * n)
+			x, y := idx/n, idx%n
+			ans[x][y] = grid[i][j]
 		}
 	}
 	return ans

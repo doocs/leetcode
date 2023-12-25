@@ -78,6 +78,12 @@ findElements.find(5); // return True
 
 ## Solutions
 
+**Solution 1: DFS + Hash Table**
+
+First, we traverse the binary tree using DFS to restore the node values to their original values. Then, we store all node values in a hash table, so we can directly check whether the target value exists in the hash table when searching.
+
+In terms of time complexity, we need to traverse the binary tree during initialization, so the time complexity is $O(n)$. When searching, we only need to check whether the target value exists in the hash table, so the time complexity is $O(1)$. The space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
+
 <!-- tabs:start -->
 
 ### **Python3**

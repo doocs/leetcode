@@ -48,6 +48,22 @@ Stay, Stay
 
 ## Solutions
 
+**Solution 1: Memoization Search**
+
+We observe the data range of the problem and find that $steps$ does not exceed $500$, which means that we can only go to the right for up to $500$ steps.
+
+We can design a function $dfs(i, j)$, which represents the number of schemes when we are currently at position $i$ and the remaining steps are $j$. So the answer is $dfs(0, steps)$.
+
+The execution process of the function $dfs(i, j)$ is as follows:
+
+1. If $i \gt j$ or $i \geq arrLen$ or $i \lt 0$ or $j \lt 0$, then return $0$.
+1. If $i = 0$ and $j = 0$, then the pointer has stopped in place and there are no remaining steps, so return $1$.
+1. Otherwise, we can choose to move one step to the left, one step to the right, or stay still, so return $dfs(i - 1, j - 1) + dfs(i + 1, j - 1) + dfs(i, j - 1)$. Note the modulo operation of the answer.
+
+During the process, we can use memoization search to avoid repeated calculations.
+
+The time complexity is $O(steps \times steps)$, and the space complexity is $O(steps \times steps)$. Where $steps$ is the number of steps given in the problem.
+
 <!-- tabs:start -->
 
 ### **Python3**

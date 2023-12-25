@@ -42,6 +42,16 @@
 
 ## Solutions
 
+**Solution 1: Case Discussion**
+
+We denote the interval to be removed as $[x, y)$. We traverse the interval list, and for each interval $[a, b)$, there are three cases:
+
+-   $a \geq y$ or $b \leq x$, which means that this interval does not intersect with the interval to be removed. We directly add this interval to the answer.
+-   $a \lt x$, $b \gt y$, which means that this interval intersects with the interval to be removed. We split this interval into two intervals and add them to the answer.
+-   $a \geq x$, $b \leq y$, which means that this interval is completely covered by the interval to be removed. We do not add it to the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the interval list. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

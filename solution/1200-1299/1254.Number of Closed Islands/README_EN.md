@@ -51,7 +51,25 @@ Islands in gray are closed because they are completely surrounded by water (grou
 
 ## Solutions
 
-Union find.
+**Solution 1: DFS**
+
+We traverse the matrix, and for each piece of land, we perform a depth-first search to find all the land connected to it. Then we check if there is any land on the boundary. If there is, it is not a closed island; otherwise, it is a closed island, and we increment the answer by one.
+
+Finally, we return the answer.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
+
+**Solution 2: Union-Find**
+
+We can use a union-find set to maintain each piece of connected land.
+
+We traverse the matrix, if the current position is on the boundary, we connect it with the virtual node $m \times n$. If the current position is land, we connect it with the land below and to the right.
+
+Then, we traverse the matrix again, for each piece of land, if its root node is itself, we increment the answer by one.
+
+Finally, we return the answer.
+
+The time complexity is $O(m \times n \times \alpha(m \times n))$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
 

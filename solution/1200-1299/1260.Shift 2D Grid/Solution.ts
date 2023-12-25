@@ -1,15 +1,12 @@
 function shiftGrid(grid: number[][], k: number): number[][] {
-    const m = grid.length,
-        n = grid[0].length;
-    const size = m * n;
-    k = k % size;
-    if (k == 0 || size <= 1) return grid;
-    let arr = grid.flat();
-    if (size <= 1) return grid;
-    let ans = Array.from({ length: m }, v => new Array(n));
-    for (let i = 0, j = size - k; i < size; i++) {
-        ans[Math.floor(i / n)][i % n] = arr[j];
-        j = j == size - 1 ? 0 : j + 1;
+    const [m, n] = [grid.length, grid[0].length];
+    const ans: number[][] = Array.from({ length: m }, () => Array.from({ length: n }, () => 0));
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            const idx = (i * n + j + k) % (m * n);
+            const [x, y] = [Math.floor(idx / n), idx % n];
+            ans[x][y] = grid[i][j];
+        }
     }
     return ans;
 }

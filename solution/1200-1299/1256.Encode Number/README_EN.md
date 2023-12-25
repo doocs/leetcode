@@ -34,6 +34,12 @@
 
 ## Solutions
 
+**Solution 1: Bit Manipulation**
+
+We add one to $num$, then convert it to a binary string and remove the highest bit $1$.
+
+The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$. Where $n$ is the size of $num$.
+
 <!-- tabs:start -->
 
 ### **Python3**

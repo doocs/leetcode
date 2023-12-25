@@ -37,6 +37,16 @@
 
 ## Solutions
 
+**Solution 1: Arithmetic Series Sum Formula**
+
+The sum formula for an arithmetic series is $\frac{n(a_1 + a_n)}{2}$, where $n$ is the number of terms in the arithmetic series, $a_1$ is the first term of the arithmetic series, and $a_n$ is the last term of the arithmetic series.
+
+Since the array given in the problem is an arithmetic series and is missing a number, the number of terms in the array is $n + 1$, the first term is $a_1$, and the last term is $a_n$, so the sum of the array is $\frac{n + 1}{2}(a_1 + a_n)$.
+
+Therefore, the missing number is $\frac{n + 1}{2}(a_1 + a_n) - \sum_{i = 0}^n a_i$.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Where $n$ is the length of the array.
+
 <!-- tabs:start -->
 
 ### **Python3**

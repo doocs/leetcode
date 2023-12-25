@@ -43,6 +43,12 @@ ships = [[1,1],[2,2],[3,3],[5,5]], topRight = [4,4], bottomLeft = [0,0]
 
 ## Solutions
 
+**Solution 1: Recursion + Divide and Conquer**
+
+Since there are at most $10$ ships in the rectangle, we can divide the rectangle into four sub-rectangles, calculate the number of ships in each sub-rectangle, and then add the number of ships in the four sub-rectangles. If there are no ships in a sub-rectangle, then there is no need to continue dividing.
+
+The time complexity is $O(C \times \log \max(m, n))$, and the space complexity is $O(\log \max(m, n))$. Where $C$ is the number of ships, and $m$ and $n$ are the length and width of the rectangle, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -50,6 +50,16 @@ Total time = 7 seconds</pre>
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+For two points $p1=(x_1, y_1)$ and $p2=(x_2, y_2)$, the distances moved in the x-axis and y-axis are $dx = |x_1 - x_2|$ and $dy = |y_1 - y_2|$ respectively.
+
+If $dx \ge dy$, move along the diagonal for $dy$ steps, then move horizontally for $dx - dy$ steps. If $dx < dy$, move along the diagonal for $dx$ steps, then move vertically for $dy - dx$ steps. Therefore, the minimum distance between the two points is $max(dx, dy)$.
+
+We can iterate through all pairs of points, calculate the minimum distance between each pair of points, and then sum them up.
+
+The time complexity is $O(n)$, where $n$ is the number of points. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

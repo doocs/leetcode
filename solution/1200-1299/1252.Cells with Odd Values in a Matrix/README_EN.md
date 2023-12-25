@@ -49,6 +49,30 @@ The final matrix is [[1,3,1],[1,3,1]], which contains 6 odd numbers.
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+We create a matrix $g$ to store the results of the operations. For each pair $(r_i, c_i)$ in $indices$, we add $1$ to all elements in the $r_i$th row and the $c_i$th column of the matrix.
+
+After the simulation, we traverse the matrix and count the number of odd numbers.
+
+The time complexity is $O(\text{indices.length} \times (m+n) + mn)$, and the space complexity is $O(mn)$.
+
+**Solution 2: Space Optimization**
+
+We use row array $row$ and column array $col$ to record the number of times each row and column are increased. For each pair $(r_i, c_i)$ in $indices$, we add $1$ to $row[r_i]$ and $col[c_i]$ respectively.
+
+After the operation, we can calculate that the count at position $(i, j)$ is $row[i] + col[j]$. We traverse the matrix and count the number of odd numbers.
+
+The time complexity is $O(\text{indices.length} + mn)$, and the space complexity is $O(m+n)$.
+
+**Solution 3: Mathematical Optimization**
+
+We notice that only when exactly one of $row[i]$ and $col[j]$ is odd, the number at position $(i, j)$ in the matrix will be odd.
+
+We count the number of odd numbers in $row$, denoted as $cnt1$; the number of odd numbers in $col$, denoted as $cnt2$. Then the final number of odd numbers is $cnt1 \times (n-cnt2) + cnt2 \times (m-cnt1)$.
+
+The time complexity is $O(\text{indices.length} + m + n)$, and the space complexity is $O(m+n)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

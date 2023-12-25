@@ -53,7 +53,11 @@ Maximum length is 4.
 
 ## Solutions
 
-State compression uses a 32-bit number to record the appearance of letters, and `masks` stores the previously enumerated strings.
+**Solution 1: Bit Manipulation + State Compression**
+
+State compression is used, with a 32-bit number recording the occurrence of letters, and `masks` storing the strings enumerated before.
+
+The time complexity is $O(2^n + L)$, and the space complexity is $O(2^n)$. Where $n$ and $L$ are the length of the string array and the sum of the lengths of the strings in the array, respectively.
 
 <!-- tabs:start -->
 

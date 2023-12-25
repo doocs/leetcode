@@ -35,6 +35,12 @@
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+Convert the number to a hexadecimal string, then traverse the string, convert the number $0$ to the letter $O$, and the number $1$ to the letter $I$. Finally, check whether the converted string is valid.
+
+The time complexity is $O(\log n)$, where $n$ is the size of the decimal number represented by $num$.
+
 <!-- tabs:start -->
 
 ### **Python3**

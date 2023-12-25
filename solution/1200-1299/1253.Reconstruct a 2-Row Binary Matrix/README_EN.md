@@ -55,6 +55,21 @@
 
 ## Solutions
 
+**Solution 1: Greedy**
+
+First, we create an answer array $ans$, where $ans[0]$ and $ans[1]$ represent the first and second rows of the matrix, respectively.
+
+Next, we traverse the array $colsum$ from left to right. For the current element $colsum[j]$, we have the following cases:
+
+-   If $colsum[j] = 2$, then we set both $ans[0][j]$ and $ans[1][j]$ to $1$. In this case, both $upper$ and $lower$ are reduced by $1$.
+-   If $colsum[j] = 1$, then we set either $ans[0][j]$ or $ans[1][j]$ to $1$. If $upper \gt lower$, then we prefer to set $ans[0][j]$ to $1$; otherwise, we prefer to set $ans[1][j]$ to $1$. In this case, either $upper$ or $lower$ is reduced by $1$.
+-   If $colsum[j] = 0$, then we set both $ans[0][j]$ and $ans[1][j]$ to $0$.
+-   If $upper \lt 0$ or $lower \lt 0$, then it is impossible to construct a matrix that meets the requirements, and we return an empty array.
+
+At the end of the traversal, if both $upper$ and $lower$ are $0$, then we return $ans$; otherwise, we return an empty array.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $colsum$. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

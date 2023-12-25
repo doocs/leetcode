@@ -40,6 +40,34 @@ All the adjacent element differ by one bit. Another valid permutation is [3,1,0,
 
 ## Solutions
 
+**Solution 1: Binary Code to Gray Code**
+
+We observe the arrangement in the problem, and find that in its binary representation, only one bit is different between any two (including the first and last) adjacent numbers. This kind of coding method is Gray code, which is a coding method we will encounter in engineering.
+
+The rule for converting binary code to binary Gray code is to keep the highest bit of the binary code as the highest bit of the Gray code, and the second highest bit of the Gray code is the XOR of the highest bit and the second highest bit of the binary code. The rest of the Gray code is similar to the second highest bit.
+
+Assume a binary number is represented as $B_{n-1}B_{n-2}...B_2B_1B_0$, its Gray code representation is $G_{n-1}G_{n-2}...G_2G_1G_0$. The highest bit is kept, so $G_{n-1} = B_{n-1}$; and the other bits $G_i = B_{i+1} \oplus B_{i}$, where $i=0,1,2..,n-2$.
+
+Therefore, for an integer $x$, we can use the function $gray(x)$ to get its Gray code:
+
+```java
+int gray(x) {
+    return x ^ (x >> 1);
+}
+```
+
+We can directly convert the integers $[0,..2^n - 1]$ into the corresponding Gray code array, then find the position of $start$ in the Gray code array, cut the Gray code array from this position, and then append the cut part to the front of the Gray code array to get the arrangement required by the problem.
+
+The time complexity is $O(2^n)$, and the space complexity is $O(2^n)$. Where $n$ is the integer given in the problem.
+
+**Solution 2: Conversion Optimization**
+
+Since $gray(0) = 0$, then $gray(0) \oplus start = start$, and $gray(i)$ is only one binary bit different from $gray(i-1)$, so $gray(i) \oplus start$ is also only one binary bit different from $gray(i-1) \oplus start$.
+
+Therefore, we can also directly convert the integers $[0,..2^n - 1]$ into the corresponding $gray(i) \oplus start$ to get the Gray code arrangement with $start$ as the first term.
+
+The time complexity is $O(2^n)$, where $n$ is the integer given in the problem. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

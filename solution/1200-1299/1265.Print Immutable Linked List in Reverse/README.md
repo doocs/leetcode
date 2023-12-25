@@ -71,6 +71,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：递归**
+
+我们可以使用递归来实现链表的逆序打印。在函数中，我们判断当前节点是否为空，如果不为空，则获取下一个节点，然后递归调用函数本身，最后打印当前节点的值。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是链表的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -185,6 +191,28 @@ function printLinkedListInReverse(head: ImmutableListNode) {
     if (head) {
         printLinkedListInReverse(head.next);
         head.printValue();
+    }
+}
+```
+
+### **C#**
+
+```cs
+/**
+ * // This is the ImmutableListNode's API interface.
+ * // You should not implement it, or speculate about its implementation.
+ * class ImmutableListNode {
+ *     public void PrintValue(); // print the value of this node.
+ *     public ImmutableListNode GetNext(); // return the next node.
+ * }
+ */
+
+public class Solution {
+    public void PrintLinkedListInReverse(ImmutableListNode head) {
+        if (head != null) {
+            PrintLinkedListInReverse(head.GetNext());
+            head.PrintValue();
+        }
     }
 }
 ```
