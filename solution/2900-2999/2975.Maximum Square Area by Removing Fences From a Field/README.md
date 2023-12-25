@@ -54,6 +54,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：枚举**
+
+我们可以枚举 $hFences$ 中的任意两条水平栅栏 $a$ 和 $b$，计算 $a$ 和 $b$ 之间的距离 $d$，记录在哈希表 $hs$ 中，然后枚举 $vFences$ 中的任意两条垂直栅栏 $c$ 和 $d$，计算 $c$ 和 $d$ 之间的距离 $d$，记录在哈希表 $vs$ 中，最后遍历哈希表 $hs$，如果 $hs$ 中的某个距离 $d$ 在哈希表 $vs$ 中也存在，那么说明存在一个正方形田地，其边长为 $d$，面积为 $d^2$，我们只需要取最大的 $d$，求 $d^2 \bmod 10^9 + 7$ 即可。
+
+时间复杂度 $O(h^2 + v^2)$，空间复杂度 $O(h^2 + v^2)$。其中 $h$ 和 $v$ 分别是 $hFences$ 和 $vFences$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -61,7 +67,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def maximizeSquareArea(
+        self, m: int, n: int, hFences: List[int], vFences: List[int]
+    ) -> int:
+        def f(nums: List[int], k: int) -> Set[int]:
+            nums.extend([1, k])
+            nums.sort()
+            return {b - a for a, b in combinations(nums, 2)}
 
+        mod = 10**9 + 7
+        hs = f(hFences, m)
+        vs = f(vFences, n)
+        ans = max(hs & vs, default=0)
+        return ans**2 % mod if ans else -1
 ```
 
 ### **Java**
@@ -69,19 +88,123 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maximizeSquareArea(int m, int n, int[] hFences, int[] vFences) {
+        Set<Integer> hs = f(hFences, m);
+        Set<Integer> vs = f(vFences, n);
+        hs.retainAll(vs);
+        int ans = -1;
+        final int mod = (int) 1e9 + 7;
+        for (int x : hs) {
+            ans = Math.max(ans, x);
+        }
+        return ans > 0 ? (int) (1L * ans * ans % mod) : -1;
+    }
 
+    private Set<Integer> f(int[] nums, int k) {
+        int n = nums.length;
+        nums = Arrays.copyOf(nums, n + 2);
+        nums[n] = 1;
+        nums[n + 1] = k;
+        Arrays.sort(nums);
+        Set<Integer> s = new HashSet<>();
+        for (int i = 0; i < nums.length; ++i) {
+            for (int j = 0; j < i; ++j) {
+                s.add(nums[i] - nums[j]);
+            }
+        }
+        return s;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int maximizeSquareArea(int m, int n, vector<int>& hFences, vector<int>& vFences) {
+        auto f = [](vector<int>& nums, int k) {
+            nums.push_back(k);
+            nums.push_back(1);
+            sort(nums.begin(), nums.end());
+            unordered_set<int> s;
+            for (int i = 0; i < nums.size(); ++i) {
+                for (int j = 0; j < i; ++j) {
+                    s.insert(nums[i] - nums[j]);
+                }
+            }
+            return s;
+        };
+        auto hs = f(hFences, m);
+        auto vs = f(vFences, n);
+        int ans = 0;
+        for (int h : hs) {
+            if (vs.count(h)) {
+                ans = max(ans, h);
+            }
+        }
+        const int mod = 1e9 + 7;
+        return ans > 0 ? 1LL * ans * ans % mod : -1;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func maximizeSquareArea(m int, n int, hFences []int, vFences []int) int {
+	f := func(nums []int, k int) map[int]bool {
+		nums = append(nums, 1, k)
+		sort.Ints(nums)
+		s := map[int]bool{}
+		for i := 0; i < len(nums); i++ {
+			for j := 0; j < i; j++ {
+				s[nums[i]-nums[j]] = true
+			}
+		}
+		return s
+	}
+	hs := f(hFences, m)
+	vs := f(vFences, n)
+	ans := 0
+	for h := range hs {
+		if vs[h] {
+			ans = max(ans, h)
+		}
+	}
+	if ans > 0 {
+		return ans * ans % (1e9 + 7)
+	}
+	return -1
+}
+```
 
+### **TypeScript**
+
+```ts
+function maximizeSquareArea(m: number, n: number, hFences: number[], vFences: number[]): number {
+    const f = (nums: number[], k: number): Set<number> => {
+        nums.push(1, k);
+        nums.sort((a, b) => a - b);
+        const s: Set<number> = new Set();
+        for (let i = 0; i < nums.length; ++i) {
+            for (let j = 0; j < i; ++j) {
+                s.add(nums[i] - nums[j]);
+            }
+        }
+        return s;
+    };
+    const hs = f(hFences, m);
+    const vs = f(vFences, n);
+    let ans = 0;
+    for (const h of hs) {
+        if (vs.has(h)) {
+            ans = Math.max(ans, h);
+        }
+    }
+    return ans ? Number(BigInt(ans) ** 2n % 1000000007n) : -1;
+}
 ```
 
 ### **...**
