@@ -48,6 +48,23 @@ The sum of our high and low score is 3, which we can prove to be minimal.
 
 ## Solutions
 
+**Solution 1: Sorting + Greedy**
+
+From the problem description, we know that the minimum score is actually the minimum difference between two adjacent elements in the sorted array, and the maximum score is the difference between the first and last elements of the sorted array. The score of the array $nums$ is the sum of the minimum score and the maximum score.
+
+Therefore, we can first sort the array. Since the problem allows us to modify the values of at most two elements in the array, we can modify a number to make it the same as another number in the array, making the minimum score $0$. In this case, the score of the array $nums$ is actually the maximum score. We can choose to make one of the following modifications:
+
+Modify the smallest two numbers to $nums[2]$, then the maximum score is $nums[n - 1] - nums[2]$;
+Modify the smallest number to $nums[1]$ and the largest number to $nums[n - 2]$, then the maximum score is $nums[n - 2] - nums[1]$;
+Modify the largest two numbers to $nums[n - 3]$, then the maximum score is $nums[n - 3] - nums[0]$.
+Finally, we return the minimum score of the above three modifications.
+
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $nums$.
+
+Similar problems:
+
+-[1509. Minimum Difference Between Largest and Smallest Value in Three Moves](/solution/1500-1599/1509.Minimum%20Difference%20Between%20Largest%20and%20Smallest%20Value%20in%20Three%20Moves/README_EN.md)
+
 <!-- tabs:start -->
 
 ### **Python3**

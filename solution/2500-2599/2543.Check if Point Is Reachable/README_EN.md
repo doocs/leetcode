@@ -43,6 +43,18 @@
 
 ## Solutions
 
+**Solution 1: Mathematics**
+
+We notice that the first two types of moves do not change the greatest common divisor (gcd) of the horizontal and vertical coordinates, while the last two types of moves can multiply the gcd of the horizontal and vertical coordinates by a power of $2$. In other words, the final gcd of the horizontal and vertical coordinates must be a power of $2$. If the gcd is not a power of $2$, then it is impossible to reach.
+
+Next, we prove that any $(x, y)$ that satisfies $gcd(x, y)=2^k$ can be reached.
+
+We reverse the direction of movement, that is, move from the end point back. Then $(x, y)$ can move to $(x, x+y)$, $(x+y, y)$, $(\frac{x}{2}, y)$, and $(x, \frac{y}{2})$.
+
+As long as $x$ or $y$ is even, we divide it by $2$ until both $x$ and $y$ are odd. At this point, if $x \neq y$, without loss of generality, let $x \gt y$, then $\frac{x+y}{2} \lt x$. Since $x+y$ is even, we can move from $(x, y)$ to $(x+y, y)$, and then to $(\frac{x+y}{2}, y)$ through operations. That is to say, we can always make $x$ and $y$ continuously decrease. When the loop ends, if $x=y=1$, it means it can be reached.
+
+The time complexity is $O(\log(\min(targetX, targetY)))$, and the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

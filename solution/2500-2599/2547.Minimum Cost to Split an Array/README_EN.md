@@ -77,6 +77,18 @@ The cost of the split is 10. It can be shown that this is the minimum possible c
 
 ## Solutions
 
+**Solution 1: Memoization Search**
+
+We design a function $dfs(i)$, which represents the minimum cost of splitting from index $i$. So the answer is $dfs(0)$.
+
+The calculation process of the function $dfs(i)$ is as follows:
+
+If $i \ge n$, it means that the splitting has reached the end of the array, and $0$ is returned at this time.
+Otherwise, we enumerate the end $j$ of the subarray. During the process, we use an array or hash table cnt to count the number of times each number appears in the subarray, and use a variable one to count the number of numbers in the subarray that appear once. So the importance of the subarray is $k + j - i + 1 - one$, and the cost of splitting is $k + j - i + 1 - one + dfs(j + 1)$. We enumerate all $j$ and take the minimum value as the return value of $dfs(i)$.
+During the process, we can use memoization search, that is, use an array $f$ to memorize the return value of the function $dfs(i)$ to avoid repeated calculations.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**

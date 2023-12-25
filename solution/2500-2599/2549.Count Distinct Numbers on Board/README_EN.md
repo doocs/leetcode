@@ -51,6 +51,14 @@ After a billion days, the only two distinct numbers on the board are 2 and 3.
 
 ## Solutions
 
+**Solution 1: Lateral Thinking**
+
+Since every operation on the number $n$ on the desktop will also cause the number $n-1$ to appear on the desktop, the final numbers on the desktop are $[2,...n]$, that is, $n-1$ numbers.
+
+Note that $n$ could be $1$, so it needs to be specially judged.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

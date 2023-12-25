@@ -49,6 +49,21 @@ The array answer is [|0 - 0|] = [0].
 
 ## Solutions
 
+**Solution 1: Prefix Sum**
+
+We define a variable $left$ to represent the sum of the elements to the left of index $i$ in the array `nums`, and a variable $right$ to represent the sum of the elements to the right of index $i$ in the array `nums`. Initially, $left = 0$, $right = \sum_{i = 0}^{n - 1} nums[i]$.
+
+We iterate over the array `nums`. For the current number $x$ we are iterating over, we update $right = right - x$. At this point, $left$ and $right$ represent the sum of the elements to the left and right of index $i$ in the array `nums`, respectively. We add the absolute difference between $left$ and $right$ to the answer array `ans`, and then update $left = left + x$.
+
+After the iteration is complete, we return the answer array `ans`.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Where $n$ is the length of the array `nums`.
+
+Similar problems:
+
+-   [0724. Find Pivot Index](/solution/0700-0799/0724.Find%20Pivot%20Index/README_EN.md)
+-   [1991. Find the Middle Index in Array](/solution/1900-1999/1991.Find%20the%20Middle%20Index%20in%20Array/README_EN.md)
+
 <!-- tabs:start -->
 
 ### **Python3**

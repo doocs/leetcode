@@ -62,6 +62,12 @@ Since there is no other operation, the answer is 4.
 
 ## Solutions
 
+**Solution 1: Greedy + Two Pointers**
+
+In order to mark as many indices as possible, we can sort the array `nums`, and then traverse the array from left to right. For each index $i$, we find the first index $j$ in the right half of the array that satisfies $2 \times nums[i] \leq nums[j]$, and then mark indices $i$ and $j$. Continue to traverse the next index $i$. When we have traversed the right half of the array, it means that the marking is complete, and the number of marked indices is the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array `nums`.
+
 <!-- tabs:start -->
 
 ### **Python3**

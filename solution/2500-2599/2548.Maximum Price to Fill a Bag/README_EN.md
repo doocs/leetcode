@@ -51,6 +51,14 @@ It can be proved that 55.0 is the maximum total price that we can achieve.
 
 ## Solutions
 
+**Solution 1: Greedy + Sorting**
+
+We sort the items in descending order by unit price, and then take out the items one by one until the backpack is full.
+
+If the backpack is not full in the end, return $-1$, otherwise return the total price.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of items.
+
 <!-- tabs:start -->
 
 ### **Python3**
