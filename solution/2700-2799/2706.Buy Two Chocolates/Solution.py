@@ -1,5 +1,10 @@
 class Solution:
     def buyChoco(self, prices: List[int], money: int) -> int:
-        prices.sort()
-        cost = prices[0] + prices[1]
+        a = b = inf
+        for x in prices:
+            if x < a:
+                a, b = x, a
+            elif x < b:
+                b = x
+        cost = a + b
         return money if money < cost else money - cost

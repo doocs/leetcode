@@ -1,12 +1,20 @@
 impl Solution {
-    pub fn buy_choco(mut prices: Vec<i32>, money: i32) -> i32 {
-        prices.sort();
-
-        let sum = prices[0] + prices[1];
-        if sum > money {
-            return money;
+    pub fn buy_choco(prices: Vec<i32>, money: i32) -> i32 {
+        let mut a = 1000;
+        let mut b = 1000;
+        for &x in prices.iter() {
+            if x < a {
+                b = a;
+                a = x;
+            } else if x < b {
+                b = x;
+            }
         }
-
-        money - sum
+        let cost = a + b;
+        if money < cost {
+            money
+        } else {
+            money - cost
+        }
     }
 }
