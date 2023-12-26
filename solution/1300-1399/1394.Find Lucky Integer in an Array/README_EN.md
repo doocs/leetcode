@@ -43,6 +43,12 @@
 
 ## Solutions
 
+**Solution 1: Counting**
+
+We can use a hash table or array $cnt$ to count the occurrences of each number in $arr$, then traverse $cnt$ to find the largest $x$ that satisfies $cnt[x] = x$. If there is no such $x$, return $-1$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of $arr$.
+
 <!-- tabs:start -->
 
 ### **Python3**

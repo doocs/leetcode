@@ -46,6 +46,12 @@
 
 ## Solutions
 
+**Solution 1: Brute Force Enumeration**
+
+We directly enumerate all strings $words[i]$, and check whether it is a substring of other strings. If it is, we add it to the answer.
+
+The time complexity is $O(n^3)$, and the space complexity is $O(n)$. Where $n$ is the length of the string array.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -54,11 +60,9 @@
 class Solution:
     def stringMatching(self, words: List[str]) -> List[str]:
         ans = []
-        for i, w1 in enumerate(words):
-            for j, w2 in enumerate(words):
-                if i != j and w1 in w2:
-                    ans.append(w1)
-                    break
+        for i, s in enumerate(words):
+            if any(i != j and s in t for j, t in enumerate(words)):
+                ans.append(s)
         return ans
 ```
 
@@ -124,16 +128,17 @@ func stringMatching(words []string) []string {
 
 ```ts
 function stringMatching(words: string[]): string[] {
-    const res: string[] = [];
-    for (const target of words) {
-        for (const word of words) {
-            if (word !== target && word.includes(target)) {
-                res.push(target);
+    const ans: string[] = [];
+    const n = words.length;
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (words[j].includes(words[i]) && i !== j) {
+                ans.push(words[i]);
                 break;
             }
         }
     }
-    return res;
+    return ans;
 }
 ```
 
@@ -142,16 +147,17 @@ function stringMatching(words: string[]): string[] {
 ```rust
 impl Solution {
     pub fn string_matching(words: Vec<String>) -> Vec<String> {
-        let mut res = Vec::new();
-        for target in words.iter() {
-            for word in words.iter() {
-                if word != target && word.contains(target) {
-                    res.push(target.clone());
+        let mut ans = Vec::new();
+        let n = words.len();
+        for i in 0..n {
+            for j in 0..n {
+                if i != j && words[j].contains(&words[i]) {
+                    ans.push(words[i].clone());
                     break;
                 }
             }
         }
-        res
+        ans
     }
 }
 ```

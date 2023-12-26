@@ -54,6 +54,23 @@ Remember that both play optimally so here Alice will choose the scenario that ma
 
 ## Solutions
 
+**Solution 1: Memoization Search**
+
+We design a function $dfs(i)$, which represents the maximum score difference that the current player can obtain when playing the game in the range $[i, n)$. If $dfs(0) > 0$, it means that the first player Alice can win; if $dfs(0) < 0$, it means that the second player Bob can win; otherwise, it means that the two players tie.
+
+The execution logic of the function $dfs(i)$ is as follows:
+
+-   If $i \geq n$, it means that there are no stones to take now, so we can directly return $0$;
+-   Otherwise, we enumerate that the current player takes the first $j+1$ piles of stones, where $j \in \{0, 1, 2\}$. Then the score difference that the other player can get in the next round is $dfs(i + j + 1)$, so the score difference that the current player can get is $\sum_{k=i}^{i+j} stoneValue[k] - dfs(i + j + 1)$. We want to maximize the score difference of the current player, so we can use the $\max$ function to get the maximum score difference, that is:
+
+$$
+dfs(i) = \max_{j \in \{0, 1, 2\}} \left\{\sum_{k=i}^{i+j} stoneValue[k] - dfs(i + j + 1)\right\}
+$$
+
+To prevent repeated calculations, we can use memoization search.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of piles of stones.
+
 <!-- tabs:start -->
 
 ### **Python3**

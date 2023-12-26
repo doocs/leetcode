@@ -57,6 +57,12 @@ For arr1[2]=8 we have:
 
 ## Solutions
 
+**Solution 1: Sorting + Binary Search**
+
+We can first sort the array $arr2$, then for each element $a$ in array $arr1$, use binary search to find the first element in array $arr2$ that is greater than or equal to $a-d$. If such an element exists and is less than or equal to $a+d$, it means that it does not meet the distance requirement. Otherwise, it meets the distance requirement. We accumulate the number of elements that meet the distance requirement, which is the answer.
+
+The time complexity is $O((m + n) \times \log n)$, and the space complexity is $O(\log n)$. Where $m$ and $n$ are the lengths of arrays $arr1$ and $arr2$, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**

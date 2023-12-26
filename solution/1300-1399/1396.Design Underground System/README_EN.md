@@ -95,6 +95,21 @@ undergroundSystem.getAverageTime(&quot;Leyton&quot;, &quot;Paradise&quot;); // r
 
 ## Solutions
 
+**Solution 1: Hash Table**
+
+We use two hash tables to store data:
+
+-   `ts`: Stores the passenger's id, check-in time, and check-in station. The key is the passenger's id, and the value is a tuple `(t, stationName)`.
+-   `d`: Stores the passenger's check-in station, check-out station, travel time, and number of trips. The key is a tuple `(startStation, endStation)`, and the value is a tuple `(totalTime, count)`.
+
+When a passenger checks in, we store the passenger's id, check-in time, and check-in station in `ts`, i.e., `ts[id] = (t, stationName)`.
+
+When a passenger checks out, we retrieve the passenger's check-in time and station `(t0, station)` from `ts`, then calculate the passenger's travel time $t - t_0$, and store the passenger's travel time and number of trips in `d`.
+
+When we want to calculate a passenger's average travel time, we retrieve the passenger's total travel time and number of trips `(totalTime, count)` from `d`, then calculate the average travel time as $totalTime / count$.
+
+The time complexity is $O(1)$, and the space complexity is $O(n)$. Where $n$ is the number of passengers.
+
 <!-- tabs:start -->
 
 ### **Python3**
