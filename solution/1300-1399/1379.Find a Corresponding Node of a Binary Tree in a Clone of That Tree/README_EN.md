@@ -49,6 +49,12 @@
 
 ## Solutions
 
+**Solution 1: DFS**
+
+We design a function $dfs(root1, root2)$, which performs DFS traversal simultaneously in trees $root1$ and $root2$. When traversing to a node, if this node happens to be $target$, then we return the corresponding node in $root2$. Otherwise, we recursively search for $target$ in the left and right subtrees of $root1$ and $root2$, and return the result that is not empty.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the tree.
+
 <!-- tabs:start -->
 
 ### **Python3**

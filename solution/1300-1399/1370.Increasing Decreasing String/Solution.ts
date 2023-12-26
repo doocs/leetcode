@@ -1,13 +1,9 @@
-/**
- * @param {string} s
- * @return {string}
- */
-var sortString = function (s) {
-    const cnt = Array(26).fill(0);
+function sortString(s: string): string {
+    const cnt: number[] = Array(26).fill(0);
     for (const c of s) {
         ++cnt[c.charCodeAt(0) - 'a'.charCodeAt(0)];
     }
-    const ans = [];
+    const ans: string[] = [];
     while (ans.length < s.length) {
         for (let i = 0; i < 26; ++i) {
             if (cnt[i]) {
@@ -23,4 +19,4 @@ var sortString = function (s) {
         }
     }
     return ans.join('');
-};
+}
