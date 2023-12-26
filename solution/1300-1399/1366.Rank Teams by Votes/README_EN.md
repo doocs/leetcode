@@ -56,6 +56,12 @@ X is the winner due to the tie-breaking rule. X has the same votes as W for the 
 
 ## Solutions
 
+**Solution 1: Counting + Custom Sorting**
+
+For each candidate, we can count the number of votes they receive in each ranking, and then compare the number of votes according to different rankings. If the number of votes is the same, we compare the letters.
+
+The time complexity is $O(n^2 \times \log n)$, and the space complexity is $O(n^2)$. Where $n$ is the number of candidates.
+
 <!-- tabs:start -->
 
 ### **Python3**

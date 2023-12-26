@@ -39,6 +39,12 @@ The sorted array by bits is [0,1,2,4,8,3,5,6,7]
 
 ## Solutions
 
+**Solution 1: Custom Sorting**
+
+We sort the array $arr$ according to the requirements of the problem, that is, sort in ascending order according to the number of $1$s in the binary representation. If there are multiple numbers with the same number of $1$s in the binary representation, they must be sorted in ascending order by numerical value.
+
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $arr$.
+
 <!-- tabs:start -->
 
 ### **Python3**

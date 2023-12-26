@@ -37,6 +37,24 @@
 
 ## Solutions
 
+**Solution 1: Start Traversing from the Bottom Left or Top Right**
+
+According to the characteristic that **both rows and columns are arranged in non-increasing order**, we can start traversing from the **bottom left corner** towards the **top right direction**.
+
+When encountering a negative number, it indicates that all elements to the right of the current position in this row are negative. We add the number of remaining elements in this row to the answer, that is, $n - j$, and move up a row, that is, $i \leftarrow i - 1$. Otherwise, move to the right column, that is, $j \leftarrow j + 1$.
+
+After the traversal is over, return the answer.
+
+The time complexity is $O(m + n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
+
+**Solution 2: Binary Search**
+
+Traverse each row, use binary search to find the first position less than $0$ in each row. All elements to the right of this position are negative, and add the number of negative numbers to the answer.
+
+After the traversal is over, return the answer.
+
+The time complexity is $O(m \times \log n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

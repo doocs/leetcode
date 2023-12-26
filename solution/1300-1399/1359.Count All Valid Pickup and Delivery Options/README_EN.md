@@ -45,6 +45,22 @@ This is an invalid order (P1,D2,P2,D1) because Pickup 2 is after of Delivery 2.
 
 ## Solutions
 
+**Solution 1: Dynamic Programming**
+
+We define $f[i]$ as the number of all valid pickup/delivery sequences for $i$ orders. Initially, $f[1] = 1$.
+
+We can choose any of these $i$ orders as the last delivery order $D_i$, then its pickup order $P_i$ can be at any position in the previous $2 \times i - 1$, and the number of pickup/delivery sequences for the remaining $i - 1$ orders is $f[i - 1]$, so $f[i]$ can be expressed as:
+
+$$
+f[i] = i \times (2 \times i - 1) \times f[i - 1]
+$$
+
+The final answer is $f[n]$.
+
+We notice that the value of $f[i]$ is only related to $f[i - 1]$, so we can use a variable instead of an array to reduce the space complexity.
+
+The time complexity is $O(n)$, where $n$ is the number of orders. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
