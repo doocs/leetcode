@@ -59,6 +59,25 @@
 
 ## Solutions
 
+**Solution 1: State Compression + Memoization Search**
+
+We notice that each seat has two states: selectable and non-selectable. Therefore, we can use a binary number to represent the seat state of each row, where $1$ represents selectable, and $0$ represents non-selectable. For example, for the first row in Example 1, we can represent it as $010010$. Therefore, we convert the initial seats into a one-dimensional array $ss$, where $ss[i]$ represents the seat state of the $i$th row.
+
+Next, we design a function $dfs(seat, i)$, which represents the maximum number of students that can be accommodated starting from the $i$th row, and the seat state of the current row is $seat$.
+
+We can enumerate all the seat selection states $mask$ of the $i$th row, and judge whether $mask$ meets the following conditions:
+
+-   The state $mask$ cannot select seats outside of $seat$;
+-   The state $mask$ cannot select adjacent seats.
+
+If the conditions are met, we calculate the number of seats selected in the current row $cnt$. If it is the last row, update the return value of the function, that is, $ans = \max(ans, cnt)$. Otherwise, we continue to recursively solve the maximum number of the next row. The seat state of the next row is $nxt = ss[i + 1]$, and we need to exclude the left and right sides of the selected seats in the current row. Then we recursively solve the maximum number of the next row, that is, $ans = \max(ans, cnt + dfs(nxt, i + 1))$.
+
+Finally, we return $ans$ as the return value of the function.
+
+To avoid repeated calculations, we can use memoization search to save the return value of the function $dfs(seat, i)$ in a two-dimensional array $f$, where $f[seat][i]$ represents the maximum number of students that can be accommodated starting from the $i$th row, and the seat state of the current row is $seat$.
+
+The time complexity is $O(4^n \times n \times m)$, and the space complexity is $O(2^n \times m)$. Where $m$ and $n$ are the number of rows and columns of the seats, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -226,6 +245,47 @@ func maxStudents(seats [][]byte) int {
 		return ans
 	}
 	return dfs(ss[0], 0)
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxStudents(seats: string[][]): number {
+    const m: number = seats.length;
+    const n: number = seats[0].length;
+    const ss: number[] = Array(m).fill(0);
+    const f: number[][] = Array.from({ length: 1 << n }, () => Array(m).fill(-1));
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (seats[i][j] === '.') {
+                ss[i] |= 1 << j;
+            }
+        }
+    }
+
+    const dfs = (seat: number, i: number): number => {
+        if (f[seat][i] !== -1) {
+            return f[seat][i];
+        }
+        let ans: number = 0;
+        for (let mask = 0; mask < 1 << n; ++mask) {
+            if ((seat | mask) !== seat || (mask & (mask << 1)) !== 0) {
+                continue;
+            }
+            const cnt: number = mask.toString(2).split('1').length - 1;
+            if (i === m - 1) {
+                ans = Math.max(ans, cnt);
+            } else {
+                let nxt: number = ss[i + 1];
+                nxt &= ~(mask >> 1);
+                nxt &= ~(mask << 1);
+                ans = Math.max(ans, cnt + dfs(nxt, i + 1));
+            }
+        }
+        return (f[seat][i] = ans);
+    };
+    return dfs(ss[0], 0);
 }
 ```
 

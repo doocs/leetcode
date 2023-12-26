@@ -77,7 +77,7 @@
 -   状态 $mask$ 不能选择 $seat$ 之外的座位；
 -   状态 $mask$ 不能选择相邻的座位。
 
-如果满足条件，我们求出当前行选择的座位个数 $cnt$，如果当前是最后一行，则更新函数的返回值，即 $ans = max(ans, cnt)$。否则，我们继续递归地求解下一行的最大人数，下一行的座位状态 $nxt = ss[i + 1]$，并且需要排除当前行已选座位的左右两侧。然后我们递归地求解下一行的最大人数，即 $ans = max(ans, cnt + dfs(nxt, i + 1))$。
+如果满足条件，我们求出当前行选择的座位个数 $cnt$，如果当前是最后一行，则更新函数的返回值，即 $ans = \max(ans, cnt)$。否则，我们继续递归地求解下一行的最大人数，下一行的座位状态 $nxt = ss[i + 1]$，并且需要排除当前行已选座位的左右两侧。然后我们递归地求解下一行的最大人数，即 $ans = \max(ans, cnt + dfs(nxt, i + 1))$。
 
 最后，我们将 $ans$ 作为函数的返回值返回。
 
@@ -256,6 +256,47 @@ func maxStudents(seats [][]byte) int {
 		return ans
 	}
 	return dfs(ss[0], 0)
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxStudents(seats: string[][]): number {
+    const m: number = seats.length;
+    const n: number = seats[0].length;
+    const ss: number[] = Array(m).fill(0);
+    const f: number[][] = Array.from({ length: 1 << n }, () => Array(m).fill(-1));
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (seats[i][j] === '.') {
+                ss[i] |= 1 << j;
+            }
+        }
+    }
+
+    const dfs = (seat: number, i: number): number => {
+        if (f[seat][i] !== -1) {
+            return f[seat][i];
+        }
+        let ans: number = 0;
+        for (let mask = 0; mask < 1 << n; ++mask) {
+            if ((seat | mask) !== seat || (mask & (mask << 1)) !== 0) {
+                continue;
+            }
+            const cnt: number = mask.toString(2).split('1').length - 1;
+            if (i === m - 1) {
+                ans = Math.max(ans, cnt);
+            } else {
+                let nxt: number = ss[i + 1];
+                nxt &= ~(mask >> 1);
+                nxt &= ~(mask << 1);
+                ans = Math.max(ans, cnt + dfs(nxt, i + 1));
+            }
+        }
+        return (f[seat][i] = ans);
+    };
+    return dfs(ss[0], 0);
 }
 ```
 
