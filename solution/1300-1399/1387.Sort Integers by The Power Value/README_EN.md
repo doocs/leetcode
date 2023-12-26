@@ -53,6 +53,16 @@ The fourth number in the sorted array is 7.
 
 ## Solutions
 
+**Solution 1: Custom Sorting**
+
+First, we define a function $f(x)$, which represents the number of steps required to change the number $x$ to $1$, i.e., the weight of the number $x$.
+
+Then, we sort all the numbers in the interval $[lo, hi]$ in ascending order of weight. If the weights are the same, we sort them in ascending order of the numbers themselves.
+
+Finally, we return the $k$-th number after sorting.
+
+The time complexity is $O(n \times \log n \times M)$, and the space complexity is $O(n)$. Where $n$ is the number of numbers in the interval $[lo, hi]$, and $M$ is the maximum value of $f(x)$. In this problem, the maximum value of $M$ is $178$.
+
 <!-- tabs:start -->
 
 ### **Python3**

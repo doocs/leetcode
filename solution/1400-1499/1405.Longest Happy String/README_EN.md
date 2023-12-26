@@ -45,6 +45,10 @@
 
 ## Solutions
 
+**Solution 1: Greedy + Priority Queue**
+
+The greedy strategy is to prioritize the selection of characters with the most remaining occurrences. By using a priority queue or sorting, we ensure that the character selected each time is the one with the most remaining occurrences (to avoid having three consecutive identical characters, in some cases, we need to select the character with the second most remaining occurrences).
+
 <!-- tabs:start -->
 
 ### **Python3**
