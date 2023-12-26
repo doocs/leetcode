@@ -41,6 +41,14 @@
 
 ## Solutions
 
+**Solution 1: Construction**
+
+If $n$ is odd, then we can directly construct a string with $n$ `'a'` characters.
+
+If $n$ is even, then we can construct a string with $n-1$ `'a'` characters and $1$ `'b'` character.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string.
+
 <!-- tabs:start -->
 
 ### **Python3**

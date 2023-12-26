@@ -42,7 +42,23 @@
 
 ## Solutions
 
-BFS.
+**Solution 1: BFS**
+
+First, based on the undirected tree edges given in the problem, we construct an adjacency list $g$, where $g[u]$ represents all adjacent vertices of vertex $u$.
+
+Then, we define the following data structures:
+
+-   Queue $q$, used to store the vertices and their probabilities for each round of search. Initially, $q = [(1, 1.0)]$, indicating that the probability of the frog being at vertex $1$ is $1.0$;
+-   Array $vis$, used to record whether each vertex has been visited. Initially, $vis[1] = true$, and all other elements are $false$.
+
+Next, we start the breadth-first search.
+
+In each round of search, we take out the head element $(u, p)$ of the queue, where $u$ and $p$ represent the current vertex and its probability, respectively. The number of unvisited adjacent vertices of the current vertex $u$ is denoted as $cnt$.
+
+-   If $u = target$, it means that the frog has reached the target vertex. At this time, we judge whether the frog reaches the target vertex in $t$ seconds, or it reaches the target vertex in less than $t$ seconds but cannot jump to other vertices (i.e., $t=0$ or $cnt=0$). If so, return $p$, otherwise return $0$.
+-   If $u \neq target$, we evenly distribute the probability $p$ to all unvisited adjacent vertices of $u$, then add these vertices to the queue $q$, and mark these vertices as visited.
+
+At the end of a round of search, we decrease $t$ by $1$, and then continue the next round of search until the queue is empty or $t \lt 0$.
 
 <!-- tabs:start -->
 

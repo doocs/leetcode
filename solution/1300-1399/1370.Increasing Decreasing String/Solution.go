@@ -1,20 +1,21 @@
 func sortString(s string) string {
-	counter := ['z' + 1]int{}
+	cnt := [26]int{}
 	for _, c := range s {
-		counter[c]++
+		cnt[c-'a']++
 	}
-	var ans []byte
-	for len(ans) < len(s) {
-		for i := byte('a'); i <= 'z'; i++ {
-			if counter[i] > 0 {
-				ans = append(ans, i)
-				counter[i]--
+	n := len(s)
+	ans := make([]byte, 0, n)
+	for len(ans) < n {
+		for i := 0; i < 26; i++ {
+			if cnt[i] > 0 {
+				ans = append(ans, byte(i)+'a')
+				cnt[i]--
 			}
 		}
-		for i := byte('z'); i >= 'a'; i-- {
-			if counter[i] > 0 {
-				ans = append(ans, i)
-				counter[i]--
+		for i := 25; i >= 0; i-- {
+			if cnt[i] > 0 {
+				ans = append(ans, byte(i)+'a')
+				cnt[i]--
 			}
 		}
 	}

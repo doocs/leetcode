@@ -51,6 +51,18 @@ stk.pop();                            // return -1 --&gt; Stack is empty return 
 
 ## Solutions
 
+**Solution 1: Array Simulation**
+
+We can use an array $stk$ to simulate the stack, and an integer $i$ to represent the position of the next element to be pushed into the stack. In addition, we need another array $add$ to record the cumulative increment value at each position.
+
+When calling $push(x)$, if $i < maxSize$, we put $x$ into $stk[i]$ and increment $i$ by one.
+
+When calling $pop()$, if $i \leq 0$, it means the stack is empty, so we return $-1$. Otherwise, we decrement $i$ by one, and the answer is $stk[i] + add[i]$. Then we add $add[i]$ to $add[i - 1]$, and set $add[i]$ to zero. Finally, we return the answer.
+
+When calling $increment(k, val)$, if $i > 0$, we add $val$ to $add[\min(i, k) - 1]$.
+
+The time complexity is $O(1)$, and the space complexity is $O(n)$. Where $n$ is the maximum capacity of the stack.
+
 <!-- tabs:start -->
 
 ### **Python3**
