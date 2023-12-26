@@ -59,7 +59,13 @@ The total cost = 3.
 
 ## Solutions
 
-BFS using deque.
+**Solution 1: Double-ended Queue BFS**
+
+This problem is essentially a shortest path model, but what we are looking for is the minimum number of direction changes.
+
+In an undirected graph where the edge weights are only 0 and 1, we can use a double-ended queue for BFS. The principle is that when the weight of the point that can be expanded currently is 0, it is added to the front of the queue; when the weight is 1, it is added to the end of the queue.
+
+> If the weight of an edge is 0, then the weight of the newly expanded node is the same as the weight of the current queue head node. Obviously, it can be used as the starting point for the next expansion.
 
 <!-- tabs:start -->
 

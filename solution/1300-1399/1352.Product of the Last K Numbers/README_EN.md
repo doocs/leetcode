@@ -53,6 +53,16 @@ productOfNumbers.getProduct(2); // return 32. The product of the last 2 numbers 
 
 ## Solutions
 
+**Solution 1: Prefix Product**
+
+We initialize an array $s$, where $s[i]$ represents the product of the first $i$ numbers.
+
+When calling `add(num)`, we judge whether `num` is $0$. If it is, we set $s$ to `[1]`. Otherwise, we multiply the last element of $s$ by `num` and add the result to the end of $s$.
+
+When calling `getProduct(k)`, we now judge whether the length of $s$ is less than or equal to $k$. If it is, we return $0$. Otherwise, we return the last element of $s$ divided by the $k + 1$th element from the end of $s$. That is, $s[-1] / s[-k - 1]$.
+
+The time complexity is $O(1)$, and the space complexity is $O(n)$. Where $n$ is the number of times `add` is called.
+
 <!-- tabs:start -->
 
 ### **Python3**
