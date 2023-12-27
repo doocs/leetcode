@@ -57,6 +57,18 @@ It can be shown that this is the minimum possible cost.
 
 ## Solutions
 
+**Solution 1: Floyd Algorithm**
+
+According to the problem description, we can consider each letter as a node, and the conversion cost between each pair of letters as a directed edge. We first initialize a $26 \times 26$ two-dimensional array $g$, where $g[i][j]$ represents the minimum cost of converting letter $i$ to letter $j$. Initially, $g[i][j] = \infty$, and if $i = j$, then $g[i][j] = 0$.
+
+Next, we traverse the arrays $original$, $changed$, and $cost$. For each index $i$, we update the cost $cost[i]$ of converting $original[i]$ to $changed[i]$ to $g[original[i]][changed[i]]$, taking the minimum value.
+
+Then, we use the Floyd algorithm to calculate the minimum cost between any two nodes in $g$. Finally, we traverse the strings $source$ and $target$. If $source[i] \neq target[i]$ and $g[source[i]][target[i]] \geq \infty$, it means that the conversion cannot be completed, so we return $-1$. Otherwise, we add $g[source[i]][target[i]]$ to the answer.
+
+After the traversal ends, we return the answer.
+
+The time complexity is $O(m + n + |\Sigma|^3)$, and the space complexity is $O(|\Sigma|^2)$. Where $m$ and $n$ are the lengths of the arrays $original$ and $source$ respectively; and $|\Sigma|$ is the size of the alphabet, that is, $|\Sigma| = 26$.
+
 <!-- tabs:start -->
 
 ### **Python3**
