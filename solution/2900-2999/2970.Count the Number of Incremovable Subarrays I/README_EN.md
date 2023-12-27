@@ -50,30 +50,162 @@ It can be shown that there are only 7 incremovable subarrays in nums.
 
 ## Solutions
 
+**Solution 1: Two Pointers**
+
+According to the problem description, after removing a subarray, the remaining elements are strictly increasing. Therefore, there are several situations:
+
+1. The remaining elements only include the prefix of the array $nums$ (which can be empty);
+2. The remaining elements only include the suffix of the array $nums$;
+3. The remaining elements include both the prefix and the suffix of the array $nums$.
+
+The second and third situations can be combined into one, that is, the remaining elements include the suffix of the array $nums$. So there are two situations in total:
+
+1. The remaining elements only include the prefix of the array $nums$ (which can be empty);
+2. The remaining elements include the suffix of the array $nums$.
+
+First, consider the first situation, that is, the remaining elements only include the prefix of the array $nums$. We can use a pointer $i$ to point to the last element of the longest increasing prefix of the array $nums$, that is, $nums[0] \lt nums[1] \lt \cdots \lt nums[i]$, then the number of remaining elements is $n - i - 1$, where $n$ is the length of the array $nums$. Therefore, for this situation, to make the remaining elements strictly increasing, we can choose to remove the following subarrays:
+
+1. $nums[i+1,...,n-1]$;
+2. $nums[i,...,n-1]$;
+3. $nums[i-1,...,n-1]$;
+4. $nums[i-2,...,n-1]$;
+5. $\cdots$;
+6. $nums[0,...,n-1]$.
+
+There are $i + 2$ situations in total, so for this situation, the number of removed increasing subarrays is $i + 2$.
+
+Next, consider the second situation, that is, the remaining elements include the suffix of the array $nums$. We can use a pointer $j$ to point to the first element of the increasing suffix of the array $nums$. We enumerate $j$ as the first element of the increasing suffix in the range $[n - 1,...,1]$. Each time, we need to move the pointer $i$ to make $nums[i] \lt nums[j]$, then the number of removed increasing subarrays increases by $i + 2$. When $nums[j - 1] \ge nums[j]$, we stop enumerating because the suffix is not strictly increasing at this time.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def incremovableSubarrayCount(self, nums: List[int]) -> int:
+        i, n = 0, len(nums)
+        while i + 1 < n and nums[i] < nums[i + 1]:
+            i += 1
+        if i == n - 1:
+            return n * (n + 1) // 2
+        ans = i + 2
+        j = n - 1
+        while j:
+            while i >= 0 and nums[i] >= nums[j]:
+                i -= 1
+            ans += i + 2
+            if nums[j - 1] >= nums[j]:
+                break
+            j -= 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int incremovableSubarrayCount(int[] nums) {
+        int i = 0, n = nums.length;
+        while (i + 1 < n && nums[i] < nums[i + 1]) {
+            ++i;
+        }
+        if (i == n - 1) {
+            return n * (n + 1) / 2;
+        }
+        int ans = i + 2;
+        for (int j = n - 1; j > 0; --j) {
+            while (i >= 0 && nums[i] >= nums[j]) {
+                --i;
+            }
+            ans += i + 2;
+            if (nums[j - 1] >= nums[j]) {
+                break;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int incremovableSubarrayCount(vector<int>& nums) {
+        int i = 0, n = nums.size();
+        while (i + 1 < n && nums[i] < nums[i + 1]) {
+            ++i;
+        }
+        if (i == n - 1) {
+            return n * (n + 1) / 2;
+        }
+        int ans = i + 2;
+        for (int j = n - 1; j > 0; --j) {
+            while (i >= 0 && nums[i] >= nums[j]) {
+                --i;
+            }
+            ans += i + 2;
+            if (nums[j - 1] >= nums[j]) {
+                break;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func incremovableSubarrayCount(nums []int) int {
+	i, n := 0, len(nums)
+	for i+1 < n && nums[i] < nums[i+1] {
+		i++
+	}
+	if i == n-1 {
+		return n * (n + 1) / 2
+	}
+	ans := i + 2
+	for j := n - 1; j > 0; j-- {
+		for i >= 0 && nums[i] >= nums[j] {
+			i--
+		}
+		ans += i + 2
+		if nums[j-1] >= nums[j] {
+			break
+		}
+	}
+	return ans
+}
+```
 
+### **TypeScript**
+
+```ts
+function incremovableSubarrayCount(nums: number[]): number {
+    const n = nums.length;
+    let i = 0;
+    while (i + 1 < n && nums[i] < nums[i + 1]) {
+        i++;
+    }
+    if (i === n - 1) {
+        return (n * (n + 1)) / 2;
+    }
+    let ans = i + 2;
+    for (let j = n - 1; j; --j) {
+        while (i >= 0 && nums[i] >= nums[j]) {
+            --i;
+        }
+        ans += i + 2;
+        if (nums[j - 1] >= nums[j]) {
+            break;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
