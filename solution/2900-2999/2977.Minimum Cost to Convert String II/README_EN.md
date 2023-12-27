@@ -70,6 +70,35 @@ If you select substring source[3..7] as the first operation to change &quot;abcd
 
 ## Solutions
 
+**Solution 1: Trie + Floyd Algorithm + Memoization Search**
+
+According to the problem description, we can consider each string as a node, and the conversion cost between each pair of strings as a directed edge. We first initialize a $26 \times 26$ two-dimensional array $g$, where $g[i][j]$ represents the minimum cost of converting string $i$ to string $j$. Initially, $g[i][j] = \infty$, and if $i = j$, then $g[i][j] = 0$. Here, we can use a trie to store the strings in `original` and `changed` along with their corresponding integer identifiers.
+
+Next, we use the Floyd algorithm to calculate the minimum cost between any two strings.
+
+Then, we define a function $dfs(i)$ to represent the minimum cost of converting the string $source[i..]$ to the string $target[i..]$. The answer is $dfs(0)$.
+
+The calculation process of the function $dfs(i)$ is as follows:
+
+-   If $i \geq |source|$, no conversion is needed, return $0$.
+-   Otherwise, if $source[i] = target[i]$, we can skip directly and recursively calculate $dfs(i + 1)$. We can also enumerate the index $j$ in the range $[i, |source|)$, if $source[i..j]$ and $target[i..j]$ are both in the trie, and their corresponding integer identifiers $x$ and $y$ are both greater than or equal to $0$, then we can add $dfs(j + 1)$ and $g[x][y]$ to get the cost of one conversion scheme, and we take the minimum value among all schemes.
+
+In summary, we can get:
+
+$$
+dfs(i) = \begin{cases}
+0, & i \geq |source| \\
+dfs(i + 1), & source[i] = target[i] \\
+\min_{i \leq j < |source|} \{ dfs(j + 1) + g[x][y] \}, & \text{otherwise}
+\end{cases}
+$$
+
+Where $x$ and $y$ are the integer identifiers of $source[i..j]$ and $target[i..j]$ in the trie, respectively.
+
+To avoid repeated calculations, we can use memoization search.
+
+The time complexity is $O(m^3 + n^2 + m \times n)$, and the space complexity is $O(m^2 + m \times n + n)$. Where $m$ and $n$ are the lengths of the arrays `original` and `source`, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**
