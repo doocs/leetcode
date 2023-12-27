@@ -192,7 +192,8 @@ class Solution {
     private char[] t;
     private Long[] f;
 
-    public long minimumCost(String source, String target, String[] original, String[] changed, int[] cost) {
+    public long minimumCost(
+        String source, String target, String[] original, String[] changed, int[] cost) {
         int m = cost.length;
         g = new long[m << 1][m << 1];
         s = source.toCharArray();
