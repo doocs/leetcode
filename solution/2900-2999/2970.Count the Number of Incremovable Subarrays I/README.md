@@ -56,6 +56,34 @@ nums 中只有这 7 个移除递增子数组。
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：双指针**
+
+根据题目描述，移除一个子数组后，剩余元素严格递增，那么存在以下几种情况：
+
+1. 剩余元素仅包含数组 $nums$ 的前缀（可以为空）；
+1. 剩余元素仅包含数组 $nums$ 的后缀；
+1. 剩余元素包含数组 $nums$ 的前缀和后缀。
+
+其中第 $2$ 和第 $3$ 种情况可以合并为一种情况，即剩余元素包含数组 $nums$ 的后缀。即一共有以下两种情况：
+
+1. 剩余元素仅包含数组 $nums$ 的前缀（可以为空）；
+1. 剩余元素包含数组 $nums$ 的后缀。
+
+我们先考虑第一种情况，即剩余元素仅包含数组 $nums$ 的前缀。我们可以用一个指针 $i$ 指向数组 $nums$ 的最长递增前缀的最后一个元素，即 $nums[0] \lt nums[1] \lt \cdots \lt nums[i]$，那么剩余元素的个数为 $n - i - 1$，其中 $n$ 为数组 $nums$ 的长度。因此，对于这种情况，要使得剩余元素严格递增，我们可以选择移除以下子数组：
+
+1. $nums[i+1,...,n-1]$；
+1. $nums[i,...,n-1]$；
+1. $nums[i-1,...,n-1]$；
+1. $nums[i-2,...,n-1]$；
+1. $\cdots$；
+1. $nums[0,...,n-1]$。
+
+这一共有 $i + 2$ 种情况，因此对于这种情况，移除递增子数组的数目为 $i + 2$。
+
+再考虑第二种情况，即剩余元素包含数组 $nums$ 的后缀。我们可以用一个指针 $j$ 指向数组 $nums$ 的递增后缀的第一个元素，我们在 $[n - 1,...,1]$ 的范围内枚举 $j$ 作为递增后缀的第一个元素，每一次，我们需要移动指针 $i$ 使得 $nums[i] \lt nums[j]$，那么移除递增子数组的数组增加 $i + 2$。当 $nums[j - 1] \ge nums[j]$ 时，我们停止枚举，因为此时后缀不是严格递增。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,7 +91,23 @@ nums 中只有这 7 个移除递增子数组。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def incremovableSubarrayCount(self, nums: List[int]) -> int:
+        i, n = 0, len(nums)
+        while i + 1 < n and nums[i] < nums[i + 1]:
+            i += 1
+        if i == n - 1:
+            return n * (n + 1) // 2
+        ans = i + 2
+        j = n - 1
+        while j:
+            while i >= 0 and nums[i] >= nums[j]:
+                i -= 1
+            ans += i + 2
+            if nums[j - 1] >= nums[j]:
+                break
+            j -= 1
+        return ans
 ```
 
 ### **Java**
@@ -71,19 +115,107 @@ nums 中只有这 7 个移除递增子数组。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int incremovableSubarrayCount(int[] nums) {
+        int i = 0, n = nums.length;
+        while (i + 1 < n && nums[i] < nums[i + 1]) {
+            ++i;
+        }
+        if (i == n - 1) {
+            return n * (n + 1) / 2;
+        }
+        int ans = i + 2;
+        for (int j = n - 1; j > 0; --j) {
+            while (i >= 0 && nums[i] >= nums[j]) {
+                --i;
+            }
+            ans += i + 2;
+            if (nums[j - 1] >= nums[j]) {
+                break;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int incremovableSubarrayCount(vector<int>& nums) {
+        int i = 0, n = nums.size();
+        while (i + 1 < n && nums[i] < nums[i + 1]) {
+            ++i;
+        }
+        if (i == n - 1) {
+            return n * (n + 1) / 2;
+        }
+        int ans = i + 2;
+        for (int j = n - 1; j > 0; --j) {
+            while (i >= 0 && nums[i] >= nums[j]) {
+                --i;
+            }
+            ans += i + 2;
+            if (nums[j - 1] >= nums[j]) {
+                break;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func incremovableSubarrayCount(nums []int) int {
+	i, n := 0, len(nums)
+	for i+1 < n && nums[i] < nums[i+1] {
+		i++
+	}
+	if i == n-1 {
+		return n * (n + 1) / 2
+	}
+	ans := i + 2
+	for j := n - 1; j > 0; j-- {
+		for i >= 0 && nums[i] >= nums[j] {
+			i--
+		}
+		ans += i + 2
+		if nums[j-1] >= nums[j] {
+			break
+		}
+	}
+	return ans
+}
+```
 
+### **TypeScript**
+
+```ts
+function incremovableSubarrayCount(nums: number[]): number {
+    const n = nums.length;
+    let i = 0;
+    while (i + 1 < n && nums[i] < nums[i + 1]) {
+        i++;
+    }
+    if (i === n - 1) {
+        return (n * (n + 1)) / 2;
+    }
+    let ans = i + 2;
+    for (let j = n - 1; j; --j) {
+        while (i >= 0 && nums[i] >= nums[j]) {
+            --i;
+        }
+        ans += i + 2;
+        if (nums[j - 1] >= nums[j]) {
+            break;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**

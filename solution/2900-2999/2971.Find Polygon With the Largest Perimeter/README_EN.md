@@ -56,25 +56,100 @@ It can be shown that the largest possible perimeter is 12.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def largestPerimeter(self, nums: List[int]) -> int:
+        nums.sort()
+        s = list(accumulate(nums, initial=0))
+        ans = -1
+        for k in range(3, len(nums) + 1):
+            if s[k - 1] > nums[k - 1]:
+                ans = max(ans, s[k])
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public long largestPerimeter(int[] nums) {
+        Arrays.sort(nums);
+        int n = nums.length;
+        long[] s = new long[n + 1];
+        for (int i = 1; i <= n; ++i) {
+            s[i] = s[i - 1] + nums[i - 1];
+        }
+        long ans = -1;
+        for (int k = 3; k <= n; ++k) {
+            if (s[k - 1] > nums[k - 1]) {
+                ans = Math.max(ans, s[k]);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    long long largestPerimeter(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int n = nums.size();
+        vector<long long> s(n + 1);
+        for (int i = 1; i <= n; ++i) {
+            s[i] = s[i - 1] + nums[i - 1];
+        }
+        long long ans = -1;
+        for (int k = 3; k <= n; ++k) {
+            if (s[k - 1] > nums[k - 1]) {
+                ans = max(ans, s[k]);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func largestPerimeter(nums []int) int64 {
+	sort.Ints(nums)
+	n := len(nums)
+	s := make([]int, n+1)
+	for i, x := range nums {
+		s[i+1] = s[i] + x
+	}
+	ans := -1
+	for k := 3; k <= n; k++ {
+		if s[k-1] > nums[k-1] {
+			ans = max(ans, s[k])
+		}
+	}
+	return int64(ans)
+}
+```
 
+### **TypeScript**
+
+```ts
+function largestPerimeter(nums: number[]): number {
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    const s: number[] = Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        s[i + 1] = s[i] + nums[i];
+    }
+    let ans = -1;
+    for (let k = 3; k <= n; ++k) {
+        if (s[k - 1] > nums[k - 1]) {
+            ans = Math.max(ans, s[k]);
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
