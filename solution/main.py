@@ -29,7 +29,6 @@ class Spider:
     def __init__(self, cookie1: str, cookie2: str):
         self.cookie_cn = cookie1
         self.cookie_en = cookie2
-        self.session = requests.session()
 
     def get_all_questions(self, retry: int = 3) -> List:
         """获取所有题目"""
@@ -41,7 +40,7 @@ class Spider:
             "cookie": self.cookie_en,
         }
         try:
-            resp = self.session.get(
+            resp = requests.get(
                 url="https://leetcode.com/api/problems/all/",
                 headers=headers,
                 allow_redirects=False,
@@ -53,6 +52,35 @@ class Spider:
             print('get_all_questions', e)
             time.sleep(2)
             return self.get_all_questions(retry - 1) if retry > 0 else []
+
+    def get_all_questions_v2(self, retry: int = 3, limit: int = 10000) -> List:
+        headers = {
+            "Cookie": self.cookie_en,
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0",
+            "Content-Type": "application/json",
+        }
+        form = {
+            "query": "\n    query problemsetQuestionList($categorySlug: String, $limit: Int, $skip: Int, $filters: QuestionListFilterInput) {\n  problemsetQuestionList: questionList(\n    categorySlug: $categorySlug\n    limit: $limit\n    skip: $skip\n    filters: $filters\n  ) {\n    total: totalNum\n    questions: data {\n      acRate\n      difficulty\n      freqBar\n      frontendQuestionId: questionFrontendId\n      isFavor\n      paidOnly: isPaidOnly\n      status\n      title\n      titleSlug\n      topicTags {\n        name\n        id\n        slug\n      }\n      hasSolution\n      hasVideoSolution\n    }\n  }\n}\n    ",
+            "variables": {
+                "categorySlug": "all-code-essentials",
+                "skip": 0,
+                "limit": limit,
+                "filters": {"orderBy": "FRONTEND_ID", "sortOrder": "DESCENDING"},
+            },
+            "operationName": "problemsetQuestionList",
+        }
+        try:
+            resp = requests.post(
+                "https://leetcode.com/graphql",
+                headers=headers,
+                data=json.dumps(form),
+                timeout=20,
+            )
+            return resp.json()["data"]["problemsetQuestionList"]["questions"]
+        except Exception as e:
+            print("get_all_questions_v2", e)
+            time.sleep(2)
+            return self.get_all_questions_v2(retry - 1, limit) if retry > 0 else []
 
     def get_question_detail_en(self, question_title_slug: str, retry: int = 3) -> dict:
         headers = {
@@ -80,9 +108,7 @@ class Spider:
         }
         for _ in range(max(0, retry) + 1):
             try:
-                self.session.get(
-                    question_url, headers=headers, timeout=10, verify=False
-                )
+                requests.get(question_url, headers=headers, timeout=10, verify=False)
                 headers = {
                     "User-Agent": user_agent,
                     "Connection": "keep-alive",
@@ -90,7 +116,7 @@ class Spider:
                     "Referer": "https://leetcode.com/problems/" + slug,
                     "cookie": self.cookie_en,
                 }
-                resp = self.session.post(
+                resp = requests.post(
                     en_graph_url,
                     headers=headers,
                     data=json.dumps(form),
@@ -154,7 +180,7 @@ class Spider:
         }
         for _ in range(max(0, retry) + 1):
             try:
-                self.session.post(
+                requests.post(
                     url=cn_graph_url,
                     data=json.dumps(form1),
                     headers=headers,
@@ -162,7 +188,7 @@ class Spider:
                     verify=False,
                 )
                 # get question detail
-                resp = self.session.post(
+                resp = requests.post(
                     url=cn_graph_url,
                     data=json.dumps(form2).encode("utf-8"),
                     headers=headers,
@@ -362,9 +388,13 @@ def run():
             if slug:
                 question_details[slug] = item
 
-    for q in spider.get_all_questions(retry=6):
-        slug = q["stat"]["question__title_slug"]
-        qid = q["stat"]["frontend_question_id"]
+    for q in spider.get_all_questions_v2(retry=6):
+        try:
+            slug = q["stat"]["question__title_slug"]
+            qid = q["stat"]["frontend_question_id"]
+        except:
+            slug = q['titleSlug']
+            qid = int(q['frontendQuestionId'])
         if slug in question_details and qid < 2960:
             continue
         detail = spider.get_question_detail(
