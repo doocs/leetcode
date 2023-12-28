@@ -55,6 +55,12 @@
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
+**方法二：排序 + 交换**
+
+我们可以将数组 $nums$ 排序，然后依次将相邻的两个元素交换位置，即可得到答案数组。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $nums$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -71,6 +77,15 @@ class Solution:
             ans.append(b)
             ans.append(a)
         return ans
+```
+
+```python
+class Solution:
+    def numberGame(self, nums: List[int]) -> List[int]:
+        nums.sort()
+        for i in range(0, len(nums), 2):
+            nums[i], nums[i + 1] = nums[i + 1], nums[i]
+        return nums
 ```
 
 ### **Java**
@@ -96,6 +111,20 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int[] numberGame(int[] nums) {
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length; i += 2) {
+            int t = nums[i];
+            nums[i] = nums[i + 1];
+            nums[i + 1] = t;
+        }
+        return nums;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -116,6 +145,20 @@ public:
             ans.push_back(a);
         }
         return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> numberGame(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int n = nums.size();
+        for (int i = 0; i < n; i += 2) {
+            swap(nums[i], nums[i + 1]);
+        }
+        return nums;
     }
 };
 ```
@@ -150,6 +193,16 @@ func (h *hp) Push(x interface{}) {
 }
 ```
 
+```go
+func numberGame(nums []int) []int {
+	sort.Ints(nums)
+	for i := 0; i < len(nums); i += 2 {
+		nums[i], nums[i+1] = nums[i+1], nums[i]
+	}
+	return nums
+}
+```
+
 ### **TypeScript**
 
 ```ts
@@ -165,6 +218,57 @@ function numberGame(nums: number[]): number[] {
         ans.push(b, a);
     }
     return ans;
+}
+```
+
+```ts
+function numberGame(nums: number[]): number[] {
+    nums.sort((a, b) => a - b);
+    for (let i = 0; i < nums.length; i += 2) {
+        [nums[i], nums[i + 1]] = [nums[i + 1], nums[i]];
+    }
+    return nums;
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::BinaryHeap;
+use std::cmp::Reverse;
+
+impl Solution {
+    pub fn number_game(nums: Vec<i32>) -> Vec<i32> {
+        let mut pq = BinaryHeap::new();
+
+        for &x in &nums {
+            pq.push(Reverse(x));
+        }
+
+        let mut ans = Vec::new();
+
+        while let Some(Reverse(a)) = pq.pop() {
+            if let Some(Reverse(b)) = pq.pop() {
+                ans.push(b);
+                ans.push(a);
+            }
+        }
+
+        ans
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn number_game(nums: Vec<i32>) -> Vec<i32> {
+        let mut nums = nums;
+        nums.sort_unstable();
+        for i in (0..nums.len()).step_by(2) {
+            nums.swap(i, i + 1);
+        }
+        nums
+    }
 }
 ```
 
