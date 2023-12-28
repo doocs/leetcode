@@ -1,4 +1,4 @@
-# [2964. Number of Divisible Triplet Sums](https://leetcode.cn/problems/number-of-divisible-triplet-sums)
+# [2964. 可被整除的三元组数量](https://leetcode.cn/problems/number-of-divisible-triplet-sums)
 
 [English Version](/solution/2900-2999/2964.Number%20of%20Divisible%20Triplet%20Sums/README_EN.md)
 
@@ -6,36 +6,37 @@
 
 <!-- 这里写题目描述 -->
 
-Given a <strong>0-indexed</strong> integer array <code>nums</code> and an integer <code>d</code>, return <em>the number of triplets</em> <code>(i, j, k)</code> <em>such that</em> <code>i &lt; j &lt; k</code> <em>and</em> <code>(nums[i] + nums[j] + nums[k]) % d == 0</code>.
+给定一个 <b>下标从 0 开始</b>&nbsp;的整数数组&nbsp;<code>nums</code>&nbsp;和一个整数&nbsp;<code>d</code>，请返回满足 <code>i &lt; j &lt; k</code> 且 <code>(nums[i] + nums[j] + nums[k]) % d == 0</code> 的三元组 <code>(i, j, k)</code> 的数量。
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><b>示例 1:</b></p>
 
 <pre>
-<strong>Input:</strong> nums = [3,3,4,7,8], d = 5
-<strong>Output:</strong> 3
-<strong>Explanation:</strong> The triplets which are divisible by 5 are: (0, 1, 2), (0, 2, 4), (1, 2, 4).
-It can be shown that no other triplet is divisible by 5. Hence, the answer is 3.
+<strong>输入：</strong>nums = [3,3,4,7,8], d = 5
+<strong>输出：</strong>3
+<strong>解释：</strong>可以被5整除的三元组有：(0, 1, 2),(0, 2, 4),(1, 2, 4)。其他没有其他能被5整除的三元组。因此，答案是3。
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><b>示例 2：</b></p>
 
 <pre>
-<strong>Input:</strong> nums = [3,3,3,3], d = 3
-<strong>Output:</strong> 4
-<strong>Explanation:</strong> Any triplet chosen here has a sum of 9, which is divisible by 3. Hence, the answer is the total number of triplets which is 4.
+<strong>输入：</strong>nums = [3,3,3,3], d = 3
+<strong>输出：</strong>4
+<strong>解释：</strong>这里选择的任何三元组的和都是9，可以被3整除。因此，答案是所有三元组的总数，即4。
 </pre>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><b>示例 3:</b></p>
 
 <pre>
-<strong>Input:</strong> nums = [3,3,3,3], d = 6
-<strong>Output:</strong> 0
-<strong>Explanation:</strong> Any triplet chosen here has a sum of 9, which is not divisible by 6. Hence, the answer is 0.
+<strong>输入：</strong>nums = [3,3,3,3], d = 6
+<strong>输出：</strong>0
+<strong>解释：</strong>这里选择的任何三元组的和都是9，不能被6整除。因此，答案是0。
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><b>提示：</b></p>
 
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 1000</code></li>

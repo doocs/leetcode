@@ -1,4 +1,4 @@
-# [2429. 最小 XOR](https://leetcode.cn/problems/minimize-xor)
+# [2429. 最小异或](https://leetcode.cn/problems/minimize-xor)
 
 [English Version](/solution/2400-2499/2429.Minimize%20XOR/README_EN.md)
 
@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你两个正整数 <code>num1</code> 和 <code>num2</code> ，找出满足下述条件的整数 <code>x</code> ：</p>
+<p>给你两个正整数 <code>num1</code> 和 <code>num2</code> ，找出满足下述条件的正整数 <code>x</code> ：</p>
 
 <ul>
 	<li><code>x</code> 的置位数和 <code>num2</code> 相同，且</li>
@@ -23,7 +23,8 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>num1 = 3, num2 = 5
+<pre>
+<strong>输入：</strong>num1 = 3, num2 = 5
 <strong>输出：</strong>3
 <strong>解释：</strong>
 num1 和 num2 的二进制表示分别是 0011 和 0101 。
@@ -32,7 +33,8 @@ num1 和 num2 的二进制表示分别是 0011 和 0101 。
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>num1 = 1, num2 = 12
+<pre>
+<strong>输入：</strong>num1 = 1, num2 = 12
 <strong>输出：</strong>3
 <strong>解释：</strong>
 num1 和 num2 的二进制表示分别是 0001 和 1100 。

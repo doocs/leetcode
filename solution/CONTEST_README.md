@@ -274,7 +274,7 @@
 - [2780. 合法分割的最小下标](/solution/2700-2799/2780.Minimum%20Index%20of%20a%20Valid%20Split/README.md)
 - [2781. 最长合法子字符串的长度](/solution/2700-2799/2781.Length%20of%20the%20Longest%20Valid%20Substring/README.md)
 
-#### 第 353 场周赛(2023-07-09 10:30, 90 分钟) 参赛人数 4112
+#### 第 353 场周赛(2023-07-09 10:30, 90 分钟) 参赛人数 4113
 
 - [2769. 找出最大的可达成数字](/solution/2700-2799/2769.Find%20the%20Maximum%20Achievable%20Number/README.md)
 - [2770. 达到末尾下标所需的最大跳跃次数](/solution/2700-2799/2770.Maximum%20Number%20of%20Jumps%20to%20Reach%20the%20Last%20Index/README.md)
@@ -551,15 +551,15 @@
 
 - [2529. 正整数和负整数的最大计数](/solution/2500-2599/2529.Maximum%20Count%20of%20Positive%20Integer%20and%20Negative%20Integer/README.md)
 - [2530. 执行 K 次操作后的最大分数](/solution/2500-2599/2530.Maximal%20Score%20After%20Applying%20K%20Operations/README.md)
-- [2531. 使字符串总不同字符的数目相等](/solution/2500-2599/2531.Make%20Number%20of%20Distinct%20Characters%20Equal/README.md)
+- [2531. 使字符串中不同字符的数目相等](/solution/2500-2599/2531.Make%20Number%20of%20Distinct%20Characters%20Equal/README.md)
 - [2532. 过桥的时间](/solution/2500-2599/2532.Time%20to%20Cross%20a%20Bridge/README.md)
 
 #### 第 95 场双周赛(2023-01-07 22:30, 90 分钟) 参赛人数 2880
 
 - [2525. 根据规则将箱子分类](/solution/2500-2599/2525.Categorize%20Box%20According%20to%20Criteria/README.md)
 - [2526. 找到数据流中的连续整数](/solution/2500-2599/2526.Find%20Consecutive%20Integers%20from%20a%20Data%20Stream/README.md)
-- [2527. 查询数组 Xor 美丽值](/solution/2500-2599/2527.Find%20Xor-Beauty%20of%20Array/README.md)
-- [2528. 最大化城市的最小供电站数目](/solution/2500-2599/2528.Maximize%20the%20Minimum%20Powered%20City/README.md)
+- [2527. 查询数组异或美丽值](/solution/2500-2599/2527.Find%20Xor-Beauty%20of%20Array/README.md)
+- [2528. 最大化城市的最小电量](/solution/2500-2599/2528.Maximize%20the%20Minimum%20Powered%20City/README.md)
 
 #### 第 326 场周赛(2023-01-01 10:30, 90 分钟) 参赛人数 3873
 
@@ -698,7 +698,7 @@
 
 - [2427. 公因子的数目](/solution/2400-2499/2427.Number%20of%20Common%20Factors/README.md)
 - [2428. 沙漏的最大总和](/solution/2400-2499/2428.Maximum%20Sum%20of%20an%20Hourglass/README.md)
-- [2429. 最小 XOR](/solution/2400-2499/2429.Minimize%20XOR/README.md)
+- [2429. 最小异或](/solution/2400-2499/2429.Minimize%20XOR/README.md)
 - [2430. 对字母串可执行的最大删除数](/solution/2400-2499/2430.Maximum%20Deletions%20on%20a%20String/README.md)
 
 #### 第 88 场双周赛(2022-10-01 22:30, 90 分钟) 参赛人数 3905
@@ -1145,7 +1145,7 @@
 #### 第 67 场双周赛(2021-12-11 22:30, 90 分钟) 参赛人数 2923
 
 - [2099. 找到和最大的长度为 K 的子序列](/solution/2000-2099/2099.Find%20Subsequence%20of%20Length%20K%20With%20the%20Largest%20Sum/README.md)
-- [2100. 适合打劫银行的日子](/solution/2100-2199/2100.Find%20Good%20Days%20to%20Rob%20the%20Bank/README.md)
+- [2100. 适合野炊的日子](/solution/2100-2199/2100.Find%20Good%20Days%20to%20Rob%20the%20Bank/README.md)
 - [2101. 引爆最多的炸弹](/solution/2100-2199/2101.Detonate%20the%20Maximum%20Bombs/README.md)
 - [2102. 序列顺序查询](/solution/2100-2199/2102.Sequentially%20Ordinal%20Rank%20Tracker/README.md)
 
@@ -2344,7 +2344,7 @@
 - [1213. 三个有序数组的交集](/solution/1200-1299/1213.Intersection%20of%20Three%20Sorted%20Arrays/README.md)
 - [1214. 查找两棵二叉搜索树之和](/solution/1200-1299/1214.Two%20Sum%20BSTs/README.md)
 - [1215. 步进数](/solution/1200-1299/1215.Stepping%20Numbers/README.md)
-- [1216. 验证回文字符串 III](/solution/1200-1299/1216.Valid%20Palindrome%20III/README.md)
+- [1216. 验证回文串 III](/solution/1200-1299/1216.Valid%20Palindrome%20III/README.md)
 
 #### 第 156 场周赛(2019-09-29 10:30, 90 分钟) 参赛人数 1433
 

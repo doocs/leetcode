@@ -134,7 +134,7 @@
     -   [1623.三人国家代表队](/database-solution/1600-1699/1623.All%20Valid%20Triplets%20That%20Can%20Represent%20a%20Country/README.md)
     -   [1633.各赛事的用户注册率](/database-solution/1600-1699/1633.Percentage%20of%20Users%20Attended%20a%20Contest/README.md)
     -   [1635.Hopper 公司查询 I](/database-solution/1600-1699/1635.Hopper%20Company%20Queries%20I/README.md)
-    -   [1645.1645.Hopper 公司查询 II](/database-solution/1600-1699/1645.Hopper%20Company%20Queries%20II/README.md)
+    -   [1645.Hopper 公司查询 II](/database-solution/1600-1699/1645.Hopper%20Company%20Queries%20II/README.md)
     -   [1651.Hopper 公司查询 III](/database-solution/1600-1699/1651.Hopper%20Company%20Queries%20III/README.md)
     -   [1661.每台机器的进程平均运行时间](/database-solution/1600-1699/1661.Average%20Time%20of%20Process%20per%20Machine/README.md)
     -   [1667.修复表中的名字](/database-solution/1600-1699/1667.Fix%20Names%20in%20a%20Table/README.md)

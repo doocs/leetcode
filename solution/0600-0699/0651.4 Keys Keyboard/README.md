@@ -1,4 +1,4 @@
-# [651. 4 键键盘](https://leetcode.cn/problems/4-keys-keyboard)
+# [651. 四个键的键盘](https://leetcode.cn/problems/4-keys-keyboard)
 
 [English Version](/solution/0600-0699/0651.4%20Keys%20Keyboard/README_EN.md)
 

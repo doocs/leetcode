@@ -31,8 +31,8 @@
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>输入：</strong>s = "aaabbcc", words = ["aaa","aab","bc"]
-<strong>输出：</strong>"&lt;b&gt;aaabbc&lt;/b&gt;c"
+<strong>输入：</strong>s = "aaabbb", words = ["aa","b"]
+<strong>输出：</strong>"&lt;b&gt;aaabbb&lt;/b&gt;"
 <strong>解释：</strong>
 "aa"作为子字符串出现了两次: "<u>aa</u>abbb" 和 "a<u>aa</u>bbb"。
 "b"作为子字符串出现了三次: "aaa<u>b</u>bb"、"aaab<u>b</u>b" 和 "aaabb<u>b</u>"。

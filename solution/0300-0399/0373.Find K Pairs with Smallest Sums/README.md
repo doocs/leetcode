@@ -47,8 +47,9 @@
 <ul>
 	<li><code>1 &lt;= nums1.length, nums2.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>-10<sup>9</sup> &lt;= nums1[i], nums2[i] &lt;= 10<sup>9</sup></code></li>
-	<li><code>nums1</code> 和 <code>nums2</code> 均为升序排列</li>
-	<li><code>1 &lt;= k &lt;= 10<sup>4</sup></code></li>
+	<li><code>nums1</code> 和 <code>nums2</code> 均为 <strong>升序排列</strong></li>
+	<li><meta charset="UTF-8" /><code>1 &lt;= k &lt;= 10<sup>4</sup></code></li>
+	<li><code>k &lt;=&nbsp;nums1.length *&nbsp;nums2.length</code></li>
 </ul>
 
 ## 解法

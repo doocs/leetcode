@@ -1,4 +1,4 @@
-# [491. 递增子序列](https://leetcode.cn/problems/non-decreasing-subsequences)
+# [491. 非递减子序列](https://leetcode.cn/problems/non-decreasing-subsequences)
 
 [English Version](/solution/0400-0499/0491.Non-decreasing%20Subsequences/README_EN.md)
 

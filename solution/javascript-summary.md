@@ -42,7 +42,7 @@
     -   [2715.执行可取消的延迟函数](/javascript-solution/2700-2799/2715.Timeout%20Cancellation/README.md)
     -   [2721.并行执行异步函数](/javascript-solution/2700-2799/2721.Execute%20Asynchronous%20Functions%20in%20Parallel/README.md)
     -   [2722.根据 ID 合并两个数组](/javascript-solution/2700-2799/2722.Join%20Two%20Arrays%20by%20ID/README.md)
-    -   [2723.添加两个 Promise 对象](/javascript-solution/2700-2799/2723.Add%20Two%20Promises/README.md)
+    -   [2723.两个 Promise 对象相加](/javascript-solution/2700-2799/2723.Add%20Two%20Promises/README.md)
     -   [2724.排序方式](/javascript-solution/2700-2799/2724.Sort%20By/README.md)
     -   [2725.间隔取消](/javascript-solution/2700-2799/2725.Interval%20Cancellation/README.md)
     -   [2726.使用方法链的计算器](/javascript-solution/2700-2799/2726.Calculator%20with%20Method%20Chaining/README.md)

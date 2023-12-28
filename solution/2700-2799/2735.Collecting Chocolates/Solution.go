@@ -5,7 +5,7 @@ func minCost(nums []int, x int) int64 {
 		f[i] = make([]int, n)
 		f[i][0] = v
 		for j := 1; j < n; j++ {
-			f[i][j] = min(f[i][j-1], nums[(i+j)%n])
+			f[i][j] = min(f[i][j-1], nums[(i-j+n)%n])
 		}
 	}
 	ans := 1 << 60

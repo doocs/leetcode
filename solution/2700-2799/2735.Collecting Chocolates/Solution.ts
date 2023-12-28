@@ -4,7 +4,7 @@ function minCost(nums: number[], x: number): number {
     for (let i = 0; i < n; ++i) {
         f[i][0] = nums[i];
         for (let j = 1; j < n; ++j) {
-            f[i][j] = Math.min(f[i][j - 1], nums[(i + j) % n]);
+            f[i][j] = Math.min(f[i][j - 1], nums[(i - j + n) % n]);
         }
     }
     let ans = Infinity;

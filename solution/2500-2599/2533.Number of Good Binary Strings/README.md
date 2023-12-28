@@ -24,7 +24,7 @@
 	</li>
 </ul>
 
-<p>请返回好二进制字符串的个数。答案可能很大<strong>，</strong>请返回对 <code>10<sup>9</sup> + 7</code> 取余后的结果。</p>
+<p>请返回 <strong>好</strong> 二进制字符串的个数。答案可能很大<strong>，</strong>请返回对 <code>10<sup>9</sup> + 7</code> <strong>取余</strong> 后的结果。</p>
 
 <p><strong>注意：</strong><code>0</code> 可以被认为是所有数字的倍数。</p>
 

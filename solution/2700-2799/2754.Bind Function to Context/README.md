@@ -72,7 +72,7 @@ boundFunc(); // "My name is Kathy"
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>obj 是一个非空对象</code></li>
+	<li><code>obj</code> 是一个非空对象</li>
 	<li><code>0 &lt;= inputs.length &lt;= 100</code></li>
 </ul>
 

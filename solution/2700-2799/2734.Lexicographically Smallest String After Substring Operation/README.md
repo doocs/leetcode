@@ -154,6 +154,62 @@ func smallestString(s string) string {
 }
 ```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn smallest_string(s: String) -> String {
+        let mut cs: Vec<char> = s.chars().collect();
+        let n = cs.len();
+        let mut i = 0;
+
+        while i < n && cs[i] == 'a' {
+            i += 1;
+        }
+
+        if i == n {
+            cs[n - 1] = 'z';
+            return cs.into_iter().collect();
+        }
+
+        let mut j = i;
+        while j < n && cs[j] != 'a' {
+            cs[j] = ((cs[j] as u8) - 1) as char;
+            j += 1;
+        }
+
+        cs.into_iter().collect()
+    }
+}
+```
+
+### **TypeScript**
+
+```ts
+function smallestString(s: string): string {
+    const cs: string[] = s.split('');
+    const n: number = cs.length;
+    let i: number = 0;
+    while (i < n && cs[i] === 'a') {
+        i++;
+    }
+
+    if (i === n) {
+        cs[n - 1] = 'z';
+        return cs.join('');
+    }
+
+    let j: number = i;
+    while (j < n && cs[j] !== 'a') {
+        const c: number = cs[j].charCodeAt(0);
+        cs[j] = String.fromCharCode(c - 1);
+        j++;
+    }
+
+    return cs.join('');
+}
+```
+
 ### **...**
 
 ```
