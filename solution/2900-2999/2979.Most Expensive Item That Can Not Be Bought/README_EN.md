@@ -43,25 +43,56 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def mostExpensiveItem(self, primeOne: int, primeTwo: int) -> int:
+        return primeOne * primeTwo - primeOne - primeTwo
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int mostExpensiveItem(int primeOne, int primeTwo) {
+        return primeOne * primeTwo - primeOne - primeTwo;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int mostExpensiveItem(int primeOne, int primeTwo) {
+        return primeOne * primeTwo - primeOne - primeTwo;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func mostExpensiveItem(primeOne int, primeTwo int) int {
+	return primeOne*primeTwo - primeOne - primeTwo
+}
+```
 
+### **TypeScript**
+
+```ts
+function mostExpensiveItem(primeOne: number, primeTwo: number): number {
+    return primeOne * primeTwo - primeOne - primeTwo;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn most_expensive_item(prime_one: i32, prime_two: i32) -> i32 {
+        prime_one * prime_two - prime_one - prime_two
+    }
+}
 ```
 
 ### **...**
