@@ -36,7 +36,7 @@
 | 2665 | [计数器 II](/solution/2600-2699/2665.Counter%20II/README.md)                                                                                          |      | 简单 |      |
 | 2666 | [只允许一次函数调用](/solution/2600-2699/2666.Allow%20One%20Function%20Call/README.md)                                                                |      | 简单 |      |
 | 2667 | [创建 Hello World 函数](/solution/2600-2699/2667.Create%20Hello%20World%20Function/README.md)                                                         |      | 简单 |      |
-| 2675 | [将对象数组转换为矩阵](/solution/2600-2699/2675.Array%20of%20Objects%20to%20Matrix/README.md)                                                         |      | 困难 | 🔒   |
+| 2675 | [将对象数组转换为矩阵](/solution/2600-2699/2675.Array%20of%20Objects%20to%20Matrix/README.md)                                                         |      | 中等 | 🔒   |
 | 2676 | [节流](/solution/2600-2699/2676.Throttle/README.md)                                                                                                   |      | 中等 | 🔒   |
 | 2677 | [分块数组](/solution/2600-2699/2677.Chunk%20Array/README.md)                                                                                          |      | 简单 |      |
 | 2690 | [无穷方法对象](/solution/2600-2699/2690.Infinite%20Method%20Object/README.md)                                                                         |      | 简单 | 🔒   |
@@ -52,7 +52,7 @@
 | 2715 | [执行可取消的延迟函数](/solution/2700-2799/2715.Timeout%20Cancellation/README.md)                                                                     |      | 简单 |      |
 | 2721 | [并行执行异步函数](/solution/2700-2799/2721.Execute%20Asynchronous%20Functions%20in%20Parallel/README.md)                                             |      | 中等 |      |
 | 2722 | [根据 ID 合并两个数组](/solution/2700-2799/2722.Join%20Two%20Arrays%20by%20ID/README.md)                                                              |      | 中等 |      |
-| 2723 | [两个 Promise 对象相加](/solution/2700-2799/2723.Add%20Two%20Promises/README.md)                                                                      |      | 简单 |      |
+| 2723 | [添加两个 Promise 对象](/solution/2700-2799/2723.Add%20Two%20Promises/README.md)                                                                      |      | 简单 |      |
 | 2724 | [排序方式](/solution/2700-2799/2724.Sort%20By/README.md)                                                                                              |      | 简单 |      |
 | 2725 | [间隔取消](/solution/2700-2799/2725.Interval%20Cancellation/README.md)                                                                                |      | 简单 |      |
 | 2726 | [使用方法链的计算器](/solution/2700-2799/2726.Calculator%20with%20Method%20Chaining/README.md)                                                        |      | 简单 |      |
@@ -70,7 +70,7 @@
 | 2794 | [从两个数组中创建对象](/solution/2700-2799/2794.Create%20Object%20from%20Two%20Arrays/README.md)                                                      |      | 简单 | 🔒   |
 | 2795 | [并行执行 Promise 以获取独有的结果](/solution/2700-2799/2795.Parallel%20Execution%20of%20Promises%20for%20Individual%20Results%20Retrieval/README.md) |      | 中等 | 🔒   |
 | 2796 | [重复字符串](/solution/2700-2799/2796.Repeat%20String/README.md)                                                                                      |      | 简单 | 🔒   |
-| 2797 | [带有占位符的部分函数](/solution/2700-2799/2797.Partial%20Function%20with%20Placeholders/README.md)                                                   |      | 简单 | 🔒   |
+| 2797 | [带有占位符的部分函数](/solution/2700-2799/2797.Partial%20Function%20with%20Placeholders/README.md)                                                   |      | 中等 | 🔒   |
 | 2803 | [阶乘生成器](/solution/2800-2899/2803.Factorial%20Generator/README.md)                                                                                |      | 简单 | 🔒   |
 | 2804 | [数组原型的 forEach 方法](/solution/2800-2899/2804.Array%20Prototype%20ForEach/README.md)                                                             |      | 简单 | 🔒   |
 | 2805 | [自定义间隔](/solution/2800-2899/2805.Custom%20Interval/README.md)                                                                                    |      | 中等 | 🔒   |

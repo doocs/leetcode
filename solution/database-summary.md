@@ -134,7 +134,7 @@
     -   [1623.三人国家代表队](/database-solution/1600-1699/1623.All%20Valid%20Triplets%20That%20Can%20Represent%20a%20Country/README.md)
     -   [1633.各赛事的用户注册率](/database-solution/1600-1699/1633.Percentage%20of%20Users%20Attended%20a%20Contest/README.md)
     -   [1635.Hopper 公司查询 I](/database-solution/1600-1699/1635.Hopper%20Company%20Queries%20I/README.md)
-    -   [1645.Hopper 公司查询 II](/database-solution/1600-1699/1645.Hopper%20Company%20Queries%20II/README.md)
+    -   [1645.1645.Hopper 公司查询 II](/database-solution/1600-1699/1645.Hopper%20Company%20Queries%20II/README.md)
     -   [1651.Hopper 公司查询 III](/database-solution/1600-1699/1651.Hopper%20Company%20Queries%20III/README.md)
     -   [1661.每台机器的进程平均运行时间](/database-solution/1600-1699/1661.Average%20Time%20of%20Process%20per%20Machine/README.md)
     -   [1667.修复表中的名字](/database-solution/1600-1699/1667.Fix%20Names%20in%20a%20Table/README.md)
@@ -237,3 +237,4 @@
     -   [2854.滚动平均步数](/database-solution/2800-2899/2854.Rolling%20Average%20Steps/README.md)
     -   [2893.计算每个区间内的订单](/database-solution/2800-2899/2893.Calculate%20Orders%20Within%20Each%20Interval/README.md)
     -   [2922.市场分析 III](/database-solution/2900-2999/2922.Market%20Analysis%20III/README.md)
+    -   [2978.Symmetric Coordinates](/database-solution/2900-2999/2978.Symmetric%20Coordinates/README.md)

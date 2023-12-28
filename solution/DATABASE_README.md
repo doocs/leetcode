@@ -82,7 +82,7 @@
 | 1158 | [市场分析 I](/solution/1100-1199/1158.Market%20Analysis%20I/README.md)                                                                                       | `数据库` | 中等 |      |
 | 1159 | [市场分析 II](/solution/1100-1199/1159.Market%20Analysis%20II/README.md)                                                                                     | `数据库` | 困难 | 🔒   |
 | 1164 | [指定日期的产品价格](/solution/1100-1199/1164.Product%20Price%20at%20a%20Given%20Date/README.md)                                                             | `数据库` | 中等 |      |
-| 1173 | [即时食物配送 I](/solution/1100-1199/1173.Immediate%20Food%20Delivery%20I/README.md)                                                                         | `数据库` | 简单 | 🔒   |
+| 1173 | [即时食物配送 I](/solution/1100-1199/1173.Immediate%20Food%20Delivery%20I/README.md)                                                                         | `数据库` | 简单 |      |
 | 1174 | [即时食物配送 II](/solution/1100-1199/1174.Immediate%20Food%20Delivery%20II/README.md)                                                                       | `数据库` | 中等 |      |
 | 1179 | [重新格式化部门表](/solution/1100-1199/1179.Reformat%20Department%20Table/README.md)                                                                         | `数据库` | 简单 |      |
 | 1193 | [每月交易 I](/solution/1100-1199/1193.Monthly%20Transactions%20I/README.md)                                                                                  | `数据库` | 中等 |      |
@@ -144,7 +144,7 @@
 | 1623 | [三人国家代表队](/solution/1600-1699/1623.All%20Valid%20Triplets%20That%20Can%20Represent%20a%20Country/README.md)                                           | `数据库` | 简单 | 🔒   |
 | 1633 | [各赛事的用户注册率](/solution/1600-1699/1633.Percentage%20of%20Users%20Attended%20a%20Contest/README.md)                                                    | `数据库` | 简单 |      |
 | 1635 | [Hopper 公司查询 I](/solution/1600-1699/1635.Hopper%20Company%20Queries%20I/README.md)                                                                       | `数据库` | 困难 | 🔒   |
-| 1645 | [Hopper 公司查询 II](/solution/1600-1699/1645.Hopper%20Company%20Queries%20II/README.md)                                                                     | `数据库` | 困难 | 🔒   |
+| 1645 | [1645.Hopper 公司查询 II](/solution/1600-1699/1645.Hopper%20Company%20Queries%20II/README.md)                                                                | `数据库` | 困难 | 🔒   |
 | 1651 | [Hopper 公司查询 III](/solution/1600-1699/1651.Hopper%20Company%20Queries%20III/README.md)                                                                   | `数据库` | 困难 | 🔒   |
 | 1661 | [每台机器的进程平均运行时间](/solution/1600-1699/1661.Average%20Time%20of%20Process%20per%20Machine/README.md)                                               | `数据库` | 简单 |      |
 | 1667 | [修复表中的名字](/solution/1600-1699/1667.Fix%20Names%20in%20a%20Table/README.md)                                                                            | `数据库` | 简单 |      |
@@ -196,7 +196,7 @@
 | 2051 | [商店中每个成员的级别](/solution/2000-2099/2051.The%20Category%20of%20Each%20Member%20in%20the%20Store/README.md)                                            | `数据库` | 中等 | 🔒   |
 | 2066 | [账户余额](/solution/2000-2099/2066.Account%20Balance/README.md)                                                                                             | `数据库` | 中等 | 🔒   |
 | 2072 | [赢得比赛的大学](/solution/2000-2099/2072.The%20Winner%20University/README.md)                                                                               | `数据库` | 简单 | 🔒   |
-| 2082 | [富有客户的数量](/solution/2000-2099/2082.The%20Number%20of%20Rich%20Customers/README.md)                                                                    | `数据库` | 简单 | 🔒   |
+| 2082 | [富有客户的数量](/solution/2000-2099/2082.The%20Number%20of%20Rich%20Customers/README.md)                                                                    | `数据库` | 简单 |      |
 | 2084 | [为订单类型为 0 的客户删除类型为 1 的订单](/solution/2000-2099/2084.Drop%20Type%201%20Orders%20for%20Customers%20With%20Type%200%20Orders/README.md)         | `数据库` | 中等 | 🔒   |
 | 2112 | [最繁忙的机场](/solution/2100-2199/2112.The%20Airport%20With%20the%20Most%20Traffic/README.md)                                                               | `数据库` | 中等 | 🔒   |
 | 2118 | [建立方程](/solution/2100-2199/2118.Build%20the%20Equation/README.md)                                                                                        | `数据库` | 困难 | 🔒   |
@@ -247,6 +247,7 @@
 | 2854 | [滚动平均步数](/solution/2800-2899/2854.Rolling%20Average%20Steps/README.md)                                                                                 | `数据库` | 中等 | 🔒   |
 | 2893 | [计算每个区间内的订单](/solution/2800-2899/2893.Calculate%20Orders%20Within%20Each%20Interval/README.md)                                                     | `数据库` | 中等 | 🔒   |
 | 2922 | [市场分析 III](/solution/2900-2999/2922.Market%20Analysis%20III/README.md)                                                                                   | `数据库` | 中等 | 🔒   |
+| 2978 | [Symmetric Coordinates](/solution/2900-2999/2978.Symmetric%20Coordinates/README.md)                                                                          |          | 中等 | 🔒   |
 
 ## 版权
 
