@@ -38,6 +38,12 @@
 
 ## Solutions
 
+**Solution 1: Chicken McNugget Theorem**
+
+According to the Chicken McNugget Theorem, for two coprime positive integers $a$ and $b$, the largest number that cannot be expressed as a combination of $a$ and $b$ is $ab - a - b$.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

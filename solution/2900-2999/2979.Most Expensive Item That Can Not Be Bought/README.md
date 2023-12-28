@@ -42,6 +42,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：Chicken McNugget 定理**
+
+根据 Chicken McNugget 定理，两个互质的正整数 $a$ 和 $b$，最大不能表示的数为 $ab - a - b$。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
