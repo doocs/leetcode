@@ -6,25 +6,30 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个段落 (paragraph) 和一个禁用单词列表 (banned)。返回出现次数最多，同时不在禁用列表中的单词。</p>
+<p>给你一个字符串 <code>paragraph</code> 和一个表示禁用词的字符串数组 <code>banned</code> ，返回出现频率最高的非禁用词。题目数据 <strong>保证 </strong>至少存在一个非禁用词，且答案<strong> 唯一 </strong>。</p>
 
-<p>题目保证至少有一个词不在禁用列表中，而且答案唯一。</p>
-
-<p>禁用列表中的单词用小写字母表示，不含标点符号。段落中的单词不区分大小写。答案都是小写字母。</p>
+<p><code>paragraph</code> 中的单词 <strong>不区分大小写</strong> ，答案应以 <strong>小写 </strong>形式返回。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre><strong>输入:</strong> 
-paragraph = &quot;Bob hit a ball, the hit BALL flew far after it was hit.&quot;
-banned = [&quot;hit&quot;]
-<strong>输出:</strong> &quot;ball&quot;
-<strong>解释:</strong> 
-&quot;hit&quot; 出现了3次，但它是一个禁用的单词。
-&quot;ball&quot; 出现了2次 (同时没有其他单词出现2次)，所以它是段落里出现次数最多的，且不在禁用列表中的单词。 
-注意，所有这些单词在段落里不区分大小写，标点符号需要忽略（即使是紧挨着单词也忽略， 比如 &quot;ball,&quot;）， 
-&quot;hit&quot;不是最终的答案，虽然它出现次数更多，但它在禁用单词列表中。
+<pre>
+<strong>输入：</strong>paragraph = "Bob hit a ball, the hit BALL flew far after it was hit.", banned = ["hit"]
+<strong>输出：</strong>"ball"
+<strong>解释：</strong>
+"hit" 出现了 3 次，但它是禁用词。
+"ball" 出现了两次（没有其他单词出现这么多次），因此它是段落中出现频率最高的非禁用词。
+请注意，段落中的单词不区分大小写，
+标点符号会被忽略（即使它们紧挨着单词，如 "ball,"），
+并且尽管 "hit" 出现的次数更多，但它不能作为答案，因为它是禁用词。
+</pre>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>paragraph = "a.", banned = []
+<strong>输出：</strong>"a"
 </pre>
 
 <p>&nbsp;</p>
@@ -32,13 +37,11 @@ banned = [&quot;hit&quot;]
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= 段落长度 &lt;= 1000</code></li>
-	<li><code>0 &lt;= 禁用单词个数 &lt;= 100</code></li>
-	<li><code>1 &lt;= 禁用单词长度 &lt;= 10</code></li>
-	<li>答案是唯一的, 且都是小写字母&nbsp;(即使在 <code>paragraph</code> 里是大写的，即使是一些特定的名词，答案都是小写的。)</li>
-	<li><code>paragraph</code>&nbsp;只包含字母、空格和下列标点符号<code>!?&#39;,;.</code></li>
-	<li>不存在没有连字符或者带有连字符的单词。</li>
-	<li>单词里只包含字母，不会出现省略号或者其他标点符号。</li>
+	<li><code>1 &lt;= paragraph.length &lt;= 1000</code></li>
+	<li><code>paragraph</code> 由英文字母、空格 <code>' '</code>、和以下符号组成：<code>"!?',;."</code></li>
+	<li><code>0 &lt;= banned.length &lt;= 100</code></li>
+	<li><code>1 &lt;= banned[i].length &lt;= 10</code></li>
+	<li><code>banned[i]</code> 仅由小写英文字母组成</li>
 </ul>
 
 ## 解法

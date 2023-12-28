@@ -5,7 +5,7 @@ impl Solution {
         for i in 0..n {
             f[i][0] = nums[i];
             for j in 1..n {
-                f[i][j] = f[i][j - 1].min(nums[(i + j) % n]);
+                f[i][j] = f[i][j - 1].min(nums[(i - j + n) % n]);
             }
         }
         let mut ans = i64::MAX;

@@ -4,18 +4,17 @@
 
 ## Description
 
-<p>You are given an integer <code>num</code>. You know that Danny Mittal will sneakily <strong>remap</strong> one of the <code>10</code> possible digits (<code>0</code> to <code>9</code>) to another digit.</p>
+<p>You are given an integer <code>num</code>. You know that Bob will sneakily <strong>remap</strong> one of the <code>10</code> possible digits (<code>0</code> to <code>9</code>) to another digit.</p>
 
-<p>Return <em>the difference between the maximum and minimum</em><em>&nbsp;values Danny can make by remapping&nbsp;<strong>exactly</strong> <strong>one</strong> digit</em><em> in </em><code>num</code>.</p>
+<p>Return <em>the difference between the maximum and minimum&nbsp;values Bob can make by remapping&nbsp;<strong>exactly</strong> <strong>one</strong> digit in </em><code>num</code>.</p>
 
 <p><strong>Notes:</strong></p>
 
 <ul>
-	<li>When Danny remaps a digit <font face="monospace">d1</font>&nbsp;to another digit <font face="monospace">d2</font>, Danny replaces all occurrences of <code>d1</code>&nbsp;in <code>num</code>&nbsp;with <code>d2</code>.</li>
-	<li>Danny can remap a digit to itself, in which case <code>num</code>&nbsp;does not change.</li>
-	<li>Danny can remap different digits for obtaining minimum and maximum values respectively.</li>
+	<li>When Bob remaps a digit <font face="monospace">d1</font>&nbsp;to another digit <font face="monospace">d2</font>, Bob replaces all occurrences of <code>d1</code>&nbsp;in <code>num</code>&nbsp;with <code>d2</code>.</li>
+	<li>Bob can remap a digit to itself, in which case <code>num</code>&nbsp;does not change.</li>
+	<li>Bob can remap different digits for obtaining minimum and maximum values respectively.</li>
 	<li>The resulting number after remapping can contain leading zeroes.</li>
-	<li>We mentioned &quot;Danny Mittal&quot; to congratulate him on being in the top 10 in Weekly Contest 326.</li>
 </ul>
 
 <p>&nbsp;</p>
@@ -25,8 +24,8 @@
 <strong>Input:</strong> num = 11891
 <strong>Output:</strong> 99009
 <strong>Explanation:</strong> 
-To achieve the maximum value, Danny can remap the digit 1 to the digit 9 to yield 99899.
-To achieve the minimum value, Danny can remap the digit 1 to the digit 0, yielding 890.
+To achieve the maximum value, Bob can remap the digit 1 to the digit 9 to yield 99899.
+To achieve the minimum value, Bob can remap the digit 1 to the digit 0, yielding 890.
 The difference between these two numbers is 99009.
 </pre>
 

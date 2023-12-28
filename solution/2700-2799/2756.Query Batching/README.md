@@ -123,7 +123,7 @@ calls = [
 	<li><code>0 &lt;= t &lt;= 1000</code></li>
 	<li><code>0 &lt;= calls.length &lt;= 10</code></li>
 	<li><code>1 &lt;= key.length&nbsp;&lt;= 100</code></li>
-	<li><code>所有的键值都是唯一的</code></li>
+	<li>所有的键值都是唯一的</li>
 </ul>
 
 ## 解法

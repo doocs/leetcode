@@ -53,13 +53,13 @@
 
 **方法一：枚举**
 
-我们考虑枚举操作的次数，定义 $f[i][j]$ 表示类型为 $i$ 的巧克力进行了 $j$ 次操作后的最小成本。
+我们考虑枚举操作的次数，定义 $f[i][j]$ 表示第 $i$ 个巧克力进行了 $j$ 次操作后的最小成本。
 
-对于类型为 $i$ 的巧克力：
+对于第 $i$ 个巧克力：
 
 -   如果 $j = 0$，即没有进行操作，那么 $f[i][j] = nums[i]$；
--   如果 $0 \lt j \leq n-1$，那么它的最小成本就是下标范围为 $[i,.. (i + j) \bmod n]$ 的巧克力的最小成本，即 $f[i][j] = \min\{nums[i], nums[i + 1], \cdots, nums[(i + j) \bmod n]\}$，或者可以写成 $f[i][j] = \min\{f[i][j - 1], nums[(i + j) \bmod n]\}$。
--   如果 $j \ge n$，由于当 $j = n - 1$ 时，已经覆盖了所有巧克力的最小成本，如果 $j$ 继续增大，那么最小成本不会再变化，但是操作次数的增加却会导致最终的成本增加，因此，我们不需要考虑 $j \ge n$ 的情况。
+-   如果 $0 \lt j \leq n-1$，那么它的最小成本就是下标范围为 $[i,.. (i - j + n) \bmod n]$ 的最小成本，即 $f[i][j] = \min\{nums[i], nums[i - 1], \cdots, nums[(i - j + n) \bmod n]\}$，或者可以写成 $f[i][j] = \min\{f[i][j - 1], nums[(i - j + n) \bmod n]\}$。
+-   如果 $j \ge n$，由于当 $j = n - 1$ 时，已经覆盖了所有最小成本，如果 $j$ 继续增大，那么最小成本不会再变化，但是操作次数的增加却会导致最终的成本增加，因此，我们不需要考虑 $j \ge n$ 的情况。
 
 综上，我们可以得到状态转移方程：
 
@@ -67,7 +67,7 @@ $$
 f[i][j] =
 \begin{cases}
 nums[i] ,& j = 0 \\
-\min(f[i][j - 1], nums[(i + j) \bmod n]) ,& 0 \lt j \leq n - 1
+\min(f[i][j - 1], nums[(i - j + n) \bmod n]) ,& 0 \lt j \leq n - 1
 \end{cases}
 $$
 
@@ -89,7 +89,7 @@ class Solution:
         for i, v in enumerate(nums):
             f[i][0] = v
             for j in range(1, n):
-                f[i][j] = min(f[i][j - 1], nums[(i + j) % n])
+                f[i][j] = min(f[i][j - 1], nums[(i - j) % n])
         return min(sum(f[i][j] for i in range(n)) + x * j for j in range(n))
 ```
 
@@ -105,7 +105,7 @@ class Solution {
         for (int i = 0; i < n; ++i) {
             f[i][0] = nums[i];
             for (int j = 1; j < n; ++j) {
-                f[i][j] = Math.min(f[i][j - 1], nums[(i + j) % n]);
+                f[i][j] = Math.min(f[i][j - 1], nums[(i - j + n) % n]);
             }
         }
         long ans = 1L << 60;
@@ -132,7 +132,7 @@ public:
         for (int i = 0; i < n; ++i) {
             f[i][0] = nums[i];
             for (int j = 1; j < n; ++j) {
-                f[i][j] = min(f[i][j - 1], nums[(i + j) % n]);
+                f[i][j] = min(f[i][j - 1], nums[(i - j + n) % n]);
             }
         }
         long long ans = 1LL << 60;
@@ -158,7 +158,7 @@ func minCost(nums []int, x int) int64 {
 		f[i] = make([]int, n)
 		f[i][0] = v
 		for j := 1; j < n; j++ {
-			f[i][j] = min(f[i][j-1], nums[(i+j)%n])
+			f[i][j] = min(f[i][j-1], nums[(i-j+n)%n])
 		}
 	}
 	ans := 1 << 60
@@ -182,7 +182,7 @@ function minCost(nums: number[], x: number): number {
     for (let i = 0; i < n; ++i) {
         f[i][0] = nums[i];
         for (let j = 1; j < n; ++j) {
-            f[i][j] = Math.min(f[i][j - 1], nums[(i + j) % n]);
+            f[i][j] = Math.min(f[i][j - 1], nums[(i - j + n) % n]);
         }
     }
     let ans = Infinity;
@@ -207,7 +207,7 @@ impl Solution {
         for i in 0..n {
             f[i][0] = nums[i];
             for j in 1..n {
-                f[i][j] = f[i][j - 1].min(nums[(i + j) % n]);
+                f[i][j] = f[i][j - 1].min(nums[(i - j + n) % n]);
             }
         }
         let mut ans = i64::MAX;

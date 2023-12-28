@@ -29,7 +29,7 @@
 <p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0864.Shortest%20Path%20to%20Get%20All%20Keys/images/lc-keys2.jpg" /></p>
 
 <pre>
-<strong>输入：</strong>grid = ["@.a.#","###.#","b.A.B"]
+<strong>输入：</strong>grid = ["@.a..","###.#","b.A.B"]
 <strong>输出：</strong>8
 <strong>解释：</strong>目标是获得所有钥匙，而不是打开所有锁。
 </pre>

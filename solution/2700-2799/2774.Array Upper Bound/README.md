@@ -10,8 +10,6 @@
 
 <p>&nbsp;</p>
 
-<p>&nbsp;</p>
-
 <p><b>示例 1：</b></p>
 
 <pre>
@@ -44,6 +42,10 @@
 	<li><code><font face="monospace">-10<sup>4</sup>&nbsp;&lt;= nums[i], target &lt;= 10<sup>4</sup></font></code></li>
 	<li><code>nums</code>&nbsp;按升序排序。</li>
 </ul>
+
+<p>&nbsp;</p>
+
+<p><strong>进阶：</strong>你能编写一个时间复杂度为 O(log n) 的算法吗？</p>
 
 ## 解法
 
