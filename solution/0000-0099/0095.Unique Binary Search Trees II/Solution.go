@@ -7,25 +7,22 @@
  * }
  */
 func generateTrees(n int) []*TreeNode {
-	var gen func(left, right int) []*TreeNode
-	gen = func(left, right int) []*TreeNode {
-		var ans []*TreeNode
-		if left > right {
-			ans = append(ans, nil)
-		} else {
-			for i := left; i <= right; i++ {
-				leftTrees := gen(left, i-1)
-				rightTrees := gen(i+1, right)
-				for _, l := range leftTrees {
-					for _, r := range rightTrees {
-						node := &TreeNode{i, l, r}
-						ans = append(ans, node)
-					}
+	var dfs func(int, int) []*TreeNode
+	dfs = func(i, j int) []*TreeNode {
+		if i > j {
+			return []*TreeNode{nil}
+		}
+		ans := []*TreeNode{}
+		for v := i; v <= j; v++ {
+			left := dfs(i, v-1)
+			right := dfs(v+1, j)
+			for _, l := range left {
+				for _, r := range right {
+					ans = append(ans, &TreeNode{v, l, r})
 				}
 			}
 		}
 		return ans
 	}
-
-	return gen(1, n)
+	return dfs(1, n)
 }

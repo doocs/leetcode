@@ -38,6 +38,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：一次遍历**
+
+我们用一个指针 $cur$ 来遍历链表。如果当前 $cur$ 与 $cur.next$ 对应的元素相同，我们就将 $cur$ 的 $next$ 指针指向 $cur$ 的下下个节点。否则，说明链表中 $cur$ 对应的元素是不重复的，因此可以将 $cur$ 指针移动到下一个节点。
+
+遍历结束后，返回链表的头节点即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是链表的长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -59,25 +67,6 @@ class Solution:
             else:
                 cur = cur.next
         return head
-```
-
-```python
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
-class Solution:
-    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        dummy = ListNode(1000)
-        cur = dummy
-        while head:
-            if head.val != cur.val:
-                cur.next = head
-                cur = cur.next
-            head = head.next
-        cur.next = None
-        return dummy.next
 ```
 
 ### **Java**
@@ -142,17 +131,51 @@ public:
 ### **Go**
 
 ```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
 func deleteDuplicates(head *ListNode) *ListNode {
-	current := head
-	for current != nil && current.Next != nil {
-		if current.Val == current.Next.Val {
-			current.Next = current.Next.Next
+	cur := head
+	for cur != nil && cur.Next != nil {
+		if cur.Val == cur.Next.Val {
+			cur.Next = cur.Next.Next
 		} else {
-			current = current.Next
+			cur = cur.Next
 		}
 	}
 	return head
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var deleteDuplicates = function (head) {
+    let cur = head;
+    while (cur && cur.next) {
+        if (cur.next.val === cur.val) {
+            cur.next = cur.next.next;
+        } else {
+            cur = cur.next;
+        }
+    }
+    return head;
+};
 ```
 
 ### **Rust**
@@ -188,6 +211,35 @@ impl Solution {
             }
         }
         dummy.unwrap().next
+    }
+}
+```
+
+### **C#**
+
+```cs
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode DeleteDuplicates(ListNode head) {
+        ListNode cur = head;
+        while (cur != null && cur.next != null) {
+            if (cur.val == cur.next.val) {
+                cur.next = cur.next.next;
+            } else {
+                cur = cur.next;
+            }
+        }
+        return head;
     }
 }
 ```
