@@ -12,25 +12,22 @@
 class Solution {
 public:
     vector<TreeNode*> generateTrees(int n) {
-        return gen(1, n);
-    }
-
-    vector<TreeNode*> gen(int left, int right) {
-        vector<TreeNode*> ans;
-        if (left > right) {
-            ans.push_back(nullptr);
-        } else {
-            for (int i = left; i <= right; ++i) {
-                auto leftTrees = gen(left, i - 1);
-                auto rightTrees = gen(i + 1, right);
-                for (auto& l : leftTrees) {
-                    for (auto& r : rightTrees) {
-                        TreeNode* node = new TreeNode(i, l, r);
-                        ans.push_back(node);
+        function<vector<TreeNode*>(int, int)> dfs = [&](int i, int j) {
+            if (i > j) {
+                return vector<TreeNode*>{nullptr};
+            }
+            vector<TreeNode*> ans;
+            for (int v = i; v <= j; ++v) {
+                auto left = dfs(i, v - 1);
+                auto right = dfs(v + 1, j);
+                for (auto l : left) {
+                    for (auto r : right) {
+                        ans.push_back(new TreeNode(v, l, r));
                     }
                 }
             }
-        }
-        return ans;
+            return ans;
+        };
+        return dfs(1, n);
     }
 };

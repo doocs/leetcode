@@ -30,6 +30,17 @@
 
 ## Solutions
 
+**Solution 1: DFS (Depth-First Search)**
+
+We design a function $dfs(i, j)$ that returns all feasible binary search trees composed of $[i, j]$, so the answer is $dfs(1, n)$.
+
+The execution steps of the function $dfs(i, j)$ are as follows:
+
+1. If $i > j$, it means that there are no numbers to form a binary search tree at this time, so return a list consisting of a null node.
+2. If $i \leq j$, we enumerate the numbers $v$ in $[i, j]$ as the root node. The left subtree of the root node $v$ is composed of $[i, v - 1]$, and the right subtree is composed of $[v + 1, j]$. Finally, we take the Cartesian product of all combinations of the left and right subtrees, i.e., $left \times right$, add the root node $v$, and get all binary search trees with $v$ as the root node.
+
+The time complexity is $O(n \times G(n))$, and the space complexity is $O(n \times G(n))$. Where $G(n)$ is the Catalan number.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -42,22 +53,20 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def generateTrees(self, n: int) -> List[TreeNode]:
-        def gen(left, right):
+    def generateTrees(self, n: int) -> List[Optional[TreeNode]]:
+        def dfs(i: int, j: int) -> List[Optional[TreeNode]]:
+            if i > j:
+                return [None]
             ans = []
-            if left > right:
-                ans.append(None)
-            else:
-                for i in range(left, right + 1):
-                    left_trees = gen(left, i - 1)
-                    right_trees = gen(i + 1, right)
-                    for l in left_trees:
-                        for r in right_trees:
-                            node = TreeNode(i, l, r)
-                            ans.append(node)
+            for v in range(i, j + 1):
+                left = dfs(i, v - 1)
+                right = dfs(v + 1, j)
+                for l in left:
+                    for r in right:
+                        ans.append(TreeNode(v, l, r))
             return ans
 
-        return gen(1, n)
+        return dfs(1, n)
 ```
 
 ### **Java**
@@ -80,27 +89,97 @@ class Solution:
  */
 class Solution {
     public List<TreeNode> generateTrees(int n) {
-        return generateTrees(1, n);
+        return dfs(1, n);
     }
 
-    private List<TreeNode> generateTrees(int left, int right) {
+    private List<TreeNode> dfs(int i, int j) {
         List<TreeNode> ans = new ArrayList<>();
-        if (left > right) {
+        if (i > j) {
             ans.add(null);
-        } else {
-            for (int i = left; i <= right; ++i) {
-                List<TreeNode> leftTrees = generateTrees(left, i - 1);
-                List<TreeNode> rightTrees = generateTrees(i + 1, right);
-                for (TreeNode l : leftTrees) {
-                    for (TreeNode r : rightTrees) {
-                        TreeNode node = new TreeNode(i, l, r);
-                        ans.add(node);
-                    }
+            return ans;
+        }
+        for (int v = i; v <= j; ++v) {
+            var left = dfs(i, v - 1);
+            var right = dfs(v + 1, j);
+            for (var l : left) {
+                for (var r : right) {
+                    ans.add(new TreeNode(v, l, r));
                 }
             }
         }
         return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<TreeNode*> generateTrees(int n) {
+        function<vector<TreeNode*>(int, int)> dfs = [&](int i, int j) {
+            if (i > j) {
+                return vector<TreeNode*>{nullptr};
+            }
+            vector<TreeNode*> ans;
+            for (int v = i; v <= j; ++v) {
+                auto left = dfs(i, v - 1);
+                auto right = dfs(v + 1, j);
+                for (auto l : left) {
+                    for (auto r : right) {
+                        ans.push_back(new TreeNode(v, l, r));
+                    }
+                }
+            }
+            return ans;
+        };
+        return dfs(1, n);
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func generateTrees(n int) []*TreeNode {
+	var dfs func(int, int) []*TreeNode
+	dfs = func(i, j int) []*TreeNode {
+		if i > j {
+			return []*TreeNode{nil}
+		}
+		ans := []*TreeNode{}
+		for v := i; v <= j; v++ {
+			left := dfs(i, v-1)
+			right := dfs(v+1, j)
+			for _, l := range left {
+				for _, r := range right {
+					ans = append(ans, &TreeNode{v, l, r})
+				}
+			}
+		}
+		return ans
+	}
+	return dfs(1, n)
 }
 ```
 
@@ -122,69 +201,24 @@ class Solution {
  */
 
 function generateTrees(n: number): Array<TreeNode | null> {
-    if (n == 0) return [];
-    return helper(1, n);
-}
-
-function helper(start: number, end: number): Array<TreeNode | null> {
-    let ans = [];
-    if (start > end) {
-        ans.push(null);
-        return ans;
-    }
-    for (let i = start; i <= end; i++) {
-        let lefts = helper(start, i - 1);
-        let rights = helper(i + 1, end);
-        for (let left of lefts) {
-            for (let right of rights) {
-                let root = new TreeNode(i, left, right);
-                ans.push(root);
-            }
+    const dfs = (i: number, j: number): Array<TreeNode | null> => {
+        if (i > j) {
+            return [null];
         }
-    }
-    return ans;
-}
-```
-
-### **C++**
-
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-class Solution {
-public:
-    vector<TreeNode*> generateTrees(int n) {
-        return gen(1, n);
-    }
-
-    vector<TreeNode*> gen(int left, int right) {
-        vector<TreeNode*> ans;
-        if (left > right) {
-            ans.push_back(nullptr);
-        } else {
-            for (int i = left; i <= right; ++i) {
-                auto leftTrees = gen(left, i - 1);
-                auto rightTrees = gen(i + 1, right);
-                for (auto& l : leftTrees) {
-                    for (auto& r : rightTrees) {
-                        TreeNode* node = new TreeNode(i, l, r);
-                        ans.push_back(node);
-                    }
+        const ans: Array<TreeNode | null> = [];
+        for (let v = i; v <= j; ++v) {
+            const left = dfs(i, v - 1);
+            const right = dfs(v + 1, j);
+            for (const l of left) {
+                for (const r of right) {
+                    ans.push(new TreeNode(v, l, r));
                 }
             }
         }
         return ans;
-    }
-};
+    };
+    return dfs(1, n);
+}
 ```
 
 ### **Rust**
@@ -211,79 +245,37 @@ public:
 use std::rc::Rc;
 use std::cell::RefCell;
 impl Solution {
-    #[allow(dead_code)]
     pub fn generate_trees(n: i32) -> Vec<Option<Rc<RefCell<TreeNode>>>> {
-        Self::generate_trees_inner(1, n)
+        Self::dfs(1, n)
     }
 
-    #[allow(dead_code)]
-    fn generate_trees_inner(left: i32, right: i32) -> Vec<Option<Rc<RefCell<TreeNode>>>> {
-        let mut ret = Vec::new();
-
-        if left > right {
-            // If there is no possible BST matching
-            // Then this should be consider a nullptr
-            ret.push(None);
-        } else {
-            // Otherwise, let's generate the BST
-            for i in left..=right {
-                // First get the two vectors containing the possible left trees & right trees
-                let left_trees = Self::generate_trees_inner(left, i - 1);
-                let right_trees = Self::generate_trees_inner(i + 1, right);
-
-                // Then construct the final results
-                for left_tree in &left_trees {
-                    for right_tree in &right_trees {
-                        // Construct the current node
-                        let mut node = Some(Rc::new(RefCell::new(TreeNode::new(i))));
-                        // Set the connection
-                        node.as_ref().unwrap().borrow_mut().left = left_tree.clone();
-                        node.as_ref().unwrap().borrow_mut().right = right_tree.clone();
-                        // Update the result vector
-                        ret.push(node);
-                    }
+    fn dfs(i: i32, j: i32) -> Vec<Option<Rc<RefCell<TreeNode>>>> {
+        let mut ans = Vec::new();
+        if i > j {
+            ans.push(None);
+            return ans;
+        }
+        for v in i..=j {
+            let left = Self::dfs(i, v - 1);
+            let right = Self::dfs(v + 1, j);
+            for l in &left {
+                for r in &right {
+                    ans.push(
+                        Some(
+                            Rc::new(
+                                RefCell::new(TreeNode {
+                                    val: v,
+                                    left: l.clone(),
+                                    right: r.clone(),
+                                })
+                            )
+                        )
+                    );
                 }
             }
         }
-
-        ret
+        ans
     }
-}
-```
-
-### **Go**
-
-```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-func generateTrees(n int) []*TreeNode {
-	var gen func(left, right int) []*TreeNode
-	gen = func(left, right int) []*TreeNode {
-		var ans []*TreeNode
-		if left > right {
-			ans = append(ans, nil)
-		} else {
-			for i := left; i <= right; i++ {
-				leftTrees := gen(left, i-1)
-				rightTrees := gen(i+1, right)
-				for _, l := range leftTrees {
-					for _, r := range rightTrees {
-						node := &TreeNode{i, l, r}
-						ans = append(ans, node)
-					}
-				}
-			}
-		}
-		return ans
-	}
-
-	return gen(1, n)
 }
 ```
 

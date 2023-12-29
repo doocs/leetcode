@@ -19,41 +19,35 @@
 use std::rc::Rc;
 use std::cell::RefCell;
 impl Solution {
-    #[allow(dead_code)]
     pub fn generate_trees(n: i32) -> Vec<Option<Rc<RefCell<TreeNode>>>> {
-        Self::generate_trees_inner(1, n)
+        Self::dfs(1, n)
     }
 
-    #[allow(dead_code)]
-    fn generate_trees_inner(left: i32, right: i32) -> Vec<Option<Rc<RefCell<TreeNode>>>> {
-        let mut ret = Vec::new();
-
-        if left > right {
-            // If there is no possible BST matching
-            // Then this should be consider a nullptr
-            ret.push(None);
-        } else {
-            // Otherwise, let's generate the BST
-            for i in left..=right {
-                // First get the two vectors containing the possible left trees & right trees
-                let left_trees = Self::generate_trees_inner(left, i - 1);
-                let right_trees = Self::generate_trees_inner(i + 1, right);
-
-                // Then construct the final results
-                for left_tree in &left_trees {
-                    for right_tree in &right_trees {
-                        // Construct the current node
-                        let mut node = Some(Rc::new(RefCell::new(TreeNode::new(i))));
-                        // Set the connection
-                        node.as_ref().unwrap().borrow_mut().left = left_tree.clone();
-                        node.as_ref().unwrap().borrow_mut().right = right_tree.clone();
-                        // Update the result vector
-                        ret.push(node);
-                    }
+    fn dfs(i: i32, j: i32) -> Vec<Option<Rc<RefCell<TreeNode>>>> {
+        let mut ans = Vec::new();
+        if i > j {
+            ans.push(None);
+            return ans;
+        }
+        for v in i..=j {
+            let left = Self::dfs(i, v - 1);
+            let right = Self::dfs(v + 1, j);
+            for l in &left {
+                for r in &right {
+                    ans.push(
+                        Some(
+                            Rc::new(
+                                RefCell::new(TreeNode {
+                                    val: v,
+                                    left: l.clone(),
+                                    right: r.clone(),
+                                })
+                            )
+                        )
+                    );
                 }
             }
         }
-
-        ret
+        ans
     }
 }
