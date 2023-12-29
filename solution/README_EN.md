@@ -100,6 +100,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  0089  |  [Gray Code](/solution/0000-0099/0089.Gray%20Code/README_EN.md)  |  `Bit Manipulation`,`Math`,`Backtracking`  |  Medium  |    |
 |  0090  |  [Subsets II](/solution/0000-0099/0090.Subsets%20II/README_EN.md)  |  `Bit Manipulation`,`Array`,`Backtracking`  |  Medium  |    |
 |  0091  |  [Decode Ways](/solution/0000-0099/0091.Decode%20Ways/README_EN.md)  |  `String`,`Dynamic Programming`  |  Medium  |    |
+|  0092  |  [Reverse Linked List II](/solution/0000-0099/0092.Reverse%20Linked%20List%20II/README_EN.md)  |  `Linked List`  |  Medium  |    |
 |  0093  |  [Restore IP Addresses](/solution/0000-0099/0093.Restore%20IP%20Addresses/README_EN.md)  |  `String`,`Backtracking`  |  Medium  |    |
 |  0094  |  [Binary Tree Inorder Traversal](/solution/0000-0099/0094.Binary%20Tree%20Inorder%20Traversal/README_EN.md)  |  `Stack`,`Tree`,`Depth-First Search`,`Binary Tree`  |  Easy  |    |
 |  0095  |  [Unique Binary Search Trees II](/solution/0000-0099/0095.Unique%20Binary%20Search%20Trees%20II/README_EN.md)  |  `Tree`,`Binary Search Tree`,`Dynamic Programming`,`Backtracking`,`Binary Tree`  |  Medium  |    |
@@ -366,6 +367,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  0356  |  [Line Reflection](/solution/0300-0399/0356.Line%20Reflection/README_EN.md)  |  `Array`,`Hash Table`,`Math`  |  Medium  |  🔒  |
 |  0357  |  [Count Numbers with Unique Digits](/solution/0300-0399/0357.Count%20Numbers%20with%20Unique%20Digits/README_EN.md)  |  `Math`,`Dynamic Programming`,`Backtracking`  |  Medium  |    |
 |  0358  |  [Rearrange String k Distance Apart](/solution/0300-0399/0358.Rearrange%20String%20k%20Distance%20Apart/README_EN.md)  |  `Greedy`,`Hash Table`,`String`,`Counting`,`Sorting`,`Heap (Priority Queue)`  |  Hard  |  🔒  |
+|  0359  |  [Logger Rate Limiter](/solution/0300-0399/0359.Logger%20Rate%20Limiter/README_EN.md)  |  `Design`,`Hash Table`,`Data Stream`  |  Easy  |  🔒  |
 |  0360  |  [Sort Transformed Array](/solution/0300-0399/0360.Sort%20Transformed%20Array/README_EN.md)  |  `Array`,`Math`,`Two Pointers`,`Sorting`  |  Medium  |  🔒  |
 |  0361  |  [Bomb Enemy](/solution/0300-0399/0361.Bomb%20Enemy/README_EN.md)  |  `Array`,`Dynamic Programming`,`Matrix`  |  Medium  |  🔒  |
 |  0362  |  [Design Hit Counter](/solution/0300-0399/0362.Design%20Hit%20Counter/README_EN.md)  |  `Design`,`Queue`,`Array`,`Hash Table`,`Binary Search`  |  Medium  |  🔒  |
@@ -373,6 +375,8 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  0364  |  [Nested List Weight Sum II](/solution/0300-0399/0364.Nested%20List%20Weight%20Sum%20II/README_EN.md)  |  `Stack`,`Depth-First Search`,`Breadth-First Search`  |  Medium  |  🔒  |
 |  0365  |  [Water and Jug Problem](/solution/0300-0399/0365.Water%20and%20Jug%20Problem/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Math`  |  Medium  |    |
 |  0366  |  [Find Leaves of Binary Tree](/solution/0300-0399/0366.Find%20Leaves%20of%20Binary%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Binary Tree`  |  Medium  |  🔒  |
+|  0367  |  [Valid Perfect Square](/solution/0300-0399/0367.Valid%20Perfect%20Square/README_EN.md)  |  `Math`,`Binary Search`  |  Easy  |    |
+|  0368  |  [Largest Divisible Subset](/solution/0300-0399/0368.Largest%20Divisible%20Subset/README_EN.md)  |  `Array`,`Math`,`Dynamic Programming`,`Sorting`  |  Medium  |    |
 |  0369  |  [Plus One Linked List](/solution/0300-0399/0369.Plus%20One%20Linked%20List/README_EN.md)  |  `Linked List`,`Math`  |  Medium  |  🔒  |
 |  0370  |  [Range Addition](/solution/0300-0399/0370.Range%20Addition/README_EN.md)  |  `Array`,`Prefix Sum`  |  Medium  |  🔒  |
 |  0371  |  [Sum of Two Integers](/solution/0300-0399/0371.Sum%20of%20Two%20Integers/README_EN.md)  |  `Bit Manipulation`,`Math`  |  Medium  |    |
