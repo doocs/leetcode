@@ -41,9 +41,25 @@
 
 ## Solutions
 
-Zeller formula.
+**Solution 1: Zeller's Congruence**
 
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1185.Day%20of%20the%20Week/images/zeller.svg">
+We can use Zeller's Congruence to calculate the day of the week. Zeller's Congruence is as follows:
+
+$$
+w = (\left \lfloor \frac{c}{4} \right \rfloor - 2c + y + \left \lfloor \frac{y}{4} \right \rfloor + \left \lfloor \frac{13(m+1)}{5} \right \rfloor + d - 1) \bmod 7
+$$
+
+Where:
+
+-   `w`: Day of the week (starting from Sunday)
+-   `c`: First two digits of the year
+-   `y`: Last two digits of the year
+-   `m`: Month (the range of m is from 3 to 14, that is, in Zeller's Congruence, January and February of a certain year are considered as the 13th and 14th month of the previous year. For example, January 1, 2003 is considered as the 1st day of the 13th month of 2002)
+-   `d`: Day
+-   `⌊⌋`: Floor function (round down)
+-   `mod`: Modulo operation
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -140,6 +156,30 @@ func dayOfTheWeek(d int, m int, y int) string {
 	w := (c/4 - 2*c + y + y/4 + 13*(m+1)/5 + d - 1) % 7
 	weeks := []string{"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}
 	return weeks[(w+7)%7]
+}
+```
+
+### **TypeScript**
+
+```ts
+function dayOfTheWeek(d: number, m: number, y: number): string {
+    if (m < 3) {
+        m += 12;
+        y -= 1;
+    }
+    const c: number = (y / 100) | 0;
+    y %= 100;
+    const w = (((c / 4) | 0) - 2 * c + y + ((y / 4) | 0) + (((13 * (m + 1)) / 5) | 0) + d - 1) % 7;
+    const weeks: string[] = [
+        'Sunday',
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+    ];
+    return weeks[(w + 7) % 7];
 }
 ```
 
