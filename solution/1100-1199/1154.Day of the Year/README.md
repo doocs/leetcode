@@ -50,7 +50,7 @@
 
 最后，根据给定的日期计算出当年的第几天，即把前面每个月的天数累加起来，再加上当月的天数即可。
 
-时间复杂度为 $O(1)$，空间复杂度为 $O(1)$。
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -94,9 +94,8 @@ class Solution {
 class Solution {
 public:
     int dayOfYear(string date) {
-        int y = stoi(date.substr(0, 4));
-        int m = stoi(date.substr(5, 2));
-        int d = stoi(date.substr(8));
+        int y, m, d;
+        sscanf(date.c_str(), "%d-%d-%d", &y, &m, &d);
         int v = y % 400 == 0 || (y % 4 == 0 && y % 100) ? 29 : 28;
         int days[] = {31, v, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
         int ans = d;
@@ -112,9 +111,8 @@ public:
 
 ```go
 func dayOfYear(date string) (ans int) {
-	y, _ := strconv.Atoi(date[:4])
-	m, _ := strconv.Atoi(date[5:7])
-	d, _ := strconv.Atoi(date[8:])
+	var y, m, d int
+	fmt.Sscanf(date, "%d-%d-%d", &y, &m, &d)
 	days := []int{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
 	if y%400 == 0 || (y%4 == 0 && y%100 != 0) {
 		days[1] = 29
@@ -124,6 +122,19 @@ func dayOfYear(date string) (ans int) {
 		ans += v
 	}
 	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function dayOfYear(date: string): number {
+    const y = +date.slice(0, 4);
+    const m = +date.slice(5, 7);
+    const d = +date.slice(8);
+    const v = y % 400 == 0 || (y % 4 == 0 && y % 100) ? 29 : 28;
+    const days = [31, v, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    return days.slice(0, m - 1).reduce((a, b) => a + b, d);
 }
 ```
 
