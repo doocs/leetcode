@@ -248,6 +248,14 @@
 | 2893 | [计算每个区间内的订单](/solution/2800-2899/2893.Calculate%20Orders%20Within%20Each%20Interval/README.md)                                                     | `数据库` | 中等 | 🔒   |
 | 2922 | [市场分析 III](/solution/2900-2999/2922.Market%20Analysis%20III/README.md)                                                                                   | `数据库` | 中等 | 🔒   |
 | 2978 | [Symmetric Coordinates](/solution/2900-2999/2978.Symmetric%20Coordinates/README.md)                                                                          |          | 中等 | 🔒   |
+| 2984 | [Find Peak Calling Hours for Each City](/solution/2900-2999/2984.Find%20Peak%20Calling%20Hours%20for%20Each%20City/README.md)                                |          | 中等 | 🔒   |
+| 2985 | [Calculate Compressed Mean](/solution/2900-2999/2985.Calculate%20Compressed%20Mean/README.md)                                                                |          | 简单 | 🔒   |
+| 2986 | [Find Third Transaction](/solution/2900-2999/2986.Find%20Third%20Transaction/README.md)                                                                      |          | 中等 | 🔒   |
+| 2987 | [Find Expensive Cities](/solution/2900-2999/2987.Find%20Expensive%20Cities/README.md)                                                                        |          | 简单 | 🔒   |
+| 2988 | [Manager of the Largest Department](/solution/2900-2999/2988.Manager%20of%20the%20Largest%20Department/README.md)                                            |          | 中等 | 🔒   |
+| 2989 | [Class Performance](/solution/2900-2999/2989.Class%20Performance/README.md)                                                                                  |          | 中等 | 🔒   |
+| 2990 | [Loan Types](/solution/2900-2999/2990.Loan%20Types/README.md)                                                                                                |          | 简单 | 🔒   |
+| 2991 | [Top Three Wineries](/solution/2900-2999/2991.Top%20Three%20Wineries/README.md)                                                                              |          | 困难 | 🔒   |
 
 ## 版权
 
