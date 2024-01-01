@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 378 场周赛(2023-12-31 10:30, 90 分钟) 参赛人数 2747
+
+- [2980. 检查按位或是否存在尾随零](/solution/2900-2999/2980.Check%20if%20Bitwise%20OR%20Has%20Trailing%20Zeros/README.md)
+- [2981. 找出出现至少三次的最长特殊子字符串 I](/solution/2900-2999/2981.Find%20Longest%20Special%20Substring%20That%20Occurs%20Thrice%20I/README.md)
+- [2982. 找出出现至少三次的最长特殊子字符串 II](/solution/2900-2999/2982.Find%20Longest%20Special%20Substring%20That%20Occurs%20Thrice%20II/README.md)
+- [2983. 回文串重新排列查询](/solution/2900-2999/2983.Palindrome%20Rearrangement%20Queries/README.md)
+
 #### 第 377 场周赛(2023-12-24 10:30, 90 分钟) 参赛人数 3148
 
 - [2974. 最小数字游戏](/solution/2900-2999/2974.Minimum%20Number%20Game/README.md)
@@ -2406,7 +2413,7 @@
 
 - [1165. 单行键盘](/solution/1100-1199/1165.Single-Row%20Keyboard/README.md)
 - [1166. 设计文件系统](/solution/1100-1199/1166.Design%20File%20System/README.md)
-- [1167. 连接棒材的最低费用](/solution/1100-1199/1167.Minimum%20Cost%20to%20Connect%20Sticks/README.md)
+- [1167. 连接木棍的最低费用](/solution/1100-1199/1167.Minimum%20Cost%20to%20Connect%20Sticks/README.md)
 - [1168. 水资源分配优化](/solution/1100-1199/1168.Optimize%20Water%20Distribution%20in%20a%20Village/README.md)
 
 #### 第 150 场周赛(2019-08-18 10:30, 90 分钟) 参赛人数 1473
@@ -2448,7 +2455,7 @@
 
 - [1133. 最大唯一数](/solution/1100-1199/1133.Largest%20Unique%20Number/README.md)
 - [1134. 阿姆斯特朗数](/solution/1100-1199/1134.Armstrong%20Number/README.md)
-- [1135. 最低成本联通所有城市](/solution/1100-1199/1135.Connecting%20Cities%20With%20Minimum%20Cost/README.md)
+- [1135. 最低成本连通所有城市](/solution/1100-1199/1135.Connecting%20Cities%20With%20Minimum%20Cost/README.md)
 - [1136. 并行课程](/solution/1100-1199/1136.Parallel%20Courses/README.md)
 
 #### 第 146 场周赛(2019-07-21 10:30, 90 分钟) 参赛人数 1189

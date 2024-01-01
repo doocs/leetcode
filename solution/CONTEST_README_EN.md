@@ -25,6 +25,13 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 378
+
+- [2980. Check if Bitwise OR Has Trailing Zeros](/solution/2900-2999/2980.Check%20if%20Bitwise%20OR%20Has%20Trailing%20Zeros/README_EN.md)
+- [2981. Find Longest Special Substring That Occurs Thrice I](/solution/2900-2999/2981.Find%20Longest%20Special%20Substring%20That%20Occurs%20Thrice%20I/README_EN.md)
+- [2982. Find Longest Special Substring That Occurs Thrice II](/solution/2900-2999/2982.Find%20Longest%20Special%20Substring%20That%20Occurs%20Thrice%20II/README_EN.md)
+- [2983. Palindrome Rearrangement Queries](/solution/2900-2999/2983.Palindrome%20Rearrangement%20Queries/README_EN.md)
+
 #### Weekly Contest 377
 
 - [2974. Minimum Number Game](/solution/2900-2999/2974.Minimum%20Number%20Game/README_EN.md)
