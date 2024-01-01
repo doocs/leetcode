@@ -67,6 +67,12 @@ The profit was never positive, so return -1.
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+We directly simulate the rotation process of the Ferris wheel. Each time it rotates, we add up the waiting customers and the newly arrived customers, then at most $4$ people get on the ride, update the number of waiting customers and profit, and record the maximum profit and its corresponding number of rotations.
+
+The time complexity is $O(n)$, where $n$ is the length of the `customers` array. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -162,6 +168,66 @@ func minOperationsMaxProfit(customers []int, boardingCost int, runningCost int) 
 		}
 	}
 	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function minOperationsMaxProfit(
+    customers: number[],
+    boardingCost: number,
+    runningCost: number,
+): number {
+    let ans: number = -1;
+    let [mx, t, wait, i] = [0, 0, 0, 0];
+    while (wait > 0 || i < customers.length) {
+        wait += i < customers.length ? customers[i] : 0;
+        let up: number = Math.min(4, wait);
+        wait -= up;
+        ++i;
+        t += up * boardingCost - runningCost;
+
+        if (t > mx) {
+            mx = t;
+            ans = i;
+        }
+    }
+
+    return ans;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn min_operations_max_profit(
+        customers: Vec<i32>,
+        boarding_cost: i32,
+        running_cost: i32
+    ) -> i32 {
+        let mut ans = -1;
+        let mut mx = 0;
+        let mut t = 0;
+        let mut wait = 0;
+        let mut i = 0;
+
+        while wait > 0 || i < customers.len() {
+            wait += if i < customers.len() { customers[i] } else { 0 };
+            let up = std::cmp::min(4, wait);
+            wait -= up;
+            i += 1;
+            t += up * boarding_cost - running_cost;
+
+            if t > mx {
+                mx = t;
+                ans = i as i32;
+            }
+        }
+
+        ans
+    }
 }
 ```
 
