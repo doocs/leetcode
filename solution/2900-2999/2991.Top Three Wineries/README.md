@@ -75,6 +75,23 @@ Output table is ordered by country in ascending order.
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：分组 + 窗口函数 + 左连接**
+
+我们可以先对 `Wineries` 表按照 `country` 和 `winery` 进行分组，计算每个分组的总得分 `points`，然后再利用窗口函数 `RANK()` 将数据再按照 `country` 进行分组，按照 `points` 降序、`winery` 升序进行排序，并且用 `CONCAT()` 函数将 `winery` 和 `points` 进行拼接，得到如下形式的数据，记为 `T` 表：
+
+| country   | winery               | rk  |
+| --------- | -------------------- | --- |
+| Australia | HarmonyHill (100)    | 1   |
+| Australia | GrapesGalore (85)    | 2   |
+| Australia | WhisperingPines (84) | 3   |
+| Hungary   | MoonlitCellars (60)  | 1   |
+| India     | SunsetVines (69)     | 1   |
+| USA       | RoyalVines (86)      | 1   |
+| USA       | Eagle'sNest (45)     | 2   |
+| USA       | PacificCrest (9)     | 3   |
+
+接下来，我们只需要筛选出 `rk = 1` 的数据，然后再将 `T` 表自连接两次，分别连接 `rk = 2` 和 `rk = 3` 的数据，即可得到最终结果。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -82,7 +99,29 @@ Output table is ordered by country in ascending order.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT
+            country,
+            CONCAT(winery, ' (', points, ')') AS winery,
+            RANK() OVER (
+                PARTITION BY country
+                ORDER BY points DESC, winery
+            ) AS rk
+        FROM (SELECT country, SUM(points) AS points, winery FROM Wineries GROUP BY 1, 3) AS t
+    )
+SELECT
+    t1.country,
+    t1.winery AS top_winery,
+    IFNULL(t2.winery, 'No second winery') AS second_winery,
+    IFNULL(t3.winery, 'No third winery') AS third_winery
+FROM
+    T AS t1
+    LEFT JOIN T AS t2 ON t1.country = t2.country AND t1.rk = t2.rk - 1
+    LEFT JOIN T AS t3 ON t2.country = t3.country AND t2.rk = t3.rk - 1
+WHERE t1.rk = 1
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->

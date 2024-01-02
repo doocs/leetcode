@@ -69,7 +69,12 @@ Only Chicago and Los Angeles have average home prices exceeding the national ave
 ### **SQL**
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT city
+FROM Listings
+GROUP BY city
+HAVING AVG(price) > (SELECT AVG(price) FROM Listings)
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->

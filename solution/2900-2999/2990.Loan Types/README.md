@@ -62,6 +62,10 @@ Output table is ordered by user_id in ascending order.
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：分组求和**
+
+我们可以对 `Loans` 表按照 `user_id` 进行分组，找出既包含 `Refinance` 又包含 `Mortgage` 的用户，然后按照 `user_id` 进行排序。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -69,7 +73,12 @@ Output table is ordered by user_id in ascending order.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT user_id
+FROM Loans
+GROUP BY 1
+HAVING SUM(loan_type = 'Refinance') > 0 AND SUM(loan_type = 'Mortgage') > 0
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->
