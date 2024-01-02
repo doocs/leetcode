@@ -116,7 +116,7 @@ class Solution {
 
     private boolean check(int x) {
         int[] cnt = new int[26];
-        for (int i = 0; i < n; ) {
+        for (int i = 0; i < n;) {
             int j = i + 1;
             while (j < n && s.charAt(j) == s.charAt(i)) {
                 j++;
@@ -143,7 +143,7 @@ public:
         int l = 0, r = n;
         auto check = [&](int x) {
             int cnt[26]{};
-            for (int i = 0; i < n; ) {
+            for (int i = 0; i < n;) {
                 int j = i + 1;
                 while (j < n && s[j] == s[i]) {
                     ++j;
