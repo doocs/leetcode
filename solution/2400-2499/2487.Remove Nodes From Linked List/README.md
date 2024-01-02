@@ -50,9 +50,11 @@
 
 **方法一：单调栈模拟**
 
-我们可以先将链表中的节点值存入数组，然后遍历数组，维护一个从栈底到栈顶单调递减的栈，如果当前元素比栈顶元素大，则将栈顶元素出栈，直到当前元素小于等于栈顶元素，将当前元素入栈。最后将栈中的元素逆序，构造得到的链表即为答案。
+我们可以先将链表中的节点值存入数组 $nums$，然后遍历数组 $nums$，维护一个从栈底到栈顶单调递减的栈 $stk$，如果当前元素比栈顶元素大，则将栈顶元素出栈，直到当前元素小于等于栈顶元素，将当前元素入栈。
 
-时间复杂度为 $O(n)$，空间复杂度为 $O(n)$。
+最后，我们从栈底到栈顶构造出结果链表，即为答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是链表的长度。
 
 <!-- tabs:start -->
 
@@ -109,15 +111,15 @@ class Solution {
         }
         Deque<Integer> stk = new ArrayDeque<>();
         for (int v : nums) {
-            while (!stk.isEmpty() && stk.peek() < v) {
-                stk.pop();
+            while (!stk.isEmpty() && stk.peekLast() < v) {
+                stk.pollLast();
             }
-            stk.push(v);
+            stk.offerLast(v);
         }
         ListNode dummy = new ListNode();
         head = dummy;
         while (!stk.isEmpty()) {
-            head.next = new ListNode(stk.pollLast());
+            head.next = new ListNode(stk.pollFirst());
             head = head.next;
         }
         return dummy.next;
@@ -194,6 +196,43 @@ func removeNodes(head *ListNode) *ListNode {
 		head = head.Next
 	}
 	return dummy.Next
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function removeNodes(head: ListNode | null): ListNode | null {
+    const nums = [];
+    for (; head; head = head.next) {
+        nums.push(head.val);
+    }
+    const stk: number[] = [];
+    for (const v of nums) {
+        while (stk.length && stk.at(-1)! < v) {
+            stk.pop();
+        }
+        stk.push(v);
+    }
+    const dummy = new ListNode();
+    head = dummy;
+    for (const v of stk) {
+        head.next = new ListNode(v);
+        head = head.next;
+    }
+    return dummy.next;
 }
 ```
 

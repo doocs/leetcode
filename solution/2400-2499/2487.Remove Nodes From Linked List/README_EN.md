@@ -40,6 +40,14 @@
 
 ## Solutions
 
+**Solution 1: Monotonic Stack Simulation**
+
+We can first store the node values of the linked list into an array $nums$. Then, we traverse the array $nums$, maintaining a stack $stk$ that is monotonically decreasing from the bottom to the top. If the current element is larger than the top element of the stack, we pop the top element of the stack until the current element is less than or equal to the top element, and then we push the current element into the stack.
+
+Finally, we construct the resulting linked list from the bottom to the top of the stack, which is the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the linked list.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -91,15 +99,15 @@ class Solution {
         }
         Deque<Integer> stk = new ArrayDeque<>();
         for (int v : nums) {
-            while (!stk.isEmpty() && stk.peek() < v) {
-                stk.pop();
+            while (!stk.isEmpty() && stk.peekLast() < v) {
+                stk.pollLast();
             }
-            stk.push(v);
+            stk.offerLast(v);
         }
         ListNode dummy = new ListNode();
         head = dummy;
         while (!stk.isEmpty()) {
-            head.next = new ListNode(stk.pollLast());
+            head.next = new ListNode(stk.pollFirst());
             head = head.next;
         }
         return dummy.next;
@@ -176,6 +184,43 @@ func removeNodes(head *ListNode) *ListNode {
 		head = head.Next
 	}
 	return dummy.Next
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function removeNodes(head: ListNode | null): ListNode | null {
+    const nums = [];
+    for (; head; head = head.next) {
+        nums.push(head.val);
+    }
+    const stk: number[] = [];
+    for (const v of nums) {
+        while (stk.length && stk.at(-1)! < v) {
+            stk.pop();
+        }
+        stk.push(v);
+    }
+    const dummy = new ListNode();
+    head = dummy;
+    for (const v of stk) {
+        head.next = new ListNode(v);
+        head = head.next;
+    }
+    return dummy.next;
 }
 ```
 
