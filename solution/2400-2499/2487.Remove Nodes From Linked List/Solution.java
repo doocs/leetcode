@@ -17,15 +17,15 @@ class Solution {
         }
         Deque<Integer> stk = new ArrayDeque<>();
         for (int v : nums) {
-            while (!stk.isEmpty() && stk.peek() < v) {
-                stk.pop();
+            while (!stk.isEmpty() && stk.peekLast() < v) {
+                stk.pollLast();
             }
-            stk.push(v);
+            stk.offerLast(v);
         }
         ListNode dummy = new ListNode();
         head = dummy;
         while (!stk.isEmpty()) {
-            head.next = new ListNode(stk.pollLast());
+            head.next = new ListNode(stk.pollFirst());
             head = head.next;
         }
         return dummy.next;
