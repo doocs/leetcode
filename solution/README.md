@@ -16,7 +16,7 @@
 |  0003  |  [无重复字符的最长子串](/solution/0000-0099/0003.Longest%20Substring%20Without%20Repeating%20Characters/README.md)  |  `哈希表`,`字符串`,`滑动窗口`  |  中等  |    |
 |  0004  |  [寻找两个正序数组的中位数](/solution/0000-0099/0004.Median%20of%20Two%20Sorted%20Arrays/README.md)  |  `数组`,`二分查找`,`分治`  |  困难  |    |
 |  0005  |  [最长回文子串](/solution/0000-0099/0005.Longest%20Palindromic%20Substring/README.md)  |  `字符串`,`动态规划`  |  中等  |    |
-|  0006  |  [N 字形变换](/solution/0000-0099/0006.Zigzag%20Conversion/README.md)  |  `字符串`  |  中等  |    |
+|  0006  |  [Z 字形变换](/solution/0000-0099/0006.Zigzag%20Conversion/README.md)  |  `字符串`  |  中等  |    |
 |  0007  |  [整数反转](/solution/0000-0099/0007.Reverse%20Integer/README.md)  |  `数学`  |  中等  |    |
 |  0008  |  [字符串转换整数 (atoi)](/solution/0000-0099/0008.String%20to%20Integer%20%28atoi%29/README.md)  |  `字符串`  |  中等  |    |
 |  0009  |  [回文数](/solution/0000-0099/0009.Palindrome%20Number/README.md)  |  `数学`  |  简单  |    |
@@ -2999,8 +2999,8 @@
 |  2986  |  [Find Third Transaction](/solution/2900-2999/2986.Find%20Third%20Transaction/README.md)  |    |  中等  |  🔒  |
 |  2987  |  [Find Expensive Cities](/solution/2900-2999/2987.Find%20Expensive%20Cities/README.md)  |    |  简单  |  🔒  |
 |  2988  |  [Manager of the Largest Department](/solution/2900-2999/2988.Manager%20of%20the%20Largest%20Department/README.md)  |    |  中等  |  🔒  |
-|  2989  |  [Class Performance](/solution/2900-2999/2989.Class%20Performance/README.md)  |    |  中等  |  🔒  |
-|  2990  |  [Loan Types](/solution/2900-2999/2990.Loan%20Types/README.md)  |    |  简单  |  🔒  |
+|  2989  |  [班级表现](/solution/2900-2999/2989.Class%20Performance/README.md)  |    |  中等  |  🔒  |
+|  2990  |  [贷款类型](/solution/2900-2999/2990.Loan%20Types/README.md)  |    |  简单  |  🔒  |
 |  2991  |  [Top Three Wineries](/solution/2900-2999/2991.Top%20Three%20Wineries/README.md)  |    |  困难  |  🔒  |
 
 ## 版权

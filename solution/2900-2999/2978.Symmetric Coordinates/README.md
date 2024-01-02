@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <font face="monospace"><code>Pairs</code></font></p>
+<p>Table: <font face="monospace"><code>Coordinates</code></font></p>
 
 <pre>
 +-------------+------+

@@ -1,4 +1,4 @@
-# [2979. Most Expensive Item That Can Not Be Bought](https://leetcode.cn/problems/most-expensive-item-that-can-not-be-bought)
+# [2979. 最贵的无法购买的商品](https://leetcode.cn/problems/most-expensive-item-that-can-not-be-bought)
 
 [English Version](/solution/2900-2999/2979.Most%20Expensive%20Item%20That%20Can%20Not%20Be%20Bought/README_EN.md)
 
@@ -6,35 +6,37 @@
 
 <!-- 这里写题目描述 -->
 
-<p>You are given two <strong>distinct</strong> <strong>prime</strong> numbers <code>primeOne</code> and <code>primeTwo</code>.</p>
+<p>给定两个 <strong>不同的质数</strong>&nbsp;<code>primeOne</code>&nbsp;和&nbsp;<code>primeTwo</code>。</p>
 
-<p>Alice and Bob are visiting a market. The market has an <strong>infinite</strong> number of items, for <strong>any</strong> positive integer <code>x</code> there exists an item whose price is <code>x</code>. Alice wants to buy some items from the market to gift to Bob. She has an <strong>infinite</strong> number of coins in the denomination <code>primeOne</code> and <code>primeTwo</code>. She wants to know the <strong>most expensive</strong> item she can <strong>not</strong> buy to gift to Bob.</p>
+<p>Alice 和 Bob 正在逛市场。该市场有 <strong>无数种&nbsp;</strong>商品，对于 <strong>任何</strong> 正整数 <code>x</code>，都存在一个价格为 <code>x</code> 的物品。Alice 想从市场里买一些东西送给 Bob。她有 <b>无数个</b>&nbsp;面值为 <code>primeOne</code> 和 <code>primeTwo</code> 的硬币。她想知道她 <strong>无法</strong>&nbsp;用她拥有的硬币购买的 <strong>最贵</strong> 商品的价格。</p>
 
-<p>Return <em>the price of the <strong>most expensive</strong> item which Alice can not gift to Bob</em>.</p>
-
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-
-<pre>
-<strong>Input:</strong> primeOne = 2, primeTwo = 5
-<strong>Output:</strong> 3
-<strong>Explanation:</strong> The prices of items which cannot be bought are [1,3]. It can be shown that all items with a price greater than 3 can be bought using a combination of coins of denominations 2 and 5.
-</pre>
-
-<p><strong class="example">Example 2:</strong></p>
-
-<pre>
-<strong>Input:</strong> primeOne = 5, primeTwo = 7
-<strong>Output:</strong> 23
-<strong>Explanation:</strong> The prices of items which cannot be bought are [1,2,3,4,6,8,9,11,13,16,18,23]. It can be shown that all items with a price greater than 23 can be bought.
-</pre>
+<p>返回 <em>Alice 无法买给&nbsp;Bob 的 <strong>最贵</strong> 商品的价格。</em></p>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><b>示例 1:</b></p>
+
+<pre>
+<b>输入：</b>primeOne = 2, primeTwo = 5
+<b>输出：</b>3
+<b>解释：</b>无法购买的商品的价格有 [1,3]。所有价格大于 3 的商品都可以通过组合使用面额为 2 和 5 的硬币购买。
+</pre>
+
+<p><b>示例 2:</b></p>
+
+<pre>
+<b>输入：</b>primeOne = 5, primeTwo = 7
+<b>输出：</b>23
+<b>解释：</b>无法购买的商品的价格有 [1,2,3,4,6,8,9,11,13,16,18,23]。所有价格大于 23 的商品都可以购买。
+</pre>
+
+<p>&nbsp;</p>
+
+<p><b>提示：</b></p>
 
 <ul>
 	<li><code>1 &lt; primeOne, primeTwo &lt; 10<sup>4</sup></code></li>
-	<li><code>primeOne</code>, <code>primeTwo</code> are prime numbers.</li>
+	<li><code>primeOne</code>, <code>primeTwo</code>&nbsp;都是质数。</li>
 	<li><code>primeOne * primeTwo &lt; 10<sup>5</sup></code></li>
 </ul>
 

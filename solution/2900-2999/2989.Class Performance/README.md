@@ -1,4 +1,4 @@
-# [2989. Class Performance](https://leetcode.cn/problems/class-performance)
+# [2989. 班级表现](https://leetcode.cn/problems/class-performance)
 
 [English Version](/solution/2900-2999/2989.Class%20Performance/README_EN.md)
 
@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Scores</code></p>
+<p>表：&nbsp;<code>Scores</code></p>
 
 <pre>
 +--------------+---------+
@@ -18,22 +18,23 @@
 | assignment2  | int     |
 | assignment3  | int     |
 +--------------+---------+
-student_id is column of unique values for this table.
-This table contains student_id, student_name, assignment1, assignment2, and assignment3.
+student_id 是这张表具有唯一值的列。
+该表包含 student_id, student_name, assignment1, assignment2,和 assignment3。
 </pre>
 
-<p>Write a solution to calculate the <strong>difference</strong> in the <strong>total score</strong> (sum of all <code>3</code> assignments) between the <strong>highest score</strong> obtained by students and the <strong>lowest score</strong> obtained by them.</p>
+<p>编写一个查询，计算学生获得的&nbsp;<strong>最高分&nbsp;</strong>和&nbsp;<strong>最低分&nbsp;</strong>之间的&nbsp;<strong>总分差</strong>（<code>3</code> 次作业的总和）。</p>
 
-<p>Return <em>the result table in <strong>any</strong> order</em><em>.</em></p>
+<p>以 <em><strong>任意</strong> 顺序返回结果表。</em></p>
 
-<p>The result format is in the following example.</p>
+<p>结果表的格式如下示例所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><b>示例 1:</b></p>
 
 <pre>
-<strong>Input:</strong> 
-Scores table:
+<b>输入：</b>
+Scores 表：
 +------------+--------------+-------------+-------------+-------------+
 | student_id | student_name | assignment1 | assignment2 | assignment3 |
 +------------+--------------+-------------+-------------+-------------+
@@ -44,20 +45,20 @@ Scores table:
 | 896        | David        | 32          | 37          | 50          | 
 | 235        | Camila       | 31          | 53          | 69          | 
 +------------+--------------+-------------+-------------+-------------+
-<strong>Output</strong>
+<b>输出</b>
 +---------------------+
 | difference_in_score | 
 +---------------------+
 | 111                 | 
 +---------------------+
-<strong>Explanation</strong>
-- student_id 309 has a total score of 88 + 47 + 87 = 222.
-- student_id 321 has a total score of 98 + 95 + 37 = 230.
-- student_id 338 has a total score of 100 + 64 + 43 = 207.
-- student_id 423 has a total score of 60 + 44 + 47 = 151.
-- student_id 896 has a total score of 32 + 37 + 50 = 119.
-- student_id 235 has a total score of 31 + 53 + 69 = 153.
-student_id 321 has the highest score of 230, while student_id 896 has the lowest score of 119. Therefore, the difference between them is 111.
+<b>解释</b>
+- student_id 309 的总分为 88 + 47 + 87 = 222。
+- student_id 321 的总分为 98 + 95 + 37 = 230。
+- student_id 338 的总分为 100 + 64 + 43 = 207。
+- student_id 423 的总分为 60 + 44 + 47 = 151。
+- student_id 896 的总分为 32 + 37 + 50 = 119。
+- student_id 235 的总分为 31 + 53 + 69 = 153。
+student_id 321 的最高分为 230，而 student_id 896 的最低分为 119。因此，它们之间的差异为 111。
 </pre>
 
 ## 解法
