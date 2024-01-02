@@ -71,12 +71,51 @@ Output table is ordered by country in ascending order.
 
 ## Solutions
 
+**Solution 1: Grouping + Window Function + Left Join**
+
+We can first group the `Wineries` table by `country` and `winery`, calculate the total score `points` for each group, then use the window function `RANK()` to group the data by `country` again, sort by `points` in descending order and `winery` in ascending order, and use the `CONCAT()` function to concatenate `winery` and `points`, resulting in the following data, denoted as table `T`:
+
+| country   | winery               | rk  |
+| --------- | -------------------- | --- |
+| Australia | HarmonyHill (100)    | 1   |
+| Australia | GrapesGalore (85)    | 2   |
+| Australia | WhisperingPines (84) | 3   |
+| Hungary   | MoonlitCellars (60)  | 1   |
+| India     | SunsetVines (69)     | 1   |
+| USA       | RoyalVines (86)      | 1   |
+| USA       | Eagle'sNest (45)     | 2   |
+| USA       | PacificCrest (9)     | 3   |
+
+Next, we just need to filter out the data where `rk = 1`, then join table `T` to itself twice, connecting the data where `rk = 2` and `rk = 3` respectively, to get the final result.
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
-
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT
+            country,
+            CONCAT(winery, ' (', points, ')') AS winery,
+            RANK() OVER (
+                PARTITION BY country
+                ORDER BY points DESC, winery
+            ) AS rk
+        FROM (SELECT country, SUM(points) AS points, winery FROM Wineries GROUP BY 1, 3) AS t
+    )
+SELECT
+    t1.country,
+    t1.winery AS top_winery,
+    IFNULL(t2.winery, 'No second winery') AS second_winery,
+    IFNULL(t3.winery, 'No third winery') AS third_winery
+FROM
+    T AS t1
+    LEFT JOIN T AS t2 ON t1.country = t2.country AND t1.rk = t2.rk - 1
+    LEFT JOIN T AS t3 ON t2.country = t3.country AND t2.rk = t3.rk - 1
+WHERE t1.rk = 1
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->

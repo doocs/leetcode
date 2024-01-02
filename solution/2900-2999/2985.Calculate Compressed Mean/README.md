@@ -63,7 +63,13 @@ The calculation is as follows:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT
+    ROUND(
+        SUM(item_count * order_occurrences) / SUM(order_occurrences),
+        2
+    ) AS average_items_per_order
+FROM Orders;
 ```
 
 <!-- tabs:end -->

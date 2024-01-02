@@ -64,6 +64,10 @@ student_id 321 has the highest score of 230, while student_id 896 has the lowest
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：最大值最小值**
+
+我们可以使用 `MAX` 和 `MIN` 函数来分别获取 `assignment1`、`assignment2`、`assignment3` 的和的最大值和最小值，然后相减即可。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -71,7 +75,12 @@ student_id 321 has the highest score of 230, while student_id 896 has the lowest
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT
+    MAX(assignment1 + assignment2 + assignment3) - MIN(
+        assignment1 + assignment2 + assignment3
+    ) AS difference_in_score
+FROM Scores;
 ```
 
 <!-- tabs:end -->

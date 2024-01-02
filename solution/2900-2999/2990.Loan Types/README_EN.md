@@ -58,12 +58,21 @@ Output table is ordered by user_id in ascending order.
 
 ## Solutions
 
+**Solution 1: Grouping and Summation**
+
+We can group the `Loans` table by `user_id` to find users who have both `Refinance` and `Mortgage`. Then, sort the results by `user_id`.
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT user_id
+FROM Loans
+GROUP BY 1
+HAVING SUM(loan_type = 'Refinance') > 0 AND SUM(loan_type = 'Mortgage') > 0
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->
