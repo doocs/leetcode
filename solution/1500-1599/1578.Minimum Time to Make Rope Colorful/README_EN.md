@@ -33,7 +33,7 @@ There are no longer two consecutive balloons of the same color. Total time = 3.<
 <pre>
 <strong>Input:</strong> colors = &quot;aabaa&quot;, neededTime = [1,2,3,4,1]
 <strong>Output:</strong> 2
-<strong>Explanation:</strong> Bob will remove the ballons at indices 0 and 4. Each ballon takes 1 second to remove.
+<strong>Explanation:</strong> Bob will remove the balloons at indices 0 and 4. Each balloons takes 1 second to remove.
 There are no longer two consecutive balloons of the same color. Total time = 1 + 1 = 2.
 </pre>
 

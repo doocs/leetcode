@@ -18,29 +18,31 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>words = [&quot;cat&quot;,&quot;bt&quot;,&quot;hat&quot;,&quot;tree&quot;], chars = &quot;atach&quot;
+<pre>
+<strong>输入：</strong>words = ["cat","bt","hat","tree"], chars = "atach"
 <strong>输出：</strong>6
 <strong>解释： </strong>
-可以形成字符串 &quot;cat&quot; 和 &quot;hat&quot;，所以答案是 3 + 3 = 6。
+可以形成字符串 "cat" 和 "hat"，所以答案是 3 + 3 = 6。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>words = [&quot;hello&quot;,&quot;world&quot;,&quot;leetcode&quot;], chars = &quot;welldonehoneyr&quot;
+<pre>
+<strong>输入：</strong>words = ["hello","world","leetcode"], chars = "welldonehoneyr"
 <strong>输出：</strong>10
 <strong>解释：</strong>
-可以形成字符串 &quot;hello&quot; 和 &quot;world&quot;，所以答案是 5 + 5 = 10。
+可以形成字符串 "hello" 和 "world"，所以答案是 5 + 5 = 10。
 </pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
+<ul>
 	<li><code>1 &lt;= words.length &lt;= 1000</code></li>
 	<li><code>1 &lt;= words[i].length, chars.length&nbsp;&lt;= 100</code></li>
 	<li>所有字符串中都仅包含小写英文字母</li>
-</ol>
+</ul>
 
 ## 解法
 
