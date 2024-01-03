@@ -46,6 +46,34 @@
 
 ## Solutions
 
+**Solution 1: Enumeration**
+
+We can directly enumerate $x$ in the range of $[1,..n]$, and check whether the following equation holds. If it holds, then $x$ is the pivot integer, and we can directly return $x$.
+
+$$
+(1 + x) \times x = (x + n) \times (n - x + 1)
+$$
+
+The time complexity is $O(n)$, where $n$ is the given positive integer $n$. The space complexity is $O(1)$.
+
+**Solution 2: Mathematics**
+
+We can transform the above equation to get:
+
+$$
+n \times (n + 1) = 2 \times x^2
+$$
+
+That is:
+
+$$
+x = \sqrt{\frac{n \times (n + 1)}{2}}
+$$
+
+If $x$ is an integer, then $x$ is the pivot integer, otherwise there is no pivot integer.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

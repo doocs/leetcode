@@ -48,6 +48,12 @@ Finally, we construct the resulting linked list from the bottom to the top of th
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the linked list.
 
+We can also directly traverse the linked list without using the array $nums$, maintaining a stack $stk$ that is monotonically decreasing from the bottom to the top. If the current element is larger than the top element of the stack, we pop the top element of the stack until the current element is less than or equal to the top element. Then, if the stack is not empty, we set the $next$ pointer of the top element of the stack to the current element. Otherwise, we set the $next$ pointer of the dummy head node of the answer linked list to the current element. Finally, we push the current element into the stack and continue to traverse the linked list.
+
+After the traversal, we return the $next$ pointer of the dummy head node as the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the linked list.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -74,6 +80,29 @@ class Solution:
         for v in stk:
             head.next = ListNode(v)
             head = head.next
+        return dummy.next
+```
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def removeNodes(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        dummy = ListNode(next=head)
+        cur = head
+        stk = []
+        while cur:
+            while stk and stk[-1].val < cur.val:
+                stk.pop()
+            if stk:
+                stk[-1].next = cur
+            else:
+                dummy.next = cur
+            stk.append(cur)
+            cur = cur.next
         return dummy.next
 ```
 
@@ -109,6 +138,37 @@ class Solution {
         while (!stk.isEmpty()) {
             head.next = new ListNode(stk.pollFirst());
             head = head.next;
+        }
+        return dummy.next;
+    }
+}
+```
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode removeNodes(ListNode head) {
+        ListNode dummy = new ListNode(0, head);
+        Deque<ListNode> stk = new ArrayDeque<>();
+        for (ListNode cur = head; cur != null; cur = cur.next) {
+            while (!stk.isEmpty() && stk.peekLast().val < cur.val) {
+                stk.pollLast();
+            }
+            if (!stk.isEmpty()) {
+                stk.peekLast().next = cur;
+            } else {
+                dummy.next = cur;
+            }
+            stk.offerLast(cur);
         }
         return dummy.next;
     }
@@ -154,6 +214,39 @@ public:
 };
 ```
 
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* removeNodes(ListNode* head) {
+        ListNode* dummy = new ListNode(0, head);
+        ListNode* cur = head;
+        vector<ListNode*> stk;
+        for (ListNode* cur = head; cur; cur = cur->next) {
+            while (stk.size() && stk.back()->val < cur->val) {
+                stk.pop_back();
+            }
+            if (stk.size()) {
+                stk.back()->next = cur;
+            } else {
+                dummy->next = cur;
+            }
+            stk.push_back(cur);
+        }
+        return dummy->next;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -182,6 +275,32 @@ func removeNodes(head *ListNode) *ListNode {
 	for _, v := range stk {
 		head.Next = &ListNode{Val: v}
 		head = head.Next
+	}
+	return dummy.Next
+}
+```
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func removeNodes(head *ListNode) *ListNode {
+	dummy := &ListNode{Next: head}
+	stk := []*ListNode{}
+	for cur := head; cur != nil; cur = cur.Next {
+		for len(stk) > 0 && stk[len(stk)-1].Val < cur.Val {
+			stk = stk[:len(stk)-1]
+		}
+		if len(stk) > 0 {
+			stk[len(stk)-1].Next = cur
+		} else {
+			dummy.Next = cur
+		}
+		stk = append(stk, cur)
 	}
 	return dummy.Next
 }
@@ -219,6 +338,37 @@ function removeNodes(head: ListNode | null): ListNode | null {
     for (const v of stk) {
         head.next = new ListNode(v);
         head = head.next;
+    }
+    return dummy.next;
+}
+```
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function removeNodes(head: ListNode | null): ListNode | null {
+    const dummy = new ListNode(0, head);
+    const stk: ListNode[] = [];
+    for (let cur = head; cur; cur = cur.next) {
+        while (stk.length && stk.at(-1)!.val < cur.val) {
+            stk.pop();
+        }
+        if (stk.length) {
+            stk.at(-1)!.next = cur;
+        } else {
+            dummy.next = cur;
+        }
+        stk.push(cur);
     }
     return dummy.next;
 }
