@@ -255,7 +255,7 @@
 | 2988 | [Manager of the Largest Department](/solution/2900-2999/2988.Manager%20of%20the%20Largest%20Department/README.md)                                            |          | 中等 | 🔒   |
 | 2989 | [班级表现](/solution/2900-2999/2989.Class%20Performance/README.md)                                                                                           |          | 中等 | 🔒   |
 | 2990 | [贷款类型](/solution/2900-2999/2990.Loan%20Types/README.md)                                                                                                  |          | 简单 | 🔒   |
-| 2991 | [Top Three Wineries](/solution/2900-2999/2991.Top%20Three%20Wineries/README.md)                                                                              |          | 困难 | 🔒   |
+| 2991 | [最好的三家酒庄](/solution/2900-2999/2991.Top%20Three%20Wineries/README.md)                                                                                  |          | 困难 | 🔒   |
 
 ## 版权
 
