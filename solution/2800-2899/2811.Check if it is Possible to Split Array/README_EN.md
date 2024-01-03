@@ -51,6 +51,34 @@
 
 ## Solutions
 
+**Solution 1: Memoization Search**
+
+First, we preprocess to get the prefix sum array $s$, where $s[i]$ represents the sum of the first $i$ elements of the array $nums$.
+
+Next, we design a function $dfs(i, j)$, which represents whether there is a way to split the index range $[i, j]$ of the array $nums$ that meets the conditions. If it exists, return `true`, otherwise return `false`.
+
+The calculation process of the function $dfs(i, j)$ is as follows:
+
+If $i = j$, then there is only one element, no need to split, return `true`;
+
+Otherwise, we enumerate the split point $k$, where $k \in [i, j]$, if the following conditions are met, then it can be split into two subarrays $nums[i,.. k]$ and $nums[k + 1,.. j]$:
+
+-   The subarray $nums[i,..k]$ has only one element, or the sum of the elements of the subarray $nums[i,..k]$ is greater than or equal to $m$;
+-   The subarray $nums[k + 1,..j]$ has only one element, or the sum of the elements of the subarray $nums[k + 1,..j]$ is greater than or equal to $m$;
+-   Both $dfs(i, k)$ and $dfs(k + 1, j)$ are `true`.
+
+To avoid repeated calculations, we use the method of memoization search, and use a two-dimensional array $f$ to record all the return values of $dfs(i, j)$, where $f[i][j]$ represents the return value of $dfs(i, j)$.
+
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the length of the array $nums$.
+
+**Solution 2: Quick Thinking**
+
+No matter how you operate, there will always be a `length == 2` subarray left in the end. Since there are no negative numbers in the elements, as the split operation proceeds, the length and sum of the subarray will gradually decrease. The sum of other `length > 2` subarrays must be larger than the sum of this subarray. Therefore, we only need to consider whether there is a `length == 2` subarray with a sum greater than or equal to `m`.
+
+> 📢 Note that when `nums.length <= 2`, no operation is needed.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
