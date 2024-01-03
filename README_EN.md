@@ -14,9 +14,7 @@
 
 ## Introduction
 
-The Doocs LeetCode repository is a comprehensive collection of solutions to LeetCode questions in multiple programming languages. The repository contains solutions to LeetCode, LCOF, LCCI questions, and more in multiple programming languages.
-
-The repository is maintained by the Doocs community, and please give us a [star](https://github.com/doocs/leetcode) 🌟 if you like it.
+This project contains solutions for problems from LeetCode, "Coding Interviews (2nd Edition)", "Coding Interviews (Special Edition)", "Cracking the Coding Interview (6th Edition)", etc. All solutions are implemented in multiple programming languages, including but not limited to: Java, Python, C++, Go, TypeScript, Rust. We are working hard to update, welcome to Star 🌟 and follow [this project](https://github.com/doocs/leetcode) to get the latest updates.
 
 [中文文档](/README.md)
 
