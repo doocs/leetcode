@@ -44,6 +44,12 @@ There are no pairs of adjacent nodes, so we return the initial linked list.
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+We use two pointers $pre$ and $cur$ to point to the current node and the next node respectively. We only need to insert a new node between $pre$ and $cur$. Therefore, each time we calculate the greatest common divisor $x$ of $pre$ and $cur$, we insert a new node with value $x$ between $pre$ and $cur$. Then we update $pre = cur$ and $cur = cur.next$, and continue to traverse the linked list until $cur$ is null.
+
+The time complexity is $O(n \times \log M)$, where $n$ is the length of the linked list, and $M$ is the maximum value of the nodes in the linked list. Ignoring the space consumption of the result linked list, the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -81,12 +87,10 @@ class Solution:
  */
 class Solution {
     public ListNode insertGreatestCommonDivisors(ListNode head) {
-        ListNode pre = head, cur = head.next;
-        while (cur != null) {
+        for (ListNode pre = head, cur = head.next; cur != null; cur = cur.next) {
             int x = gcd(pre.val, cur.val);
             pre.next = new ListNode(x, cur);
             pre = cur;
-            cur = cur.next;
         }
         return head;
     }
@@ -117,12 +121,10 @@ class Solution {
 public:
     ListNode* insertGreatestCommonDivisors(ListNode* head) {
         ListNode* pre = head;
-        ListNode* cur = head->next;
-        while (cur) {
+        for (ListNode* cur = head->next; cur; cur = cur->next) {
             int x = gcd(pre->val, cur->val);
             pre->next = new ListNode(x, cur);
             pre = cur;
-            cur = cur->next;
         }
         return head;
     }
@@ -140,11 +142,10 @@ public:
  * }
  */
 func insertGreatestCommonDivisors(head *ListNode) *ListNode {
-	pre, cur := head, head.Next
-	for cur != nil {
+	for pre, cur := head, head.Next; cur != nil; cur = cur.Next {
 		x := gcd(pre.Val, cur.Val)
 		pre.Next = &ListNode{x, cur}
-		pre, cur = cur, cur.Next
+		pre = cur
 	}
 	return head
 }
@@ -173,13 +174,10 @@ func gcd(a, b int) int {
  */
 
 function insertGreatestCommonDivisors(head: ListNode | null): ListNode | null {
-    let pre = head;
-    let cur = head.next;
-    while (cur) {
+    for (let pre = head, cur = head.next; cur; cur = cur.next) {
         const x = gcd(pre.val, cur.val);
         pre.next = new ListNode(x, cur);
         pre = cur;
-        cur = cur.next;
     }
     return head;
 }

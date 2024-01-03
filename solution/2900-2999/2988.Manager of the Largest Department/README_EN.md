@@ -61,6 +61,10 @@ Output table is ordered by dep_id in ascending order.
 
 ## Solutions
 
+**Solution 1: Grouping + Equi-Join + Subquery**
+
+We can first count the number of employees in each department, denoted as table `T`. Then we join `T` with the `Employees` table, with the join condition being `T.dep_id = Employees.dep_id` and `Employees.position = 'Manager'`. This way, we can get the manager of each department. Finally, we filter out the department with the most employees.
+
 <!-- tabs:start -->
 
 ### **SQL**

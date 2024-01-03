@@ -11,13 +11,10 @@
  */
 
 function insertGreatestCommonDivisors(head: ListNode | null): ListNode | null {
-    let pre = head;
-    let cur = head.next;
-    while (cur) {
+    for (let pre = head, cur = head.next; cur; cur = cur.next) {
         const x = gcd(pre.val, cur.val);
         pre.next = new ListNode(x, cur);
         pre = cur;
-        cur = cur.next;
     }
     return head;
 }

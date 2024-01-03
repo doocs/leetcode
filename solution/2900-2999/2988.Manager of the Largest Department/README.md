@@ -65,6 +65,10 @@ Output table is ordered by dep_id in ascending order.
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：分组 + 等值连接 + 子查询**
+
+我们可以先统计每个部门的员工数量，记为表 `T`，然后我们将 `T` 与 `Employees` 表进行连接，连接条件为 `T.dep_id = Employees.dep_id`，并且 `Employees.position = 'Manager'`，这样就可以得到每个部门的经理，最后我们再筛选出员工数量最多的部门即可。
+
 <!-- tabs:start -->
 
 ### **SQL**

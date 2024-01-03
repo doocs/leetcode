@@ -91,16 +91,13 @@ class Solution:
 #         self.next = next
 class Solution:
     def removeNodes(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        dummy = ListNode(next=head)
+        dummy = ListNode(inf, head)
         cur = head
-        stk = []
+        stk = [dummy]
         while cur:
-            while stk and stk[-1].val < cur.val:
+            while stk[-1].val < cur.val:
                 stk.pop()
-            if stk:
-                stk[-1].next = cur
-            else:
-                dummy.next = cur
+            stk[-1].next = cur
             stk.append(cur)
             cur = cur.next
         return dummy.next
@@ -157,17 +154,14 @@ class Solution {
  */
 class Solution {
     public ListNode removeNodes(ListNode head) {
-        ListNode dummy = new ListNode(0, head);
+        ListNode dummy = new ListNode(1 << 30, head);
         Deque<ListNode> stk = new ArrayDeque<>();
+        stk.offerLast(dummy);
         for (ListNode cur = head; cur != null; cur = cur.next) {
-            while (!stk.isEmpty() && stk.peekLast().val < cur.val) {
+            while (stk.peekLast().val < cur.val) {
                 stk.pollLast();
             }
-            if (!stk.isEmpty()) {
-                stk.peekLast().next = cur;
-            } else {
-                dummy.next = cur;
-            }
+            stk.peekLast().next = cur;
             stk.offerLast(cur);
         }
         return dummy.next;
@@ -228,18 +222,14 @@ public:
 class Solution {
 public:
     ListNode* removeNodes(ListNode* head) {
-        ListNode* dummy = new ListNode(0, head);
+        ListNode* dummy = new ListNode(1e9, head);
         ListNode* cur = head;
-        vector<ListNode*> stk;
+        vector<ListNode*> stk = {dummy};
         for (ListNode* cur = head; cur; cur = cur->next) {
-            while (stk.size() && stk.back()->val < cur->val) {
+            while (stk.back()->val < cur->val) {
                 stk.pop_back();
             }
-            if (stk.size()) {
-                stk.back()->next = cur;
-            } else {
-                dummy->next = cur;
-            }
+            stk.back()->next = cur;
             stk.push_back(cur);
         }
         return dummy->next;
@@ -289,17 +279,13 @@ func removeNodes(head *ListNode) *ListNode {
  * }
  */
 func removeNodes(head *ListNode) *ListNode {
-	dummy := &ListNode{Next: head}
-	stk := []*ListNode{}
+	dummy := &ListNode{1 << 30, head}
+	stk := []*ListNode{dummy}
 	for cur := head; cur != nil; cur = cur.Next {
-		for len(stk) > 0 && stk[len(stk)-1].Val < cur.Val {
+		for stk[len(stk)-1].Val < cur.Val {
 			stk = stk[:len(stk)-1]
 		}
-		if len(stk) > 0 {
-			stk[len(stk)-1].Next = cur
-		} else {
-			dummy.Next = cur
-		}
+		stk[len(stk)-1].Next = cur
 		stk = append(stk, cur)
 	}
 	return dummy.Next
@@ -357,17 +343,13 @@ function removeNodes(head: ListNode | null): ListNode | null {
  */
 
 function removeNodes(head: ListNode | null): ListNode | null {
-    const dummy = new ListNode(0, head);
-    const stk: ListNode[] = [];
+    const dummy = new ListNode(Infinity, head);
+    const stk: ListNode[] = [dummy];
     for (let cur = head; cur; cur = cur.next) {
-        while (stk.length && stk.at(-1)!.val < cur.val) {
+        while (stk.at(-1)!.val < cur.val) {
             stk.pop();
         }
-        if (stk.length) {
-            stk.at(-1)!.next = cur;
-        } else {
-            dummy.next = cur;
-        }
+        stk.at(-1)!.next = cur;
         stk.push(cur);
     }
     return dummy.next;

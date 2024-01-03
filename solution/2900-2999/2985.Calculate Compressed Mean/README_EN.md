@@ -52,6 +52,10 @@ The calculation is as follows:
 
 ## Solutions
 
+**Solution 1: Summation**
+
+We use the `SUM` function to calculate the total quantity of products and the total number of orders, then divide the total quantity by the total number of orders to get the average. Finally, we use the `ROUND` function to round the result to two decimal places.
+
 <!-- tabs:start -->
 
 ### **SQL**

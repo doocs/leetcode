@@ -10,12 +10,10 @@
  */
 class Solution {
     public ListNode insertGreatestCommonDivisors(ListNode head) {
-        ListNode pre = head, cur = head.next;
-        while (cur != null) {
+        for (ListNode pre = head, cur = head.next; cur != null; cur = cur.next) {
             int x = gcd(pre.val, cur.val);
             pre.next = new ListNode(x, cur);
             pre = cur;
-            cur = cur.next;
         }
         return head;
     }

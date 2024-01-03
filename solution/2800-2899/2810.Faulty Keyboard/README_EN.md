@@ -53,6 +53,16 @@ Therefore, we return &quot;ponter&quot;.</pre>
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+We directly simulate the keyboard input process, using a character array $t$ to record the text on the screen, initially $t$ is empty.
+
+For each character $c$ in string $s$, if $c$ is not the character $'i'$, then we add $c$ to the end of $t$; otherwise, we reverse all characters in $t$.
+
+The final answer is the string composed of characters in $t$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of string $s$.
+
 <!-- tabs:start -->
 
 ### **Python3**
