@@ -49,6 +49,12 @@ It can be shown that appending any 4 characters to the end of s will never make 
 
 ## Solutions
 
+**Solution 1: Two Pointers**
+
+We define two pointers $i$ and $j$, pointing to the first characters of strings $s$ and $t$ respectively. We traverse string $t$, when $s[i] \neq t[j]$, we move pointer $i$ forward until $s[i] = t[j]$ or $i$ reaches the end of string $s$. If $i$ reaches the end of string $s$, it means that the character $t[j]$ in $t$ cannot find the corresponding character in $s$, so we return the remaining number of characters in $t$. Otherwise, we move both pointers $i$ and $j$ forward and continue to traverse string $t$.
+
+The time complexity is $O(m + n)$, and the space complexity is $O(1)$. Where $m$ and $n$ are the lengths of strings $s$ and $t$ respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -56,13 +62,12 @@ It can be shown that appending any 4 characters to the end of s will never make 
 ```python
 class Solution:
     def appendCharacters(self, s: str, t: str) -> int:
-        m, n = len(s), len(t)
-        i = 0
-        for j in range(n):
-            while i < m and s[i] != t[j]:
+        i, m = 0, len(s)
+        for j, c in enumerate(t):
+            while i < m and s[i] != c:
                 i += 1
             if i == m:
-                return n - j
+                return len(t) - j
             i += 1
         return 0
 ```
@@ -120,6 +125,24 @@ func appendCharacters(s string, t string) int {
 		}
 	}
 	return 0
+}
+```
+
+### **TypeScript**
+
+```ts
+function appendCharacters(s: string, t: string): number {
+    const [m, n] = [s.length, t.length];
+    for (let i = 0, j = 0; j < n; ++j) {
+        while (i < m && s[i] !== t[j]) {
+            ++i;
+        }
+        if (i === m) {
+            return n - j;
+        }
+        ++i;
+    }
+    return 0;
 }
 ```
 
