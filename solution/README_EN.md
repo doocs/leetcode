@@ -2977,29 +2977,30 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2966  |  [Divide Array Into Arrays With Max Difference](/solution/2900-2999/2966.Divide%20Array%20Into%20Arrays%20With%20Max%20Difference/README_EN.md)  |    |  Medium  |  Weekly Contest 376  |
 |  2967  |  [Minimum Cost to Make Array Equalindromic](/solution/2900-2999/2967.Minimum%20Cost%20to%20Make%20Array%20Equalindromic/README_EN.md)  |  `Greedy`,`Array`,`Math`,`Sorting`  |  Medium  |  Weekly Contest 376  |
 |  2968  |  [Apply Operations to Maximize Frequency Score](/solution/2900-2999/2968.Apply%20Operations%20to%20Maximize%20Frequency%20Score/README_EN.md)  |  `Array`,`Binary Search`,`Prefix Sum`,`Sorting`,`Sliding Window`  |  Hard  |  Weekly Contest 376  |
-|  2969  |  [Minimum Number of Coins for Fruits II](/solution/2900-2999/2969.Minimum%20Number%20of%20Coins%20for%20Fruits%20II/README_EN.md)  |  `Queue`,`Array`,`Dynamic Programming`,`Monotonic Queue`  |  Hard  |  🔒  |
-|  2970  |  [Count the Number of Incremovable Subarrays I](/solution/2900-2999/2970.Count%20the%20Number%20of%20Incremovable%20Subarrays%20I/README_EN.md)  |    |  Easy  |  Biweekly Contest 120  |
-|  2971  |  [Find Polygon With the Largest Perimeter](/solution/2900-2999/2971.Find%20Polygon%20With%20the%20Largest%20Perimeter/README_EN.md)  |    |  Medium  |  Biweekly Contest 120  |
-|  2972  |  [Count the Number of Incremovable Subarrays II](/solution/2900-2999/2972.Count%20the%20Number%20of%20Incremovable%20Subarrays%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 120  |
-|  2973  |  [Find Number of Coins to Place in Tree Nodes](/solution/2900-2999/2973.Find%20Number%20of%20Coins%20to%20Place%20in%20Tree%20Nodes/README_EN.md)  |    |  Hard  |  Biweekly Contest 120  |
-|  2974  |  [Minimum Number Game](/solution/2900-2999/2974.Minimum%20Number%20Game/README_EN.md)  |    |  Easy  |  Weekly Contest 377  |
-|  2975  |  [Maximum Square Area by Removing Fences From a Field](/solution/2900-2999/2975.Maximum%20Square%20Area%20by%20Removing%20Fences%20From%20a%20Field/README_EN.md)  |    |  Medium  |  Weekly Contest 377  |
-|  2976  |  [Minimum Cost to Convert String I](/solution/2900-2999/2976.Minimum%20Cost%20to%20Convert%20String%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 377  |
-|  2977  |  [Minimum Cost to Convert String II](/solution/2900-2999/2977.Minimum%20Cost%20to%20Convert%20String%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 377  |
-|  2978  |  [Symmetric Coordinates](/solution/2900-2999/2978.Symmetric%20Coordinates/README_EN.md)  |    |  Medium  |  🔒  |
-|  2979  |  [Most Expensive Item That Can Not Be Bought](/solution/2900-2999/2979.Most%20Expensive%20Item%20That%20Can%20Not%20Be%20Bought/README_EN.md)  |    |  Medium  |  🔒  |
-|  2980  |  [Check if Bitwise OR Has Trailing Zeros](/solution/2900-2999/2980.Check%20if%20Bitwise%20OR%20Has%20Trailing%20Zeros/README_EN.md)  |    |  Easy  |  Weekly Contest 378  |
-|  2981  |  [Find Longest Special Substring That Occurs Thrice I](/solution/2900-2999/2981.Find%20Longest%20Special%20Substring%20That%20Occurs%20Thrice%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 378  |
-|  2982  |  [Find Longest Special Substring That Occurs Thrice II](/solution/2900-2999/2982.Find%20Longest%20Special%20Substring%20That%20Occurs%20Thrice%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 378  |
-|  2983  |  [Palindrome Rearrangement Queries](/solution/2900-2999/2983.Palindrome%20Rearrangement%20Queries/README_EN.md)  |    |  Hard  |  Weekly Contest 378  |
-|  2984  |  [Find Peak Calling Hours for Each City](/solution/2900-2999/2984.Find%20Peak%20Calling%20Hours%20for%20Each%20City/README_EN.md)  |    |  Medium  |  🔒  |
-|  2985  |  [Calculate Compressed Mean](/solution/2900-2999/2985.Calculate%20Compressed%20Mean/README_EN.md)  |    |  Easy  |  🔒  |
-|  2986  |  [Find Third Transaction](/solution/2900-2999/2986.Find%20Third%20Transaction/README_EN.md)  |    |  Medium  |  🔒  |
-|  2987  |  [Find Expensive Cities](/solution/2900-2999/2987.Find%20Expensive%20Cities/README_EN.md)  |    |  Easy  |  🔒  |
-|  2988  |  [Manager of the Largest Department](/solution/2900-2999/2988.Manager%20of%20the%20Largest%20Department/README_EN.md)  |    |  Medium  |  🔒  |
-|  2989  |  [Class Performance](/solution/2900-2999/2989.Class%20Performance/README_EN.md)  |    |  Medium  |  🔒  |
-|  2990  |  [Loan Types](/solution/2900-2999/2990.Loan%20Types/README_EN.md)  |    |  Easy  |  🔒  |
-|  2991  |  [Top Three Wineries](/solution/2900-2999/2991.Top%20Three%20Wineries/README_EN.md)  |    |  Hard  |  🔒  |
+|  2969  |  [Minimum Number of Coins for Fruits II](/solution/2900-2999/2969.Minimum%20Number%20of%20Coins%20for%20Fruits%20II/README_EN.md)  |  `Queue`,`Array`,`Dynamic Programming`,`Monotonic Queue`,`Heap (Priority Queue)`  |  Hard  |  🔒  |
+|  2970  |  [Count the Number of Incremovable Subarrays I](/solution/2900-2999/2970.Count%20the%20Number%20of%20Incremovable%20Subarrays%20I/README_EN.md)  |  `Array`,`Two Pointers`,`Binary Search`,`Enumeration`  |  Easy  |  Biweekly Contest 120  |
+|  2971  |  [Find Polygon With the Largest Perimeter](/solution/2900-2999/2971.Find%20Polygon%20With%20the%20Largest%20Perimeter/README_EN.md)  |  `Greedy`,`Array`,`Prefix Sum`,`Sorting`  |  Medium  |  Biweekly Contest 120  |
+|  2972  |  [Count the Number of Incremovable Subarrays II](/solution/2900-2999/2972.Count%20the%20Number%20of%20Incremovable%20Subarrays%20II/README_EN.md)  |  `Array`,`Two Pointers`,`Binary Search`  |  Hard  |  Biweekly Contest 120  |
+|  2973  |  [Find Number of Coins to Place in Tree Nodes](/solution/2900-2999/2973.Find%20Number%20of%20Coins%20to%20Place%20in%20Tree%20Nodes/README_EN.md)  |  `Tree`,`Depth-First Search`,`Dynamic Programming`,`Sorting`,`Heap (Priority Queue)`  |  Hard  |  Biweekly Contest 120  |
+|  2974  |  [Minimum Number Game](/solution/2900-2999/2974.Minimum%20Number%20Game/README_EN.md)  |  `Sort`,`Array`,`Simulation`,`Heap (Priority Queue)`  |  Easy  |  Weekly Contest 377  |
+|  2975  |  [Maximum Square Area by Removing Fences From a Field](/solution/2900-2999/2975.Maximum%20Square%20Area%20by%20Removing%20Fences%20From%20a%20Field/README_EN.md)  |  `Array`,`Hash Table`,`Enumeration`  |  Medium  |  Weekly Contest 377  |
+|  2976  |  [Minimum Cost to Convert String I](/solution/2900-2999/2976.Minimum%20Cost%20to%20Convert%20String%20I/README_EN.md)  |  `Graph`,`Array`,`String`,`Shortest Path`  |  Medium  |  Weekly Contest 377  |
+|  2977  |  [Minimum Cost to Convert String II](/solution/2900-2999/2977.Minimum%20Cost%20to%20Convert%20String%20II/README_EN.md)  |  `Graph`,`Trie`,`Array`,`String`,`Dynamic Programming`,`Shortest Path`  |  Hard  |  Weekly Contest 377  |
+|  2978  |  [Symmetric Coordinates](/solution/2900-2999/2978.Symmetric%20Coordinates/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
+|  2979  |  [Most Expensive Item That Can Not Be Bought](/solution/2900-2999/2979.Most%20Expensive%20Item%20That%20Can%20Not%20Be%20Bought/README_EN.md)  |  `Math`,`Dynamic Programming`,`Number Theory`  |  Medium  |  🔒  |
+|  2980  |  [Check if Bitwise OR Has Trailing Zeros](/solution/2900-2999/2980.Check%20if%20Bitwise%20OR%20Has%20Trailing%20Zeros/README_EN.md)  |  `Bit Manipulation`,`Array`  |  Easy  |  Weekly Contest 378  |
+|  2981  |  [Find Longest Special Substring That Occurs Thrice I](/solution/2900-2999/2981.Find%20Longest%20Special%20Substring%20That%20Occurs%20Thrice%20I/README_EN.md)  |  `Hash Table`,`String`,`Binary Search`,`Counting`,`Sliding Window`  |  Medium  |  Weekly Contest 378  |
+|  2982  |  [Find Longest Special Substring That Occurs Thrice II](/solution/2900-2999/2982.Find%20Longest%20Special%20Substring%20That%20Occurs%20Thrice%20II/README_EN.md)  |  `Hash Table`,`String`,`Binary Search`,`Counting`,`Sliding Window`  |  Medium  |  Weekly Contest 378  |
+|  2983  |  [Palindrome Rearrangement Queries](/solution/2900-2999/2983.Palindrome%20Rearrangement%20Queries/README_EN.md)  |  `Hash Table`,`String`,`Prefix Sum`  |  Hard  |  Weekly Contest 378  |
+|  2984  |  [Find Peak Calling Hours for Each City](/solution/2900-2999/2984.Find%20Peak%20Calling%20Hours%20for%20Each%20City/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
+|  2985  |  [Calculate Compressed Mean](/solution/2900-2999/2985.Calculate%20Compressed%20Mean/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
+|  2986  |  [Find Third Transaction](/solution/2900-2999/2986.Find%20Third%20Transaction/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
+|  2987  |  [Find Expensive Cities](/solution/2900-2999/2987.Find%20Expensive%20Cities/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
+|  2988  |  [Manager of the Largest Department](/solution/2900-2999/2988.Manager%20of%20the%20Largest%20Department/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
+|  2989  |  [Class Performance](/solution/2900-2999/2989.Class%20Performance/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
+|  2990  |  [Loan Types](/solution/2900-2999/2990.Loan%20Types/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
+|  2991  |  [Top Three Wineries](/solution/2900-2999/2991.Top%20Three%20Wineries/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
+|  2992  |  [Number of Self-Divisible Permutations](/solution/2900-2999/2992.Number%20of%20Self-Divisible%20Permutations/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 

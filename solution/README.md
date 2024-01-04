@@ -2979,29 +2979,30 @@
 |  2966  |  [划分数组并满足最大差限制](/solution/2900-2999/2966.Divide%20Array%20Into%20Arrays%20With%20Max%20Difference/README.md)  |    |  中等  |  第 376 场周赛  |
 |  2967  |  [使数组成为等数数组的最小代价](/solution/2900-2999/2967.Minimum%20Cost%20to%20Make%20Array%20Equalindromic/README.md)  |  `贪心`,`数组`,`数学`,`排序`  |  中等  |  第 376 场周赛  |
 |  2968  |  [执行操作使频率分数最大](/solution/2900-2999/2968.Apply%20Operations%20to%20Maximize%20Frequency%20Score/README.md)  |  `数组`,`二分查找`,`前缀和`,`排序`,`滑动窗口`  |  困难  |  第 376 场周赛  |
-|  2969  |  [购买水果需要的最少金币数 II](/solution/2900-2999/2969.Minimum%20Number%20of%20Coins%20for%20Fruits%20II/README.md)  |  `队列`,`数组`,`动态规划`,`单调队列`  |  困难  |  🔒  |
-|  2970  |  [统计移除递增子数组的数目 I](/solution/2900-2999/2970.Count%20the%20Number%20of%20Incremovable%20Subarrays%20I/README.md)  |    |  简单  |  第 120 场双周赛  |
-|  2971  |  [找到最大周长的多边形](/solution/2900-2999/2971.Find%20Polygon%20With%20the%20Largest%20Perimeter/README.md)  |    |  中等  |  第 120 场双周赛  |
-|  2972  |  [统计移除递增子数组的数目 II](/solution/2900-2999/2972.Count%20the%20Number%20of%20Incremovable%20Subarrays%20II/README.md)  |    |  困难  |  第 120 场双周赛  |
-|  2973  |  [树中每个节点放置的金币数目](/solution/2900-2999/2973.Find%20Number%20of%20Coins%20to%20Place%20in%20Tree%20Nodes/README.md)  |    |  困难  |  第 120 场双周赛  |
-|  2974  |  [最小数字游戏](/solution/2900-2999/2974.Minimum%20Number%20Game/README.md)  |    |  简单  |  第 377 场周赛  |
-|  2975  |  [移除栅栏得到的正方形田地的最大面积](/solution/2900-2999/2975.Maximum%20Square%20Area%20by%20Removing%20Fences%20From%20a%20Field/README.md)  |    |  中等  |  第 377 场周赛  |
-|  2976  |  [转换字符串的最小成本 I](/solution/2900-2999/2976.Minimum%20Cost%20to%20Convert%20String%20I/README.md)  |    |  中等  |  第 377 场周赛  |
-|  2977  |  [转换字符串的最小成本 II](/solution/2900-2999/2977.Minimum%20Cost%20to%20Convert%20String%20II/README.md)  |    |  困难  |  第 377 场周赛  |
-|  2978  |  [Symmetric Coordinates](/solution/2900-2999/2978.Symmetric%20Coordinates/README.md)  |    |  中等  |  🔒  |
-|  2979  |  [最贵的无法购买的商品](/solution/2900-2999/2979.Most%20Expensive%20Item%20That%20Can%20Not%20Be%20Bought/README.md)  |    |  中等  |  🔒  |
-|  2980  |  [检查按位或是否存在尾随零](/solution/2900-2999/2980.Check%20if%20Bitwise%20OR%20Has%20Trailing%20Zeros/README.md)  |    |  简单  |  第 378 场周赛  |
-|  2981  |  [找出出现至少三次的最长特殊子字符串 I](/solution/2900-2999/2981.Find%20Longest%20Special%20Substring%20That%20Occurs%20Thrice%20I/README.md)  |    |  中等  |  第 378 场周赛  |
-|  2982  |  [找出出现至少三次的最长特殊子字符串 II](/solution/2900-2999/2982.Find%20Longest%20Special%20Substring%20That%20Occurs%20Thrice%20II/README.md)  |    |  中等  |  第 378 场周赛  |
-|  2983  |  [回文串重新排列查询](/solution/2900-2999/2983.Palindrome%20Rearrangement%20Queries/README.md)  |    |  困难  |  第 378 场周赛  |
-|  2984  |  [Find Peak Calling Hours for Each City](/solution/2900-2999/2984.Find%20Peak%20Calling%20Hours%20for%20Each%20City/README.md)  |    |  中等  |  🔒  |
-|  2985  |  [Calculate Compressed Mean](/solution/2900-2999/2985.Calculate%20Compressed%20Mean/README.md)  |    |  简单  |  🔒  |
-|  2986  |  [Find Third Transaction](/solution/2900-2999/2986.Find%20Third%20Transaction/README.md)  |    |  中等  |  🔒  |
-|  2987  |  [Find Expensive Cities](/solution/2900-2999/2987.Find%20Expensive%20Cities/README.md)  |    |  简单  |  🔒  |
-|  2988  |  [Manager of the Largest Department](/solution/2900-2999/2988.Manager%20of%20the%20Largest%20Department/README.md)  |    |  中等  |  🔒  |
-|  2989  |  [班级表现](/solution/2900-2999/2989.Class%20Performance/README.md)  |    |  中等  |  🔒  |
-|  2990  |  [贷款类型](/solution/2900-2999/2990.Loan%20Types/README.md)  |    |  简单  |  🔒  |
-|  2991  |  [最好的三家酒庄](/solution/2900-2999/2991.Top%20Three%20Wineries/README.md)  |    |  困难  |  🔒  |
+|  2969  |  [购买水果需要的最少金币数 II](/solution/2900-2999/2969.Minimum%20Number%20of%20Coins%20for%20Fruits%20II/README.md)  |  `队列`,`数组`,`动态规划`,`单调队列`,`堆（优先队列）`  |  困难  |  🔒  |
+|  2970  |  [统计移除递增子数组的数目 I](/solution/2900-2999/2970.Count%20the%20Number%20of%20Incremovable%20Subarrays%20I/README.md)  |  `数组`,`双指针`,`二分查找`,`枚举`  |  简单  |  第 120 场双周赛  |
+|  2971  |  [找到最大周长的多边形](/solution/2900-2999/2971.Find%20Polygon%20With%20the%20Largest%20Perimeter/README.md)  |  `贪心`,`数组`,`前缀和`,`排序`  |  中等  |  第 120 场双周赛  |
+|  2972  |  [统计移除递增子数组的数目 II](/solution/2900-2999/2972.Count%20the%20Number%20of%20Incremovable%20Subarrays%20II/README.md)  |  `数组`,`双指针`,`二分查找`  |  困难  |  第 120 场双周赛  |
+|  2973  |  [树中每个节点放置的金币数目](/solution/2900-2999/2973.Find%20Number%20of%20Coins%20to%20Place%20in%20Tree%20Nodes/README.md)  |  `树`,`深度优先搜索`,`动态规划`,`排序`,`堆（优先队列）`  |  困难  |  第 120 场双周赛  |
+|  2974  |  [最小数字游戏](/solution/2900-2999/2974.Minimum%20Number%20Game/README.md)  |  `排序`,`数组`,`模拟`,`堆（优先队列）`  |  简单  |  第 377 场周赛  |
+|  2975  |  [移除栅栏得到的正方形田地的最大面积](/solution/2900-2999/2975.Maximum%20Square%20Area%20by%20Removing%20Fences%20From%20a%20Field/README.md)  |  `数组`,`哈希表`,`枚举`  |  中等  |  第 377 场周赛  |
+|  2976  |  [转换字符串的最小成本 I](/solution/2900-2999/2976.Minimum%20Cost%20to%20Convert%20String%20I/README.md)  |  `图`,`数组`,`字符串`,`最短路`  |  中等  |  第 377 场周赛  |
+|  2977  |  [转换字符串的最小成本 II](/solution/2900-2999/2977.Minimum%20Cost%20to%20Convert%20String%20II/README.md)  |  `图`,`字典树`,`数组`,`字符串`,`动态规划`,`最短路`  |  困难  |  第 377 场周赛  |
+|  2978  |  [Symmetric Coordinates](/solution/2900-2999/2978.Symmetric%20Coordinates/README.md)  |  `数据库`  |  中等  |  🔒  |
+|  2979  |  [最贵的无法购买的商品](/solution/2900-2999/2979.Most%20Expensive%20Item%20That%20Can%20Not%20Be%20Bought/README.md)  |  `数学`,`动态规划`,`数论`  |  中等  |  🔒  |
+|  2980  |  [检查按位或是否存在尾随零](/solution/2900-2999/2980.Check%20if%20Bitwise%20OR%20Has%20Trailing%20Zeros/README.md)  |  `位运算`,`数组`  |  简单  |  第 378 场周赛  |
+|  2981  |  [找出出现至少三次的最长特殊子字符串 I](/solution/2900-2999/2981.Find%20Longest%20Special%20Substring%20That%20Occurs%20Thrice%20I/README.md)  |  `哈希表`,`字符串`,`二分查找`,`计数`,`滑动窗口`  |  中等  |  第 378 场周赛  |
+|  2982  |  [找出出现至少三次的最长特殊子字符串 II](/solution/2900-2999/2982.Find%20Longest%20Special%20Substring%20That%20Occurs%20Thrice%20II/README.md)  |  `哈希表`,`字符串`,`二分查找`,`计数`,`滑动窗口`  |  中等  |  第 378 场周赛  |
+|  2983  |  [回文串重新排列查询](/solution/2900-2999/2983.Palindrome%20Rearrangement%20Queries/README.md)  |  `哈希表`,`字符串`,`前缀和`  |  困难  |  第 378 场周赛  |
+|  2984  |  [找到每座城市的高峰通话时间](/solution/2900-2999/2984.Find%20Peak%20Calling%20Hours%20for%20Each%20City/README.md)  |  `数据库`  |  中等  |  🔒  |
+|  2985  |  [计算订单平均商品数量](/solution/2900-2999/2985.Calculate%20Compressed%20Mean/README.md)  |  `数据库`  |  简单  |  🔒  |
+|  2986  |  [找到第三笔交易](/solution/2900-2999/2986.Find%20Third%20Transaction/README.md)  |  `数据库`  |  中等  |  🔒  |
+|  2987  |  [寻找房价最贵的城市](/solution/2900-2999/2987.Find%20Expensive%20Cities/README.md)  |  `数据库`  |  简单  |  🔒  |
+|  2988  |  [最大部门的经理](/solution/2900-2999/2988.Manager%20of%20the%20Largest%20Department/README.md)  |  `数据库`  |  中等  |  🔒  |
+|  2989  |  [班级表现](/solution/2900-2999/2989.Class%20Performance/README.md)  |  `数据库`  |  中等  |  🔒  |
+|  2990  |  [贷款类型](/solution/2900-2999/2990.Loan%20Types/README.md)  |  `数据库`  |  简单  |  🔒  |
+|  2991  |  [最好的三家酒庄](/solution/2900-2999/2991.Top%20Three%20Wineries/README.md)  |  `数据库`  |  困难  |  🔒  |
+|  2992  |  [Number of Self-Divisible Permutations](/solution/2900-2999/2992.Number%20of%20Self-Divisible%20Permutations/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

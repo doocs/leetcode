@@ -3049,3 +3049,4 @@
   - [2989.Class Performance](/solution/2900-2999/2989.Class%20Performance/README_EN.md)
   - [2990.Loan Types](/solution/2900-2999/2990.Loan%20Types/README_EN.md)
   - [2991.Top Three Wineries](/solution/2900-2999/2991.Top%20Three%20Wineries/README_EN.md)
+  - [2992.Number of Self-Divisible Permutations](/solution/2900-2999/2992.Number%20of%20Self-Divisible%20Permutations/README_EN.md)
