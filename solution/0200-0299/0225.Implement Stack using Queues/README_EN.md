@@ -55,6 +55,17 @@ myStack.empty(); // return False
 
 ## Solutions
 
+**Solution 1: Two Queues**
+
+We use two queues $q_1$ and $q_2$, where $q_1$ is used to store the elements in the stack, and $q_2$ is used to assist in implementing the stack operations.
+
+-   `push` operation: Push the element into $q_2$, then pop the elements in $q_1$ one by one and push them into $q_2$, finally swap the references of $q_1$ and $q_2$. The time complexity is $O(n)$.
+-   `pop` operation: Directly pop the front element of $q_1$. The time complexity is $O(1)$.
+-   `top` operation: Directly return the front element of $q_1$. The time complexity is $O(1)$.
+-   `empty` operation: Check whether $q_1$ is empty. The time complexity is $O(1)$.
+
+The space complexity is $O(n)$, where $n$ is the number of elements in the stack.
+
 <!-- tabs:start -->
 
 ### **Python3**

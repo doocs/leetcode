@@ -38,7 +38,11 @@
 
 ## Solutions
 
-DFS.
+**Solution 1: Recursion**
+
+The idea of recursion is very simple, which is to swap the left and right subtrees of the current node, and then recursively swap the left and right subtrees of the current node.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

@@ -36,6 +36,18 @@
 
 ## Solutions
 
+**Solution 1: Stack**
+
+We traverse the string $s$, and use a variable `sign` to record the operator before each number. For the first number, its previous operator is considered as a plus sign. Each time we traverse to the end of a number, we decide the calculation method based on `sign`:
+
+-   Plus sign: push the number into the stack;
+-   Minus sign: push the opposite number into the stack;
+-   Multiplication and division signs: calculate the number with the top element of the stack, and replace the top element of the stack with the calculation result.
+
+After the traversal ends, the sum of the elements in the stack is the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
+
 <!-- tabs:start -->
 
 ### **Python3**

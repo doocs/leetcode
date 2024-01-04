@@ -27,6 +27,22 @@
 
 ## Solutions
 
+**Solution 1: Sorting**
+
+First, we sort the array `nums`.
+
+Then, we traverse the array. If there are two adjacent elements that are the same, it means that there are duplicate elements in the array, and we directly return `true`.
+
+Otherwise, when the traversal ends, we return `false`.
+
+The time complexity is $O(n \times \log n)$, where $n$ is the length of the array `nums`.
+
+**Solution 2: Hash Table**
+
+We traverse the array and record the elements that have appeared in the hash table $s$. If an element appears for the second time, it means that there are duplicate elements in the array, and we directly return `true`.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `nums`.
+
 <!-- tabs:start -->
 
 ### **Python3**
