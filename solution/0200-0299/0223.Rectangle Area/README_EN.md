@@ -37,6 +37,12 @@
 
 ## Solutions
 
+**Solution 1: Calculate Overlapping Area**
+
+First, we calculate the area of the two rectangles separately, denoted as $a$ and $b$. Then we calculate the overlapping width $width$ and height $height$. The overlapping area is $max(width, 0) \times max(height, 0)$. Finally, we subtract the overlapping area from $a$ and $b$.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

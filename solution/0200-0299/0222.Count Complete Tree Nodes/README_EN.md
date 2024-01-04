@@ -43,6 +43,27 @@
 
 ## Solutions
 
+**Solution 1: Recursion**
+
+We recursively traverse the entire tree and count the number of nodes.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
+
+**Solution 2: Binary Search**
+
+For this problem, we can also take advantage of the characteristics of a complete binary tree to design a faster algorithm.
+
+Characteristics of a complete binary tree: leaf nodes can only appear on the bottom and second-to-bottom layers, and the leaf nodes on the bottom layer are concentrated on the left side of the tree. It should be noted that a full binary tree is definitely a complete binary tree, but a complete binary tree is not necessarily a full binary tree.
+
+If the number of layers in a full binary tree is $h$, then the total number of nodes is $2^h - 1$.
+
+We first count the heights of the left and right subtrees of $root$, denoted as $left$ and $right$.
+
+1. If $left = right$, it means that the left subtree is a full binary tree, so the total number of nodes in the left subtree is $2^{left} - 1$. Plus the $root$ node, it is $2^{left}$. Then we recursively count the right subtree.
+1. If $left > right$, it means that the right subtree is a full binary tree, so the total number of nodes in the right subtree is $2^{right} - 1$. Plus the $root$ node, it is $2^{right}$. Then we recursively count the left subtree.
+
+The time complexity is $O(\log^2 n)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -43,6 +43,12 @@ Total amount you can rob = 1 + 3 = 4.
 
 ## Solutions
 
+**Solution 1: Dynamic Programming**
+
+The circular arrangement means that at most one of the first and last houses can be chosen for theft, so this circular arrangement problem can be reduced to two single-row house problems.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -45,6 +45,22 @@
 
 ## Solutions
 
+**Solution 1: Stack**
+
+We use a stack $stk$ to save the current calculation result and operator, a variable $sign$ to save the current sign, and a variable $ans$ to save the final calculation result.
+
+Next, we traverse each character of the string $s$:
+
+-   If the current character is a number, we use a loop to read the following consecutive numbers, and then add or subtract it to $ans$ according to the current sign.
+-   If the current character is `'+'`, we change the variable $sign$ to positive.
+-   If the current character is `'-'`, we change the variable $sign$ to negative.
+-   If the current character is `'('`, we push the current $ans$ and $sign$ into the stack, and reset them to empty and 1, and start to calculate the new $ans$ and $sign$.
+-   If the current character is `')'`, we pop the top two elements of the stack, one is the operator, and the other is the number calculated before the bracket. We multiply the current number by the operator, and add the previous number to get the new $ans$.
+
+After traversing the string $s$, we return $ans$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
+
 <!-- tabs:start -->
 
 ### **Python3**
