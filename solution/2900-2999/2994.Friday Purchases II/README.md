@@ -65,6 +65,10 @@ Output table is ordered by week_of_month in ascending order.</pre>
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：递归 + 左连接 + 日期函数**
+
+我们可以使用递归生成一个包含 2023 年 11 月所有日期的表 `T`，然后使用左连接将 `T` 与 `Purchases` 表按照日期进行连接，最后按照题目要求进行分组求和即可。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -72,7 +76,24 @@ Output table is ordered by week_of_month in ascending order.</pre>
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-
+WITH RECURSIVE
+    T AS (
+        SELECT '2023-11-01' AS purchase_date
+        UNION
+        SELECT purchase_date + INTERVAL 1 DAY
+        FROM T
+        WHERE purchase_date < '2023-11-30'
+    )
+SELECT
+    CEIL(DAYOFMONTH(purchase_date) / 7) AS week_of_month,
+    purchase_date,
+    IFNULL(SUM(amount_spend), 0) AS total_amount
+FROM
+    T
+    LEFT JOIN Purchases USING (purchase_date)
+WHERE DAYOFWEEK(purchase_date) = 6
+GROUP BY 2
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->

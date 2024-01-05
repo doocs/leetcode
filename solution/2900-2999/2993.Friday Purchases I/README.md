@@ -63,6 +63,16 @@ Output table is ordered by week_of_month in ascending order.</pre>
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：日期函数**
+
+我们用到的日期函数有：
+
+-   `DATE_FORMAT(date, format)`：将日期格式化为字符串
+-   `DAYOFWEEK(date)`：返回日期对应的星期几，1 代表星期日，2 代表星期一，以此类推
+-   `DAYOFMONTH(date)`：返回日期对应的月份中的第几天
+
+我们先用 `DATE_FORMAT` 函数将日期格式化为 `YYYYMM` 的形式，然后筛选出 2023 年 11 月且是星期五的记录，然后将记录按照 `purchase_date` 分组，计算出每个星期五的总消费金额。
+
 <!-- tabs:start -->
 
 ### **SQL**
@@ -70,7 +80,15 @@ Output table is ordered by week_of_month in ascending order.</pre>
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT
+    CEIL(DAYOFMONTH(purchase_date) / 7) AS week_of_month,
+    purchase_date,
+    SUM(amount_spend) AS total_amount
+FROM Purchases
+WHERE DATE_FORMAT(purchase_date, '%Y%m') = '202311' AND DAYOFWEEK(purchase_date) = 6
+GROUP BY 2
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->
