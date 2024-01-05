@@ -63,6 +63,21 @@
 
 ## Solutions
 
+**Solution 1: Shortest Path (Dijkstra's Algorithm)**
+
+First, we ignore the edges with a weight of $-1$ and use Dijkstra's algorithm to find the shortest distance $d$ from $source$ to $destination$.
+
+-   If $d < target$, it means there is a shortest path composed entirely of positive weight edges. No matter how we modify the edges with a weight of $-1$, we cannot make the shortest distance from $source$ to $destination$ equal to $target$. Therefore, there is no modification scheme that satisfies the problem, and we can return an empty array.
+
+-   If $d = target$, it means there is a shortest path composed entirely of positive weight edges, and its length is $target$. In this case, we can modify all edges with a weight of $-1$ to the maximum value $2 \times 10^9$.
+
+-   If $d > target$, we can try to add an edge with a weight of $-1$ to the graph, set the weight of the edge to $1$, and then use Dijkstra's algorithm again to find the shortest distance $d$ from $source$ to $destination$.
+
+    -   If the shortest distance $d \leq target$, it means that after adding this edge, the shortest path can be shortened, and the shortest path must pass through this edge. Then we only need to change the weight of this edge to $target-d+1$ to make the shortest path equal to $target$. Then we can modify the remaining edges with a weight of $-1$ to the maximum value $2 \times 10^9$.
+    -   If the shortest distance $d > target$, it means that after adding this edge, the shortest path will not be shortened. Then we greedily keep the weight of this edge as $-1$ and continue to try to add the remaining edges with a weight of $-1$.
+
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the number of points in the graph.
+
 <!-- tabs:start -->
 
 ### **Python3**

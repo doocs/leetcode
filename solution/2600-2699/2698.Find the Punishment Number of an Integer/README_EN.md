@@ -48,6 +48,14 @@ Hence, the punishment number of 37 is 1 + 81 + 100 + 1296 = 1478
 
 ## Solutions
 
+**Solution 1: Enumeration + DFS**
+
+We enumerate $i$, where $1 \leq i \leq n$. For each $i$, we split the decimal representation string of $x = i^2$, and then check whether it meets the requirements of the problem. If it does, we add $x$ to the answer.
+
+After the enumeration ends, we return the answer.
+
+The time complexity is $O(n^{1 + 2 \log_{10}^2})$, and the space complexity is $O(\log n)$, where $n$ is the given positive integer.
+
 <!-- tabs:start -->
 
 ### **Python3**
