@@ -246,3 +246,6 @@
     -   [2989.Class Performance](/database-solution/2900-2999/2989.Class%20Performance/README_EN.md)
     -   [2990.Loan Types](/database-solution/2900-2999/2990.Loan%20Types/README_EN.md)
     -   [2991.Top Three Wineries](/database-solution/2900-2999/2991.Top%20Three%20Wineries/README_EN.md)
+    -   [2993.Friday Purchases I](/database-solution/2900-2999/2993.Friday%20Purchases%20I/README_EN.md)
+    -   [2994.Friday Purchases II](/database-solution/2900-2999/2994.Friday%20Purchases%20II/README_EN.md)
+    -   [2995.Viewers Turned Streamers](/database-solution/2900-2999/2995.Viewers%20Turned%20Streamers/README_EN.md)

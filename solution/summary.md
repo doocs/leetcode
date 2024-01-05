@@ -3049,4 +3049,7 @@
   - [2989.班级表现](/solution/2900-2999/2989.Class%20Performance/README.md)
   - [2990.贷款类型](/solution/2900-2999/2990.Loan%20Types/README.md)
   - [2991.最好的三家酒庄](/solution/2900-2999/2991.Top%20Three%20Wineries/README.md)
-  - [2992.Number of Self-Divisible Permutations](/solution/2900-2999/2992.Number%20of%20Self-Divisible%20Permutations/README.md)
+  - [2992.自整除排列的数量](/solution/2900-2999/2992.Number%20of%20Self-Divisible%20Permutations/README.md)
+  - [2993.Friday Purchases I](/solution/2900-2999/2993.Friday%20Purchases%20I/README.md)
+  - [2994.Friday Purchases II](/solution/2900-2999/2994.Friday%20Purchases%20II/README.md)
+  - [2995.观众变主播](/solution/2900-2999/2995.Viewers%20Turned%20Streamers/README.md)
