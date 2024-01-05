@@ -55,6 +55,8 @@
 
 最后栈中剩余的元素个数就是最终字符串的长度。
 
+> 在实现上，我们可以在栈中预先放入一个空字符，这样就不需要在遍历字符串时判断栈是否为空了，最后返回栈的大小减一即可。
+
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
@@ -137,9 +139,9 @@ func minLength(s string) int {
 function minLength(s: string): number {
     const stk: string[] = [''];
     for (const c of s) {
-        if (c === 'B' && stk[stk.length - 1] === 'A') {
+        if (c === 'B' && stk.at(-1)! === 'A') {
             stk.pop();
-        } else if (c === 'D' && stk[stk.length - 1] === 'C') {
+        } else if (c === 'D' && stk.at(-1)! === 'C') {
             stk.pop();
         } else {
             stk.push(c);
