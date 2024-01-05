@@ -49,7 +49,8 @@
                 "solution/2600-2699/2686.Immediate Food Delivery III/Solution.sql",
                 "solution/2400-2499/2494.Merge Overlapping Events in the Same Hall/Solution.sql",
                 "solution/2700-2799/2752.Customers with Maximum Number of Transactions on Consecutive Days/Solution.sql",
-                "solution/2700-2799/2793.Status of Flight Tickets/Solution.sql"
+                "solution/2700-2799/2793.Status of Flight Tickets/Solution.sql",
+                "solution/2900-2999/2994.Friday Purchases II/Solution.sql"
             ],
             "options": {
                 "parser": "bigquery"

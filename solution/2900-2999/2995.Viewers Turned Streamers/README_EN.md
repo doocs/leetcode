@@ -60,12 +60,34 @@ Output table is ordered by sessions count and user_id in descending order.
 
 ## Solutions
 
+**Solution 1: Window Function + Equi-Join**
+
+We can use the window function `RANK()` to rank each session by `user_id` dimension, and record it in table `T`. Then, we equi-join `T` and the `Sessions` table by `user_id`, and filter out the records in `T` where the rank is 1, and `session_type` is `Viewer`, and `session_type` in the `Sessions` table is `Streamer`. Finally, we group by `user_id` and sum up.
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
-
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT
+            user_id,
+            session_type,
+            RANK() OVER (
+                PARTITION BY user_id
+                ORDER BY session_start
+            ) AS rk
+        FROM Sessions
+    )
+SELECT user_id, COUNT(1) AS sessions_count
+FROM
+    T AS t
+    JOIN Sessions AS s USING (user_id)
+WHERE rk = 1 AND t.session_type = 'Viewer' AND s.session_type = 'Streamer'
+GROUP BY 1
+ORDER BY 2 DESC, 1 DESC;
 ```
 
 <!-- tabs:end -->
