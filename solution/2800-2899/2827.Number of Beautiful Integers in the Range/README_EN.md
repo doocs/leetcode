@@ -59,6 +59,31 @@ It can be shown that there is only 1 beautiful integer in the given range.
 
 ## Solutions
 
+**Solution 1: Digit DP**
+
+We notice that the problem is asking for the number of beautiful integers in the interval $[low, high]$. For such an interval $[l,..r]$ problem, we can usually consider transforming it into finding the answers for $[1, r]$ and $[1, l-1]$, and then subtracting the latter from the former. Moreover, the problem only involves the relationship between different digits, not the specific values, so we can consider using Digit DP to solve it.
+
+We design a function $dfs(pos, mod, diff, lead, limit)$, which represents the number of schemes when we are currently processing the $pos$-th digit, the result of the current number modulo $k$ is $mod$, the difference between the odd and even digits of the current number is $diff$, whether the current number has leading zeros is $lead$, and whether the current number has reached the upper limit is $limit$.
+
+The execution logic of the function $dfs(pos, mod, diff, lead, limit)$ is as follows:
+
+If $pos$ exceeds the length of $num$, it means that we have processed all the digits. If $mod=0$ and $diff=0$ at this time, it means that the current number meets the requirements of the problem, so we return $1$, otherwise we return $0$.
+
+Otherwise, we calculate the upper limit $up$ of the current digit, and then enumerate the digit $i$ in the range $[0,..up]$:
+
+-   If $i=0$ and $lead$ is true, it means that the current number only contains leading zeros. We recursively calculate the value of $dfs(pos + 1, mod, diff, 1, limit\ and\ i=up)$ and add it to the answer.
+-   Otherwise, we update the value of $diff$ according to the parity of $i$, and then recursively calculate the value of $dfs(pos + 1, (mod \times 10 + i) \bmod k, diff, 0, limit\ and\ i=up)$ and add it to the answer.
+
+Finally, we return the answer.
+
+In the main function, we calculate the answers $a$ and $b$ for $[1, high]$ and $[1, low-1]$ respectively. The final answer is $a-b$.
+
+The time complexity is $O((\log M)^2 \times k \times |\Sigma|)$, and the space complexity is $O((\log M)^2 \times k)$, where $M$ represents the size of the number $high$, and $|\Sigma|$ represents the digit set.
+
+Similar problems:
+
+-   [2719. Count of Integers](/solution/2700-2799/2719.Count%20of%20Integers/README_EN.md)
+
 <!-- tabs:start -->
 
 ### **Python3**

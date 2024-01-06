@@ -41,6 +41,31 @@
 
 ## Solutions
 
+**Solution 1: Digit DP**
+
+We notice that the problem is asking for the number of stepping numbers in the interval $[low, high]$. For such an interval $[l,..r]$ problem, we can usually consider transforming it into finding the answers for $[1, r]$ and $[1, l-1]$, and then subtracting the latter from the former. Moreover, the problem only involves the relationship between different digits, not the specific values, so we can consider using Digit DP to solve it.
+
+We design a function $dfs(pos, pre, lead, limit)$, which represents the number of schemes when we are currently processing the $pos$-th digit, the previous digit is $pre$, whether the current number only contains leading zeros is $lead$, and whether the current number has reached the upper limit is $limit$. The range of $pos$ is $[0, len(num))$.
+
+The execution logic of the function $dfs(pos, pre, lead, limit)$ is as follows:
+
+If $pos$ exceeds the length of $num$, it means that we have processed all the digits. If $lead$ is true at this time, it means that the current number only contains leading zeros and is not a valid number. We can return $0$ to indicate that the number of schemes is $0$; otherwise, we return $1$ to indicate that the number of schemes is $1$.
+
+Otherwise, we calculate the upper limit $up$ of the current digit, and then enumerate the digit $i$ in the range $[0,..up]$:
+
+-   If $i=0$ and $lead$ is true, it means that the current number only contains leading zeros. We recursively calculate the value of $dfs(pos+1,pre, true, limit\ and\ i=up)$ and add it to the answer.
+-   Otherwise, if $pre$ is $-1$, or the absolute difference between $i$ and $pre$ is $1$, it means that the current number is a valid stepping number. We recursively calculate the value of $dfs(pos+1,i, false, limit\ and\ i=up)$ and add it to the answer.
+
+Finally, we return the answer.
+
+In the main function, we calculate the answers $a$ and $b$ for $[1, high]$ and $[1, low-1]$ respectively. The final answer is $a-b$. Note the modulo operation of the answer.
+
+The time complexity is $O(\log M \times |\Sigma|^2)$, and the space complexity is $O(\log M \times |\Sigma|)$, where $M$ represents the size of the number $high$, and $|\Sigma|$ represents the digit set.
+
+Similar problems:
+
+-   [2719. Count of Integers](/solution/2700-2799/2719.Count%20of%20Integers/README_EN.md)
+
 <!-- tabs:start -->
 
 ### **Python3**

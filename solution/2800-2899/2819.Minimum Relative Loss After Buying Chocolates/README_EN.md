@@ -66,6 +66,22 @@ It can be shown that these are the minimum possible relative losses.
 
 ## Solutions
 
+**Solution 1: Sorting + Binary Search + Prefix Sum**
+
+Based on the problem description, we know:
+
+If $prices[i] \leq k$, then Bob needs to pay $prices[i]$, and Alice doesn't need to pay. Therefore, Bob's relative loss is $prices[i]$. In this case, Bob should choose the chocolate with a lower price to minimize the relative loss.
+
+If $prices[i] > k$, then Bob needs to pay $k$, and Alice needs to pay $prices[i] - k$. Therefore, Bob's relative loss is $k - (prices[i] - k) = 2k - prices[i]$. In this case, Bob should choose the chocolate with a higher price to minimize the relative loss.
+
+Therefore, we first sort the price array $prices$, and then preprocess the prefix sum array $s$, where $s[i]$ represents the sum of the prices of the first $i$ chocolates.
+
+Next, for each query $[k, m]$, we first use binary search to find the index $r$ of the first chocolate with a price greater than $k$. Then, we use binary search again to find the number of chocolates $l$ that should be chosen on the left, so the number of chocolates that should be chosen on the right is $m - l$. At this point, Bob's relative loss is $s[l] + 2k(m - l) - (s[n] - s[n - (m - l)])$.
+
+In the second binary search process mentioned above, we need to judge whether $prices[mid] < 2k - prices[n - (m - mid)]$, where $right$ represents the number of chocolates that should be chosen on the right. If this inequality holds, it means that choosing the chocolate at position $mid$ has a lower relative loss, so we update $l = mid + 1$. Otherwise, it means that the chocolate at position $mid$ has a higher relative loss, so we update $r = mid$.
+
+The time complexity is $O((n + m) \times \log n)$, and the space complexity is $O(n)$. Where $n$ and $m$ are the lengths of the arrays $prices$ and $queries$, respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**
