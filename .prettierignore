@@ -15,13 +15,10 @@ node_modules/
 /solution/bash_problem_readme_template_en.md
 /solution/0100-0199/0177.Nth Highest Salary/Solution.sql
 /solution/1400-1499/1454.Active Users/Solution.sql
-/solution/1400-1499/1484.Group Sold Products By The Date/Solution.sql
-/solution/1600-1699/1613.Find the Missing IDs/Solution.sql
 /solution/1600-1699/1635.Hopper Company Queries I/Solution.sql
-/solution/1600-1699/1651.Hopper Company Queries III/Solution.sql
-/solution/1800-1899/1873.Calculate Special Bonus/Solution.sql
 /solution/2100-2199/2118.Build the Equation/Solution.sql
-/solution/2100-2199/2153.The Number of Passengers in Each Bus II/Solution.sql
+/solution/2100-2199/2175.The Change in Global Rankings/Solution.sql
 /solution/2200-2299/2205.The Number of Users That Are Eligible for Discount/Solution.sql
+/solution/2200-2299/2230.The Users That Are Eligible for Discount/Solution.sql
 /solution/2200-2299/2252.Dynamic Pivoting of a Table/Solution.sql
 /solution/2200-2299/2253.Dynamic Unpivoting of a Table/Solution.sql
