@@ -1120,6 +1120,12 @@
   - [1098.小众书籍](/solution/1000-1099/1098.Unpopular%20Books/README.md)
   - [1099.小于 K 的两数之和](/solution/1000-1099/1099.Two%20Sum%20Less%20Than%20K/README.md)
 
+- 10000-10099
+  - [10031检查替换后的词是否有效](/solution/10000-10099/10031.Smallest%20Missing%20Integer%20Greater%20Than%20Sequential%20Prefix%20Sum/README.md)
+  - [10032检查替换后的词是否有效](/solution/10000-10099/10032.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20XOR%20Equal%20to%20K/README.md)
+  - [10033检查替换后的词是否有效](/solution/10000-10099/10033.Minimum%20Number%20of%20Operations%20to%20Make%20X%20and%20Y%20Equal/README.md)
+  - [10034检查替换后的词是否有效](/solution/10000-10099/10034.Count%20the%20Number%20of%20Powerful%20Integers/README.md)
+
 - 1100-1199
   - [1100.长度为 K 的无重复字符子串](/solution/1100-1199/1100.Find%20K-Length%20Substrings%20With%20No%20Repeated%20Characters/README.md)
   - [1101.彼此熟识的最早时间](/solution/1100-1199/1101.The%20Earliest%20Moment%20When%20Everyone%20Become%20Friends/README.md)
