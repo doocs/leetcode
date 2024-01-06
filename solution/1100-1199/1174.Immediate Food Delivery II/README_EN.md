@@ -77,7 +77,7 @@ We can use the `RANK()` window function to rank the orders of each user in ascen
 ```sql
 # Write your MySQL query statement below
 SELECT
-    ROUND(SUM(order_date = customer_pref_delivery_date) / COUNT(1) * 100, 2) AS immediate_percentage
+    ROUND(AVG(order_date = customer_pref_delivery_date) * 100, 2) AS immediate_percentage
 FROM Delivery
 WHERE
     (customer_id, order_date) IN (
@@ -100,7 +100,7 @@ WITH
         FROM Delivery
     )
 SELECT
-    ROUND(SUM(order_date = customer_pref_delivery_date) / COUNT(1) * 100, 2) AS immediate_percentage
+    ROUND(AVG(order_date = customer_pref_delivery_date) * 100, 2) AS immediate_percentage
 FROM T
 WHERE rk = 1;
 ```
