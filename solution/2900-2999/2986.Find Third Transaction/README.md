@@ -1,4 +1,4 @@
-# [2986. Find Third Transaction](https://leetcode.cn/problems/find-third-transaction)
+# [2986. 找到第三笔交易](https://leetcode.cn/problems/find-third-transaction)
 
 [English Version](/solution/2900-2999/2986.Find%20Third%20Transaction/README_EN.md)
 
@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Transactions</code></p>
+<p>表：&nbsp;<code>Transactions</code></p>
 
 <pre>
 +------------------+----------+
@@ -16,21 +16,22 @@
 | spend            | decimal  |
 | transaction_date | datetime |
 +------------------+----------+
-(user_id, transaction_date) is column of unique values for this table.
-This table contains user_id, spend, and transaction_date.
+(user_id, transaction_date) 是这张表具有唯一值的列。
+该表包含 user_id, spend,和 transaction_date。
 </pre>
 
-<p>Write a solution to find the <strong>third transaction </strong>(if they have at least three transactions) of every user, where the <strong>spending</strong> on the preceding <strong>two transactions</strong> is <strong>lower</strong> than the spending on the <strong>third</strong> transaction.</p>
+<p>编写一个查询，找到每个用户的 <strong>第三笔交易</strong> （如果他们有至少三笔交易），其中 <strong>前两笔交易</strong> 的花费&nbsp;<strong>低于&nbsp;第三笔交易</strong>的花费。</p>
 
-<p>Return <em>the result table by </em><code>user_id</code><em> in <strong>ascending</strong> order</em><em>.</em></p>
+<p>返回&nbsp;<em>按 <strong>升序</strong>&nbsp;<code>user_id</code>&nbsp;排序的结果表。</em></p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下例所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><b>示例 1:</b></p>
 
 <pre>
-<strong>Input:</strong> 
+<b>输入：</b>
 Transactions table:
 +---------+--------+---------------------+
 | user_id | spend  | transaction_date    | 
@@ -45,17 +46,17 @@ Transactions table:
 | 3       | 13.89  | 2023-11-11 16:00:14 | 
 | 3       | 7.0    | 2023-11-29 22:32:36 | 
 +---------+--------+---------------------+
-<strong>Output</strong>
+<b>输出</b>
 +---------+-------------------------+------------------------+
 | user_id | third_transaction_spend | third_transaction_date | 
 +---------+-------------------------+------------------------+
 | 1       | 65.56                   | 2023-11-18 13:49:42    |  
 +---------+-------------------------+------------------------+
-<strong>Explanation</strong>
-- For user_id 1, their third transaction occurred on 2023-11-18 at 13:49:42 with an amount of $65.56, surpassing the expenditures of the previous two transactions which were $7.44 on 2023-11-02 at 12:15:23 and $49.78 on 2023-11-12 at 00:13:46. Thus, this third transaction will be included in the output table.
-- user_id 2 only has a total of 2 transactions, so there isn&#39;t a third transaction to consider.
-- For user_id 3, the amount of $7.0 for their third transaction is less than that of the preceding two transactions, so it won&#39;t be included.
-Output table is ordered by user_id in ascending order.
+<b>解释</b>
+- 对于 user_id 1，他们的第三笔交易发生在 2023-11-18 13:49:42，金额为 $65.56，超过了前两笔交易的支出，分别是 2023-11-02 12:15:23 的 $7.44 和 2023-11-12 00:13:46 的 $49.78。因此，此第三笔交易将包含在输出表中。
+- user_id 2 只有总共 2 笔交易，因此没有第三笔交易。
+- 对于 user_id 3，第三笔交易的金额 $7.0 少于前两笔交易，因此不会包含在内。
+输出表按升序按 user_id 排序。
 
 </pre>
 

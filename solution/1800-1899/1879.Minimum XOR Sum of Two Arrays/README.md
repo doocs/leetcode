@@ -137,7 +137,8 @@ class Solution {
             for (int j = 0; j < 1 << n; ++j) {
                 for (int k = 0; k < n; ++k) {
                     if ((j >> k & 1) == 1) {
-                        f[i][j] = Math.min(f[i][j], f[i - 1][j ^ (1 << k)] + (nums1[i - 1] ^ nums2[k]));
+                        f[i][j]
+                            = Math.min(f[i][j], f[i - 1][j ^ (1 << k)] + (nums1[i - 1] ^ nums2[k]));
                     }
                 }
             }

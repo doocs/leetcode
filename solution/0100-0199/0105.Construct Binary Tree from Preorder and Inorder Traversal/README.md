@@ -249,7 +249,7 @@ public:
         for (int i = 0; i < n; ++i) {
             d[inOrder[i]].push_back(i);
         }
-        function<vector<TreeNode*>(int, int, int)> dfs = [&](int i,int j, int n) -> vector<TreeNode*> {
+        function<vector<TreeNode*>(int, int, int)> dfs = [&](int i, int j, int n) -> vector<TreeNode*> {
             vector<TreeNode*> ans;
             if (n <= 0) {
                 ans.push_back(nullptr);

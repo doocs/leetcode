@@ -85,7 +85,12 @@ class Solution:
                     dg += v
                 if i + j + 1 == n:
                     udg += v
-                if abs(rows[i]) == n or abs(cols[j]) == n or abs(dg) == n or abs(udg) == n:
+                if (
+                    abs(rows[i]) == n
+                    or abs(cols[j]) == n
+                    or abs(dg) == n
+                    or abs(udg) == n
+                ):
                     return c
         return 'Pending' if has_empty_grid else 'Draw'
 ```

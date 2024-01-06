@@ -92,7 +92,6 @@ class Solution:
                     return "Neither"
             return "IPv6"
         return "Neither"
-
 ```
 
 ### **Java**

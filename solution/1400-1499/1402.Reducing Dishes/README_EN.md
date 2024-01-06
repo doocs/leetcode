@@ -75,7 +75,6 @@ class Solution:
                 break
             ans += s
         return ans
-
 ```
 
 ### **Java**

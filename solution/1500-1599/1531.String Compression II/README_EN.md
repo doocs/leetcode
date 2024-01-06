@@ -87,7 +87,8 @@ class Solution {
         // the other letters.
         for (int j = i; j < s.length(); ++j) {
             maxFreq = Math.max(maxFreq, ++count[s.charAt(j)]);
-            dp[i][k] = Math.min(dp[i][k], getLength(maxFreq) + compression(s, j + 1, k - (j - i + 1 - maxFreq)));
+            dp[i][k] = Math.min(
+                dp[i][k], getLength(maxFreq) + compression(s, j + 1, k - (j - i + 1 - maxFreq)));
         }
         return dp[i][k];
     }
@@ -103,7 +104,7 @@ class Solution {
         if (maxFreq < 100) {
             return 3; // [1-9][0-9]c
         }
-        return 4;   // [1-9][0-9][0-9]c
+        return 4; // [1-9][0-9][0-9]c
     }
 }
 ```

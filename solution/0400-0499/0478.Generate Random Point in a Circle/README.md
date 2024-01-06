@@ -63,7 +63,6 @@ class Solution:
         x = self.x_center + length * math.cos(degree)
         y = self.y_center + length * math.sin(degree)
         return [x, y]
-
 ```
 
 ### **Java**

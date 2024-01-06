@@ -149,7 +149,6 @@ class Solution:
                 return True
 
         return dp(cat, mouse, 0)
-
 ```
 
 ### **Java**

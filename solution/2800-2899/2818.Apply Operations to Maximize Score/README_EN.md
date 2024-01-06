@@ -86,7 +86,7 @@ def primeFactors(n):
 
 class Solution:
     def maximumScore(self, nums: List[int], k: int) -> int:
-        mod = 10 ** 9 + 7
+        mod = 10**9 + 7
         arr = [(i, primeFactors(x), x) for i, x in enumerate(nums)]
         n = len(nums)
 

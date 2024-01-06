@@ -283,7 +283,8 @@ class Solution {
             }
             for (int k = 0; k < 4; ++k) {
                 int x = i + dirs[k], y = j + dirs[k + 1];
-                if (x >= 0 && x < m && y >= 0 && y < n && !vis[x][y] && Math.abs(heights[x][y] - heights[i][j]) <= h) {
+                if (x >= 0 && x < m && y >= 0 && y < n && !vis[x][y]
+                    && Math.abs(heights[x][y] - heights[i][j]) <= h) {
                     q.add(new int[] {x, y});
                     vis[x][y] = true;
                 }

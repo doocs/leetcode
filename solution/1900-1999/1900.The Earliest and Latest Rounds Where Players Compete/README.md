@@ -102,7 +102,6 @@ class Solution:
             return [a, b]
 
         return dp(firstPlayer, n - secondPlayer + 1, n)
-
 ```
 
 ### **Java**

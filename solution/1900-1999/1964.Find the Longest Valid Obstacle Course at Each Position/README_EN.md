@@ -141,7 +141,6 @@ class BinaryIndexedTree {
     }
 }
 
-
 class Solution {
     public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
         int[] nums = obstacles.clone();

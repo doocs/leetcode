@@ -117,7 +117,6 @@ def gameplay_analysis(activity: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(
         {"fraction": [round(len(activity_2nd_day) / activity.player_id.nunique(), 2)]}
     )
-
 ```
 
 <!-- tabs:end -->

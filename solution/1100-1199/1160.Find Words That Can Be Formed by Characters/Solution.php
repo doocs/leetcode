@@ -13,10 +13,7 @@ class Solution {
             $tmp = $hashtable;
             $sum += strlen($words[$j]);
             for ($k = 0; $k < strlen($words[$j]); $k++) {
-                if (
-                    !isset($tmp[$words[$j][$k]]) ||
-                    $tmp[$words[$j][$k]] === 0
-                ) {
+                if (!isset($tmp[$words[$j][$k]]) || $tmp[$words[$j][$k]] === 0) {
                     $sum -= strlen($words[$j]);
                     break;
                 }
