@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 121 场双周赛(2024-01-06 22:30, 90 分钟) 参赛人数 2218
+
+- [10031. 大于等于顺序前缀和的最小缺失整数](/solution/10000-10099/10031.Smallest%20Missing%20Integer%20Greater%20Than%20Sequential%20Prefix%20Sum/README.md)
+- [10032. 使数组异或和等于 K 的最少操作次数](/solution/10000-10099/10032.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20XOR%20Equal%20to%20K/README.md)
+- [10033. 使 X 和 Y 相等的最少操作次数](/solution/10000-10099/10033.Minimum%20Number%20of%20Operations%20to%20Make%20X%20and%20Y%20Equal/README.md)
+- [10034. 统计强大整数的数目](/solution/10000-10099/10034.Count%20the%20Number%20of%20Powerful%20Integers/README.md)
+
 #### 第 378 场周赛(2023-12-31 10:30, 90 分钟) 参赛人数 2747
 
 - [2980. 检查按位或是否存在尾随零](/solution/2900-2999/2980.Check%20if%20Bitwise%20OR%20Has%20Trailing%20Zeros/README.md)

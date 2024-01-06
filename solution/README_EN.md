@@ -1012,6 +1012,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  1001  |  [Grid Illumination](/solution/1000-1099/1001.Grid%20Illumination/README_EN.md)  |  `Array`,`Hash Table`  |  Hard  |  Weekly Contest 125  |
 |  1002  |  [Find Common Characters](/solution/1000-1099/1002.Find%20Common%20Characters/README_EN.md)  |  `Array`,`Hash Table`,`String`  |  Easy  |  Weekly Contest 126  |
 |  1003  |  [Check If Word Is Valid After Substitutions](/solution/1000-1099/1003.Check%20If%20Word%20Is%20Valid%20After%20Substitutions/README_EN.md)  |  `Stack`,`String`  |  Medium  |  Weekly Contest 126  |
+|  10031  |  [Smallest Missing Integer Greater Than Sequential Prefix Sum](/solution/10000-10099/10031.Smallest%20Missing%20Integer%20Greater%20Than%20Sequential%20Prefix%20Sum/README_EN.md)  |    |  Easy  |  Biweekly Contest 121  |
+|  10032  |  [Minimum Number of Operations to Make Array XOR Equal to K](/solution/10000-10099/10032.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20XOR%20Equal%20to%20K/README_EN.md)  |    |  Medium  |  Biweekly Contest 121  |
+|  10033  |  [Minimum Number of Operations to Make X and Y Equal](/solution/10000-10099/10033.Minimum%20Number%20of%20Operations%20to%20Make%20X%20and%20Y%20Equal/README_EN.md)  |    |  Medium  |  Biweekly Contest 121  |
+|  10034  |  [Count the Number of Powerful Integers](/solution/10000-10099/10034.Count%20the%20Number%20of%20Powerful%20Integers/README_EN.md)  |    |  Hard  |  Biweekly Contest 121  |
 |  1004  |  [Max Consecutive Ones III](/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README_EN.md)  |  `Array`,`Binary Search`,`Prefix Sum`,`Sliding Window`  |  Medium  |  Weekly Contest 126  |
 |  1005  |  [Maximize Sum Of Array After K Negations](/solution/1000-1099/1005.Maximize%20Sum%20Of%20Array%20After%20K%20Negations/README_EN.md)  |  `Greedy`,`Array`,`Sorting`  |  Easy  |  Weekly Contest 127  |
 |  1006  |  [Clumsy Factorial](/solution/1000-1099/1006.Clumsy%20Factorial/README_EN.md)  |  `Stack`,`Math`,`Simulation`  |  Medium  |  Weekly Contest 127  |
