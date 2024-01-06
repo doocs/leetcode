@@ -74,7 +74,6 @@ class Solution:
         dfs("JFK")
 
         return itinerary[::-1]
-
 ```
 
 ### **Java**

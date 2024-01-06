@@ -30,7 +30,7 @@ Each row contains file_name and the content of that file.
 <strong>Input:</strong>&nbsp;
 Files table:
 +------------+----------------------------------------------------------------------------------+
-| file_name  | contenet                                                                         | 
+| file_name  | content                                                                         | 
 +------------+----------------------------------------------------------------------------------+
 | draft1.txt | The stock exchange predicts a bull market which would make many investors happy. | 
 | draft2.txt | The stock exchange predicts a bull market which would make many investors happy, |

@@ -101,7 +101,6 @@ def find_managers(employee: pd.DataFrame) -> pd.DataFrame:
     result = result[["name"]]
 
     return result
-
 ```
 
 <!-- tabs:end -->

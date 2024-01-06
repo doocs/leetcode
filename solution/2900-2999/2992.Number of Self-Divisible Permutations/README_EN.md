@@ -6,12 +6,7 @@
 
 <p>Given an integer <code>n</code>, return <em>the number of <strong>permutations</strong> of the <strong>1-indexed</strong> array</em> <code>nums = [1, 2, ..., n]</code><em>, such that it&#39;s <strong>self-divisible</strong></em>.</p>
 
-<p>Array <code>nums</code> is <strong>self-divisible</strong> if for every <code>1 &lt;= i &lt;= n</code>, <strong>at least</strong> one of the following conditions holds:</p>
-
-<ul>
-	<li><code>nums[i] % i == 0</code></li>
-	<li><code>i % nums[i] == 0</code></li>
-</ul>
+<p>A <strong>1-indexed</strong> array <code>a</code> of length <code>n</code> is <strong>self-divisible</strong> if for every <code>1 &lt;= i &lt;= n</code>, <code><span data-keyword="gcd-function">gcd</span>(a[i], i) == 1</code>.</p>
 
 <p>A <strong>permutation</strong> of an array is a rearrangement of the elements of that array, for example here are all of the permutations of the array <code>[1, 2, 3]</code>:</p>
 
@@ -37,10 +32,10 @@
 
 <pre>
 <strong>Input:</strong> n = 2
-<strong>Output:</strong> 2
-<strong>Explanation:</strong> The array [1,2] has 2 permutations both of which are self-divisible:
-nums = [1,2]: This is self-divisible since nums[1] % 1 == 0 and nums[2] % 2 == 0.
-nums = [2,1]: This is self-divisible since nums[1] % 1 == 0 and 2 % nums[2] == 0.
+<strong>Output:</strong> 1
+<strong>Explanation:</strong> The array [1,2] has 2 permutations and only one of them is self-divisible:
+nums = [1,2]: This is not self-divisible since gcd(nums[2], 2) != 1.
+nums = [2,1]: This is self-divisible since gcd(nums[1], 1) == 1 and gcd(nums[2], 2) == 1.
 </pre>
 
 <p><strong class="example">Example 3:</strong></p>
@@ -48,7 +43,7 @@ nums = [2,1]: This is self-divisible since nums[1] % 1 == 0 and 2 % nums[2] == 0
 <pre>
 <strong>Input:</strong> n = 3
 <strong>Output:</strong> 3
-<strong>Explanation:</strong> The array [1,2,3] has 3 self-divisble permutations: [1,2,3], [2,1,3], [3,2,1].
+<strong>Explanation:</strong> The array [1,2,3] has 3 self-divisble permutations: [1,3,2], [3,1,2], [2,3,1].
 It can be shown that the other 3 permutations are not self-divisible. Hence the answer is 3.
 </pre>
 
@@ -56,7 +51,7 @@ It can be shown that the other 3 permutations are not self-divisible. Hence the 
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n &lt;= 15</code></li>
+	<li><code>1 &lt;= n &lt;= 12</code></li>
 </ul>
 
 ## Solutions

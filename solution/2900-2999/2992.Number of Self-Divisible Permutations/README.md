@@ -1,4 +1,4 @@
-# [2992. Number of Self-Divisible Permutations](https://leetcode.cn/problems/number-of-self-divisible-permutations)
+# [2992. 自整除排列的数量](https://leetcode.cn/problems/number-of-self-divisible-permutations)
 
 [English Version](/solution/2900-2999/2992.Number%20of%20Self-Divisible%20Permutations/README_EN.md)
 
@@ -6,16 +6,16 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Given an integer <code>n</code>, return <em>the number of <strong>permutations</strong> of the <strong>1-indexed</strong> array</em> <code>nums = [1, 2, ..., n]</code><em>, such that it&#39;s <strong>self-divisible</strong></em>.</p>
+<p>给定一个整数 <code>n</code>，返回 <strong>下标从 1 开始</strong> 的数组 <code>nums = [1, 2, ..., n]</code>的 <strong>排列数</strong>，使其满足 <strong>自整除</strong> 条件。</p>
 
-<p>Array <code>nums</code> is <strong>self-divisible</strong> if for every <code>1 &lt;= i &lt;= n</code>, <strong>at least</strong> one of the following conditions holds:</p>
+<p>如果对于每个 <code>1 &lt;= i &lt;= n</code>，<strong>至少</strong> 满足以下条件之一，数组 <code>nums</code> 就是 <strong>自整除</strong> 的：</p>
 
 <ul>
 	<li><code>nums[i] % i == 0</code></li>
 	<li><code>i % nums[i] == 0</code></li>
 </ul>
 
-<p>A <strong>permutation</strong> of an array is a rearrangement of the elements of that array, for example here are all of the permutations of the array <code>[1, 2, 3]</code>:</p>
+<p>数组的 <strong>排列</strong> 是对数组元素的重新排列的数量，例如，下面是数组 <code>[1, 2, 3]</code>&nbsp;的所有排列：</p>
 
 <ul>
 	<li><code>[1, 2, 3]</code></li>
@@ -27,35 +27,37 @@
 </ul>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><b>示例 1：</b></p>
 
 <pre>
-<strong>Input:</strong> n = 1
-<strong>Output:</strong> 1
-<strong>Explanation:</strong> The array [1] has only 1 permutation which is self-divisible.
+<b>输入：</b>n = 1
+<b>输出：</b>1
+<b>解释：</b>数组 [1] 只有一个排列，它是自整除的。
 </pre>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><b>示例 2：</b></p>
 
 <pre>
-<strong>Input:</strong> n = 2
-<strong>Output:</strong> 2
-<strong>Explanation:</strong> The array [1,2] has 2 permutations both of which are self-divisible:
-nums = [1,2]: This is self-divisible since nums[1] % 1 == 0 and nums[2] % 2 == 0.
-nums = [2,1]: This is self-divisible since nums[1] % 1 == 0 and 2 % nums[2] == 0.
+<b>输入：</b>n = 2
+<b>输出：</b>2
+<b>解释：</b>数组 [1,2] 有 2 个排列，都是自整除的：
+nums = [1,2]：这是自整除的，因为 nums[1] % 1 == 0 和 nums[2] % 2 == 0。
+nums = [2,1]：这是自整除的，因为 nums[1] % 1 == 0 和 2 % nums[2] == 0。
 </pre>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><b>示例 3：</b></p>
 
 <pre>
-<strong>Input:</strong> n = 3
-<strong>Output:</strong> 3
-<strong>Explanation:</strong> The array [1,2,3] has 3 self-divisble permutations: [1,2,3], [2,1,3], [3,2,1].
-It can be shown that the other 3 permutations are not self-divisible. Hence the answer is 3.
+<b>输入：</b>n = 3
+<b>输出：</b>3
+<b>解释：</b>数组 [1,2,3] 有 3 个自整除的排列：[1,2,3]、[2,1,3]、[3,2,1]。
+其他 3 个排列不能满足自整除条件。因此答案是 3。
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><b>提示：</b></p>
 
 <ul>
 	<li><code>1 &lt;= n &lt;= 15</code></li>

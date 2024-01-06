@@ -100,7 +100,12 @@ class Solution:
             cnt += 1
             for a, b in pairwise(dirs):
                 x, y = i + a, j + b
-                if 0 <= x < m and 0 <= y < n and grid[x][y] and uf.union(i * n + j, x * n + y):
+                if (
+                    0 <= x < m
+                    and 0 <= y < n
+                    and grid[x][y]
+                    and uf.union(i * n + j, x * n + y)
+                ):
                     cnt -= 1
             ans.append(cnt)
         return ans

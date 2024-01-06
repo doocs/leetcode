@@ -76,7 +76,9 @@ The time complexity is $O(n^2 \times \log n)$, and the space complexity is $O(n 
 
 ```python
 class Solution:
-    def shortestPathWithHops(self, n: int, edges: List[List[int]], s: int, d: int, k: int) -> int:
+    def shortestPathWithHops(
+        self, n: int, edges: List[List[int]], s: int, d: int, k: int
+    ) -> int:
         g = [[] for _ in range(n)]
         for u, v, w in edges:
             g[u].append((v, w))

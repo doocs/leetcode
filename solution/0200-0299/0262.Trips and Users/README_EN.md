@@ -173,7 +173,6 @@ def trips_and_users(trips: pd.DataFrame, users: pd.DataFrame) -> pd.DataFrame:
     # 4) calculating the ratio
     df["Cancellation Rate"] = (df["total_cancelled"] / df["total"]).round(2)
     return df[["Day", "Cancellation Rate"]]
-
 ```
 
 <!-- tabs:end -->

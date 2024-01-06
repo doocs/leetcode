@@ -98,7 +98,9 @@ $$
 
 ```python
 class Solution:
-    def numberOfWays(self, n: int, m: int, k: int, source: List[int], dest: List[int]) -> int:
+    def numberOfWays(
+        self, n: int, m: int, k: int, source: List[int], dest: List[int]
+    ) -> int:
         mod = 10**9 + 7
         a, b, c, d = 1, 0, 0, 0
         for _ in range(k):
@@ -114,7 +116,9 @@ class Solution:
 
 ```python
 class Solution:
-    def numberOfWays(self, n: int, m: int, k: int, source: List[int], dest: List[int]) -> int:
+    def numberOfWays(
+        self, n: int, m: int, k: int, source: List[int], dest: List[int]
+    ) -> int:
         mod = 10**9 + 7
         f = [1, 0, 0, 0]
         for _ in range(k):

@@ -82,7 +82,6 @@ def game_analysis(activity: pd.DataFrame) -> pd.DataFrame:
         .agg(first_login=("event_date", "min"))
         .reset_index()
     )
-
 ```
 
 <!-- tabs:end -->

@@ -158,7 +158,6 @@ def top_three_salaries(
     return employee[employee["salary"] >= employee["cutoff"]].rename(
         columns={"name": "Employee", "salary": "Salary"}
     )[["Department", "Employee", "Salary"]]
-
 ```
 
 <!-- tabs:end -->

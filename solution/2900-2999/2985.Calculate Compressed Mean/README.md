@@ -1,4 +1,4 @@
-# [2985. Calculate Compressed Mean](https://leetcode.cn/problems/calculate-compressed-mean)
+# [2985. 计算订单平均商品数量](https://leetcode.cn/problems/calculate-compressed-mean)
 
 [English Version](/solution/2900-2999/2985.Calculate%20Compressed%20Mean/README_EN.md)
 
@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Orders</code></p>
+<p>表：&nbsp;<code>Orders</code></p>
 
 <pre>
 +-------------------+------+
@@ -16,21 +16,22 @@
 | item_count        | int  |
 | order_occurrences | int  |
 +-------------------+------+
-order_id is column of unique values for this table.
-This table contains order_id, item_count, and order_occurrences.
+order_id 是这张表具有唯一值的列。
+这张表包括 order_id, item_count,和 order_occurrences。
 </pre>
 
-<p>Write a solution to calculate the <strong>average</strong> number of items per order, rounded to <code>2</code> <strong>decimal places</strong>.</p>
+<p>编写一个计算每个订单的 <strong>平均</strong> 商品数量的解决方案，保留 <code>2</code> <strong>位小数。</strong></p>
 
-<p>Return <em>the result table</em><em> in <strong>any</strong> order</em><em>.</em></p>
+<p>以<em>&nbsp;<strong>任意</strong>&nbsp;顺序返回结果表。</em></p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下例所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><b>示例 1:</b></p>
 
 <pre>
-<strong>Input:</strong> 
+<b>输入：</b>
 Orders table:
 +----------+------------+-------------------+
 | order_id | item_count | order_occurrences | 
@@ -40,17 +41,18 @@ Orders table:
 | 12       | 3          | 800               |  
 | 13       | 4          | 1000              | 
 +----------+------------+-------------------+
-<strong>Output</strong>
+<b>输出</b>
 +-------------------------+
 | average_items_per_order | 
 +-------------------------+
 | 2.70                    |
 +-------------------------+
-<strong>Explanation</strong>
-The calculation is as follows:
- - Total items: (1 * 500) + (2 * 1000) + (3 * 800) + (4 * 1000) = 8900 
- - Total orders: 500 + 1000 + 800 + 1000 = 3300 
- - Therefore, the average items per order is 8900 / 3300 = 2.70</pre>
+<b>解释</b>
+计算如下：
+ - 总商品数：(1 * 500) + (2 * 1000) + (3 * 800) + (4 * 1000) = 8900 
+ - 总订单数：500 + 1000 + 800 + 1000 = 3300 
+ - 因此，每个订单的平均商品数量为 8900 / 3300 = 2.70
+</pre>
 
 ## 解法
 

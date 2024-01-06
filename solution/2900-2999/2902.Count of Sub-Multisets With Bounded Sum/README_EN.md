@@ -81,7 +81,6 @@ class Solution:
                     dp[i] = stride[i]
 
         return (zeros + 1) * sum(dp[l : r + 1]) % kMod
-
 ```
 
 ### **Java**
@@ -111,7 +110,8 @@ class Solution {
             int c = e.getValue();
             sum = Math.min(sum + c * num, r);
             // prefix part
-            // dp[i] = dp[i] + dp[i - num] + ... + dp[i - c*num] + dp[i-(c+1)*num] + ... + dp[i % num]
+            // dp[i] = dp[i] + dp[i - num] + ... + dp[i - c*num] + dp[i-(c+1)*num] + ... + dp[i %
+            // num]
             for (int i = num; i <= sum; i++) {
                 dp[i] = (dp[i] + dp[i - num]) % MOD;
             }
@@ -131,7 +131,6 @@ class Solution {
         return ans;
     }
 }
-
 ```
 
 ### **C++**

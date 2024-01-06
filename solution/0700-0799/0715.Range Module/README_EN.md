@@ -143,6 +143,7 @@ class RangeModule:
     def removeRange(self, left: int, right: int) -> None:
         self.tree.modify(left, right - 1, -1)
 
+
 # Your RangeModule object will be instantiated and called as such:
 # obj = RangeModule()
 # obj.addRange(left,right)

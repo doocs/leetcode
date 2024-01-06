@@ -88,7 +88,6 @@ def find_employees(employee: pd.DataFrame) -> pd.DataFrame:
     emp = df[df["salary_x"] > df["salary_y"]]["name_x"]
 
     return pd.DataFrame({"Employee": emp})
-
 ```
 
 <!-- tabs:end -->
