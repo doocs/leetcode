@@ -43,6 +43,12 @@ Given three strings <code>a</code>, <code>b</code>, and <code>c</code>, your tas
 
 ## Solutions
 
+**Solution 1: Enumeration**
+
+We enumerate all permutations of the three strings, and for each permutation, we merge the three strings to find the shortest string with the smallest lexicographical order.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the maximum length of the three strings.
+
 <!-- tabs:start -->
 
 ### **Python3**
