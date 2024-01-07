@@ -46,25 +46,97 @@ So, the rectangle at index 1 has a greater diagonal length therefore we return a
 ### **Python3**
 
 ```python
-
+class Solution:
+    def areaOfMaxDiagonal(self, dimensions: List[List[int]]) -> int:
+        ans = mx = 0
+        for l, w in dimensions:
+            t = l**2 + w**2
+            if mx < t:
+                mx = t
+                ans = l * w
+            elif mx == t:
+                ans = max(ans, l * w)
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int areaOfMaxDiagonal(int[][] dimensions) {
+        int ans = 0, mx = 0;
+        for (var d : dimensions) {
+            int l = d[0], w = d[1];
+            int t = l * l + w * w;
+            if (mx < t) {
+                mx = t;
+                ans = l * w;
+            } else if (mx == t) {
+                ans = Math.max(ans, l * w);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int areaOfMaxDiagonal(vector<vector<int>>& dimensions) {
+        int ans = 0, mx = 0;
+        for (auto& d : dimensions) {
+            int l = d[0], w = d[1];
+            int t = l * l + w * w;
+            if (mx < t) {
+                mx = t;
+                ans = l * w;
+            } else if (mx == t) {
+                ans = max(ans, l * w);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func areaOfMaxDiagonal(dimensions [][]int) (ans int) {
+	mx := 0
+	for _, d := range dimensions {
+		l, w := d[0], d[1]
+		t := l*l + w*w
+		if mx < t {
+			mx = t
+			ans = l * w
+		} else if mx == t {
+			ans = max(ans, l*w)
+		}
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function areaOfMaxDiagonal(dimensions: number[][]): number {
+    let [ans, mx] = [0, 0];
+    for (const [l, w] of dimensions) {
+        const t = l * l + w * w;
+        if (mx < t) {
+            mx = t;
+            ans = l * w;
+        } else if (mx === t) {
+            ans = Math.max(ans, l * w);
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
