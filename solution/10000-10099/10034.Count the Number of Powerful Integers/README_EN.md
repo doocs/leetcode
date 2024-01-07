@@ -57,25 +57,207 @@ It can be shown that there are only 2 powerful integers in this range.
 ### **Python3**
 
 ```python
+class Solution:
+    def numberOfPowerfulInt(self, start: int, finish: int, limit: int, s: str) -> int:
+        @cache
+        def dfs(pos: int, lim: int):
+            if len(t) < n:
+                return 0
+            if len(t) - pos == n:
+                return int(s <= t[pos:]) if lim else 1
+            up = min(int(t[pos]) if lim else 9, limit)
+            ans = 0
+            for i in range(up + 1):
+                ans += dfs(pos + 1, lim and i == int(t[pos]))
+            return ans
 
+        n = len(s)
+        t = str(start - 1)
+        a = dfs(0, True)
+        dfs.cache_clear()
+        t = str(finish)
+        b = dfs(0, True)
+        return b - a
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private String s;
+    private String t;
+    private Long[] f;
+    private int limit;
 
+    public long numberOfPowerfulInt(long start, long finish, int limit, String s) {
+        this.s = s;
+        this.limit = limit;
+        t = String.valueOf(start - 1);
+        f = new Long[20];
+        long a = dfs(0, true);
+        t = String.valueOf(finish);
+        f = new Long[20];
+        long b = dfs(0, true);
+        return b - a;
+    }
+
+    private long dfs(int pos, boolean lim) {
+        if (t.length() < s.length()) {
+            return 0;
+        }
+        if (!lim && f[pos] != null) {
+            return f[pos];
+        }
+        if (t.length() - pos == s.length()) {
+            return lim ? (s.compareTo(t.substring(pos)) <= 0 ? 1 : 0) : 1;
+        }
+        int up = lim ? t.charAt(pos) - '0' : 9;
+        up = Math.min(up, limit);
+        long ans = 0;
+        for (int i = 0; i <= up; ++i) {
+            ans += dfs(pos + 1, lim && i == (t.charAt(pos) - '0'));
+        }
+        if (!lim) {
+            f[pos] = ans;
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
+class Solution {
+public:
+    long long numberOfPowerfulInt(long long start, long long finish, int limit, string s) {
+        string t = to_string(start - 1);
+        long long f[20];
+        memset(f, -1, sizeof(f));
 
+        function<long long(int, bool)> dfs = [&](int pos, bool lim) -> long long {
+            if (t.size() < s.size()) {
+                return 0;
+            }
+            if (!lim && f[pos] != -1) {
+                return f[pos];
+            }
+            if (t.size() - pos == s.size()) {
+                return lim ? s <= t.substr(pos) : 1;
+            }
+            long long ans = 0;
+            int up = min(lim ? t[pos] - '0' : 9, limit);
+            for (int i = 0; i <= up; ++i) {
+                ans += dfs(pos + 1, lim && i == (t[pos] - '0'));
+            }
+            if (!lim) {
+                f[pos] = ans;
+            }
+            return ans;
+        };
+
+        long long a = dfs(0, true);
+        t = to_string(finish);
+        memset(f, -1, sizeof(f));
+        long long b = dfs(0, true);
+        return b - a;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func numberOfPowerfulInt(start, finish int64, limit int, s string) int64 {
+	t := strconv.FormatInt(start-1, 10)
+	f := make([]int64, 20)
+	for i := range f {
+		f[i] = -1
+	}
 
+	var dfs func(int, bool) int64
+	dfs = func(pos int, lim bool) int64 {
+		if len(t) < len(s) {
+			return 0
+		}
+		if !lim && f[pos] != -1 {
+			return f[pos]
+		}
+		if len(t)-pos == len(s) {
+			if lim {
+				if s <= t[pos:] {
+					return 1
+				}
+				return 0
+			}
+			return 1
+		}
+
+		ans := int64(0)
+		up := 9
+		if lim {
+			up = int(t[pos] - '0')
+		}
+		up = min(up, limit)
+		for i := 0; i <= up; i++ {
+			ans += dfs(pos+1, lim && i == int(t[pos]-'0'))
+		}
+		if !lim {
+			f[pos] = ans
+		}
+		return ans
+	}
+
+	a := dfs(0, true)
+	t = strconv.FormatInt(finish, 10)
+	for i := range f {
+		f[i] = -1
+	}
+	b := dfs(0, true)
+	return b - a
+}
+```
+
+### **TypeScript**
+
+```ts
+function numberOfPowerfulInt(start: number, finish: number, limit: number, s: string): number {
+    let t: string = (start - 1).toString();
+    let f: number[] = Array(20).fill(-1);
+
+    const dfs = (pos: number, lim: boolean): number => {
+        if (t.length < s.length) {
+            return 0;
+        }
+        if (!lim && f[pos] !== -1) {
+            return f[pos];
+        }
+        if (t.length - pos === s.length) {
+            if (lim) {
+                return s <= t.substring(pos) ? 1 : 0;
+            }
+            return 1;
+        }
+
+        let ans: number = 0;
+        const up: number = Math.min(lim ? +t[pos] : 9, limit);
+        for (let i = 0; i <= up; i++) {
+            ans += dfs(pos + 1, lim && i === +t[pos]);
+        }
+
+        if (!lim) {
+            f[pos] = ans;
+        }
+        return ans;
+    };
+
+    const a: number = dfs(0, true);
+    t = finish.toString();
+    f = Array(20).fill(-1);
+    const b: number = dfs(0, true);
+
+    return b - a;
+}
 ```
 
 ### **...**
