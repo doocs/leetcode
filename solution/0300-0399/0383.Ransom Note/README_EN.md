@@ -113,7 +113,7 @@ func canConstruct(ransomNote string, magazine string) bool {
 
 ```ts
 function canConstruct(ransomNote: string, magazine: string): boolean {
-    const cnt = new Array(26).fill(0);
+    const cnt: number[] = Array(26).fill(0);
     for (const c of magazine) {
         ++cnt[c.charCodeAt(0) - 97];
     }
