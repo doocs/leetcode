@@ -53,25 +53,83 @@ It can be shown that we cannot make the XOR equal to k in less than 2 operations
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minOperations(self, nums: List[int], k: int) -> int:
+        ans = 0
+        for i in range(20):
+            v = 0
+            for x in nums:
+                v ^= x >> i & 1
+            ans += (k >> i & 1) != v
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int minOperations(int[] nums, int k) {
+        int ans = 0;
+        for (int i = 0; i < 20; ++i) {
+            int v = 0;
+            for (int x : nums) {
+                v ^= (x >> i & 1);
+            }
+            ans += k >> i & 1 ^ v;
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int minOperations(vector<int>& nums, int k) {
+        int ans = 0;
+        for (int i = 0; i < 20; ++i) {
+            int v = 0;
+            for (int x : nums) {
+                v ^= (x >> i & 1);
+            }
+            ans += k >> i & 1 ^ v;
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minOperations(nums []int, k int) (ans int) {
+	for i := 0; i < 20; i++ {
+		v := 0
+		for _, x := range nums {
+			v ^= x >> i & 1
+		}
+		ans += k>>i&1 ^ v
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function minOperations(nums: number[], k: number): number {
+    let ans = 0;
+    for (let i = 0; i < 20; ++i) {
+        let v = 0;
+        for (const x of nums) {
+            v ^= (x >> i) & 1;
+        }
+        ans += ((k >> i) & 1) ^ v;
+    }
+    return ans;
+}
 ```
 
 ### **...**

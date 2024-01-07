@@ -42,25 +42,103 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def missingInteger(self, nums: List[int]) -> int:
+        s, n = nums[0], len(nums)
+        j = 1
+        while j < len(nums) and nums[j] == nums[j - 1] + 1:
+            s += nums[j]
+            j += 1
+        vis = set(nums)
+        for x in count(s):
+            if x not in vis:
+                return x
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int missingInteger(int[] nums) {
+        int s = nums[0], j = 1;
+        while (j < nums.length && nums[j] == nums[j - 1] + 1) {
+            s += nums[j++];
+        }
+        boolean[] vis = new boolean[51];
+        for (int x : nums) {
+            vis[x] = true;
+        }
+        for (int x = s;; ++x) {
+            if (x >= vis.length || !vis[x]) {
+                return x;
+            }
+        }
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int missingInteger(vector<int>& nums) {
+        int s = nums[0], j = 1;
+        while (j < nums.size() && nums[j] == nums[j - 1] + 1) {
+            s += nums[j++];
+        }
+        bool vis[51]{};
+        for (int x : nums) {
+            vis[x] = true;
+        }
+        for (int x = s;; ++x) {
+            if (x >= 51 || !vis[x]) {
+                return x;
+            }
+        }
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func missingInteger(nums []int) int {
+	s, j := nums[0], 1
+	for j < len(nums) && nums[j] == nums[j-1]+1 {
+		s, j = s+nums[j], j+1
+	}
+	vis := [51]bool{}
+	for _, x := range nums {
+		vis[x] = true
+	}
+	for x := s; ; x++ {
+		if x >= len(vis) || !vis[x] {
+			return x
+		}
+	}
+}
+```
 
+### **TypeScript**
+
+```ts
+function missingInteger(nums: number[]): number {
+    let [s, j] = [nums[0], 1];
+    const n = nums.length;
+    while (j < n && nums[j] === nums[j - 1] + 1) {
+        s += nums[j++];
+    }
+    const vis: boolean[] = Array(51).fill(false);
+    for (const x of nums) {
+        vis[x] = true;
+    }
+    for (let x = s; ; ++x) {
+        if (x >= vis.length || !vis[x]) {
+            return x;
+        }
+    }
+}
 ```
 
 ### **...**

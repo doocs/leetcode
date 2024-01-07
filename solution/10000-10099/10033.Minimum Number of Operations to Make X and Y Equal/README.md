@@ -79,7 +79,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def minimumOperationsToMakeEqual(self, x: int, y: int) -> int:
+        @cache
+        def dfs(x: int) -> int:
+            if y >= x:
+                return y - x
+            ans = x - y
+            ans = min(ans, x % 5 + 1 + dfs(x // 5))
+            ans = min(ans, 5 - x % 5 + 1 + dfs(x // 5 + 1))
+            ans = min(ans, x % 11 + 1 + dfs(x // 11))
+            ans = min(ans, 11 - x % 11 + 1 + dfs(x // 11 + 1))
+            return ans
 
+        return dfs(x)
 ```
 
 ### **Java**
@@ -87,19 +100,105 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private Map<Integer, Integer> f = new HashMap<>();
+    private int y;
 
+    public int minimumOperationsToMakeEqual(int x, int y) {
+        this.y = y;
+        return dfs(x);
+    }
+
+    private int dfs(int x) {
+        if (y >= x) {
+            return y - x;
+        }
+        if (f.containsKey(x)) {
+            return f.get(x);
+        }
+        int ans = x - y;
+        int a = x % 5 + 1 + dfs(x / 5);
+        int b = 5 - x % 5 + 1 + dfs(x / 5 + 1);
+        int c = x % 11 + 1 + dfs(x / 11);
+        int d = 11 - x % 11 + 1 + dfs(x / 11 + 1);
+        ans = Math.min(ans, Math.min(a, Math.min(b, Math.min(c, d))));
+        f.put(x, ans);
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int minimumOperationsToMakeEqual(int x, int y) {
+        unordered_map<int, int> f;
+        function<int(int)> dfs = [&](int x) {
+            if (y >= x) {
+                return y - x;
+            }
+            if (f.count(x)) {
+                return f[x];
+            }
+            int a = x % 5 + 1 + dfs(x / 5);
+            int b = 5 - x % 5 + 1 + dfs(x / 5 + 1);
+            int c = x % 11 + 1 + dfs(x / 11);
+            int d = 11 - x % 11 + 1 + dfs(x / 11 + 1);
+            return f[x] = min({x - y, a, b, c, d});
+        };
+        return dfs(x);
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minimumOperationsToMakeEqual(x int, y int) int {
+	f := map[int]int{}
+	var dfs func(int) int
+	dfs = func(x int) int {
+		if y >= x {
+			return y - x
+		}
+		if v, ok := f[x]; ok {
+			return v
+		}
+		a := x%5 + 1 + dfs(x/5)
+		b := 5 - x%5 + 1 + dfs(x/5+1)
+		c := x%11 + 1 + dfs(x/11)
+		d := 11 - x%11 + 1 + dfs(x/11+1)
+		f[x] = min(x-y, a, b, c, d)
+		return f[x]
+	}
+	return dfs(x)
+}
+```
 
+### **TypeScript**
+
+```ts
+function minimumOperationsToMakeEqual(x: number, y: number): number {
+    const f: Map<number, number> = new Map();
+    const dfs = (x: number): number => {
+        if (y >= x) {
+            return y - x;
+        }
+        if (f.has(x)) {
+            return f.get(x)!;
+        }
+        const a = (x % 5) + 1 + dfs((x / 5) | 0);
+        const b = 5 - (x % 5) + 1 + dfs(((x / 5) | 0) + 1);
+        const c = (x % 11) + 1 + dfs((x / 11) | 0);
+        const d = 11 - (x % 11) + 1 + dfs(((x / 11) | 0) + 1);
+        const ans = Math.min(x - y, a, b, c, d);
+        f.set(x, ans);
+        return ans;
+    };
+    return dfs(x);
+}
 ```
 
 ### **...**
