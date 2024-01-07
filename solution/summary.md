@@ -1125,6 +1125,10 @@
   - [10032检查替换后的词是否有效](/solution/10000-10099/10032.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20XOR%20Equal%20to%20K/README.md)
   - [10033检查替换后的词是否有效](/solution/10000-10099/10033.Minimum%20Number%20of%20Operations%20to%20Make%20X%20and%20Y%20Equal/README.md)
   - [10034检查替换后的词是否有效](/solution/10000-10099/10034.Count%20the%20Number%20of%20Powerful%20Integers/README.md)
+  - [10035检查替换后的词是否有效](/solution/10000-10099/10035.Maximum%20Area%20of%20Longest%20Diagonal%20Rectangle/README.md)
+  - [10036检查替换后的词是否有效](/solution/10000-10099/10036.Minimum%20Moves%20to%20Capture%20The%20Queen/README.md)
+  - [10037检查替换后的词是否有效](/solution/10000-10099/10037.Maximum%20Size%20of%20a%20Set%20After%20Removals/README.md)
+  - [10038检查替换后的词是否有效](/solution/10000-10099/10038.Maximize%20the%20Number%20of%20Partitions%20After%20Operations/README.md)
 
 - 1100-1199
   - [1100.长度为 K 的无重复字符子串](/solution/1100-1199/1100.Find%20K-Length%20Substrings%20With%20No%20Repeated%20Characters/README.md)

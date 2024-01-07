@@ -1018,6 +1018,10 @@
 |  10032  |  [使数组异或和等于 K 的最少操作次数](/solution/10000-10099/10032.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20XOR%20Equal%20to%20K/README.md)  |    |  中等  |  第 121 场双周赛  |
 |  10033  |  [使 X 和 Y 相等的最少操作次数](/solution/10000-10099/10033.Minimum%20Number%20of%20Operations%20to%20Make%20X%20and%20Y%20Equal/README.md)  |    |  中等  |  第 121 场双周赛  |
 |  10034  |  [统计强大整数的数目](/solution/10000-10099/10034.Count%20the%20Number%20of%20Powerful%20Integers/README.md)  |    |  困难  |  第 121 场双周赛  |
+|  10035  |  [对角线最长的矩形的面积](/solution/10000-10099/10035.Maximum%20Area%20of%20Longest%20Diagonal%20Rectangle/README.md)  |    |  简单  |  第 379 场周赛  |
+|  10036  |  [捕获黑皇后需要的最少移动次数](/solution/10000-10099/10036.Minimum%20Moves%20to%20Capture%20The%20Queen/README.md)  |    |  中等  |  第 379 场周赛  |
+|  10037  |  [移除后集合的最多元素数](/solution/10000-10099/10037.Maximum%20Size%20of%20a%20Set%20After%20Removals/README.md)  |    |  中等  |  第 379 场周赛  |
+|  10038  |  [执行操作后的最大分割数量](/solution/10000-10099/10038.Maximize%20the%20Number%20of%20Partitions%20After%20Operations/README.md)  |    |  困难  |  第 379 场周赛  |
 |  1004  |  [最大连续1的个数 III](/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README.md)  |  `数组`,`二分查找`,`前缀和`,`滑动窗口`  |  中等  |  第 126 场周赛  |
 |  1005  |  [K 次取反后最大化的数组和](/solution/1000-1099/1005.Maximize%20Sum%20Of%20Array%20After%20K%20Negations/README.md)  |  `贪心`,`数组`,`排序`  |  简单  |  第 127 场周赛  |
 |  1006  |  [笨阶乘](/solution/1000-1099/1006.Clumsy%20Factorial/README.md)  |  `栈`,`数学`,`模拟`  |  中等  |  第 127 场周赛  |
