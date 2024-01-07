@@ -25,6 +25,13 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 379
+
+- [10035. Maximum Area of Longest Diagonal Rectangle](/solution/10000-10099/10035.Maximum%20Area%20of%20Longest%20Diagonal%20Rectangle/README_EN.md)
+- [10036. Minimum Moves to Capture The Queen](/solution/10000-10099/10036.Minimum%20Moves%20to%20Capture%20The%20Queen/README_EN.md)
+- [10037. Maximum Size of a Set After Removals](/solution/10000-10099/10037.Maximum%20Size%20of%20a%20Set%20After%20Removals/README_EN.md)
+- [10038. Maximize the Number of Partitions After Operations](/solution/10000-10099/10038.Maximize%20the%20Number%20of%20Partitions%20After%20Operations/README_EN.md)
+
 #### Biweekly Contest 121
 
 - [10031. Smallest Missing Integer Greater Than Sequential Prefix Sum](/solution/10000-10099/10031.Smallest%20Missing%20Integer%20Greater%20Than%20Sequential%20Prefix%20Sum/README_EN.md)

@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 379 场周赛(2024-01-07 10:30, 90 分钟) 参赛人数 3117
+
+- [10035. 对角线最长的矩形的面积](/solution/10000-10099/10035.Maximum%20Area%20of%20Longest%20Diagonal%20Rectangle/README.md)
+- [10036. 捕获黑皇后需要的最少移动次数](/solution/10000-10099/10036.Minimum%20Moves%20to%20Capture%20The%20Queen/README.md)
+- [10037. 移除后集合的最多元素数](/solution/10000-10099/10037.Maximum%20Size%20of%20a%20Set%20After%20Removals/README.md)
+- [10038. 执行操作后的最大分割数量](/solution/10000-10099/10038.Maximize%20the%20Number%20of%20Partitions%20After%20Operations/README.md)
+
 #### 第 121 场双周赛(2024-01-06 22:30, 90 分钟) 参赛人数 2218
 
 - [10031. 大于等于顺序前缀和的最小缺失整数](/solution/10000-10099/10031.Smallest%20Missing%20Integer%20Greater%20Than%20Sequential%20Prefix%20Sum/README.md)

@@ -1125,6 +1125,10 @@
   - [10032.Minimum Number of Operations to Make Array XOR Equal to K](/solution/10000-10099/10032.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20XOR%20Equal%20to%20K/README_EN.md)
   - [10033.Minimum Number of Operations to Make X and Y Equal](/solution/10000-10099/10033.Minimum%20Number%20of%20Operations%20to%20Make%20X%20and%20Y%20Equal/README_EN.md)
   - [10034.Count the Number of Powerful Integers](/solution/10000-10099/10034.Count%20the%20Number%20of%20Powerful%20Integers/README_EN.md)
+  - [10035.Maximum Area of Longest Diagonal Rectangle](/solution/10000-10099/10035.Maximum%20Area%20of%20Longest%20Diagonal%20Rectangle/README_EN.md)
+  - [10036.Minimum Moves to Capture The Queen](/solution/10000-10099/10036.Minimum%20Moves%20to%20Capture%20The%20Queen/README_EN.md)
+  - [10037.Maximum Size of a Set After Removals](/solution/10000-10099/10037.Maximum%20Size%20of%20a%20Set%20After%20Removals/README_EN.md)
+  - [10038.Maximize the Number of Partitions After Operations](/solution/10000-10099/10038.Maximize%20the%20Number%20of%20Partitions%20After%20Operations/README_EN.md)
 
 - 1100-1199
   - [1100.Find K-Length Substrings With No Repeated Characters](/solution/1100-1199/1100.Find%20K-Length%20Substrings%20With%20No%20Repeated%20Characters/README_EN.md)

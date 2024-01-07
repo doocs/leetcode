@@ -1016,6 +1016,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  10032  |  [Minimum Number of Operations to Make Array XOR Equal to K](/solution/10000-10099/10032.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20XOR%20Equal%20to%20K/README_EN.md)  |    |  Medium  |  Biweekly Contest 121  |
 |  10033  |  [Minimum Number of Operations to Make X and Y Equal](/solution/10000-10099/10033.Minimum%20Number%20of%20Operations%20to%20Make%20X%20and%20Y%20Equal/README_EN.md)  |    |  Medium  |  Biweekly Contest 121  |
 |  10034  |  [Count the Number of Powerful Integers](/solution/10000-10099/10034.Count%20the%20Number%20of%20Powerful%20Integers/README_EN.md)  |    |  Hard  |  Biweekly Contest 121  |
+|  10035  |  [Maximum Area of Longest Diagonal Rectangle](/solution/10000-10099/10035.Maximum%20Area%20of%20Longest%20Diagonal%20Rectangle/README_EN.md)  |    |  Easy  |  Weekly Contest 379  |
+|  10036  |  [Minimum Moves to Capture The Queen](/solution/10000-10099/10036.Minimum%20Moves%20to%20Capture%20The%20Queen/README_EN.md)  |    |  Medium  |  Weekly Contest 379  |
+|  10037  |  [Maximum Size of a Set After Removals](/solution/10000-10099/10037.Maximum%20Size%20of%20a%20Set%20After%20Removals/README_EN.md)  |    |  Medium  |  Weekly Contest 379  |
+|  10038  |  [Maximize the Number of Partitions After Operations](/solution/10000-10099/10038.Maximize%20the%20Number%20of%20Partitions%20After%20Operations/README_EN.md)  |    |  Hard  |  Weekly Contest 379  |
 |  1004  |  [Max Consecutive Ones III](/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README_EN.md)  |  `Array`,`Binary Search`,`Prefix Sum`,`Sliding Window`  |  Medium  |  Weekly Contest 126  |
 |  1005  |  [Maximize Sum Of Array After K Negations](/solution/1000-1099/1005.Maximize%20Sum%20Of%20Array%20After%20K%20Negations/README_EN.md)  |  `Greedy`,`Array`,`Sorting`  |  Easy  |  Weekly Contest 127  |
 |  1006  |  [Clumsy Factorial](/solution/1000-1099/1006.Clumsy%20Factorial/README_EN.md)  |  `Stack`,`Math`,`Simulation`  |  Medium  |  Weekly Contest 127  |
