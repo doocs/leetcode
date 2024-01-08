@@ -110,8 +110,8 @@ FROM
     (SELECT DISTINCT visited_on FROM customer) AS a
     JOIN customer AS b ON DATEDIFF(a.visited_on, b.visited_on) BETWEEN 0 AND 6
 WHERE a.visited_on >= (SELECT MIN(visited_on) FROM customer) + 6
-GROUP BY a.visited_on
-ORDER BY a.visited_on;
+GROUP BY 1
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->
