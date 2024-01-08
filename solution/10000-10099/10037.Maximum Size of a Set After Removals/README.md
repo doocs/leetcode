@@ -62,7 +62,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maximumSetSize(self, nums1: List[int], nums2: List[int]) -> int:
+        s1 = set(nums1)
+        s2 = set(nums2)
+        n = len(nums1)
+        a = min(len(s1 - s2), n // 2)
+        b = min(len(s2 - s1), n // 2)
+        return min(a + b + len(s1 & s2), n)
 ```
 
 ### **Java**
@@ -70,19 +77,122 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int maximumSetSize(int[] nums1, int[] nums2) {
+        Set<Integer> s1 = new HashSet<>();
+        Set<Integer> s2 = new HashSet<>();
+        for (int x : nums1) {
+            s1.add(x);
+        }
+        for (int x : nums2) {
+            s2.add(x);
+        }
+        int n = nums1.length;
+        int a = 0, b = 0, c = 0;
+        for (int x : s1) {
+            if (!s2.contains(x)) {
+                ++a;
+            }
+        }
+        for (int x : s2) {
+            if (!s1.contains(x)) {
+                ++b;
+            } else {
+                ++c;
+            }
+        }
+        a = Math.min(a, n / 2);
+        b = Math.min(b, n / 2);
+        return Math.min(a + b + c, n);
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int maximumSetSize(vector<int>& nums1, vector<int>& nums2) {
+        unordered_set<int> s1(nums1.begin(), nums1.end());
+        unordered_set<int> s2(nums2.begin(), nums2.end());
+        int n = nums1.size();
+        int a = 0, b = 0, c = 0;
+        for (int x : s1) {
+            if (!s2.count(x)) {
+                ++a;
+            }
+        }
+        for (int x : s2) {
+            if (!s1.count(x)) {
+                ++b;
+            } else {
+                ++c;
+            }
+        }
+        a = min(a, n / 2);
+        b = min(b, n / 2);
+        return min(a + b + c, n);
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func maximumSetSize(nums1 []int, nums2 []int) int {
+	s1 := map[int]bool{}
+	s2 := map[int]bool{}
+	for _, x := range nums1 {
+		s1[x] = true
+	}
+	for _, x := range nums2 {
+		s2[x] = true
+	}
+	a, b, c := 0, 0, 0
+	for x := range s1 {
+		if !s2[x] {
+			a++
+		}
+	}
+	for x := range s2 {
+		if !s1[x] {
+			b++
+		} else {
+			c++
+		}
+	}
+	n := len(nums1)
+	a = min(a, n/2)
+	b = min(b, n/2)
+	return min(a+b+c, n)
+}
+```
 
+### **TypeScript**
+
+```ts
+function maximumSetSize(nums1: number[], nums2: number[]): number {
+    const s1: Set<number> = new Set(nums1);
+    const s2: Set<number> = new Set(nums2);
+    const n = nums1.length;
+    let [a, b, c] = [0, 0, 0];
+    for (const x of s1) {
+        if (!s2.has(x)) {
+            ++a;
+        }
+    }
+    for (const x of s2) {
+        if (!s1.has(x)) {
+            ++b;
+        } else {
+            ++c;
+        }
+    }
+    a = Math.min(a, n >> 1);
+    b = Math.min(b, n >> 1);
+    return Math.min(a + b + c, n);
+}
 ```
 
 ### **...**
