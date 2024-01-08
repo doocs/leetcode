@@ -68,7 +68,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def minMovesToCaptureTheQueen(
+        self, a: int, b: int, c: int, d: int, e: int, f: int
+    ) -> int:
+        def check(dirs, sx, sy, bx, by) -> bool:
+            for dx, dy in pairwise(dirs):
+                for k in range(1, 8):
+                    x = sx + dx * k
+                    y = sy + dy * k
+                    if not (1 <= x <= 8 and 1 <= y <= 8) or (x, y) == (bx, by):
+                        break
+                    if (x, y) == (e, f):
+                        return True
+            return False
 
+        dirs1 = (-1, 0, 1, 0, -1)
+        dirs2 = (-1, 1, 1, -1, -1)
+        return 1 if check(dirs1, a, b, c, d) or check(dirs2, c, d, a, b) else 2
 ```
 
 ### **Java**
@@ -76,19 +93,124 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private final int[] dirs1 = {-1, 0, 1, 0, -1};
+    private final int[] dirs2 = {-1, 1, 1, -1, -1};
+    private int e, f;
 
+    public int minMovesToCaptureTheQueen(int a, int b, int c, int d, int e, int f) {
+        this.e = e;
+        this.f = f;
+        return check(dirs1, a, b, c, d) || check(dirs2, c, d, a, b) ? 1 : 2;
+    }
+
+    private boolean check(int[] dirs, int sx, int sy, int bx, int by) {
+        for (int d = 0; d < 4; ++d) {
+            for (int k = 1; k < 8; ++k) {
+                int x = sx + dirs[d] * k;
+                int y = sy + dirs[d + 1] * k;
+                if (x < 1 || x > 8 || y < 1 || y > 8 || (x == bx && y == by)) {
+                    break;
+                }
+                if (x == e && y == f) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int minMovesToCaptureTheQueen(int a, int b, int c, int d, int e, int f) {
+        int dirs[2][5] = {{-1, 0, 1, 0, -1}, {-1, 1, 1, -1, -1}};
+        auto check = [&](int i, int sx, int sy, int bx, int by) {
+            for (int d = 0; d < 4; ++d) {
+                for (int k = 1; k < 8; ++k) {
+                    int x = sx + dirs[i][d] * k;
+                    int y = sy + dirs[i][d + 1] * k;
+                    if (x < 1 || x > 8 || y < 1 || y > 8 || (x == bx && y == by)) {
+                        break;
+                    }
+                    if (x == e && y == f) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        };
+        return check(0, a, b, c, d) || check(1, c, d, a, b) ? 1 : 2;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func minMovesToCaptureTheQueen(a int, b int, c int, d int, e int, f int) int {
+	dirs := [2][5]int{{-1, 0, 1, 0, -1}, {-1, 1, 1, -1, -1}}
+	check := func(i, sx, sy, bx, by int) bool {
+		for d := 0; d < 4; d++ {
+			for k := 1; k < 8; k++ {
+				x := sx + dirs[i][d]*k
+				y := sy + dirs[i][d+1]*k
+				if x < 1 || x > 8 || y < 1 || y > 8 || (x == bx && y == by) {
+					break
+				}
+				if x == e && y == f {
+					return true
+				}
+			}
+		}
+		return false
+	}
+	if check(0, a, b, c, d) || check(1, c, d, a, b) {
+		return 1
+	}
+	return 2
+}
+```
 
+### **TypeScript**
+
+```ts
+function minMovesToCaptureTheQueen(
+    a: number,
+    b: number,
+    c: number,
+    d: number,
+    e: number,
+    f: number,
+): number {
+    const dirs: number[][] = [
+        [-1, 0, 1, 0, -1],
+        [-1, 1, 1, -1, -1],
+    ];
+    const check = (i: number, sx: number, sy: number, bx: number, by: number): boolean => {
+        for (let d = 0; d < 4; ++d) {
+            for (let k = 1; k < 8; ++k) {
+                const x = sx + dirs[i][d] * k;
+                const y = sy + dirs[i][d + 1] * k;
+                if (x < 1 || x > 8 || y < 1 || y > 8) {
+                    break;
+                }
+                if (x === bx && y === by) {
+                    break;
+                }
+                if (x === e && y === f) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    };
+    return check(0, a, b, c, d) || check(1, c, d, a, b) ? 1 : 2;
+}
 ```
 
 ### **...**
