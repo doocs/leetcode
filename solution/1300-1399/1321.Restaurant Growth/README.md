@@ -104,8 +104,6 @@ FROM t
 WHERE rk > 6;
 ```
 
-### **SQL**
-
 ```sql
 # Write your MySQL query statement below
 SELECT
