@@ -48,6 +48,12 @@ It can be shown that we cannot make the XOR equal to k in less than 2 operations
 
 ## Solutions
 
+**Solution 1: Bit Manipulation**
+
+We can perform a bitwise XOR operation on all elements in the array $nums$. The number of bits that differ from the binary representation of $k$ in the result is the minimum number of operations.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
