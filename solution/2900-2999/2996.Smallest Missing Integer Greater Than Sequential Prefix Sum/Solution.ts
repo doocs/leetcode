@@ -1,15 +1,11 @@
 function missingInteger(nums: number[]): number {
-    let [s, j] = [nums[0], 1];
-    const n = nums.length;
-    while (j < n && nums[j] === nums[j - 1] + 1) {
-        s += nums[j++];
+    let s = nums[0];
+    for (let j = 1; j < nums.length && nums[j] === nums[j - 1] + 1; ++j) {
+        s += nums[j];
     }
-    const vis: boolean[] = Array(51).fill(false);
-    for (const x of nums) {
-        vis[x] = true;
-    }
+    const vis: Set<number> = new Set(nums);
     for (let x = s; ; ++x) {
-        if (x >= vis.length || !vis[x]) {
+        if (!vis.has(x)) {
             return x;
         }
     }

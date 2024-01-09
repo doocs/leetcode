@@ -1,13 +1,13 @@
 class Solution {
 public:
     int missingInteger(vector<int>& nums) {
-        int s = nums[0], j = 1;
-        while (j < nums.size() && nums[j] == nums[j - 1] + 1) {
-            s += nums[j++];
+        int s = nums[0];
+        for (int j = 1; j < nums.size() && nums[j] == nums[j - 1] + 1; ++j) {
+            s += nums[j];
         }
-        bool vis[51]{};
+        bitset<51> vis;
         for (int x : nums) {
-            vis[x] = true;
+            vis[x] = 1;
         }
         for (int x = s;; ++x) {
             if (x >= 51 || !vis[x]) {

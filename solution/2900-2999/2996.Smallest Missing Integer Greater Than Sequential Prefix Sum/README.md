@@ -43,6 +43,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：模拟 + 哈希表**
+
+我们先求出数组 $nums$ 的最长顺序前缀和 $s$，然后从 $s$ 开始枚举整数 $x$，如果 $x$ 不在数组 $nums$ 中，那么 $x$ 就是答案。这里我们可以用哈希表来快速判断一个整数是否在数组 $nums$ 中。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -52,8 +58,7 @@
 ```python
 class Solution:
     def missingInteger(self, nums: List[int]) -> int:
-        s, n = nums[0], len(nums)
-        j = 1
+        s, j = nums[0], 1
         while j < len(nums) and nums[j] == nums[j - 1] + 1:
             s += nums[j]
             j += 1
@@ -70,9 +75,9 @@ class Solution:
 ```java
 class Solution {
     public int missingInteger(int[] nums) {
-        int s = nums[0], j = 1;
-        while (j < nums.length && nums[j] == nums[j - 1] + 1) {
-            s += nums[j++];
+        int s = nums[0];
+        for (int j = 1; j < nums.length && nums[j] == nums[j - 1] + 1; ++j) {
+            s += nums[j];
         }
         boolean[] vis = new boolean[51];
         for (int x : nums) {
@@ -93,13 +98,13 @@ class Solution {
 class Solution {
 public:
     int missingInteger(vector<int>& nums) {
-        int s = nums[0], j = 1;
-        while (j < nums.size() && nums[j] == nums[j - 1] + 1) {
-            s += nums[j++];
+        int s = nums[0];
+        for (int j = 1; j < nums.size() && nums[j] == nums[j - 1] + 1; ++j) {
+            s += nums[j];
         }
-        bool vis[51]{};
+        bitset<51> vis;
         for (int x : nums) {
-            vis[x] = true;
+            vis[x] = 1;
         }
         for (int x = s;; ++x) {
             if (x >= 51 || !vis[x]) {
@@ -114,9 +119,9 @@ public:
 
 ```go
 func missingInteger(nums []int) int {
-	s, j := nums[0], 1
-	for j < len(nums) && nums[j] == nums[j-1]+1 {
-		s, j = s+nums[j], j+1
+	s := nums[0]
+	for j := 1; j < len(nums) && nums[j] == nums[j-1]+1; j++ {
+		s += nums[j]
 	}
 	vis := [51]bool{}
 	for _, x := range nums {
@@ -134,17 +139,13 @@ func missingInteger(nums []int) int {
 
 ```ts
 function missingInteger(nums: number[]): number {
-    let [s, j] = [nums[0], 1];
-    const n = nums.length;
-    while (j < n && nums[j] === nums[j - 1] + 1) {
-        s += nums[j++];
+    let s = nums[0];
+    for (let j = 1; j < nums.length && nums[j] === nums[j - 1] + 1; ++j) {
+        s += nums[j];
     }
-    const vis: boolean[] = Array(51).fill(false);
-    for (const x of nums) {
-        vis[x] = true;
-    }
+    const vis: Set<number> = new Set(nums);
     for (let x = s; ; ++x) {
-        if (x >= vis.length || !vis[x]) {
+        if (!vis.has(x)) {
             return x;
         }
     }

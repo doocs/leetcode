@@ -37,6 +37,12 @@
 
 ## Solutions
 
+**Solution 1: Simulation + Hash Table**
+
+First, we calculate the longest prefix sum $s$ of the array $nums$. Then, starting from $s$, we enumerate the integer $x$. If $x$ is not in the array $nums$, then $x$ is the answer. Here, we can use a hash table to quickly determine whether an integer is in the array $nums$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -44,8 +50,7 @@
 ```python
 class Solution:
     def missingInteger(self, nums: List[int]) -> int:
-        s, n = nums[0], len(nums)
-        j = 1
+        s, j = nums[0], 1
         while j < len(nums) and nums[j] == nums[j - 1] + 1:
             s += nums[j]
             j += 1
@@ -60,9 +65,9 @@ class Solution:
 ```java
 class Solution {
     public int missingInteger(int[] nums) {
-        int s = nums[0], j = 1;
-        while (j < nums.length && nums[j] == nums[j - 1] + 1) {
-            s += nums[j++];
+        int s = nums[0];
+        for (int j = 1; j < nums.length && nums[j] == nums[j - 1] + 1; ++j) {
+            s += nums[j];
         }
         boolean[] vis = new boolean[51];
         for (int x : nums) {
@@ -83,13 +88,13 @@ class Solution {
 class Solution {
 public:
     int missingInteger(vector<int>& nums) {
-        int s = nums[0], j = 1;
-        while (j < nums.size() && nums[j] == nums[j - 1] + 1) {
-            s += nums[j++];
+        int s = nums[0];
+        for (int j = 1; j < nums.size() && nums[j] == nums[j - 1] + 1; ++j) {
+            s += nums[j];
         }
-        bool vis[51]{};
+        bitset<51> vis;
         for (int x : nums) {
-            vis[x] = true;
+            vis[x] = 1;
         }
         for (int x = s;; ++x) {
             if (x >= 51 || !vis[x]) {
@@ -104,9 +109,9 @@ public:
 
 ```go
 func missingInteger(nums []int) int {
-	s, j := nums[0], 1
-	for j < len(nums) && nums[j] == nums[j-1]+1 {
-		s, j = s+nums[j], j+1
+	s := nums[0]
+	for j := 1; j < len(nums) && nums[j] == nums[j-1]+1; j++ {
+		s += nums[j]
 	}
 	vis := [51]bool{}
 	for _, x := range nums {
@@ -124,17 +129,13 @@ func missingInteger(nums []int) int {
 
 ```ts
 function missingInteger(nums: number[]): number {
-    let [s, j] = [nums[0], 1];
-    const n = nums.length;
-    while (j < n && nums[j] === nums[j - 1] + 1) {
-        s += nums[j++];
+    let s = nums[0];
+    for (let j = 1; j < nums.length && nums[j] === nums[j - 1] + 1; ++j) {
+        s += nums[j];
     }
-    const vis: boolean[] = Array(51).fill(false);
-    for (const x of nums) {
-        vis[x] = true;
-    }
+    const vis: Set<number> = new Set(nums);
     for (let x = s; ; ++x) {
-        if (x >= vis.length || !vis[x]) {
+        if (!vis.has(x)) {
             return x;
         }
     }
