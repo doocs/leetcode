@@ -1014,14 +1014,6 @@
 |  1001  |  [网格照明](/solution/1000-1099/1001.Grid%20Illumination/README.md)  |  `数组`,`哈希表`  |  困难  |  第 125 场周赛  |
 |  1002  |  [查找共用字符](/solution/1000-1099/1002.Find%20Common%20Characters/README.md)  |  `数组`,`哈希表`,`字符串`  |  简单  |  第 126 场周赛  |
 |  1003  |  [检查替换后的词是否有效](/solution/1000-1099/1003.Check%20If%20Word%20Is%20Valid%20After%20Substitutions/README.md)  |  `栈`,`字符串`  |  中等  |  第 126 场周赛  |
-|  10031  |  [大于等于顺序前缀和的最小缺失整数](/solution/10000-10099/10031.Smallest%20Missing%20Integer%20Greater%20Than%20Sequential%20Prefix%20Sum/README.md)  |    |  简单  |  第 121 场双周赛  |
-|  10032  |  [使数组异或和等于 K 的最少操作次数](/solution/10000-10099/10032.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20XOR%20Equal%20to%20K/README.md)  |    |  中等  |  第 121 场双周赛  |
-|  10033  |  [使 X 和 Y 相等的最少操作次数](/solution/10000-10099/10033.Minimum%20Number%20of%20Operations%20to%20Make%20X%20and%20Y%20Equal/README.md)  |    |  中等  |  第 121 场双周赛  |
-|  10034  |  [统计强大整数的数目](/solution/10000-10099/10034.Count%20the%20Number%20of%20Powerful%20Integers/README.md)  |    |  困难  |  第 121 场双周赛  |
-|  10035  |  [对角线最长的矩形的面积](/solution/10000-10099/10035.Maximum%20Area%20of%20Longest%20Diagonal%20Rectangle/README.md)  |    |  简单  |  第 379 场周赛  |
-|  10036  |  [捕获黑皇后需要的最少移动次数](/solution/10000-10099/10036.Minimum%20Moves%20to%20Capture%20The%20Queen/README.md)  |    |  中等  |  第 379 场周赛  |
-|  10037  |  [移除后集合的最多元素数](/solution/10000-10099/10037.Maximum%20Size%20of%20a%20Set%20After%20Removals/README.md)  |    |  中等  |  第 379 场周赛  |
-|  10038  |  [执行操作后的最大分割数量](/solution/10000-10099/10038.Maximize%20the%20Number%20of%20Partitions%20After%20Operations/README.md)  |    |  困难  |  第 379 场周赛  |
 |  1004  |  [最大连续1的个数 III](/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README.md)  |  `数组`,`二分查找`,`前缀和`,`滑动窗口`  |  中等  |  第 126 场周赛  |
 |  1005  |  [K 次取反后最大化的数组和](/solution/1000-1099/1005.Maximize%20Sum%20Of%20Array%20After%20K%20Negations/README.md)  |  `贪心`,`数组`,`排序`  |  简单  |  第 127 场周赛  |
 |  1006  |  [笨阶乘](/solution/1000-1099/1006.Clumsy%20Factorial/README.md)  |  `栈`,`数学`,`模拟`  |  中等  |  第 127 场周赛  |
@@ -3010,10 +3002,18 @@
 |  2989  |  [班级表现](/solution/2900-2999/2989.Class%20Performance/README.md)  |  `数据库`  |  中等  |  🔒  |
 |  2990  |  [贷款类型](/solution/2900-2999/2990.Loan%20Types/README.md)  |  `数据库`  |  简单  |  🔒  |
 |  2991  |  [最好的三家酒庄](/solution/2900-2999/2991.Top%20Three%20Wineries/README.md)  |  `数据库`  |  困难  |  🔒  |
-|  2992  |  [自整除排列的数量](/solution/2900-2999/2992.Number%20of%20Self-Divisible%20Permutations/README.md)  |    |  中等  |  🔒  |
-|  2993  |  [Friday Purchases I](/solution/2900-2999/2993.Friday%20Purchases%20I/README.md)  |    |  中等  |  🔒  |
-|  2994  |  [Friday Purchases II](/solution/2900-2999/2994.Friday%20Purchases%20II/README.md)  |    |  困难  |  🔒  |
-|  2995  |  [观众变主播](/solution/2900-2999/2995.Viewers%20Turned%20Streamers/README.md)  |    |  困难  |  🔒  |
+|  2992  |  [自整除排列的数量](/solution/2900-2999/2992.Number%20of%20Self-Divisible%20Permutations/README.md)  |  `位运算`,`递归`,`数组`,`动态规划`,`状态压缩`  |  中等  |  🔒  |
+|  2993  |  [Friday Purchases I](/solution/2900-2999/2993.Friday%20Purchases%20I/README.md)  |  `数据库`  |  中等  |  🔒  |
+|  2994  |  [Friday Purchases II](/solution/2900-2999/2994.Friday%20Purchases%20II/README.md)  |  `数据库`  |  困难  |  🔒  |
+|  2995  |  [观众变主播](/solution/2900-2999/2995.Viewers%20Turned%20Streamers/README.md)  |  `数据库`  |  困难  |  🔒  |
+|  2996  |  [大于等于顺序前缀和的最小缺失整数](/solution/2900-2999/2996.Smallest%20Missing%20Integer%20Greater%20Than%20Sequential%20Prefix%20Sum/README.md)  |  `数组`,`哈希表`,`排序`  |  简单  |  第 121 场双周赛  |
+|  2997  |  [使数组异或和等于 K 的最少操作次数](/solution/2900-2999/2997.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20XOR%20Equal%20to%20K/README.md)  |  `位运算`,`数组`  |  中等  |  第 121 场双周赛  |
+|  2998  |  [使 X 和 Y 相等的最少操作次数](/solution/2900-2999/2998.Minimum%20Number%20of%20Operations%20to%20Make%20X%20and%20Y%20Equal/README.md)  |  `广度优先搜索`,`记忆化搜索`,`动态规划`  |  中等  |  第 121 场双周赛  |
+|  2999  |  [统计强大整数的数目](/solution/2900-2999/2999.Count%20the%20Number%20of%20Powerful%20Integers/README.md)  |  `数学`,`字符串`,`动态规划`  |  困难  |  第 121 场双周赛  |
+|  3000  |  [对角线最长的矩形的面积](/solution/3000-3099/3000.Maximum%20Area%20of%20Longest%20Diagonal%20Rectangle/README.md)  |  `数组`  |  简单  |  第 379 场周赛  |
+|  3001  |  [捕获黑皇后需要的最少移动次数](/solution/3000-3099/3001.Minimum%20Moves%20to%20Capture%20The%20Queen/README.md)  |  `数组`,`枚举`  |  中等  |  第 379 场周赛  |
+|  3002  |  [移除后集合的最多元素数](/solution/3000-3099/3002.Maximum%20Size%20of%20a%20Set%20After%20Removals/README.md)  |  `贪心`,`数组`,`哈希表`  |  中等  |  第 379 场周赛  |
+|  3003  |  [执行操作后的最大分割数量](/solution/3000-3099/3003.Maximize%20the%20Number%20of%20Partitions%20After%20Operations/README.md)  |  `位运算`,`字符串`,`动态规划`,`状态压缩`  |  困难  |  第 379 场周赛  |
 
 ## 版权
 

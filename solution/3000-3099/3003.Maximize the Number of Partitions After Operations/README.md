@@ -1,6 +1,6 @@
-# [10038. 执行操作后的最大分割数量](https://leetcode.cn/problems/maximize-the-number-of-partitions-after-operations)
+# [3003. 执行操作后的最大分割数量](https://leetcode.cn/problems/maximize-the-number-of-partitions-after-operations)
 
-[English Version](/solution/10000-10099/10038.Maximize%20the%20Number%20of%20Partitions%20After%20Operations/README_EN.md)
+[English Version](/solution/3000-3099/3003.Maximize%20the%20Number%20of%20Partitions%20After%20Operations/README_EN.md)
 
 ## 题目描述
 

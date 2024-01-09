@@ -27,17 +27,17 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 #### Weekly Contest 379
 
-- [10035. Maximum Area of Longest Diagonal Rectangle](/solution/10000-10099/10035.Maximum%20Area%20of%20Longest%20Diagonal%20Rectangle/README_EN.md)
-- [10036. Minimum Moves to Capture The Queen](/solution/10000-10099/10036.Minimum%20Moves%20to%20Capture%20The%20Queen/README_EN.md)
-- [10037. Maximum Size of a Set After Removals](/solution/10000-10099/10037.Maximum%20Size%20of%20a%20Set%20After%20Removals/README_EN.md)
-- [10038. Maximize the Number of Partitions After Operations](/solution/10000-10099/10038.Maximize%20the%20Number%20of%20Partitions%20After%20Operations/README_EN.md)
+- [3000. Maximum Area of Longest Diagonal Rectangle](/solution/3000-3099/3000.Maximum%20Area%20of%20Longest%20Diagonal%20Rectangle/README_EN.md)
+- [3001. Minimum Moves to Capture The Queen](/solution/3000-3099/3001.Minimum%20Moves%20to%20Capture%20The%20Queen/README_EN.md)
+- [3002. Maximum Size of a Set After Removals](/solution/3000-3099/3002.Maximum%20Size%20of%20a%20Set%20After%20Removals/README_EN.md)
+- [3003. Maximize the Number of Partitions After Operations](/solution/3000-3099/3003.Maximize%20the%20Number%20of%20Partitions%20After%20Operations/README_EN.md)
 
 #### Biweekly Contest 121
 
-- [10031. Smallest Missing Integer Greater Than Sequential Prefix Sum](/solution/10000-10099/10031.Smallest%20Missing%20Integer%20Greater%20Than%20Sequential%20Prefix%20Sum/README_EN.md)
-- [10032. Minimum Number of Operations to Make Array XOR Equal to K](/solution/10000-10099/10032.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20XOR%20Equal%20to%20K/README_EN.md)
-- [10033. Minimum Number of Operations to Make X and Y Equal](/solution/10000-10099/10033.Minimum%20Number%20of%20Operations%20to%20Make%20X%20and%20Y%20Equal/README_EN.md)
-- [10034. Count the Number of Powerful Integers](/solution/10000-10099/10034.Count%20the%20Number%20of%20Powerful%20Integers/README_EN.md)
+- [2996. Smallest Missing Integer Greater Than Sequential Prefix Sum](/solution/2900-2999/2996.Smallest%20Missing%20Integer%20Greater%20Than%20Sequential%20Prefix%20Sum/README_EN.md)
+- [2997. Minimum Number of Operations to Make Array XOR Equal to K](/solution/2900-2999/2997.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20XOR%20Equal%20to%20K/README_EN.md)
+- [2998. Minimum Number of Operations to Make X and Y Equal](/solution/2900-2999/2998.Minimum%20Number%20of%20Operations%20to%20Make%20X%20and%20Y%20Equal/README_EN.md)
+- [2999. Count the Number of Powerful Integers](/solution/2900-2999/2999.Count%20the%20Number%20of%20Powerful%20Integers/README_EN.md)
 
 #### Weekly Contest 378
 

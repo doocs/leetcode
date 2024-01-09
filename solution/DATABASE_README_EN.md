@@ -254,9 +254,9 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 2989 | [Class Performance](/solution/2900-2999/2989.Class%20Performance/README_EN.md)                                                                                                               | `Database` | Medium     | 🔒     |
 | 2990 | [Loan Types](/solution/2900-2999/2990.Loan%20Types/README_EN.md)                                                                                                                             | `Database` | Easy       | 🔒     |
 | 2991 | [Top Three Wineries](/solution/2900-2999/2991.Top%20Three%20Wineries/README_EN.md)                                                                                                           | `Database` | Hard       | 🔒     |
-| 2993 | [Friday Purchases I](/solution/2900-2999/2993.Friday%20Purchases%20I/README_EN.md)                                                                                                           |            | Medium     | 🔒     |
-| 2994 | [Friday Purchases II](/solution/2900-2999/2994.Friday%20Purchases%20II/README_EN.md)                                                                                                         |            | Hard       | 🔒     |
-| 2995 | [Viewers Turned Streamers](/solution/2900-2999/2995.Viewers%20Turned%20Streamers/README_EN.md)                                                                                               |            | Hard       | 🔒     |
+| 2993 | [Friday Purchases I](/solution/2900-2999/2993.Friday%20Purchases%20I/README_EN.md)                                                                                                           | `Database` | Medium     | 🔒     |
+| 2994 | [Friday Purchases II](/solution/2900-2999/2994.Friday%20Purchases%20II/README_EN.md)                                                                                                         | `Database` | Hard       | 🔒     |
+| 2995 | [Viewers Turned Streamers](/solution/2900-2999/2995.Viewers%20Turned%20Streamers/README_EN.md)                                                                                               | `Database` | Hard       | 🔒     |
 
 ## Copyright
 

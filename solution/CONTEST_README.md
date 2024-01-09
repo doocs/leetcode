@@ -24,17 +24,17 @@
 
 #### 第 379 场周赛(2024-01-07 10:30, 90 分钟) 参赛人数 3117
 
-- [10035. 对角线最长的矩形的面积](/solution/10000-10099/10035.Maximum%20Area%20of%20Longest%20Diagonal%20Rectangle/README.md)
-- [10036. 捕获黑皇后需要的最少移动次数](/solution/10000-10099/10036.Minimum%20Moves%20to%20Capture%20The%20Queen/README.md)
-- [10037. 移除后集合的最多元素数](/solution/10000-10099/10037.Maximum%20Size%20of%20a%20Set%20After%20Removals/README.md)
-- [10038. 执行操作后的最大分割数量](/solution/10000-10099/10038.Maximize%20the%20Number%20of%20Partitions%20After%20Operations/README.md)
+- [3000. 对角线最长的矩形的面积](/solution/3000-3099/3000.Maximum%20Area%20of%20Longest%20Diagonal%20Rectangle/README.md)
+- [3001. 捕获黑皇后需要的最少移动次数](/solution/3000-3099/3001.Minimum%20Moves%20to%20Capture%20The%20Queen/README.md)
+- [3002. 移除后集合的最多元素数](/solution/3000-3099/3002.Maximum%20Size%20of%20a%20Set%20After%20Removals/README.md)
+- [3003. 执行操作后的最大分割数量](/solution/3000-3099/3003.Maximize%20the%20Number%20of%20Partitions%20After%20Operations/README.md)
 
 #### 第 121 场双周赛(2024-01-06 22:30, 90 分钟) 参赛人数 2218
 
-- [10031. 大于等于顺序前缀和的最小缺失整数](/solution/10000-10099/10031.Smallest%20Missing%20Integer%20Greater%20Than%20Sequential%20Prefix%20Sum/README.md)
-- [10032. 使数组异或和等于 K 的最少操作次数](/solution/10000-10099/10032.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20XOR%20Equal%20to%20K/README.md)
-- [10033. 使 X 和 Y 相等的最少操作次数](/solution/10000-10099/10033.Minimum%20Number%20of%20Operations%20to%20Make%20X%20and%20Y%20Equal/README.md)
-- [10034. 统计强大整数的数目](/solution/10000-10099/10034.Count%20the%20Number%20of%20Powerful%20Integers/README.md)
+- [2996. 大于等于顺序前缀和的最小缺失整数](/solution/2900-2999/2996.Smallest%20Missing%20Integer%20Greater%20Than%20Sequential%20Prefix%20Sum/README.md)
+- [2997. 使数组异或和等于 K 的最少操作次数](/solution/2900-2999/2997.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20XOR%20Equal%20to%20K/README.md)
+- [2998. 使 X 和 Y 相等的最少操作次数](/solution/2900-2999/2998.Minimum%20Number%20of%20Operations%20to%20Make%20X%20and%20Y%20Equal/README.md)
+- [2999. 统计强大整数的数目](/solution/2900-2999/2999.Count%20the%20Number%20of%20Powerful%20Integers/README.md)
 
 #### 第 378 场周赛(2023-12-31 10:30, 90 分钟) 参赛人数 2747
 
