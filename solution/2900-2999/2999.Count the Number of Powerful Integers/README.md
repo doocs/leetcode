@@ -1,6 +1,6 @@
-# [10034. 统计强大整数的数目](https://leetcode.cn/problems/count-the-number-of-powerful-integers)
+# [2999. 统计强大整数的数目](https://leetcode.cn/problems/count-the-number-of-powerful-integers)
 
-[English Version](/solution/10000-10099/10034.Count%20the%20Number%20of%20Powerful%20Integers/README_EN.md)
+[English Version](/solution/2900-2999/2999.Count%20the%20Number%20of%20Powerful%20Integers/README_EN.md)
 
 ## 题目描述
 

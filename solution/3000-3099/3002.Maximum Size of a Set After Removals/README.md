@@ -1,6 +1,6 @@
-# [10037. 移除后集合的最多元素数](https://leetcode.cn/problems/maximum-size-of-a-set-after-removals)
+# [3002. 移除后集合的最多元素数](https://leetcode.cn/problems/maximum-size-of-a-set-after-removals)
 
-[English Version](/solution/10000-10099/10037.Maximum%20Size%20of%20a%20Set%20After%20Removals/README_EN.md)
+[English Version](/solution/3000-3099/3002.Maximum%20Size%20of%20a%20Set%20After%20Removals/README_EN.md)
 
 ## 题目描述
 

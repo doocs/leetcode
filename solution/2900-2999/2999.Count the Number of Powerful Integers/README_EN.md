@@ -1,6 +1,6 @@
-# [10034. Count the Number of Powerful Integers](https://leetcode.com/problems/count-the-number-of-powerful-integers)
+# [2999. Count the Number of Powerful Integers](https://leetcode.com/problems/count-the-number-of-powerful-integers)
 
-[中文文档](/solution/10000-10099/10034.Count%20the%20Number%20of%20Powerful%20Integers/README.md)
+[中文文档](/solution/2900-2999/2999.Count%20the%20Number%20of%20Powerful%20Integers/README.md)
 
 ## Description
 

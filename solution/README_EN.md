@@ -1012,14 +1012,6 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  1001  |  [Grid Illumination](/solution/1000-1099/1001.Grid%20Illumination/README_EN.md)  |  `Array`,`Hash Table`  |  Hard  |  Weekly Contest 125  |
 |  1002  |  [Find Common Characters](/solution/1000-1099/1002.Find%20Common%20Characters/README_EN.md)  |  `Array`,`Hash Table`,`String`  |  Easy  |  Weekly Contest 126  |
 |  1003  |  [Check If Word Is Valid After Substitutions](/solution/1000-1099/1003.Check%20If%20Word%20Is%20Valid%20After%20Substitutions/README_EN.md)  |  `Stack`,`String`  |  Medium  |  Weekly Contest 126  |
-|  10031  |  [Smallest Missing Integer Greater Than Sequential Prefix Sum](/solution/10000-10099/10031.Smallest%20Missing%20Integer%20Greater%20Than%20Sequential%20Prefix%20Sum/README_EN.md)  |    |  Easy  |  Biweekly Contest 121  |
-|  10032  |  [Minimum Number of Operations to Make Array XOR Equal to K](/solution/10000-10099/10032.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20XOR%20Equal%20to%20K/README_EN.md)  |    |  Medium  |  Biweekly Contest 121  |
-|  10033  |  [Minimum Number of Operations to Make X and Y Equal](/solution/10000-10099/10033.Minimum%20Number%20of%20Operations%20to%20Make%20X%20and%20Y%20Equal/README_EN.md)  |    |  Medium  |  Biweekly Contest 121  |
-|  10034  |  [Count the Number of Powerful Integers](/solution/10000-10099/10034.Count%20the%20Number%20of%20Powerful%20Integers/README_EN.md)  |    |  Hard  |  Biweekly Contest 121  |
-|  10035  |  [Maximum Area of Longest Diagonal Rectangle](/solution/10000-10099/10035.Maximum%20Area%20of%20Longest%20Diagonal%20Rectangle/README_EN.md)  |    |  Easy  |  Weekly Contest 379  |
-|  10036  |  [Minimum Moves to Capture The Queen](/solution/10000-10099/10036.Minimum%20Moves%20to%20Capture%20The%20Queen/README_EN.md)  |    |  Medium  |  Weekly Contest 379  |
-|  10037  |  [Maximum Size of a Set After Removals](/solution/10000-10099/10037.Maximum%20Size%20of%20a%20Set%20After%20Removals/README_EN.md)  |    |  Medium  |  Weekly Contest 379  |
-|  10038  |  [Maximize the Number of Partitions After Operations](/solution/10000-10099/10038.Maximize%20the%20Number%20of%20Partitions%20After%20Operations/README_EN.md)  |    |  Hard  |  Weekly Contest 379  |
 |  1004  |  [Max Consecutive Ones III](/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README_EN.md)  |  `Array`,`Binary Search`,`Prefix Sum`,`Sliding Window`  |  Medium  |  Weekly Contest 126  |
 |  1005  |  [Maximize Sum Of Array After K Negations](/solution/1000-1099/1005.Maximize%20Sum%20Of%20Array%20After%20K%20Negations/README_EN.md)  |  `Greedy`,`Array`,`Sorting`  |  Easy  |  Weekly Contest 127  |
 |  1006  |  [Clumsy Factorial](/solution/1000-1099/1006.Clumsy%20Factorial/README_EN.md)  |  `Stack`,`Math`,`Simulation`  |  Medium  |  Weekly Contest 127  |
@@ -3008,10 +3000,18 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2989  |  [Class Performance](/solution/2900-2999/2989.Class%20Performance/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 |  2990  |  [Loan Types](/solution/2900-2999/2990.Loan%20Types/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
 |  2991  |  [Top Three Wineries](/solution/2900-2999/2991.Top%20Three%20Wineries/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
-|  2992  |  [Number of Self-Divisible Permutations](/solution/2900-2999/2992.Number%20of%20Self-Divisible%20Permutations/README_EN.md)  |    |  Medium  |  🔒  |
-|  2993  |  [Friday Purchases I](/solution/2900-2999/2993.Friday%20Purchases%20I/README_EN.md)  |    |  Medium  |  🔒  |
-|  2994  |  [Friday Purchases II](/solution/2900-2999/2994.Friday%20Purchases%20II/README_EN.md)  |    |  Hard  |  🔒  |
-|  2995  |  [Viewers Turned Streamers](/solution/2900-2999/2995.Viewers%20Turned%20Streamers/README_EN.md)  |    |  Hard  |  🔒  |
+|  2992  |  [Number of Self-Divisible Permutations](/solution/2900-2999/2992.Number%20of%20Self-Divisible%20Permutations/README_EN.md)  |  `Bit Manipulation`,`Recursion`,`Array`,`Dynamic Programming`,`Bitmask`  |  Medium  |  🔒  |
+|  2993  |  [Friday Purchases I](/solution/2900-2999/2993.Friday%20Purchases%20I/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
+|  2994  |  [Friday Purchases II](/solution/2900-2999/2994.Friday%20Purchases%20II/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
+|  2995  |  [Viewers Turned Streamers](/solution/2900-2999/2995.Viewers%20Turned%20Streamers/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
+|  2996  |  [Smallest Missing Integer Greater Than Sequential Prefix Sum](/solution/2900-2999/2996.Smallest%20Missing%20Integer%20Greater%20Than%20Sequential%20Prefix%20Sum/README_EN.md)  |  `Array`,`Hash Table`,`Sorting`  |  Easy  |  Biweekly Contest 121  |
+|  2997  |  [Minimum Number of Operations to Make Array XOR Equal to K](/solution/2900-2999/2997.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20XOR%20Equal%20to%20K/README_EN.md)  |  `Bit Manipulation`,`Array`  |  Medium  |  Biweekly Contest 121  |
+|  2998  |  [Minimum Number of Operations to Make X and Y Equal](/solution/2900-2999/2998.Minimum%20Number%20of%20Operations%20to%20Make%20X%20and%20Y%20Equal/README_EN.md)  |  `Breadth-First Search`,`Memoization`,`Dynamic Programming`  |  Medium  |  Biweekly Contest 121  |
+|  2999  |  [Count the Number of Powerful Integers](/solution/2900-2999/2999.Count%20the%20Number%20of%20Powerful%20Integers/README_EN.md)  |  `Math`,`String`,`Dynamic Programming`  |  Hard  |  Biweekly Contest 121  |
+|  3000  |  [Maximum Area of Longest Diagonal Rectangle](/solution/3000-3099/3000.Maximum%20Area%20of%20Longest%20Diagonal%20Rectangle/README_EN.md)  |  `Array`  |  Easy  |  Weekly Contest 379  |
+|  3001  |  [Minimum Moves to Capture The Queen](/solution/3000-3099/3001.Minimum%20Moves%20to%20Capture%20The%20Queen/README_EN.md)  |  `Array`,`Enumeration`  |  Medium  |  Weekly Contest 379  |
+|  3002  |  [Maximum Size of a Set After Removals](/solution/3000-3099/3002.Maximum%20Size%20of%20a%20Set%20After%20Removals/README_EN.md)  |  `Greedy`,`Array`,`Hash Table`  |  Medium  |  Weekly Contest 379  |
+|  3003  |  [Maximize the Number of Partitions After Operations](/solution/3000-3099/3003.Maximize%20the%20Number%20of%20Partitions%20After%20Operations/README_EN.md)  |  `Bit Manipulation`,`String`,`Dynamic Programming`,`Bitmask`  |  Hard  |  Weekly Contest 379  |
 
 ## Copyright
 
