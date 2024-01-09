@@ -54,6 +54,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：位运算**
+
+我们可以将数组 $nums$ 中的所有元素进行异或运算，判断得到的结果与 $k$ 的二进制表示中有多少位不同，这个数就是最少操作次数。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,13 +69,7 @@
 ```python
 class Solution:
     def minOperations(self, nums: List[int], k: int) -> int:
-        ans = 0
-        for i in range(20):
-            v = 0
-            for x in nums:
-                v ^= x >> i & 1
-            ans += (k >> i & 1) != v
-        return ans
+        return reduce(xor, nums, k).bit_count()
 ```
 
 ### **Java**
@@ -79,15 +79,10 @@ class Solution:
 ```java
 class Solution {
     public int minOperations(int[] nums, int k) {
-        int ans = 0;
-        for (int i = 0; i < 20; ++i) {
-            int v = 0;
-            for (int x : nums) {
-                v ^= (x >> i & 1);
-            }
-            ans += k >> i & 1 ^ v;
+        for (int x : nums) {
+            k ^= x;
         }
-        return ans;
+        return Integer.bitCount(k);
     }
 }
 ```
@@ -98,15 +93,10 @@ class Solution {
 class Solution {
 public:
     int minOperations(vector<int>& nums, int k) {
-        int ans = 0;
-        for (int i = 0; i < 20; ++i) {
-            int v = 0;
-            for (int x : nums) {
-                v ^= (x >> i & 1);
-            }
-            ans += k >> i & 1 ^ v;
+        for (int x : nums) {
+            k ^= x;
         }
-        return ans;
+        return __builtin_popcount(k);
     }
 };
 ```
@@ -115,14 +105,10 @@ public:
 
 ```go
 func minOperations(nums []int, k int) (ans int) {
-	for i := 0; i < 20; i++ {
-		v := 0
-		for _, x := range nums {
-			v ^= x >> i & 1
-		}
-		ans += k>>i&1 ^ v
+	for _, x := range nums {
+		k ^= x
 	}
-	return
+	return bits.OnesCount(uint(k))
 }
 ```
 
@@ -130,15 +116,19 @@ func minOperations(nums []int, k int) (ans int) {
 
 ```ts
 function minOperations(nums: number[], k: number): number {
-    let ans = 0;
-    for (let i = 0; i < 20; ++i) {
-        let v = 0;
-        for (const x of nums) {
-            v ^= (x >> i) & 1;
-        }
-        ans += ((k >> i) & 1) ^ v;
+    for (const x of nums) {
+        k ^= x;
     }
-    return ans;
+    return bitCount(k);
+}
+
+function bitCount(i: number): number {
+    i = i - ((i >>> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
+    i = (i + (i >>> 4)) & 0x0f0f0f0f;
+    i = i + (i >>> 8);
+    i = i + (i >>> 16);
+    return i & 0x3f;
 }
 ```
 
