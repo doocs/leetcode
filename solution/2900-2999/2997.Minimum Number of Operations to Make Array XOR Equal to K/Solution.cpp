@@ -1,14 +1,9 @@
 class Solution {
 public:
     int minOperations(vector<int>& nums, int k) {
-        int ans = 0;
-        for (int i = 0; i < 20; ++i) {
-            int v = 0;
-            for (int x : nums) {
-                v ^= (x >> i & 1);
-            }
-            ans += k >> i & 1 ^ v;
+        for (int x : nums) {
+            k ^= x;
         }
-        return ans;
+        return __builtin_popcount(k);
     }
 };
