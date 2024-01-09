@@ -1,8 +1,8 @@
 class Solution {
     public int missingInteger(int[] nums) {
-        int s = nums[0], j = 1;
-        while (j < nums.length && nums[j] == nums[j - 1] + 1) {
-            s += nums[j++];
+        int s = nums[0];
+        for (int j = 1; j < nums.length && nums[j] == nums[j - 1] + 1; ++j) {
+            s += nums[j];
         }
         boolean[] vis = new boolean[51];
         for (int x : nums) {

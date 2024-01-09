@@ -1,7 +1,7 @@
 func missingInteger(nums []int) int {
-	s, j := nums[0], 1
-	for j < len(nums) && nums[j] == nums[j-1]+1 {
-		s, j = s+nums[j], j+1
+	s := nums[0]
+	for j := 1; j < len(nums) && nums[j] == nums[j-1]+1; j++ {
+		s += nums[j]
 	}
 	vis := [51]bool{}
 	for _, x := range nums {
