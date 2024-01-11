@@ -3063,3 +3063,4 @@
   - [3001.Minimum Moves to Capture The Queen](/solution/3000-3099/3001.Minimum%20Moves%20to%20Capture%20The%20Queen/README_EN.md)
   - [3002.Maximum Size of a Set After Removals](/solution/3000-3099/3002.Maximum%20Size%20of%20a%20Set%20After%20Removals/README_EN.md)
   - [3003.Maximize the Number of Partitions After Operations](/solution/3000-3099/3003.Maximize%20the%20Number%20of%20Partitions%20After%20Operations/README_EN.md)
+  - [3004.Maximum Subtree of the Same Color](/solution/3000-3099/3004.Maximum%20Subtree%20of%20the%20Same%20Color/README_EN.md)
