@@ -58,6 +58,16 @@ It can be proven that 1 is the maximum number of pairs that can be formed.
 
 ## Solutions
 
+**Solution 1: Hash Table**
+
+We can use a hash table $cnt$ to store the number of occurrences of each string's reversed string in the array $words$.
+
+Traverse the array $words$, for each string $w$, we directly add the value of $cnt[w]$ to the answer, then increase the occurrence count of $w$'s reversed string by $1$.
+
+After the traversal ends, we can get the maximum number of matches.
+
+The time complexity is $O(L)$, and the space complexity is $O(L)$, where $L$ is the sum of the lengths of the strings in the array $words$.
+
 <!-- tabs:start -->
 
 ### **Python3**

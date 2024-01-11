@@ -40,6 +40,16 @@ That string has length 14, and we can show that it is impossible to construct a 
 
 ## Solutions
 
+**Solution 1: Case Discussion**
+
+We observe that the string 'AA' can only be followed by 'BB', and the string 'AB' can be placed at the beginning or end of the string. Therefore:
+
+-   If $x < y$, we can first alternately place 'BBAABBAA..BB', placing a total of $x$ 'AA' and $x+1$ 'BB', then place the remaining $z$ 'AB', with a total length of $(x \times 2 + z + 1) \times 2$;
+-   If $x > y$, we can first alternately place 'AABBAABB..AA', placing a total of $y$ 'BB' and $y+1$ 'AA', then place the remaining $z$ 'AB', with a total length of $(y \times 2 + z + 1) \times 2$;
+-   If $x = y$, we only need to alternately place 'AABB', placing a total of $x$ 'AA' and $y$ 'BB', then place the remaining $z$ 'AB', with a total length of $(x + y + z) \times 2$.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
