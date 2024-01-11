@@ -3014,6 +3014,7 @@
 |  3001  |  [捕获黑皇后需要的最少移动次数](/solution/3000-3099/3001.Minimum%20Moves%20to%20Capture%20The%20Queen/README.md)  |  `数组`,`枚举`  |  中等  |  第 379 场周赛  |
 |  3002  |  [移除后集合的最多元素数](/solution/3000-3099/3002.Maximum%20Size%20of%20a%20Set%20After%20Removals/README.md)  |  `贪心`,`数组`,`哈希表`  |  中等  |  第 379 场周赛  |
 |  3003  |  [执行操作后的最大分割数量](/solution/3000-3099/3003.Maximize%20the%20Number%20of%20Partitions%20After%20Operations/README.md)  |  `位运算`,`字符串`,`动态规划`,`状态压缩`  |  困难  |  第 379 场周赛  |
+|  3004  |  [Maximum Subtree of the Same Color](/solution/3000-3099/3004.Maximum%20Subtree%20of%20the%20Same%20Color/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
