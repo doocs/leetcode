@@ -47,6 +47,12 @@ Thus, there are 2 strings that appear exactly once in each of the two arrays.
 
 ## Solutions
 
+**Solution 1: Hash Table + Counting**
+
+We can use two hash tables, $cnt1$ and $cnt2$, to count the occurrences of each string in the two string arrays respectively. Then, we traverse one of the hash tables. If a string appears once in the other hash table and also appears once in the current hash table, we increment the answer by one.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the lengths of the two string arrays respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -56,7 +62,7 @@ class Solution:
     def countWords(self, words1: List[str], words2: List[str]) -> int:
         cnt1 = Counter(words1)
         cnt2 = Counter(words2)
-        return sum(cnt2[k] == 1 for k, v in cnt1.items() if v == 1)
+        return sum(v == 1 and cnt2[w] == 1 for w, v in cnt1.items())
 ```
 
 ### **Java**
@@ -64,23 +70,21 @@ class Solution:
 ```java
 class Solution {
     public int countWords(String[] words1, String[] words2) {
-        Map<String, Integer> cnt1 = count(words1);
-        Map<String, Integer> cnt2 = count(words2);
+        Map<String, Integer> cnt1 = new HashMap<>();
+        Map<String, Integer> cnt2 = new HashMap<>();
+        for (var w : words1) {
+            cnt1.merge(w, 1, Integer::sum);
+        }
+        for (var w : words2) {
+            cnt2.merge(w, 1, Integer::sum);
+        }
         int ans = 0;
-        for (String w : words1) {
-            if (cnt1.getOrDefault(w, 0) == 1 && cnt2.getOrDefault(w, 0) == 1) {
+        for (var e : cnt1.entrySet()) {
+            if (e.getValue() == 1 && cnt2.getOrDefault(e.getKey(), 0) == 1) {
                 ++ans;
             }
         }
         return ans;
-    }
-
-    private Map<String, Integer> count(String[] words) {
-        Map<String, Integer> cnt = new HashMap<>();
-        for (String w : words) {
-            cnt.put(w, cnt.getOrDefault(w, 0) + 1);
-        }
-        return cnt;
     }
 }
 ```
@@ -93,10 +97,16 @@ public:
     int countWords(vector<string>& words1, vector<string>& words2) {
         unordered_map<string, int> cnt1;
         unordered_map<string, int> cnt2;
-        for (auto& w : words1) cnt1[w]++;
-        for (auto& w : words2) cnt2[w]++;
+        for (auto& w : words1) {
+            ++cnt1[w];
+        }
+        for (auto& w : words2) {
+            ++cnt2[w];
+        }
         int ans = 0;
-        for (auto& w : words1) ans += (cnt1[w] == 1 && cnt2[w] == 1);
+        for (auto& [w, v] : cnt1) {
+            ans += v == 1 && cnt2[w] == 1;
+        }
         return ans;
     }
 };
@@ -105,7 +115,7 @@ public:
 ### **Go**
 
 ```go
-func countWords(words1 []string, words2 []string) int {
+func countWords(words1 []string, words2 []string) (ans int) {
 	cnt1 := map[string]int{}
 	cnt2 := map[string]int{}
 	for _, w := range words1 {
@@ -114,13 +124,34 @@ func countWords(words1 []string, words2 []string) int {
 	for _, w := range words2 {
 		cnt2[w]++
 	}
-	ans := 0
-	for _, w := range words1 {
-		if cnt1[w] == 1 && cnt2[w] == 1 {
+	for w, v := range cnt1 {
+		if v == 1 && cnt2[w] == 1 {
 			ans++
 		}
 	}
-	return ans
+	return
+}
+```
+
+### **TypeScript**
+
+```ts
+function countWords(words1: string[], words2: string[]): number {
+    const cnt1 = new Map<string, number>();
+    const cnt2 = new Map<string, number>();
+    for (const w of words1) {
+        cnt1.set(w, (cnt1.get(w) ?? 0) + 1);
+    }
+    for (const w of words2) {
+        cnt2.set(w, (cnt2.get(w) ?? 0) + 1);
+    }
+    let ans = 0;
+    for (const [w, v] of cnt1) {
+        if (v === 1 && cnt2.get(w) === 1) {
+            ++ans;
+        }
+    }
+    return ans;
 }
 ```
 
