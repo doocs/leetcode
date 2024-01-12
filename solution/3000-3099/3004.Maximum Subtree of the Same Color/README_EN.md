@@ -13,7 +13,7 @@
 <p>Return <em>the size of such subtree with the <strong>maximum</strong> number of nodes possible.</em></p>
 
 <p>&nbsp;</p>
-<p><strong><img alt="" src="https://assets.leetcode.com/static_assets/others/20231216-134026.png" style="padding: 10px; background: rgb(255, 255, 255); border-radius: 0.5rem; width: 221px; height: 132px;" /></strong></p>
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3000-3099/3004.Maximum%20Subtree%20of%20the%20Same%20Color/images/others/20231216-134026.png" style="padding: 10px; background: rgb(255, 255, 255); border-radius: 0.5rem; width: 221px; height: 132px;" /></strong></p>
 
 <p><strong class="example">Example 1:</strong></p>
 
@@ -31,7 +31,7 @@
 <strong>Explanation:</strong> The whole tree has the same color, and the subtree rooted at node 0 has the most number of nodes which is 4. Hence, we return 4.
 </pre>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/static_assets/others/20231216-134017.png" style="padding: 10px; background: rgb(255, 255, 255); border-radius: 0.5rem; width: 221px; height: 221px;" /></strong></p>
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3000-3099/3004.Maximum%20Subtree%20of%20the%20Same%20Color/images/20231216-134017.png" style="padding: 10px; background: rgb(255, 255, 255); border-radius: 0.5rem; width: 221px; height: 221px;" /></strong></p>
 
 <p><strong class="example">Example 3:</strong></p>
 

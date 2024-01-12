@@ -246,6 +246,6 @@
     -   [2989.班级表现](/database-solution/2900-2999/2989.Class%20Performance/README.md)
     -   [2990.贷款类型](/database-solution/2900-2999/2990.Loan%20Types/README.md)
     -   [2991.最好的三家酒庄](/database-solution/2900-2999/2991.Top%20Three%20Wineries/README.md)
-    -   [2993.Friday Purchases I](/database-solution/2900-2999/2993.Friday%20Purchases%20I/README.md)
-    -   [2994.Friday Purchases II](/database-solution/2900-2999/2994.Friday%20Purchases%20II/README.md)
+    -   [2993.发生在周五的交易 I](/database-solution/2900-2999/2993.Friday%20Purchases%20I/README.md)
+    -   [2994.发生在周五的交易 II](/database-solution/2900-2999/2994.Friday%20Purchases%20II/README.md)
     -   [2995.观众变主播](/database-solution/2900-2999/2995.Viewers%20Turned%20Streamers/README.md)
