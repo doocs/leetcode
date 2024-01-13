@@ -1,16 +1,16 @@
 class Solution {
     public String repeatLimitedString(String s, int repeatLimit) {
         int[] cnt = new int[26];
-        for (char c : s.toCharArray()) {
-            cnt[c - 'a']++;
+        for (int i = 0; i < s.length(); ++i) {
+            ++cnt[s.charAt(i) - 'a'];
         }
         StringBuilder ans = new StringBuilder();
-        for (int i = 25; i >= 0; --i) {
-            int j = i - 1;
+        for (int i = 25, j = 24; i >= 0; --i) {
+            j = Math.min(j, i - 1);
             while (true) {
-                for (int k = Math.min(repeatLimit, cnt[i]); k > 0; --k) {
-                    cnt[i]--;
+                for (int k = Math.min(cnt[i], repeatLimit); k > 0; --k) {
                     ans.append((char) ('a' + i));
+                    --cnt[i];
                 }
                 if (cnt[i] == 0) {
                     break;
@@ -21,8 +21,8 @@ class Solution {
                 if (j < 0) {
                     break;
                 }
-                cnt[j]--;
                 ans.append((char) ('a' + j));
+                --cnt[j];
             }
         }
         return ans.toString();

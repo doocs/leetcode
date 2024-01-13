@@ -1,15 +1,15 @@
 func repeatLimitedString(s string, repeatLimit int) string {
-	cnt := make([]int, 26)
+	cnt := [26]int{}
 	for _, c := range s {
 		cnt[c-'a']++
 	}
 	var ans []byte
-	for i := 25; i >= 0; i-- {
-		j := i - 1
+	for i, j := 25, 24; i >= 0; i-- {
+		j = min(j, i-1)
 		for {
 			for k := min(cnt[i], repeatLimit); k > 0; k-- {
+				ans = append(ans, byte(i+'a'))
 				cnt[i]--
-				ans = append(ans, 'a'+byte(i))
 			}
 			if cnt[i] == 0 {
 				break
@@ -20,8 +20,8 @@ func repeatLimitedString(s string, repeatLimit int) string {
 			if j < 0 {
 				break
 			}
+			ans = append(ans, byte(j+'a'))
 			cnt[j]--
-			ans = append(ans, 'a'+byte(j))
 		}
 	}
 	return string(ans)

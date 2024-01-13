@@ -53,7 +53,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-**方法一：贪心 + 双指针**
+**方法一：贪心**
+
+我们先用一个长度为 $26$ 的数组 $cnt$ 统计字符串 $s$ 中每个字符出现的次数，然后从大到小枚举字母表的第 $i$ 个字母，每次取出最多 $\min(cnt[i], repeatLimit)$ 个字母 $i$，如果取完后 $cnt[i]$ 还大于 $0$，则继续取字母表中第 $j$ 个字母，其中 $j$ 是最大的满足 $j < i$ 且 $cnt[j] > 0$ 的下标，直到取完所有字母。
+
+时间复杂度 $O(n + |\Sigma|)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 是字符串 $s$ 的长度，而 $\Sigma$ 是字符集，本题中 $|\Sigma| = 26$。
 
 <!-- tabs:start -->
 
@@ -66,14 +70,15 @@ class Solution:
     def repeatLimitedString(self, s: str, repeatLimit: int) -> str:
         cnt = [0] * 26
         for c in s:
-            cnt[ord(c) - ord('a')] += 1
+            cnt[ord(c) - ord("a")] += 1
         ans = []
+        j = 24
         for i in range(25, -1, -1):
-            j = i - 1
+            j = min(i - 1, j)
             while 1:
-                for _ in range(min(repeatLimit, cnt[i])):
-                    cnt[i] -= 1
-                    ans.append(chr(ord('a') + i))
+                x = min(repeatLimit, cnt[i])
+                cnt[i] -= x
+                ans.append(ascii_lowercase[i] * x)
                 if cnt[i] == 0:
                     break
                 while j >= 0 and cnt[j] == 0:
@@ -81,8 +86,8 @@ class Solution:
                 if j < 0:
                     break
                 cnt[j] -= 1
-                ans.append(chr(ord('a') + j))
-        return ''.join(ans)
+                ans.append(ascii_lowercase[j])
+        return "".join(ans)
 ```
 
 ### **Java**
@@ -93,16 +98,16 @@ class Solution:
 class Solution {
     public String repeatLimitedString(String s, int repeatLimit) {
         int[] cnt = new int[26];
-        for (char c : s.toCharArray()) {
-            cnt[c - 'a']++;
+        for (int i = 0; i < s.length(); ++i) {
+            ++cnt[s.charAt(i) - 'a'];
         }
         StringBuilder ans = new StringBuilder();
-        for (int i = 25; i >= 0; --i) {
-            int j = i - 1;
+        for (int i = 25, j = 24; i >= 0; --i) {
+            j = Math.min(j, i - 1);
             while (true) {
-                for (int k = Math.min(repeatLimit, cnt[i]); k > 0; --k) {
-                    cnt[i]--;
+                for (int k = Math.min(cnt[i], repeatLimit); k > 0; --k) {
                     ans.append((char) ('a' + i));
+                    --cnt[i];
                 }
                 if (cnt[i] == 0) {
                     break;
@@ -113,8 +118,8 @@ class Solution {
                 if (j < 0) {
                     break;
                 }
-                cnt[j]--;
                 ans.append((char) ('a' + j));
+                --cnt[j];
             }
         }
         return ans.toString();
@@ -128,21 +133,29 @@ class Solution {
 class Solution {
 public:
     string repeatLimitedString(string s, int repeatLimit) {
-        vector<int> cnt(26);
-        for (char& c : s) cnt[c - 'a']++;
+        int cnt[26]{};
+        for (char& c : s) {
+            ++cnt[c - 'a'];
+        }
         string ans;
-        for (int i = 25; ~i; --i) {
-            int j = i - 1;
-            while (true) {
+        for (int i = 25, j = 24; ~i; --i) {
+            j = min(j, i - 1);
+            while (1) {
                 for (int k = min(cnt[i], repeatLimit); k; --k) {
-                    cnt[i]--;
-                    ans.push_back('a' + i);
+                    ans += 'a' + i;
+                    --cnt[i];
                 }
-                if (cnt[i] == 0) break;
-                while (~j && cnt[j] == 0) --j;
-                if (j < 0) break;
-                cnt[j]--;
-                ans.push_back('a' + j);
+                if (cnt[i] == 0) {
+                    break;
+                }
+                while (j >= 0 && cnt[j] == 0) {
+                    --j;
+                }
+                if (j < 0) {
+                    break;
+                }
+                ans += 'a' + j;
+                --cnt[j];
             }
         }
         return ans;
@@ -154,17 +167,17 @@ public:
 
 ```go
 func repeatLimitedString(s string, repeatLimit int) string {
-	cnt := make([]int, 26)
+	cnt := [26]int{}
 	for _, c := range s {
 		cnt[c-'a']++
 	}
 	var ans []byte
-	for i := 25; i >= 0; i-- {
-		j := i - 1
+	for i, j := 25, 24; i >= 0; i-- {
+		j = min(j, i-1)
 		for {
 			for k := min(cnt[i], repeatLimit); k > 0; k-- {
+				ans = append(ans, byte(i+'a'))
 				cnt[i]--
-				ans = append(ans, 'a'+byte(i))
 			}
 			if cnt[i] == 0 {
 				break
@@ -175,8 +188,8 @@ func repeatLimitedString(s string, repeatLimit int) string {
 			if j < 0 {
 				break
 			}
+			ans = append(ans, byte(j+'a'))
 			cnt[j]--
-			ans = append(ans, 'a'+byte(j))
 		}
 	}
 	return string(ans)
@@ -186,7 +199,34 @@ func repeatLimitedString(s string, repeatLimit int) string {
 ### **TypeScript**
 
 ```ts
-
+function repeatLimitedString(s: string, repeatLimit: number): string {
+    const cnt: number[] = Array(26).fill(0);
+    for (const c of s) {
+        cnt[c.charCodeAt(0) - 97]++;
+    }
+    const ans: string[] = [];
+    for (let i = 25, j = 24; ~i; --i) {
+        j = Math.min(j, i - 1);
+        while (true) {
+            for (let k = Math.min(cnt[i], repeatLimit); k; --k) {
+                ans.push(String.fromCharCode(97 + i));
+                --cnt[i];
+            }
+            if (!cnt[i]) {
+                break;
+            }
+            while (j >= 0 && !cnt[j]) {
+                --j;
+            }
+            if (j < 0) {
+                break;
+            }
+            ans.push(String.fromCharCode(97 + j));
+            --cnt[j];
+        }
+    }
+    return ans.join('');
+}
 ```
 
 ### **...**
