@@ -1,6 +1,7 @@
 class Solution {
+    private final int[][] a = {{1, 1}, {1, 0}};
+
     public int climbStairs(int n) {
-        int[][] a = {{1, 1,}, {1, 0}};
         return pow(a, n - 1)[0][0];
     }
 
