@@ -1,46 +1,17 @@
-type Trie struct {
-	children [26]*Trie
-	v        string
-}
-
-func newTrie() *Trie {
-	return &Trie{}
-}
-func (this *Trie) insert(word string) {
-	node := this
-	for _, c := range word {
-		c -= 'a'
-		if node.children[c] == nil {
-			node.children[c] = newTrie()
-		}
-		node = node.children[c]
-	}
-	node.v = word
-}
-
-func (this *Trie) search(word string) string {
-	node := this
-	for _, c := range word {
-		c -= 'a'
-		if node.children[c] == nil {
-			break
-		}
-		node = node.children[c]
-		if node.v != "" {
-			return node.v
-		}
-	}
-	return word
-}
-
 func replaceWords(dictionary []string, sentence string) string {
-	trie := newTrie()
+	s := map[string]bool{}
 	for _, v := range dictionary {
-		trie.insert(v)
+		s[v] = true
 	}
-	var ans []string
-	for _, v := range strings.Split(sentence, " ") {
-		ans = append(ans, trie.search(v))
+	words := strings.Split(sentence, " ")
+	for i, word := range words {
+		for j := 1; j <= len(word); j++ {
+			t := word[:j]
+			if s[t] {
+				words[i] = t
+				break
+			}
+		}
 	}
-	return strings.Join(ans, " ")
+	return strings.Join(words, " ")
 }

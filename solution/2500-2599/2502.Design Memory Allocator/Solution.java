@@ -1,36 +1,31 @@
 class Allocator {
-    private TreeMap<Integer, Integer> tm = new TreeMap<>();
-    private Map<Integer, List<Integer>> d = new HashMap<>();
+    private int[] m;
 
     public Allocator(int n) {
-        tm.put(-1, -1);
-        tm.put(n, n);
+        m = new int[n];
     }
 
     public int allocate(int size, int mID) {
-        int s = -1;
-        for (var entry : tm.entrySet()) {
-            int v = entry.getKey();
-            if (s != -1) {
-                int e = v - 1;
-                if (e - s + 1 >= size) {
-                    tm.put(s, s + size - 1);
-                    d.computeIfAbsent(mID, k -> new ArrayList<>()).add(s);
-                    return s;
-                }
+        int cnt = 0;
+        for (int i = 0; i < m.length; ++i) {
+            if (m[i] > 0) {
+                cnt = 0;
+            } else if (++cnt == size) {
+                Arrays.fill(m, i - size + 1, i + 1, mID);
+                return i - size + 1;
             }
-            s = entry.getValue() + 1;
         }
         return -1;
     }
 
     public int free(int mID) {
         int ans = 0;
-        for (int s : d.getOrDefault(mID, Collections.emptyList())) {
-            int e = tm.remove(s);
-            ans += e - s + 1;
+        for (int i = 0; i < m.length; ++i) {
+            if (m[i] == mID) {
+                m[i] = 0;
+                ++ans;
+            }
         }
-        d.remove(mID);
         return ans;
     }
 }

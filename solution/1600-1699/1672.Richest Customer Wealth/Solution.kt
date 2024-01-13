@@ -8,5 +8,5 @@ class Solution {
             }
         }
         return max
-    }   
+    }
 }

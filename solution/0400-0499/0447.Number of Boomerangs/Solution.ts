@@ -4,11 +4,9 @@ function numberOfBoomerangs(points: number[][]): number {
         const cnt: Map<number, number> = new Map();
         for (const [x2, y2] of points) {
             const d = (x1 - x2) ** 2 + (y1 - y2) ** 2;
+            ans += cnt.get(d) || 0;
             cnt.set(d, (cnt.get(d) || 0) + 1);
         }
-        for (const [_, x] of cnt) {
-            ans += x * (x - 1);
-        }
     }
-    return ans;
+    return ans << 1;
 }

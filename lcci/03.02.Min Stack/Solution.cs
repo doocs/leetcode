@@ -6,21 +6,21 @@ public class MinStack {
     public MinStack() {
         stk2.Push(int.MaxValue);
     }
-    
+
     public void Push(int x) {
         stk1.Push(x);
         stk2.Push(Math.Min(x, GetMin()));
     }
-    
+
     public void Pop() {
         stk1.Pop();
         stk2.Pop();
     }
-    
+
     public int Top() {
         return stk1.Peek();
     }
-    
+
     public int GetMin() {
         return stk2.Peek();
     }

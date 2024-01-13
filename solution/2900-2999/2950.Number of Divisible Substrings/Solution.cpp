@@ -9,12 +9,12 @@ public:
             }
         }
         int ans = 0;
-        for (int i = 1; i < 10; ++i) {
-            unordered_map<int, int> cnt{{0, 1}};
+        int n = word.size();
+        for (int i = 0; i < n; ++i) {
             int s = 0;
-            for (char& c : word) {
-                s += mp[c - 'a'] - i;
-                ans += cnt[s]++;
+            for (int j = i; j < n; ++j) {
+                s += mp[word[j] - 'a'];
+                ans += s % (j - i + 1) == 0 ? 1 : 0;
             }
         }
         return ans;

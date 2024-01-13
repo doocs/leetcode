@@ -1,9 +1,10 @@
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
-        d1, d2 = [0] * 256, [0] * 256
-        for i, (a, b) in enumerate(zip(s, t), 1):
-            a, b = ord(a), ord(b)
-            if d1[a] != d2[b]:
+        d1 = {}
+        d2 = {}
+        for a, b in zip(s, t):
+            if (a in d1 and d1[a] != b) or (b in d2 and d2[b] != a):
                 return False
-            d1[a] = d2[b] = i
+            d1[a] = b
+            d2[b] = a
         return True

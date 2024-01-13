@@ -3,11 +3,10 @@ func numberOfBoomerangs(points [][]int) (ans int) {
 		cnt := map[int]int{}
 		for _, p2 := range points {
 			d := (p1[0]-p2[0])*(p1[0]-p2[0]) + (p1[1]-p2[1])*(p1[1]-p2[1])
+			ans += cnt[d]
 			cnt[d]++
 		}
-		for _, x := range cnt {
-			ans += x * (x - 1)
-		}
 	}
+	ans <<= 1
 	return
 }

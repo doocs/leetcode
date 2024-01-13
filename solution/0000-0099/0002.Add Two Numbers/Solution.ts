@@ -14,7 +14,7 @@ function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | nul
     const dummy = new ListNode();
     let cur = dummy;
     let sum = 0;
-    while (sum !== 0 || l1 != null || l2 != null) {
+    while (l1 != null || l2 != null || sum !== 0) {
         if (l1 != null) {
             sum += l1.val;
             l1 = l1.next;

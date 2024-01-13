@@ -1,4 +1,4 @@
-public class Solution {
+class Solution {
     public String pushDominoes(String dominoes) {
         int n = dominoes.length();
         Deque<Integer> q = new ArrayDeque<>();
@@ -39,4 +39,3 @@ public class Solution {
         return new String(ans);
     }
 }
-class Solution {}

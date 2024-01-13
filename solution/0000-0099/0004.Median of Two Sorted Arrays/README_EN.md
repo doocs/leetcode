@@ -242,9 +242,9 @@ var findMedianSortedArrays = function (nums1, nums2) {
 };
 ```
 
-### **TypeScript**
+### **C#**
 
-```ts
+```cs
 public class Solution {
     private int m;
     private int n;

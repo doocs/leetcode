@@ -1,42 +1,38 @@
 type CombinationIterator struct {
-	curr int
-	size int
-	cs   []byte
+	cs  []string
+	idx int
 }
 
 func Constructor(characters string, combinationLength int) CombinationIterator {
+	t := []byte{}
 	n := len(characters)
-	curr := (1 << n) - 1
-	size := combinationLength
-	cs := make([]byte, n)
-	for i := range characters {
-		cs[n-i-1] = characters[i]
+	cs := []string{}
+	var dfs func(int)
+	dfs = func(i int) {
+		if len(t) == combinationLength {
+			cs = append(cs, string(t))
+			return
+		}
+		if i == n {
+			return
+		}
+		t = append(t, characters[i])
+		dfs(i + 1)
+		t = t[:len(t)-1]
+		dfs(i + 1)
 	}
-	return CombinationIterator{curr, size, cs}
+	dfs(0)
+	return CombinationIterator{cs, 0}
 }
 
 func (this *CombinationIterator) Next() string {
-	for this.curr >= 0 && bits.OnesCount(uint(this.curr)) != this.size {
-		this.curr--
-	}
-	ans := []byte{}
-	for i := range this.cs {
-		if (this.curr >> i & 1) == 1 {
-			ans = append(ans, this.cs[i])
-		}
-	}
-	for i, j := 0, len(ans)-1; i < j; i, j = i+1, j-1 {
-		ans[i], ans[j] = ans[j], ans[i]
-	}
-	this.curr--
-	return string(ans)
+	ans := this.cs[this.idx]
+	this.idx++
+	return ans
 }
 
 func (this *CombinationIterator) HasNext() bool {
-	for this.curr >= 0 && bits.OnesCount(uint(this.curr)) != this.size {
-		this.curr--
-	}
-	return this.curr >= 0
+	return this.idx < len(this.cs)
 }
 
 /**

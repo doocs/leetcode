@@ -5,22 +5,20 @@ public:
 
     void push(int val) {
         ++cnt[val];
-        d[cnt[val]].push(val);
-        mx = max(mx, cnt[val]);
+        q.emplace(cnt[val], ++ts, val);
     }
 
     int pop() {
-        int val = d[mx].top();
+        auto [a, b, val] = q.top();
+        q.pop();
         --cnt[val];
-        d[mx].pop();
-        if (d[mx].empty()) --mx;
         return val;
     }
 
 private:
     unordered_map<int, int> cnt;
-    unordered_map<int, stack<int>> d;
-    int mx = 0;
+    priority_queue<tuple<int, int, int>> q;
+    int ts = 0;
 };
 
 /**

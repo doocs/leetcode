@@ -1,12 +1,14 @@
 class Solution {
     public int singleNumber(int[] nums) {
-        int a = 0, b = 0;
-        for (int c : nums) {
-            int aa = (~a & b & c) | (a & ~b & ~c);
-            int bb = ~a & (b ^ c);
-            a = aa;
-            b = bb;
+        int ans = 0;
+        for (int i = 0; i < 32; i++) {
+            int cnt = 0;
+            for (int num : nums) {
+                cnt += num >> i & 1;
+            }
+            cnt %= 3;
+            ans |= cnt << i;
         }
-        return b;
+        return ans;
     }
 }

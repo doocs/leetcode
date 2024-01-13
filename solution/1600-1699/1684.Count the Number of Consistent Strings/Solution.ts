@@ -1,16 +1,13 @@
 function countConsistentStrings(allowed: string, words: string[]): number {
-    const helper = (s: string) => {
-        let res = 0;
-        for (const c of s) {
-            res |= 1 << (c.charCodeAt(0) - 'a'.charCodeAt(0));
-        }
-        return res;
-    };
-    const mask = helper(allowed);
-    let ans = 0;
+    const set = new Set([...allowed]);
+    const n = words.length;
+    let ans = n;
     for (const word of words) {
-        if ((mask | helper(word)) === mask) {
-            ans++;
+        for (const c of word) {
+            if (!set.has(c)) {
+                ans--;
+                break;
+            }
         }
     }
     return ans;

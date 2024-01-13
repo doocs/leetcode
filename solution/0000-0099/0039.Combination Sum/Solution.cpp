@@ -9,13 +9,14 @@ public:
                 ans.emplace_back(t);
                 return;
             }
-            if (i >= candidates.size() || s < candidates[i]) {
+            if (s < candidates[i]) {
                 return;
             }
-            dfs(i + 1, s);
-            t.push_back(candidates[i]);
-            dfs(i, s - candidates[i]);
-            t.pop_back();
+            for (int j = i; j < candidates.size(); ++j) {
+                t.push_back(candidates[j]);
+                dfs(j, s - candidates[j]);
+                t.pop_back();
+            }
         };
         dfs(0, target);
         return ans;

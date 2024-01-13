@@ -1,7 +1,12 @@
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        nums.erase(unique(nums.begin(), nums.end()), nums.end());
-        return nums.size();
+        int k = 0;
+        for (int x : nums) {
+            if (k == 0 || x != nums[k - 1]) {
+                nums[k++] = x;
+            }
+        }
+        return k;
     }
 };

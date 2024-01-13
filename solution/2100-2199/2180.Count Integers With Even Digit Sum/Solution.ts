@@ -1,9 +1,13 @@
 function countEven(num: number): number {
-    let ans = Math.floor(num / 10) * 5 - 1;
-    let s = 0;
-    for (let x = Math.floor(num / 10); x; x = Math.floor(x / 10)) {
-        s += x % 10;
+    let ans = 0;
+    for (let i = 1; i <= num; ++i) {
+        let s = 0;
+        for (let x = i; x; x = Math.floor(x / 10)) {
+            s += x % 10;
+        }
+        if (s % 2 == 0) {
+            ++ans;
+        }
     }
-    ans += ((num % 10) + 2 - (s & 1)) >> 1;
     return ans;
 }

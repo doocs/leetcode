@@ -1,8 +1,7 @@
 class Solution:
     def repeatedCharacter(self, s: str) -> str:
-        mask = 0
+        cnt = Counter()
         for c in s:
-            i = ord(c) - ord('a')
-            if mask >> i & 1:
+            cnt[c] += 1
+            if cnt[c] == 2:
                 return c
-            mask |= 1 << i

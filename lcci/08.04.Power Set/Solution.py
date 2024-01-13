@@ -4,10 +4,10 @@ class Solution:
             if u == len(nums):
                 ans.append(t[:])
                 return
+            dfs(u + 1, t)
             t.append(nums[u])
             dfs(u + 1, t)
             t.pop()
-            dfs(u + 1, t)
 
         ans = []
         dfs(0, [])

@@ -2,26 +2,13 @@ class Solution {
 public:
     vector<int> findErrorNums(vector<int>& nums) {
         int n = nums.size();
-        int xs = 0;
-        for (int i = 1; i <= n; ++i) {
-            xs ^= i ^ nums[i - 1];
+        int s1 = (1 + n) * n / 2;
+        int s2 = 0;
+        unordered_set<int> set(nums.begin(), nums.end());
+        for (int x : set) {
+            s2 += x;
         }
-        int lb = xs & -xs;
-        int a = 0;
-        for (int i = 1; i <= n; ++i) {
-            if (i & lb) {
-                a ^= i;
-            }
-            if (nums[i - 1] & lb) {
-                a ^= nums[i - 1];
-            }
-        }
-        int b = xs ^ a;
-        for (int i = 0; i < n; ++i) {
-            if (nums[i] == a) {
-                return {a, b};
-            }
-        }
-        return {b, a};
+        int s = accumulate(nums.begin(), nums.end(), 0);
+        return {s - s2, s1 - s2};
     }
 };

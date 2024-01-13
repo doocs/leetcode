@@ -1,14 +1,14 @@
 function subsetXORSum(nums: number[]): number {
     let ans = 0;
     const n = nums.length;
-    const dfs = (i: number, s: number) => {
-        if (i >= n) {
-            ans += s;
-            return;
+    for (let i = 0; i < 1 << n; ++i) {
+        let s = 0;
+        for (let j = 0; j < n; ++j) {
+            if ((i >> j) & 1) {
+                s ^= nums[j];
+            }
         }
-        dfs(i + 1, s);
-        dfs(i + 1, s ^ nums[i]);
-    };
-    dfs(0, 0);
+        ans += s;
+    }
     return ans;
 }

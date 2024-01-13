@@ -10,15 +10,23 @@
  */
 class Solution {
     public ListNode removeNodes(ListNode head) {
-        ListNode dummy = new ListNode(1 << 30, head);
-        Deque<ListNode> stk = new ArrayDeque<>();
-        stk.offerLast(dummy);
-        for (ListNode cur = head; cur != null; cur = cur.next) {
-            while (stk.peekLast().val < cur.val) {
+        List<Integer> nums = new ArrayList<>();
+        while (head != null) {
+            nums.add(head.val);
+            head = head.next;
+        }
+        Deque<Integer> stk = new ArrayDeque<>();
+        for (int v : nums) {
+            while (!stk.isEmpty() && stk.peekLast() < v) {
                 stk.pollLast();
             }
-            stk.peekLast().next = cur;
-            stk.offerLast(cur);
+            stk.offerLast(v);
+        }
+        ListNode dummy = new ListNode();
+        head = dummy;
+        while (!stk.isEmpty()) {
+            head.next = new ListNode(stk.pollFirst());
+            head = head.next;
         }
         return dummy.next;
     }

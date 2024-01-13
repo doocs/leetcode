@@ -1,37 +1,38 @@
 class CombinationIterator {
-    private int curr;
-    private int size;
-    private char[] cs;
+    private int n;
+    private int combinationLength;
+    private String characters;
+    private StringBuilder t = new StringBuilder();
+    private List<String> cs = new ArrayList<>();
+    private int idx = 0;
 
     public CombinationIterator(String characters, int combinationLength) {
-        int n = characters.length();
-        curr = (1 << n) - 1;
-        size = combinationLength;
-        cs = new char[n];
-        for (int i = 0; i < n; ++i) {
-            cs[i] = characters.charAt(n - i - 1);
-        }
+        n = characters.length();
+        this.combinationLength = combinationLength;
+        this.characters = characters;
+        dfs(0);
     }
 
     public String next() {
-        while (curr >= 0 && Integer.bitCount(curr) != size) {
-            --curr;
-        }
-        StringBuilder ans = new StringBuilder();
-        for (int i = 0; i < cs.length; ++i) {
-            if (((curr >> i) & 1) == 1) {
-                ans.append(cs[i]);
-            }
-        }
-        --curr;
-        return ans.reverse().toString();
+        return cs.get(idx++);
     }
 
     public boolean hasNext() {
-        while (curr >= 0 && Integer.bitCount(curr) != size) {
-            --curr;
+        return idx < cs.size();
+    }
+
+    private void dfs(int i) {
+        if (t.length() == combinationLength) {
+            cs.add(t.toString());
+            return;
         }
-        return curr >= 0;
+        if (i == n) {
+            return;
+        }
+        t.append(characters.charAt(i));
+        dfs(i + 1);
+        t.deleteCharAt(t.length() - 1);
+        dfs(i + 1);
     }
 }
 

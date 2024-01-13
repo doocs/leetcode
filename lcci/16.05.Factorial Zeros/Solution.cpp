@@ -1,4 +1,4 @@
-﻿class Solution {
+class Solution {
 public:
     int trailingZeroes(int n) {
         int ans = 0;

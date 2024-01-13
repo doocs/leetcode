@@ -11,30 +11,18 @@
  */
 class Solution {
 public:
+    int s = 0;
+
     TreeNode* convertBST(TreeNode* root) {
-        int s = 0;
-        TreeNode* node = root;
-        while (root) {
-            if (root->right == nullptr) {
-                s += root->val;
-                root->val = s;
-                root = root->left;
-            } else {
-                TreeNode* next = root->right;
-                while (next->left && next->left != root) {
-                    next = next->left;
-                }
-                if (next->left == nullptr) {
-                    next->left = root;
-                    root = root->right;
-                } else {
-                    s += root->val;
-                    root->val = s;
-                    next->left = nullptr;
-                    root = root->left;
-                }
-            }
-        }
-        return node;
+        dfs(root);
+        return root;
+    }
+
+    void dfs(TreeNode* root) {
+        if (!root) return;
+        dfs(root->right);
+        s += root->val;
+        root->val = s;
+        dfs(root->left);
     }
 };

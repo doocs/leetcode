@@ -3,37 +3,18 @@ func findAnagrams(s string, p string) (ans []int) {
 	if m < n {
 		return
 	}
-	cnt := [26]int{}
-	for i := 0; i < n; i++ {
-		cnt[s[i]-'a']++
-		cnt[p[i]-'a']--
+	var cnt1, cnt2 [26]int
+	for i, ch := range p {
+		cnt1[s[i]-'a']++
+		cnt2[ch-'a']++
 	}
-	diff := 0
-	for _, x := range cnt {
-		if x != 0 {
-			diff++
-		}
-	}
-	if diff == 0 {
+	if cnt1 == cnt2 {
 		ans = append(ans, 0)
 	}
 	for i := n; i < m; i++ {
-		a, b := s[i-n]-'a', s[i]-'a'
-		if cnt[a] == 0 {
-			diff++
-		}
-		cnt[a]--
-		if cnt[a] == 0 {
-			diff--
-		}
-		if cnt[b] == 0 {
-			diff++
-		}
-		cnt[b]++
-		if cnt[b] == 0 {
-			diff--
-		}
-		if diff == 0 {
+		cnt1[s[i]-'a']++
+		cnt1[s[i-n]-'a']--
+		if cnt1 == cnt2 {
 			ans = append(ans, i-n+1)
 		}
 	}

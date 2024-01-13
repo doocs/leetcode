@@ -8,16 +8,10 @@
  */
 
 func findSolution(customFunction func(int, int) int, z int) (ans [][]int) {
-	x, y := 1, 1000
-	for x <= 1000 && y > 0 {
-		t := customFunction(x, y)
-		if t < z {
-			x++
-		} else if t > z {
-			y--
-		} else {
+	for x := 1; x <= 1000; x++ {
+		y := 1 + sort.Search(999, func(y int) bool { return customFunction(x, y+1) >= z })
+		if customFunction(x, y) == z {
 			ans = append(ans, []int{x, y})
-			x, y = x+1, y-1
 		}
 	}
 	return

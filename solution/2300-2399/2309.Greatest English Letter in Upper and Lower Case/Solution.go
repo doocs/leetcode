@@ -1,15 +1,12 @@
 func greatestLetter(s string) string {
-	mask1, mask2 := 0, 0
+	ss := map[rune]bool{}
 	for _, c := range s {
-		if unicode.IsLower(c) {
-			mask1 |= 1 << (c - 'a')
-		} else {
-			mask2 |= 1 << (c - 'A')
+		ss[c] = true
+	}
+	for c := 'Z'; c >= 'A'; c-- {
+		if ss[c] && ss[rune(c+32)] {
+			return string(c)
 		}
 	}
-	mask := mask1 & mask2
-	if mask == 0 {
-		return ""
-	}
-	return string(byte(bits.Len(uint(mask))-1) + 'A')
+	return ""
 }

@@ -1,23 +1,31 @@
 function canChange(start: string, target: string): boolean {
-    const n = start.length;
-    let [i, j] = [0, 0];
-    while (1) {
-        while (i < n && start[i] === '_') {
-            ++i;
-        }
-        while (j < n && target[j] === '_') {
-            ++j;
-        }
-        if (i === n && j === n) {
-            return true;
-        }
-        if (i === n || j === n || start[i] !== target[j]) {
-            return false;
-        }
-        if ((start[i] === 'L' && i < j) || (start[i] === 'R' && i > j)) {
-            return false;
-        }
-        ++i;
-        ++j;
+    if (
+        [...start].filter(c => c !== '_').join('') !== [...target].filter(c => c !== '_').join('')
+    ) {
+        return false;
     }
+    const n = start.length;
+    let i = 0;
+    let j = 0;
+    while (i < n || j < n) {
+        while (start[i] === '_') {
+            i++;
+        }
+        while (target[j] === '_') {
+            j++;
+        }
+        if (start[i] === 'R') {
+            if (i > j) {
+                return false;
+            }
+        }
+        if (start[i] === 'L') {
+            if (i < j) {
+                return false;
+            }
+        }
+        i++;
+        j++;
+    }
+    return true;
 }

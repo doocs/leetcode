@@ -1,22 +1,22 @@
 function stringCount(n: number): number {
-    const mod = BigInt(10 ** 9 + 7);
-    const qpow = (a: bigint, n: number): bigint => {
-        let ans = 1n;
-        for (; n; n >>>= 1) {
-            if (n & 1) {
-                ans = (ans * a) % mod;
-            }
-            a = (a * a) % mod;
+    const mod = 10 ** 9 + 7;
+    const f: number[][][][] = Array.from({ length: n + 1 }, () =>
+        Array.from({ length: 2 }, () =>
+            Array.from({ length: 3 }, () => Array.from({ length: 2 }, () => -1)),
+        ),
+    );
+    const dfs = (i: number, l: number, e: number, t: number): number => {
+        if (i === 0) {
+            return l === 1 && e === 2 && t === 1 ? 1 : 0;
         }
-        return ans;
+        if (f[i][l][e][t] !== -1) {
+            return f[i][l][e][t];
+        }
+        const a = (dfs(i - 1, l, e, t) * 23) % mod;
+        const b = dfs(i - 1, Math.min(1, l + 1), e, t);
+        const c = dfs(i - 1, l, Math.min(2, e + 1), t);
+        const d = dfs(i - 1, l, e, Math.min(1, t + 1));
+        return (f[i][l][e][t] = (a + b + c + d) % mod);
     };
-    const a = qpow(25n, n);
-    const b = a;
-    const c = (qpow(25n, n) + ((BigInt(n) * qpow(25n, n - 1)) % mod)) % mod;
-    const ab = qpow(24n, n);
-    const ac = (qpow(24n, n) + ((BigInt(n) * qpow(24n, n - 1)) % mod)) % mod;
-    const bc = ac;
-    const abc = (qpow(23n, n) + ((BigInt(n) * qpow(23n, n - 1)) % mod)) % mod;
-    const tot = qpow(26n, n);
-    return Number((((tot - (a + b + c - ab - ac - bc + abc)) % mod) + mod) % mod);
+    return dfs(n, 0, 0, 0);
 }

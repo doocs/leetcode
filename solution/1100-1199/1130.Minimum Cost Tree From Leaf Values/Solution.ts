@@ -6,11 +6,20 @@ function mctFromLeafValues(arr: number[]): number {
         g[i][i] = arr[i];
         for (let j = i + 1; j < n; ++j) {
             g[i][j] = Math.max(g[i][j - 1], arr[j]);
-            f[i][j] = 1 << 30;
-            for (let k = i; k < j; ++k) {
-                f[i][j] = Math.min(f[i][j], f[i][k] + f[k + 1][j] + g[i][k] * g[k + 1][j]);
-            }
         }
     }
-    return f[0][n - 1];
+    const dfs = (i: number, j: number): number => {
+        if (i === j) {
+            return 0;
+        }
+        if (f[i][j] > 0) {
+            return f[i][j];
+        }
+        let ans = 1 << 30;
+        for (let k = i; k < j; ++k) {
+            ans = Math.min(ans, dfs(i, k) + dfs(k + 1, j) + g[i][k] * g[k + 1][j]);
+        }
+        return (f[i][j] = ans);
+    };
+    return dfs(0, n - 1);
 }

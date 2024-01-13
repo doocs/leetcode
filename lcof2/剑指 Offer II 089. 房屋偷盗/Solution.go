@@ -1,7 +1,9 @@
 func rob(nums []int) int {
-	f, g := 0, 0
-	for _, x := range nums {
-		f, g = max(f, g), f+x
+	n := len(nums)
+	f := make([]int, n+1)
+	f[1] = nums[0]
+	for i := 2; i <= n; i++ {
+		f[i] = max(f[i-1], f[i-2]+nums[i-1])
 	}
-	return max(f, g)
+	return f[n]
 }

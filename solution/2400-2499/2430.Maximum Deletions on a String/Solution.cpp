@@ -12,14 +12,22 @@ public:
             }
         }
         int f[n];
-        for (int i = n - 1; ~i; --i) {
+        memset(f, 0, sizeof(f));
+        function<int(int)> dfs = [&](int i) -> int {
+            if (i == n) {
+                return 0;
+            }
+            if (f[i]) {
+                return f[i];
+            }
             f[i] = 1;
             for (int j = 1; j <= (n - i) / 2; ++j) {
                 if (g[i][i + j] >= j) {
-                    f[i] = max(f[i], f[i + j] + 1);
+                    f[i] = max(f[i], 1 + dfs(i + j));
                 }
             }
-        }
-        return f[0];
+            return f[i];
+        };
+        return dfs(0);
     }
 };

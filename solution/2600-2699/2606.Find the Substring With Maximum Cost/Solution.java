@@ -8,12 +8,13 @@ class Solution {
         for (int i = 0; i < m; ++i) {
             d[chars.charAt(i) - 'a'] = vals[i];
         }
-        int ans = 0, f = 0;
+        int ans = 0, tot = 0, mi = 0;
         int n = s.length();
         for (int i = 0; i < n; ++i) {
             int v = d[s.charAt(i) - 'a'];
-            f = Math.max(f, 0) + v;
-            ans = Math.max(ans, f);
+            tot += v;
+            ans = Math.max(ans, tot - mi);
+            mi = Math.min(mi, tot);
         }
         return ans;
     }

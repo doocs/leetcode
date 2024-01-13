@@ -1,18 +1,15 @@
 func vowelStrings(words []string, queries [][]int) []int {
 	vowels := map[byte]bool{'a': true, 'e': true, 'i': true, 'o': true, 'u': true}
-	n := len(words)
-	s := make([]int, n+1)
+	nums := []int{}
 	for i, w := range words {
-		x := 0
 		if vowels[w[0]] && vowels[w[len(w)-1]] {
-			x = 1
+			nums = append(nums, i)
 		}
-		s[i+1] = s[i] + x
 	}
 	ans := make([]int, len(queries))
 	for i, q := range queries {
 		l, r := q[0], q[1]
-		ans[i] = s[r+1] - s[l]
+		ans[i] = sort.SearchInts(nums, r+1) - sort.SearchInts(nums, l)
 	}
 	return ans
 }

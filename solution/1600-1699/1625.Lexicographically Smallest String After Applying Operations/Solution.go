@@ -1,28 +1,23 @@
 func findLexSmallestString(s string, a int, b int) string {
-	n := len(s)
+	q := []string{s}
+	vis := map[string]bool{s: true}
 	ans := s
-	for _ = range s {
-		s = s[n-b:] + s[:n-b]
-		cs := []byte(s)
-		for j := 0; j < 10; j++ {
-			for k := 1; k < n; k += 2 {
-				cs[k] = byte((int(cs[k]-'0')+a)%10 + '0')
-			}
-			if b&1 == 1 {
-				for p := 0; p < 10; p++ {
-					for k := 0; k < n; k += 2 {
-						cs[k] = byte((int(cs[k]-'0')+a)%10 + '0')
-					}
-					s = string(cs)
-					if ans > s {
-						ans = s
-					}
-				}
-			} else {
-				s = string(cs)
-				if ans > s {
-					ans = s
-				}
+	n := len(s)
+	for len(q) > 0 {
+		s = q[0]
+		q = q[1:]
+		if ans > s {
+			ans = s
+		}
+		t1 := []byte(s)
+		for i := 1; i < n; i += 2 {
+			t1[i] = byte((int(t1[i]-'0')+a)%10 + '0')
+		}
+		t2 := s[n-b:] + s[:n-b]
+		for _, t := range []string{string(t1), t2} {
+			if !vis[t] {
+				vis[t] = true
+				q = append(q, t)
 			}
 		}
 	}

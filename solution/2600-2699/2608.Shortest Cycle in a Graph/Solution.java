@@ -11,32 +11,29 @@ class Solution {
             g[v].add(u);
         }
         int ans = inf;
-        for (int i = 0; i < n; ++i) {
-            ans = Math.min(ans, bfs(i));
+        for (var e : edges) {
+            int u = e[0], v = e[1];
+            ans = Math.min(ans, bfs(u, v));
         }
         return ans < inf ? ans : -1;
     }
 
-    private int bfs(int u) {
+    private int bfs(int u, int v) {
         int[] dist = new int[g.length];
-        Arrays.fill(dist, -1);
+        Arrays.fill(dist, inf);
         dist[u] = 0;
-        Deque<int[]> q = new ArrayDeque<>();
-        q.offer(new int[] {u, -1});
-        int ans = inf;
+        Deque<Integer> q = new ArrayDeque<>();
+        q.offer(u);
         while (!q.isEmpty()) {
-            var p = q.poll();
-            u = p[0];
-            int fa = p[1];
-            for (int v : g[u]) {
-                if (dist[v] < 0) {
-                    dist[v] = dist[u] + 1;
-                    q.offer(new int[] {v, u});
-                } else if (v != fa) {
-                    ans = Math.min(ans, dist[u] + dist[v] + 1);
+            int i = q.poll();
+            for (int j : g[i]) {
+                if ((i == u && j == v) || (i == v && j == u) || dist[j] != inf) {
+                    continue;
                 }
+                dist[j] = dist[i] + 1;
+                q.offer(j);
             }
         }
-        return ans;
+        return dist[v] + 1;
     }
 }

@@ -8,5 +8,6 @@ var reverseBits = function (n) {
         res |= (n & 1) << (31 - i);
         n >>>= 1;
     }
+    // 无符号右移
     return res >>> 0;
 };

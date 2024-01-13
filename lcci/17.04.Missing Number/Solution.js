@@ -3,9 +3,12 @@
  * @return {number}
  */
 var missingNumber = function (nums) {
-    let ans = 0;
-    for (let i = 1; i <= nums.length; ++i) {
-        ans ^= i ^ nums[i - 1];
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    for (let i = 0; i < n; ++i) {
+        if (i != nums[i]) {
+            return i;
+        }
     }
-    return ans;
+    return n;
 };

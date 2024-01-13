@@ -2,15 +2,17 @@ class Solution {
 public:
     int minSubArrayLen(int target, vector<int>& nums) {
         int n = nums.size();
-        long long s = 0;
+        vector<long long> s(n + 1);
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + nums[i];
+        }
         int ans = n + 1;
-        for (int i = 0, j = 0; i < n; ++i) {
-            s += nums[i];
-            while (j < n && s >= target) {
-                ans = min(ans, i - j + 1);
-                s -= nums[j++];
+        for (int i = 0; i <= n; ++i) {
+            int j = lower_bound(s.begin(), s.end(), s[i] + target) - s.begin();
+            if (j <= n) {
+                ans = min(ans, j - i);
             }
         }
-        return ans == n + 1 ? 0 : ans;
+        return ans <= n ? ans : 0;
     }
 };

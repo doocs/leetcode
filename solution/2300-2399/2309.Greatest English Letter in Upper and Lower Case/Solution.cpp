@@ -1,15 +1,12 @@
 class Solution {
 public:
     string greatestLetter(string s) {
-        int mask1 = 0, mask2 = 0;
-        for (char& c : s) {
-            if (islower(c)) {
-                mask1 |= 1 << (c - 'a');
-            } else {
-                mask2 |= 1 << (c - 'A');
+        unordered_set<char> ss(s.begin(), s.end());
+        for (char c = 'Z'; c >= 'A'; --c) {
+            if (ss.count(c) && ss.count(char(c + 32))) {
+                return string(1, c);
             }
         }
-        int mask = mask1 & mask2;
-        return mask ? string(1, 31 - __builtin_clz(mask) + 'A') : "";
+        return "";
     }
 };

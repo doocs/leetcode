@@ -1,10 +1,13 @@
 class Solution {
-    public : vector<bool> kidsWithCandies(vector<int>& candies, int extraCandies) {
-        int mx = *max_element(candies.begin(), candies.end());
-        vector<bool> res;
+    public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
+        int mx = 0;
         for (int candy : candies) {
-            res.push_back(candy + extraCandies >= mx);
+            mx = Math.max(mx, candy);
+        }
+        List<Boolean> res = new ArrayList<>();
+        for (int candy : candies) {
+            res.add(candy + extraCandies >= mx);
         }
         return res;
     }
-};
+}

@@ -36,7 +36,7 @@ class MyNode(Node):
             return left // right
 
 
-"""    
+"""
 This is the TreeBuilder class.
 You can treat it as the driver code that takes the postinfix input
 and returns the expression tree represnting it as a Node.

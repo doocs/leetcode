@@ -1,19 +1,34 @@
 func nthUglyNumber(n int) int {
-	dp := make([]int, n)
-	dp[0] = 1
-	p2, p3, p5 := 0, 0, 0
-	for i := 1; i < n; i++ {
-		next2, next3, next5 := dp[p2]*2, dp[p3]*3, dp[p5]*5
-		dp[i] = min(next2, min(next3, next5))
-		if dp[i] == next2 {
-			p2++
+	h := IntHeap([]int{1})
+	heap.Init(&h)
+	ans := 1
+	vis := map[int]bool{1: true}
+	for n > 0 {
+		ans = heap.Pop(&h).(int)
+		for _, v := range []int{2, 3, 5} {
+			nxt := ans * v
+			if !vis[nxt] {
+				vis[nxt] = true
+				heap.Push(&h, nxt)
+			}
 		}
-		if dp[i] == next3 {
-			p3++
-		}
-		if dp[i] == next5 {
-			p5++
-		}
+		n--
 	}
-	return dp[n-1]
+	return ans
+}
+
+type IntHeap []int
+
+func (h IntHeap) Len() int           { return len(h) }
+func (h IntHeap) Less(i, j int) bool { return h[i] < h[j] }
+func (h IntHeap) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
+func (h *IntHeap) Push(x any) {
+	*h = append(*h, x.(int))
+}
+func (h *IntHeap) Pop() any {
+	old := *h
+	n := len(old)
+	x := old[n-1]
+	*h = old[0 : n-1]
+	return x
 }

@@ -1,4 +1,5 @@
 class Solution {
+
     public int consecutiveNumbersSum(int n) {
         n <<= 1;
         int ans = 0;

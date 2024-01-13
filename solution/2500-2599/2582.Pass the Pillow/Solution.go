@@ -1,7 +1,10 @@
 func passThePillow(n int, time int) int {
-	k, mod := time/(n-1), time%(n-1)
-	if k&1 == 1 {
-		return n - mod
+	ans, k := 1, 1
+	for ; time > 0; time-- {
+		ans += k
+		if ans == 1 || ans == n {
+			k *= -1
+		}
 	}
-	return mod + 1
+	return ans
 }

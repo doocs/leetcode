@@ -4,18 +4,22 @@ function isInterleave(s1: string, s2: string, s3: string): boolean {
     if (m + n !== s3.length) {
         return false;
     }
-    const f: boolean[] = new Array(n + 1).fill(false);
-    f[0] = true;
-    for (let i = 0; i <= m; ++i) {
-        for (let j = 0; j <= n; ++j) {
-            const k = i + j - 1;
-            if (i) {
-                f[j] = f[j] && s1[i - 1] === s3[k];
-            }
-            if (j) {
-                f[j] = f[j] || (f[j - 1] && s2[j - 1] === s3[k]);
-            }
+    const f: number[][] = new Array(m + 1).fill(0).map(() => new Array(n + 1).fill(0));
+    const dfs = (i: number, j: number): boolean => {
+        if (i >= m && j >= n) {
+            return true;
         }
-    }
-    return f[n];
+        if (f[i][j]) {
+            return f[i][j] === 1;
+        }
+        f[i][j] = -1;
+        if (i < m && s1[i] === s3[i + j] && dfs(i + 1, j)) {
+            f[i][j] = 1;
+        }
+        if (f[i][j] === -1 && j < n && s2[j] === s3[i + j] && dfs(i, j + 1)) {
+            f[i][j] = 1;
+        }
+        return f[i][j] === 1;
+    };
+    return dfs(0, 0);
 }

@@ -1,11 +1,12 @@
 func maxProduct(nums []int) int {
-	a, b := 0, 0
-	for _, v := range nums {
-		if v > a {
-			b, a = a, v
-		} else if v > b {
-			b = v
+	ans := 0
+	for i, a := range nums {
+		for _, b := range nums[i+1:] {
+			t := (a - 1) * (b - 1)
+			if ans < t {
+				ans = t
+			}
 		}
 	}
-	return (a - 1) * (b - 1)
+	return ans
 }

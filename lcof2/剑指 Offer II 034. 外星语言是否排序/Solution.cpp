@@ -1,4 +1,4 @@
-﻿class Solution {
+class Solution {
 public:
     bool isAlienSorted(vector<string>& words, string order) {
         vector<int> index(26);

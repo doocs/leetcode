@@ -1,8 +1,8 @@
 func pivotInteger(n int) int {
-	y := n * (n + 1) / 2
-	x := int(math.Sqrt(float64(y)))
-	if x*x == y {
-		return x
+	for x := 1; x <= n; x++ {
+		if (1+x)*x == (x+n)*(n-x+1) {
+			return x
+		}
 	}
 	return -1
 }

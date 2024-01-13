@@ -51,7 +51,7 @@ public:
             ++cnt;
             for (int k = 0; k < 4; ++k) {
                 int x = i + dirs[k], y = j + dirs[k + 1];
-                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] && uf.union(i * n + j, x * n + y)) {
+                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] && uf.unite(i * n + j, x * n + y)) {
                     --cnt;
                 }
             }

@@ -3,24 +3,21 @@ public:
     int stringCount(int n) {
         const int mod = 1e9 + 7;
         using ll = long long;
-        auto qpow = [&](ll a, int n) {
-            ll ans = 1;
-            for (; n; n >>= 1) {
-                if (n & 1) {
-                    ans = ans * a % mod;
-                }
-                a = a * a % mod;
+        ll f[n + 1][2][3][2];
+        memset(f, -1, sizeof(f));
+        function<ll(int, int, int, int)> dfs = [&](int i, int l, int e, int t) -> ll {
+            if (i == 0) {
+                return l == 1 && e == 2 && t == 1 ? 1 : 0;
             }
-            return ans;
+            if (f[i][l][e][t] != -1) {
+                return f[i][l][e][t];
+            }
+            ll a = dfs(i - 1, l, e, t) * 23 % mod;
+            ll b = dfs(i - 1, min(1, l + 1), e, t) % mod;
+            ll c = dfs(i - 1, l, min(2, e + 1), t) % mod;
+            ll d = dfs(i - 1, l, e, min(1, t + 1)) % mod;
+            return f[i][l][e][t] = (a + b + c + d) % mod;
         };
-        ll a = qpow(25, n);
-        ll b = a;
-        ll c = (qpow(25, n) + n * qpow(25, n - 1) % mod) % mod;
-        ll ab = qpow(24, n);
-        ll ac = (qpow(24, n) + n * qpow(24, n - 1) % mod) % mod;
-        ll bc = ac;
-        ll abc = (qpow(23, n) + n * qpow(23, n - 1) % mod) % mod;
-        ll tot = qpow(26, n);
-        return ((tot - (a + b + c - ab - ac - bc + abc)) % mod + mod) % mod;
+        return dfs(n, 0, 0, 0);
     }
 };

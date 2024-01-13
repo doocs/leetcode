@@ -1,25 +1,37 @@
 class Solution {
     public int[][] highFive(int[][] items) {
-        List<Integer>[] d = new List[1001];
-        Arrays.setAll(d, k -> new ArrayList<>());
-        for (var item : items) {
-            int i = item[0], x = item[1];
-            d[i].add(x);
-        }
-        for (var xs : d) {
-            xs.sort((a, b) -> b - a);
-        }
-        List<int[]> ans = new ArrayList<>();
-        for (int i = 1; i <= 1000; ++i) {
-            var xs = d[i];
-            if (!xs.isEmpty()) {
-                int s = 0;
-                for (int j = 0; j < 5; ++j) {
-                    s += xs.get(j);
-                }
-                ans.add(new int[] {i, s / 5});
+        int size = 0;
+        PriorityQueue[] s = new PriorityQueue[101];
+        int n = 5;
+        for (int[] item : items) {
+            int i = item[0], score = item[1];
+            if (s[i] == null) {
+                ++size;
+                s[i] = new PriorityQueue<>(n);
+            }
+            s[i].offer(score);
+            if (s[i].size() > n) {
+                s[i].poll();
             }
         }
-        return ans.toArray(new int[0][]);
+        int[][] res = new int[size][2];
+        int j = 0;
+        for (int i = 0; i < 101; ++i) {
+            if (s[i] == null) {
+                continue;
+            }
+            int avg = sum(s[i]) / n;
+            res[j][0] = i;
+            res[j++][1] = avg;
+        }
+        return res;
+    }
+
+    private int sum(PriorityQueue<Integer> q) {
+        int s = 0;
+        while (!q.isEmpty()) {
+            s += q.poll();
+        }
+        return s;
     }
 }

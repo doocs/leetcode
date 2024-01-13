@@ -1,16 +1,8 @@
 class Solution {
 public:
     int buyChoco(vector<int>& prices, int money) {
-        int a = 1000, b = 1000;
-        for (int x : prices) {
-            if (x < a) {
-                b = a;
-                a = x;
-            } else if (x < b) {
-                b = x;
-            }
-        }
-        int cost = a + b;
+        sort(prices.begin(), prices.end());
+        int cost = prices[0] + prices[1];
         return money < cost ? money : money - cost;
     }
 };

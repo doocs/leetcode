@@ -1,11 +1,21 @@
 func stoneGameVIII(stones []int) int {
 	n := len(stones)
+	f := make([]int, n)
+	for i := range f {
+		f[i] = -1
+	}
 	for i := 1; i < n; i++ {
 		stones[i] += stones[i-1]
 	}
-	f := stones[n-1]
-	for i := n - 2; i > 0; i-- {
-		f = max(f, stones[i]-f)
+	var dfs func(int) int
+	dfs = func(i int) int {
+		if i >= n-1 {
+			return stones[i]
+		}
+		if f[i] == -1 {
+			f[i] = max(dfs(i+1), stones[i]-dfs(i+1))
+		}
+		return f[i]
 	}
-	return f
+	return dfs(1)
 }

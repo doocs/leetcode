@@ -2,8 +2,10 @@ class Solution {
 public:
     vector<int> sumZero(int n) {
         vector<int> ans(n);
-        iota(ans.begin(), ans.end(), 1);
-        ans[n - 1] = -(n - 1) * n / 2;
+        for (int i = 1, j = 0; i <= n / 2; ++i) {
+            ans[j++] = i;
+            ans[j++] = -i;
+        }
         return ans;
     }
 };

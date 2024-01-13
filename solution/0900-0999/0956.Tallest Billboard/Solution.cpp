@@ -1,27 +1,21 @@
 class Solution {
 public:
     int tallestBillboard(vector<int>& rods) {
-        int n = rods.size();
         int s = accumulate(rods.begin(), rods.end(), 0);
-        int f[n + 1][s + 1];
-        memset(f, -0x3f, sizeof(f));
-        f[0][0] = 0;
-        for (int i = 1, t = 0; i <= n; ++i) {
-            int x = rods[i - 1];
-            t += x;
-            for (int j = 0; j <= t; ++j) {
-                f[i][j] = f[i - 1][j];
-                if (j >= x) {
-                    f[i][j] = max(f[i][j], f[i - 1][j - x]);
-                }
-                if (j + x <= t) {
-                    f[i][j] = max(f[i][j], f[i - 1][j + x] + x);
-                }
-                if (j < x) {
-                    f[i][j] = max(f[i][j], f[i - 1][x - j] + x - j);
-                }
+        int n = rods.size();
+        int f[n][s + 1];
+        memset(f, -1, sizeof(f));
+        function<int(int, int)> dfs = [&](int i, int j) -> int {
+            if (i >= n) {
+                return j == 0 ? 0 : -(1 << 30);
             }
-        }
-        return f[n][0];
+            if (f[i][j] != -1) {
+                return f[i][j];
+            }
+            int ans = max(dfs(i + 1, j), dfs(i + 1, j + rods[i]));
+            ans = max(ans, dfs(i + 1, abs(j - rods[i])) + min(j, rods[i]));
+            return f[i][j] = ans;
+        };
+        return dfs(0, 0);
     }
 };

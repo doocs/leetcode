@@ -8,8 +8,7 @@ class Solution:
         ans = 0
         for i in range(1, m + 1):
             for j in range(1, n + 1):
-                v = mat[i - 1][j - 1]
-                if v:
+                if mat[i - 1][j - 1]:
                     a[i][j] = a[i - 1][j] + 1
                     b[i][j] = b[i][j - 1] + 1
                     c[i][j] = c[i - 1][j - 1] + 1

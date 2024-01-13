@@ -11,11 +11,8 @@ func findLengthOfShortestSubarray(arr []int) int {
 		return 0
 	}
 	ans := min(n-i-1, j)
-	r := j
 	for l := 0; l <= i; l++ {
-		for r < n && arr[r] < arr[l] {
-			r += 1
-		}
+		r := j + sort.SearchInts(arr[j:], arr[l])
 		ans = min(ans, r-l-1)
 	}
 	return ans

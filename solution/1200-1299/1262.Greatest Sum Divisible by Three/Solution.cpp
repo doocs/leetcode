@@ -1,15 +1,17 @@
 class Solution {
 public:
     int maxSumDivThree(vector<int>& nums) {
+        int n = nums.size();
         const int inf = 1 << 30;
-        vector<int> f = {0, -inf, -inf};
-        for (int& x : nums) {
-            vector<int> g = f;
+        int f[n + 1][3];
+        f[0][0] = 0;
+        f[0][1] = f[0][2] = -inf;
+        for (int i = 1; i <= n; ++i) {
+            int x = nums[i - 1];
             for (int j = 0; j < 3; ++j) {
-                g[j] = max(f[j], f[(j - x % 3 + 3) % 3] + x);
+                f[i][j] = max(f[i - 1][j], f[i - 1][(j - x % 3 + 3) % 3] + x);
             }
-            f = move(g);
         }
-        return f[0];
+        return f[n][0];
     }
 };

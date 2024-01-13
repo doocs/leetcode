@@ -12,7 +12,7 @@ public:
             if (security[i] <= security[i + 1])
                 right[i] = right[i + 1] + 1;
         vector<int> ans;
-        for (int i = tiem; i < n - time; ++i)
+        for (int i = time; i < n - time; ++i)
             if (time <= min(left[i], right[i]))
                 ans.push_back(i);
         return ans;

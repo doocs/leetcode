@@ -1,4 +1,5 @@
 class Solution {
+
     public boolean validMountainArray(int[] arr) {
         int n = arr.length;
         if (n < 3) {

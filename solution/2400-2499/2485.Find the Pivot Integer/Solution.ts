@@ -1,5 +1,8 @@
 function pivotInteger(n: number): number {
-    const y = Math.floor((n * (n + 1)) / 2);
-    const x = Math.floor(Math.sqrt(y));
-    return x * x === y ? x : -1;
+    for (let x = 1; x <= n; ++x) {
+        if ((1 + x) * x === (x + n) * (n - x + 1)) {
+            return x;
+        }
+    }
+    return -1;
 }

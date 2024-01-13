@@ -5,19 +5,12 @@ public:
         for (int& v : numsDivide) {
             x = gcd(x, v);
         }
-        int y = 1 << 30;
-        for (int& v : nums) {
-            if (x % v == 0) {
-                y = min(y, v);
+        sort(nums.begin(), nums.end());
+        for (int i = 0; i < nums.size(); ++i) {
+            if (x % nums[i] == 0) {
+                return i;
             }
         }
-        if (y == 1 << 30) {
-            return -1;
-        }
-        int ans = 0;
-        for (int& v : nums) {
-            ans += v < y;
-        }
-        return ans;
+        return -1;
     }
 };

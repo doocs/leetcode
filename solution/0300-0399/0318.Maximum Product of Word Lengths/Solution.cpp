@@ -1,4 +1,4 @@
-﻿class Solution {
+class Solution {
 public:
     int maxProduct(vector<string>& words) {
         int n = words.size();

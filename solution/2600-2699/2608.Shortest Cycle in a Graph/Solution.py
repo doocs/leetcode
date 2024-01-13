@@ -1,23 +1,20 @@
 class Solution:
     def findShortestCycle(self, n: int, edges: List[List[int]]) -> int:
-        def bfs(u: int) -> int:
-            dist = [-1] * n
+        def bfs(u: int, v: int) -> int:
+            dist = [inf] * n
             dist[u] = 0
-            q = deque([(u, -1)])
-            ans = inf
+            q = deque([u])
             while q:
-                u, fa = q.popleft()
-                for v in g[u]:
-                    if dist[v] < 0:
-                        dist[v] = dist[u] + 1
-                        q.append((v, u))
-                    elif v != fa:
-                        ans = min(ans, dist[u] + dist[v] + 1)
-            return ans
+                i = q.popleft()
+                for j in g[i]:
+                    if (i, j) != (u, v) and (j, i) != (u, v) and dist[j] == inf:
+                        dist[j] = dist[i] + 1
+                        q.append(j)
+            return dist[v] + 1
 
-        g = defaultdict(list)
+        g = defaultdict(set)
         for u, v in edges:
-            g[u].append(v)
-            g[v].append(u)
-        ans = min(bfs(i) for i in range(n))
+            g[u].add(v)
+            g[v].add(u)
+        ans = min(bfs(u, v) for u, v in edges)
         return ans if ans < inf else -1

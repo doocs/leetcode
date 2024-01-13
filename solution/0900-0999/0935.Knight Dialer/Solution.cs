@@ -16,7 +16,7 @@ public class Solution {
             C = (tempA + (2 * tempD) % MOD) % MOD;
             D = tempC;
         }
-        
+
         int ans = (A + B) % MOD;
         ans = (ans + C) % MOD;
         return (ans + D) % MOD;

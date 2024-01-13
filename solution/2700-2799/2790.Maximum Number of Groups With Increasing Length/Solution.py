@@ -1,10 +1,11 @@
 class Solution:
     def maxIncreasingGroups(self, usageLimits: List[int]) -> int:
         usageLimits.sort()
-        k = s = 0
-        for x in usageLimits:
-            s += x
-            if s > k:
+        k, n = 0, len(usageLimits)
+        for i in range(n):
+            if usageLimits[i] > k:
                 k += 1
-                s -= k
+                usageLimits[i] -= k
+            if i + 1 < n:
+                usageLimits[i + 1] += usageLimits[i]
         return k

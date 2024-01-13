@@ -1,9 +1,18 @@
 func getMaxGridHappiness(m int, n int, introvertsCount int, extrovertsCount int) int {
-	p := int(math.Pow(3, float64(n-1)))
+	mx := int(math.Pow(3, float64(n)))
+	f := make([]int, mx)
+	g := make([][]int, mx)
 	h := [3][3]int{{0, 0, 0}, {0, -60, -10}, {0, -10, 40}}
-	memo := make([][][][]int, m*n)
+	bits := make([][]int, mx)
+	ix := make([]int, mx)
+	ex := make([]int, mx)
+	memo := make([][][][]int, m)
+	for i := range g {
+		g[i] = make([]int, mx)
+		bits[i] = make([]int, n)
+	}
 	for i := range memo {
-		memo[i] = make([][][]int, p*3)
+		memo[i] = make([][][]int, mx)
 		for j := range memo[i] {
 			memo[i][j] = make([][]int, introvertsCount+1)
 			for k := range memo[i][j] {
@@ -14,39 +23,46 @@ func getMaxGridHappiness(m int, n int, introvertsCount int, extrovertsCount int)
 			}
 		}
 	}
+	for i := 0; i < mx; i++ {
+		mask := i
+		for j := 0; j < n; j++ {
+			x := mask % 3
+			mask /= 3
+			bits[i][j] = x
+			if x == 1 {
+				ix[i]++
+				f[i] += 120
+			} else if x == 2 {
+				ex[i]++
+				f[i] += 40
+			}
+			if j > 0 {
+				f[i] += h[x][bits[i][j-1]]
+			}
+		}
+	}
+	for i := 0; i < mx; i++ {
+		for j := 0; j < mx; j++ {
+			for k := 0; k < n; k++ {
+				g[i][j] += h[bits[i][k]][bits[j][k]]
+			}
+		}
+	}
 	var dfs func(int, int, int, int) int
-	dfs = func(pos, pre, ic, ec int) int {
-		if pos == m*n || (ic == 0 && ec == 0) {
+	dfs = func(i, pre, ic, ec int) int {
+		if i == m || (ic == 0 && ec == 0) {
 			return 0
 		}
-		if memo[pos][pre][ic][ec] != -1 {
-			return memo[pos][pre][ic][ec]
+		if memo[i][pre][ic][ec] != -1 {
+			return memo[i][pre][ic][ec]
 		}
 		ans := 0
-		up := pre / p
-		left := pre % 3
-		if pos%n == 0 {
-			left = 0
-		}
-		for i := 0; i < 3; i++ {
-			if (i == 1 && ic == 0) || (i == 2 && ec == 0) {
-				continue
+		for cur := 0; cur < mx; cur++ {
+			if ix[cur] <= ic && ex[cur] <= ec {
+				ans = max(ans, f[cur]+g[pre][cur]+dfs(i+1, cur, ic-ix[cur], ec-ex[cur]))
 			}
-			cur := pre%p*3 + i
-			nic, nec := ic, ec
-			c := 0
-			if i == 1 {
-				nic--
-				c = 120
-			} else if i == 2 {
-				nec--
-				c = 40
-			}
-			a := h[up][i] + h[left][i]
-			b := dfs(pos+1, cur, nic, nec)
-			ans = max(ans, a+b+c)
 		}
-		memo[pos][pre][ic][ec] = ans
+		memo[i][pre][ic][ec] = ans
 		return ans
 	}
 	return dfs(0, 0, introvertsCount, extrovertsCount)

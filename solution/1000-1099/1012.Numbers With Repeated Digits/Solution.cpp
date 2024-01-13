@@ -4,41 +4,37 @@ public:
         return n - f(n);
     }
 
-private:
-    int nums[11];
-    int dp[11][1 << 11];
-
     int f(int n) {
-        memset(dp, -1, sizeof(dp));
-        int i = -1;
-        for (; n; n /= 10) {
-            nums[++i] = n % 10;
-        }
-        return dfs(i, 0, true, true);
-    }
-
-    int dfs(int pos, int mask, bool lead, bool limit) {
-        if (pos < 0) {
-            return lead ? 0 : 1;
-        }
-        if (!lead && !limit && dp[pos][mask] != -1) {
-            return dp[pos][mask];
-        }
-        int up = limit ? nums[pos] : 9;
         int ans = 0;
-        for (int i = 0; i <= up; ++i) {
-            if (mask >> i & 1) {
-                continue;
-            }
-            if (i == 0 && lead) {
-                ans += dfs(pos - 1, mask, lead, limit && i == up);
-            } else {
-                ans += dfs(pos - 1, mask | 1 << i, false, limit && i == up);
-            }
+        vector<int> digits;
+        while (n) {
+            digits.push_back(n % 10);
+            n /= 10;
         }
-        if (!lead && !limit) {
-            dp[pos][mask] = ans;
+        int m = digits.size();
+        vector<bool> vis(10);
+        for (int i = 1; i < m; ++i) {
+            ans += 9 * A(9, i - 1);
+        }
+        for (int i = m - 1; ~i; --i) {
+            int v = digits[i];
+            for (int j = i == m - 1 ? 1 : 0; j < v; ++j) {
+                if (!vis[j]) {
+                    ans += A(10 - (m - i), i);
+                }
+            }
+            if (vis[v]) {
+                break;
+            }
+            vis[v] = true;
+            if (i == 0) {
+                ++ans;
+            }
         }
         return ans;
+    }
+
+    int A(int m, int n) {
+        return n == 0 ? 1 : A(m, n - 1) * (m - n + 1);
     }
 };

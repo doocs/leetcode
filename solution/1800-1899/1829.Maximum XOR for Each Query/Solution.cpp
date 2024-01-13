@@ -5,12 +5,16 @@ public:
         for (int& x : nums) {
             xs ^= x;
         }
-        int mask = (1 << maximumBit) - 1;
         int n = nums.size();
         vector<int> ans(n);
         for (int i = 0; i < n; ++i) {
             int x = nums[n - i - 1];
-            int k = xs ^ mask;
+            int k = 0;
+            for (int j = maximumBit - 1; ~j; --j) {
+                if ((xs >> j & 1) == 0) {
+                    k |= 1 << j;
+                }
+            }
             ans[i] = k;
             xs ^= x;
         }

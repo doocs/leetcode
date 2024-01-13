@@ -5,12 +5,15 @@ impl Solution {
         if n != m {
             return false;
         }
-        let (s, t) = (s.as_bytes(), t.as_bytes());
-        let mut count = [0; 26];
+        let mut s = s.chars().collect::<Vec<char>>();
+        let mut t = t.chars().collect::<Vec<char>>();
+        s.sort();
+        t.sort();
         for i in 0..n {
-            count[(s[i] - b'a') as usize] += 1;
-            count[(t[i] - b'a') as usize] -= 1;
+            if s[i] != t[i] {
+                return false;
+            }
         }
-        count.iter().all(|&c| c == 0)
+        true
     }
 }

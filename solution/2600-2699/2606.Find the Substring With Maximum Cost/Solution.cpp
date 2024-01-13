@@ -7,11 +7,12 @@ public:
         for (int i = 0; i < m; ++i) {
             d[chars[i] - 'a'] = vals[i];
         }
-        int ans = 0, f = 0;
+        int ans = 0, tot = 0, mi = 0;
         for (char& c : s) {
             int v = d[c - 'a'];
-            f = max(f, 0) + v;
-            ans = max(ans, f);
+            tot += v;
+            ans = max(ans, tot - mi);
+            mi = min(mi, tot);
         }
         return ans;
     }

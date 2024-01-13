@@ -10,6 +10,6 @@ class Solution {
                 res = (res + j - i) % mod;
             }
         }
-        return res % mod;
+        return res;
     }
 }

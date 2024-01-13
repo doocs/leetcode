@@ -28,18 +28,18 @@ public class Codec {
         }
         return str;
     }
-  
+
     public TreeNode rdeserialize(LinkedList<string> dataList) {
         if (dataList.First.Value.Equals("None")) {
             dataList.RemoveFirst();
             return null;
         }
-  
+
         TreeNode root = new TreeNode(int.Parse(dataList.First.Value));
         dataList.RemoveFirst();
         root.left = rdeserialize(dataList);
         root.right = rdeserialize(dataList);
-    
+
         return root;
     }
 }

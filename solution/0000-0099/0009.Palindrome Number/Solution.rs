@@ -1,14 +1,20 @@
 impl Solution {
-    pub fn is_palindrome(mut x: i32) -> bool {
-        if x < 0 || (x % 10 == 0 && x != 0) {
+    pub fn is_palindrome(x: i32) -> bool {
+        if x < 0 {
             return false;
         }
-        let mut y = 0;
-        while x > y {
-            y *= 10;
-            y += x % 10;
-            x /= 10;
+        let s = x.to_string();
+        let bs = s.as_bytes();
+        let n = bs.len();
+        let mut l = 0;
+        let mut r = n - 1;
+        while l < r {
+            if bs[l] != bs[r] {
+                return false;
+            }
+            l += 1;
+            r -= 1;
         }
-        x == y || x == y / 10
+        true
     }
 }

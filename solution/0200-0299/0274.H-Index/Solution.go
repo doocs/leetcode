@@ -1,13 +1,10 @@
 func hIndex(citations []int) int {
+	sort.Ints(citations)
 	n := len(citations)
-	cnt := make([]int, n+1)
-	for _, x := range citations {
-		cnt[min(x, n)]++
-	}
-	for h, s := n, 0; ; h-- {
-		s += cnt[h]
-		if s >= h {
+	for h := n; h > 0; h-- {
+		if citations[n-h] >= h {
 			return h
 		}
 	}
+	return 0
 }

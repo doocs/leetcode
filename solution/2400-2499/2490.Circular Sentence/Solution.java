@@ -1,11 +1,9 @@
 class Solution {
-    public boolean isCircularSentence(String s) {
-        int n = s.length();
-        if (s.charAt(0) != s.charAt(n - 1)) {
-            return false;
-        }
-        for (int i = 1; i < n; ++i) {
-            if (s.charAt(i) == ' ' && s.charAt(i - 1) != s.charAt(i + 1)) {
+    public boolean isCircularSentence(String sentence) {
+        var ss = sentence.split(" ");
+        int n = ss.length;
+        for (int i = 0; i < n; ++i) {
+            if (ss[i].charAt(ss[i].length() - 1) != ss[(i + 1) % n].charAt(0)) {
                 return false;
             }
         }

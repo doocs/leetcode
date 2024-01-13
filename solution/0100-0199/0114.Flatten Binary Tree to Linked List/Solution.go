@@ -8,14 +8,14 @@
  */
 func flatten(root *TreeNode) {
 	for root != nil {
-		left, right := root.Left, root.Right
-		root.Left = nil
-		if left != nil {
-			root.Right = left
-			for left.Right != nil {
-				left = left.Right
+		if root.Left != nil {
+			pre := root.Left
+			for pre.Right != nil {
+				pre = pre.Right
 			}
-			left.Right = right
+			pre.Right = root.Right
+			root.Right = root.Left
+			root.Left = nil
 		}
 		root = root.Right
 	}

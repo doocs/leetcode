@@ -1,12 +1,14 @@
 function numDecodings(s: string): number {
     const n = s.length;
-    let [f, g] = [0, 1];
+    const f: number[] = new Array(n + 1).fill(0);
+    f[0] = 1;
     for (let i = 1; i <= n; ++i) {
-        let h = s[i - 1] !== '0' ? g : 0;
-        if (i > 1 && (s[i - 2] === '1' || (s[i - 2] === '2' && s[i - 1] <= '6'))) {
-            h += f;
+        if (s[i - 1] !== '0') {
+            f[i] = f[i - 1];
         }
-        [f, g] = [g, h];
+        if (i > 1 && (s[i - 2] === '1' || (s[i - 2] === '2' && s[i - 1] <= '6'))) {
+            f[i] += f[i - 2];
+        }
     }
-    return g;
+    return f[n];
 }

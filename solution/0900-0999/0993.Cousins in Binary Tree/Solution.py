@@ -6,16 +6,20 @@
 #         self.right = right
 class Solution:
     def isCousins(self, root: Optional[TreeNode], x: int, y: int) -> bool:
-        def dfs(root, fa, d):
-            if root is None:
-                return
-            if root.val == x:
-                t[0] = (fa, d)
-            if root.val == y:
-                t[1] = (fa, d)
-            dfs(root.left, root, d + 1)
-            dfs(root.right, root, d + 1)
-
-        t = [None, None]
-        dfs(root, None, 0)
-        return t[0][0] != t[1][0] and t[0][1] == t[1][1]
+        q = deque([(root, None)])
+        d = 0
+        p1 = p2 = None
+        d1 = d2 = 0
+        while q:
+            for _ in range(len(q)):
+                node, fa = q.popleft()
+                if node.val == x:
+                    p1, d1 = fa, d
+                if node.val == y:
+                    p2, d2 = fa, d
+                if node.left:
+                    q.append((node.left, node))
+                if node.right:
+                    q.append((node.right, node))
+            d += 1
+        return p1 != p2 and d1 == d2

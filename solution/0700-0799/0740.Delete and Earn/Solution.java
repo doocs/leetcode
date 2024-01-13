@@ -1,4 +1,4 @@
-public class Solution {
+class Solution {
     public int deleteAndEarn(int[] nums) {
         if (nums.length == 0) {
             return 0;

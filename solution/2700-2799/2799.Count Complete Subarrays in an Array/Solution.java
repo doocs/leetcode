@@ -1,20 +1,18 @@
 class Solution {
     public int countCompleteSubarrays(int[] nums) {
-        Map<Integer, Integer> d = new HashMap<>();
+        Set<Integer> s = new HashSet<>();
         for (int x : nums) {
-            d.put(x, 1);
+            s.add(x);
         }
-        int cnt = d.size();
+        int cnt = s.size();
         int ans = 0, n = nums.length;
-        d.clear();
-        for (int i = 0, j = 0; j < n; ++j) {
-            d.merge(nums[j], 1, Integer::sum);
-            while (d.size() == cnt) {
-                ans += n - j;
-                if (d.merge(nums[i], -1, Integer::sum) == 0) {
-                    d.remove(nums[i]);
+        for (int i = 0; i < n; ++i) {
+            s.clear();
+            for (int j = i; j < n; ++j) {
+                s.add(nums[j]);
+                if (s.size() == cnt) {
+                    ++ans;
                 }
-                ++i;
             }
         }
         return ans;

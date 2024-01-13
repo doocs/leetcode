@@ -1,8 +1,16 @@
 class Solution {
     public List<Integer> circularPermutation(int n, int start) {
-        List<Integer> ans = new ArrayList<>();
+        int[] g = new int[1 << n];
+        int j = 0;
         for (int i = 0; i < 1 << n; ++i) {
-            ans.add(i ^ (i >> 1) ^ start);
+            g[i] = i ^ (i >> 1);
+            if (g[i] == start) {
+                j = i;
+            }
+        }
+        List<Integer> ans = new ArrayList<>();
+        for (int i = j; i < j + (1 << n); ++i) {
+            ans.add(g[i % (1 << n)]);
         }
         return ans;
     }

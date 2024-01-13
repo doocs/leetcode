@@ -1,10 +1,10 @@
 class Solution:
     def partitionString(self, s: str) -> int:
-        ans, v = 1, 0
+        ss = set()
+        ans = 1
         for c in s:
-            i = ord(c) - ord('a')
-            if (v >> i) & 1:
-                v = 0
+            if c in ss:
                 ans += 1
-            v |= 1 << i
+                ss = set()
+            ss.add(c)
         return ans

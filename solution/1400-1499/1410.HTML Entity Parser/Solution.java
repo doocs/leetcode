@@ -11,7 +11,7 @@ class Solution {
         int i = 0;
         int n = text.length();
         while (i < n) {
-            boolean find = false;
+            boolean found = false;
             for (int l = 1; l < 8; ++l) {
                 int j = i + l;
                 if (j <= n) {
@@ -19,12 +19,12 @@ class Solution {
                     if (d.containsKey(t)) {
                         ans.append(d.get(t));
                         i = j;
-                        find = true;
+                        found = true;
                         break;
                     }
                 }
             }
-            if (!find) {
+            if (!found) {
                 ans.append(text.charAt(i++));
             }
         }

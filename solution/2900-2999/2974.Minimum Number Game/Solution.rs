@@ -1,10 +1,23 @@
+use std::collections::BinaryHeap;
+use std::cmp::Reverse;
+
 impl Solution {
     pub fn number_game(nums: Vec<i32>) -> Vec<i32> {
-        let mut nums = nums;
-        nums.sort_unstable();
-        for i in (0..nums.len()).step_by(2) {
-            nums.swap(i, i + 1);
+        let mut pq = BinaryHeap::new();
+
+        for &x in &nums {
+            pq.push(Reverse(x));
         }
-        nums
+
+        let mut ans = Vec::new();
+
+        while let Some(Reverse(a)) = pq.pop() {
+            if let Some(Reverse(b)) = pq.pop() {
+                ans.push(b);
+                ans.push(a);
+            }
+        }
+
+        ans
     }
 }

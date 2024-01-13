@@ -22,33 +22,28 @@ public class Node {
 */
 
 public class Solution {
-    private Node prev, next;
-
     public Node Connect(Node root) {
-        Node node = root;
-        while (node != null) {
-            prev = null;
-            next = null;
-            while (node != null) {
-                modify(node.left);
-                modify(node.right);
-                node = node.next;
+        if (root == null) {
+            return null;
+        }
+        var q = new Queue<Node>();
+        q.Enqueue(root);
+        while (q.Count > 0) {
+            Node p = null;
+            for (int i = q.Count; i > 0; --i) {
+                var node = q.Dequeue();
+                if (p != null) {
+                    p.next = node;
+                }
+                p = node;
+                if (node.left != null) {
+                    q.Enqueue(node.left);
+                }
+                if (node.right != null) {
+                    q.Enqueue(node.right);
+                }
             }
-            node = next;
         }
         return root;
-    }
-
-    private void modify(Node curr) {
-        if (curr == null) {
-            return;
-        }
-        if (next == null) {
-            next = curr;
-        }
-        if (prev != null) {
-            prev.next = curr;
-        }
-        prev = curr;
     }
 }

@@ -1,7 +1,7 @@
 function checkIfPangram(sentence: string): boolean {
-    let mark = 0;
+    const vis = new Array(26).fill(false);
     for (const c of sentence) {
-        mark |= 1 << (c.charCodeAt(0) - 'a'.charCodeAt(0));
+        vis[c.charCodeAt(0) - 'a'.charCodeAt(0)] = true;
     }
-    return mark === (1 << 26) - 1;
+    return vis.every(v => v);
 }

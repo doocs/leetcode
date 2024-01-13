@@ -1,4 +1,12 @@
 func hasAlternatingBits(n int) bool {
-	n ^= (n >> 1)
-	return (n & (n + 1)) == 0
+	prev := -1
+	for n != 0 {
+		curr := n & 1
+		if prev == curr {
+			return false
+		}
+		prev = curr
+		n >>= 1
+	}
+	return true
 }

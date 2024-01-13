@@ -1,26 +1,19 @@
 class Solution {
 public:
     vector<int> distinctNumbers(vector<int>& nums, int k) {
-        int m = *max_element(begin(nums), end(nums));
-        int cnt[m + 1];
-        memset(cnt, 0, sizeof(cnt));
-        int n = nums.size();
-        int v = 0;
-        vector<int> ans(n - k + 1);
+        unordered_map<int, int> cnt;
         for (int i = 0; i < k; ++i) {
-            if (++cnt[nums[i]] == 1) {
-                ++v;
-            }
+            ++cnt[nums[i]];
         }
-        ans[0] = v;
+        int n = nums.size();
+        vector<int> ans;
+        ans.push_back(cnt.size());
         for (int i = k; i < n; ++i) {
-            if (++cnt[nums[i]] == 1) {
-                ++v;
-            }
+            ++cnt[nums[i]];
             if (--cnt[nums[i - k]] == 0) {
-                --v;
+                cnt.erase(nums[i - k]);
             }
-            ans[i - k + 1] = v;
+            ans.push_back(cnt.size());
         }
         return ans;
     }

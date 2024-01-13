@@ -1,28 +1,35 @@
 type FreqStack struct {
 	cnt map[int]int
-	d   map[int][]int
-	mx  int
+	q   hp
+	ts  int
 }
 
 func Constructor() FreqStack {
-	return FreqStack{map[int]int{}, map[int][]int{}, 0}
+	return FreqStack{map[int]int{}, hp{}, 0}
 }
 
 func (this *FreqStack) Push(val int) {
 	this.cnt[val]++
-	this.d[this.cnt[val]] = append(this.d[this.cnt[val]], val)
-	this.mx = max(this.mx, this.cnt[val])
+	this.ts++
+	heap.Push(&this.q, tuple{this.cnt[val], this.ts, val})
 }
 
 func (this *FreqStack) Pop() int {
-	val := this.d[this.mx][len(this.d[this.mx])-1]
-	this.d[this.mx] = this.d[this.mx][:len(this.d[this.mx])-1]
+	val := heap.Pop(&this.q).(tuple).val
 	this.cnt[val]--
-	if len(this.d[this.mx]) == 0 {
-		this.mx--
-	}
 	return val
 }
+
+type tuple struct{ cnt, ts, val int }
+type hp []tuple
+
+func (h hp) Len() int { return len(h) }
+func (h hp) Less(i, j int) bool {
+	return h[i].cnt > h[j].cnt || h[i].cnt == h[j].cnt && h[i].ts > h[j].ts
+}
+func (h hp) Swap(i, j int) { h[i], h[j] = h[j], h[i] }
+func (h *hp) Push(v any)   { *h = append(*h, v.(tuple)) }
+func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 
 /**
  * Your FreqStack object will be instantiated and called as such:

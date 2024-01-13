@@ -1,13 +1,15 @@
 # Write your MySQL query statement below
-WITH
-    T AS (
-        SELECT
-            business_id,
-            occurences > AVG(occurences) OVER (PARTITION BY event_type) AS mark
-        FROM Events
-    )
 SELECT business_id
-FROM T
-WHERE mark = 1
-GROUP BY 1
+FROM
+    EVENTS AS t1
+    JOIN (
+        SELECT
+            event_type,
+            AVG(occurences) AS occurences
+        FROM EVENTS
+        GROUP BY event_type
+    ) AS t2
+        ON t1.event_type = t2.event_type
+WHERE t1.occurences > t2.occurences
+GROUP BY business_id
 HAVING COUNT(1) > 1;

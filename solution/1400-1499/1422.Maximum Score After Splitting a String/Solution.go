@@ -1,20 +1,16 @@
 func maxScore(s string) int {
-	t := 0
-	if s[0] == '0' {
-		t++
-	}
-	n := len(s)
-	for i := 1; i < n; i++ {
-		if s[i] == '1' {
-			t++
+	ans := 0
+	for i, n := 1, len(s); i < n; i++ {
+		t := 0
+		for j := 0; j < i; j++ {
+			if s[j] == '0' {
+				t++
+			}
 		}
-	}
-	ans := t
-	for i := 1; i < n-1; i++ {
-		if s[i] == '0' {
-			t++
-		} else {
-			t--
+		for j := i; j < n; j++ {
+			if s[j] == '1' {
+				t++
+			}
 		}
 		ans = max(ans, t)
 	}

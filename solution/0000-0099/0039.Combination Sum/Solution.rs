@@ -4,13 +4,14 @@ impl Solution {
             ans.push(t.clone());
             return;
         }
-        if i >= candidates.len() || s < candidates[i] {
+        if s < candidates[i] {
             return;
         }
-        Self::dfs(i + 1, s, candidates, t, ans);
-        t.push(candidates[i]);
-        Self::dfs(i, s - candidates[i], candidates, t, ans);
-        t.pop();
+        for j in i..candidates.len() {
+            t.push(candidates[j]);
+            Self::dfs(j, s - candidates[j], candidates, t, ans);
+            t.pop();
+        }
     }
 
     pub fn combination_sum(mut candidates: Vec<i32>, target: i32) -> Vec<Vec<i32>> {

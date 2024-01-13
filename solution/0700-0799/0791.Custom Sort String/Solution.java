@@ -1,21 +1,14 @@
 class Solution {
     public String customSortString(String order, String s) {
-        int[] cnt = new int[26];
-        for (int i = 0; i < s.length(); ++i) {
-            ++cnt[s.charAt(i) - 'a'];
-        }
-        StringBuilder ans = new StringBuilder();
+        int[] d = new int[26];
         for (int i = 0; i < order.length(); ++i) {
-            char c = order.charAt(i);
-            while (cnt[c - 'a']-- > 0) {
-                ans.append(c);
-            }
+            d[order.charAt(i) - 'a'] = i;
         }
-        for (int i = 0; i < 26; ++i) {
-            while (cnt[i]-- > 0) {
-                ans.append((char) ('a' + i));
-            }
+        List<Character> cs = new ArrayList<>();
+        for (int i = 0; i < s.length(); ++i) {
+            cs.add(s.charAt(i));
         }
-        return ans.toString();
+        cs.sort((a, b) -> d[a - 'a'] - d[b - 'a']);
+        return cs.stream().map(String::valueOf).collect(Collectors.joining());
     }
 }

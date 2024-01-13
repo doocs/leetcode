@@ -1,23 +1,17 @@
 function insert(intervals: number[][], newInterval: number[]): number[][] {
-    let [st, ed] = newInterval;
-    const ans: number[][] = [];
-    let insert = false;
-    for (const [s, e] of intervals) {
-        if (ed < s) {
-            if (!insert) {
-                ans.push([st, ed]);
-                insert = true;
+    const merge = (intervals: number[][]): number[][] => {
+        intervals.sort((a, b) => a[0] - b[0]);
+        const ans: number[][] = [intervals[0]];
+        for (let i = 1; i < intervals.length; ++i) {
+            if (ans.at(-1)[1] < intervals[i][0]) {
+                ans.push(intervals[i]);
+            } else {
+                ans.at(-1)[1] = Math.max(ans.at(-1)[1], intervals[i][1]);
             }
-            ans.push([s, e]);
-        } else if (e < st) {
-            ans.push([s, e]);
-        } else {
-            st = Math.min(st, s);
-            ed = Math.max(ed, e);
         }
-    }
-    if (!insert) {
-        ans.push([st, ed]);
-    }
-    return ans;
+        return ans;
+    };
+
+    intervals.push(newInterval);
+    return merge(intervals);
 }

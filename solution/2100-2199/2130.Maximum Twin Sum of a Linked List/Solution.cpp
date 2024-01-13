@@ -11,34 +11,10 @@
 class Solution {
 public:
     int pairSum(ListNode* head) {
-        ListNode* slow = head;
-        ListNode* fast = head->next;
-        while (fast && fast->next) {
-            slow = slow->next;
-            fast = fast->next->next;
-        }
-        ListNode* pa = head;
-        ListNode* q = slow->next;
-        slow->next = nullptr;
-        ListNode* pb = reverse(q);
-        int ans = 0;
-        while (pa) {
-            ans = max(ans, pa->val + pb->val);
-            pa = pa->next;
-            pb = pb->next;
-        }
+        vector<int> s;
+        for (; head != nullptr; head = head->next) s.push_back(head->val);
+        int ans = 0, n = s.size();
+        for (int i = 0; i < (n >> 1); ++i) ans = max(ans, s[i] + s[n - i - 1]);
         return ans;
-    }
-
-    ListNode* reverse(ListNode* head) {
-        ListNode* dummy = new ListNode();
-        ListNode* curr = head;
-        while (curr) {
-            ListNode* next = curr->next;
-            curr->next = dummy->next;
-            dummy->next = curr;
-            curr = next;
-        }
-        return dummy->next;
     }
 };

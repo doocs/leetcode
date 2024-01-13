@@ -1,13 +1,9 @@
 function integerBreak(n: number): number {
-    if (n < 4) {
-        return n - 1;
+    let dp = new Array(n + 1).fill(1);
+    for (let i = 3; i <= n; i++) {
+        for (let j = 1; j < i; j++) {
+            dp[i] = Math.max(dp[i], j * (i - j), j * dp[i - j]);
+        }
     }
-    const m = Math.floor(n / 3);
-    if (n % 3 == 0) {
-        return 3 ** m;
-    }
-    if (n % 3 == 1) {
-        return 3 ** (m - 1) * 4;
-    }
-    return 3 ** m * 2;
+    return dp.pop();
 }

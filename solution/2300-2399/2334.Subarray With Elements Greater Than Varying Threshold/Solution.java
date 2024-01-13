@@ -1,39 +1,51 @@
 class Solution {
+    private int[] p;
+    private int[] size;
+
     public int validSubarraySize(int[] nums, int threshold) {
         int n = nums.length;
-        int[] left = new int[n];
-        int[] right = new int[n];
-        Arrays.fill(left, -1);
-        Arrays.fill(right, n);
-        Deque<Integer> stk = new ArrayDeque<>();
+        p = new int[n];
+        size = new int[n];
         for (int i = 0; i < n; ++i) {
-            int v = nums[i];
-            while (!stk.isEmpty() && nums[stk.peek()] >= v) {
-                stk.pop();
-            }
-            if (!stk.isEmpty()) {
-                left[i] = stk.peek();
-            }
-            stk.push(i);
+            p[i] = i;
+            size[i] = 1;
         }
-        stk.clear();
-        for (int i = n - 1; i >= 0; --i) {
-            int v = nums[i];
-            while (!stk.isEmpty() && nums[stk.peek()] >= v) {
-                stk.pop();
-            }
-            if (!stk.isEmpty()) {
-                right[i] = stk.peek();
-            }
-            stk.push(i);
-        }
+        int[][] arr = new int[n][2];
         for (int i = 0; i < n; ++i) {
-            int v = nums[i];
-            int k = right[i] - left[i] - 1;
-            if (v > threshold / k) {
-                return k;
+            arr[i][0] = nums[i];
+            arr[i][1] = i;
+        }
+        Arrays.sort(arr, (a, b) -> b[0] - a[0]);
+        boolean[] vis = new boolean[n];
+        for (int[] e : arr) {
+            int v = e[0], i = e[1];
+            if (i > 0 && vis[i - 1]) {
+                merge(i, i - 1);
             }
+            if (i < n - 1 && vis[i + 1]) {
+                merge(i, i + 1);
+            }
+            if (v > threshold / size[find(i)]) {
+                return size[find(i)];
+            }
+            vis[i] = true;
         }
         return -1;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+
+    private void merge(int a, int b) {
+        int pa = find(a), pb = find(b);
+        if (pa == pb) {
+            return;
+        }
+        p[pa] = pb;
+        size[pb] += size[pa];
     }
 }

@@ -8,8 +8,12 @@ class Solution {
         dfs(0, 0);
         Collections.sort(arr);
         int d = inf, ans = inf;
+
+        // 选择一种冰激淋基料
         for (int x : baseCosts) {
+            // 枚举子集和
             for (int y : arr) {
+                // 二分查找
                 int i = search(target - x - y);
                 for (int j : new int[] {i, i - 1}) {
                     if (j >= 0 && j < arr.size()) {

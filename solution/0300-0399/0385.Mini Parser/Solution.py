@@ -42,23 +42,18 @@
 #        """
 class Solution:
     def deserialize(self, s: str) -> NestedInteger:
+        if not s or s == '[]':
+            return NestedInteger()
         if s[0] != '[':
             return NestedInteger(int(s))
-        stk, x, neg = [], 0, False
-        for i, c in enumerate(s):
-            if c == '-':
-                neg = True
-            elif c.isdigit():
-                x = x * 10 + int(c)
-            elif c == '[':
-                stk.append(NestedInteger())
-            elif c in ',]':
-                if s[i - 1].isdigit():
-                    if neg:
-                        x = -x
-                    stk[-1].add(NestedInteger(x))
-                x, neg = 0, False
-                if c == ']' and len(stk) > 1:
-                    t = stk.pop()
-                    stk[-1].add(t)
-        return stk.pop()
+        ans = NestedInteger()
+        depth, j = 0, 1
+        for i in range(1, len(s)):
+            if depth == 0 and (s[i] == ',' or i == len(s) - 1):
+                ans.add(self.deserialize(s[j:i]))
+                j = i + 1
+            elif s[i] == '[':
+                depth += 1
+            elif s[i] == ']':
+                depth -= 1
+        return ans

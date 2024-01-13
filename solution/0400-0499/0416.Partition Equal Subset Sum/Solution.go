@@ -6,13 +6,17 @@ func canPartition(nums []int) bool {
 	if s%2 == 1 {
 		return false
 	}
-	m := s >> 1
-	f := make([]bool, m+1)
-	f[0] = true
-	for _, x := range nums {
-		for j := m; j >= x; j-- {
-			f[j] = f[j] || f[j-x]
+	n, m := len(nums), s>>1
+	f := make([][]bool, n+1)
+	for i := range f {
+		f[i] = make([]bool, m+1)
+	}
+	f[0][0] = true
+	for i := 1; i <= n; i++ {
+		x := nums[i-1]
+		for j := 0; j <= m; j++ {
+			f[i][j] = f[i-1][j] || (j >= x && f[i-1][j-x])
 		}
 	}
-	return f[m]
+	return f[n][m]
 }

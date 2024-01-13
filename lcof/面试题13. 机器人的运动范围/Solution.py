@@ -8,10 +8,16 @@ class Solution:
             return s
 
         def dfs(i, j):
-            if not (0 <= i < m) or not (0 <= j < n) or f(i) + f(j) > k or (i, j) in vis:
-                return 0
             vis.add((i, j))
-            return 1 + dfs(i + 1, j) + dfs(i, j + 1)
+            nonlocal ans
+            ans += 1
+            for a, b in pairwise(dirs):
+                x, y = i + a, j + b
+                if 0 <= x < m and 0 <= y < n and f(x) + f(y) <= k and (x, y) not in vis:
+                    dfs(x, y)
 
         vis = set()
-        return dfs(0, 0)
+        ans = 0
+        dirs = (0, 1, 0)
+        dfs(0, 0)
+        return ans

@@ -1,14 +1,18 @@
 func PredictTheWinner(nums []int) bool {
 	n := len(nums)
 	f := make([][]int, n)
-	for i, x := range nums {
+	for i := range f {
 		f[i] = make([]int, n)
-		f[i][i] = x
 	}
-	for i := n - 2; i >= 0; i-- {
-		for j := i + 1; j < n; j++ {
-			f[i][j] = max(nums[i]-f[i+1][j], nums[j]-f[i][j-1])
+	var dfs func(i, j int) int
+	dfs = func(i, j int) int {
+		if i > j {
+			return 0
 		}
+		if f[i][j] == 0 {
+			f[i][j] = max(nums[i]-dfs(i+1, j), nums[j]-dfs(i, j-1))
+		}
+		return f[i][j]
 	}
-	return f[0][n-1] >= 0
+	return dfs(0, n-1) >= 0
 }

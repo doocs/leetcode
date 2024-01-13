@@ -1,33 +1,38 @@
 class CombinationIterator {
 public:
-    int size;
-    string cs;
-    int curr;
+    string characters;
+    vector<string> cs;
+    int idx;
+    int n;
+    int combinationLength;
+    string t;
 
     CombinationIterator(string characters, int combinationLength) {
-        int n = characters.size();
-        curr = (1 << n) - 1;
-        reverse(characters.begin(), characters.end());
-        cs = characters;
-        size = combinationLength;
+        idx = 0;
+        n = characters.size();
+        this->characters = characters;
+        this->combinationLength = combinationLength;
+        dfs(0);
     }
 
     string next() {
-        while (curr >= 0 && __builtin_popcount(curr) != size) --curr;
-        string ans;
-        for (int i = 0; i < cs.size(); ++i) {
-            if ((curr >> i) & 1) {
-                ans += cs[i];
-            }
-        }
-        reverse(ans.begin(), ans.end());
-        --curr;
-        return ans;
+        return cs[idx++];
     }
 
     bool hasNext() {
-        while (curr >= 0 && __builtin_popcount(curr) != size) --curr;
-        return curr >= 0;
+        return idx < cs.size();
+    }
+
+    void dfs(int i) {
+        if (t.size() == combinationLength) {
+            cs.push_back(t);
+            return;
+        }
+        if (i == n) return;
+        t.push_back(characters[i]);
+        dfs(i + 1);
+        t.pop_back();
+        dfs(i + 1);
     }
 };
 

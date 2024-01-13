@@ -1,6 +1,5 @@
 func carPooling(trips [][]int, capacity int) bool {
-	mx := slices.Max(trips, func(i int) int { return trips[i][2] })
-	d := make([]int, mx+1)
+	d := [1001]int{}
 	for _, trip := range trips {
 		x, f, t := trip[0], trip[1], trip[2]
 		d[f] += x

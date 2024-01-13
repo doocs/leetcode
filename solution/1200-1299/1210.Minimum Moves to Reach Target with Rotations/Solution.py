@@ -20,10 +20,14 @@ class Solution:
                     return ans
                 i1, j1 = a // n, a % n
                 i2, j2 = b // n, b % n
+                # 尝试向右平移（保持身体水平/垂直状态）
                 move(i1, j1 + 1, i2, j2 + 1)
+                # 尝试向下平移（保持身体水平/垂直状态）
                 move(i1 + 1, j1, i2 + 1, j2)
+                # 当前处于水平状态，且 grid[i1 + 1][j2] 无障碍，尝试顺时针旋转90°
                 if i1 == i2 and i1 + 1 < n and grid[i1 + 1][j2] == 0:
                     move(i1, j1, i1 + 1, j1)
+                # 当前处于垂直状态，且 grid[i2][j1 + 1] 无障碍，尝试逆时针旋转90°
                 if j1 == j2 and j1 + 1 < n and grid[i2][j1 + 1] == 0:
                     move(i1, j1, i1, j1 + 1)
             ans += 1

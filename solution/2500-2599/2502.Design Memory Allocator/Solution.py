@@ -1,26 +1,25 @@
-from sortedcontainers import SortedList
-
-
 class Allocator:
     def __init__(self, n: int):
-        self.sl = SortedList([(-1, -1), (n, n)])
-        self.d = defaultdict(list)
+        self.m = [0] * n
 
     def allocate(self, size: int, mID: int) -> int:
-        for (_, s), (e, _) in pairwise(self.sl):
-            s, e = s + 1, e - 1
-            if e - s + 1 >= size:
-                self.sl.add((s, s + size - 1))
-                self.d[mID].append((s, s + size - 1))
-                return s
+        cnt = 0
+        for i, v in enumerate(self.m):
+            if v:
+                cnt = 0
+            else:
+                cnt += 1
+                if cnt == size:
+                    self.m[i - size + 1 : i + 1] = [mID] * size
+                    return i - size + 1
         return -1
 
     def free(self, mID: int) -> int:
         ans = 0
-        for block in self.d[mID]:
-            self.sl.remove(block)
-            ans += block[1] - block[0] + 1
-        del self.d[mID]
+        for i, v in enumerate(self.m):
+            if v == mID:
+                self.m[i] = 0
+                ans += 1
         return ans
 
 

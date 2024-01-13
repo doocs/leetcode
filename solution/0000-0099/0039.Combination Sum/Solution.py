@@ -4,12 +4,12 @@ class Solution:
             if s == 0:
                 ans.append(t[:])
                 return
-            if i >= len(candidates) or s < candidates[i]:
+            if s < candidates[i]:
                 return
-            dfs(i + 1, s)
-            t.append(candidates[i])
-            dfs(i, s - candidates[i])
-            t.pop()
+            for j in range(i, len(candidates)):
+                t.append(candidates[j])
+                dfs(j, s - candidates[j])
+                t.pop()
 
         candidates.sort()
         t = []

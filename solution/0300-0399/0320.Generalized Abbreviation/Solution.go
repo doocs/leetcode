@@ -1,23 +1,24 @@
-func generateAbbreviations(word string) (ans []string) {
+func generateAbbreviations(word string) []string {
 	n := len(word)
-	for i := 0; i < 1<<n; i++ {
-		s := &strings.Builder{}
-		cnt := 0
-		for j := 0; j < n; j++ {
-			if i>>j&1 == 1 {
-				cnt++
-			} else {
-				if cnt > 0 {
-					s.WriteString(strconv.Itoa(cnt))
-					cnt = 0
+	var dfs func(int) []string
+	dfs = func(i int) []string {
+		if i >= n {
+			return []string{""}
+		}
+		ans := []string{}
+		for _, s := range dfs(i + 1) {
+			ans = append(ans, word[i:i+1]+s)
+		}
+		for j := i + 1; j <= n; j++ {
+			for _, s := range dfs(j + 1) {
+				p := ""
+				if j < n {
+					p = word[j : j+1]
 				}
-				s.WriteByte(word[j])
+				ans = append(ans, strconv.Itoa(j-i)+p+s)
 			}
 		}
-		if cnt > 0 {
-			s.WriteString(strconv.Itoa(cnt))
-		}
-		ans = append(ans, s.String())
+		return ans
 	}
-	return
+	return dfs(0)
 }

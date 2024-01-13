@@ -1,4 +1,4 @@
-﻿class Solution {
+class Solution {
 public:
     bool canPlaceFlowers(vector<int>& flowerbed, int n) {
         int m = flowerbed.size();

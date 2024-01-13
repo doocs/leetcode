@@ -1,15 +1,14 @@
 class Solution {
 public:
     int partitionString(string s) {
+        unordered_set<char> ss;
         int ans = 1;
-        int v = 0;
         for (char c : s) {
-            int i = c - 'a';
-            if ((v >> i) & 1) {
-                v = 0;
+            if (ss.count(c)) {
                 ++ans;
+                ss.clear();
             }
-            v |= 1 << i;
+            ss.insert(c);
         }
         return ans;
     }

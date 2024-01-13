@@ -1,15 +1,20 @@
 function smallerNumbersThanCurrent(nums: number[]): number[] {
-    const cnt: number[] = new Array(102).fill(0);
-    for (const x of nums) {
-        ++cnt[x + 1];
+    const search = (nums: number[], x: number) => {
+        let l = 0,
+            r = nums.length;
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (nums[mid] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    };
+    const arr = nums.slice().sort((a, b) => a - b);
+    for (let i = 0; i < nums.length; ++i) {
+        nums[i] = search(arr, nums[i]);
     }
-    for (let i = 1; i < cnt.length; ++i) {
-        cnt[i] += cnt[i - 1];
-    }
-    const n = nums.length;
-    const ans: number[] = new Array(n);
-    for (let i = 0; i < n; ++i) {
-        ans[i] = cnt[nums[i]];
-    }
-    return ans;
+    return nums;
 }

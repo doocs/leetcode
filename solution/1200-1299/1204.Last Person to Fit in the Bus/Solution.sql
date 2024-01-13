@@ -1,13 +1,10 @@
 # Write your MySQL query statement below
-WITH
-    T AS (
-        SELECT
-            person_name,
-            SUM(weight) OVER (ORDER BY turn) AS s
-        FROM Queue
-    )
-SELECT person_name
-FROM T
-WHERE s <= 1000
-ORDER BY s DESC
+SELECT a.person_name
+FROM
+    Queue AS a,
+    Queue AS b
+WHERE a.turn >= b.turn
+GROUP BY a.person_id
+HAVING SUM(b.weight) <= 1000
+ORDER BY a.turn DESC
 LIMIT 1;

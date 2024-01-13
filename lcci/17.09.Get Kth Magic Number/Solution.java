@@ -1,22 +1,22 @@
 class Solution {
+    private static final int[] FACTORS = new int[] {3, 5, 7};
+
     public int getKthMagicNumber(int k) {
-        int[] dp = new int[k + 1];
-        Arrays.fill(dp, 1);
-        int p3 = 1, p5 = 1, p7 = 1;
-        for (int i = 2; i <= k; ++i) {
-            int a = dp[p3] * 3, b = dp[p5] * 5, c = dp[p7] * 7;
-            int v = Math.min(Math.min(a, b), c);
-            dp[i] = v;
-            if (v == a) {
-                ++p3;
-            }
-            if (v == b) {
-                ++p5;
-            }
-            if (v == c) {
-                ++p7;
+        PriorityQueue<Long> q = new PriorityQueue<>();
+        Set<Long> vis = new HashSet<>();
+        q.offer(1L);
+        vis.add(1L);
+        while (--k > 0) {
+            long cur = q.poll();
+            for (int f : FACTORS) {
+                long nxt = cur * f;
+                if (!vis.contains(nxt)) {
+                    q.offer(nxt);
+                    vis.add(nxt);
+                }
             }
         }
-        return dp[k];
+        long ans = q.poll();
+        return (int) ans;
     }
 }

@@ -29,7 +29,7 @@ public class Solution {
             }
             for (int i = bottom; i >= top; i--) {
                 ans.Add(matrix[i][left]);
-            } 
+            }
             left += 1;
             if (left > right) {
                 break;

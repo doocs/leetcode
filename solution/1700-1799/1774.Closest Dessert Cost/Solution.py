@@ -13,8 +13,12 @@ class Solution:
         dfs(0, 0)
         arr.sort()
         d = ans = inf
+
+        # 选择一种冰激淋基料
         for x in baseCosts:
+            # 枚举子集和
             for y in arr:
+                # 二分查找
                 i = bisect_left(arr, target - x - y)
                 for j in (i, i - 1):
                     if 0 <= j < len(arr):

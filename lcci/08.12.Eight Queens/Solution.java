@@ -7,9 +7,13 @@ class Solution {
             Arrays.fill(t, ".");
             g[i] = t;
         }
+        // 列是否已经有值
         boolean[] col = new boolean[n];
+        // 斜线是否已经有值
         boolean[] dg = new boolean[2 * n];
+        // 反斜线是否已经有值
         boolean[] udg = new boolean[2 * n];
+        // 从第一行开始搜索
         dfs(0, n, col, dg, udg, g, res);
         return res;
     }

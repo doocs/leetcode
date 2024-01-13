@@ -1,12 +1,13 @@
 function rearrangeSticks(n: number, k: number): number {
     const mod = 10 ** 9 + 7;
-    const f: number[] = Array(n + 1).fill(0);
-    f[0] = 1;
+    const f: number[][] = Array.from({ length: n + 1 }, () =>
+        Array.from({ length: k + 1 }, () => 0),
+    );
+    f[0][0] = 1;
     for (let i = 1; i <= n; ++i) {
-        for (let j = k; j; --j) {
-            f[j] = (f[j] * (i - 1) + f[j - 1]) % mod;
+        for (let j = 1; j <= k; ++j) {
+            f[i][j] = (f[i - 1][j - 1] + (i - 1) * f[i - 1][j]) % mod;
         }
-        f[0] = 0;
     }
-    return f[k];
+    return f[n][k];
 }

@@ -4,15 +4,16 @@ class Solution {
         for (int v : nums) {
             x += v;
         }
+        Map<Integer, Integer> vis = new HashMap<>();
+        vis.put(0, -1);
         int n = nums.length;
         int ans = 1 << 30;
-        for (int i = 0, j = 0, s = 0; i < n; ++i) {
+        for (int i = 0, s = 0; i < n; ++i) {
             s += nums[i];
-            while (j <= i && s > x) {
-                s -= nums[j++];
-            }
-            if (s == x) {
-                ans = Math.min(ans, n - (i - j + 1));
+            vis.putIfAbsent(s, i);
+            if (vis.containsKey(s - x)) {
+                int j = vis.get(s - x);
+                ans = Math.min(ans, n - (i - j));
             }
         }
         return ans == 1 << 30 ? -1 : ans;

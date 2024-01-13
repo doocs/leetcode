@@ -1,16 +1,9 @@
 class Solution:
     def countSubstrings(self, s: str) -> int:
-        t = '^#' + '#'.join(s) + '#$'
-        n = len(t)
-        p = [0 for _ in range(n)]
-        pos, maxRight = 0, 0
-        ans = 0
-        for i in range(1, n - 1):
-            p[i] = min(maxRight - i, p[2 * pos - i]) if maxRight > i else 1
-            while t[i - p[i]] == t[i + p[i]]:
-                p[i] += 1
-            if i + p[i] > maxRight:
-                maxRight = i + p[i]
-                pos = i
-            ans += p[i] // 2
+        ans, n = 0, len(s)
+        for k in range(n * 2 - 1):
+            i, j = k // 2, (k + 1) // 2
+            while ~i and j < n and s[i] == s[j]:
+                ans += 1
+                i, j = i - 1, j + 1
         return ans

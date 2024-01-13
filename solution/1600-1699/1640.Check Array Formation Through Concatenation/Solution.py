@@ -1,12 +1,13 @@
 class Solution:
     def canFormArray(self, arr: List[int], pieces: List[List[int]]) -> bool:
-        d = {p[0]: p for p in pieces}
-        i, n = 0, len(arr)
-        while i < n:
-            if arr[i] not in d:
+        i = 0
+        while i < len(arr):
+            k = 0
+            while k < len(pieces) and pieces[k][0] != arr[i]:
+                k += 1
+            if k == len(pieces):
                 return False
-            p = d[arr[i]]
-            if arr[i : i + len(p)] != p:
-                return False
-            i += len(p)
+            j = 0
+            while j < len(pieces[k]) and arr[i] == pieces[k][j]:
+                i, j = i + 1, j + 1
         return True

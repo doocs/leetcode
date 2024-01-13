@@ -1,8 +1,10 @@
 class Solution:
     def validWordSquare(self, words: List[str]) -> bool:
         m = len(words)
-        for i, w in enumerate(words):
-            for j, c in enumerate(w):
-                if j >= m or i >= len(words[j]) or c != words[j][i]:
-                    return False
+        n = max(len(w) for w in words)
+        if m != n:
+            return False
+        for j in range(n):
+            if words[j] != "".join(w[j] for w in words if j < len(w)):
+                return False
         return True

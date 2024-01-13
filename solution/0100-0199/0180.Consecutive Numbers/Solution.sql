@@ -1,16 +1,6 @@
 # Write your MySQL query statement below
-WITH
-    T AS (
-        SELECT
-            *,
-            IF(num = (LAG(num) OVER ()), 0, 1) AS st
-        FROM Logs
-    ),
-    S AS (
-        SELECT *, SUM(st) OVER (ORDER BY id) AS p
-        FROM T
-    )
-SELECT DISTINCT num AS ConsecutiveNums
-FROM S
-GROUP BY p
-HAVING COUNT(1) >= 3;
+SELECT DISTINCT l2.num AS ConsecutiveNums
+FROM
+    Logs AS l1
+    JOIN Logs AS l2 ON l1.id = l2.id - 1 AND l1.num = l2.num
+    JOIN Logs AS l3 ON l2.id = l3.id - 1 AND l2.num = l3.num;

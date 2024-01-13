@@ -1,4 +1,4 @@
-﻿class Solution {
+class Solution {
 public:
     vector<int> deckRevealedIncreasing(vector<int>& deck) {
         sort(deck.rbegin(), deck.rend());

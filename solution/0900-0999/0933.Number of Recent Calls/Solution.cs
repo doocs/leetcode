@@ -4,7 +4,7 @@ public class RecentCounter {
     public RecentCounter() {
 
     }
-    
+
     public int Ping(int t) {
         q.Enqueue(t);
         while (q.Peek() < t - 3000)

@@ -1,52 +1,25 @@
-func findShortestSubArray(nums []int) (ans int) {
-	ans = 50000
-	numsMap := make(map[int]int, len(nums))
-	for _, num := range nums {
-		numsMap[num]++
-	}
-	var maxDegree int
-	for _, num := range numsMap {
-		maxDegree = max(num, maxDegree)
-	}
-	degreeNums := getMaxDegreeElem(maxDegree, numsMap)
-	for _, num := range degreeNums {
-		f := findSubArray(num, nums)
-		ans = min(ans, f)
-	}
-	return
-}
-
-func findSubArray(target int, nums []int) int {
-	start := getStartIdx(target, nums)
-	end := getEndIdx(target, nums)
-	return (end - start) + 1
-}
-
-func getStartIdx(target int, nums []int) (start int) {
-	for idx, num := range nums {
-		if num == target {
-			start = idx
-			break
+func findShortestSubArray(nums []int) int {
+	cnt := map[int]int{}
+	left := map[int]int{}
+	right := map[int]int{}
+	var degree int
+	for i, v := range nums {
+		cnt[v]++
+		if degree < cnt[v] {
+			degree = cnt[v]
 		}
-	}
-	return start
-}
-
-func getEndIdx(target int, nums []int) (end int) {
-	for i := len(nums) - 1; i > 0; i-- {
-		if nums[i] == target {
-			end = i
-			break
+		if _, ok := left[v]; !ok {
+			left[v] = i
 		}
+		right[v] = i
 	}
-	return
-}
-
-func getMaxDegreeElem(maxDegree int, numsMap map[int]int) []int {
-	var ans []int
-	for key, value := range numsMap {
-		if value == maxDegree {
-			ans = append(ans, key)
+	ans := 100000
+	for v, c := range cnt {
+		if c == degree {
+			t := right[v] - left[v] + 1
+			if ans > t {
+				ans = t
+			}
 		}
 	}
 	return ans

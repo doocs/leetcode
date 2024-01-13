@@ -1,13 +1,14 @@
 function minimumDeletions(s: string): number {
     const n = s.length;
-    let ans = 0,
-        b = 0;
-    for (let i = 0; i < n; ++i) {
-        if (s.charAt(i) === 'b') {
+    const f = new Array(n + 1).fill(0);
+    let b = 0;
+    for (let i = 1; i <= n; ++i) {
+        if (s.charAt(i - 1) === 'b') {
+            f[i] = f[i - 1];
             ++b;
         } else {
-            ans = Math.min(ans + 1, b);
+            f[i] = Math.min(f[i - 1] + 1, b);
         }
     }
-    return ans;
+    return f[n];
 }

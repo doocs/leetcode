@@ -7,39 +7,31 @@
  * }
  */
 func verticalOrder(root *TreeNode) [][]int {
-	ans := [][]int{}
-	if root == nil {
-		return ans
-	}
-	d := map[int][]int{}
-	q := []pair{pair{root, 0}}
-	for len(q) > 0 {
-		for n := len(q); n > 0; n-- {
-			p := q[0]
-			q = q[1:]
-			root = p.node
-			offset := p.offset
-			d[offset] = append(d[offset], root.Val)
-			if root.Left != nil {
-				q = append(q, pair{root.Left, offset - 1})
-			}
-			if root.Right != nil {
-				q = append(q, pair{root.Right, offset + 1})
-			}
+	d := map[int][][]int{}
+	var dfs func(*TreeNode, int, int)
+	dfs = func(root *TreeNode, depth, offset int) {
+		if root == nil {
+			return
 		}
+		d[offset] = append(d[offset], []int{depth, root.Val})
+		dfs(root.Left, depth+1, offset-1)
+		dfs(root.Right, depth+1, offset+1)
 	}
+	dfs(root, 0, 0)
 	idx := []int{}
 	for i := range d {
 		idx = append(idx, i)
 	}
 	sort.Ints(idx)
+	ans := [][]int{}
 	for _, i := range idx {
-		ans = append(ans, d[i])
+		v := d[i]
+		sort.SliceStable(v, func(i, j int) bool { return v[i][0] < v[j][0] })
+		t := []int{}
+		for _, x := range v {
+			t = append(t, x[1])
+		}
+		ans = append(ans, t)
 	}
 	return ans
-}
-
-type pair struct {
-	node   *TreeNode
-	offset int
 }
