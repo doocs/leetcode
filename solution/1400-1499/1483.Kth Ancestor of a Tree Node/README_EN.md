@@ -218,8 +218,8 @@ class TreeAncestor {
         for (let i = 0; i < n; ++i) {
             p[i][0] = parent[i];
         }
-        for (let i = 0; i < n; ++i) {
-            for (let j = 1; j < 18; ++j) {
+        for (let j = 1; j < 18; ++j) {
+            for (let i = 0; i < n; ++i) {
                 if (p[i][j - 1] === -1) {
                     continue;
                 }
