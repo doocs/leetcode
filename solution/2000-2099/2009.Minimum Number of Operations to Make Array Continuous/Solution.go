@@ -9,10 +9,8 @@ func minOperations(nums []int) int {
 		}
 	}
 	ans := n
-	for i, j := 0, 0; i < m; i++ {
-		for j < m && nums[j]-nums[i] <= n-1 {
-			j++
-		}
+	for i := 0; i < m; i++ {
+		j := sort.Search(m, func(k int) bool { return nums[k] > nums[i]+n-1 })
 		ans = min(ans, n-(j-i))
 	}
 	return ans

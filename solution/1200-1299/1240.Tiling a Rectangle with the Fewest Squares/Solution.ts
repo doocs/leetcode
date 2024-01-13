@@ -27,18 +27,16 @@ function tilingRectangle(n: number, m: number): number {
                 ++c;
             }
             const mx = Math.min(r, c);
+            for (let w = 1; w <= mx; ++w) {
+                for (let k = 0; k < w; ++k) {
+                    filled[i + w - 1] |= 1 << (j + k);
+                    filled[i + k] |= 1 << (j + w - 1);
+                }
+                dfs(i, j + w, t + 1);
+            }
             for (let x = i; x < i + mx; ++x) {
                 for (let y = j; y < j + mx; ++y) {
-                    filled[x] |= 1 << y;
-                }
-            }
-            for (let w = mx; w > 0; --w) {
-                dfs(i, j + w, t + 1);
-                for (let k = 0; k < w; ++k) {
-                    filled[i + w - 1] ^= 1 << (j + k);
-                    if (k < w - 1) {
-                        filled[i + k] ^= 1 << (j + w - 1);
-                    }
+                    filled[x] ^= 1 << y;
                 }
             }
         }

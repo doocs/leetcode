@@ -1,9 +1,7 @@
 class Solution:
     def countVowelStrings(self, n: int) -> int:
-        f = [1] * 5
-        for _ in range(n - 1):
-            s = 0
-            for j in range(5):
-                s += f[j]
-                f[j] = s
-        return sum(f)
+        @cache
+        def dfs(i, j):
+            return 1 if i >= n else sum(dfs(i + 1, k) for k in range(j, 5))
+
+        return dfs(0, 0)

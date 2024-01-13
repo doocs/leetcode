@@ -1,6 +1,9 @@
-func missingNumber(nums []int) (ans int) {
+func missingNumber(nums []int) int {
+	sort.Ints(nums)
 	for i, x := range nums {
-		ans ^= (i + 1) ^ x
+		if i != x {
+			return i
+		}
 	}
-	return
+	return len(nums)
 }

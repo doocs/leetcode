@@ -1,25 +1,39 @@
 function findTheCity(n: number, edges: number[][], distanceThreshold: number): number {
     const g: number[][] = Array.from({ length: n }, () => Array(n).fill(Infinity));
+    const dist: number[] = Array(n).fill(Infinity);
+    const vis: boolean[] = Array(n).fill(false);
     for (const [f, t, w] of edges) {
         g[f][t] = g[t][f] = w;
     }
-    for (let k = 0; k < n; ++k) {
-        g[k][k] = 0;
+
+    const dijkstra = (u: number): number => {
+        dist.fill(Infinity);
+        vis.fill(false);
+        dist[u] = 0;
         for (let i = 0; i < n; ++i) {
+            let k = -1;
             for (let j = 0; j < n; ++j) {
-                g[i][j] = Math.min(g[i][j], g[i][k] + g[k][j]);
+                if (!vis[j] && (k === -1 || dist[j] < dist[k])) {
+                    k = j;
+                }
+            }
+            vis[k] = true;
+            for (let j = 0; j < n; ++j) {
+                dist[j] = Math.min(dist[j], dist[k] + g[k][j]);
             }
         }
-    }
+        return dist.filter(d => d <= distanceThreshold).length;
+    };
 
-    let ans = n,
-        cnt = n + 1;
+    let ans = n;
+    let cnt = Infinity;
     for (let i = n - 1; i >= 0; --i) {
-        const t = g[i].filter(x => x <= distanceThreshold).length;
+        const t = dijkstra(i);
         if (t < cnt) {
             cnt = t;
             ans = i;
         }
     }
+
     return ans;
 }

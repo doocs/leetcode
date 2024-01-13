@@ -1,7 +1,12 @@
 bool checkIfPangram(char* sentence) {
-    int mark = 0;
+    int vis[26] = {0};
     for (int i = 0; sentence[i]; i++) {
-        mark |= 1 << (sentence[i] - 'a');
+        vis[sentence[i] - 'a'] = 1;
     }
-    return mark == (1 << 26) - 1;
+    for (int i = 0; i < 26; i++) {
+        if (!vis[i]) {
+            return 0;
+        }
+    }
+    return 1;
 }

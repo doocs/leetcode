@@ -1,12 +1,16 @@
 class Solution:
     def arrayNesting(self, nums: List[int]) -> int:
-        ans, n = 0, len(nums)
+        n = len(nums)
+        vis = [False] * n
+        res = 0
         for i in range(n):
-            cnt = 0
-            while nums[i] != n:
-                j = nums[i]
-                nums[i] = n
-                i = j
-                cnt += 1
-            ans = max(ans, cnt)
-        return ans
+            if vis[i]:
+                continue
+            cur, m = nums[i], 1
+            vis[cur] = True
+            while nums[cur] != nums[i]:
+                cur = nums[cur]
+                m += 1
+                vis[cur] = True
+            res = max(res, m)
+        return res

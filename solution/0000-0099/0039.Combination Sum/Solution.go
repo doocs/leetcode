@@ -7,13 +7,14 @@ func combinationSum(candidates []int, target int) (ans [][]int) {
 			ans = append(ans, slices.Clone(t))
 			return
 		}
-		if i >= len(candidates) || s < candidates[i] {
+		if s < candidates[i] {
 			return
 		}
-		dfs(i+1, s)
-		t = append(t, candidates[i])
-		dfs(i, s-candidates[i])
-		t = t[:len(t)-1]
+		for j := i; j < len(candidates); j++ {
+			t = append(t, candidates[j])
+			dfs(j, s-candidates[j])
+			t = t[:len(t)-1]
+		}
 	}
 	dfs(0, target)
 	return

@@ -1,4 +1,4 @@
-func minOperations(nums1 []int, nums2 []int) (ans int) {
+func minOperations(nums1 []int, nums2 []int) int {
 	s1, s2 := sum(nums1), sum(nums2)
 	if s1 == s2 {
 		return 0
@@ -7,22 +7,19 @@ func minOperations(nums1 []int, nums2 []int) (ans int) {
 		return minOperations(nums2, nums1)
 	}
 	d := s2 - s1
-	cnt := [6]int{}
+	arr := []int{}
 	for _, v := range nums1 {
-		cnt[6-v]++
+		arr = append(arr, 6-v)
 	}
 	for _, v := range nums2 {
-		cnt[v-1]++
+		arr = append(arr, v-1)
 	}
-	for i := 5; i > 0; i-- {
-		for cnt[i] > 0 && d > 0 {
-			d -= i
-			cnt[i]--
-			ans++
+	sort.Sort(sort.Reverse(sort.IntSlice(arr)))
+	for i, v := range arr {
+		d -= v
+		if d <= 0 {
+			return i + 1
 		}
-	}
-	if d <= 0 {
-		return
 	}
 	return -1
 }

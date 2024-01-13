@@ -10,7 +10,7 @@ public class Comparer: IComparer<string>
     {
         return Compare(left, right, 0, 0);
     }
-    
+
     private int Compare(string left, string right, int lBegin, int rBegin)
     {
         var len = Math.Min(left.Length - lBegin, right.Length - rBegin);
@@ -21,7 +21,7 @@ public class Comparer: IComparer<string>
                 return left[lBegin + i] < right[rBegin + i] ? -1 : 1;
             }
         }
-        
+
         if (left.Length - lBegin == right.Length - rBegin)
         {
             return 0;
@@ -41,7 +41,7 @@ public class Solution {
     public string LargestNumber(int[] nums) {
         var sb = new StringBuilder();
         var strs = nums.Select(n => n.ToString(CultureInfo.InvariantCulture)).OrderByDescending(s => s, new Comparer());
-        
+
         var nonZeroOccurred = false;
         foreach (var str in strs)
         {

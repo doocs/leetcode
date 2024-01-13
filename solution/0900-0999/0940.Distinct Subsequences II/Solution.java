@@ -3,13 +3,18 @@ class Solution {
 
     public int distinctSubseqII(String s) {
         int[] dp = new int[26];
-        int ans = 0;
         for (int i = 0; i < s.length(); ++i) {
             int j = s.charAt(i) - 'a';
-            int add = (ans - dp[j] + 1) % MOD;
-            ans = (ans + add) % MOD;
-            dp[j] = (dp[j] + add) % MOD;
+            dp[j] = sum(dp) + 1;
         }
-        return (ans + MOD) % MOD;
+        return sum(dp);
+    }
+
+    private int sum(int[] arr) {
+        int x = 0;
+        for (int v : arr) {
+            x = (x + v) % MOD;
+        }
+        return x;
     }
 }

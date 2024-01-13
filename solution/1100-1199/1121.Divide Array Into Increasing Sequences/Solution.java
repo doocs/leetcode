@@ -1,14 +1,10 @@
 class Solution {
     public boolean canDivideIntoSubsequences(int[] nums, int k) {
-        int cnt = 0;
-        int a = 0;
-        for (int b : nums) {
-            cnt = a == b ? cnt + 1 : 1;
-            if (cnt * k > nums.length) {
-                return false;
-            }
-            a = b;
+        Map<Integer, Integer> cnt = new HashMap<>();
+        int mx = 0;
+        for (int x : nums) {
+            mx = Math.max(mx, cnt.merge(x, 1, Integer::sum));
         }
-        return true;
+        return mx * k <= nums.length;
     }
 }

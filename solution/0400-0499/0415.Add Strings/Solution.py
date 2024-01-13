@@ -24,8 +24,8 @@ class Solution:
             ans.append(str((c + 10) % 10))
             c = 1 if c < 0 else 0
             i, j = i - 1, j - 1
-        while len(ans) > 1 and ans[-1] == "0":
+        while len(ans) > 1 and ans[-1] == '0':
             ans.pop()
         if neg:
-            ans.append("-")
-        return "".join(ans[::-1])
+            ans.append('-')
+        return ''.join(ans[::-1])

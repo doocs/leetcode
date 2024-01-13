@@ -15,6 +15,7 @@ class Solution:
         carry, dummy = 0, ListNode()
         while s1 or s2 or carry:
             carry += (0 if not s1 else s1.pop()) + (0 if not s2 else s2.pop())
+            # 创建结点，利用头插法将结点插入链表
             node = ListNode(carry % 10, dummy.next)
             dummy.next = node
             carry //= 10

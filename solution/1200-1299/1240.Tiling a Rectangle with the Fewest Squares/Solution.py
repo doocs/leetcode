@@ -20,16 +20,15 @@ class Solution:
                     if filled[i] >> k & 1:
                         break
                     c += 1
-                mx = min(r, c)
+                mx = r if r < c else c
+                for w in range(1, mx + 1):
+                    for k in range(w):
+                        filled[i + w - 1] |= 1 << (j + k)
+                        filled[i + k] |= 1 << (j + w - 1)
+                    dfs(i, j + w, t + 1)
                 for x in range(i, i + mx):
                     for y in range(j, j + mx):
-                        filled[x] |= 1 << y
-                for w in range(mx, 0, -1):
-                    dfs(i, j + w, t + 1)
-                    for k in range(w):
-                        filled[i + w - 1] ^= 1 << (j + k)
-                        if k < w - 1:
-                            filled[i + k] ^= 1 << (j + w - 1)
+                        filled[x] ^= 1 << y
 
         ans = n * m
         filled = [0] * n

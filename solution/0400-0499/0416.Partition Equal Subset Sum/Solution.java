@@ -8,14 +8,16 @@ class Solution {
         if (s % 2 == 1) {
             return false;
         }
+        int n = nums.length;
         int m = s >> 1;
-        boolean[] f = new boolean[m + 1];
-        f[0] = true;
-        for (int x : nums) {
-            for (int j = m; j >= x; --j) {
-                f[j] |= f[j - x];
+        boolean[][] f = new boolean[n + 1][m + 1];
+        f[0][0] = true;
+        for (int i = 1; i <= n; ++i) {
+            int x = nums[i - 1];
+            for (int j = 0; j <= m; ++j) {
+                f[i][j] = f[i - 1][j] || (j >= x && f[i - 1][j - x]);
             }
         }
-        return f[m];
+        return f[n][m];
     }
 }

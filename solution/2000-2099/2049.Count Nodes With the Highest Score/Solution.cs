@@ -13,7 +13,7 @@ public class Solution {
         for (int i = 1; i < n; ++i) {
             g[parents[i]].Add(i);
         }
-        
+
         Dfs(0, -1);
         return ans;
     }
@@ -21,7 +21,7 @@ public class Solution {
     private int Dfs(int i, int fa) {
         int cnt = 1;
         long score = 1;
-        
+
         foreach (int j in g[i]) {
             if (j != fa) {
                 int t = Dfs(j, i);
@@ -29,18 +29,18 @@ public class Solution {
                 score *= t;
             }
         }
-        
+
         if (n - cnt > 0) {
             score *= n - cnt;
         }
-        
+
         if (mx < score) {
             mx = score;
             ans = 1;
         } else if (mx == score) {
             ++ans;
         }
-        
+
         return cnt;
     }
 }

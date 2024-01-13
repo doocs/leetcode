@@ -1,25 +1,21 @@
 class Solution {
+    private String s;
+
     public int countSubstrings(String s) {
-        StringBuilder sb = new StringBuilder("^#");
-        for (char ch : s.toCharArray()) {
-            sb.append(ch).append('#');
-        }
-        String t = sb.append('$').toString();
-        int n = t.length();
-        int[] p = new int[n];
-        int pos = 0, maxRight = 0;
         int ans = 0;
-        for (int i = 1; i < n - 1; i++) {
-            p[i] = maxRight > i ? Math.min(maxRight - i, p[2 * pos - i]) : 1;
-            while (t.charAt(i - p[i]) == t.charAt(i + p[i])) {
-                p[i]++;
-            }
-            if (i + p[i] > maxRight) {
-                maxRight = i + p[i];
-                pos = i;
-            }
-            ans += p[i] / 2;
+        this.s = s;
+        for (int i = 0; i < s.length(); ++i) {
+            ans += f(i, i);
+            ans += f(i, i + 1);
         }
         return ans;
+    }
+
+    private int f(int i, int j) {
+        int cnt = 0;
+        for (; i >= 0 && j < s.length() && s.charAt(i) == s.charAt(j); --i, ++j) {
+            ++cnt;
+        }
+        return cnt;
     }
 }

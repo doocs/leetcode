@@ -1,18 +1,15 @@
 func canFormArray(arr []int, pieces [][]int) bool {
-	d := map[int][]int{}
-	for _, p := range pieces {
-		d[p[0]] = p
-	}
 	for i := 0; i < len(arr); {
-		p, ok := d[arr[i]]
-		if !ok {
+		k := 0
+		for k < len(pieces) && pieces[k][0] != arr[i] {
+			k++
+		}
+		if k == len(pieces) {
 			return false
 		}
-		for _, v := range p {
-			if arr[i] != v {
-				return false
-			}
-			i++
+		j := 0
+		for j < len(pieces[k]) && arr[i] == pieces[k][j] {
+			i, j = i+1, j+1
 		}
 	}
 	return true

@@ -6,12 +6,10 @@ class Solution:
             for c in s:
                 mp[c] = i
         ans = 0
-        for i in range(1, 10):
-            cnt = defaultdict(int)
-            cnt[0] = 1
+        n = len(word)
+        for i in range(n):
             s = 0
-            for c in word:
-                s += mp[c] - i
-                ans += cnt[s]
-                cnt[s] += 1
+            for j in range(i, n):
+                s += mp[word[j]]
+                ans += s % (j - i + 1) == 0
         return ans

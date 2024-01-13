@@ -14,18 +14,19 @@ public:
     int closestValue(TreeNode* root, double target) {
         int ans = root->val;
         double mi = INT_MAX;
-        while (root) {
+        function<void(TreeNode*)> dfs = [&](TreeNode* root) {
+            if (!root) {
+                return;
+            }
+            dfs(root->left);
             double t = abs(root->val - target);
-            if (t < mi || (t == mi && root->val < ans)) {
+            if (t < mi) {
                 mi = t;
                 ans = root->val;
             }
-            if (root->val > target) {
-                root = root->left;
-            } else {
-                root = root->right;
-            }
-        }
+            dfs(root->right);
+        };
+        dfs(root);
         return ans;
     }
 };

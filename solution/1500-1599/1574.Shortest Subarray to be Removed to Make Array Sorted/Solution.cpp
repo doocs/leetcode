@@ -13,10 +13,8 @@ public:
             return 0;
         }
         int ans = min(n - 1 - i, j);
-        for (int l = 0, r = j; l <= i; ++l) {
-            while (r < n && arr[r] < arr[l]) {
-                ++r;
-            }
+        for (int l = 0; l <= i; ++l) {
+            int r = lower_bound(arr.begin() + j, arr.end(), arr[l]) - arr.begin();
             ans = min(ans, r - l - 1);
         }
         return ans;

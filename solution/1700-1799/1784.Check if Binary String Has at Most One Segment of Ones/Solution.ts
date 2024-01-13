@@ -1,3 +1,10 @@
 function checkOnesSegment(s: string): boolean {
-    return !s.includes('01');
+    let pre = s[0];
+    for (const c of s) {
+        if (pre !== c && c === '1') {
+            return false;
+        }
+        pre = c;
+    }
+    return true;
 }

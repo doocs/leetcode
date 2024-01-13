@@ -1,17 +1,21 @@
 class Solution {
     public int minimumXORSum(int[] nums1, int[] nums2) {
         int n = nums1.length;
-        int[] f = new int[1 << n];
-        Arrays.fill(f, 1 << 30);
-        f[0] = 0;
-        for (int i = 0; i < 1 << n; ++i) {
-            int k = Integer.bitCount(i) - 1;
-            for (int j = 0; j < n; ++j) {
-                if ((i >> j & 1) == 1) {
-                    f[i] = Math.min(f[i], f[i ^ (1 << j)] + (nums1[k] ^ nums2[j]));
+        int[][] f = new int[n + 1][1 << n];
+        for (var g : f) {
+            Arrays.fill(g, 1 << 30);
+        }
+        f[0][0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 0; j < 1 << n; ++j) {
+                for (int k = 0; k < n; ++k) {
+                    if ((j >> k & 1) == 1) {
+                        f[i][j]
+                            = Math.min(f[i][j], f[i - 1][j ^ (1 << k)] + (nums1[i - 1] ^ nums2[k]));
+                    }
                 }
             }
         }
-        return f[(1 << n) - 1];
+        return f[n][(1 << n) - 1];
     }
 }

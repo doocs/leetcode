@@ -3,8 +3,10 @@ class Solution:
         m, mod = divmod(sum(nums), 2)
         if mod:
             return False
-        f = [True] + [False] * m
-        for x in nums:
-            for j in range(m, x - 1, -1):
-                f[j] = f[j] or f[j - x]
-        return f[m]
+        n = len(nums)
+        f = [[False] * (m + 1) for _ in range(n + 1)]
+        f[0][0] = True
+        for i, x in enumerate(nums, 1):
+            for j in range(m + 1):
+                f[i][j] = f[i - 1][j] or (j >= x and f[i - 1][j - x])
+        return f[n][m]

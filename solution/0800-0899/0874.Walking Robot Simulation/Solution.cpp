@@ -1,4 +1,4 @@
-﻿class Solution {
+class Solution {
 public:
     int robotSim(vector<int>& commands, vector<vector<int>>& obstacles) {
         int dirs[5] = {0, 1, 0, -1, 0};

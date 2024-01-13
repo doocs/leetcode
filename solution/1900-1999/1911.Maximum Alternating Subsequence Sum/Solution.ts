@@ -1,7 +1,10 @@
 function maxAlternatingSum(nums: number[]): number {
-    let [f, g] = [0, 0];
-    for (const x of nums) {
-        [f, g] = [Math.max(g - x, f), Math.max(f + x, g)];
+    const n = nums.length;
+    const f: number[] = new Array(n + 1).fill(0);
+    const g = f.slice();
+    for (let i = 1; i <= n; ++i) {
+        f[i] = Math.max(g[i - 1] + nums[i - 1], f[i - 1]);
+        g[i] = Math.max(f[i - 1] - nums[i - 1], g[i - 1]);
     }
-    return g;
+    return Math.max(f[n], g[n]);
 }

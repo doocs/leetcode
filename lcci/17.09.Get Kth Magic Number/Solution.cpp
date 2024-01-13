@@ -1,22 +1,23 @@
 class Solution {
 public:
+    const vector<int> factors = {3, 5, 7};
+
     int getKthMagicNumber(int k) {
-        vector<int> dp(k + 1, 1);
-        int p3 = 1, p5 = 1, p7 = 1;
-        for (int i = 2; i <= k; ++i) {
-            int a = dp[p3] * 3, b = dp[p5] * 5, c = dp[p7] * 7;
-            int v = min(min(a, b), c);
-            dp[i] = v;
-            if (v == a) {
-                ++p3;
-            }
-            if (v == b) {
-                ++p5;
-            }
-            if (v == c) {
-                ++p7;
+        priority_queue<long, vector<long>, greater<long>> q;
+        unordered_set<long> vis;
+        q.push(1l);
+        vis.insert(1l);
+        for (int i = 0; i < k - 1; ++i) {
+            long cur = q.top();
+            q.pop();
+            for (int f : factors) {
+                long nxt = cur * f;
+                if (!vis.count(nxt)) {
+                    vis.insert(nxt);
+                    q.push(nxt);
+                }
             }
         }
-        return dp[k];
+        return (int) q.top();
     }
 };

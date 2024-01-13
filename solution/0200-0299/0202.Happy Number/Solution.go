@@ -1,14 +1,12 @@
 func isHappy(n int) bool {
-	next := func(x int) (y int) {
-		for ; x > 0; x /= 10 {
-			y += (x % 10) * (x % 10)
+	vis := map[int]bool{}
+	for n != 1 && !vis[n] {
+		vis[n] = true
+		x := 0
+		for ; n > 0; n /= 10 {
+			x += (n % 10) * (n % 10)
 		}
-		return
+		n = x
 	}
-	slow, fast := n, next(n)
-	for slow != fast {
-		slow = next(slow)
-		fast = next(next(fast))
-	}
-	return slow == 1
+	return n == 1
 }

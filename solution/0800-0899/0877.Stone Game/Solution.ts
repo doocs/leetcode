@@ -1,13 +1,14 @@
 function stoneGame(piles: number[]): boolean {
     const n = piles.length;
     const f: number[][] = new Array(n).fill(0).map(() => new Array(n).fill(0));
-    for (let i = 0; i < n; ++i) {
-        f[i][i] = piles[i];
-    }
-    for (let i = n - 2; i >= 0; --i) {
-        for (let j = i + 1; j < n; ++j) {
-            f[i][j] = Math.max(piles[i] - f[i + 1][j], piles[j] - f[i][j - 1]);
+    const dfs = (i: number, j: number): number => {
+        if (i > j) {
+            return 0;
         }
-    }
-    return f[0][n - 1] > 0;
+        if (f[i][j] === 0) {
+            f[i][j] = Math.max(piles[i] - dfs(i + 1, j), piles[j] - dfs(i, j - 1));
+        }
+        return f[i][j];
+    };
+    return dfs(0, n - 1) > 0;
 }

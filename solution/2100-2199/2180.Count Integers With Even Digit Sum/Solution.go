@@ -1,9 +1,12 @@
 func countEven(num int) (ans int) {
-	ans = num/10*5 - 1
-	s := 0
-	for x := num / 10; x > 0; x /= 10 {
-		s += x % 10
+	for i := 1; i <= num; i++ {
+		s := 0
+		for x := i; x > 0; x /= 10 {
+			s += x % 10
+		}
+		if s%2 == 0 {
+			ans++
+		}
 	}
-	ans += (num%10 + 2 - (s & 1)) >> 1
 	return
 }

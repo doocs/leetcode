@@ -14,21 +14,26 @@
  * }
  */
 class Solution {
+    private int ans;
+    private double target;
+    private double mi = Double.MAX_VALUE;
+
     public int closestValue(TreeNode root, double target) {
-        int ans = root.val;
-        double mi = Double.MAX_VALUE;
-        while (root != null) {
-            double t = Math.abs(root.val - target);
-            if (t < mi || (t == mi && root.val < ans)) {
-                mi = t;
-                ans = root.val;
-            }
-            if (root.val > target) {
-                root = root.left;
-            } else {
-                root = root.right;
-            }
-        }
+        this.target = target;
+        dfs(root);
         return ans;
+    }
+
+    private void dfs(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        dfs(root.left);
+        double t = Math.abs(root.val - target);
+        if (t < mi) {
+            mi = t;
+            ans = root.val;
+        }
+        dfs(root.right);
     }
 }

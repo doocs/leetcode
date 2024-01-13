@@ -1,7 +1,11 @@
 func maxAlternatingSum(nums []int) int64 {
-	var f, g int
-	for _, x := range nums {
-		f, g = max(g-x, f), max(f+x, g)
+	n := len(nums)
+	f := make([]int, n+1)
+	g := make([]int, n+1)
+	for i, x := range nums {
+		i++
+		f[i] = max(g[i-1]-x, f[i-1])
+		g[i] = max(f[i-1]+x, g[i-1])
 	}
-	return int64(max(f, g))
+	return int64(max(f[n], g[n]))
 }

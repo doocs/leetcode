@@ -1,24 +1,19 @@
 function generateAbbreviations(word: string): string[] {
     const n = word.length;
-    const ans: string[] = [];
-    for (let i = 0; i < 1 << n; ++i) {
-        const s: string[] = [];
-        let cnt = 0;
-        for (let j = 0; j < n; ++j) {
-            if ((i >> j) & 1) {
-                ++cnt;
-            } else {
-                if (cnt > 0) {
-                    s.push(cnt.toString());
-                    cnt = 0;
-                }
-                s.push(word[j]);
+    const dfs = (i: number): string[] => {
+        if (i >= n) {
+            return [''];
+        }
+        const ans: string[] = [];
+        for (const s of dfs(i + 1)) {
+            ans.push(word[i] + s);
+        }
+        for (let j = i + 1; j <= n; ++j) {
+            for (const s of dfs(j + 1)) {
+                ans.push((j - i).toString() + (j < n ? word[j] : '') + s);
             }
         }
-        if (cnt > 0) {
-            s.push(cnt.toString());
-        }
-        ans.push(s.join(''));
-    }
-    return ans;
+        return ans;
+    };
+    return dfs(0);
 }

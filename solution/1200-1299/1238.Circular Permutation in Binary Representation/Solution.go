@@ -1,6 +1,11 @@
-func circularPermutation(n int, start int) (ans []int) {
-	for i := 0; i < 1<<n; i++ {
-		ans = append(ans, i^(i>>1)^start)
+func circularPermutation(n int, start int) []int {
+	g := make([]int, 1<<n)
+	j := 0
+	for i := range g {
+		g[i] = i ^ (i >> 1)
+		if g[i] == start {
+			j = i
+		}
 	}
-	return
+	return append(g[j:], g[:j]...)
 }

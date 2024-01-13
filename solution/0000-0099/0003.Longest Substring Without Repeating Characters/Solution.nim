@@ -15,5 +15,3 @@ proc lengthOfLongestSubstring(s: string): int =
     i += 1
 
   result = res # result has the default return value
-
-echo lengthOfLongestSubstring("abcddabcf")

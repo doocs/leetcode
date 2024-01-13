@@ -1,4 +1,5 @@
 class Solution {
+
     public int minArea(char[][] image, int x, int y) {
         int m = image.length, n = image[0].length;
         int left = 0, right = x;

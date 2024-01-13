@@ -1,6 +1,7 @@
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
-        a = b = 0
-        for i in range(1, len(cost)):
-            a, b = b, min(a + cost[i - 1], b + cost[i])
-        return b
+        n = len(cost)
+        dp = [0] * (n + 1)
+        for i in range(2, n + 1):
+            dp[i] = min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2])
+        return dp[-1]

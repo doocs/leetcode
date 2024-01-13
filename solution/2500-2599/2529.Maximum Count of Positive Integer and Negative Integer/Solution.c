@@ -1,21 +1,13 @@
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 
-int search(int* nums, int numsSize, int target) {
-    int left = 0;
-    int right = numsSize;
-    while (left < right) {
-        int mid = (left + right) >> 1;
-        if (nums[mid] < target) {
-            left = mid + 1;
-        } else {
-            right = mid;
+int maximumCount(int* nums, int numsSize) {
+    int count[2] = {0};
+    for (int i = 0; i < numsSize; i++) {
+        if (nums[i] < 0) {
+            count[0]++;
+        } else if (nums[i] > 0) {
+            count[1]++;
         }
     }
-    return left;
-}
-
-int maximumCount(int* nums, int numsSize) {
-    int i = search(nums, numsSize, 0);
-    int j = search(nums, numsSize, 1);
-    return max(i, numsSize - j);
+    return max(count[0], count[1]);
 }

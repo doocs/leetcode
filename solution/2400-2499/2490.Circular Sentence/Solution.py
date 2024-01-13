@@ -1,5 +1,5 @@
 class Solution:
-    def isCircularSentence(self, s: str) -> bool:
-        return s[0] == s[-1] and all(
-            c != " " or s[i - 1] == s[i + 1] for i, c in enumerate(s)
-        )
+    def isCircularSentence(self, sentence: str) -> bool:
+        ss = sentence.split()
+        n = len(ss)
+        return all(s[-1] == ss[(i + 1) % n][0] for i, s in enumerate(ss))

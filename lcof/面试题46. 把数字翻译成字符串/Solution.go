@@ -1,13 +1,21 @@
 func translateNum(num int) int {
 	s := strconv.Itoa(num)
 	n := len(s)
-	a, b := 1, 1
-	for i := 1; i < n; i++ {
-		c := b
-		if s[i-1] == '1' || (s[i-1] == '2' && s[i] < '6') {
-			c += a
+	f := [12]int{}
+	var dfs func(int) int
+	dfs = func(i int) int {
+		if i >= n-1 {
+			return 1
 		}
-		a, b = b, c
+		if f[i] != 0 {
+			return f[i]
+		}
+		ans := dfs(i + 1)
+		if s[i] == '1' || (s[i] == '2' && s[i+1] < '6') {
+			ans += dfs(i + 2)
+		}
+		f[i] = ans
+		return ans
 	}
-	return b
+	return dfs(0)
 }

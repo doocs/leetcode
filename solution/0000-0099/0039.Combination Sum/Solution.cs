@@ -15,12 +15,13 @@ public class Solution {
             ans.Add(new List<int>(t));
             return;
         }
-        if (i >= candidates.Length || s < candidates[i]) {
+        if (s < candidates[i]) {
             return;
         }
-        dfs(i + 1, s);
-        t.Add(candidates[i]);
-        dfs(i, s - candidates[i]);
-        t.RemoveAt(t.Count - 1);
+        for (int j = i; j < candidates.Length; ++j) {
+            t.Add(candidates[j]);
+            dfs(j, s - candidates[j]);
+            t.RemoveAt(t.Count - 1);
+        }
     }
 }

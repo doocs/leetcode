@@ -1,27 +1,24 @@
 class Solution:
     def maxSumOfThreeSubarrays(self, nums: List[int], k: int) -> List[int]:
-        n = len(nums)
-        s = list(accumulate(nums, initial=0))
-        pre = [[] for _ in range(n)]
-        suf = [[] for _ in range(n)]
-        t = idx = 0
-        for i in range(n - k + 1):
-            if (cur := s[i + k] - s[i]) > t:
-                pre[i + k - 1] = [cur, i]
-                t, idx = pre[i + k - 1]
-            else:
-                pre[i + k - 1] = [t, idx]
-        t = idx = 0
-        for i in range(n - k, -1, -1):
-            if (cur := s[i + k] - s[i]) >= t:
-                suf[i] = [cur, i]
-                t, idx = suf[i]
-            else:
-                suf[i] = [t, idx]
-        t = 0
+        s = s1 = s2 = s3 = 0
+        mx1 = mx12 = 0
+        idx1, idx12 = 0, ()
         ans = []
-        for i in range(k, n - 2 * k + 1):
-            if (cur := s[i + k] - s[i] + pre[i - 1][0] + suf[i + k][0]) > t:
-                ans = [pre[i - 1][1], i, suf[i + k][1]]
-                t = cur
+        for i in range(k * 2, len(nums)):
+            s1 += nums[i - k * 2]
+            s2 += nums[i - k]
+            s3 += nums[i]
+            if i >= k * 3 - 1:
+                if s1 > mx1:
+                    mx1 = s1
+                    idx1 = i - k * 3 + 1
+                if mx1 + s2 > mx12:
+                    mx12 = mx1 + s2
+                    idx12 = (idx1, i - k * 2 + 1)
+                if mx12 + s3 > s:
+                    s = mx12 + s3
+                    ans = [*idx12, i - k + 1]
+                s1 -= nums[i - k * 3 + 1]
+                s2 -= nums[i - k * 2 + 1]
+                s3 -= nums[i - k + 1]
         return ans

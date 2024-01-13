@@ -1,4 +1,5 @@
 class Solution {
+
     public int findMinFibonacciNumbers(int k) {
         if (k < 2) {
             return k;

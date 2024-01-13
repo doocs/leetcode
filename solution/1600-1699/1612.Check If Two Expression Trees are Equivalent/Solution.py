@@ -6,17 +6,15 @@
 #         self.right = right
 class Solution:
     def checkEquivalence(self, root1: 'Node', root2: 'Node') -> bool:
-        def dfs(root):
-            cnt = [0] * 26
+        def dfs(root, v):
             if root is None:
-                return cnt
-            if root.val in '+-':
-                l, r = dfs(root.left), dfs(root.right)
-                k = 1 if root.val == '+' else -1
-                for i in range(26):
-                    cnt[i] += l[i] + r[i] * k
-            else:
-                cnt[ord(root.val) - ord('a')] += 1
-            return cnt
+                return
+            if root.val != '+':
+                cnt[root.val] += v
+            dfs(root.left, v)
+            dfs(root.right, v)
 
-        return dfs(root1) == dfs(root2)
+        cnt = Counter()
+        dfs(root1, 1)
+        dfs(root2, -1)
+        return all(x == 0 for x in cnt.values())

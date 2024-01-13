@@ -2,15 +2,14 @@ class Solution {
 public:
     int rearrangeSticks(int n, int k) {
         const int mod = 1e9 + 7;
-        int f[k + 1];
+        int f[n + 1][k + 1];
         memset(f, 0, sizeof(f));
-        f[0] = 1;
+        f[0][0] = 1;
         for (int i = 1; i <= n; ++i) {
-            for (int j = k; j; --j) {
-                f[j] = (f[j - 1] + f[j] * (i - 1LL)) % mod;
+            for (int j = 1; j <= k; ++j) {
+                f[i][j] = (f[i - 1][j - 1] + (i - 1LL) * f[i - 1][j]) % mod;
             }
-            f[0] = 0;
         }
-        return f[k];
+        return f[n][k];
     }
 };

@@ -1,15 +1,19 @@
 class Solution {
     public int countTime(String time) {
-        return f(time.substring(0, 2), 24) * f(time.substring(3), 60);
-    }
-
-    private int f(String s, int m) {
-        int cnt = 0;
-        for (int i = 0; i < m; ++i) {
-            boolean a = s.charAt(0) == '?' || s.charAt(0) - '0' == i / 10;
-            boolean b = s.charAt(1) == '?' || s.charAt(1) - '0' == i % 10;
-            cnt += a && b ? 1 : 0;
+        int ans = 0;
+        for (int h = 0; h < 24; ++h) {
+            for (int m = 0; m < 60; ++m) {
+                String s = String.format("%02d:%02d", h, m);
+                int ok = 1;
+                for (int i = 0; i < 5; ++i) {
+                    if (s.charAt(i) != time.charAt(i) && time.charAt(i) != '?') {
+                        ok = 0;
+                        break;
+                    }
+                }
+                ans += ok;
+            }
         }
-        return cnt;
+        return ans;
     }
 }

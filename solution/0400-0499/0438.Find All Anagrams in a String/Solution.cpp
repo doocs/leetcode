@@ -1,4 +1,4 @@
-﻿class Solution {
+class Solution {
 public:
     vector<int> findAnagrams(string s, string p) {
         int m = s.size(), n = p.size();

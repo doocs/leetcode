@@ -2,24 +2,26 @@ class Solution:
     def numDupDigitsAtMostN(self, n: int) -> int:
         return n - self.f(n)
 
-    def f(self, n: int) -> int:
-        @cache
-        def dfs(pos: int, mask: int, lead: bool, limit: bool) -> int:
-            if pos < 0:
-                return int(lead) ^ 1
-            up = nums[pos] if limit else 9
-            ans = 0
-            for i in range(up + 1):
-                if mask >> i & 1:
-                    continue
-                if i == 0 and lead:
-                    ans += dfs(pos - 1, mask, lead, limit and i == up)
-                else:
-                    ans += dfs(pos - 1, mask | 1 << i, False, limit and i == up)
-            return ans
+    def f(self, n):
+        def A(m, n):
+            return 1 if n == 0 else A(m, n - 1) * (m - n + 1)
 
-        nums = []
-        while n:
-            nums.append(n % 10)
-            n //= 10
-        return dfs(len(nums) - 1, 0, True, True)
+        vis = [False] * 10
+        ans = 0
+        digits = [int(c) for c in str(n)[::-1]]
+        m = len(digits)
+        for i in range(1, m):
+            ans += 9 * A(9, i - 1)
+        for i in range(m - 1, -1, -1):
+            v = digits[i]
+            j = 1 if i == m - 1 else 0
+            while j < v:
+                if not vis[j]:
+                    ans += A(10 - (m - i), i)
+                j += 1
+            if vis[v]:
+                break
+            vis[v] = True
+            if i == 0:
+                ans += 1
+        return ans

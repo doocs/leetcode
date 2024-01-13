@@ -14,13 +14,24 @@ class Solution {
                 }
             }
         }
-        int ans = 0;
+        int res = 0;
         for (int i = 0; i < n; ++i) {
             if (i == find(i)) {
-                ++ans;
+                ++res;
             }
         }
-        return ans;
+        return res;
+    }
+
+    private boolean check(String a, String b) {
+        int cnt = 0;
+        int n = a.length();
+        for (int i = 0; i < n; ++i) {
+            if (a.charAt(i) != b.charAt(i)) {
+                ++cnt;
+            }
+        }
+        return cnt <= 2;
     }
 
     private int find(int x) {
@@ -28,15 +39,5 @@ class Solution {
             p[x] = find(p[x]);
         }
         return p[x];
-    }
-
-    private boolean check(String a, String b) {
-        int cnt = 0;
-        for (int i = 0; i < a.length(); ++i) {
-            if (a.charAt(i) != b.charAt(i)) {
-                ++cnt;
-            }
-        }
-        return cnt <= 2;
     }
 }

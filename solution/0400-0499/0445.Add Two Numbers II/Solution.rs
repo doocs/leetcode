@@ -15,39 +15,39 @@
 //   }
 // }
 impl Solution {
-    fn create_stack(mut head: Option<Box<ListNode>>) -> Vec<i32> {
-        let mut res = vec![];
-        while let Some(node) = head {
-            res.push(node.val);
-            head = node.next;
+    fn reverse(mut head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+        let mut pre = None;
+        while let Some(mut node) = head {
+            let next = node.next.take();
+            node.next = pre.take();
+            pre = Some(node);
+            head = next;
         }
-        res
+        pre
     }
 
     pub fn add_two_numbers(
-        l1: Option<Box<ListNode>>,
-        l2: Option<Box<ListNode>>
+        mut l1: Option<Box<ListNode>>,
+        mut l2: Option<Box<ListNode>>
     ) -> Option<Box<ListNode>> {
-        let mut s1 = Self::create_stack(l1);
-        let mut s2 = Self::create_stack(l2);
-
-        let mut dummy = Box::new(ListNode::new(0));
-        let mut carry = 0;
-        while !s1.is_empty() || !s2.is_empty() || carry != 0 {
-            if let Some(val) = s1.pop() {
-                carry += val;
+        l1 = Self::reverse(l1);
+        l2 = Self::reverse(l2);
+        let mut dummy = Some(Box::new(ListNode::new(0)));
+        let mut cur = &mut dummy;
+        let mut sum = 0;
+        while l1.is_some() || l2.is_some() || sum != 0 {
+            if let Some(node) = l1 {
+                sum += node.val;
+                l1 = node.next;
             }
-            if let Some(val) = s2.pop() {
-                carry += val;
+            if let Some(node) = l2 {
+                sum += node.val;
+                l2 = node.next;
             }
-            dummy.next = Some(
-                Box::new(ListNode {
-                    val: carry % 10,
-                    next: dummy.next.take(),
-                })
-            );
-            carry /= 10;
+            cur.as_mut().unwrap().next = Some(Box::new(ListNode::new(sum % 10)));
+            cur = &mut cur.as_mut().unwrap().next;
+            sum /= 10;
         }
-        dummy.next.take()
+        Self::reverse(dummy.unwrap().next.take())
     }
 }

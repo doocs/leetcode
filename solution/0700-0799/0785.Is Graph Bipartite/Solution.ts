@@ -1,6 +1,7 @@
 function isBipartite(graph: number[][]): boolean {
     const n = graph.length;
     let valid = true;
+    // 0 未遍历， 1 红色标记， 2 绿色标记
     let colors = new Array(n).fill(0);
     function dfs(idx: number, color: number, graph: number[][]) {
         colors[idx] = color;

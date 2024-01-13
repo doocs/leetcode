@@ -9,6 +9,9 @@ func openLock(deadends []string, target string) int {
 	if s["0000"] {
 		return -1
 	}
+	q := []string{"0000"}
+	s["0000"] = true
+	ans := 0
 	next := func(t string) []string {
 		s := []byte(t)
 		var res []string
@@ -27,47 +30,21 @@ func openLock(deadends []string, target string) int {
 		}
 		return res
 	}
-
-	extend := func(m1, m2 map[string]int, q *[]string) int {
-		for n := len(*q); n > 0; n-- {
-			p := (*q)[0]
-			*q = (*q)[1:]
-			step, _ := m1[p]
+	for len(q) > 0 {
+		ans++
+		for n := len(q); n > 0; n-- {
+			p := q[0]
+			q = q[1:]
 			for _, t := range next(p) {
-				if s[t] {
-					continue
+				if target == t {
+					return ans
 				}
-				if _, ok := m1[t]; ok {
-					continue
+				if !s[t] {
+					q = append(q, t)
+					s[t] = true
 				}
-				if v, ok := m2[t]; ok {
-					return step + 1 + v
-				}
-				m1[t] = step + 1
-				*q = append(*q, t)
 			}
 		}
-		return -1
 	}
-
-	bfs := func() int {
-		q1 := []string{"0000"}
-		q2 := []string{target}
-		m1 := map[string]int{"0000": 0}
-		m2 := map[string]int{target: 0}
-		for len(q1) > 0 && len(q2) > 0 {
-			t := -1
-			if len(q1) <= len(q2) {
-				t = extend(m1, m2, &q1)
-			} else {
-				t = extend(m2, m1, &q2)
-			}
-			if t != -1 {
-				return t
-			}
-		}
-		return -1
-	}
-
-	return bfs()
+	return -1
 }

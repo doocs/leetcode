@@ -1,9 +1,9 @@
 func repeatedCharacter(s string) byte {
-	mask := 0
+	cnt := [26]int{}
 	for i := 0; ; i++ {
-		if mask>>(s[i]-'a')&1 == 1 {
+		cnt[s[i]-'a']++
+		if cnt[s[i]-'a'] == 2 {
 			return s[i]
 		}
-		mask |= 1 << (s[i] - 'a')
 	}
 }

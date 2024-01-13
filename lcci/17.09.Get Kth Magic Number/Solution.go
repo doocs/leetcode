@@ -1,20 +1,25 @@
 func getKthMagicNumber(k int) int {
-	dp := make([]int, k+1)
-	dp[1] = 1
-	p3, p5, p7 := 1, 1, 1
-	for i := 2; i <= k; i++ {
-		a, b, c := dp[p3]*3, dp[p5]*5, dp[p7]*7
-		v := min(min(a, b), c)
-		dp[i] = v
-		if v == a {
-			p3++
-		}
-		if v == b {
-			p5++
-		}
-		if v == c {
-			p7++
+	q := hp{[]int{1}}
+	vis := map[int]bool{1: true}
+	for i := 0; i < k-1; i++ {
+		cur := heap.Pop(&q).(int)
+		for _, f := range []int{3, 5, 7} {
+			nxt := cur * f
+			if !vis[nxt] {
+				vis[nxt] = true
+				heap.Push(&q, nxt)
+			}
 		}
 	}
-	return dp[k]
+	return q.IntSlice[0]
+}
+
+type hp struct{ sort.IntSlice }
+
+func (h *hp) Push(v any) { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() any {
+	a := h.IntSlice
+	v := a[len(a)-1]
+	h.IntSlice = a[:len(a)-1]
+	return v
 }

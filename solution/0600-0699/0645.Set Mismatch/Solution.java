@@ -1,26 +1,16 @@
 class Solution {
     public int[] findErrorNums(int[] nums) {
         int n = nums.length;
-        int xs = 0;
-        for (int i = 1; i <= n; ++i) {
-            xs ^= i ^ nums[i - 1];
-        }
-        int lb = xs & -xs;
-        int a = 0;
-        for (int i = 1; i <= n; ++i) {
-            if ((i & lb) > 0) {
-                a ^= i;
+        int s1 = (1 + n) * n / 2;
+        int s2 = 0;
+        Set<Integer> set = new HashSet<>();
+        int s = 0;
+        for (int x : nums) {
+            if (set.add(x)) {
+                s2 += x;
             }
-            if ((nums[i - 1] & lb) > 0) {
-                a ^= nums[i - 1];
-            }
+            s += x;
         }
-        int b = xs ^ a;
-        for (int i = 0; i < n; ++i) {
-            if (nums[i] == a) {
-                return new int[] {a, b};
-            }
-        }
-        return new int[] {b, a};
+        return new int[] {s - s2, s1 - s2};
     }
 }

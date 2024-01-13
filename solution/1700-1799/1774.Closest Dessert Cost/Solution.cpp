@@ -14,8 +14,11 @@ public:
         dfs(0, 0);
         sort(arr.begin(), arr.end());
         int d = inf, ans = inf;
+        // 选择一种冰激淋基料
         for (int x : baseCosts) {
+            // 枚举子集和
             for (int y : arr) {
+                // 二分查找
                 int i = lower_bound(arr.begin(), arr.end(), target - x - y) - arr.begin();
                 for (int j = i - 1; j < i + 1; ++j) {
                     if (j >= 0 && j < arr.size()) {

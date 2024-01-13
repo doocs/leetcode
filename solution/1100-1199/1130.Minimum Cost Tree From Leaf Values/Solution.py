@@ -1,13 +1,17 @@
 class Solution:
     def mctFromLeafValues(self, arr: List[int]) -> int:
-        n = len(arr)
-        f = [[0] * n for _ in range(n)]
-        g = [[0] * n for _ in range(n)]
-        for i in range(n - 1, -1, -1):
-            g[i][i] = arr[i]
-            for j in range(i + 1, n):
-                g[i][j] = max(g[i][j - 1], arr[j])
-                f[i][j] = min(
-                    f[i][k] + f[k + 1][j] + g[i][k] * g[k + 1][j] for k in range(i, j)
-                )
-        return f[0][n - 1]
+        @cache
+        def dfs(i: int, j: int) -> Tuple:
+            if i == j:
+                return 0, arr[i]
+            s, mx = inf, -1
+            for k in range(i, j):
+                s1, mx1 = dfs(i, k)
+                s2, mx2 = dfs(k + 1, j)
+                t = s1 + s2 + mx1 * mx2
+                if s > t:
+                    s = t
+                    mx = max(mx1, mx2)
+            return s, mx
+
+        return dfs(0, len(arr) - 1)[0]

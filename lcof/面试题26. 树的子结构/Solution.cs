@@ -13,7 +13,7 @@ public class Solution {
             return false;
         }
         return dfs(A, B) || IsSubStructure(A.left, B) || IsSubStructure(A.right, B);
-    } 
+    }
 
     public bool dfs(TreeNode A, TreeNode B) {
         if (B == null) {

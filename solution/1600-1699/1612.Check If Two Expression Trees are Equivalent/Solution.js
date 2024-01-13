@@ -12,27 +12,21 @@
  * @return {boolean}
  */
 var checkEquivalence = function (root1, root2) {
-    const dfs = root => {
-        const cnt = new Array(26).fill(0);
+    const cnt = new Array(26).fill(0);
+    const dfs = (root, v) => {
         if (!root) {
-            return cnt;
+            return;
         }
-        if (root.val === '+' || root.val === '-') {
-            const l = dfs(root.left);
-            const r = dfs(root.right);
-            const k = root.val === '+' ? 1 : -1;
-            for (let i = 0; i < 26; ++i) {
-                cnt[i] = l[i] + k * r[i];
-            }
-        } else {
-            cnt[root.val.charCodeAt(0) - 'a'.charCodeAt(0)]++;
+        if (root.val !== '+') {
+            cnt[root.val.charCodeAt(0) - 'a'.charCodeAt(0)] += v;
         }
-        return cnt;
+        dfs(root.left, v);
+        dfs(root.right, v);
     };
-    const cnt1 = dfs(root1);
-    const cnt2 = dfs(root2);
-    for (let i = 0; i < 26; ++i) {
-        if (cnt1[i] !== cnt2[i]) {
+    dfs(root1, 1);
+    dfs(root2, -1);
+    for (const x of cnt) {
+        if (x) {
             return false;
         }
     }

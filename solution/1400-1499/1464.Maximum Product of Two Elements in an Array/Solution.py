@@ -1,9 +1,7 @@
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
-        a = b = 0
-        for v in nums:
-            if v > a:
-                a, b = v, a
-            elif v > b:
-                b = v
-        return (a - 1) * (b - 1)
+        ans = 0
+        for i, a in enumerate(nums):
+            for b in nums[i + 1 :]:
+                ans = max(ans, (a - 1) * (b - 1))
+        return ans

@@ -1,13 +1,6 @@
 func buyChoco(prices []int, money int) int {
-	a, b := 1001, 1001
-	for _, x := range prices {
-		if x < a {
-			a, b = x, a
-		} else if x < b {
-			b = x
-		}
-	}
-	cost := a + b
+	sort.Ints(prices)
+	cost := prices[0] + prices[1]
 	if money < cost {
 		return money
 	}

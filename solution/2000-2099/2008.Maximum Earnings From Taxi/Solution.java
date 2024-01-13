@@ -1,22 +1,34 @@
 class Solution {
+    private int m;
+    private int[][] rides;
+    private Long[] f;
+
     public long maxTaxiEarnings(int n, int[][] rides) {
-        Arrays.sort(rides, (a, b) -> a[1] - b[1]);
-        int m = rides.length;
-        long[] f = new long[m + 1];
-        for (int i = 1; i <= m; ++i) {
-            int[] r = rides[i - 1];
-            int st = r[0], ed = r[1], tip = r[2];
-            int j = search(rides, st + 1, i);
-            f[i] = Math.max(f[i - 1], f[j] + ed - st + tip);
-        }
-        return f[m];
+        Arrays.sort(rides, (a, b) -> a[0] - b[0]);
+        m = rides.length;
+        f = new Long[m];
+        this.rides = rides;
+        return dfs(0);
     }
 
-    private int search(int[][] nums, int x, int r) {
-        int l = 0;
+    private long dfs(int i) {
+        if (i >= m) {
+            return 0;
+        }
+        if (f[i] != null) {
+            return f[i];
+        }
+        int[] r = rides[i];
+        int st = r[0], ed = r[1], tip = r[2];
+        int j = search(ed, i + 1);
+        return f[i] = Math.max(dfs(i + 1), dfs(j) + ed - st + tip);
+    }
+
+    private int search(int x, int l) {
+        int r = m;
         while (l < r) {
             int mid = (l + r) >> 1;
-            if (nums[mid][1] >= x) {
+            if (rides[mid][0] >= x) {
                 r = mid;
             } else {
                 l = mid + 1;

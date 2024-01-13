@@ -1,28 +1,27 @@
 class MinStack {
-    stk1: number[];
-    stk2: number[];
-
+    stack: number[];
+    mins: number[];
     constructor() {
-        this.stk1 = [];
-        this.stk2 = [Infinity];
+        this.stack = [];
+        this.mins = [];
     }
 
     push(x: number): void {
-        this.stk1.push(x);
-        this.stk2.push(Math.min(x, this.stk2[this.stk2.length - 1]));
+        this.stack.push(x);
+        this.mins.push(Math.min(this.getMin(), x));
     }
 
     pop(): void {
-        this.stk1.pop();
-        this.stk2.pop();
+        this.stack.pop();
+        this.mins.pop();
     }
 
     top(): number {
-        return this.stk1[this.stk1.length - 1];
+        return this.stack[this.stack.length - 1];
     }
 
     getMin(): number {
-        return this.stk2[this.stk2.length - 1];
+        return this.mins.length == 0 ? Infinity : this.mins[this.mins.length - 1];
     }
 }
 

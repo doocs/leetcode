@@ -1,3 +1,5 @@
 class Solution:
     def circularPermutation(self, n: int, start: int) -> List[int]:
-        return [i ^ (i >> 1) ^ start for i in range(1 << n)]
+        g = [i ^ (i >> 1) for i in range(1 << n)]
+        j = g.index(start)
+        return g[j:] + g[:j]

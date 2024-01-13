@@ -3,26 +3,14 @@ class Solution:
         m, n = len(s), len(p)
         if m < n:
             return []
-        cnt = Counter()
-        for a, b in zip(s, p):
-            cnt[a] += 1
-            cnt[b] -= 1
-        diff = sum(x != 0 for x in cnt.values())
+        cnt1 = Counter(s[:n])
+        cnt2 = Counter(p)
         ans = []
-        if diff == 0:
+        if cnt1 == cnt2:
             ans.append(0)
         for i in range(n, m):
-            a, b = s[i - n], s[i]
-            if cnt[a] == 0:
-                diff += 1
-            cnt[a] -= 1
-            if cnt[a] == 0:
-                diff -= 1
-            if cnt[b] == 0:
-                diff += 1
-            cnt[b] += 1
-            if cnt[b] == 0:
-                diff -= 1
-            if diff == 0:
+            cnt1[s[i]] += 1
+            cnt1[s[i - n]] -= 1
+            if cnt1 == cnt2:
                 ans.append(i - n + 1)
         return ans

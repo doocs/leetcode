@@ -1,28 +1,25 @@
 func maximumScore(nums []int, multipliers []int) int {
-	const inf int = 1 << 30
 	n, m := len(nums), len(multipliers)
-	f := make([][]int, m+1)
+	f := make([][]int, m)
 	for i := range f {
-		f[i] = make([]int, m+1)
-		for j := range f {
-			f[i][j] = -inf
+		f[i] = make([]int, m)
+		for j := range f[i] {
+			f[i][j] = 1 << 30
 		}
 	}
-	f[0][0] = 0
-	ans := -inf
-	for i := 0; i <= m; i++ {
-		for j := 0; j <= m-i; j++ {
-			k := i + j - 1
-			if i > 0 {
-				f[i][j] = max(f[i][j], f[i-1][j]+multipliers[k]*nums[i-1])
-			}
-			if j > 0 {
-				f[i][j] = max(f[i][j], f[i][j-1]+multipliers[k]*nums[n-j])
-			}
-			if i+j == m {
-				ans = max(ans, f[i][j])
-			}
+	var dfs func(i, j int) int
+	dfs = func(i, j int) int {
+		if i >= m || j >= m || i+j >= m {
+			return 0
 		}
+		if f[i][j] != 1<<30 {
+			return f[i][j]
+		}
+		k := i + j
+		a := dfs(i+1, j) + nums[i]*multipliers[k]
+		b := dfs(i, j+1) + nums[n-j-1]*multipliers[k]
+		f[i][j] = max(a, b)
+		return f[i][j]
 	}
-	return ans
+	return dfs(0, 0)
 }

@@ -1,7 +1,7 @@
 class Solution {
     public List<Integer> busiestServers(int k, int[] arrival, int[] load) {
         int[] cnt = new int[k];
-        PriorityQueue<int[]> busy = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+        PriorityQueue<int[]> busy = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
         TreeSet<Integer> free = new TreeSet<>();
         for (int i = 0; i < k; ++i) {
             free.add(i);

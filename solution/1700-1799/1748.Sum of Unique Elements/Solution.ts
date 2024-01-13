@@ -5,7 +5,7 @@ function sumOfUnique(nums: number[]): number {
     }
     let ans = 0;
     for (let x = 0; x < 101; ++x) {
-        if (cnt[x] === 1) {
+        if (cnt[x] == 1) {
             ans += x;
         }
     }

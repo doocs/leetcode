@@ -1,19 +1,16 @@
 class Solution {
 public:
     int minNumber(vector<int>& nums1, vector<int>& nums2) {
-        int mask1 = 0, mask2 = 0;
-        for (int x : nums1) {
-            mask1 |= 1 << x;
+        int ans = 100;
+        for (int a : nums1) {
+            for (int b : nums2) {
+                if (a == b) {
+                    ans = min(ans, a);
+                } else {
+                    ans = min({ans, a * 10 + b, b * 10 + a});
+                }
+            }
         }
-        for (int x : nums2) {
-            mask2 |= 1 << x;
-        }
-        int mask = mask1 & mask2;
-        if (mask) {
-            return __builtin_ctz(mask);
-        }
-        int a = __builtin_ctz(mask1);
-        int b = __builtin_ctz(mask2);
-        return min(a * 10 + b, b * 10 + a);
+        return ans;
     }
 };

@@ -13,7 +13,7 @@ public class Solution {
 
     public TreeNode GetTargetCopy(TreeNode original, TreeNode cloned, TreeNode target) {
         this.target = target;
-        return dfs(original, cloned);    
+        return dfs(original, cloned);
     }
 
     private TreeNode dfs(TreeNode original, TreeNode cloned) {

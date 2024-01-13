@@ -1,9 +1,9 @@
 impl Solution {
     pub fn check_if_pangram(sentence: String) -> bool {
-        let mut mark = 0;
+        let mut vis = [false; 26];
         for c in sentence.as_bytes() {
-            mark |= 1 << (*c - b'a');
+            vis[(*c - b'a') as usize] = true;
         }
-        mark == (1 << 26) - 1
+        vis.iter().all(|v| *v)
     }
 }

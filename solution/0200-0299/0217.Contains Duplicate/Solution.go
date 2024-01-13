@@ -1,10 +1,9 @@
 func containsDuplicate(nums []int) bool {
-	s := map[int]bool{}
-	for _, v := range nums {
-		if s[v] {
+	sort.Ints(nums)
+	for i, v := range nums[1:] {
+		if v == nums[i] {
 			return true
 		}
-		s[v] = true
 	}
 	return false
 }

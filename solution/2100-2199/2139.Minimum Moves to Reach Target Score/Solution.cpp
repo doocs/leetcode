@@ -1,17 +1,15 @@
 class Solution {
 public:
     int minMoves(int target, int maxDoubles) {
-        int ans = 0;
-        while (maxDoubles > 0 && target > 1) {
-            ++ans;
-            if (target % 2 == 1) {
-                --target;
-            } else {
-                --maxDoubles;
-                target >>= 1;
-            }
+        if (target == 1) {
+            return 0;
         }
-        ans += target - 1;
-        return ans;
+        if (maxDoubles == 0) {
+            return target - 1;
+        }
+        if (target % 2 == 0 && maxDoubles > 0) {
+            return 1 + minMoves(target >> 1, maxDoubles - 1);
+        }
+        return 1 + minMoves(target - 1, maxDoubles);
     }
 };

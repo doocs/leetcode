@@ -1,4 +1,4 @@
-﻿class Solution {
+class Solution {
 private:
     vector<int> Next(string str) {
         vector<int> n(str.length());

@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool queryString(string s, int n) {
-        if (n > 1023) {
+        if (n > 1000) {
             return false;
         }
         for (int i = n; i > n / 2; --i) {

@@ -14,24 +14,27 @@
  * }
  */
 class BSTIterator {
-    private Deque<TreeNode> stack = new LinkedList<>();
+    private int cur = 0;
+    private List<Integer> vals = new ArrayList<>();
 
     public BSTIterator(TreeNode root) {
-        for (; root != null; root = root.left) {
-            stack.offerLast(root);
-        }
+        inorder(root);
     }
 
     public int next() {
-        TreeNode cur = stack.pollLast();
-        for (TreeNode node = cur.right; node != null; node = node.left) {
-            stack.offerLast(node);
-        }
-        return cur.val;
+        return vals.get(cur++);
     }
 
     public boolean hasNext() {
-        return !stack.isEmpty();
+        return cur < vals.size();
+    }
+
+    private void inorder(TreeNode root) {
+        if (root != null) {
+            inorder(root.left);
+            vals.add(root.val);
+            inorder(root.right);
+        }
     }
 }
 

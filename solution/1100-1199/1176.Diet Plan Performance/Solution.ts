@@ -1,17 +1,15 @@
 function dietPlanPerformance(calories: number[], k: number, lower: number, upper: number): number {
     const n = calories.length;
-    let s = calories.slice(0, k).reduce((a, b) => a + b);
-    let ans = 0;
-    if (s < lower) {
-        --ans;
-    } else if (s > upper) {
-        ++ans;
+    const s: number[] = new Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        s[i + 1] = s[i] + calories[i];
     }
-    for (let i = k; i < n; ++i) {
-        s += calories[i] - calories[i - k];
-        if (s < lower) {
+    let ans = 0;
+    for (let i = 0; i < n - k + 1; ++i) {
+        const t = s[i + k] - s[i];
+        if (t < lower) {
             --ans;
-        } else if (s > upper) {
+        } else if (t > upper) {
             ++ans;
         }
     }

@@ -1,19 +1,18 @@
 class Solution:
     def possibleBipartition(self, n: int, dislikes: List[List[int]]) -> bool:
-        def find(x):
-            if p[x] != x:
-                p[x] = find(p[x])
-            return p[x]
+        def dfs(i, c):
+            color[i] = c
+            for j in g[i]:
+                if color[j] == c:
+                    return False
+                if color[j] == 0 and not dfs(j, 3 - c):
+                    return False
+            return True
 
         g = defaultdict(list)
+        color = [0] * n
         for a, b in dislikes:
             a, b = a - 1, b - 1
             g[a].append(b)
             g[b].append(a)
-        p = list(range(n))
-        for i in range(n):
-            for j in g[i]:
-                if find(i) == find(j):
-                    return False
-                p[find(j)] = find(g[i][0])
-        return True
+        return all(c or dfs(i, 1) for i, c in enumerate(color))

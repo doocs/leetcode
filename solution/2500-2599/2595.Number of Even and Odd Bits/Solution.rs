@@ -1,8 +1,15 @@
 impl Solution {
-    pub fn even_odd_bit(n: i32) -> Vec<i32> {
-        let mask: i32 = 0x5555;
-        let even = (n & mask).count_ones() as i32;
-        let odd = (n & !mask).count_ones() as i32;
-        vec![even, odd]
+    pub fn even_odd_bit(mut n: i32) -> Vec<i32> {
+        let mut ans = vec![0; 2];
+
+        let mut i = 0;
+        while n != 0 {
+            ans[i] += n & 1;
+
+            n >>= 1;
+            i ^= 1;
+        }
+
+        ans
     }
 }

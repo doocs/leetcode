@@ -32,8 +32,10 @@ class TripleInOne {
 }
 
 /**
- * Your TripleInOne object will be instantiated and called as such: TripleInOne
- * obj = new TripleInOne(stackSize); obj.push(stackNum,value); int param_2 =
- * obj.pop(stackNum); int param_3 = obj.peek(stackNum); boolean param_4 =
- * obj.isEmpty(stackNum);
+ * Your TripleInOne object will be instantiated and called as such:
+ * TripleInOne obj = new TripleInOne(stackSize);
+ * obj.push(stackNum,value);
+ * int param_2 = obj.pop(stackNum);
+ * int param_3 = obj.peek(stackNum);
+ * boolean param_4 = obj.isEmpty(stackNum);
  */

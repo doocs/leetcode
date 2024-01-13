@@ -1,23 +1,30 @@
 class CombinationIterator:
     def __init__(self, characters: str, combinationLength: int):
-        self.curr = (1 << len(characters)) - 1
-        self.size = combinationLength
-        self.cs = characters[::-1]
+        def dfs(i):
+            if len(t) == combinationLength:
+                cs.append(''.join(t))
+                return
+            if i == n:
+                return
+            t.append(characters[i])
+            dfs(i + 1)
+            t.pop()
+            dfs(i + 1)
+
+        cs = []
+        n = len(characters)
+        t = []
+        dfs(0)
+        self.cs = cs
+        self.idx = 0
 
     def next(self) -> str:
-        while self.curr >= 0 and self.curr.bit_count() != self.size:
-            self.curr -= 1
-        ans = []
-        for i in range(len(self.cs)):
-            if (self.curr >> i) & 1:
-                ans.append(self.cs[i])
-        self.curr -= 1
-        return ''.join(ans[::-1])
+        ans = self.cs[self.idx]
+        self.idx += 1
+        return ans
 
     def hasNext(self) -> bool:
-        while self.curr >= 0 and self.curr.bit_count() != self.size:
-            self.curr -= 1
-        return self.curr >= 0
+        return self.idx < len(self.cs)
 
 
 # Your CombinationIterator object will be instantiated and called as such:

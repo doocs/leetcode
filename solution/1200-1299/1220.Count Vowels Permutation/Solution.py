@@ -1,24 +1,13 @@
-import numpy as np
-
-
 class Solution:
     def countVowelPermutation(self, n: int) -> int:
+        f = [1] * 5
         mod = 10**9 + 7
-        factor = np.mat(
-            [
-                (0, 1, 0, 0, 0),
-                (1, 0, 1, 0, 0),
-                (1, 1, 0, 1, 1),
-                (0, 0, 1, 0, 1),
-                (1, 0, 0, 0, 0),
-            ],
-            np.dtype("O"),
-        )
-        res = np.mat([(1, 1, 1, 1, 1)], np.dtype("O"))
-        n -= 1
-        while n:
-            if n & 1:
-                res = res * factor % mod
-            factor = factor * factor % mod
-            n >>= 1
-        return res.sum() % mod
+        for _ in range(n - 1):
+            g = [0] * 5
+            g[0] = (f[1] + f[2] + f[4]) % mod
+            g[1] = (f[0] + f[2]) % mod
+            g[2] = (f[1] + f[3]) % mod
+            g[3] = f[2]
+            g[4] = (f[2] + f[3]) % mod
+            f = g
+        return sum(f) % mod

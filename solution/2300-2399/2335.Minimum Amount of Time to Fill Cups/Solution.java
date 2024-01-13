@@ -1,9 +1,12 @@
 class Solution {
     public int fillCups(int[] amount) {
-        Arrays.sort(amount);
-        if (amount[0] + amount[1] <= amount[2]) {
-            return amount[2];
+        int ans = 0;
+        while (amount[0] + amount[1] + amount[2] > 0) {
+            Arrays.sort(amount);
+            ++ans;
+            amount[2]--;
+            amount[1] = Math.max(0, amount[1] - 1);
         }
-        return (amount[0] + amount[1] + amount[2] + 1) / 2;
+        return ans;
     }
 }

@@ -24,39 +24,25 @@
  * func (n NestedInteger) GetList() []*NestedInteger {}
  */
 func deserialize(s string) *NestedInteger {
+	ans := &NestedInteger{}
+	if s == "" || s == "[]" {
+		return ans
+	}
 	if s[0] != '[' {
 		v, _ := strconv.Atoi(s)
-		ans := NestedInteger{}
 		ans.SetInteger(v)
-		return &ans
+		return ans
 	}
-	stk := []*NestedInteger{}
-	x := 0
-	neg := false
-	for i, c := range s {
-		if c == '-' {
-			neg = true
-		} else if c >= '0' && c <= '9' {
-			x = x*10 + int(c-'0')
-		} else if c == '[' {
-			stk = append(stk, &NestedInteger{})
-		} else if c == ',' || c == ']' {
-			if s[i-1] >= '0' && s[i-1] <= '9' {
-				if neg {
-					x = -x
-				}
-				t := NestedInteger{}
-				t.SetInteger(x)
-				stk[len(stk)-1].Add(t)
-			}
-			x = 0
-			neg = false
-			if c == ']' && len(stk) > 1 {
-				t := stk[len(stk)-1]
-				stk = stk[:len(stk)-1]
-				stk[len(stk)-1].Add(*t)
-			}
+	depth := 0
+	for i, j := 1, 1; i < len(s); i++ {
+		if depth == 0 && (s[i] == ',' || i == len(s)-1) {
+			(*ans).Add(*deserialize(s[j:i]))
+			j = i + 1
+		} else if s[i] == '[' {
+			depth++
+		} else if s[i] == ']' {
+			depth--
 		}
 	}
-	return stk[0]
+	return ans
 }

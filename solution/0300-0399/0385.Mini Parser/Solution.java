@@ -28,35 +28,24 @@
  */
 class Solution {
     public NestedInteger deserialize(String s) {
+        if ("".equals(s) || "[]".equals(s)) {
+            return new NestedInteger();
+        }
         if (s.charAt(0) != '[') {
             return new NestedInteger(Integer.parseInt(s));
         }
-        Deque<NestedInteger> stk = new ArrayDeque<>();
-        int x = 0;
-        boolean neg = false;
-        for (int i = 0; i < s.length(); ++i) {
-            char c = s.charAt(i);
-            if (c == '-') {
-                neg = true;
-            } else if (Character.isDigit(c)) {
-                x = x * 10 + c - '0';
-            } else if (c == '[') {
-                stk.push(new NestedInteger());
-            } else if (c == ',' || c == ']') {
-                if (Character.isDigit(s.charAt(i - 1))) {
-                    if (neg) {
-                        x = -x;
-                    }
-                    stk.peek().add(new NestedInteger(x));
-                }
-                x = 0;
-                neg = false;
-                if (c == ']' && stk.size() > 1) {
-                    NestedInteger t = stk.pop();
-                    stk.peek().add(t);
-                }
+        NestedInteger ans = new NestedInteger();
+        int depth = 0;
+        for (int i = 1, j = 1; i < s.length(); ++i) {
+            if (depth == 0 && (s.charAt(i) == ',' || i == s.length() - 1)) {
+                ans.add(deserialize(s.substring(j, i)));
+                j = i + 1;
+            } else if (s.charAt(i) == '[') {
+                ++depth;
+            } else if (s.charAt(i) == ']') {
+                --depth;
             }
         }
-        return stk.peek();
+        return ans;
     }
 }

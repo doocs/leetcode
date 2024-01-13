@@ -19,11 +19,11 @@ public class Graph {
             g[e[0]][e[1]] = e[2];
         }
     }
-    
+
     public void AddEdge(int[] edge) {
         g[edge[0]][edge[1]] = edge[2];
     }
-    
+
     public int ShortestPath(int node1, int node2) {
         int[] dist = new int[n];
         bool[] vis = new bool[n];

@@ -16,22 +16,31 @@
 // }
 impl Solution {
     pub fn merge_two_lists(
-        l1: Option<Box<ListNode>>,
-        l2: Option<Box<ListNode>>
+        mut l1: Option<Box<ListNode>>,
+        mut l2: Option<Box<ListNode>>
     ) -> Option<Box<ListNode>> {
-        match (l1, l2) {
-            (Some(mut n1), Some(mut n2)) => {
-                if n1.val < n2.val {
-                    n1.next = Self::merge_two_lists(n1.next, Some(n2));
-                    Some(n1)
-                } else {
-                    n2.next = Self::merge_two_lists(Some(n1), n2.next);
-                    Some(n2)
+        match (l1.is_some(), l2.is_some()) {
+            (false, false) => None,
+            (true, false) => l1,
+            (false, true) => l2,
+            (true, true) => {
+                let mut dummy = Box::new(ListNode::new(0));
+                let mut cur = &mut dummy;
+                while l1.is_some() && l2.is_some() {
+                    cur.next = if l1.as_ref().unwrap().val < l2.as_ref().unwrap().val {
+                        let mut res = l1.take();
+                        l1 = res.as_mut().unwrap().next.take();
+                        res
+                    } else {
+                        let mut res = l2.take();
+                        l2 = res.as_mut().unwrap().next.take();
+                        res
+                    };
+                    cur = cur.next.as_mut().unwrap();
                 }
+                cur.next = if l1.is_some() { l1.take() } else { l2.take() };
+                dummy.next.take()
             }
-            (Some(node), None) => Some(node),
-            (None, Some(node)) => Some(node),
-            (None, None) => None,
         }
     }
 }

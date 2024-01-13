@@ -3,18 +3,22 @@ impl Solution {
     pub fn total_fruit(fruits: Vec<i32>) -> i32 {
         let n = fruits.len();
         let mut map = HashMap::new();
-        let mut i = 0;
-        for &fruit in fruits.iter() {
-            *map.entry(fruit).or_insert(0) += 1;
-            if map.len() > 2 {
-                let k = fruits[i];
+        let mut res = 0;
+        let mut left = 0;
+        let mut right = 0;
+        while right < n {
+            *map.entry(fruits[right]).or_insert(0) += 1;
+            right += 1;
+            while map.len() > 2 {
+                let k = fruits[left];
                 map.insert(k, map[&k] - 1);
                 if map[&k] == 0 {
                     map.remove(&k);
                 }
-                i += 1;
+                left += 1;
             }
+            res = res.max(right - left);
         }
-        (n - i) as i32
+        res as i32
     }
 }

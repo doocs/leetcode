@@ -1,24 +1,20 @@
 class FreqStack {
     private Map<Integer, Integer> cnt = new HashMap<>();
-    private Map<Integer, Deque<Integer>> d = new HashMap<>();
-    private int mx;
+    private PriorityQueue<int[]> q
+        = new PriorityQueue<>((a, b) -> a[0] == b[0] ? b[1] - a[1] : b[0] - a[0]);
+    private int ts;
 
     public FreqStack() {
     }
 
     public void push(int val) {
         cnt.put(val, cnt.getOrDefault(val, 0) + 1);
-        int t = cnt.get(val);
-        d.computeIfAbsent(t, k -> new ArrayDeque<>()).push(val);
-        mx = Math.max(mx, t);
+        q.offer(new int[] {cnt.get(val), ++ts, val});
     }
 
     public int pop() {
-        int val = d.get(mx).pop();
+        int val = q.poll()[2];
         cnt.put(val, cnt.get(val) - 1);
-        if (d.get(mx).isEmpty()) {
-            --mx;
-        }
         return val;
     }
 }

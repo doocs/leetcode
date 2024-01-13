@@ -1,26 +1,23 @@
 class Solution {
     private final int mod = (int) 1e9 + 7;
+    private Long[][][][] f;
 
     public int stringCount(int n) {
-        long a = qpow(25, n);
-        long b = a;
-        long c = (qpow(25, n) + n * qpow(25, n - 1) % mod) % mod;
-        long ab = qpow(24, n);
-        long ac = (qpow(24, n) + n * qpow(24, n - 1) % mod) % mod;
-        long bc = ac;
-        long abc = (qpow(23, n) + n * qpow(23, n - 1) % mod) % mod;
-        long tot = qpow(26, n);
-        return (int) ((tot - (a + b + c - ab - ac - bc + abc)) % mod + mod) % mod;
+        f = new Long[n + 1][2][3][2];
+        return (int) dfs(n, 0, 0, 0);
     }
 
-    private long qpow(long a, int n) {
-        long ans = 1;
-        for (; n > 0; n >>= 1) {
-            if ((n & 1) == 1) {
-                ans = ans * a % mod;
-            }
-            a = a * a % mod;
+    private long dfs(int i, int l, int e, int t) {
+        if (i == 0) {
+            return l == 1 && e == 2 && t == 1 ? 1 : 0;
         }
-        return ans;
+        if (f[i][l][e][t] != null) {
+            return f[i][l][e][t];
+        }
+        long a = dfs(i - 1, l, e, t) * 23 % mod;
+        long b = dfs(i - 1, Math.min(1, l + 1), e, t);
+        long c = dfs(i - 1, l, Math.min(2, e + 1), t);
+        long d = dfs(i - 1, l, e, Math.min(1, t + 1));
+        return f[i][l][e][t] = (a + b + c + d) % mod;
     }
 }

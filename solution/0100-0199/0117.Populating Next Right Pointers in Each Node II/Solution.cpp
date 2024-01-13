@@ -19,29 +19,26 @@ public:
 class Solution {
 public:
     Node* connect(Node* root) {
-        Node* node = root;
-        Node* prev = nullptr;
-        Node* next = nullptr;
-        auto modify = [&](Node* curr) {
-            if (!curr) {
-                return;
+        if (!root) {
+            return root;
+        }
+        queue<Node*> q{{root}};
+        while (!q.empty()) {
+            Node* p = nullptr;
+            for (int n = q.size(); n; --n) {
+                Node* node = q.front();
+                q.pop();
+                if (p) {
+                    p->next = node;
+                }
+                p = node;
+                if (node->left) {
+                    q.push(node->left);
+                }
+                if (node->right) {
+                    q.push(node->right);
+                }
             }
-            if (!next) {
-                next = curr;
-            }
-            if (prev) {
-                prev->next = curr;
-            }
-            prev = curr;
-        };
-        while (node) {
-            prev = next = nullptr;
-            while (node) {
-                modify(node->left);
-                modify(node->right);
-                node = node->next;
-            }
-            node = next;
         }
         return root;
     }

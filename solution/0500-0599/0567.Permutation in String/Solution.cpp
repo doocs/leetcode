@@ -5,36 +5,18 @@ public:
         if (n > m) {
             return false;
         }
-        vector<int> cnt(26);
+        vector<int> cnt1(26), cnt2(26);
         for (int i = 0; i < n; ++i) {
-            --cnt[s1[i] - 'a'];
-            ++cnt[s2[i] - 'a'];
+            ++cnt1[s1[i] - 'a'];
+            ++cnt2[s2[i] - 'a'];
         }
-        int diff = 0;
-        for (int x : cnt) {
-            if (x) {
-                ++diff;
-            }
-        }
-        if (diff == 0) {
+        if (cnt1 == cnt2) {
             return true;
         }
         for (int i = n; i < m; ++i) {
-            int a = s2[i - n] - 'a';
-            int b = s2[i] - 'a';
-            if (cnt[b] == 0) {
-                ++diff;
-            }
-            if (++cnt[b] == 0) {
-                --diff;
-            }
-            if (cnt[a] == 0) {
-                ++diff;
-            }
-            if (--cnt[a] == 0) {
-                --diff;
-            }
-            if (diff == 0) {
+            ++cnt2[s2[i] - 'a'];
+            --cnt2[s2[i - n] - 'a'];
+            if (cnt1 == cnt2) {
                 return true;
             }
         }

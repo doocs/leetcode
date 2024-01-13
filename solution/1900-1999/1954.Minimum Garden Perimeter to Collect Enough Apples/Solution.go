@@ -1,12 +1,7 @@
 func minimumPerimeter(neededApples int64) int64 {
-	var l, r int64 = 1, 100000
-	for l < r {
-		mid := (l + r) >> 1
-		if 2*mid*(mid+1)*(2*mid+1) >= neededApples {
-			r = mid
-		} else {
-			l = mid + 1
-		}
+	var x int64 = 1
+	for 2*x*(x+1)*(2*x+1) < neededApples {
+		x++
 	}
-	return l * 8
+	return 8 * x
 }

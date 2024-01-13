@@ -1,11 +1,11 @@
 class Solution:
     def hanota(self, A: List[int], B: List[int], C: List[int]) -> None:
-        stk = [(len(A), A, B, C)]
-        while stk:
-            n, a, b, c = stk.pop()
+        def dfs(n, a, b, c):
             if n == 1:
                 c.append(a.pop())
-            else:
-                stk.append((n - 1, b, a, c))
-                stk.append((1, a, b, c))
-                stk.append((n - 1, a, c, b))
+                return
+            dfs(n - 1, a, c, b)
+            c.append(a.pop())
+            dfs(n - 1, b, a, c)
+
+        dfs(len(A), A, B, C)

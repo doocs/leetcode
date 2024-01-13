@@ -1,12 +1,12 @@
 function maxTaxiEarnings(n: number, rides: number[][]): number {
-    rides.sort((a, b) => a[1] - b[1]);
+    rides.sort((a, b) => a[0] - b[0]);
     const m = rides.length;
-    const f: number[] = Array(m + 1).fill(0);
-    const search = (x: number, r: number): number => {
-        let l = 0;
+    const f: number[] = Array(m).fill(-1);
+    const search = (x: number, l: number): number => {
+        let r = m;
         while (l < r) {
             const mid = (l + r) >> 1;
-            if (rides[mid][1] >= x) {
+            if (rides[mid][0] >= x) {
                 r = mid;
             } else {
                 l = mid + 1;
@@ -14,10 +14,16 @@ function maxTaxiEarnings(n: number, rides: number[][]): number {
         }
         return l;
     };
-    for (let i = 1; i <= m; ++i) {
-        const [st, ed, tip] = rides[i - 1];
-        const j = search(st + 1, i);
-        f[i] = Math.max(f[i - 1], f[j] + ed - st + tip);
-    }
-    return f[m];
+    const dfs = (i: number): number => {
+        if (i >= m) {
+            return 0;
+        }
+        if (f[i] === -1) {
+            const [st, ed, tip] = rides[i];
+            const j = search(ed, i + 1);
+            f[i] = Math.max(dfs(i + 1), dfs(j) + ed - st + tip);
+        }
+        return f[i];
+    };
+    return dfs(0);
 }

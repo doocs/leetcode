@@ -1,11 +1,8 @@
 func findRepeatNumber(nums []int) int {
+	sort.Ints(nums)
 	for i := 0; ; i++ {
-		for nums[i] != i {
-			j := nums[i]
-			if nums[j] == j {
-				return j
-			}
-			nums[i], nums[j] = nums[j], nums[i]
+		if nums[i] == nums[i+1] {
+			return nums[i]
 		}
 	}
 }

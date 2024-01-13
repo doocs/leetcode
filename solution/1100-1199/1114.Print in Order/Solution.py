@@ -1,26 +1,19 @@
-from threading import Semaphore
-
-
 class Foo:
     def __init__(self):
-        self.a = Semaphore(1)
-        self.b = Semaphore(0)
-        self.c = Semaphore(0)
+        self.l2 = threading.Lock()
+        self.l3 = threading.Lock()
+        self.l2.acquire()
+        self.l3.acquire()
 
-    def first(self, printFirst: "Callable[[], None]") -> None:
-        self.a.acquire()
-        # printFirst() outputs "first". Do not change or remove this line.
+    def first(self, printFirst: 'Callable[[], None]') -> None:
         printFirst()
-        self.b.release()
+        self.l2.release()
 
-    def second(self, printSecond: "Callable[[], None]") -> None:
-        self.b.acquire()
-        # printSecond() outputs "second". Do not change or remove this line.
+    def second(self, printSecond: 'Callable[[], None]') -> None:
+        self.l2.acquire()
         printSecond()
-        self.c.release()
+        self.l3.release()
 
-    def third(self, printThird: "Callable[[], None]") -> None:
-        self.c.acquire()
-        # printThird() outputs "third". Do not change or remove this line.
+    def third(self, printThird: 'Callable[[], None]') -> None:
+        self.l3.acquire()
         printThird()
-        self.a.release()

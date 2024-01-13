@@ -1,12 +1,26 @@
 class Solution {
+    private int[] prices;
+    private Integer[][] f;
+
     public int maxProfit(int[] prices) {
-        int f = 0, f0 = 0, f1 = -prices[0];
-        for (int i = 1; i < prices.length; ++i) {
-            int g0 = Math.max(f0, f1 + prices[i]);
-            f1 = Math.max(f1, f - prices[i]);
-            f = f0;
-            f0 = g0;
+        this.prices = prices;
+        f = new Integer[prices.length][2];
+        return dfs(0, 0);
+    }
+
+    private int dfs(int i, int j) {
+        if (i >= prices.length) {
+            return 0;
         }
-        return f0;
+        if (f[i][j] != null) {
+            return f[i][j];
+        }
+        int ans = dfs(i + 1, j);
+        if (j > 0) {
+            ans = Math.max(ans, prices[i] + dfs(i + 2, 0));
+        } else {
+            ans = Math.max(ans, -prices[i] + dfs(i + 1, 1));
+        }
+        return f[i][j] = ans;
     }
 }

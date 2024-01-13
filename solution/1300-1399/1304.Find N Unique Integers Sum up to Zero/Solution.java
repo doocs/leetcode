@@ -1,10 +1,10 @@
 class Solution {
     public int[] sumZero(int n) {
         int[] ans = new int[n];
-        for (int i = 1; i < n; ++i) {
-            ans[i] = i;
+        for (int i = 1, j = 0; i <= n / 2; ++i) {
+            ans[j++] = i;
+            ans[j++] = -i;
         }
-        ans[0] = -(n * (n - 1) / 2);
         return ans;
     }
 }

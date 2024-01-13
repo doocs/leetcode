@@ -1,9 +1,18 @@
+use std::collections::HashMap;
 impl Solution {
     pub fn check_permutation(s1: String, s2: String) -> bool {
-        let mut s1: Vec<char> = s1.chars().collect();
-        let mut s2: Vec<char> = s2.chars().collect();
-        s1.sort();
-        s2.sort();
-        s1 == s2
+        let n = s1.len();
+        let m = s2.len();
+        if n != m {
+            return false;
+        }
+        let s1 = s1.as_bytes();
+        let s2 = s2.as_bytes();
+        let mut map = HashMap::new();
+        for i in 0..n {
+            *map.entry(s1[i]).or_insert(0) += 1;
+            *map.entry(s2[i]).or_insert(0) -= 1;
+        }
+        map.values().all(|i| *i == 0)
     }
 }

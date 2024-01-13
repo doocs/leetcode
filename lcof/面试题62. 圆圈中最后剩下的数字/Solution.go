@@ -1,7 +1,11 @@
 func lastRemaining(n int, m int) int {
-	f := 0
-	for i := 2; i <= n; i++ {
-		f = (f + m) % i
+	var f func(n, m int) int
+	f = func(n, m int) int {
+		if n == 1 {
+			return 0
+		}
+		x := f(n-1, m)
+		return (m + x) % n
 	}
-	return f
+	return f(n, m)
 }

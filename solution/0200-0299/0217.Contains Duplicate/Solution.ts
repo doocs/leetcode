@@ -1,3 +1,10 @@
 function containsDuplicate(nums: number[]): boolean {
-    return new Set<number>(nums).size !== nums.length;
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    for (let i = 1; i < n; i++) {
+        if (nums[i - 1] === nums[i]) {
+            return true;
+        }
+    }
+    return false;
 }

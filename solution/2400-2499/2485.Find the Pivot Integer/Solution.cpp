@@ -1,8 +1,11 @@
 class Solution {
 public:
     int pivotInteger(int n) {
-        int y = n * (n + 1) / 2;
-        int x = sqrt(y);
-        return x * x == y ? x : -1;
+        for (int x = 1; x <= n; ++x) {
+            if ((1 + x) * x == (x + n) * (n - x + 1)) {
+                return x;
+            }
+        }
+        return -1;
     }
 };

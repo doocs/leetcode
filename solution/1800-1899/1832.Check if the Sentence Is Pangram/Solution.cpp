@@ -1,8 +1,10 @@
 class Solution {
 public:
     bool checkIfPangram(string sentence) {
-        int mask = 0;
-        for (char& c : sentence) mask |= 1 << (c - 'a');
-        return mask == (1 << 26) - 1;
+        int vis[26] = {0};
+        for (char& c : sentence) vis[c - 'a'] = 1;
+        for (int& v : vis)
+            if (!v) return false;
+        return true;
     }
 };

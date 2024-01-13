@@ -6,16 +6,17 @@
 #         self.right = right
 class Solution:
     def verticalOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        if root is None:
-            return []
-        q = deque([(root, 0)])
+        def dfs(root, depth, offset):
+            if root is None:
+                return
+            d[offset].append((depth, root.val))
+            dfs(root.left, depth + 1, offset - 1)
+            dfs(root.right, depth + 1, offset + 1)
+
         d = defaultdict(list)
-        while q:
-            for _ in range(len(q)):
-                root, offset = q.popleft()
-                d[offset].append(root.val)
-                if root.left:
-                    q.append((root.left, offset - 1))
-                if root.right:
-                    q.append((root.right, offset + 1))
-        return [v for _, v in sorted(d.items())]
+        dfs(root, 0, 0)
+        ans = []
+        for _, v in sorted(d.items()):
+            v.sort(key=lambda x: x[0])
+            ans.append([x[1] for x in v])
+        return ans

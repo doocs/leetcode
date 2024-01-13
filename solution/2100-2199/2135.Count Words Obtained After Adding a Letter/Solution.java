@@ -1,4 +1,5 @@
 class Solution {
+
     public int wordCount(String[] startWords, String[] targetWords) {
         Set<Integer> s = new HashSet<>();
         for (String word : startWords) {

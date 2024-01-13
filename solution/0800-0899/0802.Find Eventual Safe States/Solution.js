@@ -4,23 +4,29 @@
  */
 var eventualSafeNodes = function (graph) {
     const n = graph.length;
-    const color = new Array(n).fill(0);
-    function dfs(i) {
-        if (color[i]) {
-            return color[i] == 2;
+    const rg = new Array(n).fill(0).map(() => new Array());
+    const indeg = new Array(n).fill(0);
+    const q = [];
+    for (let i = 0; i < n; ++i) {
+        for (let j of graph[i]) {
+            rg[j].push(i);
         }
-        color[i] = 1;
-        for (const j of graph[i]) {
-            if (!dfs(j)) {
-                return false;
+        indeg[i] = graph[i].length;
+        if (indeg[i] == 0) {
+            q.push(i);
+        }
+    }
+    while (q.length) {
+        const i = q.shift();
+        for (let j of rg[i]) {
+            if (--indeg[j] == 0) {
+                q.push(j);
             }
         }
-        color[i] = 2;
-        return true;
     }
     let ans = [];
     for (let i = 0; i < n; ++i) {
-        if (dfs(i)) {
+        if (indeg[i] == 0) {
             ans.push(i);
         }
     }

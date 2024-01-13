@@ -3,12 +3,12 @@ class Solution:
         n = len(s)
         ans = ''
         for i in range(n):
-            lower = upper = 0
+            ss = set()
             for j in range(i, n):
-                if s[j].islower():
-                    lower |= 1 << (ord(s[j]) - ord('a'))
-                else:
-                    upper |= 1 << (ord(s[j]) - ord('A'))
-                if lower == upper and len(ans) < j - i + 1:
+                ss.add(s[j])
+                if (
+                    all(c.lower() in ss and c.upper() in ss for c in ss)
+                    and len(ans) < j - i + 1
+                ):
                     ans = s[i : j + 1]
         return ans

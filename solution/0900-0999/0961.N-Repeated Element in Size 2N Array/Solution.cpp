@@ -1,4 +1,4 @@
-﻿class Solution {
+class Solution {
 public:
     int repeatedNTimes(vector<int>& nums) {
         unordered_set<int> s;

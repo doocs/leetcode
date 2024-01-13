@@ -5,7 +5,7 @@ public class Solution {
     private int[] udg;
     private IList<IList<string>> ans = new List<IList<string>>();
     private IList<string> t = new List<string>();
-    
+
     public IList<IList<string>> SolveNQueens(int n) {
         this.n = n;
         col = new int[n];

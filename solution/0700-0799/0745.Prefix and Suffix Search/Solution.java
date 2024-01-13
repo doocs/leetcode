@@ -1,64 +1,22 @@
-class Trie {
-    Trie[] children = new Trie[26];
-    List<Integer> indexes = new ArrayList<>();
-
-    void insert(String word, int i) {
-        Trie node = this;
-        for (char c : word.toCharArray()) {
-            c -= 'a';
-            if (node.children[c] == null) {
-                node.children[c] = new Trie();
-            }
-            node = node.children[c];
-            node.indexes.add(i);
-        }
-    }
-
-    List<Integer> search(String pref) {
-        Trie node = this;
-        for (char c : pref.toCharArray()) {
-            c -= 'a';
-            if (node.children[c] == null) {
-                return Collections.emptyList();
-            }
-            node = node.children[c];
-        }
-        return node.indexes;
-    }
-}
-
 class WordFilter {
-    private Trie p = new Trie();
-    private Trie s = new Trie();
+    private Map<String, Integer> d = new HashMap<>();
 
     public WordFilter(String[] words) {
-        for (int i = 0; i < words.length; ++i) {
-            String w = words[i];
-            p.insert(w, i);
-            s.insert(new StringBuilder(w).reverse().toString(), i);
+        for (int k = 0; k < words.length; ++k) {
+            String w = words[k];
+            int n = w.length();
+            for (int i = 0; i <= n; ++i) {
+                String a = w.substring(0, i);
+                for (int j = 0; j <= n; ++j) {
+                    String b = w.substring(j);
+                    d.put(a + "." + b, k);
+                }
+            }
         }
     }
 
     public int f(String pref, String suff) {
-        suff = new StringBuilder(suff).reverse().toString();
-        List<Integer> a = p.search(pref);
-        List<Integer> b = s.search(suff);
-        if (a.isEmpty() || b.isEmpty()) {
-            return -1;
-        }
-        int i = a.size() - 1, j = b.size() - 1;
-        while (i >= 0 && j >= 0) {
-            int c = a.get(i), d = b.get(j);
-            if (c == d) {
-                return c;
-            }
-            if (c > d) {
-                --i;
-            } else {
-                --j;
-            }
-        }
-        return -1;
+        return d.getOrDefault(pref + "." + suff, -1);
     }
 }
 

@@ -1,11 +1,13 @@
 class Solution:
     def countPairs(self, deliciousness: List[int]) -> int:
         mod = 10**9 + 7
-        cnt = Counter(deliciousness)
+        mx = max(deliciousness) << 1
+        cnt = Counter()
         ans = 0
-        for i in range(22):
-            s = 1 << i
-            for a, m in cnt.items():
-                if (b := s - a) in cnt:
-                    ans += m * (m - 1) if a == b else m * cnt[b]
-        return (ans >> 1) % mod
+        for d in deliciousness:
+            s = 1
+            while s <= mx:
+                ans = (ans + cnt[s - d]) % mod
+                s <<= 1
+            cnt[d] += 1
+        return ans

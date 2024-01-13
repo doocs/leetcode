@@ -1,8 +1,9 @@
 func sumZero(n int) []int {
 	ans := make([]int, n)
-	for i := 1; i < n; i++ {
-		ans[i] = i
+	for i, j := 1, 0; i <= n/2; i, j = i+1, j+1 {
+		ans[j] = i
+		j++
+		ans[j] = -i
 	}
-	ans[0] = -n * (n - 1) / 2
 	return ans
 }

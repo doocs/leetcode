@@ -1,11 +1,11 @@
 function repeatedCharacter(s: string): string {
-    let mask = 0;
+    const vis = new Array(26).fill(false);
     for (const c of s) {
         const i = c.charCodeAt(0) - 'a'.charCodeAt(0);
-        if (mask & (1 << i)) {
+        if (vis[i]) {
             return c;
         }
-        mask |= 1 << i;
+        vis[i] = true;
     }
     return ' ';
 }

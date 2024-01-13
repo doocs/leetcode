@@ -1,14 +1,13 @@
 func subsetXORSum(nums []int) (ans int) {
 	n := len(nums)
-	var dfs func(int, int)
-	dfs = func(i, s int) {
-		if i >= n {
-			ans += s
-			return
+	for i := 0; i < 1<<n; i++ {
+		s := 0
+		for j, x := range nums {
+			if i>>j&1 == 1 {
+				s ^= x
+			}
 		}
-		dfs(i+1, s)
-		dfs(i+1, s^nums[i])
+		ans += s
 	}
-	dfs(0, 0)
 	return
 }

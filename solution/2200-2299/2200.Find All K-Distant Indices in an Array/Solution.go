@@ -1,12 +1,18 @@
 func findKDistantIndices(nums []int, key int, k int) (ans []int) {
-	n := len(nums)
-	for i, j := 0, 0; i < n; i++ {
-		for j < i-k || (j < n && nums[j] != key) {
-			j++
-		}
-		if j < n && j <= i+k {
-			ans = append(ans, i)
+	for i := range nums {
+		for j, x := range nums {
+			if abs(i-j) <= k && x == key {
+				ans = append(ans, i)
+				break
+			}
 		}
 	}
-	return
+	return ans
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
 }

@@ -3,18 +3,15 @@ public:
     const int mod = 1e9 + 7;
 
     int countPairs(vector<int>& deliciousness) {
+        int mx = *max_element(deliciousness.begin(), deliciousness.end()) << 1;
         unordered_map<int, int> cnt;
-        for (int& d : deliciousness) ++cnt[d];
-        long long ans = 0;
-        for (int i = 0; i < 22; ++i) {
-            int s = 1 << i;
-            for (auto& [a, m] : cnt) {
-                int b = s - a;
-                if (!cnt.count(b)) continue;
-                ans += 1ll * m * (a == b ? (m - 1) : cnt[b]);
+        int ans = 0;
+        for (auto& d : deliciousness) {
+            for (int s = 1; s <= mx; s <<= 1) {
+                ans = (ans + cnt[s - d]) % mod;
             }
+            ++cnt[d];
         }
-        ans >>= 1;
-        return ans % mod;
+        return ans;
     }
 };

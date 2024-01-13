@@ -1,27 +1,30 @@
 class Solution {
+    private Integer[][] f;
+    private int[] multipliers;
+    private int[] nums;
+    private int n;
+    private int m;
+
     public int maximumScore(int[] nums, int[] multipliers) {
-        final int inf = 1 << 30;
-        int n = nums.length, m = multipliers.length;
-        int[][] f = new int[m + 1][m + 1];
-        for (int i = 0; i <= m; i++) {
-            Arrays.fill(f[i], -inf);
+        n = nums.length;
+        m = multipliers.length;
+        f = new Integer[m][m];
+        this.nums = nums;
+        this.multipliers = multipliers;
+        return dfs(0, 0);
+    }
+
+    private int dfs(int i, int j) {
+        if (i >= m || j >= m || (i + j) >= m) {
+            return 0;
         }
-        f[0][0] = 0;
-        int ans = -inf;
-        for (int i = 0; i <= m; ++i) {
-            for (int j = 0; j <= m - i; ++j) {
-                int k = i + j - 1;
-                if (i > 0) {
-                    f[i][j] = Math.max(f[i][j], f[i - 1][j] + multipliers[k] * nums[i - 1]);
-                }
-                if (j > 0) {
-                    f[i][j] = Math.max(f[i][j], f[i][j - 1] + multipliers[k] * nums[n - j]);
-                }
-                if (i + j == m) {
-                    ans = Math.max(ans, f[i][j]);
-                }
-            }
+        if (f[i][j] != null) {
+            return f[i][j];
         }
-        return ans;
+        int k = i + j;
+        int a = dfs(i + 1, j) + nums[i] * multipliers[k];
+        int b = dfs(i, j + 1) + nums[n - 1 - j] * multipliers[k];
+        f[i][j] = Math.max(a, b);
+        return f[i][j];
     }
 }

@@ -12,31 +12,22 @@ class Solution:
                 s[i] = c
             return res
 
-        def extend(m1, m2, q):
-            for _ in range(len(q)):
-                p = q.popleft()
-                step = m1[p]
-                for t in next(p):
-                    if t in s or t in m1:
-                        continue
-                    if t in m2:
-                        return step + 1 + m2[t]
-                    m1[t] = step + 1
-                    q.append(t)
-            return -1
-
-        def bfs():
-            m1, m2 = {"0000": 0}, {target: 0}
-            q1, q2 = deque([('0000')]), deque([(target)])
-            while q1 and q2:
-                t = extend(m1, m2, q1) if len(q1) <= len(q2) else extend(m2, m1, q2)
-                if t != -1:
-                    return t
-            return -1
-
         if target == '0000':
             return 0
         s = set(deadends)
         if '0000' in s:
             return -1
-        return bfs()
+        q = deque([('0000')])
+        s.add('0000')
+        ans = 0
+        while q:
+            ans += 1
+            for _ in range(len(q)):
+                p = q.popleft()
+                for t in next(p):
+                    if t == target:
+                        return ans
+                    if t not in s:
+                        q.append(t)
+                        s.add(t)
+        return -1

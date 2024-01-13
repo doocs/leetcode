@@ -6,11 +6,12 @@ func maximumCostSubstring(s string, chars string, vals []int) (ans int) {
 	for i, c := range chars {
 		d[c-'a'] = vals[i]
 	}
-	f := 0
+	tot, mi := 0, 0
 	for _, c := range s {
 		v := d[c-'a']
-		f = max(f, 0) + v
-		ans = max(ans, f)
+		tot += v
+		ans = max(ans, tot-mi)
+		mi = min(mi, tot)
 	}
 	return
 }

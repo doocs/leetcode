@@ -1,4 +1,5 @@
 class Solution {
+
     public int[] rearrangeArray(int[] nums) {
         int[] ans = new int[nums.length];
         int i = 0, j = 1;

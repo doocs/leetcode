@@ -1,20 +1,18 @@
 class Solution:
     def bestLine(self, points: List[List[int]]) -> List[int]:
-        def gcd(a, b):
-            return a if b == 0 else gcd(b, a % b)
-
         n = len(points)
         mx = 0
         for i in range(n):
             x1, y1 = points[i]
-            cnt = defaultdict(list)
             for j in range(i + 1, n):
                 x2, y2 = points[j]
-                dx, dy = x2 - x1, y2 - y1
-                g = gcd(dx, dy)
-                k = (dx // g, dy // g)
-                cnt[k].append((i, j))
-                if mx < len(cnt[k]) or (mx == len(cnt[k]) and (x, y) > cnt[k][0]):
-                    mx = len(cnt[k])
-                    x, y = cnt[k][0]
+                cnt = 2
+                for k in range(j + 1, n):
+                    x3, y3 = points[k]
+                    a = (y2 - y1) * (x3 - x1)
+                    b = (y3 - y1) * (x2 - x1)
+                    cnt += a == b
+                if mx < cnt:
+                    mx = cnt
+                    x, y = i, j
         return [x, y]

@@ -2,15 +2,14 @@ class Solution {
 public:
     vector<int> findThePrefixCommonArray(vector<int>& A, vector<int>& B) {
         int n = A.size();
-        vector<int> ans;
-        vector<int> vis(n + 1, 1);
-        int s = 0;
+        vector<int> ans(n);
+        vector<int> cnt1(n + 1), cnt2(n + 1);
         for (int i = 0; i < n; ++i) {
-            vis[A[i]] ^= 1;
-            s += vis[A[i]];
-            vis[B[i]] ^= 1;
-            s += vis[B[i]];
-            ans.push_back(s);
+            ++cnt1[A[i]];
+            ++cnt2[B[i]];
+            for (int j = 1; j <= n; ++j) {
+                ans[i] += min(cnt1[j], cnt2[j]);
+            }
         }
         return ans;
     }

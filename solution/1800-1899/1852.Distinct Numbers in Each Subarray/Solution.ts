@@ -1,21 +1,16 @@
 function distinctNumbers(nums: number[], k: number): number[] {
-    const m = Math.max(...nums);
-    const cnt: number[] = Array(m + 1).fill(0);
-    let v: number = 0;
+    const cnt: Map<number, number> = new Map();
     for (let i = 0; i < k; ++i) {
-        if (++cnt[nums[i]] === 1) {
-            v++;
-        }
+        cnt.set(nums[i], (cnt.get(nums[i]) ?? 0) + 1);
     }
-    const ans: number[] = [v];
+    const ans: number[] = [cnt.size];
     for (let i = k; i < nums.length; ++i) {
-        if (++cnt[nums[i]] === 1) {
-            v++;
+        cnt.set(nums[i], (cnt.get(nums[i]) ?? 0) + 1);
+        cnt.set(nums[i - k], cnt.get(nums[i - k])! - 1);
+        if (cnt.get(nums[i - k]) === 0) {
+            cnt.delete(nums[i - k]);
         }
-        if (--cnt[nums[i - k]] === 0) {
-            v--;
-        }
-        ans.push(v);
+        ans.push(cnt.size);
     }
     return ans;
 }

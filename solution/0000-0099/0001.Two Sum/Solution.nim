@@ -1,7 +1,3 @@
-#[
-    Author: @joe733
-]#
-
 import std/enumerate
 
 proc twoSum(nums: seq[int], target: int): seq[int] =

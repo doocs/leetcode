@@ -6,23 +6,15 @@
 #         self.right = right
 class Solution:
     def convertBST(self, root: TreeNode) -> TreeNode:
+        def dfs(root):
+            nonlocal s
+            if root is None:
+                return
+            dfs(root.right)
+            s += root.val
+            root.val = s
+            dfs(root.left)
+
         s = 0
-        node = root
-        while root:
-            if root.right is None:
-                s += root.val
-                root.val = s
-                root = root.left
-            else:
-                next = root.right
-                while next.left and next.left != root:
-                    next = next.left
-                if next.left is None:
-                    next.left = root
-                    root = root.right
-                else:
-                    s += root.val
-                    root.val = s
-                    next.left = None
-                    root = root.left
-        return node
+        dfs(root)
+        return root

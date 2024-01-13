@@ -1,11 +1,15 @@
 function maxSumDivThree(nums: number[]): number {
+    const n = nums.length;
     const inf = 1 << 30;
-    const f: number[] = [0, -inf, -inf];
-    for (const x of nums) {
-        const g = [...f];
+    const f: number[][] = Array(n + 1)
+        .fill(0)
+        .map(() => Array(3).fill(-inf));
+    f[0][0] = 0;
+    for (let i = 1; i <= n; ++i) {
+        const x = nums[i - 1];
         for (let j = 0; j < 3; ++j) {
-            f[j] = Math.max(g[j], g[(j - (x % 3) + 3) % 3] + x);
+            f[i][j] = Math.max(f[i - 1][j], f[i - 1][(j - (x % 3) + 3) % 3] + x);
         }
     }
-    return f[0];
+    return f[n][0];
 }

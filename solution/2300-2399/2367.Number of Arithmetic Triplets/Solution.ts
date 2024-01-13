@@ -1,12 +1,13 @@
 function arithmeticTriplets(nums: number[], diff: number): number {
-    const vis: boolean[] = new Array(301).fill(false);
-    for (const x of nums) {
-        vis[x] = true;
-    }
+    const n = nums.length;
     let ans = 0;
-    for (const x of nums) {
-        if (vis[x + diff] && vis[x + diff + diff]) {
-            ++ans;
+    for (let i = 0; i < n; ++i) {
+        for (let j = i + 1; j < n; ++j) {
+            for (let k = j + 1; k < n; ++k) {
+                if (nums[j] - nums[i] === diff && nums[k] - nums[j] === diff) {
+                    ++ans;
+                }
+            }
         }
     }
     return ans;

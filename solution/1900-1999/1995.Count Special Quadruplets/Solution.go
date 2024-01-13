@@ -1,15 +1,14 @@
 func countQuadruplets(nums []int) int {
 	ans, n := 0, len(nums)
-	counter := make([]int, 310)
-	for b := n - 3; b > 0; b-- {
-		c := b + 1
-		for d := c + 1; d < n; d++ {
-			if nums[d] >= nums[c] {
-				counter[nums[d]-nums[c]]++
+	for a := 0; a < n-3; a++ {
+		for b := a + 1; b < n-2; b++ {
+			for c := b + 1; c < n-1; c++ {
+				for d := c + 1; d < n; d++ {
+					if nums[a]+nums[b]+nums[c] == nums[d] {
+						ans++
+					}
+				}
 			}
-		}
-		for a := 0; a < b; a++ {
-			ans += counter[nums[a]+nums[b]]
 		}
 	}
 	return ans

@@ -1,14 +1,11 @@
 func minAddToMakeValid(s string) int {
-	ans, cnt := 0, 0
+	stk := []rune{}
 	for _, c := range s {
-		if c == '(' {
-			cnt++
-		} else if cnt > 0 {
-			cnt--
+		if c == ')' && len(stk) > 0 && stk[len(stk)-1] == '(' {
+			stk = stk[:len(stk)-1]
 		} else {
-			ans++
+			stk = append(stk, c)
 		}
 	}
-	ans += cnt
-	return ans
+	return len(stk)
 }

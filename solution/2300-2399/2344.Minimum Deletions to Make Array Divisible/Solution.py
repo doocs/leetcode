@@ -1,5 +1,10 @@
 class Solution:
     def minOperations(self, nums: List[int], numsDivide: List[int]) -> int:
-        x = gcd(*numsDivide)
-        y = min((v for v in nums if x % v == 0), default=0)
-        return sum(v < y for v in nums) if y else -1
+        x = numsDivide[0]
+        for v in numsDivide[1:]:
+            x = gcd(x, v)
+        nums.sort()
+        for i, v in enumerate(nums):
+            if x % v == 0:
+                return i
+        return -1

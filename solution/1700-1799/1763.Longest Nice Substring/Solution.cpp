@@ -4,14 +4,18 @@ public:
         int n = s.size();
         int k = -1, mx = 0;
         for (int i = 0; i < n; ++i) {
-            int lower = 0, upper = 0;
+            unordered_set<char> ss;
             for (int j = i; j < n; ++j) {
-                char c = s[j];
-                if (islower(c))
-                    lower |= 1 << (c - 'a');
-                else
-                    upper |= 1 << (c - 'A');
-                if (lower == upper && mx < j - i + 1) {
+                ss.insert(s[j]);
+                bool ok = true;
+                for (auto& a : ss) {
+                    char b = a ^ 32;
+                    if (!(ss.count(a) && ss.count(b))) {
+                        ok = false;
+                        break;
+                    }
+                }
+                if (ok && mx < j - i + 1) {
                     mx = j - i + 1;
                     k = i;
                 }

@@ -39,18 +39,16 @@ class Solution {
                 ++c;
             }
             int mx = Math.min(r, c);
+            for (int w = 1; w <= mx; ++w) {
+                for (int k = 0; k < w; ++k) {
+                    filled[i + w - 1] |= 1 << (j + k);
+                    filled[i + k] |= 1 << (j + w - 1);
+                }
+                dfs(i, j + w, t + 1);
+            }
             for (int x = i; x < i + mx; ++x) {
                 for (int y = j; y < j + mx; ++y) {
-                    filled[x] |= 1 << y;
-                }
-            }
-            for (int w = mx; w > 0; --w) {
-                dfs(i, j + w, t + 1);
-                for (int k = 0; k < w; ++k) {
-                    filled[i + w - 1] ^= 1 << (j + k);
-                    if (k < w - 1) {
-                        filled[i + k] ^= 1 << (j + w - 1);
-                    }
+                    filled[x] ^= 1 << y;
                 }
             }
         }

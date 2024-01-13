@@ -2,14 +2,16 @@ class Solution {
 public:
     int totalFruit(vector<int>& fruits) {
         unordered_map<int, int> cnt;
-        int j = 0, n = fruits.size();
-        for (int& x : fruits) {
+        int ans = 0;
+        for (int i = 0, j = 0; i < fruits.size(); ++i) {
+            int x = fruits[i];
             ++cnt[x];
-            if (cnt.size() > 2) {
+            while (cnt.size() > 2) {
                 int y = fruits[j++];
                 if (--cnt[y] == 0) cnt.erase(y);
             }
+            ans = max(ans, i - j + 1);
         }
-        return n - j;
+        return ans;
     }
 };

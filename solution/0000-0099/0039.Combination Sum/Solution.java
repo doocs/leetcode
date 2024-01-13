@@ -15,12 +15,13 @@ class Solution {
             ans.add(new ArrayList(t));
             return;
         }
-        if (i >= candidates.length || s < candidates[i]) {
+        if (s < candidates[i]) {
             return;
         }
-        dfs(i + 1, s);
-        t.add(candidates[i]);
-        dfs(i, s - candidates[i]);
-        t.remove(t.size() - 1);
+        for (int j = i; j < candidates.length; ++j) {
+            t.add(candidates[j]);
+            dfs(j, s - candidates[j]);
+            t.remove(t.size() - 1);
+        }
     }
 }

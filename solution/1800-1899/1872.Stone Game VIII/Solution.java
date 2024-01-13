@@ -1,13 +1,25 @@
 class Solution {
+    private Integer[] f;
+    private int[] s;
+    private int n;
+
     public int stoneGameVIII(int[] stones) {
-        int n = stones.length;
+        n = stones.length;
+        f = new Integer[n];
         for (int i = 1; i < n; ++i) {
             stones[i] += stones[i - 1];
         }
-        int f = stones[n - 1];
-        for (int i = n - 2; i > 0; --i) {
-            f = Math.max(f, stones[i] - f);
+        s = stones;
+        return dfs(1);
+    }
+
+    private int dfs(int i) {
+        if (i >= n - 1) {
+            return s[i];
         }
-        return f;
+        if (f[i] == null) {
+            f[i] = Math.max(dfs(i + 1), s[i] - dfs(i + 1));
+        }
+        return f[i];
     }
 }

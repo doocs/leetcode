@@ -9,28 +9,26 @@
  */
 
 func connect(root *Node) *Node {
-	node := root
-	var prev, next *Node
-	modify := func(curr *Node) {
-		if curr == nil {
-			return
-		}
-		if next == nil {
-			next = curr
-		}
-		if prev != nil {
-			prev.Next = curr
-		}
-		prev = curr
+	if root == nil {
+		return root
 	}
-	for node != nil {
-		prev, next = nil, nil
-		for node != nil {
-			modify(node.Left)
-			modify(node.Right)
-			node = node.Next
+	q := []*Node{root}
+	for len(q) > 0 {
+		var p *Node
+		for n := len(q); n > 0; n-- {
+			node := q[0]
+			q = q[1:]
+			if p != nil {
+				p.Next = node
+			}
+			p = node
+			if node.Left != nil {
+				q = append(q, node.Left)
+			}
+			if node.Right != nil {
+				q = append(q, node.Right)
+			}
 		}
-		node = next
 	}
 	return root
 }

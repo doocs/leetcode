@@ -1,34 +1,33 @@
 class Solution {
-    private static final int N = 110;
     private static final int INF = 0x3f3f;
 
     public int networkDelayTime(int[][] times, int n, int k) {
-        int[][] g = new int[N][N];
-        for (int i = 0; i < N; ++i) {
+        int[][] g = new int[n][n];
+        int[] dist = new int[n];
+        boolean[] vis = new boolean[n];
+        for (int i = 0; i < n; ++i) {
+            dist[i] = INF;
             Arrays.fill(g[i], INF);
         }
-        for (int[] e : times) {
-            g[e[0]][e[1]] = e[2];
+        for (int[] t : times) {
+            g[t[0] - 1][t[1] - 1] = t[2];
         }
-        int[] dist = new int[N];
-        Arrays.fill(dist, INF);
-        dist[k] = 0;
-        boolean[] vis = new boolean[N];
+        dist[k - 1] = 0;
         for (int i = 0; i < n; ++i) {
             int t = -1;
-            for (int j = 1; j <= n; ++j) {
+            for (int j = 0; j < n; ++j) {
                 if (!vis[j] && (t == -1 || dist[t] > dist[j])) {
                     t = j;
                 }
             }
             vis[t] = true;
-            for (int j = 1; j <= n; ++j) {
+            for (int j = 0; j < n; ++j) {
                 dist[j] = Math.min(dist[j], dist[t] + g[t][j]);
             }
         }
         int ans = 0;
-        for (int i = 1; i <= n; ++i) {
-            ans = Math.max(ans, dist[i]);
+        for (int d : dist) {
+            ans = Math.max(ans, d);
         }
         return ans == INF ? -1 : ans;
     }

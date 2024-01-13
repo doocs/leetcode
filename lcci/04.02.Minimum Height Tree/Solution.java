@@ -15,17 +15,11 @@ class Solution {
         return dfs(0, nums.length - 1);
     }
 
-    private TreeNode dfs(int i, int j) {
-        if (i > j) {
+    private TreeNode dfs(int l, int r) {
+        if (l > r) {
             return null;
         }
-        if (i == j) {
-            return new TreeNode(nums[i]);
-        }
-        int mid = (i + j) >>> 1;
-        TreeNode node = new TreeNode(nums[mid]);
-        node.left = dfs(i, mid - 1);
-        node.right = dfs(mid + 1, j);
-        return node;
+        int mid = (l + r) >> 1;
+        return new TreeNode(nums[mid], dfs(l, mid - 1), dfs(mid + 1, r));
     }
 }

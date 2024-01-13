@@ -1,17 +1,15 @@
 class Solution:
     def longestMountain(self, arr: List[int]) -> int:
         n = len(arr)
-        ans = l = 0
-        while l + 2 < n:
-            r = l + 1
-            if arr[l] < arr[r]:
-                while r + 1 < n and arr[r] < arr[r + 1]:
-                    r += 1
-                if r < n - 1 and arr[r] > arr[r + 1]:
-                    while r < n - 1 and arr[r] > arr[r + 1]:
-                        r += 1
-                    ans = max(ans, r - l + 1)
-                else:
-                    r += 1
-            l = r
+        f = [1] * n
+        g = [1] * n
+        for i in range(1, n):
+            if arr[i] > arr[i - 1]:
+                f[i] = f[i - 1] + 1
+        ans = 0
+        for i in range(n - 2, -1, -1):
+            if arr[i] > arr[i + 1]:
+                g[i] = g[i + 1] + 1
+                if f[i] > 1:
+                    ans = max(ans, f[i] + g[i] - 1)
         return ans

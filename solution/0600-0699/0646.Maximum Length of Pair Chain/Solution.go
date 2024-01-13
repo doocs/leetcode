@@ -1,13 +1,20 @@
 func findLongestChain(pairs [][]int) int {
 	sort.Slice(pairs, func(i, j int) bool {
-		return pairs[i][1] < pairs[j][1]
+		return pairs[i][0] < pairs[j][0]
 	})
-	ans, cur := 0, math.MinInt32
-	for _, p := range pairs {
-		if cur < p[0] {
-			cur = p[1]
-			ans++
+	n := len(pairs)
+	dp := make([]int, n)
+	ans := 0
+	for i := range pairs {
+		dp[i] = 1
+		c := pairs[i][0]
+		for j := range pairs[:i] {
+			b := pairs[j][1]
+			if b < c {
+				dp[i] = max(dp[i], dp[j]+1)
+			}
 		}
+		ans = max(ans, dp[i])
 	}
 	return ans
 }

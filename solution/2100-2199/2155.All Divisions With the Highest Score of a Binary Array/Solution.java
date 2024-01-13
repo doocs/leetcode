@@ -1,4 +1,5 @@
 class Solution {
+
     public List<Integer> maxScoreIndices(int[] nums) {
         int left = 0, right = sum(nums);
         int mx = right;

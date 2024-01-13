@@ -11,15 +11,23 @@
 class Solution {
 public:
     ListNode* removeNodes(ListNode* head) {
-        ListNode* dummy = new ListNode(1e9, head);
-        ListNode* cur = head;
-        vector<ListNode*> stk = {dummy};
-        for (ListNode* cur = head; cur; cur = cur->next) {
-            while (stk.back()->val < cur->val) {
+        vector<int> nums;
+        while (head) {
+            nums.emplace_back(head->val);
+            head = head->next;
+        }
+        vector<int> stk;
+        for (int v : nums) {
+            while (!stk.empty() && stk.back() < v) {
                 stk.pop_back();
             }
-            stk.back()->next = cur;
-            stk.push_back(cur);
+            stk.push_back(v);
+        }
+        ListNode* dummy = new ListNode();
+        head = dummy;
+        for (int v : stk) {
+            head->next = new ListNode(v);
+            head = head->next;
         }
         return dummy->next;
     }

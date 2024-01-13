@@ -1,15 +1,21 @@
 class Solution {
 public:
     int countTime(string time) {
-        auto f = [](string s, int m) {
-            int cnt = 0;
-            for (int i = 0; i < m; ++i) {
-                bool a = s[0] == '?' || s[0] - '0' == i / 10;
-                bool b = s[1] == '?' || s[1] - '0' == i % 10;
-                cnt += a && b;
+        int ans = 0;
+        for (int h = 0; h < 24; ++h) {
+            for (int m = 0; m < 60; ++m) {
+                char s[20];
+                sprintf(s, "%02d:%02d", h, m);
+                int ok = 1;
+                for (int i = 0; i < 5; ++i) {
+                    if (s[i] != time[i] && time[i] != '?') {
+                        ok = 0;
+                        break;
+                    }
+                }
+                ans += ok;
             }
-            return cnt;
-        };
-        return f(time.substr(0, 2), 24) * f(time.substr(3, 2), 60);
+        }
+        return ans;
     }
 };

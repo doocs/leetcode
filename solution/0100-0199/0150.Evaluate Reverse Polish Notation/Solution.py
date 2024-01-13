@@ -1,17 +1,18 @@
+import operator
+
+
 class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
-        nums = []
-        for t in tokens:
-            if len(t) > 1 or t.isdigit():
-                nums.append(int(t))
+        opt = {
+            "+": operator.add,
+            "-": operator.sub,
+            "*": operator.mul,
+            "/": operator.truediv,
+        }
+        s = []
+        for token in tokens:
+            if token in opt:
+                s.append(int(opt[token](s.pop(-2), s.pop(-1))))
             else:
-                if t == "+":
-                    nums[-2] += nums[-1]
-                elif t == "-":
-                    nums[-2] -= nums[-1]
-                elif t == "*":
-                    nums[-2] *= nums[-1]
-                else:
-                    nums[-2] = int(nums[-2] / nums[-1])
-                nums.pop()
-        return nums[0]
+                s.append(int(token))
+        return s[0]

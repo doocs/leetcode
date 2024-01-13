@@ -1,4 +1,5 @@
 class Solution {
+
     public int findTheLongestSubstring(String s) {
         int[] pos = new int[32];
         Arrays.fill(pos, Integer.MAX_VALUE);

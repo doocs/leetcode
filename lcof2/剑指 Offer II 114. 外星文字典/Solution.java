@@ -1,4 +1,5 @@
 class Solution {
+
     public String alienOrder(String[] words) {
         boolean[][] g = new boolean[26][26];
         boolean[] s = new boolean[26];

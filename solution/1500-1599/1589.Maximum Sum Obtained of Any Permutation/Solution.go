@@ -19,4 +19,3 @@ func maxSumRangeQuery(nums []int, requests [][]int) (ans int) {
 		ans = (ans + a*b) % mod
 	}
 	return
-}

@@ -1,8 +1,11 @@
-func maximumScore(a int, b int, c int) int {
+func maximumScore(a int, b int, c int) (ans int) {
 	s := []int{a, b, c}
 	sort.Ints(s)
-	if s[0]+s[1] < s[2] {
-		return s[0] + s[1]
+	for s[1] > 0 {
+		ans++
+		s[1]--
+		s[2]--
+		sort.Ints(s)
 	}
-	return (a + b + c) >> 1
+	return
 }

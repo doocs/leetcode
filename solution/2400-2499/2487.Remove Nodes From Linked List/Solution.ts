@@ -11,14 +11,22 @@
  */
 
 function removeNodes(head: ListNode | null): ListNode | null {
-    const dummy = new ListNode(Infinity, head);
-    const stk: ListNode[] = [dummy];
-    for (let cur = head; cur; cur = cur.next) {
-        while (stk.at(-1)!.val < cur.val) {
+    const nums = [];
+    for (; head; head = head.next) {
+        nums.push(head.val);
+    }
+    const stk: number[] = [];
+    for (const v of nums) {
+        while (stk.length && stk.at(-1)! < v) {
             stk.pop();
         }
-        stk.at(-1)!.next = cur;
-        stk.push(cur);
+        stk.push(v);
+    }
+    const dummy = new ListNode();
+    head = dummy;
+    for (const v of stk) {
+        head.next = new ListNode(v);
+        head = head.next;
     }
     return dummy.next;
 }

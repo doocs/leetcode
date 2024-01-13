@@ -1,9 +1,11 @@
 function canBeEqual(target: number[], arr: number[]): boolean {
-    const n = target.length;
-    const count = new Array(1001).fill(0);
+    target.sort((a, b) => a - b);
+    arr.sort((a, b) => a - b);
+    const n = arr.length;
     for (let i = 0; i < n; i++) {
-        count[target[i]]++;
-        count[arr[i]]--;
+        if (target[i] !== arr[i]) {
+            return false;
+        }
     }
-    return count.every(v => v === 0);
+    return true;
 }

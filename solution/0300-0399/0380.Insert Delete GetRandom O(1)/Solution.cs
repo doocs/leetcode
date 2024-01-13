@@ -5,7 +5,7 @@ public class RandomizedSet {
     public RandomizedSet() {
 
     }
-    
+
     public bool Insert(int val) {
         if (d.ContainsKey(val)) {
             return false;
@@ -14,7 +14,7 @@ public class RandomizedSet {
         q.Add(val);
         return true;
     }
-    
+
     public bool Remove(int val) {
         if (!d.ContainsKey(val)) {
             return false;
@@ -26,7 +26,7 @@ public class RandomizedSet {
         d.Remove(val);
         return true;
     }
-    
+
     public int GetRandom() {
         return q[new Random().Next(0, q.Count)];
     }

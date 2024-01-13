@@ -25,31 +25,32 @@
  */
 
 type NestedIterator struct {
-	nested *list.List
+	iterator      []int
+	index, length int
 }
 
 func Constructor(nestedList []*NestedInteger) *NestedIterator {
-	nested := list.New()
-	for _, v := range nestedList {
-		nested.PushBack(v)
+	result := make([]int, 0)
+	var traversal func(nodes []*NestedInteger)
+	traversal = func(nodes []*NestedInteger) {
+		for _, child := range nodes {
+			if child.IsInteger() {
+				result = append(result, child.GetInteger())
+			} else {
+				traversal(child.GetList())
+			}
+		}
 	}
-	return &NestedIterator{nested: nested}
+	traversal(nestedList)
+	return &NestedIterator{iterator: result, index: 0, length: len(result)}
 }
 
 func (this *NestedIterator) Next() int {
-	res := this.nested.Front().Value.(*NestedInteger)
-	this.nested.Remove(this.nested.Front())
-	return res.GetInteger()
+	res := this.iterator[this.index]
+	this.index++
+	return res
 }
 
 func (this *NestedIterator) HasNext() bool {
-	for this.nested.Len() > 0 && !this.nested.Front().Value.(*NestedInteger).IsInteger() {
-		front := this.nested.Front().Value.(*NestedInteger)
-		this.nested.Remove(this.nested.Front())
-		nodes := front.GetList()
-		for i := len(nodes) - 1; i >= 0; i-- {
-			this.nested.PushFront(nodes[i])
-		}
-	}
-	return this.nested.Len() > 0
+	return this.index < this.length
 }

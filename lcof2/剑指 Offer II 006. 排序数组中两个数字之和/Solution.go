@@ -1,13 +1,9 @@
 func twoSum(numbers []int, target int) []int {
-	for i, j := 0, len(numbers)-1; ; {
-		x := numbers[i] + numbers[j]
-		if x == target {
+	for i, n := 0, len(numbers); ; i++ {
+		x := target - numbers[i]
+		j := sort.SearchInts(numbers[i+1:], x) + i + 1
+		if j < n && numbers[j] == x {
 			return []int{i, j}
-		}
-		if x < target {
-			i++
-		} else {
-			j--
 		}
 	}
 }

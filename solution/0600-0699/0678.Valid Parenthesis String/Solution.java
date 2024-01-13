@@ -1,26 +1,20 @@
 class Solution {
     public boolean checkValidString(String s) {
-        int x = 0;
         int n = s.length();
+        boolean[][] dp = new boolean[n][n];
         for (int i = 0; i < n; ++i) {
-            if (s.charAt(i) != ')') {
-                ++x;
-            } else if (x > 0) {
-                --x;
-            } else {
-                return false;
+            dp[i][i] = s.charAt(i) == '*';
+        }
+        for (int i = n - 2; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                char a = s.charAt(i), b = s.charAt(j);
+                dp[i][j] = (a == '(' || a == '*') && (b == '*' || b == ')')
+                    && (i + 1 == j || dp[i + 1][j - 1]);
+                for (int k = i; k < j && !dp[i][j]; ++k) {
+                    dp[i][j] = dp[i][k] && dp[k + 1][j];
+                }
             }
         }
-        x = 0;
-        for (int i = n - 1; i >= 0; --i) {
-            if (s.charAt(i) != '(') {
-                ++x;
-            } else if (x > 0) {
-                --x;
-            } else {
-                return false;
-            }
-        }
-        return true;
+        return dp[0][n - 1];
     }
 }

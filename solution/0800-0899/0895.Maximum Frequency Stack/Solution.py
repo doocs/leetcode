@@ -1,19 +1,17 @@
 class FreqStack:
     def __init__(self):
         self.cnt = defaultdict(int)
-        self.d = defaultdict(list)
-        self.mx = 0
+        self.q = []
+        self.ts = 0
 
     def push(self, val: int) -> None:
+        self.ts += 1
         self.cnt[val] += 1
-        self.d[self.cnt[val]].append(val)
-        self.mx = max(self.mx, self.cnt[val])
+        heappush(self.q, (-self.cnt[val], -self.ts, val))
 
     def pop(self) -> int:
-        val = self.d[self.mx].pop()
+        val = heappop(self.q)[2]
         self.cnt[val] -= 1
-        if not self.d[self.mx]:
-            self.mx -= 1
         return val
 
 

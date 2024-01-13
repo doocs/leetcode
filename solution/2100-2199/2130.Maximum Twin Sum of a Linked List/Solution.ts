@@ -11,26 +11,16 @@
  */
 
 function pairSum(head: ListNode | null): number {
-    let fast = head;
-    let slow = head;
-    while (fast) {
-        fast = fast.next.next;
-        slow = slow.next;
+    const arr = [];
+    let node = head;
+    while (node) {
+        arr.push(node.val);
+        node = node.next;
     }
-    let prev = null;
-    while (slow) {
-        const next = slow.next;
-        slow.next = prev;
-        prev = slow;
-        slow = next;
-    }
-    let left = head;
-    let right = prev;
+    const n = arr.length;
     let ans = 0;
-    while (left && right) {
-        ans = Math.max(ans, left.val + right.val);
-        left = left.next;
-        right = right.next;
+    for (let i = 0; i < n >> 1; i++) {
+        ans = Math.max(ans, arr[i] + arr[n - 1 - i]);
     }
     return ans;
 }

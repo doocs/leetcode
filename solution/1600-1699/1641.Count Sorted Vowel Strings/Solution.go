@@ -1,14 +1,19 @@
-func countVowelStrings(n int) (ans int) {
-	f := [5]int{1, 1, 1, 1, 1}
-	for i := 0; i < n-1; i++ {
-		s := 0
-		for j := 0; j < 5; j++ {
-			s += f[j]
-			f[j] = s
+func countVowelStrings(n int) int {
+	f := make([][5]int, n)
+	var dfs func(i, j int) int
+	dfs = func(i, j int) int {
+		if i >= n {
+			return 1
 		}
+		if f[i][j] != 0 {
+			return f[i][j]
+		}
+		ans := 0
+		for k := j; k < 5; k++ {
+			ans += dfs(i+1, k)
+		}
+		f[i][j] = ans
+		return ans
 	}
-	for _, v := range f {
-		ans += v
-	}
-	return
+	return dfs(0, 0)
 }

@@ -9,9 +9,7 @@ class Solution:
         if i >= j:
             return 0
         ans = min(n - i - 1, j)
-        r = j
         for l in range(i + 1):
-            while r < n and arr[r] < arr[l]:
-                r += 1
+            r = bisect_left(arr, arr[l], lo=j)
             ans = min(ans, r - l - 1)
         return ans
