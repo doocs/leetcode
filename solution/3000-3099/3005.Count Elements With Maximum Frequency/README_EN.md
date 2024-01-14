@@ -39,30 +39,112 @@ So the number of elements in the array with maximum frequency is 5.
 
 ## Solutions
 
+**Solution 1: Counting**
+
+We can use a hash table or array $cnt$ to record the occurrence of each element.
+
+Then we traverse $cnt$ to find the element with the most occurrences, and let its occurrence be $mx$. We sum up the occurrences of elements that appear $mx$ times, which is the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxFrequencyElements(self, nums: List[int]) -> int:
+        cnt = Counter(nums)
+        mx = max(cnt.values())
+        return sum(x for x in cnt.values() if x == mx)
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int maxFrequencyElements(int[] nums) {
+        int[] cnt = new int[101];
+        for (int x : nums) {
+            ++cnt[x];
+        }
+        int ans = 0, mx = -1;
+        for (int x : cnt) {
+            if (mx < x) {
+                mx = x;
+                ans = x;
+            } else if (mx == x) {
+                ans += x;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int maxFrequencyElements(vector<int>& nums) {
+        int cnt[101]{};
+        for (int x : nums) {
+            ++cnt[x];
+        }
+        int ans = 0, mx = -1;
+        for (int x : cnt) {
+            if (mx < x) {
+                mx = x;
+                ans = x;
+            } else if (mx == x) {
+                ans += x;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func maxFrequencyElements(nums []int) (ans int) {
+	cnt := [101]int{}
+	for _, x := range nums {
+		cnt[x]++
+	}
+	mx := -1
+	for _, x := range cnt {
+		if mx < x {
+			mx, ans = x, x
+		} else if mx == x {
+			ans += x
+		}
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function maxFrequencyElements(nums: number[]): number {
+    const cnt: number[] = Array(101).fill(0);
+    for (const x of nums) {
+        ++cnt[x];
+    }
+    let [ans, mx] = [0, -1];
+    for (const x of cnt) {
+        if (mx < x) {
+            mx = x;
+            ans = x;
+        } else if (mx === x) {
+            ans += x;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
