@@ -25,6 +25,13 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 ## Past Contests
 
+#### Weekly Contest 380
+
+- [3005. Count Elements With Maximum Frequency](/solution/3000-3099/3005.Count%20Elements%20With%20Maximum%20Frequency/README_EN.md)
+- [3006. Find Beautiful Indices in the Given Array I](/solution/3000-3099/3006.Find%20Beautiful%20Indices%20in%20the%20Given%20Array%20I/README_EN.md)
+- [3007. Maximum Number That Sum of the Prices Is Less Than or Equal to K](/solution/3000-3099/3007.Maximum%20Number%20That%20Sum%20of%20the%20Prices%20Is%20Less%20Than%20or%20Equal%20to%20K/README_EN.md)
+- [3008. Find Beautiful Indices in the Given Array II](/solution/3000-3099/3008.Find%20Beautiful%20Indices%20in%20the%20Given%20Array%20II/README_EN.md)
+
 #### Weekly Contest 379
 
 - [3000. Maximum Area of Longest Diagonal Rectangle](/solution/3000-3099/3000.Maximum%20Area%20of%20Longest%20Diagonal%20Rectangle/README_EN.md)

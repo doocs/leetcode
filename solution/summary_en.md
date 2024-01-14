@@ -3064,3 +3064,7 @@
   - [3002.Maximum Size of a Set After Removals](/solution/3000-3099/3002.Maximum%20Size%20of%20a%20Set%20After%20Removals/README_EN.md)
   - [3003.Maximize the Number of Partitions After Operations](/solution/3000-3099/3003.Maximize%20the%20Number%20of%20Partitions%20After%20Operations/README_EN.md)
   - [3004.Maximum Subtree of the Same Color](/solution/3000-3099/3004.Maximum%20Subtree%20of%20the%20Same%20Color/README_EN.md)
+  - [3005.Count Elements With Maximum Frequency](/solution/3000-3099/3005.Count%20Elements%20With%20Maximum%20Frequency/README_EN.md)
+  - [3006.Find Beautiful Indices in the Given Array I](/solution/3000-3099/3006.Find%20Beautiful%20Indices%20in%20the%20Given%20Array%20I/README_EN.md)
+  - [3007.Maximum Number That Sum of the Prices Is Less Than or Equal to K](/solution/3000-3099/3007.Maximum%20Number%20That%20Sum%20of%20the%20Prices%20Is%20Less%20Than%20or%20Equal%20to%20K/README_EN.md)
+  - [3008.Find Beautiful Indices in the Given Array II](/solution/3000-3099/3008.Find%20Beautiful%20Indices%20in%20the%20Given%20Array%20II/README_EN.md)

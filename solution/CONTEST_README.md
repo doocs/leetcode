@@ -22,6 +22,13 @@
 
 ## 往期竞赛
 
+#### 第 380 场周赛(2024-01-14 10:30, 90 分钟) 参赛人数 3325
+
+- [3005. 最大频率元素计数](/solution/3000-3099/3005.Count%20Elements%20With%20Maximum%20Frequency/README.md)
+- [3006. 找出数组中的美丽下标 I](/solution/3000-3099/3006.Find%20Beautiful%20Indices%20in%20the%20Given%20Array%20I/README.md)
+- [3007. 价值和小于等于 K 的最大数字](/solution/3000-3099/3007.Maximum%20Number%20That%20Sum%20of%20the%20Prices%20Is%20Less%20Than%20or%20Equal%20to%20K/README.md)
+- [3008. 找出数组中的美丽下标 II](/solution/3000-3099/3008.Find%20Beautiful%20Indices%20in%20the%20Given%20Array%20II/README.md)
+
 #### 第 379 场周赛(2024-01-07 10:30, 90 分钟) 参赛人数 3117
 
 - [3000. 对角线最长的矩形的面积](/solution/3000-3099/3000.Maximum%20Area%20of%20Longest%20Diagonal%20Rectangle/README.md)
