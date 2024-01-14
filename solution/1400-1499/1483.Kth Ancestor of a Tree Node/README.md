@@ -89,8 +89,8 @@ class TreeAncestor:
         self.p = [[-1] * 18 for _ in range(n)]
         for i, fa in enumerate(parent):
             self.p[i][0] = fa
-        for i in range(n):
-            for j in range(1, 18):
+        for j in range(1, 18):
+            for i in range(n):
                 if self.p[i][j - 1] == -1:
                     continue
                 self.p[i][j] = self.p[self.p[i][j - 1]][j - 1]
@@ -125,8 +125,8 @@ class TreeAncestor {
         for (int i = 0; i < n; ++i) {
             p[i][0] = parent[i];
         }
-        for (int i = 0; i < n; ++i) {
-            for (int j = 1; j < 18; ++j) {
+        for (int j = 1; j < 18; ++j) {
+            for (int i = 0; i < n; ++i) {
                 if (p[i][j - 1] == -1) {
                     continue;
                 }
@@ -165,8 +165,8 @@ public:
         for (int i = 0; i < n; ++i) {
             p[i][0] = parent[i];
         }
-        for (int i = 0; i < n; ++i) {
-            for (int j = 1; j < 18; ++j) {
+        for (int j = 1; j < 18; ++j) {
+            for (int i = 0; i < n; ++i) {
                 if (p[i][j - 1] == -1) {
                     continue;
                 }
@@ -213,8 +213,8 @@ func Constructor(n int, parent []int) TreeAncestor {
 			p[i][j] = -1
 		}
 	}
-	for i := range p {
-		for j := 1; j < 18; j++ {
+	for j := 1; j < 18; j++ {
+		for i := range p {
 			if p[i][j-1] == -1 {
 				continue
 			}
@@ -247,6 +247,7 @@ func (this *TreeAncestor) GetKthAncestor(node int, k int) int {
 
 ```ts
 class TreeAncestor {
+class TreeAncestor {
     private p: number[][];
 
     constructor(n: number, parent: number[]) {
@@ -254,8 +255,8 @@ class TreeAncestor {
         for (let i = 0; i < n; ++i) {
             p[i][0] = parent[i];
         }
-        for (let i = 0; i < n; ++i) {
-            for (let j = 1; j < 18; ++j) {
+        for (let j = 1; j < 18; ++j) {
+            for (let i = 0; i < n; ++i) {
                 if (p[i][j - 1] === -1) {
                     continue;
                 }
