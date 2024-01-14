@@ -45,6 +45,28 @@ treeAncestor.getKthAncestor(6, 3); // returns -1 because there is no such ancest
 
 ## Solutions
 
+**Solution 1: Dynamic Programming + Binary Lifting**
+
+The problem asks us to find the $k$-th ancestor node of a node $node$. If we solve it by brute force, we need to traverse upwards from $node$ for $k$ times, which has a time complexity of $O(k)$ and will obviously exceed the time limit.
+
+We can use dynamic programming combined with the idea of binary lifting to handle this.
+
+We define $p[i][j]$ as the $2^j$-th ancestor node of node $i$, i.e., the node reached by moving $2^j$ steps upwards from node $i$. Then we can get the state transition equation:
+
+$$
+p[i][j] = p[p[i][j-1]][j-1]
+$$
+
+That is, to find the $2^j$-th ancestor node of node $i$, we can first find the $2^{j-1}$-th ancestor node of node $i$, and then find the $2^{j-1}$-th ancestor node of this node. Therefore, we need to find the ancestor node of each node at a distance of $2^j$, until we reach the maximum height of the tree.
+
+For each query later, we can decompose $k$ into its binary representation, and then according to the positions of $1$ in the binary, we accumulate the queries upwards, and finally get the $k$-th ancestor node of node $node$.
+
+In terms of time complexity, the initialization is $O(n \times \log n)$, and the query is $O(\log n)$. The space complexity is $O(n \times \log n)$, where $n$ is the number of nodes in the tree.
+
+Similar problems:
+
+-   [2836. Maximize Value of Function in a Ball Passing Game](/solution/2800-2899/2836.Maximize%20Value%20of%20Function%20in%20a%20Ball%20Passing%20Game/README_EN.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -55,8 +77,8 @@ class TreeAncestor:
         self.p = [[-1] * 18 for _ in range(n)]
         for i, fa in enumerate(parent):
             self.p[i][0] = fa
-        for i in range(n):
-            for j in range(1, 18):
+        for j in range(1, 18):
+            for i in range(n):
                 if self.p[i][j - 1] == -1:
                     continue
                 self.p[i][j] = self.p[self.p[i][j - 1]][j - 1]
@@ -89,8 +111,8 @@ class TreeAncestor {
         for (int i = 0; i < n; ++i) {
             p[i][0] = parent[i];
         }
-        for (int i = 0; i < n; ++i) {
-            for (int j = 1; j < 18; ++j) {
+        for (int j = 1; j < 18; ++j) {
+            for (int i = 0; i < n; ++i) {
                 if (p[i][j - 1] == -1) {
                     continue;
                 }
@@ -129,8 +151,8 @@ public:
         for (int i = 0; i < n; ++i) {
             p[i][0] = parent[i];
         }
-        for (int i = 0; i < n; ++i) {
-            for (int j = 1; j < 18; ++j) {
+        for (int j = 1; j < 18; ++j) {
+            for (int i = 0; i < n; ++i) {
                 if (p[i][j - 1] == -1) {
                     continue;
                 }
@@ -177,8 +199,8 @@ func Constructor(n int, parent []int) TreeAncestor {
 			p[i][j] = -1
 		}
 	}
-	for i := range p {
-		for j := 1; j < 18; j++ {
+	for j := 1; j < 18; j++ {
+		for i := range p {
 			if p[i][j-1] == -1 {
 				continue
 			}
@@ -218,8 +240,8 @@ class TreeAncestor {
         for (let i = 0; i < n; ++i) {
             p[i][0] = parent[i];
         }
-        for (let i = 0; i < n; ++i) {
-            for (let j = 1; j < 18; ++j) {
+        for (let j = 1; j < 18; ++j) {
+            for (let i = 0; i < n; ++i) {
                 if (p[i][j - 1] === -1) {
                     continue;
                 }
