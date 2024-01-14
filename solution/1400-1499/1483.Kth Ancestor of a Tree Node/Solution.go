@@ -10,8 +10,8 @@ func Constructor(n int, parent []int) TreeAncestor {
 			p[i][j] = -1
 		}
 	}
-	for i := range p {
-		for j := 1; j < 18; j++ {
+	for j := 1; j < 18; j++ {
+		for i := range p {
 			if p[i][j-1] == -1 {
 				continue
 			}
