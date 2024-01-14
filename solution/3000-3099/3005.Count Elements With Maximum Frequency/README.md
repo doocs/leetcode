@@ -45,6 +45,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**方法一：计数**
+
+我们可以用一个哈希表或数组 $cnt$ 记录每个元素出现的次数。
+
+然后我们遍历 $cnt$，找到出现次数最多的元素，记其出现次数为 $mx$，累加出现次数等于 $mx$ 的元素的出现次数，即为答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -52,7 +60,11 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxFrequencyElements(self, nums: List[int]) -> int:
+        cnt = Counter(nums)
+        mx = max(cnt.values())
+        return sum(x for x in cnt.values() if x == mx)
 ```
 
 ### **Java**
@@ -60,19 +72,89 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int maxFrequencyElements(int[] nums) {
+        int[] cnt = new int[101];
+        for (int x : nums) {
+            ++cnt[x];
+        }
+        int ans = 0, mx = -1;
+        for (int x : cnt) {
+            if (mx < x) {
+                mx = x;
+                ans = x;
+            } else if (mx == x) {
+                ans += x;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    int maxFrequencyElements(vector<int>& nums) {
+        int cnt[101]{};
+        for (int x : nums) {
+            ++cnt[x];
+        }
+        int ans = 0, mx = -1;
+        for (int x : cnt) {
+            if (mx < x) {
+                mx = x;
+                ans = x;
+            } else if (mx == x) {
+                ans += x;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
+func maxFrequencyElements(nums []int) (ans int) {
+	cnt := [101]int{}
+	for _, x := range nums {
+		cnt[x]++
+	}
+	mx := -1
+	for _, x := range cnt {
+		if mx < x {
+			mx, ans = x, x
+		} else if mx == x {
+			ans += x
+		}
+	}
+	return
+}
+```
 
+### **TypeScript**
+
+```ts
+function maxFrequencyElements(nums: number[]): number {
+    const cnt: number[] = Array(101).fill(0);
+    for (const x of nums) {
+        ++cnt[x];
+    }
+    let [ans, mx] = [0, -1];
+    for (const x of cnt) {
+        if (mx < x) {
+            mx = x;
+            ans = x;
+        } else if (mx === x) {
+            ans += x;
+        }
+    }
+    return ans;
+}
 ```
 
 ### **...**
