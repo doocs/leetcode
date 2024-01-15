@@ -183,7 +183,12 @@ var latestTimeCatchTheBus = function (buses, passengers, capacity) {
         j--;
     }
     return latestArrTime;
-};
+    let ans = c > 0 ? buses[buses.length - 1] : passengers[j];
+    while (j >= 0 && ans === passengers[j]) {
+        --ans;
+        --j;
+    }
+    return ans;
 ```
 
 ### **...**
