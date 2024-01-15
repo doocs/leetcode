@@ -65,7 +65,29 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def findMaximumNumber(self, k: int, x: int) -> int:
+        @cache
+        def dfs(pos, limit, cnt):
+            if pos == 0:
+                return cnt
+            ans = 0
+            up = (self.num >> (pos - 1) & 1) if limit else 1
+            for i in range(up + 1):
+                ans += dfs(pos - 1, limit and i == up, cnt + (i == 1 and pos % x == 0))
+            return ans
 
+        l, r = 1, 10**18
+        while l < r:
+            mid = (l + r + 1) >> 1
+            self.num = mid
+            v = dfs(mid.bit_length(), True, 0)
+            dfs.cache_clear()
+            if v <= k:
+                l = mid
+            else:
+                r = mid - 1
+        return l
 ```
 
 ### **Java**
@@ -73,19 +95,140 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int x;
+    private long num;
+    private Long[][] f;
 
+    public long findMaximumNumber(long k, int x) {
+        this.x = x;
+        long l = 1, r = (long) 1e17;
+        while (l < r) {
+            long mid = (l + r + 1) >>> 1;
+            num = mid;
+            f = new Long[65][65];
+            int pos = 64 - Long.numberOfLeadingZeros(mid);
+            if (dfs(pos, 0, true) <= k) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return l;
+    }
+
+    private long dfs(int pos, int cnt, boolean limit) {
+        if (pos == 0) {
+            return cnt;
+        }
+        if (!limit && f[pos][cnt] != null) {
+            return f[pos][cnt];
+        }
+        long ans = 0;
+        int up = limit ? (int) (num >> (pos - 1) & 1) : 1;
+        for (int i = 0; i <= up; ++i) {
+            ans += dfs(pos - 1, cnt + (i == 1 && pos % x == 0 ? 1 : 0), limit && i == up);
+        }
+        if (!limit) {
+            f[pos][cnt] = ans;
+        }
+        return ans;
+    }
+}
 ```
 
 ### **C++**
 
 ```cpp
-
+class Solution {
+public:
+    long long findMaximumNumber(long long k, int x) {
+        using ll = long long;
+        ll l = 1, r = 1e17;
+        ll num = 0;
+        ll f[65][65];
+        function<ll(int, int, bool)> dfs = [&](int pos, int cnt, bool limit) -> ll {
+            if (pos == 0) {
+                return cnt;
+            }
+            if (!limit && f[pos][cnt] != -1) {
+                return f[pos][cnt];
+            }
+            int up = limit ? num >> (pos - 1) & 1 : 1;
+            ll ans = 0;
+            for (int i = 0; i <= up; ++i) {
+                ans += dfs(pos - 1, cnt + (i == 1 && pos % x == 0), limit && i == up);
+            }
+            if (!limit) {
+                f[pos][cnt] = ans;
+            }
+            return ans;
+        };
+        while (l < r) {
+            ll mid = (l + r + 1) >> 1;
+            num = mid;
+            memset(f, -1, sizeof(f));
+            int pos = 64 - __builtin_clzll(mid);
+            if (dfs(pos, 0, true) <= k) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return l;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
-
+func findMaximumNumber(k int64, x int) int64 {
+	var l, r int64 = 1, 1e17
+	var num int64
+	var f [65][65]int64
+	var dfs func(pos, cnt int, limit bool) int64
+	dfs = func(pos, cnt int, limit bool) int64 {
+		if pos == 0 {
+			return int64(cnt)
+		}
+		if !limit && f[pos][cnt] != -1 {
+			return f[pos][cnt]
+		}
+		var ans int64
+		up := 1
+		if limit {
+			up = int(num >> (pos - 1) & 1)
+		}
+		for i := 0; i <= up; i++ {
+			v := cnt
+			if i == 1 && pos%x == 0 {
+				v++
+			}
+			ans += dfs(pos-1, v, limit && i == up)
+		}
+		if !limit {
+			f[pos][cnt] = ans
+		}
+		return ans
+	}
+	for l < r {
+		mid := (l + r + 1) >> 1
+		num = mid
+		m := bits.Len(uint(num))
+		for i := range f {
+			for j := range f[i] {
+				f[i][j] = -1
+			}
+		}
+		if dfs(m, 0, true) <= k {
+			l = mid
+		} else {
+			r = mid - 1
+		}
+	}
+	return l
+}
 ```
 
 ### **...**
