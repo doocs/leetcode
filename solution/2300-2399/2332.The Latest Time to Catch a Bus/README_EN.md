@@ -157,32 +157,33 @@ func latestTimeCatchTheBus(buses []int, passengers []int, capacity int) int {
 ### **TypeScript**
 
 ```ts
+
 ```
 
 ### **JavaScript**
 
 ```js
 var latestTimeCatchTheBus = function (buses, passengers, capacity) {
-  buses.sort((a, b) => a - b)
-  passengers.sort((a, b) => a - b)
-  let j = 0
-  let c
-  for (const t of buses) {
-    c = capacity
-    while (c && j < passengers.length && passengers[j] <= t) {
-      c--
-      j++
+    buses.sort((a, b) => a - b);
+    passengers.sort((a, b) => a - b);
+    let j = 0;
+    let c;
+    for (const t of buses) {
+        c = capacity;
+        while (c && j < passengers.length && passengers[j] <= t) {
+            c--;
+            j++;
+        }
     }
-  }
-  j--
-  let latestArrTime = passengers[j]
-  if (c) latestArrTime = buses[buses.length - 1]
-  while (j >= 0 && passengers[j] === latestArrTime) {
-    latestArrTime--
-    j--
-  }
-  return latestArrTime
-}
+    j--;
+    let latestArrTime = passengers[j];
+    if (c) latestArrTime = buses[buses.length - 1];
+    while (j >= 0 && passengers[j] === latestArrTime) {
+        latestArrTime--;
+        j--;
+    }
+    return latestArrTime;
+};
 ```
 
 <!-- tabs:end -->
