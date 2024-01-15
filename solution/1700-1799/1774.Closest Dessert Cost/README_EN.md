@@ -264,8 +264,6 @@ const closestCost = function (baseCosts, toppingCosts, target) {
 }
 ```
 
-```
-
 ### **...**
 
 ```
