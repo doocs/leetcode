@@ -175,6 +175,12 @@ func latestTimeCatchTheBus(buses []int, passengers []int, capacity int) int {
 ### **JavaScript**
 
 ```js
+/**
+ * @param {number[]} buses
+ * @param {number[]} passengers
+ * @param {number} capacity
+ * @return {number}
+ */
 var latestTimeCatchTheBus = function (buses, passengers, capacity) {
     buses.sort((a, b) => a - b);
     passengers.sort((a, b) => a - b);
