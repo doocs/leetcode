@@ -164,23 +164,24 @@ func latestTimeCatchTheBus(buses []int, passengers []int, capacity int) int {
 
 ```js
 var latestTimeCatchTheBus = function (buses, passengers, capacity) {
-  buses.sort((a, b) => a - b);
-  passengers.sort((a, b) => a - b);
-  let j = 0, c;
-  for (const t of buses) {
-    c = capacity;
-    while (c && j < passengers.length && passengers[j] <= t) {
-      --c;
-      ++j;
+    buses.sort((a, b) => a - b);
+    passengers.sort((a, b) => a - b);
+    let j = 0,
+        c;
+    for (const t of buses) {
+        c = capacity;
+        while (c && j < passengers.length && passengers[j] <= t) {
+            --c;
+            ++j;
+        }
     }
-  }
-  --j;
-  let ans = c > 0 ? buses[buses.length - 1] : passengers[j];
-  while (j >= 0 && passengers[j] === ans) {
-    --ans;
     --j;
-  }
-  return ans;
+    let ans = c > 0 ? buses[buses.length - 1] : passengers[j];
+    while (j >= 0 && passengers[j] === ans) {
+        --ans;
+        --j;
+    }
+    return ans;
 };
 ```
 
