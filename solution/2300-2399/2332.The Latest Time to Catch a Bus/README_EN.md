@@ -167,7 +167,7 @@ var latestTimeCatchTheBus = function (buses, passengers, capacity) {
     buses.sort((a, b) => a - b);
     passengers.sort((a, b) => a - b);
     let j = 0;
-    let c;
+    let j = 0, c;
     for (const t of buses) {
         c = capacity;
         while (c && j < passengers.length && passengers[j] <= t) {
