@@ -57,6 +57,17 @@ Notice if you had arrived any later, then the 6<sup>th</sup> passenger would hav
 
 ## Solutions
 
+**Solution 1: Simulation**
+
+First, we sort, and then use double pointers to simulate the process of passengers getting on the bus: traverse the bus $bus$, passengers follow the principle of "first come, first served".
+
+After the simulation ends, judge whether the last bus still has seats:
+
+-   If there are seats, we can arrive at the bus station when the bus departs at $bus[|bus|-1]$; if there are people at this time, we can find the time when no one arrives by going forward.
+-   If there are no seats, we can find the last passenger who got on the bus, and find the time when no one arrives by going forward from him.
+
+The time complexity is $O(n \times \log n + m \times \log m)$, and the space complexity is $O(\log n + \log m)$. Where $n$ and $m$ are the numbers of buses and passengers respectively.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -157,7 +168,25 @@ func latestTimeCatchTheBus(buses []int, passengers []int, capacity int) int {
 ### **TypeScript**
 
 ```ts
-
+function latestTimeCatchTheBus(buses: number[], passengers: number[], capacity: number): number {
+    buses.sort((a, b) => a - b);
+    passengers.sort((a, b) => a - b);
+    let [j, c] = [0, 0];
+    for (const t of buses) {
+        c = capacity;
+        while (c && j < passengers.length && passengers[j] <= t) {
+            --c;
+            ++j;
+        }
+    }
+    --j;
+    let ans = c > 0 ? buses.at(-1)! : passengers[j];
+    while (j >= 0 && passengers[j] === ans) {
+        --ans;
+        --j;
+    }
+    return ans;
+}
 ```
 
 ### **JavaScript**
@@ -172,8 +201,7 @@ func latestTimeCatchTheBus(buses []int, passengers []int, capacity int) int {
 var latestTimeCatchTheBus = function (buses, passengers, capacity) {
     buses.sort((a, b) => a - b);
     passengers.sort((a, b) => a - b);
-    let j = 0,
-        c;
+    let [j, c] = [0, 0];
     for (const t of buses) {
         c = capacity;
         while (c && j < passengers.length && passengers[j] <= t) {
@@ -182,7 +210,7 @@ var latestTimeCatchTheBus = function (buses, passengers, capacity) {
         }
     }
     --j;
-    let ans = c > 0 ? buses[buses.length - 1] : passengers[j];
+    let ans = c > 0 ? buses.at(-1) : passengers[j];
     while (j >= 0 && passengers[j] === ans) {
         --ans;
         --j;
