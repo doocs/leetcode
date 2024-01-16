@@ -50,7 +50,7 @@
 
 **方法一：数位 DP**
 
-题目实际上求的是区间 $[num1,..num2]$ 中数位和在 $[min\_sum,..max\_sum]$ 的数的个数。对于这种区间 $[l,..r]$ 的问题，我们可以转化为求 $[1,..r]$ 和 $[1,..l-1]$ 的答案，然后相减即可。
+题目实际上求的是区间 $[num1,..num2]$ 中，数位和在 $[min\_sum,..max\_sum]$ 的数的个数。对于这种区间 $[l,..r]$ 的问题，我们可以考虑转化为求 $[1,..r]$ 和 $[1,..l-1]$ 的答案，然后相减即可。
 
 对于 $[1,..r]$ 的答案，我们可以使用数位 DP 来求解。我们设计一个函数 $dfs(pos, s, limit)$ 表示当前处理到第 $pos$ 位，数位和为 $s$，当前数是否有上界限制 $limit$ 的方案数。其中 $pos$ 从高到低枚举。
 
@@ -74,7 +74,7 @@ class Solution:
         @cache
         def dfs(pos: int, s: int, limit: bool) -> int:
             if pos >= len(num):
-                return 1 if min_sum <= s <= max_sum else 0
+                return int(min_sum <= s <= max_sum)
             up = int(num[pos]) if limit else 9
             return (
                 sum(dfs(pos + 1, s + i, limit and i == up) for i in range(up + 1)) % mod
@@ -82,11 +82,11 @@ class Solution:
 
         mod = 10**9 + 7
         num = num2
-        ans = dfs(0, 0, True)
+        a = dfs(0, 0, True)
         dfs.cache_clear()
         num = str(int(num1) - 1)
-        ans -= dfs(0, 0, True)
-        return ans % mod
+        b = dfs(0, 0, True)
+        return (a - b) % mod
 ```
 
 ### **Java**
@@ -108,11 +108,11 @@ class Solution {
         max = max_sum;
         num = num2;
         f = new Integer[23][220];
-        int ans = dfs(0, 0, true);
+        int a = dfs(0, 0, true);
         num = new BigInteger(num1).subtract(BigInteger.ONE).toString();
         f = new Integer[23][220];
-        ans = (ans - dfs(0, 0, true) + mod) % mod;
-        return ans;
+        int b = dfs(0, 0, true);
+        return (a - b + mod) % mod;
     }
 
     private int dfs(int pos, int s, boolean limit) {
@@ -165,8 +165,8 @@ public:
             return ans;
         };
 
-        int ans = dfs(0, 0, true);
-        for (int i = num1.size() - 1; i >= 0; --i) {
+        int a = dfs(0, 0, true);
+        for (int i = num1.size() - 1; ~i; --i) {
             if (num1[i] == '0') {
                 num1[i] = '9';
             } else {
@@ -176,8 +176,8 @@ public:
         }
         num = num1;
         memset(f, -1, sizeof(f));
-        ans -= dfs(0, 0, true);
-        return (ans + mod) % mod;
+        int b = dfs(0, 0, true);
+        return (a - b + mod) % mod;
     }
 };
 ```
@@ -218,7 +218,7 @@ func count(num1 string, num2 string, min_sum int, max_sum int) int {
 		}
 		return ans
 	}
-	ans := dfs(0, 0, true)
+	a := dfs(0, 0, true)
 	t := []byte(num1)
 	for i := len(t) - 1; i >= 0; i-- {
 		if t[i] != '0' {
@@ -234,8 +234,8 @@ func count(num1 string, num2 string, min_sum int, max_sum int) int {
 			f[i][j] = -1
 		}
 	}
-	ans -= dfs(0, 0, true)
-	return (ans%mod + mod) % mod
+	b := dfs(0, 0, true)
+	return (a - b + mod) % mod
 }
 ```
 
@@ -244,9 +244,7 @@ func count(num1 string, num2 string, min_sum int, max_sum int) int {
 ```ts
 function count(num1: string, num2: string, min_sum: number, max_sum: number): number {
     const mod = 1e9 + 7;
-    let f: number[][] = Array(23)
-        .fill(0)
-        .map(() => Array(220).fill(-1));
+    const f: number[][] = Array.from({ length: 23 }, () => Array(220).fill(-1));
     let num = num2;
     const dfs = (pos: number, s: number, limit: boolean): number => {
         if (pos >= num.length) {
@@ -265,13 +263,11 @@ function count(num1: string, num2: string, min_sum: number, max_sum: number): nu
         }
         return ans;
     };
-    let ans = dfs(0, 0, true);
+    const a = dfs(0, 0, true);
     num = (BigInt(num1) - 1n).toString();
-    f = Array(23)
-        .fill(0)
-        .map(() => Array(220).fill(-1));
-    ans = (ans - dfs(0, 0, true) + mod) % mod;
-    return ans;
+    f.forEach(v => v.fill(-1));
+    const b = dfs(0, 0, true);
+    return (a - b + mod) % mod;
 }
 ```
 

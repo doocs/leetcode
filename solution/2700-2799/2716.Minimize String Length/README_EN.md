@@ -50,6 +50,12 @@
 
 ## Solutions
 
+**Solution 1: Hash Table**
+
+The problem can actually be transformed into finding the number of different characters in the string. Therefore, we only need to count the number of different characters in the string.
+
+The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is the length of the string, and $C$ is the size of the character set. In this problem, the character set is lowercase English letters, so $C=26$.
+
 <!-- tabs:start -->
 
 ### **Python3**

@@ -12,11 +12,11 @@ class Solution {
         max = max_sum;
         num = num2;
         f = new Integer[23][220];
-        int ans = dfs(0, 0, true);
+        int a = dfs(0, 0, true);
         num = new BigInteger(num1).subtract(BigInteger.ONE).toString();
         f = new Integer[23][220];
-        ans = (ans - dfs(0, 0, true) + mod) % mod;
-        return ans;
+        int b = dfs(0, 0, true);
+        return (a - b + mod) % mod;
     }
 
     private int dfs(int pos, int s, boolean limit) {

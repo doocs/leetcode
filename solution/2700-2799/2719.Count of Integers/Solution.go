@@ -31,7 +31,7 @@ func count(num1 string, num2 string, min_sum int, max_sum int) int {
 		}
 		return ans
 	}
-	ans := dfs(0, 0, true)
+	a := dfs(0, 0, true)
 	t := []byte(num1)
 	for i := len(t) - 1; i >= 0; i-- {
 		if t[i] != '0' {
@@ -47,6 +47,6 @@ func count(num1 string, num2 string, min_sum int, max_sum int) int {
 			f[i][j] = -1
 		}
 	}
-	ans -= dfs(0, 0, true)
-	return (ans%mod + mod) % mod
+	b := dfs(0, 0, true)
+	return (a - b + mod) % mod
 }

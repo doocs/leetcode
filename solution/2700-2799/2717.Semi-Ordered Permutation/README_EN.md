@@ -59,6 +59,14 @@ It can be proved that there is no sequence of less than three operations that ma
 
 ## Solutions
 
+**Solution 1: Find the Positions of 1 and n**
+
+We can first find the indices $i$ and $j$ of $1$ and $n$, respectively. Then, based on the relative positions of $i$ and $j$, we can determine the number of swaps required.
+
+If $i < j$, the number of swaps required is $i + n - j - 1$. If $i > j$, the number of swaps required is $i + n - j - 2$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 ### **Python3**
